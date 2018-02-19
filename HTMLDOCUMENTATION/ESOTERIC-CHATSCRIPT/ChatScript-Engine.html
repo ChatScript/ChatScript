@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> Revision 1/28/2017 cs7.12</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> Revision 1/31/2018 cs8.0</p>
 <ul>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
 <li><a href="ChatScript-Engine-md#memory-management">Memory Management</a></li>
@@ -24,7 +24,7 @@
 </ul>
 <p>This does not cover ChatScript the scripting language. It covers how the internals of the engine work and how to extend it with private code.</p>
 <h1 id="data">Data</h1>
-<p>First you need to understand the basic data available to the user and CS and how it is allocated. <img src="../alloc.png" alt="ChatScript data allocations" /></p>
+<p>First you need to understand the basic data available to the user and CS and how it is allocated. <img src="alloc.png" alt="ChatScript data allocations" /></p>
 <h2 id="text-strings">Text Strings</h2>
 <p>The first fundamental datatype is the text string. This is a standard null-terminated C string represented in UTF8. Text strings represent words, phrases, things to say.</p>
 <p>They represent numbers (converted on the fly when needed to float and int64 values for computation). They represent the names of functions and concepts and topics and user variables. Strings are allocated out of either the stack or the heap.</p>
@@ -105,7 +105,7 @@ DoFunction function call argument evaluation</code></pre>
 <h1 id="natural-language-pipeline">Natural Language Pipeline</h1>
 <p>CS pre-processes user input to make it easy to find meaning within it. These are both classic and unusual NL processing steps. All steps in the pipeline use data representations that work together. Much of the work aims toward normalization, that is making different ways of typing in the same thing look the same to scripts, so they don't have to account for variations (making script writing and maintenance easier). Other than tokenization, all other pipeline steps are under control the script (<code>$cs_token</code>), which can choose to use any combination of them at any time.</p>
 <div class="figure">
-<img src="../NLPipeline.png" alt="ChatScript NLP pipeline" />
+<img src="NLPipeline.png" alt="ChatScript NLP pipeline" />
 <p class="caption">ChatScript NLP pipeline</p>
 </div>
 <h2 id="tokenization">Tokenization</h2>
@@ -163,7 +163,7 @@ DoFunction function call argument evaluation</code></pre>
 <p>From specific words the system follows the member links to concepts they are members of, and marks those concepts as occuring at that location in the sentence. It also follows is links of the dictionary to determine other words and concepts to mark. And concepts may be members of other concepts, and so on up the hierarchy. There exist system functions that allow you, from script, to also mark and unmark words. This allows you to correct or augment meanings.</p>
 <p>In addition to marking words, the system generates sequences of 5 contiguous words (phrases), and if it finds them in the dictionary, they too are marked.</p>
 <div class="figure">
-<img src="../ontolog.png" alt="ChatScript Ontology" />
+<img src="ontolog.png" alt="ChatScript Ontology" />
 <p class="caption">ChatScript Ontology</p>
 </div>
 <h2 id="script-compiler">Script Compiler</h2>
@@ -188,7 +188,7 @@ privatetestingtable.cpp  listing of :debug functions made visible to CS</code></
 <pre><code>{(char*) &quot;:endinfo&quot;, EndInfo,(char*)&quot;Display all end information&quot;},</code></pre>
 <h1 id="code-zones">Code Zones</h1>
 <div class="figure">
-<img src="../arch.png" alt="ChatScript architecture" />
+<img src="arch.png" alt="ChatScript architecture" />
 <p class="caption">ChatScript architecture</p>
 </div>
 <p>The system is divided into the code zones shown above. All code is in SRC.</p>

@@ -1,9 +1,9 @@
-version 8.1
-1.IDE now reports number of rules in bot, and number of rules executed so far in a volley.
+version 8.1 2-18-2018
+1.CS Debugger now has been released in Release mode, so maybe it works for you, and has new features-- read the manual again.
 2. new manuals: Practicum- Rejoinders and Practicum- Patterns
 3. $cs_sequence wins over default sequence limit of 5 words in a row
 4. !<< >> is now legal
-5. 
+
 
 version 8.0  1/31/2018
 1. files to compile by script compiler must now end with suffix .top or .tbl so you can

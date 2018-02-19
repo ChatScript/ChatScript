@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/31/2018 cs8.0</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represents collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within <code>[]</code>, e.g.,</p>
 <pre><code>[ A 2 [ help life] [] ]</code></pre>
@@ -345,6 +345,8 @@ $$user_agent = ^&quot;User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT
 <p>System variables <code>%httpresponse</code> will hold the most recent http return code from calling <code>^jsonopen</code>.</p>
 <p>If you call <code>^jsonopen(direct ...</code> then the result will not be facts, but the text will be directly shipped back as the answer. Be wary of doing this if the result will be large (&gt;30K?) since you will overflow your buffer without being checked.</p>
 <p>^JSONopen automatically url-encodes headers and urls</p>
+<h4 id="jsonopen-and-local-files"><code>JSONOpen and local files</code></h4>
+<p>JSONOpen is a wrapper around <code>Curl</code> library, so you can use as an url a local file reference like <code>file:///c:/myfile.txt</code>. The file, of course, should be a JSON text string.</p>
 <h4 id="jsonopen-and-proxy-servers"><code>JSONOpen and proxy servers</code></h4>
 <p>If you need JSONOpen to run thru a proxy server, these are the CS variables you need to set up: <code>$cs_proxycredentials</code> should be your login data, e.g. <code>myname:thesecret</code>. <code>$cs_proxyserver'  is the server address, e.g.,</code>http://local.example.com:1080`. '$cs_proxymethod' are bits listing the authorization method to use. They come from the LIBCURL so you should OR together the bits you want. Bit 1 is the most basic choice of name and password. Read- https://curl.haxx.se/libcurl/c/CURLOPT_HTTPAUTH.html</p>
 <h2 id="json-out-of-band-output-data">JSON &amp; Out-of-band output data</h2>

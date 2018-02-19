@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-basic-user-manual">ChatScript Basic User Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 9/24/2017 cs7.55</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
 <ul>
 <li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
 <li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple Topics</a></li>
@@ -419,6 +419,8 @@ s: (~baseball) I’m not that into sports like baseball. </code></pre>
 <pre><code>u: ( Can I go back )</code></pre>
 <p>is wrong and will not match anything and should be</p>
 <pre><code>u: ( can I go back ) </code></pre>
+<h2 id="contractions">Contractions</h2>
+<p>ChatScript automatically expands contractions. DO NOT put contractions in your patterns. You will break the expansion of that contraction.</p>
 <h2 id="proper-names">Proper names</h2>
 <p>You should always put multiple-word proper names in double quotes, particularly ones with embedded punctuation. You want CS to know that the entire phrase is considered a single entity. So</p>
 <pre><code>u: ( &quot;Dr. Watson&quot; )

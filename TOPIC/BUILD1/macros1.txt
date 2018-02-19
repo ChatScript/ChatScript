@@ -1,0 +1,1 @@
+﻿^harry o 0 0 A( ) $cs_token = 4096 | 255 | 512 | 131072 | 1024 | 2048 | 24576 $cs_token += 67108864 | 65536 ^addtopic ( ~introductions ) $cs_control_main = ~control $userprompt = ^"%user: >" $botprompt = ^"HARRY: " $singleresponse = 1 `

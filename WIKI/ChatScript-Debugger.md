@@ -1,6 +1,6 @@
 # ChatScript Debugger Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/31/2018 cs8.0  
+<br>Revision 2/18/2018 cs8.1  
 
 You can run an interactive debugger environment (IDE) if you have Windows.
 You launch it by going to BINARIES and double clicking on ChatScript IDE.

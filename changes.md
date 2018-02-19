@@ -1,11 +1,17 @@
-version 8.0  1/31/2018
+# version 8.1 2-18-2018
+1.CS Debugger now has been released in Release mode, so maybe it works for you, and has new features-- read the manual again.
+2. new manuals: Practicum- Rejoinders and Practicum- Patterns
+3. $cs_sequence wins over default sequence limit of 5 words in a row
+4. !<< >> is now legal
+
+# version 8.0  1/31/2018
 1. files to compile by script compiler must now end with suffix .top or .tbl so you can
    allow other files in same directories (like readme.txt, etc).
 2. :timelog computes avg/min/max of a server log response times
 3. for json arrays can now do:  $_array1 +=  $_array2 and $_array1 += value
 4. Windows GUI debugger for CS.  See ChatScript debugger manual.
 
-version 7.73 12/7/2017
+# version 7.73 12/7/2017
 1. several fixes to pattern matcher
 
 # version 7.72  IMPORTANT FIX FOR BUG INTRODUCTION IN 7.6 -- KNOWLEDGE of adverbs in dictionary lost

@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/31/2018 cs8.0
+<br>Revision 2/18/2018 cs8.1
 
 # Real World JSON
 

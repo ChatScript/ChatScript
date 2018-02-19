@@ -8,6 +8,16 @@ TMP/**/*.bin
 USERS/**/*.txt
 LOGS/**/*.txt
 VERIFY/**/*.txt
+bwregress/**/*
+extraSRC/**/*
+jaregressiontests/**/*
+jaresponsetests/**/*
+mackore/**/*
+private/**/*
+privatecode/**/*
+rawdict/**/*
+reader/**/*
+treetagger/**/*
 
 # ignore so it does not get committed by mistake on windows
 BINARIES/MacChatScript

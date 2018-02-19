@@ -1595,7 +1595,7 @@ void BugBacktrace(FILE* out)
 	int i = globalDepth;
 	char rule[MAX_WORD_SIZE];
     CALLFRAME* frame = GetCallFrame(i);
-	if (*(frame->label)) 
+	if (frame && *(frame->label)) 
 	{
 		rule[0] = 0;
 		if (currentRule) {

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/19/2017 cs7.7</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -746,7 +746,7 @@ else { $$tcpopen_error }</code></pre>
 <h3 id="memorymark"><code>^memorymark ()</code></h3>
 <p>Reading a document consists of performing a single volley of the entire document. This can tie up a lot of memory in keeping facts, dictionary entries, user variables, etc. If you are careful in what you do, you can make the memory burden go away. <code>^memoryMark()</code> notes where memory is currently at, and is best done within the document_pre topic. Then you can release memory after every sentence of the document, so it doesn't accumulate.</p>
 <h3 id="memoryfree"><code>^memoryfree ()</code></h3>
-<p>This releases memory back to the last <code>^memorymark()</code>. It is best done after your main control of the document bot has finished processing a sentence. E.g.,</p>
+<p>This releases memory back to the last <code>^memorymark()</code>. It is best done after your main control of the document bot has finished processing a sentence. Partly because the analysis of the sentence is lost and so no later rules can pattern match to it (though you can call ^analyze to reacquire your sentence). E.g.,</p>
 <pre><code>topic: ~document_pre system repeat()
 
 t: ^memorymark() # note start
@@ -758,6 +758,7 @@ u: (%document)
   respond(~filter)
   ^memoryfree()</code></pre>
 <p>The caveats and warnings about how this works. Whenenver you free memory, the system will clear all fact sets. It will clear all user variables set after the memory mark (leaving the ones before alone). It will then release facts, text, and dictionary nodes created after the mark.</p>
+<p>The only data you can pass out from a <sup>memoryMark/</sup>memoryfree zone is data stored on match variables (which have size limitations) or on the count field of a dictionary word of a preexisting word.</p>
 <h3 id="memorygc"><code>^memorygc ()</code></h3>
 <p>This can function in either document mode or chat mode. It does what it can to release unused memory. It has restrictions in it does not work if you have facts with facts as fields or are in planning mode. It also discards saved sentence data, and all of your analysis data for the current sentence. It also discards all data in factsets.</p>
 <h1 id="json-functions">JSON Functions</h1>

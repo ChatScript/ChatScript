@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugger-manual">ChatScript Debugger Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/31/2018 cs8.0</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
 <p>You can run an interactive debugger environment (IDE) if you have Windows. You launch it by going to BINARIES and double clicking on ChatScript IDE. It will load your bot, just as running ChatScript will. And you can type input into the input window and see output in the output window just like normal ChatScript. But you can do so much more...</p>
 <p>You can set breakpoints on lines of code, be they actions in a macro, rules in a topic, or the topic itself. You can break on when CS will output a message to the user (to see where it comes from). You can break on change in value of a variable. You can single step in, over, out. You can display values of user, system, and match variables.</p>
 <h1 id="running-the-ide">Running the IDE</h1>
@@ -21,7 +21,7 @@
 <p class="caption">Debugger Screen Image</p>
 </div>
 <h2 id="script-window">Script window</h2>
-<p>The script window displays your source file, information on the debugger commands, debugging commands (:xxx), IDE commands, and system variables (and imporant CS interchange variables).</p>
+<p>The script window displays your source file, information on the debugger commands, debugging commands (:xxx), IDE commands, and system variables (and important CS interchange variables).</p>
 <p>Your script files will also be displayed when you request it (:i filename) or when some breakpoint requires it to show you where you are.</p>
 <p>The script window has your code. To the left of that are line numbers from the file. And to the left of the line numbers are CS tag id's of rules. IF you have a breakpoint set, you will see a B between the line number and your script. The entire area of of tags and line numbers is clickable to enable and disable a breakpoint at that line.</p>
 <p>The window is also sensitive to having parts of your script clicked upon. If you click on a variable, be it $var, _var, %var, ^var, or <span class="citation">@nvar</span>, the current value will get added to the variables window and the value constantly displayed there. An <span class="citation">@n</span> variable shows the count of how many facts it has. You can remove an entry from the variables window by clicking on it.</p>
@@ -38,7 +38,7 @@
 <p>If you Right-click before a script line, the system create a transient breakpoint there and run code. The breakpoint will be removed when execution is stopped by some breakpoint (that one or a different one).</p>
 <h1 id="input-window">Input window</h1>
 <p>Here is where you type input for CS or for the IDE.</p>
-<p>IDE input is prefixed with <code>:i</code>. Naming a function or variable or concept set is just like clicking on it in the script window. It will put the variable in the variables window or display the code in the script window.</p>
+<p>IDE input is prefixed with <code>:i</code>. Naming a function or variable or concept set is just like clicking on it in the script window. It will put the variable in the variables window or display the code in the script window. You can also name a rule label and code display will jump to there. Not the full topic label, just what you put as the label in <code>u: MYLABEL () ...</code>, i.e., MYLABEL.</p>
 <pre><code>:i ~control</code></pre>
 <p>Above is the classic way to bring up the control script whereby you can then set a breakpoint. And if you type in a rule label as argument, it will take you to that label. Handy when you know where you want to debug in particular.</p>
 <p>If the engine is currently running, you can give IDE commands but the IDE will refuse input for the engine.</p>
@@ -50,7 +50,12 @@
 <h1 id="variables-window">Variables window</h1>
 <p>This window shows current values of global variables you have requested (updated whenever you end up in the IDE). If you clicked on a scope line, it shows the values of local variables for that scope. You can flip back to viewing globals by pressing the <code>globals</code> button.</p>
 <p>When variables are displayed, after the variable it tells you how many characters the value has.</p>
-<p>If you click to the left of a global variable, it will set a breakpoint for when the value of that variable changes and will put a B before it. Click again in that area and it removes the breakpoint.</p>
+<p>If you click to the left of a global variable, it will set a breakpoint for when the value of that variable changes and will put a B before it. Click again in that area and it removes the breakpoint. You can request a break when the value becomes =, &lt;, or &gt; some value using</p>
+<pre><code>:i varname = test 
+:i varname &gt; 5    -- integer values only
+:i varname &lt; 5    -- integer values only</code></pre>
+<p>You can also use various engine debug commands while at a break, including <code>:trace</code> and <code>:word</code>. Just dont try to use things that have massive impact, like</p>
+<pre><code>:document, :source, :reset, :bot, :user, :restart</code></pre>
 <h1 id="system-resource-information">System resource information</h1>
 <p>At the bottom of the main window the system prints out useful statistics about resource usage. It shows you how much of a resource is currently in use, and what the least amount available has ever been seen.</p>
 <p>'Memory' is the available space for stack + heap. If this gets down toward 10M, you might want to allocate more text space to the program.</p>
@@ -59,8 +64,10 @@
 <p><code>FACT</code> is how many facts are available to be created. Less than 5K probably indicates you want to allocate more.</p>
 <h1 id="sentence-window">Sentence window</h1>
 <p>The window above the script window tells you information about the current user input. By default it shows you the <code>adjusted</code> input, what the tokenizer and various NLP corrections have been made to result in the input the system is actually processing at present.</p>
-<p>Click anywhere in the sentence box and it changes to show you the <code>raw</code> input, what the user provided (after tokenization).</p>
-<p>Click again and it shows you the <code>canonical</code> form of the input.</p>
+<p>L-click anywhere in the sentence box and it changes to show you the <code>raw</code> input, what the user provided (after tokenization).</p>
+<p>L-click again and it shows you the <code>canonical</code> form of the input.</p>
+<p>L-click again and it returns to the <code>adjusted</code> form of the input.</p>
+<p>If you R-click on a word, it will show you the concepts it is involved in in the output window.</p>
 <h1 id="buttons">Buttons</h1>
 <h2 id="go">Go</h2>
 <p>Resume execution until complete or a new breakpoint is hit.</p>
@@ -77,8 +84,9 @@
 <p>Breakpoint when the system wants to print output to the user. This is useful to see why you are getting the output you get.</p>
 <h2 id="fail">Fail</h2>
 <p>Breakpoint if any system function return a failure code. These typically suggest you passed it bad arguments. With this, you can see when this happens.</p>
+<p>Cntrl-lclick tells the debugger to terminate current input and return to top level.</p>
 <h2 id="clear">Clear</h2>
-<p>Remove all breakpoints currently set (not including variable breaks).</p>
+<p>L-click removes all breakpoints currently set (not including variable breaks). R-click temporarily disables all breakpoints set (including variable breaks and msg break and fail break). R-click again to re-enable.</p>
 <h2 id="global">Global</h2>
 <p>Restore variable window to showing global variables if it is currently showing locals of some callframe.</p>
 <h2 id="back">Back</h2>
