@@ -28,7 +28,7 @@ typedef struct WINDOWSTRUCT
     int yposition;
 } WINDOWSTRUCT;
 
-WINDOWSTRUCT scriptData, statData, varData, sentenceData,stackData, inputData,outputData;
+WINDOWSTRUCT scriptData, statData, varData, parentData, sentenceData,stackData, inputData,outputData;
 
 #define NO_BREAK 0
 #define BREAK_CALL 1
@@ -282,8 +282,13 @@ static void RestoreWindows()
 static void SaveWindow(HWND window,char* name,FILE* out)
 {
     RECT rect;
-    GetWindowRect(window, &rect);
-    fprintf(out, "%s: %d %d %d %d \r\n", name,rect.left, rect.top, rect.right, rect.bottom);
+    GetWindowRect(window,&rect);
+    POINT pt;
+    pt.x = rect.left;
+    pt.y = rect.top;
+    ScreenToClient(GetParent(window),&pt);
+    fprintf(out, "%s: %d %d ", name, pt.x, pt.y);
+    fprintf(out, "%d %d \r\n", rect.right - rect.left, rect.bottom-rect.top);
 }
 
 static void SaveWindows()
@@ -2033,7 +2038,7 @@ static void ShowSentence()
         *buffer++ = ' ';
     }
     *buffer = 0;
-    if (sentenceMode == 1) strcpy(buffer, mainInputBuffer);
+    if (sentenceMode == 1 && mainInputBuffer) strcpy(buffer, mainInputBuffer);
 
     sentenceData.maxChars = buffer - base;
     si.fMask = SIF_POS | SIF_RANGE;
@@ -2451,15 +2456,20 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    *filenames = 0;
    filenames[1] = 0;
    *varnames = 0;
-   hParent = CreateWindow(szWindowClass, szTitle, WS_VISIBLE | WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_SIZEBOX,
+   hParent = CreateWindow(szWindowClass, szTitle,  WS_VISIBLE | WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_SIZEBOX,
        0, 0, 0, 0, nullptr, nullptr, hInstance, nullptr);
    if (!hParent) return FALSE;
-   RECT mrect;
-   mrect.left = 100;
-   mrect.right = 3000;
-   mrect.top = 100;
-   mrect.bottom = 2050;
-   MoveWindow(hParent, 0,0,mrect.right,mrect.bottom, true);
+
+   int xlimit = GetSystemMetrics(SM_CXMAXIMIZED);
+   int ylimit = GetSystemMetrics(SM_CYMAXIMIZED);
+   xlimit -= 30; // scroll
+   ylimit -= 30; // scroll
+   parentData.window = hParent;
+   parentData.rect.left = 00;
+   parentData.rect.right = xlimit;
+   parentData.rect.top = 0;
+   parentData.rect.bottom = ylimit;
+   MoveWindow(hParent, 0,0, parentData.rect.right, parentData.rect.bottom, true);
    
    hPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 0));
    hBrush = CreateSolidBrush(RGB(0, 0, 0));
@@ -2473,45 +2483,89 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
        DEFAULT_PITCH | FF_DONTCARE, TEXT("Courier New"));
    hButtonFont = hFont;
 
-   hGoButton = MakeButton("Go", 10, 10, 100, 50);
-   hInButton = MakeButton("In", 110, 10, 100, 50);
-   hOutButton = MakeButton("Out", 210, 10, 100, 50);
-   hNextButton = MakeButton("Next", 310, 10, 100, 50);
-  
-   hStopButton = MakeButton("Stop", 510, 10, 100, 50);
-   hBreakMessageButton = MakeButton("Msg", 610, 10, 100, 50);
-   hFailButton = MakeButton("Fail", 710, 10, 100, 50);
-   hClearButton = MakeButton("Clear", 810, 10, 100, 50);
-  
-   hGlobalsButton = MakeButton("Global", 1010, 10, 100, 50);
-   hBackButton = MakeButton("Back", 1210, 10, 100, 50);
-   
-   hFontButton = MakeButton("-Font+", 1510, 10, 100, 50);
- 
+   HDC dc = GetDC(parentData.window);
+   SelectObject(dc, hFont);
+   GetTextExtentPoint32(dc, (LPCTSTR)"ABCDEF", 6, &scriptData.metrics);
+   ReleaseDC(parentData.window, dc);
+
+   int butheight = scriptData.metrics.cy + 5;
+   int butwidth = scriptData.metrics.cx + 10;
+   hGoButton = MakeButton("Go", 10, 10, butwidth, butheight);
+   hInButton = MakeButton("In", 10 + butwidth * 1, 10, butwidth, butheight);
+   hOutButton = MakeButton("Out", 10 + butwidth * 2, 10, butwidth, butheight);
+   hNextButton = MakeButton("Next", 10 + butwidth * 3, 10, butwidth, butheight);
+   int zone2x = 10 + butwidth * 4 + (butwidth/2);
+   hStopButton = MakeButton("Stop",  zone2x, 10,butwidth, butheight);
+   hBreakMessageButton = MakeButton("Msg", zone2x + butwidth , 10, butwidth, butheight);
+   hFailButton = MakeButton("Fail", zone2x + butwidth * 2, 10, butwidth, butheight);
+   hClearButton = MakeButton("Clear", zone2x + butwidth * 3, 10, butwidth, butheight);
+   int zone3x = zone2x + butwidth * 4 + (butwidth/2);
+   hGlobalsButton = MakeButton("Global", zone3x, 10, butwidth, butheight);
+   hBackButton = MakeButton("Back", zone3x + butwidth ,10, butwidth, butheight);
+   hFontButton = MakeButton("-Font+", zone3x + butwidth * 2, 10,butwidth, butheight);
+   int sentenceY = butheight + 10 + 10;
+   statData.rect.bottom = ylimit - 120;
+   statData.rect.top = statData.rect.bottom - butheight * 2;
+      
    ide = true; // we have ide attached to cs
    idestop = false;
    
    // source text fits in this rect of scriptwindow
    scriptData.rect.left = 10;
-   scriptData.rect.right = scriptData.rect.left + 1800;
-   scriptData.rect.top = 160;
-   scriptData.rect.bottom = scriptData.rect.top + 1700;
+   scriptData.rect.right = (xlimit * 2) / 3;
+   scriptData.rect.top = sentenceY + 3 * butheight + 10;
+   scriptData.rect.bottom = statData.rect.top - 30;
    scriptData.window = CreateWindow(szWindowClass, (LPCSTR) "script",
        WS_VISIBLE | WS_CHILDWINDOW| WS_HSCROLL | WS_VSCROLL 
        | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
       0, 0, 0, 0, hParent, nullptr, hInstance, nullptr);
    if (!scriptData.window) return FALSE;
+
+   int subwindowheight = scriptData.rect.bottom - scriptData.rect.top;
+   subwindowheight -= 3 * butheight;    // input window
+   subwindowheight -= 30; // 10 sep between windows
+   subwindowheight /= 3; 
+
    scriptData.window = scriptData.window;
    MoveWindow(scriptData.window, scriptData.rect.left, scriptData.rect.top, scriptData.rect.right-scriptData.rect.left, scriptData.rect.bottom - scriptData.rect.top,true);
    ShowWindow(scriptData.window, SW_SHOW);
    UpdateWindow(scriptData.window);
    UpdateWindowMetrics(scriptData);
 
+   UpdateWindowMetrics(parentData);
+
+   inputData.rect.top = scriptData.rect.top;
+   inputData.rect.bottom = inputData.rect.top + 2 * butheight;
+   inputData.rect.left = scriptData.rect.right + 40;
+   inputData.rect.right = xlimit - 40;
+   inputData.window = CreateWindow(
+       "EDIT",
+       (LPCSTR) "cs input",
+       WS_BORDER | WS_SIZEBOX  // | WS_CAPTION -- with this we lose edit dataentry 
+       | ES_MULTILINE | WS_VSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER |
+       ES_WANTRETURN | ES_LEFT,  // | WS_CAPTION
+       0, 0, 0, 0,
+       hParent,         // parent window 
+       (HMENU)ID_EDITCHILD1,   // edit control ID 
+       (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
+       NULL);        // pointer not needed 
+   MoveWindow(inputData.window,
+       inputData.rect.left, inputData.rect.top, // starting x- and y-coordinates 
+       inputData.rect.right - inputData.rect.left,  // width of client area 
+       inputData.rect.bottom - inputData.rect.top,   // height of client area 
+       TRUE);
+   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
+   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
+   SendMessage(inputData.window, EM_SETSEL, -1, -1);
+   ShowWindow(inputData.window, SW_SHOW);
+   UpdateWindow(inputData.window);
+   UpdateWindowMetrics(inputData);
+
    // output from cs
-   outputData.rect.top = scriptData.rect.top; 
+   outputData.rect.top = inputData.rect.bottom + 10; 
    outputData.rect.left = scriptData.rect.right + 40;
-   outputData.rect.right = outputData.rect.left + 1000;
-   outputData.rect.bottom = (scriptData.rect.bottom - scriptData.rect.top) / 2;
+   outputData.rect.right = inputData.rect.right;
+   outputData.rect.bottom = outputData.rect.top + subwindowheight;
    outputData.window = CreateWindow(
        "EDIT",
        (LPCSTR) "output",
@@ -2533,11 +2587,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(outputData.window);
    UpdateWindowMetrics(outputData);
 
-   // output from cs
-   statData.rect.top = scriptData.rect.bottom + 10;
+   // stats from cs
    statData.rect.left = scriptData.rect.left;
    statData.rect.right = outputData.rect.right;
-   statData.rect.bottom = statData.rect.top + 72;
    statData.window = CreateWindow(
        "EDIT",
        (LPCSTR) "stats",
@@ -2559,33 +2611,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(statData.window);
    UpdateWindowMetrics(statData);
 
-   sentenceData.window = MakeButton("sentence", 20, 70, outputData.rect.right - scriptData.rect.left, 80, WS_HSCROLL);
-
-   inputData.rect = outputData.rect;
-   inputData.rect.top = outputData.rect.bottom + 20;
-   inputData.rect.bottom = inputData.rect.top + 150;
-   inputData.window = CreateWindow(
-        "EDIT",
-       (LPCSTR) "cs input",
-       WS_BORDER | WS_SIZEBOX  // | WS_CAPTION -- with this we lose edit dataentry 
-       |  ES_MULTILINE | WS_VSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER |
-       ES_WANTRETURN | ES_LEFT ,  // | WS_CAPTION
-       0, 0, 0, 0,
-       hParent,         // parent window 
-       (HMENU)ID_EDITCHILD1,   // edit control ID 
-       (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
-       NULL);        // pointer not needed 
-   MoveWindow(inputData.window,
-       inputData.rect.left, inputData.rect.top, // starting x- and y-coordinates 
-       inputData.rect.right - inputData.rect.left,  // width of client area 
-       inputData.rect.bottom - inputData.rect.top,   // height of client area 
-       TRUE);
-   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
-   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont,false);
-   SendMessage(inputData.window, EM_SETSEL, -1, -1);
-   ShowWindow(inputData.window, SW_SHOW);
-   UpdateWindow(inputData.window);
-   UpdateWindowMetrics(inputData);
+   sentenceData.window = MakeButton("sentence", 10, sentenceY, outputData.rect.right - scriptData.rect.left, 3 * butheight, WS_HSCROLL);
 
     varData.window = CreateWindow(
         szWindowClass,(LPCSTR) "global variables",
@@ -2593,11 +2619,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
         | WS_CAPTION | WS_BORDER | WS_SIZEBOX, 
         0, 0, 0, 0, hParent,  
         0,
-        (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
+        (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
         NULL);        // pointer not needed 
-    varData.rect = inputData.rect;
-    varData.rect.top = inputData.rect.bottom + 10;
-    varData.rect.bottom = (scriptData.rect.bottom - 400);
+    varData.rect = outputData.rect;
+    varData.rect.top = outputData.rect.bottom + 10;
+    varData.rect.bottom = varData.rect.top + subwindowheight;
     MoveWindow(varData.window,
         varData.rect.left, varData.rect.top, // starting x- and y-coordinates 
         varData.rect.right - varData.rect.left,  // width of client area 
@@ -2612,25 +2638,28 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
         WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
         | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
         0, 0, 0, 0,  hParent, 0,
-        (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
+        (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
         NULL);        // pointer not needed 
     stackData.rect = varData.rect;
     stackData.rect.top = varData.rect.bottom + 10;
     stackData.rect.bottom = scriptData.rect.bottom;
     MoveWindow(stackData.window, stackData.rect.left, stackData.rect.top, stackData.rect.right - stackData.rect.left, stackData.rect.bottom - stackData.rect.top, true);
-    GetClientRect(stackData.window, &stackData.rect);
 
     ShowWindow(stackData.window, SW_SHOW);
     UpdateWindow(stackData.window);
     UpdateWindowMetrics(stackData);
 
     UpdateWindowMetrics(sentenceData,true);
-    //RestoreWindows();
+    RestoreWindows();
 
     // rects have been set up now, get local coords
     GetClientRect(scriptData.window, &scriptData.rect);
     GetClientRect(varData.window, &varData.rect);
     GetClientRect(stackData.window, &stackData.rect);
+    GetClientRect(outputData.window, &outputData.rect);
+    GetClientRect(inputData.window, &inputData.rect);
+    GetClientRect(sentenceData.window, &sentenceData.rect);
+    GetClientRect(statData.window, &statData.rect);
     // assign title space
     titlerect = scriptData.rect;
     titlerect.bottom = titlerect.top + scriptData.metrics.cy;
@@ -2760,6 +2789,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         data = &scriptData;
     else if (hWnd == outputData.window) 
         data = &outputData;
+    else if (hWnd == parentData.window)
+        data = &parentData;
     else if (hWnd == statData.window)
         data = &statData;
     else if (hWnd == stackData.window)
