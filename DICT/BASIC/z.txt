@@ -1,0 +1,57 @@
+﻿ zoom ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    zoom~1nz (^rise~1) the act of rising upward into the air
+    zoom~2nz (^rise~9) a rapid rise
+    zoom~3vz rise rapidly
+    zoom~4vz move along very quickly
+    zoom~5vz move with a low humming noise
+ zoning ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    zoning~1nz (^division~2) dividing an area into zones or sections reserved for different purposes such as residence and business and manufacturing etc
+ zone ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    zone~1nz (^structure~3) any encircling or beltlike structure
+    zone~2nz (^part~9) an area or region distinguished from adjacent parts by a distinctive feature or characteristic
+    zone~3nz (^region~4) any of the regions of the surface of the Earth loosely divided according to latitude or longitude
+    zone~4nz (^place~13) a locally circumscribed place characterized by some distinctive features
+    zone~5vz separate or apportion into sections
+    district~2vz regulate housing in
+ zebra ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    zebra~1nz (^mammal~1) any of several fleet black-and-white striped African equines
+ zoo ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    zoo~1nz (^facility~3) the facility where wild animals are housed for exhibition
+ zip ( meanings=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    zipper~1n 
+    energy~3n 
+    nothing~1n 
+    zipper~2v 
+    hurry~6v 
+ zipper ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    zip~1nz (^fastening~2) a fastener for locking together two toothed edges by means of a sliding tab
+    zip~4vz close with a zipper
+ zero ( meanings=10 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) plural=zeros 
+    zero~1nz (^instrument~2) the sight setting that will cause a projectile to hit the center of the target with no wind blowing
+    zero~2nz (^quantity~3) the point on a scale from which positive or negative numerical quantities can be measured
+    zip~3n 
+    cipher~5nz (^figure~12) a mathematical element that when added to another number yields the same number
+    zero~5az indicating the absence of any or all units under consideration
+    zero~6az indicating an initial point or origin
+    zero~7az having no measurable or otherwise determinable value
+    zero~8az of or relating to the null set
+    zero~9vz adjust the zero of (a gun)
+    zero~10vz adjust to zero value
+ zoology ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    zoology~1nz (^biology~1) the branch of biology that studies animals
+    zoology~2nz (^collection~4) all the animal life in a particular region or period
+ zap ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    zap~1nz (^event~1) a sudden event that imparts energy or excitement, usually with a dramatic impact
+    microwave~3v 
+    zap~3vz 
+    zap~4vz 
+    zap~5vz strike suddenly and with force
+ zenith ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    zenith~1nz (^point~16) the point above the observer that is directly opposite the nadir on the imaginary sphere against which celestial bodies appear to be projected
+ zeros ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN ) plural=zero 
+ zeroes ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN posdefault:VERB ) 
+ zounds ( INTERJECTION ) 
+ zowie ( INTERJECTION ) 
+ zzz ( INTERJECTION ) 
+ zippered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    zippered~1az 

@@ -1,0 +1,211 @@
+﻿ X ( ) lemma=`x`x`x` -  Mc---d  Mo---d  
+ X,4 ( ) lemma=`x,4`x,4` Mc---d  Npmsny  
+ X,5 ( ) lemma=`x,5` Mc---d  
+ X,8 ( ) lemma=`x,8` Npmsny  
+ X,8,10 ( ) lemma=`x,8,10` -  
+ X,8,19 ( ) lemma=`x,8,19` Npmsny  
+ X-туннель ( ) lemma=`x-туннель` Ncmsnn  
+ X. ( ) lemma=`x.`x.` Ncfsnn  SENT  
+ X11 ( ) lemma=`x11` Mc---d  
+ X5 ( ) lemma=`x5` -  
+ XACML ( ) lemma=`xacml` -  
+ XAH ( ) lemma=`xah` -  
+ XBiiTuno ( ) lemma=`xbiituno` -  
+ XCVIII ( ) lemma=`xcviii` Mo---d  
+ XE ( ) lemma=`xe` -  
+ XENUS ( ) lemma=`xenus` -  
+ XEUS ( ) lemma=`xeus` -  
+ XFree86 ( ) lemma=`xfree86` -  
+ XI ( ) lemma=`xi`xi` Mc---d  Mo---d  
+ XI,5 ( ) lemma=`xi,5` Npmsny  
+ XII ( ) lemma=`xii`xii` Mc---d  Mo---d  
+ XIII ( ) lemma=`xiii`xiii` Mc---d  Mo---d  
+ XIII—XIV ( ) lemma=`xiii—xiv` Mo---d  
+ XIII—XVI ( ) lemma=`xiii—xvi` Mo---d  
+ XII—XIII ( ) lemma=`xii—xiii` Mo---d  
+ XIV ( ) lemma=`xiv`xiv` Mc---d  Mo---d  
+ XIX ( ) lemma=`xix`xix` Mc---d  Mo---d  
+ XIX- ( ) lemma=`xix-` -  
+ XIX—XX ( ) lemma=`xix—xx` -  
+ XIвв ( ) lemma=`xiвв` Ncmpgn  
+ XKB ( ) lemma=`xkb` -  
+ XL ( ) lemma=`xl` Mo---d  
+ XLI,11 ( ) lemma=`xli,11` Npmsny  
+ XLII ( ) lemma=`xlii` Mo---d  
+ XLV ( ) lemma=`xlv` -  
+ XLVI ( ) lemma=`xlvi` Mo---d  
+ XLVIII ( ) lemma=`xlviii` Mo---d  
+ XML ( ) lemma=`xml` -  
+ XML+AJAX ( ) lemma=`xml+ajax` -  
+ XMM ( ) lemma=`xmm` -  
+ XMMPlayer ( ) lemma=`xmmplayer` -  
+ XMMS ( ) lemma=`xmms` -  
+ XMPP ( ) lemma=`xmpp` -  
+ XMYPbIU ( ) lemma=`xmypbiu` -  
+ XP ( ) lemma=`xp` -  
+ XPath ( ) lemma=`xpath` -  
+ XR ( ) lemma=`xr` -  
+ XRS ( ) lemma=`xrs` -  
+ XS ( ) lemma=`xs` -  
+ XSD ( ) lemma=`xsd` -  
+ XSLT ( ) lemma=`xslt` -  
+ XT ( ) lemma=`xt` -  
+ XV ( ) lemma=`xv`xv` Mc---d  Mo---d  
+ XVI ( ) lemma=`xvi`xvi` Mc---d  Mo---d  
+ XVII ( ) lemma=`xvii`xvii` Mc---d  Mo---d  
+ XVII- ( ) lemma=`xvii-` -  
+ XVIII ( ) lemma=`xviii`xviii` Mc---d  Mo---d  
+ XVIIIвв ( ) lemma=`xviiiвв` Ncmpgn  
+ XVIIIвеков ( ) lemma=`xviiiвеков` Ncmpgy  
+ XVIII—XIX ( ) lemma=`xviii—xix` -  
+ XVII—XIX ( ) lemma=`xvii—xix` -  
+ XVII—XVIII ( ) lemma=`xvii—xviii` Mo---d  
+ XVI—XVII ( ) lemma=`xvi—xvii` Mo---d  
+ XVTII ( ) lemma=`xvtii` Mo---d  
+ XV–XVI ( ) lemma=`xv–xvi` Mo---d  
+ XV—XVI ( ) lemma=`xv—xvi` Mo---d  
+ XWindow ( ) lemma=`xwindow` -  
+ XX ( ) lemma=`xx` Mo---d  
+ XXI ( ) lemma=`xxi` Mo---d  
+ XXI,16,18 ( ) lemma=`xxi,16,18` -  
+ XXII ( ) lemma=`xxii` Mo---d  
+ XXII,148 ( ) lemma=`xxii,148` Mc---d  
+ XXIII ( ) lemma=`xxiii` Mo---d  
+ XXIII$ ( ) lemma=`xxiii$` Afpfsnf  
+ XXIV ( ) lemma=`xxiv` Mo---d  
+ XXL ( ) lemma=`xxl` Mo---d  
+ XXS ( ) lemma=`xxs` -  
+ XXV ( ) lemma=`xxv` Mo---d  
+ XXVII ( ) lemma=`xxvii` Mo---d  
+ XXX ( ) lemma=`xxx` -  
+ XXXI,133 ( ) lemma=`xxxi,133` Mc---d  
+ XXXII ( ) lemma=`xxxii` Mo---d  
+ XXXII,100 ( ) lemma=`xxxii,100` -  
+ XXXII,38,50 ( ) lemma=`xxxii,38,50` -  
+ XXXIII ( ) lemma=`xxxiii` Mo---d  
+ XXXIII,43 ( ) lemma=`xxxiii,43` Mc---d  
+ XXXIII,58 ( ) lemma=`xxxiii,58` Mc---d  
+ XXXIV ( ) lemma=`xxxiv` Mo---d  
+ XXXV ( ) lemma=`xxxv` Mo---d  
+ XXth ( ) lemma=`xxth` -  
+ XXв ( ) lemma=`xxв` Npmsny  
+ XYIII ( ) lemma=`xyiii` Mo---d  
+ XYZ ( ) lemma=`xyz` -  
+ X^(1 ( ) lemma=`x^(1` Mc---d  
+ Xaser ( ) lemma=`xaser` -  
+ Xaw ( ) lemma=`xaw` -  
+ Xbox ( ) lemma=`xbox` -  
+ XeNoN ( ) lemma=`xenon` -  
+ Xenacis ( ) lemma=`xenacis` -  
+ Xerox ( ) lemma=`xerox` -  
+ Xewkija ( ) lemma=`xewkija` -  
+ Xfqrjdcrbq ( ) lemma=`xfqrjdcrbq` -  
+ Xinh ( ) lemma=`xinh` -  
+ Xini ( ) lemma=`xini` -  
+ Xkb ( ) lemma=`xkb` -  
+ Xlam ( ) lemma=`xlam` -  
+ Xlendi ( ) lemma=`xlendi` -  
+ Xlib ( ) lemma=`xlib` -  
+ Xmas ( ) lemma=`xmas` -  
+ Xo3auH ( ) lemma=`xo3auh` -  
+ Xopb ( ) lemma=`xopb` -  
+ Xoro ( ) lemma=`xoro` -  
+ Xraniteli ( ) lemma=`xraniteli` -  
+ Xtinka ( ) lemma=`xtinka` -  
+ Xатуна ( ) lemma=`xатуна` Ncmsgy  
+ x ( ) 
+ x- ( ) 
+ x. ( ) 
+ x100 ( ) 
+ x200 ( ) 
+ x800gto ( ) 
+ x86 ( ) 
+ x^A ( ) lemma=`x^a` -  
+ xa4 ( ) 
+ xa6 ( ) 
+ xa7 ( ) 
+ xa7+ ( ) 
+ xample ( ) 
+ xaрактеристиками ( ) 
+ xb2 ( ) 
+ xb4 ( ) 
+ xb5 ( ) 
+ xb7 ( ) 
+ xbt ( ) 
+ xc3 ( ) 
+ xc4 ( ) 
+ xc6+ ( ) 
+ xc8 ( ) 
+ xcite ( ) 
+ xd2 ( ) 
+ xd3 ( ) 
+ xd4 ( ) 
+ xd5 ( ) 
+ xd7 ( ) 
+ xe ( ) 
+ xe/enco ( ) 
+ xe1 ( ) 
+ xe2 ( ) 
+ xe4 ( ) 
+ xe5 ( ) 
+ xe5+/ ( ) 
+ xe6 ( ) 
+ xe6+ ( ) 
+ xe8 ( ) 
+ xe8+ ( ) 
+ xeus ( ) 
+ xez ( ) 
+ xf1 ( ) 
+ xf3 ( ) 
+ xf4 ( ) 
+ xf5 ( ) 
+ xf6 ( ) 
+ xf6+ ( ) 
+ xf7 ( ) 
+ xf7+ ( ) 
+ xf8 ( ) 
+ xford ( ) 
+ xford,1965 ( ) 
+ xg3 ( ) 
+ xg4 ( ) 
+ xg5+ ( ) 
+ xh4 ( ) 
+ xh5 ( ) 
+ xh8+ ( ) 
+ xhtml ( ) 
+ xit ( ) 
+ xix ( ) 
+ xkbvleds ( ) 
+ xl@scum ( ) 
+ xler ( ) 
+ xls ( ) 
+ xml ( ) 
+ xmlns ( ) 
+ xmodmap ( ) 
+ xmpp ( ) 
+ xmpppy ( ) 
+ xmpptest ( ) 
+ xnj ( ) 
+ xobbitov ( ) 
+ xodila ( ) 
+ xodila,6 ( ) 
+ xodili ( ) 
+ xodit`(v ( ) 
+ xoi ( ) 
+ xompo ( ) 
+ xorosho ( ) 
+ xoroshuu ( ) 
+ xotel ( ) 
+ xoteli ( ) 
+ xotya ( ) 
+ xpert ( ) 
+ xportusa ( ) 
+ xr ( ) 
+ xram@jabber ( ) 
+ xrust ( ) 
+ xs ( ) 
+ xt ( ) 
+ xtrasystems ( ) 
+ xtПотом ( ) lemma=`xtпотом` Afpmslf  
+ xxx ( ) 
+ xуй ( ) 

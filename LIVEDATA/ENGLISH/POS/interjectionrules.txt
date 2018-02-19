@@ -1,0 +1,44 @@
+
+# conjunctive adverb blocked with commas, "I think, therefore, I will go"  used to interrupt
+-1	IS COMMA
+	INCLUDE * INTERJECTION
+	STAY START
+	IS COMMA
+KEEP
+
+# interjection at start followed by something not comma or semicolon wont be interjection - "no bat"
+ 0	INCLUDE * INTERJECTION
+	STAY START
+	STAY !END
+	!HAS COMMA PUNCTUATION
+DISCARD
+
+# interjection, at start, with comma, "*well, I don't know"
+0	INCLUDE * INTERJECTION
+	STAY START
+	IS COMMA PUNCTUATION
+KEEP
+
+# interjection as sole word "yes"
+0	INCLUDE * INTERJECTION
+	STAY START
+	STAY END
+KEEP
+
+# adverb that could be interjection, at start, be interjection - but not "*no bat"
+0	INCLUDE * INTERJECTION
+	STAY START
+	STAY HAS ADVERB
+	STAY !HAS ADJECTIVE_BITS
+KEEP
+
+# interjection late, be not
+0 	INCLUDE * INTERJECTION
+	STAY !START
+DISCARD
+
+# adverb that could be interjection, be adverb when not at start (redundant)
+0	INCLUDE * INTERJECTION
+	STAY !START
+	STAY HAS ADVERB
+DISCARD

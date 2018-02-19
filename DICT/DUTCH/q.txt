@@ -1,0 +1,83 @@
+﻿ Q's ( NOUN NOUN_PLURAL ) lemma=`q` nounpl  
+ Q'tje ( NOUN NOUN_SINGULAR ) lemma=`q` nounsg  
+ Q'tjes ( NOUN NOUN_PLURAL ) lemma=`q` nounpl  
+ Q. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`Q.`Q.` nounabbr  num__ord  
+ Qatar ( NOUN NOUN_PROPER_SINGULAR ) 
+ Qatarees ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Qatarees`Qatarees` adj  nounsg  
+ Qatarese ( NOUN NOUN_SINGULAR ) 
+ Qataresen ( NOUN NOUN_PLURAL ) lemma=`Qatarese` nounpl  
+ Qatarezen ( NOUN NOUN_PLURAL ) lemma=`Qatarees` nounpl  
+ Qatari ( NOUN NOUN_SINGULAR ) 
+ Qatari's ( NOUN NOUN_PLURAL ) lemma=`Qatari` nounpl  
+ Quiteen ( NOUN NOUN_SINGULAR ) 
+ Quiteens ( ADJECTIVE ) 
+ Quiteense ( NOUN NOUN_SINGULAR ) 
+ Quiteensen ( NOUN NOUN_PLURAL ) lemma=`Quiteense` nounpl  
+ Quitenen ( NOUN NOUN_PLURAL ) lemma=`Quiteen` nounpl  
+ Quito ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quitoos ( ADJECTIVE ) 
+ Quitose ( NOUN NOUN_SINGULAR ) 
+ Quitosen ( NOUN NOUN_PLURAL ) lemma=`Quitose` nounpl  
+ Quitoër ( NOUN NOUN_SINGULAR ) 
+ Quitoërs ( NOUN NOUN_PLURAL ) lemma=`Quitoër` nounpl  
+ Québec ( NOUN NOUN_PROPER_SINGULAR ) 
+ q ( NOUN NOUN_SINGULAR ) 
+ q's ( NOUN NOUN_PLURAL ) lemma=`q` nounpl  
+ qua ( PREPOSITION ) 
+ quadrafonie ( NOUN NOUN_SINGULAR ) 
+ quadrille ( NOUN NOUN_SINGULAR ) 
+ quadrilles ( NOUN NOUN_PLURAL ) lemma=`quadrille` nounpl  
+ quaestor ( NOUN NOUN_SINGULAR ) 
+ quaestoren ( NOUN NOUN_PLURAL ) lemma=`quaestor` nounpl  
+ quaestores ( NOUN NOUN_PLURAL ) lemma=`quaestor` nounpl  
+ quaestors ( NOUN NOUN_PLURAL ) lemma=`quaestor` nounpl  
+ quaestrices ( NOUN NOUN_PLURAL ) lemma=`quaestrix` nounpl  
+ quaestrix ( NOUN NOUN_SINGULAR ) 
+ quaestrixen ( NOUN NOUN_PLURAL ) lemma=`quaestrix` nounpl  
+ quantum ( NOUN NOUN_SINGULAR ) 
+ quarantaine ( NOUN NOUN_SINGULAR ) 
+ quarantaines ( NOUN NOUN_PLURAL ) lemma=`quarantaine` nounpl  
+ quark ( NOUN NOUN_SINGULAR ) 
+ quarks ( NOUN NOUN_PLURAL ) lemma=`quark` nounpl  
+ quarté ( NOUN NOUN_SINGULAR ) 
+ quartés ( NOUN NOUN_PLURAL ) lemma=`quarté` nounpl  
+ quatre-mains ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`quatre-mains`quatre-mains` nounpl  nounsg  
+ quatsch ( NOUN NOUN_SINGULAR ) 
+ queeste ( NOUN NOUN_SINGULAR ) 
+ queesten ( NOUN NOUN_PLURAL ) lemma=`queeste` nounpl  
+ querulant ( NOUN NOUN_SINGULAR ) 
+ querulanten ( NOUN NOUN_PLURAL ) lemma=`querulant` nounpl  
+ queue ( NOUN NOUN_SINGULAR ) 
+ queues ( NOUN NOUN_PLURAL ) lemma=`queue` nounpl  
+ queueën ( NOUN NOUN_PLURAL ) lemma=`queue` nounpl  
+ queuën ( NOUN NOUN_PLURAL ) lemma=`queue` nounpl  
+ qui-vive ( NOUN NOUN_SINGULAR ) 
+ quiche ( NOUN NOUN_SINGULAR ) 
+ quiches ( NOUN NOUN_PLURAL ) lemma=`quiche` nounpl  
+ quick-step ( NOUN NOUN_SINGULAR ) 
+ quick-steps ( NOUN NOUN_PLURAL ) lemma=`quick-step` nounpl  
+ quintessens ( NOUN NOUN_SINGULAR ) 
+ quintet ( NOUN NOUN_SINGULAR ) 
+ quitte ( ADJECTIVE ) 
+ quiz ( NOUN NOUN_SINGULAR ) 
+ quizleider ( NOUN NOUN_SINGULAR ) 
+ quizleiders ( NOUN NOUN_PLURAL ) lemma=`quizleider` nounpl  
+ quizmaster ( NOUN NOUN_SINGULAR ) 
+ quizmasters ( NOUN NOUN_PLURAL ) lemma=`quizmaster` nounpl  
+ quizprogramma ( NOUN NOUN_SINGULAR ) 
+ quizprogramma's ( NOUN NOUN_PLURAL ) lemma=`quizprogramma` nounpl  
+ quizzen ( NOUN NOUN_PLURAL ) lemma=`quiz` nounpl  
+ quorum ( NOUN NOUN_SINGULAR ) 
+ quorums ( NOUN NOUN_PLURAL ) lemma=`quorum` nounpl  
+ quota ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`quotum`quota` nounpl  nounsg  
+ quota's ( NOUN NOUN_PLURAL ) lemma=`quota` nounpl  
+ quote ( NOUN NOUN_SINGULAR ) 
+ quoten ( NOUN NOUN_PLURAL ) lemma=`quote` nounpl  
+ quotering ( NOUN NOUN_SINGULAR ) 
+ quoteringen ( NOUN NOUN_PLURAL ) lemma=`quotering` nounpl  
+ quotiënt ( NOUN NOUN_SINGULAR ) 
+ quotiënten ( NOUN NOUN_PLURAL ) lemma=`quotiënt` nounpl  
+ quotum ( NOUN NOUN_SINGULAR ) 
+ quotums ( NOUN NOUN_PLURAL ) lemma=`quotum` nounpl  
+ qwertyklavier ( NOUN NOUN_SINGULAR ) 
+ qwertyklavieren ( NOUN NOUN_PLURAL ) lemma=`qwertyklavier` nounpl  

@@ -1,0 +1,4 @@
+﻿ 6_June_1944 ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
+    D-day~1nz (^date~5) date of the Allied landing in France, World War II
+ 6-membered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    six-membered~1a 

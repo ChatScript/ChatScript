@@ -1,0 +1,2628 @@
+﻿ rum ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) comparative=rummer 
+    rum~1nz (^game~2) a card game based on collecting sets and sequences
+    rum~2nz (^alcohol~1) liquor distilled from fermented molasses
+    funny~2a 
+ rub ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    wipe~1n 
+    hitch~5nz (^obstacle~2) an unforeseen obstacle
+    rub~3vz move over something with pressure
+    scratch~11v 
+    scratch~16v 
+ repeal ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    repeal~1nz (^cancellation~1) the act of abrogating
+    lift~23v 
+ running ( meanings=12 glosses=7 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    run~2n 
+    track~1n 
+    run~5n 
+    running~4nz (^disposal~2) the act of administering or being in charge of something
+    running~5nz (^operation~11) the state of being in operation
+    running~6az continually repeated over a period of time
+    working~4a 
+    running~8az executed or initiated by running
+    running~9az moving or issuing in a stream
+    running~10az of advancing the ball by running
+    running~11az measured lengthwise
+    running~12az 
+ reclining ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    reclining~1nz (^motion~2) the act of assuming or maintaining a reclining position
+ raise ( meanings=31 glosses=29 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    lift~1nz (^act~1) the act of raising something
+    raise~2nz (^danger~1) increasing the size of a bet 
+    hike~2nz (^increase~2) the amount a salary is increased
+    climb~3nz (^side~12) an upward slope or grade 
+    raise~5vz cause to become alive again
+    raise~6vz raise the level or amount of something
+    enhance~1vz increase
+    lift~18vz put an end to
+    elevate~1vz raise in rank or condition
+    lift~21vz invigorate or heighten
+    raise~11vz bring into relief and cause to project
+    raise~12vz multiply by itself a specified number of times: 8 is 2 raised to the power 3
+    raise~13vz establish radio communications with
+    raise~14vz activate or stir up
+    raise~15vz cause to be heard or known
+    raise~16vz pronounce by bringing the tongue closer to the roof of the mouth
+    raise~17vz put forward for consideration or discussion
+    raise~18vz cause to assemble or enlist in the military
+    raise~19vz bet more than the previous player
+    raise~20vz bid at a higher level
+    evoke~2vz summon into action or bring into existence, often as if by magic
+    raise~22vz construct, build, or erect
+    farm~2v 
+    raise~24vz create a disturbance, especially by making a great noise
+    evoke~5vz call forth 
+    lift~30vz move upwards
+    elevate~2vz raise from a lower to a higher position
+    prove~6vz cause to puff up with a leaven
+    raise~29vz collect funds for a specific purpose
+    elevate~3vz give a promotion to or assign to a higher position
+    parent~3v 
+ rescue ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    delivery~2nz (^act~1) recovery or preservation from loss or danger
+    rescue~2vz take forcibly from legal custody
+    deliver~11vz free from harm or evil
+ roller ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    roller~1nz (^hit~3) a grounder that rolls along the infield
+    roller~2nz (^pigeon~1) pigeon that executes backward somersaults in flight or on the ground
+    roller~3nz (^bird~1) Old World bird that tumbles or rolls in flight
+    roller~4nz (^device~2) a mechanical device consisting of a cylindrical tube around which the hair is wound to curl it
+    roller~5nz (^cylinder~3) a cylinder that revolves
+    roller~6nz (^wheel~5) a small wheel without spokes
+    roll~9nz (^wave~5) a long heavy sea wave as it advances towards the shore
+ road ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    road~1nz (^agency~1) a way or means to achieve something
+    route~1nz (^way~4) an open way for travel or transportation
+ requisition ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    requisition~1nz (^getting~1) seizing property that belongs to someone else and holding it until profits pay the demand for which it was seized
+    requisition~2nz (^form~12) an official form on which a request in made
+    requisition~3nz (^demand~3) the act of requiring
+    requisition~4vz make a formal request for official services
+    requisition~5vz demand and take for use or service, especially by military or public authority for public service
+ relation ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    relation~1nz an abstraction belonging to or characteristic of two entities or parts together
+    relation~2nz (^action~1) mutual dealings or connections among persons or groups
+    congress~1nz (^sex~1) the act of sexual procreation between a man and a woman
+    relation~4nz (^value~4) the principle that an act done at a later time is deemed by law to have occurred at an earlier time
+    telling~3n 
+    relative~2n 
+ record ( meanings=13 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    record~1nz (^action~1) the sum of recognized accomplishments
+    record~2nz (^action~1) an extreme attainment
+    disk~3nz (^recording~3) sound recording consisting of a disk with a continuous groove
+    record~4nz (^list~2) a list of crimes for which an accused person has been previously convicted
+    book~5nz (^fact~3) a compilation of the known facts regarding something or someone
+    record~6nz (^evidence~2) anything providing permanent evidence of or information about past events
+    record~7nz (^document~4) a document that can serve as legal evidence of a transaction
+    record~8nz (^number~11) the number of wins versus losses and ties a team has had
+    record~9vz be or provide a memorial to a person or an event
+    read~10vz indicate a certain reading
+    tape~6vz register electronically
+    enter~2vz make a record of
+    record~13vz be aware of
+ reaching ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    arrival~1n 
+    reach~1n 
+ return ( meanings=29 glosses=28 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    return~1nz (^appearance~1) the act of someone appearing again
+    return~2nz (^arrival~2) a coming to or returning home
+    return~3nz (^getting~1) getting something back again
+    return~4nz (^motion~1) the act of going back to a prior location
+    return~5nz (^run~5) the act of running back the ball after a kickoff or punt or interception or fumble
+    return~6nz (^stroke~3) a tennis stroke that sends the ball back to the other player
+    return~7nz (^event~1) a reciprocal group action
+    return~8nz (^key~2) the key on electric typewriters or computer keyboards that causes a carriage return and a line feed
+    return~9nz (^instrument~5) document giving the tax collector information about the taxpayer's tax liability
+    counter~8n 
+    return~11nz (^repeat~1) happening again 
+    return~12nz (^turn~8) the occurrence of a change in direction back in the opposite direction
+    proceeds~1nz (^income~1) the income or profit arising from such transactions as the sale of land or other property
+    return~14vz go back to a previous state
+    return~15vz be restored
+    return~16vz answer back
+    return~17vz submit to someone in authority
+    recall~9vz go back to something earlier
+    deliver~4vz pass down
+    return~20vz make a return
+    give~21vz give or supply
+    return~22vz go or come back to place, condition, or activity where one has been before
+    return~23vz return to a previous position
+    return~24vz bring back to the point of departure
+    fall~29vz be inherited by
+    refund~3vz pay back
+    return~27vz give back
+    return~28vz return in kind
+    return~29vz elect again
+ retreat ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    retreat~1nz (^going~1) the act of withdrawing or going backward
+    retreat~2nz (^going~1) withdrawal for prayer and study and meditation
+    retreat~3nz (^going~1) withdrawal of troops to a more favorable position to escape the enemy's superior forces or after a defeat
+    retreat~4nz (^area~1) an area where you can be alone
+    retreat~5nz (^signal~1) a bugle call signaling the lowering of the flag at sunset
+    retreat~6nz (^signal~1) a signal to begin a withdrawal from a dangerous position
+    retreat~7nz (^country~3) a place of privacy
+    withdraw~4v 
+    retire~5v 
+    retrograde~7vz move back
+    retreat~11vz move away, as for privacy
+ recession ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    recession~1nz (^going~1) the act of becoming more distant
+    recession~2nz (^conclusion~2) the act of ceding back
+    recession~3nz (^event~1) the withdrawal of the clergy and choir from the chancel to the vestry at the end of a church service
+    corner~9n 
+    recession~5nz (^status~1) the state of the economy declines
+ realization ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    realization~1nz (^conclusion~2) something that is made real or concrete
+    realization~2nz (^creation~2) making real or giving the appearance of reality
+    realization~3nz (^composition~2) the completion or enrichment of a piece of music left sparsely notated by a composer
+    realization~4nz (^sale~3) a sale in order to obtain money or the money so obtained
+    recognition~3nz (^understanding~2) coming to understand something clearly and distinctly
+    realization~6nz (^piece~8) a musical composition that has been completed or enriched by someone other than the composer
+ rounding ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    rounding~1nz (^mistake~1) 
+ receipt ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    receipt~1nz (^getting~1) the act of receiving
+    receipt~2nz (^acknowledgment~1) an acknowledgment that payment has been made
+    receipt~3vz mark or stamp as paid
+    receipt~4vz report the receipt of
+ reparation ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    amends~1nz (^atonement~1) something done or paid in expiation of a wrong
+    fix~3n 
+    reparation~3nz (^compensation~2) compensation exacted from a defeated nation by the victors
+    reparation~4nz (^compensation~2) compensation for an insult or injury
+ release ( meanings=22 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    freeing~1nz (^action~1) the act of liberating someone or something
+    release~2nz (^conclusion~2) the act or manner of terminating a musical phrase or tone
+    waiver~1nz (^conclusion~2) a formal written statement of relinquishment
+    sack~1n 
+    spill~2n 
+    vent~1nz (^activity~1) activity that frees or expresses creative energy or emotion
+    release~7nz (^product~1) merchandise issued for sale or public showing 
+    button~4n 
+    release~9nz (^instrument~5) a legal document evidencing the discharge of a debt or obligation
+    release~10nz (^announcement~2) an announcement distributed to members of the press in order to supplement or replace an oral presentation
+    loss~4n 
+    release~12nz (^activity~4) a process that liberates or discharges something
+    release~13vz generate and separate from cells or bodily fluids
+    eject~1vz eliminate 
+    free~13v 
+    publish~1vz prepare and issue for public distribution or sale
+    turn~24v 
+    relinquish~1vz release, as from one's grip
+    free~17v 
+    free~18v 
+    free~20v 
+    free~22v 
+ rocket ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rocket~1nz (^engine~1) a jet engine containing its own propellant and driven by reaction propulsion
+    rocket~2nz (^vehicle~1) any vehicle self-propelled by a rocket engine
+    rocket~3nz (^firework~1) sends a firework display high into the sky
+    rocket~4nz (^signal~1) propels bright light high in the sky, or used to propel a lifesaving line or harpoon
+    rocket~5nz (^plant~1) erect European annual often grown as a salad crop to be harvested when young and tender
+    rocket~6vz propel with a rocket
+    rocket~7vz shoot up abruptly, like a rocket
+ roll ( meanings=33 glosses=31 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    bowl~1nz (^act~1) the act of rolling something
+    roll~2nz (^maneuver~1) a flight maneuver
+    roll~3nz (^gait~1) walking with a swaying gait
+    cast~3nz (^throw~2) the act of throwing dice
+    roll~5nz (^cylinder~3) anything rolled up in cylindrical form
+    roll~6nz (^film~2) photographic film rolled up inside a container to protect it from light
+    roll~7nz (^manuscript~2) a document that can be rolled up
+    roster~1nz (^list~2) a list of names
+    roller~7n 
+    roll~10nz (^sound~5) the sound of a drum beaten rapidly and continuously
+    rolling~3nz (^sound~5) a deep prolonged sound
+    roll~12nz (^revolution~3) rotary motion of an object around its own axis
+    bun~1nz (^bread~1) small rounded bread either plain or sweet
+    roll~14nz (^relation~1) a roll of currency notes 
+    curl~2nz (^shape~1) a round shape formed by a series of concentric circles
+    roll~16vz execute a roll, in tumbling
+    roll~17vz show certain properties when being rolled
+    roll~18vz take the shape of a roll or cylinder
+    roll~19vz shape by rolling
+    seethe~1vz boil vigorously
+    roll~21vz pronounce with a roll, of the phoneme /r/
+    roll~22vz flatten or spread with a roller
+    wrap~5vz arrange or or coil around
+    roll~24vz begin operating or running
+    roll~25vz move by turning over or rotating
+    revolve~1vz cause to move by turning over or in a circular manner of as if on an axis
+    roll~27vz move, rock, or sway from side to side
+    roam~1vz move about aimlessly or without any destination, often in search of food or employment
+    wheel~8v 
+    flap~9vz move in a wavy pattern or with a rising and falling motion
+    roll~31vz emit, produce, or utter with a deep prolonged reverberating sound
+    pluck~8vz sell something to or obtain something from by energetic and especially underhanded activity
+    roll~33vz occur in soft rounded shapes
+ rolling ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    wheeling~1n 
+    rolling~2nz (^stealing~1) the act of robbing a helpless person
+    roll~11n 
+    rolled~2a 
+ rap ( meanings=10 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    belt~1n 
+    blame~1n 
+    rap~3nz (^music~5) genre of African-American music of the 1980s and 1990s in which rhyming lyrics are chanted to a musical accompaniment
+    rap~4nz (^conversation~1) voluble conversation
+    pat~2n 
+    tap~8n 
+    rap~7vz talk volubly
+    rap~8vz strike sharply
+    rap~9vz perform rap music
+    tap~17v 
+ rabbit ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    rabbit~1nz (^mammal~1) any of various burrowing animals of the family Leporidae having long ears and short tails
+    hare~2nz flesh of any of various rabbits or hares eaten as food
+    rabbit~3nz (^fur~3) the fur of a rabbit
+    rabbit~4vz hunt rabbits
+ random ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    random~1az lacking any definite plan or order or purpose
+    random~2az 
+ representative ( meanings=8 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    example~2n 
+    congressman~1n 
+    representative~3nz (^individual~1) a person who represents others
+    voice~9n 
+    representative~5az being or characteristic of government by representation in which citizens exercise power through elected officers and representatives
+    representative~6az standing for something else
+    representative~7az serving to represent or typify
+    representative~8az 
+ recognition ( meanings=8 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    recognition~1nz (^assignment~1) designation by the chair granting a person the right to speak in a deliberative body
+    recognition~2nz (^memory~3) the process of recognizing something or someone by remembering
+    realization~5n 
+    recognition~4nz (^acceptance~4) an acceptance as true and valid
+    credit~5nz (^approval~2) approval
+    recognition~6nz (^word~5) the explicit and formal acknowledgement of a government or of the national independence of a country
+    recognition~7nz (^process~1) the ability of one molecule to attach to another molecule that has a complementary shape
+    acknowledgment~3n 
+ royal ( meanings=9 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE (null) ) 
+    royal~1nz (^stag~1) stag with antlers of 12 or more branches
+    royal~2nz (^sheet~1) a sail set next above the topgallant on a royal mast
+    royal~3az invested with royal power as symbolized by a crown
+    purple~4a 
+    royal~5az being of the rank of a monarch
+    royal~6az of or relating to or indicative of or issued or performed by a king or queen or other monarch
+    royal~7az established or chartered or authorized by royalty
+    royal~8az 
+    royal~9az 
+ run ( meanings=57 glosses=42 NOUN_ABSTRACT VERB_PRESENT VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=ran 
+    run~1nz (^score~2) a score in baseball made by a runner touching all four bases safely
+    running~1nz (^travel~1) the act of running
+    run~3nz (^trip~3) a regular trip
+    run~4nz (^trip~3) a short trip
+    running~3nz (^play~7) a play in which a player attempts to carry the ball through or past the opposing team
+    trial~1n 
+    run~7nz (^property~2) an unbroken chronological sequence
+    run~8nz (^flow~2) the pouring forth of a fluid
+    ladder~2nz (^harm~2) a row of unravelled stitches
+    run~10nz (^race~2) a race run on foot
+    campaign~4nz (^race~3) a race between candidates for elective office
+    run~12nz (^order~12) an unbroken series of events
+    run~13nz (^stream~4) a small stream
+    run~14nz (^measure~1) the production achieved during a continuous period of operation 
+    run~15nz (^liberty~3) unrestricted freedom to use
+    run~16nz (^period~3) the continuous period of time during which something operates or continues in operation
+    run~17vz become undone
+    ladder~4vz come unraveled or undone as if by snagging
+    melt~7v 
+    run~20vz cause to perform
+    move~8v 
+    run~22vz change from one state to another
+    race~7v 
+    campaign~6vz run, stand, or compete for an office or a position
+    hunt~6v 
+    draw~23v 
+    work~14v 
+    run~28vz be operating, running or functioning
+    run~29vz carry out
+    play~37v 
+    carry~21v 
+    run~32vz travel a route regularly
+    run~33vz cover by running
+    run~34vz move fast by using one's feet, with one foot off the ground at any given time
+    run~35vz travel rapidly, by any means
+    run~36vz run with the ball
+    consort~3v 
+    run~38vz sail before the wind
+    bleed~4vz be diffused
+    flow~12v 
+    escape~13v 
+    run~42vz cause an animal to move fast
+    run~43vz move about freely and without restraint, or act as if running around in an uncontrolled way
+    run~44vz deal in illegally, such as arms or liquor
+    run~45vz set animals loose to graze
+    operate~7vz direct or control
+    run~47vz make without a miss
+    run~48vz carry out a process or program, as on a computer or a machine
+    run~49vz occur persistently
+    persist~2vz continue to exist
+    run~51vz extend or continue for a certain period of time
+    extend~15v 
+    lead~31v 
+    lean~11v 
+    run~55vz be affected by
+    go~32vz have a particular form
+    range~16vz change or be different within limits
+ reduction ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    reduction~1nz (^change~1) the act of reducing complexity
+    decrease~1n 
+    reducing~2nz (^reaction~7) any process in which electrons are added to an atom or ion 
+ replacing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    replacing~1nz (^exchange~3) 
+ reaction ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    reaction~1nz (^opposition~1) doing something in opposition to another way of doing it that you don't like
+    response~1n 
+    reaction~3nz (^thought~2) an idea evoked by some experience
+    reaction~4nz (^attitude~3) extreme conservatism in political or social matters
+    reaction~5nz (^response~7) a response that reveals a person's feelings or attitude
+    reaction~6nz (^force~10) the equal and opposite force that is produced when any force is applied to a body
+    reaction~7nz (^activity~4) a process in which one or more substances are changed into others
+ relinquishing ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    relinquishing~1nz (^conclusion~2) 
+    relinquishing~2nz (^act~1) 
+ razing ( meanings=2 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    demolishing~1nz (^destruction~1) 
+    razing~2nz (^destruction~2) 
+ rise ( meanings=27 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) conjugate=risen 
+    ascending~1nz (^motion~1) the act of changing location in an upward direction
+    advance~2nz (^increase~1) increase in price or value
+    rise~3nz (^grade~2) the property possessed by a slope or surface that rises
+    raise~3n 
+    hike~3nz (^increase~2) an increase in cost
+    rise~6nz (^growth~1) a growth in strength or number or importance
+    rise~7nz (^origin~3) the origination of the Holy Spirit at Pentecost
+    lift~10n 
+    rising~2nz (^travel~3) a movement upward
+    raise~4n 
+    turn_out~1v 
+    rise~12vz return from the dead
+    climb~4v 
+    jump~8v 
+    rise~15vz become more extreme
+    climb~6v 
+    rise~17vz exert oneself to meet a challenge
+    rise~18vz become heartened or elated
+    arise~3v 
+    ascend~2v 
+    ascend~3v 
+    prove~7v 
+    arise~4v 
+    surface~10vz come to the surface
+    arise~5v 
+    develop~21v 
+    lift~36v 
+ roasting ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    roasting~1nz (^preparation~1) cooking by dry heat in an oven (usually with fat added)
+    roasting~2az 
+ rinse ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rinse~1nz (^washing~1) washing lightly without soap
+    rinse~2nz (^coloring~1) the act of giving a light tint to the hair
+    rinsing~1nz (^separation~1) the removal of soap with clean water in the final stage of washing
+    rinse~4nz (^dye~1) a liquid preparation used on wet hair to give it a tint
+    rinse~5vz rinse one's mouth and throat with mouthwash
+    wash~14vz clean with some chemical process
+    rinse~7vz wash off soap or remaining dirt
+ redress ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    remedy~1nz (^change~1) act of correcting an error or a fault or an evil
+    amends~2nz (^compensation~2) a sum of money paid in compensation for loss or injury
+    right~37v 
+ remedy ( meanings=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    redress~1n 
+    cure~1n 
+    relieve~2v 
+    repair~5v 
+ reform ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reform~1nz (^change~1) a change for the better as a result of correcting abuses
+    reform~2nz (^change~1) self-improvement in behavior or morals by abandoning some vice
+    reform~3nz (^effort~4) a campaign aimed to correct abuses or malpractices
+    reform~4vz change for the better
+    reform~5vz make changes for improvement in order to remove abuse and injustices
+    reform~6vz improve by alteration or correction of errors or defects and put into a better condition
+    reform~7vz break up the molecules of
+    reform~8vz produce by cracking
+    regenerate~8v 
+ repair ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    reparation~2n 
+    resort~3n 
+    repair~3nz (^status~1) a formal way of referring to the condition of something
+    revive~2vz give new life or energy to
+    amend~1vz set straight or right
+    doctor~5v 
+    resort~5vz move, travel, or proceed toward some place
+    repair~8vz make amends for
+ rack ( meanings=18 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rack~1nz (^gait~2) a rapid gait of a horse in which each foot strikes the ground separately
+    rack~2nz (^torture~1) a form of torture in which pain is inflicted by stretching the body
+    stand~4n 
+    rack~4nz (^structure~1) framework for holding objects
+    wheel~2n 
+    rack~6nz (^destruction~2) the destruction or collapse of something
+    rack~7nz (^cut~17) rib section of a forequarter of veal or pork or especially lamb or mutton
+    rack~8vz torture on the rack
+    rack~9vz seize together, as of parallel ropes of a tackle in order to prevent running through the block
+    rack~10vz work on a rack
+    rack~11vz stretch to the limits
+    torture~7vz torment emotionally or mentally
+    rack~13vz draw off from the lees
+    rack~14vz fly in high wind
+    rack~15vz run before a gale
+    rack~16vz go at a rack
+    squeeze~16v 
+    rack~18vz put on a rack and pinion
+ rising ( meanings=6 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    rebellion~1n 
+    rise~9n 
+    rising~3az newly come into prominence
+    emerging~2a 
+    uphill~2a 
+    rising~6az advancing or becoming higher or greater in degree or value or status
+ riding ( meanings=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    riding~1nz (^travel~2) 
+    riding~2nz (^sport~2) 
+ roping ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    roping~1nz (^labor~1) capturing cattle or horses with a lasso
+ ride ( meanings=16 glosses=14 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=ridden 
+    drive~2n 
+    ride~2nz (^device~2) a mechanical device that you ride for amusement or excitement
+    tantalize~1vz harass with persistent criticism or carping
+    mount~9vz copulate with
+    ride~5vz keep partially engaged by slightly depressing a pedal with the foot
+    ride~6vz move like a floating object
+    ride~7vz ride over, along, or through
+    ride~8vz be carried or travel on or in a vehicle
+    sit~4vz sit and travel on the back of animal, usually while controlling its motions
+    ride~10vz climb up on the body
+    ride~11vz sit on and control a vehicle
+    ride~12vz continue undisturbed and without interference
+    ride~13vz lie moored or anchored
+    ride~14vz be contingent on
+    drive~34v 
+    ride~16vz be sustained or supported or borne
+ round ( meanings=26 glosses=22 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE PARTICLE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT TIMEWORD (null) ) comparative=rounder 
+    round~1nz (^practice~1) the usual activities in your day
+    round~2nz (^golf~1) the activity of playing 18 holes of golf
+    round~3nz (^call~3) a series of professional calls (usually in a set order)
+    circle~2n 
+    round~5nz (^artifact~1) a charge of ammunition for a single shot
+    rung~2nz (^brace~1) a crosspiece between the legs of a chair
+    round~7nz (^approval~2) an outburst of applause
+    troll~3nz (^song~3) a partsong in which voices follow each other
+    round~9nz (^cut~17) a cut of beef between the rump and the lower leg
+    round~10nz (^helping~1) a serving to each of a group 
+    beat~8nz (^path~3) a regular route for a sentry or policeman
+    round~12nz (^course~9) the course along which communications spread
+    turn~11nz (^part~6) a division during which one team is on the offensive
+    cycle~6nz (^interval~4) an interval during which a recurring sequence of events occurs
+    round~15az expressed to the nearest integer, ten, hundred, or thousand
+    rotund~2az full and rich
+    circular~3az having a circular shape
+    round~18az 
+    around~4b 
+    round~20vz become round, plump, or shapely
+    round~21vz make round
+    round~22vz express as a round number
+    polish~4vz bring to a highly developed, finished, or refined state
+    attack~13v 
+    round~25vz pronounce with rounded lips
+    round~26vz wind around
+ rock ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rock~1nz (^pitch~3) pitching dangerously to one side
+    rock~2nz (^music~5) a genre of popular music originating in the 1950s
+    rock~3nz (^candy~1) hard bright-colored stick candy
+    stone~3n 
+    rock~5nz (^individual~1) someone who is strong and stable and dependable
+    stone~6n 
+    shake~12v 
+    rock~8vz cause to move back and forth
+ reach ( meanings=13 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) ) 
+    stretch~1nz (^motion~2) the act of physically reaching or thrusting out
+    orbit~1nz (^property~2) an area in which something acts or operates or has power or control:
+    range~4nz (^ability~2) the limit of capability
+    range~7nz (^limit~3) the limits within which something can be effective
+    contact~10v 
+    strain~14vz to exert much effort or energy
+    reach~7vz move forward or upward in order to touch
+    attain~1vz reach a point in time, or a certain state or level
+    attain~2vz reach a destination, either real or abstract
+    get_to~3vz reach a goal, e.g.,
+    give~32vz place into the hands or custody of
+    achieve~1vz to gain with effort
+    touch~27v 
+ red ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=reddest 
+    red~1nz (^color~3) red color or pigment
+    red~2nz (^individual~1) emotionally charged terms used to refer to extreme radicals or revolutionaries
+    loss~6n 
+    violent~1az characterized by violence or bloodshed
+    ruddy~1a 
+    flushed~1az reddened or suffused with or as if with blood from emotion or exertion
+ right ( meanings=37 glosses=28 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    right~1nz (^turn~4) a turn toward the side of the body that is on the south when the person is facing east
+    right~2nz (^parcel~4) the piece of ground in the outfield on the catcher's right
+    right~3nz (^righteousness~1) anything in accord with principles of justice
+    right~4nz (^construct~1) an abstract idea of that which is due to a person or governmental body by law or tradition or nature
+    right~5nz (^hand~4) the hand that is on the right side of the body
+    right~6nz (^sect~2) those who support political or social or economic conservatism
+    right~7nz (^position~12) location near or direction toward the right side
+    right~8nz (^interest~6) the interest possessed by law or custom in some intangible thing
+    right~9az precisely accurate
+    proper~1a 
+    correct~1a 
+    correct~2a 
+    ripe~4az most suitable or right for a particular purpose
+    right~14az facing or intended to face outward
+    right~15az having the axis perpendicular to the base
+    correct~3a 
+    correct~4a 
+    right~18az intended for the right hand
+    right~19az of or belonging to the political or intellectual right
+    right~20az being or located on or directed toward the side of the body to the east when facing north
+    right~21az in conformance with justice or law or morality
+    right~22az in or into a satisfactory condition
+    right~23az 
+    powerful~7b 
+    flop~5bz exactly
+    right~26bz immediately
+    right~27bz an interjection expressing agreement
+    decent~8bz in the right manner
+    right~29bz in an accurate manner
+    right~30bz precisely, exactly
+    right~31bz completely
+    right~32bz in accordance with moral or social standards
+    right~33bz toward or on the right
+    correct~7v 
+    right~35vz regain an upright or proper position
+    right~36vz put in or restore to an upright position
+    correct~11v 
+ relief ( meanings=11 glosses=10 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    relief~1nz (^decrease~1) the act of reducing something unpleasant 
+    relief~2nz (^release~1) the act of freeing a city or town that has been besieged
+    relief~3nz (^aid~4) aid for the aged or indigent or handicapped
+    relief~4nz (^aid~2) assistance in time of difficulty
+    relief~5nz (^art~2) sculpture consisting of shapes carved on a surface so as to stand out from the surrounding background
+    relief~6nz (^change~5) a change for the better
+    relief~7nz (^comfort~4) the feeling that comes when something burdensome is removed or reduced
+    relief~8nz (^match~7) someone who takes the place of another 
+    relief~9nz (^redress~2) redress awarded by a court
+    relief~10nz (^comfort~6) the condition of being comfortable or relieved 
+    respite~5n 
+ rent ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    rip~1nz (^tear~1) the act of rending or ripping or splitting something
+    split~7n 
+    rent~3nz (^payment~3) a payment or series of payments made by the lessee to an owner for use of some property, facility, equipment, or service
+    rent~4nz (^return~13) the return derived from cultivated land in excess of that derived from the poorest land cultivated under similar conditions
+    charter~3vz engage for service under a term of contract
+    let~6vz grant use or occupation of under a term of contract
+    rent~7vz let for money
+    charter~5vz hold under a lease or rental agreement
+ rip ( meanings=8 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    split~2n 
+    rip~2nz (^process~1) a stretch of turbulent water in a river or the sea caused by one current flowing into or across another current
+    rent~2n 
+    blood~5n 
+    rip~5vz criticize or abuse strongly and violently
+    pull~16v 
+    rip~7vz cut along the grain
+    rip~8vz move precipitously or violently
+ rinsing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rinse~3n 
+ recreation ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    recreation~1nz (^fix~3) activity that refreshes and recreates
+    diversion~2nz (^activity~1) an activity that diverts or amuses or stimulates
+ ribbing ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    teasing~2n 
+    ribbing~2nz (^structure~1) a framework of ribs
+ rowing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    row~1n 
+ row ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rowing~1nz (^sport~2) the act of rowing as a sport
+    course~4n 
+    row~3nz (^property~2) a continuous chronological succession without an interruption
+    quarrel~2nz (^difference~2) an angry dispute
+    row~5nz (^line~22) an arrangement of objects or people side by side in a line
+    row~6nz (^arrangement~6) a linear array of numbers, letters, or symbols side by side
+    row~7nz (^strip~5) a long continuous strip 
+    row~8vz propel with oars
+ racing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    racing~1nz (^sport~2) the sport of engaging in contests of speed
+ real ( meanings=14 glosses=11 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) plural=reales 
+    real~1nz (^coin~1) an old small silver Spanish coin
+    real~2nz (^unit~5) the basic unit of money in Brazil
+    real~3nz (^imaginary~1) any rational or irrational number
+    tangible~1az capable of being treated as fact
+    material~6az having substance or capable of being treated as fact
+    real~6az being or occurring in fact or actuality
+    real~7az no less than what is stated
+    real~8az of, relating to, or representing an amount that is corrected for inflation
+    real~9az coinciding with reality
+    real~10az not to be taken lightly
+    real~11az fixed or immovable
+    actual~5a 
+    real~13az 
+    rattling~4b 
+ raffle ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    raffle~1nz (^drawing~3) a lottery in which the prizes are goods rather than money
+    raffle~2vz dispose of in a lottery
+ rag ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    rag~1nz (^trick~3) a boisterous practical joke
+    tatter~1nz (^material~1) a small piece of cloth or paper
+    sheet~6n 
+    rag~4nz music with a syncopated melody
+    rag~5nz (^week~3) a week at British universities during which side-shows and processions of floats are organized to raise money for charities
+    rag~6vz break into lumps before sorting
+    chide~1vz censure severely or angrily
+    tease~5v 
+    rag~9vz play in ragtime
+    get_to~2vz cause annoyance in
+    frustrate~1vz treat cruelly
+ rodeo ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    rodeo~1nz (^demonstration~1) an exhibition of cowboy skills
+    rodeo~2nz (^pen~3) an enclosure for cattle that have been rounded up
+ ring ( meanings=15 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=rung 
+    band~4n 
+    ring~2nz (^band~1) a rigid circular band of metal or wood or other material used for holding or fastening or hanging or pulling
+    band~7n 
+    ring~4nz (^level~2) a platform usually marked off by ropes in which contestants box or wrestle
+    ring~5nz (^sound~1) a characteristic sound
+    ringing~3nz (^sound~5) the sound of a bell ringing
+    pack~8n 
+    ring~8nz (^chain~7) a chain of atoms in a molecule that forms a closed loop
+    halo~3n 
+    telephone~3v 
+    band~14v 
+    border~7v 
+    ring~13vz sound loudly and sonorously
+    ring~14vz make ring, often for the purposes of musical edification
+    echo~7vz ring or echo with sound
+ rain ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rain~1nz (^property~2) anything happening rapidly or in quick successive
+    rainfall~1n 
+    rainwater~1nz (^water~4) drops of fresh water that fall as precipitation from clouds
+    rain~4vz precipitate as rain
+ rush ( meanings=15 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=rusher 
+    hurry~1n 
+    rushing~2nz (^run~5) an attempt to advance the ball by running into the line
+    rush~3nz (^burst~4) a sudden burst of activity
+    rush~4nz (^flow~2) a sudden forceful flow
+    boot~7n 
+    rush~6nz (^plant~1) grasslike plants growing in wet places and having cylindrical often hollow stems
+    rushed~1az done under pressure
+    rush~8az not accepting reservations
+    hurry~4v 
+    hurry~5v 
+    rush~11vz attack suddenly
+    induce~4vz cause to occur rapidly
+    speed~10v 
+    race~9vz cause to move fast or to rush or race
+    rush~15vz run with the ball, in football
+ rushing ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    rush~1n 
+    rush~2n 
+ roofing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    roofing~1nz (^trade~1) the craft of a roofer
+    roofing~2nz (^material~2) material used to construct a roof
+ research ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    research~1nz (^work~1) systematic investigation to establish facts
+    research~2nz (^thinking~1) a search for knowledge
+    explore~3v 
+    research~4vz attempt to find out in a systematically and scientific manner
+ reciprocal ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    reciprocal~1nz (^cross~1) hybridization involving a pair of crosses that reverse the sexes associated with each genotype
+    reciprocal~2nz (^opposite~4) one of a pair of numbers whose product is 1: the reciprocal of 2/3 is 3/2
+    reciprocal~3nz (^relation~1) something that has a reciprocal relation to something else
+    reciprocal~4az of or relating to the multiplicative inverse of a quantity or function
+    mutual~1az concerning each of two or more persons or things
+ rubbing ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    friction~1n 
+    rubbing~2nz (^creation~3) representation consisting of a copy made by laying paper over something and rubbing it with charcoal
+    friction~2n 
+ role ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    part~1n 
+    role~2nz (^activity~1) normal or customary activity of a person in a particular social setting
+    function~2n 
+    character~4n 
+ reading ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    reading~1nz (^measure~3) the act of measuring with meters or similar instruments
+    reading~2nz (^language~2) the cognitive process of understanding a written linguistic message
+    reading~3nz (^information~2) a datum about some physical state that is presented to a user by a meter or similar instrument
+    version~3nz (^content~2) a mental representation of the meaning or significance of something
+    reading~5nz (^communication~1) written material intended to be read
+    reading~6nz (^explanation~2) a particular interpretation or performance
+    recitation~3nz (^address~7) a public instance of reciting or repeating something prepared in advance
+ racket ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    racket~1nz (^enterprise~1) an illegal enterprise carried on for profit
+    racket~2nz (^artifact~1) a sports implement used to strike a ball (or shuttlecock) in various games
+    noise~3nz (^sound~2) the auditory experience of sound that lacks musical quality
+    racket~4nz (^noise~5) a loud and disturbing noise
+    racket~5vz hit with a racket
+    racket~6vz make loud and annoying noises
+    racket~7vz celebrate noisily, often indulging in drinking
+ rig ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    cheat~2n 
+    carriage~2nz (^container~1) a vehicle with wheels drawn by one or more horses
+    rig~3nz (^gear~2) gear used in fishing
+    outfit~2nz (^dress~2) a set of clothing 
+    rig~5nz (^gear~2) gear for a particular enterprise
+    rigging~1nz (^arrangement~2) formation of masts, spars, sails, etc., on a vessel
+    rig~7nz (^truck~2) a truck consisting of a tractor and trailer together
+    set~27v 
+    rig~9vz connect or secure to
+    rig~10vz manipulate in a fraudulent manner
+    rig~11vz arrange the outcome of by means of deceit
+ risk ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_TAKES_GERUND VERB_DIRECTOBJECT ) 
+    danger~1n 
+    risk~2nz (^chance~2) the probability of being exposed to an infectious agent
+    risk~3nz (^chance~2) the probability of becoming infected given that exposure to an infectious agent has occurred
+    jeopardy~1nz (^danger~4) a source of danger
+    chance~8v 
+    risk~6vz expose to a chance of loss or damage
+ retention ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    holding~1nz (^ownership~1) the act of retaining something
+    retention~2nz (^body~3) the power of retaining liquid
+    memory~2n 
+ rhythm ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    rhythm~1nz (^planning~2) natural family planning in which ovulation is assumed to occur 14 days before the onset of a period
+    rhythm~2nz (^quality~1) recurring at regular intervals
+    rhythm~3nz (^guide~2) the arrangement of spoken words alternating stressed and unstressed elements
+    beat~4n 
+    round~14n 
+ response ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    reaction~2nz (^activity~3) a bodily process occurring due to the effect of some antecedent stimulus or agent
+    response~2nz (^fashion~3) the manner in which an electrical or mechanical device responds to an input signal or a range of input signals
+    response~3nz (^expression~3) a phrase recited or sung by the congregation following a versicle by the priest or minister
+    response~4nz (^acknowledgment~1) the manner in which something is greeted
+    answer~4n 
+    reply~2n 
+    response~7nz (^result~4) a result
+ rooting ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rooting~1nz (^development~8) the process of putting forth roots and beginning to grow
+ rating ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    rating~1nz (^judgment~1) 
+    rating~2nz (^classification~3) 
+    rating~3nz (^standing~3) standing or position on a scale
+    rating~4nz (^rank~5) 
+ regard ( meanings=10 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    gaze~1nz (^stare~1) a long fixed look
+    regard~2nz (^attention~5) paying particular notice 
+    respect~4n 
+    respect~5n 
+    wish~2nz (^acknowledgment~1) a polite expression of desire for someone's welfare
+    respect~6n 
+    respect~7n 
+    view~11v 
+    consider~8vz look at attentively
+    affect~6vz connect closely and often incriminatingly
+ required ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 posdefault:VERB (null) ) 
+    required~1az 
+    requisite~2a 
+    required~3az 
+ recitation ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    drill~2n 
+    recitation~2nz (^session~1) a regularly scheduled session as part of a course of study
+    reading~7n 
+    recitation~4nz (^matter~6) written matter that is recited from memory
+ recording ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    recording~1nz (^creation~2) 
+    recording~2nz (^signal~1) a signal that encodes something that has been recorded
+    recording~3nz (^device~2) a storage device on which information have been recorded
+ ranching ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    ranching~1nz (^farming~2) farming for the raising of livestock
+ rifling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    grooving~1n 
+ ransacking ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    rummage~1n 
+ rummage ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    ransacking~1nz (^search~3) a thorough search for something 
+    rummage~2nz (^jumble~3) a jumble of things to be given away
+    rummage~3vz search haphazardly
+ rail ( meanings=15 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rail~1nz (^bird~1) any of numerous widely distributed small wading birds of the family Rallidae having short wings and very long toes for running on soft mud
+    rail~2nz (^bar~2) a horizontal bar
+    rail~3nz (^railroad~2) short for railway
+    railing~1nz (^barrier~1) a barrier consisting of a horizontal bar and supports
+    track~4n 
+    rail~6vz criticize severely
+    rail~7vz spread negative information about
+    rail~8vz complain bitterly
+    rail~9vz fish with a handline over the rails of a boat
+    rail~10vz lay with rails
+    train~13vz travel by rail or train
+    rail~12vz convey by rails
+    rail~13vz separate with a railing
+    rail~14vz provide with rails
+    rail~15vz enclose with rails
+ railroading ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    railroading~1nz (^technology~1) 
+ rebellion ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    revolt~1nz (^struggle~3) organized opposition to authority
+    rebellion~2nz (^event~1) refusal to accept some authority or code or convention
+ revolt ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rising~1n 
+    disgust~2v 
+    disgust~3v 
+    revolt~4vz make revolution
+ revolution ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    revolution~1nz (^event~1) the overthrow of a government by those who are governed
+    revolution~2nz (^change~5) a drastic and far-reaching change in ways of thinking and behaving
+    revolution~3nz (^turn~8) a single complete turn 
+ ravaging ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    ravaging~1nz (^plundering~1) 
+    ravaging~2az ruinously destructive and wasting
+ radioactive ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    radioactive~1az exhibiting or caused by radioactivity
+    radioactive~2az 
+ rank ( meanings=13 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=ranker 
+    rank~1nz (^force~8) the ordinary members of an organization 
+    rank~2nz (^body~9) the body of members of an organization or group
+    rank~3nz (^line~22) a row or line of people standing abreast of one another
+    rank~4nz (^position~16) position in a social hierarchy
+    rank~5nz (^position~16) relative status
+    rank~6az growing profusely
+    rank~7az complete and without restriction or qualification
+    crying~2a 
+    rank~9az very fertile
+    rank~10az very offensive in smell or taste
+    order~17v 
+    rank~12vz take or have a position relative to others
+    rank~13vz take precedence or surpass others in rank
+ repeating ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    repeating~1nz (^activity~1) 
+ routine ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    routine~1nz (^process~2) an unvarying or habitual method or procedure
+    function~3n 
+    act~3n 
+    routine~4az found in the ordinary course of events
+ rat ( meanings=11 glosses=9 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rat~1nz (^mammal~1) any of various long-tailed rodents similar to but larger than a mouse
+    rat~2nz (^pad~4) a pad worn as part of a woman's coiffure
+    rat~3nz (^source~8) one who reveals confidential information in return for money
+    skunk~4n 
+    rat~5nz (^worker~2) someone who works during a strike
+    grass~5v 
+    rat~7vz catch rats, especially with dogs
+    rat~8vz give the appearance of being fuller by using a rat
+    rat~9vz take the place of work of someone on strike
+    rat~10vz employ scabs or strike breakers in
+    rat~11vz desert one's party or group of friends, for example, for one's personal advantage
+ rut ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    groove~1nz (^routine~1) a settled and monotonous routine that is hard to escape
+    rut~2nz (^channel~8) a groove or furrow
+    heat~7n 
+    groove~4vz hollow out in the form of a furrow or groove
+    rut~5vz be in a state of sexual excitement
+ religious ( meanings=7 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 (null) ) 
+    religious~1nz (^individual~1) a member of a religious order who is bound by vows of poverty and chastity and obedience
+    religious~2az of or relating to clergy bound by monastic vows
+    religious~3az having or showing belief in and reverence for a deity
+    spiritual~4a 
+    religious~5az extremely scrupulous and conscientious
+    religious~6az 
+    religious~7az 
+ revival ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    revival~1nz (^advance~4) bringing again into activity and prominence
+    revival~2nz (^group~1) an evangelistic meeting intended to reawaken interest in religion
+ residence ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    residence~1nz (^act~1) the act of dwelling in a place
+    hall~8n 
+    residence~3nz (^house~2) the official house or establishment of an important person 
+    residence~4nz (^address~8) any address at which you dwell more than temporarily
+ respite ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    recess~1n 
+    respite~2nz (^tolerance~1) the act of reprieving
+    respite~3nz (^break~13) an interruption in the intensity or amount of something
+    respite~4nz (^relief~10) a relief from harm or discomfort
+    rest~7n 
+    respite~6vz postpone the punishment of a convicted criminal, such as an execution
+ recess ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    break~8nz (^pause~1) a pause from doing something 
+    recess~2nz (^area~1) an enclosure that is set back or indented
+    recess~3nz (^water~3) an arm off of a larger body of water
+    recession~4n 
+    recess~5nz (^state~1) a state of abeyance or suspended business
+    adjourn~1vz close at the end of a session
+    recess~7vz make a recess in
+    recess~8vz put into a recess
+ rest ( meanings=18 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rest~1nz (^act~1) freedom from activity 
+    rest~2nz (^support~6) a support on which things can be put
+    rest~3nz (^writing~3) a musical notation indicating a silence of a specified duration
+    balance~8nz (^part~12) something left after other parts have been taken away
+    sleep~1n 
+    rest~6nz (^state~1) a state of inaction
+    relief~11nz (^break~16) a pause for relaxation
+    rest~8vz be at rest
+    remain~1v 
+    breathe~4v 
+    rest~11vz give a rest to
+    pillow~2v 
+    roost~4vz sit, as on a branch
+    rest~14vz not move
+    rest~15vz put something in a resting position, as for support or steadying
+    rest~16vz be inactive, refrain from acting
+    rest~17vz be inherent or innate in
+    lie~8vz have a place in relation to something else
+ rental ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    renting~1nz (^transaction~1) the act of paying for the use of something
+    letting~1nz (^property~5) property that is leased or rented out or let
+    rental~3az of or relating to rent
+    rental~4az available to rent or lease
+ renting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    rental~1n 
+ refund ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    refund~1nz (^payment~1) the act of returning money received previously
+    refund~2nz (^payment~3) money returned to a payer
+    return~26v 
+ raising ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    breeding~3n 
+    nurture~2n 
+    lift~11n 
+    raising~4az increasing in quantity or value
+ responsibility ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    duty~2n 
+    responsibility~2nz (^attribute~1) a form of trustworthiness
+    responsibility~3nz (^field~17) the proper sphere or extent of your activities
+ reasonable ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    fair~13a 
+    sane~1az marked by sound judgment
+    reasonable~3az showing reason or sound judgment
+    reasonable~4az 
+ respect ( meanings=9 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    obedience~1nz (^duty~2) behavior intended to please your parents
+    respect~2nz (^action~1) a courteous expression of esteem or regard
+    respect~3nz (^manner~1) courteous regard for people's feelings
+    regard~3nz (^point~8) a detail or point
+    regard~4nz (^attitude~3) an attitude of admiration or esteem
+    regard~6nz (^heart~7) a feeling of friendship and esteem
+    regard~7nz (^honor~4) the condition of being honored 
+    prize~5vz regard highly
+    observe~7vz show respect towards
+ rubber ( meanings=8 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    rubber~1nz (^covering~4) a waterproof overshoe that protects shoes from water or snow
+    safety~3n 
+    rubber~3nz (^artifact~1) an eraser made of rubber 
+    rubber~4nz (^emission~5) an elastic material obtained from the latex sap of trees that can be vulcanized and finished into a variety of products
+    rubber~5nz (^synthetic~1) any of various synthetic elastic materials whose properties resemble natural rubber
+    rubber~6az returned for lack of funds
+    rubber~7az 
+    rubber~8vz coat or impregnate with rubber
+ readying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    preparation~4n 
+ race ( meanings=10 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    race~1nz (^canal~1) a canal for a current of water
+    race~2nz (^competition~2) a contest of speed
+    race~3nz (^competition~2) any competition
+    race~4nz (^group~1) people who are believed to belong to the same genetic stock
+    race~5nz (^group~1) a taxonomic group that is a division of a species
+    race~6nz (^flow~4) the flow of air that is driven backwards by an aircraft propeller
+    run~23vz compete in a race
+    rush~13v 
+    rush~14v 
+    race~10vz to work as fast as possible towards a goal, sometimes in competition with others
+ rumble ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    rumble~1nz (^fight~3) a fight between rival gangs of adolescents
+    rumble~2nz (^seat~1) a servant's seat in the rear of a carriage
+    rumbling~1nz (^noise~5) a loud low dull continuous noise
+    growl~2v 
+    rumble~5vz make a low noise
+ ruling ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    opinion~1n 
+    regnant~1a 
+    ruling~3az 
+ resort ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    resort~1nz (^aid~2) act of turning to for assistance
+    resort~2nz (^resource~1) something or someone turned to for assistance or security
+    haunt~1n 
+    resort~4nz (^hotel~1) a hotel located in a resort area
+    repair~7v 
+    resort~6vz have recourse to
+ reward ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    reward~1nz (^approval~1) an act performed to strengthen approved behavior
+    advantage~1n 
+    reward~3nz (^offer~2) the offer of money for helping to find a criminal or for returning lost property
+    reward~4nz (^consequence~2) a recompense for worthy acts or retribution for wrongdoing
+    reward~5nz (^payment~3) payment made in return for a service rendered
+    reward~6vz strengthen and support with rewards
+    reward~7vz act or give recompense in recognition of someone's behavior or actions
+    honor~7v 
+ rebuff ( meanings=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    slight~1n 
+    repulse~1n 
+    repel~1v 
+    repulse~2v 
+ radio ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) ) 
+    radio~1nz (^system~1) a communication system based on broadcasting electromagnetic waves
+    radio~2nz (^set~3) an electronic receiver that detects and demodulates and amplifies transmitted signals
+    radio~3nz (^medium~3) medium for communication
+    radio~4az indicating radiation or radioactivity
+    radio~5vz transmit messages via radio waves
+ recall ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    recall~1nz (^repeal~1) the act of removing an official by petition
+    reminiscence~1nz (^memory~3) the process of remembering 
+    recall~3nz (^signal~1) a bugle call that signals troops to return
+    recall~4nz (^call~9) a call to return
+    recall~5nz (^request~2) a request by the manufacturer of a defective product to return the product
+    retrieve~1vz recall knowledge from memory
+    recall~7vz cause one's thoughts or attention to return from a reverie or digression
+    recall~8vz summon to return
+    return~18v 
+    withdraw~9v 
+    recall~11vz make unavailable
+    echo~8vz call to mind
+ ruff ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    ruff~1nz (^play~4) the act of taking a trick with a trump when unable to follow suit
+    ruff~2nz (^bird~1) common Eurasian sandpiper
+    ruff~3nz (^collar~4) a high tight collar
+    ruff~4nz (^piece~11) an external body part consisting of feathers or hair about the neck of a bird or other animal
+    ruff~5vz play a trump
+ reference ( meanings=11 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    reference~1nz (^action~1) the act of referring or consulting
+    extension~9n 
+    reference~3nz (^substance~3) the relation between a word or phrase and the object or idea it refers to
+    address~3n 
+    reference~5nz (^book~4) a book to which you can refer for authoritative facts
+    character~5n 
+    mention~2n 
+    mention~3n 
+    reference~9nz (^signal~1) an indicator that orients you generally
+    source~4n 
+    reference~11vz refer to
+ range ( meanings=17 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    range~1nz (^facility~3) a place for shooting projectiles of various kinds
+    stove~2n 
+    reach~2n 
+    grasp~3n 
+    image~8n 
+    range~6nz (^variety~6) a variety of different things or activities
+    reach~4n 
+    range~8nz (^parcel~4) a large tract of grassy open land on which livestock can graze
+    chain~8n 
+    rank~11v 
+    range~11vz let eat
+    range~12vz lay out orderly or logically in a line or as if in a line
+    graze~5v 
+    cast~18v 
+    range~15vz range or extend over
+    run~57v 
+    range~17vz have a range
+ relative ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    relative~1nz (^being~1) an animal or plant that bears a relationship to another
+    relation~6nz (^individual~1) a person related by blood or marriage
+    relative~3az estimated by comparison
+    relative~4az properly related in size or degree or other measurable characteristics
+    relative~5az 
+ rod ( meanings=6 glosses=4 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN ) 
+    rod~1nz (^being~1) any rod-shaped bacterium
+    rod~2nz (^piece~1) a gangster's pistol
+    rod~3nz (^artifact~1) a long thin implement made of metal or wood
+    rod~4nz (^cell~1) a visual receptor cell that is sensitive to dim light
+    pole~8n 
+    pole~9n 
+ rainbow ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN (null) ) 
+    rainbow~1nz (^promise~1) an illusory hope
+    rainbow~2nz (^bow~9) an arc of colored light in the sky caused by refraction of the sun's rays by rain
+    rainbow~3az 
+ reef ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reef~1nz (^strip~3) one of several strips across a sail that can be taken in or rolled up to lessen the area of the sail that is exposed to the wind
+    reef~2nz (^object~1) a submerged ridge of rock or coral near the surface of the water
+    reef~3vz reduce by taking in a reef
+    reef~4vz roll up in order to reduce its area
+    reef~5vz lower and bring partially inboard
+ ray ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ray~1nz (^fish~1) cartilaginous fishes having horizontally flattened bodies and enlarged winglike pectoral fins with gills on the underside
+    ray~2nz (^process~3) any of the stiff bony spines in the fin of a fish
+    ray~3nz (^syllable~1) the syllable naming the second note of any major scale in solmization
+    beam~6nz (^light~12) a column of light
+    beam~7nz (^energy~5) a group of nearly parallel lines of electromagnetic radiation
+    ray~6nz (^stem~6) a branch of an umbel or an umbelliform inflorescence
+    ray~7nz (^line~29) a straight line extending from a point
+    ray~8vz expose to radiation
+    ray~9vz extend or spread outward from a center or focus or inward towards a center
+    ray~10vz emit as rays
+ robin ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    robin~1nz (^bird~1) large American thrush having a rust-red breast and abdomen
+    robin~2nz (^bird~1) small Old World songbird with a reddish breast
+ raven ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    raven~1nz (^bird~1) large black bird with a straight bill and long wedge-shaped tail
+    raven~2vz feed greedily
+    pig~8v 
+    prey~3vz prey on or hunt for
+    raven~5vz obtain or seize by violence
+ raptor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    raptor~1nz (^bird~1) any of numerous carnivorous birds that hunt and kill other animals
+ ribbed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    ribbed~1az furnished or strengthened with ribs
+    ribbed~2az 
+ reptile ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    reptile~1nz (^animal~1) any cold-blooded vertebrate of the class Reptilia including tortoises, turtles, snakes, lizards, alligators, crocodiles, and extinct forms
+ river ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    river~1nz (^stream~4) a large natural stream of water 
+ rough ( meanings=19 glosses=15 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    rough~1nz (^parcel~4) the part of a golf course bordering the fairway where the grass is not cut short
+    rough~2az ready and able to resort to force or violence
+    gravelly~1az unpleasantly harsh or grating in sound
+    boisterous~1a 
+    rough~5az not shaped by cutting or trimming
+    rough~6az full of hardship or trials
+    approximate~3a 
+    harsh~3az unkind or cruel or uncivil
+    harsh~4az unpleasantly stern
+    rough~10az not perfected
+    rough~11az lacking refinement or finesse
+    rough~12az not carefully or expertly made
+    rough~13az having or caused by an irregular surface
+    bumpy~2a 
+    rough~15az of the margin of a leaf shape
+    rough~16az 
+    rough~17bz with rough motion as over a rough surface
+    rough~18bz with roughness or violence 
+    rough~19vz prepare in preliminary or sketchy form
+ ribbon ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    ribbon~1nz (^notion~1) notion consisting of a narrow strip of fine material used for trimming
+    ribbon~2nz (^strip~3) a long strip of inked material for making characters on paper with a typewriter
+    medallion~1nz (^honor~3) an award for winning a championship or commemorating some other event
+    thread~4nz (^object~1) any long object resembling a thin line
+ ringed ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    ringed~1az wearing a wedding ring
+    ringed~2az having colored rings around the body
+    ringed~3az 
+ rattle ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rattle~1nz (^tail~1) loosely connected horny sections at the end of a rattlesnake's tail
+    rattle~2nz (^toy~1) a baby's toy that makes percussive noises when shaken
+    rattling~1nz (^noise~5) a rapid series of short loud sounds 
+    rattle~4vz shake and cause to make a rattling noise
+    rattle~5vz make short successive sounds
+ rattlesnake ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    rattlesnake~1nz (^viper~1) pit viper with horny segments at the end of the tail that rattle when shaken
+ rust ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    rust~1nz (^fungus~1) any of various fungi causing rust disease in plants
+    rusting~1nz (^erosion~1) the formation of reddish-brown ferric oxides on iron by low-temperature oxidation in the presence of water
+    rust~3nz (^disease~1) a plant disease that produces a reddish-brown discoloration of leaves and stems
+    rust~4nz (^compound~3) a red or brown oxide coating on iron or steel caused by the action of oxygen and moisture
+    rust~5az of the brown color of rust
+    rust~6az 
+    rust~7vz become coated with oxide
+    corrode~1vz become destroyed by water, air, or a corrosive such as an acid
+    corrode~2v 
+ rooster ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    cock~2nz (^chicken~1) adult male chicken
+ resplendent ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    splendid~1az having great beauty and splendor
+ ruddy ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=ruddiest 
+    cherry~5a 
+    florid~1a 
+    ruddy~3az 
+ raccoon ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    raccoon~1nz (^carnivore~2) an omnivorous nocturnal mammal native to North America and Central America
+    raccoon~2nz (^fur~3) the fur of the North American racoon
+ rose ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PAST NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB (null) ) conjugate=rise 
+    rose~1nz (^pink~1) a dusty pink color
+    rose~2nz (^wine~2) pinkish table wine from red grapes whose skins were removed after fermentation began
+    rose~3nz (^bush~4) any of many shrubs of the genus Rosa that bear roses
+    rose~4az of something having a dusty purplish pink color
+ rice ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    rice~1nz (^food~1) grains used as food either unpolished or more often polished
+    rice~2nz (^cereal~3) annual or perennial rhizomatous marsh grasses
+    rice~3vz sieve so that it becomes the consistency of rice
+ railroad ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    railway~1nz (^track~5) a line of track providing a runway for wheels
+    railway~2nz (^line~6) line that is the commercial organization responsible for operating a system of transportation for trains that pull passengers or freight
+    railroad~3vz transport by railroad
+    railroad~4vz supply with railroad lines
+    railroad~5vz compel by coercion, threats, or crude means
+ roof ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    roof~1nz (^protection~5) a protective covering that covers or forms the top of a building
+    roof~2nz (^protection~5) protective covering on top of a motor vehicle
+    cap~7n 
+    roof~4nz (^cover~9) the inner top surface of a covered area or hollow space
+    roof~5vz provide a building with a roof
+ ram ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ram~1nz (^sheep~1) uncastrated adult male sheep
+    ram~2nz (^tool~2) a tool for driving or forcing something by impact
+    force~14v 
+    jam~8v 
+    crash~10v 
+    pound~19v 
+ reindeer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    reindeer~1nz (^deer~1) Arctic deer with large antlers in both sexes
+ runner ( meanings=10 glosses=6 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
+    runner~1nz (^jack~2) 
+    runner~2nz (^device~2) device consisting of the parts on which something can slide along
+    runner~3nz (^rug~1) a long narrow carpet
+    runner~4nz (^athlete~1) 
+    runner~5nz (^athlete~1) 
+    runner~6nz (^messenger~1) a person who is employed to deliver messages or documents
+    runner~7nz (^traveler~1) someone who travels on foot by running
+    runner~8nz (^athlete~1) a trained athlete who competes in foot races
+    runner~9nz (^crook~2) 
+    runner~10nz (^whole~1) a horizontal branch from the base of plant that produces new plants from buds at its tips
+ robot ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    robot~1nz (^device~2) a mechanism that can move automatically
+ rim ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    brim~2n 
+    rim~2nz (^projection~3) a projection used for strength or for attaching to another object
+    rim~3nz (^ring~2) the outer part of a wheel to which the tire is attached
+    rim~4nz (^ring~2) the hoop from which the net is suspended
+    rim~5nz (^shape~1) the shape of a raised edge of a more or less circular object
+    rim~6vz roll around the rim of
+    rim~7vz furnish with a rim
+    rim~8vz run around the rim of
+ railway ( meanings=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    railroad~1n 
+    railroad~2n 
+ rug ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    carpeting~1nz (^covering~4) floor covering consisting of a piece of thick heavy fabric
+ room ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    room~1nz (^area~1) an area within a building enclosed by walls and floor and ceiling
+    room~2nz (^group~1) the people who are present in a room
+    way~11nz (^position~6) space for movement
+    room~4nz (^opportunity~1) opportunity for
+    board~13v 
+ recorder ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    recorder~1nz (^pipe~4) a tubular wind instrument with 8 finger holes and a fipple mouthpiece
+    recorder~2nz (^artifact~1) equipment for making records
+    recorder~3nz (^judge~2) a barrister or solicitor who serves as part-time judge in towns or boroughs
+    recorder~4nz (^official~2) someone responsible for keeping records
+ rayon ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    rayon~1nz (^material~1) a synthetic silklike fabric
+    rayon~2az 
+ record_album ( meanings=2 glosses=2 NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    record_album~1nz (^album~1) an album for holding phonograph records
+    album~2nz (^medium~3) one or more recordings issued together
+ restroom ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    restroom~1nz (^facility~2) a toilet that is available to the public
+ rope ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    circle~4n 
+    rope~2nz (^line~4) a strong line
+    leash~4vz fasten with a rope
+    rope~4vz catch with a lasso
+ railing ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    rail~4n 
+    railing~2nz (^material~2) material for making rails or rails collectively
+ raincoat ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    raincoat~1nz (^coat~2) a water-resistant coat
+ rake ( meanings=9 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    rake~1nz (^tool~2) a long-handled tool with a row of teeth at its head
+    pitch~7n 
+    rip~4n 
+    graze~4vz scrape gently
+    rake~5vz gather with a rake
+    rake~6vz level or smooth with a rake
+    rake~7vz move through with or as if with a rake
+    rake~8vz examine hastily
+    rake~9vz sweep the length of
+ ramp ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    incline~1nz (^machine~3) an inclined surface connecting two levels
+    ramp~2nz (^way~4) a movable staircase that passengers use to board or leave an aircraft
+    ramp~3nz (^plant~1) North American perennial having a slender bulb and whitish flowers
+    ramp~4vz stand with arms or forelegs raised, as if menacing
+    ramp~5vz creep up
+    ramp~6vz be rampant
+    ramp~7vz furnish with a ramp
+    storm~6v 
+ rampant ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    rampant~1az having a lush and unchecked growth
+    rampant~2az unrestrained and violent
+    rampant~3az rearing on left hind leg with forelegs elevated and head usually in profile
+ ranch ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    spread~3n 
+    ranch~2vz manage or run a ranch
+ ranging ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    ranging~1az wandering freely
+ rapid ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    rapid~1nz (^water~3) a part of a river where the current is very fast
+    rapid~2az done or occurring in a brief period of time
+    speedy~2az characterized by speed
+    rapid~4az 
+ receptacle ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    receptacle~1nz (^container~1) a container that is used to put or keep things in
+    receptacle~2nz (^fitting~3) an electrical fitting that is connected to a source of power and equipped to receive an insert
+    receptacle~3nz (^whole~1) enlarged tip of a stem that bears the floral parts
+ refrigerator ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    refrigerator~1nz (^appliance~1) white goods in which food can be stored at low temperatures
+ rein ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rein~1nz (^strap~2) one of a pair of long straps used to control a horse
+    rein~2nz (^control~5) any means of control
+    rule~13v 
+    rein~4vz stop or check by or as if by a pull at the reins
+    rein~5vz stop or slow up one's horse or oneself by or as if by pulling the reins
+    harness~6vz control and direct with or as if by reins
+ replica ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    replica~1nz (^copy~1) copy that is not the original
+ resonating ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    resonating~1az 
+ restaurant ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    restaurant~1nz (^building~3) a building where people go to eat
+ rib ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    rib~1nz (^support~6) support resembling the rib of an animal
+    rib~2nz (^decoration~2) a projecting molding on the underside of a vault or ceiling
+    rib~3nz (^structure~3) a riblike supporting or strengthening part of an animal or plant
+    rib~4nz (^bone~2) any of the 12 pairs of curved arches of bone extending from the spine to or toward the sternum in humans
+    rib~5nz (^comment~2) a teasing remark
+    rib~6nz (^cut~17) cut of meat including one or more ribs
+    guy~4v 
+    rib~8vz form vertical ribs by knitting
+ riddle ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    riddle~1nz (^screen~8) a coarse sieve
+    riddle~2nz (^problem~2) a difficult problem
+    riddle~3vz set a difficult problem or riddle
+    riddle~4vz explain a riddle
+    riddle~5vz speak in riddles
+    diffuse~5vz spread or diffuse through
+    riddle~7vz pierce with many holes
+    screen~12v 
+ rider ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
+    rider~1nz (^article~4) a clause that is appended to a legislative bill
+    passenger~1n 
+    rider~3nz (^traveler~1) a traveler who actively rides an animal
+    rider~4nz (^traveler~1) a traveler who actively rides a vehicle
+ rifle ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    rifle~1nz (^piece~1) a shoulder firearm with a long barrel and a rifled bore
+    go~15v 
+    foray~4v 
+ rigging ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    rig~6n 
+    rigging~2nz (^gear~2) gear consisting of ropes etc. supporting a ship's masts and sails
+ ripping ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    splitting~1a 
+ route ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    road~2n 
+    path~3n 
+    route~3vz divert in a specified direction
+    route~4vz send via a specific route
+    route~5vz send documents or materials to appropriate destinations
+ roaster ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:ADJECTIVE ) comparative=roast 
+    roaster~1nz (^pan~2) a special cooking pan for roasting
+    roaster~2nz (^chicken~3) flesh of a large young chicken over 3 1/2 lb suitable for roasting
+    roaster~3nz (^cook~1) a cook who roasts food
+    roaster~4nz (^critic~1) a harsh or humorous critic 
+ rocking_chair ( meanings=1 glosses=1 NOUN NOUN_SINGULAR GRADE1_2 ) 
+    rocking_chair~1nz (^chair~2) a chair mounted on rockers
+ rolling_pin ( meanings=1 glosses=1 NOUN NOUN_SINGULAR GRADE1_2 ) 
+    rolling_pin~1nz (^utensil~1) utensil consisting of a cylinder with a handle at each end
+ roost ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    roost~1nz (^support~6) a perch on which domestic fowl rest or sleep
+    roost~2nz (^protection~5) a shelter with perches for fowl or other birds
+    roost~3vz settle down or stay, as if on a roost
+    rest~13v 
+ root ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    root~1nz (^structure~3) the part of a tooth that is embedded in the jaw and serves as support
+    stem~5n 
+    root~3nz (^form~11) a simple form inferred as the common basis from which related words in several languages can be derived by linguistic processes
+    solution~4nz (^set~9) the set of values that give a true statement when substituted into an equation
+    beginning~4n 
+    ancestor~1nz (^relative~2) someone from whom you are descended
+    root~7nz (^whole~1) the usually underground organ that lacks buds or leaves or nodes
+    root~8nz (^number~11) a number that, when multiplied by itself some number of times, equals a given number
+    root~9vz take root and begin to grow
+    root~10vz cause to take roots
+    settle~5vz become settled or established and stable in one's residence or life style
+    root~12vz dig with the snout
+    root~13vz plant by the roots
+    root~14vz come into existence, originate
+ rounder ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:ADJECTIVE ) comparative=round 
+    rounder~1nz (^tool~2) a tool for rounding corners or edges
+    rounder~2nz (^individual~1) 
+ rule ( meanings=19 glosses=17 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ruler~1nz (^measure~5) measuring stick consisting of a strip of wood or metal or plastic with a straight edge that is used for drawing straight lines and measuring lengths
+    normal~1nz (^practice~5) something regarded as a normative example
+    rule~3nz (^construct~1) a principle or condition that customarily governs behavior
+    rule~4nz (^process~2) a standard procedure for solving a class of mathematical problems
+    rule~5nz (^law~3) a rule or law concerning a natural phenomenon or the function of a complex system
+    rule~6nz (^thought~2) a basic generalization that is accepted as true and that can be used as a basis for reasoning or conduct
+    rule~7nz (^direction~6) any one of a systematic body of regulations defining the way of life of members of a religious order
+    rule~8nz (^direction~6) prescribed guide for conduct or action
+    rule~9nz (^direction~6) directions that define the way a game or sport is to be conducted
+    rule~10nz (^construct~1) a rule describing (or prescribing) a linguistic practice
+    rule~11nz (^control~11) dominance or power through legal authority
+    rule~12nz (^duration~3) the duration of a monarch's or government's power
+    harness~3vz keep in check
+    rule~14vz decide with authority
+    find~8v 
+    rule~16vz mark or draw with a ruler
+    govern~3v 
+    reign~5vz be larger in number, quantity, power, status or importance
+    rule~19vz have an affinity with
+ ruler ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    rule~1n 
+    ruler~2nz (^individual~1) a person who rules or commands
+ rummer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=rum 
+    rummer~1nz (^glass~2) a large drinking glass for drinking toasts
+ rung ( meanings=2 VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=rang 
+    spoke~1n 
+    round~6n 
+ rigor ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hardness~1n 
+    rigor~2nz (^difficulty~2) something hard to endure
+    rigor~3nz (^quality~1) the quality of being valid and rigorous
+ reserve ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    reserve~1nz (^attribute~1) the trait of being uncommunicative
+    reserve~2nz (^behavior~3) formality and propriety of manner
+    reserve~3nz (^military~1) armed forces that are not on active duty but can be called in an emergency
+    reserve~4nz (^district~1) a district that is reserved for particular purpose
+    reserve~5nz (^athlete~1) an athlete who plays only when a starter on the team is replaced
+    reserve~6nz (^profit~2) something kept back or saved for future use or a special purpose
+    reserve~7nz (^measure~1) potential capacity to respond in order to maintain vital functions
+    appropriate~3v 
+    reserve~9vz obtain or arrange in advance
+    reserve~10vz hold back or set aside, especially for future use or contingency
+    hold~34v 
+ rashness ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 ) 
+    rashness~1nz (^attribute~1) the trait of giving little thought to danger
+    rashness~2nz (^attribute~1) the trait of acting rashly and without prudence
+ reliability ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    reliability~1nz (^responsibility~2) the quality of being dependable or reliable
+ raw ( meanings=14 glosses=12 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    altogether~1nz (^status~1) informal terms for nakedness
+    raw~2az not processed or subjected to analysis
+    peeled~1az completely unclothed
+    raw~4az not treated with heat to prepare it for eating
+    new~4a 
+    raw~6az brutally unfair or harsh
+    raw~7az used of wood and furniture
+    bleak~3az unpleasantly cold and damp
+    raw~9az having the surface exposed and painful
+    raw~10az devoid of elaboration or diminution or concealment
+    sore~3az hurting
+    raw~12az untempered and unrefined
+    natural~12a 
+    raw~14az not processed or refined
+ regular ( meanings=18 glosses=15 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    regular~1nz (^size~1) a garment size for persons of average height and weight
+    regular~2nz (^frequenter~1) a regular patron
+    regular~3nz (^individual~1) a dependable follower 
+    regular~4nz (^soldier~2) a soldier in the regular army
+    regular~5az in accord with regular practice or procedure
+    regular~6az not constipated
+    steady~3az relating to a person who does something regularly
+    regular~8az officially full-time
+    regular~9az not deviating from what is normal
+    regular~10az in accordance with fixed order or procedure or principle
+    regular~11az having clear dimensions that can be measured
+    regular~12az belonging to or engaged in by legitimate army forces
+    regular~13az conforming to a standard or pattern
+    even~6a 
+    regular~15az regularly scheduled for fixed times
+    even~7a 
+    regular~17az often used as intensifiers
+    regular~18az 
+ righteousness ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 ) 
+    righteousness~1nz (^quality~1) adhering to moral principles
+ resolve ( meanings=9 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    resolve~1nz (^attribute~1) the trait of being resolute
+    resolve~2nz (^document~2) a formal expression by a meeting
+    dissolve~7v 
+    answer~6v 
+    settle~9v 
+    purpose~4v 
+    solve~2v 
+    conclude~3v 
+    resolve~9vz make clearly visible
+ reduced ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    decreased~1a 
+    reduced~2az 
+    reduced~3az 
+ ringing ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    ringing~1nz (^quality~3) 
+    ringing~2nz (^engagement~5) the giving of a ring as a token of engagement
+    ring~6n 
+ roundness ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 ) 
+    roundness~1nz (^obesity~1) the bodily property of being well rounded
+    roundness~2nz (^shape~3) the property possessed by a line or surface that is curved and not angular
+    roundness~3nz (^figure~5) the quality of being round numbers
+    roundness~4nz (^tone~8) the fullness of a tone of voice
+ reporting ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    reporting~1nz (^news~5) the news as presented by reporters for newspapers or radio or television
+ rate ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    pace~2nz (^property~2) the relative speed of progress or change
+    rate~2nz (^charge~14) amount of a charge or payment relative to some basis
+    rate~3nz (^quotient~2) a quantity or amount or measure considered as a proportion of another quantity or amount or measure
+    rate~4nz (^relation~1) a magnitude or frequency relative to a time unit
+    grade~12v 
+    value~7v 
+    rate~7vz be worthy of or have a certain rating
+ remove ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    remove~1nz (^distance~1) degree of figurative distance or separation
+    withdraw~1v 
+    absent~6vz go away or leave
+    remove~4vz get rid of something abstract
+    transfer~11vz shift the position or location of, as for business, legal, educational, or military purposes
+    remove~6vz dispose of
+    remove~7vz remove from a position or an office
+    remove~8vz cause to leave
+    slay~1vz kill intentionally and with premeditation
+ resource ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    resource~1nz (^plus~2) a source of aid or support that may be drawn upon when needed
+    resource~2nz (^ability~2) the ability to deal resourcefully with unusual problems
+    resource~3nz (^relation~1) available source of wealth
+ repellent ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    repellent~1nz (^power~2) the power to repel
+    repellent~2nz (^compound~3) a chemical substance that repels animals
+    repellent~3nz (^compound~3) a compound with which fabrics are treated to repel water
+    repellent~4az incapable of absorbing or mixing with
+    disgusting~1a 
+    repellent~6az serving or tending to repel
+    repellent~7az 
+ romance ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    romance~1nz (^quality~1) an exciting and mysterious quality
+    romance~2nz (^novel~2) a novel dealing with idealized events remote from everyday life
+    romance~3nz (^story~2) a story dealing with love
+    romance~4nz (^state~1) a relationship between two lovers
+    romance~5vz tell romantic or exaggerated lies
+    butterfly~3v 
+    romance~7vz have a love affair with
+    court~11v 
+ remains ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    stiff~1n 
+    remains~2nz (^object~1) any object that is left unused or still extant
+ region ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    area~3n 
+    region~2nz (^content~2) a knowledge domain that you are interested in or are communicating about
+    part~9n 
+    region~4nz (^object~1) a large indefinite location on the surface of the Earth
+    neighborhood~4n 
+ releasing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    releasing~1az 
+ rudiment ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    rudiment~1nz (^piece~11) the remains of a body part that was functional at an earlier stage of life
+    alphabet~1n 
+ reason ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) ) 
+    understanding~1nz (^ability~2) the capacity for rational thought or inference or discrimination
+    reason~2nz (^fact~1) a fact that logically justifies some premise or conclusion
+    reason~3nz (^explanation~2) an explanation of the cause of some phenomenon
+    cause~4nz (^explanation~2) a justification for something existing or happening
+    ground~7n 
+    reason~6nz (^status~1) the state of having good sense and sound judgment
+    reason~7vz think logically
+    conclude~1vz decide by reasoning
+    argue~1vz present reasons and arguments
+ retrograde ( meanings=9 glosses=8 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    retrograde~1az of amnesia
+    retrograde~2az moving or directed or tending in a backward direction or contrary to a previous direction
+    retrograde~3az moving from east to west on the celestial sphere
+    retrograde~4az going from better to worse
+    retrograde~5vz get worse or fall back to a previous condition
+    retrograde~6vz go back over
+    retreat~10v 
+    retrograde~8vz move in a direction contrary to the usual one
+    retrograde~9vz move backward in an orbit, of celestial bodies
+ remark ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) (null) ) 
+    remark~1nz (^notice~1) explicit notice
+    comment~2n 
+    mention~4v 
+    comment~6v 
+ roast ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=roaster 
+    knock~2n 
+    roast~2nz (^cut~17) a piece of meat roasted or for roasting and of a size for slicing into more than one portion
+    roasted~1az cooked by dry heat in an oven
+    roast~4vz cook with dry heat, usually in an oven
+    rib~7v 
+ rage ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    furor~2nz (^fashion~4) an interest followed with exaggerated zeal
+    rage~2nz (^anger~2) a feeling of intense anger
+    rage~3nz (^violence~3) violent state of the elements
+    rage~4nz (^anger~3) a state of extreme anger
+    rage~5nz (^desire~3) something that is desired intensely
+    rage~6vz feel intense anger
+    rage~7vz be violent
+    ramp~8v 
+ remembering ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    memory~3n 
+ reminiscence ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    recall~2n 
+    reminiscence~2nz (^memory~4) a mental impression retained and recalled from the past
+ reasoning ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    reasoning~1nz (^thinking~1) 
+    thinking~2a 
+ resolving ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    resolving~1nz (^analysis~3) 
+ reject ( meanings=8 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reject~1nz (^operation~8) the person or thing that is rejected or set aside as inferior in quality
+    eliminate~5v 
+    reject~3vz refuse to accept or acknowledge
+    reject~4vz reject with contempt
+    disapprove~2v 
+    refuse~4v 
+    refuse~5v 
+    refuse~7v 
+ requirement ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    requirement~1nz (^duty~2) something that is required in advance
+    demand~2n 
+    essential~1n 
+ regimen ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    regimen~1nz (^program~2) a systematic plan for therapy (often including diet)
+ religion ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    faith~3n 
+    faith~4n 
+ report ( meanings=13 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) (null) (null) ) 
+    report~1nz (^estimate~3) the general estimation that the public has for a person
+    composition~6n 
+    story~4n 
+    account~7n 
+    study~9n 
+    report~6nz (^information~3) a written evaluation of a student's scholarship and deportment
+    report~7nz (^noise~5) a sharp explosive sound 
+    account~12v 
+    report~9vz make known to the authorities
+    report~10vz complain about
+    report~11vz announce one's presence
+    report~12vz announce as the result of an investigation or experience or finding
+    cover~14v 
+ rural ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    rural~1az living in or characteristic of farming or country life
+    rural~2az of or relating to the countryside as opposed to the city
+    rural~3az 
+ result ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    result~1nz (^family~3) the semantic role of the noun phrase whose referent exists only by virtue of the activity denoted by the verb in the clause
+    solution~3n 
+    termination~3nz (^finish~4) something that results
+    event~2nz (^process~1) a phenomenon that follows and is caused by some previous phenomenon
+    result~5vz come about or follow as a consequence
+    ensue~1vz issue or terminate 
+    leave~14vz have as a result or residue
+ Reverend ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+    Reverend~1nz (^title~3) a title of respect for a clergyman
+ rhyme ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    verse~1n 
+    rhyme~2nz (^form~13) correspondence in the sounds of two or more lines
+    rhyme~3vz compose rhymes
+    rhyme~4vz be similar in sound, especially with respect to the last syllable
+ reader ( meanings=8 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    reader~1nz (^textbook~1) one of a series of texts for students learning to read
+    reader~2nz (^professional~2) a public lecturer at certain universities
+    reader~3nz (^clergyman~1) someone who reads the lessons in a church service
+    reader~4nz (^printer~3) someone who reads proof in order to find errors and mark corrections
+    reader~5nz (^student~1) a person who enjoys reading
+    reader~6nz (^individual~1) a person who can read
+    reader~7nz (^critic~2) someone who reads manuscripts and judges their suitability for publication
+    reader~8nz (^customer~1) someone who contracts to receive and pay for a service or a certain number of issues of a publication
+ ready ( meanings=8 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) comparative=readiest 
+    ready~1az immediately available
+    quick~7a 
+    ready~3az made suitable and available for immediate use
+    ready~4az completely prepared or in condition for immediate action or use or progress
+    ready~5az mentally disposed
+    ready~6az 
+    fix~8v 
+    make~29v 
+ roster ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    roll~8n 
+ request ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    petition~1nz (^message~2) a formal message requesting something that is submitted to an authority
+    asking~1nz (^act~1) the verbal act of requesting
+    quest~3vz express the need or desire for
+    request~4vz ask to do something
+    request~5vz inquire for 
+ read ( meanings=12 glosses=10 VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) conjugate=read 
+    read~1nz (^work~4) something that is read
+    interpret~1vz make sense of a language
+    take~8v 
+    read~4vz to hear and understand
+    take~9vz interpret something in a certain way
+    read~6vz interpret something that is written or printed
+    read~7vz look at, interpret, and say out loud something that is written or printed
+    read~8vz interpret the significance of, as of palms, tea leaves, intestines, the sky
+    read~9vz obtain data from magnetic tapes
+    show~6v 
+    read~11vz audition for a stage role by reading parts of a role
+    say~12vz have or contain a certain wording or form
+ rot ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rot~1nz (^garbage~2) unacceptable behavior
+    rotting~1nz (^decay~3) the process of decay caused by bacterial or fungal action
+    rot~3nz (^decay~5) a state of decay usually accompanied by an offensive odor
+    waste~7v 
+    decompose~2vz break down
+ reply ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    response~5n 
+    response~6nz (^act~1) the speech act of continuing a conversational exchange
+    answer~11v 
+ repartee ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    repartee~1nz (^humor~5) adroitness and cleverness in reply
+ roar ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) ) 
+    roaring~1nz (^shout~1) a very loud utterance 
+    thunder~2n 
+    roar~3nz (^cry~5) the sound made by a lion
+    roar~4vz laugh unrestrainedly and heartily
+    thunder~4vz utter words loudly and forcefully
+    roar~6vz make a loud noise, as of wind, water, or vehicles
+    roar~7vz emit long loud cries
+    roar~8vz make a loud noise, as of animal
+    roar~9vz act or proceed in a riotous, turbulent, or disorderly way
+ roaring ( meanings=4 glosses=1 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    roar~1n 
+    roar~2n 
+    prosperous~4a 
+    roaring~4bz extremely
+ raspberry ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    bird~3nz (^shout~1) a cry or noise made to express displeasure or contempt
+    raspberry~2nz (^berry~1) red or black edible aggregate berries usually smaller than the related blackberries
+    raspberry~3nz (^plant~1) woody brambles bearing usually red but sometimes black or yellow fruits that separate from the receptacle when ripe and are rounder and smaller than blackberries
+ rejoicing ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    rejoicing~1nz (^communication~1) 
+    rejoicing~2nz (^happiness~1) a feeling of great happiness
+    rejoicing~3az 
+ rhyming ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    rhymed~1az having corresponding sounds especially terminal sounds
+ repulse ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    rebuff~2nz (^act~1) an instance of driving away or warding off
+    repel~2v 
+    drive~20v 
+    repel~4v 
+ revealing ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    revealing~1nz (^act~1) 
+    telling~5a 
+    revealing~3az showing or making known
+ ratting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    informing~2n 
+ rumour ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_NOOBJECT ) 
+    rumour~1nz (^comment~3) gossip passed around by word of mouth
+    rumour~2vz tell or spread rumors
+ recurrent ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    perennial~2a 
+ rift ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    severance~2n 
+    rift~2nz (^crack~8) a narrow fissure in rock
+    rift~3nz (^gap~6) a gap between cloud masses
+ ravage ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    ravage~1nz (^destruction~2) a destructive action
+    waste~8v 
+    ravage~3vz make a pillaging or destructive raid on , as in wartimes
+ repeat ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    repeat~1nz (^event~1) an event that repeats
+    repeat~2vz happen or occur again
+    echo~6vz to say again or imitate
+    repeat~4vz to say, state, or perform again
+    repeat~5vz repeat an earlier theme of a composition
+    duplicate~6v 
+    repeat~7vz do over
+ recoil ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    recoil~1nz (^motion~5) a movement back from an impact
+    kick~5n 
+    kick~11v 
+    bounce~6v 
+    quail~3v 
+    recoil~6vz come back to the originator of an action with an undesired effect
+ rattling ( meanings=4 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    rattle~3n 
+    alert~6a 
+    fantastic~2a 
+    very~3b 
+ rumbling ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rumble~3n 
+    rumbling~2az 
+ ricochet ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    ricochet~1nz (^recoil~1) a glancing rebound
+    recoil~4v 
+ regret ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    regret~1nz (^sadness~2) sadness associated with some wrong done or some disappointment
+    regret~2vz express with regret
+    regret~3vz decline formally or politely
+    regret~4vz feel remorse for
+    regret~5vz feel sad about the loss or absence of
+ remorse ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    remorse~1nz (^regret~1) a feeling of deep regret
+ rancor ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 ) 
+    rancor~1nz (^hate~1) a feeling of deep and bitter anger and ill-will
+ reducing ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    reducing~1nz (^loss~8) loss of excess weight 
+    reduction~3n 
+ rolled ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    rolled~1az rolled up and secured
+    rolling~4az uttered with a trill
+    rolled~3az especially of petals or leaves in bud
+ raised ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    raised~1az 
+    elevated~2a 
+    raised~3az located or moved above the surround or above the normal position
+ radish ( meanings=5 glosses=5 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    radish~1nz (^vegetable~1) pungent fleshy edible root
+    radish~2nz (^plant~1) a cruciferous plant of the genus Raphanus having a pungent edible root
+    radish~3nz (^radish~2) Eurasian plant widely cultivated for its edible pungent root usually eaten raw
+    radish~4nz (^root~7) pungent edible root of any of various cultivated radish plants
+    radish~5nz (^radish~2) radish of Japan with a long hard durable root eaten raw or cooked
+ ripe ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    advanced~3az far along in time
+    ripe~2az at the highest point of development especially in judgment or knowledge
+    mature~5az fully developed or matured and ready to be eaten or used
+    good~20a 
+    ripe~5az fully prepared or eager
+    ripe~6az 
+ retreated ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    retreated~1nz (^people~1) people who have retreated
+ royalty ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    royalty~1nz (^house~5) royal persons collectively
+    royalty~2nz (^payment~3) payment to the holder of a patent or copyright or resource for the right to use their property
+ rich ( meanings=14 glosses=11 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    rich~1nz (^people~1) people who have possessions and wealth 
+    ample~1a 
+    deep~5a 
+    fertile~2az marked by great fruitfulness
+    rich~5az pleasantly full and mellow
+    rich~6az very productive
+    rich~7az possessing material wealth
+    rich~8az having an abundant supply of desirable qualities or substances 
+    rich~9az suggestive of or characterized by great expense
+    rich~10az high in mineral content
+    robust~4az marked by richness and fullness of flavor
+    rich~12az of great worth or quality
+    rich~13az containing plenty of fat, or eggs, or sugar
+    rich~14az 
+ revolutionary ( meanings=6 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    revolutionary~1nz (^individual~1) a radical supporter of political or social revolution
+    revolutionary~2az markedly new or introducing radical change
+    revolutionary~3az advocating or engaged in revolution
+    revolutionary~4az relating to or having the nature of a revolution
+    revolutionary~5az of or relating to or characteristic or causing an axial or orbital turn
+    revolutionary~6az 
+ republic ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    democracy~3n 
+    republic~2nz (^group~1) a form of government whose head of state is not a monarch
+ rotten ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    rotten~1az having decayed or disintegrated
+    stinking~2az very bad
+    rotted~1az damaged by decay
+    rotten~4az 
+ refuse ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    garbage~3n 
+    decline~7vz show unwillingness towards
+    deny~5v 
+    decline~11vz refuse to accept
+    reject~7vz refuse entrance or membership
+    resist~5vz elude, especially in a baffling way
+    resist~6vz resist immunologically the introduction of some foreign tissue or organ
+ requisite ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    requirement~3n 
+    needed~1a 
+ rowdy ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=rowdiest 
+    bully~1n 
+    raucous~2az disturbing the public peace
+ ranger ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    ranger~1nz (^man~9) a member of a military unit trained as shock troops for hit-and-run raids
+    ranger~2nz (^firefighter~1) an official who is responsible for managing and protecting an area of forest
+ recluse ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    solitary~1n 
+    withdrawn~2a 
+ resident ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    resident~1nz (^doctor~2) a physician who lives in a hospital and cares for hospitalized patients under the supervision of the medical staff of the hospital
+    resident~2nz (^individual~1) someone who lives at a particular place for a prolonged period or who was born there
+    resident~3az living in a particular place
+    resident~4az used of animals that do not migrate
+    resident~5az 
+ rabbi ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    rabbi~1nz (^leader~2) spiritual leader of a Jewish congregation
+ ranker ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) comparative=rank 
+    ranker~1nz (^soldier~2) an enlisted soldier who serves in the ranks of the armed forces
+    ranker~2nz (^officer~1) a commissioned officer who has been promoted from enlisted status
+ rare ( meanings=7 glosses=6 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    rare~1az not widely distributed
+    rare~2az not widely known
+    rare~3az cooked a short time
+    rare~4az recurring only at long intervals
+    rare~5az marked by an uncommon quality
+    rare~6az having low density
+    rare~7az 
+ researcher ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    researcher~1nz (^scientist~1) a scientist who devotes himself to doing research
+ retired ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    retired~1az no longer active in your work or profession
+    retired~2az 
+ returning ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    returning~1az tending to be turned back
+    returning~2az 
+ ribald ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    ribald~1nz (^individual~1) a ribald person
+    ribald~2az humorously vulgar
+ rival ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    competition~3n 
+    rival~2az 
+    rival~3vz be the rival of, be in competition with
+    equal~6v 
+ roommate ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    roommate~1nz (^friend~3) an associate who shares a room with you
+ rusher ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=rush 
+    rusher~1nz (^individual~1) a person who rushes
+    rusher~2nz (^traveler~1) someone who migrates as part of a rush to a new gold field or a new territory
+    rusher~3nz (^athlete~1) a ball carrier who tries to gain ground by running with the ball
+ rustic ( meanings=5 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    rustic~1nz (^commoner~1) an unsophisticated country person
+    unsophisticated~1a 
+    rustic~3az characteristic of the fields or country
+    rustic~4az characteristic of rural life
+    rustic~5az 
+ repulsive ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    repulsive~1az possessing the ability to repel
+    repulsive~2az so extremely ugly as to be terrifying
+    abhorrent~1az offensive to the mind
+    repulsive~4az 
+ resting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    resting~1az 
+ rainfall ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    rain~2nz (^precipitation~4) water falling in drops from vapor condensed in the atmosphere
+ raindrop ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    raindrop~1nz (^drop~8) a drop of rain
+ rainstorm ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    rainstorm~1nz (^storm~2) a storm with rain
+ ragged ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    ragged~1az having an irregular outline
+    ragged~2az worn out from stress or strain
+    ragged~3az being or dressed in clothes that are worn or torn
+    ragged~4az 
+ riches ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    wealth~3n 
+ recuperation ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    recuperation~1nz (^healing~1) gradual healing after sickness or injury
+ rotting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rot~2n 
+ ripening ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    ripening~1nz (^process~1) 
+    aging~2nz (^process~1) acquiring desirable qualities by being left undisturbed for some time
+    ripening~3az 
+ rusting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rust~2n 
+ recurring ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    recurring~1az coming back
+ rapport ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    rapport~1nz (^relation~1) a relationship of mutual understanding or trust and agreement between people
+ rectangle ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    rectangle~1nz (^figure~13) a parallelogram with four right angles
+ rapture ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    ecstasy~2n 
+    ecstasy~3n 
+ ranking ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    ranking~1nz (^standing~3) position on a scale in relation to others in a sport
+    superior~7a 
+ repute ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    repute~1nz (^honor~4) the state of being held in high esteem and honor
+    repute~2vz look on as or consider
+ reign ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    reign~1nz (^rule~11) royal authority
+    reign~2nz (^age~5) the period during which a monarch is sovereign
+    reign~3nz (^period~3) a period during which something or somebody is dominant or powerful
+    reign~4vz have sovereign power
+    rule~18v 
+ rubble ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    debris~1n 
+ rainwater ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    rain~3n 
+ rainy ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=rainiest 
+    rainy~1az wet by periods of rain
+    rainy~2az 
+ reales ( NOUN NOUN_PLURAL COMMON2 KINDERGARTEN posdefault:NOUN ) plural=real 
+ rain_coat ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER KINDERGARTEN ) 
+    rain_coat~1nz 
+ roast-beef ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER KINDERGARTEN ) 
+    roast-beef~1nz 
+ rootbeer ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER KINDERGARTEN ) 
+    rootbeer~1nz 
+ rah ( INTERJECTION ) 
+ Rev ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+ recently ( meanings=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    lately~1b 
+ rapacious ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    ravening~1az devouring or craving food in great quantities
+    ravening~2az excessively greedy and grasping
+    ravening~3az living by preying on other animals especially by catching living prey
+ ravening ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    rapacious~1a 
+    rapacious~2a 
+    rapacious~3a 
+ recognized ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    accepted~1az generally approved or compelling recognition
+    recognized~2az provided with a secure reputation
+    recognized~3az 
+ reconciling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    reconciling~1az 
+ ruffled ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB (null) ) 
+    ruffled~1az having decorative ruffles or frills
+    ruffled~2az shaken into waves or undulations as by wind
+ revived ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    revived~1az 
+    revived~2az restored to consciousness or life or vigor
+ retiring ( meanings=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    retiring~1az 
+    preceding~2a 
+    retiring~3az 
+    retiring~4az 
+ retracted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    retracted~1az drawn back and in
+ remedial ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    remedial~1az tending or intended to rectify or improve
+    healing~2az tending to cure or restore to health
+ raucous ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    strident~1a 
+    rowdy~2a 
+ raging ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    furious~2a 
+    raging~2az very severe
+    hot~19a 
+    raging~4az 
+ responsible ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    responsible~1az being the agent or cause
+    responsible~2az worthy of or requiring responsibility or trust
+    responsible~3az having an acceptable credit rating
+ restrained ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    guarded~1az prudent
+    restrained~2az 
+    quiet~8a 
+    restrained~4az under restraint
+    moderate~4a 
+ removed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    distant~2a 
+    removed~2az separated in relationship by a given degree of descent
+ reported ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    reported~1az made known or told about
+ realized ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    completed~1a 
+ rudimentary ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    rudimentary~1az being in the earliest stages of development
+    rudimentary~2az not fully developed in mature animals
+    fundamental~4a 
+ rattled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    flustered~1a 
+ recessed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    recessed~1az resembling an alcove
+    recessed~2az having a sunken area
+ reconciled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    reconciled~1az made compatible or consistent
+ repeated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    recurrent~1a 
+ received ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    received~1az widely accepted as true or worthy
+    standard~11a 
+ roasted ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    roast~3a 
+    roasted~2az 
+ rude ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    rude~1az socially incorrect in behavior
+    rude~2az lacking civility or good manners
+    primitive~6az belonging to an early stage of technical development
+    rude~4az lacking in refinement or grace
+    raw~13a 
+    rude~6az 
+ riddled ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    riddled~1az damaged throughout by numerous perforations or holes
+    riddled~2az spread throughout
+ reliable ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    dependable~1a 
+    reliable~2az conforming to fact and therefore worthy of belief
+    true~12a 
+    reliable~4az 
+ razed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    dismantled~1a 
+ ravaged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    despoiled~1a 
+ ruined ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ) 
+    finished~1a 
+    destroyed~2az destroyed physically or morally
+    undone~4a 
+ referenced ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    referenced~1az supported with written references or citations
+ reluctant ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    reluctant~1az not eager
+    reluctant~2az disinclined to become involved
+    reluctant~3az unwillingness to do something contrary to your custom
+    reluctant~4az 
+ remaining ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    odd~4a 
+    remaining~2az 
+ rotund ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    rotund~1az excessively fat
+    round~16a 
+    rotund~3az spherical in shape
+ rigid ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    stiff~4a 
+    rigid~2az designating an airship or dirigible having a form maintained by a stiff unyielding frame or structure
+    inflexible~4a 
+    fixed~4a 
+    rigid~5az incapable of compromise or flexibility
+ rancid ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    sour~4a 
+    rancid~2az having a rank smell or taste usually due to a chemical change or decomposition
+    rancid~3az 
+ replete ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    replete~1az deeply filled or permeated
+    full~8a 
+    fill~7v 
+ ransacked ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    plundered~1a 
+ rigged ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    rigged~1az fitted or equipped with necessary rigging
+ ranked ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    graded~1a 
+ recumbent ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    recumbent~1az lying down
+ rushed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    rush~7a 
+ relieved ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    protruding~1a 
+    alleviated~1a 
+    relieved~3az 
+ reviving ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    reviving~1az 
+ recorded ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    recorded~1az set down or registered in a permanent form especially on film or tape for reproduction
+    recorded~2az having the owner's name entered in a register
+ recovered ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    recovered~1az found after being lost
+    healed~1az freed from illness or injury
+ rescued ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    rescued~1az 
+ rejected ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    rejected~1az rebuffed without warning
+ ripened ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    aged~3az of wines, fruit, cheeses
+ rooted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:VERB ) 
+    frozen~7a 
+ relinquished ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    relinquished~1az that has been withdrawn or retreated from
+ repelling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wicked~2a 
+ revolting ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    repelling~1a 
+    revolting~2az 
+ recent ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    recent~1az new
+    late~6a 
+    recent~3az 
+ remarkable ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    remarkable~1az unusual or striking
+    remarkable~2az worthy of notice
+    remarkable~3az 
+ roofed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    roofed~1az covered with a roof
+ racking ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wrenching~1a 
+ represented ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    represented~1az represented accurately or precisely
+ rabid ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    rabid~1az marked by excessive enthusiasm for and intense devotion to a cause or idea
+    rabid~2az of or infected by rabies
+    rabid~3az 
+ rueful ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    rueful~1az feeling or expressing pain or sorrow for sins or offenses
+ regnant ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN ADJECTIVE_POSTPOSITIVE ) 
+    reigning~1az exercising power or authority
+ reigning ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    ruling~2a 
+ relaxing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    relaxing~1az 
+ robust ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    robust~1az rough and crude
+    robust~2az sturdy and strong in form, constitution, or construction
+    robust~3az strong enough to withstand or overcome intellectual challenges or adversity
+    rich~11a 
+    robust~5az 
+ regenerate ( meanings=10 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    regenerate~1az reformed spiritually or morally
+    regenerate~2vz restore strength
+    regenerate~3vz undergo regeneration
+    regenerate~4vz form or produce anew
+    regenerate~5vz be formed or shaped anew
+    regenerate~6vz replace through the formation of new tissue
+    restore~1vz return to life
+    reform~9vz bring, lead, or force to abandon a wrong or evil course of life, conduct, and adopt a right one
+    regenerate~9vz amplify by causing part of the power in the output circuit to act upon the input circuit
+    regenerate~10vz reestablish on a new, usually improved, basis or make new or like new
+ reformed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    reformed~1az caused to abandon an evil manner of living and follow a good one
+ repetitious ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    repetitious~1az characterized by repetition
+ requested ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    requested~1az asked for
+ rhymed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    rhyming~1a 
+ related ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 posdefault:VERB ) 
+    related~1az connected by kinship, common origin, or marriage
+    related~2az 
+ relevant ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    relevant~1az having a bearing on or connection with the subject at issue
+    relevant~2az 
+ respected ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    respected~1az 
+    respected~2az 
+ reserved ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 posdefault:VERB (null) ) 
+    reserved~1az marked by self-restraint and reticence
+    reserved~2az set aside for the use of a particular person or party
+    reserved~3az 
+ resolved ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    resolved~1az 
+    solved~1az explained or answered
+ responsive ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    responsive~1az readily reacting or replying to people or events or stimuli
+    responsive~2az reacting to a stimulus
+    responsive~3az containing or using responses
+    responsive~4az 
+ resuscitated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    resuscitated~1az restored to life or consciousness
+ rewarding ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    rewarding~1az providing personal satisfaction
+ rimmed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    rimmed~1az having a rim or a rim of a specified kind
+ rounded ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    rounded~1az curving and somewhat round in shape rather than jagged
+    rounded~2az 
+ rusted ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    rusted~1az having accumulated rust
+    rusted~2az 
+ rutted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    rutted~1az full of ruts
+ rifled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    rifled~1az of a firearm
+ rotted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB (null) ) 
+    decayed~1a 
+ ruled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    ruled~1az subject to a ruling authority
+ relaxed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    relaxed~1az without strain or anxiety
+    relaxed~2az 
+ rested ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    rested~1az not tired
+ rotated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    revolved~1a 
+ revolved ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    rotated~1az turned in a circle around an axis
+ raining ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    raining~1az falling in drops or as if falling like rain
+ risen ( meanings=1 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=rose 
+    risen~1az above the horizon
+ reasoned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    sound~17a 
+ recovering ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    recovering~1az 
+ regenerating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    regenerating~1az that are generating anew
+ rarely ( meanings=2 glosses=1 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADVERB (null) ) 
+    rarely~1az 
+    seldom~1bz not often
+ regenerated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    regenerated~1az 
+ resigned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    resigned~1az 
+ restored ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    restored~1az 
+ restoring ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    restoring~1az 
+ rainier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=rainy 
+ rainiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=rainier 
+ readier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=ready 
+ readiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=readier 
+ redder ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=red 
+ reddest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=redder 
+ rowdier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=rowdy 
+ rowdiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=rowdier 
+ ruddier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=ruddy 
+ ruddiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=ruddier 
+ relax ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    relax~1vz cause to feel relaxed
+    relax~2vz become less tense, rest, or take one's ease
+    loose~15v 
+    relax~4vz make less taut
+    relax~5vz make less active or fast
+    relax~6vz become less severe or strict
+    relax~7vz make less severe or strict
+    relax~8vz become less tense, less formal, or less restrained, and assume a friendlier manner
+ rather ( meanings=5 glosses=3 ADVERB PREDETERMINER COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    rather~1bz to some extent
+    quite~2bz to a degree 
+    instead~2b 
+    sooner~1bz more readily or willingly
+    rather~5z 
+ really ( meanings=4 glosses=3 ADVERB EXTENT_ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    real~14bz used as intensifiers
+    truly~1bz in accordance with truth or fact or reality
+    truly~2bz in fact 
+    actually~2b 
+ rather_than ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    rather_than~1z 
+    rather_than~2z 
+ regarding ( meanings=1 PREPOSITION COMMON4 COMMON1 posdefault:PREPOSITION ) 
+    regarding~1z 
+ respecting ( meanings=1 PREPOSITION COMMON4 posdefault:VERB ) 
+    respecting~1z 
+ respire ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    breathe~1v 
+    respire~2vz undergo the biomedical and metabolic processes of respiration by taking up oxygen and producing carbon monoxide
+    respire~3vz breathe easily again, as after exertion or anxiety
+ retire ( meanings=11 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    bed~9vz prepare for sleep
+    retire~2vz cause to get out
+    retire~3vz cause to be out on a fielding play
+    withdraw~6v 
+    withdraw~7v 
+    retire~6vz dispose of 
+    retire~7vz go into retirement
+    withdraw~10v 
+    retire~9vz make retire
+    withdraw~12v 
+    retire~11vz withdraw from circulation or from the market, as of bills, shares, and bonds
+ revive ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    resuscitate~1v 
+    repair~4v 
+    resuscitate~2v 
+    revive~4vz restore from a depressed, inactive, or unused state
+    revive~5vz be brought back to life, consciousness, or strength
+ resuscitate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    revive~1vz return to consciousness
+    revive~3vz cause to regain consciousness
+ reduce ( meanings=20 glosses=16 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    thin~11v 
+    cut~34v 
+    reduce~3vz narrow or limit
+    concentrate~4vz cook until very little liquid is left
+    concentrate~5vz be cooked until very little liquid is left
+    reduce~6vz be the essential element
+    reduce~7vz to remove oxygen from a compound, or cause to react with hydrogen or form a hydride, or to undergo an increase in the number of electrons
+    reduce~8vz make smaller
+    reduce~9vz reduce in size
+    reduce~10vz make less complex
+    contract~6v 
+    trim~10v 
+    reduce~13vz destress and thus weaken a sound when pronouncing it
+    reduce~14vz reposition back to its normal site
+    reduce~15vz undergo meiosis
+    reduce~16vz lower in grade or rank or force somebody into an undignified situation
+    reduce~17vz simplify the form of a mathematical equation of expression by substituting one term for another
+    reduce~18vz lessen and make more modest
+    reduce~19vz bring to humbler or weaker state or condition
+    subjugate~1vz put down by force or intimidation
+ relieve ( meanings=11 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    alleviate~1v 
+    remedy~3vz provide relief for
+    relieve~3vz alleviate or remove or make less oppressive
+    excuse~6v 
+    relieve~5vz relieve oneself of troubling information
+    still~19v 
+    relieve~7vz take by stealing
+    relieve~8vz free from a burden, evil, or distress
+    relieve~9vz free someone temporarily from his or her obligations
+    save~11v 
+    free~23v 
+ recover ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    recover~1vz get over an illness or shock
+    recover~2vz regain a former condition after a financial loss
+    recover~3vz cover anew
+    recover~4vz reuse
+    retrieve~4vz get or find back
+    recover~6vz regain or make up for
+ receive ( meanings=13 glosses=9 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    receive~1vz convert into sounds or pictures
+    incur~1vz receive a specified treatment 
+    receive~3vz regard favorably or with disapproval
+    receive~4vz accept as true or valid
+    welcome~5v 
+    receive~6vz partake of the Holy Eucharist sacrament
+    invite~5vz express willingness to have in one's home or environs
+    pick_up~11v 
+    get~29v 
+    get~30vz receive as a retribution or punishment
+    have~13v 
+    receive~12vz have or give a reception
+    encounter~9vz experience as a reaction
+ remain ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_ADJECTIVE VERB_NOOBJECT ) 
+    stay~6vz stay the same
+    remain~2vz be left
+    continue~8v 
+    persist~3vz stay behind
+ replace ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    replace~1vz substitute a person or thing for 
+    replace~2vz put something back where it belongs
+    exchange~16vz put in the place of another
+    supplant~1vz take the place or move into the position of
+ restore ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    regenerate~7v 
+    fix~7v 
+    restore~3vz give or bring back
+    restore~4vz bring back into original existence, use, function, or position
+    restore~5vz return to its original or usable and functioning condition
+ restrain ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    bound~14v 
+    constrain~2v 
+    hold~23v 
+    restrain~4vz to compel or deter by or as if by threats
+    keep~16v 
+ rotate ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rotate~1vz plant or grow in a fixed cyclic order of succession
+    rotate~2vz perform a job or duty on a rotating basis
+    revolve~3vz turn on or around an axis or a center
+    turn_out~7v 
+    rotate~5vz cause to turn on an axis or center
+    rotate~6vz exchange on a regular basis
+ ripen ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ripen~1vz grow ripe
+    mature~9vz cause to ripen or develop fully
+ represent ( meanings=15 glosses=15 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    map~3vz to establish a mapping
+    present~6vz bring forward and present to the mind
+    represent~3vz point out or draw attention to in protest or remonstrance
+    typify~1vz express indirectly by an image, form, or model
+    represent~5vz describe or present, usually with respect to a particular quality
+    represent~6vz serve as a means of expressing something
+    interpret~5vz create an image or likeness of
+    stage~10vz perform , especially on a stage
+    act~9vz play a role or part
+    represent~10vz be a delegate or spokesperson for
+    represent~11vz be representative or typical for
+    defend~7vz be the defense counsel for someone in a trial
+    be~7vz form or compose
+    represent~14vz take the place of or be parallel or equivalent to
+    represent~15vz be characteristic of
+ reappear ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    reappear~1vz appear again
+ replenish ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    replenish~1vz fill something that had previously been emptied
+ reconcile ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reconcile~1vz bring into consonance or accord
+    reconcile~2vz make compatible with (another)
+    resign~1vz accept as inevitable
+    settle~12v 
+ recommend ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    recommend~1vz make attractive or acceptable
+    urge~5vz push for something
+    recommend~3vz express a good opinion of
+ realize ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    see~2vz perceive mentally
+    recognize~3v 
+    substantiate~3vz make real or concrete
+    realize~4vz expand or complete by supplying the harmonies indicated in the figured bass
+    realize~5vz convert into cash
+    earn~1vz earn on some commercial or business transaction
+ resonate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    resonate~1vz be received or understood
+    vibrate~4v 
+ recognize ( meanings=9 glosses=9 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    know~2vz accept to be what is claimed or accept his power and authority
+    recognize~2vz perceive to be the same
+    realize~2vz be fully aware or cognizant of
+    recognize~4vz express obligation, thanks, or gratitude for
+    greet~3vz express greetings upon meeting someone
+    spot~20vz detect with the senses
+    recognize~7vz grant credentials to
+    recognize~8vz show approval or appreciation of
+    recognize~9vz exhibit recognition for
+ remember ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    think~3v 
+    remember~2vz keep in mind for attention or consideration
+    remember~3vz recapture the past
+    remember~4vz call to remembrance
+    remember~5vz exercise, or have the power of, memory
+    remember~6vz mention as by way of greeting or to indicate friendship
+    remember~7vz mention favorably, as in prayer
+    remember~8vz show appreciation to
+ retrieve ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    remember~1v 
+    retrieve~2vz run after, pick up, and bring to the master
+    retrieve~3vz go for and bring back
+    find~16v 
+ remind ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) 
+    remind~1vz put in the mind of someone
+    cue~5v 
+ retrace ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    construct~2vz reassemble mentally
+    trace~13vz to go back over again
+ refer ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    refer~1vz think of, regard, or classify under a subsuming principle or with a general group or in relation to another
+    refer~2vz seek information from
+    refer~3vz have as a meaning
+    name~9v 
+    refer~5vz use a name to designate
+    refer~6vz send or direct for treatment, information, or a decision
+    touch~26v 
+ repudiate ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    repudiate~1vz refuse to acknowledge, ratify, or recognize as valid
+    renounce~1vz cast off
+    repudiate~3vz reject as untrue, unfounded, or unjust
+    repudiate~4vz refuse to recognize or pay
+ rely ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    trust~7v 
+ relate ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    associate~7v 
+    relate~2vz give an account of
+    relate~3vz have or establish a relationship to
+    refer~7v 
+    relate~5vz be in a relationship with
+ respond ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    respond~1vz show a response or a reaction to something
+    respond~2vz respond favorably or as hoped
+    reply~3v 
+ resign ( meanings=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reconcile~3v 
+    release~20v 
+    renounce~3v 
+    quit~4v 
+ require ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    command~8vz make someone do something
+    expect~6vz consider obligatory
+    want~6v 
+    ask~7v 
+ renounce ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    repudiate~2v 
+    quit~3v 
+    resign~3vz leave voluntarily
+    abdicate~1vz give up, such as power, as of monarchs and emperors, or duties and obligations
+ repel ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    rebuff~3vz reject outright and bluntly
+    rebuff~4vz force or drive back
+    repulse~3v 
+    repulse~4vz be repellent to
+    revolt~3vz fill with distaste
+ recant ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    retract~1v 
+ retract ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    recant~1vz formally reject or disavow a formerly held belief, usually under pressure
+    retract~2vz pull inward or towards a center
+    retract~3vz use a surgical instrument to hold open
+    retract~4vz pull away from a source of disgust or fear
+ rescind ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    repeal~2v 
+ rejoice ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    triumph~3v 
+    joy~4v 
+    triumph~6v 
+ reveal ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    break~40v 
+    reveal~2vz make visible
+    reveal~3vz disclose directly or through prophets
+ recite ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    recite~1vz repeat aloud from memory
+    itemize~1vz specify individually
+    tell~5v 
+    recite~4vz recite in elocution
+    recite~5vz render verbally,
+ resist ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    resist~1vz withstand the force of something
+    resist~2vz stand up or offer resistance to somebody or something
+    protest~6v 
+    resist~4vz refuse to comply
+    defy~3v 
+    reject~8v 
+ retaliate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    retaliate~1vz make a counterattack and return like for like, especially evil for evil
+    avenge~1vz take revenge for a perceived wrong
+ ransack ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    comb~7v 
+    plunder~3v 
+ relinquish ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    release~18v 
+    renounce~2v 
+    resign~2v 
+    relinquish~4vz do without or cease to hold or adhere to
+ recline ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    recline~1vz lean in a comfortable resting position
+    recline~2vz cause to recline
+    recline~3vz move the upper body backwards and down
+ raze ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    dismantle~3v 
+ rankle ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    rankle~1vz gnaw into
+ revolve ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    roll~26v 
+    orbit~6vz move in an orbit
+    rotate~3v 
+ roam ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    wander~2v 
+ rob ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    fleece~7v 
+    rob~2vz take something away by force or without the consent of the owner
+ rid ( meanings=1 VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) conjugate=rid 
+    free~19v 
+ rehabilitate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    rehabilitate~1vz help to readapt, as to a former state of health or good repute
+    rehabilitate~2vz restore to a state of good condition or operation
+    rehabilitate~3vz reinstall politically
+ resemble ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT ) 
+    resemble~1vz appear like
+ rode ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=ride 
+ ridden ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=rode 
+ rang ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=ring 
+ ran ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=run 
+ Rev. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Rep. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Radm. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Revd. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Rm. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Rd. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Rep ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Radm ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Rm ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Rd ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Representative ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

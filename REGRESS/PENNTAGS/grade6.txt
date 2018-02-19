@@ -1,0 +1,31 @@
+Have/VBP you/PRP ever/RB walked/VBN through/IN a/DT cloud/NN of/IN gnats/NNS on/IN a/DT hot/JJ summer/NN ,/, only/RB to/TO have/VB them/PRP follow/VB you/PRP ?/. 
+No/DT matter/NN how/WRB you/PRP swat/VBP at/IN them/PRP ,/, or/CC even/RB if/IN you/PRP run/VBP ,/, they/PRP wo/MD n't/RB leave/VB you/PRP alone/RB ./. 
+If/IN so/JJ ,/, then/RB you/PRP have/VBP something/NN in/IN common/NN with/IN an/DT atom/NN ./. 
+Atoms/NNS are/VBP the/DT building/NN blocks/NNS of/IN molecules/NNS ,/, which/WDT when/WRB combined/VBN ,/, make/VB up/RP everything/NN ./. 
+From/IN the/DT smallest/RBS one-celled/JJ amoeba/NN ,/, to/TO every/DT person/NN who/WP has/VBZ ever/RB lived/VBN ,/, to/TO the/DT largest/JJS and/CC brightest/JJS stars/VBZ in/IN the/DT sky/NN ,/, atoms/NNS are/VBP everywhere/RB ./. 
+Even/RB way/RB back/RB in/IN the/DT time/NN of/IN ancient/JJ Greece/NNP ,/, they/PRP wondered/VBD about/IN atoms/NNS ./. 
+That/DT 's/VBZ where/WRB the/DT word/NN comes/VBZ from/IN ,/, ancient/JJ Greece/NNP ./. 
+The/DT word/NN AÆtomos/NNP ,/, when/WRB translated/VBN into/IN English/NNP ,/, means/VBZ :/: something/NN that/WDT can/MD not/RB be/VB divided/VBN any/RB further/RBR ./. 
+So/CC what/WP 's/VBZ an/DT atom/NN look/NN like/IN ?/. 
+Up/RB until/IN very/RB recently/RB no/DT one/NN could/MD say/VB one/CD way/NN or/CC another/PRP ./. 
+Technically/RB we/PRP ca/MD n't/RB see/VB individual/JJ atoms/NNS ,/, since/IN there/EX are/VBP no/DT microscopes/NNS powerful/JJ enough/RB ./. 
+Since/IN technology/NN improves/VBZ all/PDT the/DT time/NN ,/, it/PRP may/MD not/RB be/VB long/JJ before/IN we/PRP can/MD actually/RB see/VB a/DT whole/JJ atom/NN through/IN a/DT special/JJ microscope/NN ./. 
+Even/RB though/IN scientists/NNS can/MD not/RB see/VB atoms/NNS with/IN microscopes/NNS ,/, they/PRP have/VBP developed/VBN ways/NNS to/TO detect/VB them/PRP and/CC learn/VB about/IN them/PRP ./. 
+Atoms/NNS are/VBP made/VBN up/RP of/IN three/CD basic/JJ parts/NNS ;/: protons/NNS ,/, neutrons/NNS ,/, and/CC electrons/NNS ./. 
+There/EX is/VBZ a/DT core/NN ,/, or/CC nucleus/NN ,/, and/CC an/DT electron/NN cloud/NN ./. 
+The/DT nucleus/NN is/VBZ made/VBN up/RP of/IN positively/RB charged/VBN protons/NNS and/CC neutral/JJ neutrons/NNS ./. 
+The/DT nucleus/NN is/VBZ held/VBN closely/RB together/RB by/IN electromagnetic/JJ force/NN ./. 
+Protons/NNS and/CC neutrons/NNS make/VBP up/RP the/DT nucleus/NN of/IN the/DT atom/NN ./. 
+A/DT cloud/NN of/IN electrons/NNS orbits/VBZ the/DT nucleus/NN ./. 
+The/DT negatively/RB charged/VBN electrons/NNS are/VBP bound/VBN to/TO the/DT nucleus/NN ,/, and/CC zap/NN around/IN it/PRP in/IN a/DT cloud/NN ./. 
+Do/VBP you/PRP remember/VB the/DT cloud/NN of/IN gnats/NNS ?/. 
+The/DT gnats/NNS would/MD be/VB the/DT electrons/NNS zipping/VBG around/IN you/PRP ,/, the/DT nucleus/NN ./. 
+There/EX are/VBP different/JJ ways/NNS atoms/NNS are/VBP classified/VBN ./. 
+They/PRP can/MD be/VB classified/VBN into/IN elements/NNS ,/, like/JJ oxygen/NN ,/, carbon/NN ,/, or/CC hydrogen/NN ./. 
+All/PRP of/IN the/DT elements/NNS known/VBN to/TO man/NN so/RB far/RB can/MD be/VB found/VBN on/IN the/DT periodic/JJ table/NN ./. 
+The/DT number/NN of/IN protons/NNS an/DT atom/NN has/VBZ decides/VBZ the/DT chemical/JJ element/NN ./. 
+The/DT number/NN of/IN electrons/NNS defines/VBZ the/DT atom/NN 's/POS chemical/NN properties/NNS ,/, like/IN its/PRP$ melting/JJ temperature/NN and/CC boiling/JJ point/NN ./. 
+The/DT study/NN of/IN atoms/NNS and/CC tiny/JJ particles/NNS that/WDT are/VBP even/RB smaller/JJR is/VBZ called/VBN quantum/NN mechanics/NNS ./. 
+Scientists/NNS still/RB have/VBP much/RB to/TO learn/VB about/IN atoms/NNS ./. 
+Maybe/RB you/PRP will/MD enter/VB the/DT study/NN of/IN quantum/NN mechanics/NNS and/CC find/VB a/DT brand/NN new/JJ element/NN ./. 
+Maybe/RB they/PRP 'll/MD even/RB name/VB it/PRP after/IN you/PRP !/. 

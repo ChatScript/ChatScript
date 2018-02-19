@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-common-beginner-mistakes">ChatScript Common Beginner Mistakes</h1>
+<blockquote>
+<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
+</blockquote>
+<p><br>Revision 11/31/2017 cs7.61</p>
+<p>Here are a collection of common beginner mistakes I have seen. Many will work, they are just unnecessary and inefficient and potentially more obscure to read.</p>
+<h2 id="failing-to-separate-tokens-with-a-space">Failing to separate tokens with a space</h2>
+<pre><code>u:MYLABEL()</code></pre>
+<p>is not the same as</p>
+<pre><code>u: MYLABEL()</code></pre>
+<p>While ChatScript will automatically space around balanced things like parens or brackets, it will not do so around ordinary text, so <code>u:MYLABEL</code> is a single token, an ordinary word for printout, and not a rule header.</p>
+<h2 id="leading-and-trailing-in-a-pattern">Leading and trailing <code>*</code> in a pattern</h2>
+<pre><code>u: (* I go home *)</code></pre>
+<p>The above pattern you might see in AIML, which requires a pattern that covers the entire sentence. CS does not and the *'s are superfluous. CS will hunt into the sentence to find the first pattern element. And it will finish matching when it has matched the last pattern element. CS does not require you cover the rest of the sentence. Therefore this is sufficient (and faster to execute and takes less space and is easier to read).</p>
+<pre><code>u: (I go home)</code></pre>
+<h2 id="inadequate-understanding-of-rejoinders">Inadequate understanding of rejoinders</h2>
+<pre><code>t: How old are you?
+    a: (~number&lt;5) You are young. 
+    b: (~number&lt;10) You are a growing child.
+    c: (~number&lt;100) You are old.</code></pre>
+<p>The rejoinders above are all different responses to the same input. They should be at the same level, meaning all should be <code>a:</code>, which name the alternatives at the same level. And, to be clear, I would intent them.</p>
+<pre><code>t: How old are you?
+    a: (~number&lt;5) You are young.
+        b: (~no) You aren&#39;t young?
+    a: (~number&lt;10) You are a growing child.
+    a: (~number&lt;100) You are old.</code></pre>
+<p>The above makes it clear that the <code>a:</code> level rejoinders are tied to the <code>t:</code>, and the <code>b:</code> rejoinder is tied to the <code>a: (~number&lt;5)</code>. If you don't indent clearly, then</p>
+<pre><code>t: How old are you?
+
+u: (~number&lt;5) You are young.</code></pre>
+<p>it is hard to tell if the <code>u:</code> is intentional or a typo. I left-flush all top level rules (<code>t:</code>, <code>u:v,</code>?:<code>,</code>s:`) and appropriately indent based on nesting level all rejoinders. Structurally it is immediately obvious what is intended.</p>
+<h2 id="failing-to-use-sample-input-comments">Failing to use sample input comments</h2>
+<p>Whenever you have a responder or rejoinder, you should have one or more sample inputs above it.</p>
+<pre><code>##&lt;&lt;Supports the following formats
+december 2, 1980
+december 2 in 1980
+dec second of 1980
+##&gt;&gt;
+u: ( * _~month_names {, } _~number { in of} _{~yearnumber} )</code></pre>
+<p>The above rule was elegantly documented with a comment. But it is not appropriate. The correct way is</p>
+<pre><code>#! december 2, 1980
+#! december 2 in 1980
+#! dec second of 1980
+u: ( * _~month_names {, } _~number { in of} _{~yearnumber} )</code></pre>
+<p>The difference is- the comment expressed the scriptors intent of what they were doing. But it will take work for anyone looking at the code (including the author) to decide that the pattern actually works for those cases. And you will probably get it wrong. When you write sample inputs, CS can be asked to :verify that the pattern does indeed work for the cases given and tell you. Not only now, but anytime in the future, when other parts of the system evolve and may impact your pattern accidently (changes in concept sets for example). Writing sample inputs is both documentation so that people can understand your script without having to interpret the pattern, and it is the unit test of a rule, allowing the system to verify all sorts of things (not just that the pattern works).</p>
+<h2 id="omitting-from-a-function-call">Omitting <code>^</code> from a function call</h2>
+<pre><code>u: (_~number) $$tmp = nth(~set _0)</code></pre>
+<p>The above code is legal. The system will figure out that nth is an existing function <code>^nth</code> and call it appropriately. Yet you should avoid being sloppy and always put the <code>^</code> in front of a function call. Why?</p>
+<p>If <code>nth</code> is not a function, because CS intermixes english and script, CS does not know you intended a function call and will merrily treat it as ordinary text with no warning or error. If, however, you write <code>^nth</code>, CS will confirm that it is a function and issue an error if it is not. This error protects you from typos, mistyping the name of a function.</p>
+<h2 id="transferring-function-values-to-variables">Transferring function values to variables</h2>
+<pre><code>outputmacro: ^func(^arg1 ^arg2)
+$$units = ^arg1
+$$time_value = ^arg2
+if ($$units == weeks)</code></pre>
+<p>You can name function arguments whatever you want. And you can use them directly in your code (you just can't overwrite them via assignment). So it is clearer and cleaner to do this:</p>
+<pre><code>outputmacro: ^func(^units ^time_value)
+if (^time_value == weeks)</code></pre>
+<h2 id="fail-to-take-advantage-of-canonical-values-of-keywords">Fail to take advantage of canonical values of keywords</h2>
+<pre><code>u: ( _~number [second seconds ] )</code></pre>
+<p>The above [] contains redundant information. Second is the singular canonical form of seconds. You don't need both words. Which means you could instead just write</p>
+<pre><code>u: (_~number second)</code></pre>
+<h2 id="excessive-topic-keywords">Excessive topic keywords</h2>
+<p>Typically no topic should have pronouns, prepositions, conjunctions, and determiners as keywords.The goal of keywords in a topic is to help CS find relevant topics. When you look at a topic, the keywords should all be immediately suggestive of that topic.</p>
+<pre><code>topic: ~childhood (my childhood young)</code></pre>
+<p>The keyword my doesn't immediately bring this topic to mind and should be removed. It will force CS to consider this topic for all sorts of sentences that contain my that have nothing to do with childhood. childhood is clearly a good keyword. Is young? Probably. Maybe.</p>
+<h2 id="redundant-choices">Redundant <code>{}</code> choices</h2>
+<p>The purpose of the optional words list is to assist in aligning words in a pattern. If it doesn't matter whether or not the <code>{}</code> exists in the pattern, then the optional choice is wasted.</p>
+<pre><code>u: ( I love you {maybe} )</code></pre>
+<p>In the above pattern, there is nothing after <code>{maybe}</code>. This means that the pattern won't care if a match happens or not for that.</p>
+<pre><code>u: ( I will love you {maybe} tomorrow)</code></pre>
+<p>Here, the optional <code>{maybe}</code> is valuable, allowing the pattern to match both <em>I will love you tomorrow</em> and <em>I will love you maybe tomorrow</em>. That is, it swallows up a useless word to allow the real match to proceed. The above was overly specific, and would more likely be</p>
+<pre><code>u: ( I will love you {~adverb} tomorrow)</code></pre>
+<p>Optional matches can be superfluous or downright detrimental at the start.</p>
+<pre><code>u: ( {~adverb} I will love you)</code></pre>
+<p>The intent of the above was to swallow up an adverb occurring before I, like Maybe I will love you. But, firstly, it wasn't needed. CS would have skipped any words until it got to I anyway. Secondly, it will prove detrimental if the input is I will soon love you, because it will scan forward, find the soon as an adverb, lock the position of matching to that, and then look for I immediately afterwards. But now it's too late and I has already gone past.</p>
+<h2 id="my-pattern-doesnt-match-the-input-i-crafted-it-for">My pattern doesn't match the input I crafted it for!</h2>
+<p>Probably true. First thing to do is</p>
+<pre><code>:prepare this is my special input</code></pre>
+<p>Look at the marked concepts for each word. Does it match your pattern? Is the input even what you expect? Has CS told you it substituted something or spell-fixed it or whatever?</p>
+<h2 id="wrong-understanding-of-scoping-of-variables">Wrong understanding of scoping of variables</h2>
+<pre><code>outputmacro: ^myfunc(^myargument)</code></pre>
+<p>Function arguments like ^myargument only exist during the code of the macro and will not be legal elsewhere. Other than function arguments, all other variables have global scope. This means if you do</p>
+<pre><code>$$tmp = 1</code></pre>
+<p>in some topic, it will have that value afterwards in every topic, and you risk destroying it if you do an inadvertent assignment in some other topic of</p>
+<pre><code>$$tmp = hello</code></pre>
+<h2 id="separating-keywords-with-commas">Separating keywords with commas</h2>
+<pre><code>Topic: ~mytopic [keyword1, keyword2, keyword3] </code></pre>
+<p>is wrong. Don't use commas.</p>
+<h2 id="listing-phrases-or-titles-in-instead-of-quotes">Listing phrases or titles in <code>[]</code> instead of quotes</h2>
+<pre><code>u: ([Doctor Zhivago]) </code></pre>
+<p>is wrong. First, [] means find one word of. Second, for titles of things, you should put them in double quotes. <code>u: (&quot;Doctor Zhivago&quot;)</code> The double quotes tells CS that you think of this as a single item, not two words. It's not like <code>u: (have fun)</code>, where you want the words together but they are not a single item. Proper nouns should always be a single item, particularly when there is punctuation in the item like &quot;Des Moines, Iowa&quot; because you don't really know how CS manages punctuation internally- does it split the comma into a separate token, does it use underscores, etc. You shouldn't have to worry about how CS represents it. You should just double quote it.</p>
+<h2 id="being-unaware-of-interjections-in-cs">Being unaware of interjections in CS</h2>
+<pre><code>topic: ~introductions( hi hello welcome) </code></pre>
+<p>is wrong because hello is not a normal word like a noun, verb, adjective, or adverb. It is a special word that is a &quot;dialog act&quot; or an &quot;interjection&quot;. CS auto translates interjections on input. If you do</p>
+<pre><code>:prepare hello</code></pre>
+<p>you will see it decodes it into <code>~emohello</code>, and that's what you should use as your keyword. The most common interjections are <code>~emohello</code>, <code>~emogoodbye</code>, <code>~emohowzit</code>, <code>~yes</code>, <code>~no</code>.</p>
+<h2 id="expecting-cs-numeric-assignment-to-mirror-other-languages">Expecting CS numeric assignment to mirror other languages</h2>
+<p>ChatScript executes as it goes, it does not stack up data like a desk calculator. So</p>
+<pre><code>$tmp = %hour + $tmp</code></pre>
+<p>is executed as: <code>$tmp = %hour</code> and then <code>$tmp += $tmp</code>. This is not what you expect from other languages, where you expect <code>(%hour + $tmp)</code> to be computed and then assigned. You can, of course, make your code simpler and correct by</p>
+<pre><code>$tmp += %hour</code></pre>
+<p>Or even</p>
+<pre><code>$tmp = $tmp + %hour</code></pre>
+<h2 id="thinking-in-a-pattern-will-find-the-earliest-match">Thinking <code>[]</code> in a pattern will find the earliest match</h2>
+<p>A pattern like <code>u: ( the * [bear raccoon] ate )</code> contains a list of words in <code>[]</code>, that a human thinks of as equivalent, and thus imagines CS will simply find the next occurrence of any of them in the input. For efficiency, that's not how CS works. It will try each in turn, and if a match is found, it will stop trying words in the <code>[]</code> immediately. So input like: <em>the raccoon ate the bear</em> will fail because bear will be found first, and <em>ate</em> does not happen immediately after that. If you convert <code>[]</code> into a concept set, then a pattern of <code>u: (the * ~myanimals ate)</code> will match, because all members of a concept set are considered simultaneously.</p>
+<h2 id="querying-with-the-same-value-in-2-positions">Querying with the same value in 2 positions</h2>
+<p>A query like</p>
+<pre><code>^query(svo $_tmp $_tmp value)</code></pre>
+<p>will likely fail when 2 of the values being checked are the same. This is because the query marks its arguments with index flags for efficiency and marking the second use of a word overwrites the mark set on the first. Then query testing fails. Usually there is no need to create a fact repeating the same word twice. It's just laziness of not using a different arbitrary fixed value.</p>
+</body>
+</html>

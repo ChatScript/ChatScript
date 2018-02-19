@@ -1,0 +1,46 @@
+# folders
+mackore/KoreNLPXC/KoreNLPXC.xcodeproj/xcuserdata/
+mackore/KoreNLPXC/KoreNLPXC.xcodeproj/project.xcworkspace/xcuserdata/
+
+# file types in folder
+TMP/**/*.txt
+TMP/**/*.bin
+USERS/**/*.txt
+LOGS/**/*.txt
+VERIFY/**/*.txt
+
+# ignore so it does not get committed by mistake on windows
+BINARIES/MacChatScript
+BINARIES/chatscript_Debug_v140.exe
+
+# file types
+*.bak
+*.DS_Store
+*.db
+*.idb
+*.ilk
+*.lnk
+*.log
+*.o
+*.obj
+*.pdb
+*.sdf
+*.tlog
+*.user
+
+# ignore local user settings for Visual Studio 2015/2017
+VS2015/.vs/
+VS2015/Debug/
+VS2017/.vs/
+VS2017/Debug/
+
+# specific files
+private/KORA/TESTS/regress-qabots-result*.txt
+private/KORA/TESTS/*.swp
+
+# force keep
+!DICT/ENGLISH/
+!TMP/
+!LOGS/
+!USERS/
+!LIVEDATA/

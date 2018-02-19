@@ -1,0 +1,91 @@
+
+
+
+outputmacro: mongo()  # you get harry by default
+$cs_token = #DO_INTERJECTION_SPLITTING  | #DO_SUBSTITUTE_SYSTEM   | #DO_NUMBER_MERGE | #DO_DATE_MERGE  | #DO_PROPERNAME_MERGE  | #DO_SPELLCHECK | #DO_PARSE
+^addtopic(~introductions)
+$cs_control_main = ~control
+$userprompt = ^"%user: >"
+$botprompt = ^"MONGODB: "
+
+
+table: defaultbot (^name)
+^createfact(^name defaultbot defaultbot)
+DATA:
+mongo
+
+topic: ~control system ()
+
+# on startup, do introduction
+u: ( %input<%userfirstline) 
+	gambit(~introductions)
+
+u: () # main per-sentence processing
+
+	$$currenttopic = %topic		# get the current topic at start of volley
+
+	if ( %response == 0 ) {nofail(TOPIC ^rejoinder())}	# try for rejoinders. might generate an answer directly from what we are looking for.
+
+	if (%length == 0 AND %response == 0 )
+	{
+		nofail(TOPIC ^gambit($$currenttopic))  # gambit current topic since no input (usually start of conversation)
+	}
+
+	if (%response == 0) { nofail(TOPIC ^respond($$currenttopic)) } # current topic tries to respond to his input
+
+	if (%response == 0) # see if some other topic has keywords matching his input (given we have no response yet)
+	{
+		@8 = ^keywordtopics()	# get topics referred in input
+		loop()
+		{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^respond($$topic))
+			if (%response != 0) # stop when we find something to say
+			{
+				^end(RULE)	# we are done, this terminates the loop (not the rule)
+			}
+		}
+	}	
+
+	# if we have rejoinders for what we said OR we asked a question, stop here
+	if (%outputrejoinder OR %lastquestion) 
+	{
+		end(TOPIC)
+	}
+
+	if (%response == 0 AND ^marked($$currenttopic)) { nofail(TOPIC ^gambit($$currenttopic)) } # gambit current topic since keywords match current topic
+
+	if (%response == 0) # gambit from ANY matching topic
+	{
+		@8 = ^keywordtopics()	# get topics referred in input
+		loop()
+		{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^Gambit($$topic))	# gambit in best matching topic
+			if (%response != 0) # stop when we find something
+			{
+				^end(RULE)
+			}
+		}
+	}
+	if (%response == 0){ nofail(TOPIC ^gambit($$currenttopic)) } # gambit from current topic even though no keywords matched
+	
+	if (%response == 0) 
+	{ 
+		@8 = ^GambitTopics()		# all topics with gambits (excluding system topics)
+		loop()
+		{
+			$$topic = pick(@8subject)
+			nofail(TOPIC ^Gambit($$topic))	# try a topic at random
+			if (%response != 0)
+			{
+				^end(RULE)
+			}
+		}
+	}
+	
+	if (%response == 0) 
+	{
+		 ^repeat() 
+		 I don't know what to say. 
+	}

@@ -1,0 +1,905 @@
+﻿ overthrow ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) conjugate=overthrown 
+    overthrow~1nz (^conclusion~2) the termination of a ruler or institution
+    upset~3n 
+    overrule~1vz rule against
+    subvert~2vz cause the downfall of
+ ousting ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    ousting~1nz (^act~1) the act of ejecting someone or forcing them out
+ out ( meanings=18 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE PARTICLE NOUN VERB ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB posdefault:PREPOSITION VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=outer 
+    out~1nz (^failure~2) a failure by a batter or runner to reach a base safely in baseball
+    extinct~2az being out or having grown cold
+    out~3az knocked unconscious by a heavy blow
+    out~4az outer or outlying
+    out~5az outside or external
+    out~6az no longer fashionable
+    out~7az directed outward or serving to direct something outward
+    prohibited~2az excluded from use or mention
+    out~9az not worth considering as a possibility
+    out~10az not allowed to continue to bat or run
+    out~11az out of power
+    out~12bz away from home
+    away~5b 
+    out~14bz moving or appearing to move away from a place, especially one that is enclosed or hidden
+    out~15z 
+    out~16vz be made known
+    out~17vz reveal about somebody's identity or lifestyle
+    out~18vz to state openly and publicly one's homosexuality
+ oil ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    oil~1nz (^paint~1) oil paint containing pigment that is used by an artist
+    oil~2nz (^fat~3) any of a group of liquid edible fats that are obtained from plants
+    oil~3nz (^unit~4) a slippery or viscous liquid or liquefiable substance not miscible with water
+    oil~4nz (^fuel~1) a dark oil consisting mainly of hydrocarbons
+    anoint~1vz administer an oil or ointment to 
+    oil~6vz cover with oil, as if by rubbing
+ outside ( meanings=16 glosses=13 PARTICLE NOUN ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) comparative=outsider 
+    exterior~1nz (^surface~5) the outer side or surface of something
+    exterior~2nz (^part~9) the region that is outside of something
+    away~1az on the far side of home plate from the batter
+    outside~4az originating or belonging beyond some bounds:
+    outside~5az on or toward an outer edge
+    outside~6az leading to or from the outside
+    international~1a 
+    outside~8az functioning outside the boundaries or precincts of an organized unit
+    extraneous~1az coming from the outside
+    outside~10az very unlikely
+    outside~11az located, suited for, or taking place in the open air
+    outside~12az relating to or being on or near the outer side or limit
+    outside~13az 
+    outside~14bz outside a building
+    outside~15bz on the outside
+    outside~16z 
+ organization ( meanings=7 glosses=7 NOUN_HUMAN NOUN_THEY NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    constitution~1nz (^beginning~1) the act of forming or establishing something
+    organization~2nz (^activity~1) the activity or result of distributing or disposing persons or things properly or methodically
+    organization~3nz (^disposal~2) the act of organizing a business or an activity related to a business
+    system~2nz (^quality~1) an ordered manner
+    system~6nz (^structure~4) an organized structure for arranging or classifying
+    organization~6nz (^group~1) a group of people who work together
+    brass~5nz (^body~9) the persons who make up a body for the purpose of administering something
+ object ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    object~1nz a tangible and visible entity
+    object~2nz (^content~2) the focus of cognitions or feelings
+    objective~2nz (^goal~3) the goal intended to be attained 
+    object~4nz (^technology~2) a discrete item that provides a description of virtually anything known to a computer
+    object~5nz (^language~3) a constituent that is acted upon
+    object~6vz express or raise an objection or protest or criticism or express dissent
+    object~7vz be averse to or express disapproval of
+ oversight ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    oversight~1nz (^mistake~1) a mistake resulting from inattention
+    oversight~2nz (^direction~2) management by overseeing the performance or operation of a person or group
+    oversight~3nz (^disregard~2) an unintentional omission resulting from failure to notice something
+ occupation ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    occupation~1nz (^getting~1) the act of occupying or taking possession of a building
+    job~3nz (^activity~1) the principal activity in your life that you do to earn money
+    occupation~3nz (^activity~1) any activity that occupies a person's attention
+    occupation~4nz (^event~1) the control of a country by military forces of a foreign power
+    occupation~5nz (^period~3) the period of time during which a place or position or nation is occupied
+ option ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    selection~1n 
+    choice~3n 
+    option~3nz (^instrument~5) the right to buy or sell property at an agreed price
+    option~4vz 
+ ordinance ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    ordinance~1nz (^assignment~1) the act of ordaining
+    ordinance~2nz (^act~2) a statute enacted by a city government
+    ordinance~3nz (^rule~8) an authoritative rule
+ open ( meanings=37 glosses=31 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE SPELLING_EXCEPTION COMMON4 COMMON2 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=opener 
+    surface~3nz (^knowledge~1) information that has become public
+    open~2nz (^tournament~1) a tournament in which both professionals and amateurs may play
+    open~3nz (^outside~2) where the air is unconfined
+    clear~1nz (^country~3) a clear or unobstructed space or expanse of land or water
+    open~5az ready for business
+    open~6az not having been filled
+    candid~2az openly straightforward and direct without reserve or secretiveness
+    open~8az without undue constriction as from e.g. tenseness or inhibition
+    clear~15az affording free passage or view
+    open~10az affording unobstructed entrance and exit
+    open~11az affording free passage or access
+    opened~2a 
+    open~13az having no protecting cover or enclosure
+    open~14az of an interval that contains neither of its endpoints
+    open~15az open and observable
+    open~16az open to or in view of all
+    exposed~2az with no protection or shield
+    open~18az ready or willing to receive favorably
+    open~19az accessible to all
+    opened~3a 
+    open~21az not brought to a conclusion
+    loose~12a 
+    subject~11a 
+    open~24az not requiring union membership
+    open~25az not defended or capable of being defended
+    open~26az 
+    open~27vz make available
+    open~28vz become available
+    open~29vz make the opening move
+    open~30vz cause to open or to become open
+    open~31vz become open
+    spread~18v 
+    open~33vz display the contents of a file or start an application as on a computer
+    afford~3vz afford access to
+    open~35vz begin or set in action, of meetings, speeches, recitals, etc.
+    open~36vz start to operate or function or cause to start operating or functioning
+    open~37vz have an opening or passage or outlet
+ own ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) comparative=owner 
+    own~1az belonging to or on behalf of a specified person 
+    have~11v 
+ opposition ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    opposition~1nz (^action~1) the action of opposing something that you disapprove or disagree with
+    opposition~2nz (^event~1) the act of hostile groups opposing each other
+    opposition~3nz (^body~9) a body of people united in opposing something
+    enemy~3n 
+    opposite~2n 
+    opposition~6nz (^direction~9) a direction opposite to another
+    opposition~7nz (^relation~1) the relation between opposed entities
+ official ( meanings=8 glosses=7 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    official~1nz (^individual~1) someone who administers the rules of a game or sport
+    official~2nz (^worker~2) a worker who holds or is invested with an office
+    official~3az having official authority or sanction
+    official~4az verified officially
+    official~5az given official status as a national or state institution
+    official~6az conforming to set usage, procedure, or discipline
+    official~7az of or relating to an office
+    official~8az 
+ opening ( meanings=14 glosses=8 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:NOUN posdefault:VERB ) 
+    opening~1nz (^beginning~1) 
+    opening~2nz (^motion~2) the act of opening something
+    opening~3nz (^change~1) becoming open or being made open
+    opening~4nz (^order~1) 
+    opening~5nz (^approach~4) 
+    opening~6nz (^artifact~1) a vacant or unobstructed space that is man-made
+    opening~7nz (^passage~7) an aperture or hole that opens into a bodily cavity
+    opening~8nz (^choice~3) 
+    opening~9nz (^introduction~4) the initial part of the introduction
+    opening~10nz (^start~6) 
+    opening~11nz (^ceremony~3) a ceremony accompanying the start of some enterprise
+    gap~6n 
+    opening~13nz (^opportunity~1) opportunity especially for employment or promotion
+    opening~14az first or beginning
+ on ( meanings=3 glosses=2 PARTICLE ADJECTIVE PREPOSITION ADJECTIVE_NORMAL COMMON4 COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:PREPOSITION ) 
+    on~1az in operation or operational
+    on~2az planned or scheduled
+    on~3z 
+ outing ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    outing~1nz (^journey~1) 
+    picnic~3n 
+ ocean ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    ocean~1nz (^water~3) a large body of water constituting a principal part of the hydrosphere
+    sea~3nz (^measure~1) anything apparently limitless in quantity or volume
+ operation ( meanings=11 glosses=10 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    operation~1nz (^activity~1) the activity of operating something 
+    operation~2nz (^activity~1) a planned activity involving many people performing various actions
+    operation~3nz (^work~1) a process or series of acts especially of a practical or mechanical nature involved in a particular form of work
+    surgery~1nz (^process~2) a medical procedure involving an incision with instruments
+    operation~5nz (^process~2) calculation by mathematical methods
+    operation~6nz (^activity~1) activity by a military or naval force 
+    operation~7nz (^enterprise~1) a business especially one run on a large scale
+    process~4nz (^knowledge~1) the performance of some composite cognitive activity
+    operation~9nz (^processing~1) data processing in which the result is completely specified by a rule (especially the processing that results from a single instruction)
+    performance~5n 
+    operation~11nz (^activity~5) the state of being in effect or being operative
+ old ( meanings=9 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=oldest 
+    old~1nz (^past~2) past times
+    previous~1az just preceding something else in time or order
+    older~1a 
+    old~4az very familiar
+    old~5az 
+    old~6az of long duration
+    old~7az having lived for a relatively long time or attained a specific age
+    former~4a 
+    old~9az 
+ outburst ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    outburst~1nz (^motion~2) a sudden violent disturbance
+    outburst~2nz (^expression~5) an unrestrained expression of emotion
+    burst~4n 
+ overhead ( meanings=9 glosses=8 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:ADJECTIVE posdefault:ADVERB ) 
+    smash~3n 
+    overhead~2nz (^ceiling~1) the top surface of an enclosed space on a ship
+    overhead~3nz (^foil~3) a transparency for use with an overhead projector
+    overhead~4nz (^space~7) the disk space required for information that is not data but is used for location and timing
+    overhead~5nz (^disbursement~2) the expense of maintaining property 
+    overhead~6nz (^interval~4) the processing time required by a device prior to the execution of a command
+    overhead~7az located or originating from above
+    overhead~8bz above the head
+    overhead~9bz above your head
+ office ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    post~2n 
+    role~1nz (^duty~1) the actions and activities assigned to or required or expected of a person or group
+    office~3nz (^ceremony~2) a religious rite or service prescribed by ecclesiastical authorities
+    office~4nz (^structure~1) place of business where professional or clerical duties are performed
+    agency~3n 
+    office~6nz (^staff~5) professional or clerical workers in an office
+    power~9nz (^state~1) holding an office means being in power
+ organ ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    organ~1nz (^instrument~3) an electronic simulation of a pipe organ
+    organ~2nz (^wind~4) a free-reed instrument in which air is forced through the reeds by bellows
+    organ~3nz (^instrument~3) wind instrument whose sound is produced by means of pipes arranged in sets supplied with air from a bellows and controlled from a large complex musical keyboard
+    organ~4nz (^piece~11) a fully differentiated structural and functional unit in an animal that is specialized for some particular function
+    organ~5nz a periodical that is published by a special interest group
+    organ~6nz (^agency~3) a government agency or instrument devoted to the performance of some specific function
+ original ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    master~1nz (^creation~3) an original creation from which copies can be made
+    pilot~3nz (^example~4) something that serves as a model or a basis for making copies
+    original~3az not derived or copied or translated from something else
+    original~4az preceding all others in time or being as first made or performed
+    original~5az being or productive of something fresh and unusual
+    original~6az not secondhand or by way of something intermediary
+    original~7az 
+ overeating ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    overeating~1nz (^sin~1) eating to excess
+ offense ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    crime~1n 
+    offense~2nz (^operation~6) the action of attacking an enemy
+    offense~3nz (^behavior~1) a lack of politeness
+    offense~4nz (^anger~2) a feeling of anger caused by being offended
+    offense~5nz (^team~2) the team that has the ball and is trying to score
+ offer ( meanings=16 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR SPELLING_EXCEPTION COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) comparative=off 
+    go~1n 
+    offering~2nz (^message~2) something offered 
+    offering~3nz (^act~1) the verbal act of offering
+    offer~4vz put forward for consideration
+    offer~5vz threaten to do something
+    propose~4vz ask to marry you
+    offer~7vz produce or introduce on the stage
+    offer~8vz make available or accessible, provide or furnish
+    offer~9vz present for acceptance or rejection
+    offer~10vz make available for sale
+    extend~13v 
+    extend~14v 
+    tender~19vz propose a payment
+    provide~6v 
+    volunteer~6vz agree freely
+    offer~16vz present as an act of worship
+ ownership ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    ownership~1nz (^control~1) the act of having and controlling property
+    ownership~2nz (^relation~1) the relation of an owner to the thing possessed
+    ownership~3nz (^state~1) the state or fact of being an owner
+ observation ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    watching~1n 
+    observation~2nz (^measure~3) the act of making and recording a measurement
+    notice~1n 
+    observation~4nz (^fact~1) facts learned by observing
+    observation~5nz (^comment~2) a remark expressing careful consideration
+ outlook ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    outlook~1nz (^look~1) the act of looking out
+    expectation~1n 
+    outlook~3nz (^attitude~3) a habitual or characteristic mental attitude that determines how you will interpret and respond to situations
+ order ( meanings=23 glosses=19 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ordering~1nz (^organization~2) the act of putting things in a sequential arrangement
+    order~2nz (^fashion~3) one of original three styles of Greek architecture distinguished by the type of column and entablature used or a style developed from the original three by the Romans
+    order~3nz (^property~2) a degree in a continuum of size or quantity
+    order~4nz (^document~2) a commercial document used to request someone to supply something in return for payment and providing specifications and quantities
+    order~5nz (^act~2) a legally binding command or decision entered on the court record 
+    order~6nz (^rule~8) a body of rules followed by an assembly
+    order~7nz (^bid~4) a command given by a superior (e.g., a military or law enforcement officer) that must be obeyed
+    order~8nz (^request~2) a request for something to be made, supplied, or served
+    order~9nz (^group~1) taxonomic group containing one or more families
+    order~10nz (^sect~1) a group of person living under a religious rule
+    guild~1n 
+    ordering~2nz (^arrangement~6) logical or comprehensible arrangement of separate elements
+    order~13nz (^state~1) established customary state 
+    order~14nz (^status~1) a condition of regular or proper arrangement
+    order~15vz place in a certain order
+    order~16vz bring order to or into
+    place~18v 
+    arrange~2v 
+    order~19vz make a request for something
+    tell~3vz give instructions to or direct somebody to do something with authority
+    order~21vz issue commands or orders for
+    order~22vz appoint to a clerical posts
+    govern~2v 
+ observed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    ascertained~1a 
+ ordering ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    order~1n 
+    order~12n 
+ operating ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    operating~1az 
+    operating~2az involved in a kind of operation
+ offering ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    offering~1nz (^giving~2) 
+    offer~2n 
+    offer~3n 
+    offering~4nz (^contribution~5) money contributed to a religious organization
+ ordinary ( meanings=8 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    ordinary~1nz (^charge~5) any of several conventional figures used on shields
+    ordinary~2nz (^bicycle~1) an early bicycle with a very large front wheel and small back wheel
+    ordinary~3nz (^judge~2) a judge of a probate court
+    ordinary~4nz (^clergyman~1) a clergyman appointed to prepare condemned prisoners for death
+    ordinary~5nz (^condition~5) the expected or commonplace condition or situation
+    average~4a 
+    ordinary~7az not exceptional in any way especially in quality or ability or size or degree
+    ordinary~8az 
+ obedience ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    respect~1n 
+    obedience~2nz (^submission~1) the act of obeying
+    obedience~3nz (^attribute~1) the trait of being willing to obey
+ outfitting ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    outfitting~1nz (^equipping~1) the act of renovating and fitting out a ship
+ opinion ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    ruling~1nz (^judgment~2) the reason for a court's judgment
+    feeling~5n 
+    thought~3n 
+    opinion~4nz (^belief~2) a belief or sentiment shared by most people
+    judgment~7nz (^instrument~5) the legal document stating the reasons for a judicial decision
+    view~9n 
+ obligate ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    obligate~1az restricted to a particular condition of life
+    bind~4v 
+    obligate~3vz commit in order to fulfill an obligation
+    oblige~3v 
+ onion ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    onion~1nz (^vegetable~1) an aromatic flavorful vegetable
+    onion~2nz (^plant~1) bulbous plant having hollow leaves cultivated worldwide for its rounded edible bulb
+    onion~3nz (^bulb~5) the bulb of an onion plant
+ oceanic ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    oceanic~1az constituting or living in the open sea
+    oceanic~2az resembling the ocean in apparent limitlessness in extent or degree
+    oceanic~3az relating to or occurring or living in or frequenting the open ocean
+    oceanic~4az 
+ ostrich ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    ostrich~1nz (^bird~1) fast-running African flightless bird with two-toed feet
+    ostrich~2nz (^individual~1) a person who refuses to face reality or recognize the truth
+ orchard ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    plantation~1nz (^garden~1) garden consisting of a small cultivated wood without undergrowth
+ owl ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    owl~1nz (^raptor~1) nocturnal bird of prey with hawk-like beak and claws and large head with front-facing eyes
+ opossum ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    opossum~1nz (^marsupial~1) nocturnal arboreal marsupial having a naked prehensile tail found from southern North America to northern South America
+    opossum~2nz (^marsupial~1) small furry Australian arboreal marsupials having long usually prehensile tails
+ otter ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    otter~1nz (^carnivore~2) freshwater carnivorous mammal having webbed and clawed feet and dark brown fur
+    otter~2nz (^fur~3) the fur of an otter
+ oyster ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    oyster~1nz (^animal~1) marine mollusks having a rough irregular shell
+    oyster~2nz (^helping~1) a small muscle on each side of the back of a fowl
+    oyster~3nz (^food~3) edible body of any of numerous oysters
+    oyster~4vz gather oysters, dig oysters
+ octopus ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN ) plural=octopi 
+    octopus~1nz (^animal~1) bottom-living cephalopod having a soft oval body with eight long tentacles
+    octopus~2nz (^food~3) tentacles of octopus prepared as food
+ omnivore ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 GRADE3_4 posdefault:NOUN ) 
+    omnivore~1nz (^animal~1) an animal that feeds on both animal and vegetable substances
+    omnivore~2nz (^eater~2) a person who eats all kinds of foods
+ ounce ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    ounce~1nz (^unit~5) a unit of weight equal to one sixteenth of a pound or 16 drams or 28.349 grams
+    ounce~2nz (^weight~7) a unit of apothecary weight equal to 480 grains or one twelfth of a pound
+ orange ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE (null) ) 
+    orange~1nz (^color~3) orange color or pigment
+    orange~2nz (^produce~1) round yellow to orange fruit of any of several citrus trees
+    orange~3nz (^tree~1) any citrus tree bearing oranges
+    orange~4nz (^color~8) any pigment producing the orange color
+    orange~5az of the color between red and yellow
+    orange~6az 
+ ox ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=oxen 
+    ox~1nz (^mammal~1) any of various wild bovines especially of the genera Bos or closely related Bibos
+    ox~2nz (^oxen~1) an adult castrated bull of the genus Bos
+ oxen ( meanings=1 glosses=1 NOUN NOUN_PLURAL COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=ox 
+    cattle~1nz (^mammal~1) domesticated bovine animals as a group regardless of sex or age
+ opera ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    opera~1nz (^theater~1) a building where musical dramas are performed
+    opera~2nz (^music~5) a drama set to music
+ omnibus ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 ) 
+    coach~1n 
+    omnibus~2nz (^collection~3) an anthology of articles on a related subject or an anthology of the works of a single author
+    omnibus~3az providing for many things at once
+ ornament ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    decoration~2n 
+    grace~7v 
+    ornament~3vz be an ornament to
+ one ( meanings=11 glosses=8 NOUN_ABSTRACT PARTICLE PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE PRONOUN_SINGULAR posdefault:NOUN ) 
+    one~1nz (^unit~2) a single person or thing
+    ace~4n 
+    one~3az eminent beyond or above comparison
+    one~4az indefinite in time or position
+    one~5az being a single entity made by combining separate components
+    one~6az used informally as an intensifier
+    one~7az of the same kind or quality
+    one~8az used of a single unit or thing
+    one~9az having the indivisible character of a unit
+    one~10z 
+    one~11z 
+ outfit ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    kit~2n 
+    rig~4n 
+    outfit~3nz (^unit~3) any cohesive unit such as a military company
+    equip~2vz provide with usually for a specific purpose
+ oar ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    oar~1nz (^artifact~1) an implement used to propel or steer a boat
+ objective ( meanings=8 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE ) 
+    objective~1nz (^lens~1) the lens or system of lenses in a telescope or microscope that is nearest the object being viewed
+    target~2n 
+    objective~3az belonging to immediate experience of actual things or events
+    objective~4az undistorted by emotion or personal bias
+    objective~5az emphasizing or expressing things as perceived without distortion of personal feelings, insertion of fictional matter, or interpretation
+    objective~6az serving as or indicating the object of a verb or of certain prepositions and used for certain other purposes
+    objective~7az 
+    objective~8az 
+ oblique ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    oblique~1nz (^abdominal~1) a diagonally arranged abdominal muscle on either side of the torso
+    oblique~2nz (^case~10) any grammatical case other than the nominative
+    oblique~3az indirect in departing from the accepted or proper way
+    oblique~4az slanting or inclined in direction or course or position
+ obstacle ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    obstacle~1nz (^structure~1) an obstruction that stands in the way
+    obstacle~2nz (^check~7) something immaterial that stands in the way and must be circumvented or surmounted
+ officer ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    officer~1nz (^man~9) any person in the armed services who holds a position of authority or command
+    officer~2nz (^owner~2) someone who is appointed or elected to an office and who holds a position of trust
+    officer~3nz (^tar~1) a person authorized to serve in a position of authority on a vessel
+    policeman~1n 
+    officer~5vz direct or command as an officer
+ opener ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) comparative=open 
+    opener~1nz (^tool~2) a hand tool used for opening sealed containers
+    opener~2nz (^start~6) the first event in a series
+    opener~3nz (^individual~1) a person who unfastens or unwraps or opens
+ orchestra ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    orchestra~1nz (^room~3) seating on the main floor in a theater
+    orchestra~2nz (^organization~6) a musical organization consisting of a group of instrumentalists including string players
+ outsider ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=outside 
+    foreigner~2n 
+    outsider~2nz (^individual~1) a contestant not considered to have a good chance to win
+ oven ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    oven~1nz (^appliance~1) kitchen appliance used for baking or roasting
+ overall ( meanings=4 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    overall~1nz (^clothing~1) work clothing consisting of denim trousers (usually with a bib and shoulder straps)
+    overall~2nz (^clothing~1) a loose protective coverall or smock worn over ordinary clothing for dirty work
+    overall~3az involving only main features
+    overall~4az including everything
+ outer ( meanings=4 glosses=3 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=out 
+    outer~1az being on or toward the outside of the body
+    outer~2az being on the outside or further from a center
+    outer~3az located outside
+    outer~4az 
+ origin ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    descent~2nz (^ancestry~1) properties attributable to your ancestry
+    origin~2nz (^set~9) the point of intersection of coordinate axes
+    origin~3nz (^beginning~3) an event that is a beginning
+    line~19nz (^tribe~1) the descendants of one individual
+    source~5n 
+    origin~6nz (^source~9) the source of something's existence or from which it derives or is derived
+ olfactory ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    olfactory~1az of or relating to olfaction
+ odor ( meanings=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    smell~2n 
+    smell~4n 
+ obesity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    obesity~1nz (^fat~1) more than average fatness
+ overweight ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    overweight~1nz (^obesity~1) the property of excessive fatness
+    heavy~10a 
+    overweight~3az 
+ overmuch ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 KINDERGARTEN posdefault:ADVERB ) 
+    overmuch~1nz (^quantity~2) a quantity that is more than what is appropriate
+    overmuch~2az very great in quantity
+    overmuch~3bz more than necessary
+    overmuch~4z 
+ orbit ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    scope~3n 
+    orbit~2nz (^structure~3) the bony cavity in the skull containing the eyeball
+    orbit~3nz (^path~3) the path described by one celestial body in its revolution about another
+    orbit~4nz (^path~3) the path of an electron around the nucleus of an atom
+    area~6n 
+    revolve~2v 
+ optimism ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    optimism~1nz (^disposition~2) a general disposition to expect the best in all things
+    optimism~2nz (^hope~4) the optimistic feeling that all is going to turn out well
+ oval ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    oval~1nz (^figure~13) a closed plane curve resulting from the intersection of a circular cone and a plane cutting completely through it
+    elliptical~2az rounded like an egg
+    oval~3az 
+ opposite ( meanings=13 glosses=11 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE ) 
+    opposite~1nz (^word~1) a word that expresses a meaning opposed to the meaning of another word, in which case the two words are antonyms of each other
+    opponent~2nz (^individual~1) a contestant that you are matched against
+    contrary~3nz (^opposition~7) a relation of direct opposition
+    opposite~4nz (^opposition~7) something inverted in sequence or character or effect
+    paired~3az of leaves etc
+    opposite~6az characterized by opposite extremes
+    opposite~7az altogether different in nature or quality or significance
+    opposite~8az the other one of a complementary pair
+    opposite~9az being directly across from each other
+    opposite~10az moving or facing away from each other
+    opposite~11az 
+    opposite~12bz directly facing each other
+    opposite~13z 
+ overrating ( meanings=1 NOUN NOUN_SINGULAR COMMON1 posdefault:VERB ) 
+    overrating~1nz (^estimate~2) 
+ outline ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    scheme~1nz (^program~2) a schematic or preliminary plan
+    outline~2nz (^statement~4) a sketchy summary of the main points of an argument or theory
+    outline~3nz (^boundary~2) the line that appears to bound an object
+    outline~4vz describe roughly or briefly or give the main points or summary of
+    outline~5vz trace the shape of
+    draft~14vz draw up an outline or sketch for something
+ okay ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL INTERJECTION NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB VERB_DIRECTOBJECT ) 
+    okay~1nz (^countenance~3) an endorsement
+    fine~5a 
+    okay~3az 
+    alright~3b 
+    approve~2vz give sanction to
+ obituary ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    obituary~1nz (^notice~4) a notice of someone's death
+ omen ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    presage~1n 
+    predict~1v 
+ oink ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    oink~1nz (^noise~5) the short low gruff noise of the kind made by hogs
+    oink~2vz utter a high-pitched cry, characteristic of pigs
+ occasion ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    occasion~1nz (^event~1) an event that occurs at a critical time
+    function~4nz (^event~1) a vaguely specified social event
+    occasion~3nz (^ground~7) reason
+    occasion~4nz (^opportunity~1) an opportunity to do something
+    occasion~5nz (^time~9) the time of a particular event
+    occasion~6vz give occasion to
+ oatmeal ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    oatmeal~1nz (^meal~1) meal made from rolled or ground oats
+    oatmeal~2nz (^porridge~1) porridge made of rolled oats
+ oat ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    oat~1nz (^cereal~2) seed of the annual grass Avena sativa
+    oat~2nz (^cereal~3) annual grass of Europe and North Africa
+ oregano ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    oregano~1nz (^seasoning~2) pungent leaves used as seasoning with meats and fowl and in stews and soups and omelets
+    oregano~2nz (^plant~1) aromatic Eurasian perennial
+ organized ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB (null) ) 
+    organized~1az methodical and efficient in arrangement or function
+    organized~2az formed into a structured or coherent whole
+    organized~3az being a member of or formed into a labor union
+ offing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    offing~1nz (^water~3) the part of the sea that can be seen from the shore and is beyond the anchoring area
+    offing~2nz (^future~3) the near or foreseeable future
+ ore ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    ore~1nz (^unit~5) a monetary subunit in Denmark and Norway and Sweden
+    ore~2nz (^mineral~1) a mineral that contains metal that is valuable enough to be mined
+    ore~3az 
+ opponent ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    opponent~1nz (^individual~1) someone who offers opposition
+    opposition~5n 
+    opposing~1az characterized by active hostility
+ odd ( meanings=7 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    odd~1az not easily explained
+    uneven~4az not divisible by two
+    odd~3az an indefinite quantity more than that specified
+    left~6a 
+    queer~2a 
+    odd~6az of the remaining member of a pair, of socks e.g.
+    odd~7az 
+ oaf ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    lump~3n 
+ old_man ( meanings=5 glosses=5 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    old_man~1nz (^man~4) a familiar term of address for a man
+    old_man~2nz (^saying~1) an informal term for your father
+    old_man~3nz (^man~4) a man who is very old
+    old_man~4nz (^boss~2) boss
+    old_man~5nz (^bush~4) aromatic herb of temperate Eurasia and North Africa having a bitter taste used in making the liqueur absinthe
+ orderly ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:ADJECTIVE ) 
+    orderly~1nz (^tender~5) 
+    orderly~2nz (^tender~5) a soldier who serves as an attendant to a superior officer
+    orderly~3az devoid of violence or disruption
+    neat~5a 
+ owner ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=own 
+    proprietor~1n 
+    owner~2nz (^individual~1) a person who owns something
+ ornamental ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    ornamental~1nz (^plant~1) any plant grown for its beauty or ornamental value
+    ornamental~2az serving an esthetic rather than a useful purpose
+    ornamental~3az 
+ orchid ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN (null) ) 
+    orchid~1nz (^flower~2) any of numerous plants of the orchid family usually having flowers of unusual shapes and beautiful colors
+ oak ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    oak~1nz (^tree~1) a deciduous tree of the genus Quercus
+    oak~2nz (^wood~4) the hard durable wood of any oak
+ opportunity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    chance~5nz (^being~2) a possibility due to a favorable combination of circumstances
+ over ( meanings=6 glosses=5 PARTICLE ADVERB PREPOSITION EXTENT_ADVERB ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    over~1bz over the entire area
+    over~2bz throughout a period of time
+    over~3bz at or to a point across intervening space etc.
+    over~4bz throughout an area
+    over~5bz beyond the top or upper surface or edge
+    over~6z 
+ ordered ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    logical~1a 
+    ordered~2az having a systematic arrangement
+    arranged~3a 
+ opaque ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    opaque~1az not transmitting or reflecting light or radiant energy
+    opaque~2az not clearly understood or expressed
+ overtime ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    overtime~1nz (^period~3) work done in addition to regular working hours
+    overtime~2nz (^period~3) playing time beyond regulation, to break a tie
+    overtime~3bz beyond the regular time
+ off ( meanings=10 glosses=5 VERB_PRESENT VERB_INFINITIVE PARTICLE VERB ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:PREPOSITION VERB_DIRECTOBJECT ) comparative=offer 
+    off~1az not performing or scheduled for duties
+    off~2az not in operation or operational
+    cancelled~1az no longer planned or scheduled
+    off~4az below a satisfactory level
+    turned~1a 
+    off~6bz no longer on or in contact or attached
+    away~4b 
+    away~12b 
+    off~9z 
+    hit~24v 
+ octopi ( NOUN NOUN_PLURAL COMMON2 KINDERGARTEN posdefault:NOUN ) plural=octopus 
+ octopuses ( NOUN NOUN_PLURAL COMMON2 ) 
+ o'clock ( meanings=2 glosses=1 NOUN ADVERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    o'clock~1nz 
+    o'clock~2bz according to the clock
+ oh ( INTERJECTION ) 
+ ow ( INTERJECTION ) 
+ oops ( INTERJECTION ) 
+ oho ( INTERJECTION ) 
+ oh-oh ( INTERJECTION ) 
+ oh_no ( INTERJECTION ) 
+ okey-dokey ( INTERJECTION ) 
+ om ( meanings=1 ADVERB INTERJECTION ) 
+    om~1bz 
+ oof ( INTERJECTION ) 
+ ooh ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB INTERJECTION COMMON2 COMMON1 KINDERGARTEN VERB_NOOBJECT (null) ) 
+    aah~1vz express admiration and pleasure by uttering `ooh' or `aah'
+ oopsey ( INTERJECTION ) 
+ oy ( INTERJECTION ) 
+ oyez ( INTERJECTION ) 
+ obliging ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    complaisant~1a 
+ occupied ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    occupied~1az having ones attention or mind or energy engaged
+    occupied~2az resided in
+    occupied~3az held or filled or in use
+    occupied~4az seized and controlled as by military invasion
+ owned ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    owned~1az having an owner
+ obscure ( meanings=11 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    obscure~1az not clearly understood or expressed
+    dark~12a 
+    apart~1a 
+    obscure~4az not drawing attention
+    unknown~6a 
+    hidden~1a 
+    obscure~7vz make obscure or unclear
+    veil~5v 
+    obscure~9vz reduce a vowel to a neutral one, such as a schwa
+    confuse~2v 
+    mist~4v 
+ outstanding ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    striking~3az having a quality that thrusts itself into attention
+    great~4az of major significance or importance
+    outstanding~3az owed as a debt
+    outstanding~4az distinguished from others in excellence
+    outstanding~5az 
+ occasional ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    occasional~1az recurring or reappearing from time to time
+    occasional~2az occurring from time to time
+    occasional~3az occurring or appearing at usually irregular intervals
+    occasional~4az occurring from time to time
+    occasional~5az 
+ obsolete ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    obsolete~1az no longer in use
+    obsolete~2az 
+ outlined ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    defined~2az showing clearly the outline or profile or boundary
+ oppressive ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    oppressive~1az marked by unjust severity or arbitrary behavior
+    oppressive~2az weighing heavily on the senses or spirit
+    oppressive~3az 
+ older ( meanings=3 glosses=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=eldest 
+    old~3az skilled through long experience
+    elderly~2a 
+    elder~4a 
+ other ( meanings=7 glosses=3 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN PRONOUN_SINGULAR posdefault:ADJECTIVE ) 
+    other~1az very unusual
+    early~5a 
+    other~3az recently past
+    other~4az not the same one or ones already mentioned or implied
+    other~5az 
+    other~6z 
+    other~7z 
+ outfitted ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    outfitted~1az equipped with appropriate wearing apparel and accessories
+    outfitted~2az 
+ opposing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    opponent~3a 
+ of ( meanings=1 PARTICLE PREPOSITION EXTENT_ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION (null) ) 
+    of~1z 
+ outgoing ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 (null) ) 
+    outgoing~1az retiring from a position or office
+    outgoing~2az leaving a place or a position
+    outgoing~3az at ease in talking to others
+    outgoing~4az 
+ officious ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    busy~3a 
+ overwhelming ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    consuming~1az very intense
+    overwhelming~2az so strong as to be irresistible
+    overwhelming~3az 
+ outrageous ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    steep~4a 
+    horrific~2az grossly offensive to decency or morality
+    outrageous~3az 
+ obstinate ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_NOOBJECT ) 
+    contrary~5az resistant to guidance or discipline
+    obstinate~2az stubbornly persistent in wrongdoing
+    stubborn~1a 
+    obstinate~4vz persist stubbornly
+ obligated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:VERB ) 
+    obligated~1az caused by law or conscience to follow a certain course
+ obliged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    obliged~1az 
+ obnoxious ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    obnoxious~1az causing disapproval or protest
+    obnoxious~2az 
+ opened ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    opened~1az made open or clear
+    open~12az used of mouth or eyes
+    open~20az not sealed or having been unsealed
+ opportune ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    opportune~1az suitable or at a time that is suitable or advantageous especially for a particular purpose
+ opposed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    opposed~1az being in opposition or having an opponent
+ observing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    observing~1az 
+ ostentatious ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    pretentious~1az intended to attract notice and impress others
+    pretentious~3az tawdry or vulgar
+    ostentatious~3az 
+ only ( meanings=10 glosses=5 ADJECTIVE ADVERB ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB (null) ) 
+    alone~2a 
+    solitary~4a 
+    only~3az 
+    merely~1b 
+    entirely~2b 
+    only~6bz with nevertheless the final result
+    only~7bz in the final outcome
+    only~8bz as recently as
+    only~9bz except that
+    only~10bz never except when
+ oiled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    oiled~1az treated with oil
+ otherwise ( meanings=3 glosses=3 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    otherwise~1az other than as supposed or expected
+    otherwise~2bz in other respects or ways
+    otherwise~3bz in another and different manner
+ ok ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE posdefault:ADVERB ) 
+    okay~2a 
+ ostracized ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    ostracized~1az 
+ overrated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    overrated~1az 
+ oldest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=older 
+ overwhelm ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    overwhelm~1vz charge someone with too many tasks
+    overwhelm~2vz overcome by superior force
+    drown~4v 
+    overwhelm~4vz overcome, as with emotions or perceptual stimuli
+ or ( meanings=1 CONJUNCTION_COORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    or~1z 
+ occasionally ( meanings=1 glosses=1 ADVERB COMMON4 GRADE5_6 posdefault:ADVERB ) 
+    occasionally~1bz now and then or here and there
+ once ( meanings=6 glosses=3 ADVERB PREPOSITION CONJUNCTION_SUBORDINATE PREDETERMINER COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB posdefault:PREPOSITION ) 
+    once~1bz on one occasion
+    once~2bz at a previous time
+    once~3bz as soon as
+    once~4z 
+    once~5z 
+    once~6z 
+ often ( meanings=3 glosses=3 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) comparative=oftener 
+    often~1bz many times at short intervals
+    much~6bz frequently or in great quantities
+    often~3bz in many cases or instances
+ oftener ( meanings=1 glosses=1 MORE_FORM ADVERB COMMON2 KINDERGARTEN posdefault:ADVERB ) comparative=often 
+    oftener~1bz more often or more frequently
+ obviously ( meanings=1 ADVERB COMMON4 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    plain~11b 
+ on_the_other_hand ( meanings=1 ADVERB CONDITIONAL_IDIOM KINDERGARTEN  poscondition=?=R ) 
+    on_the_other_hand~1bz 
+ on_the_contrary ( meanings=1 ADVERB CONDITIONAL_IDIOM KINDERGARTEN  poscondition=?=R ) 
+    on_the_contrary~1bz 
+ only_if ( meanings=3 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    only_if~1z 
+    only_if~2z 
+    only_if~3z 
+ on_the_grounds_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    on_the_grounds_that~1z 
+ on_grounds_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    on_grounds_that~1z 
+ on_condition ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    on_condition~1z 
+ on_the_condition_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    on_the_condition_that~1z 
+ onto ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    onto~1z 
+ operate ( meanings=7 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    operate~1vz perform surgery on
+    operate~2vz happen
+    maneuver~6vz perform a movement in military or naval tactics in order to secure an advantage in attack or defense
+    control~15v 
+    lock~10v 
+    function~9v 
+    run~46v 
+ occur ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT PRESENTATION_VERB ) 
+    pass~19v 
+    come~8vz come to one's mind
+    occur~3vz to be found to exist
+ organize ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    organize~1vz bring order and organization to
+    direct~12vz plan and direct 
+    prepare~4vz arrange by systematic planning and united effort
+    organize~4vz cause to be structured or ordered or operating according to some principle or idea
+    organize~5vz form or join a union
+    form~21vz create 
+ occupy ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    engross~1vz consume all of one's attention or time
+    occupy~2vz march aggressively into another's territory by military force for the purposes of conquest and occupation
+    take~36vz require 
+    take~37vz assume, as of positions or roles
+    busy~7vz keep busy with
+    occupy~6vz live 
+    fill~11vz occupy the whole of
+    worry~8v 
+ omit ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    miss~3v 
+    exclude~1vz prevent from being included or considered or accepted
+ overrate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    overrate~1vz make too high an estimate of
+ overrule ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    overthrow~3v 
+ observe ( meanings=9 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    maintain~1vz stick to correctly or closely
+    note~10v 
+    note~13vz observe with care or pay close attention to
+    find~12v 
+    observe~5vz watch attentively
+    watch~13vz follow with the eyes or the mind
+    honor~6v 
+    celebrate~3vz behave as expected during of holidays or rites
+    keep~19vz conform one's action or practice to
+ oppose ( meanings=6 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    oppose~1vz be against
+    oppose~2vz be resistant to
+    pit~13v 
+    fight~7v 
+    oppose~5vz act against or in opposition to
+    oppose~6vz contrast with equal weight or force
+ oblige ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    hold~17v 
+    oblige~2vz provide a service or favor for someone
+    compel~1v 
+ overeat ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE3_4 posdefault:VERB ) conjugate=overeaten 
+    stuff~11v 
+ ogle ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    ogle~1vz look at with amorous intentions
+ oust ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    oust~1vz remove from a position or office
+    oust~2vz remove and replace
+ oversee ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) conjugate=overseen 
+    manage~3vz watch and direct
+ ostracize ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    ostracize~1vz avoid speaking to or dealing with
+    banish~3v 
+ obey ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB SPELLING_EXCEPTION COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    obey~1vz be obedient to
+ outlive ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    survive~3v 
+ outnumber ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    outnumber~1vz be larger in number
+ overate ( VERB_PAST VERB COMMON1 GRADE3_4 posdefault:VERB ) conjugate=overeat 
+ overeaten ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON1 GRADE3_4 posdefault:VERB ) conjugate=overate 
+ oversaw ( VERB_PAST VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=oversee 
+ overseen ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE1_2 ) conjugate=oversaw 
+ overthrew ( VERB_PAST VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=overthrow 
+ overthrown ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=overthrew 
+ ought ( AUX_VERB_FUTURE COMMON4 KINDERGARTEN PRESENTATION_VERB ) 
+ ought_to ( AUX_VERB_FUTURE KINDERGARTEN ) 
+ our ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 KINDERGARTEN PREDETERMINER_TARGET ) 
+    our~1z 
+    our~2z 
+ ours ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    ours~1z 
+ oneself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    oneself~1z 
+ ourselves ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_PLURAL ANIMATE_BEING ) 
+    ourselves~1z 
+ others ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_PLURAL posdefault:NOUN ) 
+    others~1z 
+ one_another ( meanings=1 PRONOUN_OBJECT KINDERGARTEN ANIMATE_BEING ) 
+    one_another~1z 

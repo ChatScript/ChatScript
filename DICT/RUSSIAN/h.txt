@@ -1,0 +1,640 @@
+﻿ H ( ) lemma=`h` -  
+ H. ( ) lemma=`h.`h.` Ncfsnn  SENT  
+ H1 ( ) lemma=`h1` Npmsly  
+ H2 ( ) lemma=`h2` -  
+ H3 ( ) lemma=`h3`h3`h3`h3` Afpfsnf  Ncmsln  Npmsgy  Vmis-sfm-e  
+ H5N ( ) lemma=`h5n` -  
+ H5N1 ( ) lemma=`h5n1`h5n1`h5n1`h5n1`h5n1`h5n1`h5n1` -  Afpfsgf  Ncfsnn  Ncmsgn  Ncmsnn  Ncnsnn  Npmsgy  
+ H6 ( ) lemma=`h6` -  
+ H7 ( ) lemma=`h7` -  
+ H7N2 ( ) lemma=`h7n2` -  
+ HA ( ) lemma=`ha` -  
+ HAND ( ) lemma=`hand` -  
+ HAVE ( ) lemma=`have` -  
+ HB2Y ( ) lemma=`hb2y` -  
+ HC ( ) lemma=`hc` -  
+ HD ( ) lemma=`hd` -  
+ HDD ( ) lemma=`hdd` -  
+ HDLC ( ) lemma=`hdlc` -  
+ HDR ( ) lemma=`hdr` -  
+ HE ( ) lemma=`he` -  
+ HEA ( ) lemma=`hea` -  
+ HEAVY ( ) lemma=`heavy` -  
+ HELLOWEEN ( ) lemma=`helloween` -  
+ HEY ( ) lemma=`hey` -  
+ HI ( ) lemma=`hi` -  
+ HIC ( ) lemma=`hic` -  
+ HIGH ( ) lemma=`high` -  
+ HIGHWAY ( ) lemma=`highway` -  
+ HIM ( ) lemma=`him` -  
+ HIN)/ ( ) lemma=`hin)/` -  
+ HINE ( ) lemma=`hine` -  
+ HIPS ( ) lemma=`hips` -  
+ HIS ( ) lemma=`his` -  
+ HKEY ( ) lemma=`hkey` -  
+ HL ( ) lemma=`hl` -  
+ HOLODILNIK ( ) lemma=`holodilnik` -  
+ HOME ( ) lemma=`home` -  
+ HOMM ( ) lemma=`homm` -  
+ HOMM5 ( ) lemma=`homm5` Ncmsln  
+ HOMO ( ) lemma=`homo` -  
+ HOMO( ( ) lemma=`homo(` -  
+ HOTOGRAPHERINNA ( ) lemma=`hotographerinna` -  
+ HOUSE ( ) lemma=`house` -  
+ HP ( ) lemma=`hp` -  
+ HPC ( ) lemma=`hpc` -  
+ HPFS/NTFS ( ) lemma=`hpfs/ntfs` -  
+ HQ ( ) lemma=`hq` -  
+ HR ( ) lemma=`hr` -  
+ HRDC ( ) lemma=`hrdc` -  
+ HRESULT ( ) lemma=`hresult` -  
+ HRI\\GEN\\1\\Rev ( ) lemma=`hri\\gen\\1\\rev` -  
+ HST ( ) lemma=`hst` -  
+ HSc ( ) lemma=`hsc` -  
+ HTML ( ) lemma=`html` -  
+ HTTP ( ) lemma=`http` -  
+ HUB ( ) lemma=`hub` -  
+ HUMAX ( ) lemma=`humax` -  
+ HUNGRY ( ) lemma=`hungry` -  
+ HUNTER ( ) lemma=`hunter` -  
+ HWP ( ) lemma=`hwp` -  
+ HX73017 ( ) lemma=`hx73017` -  
+ HYIP ( ) lemma=`hyip` -  
+ Ha ( ) lemma=`ha` -  
+ Haberfeld ( ) lemma=`haberfeld` -  
+ Hacettepe ( ) lemma=`hacettepe` -  
+ Hackney/ ( ) lemma=`hackney/` -  
+ Hagal ( ) lemma=`hagal` -  
+ Hagalaz ( ) lemma=`hagalaz` -  
+ Hagar ( ) lemma=`hagar` -  
+ Hagen ( ) lemma=`hagen` -  
+ Hague ( ) lemma=`hague` -  
+ Hai ( ) lemma=`hai` -  
+ Haidelberg ( ) lemma=`haidelberg` -  
+ Haindl ( ) lemma=`haindl` -  
+ Hajime ( ) lemma=`hajime` -  
+ Halen ( ) lemma=`halen` -  
+ Half ( ) lemma=`half` -  
+ Halifax ( ) lemma=`halifax` -  
+ Hall ( ) lemma=`hall` -  
+ Halle,1891 ( ) lemma=`halle,1891` Mc---d  
+ Hals ( ) lemma=`hals` -  
+ Hamburg ( ) lemma=`hamburg` -  
+ Hamelin ( ) lemma=`hamelin` -  
+ Hamill ( ) lemma=`hamill` -  
+ Hamilton ( ) lemma=`hamilton` -  
+ Hammonds ( ) lemma=`hammonds` -  
+ Hanasz ( ) lemma=`hanasz` -  
+ Hand ( ) lemma=`hand` -  
+ Handbuch ( ) lemma=`handbuch` -  
+ Handler ( ) lemma=`handler` -  
+ Hang ( ) lemma=`hang` -  
+ Hania ( ) lemma=`hania` -  
+ Hanry ( ) lemma=`hanry` -  
+ Hanter ( ) lemma=`hanter` -  
+ Hanyang ( ) lemma=`hanyang` -  
+ Happy ( ) lemma=`happy` -  
+ Harbor ( ) lemma=`harbor` -  
+ Hard ( ) lemma=`hard` -  
+ Hardened ( ) lemma=`hardened` -  
+ Hardly ( ) lemma=`hardly` -  
+ Hardware ( ) lemma=`hardware` -  
+ Hare ( ) lemma=`hare` -  
+ Harlan ( ) lemma=`harlan` -  
+ Harlequin ( ) lemma=`harlequin` -  
+ Harlow ( ) lemma=`harlow` -  
+ Harm ( ) lemma=`harm` -  
+ Harmonization ( ) lemma=`harmonization` -  
+ Harold ( ) lemma=`harold` -  
+ Harris ( ) lemma=`harris` -  
+ Harrison ( ) lemma=`harrison` -  
+ Harrow ( ) lemma=`harrow` -  
+ Harry's ( ) lemma=`harry's` -  
+ HarryFan ( ) lemma=`harryfan` -  
+ Harte ( ) lemma=`harte` -  
+ Harvard ( ) lemma=`harvard` -  
+ Hary ( ) lemma=`hary` -  
+ Hat ( ) lemma=`hat` -  
+ Hatchlings ( ) lemma=`hatchlings` -  
+ Hatoum ( ) lemma=`hatoum` -  
+ Hatred ( ) lemma=`hatred` -  
+ Hatsan ( ) lemma=`hatsan` -  
+ Have ( ) lemma=`have` -  
+ Haven ( ) lemma=`haven` -  
+ Havfrue ( ) lemma=`havfrue` -  
+ Hawaii ( ) lemma=`hawaii` -  
+ Hayakawa ( ) lemma=`hayakawa` -  
+ Hayden ( ) lemma=`hayden` -  
+ Hayek ( ) lemma=`hayek` -  
+ Hayek/ ( ) lemma=`hayek/` -  
+ Hazards ( ) lemma=`hazards` -  
+ HbA1c ( ) lemma=`hba1c` -  
+ He ( ) lemma=`he` -  
+ He's ( ) lemma=`he's` -  
+ He3/He4 ( ) lemma=`he3/he4` Vmis-p-m-e  
+ Head ( ) lemma=`head` -  
+ Head&Shoulders ( ) lemma=`head&shoulders` -  
+ HeadHunter ( ) lemma=`headhunter` -  
+ Headache ( ) lemma=`headache` -  
+ Headed ( ) lemma=`headed` -  
+ Headline ( ) lemma=`headline` -  
+ Headliner ( ) lemma=`headliner` -  
+ Health ( ) lemma=`health` -  
+ Heap ( ) lemma=`heap` -  
+ Heart ( ) lemma=`heart` -  
+ Heartbreaker ( ) lemma=`heartbreaker` -  
+ Heating ( ) lemma=`heating` -  
+ Hedgehog2 ( ) lemma=`hedgehog2` -  
+ Hediard ( ) lemma=`hediard` -  
+ Hegl ( ) lemma=`hegl` -  
+ Heidelberg ( ) lemma=`heidelberg` -  
+ Heilman ( ) lemma=`heilman` -  
+ Heimatbuch ( ) lemma=`heimatbuch` -  
+ Heineken ( ) lemma=`heineken` -  
+ Heinrich ( ) lemma=`heinrich` -  
+ Heinz ( ) lemma=`heinz` -  
+ Heinze ( ) lemma=`heinze` -  
+ Heisset ( ) lemma=`heisset` -  
+ Hejlsberg ( ) lemma=`hejlsberg` -  
+ Hele`ne ( ) lemma=`hele`ne` -  
+ Helena ( ) lemma=`helena` -  
+ Helicobacter ( ) lemma=`helicobacter` -  
+ Heliport ( ) lemma=`heliport` -  
+ Hell ( ) lemma=`hell` -  
+ Hellen ( ) lemma=`hellen` -  
+ Hello ( ) lemma=`hello` -  
+ Helloween ( ) lemma=`helloween` -  
+ Helly ( ) lemma=`helly` -  
+ Help ( ) lemma=`help` -  
+ HelpDesk ( ) lemma=`helpdesk` -  
+ Helsinki ( ) lemma=`helsinki` -  
+ Hennen ( ) lemma=`hennen` -  
+ Henri ( ) lemma=`henri` -  
+ Her ( ) lemma=`her` -  
+ Herausgabe ( ) lemma=`herausgabe` -  
+ Herbst ( ) lemma=`herbst` -  
+ Here ( ) lemma=`here` -  
+ Hermann ( ) lemma=`hermann` -  
+ Hermesus(c ( ) lemma=`hermesus(c` -  
+ Herne ( ) lemma=`herne` -  
+ Hero ( ) lemma=`hero` -  
+ Heroes ( ) lemma=`heroes` -  
+ Herr ( ) lemma=`herr` -  
+ Herve ( ) lemma=`herve` -  
+ Herzen ( ) lemma=`herzen` -  
+ Hese ( ) lemma=`hese` -  
+ Hesse ( ) lemma=`hesse` -  
+ Hesses ( ) lemma=`hesses` -  
+ Heuer ( ) lemma=`heuer` -  
+ Hewlett ( ) lemma=`hewlett` -  
+ Heсмотря ( ) lemma=`heсмотря` Vmgp---a-e  
+ He’d ( ) lemma=`he’d` -  
+ He’s ( ) lemma=`he’s` -  
+ Hg ( ) lemma=`hg` -  
+ Hi ( ) lemma=`hi` -  
+ HiLo ( ) lemma=`hilo` -  
+ HiOpt ( ) lemma=`hiopt` -  
+ Hic ( ) lemma=`hic` -  
+ Hide ( ) lemma=`hide` -  
+ Hiero ( ) lemma=`hiero` -  
+ High ( ) lemma=`high` -  
+ High- ( ) lemma=`high-` -  
+ Highlight ( ) lemma=`highlight` -  
+ Highway ( ) lemma=`highway` -  
+ Hilaire ( ) lemma=`hilaire` -  
+ Hill ( ) lemma=`hill` -  
+ HiltCommander ( ) lemma=`hiltcommander` -  
+ Hilton ( ) lemma=`hilton` -  
+ Him ( ) lemma=`him` -  
+ Hindustan ( ) lemma=`hindustan` -  
+ Hip ( ) lemma=`hip` -  
+ His ( ) lemma=`his` -  
+ Hist ( ) lemma=`hist` -  
+ Histoire ( ) lemma=`histoire` -  
+ Histore ( ) lemma=`histore` -  
+ Historein ( ) lemma=`historein` -  
+ Historia ( ) lemma=`historia` -  
+ Historian ( ) lemma=`historian` -  
+ Historical ( ) lemma=`historical` -  
+ Historically ( ) lemma=`historically` -  
+ Historisches ( ) lemma=`historisches` -  
+ History ( ) lemma=`history` -  
+ Hit ( ) lemma=`hit` -  
+ Hitachi ( ) lemma=`hitachi` -  
+ Hits ( ) lemma=`hits` -  
+ Hitt ( ) lemma=`hitt` -  
+ Hl ( ) lemma=`hl` -  
+ Hm ( ) lemma=`hm` -  
+ Hm7 ( ) lemma=`hm7` -  
+ HoME ( ) lemma=`home` -  
+ HoMM3 ( ) lemma=`homm3`homm3` -  Ncfsan  
+ Hoaxer ( ) lemma=`hoaxer` -  
+ Hobbit ( ) lemma=`hobbit` -  
+ Hoc ( ) lemma=`hoc` -  
+ Hochschild ( ) lemma=`hochschild` -  
+ Hochstaplers ( ) lemma=`hochstaplers` -  
+ Hoff ( ) lemma=`hoff` -  
+ Hoffentlich ( ) lemma=`hoffentlich` -  
+ Hofmann ( ) lemma=`hofmann` -  
+ Hofra ( ) lemma=`hofra` -  
+ Holding ( ) lemma=`holding` -  
+ Holdings ( ) lemma=`holdings` -  
+ Holdren ( ) lemma=`holdren` -  
+ Hole ( ) lemma=`hole` -  
+ Holes ( ) lemma=`holes` -  
+ Holidays ( ) lemma=`holidays` -  
+ Hollacher ( ) lemma=`hollacher` -  
+ Hollywood ( ) lemma=`hollywood` -  
+ Holodilnik ( ) lemma=`holodilnik` -  
+ Holtzman/ ( ) lemma=`holtzman/` -  
+ Holy ( ) lemma=`holy` -  
+ Homa ( ) lemma=`homa` -  
+ Homage ( ) lemma=`homage` -  
+ Home ( ) lemma=`home` -  
+ HomePNA ( ) lemma=`homepna` -  
+ HomePage ( ) lemma=`homepage` -  
+ HommV ( ) lemma=`hommv` -  
+ Homo ( ) lemma=`homo` -  
+ Hon ( ) lemma=`hon` -  
+ Hong ( ) lemma=`hong` -  
+ Hongqiao ( ) lemma=`hongqiao` -  
+ Honn ( ) lemma=`honn` -  
+ Hook ( ) lemma=`hook` -  
+ Hoover ( ) lemma=`hoover` -  
+ Horace ( ) lemma=`horace` -  
+ Horkheimer ( ) lemma=`horkheimer` -  
+ Horned ( ) lemma=`horned` -  
+ Horowitz ( ) lemma=`horowitz` -  
+ Hospital ( ) lemma=`hospital` -  
+ Host ( ) lemma=`host` -  
+ Hosting ( ) lemma=`hosting` -  
+ Hot ( ) lemma=`hot` -  
+ Hotel ( ) lemma=`hotel` -  
+ Hotels ( ) lemma=`hotels` -  
+ Hotline ( ) lemma=`hotline` -  
+ Hotomanee ( ) lemma=`hotomanee` -  
+ Hotya ( ) lemma=`hotya` -  
+ Houghton ( ) lemma=`houghton` -  
+ Hound ( ) lemma=`hound` -  
+ Hounslow ( ) lemma=`hounslow` -  
+ Hour ( ) lemma=`hour` -  
+ Hours ( ) lemma=`hours` -  
+ House ( ) lemma=`house` -  
+ Housing ( ) lemma=`housing` -  
+ Houston ( ) lemma=`houston` -  
+ How ( ) lemma=`how` -  
+ However ( ) lemma=`however` -  
+ Hrsg ( ) lemma=`hrsg` -  
+ Hsia ( ) lemma=`hsia` -  
+ Html ( ) lemma=`html` -  
+ Huange ( ) lemma=`huange` -  
+ Huangpu ( ) lemma=`huangpu` -  
+ Hubble ( ) lemma=`hubble` -  
+ Hubert ( ) lemma=`hubert` -  
+ Hughes ( ) lemma=`hughes` -  
+ Hugnes ( ) lemma=`hugnes` -  
+ Hugo ( ) lemma=`hugo` -  
+ Hull ( ) lemma=`hull` -  
+ Human ( ) lemma=`human` -  
+ Humaniores ( ) lemma=`humaniores` -  
+ Humax ( ) lemma=`humax` -  
+ Humphrey ( ) lemma=`humphrey` -  
+ Huniger ( ) lemma=`huniger` -  
+ Hunter ( ) lemma=`hunter` -  
+ Hur ( ) lemma=`hur` -  
+ Hurley ( ) lemma=`hurley` -  
+ Hurricane ( ) lemma=`hurricane` -  
+ Hustler ( ) lemma=`hustler` -  
+ Hut ( ) lemma=`hut` -  
+ Hy ( ) lemma=`hy` -  
+ Hyadu ( ) lemma=`hyadu` -  
+ Hydra ( ) lemma=`hydra` -  
+ Hydro ( ) lemma=`hydro` -  
+ Hyper ( ) lemma=`hyper` -  
+ HyperTransport ( ) lemma=`hypertransport` -  
+ Hyperion ( ) lemma=`hyperion` -  
+ Hypnotize ( ) lemma=`hypnotize` -  
+ Hypogeum ( ) lemma=`hypogeum` -  
+ Hyracotherium ( ) lemma=`hyracotherium` -  
+ Hz ( ) lemma=`hz` -  
+ HА ( ) lemma=`hа` -  
+ HАВСЕГДА ( ) lemma=`hавсегда` P-----r  
+ HДР ( ) lemma=`hдр` Ncmsan  
+ HЕ ( ) lemma=`hе`hе` Ncfsgn  Q  
+ HЕHАВИЖУ ( ) lemma=`hеhавижу` Vmip1s-a-e  
+ HЕВЕЖЕСТВОМ ( ) lemma=`hевежеством` Ncmsin  
+ HЕЛЬЗЯ ( ) lemma=`hельзя` R  
+ HЕт ( ) lemma=`hет` Vmip3s-a-e  
+ HО ( ) lemma=`hо` Ncnsnn  
+ HПЦЕЫШ ( ) lemma=`hпцеыш` Npfsny  
+ Hа ( ) lemma=`hа`hа`hа`hа`hа`hа` Afpfsns  Ncfsnn  Ncmsgn  Ncmsgy  Npmsgy  Vmis-sfa-p  
+ Hаpисуйте ( ) lemma=`hаpисуйте` Vmm-2p-a-e  
+ Hаpодная ( ) lemma=`hаpодная` Afpfsnf  
+ Hаблюдательности ( ) lemma=`hаблюдательности`hаблюдательности` Ncfpnn  Ncfsgn  
+ Hаблюдать ( ) lemma=`hаблюдать` Vmn----a-e  
+ Hабоков ( ) lemma=`hабоков` Npmsny  
+ Hабокова ( ) lemma=`hабокова` Npmsgy  
+ Hаверное ( ) lemma=`hаверное` Afpnsnf  
+ Hавигация ( ) lemma=`hавигация` Ncfsnn  
+ Hавстpечy ( ) lemma=`hавстpечy` -  
+ Hаденьте ( ) lemma=`hаденьте` Vmm-2p-a-p  
+ Hадо ( ) lemma=`hадо` -  
+ Hазовите ( ) lemma=`hазовите` Vmm-2p-a-p  
+ Hаиболее ( ) lemma=`hаиболее` Afpmsnf  
+ Hайди ( ) lemma=`hайди` Vmm-2s-a-p  
+ Hайдите ( ) lemma=`hайдите` Vmm-2p-a-p  
+ Hаклейте ( ) lemma=`hаклейте`hаклейте` Vmm-2p-a-e  Vmm-2p-a-p  
+ Hаклете ( ) lemma=`hаклете` Ncmsln  
+ Hаклоните ( ) lemma=`hаклоните` Vmm-2p-a-p  
+ Hаковеpнач ( ) lemma=`hаковеpнач` Ncmsny  
+ Hаковёpнач ( ) lemma=`hаковёpнач` Ncmsny  
+ Hаконец ( ) lemma=`hаконец` Ncmsny  
+ Hалево ( ) lemma=`hалево` R  
+ Hалоговая ( ) lemma=`hалоговая` Afpfsnf  
+ Hам ( ) lemma=`hам` Ncmpdy  
+ Hапpимеp ( ) lemma=`hапpимеp` -  
+ Hапpотив ( ) lemma=`hапpотив` Sp-g  
+ Hапевайте ( ) lemma=`hапевайте` Vmm-2p-a-e  
+ Hапиши ( ) lemma=`hапиши` Vmm-2s-a-p  
+ Hапишите ( ) lemma=`hапишите` Vmm-2p-a-p  
+ Hаполеон ( ) lemma=`hаполеон` Ncmsnn  
+ Hаполеонy ( ) lemma=`hаполеонy` -  
+ Hаполните ( ) lemma=`hаполните` Vmm-2p-a-p  
+ Hапример ( ) lemma=`hапример` Ncmsny  
+ Hапысали ( ) lemma=`hапысали` Vmis-p-a-p  
+ Hас ( ) lemma=`hас`hас` Ncmsnn  Npmsny  
+ Hастоятельно ( ) lemma=`hастоятельно` R  
+ Hасылает ( ) lemma=`hасылает` Vmip3s-a-e  
+ Hата ( ) lemma=`hата` Ncfsnn  
+ Hаталья ( ) lemma=`hаталья` Ncnsgn  
+ Hаташа ( ) lemma=`hаташа` Ncmsgn  
+ Hаучите ( ) lemma=`hаучите`hаучите` Vmm-2p-a-e  Vmm-2p-a-p  
+ Hаходить ( ) lemma=`hаходить` Vmn----a-e  
+ Hачинайте ( ) lemma=`hачинайте` Vmm-2p-a-e  
+ Hачинать ( ) lemma=`hачинать` Vmn----a-e  
+ Hачиная ( ) lemma=`hачиная` Afpfsnf  
+ Hачните ( ) lemma=`hачните` Vmm-2p-a-p  
+ Hаша ( ) lemma=`hаша` Ncfsny  
+ Hе ( ) lemma=`hе`hе`hе`hе`hе`hе`hе`hе`hе`hе`hе`hе` Afcmsnf  Afpmpaf  Afpmpnf  Afpnsnf  Ncnsan  Ncnsnn  Q  R  Vmip2p-a-e  Vmm-2p-a-e  Vmm-2p-a-p  Vmps-p-afpn  
+ Hеyжели ( ) lemma=`hеyжели` C  
+ Hебывалый ( ) lemma=`hебывалый` Afpmsnf  
+ Hевской ( ) lemma=`hевской` Afpfsif  
+ Hевском ( ) lemma=`hевском` Afpmslf  
+ Hегpы ( ) lemma=`hегpы` Ncmpnn  
+ Hего ( ) lemma=`hего` P--nsgn  
+ Hедавно ( ) lemma=`hедавно` R  
+ Hеет ( ) lemma=`hеет` Vmip3s-a-e  
+ Hеизбежность ( ) lemma=`hеизбежность` Ncfsnn  
+ Hекотоpые ( ) lemma=`hекотоpые` Afpmpnf  
+ Hекоторая ( ) lemma=`hекоторая` P--fsna  
+ Hекоторые ( ) lemma=`hекоторые`hекоторые` Mo-pa  Mo-pn  
+ Hекто ( ) lemma=`hекто` P--msnn  
+ Hеловко ( ) lemma=`hеловко` R  
+ Hельзя ( ) lemma=`hельзя` R  
+ Hенyжное ( ) lemma=`hенyжное` Afpnsnf  
+ Hенадлежащая ( ) lemma=`hенадлежащая` Vmpp-sfa-en  
+ Hеожиданно ( ) lemma=`hеожиданно` R  
+ Hеопытные ( ) lemma=`hеопытные` Afpmpnf  
+ Hесколько ( ) lemma=`hесколько` R  
+ Hесмотpя ( ) lemma=`hесмотpя` Vmgp---a-e  
+ Hесмотря ( ) lemma=`hесмотря` Vmgp---a-e  
+ Hет ( ) lemma=`hет`hет` Ncmsnn  Vmip3s-a-e  
+ Hеужели ( ) lemma=`hеужели` C  
+ Hи ( ) lemma=`hи` Vmis-p-a-p  
+ Hиcкoлькo ( ) lemma=`hиcкoлькo` -  
+ Hибелунгах ( ) lemma=`hибелунгах` Ncmpln  
+ Hикак ( ) lemma=`hикак` R  
+ Hикакая ( ) lemma=`hикакая` P--fsna  
+ Hикифоpа ( ) lemma=`hикифоpа` Npmsgy  
+ Hикодим ( ) lemma=`hикодим` Vmip1p-a-e  
+ Hиколая ( ) lemma=`hиколая` Afpfsnf  
+ Hиколь ( ) lemma=`hиколь` Npfsiy  
+ Hикто ( ) lemma=`hикто` P--msnn  
+ Hифига ( ) lemma=`hифига` R  
+ Hо ( ) lemma=`hо`hо`hо`hо`hо` Afpmsaf  Ncnsnn  R  Vmis-sna-e  Vmis-sna-p  
+ Hовая ( ) lemma=`hовая` Afpfsnf  
+ Hовый ( ) lemma=`hовый` Afpmsnf  
+ Hогти ( ) lemma=`hогти` Ncmpnn  
+ Hосиком ( ) lemma=`hосиком` R  
+ Hоски ( ) lemma=`hоски` Ncmpnn  
+ Hочь ( ) lemma=`hочь` Vmm-2s-a-e  
+ Hочью ( ) lemma=`hочью` Ncfsin  
+ Hравится ( ) lemma=`hравится` Vmif3s-m-p  
+ Hу ( ) lemma=`hу`hу`hу`hу`hу`hу`hу`hу`hу`hу`hу` Afpmsdf  I  Ncfsan  Ncfsay  Ncmsdn  Ncmsdy  Ncmsnnp  Npmsdy  R  Vmif1s-a-p  Vmip1s-a-e  
+ Hужные ( ) lemma=`hужные` Afpmpnf  
+ Hука ( ) lemma=`hука` Ncfsnn  
+ Hэ ( ) lemma=`hэ` -  
+ h ( ) 
+ h"arter ( ) 
+ h. ( ) 
+ h1 ( ) 
+ h2 ( ) 
+ h3 ( ) 
+ h34r ( ) 
+ h4 ( ) 
+ h5 ( ) 
+ h5+ ( ) 
+ h6 ( ) 
+ h6+ ( ) 
+ h7 ( ) 
+ h8+ ( ) 
+ ha ( ) 
+ haba ( ) 
+ habet ( ) 
+ habibi@mail ( ) 
+ had ( ) 
+ hafa ( ) 
+ hafer ( ) 
+ hahaleva@kommersant ( ) 
+ halimov ( ) 
+ hallmark ( ) 
+ hammer ( ) 
+ hammered ( ) 
+ hamstva ( ) 
+ han ( ) 
+ hanch ( ) 
+ hand ( ) 
+ handler* ( ) 
+ hands ( ) 
+ handsome ( ) 
+ hanson ( ) 
+ happen ( ) 
+ happiness ( ) 
+ happy ( ) 
+ happymama ( ) 
+ har ( ) 
+ harassment ( ) 
+ harbour ( ) 
+ hard ( ) 
+ hare ( ) 
+ harereactor ( ) 
+ harkov ( ) 
+ harmony ( ) 
+ harrumpfh ( ) 
+ hartsiz ( ) 
+ has ( ) 
+ haskell ( ) 
+ hat ( ) 
+ haute ( ) 
+ hav ( ) 
+ have ( ) 
+ haver ( ) 
+ having ( ) 
+ he ( ) 
+ he1 ( ) 
+ head ( ) 
+ headed ( ) 
+ hear ( ) 
+ heart ( ) 
+ heatre ( ) 
+ heaven ( ) 
+ heavy ( ) 
+ heide ( ) 
+ heidi ( ) 
+ height="30 ( ) 
+ height="31 ( ) 
+ heilige ( ) 
+ heitersten ( ) 
+ helen354@yandex ( ) 
+ helene ( ) 
+ hell ( ) 
+ helloween ( ) 
+ hellrun@mail ( ) 
+ helny ( ) 
+ help ( ) 
+ her ( ) 
+ here ( ) 
+ heregister ( ) 
+ herepovets ( ) 
+ hermesus@mail ( ) 
+ hero ( ) 
+ heroes1 ( ) 
+ herself ( ) 
+ hersoncity ( ) 
+ heuristic ( ) 
+ heute ( ) 
+ he’s ( ) 
+ hi ( ) 
+ hide ( ) 
+ hier ( ) 
+ high ( ) 
+ highest ( ) 
+ highly ( ) 
+ hiking ( ) 
+ him ( ) 
+ hinaembassy ( ) 
+ hiolink ( ) 
+ hirohito ( ) 
+ hirtenschulz ( ) 
+ his ( ) 
+ historical ( ) 
+ hit ( ) 
+ hitehouse ( ) 
+ hitinsky ( ) 
+ hkeeper ( ) 
+ hl=de&q=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80+%D0%9A%D0%B0%D0%BC%D0%B8%D0%BD%D0%B5%D1%80&btnG=Google ( ) lemma=`hl=de&q=%d0%92%d0%bb%d0%b0%d0%b4%d0%b8%d0%bc%d0%b8%d1%80+%d0%9a%d0%b0%d0%bc%d0%b8%d0%bd%d0%b5%d1%80&btng=google` -  
+ hlau ( ) 
+ hlebushka ( ) 
+ hlipkiye ( ) 
+ hludens@ftep ( ) 
+ hmini ( ) 
+ hmm ( ) 
+ hmpub((a))front ( ) 
+ hmyrj ( ) 
+ hmyrj(a)front ( ) 
+ hmуrj ( ) 
+ hnlichen ( ) 
+ ho ( ) 
+ hoaxer@da ( ) 
+ hobober@hotmail ( ) 
+ hoc ( ) 
+ hochesh ( ) 
+ hochetsya ( ) 
+ hochu ( ) 
+ hochy ( ) 
+ hoenix ( ) 
+ hola ( ) 
+ hold ( ) 
+ hole ( ) 
+ holes ( ) 
+ holidays ( ) 
+ holtex ( ) 
+ home ( ) 
+ home@mail ( ) 
+ homes ( ) 
+ hominem ( ) 
+ homme ( ) 
+ hommes ( ) 
+ homo ( ) 
+ homoios ( ) 
+ homoбургером ( ) 
+ honey ( ) 
+ hong ( ) 
+ hook ( ) 
+ hop ( ) 
+ hope ( ) 
+ hopper@mail ( ) 
+ horizon ( ) 
+ horoschego ( ) 
+ horribilem ( ) 
+ horribilis ( ) 
+ horrore ( ) 
+ horses ( ) 
+ hosed ( ) 
+ hoshi ( ) 
+ hospital@yahoo ( ) 
+ hostel ( ) 
+ hosting ( ) 
+ hot ( ) 
+ hotels ( ) 
+ hotim ( ) 
+ hotite ( ) 
+ hotmail ( ) 
+ hotobucket ( ) 
+ hotya ( ) 
+ hour ( ) 
+ house ( ) 
+ household ( ) 
+ how ( ) 
+ how=tm&rd,2&text= ( ) 
+ hp ( ) 
+ hp3 ( ) 
+ hrist4you ( ) 
+ hronica ( ) 
+ hrust ( ) 
+ ht ( ) 
+ hter ( ) 
+ htm ( ) 
+ html ( ) 
+ html#GRAV ( ) lemma=`html#grav` -  
+ hto ( ) 
+ http ( ) 
+ http=i3 ( ) 
+ httр ( ) 
+ humanum ( ) 
+ humidity ( ) 
+ humorously ( ) 
+ hund ( ) 
+ hundred ( ) 
+ hundt ( ) 
+ hung ( ) 
+ huno ( ) 
+ hupothesis ( ) 
+ husband ( ) 
+ hush ( ) 
+ husnabd ( ) 
+ hvataet ( ) 
+ hvatalo ( ) 
+ hvidhe ( ) 
+ hydra ( ) 
+ hydra/chaos ( ) 
+ hygieinos ( ) 
+ hymnos ( ) 
+ hypnosis ( ) 
+ hypo ( ) 
+ hys ( ) 
+ hysto ( ) 
+ h~A1/4bsch ( ) lemma=`h~a1/4bsch` -  
+ h~A¶heren ( ) lemma=`h~a¶heren` -  
+ hааны ( ) 
+ hеру ( ) 

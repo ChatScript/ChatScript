@@ -1,0 +1,63 @@
+##<<ENGLISH 
+concept: ~timewords (January February March Mar April May June July August September October November December
+Jan. Feb. Mar. Apr. Aug. Sept. Oct. Nov. Dec.
+spring summer fall winter springtime summertime autumn wintertime 
+AM PM a.m. p.m. day morning mid-morning noon noontime afternoon mid-afternoon evening mid-evening night midnight 
+Sunday Monday Tuesday Wednesday Thursday Friday Saturday fortnight
+daybreak nightfall dawn
+semidiurnal diurnal biweekly  triweekly  bimonthy semimonthly monthly trimonthly quarterly biannual semiannual perennial annual biennial triennial
+triennium biennium Olympiad quadrennnimum trimester fortnight sunset night evening daybreak twilight dawn morning midnight noon 
+millisecond nanosecond picosecond femtosecond microsecond second minute hour day week weekend fortnight lustrum pentad month year decade century 
+millennium eon  dusk twilight twinight
+ quarter generation
+ lunch_time
+ sunset dusk
+o'clock
+a.d. b.c. ad bc
+age
+bicennial triennial sexennial sexcentenary quincentennial quadricentennial
+ decennial biennial bicentennial
+
+ time		# in so that time phrase "every time" can be detected
+
+years # because it has an idiomatic meaning (own entry) as well as being plural of year
+
+moment instant
+
+# school and development
+semester term season session trimester quarter phase term round year_end
+
+# implied time word
+brunch breakfast lunch dinner supper 
+
+# time prepositions:  in (year, month)  on (day, date)  at (time)  
+# in + amount of time == future  or length of time
+# during (decade, long timer period)
+#-- specific time  use simple tenses
+#-- ongoing action is XXXing
+#-- duration have you been, were you, will you be
+#-- completed  -- have finished, had finished, will have finished,
+# ago followed by time
+# at the same time:   when x y, as soon as x y, Once x y, the moment (that)
+# different times:  before, after, by the time, until
+
+today tomorrow yesterday soon afterwards someday lately tonight
+recently now then finally eventually already just still
+midweek hence ago
+early late earlier later
+
+# frequency
+hourly daily weekly fortnightly monthly annually biannually 
+biweekly bimonthly semiweekly trimonthly perennial diurnal 
+biannual annual
+
+# by percentage bands SHOULD NOT BE TIMEPHRASE
+# always  nearly  almost_always usually very_often frequently often sometimes occasionally
+# almost_never ever hardly_ever  rarely seldom once_in_a_blue_moon once once_in_a_lifetime once_in_a_while once_and_for_all never
+
+ago
+# every every_other   SHOULD NOT BE TIMEPHRASE
+# crepuscular  SHOULD NOT BE TIMEPHRASE
+
+when while after until)
+##>>

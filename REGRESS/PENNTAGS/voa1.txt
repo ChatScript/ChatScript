@@ -1,0 +1,69 @@
+# Tokens: 1206 Time: 49.913s  (bad:22)
+Hello/VB again/RB and/CC welcome/VB to/TO As/IN It/PRP Is/NNP !/. 
+I/PRP 'm/VBP Steve/NNP Ember/NNP in/IN Washington/NNP ./. 
+Medical/JJ experts/NNS have/VBP long/RB talked/VBN about/IN the/DT possible/JJ health/NN risks/NNS of/IN soft/JJ drinks/NNS ./. 
+Now/RB new/JJ research/NN suggests/VBZ that/IN children/NNS who/WP drink/VBP a/DT lot/NN of/IN soda/NN could/MD become/VB destructive/JJ or/CC violent/JJ ./. 
+"/" We/PRP ca/MD n't/RB prove/VB that/IN this/DT is/VBZ a/DT direct/JJ cause/NN and/CC effect/NN relationship/NN ./. 
+Having/VBG said/VBN that/WDT ,/, there/EX are/VBP a/DT lot/NN of/IN ingredients/NNS in/IN soda/NN ,/, a/DT lot/NN of/IN ingredients/NNS that/WDT have/VBP not/RB been/VBN examined/VBN in/IN relation/NN to/TO behavior/NN ./. "/" 
+We/PRP will/MD have/VB more/PRP on/IN that/DT story/NN later/RB in/IN the/DT program/NN ./. 
+But/CC first/RB ,/, there/EX have/VBP been/VBN many/JJ studies/NNS done/VBN on/IN how/WRB color/NN affects/VBZ emotions/NNS ./. 
+One/CD recent/JJ study/NN found/VBD that/IN some/DT colors/NNS people/NNS see/VBP late/JJ at/IN night/NN could/MD have/VB a/DT harmful/JJ effect/NN on/IN their/PRP$ emotions/NNS ./. 
+VOA/NNP 's/POS Christopher/NNP Cruise/NNP has/VBZ more/PRP on/IN the/DT study/NN ./. 
+Some/DT colors/NNS that/IN people/NNS see/VBP late/JJ at/IN night/NN could/MD cause/VB signs/NNS of/IN the/DT condition/NN mental/JJ health/NN experts/NNS call/VBP clinical/JJ depression/NN ./. 
+That/DT was/VBD the/DT finding/NN of/IN a/DT study/NN that/WDT builds/VBZ on/IN earlier/JJR study/NN findings/NNS ./. 
+They/PRP showed/VBD that/IN individuals/NNS who/WP live/VBP or/CC work/VBP in/IN low/JJ levels/NNS of/IN light/NN overnight/RB can/MD develop/VB clinical/JJ depression/NN ./. 
+Doctors/NNS use/VBP the/DT words/NNS clinical/JJ depression/NN to/TO describe/VB a/DT severe/JJ form/NN of/IN depression/NN ./. 
+Signs/NNS may/MD include/VB loss/NN of/IN interest/NN or/CC pleasure/NN in/IN most/JJS activities/NNS ,/, low/JJ energy/NN levels/NNS and/CC thoughts/NNS of/IN death/NN or/CC suicide/NN ./. 
+In/IN the/DT new/JJ study/NN ,/, American/JJ investigators/NNS designed/VBD an/DT experiment/NN that/WDT exposed/VBD hamsters/NNS to/TO different/JJ colors/NNS ./. 
+The/DT researchers/NNS chose/VBD hamsters/NNS because/IN they/PRP are/VBP nocturnal/JJ ,/, which/WDT means/VBZ they/PRP sleep/VBP during/IN the/DT day/NN and/CC are/VBP active/JJ at/IN night/NN ./. 
+The/DT animals/NNS were/VBD separated/VBN into/IN four/CD groups/NNS ./. 
+One/CD group/NN of/IN hamsters/NNS was/VBD kept/VBN in/IN the/DT dark/NN during/IN their/PRP$ nighttime/JJ period/NN ./. 
+Another/DT group/NN was/VBD placed/VBN in/IN front/NN of/IN a/DT blue/JJ light/NN ./. 
+A/DT third/JJ group/NN slept/VBD in/IN front/NN of/IN a/DT white/JJ light/NN ,/, while/IN a/DT fourth/JJ was/VBD put/VBN in/IN front/NN of/IN a/DT red/JJ light/NN ./. 
+After/IN four/CD weeks/NNS ,/, the/DT researchers/NNS noted/VBD how/WRB much/JJ sugary/JJ water/NN the/DT hamsters/NNS drank/VBD ./. 
+They/PRP found/VBD that/IN the/DT more/RBR depressed/JJ animals/NNS drank/VBD the/DT least/JJS amount/NN of/IN water/NN ./. 
+Randy/NNP Nelson/NNP heads/VBZ the/DT Department/NNP of/IN Neuroscience/NNP at/IN Ohio/NNP State/NNP University/NNP ./. 
+He/PRP says/VBZ animals/NNS that/WDT slept/VBD in/IN blue/JJ and/CC white/JJ light/NN appeared/VBD to/TO be/VB the/DT most/RBS depressed/JJ ./. 
+"/" What/WP we/PRP saw/VBD was/VBD these/DT animals/NNS did/VBD n't/RB show/VB any/DT sleep/NN disruptions/NNS at/IN all/DT but/CC they/PRP did/VBD have/VBP mucked/VBN up/RP circadian/JJ clock/NN genes/NNS and/CC they/PRP did/VBD show/VB depressive/NN phenotypes/NNS whereas/IN if/IN they/PRP were/VBD in/IN the/DT dim/JJ red/JJ light/NN ,/, they/PRP did/VBD not/RB ./. "/" 
+Randy/NNP Nelson/NNP notes/VBZ that/IN photosensitive/JJ cells/NNS in/IN the/DT retina/NN have/VBP little/RB to/TO do/VB with/IN eyesight/NN ./. 
+He/PRP says/VBZ these/DT cells/NNS send/VBP signals/NNS to/TO the/DT area/NN of/IN the/DT brain/NN that/WDT controls/VBZ what/WP has/VBZ been/VBN called/VBN the/DT natural/JJ sleep-wake/JJ cycle/NN ./. 
+He/PRP says/VBZ there/EX is/VBZ a/DT lot/NN of/IN blue/NN in/IN white/JJ light/NN ./. 
+This/DT explains/VBZ why/WRB the/DT blue/JJ light/NN and/CC white/JJ light/JJ hamsters/NNS appeared/VBD to/TO be/VB more/RBR depressed/JJ than/IN the/DT hamsters/NNS seeing/VBG red/JJ light/NN or/CC darkness/NN ./. 
+Mr./NNP Nelson/NNP has/VBZ suggestions/NNS for/IN people/NNS who/WP work/VBP late/RB at/IN night/NN or/CC those/DT who/WP like/VBP to/TO stay/VB up/RB late/RB ./. 
+"/" My/PRP$ recommendation/NN is/VBZ if/IN you/PRP are/VBP just/RB living/VBG a/DT typical/JJ ,/, mostly/RB active/JJ -LRB-/-LRB- life/NN -RRB-/-RRB- during/IN the/DT day/NN ,/, mostly/RB inactive/JJ at/IN night/NN ,/, you/PRP want/VBP to/TO limit/VB the/DT exposure/NN to/TO TVs/NNS ,/, which/WDT are/VBP quite/RB bluish/JJ in/IN the/DT light/NN they/PRP give/VBP off/RP ,/, and/CC computer/NN screens/NNS and/CC things/NNS like/IN that/DT ./. 
+You/PRP can/MD get/VB filtered/JJ glasses/NNS ,/, you/PRP can/MD get/VB filters/NNS on/IN your/PRP$ computer/NN screen/NN or/CC your/PRP$ eReaders/NNS and/CC that/DT sort/NN of/IN thing/NN to/TO put/VB it/PRP more/RBR in/IN the/DT reddish/JJ light/NN ./. "/" 
+The/DT report/NN on/IN the/DT effects/NNS of/IN light/NN on/IN emotions/NNS was/VBD published/VBN in/IN The/DT Journal/NNP of/IN Neuroscience/NNP ./. 
+I/PRP 'm/VBP Christopher/NNP Cruise/NNP ./. 
+You/PRP are/VBP listening/VBG to/TO As/IN It/PRP Is/NNP ,/, from/IN VOA/NNP Learning/NNP English/NNP ./. 
+I/PRP 'm/VBP Steve/NNP Ember/NNP ./. 
+A/DT new/JJ study/NN has/VBZ found/VBN evidence/NN of/IN aggressive/JJ behavior/NN in/IN children/NNS who/WP drink/VBP four/CD or/CC more/JJR servings/NNS of/IN soft/JJ drinks/NNS every/DT day/NN ./. 
+The/DT mothers/NNS of/IN 3,000/CD five-year-olds/NNS took/VBD part/NN in/IN the/DT study/NN ./. 
+Researchers/NNS asked/VBD the/DT women/NNS to/TO keep/VB a/DT record/NN of/IN how/WRB many/JJ servings/NNS of/IN soft/JJ drinks/NNS their/PRP$ children/NNS drank/VBD over/IN a/DT two-month/JJ period/NN ./. 
+As/IN Bob/NNP Doughty/NNP reports/NNS ,/, the/DT women/NNS were/VBD also/RB asked/VBN to/TO keep/VB records/NNS of/IN how/WRB the/DT children/NNS behaved/VBD ./. 
+Soda/NN Could/MD Cause/VB Aggressive/JJ Behavior/NN in/IN Children/NNS 
+The/DT researchers/NNS found/VBD that/IN 43/CD percent/NN of/IN the/DT boys/NNS and/CC girls/NNS drank/VBD at/IN least/RB one/CD daily/JJ serving/NN of/IN soda/NN ./. 
+Four/CD percent/NN of/IN the/DT youngsters/NNS had/VBD four/CD or/CC more/JJR sodas/NNS to/TO drink/VB every/DT day/NN ./. 
+Children/NNS who/WP drank/VBD the/DT most/JJS soda/NN were/VBD more/RB than/RB two/CD times/NNS likely/JJ to/TO show/VB signs/NNS of/IN aggression/NN ./. 
+Suglia/NNP is/VBZ with/IN Columbia/NNP University/NNP 's/POS Mailman/NNP School/NNP of/IN Public/NNP Health/NNP in/IN New/NNP York/NNP City/NNP ./. 
+She/PRP worked/VBD on/IN the/DT study/NN with/IN researchers/NNS from/IN the/DT University/NNP of/IN Vermont/NNP and/CC Harvard/NNP University/NNP School/NNP of/IN Public/NNP Health/NNP ./. 
+She/PRP says/VBZ they/PRP found/VBD that/IN children/NNS who/WP drank/VBD the/DT most/JJS soda/NN were/VBD more/RB than/RB two/CD times/NNS as/RB likely/JJ as/IN those/DT who/WP drank/VBD no/DT soda/NN to/TO show/VB signs/NNS of/IN aggression/NN ./. 
+"/" For/IN the/DT children/NNS who/WP consumed/VBD four/CD or/CC more/JJR soft/JJ drinks/NNS per/IN day/NN ,/, we/PRP see/VBP an/DT association/NN between/IN aggressive/JJ behaviors/NNS ,/, attention/NN problems/NNS and/CC withdrawn/VBN behaviors/NNS ./. "/" 
+The/DT aggressive/JJ behaviors/NNS included/VBD destroying/VBG possessions/NNS belonging/VBG to/TO others/NNS ,/, taking/VBG part/NN in/IN fights/NNS and/CC physically/RB attacking/VBG people/NNS ./. 
+Shakira/NNP Suglia/NNP says/VBZ the/DT researchers/NNS identified/VBD the/DT link/NN after/IN they/PRP considered/VBD socio-demographic/JJ factors/NNS like/IN the/DT child/NN 's/POS age/NN and/CC sex/NN ./. 
+They/PRP also/RB considered/VBD other/JJ possible/JJ influences/NNS ,/, such/JJ as/IN whether/IN the/DT boys/NNS and/CC girls/NNS were/VBD eating/VBG sweets/NNS or/CC given/VBN fruit/NN drinks/NNS on/IN a/DT normal/JJ day/NN ./. 
+In/IN addition/NN ,/, the/DT researchers/NNS examined/VBD parenting/NN styles/NNS and/CC other/JJ social/JJ conditions/NNS that/WDT might/MD be/VB taking/VBG place/NN in/IN the/DT home/NN ./. 
+Doctor/NNP Suglia/NNP says/VBZ it/PRP is/VBZ not/RB clear/JJ why/WRB young/JJ children/NNS who/WP drink/VBP a/DT lot/NN of/IN soda/NN have/VBP behavior/NN problems/NNS ./. 
+"/" We/PRP ca/MD n't/RB prove/VB that/IN this/DT is/VBZ a/DT direct/JJ cause/NN and/CC effect/NN relationship/NN ./. 
+Having/VBG said/VBN that/WDT ,/, there/EX are/VBP a/DT lot/NN of/IN ingredients/NNS in/IN soda/NN ,/, a/DT lot/NN of/IN ingredients/NNS that/WDT have/VBP not/RB been/VBN examined/VBN in/IN relation/NN to/TO behavior/NN ./. "/" 
+A/DT substance/NN often/RB found/VBN in/IN soft/JJ drinks/NNS is/VBZ caffeine/NN ,/, which/WDT helps/VBZ to/TO make/VB people/NNS feel/VB energized/VBN ./. 
+Doctor/NNP Suglia/NNP suggests/VBZ that/IN caffeine/NN could/MD be/VB causing/VBG the/DT five/CD year/NN olds/NNS to/TO be/VB more/RBR aggressive/JJ ./. 
+The/DT research/NN is/VBZ part/NN of/IN a/DT larger/JJR study/NN called/VBD the/DT Fragile/NNP Families/NNP and/CC Child/NN Wellbeing/NNP Study/NNP ./. 
+It/PRP follows/VBZ 5,000/CD poor/JJ mothers/NNS and/CC their/PRP$ children/NNS in/IN 20/CD American/JJ cities/NNS ./. 
+Earlier/JJR studies/NNS of/IN young/JJ adults/NNS have/VBP found/VBN the/DT highest/JJS sugar/NN levels/NNS in/IN those/DT who/WP carry/VBP weapons/NNS and/CC show/NN signs/NNS of/IN negative/JJ social/JJ behavior/NN ./. 
+I/PRP 'm/VBP Bob/NNP Doughty/NNP ./. 
+And/CC that/DT 's/VBZ our/PRP$ program/NN for/IN today/NN ./. 
+For/IN more/JJR stories/NNS like/IN these/PRP ,/, visit/VB our/PRP$ website/NN --/: learningenglish.voanews.com/NN ./. 
+While/IN you/PRP are/VBP there/RB ,/, click/VB on/IN "/" Contact/NNP Us/NNP "/" and/CC let/VB us/PRP know/VB what/WP you/PRP would/MD like/VB to/TO hear/VB about/RP on/IN future/JJ programs/NNS ./. 
+Christopher/NNP Cruise/NNP returns/VBZ tomorrow/NN with/IN another/DT As/IN It/PRP Is/NNP ./. 
+I/PRP 'm/VBP Steve/NNP Ember/NNP ./. 
+Thanks/NNS for/IN joining/VBG us/PRP ./. 

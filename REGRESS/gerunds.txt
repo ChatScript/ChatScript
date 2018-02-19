@@ -1,0 +1,148 @@
+# from chompchomp.com  gerund and gerund phrases
+
+# note- used as subject or object, it will be gerund (or to infinitive)
+# used as adjective it will be adjective_participle. We intermix in pos-tagging...
+
+# these are gerunds 
+Since Francisco was five years old, swimming has been his passion.
+Tagged POS 12 words: since (<Clause Conjunction_subordinate)  Francisco (SUBJECT2 Noun_proper_singular)  was/be (VERB2 Verb_past) five/5 (Adjective_cardinal)  years/year (OBJECT2 Noun_plural Clause>)  old (Adjective_basic)  , (Comma)  swimming/swim (<Verbal MAINSUBJECT Noun_gerund Verbal>)  has/have (aux_have_past)  been/be (MAINVERB Verb_past)  his/he (Pronoun_possessive)  passion (MAINOBJECT Noun_singular)         
+Francisco's first love is swimming.
+Tagged POS 5 words: Francisco (Noun_proper_singular)  's (Possessive)  First_Love (Noun_unknown)  is/be (Aux_be_present_3ps)  swimming/swim (Verb_present_participle)# the above is wrong, but structurelly same as Franciscs cat is swimming.
+# only way to know is subject is a being or not for this is.
+
+Francisco enjoys swimming more than spending time with his girlfriend Diana.
+Tagged POS 18 words:
+
+Francisco gives swimming all of his energy and time.
+Tagged POS 9 words: Francisco (MAINSUBJECT Noun_proper_singular)  gives/give (MAINVERB Verb_present_3ps)  swimming/swim (<Verbal MAINOBJECT Noun_gerund Verbal>)  all (Determiner)  of (<Phrase Preposition)  his/he (Pronoun_possessive)  energy (OBJECT2 Noun_singular Phrase>)  and (CONJUNCT_WORD Conjunction_coordinate)  time (OBJECT2 Noun_singular)    
+When Francisco wore dive fins to class, everyone knew that he was devoted to swimming
+Tagged POS 18 words:
+
+Eating ice cream on a windy day can be a messy experience if you have long, untamed hair.
+Tagged POS 18 words:
+
+A more disastrous activity for long-haired people is blowing giant bubble gum bubbles with the car windows down.
+Tagged POS 18 words:
+
+Wild food adventures require getting your hair cut to a short, safe length.
+Tagged POS 18 words:
+
+Jamming too much clothing into a washing machine will result in disaster.
+Tagged POS 18 words:
+
+Bernard hates buttering toast with a fork.
+Tagged POS 7 words: bernard (MAINSUBJECT Noun_singular)  hates/hate (MAINVERB Verb_present_3ps)  buttering/butter (<Verbal MAINOBJECT Noun_gerund)  toast (OBJECT2 Noun_singular Verbal>)  with (<Phrase Preposition)  a (Determiner)  fork (OBJECT2 Noun_singular Phrase>) 
+
+My dog's most annoying habit is hogging the middle of the bed.
+Tagged POS 13 words: my/I (Pronoun_possessive)  dog (Noun_singular)  's (Possessive)  most (Determiner)  annoying/annoy (Adjective_participle)  habit (MAINSUBJECT Noun_singular)  is/be (Aux_be_present_3ps)  hogging/hog (MAINVERB Verb_present_participle)  the/a (Determiner)  middle (MAINOBJECT Noun_singular)  of (<Phrase Preposition)  the/a (Determiner)  bed (OBJECT2 Noun_singular Phrase>)# not right- but no way to know whether "the habit is hogging" or "the habit is" except via being
+
+
+# these are present participles
+One day last summer, Francisco and his coach were swimming at Daytona Beach.
+Tagged POS 18 words:
+
+Jamming too much clothing into the washing machine, Aamir saved $1.25 but had to tolerate the curious stares of other laundry patrons as his machine bucked and rumbled with the heavy load.
+Tagged POS 18 words:
+
+Buttering toast with a fork, Bernard vowed that he would finally wash the week's worth of dirty dishes piled in the sink.
+Tagged POS 18 words:
+
+Last night I had to sleep on the couch because I found my dog Floyd hogging the middle of the bed.
+Tagged POS 20 words: last (<Phrase Adjective_basic)  night (OBJECT2 Noun_singular Phrase>)  I (MAINSUBJECT Pronoun_subject)  had/have (MAINVERB Verb_past)  to (<Verbal To_infinitive)  sleep_on (MAINOBJECT Noun_infinitive)  the/a (Determiner)  couch (OBJECT2 Noun_singular Verbal>)  because (<Clause Conjunction_subordinate)  I (SUBJECT2 Pronoun_subject)  found/find (VERB2 Verb_past)  my/I (Pronoun_possessive)  dog (OBJECT2 Noun_singular Clause>)  Floyd (APPOSITIVE Noun_proper_singular)  hogging/hog (<Verbal Adjective_participle)  the/a (Determiner)  middle (OBJECT2 Noun_singular Verbal>)  of (<Phrase Preposition)  the/a (Determiner)  bed (OBJECT2 Noun_singular Phrase>) # implied:  who was hogging
+
+# these are adjective participle.
+A Great White shark ate Francisco's swimming coach.
+Tagged POS 18 words:
+
+Now Francisco practices his sport in safe swimming rivers.
+Tagged POS 9 words: now (Adverb_basic)  Francisco (MAINSUBJECT Noun_proper_singular)  practices/practice (MAINVERB Verb_present_3ps)  his/he (Pronoun_possessive)  sport (MAINOBJECT Noun_singular)  in (<Phrase Preposition)  safe (Adjective_basic)  swimming/swim (<Verbal Adjective_participle Verbal>)  rivers/river (OBJECT2 Noun_plural Phrase>)    
+
+
+# misc
+Helen enjoys sketching children.
+Tagged POS 9 words:
+
+Swimming is good exercise.
+Tagged POS 9 words:
+
+Elaine and Rita are singing in the chorus tonight.
+Tagged POS 9 words:
+
+Of all my interests, I care most about swimming.
+Tagged POS 9 words:
+
+Traveling gives one a chance to see many wonderful sights.
+Tagged POS 9 words:
+
+A good hobby for boys can be fishing or painting.
+Tagged POS 9 words:
+
+Few things are better for relaxing than a satisfying hobby.
+Tagged POS 9 words:
+
+ Many people find that they can beat stress by walking.
+Tagged POS 9 words:
+
+A good hobby and exercise can be skating.
+Tagged POS 9 words:
+
+Visiting our relatives in a pleasant activity.
+Tagged POS 9 words:
+
+
+Facing college standards, the students realized that they hadn't worked hard enough in high school.
+Tagged POS 9 words:
+
+Swimming in your pool is always fun.
+Tagged POS 9 words:
+
+The college recommends sending applications early.
+Tagged POS 9 words:
+
+Mrs. Sears showing more bravery than wisdom invited thirty boys and girls to a party.
+Tagged POS 9 words:
+
+To be great is to be true to yourself and to the highest principles of honor.
+Tagged POS 9 words:
+
+He won the game by scoring during the overtime period.
+Tagged POS 9 words:
+
+ Jim is expected to program computers at his new job.
+Tagged POS 9 words:
+
+Her most important achievement was winning the national championship.
+Tagged POS 9 words:
+
+Going to work today took all my energy.
+Tagged POS 9 words:
+
+The student left in charge of the class was unable to keep order.
+Tagged POS 9 words:
+
+The president wants to use nuclear energy for peaceful purposes.
+Tagged POS 8 words: fighting/fight (<Verbal MAINSUBJECT Noun_gerund Verbal>)  for (<Phrase Preposition)  a (Determiner)  losing/lose (Adjective_participle)  cause (OBJECT2 Noun_singular Phrase>)  made/make (MAINVERB Verb_past)  them/they (MAINOBJECT Pronoun_object)  depressed/depress (<Clause VERB2 Verb_past_participle Clause>)  
+Fighting for a losing cause made them depressed.
+Tagged POS 8 words: fighting/fight (<Verbal MAINSUBJECT Noun_gerund Verbal>)  for (<Phrase Preposition)  a (Determiner)  losing/lose (Adjective_participle)  cause (OBJECT2 Noun_singular Phrase>)  made/make (MAINVERB Verb_past)  them/they (MAINOBJECT Pronoun_object)  depressed/depress (<Clause VERB2 Verb_past_participle Clause>)  
+ Getting up at five, we got an early start.
+Tagged POS 9 words:
+
+Telling your father was a mistake.
+Tagged POS 6 words: telling/tell (<Verbal MAINSUBJECT Noun_gerund)  your/you (Pronoun_possessive)  father (OBJECT2 Noun_singular Verbal>)  was/be (MAINVERB Verb_past)  a (Determiner)  mistake (MAINOBJECT Noun_singular)  
+The crying boy angered by the bully began to fight.
+Tagged POS 10 words: the/a (Determiner)  crying/cry (Adjective_participle)  boy (MAINSUBJECT Noun_singular)  angered/anger (<Verbal Adjective_participle)  by (<Phrase Preposition)  the/a (Determiner)  bully (OBJECT2 Noun_singular Phrase>)  began/begin (VERB2 Verb_past)  to (To_infinitive)  fight (OBJECT2 Noun_infinitive Verbal>)  
+ Applicants must investigate various colleges learning as much as possible about them before applying for admission.
+Tagged POS 9 words:
+
+Statistics reported by the National Education Association revealed that seventy percent of American colleges offer remedial English classes emphasizing composition.
+Tagged POS 9 words:
+
+Gathering my courage, I asked for a temporary loan.
+Tagged POS 10 words: gathering/gather (<Verbal SUBJECT2 Noun_gerund)  my/I (Pronoun_possessive)  courage (OBJECT2 Noun_singular Verbal>)  , (Comma)  I (MAINSUBJECT Pronoun_subject)  asked/ask (MAINVERB Verb_past)  for (<Phrase Preposition)  a (Determiner)  temporary (Adjective_basic)  loan (OBJECT2 Noun_singular Phrase>)  
+Starting out as an army officer Karen's father was frequently transferred.
+Tagged POS 9 words:
+
+To fight against those odds would be ridiculous.
+Tagged POS 8 words: to (<Verbal To_infinitive)  fight (MAINSUBJECT Noun_infinitive Verbal>)  against (<Phrase Preposition)  those/a (Determiner)  odds (OBJECT2 Noun_singular Phrase>)  would/will (Aux_verb_future)  be (MAINVERB Verb_infinitive)  ridiculous (ADJECTIVE_AS_OBJECT Adjective_basic)  
+
+

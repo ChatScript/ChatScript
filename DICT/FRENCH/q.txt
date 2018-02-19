@@ -1,0 +1,1585 @@
+﻿ QG ( ) 
+ Quaker ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quedlimbourg ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quentin ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quercy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quesnoy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quichotte ( NOUN NOUN_PROPER_SINGULAR ) 
+ Quimper ( NOUN NOUN_PROPER_SINGULAR ) 
+ Québec ( NOUN NOUN_PROPER_SINGULAR ) 
+ qu' ( PRONOUN_SUBJECT PRONOUN_OBJECT ADVERB CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE ) lemma=`qu'`que`que`que` ADV  KON  PRO  PRO:REL  
+ quadragénaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadragénaire`quadragénaire` ADJ  NOM  
+ quadragénaires ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadragénaire`quadragénaire` ADJ  NOM  
+ quadragésimal ( ADJECTIVE ) 
+ quadragésimale ( ADJECTIVE ) lemma=`quadragésimal` ADJ  
+ quadragésimales ( ADJECTIVE ) lemma=`quadragésimal` ADJ  
+ quadragésimaux ( ADJECTIVE ) lemma=`quadragésimal` ADJ  
+ quadragésime ( NOUN NOUN_SINGULAR ) 
+ quadragésimes ( NOUN NOUN_SINGULAR ) lemma=`quadragésime` NOM  
+ quadrangle ( NOUN NOUN_SINGULAR ) 
+ quadrangles ( NOUN NOUN_SINGULAR ) lemma=`quadrangle` NOM  
+ quadrangulaire ( ADJECTIVE ) 
+ quadrangulaires ( ADJECTIVE ) lemma=`quadrangulaire` ADJ  
+ quadrant ( NOUN NOUN_SINGULAR ) 
+ quadrants ( NOUN NOUN_SINGULAR ) lemma=`quadrant` NOM  
+ quadrat ( NOUN NOUN_SINGULAR ) 
+ quadratin ( NOUN NOUN_SINGULAR ) 
+ quadratins ( NOUN NOUN_SINGULAR ) lemma=`quadratin` NOM  
+ quadratique ( ADJECTIVE ) 
+ quadratiques ( ADJECTIVE ) lemma=`quadratique` ADJ  
+ quadrats ( NOUN NOUN_SINGULAR ) lemma=`quadrat` NOM  
+ quadrature ( NOUN NOUN_SINGULAR ) 
+ quadratures ( NOUN NOUN_SINGULAR ) lemma=`quadrature` NOM  
+ quadrette ( NOUN NOUN_SINGULAR ) 
+ quadrettes ( NOUN NOUN_SINGULAR ) lemma=`quadrette` NOM  
+ quadriceps ( NOUN NOUN_SINGULAR ) 
+ quadrichromie ( NOUN NOUN_SINGULAR ) 
+ quadrichromies ( NOUN NOUN_SINGULAR ) lemma=`quadrichromie` NOM  
+ quadricolore ( ADJECTIVE ) 
+ quadricolores ( ADJECTIVE ) lemma=`quadricolore` ADJ  
+ quadricorne ( ADJECTIVE ) 
+ quadricornes ( ADJECTIVE ) lemma=`quadricorne` ADJ  
+ quadricourant ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadricourant`quadricourant` ADJ  NOM  
+ quadricourants ( NOUN NOUN_SINGULAR ) lemma=`quadricourant` NOM  
+ quadricycle ( NOUN NOUN_SINGULAR ) 
+ quadricycles ( NOUN NOUN_SINGULAR ) lemma=`quadricycle` NOM  
+ quadridimensionnel ( ADJECTIVE ) 
+ quadridimensionnelle ( ADJECTIVE ) lemma=`quadridimensionnel` ADJ  
+ quadridimensionnelles ( ADJECTIVE ) lemma=`quadridimensionnel` ADJ  
+ quadridimensionnels ( ADJECTIVE ) lemma=`quadridimensionnel` ADJ  
+ quadriennal ( ADJECTIVE ) 
+ quadriennale ( ADJECTIVE ) lemma=`quadriennal` ADJ  
+ quadriennales ( ADJECTIVE ) lemma=`quadriennal` ADJ  
+ quadriennaux ( ADJECTIVE ) lemma=`quadriennal` ADJ  
+ quadrifide ( ADJECTIVE ) 
+ quadrifides ( ADJECTIVE ) lemma=`quadrifide` ADJ  
+ quadrifolié ( ADJECTIVE ) 
+ quadrifoliée ( ADJECTIVE ) lemma=`quadrifolié` ADJ  
+ quadrifoliées ( ADJECTIVE ) lemma=`quadrifolié` ADJ  
+ quadrifoliés ( ADJECTIVE ) lemma=`quadrifolié` ADJ  
+ quadrige ( NOUN NOUN_SINGULAR ) 
+ quadriges ( NOUN NOUN_SINGULAR ) lemma=`quadrige` NOM  
+ quadrigémellaire ( ADJECTIVE ) 
+ quadrigémellaires ( ADJECTIVE ) lemma=`quadrigémellaire` ADJ  
+ quadrijumeaux ( ADJECTIVE ) 
+ quadrilatère ( NOUN NOUN_SINGULAR ) 
+ quadrilatères ( NOUN NOUN_SINGULAR ) lemma=`quadrilatère` NOM  
+ quadrilatéral ( ADJECTIVE ) 
+ quadrilatérale ( ADJECTIVE ) lemma=`quadrilatéral` ADJ  
+ quadrilatérales ( ADJECTIVE ) lemma=`quadrilatéral` ADJ  
+ quadrilatéraux ( ADJECTIVE ) lemma=`quadrilatéral` ADJ  
+ quadrilitère ( ADJECTIVE ) 
+ quadrilitères ( ADJECTIVE ) lemma=`quadrilitère` ADJ  
+ quadrilla ( VERB_PAST VERB ) lemma=`quadriller` VER:simp  
+ quadrillage ( NOUN NOUN_SINGULAR ) 
+ quadrillages ( NOUN NOUN_SINGULAR ) lemma=`quadrillage` NOM  
+ quadrillai ( VERB_PAST VERB ) lemma=`quadriller` VER:simp  
+ quadrillaient ( VERB ) lemma=`quadriller` VER:impf  
+ quadrillais ( VERB ) lemma=`quadriller` VER:impf  
+ quadrillait ( VERB ) lemma=`quadriller` VER:impf  
+ quadrillant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quadriller` VER:ppre  
+ quadrillas ( VERB_PAST VERB ) lemma=`quadriller` VER:simp  
+ quadrillasse ( VERB ) lemma=`quadriller` VER:subi  
+ quadrillassent ( VERB ) lemma=`quadriller` VER:subi  
+ quadrillasses ( VERB ) lemma=`quadriller` VER:subi  
+ quadrillassiez ( VERB ) lemma=`quadriller` VER:subi  
+ quadrillassions ( VERB ) lemma=`quadriller` VER:subi  
+ quadrille ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quadrille`quadriller`quadriller`quadriller` NOM  VER:impe  VER:pres  VER:subp  
+ quadrillent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quadriller`quadriller` VER:pres  VER:subp  
+ quadriller ( VERB_INFINITIVE VERB ) 
+ quadrillera ( VERB ) lemma=`quadriller` VER:futu  
+ quadrillerai ( VERB ) lemma=`quadriller` VER:futu  
+ quadrilleraient ( VERB ) lemma=`quadriller` VER:cond  
+ quadrillerais ( VERB ) lemma=`quadriller` VER:cond  
+ quadrillerait ( VERB ) lemma=`quadriller` VER:cond  
+ quadrilleras ( VERB ) lemma=`quadriller` VER:futu  
+ quadrillerez ( VERB ) lemma=`quadriller` VER:futu  
+ quadrilleriez ( VERB ) lemma=`quadriller` VER:cond  
+ quadrillerions ( VERB ) lemma=`quadriller` VER:cond  
+ quadrillerons ( VERB ) lemma=`quadriller` VER:futu  
+ quadrilleront ( VERB ) lemma=`quadriller` VER:futu  
+ quadrilles ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quadrille`quadriller`quadriller` NOM  VER:pres  VER:subp  
+ quadrillez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quadriller`quadriller` VER:impe  VER:pres  
+ quadrilliez ( VERB ) lemma=`quadriller`quadriller` VER:impf  VER:subp  
+ quadrillion ( NOUN NOUN_SINGULAR ) 
+ quadrillions ( NOUN VERB NOUN_SINGULAR ) lemma=`quadrillion`quadriller`quadriller` NOM  VER:impf  VER:subp  
+ quadrillons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quadriller`quadriller` VER:impe  VER:pres  
+ quadrillâmes ( VERB_PAST VERB ) lemma=`quadriller` VER:simp  
+ quadrillât ( VERB ) lemma=`quadriller` VER:subi  
+ quadrillâtes ( VERB_PAST VERB ) lemma=`quadriller` VER:simp  
+ quadrillèrent ( VERB_PAST VERB ) lemma=`quadriller` VER:simp  
+ quadrillé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quadriller` VER:pper  
+ quadrillée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quadriller` VER:pper  
+ quadrillées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quadriller` VER:pper  
+ quadrillés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quadriller` VER:pper  
+ quadrilobe ( NOUN NOUN_SINGULAR ) 
+ quadrilobes ( NOUN NOUN_SINGULAR ) lemma=`quadrilobe` NOM  
+ quadrilobé ( ADJECTIVE ) 
+ quadrilobée ( ADJECTIVE ) lemma=`quadrilobé` ADJ  
+ quadrilobées ( ADJECTIVE ) lemma=`quadrilobé` ADJ  
+ quadrilobés ( ADJECTIVE ) lemma=`quadrilobé` ADJ  
+ quadriloculaire ( ADJECTIVE ) 
+ quadriloculaires ( ADJECTIVE ) lemma=`quadriloculaire` ADJ  
+ quadrimestre ( NOUN NOUN_SINGULAR ) 
+ quadrimestres ( NOUN NOUN_SINGULAR ) lemma=`quadrimestre` NOM  
+ quadrimestriel ( ADJECTIVE ) 
+ quadrimestrielle ( ADJECTIVE ) lemma=`quadrimestriel` ADJ  
+ quadrimestrielles ( ADJECTIVE ) lemma=`quadrimestriel` ADJ  
+ quadrimestriels ( ADJECTIVE ) lemma=`quadrimestriel` ADJ  
+ quadrimoteur ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrimoteur`quadrimoteur` ADJ  NOM  
+ quadrimoteurs ( NOUN NOUN_SINGULAR ) lemma=`quadrimoteur` NOM  
+ quadriparti ( ADJECTIVE ) 
+ quadripartie ( ADJECTIVE ) lemma=`quadriparti` ADJ  
+ quadriparties ( ADJECTIVE ) lemma=`quadriparti` ADJ  
+ quadripartis ( ADJECTIVE ) lemma=`quadriparti` ADJ  
+ quadripartisme ( NOUN NOUN_SINGULAR ) 
+ quadripartismes ( NOUN NOUN_SINGULAR ) lemma=`quadripartisme` NOM  
+ quadripartite ( ADJECTIVE ) 
+ quadripartites ( ADJECTIVE ) lemma=`quadripartite` ADJ  
+ quadripartition ( NOUN NOUN_SINGULAR ) 
+ quadripartitions ( NOUN NOUN_SINGULAR ) lemma=`quadripartition` NOM  
+ quadriphonie ( NOUN NOUN_SINGULAR ) 
+ quadriphonies ( NOUN NOUN_SINGULAR ) lemma=`quadriphonie` NOM  
+ quadriphonique ( ADJECTIVE ) 
+ quadriphoniques ( ADJECTIVE ) lemma=`quadriphonique` ADJ  
+ quadriplace ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadriplace`quadriplace` ADJ  NOM  
+ quadriplaces ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadriplace`quadriplace` ADJ  NOM  
+ quadriplégie ( NOUN NOUN_SINGULAR ) 
+ quadriplégies ( NOUN NOUN_SINGULAR ) lemma=`quadriplégie` NOM  
+ quadripolaire ( ADJECTIVE ) 
+ quadripolaires ( ADJECTIVE ) lemma=`quadripolaire` ADJ  
+ quadripétale ( ADJECTIVE ) 
+ quadripétales ( ADJECTIVE ) lemma=`quadripétale` ADJ  
+ quadripôle ( NOUN NOUN_SINGULAR ) 
+ quadripôles ( NOUN NOUN_SINGULAR ) lemma=`quadripôle` NOM  
+ quadrique ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrique`quadrique` ADJ  NOM  
+ quadriques ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrique`quadrique` ADJ  NOM  
+ quadrirème ( NOUN NOUN_SINGULAR ) 
+ quadrirèmes ( NOUN NOUN_SINGULAR ) lemma=`quadrirème` NOM  
+ quadriréacteur ( NOUN NOUN_SINGULAR ) 
+ quadriréacteurs ( NOUN NOUN_SINGULAR ) lemma=`quadriréacteur` NOM  
+ quadrisyllabe ( NOUN NOUN_SINGULAR ) 
+ quadrisyllabes ( NOUN NOUN_SINGULAR ) lemma=`quadrisyllabe` NOM  
+ quadrisyllabique ( ADJECTIVE ) 
+ quadrisyllabiques ( ADJECTIVE ) lemma=`quadrisyllabique` ADJ  
+ quadrivalence ( NOUN NOUN_SINGULAR ) 
+ quadrivalences ( NOUN NOUN_SINGULAR ) lemma=`quadrivalence` NOM  
+ quadrivalent ( ADJECTIVE ) 
+ quadrivalente ( ADJECTIVE ) lemma=`quadrivalent` ADJ  
+ quadrivalentes ( ADJECTIVE ) lemma=`quadrivalent` ADJ  
+ quadrivalents ( ADJECTIVE ) lemma=`quadrivalent` ADJ  
+ quadrivalve ( ADJECTIVE ) 
+ quadrivalves ( ADJECTIVE ) lemma=`quadrivalve` ADJ  
+ quadrivium ( NOUN NOUN_SINGULAR ) 
+ quadriviums ( NOUN NOUN_SINGULAR ) lemma=`quadrivium` NOM  
+ quadrumane ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrumane`quadrumane` ADJ  NOM  
+ quadrumanes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrumane`quadrumane` ADJ  NOM  
+ quadrupla ( VERB_PAST VERB ) lemma=`quadrupler` VER:simp  
+ quadruplai ( VERB_PAST VERB ) lemma=`quadrupler` VER:simp  
+ quadruplaient ( VERB ) lemma=`quadrupler` VER:impf  
+ quadruplais ( VERB ) lemma=`quadrupler` VER:impf  
+ quadruplait ( VERB ) lemma=`quadrupler` VER:impf  
+ quadruplant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quadrupler` VER:ppre  
+ quadruplas ( VERB_PAST VERB ) lemma=`quadrupler` VER:simp  
+ quadruplasse ( VERB ) lemma=`quadrupler` VER:subi  
+ quadruplassent ( VERB ) lemma=`quadrupler` VER:subi  
+ quadruplasses ( VERB ) lemma=`quadrupler` VER:subi  
+ quadruplassiez ( VERB ) lemma=`quadrupler` VER:subi  
+ quadruplassions ( VERB ) lemma=`quadrupler` VER:subi  
+ quadruple ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`quadruple`quadruple`quadrupler`quadrupler`quadrupler` ADJ  NOM  VER:impe  VER:pres  VER:subp  
+ quadruplement ( NOUN ADVERB NOUN_SINGULAR ) lemma=`quadruplement`quadruplement` ADV  NOM  
+ quadruplements ( NOUN NOUN_SINGULAR ) lemma=`quadruplement` NOM  
+ quadruplent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quadrupler`quadrupler` VER:pres  VER:subp  
+ quadrupler ( VERB_INFINITIVE VERB ) 
+ quadruplera ( VERB ) lemma=`quadrupler` VER:futu  
+ quadruplerai ( VERB ) lemma=`quadrupler` VER:futu  
+ quadrupleraient ( VERB ) lemma=`quadrupler` VER:cond  
+ quadruplerais ( VERB ) lemma=`quadrupler` VER:cond  
+ quadruplerait ( VERB ) lemma=`quadrupler` VER:cond  
+ quadrupleras ( VERB ) lemma=`quadrupler` VER:futu  
+ quadruplerez ( VERB ) lemma=`quadrupler` VER:futu  
+ quadrupleriez ( VERB ) lemma=`quadrupler` VER:cond  
+ quadruplerions ( VERB ) lemma=`quadrupler` VER:cond  
+ quadruplerons ( VERB ) lemma=`quadrupler` VER:futu  
+ quadrupleront ( VERB ) lemma=`quadrupler` VER:futu  
+ quadruples ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`quadruple`quadruple`quadrupler`quadrupler` ADJ  NOM  VER:pres  VER:subp  
+ quadruplet ( NOUN NOUN_SINGULAR ) 
+ quadruplets ( NOUN NOUN_SINGULAR ) lemma=`quadruplet` NOM  
+ quadruplette ( NOUN NOUN_SINGULAR ) 
+ quadruplettes ( NOUN NOUN_SINGULAR ) lemma=`quadruplette` NOM  
+ quadruplex ( NOUN NOUN_SINGULAR ) 
+ quadruplez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quadrupler`quadrupler` VER:impe  VER:pres  
+ quadrupliez ( VERB ) lemma=`quadrupler`quadrupler` VER:impf  VER:subp  
+ quadruplions ( VERB ) lemma=`quadrupler`quadrupler` VER:impf  VER:subp  
+ quadruplons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quadrupler`quadrupler` VER:impe  VER:pres  
+ quadruplâmes ( VERB_PAST VERB ) lemma=`quadrupler` VER:simp  
+ quadruplât ( VERB ) lemma=`quadrupler` VER:subi  
+ quadruplâtes ( VERB_PAST VERB ) lemma=`quadrupler` VER:simp  
+ quadruplèrent ( VERB_PAST VERB ) lemma=`quadrupler` VER:simp  
+ quadruplé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quadrupler` VER:pper  
+ quadruplée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quadrupler` VER:pper  
+ quadruplées ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`quadruplées`quadrupler` NOM  VER:pper  
+ quadruplés ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`quadruplés`quadrupler` NOM  VER:pper  
+ quadrupède ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrupède`quadrupède` ADJ  NOM  
+ quadrupèdes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quadrupède`quadrupède` ADJ  NOM  
+ quadrupédie ( NOUN NOUN_SINGULAR ) 
+ quadrupédies ( NOUN NOUN_SINGULAR ) lemma=`quadrupédie` NOM  
+ quai ( NOUN NOUN_SINGULAR ) 
+ quaiche ( NOUN NOUN_SINGULAR ) 
+ quaiches ( NOUN NOUN_SINGULAR ) lemma=`quaiche` NOM  
+ quais ( NOUN NOUN_SINGULAR ) lemma=`quai` NOM  
+ quaker ( NOUN NOUN_SINGULAR ) 
+ quakeresse ( NOUN NOUN_SINGULAR ) 
+ quakeresses ( NOUN NOUN_SINGULAR ) lemma=`quakeresse` NOM  
+ quakerisme ( NOUN NOUN_SINGULAR ) 
+ quakerismes ( NOUN NOUN_SINGULAR ) lemma=`quakerisme` NOM  
+ quakeriste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quakeriste`quakeriste` ADJ  NOM  
+ quakeristes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quakeriste`quakeriste` ADJ  NOM  
+ quakers ( NOUN NOUN_SINGULAR ) lemma=`quaker` NOM  
+ qualifia ( VERB_PAST VERB ) lemma=`qualifier` VER:simp  
+ qualifiable ( ADJECTIVE ) 
+ qualifiables ( ADJECTIVE ) lemma=`qualifiable` ADJ  
+ qualifiai ( VERB_PAST VERB ) lemma=`qualifier` VER:simp  
+ qualifiaient ( VERB ) lemma=`qualifier` VER:impf  
+ qualifiais ( VERB ) lemma=`qualifier` VER:impf  
+ qualifiait ( VERB ) lemma=`qualifier` VER:impf  
+ qualifiant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`qualifier` VER:ppre  
+ qualifias ( VERB_PAST VERB ) lemma=`qualifier` VER:simp  
+ qualifiasse ( VERB ) lemma=`qualifier` VER:subi  
+ qualifiassent ( VERB ) lemma=`qualifier` VER:subi  
+ qualifiasses ( VERB ) lemma=`qualifier` VER:subi  
+ qualifiassiez ( VERB ) lemma=`qualifier` VER:subi  
+ qualifiassions ( VERB ) lemma=`qualifier` VER:subi  
+ qualificateur ( NOUN NOUN_SINGULAR ) 
+ qualificateurs ( NOUN NOUN_SINGULAR ) lemma=`qualificateur` NOM  
+ qualificatif ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`qualificatif`qualificatif` ADJ  NOM  
+ qualificatifs ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`qualificatif`qualificatif` ADJ  NOM  
+ qualification ( NOUN NOUN_SINGULAR ) 
+ qualifications ( NOUN NOUN_SINGULAR ) lemma=`qualification` NOM  
+ qualificative ( ADJECTIVE ) lemma=`qualificatif` ADJ  
+ qualificatives ( ADJECTIVE ) lemma=`qualificatif` ADJ  
+ qualifie ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`qualifier`qualifier`qualifier` VER:impe  VER:pres  VER:subp  
+ qualifient ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`qualifier`qualifier` VER:pres  VER:subp  
+ qualifier ( VERB_INFINITIVE VERB ) 
+ qualifiera ( VERB ) lemma=`qualifier` VER:futu  
+ qualifierai ( VERB ) lemma=`qualifier` VER:futu  
+ qualifieraient ( VERB ) lemma=`qualifier` VER:cond  
+ qualifierais ( VERB ) lemma=`qualifier` VER:cond  
+ qualifierait ( VERB ) lemma=`qualifier` VER:cond  
+ qualifieras ( VERB ) lemma=`qualifier` VER:futu  
+ qualifierez ( VERB ) lemma=`qualifier` VER:futu  
+ qualifieriez ( VERB ) lemma=`qualifier` VER:cond  
+ qualifierions ( VERB ) lemma=`qualifier` VER:cond  
+ qualifierons ( VERB ) lemma=`qualifier` VER:futu  
+ qualifieront ( VERB ) lemma=`qualifier` VER:futu  
+ qualifies ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`qualifier`qualifier` VER:pres  VER:subp  
+ qualifiez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`qualifier`qualifier` VER:impe  VER:pres  
+ qualifiiez ( VERB ) lemma=`qualifier`qualifier` VER:impf  VER:subp  
+ qualifiions ( VERB ) lemma=`qualifier`qualifier` VER:impf  VER:subp  
+ qualifions ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`qualifier`qualifier` VER:impe  VER:pres  
+ qualifiâmes ( VERB_PAST VERB ) lemma=`qualifier` VER:simp  
+ qualifiât ( VERB ) lemma=`qualifier` VER:subi  
+ qualifiâtes ( VERB_PAST VERB ) lemma=`qualifier` VER:simp  
+ qualifièrent ( VERB_PAST VERB ) lemma=`qualifier` VER:simp  
+ qualifié ( VERB_PAST_PARTICIPLE VERB ) lemma=`qualifier` VER:pper  
+ qualifiée ( VERB_PAST_PARTICIPLE VERB ) lemma=`qualifier` VER:pper  
+ qualifiées ( VERB_PAST_PARTICIPLE VERB ) lemma=`qualifier` VER:pper  
+ qualifiés ( VERB_PAST_PARTICIPLE VERB ) lemma=`qualifier` VER:pper  
+ qualitatif ( ADJECTIVE ) 
+ qualitatifs ( ADJECTIVE ) lemma=`qualitatif` ADJ  
+ qualitative ( ADJECTIVE ) lemma=`qualitatif` ADJ  
+ qualitativement ( ADVERB ) 
+ qualitatives ( ADJECTIVE ) lemma=`qualitatif` ADJ  
+ qualité ( NOUN NOUN_SINGULAR ) 
+ qualités ( NOUN NOUN_SINGULAR ) lemma=`qualité` NOM  
+ quand ( ADVERB CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE ) lemma=`quand`quand` ADV  KON  
+ quant ( PREPOSITION ) 
+ quant-à-soi ( NOUN NOUN_SINGULAR ) 
+ quanta ( NOUN NOUN_SINGULAR ) 
+ quantifia ( VERB_PAST VERB ) lemma=`quantifier` VER:simp  
+ quantifiable ( ADJECTIVE ) 
+ quantifiables ( ADJECTIVE ) lemma=`quantifiable` ADJ  
+ quantifiai ( VERB_PAST VERB ) lemma=`quantifier` VER:simp  
+ quantifiaient ( VERB ) lemma=`quantifier` VER:impf  
+ quantifiais ( VERB ) lemma=`quantifier` VER:impf  
+ quantifiait ( VERB ) lemma=`quantifier` VER:impf  
+ quantifiant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quantifier` VER:ppre  
+ quantifias ( VERB_PAST VERB ) lemma=`quantifier` VER:simp  
+ quantifiasse ( VERB ) lemma=`quantifier` VER:subi  
+ quantifiassent ( VERB ) lemma=`quantifier` VER:subi  
+ quantifiasses ( VERB ) lemma=`quantifier` VER:subi  
+ quantifiassiez ( VERB ) lemma=`quantifier` VER:subi  
+ quantifiassions ( VERB ) lemma=`quantifier` VER:subi  
+ quantificateur ( NOUN NOUN_SINGULAR ) 
+ quantificateurs ( NOUN NOUN_SINGULAR ) lemma=`quantificateur` NOM  
+ quantification ( NOUN NOUN_SINGULAR ) 
+ quantifications ( NOUN NOUN_SINGULAR ) lemma=`quantification` NOM  
+ quantifie ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quantifier`quantifier`quantifier` VER:impe  VER:pres  VER:subp  
+ quantifient ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quantifier`quantifier` VER:pres  VER:subp  
+ quantifier ( VERB_INFINITIVE VERB ) 
+ quantifiera ( VERB ) lemma=`quantifier` VER:futu  
+ quantifierai ( VERB ) lemma=`quantifier` VER:futu  
+ quantifieraient ( VERB ) lemma=`quantifier` VER:cond  
+ quantifierais ( VERB ) lemma=`quantifier` VER:cond  
+ quantifierait ( VERB ) lemma=`quantifier` VER:cond  
+ quantifieras ( VERB ) lemma=`quantifier` VER:futu  
+ quantifierez ( VERB ) lemma=`quantifier` VER:futu  
+ quantifieriez ( VERB ) lemma=`quantifier` VER:cond  
+ quantifierions ( VERB ) lemma=`quantifier` VER:cond  
+ quantifierons ( VERB ) lemma=`quantifier` VER:futu  
+ quantifieront ( VERB ) lemma=`quantifier` VER:futu  
+ quantifies ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quantifier`quantifier` VER:pres  VER:subp  
+ quantifieur ( NOUN NOUN_SINGULAR ) 
+ quantifieurs ( NOUN NOUN_SINGULAR ) lemma=`quantifieur` NOM  
+ quantifiez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quantifier`quantifier` VER:impe  VER:pres  
+ quantifiiez ( VERB ) lemma=`quantifier`quantifier` VER:impf  VER:subp  
+ quantifiions ( VERB ) lemma=`quantifier`quantifier` VER:impf  VER:subp  
+ quantifions ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quantifier`quantifier` VER:impe  VER:pres  
+ quantifiâmes ( VERB_PAST VERB ) lemma=`quantifier` VER:simp  
+ quantifiât ( VERB ) lemma=`quantifier` VER:subi  
+ quantifiâtes ( VERB_PAST VERB ) lemma=`quantifier` VER:simp  
+ quantifièrent ( VERB_PAST VERB ) lemma=`quantifier` VER:simp  
+ quantifié ( VERB_PAST_PARTICIPLE VERB ) lemma=`quantifier` VER:pper  
+ quantifiée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quantifier` VER:pper  
+ quantifiées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quantifier` VER:pper  
+ quantifiés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quantifier` VER:pper  
+ quantique ( ADJECTIVE ) 
+ quantiques ( ADJECTIVE ) lemma=`quantique` ADJ  
+ quantitatif ( ADJECTIVE ) 
+ quantitatifs ( ADJECTIVE ) lemma=`quantitatif` ADJ  
+ quantitative ( ADJECTIVE ) lemma=`quantitatif` ADJ  
+ quantitativement ( ADVERB ) 
+ quantitatives ( ADJECTIVE ) lemma=`quantitatif` ADJ  
+ quantitativiste ( NOUN NOUN_SINGULAR ) 
+ quantitativistes ( NOUN NOUN_SINGULAR ) lemma=`quantitativiste` NOM  
+ quantité ( NOUN NOUN_SINGULAR ) 
+ quantités ( NOUN NOUN_SINGULAR ) lemma=`quantité` NOM  
+ quantième ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quantième`quantième` ADJ  NOM  
+ quantièmes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quantième`quantième` ADJ  NOM  
+ quantum ( NOUN NOUN_SINGULAR ) 
+ quarantaine ( NOUN NOUN_SINGULAR ) 
+ quarantaines ( NOUN NOUN_SINGULAR ) lemma=`quarantaine` NOM  
+ quarante ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante`quarante` NOM  NUM  
+ quarante-cinq ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-cinq`quarante-cinq` NOM  NUM  
+ quarante-deux ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-deux`quarante-deux` NOM  NUM  
+ quarante-et-un ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-et-un`quarante-et-un` NOM  NUM  
+ quarante-et-une ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ quarante-huit ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-huit`quarante-huit` NOM  NUM  
+ quarante-neuf ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-neuf`quarante-neuf` NOM  NUM  
+ quarante-quatre ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-quatre`quarante-quatre` NOM  NUM  
+ quarante-sept ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-sept`quarante-sept` NOM  NUM  
+ quarante-six ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-six`quarante-six` NOM  NUM  
+ quarante-trois ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quarante-trois`quarante-trois` NOM  NUM  
+ quarantenaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quarantenaire`quarantenaire` ADJ  NOM  
+ quarantenaires ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quarantenaire`quarantenaire` ADJ  NOM  
+ quarantenier ( NOUN NOUN_SINGULAR ) 
+ quaranteniers ( NOUN NOUN_SINGULAR ) lemma=`quarantenier` NOM  
+ quarantième ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ quarantièmement ( ADVERB ) 
+ quarantièmes ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) lemma=`quarantième` NUM  
+ quarderonna ( VERB_PAST VERB ) lemma=`quarderonner` VER:simp  
+ quarderonnai ( VERB_PAST VERB ) lemma=`quarderonner` VER:simp  
+ quarderonnaient ( VERB ) lemma=`quarderonner` VER:impf  
+ quarderonnais ( VERB ) lemma=`quarderonner` VER:impf  
+ quarderonnait ( VERB ) lemma=`quarderonner` VER:impf  
+ quarderonnant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quarderonner` VER:ppre  
+ quarderonnas ( VERB_PAST VERB ) lemma=`quarderonner` VER:simp  
+ quarderonnasse ( VERB ) lemma=`quarderonner` VER:subi  
+ quarderonnassent ( VERB ) lemma=`quarderonner` VER:subi  
+ quarderonnasses ( VERB ) lemma=`quarderonner` VER:subi  
+ quarderonnassiez ( VERB ) lemma=`quarderonner` VER:subi  
+ quarderonnassions ( VERB ) lemma=`quarderonner` VER:subi  
+ quarderonne ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarderonner`quarderonner`quarderonner` VER:impe  VER:pres  VER:subp  
+ quarderonnent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarderonner`quarderonner` VER:pres  VER:subp  
+ quarderonner ( VERB_INFINITIVE VERB ) 
+ quarderonnera ( VERB ) lemma=`quarderonner` VER:futu  
+ quarderonnerai ( VERB ) lemma=`quarderonner` VER:futu  
+ quarderonneraient ( VERB ) lemma=`quarderonner` VER:cond  
+ quarderonnerais ( VERB ) lemma=`quarderonner` VER:cond  
+ quarderonnerait ( VERB ) lemma=`quarderonner` VER:cond  
+ quarderonneras ( VERB ) lemma=`quarderonner` VER:futu  
+ quarderonnerez ( VERB ) lemma=`quarderonner` VER:futu  
+ quarderonneriez ( VERB ) lemma=`quarderonner` VER:cond  
+ quarderonnerions ( VERB ) lemma=`quarderonner` VER:cond  
+ quarderonnerons ( VERB ) lemma=`quarderonner` VER:futu  
+ quarderonneront ( VERB ) lemma=`quarderonner` VER:futu  
+ quarderonnes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarderonner`quarderonner` VER:pres  VER:subp  
+ quarderonnez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarderonner`quarderonner` VER:impe  VER:pres  
+ quarderonniez ( VERB ) lemma=`quarderonner`quarderonner` VER:impf  VER:subp  
+ quarderonnions ( VERB ) lemma=`quarderonner`quarderonner` VER:impf  VER:subp  
+ quarderonnons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarderonner`quarderonner` VER:impe  VER:pres  
+ quarderonnâmes ( VERB_PAST VERB ) lemma=`quarderonner` VER:simp  
+ quarderonnât ( VERB ) lemma=`quarderonner` VER:subi  
+ quarderonnâtes ( VERB_PAST VERB ) lemma=`quarderonner` VER:simp  
+ quarderonnèrent ( VERB_PAST VERB ) lemma=`quarderonner` VER:simp  
+ quarderonné ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarderonner` VER:pper  
+ quarderonnée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarderonner` VER:pper  
+ quarderonnées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarderonner` VER:pper  
+ quarderonnés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarderonner` VER:pper  
+ quark ( NOUN NOUN_SINGULAR ) 
+ quarks ( NOUN NOUN_SINGULAR ) lemma=`quark` NOM  
+ quarra ( VERB_PAST VERB ) lemma=`quarrer` VER:simp  
+ quarrable ( ADJECTIVE ) 
+ quarrables ( ADJECTIVE ) lemma=`quarrable` ADJ  
+ quarrai ( VERB_PAST VERB ) lemma=`quarrer` VER:simp  
+ quarraient ( VERB ) lemma=`quarrer` VER:impf  
+ quarrais ( VERB ) lemma=`quarrer` VER:impf  
+ quarrait ( VERB ) lemma=`quarrer` VER:impf  
+ quarrant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quarrer` VER:ppre  
+ quarras ( VERB_PAST VERB ) lemma=`quarrer` VER:simp  
+ quarrasse ( VERB ) lemma=`quarrer` VER:subi  
+ quarrassent ( VERB ) lemma=`quarrer` VER:subi  
+ quarrasses ( VERB ) lemma=`quarrer` VER:subi  
+ quarrassiez ( VERB ) lemma=`quarrer` VER:subi  
+ quarrassions ( VERB ) lemma=`quarrer` VER:subi  
+ quarre ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarrer`quarrer`quarrer` VER:impe  VER:pres  VER:subp  
+ quarrent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarrer`quarrer` VER:pres  VER:subp  
+ quarrer ( VERB_INFINITIVE VERB ) 
+ quarrera ( VERB ) lemma=`quarrer` VER:futu  
+ quarrerai ( VERB ) lemma=`quarrer` VER:futu  
+ quarreraient ( VERB ) lemma=`quarrer` VER:cond  
+ quarrerais ( VERB ) lemma=`quarrer` VER:cond  
+ quarrerait ( VERB ) lemma=`quarrer` VER:cond  
+ quarreras ( VERB ) lemma=`quarrer` VER:futu  
+ quarrerez ( VERB ) lemma=`quarrer` VER:futu  
+ quarreriez ( VERB ) lemma=`quarrer` VER:cond  
+ quarrerions ( VERB ) lemma=`quarrer` VER:cond  
+ quarrerons ( VERB ) lemma=`quarrer` VER:futu  
+ quarreront ( VERB ) lemma=`quarrer` VER:futu  
+ quarres ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarrer`quarrer` VER:pres  VER:subp  
+ quarrez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarrer`quarrer` VER:impe  VER:pres  
+ quarriez ( VERB ) lemma=`quarrer`quarrer` VER:impf  VER:subp  
+ quarrions ( VERB ) lemma=`quarrer`quarrer` VER:impf  VER:subp  
+ quarrons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarrer`quarrer` VER:impe  VER:pres  
+ quarrâmes ( VERB_PAST VERB ) lemma=`quarrer` VER:simp  
+ quarrât ( VERB ) lemma=`quarrer` VER:subi  
+ quarrâtes ( VERB_PAST VERB ) lemma=`quarrer` VER:simp  
+ quarrèrent ( VERB_PAST VERB ) lemma=`quarrer` VER:simp  
+ quarré ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarrer` VER:pper  
+ quarrée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarrer` VER:pper  
+ quarrées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarrer` VER:pper  
+ quarrés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarrer` VER:pper  
+ quart ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quart`quart` ADJ  NOM  
+ quart-de-pouce ( NOUN NOUN_SINGULAR ) 
+ quart-de-pouces ( NOUN NOUN_SINGULAR ) lemma=`quart-de-pouce` NOM  
+ quart-de-rond ( NOUN NOUN_SINGULAR ) 
+ quart-de-ronds ( NOUN NOUN_SINGULAR ) lemma=`quart-de-rond` NOM  
+ quarta ( VERB_PAST VERB ) lemma=`quarter` VER:simp  
+ quartage ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quartager`quartager`quartager` VER:impe  VER:pres  VER:subp  
+ quartagea ( VERB_PAST VERB ) lemma=`quartager` VER:simp  
+ quartageai ( VERB_PAST VERB ) lemma=`quartager` VER:simp  
+ quartageaient ( VERB ) lemma=`quartager` VER:impf  
+ quartageais ( VERB ) lemma=`quartager` VER:impf  
+ quartageait ( VERB ) lemma=`quartager` VER:impf  
+ quartageant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quartager` VER:ppre  
+ quartageas ( VERB_PAST VERB ) lemma=`quartager` VER:simp  
+ quartageasse ( VERB ) lemma=`quartager` VER:subi  
+ quartageassent ( VERB ) lemma=`quartager` VER:subi  
+ quartageasses ( VERB ) lemma=`quartager` VER:subi  
+ quartageassiez ( VERB ) lemma=`quartager` VER:subi  
+ quartageassions ( VERB ) lemma=`quartager` VER:subi  
+ quartagent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quartager`quartager` VER:pres  VER:subp  
+ quartageons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quartager`quartager` VER:impe  VER:pres  
+ quartager ( VERB_INFINITIVE VERB ) 
+ quartagera ( VERB ) lemma=`quartager` VER:futu  
+ quartagerai ( VERB ) lemma=`quartager` VER:futu  
+ quartageraient ( VERB ) lemma=`quartager` VER:cond  
+ quartagerais ( VERB ) lemma=`quartager` VER:cond  
+ quartagerait ( VERB ) lemma=`quartager` VER:cond  
+ quartageras ( VERB ) lemma=`quartager` VER:futu  
+ quartagerez ( VERB ) lemma=`quartager` VER:futu  
+ quartageriez ( VERB ) lemma=`quartager` VER:cond  
+ quartagerions ( VERB ) lemma=`quartager` VER:cond  
+ quartagerons ( VERB ) lemma=`quartager` VER:futu  
+ quartageront ( VERB ) lemma=`quartager` VER:futu  
+ quartages ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quartager`quartager` VER:pres  VER:subp  
+ quartagez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quartager`quartager` VER:impe  VER:pres  
+ quartageâmes ( VERB_PAST VERB ) lemma=`quartager` VER:simp  
+ quartageât ( VERB ) lemma=`quartager` VER:subi  
+ quartageâtes ( VERB_PAST VERB ) lemma=`quartager` VER:simp  
+ quartagiez ( VERB ) lemma=`quartager`quartager` VER:impf  VER:subp  
+ quartagions ( VERB ) lemma=`quartager`quartager` VER:impf  VER:subp  
+ quartagèrent ( VERB_PAST VERB ) lemma=`quartager` VER:simp  
+ quartagé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quartager` VER:pper  
+ quartagée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quartager` VER:pper  
+ quartagées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quartager` VER:pper  
+ quartagés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quartager` VER:pper  
+ quartai ( VERB_PAST VERB ) lemma=`quarter` VER:simp  
+ quartaient ( VERB ) lemma=`quarter` VER:impf  
+ quartaine ( ADJECTIVE ) 
+ quartaines ( ADJECTIVE ) lemma=`quartaine` ADJ  
+ quartais ( VERB ) lemma=`quarter` VER:impf  
+ quartait ( VERB ) lemma=`quarter` VER:impf  
+ quartanier ( NOUN NOUN_SINGULAR ) 
+ quartaniers ( NOUN NOUN_SINGULAR ) lemma=`quartanier` NOM  
+ quartannier ( NOUN NOUN_SINGULAR ) 
+ quartanniers ( NOUN NOUN_SINGULAR ) lemma=`quartannier` NOM  
+ quartant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quarter` VER:ppre  
+ quartas ( VERB_PAST VERB ) lemma=`quarter` VER:simp  
+ quartasse ( VERB ) lemma=`quarter` VER:subi  
+ quartassent ( VERB ) lemma=`quarter` VER:subi  
+ quartasses ( VERB ) lemma=`quarter` VER:subi  
+ quartassiez ( VERB ) lemma=`quarter` VER:subi  
+ quartassions ( VERB ) lemma=`quarter` VER:subi  
+ quartation ( NOUN NOUN_SINGULAR ) 
+ quartations ( NOUN NOUN_SINGULAR ) lemma=`quartation` NOM  
+ quartaut ( NOUN NOUN_SINGULAR ) 
+ quartauts ( NOUN NOUN_SINGULAR ) lemma=`quartaut` NOM  
+ quarte ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`quart`quarte`quarter`quarter`quarter` ADJ  NOM  VER:impe  VER:pres  VER:subp  
+ quartefeuille ( NOUN NOUN_SINGULAR ) 
+ quartefeuilles ( NOUN NOUN_SINGULAR ) lemma=`quartefeuille` NOM  
+ quartelette ( NOUN NOUN_SINGULAR ) 
+ quartelettes ( NOUN NOUN_SINGULAR ) lemma=`quartelette` NOM  
+ quartenier ( NOUN NOUN_SINGULAR ) 
+ quarteniers ( NOUN NOUN_SINGULAR ) lemma=`quartenier` NOM  
+ quartent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarter`quarter` VER:pres  VER:subp  
+ quarter ( VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`quarter`quarter` NOM  VER:infi  
+ quartera ( VERB ) lemma=`quarter` VER:futu  
+ quarterai ( VERB ) lemma=`quarter` VER:futu  
+ quarteraient ( VERB ) lemma=`quarter` VER:cond  
+ quarterais ( VERB ) lemma=`quarter` VER:cond  
+ quarterait ( VERB ) lemma=`quarter` VER:cond  
+ quarteras ( VERB ) lemma=`quarter` VER:futu  
+ quarterez ( VERB ) lemma=`quarter` VER:futu  
+ quarteriez ( VERB ) lemma=`quarter` VER:cond  
+ quarterions ( VERB ) lemma=`quarter` VER:cond  
+ quarteron ( NOUN NOUN_SINGULAR ) 
+ quarteronne ( NOUN NOUN_SINGULAR ) lemma=`quarteron` NOM  
+ quarteronnes ( NOUN NOUN_SINGULAR ) lemma=`quarteron` NOM  
+ quarterons ( NOUN VERB NOUN_SINGULAR ) lemma=`quarteron`quarter` NOM  VER:futu  
+ quarteront ( VERB ) lemma=`quarter` VER:futu  
+ quarters ( NOUN NOUN_SINGULAR ) lemma=`quarter` NOM  
+ quartes ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`quart`quarte`quarter`quarter` ADJ  NOM  VER:pres  VER:subp  
+ quartet ( NOUN NOUN_SINGULAR ) 
+ quartets ( NOUN NOUN_SINGULAR ) lemma=`quartet` NOM  
+ quartett ( NOUN NOUN_SINGULAR ) 
+ quartette ( NOUN NOUN_SINGULAR ) 
+ quartettes ( NOUN NOUN_SINGULAR ) lemma=`quartette` NOM  
+ quartettiste ( NOUN NOUN_SINGULAR ) 
+ quartettistes ( NOUN NOUN_SINGULAR ) lemma=`quartettiste` NOM  
+ quartetts ( NOUN NOUN_SINGULAR ) lemma=`quartett` NOM  
+ quartez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarter`quarter` VER:impe  VER:pres  
+ quartidi ( NOUN NOUN_SINGULAR ) 
+ quartidis ( NOUN NOUN_SINGULAR ) lemma=`quartidi` NOM  
+ quartier ( NOUN NOUN_SINGULAR ) 
+ quartier-maître ( NOUN NOUN_SINGULAR ) 
+ quartier-maîtres ( NOUN NOUN_SINGULAR ) lemma=`quartier-maître` NOM  
+ quartiers ( NOUN NOUN_SINGULAR ) lemma=`quartier` NOM  
+ quartiez ( VERB ) lemma=`quarter`quarter` VER:impf  VER:subp  
+ quartilage ( NOUN NOUN_SINGULAR ) 
+ quartilages ( NOUN NOUN_SINGULAR ) lemma=`quartilage` NOM  
+ quartile ( NOUN NOUN_SINGULAR ) 
+ quartiles ( NOUN NOUN_SINGULAR ) lemma=`quartile` NOM  
+ quartions ( VERB ) lemma=`quarter`quarter` VER:impf  VER:subp  
+ quartique ( NOUN NOUN_SINGULAR ) 
+ quartiques ( NOUN NOUN_SINGULAR ) lemma=`quartique` NOM  
+ quarto ( ADVERB ) 
+ quartons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quarter`quarter` VER:impe  VER:pres  
+ quarts ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quart`quart` ADJ  NOM  
+ quartzeuse ( ADJECTIVE ) lemma=`quartzeux` ADJ  
+ quartzeuses ( ADJECTIVE ) lemma=`quartzeux` ADJ  
+ quartzeux ( ADJECTIVE ) 
+ quartzifère ( ADJECTIVE ) 
+ quartzifères ( ADJECTIVE ) lemma=`quartzifère` ADJ  
+ quartzique ( ADJECTIVE ) 
+ quartziques ( ADJECTIVE ) lemma=`quartzique` ADJ  
+ quartzite ( NOUN NOUN_SINGULAR ) 
+ quartâmes ( VERB_PAST VERB ) lemma=`quarter` VER:simp  
+ quartât ( VERB ) lemma=`quarter` VER:subi  
+ quartâtes ( VERB_PAST VERB ) lemma=`quarter` VER:simp  
+ quartèrent ( VERB_PAST VERB ) lemma=`quarter` VER:simp  
+ quarté ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`quarté`quarter` NOM  VER:pper  
+ quartée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarter` VER:pper  
+ quartées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quarter` VER:pper  
+ quartés ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`quarté`quarter` NOM  VER:pper  
+ quasar ( NOUN NOUN_SINGULAR ) 
+ quasars ( NOUN NOUN_SINGULAR ) lemma=`quasar` NOM  
+ quasi ( NOUN ADVERB NOUN_SINGULAR ) lemma=`quasi`quasi` ADV  NOM  
+ quasi-certitude ( NOUN NOUN_SINGULAR ) 
+ quasi-certitudes ( NOUN NOUN_SINGULAR ) lemma=`quasi-certitude` NOM  
+ quasi-contrat ( NOUN NOUN_SINGULAR ) 
+ quasi-contrats ( NOUN NOUN_SINGULAR ) lemma=`quasi-contrat` NOM  
+ quasi-délit ( NOUN NOUN_SINGULAR ) 
+ quasi-délits ( NOUN NOUN_SINGULAR ) lemma=`quasi-délit` NOM  
+ quasi-usufruit ( NOUN NOUN_SINGULAR ) 
+ quasi-usufruits ( NOUN NOUN_SINGULAR ) lemma=`quasi-usufruit` NOM  
+ quasiment ( ADVERB ) 
+ quasimodo ( NOUN NOUN_SINGULAR ) 
+ quasimodos ( NOUN NOUN_SINGULAR ) lemma=`quasimodo` NOM  
+ quasis ( NOUN NOUN_SINGULAR ) lemma=`quasi` NOM  
+ quassia ( NOUN NOUN_SINGULAR ) 
+ quassias ( NOUN NOUN_SINGULAR ) lemma=`quassia` NOM  
+ quassier ( NOUN NOUN_SINGULAR ) 
+ quassiers ( NOUN NOUN_SINGULAR ) lemma=`quassier` NOM  
+ quassine ( NOUN NOUN_SINGULAR ) 
+ quassines ( NOUN NOUN_SINGULAR ) lemma=`quassine` NOM  
+ quater ( ADVERB ) 
+ quaternaire ( ADJECTIVE ) 
+ quaternaires ( ADJECTIVE ) lemma=`quaternaire` ADJ  
+ quaterne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quaterne`quaterne` ADJ  NOM  
+ quaternes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quaterne`quaterne` ADJ  NOM  
+ quaternion ( NOUN NOUN_SINGULAR ) 
+ quaternions ( NOUN NOUN_SINGULAR ) lemma=`quaternion` NOM  
+ quatorze ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatorze`quatorze` NOM  NUM  
+ quatorzième ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatorzième`quatorzième` NOM  NUM  
+ quatorzièmement ( ADVERB ) 
+ quatorzièmes ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatorzième`quatorzième` NOM  NUM  
+ quatrain ( NOUN NOUN_SINGULAR ) 
+ quatrains ( NOUN NOUN_SINGULAR ) lemma=`quatrain` NOM  
+ quatre ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre`quatre` NOM  NUM  
+ quatre-cent-vingt-et-un ( NOUN NOUN_SINGULAR ) 
+ quatre-de-chiffre ( NOUN NOUN_SINGULAR ) 
+ quatre-feuilles ( NOUN NOUN_SINGULAR ) 
+ quatre-heures ( NOUN NOUN_SINGULAR ) 
+ quatre-huit ( NOUN NOUN_SINGULAR ) 
+ quatre-mâts ( NOUN NOUN_SINGULAR ) 
+ quatre-quarts ( NOUN NOUN_SINGULAR ) 
+ quatre-quatre ( NOUN NOUN_SINGULAR ) 
+ quatre-quatres ( NOUN NOUN_SINGULAR ) lemma=`quatre-quatre` NOM  
+ quatre-saisons ( NOUN NOUN_SINGULAR ) 
+ quatre-temps ( NOUN NOUN_SINGULAR ) 
+ quatre-vingt-cinq ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-cinq`quatre-vingt-cinq` NOM  NUM  
+ quatre-vingt-deux ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-deux`quatre-vingt-deux` NOM  NUM  
+ quatre-vingt-dix ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-dix`quatre-vingt-dix` NOM  NUM  
+ quatre-vingt-dix-huit ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-dix-huit`quatre-vingt-dix-huit` NOM  NUM  
+ quatre-vingt-dix-neuf ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-dix-neuf`quatre-vingt-dix-neuf` NOM  NUM  
+ quatre-vingt-dix-sept ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-dix-sept`quatre-vingt-dix-sept` NOM  NUM  
+ quatre-vingt-douze ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-douze`quatre-vingt-douze` NOM  NUM  
+ quatre-vingt-huit ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-huit`quatre-vingt-huit` NOM  NUM  
+ quatre-vingt-neuf ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-neuf`quatre-vingt-neuf` NOM  NUM  
+ quatre-vingt-onze ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-onze`quatre-vingt-onze` NOM  NUM  
+ quatre-vingt-quatorze ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-quatorze`quatre-vingt-quatorze` NOM  NUM  
+ quatre-vingt-quatre ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-quatre`quatre-vingt-quatre` NOM  NUM  
+ quatre-vingt-quinze ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-quinze`quatre-vingt-quinze` NOM  NUM  
+ quatre-vingt-seize ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-seize`quatre-vingt-seize` NOM  NUM  
+ quatre-vingt-sept ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-sept`quatre-vingt-sept` NOM  NUM  
+ quatre-vingt-six ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-six`quatre-vingt-six` NOM  NUM  
+ quatre-vingt-treize ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-treize`quatre-vingt-treize` NOM  NUM  
+ quatre-vingt-trois ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-trois`quatre-vingt-trois` NOM  NUM  
+ quatre-vingt-un ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingt-un`quatre-vingt-un` NOM  NUM  
+ quatre-vingt-une ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ quatre-vingtième ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ quatre-vingtièmes ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) lemma=`quatre-vingtième` NUM  
+ quatre-vingts ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatre-vingts`quatre-vingts` NOM  NUM  
+ quatre-épices ( NOUN NOUN_SINGULAR ) 
+ quatrillion ( NOUN NOUN_SINGULAR ) 
+ quatrillions ( NOUN NOUN_SINGULAR ) lemma=`quatrillion` NOM  
+ quatrième ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatrième`quatrième` NOM  NUM  
+ quatrièmement ( ADVERB ) 
+ quatrièmes ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quatrième`quatrième` NOM  NUM  
+ quattrocento ( NOUN NOUN_SINGULAR ) 
+ quattrocentos ( NOUN NOUN_SINGULAR ) lemma=`quattrocento` NOM  
+ quatuor ( NOUN NOUN_SINGULAR ) 
+ quatuors ( NOUN NOUN_SINGULAR ) lemma=`quatuor` NOM  
+ que ( PRONOUN_SUBJECT PRONOUN_OBJECT ADVERB CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE ) lemma=`que`que`que`que` ADV  KON  PRO  PRO:REL  
+ quebracho ( NOUN NOUN_SINGULAR ) 
+ quebrachos ( NOUN NOUN_SINGULAR ) lemma=`quebracho` NOM  
+ quechua ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quechua`quechua` ADJ  NOM  
+ quechuas ( NOUN NOUN_SINGULAR ) lemma=`quechua` NOM  
+ quel ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ quelconque ( ADJECTIVE ) 
+ quelconques ( ADJECTIVE ) lemma=`quelconque` ADJ  
+ quelle ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quel` PRO:REL  
+ quellement ( ADVERB ) 
+ quelles ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quel` PRO:REL  
+ quelqu' ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quelque` PRO:IND  
+ quelqu'un ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ quelqu'une ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quelqu'un` PRO:IND  
+ quelque ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ quelquefois ( ADVERB ) 
+ quelques ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quelque` PRO:IND  
+ quelques-unes ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quelques-uns` PRO:IND  
+ quelques-uns ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ quels ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quel` PRO:REL  
+ quenelle ( NOUN NOUN_SINGULAR ) 
+ quenelles ( NOUN NOUN_SINGULAR ) lemma=`quenelle` NOM  
+ quenotte ( NOUN NOUN_SINGULAR ) 
+ quenottes ( NOUN NOUN_SINGULAR ) lemma=`quenotte` NOM  
+ quenouille ( NOUN NOUN_SINGULAR ) 
+ quenouilles ( NOUN NOUN_SINGULAR ) lemma=`quenouille` NOM  
+ quenouillée ( NOUN NOUN_SINGULAR ) 
+ quenouillées ( NOUN NOUN_SINGULAR ) lemma=`quenouillée` NOM  
+ quercinois ( ADJECTIVE ) 
+ quercinoise ( ADJECTIVE ) lemma=`quercinois` ADJ  
+ quercinoises ( ADJECTIVE ) lemma=`quercinois` ADJ  
+ quercitrin ( NOUN NOUN_SINGULAR ) 
+ quercitrine ( NOUN NOUN_SINGULAR ) 
+ quercitrines ( NOUN NOUN_SINGULAR ) lemma=`quercitrine` NOM  
+ quercitrins ( NOUN NOUN_SINGULAR ) lemma=`quercitrin` NOM  
+ quercitron ( NOUN NOUN_SINGULAR ) 
+ quercitrons ( NOUN NOUN_SINGULAR ) lemma=`quercitron` NOM  
+ querella ( VERB_PAST VERB ) lemma=`quereller` VER:simp  
+ querellai ( VERB_PAST VERB ) lemma=`quereller` VER:simp  
+ querellaient ( VERB ) lemma=`quereller` VER:impf  
+ querellais ( VERB ) lemma=`quereller` VER:impf  
+ querellait ( VERB ) lemma=`quereller` VER:impf  
+ querellant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quereller` VER:ppre  
+ querellas ( VERB_PAST VERB ) lemma=`quereller` VER:simp  
+ querellasse ( VERB ) lemma=`quereller` VER:subi  
+ querellassent ( VERB ) lemma=`quereller` VER:subi  
+ querellasses ( VERB ) lemma=`quereller` VER:subi  
+ querellassiez ( VERB ) lemma=`quereller` VER:subi  
+ querellassions ( VERB ) lemma=`quereller` VER:subi  
+ querelle ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`querelle`quereller`quereller`quereller` NOM  VER:impe  VER:pres  VER:subp  
+ querellent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quereller`quereller` VER:pres  VER:subp  
+ quereller ( VERB_INFINITIVE VERB ) 
+ querellera ( VERB ) lemma=`quereller` VER:futu  
+ querellerai ( VERB ) lemma=`quereller` VER:futu  
+ querelleraient ( VERB ) lemma=`quereller` VER:cond  
+ querellerais ( VERB ) lemma=`quereller` VER:cond  
+ querellerait ( VERB ) lemma=`quereller` VER:cond  
+ querelleras ( VERB ) lemma=`quereller` VER:futu  
+ querellerez ( VERB ) lemma=`quereller` VER:futu  
+ querelleriez ( VERB ) lemma=`quereller` VER:cond  
+ querellerions ( VERB ) lemma=`quereller` VER:cond  
+ querellerons ( VERB ) lemma=`quereller` VER:futu  
+ querelleront ( VERB ) lemma=`quereller` VER:futu  
+ querelles ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`querelle`quereller`quereller` NOM  VER:pres  VER:subp  
+ querelleur ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`querelleur`querelleur` ADJ  NOM  
+ querelleurs ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`querelleur`querelleur` ADJ  NOM  
+ querelleuse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`querelleur|querelleux`querelleur` ADJ  NOM  
+ querelleuses ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`querelleur|querelleux`querelleur` ADJ  NOM  
+ querelleux ( ADJECTIVE ) 
+ querellez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quereller`quereller` VER:impe  VER:pres  
+ querelliez ( VERB ) lemma=`quereller`quereller` VER:impf  VER:subp  
+ querellions ( VERB ) lemma=`quereller`quereller` VER:impf  VER:subp  
+ querellons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quereller`quereller` VER:impe  VER:pres  
+ querellâmes ( VERB_PAST VERB ) lemma=`quereller` VER:simp  
+ querellât ( VERB ) lemma=`quereller` VER:subi  
+ querellâtes ( VERB_PAST VERB ) lemma=`quereller` VER:simp  
+ querellèrent ( VERB_PAST VERB ) lemma=`quereller` VER:simp  
+ querellé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quereller` VER:pper  
+ querellée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quereller` VER:pper  
+ querellées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quereller` VER:pper  
+ querellés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quereller` VER:pper  
+ quernage ( NOUN NOUN_SINGULAR ) 
+ quernages ( NOUN NOUN_SINGULAR ) lemma=`quernage` NOM  
+ querneur ( NOUN NOUN_SINGULAR ) 
+ querneurs ( NOUN NOUN_SINGULAR ) lemma=`querneur` NOM  
+ questeur ( NOUN NOUN_SINGULAR ) 
+ questeurs ( NOUN NOUN_SINGULAR ) lemma=`questeur` NOM  
+ question ( NOUN NOUN_SINGULAR ) 
+ questionna ( VERB_PAST VERB ) lemma=`questionner` VER:simp  
+ questionnai ( VERB_PAST VERB ) lemma=`questionner` VER:simp  
+ questionnaient ( VERB ) lemma=`questionner` VER:impf  
+ questionnaire ( NOUN NOUN_SINGULAR ) 
+ questionnaires ( NOUN NOUN_SINGULAR ) lemma=`questionnaire` NOM  
+ questionnais ( VERB ) lemma=`questionner` VER:impf  
+ questionnait ( VERB ) lemma=`questionner` VER:impf  
+ questionnant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`questionner` VER:ppre  
+ questionnas ( VERB_PAST VERB ) lemma=`questionner` VER:simp  
+ questionnasse ( VERB ) lemma=`questionner` VER:subi  
+ questionnassent ( VERB ) lemma=`questionner` VER:subi  
+ questionnasses ( VERB ) lemma=`questionner` VER:subi  
+ questionnassiez ( VERB ) lemma=`questionner` VER:subi  
+ questionnassions ( VERB ) lemma=`questionner` VER:subi  
+ questionne ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`questionner`questionner`questionner` VER:impe  VER:pres  VER:subp  
+ questionnement ( NOUN NOUN_SINGULAR ) 
+ questionnements ( NOUN NOUN_SINGULAR ) lemma=`questionnement` NOM  
+ questionnent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`questionner`questionner` VER:pres  VER:subp  
+ questionner ( VERB_INFINITIVE VERB ) 
+ questionnera ( VERB ) lemma=`questionner` VER:futu  
+ questionnerai ( VERB ) lemma=`questionner` VER:futu  
+ questionneraient ( VERB ) lemma=`questionner` VER:cond  
+ questionnerais ( VERB ) lemma=`questionner` VER:cond  
+ questionnerait ( VERB ) lemma=`questionner` VER:cond  
+ questionneras ( VERB ) lemma=`questionner` VER:futu  
+ questionnerez ( VERB ) lemma=`questionner` VER:futu  
+ questionneriez ( VERB ) lemma=`questionner` VER:cond  
+ questionnerions ( VERB ) lemma=`questionner` VER:cond  
+ questionnerons ( VERB ) lemma=`questionner` VER:futu  
+ questionneront ( VERB ) lemma=`questionner` VER:futu  
+ questionnes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`questionner`questionner` VER:pres  VER:subp  
+ questionneur ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`questionneur`questionneur` ADJ  NOM  
+ questionneurs ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`questionneur`questionneur` ADJ  NOM  
+ questionneuse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`questionneur`questionneur` ADJ  NOM  
+ questionneuses ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`questionneur`questionneur` ADJ  NOM  
+ questionnez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`questionner`questionner` VER:impe  VER:pres  
+ questionniez ( VERB ) lemma=`questionner`questionner` VER:impf  VER:subp  
+ questionnions ( VERB ) lemma=`questionner`questionner` VER:impf  VER:subp  
+ questionnons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`questionner`questionner` VER:impe  VER:pres  
+ questionnâmes ( VERB_PAST VERB ) lemma=`questionner` VER:simp  
+ questionnât ( VERB ) lemma=`questionner` VER:subi  
+ questionnâtes ( VERB_PAST VERB ) lemma=`questionner` VER:simp  
+ questionnèrent ( VERB_PAST VERB ) lemma=`questionner` VER:simp  
+ questionné ( VERB_PAST_PARTICIPLE VERB ) lemma=`questionner` VER:pper  
+ questionnée ( VERB_PAST_PARTICIPLE VERB ) lemma=`questionner` VER:pper  
+ questionnées ( VERB_PAST_PARTICIPLE VERB ) lemma=`questionner` VER:pper  
+ questionnés ( VERB_PAST_PARTICIPLE VERB ) lemma=`questionner` VER:pper  
+ questions ( NOUN NOUN_SINGULAR ) lemma=`question` NOM  
+ questorien ( ADJECTIVE ) 
+ questorienne ( ADJECTIVE ) lemma=`questorien` ADJ  
+ questoriennes ( ADJECTIVE ) lemma=`questorien` ADJ  
+ questoriens ( ADJECTIVE ) lemma=`questorien` ADJ  
+ questure ( NOUN NOUN_SINGULAR ) 
+ questures ( NOUN NOUN_SINGULAR ) lemma=`questure` NOM  
+ quetsche ( NOUN NOUN_SINGULAR ) 
+ quetsches ( NOUN NOUN_SINGULAR ) lemma=`quetsche` NOM  
+ queue ( NOUN NOUN_SINGULAR ) 
+ queue-d'aronde ( NOUN NOUN_SINGULAR ) 
+ queue-d'arondes ( NOUN NOUN_SINGULAR ) lemma=`queue-d'aronde` NOM  
+ queue-de-carpe ( NOUN NOUN_SINGULAR ) 
+ queue-de-carpes ( NOUN NOUN_SINGULAR ) lemma=`queue-de-carpe` NOM  
+ queue-de-cheval ( NOUN NOUN_SINGULAR ) 
+ queue-de-chevals ( NOUN NOUN_SINGULAR ) lemma=`queue-de-cheval` NOM  
+ queue-de-cochon ( NOUN NOUN_SINGULAR ) 
+ queue-de-cochons ( NOUN NOUN_SINGULAR ) lemma=`queue-de-cochon` NOM  
+ queue-de-lion ( NOUN NOUN_SINGULAR ) 
+ queue-de-lions ( NOUN NOUN_SINGULAR ) lemma=`queue-de-lion` NOM  
+ queue-de-morue ( NOUN NOUN_SINGULAR ) 
+ queue-de-morues ( NOUN NOUN_SINGULAR ) lemma=`queue-de-morue` NOM  
+ queue-de-mouton ( NOUN NOUN_SINGULAR ) 
+ queue-de-moutons ( NOUN NOUN_SINGULAR ) lemma=`queue-de-mouton` NOM  
+ queue-de-paon ( NOUN NOUN_SINGULAR ) 
+ queue-de-paons ( NOUN NOUN_SINGULAR ) lemma=`queue-de-paon` NOM  
+ queue-de-rat ( NOUN NOUN_SINGULAR ) 
+ queue-de-rats ( NOUN NOUN_SINGULAR ) lemma=`queue-de-rat` NOM  
+ queue-de-renard ( NOUN NOUN_SINGULAR ) 
+ queue-de-renards ( NOUN NOUN_SINGULAR ) lemma=`queue-de-renard` NOM  
+ queue-de-vache ( NOUN NOUN_SINGULAR ) 
+ queue-de-vaches ( NOUN NOUN_SINGULAR ) lemma=`queue-de-vache` NOM  
+ queue-de-vinaigre ( NOUN NOUN_SINGULAR ) 
+ queue-de-vinaigres ( NOUN NOUN_SINGULAR ) lemma=`queue-de-vinaigre` NOM  
+ queue-rouge ( NOUN NOUN_SINGULAR ) 
+ queue-rouges ( NOUN NOUN_SINGULAR ) lemma=`queue-rouge` NOM  
+ queues ( NOUN NOUN_SINGULAR ) lemma=`queue` NOM  
+ queurce ( NOUN NOUN_SINGULAR ) 
+ queurces ( NOUN NOUN_SINGULAR ) lemma=`queurce` NOM  
+ queursa ( VERB_PAST VERB ) lemma=`queurser` VER:simp  
+ queursage ( NOUN NOUN_SINGULAR ) 
+ queursages ( NOUN NOUN_SINGULAR ) lemma=`queursage` NOM  
+ queursai ( VERB_PAST VERB ) lemma=`queurser` VER:simp  
+ queursaient ( VERB ) lemma=`queurser` VER:impf  
+ queursais ( VERB ) lemma=`queurser` VER:impf  
+ queursait ( VERB ) lemma=`queurser` VER:impf  
+ queursant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`queurser` VER:ppre  
+ queursas ( VERB_PAST VERB ) lemma=`queurser` VER:simp  
+ queursasse ( VERB ) lemma=`queurser` VER:subi  
+ queursassent ( VERB ) lemma=`queurser` VER:subi  
+ queursasses ( VERB ) lemma=`queurser` VER:subi  
+ queursassiez ( VERB ) lemma=`queurser` VER:subi  
+ queursassions ( VERB ) lemma=`queurser` VER:subi  
+ queurse ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`queurse`queurser`queurser`queurser` NOM  VER:impe  VER:pres  VER:subp  
+ queursent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queurser`queurser` VER:pres  VER:subp  
+ queurser ( VERB_INFINITIVE VERB ) 
+ queursera ( VERB ) lemma=`queurser` VER:futu  
+ queurserai ( VERB ) lemma=`queurser` VER:futu  
+ queurseraient ( VERB ) lemma=`queurser` VER:cond  
+ queurserais ( VERB ) lemma=`queurser` VER:cond  
+ queurserait ( VERB ) lemma=`queurser` VER:cond  
+ queurseras ( VERB ) lemma=`queurser` VER:futu  
+ queurserez ( VERB ) lemma=`queurser` VER:futu  
+ queurseriez ( VERB ) lemma=`queurser` VER:cond  
+ queurserions ( VERB ) lemma=`queurser` VER:cond  
+ queurserons ( VERB ) lemma=`queurser` VER:futu  
+ queurseront ( VERB ) lemma=`queurser` VER:futu  
+ queurses ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`queurse`queurser`queurser` NOM  VER:pres  VER:subp  
+ queursez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queurser`queurser` VER:impe  VER:pres  
+ queursiez ( VERB ) lemma=`queurser`queurser` VER:impf  VER:subp  
+ queursions ( VERB ) lemma=`queurser`queurser` VER:impf  VER:subp  
+ queursoir ( NOUN NOUN_SINGULAR ) 
+ queursoirs ( NOUN NOUN_SINGULAR ) lemma=`queursoir` NOM  
+ queursons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queurser`queurser` VER:impe  VER:pres  
+ queursâmes ( VERB_PAST VERB ) lemma=`queurser` VER:simp  
+ queursât ( VERB ) lemma=`queurser` VER:subi  
+ queursâtes ( VERB_PAST VERB ) lemma=`queurser` VER:simp  
+ queursèrent ( VERB_PAST VERB ) lemma=`queurser` VER:simp  
+ queursé ( VERB_PAST_PARTICIPLE VERB ) lemma=`queurser` VER:pper  
+ queursée ( VERB_PAST_PARTICIPLE VERB ) lemma=`queurser` VER:pper  
+ queursées ( VERB_PAST_PARTICIPLE VERB ) lemma=`queurser` VER:pper  
+ queursés ( VERB_PAST_PARTICIPLE VERB ) lemma=`queurser` VER:pper  
+ queusot ( NOUN NOUN_SINGULAR ) 
+ queusots ( NOUN NOUN_SINGULAR ) lemma=`queusot` NOM  
+ queussi-queumi ( ADVERB ) 
+ queuta ( VERB_PAST VERB ) lemma=`queuter` VER:simp  
+ queutage ( NOUN NOUN_SINGULAR ) 
+ queutages ( NOUN NOUN_SINGULAR ) lemma=`queutage` NOM  
+ queutai ( VERB_PAST VERB ) lemma=`queuter` VER:simp  
+ queutaient ( VERB ) lemma=`queuter` VER:impf  
+ queutais ( VERB ) lemma=`queuter` VER:impf  
+ queutait ( VERB ) lemma=`queuter` VER:impf  
+ queutant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`queuter` VER:ppre  
+ queutas ( VERB_PAST VERB ) lemma=`queuter` VER:simp  
+ queutasse ( VERB ) lemma=`queuter` VER:subi  
+ queutassent ( VERB ) lemma=`queuter` VER:subi  
+ queutasses ( VERB ) lemma=`queuter` VER:subi  
+ queutassiez ( VERB ) lemma=`queuter` VER:subi  
+ queutassions ( VERB ) lemma=`queuter` VER:subi  
+ queute ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queuter`queuter`queuter` VER:impe  VER:pres  VER:subp  
+ queutent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queuter`queuter` VER:pres  VER:subp  
+ queuter ( VERB_INFINITIVE VERB ) 
+ queutera ( VERB ) lemma=`queuter` VER:futu  
+ queuterai ( VERB ) lemma=`queuter` VER:futu  
+ queuteraient ( VERB ) lemma=`queuter` VER:cond  
+ queuterais ( VERB ) lemma=`queuter` VER:cond  
+ queuterait ( VERB ) lemma=`queuter` VER:cond  
+ queuteras ( VERB ) lemma=`queuter` VER:futu  
+ queuterez ( VERB ) lemma=`queuter` VER:futu  
+ queuteriez ( VERB ) lemma=`queuter` VER:cond  
+ queuterions ( VERB ) lemma=`queuter` VER:cond  
+ queuterons ( VERB ) lemma=`queuter` VER:futu  
+ queuteront ( VERB ) lemma=`queuter` VER:futu  
+ queutes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queuter`queuter` VER:pres  VER:subp  
+ queutez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queuter`queuter` VER:impe  VER:pres  
+ queutiez ( VERB ) lemma=`queuter`queuter` VER:impf  VER:subp  
+ queutions ( VERB ) lemma=`queuter`queuter` VER:impf  VER:subp  
+ queutons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`queuter`queuter` VER:impe  VER:pres  
+ queutâmes ( VERB_PAST VERB ) lemma=`queuter` VER:simp  
+ queutât ( VERB ) lemma=`queuter` VER:subi  
+ queutâtes ( VERB_PAST VERB ) lemma=`queuter` VER:simp  
+ queutèrent ( VERB_PAST VERB ) lemma=`queuter` VER:simp  
+ queuté ( VERB_PAST_PARTICIPLE VERB ) lemma=`queuter` VER:pper  
+ queutée ( VERB_PAST_PARTICIPLE VERB ) lemma=`queuter` VER:pper  
+ queutées ( VERB_PAST_PARTICIPLE VERB ) lemma=`queuter` VER:pper  
+ queutés ( VERB_PAST_PARTICIPLE VERB ) lemma=`queuter` VER:pper  
+ queux ( NOUN NOUN_SINGULAR ) 
+ qui ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`qui`qui` PRO  PRO:REL  
+ qui-vive ( NOUN NOUN_SINGULAR ) lemma=`qui-vive`qui-vive` INT  NOM  
+ quia ( ADVERB ) 
+ quibus ( NOUN NOUN_SINGULAR ) 
+ quiche ( NOUN NOUN_SINGULAR ) 
+ quichenotte ( NOUN NOUN_SINGULAR ) 
+ quichenottes ( NOUN NOUN_SINGULAR ) lemma=`quichenotte` NOM  
+ quiches ( NOUN NOUN_SINGULAR ) lemma=`quiche` NOM  
+ quichotte ( NOUN NOUN_SINGULAR ) 
+ quichottes ( NOUN NOUN_SINGULAR ) lemma=`quichotte` NOM  
+ quichua ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quichua`quichua` ADJ  NOM  
+ quichuas ( NOUN NOUN_SINGULAR ) lemma=`quichua` NOM  
+ quiconque ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ quid ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ quidam ( NOUN NOUN_SINGULAR ) 
+ quidams ( NOUN NOUN_SINGULAR ) lemma=`quidam` NOM  
+ quidditatif ( ADJECTIVE ) 
+ quidditatifs ( ADJECTIVE ) lemma=`quidditatif` ADJ  
+ quidditative ( ADJECTIVE ) lemma=`quidditatif` ADJ  
+ quidditatives ( ADJECTIVE ) lemma=`quidditatif` ADJ  
+ quiddité ( NOUN NOUN_SINGULAR ) 
+ quiddités ( NOUN NOUN_SINGULAR ) lemma=`quiddité` NOM  
+ quiescence ( NOUN NOUN_SINGULAR ) 
+ quiescences ( NOUN NOUN_SINGULAR ) lemma=`quiescence` NOM  
+ quiescent ( ADJECTIVE ) 
+ quiescente ( ADJECTIVE ) lemma=`quiescent` ADJ  
+ quiescentes ( ADJECTIVE ) lemma=`quiescent` ADJ  
+ quiescents ( ADJECTIVE ) lemma=`quiescent` ADJ  
+ quiet ( ADJECTIVE ) 
+ quiets ( ADJECTIVE ) lemma=`quiet` ADJ  
+ quignon ( NOUN NOUN_SINGULAR ) 
+ quignons ( NOUN NOUN_SINGULAR ) lemma=`quignon` NOM  
+ quilla ( VERB_PAST VERB ) lemma=`quiller` VER:simp  
+ quillai ( VERB_PAST VERB ) lemma=`quiller` VER:simp  
+ quillaient ( VERB ) lemma=`quiller` VER:impf  
+ quillais ( VERB ) lemma=`quiller` VER:impf  
+ quillait ( VERB ) lemma=`quiller` VER:impf  
+ quillaja ( NOUN NOUN_SINGULAR ) 
+ quillajas ( NOUN NOUN_SINGULAR ) lemma=`quillaja` NOM  
+ quillant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quiller` VER:ppre  
+ quillard ( NOUN NOUN_SINGULAR ) 
+ quillards ( NOUN NOUN_SINGULAR ) lemma=`quillard` NOM  
+ quillas ( VERB_PAST VERB ) lemma=`quiller` VER:simp  
+ quillasse ( VERB ) lemma=`quiller` VER:subi  
+ quillassent ( VERB ) lemma=`quiller` VER:subi  
+ quillasses ( VERB ) lemma=`quiller` VER:subi  
+ quillassiez ( VERB ) lemma=`quiller` VER:subi  
+ quillassions ( VERB ) lemma=`quiller` VER:subi  
+ quille ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quille`quiller`quiller`quiller` NOM  VER:impe  VER:pres  VER:subp  
+ quillent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quiller`quiller` VER:pres  VER:subp  
+ quiller ( VERB_INFINITIVE VERB ) 
+ quillera ( VERB ) lemma=`quiller` VER:futu  
+ quillerai ( VERB ) lemma=`quiller` VER:futu  
+ quilleraient ( VERB ) lemma=`quiller` VER:cond  
+ quillerais ( VERB ) lemma=`quiller` VER:cond  
+ quillerait ( VERB ) lemma=`quiller` VER:cond  
+ quilleras ( VERB ) lemma=`quiller` VER:futu  
+ quillerez ( VERB ) lemma=`quiller` VER:futu  
+ quilleriez ( VERB ) lemma=`quiller` VER:cond  
+ quillerions ( VERB ) lemma=`quiller` VER:cond  
+ quillerons ( VERB ) lemma=`quiller` VER:futu  
+ quilleront ( VERB ) lemma=`quiller` VER:futu  
+ quilles ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quille`quiller`quiller` NOM  VER:pres  VER:subp  
+ quillette ( NOUN NOUN_SINGULAR ) 
+ quillettes ( NOUN NOUN_SINGULAR ) lemma=`quillette` NOM  
+ quilleur ( NOUN NOUN_SINGULAR ) 
+ quilleurs ( NOUN NOUN_SINGULAR ) lemma=`quilleur` NOM  
+ quilleuse ( NOUN NOUN_SINGULAR ) lemma=`quilleur` NOM  
+ quilleuses ( NOUN NOUN_SINGULAR ) lemma=`quilleur` NOM  
+ quillez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quiller`quiller` VER:impe  VER:pres  
+ quillier ( NOUN NOUN_SINGULAR ) 
+ quilliers ( NOUN NOUN_SINGULAR ) lemma=`quillier` NOM  
+ quilliez ( VERB ) lemma=`quiller`quiller` VER:impf  VER:subp  
+ quillions ( VERB ) lemma=`quiller`quiller` VER:impf  VER:subp  
+ quillon ( NOUN NOUN_SINGULAR ) 
+ quillons ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quillon`quiller`quiller` NOM  VER:impe  VER:pres  
+ quillâmes ( VERB_PAST VERB ) lemma=`quiller` VER:simp  
+ quillât ( VERB ) lemma=`quiller` VER:subi  
+ quillâtes ( VERB_PAST VERB ) lemma=`quiller` VER:simp  
+ quillèrent ( VERB_PAST VERB ) lemma=`quiller` VER:simp  
+ quillé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quiller` VER:pper  
+ quillée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quiller` VER:pper  
+ quillées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quiller` VER:pper  
+ quillés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quiller` VER:pper  
+ quimpa ( VERB_PAST VERB ) lemma=`quimper` VER:simp  
+ quimpai ( VERB_PAST VERB ) lemma=`quimper` VER:simp  
+ quimpaient ( VERB ) lemma=`quimper` VER:impf  
+ quimpais ( VERB ) lemma=`quimper` VER:impf  
+ quimpait ( VERB ) lemma=`quimper` VER:impf  
+ quimpant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quimper` VER:ppre  
+ quimpas ( VERB_PAST VERB ) lemma=`quimper` VER:simp  
+ quimpasse ( VERB ) lemma=`quimper` VER:subi  
+ quimpassent ( VERB ) lemma=`quimper` VER:subi  
+ quimpasses ( VERB ) lemma=`quimper` VER:subi  
+ quimpassiez ( VERB ) lemma=`quimper` VER:subi  
+ quimpassions ( VERB ) lemma=`quimper` VER:subi  
+ quimpe ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quimper`quimper`quimper` VER:impe  VER:pres  VER:subp  
+ quimpent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quimper`quimper` VER:pres  VER:subp  
+ quimper ( VERB_INFINITIVE VERB ) 
+ quimpera ( VERB ) lemma=`quimper` VER:futu  
+ quimperai ( VERB ) lemma=`quimper` VER:futu  
+ quimperaient ( VERB ) lemma=`quimper` VER:cond  
+ quimperais ( VERB ) lemma=`quimper` VER:cond  
+ quimperait ( VERB ) lemma=`quimper` VER:cond  
+ quimperas ( VERB ) lemma=`quimper` VER:futu  
+ quimperez ( VERB ) lemma=`quimper` VER:futu  
+ quimperiez ( VERB ) lemma=`quimper` VER:cond  
+ quimperions ( VERB ) lemma=`quimper` VER:cond  
+ quimperons ( VERB ) lemma=`quimper` VER:futu  
+ quimperont ( VERB ) lemma=`quimper` VER:futu  
+ quimpes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quimper`quimper` VER:pres  VER:subp  
+ quimpez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quimper`quimper` VER:impe  VER:pres  
+ quimpiez ( VERB ) lemma=`quimper`quimper` VER:impf  VER:subp  
+ quimpions ( VERB ) lemma=`quimper`quimper` VER:impf  VER:subp  
+ quimpons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quimper`quimper` VER:impe  VER:pres  
+ quimpâmes ( VERB_PAST VERB ) lemma=`quimper` VER:simp  
+ quimpât ( VERB ) lemma=`quimper` VER:subi  
+ quimpâtes ( VERB_PAST VERB ) lemma=`quimper` VER:simp  
+ quimpèrent ( VERB_PAST VERB ) lemma=`quimper` VER:simp  
+ quimpé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quimper` VER:pper  
+ quimpée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quimper` VER:pper  
+ quimpées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quimper` VER:pper  
+ quimpés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quimper` VER:pper  
+ quinaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quinaire`quinaire` ADJ  NOM  
+ quinaires ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quinaire`quinaire` ADJ  NOM  
+ quinaud ( ADJECTIVE ) 
+ quinaude ( ADJECTIVE ) lemma=`quinaud` ADJ  
+ quinaudes ( ADJECTIVE ) lemma=`quinaud` ADJ  
+ quinauds ( ADJECTIVE ) lemma=`quinaud` ADJ  
+ quincaille ( NOUN NOUN_SINGULAR ) 
+ quincaillerie ( NOUN NOUN_SINGULAR ) 
+ quincailleries ( NOUN NOUN_SINGULAR ) lemma=`quincaillerie` NOM  
+ quincailles ( NOUN NOUN_SINGULAR ) lemma=`quincaille` NOM  
+ quincaillier ( NOUN NOUN_SINGULAR ) 
+ quincailliers ( NOUN NOUN_SINGULAR ) lemma=`quincaillier` NOM  
+ quincaillière ( NOUN NOUN_SINGULAR ) lemma=`quincaillier` NOM  
+ quincaillières ( NOUN NOUN_SINGULAR ) lemma=`quincaillier` NOM  
+ quincite ( NOUN NOUN_SINGULAR ) 
+ quincites ( NOUN NOUN_SINGULAR ) lemma=`quincite` NOM  
+ quinconce ( NOUN NOUN_SINGULAR ) 
+ quinconces ( NOUN NOUN_SINGULAR ) lemma=`quinconce` NOM  
+ quinconcial ( ADJECTIVE ) 
+ quinconciale ( ADJECTIVE ) lemma=`quinconcial` ADJ  
+ quinconciales ( ADJECTIVE ) lemma=`quinconcial` ADJ  
+ quinconciaux ( ADJECTIVE ) lemma=`quinconcial` ADJ  
+ quindécemvir ( NOUN NOUN_SINGULAR ) 
+ quindécemvirat ( NOUN NOUN_SINGULAR ) 
+ quindécemvirats ( NOUN NOUN_SINGULAR ) lemma=`quindécemvirat` NOM  
+ quindécemvirs ( NOUN NOUN_SINGULAR ) lemma=`quindécemvir` NOM  
+ quine ( NOUN ADVERB NOUN_SINGULAR ) lemma=`quine`quine` ADV  NOM  
+ quines ( NOUN NOUN_SINGULAR ) lemma=`quine` NOM  
+ quinhydrone ( NOUN NOUN_SINGULAR ) 
+ quinhydrones ( NOUN NOUN_SINGULAR ) lemma=`quinhydrone` NOM  
+ quinidine ( NOUN NOUN_SINGULAR ) 
+ quinidines ( NOUN NOUN_SINGULAR ) lemma=`quinidine` NOM  
+ quinine ( NOUN NOUN_SINGULAR ) 
+ quinines ( NOUN NOUN_SINGULAR ) lemma=`quinine` NOM  
+ quininisme ( NOUN NOUN_SINGULAR ) 
+ quininismes ( NOUN NOUN_SINGULAR ) lemma=`quininisme` NOM  
+ quinisme ( NOUN NOUN_SINGULAR ) 
+ quinismes ( NOUN NOUN_SINGULAR ) lemma=`quinisme` NOM  
+ quinium ( NOUN NOUN_SINGULAR ) 
+ quiniums ( NOUN NOUN_SINGULAR ) lemma=`quinium` NOM  
+ quinoa ( NOUN NOUN_SINGULAR ) 
+ quinoas ( NOUN NOUN_SINGULAR ) lemma=`quinoa` NOM  
+ quinola ( NOUN NOUN_SINGULAR ) 
+ quinolas ( NOUN NOUN_SINGULAR ) lemma=`quinola` NOM  
+ quinoléine ( NOUN NOUN_SINGULAR ) 
+ quinoléines ( NOUN NOUN_SINGULAR ) lemma=`quinoléine` NOM  
+ quinoléique ( ADJECTIVE ) 
+ quinoléiques ( ADJECTIVE ) lemma=`quinoléique` ADJ  
+ quinone ( NOUN NOUN_SINGULAR ) 
+ quinones ( NOUN NOUN_SINGULAR ) lemma=`quinone` NOM  
+ quinonique ( ADJECTIVE ) 
+ quinoniques ( ADJECTIVE ) lemma=`quinonique` ADJ  
+ quinopyrine ( NOUN NOUN_SINGULAR ) 
+ quinopyrines ( NOUN NOUN_SINGULAR ) lemma=`quinopyrine` NOM  
+ quinotoxine ( NOUN NOUN_SINGULAR ) 
+ quinotoxines ( NOUN NOUN_SINGULAR ) lemma=`quinotoxine` NOM  
+ quinquagénaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quinquagénaire`quinquagénaire` ADJ  NOM  
+ quinquagénaires ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quinquagénaire`quinquagénaire` ADJ  NOM  
+ quinquagésime ( NOUN NOUN_SINGULAR ) 
+ quinquagésimes ( NOUN NOUN_SINGULAR ) lemma=`quinquagésime` NOM  
+ quinquennal ( ADJECTIVE ) 
+ quinquennale ( ADJECTIVE ) lemma=`quinquennal` ADJ  
+ quinquennales ( ADJECTIVE ) lemma=`quinquennal` ADJ  
+ quinquennalité ( NOUN NOUN_SINGULAR ) 
+ quinquennalités ( NOUN NOUN_SINGULAR ) lemma=`quinquennalité` NOM  
+ quinquennat ( NOUN NOUN_SINGULAR ) 
+ quinquennats ( NOUN NOUN_SINGULAR ) lemma=`quinquennat` NOM  
+ quinquennaux ( ADJECTIVE ) lemma=`quinquennal` ADJ  
+ quinquennium ( NOUN NOUN_SINGULAR ) 
+ quinquenniums ( NOUN NOUN_SINGULAR ) lemma=`quinquennium` NOM  
+ quinquerce ( NOUN NOUN_SINGULAR ) 
+ quinquerces ( NOUN NOUN_SINGULAR ) lemma=`quinquerce` NOM  
+ quinquet ( NOUN NOUN_SINGULAR ) 
+ quinquets ( NOUN NOUN_SINGULAR ) lemma=`quinquet` NOM  
+ quinquina ( NOUN NOUN_SINGULAR ) 
+ quinquinas ( NOUN NOUN_SINGULAR ) lemma=`quinquina` NOM  
+ quinquérème ( NOUN NOUN_SINGULAR ) 
+ quinquérèmes ( NOUN NOUN_SINGULAR ) lemma=`quinquérème` NOM  
+ quint ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quint`quint` ADJ  NOM  
+ quintaine ( NOUN NOUN_SINGULAR ) 
+ quintaines ( NOUN NOUN_SINGULAR ) lemma=`quintaine` NOM  
+ quintal ( NOUN NOUN_SINGULAR ) 
+ quintane ( ADJECTIVE ) 
+ quintanes ( ADJECTIVE ) lemma=`quintane` ADJ  
+ quintaux ( NOUN NOUN_SINGULAR ) lemma=`quintal` NOM  
+ quinte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quint`quint|quinte` ADJ  NOM  
+ quintefeuille ( NOUN NOUN_SINGULAR ) 
+ quintefeuilles ( NOUN NOUN_SINGULAR ) lemma=`quintefeuille` NOM  
+ quintes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quint`quint|quinte` ADJ  NOM  
+ quintessence ( NOUN NOUN_SINGULAR ) 
+ quintessences ( NOUN NOUN_SINGULAR ) lemma=`quintessence` NOM  
+ quintessencia ( VERB_PAST VERB ) lemma=`quintessencier` VER:simp  
+ quintessenciai ( VERB_PAST VERB ) lemma=`quintessencier` VER:simp  
+ quintessenciaient ( VERB ) lemma=`quintessencier` VER:impf  
+ quintessenciais ( VERB ) lemma=`quintessencier` VER:impf  
+ quintessenciait ( VERB ) lemma=`quintessencier` VER:impf  
+ quintessenciant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quintessencier` VER:ppre  
+ quintessencias ( VERB_PAST VERB ) lemma=`quintessencier` VER:simp  
+ quintessenciasse ( VERB ) lemma=`quintessencier` VER:subi  
+ quintessenciassent ( VERB ) lemma=`quintessencier` VER:subi  
+ quintessenciasses ( VERB ) lemma=`quintessencier` VER:subi  
+ quintessenciassiez ( VERB ) lemma=`quintessencier` VER:subi  
+ quintessenciassions ( VERB ) lemma=`quintessencier` VER:subi  
+ quintessencie ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintessencier`quintessencier`quintessencier` VER:impe  VER:pres  VER:subp  
+ quintessencient ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintessencier`quintessencier` VER:pres  VER:subp  
+ quintessencier ( VERB_INFINITIVE VERB ) 
+ quintessenciera ( VERB ) lemma=`quintessencier` VER:futu  
+ quintessencierai ( VERB ) lemma=`quintessencier` VER:futu  
+ quintessencieraient ( VERB ) lemma=`quintessencier` VER:cond  
+ quintessencierais ( VERB ) lemma=`quintessencier` VER:cond  
+ quintessencierait ( VERB ) lemma=`quintessencier` VER:cond  
+ quintessencieras ( VERB ) lemma=`quintessencier` VER:futu  
+ quintessencierez ( VERB ) lemma=`quintessencier` VER:futu  
+ quintessencieriez ( VERB ) lemma=`quintessencier` VER:cond  
+ quintessencierions ( VERB ) lemma=`quintessencier` VER:cond  
+ quintessencierons ( VERB ) lemma=`quintessencier` VER:futu  
+ quintessencieront ( VERB ) lemma=`quintessencier` VER:futu  
+ quintessencies ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintessencier`quintessencier` VER:pres  VER:subp  
+ quintessenciez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintessencier`quintessencier` VER:impe  VER:pres  
+ quintessenciiez ( VERB ) lemma=`quintessencier`quintessencier` VER:impf  VER:subp  
+ quintessenciions ( VERB ) lemma=`quintessencier`quintessencier` VER:impf  VER:subp  
+ quintessencions ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintessencier`quintessencier` VER:impe  VER:pres  
+ quintessenciâmes ( VERB_PAST VERB ) lemma=`quintessencier` VER:simp  
+ quintessenciât ( VERB ) lemma=`quintessencier` VER:subi  
+ quintessenciâtes ( VERB_PAST VERB ) lemma=`quintessencier` VER:simp  
+ quintessencièrent ( VERB_PAST VERB ) lemma=`quintessencier` VER:simp  
+ quintessencié ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`quintessencié`quintessencier` ADJ  VER:pper  
+ quintessenciée ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`quintessencié`quintessencier` ADJ  VER:pper  
+ quintessenciées ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`quintessencié`quintessencier` ADJ  VER:pper  
+ quintessenciés ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`quintessencié`quintessencier` ADJ  VER:pper  
+ quintette ( NOUN NOUN_SINGULAR ) 
+ quintettes ( NOUN NOUN_SINGULAR ) lemma=`quintette` NOM  
+ quinteuse ( ADJECTIVE ) lemma=`quinteux` ADJ  
+ quinteusement ( ADVERB ) 
+ quinteuses ( ADJECTIVE ) lemma=`quinteux` ADJ  
+ quinteux ( ADJECTIVE ) 
+ quintidi ( NOUN NOUN_SINGULAR ) 
+ quintidis ( NOUN NOUN_SINGULAR ) lemma=`quintidi` NOM  
+ quintil ( NOUN NOUN_SINGULAR ) 
+ quintillion ( NOUN NOUN_SINGULAR ) 
+ quintillionième ( NOUN NOUN_SINGULAR ) 
+ quintillionièmes ( NOUN NOUN_SINGULAR ) lemma=`quintillionième` NOM  
+ quintillions ( NOUN NOUN_SINGULAR ) lemma=`quintillion` NOM  
+ quintils ( NOUN NOUN_SINGULAR ) lemma=`quintil` NOM  
+ quinto ( ADVERB ) 
+ quintolet ( NOUN NOUN_SINGULAR ) 
+ quintolets ( NOUN NOUN_SINGULAR ) lemma=`quintolet` NOM  
+ quints ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quint`quint` ADJ  NOM  
+ quintupla ( VERB_PAST VERB ) lemma=`quintupler` VER:simp  
+ quintuplai ( VERB_PAST VERB ) lemma=`quintupler` VER:simp  
+ quintuplaient ( VERB ) lemma=`quintupler` VER:impf  
+ quintuplais ( VERB ) lemma=`quintupler` VER:impf  
+ quintuplait ( VERB ) lemma=`quintupler` VER:impf  
+ quintuplant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quintupler` VER:ppre  
+ quintuplas ( VERB_PAST VERB ) lemma=`quintupler` VER:simp  
+ quintuplasse ( VERB ) lemma=`quintupler` VER:subi  
+ quintuplassent ( VERB ) lemma=`quintupler` VER:subi  
+ quintuplasses ( VERB ) lemma=`quintupler` VER:subi  
+ quintuplassiez ( VERB ) lemma=`quintupler` VER:subi  
+ quintuplassions ( VERB ) lemma=`quintupler` VER:subi  
+ quintuple ( VERB_PRESENT VERB_PRESENT_3PS VERB ADJECTIVE ) lemma=`quintuple`quintupler`quintupler`quintupler` ADJ  VER:impe  VER:pres  VER:subp  
+ quintuplent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintupler`quintupler` VER:pres  VER:subp  
+ quintupler ( VERB_INFINITIVE VERB ) 
+ quintuplera ( VERB ) lemma=`quintupler` VER:futu  
+ quintuplerai ( VERB ) lemma=`quintupler` VER:futu  
+ quintupleraient ( VERB ) lemma=`quintupler` VER:cond  
+ quintuplerais ( VERB ) lemma=`quintupler` VER:cond  
+ quintuplerait ( VERB ) lemma=`quintupler` VER:cond  
+ quintupleras ( VERB ) lemma=`quintupler` VER:futu  
+ quintuplerez ( VERB ) lemma=`quintupler` VER:futu  
+ quintupleriez ( VERB ) lemma=`quintupler` VER:cond  
+ quintuplerions ( VERB ) lemma=`quintupler` VER:cond  
+ quintuplerons ( VERB ) lemma=`quintupler` VER:futu  
+ quintupleront ( VERB ) lemma=`quintupler` VER:futu  
+ quintuples ( VERB_PRESENT VERB_PRESENT_3PS VERB ADJECTIVE ) lemma=`quintuple`quintupler`quintupler` ADJ  VER:pres  VER:subp  
+ quintuplette ( NOUN NOUN_SINGULAR ) 
+ quintuplettes ( NOUN NOUN_SINGULAR ) lemma=`quintuplette` NOM  
+ quintuplez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintupler`quintupler` VER:impe  VER:pres  
+ quintupliez ( VERB ) lemma=`quintupler`quintupler` VER:impf  VER:subp  
+ quintuplions ( VERB ) lemma=`quintupler`quintupler` VER:impf  VER:subp  
+ quintuplons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quintupler`quintupler` VER:impe  VER:pres  
+ quintuplâmes ( VERB_PAST VERB ) lemma=`quintupler` VER:simp  
+ quintuplât ( VERB ) lemma=`quintupler` VER:subi  
+ quintuplâtes ( VERB_PAST VERB ) lemma=`quintupler` VER:simp  
+ quintuplèrent ( VERB_PAST VERB ) lemma=`quintupler` VER:simp  
+ quintuplé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quintupler` VER:pper  
+ quintuplée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quintupler` VER:pper  
+ quintuplées ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`quintuplées`quintupler` NOM  VER:pper  
+ quintuplés ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`quintuplés`quintupler` NOM  VER:pper  
+ quinzaine ( NOUN NOUN_SINGULAR ) 
+ quinzaines ( NOUN NOUN_SINGULAR ) lemma=`quinzaine` NOM  
+ quinze ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_NUMBER ) lemma=`quinze`quinze` NOM  NUM  
+ quinziste ( NOUN NOUN_SINGULAR ) 
+ quinzistes ( NOUN NOUN_SINGULAR ) lemma=`quinziste` NOM  
+ quinzième ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ quinzièmement ( ADVERB ) 
+ quinzièmes ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) lemma=`quinzième` NUM  
+ quiné ( ADJECTIVE ) 
+ quinée ( ADJECTIVE ) lemma=`quiné` ADJ  
+ quinées ( ADJECTIVE ) lemma=`quiné` ADJ  
+ quinés ( ADJECTIVE ) lemma=`quiné` ADJ  
+ quipo ( NOUN NOUN_SINGULAR ) 
+ quipos ( NOUN NOUN_SINGULAR ) lemma=`quipo` NOM  
+ quipou ( NOUN NOUN_SINGULAR ) 
+ quipous ( NOUN NOUN_SINGULAR ) lemma=`quipou` NOM  
+ quiproquo ( NOUN NOUN_SINGULAR ) 
+ quiproquos ( NOUN NOUN_SINGULAR ) lemma=`quiproquo` NOM  
+ quipu ( NOUN NOUN_SINGULAR ) 
+ quipus ( NOUN NOUN_SINGULAR ) lemma=`quipu` NOM  
+ quiquette ( NOUN NOUN_SINGULAR ) 
+ quiquettes ( NOUN NOUN_SINGULAR ) lemma=`quiquette` NOM  
+ quiqui ( NOUN NOUN_SINGULAR ) 
+ quiquis ( NOUN NOUN_SINGULAR ) lemma=`quiqui` NOM  
+ quirat ( NOUN NOUN_SINGULAR ) 
+ quirataire ( NOUN NOUN_SINGULAR ) 
+ quirataires ( NOUN NOUN_SINGULAR ) lemma=`quirataire` NOM  
+ quirats ( NOUN NOUN_SINGULAR ) lemma=`quirat` NOM  
+ quiritaire ( ADJECTIVE ) 
+ quiritaires ( ADJECTIVE ) lemma=`quiritaire` ADJ  
+ quirite ( NOUN NOUN_SINGULAR ) 
+ quirites ( NOUN NOUN_SINGULAR ) lemma=`quirite` NOM  
+ quiscale ( NOUN NOUN_SINGULAR ) 
+ quiscales ( NOUN NOUN_SINGULAR ) lemma=`quiscale` NOM  
+ quite ( NOUN NOUN_SINGULAR ) 
+ quites ( NOUN NOUN_SINGULAR ) lemma=`quite` NOM  
+ quitta ( VERB_PAST VERB ) lemma=`quitter` VER:simp  
+ quittai ( VERB_PAST VERB ) lemma=`quitter` VER:simp  
+ quittaient ( VERB ) lemma=`quitter` VER:impf  
+ quittais ( VERB ) lemma=`quitter` VER:impf  
+ quittait ( VERB ) lemma=`quitter` VER:impf  
+ quittance ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quittance`quittancer`quittancer`quittancer` NOM  VER:impe  VER:pres  VER:subp  
+ quittancent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quittancer`quittancer` VER:pres  VER:subp  
+ quittancer ( VERB_INFINITIVE VERB ) 
+ quittancera ( VERB ) lemma=`quittancer` VER:futu  
+ quittancerai ( VERB ) lemma=`quittancer` VER:futu  
+ quittanceraient ( VERB ) lemma=`quittancer` VER:cond  
+ quittancerais ( VERB ) lemma=`quittancer` VER:cond  
+ quittancerait ( VERB ) lemma=`quittancer` VER:cond  
+ quittanceras ( VERB ) lemma=`quittancer` VER:futu  
+ quittancerez ( VERB ) lemma=`quittancer` VER:futu  
+ quittanceriez ( VERB ) lemma=`quittancer` VER:cond  
+ quittancerions ( VERB ) lemma=`quittancer` VER:cond  
+ quittancerons ( VERB ) lemma=`quittancer` VER:futu  
+ quittanceront ( VERB ) lemma=`quittancer` VER:futu  
+ quittances ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quittance`quittancer`quittancer` NOM  VER:pres  VER:subp  
+ quittancez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quittancer`quittancer` VER:impe  VER:pres  
+ quittanciez ( VERB ) lemma=`quittancer`quittancer` VER:impf  VER:subp  
+ quittancions ( VERB ) lemma=`quittancer`quittancer` VER:impf  VER:subp  
+ quittancèrent ( VERB_PAST VERB ) lemma=`quittancer` VER:simp  
+ quittancé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quittancer` VER:pper  
+ quittancée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quittancer` VER:pper  
+ quittancées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quittancer` VER:pper  
+ quittancés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quittancer` VER:pper  
+ quittant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quitter` VER:ppre  
+ quittança ( VERB_PAST VERB ) lemma=`quittancer` VER:simp  
+ quittançai ( VERB_PAST VERB ) lemma=`quittancer` VER:simp  
+ quittançaient ( VERB ) lemma=`quittancer` VER:impf  
+ quittançais ( VERB ) lemma=`quittancer` VER:impf  
+ quittançait ( VERB ) lemma=`quittancer` VER:impf  
+ quittançant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quittancer` VER:ppre  
+ quittanças ( VERB_PAST VERB ) lemma=`quittancer` VER:simp  
+ quittançasse ( VERB ) lemma=`quittancer` VER:subi  
+ quittançassent ( VERB ) lemma=`quittancer` VER:subi  
+ quittançasses ( VERB ) lemma=`quittancer` VER:subi  
+ quittançassiez ( VERB ) lemma=`quittancer` VER:subi  
+ quittançassions ( VERB ) lemma=`quittancer` VER:subi  
+ quittançons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quittancer`quittancer` VER:impe  VER:pres  
+ quittançâmes ( VERB_PAST VERB ) lemma=`quittancer` VER:simp  
+ quittançât ( VERB ) lemma=`quittancer` VER:subi  
+ quittançâtes ( VERB_PAST VERB ) lemma=`quittancer` VER:simp  
+ quittas ( VERB_PAST VERB ) lemma=`quitter` VER:simp  
+ quittasse ( VERB ) lemma=`quitter` VER:subi  
+ quittassent ( VERB ) lemma=`quitter` VER:subi  
+ quittasses ( VERB ) lemma=`quitter` VER:subi  
+ quittassiez ( VERB ) lemma=`quitter` VER:subi  
+ quittassions ( VERB ) lemma=`quitter` VER:subi  
+ quitte ( VERB_PRESENT VERB_PRESENT_3PS VERB ADJECTIVE ) lemma=`quitte`quitter`quitter`quitter` ADJ  VER:impe  VER:pres  VER:subp  
+ quittent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quitter`quitter` VER:pres  VER:subp  
+ quitter ( VERB_INFINITIVE VERB ) 
+ quittera ( VERB ) lemma=`quitter` VER:futu  
+ quitterai ( VERB ) lemma=`quitter` VER:futu  
+ quitteraient ( VERB ) lemma=`quitter` VER:cond  
+ quitterais ( VERB ) lemma=`quitter` VER:cond  
+ quitterait ( VERB ) lemma=`quitter` VER:cond  
+ quitteras ( VERB ) lemma=`quitter` VER:futu  
+ quitterez ( VERB ) lemma=`quitter` VER:futu  
+ quitteriez ( VERB ) lemma=`quitter` VER:cond  
+ quitterions ( VERB ) lemma=`quitter` VER:cond  
+ quitterons ( VERB ) lemma=`quitter` VER:futu  
+ quitteront ( VERB ) lemma=`quitter` VER:futu  
+ quittes ( VERB_PRESENT VERB_PRESENT_3PS VERB ADJECTIVE ) lemma=`quitte`quitter`quitter` ADJ  VER:pres  VER:subp  
+ quittez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quitter`quitter` VER:impe  VER:pres  
+ quittiez ( VERB ) lemma=`quitter`quitter` VER:impf  VER:subp  
+ quittions ( VERB ) lemma=`quitter`quitter` VER:impf  VER:subp  
+ quittons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quitter`quitter` VER:impe  VER:pres  
+ quittâmes ( VERB_PAST VERB ) lemma=`quitter` VER:simp  
+ quittât ( VERB ) lemma=`quitter` VER:subi  
+ quittâtes ( VERB_PAST VERB ) lemma=`quitter` VER:simp  
+ quittèrent ( VERB_PAST VERB ) lemma=`quitter` VER:simp  
+ quitté ( VERB_PAST_PARTICIPLE VERB ) lemma=`quitter` VER:pper  
+ quittée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quitter` VER:pper  
+ quittées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quitter` VER:pper  
+ quittés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quitter` VER:pper  
+ quitus ( NOUN NOUN_SINGULAR ) 
+ quiète ( ADJECTIVE ) lemma=`quiet` ADJ  
+ quiètement ( ADVERB ) 
+ quiètes ( ADJECTIVE ) lemma=`quiet` ADJ  
+ quiétisme ( NOUN NOUN_SINGULAR ) 
+ quiétismes ( NOUN NOUN_SINGULAR ) lemma=`quiétisme` NOM  
+ quiétiste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quiétiste`quiétiste` ADJ  NOM  
+ quiétistes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quiétiste`quiétiste` ADJ  NOM  
+ quiétude ( NOUN NOUN_SINGULAR ) 
+ quiétudes ( NOUN NOUN_SINGULAR ) lemma=`quiétude` NOM  
+ qumquat ( NOUN NOUN_SINGULAR ) 
+ qumquats ( NOUN NOUN_SINGULAR ) lemma=`qumquat` NOM  
+ quo ( NOUN NOUN_SINGULAR ) 
+ quoailla ( VERB_PAST VERB ) lemma=`quoailler` VER:simp  
+ quoaillai ( VERB_PAST VERB ) lemma=`quoailler` VER:simp  
+ quoaillaient ( VERB ) lemma=`quoailler` VER:impf  
+ quoaillais ( VERB ) lemma=`quoailler` VER:impf  
+ quoaillait ( VERB ) lemma=`quoailler` VER:impf  
+ quoaillant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quoailler` VER:ppre  
+ quoaillas ( VERB_PAST VERB ) lemma=`quoailler` VER:simp  
+ quoaillasse ( VERB ) lemma=`quoailler` VER:subi  
+ quoaillassent ( VERB ) lemma=`quoailler` VER:subi  
+ quoaillasses ( VERB ) lemma=`quoailler` VER:subi  
+ quoaillassiez ( VERB ) lemma=`quoailler` VER:subi  
+ quoaillassions ( VERB ) lemma=`quoailler` VER:subi  
+ quoaille ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quoailler`quoailler`quoailler` VER:impe  VER:pres  VER:subp  
+ quoaillent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quoailler`quoailler` VER:pres  VER:subp  
+ quoailler ( VERB_INFINITIVE VERB ) 
+ quoaillera ( VERB ) lemma=`quoailler` VER:futu  
+ quoaillerai ( VERB ) lemma=`quoailler` VER:futu  
+ quoailleraient ( VERB ) lemma=`quoailler` VER:cond  
+ quoaillerais ( VERB ) lemma=`quoailler` VER:cond  
+ quoaillerait ( VERB ) lemma=`quoailler` VER:cond  
+ quoailleras ( VERB ) lemma=`quoailler` VER:futu  
+ quoaillerez ( VERB ) lemma=`quoailler` VER:futu  
+ quoailleriez ( VERB ) lemma=`quoailler` VER:cond  
+ quoaillerions ( VERB ) lemma=`quoailler` VER:cond  
+ quoaillerons ( VERB ) lemma=`quoailler` VER:futu  
+ quoailleront ( VERB ) lemma=`quoailler` VER:futu  
+ quoailles ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quoailler`quoailler` VER:pres  VER:subp  
+ quoaillez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quoailler`quoailler` VER:impe  VER:pres  
+ quoailliez ( VERB ) lemma=`quoailler`quoailler` VER:impf  VER:subp  
+ quoaillions ( VERB ) lemma=`quoailler`quoailler` VER:impf  VER:subp  
+ quoaillons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quoailler`quoailler` VER:impe  VER:pres  
+ quoaillâmes ( VERB_PAST VERB ) lemma=`quoailler` VER:simp  
+ quoaillât ( VERB ) lemma=`quoailler` VER:subi  
+ quoaillâtes ( VERB_PAST VERB ) lemma=`quoailler` VER:simp  
+ quoaillèrent ( VERB_PAST VERB ) lemma=`quoailler` VER:simp  
+ quoaillé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quoailler` VER:pper  
+ quoaillée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quoailler` VER:pper  
+ quoaillées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quoailler` VER:pper  
+ quoaillés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quoailler` VER:pper  
+ quodlibet ( NOUN NOUN_SINGULAR ) 
+ quodlibets ( NOUN NOUN_SINGULAR ) lemma=`quodlibet` NOM  
+ quoi ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`quoi`quoi` PRO  PRO:REL  
+ quoiqu' ( CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE ) lemma=`quoique` KON  
+ quoique ( CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE ) 
+ quolibet ( NOUN NOUN_SINGULAR ) 
+ quolibets ( NOUN NOUN_SINGULAR ) lemma=`quolibet` NOM  
+ quorum ( NOUN NOUN_SINGULAR ) 
+ quorums ( NOUN NOUN_SINGULAR ) lemma=`quorum` NOM  
+ quota ( NOUN NOUN_SINGULAR ) 
+ quotas ( NOUN NOUN_SINGULAR ) lemma=`quota` NOM  
+ quote-part ( NOUN NOUN_SINGULAR ) 
+ quote-parts ( NOUN NOUN_SINGULAR ) lemma=`quote-part` NOM  
+ quotidien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quotidien`quotidien` ADJ  NOM  
+ quotidienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quotidien`quotidien` ADJ  NOM  
+ quotidiennement ( ADVERB ) 
+ quotidiennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quotidien`quotidien` ADJ  NOM  
+ quotidienneté ( NOUN NOUN_SINGULAR ) 
+ quotidiennetés ( NOUN NOUN_SINGULAR ) lemma=`quotidienneté` NOM  
+ quotidiens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quotidien`quotidien` ADJ  NOM  
+ quotient ( NOUN NOUN_SINGULAR ) 
+ quotients ( NOUN NOUN_SINGULAR ) lemma=`quotient` NOM  
+ quotité ( NOUN NOUN_SINGULAR ) 
+ quotités ( NOUN NOUN_SINGULAR ) lemma=`quotité` NOM  
+ quotta ( VERB_PAST VERB ) lemma=`quotter` VER:simp  
+ quottai ( VERB_PAST VERB ) lemma=`quotter` VER:simp  
+ quottaient ( VERB ) lemma=`quotter` VER:impf  
+ quottais ( VERB ) lemma=`quotter` VER:impf  
+ quottait ( VERB ) lemma=`quotter` VER:impf  
+ quottant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quotter` VER:ppre  
+ quottas ( VERB_PAST VERB ) lemma=`quotter` VER:simp  
+ quottasse ( VERB ) lemma=`quotter` VER:subi  
+ quottassent ( VERB ) lemma=`quotter` VER:subi  
+ quottasses ( VERB ) lemma=`quotter` VER:subi  
+ quottassiez ( VERB ) lemma=`quotter` VER:subi  
+ quottassions ( VERB ) lemma=`quotter` VER:subi  
+ quotte ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quotter`quotter`quotter` VER:impe  VER:pres  VER:subp  
+ quottement ( NOUN NOUN_SINGULAR ) 
+ quottements ( NOUN NOUN_SINGULAR ) lemma=`quottement` NOM  
+ quottent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quotter`quotter` VER:pres  VER:subp  
+ quotter ( VERB_INFINITIVE VERB ) 
+ quottera ( VERB ) lemma=`quotter` VER:futu  
+ quotterai ( VERB ) lemma=`quotter` VER:futu  
+ quotteraient ( VERB ) lemma=`quotter` VER:cond  
+ quotterais ( VERB ) lemma=`quotter` VER:cond  
+ quotterait ( VERB ) lemma=`quotter` VER:cond  
+ quotteras ( VERB ) lemma=`quotter` VER:futu  
+ quotterez ( VERB ) lemma=`quotter` VER:futu  
+ quotteriez ( VERB ) lemma=`quotter` VER:cond  
+ quotterions ( VERB ) lemma=`quotter` VER:cond  
+ quotterons ( VERB ) lemma=`quotter` VER:futu  
+ quotteront ( VERB ) lemma=`quotter` VER:futu  
+ quottes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quotter`quotter` VER:pres  VER:subp  
+ quottez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quotter`quotter` VER:impe  VER:pres  
+ quottiez ( VERB ) lemma=`quotter`quotter` VER:impf  VER:subp  
+ quottions ( VERB ) lemma=`quotter`quotter` VER:impf  VER:subp  
+ quottons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quotter`quotter` VER:impe  VER:pres  
+ quottâmes ( VERB_PAST VERB ) lemma=`quotter` VER:simp  
+ quottât ( VERB ) lemma=`quotter` VER:subi  
+ quottâtes ( VERB_PAST VERB ) lemma=`quotter` VER:simp  
+ quottèrent ( VERB_PAST VERB ) lemma=`quotter` VER:simp  
+ quotté ( VERB_PAST_PARTICIPLE VERB ) lemma=`quotter` VER:pper  
+ quottée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quotter` VER:pper  
+ quottées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quotter` VER:pper  
+ quottés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quotter` VER:pper  
+ québécisme ( NOUN NOUN_SINGULAR ) 
+ québécismes ( NOUN NOUN_SINGULAR ) lemma=`québécisme` NOM  
+ québécois ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`québécois`québécois` ADJ  NOM  
+ québécoise ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`québécois`québécois` ADJ  NOM  
+ québécoises ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`québécois`québécois` ADJ  NOM  
+ quémanda ( VERB_PAST VERB ) lemma=`quémander` VER:simp  
+ quémandage ( NOUN NOUN_SINGULAR ) 
+ quémandages ( NOUN NOUN_SINGULAR ) lemma=`quémandage` NOM  
+ quémandai ( VERB_PAST VERB ) lemma=`quémander` VER:simp  
+ quémandaient ( VERB ) lemma=`quémander` VER:impf  
+ quémandais ( VERB ) lemma=`quémander` VER:impf  
+ quémandait ( VERB ) lemma=`quémander` VER:impf  
+ quémandant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quémander` VER:ppre  
+ quémandas ( VERB_PAST VERB ) lemma=`quémander` VER:simp  
+ quémandasse ( VERB ) lemma=`quémander` VER:subi  
+ quémandassent ( VERB ) lemma=`quémander` VER:subi  
+ quémandasses ( VERB ) lemma=`quémander` VER:subi  
+ quémandassiez ( VERB ) lemma=`quémander` VER:subi  
+ quémandassions ( VERB ) lemma=`quémander` VER:subi  
+ quémande ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quémander`quémander`quémander` VER:impe  VER:pres  VER:subp  
+ quémandent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quémander`quémander` VER:pres  VER:subp  
+ quémander ( VERB_INFINITIVE VERB ) 
+ quémandera ( VERB ) lemma=`quémander` VER:futu  
+ quémanderai ( VERB ) lemma=`quémander` VER:futu  
+ quémanderaient ( VERB ) lemma=`quémander` VER:cond  
+ quémanderais ( VERB ) lemma=`quémander` VER:cond  
+ quémanderait ( VERB ) lemma=`quémander` VER:cond  
+ quémanderas ( VERB ) lemma=`quémander` VER:futu  
+ quémanderez ( VERB ) lemma=`quémander` VER:futu  
+ quémanderiez ( VERB ) lemma=`quémander` VER:cond  
+ quémanderions ( VERB ) lemma=`quémander` VER:cond  
+ quémanderons ( VERB ) lemma=`quémander` VER:futu  
+ quémanderont ( VERB ) lemma=`quémander` VER:futu  
+ quémandes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quémander`quémander` VER:pres  VER:subp  
+ quémandeur ( NOUN NOUN_SINGULAR ) 
+ quémandeurs ( NOUN NOUN_SINGULAR ) lemma=`quémandeur` NOM  
+ quémandeuse ( NOUN NOUN_SINGULAR ) lemma=`quémandeur` NOM  
+ quémandeuses ( NOUN NOUN_SINGULAR ) lemma=`quémandeur` NOM  
+ quémandez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quémander`quémander` VER:impe  VER:pres  
+ quémandiez ( VERB ) lemma=`quémander`quémander` VER:impf  VER:subp  
+ quémandions ( VERB ) lemma=`quémander`quémander` VER:impf  VER:subp  
+ quémandons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quémander`quémander` VER:impe  VER:pres  
+ quémandâmes ( VERB_PAST VERB ) lemma=`quémander` VER:simp  
+ quémandât ( VERB ) lemma=`quémander` VER:subi  
+ quémandâtes ( VERB_PAST VERB ) lemma=`quémander` VER:simp  
+ quémandèrent ( VERB_PAST VERB ) lemma=`quémander` VER:simp  
+ quémandé ( VERB_PAST_PARTICIPLE VERB ) lemma=`quémander` VER:pper  
+ quémandée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quémander` VER:pper  
+ quémandées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quémander` VER:pper  
+ quémandés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quémander` VER:pper  
+ quéquette ( NOUN NOUN_SINGULAR ) 
+ quéquettes ( NOUN NOUN_SINGULAR ) lemma=`quéquette` NOM  
+ quérable ( ADJECTIVE ) 
+ quérables ( ADJECTIVE ) lemma=`quérable` ADJ  
+ quérimonie ( NOUN NOUN_SINGULAR ) 
+ quérimonies ( NOUN NOUN_SINGULAR ) lemma=`quérimonie` NOM  
+ quérulence ( NOUN NOUN_SINGULAR ) 
+ quérulences ( NOUN NOUN_SINGULAR ) lemma=`quérulence` NOM  
+ quérulent ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quérulent`quérulent` ADJ  NOM  
+ quérulente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quérulent`quérulent` ADJ  NOM  
+ quérulentes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quérulent`quérulent` ADJ  NOM  
+ quérulents ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`quérulent`quérulent` ADJ  NOM  
+ quêta ( VERB_PAST VERB ) lemma=`quêter` VER:simp  
+ quêtai ( VERB_PAST VERB ) lemma=`quêter` VER:simp  
+ quêtaient ( VERB ) lemma=`quêter` VER:impf  
+ quêtais ( VERB ) lemma=`quêter` VER:impf  
+ quêtait ( VERB ) lemma=`quêter` VER:impf  
+ quêtant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`quêter` VER:ppre  
+ quêtas ( VERB_PAST VERB ) lemma=`quêter` VER:simp  
+ quêtasse ( VERB ) lemma=`quêter` VER:subi  
+ quêtassent ( VERB ) lemma=`quêter` VER:subi  
+ quêtasses ( VERB ) lemma=`quêter` VER:subi  
+ quêtassiez ( VERB ) lemma=`quêter` VER:subi  
+ quêtassions ( VERB ) lemma=`quêter` VER:subi  
+ quête ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quête`quêter`quêter`quêter` NOM  VER:impe  VER:pres  VER:subp  
+ quêtent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quêter`quêter` VER:pres  VER:subp  
+ quêter ( VERB_INFINITIVE VERB ) 
+ quêtera ( VERB ) lemma=`quêter` VER:futu  
+ quêterai ( VERB ) lemma=`quêter` VER:futu  
+ quêteraient ( VERB ) lemma=`quêter` VER:cond  
+ quêterais ( VERB ) lemma=`quêter` VER:cond  
+ quêterait ( VERB ) lemma=`quêter` VER:cond  
+ quêteras ( VERB ) lemma=`quêter` VER:futu  
+ quêterez ( VERB ) lemma=`quêter` VER:futu  
+ quêteriez ( VERB ) lemma=`quêter` VER:cond  
+ quêterions ( VERB ) lemma=`quêter` VER:cond  
+ quêterons ( VERB ) lemma=`quêter` VER:futu  
+ quêteront ( VERB ) lemma=`quêter` VER:futu  
+ quêtes ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`quête`quêter`quêter` NOM  VER:pres  VER:subp  
+ quêteur ( NOUN NOUN_SINGULAR ) 
+ quêteurs ( NOUN NOUN_SINGULAR ) lemma=`quêteur` NOM  
+ quêteuse ( NOUN NOUN_SINGULAR ) lemma=`quêteur` NOM  
+ quêteuses ( NOUN NOUN_SINGULAR ) lemma=`quêteur` NOM  
+ quêtez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quêter`quêter` VER:impe  VER:pres  
+ quêtiez ( VERB ) lemma=`quêter`quêter` VER:impf  VER:subp  
+ quêtions ( VERB ) lemma=`quêter`quêter` VER:impf  VER:subp  
+ quêtons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`quêter`quêter` VER:impe  VER:pres  
+ quêtâmes ( VERB_PAST VERB ) lemma=`quêter` VER:simp  
+ quêtât ( VERB ) lemma=`quêter` VER:subi  
+ quêtâtes ( VERB_PAST VERB ) lemma=`quêter` VER:simp  
+ quêtèrent ( VERB_PAST VERB ) lemma=`quêter` VER:simp  
+ quêté ( VERB_PAST_PARTICIPLE VERB ) lemma=`quêter` VER:pper  
+ quêtée ( VERB_PAST_PARTICIPLE VERB ) lemma=`quêter` VER:pper  
+ quêtées ( VERB_PAST_PARTICIPLE VERB ) lemma=`quêter` VER:pper  
+ quêtés ( VERB_PAST_PARTICIPLE VERB ) lemma=`quêter` VER:pper  
+ quôc-ngu ( NOUN NOUN_SINGULAR ) 
+ quôc-ngus ( NOUN NOUN_SINGULAR ) lemma=`quôc-ngu` NOM  

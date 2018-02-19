@@ -1,0 +1,23 @@
+outputmacro: ^myfunc(^data) ($$concept)
+	$$wordindex += 1			# count words in each sentence
+	_0 = ^burst(^data ^"\t")	# Treetagger returns a tabbed triple of original word, tag, lemma
+	$$concept = ^join(~ _1)		# we turn tag into a concept
+	^settag($$wordindex $$concept )	# set the tag concept
+	^setcanon($$wordindex _2 )	# set the canonical form to ChatScript
+
+topic: ~xPOSTAGSENTENCE system()
+t: (_* )  # memorize sentence to pass to tagger
+t: ( ) 
+	$$wordindex = 0					# need to start over for each sentence, used to locate word in sentence
+	^log(FILE  chat.txt NEW '_0 )	# non-commercial version reads a file, so write our sentence to a file
+#	^popen("tag-english chat.txt" '^myfunc)
+	^popen("tag-german chat.txt" '^myfunc) # invoke local copy of TreeTagger german
+
+
+ topic: ~INTRODUCTIONS  keep repeat()
+
+t: ^"use :prepare to see your input data German tagging" IF YOU HAVE INSTALLED TREETAGGER + German data.
+t: Line gambit ^keep()
+
+#! Wie geht es ihnen
+u: ( wie gehen *~1 sie)  Good thank you, but I don't speak German.

@@ -1,0 +1,485 @@
+
+############################################
+########### Rules about adverbs
+############################################
+
+# adverb wont intrude between verb and object noun directly - has/have (Verb_present_3ps)  no (Adjective_normal +Adverb Determiner)  bearing/bear (+Noun_gerund Noun_singular)
+-1 IS VERB_BITS
+	INCLUDE * ADVERB
+	CANONLYBE NOUN_BITS
+DISCARD
+
+# if something is adverb but could be determiner in front of number, dont be adverb - each (+Adverb Determiner)  50,000/50000 (Adjective_number)
+0 INCLUDE * ADVERB
+	STAY HAS DETERMINER
+	IS ADJECTIVE_NUMBER
+DISCARD
+
+# no adverb directly before noun - big (+Adjective_normal Adverb)  mainframe (Noun_singular)  EXCEPT gerunds and restrictive adverbs
+-1 !HAS CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE
+	INCLUDE * ADVERB
+	STAY !ISMEMBER ~restrictive_adverbs
+	STAY !HAS CONJUNCTION_COORDINATE # not "so Dogs walk"
+	CANONLYBE NOUN_BITS - NOUN_GERUND
+DISCARD
+
+# when (Adverb Conjunction_subordinate)  it (Pronoun_subject)
+0	INCLUDE * ADVERB
+	STAY HAS CONJUNCTION_SUBORDINATE
+	STAY START
+	HAS PRONOUN_SUBJECT
+DISCARD
+
+# after determiner and before insured noun, wont be adverb - the/a (Determiner)  monthly (Noun_singular +Adjective_normal Adverb)  sales (+Noun_plural +Noun_singular) 
+-1 IS DETERMINER
+	INCLUDE * ADVERB
+	STAY HAS ADJECTIVE_BITS
+	CANONLYBE NOUN_BITS
+DISCARD
+
+# adjective adverb before comma adjective wont be adverb - new (+Adjective_normal Adverb)  , (Comma)  seven-year (Adjective_normal)
+0 INCLUDE * ADVERB
+	STAY CANONLYBE ADVERB ADJECTIVE_BITS
+	IS COMMA
+	IS ADJECTIVE_BITS
+DISCARD
+
+# three days *earlier
+  -1 ISMEMBER ~modifyabletimenoun
+	INCLUDE * ADVERB 
+	STAY ISORIGINALMEMBER ~timeadvmodifier 
+	!HAS DETERMINER
+KEEP
+
+# "it easy"
+-1 IS PRONOUN_SUBJECT PRONOUN_OBJECT
+	INCLUDE * ADVERB
+	STAY ISORIGINAL easy
+KEEP
+
+# inverted comparison adjective - it was *as big a thrill
+0 ISCANONICAL as
+	STAY INCLUDE * ADVERB
+	IS ADJECTIVE_NORMAL
+	ISORIGINAL a
+KEEP
+
+# three days *ago
+-1 ISMEMBER ~modifyabletimenoun
+	INCLUDE *  ADVERB
+	STAY ISMEMBER ~timeadvmodifier
+	!HAS DETERMINER
+KEEP
+
+# *earlier this week
+0	INCLUDE * ADVERB 
+	STAY ISORIGINALMEMBER ~timeadvmodifier 
+	HAS DETERMINER
+	ISMEMBER ~modifyabletimenoun
+KEEP
+
+# seconds *behind the time			
+-1 ISMEMBER ~modifyabletimenoun
+	INCLUDE * ADVERB
+	STAY ISORIGINALMEMBER ~timeadvmodifier 
+	STAY HAS PREPOSITION
+	HAS DETERMINER PRONOUN_OBJECT NOUN_BITS ADJECTIVE_BITS
+DISCARD
+
+# three miles *behind you			behind under after
+-1 ISMEMBER ~modifyabledistancenoun
+	INCLUDE * ADVERB
+	STAY ISORIGINALMEMBER ~distancemodifier 
+	STAY HAS PREPOSITION
+	HAS DETERMINER PRONOUN_OBJECT NOUN_BITS ADJECTIVE_BITS
+DISCARD
+
+# three *miles behind.				behind away ahead under after
+-1 ISMEMBER ~modifyabledistancenoun
+	INCLUDE * ADVERB
+	STAY ISORIGINALMEMBER ~distancemodifier 
+	!HAS DETERMINER PRONOUN_OBJECT  NOUN_BITS ADJECTIVE_BITS
+KEEP
+
+# so at start becomes adverb  "*so what do you think"
+0  ISORIGINAL so
+	STAY INCLUDE * ADVERB
+	STAY START
+KEEP
+
+# in conflict adj/adv before adjective, be adverb  - "the very real person"
+# 0	INCLUDE * ADVERB
+# 	STAY CANONLYBE ADVERB ADJECTIVE_BITS
+# 	IS ADJECTIVE_NORMAL
+# KEEP
+
+# how before much is adverb "how *much do you cost" unless before noun "how *much time do you spend"
+-1 ISORIGINAL how
+	INCLUDE * ADVERB
+	STAY ISORIGINAL much
+	!HAS NORMAL_NOUN_BITS
+KEEP
+
+# wont have adverb after a verb and particle/prep and before a pronoun - where (Adverb Conjunction_subordinate)  it (Pronoun_object Pronoun_subject)
+-2	IS VERB_BITS
+	CANONLYBE PARTICLE PREPOSITION	 # dont intrude adverb before an object
+	INCLUDE * ADVERB
+	STAY !START
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# wont have adverb after determiner and before noun - a (Determiner)  hard (+Adjective_normal +Adverb)  time (Noun_singular)  
+-1 IS DETERMINER_BITS
+	INCLUDE * ADVERB
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+# wont have adverb after a verb and before a pronoun - where (Adverb Conjunction_subordinate)  it (Pronoun_object Pronoun_subject)
+-1	IS VERB_BITS
+	INCLUDE * ADVERB
+	STAY !START
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# adverb "that" requires adjective after it - not "i believe *that you do" but "I am *that smart"
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL that
+	!HAS ADJECTIVE_NORMAL
+DISCARD
+
+# but after verb and before number - she had but one shoe on
+-1 IS VERB_BITS
+	INCLUDE * ADVERB
+	STAY ISORIGINAL but
+	HAS NOUN_NUMBER
+	HAS NORMAL_NOUN_BITS
+	!HAS VERB_BITS AUX_VERB
+KEEP
+
+# ago takes an averb before it in "*long ago" 
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL long		#  it happened long ago
+	ISORIGINAL ago
+KEEP
+
+# adverb/pronoun conflict after verb not before adjective, be pronoun - "let us take *some to mom" - but not "he kicked *more to mom"
+
+# wont be adverb after aux with no verb following - "he can *live in the street"
+-1 IS AUX_VERB
+	INCLUDE * ADVERB
+	IS PREPOSITION
+DISCARD
+
+# after noun wont be adverb before comma if no prior verb  - a (Determiner)  year (Noun_singular)  later/late (Adjective_more +Adverb_more)  , (Comma) EXCEPT timephrases "a year later" "two dogs later"
+-1 IS NORMAL_NOUN_BITS
+	INCLUDE * ADVERB
+	STAY !HASPROPERTY TIMEWORD
+	STAY HAS ADJECTIVE_BITS
+	STAY !PRIORPOS VERB_BITS
+	IS COMMA
+DISCARD
+
+# and (Conjunction_coordinate)  down (Verb_present Adverb Preposition)  the/a (Determiner) wont have adverb before the-type determiner after conjunction - might think globally not "he handled quickly the money" would be legal
+-1 IS CONJUNCTION
+	INCLUDE * ADVERB
+	IS DETERMINER
+	STAY ISCANONICAL a
+DISCARD
+
+# wont be adverb AFTER adjective and followed by pronoun of some flavor, will need to be prep - "prominent   *in (Adverb +Preposition)  it"
+-1	IS ADJECTIVE_NORMAL
+	INCLUDE * ADVERB
+	STAY HAS PREPOSITION
+	CANONLYBE PRONOUN_BITS NOUN_BITS DETERMINER_BITS
+DISCARD
+
+# enough after an adjective is an adverb "the food is good *enough"  "it was good *enough food that they ate it"  "funnily *enough he didn't come"
+-1	IS ADJECTIVE_NORMAL ADVERB
+	INCLUDE * ADVERB
+	STAY ISORIGINAL enough
+KEEP
+
+# wont be adverb at start followed by noun or pronoun if could be subord conjunct after (Adverb_more Conjunction_subordinate)  I (Pronoun_subject
+0	INCLUDE * ADVERB
+	STAY START
+	STAY HAS CONJUNCTION_SUBORDINATE 
+	STAY !HASPROPERTY TIMEWORD  # but "now I will go"
+	CANONLYBE PRONOUN_SUBJECT DETERMINER ADJECTIVE_BITS NOUN_BITS
+DISCARD
+
+# cant be adverb at start if verb follows is not infintiive both (+Adverb Pronoun_subject)  disdained/disdain (Verb_past) 
+0	INCLUDE * ADVERB
+	STAY START
+	IS VERB_PRESENT VERB_PAST
+DISCARD
+
+# conflict coord conjunction and adverb, will not be adverb if not in front of adjective or adverb or verb  - "I am *so tired"  "I went but I didn't"  "so do I" IS ADVERB
+0	INCLUDE * ADVERB
+	STAY HAS CONJUNCTION_COORDINATE
+	!HAS ADJECTIVE_BITS VERB_BITS ADVERB
+DISCARD
+
+
+# at start, in coord conjunction vs adverb never be simpler adverb, which requres a verb be established
+0	INCLUDE * ADVERB
+	STAY HAS CONJUNCTION_COORDINATE 
+	STAY START
+DISCARD
+
+# "how about" always adverb + prep - if idiom substituion to "I suggest" fails
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL how
+	ISORIGINAL about
+KEEP
+
+
+# wont be adverb after verb and before noun comma (Verb_past_participle)  within (Adverb +Preposition)  days/day (Noun_plural)  , 
+-1 IS VERB_BITS
+	INCLUDE * ADVERB
+	IS NORMAL_NOUN_BITS
+	IS COMMA
+DISCARD
+
+# adverb wont intrude after verb and before determiner - fit (Verb_infinitive)  in (Adverb_basic +Preposition)  the/a (Determiner)
+-1 IS VERB_BITS
+	INCLUDE * ADVERB
+	IS DETERMINER ADJECTIVE_NUMBER
+DISCARD
+
+# adverb wont preceed a noun sandwiched after an adverb or adjective or determiner or possessive "a   *large (+Adjective_normal Adverb_basic)  brain (Noun_singular) "
+-1 IS DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NUMBER POSSESSIVE
+	INCLUDE * ADVERB
+	STAY HAS ADJECTIVE_BITS
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+-2 IS DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NUMBER # "a  very (Adverb_basic)  *large (+Adjective_normal Adverb_basic)  brain (Noun_singular) "
+	IS ADVERB
+	INCLUDE * ADVERB
+	STAY HAS ADJECTIVE_BITS
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+
+# adverb wont intrude between two nouns when it could be prep - the next time you see an octopus *at the aquarium, die"  unless it were ending a clause which gets tricky?
+-1 IS NORMAL_NOUN_BITS
+	INCLUDE * ADVERB
+	STAY HAS PREPOSITION
+	IS DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NUMBER NORMAL_NOUN_BITS PRONOUN_BITS
+DISCARD
+
+# determiner followed by comparative adjective will be adverb "the *bigger big one" if cant be pronoun after
+-1	HAS DETERMINER
+	INCLUDE * ADVERB
+	STAY ISCOMPARATIVE 
+	IS ADJECTIVE_BITS
+KEEP
+
+# conjunctive adverb  ; xxx , used to join 2 sentences
+-1  ISORIGINAL ;
+	INCLUDE * ADVERB
+	STAY PARSEMARK CONJUNCTIVE_ADVERB
+	IS COMMA
+KEEP
+
+# conjunctive adverb at start "*however,"
+0	INCLUDE * ADVERB
+	STAY START
+	STAY PARSEMARK CONJUNCTIVE_ADVERB
+	IS COMMA
+KEEP
+
+# conjunctive adverb at end ", *however."
+-1 IS COMMA
+	INCLUDE * ADVERB
+	STAY END
+	STAY PARSEMARK CONJUNCTIVE_ADVERB
+KEEP
+
+
+############################################
+########### Rules about more
+############################################
+
+# more is adverb in more xxx than phrase: he is *more tall than her
+0 INCLUDE * ADVERB	
+  STAY ISORIGINAL more
+  HAS NOUN_BITS VERB_BITS ADJECTIVE_BITS
+  ISORIGINAL than
+KEEP
+
+
+
+# qword at start followed by aux "*how can you go"
+0	INCLUDE * ADVERB
+	STAY START
+	ISQUESTION QWORD
+	STAY HAS CONJUNCTION_SUBORDINATE
+	IS AUX_VERB
+KEEP
+
+# why, how, and other conjunction starters at start will be adverb "*why do ducks" as will "why are"
+0	INCLUDE * ADVERB
+	STAY START
+	STAY HAS CONJUNCTION_SUBORDINATE
+	STAY !HAS PRONOUN_BITS # but not "*that is why I love you"
+	HAS AUX_DO AUX_BE AUX_HAVE 
+KEEP
+
+# Please as adverb before verb infinitive - "*please go"
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL please
+	POSSIBLEINFINITIVE
+KEEP
+
+# conflict adverb vs pronoun followed by prepostion 'of' will be pronoun "they returned *some of the gifts" EXCEPT "they returned all by themselves" 
+0	INCLUDE * ADVERB 
+	STAY CANONLYBE PRONOUN_BITS ADVERB
+	IS PREPOSITION
+	STAY ISORIGINAL of
+DISCARD
+
+# conflict adverb vs pronoun followed by prepostion by of will be adverb "they returned all by themselves"  EXCEPT "they returned *some of the gifts" 
+0	INCLUDE * ADVERB 
+	STAY CANONLYBE PRONOUN_BITS ADVERB
+	IS PREPOSITION
+	STAY ISORIGINAL by
+KEEP
+
+# adverb cannot come between prep or determiner or adjective and noun "as of *next month, I win" - 
+-1	IS PREPOSITION DETERMINER ADJECTIVE_BITS
+	INCLUDE * ADVERB   # except for number data like "at about $2"
+	IS NOUN_BITS
+	STAY !IS NOUN_NUMBER
+DISCARD
+
+# cant put adverb between determiner and potenial adjective particle - but can " there is a *more determined person"
+
+# cant sandwich adverb between 2 noun/pronouns?
+-1 IS PRONOUN_BITS NOUN_BITS
+	INCLUDE * ADVERB		# I remembered to eat food *before I went home
+	IS PRONOUN_BITS NOUN_BITS
+DISCARD
+
+# cannot have adjective/determiner in front of dead-end adverb (unless be sentence like "had I been brave *enough") (cant be adverb here) - but adj part is ok "installed yesterday"
+-1	IS ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE DETERMINER
+	INCLUDE * ADVERB
+	SKIP !HAS NOUN_BITS 
+	!HAS NOUN_BITS
+	!PRIORCANONICAL be
+DISCARD
+
+# need adjective or noun or verb after "be", if prep/conjunction follows our potential, excluding being an adverb ourselves.  # "There is nothing here."  but not "It is *up on the ledge"
+
+# cannot have adverb before a noun if preceeded by adjective
+-1	IS ADJECTIVE_BITS
+	INCLUDE * ADVERB
+	IS NOUN_BITS
+DISCARD
+
+# home with no article/possessive/etc is an adverb   # we stayed home  ?? needed? 
+
+# if it can be extent adverb modifying an adjective or adverb, make it so -- but bad for "the *little old lady"
+
+########################
+# very as  adverb
+########################
+
+# very before a noun is NOT adverb, its adjective if preceeded by determiner "I have the *very thing"
+-1	IS DETERMINER
+	INCLUDE * ADVERB
+	STAY ISORIGINAL very
+	IS NOUN_BITS PRONOUN_BITS
+DISCARD
+
+# very before an adjective is an adverb "I have a *very blue rug"
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL very
+	HAS ADJECTIVE_BITS
+KEEP
+
+########################
+# even as  adverb 
+########################
+
+# even though will be adverb + conjunction
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL even
+	ISORIGINAL though
+KEEP
+
+
+########################
+# QWORDS as  adverb
+########################
+
+# qword adverb at start of sentence - "*why should I go"  but not "*why people go is unknown" nor "*where do you come from"
+
+# why not adverb sequence - "*why not leave here" 
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL why
+	ISORIGINAL not
+KEEP
+
+########################
+# HERE AND THERE as an adverb
+########################
+
+# end of sentence there will be adverb  "I am *there"
+0	INCLUDE * ADVERB
+	STAY ISCANONICAL there
+	STAY END
+KEEP
+
+# end of sentence there will be adverb  "I am *here"
+0	INCLUDE * ADVERB
+	STAY ISCANONICAL here
+	STAY END
+KEEP
+
+# end of sentence there will be adverb  "I got *there rapidly"
+0	INCLUDE * ADVERB
+	STAY ISCANONICAL  there
+	IS ADVERB
+	STAY END
+KEEP
+
+# end of sentence there will be adverb  "I got *here rapidly"
+0	INCLUDE * ADVERB
+	STAY ISCANONICAL here
+	IS ADVERB
+	STAY END
+KEEP
+
+# here after regular verb will be adverb "I got *here on my own"
+-1 IS VERB_BITS
+	INCLUDE * ADVERB
+	STAY ISCANONICAL here
+KEEP
+
+# there after regular verb will be adverb "I got *there on my own" - but not if potential aux follows it - "the new company believes *there are more clients"
+-1 IS VERB_BITS
+	INCLUDE * ADVERB
+	STAY ISCANONICAL there
+	!HAS AUX_VERB
+	STAY !HASCANONICALPROPERTY VERB_TAKES_ADJECTIVE
+	!HAS AUX_VERB  # in case an adverb intervened like "the company believes *there also may be more"
+	STAY !HASCANONICALPROPERTY VERB_TAKES_ADJECTIVE
+KEEP
+
+########################
+# "as" as an adverb
+########################
+
+# as is an adverb  followed by an adverb- "he flew just *as rapidly"
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL as
+	IS ADVERB
+KEEP
+
+# as is an adverb followed by an adjective but not a noun later  - "Glue is just as strong"
+0	INCLUDE * ADVERB
+	STAY ISORIGINAL as
+	IS ADJECTIVE_BITS
+	!HAS ADJECTIVE_BITS NOUN_BITS
+KEEP

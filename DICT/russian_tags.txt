@@ -1,0 +1,944 @@
+ , 
+ - 
+ Afcmsnf ADJECTIVE ADJECTIVE_NORMAL
+ Afpfpgf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsaf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsas  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsdf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsgf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsif  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfslf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsnf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpfsns  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmpaf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmpdf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmpgf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmpif  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmplf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmpnf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmpns  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsaf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsdf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsds  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsgf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsgs  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsif  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmslf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsnf   ADJECTIVE ADJECTIVE_NORMAL
+ Afpmsns  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnpaf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnpnf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnsaf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnsdf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnsgf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnsif  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnslf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnsnf  ADJECTIVE ADJECTIVE_NORMAL
+ Afpnsns  ADJECTIVE ADJECTIVE_NORMAL
+ C CONJUNCTION_COORDINATE
+ I INTERJECTION
+ Mc NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc---d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--ad  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--dd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--gd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--id  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mc--n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcf-a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcf-d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcf-g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcf-i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcf-l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcf-n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcm-a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcm-d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcm-g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcm-i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcm-l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcm-n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcn-a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcn-d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcn-g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcn-i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcn-l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mcn-n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo---d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo--g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo--i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pa  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pad  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pdd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pg  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pgd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pi  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pid  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pl  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pld  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pn  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-pnd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mo-sad  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof-a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof-d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof-g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof-i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof-l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mof-n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsa  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsad  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsdd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsg  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsgd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsi  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsid  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsl  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsld  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsn  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mofsnd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mom-a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mom-d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mom-g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mom-i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mom-l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mom-n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsa  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsad  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsg  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsgd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsi  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsid  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsl  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsld  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsn  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Momsnd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mon-a  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mon-d  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mon-g  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mon-i  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mon-l  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Mon-n  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsa  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsad  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsg  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsgd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsi  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsid  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsl  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsn  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Monsnd  NOUN NOUN_NUMBER ADJECTIVE ADJECTIVE_NUMBER
+ Nccpay NOUN 
+ Nccpdy  NOUN
+ Nccpgy  NOUN
+ Nccpiy  NOUN
+ Nccply  NOUN
+ Nccpny  NOUN
+ Nccsay  NOUN
+ Nccsdy  NOUN
+ Nccsgn  NOUN
+ Nccsgy  NOUN
+ Nccsiy  NOUN
+ Nccsly  NOUN
+ Nccsnn  NOUN
+ Nccsny  NOUN
+ Ncfpan  NOUN
+ Ncfpay  NOUN
+ Ncfpdn  NOUN
+ Ncfpdy  NOUN
+ Ncfpgn  NOUN
+ Ncfpgy  NOUN
+ Ncfpin  NOUN
+ Ncfpiy  NOUN
+ Ncfpln  NOUN
+ Ncfply  NOUN
+ Ncfpnn  NOUN
+ Ncfpny  NOUN
+ Ncfsan  NOUN
+ Ncfsay  NOUN
+ Ncfsdn  NOUN
+ Ncfsdy  NOUN
+ Ncfsgn  NOUN
+ Ncfsgy  NOUN
+ Ncfsin  NOUN
+ Ncfsiy  NOUN
+ Ncfsln  NOUN
+ Ncfsly  NOUN
+ Ncfsnn  NOUN
+ Ncfsnnl  NOUN
+ Ncfsnnp  NOUN
+ Ncfsny  NOUN
+ Ncfsvy  NOUN
+ Ncmpan  NOUN
+ Ncmpay  NOUN
+ Ncmpdn  NOUN
+ Ncmpdy  NOUN
+ Ncmpgn  NOUN
+ Ncmpgy  NOUN
+ Ncmpin  NOUN
+ Ncmpiy  NOUN
+ Ncmpln  NOUN
+ Ncmply  NOUN
+ Ncmpnn  NOUN
+ Ncmpnnl  NOUN
+ Ncmpny  NOUN
+ Ncmsan  NOUN
+ Ncmsay  NOUN
+ Ncmsdn  NOUN
+ Ncmsdy  NOUN
+ Ncmsgn  NOUN
+ Ncmsgy  NOUN
+ Ncmsin  NOUN
+ Ncmsiy  NOUN
+ Ncmsln  NOUN
+ Ncmsly  NOUN
+ Ncmsnn  NOUN
+ Ncmsnnl  NOUN
+ Ncmsnnp  NOUN
+ Ncmsny  NOUN
+ Ncmsvn  NOUN
+ Ncmsvy  NOUN
+ Ncnpan  NOUN
+ Ncnpay  NOUN
+ Ncnpdn  NOUN
+ Ncnpdy  NOUN
+ Ncnpgn  NOUN
+ Ncnpgy  NOUN
+ Ncnpin  NOUN
+ Ncnpiy  NOUN
+ Ncnpln  NOUN
+ Ncnply  NOUN
+ Ncnpnn  NOUN
+ Ncnpny  NOUN
+ Ncnsan  NOUN
+ Ncnsay  NOUN
+ Ncnsdn  NOUN
+ Ncnsdy  NOUN
+ Ncnsgn  NOUN
+ Ncnsgy  NOUN
+ Ncnsin  NOUN
+ Ncnsiy  NOUN
+ Ncnsln  NOUN
+ Ncnsly  NOUN
+ Ncnsnn  NOUN
+ Ncnsny  NOUN
+ Npcpay  NOUN
+ Npcsay  NOUN
+ Npcsdy  NOUN
+ Npcsgy  NOUN
+ Npcsiy  NOUN
+ Npcsly  NOUN
+ Npcsnn  NOUN
+ Npcsny  NOUN
+ Npcsvy  NOUN
+ Npfpay  NOUN
+ Npfpdy  NOUN
+ Npfpgy  NOUN
+ Npfpiy  NOUN
+ Npfpny  NOUN
+ Npfsay  NOUN
+ Npfsdy  NOUN
+ Npfsgn  NOUN
+ Npfsgy 
+ Npfsiy 
+ Npfsly 
+ Npfsnn 
+ Npfsny 
+ Npfsvy 
+ Npmpay 
+ Npmpdy 
+ Npmpgy 
+ Npmpiy 
+ Npmpny 
+ Npmpvy 
+ Npmsay 
+ Npmsdn 
+ Npmsdy 
+ Npmsgn 
+ Npmsgy 
+ Npmsiy 
+ Npmsly 
+ Npmsnn 
+ Npmsny 
+ Npmsvy 
+ Npnsan 
+ Npnsnn 
+ P-----a 
+ P-----r 
+ P----an 
+ P----ar 
+ P----dn 
+ P----dr 
+ P----gn 
+ P----gr 
+ P----in 
+ P----ir 
+ P----ln 
+ P----nn 
+ P---p-a 
+ P---paa 
+ P---pan 
+ P---pda 
+ P---pdn 
+ P---pga 
+ P---pgn 
+ P---pia 
+ P---pin 
+ P---pla 
+ P---pln 
+ P---pna 
+ P---pnn 
+ P---san 
+ P---sar 
+ P---sdn 
+ P---sdr 
+ P---sga 
+ P---sgn 
+ P---sgr 
+ P---sia 
+ P---sin 
+ P---sir 
+ P---sln 
+ P---snn 
+ P--f-aa 
+ P--f-la 
+ P--fpaa 
+ P--fs-a 
+ P--fsaa 
+ P--fsan 
+ P--fsda 
+ P--fsdn 
+ P--fsga 
+ P--fsgn 
+ P--fsia 
+ P--fsin 
+ P--fsla 
+ P--fsln 
+ P--fsna 
+ P--fsnn 
+ P--m-aa 
+ P--m-ga 
+ P--m-ia 
+ P--m-la 
+ P--mpga 
+ P--ms-a 
+ P--msaa 
+ P--msan 
+ P--msda 
+ P--msdn 
+ P--msga 
+ P--msgn 
+ P--msia 
+ P--msin 
+ P--msla 
+ P--msln 
+ P--msna 
+ P--msnn 
+ P--n-an 
+ P--n-ga 
+ P--n-la 
+ P--n-na 
+ P--npan 
+ P--npgn 
+ P--npnn 
+ P--ns-a 
+ P--nsaa 
+ P--nsan 
+ P--nsda 
+ P--nsdn 
+ P--nsga 
+ P--nsgn 
+ P--nsia 
+ P--nsin 
+ P--nsla 
+ P--nsln 
+ P--nsna 
+ P--nsnn 
+ P-1-pan 
+ P-1-pdn 
+ P-1-pgn 
+ P-1-pin 
+ P-1-pln 
+ P-1-pnn 
+ P-1-san 
+ P-1-sdn 
+ P-1-sgn 
+ P-1-sin 
+ P-1-sln 
+ P-1-snn 
+ P-1nsnn 
+ P-2-pan 
+ P-2-pdn 
+ P-2-pgn 
+ P-2-pin 
+ P-2-pln 
+ P-2-pnn 
+ P-2-san 
+ P-2-sdn 
+ P-2-sgn 
+ P-2-sin 
+ P-2-sln 
+ P-2-snn 
+ P-2msdn 
+ P-2nsan 
+ P-3-pan 
+ P-3-pdn 
+ P-3-pgn 
+ P-3-pin 
+ P-3-pln 
+ P-3-pnn 
+ P-3-san 
+ P-3fsan 
+ P-3fsdn 
+ P-3fsgn 
+ P-3fsin 
+ P-3fsln 
+ P-3fsnn 
+ P-3msan 
+ P-3msdn 
+ P-3msgn 
+ P-3msin 
+ P-3msln 
+ P-3msnn 
+ P-3nsan 
+ P-3nsdn 
+ P-3nsgn 
+ P-3nsin 
+ P-3nsln 
+ P-3nsnn 
+ Q 
+ R 
+ Rc 
+ SENT 
+ Sp-a 
+ Sp-d 
+ Sp-g 
+ Sp-i 
+ Sp-l 
+ Sp-n 
+ Vmg----a-p 
+ Vmg----m-p 
+ Vmgp---a-e 
+ Vmgp---a-p 
+ Vmgp---m-e 
+ Vmgp---m-p 
+ Vmgs---a-e 
+ Vmgs---a-p 
+ Vmgs---m-e 
+ Vmgs---m-p 
+ Vmi-1--a-e 
+ Vmif1p-a-e 
+ Vmif1p-a-p 
+ Vmif1p-m-p 
+ Vmif1s-a-e 
+ Vmif1s-a-p 
+ Vmif1s-m-p 
+ Vmif2p-a-e 
+ Vmif2p-a-p 
+ Vmif2p-m-p 
+ Vmif2s-a-e 
+ Vmif2s-a-p 
+ Vmif2s-m-p 
+ Vmif3p-a-e 
+ Vmif3p-a-p 
+ Vmif3p-m-p 
+ Vmif3s-a-e 
+ Vmif3s-a-p 
+ Vmif3s-m-p 
+ Vmip---m-e 
+ Vmip1p-a-e 
+ Vmip1p-a-p 
+ Vmip1p-m-e 
+ Vmip1s-a-e 
+ Vmip1s-a-p 
+ Vmip1s-m-e 
+ Vmip2p-a-e 
+ Vmip2p-m-e 
+ Vmip2s-a-e 
+ Vmip2s-m-e 
+ Vmip3p-a-e 
+ Vmip3p-a-p 
+ Vmip3p-m-e 
+ Vmip3p-p-e 
+ Vmip3s-a-e 
+ Vmip3s-m-e 
+ Vmip3s-p-e 
+ Vmis---a-e 
+ Vmis---a-p 
+ Vmis---m-e 
+ Vmis--nm-e 
+ Vmis-p-a-e 
+ Vmis-p-a-p 
+ Vmis-p-m-e 
+ Vmis-p-m-p 
+ Vmis-p-p-e 
+ Vmis-s-a-e 
+ Vmis-s-a-p 
+ Vmis-sfa-e 
+ Vmis-sfa-p 
+ Vmis-sfm-e 
+ Vmis-sfm-p 
+ Vmis-sfp-e 
+ Vmis-sma-e 
+ Vmis-sma-p 
+ Vmis-smm-e 
+ Vmis-smm-p 
+ Vmis-smp-e 
+ Vmis-smp-p 
+ Vmis-sna-e 
+ Vmis-sna-p 
+ Vmis-snm-e 
+ Vmis-snm-p 
+ Vmis-snp-e 
+ Vmm--s-a-e 
+ Vmm-1p-a-e 
+ Vmm-1p-a-p 
+ Vmm-1p-m-p 
+ Vmm-1s-a-e 
+ Vmm-1s-a-p 
+ Vmm-1s-m-p 
+ Vmm-2--a-e 
+ Vmm-2--a-p 
+ Vmm-2p-a-e 
+ Vmm-2p-a-p 
+ Vmm-2p-m-e 
+ Vmm-2p-m-p 
+ Vmm-2s-a-e 
+ Vmm-2s-a-p 
+ Vmm-2s-m-e 
+ Vmm-2s-m-p 
+ Vmn----a-e 
+ Vmn----a-p 
+ Vmn----m-e 
+ Vmn----m-p 
+ Vmn----p-e 
+ Vmpp-p-a-ea 
+ Vmpp-p-a-ed 
+ Vmpp-p-a-eg 
+ Vmpp-p-a-ei 
+ Vmpp-p-a-el 
+ Vmpp-p-a-en 
+ Vmpp-p-afea 
+ Vmpp-p-afed 
+ Vmpp-p-afeg 
+ Vmpp-p-afei 
+ Vmpp-p-afel 
+ Vmpp-p-afen 
+ Vmpp-p-m-ea 
+ Vmpp-p-m-ed 
+ Vmpp-p-m-eg 
+ Vmpp-p-m-ei 
+ Vmpp-p-m-el 
+ Vmpp-p-m-en 
+ Vmpp-p-mfea 
+ Vmpp-p-mfed 
+ Vmpp-p-mfeg 
+ Vmpp-p-mfei 
+ Vmpp-p-mfel 
+ Vmpp-p-mfen 
+ Vmpp-p-p-ea 
+ Vmpp-p-p-ed 
+ Vmpp-p-p-eg 
+ Vmpp-p-p-en 
+ Vmpp-p-pfea 
+ Vmpp-p-pfed 
+ Vmpp-p-pfeg 
+ Vmpp-p-pfei 
+ Vmpp-p-pfel 
+ Vmpp-p-pfen 
+ Vmpp-p-pse 
+ Vmpp-pma-eg 
+ Vmpp-s-a-ei 
+ Vmpp-s-afei 
+ Vmpp-sfa-ea 
+ Vmpp-sfa-ed 
+ Vmpp-sfa-eg 
+ Vmpp-sfa-ei 
+ Vmpp-sfa-el 
+ Vmpp-sfa-en 
+ Vmpp-sfafea 
+ Vmpp-sfafed 
+ Vmpp-sfafeg 
+ Vmpp-sfafei 
+ Vmpp-sfafel 
+ Vmpp-sfafen 
+ Vmpp-sfm-ea 
+ Vmpp-sfm-ed 
+ Vmpp-sfm-eg 
+ Vmpp-sfm-ei 
+ Vmpp-sfm-el 
+ Vmpp-sfm-en 
+ Vmpp-sfmfea 
+ Vmpp-sfmfed 
+ Vmpp-sfmfeg 
+ Vmpp-sfmfei 
+ Vmpp-sfmfel 
+ Vmpp-sfmfen 
+ Vmpp-sfp-ea 
+ Vmpp-sfp-eg 
+ Vmpp-sfp-ei 
+ Vmpp-sfp-el 
+ Vmpp-sfp-en 
+ Vmpp-sfpfea 
+ Vmpp-sfpfed 
+ Vmpp-sfpfeg 
+ Vmpp-sfpfei 
+ Vmpp-sfpfel 
+ Vmpp-sfpfen 
+ Vmpp-sfpse 
+ Vmpp-sma-ea 
+ Vmpp-sma-ed 
+ Vmpp-sma-eg 
+ Vmpp-sma-ei 
+ Vmpp-sma-el 
+ Vmpp-sma-en 
+ Vmpp-smafea 
+ Vmpp-smafed 
+ Vmpp-smafeg 
+ Vmpp-smafei 
+ Vmpp-smafel 
+ Vmpp-smafen 
+ Vmpp-smase 
+ Vmpp-smm-ea 
+ Vmpp-smm-ed 
+ Vmpp-smm-eg 
+ Vmpp-smm-ei 
+ Vmpp-smm-el 
+ Vmpp-smm-en 
+ Vmpp-smmfea 
+ Vmpp-smmfed 
+ Vmpp-smmfeg 
+ Vmpp-smmfei 
+ Vmpp-smmfel 
+ Vmpp-smmfen 
+ Vmpp-smp-ea 
+ Vmpp-smp-eg 
+ Vmpp-smp-ei 
+ Vmpp-smp-el 
+ Vmpp-smp-en 
+ Vmpp-smpfea 
+ Vmpp-smpfed 
+ Vmpp-smpfeg 
+ Vmpp-smpfei 
+ Vmpp-smpfel 
+ Vmpp-smpfen 
+ Vmpp-smpse 
+ Vmpp-sna-ea 
+ Vmpp-sna-ed 
+ Vmpp-sna-eg 
+ Vmpp-sna-ei 
+ Vmpp-sna-el 
+ Vmpp-sna-en 
+ Vmpp-snafea 
+ Vmpp-snafed 
+ Vmpp-snafeg 
+ Vmpp-snafei 
+ Vmpp-snafel 
+ Vmpp-snafen 
+ Vmpp-snm-ea 
+ Vmpp-snm-ed 
+ Vmpp-snm-eg 
+ Vmpp-snm-ei 
+ Vmpp-snm-en 
+ Vmpp-snmfea 
+ Vmpp-snmfed 
+ Vmpp-snmfeg 
+ Vmpp-snmfei 
+ Vmpp-snmfel 
+ Vmpp-snmfen 
+ Vmpp-snp-ea 
+ Vmpp-snp-ed 
+ Vmpp-snp-eg 
+ Vmpp-snp-ei 
+ Vmpp-snp-en 
+ Vmpp-snpfea 
+ Vmpp-snpfed 
+ Vmpp-snpfeg 
+ Vmpp-snpfei 
+ Vmpp-snpfel 
+ Vmpp-snpfen 
+ Vmpp-snpse 
+ Vmps-p-a-ea 
+ Vmps-p-a-ed 
+ Vmps-p-a-eg 
+ Vmps-p-a-ei 
+ Vmps-p-a-el 
+ Vmps-p-a-en 
+ Vmps-p-a-pa 
+ Vmps-p-a-pd 
+ Vmps-p-a-pg 
+ Vmps-p-a-pi 
+ Vmps-p-a-pl 
+ Vmps-p-a-pn 
+ Vmps-p-afea 
+ Vmps-p-afed 
+ Vmps-p-afeg 
+ Vmps-p-afei 
+ Vmps-p-afel 
+ Vmps-p-afen 
+ Vmps-p-afpa 
+ Vmps-p-afpd 
+ Vmps-p-afpg 
+ Vmps-p-afpi 
+ Vmps-p-afpl 
+ Vmps-p-afpn 
+ Vmps-p-m-ea 
+ Vmps-p-m-eg 
+ Vmps-p-m-ei 
+ Vmps-p-m-el 
+ Vmps-p-m-en 
+ Vmps-p-m-pa 
+ Vmps-p-m-pd 
+ Vmps-p-m-pg 
+ Vmps-p-m-pi 
+ Vmps-p-m-pl 
+ Vmps-p-m-pn 
+ Vmps-p-mfea 
+ Vmps-p-mfed 
+ Vmps-p-mfeg 
+ Vmps-p-mfei 
+ Vmps-p-mfel 
+ Vmps-p-mfen 
+ Vmps-p-mfpa 
+ Vmps-p-mfpd 
+ Vmps-p-mfpg 
+ Vmps-p-mfpi 
+ Vmps-p-mfpl 
+ Vmps-p-mfpn 
+ Vmps-p-p-ed 
+ Vmps-p-p-eg 
+ Vmps-p-p-ei 
+ Vmps-p-p-en 
+ Vmps-p-p-pa 
+ Vmps-p-p-pd 
+ Vmps-p-p-pg 
+ Vmps-p-p-pi 
+ Vmps-p-p-pl 
+ Vmps-p-p-pn 
+ Vmps-p-pfea 
+ Vmps-p-pfed 
+ Vmps-p-pfeg 
+ Vmps-p-pfei 
+ Vmps-p-pfel 
+ Vmps-p-pfen 
+ Vmps-p-pfpa 
+ Vmps-p-pfpd 
+ Vmps-p-pfpg 
+ Vmps-p-pfpi 
+ Vmps-p-pfpl 
+ Vmps-p-pfpn 
+ Vmps-p-pse 
+ Vmps-p-psp 
+ Vmps-s-pfpa 
+ Vmps-s-pfpn 
+ Vmps-sfa-ea 
+ Vmps-sfa-ed 
+ Vmps-sfa-eg 
+ Vmps-sfa-ei 
+ Vmps-sfa-el 
+ Vmps-sfa-en 
+ Vmps-sfa-pa 
+ Vmps-sfa-pd 
+ Vmps-sfa-pg 
+ Vmps-sfa-pi 
+ Vmps-sfa-pl 
+ Vmps-sfa-pn 
+ Vmps-sfafea 
+ Vmps-sfafed 
+ Vmps-sfafeg 
+ Vmps-sfafei 
+ Vmps-sfafel 
+ Vmps-sfafen 
+ Vmps-sfafpa 
+ Vmps-sfafpd 
+ Vmps-sfafpg 
+ Vmps-sfafpi 
+ Vmps-sfafpl 
+ Vmps-sfafpn 
+ Vmps-sfm-ea 
+ Vmps-sfm-eg 
+ Vmps-sfm-el 
+ Vmps-sfm-en 
+ Vmps-sfm-pa 
+ Vmps-sfm-pd 
+ Vmps-sfm-pg 
+ Vmps-sfm-pi 
+ Vmps-sfm-pl 
+ Vmps-sfm-pn 
+ Vmps-sfmfea 
+ Vmps-sfmfed 
+ Vmps-sfmfeg 
+ Vmps-sfmfei 
+ Vmps-sfmfel 
+ Vmps-sfmfen 
+ Vmps-sfmfpa 
+ Vmps-sfmfpd 
+ Vmps-sfmfpg 
+ Vmps-sfmfpi 
+ Vmps-sfmfpl 
+ Vmps-sfmfpn 
+ Vmps-sfp-ea 
+ Vmps-sfp-ed 
+ Vmps-sfp-eg 
+ Vmps-sfp-ei 
+ Vmps-sfp-en 
+ Vmps-sfp-pa 
+ Vmps-sfp-pd 
+ Vmps-sfp-pg 
+ Vmps-sfp-pi 
+ Vmps-sfp-pl 
+ Vmps-sfp-pn 
+ Vmps-sfpfea 
+ Vmps-sfpfed 
+ Vmps-sfpfeg 
+ Vmps-sfpfei 
+ Vmps-sfpfel 
+ Vmps-sfpfen 
+ Vmps-sfpfpa 
+ Vmps-sfpfpd 
+ Vmps-sfpfpg 
+ Vmps-sfpfpi 
+ Vmps-sfpfpl 
+ Vmps-sfpfpn 
+ Vmps-sfpse 
+ Vmps-sfpsp 
+ Vmps-sma-ea 
+ Vmps-sma-ed 
+ Vmps-sma-eg 
+ Vmps-sma-ei 
+ Vmps-sma-el 
+ Vmps-sma-en 
+ Vmps-sma-pa 
+ Vmps-sma-pd 
+ Vmps-sma-pg 
+ Vmps-sma-pi 
+ Vmps-sma-pl 
+ Vmps-sma-pn 
+ Vmps-smafea 
+ Vmps-smafed 
+ Vmps-smafeg 
+ Vmps-smafei 
+ Vmps-smafel 
+ Vmps-smafen 
+ Vmps-smafpa 
+ Vmps-smafpd 
+ Vmps-smafpg 
+ Vmps-smafpi 
+ Vmps-smafpl 
+ Vmps-smafpn 
+ Vmps-smm-ea 
+ Vmps-smm-ed 
+ Vmps-smm-eg 
+ Vmps-smm-ei 
+ Vmps-smm-en 
+ Vmps-smm-pa 
+ Vmps-smm-pd 
+ Vmps-smm-pg 
+ Vmps-smm-pi 
+ Vmps-smm-pl 
+ Vmps-smm-pn 
+ Vmps-smmfea 
+ Vmps-smmfeg 
+ Vmps-smmfei 
+ Vmps-smmfel 
+ Vmps-smmfen 
+ Vmps-smmfpa 
+ Vmps-smmfpd 
+ Vmps-smmfpg 
+ Vmps-smmfpi 
+ Vmps-smmfpl 
+ Vmps-smmfpn 
+ Vmps-smp-ea 
+ Vmps-smp-eg 
+ Vmps-smp-ei 
+ Vmps-smp-en 
+ Vmps-smp-pa 
+ Vmps-smp-pd 
+ Vmps-smp-pg 
+ Vmps-smp-pi 
+ Vmps-smp-pl 
+ Vmps-smp-pn 
+ Vmps-smpfea 
+ Vmps-smpfed 
+ Vmps-smpfeg 
+ Vmps-smpfei 
+ Vmps-smpfel 
+ Vmps-smpfen 
+ Vmps-smpfpa 
+ Vmps-smpfpd 
+ Vmps-smpfpg 
+ Vmps-smpfpi 
+ Vmps-smpfpl 
+ Vmps-smpfpn 
+ Vmps-smpse 
+ Vmps-smpsp 
+ Vmps-sna-ea 
+ Vmps-sna-eg 
+ Vmps-sna-ei 
+ Vmps-sna-el 
+ Vmps-sna-en 
+ Vmps-sna-p 
+ Vmps-sna-pa 
+ Vmps-sna-pd 
+ Vmps-sna-pg 
+ Vmps-sna-pi 
+ Vmps-sna-pl 
+ Vmps-sna-pn 
+ Vmps-snafea 
+ Vmps-snafed 
+ Vmps-snafeg 
+ Vmps-snafei 
+ Vmps-snafel 
+ Vmps-snafen 
+ Vmps-snafpa 
+ Vmps-snafpd 
+ Vmps-snafpg 
+ Vmps-snafpi 
+ Vmps-snafpl 
+ Vmps-snafpn 
+ Vmps-snm-ea 
+ Vmps-snm-eg 
+ Vmps-snm-en 
+ Vmps-snm-pa 
+ Vmps-snm-pg 
+ Vmps-snm-pi 
+ Vmps-snm-pl 
+ Vmps-snm-pn 
+ Vmps-snmfea 
+ Vmps-snmfed 
+ Vmps-snmfeg 
+ Vmps-snmfei 
+ Vmps-snmfel 
+ Vmps-snmfen 
+ Vmps-snmfpa 
+ Vmps-snmfpd 
+ Vmps-snmfpg 
+ Vmps-snmfpi 
+ Vmps-snmfpl 
+ Vmps-snmfpn 
+ Vmps-snp-el 
+ Vmps-snp-p 
+ Vmps-snp-pa 
+ Vmps-snp-pd 
+ Vmps-snp-pg 
+ Vmps-snp-pi 
+ Vmps-snp-pl 
+ Vmps-snp-pn 
+ Vmps-snpfea 
+ Vmps-snpfeg 
+ Vmps-snpfen 
+ Vmps-snpfpa 
+ Vmps-snpfpd 
+ Vmps-snpfpg 
+ Vmps-snpfpi 
+ Vmps-snpfpl 
+ Vmps-snpfpn 
+ Vmps-snpse 
+ Vmps-snpsp 

@@ -1,0 +1,150 @@
+##<<ENGLISH concept: ~timeadjmodifier (old young) ##>> # post time modifier time expressions for parser
+##<<ENGLISH concept: ~pretimeadjmodifier (next this last prior) ##>>
+
+# sight based adjectives
+##<<ENGLISH concept: ~color_adjectives ONLY_NONE (~COLORS transparent ) ##>>
+# sight shape is also intrinsic
+##<<ENGLISH concept: ~shape_adjectives ADJECTIVE ADJECTIVE_NORMAL (acicular allantoid amygdaloid ancistroid ancoral angular ankyroid annodated ansate apsidal arborescent arcate 
+          arcuate arietinous aspidate auriform baculiform balanoid belemnoid beloid belonoid branching broken buccinal cannular cardioid carinated cassideous 
+          ceratoid choanoid chubby cingular circinate circular clathrate clavate clithridiate clustered clypeate cochlear conglobate conical coracoid cordate 
+          cordiform corniculate coronoid cricoid crinkled cubic cubiform cuneate cuneiform cupulate curved cylindrical deltoid domed fat flat fucoid 
+          furcular galeated globular helicoid helminthoid hexagonal hollow hyoid hypsiloid ichthyomorphic irregular lambdoid ligulate lobular lumpy lunate 
+          lunulate mitrate navicular nephroid olivary omegoid ooidal ophiomorphic oval oviform padded palaceous pendulous portly proportional pyramidal 
+          rectangular rotund round ruffled scalloped square swollen top-heavy triangular tubular tufted wavy winged wiry ) ##>>
+
+# balance based adjectives
+
+# magneto adjectives, balance proprioception
+
+##<<ENGLISH concept: ~balance_adjectives(dizzy) ##>>
+
+# sound based adjectives - there are also verbs like rattle
+##<<ENGLISH concept: ~sense_hear (loud noisy quiet silent soft high-pitched low-pitched) ##>>
+
+# smell based adjectives
+##<<ENGLISH concept: ~sense_smell (acidy acrid aromatic balmy briny burnt damp dank earthy fishy fragrant fresh gaseous heady mildewed moldy musty odorous perfumed piney pungent putrid rancid reeking 
+          rotten savory scented sharp sickly sour spicy spoiled stagnant sweet ) ##>>
+
+# taste based adjectives
+##<<ENGLISH concept: ~taste_adjectives ( alkaline bitter bittersweet bland burnt buttery cheesy crisp fishy fruity gingery hearty juicy luscious medicinal mellow oily overripe peppery raw ripe rotten 
+          salty sour spicy spoiled sugary sweet tangy taste tasty unripe vinegary     yummy ) ##>>
+
+# touch based adjectives
+##<<ENGLISH concept: ~sense_touch (~motion_adjectives ~hardness_adjectives ~texture_adjectives ~wetness_touch_adjectives ~temperature_adjectives   crisp  dull thick thin ) ##>>
+##<<ENGLISH concept: ~hardness_adjectives (hard impenetrable malleable soft fragile tender elastic bouncy resilient yielding solid ) ##>>
+##<<ENGLISH concept: ~texture_adjectives (bumpy sharp smooth rough leathery rubbery spikey silky smooth tough velvety waxy furry fleshy slippery fuzzy spongy gritty  woolly hairy  mushy  prickly  sandy satiny ) ##>>
+##<<ENGLISH concept: ~wetness_touch_adjectives (damp dry wet oily steamy sticky greasy tacky) ##>> 
+##<<ENGLISH concept: ~motion_adjectives(vibrating wiggly squirming squirmy motionless stationary) ##>>
+
+##<<ENGLISH concept: ~ability_adjectives (capable competent impossible incapable incompetent possible potential ) ##>>
+##<<ENGLISH concept: ~adjectivelist ONLY_ADJECTIVES (~COGNITION_ADJECTIVES ~COMPARISON_ADJECTIVES  ~INTENSIFIER_ADJECTIVES ~PHYSICAL_PROPERTIES_ADJECTIVES ~RELATIONAL_ADJECTIVES ~TIME_ADJECTIVES 
+          ~WEATHER_ADJECTIVES  ~LIVING_PROPERTIES_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~age_adjectives (ancient brand-new fledgling new old second_hand young ~age_nouns) ##>>
+##<<ENGLISH concept: ~appearance (blotched bright clear dark dingy dismal dotted drab dull flashy flowery fluid freckled glassy glazed glossy glowing grimy iridescent mottled muddy old opaque patterned 
+          rotted shabby sheer shimmering shiny sparkling spotted striped translucent transparent untidy used worn wrinkled young ) ##>>
+##<<ENGLISH concept: ~appearance_adjectives (~APPEARANCE ~BAD_APPEARANCE ~GOOD_APPEARANCE plain) ##>>
+##<<ENGLISH concept: ~bad_appearance (disfigured hideous ugly ) ##>>
+##<<ENGLISH concept: ~bad_intelligence_adjectives (brainless dazed deficient dense dim doltish dopey dull dumb dummy foolish futile gullible half-baked half-witted 
+          idiotic ill-advised imbecilic inane indiscreet insensate irrelevant laughable ludicrous meaningless mindless moronic naive nonsensical obtuse 
+          pointless puerile rash senseless shortsighted simpleminded simple slow sluggish stolid stupefied thick-headed thick trivial unintelligent unthinking 
+          witless ) ##>>
+##<<ENGLISH concept: ~bad_quality_adjectives (atrocious awful bad mediocre poor ) ##>>
+##<<ENGLISH concept: ~body_light_adjectives (anorexic gaunt lean skinny light slim thin underweight) ##>>
+##<<ENGLISH concept: ~body_heavy_adjectives (chubby fat heavy massive obese overweight plump ) ##>>
+##<<ENGLISH concept: ~body_weight_adjectives (~body_heavy_adjectives ~body_light_adjectives) ##>>
+##<<ENGLISH concept: ~character_trait_adjectives (able accepting adventurous aggressive ambitious annoying arrogant articulate athletic awkward boastful bold bossy brave 
+          bright busy calm careful careless caring cautious cheerful clever clumsy compassionate complex conceited confident considerate cooperative 
+          courageous creative curious dainty daring dark defiant demanding determined devout disagreeable disgruntled eager efficient embarrassed energetic 
+          excited expert fair faithful fancy fighter forgiving free friendly frustrated fun-loving funny generous gentle giving gorgeous gracious grouchy 
+          hard-working helpful honest hopeful humble humorous imaginative impulsive independent intelligent inventive jealous joyful judgmental keen kind 
+          knowledgeable lazy leader light-hearted light likeable lively lovable loving loyal manipulative materialistic mature melancholy merry messy 
+          mischievous naive neat nervous noisy obnoxious opinionated organized outgoing Passive patient patriotic perfectionist personable pitiful plain 
+          pleasant pleasing poor popular  prim proper proud questioning quiet radical realistic rebellious reflective relaxed reliable religious 
+          reserved respectful responsible reverent rich rigid rude sad sarcastic self-confident self-conscious selfish sensible sensitive serious short 
+          shy silly simple-minded simple smart stable strong stubborn studious successful tantalizing tender tense thoughtful thrilling timid tireless 
+          tolerant tough tricky trusting ugly understanding unhappy unique unlucky unselfish vain warm wild willing wise witty ) ##>>
+##<<ENGLISH concept: ~chemical_properties_adjectives (combustible ) ##>>
+##<<ENGLISH concept: ~cleanliness_adjectives (clean dirty washed ) ##>>
+##<<ENGLISH concept: ~cognition_adjectives (~ABILITY_ADJECTIVES ~OPINION_ADJECTIVES ~PERMISSION_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~communication_adjectives (chatty taciturn ) ##>>
+##<<ENGLISH concept: ~comparison_adjectives (similar alike) ##>>
+##<<ENGLISH concept: ~constitution_adjectives (  ~height_adjectives power_adjectives) ##>>
+##<<ENGLISH concept: ~power_adjectives (~weak_power_adjectives  ~strong_power_adjectives) ##>>
+##<<ENGLISH concept: ~weak_power_adjectives (weak underpowered) ##>>
+##<<ENGLISH concept: ~strong_power_adjectives (strong powerful muscled) ##>>
+##<<ENGLISH concept: ~containment_adjectives (accessible closed inaccessible open packed ) ##>>
+##<<ENGLISH concept: ~density_adjectives (dense sparse ) ##>>
+##<<ENGLISH concept: ~enablement_adjectives (disabled enabled functional functioning workable working ) ##>>
+##<<ENGLISH concept: ~economic_adjectives (poor rich economic uneconomic costly affordable cheap expensive) ##>>
+##<<ENGLISH concept: ~energy_adjectives (electric magnetic radioactive ) ##>>
+##<<ENGLISH concept: ~esthetic_adjectives (~CLEANLINESS_ADJECTIVES ~COLOR_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~evaluation_adjectives (~BAD_QUALITY_ADJECTIVES ~GOOD_QUALITY_ADJECTIVES beautiful ugly ) ##>>
+##<<ENGLISH concept: ~few (few insufficient meager minority not_many scant scarcely_any scarce scattering slight sporadic stingy ) ##>>
+##<<ENGLISH concept: ~functionality_adjectives (~ENABLEMENT_ADJECTIVES ~NORMALIZED_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~gas_adjectives (gaseous gas plasma ) ##>>
+##<<ENGLISH concept: ~gender_adjectives (female hermaphroditic male neuter ) ##>>
+##<<ENGLISH concept: ~good_appearance (attractive_looking attractive beautiful good-looking good_looking gorgeous great_looking handsome lovely nice pretty scenic stunning ) ##>>
+##<<ENGLISH concept: ~good_intelligence_adjectives (acute adept agile alert apt astute ball bold brainy bright brilliant brisk canny clever crafty effective eggheaded 
+          genius  ingenious keen knowing nervy nimble pert pointed quick-witted quick~7 ready resourceful sassy sharp smart shrewd  wise ) ##>>
+##<<ENGLISH concept: ~good_quality_adjectives (best excellent fine first-rate good great matchless outstanding peerless superb superior unrivaled ) ##>>
+##<<ENGLISH concept: ~health_adjectives (alive dead dying extinct healthy sickly sleeping little) ##>>
+##<<ENGLISH concept: ~height_adjectives ( ~tall_adjectives ~short_adjectives) ##>>
+##<<ENGLISH concept: ~tall_adjectives(tall  lanky gangly high) ##>>
+##<<ENGLISH concept: ~short_adjectives(short midget low little) ##>>
+##<<ENGLISH concept: ~insult_psychology_adjectives (abrasive  abusive aloof arrogant awful  belligerent boorish boring callous careless clumsy combative cowardly 
+          crazy creepy cruel deceitful defective demonic deranged disagreeable disturbed domineering evil filthy foolish greedy gruesome grumpy harsh horrible 
+          ignorant lacking lazy malicious   naive nasty noisy obnoxious pathetic quarrelsome repulsive ruthless selfish  snobbish spendthrift 
+          stingy strange sulky tacky terrible thoughtless tiresome truculent undesirable unsuitable uptight vengeful venomous vulgar wicked worthless 
+          wretched ) ##>>
+##<<ENGLISH concept: ~intelligence_adjectives (~BAD_INTELLIGENCE_ADJECTIVES ~GOOD_INTELLIGENCE_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~intensifier_adjectives (heavy mild outright severe ) ##>>
+##<<ENGLISH concept: ~liquids_adjectives (liquid ) ##>>
+##<<ENGLISH concept: ~living_properties_adjectives (~CHARACTER_TRAIT_ADJECTIVES ~CONSTITUTION_ADJECTIVES ~GENDER_ADJECTIVES ~HEALTH_ADJECTIVES ~PERCEPTION_ADJECTIVES ~PSYCHOLOGY_ADJECTIVES ~Body_SENSATION_ADJECTIVES 
+          ~SOCIAL_ADJECTIVES ~INTELLIGENCE_ADJECTIVES) ##>>
+##<<ENGLISH concept: ~locational_adjectives (close far high lower low near upper ) ##>>
+##<<ENGLISH concept: ~mass_adjectives (~BODY_WEIGHT_ADJECTIVES weight weigh ) ##>>
+##<<ENGLISH concept: ~materials_adjectives (cotton metallic metal paper wooden ) ##>>
+##<<ENGLISH concept: ~much (a_lot abounding bounteous bountiful copious crowded divers innumerable legion lousy_with many much multifarious myriad no_end_of numberless 
+          numerous plentiful populous rife teeming umpteen uncounted ) ##>>
+##<<ENGLISH concept: ~normalized_adjectives (degraded enhanced normal ) ##>>
+##<<ENGLISH concept: ~odor_adjectives (fragrant pungent ripe smelly stinky ) ##>>
+##<<ENGLISH concept: ~opinion_adjectives (beautiful difficult horrible irrational rational silly ) ##>>
+##<<ENGLISH concept: ~orientation_adjectives (diagonal erect horizontal kneeling prone skewed tilted turned upside-down vertical ) ##>>
+##<<ENGLISH concept: ~origin_adjectives (American eastern French Greek lunar ) ##>>
+##<<ENGLISH concept: ~perception_adjectives (fuzzy invisible visible ) ##>>
+##<<ENGLISH concept: ~permission_adjectives (dutiful illegal illicit legal licit necessary obligatory required unauthorized ) ##>>
+
+##<<ENGLISH concept: ~physical_properties_adjectives (~sense_touch ~balance_adjectives ~AGE_ADJECTIVES ~LIVING_PROPERTIES_ADJECTIVES ~APPEARANCE_ADJECTIVES ~CONTAINMENT_ADJECTIVES ~DENSITY_ADJECTIVES ~economic_adjectives ~ENERGY_ADJECTIVES ~ESTHETIC_ADJECTIVES 
+          ~EVALUATION_ADJECTIVES ~FUNCTIONALITY_ADJECTIVES  ~LOCATIONAL_ADJECTIVES ~MASS_ADJECTIVES ~MATERIALS_ADJECTIVES  ~MOTION_ADJECTIVES 
+          ~ORIENTATION_ADJECTIVES ~ORIGIN_ADJECTIVES ~QUANTITY_ADJECTIVES ~SHAPE_ADJECTIVES ~SIZE_ADJECTIVES ~SOUND_ADJECTIVES ~STATES_OF_MATTER_ADJECTIVES ~TASTE_ADJECTIVES ~TEMPERATURE_ADJECTIVES 
+           ~SPEED_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~psychology_adjectives (~INSULT_PSYCHOLOGY_ADJECTIVES adaptable adorable afraid agreeable alert alluring ambiguous ambitious amused angry annoyed anxious 
+          ashamed bewildered bored boundless brave bright calm capable charming cheerful coherent comfortable confident confused cooperative courageous 
+          credible cultured cynical dangerous dashing dazzling debonair decisive decorous defeated defiant delightful depressed detailed determined diligent 
+          discreet disillusioned dynamic eager efficient elated embarrassed eminent enchanting encouraging endurable energetic entertaining enthusiastic 
+          envious erratic evasive excited exclusive exuberant fabulous faded fain fair faithful fanatical fantastic fearless fierce fine finicky flashy 
+          flippant forgetful frank frantic fretful friendly frightened funny furtive generous gentle glorious grieving grouchy guarded gullible happy 
+          harmonious helpful helpless hesitant hilarious homeless honorable hungry hurt ill impartial industrious instinctive irresolute jealous jittery 
+          jolly joyous kind knowledgeable lazy level likeable lively lonely lovely loving lucky materialistic mature modern mysterious naughty nervous 
+          nice obedient outrageous painstaking panicky peaceful perfect permissive placid plausible pleasant plucky possessive productive protective proud 
+          punctual quiet receptive reflective relieved resolute responsible rhetorical righteous romantic sad scary secretive sedate seemly selective 
+          self-assured sensitive shrewd sincere skilful slow smiling sneaky sore splendid squeamish steadfast stimulating strict successful succinct 
+          talented tense testy thick-skinned thoughtful threatening thrifty tight timid tired tough troubled trustworthy typical unbiased unsure unusual 
+          upbeat upset vague vigorous vivacious volatile voracious warm wary wasteful weak weary willing wise witty wonderful worried zany zealous ) ##>>
+
+##<<ENGLISH concept: ~quantity_adjectives (~FEW ~MUCH middling several some ) ##>>
+##<<ENGLISH concept: ~relational_adjectives (criminal ) ##>>
+##<<ENGLISH concept: ~body_sensation_adjectives (faint hungry dizzy thirsty tired numb numbness tingly queasy bloated parched dessicated starving starved sleepy nauseous ) ##>>
+##<<ENGLISH concept: ~size_adjectives (~oversize_adjectives ~undersize_adjectives) ##>>
+##<<ENGLISH concept: ~oversize_adjectives(astronomical big enormous huge large tall thick fat gross wide  bulky broad  gigantic  immense massive sizable spacious vast   bulky colossal whopping voluminous  plentiful spacious colossal voluminous) ##>>
+##<<ENGLISH concept: ~undersize_adjectives(   microscopic cramped meager miniscule   slight petite scanty bitty inadequate insufficient puny undersized infinitesimal  small  thin tiny wee little short narrow) ##>>
+##<<ENGLISH concept: ~social_adjectives (~COMMUNICATION_ADJECTIVES Catholic dominant ) ##>>
+##<<ENGLISH concept: ~solids_adjectives (amorphous crystalline solid ) ##>>
+##<<ENGLISH concept: ~sound_adjectives (loud noisy quiet silent ) ##>>
+##<<ENGLISH concept: ~speed_adjectives (fast lethargic quick rapid slow speedy) ##>>
+##<<ENGLISH concept: ~states_of_matter_adjectives (~GAS_ADJECTIVES ~LIQUIDS_ADJECTIVES ~SOLIDS_ADJECTIVES colloidal powder ) ##>>
+##<<ENGLISH concept: ~temperature_adjectives (cold cool frigid frozen hot tepid torrid warm   lukewarm icy  ) ##>>
+##<<ENGLISH concept: ~time_adjectives (~TRANSITION_ADJECTIVES ~WHEN_ADJECTIVES ) ##>>
+##<<ENGLISH concept: ~transition_adjectives (abrupt evolutionary gradual hasty hurried impulsive quick rapid rash revolutionary suddenly sudden swift ) ##>>
+##<<ENGLISH concept: ~weather_adjectives (rainy snowy sunny windy ) ##>>
+##<<ENGLISH concept: ~when_adjectives (ancient annually current former future historical historic lately modern monthly new old past present yearly young ) ##>>

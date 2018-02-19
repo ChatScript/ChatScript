@@ -1,0 +1,192 @@
+#   THESE ARE DOCUMENTATION ONLY, NOT READ IN BY CS
+# The tag is actually a combination of 3 things   xxx/yyy-zzz  where zzz is the chunk tag and xxx is the word tag and yyy is the status 
+# Status can be B - starting a chunk   or  I - inside a chunk continuing a chunk or  O - outside a chunk like punctuation, quotation, parentheses, coordinating conjunctions (and, or).
+
+# these are the primary tags, occuring at the end of the result tag
+
+# ADJC	  adjective chunks (not inside of noun chunks)
+# ADVC	  adverb chunks (not inside of noun or adjective chunks)
+# CONJC	  complex coordinating conjunctions such as "as well (as)" or "rather (than)"
+# INTJ	  interjection
+# LST	  enumeration symbol
+# NC	  noun chunk (non-recursive noun phrase)
+# PC	  prepositional chunk (usually embeds a noun chunk
+# PRT	  verb particle
+# VC	  verb complex
+
+# what hashmark is as a word tag I have no idea
+
+ #/B-NC 
+ #/I-NC 
+ $/B-NC 
+ $/I-NC 
+ ''/I-NC 
+ ''/O 
+ (/B-NC 
+ (/I-NC 
+ (/O 
+ )/I-NC 
+ )/O 
+ ,/I-ADJC 
+ ,/I-NC 
+ ,/I-VC 
+ ,/O 
+ :/I-NC 
+ :/I-VC 
+ :/O 
+ AS/I-CONJC 
+ AS/I-NC 
+ CC/B-CONJC 
+ CC/B-NC 
+ CC/I-ADJC 
+ CC/I-ADVC 
+ CC/I-NC 
+ CC/I-PC 
+ CC/I-VC 
+ CC/O 
+ CD/B-NC 
+ CD/I-NC 
+ DT/B-NC 
+ DT/I-NC 
+ EX/B-NC 
+ FW/B-ADVC 
+ FW/B-NC 
+ FW/I-ADVC 
+ FW/I-NC 
+ IN/B-PC 
+ IN/B-PRT 
+ IN/B-SBAR 
+ IN/I-PC 
+ IN/I-SBAR 
+ IN/that/B-SBAR 
+ IN/that/I-SBAR 
+ JJ/B-ADJC 
+ JJ/B-NC 
+ JJ/I-ADJC 
+ JJ/I-NC 
+ JJR/B-ADJC 
+ JJR/B-NC 
+ JJR/I-ADJC 
+ JJR/I-NC 
+ JJS/B-ADJC 
+ JJS/B-NC 
+ JJS/I-NC 
+ LS/B-LST 
+ MD/B-VC 
+ MD/I-VC 
+ NN/B-NC 
+ NN/I-NC 
+ NNS/B-NC 
+ NNS/I-NC 
+ NP/B-NC 
+ NP/I-NC 
+ NPS/B-NC 
+ NPS/I-NC 
+ PDT/B-NC 
+ PDT/I-NC 
+ POS/I-NC 
+ PP$/B-NC 
+ PP$/I-NC 
+ PP/B-NC 
+ PP/I-NC 
+ RB/B-ADJC 
+ RB/B-ADVC 
+ RB/B-CONJC 
+ RB/B-NC 
+ RB/B-VC 
+ RB/I-ADJC 
+ RB/I-ADVC 
+ RB/I-CONJC 
+ RB/I-NC 
+ RB/I-VC 
+ RBR/B-ADJC 
+ RBR/B-ADVC 
+ RBR/B-NC 
+ RBR/B-VC 
+ RBR/I-ADJC 
+ RBR/I-ADVC 
+ RBR/I-NC 
+ RBR/I-VC 
+ RBS/B-ADJC 
+ RBS/B-ADVC 
+ RBS/B-NC 
+ RBS/B-VC 
+ RBS/I-ADJC 
+ RBS/I-NC 
+ RBS/I-VC 
+ RP/B-ADVC 
+ RP/B-PRT 
+ SENT/O 
+ SYM/O 
+ THAN/I-ADJC 
+ THAN/I-ADVC 
+ THAN/I-CONJC 
+ THAN/I-NC 
+ THAN/I-VC 
+ THE/O 
+ TO/B-PC 
+ TO/B-VC 
+ TO/I-NC 
+ TO/I-PC 
+ TO/I-VC 
+ UH/B-INTJ 
+ UH/I-INTJ 
+ VB/B-VC 
+ VB/I-VC 
+ VBD/B-VC 
+ VBG/B-VC 
+ VBG/I-VC 
+ VBN/B-VC 
+ VBN/I-VC 
+ VBP/B-VC 
+ VBZ/B-VC 
+ VBZ/I-VC 
+ VD/B-VC 
+ VD/I-VC 
+ VDD/B-VC 
+ VDG/B-VC 
+ VDG/I-VC 
+ VDN/B-VC 
+ VDN/I-VC 
+ VDP/B-VC 
+ VDZ/B-VC 
+ VH/B-VC 
+ VH/I-VC 
+ VHD/B-VC 
+ VHD/I-VC 
+ VHG/B-VC 
+ VHG/I-VC 
+ VHN/I-VC 
+ VHP/B-VC 
+ VHP/I-VC 
+ VHZ/B-VC 
+ VV/B-VC 
+ VV/I-VC 
+ VVD/B-VC 
+ VVD/I-VC 
+ VVG/B-NC 
+ VVG/B-VC 
+ VVG/I-NC 
+ VVG/I-VC 
+ VVN/B-NC 
+ VVN/B-PC 
+ VVN/B-VC 
+ VVN/I-NC 
+ VVN/I-VC 
+ VVP/B-VC 
+ VVP/I-VC 
+ VVZ/B-VC 
+ VVZ/I-VC 
+ WDT/B-NC 
+ WP$/B-NC 
+ WP/B-NC 
+ WRB/B-ADJC 
+ WRB/B-ADVC 
+ WRB/B-NC 
+ WRB/B-SBAR 
+ WRB/I-ADVC 
+ ``/B-NC 
+ ``/I-ADJC 
+ ``/I-NC 
+ ``/I-VC 
+ ``/O 

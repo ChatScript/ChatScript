@@ -1,0 +1,2862 @@
+﻿ docking ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    docking~1nz (^arrival~2) 
+ directed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    directed~1az manageable by a supervising agent
+    directed~2az having a specified direction
+ Duke ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+ dab ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tap~1n 
+    splash~5n 
+    pat~6v 
+    dab~4vz apply to a surface
+ dove ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PAST NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) conjugate=dived 
+    dove~1nz (^pigeon~1) any of numerous small pigeons
+    dove~2nz (^emblem~2) an emblem of peace
+    dove~3nz (^poultry~2) flesh of a pigeon suitable for roasting or braising
+    dove~4nz (^adult~2) someone who prefers negotiations to armed conflict in the conduct of foreign relations
+ diagnosis ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 ) plural=diagnoses 
+    diagnosis~1nz (^find~1) identifying the nature or cause of some phenomenon
+ dark ( meanings=17 glosses=8 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    darkness~3n 
+    shadow~5n 
+    darkness~5n 
+    darkness~6n 
+    night~3n 
+    dark~6az not giving performances
+    colored~2a 
+    dark~8az brunet 
+    dark~9az devoid of or deficient in light or brightness
+    dismal~1a 
+    dark~11az having a dark hue
+    obscure~2az marked by difficulty of style or expression
+    dark~13az lacking enlightenment or knowledge or culture
+    black~13a 
+    morose~1az showing a brooding ill humor
+    dark~16az secret
+    dark~17az 
+ disappearing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    disappearing~1nz (^going~1) 
+ disaster ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    disaster~1nz (^destruction~1) an act that has disastrous consequences
+    tragedy~2n 
+    catastrophe~3n 
+ deadly ( meanings=9 glosses=8 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) comparative=deadliest 
+    deadly~1az having a rapid course and violent effect
+    deadly~2az causing or capable of causing death
+    deadly~3az of an instrument of certain death
+    deadly~4az exceedingly harmful
+    deadly~5az involving loss of divine grace or spiritual death
+    deadly~6az extremely poisonous or injurious
+    deadly~7az 
+    deadly~8bz extremely
+    deadly~9bz as if dead
+ death ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    death~1nz (^kill~2) the act of killing
+    death~2nz (^change~5) the event of dying or departure from life
+    death~3nz (^process~1) the permanent end of all life functions in an organism or part of an organism
+    death~4nz (^state~1) the absence of life or state of being dead
+    end~13nz (^state~1) a final state
+    last~7nz (^end~14) the time at which life ends
+    dying~1nz (^end~14) the time when something ends
+ dealing ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    transaction~1n 
+    dealing~2nz (^treatment~2) method or manner of conduct in relation to others
+ dry ( meanings=19 glosses=19 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=dryest 
+    dry~1nz (^individual~1) a reformer who opposes the use of intoxicating beverages
+    dry~2az practicing complete abstinence from alcoholic beverages
+    dry~3az lacking warmth or emotional involvement
+    dry~4az having a large proportion of strong liquor
+    dry~5az without a mucous or watery discharge
+    dry~6az humorously sarcastic or mocking
+    dry~7az eaten without a spread or sauce or other garnish
+    dry~8az having no adornment or coloration
+    dry~9az unproductive especially of the expected results
+    dry~10az used of solid substances in contrast with liquid ones
+    dry~11az lacking interest or stimulation
+    dry~12az having a low residual sugar content because of decomposition of sugar during fermentation
+    dry~13az not shedding tears
+    dry~14az free from liquid or moisture
+    dry~15az not producing milk
+    dry~16az opposed to or prohibiting the production and sale of alcoholic beverages
+    dry~17az lacking moisture or volatile components
+    dry~18vz remove the moisture from and make dry
+    dry~19vz become dry or drier
+ denial ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    denial~1nz (^act~1) renunciation of your own interests in favor of the interests of others
+    defense~4n 
+    denial~3nz (^statement~4) the act of asserting that something alleged is not true
+    denial~4nz (^act~1) the act of refusing to comply 
+    denial~5nz (^defense~11) a defense mechanism that denies painful thoughts
+ darts ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
+    darts~1nz (^game~2) a game in which small pointed missiles are thrown at a dartboard
+ deed ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    act~1n 
+    title~9nz (^instrument~5) a legal document signed and sealed and delivered to effect a transfer of property and to show the legal right to possess it
+ delivery ( meanings=7 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    delivery~1nz (^act~1) the act of delivering a child
+    saving~1n 
+    pitch~2n 
+    bringing~1n 
+    delivery~5nz (^transfer~3) the voluntary transfer of something from one party to another
+    speech~4n 
+    delivery~7nz (^birth~1) the event of giving birth
+ discovery ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    find~1n 
+    find~2n 
+    discovery~3nz (^act~1) something that is discovered
+    discovery~4nz (^act~1) compulsory pretrial disclosure of documents relevant to a case
+ disposal ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    disposition~1nz (^act~1) the act or means of getting rid of something
+    disposal~2nz (^direction~2) a method of tending to or managing the affairs of a some group of people
+    disposal~3nz (^appliance~1) a kitchen appliance for disposing of garbage
+    disposal~4nz (^power~2) the power to use something or someone
+    disposal~5nz 
+ disposition ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    disposal~1n 
+    temperament~2nz (^nature~1) your usual mood
+    disposition~3nz (^property~2) a natural or acquired habit or characteristic tendency in a person or thing
+    tendency~2nz (^attitude~3) an attitude of mind especially one that favors one alternative over others
+ digging ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    dig~2n 
+ dodge ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dodge~1nz (^escape~1) a quick evasive movement
+    dodge~2nz (^scheme~2) an elaborate or deceitful scheme contrived to deceive or evade
+    scheme~4nz (^statement~4) a statement that evades the question by cleverness or trickery
+    hedge~5v 
+    dodge~5vz make a sudden movement in a new direction so as to avoid
+    dodge~6vz move to and fro or from place to place usually in an irregular course
+ dashing ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB (null) ) 
+    jaunty~2az marked by up-to-dateness in dress and manners
+    dashing~2az lively and spirited
+    dashing~3az 
+ double ( meanings=23 glosses=21 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB PREDETERMINER DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=doubler 
+    double~1nz (^safety~1) a base hit on which the batter stops safely at second base
+    doubling~1nz (^raise~2) raising the stakes in a card game by a factor of 2
+    double~3nz (^product~3) a quantity that is twice as great as another
+    image~9nz (^individual~1) someone who closely resembles a famous person 
+    double~5nz (^relief~8) a stand-in for movie stars to perform dangerous stunts
+    forked~1az having two meanings with intent to deceive
+    double~7az large enough for two
+    double~8az used of homologous chromosomes associated in pairs in synapsis
+    doubled~1az twice as great or many
+    dual~2az consisting of or involving two parts or components usually in pairs
+    treble~3az having more than one decidedly dissimilar aspects or qualities
+    double~12az used of flowers having more than the usual number of petals in crowded or overlapping arrangements
+    twice~2bz to double the degree
+    double~14bz two together
+    double~15bz downward and forward
+    duplicate~5vz increase twofold
+    double~17vz hit a two-base hit
+    double~18vz do double duty
+    repeat~6vz make or do or perform again
+    double~20vz bend over or curl up, usually with laughter or pain
+    double~21vz bridge: make a demand for
+    double~22z 
+    double~23z 
+ distress ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    distress~1nz (^getting~1) the seizure and holding of property as security for payment of a debt or satisfaction of a claim
+    hurt~4n 
+    distress~3nz (^pain~5) extreme physical pain
+    distress~4nz (^misfortune~2) a state of adversity 
+    distress~5vz cause mental pain to
+    distress~6vz bring into difficulties or distress, especially financial hardship
+ drug ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    drug~1nz (^cause~1) a substance that is used as a medicine or narcotic
+    dose~5vz administer a drug to
+    drug~3vz use recreational drugs
+ dramatic ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    dramatic~1az suitable to or characteristic of drama
+    striking~4az sensational in appearance or thrilling in effect
+    dramatic~3az used of a singer or singing voice that is marked by power and expressiveness and a histrionic or theatrical style
+    dramatic~4az pertaining to or characteristic of drama
+    dramatic~5az 
+    dramatic~6az 
+ deception ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    illusion~1n 
+    deceit~1nz (^activity~1) the act of deceiving
+    deceit~3nz (^statement~4) a misleading falsehood
+ drive ( meanings=34 glosses=33 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=driven 
+    drive~1nz (^act~1) the act of applying force to propel something
+    ride~1nz (^journey~1) a journey in a vehicle 
+    drive~3nz (^transportation~2) the act of driving a herd of animals overland
+    drive~4nz (^return~6) a hard straight return (as in tennis or squash)
+    driving~2nz (^swing~4) hitting a golf ball off of a tee with a driver
+    cause~2n 
+    drive~7nz (^road~2) a wide scenic road planted with trees
+    drive~8nz (^device~2) a mechanism by which force or power is transmitted in a machine
+    drive~9nz (^device~2) a device that writes data onto or reads data from a storage medium
+    drive~10nz (^road~2) a road leading up to a private house
+    drive~11nz (^attribute~1) the trait of being highly motivated
+    drive~12nz (^status~1) a physiological state corresponding to a strong need or desire
+    aim~9vz move into a desired direction of discourse
+    drive~14vz hunting: chase from cover into more open ground
+    drive~15vz hunting: search for game
+    drive~16vz cause to function by supplying the force or power for or by controlling
+    drive~17vz excavate horizontally
+    drive~18vz hit very hard, as by swinging a bat horizontally
+    drive~19vz strike with a driver, as in teeing off
+    repel~3vz cause to move back by force or influence
+    drive~21vz cause to move rapidly by striking or throwing with force
+    drive~22vz push, propel, or press with force
+    ram~3vz force into or from an action or state, either physically or metaphorically
+    drive~24vz compel somebody to do something, often against his own will or judgment
+    motor~5vz travel or be transported in a vehicle
+    take~21vz proceed along in a vehicle
+    drive~27vz operate or control a vehicle
+    drive~28vz urge forward
+    drive~29vz cause someone or something to move by driving
+    drive~30vz move by being propelled by a force
+    labor~7vz strive and make an effort to reach a goal
+    drive~32vz work as a driver
+    drive~33vz to compel or force or urge relentlessly or exert coercive pressure on, or motivate strongly
+    ride~15vz have certain properties when driven
+ driving ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    driving~1nz (^travel~2) the act of controlling and steering the movement of a vehicle or animal
+    drive~5n 
+    driving~3az 
+    driving~4az acting with vigor
+ drag ( meanings=17 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drag~1nz (^pull~1) the act of dragging 
+    pull~3n 
+    drag~3nz (^clothing~1) clothing that is conventionally worn by the opposite sex 
+    drag~4nz (^quality~1) something tedious and boring
+    drag~5nz (^check~7) something that slows or delays progress
+    drag~6nz (^process~1) the phenomenon of resistance to motion through a fluid
+    drag~7vz proceed for an extended period of time
+    drag~8vz persuade to come away from something attractive or interesting
+    draw~22v 
+    drag~10vz search for something valuable or lost
+    drag~11vz pull, as against a resistance
+    cart~4v 
+    drag~13vz walk without lifting the feet
+    trail~7v 
+    drag~15vz move slowly and as if with great effort
+    drag~16vz use a computer mouse to move icons on the screen and select commands from a menu
+    sweep~13v 
+ draw ( meanings=45 glosses=36 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=drawn 
+    haul~1nz (^pull~1) the act of drawing or hauling something
+    draw~2nz (^game~2) poker in which a player can discard cards and receive substitutes from the dealer
+    draw~3nz (^run~5) the quarterback moves back as if to pass and then hands the ball to the fullback who is running toward the line of scrimmage
+    hook~3n 
+    draw~5nz (^card~1) a playing card or cards dealt or taken from the pack
+    lot~1nz (^object~1) anything taken or chosen at random
+    tie~7nz (^finish~6) the finish of a contest in which the score is tied and the winner is undecided
+    draw~8nz (^valley~1) a gully that is shallower than a ravine
+    attraction~4nz (^individual~1) an entertainer who attracts large audiences
+    draw~10vz cause to localize at one point
+    draw~11vz flatten, stretch, or mold metal or glass, by rolling or by pulling it through a die or by stretching
+    draw~12vz remove the entrails of
+    draw~13vz steep
+    draw~14vz reduce the diameter of by pulling it through a die
+    draw~15vz contract
+    draw~16vz bring or lead someone to a certain action or condition
+    draw~17vz select or take in from a given group or region
+    make~16vz make, formulate, or derive in the mind
+    describe~3vz give a description of
+    cast~12v 
+    tie~12vz finish a game with an equal number of points, goals, etc.
+    puff~16vz suck in or take 
+    guide~7v 
+    draw~24vz move or pull so as to cover or uncover something
+    draw~25vz stretch back a bowstring 
+    thread~5vz thread on or as if on a string
+    force~13v 
+    pull~15v 
+    absorb~6vz take in, also metaphorically
+    describe~4vz make a mark or lines on a surface
+    get~22vz earn or achieve a base by being walked by the pitcher
+    draw~32vz engage in drawing
+    draw~33vz represent by making a drawing of, as with a pencil, chalk, etc. on a surface
+    draw~34vz write a legal document or paper
+    draw~35vz elicit responses, such as objections, criticism, applause, etc.
+    draw~36vz take liquid out of a container or well
+    pull~20v 
+    draw~38vz move or go steadily or gradually
+    draw~39vz cause to flow
+    pull~23v 
+    draw~41vz get or derive
+    withdraw~8v 
+    quarter~3v 
+    draw~44vz require a specified depth for floating
+    draw~45vz allow a draft
+ draft ( meanings=14 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    drawing~1nz (^pull~1) the act of moving a load by drawing or pulling
+    gulp~1n 
+    muster~1n 
+    draft~4nz (^dose~2) a dose of liquid medicine
+    draft~5nz (^study~2) a preliminary sketch of a design or picture
+    draft~6nz (^control~3) a regulator for controlling the flow of air in a fireplace
+    draft~7nz (^depth~3) the depth of a vessel's keel below the surface
+    draft~8nz (^text~1) any of the various versions in the development of a written work
+    draft~9nz (^drink~4) a serving of drink drawn from a keg
+    draft~10nz (^wind~8) a current of air
+    draft~11nz (^instrument~5) a document ordering the payment of money
+    draft~12vz engage somebody to enter the army
+    draft~13vz make a blueprint of
+    outline~6v 
+ drawing ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    draft~1n 
+    drawing~2nz (^drain~2) 
+    drawing~3nz (^play~2) players buy chances and prizes are distributed by casting lots
+    drafting~3n 
+    drawing~5nz (^creation~3) a representation of forms or objects on a surface by means of lines
+    drawing~6nz (^art~4) an illustration that is drawn by hand and published in a book, magazine, or newspaper
+ daisy ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    daisy~1nz (^flower~2) any of numerous composite plants having flower heads with well-developed ray flowers usually arranged in a single whorl
+ dig ( meanings=13 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=dug 
+    jab~1nz (^touching~1) the act of touching someone suddenly with your finger or elbow
+    digging~1nz (^creation~2) the act of digging
+    dig~3nz (^dent~1) a small gouge 
+    shot~14n 
+    dig~5nz (^parcel~4) the site of an archeological exploration
+    grasp~5vz get the meaning of something
+    jab~4vz poke or thrust abruptly
+    dig~8vz turn up, loosen, or remove earth
+    hollow~9vz remove the inner part or the core of
+    dig~10vz create by digging
+    dig~11vz thrust down or into
+    dig~12vz remove, harvest, or recover by digging
+    grind~11v 
+ deep ( meanings=22 glosses=18 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) 
+    deep~1nz (^ocean~1) literary term for an ocean
+    deep~2nz (^object~1) a long steep-sided depression in the ocean floor
+    deep~3nz (^middle~4) the central and most intense or profound part
+    deep~4az exhibiting great cunning usually with secrecy
+    rich~3az strong
+    deep~6az very distant in time or space
+    deep~7az having great spatial extension or penetration downward or inward from an outer surface or backward or laterally or outward from a center
+    deep~8az relatively deep or strong
+    deep~9az difficult to penetrate
+    mysterious~2az of an obscure nature
+    deep~11az with head or back bent low
+    bass~9az having or denoting a low vocal or instrumental range
+    deep~13az large in quantity or size
+    deep~14az extreme
+    thick~7a 
+    deep~16az marked by depth of thinking
+    deep~17az relatively thick from top to bottom
+    deep~18az extending relatively far inward
+    deep~19az 
+    deeply~2b 
+    deep~21bz to a great distance
+    late~11b 
+ decision ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    conclusion~1nz (^choice~1) the act of making up your mind about something
+    decision~2nz (^resolve~1) the trait of resoluteness as evidenced by firmness of character or purpose
+    conclusion~4nz (^mind~5) a position or opinion or judgment reached after consideration
+    decision~4nz (^result~3) the outcome of a game or contest
+    decision~5nz (^result~3) a victory won on points when no knockout has occurred
+ discovered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    observed~1a 
+ device ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    twist~1n 
+    device~2nz (^artifact~1) an instrumentality invented for a particular purpose
+    device~3nz (^emblem~1) an emblematic design 
+    device~4nz (^figure~2) any ornamental pattern or design
+    device~5nz (^style~8) something in an artistic work designed to achieve a particular effect
+ desperate ( meanings=9 glosses=7 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    desperate~1nz (^unfortunate~1) a person who is frightened and in need of help
+    desperate~2az showing extreme courage
+    desperate~3az fraught with extreme danger
+    desperate~4az showing extreme urgency or intensity especially because of great need or desire
+    despairing~1az arising from or marked by despair or loss of hope
+    desperate~6az desperately determined
+    desperate~7az dangerously reckless or violent as from urgency or despair
+    desperate~8az 
+    desperate~9az 
+ direct ( meanings=24 glosses=21 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    direct~1az lacking compromising or mitigating elements
+    direct~2az direct in spatial dimensions
+    direct~3az flowing in one direction only
+    direct~4az straightforward in means or manner or behavior or language or action
+    direct~5az similar in nature or effect or relation to another quantity
+    direct~6az moving from west to east on the celestial sphere
+    direct~7az having no intervening persons, agents, conditions
+    direct~8az in precisely the same words used by a writer or speaker
+    direct~9az in a straight unbroken line of descent from parent to child
+    direct~10az being an immediate result or consequence
+    straight~20b 
+    engineer~3v 
+    calculate~4vz specifically design a product, event, or activity for a certain public
+    direct~14vz command with authority
+    direct~15vz give directions to
+    address~13v 
+    target~6vz intend to move towards a certain goal
+    train~11vz point or cause to go towards
+    direct~19vz guide the actors in
+    lead~21vz lead, as in the performance of a composition
+    guide~8vz direct the course
+    send~7vz cause to go somewhere
+    guide~9vz take somebody somewhere
+    direct~24vz be in charge of
+ dodging ( meanings=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    avoidance~1n 
+    escape~5n 
+    dodge~3n 
+ destruction ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    destruction~1nz (^conclusion~2) the termination of something by causing so much damage to it that it cannot be repaired or no longer exists
+    destruction~2nz (^finish~4) an event that completely destroys something
+    death~5n 
+ demolishing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    leveling~2n 
+ development ( meanings=9 glosses=9 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    development~1nz (^change~1) act of improving by expanding or enlarging or refining
+    development~2nz (^exercise~4) the act of making some area of land or water more profitable or productive or useful
+    development~3nz (^section~4) the section of a composition or movement (especially in sonata form) where the major musical themes are developed and elaborated
+    development~4nz (^change~5) a recent event that has some relevance for the present situation
+    development~5nz (^district~1) a district that has been developed to serve some purpose
+    developing~1nz (^processing~1) processing a photosensitive material in order to make an image visible
+    development~7nz (^process~1) a process in which something passes by degrees to a different stage 
+    growing~2nz (^process~1) the process of an individual organism growing organically
+    development~9nz (^status~1) a state in which things are improving
+ decoration ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    decoration~1nz (^change~1) the act of decorating something
+    ornament~1nz (^artifact~1) something used to beautify
+    ribbon~3n 
+ darning ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    darning~1nz (^fix~3) the act of mending a hole in a garment with crossing threads
+ dyeing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    dyeing~1nz (^coloring~1) the use of dye to change the color of something permanently
+ dirtying ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    soiling~1nz (^change~1) the act of soiling something
+ dust ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dust~1nz (^stuff~7) fine powdery material such as dry earth or pollen that can be blown about in the air
+    dust~2nz (^stuff~7) free microscopic particles of solid material
+    rubble~1nz (^trash~4) the remains of something that has been destroyed or broken up
+    dust~4vz remove the dust from
+    dust~5vz rub the dust over a surface so as to blur the outlines of a shape
+    dot~6vz distribute loosely
+    dust~7vz cover with a light dusting of a substance
+ ducking ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    dousing~1nz (^wetting~1) 
+    ducking~2nz (^hunt~1) 
+ dousing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    ducking~1n 
+ drenching ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    soaking~2nz (^wetting~1) the act of making something completely wet
+ dash ( meanings=12 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    sprint~1nz (^run~2) a quick run
+    dash~2nz (^haste~1) the act of moving with great haste
+    style~3nz (^quality~1) distinctive and stylish elegance
+    dash~4nz (^signal~1) the longer of the two telegraphic signals used in Morse code
+    dash~5nz (^mark~9) a punctuation mark used between parts of a compound word or between the syllables of a word when the word is divided at the end of a line of text
+    dash~6nz (^run~10) a footrace run at top speed
+    dash~7vz add an enlivening or altering element to
+    smash~8v 
+    crash~9v 
+    scare~4v 
+    flash~16v 
+    dash~12vz destroy or break
+ drifting ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    drifting~1nz (^travel~2) aimless wandering from place to place
+    floating~6a 
+ domestic ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    domestic~1nz (^servant~1) a servant who is paid to perform menial tasks around the household
+    domestic~2az produced in a particular country
+    domestic~3az of concern to or concerning the internal affairs of a nation
+    domestic~4az of or involving the home or family
+    domesticated~2az converted or adapted to domestic use
+    domestic~6az of or relating to the home
+    domestic~7az 
+ descent ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    descent~1nz (^motion~1) the act of changing your location in a downward direction
+    origin~1n 
+    descent~3nz (^travel~3) a movement downward
+    blood~4n 
+    fall~9n 
+    descent~6nz (^relation~1) the kinship relation between an individual and the individual's progenitors
+ dive ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_PLURAL COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) conjugate=dove plural=diva 
+    dive~1nz (^descent~1) a steep nose-down descent by an aircraft
+    diving~1nz (^swimming~1) a headlong plunge into water
+    dive~3nz (^club~1) a cheap disreputable nightclub or dance hall
+    dive~4vz swim under water
+    dive~5vz plunge into water
+    dive~6vz drop steeply
+ drop ( meanings=32 glosses=27 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drop~1nz (^descent~1) the act of dropping something
+    drop~2nz (^deposit~2) a central depository where things can be left or picked up
+    drop~3nz (^curtain~1) a curtain that can be lowered and raised onto a stage from the flies
+    fall~4n 
+    fall~5n 
+    drop~6nz (^place~13) a predetermined hiding place for the deposit and distribution of illicit goods
+    cliff~1nz (^object~1) a steep high face of rock
+    drop~8nz (^measure~1) a small indefinite quantity 
+    bead~3nz (^shape~1) a shape that is spherical and small
+    drop~10vz give birth
+    deteriorate~1vz grow worse
+    drop~12vz fall or sink into a state of exhaustion or death
+    drop~13vz stop pursuing or acting
+    drop~14vz lower the pitch of
+    drop~15vz go down in value
+    drop~16vz change from one level to another
+    omit~1vz leave undone or leave out
+    drop~18vz omit in speaking or writing
+    drop~19vz utter with seeming casualness
+    drop~20vz lose 
+    drop~21vz take , by mouth
+    fell~2vz cause to fall by or as if by delivering a blow
+    unload~2vz leave or unload
+    cast~14v 
+    drip~4vz let or cause to fall in drops
+    drop~26vz to fall vertically
+    drop~27vz let fall to the ground
+    sink~9vz fall or descend to a lower place or level
+    spend~1v 
+    drop~30vz terminate an association with
+    dismiss~6vz stop associating with
+    swing~21v 
+ dart ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    dart~1nz (^motion~2) a sudden quick movement
+    dart~2nz (^tuck~2) a tapered tuck made in dressmaking
+    dart~3nz (^missile~2) a small narrow pointed missile that is thrown or shot
+    dart~4vz move with sudden speed
+    fleet~7v 
+    dash~11v 
+ diversion ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    diversion~1nz (^turn~4) a turning aside 
+    recreation~2n 
+    diversion~3nz (^attack~5) an attack calculated to draw enemy defense away from the point of the principal attack
+ decrease ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reduction~2nz (^change~1) the act of decreasing or reducing something
+    decrease~2nz (^amount~2) the amount by which something decreases
+    lessening~1nz (^change~5) a change downward
+    decrease~4nz (^process~1) a process of becoming smaller or shorter
+    fall~13v 
+    lessen~3vz make smaller
+ depletion ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    depletion~1nz (^decrease~1) the act of decreasing something markedly
+    depletion~2nz (^state~1) the state of being depleted
+ discount ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    discount~1nz (^decrease~1) the act of reducing the selling price of merchandise
+    discount~2nz (^adjustment~4) an amount or percentage deducted
+    discount~3nz (^refund~2) a refund of some fraction of the amount paid
+    discount~4nz (^rate~2) interest on an annual basis deducted in advance on a loan
+    ignore~3vz bar from attention or consideration
+    discount~6vz give a reduction in price on
+ depreciation ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    depreciation~1nz (^decrease~1) a decrease in price or value
+    depreciation~2nz (^disrespect~3) a communication that belittles somebody or something
+    depreciation~3nz (^disbursement~2) decrease in value of an asset due to obsolescence or use
+ deposit ( meanings=12 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    deposit~1nz (^increase~1) the act of putting something somewhere
+    deposit~2nz (^facility~3) a facility where things can be deposited for storage or safekeeping
+    deposit~3nz (^warranty~1) a payment given as a guarantee that an obligation will be met
+    deposit~4nz (^matter~1) matter that has been deposited by some natural process
+    deposit~5nz (^process~1) the phenomenon of sediment or gravel accumulating
+    deposit~6nz (^security~7) money given as security for an article acquired for temporary use
+    deposit~7nz (^payment~3) a partial payment made at the time of purchase
+    deposit~8nz (^fund~2) money deposited in a bank or some similar institution
+    deposit~9nz (^increase~4) the natural process of laying down a deposit of something
+    stick~13v 
+    fix~14v 
+    bank~15v 
+ detonation ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    detonation~1nz (^explosion~1) the act of detonating an explosive
+    explosion~5n 
+ division ( meanings=12 glosses=10 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    division~1nz (^separation~1) the act or process of dividing
+    division~2nz (^separation~1) the act of dividing or partitioning
+    division~3nz (^operation~5) an arithmetic operation that is the inverse of multiplication
+    section~3n 
+    variance~6nz (^act~1) discord that splits a group
+    division~6nz (^force~6) an army unit large enough to sustain combat
+    division~7nz (^force~6) a group of ships of similar type
+    division~8nz (^force~6) a unit of the United States Air Force usually comprising two or more wings
+    division~9nz (^unit~3) an administrative unit in government or business
+    division~10nz (^group~1) taxonomic unit of plants corresponding to a phylum
+    division~11nz (^group~1) a group of organisms forming a subdivision of a larger category
+    class~8n 
+ drain ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    drain~1nz (^separation~1) emptying something accomplished by allowing liquid to run out of it
+    drain~2nz (^depletion~1) a gradual depletion of energy or resources
+    drain~3nz (^pipe~2) a pipe through which liquid is carried away
+    drain~4nz (^tube~2) tube inserted into a body cavity to remove unwanted material
+    drain~5vz make weak
+    drain~6vz empty of liquid
+    drain~7vz deplete of resources
+    drain~8vz flow off gradually
+ damage ( meanings=7 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    harm~1n 
+    wrong~1n 
+    damage~3nz (^decrease~3) loss of military equipment
+    harm~2n 
+    price~5n 
+    damage~6vz inflict damage upon
+    damage~7vz suffer or be susceptible to damage
+ daily ( meanings=5 glosses=5 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE TIMEWORD ) 
+    daily~1nz (^newspaper~2) a newspaper that is published every day
+    daily~2az appropriate for ordinary or routine occasions
+    daily~3az of or belonging to or occurring every day
+    daily~4bz every day
+    daily~5bz gradually and progressively
+ disregard ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    neglect~1nz (^practice~1) willful lack of care and attention
+    neglect~4nz (^operation~8) lack of attention and due care
+    neglect~8v 
+    discount~5v 
+    cut~42v 
+ despite ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN PREPOSITION NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:PREPOSITION ) 
+    despite~1nz (^disregard~1) contemptuous disregard
+    despite~2nz (^dislike~2) lack of respect accompanied by a feeling of intense dislike
+    despite~3z 
+ dancing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    dance~1n 
+ dance ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dancing~1nz (^recreation~2) taking a series of rhythmical steps in time to music
+    dance~2nz (^art~2) an artistic form of nonverbal communication
+    dance~3nz (^party~1) a party for social dancing
+    dance~4nz (^party~2) a party of people assembled for dancing
+    dance~5vz move in a pattern
+    dance~6vz move in a graceful and rhythmical way
+    dance~7vz skip, leap, or move up and down or sideways
+ doctor ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    doctor~1nz (^play~3) children take the roles of physician or patient or nurse and pretend they are at the physician's office
+    Dr.~1nz (^professional~2) a licensed medical practitioner
+    Dr.~2nz (^student~1) a person who holds Ph.D. degree from an academic institution
+    doctor~4vz give medical treatment to
+    restore~2vz restore by replacing a part or putting together what is torn or broken
+    doctor~6vz alter and make impure, as with the intention to deceive
+ dish ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    bag~1nz (^activity~1) an activity that you like or at which you are superior
+    dish~2nz (^container~1) a piece of dishware normally used as a container for holding or serving food
+    saucer~2n 
+    dish~4nz (^sustenance~2) a particular item of prepared food
+    beauty~3n 
+    dish~6nz (^measure~1) the quantity that a dish will hold
+    dish~7vz make concave
+    serve~4v 
+ dip ( meanings=23 glosses=20 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dip~1nz (^exercise~1) a gymnastic exercise on the parallel bars in which the body is lowered and raised by bending and straightening the arms
+    dip~2nz (^swimming~1) a brief swim in water
+    dip~3nz (^candle~1) a candle that is made by repeated dipping in a pool of wax or tallow
+    drop~4n 
+    dip~5nz (^sinking~2) a brief immersion
+    dip~6nz (^seasoning~2) tasty mixture or liquid into which bite-sized foods are dipped
+    dip~7nz (^thief~1) a thief who steals from the pockets or purses of others in public places
+    dip~8nz (^angle~2) the angle that a magnetic needle makes with the plane of the horizon
+    dip~9nz (^solid~1) a depression in an otherwise level surface
+    dip~10vz stain an object by immersing it in a liquid
+    dip~11vz go down momentarily
+    dip~12vz dip into a liquid while eating
+    dip~13vz scoop up by plunging one's hand or a ladle below the surface
+    douse~4vz immerse briefly into a liquid so as to wet, coat, or saturate
+    dip~15vz plunge into a container
+    dip~16vz immerse in a disinfectant solution
+    dip~17vz place into hot, liquid wax
+    duck~8v 
+    dip~19vz slope downwards
+    sink~13v 
+    dip~21vz lower briefly
+    dim~10vz switch from a higher to a lower beam
+    dip~23vz take a small amount from
+ diving ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    dive~2n 
+    diving~2nz (^match~5) 
+    diving~3az 
+ deer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    deer~1nz (^mammal~1) distinguished from Bovidae by the male's having solid deciduous antlers
+ duck ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    duck~1nz (^bird~1) small wild or domesticated web-footed broad-billed swimming bird usually having a depressed body and short legs
+    duck~2nz (^material~1) a heavy cotton fabric of plain weave
+    duck~3nz (^poultry~2) flesh of a duck
+    duck~4nz (^score~9) a score of nothing by a batsman
+    parry~3v 
+    duck~6vz to move quickly downwards or away
+    duck~7vz submerge or plunge suddenly
+    douse~5vz dip into a liquid
+ day ( meanings=9 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+    day~1nz (^opportunity~1) a period of opportunity
+    day~2nz (^time~5) some point or period in time
+    day~3nz (^period~3) the recurring hours when you are not sleeping 
+    day~4nz (^measure~1) time for Earth to make a complete rotation on its axis
+    day~5nz (^period~3) a day assigned to a particular purpose or observance
+    daylight~2n 
+    day~7nz (^measure~1) the time for one complete rotation of the earth relative to a particular star, about 4 minutes shorter than a mean solar day
+    day~8nz (^period~3) the period of time taken by a particular planet to make a complete rotation on its axis
+    day~9nz (^era~2) an era of existence or influence
+ down ( meanings=26 glosses=23 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE PARTICLE NOUN VERB ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) comparative=downer 
+    down~1nz (^play~4) a complete play to advance the football
+    down~2nz (^feather~2) soft fine feathers
+    pile~5nz (^hair~4) fine soft dense hair
+    down~4nz (^object~1) a rolling treeless highland with little soil
+    blue~6az filled with melancholy and despondency 
+    down~6az not functioning 
+    down~7az shut
+    down~8az lower than previously
+    mastered~1az understood perfectly
+    down~10az being put out by a strikeout
+    down~11az extending or moving from a higher to a lower place
+    down~12az becoming progressively lower
+    down~13az being or moving lower in position or less in some value
+    down~14bz spatially or metaphorically from a higher to a lower level or position
+    down~15bz away from a more central or a more northerly place
+    down~16bz paid in cash at time of purchase
+    down~17bz in an inactive or inoperative state
+    down~18bz to a lower intensity
+    down~19bz from an earlier time
+    down~20z 
+    polish~5vz improve or perfect by pruning or polishing
+    down~22vz bring down or defeat
+    devour~2vz eat immoderately
+    kill~8v 
+    down~25vz cause to come or go down
+    land~14v 
+ deck ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    deck~1nz (^level~2) any of various platforms built into a vessel
+    deck~2nz (^packet~2) street name for a packet of illegal drugs
+    deck~3nz (^porch~1) a porch that resembles the deck on a ship
+    deck~4nz (^pack~5) a pack of 52 playing cards
+    floor~11v 
+    deck~6vz decorate
+    adorn~3vz be beautiful to look at
+ doubles ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
+    doubles~1nz (^tennis~1) tennis played with two players on each side
+    doubles~2nz (^game~2) badminton played with two players on each side
+ dummy ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) (null) (null) ) 
+    blank~1nz (^artifact~1) a cartridge containing an explosive charge but no bullet
+    dummy~2nz (^figure~3) a figure representing the human form
+    boob~2nz (^simple~1) an ignorant or foolish person
+    dummy~4nz (^individual~1) a person who does not talk
+    dummy~5az having the appearance of being real but lacking capacity to function
+    dummy~6vz make a dummy of
+ dirty ( meanings=14 glosses=13 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=dirtiest 
+    dirty~1az unpleasantly stormy
+    soiled~1az soiled or likely to soil with dirt or grime
+    dirty~3az characterized by obscenity or indecency
+    dirty~4az spreading pollution or contamination
+    dirty~5az unethical or dishonest
+    cheating~2az violating accepted standards or rules
+    dirty~7az expressing or revealing hostility or dislike
+    dirty~8az obtained illegally or by improper means
+    dirty~9az defaced with changes
+    dirty~10az vile
+    muddied~1az discolored by impurities
+    dirty~12az contaminated with infecting organisms
+    dirty~13az 
+    soil~5vz make soiled, filthy, or dirty
+ dog ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dog~1nz (^animal~1) a member of the genus Canis that has been domesticated by man since prehistoric times
+    dog~2nz (^support~6) metal supports for logs in a fireplace
+    click~2n 
+    hound~2n 
+    dog~5nz (^fellow~2) informal term for a man
+    dog~6nz (^individual~1) a dull unattractive unpleasant girl or woman
+    chase~5v 
+ display ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    showing~1nz (^show~1) something shown to the public
+    display~2nz (^creation~3) a visual representation of something
+    display~3nz (^device~2) an electronic device that represents information in visual form
+    show~4n 
+    display~5nz (^communication~1) exhibiting openly in public view
+    display~6nz (^act~1) behavior that makes your feelings public
+    expose~10vz to show, make visible or apparent
+    display~8vz attract attention by displaying some body part or posing
+ demonstration ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    demonstration~1nz (^show~1) a show or display
+    demonstration~2nz (^show~1) a show of military force or preparedness
+    demonstration~3nz (^protest~1) a public display of group feelings 
+    demonstration~4nz (^proof~5) proof by a process of argument or a series of proposition proving an asserted conclusion
+    demonstration~5nz (^communication~1) a visual presentation showing how something works
+ duet ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    duet~1nz (^dance~1) a dance for two people (usually a ballerina and a danseur noble)
+    duet~2nz (^piece~8) a musical composition for two performers
+    couple~1n 
+    duet~4nz (^organization~6) two performers or singers who perform together
+    couple~4n 
+ drumming ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    drumming~1nz (^music~1) the act of playing drums
+ dumb ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    silent~1a 
+    dumb~2az lacking the power of human speech
+    dumb~3az temporarily incapable of speaking
+    slow~2a 
+    dumb~5az 
+ dolphin ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    dolphin~1nz (^whale~1) any of various small toothed whales with a beaklike snout
+    dolphin~2nz (^fish~1) large slender food and game fish widely distributed in warm seas
+ drafting ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    drafting~1nz (^trade~1) 
+    drafting~2nz (^composition~1) writing a first version to be filled out and polished later
+    drawing~4nz (^art~1) 
+ data ( meanings=2 NOUN NOUN_PLURAL COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=datum 
+    information~5n 
+    data~2nz 
+ drudgery ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    plodding~2n 
+ difficulty ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    trouble~1n 
+    difficulty~2nz (^quality~1) the quality of being difficult
+    difficulty~3nz (^knowledge~1) a factor causing trouble in achieving a positive result or tending to produce a negative result
+    difficulty~4nz (^status~1) a condition or state of affairs almost beyond one's ability to deal with and requiring great effort to bear or overcome
+ detecting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    sleuthing~1nz (^work~1) 
+ drip ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drip~1nz (^projection~3) a projection from a cornice or sill designed to protect the area below from rainwater (as over a window or doorway)
+    dripping~1nz (^sound~5) the sound of a liquid falling drop by drop
+    drip~3nz (^flow~2) flowing in drops
+    drop~25v 
+    drip~5vz fall in drops
+ drugging ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    drugging~1nz (^therapy~1) 
+ dressing ( meanings=7 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    bandaging~1n 
+    dressing~2nz (^covering~2) the activity of getting dressed
+    dressing~3nz (^change~1) processes in the conversion of rough hides into leather
+    dressing~4nz (^covering~4) 
+    dressing~5nz (^change~1) 
+    stuffing~2nz (^mixture~3) a mixture of seasoned ingredients used to stuff meats and vegetables
+    dressing~7nz (^seasoning~2) 
+ depth ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    depth~1nz (^degree~1) degree of psychological or intellectual profundity
+    depth~2nz (^attribute~1) the attribute or quality of being deep, strong, or intense
+    depth~3nz (^property~2) the extent downward or backward or inward
+    depth~4nz (^know-how~1) the intellectual ability to penetrate deeply into ideas
+    depth~5nz (^part~9) the deepest and most remote part
+    depth~6nz (^humiliation~4) a low moral state
+ duty ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    duty~1nz (^work~1) work that you are obliged to perform for moral or legal reasons
+    responsibility~1nz (^event~1) the social force that binds you to the courses of action demanded by that force
+    tariff~1nz (^tax~1) a government tax on imports or exports
+ desecration ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    sacrilege~1nz (^evil~1) blasphemous behavior
+ drink ( meanings=10 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=drunk 
+    drinking~1nz (^activity~1) the act of drinking alcoholic beverages to excess
+    swallow~1n 
+    beverage~1nz (^food~1) any liquid suitable for drinking
+    drink~4nz (^helping~1) a single serving of a beverage
+    drink~5nz (^water~3) any large deep body of water
+    drink~6vz be fascinated or spell-bound by
+    drink~7vz take in liquids
+    drink~8vz consume alcohol
+    drink~9vz drink excessive amounts of alcohol
+    toast~6vz propose a toast to
+ drinking ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    drink~1n 
+    drinking~2nz (^activity~3) 
+ deceit ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    deception~2n 
+    deceit~2nz (^quality~1) the quality of being fraudulent
+    deception~3n 
+ delusion ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    illusion~2n 
+    hallucination~2n 
+    delusion~3nz (^status~1) an erroneous belief that is held in the face of evidence to the contrary
+ date ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    date~1nz (^produce~1) sweet edible fruit of the date palm with a single long woody seed
+    engagement~7n 
+    date~3nz (^fellow~4) a participant in a date
+    date~4nz (^nowadays~1) the present
+    date~5nz (^day~4) the specified day of the month
+    date~6nz (^day~4) a particular day specified as the time something happens
+    date~7nz (^period~3) the particular day, month, or year that an event occurred
+    date~8nz (^point~26) a particular but unspecified point in time
+    date~9vz assign a date to
+    date~10vz provide with a dateline
+    date~11vz stamp with a date
+    date~12vz go on a date with
+    see~21vz date regularly
+ dangerous ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    severe~1az causing fear or anxiety by threatening great harm
+    dangerous~2az involving or causing danger or risk
+    dangerous~3az 
+ danger ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    risk~1nz (^venture~1) a venture undertaken without regard to possible loss or injury
+    danger~2nz (^country~3) a dangerous place
+    danger~3nz (^status~1) the condition of being susceptible to harm or injury
+    danger~4nz (^cause~1) a cause of pain or injury or loss
+ doubling ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    double~2n 
+    doubling~2nz (^multiplication~3) increase by a factor of two
+ direction ( meanings=9 glosses=9 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    steering~2nz (^control~1) the act of setting and holding a course
+    management~1nz (^event~1) the act of managing something
+    focussing~1nz (^concentration~6) the concentration of attention or energy on something
+    direction~4nz (^disposition~4) a general course along which something has a tendency to develop
+    counselling~1nz (^message~2) something that provides direction or advice as to a decision or course of action
+    instruction~4nz (^message~2) a message describing how something is to be done
+    charge~8nz (^bid~4) a formal statement of a command or injunction to do something
+    way~9nz (^path~3) a line leading to a place or point
+    direction~9nz (^position~6) the spatial relation between something and the course along which it points or moves
+ dead ( meanings=22 glosses=19 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    dead~1nz (^people~1) people who are no longer living
+    dead~2nz (^time~5) a time when coldness is intense
+    dead~3az devoid of activity
+    dead~4az physically inactive
+    dead~5az no longer having or seeming to have or expecting to have life
+    dead~6az not showing characteristics of life especially the capacity to sustain life
+    drained~1az drained of electric charge
+    utter~1az complete
+    dead~9az no longer having force or relevance
+    dead~10az out of use or operation because of a fault or breakdown
+    dead~11az lacking resilience or bounce
+    dead~12az not surviving in active use
+    dead~13az not circulating or flowing
+    dead~14az unerringly accurate
+    dead~15az not yielding a return
+    dead~16az lacking acoustic resonance
+    dead~17az devoid of physical sensation
+    numb~3az not showing human feeling or sensitivity
+    beat~11a 
+    dead~20az 
+    dead~21bz completely and without qualification
+    short~16b 
+ defense ( meanings=11 glosses=11 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    defense~1nz (^protection~2) the act of defending someone or something against attack or injury
+    defense~2nz (^protection~2) protection from harm
+    defense~3nz (^action~3) military action or resources protecting a country against potential enemies
+    denial~2nz (^event~1) a defendant's answer or plea denying the truth of the charges against him
+    defense~5nz (^structure~1) a structure used to defend against attack
+    defense~6nz (^explanation~2) the justification for some act or belief
+    defense~7nz (^answer~5) the speech act of answering an attack on your assertions
+    defense~8nz (^organization~6) an organization of defenders that provides resistance against attack
+    defense~9nz (^collection~4) the defendant and his legal advisors collectively
+    defense~10nz (^team~2) the team that is trying to prevent the other team from scoring
+    defense~11nz (^process~5) an unconscious process that tries to reduce the anxiety associated with instinctive desires
+ dining ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    dining~1nz (^feeding~1) the act of eating dinner
+ disapproval ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    disapproval~1nz (^judgment~1) the act of disapproving or condemning
+    dislike~1n 
+    disapproval~3nz (^message~2) the expression of disapproval
+    disapproval~4nz (^dislike~2) a feeling of disliking something or what someone is doing
+ discipline ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    discipline~1nz (^preparation~3) training to improve strength or self-control
+    discipline~2nz (^penalty~1) the act of punishing
+    discipline~3nz (^attribute~1) the trait of being well behaved
+    discipline~4nz (^system~5) a system of rules of conduct or method of practice
+    study~7n 
+    correct~12v 
+    check~35v 
+ drill ( meanings=9 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drill~1nz (^preparation~3) the training of soldiers to march (as in ceremonial parades) or to perform the manual of arms
+    exercise~3n 
+    drill~3nz (^baboon~1) similar to the mandrill but smaller and less brightly colored
+    drill~4nz (^tool~2) a tool with a sharp point and cutting edges for making holes in hard materials
+    drill~5vz train in the military, e.g., in the use of weapons
+    drill~6vz undergo military training or do military exercises
+    exercise~8v 
+    drill~8vz teach by repetition
+    bore~5v 
+ dress ( meanings=21 glosses=19 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=dresser 
+    clothes~1n 
+    attire~1nz (^clothing~1) clothing of a distinctive style or for a particular occasion
+    dress~3nz (^clothing~1) a one-piece garment for a woman
+    dress~4az requiring formal clothes
+    dress~5az suitable for formal occasions
+    do~2v 
+    preen~1vz dress or groom with elaborate care
+    dress~8vz dress in a certain manner
+    dress~9vz give a neat appearance to
+    dress~10vz put on clothes
+    clothe~1vz provide with clothes or put clothes on
+    dress~12vz apply a bandage or medication to
+    dress~13vz convert into leather
+    dress~14vz kill and prepare for market or consumption
+    dress~15vz cut down rough-hewn to standard thickness and width
+    dress~16vz put a finish on
+    prune~3vz cultivate, tend, and cut back the growth of
+    dress~18vz put a dressing on
+    decorate~1vz provide with decoration
+    trim~14vz decorate , as with parsley or other ornamental foods
+    line_up~3vz arrange in ranks
+ diagramming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    diagramming~1nz (^activity~1) 
+ dismantling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    dismantling~1nz (^activity~1) 
+ dairy ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    dairy~1nz (^farm~1) a farm where dairy products are produced
+ drilling ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    boring~1nz (^production~4) 
+    boring~2nz (^creation~2) the act of drilling
+ design ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    designing~1nz (^creation~2) the act of working out the form of something 
+    pattern~2n 
+    design~3nz (^study~2) a preliminary sketch indicating the plan for something
+    invention~3nz (^ability~2) the creation of something in the mind
+    plan~2nz (^organization~5) an arrangement scheme
+    pattern~4nz (^program~2) something intended as a guide for making something else
+    aim~3n 
+    design~8vz intend or have as a purpose
+    design~9vz plan something for a specific role or purpose or effect
+    design~10vz conceive or fashion in the mind
+    plan~6vz make or work out a plan for
+    plan~7vz make a design of
+    design~13vz create the design for
+    design~14vz create designs
+ designing ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    design~1n 
+    scheming~1az concealing crafty designs for advancing your own interest
+ deliberate ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    careful~2a 
+    calculated~1az carefully thought out in advance
+    deliberate~3az 
+    debate~5vz discuss the pros and cons of an issue
+    debate~6v 
+ dating ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    dating~1nz (^analysis~1) 
+ divine ( meanings=10 glosses=8 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=diviner 
+    cleric~1n 
+    divine~2az being of such surpassing excellence as to suggest inspiration by the gods
+    divine~3az emanating from God
+    divine~4az being or having the nature of a god
+    divine~5az resulting from divine providence
+    divine~6az appropriate to or befitting a god
+    divine~7az devoted to or in the service or worship of a deity
+    divine~8az 
+    divine~9vz search by divining, as if with a rod
+    divine~10vz perceive intuitively or through some inexplicable perceptive powers
+ devotion ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    devotion~1nz (^prayer~1) religious observance or prayers (usually spoken silently)
+    devotion~2nz (^activity~1) religious zeal
+    devotion~3nz (^commitment~2) commitment to some purpose
+    devotion~4nz (^love~3) feelings of ardent love
+ disguise ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    camouflage~1nz (^activity~1) the act of concealing the identity of something by modifying its appearance
+    disguise~2nz (^dress~2) any attire that modifies the appearance in order to conceal the wearer's identity
+    camouflage~4nz (^color~2) an outward semblance that misrepresents the true nature of something
+    mask~9v 
+ demand ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    demand~1nz (^activity~1) the act of demanding
+    requirement~2nz (^duty~2) required activity
+    demand~3nz (^request~1) an urgent or peremptory request
+    demand~4nz (^process~1) the ability and desire to purchase goods and services
+    need~3n 
+    demand~6vz request urgently and forcefully
+    exact~5v 
+    demand~8vz ask to be informed of
+    demand~9vz summon to court
+    demand~10vz lay legal claim to
+    take~40v 
+ delay ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    delay~1nz (^act~1) the act of delaying
+    hold~9n 
+    check~17v 
+    detain~1vz cause to be slowed down or delayed
+    stay~7v 
+    delay~6vz act later than planned, scheduled, or required
+ delectation ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    delectation~1nz (^activity~1) act of receiving pleasure from something
+    delight~2n 
+ distribution ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    distribution~1nz (^act~1) the act of distributing or spreading or apportioning
+    distribution~2nz (^commerce~1) the commercial activity of transporting and selling goods from a producer to a consumer
+    distribution~3nz (^arrangement~2) the spatial or geographic property of being scattered about over a range, area, or volume
+    distribution~4nz (^organization~5) an arrangement of values of a variable showing their observed or theoretical frequency of occurrence
+ deal ( meanings=22 glosses=17 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=dealt 
+    deal~1nz (^allotment~1) the act of apportioning or distributing something
+    deal~2nz (^distribution~1) the act of distributing playing cards
+    trade~5nz (^transaction~1) a particular instance of buying or selling
+    bargain~1nz (^agreement~3) an agreement between parties fixing obligations of each
+    deal~5nz (^result~3) the type of treatment received 
+    hand~9n 
+    sight~7n 
+    deal~8nz (^wood~4) wood that is easy to saw
+    deal~9nz (^board~9) a plank of softwood
+    consider~4vz take into consideration for exemplifying purposes
+    address~14v 
+    sell~5vz do business
+    deal~13vz sell
+    deal~14vz distribute cards to the players in a game
+    deal~15vz give to a player
+    share~7v 
+    lot~7vz administer or bestow, as in small portions
+    deal~18vz take action with respect to 
+    deal~19vz behave in a certain way towards others
+    handle~6v 
+    conduct~7vz direct the course of
+    manage~7vz come to terms with
+ disability ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    disability~1nz (^status~1) the condition of being unable to perform as a consequence of physical or mental unfitness
+ dumping ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    dumping~1nz (^merchandising~1) selling goods abroad at a price below that charged in the domestic market
+ disbursement ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    spending~1nz (^payment~1) the act of spending or disbursing money
+    expense~2nz (^cost~3) amounts paid for goods and services that may be currently tax deductible
+ deficit ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    deficit~1nz (^amount~2) the property of being an amount by which something is less than expected or required
+    deficit~2nz (^relation~1) an excess of liabilities over assets 
+    deficit~3nz (^score~9) the score by which a team or individual is losing
+    deficit~4nz (^lack~1) a deficiency or failure in neurological or mental functioning
+ due ( meanings=8 glosses=7 NOUN_ABSTRACT PARTICLE NOUN ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    due~1nz (^right~4) that which is deserved or owed
+    due~2nz (^charge~14) a payment that is due 
+    due~3az owed and payable immediately or on demand
+    due~4az suitable to or expected in the circumstances
+    due~5az capable of being assigned or credited to
+    due~6az scheduled to arrive
+    due~7bz directly or exactly
+    due~8z 
+ delegating ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    delegating~1nz (^direction~2) 
+ damper ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) comparative=damp 
+    damper~1nz (^control~1) a depressing restraint
+    damper~2nz (^device~2) a device that decreases the amplitude of electronic, mechanical, acoustical, or aerodynamic oscillations
+    damper~3nz (^plate~5) a movable iron plate that regulates the draft in a stove or chimney or furnace
+ deprivation ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    deprivation~1nz (^event~1) act of depriving someone of food or money or rights
+    loss~2n 
+    want~4n 
+ discrimination ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    discrimination~1nz (^event~1) unfair treatment of a person or group on the basis of prejudice
+    discrimination~2nz (^operation~8) the cognitive process whereby two or more stimuli are distinguished
+ detention ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    detention~1nz (^penalty~1) a punishment in which a student must stay at school after others have gone home
+    hold~8nz (^state~1) a state of being confined 
+ dispute ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dispute~1nz (^event~1) coming into conflict with
+    difference~2n 
+    scrap~6v 
+    challenge~9v 
+ divorce ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    divorce~1nz (^separation~2) the legal dissolution of a marriage
+    dissociate~3vz part
+    divorce~3vz get a divorce
+ domesticated ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    domesticated~1az accustomed to home life
+    domestic~5a 
+    domesticated~3az 
+ dam ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dam~1nz (^female~1) female parent of an animal especially domestic livestock
+    dike~1nz (^barrier~1) a barrier constructed to contain the flow of water or to keep out the sea
+    dam~3nz (^unit~5) a metric unit of length equal to ten meters
+    dam~4vz obstruct with, or as if with, a dam
+ devil ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    devil~1nz (^communication~1) a word used in exclamations of confusion
+    fiend~1nz (^spirit~5) an evil supernatural being
+    devil~3nz (^troublemaker~1) a rowdy or mischievous person 
+    monster~5n 
+    devil~5vz coat or stuff with a spicy paste
+    rag~10v 
+ desert ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    desert~1nz (^community~1) arid land with little or no vegetation
+    desolate~6vz leave someone who needs or counts on you
+    desert~3vz leave behind
+    desert~4vz desert , often in order to join the opposing cause, country, or army
+ dragon ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    dragon~1nz (^lizard~1) any of several small tropical Asian lizards capable of gliding by spreading winglike membranes on each side of the body
+    dragon~2nz (^vision~1) a creature of Teutonic mythology
+    dragon~3nz (^individual~1) a fiercely vigilant and unpleasant woman
+ dinosaur ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    dinosaur~1nz (^reptile~1) any of numerous extinct terrestrial reptiles of the Mesozoic era
+ daddy ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    pop~4n 
+ doe ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    doe~1nz (^mammal~1) mature female of mammals of which the male is called `buck'
+ dew ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    dew~1nz (^process~1) water that has condensed on a cool surface overnight from water vapor in the air
+ dock ( meanings=12 glosses=11 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dock~1nz (^tail~1) a short or shortened tail of certain animals
+    dock~2nz (^piece~11) the solid bony part of the tail of an animal as distinguished from the hair
+    dock~3nz (^landing~3) landing in a harbor next to a pier where ships are loaded and unloaded or repaired
+    dock~4nz (^area~1) an enclosure in a court of law where the defendant sits during the trial
+    dock~5nz (^level~2) a platform where trucks or trains can be loaded or unloaded
+    dock~6nz (^level~2) a platform built out from the shore into the water and supported by piles
+    dock~7nz (^plant~1) any of certain coarse weedy plants with long taproots, sometimes used as table greens or in folk medicine
+    dock~8vz maneuver into a dock
+    tail~10v 
+    dock~10vz come into dock
+    dock~11vz deduct from someone's wages
+    dock~12vz deprive someone of benefits, as a penalty
+ driver ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    driver~1nz (^wood~1) a golf club with a near vertical face that is used for hitting long shots from the tee
+    driver~2nz (^program~5) a program that determines how a computer will communicate with a peripheral device
+    driver~3nz (^cause~1) the operator of a motor vehicle
+    driver~4nz (^player~3) a golfer who hits the golf ball with a driver
+    driver~5nz (^worker~2) someone who drives animals that pull a vehicle
+ dug ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=dig 
+    dug~1nz (^mamma~1) an udder or breast or teat
+ dawn ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT TIMEWORD ) 
+    morning~2n 
+    dawning~1n 
+    dawn~3nz (^period~3) an opening time period
+    dawn~4vz become light
+    click~5v 
+    dawn~6vz appear or develop
+ donkey ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    donkey~1nz (^mammal~1) domestic beast of burden descended from the African wild ass
+    donkey~2nz (^emblem~2) the symbol of the Democratic Party
+ drum ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drum~1nz (^fish~1) small to medium-sized bottom-dwelling food and game fishes of shallow coastal and fresh waters that make a drumming noise
+    drum~2nz (^cylinder~4) a hollow cast-iron cylinder attached to the wheel that forms part of the brakes
+    drum~3nz (^instrument~3) a musical percussion instrument
+    drum~4nz (^vessel~2) a cylindrical metal container used for shipping or storage of liquids
+    drum~5nz (^sound~5) the sound of a drum
+    barrel~5nz (^cylinder~4) a bulging cylindrical shape
+    cram~2vz study intensively, as before an exam
+    drum~8vz play a percussion instrument
+    beat~31v 
+ dose ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    acid~1n 
+    dose~2nz (^medicine~3) a measured portion of medicine taken at any one time
+    dose~3nz (^measure~1) the quantity of an active agent taken in or absorbed at any one time
+    dose~4nz (^disease~1) a communicable infection transmitted by sexual intercourse or genital contact
+    drug~2v 
+    dose~6vz treat with an agent
+ dot ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dose~1n 
+    dot~2nz (^signal~1) the shorter of the two telegraphic signals used in Morse code
+    point~24n 
+    dot~4vz mark with a dot
+    dot~5vz make a dot or dots
+    scatter~4v 
+    dot~7vz scatter or intersperse like dots or studs
+ diamond ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    diamond~1nz (^field~13) the baseball playing field
+    diamond~2nz (^parcel~4) the area of a baseball field that is enclosed by 3 bases and home plate
+    diamond~3nz (^card~1) a playing card in the minor suit that has one or more red rhombuses on it
+    diamond~4nz (^gem~2) a transparent piece of diamond that has been cut and polished and is valued as a precious gem
+    diamond~5nz (^figure~13) a parallelogram with four equal sides
+    diamond~6nz (^element~6) very hard native crystalline carbon valued as a gem
+    diamond~7az 
+ derby ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    derby~1nz (^hat~2) a felt hat that is round and hard with a narrow brim
+ dresser ( meanings=5 glosses=5 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=dress 
+    chest~2nz (^furniture~1) furniture with drawers for keeping clothes
+    dresser~2nz (^cabinet~1) a cabinet with shelves
+    dresser~3nz (^table~1) low table with mirror or mirrors where one sits while dressing or applying makeup
+    dresser~4nz (^helper~2) a wardrobe assistant for an actor
+    dresser~5nz (^individual~1) a person who dresses in a particular way
+ dike ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dam~2n 
+    butch~1nz (^lesbian~1) offensive term for a lesbian who is noticeably masculine
+    dike~3vz enclose with a dike
+ damp ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=damper 
+    damp~1nz (^status~1) a slight wetness
+    moist~1az slightly wet
+    damp~3az 
+    break~31v 
+    damp~5vz make vague or obscure or make less visible
+    damp~6vz restrain or discourage
+    dull~20vz deaden , especially by wrapping
+ delayed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    delayed~1az not as far along as normal in development
+    delayed~2az 
+ den ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    den~1nz (^room~1) a room that is comfortable and secluded
+    den~2nz (^unit~3) a unit of 8 to 10 cub scouts
+    den~3nz (^place~13) a hiding place
+    den~4nz (^habitat~1) the habitation of wild animals
+ dentist ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    dentist~1nz (^professional~2) a person qualified to practice dentistry
+ deodorant ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    deodorant~1nz (^artifact~1) a toiletry applied to the skin in order to mask unpleasant odors
+ department ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    department~1nz (^aspect~3) a specialized sphere of knowledge
+    section~6nz (^division~9) a specialized division of a large organization
+    department~3nz (^district~1) the territorial and administrative division of some countries
+ designer ( meanings=5 glosses=5 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    architect~1nz (^creator~1) someone who creates plans to be used in making something
+    designer~2nz (^creator~1) someone who designs clothing
+    designer~3nz (^individual~1) a person who devises plots or intrigues
+    designer~4nz (^expert~1) someone who specializes in graphic design
+    decorator~2nz (^expert~1) a person who specializes in designing architectural interiors and their furnishings
+ desk ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    desk~1nz (^table~1) a piece of furniture with a writing surface and usually drawers or other compartments
+ dessert ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    sweet~4nz (^course~5) a dish served as the last course of a meal
+ detached ( meanings=6 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    detached~1az used of buildings
+    detached~2az 
+    separated~2a 
+    free~5a 
+    detached~5az 
+    separated~4a 
+ diagram ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    diagram~1nz (^drawing~5) a drawing intended to explain how something works
+    plot~8vz make a schematic or technical drawing of that shows interactions among variables or how something is constructed
+ diaper ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    napkin~1n 
+    diaper~2nz (^material~1) a fabric with a distinctive woven pattern of small repeated figures
+ diary ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    diary~1nz (^journal~2) a personal journal
+    journal~3nz (^writing~4) a daily written record of experiences and observations
+ die ( meanings=14 glosses=11 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_GERUND VERB_NOOBJECT ) plural=dice 
+    dice~1n 
+    die~2nz (^tool~2) a device used for shaping metal
+    die~3nz (^cutter~1) a cutting tool that is fitted into a diestock and used for cutting male screw threads on screws or bolts or pipes or rods
+    die~4vz suffer spiritual death
+    die~5vz disappear or come to an end
+    go~7v 
+    go~9v 
+    die~8vz lose sparkle or bouquet
+    die~9vz to be on base at the end of an inning, of a player
+    die~10vz cut or shape with a die
+    die~11vz be brought to or as if to the point of death by an intense emotion such as embarrassment, amusement, or shame
+    die~12vz languish as with love or desire
+    die~13vz feel indifferent towards
+    die~14vz suffer or face the pain of death
+ dice ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=die 
+    die~1nz (^cube~1) a small cube with 1 to 6 spots on the six faces
+    dice~2vz play dice
+    cube~7v 
+ diffuser ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) comparative=diffuse 
+    diffuser~1nz (^device~2) optical device that distributes the light of a lamp evenly
+    diffuser~2nz (^baffle~1) baffle that distributes sound waves evenly
+ dime ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    dime~1nz (^deck~2) street name for a packet of illegal drugs that is sold for ten dollars
+    dime~2nz (^coin~1) a United States coin worth one tenth of a dollar
+ dimmer ( meanings=1 glosses=1 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE ) comparative=dim 
+    dimmer~1nz (^device~2) a rheostat that varies the current through an electric light in order to control the level of illumination
+ dinner ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    dinner~1nz (^meal~2) the main meal of the day served in the evening or at midday
+    dinner~2nz (^party~2) a party of people assembled to have dinner together
+ dual ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    dual~1az a grammatical number category referring to two items or units as opposed to one item or more than two items (plural)
+    double~10a 
+    double~11a 
+ dirt ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    dirt~1nz (^comment~3) disgraceful gossip about the private lives of other people
+    stain~4n 
+    soil~4n 
+    shit~6nz (^stool~4) obscene terms for feces
+    dirt~5az not leveled or drained
+    dirt~6az 
+ dishwasher ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    dishwasher~1nz (^appliance~1) a machine for washing dishes
+    dishwasher~2nz (^jack~10) someone who washes dishes
+ disk ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    disk~1nz (^circle~2) a flat circular plate
+    disk~2nz (^device~2) a memory device consisting of a flat disk covered with a magnetic coating on which information is stored
+    record~3n 
+    saucer~4n 
+    disk~5vz draw a harrow over
+ ditch ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ditch~1nz (^artifact~1) a long narrow excavation in the earth
+    ditch~2nz (^water~3) any small natural waterway
+    ditch~3vz cut a trench in, as for drainage
+    ditch~4vz crash or crash-land
+    ditch~5vz make an emergency landing on water
+    dump~8v 
+    ditch~7vz throw away
+    ditch~8vz forsake
+ divided ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    shared~1az 
+    divided~2az 
+    divided~3az separated into parts or pieces
+ document ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    document~1nz (^creation~3) anything serving as a representation of a person's thinking by means of symbolic marks
+    document~2nz (^writing~4) writing that provides information
+    document~3nz (^file~3) a computer file that contains text (and possibly formatting instructions) using seven-bit ASCII characters
+    document~4nz (^communication~1) a written account of ownership or obligation
+    document~5vz support or supply with references
+    document~6vz record in detail
+ doily ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:ADVERB ) 
+    doily~1nz (^linen~1) 
+ doll ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    doll~1nz (^toy~1) a small replica of a person
+    bird~5n 
+ door ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    door~1nz (^barrier~1) a swinging or sliding barrier that will close the entrance to a room or building or vehicle
+    door~2nz (^room~1) a room that is entered via a door
+    door~3nz (^structure~1) a structure where people live or work 
+    doorway~1nz (^approach~4) the entrance through which you enter or leave a room or building
+    door~5nz (^admission~2) anything providing a means of access 
+ doorbell ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    bell~4nz (^button~3) a push button at an outer door that gives a ringing or buzzing signal when pushed
+ doorway ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    door~4n 
+ dormitory ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hall~2n 
+    dormitory~2nz (^bedroom~1) a large sleeping room containing several beds
+ doubler ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:ADJECTIVE ) comparative=double 
+    doubler~1nz (^device~2) an electronic device that doubles the voltage or the frequency of an input signal
+ draining ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    exhausting~2a 
+ drawer ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    drawer~1nz (^container~1) a boxlike container in a piece of furniture
+    drawer~2nz (^artist~1) an artist skilled at drawing
+    drawer~3nz (^individual~1) the person who writes a check or draft instructing the drawee to pay someone else
+ drift ( meanings=17 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gallery~1nz (^passage~6) a horizontal passageway in a mine
+    drift~2nz (^strain~4) the pervading meaning or tenor
+    trend~2n 
+    drift~4nz (^mass~5) a large mass of material that is heaped up by the wind or by water currents
+    drift~5nz (^force~10) a force that moves something along
+    drift~6nz (^activity~4) the gradual departure from an intended course due to external influences
+    drift~7nz (^process~1) a process of linguistic change over a period of time
+    drift~8vz be piled up in banks or heaps by the force of wind or a current
+    drift~9vz be subject to fluctuation
+    drift~10vz drive slowly and far afield for grazing
+    drift~11vz cause to be carried by a current
+    stray~5v 
+    blow~18v 
+    drift~14vz move in an unhurried fashion
+    stray~6v 
+    drift~16vz live unhurriedly, irresponsibly, or freely
+    drift~17vz vary or move from a fixed point or course
+ dripping ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    drip~2n 
+    dripping~2nz (^flow~2) a liquid that flows in drops (as from the eaves of house)
+    dripping~3az 
+    soaking~4bz extremely wet
+ driven ( meanings=3 glosses=3 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=drove 
+    determined~1az strongly motivated to succeed
+    impelled~1az urged or forced to action through moral pressure
+    driven~3az compelled forcibly by an outside agency
+ drove ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PAST NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=drive 
+    drove~1nz (^chisel~1) a stonemason's chisel with a broad edge for dressing stone
+    drove~2nz (^crowd~1) a moving crowd
+    drove~3nz (^group~1) a group of animals moving together
+ drumstick ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    drumstick~1nz (^stick~1) a stick used for playing a drum
+    drumstick~2nz (^helping~1) the lower joint of the leg of a fowl
+ dryer ( meanings=1 glosses=1 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) comparative=driest 
+    drier~1nz (^appliance~1) an appliance that removes moisture
+ drier ( meanings=2 glosses=1 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=dry 
+    dryer~1n 
+    drier~2nz (^cause~1) a substance that promotes drying
+ dump ( meanings=10 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dump~1nz (^store~3) a place where supplies can be stored
+    dump~2nz (^copy~2) a copy of the contents of a computer storage device
+    dump~3nz (^parcel~4) a piece of land where waste materials are dumped
+    shit~4nz (^emission~3) a coarse term for defecation
+    deck~5v 
+    dump~6vz fall abruptly
+    dump~7vz drop in a heap or mass
+    ditch~6vz sever all ties with, usually unceremoniously or irresponsibly
+    dump~9vz throw away as refuse
+    dump~10vz sell at artificially low prices
+ duplicate ( meanings=8 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    duplicate~1nz (^copy~1) a copy that corresponds to an original exactly
+    extra~1n 
+    matching~2az being two identical
+    duplicate~4az identically copied from an original
+    double~16v 
+    double~19v 
+    duplicate~7vz make a duplicate or duplicates of
+    parallel~9vz duplicate or match
+ durable ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    lasting~1az existing for a long time
+    durable~2az very long lasting
+    durable~3az capable of withstanding wear and tear and decay
+    durable~4az 
+ dustpan ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    dustpan~1nz (^receptacle~1) a short-handled receptacle into which dust can be swept
+    dustpan~2nz (^measure~1) the quantity that a dustpan will hold
+ dwelling ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    home~1n 
+ diffusing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    diffusing~1az 
+ darn ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    mend~2n 
+    hoot~1n 
+    darn~3vz repair by sewing
+ dope ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    pot~2n 
+    poop~2n 
+    dope~3nz (^drink~3) carbonated drink flavored with extract from kola nuts
+    dummy~3n 
+    dope~5vz give a narcotic to
+    dope~6vz add impurities to in order to produce or modify its properties
+    dope~7vz take drugs to improve one's athletic performance
+ doodle ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    scrabble~1nz (^drawing~5) an aimless drawing
+    doodle~2vz make a doodle
+ downer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=down 
+    downer~1nz (^drug~1) a drug that reduces excitability and calms a person
+ diminished ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    wasted~1az diminished in size or strength as a result of disease or injury or lack of use
+    small~3a 
+    diminished~3az reduction by a semitone of any perfect or minor musical interval
+    lessened~1az impaired by diminution
+    diminished~5az 
+ dandy ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) comparative=dandiest 
+    dandy~1nz (^vessel~1) a sailing vessel with two masts
+    beau~2n 
+    smashing~2a 
+ drama ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    drama~1nz (^attribute~1) the quality of being arresting or highly emotional
+    drama~2nz (^style~8) the literary genre of works intended for the theater
+    play~12nz (^writing~4) a dramatic work intended for performance by actors on a stage
+    drama~4nz (^event~1) an episode that is turbulent or highly emotional
+ dent ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ding~1nz (^appearance~4) an impression in a surface
+    dent~2nz (^result~4) an appreciable consequence 
+    incision~2n 
+    dent~4vz make a depression into
+ ding ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    dent~1n 
+    ding~2nz (^sound~5) a ringing sound
+    dong~2vz go `ding dong', like a bell
+ diversity ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    diversity~1nz (^status~1) the condition or result of being changeable
+    variety~1n 
+ difference ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    difference~1nz (^quality~1) the quality of being unlike or dissimilar
+    conflict~4nz (^act~1) a disagreement or argument about something important
+    difference~3nz (^change~5) a variation that deviates from the standard or norm
+    difference~4nz (^number~11) the number that remains after subtraction
+    difference~5nz (^change~10) a significant change
+ discrepancy ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    variance~4nz (^difference~1) a difference between conflicting facts or claims or opinions
+    variance~7nz (^difference~3) an event that departs from expectations
+ doubt ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) (null) ) 
+    question~1n 
+    doubt~2nz (^status~1) the state of being unsure of something
+    doubt~3vz consider unlikely or have doubts about
+    doubt~4vz lack confidence in or have doubts about
+ daring ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB (null) ) 
+    daring~1nz (^courage~1) the trait of being willing to undertake things that involve risk or danger
+    dare~1n 
+    audacious~1az disposed to venture or take risks
+    daring~4az radically new or original
+    daring~5az 
+    daring~6vz 
+ disarray ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    disarray~1nz (^attribute~1) untidiness
+    disarray~2nz (^status~1) a mental state characterized by a lack of clear and orderly thought and behavior
+    disarray~3vz bring disorder to
+ disrespect ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    disrespect~1nz (^manner~1) a manner that is generally disrespectful and contemptuous
+    disrespect~2nz (^attitude~3) a disrespectful mental attitude
+    disrespect~3nz (^message~2) an expression of lack of respect
+    disrespect~4vz have little or no respect for
+    disrespect~5vz show a lack of respect for
+ density ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    density~1nz (^body~3) the amount per unit size
+    concentration~5n 
+ desire ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    desire~1nz (^tendency~1) an inclination to want things
+    desire~2nz (^feeling~1) the feeling that accompanies an unsatisfied state
+    desire~3nz (^status~1) something that is desired
+    want~8vz feel or have a desire for
+    desire~5vz express a desire for
+    trust~9vz expect and wish
+ darkness ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN ) 
+    darkness~1nz (^color~3) a swarthy complexion
+    darkness~2nz (^value~1) having a dark or somber color
+    dark~1nz (^ignorance~1) an unenlightened state
+    dark~2nz (^scene~8) an unilluminated area
+    dark~3nz (^state~1) absence of light or illumination
+    dark~4nz (^status~1) absence of moral or spiritual values
+ dominance ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    dominance~1nz (^property~2) superior development of one side of the body
+    authority~2nz (^control~5) the power or right to give orders or make decisions
+    dominance~3nz (^process~1) the organic phenomenon in which one of a pair of alleles present in a genotype is expressed in the phenotype and the other allele of the pair is not
+    control~11n 
+ duration ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    length~2n 
+    duration~2nz (^time~1) the property of enduring or continuing in time
+    duration~3nz (^period~3) the period of time during which something continues
+ distance ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    distance~1nz (^arrangement~2) the property created by the space between two objects or points
+    length~4n 
+    distance~3nz (^feeling~1) indifference by personal withdrawal
+    distance~4nz (^part~9) a distant region
+    space~9n 
+    distance~6nz (^point~26) a remote point in time
+    distance~7vz go far ahead of
+    distance~8vz keep at a distance
+ dimension ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dimension~1nz (^property~2) magnitude or extent
+    dimension~2nz (^property~2) the magnitude of something in a particular direction
+    property~3n 
+    dimension~4nz (^number~11) one of three Cartesian coordinates that determine a position in space
+    dimension~5vz shape or form to required dimensions
+    dimension~6vz indicate the dimensions on
+ degree ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    grade~3nz (^property~2) a position on a scale of intensity or amount or quality
+    degree~2nz (^property~2) the seriousness of something 
+    degree~3nz (^power~4) the highest power of a term or variable
+    degree~4nz (^honor~3) an award conferred by a college or university signifying that the recipient has satisfactorily completed a course of study
+    degree~5nz (^unit~5) a measure for arcs and angles
+    degree~6nz (^unit~5) a unit of temperature on a specified scale
+    point~25nz (^state~1) a specific identifiable position in a continuum or series or especially in a process
+ diameter ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    diameter~1nz (^length~3) the length of a straight line passing through the center of a circle and connecting two points on the circumference
+    diameter~2nz (^line~29) a straight line connecting the center of a circle with two points on its perimeter
+ dollar ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    dollar~1nz (^symbol~2) a symbol of commercialism or greed
+    dollar~2nz (^coin~1) a United States coin worth one dollar
+    buck~4nz (^note~7) a piece of paper money worth one dollar
+    dollar~4nz (^unit~5) the basic monetary unit in many countries
+ dearth ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    paucity~1n 
+    famine~2nz (^lack~1) an acute insufficiency
+ damn ( meanings=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL INTERJECTION NOUN_SINGULAR COMMON4 COMMON2 COMMON1 posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    darn~2n 
+    blame~3a 
+    damn~3az 
+    damn~4bz 
+    damn~5vz 
+ disadvantage ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    disadvantage~1nz (^bad~1) the quality of having an inferior or less favorable position
+    disadvantage~2vz put at a disadvantage
+ drawback ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    drawback~1nz (^disadvantage~1) the quality of being a hindrance
+ dominant ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    dominant~1nz (^order~12) an allele that produces the same phenotype whether its paired allele is identical or different
+    dominant~2nz (^note~5) the fifth note of the diatonic scale
+    dominant~3az exercising influence or control
+    dominant~4az producing the same phenotype whether its allele is identical or dissimilar
+    prevalent~1a 
+    dominant~6az 
+ digit ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    digit~1nz (^member~2) a finger or toe in human beings or corresponding body part in other vertebrates
+    finger~3n 
+    figure~12n 
+ dimple ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dimple~1nz (^solid~1) a small natural hollow in the cheek or chin
+    dimple~2nz (^solid~1) any slight depression in a surface
+    dimple~3nz (^paper~7) a chad that has been punched or dimpled but all four corners are still attached
+    dimple~4vz produce dimples while smiling
+    dimple~5vz mark with, or as if with, dimples
+ dream ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=dreamed 
+    dream~1nz (^vision~1) a fantastic but vain hope 
+    dream~2nz (^status~1) a state of mind characterized by abstraction and release from reality
+    dreaming~1nz (^operation~8) a series of mental images and emotions occurring during sleep
+    dreaming~2nz (^vision~1) imaginative thoughts indulged in while awake
+    dream~5nz (^desire~2) a cherished desire
+    dream~6nz (^perfection~3) someone or something wonderful
+    daydream~2vz have a daydream
+    dream~8vz experience while sleeping
+ daylight ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    daylight~1nz (^light~12) light during the daytime
+    daytime~1nz (^period~3) the time after sunrise and before sunset while it is light outside
+ daze ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fog~1n 
+    stupor~2n 
+    daze~3vz overcome as with astonishment or disbelief
+    daze~4vz to cause someone to lose clear vision, especially from intense light
+ determining ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    deciding~2az 
+ decisive ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    critical~5a 
+    decisive~2az determining or having the power to determine an outcome
+    decisive~3az characterized by decision and firmness
+    decisive~4az unmistakable
+    decisive~5az 
+ digestion ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    digestion~1nz (^learning~1) learning and coming to understand ideas and information
+    digestion~2nz (^process~1) the organic process by which food is converted into substances that can be absorbed into the body
+    digestion~3nz (^activity~4) the process of decomposing organic matter by bacteria or by chemical action or heat
+ dreaming ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    dream~3n 
+    dream~4n 
+ daydream ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    daydreaming~1nz (^dream~4) absentminded dreaming while awake
+    dream~7v 
+    moon~7v 
+ daydreaming ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    daydream~1n 
+    daydreaming~2az 
+ deciding ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    deciding~1nz (^operation~8) 
+    determining~1a 
+ datum ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) plural=data 
+    datum~1nz (^information~2) 
+ detail ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    point~8n 
+    detail~2nz (^discussion~1) extended treatment of particulars
+    detail~3nz (^gang~2) a crew of workers selected for a particular task
+    detail~4nz (^force~6) a temporary military unit
+    particular~3n 
+    detail~6vz assign to a specific task
+    detail~7vz provide details for
+ delight ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    pleasure~4nz (^information~2) something or someone that provides a source of happiness
+    delectation~2nz (^pleasure~5) a feeling of extreme pleasure or satisfaction
+    enjoy~1vz take delight in
+    please~2vz give pleasure to or be pleasing to
+    enthrall~1vz hold spellbound
+ dependent ( meanings=8 glosses=7 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    dependent~1nz (^individual~1) a person who relies on another person for support
+    hooked~1az addicted to a drug
+    dependent~3az contingent on something else
+    dependent~4az relying on or requiring a person or thing for support, supply, or what is needed
+    subordinate~3az unable to stand alone syntactically as a complete sentence
+    subject~10az being under the power or sovereignty of another or others
+    dependent~7az held from above
+    dependent~8az 
+ democracy ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    democracy~1nz (^philosophy~1) the doctrine that the numerical majority of an organized group can make decisions binding on the whole group
+    democracy~2nz (^attitude~3) the political orientation of those who favor government by the people or by their elected representatives
+    republic~1nz (^group~1) a political system in which the supreme power lies in a body of citizens who can elect people to represent them
+ destination ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    destination~1nz (^goal~3) the ultimate goal for which something is done
+    address~4n 
+    goal~4n 
+ dislike ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    disapproval~2nz (^disposition~4) an inclination to withhold approval from some person or group
+    dislike~2nz (^feeling~1) a feeling of aversion or antipathy
+    dislike~3vz have or feel a dislike or distaste for
+ dictionary ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    dictionary~1nz (^reference~5) a reference book containing an alphabetical list of words with information about them
+ directory ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    directory~1nz (^reference~5) an alphabetical list of names and addresses
+    directory~2nz (^list~2) a listing of the files stored in memory (usually on a hard disk)
+ dissolve ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dissolve~1nz (^passage~8) a gradual transition from one scene to the next
+    dismiss~1vz declare void
+    dissolve~3vz come to an end
+    dissolve~4vz bring the association of to an end or cause to break up
+    melt~5v 
+    dissolve~6vz pass into a solution
+    resolve~3vz cause to go into a solution
+    dissolve~8vz become weaker
+    dissolve~9vz cause to fade away
+    dissolve~10vz lose control emotionally
+    dissolve~11vz cause to lose control emotionally
+    dissolve~12vz stop functioning or cohering as a unit
+ DMD ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    DMD~1nz (^degree~4) 
+ DDS ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    DDS~1nz (^degree~4) 
+ dictum ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=dicta 
+    pronouncement~1n 
+    dictum~2nz (^opinion~5) an opinion voiced by a judge on a point of law not directly bearing on the case in question and therefore not binding
+ debt ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    debt~1nz (^instrument~5) an obligation to pay or do something
+    debt~2nz (^relation~1) money or goods or services owed by one person to another
+    debt~3nz (^state~1) the state of owing something 
+ dotted ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    dashed~1az having gaps or spaces
+    dotted~2az 
+    dotted~3az 
+ diagonal ( meanings=8 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    stroke~6n 
+    diagonal~2nz (^set~9) a set of entries in a square matrix running diagonally either from the upper left to lower right entry or running from the upper right to lower left entry
+    diagonal~3nz (^line~21) an oblique line of squares of the same color on a checkerboard
+    diagonal~4nz (^line~29) a line or cut across a fabric that is not at right angles to a side of the fabric
+    diagonal~5nz (^line~29) a straight line connecting any two vertices of a polygon that are not adjacent
+    sloped~1az having an oblique or slanted direction
+    diagonal~7az connecting two nonadjacent corners of a plane figure or any two corners of a solid that are not in the same face
+    diagonal~8az 
+ do ( meanings=13 glosses=12 VERB_PRESENT VERB_INFINITIVE AUX_DO VERB COMMON4 COMMON2 KINDERGARTEN GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=doing 
+    behave~1vz behave in a certain manner
+    arrange~1vz arrange attractively
+    make~22vz create or design, often in a certain way
+    cause~7vz give rise to
+    perform~1vz carry out or perform an action
+    do~6vz travel or traverse 
+    manage~5vz carry on or function
+    make~42vz engage in
+    perform~4vz get done
+    come~13vz proceed or get along
+    serve~12vz be sufficient
+    serve~16vz spend time in prison or in a labor camp
+    do~13vz 
+ dirge ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    dirge~1nz (^song~3) a song or hymn of mourning composed or performed as a memorial to a dead person
+ discussion ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    treatment~4nz (^communication~2) an extended communication dealing with some particular topic
+    word~5n 
+ debate ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    argument~6n 
+    debate~2nz (^address~7) the formal presentation of a stated proposition and the opposition to it
+    debate~3vz argue with one another
+    fence~3v 
+    deliberate~4v 
+    consider~5v 
+ detailing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    detailing~1nz (^act~1) 
+ dare ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE AUX_VERB_PRESENT NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    daring~2nz (^challenge~4) a challenge to do something dangerous or foolhardy
+    defy~1vz challenge
+    presume~4vz take upon oneself
+    dare~4vz to be courageous enough to try or do something
+    dare~5vz 
+ destiny ( meanings=3 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    fate~1n 
+    fate~2n 
+    portion~7n 
+ detriment ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    hurt~2n 
+ debris ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 ) 
+    dust~3n 
+ diurnal ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    diurnal~1az of or belonging to or active during the day
+    diurnal~2az having a daily cycle or occurring every day
+ defeat ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    licking~2nz (^finish~4) an unsuccessful ending to a struggle or contest
+    defeat~2nz (^desire~2) the feeling that accompanies an experience of being thwarted in attaining your goals
+    defeat~3vz win a victory over
+    kill~16v 
+ disgust ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    disgust~1nz (^dislike~2) strong feelings of dislike
+    revolt~2vz cause aversion in
+    repel~5v 
+ dismay ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    alarm~4n 
+    dismay~2nz (^despair~1) the feeling of despair in the face of obstacles
+    alarm~6v 
+    dismay~4vz lower someone's spirits
+ dread ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    dread~1nz (^fear~1) fearful expectation or anticipation
+    terrible~1a 
+    fear~5v 
+ diffidence ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    diffidence~1nz (^fear~1) lack of self-confidence
+ despair ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    despair~1nz (^feeling~1) the feeling that everything is wrong and nothing will turn out well
+    despair~2nz (^status~1) a state in which all hope is lost or absent
+    despair~3vz abandon hope
+ despising ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:VERB ) 
+    despising~1nz (^hate~1) a feeling of scornful hatred
+ dainty ( meanings=6 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:ADJECTIVE (null) ) comparative=daintiest 
+    treat~2n 
+    dainty~2az delicately beautiful
+    nice~2a 
+    dainty~4az affectedly dainty or refined
+    dainty~5az especially pleasing to the taste
+    dainty~6az 
+ dim ( meanings=10 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=dimer 
+    subdued~1az lacking in light
+    dimmed~1az made dim or less bright
+    dumb~4a 
+    faint~3az lacking clarity or distinctness
+    black~15a 
+    blur~2vz become vague or indistinct
+    blind~9vz make dim by comparison or conceal
+    dim~8vz make dim or lusterless
+    dim~9vz become dim or lusterless
+    dip~22v 
+ doughnut ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    doughnut~1nz (^cake~2) a small ring-shaped friedcake
+    ring~9nz (^solid~1) a toroidal shape
+ dried ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    dried~1az preserved by removing natural moisture
+    dried~2az not still wet
+ dill ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    dill~1nz (^seasoning~2) aromatic threadlike foliage of the dill plant used as seasoning
+    dill~2nz (^plant~1) aromatic Old World herb having aromatic threadlike foliage and seeds used as seasoning
+ drawn ( meanings=3 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=drew 
+    drawn~1az having the curtains or draperies closed or pulled shut
+    worn~1az showing the wearing effects of overwork or care or suffering
+    drawn~3az 
+ dough ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    dough~1nz (^mixture~3) a flour mixture stiff enough to knead or roll
+    lettuce~3n 
+ deaf ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    deaf~1nz (^people~1) people who have severe hearing impairments
+    deaf~2az lacking or deprived of the sense of hearing wholly or in part
+    deaf~3az unwilling or refusing to pay heed
+    deaf~4vz make or render deaf
+ defeated ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB (null) ) 
+    defeated~1nz (^people~1) 
+    defeated~2az beaten or overcome
+    foiled~1a 
+    defeated~4az 
+ doomed ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB ) 
+    doomed~1nz (^people~1) people who are destined to die soon
+    doomed~2az marked for certain death
+    fated~1az determined by tragic fate
+    unlucky~1a 
+    doomed~5az in danger of the eternal punishment of Hell
+    doomed~6az 
+ defending ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    defending~1az attempting to or designed to prevent an opponent from winning or scoring
+ developing ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    development~6n 
+    developing~2az 
+ dada ( meanings=2 glosses=1 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    dada~1nz (^front~3) a nihilistic art movement that flourished in Europe early in the 20th century
+    daddy~1n 
+ district ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    territory~3nz (^region~4) a region marked off for administrative or other purposes
+    zone~6v 
+ downtown ( meanings=3 glosses=3 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) 
+    downtown~1nz (^district~1) the central area or commercial center of a town or city
+    downtown~2az of or located in the lower part of a town, or in the business center
+    downtown~3bz toward or in the lower or central part of town
+ dude ( meanings=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    swell~4n 
+    fellow~5n 
+ divide ( meanings=8 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    divide~1nz (^line~23) a ridge of land that separates two adjacent river systems
+    divide~2nz (^conflict~7) a serious disagreement between two groups of people
+    fraction~4vz perform a division
+    part~14v 
+    part~15v 
+    separate~16v 
+    split~17v 
+    separate~20v 
+ dropping ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    falling~1az coming down freely under the influence of gravity
+ decline ( meanings=11 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    descent~5n 
+    decay~2nz (^decrease~4) a gradual decrease
+    decline~3nz (^decrease~4) change toward something smaller or lower
+    decline~4nz (^status~1) a condition inferior to an earlier condition
+    decline~5vz grow worse
+    decline~6vz grow smaller
+    refuse~2v 
+    decline~8vz inflect for number, gender, case, etc.,
+    correct~10v 
+    decline~10vz go down
+    reject~6v 
+ diffuse ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=diffuser 
+    diffuse~1az spread out
+    diffuse~2az lacking conciseness
+    soft~9a 
+    spread~14v 
+    riddle~6v 
+    spread~21v 
+ deity ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    god~2n 
+ defender ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    guardian~1n 
+    defender~2nz (^individual~1) a fighter who holds out against attack
+ defendant ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    suspect~1nz (^party~5) a person or institution against whom an action is brought in a court of law
+ dear ( meanings=9 glosses=4 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    love~4n 
+    lamb~3n 
+    good~7a 
+    costly~1a 
+    darling~2az dearly loved
+    earnest~4az earnest
+    dear~7az 
+    dear~8bz at a great cost
+    dear~9bz with affection
+ dearest ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:ADJECTIVE ) 
+    dear~1n 
+ director ( meanings=5 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    conductor~2n 
+    manager~2n 
+    director~3nz (^supervisor~2) someone who supervises the actors and directs the action in the production of a show
+    director~4nz (^member~4) member of a board of directors
+    director~5nz (^producer~3) the person who directs the making of a film
+ dad ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    dada~2n 
+ dame ( meanings=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    skirt~3n 
+    lady~1n 
+ damsel ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    damsel~1nz (^maiden~1) a young unmarried woman
+ dancer ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    dancer~1nz (^individual~1) a performer who dances professionally
+    dancer~2nz (^individual~1) a person who participates in a social gathering arranged for dancing
+ darling ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    pet~3n 
+    dear~5a 
+ daughter ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    girl~1nz (^female~2) a female human offspring
+ daughter-in-law ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) plural=daughters-in-law 
+    daughter-in-law~1nz (^relative~2) the wife of your son
+ departed ( meanings=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    departed~1nz (^individual~1) 
+    asleep~1a 
+    gone~4a 
+    departed~4az 
+ decadent ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    decadent~1nz (^individual~1) a person who has fallen into a decadent state
+    decadent~2az marked by excessive self-indulgence and moral decay
+    decadent~3az 
+ decorator ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    decorator~1nz (^artist~1) someone who decorates
+    designer~5n 
+ delegate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    delegate~1nz (^representative~3) a person appointed or elected to represent others
+    delegate~2vz give an assignment to to a post, or assign a task to (a person)
+    delegate~3vz transfer power to someone
+ delinquent ( meanings=4 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    delinquent~1nz (^individual~1) a young offender
+    delinquent~2az past due
+    delinquent~3az failing in what duty requires
+    delinquent~4az guilty of a misdeed
+ deputy ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    lieutenant~1nz (^helper~2) an assistant with power to act when his superior is absent
+    deputy~2nz (^guardian~1) someone authorized to exercise the powers of sheriff in emergencies
+    deputy~3nz (^representative~3) a person appointed to represent or act on behalf of others
+    deputy~4nz (^lawmaker~1) a member of the lower chamber of a legislative assembly
+ descendant ( meanings=3 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    descendant~1nz (^relative~2) a person considered as descended from some ancestor or race
+    descendant~2az proceeding by descent from an ancestor
+    descendant~3az going or coming down
+ diviner ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:ADJECTIVE ) comparative=divine 
+    diviner~1nz (^individual~1) someone who claims to discover hidden knowledge with the aid of supernatural powers
+ Dr. ( meanings=2 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN GRADE1_2 ) 
+    physician~1n 
+    doctor~3n 
+ dominatrix ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    dominatrix~1nz (^woman~3) a dominating woman
+ doorman ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    porter~2nz (^guard~9) someone who guards an entrance
+ doubting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    skeptical~2a 
+ drudge ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    drudge~1nz (^jack~10) a laborer who is obliged to do menial work
+    drudge~2nz (^individual~1) one who works hard at boring tasks
+    toil~2v 
+ drunk ( meanings=4 glosses=4 VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=drank 
+    drunk~1nz (^juicer~2) someone who is intoxicated
+    drunk~2nz (^juicer~2) a chronic drinker
+    drunk~3az stupefied or excited by a chemical substance 
+    drunk~4az as if under the influence of alcohol
+ duchess ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    duchess~1nz (^leader~2) the wife of a duke or a woman holding ducal title in her own right
+ duke ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    duke~1nz (^peer~2) a British peer of the highest rank
+    duke~2nz (^noble~1) a nobleman of high rank
+ divorced ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    divorced~1az of someone whose marriage has been legally dissolved
+ disciplinarian ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    disciplinarian~1nz (^individual~1) someone who demands exact conformity to rules and forms
+ deviate ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    deviate~1nz (^individual~1) a person whose behavior deviates from what is acceptable especially in sexual behavior
+    deviate~2az markedly different from an accepted norm
+    deviate~3vz turn aside
+    deviate~4vz cause to turn away from a previous or expected course
+    vary~3v 
+ diva ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=dive 
+    diva~1nz (^singer~1) a distinguished female operatic singer
+    diva~2nz 
+ Duchess ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ da ( meanings=1 DETERMINER COMMON4 COMMON1 KINDERGARTEN ) 
+    da~1z 
+ decay ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    decay~1nz (^process~1) the organic phenomenon of rotting
+    decline~2n 
+    decay~3nz (^activity~4) the process of gradually becoming inferior
+    decay~4nz (^activity~4) the spontaneous disintegration of a radioactive substance along with the emission of ionizing radiation
+    decay~5nz (^status~1) an inferior state resulting from the process of decaying
+    decay~6vz fall into decay or ruin
+    decompose~3v 
+    decay~8vz undergo decay or decomposition
+ dividend ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    dividend~1nz (^incentive~2) a bonus
+    dividend~2nz (^profit~2) that part of the earnings of a corporation that is distributed to its shareholders
+    dividend~3nz (^number~11) a number to be divided by another number
+ destructive ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    destructive~1az causing destruction or much damage
+    destructive~2az 
+ dehydration ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    dehydration~1nz (^activity~4) the process of extracting moisture
+    dehydration~2nz (^thirst~2) depletion of bodily fluids
+    dehydration~3nz (^status~1) dryness resulting from the removal of water
+ dilapidation ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    dilapidation~1nz (^decay~3) the process of becoming dilapidated
+    dilapidation~2nz (^decay~5) a state of deterioration due to old age or long use
+ dissolving ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    dissolving~1nz (^activity~4) 
+ defining ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    shaping~2nz (^process~1) any process serving to define the shape of something
+ dong ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    dong~1nz (^unit~5) the basic unit of money in Vietnam
+    ding~3v 
+ denominator ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    denominator~1nz (^divisor~1) the divisor of a fraction
+ divisor ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    divisor~1nz (^number~11) the number by which a dividend is divided
+    divisor~2nz (^number~11) one of two or more integers that can be exactly divided into another integer
+ decade ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    ten~2nz (^number~11) the cardinal number that is the sum of nine and one
+    decade~2nz (^period~3) a period of 10 years
+ dozen ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    twelve~1n 
+    twelve~2a 
+ dozens ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
+    lots~1n 
+ distorted ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    twisted~1az having an intended meaning altered or misrepresented
+    distorted~2az so badly formed or out of shape as to be ugly
+    distorted~3az 
+ disease ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    disease~1nz (^sickness~1) an impairment of health or a condition of abnormal functioning
+ disuse ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    neglect~5n 
+ dimer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) comparative=dimmest 
+    dimer~1nz (^compound~3) a compound whose molecules are composed of two identical monomers
+ dressed ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:VERB ) 
+    attired~1az dressed or clothed especially in fine attire
+    dressed~2az dressed in fancy or formal clothing
+    polished~1az to trim and smooth
+    dressed~4az treated with medications and protective covering
+ dye ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dye~1nz (^color~8) a usually soluble substance for staining or coloring e.g. fabrics or hair
+    dye~2vz color with dye
+ dying ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB (null) ) 
+    death~7n 
+    dying~2az in or associated with the process of passing from life or ceasing to be
+    anxious~1a 
+    dying~4az 
+ daytime ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    day~6n 
+ dawning ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    sunrise~3n 
+ daybreak ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    dawn~2nz (^hour~3) the first light of day
+ dusk ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT TIMEWORD ) 
+    twilight~3n 
+    dusk~2vz become dusk
+ daughters-in-law ( NOUN NOUN_PLURAL posdefault:NOUN ) plural=daughter-in-law 
+ diagnoses ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=diagnosis 
+ dicta ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=dictum 
+ dudette ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER KINDERGARTEN ) 
+    dudette~1nz 
+ dang ( INTERJECTION ) 
+ doggone ( INTERJECTION ) 
+ drat ( INTERJECTION ) 
+ duh ( INTERJECTION ) 
+ disobliging ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:VERB ) 
+    disobliging~1az 
+ dull ( meanings=20 glosses=15 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    slow~1a 
+    dull~2az emitting or reflecting very little light
+    dull~3az very low in saturation
+    dim~3a 
+    dull~5az darkened with overcast
+    dull~6az not having a sharp edge or point
+    dull~7az not keenly felt
+    dull~8az lacking in liveliness or animation
+    ho-hum~1a 
+    dull~10az being or made softer or less loud or clear
+    thudding~1az not clear and resonant
+    dull~12az blunted in responsiveness or sensibility
+    dull~13az 
+    dull~14vz make less lively or vigorous
+    dull~15vz become dull or lusterless in appearance
+    dull~16vz become less interesting or attractive
+    dull~17vz make dull in appearance
+    dull~18vz make dull or blunt
+    numb~5vz make numb or insensitive
+    damp~7v 
+ deficient ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    lacking~1a 
+    inferior~3az falling short of some prescribed norm
+    deficient~3az of a quantity not able to fulfill a need or requirement
+    deficient~4az 
+ decorated ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    adorned~1az provided with something intended to increase its beauty or distinction
+    decorated~2az 
+ dismayed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    aghast~1a 
+ determined ( meanings=6 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB (null) (null) ) 
+    driven~1a 
+    determined~2az having been learned or found or determined especially by investigation
+    determined~3az characterized by great determination
+    set~18a 
+    determined~5az devoting full strength and concentrated attention to
+    determined~6az 
+ drowsy ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=drowsiest 
+    drowsy~1az showing lack of attention or boredom
+    drowsy~2az half asleep
+    drowsy~3az 
+ dismaying ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    dismaying~1az 
+ dreaded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    awful~1a 
+ dreadful ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    dreaded~1a 
+    awful~2a 
+    dreadful~3az very unpleasant
+    dreadful~4az 
+ directing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    guiding~1a 
+ dauntless ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    fearless~2a 
+    dauntless~2az 
+ dimmed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    dim~2a 
+    dimmed~2az 
+ dashed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    dotted~1a 
+ drudging ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
+    laboring~1a 
+ detailed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB (null) ) 
+    detailed~1az 
+    detailed~2az 
+ doubtful ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    doubtful~1az fraught with uncertainty or doubt
+    doubtful~2az open to doubt or suspicion
+    doubtful~3az unsettled in mind or opinion
+    doubtful~4az 
+ drained ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    dead~7a 
+    drained~2az emptied or exhausted of 
+    drained~3az 
+ dismal ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    sorry~1a 
+    dismal~2az 
+ drear ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 ) 
+    dark~10a 
+    drear~2az 
+ dreary ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=dreariest 
+    drear~1a 
+    dreary~2az lacking in liveliness or charm or surprise
+    dreary~3az 
+ dulled ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    greyed~1az deprived of color
+    dulled~2az 
+    dulled~3az 
+ dazed ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB (null) ) 
+    stupid~2a 
+    foggy~4a 
+    dazed~3az 
+ distant ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    distant~1az located far away spatially
+    removed~1az separate or apart in time
+    distant~3az separated in space or coming from or going to a distance
+    distant~4az far apart in relevance or relationship or kinship 
+    aloof~1az remote in manner
+    distant~6az 
+ disordered ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    scattered~1az lacking orderly continuity
+    disordered~2az not arranged in order
+    confused~3a 
+    disordered~4az 
+ different ( meanings=7 glosses=5 ADJECTIVE DETERMINER ADJECTIVE_NORMAL COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    different~1az differing from all others
+    unlike~1az marked by dissimilarity
+    different~3az unlike in nature or quality or form or degree
+    different~4az distinctly separate from the first
+    different~5az distinct or separate
+    different~6az 
+    different~7z 
+ devoted ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    devoted~1az dedicated exclusively to a purpose or use
+    devoted~2az zealous in devotion or affection
+    devoted~3az 
+ dished ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    dished~1az 
+ dealt ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=deal 
+ diffused ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    diffused~1az subjected to scattering by reflection from a rough surface or transmission through a translucent material
+    diffuse~3a 
+ discernible ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    discernible~1az perceptible by the senses or intellect
+    discernible~2az capable of being seen or noticed
+    discernible~3az capable of being perceived clearly
+    discernible~4az 
+ damaging ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    damaging~1az 
+    detrimental~1a 
+    damaging~3az 
+ dissatisfied ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    dissatisfied~1az in a state of sulky dissatisfaction
+    dissatisfied~2az 
+ debatable ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    debatable~1az capable of being disproved
+    debatable~2az open to argument or debate
+    debatable~3az open to doubt or debate
+    debatable~4az 
+ demonstrated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    demonstrated~1az having been demonstrated or verified beyond doubt
+ dogging ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    persisting~1a 
+ disciplined ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    disciplined~1az obeying the rules
+    disciplined~2az trained mentally or physically by instruction or exercise
+    disciplined~3az 
+ disputed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    disputed~1az subject to disagreement and debate
+ done ( meanings=3 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN ) conjugate=did 
+    done~1az cooked until ready to serve
+    through~2a 
+    done~3vz 
+ dishonest ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    dishonest~1az capable of being corrupted
+    dishonest~2az deceptive or fraudulent
+    dishonest~3az 
+ depraved ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    depraved~1az deviating from what is considered moral or right or proper or good
+    depraved~2az 
+ darned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    blamed~1a 
+ damaged ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    damaged~1az harmed or injured or spoiled
+    damaged~2az 
+    damaged~3az 
+ dented ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    bent~5a 
+ decent ( meanings=8 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    decent~1az conforming to conventions of sexual behavior
+    decent~2az observing conventional sexual mores in speech or behavior or dress
+    decent~3az decently clothed
+    seemly~1az according with custom or propriety
+    nice~5a 
+    adequate~3a 
+    decent~7az 
+    right~28b 
+ declared ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    declared~1az made known or openly avowed
+    stated~1az declared as fact
+    declared~3az 
+ defined ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    defined~1az clearly characterized or delimited
+    outlined~1a 
+ decided ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    decided~1az 
+ delicate ( meanings=8 glosses=6 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    delicate~1az exquisitely fine and subtle and pleasing
+    frail~3az easily broken or damaged or destroyed
+    delicate~3az difficult to handle
+    delicate~4az developed with extreme delicacy and subtlety
+    delicate~5az of an instrument or device
+    delicate~6az marked by great skill especially in meticulous technique
+    soft~18a 
+    delicate~8az 
+ demanding ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    demanding~1az requiring more than usually expected or thought due
+    demanding~2az 
+ dependable ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    reliable~1az worthy of reliance or trust
+    good~25a 
+    dependable~3az consistent in performance or behavior
+    reliable~3a 
+    dependable~5az 
+ desirable ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    desirable~1az worth having or seeking or achieving
+    suitable~1a 
+    desirable~3az 
+ desired ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    coveted~1az 
+    craved~1az wanted intensely
+    desired~3az 
+ delectable ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    delectable~1az capable of arousing desire
+    delicious~2a 
+    delectable~3az 
+ destroyed ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    destroyed~1az spoiled or ruined or demolished
+    ruined~2a 
+    destroyed~3az 
+ demolished ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    razed~1az torn down and broken up
+ dismantled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    demolished~1a 
+ despoiled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    sacked~1az having been robbed and destroyed by force and violence
+ developed ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    developed~1az being changed over time so as to be e.g. stronger or more complete or more useful
+    developed~2az made more useful and profitable as by building or laying out roads
+    developed~3az 
+ difficult ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    hard~1az not easy
+    difficult~2az hard to control
+    difficult~3az 
+    difficult~4az 
+ distinguished ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    grand~3a 
+    distinguished~2az standing above others in character or attainment or reputation
+    distinguished~3az 
+ demeaning ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    humbling~1a 
+ documented ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    documented~1az furnished with or supported by documents
+    attested~1a 
+ doped ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    drugged~1a 
+    doped~2az treated or impregnated with a foreign substance
+ drugged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    doped~1az 
+ dragging ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    dragging~1az marked by a painfully slow and effortful manner
+ drastic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    drastic~1az forceful and extreme and rigorous
+    drastic~2az 
+ disqualified ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    disqualified~1az disqualified by law or rule or provision
+    disqualified~2az barred from competition for violation of rules
+ dismissed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    fired~1a 
+ delighted ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    charmed~1a 
+    delighted~2az greatly pleased
+    delighted~3az 
+    delighted~4az 
+ discouraging ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    discouraging~1az depriving of confidence or hope or enthusiasm and hence often deterring action
+    discouraging~2az expressing disapproval
+ decreased ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    reduced~1az made less in size or amount or degree
+ devouring ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    greedy~3a 
+ distressed ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    unhappy~1a 
+    worried~2a 
+    distressed~3az 
+    stressed~2az suffering severe physical strain or distress
+ dated ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    dated~1az marked by features of the immediate and usually discounted past
+    dated~2az 
+ disapproving ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    disapproving~1az expressing or manifesting disapproval
+ dipped ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    dipped~1az 
+ distressing ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    sad~1a 
+    troubling~1az causing distress or worry or anxiety
+ diabolical ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    diabolical~1az extremely evil or cruel
+    diabolical~2az showing the cunning or ingenuity or wickedness typical of a devil
+ detrimental ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    damaging~2az causing harm or injury
+    detrimental~2az 
+ disqualifying ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    disqualifying~1az depriving of legal right
+ despairing ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    desperate~5a 
+    despairing~2az 
+ desolate ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    desolate~1az crushed by grief
+    bleak~2a 
+    desolate~3az 
+    ravage~2v 
+    desolate~5vz reduce in population
+    abandon~4v 
+ droll ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    droll~1az comical in an odd or whimsical manner
+    droll~2az 
+ disposed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    tending~2a 
+    prepared~3a 
+ disinclined ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    disinclined~1az unwilling because of mild dislike or disapproval
+    disinclined~2az 
+ deserted ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    abandoned~1a 
+    deserted~2az 
+ didactic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    didactic~1az instructive
+    didactic~2az 
+ designed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    designed~1az 
+ deserved ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    deserved~1az properly deserved
+    deserved~2az 
+ deafening ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    deafening~1az loud enough to cause hearing loss
+ disliked ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    disliked~1az regarded with aversion
+    disliked~2az 
+ despised ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hated~1az treated with contempt
+ detested ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    despised~1a 
+ dissolved ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    dissolved~1az reduced to a liquid form
+ decreasing ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    decreasing~1az becoming less or smaller
+    decreasing~2az music
+ dyed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    colored~4a 
+ detected ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    detected~1az perceived with the mind
+    detected~2az perceived or discerned
+ disregarded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    forgotten~1a 
+ disgusting ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    revolting~1az highly offensive
+    disgusting~2az 
+ discouraged ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    discouraged~1az 
+    discouraged~2az lacking in resolution
+ disarrayed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:VERB ) 
+    disarrayed~1az in disarray
+ dimensioning ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    dimensioning~1az indicating or determining size and position in space
+ drenched ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    drenched~1az abundantly covered or supplied with
+ disguised ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    masked~2az having its true character concealed with the intent of misleading
+ described ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    described~1az represented in words especially with sharpness and detail
+ disinterested ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    disinterested~1az unaffected by self-interest
+    disinterested~2az 
+ disgusted ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    sick~4a 
+    disgusted~2az 
+    disgusted~3az 
+ delightful ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    delicious~1a 
+    delightful~2az 
+ delicious ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    delightful~1az greatly pleasing or entertaining
+    luscious~2az extremely pleasing to the sense of taste
+    delicious~3az 
+ disadvantaged ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    disadvantaged~1az marked by deprivation especially of the necessities of life or healthful environmental influences
+    disadvantaged~2az 
+ disdainful ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    haughty~1az having or showing arrogant superiority to and disdain of those one views as unworthy
+    scornful~1az expressing extreme contempt
+    disdainful~3az 
+ drilled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    drilled~1az trained in a skill by repetitious practice
+ dreamed ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=dreamt 
+    dreamed~1az conceived of or imagined or hoped for
+ dosed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    dosed~1az treated with some kind of application
+ decrepit ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    feeble~2a 
+    decrepit~2az worn and broken down by hard use
+    decrepit~3az 
+ diverse ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    various~3a 
+    divers~1az many and different
+    diverse~3az 
+ divers ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:NOUN (null) ) 
+    diverse~2a 
+ disappointing ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    disappointing~1az 
+    disappointing~2az 
+ doubled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    double~9a 
+ decayed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    rotten~3a 
+    decayed~2az 
+ dogged ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    unyielding~2a 
+    dogged~2az 
+ disappointed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB (null) ) 
+    frustrated~1a 
+    disappointed~2az 
+ disheveled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 ) 
+    disheveled~1az in disarray
+ downstairs ( meanings=2 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADVERB ) 
+    downstairs~1az on or of lower floors of a building
+    below~3bz on a floor below
+ diminishing ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    diminishing~1az becoming smaller or less or appearing to do so
+ deserving ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 ) 
+    worth~4a 
+    deserving~2az 
+ decomposed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    decomposed~1az 
+ dimming ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    dimming~1az 
+ displayed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    displayed~1az 
+ doused ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    doused~1az 
+ daintier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=dainty 
+ daintiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=daintier 
+ dandier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 ) comparative=dandy 
+ dandiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=dandier 
+ deadlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE3_4 posdefault:ADJECTIVE ) comparative=deadly 
+ deadliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=deadlier 
+ dimmest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=dimmer 
+ dirtier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=dirty 
+ dirtiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=dirtier 
+ drearier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=dreary 
+ dreariest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=drearier 
+ driest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=drier 
+ drowsier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=drowsy 
+ drowsiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=drowsier 
+ dryest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN ) comparative=dryer 
+ disappoint ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    disappoint~1vz fail to meet the hopes or expectations of
+ discourage ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    warn~4vz admonish or counsel in terms of someone's behavior
+    discourage~2vz try to prevent
+    discourage~3vz deprive of courage or hope
+ definitely ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 GRADE1_2 posdefault:ADVERB ) 
+    definitely~1bz without question and beyond doubt
+ directly ( meanings=4 glosses=1 ADVERB COMMON4 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    instantly~2b 
+    direct~11b 
+    flat~24b 
+    directly~4bz without anyone or anything intervening
+ disregarding ( meanings=1 ADVERB COMMON2 COMMON1 posdefault:VERB ) 
+    disregarding~1bz 
+ deeply ( meanings=2 glosses=2 ADVERB EXTENT_ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) comparative=deeper 
+    deeply~1bz to a great depth psychologically
+    deep~20bz to a great depth
+ dexterously ( meanings=1 glosses=1 ADVERB COMMON2 GRADE5_6 posdefault:ADVERB ) 
+    dexterously~1bz with dexterity
+ deeper ( MORE_FORM ADVERB COMMON4 posdefault:ADJECTIVE ) comparative=deeply 
+ during ( meanings=1 PREPOSITION COMMON4 COMMON2 KINDERGARTEN posdefault:PREPOSITION ) 
+    during~1z 
+ deliver ( meanings=12 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    bear~4v 
+    present~10v 
+    deliver~3vz utter 
+    return~19v 
+    deliver~5vz bring to a destination, make a delivery
+    pitch~15v 
+    surrender~6v 
+    deliver~8vz to surrender someone or something to another
+    deliver~9vz carry out or perform
+    deliver~10vz hand over to the authorities of another country
+    rescue~3v 
+    save~12v 
+ disagree ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_NOOBJECT ) 
+    differ~1vz be of different opinions
+    disagree~2vz be different from one another
+ deteriorate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    drop~11v 
+    deteriorate~2vz become worse or disintegrate
+ develop ( meanings=21 glosses=19 VERB_PRESENT VERB_INFINITIVE VERB SPELLING_EXCEPTION COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    grow~1v 
+    develop~2vz change the use of and make available or usable
+    develop~3vz expand in the form of a series
+    develop~4vz grow, progress, unfold, or evolve through a process of evolution, natural growth, differentiation, or a conducive environment
+    develop~5vz cause to grow and differentiate in ways conforming to its natural development
+    break~28vz happen
+    develop~7vz be gradually disclosed or unfolded
+    develop~8vz elaborate by the unfolding of a musical idea and by the working out of the rhythmic and harmonic changes in the theme
+    develop~9vz become technologically advanced
+    grow~8vz grow emotionally or mature
+    develop~11vz gain through experience
+    educate~1vz create by training and teaching
+    develop~13vz elaborate, as of theories and hypotheses
+    develop~14vz move into a strategically more advantageous position
+    develop~15vz move one's pieces into strategically more advantageous positions
+    develop~16vz superimpose a three-dimensional surface on a plane without stretching, in geometry
+    develop~17vz generate gradually
+    germinate~3vz work out
+    develop~19vz make something new, such as a product or a mental or artistic creation
+    develop~20vz make visible by means of chemical solutions
+    grow~10v 
+ diminish ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    decrease~5v 
+    belittle~1vz lessen the authority, dignity, or reputation of
+ dismantle ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    strip~9v 
+    dismantle~2vz take apart into its constituent pieces
+    level~20v 
+ decompose ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    decompose~1vz separate into constituent elements or parts
+    rot~5v 
+    decay~7vz lose a stored charge, magnetic flux, or current
+ dissociate ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dissociate~1vz to undergo a reversible or temporary breakdown of a molecule into simpler molecules or atoms
+    dissociate~2vz regard as unconnected
+    divorce~2v 
+ drench ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    soak~3v 
+    imbrue~1vz permeate or impregnate
+    drench~3vz force to drink
+    drench~4vz drench or submerge or be drenched or submerged
+ douse ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drench~1v 
+    douse~2vz slacken
+    douse~3vz lower quickly
+    dip~14v 
+    dip~18v 
+    douse~6vz wet thoroughly
+    douse~7vz put out, as of a candle or a light
+ disappear ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_NOOBJECT ) 
+    evaporate~1vz become less intense and fade away gradually
+    vanish~2vz get lost, as without warning or explanation
+    vanish~3vz cease to exist
+    vanish~5vz become invisible or unnoticeable
+ dispose ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    dispose~1vz make fit or prepared
+    incline~3v 
+    dispose~3vz place or put in a particular order
+    fling~6v 
+    dispose~5vz give, sell, or transfer to another
+ disqualify ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    unfit~5v 
+    disqualify~2vz declare unfit
+ domesticate ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    tame~7v 
+    tame~8v 
+    tame~9v 
+ dilate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dilate~1vz become wider
+    dilate~2vz add details, as to an account or idea
+ dismiss ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    dissolve~2v 
+    disregard~4v 
+    dismiss~3vz cease to consider
+    dismiss~4vz end one's encounter with somebody by causing or permitting the person to leave
+    can~8v 
+    drop~31v 
+ drown ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    drown~1vz die from being submerged in water, getting water into the lungs, and asphyxiating
+    drown~2vz get rid of as if by submerging
+    drown~3vz kill by submerging in water
+    overwhelm~3vz cover completely or make imperceptible
+    swim~5v 
+ detain ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    delay~4v 
+    delay~5v 
+    detain~3vz deprive of freedom
+ discover ( meanings=8 glosses=8 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    see~3vz get to know or become aware of, usually accidentally
+    describe~1vz identify as in botany or biology, for example
+    find~6vz make a discovery
+    divulge~1vz make known to the public information that was previously known only to a few people or that was meant to be kept a secret
+    find~9vz make a discovery, make a new finding
+    discover~6vz see for the first time
+    detect~1vz discover or determine the existence, presence, or fact of
+    attain~3vz find unexpectedly
+ describe ( meanings=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) (null) ) 
+    identify~3v 
+    report~8v 
+    draw~19v 
+    trace~9v 
+ demonstrate ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) ) 
+    show~5v 
+    certify~1vz provide evidence for
+    show~16v 
+    march~12v 
+ disprove ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) conjugate=disproven 
+    disprove~1vz prove to be false
+ disapprove ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    disapprove~1vz consider bad or wrong
+    reject~5vz deem wrong or inappropriate
+ disincline ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    disincline~1vz make unwilling
+ deem ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) (null) ) 
+    hold~13v 
+ decide ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    determine~1v 
+    resolve~5v 
+    decide~3vz cause to decide
+    decide~4vz influence or determine
+ determine ( meanings=8 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    decide~1vz reach, make, or come to a decision about something
+    set~30v 
+    determine~3vz fix in scope
+    mold~10v 
+    settle~10vz settle conclusively
+    ascertain~3v 
+    ascertain~4v 
+    set~31v 
+ dwell ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=dwelt 
+    dwell~1vz think moodily or anxiously about something
+    harp~4vz come back to
+    live~20v 
+    lie~6v 
+    dwell~5vz exist or be situated within
+ depend ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    calculate~3v 
+    depend~2vz be contingent upon 
+ devote ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    pay~2v 
+    give~11v 
+    devote~3vz set aside or apart for a specific purpose or use
+ digress ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    stray~4v 
+    straggle~3v 
+ differ ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_NOOBJECT ) 
+    disagree~1v 
+    differ~2vz be different
+ discuss ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    discuss~1vz speak with others about 
+    discuss~2vz to consider or examine in speech or writing
+ deny ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    deny~1vz declare untrue
+    deny~2vz refuse to accept or believe
+    deny~3vz refuse to recognize or acknowledge
+    traverse~5vz deny formally in a legal suit
+    refuse~3vz refuse to let have
+    deny~6vz deny oneself 
+    deny~7vz refuse to grant, as of a petition or request
+ declare ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) (null) ) 
+    declare~1vz state firmly
+    hold~16vz declare to be
+    announce~1v 
+    declare~4vz proclaim one's support, sympathy, or opinion for or against
+    declare~5vz state emphatically and authoritatively
+    declare~6vz make a declaration to a customs official
+    declare~7vz designate with the final bid of a hand
+    declare~8vz authorize payments of
+ deceive ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    betray~2vz cause someone to believe an untruth
+    deceive~2vz be false to
+ defy ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    dare~2v 
+    hold~43v 
+    refuse~6v 
+ defer ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    accede~2v 
+    table~8v 
+ disoblige ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    disoblige~1vz ignore someone's wishes
+    bother~8v 
+ defend ( meanings=7 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    support~15v 
+    maintain~4v 
+    oppose~4v 
+    defend~4vz be on the defensive
+    hold~18v 
+    champion~6v 
+    represent~12v 
+ divulge ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    reveal~1v 
+ define ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    determine~8v 
+    define~2vz give a definition for the meaning of a word
+    define~3vz determine the essential quality of
+    define~4vz determine the nature of
+    define~5vz show the form or outline of
+ demolish ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    destroy~1v 
+    demolish~2vz destroy completely
+    crush~11v 
+ destroy ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    demolish~1vz defeat soundly
+    destroy~2vz put to death
+    destroy~3vz destroy completely
+    destroy~4vz do away with, cause the destruction or undoing of
+ deflect ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    parry~4v 
+    deflect~2vz draw someone's attention away from something
+    deflect~3vz turn aside and away from an initial or intended course
+    bend~9v 
+    avoid~3v 
+ dine ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dine~1vz give dinner to
+    dine~2vz have supper
+ devour ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    raven~3v 
+    consume~5v 
+    devour~3vz destroy completely
+    devour~4vz enjoy avidly
+ detach ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    detach~1vz cause to become detached or separated
+    detach~2vz come to be detached
+    detach~3vz separate from a larger, especially for a special assignment
+ decorate ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    dress~19v 
+    embellish~3v 
+    decorate~3vz award a mark of honor, such as a medal, to
+    embellish~4v 
+ despoil ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    plunder~2v 
+    ransack~2v 
+ doff ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    doff~1vz remove
+ detest ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    hate~2v 
+ despise ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    despise~1vz look down on with disdain
+ demean ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    demean~1vz reduce in worth or character, usually verbally
+ depart ( meanings=6 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    go~18v 
+    quit~2v 
+    part~16v 
+    digress~2vz wander from a direct or straight course
+    leave~13v 
+    deviate~5v 
+ detect ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    observe~4v 
+ donate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    donate~1vz give to a charity or good cause
+ disobey ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    disobey~1vz refuse to go along with
+ deserve ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    deserve~1vz be worthy or deserving
+ does ( meanings=1 SINGULAR_PERSON VERB_PRESENT_3PS AUX_DO VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=do 
+    does~1vz 
+ did ( meanings=1 VERB_PAST AUX_DO VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=does 
+    did~1vz 
+ doing ( meanings=1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=done 
+    doing~1vz 
+ disproved ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=disprove 
+ disproven ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 GRADE5_6 posdefault:VERB ) conjugate=disproved 
+ dived ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=dive 
+ drew ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=draw 
+ dreamt ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=dream 
+ drank ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=drink 
+ dwelled ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 GRADE3_4 posdefault:VERB ) conjugate=dwell 
+ dwelt ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB ) conjugate=dwelled 
+ dares ( meanings=1 VERB_PRESENT_3PS AUX_VERB_PRESENT VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    dares~1vz 
+ dared ( meanings=1 VERB_PAST AUX_VERB_PAST VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    dared~1vz 
+ dis ( meanings=1 DETERMINER COMMON4 KINDERGARTEN DETERMINER_SINGULAR ) 
+    dis~1z 
+ dat ( meanings=1 DETERMINER COMMON4 KINDERGARTEN DETERMINER_SINGULAR posdefault:PREPOSITION ) 
+    dat~1z 
+ del ( meanings=1 DETERMINER COMMON4 COMMON1 KINDERGARTEN ) 
+    del~1z 
+ Dr ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

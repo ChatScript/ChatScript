@@ -1,0 +1,743 @@
+﻿ none ( meanings=6 glosses=4 NOUN_ABSTRACT PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR PRONOUN_PLURAL ) 
+    none~1nz (^service~9) a service in the Roman Catholic Church formerly read or chanted at 3 PM but now somewhat earlier
+    none~2nz (^hour~3) a canonical hour that is the ninth hour of the day counting from sunrise
+    none~3az not any
+    none~4bz not at all or in no way
+    none~5z 
+    none~6z 
+ native ( meanings=8 glosses=7 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    native~1nz (^being~1) indigenous plants and animals
+    native~2nz (^individual~1) an indigenous person who was born in a particular place
+    native~3nz (^individual~1) a person born in a particular place or country
+    native~4az belonging to one by birth
+    native~5az characteristic of or existing by virtue of geographic origin
+    native~6az characteristic of or relating to people inhabiting a region from the beginning
+    native~7az as found in nature in the elemental form
+    native~8az 
+ need ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE AUX_VERB_PRESENT NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    motive~1nz the psychological feature that arouses an organism to action toward a desired goal
+    want~2nz (^essential~1) anything that is necessary but lacking
+    demand~5nz (^status~1) a condition requiring relief
+    need~4nz (^poverty~1) a state of extreme poverty or destitution
+    require~3vz have need of
+    need~6vz have or feel a need for
+    require~4vz require as useful, just, or proper
+    need~8vz 
+ news ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    news~1nz (^interest~3) the quality of being sufficiently interesting to be reported in news bulletins
+    news~2nz (^program~6) a program devoted to current events, often using interviews and commentary
+    intelligence~3nz (^information~3) information about recent and important events
+    news~4nz (^information~3) informal information of any kind that is not previously known to someone
+    news~5nz (^information~3) information reported in a newspaper or news magazine
+ natural ( meanings=14 glosses=13 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    natural~1nz (^roll~4) a first roll of 7 or 11 that immediately wins the stake
+    cancel~1nz (^writing~3) a notation cancelling a previous sharp or flat
+    natural~3nz (^success~3) someone regarded as certain to succeed
+    natural~4az free from artificiality
+    natural~5az being talented through inherited qualities
+    natural~6az related by blood
+    natural~7az in accordance with nature
+    natural~8az existing in or produced by nature
+    natural~9az existing in or in conformity with nature or the observable world
+    natural~10az being neither raised nor lowered by one chromatic semitone
+    natural~11az functioning or occurring in a normal way
+    rude~5az being unprocessed or manufactured using only simple or minimal processes
+    instinctive~1az unthinking
+    natural~14az 
+ nutrient ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:ADJECTIVE ) 
+    food~1n 
+    nutrient~2nz (^substance~2) any substance that can be taken in by a green plant and used in organic synthesis
+    nutritious~1az of or providing nourishment
+ narrow ( meanings=11 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    narrow~1nz (^sound~7) a narrow strait connecting two bodies of water
+    narrow~2az lacking tolerance or flexibility or breadth of view
+    minute~7az characterized by painstaking care and detailed examination
+    narrow~4az limited in size or scope
+    narrow~5az not wide
+    narrow~6az very limited in degree
+    narrow~7az 
+    narrow~8vz become tight or as if tight
+    contract~7vz make or become more narrow or restricted
+    narrow~10vz become more focus on an area of activity or field of study
+    narrow~11vz define clearly
+ naming ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    assignment~1n 
+    naming~2nz (^act~1) the verbal act of naming
+    naming~3az 
+ near ( meanings=10 glosses=4 PARTICLE ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB posdefault:PREPOSITION (null) (null) ) comparative=nearest 
+    close~6a 
+    approximate~2az very close in resemblance
+    dear~3az with or in a close or intimate relationship
+    skinny~3a 
+    near~5az closely resembling the genuine article
+    near~6az being on the left side
+    near~7az 
+    most~3b 
+    close~20b 
+    near~10z 
+ nose ( meanings=14 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    nose~1nz (^front~1) a front that resembles a human nose 
+    nose~2nz (^front~1) the front or forward projection of a tool or weapon
+    nose~3nz (^opening~6) a projecting spout from which a fluid is discharged
+    nose~4nz (^organ~4) the organ of smell and entrance to the respiratory tract
+    nose~5nz (^science~1) a natural skill
+    nose~6nz (^smell~3) the sense of smell 
+    nose~7nz (^symbol~2) a symbol of inquisitiveness
+    nose~8nz (^measure~1) a small distance
+    nose~9vz defeat by a narrow margin
+    nuzzle~2vz rub noses
+    nose~11vz push or move with the nose
+    nose~12vz advance the forward part of with caution
+    scent~5vz catch the scent of
+    intrude~3vz search or inquire in a meddlesome way
+ nod ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    nod~1nz (^motion~2) the act of nodding the head
+    nod~2nz (^motion~3) a sign of assent or salutation or command
+    nod~3vz be almost asleep
+    nod~4vz let the head fall forward through drowsiness
+    nod~5vz lower and raise the head, as to indicate assent or agreement or confirmation
+    nod~6vz express or signify by nodding
+    nod~7vz sway gently back and forth, as in a nodding motion
+ nuisance ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    nuisance~1nz (^pain~2) a broad legal concept including anything that disturbs the reasonable use of your property or endangers life and health or is offensive
+    pain~4n 
+ narrowing ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    narrowing~1nz (^change~1) the act of making something narrower
+    narrowing~2nz (^shape~3) an instance of becoming narrow
+    narrowing~3nz (^decrease~4) a decrease in width
+    narrowing~4az 
+    narrowing~5az becoming gradually narrower
+ nestle ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    cuddle~1n 
+    cuddle~2v 
+    nestle~3vz position comfortably
+    nestle~4vz lie in a sheltered position
+ neglect ( meanings=9 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    disregard~1n 
+    negligence~1n 
+    negligence~2n 
+    disregard~2n 
+    disuse~1nz (^decline~4) the state of something that has been unused and neglected
+    drop~17v 
+    neglect~7vz fail to attend to
+    ignore~2v 
+    fail~10v 
+ nail ( meanings=10 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    nail~1nz (^fastening~2) a thin pointed piece of metal that is hammered into materials as a fastener
+    nail~2nz (^structure~3) horny plate covering and protecting part of the dorsal surface of the digits
+    nail~3nz (^unit~5) a former unit of length for cloth equal to 1/16 of a yard
+    complete~10vz complete a pass
+    collar~10v 
+    nail~6vz attach something somewhere by means of nails
+    blast~12v 
+    nail~8vz locate exactly
+    ace~9vz succeed at easily
+    peg~10vz succeed in obtaining a position
+ night ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    night~1nz (^darkness~5) darkness
+    night~2nz (^measure~1) the dark part of the diurnal cycle considered a time unit
+    dark~5nz (^period~3) the time after sunset and before sunrise while it is dark outside
+    night~4nz (^period~3) the time between sunset and midnight
+    night~5nz (^period~3) the period spent sleeping
+    night~6nz (^period~3) a period of ignorance or backwardness or gloom
+    night~7nz (^nightfall~1) a shortening of nightfall
+ no ( meanings=4 glosses=2 ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL INTERJECTION ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADVERB ) plural=noes 
+    no~1az quantifier
+    no~2bz not in any degree or manner
+    no_more~2b 
+    no~4z 
+ nap ( meanings=5 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    nap~1nz (^sleeping~1) sleeping for a short period of time
+    pile~2n 
+    nap~3nz (^texture~2) a soft or fuzzy surface texture
+    sleep~4n 
+    nap~5vz take a siesta
+ net ( meanings=12 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    net~1nz (^system~1) a computer network consisting of a worldwide network of computer networks that use the TCP/IP network protocols to facilitate data transmission and exchange
+    net~2nz (^material~1) an open fabric of string or rope or wire woven together at regular intervals
+    net~3nz (^trap~3) a trap made of netting to catch fish or birds or insects
+    net~4nz (^artifact~1) game equipment consisting of a strip of netting dividing the playing area in tennis or badminton
+    net~5nz (^goal~2) a goal lined with netting
+    profit~2n 
+    last~16a 
+    net~8az remaining after all deductions
+    net~9vz catch with a net
+    net~10vz construct or form a web, as if by weaving
+    sack~11vz make as a net profit
+    clear~41vz yield as a net profit
+ national ( meanings=10 glosses=8 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    subject~7nz (^individual~1) a person who owes allegiance to that nation
+    interior~7az inside the country
+    national~3az concerned with or applicable to or belonging to an entire nation or country
+    national~4az limited to or in the interests of a particular nation
+    national~5az owned or maintained for the public by the national government
+    national~6az of or relating to or belonging to a nation or country
+    national~7az of or relating to nationality
+    national~8az characteristic of or peculiar to the people of a nation
+    national~9az 
+    national~10az 
+ neck ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    neck~1nz (^opening~6) an opening in a garment for the neck of the wearer
+    neck~2nz (^part~3) a narrow part of an artifact that resembles a neck in position or form
+    neck~3nz (^piece~11) the part of an organism that connects the head to the rest of the body
+    neck~4nz (^cut~17) a cut of meat from the neck of an animal
+    neck~5nz (^ground~8) a narrow elongated projecting strip of land
+    neck~6vz kiss, embrace, or fondle with sexual passion
+ nursing ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    nursing~1nz (^attention~1) the work of caring for the sick or injured or infirm
+    nursing~2nz (^supply~1) 
+    nursing~3nz (^profession~4) the profession of a nurse
+ nip ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    pinch~3nz (^clip~2) a small sharp bite or snip
+    nip~2nz (^property~2) a tart spicy quality
+    nip~3nz (^cold~1) the property of being moderately cold
+    savor~1nz (^taste~3) the taste experience when a savoury condiment is taken into the mouth
+    shot~16n 
+    nip~6vz give a small sharp bite to
+    snip~4v 
+    pinch~10v 
+ negligence ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    neglect~2nz (^act~1) failure to act with the prudence that a reasonable person would exercise under the same circumstances
+    neglect~3nz (^attribute~1) the trait of neglecting responsibilities and lacking concern
+ necking ( meanings=2 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    kissing~1n 
+    necking~2nz (^decoration~2) 
+ number ( meanings=17 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) comparative=numb 
+    number~1nz (^product~1) an item of merchandise offered for sale
+    number~2nz (^size~1) a clothing measurement
+    figure~5n 
+    number~4nz (^family~3) the grammatical category for the forms of nouns and pronouns and verbs that are used depending on the number of entities involved 
+    number~5nz (^evidence~2) a numeral or string of numerals that is used for identification
+    number~6nz (^signal~1) the number is used in calling a particular telephone
+    issue~6nz (^periodical~1) one of a series published periodically
+    numeral~1nz (^symbol~2) a symbol used to represent a number
+    bit~4nz (^performance~4) a short theatrical performance that is part of a longer program
+    number~10nz (^company~3) a select company of people
+    number~11nz (^measure~1) a concept of quantity involving zero and units
+    number~12vz place a limit on the number of
+    list~4vz enumerate
+    count~8vz determine the number or amount of
+    number~15vz give numbers to
+    total~7v 
+    count~11vz put into a group
+ netting ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    netting~1nz (^weaving~1) creating nets
+    veiling~1nz (^net~2) a net of transparent fabric with a loose open weave
+ new ( meanings=10 glosses=7 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    new~1az unfamiliar
+    new~2az having no previous example or precedent or parallel
+    young~3a 
+    raw~5az lacking training or experience
+    new~5az not of long duration
+    novel~4a 
+    new~7az gratuitously new
+    new~8az other than the former one
+    new~9az unaffected by use or exposure
+    fresh~14b 
+ nurture ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    raising~1nz (^event~1) helping someone grow up to be an accepted member of the community
+    raising~2nz (^heritage~2) the properties acquired as a consequence of the way you were treated as a child
+    foster~2vz help develop, help grow
+    nurture~4vz provide with nourishment
+    raise~31v 
+ name ( meanings=13 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) (null) ) 
+    name~1nz (^sanction~2) by the sanction or authority of
+    name~2nz (^part~12) a language unit by which a person or thing is known
+    name~3nz (^depreciation~2) a defamatory or abusive word or phrase
+    name~4nz (^repute~1) a person's reputation
+    name~5vz determine or distinguish the nature of a problem or an illness through a diagnostic analysis
+    discover~2v 
+    list~3v 
+    name~8vz mention and identify by name
+    mention~6v 
+    identify~6vz give the name or identifying characteristics of
+    call~29v 
+    appoint~2v 
+    make~41v 
+ nurse ( meanings=7 glosses=6 NOUN_HUMAN NOUN_SHE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    nurse~1nz (^keeper~2) a woman who is the custodian of children
+    nurse~2nz (^professional~2) one skilled in caring for young children or the sick
+    nurse~3vz try to cure by special care of treatment, of an illness or injury
+    suck~3vz give suck to
+    harbor~3v 
+    nurse~6vz treat carefully
+    nurse~7vz serve as a nurse
+ nestling ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    nestling~1nz (^young~1) 
+    minor~1n 
+ nag ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    plug~1n 
+    scold~1nz (^individual~1) someone who annoys people by constantly finding fault
+    nag~3vz remind or urge constantly
+    peck~4vz bother persistently with trivial complaints
+    nag~5vz worry persistently
+ needle ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    needle~1nz (^artifact~1) a sharp pointed implement
+    needle~2nz (^device~2) a slender pointer for indicating the reading on the scale of a measuring instrument
+    needle~3nz (^device~2) a stylus that formerly made sound by following a groove in a phonograph record
+    needle~4nz (^leaf~3) the leaf of a conifer
+    needle~5vz goad or provoke,as by constant criticism
+    needle~6vz prick with a needle
+ nut ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    nut~1nz (^block~3) a small metal block with internal screw thread to be fitted onto a bolt
+    egg~2n 
+    nut~3nz (^champion~4) someone who is so ardently devoted to something that it resembles an addiction
+    crank~3nz (^flake~2) a whimsically eccentric person
+    nut~5nz (^seed~5) usually large hard-shelled seed
+    nut~6nz (^unit~5) half the width of an em
+    nut~7vz gather nuts
+ notice ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_DIRECTOBJECT ) 
+    observation~3nz (^attention~5) the act of noticing or paying attention
+    notice~2nz (^attention~5) polite or favorable attention
+    notice~3nz (^critique~2) a short critical review
+    notice~4nz (^announcement~2) an announcement containing information about an event
+    posting~3nz (^sign~4) a sign posted in a public place as an advertisement
+    notice~6nz (^request~2) a request for payment
+    notice~7nz (^telling~2) advance notification of the intention to withdraw from an arrangement of contract
+    remark~4v 
+    notice~9vz express recognition of the presence or existence of, or acquaintance with
+    note~12vz notice or perceive
+    discover~7v 
+ nook ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    corner~3n 
+    nook~2nz (^retreat~7) a sheltered and secluded place
+ napkin ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    diaper~1nz (^clothing~1) garment consisting of a folded cloth drawn up between the legs and fastened at the waist
+    napkin~2nz (^linen~1) a small piece of table linen that is used to wipe the mouth and to cover the lap in order to protect clothing
+ navy ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    navy~1nz (^blue~1) a dark shade of blue
+    navy~2nz (^service~14) an organization of military vessels belonging to a country and available for sea warfare
+    navy~3az 
+ neon ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    neon~1nz (^element~6) a colorless odorless gaseous element that give a red glow in a vacuum tube
+    neon~2az 
+ nest ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    nest~1nz (^facility~3) a kind of gun emplacement
+    nest~2nz (^furniture~1) furniture pieces made to fit close together
+    nest~3nz (^pack~8) a gang of people assembled in one locality
+    nest~4nz (^retreat~7) a cosy or secluded retreat
+    nest~5nz (^whole~1) a structure in which animals lay eggs or give birth to their young
+    nest~6vz gather nests
+    nestle~2v 
+    nest~8vz fit together or fit inside
+    nest~9vz inhabit a nest, usually after building
+ newspaper ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    paper~1nz (^production~5) the physical object that is the product of a newspaper publisher
+    paper~3nz (^press~7) a daily or weekly publication on folded sheets
+    paper~6nz (^house~6) a business firm that publishes newspapers
+    newspaper~4nz (^paper~7) cheap paper made from wood pulp and used for printing newspapers
+ newsstand ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    newsstand~1nz (^stand~5) a stall where newspapers and other periodicals are sold
+ nine ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN posdefault:NOUN ) comparative=niner 
+    nine~1nz (^spot~4) one of four playing cards in a deck with nine pips on the face
+    club~6n 
+    niner~1nz (^figure~12) the cardinal number that is the sum of eight and one
+    nine~4az denoting a quantity consisting of one more than eight and one less than ten
+ nightie ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    nightie~1nz (^underwear~1) lingerie consisting of a loose dress designed to be worn in bed by women
+ notebook ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    notebook~1nz (^computer~1) a small compact portable computer
+    notebook~2nz (^volume~1) a book with blank pages for recording notes or memoranda
+ notion ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    notion~1nz (^article~1) small personal articles or clothing or sewing items
+    notion~2nz (^construct~1) a general inclusive concept
+    opinion~2n 
+    notion~4nz (^thought~2) an odd or fanciful or capricious idea
+ novel ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    novel~1nz (^volume~1) a printed and bound book that is an extended work of fiction
+    novel~2nz (^fiction~1) an extended fictional work in prose
+    novel~3az pleasantly new or different
+    fresh~8az original and of a kind not seen before
+    novel~5az 
+ nun ( meanings=3 glosses=3 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    nun~1nz (^letter~3) the 14th letter of the Hebrew alphabet
+    nun~2nz (^reference~9) a buoy resembling a cone
+    nun~3nz (^religious~1) a woman religious
+ nylon ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    nylon~1nz (^material~1) a synthetic fabric
+    nylon~2nz (^stuff~7) a thermoplastic polyamide
+    nylon~3az 
+ naive ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    naive~1az not initiated
+    naive~2az lacking information or instruction
+    naive~3az inexperienced
+    primitive~7a 
+    naive~5az marked by or showing unaffected simplicity and lack of guile or worldly experience
+    naive~6az 
+ nature ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    nature~1nz (^attribute~1) the complex of emotional and intellectual attributes that determine a person's characteristic actions and reactions
+    nature~2nz (^quality~1) the essential qualities or characteristics by which something is recognized
+    nature~3nz (^type~2) a particular type of thing
+    nature~4nz (^universe~3) the natural physical world including plants and animals and landscapes etc.
+    nature~5nz (^cause~1) a causal agent creating and controlling things in the universe
+ note ( meanings=13 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    note~1nz (^air~2) a characteristic emotional quality
+    note~2nz (^record~6) a brief written record
+    line~14n 
+    note~4nz (^comment~1) a comment or instruction 
+    tone~7nz (^writing~3) a notation representing the pitch and duration of a musical sound
+    note~6nz (^tone~8) a tone of voice that shows what the speaker is feeling
+    bill~10nz (^currency~3) a piece of paper money 
+    note~8nz (^document~4) a promise to pay a specified amount on demand or at a certain time
+    note~9nz (^position~16) high status importance owing to marked superiority
+    remark~3v 
+    note~11vz make a written note of
+    mark~27v 
+    observe~3v 
+ noise ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    noise~1nz (^quality~1) the quality of lacking any predictable order or plan
+    noise~2nz (^quality~1) incomprehensibility resulting from irrelevant information or meaningless facts or remarks
+    racket~3n 
+    noise~4nz (^shout~1) a loud outcry of protest or complaint
+    noise~5nz (^sound~5) sound of any kind 
+    noise~6nz (^trouble~3) electrical or acoustic activity that can disturb communication
+    noise~7vz emit a noise
+ nerve ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    cheek~1nz (^drive~11) impudent aggressiveness
+    heart~3n 
+    nerve~3nz (^tissue~1) any bundle of nerve fibers running to various organs and tissues of the body
+    steel~6v 
+ nervous ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    skittish~1az unpredictably excitable
+    nervous~2az excited in anticipation
+    nervous~3az easily agitated
+    anxious~2az causing or fraught with or showing anxiety
+    nervous~5az of or relating to the nervous system
+    nervous~6az 
+ nucleus ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 ) plural=nuclei 
+    nucleus~1nz (^structure~3) the central structure of the lens that is surrounded by the cortex
+    nucleus~2nz (^organ~4) a part of the cell containing DNA and RNA and responsible for growth and reproduction
+    nucleus~3nz (^structure~3) any histologically identifiable mass of neural cell bodies in the brain or spinal cord
+    nucleus~4nz (^set~8) a small group of indispensable persons or things
+    nucleus~5nz (^center~14) the positively charged dense center of an atom
+    nucleus~6nz (^center~14) the center of the head of a comet
+ ninth ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN (null) ) 
+ normal ( meanings=6 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    pattern~3n 
+    normal~2az conforming with or constituting a norm or standard or level or type or social norm
+    normal~3az being approximately average or within certain limits in e.g. intelligence and development
+    normal~4az in accordance with scientific laws
+    normal~5az forming a right angle
+    normal~6az 
+ nonfiction ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    nonfiction~1nz (^prose~1) prose writing that is not fictional
+ numbering ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    numbering~1nz (^list~2) 
+ nuts ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:NOUN ) 
+    buggy~3a 
+ numeral ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    number~8n 
+    numeral~2az of or relating to or denoting numbers
+ narrative ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tale~2n 
+    narrative~2az consisting of or characterized by the telling of a story
+ nausea ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    nausea~1nz (^disgust~1) disgust so strong it makes you feel sick
+    sickness~2n 
+ neutral ( meanings=9 glosses=8 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    neutral~1nz (^individual~1) one who does not side with any party in a war or dispute
+    neutral~2az having no net electric charge
+    neutral~3az having no hue
+    neutral~4az lacking distinguishing quality or characteristics
+    neutral~5az not supporting or favoring either side in a war, dispute, or contest
+    neutral~6az having no personal preference
+    neutral~7az possessing no distinctive quality or characteristics
+    neutral~8az having only a limited ability to react chemically
+    neutral~9az 
+ nation ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    land~2n 
+    state~2n 
+    nation~3nz (^union~7) a federation of tribes 
+ neighborhood ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    neighborhood~1nz (^community~2) people living near one another
+    vicinity~1nz (^section~12) a surrounding or nearby region
+    neighborhood~3nz (^country~3) an area within a city or town that has some distinctive features 
+    region~5nz (^measure~1) the approximate amount of something 
+ ninja ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    ninja~1nz (^class~3) a class of 14th century Japanese who were trained in martial arts and were hired for espionage and assassinations
+    ninja~2nz (^mercenary~1) a member of the ninja who were trained in martial arts and hired for espionage or sabotage or assassinations
+ north ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) comparative=norther 
+    north~1nz (^object~1) a location in the northern part of a country, region, or city
+    north~2nz (^point~22) the cardinal compass point that is at 0 or 360 degrees
+    north~3nz (^direction~9) the direction in which a compass needle points
+    north~4nz (^direction~9) the direction corresponding to the northward cardinal compass point
+    north~5az situated in or facing or moving toward or coming from the north
+    north~6bz in a northern direction
+ necessary ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    requisite~1n 
+    necessary~2az unavoidably determined by prior circumstances
+    necessary~3az absolutely essential
+    necessary~4az 
+ neighbor ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    neighbor~1nz (^object~1) a nearby object of the same kind
+    neighbor~2nz (^individual~1) a person who lives near another
+    neighbor~3vz be located near or adjacent to
+    neighbor~4vz live or be located as a neighbor
+ nobody ( meanings=2 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT NOUN NOUN_SINGULAR COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    nonentity~1nz (^commoner~1) a person of no influence
+    nobody~2z 
+ nonentity ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    cipher~3n 
+    nonentity~2nz (^state~1) the state of not existing
+ noble ( meanings=6 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    Lord~2nz (^leader~2) a titled peer of the realm
+    stately~2az impressive in appearance
+    noble~3az having or showing or indicative of high or elevated character
+    noble~4az of or belonging to or constituting the hereditary aristocracy especially as derived from feudal times
+    noble~5az inert especially toward oxygen
+    noble~6az 
+ navigator ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    navigator~1nz (^individual~1) in earlier times, a person who explored by ship
+    navigator~2nz (^worker~2) the member of an aircrew who is responsible for the aircraft's course
+    navigator~3nz (^officer~3) the ship's officer in charge of navigation
+ negotiatress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    negotiatress~1nz (^individual~1) a woman negotiator
+ nephew ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    nephew~1nz (^relative~2) a son of your brother or sister
+ next ( meanings=6 glosses=2 ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN OMITTABLE_TIME_PREPOSITION (null) ) 
+    following~4a 
+    adjacent~2az nearest in space or position
+    future~4a 
+    next~4az 
+    next~5bz at the time or occasion immediately following
+    next~6z 
+ niece ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    niece~1nz (^relative~2) a daughter of your brother or sister
+ nondescript ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    nondescript~1nz (^individual~1) a person is not easily classified and not very interesting
+    nondescript~2az lacking distinct or individual characteristics
+    nondescript~3az 
+ norther ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=north 
+    norther~1nz (^wind~8) a wind that blows from the north
+ nodding ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    nodding~1az 
+ nettle ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    nettle~1nz (^weed~3) any of numerous plants having stinging hairs that cause skin irritation on contact
+    bother~3v 
+    nettle~3vz sting with or as with nettles and cause a stinging pain or sensation
+ nickel ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    nickel~1nz (^coin~1) a United States coin worth one twentieth of a dollar
+    nickel~2nz (^note~7) five dollars worth of a drug
+    nickel~3nz (^metal~2) a hard malleable ductile silvery metallic element that is resistant to corrosion
+    nickel~4az 
+    nickel~5vz plate with nickel
+ numerator ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    numerator~1nz (^dividend~3) the dividend of a fraction
+ nothing ( meanings=3 glosses=2 NOUN_ABSTRACT PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADVERB NOUN_SINGULAR EXTENT_ADVERB COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE PRONOUN_PLURAL ) 
+    cipher~4nz (^measure~1) a quantity of no importance
+    nothing~2bz in no respect
+    nothing~3z 
+ niner ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) comparative=nine 
+    nine~3n 
+ nineteen ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN posdefault:NOUN ) 
+    nineteen~1nz (^number~11) the cardinal number that is the sum of eighteen and one
+    nineteen~2az being one more than eighteen
+ ninety ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    ninety~1nz (^number~11) the cardinal number that is the product of ten and nine
+    ninety~2az being ten more than eighty
+ nowhere ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    nowhere~1nz (^standing~3) an insignificant place
+    nowhere~2bz not anywhere
+ notoriety ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    notoriety~1nz (^standing~3) the state of being known for some unfavorable act or quality
+ nowadays ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 KINDERGARTEN ) 
+    present~3nz (^time~1) the period of time that is happening now
+    today~3bz in these times
+ now ( meanings=9 glosses=7 NOUN_ABSTRACT NOUN ADVERB CONJUNCTION_SUBORDINATE NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    now~1nz (^nowadays~1) the momentary present
+    nowadays~2b 
+    directly~1bz without delay or hesitation
+    now~4bz used to preface a command or reproof or request
+    now~5bz at the present moment
+    now~6bz in the historical present
+    now~7bz in the immediate past
+    now~8bz indicates a change of subject or activity
+    now~9z 
+ noon ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    noon~1nz (^hour~3) the middle of the day
+ nightfall ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    fall~10nz (^hour~3) the time of day immediately following sunset
+ noes ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN ) plural=no 
+ nuclei ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=nucleus 
+ nah ( INTERJECTION ) 
+ naw ( INTERJECTION ) 
+ nooo ( INTERJECTION ) 
+ nanosecond ( ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+ neat ( meanings=7 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    clean~3a 
+    straight~8a 
+    neat~3az free from what is tawdry or unbecoming
+    keen~4a 
+    orderly~4az clean or organized
+    neat~6az showing care in execution
+    neat~7az 
+ numb ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=number 
+    numb~1az so frightened as to be unable to move
+    asleep~3a 
+    dead~18a 
+    numb~4az 
+    dull~19v 
+ nursed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    nursed~1az 
+ neglected ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    neglected~1az 
+    ignored~1az disregarded
+ noisy ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=noisiest 
+    noisy~1az attracting attention by showiness or bright colors
+    noisy~2az full of or characterized by loud and nonmusical sounds
+ nasty ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) comparative=nastiest 
+    nasty~1az disgustingly dirty
+    nasty~2az characterized by obscenity
+    tight~4a 
+    awful~4a 
+    nasty~5az 
+ nearby ( meanings=4 glosses=2 ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE posdefault:ADVERB ) 
+    nearby~1az close at hand
+    nearby~2az 
+    nearby~3bz not far away in relative terms
+    nearby~4z 
+ nestled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    nestled~1az 
+ neither ( meanings=4 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN DETERMINER_SINGULAR PRONOUN_SINGULAR posdefault:ADVERB (null) ) 
+    neither~1az not either
+    neither~2bz 
+    neither~3z 
+    neither~4z 
+ neighboring ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 ) 
+    contiguous~2a 
+ nice ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    gracious~2az exhibiting courtesy and politeness
+    dainty~3az excessively fastidious and easily disgusted
+    nice~3az pleasant or pleasing or agreeable in nature or appearance
+    skillful~1az done with delicacy and skill
+    decent~5az socially or conventionally correct
+    nice~6az 
+ neighborly ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 ) 
+    neighborly~1az 
+ not ( meanings=1 glosses=1 ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    not~1bz negation of a word or group of words
+ naughty ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) comparative=naughtiest 
+    naughty~1az badly behaved
+    naughty~2az suggestive of sexual impropriety
+    naughty~3az 
+ nagging ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    nagging~1az 
+ napped ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    brushed~1a 
+ necked ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    necked~1az having a neck or having a neck especially as specified
+ nipping ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    nipping~1az pleasantly cold and invigorating
+    biting~2az 
+ noticeable ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    noticeable~1az capable or worthy of being perceived
+    noticeable~2az undesirably noticeable
+    noticeable~3az capable of being detected
+    noticeable~4az readily noticed
+ noted ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    noted~1az worthy of notice or attention
+    celebrated~2a 
+ narrowed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    narrowed~1az made narrow
+    narrowed~2az reduced in size as by squeezing together
+ numerous ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    numerous~1az amounting to a large indefinite number
+ needed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    required~2az necessary for relief or supply
+ needless ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) 
+    needless~1az 
+    needless~2az 
+ nosed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    nosed~1az having a nose especially of a specified kind
+ noticed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    noticed~1az being perceived or observed
+ navigable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    navigable~1az able to be sailed on or through safely
+ nettled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    irritated~1a 
+ napping ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    napping~1az not prepared or vigilant
+ numbing ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    numbing~1az causing numbness or insensitivity
+    numbing~2az 
+ needled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    needled~1az of trees whose leaves are acerate
+ nary ( meanings=2 glosses=1 ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    nary~1az colloquial for `not a' or `not one' or `never a'
+    nary~2z 
+ nefarious ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    nefarious~1az extremely wicked
+ nauseous ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    sick~8a 
+    nauseous~2az causing or able to cause nausea
+    nauseous~3az 
+ nutritious ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    nutrient~3a 
+    nutritious~2az 
+ nearer ( meanings=2 MORE_FORM ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) comparative=near 
+    closer~1b 
+    nearer~2z 
+ nearest ( meanings=2 MOST_FORM ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=nearer 
+    closest~1b 
+    nearest~2z 
+ nastier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE3_4 posdefault:ADJECTIVE ) comparative=nasty 
+ nastiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=nastier 
+ naughtier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=naughty 
+ naughtiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=naughtier 
+ noisier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=noisy 
+ noisiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=noisier 
+ never ( meanings=2 glosses=2 ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB (null) ) 
+    never~1bz not ever
+    never~2bz not at all
+ nevertheless ( meanings=1 glosses=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    nonetheless~1bz despite anything to the contrary 
+ nonetheless ( meanings=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    still~13b 
+ no_more ( meanings=2 ADVERB CONDITIONAL_IDIOM KINDERGARTEN  poscondition=?![TNP]=R ) 
+    no_more~1bz 
+    no~3bz 
+ nearly ( meanings=2 glosses=1 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    near~8b 
+    nearly~2bz in a close manner
+ necessarily ( meanings=3 glosses=3 ADVERB COMMON4 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    needs~1bz in such a manner as could not be otherwise
+    necessarily~2bz in an essential manner
+    necessarily~3bz as a highly likely consequence
+ needs ( meanings=1 ADVERB COMMON4 COMMON2 COMMON1 posdefault:NOUN posdefault:VERB ) 
+    necessarily~1b 
+ not_only ( meanings=3 ADVERB CONDITIONAL_IDIOM KINDERGARTEN (null)  poscondition=?=R ) 
+    not_only~1bz 
+    not_only~2bz 
+    not_only~3bz 
+ nor ( meanings=1 CONJUNCTION_COORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION (null) ) 
+    nor~1z 
+ no_wonder ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    no_wonder~1z 
+ no_matter_how ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    no_matter_how~1z 
+ now_that ( meanings=2 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    now_that~1z 
+    now_that~2z 
+ now_when ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    now_when~1z 
+ now_since ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    now_since~1z 
+ notify ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    apprize~4v 
+ narrate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    recite~3v 
+    narrate~2vz provide commentary for a film, for example
+ nab ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    nab~1vz seize suddenly
+    arrest~4v 
+    nab~3vz tag the base runner to get him out
+ nuzzle ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    nuzzle~1vz dig out with the snout
+    nose~10v 
+    nest~7v 
+ navigate ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    voyage~3v 
+    navigate~2vz direct carefully and safely
+    pilot~7v 
+ no_one ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR ) 
+    no_one~1z 

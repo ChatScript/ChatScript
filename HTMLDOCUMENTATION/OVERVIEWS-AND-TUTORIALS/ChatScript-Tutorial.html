@@ -1,0 +1,553 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-tutorial">ChatScript Tutorial</h1>
+<blockquote>
+<p>Copyright 2011 By Erel Segal Revised 2016 by Wilcox</p>
+</blockquote>
+<p>This tutorial will show you how to use ChatScript for building a simple but useful chatbot - one that can help a human plan a travel.</p>
+<p>First download ChatScript, read the manual, go through the overview, and make sure you can chat with the default bot about its childhood.</p>
+<p>Now, in order to build a new chat-script from scratch: Create a folder called TEST inside the RAWDATA folder. Create an empty file named <code>tutorial.top</code>, and put it inside this TEST folder.</p>
+<p>Copy the file <code>RAWDATA/filesHarry.txt</code> that comes with the zip file into a new file <code>RAWDATA/filesmine.txt</code>.</p>
+<p>In <code>filesmine.txt</code>, insert a reference to your newly created file and revise the reference to HARRY. <code>filesmine.txt</code> looks like this:</p>
+<pre><code>RAWDATA/HARRY/simplecontrol.top # default bot control
+RAWDATA/TEST/tutorial.top # tutorial bot data</code></pre>
+<p>From now on, we will work with the file <code>tutorial.top</code>.</p>
+<p>NOTE: This tutorial will cover only a small part of ChatScript's features - only those features needed for building our traveling-agent bot. You can find many more features in the documentation.</p>
+<h1 id="contents">Contents</h1>
+<ul>
+<li><a href="ChatScript-Tutorial-md#speaking-topic--t">Speaking (topic: , t:)</a></li>
+<li><a href="ChatScript-Tutorial.html#saying-more-keep-random-selection--repeat">Saying more (^keep, random selection [], ^repeat)</a></li>
+<li><a href="ChatScript-Tutorial.html#listening-u-reuse">Listening (u:, ^reuse)</a></li>
+<li><a href="ChatScript-Tutorial.html#short-term-memory--_">Short-term memory (* _)</a></li>
+<li><a href="ChatScript-Tutorial.html#long-term-memory-">Long-term memory ($)</a></li>
+<li><a href="ChatScript-Tutorial.html#dialog-management-conditions">Dialog Management (conditions)</a></li>
+<li><a href="ChatScript-Tutorial.html#implicit-confirmations-respond">Implicit Confirmations (^respond)</a></li>
+<li><a href="ChatScript-Tutorial.html#explicit-confirmation-rejoinders-a-b-c-">Explicit Confirmation (rejoinders: a: b: c:...)</a></li>
+<li><a href="ChatScript-Tutorial.html#knowledge-createfact-table">Knowledge (^createfact, table:)</a></li>
+</ul>
+<h2 id="speaking-topic-t">Speaking (<code>topic:</code> , <code>t:</code>)</h2>
+<p>The simplest possible chat-script should include a topic and a sentence to say, for example:</p>
+<pre><code>topic: ~introductions []
+
+t: Hello, talk to me!</code></pre>
+<p>Where:</p>
+<ul>
+<li><p>The keyword topic: defines a topic for conversation. We called our topic <code>~introductions</code> (topic names always start with <code>~</code>).</p></li>
+<li><p>The keyword <code>t:</code> defines a sentence to say within a topic (it's called a &quot;gambit&quot;, as the bot says it without waiting for our input).</p></li>
+</ul>
+<p>Put this text in <code>tutorial.top</code>. Then, at the client's prompt, type <code>:build mine</code>. You should see something like this:</p>
+<pre><code> &gt;:build mine
+ 
+ ----Reading file simplecontrol.top
+ Reading outputmacro: ^harry
+ Reading outputmacro: ^georgia
+ Reading table tbl:defaultbot
+ Reading topic ~control
+ Reading topic ~alternate_control
+ 
+ ----Reading file tutorial.top
+ Reading topic ~introductions
+ No errors or warnings in build
+ Read 302,955 Dictionary entries
+ Read 304,588 Dictionary facts
+ Read 110,851 Build0 facts
+ Read 1 Build1 facts
+ Concept sets: 1421
+ Free space: 123,252,280 bytes FreeFacts: 4,584,560
+ 
+ Hello, talk to me!
+ &gt;</code></pre>
+<p>Chatting with this bot results in a dialog such as this:</p>
+<pre><code>
+  Hello, talk to me!
+  
+  &gt;hi
+  I don&#39;t know what to say.
+  
+  &gt;why?
+  I don&#39;t know what to say.
+ </code></pre>
+<p>The bot just says what we told it to say, and then stuck, as it does not have anything else to say.</p>
+<p>If you are tired of speaking with the bot, you can exit the client using the <code>:quit</code> command.</p>
+<h2 id="saying-more-keep-random-selection-repeat">Saying more (<code>^keep</code>, random selection <code>[]</code>, <code>^repeat</code>)</h2>
+<p>Let's make our bot a bit more interesting:</p>
+<pre><code>topic: ~introductions []
+
+t: ^keep() [Hello] [Hi] [Hey], [talk] [speak] [say something] to me!</code></pre>
+<p>Here:</p>
+<ul>
+<li><p>We called the <code>^keep</code> function, which tells the bot not to erase the rule after it is used (normally, rules are used only once and then discarded).</p></li>
+<li><p>We also added some options in brackets, from which the bot may select at random. In any continuous sequence of bracketed phrases, the bot may select one at random.</p></li>
+</ul>
+<p>Building this chatbot will result in a dialog such as this:</p>
+<pre><code>
+  Hello, say something to me!
+
+  &gt;hi
+  Hey, say something to me!
+
+  &gt;what
+  Hey, talk to me!
+
+  &gt;why?
+   Hello, speak to me!
+
+  &gt;who
+  Hi, talk to me!
+
+  &gt;abc
+  I don&#39;t know what to say.
+
+  &gt;def
+  I don&#39;t know what to say.
+</code></pre>
+<p>The bot tries some random combinations from our output pattern, and then gets stuck again as it starts to repeat itself. A bot normally doesn't like to repeat itself, except when we tell it explicitly using the <code>^repeat()</code> macro:</p>
+<pre><code>topic: ~introductions []
+
+t: ^keep() ^repeat() [Hello] [Hi] [Hey], [talk] [speak] [say something] to me!</code></pre>
+<p>With this bot we can chat forever.</p>
+<h2 id="listening-u-reuse">Listening (<code>u:</code>, <code>^reuse</code>)</h2>
+<p>Our previous bots could only talk - they did not listen to us. Now let's build a bot that listens and reacts to what we say:</p>
+<pre><code>topic: ~introductions []
+
+t: [Hello] [Hi] [Hey], [talk] [speak] [say something] to me!
+
+u: (what are you) ^keep() ^repeat() I am a bot.
+
+u: (where do you live) ^keep() ^repeat() I live on your computer.
+
+u: ([what where]) ^keep() ^repeat() Good question.</code></pre>
+<p>Here:</p>
+<ul>
+<li>The <code>u:</code> keyword tells the bot to match the user input against the pattern given in parenthesis.</li>
+<li>Brackets <code>[</code> <code>]</code> inside the pattern mean disjunction, so the third line means &quot;If there is 'what' or 'where' anywhere in the user's input, say &quot;Good question&quot;.</li>
+</ul>
+<p>Here is a possible dialog with this bot;</p>
+<pre><code>
+  Hello, say something to me!
+
+  &gt;hi
+  I don&#39;t know what to say.
+
+  &gt;What are you?
+  I am a bot.
+
+  &gt;Tell me where do you live.
+  I live on your computer.
+
+  &gt;What is the time?
+  Good question.
+
+  &gt;why?
+  I don&#39;t know what to say.
+
+  &gt;Remind me where did you live please.
+  I live on your computer.
+</code></pre>
+<p>The bot selects the first line that generates output, prints the output, and stops matching (conclusion: order your patterns from the more specific to the more general). If it doesn't find any match, it just replies with the default <em>I don't know what to say</em>.</p>
+<p>Note that the match is case-insensitive ('what' matches 'What'), and uses canonical forms of verbs and nouns ('do' matches 'did'). The engine uses a POS tagger to detect nouns, verbs and other types of words, and convert them to canonical form.</p>
+<p>If we want an exact match, we can use an apostrophe, for example, if we replace the &quot;where do you live&quot; line with this line:</p>
+<pre><code>u: (Where &#39;do you live) ^keep() ^repeat() I live on your computer.</code></pre>
+<p>we will get this dialog:</p>
+<pre><code>
+  Hey, speak to me!
+
+  &gt;where do you live
+  I live on your computer.
+
+  &gt;where did you live
+  Good question.
+</code></pre>
+<p>If we use a non-canonical form, it will match only that exact form, even if we don't use an apostrophe, so the patterns &quot;(Where 'did you live)&quot; and &quot;(Where did you live)&quot; will both match only that exact phrase, and not &quot;where do you live&quot;.</p>
+<p>What if we want to use a totally different input pattern, but still get the same output? We can, of course, repeat the same line with a different output, but we can also ^reuse:</p>
+<pre><code>topic: ~introductions keep repeat []
+
+t: HI () [Hello] [Hi] [Hey], [talk] [speak] [say something] to me!
+
+u: WHAT (what are you) I am a bot.
+
+u: (tell me about yourself) ^reuse(WHAT) ^reuse(HI)
+
+u: (where do you live) I live on your computer.
+
+u: ([what where]) good question.</code></pre>
+<p>Here:</p>
+<ul>
+<li>we moved <code>keep</code> and <code>repeat</code> to the topic definition, so we don't have to repeat them for each statement.</li>
+<li>We gave the first two rules a label.</li>
+<li>We added a new third rule, which reuses the first two rules.</li>
+</ul>
+<p>Here is a sample dialog:</p>
+<pre><code>
+  Hello, speak to me!
+
+  &gt;tell me about yourself
+  I am a bot. Hi, talk to me!
+
+  &gt;what are you
+  I am a bot.
+</code></pre>
+<h2 id="short-term-memory-_">Short-term memory (<code>*</code> <code>_</code>)</h2>
+<p>Our previous bots could listen and talk. The third thing a bot should do is remember. In ChatScript, the memory of a bot is contained in variables.</p>
+<p>Using variables we can start building our travel-agent bot. Our bot will try to understand where the user is and where he wants to be, and will try to supply useful information.</p>
+<pre><code>topic: ~introductions keep repeat []
+
+t: [Hello] [Hi] [Hey], I will help you plan your travel. Just tell me where you want to go.
+
+u: (I want to go to _*) OK, you want to go to _0. </code></pre>
+<p>Here:</p>
+<ul>
+<li>We use <code>*</code> as a wildcard that means &quot;0 or more words&quot;, because we want to match any sentence where the user says his destination.</li>
+<li>In the input pattern, we use <code>_</code> before the wildcard to capture what the user actually said.</li>
+<li>In the output, we use <code>_0</code> to refer to the first thing we captured (if we have more patterns to capture, we can use <code>_1</code>, <code>_2</code>, ... <code>_9</code>)</li>
+</ul>
+<p>Here is a sample dialog:</p>
+<pre><code>
+  Hello, I will help you plan your travel. Just tell me where you want to go.
+
+  &gt;I want to go to the moon.
+  OK, you want to go to a moon.
+
+  &gt;I want to go to earth.
+  OK, you want to go to earth.
+
+  &gt;I want to go back to the moon.
+  I don&#39;t know what to say.
+</code></pre>
+<p>Note that the last sentence did not match because of the word &quot;back&quot;. We could use another wildcard to make our sentence more general, such as:</p>
+<pre><code>u: (I want to go * to _*) OK, you want to go to _0.</code></pre>
+<p>In this case we don't need to capture the first wildcard, so we don't put a <code>_</code> before it.</p>
+<h2 id="long-term-memory">Long-term memory (<code>$</code>)</h2>
+<p>The <code>_0</code>, <code>_1</code>... variables are &quot;short-term memory&quot; because they exist only in the output line next to the pattern where they were created. We can create &quot;long-term memory&quot; by using <code>$</code>-variables. Let's use these variables to extend our travel-agent bot:</p>
+<pre><code>topic: ~introductions keep repeat []
+
+t: [Hello] [Hi] [Hey], I will help you plan your travel. Just tell me where you are and
+where you want to go to.
+
+u: (be * at _*)
+    OK, you want to go from _0.
+    $source = &#39;_0
+
+u: ([go fly travel] to _*)
+   $target = &#39;_0
+   OK, you want to go to $target .
+
+u: (what do I want)
+   You want to go from $source to $target .</code></pre>
+<p>Notes: We can put the different parts of a rule (input pattern, output pattern, update commands) in different lines, to make it more readable. Chat Script doesn't care.</p>
+<p>Here is a sample dialog:</p>
+<pre><code>
+  Hey, I will help you plan your travel. 
+  Just tell me where you are and where you want to go to.
+
+  &gt;I am at Earth. 
+  OK, you want to go from Earth.
+
+  &gt;I would like to fly to the moon.
+  OK, you want to go to the moon.
+
+  &gt;What do I want? 
+  You want to go from Earth to the moon. 
+
+  &gt;Actually, I want to go to the sky.
+  OK, you want to go to the sky.
+
+  &gt;What do I want?
+  You want to go from Earth to the sky. 
+</code></pre>
+<p>The above dialog with some explanations:</p>
+<pre><code>  Hey, I will help you plan your travel. 
+  Just tell me where you are and where you want to go to.
+
+  &gt;I am at Earth. </code></pre>
+<p>'be' in the pattern is the cannonical form of 'am'.</p>
+<pre><code>  OK, you want to go from Earth.</code></pre>
+<p>the bot prints the temporary variable <code>_0</code>, which contains 'Earth'.</p>
+<pre><code>  &gt;I would like to fly to the moon.
+  OK, you want to go to the moon.</code></pre>
+<p>the bot prints the permanent variable '$target', where we put 'the moon'.</p>
+<pre><code>  &gt;What do I want? 
+  You want to go from Earth to the moon. </code></pre>
+<p>the bot remembers the permanent variables.</p>
+<pre><code>  &gt;Actually, I want to go to the sky.
+  OK, you want to go to the sky.
+
+  &gt;What do I want?
+  You want to go from Earth to the sky. </code></pre>
+<p>the bot updated the variable '$target'.</p>
+<h2 id="dialog-management-conditions">Dialog Management (conditions)</h2>
+<p>The bots we built so far decided what to do based solely on the user's input. But suppose we need to make a more sophisticated decision, for example, check if the user already said where he wants to go, and if not, ask him specifically. For this kind of tasks, we can use conditions.</p>
+<p>The most basic condition is testing whether a variable is set. This is done simply by putting the variable inside the parens of the input pattern.</p>
+<pre><code>topic: ~introductions repeat keep []
+
+t: [Hello] [Hi] [Hey], I will help you plan your travel. Just tell me where you are and
+where you want to go to.
+
+u: (be * at _*)
+   $source = &#39;_0
+
+u: (go to _*)
+   $target = &#39;_0
+
+u: (!$source)
+   Where are you?
+
+u: (!$target)
+   Where do you want to go?
+
+u: ($source $target)
+   You want to go from $source to $target .</code></pre>
+<p>The last rule will be selected only if both <code>$source</code> and <code>$target</code> are defined. The previous rule will be selected only if <code>$target</code> is NOT defined, and similarly for the rule before it.</p>
+<p>This script allows the user to specify what he wants in any order. It will fill the appropriate variables, and ask appropriate questions if they are not set yet:</p>
+<p>Hello, I will help you plan your travel. Just tell me where you are and where you want to go to.</p>
+<pre><code>
+  Hello, I will help you plan your travel. 
+  Just tell me where you are and where you want to go to.
+
+  &gt;great!
+  Where are you?
+
+  &gt;Hod Hasharon
+  Where are you?
+
+  &gt;I am at Hod Hasharon
+  Where do you want to go?
+
+  &gt;I don&#39;t know
+  Where do you want to go?
+
+  &gt;I want to go to Jerusalem
+  You want to go from Hod Hasharon to Jerusalem.
+
+  &gt;really?
+  You want to go from Hod Hasharon to Jerusalem.
+
+  &gt;Actually I am at Haifa.
+  You want to go from Haifa to Jerusalem.
+</code></pre>
+<p>Those familiar with Dialog System terminology will probably notice that we implement an information-state-update dialog manager. The information state is defined by the variables. In each volley, the system first tries to understand what the user said, then updates the current state, and then generates output to the user.</p>
+<p>Our previous bot didn't pay any attention to context - it just looked for an input pattern, so it didn't understand that the words <em>Hod Hasharon</em> are actually a reply to the previous question <em>Where are you?</em>.</p>
+<p>One solution to this is to add another variable that will remember the subject of the last question asked. Here is the modified script, where we added some comments after the <code>#</code> symbols:</p>
+<pre><code>topic: ~introductions repeat keep []
+
+t: [Hello] [Hi] [Hey], I will help you plan your travel.
+   $issue = null # initialize the current issue
+
+u: SOURCE (be * at _*)
+   $source = &#39;_0 # remember the source
+   $issue = null # clear the current issue
+
+u: TARGET (go to _*)
+   $target = &#39;_0
+   $issue = null
+
+u: ($issue=source _*) ^reuse(SOURCE) 
+   # If current issue is source, then assume the 
+   # user answered the question about his source
+
+u: ($issue=target _*) ^reuse(TARGET)
+
+u: (!$source)
+   $issue = source # Remember that we asked the user about his source
+   Where are you?
+
+u: (!$target)
+   $issue = target
+   Where do you want to go?
+
+u: ($source $target)
+   You want to go from $source to $target .</code></pre>
+<p>Note: When testing variable values inside input patterns, there must be no spaces between the variable name and the <code>=</code> operator (e.g. <code>$issue=source</code>), otherwise the engine will parse it as two different input conditions <code>$issue</code> and <code>source</code>.</p>
+<pre><code>
+  Hello, I will help you plan your travel.
+
+  &gt;great!
+  Where are you?
+
+  &gt;Jerusalem
+  Where do you want to go?
+
+  &gt;Actually I am at Haifa
+  Where do you want to go?
+
+  &gt;Hebron
+  You want to go from Haifa to Hebron.
+</code></pre>
+<h2 id="implicit-confirmations-respond">Implicit Confirmations (<code>^respond</code>)</h2>
+<p>Our previous bot understood the user perfectly, but usually it is not the case, we would like our bot to confirm that it understood the user correctly. There are two types of confirmation:</p>
+<ul>
+<li>Implicit confirmation - just tell the user what we understood.</li>
+<li>Explicit confirmation - tell the user what we understood, and ask him/her if it's correct.</li>
+</ul>
+<p>Let's start with implicit confirmation. For simplicity, we will start this section with the bot at the beginning of the &quot;Dialog Management&quot; chapter (without context), and add the confirmation statements from the bot at the &quot;Long-term memory&quot; chapter:</p>
+<pre><code>topic: ~introductions repeat keep []
+
+t: [Hello] [Hi] [Hey], I will help you plan your travel. Just tell me where you are and
+where you want to go to.
+
+u: (be * at _*)
+   $source = &#39;_0
+   OK, you want to go from $source .
+
+u: (go to _*)
+   $target = &#39;_0 
+   OK, you want to go to $target .
+
+u: (!$source)
+   Where are you?
+
+u: (!$target)
+   Where do you want to go?
+
+u: ($source $target)
+   You want to go from $source to $target .</code></pre>
+<p>This works, but produces an awkward dialog:</p>
+<pre><code>  Hello, I will help you plan your travel. 
+  Just tell me where you are and where you want to go to.
+
+  &gt;I am at Haifa
+  OK, you want to go from Haifa.
+
+  &gt;well?
+  Where do you want to go?
+
+  &gt;I want to go to Jerusalem.
+  OK, you want to go to Jerusalem.
+
+  &gt;what now?
+  You want to go from Haifa to Jerusalem.
+</code></pre>
+<p>By default, the bot stops processing the rules when it finds a rule that produces output, so after the confirmation <em>you want to go from Haifa</em> the bot doesn't go on and ask the next question <em>Where do you want to go</em>, until the user says another thing.</p>
+<p>We can change this by creating a new topic, and using the <code>^respond</code> command;</p>
+<pre><code>topic: ~introductions []
+
+t: Hi, I will help you plan your travel.
+ ^respond(~question)
+
+u: SOURCE (be * at _*)
+   OK, you want to go from _0.
+   $source = &#39;_0
+   ^respond(~question)
+
+u: TARGET (go to _*)
+   $target = &#39;_0
+   OK, you want to go to $target .
+   ^respond(~question)
+
+u: DEFAULT ()
+   ^respond(~question)
+
+topic: ~question repeat keep nostay []
+
+u: (!$source)
+   Where are you?
+
+u: (!$target)
+   Where do you want to go?
+
+u: ($source $target)
+   You want to go from $source to $target . </code></pre>
+<p>The <code>^respond</code> tells the bot to use the <code>~question</code> subtopic, and add whatever text it gets from it to the current statement.</p>
+<p>Notes: * We use <code>^respond</code> after all 4 rules - after the initial gambit, after the user replies with a source or a target, and also in the default case where we don't understand the user. * We added the <code>nostay</code> directive to the <code>~question</code> topic. By default, if the bot gets a response from a certain topics, it 'stays' in this topic and gives it priority over other topics. In this case we don't want the <code>~question</code> topic to get priority, because our first priority is to handle the user response, so we override this behavior.</p>
+<p>This produces a much shorter dialog:</p>
+<pre><code>
+  Hi, I will help you plan your travel. Where are you?
+
+  &gt;I am at Haifa
+  OK, you want to go from Haifa. Where do you want to go?
+
+  &gt;I don&#39;t know
+  Where do you want to go?
+
+  &gt;go to Jerusalem
+  OK, you want to go to Jerusalem. You want to go from Haifa to Jerusalem.
+</code></pre>
+<h2 id="explicit-confirmation-rejoinders-a-b-c-...">Explicit Confirmation (rejoinders: <code>a:</code> <code>b:</code> <code>c:</code> ...)</h2>
+<p>Sometimes we want to explicitly ask the user what he meant. In this case we expect a yes/no answer, but the meaning of the answer obviously depends on the context - the question that we just asked. One way to handle this is to use rejoinders.</p>
+<p>ChatScript allows us to understand the user input based on the current context of the dialog, by labeling statements with <code>a:</code>, <code>b:</code>, <code>c:</code>, ... <code>q:</code>, instead of the u and t we used so far. For example:</p>
+<pre><code>topic: ~introductions repeat keep []
+
+t: [Hello][Hi][Hey], I will help you plan your travel.
+   ^respond(~question)
+
+u: SOURCE (at _*)
+   Is your current location \&quot; &#39;_0 \&quot; ?
+   a: (~yes)
+       $source = &#39;_0
+       ^respond(~question)
+   a: (~no)
+       OK, so where are you?
+
+u: TARGET (to _*)
+   Is your destination \&quot; &#39;_0 \&quot; ?
+   a: (~yes)
+       $target = &#39;_0
+       ^respond(~question)
+   a: (~no)
+       OK, so where do you want to go?
+
+u: DEFAULT ()
+   ^respond(~question)
+
+topic: ~question repeat keep nostay []
+
+u: (!$source)
+   Where are you?
+
+u: (!$target)
+   Where do you want to go?
+
+u: ($source $target)
+   You want to go from $source to $target . </code></pre>
+<p>Here, every time the user answers our question, we ask him if that's what he meant.</p>
+<p>Note that we use <code>~yes</code> and <code>~no</code> as the patterns for yes and no; this will also match &quot;sure&quot;, &quot;yeah&quot; and other forms.</p>
+<p>Here is a sample dialog:</p>
+<pre><code>
+  Hello, I will help you plan your travel. Where are you?
+
+  &gt; at Haifa
+  Is your current location &quot;Haifa &quot;?
+
+  &gt; no
+  OK, so where are you?
+
+  &gt; at Ramat Gan
+  Is your current location &quot;Ramat Gan &quot;?
+
+  &gt; yes
+  Where do you want to go?
+
+  &gt; actually I am at Givat Shmuel
+  Is your current location &quot;Givat Shmuel &quot;?
+
+  &gt; sure
+  Where do you want to go?
+
+  &gt; to Jerusalem
+  Is your destination &quot;Jerusalem &quot;?
+
+  &gt; y
+  Where do you want to go?
+
+  &gt; to Jerusalem
+  Is your destination &quot;Jerusalem &quot;?
+
+  &gt; yeah
+  You want to go from Givat Shmuel to Jerusalem.
+
+  &gt; ...
+</code></pre>
+<h2 id="knowledge-createfact-table">Knowledge (<code>^createfact</code>, <code>table:</code>)</h2>
+<p>Our previous bot could understand what the user wants, but it couldn't really help him reach his goal because it had no knowledge of transportation means. We can give our bot some knowledge by creating facts.</p>
+<p>----- THE TUTORIAL AS ORIGINALLY AUTHORED ENDS HERE ---</p>
+<p><strong>TO DO</strong></p>
+</body>
+</html>

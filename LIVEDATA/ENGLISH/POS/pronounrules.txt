@@ -1,0 +1,425 @@
+# no pronoun at start before determiner or known adjective "*so the next time you do, I will die"
+0	INCLUDE * PRONOUN_BITS
+	STAY START  # but not "what the heck are you doing"
+	IS DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NUMBER
+DISCARD
+
+# wont be subject after gerund -  transforming/transform (Noun_gerund)  it (Pronoun_object Pronoun_subject)
+ -1 IS NOUN_GERUND
+	INCLUDE * PRONOUN_SUBJECT
+	STAY HAS PRONOUN_OBJECT
+DISCARD
+
+# wont be singular pronoun before nonsingular verb possibility - other (+Adjective_normal Pronoun_subject Determiner)  major (Noun_singular Verb_present +Adjective_normal) 
+0 INCLUDE * PRONOUN_SUBJECT
+ 	STAY  SINGULAR
+	STAY !PLURAL
+	HAS VERB_PRESENT	
+	STAY !HAS VERB_PAST VERB_PAST_PARTICIPLE AUX_VERB # not "I like that it can believe in you"
+DISCARD
+
+# following prep must be possessive over other choices - in (Preposition)  his/he (Pronoun_object Pronoun_subject Pronoun_possessive)
+-1 IS PREPOSITION
+	INCLUDE * PRONOUN_POSSESSIVE
+KEEP
+
+# cannot have pronoun subject immediately before a noun - any (Adjective_normal +Adverb Pronoun_subject Determiner)  reading/read (+Noun_gerund Noun_singular) 
+ 0 INCLUDE * PRONOUN_SUBJECT
+	CANONLYBE NOUN_BITS
+DISCARD
+
+# wont be object after paren -( (Parenthesis)  this/a (Pronoun_object Pronoun_subject) 
+-1 IS PAREN
+	INCLUDE * PRONOUN_OBJECT
+	STAY HAS PRONOUN_SUBJECT
+DISCARD
+
+# quote leading to subject after conjuction " (Quote)  but (Conjunction_coordinate)  you (Pronoun_object Pronoun_subject) 
+-2 IS QUOTE
+	STAY START
+	IS CONJUNCTION_COORDINATE
+	INCLUDE * PRONOUN_OBJECT
+DISCARD
+
+# subject pronoun cant have verb then subject pronoun so (Pronoun_subject Conjunction_coordinate)  did/do (Verb_past)  I (Pronoun_subject)  
+0	INCLUDE * PRONOUN_SUBJECT
+	IS VERB_BITS
+	IS PRONOUN_SUBJECT
+DISCARD
+
+# qword conjunction subordinate pronoun before pronoun wont be (pronoun will be) )  where (Adverb Pronoun_object Conjunction_subordinate)  it (Pronoun_object Pronoun_subject)  lives/live (+Noun_plural Verb_present_3ps)  
+0	INCLUDE * PRONOUN_BItS
+	STAY HAS CONJUNCTION_SUBORDINATE
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# subject pronoun after object pronoun as clause "those of us *who live"
+-1 IS PRONOUN_OBJECT
+	INCLUDE * PRONOUN_OBJECT
+DISCARD
+
+ # pronoun after particle will not be subject - zipping around (Particle)  you (Pronoun_object Pronoun_subject)  
+ -1 IS PARTICLE
+	INCLUDE * PRONOUN_SUBJECT
+DISCARD
+
+# in clash of pronoun  and coord subord, if not preceeded by be and  followed by noun wont be pronoun subject where (Pronoun_subject Conjunction_subordinate)  the/a (Determiner)  
+-1	!ISCANONICAL be
+	INCLUDE * PRONOUN_BITS
+	STAY HAS CONJUNCTION_SUBORDINATE  # but not BE question inversion "*was that the phone" - no presonal pronouns are ever conjunctions
+	IS DETERMINER_BITS NOUN_BITS PRONOUN_SUBJECT ADJECTIVE_BITS
+DISCARD
+
+# in clash of pronoun object and coord subord, if followed by noun wont be pronoun object where (Pronoun_subject Conjunction_subordinate)  the/a (Determiner) - could only be subject do to "was that the phone" 
+0	INCLUDE * PRONOUN_OBJECT
+	STAY HAS CONJUNCTION_SUBORDINATE  # but not BE question inversion "*was that the phone" - no presonal pronouns are ever conjunctions
+	IS DETERMINER_BITS NOUN_BITS PRONOUN_SUBJECT ADJECTIVE_BITS
+DISCARD
+
+# in clash of pronoun subject and coord subord, if preceeded by be not start and followed by noun wont be pronoun subject where (Pronoun_subject Conjunction_subordinate)  the/a (Determiner)  
+-1	ISCANONICAL be
+	STAY !START
+	INCLUDE * PRONOUN_BITS
+	STAY HAS CONJUNCTION_SUBORDINATE  # but not BE question inversion "*was that the phone" - no presonal pronouns are ever conjunctions
+	IS DETERMINER_BITS NOUN_BITS PRONOUN_SUBJECT ADJECTIVE_BITS
+DISCARD
+
+# wont be pronoun object if preceeded by verb not taking indirect and followed by determiner "scientists believe that these snakes are bad"
+# -1 IS VERB_BITS
+#	STAY !HASPROPERTY VERB_INDIRECTOBJECT
+#	INCLUDE * PRONOUN_OBJECT
+#	IS DETERMINER
+# DISCARD
+
+# ending conflict of pronouns must be object "I make up *everything"
+0	INCLUDE * PRONOUN_OBJECT
+	STAY END
+	STAY CANONLYBE PRONOUN_BITS
+KEEP
+
+# wont be pronoun if can be adjective or determiner after conjunct coord and before an adjective - and (Conjunction_coordinate)  other (+Adjective_normal Pronoun_object Pronoun_subject Determiner)  small (Adjective_normal) 
+-1 IS CONJUNCTION_COORDINATE
+	INCLUDE * PRONOUN_BITS
+	STAY HAS ADJECTIVE_BITS DETERMINER_BITS
+	IS ADJECTIVE_NORMAL
+DISCARD
+
+# subject not object before verb or aux "*it can only be"
+ 0	INCLUDE * PRONOUN_SUBJECT
+ 	STAY CANONLYBE PRONOUN_BITS
+ 	IS AUX_VERB VERB_BITS
+ KEEP
+
+# probably that-  that/a (Adverb Pronoun_subject Conjunction_subordinate Determiner)  feels/feel (Noun_plural Verb_present_3ps)   - but not "what swims" nor "a high value customer that banks want"
+0	INCLUDE * PRONOUN_SUBJECT
+	STAY HAS CONJUNCTION_SUBORDINATE
+	STAY !ISQWORD
+	HAS VERB_PRESENT_3PS
+	STAY !HAS NOUN_BITS # if we are verb but not noun, before is is going to be pronoun, not subord conjunct
+KEEP
+
+# cant be possessive her/she (Pronoun_object Pronoun_possessive)  this/a (Pronoun_object Pronoun_subject Determiner)  
+ 0	INCLUDE * PRONOUN_POSSESSIVE
+	CANONLYBE PRONOUN_BITS DETERMINER
+ DISCARD
+
+# pronoun possessive cannot occur before potential pronoun object/subject or determiner "we will give *her this" but "he looked at *his little sister" - but not "they all gave suzy"
+
+# pronounsubject before a known verb that/a (Adverb Pronoun_subject Conjunction_subordinate)  are/be (Aux_be_present Verb_present)  but not "they all gave suzy"
+
+# after verb will be object if conflict subject/object have (+Verb_infinitive +Verb_present)  something (Pronoun_object Pronoun_subject)
+-1	CANONLYBE VERB_BITS
+	INCLUDE * PRONOUN_SUBJECT
+	STAY HAS PRONOUN_OBJECT
+DISCARD
+
+# will not have three pronouns in a row - "we will give her *this one too"
+-1 CANONLYBE PRONOUN_BITS
+	INCLUDE * PRONOUN_BITS
+	STAY HAS DETERMINER_BITS
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# pronoun between coord and verb will be subject "and *that held the rain" 
+-1 IS CONJUNCTION 
+	INCLUDE * PRONOUN_OBJECT # otherwise you need "He who ate beans and that ranked it"
+	STAY HAS PRONOUN_SUBJECT
+	IS VERB_BITS
+DISCARD
+
+# pronoun after comma will be subject, not object?  if you ever pick one up, *you will see
+-1 IS COMMA
+	INCLUDE * PRONOUN_OBJECT
+	STAY HAS PRONOUN_SUBJECT
+DISCARD
+
+# after noun infinitive wont have subject pronoun  "he showed me how to cross *his laces
+-1 IS NOUN_INFINITIVE
+	INCLUDE * PRONOUN_SUBJECT
+DISCARD
+
+# a possible pronoun after a verb that can use an object, and no other thing after could be that object, be it "I can do *that too"
+-1 IS VERB_BITS  # but not "she felt so blue" adverb before adjective
+	STAY HASPROPERTY VERB_DIRECTOBJECT
+	INCLUDE * PRONOUN_OBJECT
+	STAY !POSTPOS PRONOUN_BITS NOUN_BITS ADJECTIVE_BITS
+KEEP
+
+
+# we dont accept where as pronoun at start, - "*where did you come from" despite what dictionary has
+0	INCLUDE * PRONOUN_BITS
+	STAY ISORIGINAL where
+	STAY START
+DISCARD
+
+# at start cant have two pronouns in a row - so (Adjective_normal +Adverb Pronoun_object Pronoun_subject)  what (Pronoun_object Pronoun_subject)  
+0	INCLUDE * PRONOUN_BITS
+	STAY START
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# at sentence start, structure will need subject if we have object and aux after nothing (Adverb Pronoun_subject)  could/can (Aux_verb_future)  rush (Verb_infinitive)  them/they (Pronoun_object)  
+0	INCLUDE * PRONOUN_SUBJECT
+	STAY START
+	IS AUX_VERB
+	IS VERB_BITS
+	IS PRONOUN_OBJECT
+KEEP
+
+# wont be pronoun at start followed by obvious noun stuff that/a (Adverb Pronoun_subject Conjunction_subordinate)  your/you (Pronoun_possessive)  sex (Noun_singular)  
+0	INCLUDE * PRONOUN_BITS
+	STAY START
+	IS PRONOUN_POSSESSIVE DETERMINER NORMAL_NOUN_BITS
+DISCARD
+
+# cant be pronoun before pronoun at start area -- this/a (Pronoun_subject Determiner)  much (Adjective_normal +Adverb Pronoun_object Pronoun_subject)  we (Pronoun_subject) 
+0	START
+	STAY INCLUDE * PRONOUN_BITS
+	IS PRONOUN_BITS
+DISCARD 
+
+# possible pronoun at start followed by prep will be pronoun some/a (Adjective_normal +Adverb Pronoun_subject)  of (Preposition) 
+0	INCLUDE * PRONOUN_BITS
+	STAY START
+	IS PREPOSITION
+KEEP
+
+# subject object conflict obviously subject when have aux and verb in order afterwards it (Pronoun_object Pronoun_subject)  has/have (Aux_have_present_3ps)  left/leave (Verb_past_participle) EXCEPT clause end object...  
+
+#  obj/possessive conflict after a verb and before potential noun or verb only-  drank(verb) his/he (Pronoun_object Pronoun_possessive)  milk (+Noun_singular Verb_infinitive Verb_present)  
+-1 IS VERB_BITS
+	INCLUDE * PRONOUN_POSSESSIVE
+	STAY CANONLYBE PRONOUN_POSSESSIVE PRONOUN_OBJECT
+	HAS NOUN_SINGULAR NOUN_PLURAL
+	STAY CANONLYBE NORMAL_NOUN_BITS VERB_BITS  # to be a verb, we need a clause ended and normal sentence continues-   tom of whom I say I love him rots hit teeth
+KEEP
+
+# what at start of sentence followed by noun will NOT be pronoun "*what games does he play"
+0	START
+	STAY ISORIGINAL what
+	STAY INCLUDE * PRONOUN_BITS
+	IS NOUN_BITS
+DISCARD
+
+# in verb conflict if no prior verb and followed by to_inf, we will be verb "my dog *loves to chew"
+-1	IS NORMAL_NOUN_BITS
+	INCLUDE * VERB_BITS
+	STAY !PRIORPOS VERB_BITS
+	IS TO_INFINITIVE
+KEEP
+
+# starting sentence what auxverb pronoun will be object pronoun "*what will you do"
+0	START
+	STAY INCLUDE * PRONOUN_OBJECT
+	STAY CANONLYBE PRONOUN_SUBJECT PRONOUN_OBJECT
+	IS AUX_VERB
+	IS PRONOUN_SUBJECT
+KEEP
+
+
+# obvious not pronoun object when followed by aux "*it will be"  EXCEPT if end before from phrase or clause
+
+# possessive pronoun and object pronoun conflict following comma and before potential noun will not be object " , *her watch revealed"
+-1	IS COMMA
+	INCLUDE * PRONOUN_OBJECT 
+	STAY HAS PRONOUN_POSSESSIVE
+	HAS NORMAL_NOUN_BITS 
+DISCARD
+
+# possessive pronoun and object pronoun conflict preceeding quote will be possessive "  *his 'story of women' "
+0	INCLUDE * PRONOUN_OBJECT 
+	STAY HAS PRONOUN_POSSESSIVE
+	IS QUOTE 
+DISCARD
+
+# no 2 pronoun subjects in a row  EXCEPT "*all she had to do" implied clause
+
+############################################
+########### Rules about pronoun possessive
+############################################
+
+# conflict in cardinal noun and pronoun be pronoun when modified "no one is here" 
+-1 IS DETERMINER ADJECTIVE_BITS
+	INCLUDE * PRONOUN_BITS
+	STAY HAS NOUN_NUMBER
+KEEP
+
+# possessive pronoun cannot follow a determiner or adjective or (must preceed it or a noun or an adverb) - except verbal adjective particple, describing object "opened *her box"
+-1 	IS DETERMINER ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE			# 
+	INCLUDE  *  PRONOUN_POSSESSIVE
+DISCARD  
+
+# these not after pronoun subject (except if question inversion happens)
+-2	!HAS AUX_VERB
+	IS PRONOUN_SUBJECT
+	INCLUDE *   PRONOUN_POSSESSIVE  # adjective allowed: Are you sick?
+DISCARD
+
+# cant have possessive in front of various things
+0	INCLUDE * PRONOUN_POSSESSIVE
+	IS DETERMINER COMMA PAREN PREPOSITION CONJUNCTION VERB_BITS AUX_VERB TO_INFINITIVE 
+DISCARD
+
+# possessive pronoun needs sign of noun after it  - "we will take it to *her in her hat"  - having quoted phrase will do
+0	INCLUDE * PRONOUN_POSSESSIVE
+	!HAS DETERMINER_BITS ADJECTIVE_BITS NOUN_BITS ADVERB QUOTE
+DISCARD
+
+# pronoun posssive ending the sentence cannot exist, but "it was bob's" can
+0	INCLUDE * PRONOUN_POSSESSIVE
+	STAY END
+DISCARD
+
+# poessessive pronouns not after regular nouns -- EXCEPT in dual object like "I did know the man *his manager named"
+
+# pronouns cannot be adjcant to each other - "I gave *her her right.
+0	INCLUDE *  PRONOUN_POSSESSIVE 
+	IS PRONOUN_BITS POSSESSIVE_BITS 
+DISCARD
+
+# pronoun sub/obj cannot be after possessive  cannot be adjacent to each other "I gave her *her right"  - but "i have given *my all"
+# -1 IS  POSSESSIVE_BITS 
+# 	INCLUDE *  PRONOUN_SUBJECT  PRONOUN_OBJECT 
+# DISCARD
+
+# pronoun sub/obj after possessive must be if no other choice after that  "i have given *my all"
+-1 IS  POSSESSIVE_BITS 
+ 	INCLUDE *  PRONOUN_SUBJECT PRONOUN_OBJECT 
+	HAS PREPOSITION CONJUNCTION_SUBORDINATE CONJUNCTION_COORDINATE 
+KEEP
+
+
+#  be possessive "*his home was" but not "I saw *her light the light"
+
+# possessive after actual aux is just that - "he did his fart"  vs "the field was his" or "his was the real issue"
+
+# cannot have object pronoun before a noun or adjective so must be possessive if it can be -- but will fail with clauses
+0	INCLUDE  * PRONOUN_POSSESSIVE  # The  designer  window  treatments  in  (her)  house  ,  installed  17  years_ago , were outmoded 
+	IS NOUN_BITS ADJECTIVE_BITS
+KEEP 
+
+# possessive can follow preposition  "to his house"  except "to her" so no
+
+############################################
+########### Rules about pronoun  
+############################################
+# pronouns cannot be adjacent to each other - but they can:   what they found intruiged them
+
+# potential pronoun in front of stuff cannot be a clause starter pronoun if verb  cant be "*what they found thrilled them"  (relative pronoun) . But can be at end: "you should do *that"
+
+# pronouns not after a determiner -- except for things like "*a little"
+
+# these not after pronoun subject (except if question inversion happens)
+-2	!HAS AUX_VERB
+	IS PRONOUN_SUBJECT
+	INCLUDE * PRONOUN_BITS   # adjective allowed: Are you sick?
+DISCARD
+
+# pronoun possessive/object her cannot be object before a singular noun - subject/object before noun can ONLY happen on clause/phrase change - near her angels sing
+0	INCLUDE * PRONOUN_OBJECT PRONOUN_SUBJECT
+	IS NOUN_SINGULAR  # in *her home  vs   After biting *her cats ran away
+DISCARD
+
+# there cannot be followed by AUX, only real 
+0	INCLUDE * PRONOUN_BITS
+	STAY ISORIGINAL there # all of the cars *there are going home. (VERY SPECIFIC)
+	IS AUX_VERB
+DISCARD
+
+# if choosing determiner vs pronoun of some flavor, followed by a noun, drop pronoun
+0	INCLUDE * PRONOUN_BITS   # There were 130 contacts *this month. 
+	STAY  HAS DETERMINER_BITS
+	IS NOUN_BITS - NOUN_GERUND
+DISCARD
+
+# clause start potential pronoun in front  of verb "*what they found thrilled them"  (relative pronoun) " I want the one that dangled from the towel"
+0	INCLUDE * PRONOUN_BITS
+	STAY PARSEMARK POTENTIAL_CLAUSE_STARTER
+	IS VERB_BITS
+KEEP
+
+# What about -- becomes pronoun and preposition
+0	ISORIGINAL what
+	STAY INCLUDE * PRONOUN_BITS
+	ISORIGINAL about
+KEEP 
+
+# cannot have a subject pronoun before an adjective[ unless after main verb in inverted format] (implying a pronoun before a noun), except object of clause before next clause subject
+# legal: who are *you afraid of
+
+# a potential pronoun with verb/aux following it is a good thing
+0	INCLUDE * PRONOUN_BITS
+	STAY HAS CONJUNCTION_SUBORDINATE	#  "that" which could be either - the team *that wore red
+	IS VERB_BITS AUX_VERB # LEGAL: after being reprimaned, he went home. UNKNOWN: after walking home, he left the city. is walking participle or gerund
+KEEP
+
+############################################
+########### Rules about pronoun  subject/object
+############################################
+
+# subject object after start of sentence question will be subject so discard object
+-1	IS AUX_VERB
+	INCLUDE * PRONOUN_OBJECT
+	STAY CANONLYBE PRONOUN_BITS
+DISCARD
+
+# subject object conflict after preposition or regular verb will be object  "he looked for *you"  and "I hit *you" except question form like "are *you a bank teller" and not being determiner "I chose this ball"
+-1  IS PREPOSITION VERB_BITS
+	STAY !START
+	INCLUDE * PRONOUN_SUBJECT
+	STAY HAS PRONOUN_OBJECT
+	STAY !HAS DETERMINER
+DISCARD
+
+# subject object conflict after be verb start will be object  "he lookd for *you"  and "I hit *you" except question form like "are *you a bank teller" but not if determiner
+-1  IS  VERB_BITS
+	STAY START
+	INCLUDE * PRONOUN_OBJECT
+	STAY HAS PRONOUN_SUBJECT
+	STAY !HAS DETERMINER
+DISCARD
+
+# object not after regular nouns or subordinate conjunctions "after *you wept"
+-1	IS NOUN_BITS  - NOUN_GERUND - NOUN_INFINITIVE CONJUNCTION_SUBORDINATE # not "she ran to catch *it"
+	INCLUDE *  PRONOUN_OBJECT  
+DISCARD
+
+# Pronoun Object cannot start a sentence unless its a q word  eg "what is the key"
+0	INCLUDE  * PRONOUN_OBJECT		# (Her) fashion sense is good.
+	STAY START
+	!ISQUESTION qword
+DISCARD
+
+# pronoun following an aux will be subject form - "what have *you been doing" - but not "we are *all afraid" - but not "I will be *most afraid"
+-1	IS AUX_VERB
+	INCLUDE * PRONOUN_SUBJECT
+	!HAS ADJECTIVE_BITS ADVERB
+KEEP
+
+# pronoun before verb or aux should be subject, not object BUT not if ending a clause-- "how you do it is your business"
+		# I can light the fire and *you can open the door.
+
+# pronoun after verb should be object, not subject (indirect object) # I hit you the ball, but: After he walked I ran 
+
+#  conflict pronoun followed by preposition will be the pronoun - "*all of the cars"  EXCEPT "I got *here on my own" unless adverb like "boys *such as these"
+

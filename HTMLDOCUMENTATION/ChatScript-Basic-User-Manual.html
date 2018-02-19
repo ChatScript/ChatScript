@@ -1,0 +1,636 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-basic-user-manual">ChatScript Basic User Manual</h1>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 9/24/2017 cs7.55</p>
+<ul>
+<li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple Topics</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-patterns">Simple Patterns</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-output">Simple Output</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#variables">Variables</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#summary">Summary</a></li>
+</ul>
+<h1 id="overview">OVERVIEW</h1>
+<p>ChatScript (CS) is a scripting language designed to accept user text input and generate a text response.</p>
+<p>Chat proceeds in <em>volleys</em>, like tennis. The program inputs one or more <em>sentences</em> from the user and outputs one or more sentences back.</p>
+<p>In most common usage, what you build is a <em>chatbot</em>, a program that takes input from a human and outputs a response. It converses with you. But I have also built a chatbot that is dedicated to reading a <em>document</em>. The input, in that case, is the entire document.</p>
+<p>What, if any, output it generates is up to its program. My program was designed to find the table of contents, each chapter boundary, and where the index at the back was.</p>
+<p>So, more broadly, <strong>ChatScript is a system for manipulating natural language, not just for building a chatbot</strong>.</p>
+<p>This document is about how to write script. There is a more general discussion about how to think about authoring a bot in the paper <a href="PAPERS/Writing-a-Chatbot.html">Writing a Chatbot</a> in the documentation.</p>
+<h2 id="input-and-output-sentences">Input and output sentences</h2>
+<p>ChatScript take one or more <em>input sentences</em> from the user. A <em>sentence</em> in CS nominally means the sequence of words up until some sentence <em>terminal token</em> chars. By default these characters end sentences:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">dot</th>
+<th align="center">question<br>mark</th>
+<th align="center">exclamation<br>point</th>
+<th align="center">semi<br>colon</th>
+<th align="center">colon</th>
+<th align="center">hyphen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>.</code></td>
+<td align="center"><code>?</code></td>
+<td align="center"><code>!</code></td>
+<td align="center"><code>;</code></td>
+<td align="center"><code>:</code></td>
+<td align="center"><code>-</code></td>
+</tr>
+</tbody>
+</table>
+<p>E.g. the following user phrase is split in three sentences:</p>
+<pre><code>What&#39;s your name? My is Alfred; I&#39;m from London. </code></pre>
+<p>One can also disable sentence ending.</p>
+<p>ChatScript outputs one or more sentences back to user.</p>
+<pre><code>My name is Harry!
+I&#39;m a chatbot demo, from California (USA).</code></pre>
+<h2 id="rules">Rules</h2>
+<p>Fundamentally a script is a series of <em>rules</em>.</p>
+<p>A full rule has a <em>kind</em>, a <em>label</em>, a <em>pattern</em>, and an <em>output</em>. Here is a simple full rule:</p>
+<pre><code>?: MEAT (you like meat) I do</code></pre>
+<p>The rule <em>kind</em> is <code>?:</code>, which means it only reacts to questions. The <em>label</em> is <code>MEAT</code>. The <em>pattern</em> is in <code>(</code> <code>)</code> and looks to find the words you like meat in consecutive order, anywhere in the input, e.g. <em>do you like meat</em>. The <em>output</em> is <em>I do</em>.</p>
+<p>The <em>kind</em> restricts when the rule can be tried. You can restrict rules to <em>statement</em> inputs, <em>question</em> inputs, or only when the bot takes control of the conversation and wants to volunteer something (<em>gambits</em>). Kinds are a letter follow by a colon.</p>
+<p>The <em>label</em> is optional and is partly a documentation and debugging aid and allows this rule to be manipulated by other rules.</p>
+<p>A <em>pattern</em> is a set of more specific conditions which allow or disallow this rule, usually trying to match words of the current input <em>sentence</em>, but sometimes taking into account the prior history of the conversation, the time of day, or whatever.</p>
+<p>The <em>output</em> is what this rule does if allowed to execute. Since the goal of the overall is to generate a response, the simplest output is merely the words to say. More complex outputs can do conditional execution, loops, function calls, etc.</p>
+<p>The system normally executes rules in a specified order until one not only passes the kind and pattern restrictions, but also actually generates output destined to reach the user. Once one has output, the system is done (unless you explicitly want to do more).</p>
+<h2 id="topics">Topics</h2>
+<p>Rules are bundled into collections called <em>topics</em>.</p>
+<p>You tell the system to execute a topic, and it begins executing rules in that topic until it generates an output.</p>
+<p>Topics can invoke other topics. Exactly how to process an input is controlled by a <em>control script</em> which itself is a topic. It calls engine functions and conditionally executes other topics.</p>
+<h2 id="code-script-syntax">Code Script Syntax</h2>
+<h3 id="charset-encoding">CharSet Encoding</h3>
+<p>ChatScript reads ordinary ascii text files and <strong>UTF-8</strong> files. It does not read UTF-16 files correctly.</p>
+<h3 id="whitespace">Whitespace</h3>
+<p>ChatScript generally ignores excessive white space. You can have a plethora of tabs, spaces, and newlines.</p>
+<p>E.g. the rules:</p>
+<pre><code>?: (When will you die) I don’t know. </code></pre>
+<p>and:</p>
+<pre><code>    ?:  ( When   will you    die ) 
+        I don’t know  . </code></pre>
+<p>are interpreted in the same way.</p>
+<p>But, you do have to use whitespace to separate tokens.</p>
+<h3 id="case">Case</h3>
+<p>ChatScript is case insensitive for code script. Obviously case is important in literal output.</p>
+<p>And <strong>words in patterns should be lower case</strong> unless they are proper names or the word &quot;<em>I</em>&quot;.</p>
+<p>NOTE: Don't make a lowercase word be upper case in a pattern merely because you think of it as starting a sentence.</p>
+<h3 id="comments">Comments</h3>
+<p>The comment character is the hash mark <code>#</code>.</p>
+<p>It extends to the end of the line. Ordinary comments must have at least one space after them, to allow the system to distinguish comments from <em>numeric constants</em> like <code>#NOUN</code></p>
+<pre><code># this line is a comment 
+s: (I hate meat) So do I. # a comment at the end of an output statement</code></pre>
+<p>There are special documentation comments that start with <code>#!</code> described elsewhere.</p>
+<pre><code>#! I hated meats 
+s: (I hate meat) really? </code></pre>
+<h3 id="legal-declaration-names">Legal declaration names</h3>
+<p>A <em>topic</em> or <em>function</em> (defined later) must contain only alpha-numeric characters, underscores (<code>_</code>), hyphens (<code>-</code>), and periods (<code>.</code>). They must begin with <code>~</code> and then continue with a starting alphabetic character.</p>
+<p><em>Variables</em> must start with <code>$</code> or <code>$$</code> or <code>$_</code>, then continue with a starting alphabetic character and then continue with alpha-numerics, underscores, or hyphens.</p>
+<h1 id="hello-word-demo">Hello Word Demo</h1>
+<p>Let’s turn to running the system in a simple demo.</p>
+<p><strong>Windows</strong> <br> Download and extract on a windows system into a directory (mine is called ChatScript), keeping files in their respective folders. Double click on the <code>chatscript.exe</code> file in BINARIES folder.</p>
+<p><strong>Linux</strong> <br> To run on a Linux system is not really much different. Download and extract into a directory in Linux, keeping the files in their folders. The executable that ships with the product is <code>LinuxChatScript64</code> (64-bit version) in BINARIES folder. You need to alter permissions to make it executable. Also, the Linux version defaults to server mode, so you should run it as:</p>
+<pre><code>BINARIES/LinuxChatScript64 local </code></pre>
+<p>This will NOT work if you have a 32-bit Linux and you will need to recompile on your machine. See <code>Installing and updating ChatScript</code> manual.</p>
+<p><strong>MacOs</strong> <br> With MacOS the executable file changes:</p>
+<pre><code>BINARIES/MacChatScript local </code></pre>
+<p>The system prints out a bunch of statistics as it loads data. After which is says:</p>
+<pre><code>Enter user name:</code></pre>
+<p>Select a user name. It’s arbitrary, but it’s how the system knows you are you when you start up again later. The system will respond with message:</p>
+<pre><code>Welcome to ChatScript</code></pre>
+<p>Now enter: <em>What is your name?</em> – you get <em>My name is Harry</em> if you type this correctly. You can also ask <em>How was your childhood?</em> and what are you afraid of and what is your history.</p>
+<p>Actually, you can say or ask anything and get an almost reasonable response because Harry has <em>quibbles</em>. If he knows nothing specific on your topic (which is almost universally true), he can stall and quibble instead. So you can have a conversation about anything.</p>
+<p>OK. Now you’ve run what comes pre-installed.</p>
+<p>If you want to learn about the simple Harry bot and try changing it, read the BOTHARRY document. Same if you want to build your own bot (starting by cloning Harry). Let’s quickly survey what comes built in.</p>
+<h1 id="fast-overview-of-topic-files-.top">Fast Overview of topic files (<code>.top</code>)</h1>
+<p>Chatscript is so easy, a child could master it in seconds. And if you believe that, I have several bridges available for sale to you on special. But some people will try to dive right in, without reading the material, so here is a quick guide to what you see in this simple topic file.</p>
+<p>Rules start with <code>t:</code> or <code>?:</code> or <code>u:</code> or <code>s:</code></p>
+<ul>
+<li><code>s:</code> means the rule reacts to <em>statements</em>.</li>
+<li><code>?:</code> means the rule reacts to <em>questions</em>.</li>
+<li><code>u:</code> means the rule reacts to the union of both.</li>
+<li><code>t:</code> means the rule offers a topic <em>gambit</em> when chatbot has control</li>
+</ul>
+<p>Rules also start with <code>a:</code> <code>b:</code> etc, but those are <em>rejoinders</em>, not top level rules. They are used to anticipate how a user might respond to output and give direct feedback based on that response.</p>
+<p>Rules are thus classified as:</p>
+<table style="width:92%;">
+<colgroup>
+<col width="22%" />
+<col width="12%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">rule type</th>
+<th align="center">syntax</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>responders</strong></td>
+<td align="center"><code>s:</code><br><code>?:</code><br><code>u:</code></td>
+<td>which are rules that try to react to unprovoked input from the user. That is, he might out of the blue ask you something or say something, and these attempt to cope with that.</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>rejoinders</strong></td>
+<td align="center"><code>a:</code><br><code>b:</code><br><code>c:</code><br><code>d:</code><br><code>e:</code><br><code>f:</code><br><code>g:</code><br><code>h:</code><br><code>i:</code><br><code>j:</code><br><code>k:</code><br><code>l:</code><br><code>m:</code><br><code>n:</code><br><code>o:</code><br><code>p:</code><br><code>q:</code></td>
+<td>are attempts to predict a user’s immediate response to something the chatbot says. They cannot be triggered except on input immediately after the rule they follow has issued output.</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>gambits</strong></td>
+<td align="center"><code>r:</code><br><code>t:</code></td>
+<td>are the story the chatbot wants to tell on a subject or the conversation the chatbot is trying to steer the user into. <code>r:</code> are random gambits (later <a href="ChatScript-Advanced-User-Manual.html#random-gambit">explained</a>).</td>
+</tr>
+</tbody>
+</table>
+<p>Rules usually have pattern requirements in parens (except gambit <code>t:</code> rules for which a pattern is optional). These typically try to find specific words or sequences of words in the user’s input. In the rule:</p>
+<pre><code>u: (run away) </code></pre>
+<p>the engine will see if the word run can be found anywhere in the sentence, and if so, is it immediately followed by the word away. Whenever you see <code>[...]</code> it means pick one of. So</p>
+<pre><code>u: ([scare afraid]) </code></pre>
+<p>means find anywhere in the sentence one of the words scare or afraid. And scare can be in any of its related forms: <em>scared</em>, <em>scare</em>, <em>scaring</em>, <em>scares</em>.</p>
+<p>In the sample file you will see ordinary words and <code>~words</code>. Tilde words refer to a concept set of words, a list of words that approximates the <code>~word</code>. E.g.,</p>
+<p><code>~like</code> means any of a number of words that mean to like something.</p>
+<p><code>~animals</code> means any of a large list of names of animals.</p>
+<p>These are shareable shorthand for the <code>[</code> <code>]</code> notation. Instead of having to write <code>[elephant tiger leopard alligator crocodile lion …]</code> in lots of rules, with the appropriate concept defined one can merely say <code>~animals</code></p>
+<p>Rules are always bundled into topics, like the topic: <code>~childhood</code> topic. Topics have a list of relevant keywords following the topic name. After that, rules come in any order. The gambits, <code>t:</code> lines, offer a story or expected conversation flow.</p>
+<p>If you ask information in a conversation, you are expected to balance the scales by giving information. For example if you ask what someone does for a hobby, you are expected after their response to answer the question about yourself. As in:</p>
+<pre><code>Topic: school [school university learn]
+
+t: Where do you go to school?
+t: I go to Harvard.
+t: What is your major?
+t: I am studying finance.</code></pre>
+<p>Of course one is often expected to respond to the user’s response. So if he answers where do you go to school by saying <em>the university of Rochester</em>, it helps if you can make some cogent rejoinder on that BEFORE you gambit say <em>I go to Harvard</em>.</p>
+<pre><code>Topic: school [school university learn]
+
+t: Where do you go to school?
+    a: (Rochester) That&#39;s a great school.
+
+t: I go to Harvard.
+
+t: What is your major?
+
+t: I am studying finance. </code></pre>
+<p>And your topic has to be ready to handle arbitrary school-related questions from the user.</p>
+<p>If he says <em>I go to Yale</em>. <em>What was your school mascot?</em>, you’d like to have added responders that could field the mascot question before you move on to volunteering you went to Harvard.</p>
+<p>This is what the simple topic on childhood attempts to do. Ask gambit questions, respond with appropriate remarks to their response, offer the chatbot’s answer to the gambit, move on, and handle some simple questions asked out of the blue on the topic.</p>
+<p>Comments start with <code>#</code>. In the file, the comment <code>#</code> issued only once, is an ordinary comment.</p>
+<p>Special comments <code>#!</code> give sample input from a user that the immediately following rule is expected to match and handle. This both documents what input is expected to match the rule below AND allows the engine to automatically test it.</p>
+<p>The special comment gives only one example of matching input, not all possible inputs that can match. It helps you understand what a responder or rejoinder is supposed to react to. It has no impact whatsoever on a user in chat.</p>
+<h1 id="what-files-are-where">What Files are Where</h1>
+<p>The ChatScript engine can run multiple bots at once <a href="ChatScript-Multiple-Bots.html">ChatScript Multiple Bots manual</a>, each with a unique <em>persona</em>. So one user can connect and talk with a specific personality while another user connects and talks with a different one (or the same one).</p>
+<table style="width:100%;">
+<colgroup>
+<col width="26%" />
+<col width="73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Directory</th>
+<th>files</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">BINARIES</td>
+<td>Executable Files. All executables are in BINARIES folder. The system assumes they are launched from there (is the current working directory) and changes directory up a level to access all the other folders.</td>
+</tr>
+<tr class="even">
+<td align="center">USERS</td>
+<td>History Files. Each user’s conversation is tracked by the system and kept in files in the USERS directory. A user can return to chat with a personality days later, and the system knows what has happened in previous conversations and that this is the start of a new conversation. The system keeps a log file per user recording their conversations for the author (CS does not use this file, it merely records it), and a topic file for each userchatbot pairing, where it stores the current state of conversation for the engine. If the script records facts about the user during conversation, these are also stored in the topic file.</td>
+</tr>
+<tr class="odd">
+<td align="center">DICT</td>
+<td>Dictionary Files. The DICT folder is the underlying dictionary of the system. You probably won’t modify it. It has a subfolder ENGLISH which is a full dictionary it uses normally. If you are trying to run on a mobile device, you probably want to copy over the contents of BASIC into ENGLISH, to use a smaller dictionary</td>
+</tr>
+<tr class="even">
+<td align="center">LIVEDATA</td>
+<td>Dictionary Extension Files. The LIVEDATA folder contains extensions to the dictionary and run-time system that you might change as an advanced author.</td>
+</tr>
+<tr class="odd">
+<td align="center">RAWDATA</td>
+<td>Knowledge Files. The RAWDATA folder is where raw data to support chat is kept (though you can keep it anywhere since it’s not compiled into the engine). There are folders for HARRY, ONTOLOGY, WORLDDATA, STOCKPILE, NLTK, POSTGRES and QUIBBLES. Normally when you define a chatbot, you add a folder with the name of your chatbot. That way you can just swallow updates to the main system whenever a new release is created.</td>
+</tr>
+<tr class="even">
+<td align="center">TOPIC</td>
+<td>That data is run through the script &quot;compiler&quot; and the output is stored in the TOPIC directory, which holds your compiled script data.</td>
+</tr>
+<tr class="odd">
+<td align="center">VERIFY</td>
+<td>If your script has verification data embedded in it (#! sample inputs), which allows the system to prove your patterns actually do what you intend, that data is stored in the VERIFY directory after compilation.</td>
+</tr>
+<tr class="even">
+<td align="center">SRC</td>
+<td>Source Files. src is source for rebuilding the engine. It has a file dictionarySystem.h which is read during loading to define engine constants that can be used in scripting.</td>
+</tr>
+<tr class="odd">
+<td align="center">WIKI</td>
+<td>Documentation Files. This document and others can be found in WIKI.</td>
+</tr>
+<tr class="even">
+<td align="center">LOGS</td>
+<td>If ChatScript detects bugs during execution, it stores them in bugs.txt in this folder. A server will also store its log here.</td>
+</tr>
+<tr class="odd">
+<td align="center">Compilation Files</td>
+<td>The folders LINUX, MAC, and VS2010 are for rebuilding the executable engine. LOEBNERVS2010 builds a Loebner contest version.</td>
+</tr>
+<tr class="even">
+<td align="center">Top Level Files</td>
+<td>Aside from the chatscript.exe, the following top level files exist:<br> <code>authorizedIP.txt</code> – as a server, this allows some users to enter commands<br> <code>changes.txt</code> – list of changes between releases<br> <code>version.txt</code> – the current version<br> <code>talk.vbs</code> – script to enable voice output in windows</td>
+</tr>
+<tr class="odd">
+<td align="center">REGRESS</td>
+<td>Files that can do regress tests of various kinds are here.</td>
+</tr>
+<tr class="even">
+<td align="center">Server Batch Files</td>
+<td>files for windows that can run the engine as a local server or a local client.</td>
+</tr>
+<tr class="odd">
+<td align="center">Third Party Tools</td>
+<td>reference to some ChatScript third party tools.</td>
+</tr>
+<tr class="even">
+<td align="center">TMP</td>
+<td>transient files used to support debugging are kept here.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="simple-topics">SIMPLE TOPICS</h1>
+<p>The system does not execute all rules. Nor do you directly choose a rule to execute. Instead, you (the author) organize collections of rules into topics and the system chooses what topic to execute at any moment. It, in turn, executes its rules.</p>
+<p>Here is an example of a simple topic declaration:</p>
+<pre><code>topic: ~DEATH [dead corpse death die body]
+
+t: I don’t want to die
+?: (When will you die) I don’t know. </code></pre>
+<p>The topic declares its name, its keywords, and then its rules. It ends with the end of the file or a new top level declaration (which includes <code>topic:</code>, <code>concept:</code>, <code>table:</code>, <code>tablemacro:</code>, <code>outputmacro:</code>, <code>patternmacro:</code>, <code>dualmacro:</code>, <code>bot:</code>, <code>data:</code>, <code>canon:</code>, <code>query:</code>, <code>plan:</code>, <code>describe:</code>, and <code>replace:</code>).</p>
+<p>A topic name must start with a <code>~</code>, an alphabetic character, and then be a standard legal name (contains only alpha-numeric characters, underscores, hyphens, and periods).</p>
+<h2 id="keywords">Keywords</h2>
+<p>Keywords allow the system to consider this topic based on matches with the user input.</p>
+<p>If the user input has no keywords in common with the topic, then normally the topic and all its rules will not be considered.</p>
+<p>User sentence keywords trigger the closest matching topic (based on number and length of keywords) for evaluation.</p>
+<p>If the engine can find a matching responder, then it shifts to that topic and replies. Otherwise the engine tries other matching topics. Eventually, if it can’t find an appropriate responder, it can go back to the most relevant topic and just dish out a gambit (the <code>t:</code> rule).</p>
+<p>It doesn’t matter if the new topic has responders that overlap some other topic’s responders (both could match the input). You can have a topic on <code>~burial_customs</code> and another on <code>~death</code>. An input sentence <em>I don’t believe in death</em> might route you to either topic, but that’s reasonable.</p>
+<p>If you are in the middle of some topic and the user says something unrelated, then the system will hunt for a topic that matches keywords of the input and see if some matching topic has a responder to react to the input. If so, the system will switch to that topic.</p>
+<p>The new topic becomes the <em>active</em> topic and the old topic becomes <em>pending</em>, put on a list of topics to return to when the new topic becomes exhausted. This behavior is the default behavior and you can script other behavior by creating a control script to do so (advanced).</p>
+<p>Topics make it easy to bundle rules logically together. Topic keywords mean the author can script an independent area of conversation without regard to pre-existing script and the system will automatically find it and invoke it as appropriate.</p>
+<p>Topics do not have to have keywords. But if a rule in that topic is going to be considered, either the topic has keywords that can be found in the pattern of that rule, OR, the topic is already the current topic (some other rule had keywords in its pattern that also were topic keywords and got you entry into the topic) OR, the topic was directly called by the control script or some other topic.</p>
+<h2 id="gambit-rules">Gambit Rules</h2>
+<p>In addition to responders for user input (<code>s:</code> <code>?:</code> <code>u:</code>) a topic can have gambits to offer (<code>t:</code>).</p>
+<p>Gambits create a coherent story on the topic if the bot is in control of the conversation.</p>
+<p>Yet if the user asks questions, the system can use a responder to either respond directly or reuse a gambit it was going to volunteer anyway. It is entirely up to you the order of responders and gambits. You can segregate <code>s:</code> from <code>?:</code> from <code>u:</code> or co-mingle them.<br />
+You can have responders intermixed with gambits.</p>
+<p>What does it mean for the chatbot to be &quot;in control&quot; of the conversation?</p>
+<p>When the user types in a statement or question, the system will see if it has a rejoinder or a responder that directly matches the input. If it does, it will respond with that. That forced response means the human was in control of the conversation. If, however, the chatbot cannot find a response for the input, then the chatbot is free to say whatever it wants. It is in control.</p>
+<p>Maybe it will issue a gambit from the topic it was last in. Maybe it will make a gambit from a topic closely related to the user's input. Maybe it will try to steer the conversation to a specific new topic. All that is controlled by the logic of the control script (of which there is a default one supplied with ChatScript but which you can author yourself).</p>
+<p>The typical gambit does not have a label or a pattern component. It could have them. It just usually is the rule type and the output data.</p>
+<h2 id="execution-order">Execution Order</h2>
+<p>A topic is executed in either <em>gambit mode</em> (meaning <code>t:</code> lines fire) or in <em>responder mode</em> (meaning <code>s:</code> <code>?:</code> and <code>u:</code> fire). Rules are placed in the order you want them to be tried.</p>
+<p>For gambits, the order tells a story.</p>
+<p>For responders, rules are usually ordered most specific to least specific, possibly bunched by a theme. So a responder trying to catch what color is your hair would be before one that simply would react to any reference to your hair.</p>
+<p>By default, the system avoids repeating itself, marking as used-up rules that it matches that generate output. This is how a topic story gets told. It outputs the first gambit, marks it used, and then next time it will output the second gambit and mark it used, and so on.</p>
+<p>Similarly, a responder that reacts to an input will give its message and then erase itself. If the user repeats his input, that rule cannot respond again, and some other rule will have to answer.</p>
+<p>The file <code>RAWDATA/skeleton.top</code> has a bunch of topics already predefined with keywords but no responders or gambits.</p>
+<p>If you filled in some of these topics with rules and hooked the file into <code>RAWDATA/filesHarry.txt</code> and rebuilt the data, you’d have a chatbot.</p>
+<h2 id="rejoinders">Rejoinders</h2>
+<p>If you expect the user might respond in a particular manner to the chatbot’s last output, you can script rules to examine his next input and see if it matches. When it works, it makes your chatbot seem like it understands the user. These are called rejoinders and all rules can have them.</p>
+<pre><code>s: ( I like spinach ) Are you a fan of the Popeye cartoons?
+    
+    a: ( yes ) I used to watch him as a child. Did you lust after Olive Oyl?
+        
+        b: ( no ) Me neither. She was too skinny.
+        b: ( yes ) You probably like skinny models.
+    
+    a: ( no ) What cartoons do you watch?
+        
+        b: ( none ) You lead a deprived life.
+        b: ( Mickey Mouse ) The Disney icon. </code></pre>
+<p>Rejoinders use <code>a:</code> through <code>q:</code> to indicate nesting depth.</p>
+<p>All rejoinders at a level have the same letter and are alternatives that will be tested in order. So, after the chatbot asks are you a fan... it will test the next input for yes and then no. As soon as it finds a matching rejoinder, it will execute it and be done. If it finds none, then the system just moves on to its normal behavior.</p>
+<p>Rejoinders can have rejoinders, as shown above. Indenting like above is good style, making it visually obvious in your script.</p>
+<p>Note <br> technically the above uses of yes and no will not actually work as written. They are considered special and treated as <em>interjections</em> (along with many other things that mean the same thing). To make the above example actually work in the engine, you’d have to use ~yes and ~no. But you don’t learn about concepts and interjections until later.</p>
+<h2 id="rule-labels">Rule Labels</h2>
+<p>All rules (responders, gambits, rejoinders) can have labels on them. Labels have a variety of uses. Other rules can use functions that target a particular labeled rule. You can use the debug abilities to test that rule and you can see that rule more easily in a trace. And you get a kind of documentation telling you what your rule is about.</p>
+<p>A label is a single word placed between the rule type and the pattern. If the rule is a gambit, you must add a pattern, even if it is only empty parens.</p>
+<pre><code>t: MY_EYES () My eyes are blue
+?: EYECOLOR (color * eyes) I have blue eyes
+u: GLASSES ([glasses contacts]) I don&#39;t wear glasses, but I do have contacts.
+?: BLIND (you * blind) I am not blind.
+?: COLORBLIND (you * [color-blind &quot;color blind&quot;]) I am not color blind. </code></pre>
+<p>Note, ChatScript is a token-oriented language (tokens generally being a collection of characters without spaces). You need to put one or more spaces after the <code>:</code> and before the label. OTHERWISE <code>?:EYECOLOR</code> is a single token and not a declaration of a rule and a label.</p>
+<p>Also, while you can use any case you want in the rule label, internally ChatScript will convert it to full uppercase. Routines that deal with rule labels know this so you don't have to care. All uppercase rule labels stand out more easily in traces and in script source.</p>
+<p>The <code>simpletopic.top</code> file has an example topic called <code>~Childhood</code> of normal complexity (which can be understood after reading through advanced output).</p>
+<h1 id="simple-patterns">SIMPLE PATTERNS</h1>
+<p>As stated previously, a rule cannot fire unless its pattern matches, and a pattern in a rule is encased in parens (which means find the items within it in sequence).</p>
+<p>Writing patterns is a delicate balancing act. If you are too specific, the pattern will miss all sorts of opportunities to respond to similar meanings. If your pattern is</p>
+<pre><code>?: (when will you go home) I go home tomorrow </code></pre>
+<p>and the input is when will you be going home, the bot fails to react. But if your pattern is too broad, the bot responds to completely wrong meanings. If your pattern is</p>
+<pre><code>s: (home) I go home tomorrow.</code></pre>
+<p>then it reacts to <em>He slid home</em> inappropriately.</p>
+<h2 id="in-sequence">In sequence <code>(</code> <code>)</code></h2>
+<p>I said that parens mean in sequence, anywhere in the input. Thus</p>
+<pre><code>s: ( I love you) Do you really?</code></pre>
+<p>matches <em>How I love you!</em> and <em>I love you and your kind</em> and <em>Everyone knows I love you</em>. You can even nest parens within parens, not that it has any functional utility.</p>
+<pre><code>s: (I (love you)) Do you really? </code></pre>
+<p>This pattern is equivalent to the earlier one without nested parens. Whereas the outer parens can start their first element matching anywhere in the sentence, once a positional context has been established, that gets inherited. Thus after I is matched, the starting context of the inner opening paren is that the next element must match in position 2 in the sentence, immediately after <code>I</code>.</p>
+<p>Another way to request a sequence is to put double quotes around it.</p>
+<pre><code>s: ( &quot;I love you&quot; ) Do you really? </code></pre>
+<p>There are two reasons to use double quoting. First, if you are trying to shoe-horn a phrase into a place that expects a word. For example, as a topic keyword you could do this:</p>
+<pre><code>topic: ~death [&quot;to die&quot; &quot;cross over&quot;] </code></pre>
+<p>Second, when trying to write words where you are not sure how the system will tokenize it and whether it is one word or a sequence of words.</p>
+<p>Tokenization involving punctuation can be tricky. For example, the word <em>Bob’s</em> is actually tokenized as two words: <em>Bob 's</em> . And in Wordnet, <em>New_Year's_Eve</em> is a single word.</p>
+<p>You might not know that, but anytime you think of something as multiple words, you are safe quoting it (writing <em>&quot;New Year’s Eve&quot;</em>) and letting ChatScript manage how it is stored internally. This is particularly true of names of people, titles of books and other multiple-word proper names.</p>
+<p>Put things with punctuation in them in double quotes to be safe. Pattern matching a sequence is limited to 5 words in row and will do both original and canonical forms.</p>
+<h2 id="sentence-boundaries-and">Sentence boundaries <code>&lt;</code> and <code>&gt;</code></h2>
+<p>Sometimes, to get a proper meaning in the pattern, you need to actually know where an input begins or ends. For example:</p>
+<pre><code>u: (what is an elephant) An elephant is a pachyderm. </code></pre>
+<p>matches <em>Tell me what is an elephant</em> and <em>what is an elephant</em> and <em>what is an elephant doing in the room</em>. That last one is inappropriately matched.</p>
+<p>The <code>&gt;</code> matches the end of the sentence. This makes it possible to correctly manage the above sentences as follows:</p>
+<pre><code>u: (what is an elephant &gt; ) An elephant is a pachyderm. </code></pre>
+<p>The <code>&lt;</code> doesn’t really match the start of the sentence so much as it sets the current position of matching to the start of the sentence. Thus</p>
+<pre><code>u: ( roses &lt; I like ) I like roses too.</code></pre>
+<p>matches <em>I like roses</em> because it finds roses anywhere in the sentence, then the <code>&lt;</code> resets the match position to the sentence start, and then it finds I like at the beginning. Of course this will not match <em>You know I like roses</em> because I is not at the start of the sentence.</p>
+<h2 id="simple-indefinite-wildcards">Simple Indefinite Wildcards <code>*</code></h2>
+<p>The wildcard <code>*</code> means 0 or more words in sequence. It can be used to widen a pattern:</p>
+<pre><code>?: (when * you * home) I go home tomorrow</code></pre>
+<p>This pattern responds to <em>When will you go home</em> and <em>When Roger is with you, will there be anyone at home?</em></p>
+<h2 id="precise-wildcards-n">Precise Wildcards <code>*n</code></h2>
+<p>As you may notice, indefinite wildcards can allow all sorts of mischief to creep into a match. An overprotective way to manage this is using wildcards that tell you exactly how many words can be swallowed up. The <code>*</code> followed by a number names how many words it absorbs.</p>
+<pre><code>?: (when *1 you *1 home) I went home yesterday</code></pre>
+<p>This matches When did you go home but won’t accept wide variances like <em>When Roger is with you</em> nor will it accept <em>when you went home</em> which hasn’t room for the first <code>*1</code>.</p>
+<h2 id="range-restricted-wildcards-n">Range-restricted Wildcards <code>*~n</code></h2>
+<p>The usual way to manage the excesses of the previous wildcards is to use a range restricted wildcard. This is an <code>*</code> followed by a <code>~</code> and a number, like <code>*~3</code>. It means from 0 up through that number, or approximately that number.</p>
+<p>A common choice is <code>*~2</code>. This leaves room for some filler words (like a determiner and an adjective or perhaps some kind of adverb), without requiring them or letting the sentence stray.</p>
+<pre><code>?: (you *~2 go *~2 home) I often go to that home.</code></pre>
+<p>This responds equally to <em>You can go home</em> and <em>you should not go to your home</em>.</p>
+<h2 id="unordered-matching">Unordered Matching <code>&lt;&lt;</code> <code>&gt;&gt;</code></h2>
+<p>Often times you are interested in matching several keywords, but you explicitly want any order of them. For example the sentence <em>I love birds</em> is a lot like <em>Birds are what I love</em> but subject and object move around. One somewhat tedious way to match in any order is:</p>
+<pre><code>s: ( I &lt; * love &lt; * birds ) I love birds too.</code></pre>
+<p>This works by going back to the beginning of the sentence and allowing any number of words to match a wildcard until the next keyword is found. It’s ugly. The cleaner way is to use the unordered markers.</p>
+<pre><code>s: ( &lt;&lt; I birds love &gt;&gt; ) I love birds too.</code></pre>
+<p>Since the words can be matched in any order, this resets the scanning mechanism back the original starting condition, which is always &lt; * meaning you can match the next the next item anywhere in the sentence.</p>
+<p>Position is freely reset to the start following the <code>&lt;&lt;</code> <code>&gt;&gt;</code> sequence so if you had the pattern:</p>
+<pre><code>u: ( I * like &lt;&lt; really &gt;&gt; photos)</code></pre>
+<p>and input <em>photos I really like</em> then it would match because it found <code>I * like</code> then found anywhere really and then reset the position freely back to start and found photos somewhere in the sentence.</p>
+<h2 id="choices">Choices <code>[</code> <code>]</code></h2>
+<p>You can match alternate words in the same position by placing those choices in brackets.</p>
+<pre><code>?: (you [swim ride fish ]) I do.</code></pre>
+<p>This matches Do you swim and Do you fish and do you ride. Choices may be significant alternatives or they can be synonyms.</p>
+<pre><code>?: (you [eat ingest &quot;binge and purge&quot; (feed my face ) ] *~2 meat) I love meat</code></pre>
+<p>Notice that elements of a choice can be sequences of words either as double-quoted phrases or as paren sequences.</p>
+<h2 id="concepts"><code>~</code>Concepts</h2>
+<p>Choices are handy for synonyms, but you have to repeat them over and over in different rules. At such point being able to declare a list of choices in one place and use them everywhere else becomes convenient. This is the concept set. It is hugely important in writing patterns that match meaning.</p>
+<pre><code>concept: ~eat [eat ingest &quot;binge and purge&quot;]</code></pre>
+<p>Unlike choices, a concept cannot use paren notation to hold a sequence of words, though it can use quoted expressions.</p>
+<p>A concept is a top-level declaration consisting of a name starting with <code>~</code> and consisting of only alpha-numeric characters and underscores. A concept has a list of words it defines. You can use the set name in any pattern or topic keyword list in place of a word.</p>
+<pre><code>s: (I ~eat meat) Do you really? I am a vegan. </code></pre>
+<p>Think of the <code>~</code> as meaning approximately. Topic names are also concept names, with the keywords of the topic being the choices.</p>
+<p>ChatScript can represent word synonyms as above or affiliated words as below.</p>
+<pre><code>concept: ~baseball [strike umpire ball bat base ]
+# some topic declaration
+s: (~baseball) I’m not that into sports like baseball. </code></pre>
+<p>A concept can also a natural ordering of words that an advanced script can use. The ordered concept below shows the start of hand ordering in poker.</p>
+<pre><code>concept: ~pokerhand [ royal flush straight flush 4 of a kind full house ] </code></pre>
+<p>The pattern:</p>
+<pre><code>?: ( which * better * ~pokerhand * or * ~pokerhand ) … </code></pre>
+<p>detects questions like which is better, a full house or a royal flush and the system has functions that can exploit the ordered concept to provide a correct answer.</p>
+<p>You can nest concepts within concepts, so this is fine:</p>
+<pre><code>concept: ~food [ ~meat ~dessert lasagna ~vegetables ~fruit ] </code></pre>
+<p>Hierarchical inheritance is important in pattern generalization. Concepts can be used to create full ontologies of verbs, nouns, adjectives, and adverbs, allowing one to match general or idiomatic meanings.</p>
+<p>The system comes with such already defined, you just have to activate it. I f you give the command <code>:build 0</code> to the chatbot, you will build the underlying ontology and world knowledge of the system. Then you can explore the existing sets.</p>
+<p>In addition to fixed sets (over 1600 of them), the system automatically defines a bunch of dictionary-based sets. These include parts-of-speech like <code>~noun</code> as well as general open concepts like <code>~number</code>.</p>
+<p>For a full list, see the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
+<h2 id="capitalization">Capitalization</h2>
+<p>However you type your input, with or without capital letters, the system tries to figure out the word you actually mean.</p>
+<p>If you write <em>Can I go back</em>, you don't mean that <em>Can</em> is a proper noun. You mean <em>can I go back</em>, and so that is what the system sees.</p>
+<p>This means when you write patterns, you do not write capital letters on first words of sentences. You only write them for proper nouns. So this pattern:</p>
+<pre><code>u: ( Can I go back )</code></pre>
+<p>is wrong and will not match anything and should be</p>
+<pre><code>u: ( can I go back ) </code></pre>
+<h2 id="proper-names">Proper names</h2>
+<p>You should always put multiple-word proper names in double quotes, particularly ones with embedded punctuation. You want CS to know that the entire phrase is considered a single entity. So</p>
+<pre><code>u: ( &quot;Dr. Watson&quot; )
+u: ( &quot;The Beatles&quot; )</code></pre>
+<h2 id="interjections-discourse-acts-and-concept-sets">Interjections, &quot;discourse acts&quot;, and concept sets</h2>
+<p>Some words and phrases have interpretations based on whether they are at sentence start or not. E.g., <em>good day, mate</em> and <em>It is a good day</em> are different for <em>good day</em>. Likewise <em>sure</em> and <em>I am sure are</em> different.</p>
+<p>Words that have a different meaning at the start of a sentence are commonly called interjections.</p>
+<p>In ChatScript these are defined by the <code>interjections.txt</code> file (for English language, see <a href="../LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt">interjections.txt</a>).</p>
+<p>In addition, the file augments this concept with <em>discourse acts</em>, phrases that are like an interjection. All interjections and discourse acts map to concept sets, which come thru as the user input instead of what they wrote.</p>
+<p>For example <em>yes</em> and <em>sure</em> and <em>of course</em> are all treated as meaning the discourse act of agreement in the interjections file. So you don’t see <em>yes</em>, I will go coming out of the engine. The interjections file will remap that to the sentence <code>~yes</code>, breaking off that into its own sentence, followed by I will go as a new sentence.</p>
+<p>These generic interjections (which are open to author control via <code>interjections.txt</code>) listed in the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
+<p>Because all interjections at the start of a sentence are broken off into their own sentence, this kind of pattern does not work:</p>
+<pre><code>u: ( ~yes _* )</code></pre>
+<p>You cannot capture the rest of the sentence here, because it will be part of the next sentence instead. This means interjections act somewhat differently from other concepts. If you use a word in a pattern which may get remapped on input, the script compiler will issue a warning. Likely you should use the remapped name instead.</p>
+<h2 id="canonization">Canonization</h2>
+<p>The system actually assists you in generalizing your patterns. It simultaneously matches both the original word and a canonical form of it if your pattern word is in the canonical form. And it checks both lowercase and uppercase forms of your words. For nouns, the canonical form is the singular. So if your pattern is:</p>
+<pre><code>?: (dog) I have a cat </code></pre>
+<p>this will respond equally to I like dogs and I have a dog. Whereas the pattern</p>
+<pre><code>?: (dogs) I have a cat </code></pre>
+<p>will only respond to <em>I like dogs</em> but not to <em>I have a dog</em>.</p>
+<p>For verbs, the canonical form is the infinitive tense. If your pattern is:</p>
+<pre><code>?: (be *1 correct) Yes.</code></pre>
+<p>This will respond equally to <em>Was it correct?</em> and <em>Are you correct?</em> and <em>Is she correct?</em>.</p>
+<ul>
+<li>Possessive suffixes <code>'</code> and <code>'s</code> transform to the word <code>'s</code>.</li>
+<li>Adjectives and adverbs revert to their base form.</li>
+<li>Determiners <em>a an the some these those that</em> become <em>a</em>.</li>
+<li>Text numbers like two thousand and twenty one transcribe into digit format.</li>
+<li>Floating point numbers migrate to integers if they match value exactly, while currency values become floating point.</li>
+<li>Personal pronouns like <em>me my myself mine</em> move to the subject form <em>I</em>, while <em>whom, whomever whoever whose</em> shift to <em>who</em> and <em>anyone somebody anybody</em> become <em>someone</em> and <em>whatever</em> becomes <em>what</em>, <em>whenever</em> becomes when, <em>whichever</em> becomes <em>which</em>.</li>
+</ul>
+<p>The file <code>canonical.txt</code> in LIVEDATA controls lots of these.</p>
+<p>If the system sees <em>&amp;</em> in the input, it changes it to <em>and</em>. It also changes <em>_ to </em>'_.</p>
+<p>ChatScript’s simple concept below accepts all tenses and conjugations of the listed verbs:</p>
+<pre><code>concept: ~be [ be seem sound look ]</code></pre>
+<p>If you put an apostrophe in front of a word or use words not in canonical form, the system will restrict itself to what you used in the pattern:</p>
+<pre><code>u: ( I &#39;like you ) This matches I like you but not I liked you.
+s: ( I was ) This matches I was and Me was but not I am</code></pre>
+<p>The same is true for concepts:</p>
+<pre><code>u: ( &#39;~extent_adverbs ) </code></pre>
+<h2 id="not-and-notnot">Not <code>!</code> And NotNot <code>!!</code></h2>
+<p>The absence of words is represented using <code>!</code> and means it must not be found anywhere after the current match location. When placed at the start of the pattern, it means not anywhere in the sentence at all:</p>
+<pre><code>u: ( ![ not never rarely ] I * ~ingest * ~meat ) You eat meat.
+u: ( !~negativeWords I * ~like * ~meat ) You like meat. </code></pre>
+<p>While <code>!</code> Checks for the entire rest of the sentence, <code>!!</code> checks just the next word from where you are. So</p>
+<pre><code>u: ( test !!this)  I win</code></pre>
+<p>Will match input <em>test that this works</em> and not match <em>test this works</em>.</p>
+<h2 id="optional-words">Optional Words <code>{</code> <code>}</code></h2>
+<p>Sometimes you can expect a word might or might not be supplied. Your pattern can reflect this, swallowed it when present. <code>{``}</code> is just like choice <code>[``]</code>, except the match is optional. It is allowed to fail.</p>
+<pre><code>?: ( how hot is ~number {degree deg} Farenheit ) Sounds hot.
+s: ( define {the word (the meaning of) } *1 &gt; ) Sorry. I don’t know it.</code></pre>
+<p>Note how we didn’t have to say degrees in the optional list, because that automatically is handled by using the canonical degree.</p>
+<p>If you want to test for a sequence of optional words, you can do two things:</p>
+<pre><code>u: ( {are} {you}{going} home ) </code></pre>
+<p>or</p>
+<pre><code>u: ( {&quot;be you go&quot;} home )</code></pre>
+<p>In a quoted phrase, you can use either all canonical or all exact forms. And you can do a quoted phrase of 4 words long (but not longer).</p>
+<h2 id="commands">Commands</h2>
+<p>You can issue commands to the system (prefix is colon) to inquire about things, control things, debug things, etc. In this simple section, we look at commands to examine words and their relationship to themselves and concepts. All commands are invisible to normal chat in that they do no affect the user’s state of processing chat. A list of all commands can be gotten by typing <code>:commands</code>.</p>
+<p>Documention on most of them is in the <a href="ChatScript-Debugging-Manual.html">ChatScript Debugging Manual</a>.</p>
+<pre><code>:word word</code></pre>
+<p>dumps the dictionary and fact and concept information about the word. It displays everything the system knows about the given word- its parts of speech, attributes like it is a singular noun, what dictionary meanings it has, and what sets and facts it participates in directly. Just type in something like <code>:word tennis</code></p>
+<pre><code>:up word</code></pre>
+<p>While <code>:word</code> is interesting, for the purpose of matching, the <code>:up</code> command is more useful, because it tells you how this word participates in sets all the way up the inheritance hierarchy both of concepts and of Wordnet, so any set listed by this would be recognized if the word given as argument is used.</p>
+<p>Suppose you are creating the concept of <code>~buildings</code>. Just think of a word you want to include, like <em>temple</em>,</p>
+<pre><code>&gt;&gt;:up temple
+
+For temple:
+ Set hierarchy:
+    ~religious_buildings
+       ~building
+          ~tool
+          ~locatedentity
+             ~there
+          ~immovable
+             ~functions
+          ~enterable
+          ~artifacts
+             ~objects
+                ~nounlist
+             ~human_data
+ Wordnet hierarchy:
+  temple~1:N    the place of worship for a Jewish congregation
+    is house_of_worship~1  any building where congregations gather for prayer
+       is building~3 a structure that has a roof and walls and stands more or less permanently in one place
+          is structure~1 a thing constructed
+             is artifact~1 a man-made object taken as a whole
+                is whole~1 an assemblage of parts that is regarded as a single entity
+                ~entirety_words
+                ~goodness
+                   is object~1 a tangible and visible entity
+                   ~verbal_disagree
+                      is physical_entity~1 an entity that has physical existence
+                         is entity~1 that which is perceived or known or inferred to have its own distinct existence
+                         ~nounroot
+  temple~2:N    place of worship consisting of an edifice for the worship of a deity
+    is house_of_worship~1  any building where congregations gather for prayer
+  temple~3:N    an edifice devoted to special or exalted purposes
+    is building~3  a structure that has a roof and walls and stands more or less permanently in one place
+  temple~4:N    the flat area on either side of the forehead
+    is feature~2  the characteristic parts of a person&#39;s face: eyes and nose and mouth and chin
+    ~focus
+       is body_part~1 any part of an organism such as an organ or extremity
+          is piece~11 a portion of a natural object
+          ~unitmeasure
+             is thing~1 a separate and self-contained entity
+                is physical_entity~1 an entity that has physical existence
+</code></pre>
+<p>If we are trying to build a concept of buildings, then <code>temple~1</code>, <code>temple~2</code>, and <code>temple~3</code> are definitions that make sense (:N just names the part of speech). But notice on the up path that those definitions all come from <code>building~3</code>, and that using that would make sense and encompass everything that Wordnet considered a building in that sense.</p>
+<pre><code>:down word limit</code></pre>
+<p>takes a word and chases down its hierarchy showing what inherits from it. Limit is how many levels down to go (default is 2) since going down can expand into a lot of choices for some words. If the word is a concept or topic name, it displays its top level members. <code>:down entity 1</code> or <code>:down ~animals 2</code>.</p>
+<h1 id="simple-output">SIMPLE OUTPUT</h1>
+<p>The goal of the engine is to generate output to display to a user. When a rule does that, it has accomplished the goal of the topic.</p>
+<h2 id="direct-output">Direct Output</h2>
+<p>To generate simple output, just put the text you want to display after the pattern component of a rule. Gambits do not have to have a pattern component, in which case their output starts immediately.</p>
+<pre><code>t: This is output for the user.
+?: ( hello ) How are you? Do you have a life? Are you going to die soon? </code></pre>
+<h2 id="autoformat">AutoFormat</h2>
+<p>You pass words and punctuation for display. The system automatically formats it, so it doesn’t matter if your commas and periods have spaces before them, or how many blanks or tabs there are between words. The system reformats it automatically. <em>I like you?</em> and <em>I like you ?</em> print the same on output</p>
+<p>If you actually need to control spacing, consult &quot;formatted double quotes&quot; in the <a href="ChatScript-Advanced-User-Manual.html#formatted-double-quotes-activeformat-stringd">ChatScript Advanced User Manual</a>.</p>
+<h2 id="literal-output">Literal Output <code>\</code></h2>
+<p>To output characters that have reserved meaning to the engine, like <code>[</code> and <code>]</code>, you need to put a backslash immediately in front of them. In particular, to force a newline you use <code>\n</code> and tab with <code>\t</code>.</p>
+<h2 id="randomized-output">Randomized Output <code>[</code> <code>]</code></h2>
+<p>You can select among a range of choices by using output choices. Each choice is encased in <code>[</code> <code>]</code>, and a contiguous set of them form a zone that the system will pick randomly among. Whenever bracketed items are discontiguous, you get a new random zone.</p>
+<pre><code>?: (hi) [hello.][hi][hey] Are you going to [dance][swim][eat] anytime soon?</code></pre>
+<p>The above has two random zones, separated by fixed text. So it might output</p>
+<p><em>hello. Are you going to dance anytime soon?</em></p>
+<p>or</p>
+<p><em>hey Are you going to eat anytime soon?</em>.</p>
+<h1 id="variables">VARIABLES</h1>
+<p>A chatbot with no ability to remember, even in the brief moment of attending to user input, would be an impoverished being indeed. ChatScript supports several levels of memorization. The ultimate variable is the fact, but that has its own <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> manual.</p>
+<h2 id="match-variables"><code>_</code> Match Variables</h2>
+<p>When you use wildcards and sets in a pattern, you can ask the system to memorize briefly the word it matches. Just place an underscore in front of what you want memorized.</p>
+<p>The purpose of memorizing is to be able to use the value on output. The results of memorization are stored on match variables named <code>_0</code>, <code>_1</code>, etc, depending upon how many underscores you use in the pattern.</p>
+<pre><code>?: ( do you eat _~meat ) No, I hate _0.</code></pre>
+<p>If the input is do you eat ham the output would be No, I hate ham. Of course, the value of <code>_0</code> is only guaranteed for the execution of this rule. Match variables may be clobbered when you execute another rule. Or they may last for a while.</p>
+<p>At most it will last for the duration of the current volley (several sentences maybe) after which it should be presumed trashed. Whenever you start a volley, you should presume match variables all hold unknown junk.</p>
+<p>You are allowed <code>_0</code> through <code>_20</code>.</p>
+<p>I often use the <code>_10</code> to <code>_20</code> range as &quot;safe&quot; variables for the duration of a volley, because I will never match that many variables in a single sentence. I am unlikely to even match more than 5. So I can dedicate them any way I want to.</p>
+<p>When the system memorizes your underscore match, it stores both the original word, its canonical form, and the position of the text. On output, by default you get the canonical form. If you want the original form, you must precede your reference with an apostrophe.</p>
+<pre><code>?: ( do you eat _ [ ham eggs bacon] ) I eat &#39;_0.</code></pre>
+<p>If the input is do you eat eggs the output is I eat eggs. Had I not used the apostrophe, the output would have been I eat egg.</p>
+<p>Rarely would you ever want the canonical form of memorizing an indefinite gap.</p>
+<pre><code>?: ( do you like _* or _* ) I don’t like &#39;_0 so I guess that means I prefer &#39;_1.</code></pre>
+<p>If the input is do you like eating green eggs or swimming on the beach, the output would be I don’t like eating green eggs so I guess that means I prefer swimming on the beach. If you memorize an optional area, <em>{test me}</em>, then you get either the word that matched or the match variable is set to null if it fails to match. A <code>null</code> variable prints nothing on output.</p>
+<p>If you use match variables, they are allocated in the order of the pattern. E.g.,</p>
+<pre><code>s: ( _~fruit [_~animal _bear] _~like )</code></pre>
+<p>In the above, <code>_0</code> is a fruit and <code>_2</code> is a like, and the <code>_~animal</code> or <code>_bear</code> is <code>_1</code>.</p>
+<p>If you had NOT put <code>_</code>in front of bear, you are at risk that the <code>~like</code> match may be <code>_1</code> or <code>_2</code>, depending on what happened inside <code>[]</code>. That's your headache if you use nested memorization.</p>
+<p>Be aware that this expression:</p>
+<pre><code>u: (_1)</code></pre>
+<p>does not memorize the input word &quot;1&quot;. It instead names match variable 1 and asks if it has a value. If you were desperate to memorize the word 1 (how weird), you'd have to do this:</p>
+<pre><code>u: ( _~number _0=1 )</code></pre>
+<h2 id="user_variables"><code>$</code>User_Variables</h2>
+<p>If you need memory that lasts beyond the current input, one source of this is user variables. A variable is named with a starting dollar sign or two and then an alphabetic letter and then the rest must be alpha, digit, underscore, or hyphen. You initialize it using a C-style assignment in the output.</p>
+<p>The <code>=</code> assignment operator MUST be separated from the variable and the value by at least one space, otherwise the system has no way to tell you don't want it to simply output some bizarre word.</p>
+<p>Unlike match variables, user variables hold a single value only.</p>
+<pre><code>s: ( I eat _*1 &gt; ) $food = &#39;_0 I eat oysters.</code></pre>
+<p>You are advised to put these computational scripts on separate lines to make it easier to read your script, but ChatScript doesn’t really care.</p>
+<pre><code>s: ( I eat _*1 &gt; )
+   $food = &#39;_0
+   I eat oysters. </code></pre>
+<p>The variables will last forever or until you change them. If you want the variable to disappear at the end of the volley instead, name it with <code>$$</code> at the start, e.g. <code>$$food</code>. In addition to simple assignment, you can do <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>, <code>|=</code>, <code>&amp;=</code>, <code>^=</code>, and <code>|^=</code>, eg</p>
+<pre><code>$$myvar += 100.</code></pre>
+<p><code>|^=</code> turns off bits and <code>$x |^= 2</code> is equivalent to <code>$x &amp;= (-1 ^ 2)</code></p>
+<p>Variable assignments extend also across arithmetic operations but you cannot use parens to control operator precedence. E.g.,</p>
+<pre><code>$myvalue = $foo + 20 * 5 / 59  This is normal output after the assignment.</code></pre>
+<p>You can even assign sets of facts in various ways (see <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> for understanding facts) like:</p>
+<pre><code>@2 = @3 # put all facts in 3 into 2
+@2 += @3 # augment 2 with facts of 3 (allows duplicates)
+@2 -= @3 # remove facts of 3 from 2
+@2 = $$factid # take a fact id and put it as the only content of 2
+@2 += $$factid # add fact id to 2
+@2 -= $$factid # remove factid from 2</code></pre>
+<p>WARNING: <br> Be careful with extended arithmetic. Each operation applies to the result of the last.</p>
+<pre><code>$myvalue += 2 * 4 means ( $myvalue + 2) * 4.
+$tmp = %hour + $tmp means (2 * %hour)</code></pre>
+<p>Of course it would have been clearer to write this as:</p>
+<pre><code>$myvalue = $foo + 20 * 5 / 59</code></pre>
+<p>This is normal output after the assignment. You cannot use the name of the variable you are assigning to in the right hand side, as arithmetic is performed progressively across the terms, so the variable is overwritten on the first term. Similarly, you may be surprised by something like this:</p>
+<pre><code>$myvar -= $articlesize * 10</code></pre>
+<p>because it first deducts <code>$articlesize</code> from <code>$myvar</code> and then multiplies that result by 10.</p>
+<p>You can test variables in patterns in a variety of ways. Some such tests do not affect the current position pointer of the match. Merely putting in the variable name will ask &quot;does it have a value&quot;?</p>
+<pre><code>?: ( what is my name $firstname ) Your name is $firstname.</code></pre>
+<p>Like match variables, you can use user variables in the output. Here, if the input is what is my name and if <code>$firstname</code> has been previously assigned to, then the pattern matches. Otherwise it fails. You are free to refer to variables that don’t exist. The pattern will simply fail.</p>
+<p>You can also directly test a variable to see if it has a particular value using a relational test in the pattern. Relational tests use no whitespace, they are all one big token. One such relation is <code>=</code>, also writeable as <code>==</code>.</p>
+<pre><code>?: ( $gender=male I like boys ) Oh, dear.</code></pre>
+<p>Here, the rule will only start checking for input matches if <span class="math inline">$gender has the value male (case insensitive). If it is not defined or has any other value, this rule fails immediately. A relational test requires the two sides of the relation and the relation symbol all be jammed together with no spaces. So the following rule is tantamount to seeing if `$</span>gender<code>has ever been assigned to, followed by seeing if the user typed</code>=male` anywhere.</p>
+<p>?: ( $gender =male )</p>
+<p>Other relations are <code>&lt;</code> and <code>&gt;</code>, which will require the system convert the variable’s text value into numeric.</p>
+<pre><code>?: ( I am _~number years old _0&lt;10 ) You are a child.</code></pre>
+<p>You can invert a relation test using the <code>!</code> operator.</p>
+<pre><code>?: ( I am ~number years old !_0&lt;10 ) You are not a child.</code></pre>
+<p>For equality testing you can use the != operator.</p>
+<pre><code>?: ( $var!=5 ) OK.</code></pre>
+<p>You can assign match variables manually, though unless you are assigning from a match variable, you get no canonical data or position of the match.</p>
+<pre><code>s: ( my life ) _8 = hello
+s: ( my _*1 ) _8 = _0</code></pre>
+<p>In the first example, <code>_8</code> gets the word hello for both canonical and original forms. It doesn’t process it. In the second example, since <code>_0</code> has dual form with position, the assignment is dual form and passes the position along.</p>
+<h2 id="clearing-variables">Clearing variables</h2>
+<p>You can erase a user variable or match variable by setting it to null:</p>
+<pre><code>$myvar = null
+_3 = null</code></pre>
+<h2 id="long-term-variables">Long-term variables</h2>
+<p>The system normally stores variables on a per-user basis. You can set bot-specific facts in the login function of a bot. If you have facts you want to be global across all bots and as part of the base system, you can put those assignments into a table and read it in under a <code>:build</code> command.</p>
+<p>Go read the <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> for more about facts.</p>
+<h2 id="system-variables"><code>%</code> System Variables</h2>
+<p>The system has some predefined variables which you can generally test and use but not normally assign to. These all begin with <code>%</code>. These include <code>%hour</code>, <code>%bot</code>, and others.</p>
+<p>See <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a>.</p>
+<h1 id="summary">Summary</h1>
+<p>Not as simple as you might have wanted. Doubtless I told you much more than you really wanted to know at this stage, but it sets the scene so you know there is a lot of capability there (though truly we have barely scratched the surface here). Just remember, to start, all you need is to write a topic, with keywords, trivial gambits, responders and rejoinders with simple patterns, and output that is simply exactly what you want the bot to say.</p>
+<hr />
+<p>[<a href="/WIKI/README.html">Wiki home</a>] - [<a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>]</p>
+</body>
+</html>

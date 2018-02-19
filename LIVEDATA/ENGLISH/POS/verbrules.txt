@@ -1,0 +1,1439 @@
+# PROBLEMATIC "here comes the band"  allows subject after verb as a statement.
+
+
+# its the ONLY possible verb "Carlos smiled."  -- DONT DO that as a phase 1 rule
+
+
+# coord conjuct after noun will generally not be verb at end of sentence "Josh ate carrots and *dip"
+-2	IS NOUN_PLURAL NOUN_SINGULAR
+	IS CONJUNCTION_COORDINATE
+	INCLUDE * VERB_PRESENT VERB_PAST VERB_PRESENT_3PS
+	STAY HAS NOUN_SINGULAR NOUN_PLURAL
+	!HAS ADVERB POSSESSIVE_BITS PRONOUN_OBJECT ADJECTIVE_NORMAL ADJECTIVE_NUMBER DETERMINER PREDETERMINER NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL NOUN_NUMBER
+DISCARD
+
+#  sentence cannot start with verb present "*Buy shoes"
+0	INCLUDE * VERB_PRESENT VERB_PRESENT_3PS
+	STAY START
+DISCARD
+
+ # verb (skip adverb) followed by aux/verb cant happen funds/fund (Noun_plural Verb_present_3ps)  recently (Adverb)  have (Aux_have_present)
+0	INCLUDE * VERB_BITS
+	SKIP IS ADVERB
+	CANONLYBE VERB_BITS AUX_VERB
+	STAY !PRIORPOS CONJUNCTION_SUBORDINATE # why fear when all you need *is love
+DISCARD
+
+# wont be plural verb after singular noun (assuming no conjunction joining) - U.S. (Noun_proper_singular)  chip (+Noun_singular +Verb_present) 
+-1 IS NOUN_PROPER_SINGULAR NOUN_SINGULAR
+	INCLUDE * VERB_PRESENT
+	STAY !PRIORPOS CONJUNCTION_COORDINATE PREPOSITION # not: "because gains at home *offset"
+DISCARD
+
+# wont be singular verb after plural noun ) - boys(Noun_proper_singular)  chips (+Noun_singular +Verb_present_3ps) 
+-1 IS NOUN_PROPER_PLURAL NOUN_PLURAL
+	INCLUDE * VERB_PRESENT_3PS
+	STAY !PRIORPOS CONJUNCTION_COORDINATE PREPOSITION # not: "because gains at home *offset"
+DISCARD
+
+# cant put verb after noun comma unless another comma comes before - magazine (Noun_singular)  , (Comma)  billed/bill (+Verb_past +Adjective_participle)
+-2	IS NOUN_BITS
+	STAY !PRIORPOS COMMA
+	IS COMMA
+	INCLUDE * VERB_BITS
+DISCARD
+
+#  < compound (+Noun_singular Verb_infinitive Adjective_normal)  *yields/yield (Noun_plural Verb_present_3ps)  assume (+Verb_infinitive +Verb_present)
+-1  HAS ADJECTIVE_BITS
+	STAY START
+	INCLUDE * VERB_BITS
+	STAY HAS NOUN_BITS
+	CANONLYBE VERB_BITS
+DISCARD
+
+# not a verb before whose -- banks/bank (Noun_plural Verb_present_3ps)  whose/who (Pronoun_possessive) 
+# 0	INCLUDE * VERB_BITS
+#	STAY HAS NOUN_BITS
+#	IS PRONOUN_POSSESSIVE
+# DISCARD
+
+# no past verb without subject before -  so (Adverb)  did/do (Aux_do_past +Verb_past) - except? "where *flowed the river" 
+0	INCLUDE * VERB_PAST
+	STAY !PRIORPOS NOUN_BITS PRONOUN_SUBJECT PRONOUN_OBJECT
+DISCARD
+
+# wont wander between verbs  U.S. (Noun_proper_singular)  trade (+Noun_singular +Verb_present)  negotiators/negotiator (Noun_plural)  argue (+Verb_infinitive +Verb_present)
+# -1	CANONLYBE NOUN_BITS
+#	INCLUDE * VERB_BITS
+#	STAY HAS NOUN_BITS
+#	CANONLYBE NOUN_BITS
+#	CANONLYBE VERB_BITS
+# DISCARD
+
+# infinitive requires aux before it or be roughtly start of sentence - a (Determiner)  major (Noun_singular +Adjective_normal)  concern (+Noun_singular Verb_infinitive) 
+-2 IS DETERMINER
+	HAS NOUN_BITS ADJECTIVE_BITS
+	INCLUDE * VERB_INFINITIVE
+	STAY !PRIORPOS AUX_VERB
+DISCARD
+
+# present cannot follow gerund/participle - heating/heat (+Noun_gerund +Adjective_participle)  oil (+Noun_singular Verb_present)
+-1	CANONLYBE NOUN_GERUND ADJECTIVE_PARTICIPLE
+	INCLUDE * VERB_PRESENT
+	STAY HAS NOUN_BITS
+DISCARD
+
+#! next to start, verb wont follow prep/conjunct but (+Preposition Conjunction_coordinate)  state (+Noun_singular +Verb_present)  courts/court
+-1 HAS PREPOSITION CONJUNCTION_COORDINATE
+	STAY START
+	INCLUDE * VERB_BITS
+	STAY HAS NOUN_BITS
+DISCARD
+
+# start of sentence wont be verb if followed by noun and verb "*compound yields assume a life of their own" 
+0 	INCLUDE * VERB_BITS
+	STAY HAS ADJECTIVE_BITS
+	STAY START
+	IS NOUN_BITS
+	CANONLYBE VERB_BITS
+DISCARD
+
+# wont be infinitive if followed by noun and verb : garden (+Noun_singular Verb_infinitive)  stuff (Noun_singular)  was/be (Verb_past)  
+0	INCLUDE * VERB_BITS
+	STAY START
+	IS NOUN_BITS
+	IS VERB_BITS
+DISCARD
+
+# if no other possible verb and a subject before it
+-1  HAS PRONOUN_BITS NOUN_BITS
+	INCLUDE * VERB_BITS 
+	STAY !PRIORPOS VERB_BITS
+	STAY !POSTPOS VERB_BITS
+KEEP
+
+# VERB wont have adjective particple or adj after if it it could be noun when bounded - jewels/jewel (Noun_plural Verb_present_3ps)  sparkled/sparkle (Verb_past Adjective_participle)  on (Preposition)  
+0	INCLUDE * VERB_BITS
+	STAY HAS NOUN_BITS
+	CANONLYBE ADJECTIVE_PARTICIPLE VERB_BITS
+	IS PREPOSITION COMMA CONJUNCTION
+DISCARD
+
+# wont be non-infinitive verb where no subject before after (+Preposition Conjunction_subordinate)  breakfast (+Noun_singular Verb_infinitive Verb_present)
+0	INCLUDE * VERB_BITS - VERB_INFINITIVE # except for things like "now comes the band" or "under the tree sat the boy"
+	STAY !PRIORPOS PRONOUN_SUBJECT NOUN_BITS
+	!HAS NOUN_BITS DETERMINER_BITS ADJECTIVE_BITS	# needs to come immediately
+DISCARD
+
+# verb only after conjunct coord must match one before  you (Pronoun_subject)  will (Aux_verb_future)  enter (Verb_infinitive)  the/a (Determiner)  study (Noun_singular)  of (Preposition)  quantum (Noun_singular)  mechanics/mechanic (Noun_plural)  and (Conjunction_coordinate)  find (+Verb_infinitive +Verb_present)  a (Determiner)  brand (Noun_singular)  new (Adjective_normal)  element (Noun_singular)  
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+			STAY CANONLYBE VERB_BITS
+			IS CONJUNCTION_COORDINATE
+			SKIP !HAS VERB_BITS NOUN_INFINITIVE # closest verb
+			IS VERB_INFINITIVE NOUN_INFINITIVE
+KEEP
+
+# verb only after conjunct coord must match one before  you (Pronoun_subject)  will (Aux_verb_future)  enter (Verb_infinitive)  the/a (Determiner)  study (Noun_singular)  of (Preposition)  quantum (Noun_singular)  mechanics/mechanic (Noun_plural)  and (Conjunction_coordinate)  find (+Verb_infinitive +Verb_present)  a (Determiner)  brand (Noun_singular)  new (Adjective_normal)  element (Noun_singular)  
+REVERSE 0	INCLUDE * VERB_PRESENT
+			STAY CANONLYBE VERB_BITS
+			IS CONJUNCTION_COORDINATE
+			SKIP !HAS VERB_BITS NOUN_INFINITIVE # closest verb
+			IS VERB_PRESENT
+KEEP
+
+# verb only after conjunct coord must match one before  you (Pronoun_subject)  will (Aux_verb_future)  enter (Verb_infinitive)  the/a (Determiner)  study (Noun_singular)  of (Preposition)  quantum (Noun_singular)  mechanics/mechanic (Noun_plural)  and (Conjunction_coordinate)  find (+Verb_infinitive +Verb_present)  a (Determiner)  brand (Noun_singular)  new (Adjective_normal)  element (Noun_singular)  
+REVERSE 0	INCLUDE * VERB_PRESENT_3PS
+			STAY CANONLYBE VERB_BITS
+			IS CONJUNCTION_COORDINATE
+			SKIP !HAS VERB_BITS NOUN_INFINITIVE # closest verb
+			IS VERB_PRESENT_3PS
+KEEP
+
+# verb only after conjunct coord must match one before  you (Pronoun_subject)  will (Aux_verb_future)  enter (Verb_infinitive)  the/a (Determiner)  study (Noun_singular)  of (Preposition)  quantum (Noun_singular)  mechanics/mechanic (Noun_plural)  and (Conjunction_coordinate)  find (+Verb_infinitive +Verb_present)  a (Determiner)  brand (Noun_singular)  new (Adjective_normal)  element (Noun_singular)  
+REVERSE 0	INCLUDE * VERB_PAST
+			STAY CANONLYBE VERB_BITS
+			IS CONJUNCTION_COORDINATE
+			SKIP !HAS VERB_BITS NOUN_INFINITIVE # closest verb
+			IS VERB_PAST
+KEEP
+
+
+
+# near start we cant be verb if next is - scientists/scientist (Noun_plural)  still (Verb_present +Adverb)  have (+Verb_infinitive +Verb_present)  
+-1	IS NOUN_BITS PRONOUN_SUBJECT
+	STAY !PRIORPOS VERB_BITS AUX_VERB
+	INCLUDE * VERB_BITS
+	CANONLYBE VERB_BITS AUX_VERB
+DISCARD
+
+# we know we have a particle but word before cant be it, so its no longer potential verb "she had but one *shoe on"  
+0	INCLUDE * VERB_BITS
+	STAY HAS NORMAL_NOUN_BITS
+	STAY NOTPOSSIBLEVERBPARTICLEPAIR # next has to be particle AND we cant match it
+DISCARD
+
+# presume simple sentence start verb - when (Adverb Conjunction_subordinate)  a (Determiner)  llama (Noun_singular)  spits/spit (Noun_plural Verb_present_3ps)  
+-3	IS CONJUNCTION_SUBORDINATE 
+	STAY START
+	CANONLYBE DETERMINER_BITS ADJECTIVE_BITS
+	HAS NORMAL_NOUN_BITS
+	INCLUDE * VERB_BITS AUX_VERB
+	STAY !HAS NOUN_BITS # "when the sell *programs hit, we lose"
+KEEP
+
+# probable noun before and after and, since no noun after for us to be a verb zoos/zoo (Noun_plural)  and (Conjunction_coordinate)  farms/farm (Noun_plural Verb_present_3ps)  
+-2 IS NOUN_PLURAL
+	ISORIGINAL and
+	INCLUDE * VERB_PRESENT_3PS
+	STAY HAS NOUN_PLURAL
+	!HAS DETERMINER_BITS NOUN_BITS ADJECTIVE_BITS
+DISCARD
+
+#  possible verb present  cant follow determiner or pronoun_subject singular this/a (Pronoun_subject Determiner)  trick (+Noun_singular Verb_present)  
+-1 CANONLYBE PRONOUN_SUBJECT DETERMINER 
+	STAY HASPROPERTY PRONOUN_SINGULAR
+	STAY !ISORIGINAL I
+	STAY !ISORIGINAL you
+	INCLUDE * VERB_PRESENT
+DISCARD
+
+#  possible verb present_3ps  cant follow determiner or pronoun_subject plural this/a (Pronoun_subject Determiner)  trick (+Noun_singular Verb_present)  
+-1 CANONLYBE PRONOUN_SUBJECT DETERMINER 
+	STAY HASPROPERTY PRONOUN_PLURAL
+	INCLUDE * VERB_PRESENT_3PS
+DISCARD
+
+
+# will be verb if not aux after they and adverb - they (Pronoun_subject)  most/much (Adverb_most)  like (Noun_singular +Verb_present Adjective_normal Preposition)  
+-2 IS PRONOUN_SUBJECT
+   IS ADVERB
+   INCLUDE * VERB_BITS AUX_VERB
+   STAY !HAS ADVERB
+KEEP
+
+# possible verb followed by something that can only be a verb.. be not verb bugs/bug (Noun_plural Verb_present_3ps)  do (+Verb_infinitive +Verb_present)
+0	INCLUDE * VERB_BITS
+	CANONLYBE VERB_BITS # but "those who swim swim later"
+	STAY !POSSIBLEINFINITIVE		# verb can be followed by infinitive if it calls for one
+DISCARD
+
+# possible verb followed by object pronoun will be verb (unless could be noun-infinitive) except maybe noun  "*let us"  except "to those new *states we give our love"
+ 0 INCLUDE * VERB_BITS
+	STAY !HAS NORMAL_NOUN_BITS
+	STAY !PRIORPOS TO_INFINITIVE
+ 	IS PRONOUN_OBJECT
+KEEP
+
+# a verb  wont preceed a verb ,   need subord and comma    "he, who the wolf loves lives - badparse Tagged POS 10 words: one (Pronoun_subject)  of (Preposition)  their/they (Pronoun_possessive)  favorite (+Noun_singular +Adjective_normal)  hang-outs (Noun_plural Verb_present_3ps)  is/be (Verb_present_3ps)  
+ # but "he who  swims swims fully"
+
+# "with his jig and *dance will he be able to go" - verb before aux and after coord conjunction cannot be- could have noun,verb,aux or aux,verb, but not conjunct verb aux
+-1  IS CONJUNCTION_COORDINATE
+	INCLUDE * VERB_BITS
+	SKIP IS ADVERB
+	IS AUX_VERB
+DISCARD
+
+# verb past participle requires aux before it somewhere - The/DT water/NN froze/VBD ,/, and/CC that/DT held/VBD the/DT snow/NN ./. "/" 
+0	INCLUDE * VERB_PAST_PARTICIPLE
+	STAY !PRIORPOS AUX_HAVE AUX_BE
+DISCARD
+
+# wont be verb when following verb  and could be adjectiveparticple are/be (Verb_present)  animals/animal (Noun_plural)  often (Adverb)  found/find (+Verb_past +Adjective_parti
+REVERSE 0	INCLUDE * VERB_PAST 
+	STAY HAS ADJECTIVE_PARTICIPLE
+	SKIP IS ADVERB			
+	IS NORMAL_NOUN_BITS  # normal object
+	SKIP IS ADJECTIVE_BITS DETERMINER_BITS ADVERB
+	IS VERB_BITS
+DISCARD
+
+# will not be present tense after aux "I can *live"
+-1 IS AUX_VERB
+	INCLUDE * VERB_PRESENT VERB_PRESENT_3PS
+DISCARD
+
+#! wont have verb past participle immediately after subject pronoun "as I *supposed" - it would need to be object
+-1 IS PRONOUN_SUBJECT
+	INCLUDE * VERB_PAST_PARTICIPLE
+DISCARD
+
+# aux have needs fulfillment so we will be it - "birds have long *talked"  vs Have feathered birds
+-2 IS AUX_HAVE
+	!HAS VERB_BITS # no other choice for verb
+	INCLUDE * VERB_PAST_PARTICIPLE
+	!HAS NORMAL_NOUN_BITS ADJECTIVE_BITS DETERMINER # no following noun
+KEEP
+
+# wont be verb immediately after particle/prep "I like dreams of *glory"
+-1	CANONLYBE PREPOSITION PARTICLE
+	INCLUDE * VERB_BITS
+DISCARD
+
+# how about cheese and crackers  MUST be noun, even if verb possible
+-2	ISORIGINAL how
+	ISORIGINAL about
+	INCLUDE * VERB_BITS
+	STAY HAS NORMAL_NOUN_BITS
+	IS CONJUNCTION_COORDINATE
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+# after to infinitive and before prep, when expecting adj + noun, wont be verb or noun-infintiive "find another ball for me"
+-2 IS NOUN_INFINITIVE VERB_INFINITIVE
+	HAS ADJECTIVE_BITS DETERMINER
+	INCLUDE * VERB_BITS NOUN_INFINITIVE NOUN_GERUND
+	IS PREPOSITION
+DISCARD
+
+# after to infinitive and before prep, when expecting noun, wont be verb or noun-infintiive "find another ball for me"
+-1 IS NOUN_INFINITIVE VERB_INFINITIVE
+	INCLUDE * VERB_BITS NOUN_INFINITIVE NOUN_GERUND
+	IS PREPOSITION
+DISCARD
+
+# single imperative more likely to be noun: "house" -- though "go" defeats this  And exclamation will make it verb imperative "Launch!"
+0	INCLUDE * VERB_BITS
+	STAY START
+	STAY END
+	STAY HAS NOUN_BITS
+	STAY !ISEXCLAIM
+	STAY !ISQUESTION
+DISCARD
+
+# imperative more likely than noun with exclamation "Launch!"
+# 0	INCLUDE * VERB_INFINITIVE
+# 	STAY START
+# 	STAY ISEXCLAIM
+# 	STAY !ISQUESTION
+# KEEP
+
+# noun after helper start will be noun not verb "is *snow cold"
+-1	HAS VERB_BITS
+	STAY START
+	STAY HAS AUX_VERB
+	INCLUDE * VERB_BITS
+	STAY HAS NOUN_BITS
+DISCARD
+
+# if there is no verb before or after us no infinitive, we must be the one - "my dog *loves to play" -- except if we are immediately after something like "how about cheese and fries" or are at start (lacking subject)
+-1	!HAS PREPOSITION DETERMINER POSSESSIVE
+	STAY !ISORIGINAL no
+	STAY !ISORIGINAL about	# avoid how about xxx
+	INCLUDE * VERB_BITS 
+	STAY !START
+	STAY !PRIORPOS VERB_BITS  AUX_VERB
+	STAY !POSTPOS VERB_BITS
+KEEP
+
+# whole bunch of ways it might be infintiive all fail
+0  INCLUDE * VERB_INFINITIVE
+   STAY !POSSIBLEINFINITIVE 
+DISCARD
+
+# wont be infinitive verb as first verb after conjunction subordinate  "when we *chew", but "if dead, *awaken" can be
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+	SKIP !HAS AUX_VERB CONJUNCTION_SUBORDINATE VERB_BITS COMMA
+	IS CONJUNCTION_SUBORDINATE
+DISCARD
+
+# wont be verb immediately after subord conjunct if could be noun "as *snakes shed their skin" unless conjuct is a pronoun
+-1 IS CONJUNCTION_SUBORDINATE
+	STAY !HASORIGINAL PRONOUN_BITS
+	INCLUDE * VERB_BITS
+	STAY HAS NORMAL_NOUN_BITS
+DISCARD
+
+# near start wont be verb if obvious verb is shortly, "pill bugs also have"
+-1  IS NORMAL_NOUN_BITS
+	STAY START
+	INCLUDE * VERB_BITS
+	IS ADVERB
+	CANONLYBE VERB_BITS AUX_VERB # this will be the real verb
+DISCARD
+
+# near start, if 2nd word is known verb or aux, then wont be verb before
+0	INCLUDE * VERB_BITS
+	STAY START
+	IS VERB_BITS AUX_VERB
+DISCARD
+
+# near start, if 3rd word is known verb or aux, then wont be verb before
+-1	START
+	INCLUDE * VERB_BITS
+	IS VERB_BITS AUX_VERB
+DISCARD
+
+# near start, if 4th word is known verb or aux, then wont be verb before
+-2	START
+	!START
+	INCLUDE * VERB_BITS
+	IS VERB_BITS AUX_VERB
+DISCARD
+
+# infintivive vs prep in short before comma and noun, will not be command "*like the wolf, he eats"
+0	INCLUDE * VERB_INFINITIVE
+	STAY START
+	STAY HAS PREPOSITION
+	HAS DETERMINER_BITS ADJECTIVE_BITS
+	HAS NORMAL_NOUN_BITS
+	IS COMMA
+	IS NORMAL_NOUN_BITS PRONOUN_SUBJECT
+DISCARD
+
+# single command sentence "wait" 
+0	INCLUDE * VERB_INFINITIVE
+	STAY START
+	STAY END
+KEEP
+
+# she (Pronoun_subject)   gets/get (Verb_present)  upset (Noun_singular +Verb_past_participle +Adjective_participle) cant be verb with verb and only 1 subject - BUT  "I can help *treat disease"
+
+# wont be ininitive if conflict with present and has no aux before and has noun before (except nouns of address like "here, Ned, *catch this ball"
+0	INCLUDE * VERB_INFINITIVE  # "so the next time you *see the sun, it will have set"
+	STAY CANONLYBE VERB_INFINITIVE VERB_PRESENT
+	STAY !PRIORPOS AUX_VERB VERB_BITS COMMA # not command and not tense nor multiple verb calling for infinitive
+	STAY PRIORPOS DETERMINER NORMAL_NOUN_BITS
+DISCARD
+
+# in noun verb conflict, after dual adj cannot be verb (one could be post but not two)
+-2 IS DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NUMBER
+	IS ADJECTIVE_NORMAL
+	INCLUDE * VERB_BITS
+	STAY HAS NORMAL_NOUN_BITS
+DISCARD
+
+# cannot have verb infinitive after a noun, unless there was an earlier verb or aux verb (which might seek it) "my dog *found a ball"
+-1	IS NORMAL_NOUN_BITS
+	INCLUDE * VERB_INFINITIVE
+	STAY !PRIORPOS VERB_BITS AUX_VERB
+DISCARD
+
+# Josh (Noun_proper_singular)  pulled/pull (Verb_past Adjective_participle)  , (Comma)  
+-1 IS NORMAL_NOUN_BITS
+	INCLUDE * VERB_PAST
+	STAY CANONLYBE VERB_PAST ADJECTIVE_PARTICIPLE
+	IS COMMA
+KEEP
+
+# Josh (Noun_proper_singular)  frowned/frown (Verb_past Adjective_participle)   - we need to be a verb
+-1 IS NORMAL_NOUN_BITS PRONOUN_SUBJECT
+	INCLUDE * VERB_BITS
+	STAY CANONLYBE VERB_BITS ADJECTIVE_PARTICIPLE
+	STAY !PRIORPOS VERB_BITS
+	STAY !POSTPOS VERB_BITS
+KEEP
+
+# past participle with be aux but not been will be passivex, illegal if cant take an object
+REVERSE 0	INCLUDE * VERB_PAST_PARTICIPLE
+	STAY !HASCANONICALPROPERTY VERB_DIRECTOBJECT
+	SKIP !HAS AUX_VERB
+	HAS AUX_BE
+	STAY !ISORIGINAL been
+DISCARD
+
+# past participle with no aux cannot exist unless subord conjunction just before it meaning omitted subject "I eat until *satisfied"
+REVERSE 0	INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP !HAS AUX_VERB CONJUNCTION_SUBORDINATE
+	!HAS AUX_VERB CONJUNCTION_SUBORDINATE
+DISCARD
+
+# verb after a comma will have to be adjective complement if no and or second comma exists before or after it "I ate, *buoyed by optimism"  -- "i have, after consideration, *given up"
+-1	IS COMMA
+	STAY !PRIORPOS 	COMMA CONJUNCTION_COORDINATE
+	INCLUDE * VERB_BITS - VERB_INFINITIVE # except if part of comma conjuct list like "I ate, *danced the night away, and sang
+	STAY HAS ADJECTIVE_PARTICIPLE
+	SKIP !HAS CONJUNCTION_COORDINATE COMMA
+	!HAS CONJUNCTION_COORDINATE COMMA
+DISCARD
+
+# cannot start a sentence with a verb unless it is infinitive "*confronted, she ran"  "*dogs ham it up" - except speech quotes: "Adds John, "I love you".
+ 0	INCLUDE * VERB_BITS - VERB_INFINITIVE
+	STAY START
+	STAY !ISMEMBER ~quotableverbs
+DISCARD
+
+#   subject obvious verb followed by to infinitive "I *long to go" but not - "rolls into a tight little *ball to protect itself"  EXCEPT watch out for adjective particple "police *trained to fight"
+-1 HAS PRONOUN_SUBJECT NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL NOUN_PLURAL
+	INCLUDE * VERB_BITS
+	STAY !HAS NORMAL_NOUN_BITS ADJECTIVE_PARTICIPLE
+	IS TO_INFINITIVE
+KEEP
+
+# in a conflict between past and past participle, particple loses if no aux or subord conjunct before it - "I have a dog *named Harry" AND not possible adjective_participle though it could be adjective_participle
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	STAY CANONLYBE VERB_PAST VERB_PAST_PARTICIPLE
+	SKIP !HAS AUX_VERB CONJUNCTION_SUBORDINATE
+	!HAS AUX_VERB CONJUNCTION_SUBORDINATE
+DISCARD
+
+# negative after helper will make next a verb "does not *like" and "would seldom eat" - cant be "do not like harry does" so safe - but not "there is no *question"
+-2  IS AUX_VERB
+	PARSEMARK NEGATIVE_SV_INVERTER
+	INCLUDE * VERB_BITS	# dont kill "it is not clear" 
+	!HAS ADJECTIVE_BITS ADVERB
+KEEP
+
+# if can be noun or verb but is preceeded by possessive, will not be verb "he pressed his *nose"
+-1 IS POSSESSIVE
+	INCLUDE * VERB_BITS VERB_INFINITIVE
+	STAY HAS NOUN_BITS
+DISCARD
+
+# not going to have a normal verb in front of an aux (or regular verb)  - aux can is singular noun, aux does is plural. "what *games does he play" - but "which it *said will reduce waste"
+# except when does is plural of doe "he *shoots does"  a bug
+
+################################## Rules about NOT being some verb form
+
+# present/past participle needs noun before it (would have to be aux or commmand) - and commands are "you" --- BUT Dressed in red  the man (legal) AND so is "is a mirror green" question form
+# *driving a car is fun  ILLEGAL: Walks the dog
+# no simple past after gerund "is"  # after being reprimanded (legal) BUT swimming was his passion is fine
+# a verb cannot have a singular noun immediately after it -- except for mass nouns.  I like water. I like lox.
+# I give rock to him -- not legal
+# the most rain ever recorded *fell
+
+# sentence start using what as subject/object xxx  requires potential verb to not be VERB_PRESENT but be VERB_PRESENT_3PS "what games the system"  
+-1  START
+	STAY ISORIGINAL what
+	INCLUDE * VERB_PRESENT
+DISCARD
+
+# known verb after precludes this as verb - "I *even went home" but adjective particle could be -- but "another way he can hide is by shooting ink" as a clause is legal
+
+#################### cant be any tense of verb
+
+# following a noun infintive - "I taught Sue how to eat *fish"
+-1 IS NOUN_INFINITIVE
+	INCLUDE * VERB_BITS
+DISCARD
+
+# "being" w/o aux before it is NOT a verb (noun_singular or noun_gerund) - "*being essential, the flag was taken" "his body, being needed, was kept
+-1	!HAS AUX_BE
+	ISORIGINAL being
+	STAY INCLUDE * VERB_BITS
+DISCARD
+
+# verb cannot follow a pre/determiner or preposition  or possesive or or paren  - "the *mangled boats"  will be adjective particple   "what *shape is this"   "I am the happily singing boy"  but beware plural noun "we were singing boys" not handled AND after coord subjunct "who mangled me" is legal
+REVERSE 0 INCLUDE * VERB_BITS
+	STAY !ISCANONICAL be		# "his *home was"  "last house to *be flooded"  # the farm in the glen "I love my *parents" "my mother's coat"
+	SKIP IS ADVERB
+	IS  DETERMINER_BITS PREPOSITION  PAREN   # but a verb can follow a post adjective like "walked"  - but "it *did not greatly matter" can be verb where did is badly listed as aux first
+DISCARD
+
+# verb cannot precede a verb, except for to-less infinitive "Let go of her" - except clause "the dog my dog *likes include"
+
+# verb cannot follow an adjective unless adjective is postpositive OR "the xxx" implied missing noun
+# but a verb can follow a post adjective like "walked"
+
+# aux followed by potential verb (not be) cannot be when aux is question "Does sue live here" but "having already said" is not a question
+-1	IS AUX_VERB
+	STAY START
+	STAY !ISCANONICAL have  
+	INCLUDE * VERB_BITS 	
+	STAY !HAS AUX_VERB
+DISCARD
+
+# verb cannot be followed by possessive - my mother's coat
+0 INCLUDE * VERB_BITS
+	IS POSSESSIVE
+DISCARD
+
+# cannot have 2 verbs after a comma or paren (2 verbs only on closing a clause) "Rocky, my orange tomcat, loves *having his head scratched"
+-2	IS PAREN COMMA
+	IS VERB_BITS				
+	INCLUDE * VERB_BITS
+DISCARD
+
+# verb cannot occur before aux except clause "another way an octopus can *hide is"
+
+# of cannot follow a verb except for certain ones - idioms like "*tell of"
+0	INCLUDE * VERB_BITS
+	STAY !PARSEMARK VERB_ALLOWS_OF_AFTER
+	ISORIGINAL of
+DISCARD
+
+####################  cant be specific tense kind of verb
+
+# present/past tense regular cannot follow potential conjunction subordinate (needs noun subject), but "I want the one *that dangled here" is a relative clause subject also. - but "Ponto then *found Rose, and pulled her out"
+
+### cant be present tense
+
+ # if adjective/determiner is followed by potential adjective/noun and then potential noun/verb and then prep or comma or conjuection or ( then must resolve whether item is verb or not)
+ -2 IS DETERMINER ADJECTIVE_BITS  - ADJECTIVE_PARTICIPLE
+	HAS NOUN_PROPER_SINGULAR NOUN_SINGULAR	# an Afrikaner *farm worth anything
+	INCLUDE * VERB_PRESENT 
+	IS PREPOSITION COMMA PAREN CONJUNCTION
+DISCARD
+
+# present tense cannot exist with potential be (will be participle or adjective) - except "what is the game Harry *likes to play"
+
+# potential verb after "be" cannot be present (would have to be participle)
+-1	ISCANONICAL be
+	INCLUDE * VERB_PRESENT VERB_PRESENT_3PS
+DISCARD
+
+### cant be past tense
+
+# no simple past after aux  "her fashion sense was usually *described as bizarre" - must be past participle
+REVERSE 0 INCLUDE * VERB_PAST
+	SKIP IS ADVERB
+	IS AUX_VERB
+DISCARD
+
+# cant be singular verb with plural noun in front  "the stars signed *autographs" - but if noun were part of prep phrase we would be wrong... "the star by the home signed autographs" 
+REVERSE 0	INCLUDE * VERB_PRESENT_3PS
+	SKIP !HAS NOUN_BITS PRONOUN_BITS	# nearest potential subject of verb
+	IS NOUN_PLURAL		# is known as a noun 
+	SKIP !HAS NOUN_BITS PRONOUN_BITS	# is there another in front of that?
+	!HAS NOUN_BITS PRONOUN_BITS # no, this is the only subject around
+DISCARD
+
+### cant be present singular 3rd person
+# potential singular verb after plural pronoun	- 
+# potential singular verb after plural noun	-  
+# potential plural verb after singular noun	- not "scientists who have studied the coyote *believe " 
+# potential plural verb after singular pronoun	- but might be clause object
+
+# conflict between past and past participle immediately after subordinate conjuection will be particple with missing subject: "I ate until *satisified" - wont need aux
+-1 IS CONJUNCTION_SUBORDINATE
+	INCLUDE * VERB_PAST
+	STAY HAS VERB_PAST_PARTICIPLE
+DISCARD
+
+# conflict between past and past participle one past after subordinate conjuection will be particple with missing subject: "I ate until *satisified" - wont need aux
+-2 IS CONJUNCTION_SUBORDINATE
+	HAS ADVERB
+	STAY !HAS NOUN_BITS PRONOUN_BITS
+	INCLUDE * VERB_PAST
+	STAY HAS VERB_PAST_PARTICIPLE
+DISCARD
+
+### cant be participle
+
+# participle after noun/pronoun will not be verb (will be adjective_participle) unless have before that...  "I am the boy *singing in the woods" but not in question format "is the man going"  but not "has the man gone"
+ #  "he *walked past it" - it will be past tense (no helper) - except "has the man gone" using a helper verb in question form
+	 # except "had it *existed"
+		# aux could allow intrusion of subject between aux and verb - but beware "is the man swimming in the river going home? 
+
+# past participle must occur sometime after have or be or get for perfect tenses or after be for passive voice or after conjucntion subord
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE 
+	SKIP !HAS AUX_VERB  CONJUNCTION_SUBORDINATE
+	!HAS AUX_BE AUX_HAVE CONJUNCTION_SUBORDINATE
+DISCARD
+
+# verb participle is special adjective kind et
+
+# verb present participle requires have verb or appropriate aux (be have get) somewhere before it - "problems often become *frustrating"
+REVERSE 0 INCLUDE *  VERB_PRESENT_PARTICIPLE
+	SKIP !HAS AUX_VERB 
+	!HAS AUX_BE AUX_HAVE
+DISCARD
+
+# present participle cant follow potential conjunction or preposition (will be noun_gerund or adjective) # after running home I walked.  although walking dead don't run, I do. - but CAN coordinate conjunction follow
+-1 IS PREPOSITION CONJUNCTION_SUBORDINATE 		
+	INCLUDE * VERB_PRESENT_PARTICIPLE 
+DISCARD
+
+# past participle cant follow preposition (will be noun_gerund or adjective) # after running home I walked.  although walking dead don't run, I do. - but CAN coordinate conjunction follow
+-1 IS PREPOSITION  		
+	INCLUDE *  VERB_PAST_PARTICIPLE
+DISCARD
+
+### can only be participle
+
+# passive voice using be with past participle   "all men are created equal"  and present continuous uses  "I am swimming"
+REVERSE 0 INCLUDE * VERB_BITS - VERB_PAST_PARTICIPLE  - VERB_PRESENT_PARTICIPLE 
+	SKIP IS ADVERB
+	HAS AUX_BE	
+DISCARD
+
+### can only be past participle
+
+# can ONLY have past participle with have statement  "I have been {adverb} *gone" but "I have studied before I moved to the US" - "have you had"
+REVERSE 0	INCLUDE * VERB_BITS - VERB_PAST_PARTICIPLE  
+	STAY !HAS AUX_VERB 
+	SKIP !HAS AUX_VERB VERB_PAST_PARTICIPLE	COMMA # skip back til you find the aux before this - this handles "I have gone" and "I have been gone" or you find an earlier past participle
+	ISCANONICAL have # but not if you have to go over a comma boundary
+DISCARD
+
+# passive voice using get with past participle   "all men get created equal"
+REVERSE 0 INCLUDE * VERB_BITS - VERB_PAST_PARTICIPLE 
+	SKIP IS ADVERB
+	ISCANONICAL get
+DISCARD
+
+### can only be present participle
+
+# present participle must occur sometime after "been" or present/past/infinitive tense "be" to remain a tense verb
+REVERSE 0 INCLUDE * VERB_PRESENT_PARTICIPLE 
+	SKIP !HAS AUX_BE
+	!HAS AUX_BE		
+DISCARD
+
+# can ONLY have present participle with have/had been (progressive) statement "I have/had {adverb} been *going" or for passive  but "I am *being taken" means could also be aux 
+REVERSE 0	INCLUDE * VERB_BITS - VERB_PRESENT_PARTICIPLE  - VERB_PAST_PARTICIPLE  
+	SKIP IS ADVERB
+	IS AUX_BE		# been   - "the castle has been visited for the past 5 years"
+	STAY HASORIGINAL VERB_PAST_PARTICIPLE
+	SKIP !HAS AUX_VERB 		# skip back til you find the aux before this - to infinitive blocks
+	ISCANONICAL have 
+DISCARD
+
+### can only be infinitve
+
+# cannot have ordinary verb tense immediately after TO "I saw George who continued to *play videogames" except infinitive
+-1	ISCANONICAL to
+	INCLUDE * VERB_BITS - VERB_INFINITIVE
+DISCARD
+
+# future tense can only have infininitve  "I will go" unless following have as in  "I will have gone" and "I will have been gone" but not "I will say what I *like"
+REVERSE 0	INCLUDE * VERB_BITS - VERB_INFINITIVE   
+	STAY !HAS AUX_VERB 
+	SKIP !HAS AUX_VERB TO_INFINITIVE PRONOUN_BITS NOUN_BITS	# skip back til you find the aux before this - but have been and TO infinitive blocks
+	IS AUX_VERB_FUTURE
+DISCARD
+
+# only tense of a verb that can start a sentence is infinitive  "mother let her daughter go" "pencils for the teacher" , "search for my nails" but not "Go home" 
+0	INCLUDE * VERB_BITS - VERB_INFINITIVE
+	STAY START
+	STAY !ISMEMBER ~quotableverbs # except for "Says John, "Go home" "
+DISCARD
+
+### can not be infinitive
+
+# if we can be infinitive and present and no other verbs or aux or to can be before us and we are not imperative first place, be present   "problems often *become frustrating" but not  "why not ask for help"
+# NOT "let us go for a walk"
+
+# cannot have verb infinitive as 2nd word "what *shape is this" except "To *go would seem foolish" except "please have"
+-1	START
+	STAY !ISORIGINAL TO
+	STAY !HAS ADVERB
+	INCLUDE * VERB_INFINITIVE
+DISCARD
+
+# given we KNOW the following word is a verb (infinitive or present) current word CANNOT be infinitive  "please *bring coffee"
+0 INCLUDE * VERB_INFINITIVE
+	STAY HAS ADVERB 
+	HAS VERB_INFINITIVE VERB_PRESENT
+	STAY !HAS ADVERB NOUN_BITS ADJECTIVE_BITS
+DISCARD
+
+# verb infinitive cannot follow a gerund or adj. participle  - "I remembered to eat food after *walking home" - UNLESS aux in front of it  "will reading improve me"
+-1	IS NOUN_GERUND ADJECTIVE_PARTICIPLE #  but "I can help *treat disease"
+	INCLUDE * VERB_INFINITIVE
+	STAY !PRIORPOS AUX_VERB
+DISCARD
+
+ # verb infinitives do not follow or other infinitives -- can follow pronoun subject (in a question) or object - noun infintives can "I could help *wish"
+REVERSE 0	INCLUDE *  VERB_INFINITIVE 
+	SKIP IS ADVERB	#not: I *guess
+	IS  VERB_INFINITIVE NOUN_INFINITIVE  # I could not (wish) for more. 
+DISCARD 
+
+# cannot have verb infinitive BEFORE an aux except following a prior aux 
+# no *man has gone before
+
+# in a present/past conflict, prefer the past (GUESS) "he read the book" or "he let the room"
+0	INCLUDE *  VERB_PRESENT
+	STAY HAS VERB_PAST
+DISCARD
+
+ # linking verb vs aux verb conflict resolved if followed by common participle verb  "he is interesting"
+ 0 INCLUDE * VERB_BITS
+	STAY HAS AUX_VERB
+	HASCANONICALPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+
+#   "you must not *smoke here"  "problems often *become frustrating"
+
+############################################
+###  RULES ABOUT VERB INFINITIVES
+############################################
+
+# two possible infintives/nouns in row after aux in qword use 2nd as verb "what do *people think"
+-2	ISQWORD 
+	STAY START
+	IS AUX_VERB
+	INCLUDE * VERB_INFINITIVE
+	STAY HAS NORMAL_NOUN_BITS
+	HAS VERB_INFINITIVE
+DISCARD
+
+# ---- infinitives without TO are these
+
+# cannot have verb infinitive after a q word "I wonder what *book" EXCEPT "why stand up"
+-1  ISQWORD
+	STAY !ISORIGINAL why
+	INCLUDE * VERB_INFINITIVE
+DISCARD
+
+# following a sooner ... than clause- "he would sooner wash than wipe"
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+	ISORIGINAL than
+	SKIP !ISORIGINAL sooner
+	ISORIGINAL sooner
+KEEP
+
+# following used_to  "he used to swim"
+REVERSE 0 INCLUDE * VERB_INFINITIVE
+	SKIP IS ADVERB
+	ISCANONICAL used_to
+KEEP
+
+# following a rather ... than clause- "he would rather wash than wipe"
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+	ISORIGINAL than
+	SKIP !ISORIGINAL rather
+	ISORIGINAL rather
+KEEP
+
+# infinitive after verb of perception + object - "she feels the rain *fall" or  "I heard Peter *sing"  # also let and help and make "she let the rain *fall"   "She made Peggy and Samantha clean "  but not "I would sooner read a book than watch this *film"
+  # also "Let us go home"
+
+# infinitive after modal - "he can *run"  and "I must not *go" but dont lose adverb "can *still run" 
+REVERSE 0 INCLUDE * VERB_INFINITIVE
+	STAY !ISCANONICAL be		# "he will be running" is not infinitive
+	STAY !HAS ADVERB
+	STAY !POSTPOS VERB_INFINITIVE # avoid confusing  "what do *people think" has another infinitive possible
+	SKIP ISORIGINAL not
+	IS AUX_VERB 
+KEEP
+
+# infinitive after modal in command mode "let us go"
+REVERSE 0 INCLUDE * VERB_INFINITIVE
+	STAY !ISCANONICAL be
+	HAS NOUN_BITS PRONOUN_BITS  # the object before the infinitive
+	SKIP IS DETERMINER ADJECTIVE_BITS ADVERB
+	IS VERB_INFINITIVE 
+	STAY START
+	STAY HASCANONICALPROPERTY VERB_TAKES_VERBINFINITIVE
+KEEP
+
+# infinitive after original modal as verb - "you need not *go" but not "he can run very *fast" but not "what will my dog do with the next *ball" - but not "he can *still smell"
+REVERSE 0 INCLUDE * VERB_INFINITIVE
+	STAY !HAS AUX_BE
+	STAY !HAS ADVERB
+	STAY !POSTPOS VERB_INFINITIVE # avoid confusing  "what do *people think" has another infinitive possible
+	SKIP !HASORIGINAL AUX_VERB VERB_INFINITIVE TO_INFINITIVE NOUN_BITS ADJECTIVE_BITS DETERMINER_BITS # had the old plastic *dog"
+	IS AUX_VERB 
+	STAY !ISCANONICAL be
+	STAY !ISCANONICAL have
+KEEP
+
+# infinitive after do "I do not *know" EXCEPT "I do *better" where it might be adverb
+REVERSE 0 INCLUDE * VERB_INFINITIVE
+	STAY !HAS ADVERB
+	STAY !POSTPOS VERB_INFINITIVE # avoid confusing  "what do *people think" has another infinitive possible
+	SKIP ISORIGINAL not
+	ISCANONICAL do
+KEEP
+
+# had better expression makes infinitive - "You had better *clean up your room."
+-2  ISORIGINAL had
+	ISORIGINAL better
+	INCLUDE * VERB_INFINITIVE
+KEEP
+
+# would rather expression makes infinitive - "You would rather *clean up your room."
+-2 	ISORIGINAL would
+	ISORIGINAL rather
+	INCLUDE * VERB_INFINITIVE
+KEEP
+
+# would sooner expression makes infinitive - "You would sooner *clean up your room than watch this film."
+-2	ISORIGINAL would
+	ISORIGINAL sooner
+	INCLUDE * VERB_INFINITIVE
+KEEP
+ 
+# why not expression makes infinitive - "Why not *ask your neighbour for help"
+-2  ISORIGINAL why
+	ISORIGINAL not
+	INCLUDE * VERB_INFINITIVE
+KEEP
+
+#  "Why should we *go by car" and "Why should we not *go by car? "
+
+# adverb at start followed by infinitive will be a command (not a noun)  "boldly go home"  - but not after why as in "why don't I go"
+-1	IS ADVERB
+	STAY START
+	STAY !ISORIGINAL why
+	STAY !ISMEMBER ~negative_adverb_starter 
+	INCLUDE * VERB_INFINITIVE
+	STAY !HAS ADJECTIVE_NORMAL  # not "*how fine he is"
+KEEP
+
+# infinitive/present conflict after do, will be infinitive "do wildflowers grow"  but not tag questions, ", *do you"
+
+# To before a verb infinitive will be noun infinitive - "I like to *play"
+-1 ISCANONICAL to
+	INCLUDE * VERB_INFINITIVE
+DISCARD
+
+# anything not known to be to-less infinitive is not infinitive  - but not "what will my dog *do with the next ball" but causal to-less verbs also accept
+
+# all other infinitives require TO_INFINITIVE
+
+# infinitive exists in 4 cases: imperative sentence, to_infinitive constructions, subjunctive mood, and simple future "I will *go home"
+
+#1.Contrary-to-fact clauses beginning with if: "If I were two-faced, would I be wearing this one?"
+#2.Contrary-to-fact clauses expressing a wish: "At that moment, I had the most desperate wish that she were dead."
+#3.That clauses after verbs such as ask, demand, insist, propose, request, and suggest, recommend: "I demand that he leave at once."
+#4.Statements of necessity: "It's necessary that she be in the room with you."
+#5.Certain fixed expressions: as it were, be that as it may be, far be it from me, heaven forbid, if need be, so be it, suffice it to say
+
+# Imperatives lack subject and use the base form of the verb. They may have clause, phrases and/or adverbs before them.
+# If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
+# when you come home, go quickly.
+
+# it will be INFINITIVE with optional adverb after future aux "I will boldly *go" EXCEPT for "be" which might be more aux as in "I will *be going" and "have"  as in "I will have been going" but not "jack can still smell"
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+	STAY !ISCANONICAL be
+	STAY !ISCANONICAL have
+	STAY !HAS ADVERB
+	SKIP IS ADVERB
+	IS AUX_VERB_FUTURE
+KEEP
+
+# it will be present participle with optional adverb after be and future aux "I will be boldly *going" - but not "it will have been *being painted"
+REVERSE 0	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !ISCANONICAL be
+	SKIP IS ADVERB
+	ISCANONICAL be
+	SKIP !HAS AUX_VERB_FUTURE		# search as far as you have to go, even in question form
+	IS AUX_VERB_FUTURE
+KEEP
+
+# will be imperative infinitive at start when  followed by some  things like pronoun: "Jump him"  but not adverbs, like "*right now, he left" and not "*mother let her daughter free"
+# BUT NOT "*like what does she look"
+
+# imperative negative infinitive at start "do not ever *go there"
+REVERSE	0	INCLUDE * VERB_INFINITIVE 
+	SKIP IS ADVERB
+	ISORIGINAL not		
+	ISORIGINAL do
+	STAY START
+KEEP
+
+# passive: I was hit by Bob  but not "I was fascinated by lightning"
+-1	HAS AUX_VERB 
+	INCLUDE * VERB_BITS
+	STAY !HAS ADJECTIVE_PARTICIPLE
+	ISORIGINAL by
+KEEP
+
+
+
+############################################
+########### Rules about verb plurality
+############################################
+
+
+# verb plurality agreements are tricky because noun in front might be in a phrase or clause
+# uses guess2 so assignroles has a chance to fill in objects of verbals and clauses
+
+# wont have a verb immediately after a gerund?  FALSE:  Swimming *was his passion. But "After walking *home" home is not a verb
+
+
+############################################
+########### Rules about verb tenses
+############################################
+# past tense cannot start a sentence -- BUT we prefer it over past_participle for reduced clause detection -- Driven is a participle that will show up
+# dressed in red will start as verb_past, be modified later
+# dressing in red  is not a verb, its a noun gerund
+
+# beware I will, when we are ready, be going home.
+
+#### PASSIVE
+
+# PASSIVE SIMPLE PRESENT/PAST [Thing receiving action] + [be] + [past participle of verb] + [by] + [thing doing action] "the tree is/was cleaned by Tom"
+REVERSE -1	ISCANONICAL by
+	INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISCANONICAL be
+KEEP
+
+# PASSIVE PRESENT/PAST CONTINUOUS [Thing receiving action] + is/was being + [past participle of verb] + [by] + [thing doing action] "the tree is being cleaned by Tom"
+REVERSE -1	ISCANONICAL by
+	INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL being
+	ISCANONICAL be
+KEEP
+
+# PASSIVE PRESENT/PAST PERFECT [CONTINUOUS Thing receiving action] + has/had been + [past participle of verb] + [by] + [thing doing action] "the tree has been cleaned by Tom"
+REVERSE -1	ISCANONICAL by
+	INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL being
+	ISORIGINAL been
+	SKIP IS ADVERB
+	ISCANONICAL have
+KEEP
+
+# PASSIVE SIMPLE FUTURE  The work will be finished by 5:00 PM.
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL be
+	SKIP IS ADVERB
+	ISCANONICAL will
+KEEP
+
+# PASSIVE SIMPLE FUTURE  The work is going to be finished by 5:00 PM.
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL be
+	SKIP IS ADVERB
+	ISCANONICAL to
+	ISCANONICAL going
+	ISCANONICAL be
+	STAY IS VERB_PRESENT VERB_PRESENT_3PS
+KEEP
+
+# PASSIVE  FUTURE CONTINUOUS The work will/isgoingto be being finished by 5:00 PM.
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL being
+	SKIP IS ADVERB
+	ISORIGINAL be
+KEEP
+
+# PASSIVE  FUTURE PERFECT The work will have been finished by 5:00 PM.
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL been
+	SKIP IS ADVERB
+	ISORIGINAL have
+KEEP
+
+# PASSIVE FUTURE PERFECT CONTINUOUS The work will have been being finished by 5:00 PM.
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	SKIP IS ADVERB
+	ISORIGINAL being
+	ISORIGINAL been
+	SKIP IS ADVERB
+	ISORIGINAL have
+KEEP
+
+# keep forms
+
+# past participle after BE verb  "it was *outmoded"  or "I would like to have been *fired" will be passive voice tense but not "he was *interested"
+REVERSE 0  INCLUDE *  VERB_PAST_PARTICIPLE
+	STAY HAS   ADJECTIVE_PARTICIPLE
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+	SKIP IS ADVERB
+	ISCANONICAL be
+KEEP
+
+# non-be verb following std aux (not be or have) will be infinitive  " I do often *go" - we dont have AUX_VERB_INFINTIIVE as a tense... using AUX_VERB_PRESENT - but not adverb- "he can *still smell"
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+	STAY !ISCANONICAL be
+	STAY !HAS ADVERB
+	STAY !POSTPOS VERB_INFINITIVE # avoid confusing  "what do *people think" has another infinitive possible
+	SKIP IS ADVERB
+	IS AUX_VERB
+	STAY !ISCANONICAL have
+	STAY !ISCANONICAL be
+KEEP
+
+#   present/future perfect tense uses past participle - I have traveled. I will have travelled
+-1	IS AUX_VERB_PRESENT
+	STAY ISCANONICAL have
+	INCLUDE * VERB_PAST_PARTICIPLE # have been
+	STAY !HAS AUX_VERB
+KEEP
+
+# "used to" aux forces verb infinitive "I used_to go"
+-1 IS AUX_VERB
+	STAY ISCANONICAL used_to
+	INCLUDE * VERB_INFINITIVE
+KEEP
+
+  
+# something cannot be a verb participle without having a potential aux verb before it - "has John who *lied yesterday *lied today?"
+# EXCEPT for an absolute phrase like "they walked, their faces *beaming"
+
+# There are simple, progressive, perfect, and perfect progressive tense zones
+
+### SIMPLE TENSES - past present future
+
+#  simple future is infinitive when not BE and not adverb "he could *still smell"
+-1	IS AUX_VERB_FUTURE		# I will go.  I would go.  I could go.
+	INCLUDE * VERB_INFINITIVE
+	STAY !ISCANONICAL be
+	STAY !HAS ADVERB
+KEEP
+
+#  simple future delayed is infinitive when not be and not adverb "he could *still smell"
+-2	IS AUX_VERB_FUTURE
+	!HAS VERB_BITS AUX_VERB 
+	INCLUDE * VERB_INFINITIVE		# I will often go
+	STAY !ISCANONICAL be
+	STAY !HAS ADVERB
+KEEP
+
+# infinitive after do "do you write" or "you do write" but not "did somebody make you *wear that hat" and not "I do better" as adjective
+REVERSE 0	INCLUDE * VERB_INFINITIVE
+	STAY !HAS ADVERB
+	SKIP !IS AUX_VERB VERB_BITS
+	IS AUX_DO 
+KEEP
+
+# passive present	-  the product is shipped
+-1 IS AUX_VERB_PRESENT
+	STAY ISCANONICAL be	
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+# passive modal - the product can be shipped
+-2 IS AUX_VERB_PRESENT
+	ISORIGINAL be
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+# passive present delayed	-  the product is often shipped
+-2 IS AUX_VERB_PRESENT
+	STAY ISCANONICAL be	
+	!HAS VERB_BITS AUX_VERB 
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+
+# passive past	-  the product was shipped
+-1 IS AUX_VERB_PAST
+	STAY ISCANONICAL be	
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+# passive past delayed	-  the product was often shipped
+-2 IS AUX_VERB_PAST
+	STAY ISCANONICAL be	
+	!HAS VERB_BITS AUX_VERB 
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+### PROGRESSIVE TENSES   use present participle
+
+## Past Progressive uses forms of "was" and present participle
+
+#   past progressive tense is participle - but not he was being helped
+-1	IS AUX_VERB_PAST
+	STAY ISCANONICAL be  # I was going
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !ISCANONICAL be
+KEEP
+
+#   past progressive tense indirect is participle 
+-2	IS AUX_VERB_PAST
+	STAY ISCANONICAL be 
+	!HAS VERB_BITS AUX_VERB    # I was not going.  I was often going.
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+KEEP
+
+## Present Progressive uses forms of "be" and present participle
+
+#   present progressive tense is participle 
+-1	IS AUX_VERB_PRESENT
+	STAY ISCANONICAL be  # I am going
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !ISCANONICAL be
+KEEP
+
+#   present progressive tense indirect is participle -  I am not going.  I am often going.
+-2	IS AUX_VERB_PRESENT
+	STAY ISCANONICAL be 
+	!HAS VERB_BITS AUX_VERB   
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !ISCANONICAL be
+KEEP
+
+# present/past progressive passive - the food is/was being prepared
+-2	IS AUX_VERB_PRESENT AUX_VERB_PAST 
+	STAY ISCANONICAL be
+	ISORIGINAL being
+	INCLUDE * VERB_PAST_PARTICIPLE
+	STAY !ISCANONICAL be
+KEEP
+
+# present/past progressive passive - the food is/was often being prepared
+-3	IS AUX_VERB_PRESENT AUX_VERB_PAST 
+	STAY ISCANONICAL be
+	!HAS VERB_BITS AUX_VERB   
+	ISORIGINAL being
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+# future progressive passive - the food will  be prepared
+-2	IS AUX_VERB_FUTURE
+	ISORIGINAL be
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+# future progressive passive delayed - the food will often be prepared
+-3	IS AUX_VERB_FUTURE
+		 ISORIGINAL be
+	!HAS VERB_BITS AUX_VERB   
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+## Future Progressive uses forms of "will be" "shall be" etc and present participle
+
+#   future progressive tense is participle - I will be going
+-2	IS AUX_VERB_FUTURE
+	ISORIGINAL be 
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !ISORIGINAL be		# being could have more after it
+	STAY !ISORIGINAL being
+KEEP
+
+#   future progressive tense indirect is participle --  I will not be going.  I will often be going.
+-3	IS AUX_VERB_FUTURE
+	!HAS VERB_BITS AUX_VERB   
+	ISORIGINAL be 
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !ISORIGINAL be		# being could have more after it
+KEEP
+
+################### PERFECT TENSE uses has/have with the past participle " I have broken my arm"
+ 
+# passive voice uses past participle with past Be verb. "the window was broken"
+# adjective participle? is used after present tense be verb.  "the window is broken"
+
+
+
+
+## Present Perfect uses forms of "has" 
+
+
+#   present/future perfect tense delayed uses past participle - I have not traveled. 
+-2	IS AUX_VERB_PRESENT
+	STAY ISCANONICAL have 
+	!HAS VERB_BITS AUX_VERB   
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+KEEP
+
+
+#   present/past/future perfect passive tense delayed uses past participle - they have often been made
+BIGWORD -3	IS AUX_VERB_PRESENT IS_AUX_VERB_PAST
+	STAY ISCANONICAL have 
+	!HAS VERB_BITS AUX_VERB   
+	ISORIGINAL been
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+KEEP
+
+## Past Perfect uses forms of "had" 
+
+#   past perfect tense uses past participle - I had gone x2
+-1	ISORIGINAL had
+	INCLUDE * VERB_PAST_PARTICIPLE
+	STAY !HAS AUX_BE
+KEEP
+
+#   past perfect tense delayed uses past participle -  I had not gone.  I had often gone. x1
+-2	ISORIGINAL had 
+	!HAS VERB_BITS  AUX_VERB   
+	INCLUDE * VERB_PAST_PARTICIPLE
+	STAY !HAS AUX_BE
+KEEP
+
+###################### PERFECT PROGRESSIVE
+
+## Present Perfect progressive uses forms of has/have been and present participle
+
+#   present/future perfect progressive tense uses present participle
+-2	ISCANONICAL have
+	STAY IS VERB_PRESENT
+	ISORIGINAL been
+	INCLUDE * VERB_PRESENT_PARTICIPLE # I have been going
+KEEP
+
+#   present/future perfect progressive tense delayed uses present participle
+-3	ISCANONICAL have
+	STAY IS VERB_PRESENT
+	!HAS VERB_BITS  AUX_VERB   # I have not been going.
+	ISORIGINAL been 
+	INCLUDE * VERB_PRESENT_PARTICIPLE 
+KEEP
+
+## Past Perfect progressive uses had been and present participle but not "been being"
+
+#   past perfect progressive tense uses present participle
+-2	ISORIGINAL had
+	ISORIGINAL been
+	INCLUDE * VERB_PRESENT_PARTICIPLE # I had been going
+	STAY !HAS AUX_BE
+KEEP
+
+#   past perfect progressive delayed  tense uses present participle
+-3	ISORIGINAL had
+	!HAS VERB_BITS  AUX_VERB   # I have not been going.
+	ISORIGINAL been 
+	INCLUDE * VERB_PRESENT_PARTICIPLE 
+KEEP
+
+#######################
+
+
+
+# past participle has have aux  in front  - "the man has slept" 
+-1	IS AUX_VERB
+	STAY ISCANONICAL have
+	INCLUDE * VERB_PAST_PARTICIPLE
+KEEP
+
+# present participle has be aux  in front  - "the man is *sleeping" 
+-1	IS AUX_VERB
+	STAY ISCANONICAL be
+	STAY !HAS AUX_BE	# not been
+	STAY !HASORIGINAL VERB_PAST_PARTICIPLE
+	INCLUDE * VERB_PRESENT_PARTICIPLE
+	STAY !HAS AUX_VERB
+KEEP
+# which almost *ruined
+
+
+# aux-be vs past conflict followed by potential adjective/adverb at worst then comma, will be verb was/be (Aux_be_past +Verb_past)  leisurely (+Adjective_normal Adverb)  ,
+0	INCLUDE * VERB_BITS
+	STAY HAS AUX_BE 
+	CANONLYBE ADJECTIVE_BITS ADVERB
+	IS COMMA
+KEEP
+
+ # are you most closely *attached to this
+ # who was the meat eaten by
+
+# will be simple past after conjunction_suborde, subject, verb
+-2 IS CONJUNCTION_SUBORDINATE
+	IS PRONOUN_SUBJECT NOUN_BITS
+	INCLUDE * VERB_PAST	# that jack built
+	STAY !HAS NORMAL_NOUN_BITS		# this trick works because llama *spit contains
+KEEP
+
+
+############################################
+########### Rules about verbs
+############################################
+
+# BUt-- I hit him after his shift waiting tables (treat as ADJECTIVE_PARTICPILE phrase)
+# ILLEGAL the *swimming boy flies. The happy *swimming boy flies.
+# ILLEGAL as verb: the boy *swimming nearby
+# BUT- I liked the swimming is ok.
+# wont have a verb BEFORE a subject pronoun (except if is/have in question mode or IMPLIED clause like I guess we will go)
+# cannot have two verbs in a row followed by a pronon or noun or determiner - yes you can-- boys boys like like boys
+# we think you cant have a verb before a verb (except maybe for some clauses) so yes you can
+# cannot have verb at end of sentence after another verb - other verb completing a phrase would be weird -- sure you can-- The men who dressed won
+
+
+
+# if preceeding IS a verb and next word MIGHT be, its not-  "my friend Chris eats *rocks"  (though maybe participle will prove an exception) but "what they found *thrilled them" so have clause isssues
+
+# like before to   will be a verb - "what game does Bob like to play  -- treat as noun infinitive
+
+# aux question with pronoun option will want verb after it -- "did you *go to parties" but not "as did father"
+-2	HAS AUX_VERB
+	HAS PRONOUN_BITS
+	INCLUDE * VERB_BITS
+	STAY !HAS NOUN_BITS
+KEEP
+
+# assume verb ? *? verb  will involve a described noun
+-2	IS VERB_BITS
+	HAS ADJECTIVE_BITS NOUN_BITS
+	INCLUDE * NOUN_BITS
+	IS VERB_BITS AUX_VERB		# the team that wore red shirts fled
+KEEP
+
+
+# simple present - Tom cleans the house
+
+# verb before conjunction coordinate, verb after?
+-2 IS VERB_BITS
+	IS CONJUNCTION_COORDINATE	# I like walking and swimming
+	INCLUDE * VERB_BITS
+KEEP
+
+# potential singular verb after singular noun = bad rule
+# LEGAL: - this report *documents  ILLEGAL: He has been stalking neighborhood *pets
+
+# potential singular verb after singular noun	- this  *documents
+-1	IS PRONOUN_BITS
+	INCLUDE * VERB_PRESENT_3PS
+	STAY !HAS AUX_VERB
+KEEP
+
+# potential plural present verb after plural noun	- these reports *document - BUT NOT if aux "do you *grow"
+
+#  simple future/continuous - tom will be washing the dishes and present continuous - Tom is going home and passive simple present/past - the house is/was cleaned and present perfect - Tom has been doing the work.
+REVERSE 0 INCLUDE * VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE
+	STAY !HAS AUX_VERB
+	SKIP IS ADVERB			# we are often suffering
+	ISCANONICAL be				
+	STAY !ISORIGINAL being				# but not After being reprimanded
+	STAY IS AUX_VERB
+KEEP
+
+# passive present/past continuous - Tom is/was being helped and passive present perfect - the work has been being done by john
+REVERSE 0 INCLUDE * VERB_PAST_PARTICIPLE
+	ISORIGINAL being
+	SKIP IS ADVERB			# we are often suffering
+	ISCANONICAL be
+	STAY IS AUX_VERB
+KEEP
+
+# past perfect continuous - TOM had been repairing his car. and passive future perfect and future perfect continuous and passive past perfect - "Cars had been *repaired by Tom"  but not "the work has *been being done"
+ REVERSE 0	INCLUDE * VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE  # but not followed by past_participle "the work had *been being done"
+	STAY !HAS AUX_BE
+	ISORIGINAL been
+	SKIP IS ADVERB			# we are often suffering
+	ISCANONICAL have	
+KEEP
+
+# passive simple/continuous future - the dishes will be being washed by tom and  passive past perfect continuous and  passive future perfect continuous-  the car had been being repaired by tom
+REVERSE 0	INCLUDE * VERB_PAST_PARTICIPLE 
+	ISORIGINAL being
+	SKIP IS ADVERB			# we are often suffering
+	ISCANONICAL be
+KEEP
+
+# future perfect and  past perfect	Tom had repaired the car
+REVERSE 0	INCLUDE * VERB_PAST_PARTICIPLE
+	STAY !HAS AUX_VERB
+	SKIP IS ADVERB			# we are often suffering
+	ISCANONICAL have
+KEEP
+
+# past vs past participle, use past when no aux before -- no good when involving absolutes "arms *folded, they lept"
+# but good here the mangled boats *floated
+
+# after conjunction_subordinate, try verb phrase instead of adjective, noun (no determiner)
+# He hated and infuriated Malcolm. -- Not He hated cars and infuriated people. (adjective)4
+
+# They can often *outmode. -- but not "they were *outmoded" which should be adjective participle
+
+#  noun following potential verb be		- BUT is common when used as aux: "when was Huxley born"
+	# There is nothing here.
+
+# "be" followed by potential noun-adjective and not verb or adverb is normal - and not "been being"
+	# ILLEGAL:  I am going. I am constantly outmoded. LEGAL: I am humanity. I am happy.
+
+# be followed by adjective with intervening adverbs 
+0	ISCANONICAL be
+	STAY INCLUDE  * VERB_BITS	
+	SKIP IS ADVERB
+	IS ADJECTIVE_BITS  
+KEEP
+
+# present participle after aux verb
+-1	IS AUX_VERB
+	STAY ISCANONICAL be
+	INCLUDE  * VERB_PRESENT_PARTICIPLE
+	STAY !HAS AUX_VERB
+KEEP
+
+# verb "be" followed by adjective participle potential will realize that potential "he *is boring"
+0	INCLUDE * VERB_BITS
+	STAY ISCANONICAL be
+	SKIP HAS ADVERB		# can this survive w/o being IS form?
+	HAS ADJECTIVE_PARTICIPLE
+	STAY HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP

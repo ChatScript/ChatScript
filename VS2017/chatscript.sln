@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatscript", "chatscript.vcxproj", "{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "treetagger", "..\treetagger\treetagger\treetagger\treetagger.vcxproj", "{3D813E77-7B1A-4344-8F8C-C4E142C8D572}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Mongo|Win32 = Debug Mongo|Win32
+		Debug Mongo|x64 = Debug Mongo|x64
+		Debug Postgres|Win32 = Debug Postgres|Win32
+		Debug Postgres|x64 = Debug Postgres|x64
+		Debug Treetagger|Win32 = Debug Treetagger|Win32
+		Debug Treetagger|x64 = Debug Treetagger|x64
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		dictionarybuild|Win32 = dictionarybuild|Win32
+		dictionarybuild|x64 = dictionarybuild|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		releaseTreetagger|Win32 = releaseTreetagger|Win32
+		releaseTreetagger|x64 = releaseTreetagger|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Mongo|Win32.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Mongo|Win32.Build.0 = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Mongo|x64.ActiveCfg = Debug Mongo|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Postgres|Win32.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Postgres|Win32.Build.0 = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Postgres|x64.ActiveCfg = Debug Postgres|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Treetagger|Win32.ActiveCfg = Debug Treetagger|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Treetagger|Win32.Build.0 = Debug Treetagger|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Treetagger|x64.ActiveCfg = Debug Treetagger|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.Build.0 = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|x64.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|Win32.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|Win32.Build.0 = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|x64.ActiveCfg = dictionarybuild|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.ActiveCfg = Release|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.Build.0 = Release|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|x64.ActiveCfg = Release|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.Build.0 = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|x64.ActiveCfg = releaseTreetagger|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Mongo|Win32.ActiveCfg = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Mongo|Win32.Build.0 = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Mongo|x64.ActiveCfg = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Mongo|x64.Build.0 = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Postgres|Win32.ActiveCfg = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Postgres|Win32.Build.0 = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Postgres|x64.ActiveCfg = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Postgres|x64.Build.0 = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Treetagger|Win32.ActiveCfg = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Treetagger|Win32.Build.0 = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Treetagger|x64.ActiveCfg = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Treetagger|x64.Build.0 = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|Win32.ActiveCfg = Release|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|Win32.Build.0 = Release|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|x64.ActiveCfg = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|x64.Build.0 = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|Win32.ActiveCfg = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|Win32.Build.0 = Debug|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|x64.ActiveCfg = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|x64.Build.0 = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Release|Win32.ActiveCfg = Release|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Release|Win32.Build.0 = Release|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Release|x64.ActiveCfg = Release|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Release|x64.Build.0 = Release|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|Win32.ActiveCfg = releaseTreetagger|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|Win32.Build.0 = releaseTreetagger|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|x64.ActiveCfg = releaseTreetagger|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|x64.Build.0 = releaseTreetagger|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

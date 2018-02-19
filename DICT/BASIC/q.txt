@@ -1,0 +1,248 @@
+﻿ Queen ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_SHE NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+ quantity ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    amount~1n 
+    quantity~2nz (^amount~2) an adequate or large amount
+    quantity~3nz (^construct~1) the concept that something has a magnitude and can be represented in mathematical expressions by a constant or a variable
+ quenching ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    quenching~1nz (^conclusion~2) 
+    quenching~2az 
+ quick ( meanings=9 glosses=7 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=quickest 
+    quick~1nz (^area~3) any area of the body that is highly sensitive to pain
+    spry~1az moving quickly and lightly
+    warm~5az easily aroused or excited
+    immediate~3az performed with little or no delay
+    speedy~1az accomplished rapidly and without delay
+    flying~2az hurried and brief
+    ready~2az apprehending and responding with speed and sensitivity
+    quick~8az 
+    quickly~2b 
+ quiver ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    quivering~1nz (^motion~2) the act of vibrating
+    quiver~2nz (^case~2) case for holding arrows
+    thrill~2n 
+    trembling~1nz (^motion~7) a shaky motion
+    waver~7vz move back and forth very rapidly
+    beat~24v 
+    quiver~7vz shake with fast, tremulous movements
+ quivering ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    quiver~1n 
+    quiver~4n 
+ quartering ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    quartering~1nz (^division~1) dividing into four equal parts
+    quartering~2nz (^housing~2) living accommodations
+    quartering~3nz (^emblem~1) a coat of arms that occupies one quarter of an escutcheon
+ quality ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    quality~1nz (^attribute~1) an essential and distinguishing attribute of something or someone
+    quality~2nz (^degree~1) a degree or grade of excellence or worth
+    timber~3nz (^property~2) the distinctive property of a complex sound (a voice or noise or musical sound)
+    character~3n 
+    quality~5nz (^rank~4) high social status
+    quality~6az of high social status
+    choice~4a 
+ quest ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    seeking~2nz (^search~3) the act of searching for something
+    quest~2nz (^search~4) a search for an alternative that meets cognitive criteria
+    request~3v 
+    quest~4vz seek alms, as for religious purposes
+    bay~9v 
+    quest~6vz search the trail of 
+    quest~7vz make a search 
+ quelling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    crushing~1n 
+ quotient ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    quotient~1nz (^number~11) the number obtained by division
+    quotient~2nz (^relation~1) the ratio of two quantities to be divided
+ quail ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    quail~1nz (^bird~1) small gallinaceous game birds
+    quail~2nz (^bird~4) flesh of quail
+    recoil~5vz draw back, as with fear or pain
+ queen ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    king~6nz (^competition~3) a competitor who holds a preeminent position
+ quarter ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON1 ORDINAL KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT TIMEWORD (null) ) 
+    quarter~1vz divide by four
+    quarter~2vz divide into quarters
+    draw~43vz pull apart with four horses tied to his extremities, so as to execute him
+    quarter~4vz provide housing for
+ quartz ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    quartz~1nz (^mineral~1) a hard glossy mineral consisting of silicon dioxide in crystal form
+    crystal~5n 
+    quartz~3az 
+ quarrel ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    quarrel~1nz (^arrow~1) an arrow that is shot from a crossbow
+    row~4n 
+    dispute~3vz have a disagreement over something
+ quilt ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    puff~5n 
+    quilt~2vz create by stitching together
+    quilt~3vz stitch or sew together
+ quilted ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    quilted~1az made of layers of fabric held together by patterned stitching
+    quilted~2az 
+ quilting ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    quilting~1nz (^material~1) a material used for making a quilt, or a quilted fabric
+    quilting~2nz (^stitch~1) stitching through layers of fabric and a filling so as to create a design
+ question ( meanings=11 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    doubt~1nz (^quality~1) uncertainty about the truth or factuality or existence of something
+    head~14nz (^subject~6) the subject matter at issue
+    question~3nz (^offer~2) an informal reference to a marriage proposal
+    motion~4nz (^message~2) a formal proposal for action made to a deliberative assembly for discussion and vote
+    query~1nz (^questioning~1) an instance of questioning
+    interrogative~1nz (^sentence~2) a sentence of inquiry that asks for a reply
+    query~2vz pose a question
+    question~8vz pose a series of questions to
+    interview~3vz conduct an interview in television, newspaper, and radio reporting
+    question~10vz challenge the accuracy, probity, or propriety of
+    wonder~5vz place in doubt or express doubtful speculation
+ quiet ( meanings=13 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    placidity~1nz (^calm~1) a disposition free from stress or emotion
+    silence~3n 
+    quiet~3nz (^order~13) an untroubled state
+    quiet~4nz (^weather~1) a period of calm weather
+    quiet~5az of the sun characterized by a low level of surface phenomena like sunspots e.g.
+    still~5a 
+    hushed~1az in a softened tone
+    restrained~3az not showy or obtrusive
+    quiet~9az free of noise or uproar
+    quiet~10az characterized by an absence or near absence of agitation or activity
+    quietly~3b 
+    calm~9v 
+    hush~6vz become quiet or quieter
+ quandary ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    quandary~1nz (^disarray~2) state of uncertainty or perplexity especially as requiring a choice between equally unfavorable options
+    plight~2n 
+ quadruple ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE PREDETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    quadruple~1nz (^product~3) a quantity that is four times as great as another
+    quartet~3nz (^set~8) a set of four similar things considered as a unit
+    quadruple~3az four times as great or many
+    quadruple~4az having four units or components
+    quadruple~5vz increase fourfold
+    quadruple~6z 
+ questionnaire ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    questionnaire~1nz (^form~12) a form containing a set of questions
+ quarterly ( meanings=4 glosses=4 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    quarterly~1nz (^periodical~1) a periodical that is published every quarter
+    quarterly~2az of or relating to or consisting of a quarter
+    quarterly~3bz in three month intervals
+    quarterly~4bz in diagonally opposed quarters of an escutcheon
+ quote ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    quote~1nz (^selection~3) a passage or expression that is quoted or cited
+    quote~2nz (^mark~9) a punctuation mark used to attribute the enclosed text to someone else
+    quote~3vz put quote marks around
+    quote~4vz repeat a passage from
+    quote~5vz refer to for illustration or proof
+    quote~6vz name the price of
+ quiz ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) plural=quizzes 
+    quiz~1nz (^examination~5) an examination consisting of a few short questions
+    test~8v 
+ quip ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    crack~6n 
+    quip~2nz (^saying~1) a witty saying
+    gag~6v 
+ query ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    question~5n 
+    question~7v 
+ quartet ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    quartet~1nz (^piece~8) a musical composition for four performers
+    quartet~2nz (^group~1) four people considered as a unit
+    quadruple~2n 
+    quartet~4nz (^organization~6) four performers or singers who perform together
+    four~2n 
+ questioning ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB (null) ) 
+    inquiring~1nz (^request~2) a request for information
+    wondering~1az showing curiosity
+    questioning~3az perplexed 
+    doubting~1a 
+ quack ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_NOOBJECT (null) ) 
+    quack~1nz (^sound~5) the harsh sound of a duck
+    quack~2nz (^doctor~2) an untrained person who pretends to be a physician and who dispenses medical advice
+    quack~3az medically unqualified
+    quack~4vz act as a medical quack or a charlatan
+    quack~5vz utter quacking noises
+ qualm ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    misgiving~3n 
+    qualm~2nz (^sickness~2) a mild state of nausea
+ quicksand ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    quicksand~1nz (^pit~9) a pit filled with loose wet sand into which objects are sucked down
+    quicksand~2nz (^situation~5) a treacherous situation that tends to entrap and destroy
+ queer ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    queer~1nz (^gay~1) offensive term for an openly homosexual man
+    rum~3a 
+    gay~4a 
+    expose~5vz put in a dangerous, disadvantageous, or difficult position
+    foil~8v 
+ quaker ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    quaker~1nz (^coward~1) one who quakes and trembles with fear
+ quitter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
+    quitter~1nz (^individual~1) a person who gives up too easily
+ quadrupling ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    quadrupling~1nz (^multiplication~3) increase by a factor of four
+ quart ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    quart~1nz (^unit~5) a United States liquid unit equal to 32 fluid ounces
+    quart~2nz (^unit~5) a United States dry unit equal to 2 pints or 67.2 cubic inches
+    quart~3nz (^unit~5) a British imperial capacity measure equal to 2 pints or 1.136 liters
+ quite ( meanings=5 glosses=3 ADVERB PREDETERMINER EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    quite~1bz to the greatest extent
+    rather~2b 
+    quite~3bz of an unusually noticeable or exceptional or remarkable kind 
+    quite~4bz actually or truly or to an extreme
+    quite~5z 
+ quenched ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    quelled~1a 
+    satisfied~2a 
+    quenched~3az 
+ quincentennial ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    quincentennial~1nz (^day~5) the 500th anniversary
+    quincentennial~2az of or relating to a 500th anniversary
+ quizzes ( NOUN NOUN_PLURAL COMMON4 GRADE3_4 posdefault:NOUN ) plural=quiz 
+ quiescent ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    quiescent~1az causing no symptoms
+    quiescent~2az being quiet or still or inactive
+    quiescent~3az not active or activated
+    quiescent~4az marked by a state of tranquil repose
+    quiescent~5az 
+ quelled ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    quenched~1az 
+    quelled~2az 
+ quits ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    quits~1az on equal terms by payment or requital
+ quaint ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    quaint~1az strange in an interesting or pleasing way
+    quaint~2az very strange or unusual
+    quaint~3az attractively old-fashioned 
+    quaint~4az 
+ quixotic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    quixotic~1az not sensible about practical matters
+    quixotic~2az 
+ quarter-trillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ quarter-billion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ quarter-million ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ quicker ( meanings=1 glosses=1 MORE_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) comparative=quick 
+    faster~1bz more quickly
+ quickest ( meanings=1 glosses=1 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=quicker 
+    fastest~1bz most quickly
+ quietly ( meanings=4 glosses=4 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    quietly~1bz with low volume
+    quietly~2bz with little or no sound
+    quiet~11bz with little or no activity or no agitation 
+    quietly~4bz in a restful manner
+ quickly ( meanings=3 glosses=3 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    quickly~1bz with rapid movements
+    promptly~3bz with little or no delay
+    quickly~3bz without taking pains
+ quench ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    quench~1vz cool by plunging into cold water or other liquid
+    quench~2vz reduce the degree of in (excited molecules or a material) by adding a suitable substance
+    quell~1vz suppress or crush completely
+    slake~3v 
+    quench~5vz electronics: suppress when the current is cut off in an inductive circuit, or suppress (an oscillation or discharge) in a component or device
+    quench~6vz put out, as of fires, flames, or lights
+ quell ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    quench~3v 
+    stay~8v 
+ quit ( meanings=5 glosses=4 VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=quitted 
+    quit~1vz give up in the face of defeat of lacking hope
+    depart~2vz go away or leave
+    relinquish~2vz turn away from
+    resign~4vz give up or retire from a position
+    stop~22v 
+ quitted ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=quit 

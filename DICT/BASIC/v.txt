@@ -1,0 +1,536 @@
+﻿ vote ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    vote~1nz (^event~1) the opinion of a group as determined by voting
+    balloting~1nz (^choice~1) a choice that is made by counting the number of people in favor of each alternative
+    suffrage~1nz (^franchise~1) a legal right guaranteed by the 15th amendment to the US Constitution
+    vote~4nz (^quantity~3) the total number of voters who participated
+    vote~5nz (^body~9) a body of voters who have the same interests
+    vote~6vz express one's preference for a candidate or for a measure or resolution
+    vote~7vz bring into existence or make available by vote
+    vote~8vz express a choice or opinion
+    vote~9vz express one's choice or preference by vote
+    vote~10vz be guided by in voting
+ vanishing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    vanishing~1nz (^going~1) a sudden disappearance from sight
+    vanishing~2nz (^event~1) a sudden or mysterious disappearance
+ vertical ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    vertical~1nz (^support~6) a vertical structural member as a post or stake
+    vertical~2nz (^direction~9) something that is oriented vertically
+    vertical~3az of or relating to different levels in a hierarchy 
+    vertical~4az at right angles to the plane of the horizon or a base line
+    vertical~5az upright in position or posture
+    vertical~6az relating to or involving all stages of a business from production to distribution
+    vertical~7az 
+ voice ( meanings=13 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) (null) ) 
+    voice~1nz (^agency~1) a means or agency by which something is expressed or communicated
+    voice~2nz (^sound~1) the distinctive quality or pitch or condition of a person's speech
+    voice~3nz (^ability~1) the ability to speak
+    part~8nz (^line~18) the melody carried by a particular voice or instrument in polyphonic music
+    voice~5nz (^expression~7) expressing in coherent verbal form
+    voice~6nz (^communication~1) the sound made by the vibration of vocal folds modified by the resonance of the vocal tract
+    voice~7nz (^communication~1) something suggestive of speech in being a medium of expression
+    voice~8nz (^sound~5) a sound suggestive of a vocal utterance
+    representative~4nz (^advocate~1) an advocate who represents someone else's policy or purpose
+    voice~10nz (^singer~1) a singer
+    voice~11nz (^relation~1) the grammatical relation (active or passive) of the grammatical subject of a verb to the action that the verb denotes
+    voice~12vz give voice to
+    sound~20vz utter with vibrating vocal chords
+ voting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    ballot~1n 
+ variance ( meanings=7 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    variance~1nz (^activity~1) an activity that varies from a norm or standard
+    variance~2nz (^license~1) an official dispensation to act contrary to a rule or regulation 
+    variance~3nz (^quality~1) the quality of being subject to variation
+    discrepancy~1n 
+    variance~5nz (^moment~2) the second moment around the mean
+    division~5n 
+    discrepancy~2n 
+ victory ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    triumph~1nz (^finish~4) a successful ending of a struggle or contest
+ voyage ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    voyage~1nz (^journey~1) a journey to some distant place
+    voyage~2nz (^travel~2) an act of traveling by water
+    sail~4v 
+ video ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    video~1nz (^recording~3) a recording of both the visual and audible components
+    television~3n 
+    picture~6n 
+    video~4nz (^communication~1) the appearance of text and graphics on a video display
+ volleyball ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    volleyball~1nz (^game~2) a game in which two teams hit an inflated ball over a high net using their hands
+    volleyball~2nz (^ball~3) an inflated ball used in playing volleyball
+ vocal ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    song~3n 
+    vocal~2nz (^music~5) music intended to be performed by one or more singers, usually with instrumental accompaniment
+    vocal~3az given to expressing yourself freely or insistently
+    vocal~4az full of the sound of voices
+    vocal~5az having or using the power to produce speech or sound
+    vocal~6az relating to or designed for or using the singing voice
+ violent ( meanings=6 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    red~4a 
+    fierce~3a 
+    wild~8a 
+    violent~4az effected by force or injury rather than natural causes
+    violent~5az acting with or marked by or resulting from great force or energy or emotional intensity
+    violent~6az 
+ volley ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    volley~1nz (^return~6) a tennis return made by hitting the ball before it bounces
+    burst~3n 
+    volley~3vz utter rapidly
+    volley~4vz make a volley
+    volley~5vz discharge in, or as if in, a volley
+    volley~6vz hit before it touches the ground
+    volley~7vz be dispersed in a volley
+ vocation ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    calling~1n 
+    vocation~2nz (^body~9) a body of people doing the same kind of work
+ vacuum ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=vacua 
+    vacuum~1nz (^appliance~1) an electrical home appliance that cleans by suction
+    vacuum~2nz (^part~9) a region that is devoid of matter
+    void~1nz (^space~8) an empty area or space
+    vacuum~4nz (^status~1) the absence of matter
+    vacuum~5vz clean with a vacuum cleaner
+ venture ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    venture~1nz (^labor~2) any venturesome undertaking especially one with an uncertain outcome
+    venture~2nz (^business~3) a commercial undertaking that risks a loss but promises a profit
+    venture~3nz (^relation~1) an investment that is very risky but could yield great profits
+    pretend~6v 
+    venture~5vz proceed somewhere despite the risk of possible dangers
+    stake~10v 
+ value ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    value~1nz (^property~2) relative darkness or lightness of a color
+    value~2nz (^worth~1) the quality that renders something desirable or valuable
+    value~3nz (^quantity~3) a numerical quantity measured or assigned or computed
+    value~4nz (^ideal~1) an ideal accepted by some individual or group
+    value~5nz (^measure~1) the amount that is considered to be a fair equivalent for something else
+    value~6nz (^duration~3) the relative duration of a musical note
+    rate~6vz estimate the value of
+    measure~12v 
+    respect~8v 
+    value~10vz fix or determine the value of
+    appreciate~5vz hold dear
+ view ( meanings=13 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    sight~1n 
+    scene~1n 
+    view~3nz (^appearance~4) outward appearance
+    horizon~1n 
+    scene~3n 
+    opinion~3n 
+    view~7nz (^purpose~3) purpose
+    position~9n 
+    opinion~6nz (^message~2) a message expressing a belief about something
+    view~10nz (^reach~4) the range of the eye
+    consider~2vz deem to be
+    consider~7vz look at carefully
+    watch~11v 
+ violin ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    violin~1nz (^string~1) bowed stringed instrument that is the highest member of the violin family
+ veneering ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    veneering~1nz (^creation~2) the act of applying veneer
+    veneer~2n 
+ verbal ( meanings=6 glosses=6 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    verbal~1az communicated in the form of words
+    verbal~2az prolix
+    verbal~3az relating to or having facility in the use of words
+    verbal~4az expressed in spoken words
+    verbal~5az of or relating to or formed from a verb
+    verbal~6az of or relating to or formed from words in general
+ violence ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    force~2n 
+    violence~2nz (^degree~1) the property of being wild or turbulent
+    violence~3nz (^state~1) a turbulent state resulting in injuries and destruction etc.
+ voicing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    voicing~1nz (^adjustment~2) the act of adjusting an organ pipe so that it conforms to the standards of tone and pitch and color
+ viewing ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    wake~1n 
+    showing~2n 
+ visit ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR SPELLING_EXCEPTION COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    visit~1nz (^stay~1) a temporary stay
+    visit~2nz (^meeting~2) the act of going to see some person in a professional capacity
+    visit~3nz (^meeting~2) the act of visiting in an official capacity
+    visit~4nz (^meeting~2) the act of going to see some person or place or thing for a short time
+    visit~5nz (^meeting~5) a meeting arranged by the visitor to see someone for treatment or advice
+    visit~6vz assail
+    visit~7vz impose something unpleasant
+    jaw~6v 
+    visit~9vz go to certain places as for sightseeing
+    inspect~2vz come to see in an official or professional capacity
+    call~37vz pay a brief visit
+    see~24vz go to see a place, as for entertainment
+    visit~13vz stay with as a guest
+ visiting ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:VERB ) 
+    visiting~1nz (^visit~4) the activity of making visits
+ vacationing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    vacationing~1nz (^leisure~1) the act of taking a vacation
+ vengeance ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    vengeance~1nz (^return~7) the act of taking revenge especially in the next life
+ venting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    venting~1nz (^emission~1) 
+ vacation ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    vacation~1nz (^repeal~1) the act of making something legally void
+    holiday~1nz (^leisure~2) leisure time away from work devoted to rest or pleasure
+    holiday~3vz spend or take a vacation
+ veering ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    veering~1nz (^turn~4) 
+ vent ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    release~6n 
+    vent~2nz (^opening~7) external opening of urinary or genital system of a lower vertebrate
+    vent~3nz (^hole~1) a hole for the escape of gas or air
+    vent~4nz (^opening~6) a slit in a garment
+    volcano~1n 
+    air~10v 
+    vent~7vz give expression or utterance to
+ version ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 GRADE5_6 posdefault:NOUN ) 
+    version~1nz (^turn~4) manual turning of a fetus in the uterus
+    version~2nz (^type~2) something a little different from others of the same type
+    reading~4n 
+    adaptation~2n 
+    version~5nz (^record~6) a written communication in a second language having the same meaning as the written communication in a first language
+    version~6nz (^explanation~2) an interpretation of a matter from a particular viewpoint
+ vulture ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    vulture~1nz (^raptor~1) any of various large diurnal birds of prey having naked heads and weak claws and feeding chiefly on carrion
+    predator~2n 
+ vine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    vine~1nz (^plant~1) a plant with a weak stem that derives support from climbing, twining, or creeping along a surface
+ viper ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    viper~1nz (^snake~1) venomous Old World snakes characterized by hollow venom-conducting fangs in the upper jaw
+ varied ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    varied~1az broken away from sameness or identity or duplication
+    varied~2az 
+    varied~3az characterized by variety
+    varied~4az 
+ vinegar ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    vinegar~1nz (^seasoning~2) sour-tasting liquid produced usually by oxidation of the alcohol in wine or cider and used as a condiment or food preservative
+    vinegar~2nz (^acid~2) dilute acetic acid
+ velvet ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    velvet~1nz (^material~1) a silky densely piled fabric with a plain back
+    velvet~2az resembling velvet in having a smooth soft surface
+    velvet~3az smooth and soft to sight or hearing or touch or taste
+    velvet~4az 
+ varying ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    varying~1az 
+    varying~2az 
+ valley ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    valley~1nz (^object~1) a long depression in the surface of the land that usually contains a river
+ vein ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    vein~1nz (^rib~3) one of the horny ribs that stiffen and support the wing of an insect
+    vein~2nz (^vessel~3) a blood vessel that carries blood from the capillaries toward the heart
+    vein~3nz (^style~8) a distinctive style or manner
+    vein~4nz (^object~1) a layer of ore between layers of rock
+    vein~5nz (^whole~1) any of the vascular bundles or ribs that form the branching framework of conducting and supporting tissues in a leaf or other plant organ
+    vein~6vz make a veinlike pattern
+ vestibule ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    lobby~1n 
+    vestibule~2nz (^structure~3) any of various bodily cavities leading to another cavity
+ volume ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    book~1nz (^production~5) physical objects consisting of a number of pages bound together
+    volume~2nz (^property~2) the magnitude of sound 
+    mass~2nz (^property~2) the property of something that is great in magnitude
+    volume~4nz (^work~4) a publication that is one of a set of several similar publications
+    volume~5nz (^measure~1) the amount of 3-dimensional space occupied by an object
+    volume~6nz (^measure~1) a relative amount
+ voider ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) comparative=void 
+    voider~1nz (^basket~2) a hamper that holds dirty clothes to be washed or wet clothes to be dried
+    voider~2nz (^mail~1) a piece of chain mail covering a place unprotected by armor plate
+    voider~3nz (^individual~1) a person who defecates
+    voider~4nz (^official~2) an official who can invalidate or nullify
+ veneer ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    facing~4nz (^coat~3) an ornamental coating to a building
+    veneering~2nz (^coat~3) coating consisting of a thin layer of superior wood glued to a base of inferior wood
+    veneer~3vz cover with veneer
+ veiling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    netting~2n 
+ veil ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    veil~1nz (^clothing~1) a garment that covers the head and face
+    veil~2nz (^clothing~1) a vestment worn by a priest at High Mass in the Roman Catholic Church
+    veil~3nz (^tissue~1) the inner membrane of embryos in higher vertebrates
+    veil~4nz (^whole~1) a membranous covering attached to the immature fruiting body of certain mushrooms
+    hide~3v 
+    veil~6vz to obscure, or conceal with or as if with a veil
+ vegetable ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    vegetable~1nz (^produce~1) edible seeds or roots or stems or leaves or bulbs or tubers or nonsweet fruits of any of numerous herbaceous plant
+    vegetable~2nz (^plant~1) any of various herbaceous plants cultivated for an edible part such as the fruit or the root of the beet or the leaf of spinach or the seeds of bean plants or the flower buds of broccoli or cauliflower
+ vest ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    vest~1nz (^clothing~1) a collarless men's undergarment for the upper part of the body
+    vest~2nz (^clothing~1) a man's sleeveless garment worn underneath a coat
+    vest~3vz clothe formally
+    vest~4vz clothe oneself in ecclesiastical garments
+    vest~5vz become legally vested
+    vest~6vz place in the control of a person or group of persons
+    vest~7vz provide with power and authority
+ van ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    van~1nz (^truck~2) a truck with an enclosed cargo space
+    van~2nz (^camper~1) a camper equipped with living quarters
+    van~3nz (^car~3) a closed railroad car that carries baggage or freight
+    van~4nz (^force~6) the leading units moving at the head of an army
+    van~5nz (^front~3) any creative group active in the innovation and application of new concepts and techniques in a given field
+ varnish ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    varnish~1nz (^coat~3) a coating that provides a hard, lustrous, transparent finish to a surface
+    seal~11v 
+ vase ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    vase~1nz (^jar~1) an open jar of glass or porcelain used as an ornament or to hold flowers
+ vehicle ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    vehicle~1nz (^transport~3) a conveyance that transports people or objects
+    vehicle~2nz (^medium~3) a medium for the expression or achievement of something
+    vehicle~3nz (^object~1) any inanimate object that can transmit infectious agents from one person to another
+    vehicle~4nz (^substance~2) any substance that facilitates the use of a drug or pigment or other material that is mixed with it
+ vessel ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    vessel~1nz (^craft~2) a craft designed for water transportation
+    vessel~2nz (^container~1) an object used as a container
+    vessel~3nz (^tube~4) a tube in which a body fluid circulates
+ visible ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    visible~1az present and easily available
+    visible~2az obvious to the eye
+    visible~3az capable of being seen
+    visible~4az 
+ visual ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    visual~1az visible
+    visual~2az relating to or using sight
+ vigor ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    energy~1n 
+    vigor~2nz (^strength~1) active strength of body or mind
+    zip~2n 
+ variety ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    diversity~2nz (^difference~1) noticeable heterogeneity
+    change~4n 
+    sort~2n 
+    variety~4nz (^show~3) a show consisting of a series of short unrelated performances
+    variety~5nz (^group~1) a taxonomic category consisting of members of a species that differ from others of the same species in minor but heritable characteristics
+    mixture~4nz (^collection~4) a collection containing a variety of sorts of things
+ virtue ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    virtue~1nz (^good~2) the quality of doing what is right and avoiding what is wrong
+    virtue~2nz (^good~2) a particular moral excellence
+    chastity~2n 
+    virtue~4nz (^worth~1) any admirable quality or attribute
+ veracity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    veracity~1nz (^honesty~1) unwillingness to tell lies
+ violet ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    violet~1nz (^purple~1) a variable color that lies beyond blue in the spectrum
+    violet~2nz (^plant~1) any of numerous low-growing violas with small flowers
+    purple~3a 
+    violet~4az 
+ very ( meanings=4 glosses=3 ADJECTIVE ADVERB ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADVERB ) 
+    very~1az precisely as stated
+    identical~5az being the exact same one
+    really~1b 
+    very~4bz precisely so
+ vantage ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    advantage~2n 
+    vantage~2nz (^position~12) place or situation affording some advantage
+ voluntary ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    voluntary~1nz (^solo~3) composition for a solo instrument (especially solo organ) and not a regular part of a religious service or musical performance
+    volunteer~2n 
+    voluntary~3az of your own free will or design
+    voluntary~4az controlled by individual volition
+ vital ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    vital~1az manifesting or characteristic of life
+    lively~1az full of spirit
+    vital~3az performing an essential function in the living body
+    critical~6a 
+    vital~5az 
+ vision ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 ) 
+    vision~1nz (^ability~2) the formation of a mental image of something that is not perceived as real and is not present to the senses
+    sight~3n 
+    vision~3nz (^operation~8) the perceptual experience of seeing
+    vision~4nz (^operation~8) a vivid mental image
+    vision~5nz (^experience~3) a religious or mystical experience of a supernatural appearance
+ vogue ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    style~5n 
+    vogue~2nz (^acceptance~7) a current state of general acceptance and use
+ viewpoint ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    stand~8n 
+    viewpoint~2nz (^vantage~2) a place from which something can be viewed
+ verse ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    rhyme~1nz (^poem~1) a piece of poetry
+    verse~2nz (^line~16) a line of metrical text
+    poetry~1n 
+    verse~4vz familiarize through thorough study or experience
+    verse~5vz compose verses or put into verse
+ voucher ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    voucher~1nz (^document~2) a negotiable certificate that can be detached and redeemed as needed
+    voucher~2nz (^document~2) a document that serves as evidence of some expenditure
+    voucher~3nz (^champion~4) someone who vouches for another or for the correctness of a statement
+ voiced ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    soft~17a 
+ vaunt ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    vaunt~1nz (^boast~1) extravagant self-praise
+    brag~3v 
+ veiled ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    veiled~1az muted or unclear
+    veiled~2az having or as if having a veil or concealing cover
+ vroom ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN VERB_NOOBJECT ) 
+    vroom~1nz (^sound~5) the roaring sound made by a motor that is running at high speed
+    vroom~2vz make a loud, roaring sound, as of a car engine, while moving
+ venom ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    malice~2n 
+    venom~2nz (^poison~2) toxin secreted by animals
+ vested ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 ) 
+    vested~1az fixed and absolute and without contingency
+ village ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    village~1nz (^community~2) a community of people smaller than a town
+    village~2nz (^region~4) a settlement smaller than a town
+ vicinity ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    neighborhood~2n 
+ vacant ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    vacant~1az without an occupant or incumbent
+    vacant~2az void of thought or knowledge
+    vacant~3az 
+ volcano ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) plural=volcanoes 
+    vent~5nz (^crack~8) a fissure in the earth's crust through which molten lava and gases erupt
+    volcano~2nz (^mountain~1) a mountain formed by volcanic material
+ virtuoso ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=virtuosi 
+    ace~3n 
+    virtuoso~2nz (^musician~1) a musician who is a consummate master of technique and artistry
+    masterly~1az having or revealing supreme mastery or skill
+ vendor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    vendor~1nz (^merchant~1) someone who promotes or exchanges goods or services for money
+ vagrant ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    vagrant~1nz (^unfortunate~1) a wanderer who has no established residence or visible means of support
+    drifting~2az continually changing especially as from one abode or occupation to another
+ valentine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    valentine~1nz (^steady~1) a sweetheart chosen to receive a greeting on Saint Valentine's Day
+ vassal ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    vassal~1nz (^individual~1) a person holding a fief
+ vet ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    vet~1nz (^man~9) a person who has served in the armed forces
+    vet~2nz (^doctor~2) a doctor who practices veterinary medicine
+    vet~3vz provide veterinary care for
+    vet~4vz provide with medical care
+    vet~5vz examine carefully
+    vet~6vz work as a veterinarian
+ vicar ( meanings=3 glosses=3 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    vicar~1nz (^priest~1) a Roman Catholic priest who acts for another higher-ranking clergyman
+    vicar~2nz (^clergyman~1) a clergyman appointed to act as priest of a parish
+    vicar~3nz (^clergyman~1) a clergyman in charge of a chapel
+ V.P. ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+    V.P.~1nz (^executive~3) 
+ villain ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    villain~1nz (^individual~1) a wicked or evil person
+    villain~2nz (^character~4) the principal bad character in a film or work of fiction
+ villainess ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    villainess~1nz (^villain~1) a woman villain
+ visitor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    visitor~1nz (^traveler~1) someone who visits
+ volunteer ( meanings=6 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    volunteer~1nz (^worker~2) a person who performs voluntary work
+    voluntary~2nz (^man~9) a person who freely enlists for service
+    unpaid~3a 
+    volunteer~4vz tell voluntarily
+    volunteer~5vz do volunteer work
+    offer~15v 
+ valuable ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    valuable~1nz (^treasure~4) something of value
+    valuable~2az having great material or monetary value especially for use or exchange
+    valuable~3az having worth or merit or value
+    valuable~4az 
+ voiding ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    voiding~1nz (^emission~3) 
+ void ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=voider 
+    vacuum~3n 
+    void~2nz (^nonentity~2) the state of nonexistence
+    void~3az containing nothing
+    void~4az lacking any legal or binding force
+    empty~8v 
+    void~6vz take away the legal force of or render ineffective
+    void~7vz clear of occupants or empty or clear (a place or receptacle) of something
+    avoid~5v 
+ vacua ( NOUN NOUN_PLURAL COMMON2 GRADE1_2 ) plural=vacuum 
+ virtuosi ( NOUN NOUN_PLURAL COMMON2 GRADE5_6 posdefault:NOUN ) plural=virtuoso 
+ volcanoes ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=volcano 
+ voila ( INTERJECTION ) 
+ vigilant ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    vigilant~1az carefully observant or attentive
+    vigilant~2az 
+ valiant ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    valiant~1az having or showing valor
+    valiant~2az 
+ various ( meanings=5 glosses=3 ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN DETERMINER_PLURAL posdefault:ADJECTIVE ) 
+    several~1a 
+    assorted~2az of many different kinds purposefully arranged but lacking any uniformity
+    diverse~1az distinctly dissimilar or unlike
+    versatile~4az having great diversity or variety
+    various~5z 
+ vacuous ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    blank~5a 
+    vacuous~2az devoid of matter
+    hollow~4a 
+    vacuous~4az devoid of intelligence
+    vacuous~5az 
+ verbose ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    tedious~1a 
+    verbose~2az 
+ victorious ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    victorious~1az experiencing triumph
+    winning~3az having won
+    victorious~3az 
+ vanished ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    vanished~1az having passed out of existence
+ versed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    versed~1az 
+ vast ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    immense~1a 
+    vast~2az 
+ versatile ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    versatile~1az able to move freely in all directions
+    versatile~2az competent in many areas and able to turn with ease from one thing to another
+    versatile~3az changeable or inconstant
+    various~4a 
+ varnished ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    stained~2az having a coating of stain or varnish
+ veined ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    veined~1az 
+ vain ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    vain~1az unproductive of success
+    swollen~1az characteristic of false pride
+    vain~3az 
+ verified ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    verified~1az proved to be true
+    verified~2az 
+ valued ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    valued~1az having value of a specified kind
+    precious~4a 
+    valued~3az 
+ vacillating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    wavering~3az uncertain in purpose or action
+ verifying ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    substantiating~1a 
+ vented ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    vented~1az supplied with a vent or vents for intake of air or discharge of gases
+ vs. ( meanings=2 PREPOSITION CONJUNCTION_COORDINATE COMMON4 COMMON1 KINDERGARTEN ) 
+    vs.~1z 
+    vs.~2z 
+ v. ( meanings=2 PREPOSITION CONJUNCTION_COORDINATE COMMON4 COMMON1 KINDERGARTEN ) 
+    v.~1z 
+    v.~2z 
+ versus ( meanings=2 PREPOSITION CONJUNCTION_COORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    versus~1z 
+    versus~2z 
+ vary ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    change~12v 
+    vary~2vz make something more diverse and varied
+    depart~6vz be at variance with
+    vary~4vz be subject to change in accordance with a variable
+ vanish ( meanings=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_NOOBJECT ) 
+    fly~7v 
+    disappear~2v 
+    disappear~3v 
+    fell~4v 
+    disappear~4v 
+ veer ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    veer~1vz shift to a clockwise direction
+    slew~3v 
+ verify ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    verify~1vz confirm the truth of
+    affirm~2vz to declare or affirm solemnly and formally as true
+    verify~3vz attach or append a legal verification to
+    control~19v 
+ vibrate ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tickle~4vz feel sudden intense sensation or emotion
+    vibrate~2vz move or swing from side to side regularly
+    vibrate~3vz shake, quiver, or throb
+    resonate~2vz sound with resonance
+    vacillate~2vz be undecided about something
+ vacillate ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    waver~6v 
+    vibrate~5v 
+ VP ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Vice_President ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

@@ -1,0 +1,403 @@
+﻿ jog ( meanings=9 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jog~1nz (^push~1) a slight push or shake
+    jog~2nz (^travel~1) a slow pace of running
+    jog~3nz (^shape~1) a sharp change in direction
+    jog~4vz stimulate to remember
+    jog~5vz give a slight push to
+    clip~11vz run at a moderately swift pace
+    jog~7vz run for exercise
+    jog~8vz even up the edges of a stack of paper, in printing
+    jog~9vz continue talking or writing in a desultory manner
+ juggle ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    juggling~1nz (^performance~3) throwing and catching several objects simultaneously
+    juggling~2nz (^arrangement~1) the act of rearranging things to give a misleading impression
+    juggle~3vz hold with difficulty and balance insecurely
+    juggle~4vz throw, catch, and keep in the air several things simultaneously
+    juggle~5vz deal with simultaneously
+    juggle~6vz manipulate by or as if by moving around components
+    juggle~7vz influence by slyness
+ jail ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    jail~1nz (^institution~2) a correctional institution used to detain persons who are in the lawful custody of the government
+    jug~4vz lock up or confine, in or as in a jail
+ juggling ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    juggle~1n 
+    juggle~2n 
+ jam ( meanings=11 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jamming~1nz (^action~3) deliberate radiation or reflection of electromagnetic energy for the purpose of disrupting enemy use of electronic devices or systems
+    jam~2nz (^preserve~1) preserve of crushed fruit
+    press~8n 
+    fix~5n 
+    block~17v 
+    block~20v 
+    crush~9vz crush or bruise
+    cram~3vz crowd or pack to capacity
+    jam~9vz get stuck and immobilized
+    jam~10vz push down forcibly
+    pack~19v 
+ jump ( meanings=21 glosses=17 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jumping~1nz (^act~1) the act of jumping
+    parachuting~1nz (^descent~1) descent with a parachute
+    start~3n 
+    jump~4nz (^passage~8) an abrupt transition from one scene to another
+    jump~5nz (^change~5) an abrupt transition
+    jump~6nz (^increase~3) a sudden and decisive increase
+    jump~7vz go back and forth
+    rise~14vz rise in rank or status
+    jump~9vz increase suddenly and significantly
+    jump~10vz pass abruptly from one state or topic to another
+    skip~3v 
+    jump~12vz enter eagerly into
+    jump~13vz make a sudden physical attack on
+    jump~14vz start by connecting it to another car's battery
+    start~16v 
+    spring~10v 
+    jump~17vz cause to jump or leap
+    parachute~2vz jump from an airplane and descend with a parachute
+    jump~19vz run off or leave the rails
+    jump~20vz jump down from an elevated point
+    jump~21vz be highly noticeable
+ jerk ( meanings=11 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    tug~1n 
+    jerking~1nz (^motion~2) an abrupt spasmodic movement
+    jerk~3nz (^exercise~1) raising a weight from shoulder height to above the head by straightening the arms
+    jerk~4nz (^meat~2) meat cut in strips and dried in the sun
+    jerk~5nz (^individual~1) a dull stupid fatuous person
+    jerk~6nz (^rate~4) the rate of change of acceleration
+    twitch~2v 
+    jerk~8vz throw or toss with a quick motion
+    yank~1v 
+    hitch~10v 
+    twitch~5v 
+ jumping ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    jump~1n 
+    jumping~2nz (^sport~2) the act of participating in an athletic competition in which you must jump
+    jumping~3az 
+ jab ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dig~1n 
+    jab~2nz (^punch~1) a quick short straight punch
+    poke~2n 
+    poke~6v 
+    jab~5vz stab or pierce
+    jab~6vz strike or punch with quick and short blows
+ joining ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    connection~1n 
+ junction ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    junction~1nz (^connection~1) an act of joining or adjoining things
+    junction~2nz (^place~13) the place where two or more things come together
+    junction~3nz (^connection~3) something that joins or connects
+    join~2n 
+    junction~5nz (^union~10) the state of being joined together
+ journey ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    journeying~1nz (^travel~2) the act of traveling from one place to another
+    travel~7vz undertake a journey or trip
+    travel~8vz travel upon or across
+ journeying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    journey~1n 
+ jabbing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    jab~3n 
+ jerking ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    jerk~2n 
+    jerking~2az 
+ judicial ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    judicial~1az expressing careful judgment
+    judicial~2az decreed by or proceeding from a court of justice
+    judicial~3az relating to the administration of justice or the function of a judge
+    judicial~4az belonging or appropriate to the office of a judge
+    judicial~5az 
+ joke ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    antic~1n 
+    joke~2nz (^recreation~2) activity characterized by good humor
+    joke~3nz (^value~2) a triviality not to be taken seriously
+    gag~2n 
+    joke~5vz act in a funny or teasing way
+    joke~6vz tell a joke
+ job ( meanings=14 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    job~1nz (^work~1) a damaging piece of work
+    job~2nz (^work~1) the performance of a piece of work
+    business~2n 
+    job~4nz (^duty~2) the responsibility to do something
+    task~1n 
+    job~6nz (^stealing~1) a crime 
+    job~7nz (^work~5) a workplace
+    job~8nz (^production~5) an object worked on
+    job~9nz (^application~7) a program application that may consist of several steps but is a single logical unit
+    problem~3n 
+    job~11vz invest at a risk
+    job~12vz work occasionally
+    job~13vz arranged for contracted work to be done by others
+    job~14vz profit privately from public office and official business
+ jogging ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    jogging~1nz (^exercise~1) running at a jog trot as a form of cardiopulmonary exercise
+ judgment ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    judgment~1nz (^act~1) the act of judging or assessing a person or situation or event
+    judgment~2nz (^event~1) the determination by a court of competent jurisdiction on matters submitted to it
+    judgment~3nz (^attribute~1) the capacity to assess situations or circumstances shrewdly and to draw sound conclusions
+    judgment~4nz (^know-how~1) the mental ability to understand and discriminate between relations
+    judging~1nz (^operation~8) the cognitive process of reaching a decision or drawing conclusions
+    mind~5n 
+    opinion~5n 
+ jumble ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jumble~1nz (^theory~2) a theory or argument made up of miscellaneous or incongruous ideas
+    jumble~2nz (^cake~2) small flat ring-shaped cake or cookie
+    muddle~2nz (^status~1) a confused multitude of things
+    jumble~4vz bring into random order
+    confuse~4v 
+    jumble~6vz be all mixed up or jumbled together
+ jamming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    jam~1n 
+ jay ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    jay~1nz (^bird~1) crested largely blue bird
+ jungle ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    jungle~1nz (^forest~1) an impenetrable equatorial forest
+    jungle~2nz (^camp~8) a place where hoboes camp
+    jungle~3nz (^object~1) a location marked by an intense competition and struggle for survival
+ jellyfish ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) plural=jellyfishes 
+    jellyfish~1nz (^animal~1) any of numerous usually marine and free-swimming coelenterates that constitute the sexually reproductive forms of hydrozoans and scyphozoans
+    jellyfish~2nz (^animal~1) large siphonophore having a bladderlike float and stinging tentacles
+ jack ( meanings=13 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jack~1nz (^mammal~1) male donkey
+    jack~2nz (^fish~1) any of several fast-swimming predacious fishes of tropical to warm temperate seas
+    jack~3nz (^tool~2) tool for exerting pressure or lifting
+    jack~4nz (^card~1) one of four face cards in a deck bearing a picture of a young prince
+    jack~5nz (^flag~2) small flag indicating a ship's nationality
+    jack~6nz (^artifact~1) game equipment consisting of one of several small six-pointed metal pieces that are picked up while bouncing a ball in the game of jacks
+    jack~7nz (^device~2) an electrical device consisting of a connector socket designed for the insertion of a plug
+    jack~8nz (^ball~3) a small ball at which players aim in lawn bowling
+    jack~9nz (^produce~1) immense East Indian fruit resembling breadfruit
+    laborer~1nz (^workman~1) someone who works with their hands
+    shit~5nz (^measure~1) a small worthless amount
+    jack~12vz hunt with a jacklight
+    jack~13vz lift with a special device
+ judge ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) (null) ) 
+    judge~1nz (^authority~6) an authority who is able to estimate worth or quality
+    jurist~1nz (^individual~1) a public official authorized to decide questions brought before a court of justice
+    evaluate~1vz form a critical opinion of
+    judge~4vz determine the result of
+    estimate~6v 
+    pronounce~1vz pronounce judgment on
+    try~8vz put on trial or hear a case and sit as the judge at the trial of
+ jewel ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) comparative=jeweller 
+    gem~2n 
+    gem~4n 
+    jewel~3az 
+    jewel~4vz adorn or decorate with precious stones
+ jacket ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    crown~5nz (^device~2) dental appliance consisting of an artificial crown for a broken or decayed tooth
+    jacket~2nz (^coat~2) a short coat
+    jacket~3nz (^wrap~2) an outer wrapping or casing
+    jacket~4nz (^shell~5) the tough metal shell casing for certain kinds of ammunition
+    jacket~5nz (^skin~5) the outer skin of a potato
+    jacket~6vz put a jacket on
+    jacket~7vz provide with a thermally non-conducting cover
+ jean ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    jean~1nz (^material~1) a coarse durable twill-weave cotton fabric
+    jean~2nz (^trouser~2) close-fitting trousers of heavy denim for manual work or casual wear
+ jet ( meanings=10 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    fountain~2nz (^flow~2) an artificially produced flow of water
+    jet~2nz (^airplane~1) an airplane powered by one or more jet engines
+    green~1n 
+    squirt~1n 
+    jet~5nz (^event~1) atmospheric discharges bursting from the tops of giant storm clouds in blue cones that widen as they flash upward
+    jet~6nz (^coal~2) a hard black form of lignite that takes a brilliant polish and is used in jewelry or ornamentation
+    jet~7az of the blackest black
+    jet~8az 
+    jet~9vz issue in a jet
+    jet~10vz fly a jet plane
+ jar ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jar~1nz (^vessel~2) a vessel with a wide mouth and without handles
+    shock~5n 
+    jar~3nz (^measure~1) the quantity contained in a jar
+    jar~4vz place in a cylindrical vessel
+    jar~5vz affect in a disagreeable way
+    jar~6vz move or cause to move with a sudden jerky motion
+    jar~7vz shock physically
+    clash~7vz be incompatible
+ jaunty ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=jauntiest 
+    jaunty~1az having a cheerful, lively, and self-confident air
+    dashing~1a 
+    jaunty~3az 
+ jaw ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jaw~1nz (^device~2) holding device consisting of one or both of the opposing parts of a tool that close to hold an object
+    jaw~2nz (^bone~2) the part of the skull of a vertebrate that frames the mouth and holds the teeth
+    jaw~3nz (^feature~2) the bones of the skull that frame the mouth and serve to open it
+    lecture~4v 
+    jaw~5vz talk incessantly and tiresomely
+    chat~2v 
+    chew~3v 
+ jeep ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    jeep~1nz (^automobile~1) a car suitable for traveling over rough terrain
+ jeweler ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 ) comparative=jewel 
+    jeweller~1n 
+    jeweller~2n 
+ jewelled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    jeweled~1az covered with beads or jewels or sequins
+ jeweled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    jewelled~1a 
+ jewelry ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    jewelry~1nz (^decoration~2) an adornment made of precious metals and set with gems (or imitation gems)
+ jolly ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE VERB_NOOBJECT (null) ) comparative=jolliest 
+    jolly~1nz (^boat~1) a yawl used by a ship's sailors for general work
+    jolly~2nz (^party~1) a happy party
+    merry~3a 
+    jolly~4az 
+    pretty~4b 
+    kid~4v 
+ journal ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    journal~1nz (^shaft~3) the part of the axle contained by a bearing
+    journal~2nz (^volume~1) a record book as a physical object
+    diary~2n 
+    journal~4nz (^periodical~1) a periodical dedicated to a particular subject
+    journal~5nz (^book~9) a ledger in which transactions have been recorded as they occurred
+ jug ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    jug~1nz (^bottle~1) a large bottle with a narrow mouth
+    jug~2nz (^measure~1) the quantity contained in a jug
+    jug~3vz stew in an earthenware jug
+    lag~7v 
+ juicer ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=juice 
+    juicer~1nz (^utensil~1) a squeezer with a conical ridged center that is used for squeezing juice from citrus fruit
+    toper~1nz (^consumer~1) a person who drinks alcoholic beverages
+ juice ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=juicer 
+    juice~1nz (^humor~3) any of several liquids of the body
+    juice~2nz (^food~1) the liquid part that can be extracted from plant or animal tissue by squeezing or cooking
+    juice~3nz (^current~3) electric current
+    juice~4nz (^energy~6) energetic vitality
+    juice~5az 
+    juice~6vz 
+ just ( meanings=11 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    fair~9a 
+    just~2az fair to all parties as dictated by reason and conscience
+    just~3az used especially of what is legally or ethically right or proper or fitting
+    good~23a 
+    just~5az 
+    barely~1b 
+    just~7bz exactly at this moment or the moment described
+    only~4b 
+    just~9bz only a moment ago
+    exactly~1b 
+    simply~4b 
+ jealousy ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    jealousy~1nz (^attention~4) zealous vigilance
+    jealousy~2nz (^rancor~1) a feeling of jealous envy
+ judging ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    judgment~5n 
+ joy ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    delight~1n 
+    joy~2nz (^emotion~1) the emotion of great happiness
+    joy~3vz make glad or happy
+    rejoice~2vz feel happiness or joy
+ jingle ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    jingle~1nz (^verse~1) a comic verse of irregular measure
+    jingle~2nz (^sound~5) a metallic sound
+    jingle~3vz make a sound typical of metallic objects
+ jotting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    jot~1n 
+ jot ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    jotting~1nz (^note~2) a brief note
+    pinch~5n 
+    jot~3vz write briefly or hurriedly
+ jeer ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:VERB (null) ) 
+    scoff~1n 
+    scoff~3v 
+ jeering ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    jeer~1n 
+    mocking~1a 
+ jelly ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    jelly~1nz (^preserve~1) a preserve made of the jelled juice of fruit
+    jelly~2nz (^treat~2) an edible jelly made with gelatin and used as a dessert or salad base or a coating for foods
+    jelly~3nz (^substance~2) any substance having the consistency of jelly or gelatin
+    jelly~4vz make into jelly
+ join ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    sum~5n 
+    junction~4nz (^connection~8) the shape or manner in which things come together and a connection is made
+    join~3vz make contact or come together
+    join~4vz cause to become joined or linked
+    join~5vz become part of
+    join~6vz come into the company of
+    connect~10v 
+ junior ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    junior~1nz (^individual~1) the younger of two persons
+    junior~2nz (^student~2) a third-year undergraduate
+    junior~3nz (^individual~1) term of address for a disrespectful and annoying male
+    junior~4az used of the third or next to final year in United States high school or college
+    junior~5az including or intended for youthful persons
+    junior~6az younger
+    junior~7az 
+ janitor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    janitor~1nz (^steward~1) someone employed to clean and maintain a building
+ jeweller ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) comparative=jeweler 
+    jeweler~1nz (^merchant~1) someone in the business of selling jewelry
+    jeweler~2nz (^maker~2) someone who makes jewelry
+ jurist ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    judge~2n 
+    jurist~2nz (^expert~1) a legal scholar versed in civil law or the law of nations
+ Junior ( meanings=1 glosses=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+    Jr~1nz (^boy~4) a son who has the same first name as his father
+ Jr ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 KINDERGARTEN ) 
+    Junior~1n 
+ juror ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    juror~1nz (^critic~2) someone who serves on a jury
+ jeopardy ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    risk~4n 
+ jellyfishes ( NOUN NOUN_PLURAL COMMON1 GRADE1_2 posdefault:NOUN ) plural=jellyfish 
+ jeez ( INTERJECTION ) 
+ jarring ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    jarring~1az making or causing a harsh and irritating sound
+ jammed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    packed~2az filled to capacity
+ joined ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    coupled~1a 
+    united~1a 
+ jealous ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    jealous~1az showing extreme cupidity
+    jealous~2az suspicious or unduly suspicious or fearful of being displaced by a rival
+    jealous~3az 
+ jagged ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:VERB ) 
+    jagged~1az having a sharply uneven surface or outline
+    jagged~2az having an irregularly notched or toothed margin as though gnawed
+    jagged~3az 
+ jailed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    jailed~1az 
+ jetting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    squirting~1a 
+ joking ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    joking~1az 
+    joking~2az 
+ justifiable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    justifiable~1az capable of being justified
+ judicious ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    wise~4a 
+    judicious~2az 
+ jingling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    jingling~1az having a series of high-pitched ringing sounds like many small bells
+ jelled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    jellied~1az 
+ jellied ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    jelled~1a 
+    jellied~2az 
+ jumbled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    jumbled~1az 
+ jawed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    jawed~1az of animals having jaws of a specified type
+ juiced ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    juiced~1az 
+ jizillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ jauntier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=jaunty 
+ jauntiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=jauntier 
+ jollier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=jolly 
+ jolliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=jollier 
+ just_as ( meanings=3 glosses=1 ADVERB CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:ADVERB ) 
+    just_as~1bz at the same time as
+    just_as~2z 
+    just_as~3z 
+ just_in_case ( meanings=2 glosses=1 ADVERB CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    in_case~1bz if there happens to be need
+    just_in_case~2z 
+ jell ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 KINDERGARTEN posdefault:VERB VERB_NOOBJECT ) 
+    set~28vz become gelatinous
+ jeopardize ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    adventure~3v 
+    menace~5v 
+ J.G. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Jr. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ JD ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ JG ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

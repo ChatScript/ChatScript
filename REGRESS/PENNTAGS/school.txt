@@ -1,0 +1,9 @@
+:include REGRESS/PENNTAGS/grade1.txt
+:include REGRESS/PENNTAGS/grade2.txt
+:include REGRESS/PENNTAGS/grade3.txt
+:include REGRESS/PENNTAGS/grade4.txt
+:include REGRESS/PENNTAGS/grade5.txt
+:include REGRESS/PENNTAGS/grade6.txt
+:include REGRESS/PENNTAGS/grade7.txt
+:include REGRESS/PENNTAGS/grade8.txt
+:include REGRESS/PENNTAGS/grade9.txt

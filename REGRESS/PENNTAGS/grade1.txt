@@ -1,0 +1,325 @@
+"/" How/WRB about/IN cheese/NN and/CC crackers/NNS ?/. "/" 
+Tommy/NNP asked/VBD ./. 
+John/NNP liked/VBD that/DT idea/NN ./. 
+"/" How/WRB about/IN apples/NNS and/CC berries/NNS ?/. "/" 
+Tommy/NNP asked/VBD ./. 
+Susan/NNP liked/VBD that/DT idea/NN ./. 
+"/" How/WRB about/IN cupcakes/NNS ?/. "/" 
+Tommy/NNP asked/VBD ./. 
+Jamie/NNP liked/VBD that/DT idea/NN ./. 
+"/" What/WP will/MD you/PRP eat/VB ?/. "/" 
+My/PRP$ dog/NN found/VBD a/DT ball/NN ./. 
+It/PRP was/VBD a/DT yellow/JJ ball/NN ./. 
+My/PRP$ dog/NN loves/VBZ to/TO chew/VB ./. 
+He/PRP chewed/VBD the/DT yellow/JJ ball/NN ./. 
+My/PRP$ dog/NN found/VBD another/DT ball/NN ./. 
+It/PRP was/VBD a/DT red/JJ ball/NN ./. 
+My/PRP$ dog/NN loves/VBZ to/TO play/VB ./. 
+He/PRP played/VBD with/IN the/DT red/JJ ball/NN ./. 
+My/PRP$ dog/NN found/VBD another/DT ball/NN ./. 
+It/PRP was/VBD a/DT blue/JJ ball/NN ./. 
+My/PRP$ dog/NN loves/VBZ to/TO run/VB ./. 
+He/PRP ran/VBD after/IN the/DT blue/JJ ball/NN when/WRB I/PRP threw/VBD it/PRP ./. 
+I/PRP need/VBP to/TO find/VB another/DT ball/NN for/IN my/PRP$ dog/NN ./. 
+What/WDT color/NN should/MD it/PRP be/VB ?/. 
+What/WP will/MD my/PRP$ dog/NN do/VB with/IN the/DT next/JJ ball/NN ?/. 
+I/PRP can/MD help/VB with/IN the/DT snack/NN ./. 
+He/PRP pulled/VBD carrots/NNS and/CC dip/NN from/IN the/DT refrigerator/NN ./. 
+Josh/NNP ran/VBD ahead/RB of/IN her/PRP ./. 
+I/PRP can/MD do/VB that/DT too/RB ./. 
+Josh/NNP ate/VBD his/PRP$ carrots/NNS and/CC dip/NN ./. 
+He/PRP drank/VBD his/PRP$ milk/NN ./. 
+Then/RB he/PRP took/VBD his/PRP$ dishes/NNS to/TO the/DT sink/NN all/RB by/IN himself/PRP ./. 
+Would/MD you/PRP like/VB to/TO play/VB in/IN the/DT backyard/NN ?/. 
+Let/VB me/PRP get/VB my/PRP$ shoes/NNS ./. 
+Josh/NNP 's/POS new/JJ shoes/NNS had/VBD laces/NNS ./. 
+I/PRP can/MD tie/VB them/PRP myself/PRP ./. 
+Josh/NNP pulled/VBD ,/, tugged/VBD ,/, and/CC twisted/VBD the/DT laces/NNS ./. 
+They/PRP twisted/VBD into/IN a/DT knot/NN ./. 
+Josh/NNP frowned/VBD ./. 
+I/PRP have/VBP an/DT idea/NN ./. 
+Why/WRB do/VBP n't/RB I/PRP show/VB you/PRP on/IN my/PRP$ own/JJ shoes/NNS ?/. 
+She/PRP showed/VBD Josh/NNP how/WRB to/TO cross/VB his/PRP$ laces/NNS ,/, make/VB a/DT knot/NN ,/, and/CC make/VB a/DT loop/NN ./. 
+Jen/NNP has/VBZ a/DT brown/JJ dog/NN ./. 
+Her/PRP$ dog/NN 's/POS name/NN is/VBZ Max/NNP ./. 
+Max/NNP likes/VBZ to/TO play/VB with/IN the/DT ball/NN ./. 
+Jen/NNP throws/VBZ the/DT ball/NN ./. 
+Max/NNP brings/VBZ it/PRP back/RP ./. 
+Max/NNP lies/VBZ on/IN the/DT bed/NN ./. 
+This/PRP makes/VBZ Jen/NNP 's/POS mom/NN mad/JJ ./. 
+She/PRP wants/VBZ Max/NNP to/TO lie/VB on/IN the/DT floor/NN ./. 
+One/CD day/NN Max/NNP got/VBD lost/VBN ./. 
+Jen/NNP looked/VBD all/PRP over/RP for/IN him/PRP ./. 
+She/PRP walked/VBD up/IN the/DT street/NN and/CC down/IN the/DT street/NN ./. 
+She/PRP found/VBD Max/NNP !/. 
+He/PRP was/VBD in/IN the/DT park/NN ./. 
+He/PRP was/VBD happy/JJ to/TO see/VB Jen/NNP ./. 
+Let/VB me/PRP get/VB a/DT plate/NN ./. 
+The/DT water/NN park/NN is/VBZ fun/NN ./. 
+There/EX is/VBZ a/DT pool/NN ./. 
+The/DT water/NN is/VBZ deep/JJ ./. 
+There/EX is/VBZ a/DT slide/NN ./. 
+It/PRP is/VBZ very/RB fast/JJ ./. 
+There/EX is/VBZ a/DT fountain/NN ./. 
+It/PRP goes/VBZ very/RB high/RB !/. 
+Jo/NNP can/MD play/VB in/IN the/DT pool/NN ./. 
+Tom/NNP can/MD go/VB on/IN the/DT slide/NN ./. 
+They/PRP have/VBP lots/NNS of/IN fun/NN ./. 
+They/PRP play/VBP for/IN hours/NNS ./. 
+It/PRP is/VBZ time/NN to/TO go/VB home/RB ./. 
+They/PRP do/VBP not/RB want/VB to/TO go/VB home/RB ./. 
+They/PRP will/MD come/VB back/RP again/RB !/. 
+Tyler/NNP wanted/VBD a/DT cookie/NN ./. 
+Mom/NNP would/MD not/RB give/VB him/PRP a/DT cookie/NN ./. 
+Why/WRB not/RB ?/. 
+He/PRP wanted/VBD one/CD more/PRP ./. 
+He/PRP already/RB had/VBD four/CD cookies/NNS ./. 
+He/PRP wanted/VBD five/CD cookies/NNS ./. 
+How/WRB could/MD he/PRP get/VB one/CD more/JJR cookie/NN ?/. 
+He/PRP cried/VBD and/CC screamed/VBD ./. 
+He/PRP stomped/VBD his/PRP$ feet/NNS ./. 
+He/PRP pulled/VBD his/PRP$ hair/NN ./. 
+He/PRP tried/VBD to/TO bite/VB mommy/NN ./. 
+He/PRP kicked/VBD and/CC screamed/VBD more/RBR ./. 
+He/PRP wanted/VBD a/DT cookie/NN !/. 
+He/PRP was/VBD so/RB angry/JJ ./. 
+But/CC ,/, he/PRP was/VBD getting/VBG tired/JJ ./. 
+He/PRP kicked/VBD and/CC cried/VBD more/RBR ./. 
+He/PRP fell/VBD down/RP ./. 
+Now/RB he/PRP was/VBD really/RB tired/JJ ./. 
+He/PRP did/VBD not/RB want/VB a/DT cookie/NN now/RB ./. 
+Mom/NNP hugged/VBD him/PRP ./. 
+A/DT hug/NN was/VBD better/JJR than/IN a/DT cookie/NN ./. 
+Now/RB he/PRP was/VBD happy/JJ ./. 
+There/EX were/VBD always/RB cookies/NNS tomorrow/RB ./. 
+Angel/NNP had/VBD 10/CD cups/NNS and/CC mugs/NNS ./. 
+Angel/NNP put/VBD them/PRP in/IN a/DT pile/NN ./. 
+First/RB ,/, he/PRP put/VBD 4/CD red/JJ soda/NN cups/NNS ./. 
+They/PRP had/VBD straws/NNS ./. 
+He/PRP put/VBD 3/CD purple/JJ mugs/NNS next/RB ./. 
+They/PRP were/VBD hot/JJ !/. 
+He/PRP put/VBD 2/CD hot/JJ chocolates/NNS then/RB ./. 
+They/PRP were/VBD sweet/JJ !/. 
+Last/RB ,/, he/PRP put/VBD 1/CD shiny/JJ cup/NN on/IN top/NN ./. 
+It/PRP was/VBD empty/JJ !/. 
+Tanya/NNP was/VBD sad/JJ ./. 
+She/PRP did/VBD not/RB know/VB why/WRB ./. 
+She/PRP felt/VBD so/RB blue/JJ ./. 
+The/DT weather/NN was/VBD not/RB nice/JJ ./. 
+She/PRP was/VBD unhappy/JJ ./. 
+She/PRP lost/VBD her/PRP$ dog/NN ./. 
+She/PRP was/VBD feeling/VBG down/RB ./. 
+There/EX was/VBD nothing/PRP good/JJ on/IN TV/NN ./. 
+She/PRP was/VBD feeling/VBG a/DT bit/RB gloomy/JJ ./. 
+Her/PRP$ favorite/JJ book/NN had/VBD lost/VBN a/DT page/NN ./. 
+She/PRP was/VBD getting/VBG upset/JJ !/. 
+Dinner/NN was/VBD going/VBG to/TO be/VB liver/NN and/CC broccoli/NN .../: ewww/UH !/. 
+Why/WRB were/VBD things/NNS so/RB bad/JJ ?/. 
+Wait/VB ./. 
+Was/VBD that/DT the/DT phone/NN ?/. 
+It/PRP 's/VBZ grandma/NN !/. 
+Things/NNS were/VBD getting/VBG better/JJR !/. 
+Now/RB Tanya/NNP is/VBZ happy/JJ ./. 
+She/PRP is/VBZ cheerful/JJ ./. 
+She/PRP is/VBZ glad/JJ ./. 
+She/PRP is/VBZ joyful/JJ ./. 
+She/PRP is/VBZ feeling/VBG up/RP !/. 
+She/PRP is/VBZ feeling/VBG good/JJ ./. 
+Tommy/NNP had/VBD three/CD best/JJS friends/NNS ./. 
+They/PRP were/VBD John/NNP ,/, Jamie/NNP ,/, and/CC Susan/NNP ./. 
+They/PRP came/VBD over/RP to/TO his/PRP$ house/NN ./. 
+They/PRP were/VBD hungry/JJ ./. 
+What/WP would/MD they/PRP eat/VB ?/. 
+They/PRP needed/VBD a/DT snack/NN ./. 
+The/DT three/CD asked/VBD him/PRP ./. 
+Tommy/NNP did/VBD not/RB know/VB ./. 
+Tommy/NNP looked/VBD around/RP for/IN more/JJR snacks/NNS ./. 
+He/PRP found/VBD some/DT mac/NN n'/CC cheese/NN ./. 
+He/PRP put/VBD it/PRP in/IN the/DT microwave/NN ./. 
+He/PRP waited/VBD until/IN it/PRP was/VBD ready/JJ ./. 
+It/PRP was/VBD hot/JJ and/CC good/JJ !/. 
+In/IN the/DT end/NN ,/, they/PRP all/RB shared/VBD ./. 
+They/PRP shared/VBD cheese/NN and/CC crackers/NNS ./. 
+They/PRP shared/VBD apples/NNS and/CC berries/NNS ./. 
+They/PRP shared/VBD cupcakes/NNS ./. 
+It/PRP was/VBD getting/VBG cold/NN ./. 
+Winter/NN was/VBD coming/VBG ./. 
+Soon/RB it/PRP would/MD be/VB time/NN for/IN Bear/NNP to/TO sleep/VB ./. 
+Bear/NNP had/VBD to/TO eat/VB a/DT lot/RB ./. 
+He/PRP walked/VBD around/IN the/DT woods/NNS ./. 
+He/PRP searched/VBD for/IN food/NN ./. 
+He/PRP ate/VBD the/DT last/JJ raspberries/NNS ./. 
+He/PRP found/VBD some/DT honey/NN ./. 
+He/PRP fished/VBD the/DT streams/NNS ./. 
+He/PRP ate/VBD his/PRP$ fill/NN ./. 
+He/PRP grew/VBD very/RB heavy/JJ ./. 
+He/PRP got/VBD very/RB tired/JJ ./. 
+He/PRP found/VBD a/DT cave/NN ./. 
+It/PRP would/MD be/VB his/PRP$ den/NN ./. 
+It/PRP was/VBD where/WRB he/PRP would/MD sleep/VB ./. 
+He/PRP curled/VBD up/RP in/IN the/DT dark/NN ./. 
+His/PRP$ eyes/NNS grew/VBD heavy/JJ ./. 
+He/PRP went/VBD to/TO sleep/VB for/IN the/DT winter/NN .../: 
+In/IN the/DT spring/NN he/PRP would/MD wake/VB ./. 
+They/PRP ate/VBD mac/NN n'/CC cheese/NN ./. 
+Mommy/NNP went/VBD to/TO the/DT store/NN ./. 
+She/PRP had/VBD things/NNS to/TO buy/VB ./. 
+She/PRP had/VBD a/DT list/NN ./. 
+She/PRP had/VBD to/TO get/VB food/NN ./. 
+She/PRP got/VBD a/DT cart/NN ./. 
+It/PRP was/VBD not/RB full/JJ ./. 
+She/PRP had/VBD to/TO shop/VB ./. 
+Mommy/NNP started/VBD to/TO shop/VB ./. 
+She/PRP put/VBD in/IN grapes/NNS ./. 
+She/PRP put/VBD in/IN cereal/NN ./. 
+She/PRP put/VBD in/IN a/DT can/NN of/IN soup/NN ./. 
+She/PRP put/VBD in/IN bread/NN ./. 
+She/PRP put/VBD in/IN milk/NN ./. 
+She/PRP put/VBD in/IN some/DT snacks/NNS ./. 
+Now/RB Mommy/NNP had/VBD a/DT full/JJ cart/NN ./. 
+She/PRP went/VBD home/RB ./. 
+There/EX was/VBD a/DT lot/NN to/TO eat/VB ./. 
+Her/PRP$ family/NN was/VBD happy/JJ ./. 
+Frank/NNP went/VBD to/TO Shell/NNP Beach/NNP ./. 
+The/DT sand/NN was/VBD very/RB white/JJ ./. 
+There/EX were/VBD many/JJ little/JJ shells/NNS ./. 
+The/DT air/NN was/VBD clean/JJ ./. 
+The/DT wind/NN was/VBD blowing/VBG ./. 
+The/DT waves/NNS crashed/VBD in/RP ./. 
+He/PRP made/VBD a/DT sand/NN castle/NN ./. 
+He/PRP played/VBD with/IN a/DT beach/NN ball/NN ./. 
+He/PRP looked/VBD for/IN shells/NNS ./. 
+Frank/NNP found/VBD a/DT hermit/NN crab/NN ./. 
+He/PRP found/VBD a/DT clam/NN ./. 
+He/PRP found/VBD a/DT snail/NN shell/NN ./. 
+Then/RB Frank/NNP went/VBD in/IN the/DT water/NN ./. 
+The/DT water/NN was/VBD cool/JJ ./. 
+Swimming/NN was/VBD very/RB fun/JJ ./. 
+It/PRP was/VBD a/DT great/JJ day/NN ./. 
+Frank/NNP loved/VBD Shell/NNP Beach/NNP ./. 
+He/PRP would/MD come/VB back/RP again/RB !/. 
+Ron/NNP went/VBD to/TO the/DT pet/JJ shop/NN ./. 
+He/PRP wanted/VBD a/DT new/JJ pet/NN ./. 
+What/WP would/MD he/PRP get/VB ?/. 
+Would/MD he/PRP get/VB a/DT cat/NN ?/. 
+Would/MD he/PRP get/VB a/DT dog/NN ?/. 
+Would/MD he/PRP get/VB a/DT rat/NN ?/. 
+Would/MD he/PRP get/VB a/DT frog/NN ?/. 
+Would/MD he/PRP get/VB a/DT parrot/NN ?/. 
+Would/MD he/PRP get/VB a/DT ferret/NN ?/. 
+Would/MD he/PRP get/VB a/DT lizard/NN ?/. 
+Would/MD he/PRP get/VB a/DT bird/NN ?/. 
+Ron/NNP went/VBD to/TO the/DT pet/JJ shop/NN ./. 
+He/PRP got/VBD a/DT new/JJ pet/NN ./. 
+But/CC which/WDT one/PRP did/VBD he/PRP get/VB ?/. 
+It/PRP was/VBD the/DT ferret/NN ./. 
+John/NNP jumped/VBD over/IN Bob/NNP ./. 
+Bob/NNP was/VBD under/IN John/NNP ./. 
+Susan/NNP went/VBD left/RB ./. 
+Doris/NNP went/VBD right/RB ./. 
+John/NNP put/VBD his/PRP$ thumb/NN up/RP ./. 
+Ricky/NNP put/VBD his/PRP$ thumb/NN down/RP ./. 
+Karen/NNP turned/VBD the/DT lights/NNS on/JJ ./. 
+Kasey/NNP turned/VBD them/PRP off/JJ ./. 
+The/DT toy/NN was/VBD inside/RB ./. 
+When/WRB Julio/NNP turned/VBD the/DT crank/NN ,/, it/PRP came/VBD outside/RB ./. 
+Snow/NN is/VBZ cold/JJ ./. 
+Fire/NN is/VBZ hot/JJ ./. 
+Opposites/NNS are/VBP fun/NN ./. 
+They/PRP 're/VBP not/RB boring/VBG ,/, are/VBP they/PRP ?/. 
+John/NNP ,/, Ned/NNP ,/, Ben/NNP ,/, Tom/NNP ,/, and/CC Nell/NNP stand/VBP on/IN the/DT bank/NN ,/, and/CC look/VBP at/IN the/DT duck/NN ./. 
+"/" Not/RB I/PRP !/. 
+not/RB I/PRP !/. "/" said/VBD all/PDT the/DT mice/NNS together/RB ./. 
+The/DT sun/NN has/VBZ set/VBN ,/, and/CC the/DT pond/NN is/VBZ still/JJ ./. 
+The/DT dog/NN with/IN a/DT black/JJ spot/NN on/IN his/PRP$ back/NN ,/, is/VBZ with/IN Tom/NNP ./. 
+See/VB !/. 
+Tom/NNP has/VBZ his/PRP$ hat/NN in/IN his/PRP$ hand/NN ./. 
+He/PRP has/VBZ left/VBN his/PRP$ big/JJ top/NN on/IN the/DT box/NN ./. 
+Kitty/NNP 's/POS doll/NN is/VBZ on/IN the/DT rock/NN ./. 
+Nell/NNP has/VBZ put/VBN her/PRP$ pet/NN in/IN the/DT cage/NN ./. 
+It/PRP will/MD sing/VB a/DT sweet/JJ song/NN ./. 
+The/DT duck/NN has/VBZ her/PRP$ nest/NN under/IN the/DT rock/NN ./. 
+It/PRP is/VBZ not/RB hot/JJ now/RB ./. 
+Let/VB us/PRP run/VB and/CC skip/VB on/IN the/DT bank/NN ./. 
+Do/VBP you/PRP not/RB think/VB it/PRP is/VBZ fun/NN ?/. 
+This/DT is/VBZ my/PRP$ little/JJ kitty/NN ./. 
+How/WRB soft/JJ and/CC white/JJ its/PRP$ fur/NN is/VBZ !/. 
+Is/VBZ it/PRP not/RB pretty/JJ ?/. 
+The/DT cat/NN is/VBZ on/IN the/DT box/NN ./. 
+She/PRP saw/VBD a/DT big/JJ rat/NN and/CC ran/VBD to/TO catch/VB it/PRP ./. 
+The/DT kitty/NN was/VBD too/RB small/JJ to/TO catch/VB the/DT rat/NN ./. 
+An/DT old/JJ cat/NN wanted/VBD to/TO kill/VB all/PDT the/DT mice/NNS in/IN the/DT barn/NN ./. 
+One/CD day/NN the/DT mice/NNS met/VBD to/TO talk/VB about/IN the/DT great/JJ harm/NN that/IN she/PRP was/VBD doing/VBG them/PRP ./. 
+Each/DT one/PRP told/VBD of/IN some/DT plan/NN by/IN which/WDT to/TO keep/VB out/RP of/IN her/PRP$ way/NN ./. 
+"/" Do/VB as/IN I/PRP say/VBP ,/, "/" said/VBD an/DT old/JJ gray/JJ mouse/NN that/WDT was/VBD thought/VBN to/TO be/VB very/RB wise/JJ ./. 
+"/" Do/VB as/IN I/PRP say/VBP ./. 
+Hang/VB a/DT bell/NN to/TO the/DT cat/NN 's/POS neck/NN ./. 
+Then/RB ,/, when/WRB we/PRP hear/VBP it/PRP ring/VB ,/, we/PRP shall/MD know/VB that/IN she/PRP is/VBZ coming/VBG ,/, and/CC can/MD scamper/VB out/RP of/IN her/PRP$ way/NN ./. "/" 
+"/" Good/JJ !/. 
+good/JJ !/. "/" said/VBD all/PDT the/DT other/JJ mice/NNS ;/: and/CC one/PRP ran/VBD to/TO get/VB the/DT bell/NN ./. 
+"/" Now/RB which/WDT of/IN you/PRP will/MD hang/VB this/DT bell/NN on/IN the/DT cat/NN 's/POS neck/NN ?/. "/" said/VBD the/DT old/JJ gray/JJ mouse/NN ./. 
+And/CC they/PRP scampered/VBD away/RP to/TO their/PRP$ holes/NNS ./. 
+Susy/NNP Brown/NNP is/VBZ a/DT good/JJ girl/NN ;/: she/PRP is/VBZ willing/JJ to/TO give/VB up/RP her/PRP$ playtime/NN and/CC stay/VB at/IN home/NN to/TO take/VB care/NN of/IN the/DT baby/NN ./. 
+Some/PRP of/IN her/PRP$ friends/NNS were/VBD going/VBG to/TO the/DT woods/NNS and/CC fields/NNS to/TO pick/VB berries/NNS ,/, and/CC Susy/NNP wanted/VBD to/TO go/VB with/IN them/PRP ./. 
+However/RB ,/, when/WRB Susy/NNP came/VBD home/RB from/IN school/NN ,/, she/PRP found/VBD her/PRP$ mother/NN tired/JJ and/CC worn/VBN out/RP with/IN her/PRP$ work/NN and/CC the/DT heat/NN ./. 
+Susy/NNP took/VBD the/DT baby/NN and/CC said/VBD she/PRP would/MD stay/VB at/IN home/NN and/CC let/VB her/PRP$ mother/NN rest/VB ./. 
+When/WRB the/DT girls/NNS came/VBD home/RB with/IN their/PRP$ berries/NNS ,/, they/PRP all/RB gave/VBD Susy/NNP some/PRP ,/, for/CC everybody/PRP loves/VBZ Susy/NNP ./. 
+O/NNP John/NNP !/. 
+the/DT sun/NN has/VBZ just/RB set/VBN ./. 
+It/PRP is/VBZ not/RB hot/JJ ,/, now/RB ./. 
+Let/VB us/PRP run/VB and/CC jump/VB ./. 
+I/PRP think/VBP it/PRP is/VBZ fun/NN to/TO run/VB ,/, and/CC skip/VB ,/, and/CC jump/VB ./. 
+See/VB the/DT duck/NN on/IN the/DT pond/NN !/. 
+Her/PRP$ nest/NN is/VBZ up/RB on/IN the/DT bank/NN ,/, under/IN the/DT rock/NN ./. 
+We/PRP must/MD not/RB touch/VB the/DT nest/NN ,/, but/CC we/PRP may/MD look/VB at/IN it/PRP ./. 
+Here/RB comes/VBZ the/DT band/NN !/. 
+Shall/MD we/PRP call/VB Mommy/NNP and/CC Fanny/NNP to/TO see/VB it/PRP ?/. 
+Let/VB us/PRP stand/VB still/RB ,/, and/CC hear/VB the/DT men/NNS play/VB as/IN they/PRP pass/VBP ./. 
+I/PRP hope/VBP they/PRP will/MD stop/VB here/RB and/CC play/VB for/IN us/PRP ./. 
+See/VB the/DT large/JJ man/NN in/IN front/NN of/IN the/DT band/NN ,/, with/IN his/PRP$ big/JJ hat/NN ./. 
+What/WP has/VBZ he/PRP in/IN his/PRP$ hand/NN ?/. 
+How/WRB fine/JJ he/PRP looks/VBZ !/. 
+Look/VB ,/, too/RB ,/, at/IN the/DT man/NN on/IN that/DT fine/JJ horse/NN ./. 
+If/IN the/DT men/NNS do/VBP not/RB stop/VB ,/, let/VB us/PRP follow/VB them/PRP and/CC see/VB where/WRB they/PRP go/VBP ./. 
+"/" Here/RB ,/, Ponto/NNP !/. 
+Here/RB ,/, Ponto/NNP !/. "/" 
+Kate/NNP called/VBD to/TO her/PRP$ dog/NN ./. 
+"/" Come/VB ,/, and/CC get/VB the/DT dolls/NNS out/RP of/IN the/DT pond/NN ./. "/" 
+Rose/NNP went/VBD under/IN ,/, but/CC she/PRP did/VBD not/RB drown/VB ./. 
+Bess/NNP was/VBD still/RB on/IN the/DT top/NN of/IN the/DT water/NN ./. 
+Ponto/NNP came/VBD with/IN a/DT bound/NN ,/, and/CC jumped/VBD into/IN the/DT pond/NN ./. 
+He/PRP swam/VBD around/RB ,/, and/CC got/VBD Bess/NNP in/IN his/PRP$ mouth/NN ,/, and/CC brought/VBD her/PRP to/TO the/DT shore/NN ./. 
+Ponto/NNP then/RB found/VBD Rose/NNP ,/, and/CC brought/VBD her/PRP out/RB ,/, too/RB ./. 
+Kate/NNP said/VBD ,/, "/" Good/JJ ,/, old/JJ Ponto/NNP !/. 
+Brave/JJ old/JJ dog/NN !/. "/" 
+"/" Come/VB here/RB ,/, Lucy/NNP ,/, and/CC listen/VB !/. 
+What/WP is/VBZ in/IN this/DT flower/NN ?/. "/" 
+"/" O/NNP Mother/NNP !/. 
+It/PRP is/VBZ a/DT bee/NN ./. 
+I/PRP wonder/VBP how/WRB it/PRP came/VBD to/TO be/VB shut/VBN up/RP in/IN the/DT flower/NN !/. "/" 
+"/" It/PRP went/VBD into/IN the/DT flower/NN for/IN some/DT honey/NN ,/, and/CC maybe/RB it/PRP went/VBD to/TO sleep/VB ./. 
+Then/RB the/DT flower/NN shut/VBD it/PRP in/RB ./. "/" 
+"/" The/DT bee/NN likes/VBZ honey/NN as/RB well/RB as/IN we/PRP do/VBP ,/, but/CC it/PRP does/VBZ not/RB like/VB to/TO be/VB shut/VBN up/RP in/IN the/DT flower/NN ./. "/" 
+"/" Shall/MD we/PRP let/VB it/PRP out/RP ,/, Lucy/NNP ?/. "/" 
+"/" Yes/UH ;/: then/RB it/PRP can/MD go/VB to/TO other/JJ flowers/NNS ,/, and/CC get/VB honey/NN ./. "/" 
+Here/RB ,/, Ned/NNP ,/, catch/VB this/DT apple/NN in/IN your/PRP$ hand/NN ./. 
+No/UH ,/, I/PRP will/MD catch/VB it/PRP in/IN my/PRP$ hat/NN ./. 
+Now/RB I/PRP have/VBP it/PRP ./. 
+What/WP a/DT big/JJ apple/NN it/PRP is/VBZ !/. 
+Let/VB us/PRP take/VB some/PRP to/TO Mom/NNP ./. 
+Yes/UH !/. 
+She/PRP likes/VBZ them/PRP ./. 
+I/PRP will/MD get/VB her/PRP some/DT more/PRP ./. 
+We/PRP will/MD take/VB them/PRP to/TO her/PRP in/IN my/PRP$ hat/NN ./. 
+Here/RB is/VBZ a/DT very/RB big/JJ apple/NN !/. 
+We/PRP will/MD give/VB her/PRP this/DT one/PRP too/RB ./. 
+"/" Roy/NNP ,/, did/VBD you/PRP make/VB that/DT snowman/NN ?/. "/" 
+"/" Yes/UH ./. "/" 
+Does/VBZ he/PRP not/RB look/VB funny/JJ ?/. 
+"/" He/PRP is/VBZ a/DT funny/JJ man/NN "/"  ,/, Roy/NNP ./. 
+What/WP a/DT big/JJ nose/NN he/PRP has/VBZ ,/, and/CC big/JJ eyes/NNS too/RB !/. 
+Will/MD he/PRP not/RB fall/VB down/RP ?/. "/" 
+"/" No/UH ,/, I/PRP put/VBD some/DT water/NN on/IN him/PRP ./. 
+The/DT water/NN froze/VBD ,/, and/CC that/DT held/VBD the/DT snow/NN ./. "/" 
+"/" Are/VBP you/PRP not/RB very/RB cold/JJ ,/, Roy/NNP ?/. "/" 
+"/" Yes/UH ,/, come/VB ,/, let/VB us/PRP have/VB a/DT good/JJ run/NN ,/, and/CC that/DT will/MD make/VB us/PRP warm/JJ ./. "/" 

@@ -1,0 +1,24 @@
++ ~LOCATIONWORD CONCEPT
++ ~emoapology CONCEPT
++ ~emoangry CONCEPT
++ ~emobeg CONCEPT
++ ~emobored CONCEPT
++ ~emodisgust CONCEPT
++ ~emogoodbye CONCEPT
++ ~emohappy CONCEPT
++ ~emohello CONCEPT
++ ~emohowzit CONCEPT
++ ~emoignorance CONCEPT
++ ~emolaugh CONCEPT
++ ~emomaybe CONCEPT
++ ~emomisunderstand CONCEPT
++ ~emomutual CONCEPT
++ ~emopain CONCEPT
++ ~emoprotest CONCEPT
++ ~emosad CONCEPT
++ ~emoskeptic CONCEPT
++ ~emosurprise CONCEPT
++ ~emothanks CONCEPT
++ ~no CONCEPT
++ ~yes CONCEPT
+

@@ -1,0 +1,1709 @@
+﻿ haul ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    draw~1n 
+    catch~10n 
+    haul~3vz transport in a vehicle
+    drag~12v 
+ hobby ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    hobby~1nz (^interest~1) an auxiliary activity
+    hobby~2nz (^toy~1) a child's plaything consisting of an imitation horse mounted on rockers
+ homework ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    preparation~2n 
+ hide ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=hidden 
+    skin~1nz (^cover~9) body covering of a living animal
+    hide~2nz (^stuff~7) the dressed skin of an animal
+    obscure~8vz make undecipherable or imperceptible by obscuring or concealing
+    cover~25v 
+    hide~5vz prevent from being seen or discovered
+    hide~6vz be or go into hiding
+ heritage ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    heritage~1nz (^getting~1) hereditary succession to a title or an office or property
+    heritage~2nz (^attribute~1) any attribute or immaterial possession that is inherited from ancestors
+    heritage~3nz (^practice~5) practices that are handed down from the past by tradition
+    heritage~4nz (^relation~1) that which is inherited
+ human ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    man~1nz (^mammal~1) any living or extinct member of the family Hominidae characterized by superior intelligence, articulate speech, and erect carriage
+    human~2az having human form or attributes as opposed to those of animals or divine beings
+    human~3az characteristic of humanity
+    human~4az relating to a person
+    human~5az 
+ hit ( meanings=24 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=hit 
+    hit~1nz (^effort~1) a successful stroke in an athletic contest (especially in baseball)
+    smasher~1n 
+    striking~1nz (^touching~1) the act of contacting one thing with another
+    hit~4nz (^connection~1) a connection made via the internet to another website
+    hit~5nz (^kill~2) a murder carried out by an underworld syndicate
+    hit~6nz (^dose~2) a dose of a narcotic drug
+    collision~3nz (^contact~7) a brief event in which two or more bodies come together
+    hit~8vz pay unsolicited and usually unwanted sexual attention to
+    score~14v 
+    strike~10v 
+    shoot~11v 
+    hit~12vz hit the intended target or goal
+    hit~13vz consume to excess
+    strike~11v 
+    strike~12v 
+    strike~14v 
+    hit~17vz deal a blow to, either with the hand or with an instrument
+    hit~18vz cause to move by striking
+    reach~8v 
+    make~33v 
+    strike~22v 
+    strike~23v 
+    stumble~6vz encounter by chance
+    remove~9v 
+ home ( meanings=17 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADVERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=homer 
+    dwelling~1nz (^housing~2) housing that someone is living in
+    home~2nz (^institution~2) an institution where people are cared for
+    plate~2n 
+    house~7n 
+    home~5nz (^object~1) the country or state or city where you live
+    base~12nz (^object~1) the place where you are stationed and from which missions start and end
+    place~8n 
+    home~8nz (^beginning~4) place where something began and flourished
+    home~9nz (^environment~2) an environment offering affection and security
+    national~2a 
+    home~11az used of your own ground
+    home~12az relating to or being where one lives or where one's roots are
+    home~13bz at or to or in the direction of one's home or family
+    home~14bz to the fullest extent
+    home~15bz on or to the point aimed at
+    home~16vz return home accurately from a long distance
+    home~17vz provide with, or send to, a home
+ hook ( meanings=20 glosses=20 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hook~1nz (^shot~6) a basketball shot made over the head with the hand that is farther from the basket
+    hook~2nz (^punch~1) a short swinging punch delivered from the side with the elbow bent
+    hooking~1nz (^swing~4) a golf shot that curves to the left for a right-handed golfer
+    hook~4nz (^artifact~1) a curved or bent implement for suspending or pulling something
+    claw~4nz (^device~2) a mechanical device that is curved or bent to suspend or hold or pull something
+    hook~6nz (^catch~4) a catch for locking a door
+    bait~2nz (^temptation~2) anything that serves as an enticement
+    hook~8nz (^curve~5) a sharp curve or crook
+    accost~1vz approach with an offer of sexual favors
+    hook~10vz entice and trap
+    hook~11vz secure with the foot
+    hook~12vz to cause to become dependent (on something, especially a narcotic drug)
+    hook~13vz fasten with a hook
+    hook~14vz catch with a hook
+    hook~15vz hit with a hook
+    hook~16vz hit a ball and put a spin on it so that it travels to the left
+    hook~17vz make a piece of needlework by interlocking and looping thread with a hooked needle
+    filch~1vz make off with belongings of others
+    rob~1vz rip off
+    cop~3vz take by theft
+ header ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=head 
+    header~1nz (^jump~1) a headlong jump 
+    header~2nz (^hit~3) the act of hitting the ball with your head
+    header~3nz (^machine~2) a machine that cuts the heads off grain and moves them into a wagon
+    header~4nz (^beam~2) a framing member crossing and supporting the ends of joists, studs, or rafters so as to transfer their weight to parallel joists, studs, or rafters
+    cope~2nz (^brick~1) brick that is laid sideways at the top of a wall
+    header~6nz (^beam~2) horizontal beam used as a finishing piece over a door or window
+    heading~2nz (^line~16) a line of text serving to indicate what the passage below it is about
+ hop ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hop~1nz (^jump~1) the act of hopping
+    hop~2nz (^dance~3) an informal dance where popular music is played
+    hop~3nz (^vine~1) twining perennials having cordate leaves and flowers arranged in conelike spikes
+    hop~4vz travel by means of an aircraft, bus, etc.
+    skip~6v 
+    hop~6vz make a jump forward or upward
+    hop~7vz jump across
+    hop~8vz traverse as if by a short airplane trip
+    hop~9vz move quickly from one place to another
+ hitting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    hit~3n 
+ homer ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) comparative=home 
+    homer~1nz (^safety~1) a base hit on which the batter scores a run
+    homer~2nz (^pigeon~1) pigeon trained to return home
+    homer~3nz (^unit~5) an ancient Hebrew unit of capacity equal to 10 baths or 10 ephahs
+    homer~4vz hit a home run
+ handling ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    handling~1nz (^touching~1) the action of touching with the hands or by the use of mechanical means
+    handling~2nz (^labor~1) manual carrying or moving or delivering or working with something
+    treatment~2n 
+ health ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    health~1nz (^status~1) the general condition of body and mind
+    health~2nz (^fortune~4) a healthy state of wellbeing free from disease
+ hat ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hat~1nz (^office~2) an informal term for a person's role
+    lid~1nz (^clothing~1) headdress that protects the head from bad weather
+    hat~3vz put on or wear a hat
+    hat~4vz furnish with a hat
+ honor ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    honor~1nz (^chastity~2) a woman's virtue or chastity
+    honor~2nz (^righteousness~1) the quality of being honorable and having a good name
+    award~2nz (^symbol~2) a tangible symbol signifying approval or distinction
+    honor~4nz (^standing~3) the state of being honored
+    honor~5vz accept as pay
+    respect~9v 
+    reward~8vz bestow honor or rewards upon
+ honorable ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    honest~3a 
+    honorable~2az worthy of being honored
+    good~22a 
+    honorable~4az adhering to ethical and moral principles
+ housing ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:VERB ) 
+    trapping~1nz (^tack~4) stable gear consisting of a decorated covering for a horse, especially for a warhorse
+    housing~2nz (^structure~1) structures collectively in which people are housed
+    housing~3nz (^protection~5) a protective cover designed to contain or support a mechanical component
+ high ( meanings=19 glosses=18 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=higher 
+    high~1nz (^gear~3) a forward gear with a gear ratio that gives the greatest vehicle velocity for a given engine speed
+    high~2nz (^degree~1) a lofty level or position or degree
+    high~3nz (^school~5) a public secondary school usually including grades 9 through 12
+    high~4nz (^place~13) a high place
+    high~5nz (^status~1) a state of altered consciousness induced by alcohol or narcotics
+    high~6nz (^status~1) a state of sustained elation
+    high~7nz (^atmosphere~5) an air mass of higher than normal pressure
+    high~8az happy and excited and energetic
+    mellow~1az slightly and pleasantly intoxicated from alcohol or a drug
+    high~10az smelling spoiled or tainted
+    high~11az being at or having a relatively great or specific elevation or upward extension (sometimes used in combinations like `knee-high')
+    high~12az greater than normal in degree or intensity or amount
+    high~13az used of sounds and voices
+    eminent~2az standing above others in quality or position
+    high~15az 
+    high~16bz at a great altitude
+    high~17bz far up toward the source
+    high~18bz in or to a high position, amount, or degree
+    high~19bz in a rich manner
+ hair ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    hair~1nz (^process~3) a filamentous projection or process on an organism
+    hair~2nz (^material~1) cloth woven from horsehair or camelhair
+    hair~3nz (^structure~3) any of the cylindrical filaments characteristically growing from the epidermis of a mammal
+    hair~4nz (^cover~9) a covering for the body consisting of a dense growth of threadlike structures (as on the human head)
+    hair~5nz (^process~3) filamentous hairlike growth on a plant
+    hair~6nz (^measure~1) a very small distance or space
+ humiliation ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    humiliation~1nz (^change~1) depriving one of self-esteem
+    humiliation~2nz (^example~6) an instance in which you are caused to lose your prestige or self-respect
+    humiliation~3nz (^shame~2) strong feelings of embarrassment
+    humiliation~4nz (^shame~3) state of disgrace or loss of self-respect
+ hitch ( meanings=12 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    limp~1n 
+    hitch~2nz (^structure~1) any obstruction that impedes or is burdensome
+    hitch~3nz (^knot~2) a knot that can be undone by pulling against the strain that holds it
+    hitch~4nz (^connection~3) a connection between a vehicle and the load that it pulls
+    rub~2n 
+    arrest~2n 
+    tour~3n 
+    catch~21v 
+    hitch~9vz connect to a vehicle:
+    buck~5v 
+    limp~4v 
+    thumb~5v 
+ hike ( meanings=5 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hiking~1nz (^walk~3) a long walk usually for exercise or pleasure
+    rise~4n 
+    rise~5n 
+    hike~4vz walk a long way, as for pleasure or physical exercise
+    hike~5vz increase
+ hiking ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tramp~1n 
+ horseback ( meanings=3 glosses=3 NOUN ADVERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    horseback~1nz (^piece~11) the back of a horse
+    horseback~2nz (^object~1) a narrow ridge of hills
+    horseback~3bz on the back of a horse
+ hang ( meanings=18 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=hung 
+    hang~1nz (^exercise~1) a gymnastic exercise performed on the rings or horizontal bar or parallel bars when the gymnast's weight is supported by the arms
+    hang~2nz (^fit~2) the way a garment hangs
+    bent~1n 
+    hang~4vz suspend in order to get a gamey taste
+    hang~5vz hold on tightly or tenaciously
+    hang~6vz cause to be hanging or suspended
+    hang~7vz place in position as by a hinge so as to allow free movement in one direction
+    hang~8vz be placed in position as by a hinge
+    hang~9vz be suspended or poised
+    hang~10vz be suspended or hanging
+    fall~22v 
+    hang~12vz decorate or furnish with something suspended
+    hang~13vz let drop or droop
+    attend~1vz give heed 
+    hang~15vz kill by hanging
+    hang~16vz prevent from reaching a verdict, of a jury
+    hang~17vz be menacing, burdensome, or oppressive
+    hang~18vz be exhibited
+ hunting ( meanings=3 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    hunt~1n 
+    hunt~2n 
+    search~3n 
+ hurrying ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    speeding~1n 
+    hurrying~2az 
+ haircut ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    haircut~1nz (^cut~3) the act of cutting the hair
+    haircut~2nz (^hair~4) the style in which hair has been cut
+ hardening ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    hardening~1nz (^change~1) the act of making something harder
+    set~11n 
+    hardening~3nz (^evidence~1) abnormal hardening or thickening of tissue
+ harm ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hurt~1n 
+    damage~4nz (^change~5) the occurrence of a change for the worse
+    hurt~5n 
+    harm~4vz cause or do harm to
+ hurt ( meanings=15 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=hurt 
+    damage~1nz (^change~1) the act of damaging something or someone
+    detriment~1nz (^harm~2) a damage or loss
+    suffering~1nz (^pain~3) feelings of mental or physical pain
+    suffering~2nz (^pain~3) psychological suffering
+    injury~5nz (^status~1) any physical damage to the body caused by violence or accident or fracture etc.
+    hurt~6az damaged inanimate objects or their value
+    wounded~2az suffering from physical injury especially that suffered in battle
+    hurt~8az 
+    hurt~9vz give trouble or pain to
+    suffer~1vz feel pain or be in pain
+    hurt~11vz cause damage or affect negatively
+    pain~7vz cause emotional anguish or make miserable
+    wound~7v 
+    suffer~10vz feel physical pain
+    smart~10v 
+ habit ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    use~2nz (^custom~1) an automatic pattern of behavior in reaction to a specific situation
+    habit~2nz (^abuse~2) excessive use of drugs
+    habit~3nz (^dress~2) a distinctive attire worn by a member of a religious order
+    habit~4nz (^dress~2) attire that is typically worn by a horseback rider
+    habit~5nz (^custom~3) an established custom
+    habit~6nz (^development~8) the general form or mode of growth 
+    habit~7vz put a habit on
+ hug ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    clinch~2nz (^grip~1) a tight or amorous embrace
+    hug~2vz fit closely or tightly
+    squeeze~10vz squeeze tightly in your arms, usually with fondness
+ house ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    house~1nz (^play~3) play in which children take the roles of father or mother or children and pretend to interact like adults
+    house~2nz (^building~3) a dwelling that serves as living quarters for one or more families
+    house~3nz (^building~3) a building in which something is sheltered or located
+    theater~1n 
+    house~5nz (^family~2) aristocratic family line
+    firm~1nz (^business~8) the members of a business organization that owns or operates one or more establishments
+    family~4n 
+    house~8nz (^legislature~1) an official assembly having legislative powers
+    house~9nz (^audience~2) the audience gathered together in a theatre or cinema
+    house~10nz (^community~2) the members of a religious community living together
+    house~11nz (^management~2) the management of a gambling house or casino
+    sign~9nz (^part~9) one of 12 equal areas into which the zodiac is divided
+    house~13vz provide housing for
+    house~14vz contain or cover
+ handstand ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    handstand~1nz (^exercise~1) the act of supporting yourself by your hands alone in an upside down position
+ half ( meanings=9 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB PREDETERMINER DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=halves 
+    half~1nz (^fraction~2) one of two equal parts of a divisible whole
+    half~2nz (^part~6) one of two divisions into which some games or performances are divided: the two divisions are separated by an interval
+    half~3az consisting of one of two equivalent parts in value or quantity
+    half~4az related through one parent only
+    half~5az partial
+    half~6az 
+    half~7bz partially or to the extent of a half
+    half~8z 
+    half~9z 
+ horse ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    horse~1nz (^mammal~1) solid-hoofed herbivorous quadruped domesticated since prehistoric times
+    horse~2nz (^artifact~1) a padded gymnastic apparatus on legs
+    knight~1n 
+    buck~2nz (^structure~1) a framework for holding wood that is being sawed
+    horse~5nz (^force~8) troops trained to fight on horseback
+    horse~6vz provide with a horse or horses
+ hunt ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hunting~1nz (^sport~2) the pursuit and killing or capture of wild animals regarded as a sport
+    hunting~2nz (^labor~1) the work of finding and killing or capturing animals for food or pelts
+    hunting~3n 
+    hunt~4nz (^search~4) an instance of searching for something
+    hunt~5nz (^society~2) an association of huntsmen who hunt for sport
+    run~25vz pursue for food or sport 
+    hunt~7vz search for prey
+    hunt~8vz seek, search for
+    hunt~9vz oscillate about a desired speed, position, or state to an undesirable extent
+    trace~12vz pursue or chase relentlessly
+    hunt~11vz yaw back and forth about a flight path
+    hunt~12vz chase away, with as with force
+ hare ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    hare~1nz (^mammal~1) swift timid long-eared mammal larger than a rabbit having a divided upper lip and long hind legs
+    rabbit~2n 
+    hare~3vz run quickly, like a hare
+ hoofing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    hoofing~1nz (^dance~1) 
+ hamming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    hamming~1nz (^activity~1) 
+ haste ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    rushing~1nz (^motion~1) the act of moving hurriedly and in a careless manner
+    precipitation~1nz (^speed~3) overly eager speed 
+    hurry~3nz (^need~3) a condition of urgency making it necessary to hurry
+ hurry ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    haste~1n 
+    haste~2n 
+    haste~3n 
+    rush~9vz urge to an unnatural speed
+    rush~10vz act or move at high speed
+    speed~8v 
+ hooking ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    draw~4n 
+ heavy ( meanings=31 glosses=29 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=heaviest 
+    heavy~1nz (^character~4) a serious role in a play
+    heavy~2nz (^player~1) an actor who plays villainous roles
+    great~2az in an advanced stage of pregnancy
+    threatening~2az darkened by clouds
+    heavy~5az compact and fine-grained
+    sound~10az deep and complete
+    heavy~7az lacking lightness or liveliness
+    punishing~1az characterized by effort to the point of exhaustion
+    labored~1az requiring or showing effort
+    overweight~2az usually describes a large person who is fat but has a large frame to carry it
+    heavy~11az full of
+    heavy~12az sharply inclined
+    heavy~13az dense or inadequately leavened and hence likely to cause distress in the alimentary canal
+    heavy~14az of comparatively great physical weight or density
+    heavy~15az large and powerful
+    heavy~16az marked by great psychological weight
+    heavy~17az unusually great in degree or quantity or number
+    heavy~18az being or containing an isotope with greater than average atomic mass or weight
+    heavy~19az of great intensity or power or force
+    lumbering~2az slow and laborious because of weight
+    heavy~21az of the military or industry
+    grave~5az of great gravity or crucial import
+    hard~10az given to excessive indulgence of bodily appetites especially for intoxicating liquors
+    heavy~24az full and loud and deep
+    big~13az prodigious
+    heavy~26az made of fabric having considerable thickness
+    heavy~27az of relatively large extent and density
+    impenetrable~3az permitting little if any light to pass through because of denseness of matter
+    heavy~29az being or playing the villain
+    heavy~30az 
+    heavily~4b 
+ hot ( meanings=22 glosses=20 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=hottest 
+    hot~1az marked by excited activity
+    live~4a 
+    hot~3az having or dealing with dangerously high levels of radioactivity
+    hot~4az of a seeker
+    hot~5az having or showing great eagerness or enthusiasm
+    hot~6az very fast
+    hot~7az newly made
+    hot~8az very good
+    hot~9az used of physical heat
+    hot~10az extended meanings
+    hot~11az recently stolen or smuggled
+    hot~12az having or bringing unusually good luck
+    hot~13az newest or most recent
+    hot~14az very unpleasant or even dangerous
+    hot~15az very popular or successful
+    hot~16az sexually excited or exciting
+    hot~17az performed or performing with unusually great skill and daring and energy
+    hot~18az producing a burning sensation on the taste nerves
+    raging~3az characterized by violent and forceful activity or movement
+    hot~20az wanted by the police
+    hot~21az bold and intense
+    hot~22az 
+ hospital ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    hospital~1nz (^building~3) a health facility where patients receive treatment
+    hospital~2nz (^institution~5) a medical institution where sick or injured people are given medical or surgical care
+ heart ( meanings=10 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    heart~1nz (^card~1) a playing card in the major suit that has one or more red hearts on it
+    spirit~2nz (^disposition~2) an inclination or tendency of a certain kind
+    nerve~2nz (^courage~1) the courage to carry on
+    pump~3nz (^organ~4) the hollow muscular organ located behind the sternum and between the lungs
+    heart~5nz (^feeling~5) the locus of feelings and intuitions
+    essence~2n 
+    affection~1nz (^feeling~1) a positive feeling of liking
+    heart~8nz (^meat~2) a firm rather dry variety meat 
+    center~15n 
+    heart~10nz (^figure~13) a plane figure with rounded sides curving inward at the top and intersecting at the bottom
+ hoax ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fraud~1n 
+    hoax~2vz subject to a playful hoax or joke
+ humbug ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hoax~1n 
+    humbug~2nz (^deception~3) 
+    humbug~3nz (^message~2) 
+    humbug~4vz trick or deceive
+ head ( meanings=42 glosses=34 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=header 
+    head~1nz (^sex~1) oral stimulation of the genitals
+    head~2nz (^sheet~4) a membrane that is stretched taut over a drum
+    head~3nz (^projection~3) a projection out from one end
+    head~4nz (^bathroom~2) a toilet on board a boat or ship
+    head~5nz (^device~2) the striking part of a tool
+    head~6nz (^side~1) the obverse side of a coin that usually bears the representation of a person's head
+    head~7nz (^coil~2) a tiny electromagnetic coil and metal pole used to write and read magnetic patterns on a disk
+    head~8nz (^structure~3) that part of a skeletal muscle that is away from the bone that it moves
+    head~9nz (^piece~11) the upper part of the human body or the front part of the body in animals
+    head~10nz (^structure~3) the rounded end of a bone that fits into a rounded cavity in another bone to form a joint
+    brain~2n 
+    head~12nz (^word~1) the word in a grammatical constituent that plays the same grammatical role as the whole constituent
+    header~7n 
+    question~2n 
+    point~14n 
+    head~16nz (^progress~3) forward movement
+    pass~13n 
+    head~18nz (^arrangement~6) the front of a military formation or procession
+    head~19nz (^beginning~4) the source of water from which a stream arises
+    head~20nz (^front~4) the part in the front or nearest the viewer
+    head~21nz (^top~9) the top of something
+    head~22nz (^bubble~4) the foam or froth that accumulates at the top when you pour an effervescent liquid into a container
+    head~23nz (^object~1) a rounded compact mass
+    head~24nz (^object~1) a natural elevation
+    head~25nz (^individual~1) a user of drugs
+    chief~2nz (^leader~2) a person who is in charge
+    head~27nz (^individual~2) an individual person
+    principal~2n 
+    head~29nz (^pressure~5) the pressure exerted by a fluid
+    head~30nz (^whole~1) a dense cluster of flowers or foliage
+    head~31nz (^unit~5) the length or height based on the size of a human or animal head
+    head~32nz (^point~23) the tip of an abscess
+    head~33az 
+    head~34vz remove the head of
+    steer~3v 
+    head~36vz to go or travel towards
+    lead~23vz travel in front of
+    lead~25vz be in charge of
+    head~39vz form a head or come or grow to a head
+    head~40vz be in the front of or on top of
+    head~41vz be the first or leading member of and excel
+    head~42vz take its rise
+ hire ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    hire~1nz (^act~1) the act of hiring something or someone
+    hire~2nz (^employee~1) a newly hired employee
+    rent~5v 
+    employ~3v 
+    rent~8v 
+ hiring ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    hiring~1nz 
+ holding ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    keeping~1n 
+    property~5n 
+ hold ( meanings=45 glosses=20 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=held 
+    grasp~1n 
+    hold~2nz (^area~1) the space in a ship or aircraft for storing cargo
+    handle~1n 
+    keep~1n 
+    hold~5nz (^fastness~1) a stronghold
+    hold~6nz (^control~5) power by which something or someone is affected or dominated
+    grasp~4n 
+    detention~2n 
+    wait~2n 
+    hold~10vz keep from exhaling or expelling
+    hold~11vz remain committed to
+    hold~12vz assert or affirm
+    deem~1vz keep in mind or convey as a conviction or view
+    hold~14vz hold the attention of
+    agree~2v 
+    declare~2v 
+    obligate~2v 
+    guard~12v 
+    hold~19vz aim, point, or direct
+    carry~14v 
+    hold~21vz have or hold in one's hands or grip
+    support~17v 
+    restrain~3vz to close within bounds, limit or hold back from movement
+    hold~24vz cover as for protection against noise or smell
+    bear~8v 
+    make~30v 
+    nurse~5v 
+    arrest~6v 
+    have~10v 
+    hold~30vz secure and keep for possible future use or application
+    bear~12v 
+    hold~32vz take and maintain control over, often by violent means
+    hold~33vz keep from departing
+    book~12v 
+    check~33v 
+    hold~36vz stop dealing with
+    hold~37vz be valid, applicable, or true
+    apply~9v 
+    keep~22v 
+    hold~40vz remain in a certain state, position, or condition
+    bear~15v 
+    take~41v 
+    defy~2vz resist or confront with resistance
+    admit~6v 
+    hold~45vz have as a major characteristic
+ huffing ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE3_4 posdefault:VERB ) 
+    puffing~1nz (^breath~1) an act of forcible exhalation
+ hugging ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    fondling~1n 
+ hand ( meanings=16 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    hand~1nz (^aid~2) physical assistance
+    hand~2nz (^paw~1) terminal part of the forelimb in certain vertebrates 
+    hand~3nz (^device~2) a rotating pointer on the face of a timepiece
+    mitt~2nz (^extremity~2) the extremity of the superior limb
+    hand~5nz (^ability~2) ability
+    hand~6nz (^side~3) one of two sides of an issue
+    script~2nz (^writing~3) something written by hand
+    hand~8nz (^approval~2) a round of applause to signify approval
+    deal~6nz (^collection~4) the cards held in a card game by a given player at any given time
+    hand~10nz (^side~11) a position given by its location to the side of an object
+    hand~11nz (^player~3) a card player in a game of bridge
+    hand~12nz (^sailor~3) a member of the crew of a ship
+    hand~13nz (^jack~10) a hired laborer on a farm or ranch
+    hand~14nz (^unit~5) a unit of length equal to 4 inches
+    hand~15vz guide or conduct or usher somewhere
+    pass~33v 
+ hearing ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    listening~1nz (^activity~1) the act of hearing attentively
+    hearing~2nz (^event~1) a proceeding (usually by a court) where evidence is taken for the purpose of determining an issue of fact and reaching a decision based on that evidence
+    audition~2nz (^sense~2) the ability to hear
+    hearing~4nz (^session~2) a session in which witnesses are called and testimony is taken
+    hearing~5nz (^reach~4) the range within which a voice can be heard
+    audience~4n 
+    hearing~7az able to perceive sound
+ higher ( meanings=2 glosses=2 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=high 
+    higher~1az of education beyond the secondary level
+    higher~2az advanced in complexity or elaboration
+ history ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    history~1nz (^subject~3) the discipline that records and interprets past events involving human beings
+    history~2nz (^knowledge~1) all that is remembered of the past as preserved in writing
+    account~3nz (^record~6) a record or narrative description of past events
+    history~4nz (^past~2) the aggregate of past events
+    history~5nz (^time~1) the continuum of events occurring in succession leading from the past to the present and even into the future
+ harvest ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    harvest~1nz (^season~1) the season for gathering crops
+    harvesting~1nz (^gather~1) the gathering of a ripened crop
+    harvest~3nz (^result~4) the consequence of an effort or activity
+    crop~6n 
+    harvest~5vz remove from a culture or a living or dead body, as for the purposes of transplantation
+    glean~1vz gather, as of natural products
+ haying ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 ) 
+    haying~1nz (^season~1) 
+    haying~2nz (^harvest~2) the harvesting of hay
+ hasty ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=hastiest 
+    hasty~1az excessively quick
+    hasty~2az done with very great haste and without due deliberation
+    hasty~3az 
+ harvesting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    harvest~2n 
+ hanging ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    hanging~1nz (^support~3) 
+    hanging~2nz (^penalty~1) a form of capital punishment
+    hanging~3nz (^decoration~2) 
+ holy ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=holiest 
+    holy~1nz (^place~13) a sacred place of pilgrimage
+    holy~2az belonging to or derived from or associated with a divine power
+    holy~3az 
+ hiding ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    hiding~1nz (^activity~1) 
+    hiding~2nz (^privacy~2) the state of being hidden
+ humoring ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    indulging~1n 
+ hard ( meanings=23 glosses=15 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB (null) (null) ) comparative=hardest 
+    difficult~1a 
+    heavy~8a 
+    hard~3az dried out
+    tough~8a 
+    hard~5az resisting weight or pressure
+    hard~6az dispassionate
+    hard~7az 
+    concentrated~4az transmitted directly from a pointed light source
+    strong~3a 
+    heavy~23a 
+    hard~11az produced without vibration of the vocal cords
+    severe~6az very strong or vigorous
+    hard~13az 
+    hard~14bz with effort or force or vigor
+    hard~15bz to the full extent possible
+    hard~16bz slowly and with difficulty
+    hard~17bz causing great damage or hardship
+    hard~18bz with firmness
+    hard~19bz earnestly or intently
+    hard~20bz with pain or distress or bitterness
+    hard~21bz very near or close in space or time
+    hard~22bz into a solid condition
+    heavily~2b 
+ hauling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    trucking~1n 
+ hawking ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    peddling~1nz (^merchandising~1) 
+ hammer ( meanings=9 glosses=9 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    hammer~1nz (^tool~2) a hand tool with a heavy rigid head and a handle
+    hammer~2nz (^machine~2) a power tool for drilling rocks
+    hammer~3nz (^device~2) a striker that is covered in felt and that causes the piano strings to vibrate
+    cock~3nz (^device~2) the part of a gunlock that strikes the percussion cap when the trigger is pulled
+    hammer~5nz (^artifact~1) a heavy metal sphere attached to a flexible wire
+    hammer~6nz (^drumstick~1) a light drumstick with a rounded head that is used to strike such percussion instruments as chimes, kettledrums, marimbas, glockenspiels, etc.
+    hammer~7nz (^bone~2) the ossicle attached to the eardrum
+    hammer~8vz beat with or as if with a hammer
+    hammer~9vz create by hammering
+ hammering ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    pound~1n 
+ honoring ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    honoring~1nz (^event~1) 
+ help ( meanings=12 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    assist~2n 
+    service~12n 
+    aid~3n 
+    supporter~3n 
+    aid~5v 
+    help~6vz improve
+    serve~5v 
+    help~8vz take or use
+    assist~5v 
+    help~10vz contribute to the furtherance of
+    help~11vz abstain from doing
+    help~12vz be of use
+ helping ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    serving~2nz (^measure~1) an individual quantity of food or drink taken as part of a meal
+ horizontal ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    horizontal~1nz (^direction~9) something that is oriented horizontally
+    horizontal~2az parallel to or in the plane of the horizon or a base line
+    horizontal~3az 
+ hunger ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    thirst~1nz (^desire~1) strong desire for something 
+    hunger~2nz (^drive~12) a physiological need for food
+    starve~4vz be hungry
+    starve~5vz have a craving, appetite, or great desire for
+    hunger~5vz feel the need to eat
+ humming ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    humming~1nz (^performance~3) the act of singing with closed lips
+    hum~1n 
+ hen ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    hen~1nz (^female~1) female of certain aquatic animals e.g. octopus or lobster
+    hen~2nz (^bird~1) adult female bird
+    hen~3nz (^chicken~1) adult female chicken
+    hen~4nz (^chicken~3) flesh of an older chicken suitable for stewing
+ herbivore ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    herbivore~1nz (^animal~1) any animal that feeds chiefly on grass and other plants
+ horn ( meanings=12 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    horn~1nz (^process~3) one of the bony outgrowths on the heads of certain ungulates
+    horn~2nz (^process~3) any hard protuberance from the head of an organism that is similar to or suggestive of a horn
+    horn~3nz (^alarm~1) a device on an automobile for making a warning noise
+    horn~4nz (^brass~1) a brass musical instrument with a brilliant tone
+    horn~5nz (^brass~1) a brass musical instrument consisting of a conical tube that is coiled into a spiral and played by means of valves
+    horn~6nz (^alarm~1) an alarm device that makes a loud warning sound
+    horn~7nz (^handle~1) a high pommel of a Western saddle
+    horn~8nz (^device~2) a noisemaker that makes a loud noise when you blow through it
+    horn~9nz (^device~2) a device having the shape of a horn
+    horn~10nz (^alarm~3) a noise made by the driver of an automobile to give warning
+    horn~11nz (^stuff~7) the material that covers the horns of ungulates and forms hooves and claws and nails
+    horn~12vz stab or pierce with a horn or tusk
+ hybrid ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    cross~2n 
+    hybrid~2nz (^complex~2) a composite of mixed origin
+    hybrid~3nz (^word~1) a word that is composed of parts from different languages
+    hybrid~4az produced by crossbreeding
+ hay ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hay~1nz (^feed~1) grass mowed and cured for use as fodder
+    hay~2vz convert into hay
+ host ( meanings=10 glosses=10 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    host~1nz (^being~1) an animal or plant that nourishes and supports a parasite
+    host~2nz (^computer~1) a computer that provides client stations with access to files and printers as shared resources to a computer network
+    host~3nz (^group~1) a vast multitude
+    host~4nz (^army~2) archaic terms for army
+    host~5nz (^organization~6) any organization that provides resources and facilities for a function or event
+    host~6nz (^proprietor~1) the owner or manager of an inn
+    host~7nz (^adult~2) a person who invites guests to a social event and who is responsible for them while they are there
+    host~8nz (^individual~1) recipient of transplanted tissue or organ from a donor
+    host~9nz (^individual~1) a person who acts as host at formal occasions
+    host~10vz be the host of or for
+ hog ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    pig~1n 
+    hog~2nz (^lamb~1) a sheep up to the age of one year
+    pig~5n 
+    hog~4vz take greedily
+ honey ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    honey~1nz (^seasoning~2) a sweet yellow liquid produced by bees
+    dearest~1nz (^lover~1) a beloved person
+    honey~3az of something having the color of honey
+    honey~4vz sweeten with honey
+ hedge ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hedge~1nz (^fence~1) a fence formed by a row of closely planted shrubs or bushes
+    hedging~1nz (^deception~3) an intentionally noncommittal or ambiguous statement
+    hedging~2nz (^security~6) any technique designed to reduce or eliminate financial risk
+    hedge~4vz minimize loss or risk
+    duck~5v 
+    hedge~6vz enclose or bound in with or as it with a hedge or hedges
+    hedge~7vz hinder or restrict with or as if with a hedge
+ hill ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mound~2n 
+    mound~3n 
+    hill~3nz (^object~1) a local and well-defined elevation of the land
+    hill~4vz form into a hill
+ hawk ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hawk~1nz (^raptor~1) diurnal bird of prey typically having short rounded wings and a long tail
+    hawk~2nz (^board~1) a square board with a handle underneath
+    hawk~3nz (^adult~2) an advocate of an aggressive policy on foreign relations
+    hawk~4vz clear mucus or food from one's throat
+    hawk~5vz hunt with hawks
+    pitch~22v 
+ horned ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    horned~1az having a horn or horns or hornlike parts or horns of a particular kind
+ hoot ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) ) 
+    shucks~1nz (^quality~1) something of little value
+    hoot~2nz (^shout~1) a loud raucous cry
+    raspberry~1n 
+    hoot~4vz to utter a loud clamorous shout
+    hoot~5vz utter the characteristic sound of owls
+ homing ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    homing~1az orienting or directing homeward or to a destination
+ harbor ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    harbour~1nz (^sanctuary~2) a place of refuge and comfort and security
+    haven~2nz (^port~5) a sheltered port where ships can take on or discharge cargo
+    entertain~2vz maintain 
+    harbour~4vz hold back a thought or feeling about
+    harbour~5vz keep in one's possession
+    harbour~6vz secretly shelter
+ harp ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    harp~1nz (^wind~4) a small rectangular free-reed instrument having a row of free reeds set back in air holes and played by blowing into the desired hole
+    harp~2nz (^instrument~3) a chordophone that has a triangular frame consisting of a sounding board and a pillar and a curved neck
+    harp~3nz (^support~6) a pair of curved vertical supports for a lampshade
+    dwell~2v 
+    harp~5vz play the harp
+ hound ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hound~1nz (^dog~1) any of several breeds of dog used for hunting typically having large drooping ears
+    heel~6n 
+    hunt~10v 
+ hoof ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) plural=hoofs 
+    hoof~1nz (^foot~2) the foot of an ungulate mammal
+    hoof~2nz (^structure~3) the horny covering of the end of the foot in ungulate mammals
+    hoof~3vz dance in a professional capacity
+    foot~13v 
+ hamster ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    hamster~1nz (^mammal~1) short-tailed Old World burrowing rodent with large cheek pouches
+ hoofed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    hoofed~1az 
+ harness ( meanings=6 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    harness~1nz (^tack~4) stable gear consisting of an arrangement of leather straps fitted to a draft animal so that it can be attached to and pull a cart
+    harness~2nz (^support~6) a support consisting of an arrangement of straps for holding something to the body
+    rein~3v 
+    harness~4vz exploit the power of
+    harness~5vz put a harness
+    rein~6v 
+ hippo ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    hippo~1nz (^mammal~1) massive thick-skinned herbivorous animal living in or around rivers of tropical Africa
+ harnessed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    harnessed~1az brought under control and put to use
+ hind ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hinder 
+    hind~1nz (^elk~1) a female deer, especially an adult female red deer
+    hind~2nz (^fish~1) any of several mostly spotted fishes that resemble groupers
+    hinder~1a 
+ hall ( meanings=8 glosses=8 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    vestibule~1nz (^room~1) a large entrance or reception room or area
+    dormitory~1nz (^building~3) a college or university building containing living quarters for students
+    hall~3nz (^building~3) a large building for meetings or entertainment
+    hall~4nz (^room~1) a large room for gatherings or entertainment
+    hall~5nz (^building~3) a large building used by a college or university for teaching or research
+    hallway~1nz (^passage~6) an interior passage or corridor onto which rooms open
+    hall~7nz (^room~1) the large room of a manor or castle
+    mansion~1nz (^house~2) a large and imposing house
+ headache ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    worry~1nz (^information~2) something or someone that causes anxiety
+    headache~2nz (^ache~1) pain in the head caused by dilation of cerebral arteries or muscle contractions or a reaction to drugs
+ hive ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hive~1nz (^receptacle~1) a man-made receptacle that houses a swarm of bees
+    hive~2nz (^group~1) a teeming multitude
+    hive~3nz (^nest~5) a structure that provides a natural habitation for bees
+    hive~4vz gather into a hive
+    hive~5vz move together in a hive or as if in a hive
+    hive~6vz store, like bees
+ heap ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    bus~2n 
+    pile~6n 
+    pile~8n 
+    heap~4vz fill to overflow
+    stack~7v 
+    heap~6vz bestow in large quantities
+ heel ( meanings=11 glosses=11 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    heel~1nz (^bottom~3) the bottom of a shoe or boot
+    heel~2nz (^part~3) the part of the clubhead where it joins the shaft
+    heel~3nz (^end~9) the lower end of a ship's mast
+    heel~4nz (^structure~3) the back part of the human foot
+    heel~5nz (^end~9) one of the crusty ends of a loaf of bread
+    bounder~2nz (^villain~1) someone who is morally reprehensible
+    heel~7vz put a new heel on
+    heel~8vz strike with the heel of the club
+    heel~9vz perform with the heels
+    heel~10vz follow at the heels of a person
+    list~5vz tilt to one side
+ heading ( meanings=3 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    drift~1n 
+    head~13n 
+    bearing~5n 
+ hallway ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    hall~6n 
+ handcuff ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    cuff~2nz (^device~2) shackle that consists of a metal loop that can be locked around the wrist
+    cuff~3vz confine or restrain with or as if with manacles or handcuffs
+ handkerchief ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    handkerchief~1nz (^material~1) a square piece of cloth used for wiping the eyes or nose or as a costume accessory
+ handle ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    grip~4nz (^part~3) the appendage to an object that is designed to be held in order to use or move it
+    plow~2v 
+    palm~5vz touch, lift, or hold with the hands
+    manage~1vz handle effectively
+    handle~5vz show and train
+    manage~2vz be in charge of, act on, or dispose of
+    treat~10vz interact in a certain way
+ harbour ( meanings=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    harbor~1n 
+    harbor~2n 
+    hold~27v 
+    shield~5v 
+    harbor~5v 
+    harbor~6v 
+ hardware ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    hardware~1nz (^element~1) the mechanical, magnetic, electronic, and electrical components making up a computer system
+    hardware~2nz (^artifact~1) major items of military weaponry
+    hardware~3nz (^artifact~1) instrumentalities made of metal
+ hatch ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hatch~1nz (^barrier~1) a movable barrier covering a hatchway
+    hatching~1nz (^shading~2) shading consisting of multiple crossing lines
+    hatching~2nz (^birth~3) the production of young from an egg
+    cover~12v 
+    hatch~5vz emerge from the eggs
+    hatch~6vz draw, cut, or engrave lines, usually parallel, on metal, wood, or paper
+    concoct~2vz devise or invent
+    hatch~8vz inlay with narrow strips or lines of a different substance such as gold or silver, for the purpose of decorating
+ haven ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    haven~1nz (^structure~1) a shelter serving as a place of safety or sanctuary
+    harbour~2n 
+ heat ( meanings=11 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    heating~1nz (^facility~3) utility to warm a building
+    heat~2nz (^attribute~1) the trait of being intensely emotional
+    heat~3nz (^temperature~1) the presence of heat
+    heat~4nz (^temperature~2) the sensation caused by heat energy
+    heat~5nz (^race~2) a preliminary race in which the winner advances to a more important race
+    heat~6nz (^energy~5) a form of energy that is transferred by a difference in temperature
+    rut~3nz (^status~1) applies to nonhuman mammals: a state or period of heightened sexual arousal and activity
+    heat~8vz make hot or hotter
+    heat~9vz gain heat or get hot
+    wake~8v 
+    heat~11vz provide with heat
+ heating ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    heat~1n 
+    warming~2nz (^activity~4) the process of becoming warmer
+ helicopter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    helicopter~1nz (^aircraft~1) an aircraft without wings that obtains its lift from the rotation of overhead blades
+ helmet ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    helmet~1nz (^clothing~1) a protective headgear made of hard material to resist blows
+    helmet~2nz (^shell~3) armor plate that protects the head
+ hem ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hem~1nz (^edge~2) the edge of a piece of cloth
+    ahem~1nz (^communication~1) the utterance of a sound similar to clearing the throat
+    hem~3vz utter `hem' or `ahem'
+    hem~4vz fold over and sew together to provide with a hem
+ hip ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=hippest 
+    hip~1nz (^piece~11) either side of the body below the waist and above the thigh
+    hip~2nz (^piece~11) the ball-and-socket joint between the head of the femur and the acetabulum
+    hip~3nz (^structure~3) the structure of the vertebrate skeleton supporting the lower limbs in humans and the hind limbs or corresponding parts in other vertebrates
+    hip~4nz (^fruit~3) the fruit of a rose plant
+    hip~5nz (^angle~2) the exterior angle formed by the junction of a sloping side and a sloping end of a roof
+    hip~6az informed about the latest trends
+    hip~7az 
+ hoe ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hoe~1nz (^tool~2) a tool with a flat blade attached at right angles to a long handle
+    hoe~2vz dig with a hoe
+ hoist ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    hoist~1nz (^device~2) lifting device for raising heavy or cumbersome objects
+    wind~9v 
+    hoist~3vz raise
+    hoist~4vz move from one place to another by lifting
+ hole ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hole~1nz (^opening~6) an opening deliberately made in or through something
+    hole~2nz (^play~17) one playing period on a golf course
+    trap~7nz (^mouth~3) informal terms for the mouth
+    hole~4nz (^gap~6) an opening into or through something
+    hollow~1nz (^object~1) a depression hollowed out of solid matter
+    hole~6nz (^space~8) an unoccupied space
+    muddle~1nz (^difficulty~4) informal terms for a difficult situation
+    hole~8nz (^flaw~3) a fault
+    hole~9vz make holes in
+    hole~10vz hit the ball into the hole
+ household ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    home~4n 
+ hope ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    hope~1nz (^virtue~2) one of the three Christian virtues
+    promise~1n 
+    hope~3nz (^anticipation~3) a specific instance of feeling hopeful
+    hope~4nz (^feeling~1) the general feeling that some desire will be fulfilled
+    hope~5nz (^individual~1) someone on which expectations are centered
+    hope~6vz intend with some possibility of fulfilment
+    hope~7vz be optimistic
+    desire~6v 
+ horror ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    horror~1nz (^thing~4) something that inspires dislike
+    horror~2nz (^disgust~1) intense aversion
+    horror~3nz (^fear~1) intense and profound fear
+ hose ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hose~1nz (^tube~2) a flexible pipe for conveying a liquid or gas
+    hose~2nz (^clothing~1) man's close-fitting garment of the 16th and 17th centuries covering the legs and reaching up to the waist
+    hosiery~1nz (^clothing~1) socks and stockings and tights collectively
+    hose~4vz water with a hose
+ hosiery ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    hose~3n 
+ hotel ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    hotel~1nz (^building~3) a building where travelers can pay for lodging and meals and other services
+ hour ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+    minute~1n 
+    hour~2nz (^measure~1) a period of time equal to 1/24th of a day
+    hour~3nz (^time~6) clock time
+    hour~4nz (^period~3) a special and memorable period
+ houseboat ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    houseboat~1nz (^lighter~1) a barge that is designed and equipped for use as a dwelling
+ hut ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    hut~1nz (^structure~1) small crude shelter used as a dwelling
+    hut~2nz (^structure~1) temporary military shelter
+ hull ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hull~1nz (^structure~1) the frame or body of ship
+    hull~2nz (^roll~15) persistent enlarged calyx at base of e.g. a strawberry or raspberry
+    hull~3nz (^case~8) dry outer covering of a fruit or seed or nut
+    hull~4vz remove the hulls from
+ hunter ( meanings=3 glosses=3 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    hunter~1nz (^watch~3) a watch with a hinged metal lid to protect the crystal
+    hunter~2nz (^worker~2) someone who hunts game
+    hunter~3nz (^individual~1) a person who searches for something
+ hurricane ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    hurricane~1nz (^storm~2) a severe tropical cyclone usually with heavy rains and winds moving a 73-136 knots
+ hydrant ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    hydrant~1nz (^pipe~2) a discharge pipe with a valve and spout at which water may be drawn from the mains of waterworks
+    tap~6n 
+ ha-ha ( meanings=2 NOUN INTERJECTION NOUN_SINGULAR posdefault:NOUN ) 
+    ha-ha~1nz (^ditch~1) 
+    ha-ha~2nz (^laugh~3) 
+ hardness ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 ) 
+    rigor~1nz (^disposition~2) excessive sternness
+    hardness~2nz (^difficulty~2) the quality of being difficult to do
+    hardness~3nz (^quality~1) devoid of passion or feeling
+    hardness~4nz (^quality~1) a quality of water that contains dissolved mineral salts that prevent soap from lathering
+    hardness~5nz (^body~3) the property of being rigid and resistant to pressure
+ humor ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    humour~1nz (^fun~3) the trait of appreciating the humorous
+    humour~2nz (^quality~1) the quality of being funny
+    humour~3nz (^substance~1) the liquid parts of the body
+    humour~4nz (^substance~1) one of the four fluids in the body whose balance was believed to determine your emotional and physical state
+    wit~2nz (^message~2) a message whose ingenuity or verbal skill or incongruity has the power to evoke laughter
+    humour~6nz (^feeling~1) a characteristic state of feeling
+    humour~7vz put into a good mood
+ humour ( meanings=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    humor~1n 
+    humor~2n 
+    humor~3n 
+    humor~4n 
+    humor~5n 
+    temper~4n 
+    humor~7v 
+ hatching ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    hatch~2n 
+    hatch~3n 
+ harmony ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    harmony~1nz (^characteristic~1) compatibility in opinion and action
+    harmony~2nz (^property~2) an agreeable sound property
+    harmony~3nz (^music~5) the structure of music with respect to the composition and progression of chords
+    harmony~4nz (^agreement~4) agreement of opinions
+    harmony~5nz (^order~13) a harmonious state of things in general and of their properties 
+ humdrum ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    humdrum~1nz (^quality~1) the quality of wearisome constancy, routine, and lack of variety
+    monotonous~1a 
+    humdrum~3az not challenging
+    humdrum~4az 
+ honesty ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    honesty~1nz (^righteousness~1) the quality of being honest
+    honesty~2nz (^plant~1) southeastern European plant cultivated for its fragrant purplish flowers and round flat papery silver-white seedpods that are used for indoor decoration
+ halo ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) plural=haloes 
+    glory~2n 
+    halo~2nz (^process~1) a circle of light around the sun or moon
+    doughnut~2n 
+ hush ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    still~4n 
+    hush~2vz run water over the ground to erode , revealing the underlying strata and valuable minerals
+    hush~3vz wash by removing particles
+    hush~4vz become quiet or still
+    still~16v 
+    quiet~13v 
+ height ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    stature~1nz (^property~2) the distance from head to foot
+    height~2nz (^distance~1) elevation especially above sea level or above the earth's surface
+    height~3nz (^dimension~2) the vertical dimension of extension
+    pinnacle~3nz (^degree~7) the highest level or degree attainable
+ horizon ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    view~4nz (^reach~2) the range of interest or activity that can be anticipated
+    horizon~2nz (^line~23) the line at which the sky and Earth appear to meet
+    horizon~3nz (^line~23) the great circle on the celestial sphere whose plane passes through the sensible horizon and the center of the Earth
+    horizon~4nz (^layer~5) a specific layer or stratum of soil or subsoil in a vertical cross section of land
+ heartbeat ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    heartbeat~1nz (^force~5) an animating or vital unifying force
+    beat~7nz (^event~1) the rhythmic contraction and expansion of the arteries with each beat of the heart
+    wink~3nz (^minute~6) a very short time 
+ haw ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN VERB_NOOBJECT ) 
+    haw~1nz (^flap~3) the nictitating membrane of a horse
+    haw~2nz (^bush~4) 
+    haw~3vz utter `haw'
+ helper ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    helper~1nz (^individual~1) a person who helps people or institutions
+    help~4nz (^worker~2) a person who contributes to the fulfillment of a need or furtherance of an effort or purpose
+ hemisphere ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    hemisphere~1nz (^structure~3) either half of the cerebrum
+    hemisphere~2nz (^region~4) half of the terrestrial globe
+    hemisphere~3nz (^figure~13) half of a sphere
+ hallucination ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    hallucination~1nz (^object~2) an object perceived during a hallucinatory episode
+    delusion~2nz (^thought~2) a mistaken or unfounded opinion or idea
+    hallucination~3nz (^delusion~3) illusory perception
+ hypothesis ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 ) plural=hypotheses 
+    theory~1nz (^construct~1) a tentative insight into the natural world
+    conjecture~3n 
+    hypothesis~3nz (^message~2) a proposal intended to explain certain facts or observations
+ hero ( meanings=5 glosses=4 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=heroes 
+    hero~1nz (^character~4) the principal character in a play or movie or novel or poem
+    submarine~2nz (^sandwich~1) a large sandwich made of a long crusty roll split lengthwise and filled with meats and cheese 
+    champion~2n 
+    hero~4nz (^vision~1) a being of great strength and courage celebrated for bold exploits
+    hero~5nz (^leader~2) a man distinguished by exceptional courage and nobility and strength
+ heresy ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    heresy~1nz (^content~2) a belief that rejects the orthodox tenets of a religion
+    heresy~2nz (^attitude~3) any opinions or doctrines at variance with the official or orthodox position
+ hygiene ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    hygiene~1nz (^medicine~4) the science concerned with the prevention of illness and maintenance of health
+    hygiene~2nz (^status~1) a condition promoting sanitary practices
+ historical ( meanings=6 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    historic~2a 
+    historical~2az having once lived or existed or taken place in the real world as distinct from being legendary
+    historical~3az used of the study of a phenomenon as it changes through time
+    historical~4az of or relating to the study of history
+    historical~5az 
+    historical~6az 
+ headline ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    headline~1nz (^header~7) the heading or caption of a newspaper article
+    headline~2vz publicize widely or highly, as if with a headline
+    headline~3vz provide with a headline
+ hail ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    hail~1nz (^acknowledgment~1) enthusiastic greeting
+    hail~2nz (^object~1) many objects thrown forcefully through the air
+    hail~3nz (^precipitation~4) precipitation of ice pellets when there are strong rising air currents
+    herald~3v 
+    herald~4v 
+    hail~6vz call for
+    come~20v 
+    hail~8vz precipitate as small ice particles
+ hello ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hi~1nz (^acknowledgment~1) an expression of greeting
+    hello~2vz 
+ hi ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    hello~1n 
+ hint ( meanings=6 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) (null) ) 
+    lead~12n 
+    clue~2n 
+    breath~2n 
+    trace~6n 
+    jot~2n 
+    suggest~2vz drop a hint
+ hooray ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 ) 
+    hooray~1nz (^cheer~2) a victory cheer
+ hallelujah ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN INTERJECTION NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
+    hallelujah~1nz (^praise~2) a shout or song of praise to God
+ honorary ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    honorary~1az given as an honor without the normal duties
+    honorary~2az 
+ hedging ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    hedge~2n 
+    hedge~3n 
+ herald ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    predecessor~1nz (^communication~1) something that precedes and indicates the approach of something or someone
+    herald~2nz (^messenger~1) a person who announces important news
+    hail~4vz praise vociferously
+    hail~5vz greet enthusiastically or joyfully
+    announce~2vz foreshadow or presage
+ he ( meanings=1 PRONOUN_SUBJECT COMMON4 COMMON2 KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    he~1z 
+ hymn ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hymn~1nz (^song~3) a song of praise
+    hymn~2vz praise by singing a hymn
+    hymn~3vz sing a hymn
+ hiss ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    boo~1n 
+    hushing~1nz (^noise~5) a fricative sound 
+    boo~2v 
+    hiss~4vz make a sharp hissing sound, as if to show disapproval
+    hiss~5vz express or utter with a hiss
+    hiss~6vz move with a whooshing sound
+ honeyed ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    sweet~8a 
+    honeyed~2az with honey added
+    honeyed~3az 
+ happening ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    happening~1nz (^event~1) 
+ happy ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=happiest 
+    happy~1az well expressed and to the point
+    happy~2az marked by good fortune
+    happy~3az enjoying or showing or marked by joy or pleasure
+    glad~4az eagerly disposed to act or to be of service
+    happy~5az 
+ hissing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    hiss~2n 
+ hushing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    hissing~1n 
+ honk ( meanings=5 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    honk~1nz (^cry~5) the cry of a goose
+    sick~10v 
+    honk~3vz cry like a goose
+    honk~4vz use the horn of a car
+    beep~3v 
+ hum ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    humming~2nz (^noise~5) a humming noise
+    hum~2nz (^activity~5) the state of being or appearing to be actively engaged in an activity
+    hum~3vz sing with closed lips
+    hum~4vz make a low continuous sound
+    hum~5vz sound with a monotonous hum
+    seethe~4vz be noisy with activity
+ happiness ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    happiness~1nz (^feeling~1) emotions experienced when in a state of well-being
+    happiness~2nz (^spirit~7) state of well-being characterized by emotions ranging from contentment to intense joy
+ hilarity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    hilarity~1nz (^happiness~1) great merriment
+ hate ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    hate~1nz (^emotion~1) the emotion of intense dislike
+    detest~1vz dislike intensely
+ hamburger ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    hamburger~1nz (^beef~3) beef that has been ground
+    hamburger~2nz (^sandwich~1) a sandwich consisting of a fried cake of minced beef served on a bun, often with other ingredients
+ ham ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ham~1nz (^cut~17) meat cut from the thigh of a hog
+    ham~2nz (^player~1) an unskilled actor who overacts
+    ham~3nz (^cause~1) a licensed amateur radio operator
+    ham~4vz exaggerate one's acting
+ hotdog ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    hotdog~1nz (^meat~2) a smooth-textured sausage of minced beef or pork usually smoked
+    hotdog~2nz (^sandwich~1) a frankfurter served hot on a bun
+    hotdog~3nz (^individual~1) someone who performs dangerous stunts to attract attention to himself
+ healing ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    healing~1nz (^activity~3) the natural process by which the body repairs itself
+    remedial~2a 
+ homogenized ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    homogenized~1az made homogeneous
+    homogenized~2az formed by blending unlike elements especially by reducing one element to particles and dispersing them throughout another substance
+ handicapped ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB ) 
+    handicapped~1nz (^people~1) people collectively who are crippled or otherwise physically handicapped
+    handicapped~2az incapable of functioning as a consequence of injury or illness
+ homeless ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 (null) ) 
+    homeless~1nz (^poor~1) poor people who unfortunately do not have a home to live in
+    homeless~2nz (^unfortunate~1) someone unfortunate without housing
+    homeless~3az physically or spiritually homeless or deprived of security
+    homeless~4az without nationality or citizenship
+    homeless~5az 
+ herd ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    herd~1nz (^group~1) a group of cattle or sheep or other domestic mammals all of the same kind that are herded by humans
+    herd~2nz (^group~1) a group of wild mammals of one species that remain together: antelope or elephants or seals or whales or zebra
+    herd~3nz (^group~1) a crowd especially of ordinary or undistinguished persons or things
+    herd~4vz move together, like a herd
+    crowd~4v 
+    herd~6vz keep, move, or drive animals
+ horsey ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) 
+    horsey~1az 
+ headquarters ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_PLURAL ORDINAL GRADE5_6 (null) ) 
+ hung ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=hang 
+ here ( meanings=6 glosses=6 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADVERB ) 
+    here~1nz (^object~1) the present location
+    here~2az being here now
+    here~3bz in or at this place
+    here~4bz to this place 
+    here~5bz in this circumstance or respect or on this point or detail
+    here~6bz at this time
+ heaven ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    heaven~1nz (^part~9) 
+ habitat ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 ) 
+    habitat~1nz (^environment~1) the type of environment in which an organism or group normally lives or occurs
+ haunt ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    repair~2nz (^country~3) a frequently visited place
+    ghost~6v 
+    frequent~3v 
+    stalk~8vz follow stealthily or recur constantly and spontaneously to
+ holiday ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    vacation~2n 
+    holiday~2nz (^day~5) a day on which work is suspended by law or custom
+    vacation~3v 
+ heavenly ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    heavenly~1az of or belonging to heaven or god
+    heavenly~2az relating to or inhabiting a divine heaven
+    heavenly~3az of or relating to the sky
+    heavenly~4az 
+ hollow ( meanings=9 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    hole~5n 
+    hollow~2nz (^valley~1) a small valley between mountains
+    hollow~3nz (^space~8) a cavity or space in something
+    empty~5a 
+    hollow~5az as if echoing in a hollow space
+    hollow~6az not solid
+    hollow~7az 
+    hollow~8vz remove the interior of
+    dig~9v 
+ hopeful ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    hopeful~1nz (^individual~1) an ambitious and aspiring young person
+    promising~1az full or promise
+    hopeful~3az having or manifesting hope
+    hopeful~4az 
+ hitter ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
+    batter~2n 
+    hitter~2nz (^traveler~1) 
+ hired ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    chartered~1a 
+    hired~2az having services engaged for a fee
+ headmaster ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    master~3nz (^principal~2) presiding officer of a school
+ headmistress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    headmistress~1nz (^principal~2) a woman headmaster
+ heir ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    heir~1nz (^individual~1) a person who is entitled by law or by the terms of a will to inherit the estate of another
+    heir~2nz (^issue~8) a person who inherits some title or office
+ heiress ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    inheritrix~1n 
+ heroine ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    heroine~1nz (^character~4) the main good female character in a work of fiction
+    heroine~2nz (^woman~3) a woman possessing heroic qualities or a woman who has performed heroic deeds
+ historian ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    historian~1nz (^student~1) a person who is an authority on history and who studies it and writes about it
+ honest ( meanings=8 glosses=7 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    fair~10az gained or earned without cheating or stealing
+    good~13az not forged
+    honorable~1az not disposed to cheat or defraud
+    honest~4az marked by truth
+    honest~5az without pretensions
+    honest~6az without dissimulation
+    dependable~4az worthy of being depended on
+    honest~8az 
+ horseman ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    horseman~1nz (^fancier~1) a person who breeds and cares for horses
+    horseman~2nz (^rider~3) a man skilled in equitation
+ hostess ( meanings=3 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    hostess~1nz (^host~6) a woman innkeeper
+    hostess~2nz (^host~7) a woman host
+    stewardess~1n 
+ hunted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hunted~1az reflecting the fear or terror of one who is hunted
+ huntress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    huntress~1nz (^hunter~2) a woman hunter
+ husband ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hubby~1nz (^partner~3) a married man
+    economize~1vz use cautiously and frugally
+ hubby ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    husband~1n 
+ have ( meanings=19 glosses=18 VERB_PRESENT VERB_INFINITIVE AUX_HAVE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) ) conjugate=having 
+    deliver~1vz cause to be born
+    have~2vz suffer from
+    suffer~2vz undergo 
+    get~6vz cause to move
+    experience~4vz undergo
+    induce~2vz cause to do
+    consume~2vz serve oneself to, or consume regularly
+    throw~17vz organize or be responsible for
+    receive~9vz go through 
+    hold~29vz have or possess, either in a concrete or an abstract sense
+    own~2vz have ownership or possession of
+    have~12vz have left
+    receive~11vz get something
+    accept~8vz receive willingly something given or offered
+    make~40vz achieve a point or goal
+    have~16vz have a personal or business relationship with someone
+    feature~7vz have as a feature
+    have~18vz be confronted with
+    have~19vz 
+ half-brother ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) 
+    half_brother~1nz (^blood_brother~2) a brother who has only one parent in common with you
+ half_brother ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    stepbrother~1n 
+ hoyden ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    tomboy~1nz (^miss~2) a girl who behaves in a boyish manner
+ humble ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    base~23a 
+    humble~2az marked by meekness or modesty
+    lowly~3az used of unskilled work
+    low~13a 
+    humble~5az 
+    humble~6vz cause to feel shame
+    humble~7vz cause to be unpretentious
+ heal ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    cure~2vz provide a cure for, make healthy again
+    heal~2vz get healthy again
+    mend~4vz heal or recover
+ hidden ( meanings=4 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=hid 
+    obscure~6az difficult to find
+    secret~13a 
+    hidden~3az not accessible to view
+    hidden~4az 
+ hundred ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    century~1n 
+    hundred~2az being ten more than ninety
+ heaps ( meanings=2 glosses=1 ADVERB COMMON2 COMMON1 posdefault:NOUN ) 
+    dozens~1n 
+    heaps~2bz very much
+ hexagon ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hexagon~1nz (^figure~13) a six-sided polygon
+ hump ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    bulge~1n 
+    screw~10v 
+    hump~3vz round one's back by bending forward and drawing the shoulders forward
+ hurting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    pain~5n 
+ historic ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    historic~1az important in history
+    historical~1az belonging to the past
+    historic~3az 
+    historic~4az 
+ halves ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN ) plural=half 
+ haloes ( NOUN NOUN_PLURAL COMMON2 GRADE5_6 posdefault:NOUN ) plural=halo 
+ heroes ( NOUN NOUN_PLURAL COMMON4 COMMON1 posdefault:NOUN ) plural=hero 
+ hoofs ( NOUN NOUN_PLURAL COMMON2 KINDERGARTEN posdefault:NOUN ) plural=hoof 
+ hypotheses ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=hypothesis 
+ humidor ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    humidor~1nz 
+ ha-ha-ha ( INTERJECTION ) 
+ ha ( INTERJECTION ) 
+ hah ( INTERJECTION ) 
+ haha ( INTERJECTION ) 
+ hahaha ( INTERJECTION ) 
+ hahahaha ( INTERJECTION ) 
+ hahahahaha ( INTERJECTION ) 
+ he-he-he ( INTERJECTION ) 
+ he-he ( INTERJECTION ) 
+ hee ( INTERJECTION ) 
+ heh ( INTERJECTION ) 
+ hehe ( INTERJECTION ) 
+ heheh ( INTERJECTION ) 
+ hehehe ( INTERJECTION ) 
+ hehehehe ( INTERJECTION ) 
+ heheheheh ( INTERJECTION ) 
+ hehehehehe ( INTERJECTION ) 
+ heheheheheh ( INTERJECTION ) 
+ hehehehehehe ( INTERJECTION ) 
+ heheheheheheh ( INTERJECTION ) 
+ hehehehehehehe ( INTERJECTION ) 
+ heheheheheheheh ( INTERJECTION ) 
+ hehehehehehehehe ( INTERJECTION ) 
+ heheheheheheheheh ( INTERJECTION ) 
+ hehehehehehehehehe ( INTERJECTION ) 
+ heheheheheheheheheh ( INTERJECTION ) 
+ hehehehehehehehehehe ( INTERJECTION ) 
+ heheheheheheheheheheh ( INTERJECTION ) 
+ hehehehehehehehehehehe ( INTERJECTION ) 
+ heheheheheheheheheheheh ( INTERJECTION ) 
+ hehehehehehehehehehehehe ( INTERJECTION ) 
+ heheheheheheheheheheheheh ( INTERJECTION ) 
+ hey ( INTERJECTION ) 
+ ho-hum ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL INTERJECTION posdefault:ADJECTIVE ) 
+    boring~3a 
+ huh ( INTERJECTION ) 
+ ha_ha ( INTERJECTION ) 
+ ha_ha_ha ( INTERJECTION ) 
+ hahah ( INTERJECTION ) 
+ hahahah ( INTERJECTION ) 
+ hahahahah ( INTERJECTION ) 
+ hahahahahah ( INTERJECTION ) 
+ hahahahahaha ( INTERJECTION ) 
+ hahahahahahah ( INTERJECTION ) 
+ hahahahahahaha ( INTERJECTION ) 
+ hahahahahahahah ( INTERJECTION ) 
+ hahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahahahahahahaha ( INTERJECTION ) 
+ hahahahahahahahahahahahahahah ( INTERJECTION ) 
+ hahahahahahahahahahahahahahaha ( INTERJECTION ) 
+ harrumph ( INTERJECTION ) 
+ hmm ( INTERJECTION ) 
+ ho_hum ( INTERJECTION ) 
+ hoo ( INTERJECTION ) 
+ holy_cow ( INTERJECTION ) 
+ humph ( INTERJECTION ) 
+ hurray ( INTERJECTION ) 
+ huzza ( INTERJECTION ) 
+ hence ( meanings=3 glosses=2 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB TIMEWORD (null) ) 
+    thus~1b 
+    hence~2bz from this time
+    hence~3bz from this place
+ hourly ( meanings=2 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    hourly~1az occurring every hour or payable by the hour
+    hourly~2bz every hour
+ hooked ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:VERB ) 
+    dependent~2a 
+    hooked~2az curved down like an eagle's beak
+    hooked~3az having or resembling a hook 
+ handless ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) 
+    handless~1az 
+    handless~2az without a hand or hands
+ horrified ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    horrified~1az stricken with horror
+    horrified~2az 
+ harsh ( meanings=7 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    harsh~1az sharply disagreeable
+    harsh~2az severe
+    rough~8a 
+    rough~9a 
+    harsh~5az disagreeable to the senses
+    coarse~2a 
+    harsh~7az 
+ hinder ( meanings=4 glosses=4 MORE_FORM VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=hind 
+    back~10az located at or near the back of an animal
+    hinder~2vz put at a disadvantage
+    impede~2vz be a hindrance or obstacle to
+    embarrass~2vz hinder or prevent the progress or accomplishment of
+ homely ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) comparative=homeliest 
+    plain~4a 
+    homely~2az 
+    homely~3az without artificial refinement or elegance
+    homely~4az plain and unpretentious
+    homely~5az 
+ heterogeneous ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    heterogeneous~1az originating outside the body
+    heterogeneous~2az consisting of elements that are not of the same kind or nature
+ hibernating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 posdefault:VERB ) 
+    hibernating~1az in a condition of biological rest or suspended animation
+ horrible ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    ugly~1a 
+    horrible~2az 
+ horrific ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    dreadful~1a 
+    outrageous~2a 
+    horrific~3az 
+ handsome ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    handsome~1az pleasing in appearance especially by reason of conformity to ideals of form and proportion
+    big~3a 
+    handsome~3az 
+ healthier ( meanings=1 glosses=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=healthy 
+    fitter~2az improved in health or physical condition
+ hatched ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hatched~1az 
+    hatched~2az emerged from an egg
+ haphazard ( meanings=3 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    sloppy~1a 
+    haphazard~2az dependent upon or characterized by chance
+    haphazard~3bz without care
+ halfway ( meanings=5 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADVERB ) comparative=halfways 
+    center~19az equally distant from the extremes
+    halfway~2az including only half or a portion
+    halfway~3az at a point midway between two extremes
+    halfway~4bz at half the distance
+    halfway~5bz 
+ habited ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    habited~1az dressed in a habit
+ heralded ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    heralded~1az publicly announced
+ hearty ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=heartiest 
+    hearty~1az without reservation
+    hearty~2az consuming abundantly and with gusto
+    hearty~3az endowed with or exhibiting great bodily or mental health
+    hearty~4az showing warm and heartfelt friendliness
+    solid~18a 
+ hogged ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    hogged~1az 
+    hogged~2az 
+ haunted ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    preoccupied~1a 
+    haunted~2az inhabited by or as if by apparitions
+    haunted~3az showing emotional affliction or disquiet
+    haunted~4az 
+ healthy ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=healthiest 
+    goodly~1az large in amount or extent or degree
+    healthy~2az having or indicating good health in body or mind
+    sound~12az exercising or showing good judgment
+    healthy~4az financially secure and functioning well
+    healthy~5az promoting health
+    healthy~6az 
+ hesitating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hesitating~1az lacking decisiveness of character
+ helpless ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    helpless~1az unable to manage independently
+    lost~2a 
+    incapacitated~1az lacking in or deprived of strength or power
+    helpless~4az 
+ humbling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    demeaning~1az 
+ hungry ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=hungriest 
+    thirsty~2a 
+    hungry~2az feeling hunger
+    hungry~3az 
+ homesick ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    homesick~1az longing to return home
+    homesick~2az 
+ humped ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    humped~1az 
+ husbandly ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADVERB ) 
+    husbandly~1az related to or suited to a husband
+    husbandly~2az befitting or characteristic of a husband
+ haunting ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    haunting~1az 
+    haunting~2az having a deeply disquieting or disturbing effect
+ hapless ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    miserable~4a 
+    hapless~2az 
+ hopeless ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    hopeless~1az beyond hope of management or reform
+    hopeless~2az without hope because there seems to be no possibility of comfort or success
+    hopeless~3az certain to fail
+    hopeless~4az of a person unable to do something skillfully
+ hardened ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    set~13a 
+    hardened~2az used of persons
+    hardened~3az protected against attack 
+    treated~1az made hard or flexible or resilient especially by heat treatment
+    hardened~5az made tough by habitual exposure
+ headed ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    headed~1az having a head of a specified kind or anything that serves as a head
+    headed~2az having a heading or caption
+    headed~3az of leafy vegetables
+    headed~4az having a heading or course in a certain direction
+ helpful ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    helpful~1az providing assistance or serving a useful function
+    helpful~2az 
+ heated ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    heated~1az 
+    heated~2az marked by emotional heat
+    heated~3az 
+ humorous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    humorous~1az full of or characterized by humor
+    humorous~2az 
+ hurried ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hurried~1az moving rapidly or performed quickly or in great haste
+    hurried~2az 
+ huge ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    vast~1az unusually great in size or amount or degree or especially extent or scope
+    huge~2az 
+ hatted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    hatted~1az wearing a hat or a hat of a particular kind
+ hushed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    subdued~3a 
+ hated ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    detested~1a 
+    hated~2az 
+ hardly ( meanings=2 ADVERB EXTENT_ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB (null) ) 
+    scarce~2b 
+    scarcely~2b 
+ heard ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=hear 
+    heard~1az detected or perceived by the sense of hearing
+ hindering ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    impeding~1az 
+ haughty ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=haughtiest 
+    lordly~2a 
+    haughty~2az 
+ humbled ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    crushed~1a 
+    humbled~2az 
+ hedged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hedged~1az 
+ honored ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    honored~1az 
+ handed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    handed~1az having or involving the use of hands
+ handled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    handled~1az having a usually specified type of handle
+ hazardous ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    wild~11a 
+    hazardous~2az 
+ heavily ( meanings=7 glosses=7 ADVERB EXTENT_ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    heavily~1bz to a considerable degree
+    hard~23bz indulging excessively
+    heavily~3bz in a labored manner
+    heavy~31bz slowly as if burdened by much weight
+    heavily~5bz in a manner designed for heavy duty
+    heavily~6bz in a heavy-footed manner
+    heavily~7bz with great force
+ harassed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    pestered~1az troubled persistently especially with petty annoyances
+    harassed~2az 
+ healed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    cured~6a 
+ humid ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    humid~1az containing or characterized by a great deal of water vapor
+    humid~2az 
+ hammered ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    hammered~1az shaped or worked with a hammer and often showing hammer marks
+ held ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=hold 
+    held~1az occupied or in the control of
+ hopping ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hopping~1az 
+ half-trillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ half-billion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ half-million ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ half-thousand ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ halfways ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=halfway 
+ happier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=happy 
+ happiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=happier 
+ hastier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=hasty 
+ hastiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=hastier 
+ haughtier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=haughty 
+ haughtiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=haughtier 
+ healthiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=healthier 
+ heartier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) comparative=hearty 
+ heartiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) comparative=heartier 
+ heavier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=heavy 
+ heaviest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=heavier 
+ hipper ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hip 
+ hippest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hipper 
+ holier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=holy 
+ holiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=holier 
+ homelier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) comparative=homely 
+ homeliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=homelier 
+ hotter ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hot 
+ hottest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hotter 
+ hungrier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hungry 
+ hungriest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=hungrier 
+ however ( meanings=6 glosses=3 QWORD ADVERB CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB CONJUNCT_SUBORD_NOUN ) 
+    yet~2b 
+    however~2bz in whatever way or manner
+    however~3bz to whatever degree or extent
+    however~4bz by contrast
+    however~5z 
+    however~6z 
+ honestly ( meanings=2 glosses=2 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    honestly~1bz in an honest manner
+    honestly~2bz it is sincerely the case that
+ harder ( MORE_FORM ADVERB COMMON4 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) comparative=hard 
+ hardest ( MOST_FORM ADVERB COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=harder 
+ how ( meanings=1 QWORD ADVERB CONJUNCTION_SUBORDINATE EXTENT_ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB CONJUNCT_SUBORD_NOUN ) 
+    how~1z 
+ having ( meanings=1 VERB_PRESENT_PARTICIPLE AUX_HAVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_GERUND COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=had 
+    having~1vz 
+ hibernate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_NOOBJECT ) 
+    hibernate~1vz sleep during winter
+    hibernate~2vz be in an inactive or dormant state
+ harden ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    harden~1vz cause to accept or become hardened to
+    season~5v 
+    temper~8vz harden by reheating and cooling in oil
+    harden~4vz become hard or harder
+    harden~5vz make hard or harder
+ happen ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB SPELLING_EXCEPTION COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT PRESENTATION_VERB ) 
+    occur~1vz come to pass
+    happen~2vz come into being
+    happen~3vz happen, occur, or be the case in the course of events or by chance
+    bump~7v 
+    happen~5vz chance to be or do something, without intention or causation
+ homogenize ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    homogenize~1vz cause to become equal or homogeneous as by mixing
+    homogenize~2vz become homogeneous or similar, as by mixing
+    homogenize~3vz break up the fat globules of
+ hear ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) (null) ) conjugate=heard 
+    learn~2v 
+    hear~2vz receive a communication from someone
+    hear~3vz perceive via the auditory sense
+    listen~2v 
+    try~7vz examine or hear by judicial process
+ harass ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    harass~1vz exhaust by attacking repeatedly
+    harass~2vz annoy continually or chronically
+ hesitate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_NOOBJECT ) 
+    waver~9vz pause or hold back in uncertainty or unwillingness
+    pause~4vz interrupt temporarily an activity before continuing
+ had_best ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_CONJUGATE1 ) 
+    had_best~1vz act in one's own or everybody's best interest
+ had ( meanings=1 VERB_PAST VERB_PAST_PARTICIPLE AUX_HAVE VERB COMMON4 COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=has 
+    had~1vz 
+ has ( meanings=1 SINGULAR_PERSON VERB_PRESENT_3PS AUX_HAVE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=have 
+    has~1vz 
+ hid ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=hide 
+ had_better ( AUX_VERB_PRESENT KINDERGARTEN ) 
+ him ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING (null) ) 
+    him~1z 
+ her ( meanings=2 PRONOUN_OBJECT DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PREDETERMINER_TARGET ANIMATE_BEING ) 
+    her~1z 
+    her~2z 
+ hers ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 KINDERGARTEN ) 
+    hers~1z 
+ his ( meanings=2 PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET posdefault:NOUN ) 
+    his~1z 
+    his~2z 
+ herself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    herself~1z 
+ himself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    himself~1z 
+ Hwy. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Hwy ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

@@ -1,0 +1,436 @@
+
+
+
+############################################
+########### Rules about aux verbs
+############################################
+
+#	Active tenses:  have + past participle makes things perfect  --		 be + present particicple makes things continuous
+#		1. present
+#			a. simple - I can + infinitive
+#			b. perfect - I have/has + past participle
+#			c. continuous - I am + present participle
+#			d. perfect continuous - I have been + present participle
+#		2.  past
+#			a. simple
+#			b. perfect - I had + past participle
+#			c. continuous - I was + present participle
+#			d. perfect continuous - I had been + present participle
+#		3. future
+#			a: simple - I will + infinitive or  I am going_to + infinitive
+#			b. perfect - I will have + past participle 
+#			c. continuous - I will be + present participle
+#			d. perfect continuous - I will have been + present participle
+#	Passive tenses:  be + past participle makes things passive
+#		1. present
+#			a. simple - I am  + past participle
+#			b. perfect - I have/has + been + past participle
+#			c. continuous - I am + being + past participle
+#			d. perfect continuous - I have been + being + past participle
+#		2.  past
+#			a. simple - I was + past participle
+#			b. perfect - I had + been + past participle
+#			c. continuous - I was +  being + past participle
+#			d. perfect continuous - I had been + being + past participle
+#		3. future
+#			a: simple - I will + be + past participle  or  I am going_to + be + past participle
+#			b. perfect - I will have + been + past participle 
+#			c. continuous - I will be + past participle
+#			d. perfect continuous - I will have been + being + past participle
+
+# passive voice: http://www.english-zone.com/verbs/pssvchrt.html
+
+# noun verb/aux noun will be verb - Vinken (Noun_proper_singular)  is/be (Aux_be_present_3ps +Verb_present_3ps)  chairman (Noun_singular)
+ -1 CANONLYBE NOUN_BITS PRONOUN_SUBJECT  # but "how many arms *does a person have"
+	INCLUDE * AUX_VERB
+	STAY !POSTPOS VERB_INFINITIVE VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE
+DISCARD
+
+# can before aux_be infinitive will be aux - can (+Noun_singular Aux_verb_present +Verb_present)  be (Aux_be_infinitive)  
+0	INCLUDE * AUX_VERB  # except "my *can is running home"
+	IS AUX_BE
+KEEP
+
+	
+# assume in aux + verb conflict, if followed by possible infinitive we are an aux - but "we got our two six-packs and they are gone"
+# 0	INCLUDE * AUX_VERB
+#	STAY CANONLYBE AUX_VERB VERB_BITS
+#	POSSIBLEINFINITIVE
+# KEEP
+
+# will at start is always aux question -  but "be" "have" "do" aux may be commands  - but not "is snow cold"
+0	INCLUDE * AUX_VERB
+	STAY START
+	STAY !HAS AUX_BE
+KEEP
+
+# possible AUX_VERB_FUTURE not question (not at start or after qword) followed by adverb and possible noun/verbinfintive will be verb "can (Aux_verb_present +Verb_infinitive +Verb_present)  actually (Adverb)  see (Noun_singular +Verb_infinitive +Verb_present)" 
+-1	!ISQWORD
+	INCLUDE * AUX_VERB_FUTURE AUX_VERB_PRESENT
+	STAY !START
+	IS ADVERB
+	POSSIBLEINFINITIVE 
+KEEP
+
+# all tense helpers require infinitive or participles
+0	INCLUDE * AUX_VERB
+	STAY !POSTPOS VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE VERB_INFINITIVE
+DISCARD
+
+# aux have requires past participle or be
+0	INCLUDE * AUX_HAVE
+	STAY !POSTPOS AUX_BE VERB_PAST_PARTICIPLE
+DISCARD
+
+# if conflict like this  can (Aux_verb_present +Verb_present)  do (+Verb_infinitive +Verb_present)  be aux
+0	INCLUDE * AUX_VERB
+	STAY CANONLYBE VERB_BITS AUX_VERB
+	CANONLYBE VERB_BITS
+KEEP
+
+# aux must have verb later somewhere
+0	INCLUDE * AUX_VERB
+	STAY !POSTPOS VERB_BITS
+DISCARD
+
+################################## Rules about NOT being aux
+
+# potential aux 2nd word after qword start "how *can you do this" but not "what is the best show."
+-1  START
+	INCLUDE * AUX_VERB
+	SKIP !IS VERB_BITS
+	!IS VERB_BITS
+	ISQUESTION qword
+KEEP
+
+# cannot be aux without some verb following it "what will *is this"
+0	INCLUDE * AUX_VERB
+	SKIP !HAS VERB_BITS
+	!HAS VERB_BITS
+DISCARD
+
+# cannot be aux before present tense verb - "what *will is this"
+0	INCLUDE * AUX_VERB
+	IS VERB_PRESENT VERB_PRESENT_3PS
+DISCARD
+
+# aux cannot precede TO infinitive : "he *has to have been there"  "he *has to eat dinner"
+0	INCLUDE * AUX_VERB
+	HAS TO_INFINITIVE
+DISCARD
+
+#  aux followed by a noun cannot be aux "It *was a tomb." unless invert at sentence start question or qword "who *was the ball hit by" -- "how rapidly was the ball hit"
+0	INCLUDE * AUX_VERB 
+	SKIP !IS ADJECTIVE_BITS ADVERB DETERMINER
+	IS NOUN_BITS PRONOUN_POSSESSIVE PRONOUN_BITS 
+	!ISQUESTION aux qword 
+DISCARD
+
+# potential aux cannot be followed by to infinitive "he has to be sane"
+0	INCLUDE * AUX_VERB
+	IS TO_INFINITIVE
+DISCARD
+
+# potential aux cannot be preceeded by to infinitive "to be"  -- except "to have tried" or "to have been tried"
+-1	HAS TO_INFINITIVE
+	INCLUDE * AUX_VERB
+	!HAS AUX_VERB VERB_PAST_PARTICIPLE
+DISCARD
+
+# IS THIS REDUNDANT TEST? for something to be an auxilliary verb, there must be some other possible verb or aux_verb located LATER in the sentence
+0	INCLUDE  * AUX_VERB
+	SKIP !HAS VERB_BITS  AUX_VERB  # should accept "will you *have been gone"
+	!HAS VERB_BITS  AUX_VERB	
+DISCARD
+
+# cannot preceed to_infinitive with aux... "I *had to sleep yesterday."  --- except can for "I am *used_to going"
+0  INCLUDE * AUX_VERB 
+	STAY !ISCANONICAL used_to
+	IS TO_INFINITIVE
+DISCARD
+
+# these not after a determiner or preposition 
+-1	IS DETERMINER PREPOSITION 
+	INCLUDE * AUX_VERB
+DISCARD
+
+# but could follow pure possive: Bob's will be good. (implied noun) # He is a boy.
+
+################################## Rules about being aux
+
+# negative adverb at start followed by potential aux will be aux
+-1  IS ADVERB
+	STAY ISMEMBER ~negative_adverb_starter 
+	INCLUDE * AUX_VERB
+KEEP
+
+######## WILL
+
+# simple question form: "Will you go"
+0	INCLUDE * AUX_VERB
+	STAY START
+	STAY ISORIGINAL will
+	IS PRONOUN_BITS POSSESSIVE_BITS DETERMINER ADJECTIVE_BITS NOUN_BITS
+KEEP
+
+#will - future perfect continuous	WILL HAVE BEEN + present/past participle    # future perfect 	WILL HAVE + past participle
+0	INCLUDE * AUX_VERB
+	STAY ISCANONICAL will
+	SKIP HAS ADVERB			# will not/often have
+	ISCANONICAL have
+KEEP
+
+# future continuous 	WILL + BE + present/past  participle		- i will be gone before you know it
+0	INCLUDE * AUX_VERB	
+	STAY ISCANONICAL will
+	SKIP HAS ADVERB		# will not/often be
+	ISORIGINAL be
+	SKIP HAS ADVERB		# I will be rapidly swimming
+	HAS VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE
+KEEP 
+
+# future simple   	WILL + infinitive  
+0	INCLUDE * AUX_VERB	
+	STAY ISCANONICAL will
+	POSSIBLEINFINITIVE
+KEEP
+
+######## GOING_TO
+
+# going_to  future simple -- "are you *going_to swim soon"
+0	INCLUDE * AUX_VERB
+	STAY ISCANONICAL going_to
+	SKIP HAS ADVERB
+	POSSIBLEINFINITIVE
+
+	RESETLOCATION REVERSE	# preceeded by a "be" somewhere
+	SKIP !ISCANONICAL be
+	ISCANONICAL be
+KEEP
+
+######## HAVE	have + past participle makes things perfect    or    have + been
+
+# pending have aux before known "been" - "what *have you been doing"
+0	INCLUDE * AUX_HAVE
+	SKIP !HAS AUX_VERB VERB_BITS # stop at 1st aux or verb you hit
+	IS AUX_BE	 # been
+	STAY HASORIGINAL VERB_PAST_PARTICIPLE
+KEEP
+
+# has/had not followed  by past participle or been  cannot be aux - allow: "*have you had any pets"
+0	INCLUDE * AUX_HAVE
+	SKIP !HAS VERB_PAST_PARTICIPLE AUX_BE VERB_PAST AUX_VERB_PAST
+	!HAS VERB_PAST_PARTICIPLE AUX_BE VERB_PAST AUX_VERB_PAST
+DISCARD
+
+# has followed by object wont be aux, but if starting question sentence it could be... except under question inversion: "what *have you been doing"  - not "her book had lost a page"
+0	INCLUDE * AUX_HAVE
+	STAY !START			# though this could be spoofed "regularly *have you been gone" though unlikely
+	IS DETERMINER PRONOUN_BITS ADJECTIVE_BITS 
+	!ISQUESTION aux qword
+DISCARD
+
+# "have walked"  "have been walking" 
+0	INCLUDE * AUX_HAVE
+	SKIP HAS ADVERB		# optional
+	HAS VERB_PAST_PARTICIPLE AUX_BE
+KEEP
+
+# has/had followed eventually by past participle -- "has the man gone" --   "he *has gone"   but it might bind wrong  # to spoof would need a plural/mass noun also a verb past participle
+0	INCLUDE * AUX_HAVE
+	SKIP !HAS VERB_PAST_PARTICIPLE AUX_BE
+	IS VERB_PAST_PARTICIPLE AUX_BE
+KEEP
+
+######## DO  - question do-- "do you like"
+
+# do cannot be aux if preceeded by aux  "what would you *do on a date"
+REVERSE 0  INCLUDE * AUX_DO 
+		STAY 
+		SKIP !HAS AUX_VERB CONJUNCTION COMMA # dont go past boundaries "bees like honey as we do but *do not like us"
+		HAS AUX_VERB
+DISCARD
+
+# do not at start will not be aux unless in front of verb infinitive : "they *do write"  "when *did the pain begin" but not "*do as I say"
+0	INCLUDE * AUX_DO
+	STAY !START
+	SKIP !HAS VERB_INFINITIVE
+	!HAS VERB_INFINITIVE
+DISCARD
+
+######## BE 
+
+# aux been requires present or past participle (passive) after it or aux (like being) "I have been going"  illegal: "I have been gone"   "I have been being painted"
+0	INCLUDE * AUX_BE
+	STAY HASORIGINAL VERB_PAST_PARTICIPLE # been 
+	SKIP IS  ADVERB
+	!HAS VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE AUX_BE AUX_VERB
+DISCARD
+
+# is/was followed by object wont be aux, but if starting question sentence it could be... AND if split by qword "who *was the ball hit by"  but misses "regularly *are you gone" 
+0	INCLUDE * AUX_BE 
+	STAY !START
+	IS DETERMINER PRONOUN_BITS ADJECTIVE_BITS 
+	!ISQUESTION qword
+DISCARD
+
+# verb/aux conflict followed by verb/adjparticiple conflict which should be adjective participle - "I *am outmoded"
+0	INCLUDE * AUX_BE
+	SKIP IS ADVERB
+	CANONLYBE VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE ADJECTIVE_PARTICIPLE
+	STAY HASPROPERTY COMMON_PARTICIPLE_VERB
+DISCARD
+
+# is/was followed by not participle of any kind (including aux) must be a verb  -- need to find "I am going" or "I am gone" but "I am going to" is aux
+0	INCLUDE * AUX_BE
+	STAY !HASORIGINAL VERB_PAST_PARTICIPLE # not been
+	SKIP !HAS AUX_BE AUX_VERB_FUTURE VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE
+	!HAS AUX_BE AUX_VERB_FUTURE VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE
+DISCARD
+
+# "be" followed by adverb and then adjective (or just adjective) is NOT aux  "he *is much too inexperienced."
+0	INCLUDE  * AUX_BE 	
+	SKIP IS ADVERB  
+	IS ADJECTIVE_BITS
+DISCARD 
+
+# normal be followed by participle and not common participle "he was gone"  "he is painting
+0	INCLUDE * AUX_BE
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP HAS ADVERB
+	HAS  VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+
+# normal be followed by going_to is aux
+0	INCLUDE * AUX_BE
+	SKIP IS ADVERB
+	IS AUX_VERB  # going_to is always aux
+KEEP
+
+#### normal  be followed by present participle unless adjective_participle  "I *am walking"  - continuous tense   "I *was walking"
+0	INCLUDE * AUX_BE
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP HAS ADVERB
+	HAS VERB_PRESENT_PARTICIPLE 
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+ 
+### been followed by participle  "the car has *been washing itself"  "the car has *been being washed"   "I have been going"  "had the man *been watching" 
+0	INCLUDE * AUX_BE
+	STAY ISORIGINAL been
+	SKIP HAS ADVERB
+	HAS  VERB_PRESENT_PARTICIPLE AUX_BE
+KEEP
+
+### been followed by participle  "the car has *been washed"  but not "I have *been outmoded before"  but not "he has been the only one to have flown"
+0	INCLUDE * AUX_BE
+	STAY ISORIGINAL been
+	SKIP HAS ADVERB
+	HAS VERB_PAST_PARTICIPLE
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+
+# verb/aux conflict followed by verb/adjparticiple conflict "I am walked" will force aux + participle when not common participle verb but not "the basement has to *be flooded" because of to
+-1	!HAS TO_INFINITIVE
+	INCLUDE * AUX_BE
+	SKIP IS ADVERB
+	CANONLYBE VERB_PAST_PARTICIPLE ADJECTIVE_PARTICIPLE
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+
+#### QUESTION INVERTED ORDER FORMAT
+
+# question is/was followed eventually by present participle -- "is the man sleeping" -- will not bind wrong
+0	INCLUDE * AUX_BE
+	STAY START
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP !HAS VERB_BITS  # but clauses will fool it like "is the man who is my neighbor sleeping"
+	HAS VERB_PRESENT_PARTICIPLE
+KEEP
+
+#### question be  followed by past participle and not common participle will be past tense  " was he gone" 
+0	INCLUDE * AUX_BE
+	STAY START
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP !HAS VERB_BITS
+	HAS  VERB_PAST_PARTICIPLE
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+
+# question be followed by going_to is aux "is he going to go"
+0	INCLUDE * AUX_BE
+	STAY START
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP !HAS AUX_VERB
+	HAS AUX_VERB  # going_to is always aux
+KEEP
+
+#############
+# GENERIC AUX	
+#############
+
+# inverted order with insured verb after subject potential "what kind *are you interested in"
+0	INCLUDE * AUX_VERB
+	CANONLYBE NOUN_BITS PRONOUN_BITS
+	CANONLYBE VERB_BITS
+KEEP
+
+# SPECIAL aux hack for will and can as sentence start -- but wont handle "Will" the name
+0	INCLUDE * AUX_VERB
+	STAY HAS NOUN_SINGULAR
+	STAY START
+KEEP
+
+# simple question form: "*is the man sleeping" but not "*have you a knife" or "*Will came home" or "*be it whatever it is, I like you"  - but not "do *as I say"
+0	INCLUDE * AUX_VERB 
+	STAY START
+	STAY !ISORIGINAL will		# might be name Will
+	IS PRONOUN_BITS NOUN_BITS DETERMINER_BITS ADJECTIVE_BITS 
+KEEP
+
+# potential infinitifve verb following std aux (not be or have) will be infinitive and no other tense " I do often *go"  -- really a strong guess -- but not "she *got upset" - not "this *is mine"
+
+# cannot have a noun equivalent or preposition after aux verb   "I *am a dog"  "I am of the people" -- BUT in question mode:  what did John eat. you can
+
+#  aux followed by NOT will be aux  "I *can not believe"  EXCEPT "I am not blue" where we have possible adjective
+0	INCLUDE * AUX_VERB 
+	ISORIGINAL not			
+	HAS VERB_BITS
+	STAY !HAS ADJECTIVE_BITS
+KEEP
+
+# aux which is NOT be or have, will need to find  verb_infinitive after it  "I *can go" - but not "let me *get a plate" and not "we *are all afraid" or "with my *might"
+ # cant have TO after it
+
+# aux as first word WILL be aux for sure with pronoun following it
+0	INCLUDE * AUX_VERB  # can you play, will you play (but Will as a name...)
+	STAY START
+	HAS PRONOUN_BITS
+KEEP
+
+# tag questions try to be modal # "I can eat, *can {not} you"
+-1	IS COMMA
+	INCLUDE * AUX_VERB 
+	SKIP ISORIGINAL not
+	HAS PRONOUN_SUBJECT
+	STAY END
+KEEP
+
+
+# aux following qword not be  - "why *do people lie?"   but not "who *are you"  also not "why do you"
+
+# aux followed by noun phrase 1 followed by potential verb- generic
+
+# aux following question word and followed by noun phrase 2 followed by potential verb - "when *did the elephant fart"  but not "I *have a friend named Harry"
+
+# aux followed by noun phrase 3 followed by potential verb- when did the elephant fart
+
+ # aux followed by noun phrase 4 followed by potential verb- when did the big elephant fart
+
+
+# aux (not be) followed by potential verb (not be)  the aux becomes real. # Legal: he can light a match. Illegal:  He is light. The can is good.
+
+# potential aux other than be with potential verb  or aux after it	# They  had proved it. # She (is) usually described as pretty. #	Dont recognize: I was (outmoded). want adjective  -- want  I have often been found guilty
+
+#  aux followed by poatential verb followed by adjective or determiner # he can light a match

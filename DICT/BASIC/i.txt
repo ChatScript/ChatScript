@@ -1,0 +1,1261 @@
+﻿ instrument ( meanings=9 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tool~1nz (^agency~1) the means whereby some act is accomplished
+    instrument~2nz (^device~2) a device that requires skill for proper use
+    instrument~3nz (^device~2) any of various devices or contrivances that can be used to produce musical tones or sounds
+    instrument~4nz (^family~3) the semantic role of the entity that the agent uses to perform an action or start a process
+    instrument~5nz (^document~2) a document that states some contractual relationship or grants some right
+    pawn~3nz (^helper~2) a person used by another to gain an end
+    instrument~7vz address a legal document to
+    instrument~8vz write an instrumental score for
+    instrument~9vz equip with instruments for measuring, recording, or controlling
+ infraction ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    infraction~1nz (^crime~1) a crime less serious than a felony
+ impress ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    impress~1nz (^getting~1) the act of coercing someone into government service
+    impress~2vz dye before it is spun
+    impress~3vz produce or try to produce a vivid impression of
+    impress~4vz take against his will for compulsory service, especially on board a ship
+    impress~5vz mark or stamp with or as if with pressure
+    print~10v 
+    strike~20v 
+    impress~8vz impress positively
+ incline ( meanings=8 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ramp~1n 
+    side~12n 
+    dispose~2vz make receptive or willing towards an action or attitude or belief
+    incline~4vz feel favorably disposed or willing
+    pitch~21v 
+    incline~6vz lower or bend , as in a nod or bow
+    incline~7vz bend or turn towards a speaker in order to listen well
+    run~54v 
+ international ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    outside~7az from or between other countries
+    international~2az concerning or belonging to all or at least two or more nations
+    international~3az 
+ is ( meanings=1 SINGULAR_PERSON VERB_PRESENT_3PS AUX_BE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=are 
+    is~1vz 
+ institution ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    founding~1n 
+    institution~2nz (^structure~1) an establishment consisting of a building or complex of buildings where an organization for the promotion of some cause is situated
+    institution~3nz (^hospital~1) a hospital for mentally incompetent or unbalanced person
+    institution~4nz (^custom~3) a custom that for a long time has been an important feature of some group or society
+    institution~5nz (^organization~6) an organization founded and united for a specific purpose
+ instruction ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    education~2n 
+    teaching~2nz (^education~1) the profession of a teacher
+    command~4n 
+    direction~6n 
+ individual ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    soul~1nz (^being~1) a human being
+    individual~2nz (^being~1) a single organism
+    single~3az being or characteristic of a single thing or person
+    individual~4az separate and distinct from others of the same kind
+    private~3az concerning one person exclusively
+    single~7az characteristic of or meant for a single person or thing
+    individual~7az 
+ infinite ( meanings=6 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    space~1n 
+    infinite~2az total and all-embracing
+    innumerable~1a 
+    infinite~4az having no limits or boundaries in time or space or extent or magnitude
+    infinite~5az of verbs
+    infinite~6az 
+ immigration ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    immigration~1nz (^motion~1) migration into a place
+    immigration~2nz (^body~9) the body of immigrants arriving during a specified interval
+ incurring ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    incurring~1nz (^getting~1) acquiring or coming into something 
+ insider ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) comparative=inside 
+    insider~1nz (^executive~3) an officer of a corporation or others who have access to private information about the corporation's operations
+ incentive ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    incentive~1nz (^need~1) a positive motivational influence
+    bonus~2nz (^payment~3) an additional payment to employees as a means of increasing output
+ illusion ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    trick~1n 
+    delusion~1nz (^deception~2) the act of deluding
+    fancy~2n 
+    semblance~3n 
+ impulse ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    impulse~1nz (^drive~1) the act of applying force suddenly
+    impulse~2nz (^strength~3) an impelling force or strength
+    impulse~3nz (^event~1) the electrical discharge that travels along a nerve fiber
+    impulse~4nz (^wave~4) a sharp transient wave in the normal electrical state (or a series of such transients)
+    caprice~1nz (^desire~2) a sudden desire
+    urge~2nz (^need~1) an instinctive motive
+ influence ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    influence~1nz (^act~1) causing something without any direct or apparent effort
+    influence~2nz (^power~2) a power to affect persons or events especially power based on prestige etc
+    influence~3nz (^knowledge~1) a cognitive factor that tends to have an effect on what you do
+    influence~4nz (^power~7) one having power to influence another
+    influence~5nz (^result~4) the effect of one thing on another
+    shape~9v 
+    charm~5v 
+    work~31v 
+ inducing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    inducing~1nz (^act~1) 
+ insinuation ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    insinuation~1nz (^temptation~1) the act of gaining acceptance or affection for yourself by persuasive and subtle blandishments
+    insinuation~2nz (^charge~6) an indirect implication
+ inside ( meanings=12 glosses=10 NOUN ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) comparative=insider 
+    interior~1nz (^surface~5) the inner or enclosed surface of something
+    interior~2nz (^part~9) the region that is inside of something
+    inside~3az away from the outer edge
+    inside~4az being or applying to the inside of a building
+    inside~5az relating to or being on the side closer to the center or within a defined space
+    inner~6az confined to an exclusive group
+    inside~7az 
+    inside~8bz in reality
+    inside~9bz within a building
+    within~1bz on the inside
+    inside~11bz with respect to private feelings
+    inside~12z 
+ imminent ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    imminent~1az close in time
+    imminent~2az 
+ incomplete ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    incomplete~1az not complete or total
+    incomplete~2az not yet finished
+    incomplete~3az 
+ induced ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    induced~1az brought about or caused
+ introduction ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    introduction~1nz (^beginning~1) the act of beginning something new
+    foundation~1nz (^beginning~1) the act of starting something for the first time
+    introduction~3nz (^movement~2) the act of putting one thing into another
+    introduction~4nz (^section~4) the first section of a communication
+    introduction~5nz (^textbook~1) a basic or elementary instructional text
+    introduction~6nz (^message~2) a new proposal
+    introduction~7nz (^act~1) formally making a person known to another or to the public
+ inaugural ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    inaugural~1nz (^ceremony~3) the ceremonial induction into a position
+    inaugural~2nz (^address~7) an address delivered at an inaugural ceremony
+    maiden~3a 
+    inaugural~4az occurring at or characteristic of a formal investiture or induction
+ inspection ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    inspection~1nz (^examination~1) a formal or official examination
+ inclining ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    inclining~1nz (^motion~2) 
+ increase ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    increase~1nz (^change~1) the act of increasing something
+    increase~2nz (^amount~2) the amount by which something increases
+    increase~3nz (^change~5) a change resulting in an increase
+    growth~6nz (^process~1) a process of becoming larger or longer or more numerous or more important
+    gain~4nz (^measure~1) a quantity that is added
+    increase~6vz make bigger or more
+    increase~7vz become bigger or greater in amount
+ interest ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    pastime~1nz (^recreation~2) a diversion that occupies one's time and thoughts 
+    interest~2nz (^benefit~1) a reason for wanting something done
+    interest~3nz (^power~2) the power of attracting or holding one's attention 
+    interest~4nz (^wonder~1) a sense of concern with and curiosity about someone or something
+    interest~5nz (^group~1) a social group whose members control some field of activity and who have common aims
+    stake~4nz (^share~4) a right or legal share of something
+    interest~7nz (^charge~14) a fixed charge for borrowing money
+    interest~8vz excite the curiosity of
+    occupy~8vz be on the mind of
+    interest~10vz be of importance or consequence
+ ice_skating ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    ice_skating~1nz (^skating~1) skating on ice
+ ice ( meanings=10 glosses=9 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ice~1nz (^building~3) a rink with a floor of ice for ice hockey or ice skating
+    trash~1n 
+    ice~3nz (^dessert~1) a frozen dessert with fruit flavoring
+    frosting~1nz (^topping~1) a flavored sugar topping used to coat and decorate cakes
+    ice~5nz (^object~1) the frozen part of a body of water
+    ice~6nz (^diamond~4) diamonds
+    ice~7nz (^crystal~6) water frozen in the solid state
+    ice~8vz put ice on or put on ice
+    ice~9vz cause to become ice or icy
+    frost~7vz decorate with frosting
+ icing ( meanings=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    icing~1nz (^play~6) 
+    ice~4n 
+    frost~2n 
+ ironing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    ironing~1nz (^work~1) the work of using heat to smooth washed clothes in order to remove any wrinkles
+    ironing~2nz (^clothing~1) garments that are to be (or have been) ironed
+ interior ( meanings=8 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE ) 
+    inside~1n 
+    inside~2n 
+    interior~3az of or coming from the middle of a region or country
+    interior~4az inside and toward a center
+    inner~3a 
+    interior~6az situated within or suitable for inside a building
+    home~10a 
+    interior~8az 
+ inscription ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    inscription~1nz (^writing~1) the activity of inscribing letters or words
+    lettering~1nz (^writing~4) letters inscribed on something
+    inscription~3nz (^message~1) a short message dedicating it to someone or something
+ image ( meanings=11 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) (null) ) 
+    effigy~1nz (^creation~3) a representation of a person 
+    picture~3n 
+    image~3nz (^effect~1) the general impression that something presents to the public
+    image~4nz (^appearance~4) a personal facade that one presents to the world
+    image~5nz (^content~2) an iconic mental representation
+    image~6nz (^example~4) a standard or typical example
+    figure~9n 
+    range~5nz (^set~9) the set of values of the dependent variable for which a function is defined
+    double~4n 
+    picture~11v 
+    image~11vz render visible, as by means of MRI
+ investigating ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    investigating~1nz (^work~1) 
+ incision ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    section~1nz (^cut~5) the cutting of or into body tissues or organs
+    scratch~9n 
+ invasion ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    invasion~1nz (^attack~5) the act of invading
+    invasion~2nz (^spread~8) the spread of pathogenic microorganisms or malignant cells to new sites in the body
+    invasion~3nz (^entering~2) any entry into an area not previously occupied
+ injury ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    injury~1nz (^activity~1) wrongdoing that violates another's rights and is unjustly inflicted
+    injury~2nz (^activity~1) an act that causes someone or something to receive physical damage
+    injury~3nz (^accident~2) an accident that results in physical damage or hurt
+    wound~2n 
+    harm~3n 
+ injustice ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    injustice~1nz (^activity~1) an unjust act
+    injustice~2nz (^quality~1) the practice of being unjust or unfair
+ illegal ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    illegal~1az prohibited by law or by official or accepted rules
+    illegal~2az 
+ immune ( meanings=6 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    immune~1nz (^individual~1) a person who is immune to a particular infection
+    immune~2az not affected by a given influence
+    immune~3az relating to or conferring immunity
+    immune~4az secure against
+    immune~5az relating to the condition of immunity
+    immune~6az 
+ instinctive ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    natural~13a 
+ industrial ( meanings=6 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    industrial~1nz 
+    industrial~2az suitable to stand up to hard wear
+    industrial~3az having highly developed industries
+    industrial~4az employed in industry
+    industrial~5az of or relating to or resulting from industry
+    industrial~6az 
+ imaging ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    imaging~1nz (^activity~1) 
+    imaging~2nz (^operation~8) 
+ industry ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    manufacture~1nz (^business~3) the organized action of making of goods and services for sale
+    industry~2nz (^purpose~1) persevering determination to perform a task
+    industry~3nz (^enterprise~3) the people or companies engaged in a particular kind of commercial enterprise
+ incarnation ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    incarnation~1nz (^realization~2) the act of attributing human characteristics to abstract ideas etc.
+    incarnation~2nz (^individual~1) a new personification of a familiar idea
+    incarnation~3nz (^time~5) time passed in a particular bodily form
+ invention ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    invention~1nz (^creation~2) the act of inventing
+    invention~2nz (^creation~3) a creation resulting from study and experimentation
+    design~4n 
+ information ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    information~1nz (^metric~1) a numerical measure of the uncertainty of an outcome
+    information~2nz (^knowledge~1) knowledge acquired through study or experience or instruction
+    information~3nz (^message~2) a message received and understood
+    information~4nz (^charge~6) formal accusation of a crime
+    data~1nz (^collection~4) a collection of facts from which conclusions may be drawn
+ intelligence ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    intelligence~1nz (^operation~6) the operation of gathering information about an enemy
+    intelligence~2nz (^ability~2) the ability to comprehend
+    word~2n 
+    intelligence~4nz (^information~3) secret information about an enemy 
+    intelligence~5nz (^unit~3) a unit responsible for gathering and interpreting information about an enemy
+ indexing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    indexing~1nz (^classification~1) the act of classifying and providing an index in order to make items easier to retrieve
+ instant ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE TIMEWORD ) 
+    moment~5nz (^point~26) a particular point in time
+    flash~10n 
+    insistent~2az demanding attention
+    instant~4az occurring with no delay
+    instant~5az in or of the present month
+    instant~6az 
+ imitation ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    imitation~1nz (^copying~1) copying the actions of someone else
+    imitation~2nz (^copy~1) something copied or derived from an original
+    imitation~3nz (^philosophy~1) the doctrine that representations of nature or human behavior should be accurate imitations
+    imitation~4nz (^humor~5) a representation of a person that is exaggerated for comic effect
+    false~6a 
+ idol ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    god~1nz (^image~1) a material effigy that is worshipped
+    paragon~1nz (^ideal~1) an ideal instance
+    idol~3nz (^principal~4) someone who is adored blindly and excessively
+ issue ( meanings=16 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    issuing~1nz (^supply~1) the act of providing an item for general use or for official purposes 
+    issue~2nz (^printing~1) the act of issuing printed materials
+    exit~2nz (^opening~6) an opening that permits escape or release
+    subject~2n 
+    issue~5nz (^content~2) an important question that is in dispute and must be settled
+    number~7n 
+    issue~7nz (^beginning~3) the becoming visible
+    issue~8nz (^relative~2) the immediate descendants of a person
+    result~4n 
+    yield~3n 
+    issue~11nz (^store~4) supplies issued by the government
+    emerge~3v 
+    release~16v 
+    issue~14vz bring out an official document
+    cut~43v 
+    supply~7v 
+ issuing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB ) 
+    issue~1n 
+ insurance ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    policy~2n 
+    insurance~2nz (^security~6) promise of reimbursement in the case of loss
+    insurance~3nz (^protection~7) protection against future loss
+ indulging ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    humoring~1nz (^change~1) 
+ importing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    importing~1nz (^commerce~1) 
+ ill ( meanings=9 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    ailment~1nz (^upset~5) an often persistent bodily disorder or disease
+    ill~2az presaging ill fortune
+    ill~3az distressing
+    ill~4az resulting in suffering or adversity
+    ill~5az indicating hostility or enmity
+    sick~7a 
+    badly~1b 
+    ill~8bz with difficulty or inconvenience
+    badly~3b 
+ insult ( meanings=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    affront~1n 
+    abuse~3n 
+    affront~2v 
+ intermediate ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE VERB_NOOBJECT ) 
+    intermediate~1nz (^chemical~1) a substance formed during a chemical process before the desired product is obtained
+    intermediate~2az lying between two extremes in time or space or state
+    average~5a 
+    intermediate~4az 
+    intermediate~5vz act between parties with a view to reconciling differences
+ ivory ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN (null) ) 
+    bone~1n 
+    ivory~2nz (^stuff~7) a hard smooth ivory colored dentine that makes up most of the tusks of elephants and walruses
+    ivory~3az 
+ insect ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    insect~1nz (^animal~1) small air-breathing arthropod
+    worm~4n 
+ imago ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) plural=imagines 
+    imago~1nz (^insect~1) an adult insect produced after metamorphosis
+    imago~2nz (^image~6) an idealized image of someone (usually a parent) formed in childhood
+ iron ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    iron~1nz (^appliance~1) home appliance consisting of a flat metal base that is heated and used to smooth cloth
+    iron~2nz (^club~5) a golf club that has a relatively narrow metal head
+    iron~3nz (^artifact~1) implement used to brand live stock
+    iron~4nz (^metal~2) a heavy ductile magnetic metallic element
+    iron~5az extremely robust
+    press~15v 
+ island ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    island~1nz (^zone~4) a zone or area resembling an island
+    island~2nz (^ground~8) a land mass that is surrounded by water
+ ice_skate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR KINDERGARTEN VERB_NOOBJECT VERB_CONJUGATE1 ) 
+    ice_skate~1nz (^skate~2) skate consisting of a boot with a steel blade fitted to the sole
+    ice_skate~2vz move along on ice skates
+ illustration ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    illustration~1nz (^creation~3) a visual representation that is used make some subject more pleasing or easier to understand
+    representative~1n 
+    illustration~3nz (^demonstration~5) showing by example
+    illustration~4nz (^art~4) artwork that helps make something clear or attractive
+ immovable ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    immovable~1nz (^property~5) property consisting of houses and land
+    immovable~2az not able or intended to be moved
+    immovable~3az 
+ import ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    import~1nz (^good~1) commodities bought from a foreign country
+    consequence~1n 
+    significance~2nz (^substance~3) a meaning that is not expressly stated but can be inferred
+    meaning~2nz (^message~2) the message that is intended or expressed or signified
+    import~5nz (^foreigner~1) an imported person brought from a foreign country
+    spell~6v 
+    import~7vz transfer into a database or document
+    import~8vz bring in from abroad
+ incinerator ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    incinerator~1nz (^chamber~2) a furnace for incinerating
+ inclined ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    inclined~1az at an angle to the horizontal or vertical position
+    inclined~2az having a preference, disposition, or tendency
+    disposed~2az having made preparations
+ index ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) plural=indices 
+    index~1nz (^finger~2) the finger next to the thumb
+    index~2nz (^list~2) an alphabetical listing of names and topics along with page numbers where they are discussed
+    index~3nz (^fact~3) a number or ratio derived from a series of observed facts
+    power~4n 
+    index~5nz (^scale~10) a numerical scale used to compare variables with one another or with some reference number
+    index~6vz adjust through indexation
+    index~7vz provide with an index
+    index~8vz list in an index
+ ingredient ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    ingredient~1nz (^element~1) a component of a mixture or compound
+    element~2nz (^part~6) an abstract part of something
+    ingredient~3nz (^food~1) food that is a component of a mixture in cooking
+ ink ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ink~1nz (^humor~3) dark protective fluid ejected into the water by cuttlefish and other cephalopods
+    ink~2nz (^liquid~4) a liquid used for printing or writing or drawing
+    ink~3vz fill with ink
+    ink~4vz mark, coat, cover, or stain with ink
+    ink~5vz append one's signature to
+ inner ( meanings=7 glosses=5 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=in 
+    inner~1az inside or closer to the inside of the body
+    inner~2az located or occurring within or closer to a center
+    interior~5az located inward
+    inner~4az innermost or essential
+    inner~5az exclusive to a center
+    inside~6a 
+    inner~7az 
+ irregular ( meanings=12 glosses=10 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    irregular~1nz (^product~1) merchandise that has imperfections
+    irregular~2nz (^individual~1) a member of an irregular armed force that fights a stronger force by sabotage and harassment
+    irregular~3az not occurring at expected times
+    irregular~4az independent in behavior or thought
+    irregular~5az 
+    irregular~6az lacking continuity or regularity
+    irregular~7az deviating from normal expectations
+    irregular~8az falling below the manufacturer's standard
+    irregular~9az contrary to rule or accepted order or general practice
+    irregular~10az not having clear dimensions that can be measured
+    irregular~11az not belonging to or engaged in by regular army forces
+    irregular~12az 
+ incandescent ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    incandescent~1az emitting light as a result of being heated
+    incandescent~2az characterized by ardent emotion or intensity or brilliance
+    incandescent~3az 
+ inertia ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    inertia~1nz (^attribute~1) a disposition to remain inactive or inert
+    inertia~2nz (^process~1) the tendency of a body to maintain its state of rest or uniform motion unless acted upon by an external force
+ impatience ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    impatience~1nz (^disposition~2) a dislike of anything that causes delay
+    impatience~2nz (^fidget~1) a restless desire for change and excitement
+    impatience~3nz (^status~1) a lack of patience
+ impetuosity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    impetuosity~1nz (^attribute~1) rash impulsiveness
+ invitation ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    invitation~1nz (^allure~1) a tempting allurement
+    invitation~2nz (^letter~1) a request to participate or be present or take part in something
+ irony ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    irony~1nz (^characteristic~1) incongruity between what might be expected and what actually occurs
+    irony~2nz (^humor~5) witty language used to convey insults or scorn
+    irony~3nz (^figure~9) a trope that involves incongruity between what is expected and what occurs
+ idiosyncrasy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    foible~2nz (^attribute~1) a behavioral attribute that is distinctive and peculiar to an individual
+ infection ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    infection~1nz (^quality~1) illegality that taints or contaminates a ship or cargo rendering it liable to seizure
+    infection~2nz (^quality~1) moral corruption or contamination
+    infection~3nz (^communication~1) the communication of an attitude or emotional state among a number of people
+    infection~4nz (^event~1) an incident in which an infectious disease is transmitted
+    infection~5nz (^process~1) the invasion of the body by pathogenic microorganisms and their multiplication which can lead to tissue damage and disease
+    infection~6nz (^process~1) the alteration of a speech sound under the influence of a neighboring sound
+    infection~7nz (^status~1) the pathological state resulting from the invasion of the body by pathogenic microorganisms
+ intrepidity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    intrepidity~1nz (^courage~1) resolute courageousness
+ integrity ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    integrity~1nz (^honesty~1) moral soundness
+    integrity~2nz (^state~1) an undivided or unbroken completeness or totality with nothing wanting
+ innocence ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    innocence~1nz (^quality~1) the quality of innocent naivete
+    innocence~2nz (^status~1) a state or condition of being innocent of a specific crime or offense
+    innocence~3nz (^status~1) the state of being unsullied by sin or moral wrong
+ imbalance ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    imbalance~1nz (^property~2) a lack of symmetry
+    imbalance~2nz (^situation~4) a lack of balance or state of disequilibrium
+ interval ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    separation~5n 
+    interval~2nz (^set~9) a set containing all points between two given endpoints
+    interval~3nz (^writing~3) the difference in pitch between two notes
+    interval~4nz (^measure~1) a definite length of time marked off by two instants
+ importance ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    importance~1nz (^value~2) the quality of being important and worthy of note
+    importance~2nz (^standing~3) a prominent status
+ incompetent ( meanings=7 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    incompetent~1nz (^individual~1) someone who is not competent to take effective action
+    incapable~1az not meeting requirements
+    incompetent~3az not qualified or suited for a purpose
+    incompetent~4az legally not qualified or sufficient
+    incompetent~5az not doing a good job
+    clumsy~3a 
+    incompetent~7az 
+ inferior ( meanings=9 glosses=7 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    inferior~1nz (^character~6) a character or symbol set or printed or written beneath or slightly below and to the side of another character
+    inferior~2nz (^individual~1) one of lesser rank or station or quality
+    deficient~2a 
+    inferior~4az of or characteristic of low rank or importance
+    inferior~5az of low or inferior quality
+    inferior~6az having an orbit between the sun and the Earth's orbit
+    inferior~7az written or printed below and to one side of another character
+    inferior~8az lower than a given reference point
+    inferior~9az 
+ intestine ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    gut~2n 
+ imaginary ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    imaginary~1nz (^number~11) a number of the form a+bi where a and b are real numbers and i is the square root of -1
+    fanciful~3az not based on fact
+ incredulity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    incredulity~1nz (^doubt~2) doubt about the truth of something
+ immediate ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    contiguous~1az very close or connected in space or time
+    immediate~2az having no intervening medium
+    quick~4a 
+    immediate~4az immediately before or after as in a chain of cause and effect
+    immediate~5az of the present time and place
+    immediate~6az 
+ interpreting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    interpreting~1nz (^explanation~1) 
+ impossible ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    impossible~1nz (^choice~3) something that cannot be done
+    impossible~2az not capable of occurring or being accomplished or dealt with
+    impossible~3az totally unlikely
+    unacceptable~4az used of persons or their behavior
+    impossible~5az 
+ idea ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    estimate~2n 
+    thought~2n 
+    idea~3nz (^thought~3) a personal view
+    mind~6n 
+    idea~5nz (^line~18) melodic subject of a musical composition
+ independent ( meanings=7 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    independent~1nz (^worker~2) a writer or artist who sells services to different employers without a long-term contract with any of them
+    independent~2nz (^individual~1) a neutral or uncommitted person
+    independent~3az free from external control and constraint
+    main~3a 
+    independent~5az not controlled by a party or interest group
+    sovereign~3az not controlled by outside forces
+    independent~7az 
+ invariable ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    constant~1nz (^quantity~3) a quantity that does not vary
+    invariable~2az not liable to or capable of change
+ infinitesimal ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    infinitesimal~1nz (^quantity~3) a variable that has zero as its limit
+    minute~8a 
+ intrigue ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    intrigue~1nz (^game~8) a crafty and involved plot to achieve your ends
+    intrigue~2nz (^romance~4) a clandestine love affair
+    scheme~6vz form intrigues in an underhand manner
+    intrigue~4vz cause to be interested or curious
+ ideal ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    ideal~1nz (^thought~2) the idea of something that is perfect
+    paragon~2nz (^model~9) model of excellence or perfection of a kind
+    ideal~3az constituting or existing only in the form of an idea or mental image or conception
+    ideal~4az conforming to an ultimate standard of perfection or excellence
+    ideal~5az of or relating to the philosophical doctrine of the reality of ideas
+    ideal~6az 
+ ignorance ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    ignorance~1nz (^content~2) the lack of knowledge or education
+ italic ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE ) 
+    italic~1nz (^hand~7) a style of handwriting with the letters slanting to the right
+    italic~2nz (^face~10) a typeface with letters slanting upward to the right
+    italic~3az characterized by slanting characters
+ I ( meanings=1 PRONOUN_SUBJECT KINDERGARTEN ANIMATE_BEING (null) ) 
+    I~1z 
+ income ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    income~1nz (^gain~3) the financial gain accruing over a given period of time
+ iota ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    iota~1nz (^letter~3) the 9th letter of the Greek alphabet
+    iota~2nz (^measure~1) a tiny or scarcely detectable amount
+ interview ( meanings=5 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    audience~1n 
+    interview~2nz (^examination~4) the questioning of a person 
+    question~9v 
+    interview~4vz discuss formally with for the purpose of an evaluation
+    interview~5vz go for an interview in the hope of being hired
+ incantation ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    incantation~1nz (^charm~4) a ritual recitation of words or sounds believed to have a magical effect
+ informed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    informed~1az having much knowledge or education
+ invite ( meanings=9 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    invite~1nz (^invitation~2) a colloquial expression for invitation
+    bid~6v 
+    invite~3vz request the participation or presence of
+    invite~4vz ask to enter
+    receive~7v 
+    invite~6vz increase the likelihood of
+    invite~7vz give rise to a desire by being attractive or inviting
+    invite~8vz invite someone to one's house
+    invite~9vz have as a guest
+ insisting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    insisting~1nz (^demand~3) 
+ inquiring ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    questioning~1n 
+    inquiring~2az given to inquiry
+    inquiring~3az 
+ interrogative ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    question~6n 
+    interrogative~2nz (^relation~1) some linguists consider interrogative sentences to constitute a mood
+    interrogative~3az relating to the use of or having the nature of an interrogation
+    interrogative~4az relating to verbs in the so-called interrogative mood
+ informing ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    informing~1nz (^act~1) 
+    ratting~1nz (^act~1) to furnish incriminating evidence to an officer of the law
+ indictment ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    indictment~1nz (^instrument~5) a formal document written for a prosecuting attorney charging a person with some offense
+    indictment~2nz (^charge~6) an accusation of wrongdoing
+ impinging ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    striking~2n 
+ independence ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    independence~1nz (^victory~1) the successful ending of the American Revolution
+    independence~2nz (^freedom~1) freedom from control or influence of another or others
+ iced ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    iced~1az 
+ infantry ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    foot~8n 
+ INC ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 COMMON1 KINDERGARTEN ) 
+    INC~1nz (^opposition~3) 
+ immigrant ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    immigrant~1nz (^traveler~1) a person who comes to a country where they were not born in order to settle there
+ irresistible ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    irresistible~1az overpoweringly attractive
+    irresistible~2az impossible to resist
+    irresistible~3az 
+ infectious ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    infectious~1az easily spread
+    infectious~2az caused by infection or capable of causing infection
+    infectious~3az of or relating to infection
+    infectious~4az 
+ innocent ( meanings=9 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    innocent~1nz (^individual~1) a person who lacks knowledge of evil
+    innocent~2az lacking sense or awareness
+    free~3a 
+    innocuous~1a 
+    innocent~5az not knowledgeable about something specified
+    innocent~6az free from evil or guilt
+    innocent~7az lacking in sophistication or worldliness
+    innocent~8az free from sin
+    innocent~9az 
+ injured ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    injured~1az harmed
+    injured~2az 
+ inheritrix ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    heiress~1nz (^heir~1) a female heir
+ identical ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    identical~1az derived from a single egg or ovum
+    identical~2az coinciding exactly when superimposed
+    identical~3az having properties with uniform values along all axes
+    identical~4az exactly alike
+    very~2a 
+    identical~6az 
+ imbecile ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    imbecile~1nz (^simple~1) a person of subnormal intelligence
+    imbecile~2az having a mental age of three to seven years
+ illiterate ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    illiterate~1nz (^individual~1) a person unable to read
+    ignorant~1az uneducated in the fundamentals of a given art or branch of learning
+    illiterate~3az lacking culture, especially in language and literature
+    illiterate~4az not able to read or write
+    illiterate~5az 
+ important ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) 
+    important~1az of extreme importance
+    important~2az of great significance or value
+    important~3az having or suggesting a consciousness of high position
+    important~4az having authority or ascendancy or influence
+    significant~3az important in effect or meaning
+    important~6az 
+ invalid ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    invalid~1nz (^unfortunate~1) someone who is incapacitated by a chronic illness or injury
+    invalid~2az no longer valid
+    invalid~3az having no cogency or legal force
+    incapacitate~1v 
+    invalid~5vz force to retire, remove from active duty, as of firemen
+ investor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    investor~1nz (^individual~1) someone who commits capital in order to gain financial returns
+ interrupt ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    interrupt~1nz (^signal~3) a signal that temporarily stops the execution of a program so that another procedure can be carried out
+    break~30v 
+    interrupt~3vz destroy the peace or tranquility of
+    interrupt~4vz interfere in someone else's activity
+    interrupt~5vz make a break in
+ icicle ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE3_4 posdefault:NOUN ) 
+    icicle~1nz (^ice~7) ice resembling a pendent spear, formed by the freezing of dripping water
+ interrupted ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    interrupted~1az intermittently stopping and starting
+    interrupted~2az discontinued temporarily
+ inch ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE posdefault:NOUN VERB_NOOBJECT (null) ) 
+    inch~1nz (^unit~5) a unit of length equal to one twelfth of a foot
+    inch~2nz (^unit~5) a unit of measurement for advertising space
+    edge~9v 
+ in ( meanings=5 glosses=4 PARTICLE ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) comparative=inner 
+    in~1az currently fashionable
+    in~2az directed or bound inward
+    in~3az holding office
+    in~4bz to or toward the inside of
+    in~5z 
+ inebriation ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    inebriation~1nz (^state~1) a temporary state resulting from excessive consumption of alcohol
+    inebriation~2nz (^status~1) habitual intoxication
+ illness ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    sickness~1n 
+ impressive ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    telling~4a 
+    impressive~2az making a strong or vivid impression
+    impressive~3az 
+ irritable ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    irritable~1az easily irritated or annoyed
+    irritable~2az capable of responding to stimuli
+    irritable~3az abnormally sensitive to a stimulus
+    irritable~4az 
+ infirmity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    infirmity~1nz (^status~1) the state of being weak in health or body
+ indelible ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    indelible~1az cannot be removed or erased
+ imagines ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:VERB ) plural=imago 
+ indices ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=index 
+ indexes ( NOUN NOUN_PLURAL COMMON4 posdefault:NOUN ) 
+ iPad ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 ) 
+    iPad~1nz 
+ iPhone ( meanings=2 NOUN NOUN_PROPER_SINGULAR COMMON2 NOUN_NODETERMINER GRADE3_4 ) 
+    iPhone~1nz 
+    iPhone~2nz 
+ ick ( INTERJECTION ) 
+ ixnay ( INTERJECTION ) 
+ implicit ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    implicit~1az being without doubt or reserve
+    implicit~2az implied though not directly expressed
+ inaccurate ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    inaccurate~1az not exact
+    inaccurate~2az 
+ inactive ( meanings=10 glosses=9 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    inactive~1az not active physically or mentally
+    inactive~2az not engaged in full-time work
+    inactive~3az lacking activity
+    inactive~4az not progressing or increasing
+    passive~2az lacking in energy or will
+    inactive~6az not erupting and not extinct 
+    inactive~7az not exerting influence or change
+    still~7a 
+    inactive~9az not involved in military operations
+    inactive~10az not participating in a chemical reaction
+ incapable ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    incompetent~2a 
+    incapable~2az lacking capacity or ability
+    incapable~3az not having the temperament or inclination for
+    incapable~4az not being susceptible to or admitting of something 
+    incapable~5az 
+ inept ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    inept~1az revealing lack of perceptiveness or judgment or finesse
+    inept~2az generally incompetent and ineffectual
+    awkward~4a 
+    inept~4az 
+ impressed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    impressed~1az deeply or markedly affected or influenced
+    impressed~2az 
+ irritating ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    teasing~4a 
+    irritating~2az causing physical discomfort
+    irritating~3az serving to stimulate or excite
+    irritating~4az 
+ insensate ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    insensate~1az devoid of feeling and consciousness and animation
+    cold~11a 
+    insensate~3az 
+ intended ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    intended~1az future
+    intended~2az resulting from one's intentions
+ involved ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:VERB ) 
+    involved~1az emotionally involved
+    involved~2az entangled or hindered as if e.g. in mire
+    involved~3az connected by participation or association or use
+    involved~4az enveloped
+    involved~5az highly complex or intricate and occasionally devious
+    involved~6az 
+ impertinent ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    fresh~1a 
+    extraneous~3az not pertinent to the matter under consideration
+    saucy~2az characterized by a lightly pert and exuberant quality
+    impertinent~4az 
+ improved ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    improved~1az become or made better in quality
+    improved~2az made more desirable or valuable or profitable
+    improved~3az made ready for development or agriculture by clearing of trees and brush
+    improved~4az 
+ innumerable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    infinite~3az too numerous to be counted
+ incautious ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    incautious~1az carelessly failing to exercise proper caution
+    incautious~2az lacking in caution
+    incautious~3az 
+ impetuous ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    impetuous~1az characterized by undue haste and lack of thought or deliberation
+    impetuous~2az marked by violent force
+ indisputable ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    sure~2a 
+    indisputable~2az not open to question
+ intense ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    intense~1az having the highest saturation
+    intense~2az extremely sharp or intense
+    intense~3az possessing or displaying a distinctive feature to a heightened degree
+    intense~4az 
+ immaculate ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    spotless~1a 
+    immaculate~2az without fault or error
+    immaculate~3az free from stain or blemish
+    immaculate~4az 
+ inveterate ( meanings=2 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    inveterate~1az habitual
+    inveterate~2bz in a habitual and longstanding manner
+ inefficient ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    inefficient~1az lacking the ability or skill to perform effectively
+    inefficient~2az not producing desired results
+ intact ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    entire~3a 
+    intact~2az undamaged in any way
+    intact~3az having the hymen unbroken
+    entire~4a 
+    intact~5az 
+ imperturbable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    imperturbable~1az not easily perturbed or excited or upset
+ intelligible ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    understandable~1a 
+    intelligible~2az well articulated or enunciated, and loud enough to be heard distinctly
+    intelligible~3az 
+ impenetrable ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    impenetrable~1az impossible to understand
+    impenetrable~2az not admitting of penetration or passage into or through
+    heavy~28a 
+ incongruous ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    incongruous~1az lacking in harmony or compatibility or appropriateness
+ invincible ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    invincible~1az incapable of being overcome or subdued
+    invincible~2az 
+    invincible~3az 
+ incontrovertible ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    incontrovertible~1az necessarily or demonstrably true
+    positive~7a 
+ insistent ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    insistent~1az repetitive and persistent
+    crying~3a 
+    insistent~3az 
+ insular ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    parochial~1a 
+    insular~2az suggestive of the isolated life of an island
+    insular~3az relating to or characteristic of or situated on an island
+ irrefutable ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    incontrovertible~2a 
+ impatient ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    impatient~1az full of eagerness
+    impatient~2az restless or short-tempered under delay or opposition
+    impatient~3az 
+ ignorant ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    illiterate~2a 
+    ignorant~2az uneducated in general
+    unwitting~2a 
+    ignorant~4az 
+ impelling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    impelling~1az markedly effective as if by emotional pressure
+ ineffectual ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    ineffectual~1az not producing an intended effect
+    unable~3a 
+    ineffectual~3az producing no result or effect
+ increased ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    increased~1az made greater in size or amount or degree
+    increased~2az 
+ inflated ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    inflated~1az enlarged beyond truth or reasonableness
+    inflated~2az pretentious 
+ ingratiating ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    insinuating~1az calculated to please or gain favor
+    ingratiating~2az capable of winning favor
+ insinuating ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    ingratiating~1a 
+ incriminating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    incriminating~1az charging or suggestive of guilt or blame
+ inflexible ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    inflexible~1az resistant to being bent
+    inflexible~2az incapable of change
+    uncompromising~1a 
+    rigid~3az incapable of adapting or changing to meet circumstances
+ imported ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    imported~1az used of especially merchandise brought from a foreign source
+    imported~2az 
+ informal ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    informal~1az not formal
+    informal~2az used of spoken and written language
+    informal~3az having or fostering a warm or friendly and informal atmosphere
+    loose~9a 
+    informal~5az 
+ icy ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) comparative=iciest 
+    icy~1az covered with or containing or consisting of ice
+    icy~2az shiny and slick as with a thin coating of ice
+    frigid~1az extremely cold
+    frozen~5a 
+ inundated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    flooded~1a 
+ innocuous ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    innocent~4az lacking intent or capacity to injure
+    innocuous~2az not injurious to physical or mental health
+    innocuous~3az not causing disapproval
+    innocuous~4az 
+ insidious ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    insidious~1az working or spreading in a hidden and usually injurious way
+    insidious~2az intended to entrap
+    insidious~3az beguiling but harmful
+    insidious~4az 
+ incapacitating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    incapacitating~1az that cripples or disables or incapacitates
+ ignominious ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    black~14a 
+ insoluble ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    insoluble~1az without hope of solution
+    insoluble~2az incapable of being dissolved
+    insoluble~3az admitting of no solution or explanation
+ inconsolable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    inconsolable~1az sad beyond comforting
+ intensifying ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    intensifying~1az increasing in strength or intensity
+ interested ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    interested~1az having or showing interest
+    concerned~2a 
+    interested~3az 
+ interesting ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    interesting~1az arousing or holding the attention
+    interesting~2az 
+ intriguing ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    intriguing~1az capable of arousing interest or curiosity
+    challenging~2a 
+    intriguing~3az 
+ irksome ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    tedious~2a 
+    irksome~2az 
+ insipid ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    insipid~1az lacking interest or significance or impact
+    flat~21a 
+    insipid~3az 
+ intruding ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    intruding~1az projecting inward
+ inviting ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    inviting~1az attractive and tempting
+ ironed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    ironed~1az smoothed with a hot iron
+ identified ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    identified~1az having the identity known or established
+ interpreted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    taken~2a 
+ immense ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    huge~1a 
+    immense~2az 
+ illegible ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    illegible~1az not legible
+    illegible~2az 
+ infatuated ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    infatuated~1az marked by foolish or unreasoning fondness
+    infatuated~2az 
+ intensified ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    intensified~1az made more intense
+ implicated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    concerned~3a 
+ increasing ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    increasing~1az becoming greater or larger
+    increasing~2az music
+ impelled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    driven~2a 
+ ignored ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    neglected~2a 
+    ignored~2az 
+ impeded ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    impeded~1az made difficult or slow
+ immemorial ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    immemorial~1az long past
+ included ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    included~1az enclosed in the same envelope or package
+ irrevocable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    irrevocable~1az incapable of being retracted or revoked
+ impeding ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    hindering~1a 
+ impervious ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    impervious~1az not admitting of passage or capable of being affected
+    impervious~2az 
+ irritated ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    annoyed~1a 
+    irritated~2az 
+ impotent ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    impotent~1az lacking power or ability
+    impotent~2az unable to copulate
+    impotent~3az 
+ incapacitated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    helpless~3a 
+ impractical ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    impractical~1az not practical
+    windy~4a 
+ in_order ( meanings=2 glosses=1 ADJECTIVE CONJUNCTION_SUBORDINATE ADJECTIVE_NORMAL KINDERGARTEN posdefault:ADVERB ) 
+    in_order~1az in a state of proper readiness or preparation or arrangement
+    in_order~2z 
+ infamous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    infamous~1az known widely and usually unfavorably
+    infamous~2az 
+ irreconcilable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    irreconcilable~1az impossible to reconcile
+ insulting ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    disdainful~2a 
+    insulting~2az 
+ insatiable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    insatiable~1az impossible to satisfy
+ insecure ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    insecure~1az lacking self-confidence or assurance
+    insecure~2az lacking in security or safety
+    insecure~3az not firm or firmly fixed
+    insecure~4az not safe from attack
+    insecure~5az 
+ interwoven ( meanings=1 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=interwove 
+    interwoven~1az linked or locked closely together as by dovetailing
+ intricate ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    intricate~1az having many complexly arranged elements
+ imaginable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    imaginable~1az capable of being imagined
+ intolerable ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    intolerable~1az incapable of being put up with
+    intolerable~2az 
+ improving ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    up~7a 
+ invulnerable ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    invulnerable~1az immune to attack
+    invulnerable~2az 
+ insulted ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    insulted~1az 
+    insulted~2az 
+ icier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=icy 
+ iciest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 ) comparative=icier 
+ irritate ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    irritate~1vz excite to an abnormal condition, or chafe or inflame
+    irritate~2vz excite to some characteristic action or condition, such as motion, contraction, or nervous impulse, by the application of a stimulus
+    annoy~1v 
+ instantly ( meanings=2 glosses=1 ADVERB COMMON4 GRADE3_4 posdefault:ADVERB ) 
+    instantly~1bz without any delay
+    now~3b 
+ indeed ( meanings=3 glosses=2 ADVERB PREDETERMINER COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    indeed~1bz an expression of surprise or skepticism or irony etc.
+    so~2bz in truth 
+    indeed~3z 
+ if ( meanings=1 CONJUNCTION_SUBORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    if~1z 
+ instead ( meanings=3 glosses=2 ADVERB PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    instead~1bz in place of, or as an alternative to
+    rather~3bz on the contrary
+    instead~3z 
+ into ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    into~1z 
+ in_fact ( meanings=1 ADVERB CONDITIONAL_IDIOM KINDERGARTEN posdefault:ADVERB  poscondition=?=R ) 
+    in_fact~1bz 
+ incidentally ( meanings=2 glosses=2 ADVERB COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    incidentally~1bz introducing a different topic
+    accidentally~3bz of a minor or subordinate nature
+ in_case ( meanings=3 ADVERB CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    just_in_case~1b 
+    in_case~2z 
+    in_case~3z 
+ in_other_words ( meanings=1 ADVERB CONDITIONAL_IDIOM KINDERGARTEN  poscondition=?=R ) 
+    in_other_words~1bz 
+ individually ( meanings=1 glosses=1 ADVERB COMMON4 GRADE5_6 posdefault:ADVERB ) 
+    individually~1bz apart from others
+ in_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    in_that~1z 
+ if_and_only_if ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    if_and_only_if~1z 
+ iff ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    iff~1z 
+ if_possible ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    if_possible~1z 
+ if_necessary ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    if_necessary~1z 
+ if_only ( meanings=3 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    if_only~1z 
+    if_only~2z 
+    if_only~3z 
+ if_when ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    if_when~1z 
+ if_then ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    if_then~1z 
+ inasmuch_as ( meanings=2 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    inasmuch_as~1z 
+    inasmuch_as~2z 
+ in_order_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    in_order_that~1z 
+ in_case_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    in_case_that~1z 
+ in_the_event_that ( meanings=2 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    in_the_event_that~1z 
+    in_the_event_that~2z 
+ in_the_event ( meanings=2 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    in_the_event~1z 
+    in_the_event~2z 
+ insofar_as ( meanings=2 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    insofar_as~1z 
+    insofar_as~2z 
+ in_addition ( ADVERB CONDITIONAL_IDIOM KINDERGARTEN  poscondition=?=R ) 
+ including ( meanings=1 PREPOSITION COMMON4 COMMON2 COMMON1 posdefault:PREPOSITION ) 
+    including~1z 
+ inhale ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    inhale~1vz draw in 
+    inhale~2vz draw deep into the lungs in by breathing
+ impregnate ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    impregnate~1vz make pregnant
+    impregnate~2vz fertilize and cause to grow
+    saturate~2vz infuse or fill completely
+    impregnate~4vz fill, as with a certain quality
+ incapacitate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    invalid~4vz injure permanently
+    incapacitate~2vz make unable to perform a certain action
+ include ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    include~1vz add as part of something else
+    include~2vz consider as part of something
+    admit~3vz allow participation in or the right to be part of
+    include~4vz have as a part, be made up out of
+ introduce ( meanings=10 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    introduce~1vz introduce
+    inaugurate~1vz be a precursor of
+    introduce~3vz put before 
+    acquaint~3vz cause to come to know personally
+    introduce~5vz furnish with a preface or introduction
+    introduce~6vz bring before the public for the first time, as of an actor, song, etc.
+    enter~4vz put or introduce into something
+    introduce~8vz bring in or establish in a new place or environment
+    introduce~9vz bring something new to an environment
+    introduce~10vz bring in a new person or object into a familiar environment
+ improve ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    better~11v 
+    amend~2v 
+ inundate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    inundate~1vz fill or cover completely, usually with water
+    flood~9v 
+ intensify ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    intensify~1vz become more intense
+    compound~8vz make more intense, stronger, or more marked
+    intensify~3vz increase in extent or intensity
+    intensify~4vz make the chemically affected part of denser or more opaque in order produce a stronger contrast between light and dark
+ inflate ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    balloon~3v 
+    inflate~2vz fill with gas or air
+    amplify~2vz exaggerate or make bigger
+    inflate~4vz increase the amount or availability of, creating a rise in value
+    inflate~5vz cause prices to rise by increasing the available currency or credit
+ inaugurate ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    introduce~2v 
+    inaugurate~2vz commence officially
+    inaugurate~3vz open ceremoniously or dedicate formally
+ imbrue ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 GRADE5_6 VERB_DIRECTOBJECT ) 
+    drench~2v 
+ inform ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    inform~1vz give character or essence to
+    inform~2vz impart knowledge of some fact, state or affairs, or event to
+    inform~3vz act as an informer
+ incur ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    find~4v 
+    incur~2vz make oneself subject to
+ interpret ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    understand~4v 
+    see~4v 
+    interpret~3vz give an interpretation or explanation to
+    interpret~4vz restate from one language into another language
+    represent~7v 
+    interpret~6vz give an interpretation or rendition of
+ ignore ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    ignore~1vz be ignorant of or in the dark about
+    disregard~3vz give little or no attention to
+    dismiss~2v 
+    disregard~5v 
+    ignore~5vz fail to notice
+ immerse ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    engross~2v 
+    immerse~2vz cause to be immersed
+    immerse~3vz thrust or throw into
+    swallow~11v 
+ identify ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    identify~1vz consider to be equal or the same
+    place~17v 
+    key~18v 
+    identify~4vz consider as similar to somebody else
+    identify~5vz conceive of as united or associated
+    name~10v 
+ imagine ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) (null) (null) ) 
+    think~7v 
+    imagine~2vz form a mental image of something that is not present or that is not the case
+ induce ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    induce~1vz reason or establish by induction
+    stimulate~3v 
+    induce~3vz cause to arise
+    stimulate~5v 
+    induce~5vz produce electric current by electrostatic or magnetic processes
+ inspect ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    inspect~1vz examine carefully for accuracy with the intent of verification
+    visit~10v 
+    inspect~3vz look over carefully
+ intend ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    mean~11vz have in mind as a purpose
+    intend~2vz design or destine
+    mean~14vz denote or connote
+    mean~15vz mean or intend to express or convey
+ insist ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    insist~1vz assert to be true
+    insist~2vz beg persistently and urgently
+    insist~3vz be emphatic or resolute and refuse to budge
+ inquire ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    wonder~4v 
+    ask~3v 
+    investigate~1v 
+ intrude ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    intrude~1vz thrust oneself in as if by force
+    intrude~2vz enter uninvited
+    poke~10v 
+    intrude~4vz enter unlawfully on someone's property
+ instigate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    instigate~1vz serve as the inciting cause of
+    incite~1vz provoke or stir up
+ indicate ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) ) 
+    argue~2v 
+    point~29v 
+    show~8v 
+    indicate~4vz to state or express briefly
+    suggest~3v 
+ investigate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    inquire~3vz conduct an inquiry or investigation of
+    investigate~2vz investigate scientifically
+ impeach ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    accuse~1v 
+    impeach~2vz charge with an offense or misdemeanor committed while in office
+    impeach~3vz challenge the honesty or veracity of
+ incriminate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    impeach~1vz bring an accusation against
+    incriminate~2vz suggest that someone is guilty
+ incite ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    instigate~2v 
+    incite~2vz urge on
+    move~11v 
+ insinuate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    insinuate~1vz give to understand
+    insinuate~2vz introduce or insert in a subtle manner
+ itemize ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    recite~2v 
+    itemize~2vz place on a list of items
+ indulge ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    indulge~1vz yield 
+    indulge~2vz enjoy to excess
+    indulge~3vz give free rein to
+    spoil~11v 
+ impinge ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    impinge~1vz advance beyond the usual limit
+    impinge~2vz impinge or infringe upon
+ impede ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    jam~6v 
+    hinder~3v 
+ impel ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    propel~1v 
+    force~17v 
+ interweave ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=interwoven 
+    weave~2v 
+ invent ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    invent~1vz come up with after a mental effort
+    manufacture~3v 
+ imitate ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    imitate~1vz make a reproduction or copy of
+    copy~7v 
+    imitate~3vz appear like, as in behavior or appearance
+ irk ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    irk~1vz irritate or vex
+ ingratiate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    ingratiate~1vz gain favor with somebody by deliberate efforts
+ interweaved ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON1 GRADE5_6 ) conjugate=interweave 
+ interwove ( VERB_PAST VERB COMMON1 GRADE5_6 posdefault:VERB ) conjugate=interweaved 
+ it ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR ) 
+    it~1z 
+ its ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET ) 
+    its~1z 
+    its~2z 
+ itself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_SINGULAR ) 
+    itself~1z 
+ Inc. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

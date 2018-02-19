@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="bot-nltk---natural-language-analysis-bot">Bot NLTK - Natural Language analysis bot</h1>
+<p>ChatScript comes with a bot used to analyze documents called NLTK. You build it using `<code>:build nltk</code> It's still in its infancy.</p>
+<p>You start by selecting what you want to do: <code>tally rootpos</code> – read documents and list all words in it and their frequencies by root and part of speech. The sentence I have loved animals since I was a boy will show</p>
+<pre><code>2 = I~pro
+1 = have~aux
+1 = animal~n
+1 = since~con
+1 = be~v
+1 = a~det
+1 = boy~n</code></pre>
+<p>though not necessarily in that order. You can then sort the output log file to find most common words. Note that <em>I have loved love</em> will list <code>love~n</code> and <code>love~v</code> separately since their part of speech usage was different.</p>
+<p><code>tally root</code> – read documents and list all words in it and their frequencies by root. No part of speech information is provided so <em>I have loved love</em> will display 2 = love.</p>
+<p><code>tally raw</code> – read documents and list all words in it and their frequencies as given. Swims and swim are two separate listings.</p>
+<p>By default it displays all words. If you add min 2 after some command, then any word displayed must be found at least twice.</p>
+<p><code>sentiment</code> – read incoming sentences or documents and display the sentence with a summary of + and – affect at start and pluss and minuses after words that have affect.</p>
+<p><code>reset</code> – turn off existing mode, in preparation for changing to a new mode. For document reading, you would name the file or directory to read like this:</p>
+<p><code>:document REGRESS/moby_dick.txt</code> - to read a file relative to top level ChatScript <code>:document READER/BOOKS/</code> - to read some directory relative to top level ChatScript</p>
+<p>Tallying on a big document can take a moment, so the system outputs a . every 1000 sentences it reads.</p>
+</body>
+</html>

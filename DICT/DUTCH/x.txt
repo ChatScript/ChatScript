@@ -1,0 +1,32 @@
+﻿ X ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ X'en ( NOUN NOUN_PLURAL ) lemma=`x` nounpl  
+ X'je ( NOUN NOUN_SINGULAR ) lemma=`x` nounsg  
+ X'jes ( NOUN NOUN_PLURAL ) lemma=`x` nounpl  
+ X-assen ( NOUN NOUN_PLURAL ) lemma=`X-as` nounpl  
+ X-benen ( NOUN NOUN_PLURAL ) 
+ X-chromosomen ( NOUN NOUN_PLURAL ) lemma=`X-chromosoom` nounpl  
+ X-chromosoom ( NOUN NOUN_SINGULAR ) 
+ X. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`X.`X.` nounabbr  num__ord  
+ XI ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XII ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XIII ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XIV ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XTC-pil ( NOUN NOUN_SINGULAR ) 
+ XTC-pillen ( NOUN NOUN_PLURAL ) lemma=`XTC-pil` nounpl  
+ XV ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XVI ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XVII ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XVIII ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ XVbis ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ x ( NOUN NOUN_SINGULAR ) 
+ x'en ( NOUN NOUN_PLURAL ) lemma=`x` nounpl  
+ x-as ( NOUN NOUN_SINGULAR ) 
+ x-assen ( NOUN NOUN_PLURAL ) lemma=`x-as` nounpl  
+ x-benen ( NOUN NOUN_PLURAL ) 
+ xantippe ( NOUN NOUN_SINGULAR ) 
+ xantippes ( NOUN NOUN_PLURAL ) lemma=`xantippe` nounpl  
+ xenofobie ( NOUN NOUN_SINGULAR ) 
+ xenofobieën ( NOUN NOUN_PLURAL ) lemma=`xenofobie` nounpl  
+ xylofonen ( NOUN NOUN_PLURAL ) lemma=`xylofoon` nounpl  
+ xylofoon ( NOUN NOUN_SINGULAR ) 
+ xylofoons ( NOUN NOUN_PLURAL ) lemma=`xylofoon` nounpl  

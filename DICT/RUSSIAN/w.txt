@@ -1,0 +1,468 @@
+﻿ W ( ) lemma=`w` -  
+ W(Water ( ) lemma=`w(water` -  
+ W. ( ) lemma=`w.` SENT  
+ W/- ( ) lemma=`w/-` -  
+ W/A ( ) lemma=`w/a` -  
+ W/E ( ) lemma=`w/e` -  
+ W/F ( ) lemma=`w/f` -  
+ W1000z ( ) lemma=`w1000z` -  
+ W1100z ( ) lemma=`w1100z` -  
+ W2100z ( ) lemma=`w2100z` -  
+ W31SA ( ) lemma=`w31sa` -  
+ WAAS/EGNOS ( ) lemma=`waas/egnos` -  
+ WAAS\\EGNOS ( ) lemma=`waas\\egnos` -  
+ WAIS ( ) lemma=`wais` -  
+ WAN ( ) lemma=`wan` -  
+ WAP ( ) lemma=`wap` -  
+ WAR ( ) lemma=`war` -  
+ WARM ( ) lemma=`warm` -  
+ WAS ( ) lemma=`was` -  
+ WASP ( ) lemma=`wasp` -  
+ WASTED ( ) lemma=`wasted` -  
+ WAV ( ) lemma=`wav` -  
+ WBR ( ) lemma=`wbr` -  
+ WC ( ) lemma=`wc` -  
+ WDS"00 ( ) lemma=`wds"00` -  
+ WEATHER ( ) lemma=`weather` -  
+ WEB ( ) lemma=`web` -  
+ WEEGEE ( ) lemma=`weegee` -  
+ WEST ( ) lemma=`west` -  
+ WESTON ( ) lemma=`weston` -  
+ WESTЭтим ( ) lemma=`westэтим` Afpmsif  
+ WF ( ) lemma=`wf` -  
+ WFAN ( ) lemma=`wfan` -  
+ WGN ( ) lemma=`wgn` -  
+ WGS ( ) lemma=`wgs` -  
+ WHAT ( ) lemma=`what` -  
+ WHEN ( ) lemma=`when` -  
+ WHERE ( ) lemma=`where` -  
+ WHO ( ) lemma=`who` -  
+ WHQL ( ) lemma=`whql` -  
+ WIBC ( ) lemma=`wibc` -  
+ WILDBERRIES ( ) lemma=`wildberries` -  
+ WIN ( ) lemma=`win` -  
+ WINCHESTER ( ) lemma=`winchester` -  
+ WINDOWS ( ) lemma=`windows` -  
+ WINDOWS/ ( ) lemma=`windows/` -  
+ WING ( ) lemma=`wing` -  
+ WINOGRAND ( ) lemma=`winogrand` -  
+ WISH ( ) lemma=`wish` -  
+ WM ( ) lemma=`wm` -  
+ WMA ( ) lemma=`wma` -  
+ WMR ( ) lemma=`wmr` -  
+ WMS ( ) lemma=`wms` -  
+ WMS[ ( ) lemma=`wms[` Vmis-p-a-p  
+ WMV ( ) lemma=`wmv` -  
+ WMZ ( ) lemma=`wmz` -  
+ WMware ( ) lemma=`wmware` -  
+ WNBA ( ) lemma=`wnba` -  
+ WNW ( ) lemma=`wnw` -  
+ WOLY ( ) lemma=`woly` -  
+ WORD ( ) lemma=`word` -  
+ WORK ( ) lemma=`work` -  
+ WORKS ( ) lemma=`works` -  
+ WP ( ) lemma=`wp` -  
+ WS ( ) lemma=`ws` -  
+ WSJ ( ) lemma=`wsj` -  
+ WSW ( ) lemma=`wsw` -  
+ WTBA ( ) lemma=`wtba` -  
+ WTTC ( ) lemma=`wttc` -  
+ WV ( ) lemma=`wv` -  
+ WWF ( ) lemma=`wwf` -  
+ WWW ( ) lemma=`www` -  
+ WXYZ ( ) lemma=`wxyz` -  
+ WYWSHA ( ) lemma=`wywsha` -  
+ Waagner ( ) lemma=`waagner` -  
+ Wagen ( ) lemma=`wagen` -  
+ Wahrheit ( ) lemma=`wahrheit` -  
+ Wait ( ) lemma=`wait` -  
+ Waite ( ) lemma=`waite` -  
+ Wakmann ( ) lemma=`wakmann` -  
+ Walcheren ( ) lemma=`walcheren` -  
+ Walchiaceae ( ) lemma=`walchiaceae` -  
+ Waldrausch ( ) lemma=`waldrausch` -  
+ Walking ( ) lemma=`walking` -  
+ Walkman ( ) lemma=`walkman` -  
+ Wall ( ) lemma=`wall` -  
+ Walley ( ) lemma=`walley` -  
+ Wallpaper ( ) lemma=`wallpaper` -  
+ Walls ( ) lemma=`walls` -  
+ Walnuts ( ) lemma=`walnuts` -  
+ Walt ( ) lemma=`walt` -  
+ Walther ( ) lemma=`walther` -  
+ Walzer ( ) lemma=`walzer` -  
+ Wampler ( ) lemma=`wampler` -  
+ Wanamaker ( ) lemma=`wanamaker` -  
+ Wandel ( ) lemma=`wandel` -  
+ Wanderjahre ( ) lemma=`wanderjahre` -  
+ Wane ( ) lemma=`wane` -  
+ Wannabe ( ) lemma=`wannabe` -  
+ War ( ) lemma=`war` -  
+ WarCraft ( ) lemma=`warcraft` -  
+ Warcraft ( ) lemma=`warcraft` -  
+ Ward ( ) lemma=`ward` -  
+ Warder ( ) lemma=`warder` -  
+ Warehouse ( ) lemma=`warehouse` -  
+ Warhol’s ( ) lemma=`warhol’s` -  
+ Warlock ( ) lemma=`warlock` -  
+ Warmington ( ) lemma=`warmington` -  
+ Warner ( ) lemma=`warner` -  
+ Warped ( ) lemma=`warped` -  
+ Warrior ( ) lemma=`warrior` -  
+ Wars ( ) lemma=`wars` -  
+ Warsaw ( ) lemma=`warsaw` -  
+ Warsteiner ( ) lemma=`warsteiner` -  
+ Wash ( ) lemma=`wash` -  
+ Washington ( ) lemma=`washington` -  
+ Wasp ( ) lemma=`wasp` -  
+ Wasted ( ) lemma=`wasted` -  
+ Watch ( ) lemma=`watch` -  
+ Watchmen ( ) lemma=`watchmen` -  
+ Water ( ) lemma=`water` -  
+ Water/Air ( ) lemma=`water/air` -  
+ Water/Earth ( ) lemma=`water/earth` -  
+ Waters ( ) lemma=`waters` -  
+ Watrius ( ) lemma=`watrius` -  
+ Wave ( ) lemma=`wave` -  
+ Waves ( ) lemma=`waves` -  
+ Wax/Wane ( ) lemma=`wax/wane` -  
+ Waxy ( ) lemma=`waxy` -  
+ Way ( ) lemma=`way` -  
+ Waylander ( ) lemma=`waylander` -  
+ We ( ) lemma=`we` -  
+ Weakening ( ) lemma=`weakening` -  
+ Weakness(5 ( ) lemma=`weakness(5` -  
+ Wealth ( ) lemma=`wealth` -  
+ Weaponsmith ( ) lemma=`weaponsmith` -  
+ Weather ( ) lemma=`weather` -  
+ Web ( ) lemma=`web` -  
+ Web// ( ) lemma=`web//` -  
+ Web/HTTP ( ) lemma=`web/http` -  
+ WebDigest ( ) lemma=`webdigest` -  
+ WebMoney ( ) lemma=`webmoney` -  
+ WebPrint ( ) lemma=`webprint` -  
+ WebSideStory ( ) lemma=`websidestory` -  
+ WebTV ( ) lemma=`webtv` -  
+ Webber ( ) lemma=`webber` -  
+ Weber ( ) lemma=`weber` -  
+ Webplanet ( ) lemma=`webplanet` -  
+ Websphere ( ) lemma=`websphere` -  
+ Webster ( ) lemma=`webster` -  
+ Wed ( ) lemma=`wed` -  
+ Wednesday ( ) lemma=`wednesday` -  
+ Week ( ) lemma=`week` -  
+ Weekend ( ) lemma=`weekend` -  
+ Weenie ( ) lemma=`weenie` -  
+ Wege ( ) lemma=`wege` -  
+ Wehr ( ) lemma=`wehr` -  
+ Wehrii ( ) lemma=`wehrii` -  
+ Wehrli ( ) lemma=`wehrli` -  
+ Wei ( ) lemma=`wei` -  
+ Weibel ( ) lemma=`weibel` -  
+ Weidenfeld ( ) lemma=`weidenfeld` -  
+ Weider ( ) lemma=`weider` -  
+ Wein ( ) lemma=`wein` -  
+ Weiqi ( ) lemma=`weiqi` -  
+ Weird ( ) lemma=`weird` -  
+ Weisser ( ) lemma=`weisser` -  
+ Welch ( ) lemma=`welch` -  
+ Welcome ( ) lemma=`welcome` -  
+ Welfare ( ) lemma=`welfare` -  
+ Well ( ) lemma=`well` -  
+ Welle ( ) lemma=`welle` -  
+ Wellia ( ) lemma=`wellia` -  
+ Wellness ( ) lemma=`wellness` -  
+ Wells ( ) lemma=`wells` -  
+ Welt ( ) lemma=`welt` -  
+ Weltethos ( ) lemma=`weltethos` -  
+ Weltethos^A ( ) lemma=`weltethos^a` -  
+ Welсome ( ) lemma=`welсome` -  
+ Wembleys ( ) lemma=`wembleys` -  
+ Wen ( ) lemma=`wen` -  
+ Wendkos/ ( ) lemma=`wendkos/` -  
+ Wendland ( ) lemma=`wendland` -  
+ Werewolf ( ) lemma=`werewolf` -  
+ Werk ( ) lemma=`werk` -  
+ Werkleitz ( ) lemma=`werkleitz` -  
+ Werner ( ) lemma=`werner` -  
+ West ( ) lemma=`west` -  
+ Western ( ) lemma=`western` -  
+ Westfalen's ( ) lemma=`westfalen's` -  
+ Westin ( ) lemma=`westin` -  
+ Wetter ( ) lemma=`wetter` -  
+ What ( ) lemma=`what` -  
+ What's ( ) lemma=`what's` -  
+ What’s ( ) lemma=`what’s` -  
+ Wheeldon ( ) lemma=`wheeldon` -  
+ When ( ) lemma=`when` -  
+ Where ( ) lemma=`where` -  
+ Whip ( ) lemma=`whip` -  
+ Whirlpool ( ) lemma=`whirlpool` -  
+ Whiskey ( ) lemma=`whiskey` -  
+ Whisper ( ) lemma=`whisper` -  
+ White ( ) lemma=`white` -  
+ Whitehall ( ) lemma=`whitehall` -  
+ Who ( ) lemma=`who` -  
+ Whole ( ) lemma=`whole` -  
+ Who’s ( ) lemma=`who’s` -  
+ Why ( ) lemma=`why` -  
+ Widdringtonia ( ) lemma=`widdringtonia` -  
+ Wide ( ) lemma=`wide` -  
+ Wide( ( ) lemma=`wide(`wide(` -  SENT  
+ WidowPC ( ) lemma=`widowpc` -  
+ Wie ( ) lemma=`wie` -  
+ Wien ( ) lemma=`wien` -  
+ Wiesbaden ( ) lemma=`wiesbaden` -  
+ Wight ( ) lemma=`wight` -  
+ Wikipedia ( ) lemma=`wikipedia` -  
+ Wild ( ) lemma=`wild` -  
+ Wildfire ( ) lemma=`wildfire` -  
+ Wiley ( ) lemma=`wiley` -  
+ Wilhelm ( ) lemma=`wilhelm` -  
+ Will ( ) lemma=`will` -  
+ William ( ) lemma=`william` -  
+ William( ( ) lemma=`william(` -  
+ Williams ( ) lemma=`williams` -  
+ Wilson ( ) lemma=`wilson` -  
+ Wimmar ( ) lemma=`wimmar` -  
+ Win ( ) lemma=`win` -  
+ Win2K ( ) lemma=`win2k` -  
+ WinCE ( ) lemma=`wince` -  
+ WinFS ( ) lemma=`winfs` -  
+ WinPlan ( ) lemma=`winplan` -  
+ WinRar ( ) lemma=`winrar` -  
+ Winchester ( ) lemma=`winchester` -  
+ Wind ( ) lemma=`wind` -  
+ Winder ( ) lemma=`winder` -  
+ Window ( ) lemma=`window` -  
+ Windows ( ) lemma=`windows` -  
+ WindowsMetrics ( ) lemma=`windowsmetrics` -  
+ WindowsXP ( ) lemma=`windowsxp` -  
+ Windows`e ( ) lemma=`windows`e` -  
+ Wine ( ) lemma=`wine` -  
+ WineX ( ) lemma=`winex` -  
+ Wingas ( ) lemma=`wingas` -  
+ Winja ( ) lemma=`winja` -  
+ Winnie ( ) lemma=`winnie` -  
+ Winning ( ) lemma=`winning` -  
+ Wins ( ) lemma=`wins` -  
+ Winter ( ) lemma=`winter` -  
+ Winwars ( ) lemma=`winwars` -  
+ Wireless ( ) lemma=`wireless` -  
+ Wirth ( ) lemma=`wirth` -  
+ Wirtin ( ) lemma=`wirtin` -  
+ Wise ( ) lemma=`wise` -  
+ Wishing ( ) lemma=`wishing` -  
+ Witch ( ) lemma=`witch` -  
+ Witches ( ) lemma=`witches` -  
+ With ( ) lemma=`with` -  
+ Withdraw ( ) lemma=`withdraw` -  
+ Witztum ( ) lemma=`witztum` -  
+ Wizard ( ) lemma=`wizard` -  
+ Wizard777 ( ) lemma=`wizard777` -  
+ WoW ( ) lemma=`wow` -  
+ Wolf ( ) lemma=`wolf` -  
+ Wolf~ ( ) lemma=`wolf~` -  
+ Wolks ( ) lemma=`wolks` -  
+ Woman~ ( ) lemma=`woman~` Afpfsnf  
+ Women ( ) lemma=`women` -  
+ Wonderland ( ) lemma=`wonderland` -  
+ Woodworld ( ) lemma=`woodworld` -  
+ Woody ( ) lemma=`woody` -  
+ Woolen ( ) lemma=`woolen` -  
+ Word ( ) lemma=`word` -  
+ Wordpress ( ) lemma=`wordpress` -  
+ Work ( ) lemma=`work` -  
+ WorkFlow ( ) lemma=`workflow` -  
+ Worker ( ) lemma=`worker` -  
+ Workers ( ) lemma=`workers` -  
+ Working ( ) lemma=`working` -  
+ Workman ( ) lemma=`workman` -  
+ Works ( ) lemma=`works` -  
+ Workshop ( ) lemma=`workshop` -  
+ Workstation ( ) lemma=`workstation` -  
+ World ( ) lemma=`world` -  
+ World97 ( ) lemma=`world97` -  
+ WorldEconomy ( ) lemma=`worldeconomy` -  
+ Worlds ( ) lemma=`worlds` -  
+ Worldwide ( ) lemma=`worldwide` -  
+ Worner ( ) lemma=`worner` -  
+ Worst ( ) lemma=`worst` -  
+ Worth ( ) lemma=`worth` -  
+ Wortman ( ) lemma=`wortman` -  
+ Wraith ( ) lemma=`wraith` -  
+ Wraiths ( ) lemma=`wraiths` -  
+ Wrap ( ) lemma=`wrap` -  
+ Wright ( ) lemma=`wright` -  
+ Write ( ) lemma=`write` -  
+ Writer ( ) lemma=`writer` -  
+ Writing ( ) lemma=`writing` -  
+ Wsego ( ) lemma=`wsego` -  
+ Wumpus ( ) lemma=`wumpus` -  
+ Wunder ( ) lemma=`wunder` -  
+ Wunjo ( ) lemma=`wunjo` -  
+ Wupper ( ) lemma=`wupper` -  
+ Wuppertal ( ) lemma=`wuppertal` -  
+ Wurlitzer ( ) lemma=`wurlitzer` -  
+ Wurm ( ) lemma=`wurm` -  
+ Wynn ( ) lemma=`wynn` -  
+ w ( ) 
+ w. ( ) 
+ wabe ( ) 
+ wacky ( ) 
+ wagnerur@satimex ( ) 
+ wahres ( ) 
+ wait ( ) 
+ waiting ( ) 
+ waiz ( ) 
+ wakaranai ( ) 
+ wall ( ) 
+ walls ( ) 
+ wanna ( ) 
+ want ( ) 
+ wants ( ) 
+ wap ( ) 
+ war ( ) 
+ warm ( ) 
+ was ( ) 
+ wasps ( ) 
+ waste ( ) 
+ wasted ( ) 
+ watching ( ) 
+ water ( ) 
+ wav ( ) 
+ waves ( ) 
+ way ( ) 
+ ways ( ) 
+ wbr ( ) 
+ wcars ( ) 
+ we ( ) 
+ we're ( ) 
+ weakly ( ) 
+ weakness ( ) 
+ weaponization ( ) 
+ weapons ( ) 
+ wear ( ) 
+ weather ( ) 
+ web ( ) 
+ webadm@dvgu ( ) 
+ webalizer ( ) 
+ webbiz@list ( ) 
+ websupport@computerra ( ) 
+ week ( ) 
+ weird ( ) 
+ weizen ( ) 
+ welche ( ) 
+ welcome ( ) 
+ well ( ) 
+ wen ( ) 
+ wenigstens ( ) 
+ went ( ) 
+ wer ( ) 
+ were ( ) 
+ werfen ( ) 
+ wess ( ) 
+ western ( ) 
+ westernbid@mail ( ) 
+ wet ( ) 
+ wf ( ) 
+ what ( ) 
+ what's ( ) 
+ what= ( ) 
+ what=sys ( ) 
+ wheel ( ) 
+ wheels ( ) 
+ when ( ) 
+ where ( ) 
+ which ( ) 
+ while ( ) 
+ whiskers ( ) 
+ white ( ) 
+ whitey ( ) 
+ who ( ) 
+ whoever ( ) 
+ whois ( ) 
+ wholesome ( ) 
+ whose ( ) 
+ why ( ) 
+ wide ( ) 
+ wider ( ) 
+ width="75 ( ) 
+ width="88 ( ) 
+ wie ( ) 
+ wiedergibt ( ) 
+ wiese ( ) 
+ wild ( ) 
+ will ( ) 
+ win ( ) 
+ win2000 ( ) 
+ win32 ( ) 
+ win32юзверя ( ) 
+ wincommander ( ) 
+ wind ( ) 
+ wind/magnetospheric ( ) 
+ winder ( ) 
+ windhose@rambler ( ) 
+ windows\\prefetch\\layout ( ) 
+ windowsa ( ) 
+ windowsiodov ( ) 
+ wine ( ) 
+ winedbg ( ) 
+ wing ( ) 
+ winner ( ) 
+ winplan4# ( ) 
+ winppl ( ) 
+ winscp ( ) 
+ wird ( ) 
+ wirklich ( ) 
+ wishes ( ) 
+ wishmaster ( ) 
+ witch ( ) 
+ with ( ) 
+ within ( ) 
+ without ( ) 
+ witness ( ) 
+ wizard ( ) 
+ wmo ( ) 
+ wmpub/ ( ) 
+ wmv ( ) 
+ wmvdirect ( ) 
+ wok ( ) 
+ woman ( ) 
+ women ( ) 
+ wondrous ( ) 
+ woodstock ( ) 
+ word ( ) 
+ word+excel ( ) 
+ words ( ) 
+ worfmaschin ( ) 
+ worfschaufel ( ) 
+ work ( ) 
+ working ( ) 
+ works ( ) 
+ workshop ( ) 
+ world ( ) 
+ world's ( ) 
+ worldwide ( ) 
+ worth ( ) 
+ worty ( ) 
+ would ( ) 
+ wow ( ) 
+ woza ( ) 
+ wraiths ( ) 
+ wrapper ( ) 
+ write ( ) 
+ writer ( ) 
+ writers ( ) 
+ writing ( ) 
+ written ( ) 
+ wrong ( ) 
+ wrote ( ) 
+ wt ( ) 
+ wtf ( ) 
+ ww ( ) 
+ wwfe ( ) 
+ www ( ) 
+ wz ( ) 
+ wznosi ( ) 
+ w~A¤re ( ) lemma=`w~a¤re` -  

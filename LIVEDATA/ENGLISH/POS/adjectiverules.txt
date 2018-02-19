@@ -1,0 +1,922 @@
+# adjectives occur as:
+# 1. before a noun
+# 2. before an adjective before a noun
+# 3. as a subject complement after linking verbs that take them (like "be")
+# 4. after a noun if it is a postnominal adjective or adjective participle
+# 5. after a noun and comma, as an adjective particple phrase
+# 6. after a comma or an "and" (with optional adverbs before it) where before it was an adjective
+# 7. after pronouns
+# 8. before pronouns?
+# 9  adjectiveparticple at start of sentence, separated by comma from its noun OR pronoun "Running, she made it home in time."
+# 10 regular adjectives before subject at start of sentences "Big and white, the birds land recklessly."
+# 11 proper adjectives are capitalized nouns/adjectives before lower case nouns: Iranian embassy
+# 12 phrasal adjectives before a noun take hyphens  "razor-sharp wit" when not attached they dont "his wit was razor sharp"
+# the four- or five-year-old girl has omitted common elements
+
+# if adj/adv conflict before adjective, go with probability
+0	INCLUDE * ADJECTIVE_BITS
+	STAY CANONLYBE ADJECTIVE_BITS ADVERB
+	STAY ISPROBABLE ADVERB
+	STAY !ISPROBABLE ADJECTIVE_BITS
+	IS ADJECTIVE_BITS
+DISCARD
+
+# wont have postpositive adjective after a gerund if it could be a preposition - spending/spend (Noun_gerund)  on (Adjective_normal +Preposition) 
+-1 IS NOUN_GERUND
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS PREPOSITION
+DISCARD
+	
+
+# wont be adjective participle before verb and after noun if could be noun - construction (Noun_singular)  spending/spend (Noun_singular +Adjective_participle)  was/be (Verb_past)
+-1 IS NOUN_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS NOUN_BITS
+	IS VERB_BITS
+DISCARD
+
+# wont be participle before verb or participle if can be noun - abortion (Noun_singular)  ruling/rule (Noun_singular +Adjective_participle)  upheld/uphold (+Verb_past +Adjective_participle)
+-1 IS NOUN_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS NOUN_BITS
+	CANONLYBE VERB_BITS ADJECTIVE_PARTICIPLE
+DISCARD
+
+# adjective participle must follow or preceed nouniness when it could be gerund - using/use (+Noun_gerund +Adjective_participle) 
+-1	!HAS NOUN_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS NOUN_GERUND
+	!HAS NOUN_BITS ADJECTIVE_BITS COMMA
+DISCARD
+
+# cant stick "one" as adjective before a possible plural noun "one claims"
+0	INCLUDE * ADJECTIVE_NUMBER
+	STAY ISORIGINAL one
+	HAS NOUN_PLURAL
+DISCARD
+
+# wont be adj part at start if followed by possible prep - spending/spend (+Noun_gerund +Adjective_participle)  on (Adjective_normal +Preposition)
+ 0	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY START
+	HAS PREPOSITION
+DISCARD
+
+# adj vs pronoun before prep will be pronoun - many (+Adjective_normal Pronoun_object Pronoun_subject)  of (Preposition)
+  0	INCLUDE * ADJECTIVE_NORMAL
+ 	STAY HAS PRONOUN_SUBJECT PRONOUN_OBJECT
+ 	IS PREPOSITION
+ DISCARD
+
+#  restrictive_ adverb directly after verb and before noun "I ate the *only chicken" is legal but "I ate only chicken"
+-1	IS VERB_BITS 
+	 INCLUDE * ADJECTIVE_NORMAL
+	STAY ISMEMBER ~restrictive_adverbs
+	STAY !HAS CONJUNCTION_COORDINATE # not "so Dogs walk"
+	CANONLYBE NOUN_BITS - NOUN_GERUND
+DISCARD
+
+# particple adjectives wont precede another adjective - spending/spend (+Noun_gerund +Adjective_participle)  on (Adjective_normal +Preposition)
+# 0 INCLUDE * ADJECTIVE_PARTICIPLE
+# 	STAY START
+#	!HAS NOUN_BITS
+#	STAY HAS ADJECTIVE_NORMAL
+# DISCARD
+
+# no adjective particple followed by prep and not preceeded by noun - although (Conjunction_subordinate)  set (Noun_singular +Adjective_participle)  in (Preposition) 
+# -1 !HAS NOUN_BITS
+#	INCLUDE * ADJECTIVE_PARTICIPLE
+#	STAY HAS VERB_PAST
+#	STAY !HAS VERB_PAST_PARTICIPLE
+#	!HAS NOUN_BITS ADJECTIVE_NORMAL ADVERB
+# DISCARD
+
+# many of -- many (+Adjective_normal Pronoun_object Pronoun_subject)  of (Preposition) 
+# 0	INCLUDE * ADJECTIVE_NORMAL
+#	STAY HAS PRONOUN_SUBJECT PRONOUN_OBJECT
+#	IS PREPOSITION
+# DISCARD
+
+# wont be postpositive noun followed by nonverb if no verb follows immediately either - workers/worker (Noun_plural)  dumped/dump (Verb_past Adjective_participle)  large (Noun_singular +Adjective_normal Adverb) 
+-1 IS NOUN_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE # but  "the life of the rich discarded.
+	STAY HAS VERB_PAST
+	STAY !HAS VERB_PAST_PARTICIPLE
+	!HAS VERB_BITS TO_INFINITIVE PREPOSITION 
+DISCARD
+
+# no adjective participle before number +Adjective_participle)  11,390,000/11390000 (Noun_number Adjective_number) 
+0 INCLUDE * ADJECTIVE_PARTICIPLE
+	CANONLYBE NOUN_NUMBER ADJECTIVE_NUMBER
+DISCARD
+
+# no adjective between noun and pronoun subject -  partners/partner (Noun_plural)  said/say (+Verb_past Adjective_normal)  they (Pronoun_subject)
+-1 IS NOUN_BITS
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS VERB_BITS
+	HAS PRONOUN_SUBJECT
+DISCARD
+
+# no normal adjective before a determiner:  report (+Noun_singular +Verb_present)  raised/raise (+Verb_past Adjective_normal)  the/a (Determiner)
+0 INCLUDE * ADJECTIVE_NORMAL
+	IS DETERMINER
+DISCARD
+
+# post adjective not before prep when following proper noun - USX/unknown-word (Noun_proper_singular)  announced/announce (+Verb_past +Adjective_participle)  in (Preposition)
+-1 IS NOUN_PROPER_SINGULAR
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS VERB_BITS
+	IS PREPOSITION
+DISCARD
+
+# wont have adjective after noun and before pronoun - Trinity (Noun_proper_singular)  said/say (+Verb_past +Adjective_participle)  it (Pronoun_object Pronoun_subject) 
+-1 CANONLYBE NOUN_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS VERB_BITS
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# wont be noun in from of a number - latest (Noun_singular +Adjective_most)  two/2 (Noun_number Adjective_number)
+ 0 INCLUDE * NOUN_BITS
+	STAY HAS ADJECTIVE_BITS
+	CANONLYBE NOUN_NUMBER ADJECTIVE_NUMBER
+DISCARD
+
+# adj not sandwiched between two nouns  Corp. (Noun_proper_singular)  said/say (+Verb_past +Adjective_participle)  shareholders/shareholder (Noun_plural) 
+-1	CANONLYBE NOUN_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS VERB_BITS
+	CANONLYBE NOUN_BITS #  government (Noun_singular)  suspended/suspend (+Verb_past +Adjective_participle)  sales (+Noun_plural +Noun_singular) 
+DISCARD
+
+# noun/adj conflict followed by prep will be noun "asbestos (Noun_singular Adjective_normal)  in (Preposition)"
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS NOUN_SINGULAR
+	IS PREPOSITION
+DISCARD
+
+# a *sharper $ 1.2 decline
+-1 IS DETERMINER
+	INCLUDE * ADJECTIVE_NORMAL
+	IS CURRENCY
+KEEP
+
+# inverted comparison adjective - it was as big a thrill
+-1 ISCANONICAL as
+	INCLUDE * ADJECTIVE_NORMAL
+	ISORIGINAL a
+KEEP
+
+# three days *old
+-1 ISMEMBER ~modifyabletimenoun
+	INCLUDE *  ADJECTIVE_NORMAL
+	STAY ISMEMBER ~timeadjmodifier
+	!HAS DETERMINER
+KEEP
+
+# *this week
+0 INCLUDE * ADJECTIVE_NORMAL
+	STAY ISMEMBER ~pretimeadjmodifier
+	HAS NORMAL_NOUN_BITS
+	STAY ISMEMBER ~modifyabletimenoun
+KEEP
+
+# the placenumber number construction "the *first five people"
+-1 ISORIGINAL the
+   INCLUDE * ADJECTIVE_NUMBER 
+   HAS NOUN_NUMBER
+KEEP
+
+# the placenumber superlative construction "the *five biggest people"
+-1 ISORIGINAL the
+   INCLUDE * ADJECTIVE_NUMBER 
+   ISSUPERLATIVE
+KEEP
+
+
+# wont be adj at start with comma - here (Adjective_normal +Adverb)  , (Comma)  Ned (Noun_proper_singular)  -- can you do "big, the bird landed"
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY START
+	IS COMMA
+	!HAS ADJECTIVE_NORMAL ADVERB # but "good, old boy"
+DISCARD
+
+# wont be adjective if proper noun "are you Protestant"  - proper adjectives like Shakespearean will still be allowed
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS NOUN_PROPER_SINGULAR
+DISCARD
+
+#! make something *free of is adjective
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY ISORIGINAL free
+	HAS PREPOSITION # free of, free from
+KEEP
+
+
+# adjective before if potential adverb before that than "much stronger than"
+-1 HAS ADVERB
+	INCLUDE * ADJECTIVE_NORMAL
+	ISORIGINAL than
+KEEP
+
+# wont be adjective before preposition or conjunction subordinate or comma unless item before takes postpositive simple adjectives OR adjective prefers to be postpositive
+-1 IS NOUN_BITS PRONOUN_BITS
+   STAY !HASPROPERTY TAKES_POSTPOSITIVE_ADJECTIVE
+   INCLUDE * ADJECTIVE_NORMAL
+   STAY !HASPROPERTY ADJECTIVE_POSTPOSITIVE
+   IS PREPOSITION CONJUNCTION_SUBORDINATE COMMA 
+DISCARD
+
+# wont be adjective sandwichced between  adverb/prep and prep (need noun)-  throughout (Adverb +Preposition)  most/much (Adjective_most +Adverb_most Pronoun_object Pronoun_subject)  of (Preposition)  
+-1	CANONLYBE  PREPOSITION
+	INCLUDE * ADJECTIVE_BITS # but if verb is linking verb, it could be "the pack is usually *smaller in number"
+	IS PREPOSITION
+DISCARD
+
+# wont be adjective after comma and before possessive , (Comma)  like (+Verb_infinitive +Verb_present Adjective_normal Preposition)  its/it (Pronoun_possessive)  melting/melt (Adjective_participle)  temperature 
+-1 IS COMMA
+	INCLUDE * ADJECTIVE_BITS
+	IS PRONOUN_POSSESSIVE POSSESSIVE
+DISCARD
+
+# adjective will not lead sentence before pronoun so (Adjective_normal Conjunction_coordinate)  what (Pronoun_subject) 
+0	INCLUDE * ADJECTIVE_BITS
+	STAY START
+	IS PRONOUN_SUBJECT
+DISCARD
+
+# cannot have dangling adjective after prep and before comma unless adj or adv after  - into (Preposition)  English (Noun_proper_singular Adjective_normal)  , (Comma)
+-1 IS PREPOSITION	
+	INCLUDE * ADJECTIVE_BITS
+	IS COMMA
+	!HAS ADVERB ADJECTIVE_BITS
+DISCARD
+
+# will not be adj (except adj participle phrase) after comma and before To Infintiive , (Comma)  only (Adjective_normal +Adverb)  to (To_infinitive) - unless after noun "my wife, ready to jump, left"
+-2 !HAS NORMAL_NOUN_BITS
+	IS COMMA
+	INCLUDE * ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE # "the empire, linked by need, lives"
+ 	IS TO_INFINITIVE CONJUNCTION PREPOSITION AUX_VERB VERB_BITS ADVERB PARTICLE 
+ DISCARD
+
+# conflict participle adj vs gerund followed by aux and not preceeded by noun will be gerund "for some, spitting can be good"
+-1	IS COMMA  # but not "a llama that feels threatened or annoyed"
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	IS AUX_VERB VERB_BITS
+DISCARD
+
+# adjective must not preceed noun "on horses" - "the tv was on" "there is a war on"
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY PARSEMARK ADJECTIVE_NOT_PRE
+	!HAS NORMAL_NOUN_BITS
+DISCARD
+
+# possible participle after verb will be that - feels/feel (Verb_present_3ps)  threatened/threaten (+Verb_past +Adjective_participle)  -- but not at expense of gerund "I like *swimming"
+-1 IS VERB_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY !HAS NOUN_GERUND
+	STAY POSSIBLEADJECTIVEPARTICIPLE
+KEEP 
+
+# no possible participle 
+0 INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY !POSSIBLEADJECTIVEPARTICIPLE
+DISCARD 
+
+# easy probably conjunct of adjectives threatened/threaten (+Verb_past +Adjective_participle)  or (Conjunction_coordinate)  annoyed/annoy (Adjective_participle)  
+# 0	INCLUDE * ADJECTIVE_PARTICIPLE
+#	IS CONJUNCTION_COORDINATE
+#	IS ADJECTIVE_PARTICIPLE
+# KEEP
+
+# will not have adjective immediately after subject pronoun  "they *often like"
+-1 IS PRONOUN_SUBJECT
+	INCLUDE * ADJECTIVE_BITS
+DISCARD
+
+# adjective before determiner wont happen if before adj is not some postpositive noun basis or object complement because no verb exists prior: that/a (Adverb Pronoun_object Pronoun_subject Conjunction_subordinate Determiner)  held/hold (+Verb_past +Verb_past_participle Adjective_normal)  the/a (Determiner)  
+-1	!HAS NORMAL_NOUN_BITS 
+	INCLUDE * ADJECTIVE_NORMAL ADJECTIVE_NUMBER # but  "I felt *blue the day he died"
+	STAY !PRIORPOS VERB_BITS	# no possible verb before
+	IS DETERMINER
+DISCARD
+
+# adjective before determiner wont happen if before adj is not some postpositive noun basis or object complement: that/a (Adverb Pronoun_object Pronoun_subject Conjunction_subordinate Determiner)  held/hold (+Verb_past +Verb_past_participle Adjective_normal)  the/a (Determiner)  
+-2	IS COMMA
+	!HAS NORMAL_NOUN_BITS 
+	INCLUDE * ADJECTIVE_NORMAL ADJECTIVE_NUMBER # but  "I felt *blue the day he died" wont happen
+	IS DETERMINER
+DISCARD
+
+# adjective before determiner wont happen if before adj is not some postpositive noun basis or object complement: , and  that/a (Adverb Pronoun_object Pronoun_subject Conjunction_subordinate Determiner)  held/hold (+Verb_past +Verb_past_participle Adjective_normal)  the/a (Determiner)  
+-3	IS COMMA
+	IS CONJUNCTION
+	!HAS NORMAL_NOUN_BITS 
+	INCLUDE * ADJECTIVE_NORMAL ADJECTIVE_NUMBER # but  "I felt *blue the day he died" wont happen
+	IS DETERMINER
+DISCARD
+
+# adjective cannot follow aux and preceed preposition - "can *live  in the heat"
+-1 IS AUX_VERB
+	INCLUDE * ADJECTIVE_BITS
+	IS PREPOSITION CONJUNCTION_SUBORDINATE PARTICLE
+DISCARD
+
+# isolated adjective of implied "it is" subord conjunction "if so, we win"
+REVERSE -1	IS COMMA
+	INCLUDE * ADJECTIVE_BITS
+	SKIP IS ADVERB
+	IS CONJUNCTION_SUBORDINATE
+KEEP
+
+
+# keep adj at end after determiner "on her *own
+-1 IS DETERMINER_BITS
+	INCLUDE * ADJECTIVE_BITS
+	STAY !HAS NOUN_BITS
+	STAY END 
+KEEP
+
+#  cannot be adjective near comma with no noun before and no subord conjunct or subject complement verb (+Preposition Conjunction_coordinate)  many (+Adjective_normal Pronoun_object Pronoun_subject)  ,  unless verb before can use it
+ 0	INCLUDE * ADJECTIVE_NORMAL
+	STAY !POSSIBLEADJECTIVE
+DISCARD
+
+# we think participle adj cannot preceed other adj before noun at start -- let (+Verb_infinitive +Adjective_participle)  every (Adjective_normal Determiner)  
+-1	START
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	CANONLYBE ADJECTIVE_NORMAL DETERMINER
+DISCARD
+
+# prefer determiner to adjective before a noun and not after ajective or determiner - no (Interjection Adjective_normal +Adverb Determiner)  glimpse (Noun_singular) 
+-1 !HAS DETERMINER ADJECTIVE_BITS PRONOUN_POSSESSIVE POSSESSIVE
+	INCLUDE * ADJECTIVE_BITS
+	STAY HAS DETERMINER
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+# cant be adjective with adj before and pronoun after - prominent (Adjective_normal)  in (Adjective_normal Adverb +Preposition)  it (Pronoun_object Pronoun_subject) 
+-1	IS ADJECTIVE_NORMAL
+	INCLUDE * ADJECTIVE_NORMAL
+	CANONLYBE PRONOUN_BITS
+DISCARD 
+
+# wont be adj participle at start followed by pronoun, will be verb infinitive "*let me get my hoe"
+0	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY POSSIBLEINFINITIVE
+	STAY START
+	HAS PRONOUN_BITS
+DISCARD
+
+# wont be adj particle sandwiched w/o a noun before or after   forensically (Adverb)  sniffing/sniff (Noun_gerund Verb_present_participle Adjective_participle)  along (Adverb +Preposition) except if verb before wants adjective result
+0	INCLUDE * ADJECTIVE_PARTICIPLE  # careful about "it means nothing when *translated into english"
+	STAY !POSSIBLEADJECTIVEPARTICIPLE
+DISCARD
+
+# past tense adjective participle never preceeds a determiner (cannot have an object)
+0	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HASORIGINAL VERB_PAST_PARTICIPLE
+	IS DETERMINER
+DISCARD
+
+# wont be adjective before verb unless postnominal - except for clause!!! so cant have earlier verb their/they (Pronoun_possessive)  great (Noun_singular +Adjective_normal)  genius (Noun_singular Adjective_normal)  was/be (Aux_be_past)  
+
+# prefer noun over adjective after determiner, in case next is verb a (Determiner)  archer (+Noun_singular Adjective_more)  - BUT not if can be noun or adjective after or if comma like "I like the *smooth, needle-like thorns"
+-1 IS DETERMINER
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY CANONLYBE ADJECTIVE_NORMAL NORMAL_NOUN_BITS
+	!HAS NORMAL_NOUN_BITS ADJECTIVE_NORMAL ADJECTIVE_NUMBER NOUN_NUMBER COMMA  # not when  "an *average 8.3 %"
+DISCARD
+
+# cannot be adj number if not in front of a noun or adjective "if you ever pick *one up"
+0	INCLUDE * ADJECTIVE_NUMBER
+	!HAS NOUN_SINGULAR NOUN_PLURAL ADJECTIVE_BITS
+DISCARD
+
+# )  's (Possessive)  new (+Adjective_basic Adverb_normal)  shoes/shoe (Noun_plural)  
+-1	IS POSSESSIVE
+	INCLUDE * ADJECTIVE_NORMAL
+	CANONLYBE ADJECTIVE_NORMAL ADVERB
+	IS NORMAL_NOUN_BITS
+KEEP
+
+# at start after simple subject, past verb vs participle will be past verb "john *liked his students" BUT COULD BE partiple "documents *filed in court"
+
+# most before adj or adv will not be adjective if it could be adverb "the *most important source"   redundant
+0	INCLUDE * ADJECTIVE_BITS
+	STAY HAS ADVERB
+	STAY ISORIGINAL more
+	IS ADJECTIVE_BITS ADVERB
+DISCARD
+
+# adj/adverb conflict after verb and before noun will be adjective (adverb later)  "these will make *good stems" -- ?? unless clause - "when I run good stems follow" (but should use a comma)
+-1 IS VERB_BITS
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY CANONLYBE ADJECTIVE_NORMAL ADVERB
+	IS NORMAL_NOUN_BITS
+KEEP
+
+# next at start of sentence will not be adjective unless noun follows "next, she ran"  
+0	INCLUDE * ADJECTIVE_BITS
+	STAY START
+	ISORIGINAL next
+	!HAS NORMAL_NOUN_BITS 
+DISCARD
+
+# noun followed by such as xxx  will be (pennbank) Adjective before preposition as but really its just a preposition idiom
+-1 IS NORMAL_NOUN_BITS
+	INCLUDE * ADJECTIVE_BITS
+	STAY ISORIGINAL such
+	ISORIGINAL as
+KEEP
+
+# wont be adjective participle immediately after non-linking verb and without a noun after it "He finished *dressing her"
+-1  IS VERB_BITS
+	STAY !HASCANONICALPROPERTY VERB_TAKES_ADJECTIVE 
+	INCLUDE * ADJECTIVE_BITS # " we don't fit *together,"
+	!HAS NORMAL_NOUN_BITS
+DISCARD
+
+
+# definite determiner before adjective w/o noun  ("the", "his", "Jane's") "the *best come here"
+-1	IS DETERMINER
+	INCLUDE * ADJECTIVE_BITS
+	STAY !HAS NORMAL_NOUN_BITS ADVERB  PRONOUN_BITS
+	!HAS NOUN_BITS ADJECTIVE_BITS
+KEEP
+
+ill is often an adverb but if ending a sentence after be will be adjective "she is *still" but not "she is *still there"
+-1  ISCANONICAL be
+	INCLUDE * ADJECTIVE_BITS
+	STAY ISORIGINAL still
+	STAY END
+KEEP
+
+# determiner followed by superlative adjective will be adjective and not adverb "this is their *biggest room" unless it could be adverb
+
+# determiner followed by  adverb will be adverb "the *most big one" but "the smallest one-celled animal"
+-1	HAS DETERMINER
+	INCLUDE * ADVERB
+	STAY !HAS ADJECTIVE_BITS
+	IS ADJECTIVE_BITS
+KEEP
+
+# no adjective before determiner unless after noun/pronoun (postpositive) or comma from "the work, *called the best"  or "the work (*called the best)"
+-1	!HAS NORMAL_NOUN_BITS PRONOUN_BITS COMMA PAREN
+	INCLUDE * ADJECTIVE_BITS
+	IS DETERMINER  POSSESSIVE 
+	!HOWSTART  # but  "how soft and *white the fur is" allows flipping object before subject
+DISCARD
+
+# adjective before known verb will not be simple "what *game does he like" - unless allowed as postpositive!  or with clause before mainverb "atoms that are *smaller will die"
+
+# postpositive adjectives after nothing - "I saw nothing *good on TV" - but also allow prep phrase
+
+# postpositive adjectives after pronouns - "everything good was lost" - but not "she *got upset" and not "Put them *in a pile"  BUT not as adverbs: "they *all shared"
+-1 IS PRONOUN_BITS
+	INCLUDE * ADJECTIVE_BITS
+	STAY !HAS VERB_BITS AUX_VERB PREPOSITION ADVERB DETERMINER_BITS # and not "give us *another way
+KEEP
+
+#############################################
+########### Rules about adjective nouns
+#############################################
+
+# something which can be both adjective normal and adjective noun, be normal  "I have a *yellow submarine"
+0	INCLUDE * ADJECTIVE_NOUN
+	STAY HAS ADJECTIVE_NORMAL
+DISCARD
+
+# adjective noun must be followed by another singular or plural normal noun like "he is a *bank teller" or an adjective_noun
+0	INCLUDE * ADJECTIVE_NOUN
+	!HAS NOUN_SINGULAR NOUN_PLURAL ADJECTIVE_NOUN
+DISCARD
+
+#	adj noun vs normal noun, prefer adj noun "he is a *bank teller" but since 2 nouns could be object and object2, fails to be a good rule
+
+# numeric adj in front of assured noun must be adjective, not number "what do *3 hearts do"
+0 INCLUDE * NOUN_NUMBER
+	STAY HAS ADJECTIVE_NUMBER 
+  CANONLYBE NORMAL_NOUN_BITS
+DISCARD
+
+#  be (Noun_infinitive)  liver (+Noun_singular Adjective_more)  and (Conjunction_coordinate)  broccoli (Noun_singular)
+-1 IS NOUN_INFINITIVE
+	INCLUDE * ADJECTIVE_NORMAL
+	IS CONJUNCTION_COORDINATE
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+# after determiner and before insured noun, wont be noun - the/a (Determiner)  monthly (Noun_singular +Adjective_normal Adverb)  sales (+Noun_plural +Noun_singular) 
+-1 IS DETERMINER
+	INCLUDE * NOUN_BITS 
+	STAY HAS ADJECTIVE_BITS
+	CANONLYBE NOUN_BITS
+DISCARD
+
+# the/a (Determiner)  sand (+Noun_singular Adjective_normal)  , (Comma)  keeping/keep (+Noun_gerund +Adjective_participle)  cannot have adj after det before comma where after comma is not useful
+-1 IS DETERMINER
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS NOUN_SINGULAR
+	IS COMMA
+	!HAS ADJECTIVE_NORMAL ADVERB ADJECTIVE_PARTICIPLE
+DISCARD
+
+#############################################
+########### Rules about adjective participles
+#############################################
+
+# in a conflict between adjective_participle and adjective_normal, always pick participle : "they are *confused students"
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS ADJECTIVE_PARTICIPLE
+DISCARD
+
+# comma and adjective participle before known noun ", *interlocking pieces"  EXCEPT if another comma also exists, for a phrase "john, beloved of mary, *said" -- 
+-1 IS COMMA
+	STAY !PRIORPOS 	COMMA CONJUNCTION_COORDINATE
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	IS NORMAL_NOUN_BITS
+KEEP
+
+# adjective participle and normal will be considered participle and revised at finish if doesnt use objects
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY HAS ADJECTIVE_PARTICIPLE
+DISCARD
+
+# adjective participle needs to come AFTER a noun or pronoun then comma or before a noun or adjective  or after a linking verb but comma will break it: "she jumped, *screaming"
+-2  !HAS ADJECTIVE_PARTICIPLE NORMAL_NOUN_BITS PRONOUN_BITS
+	IS COMMA
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	!HAS ADJECTIVE_NORMAL NORMAL_NOUN_BITS
+DISCARD
+
+# adjective participle must be after a noun or before a noun or adjective OR be subject of linking verb - ILLEGAL what they found *thrilled them -- generally not before pronouns OR be after "be" verb like "basement has to be *flooded"
+# but not "Max got *lost"
+	# find a preceeding verb    NOT "my children quickly became *tired at school"
+	# nor after verb "be"    "The car was *repaired by Sam" or after linking verb "he is interesting"  "Ted enjoys *swimming near his home" but "Ted enjoys swimming children" is ok
+
+# no adjective participles after a pronoun subject 
+-1 IS PRONOUN_SUBJECT
+	INCLUDE * ADJECTIVE_PARTICIPLE  # after he *left home
+DISCARD
+
+# adjective participle with adjective following but no noun after that.... cant be. : "spots *looked nice"
+0	INCLUDE * ADJECTIVE_PARTICIPLE
+	IS ADJECTIVE_BITS
+	SKIP IS ADJECTIVE_BITS ADVERB
+	!HAS NOUN_BITS
+DISCARD
+
+# adjective participle wont follow a pronoun (unlike rare noun use) : "they *seemed used_to all the attention" - unless it is from a linking verb... "we will not hold ourselves *bound"
+
+# adjective participles after paren cannot be verb
+-1 IS  PAREN
+	INCLUDE * VERB_PAST VERB_PAST_PARTICIPLE
+	STAY HAS ADJECTIVE_PARTICIPLE 
+DISCARD
+
+# adjective participle comes before or after a noun, (??maybe an adverb preceeding?) but "The  British  Empire  and  the  French  Republic  ,  *linked  together"
+ # the treatments, installed in her home, were bad. == legal: the narrow, undulating wall
+
+# adjective participle cannot start a sentence unless followed by noun stuff or comma - though "*estimated and actual earnings are good" works  "*confronted, she caved"  Sure it can: "related to that, he died"
+# adjective participle wont occur after a pronoun   # I disliked his remarks, which almost *ruined me
+
+# adjective before adverb with no noun after  cannot stand  "they wrote that *novel together" EXCEPT as complement of "to be" verb "was I brave enough"  - but not "my children quickly became *tired at schoool" and not "the tall and distinguished man"
+# also as factitive verb 2nd complement - "he painted his car purple"
+
+# adjective participle NOT after a verb and before an adverb  "He enjoys *swimming more than anything"
+-1 IS VERB_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE  # would have to descibe an upcoming noun "he enjoys swimming fish"
+	IS ADVERB
+DISCARD
+
+# in a adjpart verb conflict, if real verb exists in next comma chunk, we are adjprt:  "her arms *folded, the doctor wrote a song"  -- BUT "harry, who *extended his arms", is legal
+
+# in gerund vs adj participle conflict, if following a noun, use adj part "my cake finally baking in the oven will be tasty"
+REVERSE 0	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY CANONLYBE ADJECTIVE_PARTICIPLE NOUN_GERUND
+	SKIP IS ADVERB
+	IS NOUN_BITS
+KEEP
+
+# adjective participle past after a pronoun object "we found them *depressed"
+-1 IS PRONOUN_OBJECT
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	HAS VERB_PAST_PARTICIPLE
+KEEP
+
+#  adjective participle over verb when after "be" when be is a verb
+-1  ISCANONICAL be
+	STAY IS VERB_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE	# LEGAL: the curtains were *outmoded LEGAL: the men who were *dressed
+	STAY HAS VERB_BITS
+KEEP
+
+# noun gerund and participle conflict followed by noun will be participle "the barking dog ran" - but not in "He hates eating broccoli"
+
+#   present/past/future perfect passive tense  uses adjective participle - they have been outmoded
+-2	IS AUX_VERB_PRESENT IS AUX_VERB_PAST
+	STAY ISCANONICAL have
+	ISORIGINAL been
+	INCLUDE * ADJECTIVE_PARTICIPLE
+KEEP
+
+# adjective participle after canonical be verb (not aux) "they often become *frustrating"
+-1  ISCANONICAL be
+	STAY IS VERB_BITS
+	INCLUDE * ADJECTIVE_PARTICIPLE
+KEEP
+
+# adjective participle after determiner and before potential noun "a frightening dog" - but "the *finding marks a significant step"
+-1	IS DETERMINER
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	HAS NOUN_BITS
+	STAY !HAS VERB_BITS
+KEEP
+
+# sandwiched adjective participle waiting to close a noun - is, except followed by aux or verb
+-2	IS ADJECTIVE_BITS  # but not "since Bob was five years old, *swimming has been his passion"
+	IS COMMA
+	INCLUDE * ADJECTIVE_PARTICIPLE	# "the narrow, *undulating river"
+	!HAS AUX_VERB VERB_BITS		# but not: the boy, undulating upwards, walked home"
+KEEP
+
+# sandwiched adjective participle after a noun isnt - it will be a clause "that be xxx" but "for  some  animals  ,  *spit  works  better  after  it  has  left  the  mouth"
+ # the boy, undulating upwards, walked home"  AND NOT "The number of electrons defines the atom 's chemical properties , *like its melting POINT"
+
+############################################
+########### Rules about adjective cardinal
+############################################
+
+# if the last word is an adjective (like a be sentence), the word before it cant be
+0	INCLUDE * ADJECTIVE_BITS	# I consider the number *13 unlucky
+	IS ADJECTIVE_BITS
+	STAY END
+DISCARD
+
+# cardinal adjective (determiner) cannot follow determiner  "a one boy"  but be careful of a one-hit wonder  -- but "the four boys" is legal
+
+# to stay an adjective, it will need to describe something
+0	INCLUDE * ADJECTIVE_NUMBER 
+	!HAS NOUN_BITS ADJECTIVE_BITS DETERMINER ADVERB
+ DISCARD  
+
+# number before noun with potential  adv and adj between will be cardinal adjective  :  "*four frogs swim" "*four fat frogs swim" "*four really fat frogs swim"  "I was born *17 years ago"
+ # but not "I like the fourth *quarter ended tomorrow"
+
+############################################
+########### Rules about adjective basic
+############################################
+
+# adjective cannot follow noun unless adjective is postpositive "I will take the day *off" or FACTITIVE_NOUN_VERB like "John painted his jalopy *purple"
+
+# ordinary adjective cannot be followed by a preposition - "they have been writing that *novel for a long time"  EXCEPT adjective complements "it was wrong *of her"
+# EXCEPT when adj is subject complement "they are *active at night"
+
+# basic adjective will not preceed aux verb "what *kind are you" -- unless it could be postnominal somehow
+
+# adjective normal  after pronoun and before verb cannot be "I *just told him"
+-1  HAS PRONOUN_BITS
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY CANONLYBE ADJECTIVE_NORMAL ADVERB
+	CANONLYBE VERB_BITS
+DISCARD
+
+# adjective cannot occur before possessive "years passed before he received his *mechanic's license"   or verb except for postnominal adjective "the boy slaughtered wept"
+
+# cannot have basic adjective before aux or verb " *mural is green"
+
+# sandwiched adjective cannot be adjective  "she made Peggy clean the dishes" - but "he found a brand *new element"
+
+# adjective cannot end a sentence unless after nearest verb which must be linking verb (tensed or infinitive) "Sandy let her child go out *alone" or factitive
+
+# cannot have 2 adjectives in a row without a subsequent noun
+0	INCLUDE * ADJECTIVE_BITS
+	IS ADJECTIVE_BITS
+	SKIP !HAS NOUN_BITS
+	!HAS NOUN_BITS
+DISCARD
+
+# an adverb/adj conflict before adjective_number will be adverb:  "for *over six months" but not if we are a number like "the first nine months"
+0	INCLUDE * ADJECTIVE_BITS
+	STAY HAS ADVERB
+	STAY !HAS ADJECTIVE_NUMBER
+	IS ADJECTIVE_NUMBER
+DISCARD
+
+
+# adverb as start of sentence own zone will not be adjective. "*currently, I run" - but "*good, old Ponto"
+
+# adjective before end of sentence possible adjective cannot happen "had I been brave enough
+-1 IS ADJECTIVE_BITS
+	INCLUDE * ADJECTIVE_BITS
+	STAY END
+DISCARD
+
+# adjective cannot preceed pronoun since it cant be prenominal adjective - "I just *broke my arm"  but not "Things are very *complicated." and can have postpositive "I like cars racing my heart" BUT "how soft and *white its fur is"
+
+# adjective/adverb following a verb which takes no adjective and not before another adjective or noun, kill it, leave it adverb # it was carved deep in the rock not "it was *soft and fluffy"
+
+# potential participle adjective and regular, sandwiched between 2 nouns, will be participle adjective
+-1	IS NOUN_BITS - NOUN_GERUND
+	INCLUDE * ADJECTIVE_NORMAL		# his shift *waiting tables was over
+	STAY HAS ADJECTIVE_PARTICIPLE
+	IS NOUN_BITS - NOUN_GERUND
+DISCARD
+
+# if a conflict of adjective/adverb and followed by adjective, be an adverb "he king lived *more_than 4,000 years ago." -- but not "the *little old lady"
+
+# adjectives before pronoun subject not possible -- EXCEPT when ending a "be" clause and new clause is starting or inverted s/o like "how *fine he looks"
+# after he left *home I walked out
+
+
+# adjective at end of sentence after adverb cant exist, unless after "be" verb  or similar - and various other situations like postpositive adjectives
+
+# potential adjective vs preposition before singular noun but with no determiner cannot be
+# -1	!HAS DETERMINER POSSESSIVE_BITS  ADJECTIVE_BITS ADVERB 
+# 	INCLUDE * ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE		# I eat *in Japan  vs I eat the in food	 vs The product I hated sold *in Japan last week  - except "*next August I go" 
+# 	STAY HAS PREPOSITION
+# 	IS NOUN_PROPER_SINGULAR NOUN_SINGULAR
+# DISCARD
+
+# cannot have adjective between noun and prep but "from the smallest to the largest" is legal
+-1  IS DETERMINER 
+	STAY !ISORIGINAL the
+	INCLUDE * ADJECTIVE_BITS # He beat our alligator over the *head of
+	IS PREPOSITION
+DISCARD
+
+# cannot have an adjective at end of sentence UNLESSS verb "to be" preceeded it - except also factitive 
+
+# if something can be an adjective or an adverb and preceeds an adverb, be an adverb unless before is "not"  "it is not *clear"
+-1 	!ISORIGINAL not
+	INCLUDE  * ADJECTIVE_BITS		# He is much too clever for me.
+	STAY HAS ADVERB
+	IS ADVERB
+DISCARD 
+
+ # if this word could be an adjective and the next word after optional comma IS a verb, kill us.   
+#	The blinds, installed 17 years (ago), were defective.  The blinds installed 17 years (ago) were defective
+
+# if this word could be an adjective and the next is a verb, DISCARD this as an adjective 
+ 
+ # adjectives dont precede determiners - worst case is postnominal adject after noun leading to verb, aux, adverb - nor before particles # John a *plumber created rain
+
+# cannot have adjective before preposition, if no "be" involved - except adjective particple, which can have a prep phrase after it, except as postpositive: "she had a veil *dependent from her hair"
+# He liked above the clouds -- but not He was happy to meet her   also not how often were you absent from work
+
+# cannot have adjective before preposition, but can before infinitive unless no "be" involved
+ #  He was happy to meet her not match but "He liked to eat her" does
+
+# in adjective/adverb conflict followed by adjective, prefer adjective "we saw a *big black dog"
+
+# in adjective noun conflict, if what follows is an adjective, so are we (nouns stack together) - "the *great big happy family sits"
+0	INCLUDE * ADJECTIVE_BITS
+	STAY CANONLYBE NOUN_BITS ADJECTIVE_BITS
+	SKIP IS ADVERB
+	IS ADJECTIVE_BITS
+KEEP
+
+# if something can be adjective/determiner or adverb in front of a singular noun, assume adjective (guess) "her plan won *wide acceptance" but not "I walked *home yesterday"
+
+# adjective after "be" before a comma which is adjective or singular non-mass noun, will be adjective
+-1 ISCANONICAL be
+	INCLUDE * ADJECTIVE_NORMAL #  he is fat,  or   ashamed of being fat,   but not "we are people
+	STAY HASCANONICALPROPERTY NOUN_SINGULAR 
+	IS COMMA
+KEEP
+
+# adjective after "be" before a comma which is adjective or singular non-determined noun, will be adjective
+-1 ISCANONICAL be
+	INCLUDE * ADJECTIVE_NORMAL #  he is fat,  or   ashamed of being fat,   but not "we are people
+	STAY !HASPROPERTY NOUN_NODETERMINER
+	IS COMMA
+KEEP
+
+# special time noun expressions at end of sentence require adjective or determiner - elided prep phrase "at *any time" - but not "looked *all around."
+0	INCLUDE * ADJECTIVE_NORMAL DETERMINER
+	STAY HASPROPERTY OMITTABLE_TIME_PREPOSITION # noncanonical
+	END
+	STAY HASCANONICALPROPERTY TIMEWORD		#	Go home next week.
+	STAY !HAS ADVERB
+KEEP
+
+# special time noun expressions start of sentence require adverb - elided prep phrase but not "*All around me were people"
+0	INCLUDE * ADJECTIVE_NORMAL
+	STAY HASPROPERTY OMITTABLE_TIME_PREPOSITION  # noncanonical
+	STAY START
+	STAY HASCANONICALPROPERTY TIMEWORD		#	next week I go home.
+	STAY !HAS ADVERB
+KEEP
+
+#  "Is the sky blue"  adj can follow noun if inverted after IS flip question
+
+# adjectives CAN ONLY COME immediately after a pronoun
+
+# adjective participles cant preceed pronouns -- yes when in separate clause- "after being reprimanded he left"
+# ILLEGAL: Walking I  but walking him is legal
+
+# some adjectives allowed to come AFTER nouns, should just be fixed nouns in Morenouns.txt: Princess Royal, President elect, court martial
+# Others are in the system_adjective_after category
+
+# adjectives required AFTER the noun (but not if its a prep like "The light was *on" but not "the light was *on the pond" and not "it would tip the IRS *off"
+
+# adjective cannot follow a particle and end the sentence "she put in cereal."
+-1 IS PARTICLE
+	INCLUDE * ADJECTIVE_BITS
+	STAY END
+DISCARD
+
+# adjective cannot follow a particle and not find another adjective or noun thereafter.
+-1 IS PARTICLE
+	INCLUDE * ADJECTIVE_BITS
+	!HAS ADJECTIVE_BITS NOUN_BITS
+DISCARD
+
+# normal adjective cannot follow a noun and preceed a determiner unless postpositive allowed on noun (cannot be object of a verb unless we have an implied clause?)
+-1	IS NORMAL_NOUN_BITS PRONOUN_BITS
+	STAY !HASPROPERTY TAKES_POSTPOSITIVE_ADJECTIVE
+	INCLUDE * ADJECTIVE_NORMAL
+	STAY !HASPROPERTY ADJECTIVE_POSTPOSITIVE
+	IS DETERMINER
+DISCARD
+
+# potential adjective (not verb)  past adverb following aux be	-- but for adverb also "they are not just nice bugs" - but not "time is *on his side"
+-2	ISCANONICAL be	# LEGAL: I am now certain. ILLEGAL: The curtains were discarded
+	IS ADVERB
+	INCLUDE  * ADJECTIVE_BITS  ADVERB DETERMINER_BITS
+	STAY !HAS VERB_BITS PREPOSITION CONJUNCTION
+KEEP  
+
+# if word at end follows "to be" and could be adjective but not participle present or past, make it so - but not "the toy was *inside"
+-1 ISCANONICAL be
+	INCLUDE  * ADJECTIVE_BITS
+	STAY END
+	STAY !HAS VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE ADVERB
+KEEP 
+
+  # if this word could be an adjective and is end of sentence and word before adverb before is appropriate verb, make it so - but "so what does she look *like" is prep
+-2  HASCANONICALPROPERTY VERB_TAKES_ADJECTIVE  # She seems very pretty
+	STAY !ISCANONICAL be			# be involves us in She is outmoded.
+	STAY !ISCANONICAL get			# get involves us in She gets outmoded.
+	IS ADVERB
+	INCLUDE  * ADJECTIVE_BITS
+	STAY END
+	STAY !HAS PREPOSITION
+ KEEP 
+ 
+ # if this word could be an adjective and not an adverb and is end of sentence and word before is appropriate  "be-similar" verb, not as aux, make it so
+-1  HASCANONICALPROPERTY VERB_TAKES_ADJECTIVE # She seems pretty
+	STAY !ISCANONICAL be			# LEGAL: She is outmoded. ILLEGAL: He went home.
+	STAY !ISCANONICAL get			# LEGAL: She got outmoded. ILLEGAL: He went home.
+	INCLUDE *  ADJECTIVE_BITS
+	STAY END
+	STAY !HAS ADVERB PREPOSITION
+KEEP 
+
+# if this word could be an adjective (and not a verb or preposition or adverb or determiner) and the next is an adjective, make this an adjective (but avoid noun-gerund issues - but not "each *one told her"
+0	INCLUDE *  ADJECTIVE_BITS
+	STAY !HAS NOUN_GERUND PREPOSITION ADVERB DETERMINER		#not- What do you think of (visiting) another country?  - NOT: this *looked nice  not "he spits at *other small creatures"
+	STAY !HAS VERB_BITS
+	IS ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE
+ KEEP 
+
+# be verb followed by possible adjective that ends the sentence (with any intervening adjectives), make adjective -- but not if aux or if be followed by participle or adverb: "the toy was *inside"
+REVERSE	0 	INCLUDE  * ADJECTIVE_BITS  
+	STAY !HAS VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE ADVERB
+	STAY END
+	SKIP IS ADVERB AUX_VERB # ILLEGAL: Have you been suffering
+	ISCANONICAL be
+KEEP
+
+# potential adjective or noun before a noun is an adjective (except gerund or infintive which take objects) unless also a prep. unless there is another verb later also "what is the *game Harry likes"
+
+# potential adjective or noun before an adjective normal is an adjective (except gerund or infintive which take objects) unless also a prep or adverb "thye use *more clever ways"
+0	INCLUDE * ADJECTIVE_BITS
+	STAY HAS NOUN_BITS
+	STAY !HAS VERB_BITS NOUN_GERUND NOUN_INFINITIVE PREPOSITION ADVERB
+	IS ADJECTIVE_BITS
+KEEP
+
+  #adjectives from "be" question-  is a mirror green
+ -3 ISCANONICAL be
+	STAY START
+ 	IS ADJECTIVE_BITS DETERMINER PRONOUN_POSSESSIVE
+	IS NOUN_BITS
+	INCLUDE  * ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NUMBER	# dogs *walking home are fun
+	STAY END
+  KEEP 
+
+   #adjectives from "be" question-  is mirrors green
+ -2 ISCANONICAL be
+	STAY START
+	IS NOUN_BITS
+	INCLUDE  * ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NUMBER	# dogs *walking home are fun
+	STAY END
+  KEEP 
+  
+# after prep- potential adj/noun followed by  noun "she took out a sheet of *white paper" but not "to *397 despite everything"
+-1	IS PREPOSITION
+	INCLUDE * ADJECTIVE_BITS
+	STAY CANONLYBE ADJECTIVE_BITS NOUN_BITS
+	IS NOUN_BITS
+KEEP

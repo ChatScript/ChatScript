@@ -1,0 +1,42 @@
+
+############################################
+########### Rules about particles
+############################################
+
+# particles are a kind of preposition, but can move after the object, are idiomatic expressions that may only exist with some objects "run up the bill" vs "run up the hill"
+
+# particle vs to-infinitive before noun_infinitive, be to_infinitive " the first *to ratify will go home"
+0	INCLUDE * PARTICLE
+	STAY HAS TO_INFINITIVE
+	IS NOUN_INFINITIVE
+DISCARD
+
+# NOT A POSSIBLE PARTICLE SUPERCEEDS A LOT
+0 INCLUDE * PARTICLE
+	STAY !POSSIBLEPARTICLE
+DISCARD
+
+# particle can never START a sentence
+0	INCLUDE * PARTICLE
+	STAY START
+DISCARD
+
+# terminal particle discard if could be adverb - BUT not "I will take the day *off"
+
+# these not after a determiner or preposition
+-1	IS DETERMINER PREPOSITION
+	INCLUDE * PARTICLE 
+DISCARD
+
+# potential particle directly following a particle verb should be such as long as not a preposition -- "the boy stood *up quickly and walked away"
+-1	IS VERB_BITS NOUN_GERUND ADJECTIVE_PARTICIPLE 
+	STAY HASCANONICALPROPERTY SEPARABLE_PHRASAL_VERB 
+	INCLUDE * PARTICLE
+	SKIP !HAS ADVERB 
+	HAS COMMA CONJUNCTION  # not going to find an object if it were a preposition
+ KEEP
+
+# Particle finds a matching particle verb and doesnt look like a prep phrase because has one after it - but not "Jenn ran *ahead of her"  "  "he turned the ball on"
+
+# Particle fails to find a matching particle verb and doesnt look like a prep phrase because has one after it - but not "Jenn ran *ahead of her"  "
+

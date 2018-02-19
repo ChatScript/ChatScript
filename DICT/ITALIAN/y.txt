@@ -1,0 +1,37 @@
+﻿ Yasser ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yitzhak ( NOUN NOUN_PROPER_SINGULAR ) 
+ York ( NOUN NOUN_PROPER_SINGULAR ) 
+ Young ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yves ( NOUN NOUN_PROPER_SINGULAR ) 
+ yacht ( NOUN NOUN_SINGULAR ) 
+ yankee ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yankee`yankee` ADJ  NOUN  
+ yankees ( NOUN NOUN_SINGULAR ) lemma=`yankee` NOUN  
+ yeah ( ) 
+ yehhhhhhhh ( ) 
+ yemenita ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemenite ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemeniti ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemenitissima ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemenitissime ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemenitissimi ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemenitissimo ( ADJECTIVE ) lemma=`yemenito` ADJ  
+ yemenito ( ADJECTIVE ) 
+ yen ( NOUN NOUN_SINGULAR ) 
+ yiddish ( ADJECTIVE ) 
+ yoga ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yoghe ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yoghi ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yoghissima ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yoghissime ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yoghissimi ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yoghissimo ( ADJECTIVE ) lemma=`yogo` ADJ  
+ yogo ( ADJECTIVE ) 
+ yogurt ( NOUN NOUN_SINGULAR ) 
+ yuppi ( ADJECTIVE ) 
+ yuppie ( NOUN NOUN_SINGULAR ) 
+ yuppies ( NOUN NOUN_SINGULAR ) lemma=`yuppy` NOUN  
+ yuppismi ( NOUN NOUN_SINGULAR ) lemma=`yuppismo` NOUN  
+ yuppismo ( NOUN NOUN_SINGULAR ) 
+ yuppy ( NOUN NOUN_SINGULAR ) 
+ yurta ( NOUN NOUN_SINGULAR ) 
+ yurte ( NOUN NOUN_SINGULAR ) lemma=`yurta` NOUN  

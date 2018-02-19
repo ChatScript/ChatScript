@@ -1,0 +1,492 @@
+##<<ENGLISH concept: ~determinerlist (a an the ) ##>>
+##<<ENGLISH concept: ~qwords (where when why how whom who whose whomever whoever what which whichever whatever ) ##>>
+
+##<<ENGLISH concept: ~static_verbs ( ~states_of_being ~sensory_states ~mental_states ~own ~measurement_states ~eternal_truths) ##>>
+##<<ENGLISH concept: ~states_of_being (be seem appear look resemble "looks like" becomes get) ##>> # descriptors
+##<<ENGLISH concept: ~sensory_states (appear feel hear look  see  smell sound taste ) ##>> # descriptors
+##<<ENGLISH concept: ~mental_states (agree believe depend desire dislike doubt  exist feel forget have imagine impress know like matter mean mind need own possess prefer promise recognize remember seem suppose surprise  think understand want wish ) ##>>
+##<<ENGLISH concept: ~measurement_states ( equal "add up to" reach measure make cost owe include contain weigh) ##>> # descriptors - make is for numbers
+##<<ENGLISH concept: ~eternal_truths ( concern consist  fit include involve move share ) ##>> # share borders, move the earth
+
+##<<ENGLISH concept: ~abort (annul cancel fail invalidate nullify quash void ) ##>>
+##<<ENGLISH concept: ~absorb (absorb inject insert ) ##>>
+##<<ENGLISH concept: ~accept_obey (comply give_in obey submit succumb yield ) ##>>
+##<<ENGLISH concept: ~achieve (accomplish attain complete earn fulfill satisfy succeed win ) ##>>
+##<<ENGLISH concept: ~acquiring_verbs (~BEGIVEN ~GET ~GIVE ~STEAL ) ##>>
+##<<ENGLISH concept: ~act (act attempt can commit dedicate devote do intend labor perform retry strive toil try ) ##>>
+##<<ENGLISH concept: ~active_verbs (~AFFECT_OBJECT_VERBS ~ANIMATE_MOVE_VERBS ~BODY_VERBS ~CONTROLLING_VERBS ~HEALTH_VERBS ~POSSESSION_VERBS ~SPECIAL_ACTIVITIES_VERBS ) ##>>
+##<<ENGLISH concept: ~add_magnetism (magnetise magnetize ) ##>>
+##<<ENGLISH concept: ~add_smell (aromatise aromatize odorize odourise ) ##>>
+##<<ENGLISH concept: ~affect_object_verbs (~alter ~ALTER_AGE ~ALTER_CHEMISTRY_VERBS ~ALTER_CLEANLINESS_VERBS ~ALTER_COMPLEXITY_VERBS ~ALTER_CONTAINER_VERBS ~ALTER_ELECTRICITY_VERBS ~ALTER_ESTHETICS_VERBS ~ALTER_FUNCTIONALITY_VERBS
+          ~ALTER_LOCATION_VERBS ~ALTER_MAGNETISM_VERBS ~ALTER_MOISTURE_VERBS ~ALTER_ORIENTATION ~ALTER_QUANTITY_VERBS ~ALTER_RADIATION ~ALTER_SHARPNESS_VERBS ~ALTER_SIZE_VERBS ~ALTER_SMELL_VERBS
+          ~ALTER_STRENGTH_VERBS ~ALTER_TEMPERATURE_VERBS ~ALTER_TIGHTNESS_VERBS ~ATTACHMENT_VERBS ~CREATION_VERBS ~EXTINGUISH ~GENERIC_EFFECT ~SUBSTITUTE abate advance air alter
+          appreciate awake blur climb develop differ ease fade focus footstep fray fuse hatch loop natural process rid rocket shift short-circuit
+          short soar spare sprout staunch steep straighten subside surge taper tire turn vary ) ##>>
+##<<ENGLISH concept: ~alter (adjust alter  amend renovate revise modify revamp reshape reconstruct recast  change update) ##>>
+##<<ENGLISH concept: ~affection (buss canoodle caress cuddle embrace fondle hug kiss nuzzle pet polarize stroke ) ##>>
+##<<ENGLISH concept: ~alter_age (age mature ) ##>>
+##<<ENGLISH concept: ~alter_chemistry_verbs (~ALTER_CONCENTRATION_HIGHER ~ALTER_CONCENTRATION_LOWER ~ALTER_PH_HIGHER ~ALTER_PH_LOWER ~RUST denature ) ##>>
+##<<ENGLISH concept: ~alter_cleanliness_verbs (~MAKE_CLEANER ~MAKE_DIRTIER ) ##>>
+##<<ENGLISH concept: ~alter_complexity_verbs (~COMPLICATE ~SIMPLIFY ) ##>>
+##<<ENGLISH concept: ~alter_concentration_higher (concentrate decant distill intensify purify repurify ) ##>>
+##<<ENGLISH concept: ~alter_concentration_lower (dilute ) ##>>
+##<<ENGLISH concept: ~alter_container_verbs (~BLOCK_ACCESS_CONTAINMENT ~ENABLE_ACCESS_CONTAINMENT ~INCREASE_CONTAINMENT ~REDUCE_CONTAINMENT ) ##>>
+##<<ENGLISH concept: ~alter_electricity_verbs (~DISCHARGE ~ELECTRIFY ) ##>>
+##<<ENGLISH concept: ~alter_esthetics_better_verbs (~BRAND ~COLORIZE ~CUTART ~DRAW ~GENERICART ~SEW ) ##>>
+##<<ENGLISH concept: ~alter_esthetics_verbs (~ALTER_ESTHETICS_BETTER_VERBS ~ALTER_ESTHETICS_WORSE ) ##>>
+##<<ENGLISH concept: ~alter_esthetics_worse (blacken decolorise decolorize decolor decolourise decolourize decolour discolorise discolorize discolor discolourise discolour
+          nigrify uglify unwrap vandalise ) ##>>
+##<<ENGLISH concept: ~alter_functionality_verbs (~DISABLE ~ENABLE ~START ~STOP_VERBS ) ##>>
+##<<ENGLISH concept: ~alter_higher (boost elevate heft hoist jack_up lift raise ) ##>>
+##<<ENGLISH concept: ~alter_horizontal (spin turn ) ##>>
+##<<ENGLISH concept: ~alter_location_verbs (~ALTER_HIGHER ~ALTER_LOWER ~CARRY ~THROW capsize ) ##>>
+##<<ENGLISH concept: ~alter_lower (drop fall plummet plunge sink ) ##>>
+##<<ENGLISH concept: ~alter_magnetism_verbs (~ADD_MAGNETISM ~REMOVE_MAGNETISM ) ##>>
+##<<ENGLISH concept: ~alter_moisture_verbs (~MAKE_DRIER ~MAKE_WETTER ) ##>>
+##<<ENGLISH concept: ~alter_orientation (~ALTER_HORIZONTAL ~ALTER_VERTICAL ~ALTER_WIGGLE ) ##>>
+##<<ENGLISH concept: ~alter_ph_higher (alkalify alkalinise alkalinize alkalise alkalize ) ##>>
+##<<ENGLISH concept: ~alter_ph_lower (acidify ) ##>>
+##<<ENGLISH concept: ~alter_quantity_verbs (~DECREASE_VERBS ~INCREASE_VERBS ) ##>>
+##<<ENGLISH concept: ~alter_radiation (irradiate radiate ) ##>>
+##<<ENGLISH concept: ~alter_sharpness_verbs (~DULL ~SHARPEN ) ##>>
+##<<ENGLISH concept: ~alter_size_verbs (~GET_BIGGER ~GET_SMALLER fluctuate ) ##>>
+##<<ENGLISH concept: ~alter_smell_verbs (~ADD_SMELL ~REMOVE_SMELL ) ##>>
+##<<ENGLISH concept: ~alter_strength_verbs (~STRENGTHEN ~WEAKEN ) ##>>
+##<<ENGLISH concept: ~alter_temperature_verbs (~COOL_VERBS ~HEAT_VERBS ) ##>>
+##<<ENGLISH concept: ~alter_tightness_verbs (~LOOSEN ~TIGHTEN ) ##>>
+##<<ENGLISH concept: ~alter_vertical (balance overturn tilt tip topple tumble upend upheave ) ##>>
+##<<ENGLISH concept: ~alter_wiggle (brandish flap fluctuate flutter gyrate gyre oscillate pirouette pivot pulsate purl quaver quiver revolve shake spin sway swing
+          swish turn twirl undulate wave whirl wiggle wigwag wobble ) ##>>
+##<<ENGLISH concept: ~animalsounds (baa bark bay bellow bleat bray buzz cackle call caterwaul caw chatter cheep chirp chirrup chitter cluck coo croak crow
+          cuckoo drone gobble growl grunt hee-haw hiss honk hoot howl low meow mewl mew moo neigh oink peep pipe purr quack roar scream
+          screech sing snap snarl snort snuffle squeak squeal stridulate trill tweet twitter wail warble whimper whinny whistle woof yap yell
+          yelp yip yowl ) ##>>
+##<<ENGLISH concept: ~animate_move_verbs (~ARRIVE ~MOVING_AIR ~MOVING_BEYOND ~MOVING_ESCAPE ~MOVING_FAST_LAND ~MOVING_GENERIC ~MOVING_OBJECT ~MOVING_SLOW_LAND ~MOVING_TO ~MOVING_WATER beach clump
+          ~vehicle_verbs find land lollop place ~travel_verbs ) ##>>
+##<<ENGLISH concept: ~travel_verbs (journey travel move relocate ~vehicle_verbs visit go vacation) ##>>
+##<<ENGLISH concept: ~ASSOCIATION_VERBS (~involve join quit register sign-up organize arrange ) ##>>
+##<<ENGLISH concept: ~animate_verbs (~AFFECT_OBJECT_VERBS ~ANIMATE_MOVE_VERBS ~BODY_VERBS ~GENERIC_DO_VERBS ~HEALTH_VERBS ~MENTAL_VERBS ~PERCEPTION_VERBS ~SOCIAL_VERBS ~SPECIAL_ACTIVITIES_VERBS ~ASSOCIATION_VERBS) ##>>
+##<<ENGLISH concept: ~arrange (align arrange categorize codify coil design dot formalize heap layer mound organize pile rack rearrange reorganize schedule scramble
+          unscramble ) ##>>
+##<<ENGLISH concept: ~arrive (arrive get_to go_to reach return visit ) ##>>
+##<<ENGLISH concept: ~attachment_verbs (~CHANGE_STATE_BY_MIXING ~JOIN ~UNJOIN ) ##>>
+##<<ENGLISH concept: ~auxverblist (am are been being be can could dared dares dare did does do going_to had has have is may might must
+          ought shall should was were will would ) ##>>
+##<<ENGLISH concept: ~avoid (avoid boycott circumvent dodge duck elude eschew evade forgo shun sidestep ) ##>>
+##<<ENGLISH concept: ~awareof (appear be_you_aware_of be_you_familiar_with detect discern discover do_you_know experience have_you_heard_of have_you_run_across intuit materialize
+          perceive sense show_up what_do_you_know_about who_be ) ##>>
+##<<ENGLISH concept: ~balance (balance dizzy ) ##>>
+##<<ENGLISH concept: ~banish (banish deport disbar discharge disenfranchise disfranchise evacuate evict excommunicate exile expel fire ignore ostracise ostracize
+          sack terminate unfrock ) ##>>
+##<<ENGLISH concept: ~be_verbs (~ENDURE ~TOBE ) ##>>
+##<<ENGLISH concept: ~become_visible (arise dawn emerge erupt issue pop_up re-emerge reappear ) ##>>
+##<<ENGLISH concept: ~bedeacquired (defraud defrock depose desert disarm disinherit disown lose oust overthrow raffle relinquish spend usurp ) ##>>
+##<<ENGLISH concept: ~befriend (ally associate befriend friend ) ##>>
+##<<ENGLISH concept: ~begiven (accept borrow cadge inherit receive ) ##>>
+##<<ENGLISH concept: ~block_access  (ban bar block constrain criminalise criminalize decertify decline deny disallow exclude illegalise illegalize proscribe refuse reject restrict withhold ) ##>>
+##<<ENGLISH concept: ~block_access_containment (clog close lock seal shut ) ##>>
+##<<ENGLISH concept: ~blood_ill (blanch bleed blench faint hemorrhage pale ) ##>>
+##<<ENGLISH concept: ~bodily_activities_verbs (~CLOTHING_VERBS ~GROOM ) ##>>
+##<<ENGLISH concept: ~bodily_function_verbs (~BREATHE ~EXCRETING_VERBS ~INGESTING_VERBS ~REPRODUCE_VERBS ~SLEEPSTATE_VERBS ) ##>>
+##<<ENGLISH concept: ~body_verbs (~BODILY_ACTIVITIES_VERBS ~BODILY_FUNCTION_VERBS ~REMAIN_STATIONARY ) ##>>
+##<<ENGLISH concept: ~boss (anoint appoint boss command crown elect govern head lead manage oversee supervise ) ##>>
+##<<ENGLISH concept: ~brand (autograph brand caption initial label letter monogram sign) ##>>
+##<<ENGLISH concept: ~breathe (breathe exhale hyperventilate inhale respire ) ##>>
+##<<ENGLISH concept: ~build (amalgamate assemble build code compose concoct conjure construct contrive create design develop erect fabricate fashion forge formulate generate
+          improvise instantiate invent make manufacture mint produce program rebuild reconstitute recreate synthesize synthetise synthetize write ) ##>>
+##<<ENGLISH concept: ~buy  (buy misspend order overpay overspend pay prepay purchase reimburse shop underpay underspend ) ##>>
+##<<ENGLISH concept: ~capture  (capture catch ensnare entrap handcuff hem_in herd restrain shanghai ) ##>>
+##<<ENGLISH concept: ~carry (backpack carry convey ferry haul lug move portage relocate schlep tote transfer transplant transport ) ##>>
+##<<ENGLISH concept: ~change_state_by_cool (condense cristallise cristallize crystalise crystalize crystallise crystallize ) ##>>
+##<<ENGLISH concept: ~change_state_by_heat (evaporate gasify liquefy liquify resublime sublime vaporise ~heat) ##>>
+##<<ENGLISH concept: ~change_state_by_mixing (combine dissolve infuse mix ) ##>>
+##<<ENGLISH concept: ~chat (answer ask banter chat_about chatter chat chitchat commiserate confer consult converse  debate discuss engage_in_conversation gab gossip interview jest
+          muse parley rap retort schmooze speak  talk ) ##>>
+##<<ENGLISH concept: ~chill (chill dethaw freeze frost glaciate quick-freeze refrigerate solidify unthaw ) ##>>
+##<<ENGLISH concept: ~choose (arbitrate chance choose decide guess handpick pick prefer rather recommend risk select suggest ) ##>>
+##<<ENGLISH concept: ~classify (categorise characterize classify class define diagnose identify interpret misclassify name peg pigeonhole reclassify sort stereotype
+          subcategorise subcategorize subclassify typecast winnow ) ##>>
+##<<ENGLISH concept: ~clothing_verbs (~DRESS ~GUSSY ~UNDRESS ) ##>>
+##<<ENGLISH concept: ~cold_weather (freeze hail sleet snow ) ##>>
+##<<ENGLISH concept: ~colorize (bodypaint brighten coat colorise colorize color colourise colourize dye enamel fancify gild glaze handcolor handcolour lacquer paint
+          polychromise polychromize prettify repaint shellac stain tan tie-dye tint varnish watercolour whiten ) ##>>
+##<<ENGLISH concept: ~communicate_verbs (~GENERIC_COMMUNICATES ~NONVERBAL_COMMUNICATION_VERBS ~SPEAK_VERBS ~VIDEOING ~WRITING ) ##>>
+##<<ENGLISH concept: ~compete_verbs (~DEFEND ~FIGHT ~LOST ~WON ) ##>>
+
+##<<ENGLISH concept: ~complete (~ACHIEVE end expire finish  terminate  ) ##>>
+##<<ENGLISH concept: ~complicate (complexify complicate obfuscate ) ##>>
+##<<ENGLISH concept: ~controlling_verbs (~AVOID ~EXCLUSION_VERBS ~GOVERN_VERBS ~INCLUDE connive constrain contrive convince decontrol defer endeavor persuade plot ) ##>>
+##<<ENGLISH concept: ~cooking_verbs (bake barbecue bbq blanch boil braise broil brown caramelise caramelize coddle cook crispen crisp deep-fry free-base fry grill
+          heat julienne microwave ovenbake overboil overcook overheat pan-broil pan-fry parboil parch peel percolate perk pickle poach pressure-cook
+          pulp puree reheat rissole roast saute scale scallop shirr simmer steam stew toast warm-up ) ##>>
+##<<ENGLISH concept: ~cool_verbs (~CHANGE_STATE_BY_COOL ~CHILL ) ##>>
+##<<ENGLISH concept: ~copy (ape chart copy diagram document duplicate emulate facsimile graph imitate map mimeograph mimic publish quadruplicate record replicate
+          reproduce tape xerox ) ##>>
+##<<ENGLISH concept: ~count (~LIST average catalogue catalog count measure sum tally total ) ##>>
+##<<ENGLISH concept: ~creation_verbs (~ARRANGE ~BUILD ~COPY blow churn coin compile derive form grind grow hack hammer model mold pound roll stage style summon ) ##>>
+##<<ENGLISH concept: ~cry (cry mourn sob weep ) ##>>
+##<<ENGLISH concept: ~cutart  (carve cast chisel engrave etch imprint incise inscribe scar scratch sculpture sculpt whittle ) ##>>
+##<<ENGLISH concept: ~damage_bend  (bend contort crease crinkle crumple deform dent dislocate distend fold furrow pleat roll rumple scrunch splay sprain strain
+          twist wind wrinkle ) ##>>
+##<<ENGLISH concept: ~damage_burn  (~IGNITE burn combust cremate immolate incinerate scald smolder smoulder ) ##>>
+##<<ENGLISH concept: ~damage_explode  (atom-bomb blast bomb burst detonate explode nuke pop rupture torpedo vaporize ) ##>>
+##<<ENGLISH concept: ~damage_fatal (~FATAL_TO_OTHER ~FATAL_TO_SELF ) ##>>
+##<<ENGLISH concept: ~damage_generic  (accost atomise atomize barbarise barbarize besiege brutalise brutalize coagulate coerce congeal corrupt curdle damage debilitate
+          declaw defang defeminise defeminize degrade dehumanise dehumanize demasculinise demasculinize deprive desexualise desexualize desex deteriorate
+          detusk devitalise devitalize discommode discontinue emulsify enervate enfeeble eradicate excruciate hospitalise hurt immobilise immobilize impair
+          imperil impoverish incapacitate inflict injure institutionalise jellify jeopardise liquidise liquidize lobectomise lobectomize lobotomise lobotomize
+          macerate maltreat mastectomise mastectomize misalign mistreat mutate neutralise neutralize overwhelm paralyse paralyze penalise ravage skew sodomise
+          sodomize spay steamroll sterilise stun stupefy torment torture trash traumatise traumatize unsex vasectomise vasectomize victimise wound ) ##>>
+##<<ENGLISH concept: ~damage_hit (~DAMAGE_HIT_FOOT ~DAMAGE_HIT_OTHER ) ##>>
+##<<ENGLISH concept: ~damage_hit_foot  (flatten kick squash squish step_on ) ##>>
+##<<ENGLISH concept: ~damage_hit_other  (bean bludgeon bonk bruise bump cane clip concuss contuse crash crumble cuff graze hit impact K/O pistol-whip pulverise
+          pulverize punch smash_down smash smite strike trash ) ##>>
+##<<ENGLISH concept: ~damage_magic  (accurse alchemise alchemize anathemise bedamn bewitch brainwash compel curse dematerialise dematerialize desanctify enchant ensourcel
+          execrate fossilise fossilize hypnotise hypnotize imprecate maledict mesmerize petrify powderise powderize sorcerise sorcerize spellbind stupefy
+          transmute ) ##>>
+##<<ENGLISH concept: ~damage_poison  (bacterise bacterize dose euthanize infect irradiate poison sting taint ) ##>>
+##<<ENGLISH concept: ~damage_projectile  (discharge fire gun_down gun launch shell shoot stone strafe ) ##>>
+##<<ENGLISH concept: ~damage_puncture  (bayonet bite bleed disembowel impale knife nip perforate pierce prick puncture stab thrust ) ##>>
+##<<ENGLISH concept: ~damage_slice  (amputate ax behead bifurcate butcher castrate chip chop_up chop cleave cut decapitate disfigure dismember emasculate eviscerate
+          flake fragmentise fragmentize gash geld guillotine hack hew juice maim mutilate nick pole-axe pole-ax poleaxe poleax prune rend reslice
+          rip rive saw scissor scrape scratch sever shred skin slash slice sliver snip subdivide sunder tear trifurcate trisect vivisect ) ##>>
+##<<ENGLISH concept: ~damage_snap (break_apart break_down break_up break bust crack fracture rip shatter snap splinter split ) ##>>
+##<<ENGLISH concept: ~damage_unusual  (assimilate blind deafen defoliate deforest denude dissolve emaciate sunburn ) ##>>
+##<<ENGLISH concept: ~damage_verbal  (besmirch desecrate libel slander ) ##>>
+##<<ENGLISH concept: ~damage_verbs (~DAMAGE_BEND ~DAMAGE_BURN ~DAMAGE_FATAL ~DAMAGE_GENERIC ~DAMAGE_HIT ~DAMAGE_MAGIC ~DAMAGE_POISON ~DAMAGE_PROJECTILE ~DAMAGE_PUNCTURE ~DAMAGE_SLICE ~DAMAGE_UNUSUAL
+          ~DAMAGE_VERBAL ) ##>>
+##<<ENGLISH concept: ~date (ask_me_out asking_me_out come_out_with court date go_out_with seeing_anybody seeing_anyone take_me_out take_you_out womanise womanize woo ) ##>>
+##<<ENGLISH concept: ~deacquiring_verbs (~BEDEACQUIRED ~DROP_VERBS ) ##>>
+##<<ENGLISH concept: ~deceive (bamboozle belie deceive dissemble equivocate feign fib hoodwink lie misinform mislead misrepresent misstate perjure prevaricate ) ##>>
+##<<ENGLISH concept: ~decline_obey (balk disobey flout ) ##>>
+##<<ENGLISH concept: ~decrease_count (decrease depreciate diminish divide dwindle halve lessen lose reduce shrink subtract ) ##>>
+##<<ENGLISH concept: ~decrease_speed (decelerate ) ##>>
+##<<ENGLISH concept: ~decrease_verbs (~DECREASE_COUNT ~DECREASE_SPEED ) ##>>
+##<<ENGLISH concept: ~defend (block counterattack cower deflect dodge feint parry riposte ) ##>>
+##<<ENGLISH concept: ~degrade (decline decompose degrade devolve fester languish putrefy rot wane wilt wither worsen ) ##>>
+##<<ENGLISH concept: ~describe (cast depict describe detail portray recast represent specify ) ##>>
+##<<ENGLISH concept: ~disable (end cease deactivate disable halt inactivate nullify stop switch_off switch turn_off terminate ) ##>>
+##<<ENGLISH concept: ~disappear (conceal disappear hide vanish ) ##>>
+##<<ENGLISH concept: ~discharge (discharge ) ##>>
+##<<ENGLISH concept: ~disenchant ( despell disenchant unenchant  ) ##>>
+##<<ENGLISH concept: ~dislike (abhor abominate condemn deplore despise detest disdain dislike distrust do_not_like dread eschew execrate fear hate lament least_favorite
+          loathe not_a_fan_of resent scorn shun ) ##>>
+##<<ENGLISH concept: ~draw (applique autograph cartoon caricature chalk charcoal crayon doodle draw forge illustrate ink pencil print sketch stamp star stencil ) ##>>
+##<<ENGLISH concept: ~dress (attire camouflage change clad clothe disguise don dress enclothe enrobe garb overclothe robe tog underdress wear) ##>>
+##<<ENGLISH concept: ~drink (bottlefeed breastfeed chug drink glug gulp guzzle imbibe quaff sip slake slurp suck sup swig swill to_drink ) ##>>
+##<<ENGLISH concept: ~drive (chauffeur drive park ticket ) ##>>
+##<<ENGLISH concept: ~drop_job (abdicate renounce resign retire ) ##>>
+##<<ENGLISH concept: ~drop_object (cede deal discard dispose distribute divest drop dump forfeit forsake give_onto give_up leave lose quit refund release relinquish
+          scrap shed vacate ) ##>>
+##<<ENGLISH concept: ~drop_verbs (~DROP_JOB ~DROP_OBJECT ) ##>>
+##<<ENGLISH concept: ~dull (dull ) ##>>
+##<<ENGLISH concept: ~eat (bite bolt chew chomp chow_down crunch dine eat feed gluttonize gnaw gobble ingest lick masticate munch nibble overeat overgorge partake peck
+          salivate snack spoonfeed to_eat wolf ) ##>>
+##<<ENGLISH concept: ~electrify (electrify energise energize recharge ) ##>>
+##<<ENGLISH concept: ~emitfire (blaze burn enkindle flame flare ignite kindle light rekindle ) ##>>
+##<<ENGLISH concept: ~emitgas (bubble puff steam ) ##>>
+##<<ENGLISH concept: ~emitgeneric (emanate emit exude ) ##>>
+##<<ENGLISH concept: ~emitlight (beam bedazzle blink coruscate dazzle flash flicker fluoresce glare gleam glimmer glint glisten glitter glow illuminate incandesce
+          light luminesce phosphoresce scintillate shimmer shine sparkle twinkle ) ##>>
+##<<ENGLISH concept: ~emitliquid VERB (dribble drip drool expectorate foam gush jet leak ooze percolate pour secrete seep slobber slop slosh spill spit spout sprout
+          spurt squirt stream trickle ) ##>>
+##<<ENGLISH concept: ~emitsmell VERB (reek smell stink ) ##>>
+##<<ENGLISH concept: ~emitsound VERB (babble bang beat beep bellow blare blast blat boom bubble burble burr buzz chatter chime chink chitter chug clack clang
+          clank clap clash clatter click cling clomp clump clunk crackle crack crash creak crepitate crunch cry ding dong echo explode fizzle
+          fizz groan growl gurgle hiss hoot hum jangle jingle knell knock lilt moan murmur patter peal pink plonk plop plunk pop purr putter
+          rap rasp rattle resonate resound reverberate ring roar roll rumble rustle scream screech shriek shrill sing sizzle snap splash splutter
+          sputter squeak squeal squelch swish swoosh thrum thud thump thunder thunk tick ting tinkle toll toot trill trumpet twang vroom wail
+          wheeze whine whir whish whistle whoosh zing ) ##>>
+##<<ENGLISH concept: ~emotional_verbs (~AFFECTION ~CRY ~LAUGH ~MISC_NEGATIVE_EMOTIONS ~MISC_POSITIVE_EMOTIONS ~SURPRISE goggle jeer mystify snort tempt ) ##>>
+##<<ENGLISH concept: ~employ (commission contract employ engage enlist hire recruit reinstate sign_on sign_up subcontract train ) ##>>
+##<<ENGLISH concept: ~enable (activate enable reactivate start switch_on toggle turn_on ) ##>>
+##<<ENGLISH concept: ~enable_access_containment (open reopen unclog unlock unseal ) ##>>
+##<<ENGLISH concept: ~endrelation (abandon annul betray break_up divorce estrange secede separate ) ##>>
+##<<ENGLISH concept: ~endure (bear endure last linger maintain persist prevail remain survive weather withstand ) ##>>
+##<<ENGLISH concept: ~enhance_verbs (~DISENCHANT ~IMPROVE ~MEDICAL_IMPROVE ~REPAIR ~RESURRECT ) ##>>
+##<<ENGLISH concept: ~event_verbs (~HAPPEN ~REPEAT ) ##>>
+##<<ENGLISH concept: ~exchange (~BUY ~INVEST ~SELL ~SWAP earn for_a_living for_cash for_money negotiate owe transact ) ##>>
+##<<ENGLISH concept: ~exclusion_verbs (~BANISH ~BLOCK_ACCESS ~CAPTURE ~JAIL ~PREVENT ~SILENCE boycott except omit ) ##>>
+##<<ENGLISH concept: ~excrete_air (belch blow burp eruct fart sneeze ) ##>>
+##<<ENGLISH concept: ~excrete_liquid (pee perspire piss sweat urinate wee ) ##>>
+##<<ENGLISH concept: ~excrete_solid (defecate excrete poop shit void ) ##>>
+##<<ENGLISH concept: ~excreting_verbs (~EXCRETE_AIR ~EXCRETE_LIQUID ~EXCRETE_SOLID egest ) ##>>
+##<<ENGLISH concept: ~exercise_verbs (exercise fence mud-wrestle mudwrestle waterski weight-lift weightlift ) ##>>
+##<<ENGLISH concept: ~exorcize (exorcise exorcize purify sanctify spiritualise ) ##>>
+##<<ENGLISH concept: ~explain (describe educate elucidate explain explicate expound inform talk teach tell "give me information" ) ##>>
+##<<ENGLISH concept: ~extinguish (extinguish put_out ) ##>>
+##<<ENGLISH concept: ~farm (dig farm fertilise fertilize germinate grow hoe mow mulch plant plough plow pollinate raise rake replant ripen seed shade shovel
+          tend till ) ##>>
+##<<ENGLISH concept: ~fatal_other_burn (immolate incinerate ) ##>>
+##<<ENGLISH concept: ~fatal_other_strangle (asphyxiate choke disembowel garrote lynch smother strangle strangulate suffocate ) ##>>
+##<<ENGLISH concept: ~fatal_to_other (~DAMAGE_EXPLODE ~FATAL_OTHER_BURN ~FATAL_OTHER_STRANGLE ~KILL abolish annihilate blitz bury chop_up cleave crucify crumble crush death decapitate
+          decimate delete demolish destroy devastate disconnect disintegrate dispatch drown efface electrocute eliminate entomb erase expire freeze gun_down
+          gun impale inter juice level liquidate martyrise martyrize melt mummify obliterate poison power_off raze rebury reobliterate ruin
+          sacrifice slay smash_down smash squash squish starve step_on turn_off undo unmake unplug waste wreck ) ##>>
+##<<ENGLISH concept: ~fatal_to_self (asphyxiate die_out die discorporate drown explode implode mariticide perish power_off predecease self-destroy self-destruct starve
+          suffocate suicide ) ##>>
+##<<ENGLISH concept: ~faulty_think (confuse forget misapprehend misconceive misconstrue misidentify misinterpret misremember misunderstand ) ##>>
+##<<ENGLISH concept: ~fight (aim altercate attack battle beat box brawl challenge clash combat compete conflict confront counterchallenge duel endanger feud fight
+          invade joust oppose repel resist retaliate scuffle skirmish spar struggle target threaten tilt tussle vie war wrestle ) ##>>
+##<<ENGLISH concept: ~flourish (extend flourish predominate prosper thrive ) ##>>
+##<<ENGLISH concept: ~force_obey (command compel demand enslave oblige order require subjugate tame ) ##>>
+##<<ENGLISH concept: ~gain_verbs (~ACQUIRING_VERBS ) ##>>
+##<<ENGLISH concept: ~gamble (bet wager ) ##>>
+##<<ENGLISH concept: ~generic_communicates (communicate contact empathize get_in_touch_with reach ) ##>>
+##<<ENGLISH concept: ~generic_do_verbs (~ACT ~USE ) ##>>
+##<<ENGLISH concept: ~generic_effect (affect alter change modify morph transform ) ##>>
+##<<ENGLISH concept: ~generic_ingestion (consume digest ingest ) ##>>
+##<<ENGLISH concept: ~genericart (adorn antique beautify cover decorate embellish glamorise glamorize glamourise glamourize mark ornament speckle wrap ) ##>>
+##<<ENGLISH concept: ~gestures (cue demonstrate designate genuflect gesture indicate mark nod point semaphore show shrug signal sign tremble wince ) ##>>
+##<<ENGLISH concept: ~get (accrue accumulate acquire adopt appropriate batch collect compensate exact find garner gather get grab grip hunt obtain pick_up recompense
+          recover regain remunerate repay retrieve serve stockpile take_up take ) ##>>
+##<<ENGLISH concept: ~get_bigger (bloat bulge dilate distend enlarge expand grow mushroom snowball stretch widen ) ##>>
+##<<ENGLISH concept: ~get_smaller (compress condense contract shrink shrivel slenderize slim thin ) ##>>
+##<<ENGLISH concept: ~give (award bequeath bestow contribute convey deed deliver dish_out dish dispense dole_out donate fork_over fund furnish gift give grant hand_over
+          hand reward turn_over ) ##>>
+##<<ENGLISH concept: ~give_birth (calve cub fawn foal kitten lamb litter pup reproduce spawn whelp ) ##>>
+##<<ENGLISH concept: ~golfing (putt ) ##>>
+##<<ENGLISH concept: ~govern_verbs (~BOSS ~LEGAL_VERBS ~OBEDIENCE_VERBS conquer impose ) ##>>
+##<<ENGLISH concept: ~greet (bow greet hail salute wave welcome ) ##>>
+##<<ENGLISH concept: ~groom (bathe bob braid brush clip coiffe coldcream comb condition crimp crop curl curry cut depilate dry dye file floss gel groom
+          henna highlight lather lave manicure neaten paint part pedicure perm plait pluck powder rinse rouge shampoo shave shower soap stye
+          talc tease towel ) ##>>
+##<<ENGLISH concept: ~gussy (doll overdress preen primp spruce ) ##>>
+##<<ENGLISH concept: ~halt (cease halt stop terminate ) ##>>
+##<<ENGLISH concept: ~happen (come_about happen occur take_place transpire ) ##>>
+##<<ENGLISH concept: ~health_verbs (~DAMAGE_VERBS ~DEGRADE ~ENHANCE_VERBS ~FLOURISH ~ILLHEALTH_VERBS ) ##>>
+##<<ENGLISH concept: ~hear (eavesdrop hear listen overhear ) ##>>
+##<<ENGLISH concept: ~heat (bake barbeque boil broil cauterise cauterize char cook defrost deice electrocauterise electrocauterize fry fuse heat melt pasteurise
+          pasteurize preheat rewarm roast scorch sear simmer singe smelt sterilize stir_fry thaw thermalise thermalize thermocauterise thermocauterize
+          unfreeze warm ) ##>>
+##<<ENGLISH concept: ~heat_verbs (~CHANGE_STATE_BY_HEAT ~IGNITE heat ) ##>>
+##<<ENGLISH concept: ~help (abet advise aid assist do_I_a_favor do_you_a_favor facilitate give_I_a_hand give_you_a_hand help lend_I_a_hand lend_you_a_hand ) ##>>
+##<<ENGLISH concept: ~hot_weather (swelter thaw ) ##>>
+##<<ENGLISH concept: ~ignite (burn enkindle fire flame ignite incinerate kindle light ) ##>>
+##<<ENGLISH concept: ~illhealth_verbs (~BLOOD_ILL ~LUNG_ILL ~STOMACH_ILL ache hurt sicken ) ##>>
+##<<ENGLISH concept: ~imagining_think (cerebrate cogitate conceive contemplate dream_up dummy envisage envision fake fantasize hypothecate hypothesise hypothesize image imagine introspect
+          outguess plan predict preplan pretend simulate suppose theorise visualise visualize wish wonder ) ##>>
+##<<ENGLISH concept: ~improve (augment enhance evolve improve prolong regenerate remodel renovate restitute revamp revolutionize ) ##>>
+##<<ENGLISH concept: ~move_up_verbs (ascend raise lift climb rise) ##>>
+##<<ENGLISH concept: ~move_down_verbs(descend dive lower fall drop ) ##>>
+##<<ENGLISH concept: ~inanimate_move_verbs (angle ascend bring cache carry cascade climb come crawl crest crisscross cross cut descend dip dive drip drop edge
+          emerge flow go meander mount ooze pack pass plummet plunge range ricochet rise run seep skirt slant snake store stow straggle stretch
+          sweep swerve transport tumble turn twist undulate veer wander weave wind zigzag ) ##>>
+##<<ENGLISH concept: ~inanimate_stationary_verbs (abut adjoin balance bestride blanket border bound bow bracket bridge cap circle cloak cluster contain cover cross
+          crouch dangle droop edge encircle enclose encompass engulf envelop fence fill flank flop follow frame group hang head hover huddle
+          hunch intersect jut kneel lean lie line loll loom lounge neighbor nestle overcast perch plop precede protrude recline repose rest rim
+          ring rise roost sag sit skirt slope slouch slump span sprawl squat stand stoop straddle support surmount surround swing tilt top
+          touch tower traverse underlie wreathe ) ##>>
+##<<ENGLISH concept: ~inanimate_verbs (~INANIMATE_MOVE_VERBS ~INANIMATE_STATIONARY_VERBS ~PHYSICALATTRIBUTE_VERBS ) ##>>
+##<<ENGLISH concept: ~include (admit include invite open welcome ) ##>>
+##<<ENGLISH concept: ~increase_containment (cram fill inflate load pack stuff ) ##>>
+##<<ENGLISH concept: ~increase_count (accrete accumulate add aggravate amass amplify append augment double enrich gain grow improve increase multiply proliferate
+          quadruple refill replenish skyrocket swell ) ##>>
+##<<ENGLISH concept: ~augment (~increase_count insert append attach ) ##>>
+##<<ENGLISH concept: ~increase_speed (accelerate ) ##>>
+##<<ENGLISH concept: ~increase_verbs (~INCREASE_COUNT ~INCREASE_SPEED ) ##>>
+##<<ENGLISH concept: ~ingesting_verbs (~ABSORB ~GENERIC_INGESTION ~INHALE ~SWALLOWING_VERBS ) ##>>
+##<<ENGLISH concept: ~inhale (breathe exhale hyperventilate inhale respire smoke snort suspire toke ) ##>>
+##<<ENGLISH concept: ~invest (bet gamble invest lend loan ) ##>>
+##<<ENGLISH concept: ~jail (cage commit confine detain hospitalize imprison incarcerate institutionalize jail ) ##>>
+##<<ENGLISH concept: ~join (adhere admix adsorb affix amalgamate anchor assemble associate attach band belt bind blend bolt bond bracket buckle button cement
+          chain cinch coalesce combine compose conjoin connect couple entangle entwine epoxy fasten_down fasten fetter glue handcuff harness hinge
+          hitch homogenize hook incorporate integrate join knot lace lash lassoo lasso latch leash link loop manacle match mix moor muzzle nail
+          overlap padlock peg pin plaster rivet rope screw shackle skewer solder splice staple stick stitch strap tack tape tether thread thumbtack
+          tie trammel truss unify unite wire yoke zip ) ##>>
+##<<ENGLISH concept: ~judge (adjudicate analyze compare contrast critique deem determine evaluate grade judge lowball misgauge misjudge overrate overvalue rank underrate
+          valuate ) ##>>
+##<<ENGLISH concept: ~judgement_verbs (~CHOOSE ~CLASSIFY ~DESCRIBE ~JUDGE ~OPINION_VERBS ) ##>>
+##<<ENGLISH concept: ~kill (assassinate behead bushwhack butcher discorporate dismember euthanatise euthanatize euthanize exsanguinate exterminate extirpate kill massacre
+          murder slaughter  died dead  hang bury  autopsy expire shut_down "passed away") ##>>
+
+##<<ENGLISH concept: ~laugh (cackle chortle chuckle giggle grin groan guffaw howl laughter laugh smirk snicker snigger titter ) ##>>
+##<<ENGLISH concept: ~legal_allow (accede allow approve authorise authorize capitulate certify decriminalise decriminalize legalise legalize legitimatise legitimatize
+          legitimise legitimize let license okay permit sanction tolerate vet ) ##>>
+##<<ENGLISH concept: ~legal_guilt (admit cheat commit ) ##>>
+##<<ENGLISH concept: ~legal_harm (accuse arraign arrest blame charge convict court-martial enforce extradite sentence ) ##>>
+##<<ENGLISH concept: ~legal_help (appeal commute pardon reprieve ) ##>>
+##<<ENGLISH concept: ~legal_lawmaking (amend countermand overrule petition repeal rescind ) ##>>
+##<<ENGLISH concept: ~legal_verbs (~LEGAL_ALLOW ~LEGAL_GUILT ~LEGAL_HARM ~LEGAL_HELP ~LEGAL_LAWMAKING ) ##>>
+##<<ENGLISH concept: ~like (adore approve be_big_on attached_to be_keen_on be_partial_to care_about care_for care cherish cotton_to deify delight_in desire dote_on enjoy esteem exalt fancy
+           favor go_for idolize indulge_in interested_in like love need prefer prize relish require respect revel_in savor treasure trust value
+          venerate worship ) ##>>
+##<<ENGLISH concept: ~linkingverb (am appear are become been being be feel get go grow is keep lie look prove remain run seem smell sound stay taste
+          turn was were ) ##>>
+##<<ENGLISH concept: ~list (enumerate list name) ##>>
+##<<ENGLISH concept: ~live (abide board domicile dwell exist frequent infest inhabit live_with live lodge nest occupy rent reside shelter stay ) ##>>
+##<<ENGLISH concept: ~loosen (loosen ) ##>>
+##<<ENGLISH concept: ~lose_verbs (~DEACQUIRING_VERBS leech place tax ) ##>>
+##<<ENGLISH concept: ~lost (concede lose ) ##>>
+##<<ENGLISH concept: ~lung_ill (cough_up cough expectorate sneeze snuffle wheeze ) ##>>
+##<<ENGLISH concept: ~make_cleaner (brighten clean_up cleanse clean hand-wash mop pressure-wash sand-blast scrub sponge spring-clean trim vacuum-clean vacuum wash water-wash
+          wax wipe ) ##>>
+##<<ENGLISH concept: ~make_dirtier (dirty fade grime mess muddy muss stain sully tarnish ) ##>>
+##<<ENGLISH concept: ~make_drier (blow-dry defog dehumidify dehydrate demist desicate dry spin-dry ) ##>>
+##<<ENGLISH concept: ~make_love (a_quickie bang_me bang_you bone_you bonk butt_fuck consummate copulate deflower ejaculate fellate fingering fisting fornicate fuck get_into_your_pants
+          get_it_on get_laid give_head go_down_on go_to_bed had_sex hand_job have_sex humping hump impregnate jack_off jerk_off jill_off made_love make_love make_out masturbate
+          pop_her_cherry pop_your_cherry rimming rub_your rut screw_you screw seduce shag sleep_with_I stick_it_in_you suck_your tit_fuck to_bed_with to_hump wank_off wank
+          you_to_bed ) ##>>
+##<<ENGLISH concept: ~make_wetter (baste douse drench flood humidify immerse irrigate moisten moisturise moisturize saturate soak spray submerge submerse waterlog
+          water wet ) ##>>
+##<<ENGLISH concept: ~marry (betroth bond conjoin espouse inmarry intermarry marry mate mismarry partner remarry rewed wed wive ) ##>>
+##<<ENGLISH concept: ~medical_improve (alleviate anesthetise antisepticize assuage bandage convalesce cure detoxify diagnose disinfect doctor heal immunise immunize
+          medicate mend narcotize nurse palliate prescribe recuperate relieve salve sedate soothe splint suture tranquilize treat vaccinate ) ##>>
+##<<ENGLISH concept: ~meet (acquaint encounter introduce meet ) ##>>
+##<<ENGLISH concept: ~mental_verbs (~COUNT ~EXORCIZE ~JUDGEMENT_VERBS ~PLAY ~REMEMBER ~THINK_VERBS ~WORSHIP ) ##>>
+##<<ENGLISH concept: ~mine (excavate mine quarry strip_mine surface_mine ) ##>>
+##<<ENGLISH concept: ~misc_negative_emotions (afraid alarm alienate annoy appall bewail beware bewilder confuse disappoint disapprove displease embarrass frighten frown glare
+          glower grimace groan growl horrify irk irritate mad moan pester pout provoke regret scare scoff scowl sigh simper sneer sniff snivel spit
+          suffer sulk vex worry ) ##>>
+##<<ENGLISH concept: ~misc_positive_emotions (astound attract beam bedazzle beguile blush excite flirt gratify hope ooh please rejoice smile tantalize whistle ) ##>>
+##<<ENGLISH concept: ~motion_ill (convulse quake quiver shake shiver shudder spasm swoon tremble twitch writhe ) ##>>
+##<<ENGLISH concept: ~moving_air (descend drop fall fly pilot slip ) ##>>
+##<<ENGLISH concept: ~moving_beyond (pass_by pass ) ##>>
+##<<ENGLISH concept: ~moving_escape (bolt depart disappear disembark escape evade exit flee leave retreat skedaddle slip_away vacate vamoose vanish withdraw ) ##>>
+##<<ENGLISH concept: ~moving_fast_land (barrel bound breeze canter careen carom charge chase dart dash gallop hasten hurry hurtle hustle jog lope race rocket
+          run rush scamper scoot scramble scram scurry speed sprint streak zoom ) ##>>
+##<<ENGLISH concept: ~moving_generic (ascend~v bounce~v bowl~v cavort~v climb~v coast~v continue~v cross~v cruise~v curve~v distance~v dog~v fit~v flit~v follow~v glide~v go_by~v guide~v head~v hop~v
+			jump~v lay~v leap~v meander~v migrate~v move_onward~v navigate~v pedal~v place~v prance~v proceed~v pursue~v put~v rally~v ramble~v rise~v roam~v romp~v rove~v set~v shadow~v
+			shove~v sidle~v skip~v skitter~v slow~v spiral~v squire~v stray~v sweep~v swerve~v tour~v trail~v traverse~v usher~v vault~v wander~v wend~v yaw~v zag~v zig-zag~v zigzag~v
+			zig~v ) ##>>
+##<<ENGLISH concept: ~moving_object (accompany convoy escort move pull push shove_along slide steer tow truck ) ##>>
+##<<ENGLISH concept: ~moving_slow_land (amble backpack burrow clamber climb crawl creep dodder drag drift file frolic gambol glide goose_step hike hobble inch
+          jog limp lumber lurch march_on march_onward march mosey parade perambulate plod prance promenade prowl pull push reel roll sashay saunter
+          shamble shuffle skulk sleepwalk slink slither slog sneak somersault stagger stalk step stomp stride stroll strut stumble swagger tiptoe
+          toddle totter traipse trek troop trot trudge tug waddle walk yank ) ##>>
+##<<ENGLISH concept: ~moving_to (approach come enter go journey travel trip voyage ) ##>>
+##<<ENGLISH concept: ~moving_water (dive float ford oar paddle row sail scuba snorkel surf swim tack wade water_ski ) ##>>
+##<<ENGLISH concept: ~negative_social (accurse asperse assail backbite badmouth belittle bemock berate blame blaspheme calumniate castigate censure chasten chastise
+          chide condemn criminate criticise criticize curse damn decry defame denigrate denounce deprecate deride disparage diss doubt excoriate fault
+          gibe impeach imprecate incriminate indict insult lambaste lambast lampoon malign mock penalize persecute prosecute punish rebuke recall recriminate
+          remonstrate reprehend reprimand reproach reprove repudiate revile ridicule scold scorn shame slander snipe snitch snub stigmatize stultify
+          sully traduce trivialise trivialize upbraid victimize vilify vituperate ) ##>>
+##<<ENGLISH concept: ~nice_weather (clear shine ) ##>>
+##<<ENGLISH concept: ~nonverbal_communication_verbs (~ANIMALSOUNDS ~EMOTIONAL_VERBS ~GESTURES ) ##>>
+##<<ENGLISH concept: ~obedience_verbs (~ACCEPT_OBEY ~DECLINE_OBEY ~FORCE_OBEY ) ##>>
+##<<ENGLISH concept: ~opinion_verbs (~DISLIKE ~LIKE ~WANT believe doubt prove reason reflect solve surmise think ) ##>>
+##<<ENGLISH concept: ~own (belong brandish clasp clutch grab grasp grip handle have hold "hold title to" keep own possess retain wield  ) ##>>
+##<<ENGLISH concept: ~possess (~own my mine   his hers our ours their theirs your yours ) ##>> # detecting owning something
+##<<ENGLISH concept: ~parent (babysit care_for defend feed nourish protect safeguard shepherd shield ) ##>>
+##<<ENGLISH concept: ~pause (pause suspend ) ##>>
+##<<ENGLISH concept: ~perception_verbs (~AWAREOF ~BALANCE ~HEAR ~SEARCH ~SMELL ~TASTE ~TOUCH coalesce derive develop exude flow form grow ision_verbs open plop stream supervene
+          surge wax ) ##>>
+##<<ENGLISH concept: ~photographing (photograph underexpose ) ##>>
+##<<ENGLISH concept: ~physicalattribute_verbs (~EMITFIRE ~EMITGAS ~EMITGENERIC ~EMITLIGHT ~EMITLIQUID ~EMITSMELL ~EMITSOUND ) ##>>
+##<<ENGLISH concept: ~play (clown_around play_act play toy ) ##>>
+##<<ENGLISH concept: ~play_instrument (perform play) ##>>
+##<<ENGLISH concept: ~play_sport (play compete) ##>>
+##<<ENGLISH concept: ~positive_social (~GREET ~PRAISE bless canonise canonize condone eulogize excuse exuberate forgive herald pardon recommend sanction thank ) ##>>
+##<<ENGLISH concept: ~possession_verbs (~EMPLOY ~EXCHANGE ~GAIN_VERBS ~HELP ~LOSE_VERBS ~OWN ~PRICE ~PROMISE ~PURCHASEINTEREST ) ##>>
+##<<ENGLISH concept: ~praise (acclaim applaud approve beatify celebrate cheerlead cheer commend compliment congratulate extol exult felicitate glorify hail honor
+          jubilate laud overpraise praise salute toast ) ##>>
+##<<ENGLISH concept: ~prevent (avert ban bar block control curb deter discourage forbid hamper hinder impede inhibit limit lull obstruct preclude prevent
+          prohibit rein repress restrain stop subdue ) ##>>
+##<<ENGLISH concept: ~price (appraise approximate assess bargain calibrate dicker estimate fix gauge peg price rate reappraise value ) ##>>
+##<<ENGLISH concept: ~promise (guarantee offer pledge proffer promise vow ) ##>>
+##<<ENGLISH concept: ~purchaseinterest (looking_for looking_to show_you ) ##>>
+##<<ENGLISH concept: ~rain (drizzle fog lightning mist mizzle pelt pour precipitate rain shower sprinkle storm thunder ) ##>>
+##<<ENGLISH concept: ~read (browse read skim ) ##>>
+##<<ENGLISH concept: ~reasoning_basis (assume depend_on depend_upon presume rely_on suspect trust ) ##>>
+##<<ENGLISH concept: ~reasoning_conclusion (believe calculate comprehend compute conclude deduce derive disprove figure grok infer opine prove puzzle_out rationalize realize twig understand ) ##>>
+##<<ENGLISH concept: ~reasoning_process (attention concentrate conjecture consider deliberate   entertain experiment focus ponder reason speculate test think trouble-shoot
+          troubleshoot validate ) ##>>
+##<<ENGLISH concept: ~reasoning_think_verbs (~REASONING_BASIS ~REASONING_CONCLUSION ~REASONING_PROCESS conceive cost experience mind  remind  ) ##>>
+##<<ENGLISH concept: ~reduce_containment (deflate drain empty unload unpack ) ##>>
+##<<ENGLISH concept: ~remain_stationary (adjust attend bask bend bob bow buck budge crouch dally dance dawdle dillydally fidget flap float flop flutter gyrate
+          hang hover hunch jiggle joggle kneel lallygag lean lie_down lie loaf loiter lollygag lurk oscillate overstay perch plop pulsate quail
+          quake quiver remain revolve rise rock roil rotate shake sit_down sit slouch slump sprawl squat squirm stand_up stand stay stir stoop
+          stop straddle sunbathe sway swirl teeter throb totter tremble twitch undulate vacillate vegetate vibrate waft waggle wait wiggle wobble
+          wriggle writhe ) ##>>
+##<<ENGLISH concept: ~remember (apprentice ascertain glean know learn memorize practice recall recite recognize recollect rehearse remember ) ##>>
+##<<ENGLISH concept: ~remove_magnetism (degauss demagnetise demagnetize ) ##>>
+##<<ENGLISH concept: ~remove_smell (deodorise deodorize deodourise ) ##>>
+##<<ENGLISH concept: ~repair (aid ameliorate correct fix mitigate modernise modernize reboot rectify refurbish remediate repair restore tune ) ##>>
+##<<ENGLISH concept: ~repeat (cycle redo reenact repeat ) ##>>
+##<<ENGLISH concept: ~reproduce_verbs (~GIVE_BIRTH ~MAKE_LOVE beget gestate incubate menstruate miscarry ovulate pollenate procreate ) ##>>
+##<<ENGLISH concept: ~resurrect (reanimate reincarnate rejuvenate renew resurrect resuscitate revitalise revive vitalise vitalize ) ##>>
+##<<ENGLISH concept: ~role_verbs (~BEFRIEND ~COMPETE_VERBS ~DATE ~ENDRELATION ~MARRY ~MEET ~PARENT ) ##>>
+##<<ENGLISH concept: ~rust (corrode oxidize reoxidise reoxidize rust ) ##>>
+##<<ENGLISH concept: ~search (advertise check comb dive dredge examine excavate explore ferret forage frisk grope hunt inspect investigate look_for patrol probe
+          prospect prowl quarry ransack retrace riffle rifle root rummage scan scavenge scout scrutinize search seek sift stalk survey track trawl
+          troll watch_for ) ##>>
+##<<ENGLISH concept: ~sell (auction flog merchandise overprice peddle sell underprice undersell ) ##>>
+##<<ENGLISH concept: ~sew (crochet darn embroider hem knit sew weave ) ##>>
+##<<ENGLISH concept: ~sharpen (sharpen ) ##>>
+##<<ENGLISH concept: ~silence (dampen gag hush_up hush keep_down muzzle quash quell shut_up silence squelch stamp_down stifle still suppress ) ##>>
+##<<ENGLISH concept: ~simplify (oversimplify simplify ) ##>>
+##<<ENGLISH concept: ~sleep (asleep catnap doze dream drowse hibernate nap oversleep rest sleep slumber snooze snore somnambulate ) ##>>
+##<<ENGLISH concept: ~sleepstate_verbs (~SLEEP ~WAKEN yawn ) ##>>
+##<<ENGLISH concept: ~smell (scent smell sniff ) ##>>
+##<<ENGLISH concept: ~social_reputation_verbs (~NEGATIVE_SOCIAL ~POSITIVE_SOCIAL ) ##>>
+##<<ENGLISH concept: ~social_verbs (~COMMUNICATE_VERBS ~CONTROLLING_VERBS ~POSSESSION_VERBS ~ROLE_VERBS ) ##>>
+##<<ENGLISH concept: ~speak_thru_device (broadcast page phone radio tape_record telecommunicate telephone wireless ) ##>>
+##<<ENGLISH concept: ~speak_verbs (~CHAT ~DECEIVE ~SOCIAL_REPUTATION_VERBS ~SPEAK_THRU_DEVICE ~TALKSTYLE ~TELL verbal_agree verbal_disagree ) ##>>
+##<<ENGLISH concept: ~special_activities_verbs ( ~COOKING_VERBS ~DRIVE ~EXERCISE_VERBS ~FARM ~GAMBLE ~GOLFING ~LIVE ~MINE ~PHOTOGRAPHING ~play_instrument ~play_sport ) ##>>
+##<<ENGLISH concept: ~start (begin cause continue inaugurate initialize initiate proceed provoke restart resume start trigger assemble birth build create  invent release ship ) ##>>
+
+
+##<<ENGLISH concept: ~steal (abduct abscond annex burglarise burglarize burgle carjack confiscate cop emancipate embezzle extort filch gip grab highjack hijack
+          hook hornswoggle kidnap knock_off liberate lift nab nick nobble pickpocket pilfer pinch pirate purloin reclaim redeem repossess rescue rob
+          rustle salvage seize sequester shop-lift shoplift smuggle snatch sneak steal swipe take thieve wrangle wrest ) ##>>
+##<<ENGLISH concept: ~stomach_ill (barf disgorge expectorate puke regurgitate retch spew spue throw_up upchuck vomit ) ##>>
+##<<ENGLISH concept: ~stop_verbs (~ABORT ~COMPLETE ~HALT ~PAUSE ~kill) ##>>
+##<<ENGLISH concept: ~strengthen (harden reinforce restrengthen rigidify ruggedise ruggedize stiffen strengthen thicken toughen ) ##>>
+##<<ENGLISH concept: ~substitute (change convert interchange replace subrogate substitute supplant switch ) ##>>
+##<<ENGLISH concept: ~surprise (amaze astonish boggle flabbergast gape gasp gawk surprise ) ##>>
+##<<ENGLISH concept: ~swallow_drink_verbs (~DRINK ) ##>>
+##<<ENGLISH concept: ~swallow_either (consume devour feast grab partake_of pig_out polish_off!v savour subsist swallow taste ) ##>>
+##<<ENGLISH concept: ~swallow_food_verbs (~EAT feed gorge graze ) ##>>
+##<<ENGLISH concept: ~swallowing_verbs (~SWALLOW_DRINK_VERBS ~SWALLOW_EITHER ~SWALLOW_FOOD_VERBS banquet breakfast brunch luncheon lunch nosh gobble nutrify picnic ) ##>>
+##<<ENGLISH concept: ~swap (barter exchange swap trade ) ##>>
+##<<ENGLISH concept: ~talkstyle (babble bark bawl bellow blare bleat blurt boom bray burble cackle call carol chant chirp cluck coo crab croak croon crow
+          cry gabble gibber groan growl grumble grunt gurgle hiss holler hoot howl hum jabber lilt lisp mispronounce moan mumble murmur mutter
+          natter purr quaver rage rant rasp rhyme roar rumble scream screech shout shriek sign simper sing snap snarl snuffle splutter squall
+          squawk squeak squeal stammer stemmer stutter thunder trill trumpet twitter wail warble wheeze whimper whine whisper whistle whoop yak
+          yammer yap yell yelp yodel ) ##>>
+##<<ENGLISH concept: ~taste (relish savor taste ) ##>>
+##<<ENGLISH concept: ~tell (~EXPLAIN advise alert allege announce apologize apprise articulate ascribe ask assert assure attest beg belabor belabour beseech blab
+          bluster boast brag brief caution characterize claim clarify comment complain confabulate confess confide convey corroborate counsel declare
+          describe dictate disclose divulge drawl drone educate elaborate elucidate encourage entreat enunciate espouse exclaim express gloat gripe
+          grouch grouse hint illustrate imply inform insinuate insist instruct intimate iterate justify leak lecture lobby mention message moralize
+          narrate note notify orate prattle preachify preach proclaim promulgate pronounce prophesy propose rabbit_on recite recount reiterate relate
+          relay remark remind repeat reply report respond reveal say_to say sermonise sermonize speak spiel state suggest sweet-talk talk tell testify
+          theorize update utter venture verbalise verbalize verify vocalise vocalize vociferate voice warn wheedle ) ##>>
+##<<ENGLISH concept: ~think_verbs (~FAULTY_THINK ~IMAGINING_THINK ~REASONING_THINK_VERBS ) ##>>
+##<<ENGLISH concept: ~throw (cast chuck defenestrate fling flip heave hurl impel launch pitch propel scatter send throw thrust toss waft ) ##>>
+##<<ENGLISH concept: ~tighten (tighten ) ##>>
+##<<ENGLISH concept: ~time_delay (delay hesitate postpone procrastinate stall tarry ) ##>>
+##<<ENGLISH concept: ~time_event_verbs (~EVENT_VERBS ~TIME_DELAY ~TIME_PASSAGE ensue ) ##>>
+##<<ENGLISH concept: ~time_passage (bite_the_dust elapse lapse ) ##>>
+##<<ENGLISH concept: ~tobe (become be consist_of consist exist look seem sound ) ##>>
+##<<ENGLISH concept: ~involve (involve consist_of entail suggest implicate mean require contain comprise associate) ##>>
+##<<ENGLISH concept: ~touch (feel frisk grasp graze grip grope handle knead manipulate massage nudge pat paw pinch poke probe prod retouch rub squeeze
+          tickle touch tweak wring ) ##>>
+##<<ENGLISH concept: ~undress (decloak disrobe doff remove strip take_off uncloak unclothe undress ) ##>>
+##<<ENGLISH concept: ~unjoin (amputate come_off cut_off decompose decouple detach disengage disentangle disjoin dismantle dissociate drop_off extract fall_off lose purge
+          release remove separate sever unbraid unbutton uncouple unfasten unglue unhinge unhook unknit unknot unravel unscrew unstick untangle untie
+          untwine unwire unzip ) ##>>
+##<<ENGLISH concept: ~use (apply employ exercise handle manipulate operate use utilise utilize ) ##>>
+##<<ENGLISH concept: ~vehicle_verbs (balloon boat bobsled bus cab caravan chariot coach dogsled ferry gondola helicopter jeep jet moped motor parachute punt pilot
+          rickshaw ride rocket sledge sleigh taxi tram trolley yacht  drive pilot race) ##>>
+##<<ENGLISH concept: ~verbal_agree (acknowledge affirm agree approve compromise consent rubberstamp stipulate ) ##>>
+##<<ENGLISH concept: ~verbal_disagree (argue bicker confute contend contest contradict controvert counter differ disagree dispute dissent nitpick object quarrel
+          quibble rebut refute reject squabble veto vie ) ##>>
+##<<ENGLISH concept: ~verblist ONLY_VERBS (~ANIMATE_VERBS ~INANIMATE_VERBS ~TIME_EVENT_VERBS ~WEATHER_VERBS ) ##>>
+##<<ENGLISH concept: ~videoing (broadcast film microfilm satellite tape telecast televise ) ##>>
+##<<ENGLISH concept: ~vision_verbs (~BECOME_VISIBLE ~DISAPPEAR ~READ ~WATCH assess audit canvass descry explore expose investigate note recognize reveal review riffle
+          zoom ) ##>>
+##<<ENGLISH concept: ~waken (arouse awaken awake reawaken rewake rouse waken wake ) ##>>
+##<<ENGLISH concept: ~want (covet crave demand desire fancy hanker long_for lust necessitate need prefer want wish_for wish ) ##>>
+##<<ENGLISH concept: ~watch (behold espy examine eyeball eye face gape gawk gawp gaze glance glimpse goggle inspect look_for look make_out monitor notice
+          observe ogle peek peer peruse regard rubberneck scan scrutinize see sight spectate spot squint stare study take_in view watch witness ) ##>>
+##<<ENGLISH concept: ~weaken (atrophy erode sap soften weaken ) ##>>
+##<<ENGLISH concept: ~weather_verbs (~COLD_WEATHER ~HOT_WEATHER ~NICE_WEATHER ~RAIN ~WIND ) ##>>
+##<<ENGLISH concept: ~wind (blow gust howl roar ) ##>>
+##<<ENGLISH concept: ~won (best overcome score vanquish win ) ##>>
+##<<ENGLISH concept: ~worship (commune meditate pray tithe worship ) ##>>
+##<<ENGLISH concept: ~writing (annotate author cable chronicle e-mail fax jot netmail parody publish rewrite scrawl scribble script telex touch-type transcribe tweet
+          typewrite type wire write ) ##>>
+##<<ENGLISH concept: ~comment (comment annotate describe) ##>>
+##<<ENGLISH concept: ~ask (ask request ) ##>>
+##<<ENGLISH concept: ~post (post put place) ##>>

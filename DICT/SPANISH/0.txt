@@ -1,0 +1,4 @@
+﻿ 0 ( ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ 00IGP ( ) 
+ 01IP ( ) 
+ 0a ( ) 

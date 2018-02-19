@@ -1,0 +1,1073 @@
+﻿ C ( ) lemma=`c` -  
+ C# ( ) lemma=`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#`c#` -  Afpfsaf  Afpmpnf  Afpmsaf  Afpmsgf  Afpmsnf  Afpnslf  Ncfpgy  Ncfsan  Ncfsgn  Ncfsin  Ncfsnn  Ncmpln  Ncmpny  Ncmsdn  Ncmsgn  Ncmsln  Ncmsnn  Ncmsny  Ncnsln  Npfsgy  Npmsgy  Npmsny  Vmis-snm-e  
+ C#8482 ( ) lemma=`c#8482` -  
+ C'est ( ) lemma=`c'est` -  
+ C( ( ) lemma=`c(` -  
+ C++ ( ) lemma=`c++`c++`c++`c++`c++`c++`c++`c++` -  Afpmsaf  Ncfsan  Ncmpay  Ncmpln  Ncmsdn  Ncmsln  Vmn----a-e  
+ C. ( ) lemma=`c.`c.` Ncfsnn  SENT  
+ C/ ( ) lemma=`c/` -  
+ C/C++ ( ) lemma=`c/c++` -  
+ C100 ( ) lemma=`c100` -  
+ C2V ( ) lemma=`c2v` -  
+ C3 ( ) lemma=`c3` Npmsny  
+ C4ISR ( ) lemma=`c4isr` -  
+ C6 ( ) lemma=`c6` -  
+ C7 ( ) lemma=`c7` -  
+ C77 ( ) lemma=`c77` -  
+ CA ( ) lemma=`ca` -  
+ CAD ( ) lemma=`cad` -  
+ CAD/CAE ( ) lemma=`cad/cae` -  
+ CAD/CAM/CAE ( ) lemma=`cad/cam/cae` -  
+ CAD/PDM ( ) lemma=`cad/pdm` -  
+ CADRG ( ) lemma=`cadrg` -  
+ CAE ( ) lemma=`cae` -  
+ CAESAR ( ) lemma=`caesar` -  
+ CAH ( ) lemma=`cah` -  
+ CALLAHAN ( ) lemma=`callahan` -  
+ CAM ( ) lemma=`cam` -  
+ CAMERON ( ) lemma=`cameron` -  
+ CAN ( ) lemma=`can` -  
+ CANDU ( ) lemma=`candu` -  
+ CAPRICE94 ( ) lemma=`caprice94` Afpmpdf  
+ CAPRICE98 ( ) lemma=`caprice98` Afpmpdf  
+ CARL ( ) lemma=`carl` -  
+ CAS ( ) lemma=`cas` -  
+ CASE ( ) lemma=`case` -  
+ CAST ( ) lemma=`cast` -  
+ CATEYE ( ) lemma=`cateye` -  
+ CATIA ( ) lemma=`catia` -  
+ CBS ( ) lemma=`cbs` -  
+ CC ( ) lemma=`cc` -  
+ CCP’s ( ) lemma=`ccp’s` -  
+ CD ( ) lemma=`cd`cd` -  Ncmpan  
+ CDC ( ) lemma=`cdc` -  
+ CDI ( ) lemma=`cdi` -  
+ CDP ( ) lemma=`cdp` -  
+ CDROM ( ) lemma=`cdrom` -  
+ CE ( ) lemma=`ce` -  
+ CENTER ( ) lemma=`center` -  
+ CEO ( ) lemma=`ceo` -  
+ CERFA ( ) lemma=`cerfa` -  
+ CHAI ( ) lemma=`chai` -  
+ CHAP ( ) lemma=`chap` -  
+ CHECK ( ) lemma=`check` -  
+ CHEEKY ( ) lemma=`cheeky` -  
+ CHEL ( ) lemma=`chel` -  
+ CHO ( ) lemma=`cho` -  
+ CHRISTMAS ( ) lemma=`christmas` -  
+ CIA ( ) lemma=`cia` -  
+ CIC ( ) lemma=`cic` -  
+ CID ( ) lemma=`cid` -  
+ CIO ( ) lemma=`cio` -  
+ CIS ( ) lemma=`cis` -  
+ CISK ( ) lemma=`cisk` -  
+ CITIZEN ( ) lemma=`citizen` -  
+ CITRUS ( ) lemma=`citrus` -  
+ CL ( ) lemma=`cl` -  
+ CLI ( ) lemma=`cli` -  
+ CLR ( ) lemma=`clr` -  
+ CM ( ) lemma=`cm` -  
+ CMHC ( ) lemma=`cmhc` -  
+ CMP ( ) lemma=`cmp` -  
+ CMS ( ) lemma=`cms` -  
+ CMS* ( ) lemma=`cms*` Ncfsnn  
+ CNEWS ( ) lemma=`cnews` -  
+ CNN ( ) lemma=`cnn` -  
+ CNNовском ( ) lemma=`cnnовском` Afpmslf  
+ CNY ( ) lemma=`cny` -  
+ CNews ( ) lemma=`cnews` -  
+ CO ( ) lemma=`co` -  
+ COBOL ( ) lemma=`cobol` -  
+ COD ( ) lemma=`cod` -  
+ COD2 ( ) lemma=`cod2` -  
+ COD2по ( ) lemma=`cod2по` Ncnsnn  
+ COLD ( ) lemma=`cold` -  
+ COM ( ) lemma=`com` -  
+ COM+ ( ) lemma=`com+`com+` Ncfpgn  Vmis-sma-p  
+ COMMERCANT ( ) lemma=`commercant` -  
+ COMMIT ( ) lemma=`commit` -  
+ COMMUNICATION ( ) lemma=`communication` -  
+ COMPANY ( ) lemma=`company` -  
+ CONCLUSION ( ) lemma=`conclusion` -  
+ CONCUBINAGE ( ) lemma=`concubinage` -  
+ CONEX ( ) lemma=`conex` -  
+ CONFIG ( ) lemma=`config` -  
+ CONJUGATE ( ) lemma=`conjugate` -  
+ CONNECT ( ) lemma=`connect` -  
+ CONSUMER ( ) lemma=`consumer` -  
+ CORBA ( ) lemma=`corba` -  
+ CORDAITIDAE ( ) lemma=`cordaitidae` -  
+ CORE ( ) lemma=`core` -  
+ COSPAR ( ) lemma=`cospar` -  
+ COUNT(* ( ) lemma=`count(*`count(*` -  Ncmsnn  
+ COUPLES ( ) lemma=`couples` -  
+ COUTURE ( ) lemma=`couture` -  
+ CP ( ) lemma=`cp` -  
+ CPM ( ) lemma=`cpm` -  
+ CPU ( ) lemma=`cpu` -  
+ CPU2000 ( ) lemma=`cpu2000` -  
+ CR ( ) lemma=`cr` -  
+ CR18V ( ) lemma=`cr18v` -  
+ CRC ( ) lemma=`crc` -  
+ CREATE ( ) lemma=`create` -  
+ CREATED ( ) lemma=`created` -  
+ CRI ( ) lemma=`cri` -  
+ CRIJ ( ) lemma=`crij` -  
+ CRM ( ) lemma=`crm` -  
+ CRN/RE ( ) lemma=`crn/re` -  
+ CROUS ( ) lemma=`crous` -  
+ CRS ( ) lemma=`crs` -  
+ CRT ( ) lemma=`crt` -  
+ CS ( ) lemma=`cs` -  
+ CSI ( ) lemma=`csi` -  
+ CSIS ( ) lemma=`csis` -  
+ CSP ( ) lemma=`csp` -  
+ CSR ( ) lemma=`csr` -  
+ CSS ( ) lemma=`css` -  
+ CST ( ) lemma=`cst` -  
+ CTI ( ) lemma=`cti` -  
+ CTP ( ) lemma=`ctp` -  
+ CTR ( ) lemma=`ctr` -  
+ CTRL ( ) lemma=`ctrl` -  
+ CTXSYS ( ) lemma=`ctxsys` -  
+ CTcP ( ) lemma=`ctcp` -  
+ CU ( ) lemma=`cu` -  
+ CURRENT ( ) lemma=`current` -  
+ CURSOR ( ) lemma=`cursor` -  
+ CUSP ( ) lemma=`cusp` -  
+ CV ( ) lemma=`cv` Mo---d  
+ CVII ( ) lemma=`cvii` Mo---d  
+ CVS ( ) lemma=`cvs` -  
+ Ca ( ) lemma=`ca` -  
+ Ca$h ( ) lemma=`ca$h` -  
+ Cable ( ) lemma=`cable` -  
+ Caching ( ) lemma=`caching` -  
+ Cachou ( ) lemma=`cachou` -  
+ Cadabra ( ) lemma=`cadabra` -  
+ Cadena ( ) lemma=`cadena` -  
+ Cadence ( ) lemma=`cadence` -  
+ Cadogan ( ) lemma=`cadogan` -  
+ Cadran ( ) lemma=`cadran` -  
+ Cadzand ( ) lemma=`cadzand` -  
+ Caere ( ) lemma=`caere` -  
+ Caes ( ) lemma=`caes` -  
+ Cake ( ) lemma=`cake` -  
+ Cake@aport ( ) lemma=`cake@aport` -  
+ Calais ( ) lemma=`calais` -  
+ Calculation ( ) lemma=`calculation` -  
+ Calendar ( ) lemma=`calendar` -  
+ Cali ( ) lemma=`cali` -  
+ Califonria ( ) lemma=`califonria` -  
+ California ( ) lemma=`california` -  
+ Calipso ( ) lemma=`calipso` -  
+ Call ( ) lemma=`call` -  
+ Callitris ( ) lemma=`callitris` -  
+ Calment ( ) lemma=`calment` -  
+ Calura ( ) lemma=`calura` -  
+ Camarigg ( ) lemma=`camarigg` -  
+ Camay ( ) lemma=`camay` -  
+ Cambridge ( ) lemma=`cambridge` -  
+ Camel ( ) lemma=`camel` -  
+ Cameleone ( ) lemma=`cameleone` -  
+ Cameron ( ) lemma=`cameron` -  
+ Camoudile ( ) lemma=`camoudile` -  
+ CampGas ( ) lemma=`campgas` -  
+ Can ( ) lemma=`can` -  
+ Canada ( ) lemma=`canada` -  
+ Candle ( ) lemma=`candle` -  
+ Cannon ( ) lemma=`cannon` -  
+ CanoScan ( ) lemma=`canoscan` -  
+ Canon ( ) lemma=`canon` -  
+ Canonический ( ) lemma=`canonический` Afpmsaf  
+ Cantha ( ) lemma=`cantha` -  
+ Cantina ( ) lemma=`cantina` -  
+ Cantsroy ( ) lemma=`cantsroy` -  
+ Capable ( ) lemma=`capable` -  
+ Capital ( ) lemma=`capital` -  
+ Caps ( ) lemma=`caps` -  
+ CapsLock ( ) lemma=`capslock` -  
+ Car ( ) lemma=`car` -  
+ Carassi ( ) lemma=`carassi` -  
+ Caravan ( ) lemma=`caravan` -  
+ Card ( ) lemma=`card` -  
+ Cards ( ) lemma=`cards` -  
+ Care ( ) lemma=`care` -  
+ Cares ( ) lemma=`cares` -  
+ Caress ( ) lemma=`caress` -  
+ Carlin/ ( ) lemma=`carlin/` -  
+ Carnegie ( ) lemma=`carnegie` -  
+ Carolus ( ) lemma=`carolus` -  
+ Carousel ( ) lemma=`carousel` -  
+ Carpenters ( ) lemma=`carpenters` -  
+ Carrefour ( ) lemma=`carrefour` -  
+ Carrera ( ) lemma=`carrera` -  
+ Carrier ( ) lemma=`carrier` -  
+ Carriere ( ) lemma=`carriere` -  
+ Carroll ( ) lemma=`carroll` -  
+ Carroll'a ( ) lemma=`carroll'a` -  
+ Cart ( ) lemma=`cart` -  
+ Cartoon ( ) lemma=`cartoon` -  
+ Cas ( ) lemma=`cas` -  
+ Casablanca ( ) lemma=`casablanca` -  
+ Case ( ) lemma=`case` -  
+ Castel ( ) lemma=`castel` -  
+ Caster ( ) lemma=`caster` -  
+ Castle ( ) lemma=`castle` -  
+ Castles ( ) lemma=`castles` -  
+ Casue ( ) lemma=`casue` -  
+ Catalina ( ) lemma=`catalina` -  
+ Catalog ( ) lemma=`catalog` -  
+ Catelan ( ) lemma=`catelan` -  
+ Catering ( ) lemma=`catering` -  
+ Catholisizm ( ) lemma=`catholisizm` -  
+ Cathrine ( ) lemma=`cathrine` -  
+ Cats ( ) lemma=`cats` -  
+ Cause ( ) lemma=`cause` -  
+ Cavalieri ( ) lemma=`cavalieri` -  
+ Caке ( ) lemma=`caке` Ncmsln  
+ Ce ( ) lemma=`ce` -  
+ CeBIT ( ) lemma=`cebit` -  
+ Cea ( ) lemma=`cea` -  
+ Cedrus ( ) lemma=`cedrus` -  
+ Celebrin ( ) lemma=`celebrin` -  
+ Celebrity ( ) lemma=`celebrity` -  
+ Celegorm ( ) lemma=`celegorm` -  
+ Celeron ( ) lemma=`celeron` -  
+ Celso ( ) lemma=`celso` -  
+ Celtic ( ) lemma=`celtic` -  
+ Celtica ( ) lemma=`celtica` -  
+ Celyu ( ) lemma=`celyu` -  
+ Cen ( ) lemma=`cen` -  
+ Cenis ( ) lemma=`cenis` -  
+ Center ( ) lemma=`center` -  
+ Center- ( ) lemma=`center-` -  
+ CenterICQ ( ) lemma=`centericq` -  
+ Centers ( ) lemma=`centers` -  
+ Central ( ) lemma=`central` -  
+ Century ( ) lemma=`century` -  
+ Ceol ( ) lemma=`ceol` -  
+ Cephalotaxaceae ( ) lemma=`cephalotaxaceae` -  
+ Cephalotaxus ( ) lemma=`cephalotaxus` -  
+ Cerberi ( ) lemma=`cerberi` -  
+ Cerpatee ( ) lemma=`cerpatee` -  
+ Certificate ( ) lemma=`certificate` -  
+ Cerullo ( ) lemma=`cerullo` -  
+ Cetera ( ) lemma=`cetera` -  
+ Ceteris ( ) lemma=`ceteris` -  
+ Ch ( ) lemma=`ch` -  
+ ChH ( ) lemma=`chh` -  
+ Cha ( ) lemma=`cha` -  
+ Chain ( ) lemma=`chain` -  
+ Challenger ( ) lemma=`challenger` -  
+ Chamber ( ) lemma=`chamber` -  
+ Chambre ( ) lemma=`chambre` -  
+ Chameleon ( ) lemma=`chameleon` -  
+ Championship ( ) lemma=`championship` -  
+ Chan ( ) lemma=`chan` -  
+ Chandra ( ) lemma=`chandra` -  
+ Change ( ) lemma=`change` -  
+ Changer ( ) lemma=`changer` -  
+ Changing ( ) lemma=`changing` -  
+ Chania ( ) lemma=`chania` -  
+ Channel ( ) lemma=`channel` -  
+ Chantier ( ) lemma=`chantier` -  
+ Chaos ( ) lemma=`chaos` -  
+ Chapel ( ) lemma=`chapel` -  
+ Characteristics ( ) lemma=`characteristics` -  
+ Charge ( ) lemma=`charge` -  
+ Charkiv ( ) lemma=`charkiv` -  
+ Charlemagne ( ) lemma=`charlemagne` -  
+ Charles ( ) lemma=`charles` -  
+ Charlottesville ( ) lemma=`charlottesville` -  
+ Charrette ( ) lemma=`charrette` -  
+ Charter ( ) lemma=`charter` -  
+ Chartered ( ) lemma=`chartered` -  
+ Chat ( ) lemma=`chat` -  
+ Chateaubriand ( ) lemma=`chateaubriand` -  
+ Chayanov ( ) lemma=`chayanov` -  
+ Check ( ) lemma=`check` -  
+ Cheers ( ) lemma=`cheers` -  
+ Cheese/Fire ( ) lemma=`cheese/fire` -  
+ Chef ( ) lemma=`chef` -  
+ Chelyabinsk ( ) lemma=`chelyabinsk` -  
+ Chem ( ) lemma=`chem` -  
+ Chemical ( ) lemma=`chemical` -  
+ Chemistry ( ) lemma=`chemistry` -  
+ Chen ( ) lemma=`chen` -  
+ Cheng ( ) lemma=`cheng` -  
+ Chernomyrdin ( ) lemma=`chernomyrdin` -  
+ Chesham ( ) lemma=`chesham` -  
+ ChessBase ( ) lemma=`chessbase` -  
+ Chessler ( ) lemma=`chessler` -  
+ Chestnut ( ) lemma=`chestnut` -  
+ Chevalerie ( ) lemma=`chevalerie` -  
+ Chevalier ( ) lemma=`chevalier` -  
+ Chevy ( ) lemma=`chevy` -  
+ Chicago ( ) lemma=`chicago` -  
+ Chicane ( ) lemma=`chicane` -  
+ Chicco ( ) lemma=`chicco` -  
+ Chichester ( ) lemma=`chichester` -  
+ Chief ( ) lemma=`chief` -  
+ Chiesa ( ) lemma=`chiesa` -  
+ Chigago ( ) lemma=`chigago` -  
+ Child ( ) lemma=`child` -  
+ Childhood ( ) lemma=`childhood` -  
+ Children ( ) lemma=`children` -  
+ Chilli ( ) lemma=`chilli` -  
+ Chilling ( ) lemma=`chilling` -  
+ China ( ) lemma=`china` -  
+ Chinese ( ) lemma=`chinese` -  
+ Chipa ( ) lemma=`chipa` -  
+ Chong ( ) lemma=`chong` -  
+ Choose ( ) lemma=`choose` -  
+ Chorus ( ) lemma=`chorus` -  
+ Chot ( ) lemma=`chot` -  
+ Chris ( ) lemma=`chris` -  
+ Christian ( ) lemma=`christian` -  
+ Christine ( ) lemma=`christine` -  
+ Christlieb ( ) lemma=`christlieb` -  
+ Christmas ( ) lemma=`christmas` -  
+ ChromaPLUS ( ) lemma=`chromaplus` -  
+ Chronicle ( ) lemma=`chronicle` -  
+ Chronomat ( ) lemma=`chronomat` -  
+ Chto ( ) lemma=`chto` -  
+ Chung ( ) lemma=`chung` -  
+ Church ( ) lemma=`church` -  
+ Chuvak ( ) lemma=`chuvak` -  
+ Chuyu ( ) lemma=`chuyu` -  
+ Cillit ( ) lemma=`cillit` -  
+ Cinema ( ) lemma=`cinema` -  
+ Circus ( ) lemma=`circus` -  
+ Cirkewwa ( ) lemma=`cirkewwa` -  
+ Cirque ( ) lemma=`cirque` -  
+ Cisco ( ) lemma=`cisco` -  
+ CitCity ( ) lemma=`citcity` -  
+ Citadel ( ) lemma=`citadel` -  
+ Citadels ( ) lemma=`citadels` -  
+ Citizen ( ) lemma=`citizen` -  
+ Citrix ( ) lemma=`citrix` -  
+ Cittadella ( ) lemma=`cittadella` -  
+ City ( ) lemma=`city` -  
+ Citй ( ) lemma=`citй` Afpmsaf  
+ Civ ( ) lemma=`civ` -  
+ Clamp ( ) lemma=`clamp` -  
+ Clapham ( ) lemma=`clapham` -  
+ Clapton ( ) lemma=`clapton` -  
+ Clarke ( ) lemma=`clarke` -  
+ Clarus ( ) lemma=`clarus` -  
+ Clash'n'Clay ( ) lemma=`clash'n'clay` -  
+ Class ( ) lemma=`class` -  
+ Classic ( ) lemma=`classic` -  
+ ClassicFM ( ) lemma=`classicfm` -  
+ Classical ( ) lemma=`classical` -  
+ Classiс ( ) lemma=`classiс` Ncmsnn  
+ Claude ( ) lemma=`claude` -  
+ Clause ( ) lemma=`clause` -  
+ Claws ( ) lemma=`claws` -  
+ Cleaning ( ) lemma=`cleaning` -  
+ ClearPageFileAtShutdown ( ) lemma=`clearpagefileatshutdown` -  
+ ClearType ( ) lemma=`cleartype` -  
+ Clearing ( ) lemma=`clearing` -  
+ Cleric ( ) lemma=`cleric` -  
+ Clevero ( ) lemma=`clevero` -  
+ Click ( ) lemma=`click` -  
+ Clickz ( ) lemma=`clickz` -  
+ Client ( ) lemma=`client` -  
+ Cliffs ( ) lemma=`cliffs` -  
+ Clinics ( ) lemma=`clinics` -  
+ Cloak ( ) lemma=`cloak` -  
+ Close ( ) lemma=`close` -  
+ Closky ( ) lemma=`closky` -  
+ Cloud ( ) lemma=`cloud` -  
+ Club ( ) lemma=`club` -  
+ Cluboptica ( ) lemma=`cluboptica` -  
+ Cluster ( ) lemma=`cluster` -  
+ Clusters ( ) lemma=`clusters` -  
+ Cmpecc ( ) lemma=`cmpecc` -  
+ Co ( ) lemma=`co` -  
+ Co@Libri ( ) lemma=`co@libri` -  
+ Coarse ( ) lemma=`coarse` -  
+ Coast ( ) lemma=`coast` -  
+ Coatesville ( ) lemma=`coatesville` -  
+ Cobra ( ) lemma=`cobra` -  
+ Coca ( ) lemma=`coca` -  
+ Cocktail ( ) lemma=`cocktail` -  
+ Codest ( ) lemma=`codest` -  
+ CofS ( ) lemma=`cofs` -  
+ Coffeehouse ( ) lemma=`coffeehouse` -  
+ Cognitive ( ) lemma=`cognitive` -  
+ Cogswell ( ) lemma=`cogswell` -  
+ Cohen ( ) lemma=`cohen` -  
+ Coins ( ) lemma=`coins` -  
+ Cola ( ) lemma=`cola` -  
+ Cold ( ) lemma=`cold` -  
+ Colgate ( ) lemma=`colgate` -  
+ Collaboration ( ) lemma=`collaboration` -  
+ Collaborative ( ) lemma=`collaborative` -  
+ Collaps ( ) lemma=`collaps` -  
+ Collection ( ) lemma=`collection` -  
+ Collectivist ( ) lemma=`collectivist` -  
+ College ( ) lemma=`college` -  
+ Collins ( ) lemma=`collins` -  
+ Collinzzxl@mail ( ) lemma=`collinzzxl@mail` -  
+ Colonel ( ) lemma=`colonel` -  
+ Colonne ( ) lemma=`colonne` -  
+ Color ( ) lemma=`color` -  
+ Colors ( ) lemma=`colors` -  
+ ColorsIt ( ) lemma=`colorsit` -  
+ Columbia ( ) lemma=`columbia` -  
+ Columbus ( ) lemma=`columbus` -  
+ Comastri ( ) lemma=`comastri` -  
+ Combat ( ) lemma=`combat` -  
+ Combs ( ) lemma=`combs` -  
+ Comcon ( ) lemma=`comcon` -  
+ Comdex ( ) lemma=`comdex` -  
+ Come ( ) lemma=`come` -  
+ Comedy ( ) lemma=`comedy` -  
+ Comfilon ( ) lemma=`comfilon` -  
+ Coming ( ) lemma=`coming` -  
+ Comino ( ) lemma=`comino` -  
+ Command ( ) lemma=`command` -  
+ Commander ( ) lemma=`commander` -  
+ Commanding ( ) lemma=`commanding` -  
+ Commando ( ) lemma=`commando` -  
+ Comme ( ) lemma=`comme` -  
+ Commentarii ( ) lemma=`commentarii` -  
+ Comments ( ) lemma=`comments` -  
+ Commercial ( ) lemma=`commercial` -  
+ Commets ( ) lemma=`commets` -  
+ Commies ( ) lemma=`commies` -  
+ Commission ( ) lemma=`commission` -  
+ Commit ( ) lemma=`commit` -  
+ Commodities ( ) lemma=`commodities` -  
+ Common ( ) lemma=`common` -  
+ Communication ( ) lemma=`communication` -  
+ Communications ( ) lemma=`communications` -  
+ Community ( ) lemma=`community` -  
+ Compact ( ) lemma=`compact` -  
+ Compal ( ) lemma=`compal` -  
+ Companies ( ) lemma=`companies` -  
+ Company ( ) lemma=`company` -  
+ Compaq ( ) lemma=`compaq` -  
+ Compared ( ) lemma=`compared` -  
+ Comparison ( ) lemma=`comparison` -  
+ Compatibility ( ) lemma=`compatibility` -  
+ Compex ( ) lemma=`compex` -  
+ Complete ( ) lemma=`complete` -  
+ Component ( ) lemma=`component` -  
+ Components ( ) lemma=`components` -  
+ Compr ( ) lemma=`compr` -  
+ Computational ( ) lemma=`computational` -  
+ Computer ( ) lemma=`computer` -  
+ Computerized ( ) lemma=`computerized` -  
+ Computers ( ) lemma=`computers` -  
+ Computerworld ( ) lemma=`computerworld` -  
+ Computing ( ) lemma=`computing` -  
+ Comrade ( ) lemma=`comrade` -  
+ Comstream ( ) lemma=`comstream` -  
+ Comte ( ) lemma=`comte` -  
+ Con ( ) lemma=`con` -  
+ Concentrator ( ) lemma=`concentrator` -  
+ Concepts ( ) lemma=`concepts` -  
+ Concert ( ) lemma=`concert` -  
+ Concertos ( ) lemma=`concertos` -  
+ Condition ( ) lemma=`condition` -  
+ Condor ( ) lemma=`condor` -  
+ Condotti ( ) lemma=`condotti` -  
+ Condry ( ) lemma=`condry` -  
+ Conf ( ) lemma=`conf` -  
+ Conference ( ) lemma=`conference` -  
+ Confidential ( ) lemma=`confidential` -  
+ Configuration ( ) lemma=`configuration` -  
+ Congressional ( ) lemma=`congressional` -  
+ Coniferae ( ) lemma=`coniferae` -  
+ Connect ( ) lemma=`connect` -  
+ Connection ( ) lemma=`connection` -  
+ ConocoPhillips ( ) lemma=`conocophillips` -  
+ Consecrational ( ) lemma=`consecrational` -  
+ Conseil ( ) lemma=`conseil` -  
+ Consistent ( ) lemma=`consistent` -  
+ Const ( ) lemma=`const` -  
+ Constantin ( ) lemma=`constantin` -  
+ Constantine ( ) lemma=`constantine` -  
+ Constantine//Arctos ( ) lemma=`constantine//arctos` -  
+ Constantini ( ) lemma=`constantini` -  
+ Constantino ( ) lemma=`constantino` -  
+ Consulting ( ) lemma=`consulting` -  
+ Consumer ( ) lemma=`consumer` -  
+ Contact ( ) lemma=`contact` -  
+ Containment ( ) lemma=`containment` -  
+ Contemporary ( ) lemma=`contemporary` -  
+ Contest ( ) lemma=`contest` -  
+ Continue ( ) lemma=`continue` -  
+ Continuing ( ) lemma=`continuing` -  
+ Contra ( ) lemma=`contra` -  
+ Control ( ) lemma=`control` -  
+ ControlPanel\ ( ) lemma=`controlpanel\` -  
+ ControlSessionManager\ ( ) lemma=`controlsessionmanager\` -  
+ Control\ ( ) lemma=`control\` Ncfsnn  
+ Controller ( ) lemma=`controller` -  
+ Controls ( ) lemma=`controls` -  
+ Contura ( ) lemma=`contura` -  
+ Conversion ( ) lemma=`conversion` -  
+ Cook ( ) lemma=`cook` -  
+ Cool ( ) lemma=`cool` -  
+ CoolDrive ( ) lemma=`cooldrive` -  
+ CoolPix ( ) lemma=`coolpix` -  
+ CoolerMaster ( ) lemma=`coolermaster` -  
+ Copenhagen ( ) lemma=`copenhagen` -  
+ Copinger ( ) lemma=`copinger` -  
+ Copyright ( ) lemma=`copyright` -  
+ Coralie ( ) lemma=`coralie` -  
+ Corbeau ( ) lemma=`corbeau` -  
+ Cordaianthus ( ) lemma=`cordaianthus` -  
+ Cordaitales ( ) lemma=`cordaitales` -  
+ Cordaitopsida ( ) lemma=`cordaitopsida` -  
+ Core ( ) lemma=`core` -  
+ Corel ( ) lemma=`corel` -  
+ Corneliessen ( ) lemma=`corneliessen` -  
+ Corp ( ) lemma=`corp` -  
+ Corporation ( ) lemma=`corporation` -  
+ Corps ( ) lemma=`corps` -  
+ Cort/ ( ) lemma=`cort/` -  
+ Corti ( ) lemma=`corti` -  
+ Coruna ( ) lemma=`coruna` -  
+ Corvus ( ) lemma=`corvus` -  
+ Corwin ( ) lemma=`corwin` -  
+ Cosmetics ( ) lemma=`cosmetics` -  
+ Cosmic ( ) lemma=`cosmic` -  
+ Cost ( ) lemma=`cost` -  
+ Cotton ( ) lemma=`cotton` -  
+ Cougar ( ) lemma=`cougar` -  
+ Council ( ) lemma=`council` -  
+ Count ( ) lemma=`count` -  
+ Counter ( ) lemma=`counter` -  
+ CounterStrike ( ) lemma=`counterstrike` -  
+ Country ( ) lemma=`country` -  
+ County ( ) lemma=`county` -  
+ Course ( ) lemma=`course` -  
+ Court ( ) lemma=`court` -  
+ Covington&Burling ( ) lemma=`covington&burling` -  
+ Cowardice ( ) lemma=`cowardice` -  
+ Cowen ( ) lemma=`cowen` -  
+ Cowley ( ) lemma=`cowley` -  
+ Cracow ( ) lemma=`cracow` -  
+ Crafts ( ) lemma=`crafts` -  
+ CragHack ( ) lemma=`craghack` -  
+ Crawford ( ) lemma=`crawford` -  
+ Crawlers ( ) lemma=`crawlers` -  
+ Crazy ( ) lemma=`crazy` -  
+ Creat ( ) lemma=`creat` -  
+ Creative ( ) lemma=`creative` -  
+ Creativity ( ) lemma=`creativity` -  
+ Creature ( ) lemma=`creature` -  
+ Crechet ( ) lemma=`crechet` -  
+ Credential ( ) lemma=`credential` -  
+ Credo ( ) lemma=`credo` -  
+ Creme ( ) lemma=`creme` -  
+ Creo ( ) lemma=`creo` -  
+ Creonica ( ) lemma=`creonica` -  
+ Crete ( ) lemma=`crete` -  
+ Crisi ( ) lemma=`crisi` -  
+ Crisis ( ) lemma=`crisis` -  
+ Cristo ( ) lemma=`cristo` -  
+ Criteria ( ) lemma=`criteria` -  
+ Critic ( ) lemma=`critic` -  
+ Critical ( ) lemma=`critical` -  
+ Crocker ( ) lemma=`crocker` -  
+ Croix ( ) lemma=`croix` -  
+ Cromwell ( ) lemma=`cromwell` -  
+ Crosby ( ) lemma=`crosby` -  
+ Cross ( ) lemma=`cross` -  
+ Crossculture ( ) lemma=`crossculture` -  
+ Crosswalk ( ) lemma=`crosswalk` -  
+ Crowne ( ) lemma=`crowne` -  
+ Cruises ( ) lemma=`cruises` -  
+ Cry ( ) lemma=`cry` -  
+ Crystal ( ) lemma=`crystal` -  
+ Ctrl+Enter ( ) lemma=`ctrl+enter` -  
+ Ctrl+c ( ) lemma=`ctrl+c` -  
+ Ctrl/F1 ( ) lemma=`ctrl/f1` Ncmsnn  
+ Cubase ( ) lemma=`cubase` -  
+ CubaseSX ( ) lemma=`cubasesx` -  
+ Cult ( ) lemma=`cult` -  
+ Culture ( ) lemma=`culture` -  
+ Cumpleanos ( ) lemma=`cumpleanos` -  
+ Cumplea~A±os ( ) lemma=`cumplea~a±os` -  
+ CuneiForm ( ) lemma=`cuneiform` -  
+ Cunninghamia ( ) lemma=`cunninghamia` -  
+ Cup ( ) lemma=`cup` -  
+ Cupillard ( ) lemma=`cupillard` -  
+ Cupressaceae ( ) lemma=`cupressaceae` -  
+ Cupressales ( ) lemma=`cupressales` -  
+ CureIt ( ) lemma=`cureit` -  
+ Curran ( ) lemma=`curran` -  
+ Currant ( ) lemma=`currant` -  
+ Current ( ) lemma=`current` -  
+ CurrentControlSet\ ( ) lemma=`currentcontrolset\`currentcontrolset\` -  Afpfsnf  
+ Currents ( ) lemma=`currents` -  
+ Curriculum ( ) lemma=`curriculum` -  
+ Curse ( ) lemma=`curse` -  
+ Curse(4 ( ) lemma=`curse(4` -  
+ Cursing ( ) lemma=`cursing` -  
+ Cuthouse ( ) lemma=`cuthouse` -  
+ Cyan ( ) lemma=`cyan` -  
+ CybOrc ( ) lemma=`cyborc` -  
+ Cycle ( ) lemma=`cycle` -  
+ Cyrillic ( ) lemma=`cyrillic` -  
+ Cyrix ( ) lemma=`cyrix` -  
+ Czochralski ( ) lemma=`czochralski` -  
+ CША ( ) lemma=`cша` Ncfsnn  
+ Cам ( ) lemma=`cам` Ncmpdy  
+ Cаммит ( ) lemma=`cаммит` Ncmsnn  
+ Cвoбoдa ( ) lemma=`cвoбoдa` -  
+ Cегодня ( ) lemma=`cегодня` Afpfsnf  
+ Cергей ( ) lemma=`cергей` Npmsny  
+ Cети ( ) lemma=`cети` Ncfsln  
+ CисАдмин ( ) lemma=`cисадмин` Ncmsny  
+ Cистема ( ) lemma=`cистема` Ncfsnn  
+ Cистематизированную ( ) lemma=`cистематизированную` Vmps-sfp-pa  
+ Cкoлькo ( ) lemma=`cкoлькo` -  
+ Cкажите ( ) lemma=`cкажите` Vmm-2p-a-p  
+ Cканер ( ) lemma=`cканер` Ncmsnn  
+ Cколь ( ) lemma=`cколь` P-----r  
+ Cлyчилось ( ) lemma=`cлyчилось` Vmis-snm-p  
+ Cлуга ( ) lemma=`cлуга` Ncmsny  
+ Cлучаи ( ) lemma=`cлучаи` Ncmpnn  
+ Cм ( ) lemma=`cм`cм`cм` Ncmpdy  Ncmsin  Ncmsnn  
+ Cмеречинский ( ) lemma=`cмеречинский` Npmsny  
+ Cмогли ( ) lemma=`cмогли` Vmis-p-a-p  
+ Cмотрю ( ) lemma=`cмотрю` Vmif1s-a-p  
+ Cначала ( ) lemma=`cначала` Vmis-sfa-e  
+ Cнилось ( ) lemma=`cнилось` Vmis-snm-p  
+ Cобравшись ( ) lemma=`cобравшись` Vmgs---m-p  
+ Cоздание ( ) lemma=`cоздание` Ncnsnn  
+ Cотрудничество ( ) lemma=`cотрудничество` Ncnsnn  
+ Cпасибо ( ) lemma=`cпасибо` P-----r  
+ Cплошная ( ) lemma=`cплошная` Afpfsnf  
+ Cпустя ( ) lemma=`cпустя` R  
+ Cреди ( ) lemma=`cреди` Ncfpnn  
+ Cрок ( ) lemma=`cрок` Ncmsnn  
+ Cтандартный ( ) lemma=`cтандартный` Afpmsnf  
+ Cтанислав ( ) lemma=`cтанислав` Npmsny  
+ Cтарлей ( ) lemma=`cтарлей`cтарлей` Ncmsnn  Ncmsny  
+ Cтатьи ( ) lemma=`cтатьи` Ncfpnn  
+ Cтена ( ) lemma=`cтена` Ncmsgn  
+ Cтихотворения ( ) lemma=`cтихотворения` Ncnsgn  
+ Cтранный ( ) lemma=`cтранный` Afpmsnf  
+ Cтудии ( ) lemma=`cтудии` Ncfsln  
+ Cущность ( ) lemma=`cущность` Ncfsnn  
+ Cэйшн ( ) lemma=`cэйшн` -  
+ c ( ) lemma=`c`c` -  Sp-i  
+ c'est ( ) 
+ c. ( ) 
+ c1 ( ) 
+ c2 ( ) 
+ c2s ( ) 
+ c3 ( ) 
+ c4 ( ) 
+ c5 ( ) 
+ c5= ( ) 
+ c6 ( ) 
+ c65 ( ) 
+ c650 ( ) 
+ c7 ( ) 
+ c75 ( ) 
+ cEntry ( ) lemma=`centry` -  
+ cab ( ) 
+ cab@yandex ( ) 
+ cabal ( ) 
+ caer ( ) 
+ cafe ( ) 
+ calc ( ) 
+ calculations ( ) 
+ call ( ) 
+ called ( ) 
+ calm ( ) 
+ came ( ) 
+ camel ( ) 
+ camera ( ) 
+ campaign ( ) 
+ campsite ( ) 
+ campsites ( ) 
+ can ( ) 
+ can't ( ) 
+ canada8@sprint ( ) 
+ cane ( ) 
+ cantus ( ) 
+ canzone ( ) 
+ capacity ( ) 
+ cape ( ) 
+ capito ( ) 
+ captain ( ) 
+ capture ( ) 
+ car ( ) 
+ card ( ) 
+ care ( ) 
+ career ( ) 
+ carmine ( ) 
+ carries ( ) 
+ carta ( ) 
+ carte ( ) 
+ carton ( ) 
+ carve ( ) 
+ cas ( ) 
+ case ( ) 
+ cases ( ) 
+ castel ( ) 
+ casue ( ) 
+ casum ( ) 
+ catalog/id/81414/ ( ) 
+ catap ( ) 
+ catze ( ) 
+ causa ( ) 
+ cause ( ) 
+ cd ( ) 
+ ce ( ) 
+ celebriter ( ) 
+ celebrity ( ) 
+ celeron ( ) 
+ cells ( ) 
+ celtes ( ) 
+ celtique ( ) 
+ center ( ) 
+ centery ( ) 
+ centr ( ) 
+ central ( ) 
+ centre ( ) 
+ centres ( ) 
+ centric=15 ( ) 
+ ceбе ( ) 
+ cfrankfw@mbox ( ) 
+ cfv ( ) 
+ cgis ( ) 
+ ch ( ) 
+ chai ( ) 
+ chain ( ) 
+ chainik ( ) 
+ chainika ( ) 
+ chains ( ) 
+ chainuy ( ) 
+ chair ( ) 
+ chalkboard ( ) 
+ chamber ( ) 
+ champions ( ) 
+ chance ( ) 
+ chandelier ( ) 
+ change ( ) 
+ changed ( ) 
+ chapters ( ) 
+ character ( ) 
+ character's ( ) 
+ characters ( ) 
+ charge ( ) 
+ chart ( ) 
+ chasa ( ) 
+ chase ( ) 
+ chasnoi ( ) 
+ chasov ( ) 
+ chat ( ) 
+ cheap ( ) 
+ check ( ) 
+ checks ( ) 
+ chego ( ) 
+ chelovek ( ) 
+ chelovekom ( ) 
+ chem ( ) 
+ chemical ( ) 
+ chemu ( ) 
+ cheques)* ( ) 
+ cher ( ) 
+ cherez ( ) 
+ cherkasov ( ) 
+ chernogo ( ) 
+ cherz ( ) 
+ chess ( ) 
+ chetverg ( ) 
+ chevalier ( ) 
+ chez ( ) 
+ chick ( ) 
+ chicks ( ) 
+ chieh ( ) 
+ chiens ( ) 
+ chikanutaya ( ) 
+ child ( ) 
+ chilling ( ) 
+ chips ( ) 
+ chips@fmradio ( ) 
+ chips@mail ( ) 
+ chital ( ) 
+ chitau ( ) 
+ cho ( ) 
+ chochet ( ) 
+ choepperle ( ) 
+ chorus ( ) 
+ chriver ( ) 
+ chto ( ) 
+ church ( ) 
+ chwingenschuh ( ) 
+ cialis ( ) 
+ cid=jisatsucircle ( ) 
+ cio ( ) 
+ cit ( ) 
+ citeclibrary ( ) 
+ citizens ( ) 
+ civ ( ) 
+ civitas ( ) 
+ civitate ( ) 
+ ckart ( ) 
+ cko ( ) 
+ cl ( ) 
+ clara ( ) 
+ clarity ( ) 
+ clash'n'slash ( ) 
+ class ( ) 
+ classic ( ) 
+ classroom ( ) 
+ claudet ( ) 
+ claw ( ) 
+ click ( ) 
+ clinical ( ) 
+ cliptum ( ) 
+ cloacа ( ) 
+ cloak"( ( ) 
+ clock ( ) 
+ close ( ) 
+ closed ( ) 
+ closely ( ) 
+ clothes ( ) 
+ cloud ( ) 
+ club ( ) 
+ club2 ( ) 
+ cms ( ) 
+ cntr ( ) 
+ cockney ( ) 
+ coda ( ) 
+ code ( ) 
+ coefficient ( ) 
+ coeli ( ) 
+ coelo ( ) 
+ cognition ( ) 
+ cold ( ) 
+ collaboration ( ) 
+ collection ( ) 
+ collective ( ) 
+ collisinless ( ) 
+ color ( ) 
+ colour ( ) 
+ com ( ) 
+ combat ( ) 
+ combo ( ) 
+ combr ( ) 
+ comcon ( ) 
+ come ( ) 
+ comely ( ) 
+ comm ( ) 
+ command ( ) 
+ commands ( ) 
+ comme ( ) 
+ commence ( ) 
+ commer ( ) 
+ commerce ( ) 
+ commit ( ) 
+ commitment ( ) 
+ common ( ) 
+ communicate ( ) 
+ communications ( ) 
+ communis ( ) 
+ communists ( ) 
+ community ( ) 
+ compact ( ) 
+ companies ( ) 
+ company ( ) 
+ comparable ( ) 
+ comparison ( ) 
+ compatible ( ) 
+ compiling ( ) 
+ complete ( ) 
+ completed ( ) 
+ completely ( ) 
+ complexion ( ) 
+ complicated ( ) 
+ component ( ) 
+ components ( ) 
+ compozishnz ( ) 
+ compte ( ) 
+ computatur ( ) 
+ computers ( ) 
+ comter@usa ( ) 
+ con ( ) 
+ conan ( ) 
+ conceptio ( ) 
+ conception ( ) 
+ conceptual ( ) 
+ conceptualisation ( ) 
+ concert ( ) 
+ concilia ( ) 
+ conconjure@hotmail ( ) 
+ concubinage ( ) 
+ cond ( ) 
+ condition ( ) 
+ conditions ( ) 
+ conductive ( ) 
+ conductivity ( ) 
+ coney ( ) 
+ conference ( ) 
+ conferencing ( ) 
+ configurations ( ) 
+ configure ( ) 
+ confirmation ( ) 
+ connection ( ) 
+ connotations ( ) 
+ connu ( ) 
+ conomie ( ) 
+ consacrato ( ) 
+ considering ( ) 
+ consistent ( ) 
+ consistently ( ) 
+ consolehelper ( ) 
+ constanta ( ) 
+ consuetudinis ( ) 
+ consult@mail ( ) 
+ consumer ( ) 
+ contact ( ) 
+ contact@etatar ( ) 
+ container ( ) 
+ containing ( ) 
+ contains ( ) 
+ contemplativa ( ) 
+ contemporary ( ) 
+ content ( ) 
+ contents ( ) 
+ contenu ( ) 
+ contest ( ) 
+ context=detail&id=1563546&from=1 ( ) 
+ continue ( ) 
+ continued ( ) 
+ continueras ( ) 
+ continuing ( ) 
+ contraire ( ) 
+ contributed ( ) 
+ contribution ( ) 
+ contro ( ) 
+ control ( ) 
+ control"( ( ) 
+ conus ( ) 
+ convective ( ) 
+ convert ( ) 
+ converts ( ) 
+ cookies ( ) 
+ cookong ( ) 
+ cool ( ) 
+ cooler ( ) 
+ cooooooooooooooool ( ) 
+ coplas ( ) 
+ copy ( ) 
+ copyright ( ) 
+ copyrighter ( ) 
+ core ( ) 
+ corona ( ) 
+ corporation ( ) 
+ corpus ( ) 
+ correctly ( ) 
+ correspondent ( ) 
+ cosmic ( ) 
+ cost ( ) 
+ could ( ) 
+ count ( ) 
+ count(* ( ) 
+ count(DISTINCT ( ) lemma=`count(distinct` -  
+ counter ( ) 
+ counterpart ( ) 
+ counters ( ) 
+ countries ( ) 
+ country ( ) 
+ coup ( ) 
+ couple ( ) 
+ coupling ( ) 
+ course ( ) 
+ court ( ) 
+ courtesy ( ) 
+ cousine ( ) 
+ couture ( ) 
+ coбpaний ( ) 
+ cp ( ) 
+ cp1251 ( ) 
+ cp866 ( ) 
+ cpr@bk ( ) 
+ cpедства ( ) 
+ cr ( ) 
+ cradle ( ) 
+ cranberry ( ) 
+ crazy ( ) 
+ create ( ) 
+ created ( ) 
+ creative ( ) 
+ creativity ( ) 
+ creature ( ) 
+ credential ( ) 
+ credit ( ) 
+ credo ( ) 
+ credovo ( ) 
+ creek ( ) 
+ crest ( ) 
+ criollo ( ) 
+ critical ( ) 
+ crosszero@mail ( ) 
+ crux ( ) 
+ cry ( ) 
+ crystal ( ) 
+ css ( ) 
+ cto ( ) 
+ cul@ukr ( ) 
+ culture ( ) 
+ cum ( ) 
+ cunt ( ) 
+ curious ( ) 
+ current ( ) 
+ currently ( ) 
+ currents ( ) 
+ cursor ( ) 
+ curtain ( ) 
+ curve ( ) 
+ curve/1000 ( ) 
+ curve=0 ( ) 
+ cusp ( ) 
+ cutback ( ) 
+ cveta ( ) 
+ cvs ( ) 
+ cx65 ( ) 
+ cx75 ( ) 
+ cxb5 ( ) 
+ cxd5 ( ) 
+ cycle ( ) 
+ cyclothymes ( ) 
+ cymbalorum ( ) 
+ cyхой ( ) 
+ czas ( ) 
+ c®­ ( ) 
+ cайта ( ) 
+ cам ( ) 
+ cамопознание ( ) 
+ cвидетельницы ( ) 
+ cвинга ( ) 
+ cвоем ( ) 
+ cейчас ( ) 
+ cемье ( ) 
+ cент ( ) 
+ cильно ( ) 
+ cимволизма ( ) 
+ cлишком ( ) 
+ cлужба ( ) 
+ cлухами ( ) 
+ cо ( ) 
+ cпpocил ( ) 
+ cразу ( ) 
+ cт ( ) 
+ cтoить ( ) 
+ cтажер ( ) 
+ cтрашного ( ) 
+ cтудия ( ) 
+ cуббота ( ) 
+ cхоронил ( ) 
+ cъезда ( ) 

@@ -1,0 +1,52 @@
+﻿ADJ		adjective
+ADV		adverb (excluding -mente forms)
+ADV:mente	adveb ending in -mente
+ART		article
+ARTPRE		preposition + article
+AUX:fin		finite form of auxiliary
+AUX:fin:cli	finite form of auxiliary with clitic
+AUX:geru	gerundive form of auxiliary
+AUX:geru:cli	gerundive form of auxiliary with clitic
+AUX:infi	infinitival form of auxiliary
+AUX:infi:cli	infinitival form of auxiliary with clitic
+AUX:ppast	past participle of auxiliary
+AUX:ppre	present participle of auxiliary
+CHE		che
+CLI		clitic
+CON		conjunction
+DET:demo	demonstrative determiner
+DET:indef	indefinite determiner
+DET:num		numeral determiner
+DET:poss	possessive determiner
+DET:wh		wh determiner
+NEG		negation
+NOCAT		non-linguistic element
+NOUN		noun
+NPR		proper noun
+NUM		number
+PRE		preposition
+PRO:demo	demonstrative pronoun
+PRO:indef	indefinite pronoun
+PRO:num		numeral pronoun
+PRO:pers	personal pronoun
+PRO:poss	possessive pronoun
+PUN		non-sentence-final punctuation mark
+SENT		sentence-final punctuation mark
+VER2:fin	finite form of modal/causal verb
+VER2:fin:cli	finite form of modal/causal verb with clitic
+VER2:geru	gerundive form of modal/causal verb
+VER2:geru:cli	gerundive form of modal/causal verb with clitic
+VER2:infi	infinitival form of modal/causal verb
+VER2:infi:cli	infinitival form of modal/causal verb with clitic
+VER2:ppast	past participle of modal/causal verb
+VER2:ppre	present participle of modal/causal verb
+VER:fin		finite form of verb
+VER:fin:cli	finite form of verb with clitic
+VER:geru	gerundive form of verb
+VER:geru:cli	gerundive form of verb with clitic
+VER:infi	infinitival form of verb
+VER:infi:cli	infinitival form of verb with clitic
+VER:ppast	past participle of verb
+VER:ppast:cli	past participle of verb with clitic
+VER:ppre	present participle of verb
+WH		wh word

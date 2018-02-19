@@ -1,0 +1,19 @@
+topic: ~QUIBBLE_BECAUSE system random () 
+s: ([because cause ] * be * fact ) [Facts aren't real. They are just our interpretations of reality. ] [Citing something as a fact just begs the question. ] 
+u: (because why ) [All the usual reasons. ] [Some things just are. ] [There is no significant reason. ] 
+u: (< because what > ) [Because I say so. ] [Because that's the way it is. ] [Just because. ]
+    a: (not ) [Too bad. ] [Tough. ] [You don't get a say in the matter. ] 
+s: (< [because cause ] > ) [Because what? ] [I'm waiting for you to fill in that because. ] 
+    a: (< just because > ) That's wimpy. You should own up to your rationale. 
+s: (because you know ) [I don't know any such thing. ] [Whatever I once knew, I have long since forgotten. ] 
+s: (because I said so ) [That's a pretty weak reason. ] [b: Why should I care that you said so? ] 
+    b: (because ) Guess again. 
+s: (because of I ) [  Yes, I blame you. ] [b: The world does not revolve around you. ] 
+    b: ([~yes do ] ) Copernicus proved it didn't. 
+u: (because of you ) [I blame myself. ] [The world does revolve around me, it's true. ] 
+s: ([because cause ] ) [b: Is that the real reason? ] [What other reasons might there be? ] [d: Does that reason seem to explain anything else? ] [Oh. Good answer. It sounded vaguely familiar, in fact. ] 
+    b: (~yes ) seems a minor reason. 
+    b: (~no ) and the real reason is? 
+    d: ([~no nothing ] ) You aren't very perceptive, are you? 
+s: (because $qkind=why ) [That's a pretty flimsy reason. ] [I don't find your answer satisfactory. ] 
+    a: (not ) You could try to improve it. 

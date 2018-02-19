@@ -1,0 +1,864 @@
+﻿ J ( NOUN NOUN_SINGULAR ) 
+ J's ( NOUN NOUN_PLURAL ) lemma=`j` nounpl  
+ J'tje ( NOUN NOUN_SINGULAR ) lemma=`j` nounsg  
+ J'tjes ( NOUN NOUN_PLURAL ) lemma=`j` nounpl  
+ J. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`J.`J.` nounabbr  num__ord  
+ J.-L.M. ( NOUN NOUN_SINGULAR ) 
+ J.T. ( NOUN NOUN_SINGULAR ) 
+ J.T.T. ( NOUN NOUN_SINGULAR ) 
+ JA ( NOUN NOUN_SINGULAR ) 
+ JAC ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`JAC`JAC` nounabbr  nounprop  
+ JC ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`JC`JC` nounabbr  nounprop  
+ JH ( NOUN NOUN_SINGULAR ) 
+ Jadeboezem ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jahwe ( NOUN NOUN_SINGULAR ) 
+ Jahweh ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jakarta ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jakartaan ( NOUN NOUN_SINGULAR ) 
+ Jakartaans ( ADJECTIVE ) 
+ Jakartaanse ( NOUN NOUN_SINGULAR ) 
+ Jakartaansen ( NOUN NOUN_PLURAL ) lemma=`Jakartaanse` nounpl  
+ Jakartaas ( ADJECTIVE ) 
+ Jakartanen ( NOUN NOUN_PLURAL ) lemma=`Jakartaan` nounpl  
+ Jakartase ( NOUN NOUN_SINGULAR ) 
+ Jakartasen ( NOUN NOUN_PLURAL ) lemma=`Jakartase` nounpl  
+ Jakartaër ( NOUN NOUN_SINGULAR ) 
+ Jakartaërs ( NOUN NOUN_PLURAL ) lemma=`Jakartaër` nounpl  
+ Jakoetië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jamaica ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jamaicaan ( NOUN NOUN_SINGULAR ) 
+ Jamaicaans ( ADJECTIVE ) 
+ Jamaicaanse ( NOUN NOUN_SINGULAR ) 
+ Jamaicaansen ( NOUN NOUN_PLURAL ) lemma=`Jamaicaanse` nounpl  
+ Jamaicanen ( NOUN NOUN_PLURAL ) lemma=`Jamaicaan` nounpl  
+ Jamestown ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jammerbocht ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jangtsekiang ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jap ( NOUN NOUN_SINGULAR ) 
+ Japan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Japanner ( NOUN NOUN_SINGULAR ) 
+ Japanners ( NOUN NOUN_PLURAL ) lemma=`Japanner` nounpl  
+ Japans ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Japans`Japans` adj  nounprop  
+ Japanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Japans`Japanse` adj  nounsg  
+ Japansen ( NOUN NOUN_PLURAL ) lemma=`Japanse` nounpl  
+ Jappen ( NOUN NOUN_PLURAL ) lemma=`Jap` nounpl  
+ Jappenkampen ( NOUN NOUN_PLURAL ) lemma=`Jappenkamp` nounpl  
+ Japs ( NOUN NOUN_PLURAL ) lemma=`Jap` nounpl  
+ Java ( NOUN NOUN_PROPER_SINGULAR ) 
+ Javaan ( NOUN NOUN_SINGULAR ) 
+ Javaans ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Javaans`Javaans` adj  nounprop  
+ Javaanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Javaans`Javaanse` adj  nounsg  
+ Javaansen ( NOUN NOUN_PLURAL ) lemma=`Javaanse` nounpl  
+ Javaas ( ADJECTIVE ) 
+ Javanen ( NOUN NOUN_PLURAL ) lemma=`Javaan` nounpl  
+ Javase ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Javaas`Javase` adj  nounsg  
+ Javasen ( NOUN NOUN_PLURAL ) lemma=`Javase` nounpl  
+ Javatrog ( NOUN NOUN_PROPER_SINGULAR ) 
+ Javazee ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jemen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jemeniet ( NOUN NOUN_SINGULAR ) 
+ Jemenieten ( NOUN NOUN_PLURAL ) lemma=`Jemeniet` nounpl  
+ Jemenitisch ( ADJECTIVE ) 
+ Jemenitische ( NOUN NOUN_SINGULAR ) 
+ Jemenitischen ( NOUN NOUN_PLURAL ) lemma=`Jemenitische` nounpl  
+ Jericho ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jeruzalem ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jeruzalemmer ( NOUN NOUN_SINGULAR ) 
+ Jeruzalemmers ( NOUN NOUN_PLURAL ) lemma=`Jeruzalemmer` nounpl  
+ Jeruzalems ( ADJECTIVE ) 
+ Jeruzalemse ( NOUN NOUN_SINGULAR ) 
+ Jeruzalemsen ( NOUN NOUN_PLURAL ) lemma=`Jeruzalemse` nounpl  
+ Jezus ( INTERJECTION ) 
+ Jezusbeeld ( NOUN NOUN_SINGULAR ) 
+ Jezusbeelden ( NOUN NOUN_PLURAL ) lemma=`Jezusbeeld` nounpl  
+ Joegoslaaf ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joegoslavisch ( ADJECTIVE ) 
+ Joegoslavische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Joegoslavisch`Joegoslavische` adj  nounsg  
+ Joegoslavischen ( NOUN NOUN_PLURAL ) lemma=`Joegoslavische` nounpl  
+ Joegoslavië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joegoslaviër ( NOUN NOUN_SINGULAR ) 
+ Joegoslaviërs ( NOUN NOUN_PLURAL ) lemma=`Joegoslaviër` nounpl  
+ Jogjakarta ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordaan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordaans ( ADJECTIVE ) 
+ Jordaanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Jordaans`Jordaanse` adj  nounsg  
+ Jordaansen ( NOUN NOUN_PLURAL ) lemma=`Jordaanse` nounpl  
+ Jordanees ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Jordanees`Jordanees` adj  nounsg  
+ Jordanese ( NOUN NOUN_SINGULAR ) 
+ Jordanesen ( NOUN NOUN_PLURAL ) lemma=`Jordanese` nounpl  
+ Jordanezen ( NOUN NOUN_PLURAL ) lemma=`Jordanees` nounpl  
+ Jordanisch ( ADJECTIVE ) 
+ Jordanische ( NOUN NOUN_SINGULAR ) 
+ Jordanischen ( NOUN NOUN_PLURAL ) lemma=`Jordanische` nounpl  
+ Jordanië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordaniër ( NOUN NOUN_SINGULAR ) 
+ Jordaniërs ( NOUN NOUN_PLURAL ) lemma=`Jordaniër` nounpl  
+ Judea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jupiter ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jutland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jutlander ( NOUN NOUN_SINGULAR ) 
+ Jutlanders ( NOUN NOUN_PLURAL ) lemma=`Jutlander` nounpl  
+ Jutlands ( ADJECTIVE ) 
+ Jutlandse ( NOUN NOUN_SINGULAR ) 
+ Jutlandsen ( NOUN NOUN_PLURAL ) lemma=`Jutlandse` nounpl  
+ j ( NOUN NOUN_SINGULAR ) 
+ j's ( NOUN NOUN_PLURAL ) lemma=`j` nounpl  
+ j.t.t. ( NOUN NOUN_SINGULAR ) 
+ ja ( INTERJECTION ) 
+ jaag ( VERB_PRESENT VERB ) lemma=`jagen` verbpressg  
+ jaagde ( VERB_PAST VERB ) lemma=`jagen` verbpastsg  
+ jaagden ( VERB_PAST VERB ) lemma=`jagen` verbpastpl  
+ jaaglijn ( NOUN NOUN_SINGULAR ) 
+ jaaglijnen ( NOUN NOUN_PLURAL ) lemma=`jaaglijn` nounpl  
+ jaagpad ( NOUN NOUN_SINGULAR ) 
+ jaagpaden ( NOUN NOUN_PLURAL ) lemma=`jaagpad` nounpl  
+ jaagt ( VERB_PRESENT VERB ) lemma=`jagen` verbpressg  
+ jaap ( NOUN NOUN_SINGULAR ) 
+ jaapje ( NOUN NOUN_SINGULAR ) lemma=`jaap` nounsg  
+ jaar ( NOUN NOUN_SINGULAR ) 
+ jaarabonnement ( NOUN NOUN_SINGULAR ) 
+ jaarabonnementen ( NOUN NOUN_PLURAL ) lemma=`jaarabonnement` nounpl  
+ jaarbegroting ( NOUN NOUN_SINGULAR ) 
+ jaarbegrotingen ( NOUN NOUN_PLURAL ) lemma=`jaarbegroting` nounpl  
+ jaarbeurs ( NOUN NOUN_SINGULAR ) 
+ jaarbeurzen ( NOUN NOUN_PLURAL ) lemma=`jaarbeurs` nounpl  
+ jaarboek ( NOUN NOUN_SINGULAR ) 
+ jaarboeken ( NOUN NOUN_PLURAL ) lemma=`jaarboek` nounpl  
+ jaarcijfers ( NOUN NOUN_PLURAL ) 
+ jaargang ( NOUN NOUN_SINGULAR ) 
+ jaargangen ( NOUN NOUN_PLURAL ) lemma=`jaargang` nounpl  
+ jaargenoot ( NOUN NOUN_SINGULAR ) 
+ jaargenoten ( NOUN NOUN_PLURAL ) lemma=`jaargenoot` nounpl  
+ jaargetijde ( NOUN NOUN_SINGULAR ) 
+ jaargetijden ( NOUN NOUN_PLURAL ) lemma=`jaargetijde` nounpl  
+ jaarlijks ( ADJECTIVE ) 
+ jaarlijkse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jaarlijks`jaarlijkse` adj  nounsg  
+ jaarmarkt ( NOUN NOUN_SINGULAR ) 
+ jaarmarkten ( NOUN NOUN_PLURAL ) lemma=`jaarmarkt` nounpl  
+ jaaromzet ( NOUN NOUN_SINGULAR ) 
+ jaaromzetten ( NOUN NOUN_PLURAL ) lemma=`jaaromzet` nounpl  
+ jaaroverzicht ( NOUN NOUN_SINGULAR ) 
+ jaaroverzichten ( NOUN NOUN_PLURAL ) lemma=`jaaroverzicht` nounpl  
+ jaarprogramma ( NOUN NOUN_SINGULAR ) 
+ jaarprogramma's ( NOUN NOUN_PLURAL ) lemma=`jaarprogramma` nounpl  
+ jaarrekening ( NOUN NOUN_SINGULAR ) 
+ jaarrekeningen ( NOUN NOUN_PLURAL ) lemma=`jaarrekening` nounpl  
+ jaarrente ( NOUN NOUN_SINGULAR ) 
+ jaarrenten ( NOUN NOUN_PLURAL ) lemma=`jaarrente` nounpl  
+ jaarrentes ( NOUN NOUN_PLURAL ) lemma=`jaarrente` nounpl  
+ jaarring ( NOUN NOUN_SINGULAR ) 
+ jaarringen ( NOUN NOUN_PLURAL ) lemma=`jaarring` nounpl  
+ jaars ( NOUN NOUN_SINGULAR ) lemma=`jaar` nounsg  
+ jaarsalaris ( NOUN NOUN_SINGULAR ) 
+ jaarsalarissen ( NOUN NOUN_PLURAL ) lemma=`jaarsalaris` nounpl  
+ jaartal ( NOUN NOUN_SINGULAR ) 
+ jaartallen ( NOUN NOUN_PLURAL ) lemma=`jaartal` nounpl  
+ jaartelling ( NOUN NOUN_SINGULAR ) 
+ jaartellingen ( NOUN NOUN_PLURAL ) lemma=`jaartelling` nounpl  
+ jaartemperaturen ( NOUN NOUN_PLURAL ) lemma=`jaartemperatuur` nounpl  
+ jaartemperatuur ( NOUN NOUN_SINGULAR ) 
+ jaartje ( NOUN NOUN_SINGULAR ) lemma=`jaar` nounsg  
+ jaartjes ( NOUN NOUN_PLURAL ) lemma=`jaar` nounpl  
+ jaarverslag ( NOUN NOUN_SINGULAR ) 
+ jaarverslagen ( NOUN NOUN_PLURAL ) lemma=`jaarverslag` nounpl  
+ jaarwedde ( NOUN NOUN_SINGULAR ) 
+ jaarwedden ( NOUN NOUN_PLURAL ) lemma=`jaarwedde` nounpl  
+ jaarwisseling ( NOUN NOUN_SINGULAR ) 
+ jaarwisselingen ( NOUN NOUN_PLURAL ) lemma=`jaarwisseling` nounpl  
+ jacht ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`jacht`jachten` nounsg  verbpressg  
+ jachtbommenwerper ( NOUN NOUN_SINGULAR ) 
+ jachtbommenwerpers ( NOUN NOUN_PLURAL ) lemma=`jachtbommenwerper` nounpl  
+ jachtclub ( NOUN NOUN_SINGULAR ) 
+ jachtclubs ( NOUN NOUN_PLURAL ) lemma=`jachtclub` nounpl  
+ jachteigenaar ( NOUN NOUN_SINGULAR ) 
+ jachteigenaars ( NOUN NOUN_PLURAL ) lemma=`jachteigenaar` nounpl  
+ jachteigenaren ( NOUN NOUN_PLURAL ) lemma=`jachteigenaar` nounpl  
+ jachten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`jacht`jachten`jachten`jachten` nounpl  nounsg  verbinf  verbprespl  
+ jachtend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jachten` verbpresp  
+ jachtende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jachtende`jachten` nounsg  verbpresp  
+ jachtgebied ( NOUN NOUN_SINGULAR ) 
+ jachtgebieden ( NOUN NOUN_PLURAL ) lemma=`jachtgebied` nounpl  
+ jachtgeweer ( NOUN NOUN_SINGULAR ) 
+ jachtgeweren ( NOUN NOUN_PLURAL ) lemma=`jachtgeweer` nounpl  
+ jachtgrond ( NOUN NOUN_SINGULAR ) 
+ jachtgronden ( NOUN NOUN_PLURAL ) lemma=`jachtgrond` nounpl  
+ jachthaven ( NOUN NOUN_SINGULAR ) 
+ jachthavens ( NOUN NOUN_PLURAL ) lemma=`jachthaven` nounpl  
+ jachthond ( NOUN NOUN_SINGULAR ) 
+ jachthonden ( NOUN NOUN_PLURAL ) lemma=`jachthond` nounpl  
+ jachthoorn ( NOUN NOUN_SINGULAR ) 
+ jachthoornen ( NOUN NOUN_PLURAL ) lemma=`jachthoorn` nounpl  
+ jachthoorns ( NOUN NOUN_PLURAL ) lemma=`jachthoorn` nounpl  
+ jachtig ( ADJECTIVE ) 
+ jachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jachtig`jachtige` adj  nounsg  
+ jachtiger ( ADJECTIVE ) lemma=`jachtig` adj  
+ jachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jachtig`jachtigere` adj  nounsg  
+ jachtigst ( ADJECTIVE ) lemma=`jachtig` adj  
+ jachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jachtig`jachtigste` adj  nounsg  
+ jachtluipaard ( NOUN NOUN_SINGULAR ) 
+ jachtluipaarden ( NOUN NOUN_PLURAL ) lemma=`jachtluipaard` nounpl  
+ jachtmeester ( NOUN NOUN_SINGULAR ) 
+ jachtmeesters ( NOUN NOUN_PLURAL ) lemma=`jachtmeester` nounpl  
+ jachtopziener ( NOUN NOUN_SINGULAR ) 
+ jachtopzieners ( NOUN NOUN_PLURAL ) lemma=`jachtopziener` nounpl  
+ jachtschipper ( NOUN NOUN_SINGULAR ) 
+ jachtschippers ( NOUN NOUN_PLURAL ) lemma=`jachtschipper` nounpl  
+ jachtschotel ( NOUN NOUN_SINGULAR ) 
+ jachtschotels ( NOUN NOUN_PLURAL ) lemma=`jachtschotel` nounpl  
+ jachtseizoen ( NOUN NOUN_SINGULAR ) 
+ jachtseizoenen ( NOUN NOUN_PLURAL ) lemma=`jachtseizoen` nounpl  
+ jachtte ( VERB_PAST VERB ) lemma=`jachten` verbpastsg  
+ jachtten ( VERB_PAST VERB ) lemma=`jachten` verbpastpl  
+ jachtterrein ( NOUN NOUN_SINGULAR ) 
+ jachtterreinen ( NOUN NOUN_PLURAL ) lemma=`jachtterrein` nounpl  
+ jachtveld ( NOUN NOUN_SINGULAR ) 
+ jachtvelden ( NOUN NOUN_PLURAL ) lemma=`jachtveld` nounpl  
+ jachtverbod ( NOUN NOUN_SINGULAR ) 
+ jachtverboden ( NOUN NOUN_PLURAL ) lemma=`jachtverbod` nounpl  
+ jachtvliegtuig ( NOUN NOUN_SINGULAR ) 
+ jachtvliegtuigen ( NOUN NOUN_PLURAL ) lemma=`jachtvliegtuig` nounpl  
+ jachtwet ( NOUN NOUN_SINGULAR ) 
+ jachtwetten ( NOUN NOUN_PLURAL ) lemma=`jachtwet` nounpl  
+ jack ( NOUN NOUN_SINGULAR ) 
+ jacket ( NOUN NOUN_SINGULAR ) 
+ jackets ( NOUN NOUN_PLURAL ) lemma=`jacket` nounpl  
+ jackpot ( NOUN NOUN_SINGULAR ) 
+ jackpots ( NOUN NOUN_PLURAL ) lemma=`jackpot` nounpl  
+ jackpotten ( NOUN NOUN_PLURAL ) lemma=`jackpot` nounpl  
+ jacks ( NOUN NOUN_PLURAL ) lemma=`jack` nounpl  
+ jacobsladder ( NOUN NOUN_SINGULAR ) 
+ jacquet ( NOUN NOUN_SINGULAR ) 
+ jacquets ( NOUN NOUN_PLURAL ) lemma=`jacquet` nounpl  
+ jacquetten ( NOUN NOUN_PLURAL ) lemma=`jacquet` nounpl  
+ jade ( NOUN NOUN_SINGULAR ) 
+ jaeger ( NOUN NOUN_SINGULAR ) 
+ jaegers ( NOUN NOUN_PLURAL ) lemma=`jaeger` nounpl  
+ jaegertje ( NOUN NOUN_SINGULAR ) lemma=`jaeger` nounsg  
+ jaegertjes ( NOUN NOUN_PLURAL ) lemma=`jaeger` nounpl  
+ jagen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jagen`jagen`jagen` nounsg  verbinf  verbprespl  
+ jagend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jagen` verbpresp  
+ jagende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jagende`jagen` nounsg  verbpresp  
+ jager ( NOUN NOUN_SINGULAR ) 
+ jagers ( NOUN NOUN_PLURAL ) lemma=`jager` nounpl  
+ jagerstas ( NOUN NOUN_SINGULAR ) 
+ jagerstassen ( NOUN NOUN_PLURAL ) lemma=`jagerstas` nounpl  
+ jagertje ( NOUN NOUN_SINGULAR ) lemma=`jager` nounsg  
+ jagertjes ( NOUN NOUN_PLURAL ) lemma=`jager` nounpl  
+ jaguar ( NOUN NOUN_SINGULAR ) 
+ jaguars ( NOUN NOUN_PLURAL ) lemma=`jaguar` nounpl  
+ jaguartje ( NOUN NOUN_SINGULAR ) lemma=`jaguar` nounsg  
+ jaguartjes ( NOUN NOUN_PLURAL ) lemma=`jaguar` nounpl  
+ jak ( NOUN NOUN_SINGULAR ) 
+ jakhals ( NOUN NOUN_SINGULAR ) 
+ jakhalzen ( NOUN NOUN_PLURAL ) lemma=`jakhals` nounpl  
+ jakken ( NOUN NOUN_PLURAL ) lemma=`jak` nounpl  
+ jakker ( VERB_PRESENT VERB ) lemma=`jakkeren` verbpressg  
+ jakkerde ( VERB_PAST VERB ) lemma=`jakkeren` verbpastsg  
+ jakkerden ( VERB_PAST VERB ) lemma=`jakkeren` verbpastpl  
+ jakkeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jakkeren`jakkeren`jakkeren` nounsg  verbinf  verbprespl  
+ jakkerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jakkeren` verbpresp  
+ jakkerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jakkerende`jakkeren` nounsg  verbpresp  
+ jakkert ( VERB_PRESENT VERB ) lemma=`jakkeren` verbpressg  
+ jakkes ( INTERJECTION ) 
+ jaknikken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jaknikken`jaknikken`jaknikken` nounsg  verbinf  verbprespl  
+ jaknikker ( NOUN NOUN_SINGULAR ) 
+ jaknikkers ( NOUN NOUN_PLURAL ) lemma=`jaknikker` nounpl  
+ jakobsladder ( NOUN NOUN_SINGULAR ) 
+ jakobsladders ( NOUN NOUN_PLURAL ) lemma=`jakobsladder` nounpl  
+ jakobsschelp ( NOUN NOUN_SINGULAR ) 
+ jakobsschelpen ( NOUN NOUN_PLURAL ) lemma=`jakobsschelp` nounpl  
+ jaks ( NOUN NOUN_PLURAL ) lemma=`jak` nounpl  
+ jaloers ( ADJECTIVE ) 
+ jaloerse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jaloers`jaloerse` adj  nounsg  
+ jaloersen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jaloers`jaloerse` adj  nounpl  
+ jaloerser ( ADJECTIVE ) lemma=`jaloers` adj  
+ jaloersere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jaloers`jaloersere` adj  nounsg  
+ jaloerst ( ADJECTIVE ) lemma=`jaloers` adj  
+ jaloerste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jaloers`jaloerste` adj  nounsg  
+ jaloezie ( NOUN NOUN_SINGULAR ) 
+ jaloezieën ( NOUN NOUN_PLURAL ) lemma=`jaloezie` nounpl  
+ jam ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`jam`jammen` nounsg  verbpressg  
+ jambe ( NOUN NOUN_SINGULAR ) 
+ jamben ( NOUN NOUN_PLURAL ) lemma=`jambe` nounpl  
+ jamde ( VERB_PAST VERB ) lemma=`jammen` verbpastsg  
+ jamden ( VERB_PAST VERB ) lemma=`jammen` verbpastpl  
+ jammen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`jam`jammen`jammen`jammen` nounpl  nounsg  verbinf  verbprespl  
+ jammend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jammen` verbpresp  
+ jammende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jammende`jammen` nounsg  verbpresp  
+ jammer ( VERB_PRESENT VERB ADJECTIVE ) lemma=`jammer`jammeren` adj  verbpressg  
+ jammerde ( VERB_PAST VERB ) lemma=`jammeren` verbpastsg  
+ jammerden ( VERB_PAST VERB ) lemma=`jammeren` verbpastpl  
+ jammeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jammeren`jammeren`jammeren` nounsg  verbinf  verbprespl  
+ jammerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jammeren` verbpresp  
+ jammerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jammerende`jammeren` nounsg  verbpresp  
+ jammerklacht ( NOUN NOUN_SINGULAR ) 
+ jammerklachten ( NOUN NOUN_PLURAL ) lemma=`jammerklacht` nounpl  
+ jammerlijk ( ADJECTIVE ) 
+ jammerlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jammerlijk`jammerlijke` adj  nounsg  
+ jammerlijker ( ADJECTIVE ) lemma=`jammerlijk` adj  
+ jammerlijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jammerlijk`jammerlijkere` adj  nounsg  
+ jammerlijkst ( ADJECTIVE ) lemma=`jammerlijk` adj  
+ jammerlijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jammerlijk`jammerlijkste` adj  nounsg  
+ jammert ( VERB_PRESENT VERB ) lemma=`jammeren` verbpressg  
+ jammetje ( NOUN NOUN_SINGULAR ) lemma=`jam` nounsg  
+ jammetjes ( NOUN NOUN_PLURAL ) lemma=`jam` nounpl  
+ jampot ( NOUN NOUN_SINGULAR ) 
+ jampotten ( NOUN NOUN_PLURAL ) lemma=`jampot` nounpl  
+ jams ( NOUN NOUN_PLURAL ) lemma=`jam` nounpl  
+ jamsession ( NOUN NOUN_SINGULAR ) 
+ jamsessions ( NOUN NOUN_PLURAL ) lemma=`jamsession` nounpl  
+ jamt ( VERB_PRESENT VERB ) lemma=`jammen` verbpressg  
+ janboel ( NOUN NOUN_SINGULAR ) 
+ jank ( VERB_PRESENT VERB ) lemma=`janken` verbpressg  
+ janken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`janken`janken`janken` nounsg  verbinf  verbprespl  
+ jankend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`janken` verbpresp  
+ jankende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jankende`janken` nounsg  verbpresp  
+ jankt ( VERB_PRESENT VERB ) lemma=`janken` verbpressg  
+ jankte ( VERB_PAST VERB ) lemma=`janken` verbpastsg  
+ jankten ( VERB_PAST VERB ) lemma=`janken` verbpastpl  
+ janmaat ( NOUN NOUN_SINGULAR ) 
+ janmaats ( NOUN NOUN_PLURAL ) lemma=`janmaat` nounpl  
+ janplezier ( NOUN NOUN_SINGULAR ) 
+ janplezieren ( NOUN NOUN_PLURAL ) lemma=`janplezier` nounpl  
+ janpleziers ( NOUN NOUN_PLURAL ) lemma=`janplezier` nounpl  
+ jantje ( NOUN NOUN_SINGULAR ) 
+ jantjes ( NOUN NOUN_PLURAL ) lemma=`jantje` nounpl  
+ januari ( NOUN NOUN_PROPER_SINGULAR ) 
+ japanners ( NOUN NOUN_PLURAL ) lemma=`japanner` nounpl  
+ japen ( NOUN NOUN_PLURAL ) lemma=`jaap` nounpl  
+ japon ( NOUN NOUN_SINGULAR ) 
+ japonnen ( NOUN NOUN_PLURAL ) lemma=`japon` nounpl  
+ japonnetje ( NOUN NOUN_SINGULAR ) lemma=`japon` nounsg  
+ japonnetjes ( NOUN NOUN_PLURAL ) lemma=`japon` nounpl  
+ jappenkamp ( NOUN NOUN_SINGULAR ) 
+ jappenkampen ( NOUN NOUN_PLURAL ) lemma=`jappenkamp` nounpl  
+ jaren ( NOUN NOUN_PLURAL ) lemma=`jaar` nounpl  
+ jarenlang ( ADJECTIVE ) 
+ jarenlange ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jarenlang`jarenlange` adj  nounsg  
+ jargon ( NOUN NOUN_SINGULAR ) 
+ jargons ( NOUN NOUN_PLURAL ) lemma=`jargon` nounpl  
+ jarig ( ADJECTIVE ) 
+ jarige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jarig`jarige` adj  nounsg  
+ jarigen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jarig`jarige` adj  nounpl  
+ jarretel ( NOUN NOUN_SINGULAR ) 
+ jarretelle ( NOUN NOUN_SINGULAR ) 
+ jarretelles ( NOUN NOUN_PLURAL ) lemma=`jarretelle` nounpl  
+ jarretels ( NOUN NOUN_PLURAL ) lemma=`jarretel` nounpl  
+ jas ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`jas`jassen` nounsg  verbpressg  
+ jasbeschermer ( NOUN NOUN_SINGULAR ) 
+ jasbeschermers ( NOUN NOUN_PLURAL ) lemma=`jasbeschermer` nounpl  
+ jasje ( NOUN NOUN_SINGULAR ) 
+ jasjes ( NOUN NOUN_PLURAL ) lemma=`jasje` nounpl  
+ jasmijn ( NOUN NOUN_SINGULAR ) 
+ jasmijnen ( NOUN NOUN_PLURAL ) lemma=`jasmijn` nounpl  
+ jaspis ( NOUN NOUN_SINGULAR ) 
+ jaspissen ( NOUN NOUN_PLURAL ) lemma=`jaspis` nounpl  
+ jassen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`jas`jassen`jassen`jassen` nounpl  nounsg  verbinf  verbprespl  
+ jassend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jassen` verbpresp  
+ jassende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jassende`jassen` nounsg  verbpresp  
+ jasses ( INTERJECTION ) 
+ jast ( VERB_PRESENT VERB ) lemma=`jassen` verbpressg  
+ jaste ( VERB_PAST VERB ) lemma=`jassen` verbpastsg  
+ jasten ( VERB_PAST VERB ) lemma=`jassen` verbpastpl  
+ jat ( VERB_PRESENT VERB ) lemma=`jatten` verbpressg  
+ jatte ( VERB_PAST VERB ) lemma=`jatten` verbpastsg  
+ jatten ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jatten`jatten`jatten`jatten` nounsg  verbinf  verbpastpl  verbprespl  
+ jattend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jatten` verbpresp  
+ jattende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jattende`jatten` nounsg  verbpresp  
+ jawel ( INTERJECTION ) 
+ jawoord ( NOUN NOUN_SINGULAR ) 
+ jawoorden ( NOUN NOUN_PLURAL ) lemma=`jawoord` nounpl  
+ jazz ( NOUN NOUN_SINGULAR ) 
+ jazzclub ( NOUN NOUN_SINGULAR ) 
+ jazzclubs ( NOUN NOUN_PLURAL ) lemma=`jazzclub` nounpl  
+ jazzmusici ( NOUN NOUN_PLURAL ) lemma=`jazzmusicus` nounpl  
+ jazzmusicus ( NOUN NOUN_SINGULAR ) 
+ jazzmuziek ( NOUN NOUN_SINGULAR ) 
+ jazzy ( ADJECTIVE ) 
+ je ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_POSSESSIVE ) lemma=`je`je`je` pronpers  pronposs  pronrefl  
+ jeans ( NOUN NOUN_SINGULAR ) 
+ jee ( INTERJECTION ) 
+ jeep ( NOUN NOUN_SINGULAR ) 
+ jeeps ( NOUN NOUN_PLURAL ) lemma=`jeep` nounpl  
+ jeetje ( INTERJECTION ) 
+ jegens ( PREPOSITION ) 
+ jek ( NOUN NOUN_SINGULAR ) 
+ jekker ( NOUN NOUN_SINGULAR ) 
+ jekkers ( NOUN NOUN_PLURAL ) lemma=`jekker` nounpl  
+ jekkertje ( NOUN NOUN_SINGULAR ) lemma=`jekker` nounsg  
+ jemig ( INTERJECTION ) 
+ jeminee ( INTERJECTION ) 
+ jen ( VERB_PRESENT VERB ) lemma=`jennen` verbpressg  
+ jenaplanscholen ( NOUN NOUN_PLURAL ) lemma=`jenaplanschool` nounpl  
+ jenaplanschool ( NOUN NOUN_SINGULAR ) 
+ jende ( VERB_PAST VERB ) lemma=`jennen` verbpastsg  
+ jenden ( VERB_PAST VERB ) lemma=`jennen` verbpastpl  
+ jenever ( NOUN NOUN_SINGULAR ) 
+ jeneverbes ( NOUN NOUN_SINGULAR ) 
+ jeneverbessen ( NOUN NOUN_PLURAL ) lemma=`jeneverbes` nounpl  
+ jenevers ( NOUN NOUN_PLURAL ) lemma=`jenever` nounpl  
+ jengel ( VERB_PRESENT VERB ) lemma=`jengelen` verbpressg  
+ jengelde ( VERB_PAST VERB ) lemma=`jengelen` verbpastsg  
+ jengelden ( VERB_PAST VERB ) lemma=`jengelen` verbpastpl  
+ jengelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jengelen`jengelen`jengelen` nounsg  verbinf  verbprespl  
+ jengelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jengelen` verbpresp  
+ jengelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jengelende`jengelen` nounsg  verbpresp  
+ jengelt ( VERB_PRESENT VERB ) lemma=`jengelen` verbpressg  
+ jennen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jennen`jennen`jennen` nounsg  verbinf  verbprespl  
+ jennend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jennen` verbpresp  
+ jennende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jennende`jennen` nounsg  verbpresp  
+ jent ( VERB_PRESENT VERB ) lemma=`jennen` verbpressg  
+ jeremieer ( VERB_PRESENT VERB ) lemma=`jeremiëren` verbpressg  
+ jeremieerde ( VERB_PAST VERB ) lemma=`jeremiëren` verbpastsg  
+ jeremieerden ( VERB_PAST VERB ) lemma=`jeremiëren` verbpastpl  
+ jeremieert ( VERB_PRESENT VERB ) lemma=`jeremiëren` verbpressg  
+ jeremiëren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jeremiëren`jeremiëren`jeremiëren` nounsg  verbinf  verbprespl  
+ jeremiërend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jeremiëren` verbpresp  
+ jeremiërende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jeremiërende`jeremiëren` nounsg  verbpresp  
+ jerrycan ( NOUN NOUN_SINGULAR ) 
+ jerrycans ( NOUN NOUN_PLURAL ) lemma=`jerrycan` nounpl  
+ jeruzalemmers ( NOUN NOUN_PLURAL ) lemma=`jeruzalemmer` nounpl  
+ jet ( NOUN NOUN_SINGULAR ) 
+ jetlag ( NOUN NOUN_SINGULAR ) 
+ jets ( NOUN NOUN_PLURAL ) lemma=`jet` nounpl  
+ jeugd ( NOUN NOUN_SINGULAR ) 
+ jeugdbeleid ( NOUN NOUN_SINGULAR ) 
+ jeugdbende ( NOUN NOUN_SINGULAR ) 
+ jeugdbenden ( NOUN NOUN_PLURAL ) lemma=`jeugdbende` nounpl  
+ jeugdbendes ( NOUN NOUN_PLURAL ) lemma=`jeugdbende` nounpl  
+ jeugdbeweging ( NOUN NOUN_SINGULAR ) 
+ jeugdbewegingen ( NOUN NOUN_PLURAL ) lemma=`jeugdbeweging` nounpl  
+ jeugdboek ( NOUN NOUN_SINGULAR ) 
+ jeugdboeken ( NOUN NOUN_PLURAL ) lemma=`jeugdboek` nounpl  
+ jeugdfilm ( NOUN NOUN_SINGULAR ) 
+ jeugdfilms ( NOUN NOUN_PLURAL ) lemma=`jeugdfilm` nounpl  
+ jeugdherberg ( NOUN NOUN_SINGULAR ) 
+ jeugdherbergen ( NOUN NOUN_PLURAL ) lemma=`jeugdherberg` nounpl  
+ jeugdherinnering ( NOUN NOUN_SINGULAR ) 
+ jeugdherinneringen ( NOUN NOUN_PLURAL ) lemma=`jeugdherinnering` nounpl  
+ jeugdig ( ADJECTIVE ) 
+ jeugdige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jeugdig`jeugdige` adj  nounsg  
+ jeugdiger ( ADJECTIVE ) lemma=`jeugdig` adj  
+ jeugdigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jeugdig`jeugdigere` adj  nounsg  
+ jeugdigst ( ADJECTIVE ) lemma=`jeugdig` adj  
+ jeugdigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jeugdig`jeugdigste` adj  nounsg  
+ jeugdinrichting ( NOUN NOUN_SINGULAR ) 
+ jeugdinrichtingen ( NOUN NOUN_PLURAL ) lemma=`jeugdinrichting` nounpl  
+ jeugdjaren ( NOUN NOUN_PLURAL ) 
+ jeugdjournaal ( NOUN NOUN_SINGULAR ) 
+ jeugdjournalen ( NOUN NOUN_PLURAL ) lemma=`jeugdjournaal` nounpl  
+ jeugdorganisatie ( NOUN NOUN_SINGULAR ) 
+ jeugdorganisaties ( NOUN NOUN_PLURAL ) lemma=`jeugdorganisatie` nounpl  
+ jeugdprogramma ( NOUN NOUN_SINGULAR ) 
+ jeugdprogramma's ( NOUN NOUN_PLURAL ) lemma=`jeugdprogramma` nounpl  
+ jeugdpsychiatrie ( NOUN NOUN_SINGULAR ) 
+ jeugdpuistjes ( NOUN NOUN_PLURAL ) 
+ jeugdtheater ( NOUN NOUN_SINGULAR ) 
+ jeugdtheaters ( NOUN NOUN_PLURAL ) lemma=`jeugdtheater` nounpl  
+ jeugdvriend ( NOUN NOUN_SINGULAR ) 
+ jeugdvrienden ( NOUN NOUN_PLURAL ) lemma=`jeugdvriend` nounpl  
+ jeugdwerk ( NOUN NOUN_SINGULAR ) 
+ jeugdwerken ( NOUN NOUN_PLURAL ) lemma=`jeugdwerk` nounpl  
+ jeugdzonde ( NOUN NOUN_SINGULAR ) 
+ jeugdzonden ( NOUN NOUN_PLURAL ) lemma=`jeugdzonde` nounpl  
+ jeuk ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`jeuk`jeuken` nounsg  verbpressg  
+ jeuken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jeuken`jeuken`jeuken` nounsg  verbinf  verbprespl  
+ jeukend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jeuken` verbpresp  
+ jeukende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jeukende`jeuken` nounsg  verbpresp  
+ jeukpoeder ( NOUN NOUN_SINGULAR ) 
+ jeukpoeders ( NOUN NOUN_PLURAL ) lemma=`jeukpoeder` nounpl  
+ jeukt ( VERB_PRESENT VERB ) lemma=`jeuken` verbpressg  
+ jeukte ( VERB_PAST VERB ) lemma=`jeuken` verbpastsg  
+ jeukten ( VERB_PAST VERB ) lemma=`jeuken` verbpastpl  
+ jezelf ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ jezuïet ( NOUN NOUN_SINGULAR ) 
+ jezuïeten ( NOUN NOUN_PLURAL ) lemma=`jezuïet` nounpl  
+ jezuïetenstreek ( NOUN NOUN_SINGULAR ) 
+ jezuïetenstreken ( NOUN NOUN_PLURAL ) lemma=`jezuïetenstreek` nounpl  
+ jg. ( NOUN NOUN_SINGULAR ) 
+ jhr. ( NOUN NOUN_SINGULAR ) 
+ jicht ( NOUN NOUN_SINGULAR ) 
+ jij ( VERB_PRESENT PRONOUN_SUBJECT PRONOUN_OBJECT VERB ) lemma=`jij`jijen` pronpers  verbpressg  
+ jijde ( VERB_PAST VERB ) lemma=`jijen` verbpastsg  
+ jijden ( VERB_PAST VERB ) lemma=`jijen` verbpastpl  
+ jijen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jijen`jijen`jijen` nounsg  verbinf  verbprespl  
+ jijend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jijen` verbpresp  
+ jijende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jijende`jijen` nounsg  verbpresp  
+ jijt ( VERB_PRESENT VERB ) lemma=`jijen` verbpressg  
+ jingle ( NOUN NOUN_SINGULAR ) 
+ jingles ( NOUN NOUN_PLURAL ) lemma=`jingle` nounpl  
+ jioe-jitsoe ( NOUN NOUN_SINGULAR ) 
+ jiujitsu ( NOUN NOUN_SINGULAR ) 
+ jkvr. ( NOUN NOUN_SINGULAR ) 
+ jl ( ADJECTIVE ) 
+ jl. ( ADJECTIVE ) lemma=`jl.`jl.` adj  adjabbr  
+ job ( NOUN NOUN_SINGULAR ) 
+ jobs ( NOUN NOUN_PLURAL ) lemma=`job` nounpl  
+ jobsgeduld ( NOUN NOUN_SINGULAR ) 
+ jobstijding ( NOUN NOUN_SINGULAR ) 
+ jobstijdingen ( NOUN NOUN_PLURAL ) lemma=`jobstijding` nounpl  
+ jobstudent ( NOUN NOUN_SINGULAR ) 
+ jobstudenten ( NOUN NOUN_PLURAL ) lemma=`jobstudent` nounpl  
+ joch ( NOUN NOUN_SINGULAR ) 
+ jochie ( NOUN NOUN_SINGULAR ) 
+ jochies ( NOUN NOUN_PLURAL ) lemma=`jochie` nounpl  
+ jockey ( NOUN NOUN_SINGULAR ) 
+ jockeys ( NOUN NOUN_PLURAL ) lemma=`jockey` nounpl  
+ jodel ( VERB_PRESENT VERB ) lemma=`jodelen` verbpressg  
+ jodelde ( VERB_PAST VERB ) lemma=`jodelen` verbpastsg  
+ jodelden ( VERB_PAST VERB ) lemma=`jodelen` verbpastpl  
+ jodelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jodelen`jodelen`jodelen` nounsg  verbinf  verbprespl  
+ jodelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jodelen` verbpresp  
+ jodelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jodelende`jodelen` nounsg  verbpresp  
+ jodelt ( VERB_PRESENT VERB ) lemma=`jodelen` verbpressg  
+ joden ( NOUN NOUN_PLURAL ) lemma=`jood` nounpl  
+ jodendom ( NOUN NOUN_SINGULAR ) 
+ jodenhaat ( NOUN NOUN_SINGULAR ) 
+ jodenhater ( NOUN NOUN_SINGULAR ) 
+ jodenhaters ( NOUN NOUN_PLURAL ) lemma=`jodenhater` nounpl  
+ jodenster ( NOUN NOUN_SINGULAR ) 
+ jodensterren ( NOUN NOUN_PLURAL ) lemma=`jodenster` nounpl  
+ jodenvervolging ( NOUN NOUN_SINGULAR ) 
+ jodenvervolgingen ( NOUN NOUN_PLURAL ) lemma=`jodenvervolging` nounpl  
+ jodium ( NOUN NOUN_SINGULAR ) 
+ joeg ( VERB_PAST VERB ) lemma=`jagen` verbpastsg  
+ joegen ( VERB_PAST VERB ) lemma=`jagen` verbpastpl  
+ joekel ( NOUN NOUN_SINGULAR ) 
+ joekels ( NOUN NOUN_PLURAL ) lemma=`joekel` nounpl  
+ joekeltje ( NOUN NOUN_SINGULAR ) lemma=`joekel` nounsg  
+ joel ( VERB_PRESENT VERB ) lemma=`joelen` verbpressg  
+ joelde ( VERB_PAST VERB ) lemma=`joelen` verbpastsg  
+ joelden ( VERB_PAST VERB ) lemma=`joelen` verbpastpl  
+ joelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`joelen`joelen`joelen` nounsg  verbinf  verbprespl  
+ joelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`joelen` verbpresp  
+ joelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`joelende`joelen` nounsg  verbpresp  
+ joelt ( VERB_PRESENT VERB ) lemma=`joelen` verbpressg  
+ joepie ( INTERJECTION ) 
+ joet ( NOUN NOUN_SINGULAR ) 
+ joeten ( NOUN NOUN_PLURAL ) lemma=`joet` nounpl  
+ jofel ( ADJECTIVE ) 
+ jofele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jofel`jofele` adj  nounsg  
+ jofeler ( ADJECTIVE ) lemma=`jofel` adj  
+ jofelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jofel`jofelere` adj  nounsg  
+ jofelst ( ADJECTIVE ) lemma=`jofel` adj  
+ jofelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jofel`jofelste` adj  nounsg  
+ jog ( VERB_PRESENT VERB ) lemma=`joggen` verbpressg  
+ jogde ( VERB_PAST VERB ) lemma=`joggen` verbpastsg  
+ jogden ( VERB_PAST VERB ) lemma=`joggen` verbpastpl  
+ joggen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`joggen`joggen`joggen` nounsg  verbinf  verbprespl  
+ joggend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`joggen` verbpresp  
+ joggende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`joggende`joggen` nounsg  verbpresp  
+ jogger ( NOUN NOUN_SINGULAR ) 
+ joggers ( NOUN NOUN_PLURAL ) lemma=`jogger` nounpl  
+ joggingpak ( NOUN NOUN_SINGULAR ) 
+ joggingpakken ( NOUN NOUN_PLURAL ) lemma=`joggingpak` nounpl  
+ jogt ( VERB_PRESENT VERB ) lemma=`joggen` verbpressg  
+ joint ( NOUN NOUN_SINGULAR ) 
+ joints ( NOUN NOUN_PLURAL ) lemma=`joint` nounpl  
+ jojo ( NOUN NOUN_SINGULAR ) 
+ jojo's ( NOUN NOUN_PLURAL ) lemma=`jojo` nounpl  
+ jojootje ( NOUN NOUN_SINGULAR ) lemma=`jojo` nounsg  
+ jojootjes ( NOUN NOUN_PLURAL ) lemma=`jojo` nounpl  
+ jok ( VERB_PRESENT VERB ) lemma=`jokken` verbpressg  
+ joker ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`joker`jokeren` nounsg  verbpressg  
+ jokerde ( VERB_PAST VERB ) lemma=`jokeren` verbpastsg  
+ jokerden ( VERB_PAST VERB ) lemma=`jokeren` verbpastpl  
+ jokeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jokeren`jokeren`jokeren` nounsg  verbinf  verbprespl  
+ jokerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jokeren` verbpresp  
+ jokerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jokerende`jokeren` nounsg  verbpresp  
+ jokers ( NOUN NOUN_PLURAL ) lemma=`joker` nounpl  
+ jokert ( VERB_PRESENT VERB ) lemma=`jokeren` verbpressg  
+ jokkebrok ( NOUN NOUN_SINGULAR ) 
+ jokkebrokken ( NOUN NOUN_PLURAL ) lemma=`jokkebrok` nounpl  
+ jokken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jokken`jokken`jokken` nounsg  verbinf  verbprespl  
+ jokkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jokken` verbpresp  
+ jokkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jokkende`jokken` nounsg  verbpresp  
+ jokt ( VERB_PRESENT VERB ) lemma=`jokken` verbpressg  
+ jokte ( VERB_PAST VERB ) lemma=`jokken` verbpastsg  
+ jokten ( VERB_PAST VERB ) lemma=`jokken` verbpastpl  
+ jol ( NOUN NOUN_SINGULAR ) 
+ jolen ( NOUN NOUN_PLURAL ) lemma=`jool` nounpl  
+ jolig ( ADJECTIVE ) 
+ jolige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jolig`jolige` adj  nounsg  
+ joliger ( ADJECTIVE ) lemma=`jolig` adj  
+ joligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jolig`joligere` adj  nounsg  
+ joligst ( ADJECTIVE ) lemma=`jolig` adj  
+ joligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jolig`joligste` adj  nounsg  
+ jolijt ( NOUN NOUN_SINGULAR ) 
+ jollen ( NOUN NOUN_PLURAL ) lemma=`jol` nounpl  
+ jolletje ( NOUN NOUN_SINGULAR ) lemma=`jol` nounsg  
+ jolletjes ( NOUN NOUN_PLURAL ) lemma=`jol` nounpl  
+ jonas ( VERB_PRESENT VERB ) lemma=`jonassen` verbpressg  
+ jonassen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jonassen`jonassen`jonassen` nounsg  verbinf  verbprespl  
+ jonassend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jonassen` verbpresp  
+ jonassende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jonassende`jonassen` nounsg  verbpresp  
+ jonast ( VERB_PRESENT VERB ) lemma=`jonassen` verbpressg  
+ jonaste ( VERB_PAST VERB ) lemma=`jonassen` verbpastsg  
+ jonasten ( VERB_PAST VERB ) lemma=`jonassen` verbpastpl  
+ jong ( VERB_PRESENT NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`jong`jong`jongen` adj  nounsg  verbpressg  
+ jongde ( VERB_PAST VERB ) lemma=`jongen` verbpastsg  
+ jongden ( VERB_PAST VERB ) lemma=`jongen` verbpastpl  
+ jonge ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jong`jonge` adj  nounsg  
+ jongedame ( NOUN NOUN_SINGULAR ) 
+ jongedames ( NOUN NOUN_PLURAL ) lemma=`jongedame` nounpl  
+ jongeheer ( NOUN NOUN_SINGULAR ) 
+ jongeheren ( NOUN NOUN_PLURAL ) lemma=`jongeheer` nounpl  
+ jongeling ( NOUN NOUN_SINGULAR ) 
+ jongelingen ( NOUN NOUN_PLURAL ) lemma=`jongeling` nounpl  
+ jongelings ( NOUN NOUN_SINGULAR ) lemma=`jongeling` nounsg  
+ jongelui ( NOUN NOUN_PLURAL ) 
+ jongeman ( NOUN NOUN_SINGULAR ) 
+ jongemannen ( NOUN NOUN_PLURAL ) lemma=`jongeman` nounpl  
+ jongen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`jong`jonge|jong`jongen`jongen`jongen` adj  nounpl  nounsg  verbinf  verbprespl  
+ jongend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jongen` verbpresp  
+ jongende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jongende`jongen` nounsg  verbpresp  
+ jongens ( NOUN NOUN_PLURAL ) lemma=`jongen` nounpl  
+ jongensachtig ( ADJECTIVE ) 
+ jongensachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jongensachtig`jongensachtige` adj  nounsg  
+ jongensachtiger ( ADJECTIVE ) lemma=`jongensachtig` adj  
+ jongensachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jongensachtig`jongensachtigere` adj  nounsg  
+ jongensachtigst ( ADJECTIVE ) lemma=`jongensachtig` adj  
+ jongensachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jongensachtig`jongensachtigste` adj  nounsg  
+ jongensboek ( NOUN NOUN_SINGULAR ) 
+ jongensboeken ( NOUN NOUN_PLURAL ) lemma=`jongensboek` nounpl  
+ jongensdromen ( NOUN NOUN_PLURAL ) lemma=`jongensdroom` nounpl  
+ jongensdroom ( NOUN NOUN_SINGULAR ) 
+ jongensnaam ( NOUN NOUN_SINGULAR ) 
+ jongensnamen ( NOUN NOUN_PLURAL ) lemma=`jongensnaam` nounpl  
+ jonger ( ADJECTIVE ) lemma=`jong` adj  
+ jongere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jong`jongere` adj  nounsg  
+ jongeren ( NOUN NOUN_PLURAL ) lemma=`jongere` nounpl  
+ jongerencentra ( NOUN NOUN_PLURAL ) lemma=`jongerencentrum` nounpl  
+ jongerencentrum ( NOUN NOUN_SINGULAR ) 
+ jongerencentrums ( NOUN NOUN_PLURAL ) lemma=`jongerencentrum` nounpl  
+ jongerenkrant ( NOUN NOUN_SINGULAR ) 
+ jongerenkranten ( NOUN NOUN_PLURAL ) lemma=`jongerenkrant` nounpl  
+ jongerenorganisatie ( NOUN NOUN_SINGULAR ) 
+ jongerenorganisaties ( NOUN NOUN_PLURAL ) lemma=`jongerenorganisatie` nounpl  
+ jongerentaal ( NOUN NOUN_SINGULAR ) 
+ jongerentalen ( NOUN NOUN_PLURAL ) lemma=`jongerentaal` nounpl  
+ jongerenwerk ( NOUN NOUN_SINGULAR ) 
+ jongetje ( NOUN NOUN_SINGULAR ) lemma=`jongen` nounsg  
+ jongetjes ( NOUN NOUN_PLURAL ) lemma=`jongen` nounpl  
+ jonggehuwd ( ADJECTIVE ) 
+ jonggehuwde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jonggehuwd`jonggehuwde` adj  nounsg  
+ jonggehuwden ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jonggehuwd`jonggehuwde` adj  nounpl  
+ jonggestorven ( ADJECTIVE ) 
+ jongleer ( VERB_PRESENT VERB ) lemma=`jongleren` verbpressg  
+ jongleerde ( VERB_PAST VERB ) lemma=`jongleren` verbpastsg  
+ jongleerden ( VERB_PAST VERB ) lemma=`jongleren` verbpastpl  
+ jongleert ( VERB_PRESENT VERB ) lemma=`jongleren` verbpressg  
+ jongleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jongleren`jongleren`jongleren` nounsg  verbinf  verbprespl  
+ jonglerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jongleren` verbpresp  
+ jonglerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jonglerende`jongleren` nounsg  verbpresp  
+ jongleur ( NOUN NOUN_SINGULAR ) 
+ jongleurs ( NOUN NOUN_PLURAL ) lemma=`jongleur` nounpl  
+ jongst ( ADJECTIVE ) lemma=`jong` adj  
+ jongste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jong`jongste` adj  nounsg  
+ jongstleden ( ADJECTIVE ) 
+ jongt ( VERB_PRESENT VERB ) lemma=`jongen` verbpressg  
+ jongvolwassene ( NOUN NOUN_SINGULAR ) 
+ jongvolwassenen ( NOUN NOUN_PLURAL ) lemma=`jongvolwassene` nounpl  
+ jonk ( NOUN NOUN_SINGULAR ) 
+ jonken ( NOUN NOUN_PLURAL ) lemma=`jonk` nounpl  
+ jonker ( NOUN NOUN_SINGULAR ) 
+ jonkers ( NOUN NOUN_PLURAL ) lemma=`jonker` nounpl  
+ jonkertje ( NOUN NOUN_SINGULAR ) lemma=`jonker` nounsg  
+ jonkertjes ( NOUN NOUN_PLURAL ) lemma=`jonker` nounpl  
+ jonkheer ( NOUN NOUN_SINGULAR ) 
+ jonkheren ( NOUN NOUN_PLURAL ) lemma=`jonkheer` nounpl  
+ jonkie ( NOUN NOUN_SINGULAR ) 
+ jonkies ( NOUN NOUN_PLURAL ) lemma=`jonkie` nounpl  
+ jonkvrouw ( NOUN NOUN_SINGULAR ) 
+ jonkvrouwen ( NOUN NOUN_PLURAL ) lemma=`jonkvrouw` nounpl  
+ jood ( NOUN NOUN_SINGULAR ) 
+ joods ( ADJECTIVE ) 
+ joodse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`joods`joodse` adj  nounsg  
+ joodser ( ADJECTIVE ) lemma=`joods` adj  
+ joodsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`joods`joodsere` adj  nounsg  
+ joodst ( ADJECTIVE ) lemma=`joods` adj  
+ joodste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`joods`joodste` adj  nounsg  
+ jool ( NOUN NOUN_SINGULAR ) 
+ jopper ( NOUN NOUN_SINGULAR ) 
+ joppers ( NOUN NOUN_PLURAL ) lemma=`jopper` nounpl  
+ jota ( NOUN NOUN_SINGULAR ) 
+ jota's ( NOUN NOUN_PLURAL ) lemma=`jota` nounpl  
+ jou ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ joule ( NOUN NOUN_SINGULAR ) 
+ joules ( NOUN NOUN_PLURAL ) lemma=`joule` nounpl  
+ journaal ( NOUN NOUN_SINGULAR ) 
+ journaals ( NOUN NOUN_PLURAL ) lemma=`journaal` nounpl  
+ journalen ( NOUN NOUN_PLURAL ) lemma=`journaal` nounpl  
+ journalist ( NOUN NOUN_SINGULAR ) 
+ journalisten ( NOUN NOUN_PLURAL ) lemma=`journalist` nounpl  
+ journalistiek ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`journalistiek`journalistiek` adj  nounsg  
+ journalistieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`journalistiek`journalistieke` adj  nounsg  
+ jouw ( POSSESSIVE ) 
+ jouwe ( PRONOUN_POSSESSIVE ) 
+ jouwen ( PRONOUN_POSSESSIVE ) lemma=`jouwe` pronposs  
+ joviaal ( ADJECTIVE ) 
+ joviaalst ( ADJECTIVE ) lemma=`joviaal` adj  
+ joviaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`joviaal`joviaalste` adj  nounsg  
+ joviale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`joviaal`joviale` adj  nounsg  
+ jovialer ( ADJECTIVE ) lemma=`joviaal` adj  
+ jovialere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`joviaal`jovialere` adj  nounsg  
+ joyrider ( NOUN NOUN_SINGULAR ) 
+ joyriders ( NOUN NOUN_PLURAL ) lemma=`joyrider` nounpl  
+ joystick ( NOUN NOUN_SINGULAR ) 
+ joysticks ( NOUN NOUN_PLURAL ) lemma=`joystick` nounpl  
+ jr. ( ADJECTIVE ) 
+ jubel ( VERB_PRESENT VERB ) lemma=`jubelen` verbpressg  
+ jubelde ( VERB_PAST VERB ) lemma=`jubelen` verbpastsg  
+ jubelden ( VERB_PAST VERB ) lemma=`jubelen` verbpastpl  
+ jubelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jubelen`jubelen`jubelen` nounsg  verbinf  verbprespl  
+ jubelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jubelen` verbpresp  
+ jubelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jubelende`jubelen` nounsg  verbpresp  
+ jubelstemming ( NOUN NOUN_SINGULAR ) 
+ jubelt ( VERB_PRESENT VERB ) lemma=`jubelen` verbpressg  
+ jubeltenen ( NOUN NOUN_PLURAL ) 
+ jubilaris ( NOUN NOUN_SINGULAR ) 
+ jubilarissen ( NOUN NOUN_PLURAL ) lemma=`jubilaris` nounpl  
+ jubilea ( NOUN NOUN_PLURAL ) lemma=`jubileum` nounpl  
+ jubileer ( VERB_PRESENT VERB ) lemma=`jubileren` verbpressg  
+ jubileerde ( VERB_PAST VERB ) lemma=`jubileren` verbpastsg  
+ jubileerden ( VERB_PAST VERB ) lemma=`jubileren` verbpastpl  
+ jubileert ( VERB_PRESENT VERB ) lemma=`jubileren` verbpressg  
+ jubileren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jubileren`jubileren`jubileren` nounsg  verbinf  verbprespl  
+ jubilerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jubileren` verbpresp  
+ jubilerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jubilerende`jubileren` nounsg  verbpresp  
+ jubileum ( NOUN NOUN_SINGULAR ) 
+ jubileumboek ( NOUN NOUN_SINGULAR ) 
+ jubileumboeken ( NOUN NOUN_PLURAL ) lemma=`jubileumboek` nounpl  
+ jubileums ( NOUN NOUN_PLURAL ) lemma=`jubileum` nounpl  
+ jubileumuitgave ( NOUN NOUN_SINGULAR ) 
+ jubileumuitgaven ( NOUN NOUN_PLURAL ) lemma=`jubileumuitgave` nounpl  
+ jubileumuitgaves ( NOUN NOUN_PLURAL ) lemma=`jubileumuitgave` nounpl  
+ juchtleer ( NOUN NOUN_SINGULAR ) 
+ judas ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`judas`judassen` nounsg  verbpressg  
+ judaskus ( NOUN NOUN_SINGULAR ) 
+ judaskussen ( NOUN NOUN_PLURAL ) lemma=`judaskus` nounpl  
+ judaspenning ( NOUN NOUN_SINGULAR ) 
+ judaspenningen ( NOUN NOUN_PLURAL ) lemma=`judaspenning` nounpl  
+ judassen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`judas`judassen`judassen`judassen` nounpl  nounsg  verbinf  verbprespl  
+ judassend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`judassen` verbpresp  
+ judassende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`judassende`judassen` nounsg  verbpresp  
+ judast ( VERB_PRESENT VERB ) lemma=`judassen` verbpressg  
+ judaste ( VERB_PAST VERB ) lemma=`judassen` verbpastsg  
+ judasten ( VERB_PAST VERB ) lemma=`judassen` verbpastpl  
+ judicia ( NOUN NOUN_PLURAL ) lemma=`judicium` nounpl  
+ judicium ( NOUN NOUN_SINGULAR ) 
+ judiciums ( NOUN NOUN_PLURAL ) lemma=`judicium` nounpl  
+ judo ( NOUN NOUN_SINGULAR ) 
+ judoka ( NOUN NOUN_SINGULAR ) 
+ judoka's ( NOUN NOUN_PLURAL ) lemma=`judoka` nounpl  
+ juf ( NOUN NOUN_SINGULAR ) 
+ juffen ( NOUN NOUN_PLURAL ) lemma=`juf` nounpl  
+ juffershondje ( NOUN NOUN_SINGULAR ) 
+ juffershondjes ( NOUN NOUN_PLURAL ) lemma=`juffershondje` nounpl  
+ juffertje ( NOUN NOUN_SINGULAR ) 
+ juffertjes ( NOUN NOUN_PLURAL ) lemma=`juffertje` nounpl  
+ juffrouw ( NOUN NOUN_SINGULAR ) 
+ juffrouwen ( NOUN NOUN_PLURAL ) lemma=`juffrouw` nounpl  
+ juffrouwtje ( NOUN NOUN_SINGULAR ) lemma=`juffrouw` nounsg  
+ jufs ( NOUN NOUN_PLURAL ) lemma=`juf` nounpl  
+ juich ( VERB_PRESENT VERB ) lemma=`juichen` verbpressg  
+ juichen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`juichen`juichen`juichen` nounsg  verbinf  verbprespl  
+ juichend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`juichen` verbpresp  
+ juichende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`juichende`juichen` nounsg  verbpresp  
+ juichkreet ( NOUN NOUN_SINGULAR ) 
+ juichkreten ( NOUN NOUN_PLURAL ) lemma=`juichkreet` nounpl  
+ juicht ( VERB_PRESENT VERB ) lemma=`juichen` verbpressg  
+ juichte ( VERB_PAST VERB ) lemma=`juichen` verbpastsg  
+ juichten ( VERB_PAST VERB ) lemma=`juichen` verbpastpl  
+ juist ( ADJECTIVE ADVERB ) lemma=`juist`juist` adj  adv  
+ juiste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juist`juiste` adj  nounsg  
+ juisten ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`juist`juiste` adj  nounpl  
+ juister ( ADJECTIVE ) lemma=`juist` adj  
+ juistere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juist`juistere` adj  nounsg  
+ jujube ( NOUN NOUN_SINGULAR ) 
+ jujubes ( NOUN NOUN_PLURAL ) lemma=`jujube` nounpl  
+ juk ( NOUN NOUN_SINGULAR ) 
+ jukbeen ( NOUN NOUN_SINGULAR ) 
+ jukbeenderen ( NOUN NOUN_PLURAL ) lemma=`jukbeen` nounpl  
+ jukbenen ( NOUN NOUN_PLURAL ) lemma=`jukbeen` nounpl  
+ jukebox ( NOUN NOUN_SINGULAR ) 
+ jukeboxen ( NOUN NOUN_PLURAL ) lemma=`jukebox` nounpl  
+ jukken ( NOUN NOUN_PLURAL ) lemma=`juk` nounpl  
+ juli ( NOUN NOUN_PROPER_SINGULAR ) 
+ jullie ( PRONOUN_SUBJECT PRONOUN_OBJECT POSSESSIVE ) lemma=`jullie`jullie` det__poss  pronpers  
+ jumbo ( NOUN NOUN_SINGULAR ) 
+ jumbo's ( NOUN NOUN_PLURAL ) lemma=`jumbo` nounpl  
+ jumbojet ( NOUN NOUN_SINGULAR ) 
+ jumbojets ( NOUN NOUN_PLURAL ) lemma=`jumbojet` nounpl  
+ jumbootje ( NOUN NOUN_SINGULAR ) lemma=`jumbo` nounsg  
+ jumbootjes ( NOUN NOUN_PLURAL ) lemma=`jumbo` nounpl  
+ jumelage ( NOUN NOUN_SINGULAR ) 
+ jumelages ( NOUN NOUN_PLURAL ) lemma=`jumelage` nounpl  
+ jumper ( NOUN NOUN_SINGULAR ) 
+ jumpers ( NOUN NOUN_PLURAL ) lemma=`jumper` nounpl  
+ jumpertjes ( NOUN NOUN_PLURAL ) lemma=`jumper` nounpl  
+ jumpsuit ( NOUN NOUN_SINGULAR ) 
+ jumpsuits ( NOUN NOUN_PLURAL ) lemma=`jumpsuit` nounpl  
+ jungle ( NOUN NOUN_SINGULAR ) 
+ jungles ( NOUN NOUN_PLURAL ) lemma=`jungle` nounpl  
+ juni ( NOUN NOUN_PROPER_SINGULAR ) 
+ junior ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`junior`junior` adj  nounsg  
+ junioren ( NOUN NOUN_PLURAL ) lemma=`junior` nounpl  
+ juniores ( NOUN NOUN_PLURAL ) lemma=`junior` nounpl  
+ junk ( NOUN NOUN_SINGULAR ) 
+ junkfood ( NOUN NOUN_SINGULAR ) 
+ junkie ( NOUN NOUN_SINGULAR ) 
+ junkies ( NOUN NOUN_PLURAL ) lemma=`junkie` nounpl  
+ junks ( NOUN NOUN_PLURAL ) lemma=`junk` nounpl  
+ junta ( NOUN NOUN_SINGULAR ) 
+ junta's ( NOUN NOUN_PLURAL ) lemma=`junta` nounpl  
+ jura ( NOUN NOUN_PLURAL ) lemma=`jus` nounpl  
+ jureer ( VERB_PRESENT VERB ) lemma=`jureren` verbpressg  
+ jureerde ( VERB_PAST VERB ) lemma=`jureren` verbpastsg  
+ jureerden ( VERB_PAST VERB ) lemma=`jureren` verbpastpl  
+ jureert ( VERB_PRESENT VERB ) lemma=`jureren` verbpressg  
+ jureren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jureren`jureren`jureren` nounsg  verbinf  verbprespl  
+ jurerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jureren` verbpresp  
+ jurerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jurerende`jureren` nounsg  verbpresp  
+ juridisch ( ADJECTIVE ) 
+ juridische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juridisch`juridische` adj  nounsg  
+ jurisdictie ( NOUN NOUN_SINGULAR ) 
+ jurisdicties ( NOUN NOUN_PLURAL ) lemma=`jurisdictie` nounpl  
+ jurisdictiën ( NOUN NOUN_PLURAL ) lemma=`jurisdictie` nounpl  
+ jurisprudentie ( NOUN NOUN_SINGULAR ) 
+ jurist ( NOUN NOUN_SINGULAR ) 
+ juristen ( NOUN NOUN_PLURAL ) lemma=`jurist` nounpl  
+ jurk ( NOUN NOUN_SINGULAR ) 
+ jurken ( NOUN NOUN_PLURAL ) lemma=`jurk` nounpl  
+ jurkje ( NOUN NOUN_SINGULAR ) lemma=`jurk` nounsg  
+ jurkjes ( NOUN NOUN_PLURAL ) lemma=`jurk` nounpl  
+ jury ( NOUN NOUN_SINGULAR ) 
+ jury's ( NOUN NOUN_PLURAL ) lemma=`jury` nounpl  
+ juryleden ( NOUN NOUN_PLURAL ) lemma=`jurylid` nounpl  
+ jurylid ( NOUN NOUN_SINGULAR ) 
+ juryrapport ( NOUN NOUN_SINGULAR ) 
+ juryrapporten ( NOUN NOUN_PLURAL ) lemma=`juryrapport` nounpl  
+ jus ( NOUN NOUN_SINGULAR ) 
+ juskom ( NOUN NOUN_SINGULAR ) 
+ juskommen ( NOUN NOUN_PLURAL ) lemma=`juskom` nounpl  
+ justitie ( NOUN NOUN_SINGULAR ) 
+ justitieel ( ADJECTIVE ) 
+ justitiepaleis ( NOUN NOUN_SINGULAR ) 
+ justitiepaleizen ( NOUN NOUN_PLURAL ) lemma=`justitiepaleis` nounpl  
+ justitiële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`justitieel`justitiële` adj  nounsg  
+ jut ( VERB_PRESENT VERB ) lemma=`jutten` verbpressg  
+ jute ( NOUN NOUN_SINGULAR ) 
+ jutezak ( NOUN NOUN_SINGULAR ) 
+ jutezakken ( NOUN NOUN_PLURAL ) lemma=`jutezak` nounpl  
+ jutte ( VERB_PAST VERB ) lemma=`jutten` verbpastsg  
+ jutten ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`jutten`jutten`jutten`jutten` nounsg  verbinf  verbpastpl  verbprespl  
+ juttend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`jutten` verbpresp  
+ juttende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`juttende`jutten` nounsg  verbpresp  
+ juweel ( NOUN NOUN_SINGULAR ) 
+ juweeltje ( NOUN NOUN_SINGULAR ) lemma=`juweel` nounsg  
+ juweeltjes ( NOUN NOUN_PLURAL ) lemma=`juweel` nounpl  
+ juwelen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`juwelen`juweel` adj  nounpl  
+ juwelenkistje ( NOUN NOUN_SINGULAR ) 
+ juwelenkistjes ( NOUN NOUN_PLURAL ) lemma=`juwelenkistje` nounpl  
+ juwelier ( NOUN NOUN_SINGULAR ) 
+ juweliers ( NOUN NOUN_PLURAL ) lemma=`juwelier` nounpl  

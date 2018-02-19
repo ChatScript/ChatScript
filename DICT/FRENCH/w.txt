@@ -1,0 +1,347 @@
+﻿ Wagner ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wallace ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wallström ( NOUN NOUN_PROPER_SINGULAR ) 
+ Walser ( NOUN NOUN_PROPER_SINGULAR ) 
+ Walter ( NOUN NOUN_PROPER_SINGULAR ) 
+ Warens ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wartbourg ( NOUN NOUN_PROPER_SINGULAR ) 
+ Washington ( NOUN NOUN_PROPER_SINGULAR ) 
+ Waterloo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Watt ( NOUN NOUN_PROPER_SINGULAR ) 
+ Weber ( NOUN NOUN_PROPER_SINGULAR ) 
+ Werner ( NOUN NOUN_PROPER_SINGULAR ) 
+ Werther ( NOUN NOUN_PROPER_SINGULAR ) 
+ Westminster ( NOUN NOUN_PROPER_SINGULAR ) 
+ Westphalie ( NOUN NOUN_PROPER_SINGULAR ) 
+ Weygand ( NOUN NOUN_PROPER_SINGULAR ) 
+ Whitney ( NOUN NOUN_PROPER_SINGULAR ) 
+ Widmann ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wiener ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wilfried ( NOUN NOUN_PROPER_SINGULAR ) 
+ Will ( NOUN NOUN_PROPER_SINGULAR ) 
+ William ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wilson ( NOUN NOUN_PROPER_SINGULAR ) 
+ Windsor ( NOUN NOUN_PROPER_SINGULAR ) 
+ Witt ( NOUN NOUN_PROPER_SINGULAR ) 
+ Woëvre ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wren ( NOUN NOUN_PROPER_SINGULAR ) 
+ Wurtemberg ( NOUN NOUN_PROPER_SINGULAR ) 
+ wading ( NOUN NOUN_SINGULAR ) 
+ wadings ( NOUN NOUN_SINGULAR ) lemma=`wading` NOM  
+ wagage ( NOUN NOUN_SINGULAR ) 
+ wagages ( NOUN NOUN_SINGULAR ) lemma=`wagage` NOM  
+ wager-boat ( NOUN NOUN_SINGULAR ) 
+ wager-boats ( NOUN NOUN_SINGULAR ) lemma=`wager-boat` NOM  
+ wagnérien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wagnérien`wagnérien` ADJ  NOM  
+ wagnérienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wagnérien`wagnérien` ADJ  NOM  
+ wagnériennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wagnérien`wagnérien` ADJ  NOM  
+ wagnériens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wagnérien`wagnérien` ADJ  NOM  
+ wagnérisme ( NOUN NOUN_SINGULAR ) 
+ wagnérismes ( NOUN NOUN_SINGULAR ) lemma=`wagnérisme` NOM  
+ wagon ( NOUN NOUN_SINGULAR ) 
+ wagon-bar ( NOUN NOUN_SINGULAR ) 
+ wagon-bars ( NOUN NOUN_SINGULAR ) lemma=`wagon-bar` NOM  
+ wagon-citerne ( NOUN NOUN_SINGULAR ) 
+ wagon-citernes ( NOUN NOUN_SINGULAR ) lemma=`wagon-citerne` NOM  
+ wagon-foudre ( NOUN NOUN_SINGULAR ) 
+ wagon-foudres ( NOUN NOUN_SINGULAR ) lemma=`wagon-foudre` NOM  
+ wagon-lit ( NOUN NOUN_SINGULAR ) 
+ wagon-lits ( NOUN NOUN_SINGULAR ) lemma=`wagon-lit` NOM  
+ wagon-poste ( NOUN NOUN_SINGULAR ) 
+ wagon-postes ( NOUN NOUN_SINGULAR ) lemma=`wagon-poste` NOM  
+ wagon-restaurant ( NOUN NOUN_SINGULAR ) 
+ wagon-restaurants ( NOUN NOUN_SINGULAR ) lemma=`wagon-restaurant` NOM  
+ wagon-réservoir ( NOUN NOUN_SINGULAR ) 
+ wagon-réservoirs ( NOUN NOUN_SINGULAR ) lemma=`wagon-réservoir` NOM  
+ wagon-salon ( NOUN NOUN_SINGULAR ) 
+ wagon-salons ( NOUN NOUN_SINGULAR ) lemma=`wagon-salon` NOM  
+ wagon-tombereau ( NOUN NOUN_SINGULAR ) 
+ wagon-trémie ( NOUN NOUN_SINGULAR ) 
+ wagon-trémies ( NOUN NOUN_SINGULAR ) lemma=`wagon-trémie` NOM  
+ wagon-vanne ( NOUN NOUN_SINGULAR ) 
+ wagon-vannes ( NOUN NOUN_SINGULAR ) lemma=`wagon-vanne` NOM  
+ wagonnage ( NOUN NOUN_SINGULAR ) 
+ wagonnages ( NOUN NOUN_SINGULAR ) lemma=`wagonnage` NOM  
+ wagonnet ( NOUN NOUN_SINGULAR ) 
+ wagonnets ( NOUN NOUN_SINGULAR ) lemma=`wagonnet` NOM  
+ wagonnier ( NOUN NOUN_SINGULAR ) 
+ wagonniers ( NOUN NOUN_SINGULAR ) lemma=`wagonnier` NOM  
+ wagonnée ( NOUN NOUN_SINGULAR ) 
+ wagonnées ( NOUN NOUN_SINGULAR ) lemma=`wagonnée` NOM  
+ wagons ( NOUN NOUN_SINGULAR ) lemma=`wagon` NOM  
+ wagons-tombereaux ( NOUN NOUN_SINGULAR ) 
+ wahhabisme ( NOUN NOUN_SINGULAR ) 
+ wahhabismes ( NOUN NOUN_SINGULAR ) lemma=`wahhabisme` NOM  
+ wahhabite ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wahhabite`wahhabite` ADJ  NOM  
+ wahhabites ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wahhabite`wahhabite` ADJ  NOM  
+ walhalla ( NOUN NOUN_SINGULAR ) 
+ walhallas ( NOUN NOUN_SINGULAR ) lemma=`walhalla` NOM  
+ wali ( NOUN NOUN_SINGULAR ) 
+ walis ( NOUN NOUN_SINGULAR ) lemma=`wali` NOM  
+ walk-over ( NOUN NOUN_SINGULAR ) 
+ walk-overs ( NOUN NOUN_SINGULAR ) lemma=`walk-over` NOM  
+ walkie-talkie ( NOUN NOUN_SINGULAR ) 
+ walkie-talkies ( NOUN NOUN_SINGULAR ) lemma=`walkie-talkie` NOM  
+ walkman ( NOUN NOUN_SINGULAR ) 
+ walkmans ( NOUN NOUN_SINGULAR ) lemma=`walkman` NOM  
+ walkyrie ( NOUN NOUN_SINGULAR ) 
+ walkyries ( NOUN NOUN_SINGULAR ) lemma=`walkyrie` NOM  
+ wallaby ( NOUN NOUN_SINGULAR ) 
+ wallabys ( NOUN NOUN_SINGULAR ) lemma=`wallaby` NOM  
+ wallace ( NOUN NOUN_SINGULAR ) 
+ wallaces ( NOUN NOUN_SINGULAR ) lemma=`wallace` NOM  
+ wallingant ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallingant`wallingant` ADJ  NOM  
+ wallingante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallingant`wallingant` ADJ  NOM  
+ wallingantes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallingant`wallingant` ADJ  NOM  
+ wallingants ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallingant`wallingant` ADJ  NOM  
+ wallon ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallon`wallon` ADJ  NOM  
+ wallonisme ( NOUN NOUN_SINGULAR ) 
+ wallonismes ( NOUN NOUN_SINGULAR ) lemma=`wallonisme` NOM  
+ walloniste ( NOUN NOUN_SINGULAR ) 
+ wallonistes ( NOUN NOUN_SINGULAR ) lemma=`walloniste` NOM  
+ wallonne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallon`wallon` ADJ  NOM  
+ wallonnes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallon`wallon` ADJ  NOM  
+ wallons ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wallon`wallon` ADJ  NOM  
+ walé ( NOUN NOUN_SINGULAR ) 
+ walés ( NOUN NOUN_SINGULAR ) lemma=`walé` NOM  
+ wapiti ( NOUN NOUN_SINGULAR ) 
+ wapitis ( NOUN NOUN_SINGULAR ) lemma=`wapiti` NOM  
+ wargame ( NOUN NOUN_SINGULAR ) 
+ wargames ( NOUN NOUN_SINGULAR ) lemma=`wargame` NOM  
+ warning ( NOUN NOUN_SINGULAR ) 
+ warnings ( NOUN NOUN_SINGULAR ) lemma=`warning` NOM  
+ warrant ( NOUN NOUN_SINGULAR ) 
+ warranta ( VERB_PAST VERB ) lemma=`warranter` VER:simp  
+ warrantage ( NOUN NOUN_SINGULAR ) 
+ warrantages ( NOUN NOUN_SINGULAR ) lemma=`warrantage` NOM  
+ warrantai ( VERB_PAST VERB ) lemma=`warranter` VER:simp  
+ warrantaient ( VERB ) lemma=`warranter` VER:impf  
+ warrantais ( VERB ) lemma=`warranter` VER:impf  
+ warrantait ( VERB ) lemma=`warranter` VER:impf  
+ warrantant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`warranter` VER:ppre  
+ warrantas ( VERB_PAST VERB ) lemma=`warranter` VER:simp  
+ warrantasse ( VERB ) lemma=`warranter` VER:subi  
+ warrantassent ( VERB ) lemma=`warranter` VER:subi  
+ warrantasses ( VERB ) lemma=`warranter` VER:subi  
+ warrantassiez ( VERB ) lemma=`warranter` VER:subi  
+ warrantassions ( VERB ) lemma=`warranter` VER:subi  
+ warrante ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`warranter`warranter`warranter` VER:impe  VER:pres  VER:subp  
+ warrantent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`warranter`warranter` VER:pres  VER:subp  
+ warranter ( VERB_INFINITIVE VERB ) 
+ warrantera ( VERB ) lemma=`warranter` VER:futu  
+ warranterai ( VERB ) lemma=`warranter` VER:futu  
+ warranteraient ( VERB ) lemma=`warranter` VER:cond  
+ warranterais ( VERB ) lemma=`warranter` VER:cond  
+ warranterait ( VERB ) lemma=`warranter` VER:cond  
+ warranteras ( VERB ) lemma=`warranter` VER:futu  
+ warranterez ( VERB ) lemma=`warranter` VER:futu  
+ warranteriez ( VERB ) lemma=`warranter` VER:cond  
+ warranterions ( VERB ) lemma=`warranter` VER:cond  
+ warranterons ( VERB ) lemma=`warranter` VER:futu  
+ warranteront ( VERB ) lemma=`warranter` VER:futu  
+ warrantes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`warranter`warranter` VER:pres  VER:subp  
+ warrantez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`warranter`warranter` VER:impe  VER:pres  
+ warrantiez ( VERB ) lemma=`warranter`warranter` VER:impf  VER:subp  
+ warrantions ( VERB ) lemma=`warranter`warranter` VER:impf  VER:subp  
+ warrantons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`warranter`warranter` VER:impe  VER:pres  
+ warrants ( NOUN NOUN_SINGULAR ) lemma=`warrant` NOM  
+ warrantâmes ( VERB_PAST VERB ) lemma=`warranter` VER:simp  
+ warrantât ( VERB ) lemma=`warranter` VER:subi  
+ warrantâtes ( VERB_PAST VERB ) lemma=`warranter` VER:simp  
+ warrantèrent ( VERB_PAST VERB ) lemma=`warranter` VER:simp  
+ warranté ( VERB_PAST_PARTICIPLE VERB ) lemma=`warranter` VER:pper  
+ warrantée ( VERB_PAST_PARTICIPLE VERB ) lemma=`warranter` VER:pper  
+ warrantées ( VERB_PAST_PARTICIPLE VERB ) lemma=`warranter` VER:pper  
+ warrantés ( VERB_PAST_PARTICIPLE VERB ) lemma=`warranter` VER:pper  
+ warrat ( NOUN NOUN_SINGULAR ) 
+ warrats ( NOUN NOUN_SINGULAR ) lemma=`warrat` NOM  
+ washingtonia ( NOUN NOUN_SINGULAR ) 
+ washingtonias ( NOUN NOUN_SINGULAR ) lemma=`washingtonia` NOM  
+ wassingue ( NOUN NOUN_SINGULAR ) 
+ wassingues ( NOUN NOUN_SINGULAR ) lemma=`wassingue` NOM  
+ wastringue ( NOUN NOUN_SINGULAR ) 
+ wastringues ( NOUN NOUN_SINGULAR ) lemma=`wastringue` NOM  
+ watchman ( NOUN NOUN_SINGULAR ) 
+ watchmans ( NOUN NOUN_SINGULAR ) lemma=`watchman` NOM  
+ water ( NOUN NOUN_SINGULAR ) 
+ water-ballast ( NOUN NOUN_SINGULAR ) 
+ water-ballasts ( NOUN NOUN_SINGULAR ) lemma=`water-ballast` NOM  
+ water-chute ( NOUN NOUN_SINGULAR ) 
+ water-chutes ( NOUN NOUN_SINGULAR ) lemma=`water-chute` NOM  
+ water-closet ( NOUN NOUN_SINGULAR ) 
+ water-closets ( NOUN NOUN_SINGULAR ) lemma=`water-closet` NOM  
+ water-jacket ( NOUN NOUN_SINGULAR ) 
+ water-jackets ( NOUN NOUN_SINGULAR ) lemma=`water-jacket` NOM  
+ water-polo ( NOUN NOUN_SINGULAR ) 
+ water-polos ( NOUN NOUN_SINGULAR ) lemma=`water-polo` NOM  
+ waterbuck ( NOUN NOUN_SINGULAR ) 
+ waterbucks ( NOUN NOUN_SINGULAR ) lemma=`waterbuck` NOM  
+ watergang ( NOUN NOUN_SINGULAR ) 
+ watergangs ( NOUN NOUN_SINGULAR ) lemma=`watergang` NOM  
+ waterie ( NOUN NOUN_SINGULAR ) 
+ wateries ( NOUN NOUN_SINGULAR ) lemma=`waterie` NOM  
+ wateringue ( NOUN NOUN_SINGULAR ) 
+ waterman ( NOUN NOUN_SINGULAR ) 
+ watermans ( NOUN NOUN_SINGULAR ) lemma=`waterman` NOM  
+ waterpoliste ( NOUN NOUN_SINGULAR ) 
+ waterpolistes ( NOUN NOUN_SINGULAR ) lemma=`waterpoliste` NOM  
+ waterproof ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`waterproof`waterproof` ADJ  NOM  
+ waterproofs ( NOUN NOUN_SINGULAR ) lemma=`waterproof` NOM  
+ waters ( NOUN NOUN_SINGULAR ) 
+ watt ( NOUN NOUN_SINGULAR ) 
+ watt-heure ( NOUN NOUN_SINGULAR ) 
+ watt-heures ( NOUN NOUN_SINGULAR ) lemma=`watt-heure` NOM  
+ wattman ( NOUN NOUN_SINGULAR ) 
+ wattmans ( NOUN NOUN_SINGULAR ) lemma=`wattman` NOM  
+ wattmètre ( NOUN NOUN_SINGULAR ) 
+ wattmètres ( NOUN NOUN_SINGULAR ) lemma=`wattmètre` NOM  
+ watts ( NOUN NOUN_SINGULAR ) lemma=`watt` NOM  
+ wavellite ( NOUN NOUN_SINGULAR ) 
+ wavellites ( NOUN NOUN_SINGULAR ) lemma=`wavellite` NOM  
+ wawas ( NOUN NOUN_SINGULAR ) 
+ wax ( NOUN NOUN_SINGULAR ) 
+ wayang ( NOUN NOUN_SINGULAR ) 
+ wayangs ( NOUN NOUN_SINGULAR ) lemma=`wayang` NOM  
+ waza ( NOUN NOUN_SINGULAR ) 
+ wazas ( NOUN NOUN_SINGULAR ) lemma=`waza` NOM  
+ weber ( NOUN NOUN_SINGULAR ) 
+ webers ( NOUN NOUN_SINGULAR ) lemma=`weber` NOM  
+ wedge ( NOUN NOUN_SINGULAR ) 
+ wedges ( NOUN NOUN_SINGULAR ) lemma=`wedge` NOM  
+ week-end ( NOUN NOUN_SINGULAR ) 
+ week-ends ( NOUN NOUN_SINGULAR ) lemma=`week-end` NOM  
+ weimarien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`weimarien`weimarien` ADJ  NOM  
+ weimarienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`weimarien`weimarien` ADJ  NOM  
+ weimariennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`weimarien`weimarien` ADJ  NOM  
+ weimariens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`weimarien`weimarien` ADJ  NOM  
+ welche ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`welche`welche` ADJ  NOM  
+ welches ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`welche`welche` ADJ  NOM  
+ welfare ( NOUN NOUN_SINGULAR ) 
+ welfares ( NOUN NOUN_SINGULAR ) lemma=`welfare` NOM  
+ well-deck ( NOUN NOUN_SINGULAR ) 
+ well-decks ( NOUN NOUN_SINGULAR ) lemma=`well-deck` NOM  
+ wellingtonia ( NOUN NOUN_SINGULAR ) 
+ wellingtonias ( NOUN NOUN_SINGULAR ) lemma=`wellingtonia` NOM  
+ weltanschauung ( NOUN NOUN_SINGULAR ) 
+ weltanschauungs ( NOUN NOUN_SINGULAR ) lemma=`weltanschauung` NOM  
+ welter ( NOUN NOUN_SINGULAR ) 
+ welters ( NOUN NOUN_SINGULAR ) lemma=`welter` NOM  
+ wengé ( NOUN NOUN_SINGULAR ) 
+ wengés ( NOUN NOUN_SINGULAR ) lemma=`wengé` NOM  
+ wergeld ( NOUN NOUN_SINGULAR ) 
+ wergelds ( NOUN NOUN_SINGULAR ) lemma=`wergeld` NOM  
+ werthérien ( ADJECTIVE ) 
+ werthérienne ( ADJECTIVE ) lemma=`werthérien` ADJ  
+ werthériennes ( ADJECTIVE ) lemma=`werthérien` ADJ  
+ werthériens ( ADJECTIVE ) lemma=`werthérien` ADJ  
+ wesleyen ( ADJECTIVE ) 
+ wesleyenne ( ADJECTIVE ) lemma=`wesleyen` ADJ  
+ wesleyennes ( ADJECTIVE ) lemma=`wesleyen` ADJ  
+ wesleyens ( ADJECTIVE ) lemma=`wesleyen` ADJ  
+ wesselton ( NOUN NOUN_SINGULAR ) 
+ wesseltons ( NOUN NOUN_SINGULAR ) lemma=`wesselton` NOM  
+ western ( NOUN NOUN_SINGULAR ) 
+ westerner ( NOUN NOUN_SINGULAR ) 
+ westerners ( NOUN NOUN_SINGULAR ) lemma=`westerner` NOM  
+ westernien ( ADJECTIVE ) 
+ westernienne ( ADJECTIVE ) lemma=`westernien` ADJ  
+ westerniennes ( ADJECTIVE ) lemma=`westernien` ADJ  
+ westerniens ( ADJECTIVE ) lemma=`westernien` ADJ  
+ westerns ( NOUN NOUN_SINGULAR ) lemma=`western` NOM  
+ westphalien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`westphalien`westphalien` ADJ  NOM  
+ westphalienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`westphalien`westphalien` ADJ  NOM  
+ westphaliennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`westphalien`westphalien` ADJ  NOM  
+ westphaliens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`westphalien`westphalien` ADJ  NOM  
+ wharf ( NOUN NOUN_SINGULAR ) 
+ wharfs ( NOUN NOUN_SINGULAR ) lemma=`wharf` NOM  
+ whig ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`whig`whig` ADJ  NOM  
+ whiggisme ( NOUN NOUN_SINGULAR ) 
+ whiggismes ( NOUN NOUN_SINGULAR ) lemma=`whiggisme` NOM  
+ whigs ( NOUN NOUN_SINGULAR ) lemma=`whig` NOM  
+ whip ( NOUN NOUN_SINGULAR ) 
+ whipcord ( NOUN NOUN_SINGULAR ) 
+ whipcords ( NOUN NOUN_SINGULAR ) lemma=`whipcord` NOM  
+ whips ( NOUN NOUN_SINGULAR ) lemma=`whip` NOM  
+ whisker ( NOUN NOUN_SINGULAR ) 
+ whiskers ( NOUN NOUN_SINGULAR ) lemma=`whisker` NOM  
+ whiskies ( NOUN NOUN_SINGULAR ) 
+ whisky ( NOUN NOUN_SINGULAR ) 
+ whist ( NOUN NOUN_SINGULAR ) 
+ whists ( NOUN NOUN_SINGULAR ) lemma=`whist` NOM  
+ wicket ( NOUN NOUN_SINGULAR ) 
+ wickets ( NOUN NOUN_SINGULAR ) lemma=`wicket` NOM  
+ widia ( NOUN NOUN_SINGULAR ) 
+ widias ( NOUN NOUN_SINGULAR ) lemma=`widia` NOM  
+ wigwam ( NOUN NOUN_SINGULAR ) 
+ wigwams ( NOUN NOUN_SINGULAR ) lemma=`wigwam` NOM  
+ wilaya ( NOUN NOUN_SINGULAR ) 
+ wilayas ( NOUN NOUN_SINGULAR ) lemma=`wilaya` NOM  
+ wildcat ( NOUN NOUN_SINGULAR ) 
+ wildcats ( NOUN NOUN_SINGULAR ) lemma=`wildcat` NOM  
+ wildien ( ADJECTIVE ) 
+ wildienne ( ADJECTIVE ) lemma=`wildien` ADJ  
+ wildiennes ( ADJECTIVE ) lemma=`wildien` ADJ  
+ wildiens ( ADJECTIVE ) lemma=`wildien` ADJ  
+ williams ( NOUN NOUN_SINGULAR ) 
+ winch ( NOUN NOUN_SINGULAR ) 
+ winchester ( NOUN NOUN_SINGULAR ) 
+ winchesters ( NOUN NOUN_SINGULAR ) lemma=`winchester` NOM  
+ winchs ( NOUN NOUN_SINGULAR ) lemma=`winch` NOM  
+ windsurf ( NOUN NOUN_SINGULAR ) 
+ windsurfiste ( NOUN NOUN_SINGULAR ) 
+ windsurfistes ( NOUN NOUN_SINGULAR ) lemma=`windsurfiste` NOM  
+ windsurfs ( NOUN NOUN_SINGULAR ) lemma=`windsurf` NOM  
+ winglet ( NOUN NOUN_SINGULAR ) 
+ winglets ( NOUN NOUN_SINGULAR ) lemma=`winglet` NOM  
+ wintergreen ( NOUN NOUN_SINGULAR ) 
+ wintergreens ( NOUN NOUN_SINGULAR ) lemma=`wintergreen` NOM  
+ wishbone ( NOUN NOUN_SINGULAR ) 
+ wishbones ( NOUN NOUN_SINGULAR ) lemma=`wishbone` NOM  
+ wisigoth ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wisigoth`wisigoth` ADJ  NOM  
+ wisigothe ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wisigoth`wisigoth` ADJ  NOM  
+ wisigothes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wisigoth`wisigoth` ADJ  NOM  
+ wisigothique ( ADJECTIVE ) 
+ wisigothiques ( ADJECTIVE ) lemma=`wisigothique` ADJ  
+ wisigoths ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wisigoth`wisigoth` ADJ  NOM  
+ wiski ( NOUN NOUN_SINGULAR ) 
+ wiskis ( NOUN NOUN_SINGULAR ) lemma=`wiski` NOM  
+ withérite ( NOUN NOUN_SINGULAR ) 
+ withérites ( NOUN NOUN_SINGULAR ) lemma=`withérite` NOM  
+ witloof ( NOUN NOUN_SINGULAR ) 
+ witloofs ( NOUN NOUN_SINGULAR ) lemma=`witloof` NOM  
+ wobbulateur ( NOUN NOUN_SINGULAR ) 
+ wobbulateurs ( NOUN NOUN_SINGULAR ) lemma=`wobbulateur` NOM  
+ wobbulation ( NOUN NOUN_SINGULAR ) 
+ wobbulations ( NOUN NOUN_SINGULAR ) lemma=`wobbulation` NOM  
+ wolfram ( NOUN NOUN_SINGULAR ) 
+ wolframite ( NOUN NOUN_SINGULAR ) 
+ wolframites ( NOUN NOUN_SINGULAR ) lemma=`wolframite` NOM  
+ wolframs ( NOUN NOUN_SINGULAR ) lemma=`wolfram` NOM  
+ wolof ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wolof`wolof` ADJ  NOM  
+ wolofs ( NOUN NOUN_SINGULAR ) lemma=`wolof` NOM  
+ wombat ( NOUN NOUN_SINGULAR ) 
+ wombats ( NOUN NOUN_SINGULAR ) lemma=`wombat` NOM  
+ won ( NOUN NOUN_SINGULAR ) 
+ woofer ( NOUN NOUN_SINGULAR ) 
+ woofers ( NOUN NOUN_SINGULAR ) lemma=`woofer` NOM  
+ worabée ( NOUN NOUN_SINGULAR ) 
+ worabées ( NOUN NOUN_SINGULAR ) lemma=`worabée` NOM  
+ wormien ( ADJECTIVE ) 
+ wormiens ( ADJECTIVE ) lemma=`wormien` ADJ  
+ worsted ( NOUN NOUN_SINGULAR ) 
+ worsteds ( NOUN NOUN_SINGULAR ) lemma=`worsted` NOM  
+ wouah ( ) 
+ wouaou ( ) 
+ wouaouh ( ) 
+ wurmien ( ADJECTIVE ) 
+ wurmienne ( ADJECTIVE ) lemma=`wurmien` ADJ  
+ wurmiennes ( ADJECTIVE ) lemma=`wurmien` ADJ  
+ wurmiens ( ADJECTIVE ) lemma=`wurmien` ADJ  
+ wyandotte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wyandotte`wyandotte` ADJ  NOM  
+ wyandottes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`wyandotte`wyandotte` ADJ  NOM  
+ würm ( NOUN NOUN_SINGULAR ) 
+ würmien ( ADJECTIVE ) 
+ würmienne ( ADJECTIVE ) lemma=`würmien` ADJ  
+ würmiennes ( ADJECTIVE ) lemma=`würmien` ADJ  
+ würmiens ( ADJECTIVE ) lemma=`würmien` ADJ  
+ würms ( NOUN NOUN_SINGULAR ) lemma=`würm` NOM  

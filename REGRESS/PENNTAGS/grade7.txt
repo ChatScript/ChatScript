@@ -1,0 +1,27 @@
+﻿The/DT coyote/NN is/VBZ a/DT relative/NN of/IN the/DT dog/NN ,/, wolf/NN and/CC jackal/NN ./. 
+Like/IN its/PRP$ relatives/NNS ,/, it/PRP is/VBZ a/DT predator/NN and/CC mostly/RB eats/VBZ other/JJ mammals/NNS ./. 
+It/PRP will/MD ,/, however/RB ,/, eat/VB a/DT wide/JJ variety/NN of/IN foods/NNS ,/, including/VBG insects/NNS ,/, fruits/NNS and/CC vegetables/NNS ./. 
+Coyotes/NNS are/VBP found/VBN throughout/IN most/PRP of/IN North/NNP America/NNP ,/, from/IN Mexico/NNP and/CC Central/NNP America/NNP to/TO Canada/NNP and/CC Alaska/NNP ./. 
+The/DT color/NN of/IN its/PRP$ coat/NN depends/VBZ on/IN where/WRB it/PRP lives/VBZ ./. 
+Mountain/NNP coyotes/NNS are/VBP darker/JJR than/IN those/DT living/NN in/IN the/DT desert/NN ./. 
+Like/IN the/DT wolf/NN ,/, coyotes/NNS live/VBP in/IN groups/NNS ,/, or/CC packs/VBZ ./. 
+The/DT pack/NN is/VBZ usually/RB smaller/JJR in/IN number/NN than/IN a/DT wolf/NN pack/NN ./. 
+All/DT members/NNS of/IN the/DT pack/NN are/VBP usually/RB related/VBN ./. 
+The/DT pack/NN will/MD often/RB divide/VB into/IN pairs/NNS to/TO hunt/VB ./. 
+Female/JJ coyotes/NNS have/VBP a/DT litter/NN of/IN pups/NNS once/IN a/DT year/NN ./. 
+A/DT litter/NN has/VBZ an/DT average/NN of/IN six/CD pups/NNS ./. 
+Over/RB half/NN of/IN the/DT pups/NNS will/MD die/VB before/IN they/PRP reach/VBP adulthood/NN ./. 
+Male/JJ pups/NNS usually/RB leave/VBP the/DT pack/NN to/TO find/VB their/PRP$ own/JJ territory/NN ./. 
+Female/JJ pups/NNS stay/VBP with/IN the/DT parent/NN 's/POS pack/NN ./. 
+Wolves/NNS and/CC coyotes/NNS compete/VBP for/IN the/DT same/JJ prey/NN animals/NNS ./. 
+Since/IN the/DT coyote/NN is/VBZ smaller/JJR than/IN the/DT wolf/NN ,/, wolves/NNS will/MD usually/RB drive/VB the/DT coyote/NN out/RP of/IN any/DT shared/VBN territory/NN ./. 
+The/DT coyote/NN adapts/VBZ easily/RB to/TO new/JJ areas/NNS ./. 
+Unlike/IN the/DT buffalo/NN or/CC wolf/NN ,/, the/DT coyote/NN 's/POS range/NN increased/VBD after/IN human/JJ populations/NNS expanded/VBD across/IN the/DT continent/NN ./. 
+For/IN example/NN ,/, the/DT coyote/NN was/VBD not/RB native/JJ to/TO New/NNP England/NNP ./. 
+Once/IN the/DT New/NNP England/NNP settlers/NNS eliminated/VBD wolves/NNS ,/, however/RB ,/, the/DT coyote/NN moved/VBD in/RP ./. 
+Scientists/NNS who/WP have/VBP studied/VBN the/DT coyote/NN believe/VBP it/PRP is/VBZ better/JJR than/IN the/DT wolf/NN at/IN living/VBG in/IN human/JJ areas/NNS ./. 
+Coyotes/NNS are/VBP now/RB found/VBN in/IN most/RBS large/RB urban/JJ areas/NNS ./. 
+They/PRP find/VBP an/DT abundant/JJ supply/NN of/IN food/NN in/IN these/DT areas/NNS ,/, since/IN coyotes/NNS are/VBP willing/JJ to/TO eat/VB garbage/NN ,/, rodents/NNS and/CC even/RB small/JJ pets/NNS ,/, such/JJ as/IN cats/NNS ./. 
+Scientists/NNS estimate/VBP that/IN as/RB many/JJ as/IN 2,000/CD coyotes/NNS may/MD be/VB living/VBG in/IN the/DT Chicago/NNP area/NN ./. 
+Because/IN of/IN its/PRP$ adaptability/NN ,/, the/DT coyote/NN is/VBZ not/RB an/DT endangered/JJ species/NNS ,/, or/CC even/RB a/DT threatened/JJ species/NN ./. 
+It/PRP has/VBZ been/VBN classified/VBN as/IN "/" least/JJS concern/NN ,/, "/" which/WDT means/VBZ it/PRP has/VBZ the/DT lowest/JJS risk/NN of/IN extinction/NN ./. 

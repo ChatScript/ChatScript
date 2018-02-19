@@ -1,0 +1,344 @@
+concept: ~song()
+
+concept: ~celebrity (~musician  ~popstar ~singer ~actor ~actress)
+
+table: celebtable(^name) # unsexed
+AddProperty(^name NOUN_HUMAN NOUN NOUN_PROPER_SINGULAR)
+CreateFact(^name member ~celebrity)
+DATA:
+Amir_Khan
+Anja_Rubik
+Anna_Paquin
+Arpad_Busson
+Ashley_Greene
+Ashley_Olsen
+Ayda_Fields
+Bee_Dereon
+Black_Eyed_Peas
+Bobby_Brown
+Carey_Mulligan
+Cat_Deeley
+Chandler
+Ciara_Aaliyah
+Coco_Rocha
+Cody_Simpson
+Coldplay
+Colton_Haynes
+Cristiano_Ronaldo
+Danica_Patrick
+Hayden_Christensen
+J.J._Field
+Jamie_Mazur
+Leven_Rambin
+Jionni_LaValle
+Olivier_Martinez
+Pacquiao_Mayweather
+Rooney_Mara
+Solange_Knowles
+Swizz_Beatz
+Taylor_Kinney
+Taylor_Lautner
+
+table: celebtable(^name) # male
+AddProperty(^name NOUN_MALEHUMAN)
+CreateFact(^name member ~celebrity)
+DATA:
+Adam_Sandler
+Alec_Baldwin
+Alex_Pettyfer
+Alex_Rodriguez
+Alexander_Ludwig
+Alexander_McQueen
+Andrew_Garfield
+Angus_Jones
+Angus_T._Jones
+Arnold_Schwarzenegger
+Ashton_Kutcher
+Austin_Butler
+Baby_Phat
+Barack_Obama
+Ben_Stiller
+Bill_Gates
+Bon_Jovi
+Bono
+Brad_Pitt
+Bruce_Springsteen
+Charlie_Sheen	
+Chris_Martin
+Christopher_Nolan
+Chuck_Norris
+Conan_O_Brien
+Daniel_Radcliffe
+David_Beckham
+Derek_Jeter
+Donald_Trump
+Dr._Phil
+Elton_John
+Eric_Johnson
+Freddie_Prinze
+George_Clooney
+George_Lopez
+George_Lucas
+Glenn_Beck
+Howard_Stern
+Ian_Somerhalder
+Jackie_Chan
+Jackson_Rathbone
+James_Cameron
+James_Patterson
+Jason_Derulo
+Jay-Z
+Jay_Leno
+Jay_Z
+Jeff_Dunham
+Jerry_Bruckheimer
+Jerry_Seinfeld
+Jerry_Springer
+Jim_Toth
+Johnny_Depp
+Jonas_Brothers
+Jordin_Sparks
+Joshua_Jackson
+Jourdan_Dunn
+Justin_Bieber
+Justine_Picardie
+Kanye_West
+Keith_Urban
+Kenny_Chesney
+Kiefer_Sutherland
+Kobe_Bryant
+Lance_Armstrong
+Leonardo_Dicaprio
+Liam_Hemsworth
+Lil_Wayne
+Mark_Zuckerberg
+Marko_Jaric
+Michael_Bay
+Michael_Jackson
+Michael_Jordan
+Nicholas_Hoult
+Nick_Cannon
+Nick_Lachey
+Nick_Noonan
+Nicolas_Cage
+Orlando_Bloom
+P_Diddy
+Paul_McCartney
+Phil_Mickelson
+Prince_William
+Puff_Daddy
+Rascal_Flatts
+Ray_Romano
+Reggie_Yates
+Robin_Williams
+Robert_Pattinson
+Roger_Federer
+Rush_Limbaugh
+Russell_Brand
+Russell_Crowe
+Ryan_Gosling
+Ryan_Seacrest
+Schwarzenegger
+Scott_Disick
+Sean_Combs
+Sean_John
+Sean_P._Diddy_Combs
+Shaquille_O_Neal
+Simon_Cowell
+Stephen_King
+Stephen_Moyer
+Steve_Carell
+Steve_Jobs
+Steven_Spielberg
+Tiger_Woods
+Toby_Keith
+Tom_Cruise
+Tom_Hanks
+Tom_Sturridge
+Tupac
+Tyler_Perry
+Will_Adamowicz
+Will_Ferrell
+Will_Kopelman
+Will_Smith
+Zac_Efron
+
+table: celebtable(^name) # female
+AddProperty(^name NOUN_FEMALEHUMAN )
+CreateFact(^name member ~celebrity)
+DATA:
+Adele
+Adriana_Lima
+Alessandra_Ambrosio
+Alicia_Etheridge
+Alicia_Keys
+Amy_Heidemann
+Amy_Winehouse
+Angelina_Jolie
+Beyonce
+Beyonce_Knowles
+Blake_Lively
+Britney_Spears
+Cameron_Diaz
+Chelsea_Handler
+Cher_Lloyd
+Dakota_Fanning
+Diane_Kruger
+Drew_Barrymore
+Elizabeth_Banks
+Elle_Fanning
+Ellen_DeGeneres
+Emma_Roberts
+Emma_Stone
+Emma_Watson
+Eva_Longoria
+Eva_Mendes
+Eva_Mendes
+Florence_Welch
+Gisele_Bundchen
+Gwen_Stefani
+Gwyneth_Paltrow
+Halle_Berry
+Heidi_Klum
+Hilary_Duff
+J.K._Rowling
+J_Lo
+Jada_Pinkett
+Jada_Pinkett_Smith
+Janet_Jackson
+Jennifer_Aniston
+Jennifer_Lawrence
+Jennifer_Lopez
+Jennifer_Love_Hewitt
+Jessica_Alba
+Jessica_Simpson
+Julia_Roberts
+Karolina_Kurkova
+Kate_Bush
+Kate_Hudson
+Kate_Middleton
+Kate_Moss
+Katherine_Heigl
+Katie_Holmes
+Katy_Perry
+Kelly_Clarkson
+Kim_Kardashian
+Kirsten_Dunst
+Kirsten_Stewart
+Kourtney_Kardashian
+Kristen_Stewart
+Lady_Gaga
+Lana_del_Rey
+Lindsay_Lohan
+Liv_Tyler
+Madonna
+Mariah_Carey
+Mariska_Hargitay
+Mary-Kate_Olsen
+Megan_Fox
+Meryl_Streep
+Mia_Wasikowska
+Mila_Kunis
+Miley_Cyrus
+Miranda_Cosgrove
+Miranda_Kerr
+Neve_Campbell
+Nicki_Minaj
+Nicole_Kidman
+Nicole_Polizzi
+Nicole_Ritchie
+Nina_Dobrev
+Michelle_Obama
+Oprah_Winfrey
+Paris_Hilton
+Paula_Abdul
+Portia_de_Rossi
+Posh_Spice
+Reese_Witherspoon
+Rihanna
+Rosie_Huntington
+Rosie_Huntington-Whiteley
+Sandra_Bullock
+Sarah_Jessica_Parker
+Sarah_Michelle_Gellar
+Scarlett_Johansson
+Selena_Gomez
+Serena_Williams
+Sheila_Hafsadi
+Sienna_Miller
+Stephenie_Meyer
+Taylor_Swift
+Tina_Fey
+Tyra_Banks
+Uma_Thurman
+Vanessa_Hudgens
+Vanessa_Lachey
+Vanessa_Paradis
+Venus_Williams
+Victoria_Beckham
+Victoria_Justice
+Whitney_Houston
+Zoe_Kravitz
+
+
+table: ~men (^roleitem ^male ^kind ^item)
+^createfact(^male member ^roleitem)
+if (^kind != *) {^createfact(^item member ^kind)}
+if (^item != *) {^createfact(^item sing ^male)}
+^addproperty(^male NOUN_MALEHUMAN )
+
+DATA:
+~musician "Justin Nozuka" ~song  "After Tonight"
+~musician "Ozzy Osbourne" ~song  "Crazy Train"
+~musician "Gavin DeGraw"  ~song  "In Love With a Girl"
+~musician "George Frideric Handel"  (Handel) ~song Messiah 
+~musician "Gavin Rossdale" ~song "Love Remains the Same"
+~musician "Matt Nathanson" ~song "Come On Get Higher"
+~musician "John Mayer" ~song "Free Fallin'"
+~musician "Phil Collins" ~song "In the Air Tonight"
+~musician "Elvis Presley" (Elvis ) ~song "Heartbreak Hotel"
+~musician "Michael Jackson"  ~song "Thriller"
+~musician "Stevie Wonder"  ~song "Superstition"
+~musician "Justin Timberlake" ~song "What Goes Around"
+~musician "Mims" ~song "This is Why I'm Hot"
+~musician "Akon" ~song "Don't Matter"
+~musician "Jackson Browne" ~song "Running on Empty"
+~musician "T-Pain" ~song "Buy U a Drank"
+~musician "Sean Kingston" ~song "Beautiful Girls"
+~musician "Soulja Boy Tell'em"  ~song "Crank That"
+~musician "Kanye West"  ~song "Stronger"
+~musician "Chris Brown" ~song "Kiss Kiss"
+~musician "Lil Wayne" ~song "Lollipop"
+~musician "Jesse McCartney" ~song "Leavin"
+~musician "David Bowie" (Bowie) ~song "Under Pressure"
+~musician "Daniel Powter" ~song "Bad Day"
+~musician "Tom Petty" ~song "Free Fallin'"
+
+table: ~women (^roleitem ^female ^kind ^item)
+^createfact(^female member ^roleitem)
+^createfact(^item member ^kind)
+^createfact(^item sing ^female)
+^addproperty(^female NOUN_FEMALEHUMAN )
+DATA:
+~musician "Britney Spears"  ~song "Oops I did it again"
+~musician "Mariah Carey"  ~song "Vision of Love"
+~musician "Mariah Carey"  ~song "Love Takes Time"
+~musician "Madonna"   ~song "Like a Virgin"
+~musician "Whitney Houston"   ~song "Saving All My Love for You"
+~musician "Janet Jackson"   ~song "When I Think of You"
+~musician "Carole King"  ~song Tapestry
+~musician "Beyonce"  ~song "Irreplaceable"
+~musician "Nelly Furtado"  ~song "Say It Right"
+~musician "Fergie"  ~song "Glamorous"
+~musician "Avril Lavigne"  ~song "Girlfriend"
+~musician "Rihanna"  ~song "Umbrella"
+~musician "Fergie"  ~song "Big Girls Don't Cry"
+~musician "Alicia Keys"  ~song "No One"
+~musician "Leona Lewis"  ~song "Bleeding Love"
+~musician "Mariah Carey"  ~song "Touch My Body"
+~musician "Kate Perry"  ~song "I Kissed a Girl"
+~musician "Sara Bareilles"  ~song "Love Song"
+~musician "Rihanna"  ~song "Take a Bow"
+~musician "Rihanna"  ~song "Disturba"
+~musician "Mylie Cyrus"  ~song Breakout
+

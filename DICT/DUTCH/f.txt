@@ -1,0 +1,2764 @@
+﻿ F ( NOUN NOUN_SINGULAR ) 
+ F'je ( NOUN NOUN_SINGULAR ) lemma=`f` nounsg  
+ F'jes ( NOUN NOUN_PLURAL ) lemma=`f` nounpl  
+ F's ( NOUN NOUN_PLURAL ) lemma=`f` nounpl  
+ F-16 ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`F-16`F-16` nounabbr  nounprop  
+ F-27 ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`F-27`F-27` nounabbr  nounprop  
+ F-50 ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`F-50`F-50` nounabbr  nounprop  
+ F. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`F.`F.` nounabbr  num__ord  
+ F./maand ( NOUN NOUN_SINGULAR ) 
+ F.B.I. ( NOUN NOUN_PROPER_SINGULAR ) 
+ F.C. ( NOUN NOUN_SINGULAR ) 
+ F.C.'s ( NOUN NOUN_PLURAL ) lemma=`F.C.` nounpl  
+ F.D.P. ( NOUN NOUN_PROPER_SINGULAR ) 
+ F.I.F.A. ( NOUN NOUN_PROPER_SINGULAR ) 
+ F.S.R.M ( NOUN NOUN_SINGULAR ) 
+ FAO ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`FAO`FAO` nounabbr  nounprop  
+ FBI ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`FBI`FBI` nounabbr  nounprop  
+ FC ( NOUN NOUN_SINGULAR ) 
+ FDP ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`FDP`FDP` nounabbr  nounprop  
+ FF ( NOUN NOUN_SINGULAR ) 
+ FHCED ( NOUN NOUN_SINGULAR ) 
+ FIFA ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`FIFA`FIFA` nounabbr  nounprop  
+ FIOD ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`FIOD`FIOD` nounabbr  nounprop  
+ FJF ( NOUN NOUN_SINGULAR ) 
+ FM ( NOUN NOUN_SINGULAR ) 
+ FM-zender ( NOUN NOUN_SINGULAR ) 
+ FM-zenders ( NOUN NOUN_PLURAL ) lemma=`FM-zender` nounpl  
+ FNV ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`FNV`FNV` nounabbr  nounprop  
+ FNV-bestuurder ( NOUN NOUN_SINGULAR ) 
+ FNV-bestuurders ( NOUN NOUN_PLURAL ) lemma=`FNV-bestuurder` nounpl  
+ FNV-bond ( NOUN NOUN_PROPER_SINGULAR ) 
+ FNV-voorzitter ( NOUN NOUN_PROPER_SINGULAR ) 
+ Faeröer ( NOUN NOUN_PROPER_SINGULAR ) 
+ Faeröerder ( NOUN NOUN_SINGULAR ) 
+ Faeröerders ( NOUN NOUN_PLURAL ) lemma=`Faeröerder` nounpl  
+ Faeröers ( ADJECTIVE ) 
+ Faeröerse ( NOUN NOUN_SINGULAR ) 
+ Faeröersen ( NOUN NOUN_PLURAL ) lemma=`Faeröerse` nounpl  
+ Fagne ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fahrenheit ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fale ( NOUN NOUN_PROPER_SINGULAR ) 
+ Falklandeilanden ( NOUN NOUN_PROPER_SINGULAR ) 
+ Falklandeilander ( NOUN NOUN_SINGULAR ) 
+ Falklandeilanders ( NOUN NOUN_PLURAL ) lemma=`Falklandeilander` nounpl  
+ Falklandeilands ( ADJECTIVE ) 
+ Famenne ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fezzan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Figuranten ( NOUN NOUN_PLURAL ) lemma=`figurante` nounpl  
+ Figurantes ( NOUN NOUN_PLURAL ) lemma=`figurante` nounpl  
+ Fiji ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fijisch ( ADJECTIVE ) 
+ Fijische ( NOUN NOUN_SINGULAR ) 
+ Fijischen ( NOUN NOUN_PLURAL ) lemma=`Fijische` nounpl  
+ Fijiër ( NOUN NOUN_SINGULAR ) 
+ Fijiërs ( NOUN NOUN_PLURAL ) lemma=`Fijiër` nounpl  
+ Filipijn ( NOUN NOUN_SINGULAR ) 
+ Filipijnen ( NOUN NOUN_PLURAL NOUN_PROPER_SINGULAR ) lemma=`Filipijn`Filipijnen` nounpl  nounprop  
+ Filipijnenbekken ( NOUN NOUN_PROPER_SINGULAR ) 
+ Filipijnentrog ( NOUN NOUN_PROPER_SINGULAR ) 
+ Filipijnenzee ( NOUN NOUN_PROPER_SINGULAR ) 
+ Filipijns ( ADJECTIVE ) 
+ Filipijnse ( NOUN NOUN_SINGULAR ) 
+ Filipijnsen ( NOUN NOUN_PLURAL ) lemma=`Filipijnse` nounpl  
+ Filippijn ( NOUN NOUN_SINGULAR ) 
+ Filippijnen ( NOUN NOUN_PLURAL NOUN_PROPER_SINGULAR ) lemma=`Filippijn`Filippijnen` nounpl  nounprop  
+ Filippijnenbekken ( NOUN NOUN_SINGULAR ) 
+ Filippijnentrog ( NOUN NOUN_SINGULAR ) 
+ Filippijnenzee ( NOUN NOUN_SINGULAR ) 
+ Filippijns ( ADJECTIVE ) 
+ Filippijnse ( NOUN NOUN_SINGULAR ) 
+ Filippijnsen ( NOUN NOUN_PLURAL ) lemma=`Filippijnse` nounpl  
+ Fin ( NOUN NOUN_SINGULAR ) 
+ Finland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Finlands ( ADJECTIVE ) 
+ Finlandse ( NOUN NOUN_SINGULAR ) 
+ Finlandsen ( NOUN NOUN_PLURAL ) lemma=`Finlandse` nounpl  
+ Finnen ( NOUN NOUN_PLURAL ) lemma=`Fin` nounpl  
+ Fins ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Fins`Fins` adj  nounprop  
+ Finse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Fins`Finse` adj  nounsg  
+ Finsen ( NOUN NOUN_PLURAL ) lemma=`Finse` nounpl  
+ Fisc. ( ADJECTIVE ) 
+ Flevoland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Flevolander ( NOUN NOUN_PROPER_SINGULAR ) 
+ Flevolands ( ADJECTIVE ) 
+ Flevolandse ( NOUN NOUN_SINGULAR ) 
+ Flevolandsen ( NOUN NOUN_PLURAL ) lemma=`Flevolandse` nounpl  
+ Flevopolder ( NOUN NOUN_PROPER_SINGULAR ) 
+ Florence ( NOUN NOUN_PROPER_SINGULAR ) 
+ Florentijn ( NOUN NOUN_SINGULAR ) 
+ Florentijnen ( NOUN NOUN_PLURAL ) lemma=`Florentijn` nounpl  
+ Florentijns ( ADJECTIVE ) 
+ Florentijnse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Florentijns`Florentijnse` adj  nounsg  
+ Florentijnsen ( NOUN NOUN_PLURAL ) lemma=`Florentijnse` nounpl  
+ Fokker-50 ( NOUN NOUN_PROPER_SINGULAR ) 
+ Formosa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fort-de-France ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fr ( NOUN NOUN_SINGULAR ) 
+ Fr. ( NOUN NOUN_SINGULAR ) 
+ Frankrijk ( NOUN NOUN_PROPER_SINGULAR ) 
+ Frankrijks ( NOUN NOUN_SINGULAR ) lemma=`Frankrijk` nounsg  
+ Frans ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Frans`Frans` adj  nounprop  
+ Frans-Guyaan ( NOUN NOUN_SINGULAR ) 
+ Frans-Guyaans ( ADJECTIVE ) 
+ Frans-Guyaanse ( NOUN NOUN_SINGULAR ) 
+ Frans-Guyaansen ( NOUN NOUN_PLURAL ) lemma=`Frans-Guyaanse` nounpl  
+ Frans-Guyana ( NOUN NOUN_PROPER_SINGULAR ) 
+ Frans-Guyanees ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Frans-Guyanees`Frans-Guyanees` adj  nounsg  
+ Frans-Guyanen ( NOUN NOUN_PLURAL ) lemma=`Frans-Guyaan` nounpl  
+ Frans-Guyanese ( NOUN NOUN_SINGULAR ) 
+ Frans-Guyanesen ( NOUN NOUN_PLURAL ) lemma=`Frans-Guyanese` nounpl  
+ Frans-Guyanezen ( NOUN NOUN_PLURAL ) lemma=`Frans-Guyanees` nounpl  
+ Frans-Polynesisch ( ADJECTIVE ) 
+ Frans-Polynesische ( NOUN NOUN_SINGULAR ) 
+ Frans-Polynesischen ( NOUN NOUN_PLURAL ) lemma=`Frans-Polynesische` nounpl  
+ Frans-Polynesië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Frans-Polynesiër ( NOUN NOUN_SINGULAR ) 
+ Frans-Polynesiërs ( NOUN NOUN_PLURAL ) lemma=`Frans-Polynesiër` nounpl  
+ Franse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Frans`Franse` adj  nounsg  
+ Fransen ( NOUN NOUN_PLURAL ) lemma=`Franse|Fransman` nounpl  
+ Fransgezind ( ADJECTIVE ) 
+ Fransgezinde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Fransgezind`Fransgezinde` adj  nounsg  
+ Fransman ( NOUN NOUN_SINGULAR ) 
+ Franssprekend ( ADJECTIVE ) 
+ Franssprekende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Franssprekend`Franssprekende` adj  nounsg  
+ Franstalig ( ADJECTIVE ) 
+ Franstalige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Franstalig`Franstalige` adj  nounsg  
+ Française ( NOUN NOUN_SINGULAR ) 
+ Françaises ( NOUN NOUN_PLURAL ) lemma=`Française` nounpl  
+ Freetown ( NOUN NOUN_PROPER_SINGULAR ) 
+ Fries ( ADJECTIVE ) 
+ Friese ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Fries`Friese` adj  nounsg  
+ Friesland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Friezin ( NOUN NOUN_SINGULAR ) 
+ Friezinnen ( NOUN NOUN_PLURAL ) lemma=`Friezin` nounpl  
+ Friezinnetje ( NOUN NOUN_SINGULAR ) lemma=`Friezin` nounsg  
+ Friezinnetjes ( NOUN NOUN_PLURAL ) lemma=`Friezin` nounpl  
+ Fundybaai ( NOUN NOUN_PROPER_SINGULAR ) 
+ Funen ( NOUN NOUN_PROPER_SINGULAR ) 
+ f ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`frank`f`f` nounabbr  nounsg  num__ord  
+ f's ( NOUN NOUN_PLURAL ) lemma=`f` nounpl  
+ f. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`f.`f.` nounabbr  num__ord  
+ fa ( NOUN NOUN_SINGULAR ) 
+ fa's ( NOUN NOUN_PLURAL ) lemma=`fa` nounpl  
+ fa. ( NOUN NOUN_SINGULAR ) 
+ faal ( VERB_PRESENT VERB ) lemma=`falen` verbpressg  
+ faalangst ( NOUN NOUN_SINGULAR ) 
+ faalde ( VERB_PAST VERB ) lemma=`falen` verbpastsg  
+ faalden ( VERB_PAST VERB ) lemma=`falen` verbpastpl  
+ faalt ( VERB_PRESENT VERB ) lemma=`falen` verbpressg  
+ faam ( NOUN NOUN_SINGULAR ) 
+ fabel ( NOUN NOUN_SINGULAR ) 
+ fabelachtig ( ADJECTIVE ) 
+ fabelachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fabelachtig`fabelachtige` adj  nounsg  
+ fabelachtiger ( ADJECTIVE ) lemma=`fabelachtig` adj  
+ fabelachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fabelachtig`fabelachtigere` adj  nounsg  
+ fabelachtigst ( ADJECTIVE ) lemma=`fabelachtig` adj  
+ fabelachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fabelachtig`fabelachtigste` adj  nounsg  
+ fabeldier ( NOUN NOUN_SINGULAR ) 
+ fabeldieren ( NOUN NOUN_PLURAL ) lemma=`fabeldier` nounpl  
+ fabelen ( NOUN NOUN_PLURAL ) lemma=`fabel` nounpl  
+ fabels ( NOUN NOUN_PLURAL ) lemma=`fabel` nounpl  
+ fabeltje ( NOUN NOUN_SINGULAR ) lemma=`fabel` nounsg  
+ fabeltjes ( NOUN NOUN_PLURAL ) lemma=`fabel` nounpl  
+ fabricage ( NOUN NOUN_SINGULAR ) 
+ fabriceer ( VERB_PRESENT VERB ) lemma=`fabriceren` verbpressg  
+ fabriceerde ( VERB_PAST VERB ) lemma=`fabriceren` verbpastsg  
+ fabriceerden ( VERB_PAST VERB ) lemma=`fabriceren` verbpastpl  
+ fabriceert ( VERB_PRESENT VERB ) lemma=`fabriceren` verbpressg  
+ fabriceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fabriceren`fabriceren`fabriceren` nounsg  verbinf  verbprespl  
+ fabricerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fabriceren` verbpresp  
+ fabricerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fabricerende`fabriceren` nounsg  verbpresp  
+ fabriek ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fabriek`fabrieken` nounsg  verbpressg  
+ fabrieken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fabriek`fabrieken`fabrieken`fabrieken` nounpl  nounsg  verbinf  verbprespl  
+ fabriekend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fabrieken` verbpresp  
+ fabriekende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fabriekende`fabrieken` nounsg  verbpresp  
+ fabriekje ( NOUN NOUN_SINGULAR ) lemma=`fabriek` nounsg  
+ fabriekjes ( NOUN NOUN_PLURAL ) lemma=`fabriek` nounpl  
+ fabrieksarbeider ( NOUN NOUN_SINGULAR ) 
+ fabrieksarbeiders ( NOUN NOUN_PLURAL ) lemma=`fabrieksarbeider` nounpl  
+ fabrieksdirecteur ( NOUN NOUN_SINGULAR ) 
+ fabrieksdirecteuren ( NOUN NOUN_PLURAL ) lemma=`fabrieksdirecteur` nounpl  
+ fabrieksdirekteur ( NOUN NOUN_SINGULAR ) 
+ fabrieksfout ( NOUN NOUN_SINGULAR ) 
+ fabrieksfouten ( NOUN NOUN_PLURAL ) lemma=`fabrieksfout` nounpl  
+ fabrieksgebouw ( NOUN NOUN_SINGULAR ) 
+ fabrieksgebouwen ( NOUN NOUN_PLURAL ) lemma=`fabrieksgebouw` nounpl  
+ fabrieksgeheim ( NOUN NOUN_SINGULAR ) 
+ fabrieksgeheimen ( NOUN NOUN_PLURAL ) lemma=`fabrieksgeheim` nounpl  
+ fabriekshal ( NOUN NOUN_SINGULAR ) 
+ fabriekshallen ( NOUN NOUN_PLURAL ) lemma=`fabriekshal` nounpl  
+ fabriekspoort ( NOUN NOUN_SINGULAR ) 
+ fabriekspoorten ( NOUN NOUN_PLURAL ) lemma=`fabriekspoort` nounpl  
+ fabrieksschoorsteen ( NOUN NOUN_SINGULAR ) 
+ fabrieksschoorstenen ( NOUN NOUN_PLURAL ) lemma=`fabrieksschoorsteen` nounpl  
+ fabrieksterrein ( NOUN NOUN_SINGULAR ) 
+ fabrieksterreinen ( NOUN NOUN_PLURAL ) lemma=`fabrieksterrein` nounpl  
+ fabriekt ( VERB_PRESENT VERB ) lemma=`fabrieken` verbpressg  
+ fabriekte ( VERB_PAST VERB ) lemma=`fabrieken` verbpastsg  
+ fabriekten ( VERB_PAST VERB ) lemma=`fabrieken` verbpastpl  
+ fabrikaat ( NOUN NOUN_SINGULAR ) 
+ fabrikage ( NOUN NOUN_SINGULAR ) 
+ fabrikant ( NOUN NOUN_SINGULAR ) 
+ fabrikanten ( NOUN NOUN_PLURAL ) lemma=`fabrikant` nounpl  
+ fabrikaten ( NOUN NOUN_PLURAL ) lemma=`fabrikaat` nounpl  
+ fabrikeer ( VERB_PRESENT VERB ) lemma=`fabrikeren` verbpressg  
+ fabrikeerde ( VERB_PAST VERB ) lemma=`fabrikeren` verbpastsg  
+ fabrikeerden ( VERB_PAST VERB ) lemma=`fabrikeren` verbpastpl  
+ fabrikeert ( VERB_PRESENT VERB ) lemma=`fabrikeren` verbpressg  
+ fabrikeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fabrikeren`fabrikeren`fabrikeren` nounsg  verbinf  verbprespl  
+ fabrikerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fabrikeren` verbpresp  
+ fabrikerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fabrikerende`fabrikeren` nounsg  verbpresp  
+ fabuleus ( ADJECTIVE ) 
+ fabuleust ( ADJECTIVE ) lemma=`fabuleus` adj  
+ fabuleuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fabuleus`fabuleuste` adj  nounsg  
+ fabuleuze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fabuleus`fabuleuze` adj  nounsg  
+ fabuleuzer ( ADJECTIVE ) lemma=`fabuleus` adj  
+ fabuleuzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fabuleus`fabuleuzere` adj  nounsg  
+ facaden ( NOUN NOUN_PLURAL ) lemma=`façade` nounpl  
+ face-lift ( NOUN NOUN_SINGULAR ) 
+ face-lifts ( NOUN NOUN_PLURAL ) lemma=`face-lift` nounpl  
+ face-à-main ( NOUN NOUN_SINGULAR ) 
+ face-à-mains ( NOUN NOUN_PLURAL ) lemma=`face-à-main` nounpl  
+ facet ( NOUN NOUN_SINGULAR ) 
+ facetje ( NOUN NOUN_SINGULAR ) lemma=`facet` nounsg  
+ facetten ( NOUN NOUN_PLURAL ) lemma=`facet` nounpl  
+ facie ( NOUN NOUN_SINGULAR ) 
+ facies ( NOUN NOUN_PLURAL ) lemma=`facie` nounpl  
+ facilitair ( ADJECTIVE ) 
+ faciliteit ( NOUN NOUN_SINGULAR ) 
+ faciliteiten ( NOUN NOUN_PLURAL ) lemma=`faciliteit` nounpl  
+ faciliteitenregeling ( NOUN NOUN_SINGULAR ) 
+ faciliteitenregelingen ( NOUN NOUN_PLURAL ) lemma=`faciliteitenregeling` nounpl  
+ facsimile ( NOUN NOUN_SINGULAR ) 
+ facsimile's ( NOUN NOUN_PLURAL ) lemma=`facsimile` nounpl  
+ facsimile-uitgave ( NOUN NOUN_SINGULAR ) 
+ facsimile-uitgaven ( NOUN NOUN_PLURAL ) lemma=`facsimile-uitgave` nounpl  
+ facsimile-uitgaves ( NOUN NOUN_PLURAL ) lemma=`facsimile-uitgave` nounpl  
+ facsimileetje ( NOUN NOUN_SINGULAR ) lemma=`facsimile` nounsg  
+ facsimileetjes ( NOUN NOUN_PLURAL ) lemma=`facsimile` nounpl  
+ factie ( NOUN NOUN_SINGULAR ) 
+ facties ( NOUN NOUN_PLURAL ) lemma=`factie` nounpl  
+ factiestrijd ( NOUN NOUN_SINGULAR ) 
+ factiën ( NOUN NOUN_PLURAL ) lemma=`factie` nounpl  
+ factor ( NOUN NOUN_SINGULAR ) 
+ factoren ( NOUN NOUN_PLURAL ) lemma=`factor` nounpl  
+ factors ( NOUN NOUN_PLURAL ) lemma=`factor` nounpl  
+ factotum ( NOUN NOUN_SINGULAR ) 
+ factotums ( NOUN NOUN_PLURAL ) lemma=`factotum` nounpl  
+ factureer ( VERB_PRESENT VERB ) lemma=`factureren` verbpressg  
+ factureerde ( VERB_PAST VERB ) lemma=`factureren` verbpastsg  
+ factureerden ( VERB_PAST VERB ) lemma=`factureren` verbpastpl  
+ factureert ( VERB_PRESENT VERB ) lemma=`factureren` verbpressg  
+ facturen ( NOUN NOUN_PLURAL ) lemma=`factuur` nounpl  
+ factureren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`factureren`factureren`factureren` nounsg  verbinf  verbprespl  
+ facturerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`factureren` verbpresp  
+ facturerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`facturerende`factureren` nounsg  verbpresp  
+ factuur ( NOUN NOUN_SINGULAR ) 
+ factuurnummer ( NOUN NOUN_SINGULAR ) 
+ factuurnummers ( NOUN NOUN_PLURAL ) lemma=`factuurnummer` nounpl  
+ factuurtje ( NOUN NOUN_SINGULAR ) lemma=`factuur` nounsg  
+ factuurtjes ( NOUN NOUN_PLURAL ) lemma=`factuur` nounpl  
+ facultatief ( ADJECTIVE ) 
+ facultatieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`facultatief`facultatieve` adj  nounsg  
+ faculteit ( NOUN NOUN_SINGULAR ) 
+ faculteiten ( NOUN NOUN_PLURAL ) lemma=`faculteit` nounpl  
+ faculteitsraad ( NOUN NOUN_SINGULAR ) 
+ faculteitsraden ( NOUN NOUN_PLURAL ) lemma=`faculteitsraad` nounpl  
+ fado ( NOUN NOUN_SINGULAR ) 
+ fado's ( NOUN NOUN_PLURAL ) lemma=`fado` nounpl  
+ faecaliën ( NOUN NOUN_PLURAL ) 
+ faeces ( NOUN NOUN_SINGULAR ) 
+ fagot ( NOUN NOUN_SINGULAR ) 
+ fagotten ( NOUN NOUN_PLURAL ) lemma=`fagot` nounpl  
+ fagottist ( NOUN NOUN_SINGULAR ) 
+ fagottiste ( NOUN NOUN_SINGULAR ) 
+ fagottisten ( NOUN NOUN_PLURAL ) lemma=`fagottist` nounpl  
+ fagottistes ( NOUN NOUN_PLURAL ) lemma=`fagottiste` nounpl  
+ failliet ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`failliet`failliet` adj  nounsg  
+ failliete ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`failliet`failliete` adj  nounsg  
+ faillieten ( NOUN NOUN_PLURAL ) lemma=`failliet` nounpl  
+ faillissement ( NOUN NOUN_SINGULAR ) 
+ faillissementen ( NOUN NOUN_PLURAL ) lemma=`faillissement` nounpl  
+ faillissementsaanvra ( NOUN NOUN_SINGULAR ) 
+ faillissementsaanvraag ( NOUN NOUN_SINGULAR ) 
+ faillissementsaanvragen ( NOUN NOUN_PLURAL ) lemma=`faillissementsaanvraag` nounpl  
+ fair ( ADJECTIVE ) 
+ fairder ( ADJECTIVE ) lemma=`fair` adj  
+ fairdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fair`fairdere` adj  nounsg  
+ fairst ( ADJECTIVE ) lemma=`fair` adj  
+ fairste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fair`fairste` adj  nounsg  
+ fakier ( NOUN NOUN_SINGULAR ) 
+ fakiers ( NOUN NOUN_PLURAL ) lemma=`fakier` nounpl  
+ fakir ( NOUN NOUN_SINGULAR ) 
+ fakirs ( NOUN NOUN_PLURAL ) lemma=`fakir` nounpl  
+ fakkel ( NOUN NOUN_SINGULAR ) 
+ fakkeldraagster ( NOUN NOUN_SINGULAR ) 
+ fakkeldraagsters ( NOUN NOUN_PLURAL ) lemma=`fakkeldraagster` nounpl  
+ fakkeldrager ( NOUN NOUN_SINGULAR ) 
+ fakkeldragers ( NOUN NOUN_PLURAL ) lemma=`fakkeldrager` nounpl  
+ fakkeloptocht ( NOUN NOUN_SINGULAR ) 
+ fakkeloptochten ( NOUN NOUN_PLURAL ) lemma=`fakkeloptocht` nounpl  
+ fakkels ( NOUN NOUN_PLURAL ) lemma=`fakkel` nounpl  
+ fakkeltje ( NOUN NOUN_SINGULAR ) lemma=`fakkel` nounsg  
+ fakkeltjes ( NOUN NOUN_PLURAL ) lemma=`fakkel` nounpl  
+ faktor ( NOUN NOUN_SINGULAR ) 
+ faktoren ( NOUN NOUN_PLURAL ) lemma=`faktor` nounpl  
+ faktuurnummer ( NOUN NOUN_SINGULAR ) 
+ faktuurnummers ( NOUN NOUN_PLURAL ) lemma=`faktuurnummer` nounpl  
+ fakultatief ( ADJECTIVE ) 
+ fakulteit ( NOUN NOUN_SINGULAR ) 
+ fakulteitsraad ( NOUN NOUN_SINGULAR ) 
+ falen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`falen`falen`falen` nounsg  verbinf  verbprespl  
+ falend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`falen` verbpresp  
+ falende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`falende`falen` nounsg  verbpresp  
+ faliekant ( ADJECTIVE ) 
+ faling ( NOUN NOUN_SINGULAR ) 
+ falingen ( NOUN NOUN_PLURAL ) lemma=`faling` nounpl  
+ fall-out ( NOUN NOUN_SINGULAR ) 
+ fallisch ( ADJECTIVE ) 
+ fallische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fallisch`fallische` adj  nounsg  
+ fallus ( NOUN NOUN_SINGULAR ) 
+ fallussen ( NOUN NOUN_PLURAL ) lemma=`fallus` nounpl  
+ fallussymbolen ( NOUN NOUN_PLURAL ) lemma=`fallussymbool` nounpl  
+ fallussymbool ( NOUN NOUN_SINGULAR ) 
+ falset ( NOUN ADVERB NOUN_SINGULAR ) lemma=`falset`falset` adv  nounsg  
+ falsetten ( NOUN NOUN_PLURAL ) lemma=`falset` nounpl  
+ falsificeer ( VERB_PRESENT VERB ) lemma=`falsificeren` verbpressg  
+ falsificeerde ( VERB_PAST VERB ) lemma=`falsificeren` verbpastsg  
+ falsificeerden ( VERB_PAST VERB ) lemma=`falsificeren` verbpastpl  
+ falsificeert ( VERB_PRESENT VERB ) lemma=`falsificeren` verbpressg  
+ falsificeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`falsificeren`falsificeren`falsificeren` nounsg  verbinf  verbprespl  
+ falsificerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`falsificeren` verbpresp  
+ falsificerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`falsificerende`falsificeren` nounsg  verbpresp  
+ falsifieer ( VERB_PRESENT VERB ) lemma=`falsifiëren` verbpressg  
+ falsifieerde ( VERB_PAST VERB ) lemma=`falsifiëren` verbpastsg  
+ falsifieerden ( VERB_PAST VERB ) lemma=`falsifiëren` verbpastpl  
+ falsifieert ( VERB_PRESENT VERB ) lemma=`falsifiëren` verbpressg  
+ falsifiëren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`falsifiëren`falsifiëren`falsifiëren` nounsg  verbinf  verbprespl  
+ falsifiërend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`falsifiëren` verbpresp  
+ falsifiërende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`falsifiërende`falsifiëren` nounsg  verbpresp  
+ fameus ( ADJECTIVE ) 
+ fameust ( ADJECTIVE ) lemma=`fameus` adj  
+ fameuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fameus`fameuste` adj  nounsg  
+ fameuze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fameus`fameuze` adj  nounsg  
+ fameuzer ( ADJECTIVE ) lemma=`fameus` adj  
+ fameuzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fameus`fameuzere` adj  nounsg  
+ familiaal ( ADJECTIVE ) 
+ familiaalst ( ADJECTIVE ) lemma=`familiaal` adj  
+ familiaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiaal`familiaalste` adj  nounsg  
+ familiaar ( ADJECTIVE ) 
+ familiaarder ( ADJECTIVE ) lemma=`familiaar` adj  
+ familiaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiaar`familiaardere` adj  nounsg  
+ familiaarst ( ADJECTIVE ) lemma=`familiaar` adj  
+ familiaarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiaar`familiaarste` adj  nounsg  
+ familiair ( ADJECTIVE ) 
+ familiairder ( ADJECTIVE ) lemma=`familiair` adj  
+ familiairdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiair`familiairdere` adj  nounsg  
+ familiaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiair`familiaire` adj  nounsg  
+ familiairst ( ADJECTIVE ) lemma=`familiair` adj  
+ familiairste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiair`familiairste` adj  nounsg  
+ familiale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiaal`familiale` adj  nounsg  
+ familialer ( ADJECTIVE ) lemma=`familiaal` adj  
+ familialere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiaal`familialere` adj  nounsg  
+ familiare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familiaar`familiare` adj  nounsg  
+ familiariteit ( NOUN NOUN_SINGULAR ) 
+ familiariteiten ( NOUN NOUN_PLURAL ) lemma=`familiariteit` nounpl  
+ familie ( NOUN NOUN_SINGULAR ) 
+ familieaangelegenhed ( NOUN NOUN_PLURAL ) lemma=`familieaangelegenhei` nounpl  
+ familieaangelegenheden ( NOUN NOUN_PLURAL ) lemma=`familieaangelegenheid` nounpl  
+ familieaangelegenhei ( NOUN NOUN_SINGULAR ) 
+ familieaangelegenheid ( NOUN NOUN_SINGULAR ) 
+ familieband ( NOUN NOUN_SINGULAR ) 
+ familiebanden ( NOUN NOUN_PLURAL ) lemma=`familieband` nounpl  
+ familiebedrijf ( NOUN NOUN_SINGULAR ) 
+ familiebedrijfje ( NOUN NOUN_SINGULAR ) lemma=`familiebedrijf` nounsg  
+ familiebedrijfjes ( NOUN NOUN_PLURAL ) lemma=`familiebedrijf` nounpl  
+ familiebedrijven ( NOUN NOUN_PLURAL ) lemma=`familiebedrijf` nounpl  
+ familiebetrekking ( NOUN NOUN_SINGULAR ) 
+ familiebetrekkingen ( NOUN NOUN_PLURAL ) lemma=`familiebetrekking` nounpl  
+ familiebezit ( NOUN NOUN_SINGULAR ) 
+ familiebezoek ( NOUN NOUN_SINGULAR ) 
+ familiebezoeken ( NOUN NOUN_PLURAL ) lemma=`familiebezoek` nounpl  
+ familiedag ( NOUN NOUN_SINGULAR ) 
+ familiedagen ( NOUN NOUN_PLURAL ) lemma=`familiedag` nounpl  
+ familiegraf ( NOUN NOUN_SINGULAR ) 
+ familiegraven ( NOUN NOUN_PLURAL ) lemma=`familiegraf` nounpl  
+ familiehotel ( NOUN NOUN_SINGULAR ) 
+ familiehotels ( NOUN NOUN_PLURAL ) lemma=`familiehotel` nounpl  
+ familiekring ( NOUN NOUN_SINGULAR ) 
+ familiekringen ( NOUN NOUN_PLURAL ) lemma=`familiekring` nounpl  
+ familieleden ( NOUN NOUN_PLURAL ) lemma=`familielid` nounpl  
+ familieleven ( NOUN NOUN_SINGULAR ) 
+ familielid ( NOUN NOUN_SINGULAR ) 
+ familienaam ( NOUN NOUN_SINGULAR ) 
+ familienamen ( NOUN NOUN_PLURAL ) lemma=`familienaam` nounpl  
+ familierecht ( NOUN NOUN_SINGULAR ) 
+ familierelatie ( NOUN NOUN_SINGULAR ) 
+ familierelaties ( NOUN NOUN_PLURAL ) lemma=`familierelatie` nounpl  
+ families ( NOUN NOUN_PLURAL ) lemma=`familie` nounpl  
+ familieverband ( NOUN NOUN_SINGULAR ) 
+ familieverbanden ( NOUN NOUN_PLURAL ) lemma=`familieverband` nounpl  
+ familieziek ( ADJECTIVE ) 
+ familiezieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`familieziek`familiezieke` adj  nounsg  
+ fan ( NOUN NOUN_SINGULAR ) 
+ fanaat ( NOUN NOUN_SINGULAR ) 
+ fanate ( NOUN NOUN_SINGULAR ) 
+ fanaten ( NOUN NOUN_PLURAL ) lemma=`fanaat` nounpl  
+ fanates ( NOUN NOUN_PLURAL ) lemma=`fanate` nounpl  
+ fanatici ( NOUN NOUN_PLURAL ) lemma=`fanaticus` nounpl  
+ fanaticus ( NOUN NOUN_SINGULAR ) 
+ fanatiek ( ADJECTIVE ) 
+ fanatieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fanatiek`fanatieke` adj  nounsg  
+ fanatiekeling ( NOUN NOUN_SINGULAR ) 
+ fanatiekelingen ( NOUN NOUN_PLURAL ) lemma=`fanatiekeling` nounpl  
+ fanatieken ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`fanatiek`fanatieke` adj  nounpl  
+ fanatieker ( ADJECTIVE ) lemma=`fanatiek` adj  
+ fanatiekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fanatiek`fanatiekere` adj  nounsg  
+ fanatiekst ( ADJECTIVE ) lemma=`fanatiek` adj  
+ fanatiekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fanatiek`fanatiekste` adj  nounsg  
+ fanatikus ( NOUN NOUN_SINGULAR ) 
+ fanatisme ( NOUN NOUN_SINGULAR ) 
+ fanclub ( NOUN NOUN_SINGULAR ) 
+ fanclubs ( NOUN NOUN_PLURAL ) lemma=`fanclub` nounpl  
+ fancy-fair ( NOUN NOUN_SINGULAR ) 
+ fancy-fairs ( NOUN NOUN_PLURAL ) lemma=`fancy-fair` nounpl  
+ fanfare ( NOUN NOUN_SINGULAR ) 
+ fanfaren ( NOUN NOUN_PLURAL ) lemma=`fanfare` nounpl  
+ fanfares ( NOUN NOUN_PLURAL ) lemma=`fanfare` nounpl  
+ fanfaretje ( NOUN NOUN_SINGULAR ) lemma=`fanfare` nounsg  
+ fanklub ( NOUN NOUN_SINGULAR ) 
+ fanklubs ( NOUN NOUN_PLURAL ) lemma=`fanklub` nounpl  
+ fanmail ( NOUN NOUN_SINGULAR ) 
+ fans ( NOUN NOUN_PLURAL ) lemma=`fan` nounpl  
+ fantaseer ( VERB_PRESENT VERB ) lemma=`fantaseren` verbpressg  
+ fantaseerde ( VERB_PAST VERB ) lemma=`fantaseren` verbpastsg  
+ fantaseerden ( VERB_PAST VERB ) lemma=`fantaseren` verbpastpl  
+ fantaseert ( VERB_PRESENT VERB ) lemma=`fantaseren` verbpressg  
+ fantaseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fantaseren`fantaseren`fantaseren` nounsg  verbinf  verbprespl  
+ fantaserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fantaseren` verbpresp  
+ fantaserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fantaserende`fantaseren` nounsg  verbpresp  
+ fantasia ( NOUN NOUN_SINGULAR ) 
+ fantasia's ( NOUN NOUN_PLURAL ) lemma=`fantasia` nounpl  
+ fantasie ( NOUN NOUN_SINGULAR ) 
+ fantasieloos ( ADJECTIVE ) 
+ fantasieloost ( ADJECTIVE ) lemma=`fantasieloos` adj  
+ fantasielooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantasieloos`fantasielooste` adj  nounsg  
+ fantasieloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantasieloos`fantasieloze` adj  nounsg  
+ fantasielozer ( ADJECTIVE ) lemma=`fantasieloos` adj  
+ fantasielozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantasieloos`fantasielozere` adj  nounsg  
+ fantasierijk ( ADJECTIVE ) 
+ fantasierijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantasierijk`fantasierijke` adj  nounsg  
+ fantasierijker ( ADJECTIVE ) lemma=`fantasierijk` adj  
+ fantasierijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantasierijk`fantasierijkere` adj  nounsg  
+ fantasierijkst ( ADJECTIVE ) lemma=`fantasierijk` adj  
+ fantasierijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantasierijk`fantasierijkste` adj  nounsg  
+ fantasietje ( NOUN NOUN_SINGULAR ) lemma=`fantasie` nounsg  
+ fantasietjes ( NOUN NOUN_PLURAL ) lemma=`fantasie` nounpl  
+ fantasieën ( NOUN NOUN_PLURAL ) lemma=`fantasie` nounpl  
+ fantast ( NOUN NOUN_SINGULAR ) 
+ fantaste ( NOUN NOUN_SINGULAR ) 
+ fantasten ( NOUN NOUN_PLURAL ) lemma=`fantast|fantaste` nounpl  
+ fantasterij ( NOUN NOUN_SINGULAR ) 
+ fantastes ( NOUN NOUN_PLURAL ) lemma=`fantaste` nounpl  
+ fantastisch ( ADJECTIVE ) 
+ fantastische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantastisch`fantastische` adj  nounsg  
+ fantastischer ( ADJECTIVE ) lemma=`fantastisch` adj  
+ fantastischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantastisch`fantastischere` adj  nounsg  
+ fantastischt ( ADJECTIVE ) lemma=`fantastisch` adj  
+ fantastischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fantastisch`fantastischte` adj  nounsg  
+ fantomen ( NOUN NOUN_PLURAL ) lemma=`fantoom` nounpl  
+ fantoom ( NOUN NOUN_SINGULAR ) 
+ farao ( NOUN NOUN_SINGULAR ) 
+ farao's ( NOUN NOUN_PLURAL ) lemma=`farao` nounpl  
+ farce ( NOUN NOUN_SINGULAR ) 
+ farcen ( NOUN NOUN_PLURAL ) lemma=`farce` nounpl  
+ farces ( NOUN NOUN_PLURAL ) lemma=`farce` nounpl  
+ farm ( NOUN NOUN_SINGULAR ) 
+ farmaceut ( NOUN NOUN_SINGULAR ) 
+ farmaceuten ( NOUN NOUN_PLURAL ) lemma=`farmaceut` nounpl  
+ farmaceutisch ( ADJECTIVE ) 
+ farmaceutische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`farmaceutisch`farmaceutische` adj  nounsg  
+ farmacie ( NOUN NOUN_SINGULAR ) 
+ farmacieconcern ( NOUN NOUN_SINGULAR ) 
+ farmacieconcerns ( NOUN NOUN_PLURAL ) lemma=`farmacieconcern` nounpl  
+ farmer ( NOUN NOUN_SINGULAR ) 
+ farmers ( NOUN NOUN_PLURAL ) lemma=`farmer` nounpl  
+ farms ( NOUN NOUN_PLURAL ) lemma=`farm` nounpl  
+ fascinatie ( NOUN NOUN_SINGULAR ) 
+ fascinaties ( NOUN NOUN_PLURAL ) lemma=`fascinatie` nounpl  
+ fascineer ( VERB_PRESENT VERB ) lemma=`fascineren` verbpressg  
+ fascineerde ( VERB_PAST VERB ) lemma=`fascineren` verbpastsg  
+ fascineerden ( VERB_PAST VERB ) lemma=`fascineren` verbpastpl  
+ fascineert ( VERB_PRESENT VERB ) lemma=`fascineren` verbpressg  
+ fascineren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fascineren`fascineren`fascineren` nounsg  verbinf  verbprespl  
+ fascinerend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`fascinerend`fascineren` adj  verbpresp  
+ fascinerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fascinerende`fascineren` nounsg  verbpresp  
+ fascisme ( NOUN NOUN_SINGULAR ) 
+ fascist ( NOUN NOUN_SINGULAR ) 
+ fascisten ( NOUN NOUN_PLURAL ) lemma=`fascist` nounpl  
+ fascistisch ( ADJECTIVE ) 
+ fascistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fascistisch`fascistische` adj  nounsg  
+ fascistischer ( ADJECTIVE ) lemma=`fascistisch` adj  
+ fascistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fascistisch`fascistischere` adj  nounsg  
+ fascistischt ( ADJECTIVE ) lemma=`fascistisch` adj  
+ fascistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fascistisch`fascistischte` adj  nounsg  
+ fascistoïde ( ADJECTIVE ) 
+ fase ( NOUN NOUN_SINGULAR ) 
+ faseer ( VERB_PRESENT VERB ) lemma=`faseren` verbpressg  
+ faseerde ( VERB_PAST VERB ) lemma=`faseren` verbpastsg  
+ faseerden ( VERB_PAST VERB ) lemma=`faseren` verbpastpl  
+ faseert ( VERB_PRESENT VERB ) lemma=`faseren` verbpressg  
+ fasen ( NOUN NOUN_PLURAL ) lemma=`fase` nounpl  
+ faseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`faseren`faseren`faseren` nounsg  verbinf  verbprespl  
+ faserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`faseren` verbpresp  
+ faserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`faserende`faseren` nounsg  verbpresp  
+ fasering ( NOUN NOUN_SINGULAR ) 
+ faseringen ( NOUN NOUN_PLURAL ) lemma=`fasering` nounpl  
+ fases ( NOUN NOUN_PLURAL ) lemma=`fase` nounpl  
+ fat ( NOUN NOUN_SINGULAR ) 
+ fataal ( ADJECTIVE ) 
+ fataalst ( ADJECTIVE ) lemma=`fataal` adj  
+ fataalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fataal`fataalste` adj  nounsg  
+ fatale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fataal`fatale` adj  nounsg  
+ fataler ( ADJECTIVE ) lemma=`fataal` adj  
+ fatalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fataal`fatalere` adj  nounsg  
+ fatalisme ( NOUN NOUN_SINGULAR ) 
+ fatalistisch ( ADJECTIVE ) 
+ fatalistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatalistisch`fatalistische` adj  nounsg  
+ fatalistischer ( ADJECTIVE ) lemma=`fatalistisch` adj  
+ fatalistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatalistisch`fatalistischere` adj  nounsg  
+ fatalistischt ( ADJECTIVE ) lemma=`fatalistisch` adj  
+ fatalistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatalistisch`fatalistischte` adj  nounsg  
+ fatsoen ( NOUN NOUN_SINGULAR ) 
+ fatsoeneer ( VERB_PRESENT VERB ) lemma=`fatsoeneren` verbpressg  
+ fatsoeneerde ( VERB_PAST VERB ) lemma=`fatsoeneren` verbpastsg  
+ fatsoeneerden ( VERB_PAST VERB ) lemma=`fatsoeneren` verbpastpl  
+ fatsoeneert ( VERB_PRESENT VERB ) lemma=`fatsoeneren` verbpressg  
+ fatsoenen ( NOUN NOUN_PLURAL ) lemma=`fatsoen` nounpl  
+ fatsoeneren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fatsoeneren`fatsoeneren`fatsoeneren` nounsg  verbinf  verbprespl  
+ fatsoenerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fatsoeneren` verbpresp  
+ fatsoenerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fatsoenerende`fatsoeneren` nounsg  verbpresp  
+ fatsoenlijk ( ADJECTIVE ) 
+ fatsoenlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatsoenlijk`fatsoenlijke` adj  nounsg  
+ fatsoenlijker ( ADJECTIVE ) lemma=`fatsoenlijk` adj  
+ fatsoenlijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatsoenlijk`fatsoenlijkere` adj  nounsg  
+ fatsoenlijkst ( ADJECTIVE ) lemma=`fatsoenlijk` adj  
+ fatsoenlijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatsoenlijk`fatsoenlijkste` adj  nounsg  
+ fatsoensnorm ( NOUN NOUN_SINGULAR ) 
+ fatsoensnormen ( NOUN NOUN_PLURAL ) lemma=`fatsoensnorm` nounpl  
+ fatsoensregel ( NOUN NOUN_SINGULAR ) 
+ fatsoensregelen ( NOUN NOUN_PLURAL ) lemma=`fatsoensregel` nounpl  
+ fatsoensregels ( NOUN NOUN_PLURAL ) lemma=`fatsoensregel` nounpl  
+ fatsoentje ( NOUN NOUN_SINGULAR ) lemma=`fatsoen` nounsg  
+ fatsoentjes ( NOUN NOUN_PLURAL ) lemma=`fatsoen` nounpl  
+ fatten ( NOUN NOUN_PLURAL ) lemma=`fat` nounpl  
+ fatterig ( ADJECTIVE ) 
+ fatterige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatterig`fatterige` adj  nounsg  
+ fatteriger ( ADJECTIVE ) lemma=`fatterig` adj  
+ fatterigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatterig`fatterigere` adj  nounsg  
+ fatterigst ( ADJECTIVE ) lemma=`fatterig` adj  
+ fatterigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fatterig`fatterigste` adj  nounsg  
+ fattig ( ADJECTIVE ) 
+ fattige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fattig`fattige` adj  nounsg  
+ fattiger ( ADJECTIVE ) lemma=`fattig` adj  
+ fattigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fattig`fattigere` adj  nounsg  
+ fattigst ( ADJECTIVE ) lemma=`fattig` adj  
+ fattigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fattig`fattigste` adj  nounsg  
+ fauna ( NOUN NOUN_SINGULAR ) 
+ fauna's ( NOUN NOUN_PLURAL ) lemma=`fauna` nounpl  
+ faunabeheer ( NOUN NOUN_SINGULAR ) 
+ faunawet ( NOUN NOUN_SINGULAR ) 
+ faunawetten ( NOUN NOUN_PLURAL ) lemma=`faunawet` nounpl  
+ fauteuil ( NOUN NOUN_SINGULAR ) 
+ fauteuils ( NOUN NOUN_PLURAL ) lemma=`fauteuil` nounpl  
+ fauteuiltje ( NOUN NOUN_SINGULAR ) lemma=`fauteuil` nounsg  
+ fauteuiltjes ( NOUN NOUN_PLURAL ) lemma=`fauteuil` nounpl  
+ favoriet ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`favoriet`favoriet` adj  nounsg  
+ favoriete ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`favoriet`favoriete` adj  nounsg  
+ favorieten ( NOUN NOUN_PLURAL ) lemma=`favoriet` nounpl  
+ favoriseer ( VERB_PRESENT VERB ) lemma=`favoriseren` verbpressg  
+ favoriseerde ( VERB_PAST VERB ) lemma=`favoriseren` verbpastsg  
+ favoriseerden ( VERB_PAST VERB ) lemma=`favoriseren` verbpastpl  
+ favoriseert ( VERB_PRESENT VERB ) lemma=`favoriseren` verbpressg  
+ favoriseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`favoriseren`favoriseren`favoriseren` nounsg  verbinf  verbprespl  
+ favoriserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`favoriseren` verbpresp  
+ favoriserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`favoriserende`favoriseren` nounsg  verbpresp  
+ fax ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fax`faxen` nounsg  verbpressg  
+ faxen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fax`faxen`faxen`faxen` nounpl  nounsg  verbinf  verbprespl  
+ faxend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`faxen` verbpresp  
+ faxende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`faxende`faxen` nounsg  verbpresp  
+ faxnummer ( NOUN NOUN_SINGULAR ) 
+ faxnummers ( NOUN NOUN_PLURAL ) lemma=`faxnummer` nounpl  
+ faxt ( VERB_PRESENT VERB ) lemma=`faxen` verbpressg  
+ faxte ( VERB_PAST VERB ) lemma=`faxen` verbpastsg  
+ faxten ( VERB_PAST VERB ) lemma=`faxen` verbpastpl  
+ faxverkeer ( NOUN NOUN_SINGULAR ) 
+ fazant ( NOUN NOUN_SINGULAR ) 
+ fazanten ( NOUN NOUN_PLURAL ) lemma=`fazant` nounpl  
+ fazering ( NOUN NOUN_SINGULAR ) 
+ fazeringen ( NOUN NOUN_PLURAL ) lemma=`fazering` nounpl  
+ façade ( NOUN NOUN_SINGULAR ) 
+ façaden ( NOUN NOUN_PLURAL ) lemma=`façade` nounpl  
+ façades ( NOUN NOUN_PLURAL ) lemma=`façade` nounpl  
+ façadetje ( NOUN NOUN_SINGULAR ) lemma=`façade` nounsg  
+ façadetjes ( NOUN NOUN_PLURAL ) lemma=`façade` nounpl  
+ februari ( NOUN NOUN_PROPER_SINGULAR ) 
+ februari-staking ( NOUN NOUN_SINGULAR ) 
+ fecaliën ( NOUN NOUN_PLURAL ) 
+ feces ( NOUN NOUN_PLURAL ) 
+ federaal ( ADJECTIVE ) 
+ federale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`federaal`federale` adj  nounsg  
+ federalen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`federaal`federale` adj  nounpl  
+ federaliseer ( VERB_PRESENT VERB ) lemma=`federaliseren` verbpressg  
+ federaliseerde ( VERB_PAST VERB ) lemma=`federaliseren` verbpastsg  
+ federaliseerden ( VERB_PAST VERB ) lemma=`federaliseren` verbpastpl  
+ federaliseert ( VERB_PRESENT VERB ) lemma=`federaliseren` verbpressg  
+ federaliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`federaliseren`federaliseren`federaliseren` nounsg  verbinf  verbprespl  
+ federaliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`federaliseren` verbpresp  
+ federaliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`federaliserende`federaliseren` nounsg  verbpresp  
+ federalisering ( NOUN NOUN_SINGULAR ) 
+ federalisme ( NOUN NOUN_SINGULAR ) 
+ federalist ( NOUN NOUN_SINGULAR ) 
+ federalisten ( NOUN NOUN_PLURAL ) lemma=`federalist` nounpl  
+ federalizering ( NOUN NOUN_SINGULAR ) 
+ federatie ( NOUN NOUN_SINGULAR ) 
+ federatief ( ADJECTIVE ) 
+ federatieraad ( NOUN NOUN_SINGULAR ) 
+ federatieraden ( NOUN NOUN_PLURAL ) lemma=`federatieraad` nounpl  
+ federaties ( NOUN NOUN_PLURAL ) lemma=`federatie` nounpl  
+ federatieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`federatief`federatieve` adj  nounsg  
+ fee ( NOUN NOUN_SINGULAR ) 
+ feedback ( NOUN NOUN_SINGULAR ) 
+ feeks ( NOUN NOUN_SINGULAR ) 
+ feeksen ( NOUN NOUN_PLURAL ) lemma=`feeks` nounpl  
+ feeling ( NOUN NOUN_SINGULAR ) 
+ feest ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`feest`feesten` nounsg  verbpressg  
+ feestdag ( NOUN NOUN_SINGULAR ) 
+ feestdagen ( NOUN NOUN_PLURAL ) lemma=`feestdag` nounpl  
+ feestelijk ( ADJECTIVE ) 
+ feestelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feestelijk`feestelijke` adj  nounsg  
+ feestelijker ( ADJECTIVE ) lemma=`feestelijk` adj  
+ feestelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feestelijk`feestelijkere` adj  nounsg  
+ feestelijkheden ( NOUN NOUN_PLURAL ) lemma=`feestelijkheid` nounpl  
+ feestelijkheid ( NOUN NOUN_SINGULAR ) 
+ feestelijkst ( ADJECTIVE ) lemma=`feestelijk` adj  
+ feestelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feestelijk`feestelijkste` adj  nounsg  
+ feesten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`feest`feesten`feesten`feesten` nounpl  nounsg  verbinf  verbprespl  
+ feestend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`feesten` verbpresp  
+ feestende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`feestende`feesten` nounsg  verbpresp  
+ feestganger ( NOUN NOUN_SINGULAR ) 
+ feestgangers ( NOUN NOUN_PLURAL ) lemma=`feestganger` nounpl  
+ feestgedruis ( NOUN NOUN_SINGULAR ) 
+ feestgevierd ( VERB_PAST_PARTICIPLE VERB ) lemma=`feestvieren` verbpapa  
+ feestje ( NOUN NOUN_SINGULAR ) lemma=`feest` nounsg  
+ feestjes ( NOUN NOUN_PLURAL ) lemma=`feest` nounpl  
+ feestmaal ( NOUN NOUN_SINGULAR ) 
+ feestmalen ( NOUN NOUN_PLURAL ) lemma=`feestmaal` nounpl  
+ feestneus ( NOUN NOUN_SINGULAR ) 
+ feestneuzen ( NOUN NOUN_PLURAL ) lemma=`feestneus` nounpl  
+ feestnummer ( NOUN NOUN_SINGULAR ) 
+ feestnummers ( NOUN NOUN_PLURAL ) lemma=`feestnummer` nounpl  
+ feestprogramma ( NOUN NOUN_SINGULAR ) 
+ feestprogramma's ( NOUN NOUN_PLURAL ) lemma=`feestprogramma` nounpl  
+ feeststemming ( NOUN NOUN_SINGULAR ) 
+ feeststemmingen ( NOUN NOUN_PLURAL ) lemma=`feeststemming` nounpl  
+ feestte ( VERB_PAST VERB ) lemma=`feesten` verbpastsg  
+ feestten ( VERB_PAST VERB ) lemma=`feesten` verbpastpl  
+ feestvarken ( NOUN NOUN_SINGULAR ) 
+ feestvarkens ( NOUN NOUN_PLURAL ) lemma=`feestvarken` nounpl  
+ feestverlichting ( NOUN NOUN_SINGULAR ) 
+ feestverlichtingen ( NOUN NOUN_PLURAL ) lemma=`feestverlichting` nounpl  
+ feestvier ( VERB_PRESENT VERB ) lemma=`feestvieren` verbpressg  
+ feestvierde ( VERB_PAST VERB ) lemma=`feestvieren` verbpastsg  
+ feestvierden ( VERB_PAST VERB ) lemma=`feestvieren` verbpastpl  
+ feestvierder ( NOUN NOUN_SINGULAR ) 
+ feestvierders ( NOUN NOUN_PLURAL ) lemma=`feestvierder` nounpl  
+ feestvieren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`feestvieren`feestvieren`feestvieren` nounsg  verbinf  verbprespl  
+ feestvierend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`feestvieren` verbpresp  
+ feestvierende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`feestvierende`feestvieren` nounsg  verbpresp  
+ feestvierster ( NOUN NOUN_SINGULAR ) 
+ feestviersters ( NOUN NOUN_PLURAL ) lemma=`feestvierster` nounpl  
+ feestviert ( VERB_PRESENT VERB ) lemma=`feestvieren` verbpressg  
+ feestvreugde ( NOUN NOUN_SINGULAR ) 
+ feestzaal ( NOUN NOUN_SINGULAR ) 
+ feestzalen ( NOUN NOUN_PLURAL ) lemma=`feestzaal` nounpl  
+ feetje ( NOUN NOUN_SINGULAR ) lemma=`fee` nounsg  
+ feetjes ( NOUN NOUN_PLURAL ) lemma=`fee` nounpl  
+ feeën ( NOUN NOUN_PLURAL ) lemma=`fee` nounpl  
+ feeëriek ( ADJECTIVE ) 
+ feeërieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feeëriek`feeërieke` adj  nounsg  
+ feeërieker ( ADJECTIVE ) lemma=`feeëriek` adj  
+ feeëriekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feeëriek`feeëriekere` adj  nounsg  
+ feeëriekst ( ADJECTIVE ) lemma=`feeëriek` adj  
+ feeëriekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feeëriek`feeëriekste` adj  nounsg  
+ feil ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`feil`feilen` nounsg  verbpressg  
+ feilde ( VERB_PAST VERB ) lemma=`feilen` verbpastsg  
+ feilden ( VERB_PAST VERB ) lemma=`feilen` verbpastpl  
+ feilen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`feil`feilen`feilen`feilen` nounpl  nounsg  verbinf  verbprespl  
+ feilend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`feilen` verbpresp  
+ feilende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`feilende`feilen` nounsg  verbpresp  
+ feilloos ( ADJECTIVE ) 
+ feilloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feilloos`feilloze` adj  nounsg  
+ feillozer ( ADJECTIVE ) lemma=`feilloos` adj  
+ feilt ( VERB_PRESENT VERB ) lemma=`feilen` verbpressg  
+ feiltje ( NOUN NOUN_SINGULAR ) lemma=`feil` nounsg  
+ feiltjes ( NOUN NOUN_PLURAL ) lemma=`feil` nounpl  
+ feit ( NOUN NOUN_SINGULAR ) 
+ feite ( NOUN NOUN_SINGULAR ) lemma=`feit` nounsg  
+ feitelijk ( ADJECTIVE ) 
+ feitelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feitelijk`feitelijke` adj  nounsg  
+ feitelijkheden ( NOUN NOUN_PLURAL ) lemma=`feitelijkheid` nounpl  
+ feitelijkheid ( NOUN NOUN_SINGULAR ) 
+ feiten ( NOUN NOUN_PLURAL ) lemma=`feit` nounpl  
+ feitenkennis ( NOUN NOUN_SINGULAR ) 
+ feitenmateriaal ( NOUN NOUN_SINGULAR ) 
+ feitje ( NOUN NOUN_SINGULAR ) lemma=`feit` nounsg  
+ feitjes ( NOUN NOUN_PLURAL ) lemma=`feit` nounpl  
+ fel ( ADJECTIVE ) 
+ felbegeerd ( ADJECTIVE ) 
+ felgekleurd ( ADJECTIVE ) 
+ felheid ( NOUN NOUN_SINGULAR ) 
+ felicitatie ( NOUN NOUN_SINGULAR ) 
+ felicitaties ( NOUN NOUN_PLURAL ) lemma=`felicitatie` nounpl  
+ feliciteer ( VERB_PRESENT VERB ) lemma=`feliciteren` verbpressg  
+ feliciteerde ( VERB_PAST VERB ) lemma=`feliciteren` verbpastsg  
+ feliciteerden ( VERB_PAST VERB ) lemma=`feliciteren` verbpastpl  
+ feliciteert ( VERB_PRESENT VERB ) lemma=`feliciteren` verbpressg  
+ feliciteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`feliciteren`feliciteren`feliciteren` nounsg  verbinf  verbprespl  
+ feliciterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`feliciteren` verbpresp  
+ feliciterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`feliciterende`feliciteren` nounsg  verbpresp  
+ felle ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fel`felle` adj  nounsg  
+ feller ( ADJECTIVE ) lemma=`fel` adj  
+ fellere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fel`fellere` adj  nounsg  
+ felrood ( ADJECTIVE ) 
+ felst ( ADJECTIVE ) lemma=`fel` adj  
+ felste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fel`felste` adj  nounsg  
+ femelaar ( NOUN NOUN_SINGULAR ) 
+ femelaars ( NOUN NOUN_PLURAL ) lemma=`femelaar` nounpl  
+ femelaarster ( NOUN NOUN_SINGULAR ) 
+ femelaarsters ( NOUN NOUN_PLURAL ) lemma=`femelaarster` nounpl  
+ femelaartje ( NOUN NOUN_SINGULAR ) lemma=`femelaar` nounsg  
+ femelaartjes ( NOUN NOUN_PLURAL ) lemma=`femelaar` nounpl  
+ femelaren ( NOUN NOUN_PLURAL ) lemma=`femelaar` nounpl  
+ femelarij ( NOUN NOUN_SINGULAR ) 
+ femelarijen ( NOUN NOUN_PLURAL ) lemma=`femelarij` nounpl  
+ femininisatie ( NOUN NOUN_SINGULAR ) 
+ femininisaties ( NOUN NOUN_PLURAL ) lemma=`femininisatie` nounpl  
+ feminisatie ( NOUN NOUN_SINGULAR ) 
+ feminisaties ( NOUN NOUN_PLURAL ) lemma=`feminisatie` nounpl  
+ feminisme ( NOUN NOUN_SINGULAR ) 
+ feminist ( NOUN NOUN_SINGULAR ) 
+ feministe ( NOUN NOUN_SINGULAR ) 
+ feministen ( NOUN NOUN_PLURAL ) lemma=`feminist|feministe` nounpl  
+ feministes ( NOUN NOUN_PLURAL ) lemma=`feministe` nounpl  
+ feministisch ( ADJECTIVE ) 
+ feministische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feministisch`feministische` adj  nounsg  
+ feministischer ( ADJECTIVE ) lemma=`feministisch` adj  
+ feministischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feministisch`feministischere` adj  nounsg  
+ feministischt ( ADJECTIVE ) lemma=`feministisch` adj  
+ feministischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feministisch`feministischte` adj  nounsg  
+ feniks ( NOUN NOUN_SINGULAR ) 
+ feniksen ( NOUN NOUN_PLURAL ) lemma=`feniks` nounpl  
+ fenomeen ( NOUN NOUN_SINGULAR ) 
+ fenomeentje ( NOUN NOUN_SINGULAR ) lemma=`fenomeen` nounsg  
+ fenomeentjes ( NOUN NOUN_PLURAL ) lemma=`fenomeen` nounpl  
+ fenomenaal ( ADJECTIVE ) 
+ fenomenaalst ( ADJECTIVE ) lemma=`fenomenaal` adj  
+ fenomenaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fenomenaal`fenomenaalste` adj  nounsg  
+ fenomenale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fenomenaal`fenomenale` adj  nounsg  
+ fenomenaler ( ADJECTIVE ) lemma=`fenomenaal` adj  
+ fenomenalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fenomenaal`fenomenalere` adj  nounsg  
+ fenomenen ( NOUN NOUN_PLURAL ) lemma=`fenomeen` nounpl  
+ feodaal ( ADJECTIVE ) 
+ feodaalst ( ADJECTIVE ) lemma=`feodaal` adj  
+ feodaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feodaal`feodaalste` adj  nounsg  
+ feodale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feodaal`feodale` adj  nounsg  
+ feodaler ( ADJECTIVE ) lemma=`feodaal` adj  
+ feodalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feodaal`feodalere` adj  nounsg  
+ feodalisme ( NOUN NOUN_SINGULAR ) 
+ ferm ( ADJECTIVE ) 
+ ferme ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ferm`ferme` adj  nounsg  
+ fermentatie ( NOUN NOUN_SINGULAR ) 
+ fermentatieproces ( NOUN NOUN_SINGULAR ) 
+ fermentatieprocessen ( NOUN NOUN_PLURAL ) lemma=`fermentatieproces` nounpl  
+ fermentaties ( NOUN NOUN_PLURAL ) lemma=`fermentatie` nounpl  
+ fermenteer ( VERB_PRESENT VERB ) lemma=`fermenteren` verbpressg  
+ fermenteerde ( VERB_PAST VERB ) lemma=`fermenteren` verbpastsg  
+ fermenteerden ( VERB_PAST VERB ) lemma=`fermenteren` verbpastpl  
+ fermenteert ( VERB_PRESENT VERB ) lemma=`fermenteren` verbpressg  
+ fermenteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fermenteren`fermenteren`fermenteren` nounsg  verbinf  verbprespl  
+ fermenterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fermenteren` verbpresp  
+ fermenterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fermenterende`fermenteren` nounsg  verbpresp  
+ fermer ( ADJECTIVE ) lemma=`ferm` adj  
+ fermere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ferm`fermere` adj  nounsg  
+ fermst ( ADJECTIVE ) lemma=`ferm` adj  
+ fermste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ferm`fermste` adj  nounsg  
+ ferry ( NOUN NOUN_SINGULAR ) 
+ ferryboot ( NOUN NOUN_SINGULAR ) 
+ ferryboten ( NOUN NOUN_PLURAL ) lemma=`ferryboot` nounpl  
+ fertilisatie ( NOUN NOUN_SINGULAR ) 
+ fertilisaties ( NOUN NOUN_PLURAL ) lemma=`fertilisatie` nounpl  
+ fertilizatie ( NOUN NOUN_SINGULAR ) 
+ fertilizaties ( NOUN NOUN_PLURAL ) lemma=`fertilizatie` nounpl  
+ fervent ( ADJECTIVE ) 
+ fervente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fervent`fervente` adj  nounsg  
+ ferventer ( ADJECTIVE ) lemma=`fervent` adj  
+ ferventere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fervent`ferventere` adj  nounsg  
+ ferventst ( ADJECTIVE ) lemma=`fervent` adj  
+ ferventste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fervent`ferventste` adj  nounsg  
+ festijn ( NOUN NOUN_SINGULAR ) 
+ festijnen ( NOUN NOUN_PLURAL ) lemma=`festijn` nounpl  
+ festival ( NOUN NOUN_SINGULAR ) 
+ festivaldirecteur ( NOUN NOUN_SINGULAR ) 
+ festivaldirecteuren ( NOUN NOUN_PLURAL ) lemma=`festivaldirecteur` nounpl  
+ festivals ( NOUN NOUN_PLURAL ) lemma=`festival` nounpl  
+ festiviteit ( NOUN NOUN_SINGULAR ) 
+ festiviteiten ( NOUN NOUN_PLURAL ) lemma=`festiviteit` nounpl  
+ feudaal ( ADJECTIVE ) 
+ feudaalst ( ADJECTIVE ) lemma=`feudaal` adj  
+ feudaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feudaal`feudaalste` adj  nounsg  
+ feudale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feudaal`feudale` adj  nounsg  
+ feudaler ( ADJECTIVE ) lemma=`feudaal` adj  
+ feudalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`feudaal`feudalere` adj  nounsg  
+ feuilleton ( NOUN NOUN_SINGULAR ) 
+ feuilletonnetje ( NOUN NOUN_SINGULAR ) lemma=`feuilleton` nounsg  
+ feuilletonnetjes ( NOUN NOUN_PLURAL ) lemma=`feuilleton` nounpl  
+ feuilletons ( NOUN NOUN_PLURAL ) lemma=`feuilleton` nounpl  
+ fez ( NOUN NOUN_SINGULAR ) 
+ fezzen ( NOUN NOUN_PLURAL ) lemma=`fez` nounpl  
+ fiasco ( NOUN NOUN_SINGULAR ) 
+ fiasco's ( NOUN NOUN_PLURAL ) lemma=`fiasco` nounpl  
+ fiasko ( NOUN NOUN_SINGULAR ) 
+ fiasko's ( NOUN NOUN_PLURAL ) lemma=`fiasko` nounpl  
+ fiat ( NOUN NOUN_SINGULAR ) 
+ fiats ( NOUN NOUN_PLURAL ) lemma=`fiat` nounpl  
+ fiatteer ( VERB_PRESENT VERB ) lemma=`fiatteren` verbpressg  
+ fiatteerde ( VERB_PAST VERB ) lemma=`fiatteren` verbpastsg  
+ fiatteerden ( VERB_PAST VERB ) lemma=`fiatteren` verbpastpl  
+ fiatteert ( VERB_PRESENT VERB ) lemma=`fiatteren` verbpressg  
+ fiatteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fiatteren`fiatteren`fiatteren` nounsg  verbinf  verbprespl  
+ fiatterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fiatteren` verbpresp  
+ fiatterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fiatterende`fiatteren` nounsg  verbpresp  
+ fiber ( NOUN NOUN_SINGULAR ) 
+ fiberglas ( NOUN NOUN_SINGULAR ) 
+ fibers ( NOUN NOUN_PLURAL ) lemma=`fiber` nounpl  
+ fiche ( NOUN NOUN_SINGULAR ) 
+ fiches ( NOUN NOUN_PLURAL ) lemma=`fiche` nounpl  
+ fictie ( NOUN NOUN_SINGULAR ) 
+ fictie- ( NOUN NOUN_SINGULAR ) lemma=`fictie` noun*kop  
+ fictief ( ADJECTIVE ) 
+ fictiefst ( ADJECTIVE ) lemma=`fictief` adj  
+ fictiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fictief`fictiefste` adj  nounsg  
+ ficties ( NOUN NOUN_PLURAL ) lemma=`fictie` nounpl  
+ fictieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fictief`fictieve` adj  nounsg  
+ fictiever ( ADJECTIVE ) lemma=`fictief` adj  
+ fictievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fictief`fictievere` adj  nounsg  
+ ficus ( NOUN NOUN_SINGULAR ) 
+ ficussen ( NOUN NOUN_PLURAL ) lemma=`ficus` nounpl  
+ fideel ( ADJECTIVE ) 
+ fideelst ( ADJECTIVE ) lemma=`fideel` adj  
+ fideelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fideel`fideelste` adj  nounsg  
+ fidele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fideel`fidele` adj  nounsg  
+ fideler ( ADJECTIVE ) lemma=`fideel` adj  
+ fidelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fideel`fidelere` adj  nounsg  
+ fiducie ( NOUN NOUN_SINGULAR ) 
+ fiedel ( VERB_PRESENT VERB ) lemma=`fiedelen` verbpressg  
+ fiedelde ( VERB_PAST VERB ) lemma=`fiedelen` verbpastsg  
+ fiedelden ( VERB_PAST VERB ) lemma=`fiedelen` verbpastpl  
+ fiedelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fiedelen`fiedelen`fiedelen` nounsg  verbinf  verbprespl  
+ fiedelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fiedelen` verbpresp  
+ fiedelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fiedelende`fiedelen` nounsg  verbpresp  
+ fiedelt ( VERB_PRESENT VERB ) lemma=`fiedelen` verbpressg  
+ fielt ( NOUN NOUN_SINGULAR ) 
+ fielten ( NOUN NOUN_PLURAL ) lemma=`fielt` nounpl  
+ fier ( ADJECTIVE ) 
+ fierder ( ADJECTIVE ) lemma=`fier` adj  
+ fierdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fier`fierdere` adj  nounsg  
+ fiere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fier`fiere` adj  nounsg  
+ fierst ( ADJECTIVE ) lemma=`fier` adj  
+ fierste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fier`fierste` adj  nounsg  
+ fiets ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fiets`fietsen` nounsg  verbpressg  
+ fietsbel ( NOUN NOUN_SINGULAR ) 
+ fietsbellen ( NOUN NOUN_PLURAL ) lemma=`fietsbel` nounpl  
+ fietsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fiets`fietsen`fietsen`fietsen` nounpl  nounsg  verbinf  verbprespl  
+ fietsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fietsen` verbpresp  
+ fietsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fietsende`fietsen` nounsg  verbpresp  
+ fietsenhok ( NOUN NOUN_SINGULAR ) 
+ fietsenhokken ( NOUN NOUN_PLURAL ) lemma=`fietsenhok` nounpl  
+ fietsenkelder ( NOUN NOUN_SINGULAR ) 
+ fietsenkelders ( NOUN NOUN_PLURAL ) lemma=`fietsenkelder` nounpl  
+ fietsenmaker ( NOUN NOUN_SINGULAR ) 
+ fietsenmakers ( NOUN NOUN_PLURAL ) lemma=`fietsenmaker` nounpl  
+ fietsenrek ( NOUN NOUN_SINGULAR ) 
+ fietsenrekken ( NOUN NOUN_PLURAL ) lemma=`fietsenrek` nounpl  
+ fietsenstalling ( NOUN NOUN_SINGULAR ) 
+ fietsenstallingen ( NOUN NOUN_PLURAL ) lemma=`fietsenstalling` nounpl  
+ fietser ( NOUN NOUN_SINGULAR ) 
+ fietsers ( NOUN NOUN_PLURAL ) lemma=`fietser` nounpl  
+ fietsertje ( NOUN NOUN_SINGULAR ) lemma=`fietser` nounsg  
+ fietsertjes ( NOUN NOUN_PLURAL ) lemma=`fietser` nounpl  
+ fietshok ( NOUN NOUN_SINGULAR ) 
+ fietshokken ( NOUN NOUN_PLURAL ) lemma=`fietshok` nounpl  
+ fietsjes ( NOUN NOUN_PLURAL ) lemma=`fiets` nounpl  
+ fietspad ( NOUN NOUN_SINGULAR ) 
+ fietspaden ( NOUN NOUN_PLURAL ) lemma=`fietspad` nounpl  
+ fietspomp ( NOUN NOUN_SINGULAR ) 
+ fietspompen ( NOUN NOUN_PLURAL ) lemma=`fietspomp` nounpl  
+ fietspompje ( NOUN NOUN_SINGULAR ) lemma=`fietspomp` nounsg  
+ fietsrek ( NOUN NOUN_SINGULAR ) 
+ fietsrekken ( NOUN NOUN_PLURAL ) lemma=`fietsrek` nounpl  
+ fietsroute ( NOUN NOUN_SINGULAR ) 
+ fietsrouten ( NOUN NOUN_PLURAL ) lemma=`fietsroute` nounpl  
+ fietsroutes ( NOUN NOUN_PLURAL ) lemma=`fietsroute` nounpl  
+ fietssleutel ( NOUN NOUN_SINGULAR ) 
+ fietssleutels ( NOUN NOUN_PLURAL ) lemma=`fietssleutel` nounpl  
+ fietsster ( NOUN NOUN_SINGULAR ) 
+ fietssters ( NOUN NOUN_PLURAL ) lemma=`fietsster` nounpl  
+ fietst ( VERB_PRESENT VERB ) lemma=`fietsen` verbpressg  
+ fietstas ( NOUN NOUN_SINGULAR ) 
+ fietstassen ( NOUN NOUN_PLURAL ) lemma=`fietstas` nounpl  
+ fietste ( VERB_PAST VERB ) lemma=`fietsen` verbpastsg  
+ fietsten ( VERB_PAST VERB ) lemma=`fietsen` verbpastpl  
+ fietstocht ( NOUN NOUN_SINGULAR ) 
+ fietstochten ( NOUN NOUN_PLURAL ) lemma=`fietstocht` nounpl  
+ fietsverkeer ( NOUN NOUN_SINGULAR ) 
+ fiftyfifty ( ADVERB ) 
+ fig. ( NOUN NOUN_SINGULAR ) 
+ figurant ( NOUN NOUN_SINGULAR ) 
+ figurante ( NOUN NOUN_SINGULAR ) 
+ figuranten ( NOUN NOUN_PLURAL ) lemma=`figurant|figurante` nounpl  
+ figurantje ( NOUN NOUN_SINGULAR ) lemma=`figurant` nounsg  
+ figuratief ( ADJECTIVE ) 
+ figuratieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`figuratief`figuratieve` adj  nounsg  
+ figureer ( VERB_PRESENT VERB ) lemma=`figureren` verbpressg  
+ figureerde ( VERB_PAST VERB ) lemma=`figureren` verbpastsg  
+ figureerden ( VERB_PAST VERB ) lemma=`figureren` verbpastpl  
+ figureert ( VERB_PRESENT VERB ) lemma=`figureren` verbpressg  
+ figuren ( NOUN NOUN_PLURAL ) lemma=`fig.|figuur` nounpl  
+ figureren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`figureren`figureren`figureren` nounsg  verbinf  verbprespl  
+ figurerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`figureren` verbpresp  
+ figurerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`figurerende`figureren` nounsg  verbpresp  
+ figuur ( NOUN NOUN_SINGULAR ) 
+ figuurlijk ( ADJECTIVE ) 
+ figuurlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`figuurlijk`figuurlijke` adj  nounsg  
+ figuurtje ( NOUN NOUN_SINGULAR ) lemma=`figuur` nounsg  
+ figuurtjes ( NOUN NOUN_PLURAL ) lemma=`figuur` nounpl  
+ figuurzaag ( NOUN NOUN_SINGULAR ) 
+ figuurzagen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`figuurzaag`figuurzagen`figuurzagen`figuurzagen` nounpl  nounsg  verbinf  verbprespl  
+ fijn ( ADJECTIVE ) 
+ fijnbesnaard ( ADJECTIVE ) 
+ fijnbesnaarde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnbesnaard`fijnbesnaarde` adj  nounsg  
+ fijnbesnaarder ( ADJECTIVE ) lemma=`fijnbesnaard` adj  
+ fijnbesnaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnbesnaard`fijnbesnaardere` adj  nounsg  
+ fijnbesnaardst ( ADJECTIVE ) lemma=`fijnbesnaard` adj  
+ fijnbesnaardste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnbesnaard`fijnbesnaardste` adj  nounsg  
+ fijne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijn`fijne` adj  nounsg  
+ fijnen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`fijn`fijne` adj  nounpl  
+ fijner ( ADJECTIVE ) lemma=`fijn` adj  
+ fijnere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijn`fijnere` adj  nounsg  
+ fijngebouwd ( ADJECTIVE ) 
+ fijngehakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnhakken` verbpapa  
+ fijngehakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijngehakte`fijnhakken` nounsg  verbpapa  
+ fijngeknepen ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnknijpen` verbpapa  
+ fijngemaakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnmaken` verbpapa  
+ fijngemaakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijngemaakte`fijnmaken` nounsg  verbpapa  
+ fijngemalen ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnmalen` verbpapa  
+ fijngesneden ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnsnijden` verbpapa  
+ fijngestampt ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnstampen` verbpapa  
+ fijngestampte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijngestampte`fijnstampen` nounsg  verbpapa  
+ fijngevoelig ( ADJECTIVE ) 
+ fijngevoelige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijngevoelig`fijngevoelige` adj  nounsg  
+ fijngevoeliger ( ADJECTIVE ) lemma=`fijngevoelig` adj  
+ fijngevoeligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijngevoelig`fijngevoeligere` adj  nounsg  
+ fijngevoeligst ( ADJECTIVE ) lemma=`fijngevoelig` adj  
+ fijngevoeligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijngevoelig`fijngevoeligste` adj  nounsg  
+ fijngewreven ( VERB_PAST_PARTICIPLE VERB ) lemma=`fijnwrijven` verbpapa  
+ fijnhak ( VERB_PRESENT VERB ) lemma=`fijnhakken` verbpressg  
+ fijnhakken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnhakken`fijnhakken`fijnhakken` nounsg  verbinf  verbprespl  
+ fijnhakkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnhakken` verbpresp  
+ fijnhakkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnhakkende`fijnhakken` nounsg  verbpresp  
+ fijnhakt ( VERB_PRESENT VERB ) lemma=`fijnhakken` verbpressg  
+ fijnhakte ( VERB_PAST VERB ) lemma=`fijnhakken` verbpastsg  
+ fijnhakten ( VERB_PAST VERB ) lemma=`fijnhakken` verbpastpl  
+ fijnkneep ( VERB_PAST VERB ) lemma=`fijnknijpen` verbpastsg  
+ fijnknepen ( VERB_PAST VERB ) lemma=`fijnknijpen` verbpastpl  
+ fijnknijp ( VERB_PRESENT VERB ) lemma=`fijnknijpen` verbpressg  
+ fijnknijpen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnknijpen`fijnknijpen`fijnknijpen` nounsg  verbinf  verbprespl  
+ fijnknijpend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnknijpen` verbpresp  
+ fijnknijpende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnknijpende`fijnknijpen` nounsg  verbpresp  
+ fijnknijpt ( VERB_PRESENT VERB ) lemma=`fijnknijpen` verbpressg  
+ fijnmaak ( VERB_PRESENT VERB ) lemma=`fijnmaken` verbpressg  
+ fijnmaakt ( VERB_PRESENT VERB ) lemma=`fijnmaken` verbpressg  
+ fijnmaakte ( VERB_PAST VERB ) lemma=`fijnmaken` verbpastsg  
+ fijnmaakten ( VERB_PAST VERB ) lemma=`fijnmaken` verbpastpl  
+ fijnmaal ( VERB_PRESENT VERB ) lemma=`fijnmalen` verbpressg  
+ fijnmaalde ( VERB_PAST VERB ) lemma=`fijnmalen` verbpastsg  
+ fijnmaalden ( VERB_PAST VERB ) lemma=`fijnmalen` verbpastpl  
+ fijnmaalt ( VERB_PRESENT VERB ) lemma=`fijnmalen` verbpressg  
+ fijnmaken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnmaken`fijnmaken`fijnmaken` nounsg  verbinf  verbprespl  
+ fijnmakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnmaken` verbpresp  
+ fijnmakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnmakende`fijnmaken` nounsg  verbpresp  
+ fijnmalen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnmalen`fijnmalen`fijnmalen` nounsg  verbinf  verbprespl  
+ fijnmalend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnmalen` verbpresp  
+ fijnmalende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnmalende`fijnmalen` nounsg  verbpresp  
+ fijnmazig ( ADJECTIVE ) 
+ fijnmazige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnmazig`fijnmazige` adj  nounsg  
+ fijnproever ( NOUN NOUN_SINGULAR ) 
+ fijnproevers ( NOUN NOUN_PLURAL ) lemma=`fijnproever` nounpl  
+ fijnsneden ( VERB_PAST VERB ) lemma=`fijnsnijden` verbpastpl  
+ fijnsneed ( VERB_PAST VERB ) lemma=`fijnsnijden` verbpastsg  
+ fijnsnijd ( VERB_PRESENT VERB ) lemma=`fijnsnijden` verbpressg  
+ fijnsnijden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnsnijden`fijnsnijden`fijnsnijden` nounsg  verbinf  verbprespl  
+ fijnsnijdend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnsnijden` verbpresp  
+ fijnsnijdende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnsnijdende`fijnsnijden` nounsg  verbpresp  
+ fijnsnijdt ( VERB_PRESENT VERB ) lemma=`fijnsnijden` verbpressg  
+ fijnst ( ADJECTIVE ) lemma=`fijn` adj  
+ fijnstamp ( VERB_PRESENT VERB ) lemma=`fijnstampen` verbpressg  
+ fijnstampen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnstampen`fijnstampen`fijnstampen` nounsg  verbinf  verbprespl  
+ fijnstampend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnstampen` verbpresp  
+ fijnstampende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnstampende`fijnstampen` nounsg  verbpresp  
+ fijnstampt ( VERB_PRESENT VERB ) lemma=`fijnstampen` verbpressg  
+ fijnstampte ( VERB_PAST VERB ) lemma=`fijnstampen` verbpastsg  
+ fijnstampten ( VERB_PAST VERB ) lemma=`fijnstampen` verbpastpl  
+ fijnste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijn`fijnste` adj  nounsg  
+ fijntjes ( ADJECTIVE ADVERB ) lemma=`fijn`fijntjes` adj  adv  
+ fijnwreef ( VERB_PAST VERB ) lemma=`fijnwrijven` verbpastsg  
+ fijnwreven ( VERB_PAST VERB ) lemma=`fijnwrijven` verbpastpl  
+ fijnwrijf ( VERB_PRESENT VERB ) lemma=`fijnwrijven` verbpressg  
+ fijnwrijft ( VERB_PRESENT VERB ) lemma=`fijnwrijven` verbpressg  
+ fijnwrijven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fijnwrijven`fijnwrijven`fijnwrijven` nounsg  verbinf  verbprespl  
+ fijnwrijvend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fijnwrijven` verbpresp  
+ fijnwrijvende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fijnwrijvende`fijnwrijven` nounsg  verbpresp  
+ fijnzinnig ( ADJECTIVE ) 
+ fijnzinnige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnzinnig`fijnzinnige` adj  nounsg  
+ fijnzinniger ( ADJECTIVE ) lemma=`fijnzinnig` adj  
+ fijnzinnigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnzinnig`fijnzinnigere` adj  nounsg  
+ fijnzinnigst ( ADJECTIVE ) lemma=`fijnzinnig` adj  
+ fijnzinnigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fijnzinnig`fijnzinnigste` adj  nounsg  
+ fijt ( NOUN NOUN_SINGULAR ) 
+ fik ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fik`fikken` nounsg  verbpressg  
+ fikken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fik|fikken`fikken`fikken`fikken` nounpl  nounsg  verbinf  verbprespl  
+ fikkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fikken` verbpresp  
+ fikkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fikkende`fikken` nounsg  verbpresp  
+ fiks ( VERB_PRESENT VERB ADJECTIVE ) lemma=`fiks`fiksen` adj  verbpressg  
+ fikse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fiks`fikse` adj  nounsg  
+ fiksen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fiksen`fiksen`fiksen` nounsg  verbinf  verbprespl  
+ fiksend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fiksen` verbpresp  
+ fiksende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fiksende`fiksen` nounsg  verbpresp  
+ fikser ( ADJECTIVE ) lemma=`fiks` adj  
+ fiksere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fiks`fiksere` adj  nounsg  
+ fikst ( VERB_PRESENT VERB ADJECTIVE ) lemma=`fiks`fiksen` adj  verbpressg  
+ fikste ( VERB_PAST NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`fiks`fikste`fiksen` adj  nounsg  verbpastsg  
+ fiksten ( VERB_PAST VERB ) lemma=`fiksen` verbpastpl  
+ fikt ( VERB_PRESENT VERB ) lemma=`fikken` verbpressg  
+ fikte ( VERB_PAST VERB ) lemma=`fikken` verbpastsg  
+ fikten ( VERB_PAST VERB ) lemma=`fikken` verbpastpl  
+ fiktie ( NOUN NOUN_SINGULAR ) 
+ fiktief ( ADJECTIVE ) 
+ fikties ( NOUN NOUN_PLURAL ) lemma=`fiktie` nounpl  
+ filantroop ( NOUN NOUN_SINGULAR ) 
+ filantropen ( NOUN NOUN_PLURAL ) lemma=`filantroop` nounpl  
+ filantropisch ( ADJECTIVE ) 
+ filantropische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filantropisch`filantropische` adj  nounsg  
+ filantropischer ( ADJECTIVE ) lemma=`filantropisch` adj  
+ filantropischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filantropisch`filantropischere` adj  nounsg  
+ filantropischt ( ADJECTIVE ) lemma=`filantropisch` adj  
+ filantropischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filantropisch`filantropischte` adj  nounsg  
+ filatelie ( NOUN NOUN_SINGULAR ) 
+ filatelist ( NOUN NOUN_SINGULAR ) 
+ filatelisten ( NOUN NOUN_PLURAL ) lemma=`filatelist` nounpl  
+ file ( NOUN NOUN_SINGULAR ) 
+ fileer ( VERB_PRESENT VERB ) lemma=`fileren` verbpressg  
+ fileerde ( VERB_PAST VERB ) lemma=`fileren` verbpastsg  
+ fileerden ( VERB_PAST VERB ) lemma=`fileren` verbpastpl  
+ fileert ( VERB_PRESENT VERB ) lemma=`fileren` verbpressg  
+ fileren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fileren`fileren`fileren` nounsg  verbinf  verbprespl  
+ filerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fileren` verbpresp  
+ filerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`filerende`fileren` nounsg  verbpresp  
+ files ( NOUN NOUN_PLURAL ) lemma=`file` nounpl  
+ filet ( NOUN NOUN_SINGULAR ) 
+ filets ( NOUN NOUN_PLURAL ) lemma=`filet` nounpl  
+ filevorming ( NOUN NOUN_SINGULAR ) 
+ filharmonisch ( ADJECTIVE ) 
+ filharmonische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filharmonisch`filharmonische` adj  nounsg  
+ filiaal ( NOUN NOUN_SINGULAR ) 
+ filiaaltje ( NOUN NOUN_SINGULAR ) lemma=`filiaal` nounsg  
+ filiaaltjes ( NOUN NOUN_PLURAL ) lemma=`filiaal` nounpl  
+ filialen ( NOUN NOUN_PLURAL ) lemma=`filiaal` nounpl  
+ film ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`film`filmen` nounsg  verbpressg  
+ filmactrice ( NOUN NOUN_SINGULAR ) 
+ filmactrices ( NOUN NOUN_PLURAL ) lemma=`filmactrice` nounpl  
+ filmbeeld ( NOUN NOUN_SINGULAR ) 
+ filmbeelden ( NOUN NOUN_PLURAL ) lemma=`filmbeeld` nounpl  
+ filmblad ( NOUN NOUN_SINGULAR ) 
+ filmbladen ( NOUN NOUN_PLURAL ) lemma=`filmblad` nounpl  
+ filmcamera ( NOUN NOUN_SINGULAR ) 
+ filmcamera's ( NOUN NOUN_PLURAL ) lemma=`filmcamera` nounpl  
+ filmcarrière ( NOUN NOUN_SINGULAR ) 
+ filmcarrières ( NOUN NOUN_PLURAL ) lemma=`filmcarrière` nounpl  
+ filmcritici ( NOUN NOUN_PLURAL ) lemma=`filmcriticus` nounpl  
+ filmcriticus ( NOUN NOUN_SINGULAR ) 
+ filmdag ( NOUN NOUN_SINGULAR ) 
+ filmdagen ( NOUN NOUN_PLURAL ) lemma=`filmdag` nounpl  
+ filmde ( VERB_PAST VERB ) lemma=`filmen` verbpastsg  
+ filmden ( VERB_PAST VERB ) lemma=`filmen` verbpastpl  
+ filmen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`filmen`filmen`filmen` nounsg  verbinf  verbprespl  
+ filmend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`filmen` verbpresp  
+ filmende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`filmende`filmen` nounsg  verbpresp  
+ filmer ( NOUN NOUN_SINGULAR ) 
+ filmers ( NOUN NOUN_PLURAL ) lemma=`filmer` nounpl  
+ filmfestival ( NOUN NOUN_SINGULAR ) 
+ filmfestivals ( NOUN NOUN_PLURAL ) lemma=`filmfestival` nounpl  
+ filmgeschiedenis ( NOUN NOUN_SINGULAR ) 
+ filmhuis ( NOUN NOUN_SINGULAR ) 
+ filmhuizen ( NOUN NOUN_PLURAL ) lemma=`filmhuis` nounpl  
+ filmindustrie ( NOUN NOUN_SINGULAR ) 
+ filmindustrieën ( NOUN NOUN_PLURAL ) lemma=`filmindustrie` nounpl  
+ filmisch ( ADJECTIVE ) 
+ filmische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filmisch`filmische` adj  nounsg  
+ filmischer ( ADJECTIVE ) lemma=`filmisch` adj  
+ filmischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filmisch`filmischere` adj  nounsg  
+ filmischt ( ADJECTIVE ) lemma=`filmisch` adj  
+ filmischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filmisch`filmischte` adj  nounsg  
+ filmkeuring ( NOUN NOUN_SINGULAR ) 
+ filmkeuringen ( NOUN NOUN_PLURAL ) lemma=`filmkeuring` nounpl  
+ filmkijker ( NOUN NOUN_SINGULAR ) 
+ filmkijkers ( NOUN NOUN_PLURAL ) lemma=`filmkijker` nounpl  
+ filmkunst ( NOUN NOUN_SINGULAR ) 
+ filmliga ( NOUN NOUN_SINGULAR ) 
+ filmliga's ( NOUN NOUN_PLURAL ) lemma=`filmliga` nounpl  
+ filmmaatschappij ( NOUN NOUN_SINGULAR ) 
+ filmmaatschappijen ( NOUN NOUN_PLURAL ) lemma=`filmmaatschappij` nounpl  
+ filmmaker ( NOUN NOUN_SINGULAR ) 
+ filmmakers ( NOUN NOUN_PLURAL ) lemma=`filmmaker` nounpl  
+ filmmateriaal ( NOUN NOUN_SINGULAR ) 
+ filmmaterialen ( NOUN NOUN_PLURAL ) lemma=`filmmateriaal` nounpl  
+ filmmusea ( NOUN NOUN_PLURAL ) lemma=`filmmuseum` nounpl  
+ filmmuseum ( NOUN NOUN_SINGULAR ) 
+ filmmuziek ( NOUN NOUN_SINGULAR ) 
+ filmnet ( NOUN NOUN_PROPER_SINGULAR ) 
+ filmopname ( NOUN NOUN_SINGULAR ) 
+ filmopnamen ( NOUN NOUN_PLURAL ) lemma=`filmopname` nounpl  
+ filmopnames ( NOUN NOUN_PLURAL ) lemma=`filmopname` nounpl  
+ filmpje ( NOUN NOUN_SINGULAR ) lemma=`film` nounsg  
+ filmpjes ( NOUN NOUN_PLURAL ) lemma=`film` nounpl  
+ filmploeg ( NOUN NOUN_SINGULAR ) 
+ filmploegen ( NOUN NOUN_PLURAL ) lemma=`filmploeg` nounpl  
+ filmprijs ( NOUN NOUN_SINGULAR ) 
+ filmprijzen ( NOUN NOUN_PLURAL ) lemma=`filmprijs` nounpl  
+ filmproducent ( NOUN NOUN_SINGULAR ) 
+ filmproducenten ( NOUN NOUN_PLURAL ) lemma=`filmproducent` nounpl  
+ filmproductie ( NOUN NOUN_SINGULAR ) 
+ filmproducties ( NOUN NOUN_PLURAL ) lemma=`filmproductie` nounpl  
+ filmproduktie ( NOUN NOUN_SINGULAR ) 
+ filmprodukties ( NOUN NOUN_PLURAL ) lemma=`filmproduktie` nounpl  
+ filmregisseur ( NOUN NOUN_SINGULAR ) 
+ filmregisseurs ( NOUN NOUN_PLURAL ) lemma=`filmregisseur` nounpl  
+ filmrol ( NOUN NOUN_SINGULAR ) 
+ filmrollen ( NOUN NOUN_PLURAL ) lemma=`filmrol` nounpl  
+ films ( NOUN NOUN_PLURAL ) lemma=`film` nounpl  
+ filmserie ( NOUN NOUN_SINGULAR ) 
+ filmserien ( NOUN NOUN_PLURAL ) lemma=`filmserie` nounpl  
+ filmseries ( NOUN NOUN_PLURAL ) lemma=`filmserie` nounpl  
+ filmster ( NOUN NOUN_SINGULAR ) 
+ filmsterren ( NOUN NOUN_PLURAL ) lemma=`filmster` nounpl  
+ filmsters ( NOUN NOUN_PLURAL ) lemma=`filmster` nounpl  
+ filmt ( VERB_PRESENT VERB ) lemma=`filmen` verbpressg  
+ filmvertoning ( NOUN NOUN_SINGULAR ) 
+ filmvertoningen ( NOUN NOUN_PLURAL ) lemma=`filmvertoning` nounpl  
+ filmwereld ( NOUN NOUN_SINGULAR ) 
+ filologie ( NOUN NOUN_SINGULAR ) 
+ filologisch ( ADJECTIVE ) 
+ filologische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filologisch`filologische` adj  nounsg  
+ filosofe ( NOUN NOUN_SINGULAR ) 
+ filosofeer ( VERB_PRESENT VERB ) lemma=`filosoferen` verbpressg  
+ filosofeerde ( VERB_PAST VERB ) lemma=`filosoferen` verbpastsg  
+ filosofeerden ( VERB_PAST VERB ) lemma=`filosoferen` verbpastpl  
+ filosofeert ( VERB_PRESENT VERB ) lemma=`filosoferen` verbpressg  
+ filosofen ( NOUN NOUN_PLURAL ) lemma=`filosofe|filosoof` nounpl  
+ filosoferen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`filosoferen`filosoferen`filosoferen` nounsg  verbinf  verbprespl  
+ filosoferend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`filosoferen` verbpresp  
+ filosoferende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`filosoferende`filosoferen` nounsg  verbpresp  
+ filosofie ( NOUN NOUN_SINGULAR ) 
+ filosofietje ( NOUN NOUN_SINGULAR ) lemma=`filosofie` nounsg  
+ filosofietjes ( NOUN NOUN_PLURAL ) lemma=`filosofie` nounpl  
+ filosofieën ( NOUN NOUN_PLURAL ) lemma=`filosofie` nounpl  
+ filosofisch ( ADJECTIVE ) 
+ filosofische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filosofisch`filosofische` adj  nounsg  
+ filosofischer ( ADJECTIVE ) lemma=`filosofisch` adj  
+ filosofischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filosofisch`filosofischere` adj  nounsg  
+ filosofischt ( ADJECTIVE ) lemma=`filosofisch` adj  
+ filosofischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`filosofisch`filosofischte` adj  nounsg  
+ filosoof ( NOUN NOUN_SINGULAR ) 
+ filozofen ( NOUN NOUN_PLURAL ) lemma=`filosoof` nounpl  
+ filozofisch ( ADJECTIVE ) 
+ filter ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`filter`filteren` nounsg  verbpressg  
+ filterde ( VERB_PAST VERB ) lemma=`filteren` verbpastsg  
+ filterden ( VERB_PAST VERB ) lemma=`filteren` verbpastpl  
+ filteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`filteren`filteren`filteren` nounsg  verbinf  verbprespl  
+ filterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`filteren` verbpresp  
+ filterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`filterende`filteren` nounsg  verbpresp  
+ filterinstallatie ( NOUN NOUN_SINGULAR ) 
+ filterinstallaties ( NOUN NOUN_PLURAL ) lemma=`filterinstallatie` nounpl  
+ filters ( NOUN NOUN_PLURAL ) lemma=`filter` nounpl  
+ filtersigaret ( NOUN NOUN_SINGULAR ) 
+ filtersigaretten ( NOUN NOUN_PLURAL ) lemma=`filtersigaret` nounpl  
+ filtert ( VERB_PRESENT VERB ) lemma=`filteren` verbpressg  
+ filtertje ( NOUN NOUN_SINGULAR ) lemma=`filter` nounsg  
+ filtertjes ( NOUN NOUN_PLURAL ) lemma=`filter` nounpl  
+ filterzakje ( NOUN NOUN_SINGULAR ) 
+ filterzakjes ( NOUN NOUN_PLURAL ) lemma=`filterzakje` nounpl  
+ filtreer ( VERB_PRESENT VERB ) lemma=`filtreren` verbpressg  
+ filtreerde ( VERB_PAST VERB ) lemma=`filtreren` verbpastsg  
+ filtreerden ( VERB_PAST VERB ) lemma=`filtreren` verbpastpl  
+ filtreert ( VERB_PRESENT VERB ) lemma=`filtreren` verbpressg  
+ filtreren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`filtreren`filtreren`filtreren` nounsg  verbinf  verbprespl  
+ filtrerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`filtreren` verbpresp  
+ filtrerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`filtrerende`filtreren` nounsg  verbpresp  
+ finaal ( ADJECTIVE ) 
+ finale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`finaal`finale` adj  nounsg  
+ finales ( NOUN NOUN_PLURAL ) lemma=`finale` nounpl  
+ finalist ( NOUN NOUN_SINGULAR ) 
+ finalisten ( NOUN NOUN_PLURAL ) lemma=`finalist` nounpl  
+ financieel ( ADJECTIVE ) 
+ financier ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`financier`financieren` nounsg  verbpressg  
+ financierde ( VERB_PAST VERB ) lemma=`financieren` verbpastsg  
+ financierden ( VERB_PAST VERB ) lemma=`financieren` verbpastpl  
+ financieren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`financieren`financieren`financieren` nounsg  verbinf  verbprespl  
+ financierend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`financieren` verbpresp  
+ financierende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`financierende`financieren` nounsg  verbpresp  
+ financiering ( NOUN NOUN_SINGULAR ) 
+ financieringen ( NOUN NOUN_PLURAL ) lemma=`financiering` nounpl  
+ financieringsbron ( NOUN NOUN_SINGULAR ) 
+ financieringsbronnen ( NOUN NOUN_PLURAL ) lemma=`financieringsbron` nounpl  
+ financieringsmaatsch ( NOUN NOUN_SINGULAR ) 
+ financieringsmaatschappij ( NOUN NOUN_SINGULAR ) 
+ financieringsmaatschappijen ( NOUN NOUN_PLURAL ) lemma=`financieringsmaatschappij` nounpl  
+ financieringsstelsel ( NOUN NOUN_SINGULAR ) 
+ financieringsstelsels ( NOUN NOUN_PLURAL ) lemma=`financieringsstelsel` nounpl  
+ financieringstekort ( NOUN NOUN_SINGULAR ) 
+ financieringstekorte ( NOUN NOUN_PLURAL ) lemma=`financieringstekort` nounpl  
+ financieringstekorten ( NOUN NOUN_PLURAL ) lemma=`financieringstekort` nounpl  
+ financieringswijze ( NOUN NOUN_SINGULAR ) 
+ financieringswijzen ( NOUN NOUN_PLURAL ) lemma=`financieringswijze` nounpl  
+ financiers ( NOUN NOUN_PLURAL ) lemma=`financier` nounpl  
+ financiert ( VERB_PRESENT VERB ) lemma=`financieren` verbpressg  
+ financiële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`financieel`financiële` adj  nounsg  
+ financiën ( NOUN NOUN_PLURAL ) 
+ fineer ( NOUN NOUN_SINGULAR ) 
+ finesse ( NOUN NOUN_SINGULAR ) 
+ finesses ( NOUN NOUN_PLURAL ) lemma=`finesse` nounpl  
+ fingeer ( VERB_PRESENT VERB ) lemma=`fingeren` verbpressg  
+ fingeerde ( VERB_PAST VERB ) lemma=`fingeren` verbpastsg  
+ fingeerden ( VERB_PAST VERB ) lemma=`fingeren` verbpastpl  
+ fingeert ( VERB_PRESENT VERB ) lemma=`fingeren` verbpressg  
+ fingeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fingeren`fingeren`fingeren` nounsg  verbinf  verbprespl  
+ fingerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fingeren` verbpresp  
+ fingerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fingerende`fingeren` nounsg  verbpresp  
+ finish ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`finish`finishen` nounsg  verbpressg  
+ finishen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`finishen`finishen`finishen` nounsg  verbinf  verbprespl  
+ finishend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`finishen` verbpresp  
+ finishende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`finishende`finishen` nounsg  verbpresp  
+ finisht ( VERB_PRESENT VERB ) lemma=`finishen` verbpressg  
+ finishte ( VERB_PAST VERB ) lemma=`finishen` verbpastsg  
+ finishten ( VERB_PAST VERB ) lemma=`finishen` verbpastpl  
+ finnjol ( NOUN NOUN_SINGULAR ) 
+ finnjollen ( NOUN NOUN_PLURAL ) lemma=`finnjol` nounpl  
+ firma ( NOUN NOUN_SINGULAR ) 
+ firma's ( NOUN NOUN_PLURAL ) lemma=`firma` nounpl  
+ firmaatje ( NOUN NOUN_SINGULAR ) lemma=`firma` nounsg  
+ firmaatjes ( NOUN NOUN_PLURAL ) lemma=`firma` nounpl  
+ firmament ( NOUN NOUN_SINGULAR ) 
+ firmamenten ( NOUN NOUN_PLURAL ) lemma=`firmament` nounpl  
+ firmant ( NOUN NOUN_SINGULAR ) 
+ firmante ( NOUN NOUN_SINGULAR ) 
+ firmanten ( NOUN NOUN_PLURAL ) lemma=`firmant|firmante` nounpl  
+ firmantes ( NOUN NOUN_PLURAL ) lemma=`firmante` nounpl  
+ fis ( NOUN NOUN_SINGULAR ) 
+ fiscaal ( ADJECTIVE ) 
+ fiscale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fiscaal`fiscale` adj  nounsg  
+ fiscus ( NOUN NOUN_SINGULAR ) 
+ fiskaal ( ADJECTIVE ) 
+ fiskale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fiskaal`fiskale` adj  nounsg  
+ fiskus ( NOUN NOUN_SINGULAR ) 
+ fissen ( NOUN NOUN_PLURAL ) lemma=`fis` nounpl  
+ fistel ( NOUN NOUN_SINGULAR ) 
+ fistels ( NOUN NOUN_PLURAL ) lemma=`fistel` nounpl  
+ fisteltje ( NOUN NOUN_SINGULAR ) lemma=`fistel` nounsg  
+ fisteltjes ( NOUN NOUN_PLURAL ) lemma=`fistel` nounpl  
+ fit ( ADJECTIVE ) 
+ fitst ( ADJECTIVE ) lemma=`fit` adj  
+ fitste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fit`fitste` adj  nounsg  
+ fitte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fit`fitte` adj  nounsg  
+ fitter ( ADJECTIVE ) lemma=`fit` adj  
+ fittere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fit`fittere` adj  nounsg  
+ fitting ( NOUN NOUN_SINGULAR ) 
+ fittingen ( NOUN NOUN_PLURAL ) lemma=`fitting` nounpl  
+ fittings ( NOUN NOUN_PLURAL ) lemma=`fitting` nounpl  
+ fixatie ( NOUN NOUN_SINGULAR ) 
+ fixaties ( NOUN NOUN_PLURAL ) lemma=`fixatie` nounpl  
+ fixeer ( VERB_PRESENT VERB ) lemma=`fixeren` verbpressg  
+ fixeerde ( VERB_PAST VERB ) lemma=`fixeren` verbpastsg  
+ fixeerden ( VERB_PAST VERB ) lemma=`fixeren` verbpastpl  
+ fixeert ( VERB_PRESENT VERB ) lemma=`fixeren` verbpressg  
+ fixeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fixeren`fixeren`fixeren` nounsg  verbinf  verbprespl  
+ fixerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fixeren` verbpresp  
+ fixerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fixerende`fixeren` nounsg  verbpresp  
+ fjord ( NOUN NOUN_SINGULAR ) 
+ fjorden ( NOUN NOUN_PLURAL ) lemma=`fjord` nounpl  
+ fl. ( NOUN NOUN_SINGULAR ) 
+ flacon ( NOUN NOUN_SINGULAR ) 
+ flaconnetje ( NOUN NOUN_SINGULAR ) lemma=`flacon` nounsg  
+ flaconnetjes ( NOUN NOUN_PLURAL ) lemma=`flacon` nounpl  
+ flacons ( NOUN NOUN_PLURAL ) lemma=`flacon` nounpl  
+ fladder ( VERB_PRESENT VERB ) lemma=`fladderen` verbpressg  
+ fladderde ( VERB_PAST VERB ) lemma=`fladderen` verbpastsg  
+ fladderden ( VERB_PAST VERB ) lemma=`fladderen` verbpastpl  
+ fladderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fladderen`fladderen`fladderen` nounsg  verbinf  verbprespl  
+ fladderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fladderen` verbpresp  
+ fladderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fladderende`fladderen` nounsg  verbpresp  
+ fladdert ( VERB_PRESENT VERB ) lemma=`fladderen` verbpressg  
+ flagrant ( ADJECTIVE ) 
+ flagrante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flagrant`flagrante` adj  nounsg  
+ flagranter ( ADJECTIVE ) lemma=`flagrant` adj  
+ flagrantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flagrant`flagrantere` adj  nounsg  
+ flagrantst ( ADJECTIVE ) lemma=`flagrant` adj  
+ flagrantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flagrant`flagrantste` adj  nounsg  
+ flair ( NOUN NOUN_SINGULAR ) 
+ flakker ( VERB_PRESENT VERB ) lemma=`flakkeren` verbpressg  
+ flakkerde ( VERB_PAST VERB ) lemma=`flakkeren` verbpastsg  
+ flakkerden ( VERB_PAST VERB ) lemma=`flakkeren` verbpastpl  
+ flakkeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flakkeren`flakkeren`flakkeren` nounsg  verbinf  verbprespl  
+ flakkerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flakkeren` verbpresp  
+ flakkerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flakkerende`flakkeren` nounsg  verbpresp  
+ flakkert ( VERB_PRESENT VERB ) lemma=`flakkeren` verbpressg  
+ flakon ( NOUN NOUN_SINGULAR ) 
+ flakons ( NOUN NOUN_PLURAL ) lemma=`flakon` nounpl  
+ flambard ( NOUN NOUN_SINGULAR ) 
+ flambards ( NOUN NOUN_PLURAL ) lemma=`flambard` nounpl  
+ flambeer ( VERB_PRESENT VERB ) lemma=`flamberen` verbpressg  
+ flambeerde ( VERB_PAST VERB ) lemma=`flamberen` verbpastsg  
+ flambeerden ( VERB_PAST VERB ) lemma=`flamberen` verbpastpl  
+ flambeert ( VERB_PRESENT VERB ) lemma=`flamberen` verbpressg  
+ flamberen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flamberen`flamberen`flamberen` nounsg  verbinf  verbprespl  
+ flamberend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flamberen` verbpresp  
+ flamberende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flamberende`flamberen` nounsg  verbpresp  
+ flambouw ( NOUN NOUN_SINGULAR ) 
+ flambouwen ( NOUN NOUN_PLURAL ) lemma=`flambouw` nounpl  
+ flambouwtje ( NOUN NOUN_SINGULAR ) lemma=`flambouw` nounsg  
+ flambouwtjes ( NOUN NOUN_PLURAL ) lemma=`flambouw` nounpl  
+ flamboyant ( ADJECTIVE ) 
+ flamboyante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flamboyant`flamboyante` adj  nounsg  
+ flamboyanter ( ADJECTIVE ) lemma=`flamboyant` adj  
+ flamboyantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flamboyant`flamboyantere` adj  nounsg  
+ flamboyantst ( ADJECTIVE ) lemma=`flamboyant` adj  
+ flamboyantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flamboyant`flamboyantste` adj  nounsg  
+ flamingant ( NOUN NOUN_SINGULAR ) 
+ flaminganten ( NOUN NOUN_PLURAL ) lemma=`flamingant` nounpl  
+ flamingo ( NOUN NOUN_SINGULAR ) 
+ flamingo's ( NOUN NOUN_PLURAL ) lemma=`flamingo` nounpl  
+ flamingootje ( NOUN NOUN_SINGULAR ) lemma=`flamingo` nounsg  
+ flamingootjes ( NOUN NOUN_PLURAL ) lemma=`flamingo` nounpl  
+ flaneer ( VERB_PRESENT VERB ) lemma=`flaneren` verbpressg  
+ flaneerde ( VERB_PAST VERB ) lemma=`flaneren` verbpastsg  
+ flaneerden ( VERB_PAST VERB ) lemma=`flaneren` verbpastpl  
+ flaneert ( VERB_PRESENT VERB ) lemma=`flaneren` verbpressg  
+ flanel ( NOUN NOUN_SINGULAR ) 
+ flanellen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`flanellen`flanel` adj  nounpl  
+ flanelletje ( NOUN NOUN_SINGULAR ) lemma=`flanel` nounsg  
+ flanelletjes ( NOUN NOUN_PLURAL ) lemma=`flanel` nounpl  
+ flaneren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flaneren`flaneren`flaneren` nounsg  verbinf  verbprespl  
+ flanerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flaneren` verbpresp  
+ flanerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flanerende`flaneren` nounsg  verbpresp  
+ flank ( NOUN NOUN_SINGULAR ) 
+ flankeer ( VERB_PRESENT VERB ) lemma=`flankeren` verbpressg  
+ flankeerde ( VERB_PAST VERB ) lemma=`flankeren` verbpastsg  
+ flankeerden ( VERB_PAST VERB ) lemma=`flankeren` verbpastpl  
+ flankeert ( VERB_PRESENT VERB ) lemma=`flankeren` verbpressg  
+ flanken ( NOUN NOUN_PLURAL ) lemma=`flank` nounpl  
+ flankeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flankeren`flankeren`flankeren` nounsg  verbinf  verbprespl  
+ flankerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flankeren` verbpresp  
+ flankerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flankerende`flankeren` nounsg  verbpresp  
+ flankering ( NOUN NOUN_SINGULAR ) 
+ flankeringen ( NOUN NOUN_PLURAL ) lemma=`flankering` nounpl  
+ flans ( VERB_PRESENT VERB ) lemma=`flansen` verbpressg  
+ flansen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flansen`flansen`flansen` nounsg  verbinf  verbprespl  
+ flansend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flansen` verbpresp  
+ flansende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flansende`flansen` nounsg  verbpresp  
+ flanst ( VERB_PRESENT VERB ) lemma=`flansen` verbpressg  
+ flanste ( VERB_PAST VERB ) lemma=`flansen` verbpastsg  
+ flansten ( VERB_PAST VERB ) lemma=`flansen` verbpastpl  
+ flap ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flap`flappen` nounsg  verbpressg  
+ flapdrol ( NOUN NOUN_SINGULAR ) 
+ flapdrollen ( NOUN NOUN_PLURAL ) lemma=`flapdrol` nounpl  
+ flapje ( NOUN NOUN_SINGULAR ) lemma=`flap` nounsg  
+ flapjes ( NOUN NOUN_PLURAL ) lemma=`flap` nounpl  
+ flapoor ( NOUN NOUN_SINGULAR ) 
+ flaporen ( NOUN NOUN_PLURAL ) lemma=`flapoor` nounpl  
+ flappen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`flap`flappen`flappen`flappen` nounpl  nounsg  verbinf  verbprespl  
+ flappend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flappen` verbpresp  
+ flappende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flappende`flappen` nounsg  verbpresp  
+ flaps ( NOUN NOUN_SINGULAR ) lemma=`flap` nounsg  
+ flapt ( VERB_PRESENT VERB ) lemma=`flappen` verbpressg  
+ flapte ( VERB_PAST VERB ) lemma=`flappen` verbpastsg  
+ flapten ( VERB_PAST VERB ) lemma=`flappen` verbpastpl  
+ flapuit ( NOUN NOUN_SINGULAR ) 
+ flapuiten ( NOUN NOUN_PLURAL ) lemma=`flapuit` nounpl  
+ flard ( NOUN NOUN_SINGULAR ) 
+ flarden ( NOUN NOUN_PLURAL ) lemma=`flard` nounpl  
+ flardje ( NOUN NOUN_SINGULAR ) lemma=`flard` nounsg  
+ flashback ( NOUN NOUN_SINGULAR ) 
+ flashbacks ( NOUN NOUN_PLURAL ) lemma=`flashback` nounpl  
+ flat ( NOUN NOUN_SINGULAR ) 
+ flater ( NOUN NOUN_SINGULAR ) 
+ flaters ( NOUN NOUN_PLURAL ) lemma=`flater` nounpl  
+ flatertje ( NOUN NOUN_SINGULAR ) lemma=`flater` nounsg  
+ flatertjes ( NOUN NOUN_PLURAL ) lemma=`flater` nounpl  
+ flatgebouw ( NOUN NOUN_SINGULAR ) 
+ flatgebouwen ( NOUN NOUN_PLURAL ) lemma=`flatgebouw` nounpl  
+ flatje ( NOUN NOUN_SINGULAR ) lemma=`flat` nounsg  
+ flatjes ( NOUN NOUN_PLURAL ) lemma=`flat` nounpl  
+ flats ( NOUN NOUN_PLURAL ) lemma=`flat` nounpl  
+ flatteer ( VERB_PRESENT VERB ) lemma=`flatteren` verbpressg  
+ flatteerde ( VERB_PAST VERB ) lemma=`flatteren` verbpastsg  
+ flatteerden ( VERB_PAST VERB ) lemma=`flatteren` verbpastpl  
+ flatteert ( VERB_PRESENT VERB ) lemma=`flatteren` verbpressg  
+ flatteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flatteren`flatteren`flatteren` nounsg  verbinf  verbprespl  
+ flatterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flatteren` verbpresp  
+ flatterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flatterende`flatteren` nounsg  verbpresp  
+ flatteus ( ADJECTIVE ) 
+ flatteust ( ADJECTIVE ) lemma=`flatteus` adj  
+ flatteuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flatteus`flatteuste` adj  nounsg  
+ flatteuze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flatteus`flatteuze` adj  nounsg  
+ flatteuzer ( ADJECTIVE ) lemma=`flatteus` adj  
+ flatteuzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flatteus`flatteuzere` adj  nounsg  
+ flauw ( ADJECTIVE ) 
+ flauwe ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flauw`flauwe` adj  nounsg  
+ flauwekul ( NOUN NOUN_SINGULAR ) 
+ flauwer ( ADJECTIVE ) lemma=`flauw` adj  
+ flauwerd ( NOUN NOUN_SINGULAR ) 
+ flauwerds ( NOUN NOUN_PLURAL ) lemma=`flauwerd` nounpl  
+ flauwere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flauw`flauwere` adj  nounsg  
+ flauwerik ( NOUN NOUN_SINGULAR ) 
+ flauweriken ( NOUN NOUN_PLURAL ) lemma=`flauwerik` nounpl  
+ flauwerikken ( NOUN NOUN_PLURAL ) lemma=`flauwerik` nounpl  
+ flauwgevallen ( VERB_PAST_PARTICIPLE VERB ) lemma=`flauwvallen` verbpapa  
+ flauwiteit ( NOUN NOUN_SINGULAR ) 
+ flauwiteiten ( NOUN NOUN_PLURAL ) lemma=`flauwiteit` nounpl  
+ flauwst ( ADJECTIVE ) lemma=`flauw` adj  
+ flauwste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flauw`flauwste` adj  nounsg  
+ flauwte ( NOUN NOUN_SINGULAR ) 
+ flauwten ( NOUN NOUN_PLURAL ) lemma=`flauwte` nounpl  
+ flauwtes ( NOUN NOUN_PLURAL ) lemma=`flauwte` nounpl  
+ flauwtetje ( NOUN NOUN_SINGULAR ) lemma=`flauwte` nounsg  
+ flauwtetjes ( NOUN NOUN_PLURAL ) lemma=`flauwte` nounpl  
+ flauwtjes ( ADJECTIVE ADVERB ) lemma=`flauw`flauwtjes` adj  adv  
+ flauwval ( VERB_PRESENT VERB ) lemma=`flauwvallen` verbpressg  
+ flauwvallen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flauwvallen`flauwvallen`flauwvallen` nounsg  verbinf  verbprespl  
+ flauwvallend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flauwvallen` verbpresp  
+ flauwvallende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flauwvallende`flauwvallen` nounsg  verbpresp  
+ flauwvalt ( VERB_PRESENT VERB ) lemma=`flauwvallen` verbpressg  
+ flauwviel ( VERB_PAST VERB ) lemma=`flauwvallen` verbpastsg  
+ flauwvielen ( VERB_PAST VERB ) lemma=`flauwvallen` verbpastpl  
+ fleem ( VERB_PRESENT VERB ) lemma=`flemen` verbpressg  
+ fleemde ( VERB_PAST VERB ) lemma=`flemen` verbpastsg  
+ fleemden ( VERB_PAST VERB ) lemma=`flemen` verbpastpl  
+ fleemt ( VERB_PRESENT VERB ) lemma=`flemen` verbpressg  
+ flegma ( NOUN NOUN_SINGULAR ) 
+ flegmatiek ( ADJECTIVE ) 
+ flegmatieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flegmatiek`flegmatieke` adj  nounsg  
+ flegmatieker ( ADJECTIVE ) lemma=`flegmatiek` adj  
+ flegmatiekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flegmatiek`flegmatiekere` adj  nounsg  
+ flegmatiekst ( ADJECTIVE ) lemma=`flegmatiek` adj  
+ flegmatiekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flegmatiek`flegmatiekste` adj  nounsg  
+ flegmatisch ( ADJECTIVE ) 
+ flegmatische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flegmatisch`flegmatische` adj  nounsg  
+ flegmatischer ( ADJECTIVE ) lemma=`flegmatisch` adj  
+ flegmatischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flegmatisch`flegmatischere` adj  nounsg  
+ flegmatischt ( ADJECTIVE ) lemma=`flegmatisch` adj  
+ flegmatischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flegmatisch`flegmatischte` adj  nounsg  
+ flemen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flemen`flemen`flemen` nounsg  verbinf  verbprespl  
+ flemend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flemen` verbpresp  
+ flemende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flemende`flemen` nounsg  verbpresp  
+ flensje ( NOUN NOUN_SINGULAR ) 
+ flensjes ( NOUN NOUN_PLURAL ) lemma=`flensje` nounpl  
+ fles ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fles`flessen` nounsg  verbpressg  
+ flesje ( NOUN NOUN_SINGULAR ) lemma=`fles` nounsg  
+ flesjes ( NOUN NOUN_PLURAL ) lemma=`fles` nounpl  
+ flesopener ( NOUN NOUN_SINGULAR ) 
+ flesopeners ( NOUN NOUN_PLURAL ) lemma=`flesopener` nounpl  
+ flessen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fles`flessen`flessen`flessen` nounpl  nounsg  verbinf  verbprespl  
+ flessend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flessen` verbpresp  
+ flessende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flessende`flessen` nounsg  verbpresp  
+ flessenscheepje ( NOUN NOUN_SINGULAR ) 
+ flessenscheepjes ( NOUN NOUN_PLURAL ) lemma=`flessenscheepje` nounpl  
+ flessentrekker ( NOUN NOUN_SINGULAR ) 
+ flessentrekkers ( NOUN NOUN_PLURAL ) lemma=`flessentrekker` nounpl  
+ flest ( VERB_PRESENT VERB ) lemma=`flessen` verbpressg  
+ fleste ( VERB_PAST VERB ) lemma=`flessen` verbpastsg  
+ flesten ( VERB_PAST VERB ) lemma=`flessen` verbpastpl  
+ flets ( ADJECTIVE ) 
+ fletse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flets`fletse` adj  nounsg  
+ fletsen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`flets`fletse` adj  nounpl  
+ fletser ( ADJECTIVE ) lemma=`flets` adj  
+ fletsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flets`fletsere` adj  nounsg  
+ fletst ( ADJECTIVE ) lemma=`flets` adj  
+ fletste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flets`fletste` adj  nounsg  
+ fleur ( NOUN NOUN_SINGULAR ) 
+ fleuren ( NOUN NOUN_PLURAL ) lemma=`fleur` nounpl  
+ fleurig ( ADJECTIVE ) 
+ fleurige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fleurig`fleurige` adj  nounsg  
+ fleuriger ( ADJECTIVE ) lemma=`fleurig` adj  
+ fleurigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fleurig`fleurigere` adj  nounsg  
+ fleurigst ( ADJECTIVE ) lemma=`fleurig` adj  
+ fleurigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fleurig`fleurigste` adj  nounsg  
+ flexibel ( ADJECTIVE ) 
+ flexibele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flexibel`flexibele` adj  nounsg  
+ flexibeler ( ADJECTIVE ) lemma=`flexibel` adj  
+ flexibelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flexibel`flexibelere` adj  nounsg  
+ flexibelst ( ADJECTIVE ) lemma=`flexibel` adj  
+ flexibelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flexibel`flexibelste` adj  nounsg  
+ flexibilisering ( NOUN NOUN_SINGULAR ) 
+ flexibiliteit ( NOUN NOUN_SINGULAR ) 
+ flexie ( NOUN NOUN_SINGULAR ) 
+ flexies ( NOUN NOUN_PLURAL ) lemma=`flexie` nounpl  
+ flierefluiter ( NOUN NOUN_SINGULAR ) 
+ flierefluiters ( NOUN NOUN_PLURAL ) lemma=`flierefluiter` nounpl  
+ flik ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flik`flikken` nounsg  verbpressg  
+ flikflooi ( VERB_PRESENT VERB ) lemma=`flikflooien` verbpressg  
+ flikflooide ( VERB_PAST VERB ) lemma=`flikflooien` verbpastsg  
+ flikflooiden ( VERB_PAST VERB ) lemma=`flikflooien` verbpastpl  
+ flikflooien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flikflooien`flikflooien`flikflooien` nounsg  verbinf  verbprespl  
+ flikflooiend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flikflooien` verbpresp  
+ flikflooiende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flikflooiende`flikflooien` nounsg  verbpresp  
+ flikflooit ( VERB_PRESENT VERB ) lemma=`flikflooien` verbpressg  
+ flikje ( NOUN NOUN_SINGULAR ) lemma=`flik` nounsg  
+ flikjes ( NOUN NOUN_PLURAL ) lemma=`flik` nounpl  
+ flikken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`flik`flikken`flikken`flikken` nounpl  nounsg  verbinf  verbprespl  
+ flikkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flikken` verbpresp  
+ flikkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flikkende`flikken` nounsg  verbpresp  
+ flikker ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flikker`flikkeren` nounsg  verbpressg  
+ flikkerde ( VERB_PAST VERB ) lemma=`flikkeren` verbpastsg  
+ flikkerden ( VERB_PAST VERB ) lemma=`flikkeren` verbpastpl  
+ flikkeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flikkeren`flikkeren`flikkeren` nounsg  verbinf  verbprespl  
+ flikkerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flikkeren` verbpresp  
+ flikkerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flikkerende`flikkeren` nounsg  verbpresp  
+ flikkering ( NOUN NOUN_SINGULAR ) 
+ flikkeringen ( NOUN NOUN_PLURAL ) lemma=`flikkering` nounpl  
+ flikkers ( NOUN NOUN_PLURAL ) lemma=`flikker` nounpl  
+ flikkert ( VERB_PRESENT VERB ) lemma=`flikkeren` verbpressg  
+ flikkertje ( NOUN NOUN_SINGULAR ) lemma=`flikker` nounsg  
+ flikkertjes ( NOUN NOUN_PLURAL ) lemma=`flikker` nounpl  
+ flikt ( VERB_PRESENT VERB ) lemma=`flikken` verbpressg  
+ flikte ( VERB_PAST VERB ) lemma=`flikken` verbpastsg  
+ flikten ( VERB_PAST VERB ) lemma=`flikken` verbpastpl  
+ flink ( ADJECTIVE ) 
+ flinke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flink`flinke` adj  nounsg  
+ flinker ( ADJECTIVE ) lemma=`flink` adj  
+ flinkerd ( NOUN NOUN_SINGULAR ) 
+ flinkerds ( NOUN NOUN_PLURAL ) lemma=`flinkerd` nounpl  
+ flinkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flink`flinkere` adj  nounsg  
+ flinkgebouwd ( ADJECTIVE ) 
+ flinkst ( ADJECTIVE ) lemma=`flink` adj  
+ flinkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flink`flinkste` adj  nounsg  
+ flinter ( NOUN NOUN_SINGULAR ) 
+ flinterdun ( ADJECTIVE ) 
+ flinterdunne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flinterdun`flinterdunne` adj  nounsg  
+ flinters ( NOUN NOUN_PLURAL ) lemma=`flinter` nounpl  
+ flip ( VERB_PRESENT VERB ) lemma=`flippen` verbpressg  
+ flip-over ( NOUN NOUN_SINGULAR ) 
+ flip-overs ( NOUN NOUN_PLURAL ) lemma=`flip-over` nounpl  
+ flippen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flippen`flippen`flippen` nounsg  verbinf  verbprespl  
+ flippend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flippen` verbpresp  
+ flippende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flippende`flippen` nounsg  verbpresp  
+ flipper ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flipper`flipperen` nounsg  verbpressg  
+ flipperde ( VERB_PAST VERB ) lemma=`flipperen` verbpastsg  
+ flipperden ( VERB_PAST VERB ) lemma=`flipperen` verbpastpl  
+ flipperen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flipperen`flipperen`flipperen` nounsg  verbinf  verbprespl  
+ flipperend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flipperen` verbpresp  
+ flipperende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flipperende`flipperen` nounsg  verbpresp  
+ flipperkast ( NOUN NOUN_SINGULAR ) 
+ flipperkasten ( NOUN NOUN_PLURAL ) lemma=`flipperkast` nounpl  
+ flippers ( NOUN NOUN_PLURAL ) lemma=`flipper` nounpl  
+ flippert ( VERB_PRESENT VERB ) lemma=`flipperen` verbpressg  
+ flipt ( VERB_PRESENT VERB ) lemma=`flippen` verbpressg  
+ flipte ( VERB_PAST VERB ) lemma=`flippen` verbpastsg  
+ flipten ( VERB_PAST VERB ) lemma=`flippen` verbpastpl  
+ flirt ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flirt`flirten` nounsg  verbpressg  
+ flirten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`flirt`flirten`flirten`flirten` nounpl  nounsg  verbinf  verbprespl  
+ flirtend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flirten` verbpresp  
+ flirtende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flirtende`flirten` nounsg  verbpresp  
+ flirtte ( VERB_PAST VERB ) lemma=`flirten` verbpastsg  
+ flirtten ( VERB_PAST VERB ) lemma=`flirten` verbpastpl  
+ flits ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flits`flitsen` nounsg  verbpressg  
+ flitsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`flits`flitsen`flitsen`flitsen` nounpl  nounsg  verbinf  verbprespl  
+ flitsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flitsen` verbpresp  
+ flitsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flitsende`flitsen` nounsg  verbpresp  
+ flitser ( NOUN NOUN_SINGULAR ) 
+ flitsers ( NOUN NOUN_PLURAL ) lemma=`flitser` nounpl  
+ flitsjes ( NOUN NOUN_PLURAL ) lemma=`flits` nounpl  
+ flitslamp ( NOUN NOUN_SINGULAR ) 
+ flitslampen ( NOUN NOUN_PLURAL ) lemma=`flitslamp` nounpl  
+ flitslampje ( NOUN NOUN_SINGULAR ) lemma=`flitslamp` nounsg  
+ flitslampjes ( NOUN NOUN_PLURAL ) lemma=`flitslamp` nounpl  
+ flitslicht ( NOUN NOUN_SINGULAR ) 
+ flitslichten ( NOUN NOUN_PLURAL ) lemma=`flitslicht` nounpl  
+ flitst ( VERB_PRESENT VERB ) lemma=`flitsen` verbpressg  
+ flitste ( VERB_PAST VERB ) lemma=`flitsen` verbpastsg  
+ flitsten ( VERB_PAST VERB ) lemma=`flitsen` verbpastpl  
+ flodder ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flodder`flodderen` nounsg  verbpressg  
+ flodderde ( VERB_PAST VERB ) lemma=`flodderen` verbpastsg  
+ flodderden ( VERB_PAST VERB ) lemma=`flodderen` verbpastpl  
+ flodderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flodderen`flodderen`flodderen` nounsg  verbinf  verbprespl  
+ flodderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flodderen` verbpresp  
+ flodderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flodderende`flodderen` nounsg  verbpresp  
+ flodderig ( ADJECTIVE ) 
+ flodderige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flodderig`flodderige` adj  nounsg  
+ flodderiger ( ADJECTIVE ) lemma=`flodderig` adj  
+ flodderigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flodderig`flodderigere` adj  nounsg  
+ flodderigst ( ADJECTIVE ) lemma=`flodderig` adj  
+ flodderigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`flodderig`flodderigste` adj  nounsg  
+ flodderjurk ( NOUN NOUN_SINGULAR ) 
+ flodderjurken ( NOUN NOUN_PLURAL ) lemma=`flodderjurk` nounpl  
+ flodders ( NOUN NOUN_PLURAL ) lemma=`flodder` nounpl  
+ floddert ( VERB_PRESENT VERB ) lemma=`flodderen` verbpressg  
+ floep ( VERB_PRESENT VERB ) lemma=`floepen` verbpressg  
+ floepen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`floepen`floepen`floepen` nounsg  verbinf  verbprespl  
+ floepend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`floepen` verbpresp  
+ floepende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`floepende`floepen` nounsg  verbpresp  
+ floept ( VERB_PRESENT VERB ) lemma=`floepen` verbpressg  
+ floepte ( VERB_PAST VERB ) lemma=`floepen` verbpastsg  
+ floepten ( VERB_PAST VERB ) lemma=`floepen` verbpastpl  
+ floers ( NOUN NOUN_SINGULAR ) 
+ floersen ( NOUN NOUN_PLURAL ) lemma=`floers` nounpl  
+ floks ( NOUN NOUN_SINGULAR ) 
+ floksen ( NOUN NOUN_PLURAL ) lemma=`floks` nounpl  
+ flonker ( VERB_PRESENT VERB ) lemma=`flonkeren` verbpressg  
+ flonkerde ( VERB_PAST VERB ) lemma=`flonkeren` verbpastsg  
+ flonkerden ( VERB_PAST VERB ) lemma=`flonkeren` verbpastpl  
+ flonkeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flonkeren`flonkeren`flonkeren` nounsg  verbinf  verbprespl  
+ flonkerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flonkeren` verbpresp  
+ flonkerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flonkerende`flonkeren` nounsg  verbpresp  
+ flonkering ( NOUN NOUN_SINGULAR ) 
+ flonkeringen ( NOUN NOUN_PLURAL ) lemma=`flonkering` nounpl  
+ flonkert ( VERB_PRESENT VERB ) lemma=`flonkeren` verbpressg  
+ floot ( VERB_PAST VERB ) lemma=`fluiten` verbpastsg  
+ flop ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`flop`floppen` nounsg  verbpressg  
+ floppen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`floppen`floppen`floppen` nounsg  verbinf  verbprespl  
+ floppend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`floppen` verbpresp  
+ floppende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`floppende`floppen` nounsg  verbpresp  
+ floppies ( NOUN NOUN_PLURAL ) lemma=`floppy` nounpl  
+ floppy ( NOUN NOUN_SINGULAR ) 
+ floppydisk ( NOUN NOUN_SINGULAR ) 
+ floppydisks ( NOUN NOUN_PLURAL ) lemma=`floppydisk` nounpl  
+ flops ( NOUN NOUN_PLURAL ) lemma=`flop` nounpl  
+ flopt ( VERB_PRESENT VERB ) lemma=`floppen` verbpressg  
+ flopte ( VERB_PAST VERB ) lemma=`floppen` verbpastsg  
+ flopten ( VERB_PAST VERB ) lemma=`floppen` verbpastpl  
+ flora ( NOUN NOUN_SINGULAR ) 
+ flora's ( NOUN NOUN_PLURAL ) lemma=`flora` nounpl  
+ floreer ( VERB_PRESENT VERB ) lemma=`floreren` verbpressg  
+ floreerde ( VERB_PAST VERB ) lemma=`floreren` verbpastsg  
+ floreerden ( VERB_PAST VERB ) lemma=`floreren` verbpastpl  
+ floreert ( VERB_PRESENT VERB ) lemma=`floreren` verbpressg  
+ floreren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`floreren`floreren`floreren` nounsg  verbinf  verbprespl  
+ florerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`floreren` verbpresp  
+ florerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`florerende`floreren` nounsg  verbpresp  
+ florijn ( NOUN NOUN_SINGULAR ) 
+ florijnen ( NOUN NOUN_PLURAL ) lemma=`florijn` nounpl  
+ florissant ( ADJECTIVE ) 
+ florissante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`florissant`florissante` adj  nounsg  
+ florissanter ( ADJECTIVE ) lemma=`florissant` adj  
+ florissantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`florissant`florissantere` adj  nounsg  
+ florissantst ( ADJECTIVE ) lemma=`florissant` adj  
+ florissantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`florissant`florissantste` adj  nounsg  
+ flos ( VERB_PRESENT VERB ) lemma=`flossen` verbpressg  
+ floss ( NOUN NOUN_SINGULAR ) 
+ flossen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`flossen`flossen`flossen` nounsg  verbinf  verbprespl  
+ flossend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`flossen` verbpresp  
+ flossende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`flossende`flossen` nounsg  verbpresp  
+ flost ( VERB_PRESENT VERB ) lemma=`flossen` verbpressg  
+ floste ( VERB_PAST VERB ) lemma=`flossen` verbpastsg  
+ flosten ( VERB_PAST VERB ) lemma=`flossen` verbpastpl  
+ floten ( VERB_PAST VERB ) lemma=`fluiten` verbpastpl  
+ flottielje ( NOUN NOUN_SINGULAR ) 
+ flottieljes ( NOUN NOUN_PLURAL ) lemma=`flottielje` nounpl  
+ flottieljevloot ( NOUN NOUN_SINGULAR ) 
+ flottieljevloten ( NOUN NOUN_PLURAL ) lemma=`flottieljevloot` nounpl  
+ flox ( NOUN NOUN_SINGULAR ) 
+ floxen ( NOUN NOUN_PLURAL ) lemma=`flox` nounpl  
+ fluctuatie ( NOUN NOUN_SINGULAR ) 
+ fluctuaties ( NOUN NOUN_PLURAL ) lemma=`fluctuatie` nounpl  
+ fluctueer ( VERB_PRESENT VERB ) lemma=`fluctueren` verbpressg  
+ fluctueerde ( VERB_PAST VERB ) lemma=`fluctueren` verbpastsg  
+ fluctueerden ( VERB_PAST VERB ) lemma=`fluctueren` verbpastpl  
+ fluctueert ( VERB_PRESENT VERB ) lemma=`fluctueren` verbpressg  
+ fluctueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fluctueren`fluctueren`fluctueren` nounsg  verbinf  verbprespl  
+ fluctuerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fluctueren` verbpresp  
+ fluctuerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fluctuerende`fluctueren` nounsg  verbpresp  
+ fluim ( NOUN NOUN_SINGULAR ) 
+ fluimen ( NOUN NOUN_PLURAL ) lemma=`fluim` nounpl  
+ fluimpje ( NOUN NOUN_SINGULAR ) lemma=`fluim` nounsg  
+ fluimpjes ( NOUN NOUN_PLURAL ) lemma=`fluim` nounpl  
+ fluister ( VERB_PRESENT VERB ) lemma=`fluisteren` verbpressg  
+ fluisteraar ( NOUN NOUN_SINGULAR ) 
+ fluisteraars ( NOUN NOUN_PLURAL ) lemma=`fluisteraar` nounpl  
+ fluisterasfalt ( NOUN NOUN_SINGULAR ) 
+ fluistercampagne ( NOUN NOUN_SINGULAR ) 
+ fluistercampagnes ( NOUN NOUN_PLURAL ) lemma=`fluistercampagne` nounpl  
+ fluisterde ( VERB_PAST VERB ) lemma=`fluisteren` verbpastsg  
+ fluisterden ( VERB_PAST VERB ) lemma=`fluisteren` verbpastpl  
+ fluisteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fluisteren`fluisteren`fluisteren` nounsg  verbinf  verbprespl  
+ fluisterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fluisteren` verbpresp  
+ fluisterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fluisterende`fluisteren` nounsg  verbpresp  
+ fluisterstem ( NOUN NOUN_SINGULAR ) 
+ fluisterstemmen ( NOUN NOUN_PLURAL ) lemma=`fluisterstem` nounpl  
+ fluistert ( VERB_PRESENT VERB ) lemma=`fluisteren` verbpressg  
+ fluit ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fluit`fluiten` nounsg  verbpressg  
+ fluitconcert ( NOUN NOUN_SINGULAR ) 
+ fluitconcerten ( NOUN NOUN_PLURAL ) lemma=`fluitconcert` nounpl  
+ fluitekruid ( NOUN NOUN_SINGULAR ) 
+ fluiten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fluit`fluiten`fluiten`fluiten` nounpl  nounsg  verbinf  verbprespl  
+ fluitend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fluiten` verbpresp  
+ fluitende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fluitende`fluiten` nounsg  verbpresp  
+ fluitenkruid ( NOUN NOUN_SINGULAR ) 
+ fluitist ( NOUN NOUN_SINGULAR ) 
+ fluitiste ( NOUN NOUN_SINGULAR ) 
+ fluitisten ( NOUN NOUN_PLURAL ) lemma=`fluitist` nounpl  
+ fluitistes ( NOUN NOUN_PLURAL ) lemma=`fluitiste` nounpl  
+ fluitje ( NOUN NOUN_SINGULAR ) 
+ fluitjes ( NOUN NOUN_PLURAL ) lemma=`fluitje` nounpl  
+ fluitketel ( NOUN NOUN_SINGULAR ) 
+ fluitketels ( NOUN NOUN_PLURAL ) lemma=`fluitketel` nounpl  
+ fluitsignaal ( NOUN NOUN_SINGULAR ) 
+ fluitsignalen ( NOUN NOUN_PLURAL ) lemma=`fluitsignaal` nounpl  
+ fluktueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fluktueren`fluktueren`fluktueren` nounsg  verbinf  verbprespl  
+ fluor ( NOUN NOUN_SINGULAR ) 
+ fluoresceer ( VERB_PRESENT VERB ) lemma=`fluoresceren` verbpressg  
+ fluoresceerde ( VERB_PAST VERB ) lemma=`fluoresceren` verbpastsg  
+ fluoresceerden ( VERB_PAST VERB ) lemma=`fluoresceren` verbpastpl  
+ fluoresceert ( VERB_PRESENT VERB ) lemma=`fluoresceren` verbpressg  
+ fluoresceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fluoresceren`fluoresceren`fluoresceren` nounsg  verbinf  verbprespl  
+ fluorescerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fluoresceren` verbpresp  
+ fluorescerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fluorescerende`fluoresceren` nounsg  verbpresp  
+ fluorhoudend ( ADJECTIVE ) 
+ fluorhoudende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fluorhoudend`fluorhoudende` adj  nounsg  
+ fluoride ( NOUN NOUN_SINGULAR ) 
+ fluorideer ( VERB_PRESENT VERB ) lemma=`fluorideren` verbpressg  
+ fluorideerde ( VERB_PAST VERB ) lemma=`fluorideren` verbpastsg  
+ fluorideerden ( VERB_PAST VERB ) lemma=`fluorideren` verbpastpl  
+ fluorideert ( VERB_PRESENT VERB ) lemma=`fluorideren` verbpressg  
+ fluoriden ( NOUN NOUN_PLURAL ) lemma=`fluoride` nounpl  
+ fluorideren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fluorideren`fluorideren`fluorideren` nounsg  verbinf  verbprespl  
+ fluoriderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fluorideren` verbpresp  
+ fluoriderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fluoriderende`fluorideren` nounsg  verbpresp  
+ fluorides ( NOUN NOUN_PLURAL ) lemma=`fluoride` nounpl  
+ flut ( ADJECTIVE ) 
+ fluweel ( NOUN NOUN_SINGULAR ) 
+ fluweeltje ( NOUN NOUN_SINGULAR ) lemma=`fluweel` nounsg  
+ fluweeltjes ( NOUN NOUN_PLURAL ) lemma=`fluweel` nounpl  
+ fluweelzacht ( ADJECTIVE ) 
+ fluweelzachte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fluweelzacht`fluweelzachte` adj  nounsg  
+ fluweelzachter ( ADJECTIVE ) lemma=`fluweelzacht` adj  
+ fluweelzachtere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fluweelzacht`fluweelzachtere` adj  nounsg  
+ fluweelzachtst ( ADJECTIVE ) lemma=`fluweelzacht` adj  
+ fluweelzachtste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fluweelzacht`fluweelzachtste` adj  nounsg  
+ fluwelen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`fluwelen`fluweel` adj  nounpl  
+ flux ( NOUN NOUN_SINGULAR ) 
+ fnuik ( VERB_PRESENT VERB ) lemma=`fnuiken` verbpressg  
+ fnuiken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fnuiken`fnuiken`fnuiken` nounsg  verbinf  verbprespl  
+ fnuikend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`fnuikend`fnuiken` adj  verbpresp  
+ fnuikende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`fnuikend`fnuikende`fnuiken` adj  nounsg  verbpresp  
+ fnuikender ( ADJECTIVE ) lemma=`fnuikend` adj  
+ fnuikendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fnuikend`fnuikendere` adj  nounsg  
+ fnuikendst ( ADJECTIVE ) lemma=`fnuikend` adj  
+ fnuikendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fnuikend`fnuikendste` adj  nounsg  
+ fnuikt ( VERB_PRESENT VERB ) lemma=`fnuiken` verbpressg  
+ fnuikte ( VERB_PAST VERB ) lemma=`fnuiken` verbpastsg  
+ fnuikten ( VERB_PAST VERB ) lemma=`fnuiken` verbpastpl  
+ fobie ( NOUN NOUN_SINGULAR ) 
+ fobieën ( NOUN NOUN_PLURAL ) lemma=`fobie` nounpl  
+ focus ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`focus`focussen` nounsg  verbpressg  
+ focussen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`focus`focussen`focussen`focussen` nounpl  nounsg  verbinf  verbprespl  
+ focussend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`focussen` verbpresp  
+ focussende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`focussende`focussen` nounsg  verbpresp  
+ focust ( VERB_PRESENT VERB ) lemma=`focussen` verbpressg  
+ focuste ( VERB_PAST VERB ) lemma=`focussen` verbpastsg  
+ focusten ( VERB_PAST VERB ) lemma=`focussen` verbpastpl  
+ foedraal ( NOUN NOUN_SINGULAR ) 
+ foedraaltje ( NOUN NOUN_SINGULAR ) lemma=`foedraal` nounsg  
+ foedraaltjes ( NOUN NOUN_PLURAL ) lemma=`foedraal` nounpl  
+ foedralen ( NOUN NOUN_PLURAL ) lemma=`foedraal` nounpl  
+ foefel ( VERB_PRESENT VERB ) lemma=`foefelen` verbpressg  
+ foefelde ( VERB_PAST VERB ) lemma=`foefelen` verbpastsg  
+ foefelden ( VERB_PAST VERB ) lemma=`foefelen` verbpastpl  
+ foefelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`foefelen`foefelen`foefelen` nounsg  verbinf  verbprespl  
+ foefelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`foefelen` verbpresp  
+ foefelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`foefelende`foefelen` nounsg  verbpresp  
+ foefelt ( VERB_PRESENT VERB ) lemma=`foefelen` verbpressg  
+ foefje ( NOUN NOUN_SINGULAR ) 
+ foefjes ( NOUN NOUN_PLURAL ) lemma=`foefje` nounpl  
+ foei ( INTERJECTION ) 
+ foeilelijk ( ADJECTIVE ) 
+ foeilelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foeilelijk`foeilelijke` adj  nounsg  
+ foeilelijker ( ADJECTIVE ) lemma=`foeilelijk` adj  
+ foeilelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foeilelijk`foeilelijkere` adj  nounsg  
+ foeilelijkst ( ADJECTIVE ) lemma=`foeilelijk` adj  
+ foeilelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foeilelijk`foeilelijkste` adj  nounsg  
+ foelie ( NOUN NOUN_SINGULAR ) 
+ foelies ( NOUN NOUN_PLURAL ) lemma=`foelie` nounpl  
+ foerage ( NOUN NOUN_SINGULAR ) 
+ foerageer ( VERB_PRESENT VERB ) lemma=`foerageren` verbpressg  
+ foerageerde ( VERB_PAST VERB ) lemma=`foerageren` verbpastsg  
+ foerageerden ( VERB_PAST VERB ) lemma=`foerageren` verbpastpl  
+ foerageert ( VERB_PRESENT VERB ) lemma=`foerageren` verbpressg  
+ foerageren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`foerageren`foerageren`foerageren` nounsg  verbinf  verbprespl  
+ foeragerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`foerageren` verbpresp  
+ foeragerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`foeragerende`foerageren` nounsg  verbpresp  
+ foerier ( NOUN NOUN_SINGULAR ) 
+ foeriers ( NOUN NOUN_PLURAL ) lemma=`foerier` nounpl  
+ foeriertje ( NOUN NOUN_SINGULAR ) lemma=`foerier` nounsg  
+ foeriertjes ( NOUN NOUN_PLURAL ) lemma=`foerier` nounpl  
+ foeter ( VERB_PRESENT VERB ) lemma=`foeteren` verbpressg  
+ foeterde ( VERB_PAST VERB ) lemma=`foeteren` verbpastsg  
+ foeterden ( VERB_PAST VERB ) lemma=`foeteren` verbpastpl  
+ foeteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`foeteren`foeteren`foeteren` nounsg  verbinf  verbprespl  
+ foeterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`foeteren` verbpresp  
+ foeterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`foeterende`foeteren` nounsg  verbpresp  
+ foetert ( VERB_PRESENT VERB ) lemma=`foeteren` verbpressg  
+ foetsie ( ADJECTIVE ) 
+ foetus ( NOUN NOUN_SINGULAR ) 
+ foetussen ( NOUN NOUN_PLURAL ) lemma=`foetus` nounpl  
+ fok ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fok`fokken` nounsg  verbpressg  
+ fokhengst ( NOUN NOUN_SINGULAR ) 
+ fokhengsten ( NOUN NOUN_PLURAL ) lemma=`fokhengst` nounpl  
+ fokkemaat ( NOUN NOUN_SINGULAR ) 
+ fokkematen ( NOUN NOUN_PLURAL ) lemma=`fokkemaat` nounpl  
+ fokken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fok`fokken`fokken`fokken` nounpl  nounsg  verbinf  verbprespl  
+ fokkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fokken` verbpresp  
+ fokkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fokkende`fokken` nounsg  verbpresp  
+ fokkenist ( NOUN NOUN_SINGULAR ) 
+ fokkenisten ( NOUN NOUN_PLURAL ) lemma=`fokkenist` nounpl  
+ fokkenmaat ( NOUN NOUN_SINGULAR ) 
+ fokkenmaats ( NOUN NOUN_PLURAL ) lemma=`fokkenmaat` nounpl  
+ fokkenschoot ( NOUN NOUN_SINGULAR ) 
+ fokkenschoten ( NOUN NOUN_PLURAL ) lemma=`fokkenschoot` nounpl  
+ fokkenval ( NOUN NOUN_SINGULAR ) 
+ fokkenvallen ( NOUN NOUN_PLURAL ) lemma=`fokkenval` nounpl  
+ fokker ( NOUN NOUN_SINGULAR ) 
+ fokkers ( NOUN NOUN_PLURAL ) lemma=`fokker` nounpl  
+ fokkeschoot ( NOUN NOUN_SINGULAR ) 
+ fokkeschoten ( NOUN NOUN_PLURAL ) lemma=`fokkeschoot` nounpl  
+ fokkeval ( NOUN NOUN_SINGULAR ) 
+ fokkevallen ( NOUN NOUN_PLURAL ) lemma=`fokkeval` nounpl  
+ fokroller ( NOUN NOUN_SINGULAR ) 
+ fokrollers ( NOUN NOUN_PLURAL ) lemma=`fokroller` nounpl  
+ foksia ( NOUN NOUN_SINGULAR ) 
+ foksia's ( NOUN NOUN_PLURAL ) lemma=`foksia` nounpl  
+ fokt ( VERB_PRESENT VERB ) lemma=`fokken` verbpressg  
+ fokte ( VERB_PAST VERB ) lemma=`fokken` verbpastsg  
+ fokten ( VERB_PAST VERB ) lemma=`fokken` verbpastpl  
+ folder ( NOUN NOUN_SINGULAR ) 
+ folders ( NOUN NOUN_PLURAL ) lemma=`folder` nounpl  
+ foldertje ( NOUN NOUN_SINGULAR ) lemma=`folder` nounsg  
+ foldertjes ( NOUN NOUN_PLURAL ) lemma=`folder` nounpl  
+ foliant ( NOUN NOUN_SINGULAR ) 
+ folianten ( NOUN NOUN_PLURAL ) lemma=`foliant` nounpl  
+ folie ( NOUN NOUN_SINGULAR ) 
+ folies ( NOUN NOUN_PLURAL ) lemma=`folie` nounpl  
+ folk ( NOUN NOUN_SINGULAR ) 
+ folklore ( NOUN NOUN_SINGULAR ) 
+ folkloristisch ( ADJECTIVE ) 
+ folkloristische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`folkloristisch`folkloristische` adj  nounsg  
+ follow-up ( NOUN NOUN_SINGULAR ) 
+ follow-ups ( NOUN NOUN_PLURAL ) lemma=`follow-up` nounpl  
+ folter ( VERB_PRESENT VERB ) lemma=`folteren` verbpressg  
+ folterde ( VERB_PAST VERB ) lemma=`folteren` verbpastsg  
+ folterden ( VERB_PAST VERB ) lemma=`folteren` verbpastpl  
+ folteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`folteren`folteren`folteren` nounsg  verbinf  verbprespl  
+ folterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`folteren` verbpresp  
+ folterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`folterende`folteren` nounsg  verbpresp  
+ foltering ( NOUN NOUN_SINGULAR ) 
+ folteringen ( NOUN NOUN_PLURAL ) lemma=`foltering` nounpl  
+ foltert ( VERB_PRESENT VERB ) lemma=`folteren` verbpressg  
+ fondament ( NOUN NOUN_SINGULAR ) 
+ fondamenten ( NOUN NOUN_PLURAL ) lemma=`fondament` nounpl  
+ fondant ( NOUN NOUN_SINGULAR ) 
+ fondants ( NOUN NOUN_PLURAL ) lemma=`fondant` nounpl  
+ fonds ( NOUN NOUN_SINGULAR ) 
+ fondsbesturen ( NOUN NOUN_PLURAL ) lemma=`fondsbestuur` nounpl  
+ fondsbestuur ( NOUN NOUN_SINGULAR ) 
+ fondsen ( NOUN NOUN_PLURAL ) lemma=`fonds` nounpl  
+ fondsenwerving ( NOUN NOUN_SINGULAR ) 
+ fondsenwervingen ( NOUN NOUN_PLURAL ) lemma=`fondsenwerving` nounpl  
+ fondue ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fondue`fonduen` nounsg  verbpressg  
+ fonduede ( VERB_PAST VERB ) lemma=`fonduen` verbpastsg  
+ fondueden ( VERB_PAST VERB ) lemma=`fonduen` verbpastpl  
+ fonduen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fonduen`fonduen`fonduen` nounsg  verbinf  verbprespl  
+ fonduend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fonduen` verbpresp  
+ fonduende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fonduende`fonduen` nounsg  verbpresp  
+ fondues ( NOUN NOUN_PLURAL ) lemma=`fondue` nounpl  
+ fonduet ( VERB_PRESENT VERB ) lemma=`fonduen` verbpressg  
+ foneem ( NOUN NOUN_SINGULAR ) 
+ fonemen ( NOUN NOUN_PLURAL ) lemma=`foneem` nounpl  
+ fonetici ( NOUN NOUN_PLURAL ) lemma=`foneticus` nounpl  
+ foneticus ( NOUN NOUN_SINGULAR ) 
+ fonetiek ( NOUN NOUN_SINGULAR ) 
+ fonetisch ( ADJECTIVE ) 
+ fonetische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fonetisch`fonetische` adj  nounsg  
+ fonkel ( VERB_PRESENT VERB ) lemma=`fonkelen` verbpressg  
+ fonkelde ( VERB_PAST VERB ) lemma=`fonkelen` verbpastsg  
+ fonkelden ( VERB_PAST VERB ) lemma=`fonkelen` verbpastpl  
+ fonkelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fonkelen`fonkelen`fonkelen` nounsg  verbinf  verbprespl  
+ fonkelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fonkelen` verbpresp  
+ fonkelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fonkelende`fonkelen` nounsg  verbpresp  
+ fonkeling ( NOUN NOUN_SINGULAR ) 
+ fonkelingen ( NOUN NOUN_PLURAL ) lemma=`fonkeling` nounpl  
+ fonkelt ( VERB_PRESENT VERB ) lemma=`fonkelen` verbpressg  
+ fonologen ( NOUN NOUN_PLURAL ) lemma=`fonoloog` nounpl  
+ fonologie ( NOUN NOUN_SINGULAR ) 
+ fonologisch ( ADJECTIVE ) 
+ fonologische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fonologisch`fonologische` adj  nounsg  
+ fonoloog ( NOUN NOUN_SINGULAR ) 
+ fontanel ( NOUN NOUN_SINGULAR ) 
+ fontanellen ( NOUN NOUN_PLURAL ) lemma=`fontanel` nounpl  
+ fontein ( NOUN NOUN_SINGULAR ) 
+ fonteinen ( NOUN NOUN_PLURAL ) lemma=`fontein` nounpl  
+ fonteintje ( NOUN NOUN_SINGULAR ) lemma=`fontein` nounsg  
+ fonteintjes ( NOUN NOUN_PLURAL ) lemma=`fontein` nounpl  
+ fooi ( NOUN NOUN_SINGULAR ) 
+ fooien ( NOUN NOUN_PLURAL ) lemma=`fooi` nounpl  
+ fooitje ( NOUN NOUN_SINGULAR ) lemma=`fooi` nounsg  
+ fooitjes ( NOUN NOUN_PLURAL ) lemma=`fooi` nounpl  
+ foor ( NOUN NOUN_SINGULAR ) 
+ fop ( VERB_PRESENT VERB ) lemma=`foppen` verbpressg  
+ foppen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`foppen`foppen`foppen` nounsg  verbinf  verbprespl  
+ foppend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`foppen` verbpresp  
+ foppende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`foppende`foppen` nounsg  verbpresp  
+ fopperij ( NOUN NOUN_SINGULAR ) 
+ fopperijen ( NOUN NOUN_PLURAL ) lemma=`fopperij` nounpl  
+ fopperijtje ( NOUN NOUN_SINGULAR ) lemma=`fopperij` nounsg  
+ fopperijtjes ( NOUN NOUN_PLURAL ) lemma=`fopperij` nounpl  
+ fopspeen ( NOUN NOUN_SINGULAR ) 
+ fopspenen ( NOUN NOUN_PLURAL ) lemma=`fopspeen` nounpl  
+ fopt ( VERB_PRESENT VERB ) lemma=`foppen` verbpressg  
+ fopte ( VERB_PAST VERB ) lemma=`foppen` verbpastsg  
+ fopten ( VERB_PAST VERB ) lemma=`foppen` verbpastpl  
+ forceer ( VERB_PRESENT VERB ) lemma=`forceren` verbpressg  
+ forceerde ( VERB_PAST VERB ) lemma=`forceren` verbpastsg  
+ forceerden ( VERB_PAST VERB ) lemma=`forceren` verbpastpl  
+ forceert ( VERB_PRESENT VERB ) lemma=`forceren` verbpressg  
+ forceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`forceren`forceren`forceren` nounsg  verbinf  verbprespl  
+ forcerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`forceren` verbpresp  
+ forcerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`forcerende`forceren` nounsg  verbpresp  
+ forehand ( NOUN NOUN_SINGULAR ) 
+ forehands ( NOUN NOUN_PLURAL ) lemma=`forehand` nounpl  
+ forel ( NOUN NOUN_SINGULAR ) 
+ forellen ( NOUN NOUN_PLURAL ) lemma=`forel` nounpl  
+ forellenkwekerij ( NOUN NOUN_SINGULAR ) 
+ forellenkwekerijeen ( NOUN NOUN_PLURAL ) lemma=`forellenkwekerij` nounpl  
+ forelletje ( NOUN NOUN_SINGULAR ) lemma=`forel` nounsg  
+ forelletjes ( NOUN NOUN_PLURAL ) lemma=`forel` nounpl  
+ foren ( NOUN NOUN_PLURAL ) lemma=`foor` nounpl  
+ forens ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`forens`forenzen` nounsg  verbpressg  
+ forensde ( VERB_PAST VERB ) lemma=`forenzen` verbpastsg  
+ forensden ( VERB_PAST VERB ) lemma=`forenzen` verbpastpl  
+ forensen ( NOUN NOUN_PLURAL ) lemma=`forens` nounpl  
+ forenst ( VERB_PRESENT VERB ) lemma=`forenzen` verbpressg  
+ forenzen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`forens`forenzen`forenzen`forenzen` nounpl  nounsg  verbinf  verbprespl  
+ forenzend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`forenzen` verbpresp  
+ forenzende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`forenzende`forenzen` nounsg  verbpresp  
+ forfaitair ( ADJECTIVE ) 
+ forfaitaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`forfaitair`forfaitaire` adj  nounsg  
+ forma ( NOUN NOUN_SINGULAR ) 
+ formaat ( NOUN NOUN_SINGULAR ) 
+ formalisatie ( NOUN NOUN_SINGULAR ) 
+ formalisaties ( NOUN NOUN_PLURAL ) lemma=`formalisatie` nounpl  
+ formaliseer ( VERB_PRESENT VERB ) lemma=`formaliseren` verbpressg  
+ formaliseerde ( VERB_PAST VERB ) lemma=`formaliseren` verbpastsg  
+ formaliseerden ( VERB_PAST VERB ) lemma=`formaliseren` verbpastpl  
+ formaliseert ( VERB_PRESENT VERB ) lemma=`formaliseren` verbpressg  
+ formaliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`formaliseren`formaliseren`formaliseren` nounsg  verbinf  verbprespl  
+ formaliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`formaliseren` verbpresp  
+ formaliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`formaliserende`formaliseren` nounsg  verbpresp  
+ formalistisch ( ADJECTIVE ) 
+ formalistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formalistisch`formalistische` adj  nounsg  
+ formalistischer ( ADJECTIVE ) lemma=`formalistisch` adj  
+ formalistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formalistisch`formalistischere` adj  nounsg  
+ formalistischt ( ADJECTIVE ) lemma=`formalistisch` adj  
+ formalistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formalistisch`formalistischte` adj  nounsg  
+ formaliteit ( NOUN NOUN_SINGULAR ) 
+ formaliteiten ( NOUN NOUN_PLURAL ) lemma=`formaliteit` nounpl  
+ formaten ( NOUN NOUN_PLURAL ) lemma=`formaat` nounpl  
+ formateur ( NOUN NOUN_SINGULAR ) 
+ formateurs ( NOUN NOUN_PLURAL ) lemma=`formateur` nounpl  
+ formatie ( NOUN NOUN_SINGULAR ) 
+ formatieplaats ( NOUN NOUN_SINGULAR ) 
+ formatieplaatsen ( NOUN NOUN_PLURAL ) lemma=`formatieplaats` nounpl  
+ formaties ( NOUN NOUN_PLURAL ) lemma=`formatie` nounpl  
+ formatievlucht ( NOUN NOUN_SINGULAR ) 
+ formatievluchten ( NOUN NOUN_PLURAL ) lemma=`formatievlucht` nounpl  
+ formatteer ( VERB_PRESENT VERB ) lemma=`formatteren` verbpressg  
+ formatteerde ( VERB_PAST VERB ) lemma=`formatteren` verbpastsg  
+ formatteerden ( VERB_PAST VERB ) lemma=`formatteren` verbpastpl  
+ formatteert ( VERB_PRESENT VERB ) lemma=`formatteren` verbpressg  
+ formatteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`formatteren`formatteren`formatteren` nounsg  verbinf  verbprespl  
+ formatterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`formatteren` verbpresp  
+ formatterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`formatterende`formatteren` nounsg  verbpresp  
+ formeel ( ADJECTIVE ) 
+ formeelst ( ADJECTIVE ) lemma=`formeel` adj  
+ formeelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formeel`formeelste` adj  nounsg  
+ formeer ( VERB_PRESENT VERB ) lemma=`formeren` verbpressg  
+ formeerde ( VERB_PAST VERB ) lemma=`formeren` verbpastsg  
+ formeerden ( VERB_PAST VERB ) lemma=`formeren` verbpastpl  
+ formeert ( VERB_PRESENT VERB ) lemma=`formeren` verbpressg  
+ formele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formeel`formele` adj  nounsg  
+ formeler ( ADJECTIVE ) lemma=`formeel` adj  
+ formelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formeel`formelere` adj  nounsg  
+ formeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`formeren`formeren`formeren` nounsg  verbinf  verbprespl  
+ formerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`formeren` verbpresp  
+ formerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`formerende`formeren` nounsg  verbpresp  
+ formering ( NOUN NOUN_SINGULAR ) 
+ formeringen ( NOUN NOUN_PLURAL ) lemma=`formering` nounpl  
+ formica ( NOUN NOUN_SINGULAR ) 
+ formidabel ( ADJECTIVE ) 
+ formidabele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formidabel`formidabele` adj  nounsg  
+ formidabeler ( ADJECTIVE ) lemma=`formidabel` adj  
+ formidabelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formidabel`formidabelere` adj  nounsg  
+ formidabelst ( ADJECTIVE ) lemma=`formidabel` adj  
+ formidabelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`formidabel`formidabelste` adj  nounsg  
+ formule ( NOUN NOUN_SINGULAR ) 
+ formuleer ( VERB_PRESENT VERB ) lemma=`formuleren` verbpressg  
+ formuleerde ( VERB_PAST VERB ) lemma=`formuleren` verbpastsg  
+ formuleerden ( VERB_PAST VERB ) lemma=`formuleren` verbpastpl  
+ formuleert ( VERB_PRESENT VERB ) lemma=`formuleren` verbpressg  
+ formuleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`formuleren`formuleren`formuleren` nounsg  verbinf  verbprespl  
+ formulerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`formuleren` verbpresp  
+ formulerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`formulerende`formuleren` nounsg  verbpresp  
+ formulering ( NOUN NOUN_SINGULAR ) 
+ formuleringen ( NOUN NOUN_PLURAL ) lemma=`formulering` nounpl  
+ formules ( NOUN NOUN_PLURAL ) lemma=`formule` nounpl  
+ formuletje ( NOUN NOUN_SINGULAR ) lemma=`formule` nounsg  
+ formuletjes ( NOUN NOUN_PLURAL ) lemma=`formule` nounpl  
+ formulewagen ( NOUN NOUN_SINGULAR ) 
+ formulewagens ( NOUN NOUN_PLURAL ) lemma=`formulewagen` nounpl  
+ formulier ( NOUN NOUN_SINGULAR ) 
+ formulieren ( NOUN NOUN_PLURAL ) lemma=`formulier` nounpl  
+ formuliertje ( NOUN NOUN_SINGULAR ) lemma=`formulier` nounsg  
+ fornuis ( NOUN NOUN_SINGULAR ) 
+ fornuisje ( NOUN NOUN_SINGULAR ) lemma=`fornuis` nounsg  
+ fornuizen ( NOUN NOUN_PLURAL ) lemma=`fornuis` nounpl  
+ fors ( ADJECTIVE ) 
+ forse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fors`forse` adj  nounsg  
+ forser ( ADJECTIVE ) lemma=`fors` adj  
+ forsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fors`forsere` adj  nounsg  
+ forsgebouwd ( ADJECTIVE ) 
+ forsgebouwde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`forsgebouwd`forsgebouwde` adj  nounsg  
+ forst ( ADJECTIVE ) lemma=`fors` adj  
+ forste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fors`forste` adj  nounsg  
+ forsythia ( NOUN NOUN_SINGULAR ) 
+ forsythia's ( NOUN NOUN_PLURAL ) lemma=`forsythia` nounpl  
+ fort ( NOUN NOUN_SINGULAR ) 
+ forte ( ADVERB ) 
+ forten ( NOUN NOUN_PLURAL ) lemma=`fort` nounpl  
+ fortissimo ( ADVERB ) 
+ fortuin ( NOUN NOUN_SINGULAR ) 
+ fortuinen ( NOUN NOUN_PLURAL ) lemma=`fortuin` nounpl  
+ fortuinlijk ( ADJECTIVE ) 
+ fortuinlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fortuinlijk`fortuinlijke` adj  nounsg  
+ fortuinlijker ( ADJECTIVE ) lemma=`fortuinlijk` adj  
+ fortuinlijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fortuinlijk`fortuinlijkere` adj  nounsg  
+ fortuinlijkst ( ADJECTIVE ) lemma=`fortuinlijk` adj  
+ fortuinlijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fortuinlijk`fortuinlijkste` adj  nounsg  
+ fortuintje ( NOUN NOUN_SINGULAR ) lemma=`fortuin` nounsg  
+ fortuintjes ( NOUN NOUN_PLURAL ) lemma=`fortuin` nounpl  
+ fortuinzoeker ( NOUN NOUN_SINGULAR ) 
+ fortuinzoekers ( NOUN NOUN_PLURAL ) lemma=`fortuinzoeker` nounpl  
+ fortuinzoekster ( NOUN NOUN_SINGULAR ) 
+ fortuinzoeksters ( NOUN NOUN_PLURAL ) lemma=`fortuinzoekster` nounpl  
+ forum ( NOUN NOUN_SINGULAR ) 
+ forumdiscussie ( NOUN NOUN_SINGULAR ) 
+ forumdiscussies ( NOUN NOUN_PLURAL ) lemma=`forumdiscussie` nounpl  
+ forumdiskussie ( NOUN NOUN_SINGULAR ) 
+ forumdiskussies ( NOUN NOUN_PLURAL ) lemma=`forumdiskussie` nounpl  
+ forums ( NOUN NOUN_PLURAL ) lemma=`forum` nounpl  
+ fosfaat ( NOUN NOUN_SINGULAR ) 
+ fosfaatvrij ( ADJECTIVE ) 
+ fosfaatvrije ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fosfaatvrij`fosfaatvrije` adj  nounsg  
+ fosfaten ( NOUN NOUN_PLURAL ) lemma=`fosfaat` nounpl  
+ fosfor ( NOUN NOUN_SINGULAR ) 
+ fosforhoudend ( ADJECTIVE ) 
+ fosforhoudende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fosforhoudend`fosforhoudende` adj  nounsg  
+ fossiel ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fossiel`fossiel` adj  nounsg  
+ fossiele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fossiel`fossiele` adj  nounsg  
+ fossielen ( NOUN NOUN_PLURAL ) lemma=`fossiel` nounpl  
+ foto ( NOUN NOUN_SINGULAR ) 
+ foto's ( NOUN NOUN_PLURAL ) lemma=`foto` nounpl  
+ fotoalbum ( NOUN NOUN_SINGULAR ) 
+ fotoalbums ( NOUN NOUN_PLURAL ) lemma=`fotoalbum` nounpl  
+ fotobijschrift ( NOUN NOUN_SINGULAR ) 
+ fotobijschriften ( NOUN NOUN_PLURAL ) lemma=`fotobijschrift` nounpl  
+ fotoboek ( NOUN NOUN_SINGULAR ) 
+ fotoboeken ( NOUN NOUN_PLURAL ) lemma=`fotoboek` nounpl  
+ fotocopie ( NOUN NOUN_SINGULAR ) 
+ fotocopieerapparaat ( NOUN NOUN_SINGULAR ) 
+ fotocopieerapparaten ( NOUN NOUN_PLURAL ) lemma=`fotocopieerapparaat` nounpl  
+ fotocopieën ( NOUN NOUN_PLURAL ) lemma=`fotocopie` nounpl  
+ fotocopiëren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fotocopiëren`fotocopiëren`fotocopiëren` nounsg  verbinf  verbprespl  
+ fotofinish ( NOUN NOUN_SINGULAR ) 
+ fotofinishes ( NOUN NOUN_PLURAL ) lemma=`fotofinish` nounpl  
+ fotogalerij ( NOUN NOUN_SINGULAR ) 
+ fotogalerijen ( NOUN NOUN_PLURAL ) lemma=`fotogalerij` nounpl  
+ fotogeniek ( ADJECTIVE ) 
+ fotogenieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fotogeniek`fotogenieke` adj  nounsg  
+ fotogenieker ( ADJECTIVE ) lemma=`fotogeniek` adj  
+ fotogeniekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fotogeniek`fotogeniekere` adj  nounsg  
+ fotogeniekst ( ADJECTIVE ) lemma=`fotogeniek` adj  
+ fotogeniekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fotogeniek`fotogeniekste` adj  nounsg  
+ fotograaf ( NOUN NOUN_SINGULAR ) 
+ fotografe ( NOUN NOUN_SINGULAR ) 
+ fotografeer ( VERB_PRESENT VERB ) lemma=`fotograferen` verbpressg  
+ fotografeerde ( VERB_PAST VERB ) lemma=`fotograferen` verbpastsg  
+ fotografeerden ( VERB_PAST VERB ) lemma=`fotograferen` verbpastpl  
+ fotografeert ( VERB_PRESENT VERB ) lemma=`fotograferen` verbpressg  
+ fotografen ( NOUN NOUN_PLURAL ) lemma=`fotograaf` nounpl  
+ fotograferen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fotograferen`fotograferen`fotograferen` nounsg  verbinf  verbprespl  
+ fotograferend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fotograferen` verbpresp  
+ fotograferende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fotograferende`fotograferen` nounsg  verbpresp  
+ fotografes ( NOUN NOUN_PLURAL ) lemma=`fotografe` nounpl  
+ fotografie ( NOUN NOUN_SINGULAR ) 
+ fotografies ( NOUN NOUN_PLURAL ) lemma=`fotografie` nounpl  
+ fotografietje ( NOUN NOUN_SINGULAR ) lemma=`fotografie` nounsg  
+ fotografietjes ( NOUN NOUN_PLURAL ) lemma=`fotografie` nounpl  
+ fotografieën ( NOUN NOUN_PLURAL ) lemma=`fotografie` nounpl  
+ fotografisch ( ADJECTIVE ) 
+ fotografische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fotografisch`fotografische` adj  nounsg  
+ fotokopie ( NOUN NOUN_SINGULAR ) 
+ fotokopieer ( VERB_PRESENT VERB ) lemma=`fotokopiëren` verbpressg  
+ fotokopieerapparaat ( NOUN NOUN_SINGULAR ) 
+ fotokopieerapparaten ( NOUN NOUN_PLURAL ) lemma=`fotokopieerapparaat` nounpl  
+ fotokopieerde ( VERB_PAST VERB ) lemma=`fotokopiëren` verbpastsg  
+ fotokopieerden ( VERB_PAST VERB ) lemma=`fotokopiëren` verbpastpl  
+ fotokopieert ( VERB_PRESENT VERB ) lemma=`fotokopiëren` verbpressg  
+ fotokopies ( NOUN NOUN_PLURAL ) lemma=`fotokopie` nounpl  
+ fotokopieën ( NOUN NOUN_PLURAL ) lemma=`fotokopie` nounpl  
+ fotokopiëren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fotokopiëren`fotokopiëren`fotokopiëren` nounsg  verbinf  verbprespl  
+ fotokopiërend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fotokopiëren` verbpresp  
+ fotokopiërende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fotokopiërende`fotokopiëren` nounsg  verbpresp  
+ fotomateriaal ( NOUN NOUN_SINGULAR ) 
+ fotomodel ( NOUN NOUN_SINGULAR ) 
+ fotomodellen ( NOUN NOUN_PLURAL ) lemma=`fotomodel` nounpl  
+ fotomontage ( NOUN NOUN_SINGULAR ) 
+ fotomontages ( NOUN NOUN_PLURAL ) lemma=`fotomontage` nounpl  
+ foton ( NOUN NOUN_SINGULAR ) 
+ fotonen ( NOUN NOUN_PLURAL ) lemma=`foton` nounpl  
+ fotootje ( NOUN NOUN_SINGULAR ) lemma=`foto` nounsg  
+ fotootjes ( NOUN NOUN_PLURAL ) lemma=`foto` nounpl  
+ fotoredactie ( NOUN NOUN_SINGULAR ) 
+ fotoredacties ( NOUN NOUN_PLURAL ) lemma=`fotoredactie` nounpl  
+ fotoreportage ( NOUN NOUN_SINGULAR ) 
+ fotoreportages ( NOUN NOUN_PLURAL ) lemma=`fotoreportage` nounpl  
+ fotoserie ( NOUN NOUN_SINGULAR ) 
+ fotoseries ( NOUN NOUN_PLURAL ) lemma=`fotoserie` nounpl  
+ fotosessie ( NOUN NOUN_SINGULAR ) 
+ fotosessies ( NOUN NOUN_PLURAL ) lemma=`fotosessie` nounpl  
+ fotosfeer ( NOUN NOUN_SINGULAR ) 
+ fotosynthese ( NOUN NOUN_SINGULAR ) 
+ fototoestel ( NOUN NOUN_SINGULAR ) 
+ fototoestellen ( NOUN NOUN_PLURAL ) lemma=`fototoestel` nounpl  
+ fototoestelletje ( NOUN NOUN_SINGULAR ) lemma=`fototoestel` nounsg  
+ fotowerk ( NOUN NOUN_SINGULAR ) 
+ fouilleer ( VERB_PRESENT VERB ) lemma=`fouilleren` verbpressg  
+ fouilleerde ( VERB_PAST VERB ) lemma=`fouilleren` verbpastsg  
+ fouilleerden ( VERB_PAST VERB ) lemma=`fouilleren` verbpastpl  
+ fouilleert ( VERB_PRESENT VERB ) lemma=`fouilleren` verbpressg  
+ fouilleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fouilleren`fouilleren`fouilleren` nounsg  verbinf  verbprespl  
+ fouillerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fouilleren` verbpresp  
+ fouillerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fouillerende`fouilleren` nounsg  verbpresp  
+ foundation ( NOUN NOUN_SINGULAR ) 
+ foundations ( NOUN NOUN_PLURAL ) lemma=`foundation` nounpl  
+ fourageren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fourageren`fourageren`fourageren` nounsg  verbinf  verbprespl  
+ fout ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fout`fout` adj  nounsg  
+ foute ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fout`foute` adj  nounsg  
+ fouten ( NOUN NOUN_PLURAL ) lemma=`fout` nounpl  
+ foutenmarge ( NOUN NOUN_SINGULAR ) 
+ foutenmarges ( NOUN NOUN_PLURAL ) lemma=`foutenmarge` nounpl  
+ foutief ( ADJECTIVE ) 
+ foutiefst ( ADJECTIVE ) lemma=`foutief` adj  
+ foutiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foutief`foutiefste` adj  nounsg  
+ foutieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foutief`foutieve` adj  nounsg  
+ foutiever ( ADJECTIVE ) lemma=`foutief` adj  
+ foutievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foutief`foutievere` adj  nounsg  
+ foutloos ( ADJECTIVE ) 
+ foutloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`foutloos`foutloze` adj  nounsg  
+ fox ( NOUN NOUN_SINGULAR ) 
+ foxen ( NOUN NOUN_PLURAL ) lemma=`fox` nounpl  
+ foxtrot ( NOUN NOUN_SINGULAR ) 
+ foxtrots ( NOUN NOUN_PLURAL ) lemma=`foxtrot` nounpl  
+ foyer ( NOUN NOUN_SINGULAR ) 
+ foyers ( NOUN NOUN_PLURAL ) lemma=`foyer` nounpl  
+ fr ( NOUN NOUN_SINGULAR ) 
+ fr. ( NOUN NOUN_SINGULAR ) 
+ fraai ( ADJECTIVE ) 
+ fraaie ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fraai`fraaie` adj  nounsg  
+ fraaier ( ADJECTIVE ) lemma=`fraai` adj  
+ fraaiere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fraai`fraaiere` adj  nounsg  
+ fraaist ( ADJECTIVE ) lemma=`fraai` adj  
+ fraaiste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fraai`fraaiste` adj  nounsg  
+ fraaitjes ( ADJECTIVE ) lemma=`fraai` adj  
+ fractie ( NOUN NOUN_SINGULAR ) 
+ fractiecommissie ( NOUN NOUN_SINGULAR ) 
+ fractiecommissies ( NOUN NOUN_PLURAL ) lemma=`fractiecommissie` nounpl  
+ fractiegenoot ( NOUN NOUN_SINGULAR ) 
+ fractiegenoten ( NOUN NOUN_PLURAL ) lemma=`fractiegenoot` nounpl  
+ fractieleden ( NOUN NOUN_PLURAL ) lemma=`fractielid` nounpl  
+ fractieleider ( NOUN NOUN_SINGULAR ) 
+ fractieleiders ( NOUN NOUN_PLURAL ) lemma=`fractieleider` nounpl  
+ fractielid ( NOUN NOUN_SINGULAR ) 
+ fracties ( NOUN NOUN_PLURAL ) lemma=`fractie` nounpl  
+ fractiespecialist ( NOUN NOUN_SINGULAR ) 
+ fractiespecialisten ( NOUN NOUN_PLURAL ) lemma=`fractiespecialist` nounpl  
+ fractievergadering ( NOUN NOUN_SINGULAR ) 
+ fractievergaderingen ( NOUN NOUN_PLURAL ) lemma=`fractievergadering` nounpl  
+ fractievoorzitter ( NOUN NOUN_SINGULAR ) 
+ fractievoorzitters ( NOUN NOUN_PLURAL ) lemma=`fractievoorzitter` nounpl  
+ fractiewoordvoerder ( NOUN NOUN_SINGULAR ) 
+ fractiewoordvoerders ( NOUN NOUN_PLURAL ) lemma=`fractiewoordvoerder` nounpl  
+ fracturen ( NOUN NOUN_PLURAL ) lemma=`fractuur` nounpl  
+ fractuur ( NOUN NOUN_SINGULAR ) 
+ fragiel ( ADJECTIVE ) 
+ fragiele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fragiel`fragiele` adj  nounsg  
+ fragieler ( ADJECTIVE ) lemma=`fragiel` adj  
+ fragielere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fragiel`fragielere` adj  nounsg  
+ fragielst ( ADJECTIVE ) lemma=`fragiel` adj  
+ fragielste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fragiel`fragielste` adj  nounsg  
+ fragiliteit ( NOUN NOUN_SINGULAR ) 
+ fragiliteiten ( NOUN NOUN_PLURAL ) lemma=`fragiliteit` nounpl  
+ fragment ( NOUN NOUN_SINGULAR ) 
+ fragmentarisch ( ADJECTIVE ) 
+ fragmentarische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fragmentarisch`fragmentarische` adj  nounsg  
+ fragmentarischer ( ADJECTIVE ) lemma=`fragmentarisch` adj  
+ fragmentarischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fragmentarisch`fragmentarischere` adj  nounsg  
+ fragmentarischt ( ADJECTIVE ) lemma=`fragmentarisch` adj  
+ fragmentarischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fragmentarisch`fragmentarischte` adj  nounsg  
+ fragmentatie ( NOUN NOUN_SINGULAR ) 
+ fragmenten ( NOUN NOUN_PLURAL ) lemma=`fragment` nounpl  
+ fragmenteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fragmenteren`fragmenteren`fragmenteren` nounsg  verbinf  verbprespl  
+ fragmentje ( NOUN NOUN_SINGULAR ) lemma=`fragment` nounsg  
+ fragmentjes ( NOUN NOUN_PLURAL ) lemma=`fragment` nounpl  
+ fraktie ( NOUN NOUN_SINGULAR ) 
+ fraktiecommissie ( NOUN NOUN_SINGULAR ) 
+ fraktiecommissies ( NOUN NOUN_PLURAL ) lemma=`fraktiecommissie` nounpl  
+ fraktiegenoot ( NOUN NOUN_SINGULAR ) 
+ fraktiegenoten ( NOUN NOUN_PLURAL ) lemma=`fraktiegenoot` nounpl  
+ fraktieleden ( NOUN NOUN_PLURAL ) lemma=`fraktielid` nounpl  
+ fraktieleider ( NOUN NOUN_SINGULAR ) 
+ fraktieleiders ( NOUN NOUN_PLURAL ) lemma=`fraktieleider` nounpl  
+ fraktielid ( NOUN NOUN_SINGULAR ) 
+ frakties ( NOUN NOUN_PLURAL ) lemma=`fraktie` nounpl  
+ fraktiespecialist ( NOUN NOUN_SINGULAR ) 
+ fraktiespecialisten ( NOUN NOUN_PLURAL ) lemma=`fraktiespecialist` nounpl  
+ fraktievergadering ( NOUN NOUN_SINGULAR ) 
+ fraktievergaderingen ( NOUN NOUN_PLURAL ) lemma=`fraktievergadering` nounpl  
+ fraktievoorzitter ( NOUN NOUN_SINGULAR ) 
+ fraktievoorzitters ( NOUN NOUN_PLURAL ) lemma=`fraktievoorzitter` nounpl  
+ fraktiewoordvoerder ( NOUN NOUN_SINGULAR ) 
+ fraktiewoordvoerders ( NOUN NOUN_PLURAL ) lemma=`fraktiewoordvoerder` nounpl  
+ framboos ( NOUN NOUN_SINGULAR ) 
+ frambozen ( NOUN NOUN_PLURAL ) lemma=`framboos` nounpl  
+ frame ( NOUN NOUN_SINGULAR ) 
+ framepje ( NOUN NOUN_SINGULAR ) lemma=`frame` nounsg  
+ framepjes ( NOUN NOUN_PLURAL ) lemma=`frame` nounpl  
+ frames ( NOUN NOUN_PLURAL ) lemma=`frame` nounpl  
+ franchise ( NOUN NOUN_SINGULAR ) 
+ franchises ( NOUN NOUN_PLURAL ) lemma=`franchise` nounpl  
+ franciscaan ( NOUN NOUN_SINGULAR ) 
+ franciscaans ( ADJECTIVE ) 
+ franciscaanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`franciscaans`franciscaanse` adj  nounsg  
+ franciscanen ( NOUN NOUN_PLURAL ) lemma=`franciscaan` nounpl  
+ franciscaner ( ADJECTIVE ) 
+ franciscanes ( NOUN NOUN_SINGULAR ) 
+ franciscanessen ( NOUN NOUN_PLURAL ) lemma=`franciscanes` nounpl  
+ franciskaans ( ADJECTIVE ) 
+ franciskaner ( ADJECTIVE ) 
+ franco ( ADVERB ) 
+ francofiel ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`francofiel`francofiel` adj  nounsg  
+ francofiele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`francofiel`francofiele` adj  nounsg  
+ francofielen ( NOUN NOUN_PLURAL ) lemma=`francofiel` nounpl  
+ francofone ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`francofoon`francofone` adj  nounsg  
+ francofoon ( ADJECTIVE ) 
+ frangipane ( NOUN NOUN_SINGULAR ) 
+ franje ( NOUN NOUN_SINGULAR ) 
+ franjes ( NOUN NOUN_PLURAL ) lemma=`franje` nounpl  
+ franjetje ( NOUN NOUN_SINGULAR ) lemma=`franje` nounsg  
+ franjetjes ( NOUN NOUN_PLURAL ) lemma=`franje` nounpl  
+ frank ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frank`frank` adj  nounsg  
+ franke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frank`franke` adj  nounsg  
+ frankeer ( VERB_PRESENT VERB ) lemma=`frankeren` verbpressg  
+ frankeerde ( VERB_PAST VERB ) lemma=`frankeren` verbpastsg  
+ frankeerden ( VERB_PAST VERB ) lemma=`frankeren` verbpastpl  
+ frankeermachine ( NOUN NOUN_SINGULAR ) 
+ frankeermachines ( NOUN NOUN_PLURAL ) lemma=`frankeermachine` nounpl  
+ frankeert ( VERB_PRESENT VERB ) lemma=`frankeren` verbpressg  
+ franken ( NOUN NOUN_PLURAL ) lemma=`frank` nounpl  
+ franker ( ADJECTIVE ) lemma=`frank` adj  
+ frankere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frank`frankere` adj  nounsg  
+ frankeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frankeren`frankeren`frankeren` nounsg  verbinf  verbprespl  
+ frankerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frankeren` verbpresp  
+ frankerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frankerende`frankeren` nounsg  verbpresp  
+ frankering ( NOUN NOUN_SINGULAR ) 
+ frankeringen ( NOUN NOUN_PLURAL ) lemma=`frankering` nounpl  
+ franks ( NOUN NOUN_PLURAL ) lemma=`frank` nounpl  
+ frankst ( ADJECTIVE ) lemma=`frank` adj  
+ frankste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frank`frankste` adj  nounsg  
+ franskiljon ( NOUN NOUN_SINGULAR ) 
+ franskiljons ( NOUN NOUN_PLURAL ) lemma=`franskiljon` nounpl  
+ fransmans ( NOUN NOUN_PLURAL ) lemma=`fransman` nounpl  
+ franstaligen ( NOUN NOUN_PLURAL ) lemma=`Franstalige` nounpl  
+ frappant ( ADJECTIVE ) 
+ frappante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frappant`frappante` adj  nounsg  
+ frappanter ( ADJECTIVE ) lemma=`frappant` adj  
+ frappantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frappant`frappantere` adj  nounsg  
+ frappantst ( ADJECTIVE ) lemma=`frappant` adj  
+ frappantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frappant`frappantste` adj  nounsg  
+ frappeer ( VERB_PRESENT VERB ) lemma=`frapperen` verbpressg  
+ frappeerde ( VERB_PAST VERB ) lemma=`frapperen` verbpastsg  
+ frappeerden ( VERB_PAST VERB ) lemma=`frapperen` verbpastpl  
+ frappeert ( VERB_PRESENT VERB ) lemma=`frapperen` verbpressg  
+ frapperen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frapperen`frapperen`frapperen` nounsg  verbinf  verbprespl  
+ frapperend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frapperen` verbpresp  
+ frapperende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frapperende`frapperen` nounsg  verbpresp  
+ frase ( NOUN NOUN_SINGULAR ) 
+ frasen ( NOUN NOUN_PLURAL ) lemma=`frase` nounpl  
+ frasering ( NOUN NOUN_SINGULAR ) 
+ fraseringen ( NOUN NOUN_PLURAL ) lemma=`frasering` nounpl  
+ frases ( NOUN NOUN_PLURAL ) lemma=`frase` nounpl  
+ frasetje ( NOUN NOUN_SINGULAR ) lemma=`frase` nounsg  
+ frasetjes ( NOUN NOUN_PLURAL ) lemma=`frase` nounpl  
+ frater ( NOUN NOUN_SINGULAR ) 
+ fraters ( NOUN NOUN_PLURAL ) lemma=`frater` nounpl  
+ fratertje ( NOUN NOUN_SINGULAR ) lemma=`frater` nounsg  
+ fratertjes ( NOUN NOUN_PLURAL ) lemma=`frater` nounpl  
+ fratsen ( NOUN NOUN_PLURAL ) 
+ fraude ( NOUN NOUN_SINGULAR ) 
+ fraudebestrijding ( NOUN NOUN_SINGULAR ) 
+ fraudeer ( VERB_PRESENT VERB ) lemma=`frauderen` verbpressg  
+ fraudeerde ( VERB_PAST VERB ) lemma=`frauderen` verbpastsg  
+ fraudeerden ( VERB_PAST VERB ) lemma=`frauderen` verbpastpl  
+ fraudeert ( VERB_PRESENT VERB ) lemma=`frauderen` verbpressg  
+ frauderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frauderen`frauderen`frauderen` nounsg  verbinf  verbprespl  
+ frauderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frauderen` verbpresp  
+ frauderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frauderende`frauderen` nounsg  verbpresp  
+ fraudes ( NOUN NOUN_PLURAL ) lemma=`fraude` nounpl  
+ fraudeur ( NOUN NOUN_SINGULAR ) 
+ fraudeurs ( NOUN NOUN_PLURAL ) lemma=`fraudeur` nounpl  
+ frauduleus ( ADJECTIVE ) 
+ frauduleust ( ADJECTIVE ) lemma=`frauduleus` adj  
+ frauduleuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frauduleus`frauduleuste` adj  nounsg  
+ frauduleuze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frauduleus`frauduleuze` adj  nounsg  
+ frauduleuzer ( ADJECTIVE ) lemma=`frauduleus` adj  
+ frauduleuzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frauduleus`frauduleuzere` adj  nounsg  
+ fraze ( NOUN NOUN_SINGULAR ) 
+ frazen ( NOUN NOUN_PLURAL ) lemma=`fraze` nounpl  
+ frazering ( NOUN NOUN_SINGULAR ) 
+ frazeringen ( NOUN NOUN_PLURAL ) lemma=`frazering` nounpl  
+ freak ( NOUN NOUN_SINGULAR ) 
+ freaks ( NOUN NOUN_PLURAL ) lemma=`freak` nounpl  
+ freelance ( ADJECTIVE ) 
+ freelancer ( NOUN NOUN_SINGULAR ) 
+ freelancers ( NOUN NOUN_PLURAL ) lemma=`freelancer` nounpl  
+ frees ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`frees`frezen` nounsg  verbpressg  
+ freesblad ( NOUN NOUN_SINGULAR ) 
+ freesbladen ( NOUN NOUN_PLURAL ) lemma=`freesblad` nounpl  
+ freesde ( VERB_PAST VERB ) lemma=`frezen` verbpastsg  
+ freesden ( VERB_PAST VERB ) lemma=`frezen` verbpastpl  
+ freest ( VERB_PRESENT VERB ) lemma=`frezen` verbpressg  
+ freewheel ( VERB_PRESENT VERB ) lemma=`freewheelen` verbpressg  
+ freewheelde ( VERB_PAST VERB ) lemma=`freewheelen` verbpastsg  
+ freewheelden ( VERB_PAST VERB ) lemma=`freewheelen` verbpastpl  
+ freewheelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`freewheelen`freewheelen`freewheelen` nounsg  verbinf  verbprespl  
+ freewheelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`freewheelen` verbpresp  
+ freewheelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`freewheelende`freewheelen` nounsg  verbpresp  
+ freewheelt ( VERB_PRESENT VERB ) lemma=`freewheelen` verbpressg  
+ fregat ( NOUN NOUN_SINGULAR ) 
+ fregatten ( NOUN NOUN_PLURAL ) lemma=`fregat` nounpl  
+ frekwent ( ADJECTIVE ) 
+ frenetiek ( ADJECTIVE ) 
+ frenetieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frenetiek`frenetieke` adj  nounsg  
+ frenetieker ( ADJECTIVE ) lemma=`frenetiek` adj  
+ frenetiekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frenetiek`frenetiekere` adj  nounsg  
+ frenetiekst ( ADJECTIVE ) lemma=`frenetiek` adj  
+ frenetiekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frenetiek`frenetiekste` adj  nounsg  
+ frequent ( ADJECTIVE ) 
+ frequente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frequent`frequente` adj  nounsg  
+ frequenteer ( VERB_PRESENT VERB ) lemma=`frequenteren` verbpressg  
+ frequenteerde ( VERB_PAST VERB ) lemma=`frequenteren` verbpastsg  
+ frequenteerden ( VERB_PAST VERB ) lemma=`frequenteren` verbpastpl  
+ frequenteert ( VERB_PRESENT VERB ) lemma=`frequenteren` verbpressg  
+ frequenter ( ADJECTIVE ) lemma=`frequent` adj  
+ frequentere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frequent`frequentere` adj  nounsg  
+ frequenteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frequenteren`frequenteren`frequenteren` nounsg  verbinf  verbprespl  
+ frequenterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frequenteren` verbpresp  
+ frequenterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frequenterende`frequenteren` nounsg  verbpresp  
+ frequentie ( NOUN NOUN_SINGULAR ) 
+ frequentiegebied ( NOUN NOUN_SINGULAR ) 
+ frequentiegebieden ( NOUN NOUN_PLURAL ) lemma=`frequentiegebied` nounpl  
+ frequenties ( NOUN NOUN_PLURAL ) lemma=`frequentie` nounpl  
+ frequentst ( ADJECTIVE ) lemma=`frequent` adj  
+ frequentste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frequent`frequentste` adj  nounsg  
+ fresci ( NOUN NOUN_PLURAL ) lemma=`fresco` nounpl  
+ fresco ( NOUN NOUN_SINGULAR ) 
+ fresco's ( NOUN NOUN_PLURAL ) lemma=`fresco` nounpl  
+ fresia ( NOUN NOUN_SINGULAR ) 
+ fresia's ( NOUN NOUN_PLURAL ) lemma=`fresia` nounpl  
+ fret ( NOUN NOUN_SINGULAR ) 
+ frets ( NOUN NOUN_PLURAL ) lemma=`fret` nounpl  
+ fretten ( NOUN NOUN_PLURAL ) lemma=`fret` nounpl  
+ freudiaans ( ADJECTIVE ) 
+ freudiaanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`freudiaans`freudiaanse` adj  nounsg  
+ freule ( NOUN NOUN_SINGULAR ) 
+ freules ( NOUN NOUN_PLURAL ) lemma=`freule` nounpl  
+ freuletje ( NOUN NOUN_SINGULAR ) lemma=`freule` nounsg  
+ freuletjes ( NOUN NOUN_PLURAL ) lemma=`freule` nounpl  
+ frezen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`frees`frezen`frezen`frezen` nounpl  nounsg  verbinf  verbprespl  
+ frezend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frezen` verbpresp  
+ frezende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frezende`frezen` nounsg  verbpresp  
+ fricadel ( NOUN NOUN_SINGULAR ) 
+ fricadellen ( NOUN NOUN_PLURAL ) lemma=`fricadel` nounpl  
+ fricandeau ( NOUN NOUN_SINGULAR ) 
+ fricandeaus ( NOUN NOUN_PLURAL ) lemma=`fricandeau` nounpl  
+ frictie ( NOUN NOUN_SINGULAR ) 
+ fricties ( NOUN NOUN_PLURAL ) lemma=`frictie` nounpl  
+ friemel ( VERB_PRESENT VERB ) lemma=`friemelen` verbpressg  
+ friemelde ( VERB_PAST VERB ) lemma=`friemelen` verbpastsg  
+ friemelden ( VERB_PAST VERB ) lemma=`friemelen` verbpastpl  
+ friemelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`friemelen`friemelen`friemelen` nounsg  verbinf  verbprespl  
+ friemelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`friemelen` verbpresp  
+ friemelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`friemelende`friemelen` nounsg  verbpresp  
+ friemelt ( VERB_PRESENT VERB ) lemma=`friemelen` verbpressg  
+ fries ( NOUN NOUN_SINGULAR ) 
+ friet ( NOUN NOUN_SINGULAR ) 
+ frieten ( NOUN NOUN_PLURAL ) lemma=`friet|frieten` nounpl  
+ frietje ( NOUN NOUN_SINGULAR ) lemma=`friet` nounsg  
+ frietjes ( NOUN NOUN_PLURAL ) lemma=`friet` nounpl  
+ frietkot ( NOUN NOUN_SINGULAR ) 
+ frietkotten ( NOUN NOUN_PLURAL ) lemma=`frietkot` nounpl  
+ frietkraam ( NOUN NOUN_SINGULAR ) 
+ frietkramen ( NOUN NOUN_PLURAL ) lemma=`frietkraam` nounpl  
+ friettent ( NOUN NOUN_SINGULAR ) 
+ friettenten ( NOUN NOUN_PLURAL ) lemma=`friettent` nounpl  
+ friezen ( NOUN NOUN_PLURAL ) lemma=`fries` nounpl  
+ frigide ( ADJECTIVE ) 
+ frik ( NOUN NOUN_SINGULAR ) 
+ frikadel ( NOUN NOUN_SINGULAR ) 
+ frikadellen ( NOUN NOUN_PLURAL ) lemma=`frikadel` nounpl  
+ frikadelletje ( NOUN NOUN_SINGULAR ) lemma=`frikadel` nounsg  
+ frikadelletjes ( NOUN NOUN_PLURAL ) lemma=`frikadel` nounpl  
+ frikandel ( NOUN NOUN_SINGULAR ) 
+ frikandellen ( NOUN NOUN_PLURAL ) lemma=`frikandel` nounpl  
+ frikken ( NOUN NOUN_PLURAL ) lemma=`frik` nounpl  
+ fris ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fris`fris` adj  nounsg  
+ frisbee ( NOUN NOUN_SINGULAR ) 
+ frisbee's ( NOUN NOUN_PLURAL ) lemma=`frisbee` nounpl  
+ frisbees ( NOUN NOUN_PLURAL ) lemma=`frisbee` nounpl  
+ frisdrank ( NOUN NOUN_SINGULAR ) 
+ frisdranken ( NOUN NOUN_PLURAL ) lemma=`frisdrank` nounpl  
+ frisheid ( NOUN NOUN_SINGULAR ) 
+ frisjes ( ADJECTIVE ADVERB ) lemma=`fris`frisjes` adj  adv  
+ frisse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fris`frisse` adj  nounsg  
+ frisser ( ADJECTIVE ) lemma=`fris` adj  
+ frissere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fris`frissere` adj  nounsg  
+ frist ( ADJECTIVE ) lemma=`fris` adj  
+ friste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fris`friste` adj  nounsg  
+ frites ( NOUN NOUN_PLURAL ) 
+ friteuse ( NOUN NOUN_SINGULAR ) 
+ friteuses ( NOUN NOUN_PLURAL ) lemma=`friteuse` nounpl  
+ frituren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`frituur`frituren`frituren`frituren` nounpl  nounsg  verbinf  verbprespl  
+ friturend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frituren` verbpresp  
+ friturende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`friturende`frituren` nounsg  verbpresp  
+ frituur ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`frituur`frituren` nounsg  verbpressg  
+ frituurde ( VERB_PAST VERB ) lemma=`frituren` verbpastsg  
+ frituurden ( VERB_PAST VERB ) lemma=`frituren` verbpastpl  
+ frituurpan ( NOUN NOUN_SINGULAR ) 
+ frituurpannen ( NOUN NOUN_PLURAL ) lemma=`frituurpan` nounpl  
+ frituurt ( VERB_PRESENT VERB ) lemma=`frituren` verbpressg  
+ frituurvet ( NOUN NOUN_SINGULAR ) 
+ frivole ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frivool`frivole` adj  nounsg  
+ frivoler ( ADJECTIVE ) lemma=`frivool` adj  
+ frivolere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frivool`frivolere` adj  nounsg  
+ frivoliteit ( NOUN NOUN_SINGULAR ) 
+ frivoliteiten ( NOUN NOUN_PLURAL ) lemma=`frivoliteit` nounpl  
+ frivool ( ADJECTIVE ) 
+ frivoolst ( ADJECTIVE ) lemma=`frivool` adj  
+ frivoolste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frivool`frivoolste` adj  nounsg  
+ frommel ( VERB_PRESENT VERB ) lemma=`frommelen` verbpressg  
+ frommelde ( VERB_PAST VERB ) lemma=`frommelen` verbpastsg  
+ frommelden ( VERB_PAST VERB ) lemma=`frommelen` verbpastpl  
+ frommelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frommelen`frommelen`frommelen` nounsg  verbinf  verbprespl  
+ frommelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frommelen` verbpresp  
+ frommelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frommelende`frommelen` nounsg  verbpresp  
+ frommelt ( VERB_PRESENT VERB ) lemma=`frommelen` verbpressg  
+ frons ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`frons`fronsen` nounsg  verbpressg  
+ fronsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`frons`fronsen`fronsen`fronsen` nounpl  nounsg  verbinf  verbprespl  
+ fronsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fronsen` verbpresp  
+ fronsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fronsende`fronsen` nounsg  verbpresp  
+ fronsje ( NOUN NOUN_SINGULAR ) lemma=`frons` nounsg  
+ fronsjes ( NOUN NOUN_PLURAL ) lemma=`frons` nounpl  
+ fronst ( VERB_PRESENT VERB ) lemma=`fronsen` verbpressg  
+ fronste ( VERB_PAST VERB ) lemma=`fronsen` verbpastsg  
+ fronsten ( VERB_PAST VERB ) lemma=`fronsen` verbpastpl  
+ front ( NOUN NOUN_SINGULAR ) 
+ frontaal ( ADJECTIVE ) 
+ frontale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`frontaal`frontale` adj  nounsg  
+ fronten ( NOUN NOUN_PLURAL ) lemma=`front` nounpl  
+ frontlijn ( NOUN NOUN_SINGULAR ) 
+ frontlijnen ( NOUN NOUN_PLURAL ) lemma=`frontlijn` nounpl  
+ frontlinie ( NOUN NOUN_SINGULAR ) 
+ frontlinies ( NOUN NOUN_PLURAL ) lemma=`frontlinie` nounpl  
+ fronzen ( NOUN NOUN_PLURAL ) lemma=`frons` nounpl  
+ frou-frou ( NOUN NOUN_SINGULAR ) 
+ fruit ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fruit`fruiten` nounsg  verbpressg  
+ fruitautomaat ( NOUN NOUN_SINGULAR ) 
+ fruitautomaten ( NOUN NOUN_PLURAL ) lemma=`fruitautomaat` nounpl  
+ fruiten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fruiten`fruiten`fruiten` nounsg  verbinf  verbprespl  
+ fruitend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fruiten` verbpresp  
+ fruitende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fruitende`fruiten` nounsg  verbpresp  
+ fruithandel ( NOUN NOUN_SINGULAR ) 
+ fruithandelaar ( NOUN NOUN_SINGULAR ) 
+ fruithandelaars ( NOUN NOUN_PLURAL ) lemma=`fruithandelaar` nounpl  
+ fruithandelaren ( NOUN NOUN_PLURAL ) lemma=`fruithandelaar` nounpl  
+ fruitig ( ADJECTIVE ) 
+ fruitige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fruitig`fruitige` adj  nounsg  
+ fruitiger ( ADJECTIVE ) lemma=`fruitig` adj  
+ fruitigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fruitig`fruitigere` adj  nounsg  
+ fruitigst ( ADJECTIVE ) lemma=`fruitig` adj  
+ fruitigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fruitig`fruitigste` adj  nounsg  
+ fruitmand ( NOUN NOUN_SINGULAR ) 
+ fruitmanden ( NOUN NOUN_PLURAL ) lemma=`fruitmand` nounpl  
+ fruitte ( VERB_PAST VERB ) lemma=`fruiten` verbpastsg  
+ fruitteelt ( NOUN NOUN_SINGULAR ) 
+ fruitteelten ( NOUN NOUN_PLURAL ) lemma=`fruitteelt` nounpl  
+ fruitteler ( NOUN NOUN_SINGULAR ) 
+ fruittelers ( NOUN NOUN_PLURAL ) lemma=`fruitteler` nounpl  
+ fruitten ( VERB_PAST VERB ) lemma=`fruiten` verbpastpl  
+ frunnik ( VERB_PRESENT VERB ) lemma=`frunniken` verbpressg  
+ frunniken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frunniken`frunniken`frunniken` nounsg  verbinf  verbprespl  
+ frunnikend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frunniken` verbpresp  
+ frunnikende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frunnikende`frunniken` nounsg  verbpresp  
+ frunnikt ( VERB_PRESENT VERB ) lemma=`frunniken` verbpressg  
+ frunnikte ( VERB_PAST VERB ) lemma=`frunniken` verbpastsg  
+ frunnikten ( VERB_PAST VERB ) lemma=`frunniken` verbpastpl  
+ frustratie ( NOUN NOUN_SINGULAR ) 
+ frustraties ( NOUN NOUN_PLURAL ) lemma=`frustratie` nounpl  
+ frustreer ( VERB_PRESENT VERB ) lemma=`frustreren` verbpressg  
+ frustreerde ( VERB_PAST VERB ) lemma=`frustreren` verbpastsg  
+ frustreerden ( VERB_PAST VERB ) lemma=`frustreren` verbpastpl  
+ frustreert ( VERB_PRESENT VERB ) lemma=`frustreren` verbpressg  
+ frustreren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frustreren`frustreren`frustreren` nounsg  verbinf  verbprespl  
+ frustrerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frustreren` verbpresp  
+ frustrerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frustrerende`frustreren` nounsg  verbpresp  
+ frutsel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`frutsel`frutselen` nounsg  verbpressg  
+ frutselde ( VERB_PAST VERB ) lemma=`frutselen` verbpastsg  
+ frutselden ( VERB_PAST VERB ) lemma=`frutselen` verbpastpl  
+ frutselen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`frutselen`frutselen`frutselen` nounsg  verbinf  verbprespl  
+ frutselend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`frutselen` verbpresp  
+ frutselende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`frutselende`frutselen` nounsg  verbpresp  
+ frutsels ( NOUN NOUN_PLURAL ) lemma=`frutsel` nounpl  
+ frutselt ( VERB_PRESENT VERB ) lemma=`frutselen` verbpressg  
+ frutseltje ( NOUN NOUN_SINGULAR ) lemma=`frutsel` nounsg  
+ frutseltjes ( NOUN NOUN_PLURAL ) lemma=`frutsel` nounpl  
+ frêle ( ADJECTIVE ) 
+ fuchsia ( NOUN NOUN_SINGULAR ) 
+ fuchsia's ( NOUN NOUN_PLURAL ) lemma=`fuchsia` nounpl  
+ fuck ( INTERJECTION ) 
+ fuga ( NOUN NOUN_SINGULAR ) 
+ fuga's ( NOUN NOUN_PLURAL ) lemma=`fuga` nounpl  
+ fugaatje ( NOUN NOUN_SINGULAR ) lemma=`fuga` nounsg  
+ fugaatjes ( NOUN NOUN_PLURAL ) lemma=`fuga` nounpl  
+ fuif ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`fuif`fuiven` nounsg  verbpressg  
+ fuifde ( VERB_PAST VERB ) lemma=`fuiven` verbpastsg  
+ fuifden ( VERB_PAST VERB ) lemma=`fuiven` verbpastpl  
+ fuifjes ( NOUN NOUN_PLURAL ) lemma=`fuif` nounpl  
+ fuifnummer ( NOUN NOUN_SINGULAR ) 
+ fuifnummers ( NOUN NOUN_PLURAL ) lemma=`fuifnummer` nounpl  
+ fuift ( VERB_PRESENT VERB ) lemma=`fuiven` verbpressg  
+ fuik ( NOUN NOUN_SINGULAR ) 
+ fuiken ( NOUN NOUN_PLURAL ) lemma=`fuik` nounpl  
+ fuiven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`fuif`fuiven`fuiven`fuiven` nounpl  nounsg  verbinf  verbprespl  
+ fuivend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fuiven` verbpresp  
+ fuivende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fuivende`fuiven` nounsg  verbpresp  
+ fulltime ( ADJECTIVE ) 
+ fulmineer ( VERB_PRESENT VERB ) lemma=`fulmineren` verbpressg  
+ fulmineerde ( VERB_PAST VERB ) lemma=`fulmineren` verbpastsg  
+ fulmineerden ( VERB_PAST VERB ) lemma=`fulmineren` verbpastpl  
+ fulmineert ( VERB_PRESENT VERB ) lemma=`fulmineren` verbpressg  
+ fulmineren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fulmineren`fulmineren`fulmineren` nounsg  verbinf  verbprespl  
+ fulminerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fulmineren` verbpresp  
+ fulminerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fulminerende`fulmineren` nounsg  verbpresp  
+ functie ( NOUN NOUN_SINGULAR ) 
+ functie-inhoud ( NOUN NOUN_SINGULAR ) 
+ functie-inhouden ( NOUN NOUN_PLURAL ) lemma=`functie-inhoud` nounpl  
+ functies ( NOUN NOUN_PLURAL ) lemma=`functie` nounpl  
+ functieverandering ( NOUN NOUN_SINGULAR ) 
+ functieveranderingen ( NOUN NOUN_PLURAL ) lemma=`functieverandering` nounpl  
+ functionaliteit ( NOUN NOUN_SINGULAR ) 
+ functionaris ( NOUN NOUN_SINGULAR ) 
+ functionarissen ( NOUN NOUN_PLURAL ) lemma=`functionaris` nounpl  
+ functioneel ( ADJECTIVE ) 
+ functioneelst ( ADJECTIVE ) lemma=`functioneel` adj  
+ functioneelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`functioneel`functioneelste` adj  nounsg  
+ functioneer ( VERB_PRESENT VERB ) lemma=`functioneren` verbpressg  
+ functioneerde ( VERB_PAST VERB ) lemma=`functioneren` verbpastsg  
+ functioneerden ( VERB_PAST VERB ) lemma=`functioneren` verbpastpl  
+ functioneert ( VERB_PRESENT VERB ) lemma=`functioneren` verbpressg  
+ functionele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`functioneel`functionele` adj  nounsg  
+ functioneler ( ADJECTIVE ) lemma=`functioneel` adj  
+ functionelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`functioneel`functionelere` adj  nounsg  
+ functioneren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`functioneren`functioneren`functioneren` nounsg  verbinf  verbprespl  
+ functionerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`functioneren` verbpresp  
+ functionerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`functionerende`functioneren` nounsg  verbpresp  
+ functionering ( NOUN NOUN_SINGULAR ) 
+ functioneringsgespre ( NOUN NOUN_SINGULAR ) 
+ functioneringsgesprek ( NOUN NOUN_SINGULAR ) 
+ functioneringsgesprekken ( NOUN NOUN_PLURAL ) lemma=`functioneringsgesprek` nounpl  
+ fundament ( NOUN NOUN_SINGULAR ) 
+ fundamentalisme ( NOUN NOUN_SINGULAR ) 
+ fundamentalist ( NOUN NOUN_SINGULAR ) 
+ fundamentalisten ( NOUN NOUN_PLURAL ) lemma=`fundamentalist` nounpl  
+ fundamentalistisch ( ADJECTIVE ) 
+ fundamentalistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fundamentalistisch`fundamentalistische` adj  nounsg  
+ fundamenteel ( ADJECTIVE ) 
+ fundamenteelst ( ADJECTIVE ) lemma=`fundamenteel` adj  
+ fundamenteelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fundamenteel`fundamenteelste` adj  nounsg  
+ fundamentele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fundamenteel`fundamentele` adj  nounsg  
+ fundamenteler ( ADJECTIVE ) lemma=`fundamenteel` adj  
+ fundamentelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fundamenteel`fundamentelere` adj  nounsg  
+ fundamenten ( NOUN NOUN_PLURAL ) lemma=`fundament` nounpl  
+ fundatie ( NOUN NOUN_SINGULAR ) 
+ fundaties ( NOUN NOUN_PLURAL ) lemma=`fundatie` nounpl  
+ fundatiën ( NOUN NOUN_PLURAL ) lemma=`fundatie` nounpl  
+ fundeer ( VERB_PRESENT VERB ) lemma=`funderen` verbpressg  
+ fundeerde ( VERB_PAST VERB ) lemma=`funderen` verbpastsg  
+ fundeerden ( VERB_PAST VERB ) lemma=`funderen` verbpastpl  
+ fundeert ( VERB_PRESENT VERB ) lemma=`funderen` verbpressg  
+ funderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`funderen`funderen`funderen` nounsg  verbinf  verbprespl  
+ funderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`funderen` verbpresp  
+ funderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`funderende`funderen` nounsg  verbpresp  
+ fundering ( NOUN NOUN_SINGULAR ) 
+ funderingen ( NOUN NOUN_PLURAL ) lemma=`fundering` nounpl  
+ funderinkje ( NOUN NOUN_SINGULAR ) lemma=`fundering` nounsg  
+ funderinkjes ( NOUN NOUN_PLURAL ) lemma=`fundering` nounpl  
+ funest ( ADJECTIVE ) 
+ funeste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`funest`funeste` adj  nounsg  
+ funester ( ADJECTIVE ) lemma=`funest` adj  
+ funestere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`funest`funestere` adj  nounsg  
+ fungeer ( VERB_PRESENT VERB ) lemma=`fungeren` verbpressg  
+ fungeerde ( VERB_PAST VERB ) lemma=`fungeren` verbpastsg  
+ fungeerden ( VERB_PAST VERB ) lemma=`fungeren` verbpastpl  
+ fungeert ( VERB_PRESENT VERB ) lemma=`fungeren` verbpressg  
+ fungeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fungeren`fungeren`fungeren` nounsg  verbinf  verbprespl  
+ fungerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fungeren` verbpresp  
+ fungerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fungerende`fungeren` nounsg  verbpresp  
+ funk ( NOUN NOUN_SINGULAR ) 
+ funktie ( NOUN NOUN_SINGULAR ) 
+ funktie-inhoud ( NOUN NOUN_SINGULAR ) 
+ funktie-inhouden ( NOUN NOUN_PLURAL ) lemma=`funktie-inhoud` nounpl  
+ funkties ( NOUN NOUN_PLURAL ) lemma=`funktie` nounpl  
+ funktieverandering ( NOUN NOUN_SINGULAR ) 
+ funktieveranderingen ( NOUN NOUN_PLURAL ) lemma=`funktieverandering` nounpl  
+ funktionaliteit ( NOUN NOUN_SINGULAR ) 
+ funktionaris ( NOUN NOUN_SINGULAR ) 
+ funktionarissen ( NOUN NOUN_PLURAL ) lemma=`funktionaris` nounpl  
+ funktioneel ( ADJECTIVE ) 
+ funktioneren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`funktioneren`funktioneren`funktioneren` nounsg  verbinf  verbprespl  
+ funktionering ( NOUN NOUN_SINGULAR ) 
+ funktioneringen ( NOUN NOUN_PLURAL ) lemma=`funktionering` nounpl  
+ funktioneringsgespre ( NOUN NOUN_SINGULAR ) 
+ funktioneringsgesprek ( NOUN NOUN_SINGULAR ) 
+ funktioneringsgesprekken ( NOUN NOUN_PLURAL ) lemma=`funktioneringsgesprek` nounpl  
+ furie ( NOUN NOUN_SINGULAR ) 
+ furies ( NOUN NOUN_PLURAL ) lemma=`furie` nounpl  
+ furieus ( ADJECTIVE ) 
+ furieust ( ADJECTIVE ) lemma=`furieus` adj  
+ furieuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`furieus`furieuste` adj  nounsg  
+ furieuze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`furieus`furieuze` adj  nounsg  
+ furieuzer ( ADJECTIVE ) lemma=`furieus` adj  
+ furieuzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`furieus`furieuzere` adj  nounsg  
+ furiën ( NOUN NOUN_PLURAL ) lemma=`furie` nounpl  
+ furore ( NOUN NOUN_SINGULAR ) 
+ fuseer ( VERB_PRESENT VERB ) lemma=`fuseren` verbpressg  
+ fuseerde ( VERB_PAST VERB ) lemma=`fuseren` verbpastsg  
+ fuseerden ( VERB_PAST VERB ) lemma=`fuseren` verbpastpl  
+ fuseert ( VERB_PRESENT VERB ) lemma=`fuseren` verbpressg  
+ fuseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fuseren`fuseren`fuseren` nounsg  verbinf  verbprespl  
+ fuserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fuseren` verbpresp  
+ fuserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fuserende`fuseren` nounsg  verbpresp  
+ fusie ( NOUN NOUN_SINGULAR ) 
+ fusies ( NOUN NOUN_PLURAL ) lemma=`fusie` nounpl  
+ fusillade ( NOUN NOUN_SINGULAR ) 
+ fusillades ( NOUN NOUN_PLURAL ) lemma=`fusillade` nounpl  
+ fusilleer ( VERB_PRESENT VERB ) lemma=`fusilleren` verbpressg  
+ fusilleerde ( VERB_PAST VERB ) lemma=`fusilleren` verbpastsg  
+ fusilleerden ( VERB_PAST VERB ) lemma=`fusilleren` verbpastpl  
+ fusilleert ( VERB_PRESENT VERB ) lemma=`fusilleren` verbpressg  
+ fusilleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fusilleren`fusilleren`fusilleren` nounsg  verbinf  verbprespl  
+ fusillerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fusilleren` verbpresp  
+ fusillerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fusillerende`fusilleren` nounsg  verbpresp  
+ fusioneer ( VERB_PRESENT VERB ) lemma=`fusioneren` verbpressg  
+ fusioneerde ( VERB_PAST VERB ) lemma=`fusioneren` verbpastsg  
+ fusioneerden ( VERB_PAST VERB ) lemma=`fusioneren` verbpastpl  
+ fusioneert ( VERB_PRESENT VERB ) lemma=`fusioneren` verbpressg  
+ fusioneren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fusioneren`fusioneren`fusioneren` nounsg  verbinf  verbprespl  
+ fusionerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fusioneren` verbpresp  
+ fusionerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fusionerende`fusioneren` nounsg  verbpresp  
+ fut ( NOUN NOUN_SINGULAR ) 
+ futen ( NOUN NOUN_PLURAL ) lemma=`fuut` nounpl  
+ futiel ( ADJECTIVE ) 
+ futiele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futiel`futiele` adj  nounsg  
+ futieler ( ADJECTIVE ) lemma=`futiel` adj  
+ futielere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futiel`futielere` adj  nounsg  
+ futielst ( ADJECTIVE ) lemma=`futiel` adj  
+ futielste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futiel`futielste` adj  nounsg  
+ futiliteit ( NOUN NOUN_SINGULAR ) 
+ futiliteiten ( NOUN NOUN_PLURAL ) lemma=`futiliteit` nounpl  
+ futloos ( ADJECTIVE ) 
+ futloosheid ( NOUN NOUN_SINGULAR ) 
+ futloost ( ADJECTIVE ) lemma=`futloos` adj  
+ futlooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futloos`futlooste` adj  nounsg  
+ futloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futloos`futloze` adj  nounsg  
+ futlozer ( ADJECTIVE ) lemma=`futloos` adj  
+ futlozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futloos`futlozere` adj  nounsg  
+ futurisme ( NOUN NOUN_PROPER_SINGULAR ) 
+ futurist ( NOUN NOUN_SINGULAR ) 
+ futuristen ( NOUN NOUN_PLURAL ) lemma=`futurist` nounpl  
+ futuristisch ( ADJECTIVE ) 
+ futuristische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`futuristisch`futuristische` adj  nounsg  
+ fuut ( NOUN NOUN_SINGULAR ) 
+ fysica ( NOUN NOUN_SINGULAR ) 
+ fysici ( NOUN NOUN_PLURAL ) lemma=`fysicus` nounpl  
+ fysicus ( NOUN NOUN_SINGULAR ) 
+ fysiek ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fysiek`fysiek` adj  nounsg  
+ fysieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fysiek`fysieke` adj  nounsg  
+ fysiologie ( NOUN NOUN_SINGULAR ) 
+ fysiologisch ( ADJECTIVE ) 
+ fysiologische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fysiologisch`fysiologische` adj  nounsg  
+ fysiotherapeut ( NOUN NOUN_SINGULAR ) 
+ fysiotherapeuten ( NOUN NOUN_PLURAL ) lemma=`fysiotherapeut` nounpl  
+ fysisch ( ADJECTIVE ) 
+ fysische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`fysisch`fysische` adj  nounsg  
+ fêteer ( VERB_PRESENT VERB ) lemma=`fêteren` verbpressg  
+ fêteerde ( VERB_PAST VERB ) lemma=`fêteren` verbpastsg  
+ fêteerden ( VERB_PAST VERB ) lemma=`fêteren` verbpastpl  
+ fêteert ( VERB_PRESENT VERB ) lemma=`fêteren` verbpressg  
+ fêteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`fêteren`fêteren`fêteren` nounsg  verbinf  verbprespl  
+ fêterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`fêteren` verbpresp  
+ fêterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fêterende`fêteren` nounsg  verbpresp  
+ föhn ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`föhn`föhnen` nounsg  verbpressg  
+ föhnde ( VERB_PAST VERB ) lemma=`föhnen` verbpastsg  
+ föhnden ( VERB_PAST VERB ) lemma=`föhnen` verbpastpl  
+ föhnen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`föhn`föhnen`föhnen`föhnen` nounpl  nounsg  verbinf  verbprespl  
+ föhnend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`föhnen` verbpresp  
+ föhnende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`föhnende`föhnen` nounsg  verbpresp  
+ föhns ( NOUN NOUN_PLURAL ) lemma=`föhn` nounpl  
+ föhnt ( VERB_PRESENT VERB ) lemma=`föhnen` verbpressg  

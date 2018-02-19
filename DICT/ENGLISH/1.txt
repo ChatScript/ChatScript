@@ -1,0 +1,100 @@
+﻿ 1-hitter ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    one-hitter~1n 
+ 11-plus ( meanings=1 NOUN NOUN_PLURAL ) 
+    eleven-plus~1n 
+ 1st_class ( meanings=1 NOUN NOUN_PLURAL ) 
+    first-class_mail~1n 
+ 1st-class_mail ( meanings=1 NOUN NOUN_SINGULAR ) 
+    first_class~3n 
+ 1_Samuel ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    I_Samuel~1n 
+ 1_Chronicles ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    I_Chronicles~1n 
+ 1_Esdras ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
+    I_Esdra~1nz (^book~3) an Apocryphal book consisting of a compilation from I Chronicles and II Chronicles and Ezra and Nehemiah
+ 1_Maccabees ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    I_Maccabees~1n 
+ 16_PF ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Sixteen_Personality_Factor_Questionnaire~1n 
+ 12-tone_system ( meanings=1 NOUN NOUN_SINGULAR ) 
+    twelve-tone_music~1n 
+ 15_May_Organization ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
+    15_May_Organization~1nz (^foreign_terrorist_organization~1) a terrorist organization formed in 1979 by a faction of the Popular Front for the Liberation of Palestine but disbanded in the 1980s when key members left to join a faction of al-Fatah
+ 1st_lieutenant ( meanings=1 NOUN NOUN_SINGULAR ) 
+    first_lieutenant~1n 
+ 1st_Earl_Attlee ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Attlee~1n 
+ 1st_Baron_Verulam ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Baron_Verulam~1n 
+ 1st_Earl_Baldwin_of_Bewdley ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Baldwin~2nz (^national_leader~1) English statesman
+ 1st_Earl_of_Balfour ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Balfour~1n 
+ 1st_Baron_Beaverbrook ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    William_Maxwell_Aitken~1n 
+ 1st_Viscount_Montgomery_of_Alamein ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Montgomery~2nz (^general~2) English general during World War II
+ 18-karat_gold ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    18-karat_gold~1nz (^metal~1) an alloy that contains 75 per cent gold
+ 1-dodecanol ( meanings=1 NOUN NOUN_SINGULAR ) 
+    lauryl_alcohol~1n 
+ 1900s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1900s~1nz (^decade~2) the decade from 1900 to 1909
+ 1530s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1530s~1nz (^decade~2) the decade from 1530 to 1539
+ 1920s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    twenties~2n 
+ 1820s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1820s~1nz (^decade~2) the decade from 1820 to 1829
+ 1930s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    thirties~2n 
+ 1830s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1830s~1nz (^decade~2) the decade from 1830 to 1839
+ 1940s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    forties~2n 
+ 1840s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1840s~1nz (^decade~2) the decade from 1840 to 1849
+ 1950s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    fifties~2n 
+ 1850s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1850s~1nz (^decade~2) the decade from 1850 to 1859
+ 1750s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1750s~1nz (^decade~2) the decade from 1750 to 1759
+ 1960s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    sixties~2n 
+ 1860s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1860s~1nz (^decade~2) the decade from 1860 to 1869
+ 1760s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1760s~1nz (^decade~2) the decade from 1760 to 1769
+ 1970s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    seventies~2n 
+ 1870s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1870s~1nz (^decade~2) the decade from 1870 to 1879
+ 1770s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1770s~1nz (^decade~2) the decade from 1770 to 1779
+ 1980s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    eighties~2n 
+ 1880s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    eighties~3n 
+ 1780s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1780s~1nz (^decade~2) the decade from 1780 to 1789
+ 1990s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    nineties~2n 
+ 1890s ( meanings=1 NOUN NOUN_PLURAL posdefault:NOUN ) 
+    nineties~3n 
+ 1790s ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL posdefault:NOUN ) 
+    1790s~1nz (^decade~2) the decade from 1790 to 1799
+ 15_August_1945 ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
+    V-J_Day~1nz (^Victory_Day~1) the date of Allied victory over Japan, World War II
+ 11_November ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Martinmas~1n 
+ 10-membered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    ten-membered~1a 
+ 1-star ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    1-star~1az 
+ 12-step ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
+    12-step~1az 
+ 1/4 ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ 1/8 ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ 1/3 ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ 1/2 ( NOUN NOUN_NUMBER KINDERGARTEN ) 

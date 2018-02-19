@@ -1,0 +1,4 @@
+﻿ 500mila ( PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER ) lemma=`500mila`500mila` DET:num  PRO:num  
+ 50mila ( PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER ) lemma=`50mila`50mila` DET:num  PRO:num  
+ 55mila ( PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER ) lemma=`55mila`55mila` DET:num  PRO:num  
+ 5mila ( PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER ) lemma=`5mila`5mila` DET:num  PRO:num  

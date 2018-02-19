@@ -1,0 +1,19 @@
+﻿ X ( NOUN NOUN_PROPER_SINGULAR ) 
+ XII ( NOUN NOUN_PROPER_SINGULAR ) 
+ XIX ( NOUN NOUN_PROPER_SINGULAR ) 
+ XX ( NOUN NOUN_PROPER_SINGULAR ) 
+ XYXYXY ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ xenofoba ( ADJECTIVE ) lemma=`xenofobo` ADJ  
+ xenofobe ( ADJECTIVE ) lemma=`xenofobo` ADJ  
+ xenofobi ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`xenofobo`xenofobo` ADJ  NOUN  
+ xenofobia ( NOUN NOUN_SINGULAR ) 
+ xenofobie ( NOUN NOUN_SINGULAR ) lemma=`xenofobia` NOUN  
+ xenofobissima ( ADJECTIVE ) lemma=`xenofobo` ADJ  
+ xenofobissime ( ADJECTIVE ) lemma=`xenofobo` ADJ  
+ xenofobissimi ( ADJECTIVE ) lemma=`xenofobo` ADJ  
+ xenofobissimo ( ADJECTIVE ) lemma=`xenofobo` ADJ  
+ xenofobo ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`xenofobo`xenofobo` ADJ  NOUN  
+ xenotrapianti ( NOUN NOUN_SINGULAR ) lemma=`xenotrapianto` NOUN  
+ xenotrapianto ( NOUN NOUN_SINGULAR ) 
+ xilografia ( NOUN NOUN_SINGULAR ) 
+ xilografie ( NOUN NOUN_SINGULAR ) lemma=`xilografia` NOUN  

@@ -1,0 +1,22 @@
+
+
+outputmacro: ^myfunc(^db)
+	preprint(^db \n)
+
+topic: ~INTRODUCTIONS repeat keep (~emogoodbye ~emohello ~emohowzit name )
+t: ^keep() ready- type:  open, table, store, list, drop, or close
+
+u: (open)  if (^dbinit( dbname = postgres port = 5432 user = postgres password = 1993egop  )) {db opened}
+		   else {dbinit failed - $$db_error}
+u: (close)  if (^dbclose()) {db closed}
+		   else {dbclose failed  - $$db_error}
+u: (table)  if (^dbexecute(^"CREATE TABLE s (articleid integer, wordcount integer);" NULL )) {table s created"}
+			else {dbexecute failed - $$db_error}
+u: (store) if (^dbexecute(^"INSERT INTO s VALUES (1, 2)")) {completed}
+		   else {dbexecute failed - $$db_error}
+u: (list) if (^dbexecute(^"SELECT s from pg_database" '^myfunc )) {completed}
+		   else {dbexecute failed - $$db_error}
+u: (drop)  	if (!^dbexecute(^"DROP TABLE s;" NULL )) {table s dropped} 
+		else {dbexecute failed - $$db_error}
+
+

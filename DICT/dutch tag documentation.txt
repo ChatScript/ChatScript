@@ -1,0 +1,41 @@
+$.		sentence-final punctuation
+adj		adjective
+adj*kop		truncated adjective
+adjabbr		abbreviated adjective
+adv		adverb
+advabbr		abbreviated adverb
+conjcoord	coordinating conjunction
+conjsubo	subordinating conjunction
+det__art	article
+det__demo	attributively used demonstrative pronoun
+det__indef	attributively used indefinite pronoun
+det__poss	attributively used possessive pronoun
+det__quest	attributively used question pronoun
+det__rel	attributively used relative pronoun
+int		interjection
+noun*kop	truncated noun
+nounabbr	abbreviated noun
+nounpl		plural noun
+nounprop	proper name
+nounsg		singular noun
+num__card	cardinal number
+num__ord	ordinal number
+partte		particle "te"
+prep		preposition
+prepabbr	abbreviated preposition
+pronadv		pronomial adverb
+prondemo	demonstrative pronoun (used substitutively)
+pronindef	indefined pronoun
+pronpers	personal pronoun
+pronposs	possessive pronoun
+pronquest	question pronoun
+pronrefl	reflexive pronoun
+pronrel		relative pronoun
+punc		(non-sentential) punctuation
+verbinf		infinitival verb
+verbpapa	past participle verb
+verbpastpl	plural past tense verb
+verbpastsg	singular past tense verb
+verbpresp	present participle verb
+verbprespl	plural present tense verb
+verbpressg	singular present tense verb

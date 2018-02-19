@@ -1,0 +1,2601 @@
+﻿ toss ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flip~1nz (^throw~1) the act of throwing the ball to another member of your team
+    toss~2nz (^motion~2) an abrupt movement
+    flip~4nz (^throw~2) the act of flipping a coin
+    toss~4vz agitate
+    pitch~16v 
+    toss~6vz throw carelessly
+    toss~7vz move or stir about violently
+    flip~15vz lightly throw to see which side comes up
+    dispose~4vz throw or cast away
+ tickle ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    tickling~1nz (^touching~1) the act of tickling
+    tickle~2nz (^feeling~4) a cutaneous sensation often resulting from light stroking
+    tickle~3vz touch or stroke lightly
+    thrill~4v 
+    tickle~5vz touch lightly so as to excite the surface nerves and cause uneasiness, laughter, or spasmodic movements
+ touch ( meanings=27 glosses=21 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    touching~1n 
+    touch~2nz (^fashion~3) a distinguishing style
+    touch~3nz (^feel~2) the feel of mechanical action
+    touch~4nz (^facility~5) deftness in handling matters
+    touch~5nz (^sense~2) the faculty by which external objects or forces are perceived through contact with the body 
+    feeling~4n 
+    trace~5nz (^suggestion~4) a suggestion of some quality
+    touch~8nz (^prayer~3) the act of soliciting money 
+    contact~6n 
+    touching~2n 
+    hint~5nz (^measure~1) a slight but appreciable amount
+    spot~14nz (^attack~9) a slight attack of illness
+    affect~3vz have an effect upon
+    touch~14vz color lightly
+    touch~15vz comprehend
+    touch~16vz make a more or less disguised reference to
+    touch~17vz consume
+    contact~11v 
+    touch~19vz make physical contact with, come in contact with
+    touch~20vz cause to be in brief contact with
+    touch~21vz tamper with
+    stir~7vz affect emotionally
+    touch~23vz perceive via the tactile sense
+    touch~24vz deal with
+    rival~4vz be equal to in quality or ability
+    concern~6v 
+    reach~13vz to extend as far as
+ time ( meanings=15 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE posdefault:NOUN VERB_DIRECTOBJECT TIMEWORD ) 
+    time~1nz (^attribute~1) the continuum of experience in which events pass from the future through the present to the past
+    meter~2n 
+    time~3nz (^experience~3) a person's experience on a particular occasion
+    clip~6nz (^example~6) an instance or single occasion for some event
+    time~5nz (^period~3) an indefinite period 
+    time~6nz (^reading~3) a reading of a point in time as given by a clock
+    time~7nz (^dimension~2) the fourth coordinate that is required to specify a physical event
+    sentence~3n 
+    time~9nz (^instant~1) a suitable moment
+    time~10nz (^period~3) a period of time considered as a resource under your control and sufficient to accomplish something
+    time~11vz adjust so that a force is applied and an action occurs at the desired time
+    time~12vz regulate or set the time of
+    clock~2v 
+    time~14vz assign a time for an activity or event
+    time~15vz set the speed, duration, or execution of
+ transport ( meanings=11 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    transfer~2n 
+    transportation~3n 
+    transport~3nz (^artifact~1) something that serves as a means of transportation
+    transport~4nz (^device~2) a mechanism that transports magnetic tape across the read/write heads of a tape playback/recorder
+    transport~5nz (^activity~4) an exchange of molecules across the boundary between adjacent layers of a fluid or across cell membranes
+    rapture~1nz (^spirit~7) a state of being carried away by overwhelming emotion
+    channel~9vz send from one person or place to another
+    carry~18v 
+    delight~5v 
+    ship~4v 
+    transport~11vz move something or somebody around
+ trash ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    crank~2nz (^speed~2) an amphetamine derivative used in the form of a crystalline hydrochloride
+    applesauce~1nz (^garbage~2) nonsensical talk or writing
+    trash~3nz (^folk~2) worthless people
+    scrap~4nz (^waste~5) worthless material that is to be disposed of
+    pan~3vz express a totally negative opinion of
+    scrap~7vz dispose of 
+ technical ( meanings=8 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    technical~1nz (^activity~1) a foul that can be assessed on a player or a coach or a team for unsportsmanlike conduct
+    technical~2nz (^vehicle~1) a pickup truck with a gun mounted on it
+    technical~3az resulting from or dependent on market factors rather than fundamental economic considerations
+    technical~4az characterizing or showing skill in or specialized knowledge of applied arts and sciences
+    expert~3a 
+    technical~6az of or relating to technique or proficiency in a practical skill
+    technical~7az of or relating to a practical subject that is organized according to scientific principles
+    technical~8az 
+ tour ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tour~1nz (^journey~1) a journey or route all the way around a particular place or area
+    go~3n 
+    hitch~7nz (^period~3) a period of time spent in military service
+    tour~4vz make a tour of a certain place
+ triple ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    triple~1nz (^safety~1) a base hit at which the batter stops safely at third base
+    triple~2nz (^product~3) a quantity that is three times as great as another
+    trio~3nz (^set~8) a set of three similar things considered as a unit
+    treble~4az having three units or components or elements
+    treble~5az three times as great or many
+    treble~6vz increase threefold
+    triple~7vz hit a three-base hit
+    triple~8z 
+ teasing ( meanings=6 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    teasing~1nz (^comb~1) 
+    tease~1n 
+    teasing~3nz (^play~5) playful vexation
+    annoying~2a 
+    teasing~5az arousing sexual desire without intending to satisfy it
+    mocking~2a 
+ turning ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    turning~1nz (^change~1) act of changing in practice or custom
+    turn~4n 
+    turning~3nz (^manufacture~2) the activity of shaping something on a lathe
+    turning~4nz (^production~5) the end-product created by shaping something on a lathe
+    turn~8n 
+    turning~6nz (^shaving~3) a shaving created when something is produced by turning it on a lathe
+ tremble ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT (null) ) 
+    shake~2n 
+    tremble~2vz move or jerk quickly and involuntarily up and down or sideways
+ try ( meanings=10 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) conjugate=trying 
+    effort~3n 
+    try~2vz put on a garment in order to see whether it fits and looks nice
+    try~3vz melt in order to separate out impurities
+    taste~9v 
+    stress~8vz test the limits of
+    try~6vz give pain or trouble to
+    hear~5v 
+    judge~7v 
+    essay~3v 
+    examine~5v 
+ tramp ( meanings=10 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hike~1n 
+    tramp~2nz (^ship~1) a commercial steamer for hire
+    tramp~3nz (^step~8) a heavy footfall
+    tramp~4nz (^walker~4) a foot traveler
+    tramp~5nz (^individual~1) a person who engages freely in promiscuous sex
+    tramp~6nz (^vagrant~1) a disreputable vagrant
+    roll~28v 
+    tramp~8vz cross on foot
+    tramp~9vz travel on foot, especially on a walking expedition
+    plod~2v 
+ toasting ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    browning~1nz (^preparation~1) cooking to a brown crispiness over a fire or on a grill
+ trail ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    trail~1nz (^track~3) a path or track roughly blazed through wild or hilly country
+    lead~9nz (^evidence~1) evidence pointing to a possible solution
+    trail~3nz (^course~9) a track or mark left by something that has passed
+    train~12vz drag loosely along a surface
+    trail~5vz hang down so as to drag along the ground
+    tail~11vz go after with the intent to catch
+    drag~14vz to lag or linger behind
+    trail~8vz move, proceed, or walk draggingly or slowly
+ twiddle ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    twiddle~1nz (^twist~3) a series of small twists or turns
+    twiddle~2vz manipulate, as in a nervous or unconscious manner
+    twirl~4vz turn in a twisting or spinning motion
+ thing ( meanings=12 glosses=11 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    thing~1nz a separate and self-contained entity
+    thing~2nz (^action~1) an action
+    thing~3nz (^artifact~1) an artifact
+    thing~4nz an entity that is not named specifically
+    thing~5nz (^attribute~1) any attribute or quality considered as having its own existence
+    matter~3n 
+    thing~7nz (^construct~1) a special abstraction
+    thing~8nz (^object~3) a special objective
+    thing~9nz (^statement~4) a statement regarded as an object
+    thing~10nz (^event~1) an event
+    thing~11nz (^feeling~1) a persistent illogical feeling of desire or aversion
+    thing~12nz (^situation~4) a special situation
+ tummy ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    stomach~1n 
+    pot~6nz (^belly~2) slang for a paunch
+ touching ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB ) 
+    touch~1nz (^act~1) the act of putting two things together with no space between them
+    touch~10nz (^contact~7) the event of something coming in contact with the body
+    poignant~1az arousing affect
+    touching~4z 
+ track ( meanings=16 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    running~2nz (^sport~2) the act of participating in an athletic competition involving running on a track
+    track~2nz (^course~3) a course over which races are run
+    track~3nz (^road~2) any road or path affording passage especially a rough one
+    rail~5nz (^bar~2) a bar or pair of parallel bars of rolled steel making the railway along which railroad cars or other vehicles can roll
+    track~5nz (^artifact~1) a pair of parallel rails providing a runway for wheels
+    track~6nz (^channel~8) a groove on a phonograph recording
+    track~7nz (^path~3) one of the circular magnetic paths on a magnetic disk that serve as a guide for writing and reading data
+    track~8nz (^belt~3) an endless metal belt on which tracked vehicles move over the ground
+    trail~2n 
+    cut~14nz (^selection~3) a distinct selection of music from a recording or a compact disc
+    course~9n 
+    track~12vz make tracks upon
+    cover~26vz travel across or pass over
+    trail~6v 
+    track~15vz carry on the feet and deposit
+    track~16vz observe or plot the moving path of something
+ tying ( meanings=1 glosses=1 NOUN_ABSTRACT VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=tied 
+    tying~1nz (^connection~1) the act of tying or binding things together
+ trip ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    stumble~1nz (^boo-boo~1) an unintentional but embarrassing blunder
+    trip~2nz (^step~2) a light or nimble tread
+    trip~3nz (^journey~1) a journey for some purpose 
+    trip~4nz (^catch~5) a catch mechanism that acts as a switch
+    trip~5nz (^experience~3) an exciting or stimulating experience
+    slip~11n 
+    trip~7nz (^hallucination~3) a hallucinatory experience induced by drugs
+    trip~8vz get high, stoned, or drugged
+    spark~6vz put in motion or move to act
+    travel~6v 
+    stumble~4vz miss a step and fall or nearly fall
+    trip~12vz cause to stumble
+ tumble ( meanings=13 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fall~2n 
+    tumble~2nz (^effort~1) an acrobatic feat of rolling or turning end over end
+    tumble~3vz do gymnastics, roll and turn skillfully
+    tumble~4vz suffer a sudden downfall, overthrow, or defeat
+    tumble~5vz put clothes in a tumbling barrel, where they are whirled about in hot air, usually with the purpose of drying
+    tumble~6vz fall suddenly and sharply
+    twig~3vz understand, usually after some initial difficulty
+    tumble~8vz throw together in a confused mass
+    tumble~9vz roll over and over, back and forth
+    tumble~10vz fall down, as if collapsing
+    collapse~10v 
+    tumble~12vz fly around
+    tip~13vz cause to topple or tumble by pushing
+ trading ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    trading~1nz (^commerce~1) buying or selling securities or commodities
+ taking ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    taking~1nz (^action~1) the act of someone who picks up or takes something
+    winning~2az very attractive
+ trick ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    magic~1n 
+    trick~2nz (^twist~1) a cunning or deceitful action or device
+    joke~1nz (^recreation~2) a ludicrous or grotesque act done for fun and amusement
+    trick~4nz (^activity~1) an attempt to get you to do something foolish or imprudent
+    trick~5nz (^play~4) in a single round, the sequence of cards played by all the players
+    trick~6nz (^customer~1) a prostitute's customer
+    trick~7nz (^period~3) a period of work or duty
+    fox~6vz deceive somebody
+ throw ( meanings=20 glosses=17 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) conjugate=thrown 
+    throw~1nz (^act~1) the act of throwing 
+    throw~2nz (^play~2) casting an object in order to determine an outcome randomly
+    throw~3nz (^covering~4) bedclothes consisting of a lightweight cloth covering that is casually thrown over something
+    stroke~8n 
+    throw~5nz (^opportunity~1) a single chance or instance
+    confuse~3vz be confusing or perplexing to
+    give~14vz convey or communicate
+    throw~8vz utter with force
+    throw~9vz throw out onto a flat surface
+    throw~10vz place or put with great energy
+    throw~11vz propel through the air
+    flip~13v 
+    shed~4vz get rid of
+    throw~14vz cause to fall off
+    project~8vz put or send forth
+    throw~16vz make on a potter's wheel
+    give~26v 
+    bewilder~2vz cause to be confused emotionally
+    throw~19vz move violently, energetically, or carelessly
+    throw~20vz to put into a state or activity hastily, suddenly, or carelessly
+ tip ( meanings=14 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    steer~2n 
+    crown~9n 
+    tip~3nz (^end~9) the extreme end of something
+    tip~4nz (^perk~1) a relatively small amount of money given for services rendered
+    point~23n 
+    tip~6vz remove the tip from
+    tip~7vz mark with a tip
+    tip~8vz give insider information or advise to
+    tap~11v 
+    tip~10vz walk on one's toes
+    angle~6v 
+    tip~12vz cause to tilt
+    tumble~13v 
+    tip~14vz give a tip or gratuity to in return for a service, beyond the compensation agreed on
+ tow ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tow~1nz (^draw~1) the act of hauling something by means of a hitch or rope
+    tow~2vz drag behind
+ tug ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jerk~1nz (^pull~1) a sudden abrupt pull
+    tower~2n 
+    tug~3vz struggle in opposition
+    tug~4vz pull hard
+    tug~5vz pull or strain hard at
+    tug~6vz move by pulling hard
+    lug~4vz carry with difficulty
+    tug~8vz tow with a tug
+    push~14v 
+ tap ( meanings=20 glosses=18 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    pat~1nz (^touching~1) a light touch or stroke
+    tap~2nz (^work~1) the act of tapping a telephone or telegraph line to get information
+    tap~3nz (^plug~3) a plug for a bunghole in a cask
+    tap~4nz (^tool~2) a tool for cutting female screw threads
+    tap~5nz (^plate~5) a small metal plate that attaches to the toe or heel of a shoe
+    hydrant~2nz (^faucet~1) a faucet for drawing water from a pipe or cask
+    rap~5nz (^sound~5) the sound made by a gentle blow
+    strike~6n 
+    beg~2vz make a solicitation or entreaty for something
+    tap~10vz draw from
+    tip~9vz strike lightly
+    tap~12vz cut a female screw thread with a tap
+    tap~13vz pierce in order to draw a liquid from
+    tap~14vz draw from a tap
+    tap~15vz dance and make rhythmic clicking sounds by means of metal plates nailed to the sole of the dance shoes
+    tap~16vz walk with a tapping sound
+    knock~11v 
+    bug~7vz tap a telephone or telegraph wire to get information
+    tap~19vz draw from or dip into to get something
+    tap~20vz furnish with a tap or spout, so as to be able to draw liquid from it
+ tickling ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tickle~1n 
+    tickling~2az 
+ tag ( meanings=10 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tag~1nz (^touching~1) the act of touching a player in a game (which changes their status in the game)
+    tag~2nz (^game~2) a game in which one child chases the others
+    rag~2n 
+    ticket~5n 
+    tag~5nz (^label~3) a label associated with something for the purpose of identification
+    tag~6vz provide with a name or nickname
+    mark~26v 
+    tag~8vz touch a player while he is holding the ball
+    tag~9vz supply with rhymes
+    track~14v 
+ tracing ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tracing~1nz (^find~1) the discovery and description of the course of development of something
+    tracing~2nz (^art~1) the act of drawing a plan or diagram or outline
+    trace~2n 
+ temptation ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    temptation~1nz (^influence~1) the act of influencing by exciting hope or desire
+    temptation~2nz (^influence~3) something that seduces or has the quality to seduce
+    temptation~3nz (^desire~2) the desire to have or do something that you know you should avoid
+ twist ( meanings=23 glosses=22 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    device~1nz (^maneuver~2) any clever maneuver
+    twisting~1nz (^motion~2) the act of rotating rapidly
+    turn~2nz (^motion~2) turning or twisting around 
+    winding~1nz (^motion~2) the act of winding or twisting
+    twist~5nz (^dance~1) social dancing in which couples vigorously twist their hips and arms in time to the music
+    braid~2nz (^hair~4) a hairdo formed by braiding or twisting the hair
+    twist~7nz (^explanation~2) an interpretation of a text or action
+    wrench~2nz (^motion~5) a jerky pulling movement
+    turn~9nz (^development~4) an unforeseen development
+    twist~10nz (^stream~2) a miniature whirlpool or whirlwind resulting when the current of a fluid doubles back on itself
+    crook~3nz (^curve~5) a circular segment of a curve
+    twirl~2nz (^fold~7) a sharp bend in a line produced when a line having a loop is pulled tight
+    wrench~3nz (^hurt~5) a sharp strain on muscles or ligaments
+    wrench~4vz twist suddenly so as to sprain
+    twist~15vz form into twists
+    twist~16vz practice sophistry
+    twist~17vz turn in the opposite direction
+    twist~18vz form into a spiral shape
+    bend~6vz cause to assume a crooked or angular form
+    wrench~6vz twist or pull violently or suddenly, especially so as to remove from that to which it is attached or from where it originates
+    worm~5vz to move in a twisting or contorted motion, 
+    twist~22vz do the twist
+    curve~10v 
+ tool ( meanings=8 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    instrument~1n 
+    tool~2nz (^artifact~1) an implement used in the practice of a vocation
+    shaft~8n 
+    puppet~3n 
+    tool~5vz work with a tool
+    tool~6vz ride in a car with no particular goal and just for the pleasure of it
+    tool~7vz drive
+    tool~8vz furnish with tools
+ tooth ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) plural=teeth 
+    tooth~1nz (^agency~1) a means of enforcement
+    tooth~2nz (^structure~3) toothlike structure in invertebrates found in the mouth or alimentary canal or on a shell
+    tooth~3nz (^projection~3) something resembling the tooth of an animal
+    tooth~4nz (^projection~3) one of a number of uniform projections on a gear
+    tooth~5nz (^bone~2) hard bonelike structures in the jaws of vertebrates
+ transfer ( meanings=15 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    transfer~1nz (^change~1) the act of transfering something from one form to another
+    transportation~2n 
+    transfer~3nz (^transaction~1) transferring ownership
+    transfer~4nz (^learning~1) application of a skill learned in one situation to a different but similar situation
+    transfer~5nz (^ticket~3) a ticket that allows a passenger to change conveyances
+    transfer~6nz (^individual~1) someone who transfers or is transferred from one position to another
+    transpose~6v 
+    transport~7v 
+    transfer~9vz lift and reset in another soil or situation
+    transfer~10vz move around
+    remove~5v 
+    change~19v 
+    transfer~13vz cause to change ownership
+    transfer~14vz move from one place to another
+    transfer~15vz transfer somebody to a different position or location of work
+ transportation ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    transportation~1nz (^act~1) the act of expelling a person from their native land
+    transport~1nz (^movement~2) the act of moving something from one location to another
+    shipping~1nz (^business~3) the commercial enterprise of moving goods and materials
+    transportation~4nz (^facility~3) a facility consisting of the means and equipment necessary for the movement of passengers or goods
+    transportation~5nz (^charge~14) the sum charged for riding in a public conveyance
+ termination ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    conclusion~2n 
+    ending~2nz (^part~12) the end of a word 
+    result~3n 
+    termination~4nz (^end~9) a place where something ends or is complete
+    termination~5nz (^end~14) a coming to an end of a contract period
+ tone ( meanings=15 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    shade~3n 
+    tone~2nz (^pitch~6) a pitch or change in pitch of the voice that serves to distinguish words in tonal languages
+    quality~3n 
+    tone~4nz (^quality~1) the quality of something that reveals the attitudes and presuppositions of the author
+    tone~5nz (^sound~2) a steady sound without overtones
+    step~7n 
+    note~5n 
+    tone~8nz (^speech~4) the quality of a person's voice
+    smell~5n 
+    tone~10nz (^tension~6) the elastic tension of living muscles, arteries, etc. that facilitate response to stimuli
+    tone~11vz give a healthy elasticity to
+    tone~12vz change to a color image
+    tone~13vz change the color or tone of
+    tone~14vz vary the pitch of one's speech
+    tone~15vz utter monotonously and repetitively and rhythmically
+ testimonial ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    testimonial~1nz (^evidence~2) something that serves as evidence
+    testimonial~2nz (^praise~1) something that recommends a person or thing as worthy or desirable
+    testimonial~3nz (^approval~2) something given or done as an expression of esteem
+    testimonial~4az of or relating to or constituting testimony
+    testimonial~5az expressing admiration or appreciation
+ tearing ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    watering~2n 
+    violent~2a 
+    tearing~3az 
+ throttling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    choking~1n 
+ threatened ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    threatened~1az likely in the near future to become endangered
+ trimming ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    trimming~1nz (^decoration~1) the act of adding decoration
+    clipping~2n 
+    trim~2n 
+ travel ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR SPELLING_EXCEPTION COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    travel~1nz (^motion~1) self-propelled movement
+    travelling~1nz (^motion~1) the act of going from one place to another
+    travel~3nz (^motion~5) a movement through space that changes the location of something
+    go~17vz change location
+    travel~5vz undergo transportation as in a vehicle
+    trip~10vz make a trip for pleasure
+    journey~2v 
+    journey~3v 
+    travel~9vz travel from place to place, as for the purpose of finding work, preaching, or acting as a judge
+ turn ( meanings=38 glosses=27 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    turn~1nz (^walk~3) taking a short walk out and back
+    twist~3n 
+    turn~3nz (^change~1) the act of turning away or in the opposite direction
+    turning~2nz (^change~1) the act of changing or reversing the direction of the course
+    play~4n 
+    turn~6nz (^favor~1) a favor for someone
+    number~9n 
+    turning~5nz (^motion~5) a movement in a new direction
+    twist~9n 
+    twist~11n 
+    round~13n 
+    spell~4n 
+    twist~14v 
+    grow~2vz pass into a condition gradually, take on a specific property or attribute
+    turn~15vz change to the contrary
+    turn~16vz undergo a transformation or a change of position or action
+    turn~17vz become officially one year older
+    turn~18vz change color
+    work~9v 
+    turn~20vz have recourse to or make an appeal or request for help or information to
+    turn~21vz direct at someone
+    turn~22vz alter the functioning or setting of
+    twist~19v 
+    release~17vz let fall or spill from a container
+    turn~25vz shape by rotating on a lathe or cutting device or a wheel
+    plough~2vz to break and turn over earth especially with a plow
+    turn~27vz change orientation or direction, also in the abstract sense
+    turn~28vz pass to the other side of
+    turn~29vz channel one's attention, interest, thought, or attention toward or away from something
+    turn~30vz to send or let go
+    turn~31vz cause to move around a center so as to show another side of
+    turn~32vz cause to move around or rotate
+    turn~33vz cause to move along an axis or into a new direction
+    turn~34vz move around an axis or a center
+    turn~35vz get by buying and selling
+    turn~36vz accomplish by rotating
+    become~3v 
+    turn~38vz cause to change or turn into something different
+ traveling ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    travel~2n 
+ travelling ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    traveling~1n 
+ traverse ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    traverse~1nz (^travel~2) travel across
+    traverse~2nz (^crossing~1) taking a zigzag path on skis
+    traverse~3nz (^brace~1) a horizontal crosspiece across a window or separating a door from a window over it
+    traverse~4nz (^beam~2) a horizontal beam that extends across something
+    deny~4v 
+    track~13v 
+    sweep~14v 
+ takeoff ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    takeoff~1nz (^going~1) a departure
+    parody~1nz (^activity~1) humorous or satirical mimicry
+    parody~2nz (^imitation~4) a composition that imitates or misrepresents somebody's style, usually in a humorous way
+    takeoff~4nz (^rise~9) the initial ascent of an airplane as it becomes airborne
+ tack ( meanings=12 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tack~1nz (^sailing~3) sailing a zigzag course
+    tacking~1nz (^change~1) the act of changing tack
+    sheet~3n 
+    tack~4nz (^gear~2) gear for a horse
+    tack~5nz (^nail~1) a short nail with a sharp point and a large head
+    tack~6nz (^aim~4) the heading or position of a vessel relative to the trim of its sails
+    flip~8v 
+    tack~8vz fix to
+    tack~9vz sew together loosely, with large stitches
+    tack~10vz fasten with tacks
+    piece~18v 
+    tack~12vz turn into the wind
+ trailing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tracking~1nz (^following~1) the pursuit by following tracks or marks they left behind
+ tracking ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    trailing~1n 
+ tailing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    shadowing~1n 
+ troop ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    troop~1nz (^force~6) a group of soldiers
+    troop~2nz (^force~6) a cavalry unit corresponding to an infantry company
+    flock~4n 
+    troop~4nz (^unit~3) a unit of Girl or Boy Scouts
+    troop~5vz move or march as if in a crowd
+    parade~4v 
+ twirl ( meanings=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    spin~4n 
+    twist~12n 
+    spin~12v 
+    twiddle~3v 
+ twisting ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    twirl~1n 
+    torture~2n 
+    winding~3a 
+ tacking ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    tack~2n 
+    tacking~2nz (^stitch~1) 
+ tax ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) plural=taxes 
+    tax~1nz (^charge~15) charge against a citizen's person or property or activity for the support of government
+    tax~2vz make a charge against or accuse
+    task~3v 
+    tax~4vz levy a tax on
+    tax~5vz set or determine the amount of
+ thickening ( meanings=5 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    thickening~1nz (^press~1) 
+    knob~4n 
+    thickening~3nz (^stuff~7) any material used to thicken
+    thickening~4az accumulating and becoming more intense
+    thickening~5az becoming more intricate or complex
+ trim ( meanings=17 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=trimer 
+    trimming~2nz (^cut~3) cutting down to the desired size or shape
+    trimming~3nz (^decoration~2) a decoration or adornment on a garment
+    trim~3nz (^attitude~4) attitude of an aircraft in flight when allowed to take its own orientation
+    trim~4nz (^order~14) a state of arrangement or appearance
+    spare~6az thin and fit
+    tailored~2az severely simple in line or design
+    trim~7az neat and smart in appearance
+    trim~8az of places
+    trim~9vz adjust so that the wind is optimally used
+    cut~37v 
+    shave~4v 
+    trim~12vz remove the edges from and cut down to the desired size
+    snip~3v 
+    dress~20v 
+    trim~15vz decorate, as with ornaments
+    trim~16vz be in equilibrium during a flight
+    trim~17vz balance in flight by regulating the control surfaces
+ thinning ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    cutting~2n 
+ tension ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tension~1nz (^stretching~1) the action of stretching something tight
+    tension~2nz (^stress~2) a stress that produces an elongation of an elastic physical body
+    tension~3nz (^state~1) feelings of hostility that are not manifest
+    tension~4nz (^balance~10) a balance between and interplay of opposing elements or tendencies 
+    stress~3nz (^strain~10) a state of mental or emotional strain or suspense
+    tension~6nz (^status~1) the physical condition of being stretched or strained
+ tear ( meanings=9 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=torn 
+    tear~1nz (^separation~1) the act of tearing
+    bust~1nz (^celebration~1) an occasion for excessive eating or drinking
+    tear~3nz (^drop~8) a drop of the clear salty saline solution secreted by the lacrimal glands
+    rip~3nz (^gap~6) an opening made forcibly as by pulling apart
+    tear~5vz fill with tears or shed tears
+    pluck~4v 
+    tear~7vz to separate or be separated by force
+    snap~22v 
+    charge~34v 
+ tempering ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    tempering~1nz (^hardening~1) 
+    tempering~2az moderating by making more temperate
+ torture ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    torturing~1nz (^abuse~1) the deliberate, systematic, or wanton infliction of physical or mental suffering by one or more persons in an attempt to force another person to yield information or to make a confession or for any other reason
+    straining~2nz (^activity~1) the act of distorting something so it seems to mean something it was not intended to mean
+    torture~3nz (^hurt~3) intense feelings of suffering
+    torture~4nz (^hurt~4) extreme mental distress
+    torture~5nz (^pain~5) unbearable physical pain
+    torture~6vz subject to torture
+    rack~12v 
+ torturing ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    torture~1n 
+    torturing~2az 
+ tease ( meanings=12 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ribbing~1nz (^practice~1) the act of harassing someone playfully or maliciously 
+    tease~2nz (^woman~3) a seductive woman who uses her sex appeal to exploit men
+    tease~3nz (^individual~1) someone given to teasing
+    tease~4vz ruffle by combing the ends towards the scalp, for a full effect
+    bait~3v 
+    tease~6vz mock or make fun of playfully
+    card~13v 
+    tease~8vz disentangle and raise the fibers of
+    tease~9vz raise the nap of
+    tease~10vz tear into pieces
+    bug~6v 
+    tease~12vz to arouse hope, desire, or curiosity without satisfying them
+ tumbling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    tumbling~1nz (^sport~2) 
+ thoroughbred ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    thoroughbred~1nz (^animal~1) a pedigreed animal of unmixed lineage
+    thoroughbred~2nz (^horse~1) a racehorse belonging to a breed that originated from a cross between Arabian stallions and English mares
+    thoroughbred~3nz (^adult~2) a well-bred person
+    thoroughbred~4az having a list of ancestors as proof of being a purebred animal
+    thoroughbred~5az 
+ troll ( meanings=11 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    trolling~1nz (^angling~1) angling by drawing a baited line through the water
+    troll~2nz (^bait~1) a fisherman's lure that is used in trolling
+    round~8n 
+    troll~4nz (^vision~1) a supernatural creature (either a dwarf or a giant) that is supposed to live in caves or in the mountains
+    troll~5vz speak or recite rapidly or in a rolling voice
+    troll~6vz praise or celebrate in song
+    troll~7vz sing loudly and without inhibition
+    troll~8vz angle with a hook and line drawn through the water
+    troll~9vz sing the parts of in succession
+    troll~10vz cause to move round and round
+    troll~11vz circulate, move around
+ trolling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    troll~1n 
+ treasure ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gem~1nz (^art~2) art highly prized for its beauty or perfection
+    treasure~2nz (^collection~4) a collection of precious things
+    treasure~3nz (^relation~1) any possession that is highly valued by its owner
+    treasure~4nz (^wealth~3) accumulated wealth in the form of money or jewels etc.
+    cherish~1vz be fond of
+    value~11v 
+ tennis ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    tennis~1nz (^game~2) a game played with rackets by two or four players who hit a ball back and forth over a net that divides the court
+ twenty-one ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-one~1nz (^game~2) a gambling game using cards
+    twenty-one~2nz (^number~11) the cardinal number that is the sum of twenty and one
+    twenty-one~3az being one more than twenty
+ table ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    table~1nz (^furniture~1) a piece of furniture having a smooth flat top that is usually supported by one or more vertical legs
+    table~2nz (^furniture~1) a piece of furniture with tableware for a meal laid out on it
+    board~7nz (^food~1) food or meals in general
+    table~4nz (^arrangement~6) a set of data arranged in rows and columns
+    table~5nz (^group~1) a company of people assembled at a table for a meal or game
+    table~6nz (^plateau~1) flat tableland with steep edges
+    table~7vz arrange or enter in tabular form
+    postpone~1vz hold back to a later time
+ toot ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    toot~1nz (^celebration~1) revelry in drinking
+    toot~2nz (^sound~5) a blast of a horn
+    honk~5vz make a loud noise
+ toying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    toying~1nz (^play~5) 
+ toe ( meanings=9 glosses=9 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    toe~1nz (^covering~4) the part of footwear that provides a covering for the toes
+    toe~2nz (^part~3) the part of a clubhead farthest from the shaft
+    toe~3nz (^digit~1) one of the digits of the foot
+    toe~4nz (^piece~11) forepart of a hoof
+    toe~5vz touch with the toe
+    toe~6vz drive with the toe of the club
+    toe~7vz hit with the toe of the club
+    toe~8vz drive obliquely
+    toe~9vz walk so that the toes assume an indicated position or direction
+ turkey ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    turkey~1nz (^poultry~1) large gallinaceous bird with fan-shaped tail
+    bomb~3nz (^bust~4) an event that fails badly or is totally ineffectual
+    turkey~3nz (^poultry~2) flesh of large domesticated fowl usually roasted
+    turkey~4nz (^individual~1) a person who does something thoughtless or annoying
+ turmoil ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    turmoil~1nz (^motion~2) disturbance usually in protest
+    turmoil~2nz (^feeling~1) violent agitation
+    turmoil~3nz (^state~1) a violent disturbance
+ trap ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    trap~1nz (^attack~5) the act of concealing yourself and lying in wait to attack by surprise
+    trap~2nz (^obstacle~1) a hazard on a golf course
+    trap~3nz (^device~2) a device in which something can be caught and penned
+    trap~4nz (^rig~2) a light two-wheeled carriage
+    trap~5nz (^device~2) a device to hurl clay pigeons into the air for trapshooters
+    trap~6nz (^drain~3) drain consisting of a U-shaped section of drainpipe that holds liquid and so prevents a return flow of sewer gas
+    hole~3n 
+    trap~8nz (^design~5) something that catches you unawares
+    pin~12v 
+    trap~10vz catch in or as if in a trap
+    trap~11vz hold or catch as if in a trap
+    trap~12vz place in a confining or embarrassing position
+ throne ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    throne~1nz (^position~2) the position and power of an exalted person who is entitled to sit in a chair of state on ceremonial occasions
+    throne~2nz (^chair~2) the chair of state for a monarch, bishop, etc.
+    toilet~3n 
+    throne~4vz put a monarch on the throne
+    throne~5vz sit on the throne as a ruler
+ trade ( meanings=12 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    craft~1nz (^occupation~2) the skilled practice of a practical occupation
+    trade~2nz (^commerce~1) the commercial exchange of goods and services
+    trade~3nz (^business~4) the business given to a commercial establishment by its customers
+    barter~1nz (^exchange~4) an equal exchange
+    deal~3n 
+    craft~5nz (^class~3) people who perform a particular kind of skilled work
+    trade~7nz (^wind~8) steady winds blowing from east to west above and below the equator
+    deal~12v 
+    switch~14v 
+    trade~10vz turn in as payment or part payment for a purchase
+    merchandise~2vz engage in the trade of
+    trade~12vz be traded at a certain price or under certain conditions
+ tailoring ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    tailoring~1nz (^trade~1) the occupation of a tailor
+ toil ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    labor~1n 
+    labor~8v 
+ trouble ( meanings=11 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    difficulty~1nz (^effort~2) an effort that is inconvenient
+    problem~1nz (^difficulty~3) a source of difficulty
+    trouble~3nz (^event~1) an event causing distress or pain
+    bother~2nz (^activity~1) an angry disturbance
+    worry~2nz (^anxiety~1) a strong feeling of anxiety
+    trouble~6nz (^status~1) an unwanted pregnancy
+    pain~6vz cause bodily suffering to and make sick or indisposed
+    trouble~8vz disturb in mind or make uneasy or cause to be worried or alarmed
+    upset~16vz move deeply
+    bother~7vz take the trouble to do something
+    disoblige~2vz to cause inconvenience or discomfort to
+ the ( meanings=2 DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET ) 
+    the~1z 
+    the~2z 
+ testing ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    examination~2n 
+    testing~2nz (^research~1) the act of subjecting to experimental test in order to determine how well something works
+    testing~3nz (^examination~1) an examination of the characteristics of something
+ trial ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    test~1nz (^effort~3) the act of testing something
+    test~2nz (^effort~3) the act of undergoing testing
+    trial~3nz (^event~1) the determination of a person's innocence or guilt by due process of law
+    test~5n 
+    trial~5nz (^affliction~1) an annoying or frustrating or catastrophic event
+    trial~6nz (^competition~2) a preliminary competition to determine qualifications
+ tending ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    aid~1n 
+    given~3a 
+ treatment ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    treatment~1nz (^attention~1) care provided to improve a situation
+    handling~3nz (^direction~2) the management of someone or something
+    treatment~3nz (^fashion~3) a manner of dealing with something artistically
+    discussion~1n 
+ therapy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    therapy~1nz (^treatment~1) the act of caring for someone (as by medication or remedial training etc.)
+ tender ( meanings=19 glosses=12 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) ) 
+    tender~1nz (^ship~1) ship that usually provides supplies to other ships
+    cutter~3n 
+    tender~3nz (^car~3) car attached to a locomotive to carry fuel and water
+    bid~3n 
+    tender~5nz (^helper~2) someone who waits on or tends to or attends to the needs of another
+    stamp~8n 
+    tender~7az not hardy
+    fond~3a 
+    tender~9az young and immature
+    raw~11a 
+    crank~5az inclined to heel over easily under sail
+    tender~12az easy to cut or chew
+    tender~13az physically untoughened
+    tender~14az given to sympathy or gentleness or sentimentality
+    tender~15az 
+    tender~16vz make tender or more tender as by marinating, pounding, or applying a tenderizer
+    tender~17vz make a tender of
+    tender~18vz offer or present for acceptance
+    bid~9v 
+ total ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    sum~1nz (^whole~1) the whole amount
+    amount~3n 
+    entire~2az constituting the full quantity or extent
+    full~4az complete in extent or degree and in every particular
+    total~5vz damage beyond the point of repair
+    add~3vz determine the sum of
+    amount~6v 
+ token ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    souvenir~1n 
+    token~2nz (^disk~1) a metal or plastic disk that can be redeemed or used in designated slot machines
+    token~3nz (^mark~6) something serving as a sign of something else
+    token~4nz (^symbol~2) an individual instance of a type of symbol
+    token~5az insignificantly small
+ tinning ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    tinning~1nz (^application~3) 
+    tinning~2nz (^application~3) the application of a thin layer of soft solder to the ends of wires before soldering them
+ tiling ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    tiling~1nz (^application~3) the application of tiles to cover a surface
+ task ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    chore~1nz (^duty~1) a specific piece of work required to be done as a duty or for a specific fee
+    undertaking~1n 
+    tax~3vz use to the limit
+    task~4vz assign a task to
+ third ( meanings=1 glosses=1 NOUN ADJECTIVE ADVERB ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN (null) ) 
+    third~1bz in the third place
+ turpitude ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    turpitude~1nz (^activity~1) a corrupt or depraved or degenerate act or practice
+ treachery ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    perfidy~1nz (^activity~1) an act of deliberate betrayal
+    perfidy~2nz (^quality~1) betrayal of a trust
+ terror ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    terror~1nz (^coercion~2) the use of extreme fear in order to coerce people 
+    panic~1n 
+    brat~2n 
+    threat~3nz (^individual~1) a person who inspires fear or dread
+ theft ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    stealing~1n 
+ test ( meanings=13 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    run~6n 
+    trial~2n 
+    test~3nz (^measure~3) any standardized procedure for measuring sensitivity or memory or intelligence or aptitude or personality etc
+    test~4nz (^cover~9) a hard outer covering as of some amoebas and sea urchins
+    tryout~2n 
+    examination~5n 
+    test~7vz undergo a test
+    quiz~2vz examine someone's knowledge of something
+    test~9vz determine the presence or properties of
+    test~10vz achieve a certain score or rating on a test
+    essay~4v 
+    screen~16v 
+    test~13vz show a certain characteristic when tested
+ tryout ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    audition~1nz (^trial~1) a test of the suitability of a performer
+    trial~4nz (^research~2) trying something to find out about it
+ trying ( meanings=2 glosses=2 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=tried 
+    trying~1az extremely irritating to the nerves
+    trying~2az hard to endure
+ tall ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    tall~1nz (^size~1) a garment size for a tall person
+    tall~2az too improbable to admit of belief
+    tall~3az impressively difficult
+    tall~4az lofty in style
+    tall~5az great in vertical dimension
+    tall~6az 
+ timing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB ) 
+    timing~1nz (^control~1) the regulation of occurrence, pace, or coordination to achieve a desired effect
+    timing~2nz (^property~2) the time when something happens
+ terrestrial ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    terrestrial~1az operating or living or growing on land
+    terrestrial~2az of this earth
+    terrestrial~3az concerned with the world or worldly matters
+    terrestrial~4az of or relating to or characteristic of the planet Earth or its inhabitants
+    terrestrial~5az of or relating to or inhabiting the land as opposed to the sea or air
+    terrestrial~6az 
+ toilet ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    toilet~1nz (^dressing~2) the act of dressing and preparing yourself
+    bathroom~2n 
+    stool~2nz (^artifact~1) a plumbing fixture for defecation and urination
+    gutter~4nz (^misfortune~2) misfortune resulting in lost effort or money
+ tasting ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    savoring~1n 
+    taste~1n 
+    tasting~3nz (^sample~1) a small amount
+ times ( meanings=4 glosses=2 CONJUNCTION_COORDINATE PREDETERMINER COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    multiplication~2nz (^operation~5) an arithmetic operation that is the inverse of division
+    times~2nz (^period~3) a more or less definite period of time now or previously present
+    times~3z 
+    times~4z 
+ taste ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tasting~2nz (^activity~1) a kind of sensing
+    taste~2nz (^sense~2) the faculty of distinguishing sweet, sour, bitter, and salty properties in the mouth
+    taste~3nz (^operation~8) the sensation that results when taste buds in the tongue and throat convey information about the chemical composition of a soluble stimulus
+    taste~4nz (^discrimination~2) delicate discrimination 
+    taste~5nz (^experience~3) a brief experience of something
+    penchant~1nz (^liking~1) a strong liking
+    taste~7nz (^measure~1) a small amount eaten or drunk
+    taste~8vz experience briefly
+    sample~4v 
+    taste~10vz perceive by the sense of taste
+    taste~11vz distinguish flavors
+    savor~5vz have flavor
+    taste~13vz have a distinctive or characteristic taste
+ teaching ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    instruction~1n 
+    instruction~2n 
+    teaching~3nz (^philosophy~1) a doctrine that is taught
+ team ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    team~1nz (^group~1) two or more draft animals that work together to pull something
+    team~2nz (^unit~3) a cooperative unit
+    team~3vz form a team
+ talk ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) (null) (null) ) 
+    talk~1nz (^lecture~1) the act of giving a talk to an audience
+    talking~1nz (^conversation~1) an exchange of ideas via conversation
+    talk~3nz (^discussion~1) discussion
+    talk~4nz (^comment~3) idle gossip or rumor
+    lecture~3nz (^address~7) a speech that is open to the public
+    lecture~5vz deliver a lecture or talk
+    peach~6v 
+    mouth~9v 
+    spill~6v 
+    speak~2vz exchange thoughts
+    speak~3vz use language
+ training ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    preparation~3n 
+    breeding~5n 
+ target ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR SPELLING_EXCEPTION COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    butt~6n 
+    aim~2n 
+    mark~10n 
+    target~4nz (^place~13) the location of the target that is to be hit
+    prey~2nz (^unfortunate~1) a person who is the aim of an attack by some hostile person or influence
+    aim~10v 
+ take ( meanings=43 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=taken 
+    take~1nz (^activity~1) the act of photographing a scene or part of a scene without interruption
+    return~13n 
+    contract~4v 
+    remove~2v 
+    take~5vz ascertain or determine by measuring, computing or take a reading from a dial
+    assume~2v 
+    take~7vz be seized or affected in a specified way
+    study~11v 
+    read~5v 
+    take~10vz accept or undergo, often unwillingly
+    select~4v 
+    deal~10v 
+    claim~7v 
+    claim~9v 
+    film~6v 
+    take~16vz obtain by winning
+    aim~11v 
+    have~7v 
+    take~19vz get into one's hands, take physically
+    take~20vz travel or go by means of a certain kind of transportation, or a certain route
+    drive~26v 
+    strike~21v 
+    direct~23v 
+    make~37v 
+    bring~9v 
+    take~26vz experience or feel or submit to
+    take~27vz to get into a position of having, e.g., safety, comfort
+    take~28vz take into one's possession
+    take~29vz take by force
+    take~30vz buy, select
+    hire~3v 
+    take~32vz receive or obtain regularly
+    accept~6v 
+    have~14v 
+    accept~9v 
+    occupy~3v 
+    fill~10v 
+    take~38vz develop a habit
+    take~39vz carry out
+    need~7v 
+    contain~5v 
+    pack~22v 
+    accept~11v 
+ tree ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tree~1nz (^plant~1) a tall perennial woody plant having a main trunk and branches forming a distinct elevated crown
+    tree~2nz (^figure~13) a figure that branches from a single root
+    tree~3vz stretch on a shoetree
+    tree~4vz chase an animal up a tree
+    tree~5vz plant with trees
+    corner~13v 
+ tilling ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    tilling~1nz (^production~4) cultivation of the land in order to raise crops
+ tank ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    cooler~2n 
+    tank~2nz (^vessel~2) a large vessel for holding gases or liquids
+    tank~3nz (^container~1) an enclosed armored military vehicle
+    tank~4nz (^car~3) a freight car that transports liquids or gases in bulk
+    tank~5nz (^measure~1) as much as a tank will hold
+    tank~6vz treat in a tank
+    tank~7vz consume excessive amounts of alcohol
+    tank~8vz store in a tank by causing to flow into it
+ tanning ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tanning~1nz (^trade~1) making leather from rawhide
+    whipping~1n 
+    tanning~3nz (^activity~3) process in which skin pigmentation darkens as a result of exposure to ultraviolet light
+ town ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    town~1nz (^group~1) the people living in a municipality smaller than a city
+    town~2nz (^district~1) an urban area with a fixed boundary that is smaller than a city
+    town~3nz (^district~1) an administrative division of a county
+ technology ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    engineering~1nz (^profession~1) the practical application of science to commerce or industry
+    engineering~3nz (^subject~3) the discipline dealing with the art or science of applying scientific knowledge to practical problems
+ tuning ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tuning~1nz (^activity~1) calibrating something (an instrument or electronic circuit) to a standard frequency
+ temperament ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    temperament~1nz (^adjustment~2) an adjustment of the intervals so that the scale can be used to play in different keys
+    disposition~2n 
+    temperament~3nz (^attribute~1) excessive emotionalism or irritability and excitability
+ tune ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tune~1nz (^adjustment~1) the adjustment of a radio receiver or other circuit to a required frequency
+    tune~2nz (^pitch~6) the property of producing accurately a note of a given pitch
+    air~4n 
+    tune~4vz adjust the pitches of 
+    tune~5vz adjust for functioning
+ tea ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    tea~1nz (^meal~2) a light midafternoon meal of tea and sandwiches or cakes
+    tea~2nz (^seasoning~2) dried leaves of the tea shrub
+    tea~3nz (^drink~3) a beverage made by steeping tea leaves in water
+    tea~4nz (^party~2) a reception or party at which tea is served
+    tea~5nz (^bush~4) a tropical evergreen shrub or small tree extensively cultivated in e.g. China and Japan and India
+ tenting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 ) 
+    camping~1n 
+ trifling ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    trifling~1nz (^delay~1) 
+    trifling~2az 
+    trifling~3az 
+ tolerance ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tolerance~1nz (^license~1) the act of tolerating something
+    tolerance~2nz (^disposition~2) a disposition to allow freedom of choice and behavior
+    margin~1nz (^discrepancy~1) a permissible difference
+    tolerance~4nz (^endurance~1) the power or capacity of an organism to tolerate unfavorable environmental conditions
+    tolerance~5nz (^attitude~3) willingness to recognize and respect the beliefs or practices of others
+ truck ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    truck~1nz (^cart~2) a handcart that has a frame with two low wheels and a ledge at the bottom and handles at the top
+    truck~2nz (^container~1) an automotive vehicle suitable for hauling
+    truck~3vz convey by truck
+ trucking ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    hauling~1nz (^transportation~3) the activity of transporting goods by truck
+ transaction ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    dealing~1nz (^event~1) the act of transacting within or between groups 
+ telephone ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    phone~2nz (^artifact~1) electronic equipment that converts sound into electrical signals that can be transmitted over distances and then converts received signals back into sounds
+    telephone~2nz (^medium~3) transmitting speech at a distance
+    phone~4vz get or try to get into communication by telephone
+ trust ( meanings=12 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    trust~1nz (^attribute~1) the trait of believing in the honesty and reliability of others
+    trust~2nz (^status~1) certainty based on past experience
+    faith~2n 
+    combine~3n 
+    trust~5nz (^property~5) something held by one party (the trustee) for the benefit of another (the beneficiary)
+    confidence~4nz (^friendship~1) a trustful relationship
+    bank~11v 
+    believe~5v 
+    hope~8v 
+    trust~10vz extend credit to
+    commit~4vz confer a trust upon
+    trust~12vz allow without fear
+ thanks ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB ) 
+    thanks~1nz (^aid~2) with the help of or owing to
+    thanks~2nz (^acknowledgment~1) an acknowledgment of appreciation
+ taunt ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    taunting~1nz (^aggression~2) aggravation by deriding or mocking or criticizing
+    rag~8v 
+ taunting ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    taunt~1n 
+    jeering~2az abusing vocally
+ transmutation ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    transmutation~1nz (^change~1) an act that changes the form or character or substance of something
+    transmutation~2nz (^change~5) a qualitative change
+    transmutation~3nz (^change~5) the change of one chemical element into another (as by nuclear decay or radioactive bombardment)
+ trend ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    vogue~1nz (^taste~4) the popular taste at a given time
+    movement~6n 
+    course~8n 
+    tendency~4nz (^direction~8) a general direction in which something tends to move
+    curve~7v 
+ thrill ( meanings=7 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    thrill~1nz (^change~1) something that causes you to experience a sudden intense feeling or sensation
+    shiver~2n 
+    bang~5n 
+    vibrate~1v 
+    thrill~5vz fill with sublime emotion
+    shiver~4v 
+    thrill~7vz cause to be thrilled by some perceptual input
+ tiger ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    tiger~1nz (^cat~2) large feline of forests in most of Asia having a tawny coat with black stripes
+    tiger~2nz (^individual~1) a fierce or audacious person
+ true ( meanings=15 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=truest 
+    true~1nz (^arrangement~2) proper alignment
+    true~2az accurately placed or thrown
+    straight~10a 
+    true~4az devoted to a cause or concept or truth
+    true~5az in tune
+    truthful~1az expressing or given to expressing the truth
+    true~7az having a legally established claim
+    true~8az determined with reference to the earth's axis rather than the magnetic poles
+    true~9az rightly so called
+    unfeigned~1az not pretended
+    true~11az consistent with fact or reality
+    honest~7a 
+    true~13az conforming to definitive criteria
+    true~14bz as acknowledged
+    true~15vz make level, square, balanced, or concentric
+ throat ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    throat~1nz (^piece~11) the part of an animal's body that corresponds to a person's throat
+    throat~2nz (^passage~6) a passage resembling a throat in shape or function
+    throat~3nz (^opening~6) an opening in the vamp of a shoe at the instep
+    throat~4nz (^structure~3) the passage to the stomach and lungs
+ toad ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    frog~1n 
+ tailed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tailed~1az having a tail of a specified kind
+ turtle ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    turtle~1nz (^reptile~1) any of various aquatic and land reptiles having a bony shell and flipper-like limbs for swimming
+    turtle~2nz (^shirt~1) a sweater or jersey with a high close-fitting collar
+    turtle~3vz hunt for turtles, especially as an occupation
+    turtle~4vz overturn accidentally
+ thunder ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    thunder~1nz (^drug~1) street names for heroin
+    boom~3n 
+    thunder~3nz (^noise~5) a booming or crashing noise caused by air expanding along the path of a bolt of lightning
+    roar~5v 
+    thunder~5vz to make or produce a loud noise
+    thunder~6vz move fast, noisily, and heavily
+    boom~10v 
+ timber ( meanings=5 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 ) 
+    timber~1nz (^beam~2) a beam made of wood
+    timber~2nz (^post~4) a post made of wood
+    tone~3n 
+    forest~2n 
+    lumber~2n 
+ tick ( meanings=8 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tick~1nz (^animal~1) any of two families of small parasitic arachnids with barbed proboscis
+    tick~2nz (^mattress~1) a light mattress
+    check~11n 
+    ticking~2nz (^sound~5) a metallic tapping sound
+    mark~19v 
+    tick~6vz sew
+    beat~32v 
+    click~10v 
+ tongue ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tongue~1nz (^device~2) metal striker that hangs inside a bell and makes a sound by hitting the side
+    tongue~2nz (^flap~1) the flap of material under the laces of a shoe or boot
+    tongue~3nz (^organ~4) a mobile mass of muscular tissue covered with mucous membrane and located in the oral cavity
+    tongue~4nz (^language~3) a human written or spoken language used by a community
+    tongue~5nz (^speech~4) a manner of speaking
+    tongue~6nz (^meat~2) the tongue of certain animals used as meat
+    spit~4nz (^cape~2) a narrow strip of land that juts out into the sea
+    knife~3nz (^projection~10) any long thin projection that is transient
+    tongue~9vz lick or explore with the tongue
+    tongue~10vz articulate by tonguing, as when playing wind instruments
+ toy ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    toy~1nz (^artifact~1) an artifact designed to be played with
+    toy~2nz (^device~2) a device regarded as providing amusement
+    toy~3nz (^replica~1) a nonfunctional replica of something else 
+    play~18v 
+    play~33v 
+    play~50v 
+ tigress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    tigress~1nz (^tiger~1) a female tiger
+ tail ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tail~1nz (^process~3) the posterior part of the body of a vertebrate especially when elongated and extending beyond the trunk or main part of the body
+    poop~1nz (^back~5) the rear part of a ship
+    tail~3nz (^back~5) the rear part of an aircraft
+    tail~4nz (^side~1) the reverse side of a coin that does not bear the representation of a person's head
+    butt~7n 
+    shadow~7n 
+    tail~7nz (^projection~10) any projection that resembles the tail of an animal
+    tail~8nz (^end~14) the time of the last part of something
+    tail~9vz remove the stalk of fruits or berries
+    dock~9vz remove or shorten the tail of an animal
+    dog~7v 
+ tomato ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=tomatoes 
+    tomato~1nz (^vegetable~1) mildly acid red or yellow pulpy fruit eaten as a vegetable
+    tomato~2nz (^plant~1) native to South America
+ tent ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    tent~1nz (^structure~1) a portable shelter 
+    tent~2nz (^object~1) a web that resembles a tent or carpet
+    camp~12v 
+ tube ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    subway~1n 
+    tubing~1nz (^passage~6) conduit consisting of a long hollow object used to hold and conduct objects or liquids or gases
+    tube~3nz (^device~2) electronic device consisting of a system of electrodes arranged in an evacuated glass or metal envelope
+    tube~4nz (^structure~3) any hollow cylindrical body structure
+    pipe~5nz (^cylinder~4) a hollow cylindrical shape
+    tube~6vz place or enclose in a tube
+    tube~7vz ride or float on an inflated tube
+    tube~8vz convey in a tube
+    tube~9vz provide with a tube or insert a tube into
+ typical ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    typical~1az of a feature that helps to distinguish a person or thing
+    typical~2az conforming to a type
+    typical~3az exhibiting the qualities or characteristics that identify a group or kind or category
+    typical~4az 
+ two ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE ) 
+    two~1nz (^card~1) one of the four playing cards in a deck that have two spots
+    two~2nz (^figure~12) the cardinal number that is the sum of one and one or a numeral representing this number
+    two~3az being one more than one
+ three ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:NOUN ) 
+    three~1nz (^card~1) one of four playing cards in a deck having three pips
+    trio~5nz (^figure~12) the cardinal number that is the sum of one and one and one
+    three~3az being one more than two
+ tribe ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    clan~1nz (^group~1) group of people related by blood or marriage
+    tribe~2nz (^group~1) a taxonomic category between a genus and a subfamily
+    tribe~3nz (^nation~3) a federation
+    folk~4nz (^group~1) a social division of people
+ trunk ( meanings=5 glosses=5 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN ) 
+    trunk~1nz (^nose~4) a long flexible snout as of an elephant
+    trunk~2nz (^room~1) compartment in an automobile that carries luggage or shopping or tools
+    trunk~3nz (^case~2) luggage consisting of a large strong case used when traveling or for storage
+    body~7nz (^piece~11) the body excluding the head and neck and limbs
+    trunk~5nz (^stem~6) the main stem of a tree
+ trout ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    trout~1nz (^fish~1) any of various game and food fishes of cool fresh waters mostly smaller than typical salmons
+    trout~2nz (^fish~2) flesh of any of several primarily freshwater game and food fishes
+ tub ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    bathtub~1n 
+    tub~2nz (^vessel~2) a large open vessel for holding or storing liquids
+    tub~3nz (^measure~1) the amount that a tub will hold
+ thick ( meanings=14 glosses=13 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    thick~1nz (^inside~2) the location of something surrounded by other things
+    thick~2az abounding
+    thick~3az stupid
+    thick~4az associated on close terms
+    thick~5az having component parts closely crowded together
+    thick~6az spoken as if with a thick tongue
+    deep~15az very intense
+    thick~8az hard to pass through because of dense growth
+    thick~9az having a short and solid form or stature
+    thick~10az not thin
+    thick~11az relatively dense in consistency
+    thick~12az 
+    thick~13bz in quick succession
+    thick~14bz with a thick consistency
+ throttle ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    throttle~1nz (^control~3) a valve that regulates the supply of fuel to the engine
+    gun~2n 
+    choke~7v 
+    limit~7v 
+    throttle~5vz kill by squeezing the throat of so as to cut off the air
+ tin ( meanings=8 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) comparative=tinner 
+    can~1n 
+    tin~2nz (^container~1) metal container for storing dry foods such as tea or flour
+    tin~3nz (^vessel~2) a vessel made of tinplate and used mainly in baking
+    tin~4nz (^metal~2) a silvery malleable metallic element that resists corrosion
+    tin~5az 
+    tin~6vz prepare for soldering or brazing by applying a thin layer of solder to the surface
+    can~7v 
+    tin~8vz plate with tin
+ theater ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    house~4nz (^building~3) a building where theatrical performances or motion-picture shows can be presented
+    theater~2nz (^communication~2) the art of writing and producing plays
+    field~10nz (^region~4) a region in which active military operations are in progress
+ trouser ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    trouser~1nz (^clothing~1) a garment designed for or relating to trousers
+    trouser~2nz (^clothing~1) a garment extending from the waist to the knee or ankle, covering each leg separately
+ torch ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    torch~1nz (^apparatus~1) a burner that mixes air and gas to produce a very hot flame
+    torch~2nz (^lamp~1) a small portable battery-powered electric lamp
+    torch~3nz (^light~1) a light usually carried in the hand
+    torch~4vz burn maliciously, as by arson
+ ticket ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ticket~1nz (^quality~1) the appropriate or desirable thing
+    slate~2nz (^list~2) a list of candidates nominated by a political party to run for election to public offices
+    ticket~3nz (^document~2) a commercial document showing that the holder is entitled to something
+    ticket~4nz (^process~6) a summons issued to an offender
+    tag~4nz (^label~3) a label written or printed on paper, cardboard, or plastic that is attached to something to indicate its owner, nature, price, etc.
+    ticket~6vz provide with a ticket for passage or admission
+    fine~11vz issue a ticket or a fine to as a penalty
+ top ( meanings=22 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=toper 
+    top~1nz (^canvass~4) a canvas tent to house the audience at a circus performance
+    top~2nz (^clothing~1) a garment that extends from the shoulders to the waist or hips
+    cover~8n 
+    top~4nz (^toy~1) a conical child's plaything tapering to a steel point on which it can be made to spin
+    top~5nz (^level~2) platform surrounding the head of a lower mast
+    top~6nz (^degree~1) the greatest possible intensity
+    peak~2n 
+    upside~1n 
+    top~9nz (^part~9) the upper part of anything
+    peak~6n 
+    top~11nz (^round~13) the first half of an inning
+    top~12az situated at the top or highest position
+    top~13vz finish up or conclude
+    crown~12v 
+    pinch~9vz cut the top off
+    top~16vz strike giving it a forward spin
+    top~17vz reach or ascend the top of
+    clear~35vz pass by, over, or under without making contact
+    top~19vz provide with a top or finish the top 
+    pass~40v 
+    lead~32v 
+    top~22vz be at the top of or constitute the top or highest point
+ taxi ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) plural=taxies 
+    cab~1nz (^automobile~1) a car driven by a person whose job is to take passengers where they want to go in exchange for money
+    taxi~2vz travel slowly
+    cab~4vz ride in a taxicab
+ trapping ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    housing~1n 
+ till ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB PREPOSITION CONJUNCTION_SUBORDINATE NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:PREPOSITION VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    till~1nz (^box~2) a strongbox for holding cash
+    till~2nz (^relation~1) a treasury for government funds
+    till~3nz (^soil~4) unstratified soil deposited by a glacier
+    till~4z 
+    till~5z 
+    till~6vz work land as by ploughing, harrowing, and manuring, in order to make it ready for cultivation
+ television ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    television~1nz (^system~1) a telecommunication system that transmits images of objects between distant points
+    television~2nz (^set~3) an electronic device that receives television signals and displays them on a screen
+    video~2nz (^medium~3) broadcasting visual images of stationary or moving objects
+ tornado ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) plural=tornadoes 
+    crack~3n 
+    tornado~2nz (^storm~2) a localized and violently destructive windstorm occurring over land characterized by a funnel-shaped cloud extending toward the ground
+ tuxedo ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    tuxedo~1nz (^dress~2) semiformal evening dress for men
+ topper ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=top 
+    beaver~4nz (^hat~2) a man's hat with a tall crown
+    topper~2nz (^coat~2) a woman's short coat
+    topper~3nz (^humor~5) an exceedingly good witticism that surpasses all that have gone before
+    best~2nz (^individual~1) the person who is most outstanding or excellent
+    topper~5nz (^worker~2) a worker who cuts tops off
+    topper~6nz (^worker~2) a worker who makes or adds the top to something
+ textile ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    fabric~1n 
+    textile~2az of or relating to fabrics or fabric making
+    textile~3az 
+ treble ( meanings=8 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE PREDETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    soprano~1nz (^pitch~6) the pitch range of the highest female voice
+    soprano~4az having or denoting a high range
+    dual~3a 
+    triple~4a 
+    triple~5a 
+    triple~6v 
+    treble~7vz sing treble
+    treble~8z 
+ train ( meanings=17 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gearing~1n 
+    train~2nz (^transport~3) public transport provided by a line of railway cars coupled together and drawn by a locomotive
+    train~3nz (^material~1) piece of cloth forming the long back section of a gown that is drawn along the floor
+    train~4nz (^consequence~2) a series of consequences wrought by an event
+    train~5nz (^event~1) a procession traveling together in single file
+    string~8n 
+    train~7vz exercise in order to prepare for an event or competition
+    prepare~2v 
+    develop~12v 
+    coach~6v 
+    take~17v 
+    trail~4v 
+    rail~11v 
+    prepare~8v 
+    educate~3v 
+    train~16vz cause to grow in a certain way by tying and pruning it
+    discipline~7v 
+ tomb ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    grave~1n 
+ tower ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    tower~1nz (^structure~1) a structure taller than its diameter
+    tug~2nz (^boat~1) a powerful small boat designed to pull or push larger ships
+    column~9nz (^shape~1) anything that approximates the shape of a column or tower
+    loom~3vz appear very large or occupy a commanding position
+ thigh ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    thigh~1nz (^limb~4) the part of the leg between the hip and the knee
+    thigh~2nz (^helping~1) the upper joint of the leg of a fowl
+ tee ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tee~1nz (^artifact~1) a short peg put into the ground to hold a golf ball off the ground
+    tee~2nz (^support~6) support holding a football on end and above the ground preparatory to the kickoff
+    tee~3nz (^parcel~4) the starting place for each hole on a golf course
+    tee~4vz connect with a tee
+    tee~5vz place on a tee
+ tether ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    leash~2n 
+    tether~2vz tie with a tether
+ tie ( meanings=18 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=tying 
+    tie~1nz (^fastening~2) a fastener that serves to join or connect
+    tie~2nz (^clothing~1) neckwear consisting of a long narrow piece of material worn under a collar and tied in knot at the front
+    tie~3nz (^cord~1) a cord with which something is tied
+    tie~4nz (^beam~2) a horizontal beam used to prevent two other structural members from spreading apart or separating
+    tie~5nz (^brace~1) one of the cross braces that support the rails on a railway track
+    tie~6nz (^writing~3) a slur over two notes of the same pitch
+    draw~7n 
+    association~7nz (^state~1) a social or business relationship
+    tie~9nz (^equality~2) equality of score in a contest
+    tie~10vz form a knot or bow in
+    tie~11vz limit or restrict to
+    draw~21v 
+    bind~5vz fasten or secure with a rope, string, or cord
+    connect~5v 
+    tie~15vz unite musical notes by a tie
+    tie~16vz make by tying pieces together
+    marry~2v 
+    attach~5vz create social or emotional ties
+ tape ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    tape~1nz (^device~2) memory device consisting of a long thin plastic strip coated with iron oxide
+    tape~2nz (^strip~3) a long thin piece of cloth or paper as used for binding or fastening
+    taping~1nz (^recording~3) a recording made on magnetic tape
+    tape~4nz (^instrument~2) measuring instrument consisting of a narrow strip marked in inches or centimeters and used for measuring lengths
+    tape~5nz (^finish~7) the finishing line for a foot race
+    record~11v 
+    tape~7vz record on videotape
+    tape~8vz fasten or attach with tape
+ tourist ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    tourist~1nz (^traveler~1) someone who travels for pleasure
+ thumb ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    thumb~1nz (^decoration~2) a convex molding having a cross section in the form of a quarter of a circle or of an ellipse
+    thumb~2nz (^covering~4) the part of a glove that provides a covering for the thumb
+    thumb~3nz (^finger~2) the thick short innermost digit of the forelimb
+    finger~6v 
+    hitch~12vz travel by getting free rides from motorists
+    flip~18vz look through a book or other written material
+ tablet ( meanings=4 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    pill~1n 
+    tablet~2nz (^cake~1) a small flat compressed cake of some substance
+    tablet~3nz (^block~3) a slab of stone or wood suitable for bearing an inscription
+    pad~7n 
+ tab ( meanings=5 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    tablet~1n 
+    tab~2nz (^strip~3) a short strip of material attached to or projecting from something in order to facilitate opening or identifying or handling it
+    tab~3nz (^key~2) the key on a typewriter or a word processor that causes a tabulation
+    tab~4nz (^medium~3) sensationalist journalism
+    check~10n 
+ tatter ( meanings=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    tag~3n 
+ tuck ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    tuck~1nz (^steel~2) a straight sword with a narrow blade and two edges
+    tuck~2nz (^pleat~1) a narrow flattened pleat or fold that is stitched in place
+    tuck~3nz (^position~7) a bodily position adopted in some sports (such as diving or skiing) in which the knees are bent and the thighs are drawn close to the chest
+    tuck~4nz (^edible~1) eatables
+    gather~7v 
+    tuck~6vz fit snugly into
+    tuck~7vz make a tuck or several folds in
+ typewriter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    typewriter~1nz (^printer~1) hand-operated character printer for printing written messages one character at a time
+ thread ( meanings=9 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    thread~1nz (^rib~1) the raised helical rib going around a screw
+    yarn~1nz (^cord~1) a fine cord of twisted fibers used in sewing and weaving
+    thread~3nz (^thinking~1) the connections that link the various parts of an event or argument together
+    ribbon~4n 
+    string~13v 
+    thread~6vz pass through or into
+    thread~7vz remove facial hair by tying a fine string around it and pulling at the string
+    thread~8vz pass a thread through
+    meander~3v 
+ teeter ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    seesaw~1n 
+    seesaw~2v 
+ temple ( meanings=4 glosses=3 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tabernacle~1n 
+    temple~2nz (^building~3) place of worship consisting of an edifice for the worship of a deity
+    temple~3nz (^building~3) an edifice devoted to special or exalted purposes
+    temple~4nz (^feature~2) the flat area on either side of the forehead
+ tabernacle ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    temple~1nz (^building~3) the place of worship for a Jewish congregation
+ tailor ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tailor~1nz (^maker~2) a person whose occupation is making and altering garments
+    tailor~2vz adjust to a specific need or market
+    sew~2v 
+    cut~54v 
+ talking ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    talk~2n 
+ tambourine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    tambourine~1nz (^drum~3) a shallow drum with a single drumhead and with metallic disks in the sides
+ taping ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    tape~3n 
+ tape_recorder ( meanings=1 glosses=1 NOUN NOUN_SINGULAR GRADE1_2 ) 
+    tape_recorder~1nz (^recorder~2) a magnetic recorder using magnetic tape
+ teaspoon ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    teaspoon~1nz (^spoon~1) a small spoon used for stirring tea or coffee
+    teaspoon~2nz (^measure~1) as much as a teaspoon will hold
+ telegraph ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    telegraph~1nz (^apparatus~1) apparatus used to communicate at a distance over a wire
+    cable~7v 
+ telescope ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    scope~2nz (^instrument~2) a magnifier of images of distant objects
+    telescope~2vz make smaller or shorter
+    telescope~3vz crush together or collapse
+ ten ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) comparative=tenner 
+    ten~1nz (^spot~4) one of four playing cards in a deck with ten pips on the face
+    tenner~2n 
+    ten~3az being one more than nine
+ term ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT TIMEWORD ) 
+    term~1nz (^statue~1) a statue or a human bust or an animal carved out of the top of a square pillar
+    term~2nz (^quantity~3) any distinct quantity contained in a polynomial
+    term~3nz (^word~1) a word or expression used for some particular thing
+    term~4nz (^language~3) one of the substantive phrases in a logical proposition
+    condition~4nz (^statement~4) a statement of what is required as part of an agreement
+    term~6nz (^period~3) a limited period of time
+    term~7nz (^point~26) the end of gestation or point at which birth is imminent
+    term~8vz name formally or designate with a term
+ thermometer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    thermometer~1nz (^instrument~2) measuring instrument for measuring temperature
+ ticking ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    ticking~1nz (^material~1) a strong fabric used for mattress and pillow covers
+    tick~4n 
+ tile ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tile~1nz (^block~3) a flat thin rectangular slab used to cover surfaces
+    tile~2nz (^piece~2) game equipment consisting of a flat thin piece marked with characters and used in board games like Mah-Jong, Scrabble, etc.
+    tile~3nz (^artifact~1) a thin flat slab of fired clay used for roofing
+    tile~4vz cover with tiles
+ tire ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    tire~1nz (^ring~2) hoop that covers a wheel
+    fatigue~5v 
+    fatigue~6vz lose interest or become bored with something or somebody
+    bore~6v 
+    sap~5vz deplete
+ tissue ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tissue~1nz (^piece~11) part of an organism consisting of an aggregate of cells having a similar structure and function
+    tissue~2nz (^paper~7) a soft thin paper
+    weave~3vz create a piece of cloth by interlacing strands of fabric, such as wool or cotton
+ toaster ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    toaster~1nz (^appliance~1) a kitchen appliance for toasting bread
+    toaster~2nz (^champion~4) someone who proposes a toast
+ toilet_seat ( meanings=1 glosses=1 NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    toilet_seat~1nz (^seat~2) the hinged seat on a toilet
+ tonic ( meanings=9 glosses=7 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    tonic~1nz (^medicine~3) a medicine that strengthens and invigorates
+    tonic~2nz (^note~5) the first note of a diatonic scale
+    soda~1n 
+    tonic~4nz (^drink~3) lime- or lemon-flavored carbonated water containing quinine
+    fresh~6a 
+    tonic~6az used of syllables
+    tonic~7az relating to or being the keynote of a major or minor scale
+    tonic~8az employing variations in pitch to distinguish meanings of otherwise similar words
+    tonic~9az of or relating to or producing normal tone or tonus in muscles or tissue
+ toothbrush ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    toothbrush~1nz (^brush~6) small brush
+    toothbrush~2nz (^mustache~1) slang for a mustache
+ toothpaste ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    toothpaste~1nz (^cleaner~1) a dentifrice in the form of a paste
+ tore ( meanings=1 glosses=1 VERB_PAST NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=tear 
+    tore~1nz (^decoration~2) commonly the lowest molding at the base of a column
+ toupee ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    toupee~1nz (^dress~2) a small hairpiece to cover partial baldness
+ towel ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    towel~1nz (^material~1) a rectangular piece of absorbent cloth for drying or wiping
+    towel~2vz wipe with a towel
+ toweling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 ) 
+    towelling~1n 
+ towelling ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    toweling~1nz (^material~1) any of various fabrics used to make towels
+ trace ( meanings=14 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    trace~1nz (^line~4) either of two lines that connect a horse's harness to a wagon or other vehicle or to a whiffletree
+    tracing~3nz (^drawing~5) a drawing created by superimposing a semitransparent sheet of paper on the original image and copying on it the lines of the original image
+    shadow~3n 
+    trace~4nz (^print~7) a visible mark left by the passage of person or animal or vehicle
+    ghost~2n 
+    suggestion~6n 
+    trace~7vz read with difficulty
+    follow~5v 
+    line~35v 
+    trace~10vz copy by following the lines of the original drawing on a transparent sheet placed upon it
+    trace~11vz make one's course or travel along a path
+    hound~3v 
+    retrace~2v 
+    trace~14vz discover traces of
+ tracked ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tracked~1az having tracks
+ tractor ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    tractor~1nz (^container~1) a wheeled vehicle with large wheels
+    tractor~2nz (^truck~2) a truck that has a cab but no body
+ trailer ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    trailer~1nz (^container~1) a wheeled vehicle that can be pulled by a car or truck and is equipped for occupancy
+    trailer~2nz (^transport~3) a large transport conveyance designed to be pulled by a truck or tractor
+    trailer~3nz (^ad~1) an advertisement consisting of short scenes from a motion picture that will appear in the near future
+    poke~4n 
+ transformer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    transformer~1nz (^device~2) an electrical device by which alternating current of one voltage is changed to another voltage
+ tray ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    tray~1nz (^receptacle~1) an open receptacle for holding or displaying or serving articles or food
+ triangle ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    triangle~1nz (^instrument~3) a percussion instrument consisting of a metal bar bent in the shape of an open triangle
+    triangle~2nz (^instrument~2) any of various triangular drafting instruments used to draw straight lines at specified angles
+    triangle~3nz (^figure~13) a three-sided polygon
+    triangle~4nz (^shape~1) something approximating the shape of a triangle
+ tricycle ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    tricycle~1nz (^container~1) a vehicle with three wheels that is moved by foot pedals
+ trimmer ( meanings=4 glosses=4 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) comparative=trim 
+    trimmer~1nz (^beam~2) joist that receives the end of a header in floor or roof framing in order to leave an opening for a staircase or chimney etc.
+    trimmer~2nz (^device~2) capacitor having variable capacitance
+    trimmer~3nz (^machine~2) a machine that trims timber
+    trimmer~4nz (^worker~2) a worker who thins out and trims trees and shrubs
+ triplicate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    triplicate~1nz (^copy~1) one of three copies
+    triplicate~2vz reproduce threefold
+ trifle ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    trifle~1nz (^object~1) something of small importance
+    trifle~2nz (^point~8) a detail that is considered insignificant
+    trifle~3nz (^pudding~2) a cold pudding made of layers of sponge cake spread with fruit or jelly
+    play~21v 
+    trifle~5vz act frivolously
+    trifle~6vz waste time
+ truth ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    truth~1nz (^quality~1) the quality of being near to the true value
+    truth~2nz (^fact~1) a fact that has been verified
+    truth~3nz (^statement~4) a true statement
+    truth~4nz (^being~2) conformity to reality or actuality
+ tubing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 ) 
+    tube~2n 
+ tulip ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    tulip~1nz (^plant~1) any of numerous perennial bulbous herbs having linear or broadly lanceolate leaves and usually a single showy flower
+ tunnel ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    tunnel~1nz (^passage~6) a passageway through or under something, usually underground 
+    burrow~1nz (^hole~5) a hole made by an animal, usually for shelter
+    tunnel~3vz force a way through
+    burrow~2vz move through by or as by digging
+ turnip ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    turnip~1nz (^vegetable~1) root of any of several members of the mustard family
+    turnip~2nz (^plant~1) widely cultivated plant having a large fleshy edible white or yellow root
+ turnpike ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    turnpike~1nz (^pike~2) an expressway on which tolls are collected
+    turnpike~2nz (^gate~1) gates set across a road to prevent passage until a toll had been paid
+ twenty-two ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-two~1nz (^piece~1) a .22 caliber firearm
+    twenty-two~2nz (^number~11) the cardinal number that is the sum of twenty-one and one
+    twenty-two~3az being two more than twenty
+ type ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    type~1nz (^block~3) a small metal block bearing a raised character on one end
+    type~2nz (^form~9) a subdivision of a particular kind of thing
+    type~3nz (^symbol~2) all of the tokens of the same symbol
+    type~4nz (^character~6) printed characters
+    type~5nz (^group~1) the taxonomic group whose characteristics are used to define the next higher taxon
+    case~16n 
+    type~7vz identify as belonging to a certain type
+    type~8vz write by means of a keyboard with types
+ temper ( meanings=9 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    temper~1nz (^disposition~2) a disposition to exhibit uncontrolled anger
+    temper~2nz (^snap~7) the elasticity and hardness of a metal object
+    pique~2nz (^anger~2) a sudden outburst of anger
+    humor~6n 
+    moderate~7v 
+    season~4v 
+    temper~7vz adjust the pitch
+    harden~3v 
+    temper~9vz bring to a desired consistency, texture, or hardness by a process of gradually heating and cooling
+ twilight ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    twilight~1nz (^light~12) the diffused light from the sky when the sun is below the horizon but its rays are refracted by the atmosphere of the earth
+    twilight~2nz (^decline~4) a condition of decline following successes
+    nightfall~1n 
+    twilight~4az lighted by or as if by twilight
+ thrift ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    thrift~1nz (^virtue~2) extreme care in spending money
+    thrift~2nz (^bush~4) any of numerous sun-loving low-growing evergreens of the genus Armeria having round heads of pink or white flowers
+ texture ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    grain~1nz (^constitution~2) the physical composition of something 
+    texture~2nz (^feel~2) the feel of a surface or a fabric
+    texture~3nz (^property~2) the characteristic appearance of a surface having a tactile quality
+    texture~4nz (^property~2) the musical pattern created by parts being played or sung together
+    texture~5nz (^character~3) the essential quality of something
+ tendency ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tendency~1nz (^disposition~3) a characteristic likelihood of or natural disposition toward a certain condition or character or effect
+    disposition~4n 
+    leaning~4nz (^liking~1) an inclination to do something
+    trend~4n 
+ thirst ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    hunger~1n 
+    thirst~2nz (^drive~12) a physiological need to drink
+    hunger~4v 
+    thirst~4vz feel the need to drink
+ tan ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=tannest 
+    tan~1nz (^brown~1) a light brown the color of topaz
+    tan~2nz (^map~2) ratio of the opposite to the adjacent side of a right-angled triangle
+    suntan~1n 
+    tan~4az of a light yellowish-brown color
+    tan~5vz get a tan, from wind or sun
+    tan~6vz treat skins and hides with tannic acid so as to convert them into leather
+ temperature ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    temperature~1nz (^property~2) the degree of hotness or coldness of a body or environment
+    temperature~2nz (^operation~8) the somatic sensation of cold or heat
+ topography ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    topography~1nz (^shape~3) the configuration of a surface and the relations among its man-made and natural features
+    topography~2nz (^geography~1) precise detailed study of the surface features of a region
+ title ( meanings=12 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    claim~2n 
+    claim~3n 
+    title~3nz (^name~2) an identifying appellation signifying status or function: e.g. `Mr.' or `General'
+    title~4nz (^name~2) an appellation signifying nobility
+    title~5nz (^name~2) the name of a work of art or literary composition etc.
+    title~6nz (^header~7) a heading that names a statute or legislative bill
+    title~7nz (^writing~4) written material introduced into a movie or TV show to give credits or represent dialogue or explain an action
+    title~8nz (^header~7) a general or descriptive heading for a section of a written work
+    deed~2n 
+    championship~3n 
+    style~11vz designate by an identifying term
+    entitle~1v 
+ teeth ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) plural=tooth 
+ tenth ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN (null) ) 
+ twelfth ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON2 COMMON1 ORDINAL KINDERGARTEN (null) ) 
+ talent ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    gift~2nz (^ability~2) natural abilities or qualities
+    talent~2nz (^expert~1) a person who possesses unusual innate ability in some field or activity
+ tradition ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    custom~3n 
+    tradition~2nz (^content~2) an inherited pattern of thought or action
+ transient ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    transient~1nz (^wave~4) a short-lived oscillation in a system caused by a sudden change of voltage or current or load
+    transient~2nz (^traveler~1) one who stays for only a short time
+    transient~3az of a mental act
+    passing~10az lasting a very short time
+    transient~5az 
+ twinge ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    twinge~1nz (^pain~1) a sharp stab of pain
+    twinge~2nz (^feeling~1) a sudden sharp feeling
+    nip~8v 
+    twinge~4vz feel a sudden sharp, local pain
+    sting~9vz cause a stinging pain
+ thinking ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    thought~1nz (^operation~8) the process of using your mind to consider something carefully
+    reasoning~2az endowed with the capacity to reason
+ thought ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB ) conjugate=think 
+    thinking~1n 
+    idea~2nz (^content~2) the content of cognition
+    view~6nz (^belief~2) a personal belief or judgment that is not founded on proof or certainty
+    thought~4nz (^belief~2) the organized beliefs of a period or group or individual
+ think ( meanings=14 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) (null) (null) (null) (null) ) conjugate=thought 
+    think~1nz (^thinking~1) an instance of deliberate thinking
+    think~2vz bring into a given condition by mental preoccupation
+    recall~6v 
+    think~4vz be capable of conscious thought
+    think~5vz use or exercise the mind or one's power of reason in order to make inferences, decisions, or arrive at a solution or judgments
+    think~6vz have or formulate in the mind
+    guess~3v 
+    conceive~2v 
+    think~9vz dispose the mind in a certain way
+    intend~1v 
+    think~11vz focus one's attention on a certain state
+    think~12vz ponder
+    think~13vz decide by pondering, reasoning, or reflecting
+    think~14vz imagine or visualize
+ topic ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    matter~5n 
+    subject~6n 
+ teacher ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    teacher~1nz (^construct~1) a personified abstraction that teaches
+    teacher~2nz (^professional~2) a person whose occupation is teaching
+ theory ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hypothesis~1n 
+    theory~2nz (^belief~2) a belief that can guide behavior
+    theory~3nz (^explanation~1) a well-substantiated explanation of some aspect of the natural world
+ territory ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    territory~1nz (^area~4) an area of knowledge or interest
+    soil~1n 
+    district~1n 
+ text ( meanings=5 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    text~1nz (^matter~6) the words of something written
+    text~2nz (^matter~6) the main body of a written work 
+    textbook~1n 
+    text~4nz (^passage~8) a passage from the Bible that is used as the subject of a sermon
+    text~5vz 
+ typing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    typing~1nz (^writing~3) 
+ treatise ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    treatise~1nz (^writing~4) a formal exposition
+ textbook ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    text~3nz (^book~4) a book prepared for use in schools or colleges
+    textbook~2az according to or characteristic of a casebook or textbook
+ timeline ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    timeline~1nz (^record~6) a sequence of related events arranged in chronological order and displayed along a line
+ telegram ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    wire~3nz (^message~1) a message transmitted by telegraph
+ threat ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    threat~1nz (^statement~4) declaration of an intention or a determination to inflict harm on another
+    threat~2nz (^warning~3) a warning that something unpleasant is imminent
+    terror~4n 
+    menace~2nz (^danger~4) something that is a source of danger
+ tale ( meanings=2 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    fib~1n 
+    story~6n 
+ treaty ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    accord~2n 
+ tenet ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    tenet~1nz (^philosophy~1) a religious doctrine that is proclaimed as true without proof
+ telling ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    singing~2nz (^act~1) disclosing information or giving evidence about another
+    telling~2nz (^act~1) informing by words
+    relation~5nz (^yarn~2) an act of narration
+    impressive~1az producing a strong effect
+    revealing~2az disclosing unintentionally
+    telling~6az powerfully persuasive
+ tragedy ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tragedy~1nz (^drama~2) drama in which the protagonist is overcome by some superior force or circumstance
+    catastrophe~1n 
+ trio ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    trio~1nz (^piece~8) a musical composition for three performers
+    trio~2nz (^group~1) three people considered as a unit
+    triple~3n 
+    trio~4nz (^organization~6) three performers or singers who perform together
+    leash~3n 
+ titter ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_NOOBJECT (null) ) 
+    titter~1nz (^laugh~3) a nervous restrained laugh
+    giggle~2v 
+ thank_you ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    thank_you~1nz (^thanks~2) a conversational expression of gratitude
+ thank ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    thank~1vz express gratitude or show appreciation to
+ treat ( meanings=10 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    treat~1nz (^event~1) an occurrence that causes special pleasure or delight
+    dainty~1nz (^sustenance~2) something considered choice to eat
+    treat~3vz provide treatment for
+    process~7vz subject to a process or treatment, with the aim of readying for some purpose, improving, or remedying a condition
+    treat~5vz regard or consider in a specific way
+    treat~6vz engage in negotiations in order to reach an agreement
+    cover~16v 
+    treat~8vz provide with choice or abundant food or drink
+    treat~9vz provide with a gift or entertainment
+    handle~7v 
+ tidal ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    tidal~1az of or relating to or caused by tides
+    tidal~2az 
+ tapping ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tapping~1nz (^sound~5) the sound of light blow or knock
+ throbbing ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    throbbing~1nz (^sound~5) a sound with a strong rhythmic beat
+    throb~1n 
+    throbbing~3az pounding or beating strongly or violently
+ thud ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    thud~1nz (^sound~5) a heavy dull sound
+    thud~2vz strike with a dull sound
+    thud~3vz make a dull sound
+    thud~4vz make a noise typical of an engine lacking lubricants
+ tinkle ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    tinkle~1nz (^sound~5) a light clear metallic sound as of a small bell
+    tinkle~2vz make or emit a high sound
+ throb ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    pounding~2nz (^heartbeat~2) an instance of rapid strong pulsation 
+    throb~2nz (^pain~5) a deep pulsating type of pain
+    pulsate~2vz expand and contract rhythmically
+    thrill~6vz tremble convulsively, as from fear or excitement
+    throb~5vz pulsate or pound with abnormal force
+ tide ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tide~1nz (^event~1) the periodic rise and fall of the sea level under the gravitational pull of the moon
+    tide~2nz (^change~5) something that may increase or decrease 
+    tide~3nz (^period~3) there are usually two high and two low tides each day
+    tide~4vz be carried with the tide
+    tide~5vz cause to float with the tide
+    tide~6vz rise or move forward
+ tournament ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    tournament~1nz (^competition~2) a sporting competition in which contestants play a series of games to decide the winner
+    tournament~2nz (^competition~2) a series of jousts between knights contesting for a prize
+ triumph ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    victory~1n 
+    triumph~2nz (^joy~2) the exultation of victory
+    rejoice~1vz to express great joy
+    crow~6v 
+    triumph~5vz prove superior
+    rejoice~3vz be ecstatic with joy
+ throes ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
+    throes~1nz (^hurt~3) violent pangs of suffering
+ tinned ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    canned~1a 
+    tinned~2az 
+ topping ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    topping~1nz (^decoration~2) a flavorful addition on top of a dish
+    topping~2az 
+ tart ( meanings=6 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tart~1nz (^food~3) a pastry cup with a filling of fruit or custard and no top crust
+    tart~2nz (^pie~1) a small open pie with a fruit filling
+    tart~3nz (^woman~3) a woman who engages in sexual intercourse for money
+    sharp~13a 
+    tart~5az tasting sour like a lemon
+    tart~6az 
+ toast ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    toast~1nz (^bread~1) slices of bread that have been toasted
+    pledge~2nz (^drink~4) a drink in honor of or to the health of a person or event
+    goner~1nz (^desperate~1) a person in desperate straits
+    toast~4nz (^adult~2) a celebrity who receives much acclaim and attention
+    toast~5vz make brown and crisp by heating
+    pledge~8v 
+ tater ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE1_2 ) 
+    potato~1n 
+ transpose ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    transpose~1nz (^arrangement~6) a matrix formed by interchanging the rows and columns of a given matrix
+    transpose~2vz cause to change places
+    transpose~3vz change the order or arrangement of
+    transpose~4vz change key
+    transpose~5vz exchange positions without a change in value
+    transfer~7vz transfer from one place or period to another
+    transpose~7vz put into another key
+    transpose~8vz transfer a quantity from one side of an equation to the other side reversing its sign, in order to maintain equality
+ tribunal ( meanings=1 glosses=1 NOUN_HUMAN NOUN_THEY NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    court~10nz (^assembly~6) an assembly to conduct judicial business
+ tyranny ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tyranny~1nz (^group~1) a form of government in which the ruler is an absolute dictator
+    tyranny~2nz (^control~11) dominance through threat of punishment and violence
+ there ( meanings=3 glosses=3 PARTICLE NOUN ADVERB THERE_EXISTENTIAL NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    there~1nz (^object~1) a location other than here
+    there~2bz to or toward that place
+    there~3bz in that matter
+ toxic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    toxic~1az of or relating to or caused by a toxin or poison
+    toxic~2az 
+ tilled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tilled~1az turned or stirred by plowing or harrowing or hoeing
+ tar ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mariner~1nz (^sailor~3) a man who serves as a sailor
+    pitch~10n 
+    tar~3vz coat with tar
+ traveler ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    traveler~1nz (^individual~1) a person who changes location
+ thespian ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    actor~1n 
+    thespian~2az of or relating to drama
+ teenager ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN (null) ) comparative=teenage 
+    teen~1nz (^individual~1) a juvenile between the onset of puberty and maturity
+ teen ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    adolescent~1n 
+    teenage~1a 
+    teen~3az 
+ tycoon ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    king~4n 
+ tough ( meanings=13 glosses=12 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    rowdy~1nz (^attacker~1) a cruel and brutal fellow
+    tough~2nz (^crook~2) an aggressive and violent young criminal
+    tough~3nz (^individual~1) someone who learned to fight in the streets rather than being formally trained in the sport of boxing
+    bad~2az feeling physical discomfort or pain 
+    sturdy~1az substantially made or constructed
+    baffling~1az making great mental demands
+    tough~7az very difficult
+    hard~4az unfortunate or hard to bear
+    tough~9az resistant to cutting or chewing
+    tough~10az physically toughened
+    tough~11az not given to gentleness or sentimentality
+    tough~12az violent and lawless
+    tough~13az 
+ tsar ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    tsar~1nz (^sovereign~1) a male monarch or emperor
+ traitor ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    traitor~1nz (^cheat~3) a person who says one thing and does another
+    traitor~2nz (^crook~2) someone who betrays his country by committing treason
+ toper ( meanings=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=topper 
+    juicer~2n 
+ trained ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    trained~1az shaped or conditioned or disciplined by training
+ tamer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE ) comparative=tame 
+    tamer~1nz (^leader~2) an animal trainer who tames wild animals
+ tanner ( meanings=2 glosses=2 NOUN_ABSTRACT MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=tan 
+    tanner~1nz (^worker~2) a craftsman who tans skins and hides
+    tanner~2nz (^coin~1) a small coin of the United Kingdom worth six pennies
+ taskmaster ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    taskmaster~1nz (^supervisor~2) someone who imposes hard or continuous work
+ taskmistress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    taskmistress~1nz (^taskmaster~1) a woman taskmaster
+ testator ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    testator~1nz (^individual~1) a person who makes a will
+ testatrix ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    testatrix~1nz (^testator~1) a female testator
+ therapist ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    therapist~1nz (^expert~1) a person skilled in a particular type of therapy
+ thief ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) plural=thieves 
+    thief~1nz (^crook~2) a criminal who takes property belonging to someone else with the intention of keeping it or selling it
+ thin ( meanings=14 glosses=11 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) comparative=thinnest 
+    thin~1az not dense
+    lean~2a 
+    thin~3az lacking resonance or volume
+    slight~4a 
+    thin~5az lacking spirit or sincere effort
+    thin~6az of relatively small extent from one surface to the opposite or in cross section
+    thin~7az relatively thin in consistency or low in density
+    slender~5az very narrow
+    thin~9az 
+    thin~10bz without viscosity
+    reduce~1vz take off weight
+    reduce~2vz lessen the strength or flavor of a solution or mixture
+    thin~13vz make thin or thinner
+    thin~14vz lose thickness
+ tight ( meanings=16 glosses=13 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    tight~1az affected by scarcity and expensive to borrow
+    tight~2az packed closely together
+    stringent~1az demanding strict attention to rules and procedures
+    nasty~3az exasperatingly difficult to handle or circumvent
+    soaked~1az very drunk
+    close~11a 
+    miserly~1az characterized by or indicative of lack of generosity
+    tight~8az of such close construction as to be impermeable
+    tight~9az closely constrained or constricted or constricting
+    tight~10az pressed tightly together
+    tight~11az securely or solidly fixed in place
+    close~17a 
+    tight~13az pulled or drawn tight
+    tight~14az set so close together as to be invulnerable to penetration
+    fast~14bz firmly or closely
+    close~21b 
+ tinner ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 GRADE1_2 posdefault:NOUN ) comparative=tin 
+    tinner~1nz (^worker~2) someone who makes or repairs tinware
+ tot ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    tot~1nz (^child~1) a young child
+    tot~2nz (^measure~1) a small amount 
+    sum~7v 
+ tomboy ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hoyden~1n 
+ trader ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    trader~1nz (^merchant~1) someone who purchases and maintains an inventory of goods to be sold
+ traitress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    traitress~1nz (^traitor~2) female traitor
+ troublemaker ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    troublemaker~1nz (^individual~1) someone who deliberately stirs up trouble
+ toothache ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    toothache~1nz (^ache~1) an ache localized in or around a tooth
+ twig ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    twig~1nz (^branch~5) a small branch or division of a branch 
+    twig~2vz branch out in a twiglike manner
+    tumble~7v 
+ tangible ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    real~4a 
+    tangible~2az capable of being perceived
+    tangible~3az perceptible by the senses especially the sense of touch
+    tangible~4az having physical substance and intrinsic monetary value 
+    tangible~5az 
+ tariff ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    duty~3n 
+    tariff~2vz charge a tariff
+ twenty ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON2 COMMON1 KINDERGARTEN ) 
+    twenty~1nz (^note~7) a United States bill worth 20 dollars
+    twenty~2nz (^number~11) the cardinal number that is the sum of nineteen and one
+    twenty~3az denoting a quantity consisting of 20 items or units
+ tenner ( meanings=2 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) comparative=ten 
+    tenner~1nz (^note~7) 
+    decade~1n 
+ tripling ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    tripling~1nz (^multiplication~3) increase by a factor of three
+ ton ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    ton~1nz (^unit~5) a British unit of weight equivalent to 2240 pounds
+    ton~2nz (^unit~5) a United States unit of weight equivalent to 2000 pounds
+ twenty-five ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-five~1nz (^number~11) the cardinal number that is the sum of twenty-four and one
+    twenty-five~2az being five more than twenty
+ twelve ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    dozen~1nz (^number~11) the cardinal number that is the sum of eleven and one
+    dozen~2az denoting a quantity consisting of 12 items or units
+ thirteen ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN posdefault:NOUN ) 
+    thirteen~1nz (^number~11) the cardinal number that is the sum of twelve and one
+    thirteen~2az being one more than twelve
+ twenty-three ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-three~1nz (^number~11) the cardinal number that is the sum of twenty-two and one
+    twenty-three~2az being three more than twenty
+ twenty-four ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-four~1nz (^number~11) the cardinal number that is the sum of twenty-three and one
+    twenty-four~2az being four more than twenty
+ twenty-six ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-six~1nz (^number~11) the cardinal number that is the sum of twenty-five and one
+    twenty-six~2az being six more than twenty
+ twenty-seven ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-seven~1nz (^number~11) the cardinal number that is the sum of twenty-six and one
+    twenty-seven~2az being seven more than twenty
+ twenty-eight ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-eight~1nz (^number~11) the cardinal number that is the sum of twenty-seven and one
+    twenty-eight~2az being eight more than twenty
+ twenty-nine ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
+    twenty-nine~1nz (^number~11) the cardinal number that is the sum of twenty-eight and one
+    twenty-nine~2az being nine more than twenty
+ thirty ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON2 COMMON1 KINDERGARTEN ) 
+    thirty~1nz (^number~11) the cardinal number that is the product of ten and three
+    thirty~2az being ten more than twenty
+ thousand ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    thou~1nz (^number~11) the cardinal number that is the product of 10 and 100
+    thousand~2az denoting a quantity consisting of 1,000 items or units
+ thou ( meanings=2 PRONOUN_SUBJECT PRONOUN_OBJECT NOUN NOUN_SINGULAR COMMON4 PRONOUN_INDIRECTOBJECT KINDERGARTEN ANIMATE_BEING ) 
+    grand~2n 
+    thou~2z 
+ trillion ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    trillion~1nz (^number~11) the number that is represented as a one followed by 12 zeros
+    trillion~2nz (^number~11) the number that is represented as a one followed by 18 zeros
+    billion~3n 
+    trillion~4az one million million in the United States
+    trillion~5az one quintillion in Great Britain
+ to ( meanings=1 PARTICLE PREPOSITION TO_INFINITIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    to~1z 
+ truce ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    truce~1nz (^peace~4) a state of peace agreed to between opponents so they can discuss peace terms
+ trembling ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    shaking~2n 
+    shivering~2az vibrating slightly and irregularly
+ throe ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 GRADE5_6 posdefault:NOUN ) 
+    throe~1nz (^suffering~3) severe spasm of pain
+    throe~2nz (^distress~4) hard or painful trouble or struggle
+ twitch ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    twitching~1nz (^evidence~1) a sudden muscle spasm
+    jerk~7vz make an uncontrolled, short, jerky motion
+    twitch~3vz move or pull with a sudden motion
+    twinge~3v 
+    jerk~11vz move with abrupt, seemingly uncontrolled motions
+    flip~17v 
+ twitching ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    twitch~1n 
+ tragic ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    tragic~1az very sad
+    tragic~2az of or relating to or characteristic of tragedy
+    tragic~3az 
+ transparent ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    transparent~1az transmitting light
+    transparent~2az easily understood or seen through 
+    transparent~3az free of deceit
+    transparent~4az so thin as to transmit light
+    transparent~5az 
+ thinner ( meanings=1 glosses=1 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=thin 
+    thinner~1nz (^cause~1) a diluting agent
+ thus ( meanings=2 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    therefore~1b 
+    so~6bz in the way indicated
+ toilet_paper ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER KINDERGARTEN ) 
+    toilet_paper~1nz (^tissue~2) a soft thin absorbent paper for use in toilets
+ trimer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) comparative=trimmest 
+    trimer~1nz (^compound~3) a polymer consisting of three identical monomers
+ thirties ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_NUMBER KINDERGARTEN ) 
+    thirties~1nz (^period~3) the time of life between 30 and 40
+    thirties~2nz (^decade~2) the decade from 1930 to 1939
+ tomorrow ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    tomorrow~1nz (^day~4) the day after today
+    tomorrow~2nz (^future~3) the near future
+    tomorrow~3bz the next day, the day after, following the present day
+ today ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    today~1nz (^day~4) the day that includes the present moment 
+    today~2nz (^nowadays~1) the present time or age
+    now~2b 
+    today~4bz on this day as distinct from yesterday or tomorrow
+ twentieth ( ADJECTIVE ADJECTIVE_NUMBER COMMON4 COMMON2 ORDINAL KINDERGARTEN (null) ) 
+ trimester ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    trimester~1nz (^session~4) one of three divisions of an academic year
+    trimester~2nz (^period~3) a period of three months
+ tercentenary ( meanings=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    triennial~1n 
+ triennial ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    tercentenary~1nz (^day~5) the 300th anniversary
+    triennial~2az occurring every third year or lasting 3 years
+ tonight ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    tonight~1nz (^nowadays~1) the present or immediately coming night
+    tonight~2bz during the night of the present day
+ then ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    then~1nz (^point~26) that time
+    so~4bz subsequently or soon afterward 
+    then~3bz at that time
+    then~4bz in that case or as a consequence
+ taxes ( NOUN NOUN_PLURAL COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) plural=tax 
+ taxies ( NOUN NOUN_PLURAL COMMON2 KINDERGARTEN posdefault:NOUN ) plural=taxi 
+ thieves ( NOUN NOUN_PLURAL COMMON4 GRADE3_4 posdefault:NOUN ) plural=thief 
+ tomatoes ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) plural=tomato 
+ tornadoes ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=tornado 
+ tug-o-war ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER GRADE1_2 ) 
+    tug-o-war~1nz 
+ triennium ( NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN TIMEWORD ) plural=triennia 
+ triennia ( NOUN NOUN_PLURAL COMMON1 ) plural=triennium 
+ ta ( INTERJECTION ) 
+ ta-da ( INTERJECTION ) 
+ ta_ta ( INTERJECTION ) 
+ tch ( INTERJECTION ) 
+ toodles ( INTERJECTION ) 
+ touche ( INTERJECTION ) 
+ tsk ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB INTERJECTION COMMON2 COMMON1 VERB_NOOBJECT ) 
+    tut~1v 
+ tsk-tsk ( INTERJECTION ) 
+ tut ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB INTERJECTION COMMON2 COMMON1 posdefault:VERB VERB_NOOBJECT ) 
+    tut-tut~1v 
+ tut-tut ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB INTERJECTION posdefault:VERB VERB_NOOBJECT ) 
+    tsk~1vz utter `tsk,' `tut,' or `tut-tut,' as in disapproval
+ thirsty ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=thirstiest 
+    thirsty~1az able to take in large quantities of moisture
+    hungry~1az extremely desirous
+    thirsty~3az feeling a need or desire to drink
+    thirsty~4az needing moisture
+    thirsty~5az 
+ taken ( meanings=2 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=took 
+    taken~1az be affected with an indisposition
+    interpreted~1az understood in a certain way
+ terrified ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:VERB ) 
+    panicked~1a 
+    terrified~2az 
+ tricky ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) comparative=trickiest 
+    slick~5az marked by skill in deception
+    tricky~2az having concealed difficulty
+    slippery~2a 
+    tricky~4az 
+ tongued ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    tongued~1az having a manner of speaking as specified
+    tongued~2az provided with or resembling a tongue
+ terrible ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    horrific~1az causing fear or dread or terror
+    dreadful~2az exceptionally bad or displeasing
+    wicked~1az intensely or extremely bad or unpleasant in degree or quality
+    tremendous~3az extreme in degree or extent or amount or impact
+    terrible~5az 
+ threatening ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    menacing~1a 
+    heavy~4a 
+    threatening~3az 
+ terrific ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    terrific~1az causing extreme terror
+    terrific~2az very great or intense
+    rattling~3a 
+    terrific~4az 
+ transposed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    transposed~1az turned about in order or relation
+ tanned ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    suntanned~1a 
+    tanned~2az converted to leather by a tanning agent
+    tanned~3az 
+ tethered ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tethered~1az confined or restricted with or as if with a rope or chain
+ tied ( meanings=5 glosses=4 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=tie 
+    tied~1az bound or secured closely
+    laced~1az closed with a lace
+    fastened~1az fastened with strings or cords
+    even~3a 
+    tied~5az bound together by or as if by a strong rope
+ thrown ( meanings=2 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=threw 
+    thrown~1az twisted together
+    thrown~2az caused to fall to the ground
+ toiling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    drudging~1a 
+ turned_out ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL CONDITIONAL_IDIOM  poscondition=?=A ) 
+    turned_out~1az 
+ turned ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB (null) ) 
+    sour~8az in an unpalatable state
+    turned~2az moved around an axis or center
+ tedious ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    windy~2a 
+    dull~9a 
+    tedious~3az 
+ toasted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    toasted~1az browned over by exposure to heat
+ traveled ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    travelled~1a 
+    traveled~2az traveled over or through
+ travelled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    traveled~1az familiar with many parts of the world
+ thoughtful ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    thoughtful~1az considerate of the feelings or well-being of others
+    attentive~2az taking heed
+    thoughtful~3az having intellectual depth
+    thoughtful~4az acting with or showing thought and good sense
+    thoughtful~5az exhibiting or characterized by careful thought
+    thoughtful~6az 
+ tailored ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tailored~1az 
+    trim~6a 
+    tailored~3az 
+ tested ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    tried~1a 
+    tried~2a 
+ tried ( meanings=2 glosses=2 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=tries 
+    tested~1az tested and proved to be reliable
+    tested~2az tested and proved useful or correct
+ totaled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    totaled~1az used of automobiles
+ thinned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    cut~25a 
+ through ( meanings=8 glosses=7 PARTICLE ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    through~1az continuing without requiring stops or changes
+    done~2az having finished or arrived at completion
+    through~3bz throughout the entire extent
+    through~4bz over the whole distance
+    through~5bz in diameter
+    through~6bz from beginning to end
+    through~7bz to completion
+    through~8z 
+ tiring ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wearing~3a 
+ tepid ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    lukewarm~1a 
+    lukewarm~2a 
+ teased ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    teased~1az 
+ thrilled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    thrilled~1az feeling intense pleasurable excitement
+ thrilling ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    electrifying~1a 
+    thrilling~2az causing quivering or shivering as by cold or fear or electric shock
+    thrilling~3az 
+ tame ( meanings=10 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=tamer 
+    tame~1az flat and uninspiring
+    meek~3a 
+    tamed~1az brought from wildness into a domesticated state
+    tame~4az very restrained or quiet
+    tame~5az 
+    subdue~1vz correct by punishment or discipline
+    domesticate~1vz make fit for cultivation, domestic life, and service to humans
+    domesticate~2vz overcome the wildness of
+    domesticate~3vz adapt to the environment
+    moderate~9v 
+ toed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    toed~1az having a toe or toes of a specified kind
+ too ( meanings=2 glosses=1 ADVERB EXTENT_ADVERB COMMON4 COMMON2 KINDERGARTEN posdefault:ADVERB ) 
+    excessively~1bz to a degree exceeding normal or proper limits
+    also~1b 
+ taped ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    taped~1az secured or held in place by tape
+    taped~2az 
+ trapped ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    cornered~1a 
+ treed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 ) 
+    trapped~1a 
+ thankful ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    grateful~1az feeling or showing gratitude
+    thankful~2az 
+ taxing ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    burdensome~1a 
+    taxing~2az 
+ troubling ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    worrying~3a 
+    troubling~2az 
+ tripping ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    light~29a 
+    swinging~2a 
+ towering ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    eminent~1az of imposing height
+    towering~2az 
+ truthful ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    true~6a 
+    truthful~2az conforming to truth
+    truthful~3az 
+ tipped ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ) 
+    leaning~5az departing or being caused to depart from the true vertical or horizontal
+    tipped~2az having a tip
+ torrid ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    torrid~1az extremely hot
+    torrid~2az emotionally charged and vigorously energetic
+    torrid~3az characterized by intense emotion
+    torrid~4az 
+ trivial ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    petty~3a 
+    trivial~2az concerned with trivialities
+    trivial~3az of little substance or significance
+    trivial~4az 
+ thundering ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    thundering~1az extraordinarily big or impressive
+    thundering~2az sounding like thunder
+ twisted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    distorted~1a 
+ torn ( meanings=2 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=tore 
+    torn~1az having edges that are jagged from injury
+    torn~2az disrupted by the pull of contrary forces
+ tantalizing ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB (null) ) 
+    tantalizing~1az very pleasantly inviting
+    tantalizing~2az arousing desire or expectation for something unattainable or mockingly out of reach
+    tantalizing~3az 
+ tortured ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tortured~1az 
+ tearful ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    tearful~1az showing sorrow
+    tearful~2az filled with or marked by tears
+    tearful~3az 
+ tagged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    labeled~1a 
+ tremendous ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    enormous~1az extraordinarily large in size or extent or amount or power or degree
+    grand~9a 
+    awful~5a 
+    tremendous~4az 
+ tiny ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=tiniest 
+    tiny~1az very small
+    tiny~2az 
+ transcribed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    canned~2az recorded for broadcast
+ telescoped ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    telescoped~1az shortened by or as if by means of parts that slide one within another or are crushed one into another
+ treasured ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    cherished~1a 
+ tempered ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tempered~1az adjusted or attuned by adding a counterbalancing element
+    hardened~4a 
+ treated ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    tempered~2a 
+    treated~2az subjected to a physical treatment or action or agent
+    treated~3az given medical care or treatment
+ touched ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE3_4 posdefault:VERB ) 
+    affected~3az being excited or provoked to the expression of an emotion
+    touched~2az slightly insane
+    touched~3az having come into contact
+ together ( meanings=7 glosses=7 PARTICLE ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    together~1az mentally and emotionally stable
+    together~2bz at the same time
+    together~3bz with cooperation and interchange
+    together~4bz with a common plan
+    together~5bz in contact with each other or in proximity
+    together~6bz assembled in one place
+    together~7bz in each other's company
+ titled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    titled~1az 
+ teenage ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=teenager 
+    adolescent~4az being of the age 13 through 19
+    teenage~2az 
+ tapped ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tapped~1az in a condition for letting out liquid drawn out as by piercing or drawing a plug
+ tired ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB (null) ) 
+    stock~18az repeated too often
+    tired~2az depleted of strength or energy
+    tired~3az 
+ tiled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tiled~1az covered or furnished with tiles
+ tardy ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=tardiest 
+    late~7a 
+    tardy~2az 
+ troubled ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    troubled~1az 
+    troubled~2az characterized by or indicative of distress or affliction or danger or need
+    troubled~3az 
+ timed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    timed~1az regularly spaced in time
+ trustworthy ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    trustworthy~1az taking responsibility for one's conduct and obligations
+    trustworthy~2az worthy of trust or belief
+    trustworthy~3az 
+ tinkling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tinkling~1az like the short high ringing sound of a small bell
+ thudding ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    dull~11a 
+ tolerable ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    passable~2a 
+    tolerable~2az capable of being borne or endured
+ thirty-one ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    thirty-one~1az being one more than thirty
+ twenty-fourth ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    twenty-fourth~1az coming next after the twenty-third in position
+ twenty-fifth ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    twenty-fifth~1az coming next after the twenty-fourth in position
+ twenty-sixth ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    twenty-sixth~1az coming next after the twenty-fifth in position
+ twenty-seventh ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    twenty-seventh~1az coming next after the twenty-sixth in position
+ twenty-eighth ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    twenty-eighth~1az coming next after the twenty-seventh in position
+ twenty-ninth ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN ) 
+    twenty-ninth~1az coming next after the twenty-eighth in position
+ thriving ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    prospering~1a 
+ tops ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:NOUN ) 
+    super~4a 
+ tractable ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    amenable~4az readily reacting to suggestions and influences
+    tractable~2az easily managed 
+ tamed ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tame~3a 
+    tamed~2az brought from wildness
+    tamed~3az 
+ tasteless ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    tasteless~1az lacking aesthetic or social taste
+    tasteless~2az lacking flavor
+    tasteless~3az 
+ thickened ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    thickened~1az made or having become thick
+    thickened~2az made thick in consistency
+    callous~2a 
+ toned ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    toned~1az having or distinguished by a tone
+    toned~2az having or characterized or distinguished by tone or a specific tone
+ topped ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    topped~1az having a top of a specified character
+ teachable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    teachable~1az ready and willing to be taught
+ trimmed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    cut~29a 
+ trusting ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    trusting~1az 
+    trusting~2az 
+ trusted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    sure~9a 
+ tubed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    tubed~1az of a tire
+ tucked ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tucked~1az having tucked or being tucked
+ tined ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 ) 
+    tined~1az 
+ thumbed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    thumbed~1az worn or soiled by thumb and fingers by frequent handling or turning
+ threaded ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    threaded~1az having screw threads
+ tittering ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    tittering~1az 
+ taming ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    taming~1az 
+ targeted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    targeted~1az 
+ tannest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN ) comparative=tanner 
+ tardier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 ) comparative=tardy 
+ tardiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 ) comparative=tardier 
+ thinnest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=thinner 
+ thirstier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=thirsty 
+ thirstiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=thirstier 
+ tinier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=tiny 
+ tiniest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=tinier 
+ trickier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=tricky 
+ trickiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=trickier 
+ trimmest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 ) comparative=trimmer 
+ truer ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=true 
+ truest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=truer 
+ threaten ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    threaten~1vz to utter intentions of injury or punishment against:
+    threaten~2vz to be a menacing indication of something:
+    jeopardize~2vz pose a threat to
+ totally ( meanings=1 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    all~3b 
+ that ( meanings=6 PRONOUN_SUBJECT PRONOUN_OBJECT ADVERB CONJUNCTION_SUBORDINATE DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_SINGULAR PRONOUN_SINGULAR posdefault:PREPOSITION CONJUNCT_SUBORD_NOUN OMITTABLE_TIME_PREPOSITION PRONOUN_RELATIVE ) 
+    that~1bz 
+    that~2z 
+    that~3z 
+    that~4z 
+    that~5z 
+    that~6z 
+ til ( meanings=1 PREPOSITION COMMON4 COMMON1 KINDERGARTEN ) 
+    til~1z 
+ truly ( meanings=4 glosses=1 ADVERB COMMON4 COMMON1 GRADE3_4 posdefault:ADVERB ) 
+    really~2b 
+    really~3b 
+    truly~3bz by right
+    sincerely~2b 
+ therefore ( meanings=2 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    so~3bz from that fact or reason or as a result
+    consequently~2b 
+ twice ( meanings=3 glosses=1 ADVERB PREDETERMINER COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    twice~1bz two times
+    double~13b 
+    twice~3z 
+ this ( meanings=3 PRONOUN_SUBJECT PRONOUN_OBJECT PREDETERMINER DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_SINGULAR PRONOUN_SINGULAR OMITTABLE_TIME_PREPOSITION (null) ) 
+    this~1z 
+    this~2z 
+    this~3z 
+ throughout ( meanings=3 glosses=2 ADVERB PREPOSITION COMMON4 COMMON1 GRADE1_2 posdefault:PREPOSITION ) 
+    throughout~1bz from first to last
+    throughout~2bz used to refer to cited works
+    throughout~3z 
+ though ( meanings=2 glosses=1 ADVERB CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    though~1bz however
+    though~2z 
+ thrice ( meanings=3 glosses=1 ADVERB PREDETERMINER COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    thrice~1bz three times
+    thrice~2bz 
+    thrice~3z 
+ thriftily ( meanings=1 glosses=1 ADVERB COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    thriftily~1bz in a thrifty manner
+ than ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    than~1z 
+    than~2z 
+ toward ( meanings=1 PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    toward~1z 
+ towards ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    towards~1z 
+ turn_out ( meanings=12 glosses=12 VERB_PRESENT VERB_INFINITIVE VERB KINDERGARTEN VERB_TAKES_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT PHRASAL_VERB PRESENTATION_VERB VERB_CONJUGATE1 ) 
+    arise~1vz get up and out of bed
+    turn_out~2vz come, usually in answer to an invitation or summons
+    eject~3vz put out or expel from a place
+    cut~48vz cause to stop operating by disengaging a switch
+    turn_out~5vz produce quickly or regularly, usually with machinery
+    bear~9vz bring forth,
+    rotate~4vz turn outward
+    turn_out~8vz outfit or equip, as with accessories
+    turn_out~9vz come and gather for a public event
+    turn_out~10vz result or end
+    prove~9vz be shown or be found to be
+    turn_out~12vz prove to be in the result or end
+ tell ( meanings=8 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) (null) ) conjugate=told 
+    separate~10v 
+    tell~2vz discern or comprehend
+    say~2v 
+    tell~4vz let something be known
+    narrate~1vz narrate or give a detailed account of
+    evidence~5vz give evidence
+    say~9v 
+    assure~5vz inform positively and with certainty and confidence
+ teach ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=taught 
+    teach~1vz accustom gradually to some action or attitude
+    learn~5vz impart skills or knowledge to
+ thrive ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    flourish~6v 
+    flourish~8v 
+ thicken ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    thicken~1vz become thick or thicker
+    thicken~2vz make thick or thicker
+    thicken~3vz make viscous or dense
+ transcribe ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    transcribe~1vz convert the genetic information in into a strand of RNA, especially messenger RNA
+    transcribe~2vz rewrite in a different script
+    transcribe~3vz make a phonetic transcription of
+    transcribe~4vz write out from speech, notes, etc.
+    transcribe~5vz rewrite or arrange a piece of music for an instrument or medium other than that originally intended
+ tolerate ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    suffer~6v 
+    permit~4v 
+    tolerate~3vz have a tolerance for a poison or strong drug or pathogen or environmental condition
+    tolerate~4vz recognize and respect 
+ take_into_account ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_CONJUGATE1 ) 
+    allow~1vz allow or plan for a certain possibility
+ typify ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    represent~4v 
+    typify~2vz embody the essential characteristics of or be a typical example of
+ tantalize ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    cod~5v 
+ televise ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    televise~1vz broadcast via television
+ transgress ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    transgress~1vz pass beyond
+    sin~6v 
+    breach~5vz act in disregard of laws, rules, contracts, or promises
+    transgress~4vz spread over land, especially along a subsiding shoreline
+ tend ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT PRESENTATION_VERB ) 
+    tend~1vz manage or run
+    tend~2vz have care of or look after
+    incline~8v 
+ transcend ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    top~20v 
+    surpass~3vz be greater in scope or size than some standard
+ tries ( VERB_PRESENT_3PS VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=try 
+ took ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=take 
+ taught ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN GRADE5_6 posdefault:VERB ) conjugate=teach 
+ told ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=tell 
+ threw ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=throw 
+ thee ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN ANIMATE_BEING ) 
+    thee~1z 
+ they ( meanings=1 PRONOUN_SUBJECT COMMON4 COMMON2 COMMON1 KINDERGARTEN PRONOUN_PLURAL ) 
+    they~1z 
+ them ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_PLURAL ) 
+    them~1z 
+ their ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET ) 
+    their~1z 
+    their~2z 
+ theirs ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN ) 
+    theirs~1z 
+ these ( meanings=3 PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_PLURAL PREDETERMINER_TARGET PRONOUN_PLURAL ) 
+    these~1z 
+    these~2z 
+    these~3z 
+ those ( meanings=3 PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE DETERMINER_PLURAL PREDETERMINER_TARGET PRONOUN_PLURAL ) 
+    those~1z 
+    those~2z 
+    those~3z 
+ themselves ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_PLURAL posdefault:NOUN ANIMATE_BEING ) 
+    themselves~1z 
+ the_only ( meanings=1 DETERMINER KINDERGARTEN DETERMINER_SINGULAR ) 
+    the_only~1z 

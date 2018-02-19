@@ -1,0 +1,501 @@
+﻿ V ( ) lemma=`v`v`v` -  Mc---d  Mo---d  
+ V$SESSION ( ) lemma=`v$session` -  
+ V. ( ) lemma=`v.`v.` Ncfsnn  SENT  
+ V20z ( ) lemma=`v20z` -  
+ V3 ( ) lemma=`v3` -  
+ V40,9 ( ) lemma=`v40,9` -  
+ V40z ( ) lemma=`v40z` -  
+ V49,1 ( ) lemma=`v49,1` -  
+ V50,3 ( ) lemma=`v50,3` -  
+ V7700 ( ) lemma=`v7700` -  
+ V96 ( ) lemma=`v96` -  
+ VAIO ( ) lemma=`vaio` -  
+ VALVe ( ) lemma=`valve` -  
+ VAM ( ) lemma=`vam` -  
+ VAR ( ) lemma=`var` -  
+ VARIABLE ( ) lemma=`variable` -  
+ VAROS ( ) lemma=`varos` -  
+ VASILISK ( ) lemma=`vasilisk` -  
+ VB ( ) lemma=`vb` -  
+ VBS ( ) lemma=`vbs` -  
+ VBScript ( ) lemma=`vbscript` -  
+ VC++ ( ) lemma=`vc++` Afpnsdf  
+ VDIS ( ) lemma=`vdis` -  
+ VDZ ( ) lemma=`vdz` -  
+ VE ( ) lemma=`ve` -  
+ VELIKE ( ) lemma=`velike` -  
+ VERECUNDUM ( ) lemma=`verecundum` -  
+ VESNI ( ) lemma=`vesni` -  
+ VGA ( ) lemma=`vga` -  
+ VGN ( ) lemma=`vgn` -  
+ VH1 ( ) lemma=`vh1` Npmsgy  
+ VHS ( ) lemma=`vhs` -  
+ VI ( ) lemma=`vi`vi` Mc---d  Mo---d  
+ VIA ( ) lemma=`via` -  
+ VIDEO ( ) lemma=`video` -  
+ VIEW ( ) lemma=`view` -  
+ VII ( ) lemma=`vii`vii` Mc---d  Mo---d  
+ VII,7 ( ) lemma=`vii,7` -  
+ VIII ( ) lemma=`viii`viii` Mc---d  Mo---d  
+ VII—VIII ( ) lemma=`vii—viii` Mo---d  
+ VILLAREAAAAAAL ( ) lemma=`villareaaaaaal` -  
+ VIP ( ) lemma=`vip` -  
+ VISA ( ) lemma=`visa` -  
+ VIZHU ( ) lemma=`vizhu` -  
+ VIвв ( ) lemma=`viвв` Npmsny  
+ VLBI ( ) lemma=`vlbi` -  
+ VLF ( ) lemma=`vlf` -  
+ VM ( ) lemma=`vm` -  
+ VMWare ( ) lemma=`vmware` -  
+ VMware ( ) lemma=`vmware` -  
+ VNG ( ) lemma=`vng` -  
+ VO ( ) lemma=`vo` -  
+ VOGUE ( ) lemma=`vogue` -  
+ VOX ( ) lemma=`vox` -  
+ VP ( ) lemma=`vp` -  
+ VPN ( ) lemma=`vpn` -  
+ VR3 ( ) lemma=`vr3`vr3` Ncfsnn  Ncmsnn  
+ VRV ( ) lemma=`vrv` Mo---d  
+ VS ( ) lemma=`vs` -  
+ VUZ ( ) lemma=`vuz` -  
+ VVS ( ) lemma=`vvs` -  
+ VVVVV ( ) lemma=`vvvvv`vvvvv` -  Mo---d  
+ VW ( ) lemma=`vw` -  
+ VX ( ) lemma=`vx` Mo---d  
+ VX1 ( ) lemma=`vx1` -  
+ VXD0000(0 ( ) lemma=`vxd0000(0` -  
+ Vabanque ( ) lemma=`vabanque` -  
+ Vacha ( ) lemma=`vacha` -  
+ Vadim ( ) lemma=`vadim` -  
+ Vai ( ) lemma=`vai` -  
+ Vaio ( ) lemma=`vaio` -  
+ Vaisberg ( ) lemma=`vaisberg` -  
+ Vakfi ( ) lemma=`vakfi` -  
+ Val ( ) lemma=`val` -  
+ Valcom ( ) lemma=`valcom` -  
+ Validata ( ) lemma=`validata` -  
+ Valletta ( ) lemma=`valletta` -  
+ Valley ( ) lemma=`valley` -  
+ Value ( ) lemma=`value` -  
+ ValuePoint ( ) lemma=`valuepoint` -  
+ Valyok ( ) lemma=`valyok` -  
+ Vam ( ) lemma=`vam` -  
+ Vampire ( ) lemma=`vampire` -  
+ Van ( ) lemma=`van` -  
+ Vanagas ( ) lemma=`vanagas` -  
+ Vanbeveren ( ) lemma=`vanbeveren` -  
+ Vanessa ( ) lemma=`vanessa` -  
+ Vangelis ( ) lemma=`vangelis` -  
+ Vanguard ( ) lemma=`vanguard` -  
+ Vanilnaya ( ) lemma=`vanilnaya` -  
+ Vantage ( ) lemma=`vantage` -  
+ VapoChill ( ) lemma=`vapochill` -  
+ Varda ( ) lemma=`varda` -  
+ Variable ( ) lemma=`variable` -  
+ Variety ( ) lemma=`variety` -  
+ Varvara ( ) lemma=`varvara` -  
+ Vas ( ) lemma=`vas` -  
+ Vash ( ) lemma=`vash` -  
+ Vasulka ( ) lemma=`vasulka` -  
+ Vasya ( ) lemma=`vasya` -  
+ Vaulternative ( ) lemma=`vaulternative` -  
+ Vaus ( ) lemma=`vaus` -  
+ Vazilin ( ) lemma=`vazilin` -  
+ Vedma ( ) lemma=`vedma` -  
+ Vegas ( ) lemma=`vegas` -  
+ Vehicle ( ) lemma=`vehicle` -  
+ Veilleu ( ) lemma=`veilleu` -  
+ Vejarano ( ) lemma=`vejarano` -  
+ Veles ( ) lemma=`veles` -  
+ Velocities ( ) lemma=`velocities` -  
+ Veltri ( ) lemma=`veltri` -  
+ Veltro ( ) lemma=`veltro` -  
+ Vena ( ) lemma=`vena` -  
+ Venera ( ) lemma=`venera` -  
+ Venerabilis ( ) lemma=`venerabilis` -  
+ Venus ( ) lemma=`venus` -  
+ Vera ( ) lemma=`vera` -  
+ Verena ( ) lemma=`verena` -  
+ Verfassung ( ) lemma=`verfassung` -  
+ Vergilius ( ) lemma=`vergilius` -  
+ Verhandlung ( ) lemma=`verhandlung` -  
+ VeriSign ( ) lemma=`verisign` -  
+ Verigin ( ) lemma=`verigin` -  
+ Veritest ( ) lemma=`veritest` -  
+ Verkehrschaft ( ) lemma=`verkehrschaft` -  
+ Verlag ( ) lemma=`verlag` -  
+ Veroi ( ) lemma=`veroi` -  
+ Veronica ( ) lemma=`veronica` -  
+ Veronika ( ) lemma=`veronika` -  
+ Versace ( ) lemma=`versace` -  
+ Version ( ) lemma=`version` -  
+ Verstehen ( ) lemma=`verstehen` -  
+ Vertex ( ) lemma=`vertex` -  
+ Very ( ) lemma=`very` -  
+ Verysell ( ) lemma=`verysell` -  
+ Ver~A¤nderungen ( ) lemma=`ver~a¤nderungen` -  
+ Vesco ( ) lemma=`vesco` -  
+ Veselkin ( ) lemma=`veselkin` -  
+ Vesi ( ) lemma=`vesi` -  
+ Veta ( ) lemma=`veta` -  
+ Veteran ( ) lemma=`veteran` -  
+ Vi ( ) lemma=`vi` -  
+ Via ( ) lemma=`via` -  
+ Vice ( ) lemma=`vice` -  
+ Vichnu ( ) lemma=`vichnu` -  
+ Vichy ( ) lemma=`vichy` -  
+ Vicini ( ) lemma=`vicini` -  
+ Vickery ( ) lemma=`vickery` -  
+ Vict ( ) lemma=`vict` -  
+ Victor ( ) lemma=`victor` -  
+ Victoria ( ) lemma=`victoria` -  
+ Victorialis ( ) lemma=`victorialis` -  
+ Victrix ( ) lemma=`victrix` -  
+ Video ( ) lemma=`video` -  
+ Vidik ( ) lemma=`vidik` -  
+ Viehweide ( ) lemma=`viehweide` -  
+ Viet ( ) lemma=`viet` -  
+ ViewSonic ( ) lemma=`viewsonic` -  
+ Vigne ( ) lemma=`vigne` -  
+ Vik ( ) lemma=`vik` -  
+ Vikky ( ) lemma=`vikky` -  
+ Viktor ( ) lemma=`viktor` -  
+ Villa ( ) lemma=`villa` -  
+ Village ( ) lemma=`village` -  
+ Ville ( ) lemma=`ville` -  
+ Villeneuve ( ) lemma=`villeneuve` -  
+ Villita ( ) lemma=`villita` -  
+ Vince ( ) lemma=`vince` -  
+ Vincent ( ) lemma=`vincent` -  
+ Viola ( ) lemma=`viola` -  
+ Vip ( ) lemma=`vip` -  
+ Virgin ( ) lemma=`virgin` -  
+ Virt ( ) lemma=`virt` -  
+ Virtual ( ) lemma=`virtual` -  
+ Virtualbusiness ( ) lemma=`virtualbusiness` -  
+ Visa ( ) lemma=`visa` -  
+ Visio ( ) lemma=`visio` -  
+ Vision ( ) lemma=`vision` -  
+ Visions ( ) lemma=`visions` -  
+ Visitor ( ) lemma=`visitor` -  
+ Viskont ( ) lemma=`viskont` -  
+ Vista ( ) lemma=`vista` -  
+ VistaScan ( ) lemma=`vistascan` -  
+ Visual ( ) lemma=`visual` -  
+ Vita ( ) lemma=`vita` -  
+ Vitamin ( ) lemma=`vitamin` -  
+ Vitamina ( ) lemma=`vitamina` -  
+ Vitaminchiki ( ) lemma=`vitaminchiki` -  
+ Vitezslav ( ) lemma=`vitezslav` -  
+ Vito ( ) lemma=`vito` -  
+ Vitria ( ) lemma=`vitria` -  
+ Viva ( ) lemma=`viva` -  
+ VivaLaVita ( ) lemma=`vivalavita` -  
+ Vive ( ) lemma=`vive` -  
+ Vixi ( ) lemma=`vixi` -  
+ Vl ( ) lemma=`vl` -  
+ VlaFil ( ) lemma=`vlafil` -  
+ VladCherednichenko@WorldNet ( ) lemma=`vladcherednichenko@worldnet` -  
+ Vladalukard ( ) lemma=`vladalukard` -  
+ VladimiR1962 ( ) lemma=`vladimir1962` -  
+ Vladimir ( ) lemma=`vladimir` -  
+ Vladimir1962 ( ) lemma=`vladimir1962` -  
+ Vlastelina ( ) lemma=`vlastelina` -  
+ Vnizu ( ) lemma=`vnizu` -  
+ Vo ( ) lemma=`vo` -  
+ VoIP ( ) lemma=`voip` -  
+ Voeux ( ) lemma=`voeux` -  
+ Vof ( ) lemma=`vof` -  
+ Vogue ( ) lemma=`vogue` -  
+ Voice ( ) lemma=`voice` -  
+ Void ( ) lemma=`void` -  
+ Voil`a ( ) lemma=`voil`a` -  
+ Voila ( ) lemma=`voila` -  
+ Vol ( ) lemma=`vol` -  
+ Voland ( ) lemma=`voland` -  
+ Volfovich ( ) lemma=`volfovich` -  
+ Volkischer ( ) lemma=`volkischer` -  
+ Volkswagen ( ) lemma=`volkswagen` -  
+ Voltsov ( ) lemma=`voltsov` -  
+ Voltziales ( ) lemma=`voltziales` -  
+ Volume ( ) lemma=`volume` -  
+ Volunteers ( ) lemma=`volunteers` -  
+ Volvo ( ) lemma=`volvo` -  
+ Von ( ) lemma=`von` -  
+ Voorn ( ) lemma=`voorn` -  
+ Vorchun ( ) lemma=`vorchun` -  
+ Voretzsch ( ) lemma=`voretzsch` -  
+ Vorkal'is ( ) lemma=`vorkal'is` -  
+ Vorobiev ( ) lemma=`vorobiev` -  
+ Voropay ( ) lemma=`voropay` -  
+ Vorpal ( ) lemma=`vorpal` -  
+ Vortices ( ) lemma=`vortices` -  
+ Vortrage ( ) lemma=`vortrage` -  
+ Vot ( ) lemma=`vot` -  
+ Vous ( ) lemma=`vous` -  
+ Voyage ( ) lemma=`voyage` -  
+ Voyager ( ) lemma=`voyager` -  
+ Vs ( ) lemma=`vs` -  
+ Vse ( ) lemma=`vse` -  
+ Vseh ( ) lemma=`vseh` -  
+ Vsem ( ) lemma=`vsem` -  
+ Vsex ( ) lemma=`vsex` -  
+ Vspominaete ( ) lemma=`vspominaete` -  
+ Vukanet ( ) lemma=`vukanet` -  
+ Vuster ( ) lemma=`vuster` -  
+ Vy ( ) lemma=`vy` -  
+ V~A¶lkl ( ) lemma=`v~a¶lkl` -  
+ V—VI ( ) lemma=`v—vi` Mo---d  
+ V—VIII ( ) lemma=`v—viii` Mo---d  
+ v ( ) 
+ v-tom ( ) 
+ v. ( ) 
+ v/ ( ) 
+ v1 ( ) 
+ v1+v2)/2 ( ) 
+ v16 ( ) 
+ v2 ( ) 
+ v2/2 ( ) 
+ v3 ( ) 
+ v6 ( ) 
+ v635 ( ) 
+ v666apl ( ) 
+ v7 ( ) 
+ v8 ( ) 
+ vBulletin ( ) lemma=`vbulletin` -  
+ vCard ( ) lemma=`vcard` -  
+ v^otre ( ) 
+ va ( ) 
+ vacha@fmradio ( ) 
+ vacha@nashe ( ) 
+ vadimd@ ( ) 
+ vaejo ( ) 
+ vaillanti ( ) 
+ vaisman@online ( ) 
+ vajnaya ( ) 
+ valera90@mail ( ) 
+ valid ( ) 
+ value ( ) 
+ values ( ) 
+ vam ( ) 
+ vampire ( ) 
+ varchar(30 ( ) 
+ varchar2(25 ( ) 
+ variability ( ) 
+ variable ( ) 
+ vars ( ) 
+ vas ( ) 
+ vashi ( ) 
+ vasov@polet3000 ( ) 
+ vasques ( ) 
+ vasyak ( ) 
+ vaz ( ) 
+ vaş ( ) 
+ vcard ( ) 
+ vchera ( ) 
+ vdogonku ( ) 
+ ve ( ) 
+ vecherom ( ) 
+ vective ( ) 
+ ved ( ) 
+ vegas ( ) 
+ vel ( ) 
+ velocity ( ) 
+ velzevul ( ) 
+ venera ( ) 
+ venture ( ) 
+ ver ( ) 
+ verbluten ( ) 
+ verheiratete ( ) 
+ verit ( ) 
+ veritas ( ) 
+ vernee ( ) 
+ verner@anekdot ( ) 
+ vernus ( ) 
+ vernutj ( ) 
+ verny ( ) 
+ verona@engels ( ) 
+ verschlatene ( ) 
+ verse ( ) 
+ version ( ) 
+ version('$Release ( ) lemma=`version('$release` -  
+ versus ( ) 
+ vert ( ) 
+ veru ( ) 
+ verx ( ) 
+ very ( ) 
+ veryu ( ) 
+ vesh'i ( ) 
+ vesna ( ) 
+ vesti ( ) 
+ vezde ( ) 
+ vgu ( ) 
+ vhomemail@yandex ( ) 
+ vi ( ) 
+ via ( ) 
+ vib ( ) 
+ vidat ( ) 
+ videli ( ) 
+ video ( ) 
+ vidimih ( ) 
+ vidit ( ) 
+ vidy ( ) 
+ viechhocken ( ) 
+ vier ( ) 
+ vierge ( ) 
+ view ( ) 
+ viewer ( ) 
+ vif2ne ( ) 
+ viktorbridge@mail ( ) 
+ vil ( ) 
+ vilennv ( ) 
+ vilka ( ) 
+ village ( ) 
+ ville ( ) 
+ vima ( ) 
+ vini ( ) 
+ vinny@email ( ) 
+ vino ( ) 
+ vip ( ) 
+ vipisal ( ) 
+ vipishet ( ) 
+ vipisivali ( ) 
+ virastila ( ) 
+ viros ( ) 
+ virtual ( ) 
+ virus ( ) 
+ vis ( ) 
+ visa ( ) 
+ vishl'ut ( ) 
+ visibility ( ) 
+ vismarkivaevesh ( ) 
+ vista ( ) 
+ vita ( ) 
+ vitaminchikov ( ) 
+ vitamini ( ) 
+ vitaminov ( ) 
+ vitaminy ( ) 
+ vitok ( ) 
+ vitovt ( ) 
+ vitrea ( ) 
+ vitro ( ) 
+ vitrum ( ) 
+ vittorio ( ) 
+ vitvit ( ) 
+ vivere ( ) 
+ vivificat ( ) 
+ vivit ( ) 
+ vivre ( ) 
+ vizart@mail ( ) 
+ vizdoravlivai ( ) 
+ vizhil ( ) 
+ vjue ( ) 
+ vkus ( ) 
+ vkusnom ( ) 
+ vkusnyi ( ) 
+ vlados@dol ( ) 
+ vlan ( ) 
+ vlan11 ( ) 
+ vlivaesh ( ) 
+ vmeshalsha ( ) 
+ vmeste ( ) 
+ vmesto ( ) 
+ vmodmap ( ) 
+ vmware ( ) 
+ vnet ( ) 
+ vnizu ( ) 
+ vnuki ( ) 
+ vo ( ) 
+ voboda ( ) 
+ vobshem ( ) 
+ vocabulary ( ) 
+ vocantur ( ) 
+ voda ( ) 
+ vodi ( ) 
+ vodki ( ) 
+ vodku ( ) 
+ vody ( ) 
+ voice ( ) 
+ vojujem ( ) 
+ vokrug ( ) 
+ vol ( ) 
+ volts ( ) 
+ volume ( ) 
+ volvi ( ) 
+ von ( ) 
+ vonRas ( ) lemma=`vonras` -  
+ vonyaet ( ) 
+ voobse ( ) 
+ voobshe ( ) 
+ vopros ( ) 
+ voprosu ( ) 
+ voprosy ( ) 
+ voron ( ) 
+ vorona ( ) 
+ vorona@fmradio ( ) 
+ vortices ( ) 
+ vorz~A1/4glichen ( ) lemma=`vorz~a1/4glichen` -  
+ voshetitel`ny ( ) 
+ vostorzhestvyet ( ) 
+ vot ( ) 
+ voudriez ( ) 
+ vous ( ) 
+ vova ( ) 
+ vovcha ( ) 
+ voyu ( ) 
+ vozderzat`sha ( ) 
+ vozle ( ) 
+ vozmozhnostei ( ) 
+ vozmozno ( ) 
+ vozrast ( ) 
+ vr'adli ( ) 
+ vrach ( ) 
+ vracha ( ) 
+ vrachu ( ) 
+ vraie ( ) 
+ vrednih ( ) 
+ vremja ( ) 
+ vremya ( ) 
+ vs ( ) 
+ vs'akih ( ) 
+ vs'akom ( ) 
+ vs'o ( ) 
+ vs'ozhe ( ) 
+ vsadnik ( ) 
+ vse ( ) 
+ vsegda ( ) 
+ vsego ( ) 
+ vseh ( ) 
+ vselili ( ) 
+ vsem ( ) 
+ vsemirnim ( ) 
+ vsemu ( ) 
+ vsenepremenno ( ) 
+ vsiacheskix ( ) 
+ vsjo ( ) 
+ vsplyvaen ( ) 
+ vstrechi ( ) 
+ vsya ( ) 
+ vsyakoy ( ) 
+ vsyo ( ) 
+ vtora ( ) 
+ vtorim ( ) 
+ vtoroi ( ) 
+ vtoruyu ( ) 
+ vtoryx ( ) 
+ vtyanul ( ) 
+ vue ( ) 
+ vulgo ( ) 
+ vulnera ( ) 
+ vulneratus ( ) 
+ vy ( ) 
+ vychislila ( ) 
+ vylechit ( ) 
+ vysotsky@ees ( ) 
+ vysotu ( ) 
+ vyxodilo ( ) 
+ vyxodit ( ) 
+ vzyat ( ) 
+ vzyato ( ) 
+ vФ ( ) lemma=`vф` Ncfsnn  
+ vФ/nэ ( ) lemma=`vф/nэ` I  

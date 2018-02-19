@@ -1,0 +1,1277 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/04/2017 cs7.61</p>
+<ul>
+<li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-concepts">Advanced Concepts</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-topics">Advanced Topics</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-patterns">Advanced Patterns</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-output">Advanced Output</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-variables">Advanced Variables</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#out-of-band-communication">Out of Band Communication</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#system-callback-functions">System callback functions</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-build">Advanced :build</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#editing-non-topic-files">Editing Non-topic Files</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#common-script-idioms">Common Script Idioms</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#esoterica-and-fine-detail">Esoterica and Fine Detail</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#self-reflection">Self-Reflection</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#a-fresh-build">A Fresh build</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#updating-cs-versions-easily">Updating CS versions Easily</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#the-dictionary">The Dictionary</a></li>
+</ul>
+<h1 id="review-overview-of-how-cs-works">Review: Overview of how CS works</h1>
+<p>CS is a scripting language for interactivity. Each time CS communicates with the user, this is called a <em>volley</em>.</p>
+<p><strong>Volleys are always asynchronous</strong>. In CS, each volley actually consists of accepting an incoming input from an arbitrary user, loading data about the user and their state, computing a response, writing out a new state, and sending a response to the user.</p>
+<h3 id="topics-and-rules">Topics and Rules</h3>
+<p>The fundamental code mechanism of ChatScript is the topic, which is a collection of rules.</p>
+<p>Rules have pattern and code components.</p>
+<p>Within a topic each rule is considered in turn by matching its pattern component. Patterns can access global data and the user's input, can perform comparisons, and can memorize sections of input data.</p>
+<p>If the pattern fails, the next rule in the topic is considered. If a pattern succeeds, the rule's code section is then executed to completion (barring error conditions).</p>
+<p>A rule's code can be a mixture of CS script to execute and words to say to the user.</p>
+<p>Code can invoke other topics or directly request execution of a specific rule. When the rule code completes, if user output has been generated, then by default no more rules are initiated anywhere in the system. Rules currently in progress complete their code. If no output was generated, the topic continues onto the next rule, trying to match its pattern. When a topic completes without generating output, it merely returns to its caller code, which continues executing normally.</p>
+<h3 id="rejoinders">Rejoinders</h3>
+<p>So how is it that CS handles returning input from the user? A rule that generates user output may have rules called rejoinders that immediately follow the rule.</p>
+<p>Rejoinders are intended to analyze the specific next input from the user to see if certain expectations are met and decide what to do. If, for example, we output a yes or no question, one rejoinder rule might look for a yes answer, while another rejoinder hunts for a no answer.</p>
+<p>When CS outputs text to the user, if the rule has rejoinders, CS notes the rule. When new user input arrives, CS will try executing the rejoinder rules immediately, to see if they match the user's input. All previous stack-based functions are gone, all previous stack-based calls from other topics are gone.</p>
+<p>CS is just in the here and now of this topic and the rejoinders of that rule. If CS finds a matching rejoinder rule, it continues in this topic. If it doesn't, CS reverts to globally using whatever the control script dictates it try for any user input.</p>
+<h3 id="user-variables">User variables</h3>
+<p>In addition to script code, ChatScript has data. It supports global user variables whose names always start with <code>$</code>, e.g., <code>$tmp</code>. Global means they are visible everywhere. You don't have to pre-declare them. You can directly use one and you can just summon one into existence by assigning into it:</p>
+<pre><code>$myvariable = 1 + $yourvariable</code></pre>
+<p><code>$myvariable</code> is created if it doesn't already exist. And if <code>$yourvariable</code> hasn't been created, it will be interpreted as 0 or <code>null</code> depending on context (here it is 0).</p>
+<p>User variables always hold text strings as values.</p>
+<p>Numbers are represented as digit text strings, which are converted into binary formats internally as needed.</p>
+<p>Text comes in three flavors.</p>
+<p>First are simple words (arbitrary contiguous characters with no spaces).</p>
+<p>Second are passive strings like <em>meat-loving plants</em>.</p>
+<p>Third are active strings (which you haven't read about yet) like:</p>
+<pre><code>^&quot;I like $value&quot;</code></pre>
+<p>Active strings involve references to functions or data inside them and execute when used to convert their results into a passive string with appropriate value substitutions.</p>
+<p>Other languages would name a CS active string a format string, and have to pass it to a function like sprintf along with the arguments to embed into the format. CS just directly embeds the arguments in the string and any attempt to use the active string implicitly invokes the equivalent of sprintf.</p>
+<p>User variables also come in permanent and transient forms.</p>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="25%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable scope</th>
+<th>syntax<br>example</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>permanent</td>
+<td><code>$permvar</code></td>
+<td>start with a single <code>$</code> and are preserved across user interactions (are saved and restored from disk). You can see and alter their value from anywhere.</td>
+</tr>
+<tr class="even">
+<td>transient</td>
+<td><code>$$transientvar</code></td>
+<td>start with <code>$$</code> and completely disappear when a user interaction happens (are not saved to disk). You can see and alter their value from anywhere.</td>
+</tr>
+<tr class="odd">
+<td>local</td>
+<td><code>$_localvar</code></td>
+<td>(described later) start with <code>$_</code> and completely disappear when a user interaction happens (are not saved to disk). You can see and alter their value only within the topic or outputmacro they are used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="facts">Facts</h3>
+<p>ChatScript supports structured triples of data called facts, which can be found by querying for them. The 3 fields of a fact are either text strings or fact references to other facts. So you might have a fact like</p>
+<pre><code>(I eat &quot;meat-loving plants&quot;)</code></pre>
+<p>and you could query CS to find what eats meat-loving plants or what do I eat. Or even more generally what do I ingest (using relationship properties of words).</p>
+<p>JSON data returned from website calls are all represented using facts so you can query them to find the bits of data you seek.</p>
+<p>Like user variables, facts can be created as <em>transient</em> or <em>permanent</em>.</p>
+<p>Permanent facts are saved across user interactions, transient ones disappear automatically. When you want to point a user variable at a fact, the index of the fact is stored as a text number on the variable.</p>
+<h3 id="output">Output</h3>
+<p>Some of the text in rule output code is intended for the user. There is pending output and committed output.</p>
+<p>Pending output consists of whatever isolated words that are not part of executing code exist in the code. They accumulate in a pending output stream, and when the rule finishes successfully, the output is committed. If the rule fails, the pending output is canceled.</p>
+<p>You can also make function calls that directly commit output regardless of whether the rule subsequently fails.</p>
+<h3 id="marking">Marking</h3>
+<p>When CS receives user input, it tokenizes it into sentences and analyzes each sentence in turn. It &quot;marks&quot; each word of the sentence with what concepts it belongs to.</p>
+<p>Concepts always begin with <code>~</code>.</p>
+<p>Usually concepts are explicit enumerations of words, like <code>~animals</code> is a list of all known animals or <code>~ingest</code> is a list of all verbs that imply ingestion.</p>
+<p>Sometimes concepts are implicit collections handled directly by the engine, like <code>~number</code> is the implied set of all numbers (we wouldn't want to actually enumerate them all) or <code>~noun</code> is the set of all nouns or <code>~mainsubject</code> is the current subject of the sentence.</p>
+<p>After this marking analysis, patterns can efficiently find whether or not some particular concept is matched at a particular position in the sentence.</p>
+<p>CS actually analyzes two streams of input, the <em>original</em> input of the user and a <em>canonical</em> form of it. So the system marks an input sentence of <em>my cat eats mice</em> and also marks the parallel sentence <em>I cat eat mouse</em>, so patterns can be written to catch general meanings of words as well as specific ones.</p>
+<h3 id="memorizing">Memorizing</h3>
+<p>Rule patterns can dictate memorizing part of the input that matches a pattern element. The memorized data goes onto &quot;match variables&quot;, which are numbered <code>_0</code>, <code>_1</code>, ... in the order in which the data is captured.</p>
+<p>CS memorizes both the original input and the canonical form of it. The pattern can use match variables in comparisons and the output can also access the data captured from the input.</p>
+<h3 id="control-flow-errors">Control flow &amp; errors</h3>
+<p>CS scripts execute everything as a call and return (no GOTO).</p>
+<p>The return values are the current pending output stream and a code that indicates a control result. That result in part affects how additional rules in the calling topics or functions execute, in that you can make a rule return a failure or success code that propagates and affects the current function, or rule, or topic, or sentence, or input.</p>
+<p>So a failure or success down deep can, if desired, end all further script execution by sending the right code back up the calling sequence.</p>
+<p>When code returns the &quot;noproblem&quot; value, all callers will complete what they are doing, but if user output was created will likely not initiate any new rules.</p>
+<h3 id="functions">Functions</h3>
+<p>Topics are not functions and do not take arguments. CS provides system functions and you can write user functions in ChatScript.</p>
+<p>Function names always start with <code>^</code>, like <code>^match(argument1 argument2)</code> and <strong>no commas are used to separate the arguments</strong> (since commas themselves might be legal arguments).</p>
+<p>These are classic functions in that they have arguments and a collection of code to execute. Their code can generate output and/or make calls to other functions, including invoking topics and rules. Functions are a convenient way to abstract and share code.</p>
+<h4 id="call-by-value">Call by value</h4>
+<pre><code>outputmacro: ^myfunction($_argument1 $_argument2)
+    $_argument1 += 1</code></pre>
+<p>Use of <code>$_</code> variables in the function definition is a call by value.</p>
+<p>All <code>$_</code> variables are purely local and cannot be seen outside of the function (or topic) they are used in. This is the preferred way to call, unless you need to write back to your caller.</p>
+<h4 id="call-by-reference">Call by reference</h4>
+<p>ChatScript also has function argument variables, whose names always start with <code>^</code> and have local (lexical) visibility but implement call by reference. You can assign back to the caller and write onto the variable he passed you.</p>
+<p>For outputmacros:</p>
+<pre><code>   outputmacro: ^myfunction(^argument1 ^argument2)
+        ^argument1 += 1</code></pre>
+<p>However, unless you need call by reference (being able to assign to the variable and have it affect the caller) you should use call by value so that nothing outside your routine can impact it.</p>
+<p>Patternmacros, however, do not normally ever write onto their arguments, so it is not only safe to use function arguments <code>^argument1</code>, but necessary since patternmacros are not really functions at all. They merely temporarily paste their code into the pattern stream and so do not save and restore variable values or have locals per se.</p>
+<pre><code>patternmacro: ^myfunction(^argument1 ^argument2)</code></pre>
+<p>You can mix call by reference and call by value arguments.</p>
+<p>An alternate function format allows you to put the output code within {}, which is more nicely visualized by some editors.</p>
+<pre><code>outputmacro: ^myfunction(^argument1 ^argument2)
+{
+^argument1 += 1
+}</code></pre>
+<p>Whenever you see a function variable, you can imagine it is as though the script had its argument immediately substituted in. This is a call by reference. So if the script call was this</p>
+<pre><code>^myfunction($myvar 1)</code></pre>
+<p>then the effect of <code>^argument1 += 1</code> is as though <code>$myvar += 1</code> were done and <code>$myvar</code> would now be one higher.</p>
+<p>Of course, had you tried to do <code>^argument2 += 1</code> then that would be the illegal <code>1 += 1</code> and the assignment would fail.</p>
+<h1 id="advanced-tokenization">ADVANCED TOKENIZATION</h1>
+<p>The CS natural language workflow consists of taking the user's input text, splitting it into tokens and stopping each time at a perceived sentence boundary. It continues with the input after processing that &quot;sentence&quot;. That leaves two tricky bits: what is a token and what is a sentence boundary. The $cs_token variable gives you some control over how these work. The naive definition of a token is a sequence of letters terminating in a space or end of input. But there are exceptions to that like some kind of sentence punctuation (comma, period, colon, exclamation) is not part of a bigger token. The sentence punctuation notion has exceptions, like the period within a floating point number or as part of an abbrviation or webaddress. And hyphens with more letters on the other side are generally not punctuation either. And normally we consider bracketing things like parens not part of a word (except in emoticons). So CS will normally break things apart as it believes they should be done. If you need to actually allow a token to have embedded punctuation in it, you can list the token in the LIVEDATA/SUBSTITUTES/abbreviations.txt file and the tokenizer will respect it.</p>
+<h1 id="advanced-concepts">ADVANCED CONCEPTS</h1>
+<p>Concepts can have part of speech information attached to them (using <code>dictionarysystem.h</code> values). Eg.</p>
+<pre><code>concept: ~mynouns NOUN NOUN_SINGULAR (boxdead foxtrot)
+concept: ~myadjectives ADJECTIVE ADJECTIVE_BASIC (moony dizcious)</code></pre>
+<p>Since the script compile issues warning messages on words it doesn't recognize, in case you misspelled them, you can also add <code>IGNORESPELLING</code> as a flag on the concept:</p>
+<pre><code>concept: ~unknownwords IGNORESPELLING (asl daghh)</code></pre>
+<p>and you can combine pos declarations and ignorespelling. This is applied recursively to any concepts that are members of this concept. That may be a bit excessive.</p>
+<p>Rather than assigning parts of speech you can recursively limit a concept's words to a part of speech using <code>ONLY_NOUNS</code>, <code>ONLY_VERBS</code>, <code>ONLY_ADJECTIVES</code>, or <code>ONLY_ADVERBS</code>.</p>
+<pre><code>Concept: ~verbs ONLY_VERBS (sit sleep)</code></pre>
+<p>This will not react to noun meanings of sleep. The current ontology files for verbs, adverbs, and adjectives all have the appropriate <code>ONLY</code> marked on them.</p>
+<p>When you don't want a member concept marked as a consequence, you can use <code>ONLY_NONE</code> to block propogate. Thus:</p>
+<pre><code>concept: ~verbs ONLY_VERBS (~active_verbs sit)
+concept: ~active_verbs ONLY_NONE (sleep)</code></pre>
+<p>will prevent sleep from being required to be a verb form. Note that verb forms do not include verbs used as nouns (ie gerunds).</p>
+<p>Normally if you declare a concept a second time, the system considers that an error. If you add the marker <code>MORE</code> to its definition, it will allow you to augment an existing list.</p>
+<pre><code>concept: ~city MORE (Tokyo)</code></pre>
+<p>Normally concepts (and topics) discard repeated keywords. For concepts, you can force it to allow repeats using <code>DUPLICATE</code></p>
+<pre><code>concept: ~mapword DUPLICATE (year month day year month day) # the concept has 6 members</code></pre>
+<p>Concepts can be built from other concepts that do not have specific words.</p>
+<pre><code>Concept: ~myconcept (!thisword ~otherconcept)</code></pre>
+<p>Note: the system has two kinds of concepts.</p>
+<ul>
+<li><p><em>Enumerated</em> concepts are ones formed from an explicit list of members. Stuff in definitions of <code>concept: ~xxx()</code> are that.</p></li>
+<li><p>There are also <em>internal</em> concepts marked by the system. These include part of speech of a word (requires using the pos-tagger to decide from the input what part of speech it was of possibly several), grammatical roles, words from infinite sets like <code>~number</code> and <code>~placenumber</code> and <code>~weburl</code>, and so forth.</p></li>
+</ul>
+<p>In a pattern of some kind, if you are referencing a sentence location using a match variable, you can match both kinds of concepts. But if you are not tied to a location in a sentence, you can't match internally computed ones. So something like</p>
+<pre><code>if ( pattern 23?~number )</code></pre>
+<p>will fail. Even</p>
+<pre><code>if ( pattern practical?~adjective )</code></pre>
+<p>will fail given that deciding practical is an adjective (it could also be a noun) hasn't been performed by pos-tagging.</p>
+<p>All internal concepts are members of the concept <code>~internal_concepts</code>.</p>
+<h1 id="advanced-topics">ADVANCED TOPICS</h1>
+<p>There are several things to know about advanced topics.</p>
+<h2 id="topic-execution">Topic Execution</h2>
+<p>When a topic is executing rules, it does not stop just because a rule matches. It will keep executing rules until some rule generates ouput for the user or something issues an appropriate <code>^end</code> or <code>^fail</code> call. So you can do things like this:</p>
+<pre><code>u: ( I love ) $userloves = true
+
+u: ( dog ) $animal = dog
+
+u: ( love ) Glad to hear it
+
+u: ( dog ) I hate dogs</code></pre>
+<p>and given <em>I love dogs</em>, the system will set $userloves and $animal and output <em>glad to hear it</em>.</p>
+<h2 id="topic-control-flags">Topic Control Flags</h2>
+<p>The first are topic flags, that control a topic's overall behavior. These are placed between the topic name and the (keywords list). You may have multiple flags. E.g.</p>
+<pre><code>topic: ~rust keep random [rust iron oxide]</code></pre>
+<p>The flags and their meanings are:</p>
+<table style="width:42%;">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>random</code></td>
+<td>search rules randomly instead of linearly</td>
+</tr>
+<tr class="even">
+<td><code>norandom</code></td>
+<td>(default) search rules linearly</td>
+</tr>
+<tr class="odd">
+<td><code>keep</code></td>
+<td>do not erase responders ever. Gambits (and rejoinders) are not affected by this</td>
+</tr>
+<tr class="even">
+<td><code>erase</code></td>
+<td>(default) erase responders that successfully generate output.<br>Gambits automatically erase unless you suppress them specifically.</td>
+</tr>
+<tr class="odd">
+<td><code>nostay</code></td>
+<td>do not consider this a topic to remain in, leave it (except for rejoinders)</td>
+</tr>
+<tr class="even">
+<td><code>stay</code></td>
+<td>(default) make this a pending topic when it generates output</td>
+</tr>
+<tr class="odd">
+<td><code>repeat</code></td>
+<td>allow rules to generate output which has been output recently</td>
+</tr>
+<tr class="even">
+<td><code>norepeat</code></td>
+<td>(default) do not generate output if it matches output made recently</td>
+</tr>
+<tr class="odd">
+<td><code>priority</code></td>
+<td>raise the priority of this topic when matching keywords</td>
+</tr>
+<tr class="even">
+<td><code>normal</code></td>
+<td>(default) give this topic normal priority when matching keywords</td>
+</tr>
+<tr class="odd">
+<td><code>deprioritize</code></td>
+<td>lower the priority of this topic when matching keywords</td>
+</tr>
+<tr class="even">
+<td><code>system</code></td>
+<td>this is a system topic. It is automatically <code>nostay</code>, <code>keep</code>.<br><code>keep</code> automatically applies to gambits as well. The system never looks to these topics for gambits. System topics can never be considered pending (defined shortly). They can not have themselves or their rules be enabled or disabled. Their status/data is never saved to user files.</td>
+</tr>
+<tr class="odd">
+<td><code>user</code></td>
+<td>(default) this is a normal topic</td>
+</tr>
+<tr class="even">
+<td><code>noblocking</code></td>
+<td>should not perform any blocking tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="odd">
+<td><code>nopatterns</code></td>
+<td>should not perform any pattern tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="even">
+<td><code>nosamples</code></td>
+<td>should not perform any sample tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="odd">
+<td><code>nokeys</code></td>
+<td>should not perform any keyword tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="even">
+<td><code>more</code></td>
+<td>normally if you try to redeclare a concept, you get an error. <code>more</code> tells CS you intend to extend the concept and allows additional keywords.</td>
+</tr>
+<tr class="odd">
+<td><code>bot=name</code></td>
+<td>if this is given, only named bots are allowed to use this topic. See <a href="ChatScript-Multiple-Bots.html">ChatScript Multiple Bots</a> manual.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rules-that-erase-and-repeat">Rules that erase and repeat</h2>
+<p>Normally a rule that successfully generates output directly erases itself so it won't run again. Gambits do this and responders do this.</p>
+<p>Gambits will erase themselves even if they don't generate output. They are intended to tell a story or progress some action, and so do their thing and then disappear automatically.</p>
+<p>Rejoinders don't erase individually, they disappear when the rule they are controlled by disappears. A rule that is marked keep will not erase itself. Nor will responders in a topic marked keep (but gambits still will).</p>
+<p>Responders that generate output erase themselves. Responders that cause others to generate output will not normally erase themselves (unless...):</p>
+<pre><code>u: ( * ) respond(~reactor)</code></pre>
+<p>If the above rule causes output to be generated, this rule won't erase itself, the rule invoked from the <code>~reactor</code> topic that actually generated the output will erase itself. But, if the rule generating the output is marked keep, then since someone has to pay the price for output, it will be this calling rule instead.</p>
+<p><code>Repeat</code> does not stop a rule from firing, it merely suppresses its output. So the rule fires, does any other effects it might have, but does not generate output. For a responder, if it doesn't generate output, then it won't erase itself. For a gambit, it will because gambits erase themselves regardless of whether they generate output or not.</p>
+<h2 id="keywords-vs-control-script">Keywords vs Control Script</h2>
+<p>A topic can be invoked as a result of its keywords or by a direct call from the control script or some other topic. If you intend to call it from script, then there is almost never any reason to give it keywords as well, because that may result in it being called twice, which is wasteful, or out of order, if there was a reason for the point you called it from script.</p>
+<h2 id="pending-topics">Pending Topics</h2>
+<p>The second thing to know about topics is what makes a topic pending. Control flow passes through various topics, some of which become pending, meaning one wants to continue in those topics when talking to the user. Topics that can never be pending are: system topics, blocked topics (you can block a topic so it won't execute), and nostay topics.</p>
+<p>What makes a remaining topic pending is one of two things. Either the system is currently executing rules in the topic or the system previously generated a user response from the topic. When the system leaves a topic that didn't say anything to the user, it is no longer pending. But once a topic has said something, the system expects to continue in that topic or resume that topic.</p>
+<p>The system has an ordered list of pending topics. The order is:</p>
+<ul>
+<li>1st- being within that topic executing rules now,</li>
+<li>2nd- the most recently added topic (or revived topic) is the most pending.</li>
+</ul>
+<p>You can get the name of the current most pending topic<code>(%topic)</code>, add pending topics yourself <code>(^addtopic())</code>, and remove a topic off the list <code>(^poptopic())</code>.</p>
+<h2 id="random-gambit">Random Gambit</h2>
+<p>The third thing about topics is that they introduce another type, the random gambit, <code>r:</code>.</p>
+<p>The topic gambit <code>t:</code> executes in sequence forming in effect one big story for the duration of the topic. You can force them to be dished randomly by setting the random flag on the topic, but that will also randomize the responders. And sometimes what you want is semirandomness in gambits.</p>
+<p>That is, a topic treated as a collection of subtopics for gambit purposes. This is <code>r:</code> The engine selects an <code>r:</code> gambit randomly, but any <code>t:</code> topic gambits that follow it up until the next random gambit are considered &quot;attached&quot; to it. They will be executed in sequence until they are used up, after which the next random gambit is selected.</p>
+<pre><code>Topic: ~beach [beach sand ocean sand_castle]
+
+# subtopic about swimming
+r: Do you like the ocean?
+
+t: I like swimming in the ocean.
+
+t: I often go to the beach to swim.
+
+# subtopic about sand castles.
+r: Have you made sand castles?
+    a: (~yes) Maybe sometime you can make some that I can go see.
+    a: (~no) I admire those who make luxury sand castles.
+
+t: I&#39;ve seen pictures of some really grand sand castles.</code></pre>
+<p>This topic has a subtopic on swimming and one on sand castles. It will select the subtopic randomly, then over time exhaust it before moving onto the other subtopic.</p>
+<p>Note any <code>t:</code> gambits occurring before the first <code>r:</code> gambit, will get executed linearly until the <code>r:</code> gambits can fire.</p>
+<h2 id="overview-of-the-control-script">Overview of the control script</h2>
+<p>Normally you start using the system with the pre-given control script. But it's just a topic and you can modify it or write your own.</p>
+<p>The typical flow of control is for the control script to try to invoke a pending rejoinder. This allows the system to directly test rules related to its last output, rules that anticipate how the user will respond.</p>
+<p>Unlike responders and gambits, the engine will keep trying rejoinders below a rule until the pattern of one matches and the output doesn't fail.</p>
+<p>Not failing does not require that it generate user output. Merely that it doesn't return a fail code. Whereas responders and gambits are tried until user output is generated (or you run out of them in a topic).</p>
+<p>If no output is generated from rejoinders, the system would test responders. First in the current topic, to see if the current topic can be continued directly. If that fails to generate output, the system would check other topics whose keywords match the input to see if they have responders that match. If that fails, the system would call topics explicitly named which do not involve keywords. These are generic topics you might have set up.</p>
+<p>If finding a responder fails, the system would try to issue a gambit. First, from a topic with matching keywords. If that fails, the system would try to issue a gambit from the current topic. If that fails, the system would generate a random gambit.</p>
+<p>Once you find an output, the work of the system is nominally done. It records what rule generated the output, so it can see rejoinders attached to it on next input. And it records the current topic, so that will be biased for responding to the next input. And then the system is done. The next input starts the process of trying to find appropriate rules anew.</p>
+<p>There are actually three control scripts (or one invoked multiple ways). The first is the preprocess, called before any user sentences are analyzed. The main script is invoked for each input sentence. The postprocess is invoked after all user input is complete. It allows you to examine what was generated (but not to generate new output except using special routines <code>^postprintbefore</code> and <code>^postprintafter</code>).</p>
+<h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
+<h2 id="keyword-phrases">Keyword Phrases</h2>
+<p>You cannot make a concept out with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes. E.g.</p>
+<pre><code>concept: ~remove ( &quot;take away&quot; remove )</code></pre>
+<p>Normally in patterns you can write</p>
+<pre><code>?: ( do you take away cheese )</code></pre>
+<p>and the system will match sentences with those words in order.</p>
+<p>In WordNet, some words are actually composite words like : <em>TV_show</em>. When you do <code>:prepare</code> on <em>what is your favorite TV show</em> you will discover that the engine has merged <em>TV_show</em> into one composite word. The system has no trouble matching inputs where the words are split apart</p>
+<pre><code>?: ( what is your favorite TV show )</code></pre>
+<p>But if you tried a word memorize like</p>
+<pre><code>?: ( what is your favorite *1 *1 )</code></pre>
+<p>that would fail because the first <code>*1</code> memorizes <em>TV_show</em> and there is therefore no second word to memorize.</p>
+<p>Likewise when you write</p>
+<pre><code>concept: ~viewing (&quot;TV show&quot;)` </code></pre>
+<p>the system can match that concept readily also. In fact, whenever you write the quoted keyword phrase, if all its words are canonical, you can match canonical and noncanonincal forms. <em>&quot;TV show&quot;</em> matchs <em>TV shows</em> as well as <em>TV show</em>.</p>
+<h2 id="implied-concept-sets">Implied concept Sets</h2>
+<p>When you make a pattern using [] or {} and it only contains words, phrases, And concept sets, the system will make an anonymous concept set out of them. This allows the system to find the soonest match of any of them. otherwise [] and {} take each element in turn and try to find a match, which may be later in the sentence than a later element in the set would match.</p>
+<h2 id="dictionary-keyword-sets">Dictionary Keyword sets</h2>
+<p>In ChatScript, WordNet ontologies are invoked by naming the word, a <code>~</code>, and the index of the meaning you want.</p>
+<pre><code>concept: ~buildings [ shelter~1 living_accomodations~1 building~3 ]</code></pre>
+<p>The concept <code>~buildings</code> represents 760 general and specific building words found in the WordNet dictionary – any word which is a child of: definition 1 of shelter, definition 1 of accommodations, or definition 3 of building in WordNet's ontology.</p>
+<p>How would you be able to figure out creating this? This is described under <code>:up</code> in Word Commands later.</p>
+<p><code>Building~3</code> and <code>building~3n</code> are equivalent.</p>
+<p>The first is what you might say to refer to the 3rd meaning of building. Internally <code>building~3n</code> denotes the 3rd meaning and its a <em>noun</em> meaning.</p>
+<p>You may see that in printouts from Chatscript. If you write 3n yourself, the system will strip off the <code>n</code> marker as superfluous.</p>
+<p>Similarly you can invoke parts of speech classes on words. By default you get all of them. If you write:</p>
+<pre><code>concept: ~beings [snake mother]</code></pre>
+<p>then a sentence like <em>I like mothering my baby</em> would trigger this concept, as would <em>He snaked his way through the grass</em>. But the engine has a dictionary and a part-of-speech tagger, so it often knows what part of speech a word in the sentence is.</p>
+<p>You can use that to help prevent false matches to concepts by adding <code>~n</code> <code>~v</code> <code>~a</code> or <code>~b</code> (adverb) after a word.</p>
+<pre><code>concept: ~beings [snake~n mother~n]</code></pre>
+<p>If the system isn't sure something is only a noun, it would let the verb match still. Thus a user single-word reply of snakes would be considered both <em>noun</em> and <em>verb</em>.</p>
+<p>The notation <code>run~46</code> exists to represent a meaning.</p>
+<p>There is mild inherent danger that I might kill off some word meaning that is problematic (eg if <code>run~23</code> turned out mark the <code>~curses</code> set and I didn't want the resulting confusion), said kill off might strand your meaning by renumbering into either non-existence (in which case the script compiler will warn you) or into a different pos set (because your meaning was on the boundary of meanings of a different pos type).</p>
+<p>Use of the specific meaning is handy in defining concepts when the meaning is a noun, because Wordnet has a good noun ontology.</p>
+<p>Use of the specific meaning of other parts of speech is more questionable, as Wordnet does not have much ontology for them.</p>
+<p>The broader scope meaning restriction by part-of-speech (eg <code>run~v</code>) has much more utility. It has its risks in that it depends on the parser getting it right (as you have seen), which over time will get better and better.</p>
+<p>In MOST cases, you are better off with the full fledged unadorned word, which is parse-independent.</p>
+<p>This is particularly true when you are pattern matching adjacent words and so context is firm. &lt; run <code>~app</code> is a pretty clean context which does not need pos-certification.</p>
+<p>The topic on <code>~drugs</code> would want in its keyword list <code>clean~a</code> to allow <em>I've been clean for months</em> to target it, but not <em>I clean my house</em>.</p>
+<h2 id="system-functions">System Functions</h2>
+<p>You can call any predefined system function. It will fail the pattern if it returns any fail or end code. It will pass otherwise. The most likely functions you would call would be:</p>
+<p><code>^query</code> – to see if some fact data could be found. Many functions make no sense to call, because they are only useful on output and their behavior on the pattern side is unpredictable.</p>
+<h2 id="macros">Macros</h2>
+<p>Just as you can use sets to &quot;share&quot; data across rules, you can also write macros to share code.</p>
+<h3 id="pattern-macros">Pattern macros</h3>
+<p>A <code>patternmacro</code> is a top-level declaration that declares a name, arguments that can be passed, and a set of script to be executed &quot;as though the script code were in place of the original call&quot;.</p>
+<p>Macro names can be ordinary names or have a <code>^</code> in front of them. The arguments must always begin with <code>^</code>.</p>
+<p>The definition ends with the start of a new top-level declaration or end of file. E.g.</p>
+<pre><code>patternmacro: ^ISHAIRCOLOR(^who)
+    ![not never]
+    [
+        ( &lt;&lt; be ^who [blonde brunette redhead blond ] &gt;&gt; )
+        ( &lt;&lt; what ^who hair color &gt;&gt; )
+    ]
+
+?: ( ^ISHAIRCOLOR(I) ) How would I know your hair color?</code></pre>
+<p>The above patternmacro takes one argument (who we are talking about). After checking that the sentence is not in the negative, it uses a choice to consider alternative ways of asking what the hair color is.</p>
+<p>The first way matches are you a redhead. The second way matches what is my hair color. The call passes in the value <em>I</em> (which will also match my mine etc in the canonical form).</p>
+<p>Every place in the macro code where <code>^who</code> exists, the actual value passed through will be used.</p>
+<p>You cannot omit the <code>^</code> prefix in the call. The system has no way to distinguish it otherwise.</p>
+<p>Whereas most programming language separate their arguments with commas because they are reserved tokens in their language, in ChatScript a comma is a normal word. So you separate arguments to functions just with spaces.</p>
+<pre><code>?: ( ^FiveArgFunction(1 3 my , word) )</code></pre>
+<p>When a patternmacro takes a single argument and you want to pass in several, you can wrap them in parens to make them a single argument. Or sometimes brackets. E.g.,</p>
+<pre><code>?: ( ^DoYouDoThis( (play * baseball) ) ) Yes I do
+
+?: ( ^DoYouDoThis( [swim surf &quot;scuba dive&quot;] ) Yes I do</code></pre>
+<p>If you call a patternmacro with a string argument, like <em>&quot;scuba dive&quot;</em> above, the system will convert that to its internal single-token format just as it would have had it been part of a normal pattern. Quoted strings to output macros are treated differently and left in string form when passed.</p>
+<p>You can declare a patternmacro to accept a variable number of arguments. You define the macro with the maximum and then put &quot;variable&quot; before the argument list. All missing arguments will be set to null on the call.</p>
+<pre><code>patternmacro: ^myfn variable (^arg1 ^arg2 ^arg3 ^arg4)</code></pre>
+<h3 id="dual-macros">Dual macros</h3>
+<p>You can also declare something dualmacro: which means it can be used in both pattern and output contexts.</p>
+<p>Patternmacro cannot be passed a factset name. These are not legal calls:</p>
+<pre><code>^mymacro(@0)
+^mymacro(@0subject)</code></pre>
+<p>Do not write code in a pattern macro as though it is an output code. You can't do</p>
+<pre><code>if (...) {}</code></pre>
+<p>If you want to do that, use an outputmacro and call that from your pattern.</p>
+<h2 id="literal-next">Literal Next <code>\</code></h2>
+<p>If you need to test a character that is normally reserved, like <code>(</code> or <code>[</code>, you can put a backslash in front of it.</p>
+<pre><code>s: ( \( * \) ) Why are you saying that aside?</code></pre>
+<p>This also works with entire tokens like:</p>
+<pre><code>u: ( \test=fort )</code></pre>
+<p>Normally the above without <code>\</code> would be considered a comparison. But the <code>\</code> at the start of it says treat <code>=</code> as just an ordinary part of the token. You can even put <code>_</code> in front of it:</p>
+<pre><code>u: ( _\test=fort )</code></pre>
+<p>Note that <code>\</code> does not block a word with an <code>*</code> in it from performing wildcard spelling.</p>
+<h2 id="question-and-exclamation--">Question and exclamation - <code>?</code> <code>!</code></h2>
+<p>Normally you already know that an input was a question because you used the rule type <code>?:</code> .</p>
+<p>But rejoinders do not have rule types, so if you want to know if something was a question or not, you need to use the <code>?</code> keyword. It doesn't change the match position</p>
+<pre><code>t: Do you like germs?
+    a: ( ? ) Why are you asking a question instead of answering me?
+    a: ( !? ) I appreciate your statement.</code></pre>
+<p>If you want to know if an exclamation ended his sentence, just backslash a <code>!</code> so it won't be treated as a not request. This doesn't change the match position.</p>
+<pre><code>s: ( I like \! ) Why so much excitement</code></pre>
+<h2 id="more-comparison-tests--">More comparison tests - <code>&amp;</code> <code>?</code></h2>
+<p>You can use the logical and bit-relation to test numbers. Any non-zero value passes.</p>
+<pre><code>s: ( _~number _0&amp;1 ) Your number is odd.</code></pre>
+<p><code>?</code> can be used in two ways. As a comparison operator, it allows you to see if the item on the left side is a member of a set (or JSON array) on the right. E.g.</p>
+<pre><code>u: ( _~propername &#39;_0?~bands )</code></pre>
+<p>As a standalone, it allows you to ask if a wildcard or variable is in the sentence. E.g.</p>
+<pre><code>u: ( _1? )
+u: ( $bot? )</code></pre>
+<p>Note that when <code>_1</code> is a normal word, that is simple for CS to handle. If <code>_1</code> is a phrase, then generally CS cannot match it. This is because for phrases, CS needs to know in advance that a phrase can be matched.</p>
+<p>If you put <em>take a seat</em> as a keyword in a concept or topic or pattern, that phrase is stored in the dictionary and marked as a pattern phrase, meaning if the phrase is ever seen in a sentence, it should be noticed and marked so it can be matched in a pattern. But if it is merely in a variable, then the dictionary is unaware of the phrase and so <code>_1?</code> will not work for it.</p>
+<h2 id="comparison-with-c-define-in-dictionarysystem.h">Comparison with C++ #define in <code>dictionarysystem.h</code></h2>
+<p>You can name a constant from that file as the right hand side of a comparison test by prefixing its name with <code>#</code>. E.g.,</p>
+<pre><code>s: ( _~number _0=#NOUN )</code></pre>
+<p>Such constants can be done anywhere, not just in a pattern.</p>
+<h2 id="current-topic">Current Topic <code>~</code></h2>
+<p>Whenever you successfully execute a rule in a topic, that topic becomes a pending topic (if the topic is not declared system or nostay). When you execute a rule, while the rule is obviously in a topic being tested, it is not necessarily a topic that was in use recently.</p>
+<p>You can ask if the system is currently in a topic (meaning was there last volley) via <code>~</code>. if the topic is currently on the pending list, then the system will match the <code>~</code>. E.g.,</p>
+<pre><code>u: ( chocolate ~ ) I love chocolate ice cream.</code></pre>
+<p>The above does not match any use of chocolate, only one where we are already in this topic (like topic: <code>~ice_cream</code>) or we were recently in this topic and are reconsidering it now.</p>
+<p>A useful idiom is <code>[~topicname ~]</code>. This allows you to match if EITHER the user gave keywords of the topic OR you are already in the topic. So:</p>
+<pre><code>u: ( &lt;&lt; chocolate [~ice_cream ~] &gt;&gt; )</code></pre>
+<p>would match if you only said <em>chocolate</em> while inside the topic, or if you said <em>chocolate ice cream</em> while outside the topic.</p>
+<h2 id="prefix-wildcard-spelling-and-postfix-wildcard-spelling">Prefix Wildcard Spelling and Postfix Wildcard Spelling</h2>
+<p>Some words you just know people will get wrong, like <em>Schrodinger's cat</em> or <em>Sagittarius</em>.</p>
+<p>You can request a partial match by using an <code>*</code> to represent any number of letters (including 0). For example</p>
+<pre><code>u: ( Sag* ) # This matches &quot;Sagittarius&quot; in a variety of misspellings.
+
+u: ( *tor ) # this matches &quot;reactor&quot;.</code></pre>
+<p>The <code>*</code> can occur in one or more positions and means 0 or more letters match.</p>
+<p>A period can be used to match a single letter (but may not start a wildcardprefix). E.g.,</p>
+<pre><code>u: ( p.t* )</code></pre>
+<p>can match pituitary or merely pit or pat. You cannot use a wildcard on the first letter of the pattern.</p>
+<pre><code>u: ( .p* )</code></pre>
+<p>is not legal because it may not start with a period.</p>
+<h2 id="indirect-pattern-elements">Indirect pattern elements</h2>
+<p>Most patterns are easy to understand because what words they look at is usually staring you in the face.</p>
+<p>With indirection, you can pass patterndata from other topics, at a cost of obscurity. Declaring a macro does this. A <code>^</code> normally means a macro call (if what follows it is arguments in parens), or a macro argument. The contents of the macro argument are used in the pattern in its place. Macro arguments only exist inside of macros. But macros don't let you write rules, only pieces of rules.</p>
+<p>Normally you use a variable directly. <code>$$tmp = nil</code> clears the <code>$$tmp</code> variable, for instance, while <code>u: ( ) $$tmp</code> goes home will output the value into the output stream. The functional user argument lets you pass pattern data from one topic to another.</p>
+<pre><code>s: ( are you a _^$var )</code></pre>
+<p>The contents of <code>$var</code> are used at that point in the pattern. Maybe it is a set being named. Maybe it's a word. You can also do whole expressions, but if you do you will be at risk because you won't have the script compiler protecting you and properly formatting your data. See also Advanced Variables.</p>
+<h2 id="setting-match-position---_3-_3--_3">Setting Match Position - <code>@_3+</code> <code>@_3-</code> <code>@_3</code></h2>
+<p>You can &quot;back up&quot; and continue matching from a prior match position using <code>@</code> followed by a match variable previously set. E.g.</p>
+<pre><code>u: ( _~pronoun * go @_0+ often )</code></pre>
+<p>This matches <em>I often go</em> but not <em>I go</em> Just as <code>&lt;</code> sets the position pointer to the start, <code>@_0+</code> makes the pattern think it just matched that wildcard at that location in the sentence going forward.</p>
+<pre><code>s: ( _is _~she ) # for input: is mother going this sets _0 to is and _1 to mother
+s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
+<p>OK. Setting positional context is really obscure and probably not for you. So why does it exist? It supports shared code for pseudo parsing.</p>
+<p>You can match either forwards or backwards. Normally matching is always done forwards. But you can set the direction of matching at the same time as you set a position. Forward matching is <code>@_n+</code> and backward matching is <code>@_n-</code>.</p>
+<p>Note when using backwards matching, <code>&lt;</code> and <code>&gt;</code> flip meanings. <code>&gt;</code> means start at the end (since you are moving backwards) and <code>&lt;</code> means confirm we are at start.</p>
+<p><code>@_3</code> is a special positional matching called an anchor. It not only makes the position that given and matching forward thereafter, but it also acts as an item that must itself be matched.</p>
+<p>E.g., for this pattern <code>( @_3 is my @_4 life)</code></p>
+<p>The position pointer moves to <code>@_3</code> because as the opening element it can match anywhere in a sentence, just like a word would. But after it matches (example at word 2) then <code>is</code> must be word 3 and <code>my</code> must be word 4 and <code>@_4</code> must start at word 5 and after it completes then <code>life</code> must be the next word. Whereas <code>(&lt; @_3 is)</code> implies that <code>@_3</code> is at position 1, since <code>&lt;</code> says this is sentence start.</p>
+<h2 id="backward-wildcards">Backward Wildcards</h2>
+<p>You can request n words before the current position using <code>*-n</code>. For example</p>
+<pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
+<h2 id="gory-details-about-strings">Gory details about strings</h2>
+<p>'Strings in Output'</p>
+<p>A double quoted string in output retains its quotes.</p>
+<pre><code>u: () I love &quot;rabbits&quot;</code></pre>
+<p>will print that out literally, including the double quotes.</p>
+<p>And you cannot run the string across multiple lines.</p>
+<p>An active string interprets variable references inside. It does not show the containing quotes around the whole thing. And it can be extended across multiple lines (treating line breaks as a single space in the string created).</p>
+<pre><code>u: ( I &quot;take charge&quot; ) OK.</code></pre>
+<p>When you use &quot;take charge&quot; it can match taking charges, take charge, etc. When you use <em>&quot;taking charge&quot;</em> it can only match that, not <em>&quot;taking charges&quot;</em>.</p>
+<p>If all words in the string are canonical, it can cover all forms. If any are not, it can only literally match.</p>
+<p>The quote notation is typically used in several situations...</p>
+<ul>
+<li>you are matching a recognized phrase so quoting it emphasizes that</li>
+<li>what you are matching contains embedded punctuation and you don't want to think</li>
+</ul>
+<p>About how to tokenize it e.g., <em>&quot;Mrs. Watson's&quot;</em> -- is the period part of Mrs, is the <code>'</code> part of <em>Watson</em>, etc. Easier just to use quotes and let the system handle it.</p>
+<ul>
+<li>You want to use a phrase inside <code>[]</code> or <code>{}</code> choices. Like <code>[ like live &quot;really enjoy&quot; ]</code></li>
+</ul>
+<p>In actuality, when you quote something, the system generates a correctly tokenized set of words and joins them with underscores into a single word. There is no real difference between <em>&quot;go back&quot;</em> and <em>go_back</em> in a pattern.</p>
+<p>But compared to just listing the words in sequence in your pattern, a quoted expression cannot handle optional choices of words. You can't write <code>go {really almost} back</code> where that can match <em>go back</em> or <em>go almost back</em>.</p>
+<p>So there is that limitation when using a string inside <code>[ ]</code> or <code>{ }</code>. But, one can write a pattern for that. While <code>[ ]</code> means a choice of words and <code>{ }</code> means a choice of optional words, <code>( )</code> means these things in sequence. So you could write:</p>
+<pre><code>u: ( [ next before (go {almost really} back) ] )</code></pre>
+<p>and that will be a more complex pattern. One almost never has a real use for that capability, but you use <code>( )</code> notation all the time, of course. In fact, all rules have an implied <code>&lt; *</code> in front of the <code>()</code>.</p>
+<p>That's what allows them to find a sequence of words starting anywhere in the input. But when you nest <code>( )</code> inside, unless you write <code>&lt; *</code> yourself, you are committed to remaining in the sequence set up.</p>
+<p>As a side note, the quoted expression is faster to match than the <code>( )</code> one. That's because the cost of matching is linear in the number of items to test. And a quoted expression (or the <code>_</code> equivalent) is a single item, whereas ( take charge) is 4 items.</p>
+<p>So the first rule will below will match faster than the second rule:</p>
+<pre><code>u: ( &quot;I love you today when&quot; )
+
+u: ( I love you today when )</code></pre>
+<p>But quoted expressions only work up to 5 words in the expression (one rarely has a need for more) whereas <code>()</code> notation takes any number. And using quotes when it isn't a common phrase is obscure and not worth doing.</p>
+<h2 id="generalizing-a-pattern-word">Generalizing a pattern word</h2>
+<p>When you want to generalize a word, a handy thing to do is type :concepts word and see what concepts it belongs to, picking a concept that most broadly expresses your meaning.</p>
+<p>The system will show you both concepts and topics that encompass the word. Because topics are more unreliable (contain or may in the future contain words not appropriate to your generalization, topics are always shown a <code>T~</code> rather than the mere <code>~name</code>.</p>
+<h2 id="the-deep-view-of-patterns">The deep view of patterns</h2>
+<p>You normally think of the pattern matcher as matching words from the sentence. It doesn't. It matches marks. A mark is an arbitrary text string that can be associated with a sentence location. The actual words (but not necessarily the actual case you use) are just marks placed on the actual locations in the sentence where the words exist.</p>
+<p>The canonical forms of those words are also such marks. As are the concept set names and topic names which have those words as keywords. And all parser determined pos-tag and parser roles of words.</p>
+<p>It gets interesting because marks can also cover a sequential range of locations. That's how the system detects phrases as keywords, idioms from the parser like I am a little bit crazy (where a little bit is an adverb covering 3 sentence locations) and contiguous phrasal verbs.</p>
+<p>And there are functions you can call to set or erase marks on your own (<code>^mark</code> and <code>^unmark</code>).</p>
+<p>Pattern matching involves looking at tokens while having a current sentence location index. Unless you are using a wildcard, your tokens must occur in contiguous order to match. As they match, the current sentence location is updated. But not necessarily updated to the next adjacent location. It will depend on the length of the mark being matched.</p>
+<p>So your token might be <code>~adverb</code> but that may match a multiple-word sequence, so the location index will be updated to the end of that index.</p>
+<p>And you can play with the location index itself, setting it to the location of a previously matched <code>_</code> variable and setting whether matching should proceed forwards or backwards through the sentence. Really, the actual capabilities of pattern matching are quite outrageous.</p>
+<p>Pattern matching operates token by token. If you have a pattern:</p>
+<pre><code>u: ( {blue} sky is blue )</code></pre>
+<p>and you input <em>the sky is blue</em>, this pattern will fail, even though the initial <code>{blue}</code> is optional.</p>
+<p>Optional should not lead a pattern, it is used for word alignment. The first blue is found and so the system locks itself at that point. It then looks to see if the next word is sky. It's not. Pattern fails.</p>
+<p>It then unlocks itself and allows trying to match from the start of the pattern one later. So <code>{blue}</code> matches blue at the end of the sentence. It locks itself. The next word is not sky. Pattern fails. There is nothing left to try.</p>
+<h2 id="interesting-thing-about-match-variables">Interesting thing about match variables</h2>
+<p>Unlike user variables, which are saved with users, match variables (like <code>_0</code>) are global to ChatScript.</p>
+<p>They are initialized on startup and never destroyed. They are overwritten by a rule that forces a match value onto them and by things like</p>
+<pre><code>_0 = ^burst(...)</code></pre>
+<p>or</p>
+<pre><code>_3 = ^first(@0all)</code></pre>
+<p>And those may overrun the needed number of variables by 1 to indicate the end of a sequence. But this means typically <code>_10</code> and above are easily available as permanent variables that can hold values across all users etc.</p>
+<p>This might be handy in a server context and is definitely handy in <code>:document</code> mode where user memory can be very transient. Of course remembering what <code>_10</code> means as a holding variable is harder, unlike the ones bound to matches from input. So you can use</p>
+<pre><code>rename: _bettername _12</code></pre>
+<p>in a script before any uses of <code>_bettername</code>, which now mean <code>_12</code>.</p>
+<p>Also, although whenever you start to execute a rule's pattern the match variables start memorizing at _0, you can change that. All you have to do is something like this:</p>
+<pre><code>u: (^eval(_9 = null)  I love _~meat)</code></pre>
+<p>The act of setting _9 to a value automatically makes the system set the next variable, so future memorizations start at _10. Equivalently, there is <code>^setwildcardindex</code></p>
+<pre><code>u: (^setwildcardindex(_10 )  I love _~meat)</code></pre>
+<h2 id="precautionary-note-about-and-pattern-matching-retries">Precautionary note about <code>[</code> <code>]</code> and pattern matching retries</h2>
+<p>When you list a collection of words or concepts within a <code>[ ]</code> in a pattern, the system does not try each in turn to find the earliest match. Instead it tries each in turn until it finds a match. Then <code>[ ]</code> quits. So if you have a pattern like:</p>
+<pre><code>u: ( the * [bear raccoon] ate )</code></pre>
+<p>and an input like <em>the raccoon at the bear</em>, then matching would proceed as</p>
+<ul>
+<li>find the word the (position 1 in sentence)</li>
+<li>try to find bear starting at position 2 – found at position 5</li>
+<li>try to find the word ate starting at position 6 – fails</li>
+</ul>
+<p>The system is allowed to backtrack and see if the first match can be made later. So it will try to find the later than position one. It would succeed in relocating it to position 4.</p>
+<p>It would then try to find the word bear afterwards, and succeed at position 5. It would then try to find the word ate after that and fail. It would retry trying to reset the pattern to find the after position 4 and fail. The match fails.</p>
+<p>You can fix this ordering problem by making a concept set of the contents of the <code>[ ]</code>, and replacing the <code>[ ]</code> with the name of the concept set.</p>
+<p>A concept set being matched in a pattern will always find the earliest matching word. The number of elements in a concept set is immaterial both to the order of finding things and to the speed of matching.</p>
+<h1 id="advanced-output">ADVANCED OUTPUT</h1>
+<h2 id="committed-output">Committed Output</h2>
+<p>Simple output puts words into the output stream, a magical place that queues up each word you write in a rule output. What I didn't tell you before was that if the rule fails along the way, an incomplete stream is canceled and says nothing to the user. For example,</p>
+<pre><code>t: I love this rule. ^fail(RULE)</code></pre>
+<p>Processing the above gambits successively puts the words <em>I</em>, <em>love</em>, <em>this</em>, <em>rule</em>, <em>.</em> into the output stream of that rule.</p>
+<p>If somewhere along the way that rule fails (in this case by the call at the end), the stream is discarded. If the rule completes and this is a top level rule, the stream is converted into a line of output and stored in the responses list.</p>
+<p>When the system is finished processing all rules, it will display the responses list to the user, in the order they were generated (unless you used <code>^preprint</code> or <code>^insertprint</code> to generate responses in a different order). If the output was destined for storing on a variable or becoming the argument to a function or macro, then the output stream is stored in the appropriate place instead.</p>
+<p>I also didn't tell you that the system monitors what it says, and won't repeat itself (even if from a different rule) within the last 20 outputs. So if, when converting the output stream into a response to go in the responses list, the system finds it already had such a response sent to the user in some recently earlier volley, the output is also discarded and the rule &quot;fails&quot;.</p>
+<p>Actually, it's a bit more complicated than that. Let's imagine a stream is being built up. And then suddenly the rule calls another rule (<code>^reuse</code>, <code>^gambit</code>, <code>^respond</code>). What happens? E.g.</p>
+<pre><code>u: ( some test ) I like fruit and vegetables. ^reuse(COMMON) And so do you.</code></pre>
+<p>What happens is this- when the system detects the transfer of control (the <code>^reuse</code> call), if there is output pending it is finished off (committed) and packaged for the user. The current stream is cleared, and the rule is erased (if allowed to be). Then the <code>^reuse()</code> happens. Even if it fails, this rule has produced output and been erased.</p>
+<p>Assuming the reuse doesn't fail, it will have sent whatever it wants into the stream and been packaged up for the user. The rest of the message for this rule now goes into the output stream <em>and so do you</em> and then that too is finished off and packaged for the user. The rule is erased because it has output in the stream when it ends (but it was already erased so it doesn't matter).</p>
+<p>So, output does two things. It queues up tokens to send to the user, which may be discarded if the rule ultimately fails. And it can call out to various functions. Things those functions may do are permanent, not undone if the rule later fails.</p>
+<p>There is a system variable <code>%response</code> which will tell you the number of committed responses. Some code (like Harry's control script) do something like this:</p>
+<pre><code>$_response = %response
+...
+if ($_response == %response) {...}</code></pre>
+<p>which is intented to mean if no response has been generated so far, try the code in the ^if. But you have to be wary of the pending buffer. Calling some code, even if it fails, may commit the pending buffer. If there is a chance you will have pending output, the correct and safe way to code this is:</p>
+<pre><code>^flushoutput()
+$_response = %response
+...
+if ($_response == %response) {...}</code></pre>
+<p><code>^flushoutput</code> will commit pending output.</p>
+<h2 id="output-cannot-have-rules-in-it">Output cannot have rules in it</h2>
+<p>Output script cannot emed another rule inside it. Output is executed during the current volley whereas rules (like rejoinder rules) may be executed in a different volley. Therefore this is illegal:</p>
+<pre><code>u: GREETING ( ~emohello )
+   if ($username)
+   {
+     Hi  $username!
+   }
+   else
+   {
+     I don&#39;t believe we&#39;ve met, what&#39;s your name?
+     a: (_*) So your name is &#39;_0?
+   }</code></pre>
+<p>and needs to be written like this:</p>
+<pre><code>u: GREETING ( ~emohello )
+   if ($username)
+   {
+     Hi  $username!
+   }
+   else
+   {
+     I don&#39;t believe we&#39;ve met, what&#39;s your name?
+   }
+  a: (_*) So your name is &#39;_0?</code></pre>
+<p>Of course you don't want the rejoinder triggered if you can from the <code>if</code> side, so you'd also need to add a call to <code>^setnorejoinder</code> from inside it.</p>
+<h2 id="formatted-double-quotes-activeformat-string">Formatted double quotes (Active/Format String)</h2>
+<p>Because you can intermix program script with ordinary output words, ChatScript normally autoformats output code. But programming languages allow you to control your output with format strings and ChatScript is no exception.</p>
+<p>In the case of ChatScript, the active string <code>^&quot;xxx&quot;</code> string is a format string. The system will remove the <code>^</code> and the quotes and put it out exactly as you have it, except, it will substitute variables (which you learn about shortly) with their values and it will accept <code>[ ]</code> <code>[ ]</code> choice blocks. And will allow function calls. You can't do assignment statements or loops or if statements.</p>
+<pre><code>t: ^&quot;I like you.&quot;</code></pre>
+<p>puts out I like you.</p>
+<p>When you want special characters in the format string like <code>&quot;</code>, you need to backslash them, which the format string removes when it executes. For example:</p>
+<pre><code>u: () $tmp = [ hi ^&quot;there \&quot;john\&quot;&quot; ]</code></pre>
+<p>the quote inside the format string need protecting using <code>\&quot;</code>.</p>
+<p>You can write <code>\n</code>, <code>\r</code>, <code>\t</code> and those will be translated into newline, carriage return, and tab. However, you should avoid <code>\r</code> because on LINUX it is not needed and in Windows the system will change <code>\n</code> to carriage-return and newline.</p>
+<p>Format strings evaluate themselves as soon as they can. If you write:</p>
+<pre><code>u: () $tmp = ^&quot; This is $var output&quot;</code></pre>
+<p>then <code>$tmp</code> will be set to the result of evaluating the format string. Similarly, if you write:</p>
+<pre><code>u: () $tmp = ^myfunc(^&quot; This is $var output&quot;)</code></pre>
+<p>then the format string is evaluated before being sent to <code>^myfunc</code>.</p>
+<p>You can continue a format string across multiple source lines. It will always have a single space representing the line change, regardless of how many spaces were before or after the line break. E.g</p>
+<pre><code>^&quot;this is my life&quot; # -&gt; ^&quot;this is my life&quot;</code></pre>
+<p>regardless of whether there were no spaces after is or 100 spaces after is. You may not have comments at the ends of such lines (they would be absorbed into the string).</p>
+<p>While an active string tries to detect and substitute variables, it can't succeed if you have letters immediately after the variable name. E.g.</p>
+<pre><code>^&quot;T$$time_computed_hrs:$$time_computed_mins:$$time_computed_secsZ&quot;</code></pre>
+<p>The Z at the end of the <code>$$time_computed_secs</code> will make that variable hard to detect, since it will look like the variable is <code>$$time_computed_secsZ</code>.</p>
+<p>You can fix that by escaping the next character not part of the name. <code>$$time_computed_secs\Z</code>.</p>
+<h2 id="json-active-strings">Json Active Strings</h2>
+<p><code>^' xxxxxx '</code> is another kind of active string. It is intended for writing easy JSON, because you don't have to escape doublequotes unless json would need to.</p>
+<p>It will converting <code>\n</code>,<code>\t</code>, <code>\r</code> into their control characters, convert <code>\\</code> into just <code>\</code>, and leave all other characters alone. Eg</p>
+<pre><code>^&#39;{ &quot;test&quot; : &quot;my \&quot;value\&quot; \x&quot; }</code></pre>
+<p>will become</p>
+<pre><code>^&#39;{ &quot;test&quot; : &quot;my \&quot;value\&quot; \x&quot; }</code></pre>
+<h2 id="functional-strings">Functional Strings</h2>
+<p>Whenever format strings are placed in tables, they become a slightly different flavor, called functional strings. They are like regular output- they are literally output script.</p>
+<p>Formatting is automatic and you get to make them do any kind of executable thing, as though you were staring at actual output script. So you lose the ability to control spacing, but gain full other output execution abilities.</p>
+<p>They have to be different because there is no user context when compiling a table. As a consequence, if you have table code that looks like this:</p>
+<pre><code>^createfact( x y ^&quot; This is $var output&quot;)</code></pre>
+<p>the functional string does NOT evaluate itself before going to createfact. It gets stored as its original self.</p>
+<p>We will now learn functions that can be called that might fail or have interesting other effects. And some control constructs.</p>
+<h2 id="loop-construct-loop-or-loop">Loop Construct – loop or ^loop</h2>
+<p>Loop allows you to repeat script. It takes an optional argument within parens, which is how many times to loop. It executes the code within <code>{ }</code> until the loop count expires or until a <code>FAIL</code> or <code>END</code> code of some kind is issued.</p>
+<ul>
+<li><p><code>End(loop)</code> signals merely the end of the loop, not really the rule, and will not cancel any pending output in the output stream.</p></li>
+<li><p><code>Fail(LOOP)</code> will terminate both loop and rule enclosing. All other return codes have their usual effect.</p></li>
+</ul>
+<p><strong>Deprecated is <code>fail(rule)</code> and <code>end(rule)</code> which merely terminated the loop.</strong></p>
+<pre><code>t: Hello. ^loop (5) { me }
+
+t: ^loop () { This is forever, not. end(LOOP)}</code></pre>
+<p>The first gambit prints <em>Hello. me me me me me</em>. The second loop would print forever, but actually prints out This is forever, not. because after starting output, the loop is terminated.</p>
+<p>Loop also has a built in limit of 1000 so it will never run forever. You can override this if you define <code>$cs_looplimit</code> to have some value you prefer.</p>
+<h2 id="loop-n"><code>^loop</code>( n )</h2>
+<p>Loop can be given a count. This can be either a number, or you can use a factset id to loop through each item of the factset via</p>
+<p>^loop (<span class="citation">@0</span>)</p>
+<h2 id="if-construct---if-or-if">If Construct - <code>if</code> or <code>^if</code></h2>
+<p>The if allows you to conditionally execute blocks of script. The full syntax is:</p>
+<pre><code>if ( test1 ) 
+    { 
+      script1 
+    } 
+else if ( test2 ) 
+    { 
+      script2 
+    } 
+# ...
+else 
+    { 
+      script3 
+    }</code></pre>
+<p>You can omit the else if section, having just if and else, and you can omit the else section, having just if or if and else if. You may have any number of else if sections. The test condition can be:</p>
+<ul>
+<li>A variable – if it is defined, the test passes</li>
+<li><code>!</code> variable – if it is not defined, the test passes (same as relation variable <code>==</code> null)</li>
+<li>A function call – if it doesn't fail and doesn't return the values 0 or false, it passes</li>
+<li>A relation – one of <code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>?</code> <code>!?</code></li>
+</ul>
+<p>For the purposes of numeric comparison <code>(&lt; &lt;= &gt; &gt;=)</code> a null value compared against a number will be considers as 0.</p>
+<p>You may have a series of test conditions separated by <code>AND</code> and <code>OR</code>. The failure of the test condition can be any end or fail code. It does not affect outside the condition; it merely controls which branch of the if gets taken.</p>
+<pre><code>if ($var) { } # if $var has a value
+
+if ($var == 5 and foo(3)) {} # if $var is 5 and foo(3) doesn&#39;t fail or return 0 or false</code></pre>
+<p>Comparison tests between two text strings is case insensitive.</p>
+<p>A word of warning on the <code>?</code> (in set) relation test. It only works for actual concepts that have enumerated values. A number of sets marked by the engine for patterns do not consist of enumerated members.</p>
+<p>All of the pos-tagging and parse-related concepts are like this, so you cannot use <code>~number</code>, <code>~noun</code>, <code>~verb</code>, etc here.</p>
+<p>It will work if you compare a match variable derived from input, because that has access to knowing all the marked concepts of that particular word.</p>
+<h2 id="pattern-if">Pattern If</h2>
+<p>An alternative If test condition is the pattern If. You write the test using the word pattern at the start, and then you write exactly what you can write when you write a rule pattern. Eg.</p>
+<pre><code>if (pattern bingo _*1 ~helo) { ... }</code></pre>
+<p>This gives you the full power of the pattern matcher, including the ability to match and memorize from the current input.</p>
+<h2 id="quoting">Quoting</h2>
+<p>Normally output evaluates things it sees. This includes <code>$user</code> variables, which print out their value. But if you put quote in front of it, it prints its own name. <code>'$name</code> will print <em>$name</em>.</p>
+<p>The exception to this rule is that internal functions that process their own arguments uniquely can do what they want, and the query function defines <code>'$name</code> to mean use the contents of <code>$name</code>, just don't expand it if it is a concept or topic name as value.</p>
+<p>Similarly, a function variable like <code>^name</code> will pretend it was its content originally. This means if the value was <code>$var</code> then, had $var been there in the output originally, it would have printed out its content. So normally <code>^name</code> will print out the contents of its content. Again, you can suppress with using <code>'^name</code> to force it to only print its content directly.</p>
+<h2 id="outputting-underscores">Outputting underscores</h2>
+<p>Normal English sentences do not contain underscores. Wordnet uses underscores in composite words involving spaces.</p>
+<p>ChatScript, therefore has a special use for underscores internally and if you put underscores in your output text, when they are shipped to the user they are converted to spaces.</p>
+<p>This doesn't apply to internal uses like storing on variables. So normally you cannot output an underscore to a user. But a web address might legitimately contain underscores. So, if you put two underscores in a row, ChatScript will output a single underscore to the user.</p>
+<h2 id="response-controlinput">Response Controlinput</h2>
+<p>Having said that CS automatically changes underscores to spaces, you can alter this and other default response output processing. The variable <code>$cs_response</code> can be set to some combination of values to alter behavior. The default value is</p>
+<pre><code>$cs_response = #RESPONSE_UPPERSTART +
+               #RESPONSE_REMOVESPACEBEFORECOMMA +
+               #RESPONSE_ALTERUNDERSCORES</code></pre>
+<p>which controls automatically up-casing the first letter of output, removing spaces before commas, and converting underscores to spaces (and also removing <code>~</code> from concept names).</p>
+<p>Equivalently</p>
+<pre><code>$cs_response = #ALL_RESPONSES</code></pre>
+<p>which if you want all is what you should use in case new ones are added in the system later.</p>
+<h2 id="output-macros">Output Macros</h2>
+<p>Just as you can write your own common routines (functions) for handling pattern code with patternmacro:, you can do the same for output code.</p>
+<pre><code>Outputmacro: name (^arg1 ^arg2 ...)</code></pre>
+<p>and then your code. Only now you use output script instead of pattern stuff. Again, when calling the macro, arguments are separated with spaces and not commas.</p>
+<p>Whereas most programming language separate their arguments with commas because they are reserved tokens in their language, in ChatScript a comma is a normal word. So you separate arguments to functions just with spaces.</p>
+<pre><code>?: ( hi) ^FiveArgFunction( 1 3 my , word)</code></pre>
+<p>Outputmacros can return a value, just like a normal function. You just dump the text as you would a message to the user.</p>
+<pre><code>outputmacro: ^mymac()
+tested here
+
+TOPIC: ~patterns keep repeat []
+#! what time is it?
+u: ( &lt;&lt; what time &gt;&gt; ) $test = ^mymac() join(ok $test)</code></pre>
+<p>will print <em>oktested here</em>.</p>
+<p>However, it is clearer and cleaner if you are returning data to be stored somewhere else (not to be merely immediately sent to the user), to use <code>^return(&quot;tested here&quot;)</code>. This both creates the result, and ends the function immediately even if other code follows.</p>
+<p><strong>Note - calls to macros use &quot;pass by reference&quot;, so the actual value of the <code>^variable</code> is the name of what was passed in, and it is generally (but not always) evaluated on use.</strong></p>
+<p>You may make references to outputmacros before they are defined, EXCEPT when the Function is directly or indirectly referenced from a table. Tables immediately execute as they are compiled, and you will get an error if a function it tries to use is not defined.</p>
+<h2 id="sharing-function-definitions">Sharing function definitions</h2>
+<p>ChatScript requires that a function be defined before use. When you use that function from multiple files, you may have trouble ordering the files for compilation if you merely name the folder in <code>filesxxx.txt</code> since you cannot guarantee compilation order unless you explicitly name the files. But you can also just put your functions in a top level file and then have your other files in folders, and name it and then them in your <code>filesxxx.txt</code> file.</p>
+<h2 id="save-restore-locals">Save-Restore locals</h2>
+<p><code>$$xxx</code> and <code>$xxx</code> variables are global, merely transient and permanent.</p>
+<p>Function variables like <code>^myval</code> are restricted in use to the function declaring them, so they are sort of local variables, but they are stand-ins for the arguments passed, which means if you write indirectly the function variable you are changing something above you as well.</p>
+<p>Fortunately there are local variables, <code>$_xxx</code>.</p>
+<p>Without local variables, it is easy to accidentally reuse the same name of a transient variable that you used above you in the call chain. Imagine this:</p>
+<pre><code>outputmacro: ^mycall()
+    $$counter = 0
+    loop()
+        {
+        # ...
+        $$counter += 1
+        }</code></pre>
+<p>and this:</p>
+<pre><code>$$counter = 0
+loop()
+    {
+    $$tmp = ^mycall()
+    # ...
+    $$counter += 1
+    }</code></pre>
+<p>You have two areas using the same counter variable and the inner one destroys the outer one. Here is where save-restore variables come in.</p>
+<p>You can either use local variables, when you don't need to pass information between places except via function args. Or you can use save-restore variables.</p>
+<p>You can declare a list of variables whose contents will be memorized on entry to a function or a topic, and restored to their former values on exit.<br />
+You can safely write all over them within the function or topic, without harming a caller. And they are still global, in that they are visible to anyone your function calls.</p>
+<p>Of course if you intend to pass back data in a global variable, don't put it in your save-restore list.</p>
+<pre><code>Outputmacro: ^myfunc(^arg1)($$tmp  $global  $$tmp2) # $$bestscore exported
+# code
+
+Topic: ~mytopic(keyword1 keyword2) ($$tmp $$global $$tmp2)
+# rules</code></pre>
+<p>You can protect both transient and permanent variables, but usually you would just protect all of the transient variables you assign values to inside your function or topic. The comment is what I would say if I intended a variable be returned outside in addition to a primary return value. That way anyone reading the code would know $$bestscore was not accidentally left off the save-restore list.</p>
+<p>And whenever you can, prefer local variables because then you don't have to remember to add them to the protected save-restore list. ChatScript does that automatically.</p>
+<pre><code>Outputmacro: ^myfunc(^arg1)($$tmp $global $$tmp2) # $$bestscore exported ... code</code></pre>
+<p>You can protect both transient and permanent variables, but usually you would just protect all of the transient variables you assign values to inside your function.</p>
+<p>The comment is what I would say if I intended a local variable be returned outside in addition to a primary return value. That way anyone reading the code would know <code>$$bestscore</code> was not accidentally left off the save-restore list.</p>
+<pre><code>dualmacro: name(...) </code></pre>
+<p>is exactly like <code>outputmacro:</code>, but the function can be called on then side or on the output side. Typically this makes most sense for a function that performs a fixed <code>^query</code> which you can see if it fails in pattern side or as a test on the output side or inside an if condition.</p>
+<p>Output macros can be passed system function names and output macro names, allowing you to indirectly call things. E.g.</p>
+<pre><code>outputmacro: ^indirect(^fn ^value)
+    $$tmp = ^fn(^value)</code></pre>
+<p>The above will evaluate <code>^fn</code>, and if it finds that it is a function name, will use that in a call. The only tricky part is creating the name of the function to call in the first place.</p>
+<p>If you just write a function name with ^ in output, the compiler will complain about your call. So you have to synthesize the name somehow. Here are two ways:</p>
+<pre><code>outputmacro: ^mycall()
+    $$tmpfn = ^join( ^&quot;\^&quot; func)
+    ^indirect($$tmpfn 34)
+    ^indirect( ^&quot;\^func&quot; 34)</code></pre>
+<p>You can also store function names on user and match variables and then call them. E.g.</p>
+<pre><code>$$tmp = ^&quot;\^func&quot;
+$$tmp(34)</code></pre>
+<p>You can declare an outputmacro to accept a variable number of arguments. You define the macro with the maximum and then put &quot;variable&quot; before the argument list. All missing arguments will be set to null on the call.</p>
+<pre><code>outputmacro: ^myfn variable (^arg1 ^arg2 ^arg3 ^arg4)</code></pre>
+<h2 id="output-macros-vs-reuse">Output Macros vs <code>^reuse()</code></h2>
+<p>An outputmacro is a block of code, treated as a kind of function. But another way to make a block of code is create a rule and <code>^reuse</code> it. E.g.</p>
+<pre><code>s: MYCODE ( ? ) here is a block of code that goes on and on</code></pre>
+<p>Code you write in an output macro could be code you write on the output side of a <code>^reused</code> rule. Notice that this rule can never trigger on its own (an input sentence cannot be a statement and a question simultaneously).</p>
+<p>So what are the distinctions between the two? The distinction is not in tracing. You can trace a single rule or an outputmacro equally. And both return to their caller when normally complete.</p>
+<p>An advantage for outputmacros is that you can pass them arguments, making them more easily tailorable. To do the same with a rule, you have to store values on globals, which is more inconvenient, harder to understand, and subject to the risk that you accidentally reuse the same variable in something the rule calls. Similarly outputmacros can return a value, while you have to use globals to return a value from a rule.</p>
+<p>An advantage for rules is that they can have rejoinders. So if the rule generates output, it may also have rejoinders to react to it. Another advantage for rules is that you can terminate their execution early <code>^end(RULE)</code> without impacting the calling rule. There is no such ability in an outputmacro, so you'd have to organize if statements to manage early termination effects.</p>
+<h1 id="system-functions-1">System Functions</h1>
+<p>There are many system functions to perform specific tasks. These are enumerated in the <a href="ChatScript-System-Functions-Manual.html">ChatScript System Functions Manual</a> and the <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a>.</p>
+<h2 id="randomized-output-revisited">Randomized Output Revisited <code>[ ]</code></h2>
+<p>Remember this construct:</p>
+<pre><code>?: ( hi ) [How are you feeling?][Why are you here?]</code></pre>
+<p>These choices are picked equally. But maybe you don't want some choices. You can put an existence test of a variable at the start of a choice to restrict it.</p>
+<pre><code>?: ( hi ) [$ready How are you feeling?][Why are you here?]</code></pre>
+<p>In the above, the first choice is controlled by <code>$ready</code>. If it is undefined, the choice cannot be used. You can also use negative tests.</p>
+<pre><code>?: ( hi ) [!$ready this is a][This is b]</code></pre>
+<p>In the above only if <code>$ready</code> is undefined can you say <em>this is a</em></p>
+<p>If you want the variable to be a lead item in the actual output of a choice, you can do this:</p>
+<pre><code>?: (hi) [^eval($ready) is part of the output]</code></pre>
+<p>or the more clunky:</p>
+<pre><code>?: ( hi ) _0 = $ready [ _0 is part of the output]</code></pre>
+<p>Choices lead to issues when you want rejoinders. You can label rejoinder branches of choices. Those without labels default to <code>a:</code></p>
+<pre><code>?: ( what meat ) [c: rabbit ] [e: steak] [ h: lamb] [pork]
+    a: this rejoinders pork
+    c: this rejoinders rabbit
+    e: this rejoinders steak
+    f: this rejoinders on e:
+    h: this rejoinders lamb</code></pre>
+<p>In the above, pork rejoinders at <code>a:</code>, while the other choices name their rejoinder value. Each new starting label needs to be at least one higher than the rejoinder before it. That allows the system to detect rejoinders on rejoinders from choice branches.</p>
+<p>If you do both variable control and rejoinder label, the control comes first and label after you have successful control.</p>
+<pre><code>?: ( what meat ) [$ready c: rabbit ] [e: steak] [ g: lamb] [pork]</code></pre>
+<h1 id="advanced-variables">Advanced Variables</h1>
+<h2 id="local-variables">Local Variables</h2>
+<p>User variables <code>$xxx</code> and <code>$$xxx</code> are all global in scope.</p>
+<p>Anyone can access them to get or set them.</p>
+<p>But if you want to write safe code, you also want local variables that no one can access and ruin on you. <code>$_xxx</code> are local variables.</p>
+<p>When you use them inside an outputmacro or a topic, they only have meaning and access inside that code. No other code can see them. They can use the same variable name, and get their own local instance.</p>
+<p>Local variables always start out initialized to null. If you pass them to an outputmacro, unlike normal variables which are passed by reference (hence can be written upon if you use Indirection Variables below), local variables are passed by value. Their content is passed, so no one can touch the variable itself.</p>
+<p>Local variables used in a topic all remain accessible while in that topic. If you do <code>^gambit(~topic)</code> and then inside you do <code>^gambit(~)</code> or <code>^reuse(MYLABEL)</code>, you have not left the topic and so the variables remain intact. But if you call outside the topic, then a deeper call to the original topic sees new variables (just as a recursive call to an outputmacro would).</p>
+<p>Hence <code>^gambit(~mytopic)</code> which calls <code>^reuse(~histopic.label)</code> which then calls <code>^gambit(~mytopic)</code> will get two different instances of <code>~mytopic</code> and the variables separately handled by each.</p>
+<p>By definition, local variables are transient and do not get saved in a user's topic file.</p>
+<h2 id="indirection-variables">Indirection Variables</h2>
+<p>You can, of course, merely refer to a variable in a script to set or get its value. But suppose you wanted to associate a variable with every topic you have.</p>
+<p>Maybe when the user says <em>I'm bored</em> you want to leave a topic and not reopen it yourself for any near future (say 200 volleys).<br />
+In that case, you don't have a variable but you need to create one dynamically.</p>
+<pre><code>$$topicname = substitute(character %topic ~ &quot;&quot;)</code></pre>
+<p>The above gives you a topic name without the <code>~</code>. Pretend the current topic is <code>~washing</code>. Then you can create a dynamic variable name simply by using</p>
+<pre><code>$$tmp = ^join($ $$topicname)</code></pre>
+<p>which would create the name $washing.</p>
+<p>Now suppose you wanted to set that variable to some number representing the turn after which you might return.</p>
+<pre><code>$$tmp = 25</code></pre>
+<p>doesn't work. It wipes out the <span class="math inline">$washing value of `$</span>$tmp<code>and replaces it with</code>25`.</p>
+<p>You can set indirectly through <code>$$tmp</code> using function notation <code>^$$tmp</code> The above says take the value of <code>$$tmp</code>, treat it as the name of a variable, and assign into it. Which means it does the equivalent of</p>
+<pre><code>$washing = 25</code></pre>
+<p>If you want to an indirect value back, you can't do:</p>
+<pre><code>$$val = $$tmp</code></pre>
+<p>because that just passes the name of <code>$washing</code> over to <code>$$val</code>. Instead you do indirection again:</p>
+<pre><code>$$val = ^$$tmp # $$val becomes 25</code></pre>
+<p>Indirection works with values that are user variables and with values that are match variables or quoted match variables.</p>
+<p>Many routines automatically evaluate a variable when using it as an argument, like <code>^gambit($$tmp)</code>. But if you want the value of the variable it represents, then you need to evaluate it another time.</p>
+<pre><code>$$tmp1 = ^$$tmp
+^gambit($$tmp1)</code></pre>
+<p>Equivalently <code>^gambit(^$$tmp1)</code> is legal.</p>
+<p>See also Indirect Pattern Elements in <a href="ChatScript-Pattern-Redux.html">ChatScript Pattern Redux</a> manual.</p>
+<h2 id="bot-variables">Bot variables</h2>
+<p>You can also define variables that are &quot;owned&quot; by the bot. Any variables you create as part of layer 0 or layer 1 are always resident. As are any variables you define on the command line starting ChatScript. You can see them and even change them during a volley, but they will always refresh back to their original values at the start of the next volley.</p>
+<h2 id="assigning-match-variables-to-user-variables">Assigning match variables to user variables</h2>
+<pre><code>$$stuff = _0</code></pre>
+<p>Match variables hold 3 pieces of data</p>
+<ul>
+<li>original word(s)</li>
+<li>canonical word(s)</li>
+<li>position, range location of the word(s).</li>
+</ul>
+<p>User variables only have a single piece of data. So onmassignment you lose 2 of the 3 pieces from the match variable. You can choose which words (original or canonical) when you assign.</p>
+<pre><code>$$stuff = &#39;_0 - original words</code></pre>
+<p>You can store positional data onto a different variable using <code>^position(start _0)</code> or</p>
+<pre><code>^position(end _0).
+_0 = $$stuff</code></pre>
+<p>When you assign onto a match variable from a user variable, you make both original and canonical values of the match variable the same, and the positional data is set to 0.</p>
+<pre><code>_0 = _10</code></pre>
+<p>This is a transfer from one match variable to another, so no data is lost</p>
+<h2 id="json-dotted-notation-for-variables">JSON dotted notation for variables</h2>
+<p>If a variable holds a JSON object value, you can directly set and get from fields of that object using dotted notation.</p>
+<p>This can be a fixed static fieldname or a variable value- <code>$myvar.$myfield</code> is legal.</p>
+<p>Dotted notation is cleaner and faster than <code>^jsonpath</code> and <code>jsonobjectinsert</code> and for get, has the advantage that it never fails, it only returns null if it can't find the field. On the other hand, assignment fails if the path does not contain a json object at some level.</p>
+<pre><code>$x = $$$obj.name.value.data.side 
+$$$obj.name.value.data.side = 7</code></pre>
+<p>Assigning <code>null</code> will remove a JSON key entirely. Assigning <code>&quot;&quot;</code> <code>^&quot;&quot;</code> will set the field to the JSON literal <code>null</code>.</p>
+<h2 id="fact-dotted-notation-for-variables">Fact dotted notation for variables</h2>
+<p>If <code>$$f</code> holds a fact id, then</p>
+<pre><code>$$f.subject
+$$f.verb
+$$f.object</code></pre>
+<p>will return those components. You may NOT, however, assign into them.</p>
+<h1 id="out-of-band-communication">Out of band Communication</h1>
+<p>ChatScript can neither see nor act, but it can interact with systems that do. The convention is that out-of-band information occurs at the start of input or output, and is encased in <code>[ ]</code>.</p>
+<p>ChatScript does not attempt to postag and parse any input sentence which begins with <code>[</code> and has a closing <code>]</code>. It will automatically not try to spellcheck that part or perform any kind of merge (date, number, propername). In fact, the <code>[...]</code> will be split off into its own sentence. You can use normal CS rules to detect and react to incoming oob messaging. E.g, input like this</p>
+<pre><code>[ speed=10 rate: 50 ] User said this</code></pre>
+<p>could be processed by your script. Although the 2 data oob items are inconsistently shown, the protocol you use is entirely up to you within the <code>[]</code> area.</p>
+<p>Here is a sample pattern to catch oob data.</p>
+<pre><code>u: ( &lt; \[ * speed _*1 * \] ) The speed is _0
+
+u: ( &lt; \[ * rate _*1 * \] ) The rate is _0</code></pre>
+<p>You need <code>*</code> in front of your data when you can have multiple forms of data and you need <code>* \]</code> after your data to insure you don't match words from user input.</p>
+<p>On output you need to do one of these</p>
+<pre><code>u: () \[ oob data \] Here is user message
+
+u: () ^&quot;[oob data] Here is user message</code></pre>
+<p>OOB output needs to be first, which means probably delaying to one of the last things you do on the last sentence of the input, and using <code>^preprint()</code>. E.g.</p>
+<pre><code>u: ( $$outputgesture ) ^preprint( \[ $$outputgesture \] )</code></pre>
+<p>You can hand author gestures directly on your outputs, but then you have to be certain you only output one sentence at a time from your chatbot (lest a gesture command get sandwiched between two output sentence). You also have to be willing to hand author the use of each gesture.</p>
+<p>I prefer to write patterns for common things (like shake head no or nod yes) and have the system automatically generate gestures during postprocessing on its own output.</p>
+<p>The stand-alone engine and the WEBINTERFACE/BETTER scripts automatically handle the following oob outputs:</p>
+<table style="width:89%;">
+<colgroup>
+<col width="19%" />
+<col width="69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>OOB Output</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Callback</strong></td>
+<td>The webpage or stand-alone engine will wait for the designated milliseconds and if the user has not begun typing will send in the oob message [callback] to CS. If user begins typing before the timeout, the callback is cancelled. e.g. <code>[callback=3000]</code> will wait 3 seconds.</td>
+</tr>
+<tr class="even">
+<td><strong>Loopback</strong></td>
+<td>The webpage or stand-alone engine will wait for the designated milliseconds after every output from CS and if the user has not begun typing will send in the oob message [loopback] to CS. If user begins typing before the timeout, the loopback is cancelled for this output only, and will resume counting on the next output. e.g. <code>[loopback=3000]</code> will wait 3 seconds after every output.</td>
+</tr>
+<tr class="odd">
+<td><strong>Alarm</strong></td>
+<td>The webpage or stand-alone engine will wait for the designated milliseconds and then send in the oob message [alarm] to CS. Input typing has no effect. e.g. <code>[alarm=3000]</code> will wait 3 seconds and then send in the alarm. CS can cancel any of these by sending an oob message with a milliseconds of 0. e.g. <code>[loopback=0 callback=0 alarm=0]</code> cancels any pending callbacks into the future.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-callback-functions">System callback functions</h1>
+<h2 id="csboot"><code>^CSBOOT()</code></h2>
+<pre><code>outputmacro: ^CSBOOT()</code></pre>
+<p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users. And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
+<h2 id="cs_reboot"><code>^CS_REBOOT()</code></h2>
+<pre><code>outputmacro: ^CS_REBOOT()</code></pre>
+<p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and Variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the <code>^CS_REBOOT</code> function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
+<h2 id="csshutdown"><code>^CSSHUTDOWN()</code></h2>
+<pre><code>outputmacro: ^CSSHUTDOWN()</code></pre>
+<p>This function, if defined by you, will be executed on shutdown or restart of the ChatScript system.</p>
+<h2 id="cs_topic_enter"><code>^cs_topic_enter()</code></h2>
+<pre><code>outputmacro: ^cs_topic_enter(^topic ^mode)</code></pre>
+<p>When the system begins a topic and this function is defined by you, it will be invoked before the topic is processed. You will be given the name of the topic and a character representing the way it is being invoked. Values of <code>^mode</code> are: <code>s</code>, <code>?</code>, <code>u</code>, <code>t</code>, which represent statements, questions, both, or gambits. While your function is executing, neither <code>^cs_topic_enter</code> or <code>^cs_topic_exit</code> will be invoked.</p>
+<h2 id="cs_topic_exit"><code>^cs_topic_exit()</code></h2>
+<pre><code>outputmacro: ^cs_topic_exit(^topic ^result)</code></pre>
+<p>When the system exits a topic and this function is defined by you, it will be invoked after the topic is processed. You will be given the name of the topic and the text value representing what it returned. E.g., NOPROBLEM. The range of names of these are defined in mainsystem.h (minus _BIT) but are your basic FAILTOPIC, etc.</p>
+<h2 id="autoinitfile">AutoInitFile</h2>
+<p>When a user is initialized for the first time, the system will attempt to read a top-level file named for the user as <code>bruce-init.txt</code> (if user is bruce). If found, commands will be executed from there (analogous to the <code>:source</code> command. This will be read after any <code>source=</code> command line parameter.</p>
+<h1 id="advanced-build">Advanced <code>:build</code></h1>
+<h2 id="build-warning-messages">Build warning messages</h2>
+<p>Build will warn you of a number of situations which, not illegal, might be mistakes. It has several messages about words it doesn't recognize being used as keywords in patterns and concepts. You can suppress those messages by augmenting the dictionary OR just telling the system not to tell you</p>
+<pre><code>:build 0 nospell</code></pre>
+<p>There is no problem with these words, presuming that you did in fact mean them and they do not represent a typo on your part.</p>
+<p>You can get extra spellchecking, on your output words, with this:</p>
+<pre><code>:build 0 outputspell</code></pre>
+<p>run spellchecking on text output of rules (see if typos exist).</p>
+<p>Build will also warn you about repeated keywords in a topic or concept. This means the same word is occurring under multiple forms. Again, the system will survive but it likely represents a waste of keywords. For example, if you write this:</p>
+<pre><code>topic: ~mytopic ( cheese !cheese)</code></pre>
+<p>you contradict yourself. You request a word be a keyword and then say it shouldn't be. The system will not use this keyword. Or if you write this</p>
+<pre><code>topic: ~mytopic (cheese cheese~1)</code></pre>
+<p>You are saying the word cheese or the wordnet path of cheese meaning #1, which includes the word <em>cheese</em>. You don't need <em>&quot;cheese&quot;</em>. Or consider:</p>
+<pre><code>topic: ~mytopic (cheese cheese~n)</code></pre>
+<p>Since you have accepted all forms of cheese, you don't need to name <code>cheese~n</code>. <code>:build</code> also warns you about various substitutions that might affect your patterns. You can suppress those messages with <code>:build filename nosubstitution</code></p>
+<h2 id="files">Files</h2>
+<p>When you name a file or directory, :build will ignore files that end in ~ or .bak (the common backup names from editors on Windows and Linux).</p>
+<h2 id="trace">Trace</h2>
+<p>Sometimes you might fail to place a paren properly, swallow a whole lot of input and crash. Finding where the problem is may be hard. You can therefore turn on a trace which will show you all the rules it successfully completes.</p>
+<pre><code>:build harry trace</code></pre>
+<h2 id="reset-user-defined">Reset User-defined</h2>
+<p>Normally, a build will leave your current user identity alone. All state remains unchanged, except that topics you have changed will be reset for the bot (as though it has not yet ever seen those topics). But if you want to start over with the new system as a new user, you can request this on the build command.</p>
+<pre><code>:build 0 reset </code></pre>
+<p>reinit the current character from scratch (equivalent to <code>:reset user</code>).</p>
+<h2 id="build-layers">Build Layers</h2>
+<p>The build system has two layers, 0 and 1. When you say :build 0, the system looks in the top level directory for a file <code>files0.txt</code>. Similarly when you say <code>:build 1</code> it looks for <code>files1.txt</code>. Whatever files are listed inside a <code>filesxxx.txt</code> are what gets built.</p>
+<p>And the last character of the file name (e.g., <code>files0</code>) is what is critical for deciding what level to build on. If the name ends in 0, it builds level 0. If it doesn't, it builds level 1. This means you can create a bunch of files to build things any way you want. You can imagine:</p>
+<ul>
+<li><code>:build common0</code> – shared data-source (level 0)</li>
+<li><code>:build george</code> – george bot-specific (level 1)</li>
+<li><code>:build henry</code> – henry bot-specific (level 1)</li>
+<li><code>:build all</code> – does george and henry and others (level 1)</li>
+<li><code>:build system0</code> - does ALL files, there is no level 1.</li>
+</ul>
+<p>You can build layers in either order, and omit either.</p>
+<p>Note</p>
+<p>Avoid something likes <code>files2.txt</code> and doing a <code>:build 2</code>. 2 specifies a level and normal bots are at level 1 (which requires no numbering). Name your file after your bot and it will default to level 1.</p>
+<h2 id="skipping-a-topic-file">Skipping a topic file</h2>
+<p>If you put in <code>:quit</code> as an item (like at the start of the file), then the rest of the file is skipped.</p>
+<h2 id="block-comments">Block comments</h2>
+<p>Normally <code>#</code> becomes a comment to end of line. But you can use a block comment as follows:</p>
+<pre><code>##&lt;&lt; first junk
+some junk
+##&gt;&gt; more junk</code></pre>
+<p>Because any comment marker kills the rest of the line, the &quot;first junk&quot; will not be seen, nor will the &quot;more junk&quot;. But a comment block was established, so lines between them line &quot;some junk&quot; are also not seen.</p>
+<h2 id="renaming-variables-sets-and-integer-constants">Renaming Variables, Sets, and Integer Constants</h2>
+<p>A top level declaration in a script rename a match variable</p>
+<pre><code>rename: _bettername _12</code></pre>
+<p>before any uses of <code>_bettername</code>, which now mean <code>_12</code>. You can put multiple rename pairs in the same declaration.</p>
+<pre><code>rename: _bettername _12 _okname _14</code></pre>
+<p>and you can provide multiple names, so you can later also say</p>
+<pre><code>rename: _xname _12</code></pre>
+<p>and both _xname and <code>_bettername</code> refer to <code>_12</code>.</p>
+<p>Renames can also rename concept sets:</p>
+<pre><code>rename: @myset @1</code></pre>
+<p>so you can do:</p>
+<pre><code>@myset += createfact( 1 2 3)
+$$tmp = first(@mysetsubject)</code></pre>
+<p>You can also declare your own 32 or 64-bit integer constants. You must use ## when you define it and when you refer to it.</p>
+<pre><code>rename: ##first 1
+$tmp = ##first</code></pre>
+<h2 id="defining-private-queries">Defining private Queries</h2>
+<p>see <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a>.</p>
+<h2 id="documenting-variables-functions-factsets-and-match-variables">Documenting variables, functions, factsets, and match variables</h2>
+<p>You can use <code>:define</code> to add a documentation string to many things. E.g.,</p>
+<pre><code>describe: $myvar &quot;used to store data&quot;
+ _10 &quot;tracks pos tag&quot;</code></pre>
+<p><code>:list</code> can display documentation on documented items as well as showing undocumented permanent variables (handy for finalizing a bot to show you have no spelling errors on variables).</p>
+<h2 id="conditional-compilation">Conditional compilation</h2>
+<p>You can have the system include or exclude lines on a line by line basis. To make a line conditional, put a comment left justified where a word is contiguous to the #, like this:</p>
+<pre><code>#german u: (test) this is conditionally compiled</code></pre>
+<p>This line is normally ignored because it is a comment line and not a named numeric constant. But if you put the <code>#german</code> as a tail parameter of the <code>:build</code> command, you enable it:</p>
+<p>You can also handle blocks of code analogous to the block comment convention by appending a label to the &lt;&lt;## :</p>
+<pre><code>&lt;&lt;##SPECIAL ...
+... &gt;&gt;##</code></pre>
+<pre><code>:build Harry #german</code></pre>
+<p>You may name up to 9 conditions on your build line. In fact, for language-related conditional lines, you don't have to declare anything on the <code>:build</code> command. The system will automatically accept lines that name the current language= command line parameter (English being the default).</p>
+<p>Conditional compilation applies to script files and the filesxxx.txt files and LIVEDATA files.</p>
+<h1 id="editing-non-topic-files">Editing Non-topic Files</h1>
+<p>Non-topic files include the contents of <code>DICT</code> and <code>LIVEDATA</code>.</p>
+<h2 id="dict-files">DICT files</h2>
+<p>You may choose to edit the dictionary files. There are 3 kinds of files.</p>
+<p>The <code>facts0.txt</code> file contains hierarchy relationships in wordnet. You are unlikely to edit these.</p>
+<p>The <code>dict.bin</code> file is a compressed dictionary which is faster to read. If you edit the actual dictionary word files, then erase this file. It will regenerate anew when you run the system again, revised per your changes. The actual dictionary files themselves… you might add a word or alter the type data of a word. The type information is all in <code>dictionarySystem.h</code></p>
+<h2 id="livedata-files">LIVEDATA files</h2>
+<p>The substitutions files consistof pairs of data per line. The first is what to match. Individual words are separated by underscores, and you can request sentence boundaries <code>&lt;</code> and <code>&gt;</code> .</p>
+<p>The output can be missing (delete the found phrase) or words separated by plus signs (substitute these words) or a <code>%word</code> which names a system flag to be set (and the input deleted). The output can also be prefixed with <code>![…]</code> where inside the brackets are a list of words separated by spaces that must not follow this immediately. If one does, the match fails. You can also use <code>&gt;</code> as a word, to mean that this is NOT at the end of the sentence. The files include:</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>interjections.txt</code></td>
+<td>remaps to <code>~</code> words standing for interjections or discourse acts</td>
+</tr>
+<tr class="even">
+<td><code>contractions.txt</code></td>
+<td>remaps contractions to full formatting</td>
+</tr>
+<tr class="odd">
+<td><code>substitutes.txt</code></td>
+<td>(omittable) remaps idioms to other phrases or deletes them.</td>
+</tr>
+<tr class="even">
+<td><code>british.txt</code></td>
+<td>(omittable) converts british spelling to us</td>
+</tr>
+<tr class="odd">
+<td><code>spellfix.txt</code></td>
+<td>(omittable) converts a bunch of common misspellings to correct</td>
+</tr>
+<tr class="even">
+<td><code>texting.txt</code></td>
+<td>(omittable) converts common texting into normal english.</td>
+</tr>
+<tr class="odd">
+<td><code>systemessentials.txt</code></td>
+<td>things needed to handle end punctuation</td>
+</tr>
+<tr class="even">
+<td><code>expandabbreviations.txt</code></td>
+<td>does what its name suggests</td>
+</tr>
+<tr class="odd">
+<td><code>queries.txt</code></td>
+<td>defines queries available to <code>^query</code>. A query is itself a script. See the file for more information.</td>
+</tr>
+<tr class="even">
+<td><code>canonical.txt</code></td>
+<td>is a list of words and override canonical values. When the word on the left is seen in raw input, the word on the right will be used as its canonical form.</td>
+</tr>
+<tr class="odd">
+<td><code>lowercasetitles.txt</code></td>
+<td>is a list of lower-case words that can be accepted in a title. Normally lower case words would break up a title.</td>
+</tr>
+</tbody>
+</table>
+<p>Processing done by various of these files can be suppressed by setting <code>$cs_token</code> differently. See Control over Input.</p>
+<h1 id="common-script-idioms">Common Script Idioms</h1>
+<h2 id="selecting-specific-cases-refine">Selecting Specific Cases <code>^refine</code></h2>
+<p>To be efficient in rule processing, I often catch a lot of things in a rule and then refine it.</p>
+<pre><code>u: ( ~country ) ^refine() # gets any reference to a country
+    a: (Turkey) I like Turkey
+    a: (Sweden) I like Sweden
+    a: (*) I&#39;ve never been there.</code></pre>
+<p>Equivalently one could invoke a subtopic, though that makes it less obvious what is happening, unless you plan to share that subtopic among multiple responders.</p>
+<pre><code>u: ( ~country ) ^respond(~subcountry)
+
+topic: ~subcountry system[]
+
+u: (Turkey) ...
+u: (Sweden) ...
+u: (*) ...</code></pre>
+<p>The subtopic approach makes sense in the context of writing quibbling code. The outside topic would fork based on major quibble choices, leaving the subtopic to have potentially hundreds of specific quibbles.</p>
+<pre><code>?: (&lt;what) ^respond(~quibblewhat)
+?: (&lt;when) ^respond(~quibblewhen)
+?: (&lt;who) ^respond(~quibblewho)
+
+# ...
+
+topic: ~quibblewho system []
+
+?: ( &lt;who knows ) The shadow knows
+?: ( &lt;who can ) I certainly can&#39;t.</code></pre>
+<h2 id="using-reuse">Using <code>^reuse</code></h2>
+<p>To have a conversation, you want to volunteer information with a gambit line. And that same information may need to be given in response to a direct question by the user. <code>^reuse</code> let's you share information.</p>
+<pre><code>t: HOUSE () I live in a small house
+
+u: ( where * you * live ) ^reuse(HOUSE)</code></pre>
+<p>The rule on disabling a rule after use is that the rule that actually generates the output gets disabled. So the default behavior (if you don't set keep on the topic or the rule) is that if the question is asked first, it reuses HOUSE.</p>
+<p>Since we have given the answer, we don't want to repetitiously volunteer it, HOUSE gets disabled. But, if the user repetitiously asks the question (maybe he forgot the answer), we will answer it again because the responder didn't get disabled, just the gambit. And disabling applies to allowing a rule to try to match, not to what it does for output. So one can reuse that gambit's output any number of times.</p>
+<p>If you don't want that behavior you can either add a disable on the responder OR tell <code>^reuse</code> to skip used rules by giving it a second argument (anything). So one way is:</p>
+<pre><code>t: HOUSE () I live in a small house
+
+u: SELF (where * you * live) ^disable(RULE SELF) ^reuse(HOUSE)</code></pre>
+<p>and the other way is:</p>
+<pre><code>t: HOUSE () I live in a small house
+
+u: ( where * you * live ) ^reuse(HOUSE skip)</code></pre>
+<p>Meanwhile, in the original example, if the gambit executes first, it disables itself, but the responder can still answer the question by saying it again.</p>
+<p>Now, suppose you want to notice that you already told the user about the house so if he asks again you can say something like: You forgot? I live in a small house. How can you do that. One way to do that is to set a user variable from HOUSE and test it from the responder.</p>
+<pre><code>t: HOUSE () I live in a small house $house = 1
+
+u: ( where * you * live ) [$house You forgot?] ^reuse(HOUSE)</code></pre>
+<p>If you wanted to do that a lot, you might make an outputmacro of it:</p>
+<pre><code>outputmacro: ^heforgot(^test) [^test You forgot?]
+    t: HOUSE () I live in a small house $house = 1
+
+    u: ( where * you * live ) heforgot($house ) ^reuse(HOUSE)</code></pre>
+<p>Or you could do it on the gambit itself in one neat package.</p>
+<pre><code>outputmacro: ^heforgot(^test) [^test You forgot?] ^test = 1
+    t: HOUSE () heforgot($house ) I live in a small house.
+
+    u: ( where * you * live ) ^reuse(HOUSE)</code></pre>
+<h1 id="esoterica-and-fine-detail">Esoterica and Fine Detail</h1>
+<h2 id="being-first-to-converse">Being first to converse</h2>
+<p>Normally when you log in in stand-alone mode, this initiates a new conversation and the chatbot speaks first. If you prefix your login name with *, you get to speak first and this continues any prior conversation you may have had.</p>
+<h2 id="prefix-labeling-in-stand-alone-mode">Prefix labeling in stand-alone mode</h2>
+<p>You can control the label put before the bot's output and the user's input prompt by setting variables $botprompt and $userprompt. I set them in the bot's initialization code, though you can dynamically change them. The values can be literal or a format string. The value is used as the prompt. Hence the following example:</p>
+<pre><code>$userprompt = ^&quot;$login: &gt;&quot;
+$botprompt = ^ &quot;HARRY: &quot;</code></pre>
+<p>The user prompt wants to use the user's login name so it is a format string, which is processed and stored on the user prompt variable. The botprompt wants to force a space at the end, so it also uses a format string to store on the bot prompt variable.</p>
+<p><strong><em>In color.tbl is there a reason that the color grey includes both building and ~building?</em></strong></p>
+<p>Yes. Rules often want to distinguish members of sets that have supplemental data from ones that don't. The set of ~musician has extra table data, like what they did and doesn't include the word musician itself. Therefore a rule can match on ~musician and know it has supplemental data available.</p>
+<p>This is made clearer when the set is named something list <code>~xxxlist</code>. But the system evolved and is not consistent.</p>
+<p><strong><em>How are double-quoted strings handled?</em></strong></p>
+<p>First, note that you are not allowed strings that end in punctuation followed by a space. This string <em>&quot;I love you. &quot;</em> is illegal. There is no function adding that space serves.</p>
+<p>String handling depends on the context. In input/pattern context, it means translate the string into an appropriately tokenized entity. Such context happens when a user types in such a string:</p>
+<p><em>I liked &quot;War and Peace&quot;</em></p>
+<p>It also happens as keywords in concepts:</p>
+<pre><code>concept: ~test[ &quot;kick over&quot;]
+and in tables:
+DATA:
+&quot;Paris, France&quot;</code></pre>
+<p>and in patterns:</p>
+<pre><code>u: ( &quot;do you know&quot; what )</code></pre>
+<p>In output context, it means print out this string with its double quotes literally. E.g.</p>
+<pre><code>u: ( hello ) &quot;What say you? &quot; # prints out &quot;What say you? &quot;</code></pre>
+<p>There are also the functional interpretations of strings; these are strings with <code>^</code> in front of them.</p>
+<p>They don't make any sense on input or patterns or from a user, but they are handy in a table. They mean compile the string (format it suitable for output execution) and you can use the results of it in an <code>^eval</code> call.</p>
+<p>On the output side, a ^&quot;string&quot; means to interpret the contents inside the string as a format string, substituting any named variables with their content, preserving all internal spacing and punctuation, and stripping off the double quotes.</p>
+<pre><code>u: ( test ) ^&quot;This $var is good.&quot; # if $var is kid the result is This kid is good.</code></pre>
+<p><strong><em>What really happens on the output side of a rule?</em></strong></p>
+<p>Well, really, the system &quot;evaluates&quot; every token. Simple English words and punctuation always evaluate to themselves, and the results go into the output stream. Similarly, the value of a text string like <em>this is text</em> is itself, and so <em>this is text</em> shows up in the output stream. And the value of a concept set or topic name is itself.</p>
+<p>System function calls have specific unique evaluations which affect the data of the system and/or add content into the output stream. User-defined macros are just script that resides external to the script being evaluated, so they are evaluated. Script constructs like <code>IF</code>, <code>LOOP</code>, assignment, and relational comparison affect the flow of control of the script but don't themselves put anything into the output stream when evaluated.</p>
+<p>Whenever a variable is evaluated, its contents are evaluated and their result is put into the output stream. Variables include user variables, function argument variables, system variables, match variables, and factset variables.</p>
+<p>For system variables, their values are always simple text, so that goes into the output stream. And match variables will usually have simple text, so they go into the output stream. But you can assign into match variables yourself, so really they can hold anything. So what results from this:</p>
+<pre><code>u: (x)
+$var2 = apples
+$var1= join($ var2)
+I like $var1</code></pre>
+<p>$var2 is set to apples. It stores the name (not the content) of $var2 on $var1 and then I like is printed out and then the content of $var1 is then evaluated, so $var2 gets evaluated, and the system prints out apples.</p>
+<p>This evaluation during output is in contrast to the behavior on the pattern side where the goal is presence, absence, and failure. Naming a word means finding it in the sentence.</p>
+<p>Naming a concept/topic means finding a word which inherits from that concept either directly or indirectly. Naming a variable means seeing if that variable has a non-null value.</p>
+<p>Calling a function discards any output stream generated and aside from other side effects means did the function fail (return a fail code) or not.</p>
+<p><strong><em>How does the system tell a function call w/o ^ from English?</em></strong></p>
+<p>If like is defined as an output macro and if you write:</p>
+<pre><code>t: I like (somewhat) ice</code></pre>
+<p>how does the system resolve this ambiguity? Here, white space actually matters. First, if the function is a builtin system function, it always uses that. So you can't write this:</p>
+<pre><code>t: I fail (sort of) at most things</code></pre>
+<p>When it is a user function, it looks to see if the ( of the argument list is contiguous to the function name or spaced apart. Contiguous is treated as a function call and apart is treated as English. This is not done for built-ins because it's more likely you spaced it accidently than that you intended it to be English.</p>
+<p><strong><em>How should I go about creating a responder?</em></strong></p>
+<p>First you have to decide the topic it is in and insure the topic has appropriate keywords if needed.</p>
+<p>Second, you need to create a sample sentence the rule is intended to match. You should make a <code>#!</code> comment of it. Then, the best thing is to type <code>:prepare</code> followed by your sentence. This will tell you how the system will tokenize it and what concepts it will trigger. This will help you decide what the structure of the pattern should be and how general you can make important keywords.</p>
+<p><strong><em>What really happens with rule erasure?</em></strong></p>
+<p>The system's default behavior is to erase rules that put output into the output stream, so they won't repeat themselves later. You can explicitly make a rule erase with <code>^erase()</code> and not erase with <code>^keep()</code> and you can make the topic not allow responders to erase with keep as a topic flag.</p>
+<p>So, if a rule generates output, it will try to erase itself. If a rule uses <code>^reuse()</code>, then the rule that actually generated the output will be the called rule. If for some reason it cannot erase itself, then the erasure will rebound to the caller, who will try to erase himself.</p>
+<p>Similarly, if a rule uses <code>^refine()</code>, the actual output will come from a <code>rejoinder()</code>. These can never erase themselves directly, so the erasure will again rebound to the caller.</p>
+<p>Note that a topic declared system NEVER erases its rules, neither gambits nor responders, even if you put ^erase() on a rule.</p>
+<pre><code>u: (~emogoodbye)</code></pre>
+<p><strong><em>How can I get the original input when I have a pattern like <code>u: (~emogoodbye)</code> ?</em></strong></p>
+<p>To get the original input, you need to do the following:</p>
+<pre><code>u: ( ~emogoodbye )
+    $tmptoken = $cs_token
+    $cs_token = 0
+    ^retry(SENTENCE)</code></pre>
+<p>and at the beginning of your main program you need a rule like this:</p>
+<pre><code>u: ( $tmptoken _* )
+    $cs_token = $tmptoken
+    $tmptoken = null</code></pre>
+<p>... now that you have the original sentence, you decide what to do ... maybe you had set a flag to know what you wanted to do</p>
+<h2 id="control-flow">Control Flow</h2>
+<p>There is no GOTO in chatscript. There are only calls. Calls always return. They return with noproblem or end or fail.</p>
+<p>Respond/Gambit calls enter a new topic. Any end/fail TOPIC will terminate them and return to the caller.</p>
+<p><code>end(TOPIC)</code> has no consequence to the caller.</p>
+<p><code>fail(TOPIC)</code> degrades to a fail-rule and terminates the calling rule unless the call was wrapped in NOFAIL().</p>
+<p><code>Nofail(TOPIC)</code> and <code>Nofail(RULE)</code> are equivalent (because you can't get back a failed topic flag). A call to reuse does not enter a new topic context, so if the reuse calls <code>end(topic)</code>, that returns to the calling rule, which has received an end(topic). If not wrapped in a <code>nofail(TOPIC)</code>, then the calling rule terminates with end topic.</p>
+<p>Meanwhile, generic output done before gambit/reuse/retry/respond will be forced to output so that if any of those fail, the output is still emitted. Otherwise, normally output generic waits until end of rule to be put out completely or cancelled completely if a fail happens.</p>
+<p>Fail does not cancel output from a print or output already emitted. Each rule knows what output count exists at its start, and so when it ends it can tell if it generated output (suppressing further rules of the topic). fail(rule), when the rule has already generated output, does not stop further rules of the topic from being run. It thus allows more output than normal.</p>
+<h2 id="pattern-matching-anomolies">Pattern Matching Anomolies</h2>
+<p>Normally you match words in a sentence. But the system sometimes merges multiple words into one, either as a proper name, or because some words are like that. For example &quot;here and there&quot; is a single word adverb. If you try to match <em>We go here and there about town</em> with</p>
+<pre><code>u: (* here *) xxx</code></pre>
+<p>you will succeed. The actual tokens are &quot;we&quot; &quot;go&quot; &quot;here and there&quot; &quot;about&quot; &quot;town&quot;. but the pattern matcher is allowed to peek some into composite words.</p>
+<p>When it does match, since the actual token is <em>&quot;here and there&quot;</em>, the position start is set to that word (e.g., position 3), and in order to allow to match other words later in the composite, the position end is set to the word before (e.g., position 2). This means if your pattern is</p>
+<pre><code>u: (* here and there *) xxx</code></pre>
+<p>it will match, by matching the same composite word 3 times in a row. The anomaly comes when you try to memorize matches. If your pattern is</p>
+<pre><code>u: (_* and _* ) xxx</code></pre>
+<p>then <code>_0</code> is bound to words 1 &amp; 2 &quot;we go&quot;, and matches &quot;here and there&quot;, and <code>_1</code> matches the rest, &quot;about town&quot;.</p>
+<p>That is, the system will NOT position the position end before the composite word. If it did, <code>_1</code> would be <em>here and there about town</em>. It's not.</p>
+<p>Also, if you try to memorize the match itself, you will get nothing because the system cannot represent a partial word. Hence</p>
+<pre><code>u: ( * _and * ) xxx</code></pre>
+<p>would memorize the empty word for <code>_0</code>. If you don't want something within a word to match your word, you can always quote it.</p>
+<pre><code>u: ( X * ‘and * ) xxx</code></pre>
+<p>does not match <em>here and there about town</em>.</p>
+<p>The more interesting case comes when a composite is a member of a set. Suppose:</p>
+<pre><code>concept: ~myjunk (and)
+u: ( * _~myjunk * ) xxx</code></pre>
+<p>What happens here? First, a match happens, because <code>~myjunk</code> can match and inside the composite. Second memorization cannot do that, so you memorize the empty word. If you want to not match at all, you can write:</p>
+<pre><code>u: ( * _&#39;~myjunk * ) xxx</code></pre>
+<p>In this case, the result is not allowed to match a partial word, and fails to match. However, given &quot; My brothers are rare.&quot; and these:</p>
+<pre><code>concept: ~myfamily (brother)
+u: ( * _&#39;~ myfamily * ) xxx</code></pre>
+<p>the system will match and store <code>_0 = brothers</code>. Quoting a set merely means no partial matches are allowed. The system is still free to canonicalize the word, so brothers and brother both match. If you wanted to ONLY match brother, you could have quoted it in the concept definition.</p>
+<pre><code>concept: ~myfamily (‘brother)</code></pre>
+<h2 id="blocking-a-topic-from-accidental-access">Blocking a topic from accidental access</h2>
+<p>There may be a topic you don't want code like <code>^gambit()</code> to launch on its own, for example, a story. You can block a topic from accidental gambit access by starting it with</p>
+<pre><code>t: (!~) ^fail(topic)</code></pre>
+<p>If you are not already in this topic, it cannot start. Of course you need a way to start it. There are two. First, you can make a responder react (enabling the topic). E.g.,</p>
+<pre><code>u: ( talk about bees ) ^gambit(~)</code></pre>
+<p>If the topic were bees and locked from accidental start, when this responder matches, you are immediately within the topic, so the gambit request does not get blocked.</p>
+<p>The other way to activate a topic is simply <code>^AddTopic(~bees)</code>. A topic being the current one on the pending topics list is the definition of <code>~</code>. A matching responder adds the topic to that list but you can do it manually from outside and then just say <code>^gambit(~bees)</code>.</p>
+<h1 id="self-reflection">Self-Reflection</h1>
+<p>In addition to reasoning about user input, the system can reason about its own output. This is called reflection, being able to see into one's own workings.</p>
+<p>Because the control script that runs a bot is just script and invokes various engine functions, it is easy to store notes about what happened. If you called <code>^rejoinder</code> and it generated output (<code>%response</code> changed value) you know the bot made a reply from a rejoinder. Etc.</p>
+<p>To manage things like automatic pronoun resolution, etc, you also want the chatbot to be able to read and process its own output with whatever scripts you want. The set of sentences the chatbot utters for a volley are automatically created as transient facts stored under the verb &quot;chatoutput&quot;. The subject is a sentence uttered by the chatbot. The object is a fact triple of whatever value was stored as <code>%why</code> (default is <code>.</code>), the name of the topic, and the offset of the rule within the topic.</p>
+<p>You can prepare such a sentence just as the system does an ordinary line of input by calling <code>^analyze(value)</code>. This tokenizes the content, performs the usual parse and mark of concepts and gets you all ready to begin pattern matching using some topic. Generally I do this during the post-process phase, when we are done with all user input. Therefore,</p>
+<pre><code>t: ^query(direct_v ? chatoutput ? -1 ? @9 ) # get the sentences
+loop()
+    {
+    $$priorutter = ^last(@9subject)
+    ^analyze($$priorutter) # prepare analysis of what chatbot said -
+    respond(~SelfReflect)
+    }</code></pre>
+<p>Reflective information is available during main processing as well. You can set <code>%why</code> to be a value and that value will be associated with any output generated thereafter. E.g., <code>%why = quibble</code>. The system also sets <code>$cs_tokencontrol</code> to results that happen from input processing.</p>
+<h1 id="a-fresh-build">A Fresh Build</h1>
+<p>You've been building and chatting and something isn't right but it's all confusing. Maybe you need a fresh build. Here is how to get a clean start.</p>
+<ul>
+<li><p>Quit chatscript.</p></li>
+<li><p>Empty the contents of your USER folder, but don't erase the folder. This gets rid of old history in case you are having issues around things you've said before or used from the chatbot before.</p></li>
+<li><p>Empty the contents of your TOPIC folder, but don't erase the folder. This gets rid of any funny state of topic builds.</p></li>
+</ul>
+<p><code>:build 0</code> - rebuild the common layer <br><code>:build xxx</code> – whatever file you use for your personality layer</p>
+<p>Probably all is good now. If not quit chatscript. Start up and try it now.</p>
+<h1 id="updating-cs-versions-easily">Updating CS Versions Easily</h1>
+<p>ChatScript gets updated often on a regular basis. And you probably don't want to have to reintegrate your files and its every time. So here is what you can do.</p>
+<p>Create a folder for your stuff: e.g. MYSTUFF. Within it put your folder that you normally keep in RAWDATA and your <code>filesxxx.txt</code> files normally at the top level of ChatScript. And if you have your own hacked version of files from LIVEDATA, put your folder there also.</p>
+<p>Then create a folder within yours called ChatScript and put the current ChatScript contents within that. You can also create a batch file, probably within your folder, that does a &quot;cd ChatScript&quot; to be in the right directory, and then runs ChatScript with the following parameters:</p>
+<pre><code>ChatScript livedata=../LIVEDATA english=LIVEDATA/ENGLISH system=LIVEDATA/SYSTEM</code></pre>
+<p>Normally while you might override various substitutes files, you would not override the <code>ENGLISH</code> and <code>SYSTEM</code> folders.</p>
+<p>So now, when you want to update to the latest version of ChatScript, merely unpack the zip into your ChatScript folder, overwriting files already there.</p>
+<h1 id="the-dictionary">The Dictionary</h1>
+<p>There is the GLOBAL dictionary in DICT and local dictionary per level in TOPIC. You can augment your dictionary locally by defining concepts with properties:</p>
+<pre><code>concept: ~morenouns NOUN NOUN_PROPER_SINGULAR (Potsdam Paris)
+concept: ~verbaugment VERB VERB_INFINITIVE (swalk smeazle)</code></pre>
+<p>One can also directly edit the dictionary txt files in DICT/ENGLISH observing how they seem to be formatted, doing nothing crazy, and being careful with consistency of meaning values (if needed) and then just delete dict.bin. If you want to edit the wordnet ontology hierarchy, you need to edit facts.txt and delete facts.bin The system will rebuild them when you run CS.</p>
+<hr />
+<p>[<a href="/WIKI/README.html">Wiki home</a>] - [<a href="ChatScript-Basic-User-Manual.html">Basic User Manual</a>]</p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-mysql">ChatScript MySQL</h1>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/25/2017 cs7.51</p>
+<h2 id="using-mysql-as-file-server">Using MySQL as file server</h2>
+<p>One can also use MySQL as a replacement for the local file system of the USERS directory. This allows you to scale CS horizontally by having multiple CS servers all connecting to a common MySQL machine so a user can be routed to any server. To do this, on the ChatScript command line provide the following command line params:</p>
+<pre><code>mysqlhost=127.0.0.1 mysqlport=3306 mysqldb=chatscript mysqluser=chatuser mysqlpasswd=password</code></pre>
+<p>It's probably easier to put these 5 params in a config file and use the config= command line param.</p>
+<p>The MySQL code assumes the userfiles table exists in the database. You can create a database and the userfiles table using the following statements:</p>
+<pre><code>create database chatscript character set &#39;UTF8&#39;;
+create user chatuser identified by &#39;password&#39;;
+grant all on chatscript.* to chatuser;
+use chatscript;
+create table userfiles (userid varchar(400) PRIMARY KEY, file blob);</code></pre>
+<p>The MySQL code uses the following prepared statement queries to read, insert, and update a user record:</p>
+<pre><code>-- read a user
+SELECT file FROM userfiles WHERE userid = ?
+-- insert a user
+INSERT INTO userfiles (file, userid) VALUES (?, ?)
+-- update a user
+UPDATE userfiles SET file = ? WHERE userid = ?</code></pre>
+<p>You can override these queries to support alternate schemas. However, the MySQL module assumes that any sql used to override the default queries will use the same sequence of arguments. For example, assume you want to store user data in a table named 'randomusertable.' The following parameters can be used to override the default MySQL queries:</p>
+<pre><code>mysqluserread=SELECT userdata FROM randomusertable WHERE username=?
+mysqluserinsert=INSERT INTO randomusertable (userdata,username) VALUES (?, ?)
+mysqluserupdate=UPDATE randomusertable SET userdata = ? WHERE username = ?</code></pre>
+<p>Note that the default and override queries use the same arguments in the same order.</p>
+</body>
+</html>

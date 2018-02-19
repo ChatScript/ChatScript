@@ -1,0 +1,170 @@
+﻿ yachting ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    boating~1nz (^travel~2) water travel for pleasure
+ youth ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    youth~1nz (^age~1) the freshness and vitality characteristic of a young person
+    young~2nz (^people~1) young people collectively
+    youth~3nz (^individual~1) a young person
+    youth~4nz (^state~1) early maturity
+    youth~5nz (^period~3) the time of life between childhood and maturity
+    youth~6nz (^period~3) an early period of development
+ yield ( meanings=17 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    yield~1nz (^production~4) production of a certain amount
+    fruit~1n 
+    take~2n 
+    production~8n 
+    yield~5vz end resistance, as under pressure or force
+    yield~6vz consent reluctantly
+    grant~6v 
+    yield~8vz cease opposition
+    give~20v 
+    return~21v 
+    give~22v 
+    give~27v 
+    pay~9v 
+    grant~11v 
+    give~40v 
+    yield~16vz be fatally overwhelmed
+    yield~17vz give in, as to influence or pressure
+ yard ( meanings=9 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN (null) ) 
+    yard~1nz (^area~1) an enclosure for animals
+    yard~2nz (^pole~1) a long horizontal spar tapered at the end and used to support and spread a square sail or lateen
+    yard~3nz (^field~12) the enclosed land around a house or other building
+    yard~4nz (^parcel~4) an area having a network of railway tracks and sidings for storage and maintenance of cars and engines
+    yard~5nz (^parcel~4) a tract of land enclosed for particular activities 
+    yard~6nz (^parcel~4) a tract of land where logs are accumulated
+    yard~7nz (^unit~5) a unit of volume
+    pace~3nz (^unit~5) a unit of length equal to 3 feet
+    thousand~1n 
+ young ( meanings=8 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=youngest 
+    young~1nz (^animal~1) any immature animal
+    youth~2n 
+    new~3az harvested at an early stage of development
+    young~4az not tried or tested by experience
+    young~5az being in its early stage
+    young~6az in an early period of life or development or growth
+    young~7az suggestive of youth
+    young~8az 
+ yellow ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_NOOBJECT (null) ) 
+    yellow~1nz (^color~3) yellow color or pigment
+    chicken~5a 
+    yellow~3az of the color intermediate between green and orange in the color spectrum
+    yellow~4az affected by jaundice which causes yellowing of skin etc
+    yellow~5az cowardly or treacherous
+    yellowed~1az changed to a yellowish color by age
+    yellow~7az typical of tabloids
+    yellow~8az 
+    yellow~9vz turn yellow
+ yarn ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    thread~2n 
+    yarn~2nz (^account~7) the act of giving an account describing incidents or a course of events
+    yarn~3vz tell or spin a yarn
+ yacht ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    yacht~1nz (^vessel~1) an expensive vessel propelled by sail or power and used for cruising or racing
+    yacht~2vz travel in a yacht
+ yearly ( meanings=3 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    annual~1n 
+    annual~4a 
+    annually~1b 
+ yell ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_NOOBJECT (null) ) 
+    cry~2n 
+    cry~3nz (^communication~1) a loud utterance of emotion 
+    scream~4v 
+    cry~9v 
+ yelling ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    shouting~1n 
+ yielding ( meanings=6 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    yielding~1nz (^agreement~4) 
+    surrender~3n 
+    yielding~3az tending to give in or surrender or agree
+    yielding~4az lacking stiffness and giving way to pressure
+    yielding~5az inclined to yield to argument or influence or control
+    yielding~6az 
+ yes ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN INTERJECTION NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ) 
+    yes~1nz (^statement~4) an affirmative
+ yea ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADVERB INTERJECTION NOUN_SINGULAR COMMON4 GRADE1_2 ) 
+    yea~1nz (^statement~4) an affirmative
+    yeah~1b 
+ yip ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) ) 
+    yip~1nz (^cry~5) a sharp high-pitched cry
+    yip~2vz bark in a high-pitched tone
+ yeast ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    yeast~1nz (^fungus~1) any of various single-celled fungi that reproduce asexually by budding or division
+    yeast~2nz (^substance~2) a commercial leavening agent containing yeast cells
+ yam ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    yam~1nz (^vegetable~1) edible tuberous root of various yam plants of the genus Dioscorea grown in the tropics world-wide for food
+    yam~2nz (^vegetable~1) sweet potato with deep orange flesh that remains moist when baked
+    yam~3nz (^vine~1) any of a number of tropical vines of the genus Dioscorea many having edible tuberous roots
+    yam~4nz (^stem~6) edible tuber of any of several yams
+ yogurt ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    yogurt~1nz (^food~3) a custard-like food made from curdled milk
+ year ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE posdefault:NOUN TIMEWORD (null) ) 
+    class~7n 
+    year~2nz (^period~3) the period of time that it takes for a planet to make a complete revolution around the sun
+    year~3nz (^period~3) a period of time containing 365 days
+    year~4nz (^period~3) a period of time occupying a regular part of a calendar year that is used for some particular activity
+ yokel ( meanings=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    yahoo~1n 
+ yahoo ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    yokel~1nz (^rustic~1) a person who is not very intelligent or interested in culture
+ yucca ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    yucca~1nz (^bush~4) any of several evergreen plants of the genus Yucca having usually tall stout stems and a terminal cluster of white flowers
+ yesterday ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    yesterday~1nz (^day~4) the day immediately before today
+    yesterday~2nz (^past~2) the recent past
+    yesterday~3bz on the day preceding today
+    yesterday~4bz in the recent past
+ yay ( INTERJECTION ) 
+ yech ( INTERJECTION ) 
+ yeh ( INTERJECTION ) 
+ yeow ( INTERJECTION ) 
+ yikes ( INTERJECTION ) 
+ yuch ( INTERJECTION ) 
+ yuck ( INTERJECTION ) 
+ yuk> ( INTERJECTION ) 
+ ya ( INTERJECTION KINDERGARTEN ) 
+ yeah ( meanings=1 glosses=1 ADVERB INTERJECTION COMMON4 COMMON1 KINDERGARTEN ) 
+    yea~2bz not only so, but
+ yippee ( INTERJECTION ) 
+ yo ( INTERJECTION ) 
+ yoo-hoo ( INTERJECTION ) 
+ yow ( INTERJECTION ) 
+ yum ( INTERJECTION ) 
+ yummy ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL INTERJECTION COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) comparative=yummiest 
+    delectable~2a 
+    yummy~2az 
+ yonder ( meanings=3 glosses=2 ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    yonder~1az distant but within sight 
+    yonder~2bz at or in an indicated place (`yon' is archaic and dialectal)
+    yonder~3z 
+ yelled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    shouted~1a 
+ yellowed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    yellow~6a 
+ younger ( meanings=1 glosses=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=young 
+    younger~1az used of the younger of two persons of the same name especially used to distinguish a son from his father
+ youngest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=younger 
+ yummier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 ) comparative=yummy 
+ yummiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=yummier 
+ yet ( meanings=7 glosses=4 ADVERB CONJUNCTION_COORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    even~10b 
+    nevertheless~1b 
+    yet~3bz up to the present time
+    yet~4bz used in negative statement to describe a situation that has existed up to this point or up to the present time
+    yet~5bz used after a superlative
+    yet~6bz within an indefinite time or at an unspecified future time
+    yet~7z 
+ you ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN ANIMATE_BEING ) 
+    you~1z 
+ yank ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    jerk~9vz pull, or move with a sudden movement
+ your ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET ) 
+    your~1z 
+    your~2z 
+ yours ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN ) 
+    yours~1z 
+ yourself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON2 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN ANIMATE_BEING ) 
+    yourself~1z 
+ yourselves ( meanings=1 PRONOUN_OBJECT COMMON4 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_PLURAL ANIMATE_BEING ) 
+    yourselves~1z 
+ ye ( meanings=1 DETERMINER COMMON4 COMMON2 KINDERGARTEN ) 
+    ye~1z 

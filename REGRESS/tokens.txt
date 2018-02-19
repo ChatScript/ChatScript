@@ -1,0 +1,70 @@
+
+# stuff on the left of the |  should match stuff on the right when run thru :regress (this file name)
+
+# testing basic sentence punctuation  . , ; : ? ! " ' -
+I like you; but I don't like them! | I like you ; \n but I do not like them !
+I like meat. | I like meat .
+Is Bob's life good? | is Bob 's life good ?
+The dogs' noses are broken. | the dogs ' noses are broken .
+'til the boy can't | until the boy can not
+Well- don't just stand there. | well - \n do not just stand there .
+
+# quoted strings
+# testing code displays quoted stuff with spaces inside the quote as _, but they are actually stored normally as blanks
+# stage directions (with *), remove * entirely
+# emphasis quoting (quoting a single normal word) is removed entirely
+They said: "go home". | they said : \n "go_home" .
+' he hit the ball '. | '_he_hit_the_ball_' .
+*he hit the ball* | he hit the ball
+"hello" | hello
+"hello there" | "hello_there"
+"hello." | ~emohello .
+
+# testing basic numbers
+1234 | 1234
++1234 | +1234
+-1234 | -1234
+12.23 | 12.23
+-12.23 | -12.23
++12.23 | +12.23
+.12 | .12
+1/2 | 1/2
+
+# testing numeric operations 
+12+2-3*4/5%6^7 | 12 + 2 - 3 * 4/5 % 6 ^ 7
+
+# odds
+1:3 | 1:3
+
+# bracketing  (but accept <= and >= as non brackets)
+(ax[bx{cx<dx>}]) ax <= bx ax >= bx | ( ax [ bx { cx < dx > } ] ) ax <= bx ax >= bx
+
+# extraneous letter expansions
+lll | lll
+.... | .
+
+# dates
+
+# times
+
+# numbers
+1 003 005 | 1003005
+twenty-one | 21
+twenty one | 21
+one hundred and twenty one | 121
+one hundred and twenty-one | 121
+one thousand nine hundred and one | 1901
+1,901 | 1901
+one million  nine hundred fifty thousand | 1950000
+1,950,000 | 1950000
+One-half | .5
+
+
+# proper names
+Bill Jones went home | Bill_Jones went home
+My firm is Kenner, Jenning & Stewart. | my firm is Kenner,_Jenning_and_Stewart .
+Mr John Warner | Mr._John_Warner
+A Rock and a Hard Place | a Rock_and_a_Hard_Place
+The Fray performs tomorrow | The_Fray performs tomorrow
+"The Fray" come tomorrow | The_Fray come tomorrow
+did you know bill rogers is my friend? | did you know Bill_Rogers is my friend ?

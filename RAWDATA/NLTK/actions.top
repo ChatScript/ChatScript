@@ -1,0 +1,203 @@
+
+
+concept: ~intensifier (too fucking absolutely ridiculously extremely biggest worst strongest very highly thoroughly completely totally seriously ~degree_adverbs extremely
+amazingly perfectly pretty really)
+
+concept: ~negifier (rarely hardly barely not never)
+
+concept: ~hypothetical (might could would)
+
+concept: ~avert (mitigate relieve end finish stop terminate avoid avert bypass dodge escape evade fend_off sidestep shun ditch duck divert elude eschew flee skirt abstain circumvent deflect obviate shake restrain )
+
+topic: ~sentiment keep repeat()
+
+u: () $$sentiment = null
+		$$scoregood = null 
+		$$scorebad = null
+
+#! why are questions not useful indicators?
+?: ( ) end(TOPIC)
+
+#! well, I never expected it
+u: (_~interjection) unmark(~goodness _0) unmark(~badness _0)
+
+#! I am fed up
+u: (_~particle) unmark(~goodness _0) unmark(~badness _0) retry(RULE)
+
+#! today was not a bad day
+u: INVERTBAD([~aux_verb be] _[not never] *~2 _~badness) unmark(~badness _0)   unmark(~badness _1) mark(~goodness _0)
+
+#! nor was it a bad one
+u: INVERTBAD1(_nor [~aux_verb be] *~3 _~badness) unmark(~badness _0)  unmark(~badness _1) mark(~goodness _0) 
+
+#! today was not a good day
+u: INVERTGOOD([~aux_verb be] _[not never]  *~2 _~goodness) mark(~badness _0)  unmark(~goodness _1) 
+
+#! nor was it a good one
+u: INVERTGOOD1(_nor [~aux_verb be] *~3 _~goodness) mark(~badness _0)  unmark(~goodness _1) 
+
+#! he was poorly organized
+u: NEGGOOD(_~badness _0?~adverb _~goodness [_1?~adjective _1?~verb_past_participle])	unmark(~goodness _1) retry(rule)	
+
+#! it rarely excites
+u: NEGGOOD1 (_~negifier _~goodness) unmark(~goodness _1) mark(~badness _0) retry(rule)	
+
+#! he was extremely interesting
+u: MOREPOS(_~intensifier _~goodness) mark(~goodness _0)  unmark(~badness _0) retry(rule) 
+
+#! he was extremely awful
+u: MORENEG(_~intensifier _~badness) unmark(~goodness _0) mark(~badness _0) retry(rule) 
+
+#! I avoided an accident
+u: AVOIDBAD( _~avert * _~mainobject _0?~badness)  mark(~goodness _0) unmark(~badness _0) unmark(~badness _1) unmark(~goodness _1) 
+
+#! it might have been a good 
+u: MIGHT ( _~hypothetical have been *~3 _~goodness) unmark(~goodness _1) mark(~badness _0)
+
+#! it might have been a bad 
+u: MIGHT ( _~hypothetical have been *~3 _~badness) unmark(~badness _1) mark(~goodness _0)
+
+#! the war ended
+u: BADENDED( _~badness _~avert )  mark(~goodness _1) unmark(~badness _1) unmark(~badness _0) 
+
+#! I met my girlfriend by accident
+u: PREPBAD (~preposition _[~badness ~goodness])  unmark(~badness _0) unmark(~goodness _0)
+
+#! I liked it but it was bad
+u: BUT( [but although  "even though"]) refine()
+	#! good things but bad things
+	a: ( ~goodness * _[but although "even though"] * ~badness ) mark(~badness _0)
+	#! bad things but good things
+	a: ( ~badness * _[but although "even though"] * ~goodness ) mark(~goodness _0)
+
+#! I liked it despite its flaws
+u: DESPITE( [despite "in spite of" although]) refine()
+	#! good things despite bad things
+	a: ( ~goodness * _[despite "in spite of" although] * ~badness ) mark(~goodness _0)
+	#! bad things despite good things
+	a: ( ~badness * _[despite "in spite of" although] * ~goodness ) mark(~badness _0)
+
+u: (_*1) refine ()
+	a: (_0?~goodness) 
+		if (_0 ? ~mainverb) {$$sentiment = join( $$sentiment " "  '_0 +3) $$scoregood += 3 }
+		else if (_0 ? ~mainsubject) {$$sentiment = join( $$sentiment " "  '_0 +3) $$scoregood += 3 }
+		else if (_0 ? ~mainobject) {$$sentiment = join( $$sentiment " "   '_0 +3) $$scoregood += 3 }
+		else if (_0 ? ~subjectcomplement) {$$sentiment = join( $$sentiment " " '_0 +6) $$scoregood += 6 }
+		else if (_0 == although) {$$sentiment = join( $$sentiment " " '_0 +3) $$scoregood += 3 }
+		else if (_0 == although) {$$sentiment = join( $$sentiment " " '_0 +3) $$scoregood += 3 }
+		else if (_0 == ~hypothetical) {$$sentiment = join( $$sentiment " " '_0 +3) $$scoregood += 3 }
+		else if (_0 == but) {$$sentiment = join( $$sentiment " " '_0 +3) $$scoregood += 3 }
+		else if (_0 == despite) {$$sentiment = join( $$sentiment " " '_0 +3) $$scoregood += 3 }
+		else if (_0 == "in spite of") {$$sentiment = join( $$sentiment " " '_0 +3) $$scoregood += 3 }
+		else {	$$sentiment = join( $$sentiment " " '_0 +1) $$scoregood += 1  }
+		retry(toprule)
+	a: (_0?~badness) 
+		if (_0 ? ~mainverb) {$$sentiment = join( $$sentiment " "  '_0 -3) $$scorebad += 3 }
+		else if (_0 ? ~mainsubject) {$$sentiment = join( $$sentiment  " " '_0 -3) $$scorebad += 3 }
+		else if (_0 ? ~mainobject) {$$sentiment = join( $$sentiment " "  '_0 -3) $$scorebad += 3 }
+		else if (_0 ? ~subjectcomplement) {$$sentiment = join( $$sentiment " "  '_0 -3) $$scorebad += 3 }
+		else if (_0 == although) {$$sentiment = join( $$sentiment " " '_0 -6) $$scorebad += 6 }
+		else if (_0 == ~hypothetical) {$$sentiment = join( $$sentiment " " '_0 -3) $$scorebad += 3 }
+		else if (_0 == but) {$$sentiment = join( $$sentiment " " '_0 -6) $$scorebad += 6 }
+		else if (_0 == despite) {$$sentiment = join( $$sentiment " " '_0 -3) $$scorebad += 3 }
+		else if (_0 == "in spite of") {$$sentiment = join( $$sentiment " " '_0 -3) $$scorebad += 3 }
+		else {	$$sentiment = join(  $$sentiment " " '_0 -1) $$scorebad += 1 }
+		retry(toprule)
+	a: () $$sentiment = join( $$sentiment " " '_0)  retry(toprule)
+
+u: (!%document) + $$scoregood - $$scorebad $$sentiment 
+u: (%document) $$scoregood += 0  $$scorebad += 0
+	Log(OUTPUT_ECHO + $$scoregood - $$scorebad $$sentiment \n) $scoregood += $$scoregood  $scorebad += $$scorebad
+
+topic: ~tallybasepos keep repeat()
+u: (_*1) 
+	$_tmp = _0   if ($_tmp == unknown-word) { $_tmp = '_0   _0 = $_tmp} 
+	refine()
+	a: ('_0?~noun) 
+		$_tmp = join($_tmp ~ n)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~verb)
+		$_tmp = join($_tmp ~ v)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~aux_verb)
+		$_tmp = join($_tmp ~ aux)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~adjective)
+		$_tmp = join($_tmp ~ adj)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $t$ally) retry(toprule)
+	a: ('_0?~adverb)
+		$_tmp = join($_tmp ~ adv)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~pronoun)
+		$_tmp = '_0
+		$_tmp = join($_tmp ~ pro)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~preposition)
+		$_tmp = join($_tmp ~ prep)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~conjunction)
+		$_tmp = join($_tmp ~ con)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~interjection)
+		$_tmp = join($_tmp ~ int)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~determiner)
+		$_tmp = '_0
+		$_tmp = join($_tmp ~ det)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~predeterminer)
+		$_tmp = '_0
+		$_tmp = join($_tmp ~ pre)
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~there_existential)
+		$_tmp = join($_tmp ~ ex)
+		$_tmp = '_0
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~number)
+		$_tmp = '_0
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: () 
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+
+		
+topic: ~tallybase keep repeat()
+u: (_*1) 
+	$_tmp = _0   if ($_tmp == unknown-word) { $_tmp = '_0   _0 = $_tmp} 
+	refine()
+	a: ('_0?~determiner)
+		$_tmp = '_0
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~predeterminer)
+		$_tmp = '_0
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: ('_0?~number)
+		$_tmp = '_0
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+	a: () 
+		$$tally = ^tally($_tmp) + 1
+		^tally($_tmp $$tally) retry(toprule)
+
+topic: ~tallyraw keep repeat()
+u: (_*1) 
+	$_tmp = '_0
+	$$tally = ^tally($_tmp) + 1
+	^tally($_tmp $$tally) 
+	retry(toprule)
+

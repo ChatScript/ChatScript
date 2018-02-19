@@ -1,0 +1,365 @@
+# than followed by prep  with omitted sub/verb "he is taller *than in the past"
+-1	IS CONJUNCTION_SUBORDINATE
+	STAY ISORIGINAL than
+	INCLUDE * PREPOSITION
+KEEP
+
+ # with insured verb after pronoun subject, wont be prep- but (+Preposition Conjunction_coordinate)  you (Pronoun_object Pronoun_subject)  have (+Verb_infinitive +Verb_present) 
+ 0 INCLUDE * PREPOSITION
+	STAY HAS CONJUNCTION_COORDINATE
+	CANONLYBE PRONOUN_SUBJECT PRONOUN_OBJECT
+	CANONLYBE VERB_BITS
+DISCARD
+
+# wont be 2nd word as prep if could be gerund if first word is not - not (Adverb)  counting/count (+Noun_gerund Preposition) 
+-1 ISORIGINAL not
+	INCLUDE * PREPOSITION
+	STAY NOUN_GERUND
+DISCARD
+
+# wont have "it" following a preposiiton but (+Preposition Conjunction_coordinate)  it (Pronoun_object Pronoun_subject) 
+0 INCLUDE * PREPOSITION
+	STAY HAS CONJUNCTION
+	ISORIGINAL it
+DISCARD
+
+# starting prep wont have a verb following 2 nouns ... but (+Preposition Conjunction_coordinate)  state (Noun_singular)  courts/court (Noun_plural) upheld (Verb)
+0 INCLUDE * PREPOSITION
+	STAY HAS CONJUNCTION_COORDINATE
+	STAY START
+	IS NOUN_BITS
+	IS NOUN_BITS
+	IS VERB_BITS
+DISCARD
+
+# cant have 2 preps in row:  "at *about 10 am"
+-1 IS PREPOSITION
+	INCLUDE * PREPOSITION
+DISCARD
+
+# seconds *before the			
+-1 ISMEMBER ~modifyabletimenoun
+	INCLUDE *  PREPOSITION 
+	STAY ISORIGINALMEMBER ~timeadjmodifier 
+	STAY ISORIGINALMEMBER ~timeadvmodifier 
+	HAS DETERMINER PRONOUN_OBJECT NOUN_BITS ADJECTIVE_BITS
+KEEP
+
+# three miles *behind you			behind under after
+-1 ISMEMBER ~modifyabledistancenoun
+	INCLUDE *  PREPOSITION 
+	STAY ISORIGINALMEMBER ~distancemodifier 
+	HAS DETERMINER PRONOUN_OBJECT NOUN_BITS ADJECTIVE_BITS
+KEEP
+
+# if it seems like a leading prep zone with no other zone later, be it "after the fall, they ran."
+0	INCLUDE * PREPOSITION	
+	STAY START
+	SKIP !HAS PRONOUN_BITS NOUN_BITS - NOUN_INFINITIVE
+	HAS PRONOUN_BITS NOUN_BITS - NOUN_INFINITIVE
+	SKIP !HAS COMMA AUX_VERB VERB_BITS
+	IS COMMA
+	SKIP !HAS COMMA
+	!HAS COMMA
+KEEP
+
+# "how about" always adverb + prep  - if idiom substituion to "I suggest" fails
+-1	ISORIGINAL how
+	INCLUDE * PREPOSITION
+	STAY ISORIGINAL about
+KEEP
+
+# in prep adverb conflict with noun after, be prep "they wondered *about stars" - because adverb shouldnt intrude after verb and before an object unless it modified adjective
+0	INCLUDE * PREPOSITION
+	STAY CANONLYBE ADVERB PREPOSITION
+	IS NORMAL_NOUN_BITS DETERMINER_BITS 
+	STAY !IS NOUN_NUMBER # except for "at *about $2"
+KEEP
+
+# possible TO infinitive followed by possible infinitive will be that infinitive - )  "to play"  EXCEPT "known to man" so people words don't count  and "talking *to people"
+
+# prep possible conjunct followed by subject-only pronoun will not be prep  if verb possible after - conjunct "*for she had gone"
+0	INCLUDE * PREPOSITION
+	STAY HAS CONJUNCTION
+	IS PRONOUN_SUBJECT
+	STAY POSTPOS VERB_BITS
+DISCARD
+
+# cant be prep w/o noun evidence after unless at end (wrapped to begin) "she was anything *but nice"
+0	INCLUDE * PREPOSITION
+	STAY !POSTPOS NOUN_BITS PRONOUN_BITS
+	STAY !END
+DISCARD
+
+#  "the in crowd"
+-1 ISORIGINAL the
+	ISORIGINAL in
+	STAY INCLUDE * ADJECTIVE_NORMAL
+KEEP
+
+# in followed by a noun indicator but not a noun, will be prep  "in small areas" 
+0	ISORIGINAL in
+	STAY INCLUDE * PREPOSITION
+	HAS ADJECTIVE_NORMAL ADJECTIVE_NUMBER DETERMINER_BITS
+KEEP
+
+# in not preceeded by the followed by a  noun, will be prep  "in  areas" 
+-1	!ISORIGINAL the
+	ISORIGINAL in
+	STAY INCLUDE * PREPOSITION
+	HAS NORMAL_NOUN_BITS
+KEEP
+
+############################################
+########### Rules about To infinitive
+############################################
+
+#  "he has to have been the first student *to try that"  but not he went to bed
+
+# "My job is *to search"  vs I went to bed
+
+# if only aux exists immediately after, cannot be prep "have agreed *to be acquired"
+0	INCLUDE * PREPOSITION
+	CANONLYBE AUX_VERB
+DISCARD
+
+# "*to friend and ally" cant be infinitive even if noun following could be infinitive
+0	INCLUDE * TO_INFINITIVE
+	HAS PREPOSITION
+	HAS NORMAL_NOUN_BITS
+	ISORIGINAL and
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+# no prep at start if verb is not infintiive - since (+Preposition Conjunction_subordinate)  technology (Noun_singular)  improves/improve (Verb_present_3ps)  
+0	INCLUDE * PREPOSITION
+	IS NORMAL_NOUN_BITS
+	IS VERB_BITS
+	STAY !HAS VERB_INFINITIVE
+DISCARD
+
+# at start no prep when find subject verb nearby - as (Adverb +Preposition Conjunction_subordinate)  his/he (Pronoun_possessive)  imagination (Noun_singular)  went/go (Verb_past)  
+0	INCLUDE * PREPOSITION
+	STAY START
+	IS PRONOUN_POSSESSIVE ADJECTIVE_NORMAL DETERMINER
+	IS NORMAL_NOUN_BITS
+	STAY IS VERB_BITS AUX_VERB
+DISCARD
+
+# if sentence starts with qword && is ending with prep/noun or to/verb, presume to/verb goes with the object qword as a verbal  "what do you like *to do"
+0 INCLUDE * TO_INFINITIVE
+	ISQUESTION qword
+	HAS NOUN_INFINITIVE VERB_INFINITIVE VERB_INFINITIVE
+	STAY END
+KEEP
+
+# dont be prep at start if followed by noun and verb but (Adverb +Preposition Conjunction_coordinate)  we (Pronoun_subject)  shall (Aux_verb_future)  
+0	INCLUDE * PREPOSITION
+	STAY START
+	IS PRONOUN_BITS NORMAL_NOUN_BITS
+	IS VERB_BITS AUX_VERB
+DISCARD 
+
+# cannot end a sentence - "This is the man I wanted to speak *to"
+0 INCLUDE * TO_INFINITIVE
+	STAY END
+DISCARD
+
+# always after qword - "where *about town" "how *about" "what *about mary" but not "those who *like chicken"
+-1 ISQWORD
+	STAY !ISORIGINAL who
+	STAY !ISORIGINAL what
+	INCLUDE * PREPOSITION
+	STAY !HAS TO_INFINITIVE
+KEEP
+
+# always after qword - "where *to find"  "how *to find"
+-1 ISQWORD
+	INCLUDE * TO_INFINITIVE
+KEEP
+
+# these not after a determiner
+-1	IS DETERMINER
+	INCLUDE *      TO_INFINITIVE 
+DISCARD
+
+# TO at end of sentence cant be infinitive
+0 INCLUDE  * TO_INFINITIVE
+	STAY END
+DISCARD
+
+# to xxx is a prep when not followed by INFINITIVE or adverb separating infinitive "to boldly go"  or a quotation marker "I have orders to "focus on stuff""
+0	INCLUDE * TO_INFINITIVE
+	STAY HAS PREPOSITION
+	!HAS VERB_INFINITIVE NOUN_INFINITIVE ADVERB QUOTE
+DISCARD
+
+# we assume a to/prep conflict followed by a possible nouninfintive and then a noun will become nounfininitve "I saw George who continued *to play videogames" unless noun possible
+0	INCLUDE * TO_INFINITIVE
+	HAS NOUN_INFINITIVE VERB_INFINITIVE
+	STAY !HAS NORMAL_NOUN_BITS
+	IS NOUN_BITS
+KEEP
+
+# lose TO-infinitive if the next word is not a noun infinitive or an adverb - "I went *to my home" but not: "I want *to boldly go"  - not "he is likely *to be involved" "he is likely *to have gone"
+0	INCLUDE  * TO_INFINITIVE #   This is the way (to) my home.
+	!HAS NOUN_INFINITIVE  VERB_INFINITIVE ADVERB AUX_BE AUX_HAVE
+DISCARD 
+
+# set to-infinitive before NOUN_INFINTIVE
+0	INCLUDE  * TO_INFINITIVE
+	SKIP IS ADVERB
+	IS NOUN_INFINITIVE   VERB_INFINITIVE
+ KEEP 
+
+
+############################################
+########### Rules about prepositions
+############################################
+
+# prep vs adverb sandwiched between two nouns - "a partnership *between humans is good"  "the look *on her face"  unless its a time modifier "meet in Australia *next week"
+-1  CANONLYBE NORMAL_NOUN_BITS PRONOUN_BITS
+	INCLUDE * PREPOSITION
+	STAY !HAS CONJUNCTION_SUBORDINATE VERB_BITS NOUN_BITS # but not "let us hear the men *as they pass" nor "I *like peas" nor "of group *vice president"
+	CANONLYBE NORMAL_NOUN_BITS PRONOUN_BITS PRONOUN_POSSESSIVE
+	STAY !ISMEMBER ~modifyabletimenoun 
+KEEP
+
+# cannot be prep if prep follows us - "jenn looked all *over for him"
+0 INCLUDE * PREPOSITION
+	IS PREPOSITION
+DISCARD
+
+# next at start wont be prep 
+0	INCLUDE * PREPOSITION
+	STAY START
+	STAY ISORIGINAL next
+	DISCARD
+
+# prep-to conflict followed by NOUN_INFINITIVE will be to  "I employ you *to fight"
+0	INCLUDE * PREPOSITION
+	STAY HAS TO_INFINITIVE
+	IS NOUN_INFINITIVE
+DISCARD
+
+
+# in conflict between prep and adverb for "but" after is and before adjective be adverb "there is *but one god"
+-1	ISCANONICAL be
+	INCLUDE * PREPOSITION
+	STAY ISORIGINAL but
+	HAS ADJECTIVE_BITS NOUN_BITS PRONOUN_BITS DETERMINER_BITS
+DISCARD
+
+# preposition must be followed by noun phrase or its particle or end of sentence wrapped
+0	INCLUDE * PREPOSITION
+	STAY !END
+	SKIP IS ADVERB
+	!HAS ADJECTIVE_BITS PRONOUN_BITS  NOUN_BITS DETERMINER_BITS CURRENCY QUOTE TO_INFINITIVE CONJUNCTION_SUBORDINATE # "those qualities *of which he knew nothing"
+DISCARD
+
+# these not after a determiner or preposition (except from as in "I called from *under the bed")  or "Reed International gained 15 to 397 *despite reporting a 3.7 % drop in interim pretax profit ."
+# REVERSE 0 	INCLUDE *  PREPOSITION  # but "this is the highest *for any group" is a preposition, because this is adjective_noun
+#	SKIP IS ADJECTIVE_BITS  # might be adjective_noun
+#	IS DETERMINER PREPOSITION
+#	STAY !ISORIGINAL from
+# DISCARD
+
+# prep adj prep is not possible nor is *prep prep "she was *as famous for her dancing as for her love"  - but "got to be pretty flexible *about what they put in their mouths" (clause as object)
+0	INCLUDE * PREPOSITION	
+	SKIP IS ADJECTIVE_BITS
+	IS PREPOSITION  CONJUNCTION_COORDINATE  
+DISCARD
+
+# preposition cannot preceed or pronoun subject or an aux verb or a regular verb - but could preceed pronoun subject of a clause: the visitor for whom we waited was.
+0	INCLUDE * PREPOSITION
+	IS  AUX_VERB VERB_BITS 	# After *he left I stayed
+DISCARD
+
+# normally prepositions are not at end of sentence (though looping back to front happens with "whom are you thinking of"). But if can be adverb, be that unless start is qword
+0 INCLUDE * PREPOSITION
+	STAY END
+	STAY HAS ADVERB
+	!ISQUESTION qword
+DISCARD
+
+# prep with no noun after it wont be prep "I want to acquaint with"  unless at end of sentence wrapping to front or the word "from within"
+0	INCLUDE * PREPOSITION
+	STAY !ISORIGINAL from
+	STAY !END
+	STAY !POSTPOS NOUN_BITS PRONOUN_BITS ADJECTIVE_BITS 
+DISCARD
+
+# terminal prep with no subject start wont be prep "where are you from?" "what do you eat with" (allows "so what do you go with")
+0	INCLUDE * PREPOSITION
+	STAY END
+	!ISQUESTION qword
+DISCARD
+
+# I like a steak -- not  a prep... he hit the wall like x ---  like in 2nd or 3rd position is NOT a prep  --- but maybe "Boys like John are evil"  not handled right
+# I like a steak -- not  a prep... he hit the wall like x ---  like in 2nd or 3rd position is NOT a prep
+
+########################
+# ordinary preposition
+########################
+
+
+# prep if start wraps to Qword - but not "from where do you *come"
+
+# prep that cant be conjunction or adverb with adjective after it will be prep  but not adverb "for *over 10 years" but not "I have *pending great legislation"
+0	INCLUDE * PREPOSITION
+	STAY !HAS CONJUNCTION ADVERB ADJECTIVE_BITS VERB_BITS PARTICLE ADJECTIVE_NORMAL # not "I * like peas"  "*next week"
+	IS  ADJECTIVE_BITS  
+KEEP
+
+# prep that cant be conjunction or noun adverb or noun-infinitive with determiner/noun after it will be prep "you had better clean *up your room" - except as adverb "for *over 10 years" "he showed John how to *cross his legs"
+0	INCLUDE * PREPOSITION
+	STAY !HAS CONJUNCTION  ADVERB NOUN_BITS VERB_BITS PARTICLE ADJECTIVE_NORMAL  # but not "I have *pending great legislation"  and not "vice president" and not "I *like peas"  "*next week"
+	IS DETERMINER POSSESSIVE_BITS NOUN_BITS
+KEEP
+
+# What about -- becomes pronoun and preposition
+-1	ISORIGINAL what
+	ISORIGINAL about
+	STAY INCLUDE * PREPOSITION
+KEEP 
+
+# prep followed by signs of a noun should be prep (except verb LIKE)  "a tomb built *by man"  but not: "*after the rock was carved"  but not 2 possible preps in a row (one is adverb?) "he swam out over 5 feet
+# and not "it is *as easy to smile
+
+# noun at end of sentence preceeded by preposition MUST be a noun  "a tomb built by *man"
+-1	IS PREPOSITION
+	INCLUDE * NOUN_BITS
+	STAY END
+KEEP
+
+# if this might be prep and subsequent is possessive noun but not a conjunction prep, make this a prep 
+0	INCLUDE  * PREPOSITION
+	STAY !HAS CONJUNCTION
+	IS NOUN_BITS
+	IS POSSESSIVE
+KEEP 
+
+# 3rd person possessive noun prep phrase
+0	INCLUDE  * PREPOSITION # We all went over to John's house
+	STAY !HAS CONJUNCTION # but not "*but john's house is big
+	IS NOUN_BITS
+	IS POSSESSIVE
+	IS NOUN_BITS
+KEEP
+
+########################
+# "as" as a preposition
+########################
+
+# as is a preposition followed by a noun or phrase "*as a boy"
+0	INCLUDE * PREPOSITION
+	STAY ISORIGINAL as
+	IS DETERMINER
+KEEP
+
+# as is a preposition followed by a noun or phrase "*as a young boy"
+0	INCLUDE * PREPOSITION
+	STAY ISORIGINAL as
+	IS ADJECTIVE_BITS
+	IS NOUN_BITS
+KEEP

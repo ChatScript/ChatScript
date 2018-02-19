@@ -1,0 +1,43 @@
+concept: ~internal_concepts(
+~moneynumber  ~currency
+~number ~model_number ~float ~integer ~positiveinteger ~negativeinteger ~placenumber ~daynumber
+~shout ~yearnumber
+~adjective_noun ~pronoun ~adjective ~aux_verb
+~noun ~verb ~adjective ~adverb ~preposition ~conjunction_coordinate ~conjunction_subordinate
+~predeterminer ~determiner ~possessive ~pronoun_possessive
+~comma ~paren ~punctuation ~quote
+~subjectcomplement ~objectcomplement ~adjectivecomplement
+~address ~appositive ~postnominaladjective ~reflexive
+~absolutephrase ~omittedtimeprep
+~distance_noun_modify_adverb ~distance_noun_modify_adjective
+~time_noun_modify_adverb ~time_noun_modify_adjective
+~omittedofprep
+~conjunct_phrase ~conjunct_noun ~conjunct_verb
+~conjunct_adjective ~conjunct_adverb
+~whenunit ~whereunit ~howunit ~whyunit
+~sentenceend ~dateinfo
+~adjective_normal ~adjective_number ~adjective_noun
+~adjective_participle
+~interjection ~there_existential ~foreign_word ~to_infinitive
+~noun_adjective ~noun_singular ~noun_plural ~noun_proper_singular
+~noun_proper_plural ~noun_gerund ~noun_number ~noun_infinitive
+~verb_present ~verb_present_3ps ~verb_present_participle ~verb_past
+~verb_past_participle ~verb_infinitive ~particle
+~pronoun_subject ~pronoun_object
+~aux_do ~aux_have ~aux_be ~aux_verb_present
+~aux_verb_future ~aux_verb_past
+~mainsubject ~mainverb ~mainindirectobject ~mainobject
+~subject2 ~verb2 ~indirectobject2 ~object2
+~clause ~verbal ~phrase
+~adultword ~childword ~femalename ~humanname ~malename ~propername
+~phrase ~clause ~verbal ~absolutephrase ~timephrase
+~timeword ~unknownword
+
+~repeatme ~repeatinput1 ~repeatinput2 ~repeatinput3 ~repeatinput4 ~repeatinput5 ~repeatinput6
+~uppercase ~utf8 ~sentenceend
+~pos ~sys ~grammar_role ~daynumber ~yearnumber ~dateinfo
+~fahrenheit ~celsius ~kelvin
+~KINDERGARTEN ~GRADE1_2 ~GRADE3_4 ~GRADE5_6
+~twitter_name ~hashtag_label ~email_url
+
+)

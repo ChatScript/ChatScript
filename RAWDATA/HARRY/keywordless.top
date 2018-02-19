@@ -1,0 +1,43 @@
+# this is the topic for anything that has no obvious topic.
+# it is called directly from the control script when everything else fails.
+
+topic: ~keywordless nostay()
+
+u: (< say _*) keep() repeat() '_0
+
+#! What is the nature of life
+?: ( << what nature of life >>) If you believe in reincarnation, then life is currently just a charity shop of used souls.
+
+
+#! yes, if user just says OK or yes or continue, then move along and give control to bot
+u: ( < [~yesanswer ~more]>) ^keep() gambit($$currenttopic) # current topic gets to continue
+
+#! What is democracy?
+#! What is climate change?
+?: (what be {a} _*~2 >) ^keep() $$tmp = '_0
+	$$url = ^"\"https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=2&exintro=&explaintext=&format=json&utf8=&redirects=&titles=$$tmp\""
+	# Url escaping is done by ^jsonopen
+	$$user_agent = ^"myemail@hotmail.com User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"
+	$$tmp = ^jsonopen(GET $$url "" $$user_agent)
+		# ^jsontree($$tmp)
+		# ^jsonpath(  ".query .pages .56333 .extract" $$tmp)
+		@0 = ^query(direct_v ? extract ? 1)
+		@0object
+
+#! Who is Gandhi
+#! Who is Lyndon Johnson # merged to Lyndon_Jonhnson
+#! Who is Athenian democracy # testing two non merged words
+?: (who be _*~2 >) ^keep()
+	$$tmp = ^pos(capitalize ^original(_0))
+	##<<
+		Using original instead of '_0 to skip Wordnet dictionnary, since Wikipedia has more searchable content.
+		and correct spelling is left to the user.  In return this avoids excessive spellcheck on proper nouns.
+		Wikipedia does not systematically redirect mis-cased requests. Proper names should always be capitalized
+	##>>
+	$$url = ^"\"https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=2&exintro=&explaintext=&format=json&utf8=&redirects=&titles=$$tmp\""
+	$$user_agent = ^"myemail@hotmail.com User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"
+	$$tmp = jsonopen(GET $$url "" $$user_agent)
+		# ^jsontree($$tmp)
+		# ^jsonpath(  ".query .pages .56333 .extract" $$tmp)
+		@0 = ^query(direct_v ? extract ? 1)
+		@0object

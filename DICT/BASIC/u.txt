@@ -1,0 +1,604 @@
+﻿ unit ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    whole~1n 
+    unit~2nz (^whole~2) a single undivided whole
+    unit~3nz (^organization~6) an organization regarded as part of a larger social group
+    unit~4nz (^thing~1) a single undivided natural thing occurring in the composition of something else
+    unit~5nz (^measure~1) any division of quantity accepted as a standard of measurement or exchange
+    unit~6nz (^part~12) an individual or group or structure or other entity regarded as a structural or functional constituent of a whole
+ upset ( meanings=18 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) (null) ) conjugate=upset comparative=upsetter 
+    upset~1nz (^success~1) an improbable and unexpected victory
+    upset~2nz (^motion~2) the act of upsetting something
+    overthrow~2nz (^motion~2) the act of disturbing the mind or body
+    upset~4nz (^tool~2) a tool used to thicken or spread metal by forging or hammering or swaging
+    upset~5nz (^status~1) a physical condition in which there is a disturbance of normal functioning
+    upset~6nz (^status~1) an unhappy and worried mental state
+    upset~7az used of an unexpected defeat of a team favored to win
+    broken~9a 
+    distressed~2az afflicted with or marked by anxious uneasiness or trouble or grief
+    upset~10az having been turned so that the bottom is no longer the bottom
+    upset~11az mildly physically distressed
+    upset~12az 
+    upset~13vz disturb the balance or stability of
+    upset~14vz defeat suddenly and unexpectedly
+    upset~15vz form metals with a swage
+    trouble~9v 
+    upset~17vz cause to lose one's composure
+    upset~18vz cause to overturn from an upright or normal position
+ using ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 GRADE1_2 posdefault:VERB ) 
+    using~1nz (^practice~1) an act that exploits or victimizes someone 
+ undertaking ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:VERB ) 
+    labor~2n 
+    undertaking~2nz (^trade~1) the trade of a funeral director
+ untying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    undoing~1n 
+ undoing ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    untying~1nz (^adjustment~1) 
+    undoing~2nz (^change~1) an act that makes a previous act of no effect
+ use ( meanings=12 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE PARTICLE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    use~1nz (^influence~1) exerting shrewd or devious influence especially for one's own advantage
+    habit~1n 
+    role~3n 
+    use~4nz (^quality~1) a particular service
+    use~5nz (^right~4) the exercise of the legal right to enjoy the benefits of owning property
+    use~6nz (^demand~4) the utilization of economic goods to satisfy needs or in manufacturing
+    use~7vz use up, consume fully
+    employ~2v 
+    use~9vz take or consume 
+    use~10vz habitually do something 
+    practice~9v 
+    use~12vz seek or achieve an end by using to one's advantage
+ union ( meanings=11 glosses=10 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    uniting~1nz (^combination~1) the act of making or becoming a single unit
+    mating~1nz (^sex~1) the act of pairing a male and female for reproductive purposes
+    union~3nz (^device~3) a device on a national flag emblematic of the union of two or more sovereignties
+    union~4nz (^event~1) the occurrence of a uniting of separate parts
+    join~1nz (^set~8) a set containing all and only the members of two or more given sets
+    union~6nz (^organization~6) an organization of employees formed to bargain with the employer
+    union~7nz (^unit~3) a political unit formed from previously independent people or organizations
+    union~8nz (^healing~1) healing process involving the growing together of the edges of a wound or the growing together of broken bones
+    marriage~3n 
+    union~10nz (^state~1) the state of being joined or united or linked
+    union~11az of trade unions
+ uniting ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    union~1n 
+    uniting~2nz (^combination~1) 
+ umbrella ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    umbrella~1nz (^union~1) having the function of uniting a group of similar things
+    umbrella~2nz (^defense~3) a formation of military planes maintained over ground operations or targets
+    umbrella~3nz (^protection~5) a lightweight handheld collapsible canopy
+    umbrella~4az covering or applying simultaneously to a number of similar items or elements or groups
+ urban ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    urban~1az located in or characteristic of a city or city life
+    urban~2az relating to or concerned with a city or densely populated area
+    urban~3az 
+ unloading ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    unloading~1nz (^handling~2) the labor of taking a load of something off of or out of a vehicle or ship or container etc.
+ university ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    university~1nz (^structure~1) establishment where a seat of higher learning is housed, including administrative and living quarters as well as facilities for research and teaching
+    university~2nz (^body~9) the body of faculty and students at a university
+    university~3nz (^institution~5) a large and diverse institution of higher learning created to educate for life and for a profession and to grant degrees
+ urging ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    urging~1nz (^support~4) the act of earnestly supporting or encouraging
+    urging~2nz (^prayer~3) 
+    urging~3nz (^encouragement~2) 
+ upper ( meanings=7 glosses=5 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=up 
+    speed~2n 
+    upper~2nz (^piece~4) piece of leather or synthetic material that forms the part of a shoe or boot above the sole that encases the foot
+    upper~3nz (^bed~1) the higher of two berths
+    upper~4az higher in place or position
+    upper~5az superior in rank or accomplishment
+    upper~6az the topmost one of two
+    upper~7az 
+ underwear ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    underwear~1nz (^clothing~1) undergarment worn next to the skin and under the outer garments
+ uneven ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    uneven~1az lacking consistency
+    uneven~2az not fairly matched as opponents
+    uneven~3az not even or uniform as e.g. in shape or texture
+    odd~2a 
+    uneven~5az variable and recurring at irregular intervals 
+ uniform ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    uniform~1nz (^clothing~1) clothing of distinctive design worn by members of a particular group as a means of identification
+    uniform~2az not differentiated
+    uniform~3az the same throughout in structure or composition
+    uniform~4az evenly spaced
+    uniform~5az always the same
+    uniform~6az 
+    uniform~7vz provide with uniforms
+ universal ( meanings=8 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    universal~1nz (^coupling~2) coupling that connects two rotating shafts allowing freedom of movement in all directions
+    universal~2nz (^rule~2) a behavioral convention or pattern characteristic of all members of a particular culture or of all human beings
+    universal~3nz (^proposition~2) a proposition that asserts something of all members of a class
+    universal~4nz (^rule~10) a grammatical rule (or other linguistic feature) that is found in all languages
+    general~5a 
+    universal~6az adapted to various purposes, sizes, forms, operations
+    universal~7az applicable to or common to all members of a group or set
+    universal~8az 
+ upstairs ( meanings=4 glosses=4 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE ) 
+    upstairs~1nz (^part~3) the part of a building above the ground floor
+    upstairs~2az on or of upper floors of a building
+    upstairs~3bz on a floor above
+    upstairs~4bz with respect to the mind
+ utensil ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    utensil~1nz (^artifact~1) an implement for practical use
+ unison ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    unison~1nz (^sound~1) two or more sounds or tones at the same pitch or in octaves
+    unison~2nz (^coincidence~1) occurring together or simultaneously
+    unison~3nz (^accord~4) corresponding exactly
+ unfavorable ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unfavorable~1az tending to hinder or oppose
+    unfavorable~2az not encouraging or approving or pleasing
+    unfavorable~3az not favorable
+ unconscious ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 ) 
+    unconscious~1nz (^mind~1) that part of the mind wherein psychic activity takes place of which the person is unaware
+    unconscious~2az not knowing or perceiving
+    unconscious~3az not conscious
+    unconscious~4az without conscious volition
+    unconscious~5az 
+ understanding ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB (null) ) 
+    reason~1n 
+    understanding~2nz (^knowing~1) the cognitive condition of someone who understands
+    sympathy~1n 
+    agreement~3n 
+    understanding~5az characterized by understanding based on comprehension and discernment and empathy
+ underestimate ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    underestimate~1nz (^estimate~2) an estimation that is too low
+    underestimate~2vz make too low an estimate of
+    underestimate~3vz make a deliberately low estimate
+    underestimate~4vz assign too low a value to
+ universe ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    universe~1nz (^content~2) everything stated or assumed in a given discussion
+    population~2nz (^collection~4) the entire aggregation of items from which samples can be drawn
+    existence~1nz (^whole~1) everything that exists anywhere
+ utopia ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    utopia~1nz (^fiction~1) a work of fiction describing a utopia
+    utopia~2nz (^state~1) ideally perfect state
+ upbraiding ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    upbraiding~1nz (^criticism~3) 
+ ultimatum ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=ultimata 
+    ultimatum~1nz (^demand~3) a final peremptory demand
+ unspoken ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    unspoken~1az expressed without speech
+    unspoken~2az not made explicit
+ unknown ( meanings=9 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    unknown~1nz (^symbol~2) a variable whose values are solutions of an equation
+    unknown~2nz (^region~4) an unknown and unexplored region
+    alien~3n 
+    unknown~4az being or having an unknown or unnamed source
+    strange~1a 
+    obscure~5az not famous or acclaimed
+    unknown~7az not known
+    unknown~8az not known to exist
+    unknown~9az 
+ urge ( meanings=5 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    urge~1nz (^desire~2) a strong restless desire
+    impulse~6n 
+    press~11v 
+    cheer~4v 
+    advocate~4v 
+ unrest ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    unrest~1nz (^feeling~1) a feeling of restless agitation
+    unrest~2nz (^state~1) a state of agitation or turbulent change or development
+ uptown ( meanings=3 glosses=3 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    uptown~1nz (^community~4) a residential part of town away from the central commercial district
+    uptown~2az of or located in the upper part of a town
+    uptown~3bz toward or in the upper part of town
+ upside ( meanings=2 glosses=1 NOUN PREPOSITION NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    top~8nz (^face~12) the highest or uppermost side of anything
+    upside~2z 
+ uphill ( meanings=4 glosses=4 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) 
+    uphill~1nz (^raise~4) the upward slope of a hill
+    rising~5az sloping upward
+    uphill~3bz upward on a hill or incline
+    uphill~4bz against difficulties
+ up ( meanings=15 glosses=14 VERB_PRESENT VERB_INFINITIVE PARTICLE VERB ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION VERB_DIRECTOBJECT ) comparative=upper 
+    up~1az out of bed
+    up~2az used up
+    up~3az operating properly
+    up~4az open
+    up~5az in readiness
+    up~6az extending or moving toward a higher place
+    improving~1az getting higher or more vigorous
+    up~8az being or moving higher in position or greater in some value
+    up~9bz spatially or metaphorically from a lower to a higher position
+    up~10bz to a later time
+    up~11bz to a more central or a more northerly place
+    up~12bz nearer to the speaker
+    up~13bz to a higher intensity
+    up~14z 
+    up~15vz raise
+ Uncle ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ unusual ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    unusual~1az not commonly encountered
+    unusual~2az not usual or common or ordinary
+    strange~2a 
+    unusual~4az 
+ unfortunate ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unfortunate~1nz (^individual~1) a person who suffers misfortune
+    unfortunate~2az not auspicious
+    unfortunate~3az unsuitable or regrettable
+    unfortunate~4az not favored by fortune
+    unfortunate~5az 
+ umpire ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    umpire~1nz (^judge~1) someone chosen to judge and decide a disputed issue
+    umpire~2nz (^official~1) an official at a baseball game
+    umpire~3vz be a referee or umpire in a sports competition
+ unsuccessful ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unsuccessful~1az failing to accomplish an intended result
+    unsuccessful~2az not successful
+    unsuccessful~3az 
+ underdog ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    underdog~1nz (^failure~4) one at a disadvantage and expected to lose
+ unkind ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    unkind~1az deficient in humane and kindly feelings
+    unkind~2az lacking kindness
+    unkind~3az 
+ utterer ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON1 GRADE5_6 posdefault:NOUN ) comparative=utter 
+    utterer~1nz (^individual~1) someone who expresses in language
+    utterer~2nz (^cheat~3) someone who circulates forged banknotes or counterfeit coins
+    utterer~3nz (^being~1) an organism that can utter vocal sounds
+ ugly ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=ugliest 
+    horrible~1az provoking horror
+    ugly~2az displeasing to the senses
+    ugly~3az morally reprehensible
+    surly~1az inclined to anger or bad feelings with overtones of menace
+    ugly~5az 
+ uncle ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    uncle~1nz (^relative~2) the brother of your father or mother
+    uncle~2nz (^helper~1) a source of help and advice and encouragement
+ upsetter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=upset 
+    upsetter~1nz (^individual~1) an unexpected winner
+ usher ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    guide~6n 
+    usher~2nz (^official~2) an official stationed at the entrance of a courtroom or legislative chamber
+    show~13v 
+ unpaid ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    unpaid~1az not paid
+    unpaid~2az engaged in as a pastime
+    volunteer~3az without payment
+    unpaid~4az 
+ ultimata ( NOUN NOUN_PLURAL COMMON1 GRADE5_6 posdefault:NOUN ) plural=ultimatum 
+ ugh ( INTERJECTION ) 
+ uh-hu ( INTERJECTION ) 
+ uh-huh ( INTERJECTION ) 
+ uh-uh ( INTERJECTION ) 
+ uhuh ( INTERJECTION ) 
+ uggh ( INTERJECTION ) 
+ uh ( INTERJECTION ) 
+ uh-oh ( INTERJECTION ) 
+ um ( INTERJECTION ) 
+ ur ( INTERJECTION ) 
+ urgh ( INTERJECTION ) 
+ until ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION TIMEWORD ) 
+    until~1z 
+    until~2z 
+ unable ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    unable~1az not having the necessary means or skill or know-how
+    unable~2az lacking necessary physical or mental ability
+    ineffectual~2az lacking in power or forcefulness
+    unable~4az 
+ unimpeachable ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    unimpeachable~1az completely acceptable
+    unimpeachable~2az free of guilt
+    unimpeachable~3az beyond doubt or reproach
+ unacceptable ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unacceptable~1az not acceptable
+    unacceptable~2az not adequate to give satisfaction
+    unacceptable~3az not conforming to standard usage
+    impossible~4a 
+    unacceptable~5az 
+ used_to ( meanings=1 VERB_PAST VERB_PAST_PARTICIPLE AUX_VERB_PAST VERB ADJECTIVE_ONLY_PREDICATE KINDERGARTEN VERB_CONJUGATE1 ) 
+    used_to~1vz 
+ used ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 COMMON1 GRADE1_2 posdefault:VERB (null) ) 
+    used~1az previously used or owned by another
+    used~2az employed in accomplishing something
+    used~3az of persons
+    used~4az 
+ uncertain ( meanings=8 glosses=7 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    uncertain~1az ambiguous 
+    uncertain~2az not established beyond doubt
+    unsure~1az lacking or indicating lack of confidence or assurance
+    uncertain~4az not certain to occur
+    uncertain~5az not consistent or dependable
+    uncertain~6az not established or confirmed
+    uncertain~7az subject to change
+    uncertain~8az 
+ unstuck ( meanings=2 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON2 GRADE1_2 posdefault:VERB ) conjugate=unstick 
+    unstuck~1az free
+    undone~2a 
+ upon ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    upon~1z 
+ unaware ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unaware~1az not aware
+    unaware~2az 
+ unwitting ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unwitting~1az not aware or knowing
+    ignorant~3az unaware because of a lack of relevant information or knowledge
+    unwitting~3az not done with purpose or intent
+ untied ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    untied~1az 
+    untied~2az 
+    untied~3az 
+ unbuttoned ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    unbuttoned~1az 
+    unbuttoned~2az not under constraint in action or expression
+ unifying ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    centripetal~3a 
+    unifying~2az 
+ unsure ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    uncertain~3a 
+    shy~3a 
+    unsure~3az 
+ unmoved ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unmoved~1az being in the original position
+    unmoved~2az emotionally unmoved
+ uniformed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    uniformed~1az dressed in a uniform
+ uneasy ( meanings=6 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    uneasy~1az relating to bodily unease that causes discomfort
+    awkward~1a 
+    uneasy~3az lacking a sense of security or affording no ease or reassurance
+    uneasy~4az lacking or not affording physical or mental rest
+    nervous~4a 
+    uneasy~6az 
+ usual ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    usual~1az occurring or encountered or experienced or observed frequently or in accordance with regular practice or procedure
+    common~4a 
+    usual~3az 
+ unique ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    unique~1az highly unusual or rare but not the single instance
+    alone~1a 
+    unique~3az applying exclusively to a given category or condition or locality
+    unique~4az the single one of its kind
+    unique~5az 
+ unparalleled ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unique~2a 
+    unparalleled~2az 
+ utter ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) comparative=utterer 
+    dead~8a 
+    gross~7a 
+    express~7v 
+    talk~8v 
+    utter~5vz express audibly
+    utter~6vz put into circulation
+ understandable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    intelligible~1az capable of being apprehended or understood
+ unconcerned ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unconcerned~1az lacking in interest or care or feeling
+    unconcerned~2az not occupied or engaged with
+    unconcerned~3az easy in mind
+ unfitting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    unfitting~1az 
+ unfailing ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unflagging~1a 
+    unfailing~2az always able to supply more
+    unfailing~3az not liable to failure
+ unflagging ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    unfailing~1az unceasing
+    unflagging~2az showing sustained enthusiastic action with unflagging vitality
+ uncontrolled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    uncontrolled~1az not being under control
+ unreal ( meanings=6 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    unreal~1az lacking material form or substance
+    artificial~2a 
+    unreal~3az lacking in reality or substance or genuineness
+    unreal~4az not actually such
+    unreal~5az 
+    unreal~6az 
+ unsophisticated ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    rustic~2az awkwardly simple and provincial
+    unsophisticated~2az lacking complexity
+    unsophisticated~3az not wise in the ways of the world
+    unsophisticated~4az 
+ unbelievable ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    unbelievable~1az beyond belief or understanding
+    unlikely~3az having a probability too low to inspire belief
+    unbelievable~3az 
+ unhesitating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    unhesitating~1az characterized by quickness and firmness
+ undeniable ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    undeniable~1az not possible to deny
+    undeniable~2az 
+ usable ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    available~2a 
+    usable~2az fit or ready for use or service
+    usable~3az capable of being put to use
+    usable~4az 
+ under ( meanings=11 glosses=10 PARTICLE ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB posdefault:PREPOSITION (null) ) 
+    under~1az lower in rank, power, or authority
+    under~2az located below or beneath something else
+    below~5bz further down
+    under~4bz down below
+    under~5bz below the horizon
+    under~6bz below some quantity or limit
+    under~7bz in or into a state of subordination or subjugation
+    under~8bz down to defeat, death, or ruin
+    under~9bz into unconsciousness
+    under~10bz through a range downward
+    under~11z 
+ unhappy ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=unhappiest 
+    distressed~1az generalized feeling of distress
+    unhappy~2az marked by or producing unhappiness
+    unhappy~3az experiencing or marked by or causing sadness or sorrow or discontent
+    unhappy~4az causing discomfort
+    unhappy~5az 
+ unexpected ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unexpected~1az not expected or anticipated
+    unexpected~2az 
+ understood ( meanings=3 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 GRADE3_4 posdefault:VERB ) conjugate=understand 
+    silent~5a 
+    understood~2az fully apprehended as to purport or meaning or explanation
+    understood~3az 
+ unfair ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    unfair~1az not fair
+    unfair~2az 
+ unfamiliar ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unfamiliar~1az not known or well known
+ underweight ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    skinny~2a 
+    underweight~2az 
+ undone ( meanings=4 glosses=4 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=undid 
+    undone~1az not done
+    unstuck~2az thrown into a state of disorganization or incoherence
+    undone~3az not fastened or tied or secured
+    sunk~1az doomed to extinction
+ unfit ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    unfit~1az not in good physical or mental condition
+    unfit~2az below the required standards for a purpose
+    bad~10a 
+    unfit~4az 
+    disqualify~1vz make unfit or unsuitable
+ uncompromising ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    sturdy~2az not making concessions
+ unlucky ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    doomed~4az marked by or promising bad fortune
+    unlucky~2az having or bringing misfortune
+    unlucky~3az 
+ useful ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    useful~1az having a useful function
+    useful~2az being of use or service
+    useful~3az 
+ ungainly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) comparative=ungainliest 
+    clumsy~2a 
+    clumsy~4a 
+ unwieldy ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    ungainly~1a 
+    unwieldy~2az difficult to work or manipulate
+    unwieldy~3az difficult to use or handle or manage because of size or weight or shape
+    unwieldy~4az 
+ unyielding ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unyielding~1az resistant to physical force or pressure
+    dogged~1az stubbornly unyielding
+ unified ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    unified~1az 
+    unified~2az 
+ unlike ( meanings=3 glosses=1 ADJECTIVE PREPOSITION ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    different~2a 
+    unlike~2az not equal in amount
+    unlike~3z 
+ unlikely ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    unlikely~1az has little chance of being the case or coming about
+    unlikely~2az not likely to be true or to occur or to have occurred
+    unbelievable~2a 
+    unlikely~4az 
+ unloaded ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    unloaded~1az not charged with ammunition
+ united ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    joined~2az of or relating to two people who are married to each other
+    united~2az characterized by unity
+    united~3az 
+ unnecessary ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    unnecessary~1az not necessary
+    unnecessary~2az 
+ upsetting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    upsetting~1az 
+ uncouth ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    coarse~1a 
+    uncouth~2az 
+ unfaltering ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    stiff~8a 
+ unbridled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    unbridled~1az not restrained or controlled
+ unlocked ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    unlocked~1az 
+ unfeigned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    genuine~2a 
+ uttered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    expressed~2az 
+ unfounded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    wild~13a 
+ untidy ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) comparative=untidiest 
+    untidy~1az not neat and tidy
+    untidy~2az 
+ unkempt ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    unkempt~1az not properly maintained or cared for
+    unkempt~2az not neatly combed
+    unkempt~3az 
+ unrepresentative ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    unrepresentative~1az not exemplifying a class
+ useless ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    useless~1az having no beneficial use or incapable of functioning usefully
+    useless~2az 
+ unwilling ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    unwilling~1az in spite of contrary volition
+    unwilling~2az not disposed or inclined toward
+    unwilling~3az 
+ umptillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ uglier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=ugly 
+ ugliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=uglier 
+ ungainlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL GRADE5_6 ) comparative=ungainly 
+ ungainliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL GRADE5_6 posdefault:ADJECTIVE ) comparative=ungainlier 
+ unhappier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=unhappy 
+ unhappiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=unhappier 
+ untidier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=untidy 
+ untidiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=untidier 
+ usually ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    usually~1bz under normal conditions
+ underneath ( meanings=3 glosses=2 ADVERB PREPOSITION COMMON4 GRADE1_2 posdefault:ADVERB ) 
+    underneath~1bz under or below an object or a surface
+    underneath~2bz on the lower or downward side
+    underneath~3z 
+ unless ( meanings=1 CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    unless~1z 
+ unlock ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    unlock~1vz become unlocked
+    unlock~2vz open the lock of
+    unlock~3vz set free or release
+ unite ( meanings=6 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    unify~1vz join or combine
+    unify~2vz become one
+    unify~4vz act in concert or unite in a common purpose or belief
+    unify~5vz bring together for a common purpose or action or ideology or in a shared situation
+    join~7v 
+    combine~10v 
+ unify ( meanings=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    unite~1v 
+    unite~2v 
+    mix~8v 
+    unite~3v 
+    unite~4v 
+ understand ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=understood 
+    understand~1vz know and comprehend the nature or meaning of
+    realize~1v 
+    understand~3vz believe to be the case
+    read~2v 
+    understand~5vz be understanding of
+ upbraid ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    upbraid~1vz express criticism towards
+ undertake ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT ) conjugate=undertaken 
+    contract~9v 
+    undertake~2vz 
+    attempt~3v 
+    undertake~4vz 
+    undertake~5vz accept as a challenge
+ undo ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) conjugate=undone 
+    undo~1vz remove the outer cover or wrapping of
+    untie~2vz cause to become loose
+    undo~3vz cancel, annul, or reverse an action or its effect
+    undo~4vz deprive of certain characteristics
+    undo~5vz cause the ruin or downfall of
+ untie ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    untie~1vz undo the ties of
+    undo~2v 
+ unzip ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    unzip~1vz open the zipper of
+ unhook ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    unhook~1vz take off a hook
+ unbutton ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    unbutton~1vz undo the buttons of
+ unplug ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    unplug~1vz pull the plug of and render inoperable
+ unload ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    unload~1vz take the load off 
+    drop~23v 
+ usurp ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    seize~8v 
+    usurp~2vz take the place of
+ undertook ( VERB_PAST VERB COMMON4 GRADE1_2 posdefault:VERB ) conjugate=undertake 
+ undertaken ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 GRADE1_2 posdefault:VERB ) conjugate=undertook 
+ undid ( VERB_PAST VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=undo 
+ unstick ( VERB_PRESENT VERB_INFINITIVE VERB COMMON2 ) conjugate=unstuck 
+ use_to ( meanings=1 VERB_PRESENT VERB_INFINITIVE AUX_VERB_PAST VERB KINDERGARTEN VERB_CONJUGATE1 ) 
+    use_to~1vz 
+ us ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON2 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_PLURAL ANIMATE_BEING ) 
+    us~1z 

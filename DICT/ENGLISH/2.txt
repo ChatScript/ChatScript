@@ -1,0 +1,31 @@
+﻿ 2-hitter ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    two-hitter~1n 
+ 2_Samuel ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    II_Samuel~1n 
+ 2_Kings ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    II_Kings~1n 
+ 2_Chronicles ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    II_Chronicles~1n 
+ 2_Esdras ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    II_Esdras~1n 
+ 2_Maccabees ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+    II_Maccabees~1n 
+ 2nd_lieutenant ( meanings=1 NOUN NOUN_SINGULAR ) 
+    second_lieutenant~1n 
+ 2-methylpropenoic_acid ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
+    methacrylic_acid~1nz (^acid~2) an unsaturated acid used to make resins and plastics
+ 22-karat_gold ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    22-karat_gold~1nz (^metal~1) an alloy that contains 87 per cent gold
+ 24-karat_gold ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    pure_gold~1nz (^gold~5) 100 per cent gold
+ 2-hydroxybenzoic_acid ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
+    salicylic_acid~1nz (^hydroxy_acid~1) a white crystalline substance with a bitter aftertaste
+ 24-hour_interval ( meanings=1 NOUN NOUN_SINGULAR ) 
+    twenty-four_hour_period~1n 
+ 2-dimensional ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
+    two-dimensional~2a 
+ 2d ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    2d~1az coming next after the first in position in space or time or degree or magnitude
+ 2-star ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    2-star~1az 
+ 2/3 ( NOUN NOUN_NUMBER KINDERGARTEN ) 

@@ -1,0 +1,239 @@
+
+#  "that" following noun (normal) wont be determiner - trend (Noun_singular)  that/a (Pronoun_subject Conjunction_subordinate Determiner) 
+ -1 IS NOUN_BITS - NOUN_INFINITIVE - NOUN_GERUND
+	INCLUDE * DETERMINER
+	STAY ISORIGINAL that
+ DISCARD
+
+# in determiner adverb conflict before a noun, be a determiner " john liked *that idea"
+0	INCLUDE * DETERMINER
+	STAY CANONLYBE ADVERB DETERMINER
+	IS NORMAL_NOUN_BITS
+KEEP
+
+# predeterminer will not be followed by verb signs- what (Pronoun_object Pronoun_subject Predeterminer)  is/be (Aux_be_present_3ps +Verb_present_3ps)
+0 INCLUDE * PREDETERMINER
+	CANONLYBE AUX_VERB VERB_BITS
+DISCARD
+
+# what at start before determiner is predeterminer - "*what a man he is"
+0 INCLUDE * PREDETERMINER
+	STAY ISORIGINAL what
+	STAY START
+	IS DETERMINER
+KEEP
+
+# in determiner/predeterminer conflict, if not followed by determiner or possessive, will be determiner - this/a (Predeterminer Determiner)  cute (Adjective_normal)
+ 0	INCLUDE * PREDETERMINER
+	STAY HAS DETERMINER
+	!HAS DETERMINER PRONOUN_POSSESSIVE
+DISCARD
+
+# NOT predeterminer before verbness what (Pronoun_object Pronoun_subject Predeterminer)  is/be (Aux_be_present_3ps +Verb_present_3ps)
+0 INCLUDE * PREDETERMINER
+	CANONLYBE AUX_VERB VERB_BITS
+DISCARD
+
+# no infinitive without TO or sign of noun before w/o helper a (Determiner)  major (Noun_singular +Adjective_normal)  concern (+Noun_singular Verb_infinitive)  about (Preposition) 
+-2 IS DETERMINER
+	HAS NOUN_BITS
+	INCLUDE * VERB_INFINITIVE
+	STAY !PRIORPOS AUX_VERB
+DISCARD
+
+# in adverb predeterminer conflict before determiner, be predeterminer - all (+Adverb Predeterminer)  the/a (Determiner)  
+0	INCLUDE * ADVERB
+	STAY CANONLYBE PREDETERMINER ADVERB
+	IS DETERMINER
+DISCARD
+
+# wont be determiner without noun coming : than (Preposition)  those/a (Pronoun_object Pronoun_subject Determiner)  living/live (+Noun_gerund +Adjective_participle)  in (Preposition)  
+-1 IS PREPOSITION
+	INCLUDE * DETERMINER
+	STAY HAS PRONOUN_OBJECT
+	HAS NOUN_GERUND
+	IS PREPOSITION
+DISCARD
+
+# no determiner before to infinitive - you have much (+Adverb Pronoun_object Determiner)  to (To_infinitive)  learn
+0	INCLUDE * DETERMINER
+	IS TO_INFINITIVE
+DISCARD
+
+# if plural determiner before potential plural noun vs verb, be determiner "*these snakes"
+0	INCLUDE * DETERMINER
+	STAY HASPROPERTY DETERMINER_PLURAL
+	STAY !ISORIGINAL that  # not "did you know *that pill bugs"
+	CANONLYBE  HAS VERB_PRESENT_3PS NOUN_PLURAL
+KEEP
+
+# if singular determiner before potential singular noun vs verb, be determiner "*this snake" 
+0	INCLUDE * DETERMINER
+	STAY HASPROPERTY DETERMINER_SINGULAR
+	STAY !ISORIGINAL that  # not "did you know *that pill bugs"
+	CANONLYBE  NOUN_SINGULAR VERB_PRESENT
+KEEP
+
+# determiner will not preceed determiner = not scientists/scientist (Noun_plural)  believe (Verb_present)  *that/a (Pronoun_object Conjunction_subordinate Determiner)  these/a (Pronoun_object Pronoun_subject Determiner)  snakes/snake (Noun_plural Verb_present_3ps) 
+0	INCLUDE * DETERMINER
+	CANONLYBE DETERMINER # but determiner can preceed possessive like "all his apples" 
+DISCARD
+
+# will not have adjective immediately after subject pronoun  "they *often like"
+-1 IS PRONOUN_SUBJECT
+	INCLUDE * DETERMINER_BITS
+DISCARD
+
+# cannot be determiner at start if determiner follows shortly - this/a (Pronoun_subject Determiner)  gives/give (Noun_plural Verb_present_3ps)  the/a (Determiner)  snake (Noun_singular)  plenty (Pronoun_subject)  of (Preposition)  time (Noun_singular)  to (To_infinitive)  get (Noun_infinitive)  away (Particle)  
+0	INCLUDE * DETERMINER
+	STAY START
+	!IS DETERMINER # expected verb
+	STAY !HAS NOUN_BITS # "*that year the apple fell"
+	IS DETERMINER POSSESSIVE
+DISCARD
+
+# at start, if followed by noun, be dterminer  - no (Interjection +Adverb Determiner)  glimpse (Noun_singular) - but if could be possessive pronoun, prefer that
+0	INCLUDE * DETERMINER
+	STAY START
+	STAY !HAS PRONOUN_POSSESSIVE
+	IS NORMAL_NOUN_BITS
+KEEP 
+
+# prefer possessive pronoun to determiner role
+0	INCLUDE * DETERMINER
+	STAY HAS PRONOUN_POSSESSIVE
+DISCARD
+
+# possible determiner at start before known pronoun each (Adjective_normal +Adverb Pronoun_subject Determiner)  one (Pronoun_object Pronoun_subject)
+0	INCLUDE * DETERMINER
+	STAY START
+	CANONLYBE PRONOUN_BITS
+KEEP
+
+# in determiner adj/adv conflict immediately before noun be determiner if no det/adj before
+-1 !HAS ADJECTIVE_BITS DETERMINER_BITS
+	INCLUDE * DETERMINER
+	STAY CANONLYBE DETERMINER ADJECTIVE_BITS ADVERB
+	IS NORMAL_NOUN_BITS
+KEEP
+
+# cannot have singular determiner before plural noun
+0	INCLUDE * DETERMINER
+	STAY HASPROPERTY DETERMINER_PLURAL
+	IS NOUN_SINGULAR
+	STAY !ISABSTRACT  # allowed before "*such stature"
+	!HAS NOUN_PLURAL	# "*all vehicle sales"
+DISCARD
+
+# cannot have plural determiner before singular noun
+0  INCLUDE * DETERMINER
+	STAY HASPROPERTY DETERMINER_SINGULAR
+	IS NOUN_PLURAL
+	STAY !ISABSTRACT  # allowed before "*such stature"
+DISCARD
+
+
+
+############################################
+########### Rules about pre determiners
+############################################
+
+# can only be before a or an or the or possessive pronoun (or plural noun or abstract noun) "of *such stature"
+
+############################################
+########### Rules about determiners
+#######################
+
+# ANY adjective that can be a determiner, be one   "*some people" but not if preceeded by an adjective - but not "his *little sister"
+
+# if nothing before can be determiner or adjective and after is ADJECTIVE, be determiner  "he spits at *other small creatures" EXCEPT "I was *half afraid"
+
+# determiner cannot precede aux verb		"*what will tomorrow bring?"
+0	INCLUDE * DETERMINER
+	IS AUX_VERB 
+DISCARD
+
+# determiners wont proceed potential aux verbs that are not potential nouns like can
+0	INCLUDE *  DETERMINER
+	HAS AUX_VERB
+	STAY !HAS NOUN_BITS
+DISCARD
+
+# determiners cant preceed aux-verb or real verb or another determiner
+0	INCLUDE * DETERMINER_BITS - PREDETERMINER #  "he will kill *all the cats"
+	IS DETERMINER_BITS AUX_VERB VERB_BITS   # can precede preposition:  These out of the way places
+DISCARD
+
+# determiners cant preceed a personal pronoun - they were *certain they were happy
+0	INCLUDE * DETERMINER_BITS - PREDETERMINER #  "he will kill *all the cats"
+	IS  PRONOUN_BITS  
+	STAY PARSEMARK PERSONAL_PRONOUN
+DISCARD
+
+# determiner cannot be after a determiner or an adjective (but can be after predeterminer)
+-1	IS DETERMINER PRONOUN_POSSESSIVE ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE
+	INCLUDE * DETERMINER_BITS 
+DISCARD
+
+# determiner cannot preceed an adverb not preceeding an adjective possessive pronoun or noun
+0	INCLUDE  * DETERMINER_BITS
+	IS ADVERB
+	!HAS ADVERB ADJECTIVE_BITS NOUN_BITS  - NOUN_GERUND PRONOUN_POSSESSIVE
+DISCARD
+
+# determiner cannot end the sentence
+0 	INCLUDE  * DETERMINER_BITS  
+	STAY END  
+DISCARD 	
+
+# determiner cannot be followed by prep "*some of them" or comma or conjunct or a verb
+0	INCLUDE * DETERMINER_BITS
+	IS PREPOSITION COMMA CONJUNCTION VERB_BITS AUX_VERB
+DISCARD
+
+# determiner not before a noun isnt possible (skip past adjective + adverbs and prep phrase describing the noun)
+
+# determiner wont intervene between two nouns,  "this is the house *that Jack built"  except that "I give the dog a bone" does, as does "he goes to school each semester" does
+
+
+# determiner not before a possible noun or pronoun "had I been brave *enough"
+0 INCLUDE * DETERMINER
+	SKIP !HAS NOUN_BITS PRONOUN_BITS
+	!HAS NOUN_BITS PRONOUN_BITS
+DISCARD
+
+# a potential determiner which is also an adjective, cannot be preceeded by an adjective (except participle phrase) or determiner or possessive
+-1 IS DETERMINER ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE PRONOUN_POSSESSIVE POSSESSIVE # not "*involving any major airline"
+	INCLUDE * DETERMINER # after his double teeth
+	STAY HAS ADJECTIVE_BITS
+DISCARD
+
+# a potential determiner cannot preceed a comma
+0	INCLUDE * DETERMINER
+	IS COMMA
+DISCARD
+
+# these not after pronoun subject (except if question inversion happens) # adjective allowed: Are you sick?
+
+#   ILLEGAL: "*This reports"  - LEGAL: "*the people"
+
+# potential determiner vs pronouns followed by potential noun followed by end of sentence will be determiner "I would sooner read a book than watch *this film" but not "we watched *them play"
+# but not  "* many little books"
+
+# possessive pronoun that is also a determiner "my dog" discard determiner and be possessive
+0	INCLUDE *  DETERMINER
+	STAY HAS PRONOUN_POSSESSIVE 
+DISCARD
+
+# a potential determiner which is also an adjective not preceeded by an adjective or determiner  or possessive - but not "can kill predators *much larger than itself"
+-1 !HAS DETERMINER ADJECTIVE_BITS  PRONOUN_POSSESSIVE POSSESSIVE
+	INCLUDE * DETERMINER 
+	STAY HAS ADJECTIVE_BITS
+	STAY !HAS PRONOUN_BITS INTERJECTION ADVERB # "I will give her some"  not "no, I will go"
+	SKIP !HAS NOUN_BITS
+	HAS NOUN_BITS
+KEEP
+
+# determiner before a noun but not after a noun (skip past adjective + adverbs and prep phrase describing the noun) will be a determiner or adjective or adverb - but particle conflict "mom picked *up Eve" and prep conflict "just *like earthworms"
+# but not "he swam and *hit Bess in the mouth"
+# not "Ponto then *found her"

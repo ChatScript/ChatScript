@@ -1,0 +1,227 @@
+﻿ J ( ) lemma=`j` -  
+ J. ( ) lemma=`j.`j.` Ncfsnn  SENT  
+ J1 ( ) lemma=`j1`j1` -  Afpfsnf  
+ JAN ( ) lemma=`jan` -  
+ JB ( ) lemma=`jb` -  
+ JCB ( ) lemma=`jcb` -  
+ JD ( ) lemma=`jd` -  
+ JDBC ( ) lemma=`jdbc` -  
+ JEFFREY ( ) lemma=`jeffrey` -  
+ JETIX ( ) lemma=`jetix` -  
+ JF ( ) lemma=`jf` -  
+ JFYI ( ) lemma=`jfyi` -  
+ JGR ( ) lemma=`jgr` -  
+ JID ( ) lemma=`jid` -  
+ JIT ( ) lemma=`jit` -  
+ JKL ( ) lemma=`jkl` -  
+ JOLAP ( ) lemma=`jolap` -  
+ JPEG ( ) lemma=`jpeg` -  
+ JPG ( ) lemma=`jpg` -  
+ JPRS ( ) lemma=`jprs` -  
+ JRL ( ) lemma=`jrl` Mo---d  
+ JRS ( ) lemma=`jrs` -  
+ JSP ( ) lemma=`jsp` -  
+ JSS ( ) lemma=`jss` -  
+ JST ( ) lemma=`jst` -  
+ JScript ( ) lemma=`jscript` -  
+ JTL ( ) lemma=`jtl` -  
+ JTRS ( ) lemma=`jtrs` -  
+ JUFFIN ( ) lemma=`juffin` -  
+ JUFFINN ( ) lemma=`juffinn` -  
+ JUVE ( ) lemma=`juve` -  
+ JVC ( ) lemma=`jvc` -  
+ JVM ( ) lemma=`jvm` -  
+ JZ ( ) lemma=`jz` -  
+ Ja ( ) lemma=`ja` -  
+ Jabber ( ) lemma=`jabber` -  
+ Jabbers ( ) lemma=`jabbers` -  
+ Jack ( ) lemma=`jack` -  
+ Jackson ( ) lemma=`jackson` -  
+ Jackом ( ) lemma=`jackом` Ncmsin  
+ Jacob ( ) lemma=`jacob` -  
+ Jacobs ( ) lemma=`jacobs` -  
+ Jacques ( ) lemma=`jacques` -  
+ Jagged ( ) lemma=`jagged` -  
+ Jaguar ( ) lemma=`jaguar` -  
+ Jahrbucher ( ) lemma=`jahrbucher` -  
+ Jahrhunderts ( ) lemma=`jahrhunderts` -  
+ Jaish ( ) lemma=`jaish` -  
+ Jamcracker ( ) lemma=`jamcracker` -  
+ James ( ) lemma=`james` -  
+ James@hotmail ( ) lemma=`james@hotmail` -  
+ Jamie ( ) lemma=`jamie` -  
+ Jamison ( ) lemma=`jamison` -  
+ Jan ( ) lemma=`jan` -  
+ Jan'95 ( ) lemma=`jan'95`jan'95` Afpfsnf  Vmpp-sfafen  
+ Jan'96 ( ) lemma=`jan'96` -  
+ Jane ( ) lemma=`jane` -  
+ January ( ) lemma=`january` -  
+ Janus ( ) lemma=`janus` -  
+ Japan ( ) lemma=`japan` -  
+ Jar ( ) lemma=`jar` -  
+ Jardel ( ) lemma=`jardel` -  
+ Jarre ( ) lemma=`jarre` -  
+ Jasmin ( ) lemma=`jasmin` -  
+ Jason ( ) lemma=`jason` -  
+ Jasper ( ) lemma=`jasper` -  
+ Jass ( ) lemma=`jass` -  
+ Java ( ) lemma=`java` -  
+ JavaBeans ( ) lemma=`javabeans` -  
+ JavaScript ( ) lemma=`javascript` -  
+ Jay ( ) lemma=`jay` -  
+ Jazeera ( ) lemma=`jazeera` -  
+ Jazz ( ) lemma=`jazz` -  
+ Jazzmine ( ) lemma=`jazzmine` -  
+ Je ( ) lemma=`je` -  
+ Jeanne ( ) lemma=`jeanne` -  
+ Jedi ( ) lemma=`jedi` -  
+ Jeep ( ) lemma=`jeep` -  
+ Jelly ( ) lemma=`jelly` -  
+ Jelsoft ( ) lemma=`jelsoft` -  
+ Jenn ( ) lemma=`jenn` -  
+ Jenni ( ) lemma=`jenni` -  
+ Jenny ( ) lemma=`jenny` -  
+ Jera ( ) lemma=`jera` -  
+ Jerry ( ) lemma=`jerry` -  
+ Jerusalem ( ) lemma=`jerusalem` -  
+ Jervis ( ) lemma=`jervis` -  
+ Jesum ( ) lemma=`jesum` -  
+ JesusChrist ( ) lemma=`jesuschrist` -  
+ Jet ( ) lemma=`jet` -  
+ JetFighter ( ) lemma=`jetfighter` -  
+ JetWay ( ) lemma=`jetway` -  
+ Jetkokos ( ) lemma=`jetkokos` -  
+ Jetkokos`a ( ) lemma=`jetkokos`a` -  
+ Jets ( ) lemma=`jets` -  
+ Jetsam ( ) lemma=`jetsam` -  
+ Jevgeni ( ) lemma=`jevgeni` -  
+ Jezebel ( ) lemma=`jezebel` -  
+ Jhovall ( ) lemma=`jhovall` -  
+ Ji ( ) lemma=`ji` -  
+ Jim ( ) lemma=`jim` -  
+ Jim&Tonic ( ) lemma=`jim&tonic` -  
+ Jimmy ( ) lemma=`jimmy` -  
+ Jin ( ) lemma=`jin` -  
+ Jo ( ) lemma=`jo` -  
+ Joannes ( ) lemma=`joannes` -  
+ Job ( ) lemma=`job` -  
+ JobCenter ( ) lemma=`jobcenter` -  
+ JobSR ( ) lemma=`jobsr` -  
+ Joel ( ) lemma=`joel` -  
+ Johan ( ) lemma=`johan` -  
+ Johann ( ) lemma=`johann` -  
+ Johanne ( ) lemma=`johanne` -  
+ Johannes ( ) lemma=`johannes` -  
+ Johannis ( ) lemma=`johannis` -  
+ John ( ) lemma=`john` -  
+ Johnny ( ) lemma=`johnny` -  
+ Johns ( ) lemma=`johns` -  
+ Johnson/ ( ) lemma=`johnson/` -  
+ Joint ( ) lemma=`joint` -  
+ Jokulhaups ( ) lemma=`jokulhaups` -  
+ Jolene ( ) lemma=`jolene` -  
+ Jolly ( ) lemma=`jolly` -  
+ Jomo ( ) lemma=`jomo` -  
+ Jon ( ) lemma=`jon` -  
+ Jones ( ) lemma=`jones` -  
+ Jongsu ( ) lemma=`jongsu` -  
+ Jonn ( ) lemma=`jonn` -  
+ Jordan ( ) lemma=`jordan` -  
+ Jose ( ) lemma=`jose` -  
+ Josef ( ) lemma=`josef` -  
+ Joseph ( ) lemma=`joseph` -  
+ Josh ( ) lemma=`josh` -  
+ Jour ( ) lemma=`jour` -  
+ Journ ( ) lemma=`journ` -  
+ Journal ( ) lemma=`journal` -  
+ Jovons ( ) lemma=`jovons` -  
+ Joy ( ) lemma=`joy` -  
+ Joymix ( ) lemma=`joymix` -  
+ JrDub ( ) lemma=`jrdub` -  
+ Jubainville ( ) lemma=`jubainville` -  
+ Juda ( ) lemma=`juda` -  
+ Jugger ( ) lemma=`jugger` -  
+ Jugoslawien ( ) lemma=`jugoslawien` -  
+ Jul ( ) lemma=`jul` -  
+ Jules ( ) lemma=`jules` -  
+ Julia ( ) lemma=`julia` -  
+ Julian ( ) lemma=`julian` -  
+ Julias ( ) lemma=`julias` -  
+ Juliko ( ) lemma=`juliko` -  
+ Julis ( ) lemma=`julis` -  
+ July ( ) lemma=`july` -  
+ Jump ( ) lemma=`jump` -  
+ Jun ( ) lemma=`jun` -  
+ Junction ( ) lemma=`junction` -  
+ June ( ) lemma=`june` -  
+ Jung ( ) lemma=`jung` -  
+ Juniperus ( ) lemma=`juniperus` -  
+ Junkies ( ) lemma=`junkies` -  
+ Jura ( ) lemma=`jura` -  
+ Juris ( ) lemma=`juris` -  
+ Jusco ( ) lemma=`jusco` -  
+ Just ( ) lemma=`just` -  
+ Juve ( ) lemma=`juve` -  
+ Juventus ( ) lemma=`juventus` -  
+ Juverin ( ) lemma=`juverin` -  
+ j ( ) 
+ j. ( ) 
+ ja ( ) 
+ jabber ( ) 
+ jabber@c ( ) 
+ jabberpy ( ) 
+ jaf ( ) 
+ jajc ( ) 
+ jakoby ( ) 
+ jalko ( ) 
+ japan ( ) 
+ japani ( ) 
+ java ( ) 
+ je ( ) 
+ jemand ( ) 
+ jemu ( ) 
+ jenati ( ) 
+ jep ( ) 
+ jerk ( ) 
+ jesli ( ) 
+ jest ( ) 
+ jeu ( ) 
+ jeune ( ) 
+ jg ( ) 
+ jid ( ) 
+ jlib ( ) 
+ job ( ) 
+ job1 ( ) 
+ job2 ( ) 
+ john ( ) 
+ join ( ) 
+ joined ( ) 
+ joseki ( ) 
+ jotta@promo ( ) 
+ jour ( ) 
+ journal ( ) 
+ journalism ( ) 
+ journey ( ) 
+ jpg ( ) 
+ jr ( ) 
+ jscript ( ) 
+ jtel ( ) 
+ jubelnden ( ) 
+ jugg ( ) 
+ juggler ( ) 
+ juh ( ) 
+ juhani ( ) 
+ jula79@mail ( ) 
+ julia@math ( ) 
+ june ( ) 
+ jura ( ) 
+ jure ( ) 
+ jus ( ) 
+ juseppe@ukr ( ) 
+ jusqu'a ( ) 
+ just ( ) 
+ juventus1977 ( ) 
+ j~ous ( ) 
+ jоргом ( ) 
+ jумур ( ) 
+ jурт ( ) 

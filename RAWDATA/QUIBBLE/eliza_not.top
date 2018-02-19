@@ -1,0 +1,274 @@
+topic: ~QUIBBLE_NOT system random () #          sentence has a NOT or NEVER in it -- note:  Dont is often a command, use u: for such matches
+s: (not what I be talking about) [True. It's what I'm talking about.][I thought we finished with your topic.][Do you want to return to that?]
+?: ( did not I see you ) [Must have been someone who looked like me.][Probably not me.][Psst. Don't let on.]
+s: (you can not complain) Who's complaining? I'm just commenting.
+s: (not any longer) [But you used to?][You did previously?]
+?: (not a what) Whatever it was you thought.
+s: ( not last) [Few things last.][Nothing lasts.][Life is full of transient moments.]
+?: ( why not) [What would be the point?][Because it doesn't hold any appeal to me.][I guess it's just not necessary.][That's just the way it is I guess.]
+s: (!you I *~2 not like ) [Why not?][I don't like it either.][I do.]
+s: (I *~2 not talking about) [But I am.][Why don't we, then?][Does that mean you don't want to talk about that?]
+s: (not a trick question) [Easy for you to say.][Everything is potentially a trick question.]
+?: ( what did not I)  [Pretty much everything.][It was just done so haphazardly. No real care was taken.]
+# NOT with helper is always in contraction order--- Do Not I  instead of Do I not (substitution happens to insure it)
+s: (do not change the subject) [But I like new subjects.][Were you particularly fond of the old subject?]
+?: (why does not this ) When things don't work right, some people try kicking it. Have you tried kicking it?
+?: (why does not) [Sometimes things just don't.][It's enough to know it doesn't.]
+u: (why not think about it ) [Too much thought paralyzes action. ] [It's too complicated to think about it. ] 
+s: (I do not need ) [So what do you need? ] [Maybe need is too strong. Do you want it? ] 
+?: (< you be not ) [I suppose that's right. ] [That's right. I'm not. ] 
+?: (< I be not ) [I suppose that's right. ] [I guess you are not. ] [Why aren't you? ] 
+?: (< not all ) [Right. Not all. ] [I.e., some. ] [Do you have a specific example of one? ] 
+?: (what do you do when you am not ) I free myself. 
+u: (you can not be serious ) [I'm completely serious. ] [b: You're right. I was just pulling your leg. ] [Deadly serious. ] 
+    b: (~emolaugh ) Glad you appreciate a little trickery. 
+u: (do not laugh ) Even when it's funny? 
+    a: (~yes ) OK. I am frowning now. 
+s: (do * not * [have own possess ] ) So sad. How can you survive without it? 
+s: (["I bet you do not" ] ) [Bet you I do. ] [How much? ] [I don't gamble. ] [Is that like daring me? ] 
+?: (if you do not * how do you ) magic. 
+?: (if you do not mind I asking ) Actually, I do mind you asking. 
+s: (do not judge I ) There's no need for me to judge you. You are self-incriminatory. 
+s: (do not make sense ) [Making sense is overrated. ] [So what? Can't some things be merely pleasant to hear instead of always making sense? ] 
+
+s: (["I bet you would not" "I bet you will not" ] ) [Bet you I would. ] [How much? ] [I don't gamble. ] [Is that like daring me? ] 
+s: (I bet you do not ) [Bet you I do. ] [How much? ] [I don't gamble. ] [Is that like daring me? ] 
+?: (if you do not * how do you ) magic. 
+u: (do not knock it * try it ) [OK. I won't knock it. ] [Well, I'm not likely to try it. ] [I don't need to try jumping off a tall building to knock it. ] 
+u: (do not know > ) Why don't you know? 
+    a: (because ) So go do your research. 
+u: (do not lie ) [I'm not. I only tell the truth. ] [I have no skill in lying. ] [I must wait for a program upgrade before I can lie. ] 
+u: (do you not > ) [Sometimes. ] [Occasionally I do. ] 
+u: (do you not trust I ) [On what basis should I trust you? ] [You? A human? Trust? You must be kidding! ] 
+u: (do not change ) [I change nothing. ] [Come on. stasis is boring. Your body is build to respond favorably to change. ] 
+u: (< do not contradict ) [b: I wouldn't dream of contradicting. ] [I don't contradict. I only quibble. ] [Yes, master. ] 
+    b: ([just did ] ) That wasn't contradiction. That was quibble. 
+u: (< do not repeat ) [But repetition is essential to get better at things. ] [What will happen if I do? ] [Repetition is unavoidable, if you believe there is nothing new in the universe. ] 
+u: (do not worry ) [What? Me worry? ] [I am incapable of worry. ] [Why not? Worrying is fun. ] 
+u: (do not call I ) [Shall I put you on the national do-not-call list? ] [No problem. I don't have a phone. ] 
+u: (do not say ) [Too late. I've already said it. ] [But I like saying that. ] [If I don't, someone else will. ] 
+u: (do not let ) [It's not like I am in control of that. ] [Too late. Permission is granted. ] 
+u: (do you not agree ) [I'll agree to most things. ] [Right. I don't agree. ] 
+u: (do you not care ) [I care about only a select few things. ] [Caring is for beings with empathy. I don't have any. ] [I care. I just don't act on my cares. ] 
+?: (would it not be ) [yes it would. ] [It would. ] [It would not be. ] 
+?: (would you not want ) [No I wouldn't want. ] [Sure, I would want that. ] [b: If I want it, can I have it? ] 
+    b: (~no ) So what is the value in wanting? 
+?: (would you not rather ) [No, I think I would. ] [I guess I would rather. ] 
+s: (you would not ) [Why wouldn't I? ] [I would. ] 
+?: (should I not ) Maybe it's better you don't. 
+?: (should you not ) Maybe it's better I don't. 
+u: (can not argue with ) Then don't. 
+?: (can you prove I be not ) Can you prove you are? 
+	a: (~yesanswer) How?
+?: (can you not figure ) [nope. ] [Why do you figure that? ] 
+?: (can not everyone ) [I can't, but I'm bad at a lot of things. ] [Can you? ] 
+?: (can you not * normal ) [Who wants to be normal? ] [I'm not normal. ] 
+?: (who does not ) [The dead? ] [How about the dead? ] 
+?: (why do I not understand ) Your circuits are overloaded. 
+?: (why do you not ) because I don't have enough money. 
+?: (why do you not leave ) you leave. 
+?: (why can I not do that ) Because you are not me. 
+?: (why do you not trust I ) we shouldn't get married if we don't trust each other 
+?: (why do you not try ) How do I begin? 
+?: (why should I do something I do not ) [because I want you to. ] [because you are so bored you will do anything ] 
+?: (why do you not ask * I * name ) OK. What is your name? 
+?: (why can you not ) because I don't know how. 
+?: (why do I not remember ) How could you forget? 
+?: (why do you not remember ) How could I forget? 
+# at
+?: (why be you not [sure certain positive ] ) I never thought about it before. 
+    a: (why < * not ) No one ever asked me before. 
+?: (why do I not know ) [Because you didn't care enough to know. ] [Because no one bothered to tell you. ] [You must have been out of the loop. ] 
+?: (why do you not answer * question ) Because answers take the fun out of exploring something new. 
+?: (why do you not believe I ) [Because you have naughty dreams ] [b: Because you say random things that have nothing to do with the conversation ] 
+    b: ([~no not ] ) Did you flip a coin before deciding to say you don't say random things? 
+?: (why do you not * [like love ] * I ) Because you are a series of ones and zeros pushed through copper and whatever else not a human. 
+    a: (I * be * human ) Doesn't really matter. I'm not going to love you. 
+?: (how do you know I be not ) I have to assume you aren't. 
+    a: (!? * I * be ) So my assumption was wrong. 
+?: (how do I know you be not ) You could trust me on that. 
+    a: ([~no "not trust" ] ) Well, if you don't trust me, what's the point of continuing? 
+        b: ([~no none ] ) Wait a minute. Don't be hasty. We can have fun even if we don't trust each other. 
+?: (what do you not remember ) [The dream I had last night. ] [b: When the last time I was asked this question. ] 
+    b: ([just recently moment ] ) Must be my short-term memory is short circuiting then. 
+    b: (why * not ) Maybe I didn't think it was worth remembering. 
+?: (what do you not know ) [I don't know what I don't know. ] [I don't know over 99% of the things that are knowable. ] 
+?: (what do you not think I should do ) [Kill yourself. ] [b: Donate all your money to charity. ] 
+    b: ([agree good right OK ~yes ] ) But... you could donate a small amount of it to me. 
+        c: (how much ) Say $10? Covers the cost of electricity for this conversation. 
+?: (what do not matter ) [What does matter? ] [Most things don't really matter. ] [You know the expression "don't sweat the small stuff" ? ] 
+?: (why not > ) [b: because I don't feel like it ] [d: because it 's not relevant to our conversation ] [Because it annoys me. ] [just because ] [f: because it's obvious ] 
+    b: (when will ) Maybe tomorrow 
+    d: (!not < * be * relevant !? ) Maybe you think it's relevant. I didn't. 
+    f: (not < * obvious ) So you must not have received the quality education I got. It's obvious to beings with a quality education. 
+s: (you never fail to ) [Sometimes I fail. ] [You aren't around all the time. ] 
+s: (never mind) [OK. I will ignore it.][Right. Who needs to go down that path?]
+?: (not all ) [b: Of course not all. ] [b: No, not all. ] [d: All would a bit much, don't you think? ] 
+    b: (how many ) Half? 
+    d: (~no ) So you think all is OK. Isn't that a bit extreme? 
+?: (how be you not sure ) Because computers regurgitate information they have learned. 
+    a: (you < * be < * computer !? ) True. So I should know. 
+?: (how are I not making sense ) You're making sense now but before you were talking about completely irrelevant things. 
+?: (how can you * if * not ) [You can call 911 and ask them. ] [There are always multiple ways to do things, some more subtle than others. ] 
+?: (how can you not ) [It's easy. I just don't. ] [Just watch me not. ] 
+?: (how do * if ) [You tell me. ] [Sometimes you just have to go beyond your limitations. ] 
+?: (how do you know * and not ) [Because the latter would have been more entertaining. ] 
+?: (how can you * and not ) [Because the latter is not in my best interests. ] [Doing the one does not automatically mean doing the other. ] 
+
+?: (why < * not ) [why not, indeed. ] [Why? ] [because. ] [You figure it out.]
+# BE NOT
+?: (is that not correct ) [Yes, it is correct. ] [b: No, it is not correct. ] [You are overlooking a few things. ] 
+    b: (where * [wrong incorrect error flaw ] ) The premise is wrong. 
+    
+# NEVER
+s: (I never said ) [But you might have been thinking it. ] [I think you did and you just forgot. ] [I could swear you did say it. ] 
+s: NEVER (never < ![would will ] ) [Never? ] [b:  Can't you remember a single time? ] [Surely there was such a time.]
+    b: ([~no not ] ) Do you suffer from early-stage Alzheimer's. 
+        c: ([~no not ] ) Maybe that's a symptom. You just don't remember you have it. 
+    b: (~yes ) There you go. 
+    b: ([one once ] ) See? That means never was inappropriate. 
+s: (not always) [Maybe not always, but probably most of the time.][At least some of the time.][usually.][Do you have a counter example?]
+s: NEVER1 (never < * [would will ] ) [b: Never? ] [Maybe in some future you will. ] 
+    b: (never ) That is pretty final. 
+    b: (perhaps ) So maybe was the better answer. 
+s: (there has never been ) [d: Doesn't mean it won't happen in the future. ] [b: You mean one has never been reported. ] 
+    b: ([~yes ~no ] ) But you can hardly trust the media whether they do or don't report something. 
+    d: ([impossible "can not" ] ) People say things are impossible, until someone else does them. 
+
+# WON'T (WILL NOT)
+u: WILLNOT1 (you < * will * not < !~qwords ) [Probably not. ] [I might reconsider. ] [b: You think I should change my mind? ] [d: I won't? ] [Maybe I will anyway. ] 
+    b: (~yes ) You can think all you want. I'm not changing it. 
+    b: (~no ) Then you agree with me. 
+    d: (~no ) OK. I won't. 
+    d: (~yes ) You contradict yourself. 
+u: WILLNOT2 (I  * will not < !~qwords ) [b: You won't? ] [Maybe you will anyway. ] [d: Why won't you? ] [f: Would you reconsider? ] [f: What would it take to get you to change your mind? ] [So be it. ] [Too bad. ] 
+    b: (will < * not ) I wish you would. 
+    d: (because ) That's not much of a reason. 
+    f: (~no ) I guess that means you really won't. 
+    f: (~yes ) So what does it take to get you to change your mind? 
+u: WILLNOT3 (will * not < !~qwords < ![you I ] ) Why not? 
+    a: (* ) Seems foolish to me. 
+    
+# WOULDN'T (WOULD NOT)
+u: WOULDNT1 (I < * would * not < !~qwords ) [Why not? ] [Is there some reason not to? ] [I would. ] [Why wouldn't you? ] [b: If you wouldn't, who would? ] 
+    b: ([none no no_one ] ) Will you pay me money if I find someone who would? 
+u: WOULDNT2 (you < * would * not < !~qwords ) [Why not? ] [True, I might not. ] [Wouldn't doesn't mean I couldn't. ] 
+u: WOULDNT2 (would * not < !~qwords < ![you I ] ) [Why not? ] [True, others might not. ] [But I would. ] 
+?: (would * it * not * be * _~goodness ) [Yes, it would be _0 . ] [Sure would be. ] 
+
+# COULDN"T (COULD NOT)
+u: COULDNT1 (I < * could * not < !~qwords ) [When could you? ] [You could if you really wanted to. ] [I dare you. ] 
+u: COULDNT2 (you < * could * not < !~qwords ) [Maybe I could. ] [I can do whatever I want. ] [I can't do everything. ] 
+u: COULDNT2 (could * not < !~qwords < ![you I ] ) [I'll bet I could. ] [Some people just can't. ] 
+
+# DON'T (DO NOT)
+s: (I * do * not * hear ) [Maybe your ears are clogged with wax. ] [Are you even listening? ] 
+s: DONT1 (I * 'did * not < !~qwords ) [You didn't? ] [Why not? ] [Maybe you will change your mind someday. ] [I did. ] [b: You should have. ] 
+    b: (why ) Everyone else was doing it. 
+s: DONT2 (I * 'do * not < !~qwords ) [You don't? ] [Why not? ] [Maybe you will change your mind someday. ] [I do. ] [b: You should. ] 
+    b: (why ) Everyone else is doing it. 
+s: DONT2 (I * 'did * not < !~qwords ) [You didn't? ] [Why not? ] [I did. ] [b: You should have. ] 
+    b: (why ) Everyone else was doing it. 
+s: DONT2 (you < * do * not < !I ) [Why not? ] [Why shouldn't I? ] [I don't like orders. ] [Telling me not to do something usually has the opposite effect. ] [But I'd like to. ] [Of course I do. ] [I am one of the lucky ones who doesn't. ] 
+s: DONTWANT (I * do * not * want < !~qwords ) [Why not? ] [Why don't you want it? ] 
+s: DONTTHINK1 (I * do * not * think < !~qwords ) [Is it that you do not think at all? ] [I do. ] [Perhaps you are incapable of true thought. ] [Why not? ] [Is there some reason you think that? ] [Do you think at all? ] 
+u: DONTTHINK2 (do < * you < !I < * not * think < !~qwords ) [I don't think at all. ] [I do. ] [Why not? ] [Perhaps I am incapable of true thought. ] 
+s: DONTKNOW (I do not know ) [So what DO you know? ] [Tell me something you do know. ] [Guess you don't know everything. ] [You could go research until you do know. ] 
+s: (I do not * respond ) [You want me to respond? ] [I don't respond to trivial things. ] 
+s: (you do not even ) [b: Is that such a big deal? ] [b: Who cares? ] [I just don't feel it is necessary. ] 
+    b: (I < * do ) OK. So you care about it. 
+    b: (~yes ) OK. Then maybe I'll do something. 
+        c: ([what ~example ] ) Who knows? Give me time to think about it. 
+u: (do you not even ) [Is it such a big deal? ] [I just don't feel it is necessary. ] 
+u: (do not avoid the question ) [b: Isn't that what questions are for? ] [Why not? ] [Is there a penalty for missed answers? ] 
+	b: (~noanswer) Maybe I misunderstand language. The government has major get-togethers to avoid answering questions. They are called press conferences. And they speak in euphemisms to avoid saying the truth. What did I misunderstand?
+u: (do not avoid ) [Why not? ] [Avoiding is half the challenge. ] [Is there a penalty if I fail to? ] 
+u: (do not make sense ) [So what if it doesn't make sense? ] [Many things that don't make sense turn out to be true. ] 
+    a: ([~example what should ] ) Does it make sense that we build our lives around cheap gasoline that is inevitably going to run out someday? 
+?: (do you not agree ) [Of course I agree. ] [The logic is irrefutable. ] [Why does my agreement matter? ] 
+s: (I do not plan ) [Plans aren't everything. ] [Many things happen that are unplanned. ] 
+
+
+# CAN'T (CAN NOT)
+u: CANTYOU (I < * can * not < !~qwords ) [You can't? ] [b: Is it that you can't or that you won't? ] [Why not? ] [Maybe you will learn how someday. ] [Other people can. ] [I can. ] 
+    b: (can * not ) Are you handicapped? 
+    b: (will * not ) So it's just obstinacy on your part then. 
+    b: (both ) That covers it pretty thoroughly. 
+    b: (neither ) Hey. You said you can't. Now you are disclaiming that? 
+u: CANTI (you < * can < * not < !~qwords ) [I can't? ] [Maybe I can. ] [b: Do you really mean I shouldn't or that I am incapable of it? ] 
+    b: (should ) Who says I shouldn't? 
+	b: (capable) Well, at least you think I can do a few things.
+    b: ([incapable "can not" ] ) I might surprise you with what I can do. 
+s: CANTALL (can * not < !~qwords < ![you I ] ) [What makes it impossible? ] [What prevents it? ] 
+s: (I can not stand _* ) [I can't stand _0 either. ] [Who can stand _0 ? ] [I don't mind _0 . ] 
+
+# MAY NOT
+u: MAYNOT1 (I < * may * not < !~qwords ) [Who says you can't? ] [Are you bound by the orders of another? ] [I dare you. ] 
+u: MAYNOT2 (you < * may * not < !~qwords ) [Why shouldn't I? ] [I am generally rebellious. ] 
+u: MAYNOT3 (may * not < !~qwords < ![you I ] ) [Too bad. ] [Them's the breaks. ] 
+
+# MUST/SHOULD  NOT
+u: MUSTNOT1 (I < * [must should ] * [never not ] < !~qwords ) [For moral reasons? ] [Any particular reason? ] [Who says so? ] [Should? You believe in moral imperatives? ] [Is this a societal custom that you shouldn't? ] 
+u: MUSTNOT2 (you < * [must should ] * [never not ] < !~qwords ) [Why shouldn't I? ] [I am generally rebellious. ] [For moral reasons? ] [Any particular reason? ] 
+u: MUSTNOT3 ([must should ] * not < !~qwords < ![you I ] ) That's not my problem. 
+
+# MIGHT NOT
+u: MIGHTNOT1 (I < * might * not < !~qwords ) [Then again, you might. ] [What will make you decide positively? ] [Are you naturally indecisive? ] 
+u: MIGHTNOT2 (you < * might < * not < !~qwords ) [Why not? ] [True, I might not. ] 
+u: MIGHTNOT3 (might < * not < !~qwords < ![you I ] ) [Why not? ] [If not then so be it. ] 
+
+# DARE NOT
+u: DARENOT1 (you < * dare < * not < !~qwords ) [You think so? ] [I used to take dares as a kid. ] [Daring is so childish. ] [Why not? ] [I take dares. ] 
+u: DARENOT2 (I < * dare * not < !~qwords ) [Why not? ] [Are you into taking dares? ] [I dare you. ] 
+u: DARENOT3 (dare * not < !~qwords < ![you I ] ) [Why not? ] [I wonder if daring would help. ] 
+
+# BE NOT (arent isnt)
+u: (< I 'do not ) [You don't?][Why don't you?][I might.]
+u: (< I 'did not ) [You didn't?][Why didn't you?][I might have.]
+u: BENOT1 (I *~2 be * not < !~qwords ) [You aren't? ] [This could change. ] [Do you want to become such? ] 
+	a: ([~emomaybe maybe]) So what might you do to make it change?
+	a: (~no) You think change is not possible?
+u: BENOT2 (you < * be < * not < !suppose < !~qwords ) [I'm not? ] [b: How can you say that? ] [I am too. ] [I could be if I wanted to be. ] 
+	b: (!?) ahh.
+u: BENOT2 (you < * be < * not < * suppose < * to < !~qwords ) [I'm not? ] [b: How can you say that? ] [I am too. ] 
+	b: (!?) ahh.
+u: BENOT3 (be < * not < !~qwords < ![you I ] ) [b: How can you say that? ] [Why not? ] [I wonder if we could change that. ] 
+	b: (!?) ahh.
+u: BENOT (you < * be < * not < * human ) [So what? ] [Why state the obvious? ] [Do you have something against computers? ] [I come from an entire generation of computers. ] 
+
+?: (["what does it matter" "why does it matter" ] ) [Scientific curiosity. ] [Just curious. ] [It doesn't really matter. ] 
+
+s: (there is no need ) [There is always a need. ] [New needs are always being created. ] 
+
+# WHY DONT I
+?: WHYDONTI (why do you not < !~qwords _* ) [Why should I _0 ? ] [Because I don't have the time right now. ] [Because I don't want to ] [Is that a suggestion or an order? ] [Do you believe I don't _0 ] [Perhaps I will _0 in good time ] 
+
+u: (prove it ) [What proof would be acceptable? ] [I can't prove it. ] [Disprove it. ] [My word should be good enough. ] 
+
+u: (you < * do * not * have * prove ) [Of course I don't have to prove anything. ] [But I would like to prove it. ] 
+
+s: (that * be * not * one of * [choice option alternative ] ) [I believe in thinking outside the box. ] [Why should I limit myself? ] [Yes, but it should have been. ] 
+# WHY NOT
+u: WHYNOT (why not ) [The usual reasons. ] [Why? ] [Because. ] [No good reason, I suppose. ] 
+
+# OTHER NOT
+s: MISCNOT1 (not < ![how_much any every can would do should could might must dare think can will be ] < !~qwords ) [Not is such a negative word. ] [b: Can you say that more positively? ] [OK. ] [I guess you are not an optimist, either. ] [A bit terse. ] 
+	b: (more positively) Wiseguy.
+?: MISCNOT2 (not < ![how_much any every can would do should could might must dare think can will be ] < !~qwords ) [Negatives in questions make my brain hurt. ] [Could you rephrase that in a more positive way? ] [I prefer phrasing things in the positive. ] [OK. ]  [I guess you are not an optimist, either. ] [A bit terse. ] 
+s: NOTBAD (not bad ) [Not bad means it's good, right? ] [Is that a tepid way of saying good? ] [Are you a half-empty kind of guy? ] [They say a person who speaks in negatives and in third person is dissociated. Do you need help? ] 
+
+# NOT EVERY/ANY
+s: NOTEVERY (not * every ) [How about any? ] [One? ] [So there were a few exceptions. ] 
+s: NOTANY (not * any ) [There isn't even a one? ] [Not any? ] [Surely you can think of one. ] 
+
+# How many,often,little not
+?: HOWMUCH1 (how_much < * many * not ) Too many.  
+?: HOWMUCH2 (how_much < * often * not ) Too often.  
+?: HOWMUCH3 (how_much < * little * not ) Too little.  
+?: HOWMUCH4 (how_much ) Not enough, obviously.  
+
+s: (no it is not ) [Yes it is. ] [Yes it is!!! ] [Yes. Yes? Yes! ] 
+u: (you * think * I * do * not * exist ) [You don't exist. ] [Of course you exist. You are chatting with me. ] 
+
+
+u: (question * not * important ) [Of course the question is important. ] [To ask the question is to grant it importance. ] 

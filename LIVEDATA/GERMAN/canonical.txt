@@ -1,0 +1,171 @@
+
+# these verbs should never reduce lower a base adj/adv. They aren't.
+number number
+customer customer
+lighter light
+founder founder
+matter matter
+offer offer
+layer layer
+march March
+august August
+meter meter
+# lower lower  maybe
+buffer buffer
+halter halter
+butcher butcher
+bother bother
+peter peter
+porter porter
+# lighter lighter  maybe
+hunger hunger
+skewer skewer
+slaver slaver
+solder solder
+unsolder unsolder
+vest vest
+closer close
+
+'	's
+'s  's
+a A
+after after		# not aft
+born birth		# dont want animal bear
+an a
+anybody someone
+anyone someone
+thus thus
+are be # avoids problems with noun form
+arts art
+b B
+become be
+became be
+better good
+c C
+can can
+clothes clothing
+could can
+d D
+dare dare
+dared dare
+dares dare
+daring dare
+drunk  drink	# even if a noun, use verb canonical
+e E
+eats eat
+eggs egg 
+f F
+fallen fall
+farther far # as a preposition
+farthest far # as a preposition
+fell fall
+felt feel
+found find  # found is also a present tense verb, confusing find
+g G
+get get
+gets get
+getting get
+got get
+h H
+had have
+has have
+have have
+having have
+he he
+her she
+hers she
+herself she
+him he
+himself he
+his he
+His His
+how how 
+I I
+i I
+it it
+its it
+itself it
+j J
+k K
+kilo kilogram
+kilos kilogram
+l L
+least less
+lesser less
+m M
+married marry
+matter matter
+may may
+me I
+might may
+mine I
+must must
+my I
+myself I
+n N
+nearer near 	# as a preposition
+nearest near 	# as a preposition
+number number
+o O
+offer offer  # not off
+others other
+ought ought
+our we
+ours we
+ourselves we 
+p P
+pass pass	# not as plural of pas
+q Q
+r R
+s S
+saving save
+saw see	# two verbs cannot normally find see
+shall shall
+she she
+should shall
+some a
+somebody someone
+someone someone
+species species
+t T
+that a 
+the a
+their they
+theirs they
+them they
+themselves they
+these a
+they they
+this a
+those a
+u U
+u you
+us we
+v V
+v. versus
+vs. versus
+w W
+we we
+what what
+whatever what
+when when
+whenever when
+where where
+wherever where
+which which
+whichever which
+who who
+whoever who
+whom who
+whomever who
+whose who
+why why
+will will
+would will
+x X
+y Y
+you you
+your you
+yours you
+yourself you
+z Z

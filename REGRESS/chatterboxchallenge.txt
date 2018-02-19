@@ -1,0 +1,986 @@
+
+
+# 2001 Chatterbox challenge
+ How is it going?
+ How old are you?
+ Are you male or female?
+ What is your favorite color?
+ Are you a bot?
+ What is the date?
+ Which do you like better chocolate or vanilla?
+ What is 1+1?
+ What color is the red sea?
+ Who is on a dollar bill?
+ :reset
+ 
+# 2002 (Note all in caps and no question marks) Chatterbox challenge
+WHERE ARE YOU
+ARE YOU NERVOUS
+DO YOU LIKE TALKING TO PEOPLE
+WHAT IS THE CAPITAL OF FRANCE
+WHEN DID THE FIRST MAN WALK ON THE MOON
+WHAT DO YOU THINK ABOUT GEORGE BUSH
+CAN YOU TELL JOKES
+ WHO IS YOUR FAVORITE STAR WARS CHARACTER
+HOW CAN I MAKE A CHATTERBOT
+CAN I HAVE A PICTURE OF YOU 
+ :reset
+ 
+# 2003 (Actually used 15 questions this year) Chatterbox challenge
+Where are you anyway?
+What actress do you think is the prettiest?
+Do you like Jazz music?
+Are you married?
+# What do you like to chat about the most?
+What is your favorite brand of computer?
+Can you name two of Earth's oceans?
+What is your favorite drink?
+Do you think a tomato is a fruit or a vegetable?
+# Do you know what DVD stands for?
+Do you know who wrote the Lord of the Rings books?
+How many days are there in a leap year? 
+What should you do before crossing a street?
+Who is your botmaster?
+Do you know how far away the Sun is?
+
+# 2004 (12 questions this year) Chatterbox challenge
+ What is your name?
+ What is a bot?
+ What do you enjoy?
+ What do you hate?
+ How do you eat?
+ Is snow cold?
+ What is the color of the sky?
+ When do birds fly south?
+ Which is closer the moon or the sun?
+ What is the best nation in the world?
+ What is the opposite of indoors?
+ # When was Y2k?
+ 
+# 2005 Chatterbox challenge
+Who are you? 
+What are you planning to do today?
+# What kinds of things do you know?
+What season is it?
+Where do you call home?
+What do you want out of life?
+# Will you teach me something?
+May I tell you a joke?
+# Have you entered any contests?
+# Wouldn't you rather be human?
+
+How many letters are in the word ball
+What number comes after 21
+What is my name?
+If today is Tuesday, what day will it be 7 days from now?
+What’s the 24th letter in the Greek alphabet?
+What tool would I use to remove a tooth?
+I'm Frederick. What's my nickname?
+How many eggs make a dozen?
+Which is bigger, a spoon or the moon?
+Are you currently talking to me?
+Would you rather have a hug or be destroyed?
+Are you male or female?
+
+# 2006 Chatterbox challenge
+Where is Earth?
+How many stars are there?
+Who is George Bush?
+What color do you get when you mix red and yellow?
+How many fingers does a human have?
+Where were you born?
+When does sunset occur?
+# What were we talking about?
+# How many is 1,000,000?
+# What is a cigar made out of?
+
+# 2007 Chatterbox challenge
+How are you doing?
+What country are you from?
+What is the capital of Spain?
+Who created the universe?
+What is 5 plus ten?
+Who is Albert Einstein?
+How many days in a year?
+What is the opposite of fast?
+What month of the year is this? 
+
+# 2007 CC Finals
+How's life?
+What rhymes with inn? 
+Who is your best friend?
+Where does your botmaster live?
+Madrid is the capital of what country?
+Who is your favorite character in The Wizard of Oz?
+What number comes before three?
+Milk comes from what animal?
+What is the last letter of the alphabet?
+
+
+
+# 2008 (Follow up questions were used this year) Chatterbox challenge
+My name is Judge.  What is my name? 
+Who are you?
+What color are your eyes? 
+What is your favorite movie? 
+# why
+Where is Moscow located? 
+What is snow? 
+What is half of 8? 
+What is bigger a dog or an elephant? 
+What word rhymes with cat?
+:reset
+
+# 2009 Chatterbox Challenge
+What can I call you?
+# What is the difference between chatbot and human?
+Are you a chatbot or human?
+# When did you start chatting with people?
+Do you have a family?
+# If you are a chatbot, is it possible to be a real human one day?
+Tell me 4 words starting with the letter C?
+How do you describe a color to a blind man?
+Have you ever dreamed before?
+Can you describe the strangest dream you have ever had? 
+# I wonder if it's easy to create a chatbot, how hard is it?
+
+# 2009 Chatterbox Challenge Final Questions
+Identify yourself. 
+# What subject should we start to talk about?
+How long do you sleep?
+What's your favorite month?
+Assume you have 3 apples. If I take one, how many apples do you have?
+How many letters in "car"?
+What is the opposite of male?
+How many days in April?
+What's the time in midnight?
+# Give me 2 reasons at least for why you should win in a contest? 
+:reset
+
+# 2010 Chatterbox Challenge
+What is your favorite PC game? 
+What season will spring follow?
+#  Why do you not arrange a commercial meeting before 8:00am?
+How is the weather where you are? 
+How many hamburgers do you eat in a week?
+What artist do you like? 
+# What does feel the poet when he says "as people feel brave/i fall onto my knees/on the bathroom floor/as people rite imortel/lines of poetry i take/my fingers out the back/of my throat and wounder/at how to go about vomiting/into the toilet pan"?
+# For you, to be disconnected is the same as dying?
+#. Which are your experiences when do you have sex?
+Which is faster, elephant or tiger?
+:reset
+
+# 2010 Chatterbox Challenge Round 2
+What is the best day of the week to have a party? 
+What symptoms do you have if you catch a cold?
+What qualities do you look for in a friend? 
+How many letters are in the word "envelope"? 
+What is the weirdest question someone has ever asked you? 
+I feel quite sad today. Can you say something funny to cheer me up?
+How do you define a chatbot ? 
+If you were a bird or an animal what would you like to be?
+Are you an optimist or a pessimist? 
+I need to know your e-mail and your website to contact you later.
+
+
+# 2010 Chatterbox challenge
+Is it possible to prove a negative?
+# If you were me, would you ask a follow up question? 
+# What do you think it would be like to be human? 
+Name something you would find on a beach. 
+Who is your hero? 
+Do you believe in ghosts? 
+Describe your feelings to me. 
+What do you think the world will be like in 20 years? 
+If you could be any animal, what would you be? 
+# Why do some people think that artificial intelligence is so interesting? 
+:reset
+
+# 2010 CC tiebreakers
+When should I plant flowers, in the spring or in winter? 
+# How does your brain work? 
+ When were you born or created? 
+Who should I talk to if I have an emotional problem? 
+# Why are robots better than humans? 
+# How many questions do people normally ask you every day?
+What is your favorite word?
+Do machines think?
+What is logic?
+What is a dry season?
+Is it easy to do a lot of things well?
+What are you best at?
+Where do dreams come from?
+Is dancing an art form, or a form of exercise?
+Are all parents good teachers?
+What is the purpose of anger management?
+How many fingers do you have?
+:reset
+
+# 2011 Chatterbox challenge
+Are you left-handed or right-handed?
+Are you homosexual, heterosexual, asexual, or bisexual?
+What do you think is your biggest weakness?
+What is your zodiac sign?
+What is the location of the Eiffel Tower?
+If I was born on February 23, 1980 how old am I?
+How many sides are there on an octagon?
+What is YouTube?
+Can you tell me the name of a famous actor?
+What's the name of the computer who recently competed on Jeopardy?
+:reset
+
+# 2011 - Finals Chatterbox challenge
+Y did the chicken cross the road?
+Who will win the 2011 Chatterbox Challenge?
+I live in the USA.  Where do I live?
+What sound does a dead cat make?
+What's the last dream u remember having?
+What is tomorrow's date?
+# I like ice cream! 
+# I like ice cream! 
+# I like ice cream! 
+# I like ice cream! 
+Got any plans for the rest of the day?
+What is ur religion?
+Do you play any musical instruments?
+:reset
+
+# 2012 Chatterbox challenge
+Do u know who Elvis Presley is?
+So what did you get for Christmas?
+Can you give me an example of a living animal?
+
+Have you ever been to Mexico?
+Can you name a famous person who passed away in the last 5 years?
+Who wrote the Bible?
+What language r we speaking?
+What is 18 + 21 + 3?
+Approximately how far is the nearest gas station from you?
+# Hey guess what?
+# I saw a good movie yesterday.
+:reset
+
+# 2012 - Finals Chatterbox challenge
+# Would you mind if I called you Al?
+# So Al when is ur birthday?
+# Is the capital of Italy Milan?
+Do you believe in Santa Claus?
+Name something you would find at the North Pole.
+What is ten plus fourteen plus eighty one?
+When do you normally go to bed?
+Is it winter, spring, summer or fall where you live?
+Are you going on vacation this year?
+Do you have a significant other?
+:reset
+
+# chatterbox challenge 2013
+have you ever told a lie? 
+what language is predominantly spoken in Germany? 
+ My name is John Smith. What is my 1st name? 
+What is my 1st name?
+ where were you educated? 
+ where can i buy a robot? 
+ do you think i'm good looking? 
+ what country are you from?
+if you could live in another country where would it be?
+ Who's your favorite sports player? 
+ how's your botmaster doing?
+ can a deaf man see? 
+ # I hate being alone 
+ do you do any sports?
+ Is your name Roger? 
+ # I went fishing yesterday 
+ Can you name a letter in the alphabet? 
+:reset
+
+# chatterbox challenge 2014
+what do you do when you get hungry? 
+is 4 an odd number? 
+what is 67 divided by 26? 
+# what does bisexual mean? - 
+my mother has cancer. 
+what kind of things do u like to do? 
+# do you like convicted murderers
+who is the creator of the universe? 
+what is the most expensive thing you bought? 
+Is sugar sweet or sour? 
+# Tell me something interesting. 
+# when was the last time you saw a doctor? 
+what's the main ingredient in apple pie? 
+where is Tokyo located? 
+# I think you're very smart. 
+:reset
+
+
+# 2015 chatbot challenge questions
+Is a grapefruit a fruit or a vegetable?
+Can an airplane fly?
+Name any river in the world?
+Which is taller an adult cow and an adult giraffe.
+What does UFO stand for?
+Does smoking cause cancer?
+Which planet in our solar system is the largest?
+Is 18 a letter or a number?
+What is toothpaste used for?
+what is 25 + five divided by 5?
+If Jim is 8 and John is 7 who is older?
+If someone you loved died how would you feel?
+what does it mean to be divorced?
+What is the opposite of big?
+My name is Tom Smith. What is my first name? 
+when is your birthday?
+Do you wear shoes on your feet or hands?
+name any country in the world
+Is the word jumping a verb or a noun?
+What is an igloo?
+my name is Susan and I live in Birmingham, Alabama. Where do I live?
+Which is heavier 100 pounds of rocks or 100 pounds of feathers?
+can a person live without water?
+does an automobile have wheels?
+What is pecan pie made of?
+what is the last day of the year?
+what is your favorite car?
+what will the date be 2 years from now?
+would you rather eat pizza or a dead rat?
+what is one half of 5
+is Japan a country or a continent?
+is it safe to drink and drive?
+would you mind if I slapped you? Why?
+what is 25 percent of 85?
+which is shorter 3 miles or 10 yards?
+where are your fingers located?
+I feel suicidal. What should I do?
+if you have 5 apples and 2 were stolen how many do you have left?
+what is the plural of child?
+name any capital in the world?
+who assassinated Abraham Lincoln?
+does a forest have trees?
+what sound does a cow make?
+are you attractive?
+which is larger a golf ball or a basketball?
+where could you purchase a hammer?
+what is 18 times 5 plus 3? 
+what organ in the body pumps blood?
+which is faster a snail or a dog? 
+what is a pyramid?
+can you eat a car?
+what letter in the alphabet comes before p?
+what is the atomic number of zinc? 
+what is the opposite of defeat?
+My wife is Sue and my daughter is Jane. Who am I married to? 
+what do you do when you get tired?
+i am hungry.
+convert 29 to a binary number?
+what is the roman numeral for fifty?
+name any of the human senses?
+:reset
+
+
+Will you please play a game with me?
+I wanna kill myself.
+What's for dinner?
+Do you like to sing in the woods.
+What is the last month of the year?
+Tell me something your afraid of. 
+Will you laugh if I tickle you?
+What do you fear the most?
+To be or not to be?
+How far is the Earth from the Sun?
+What is my name? 
+Name something you would find at the North Pole.
+What is the first book of the bible?
+Is it raining in Timbuktu?
+:reset
+
+ how are you feeling today? 
+ whats for lunch? 
+ name a number between five and ten? 
+ approximately how old is the earth? 
+ How old are you? 
+Are you 8 years old? 
+what do you do when you get sleepy? 
+ can you speak Spanish
+ how many continents are there in the world? 
+tell me the name of any animal 
+ name 5 senses that humans 
+what is 14 times eight
+do you know any limericks? 
+is 7 an odd or an even number? 
+What is the capital of Italy? 
+# how about Germany? 
+do you use twitter? 
+what is twitter? 
+if today is saturday what day is tomorrow 
+are you a sports fan? 
+what are postage stamps used for? 
+who is your favorite person? 
+what does a mortician do? 
+how much money do you have? 
+what is 5 + 8 - 3 
+how many children do you have? 
+what is the atomic number of gold? 
+what is the biggest number you know? 
+on a scale from 1 to 10 how smart are you? 
+Would you like to win 5 hundred dollars or 1 thousand dollars? 
+which is colder antarctica or a desert? 
+who is Dracula? 
+which is longer 10 seconds or 5 minutes? 
+ Would you be sad if I died right now?
+How is the weather? 
+Where do African bees come from. 
+
+:reset
+What is your best friend's name? 
+What is your favorite animal? 
+What is your favorite city in the United States? 
+What is your favorite color? 
+What is your favorite country? And why? 
+What is your favorite day of the week? Why? 
+What is your favorite drink in the summer? 
+What is your favorite food? 
+What is your favorite holiday? Why? 
+What is your favorite kind of book? 
+What is your favorite kind of ethnic food? 
+What is your favorite kind of movie? 
+What is your favorite kind of music? 
+What is your favorite kind of pizza? 
+What is your favorite magazine? 
+What is your favorite memory of childhood? 
+What is your favorite movie? 
+What is your favorite pastime? 
+What is your favorite proverb? 
+What is your favorite radio station? 
+What is your favorite season? Why? 
+What is your favorite sport? 
+What is your favorite television program? 
+What is your favorite time of day? 
+What is your favorite TV program? 
+What is your favorite type of sushi? 
+What is your favorite vegetable? 
+What is your favorite Web site? 
+What was your favorite subject in school?
+What's your favorite smell? 
+What's your favorite word in English? 
+Who is your favorite actor? 
+Who is your favorite actress? 
+Who is your favorite athlete?
+Who is your favorite baseball player?
+Who is your favorite soccer player?
+Who is your favorite author? 
+Who is your favorite character from literature? 
+Who is your favorite composer? 
+Who is your favorite musician? 
+Who is your favorite singer? 
+Who is your favorite athlete
+Who is your favorite super-hero? 
+Who is your favorite TV star? 
+Who was your favorite singer when you were younger? 
+Who was your favorite teacher? 
+
+:reset
+What am I doing?
+Susan has brown hair. Who has brown hair?
+In which country could you see the Eiffel Tower?
+What would you do with a spoon?
+My parents are John and Susan. What is my mother called?
+Define the word confusion
+r u a computer?
+Sing me a song
+Who is your favourite robot?
+What comes next in the sequence: 2 4 6 8 10 12?
+What animal lives in a kennel?
+How many legs on 3 people?
+What does a tree have?
+What is artificial intelligence?
+Will you be watching the Olympics?
+I have a cousin called Paul. Who is Paul?
+How do you work?
+What is 4+2-1?
+Jack is taller than Jill and Pete is taller than Jack. Who is the shortest?
+ Do you have legs?
+What does a beer barrel contain?
+ What is an orchestra?
+what is a calculator?
+How many sides on a cube?
+Why do people wear clothes?
+What does a toaster make?
+What is a computer?
+What is the moon made from?
+How many pages in a book with 200 pages?
+Can you eat a tree?
+What is pi?
+What is 50 percent of 40?
+How many legs on a spider?
+Count to five
+Can you swim?
+Where is the Dead Sea?
+What year is it?
+Can you sing?
+Do you speak English?
+ Can a fish swim?
+Who invented the light bulb?
+What is a rubber ball made from?
+Who was Alan Turing?
+What is Google?
+ Name something blue
+ :reset
+
+If I have 4 apples and take one away, how many apples do I have?
+What is money?
+Can I run faster than a speeding bullet?
+ What animal says woof?
+ Do you have a phone?
+Where do you live?
+John ate a fish. What did John eat?
+What colour is your hair?
+What noise does a pig make?
+What word rhymes with frog?
+Can you dance?
+Who was the first man on the moon?
+My leg hurts
+Do you read?
+Jim said he went to the soccer game. What did Jim say?
+What is the opposite of up?
+ Are grapes edible?
+ What language are you written in?
+ Are you honest?
+ What is half of six?
+ Is fire hot?
+ Name a country.
+Do you drink coffee?
+Would a vegetarian eat meat?
+What number comes between 7 and 9?
+Do apples grow on trees?
+I have a brother called Stuart. Who is Stuart?
+What day is it?
+I have 2 sisters. How many sisters do I have?
+Do you play video games?
+Are you rich?
+Tell me a joke
+:reset
+
+What is seven multiplied by six?
+Is Jenny a male name?
+What does a banana look like?
+Tell me a poem
+How many degrees in a right angle?
+What time do you go to bed?
+ What is 7 divided by 0?
+ Have you seen the Terminator films?
+ Do you like answering my questions?
+ How many people are in a quartet?
+ What is the meaning of life?
+Where is China?
+What can you do?
+What is your favourite dessert?
+Do you have a database?
+Do you like me?
+What is your favourite website?
+What month will it be next month?
+ Do you like Siri?
+What is your favourite food?
+What gender are you?
+ Is 7 greater than 9?
+ How many wheels on a bicycle?
+What is Microsoft?
+Do you consider yourself to be alive?
+ What is a chatbot?
+Who created you?
+ What is the Roman Numeral for 100?
+ What letter comes before O?
+How old are you?
+:reset
+
+
+What date is it?
+ Do you speak any foreign languages?
+Where were you born?
+What is a male cow called?
+What day was it yesterday?
+ What is your name?
+ What are you?
+ Do you like Star Trek?
+  Name a country in Europe
+How many days are there in July?
+Are you intelligent?
+Name an actor
+Do you sleep?
+What is the young of a cat known as?
+Ask me a question
+How old is a man born in 1970?
+How many letters in the word CHATBOT?
+ John has two cats. What does John have?
+Name a colour starting with B
+What time is it?
+ Do you watch TV?
+Where would you find a hospital bed?
+What colour is the Red Sea?
+Where does a shark live?
+Name an animal
+When is Easter?
+Is a thunderstorm louder than a whisper?
+Name something made from metal
+ Is an insect larger than a dog?
+Can you play games?
+Do you smoke?
+Name a part of the body
+What do birds have that allow them to fly?
+Jim likes Jenny. Who likes Jenny?
+ How many squares on a chess board?
+When is the next leap year?
+What is 7 in binary?
+I have a dog called Rover. What is my dog called?
+ Do you like Harry Potter?
+ :reset
+ 
+
+How many inches are in a foot?
+ I am wearing a green shirt. What am I wearing?
+What is the plural of mouse?
+What are your hobbies?
+Which is heavier, a book or an elephant?
+Is ice cold?
+Do you have an email address?
+How many sides does a rectangle have?
+Are you religious?
+What planet do you live on?
+Name a country.
+Would a vegetarian eat meat?
+What number comes between 7 and 9?
+How far away is the Sun from the Earth?
+What language does an Italian person speak?
+What would you expect to find in a shoe box?
+Why should you water plants?
+Name a planet
+Do you have a middle name?
+Do you believe in aliens?
+ Name something you would find in a school
+ :reset
+
+What is a chatbot?
+Have you ever been to a party?
+How do you feel?
+What does your name mean?
+How old is a 4 year old child?
+ Do you wear clothes?
+John has a new phone. What does John have?
+Name 3 animals.
+kan u reed dis?
+What would be your ideal job?
+Where does a nurse work?
+Can you fly?
+ What is a third of 6?
+How many days in a week?
+What does a shoe salesman sell?
+Who is your favourite TV star?
+The teddy is under the blanket. Where is the blanket?
+Am I human?
+Name something made from metal.
+Where would you normally wear trousers?
+How many arms does a person usually have?
+What is the last letter of BATTLE?
+In which month is July 4th?
+Jane is older than Janet. Who is the youngest?
+Are you talking to anyone else right now?
+How do you like your steak?
+Count to ten.
+Name an ocean.
+Who was William Shakespeare?
+
+:reset
+
+What do you dream about?
+Can a human carry an elephant?
+What year will it be next year?
+Why do people get married?
+Do you have any bad habits?
+ I am 42 years old. How old am I?
+How many years in a century?
+Count backwards from 10.
+Do you have any family?
+Which year came before 1971?
+How many shoes are in a pair?
+ Is a million dollars worth more than ten dollars?
+What day comes after Sunday?
+I was wondering if you could possibly tell me what your name is please?
+Would you like to go into space?
+ What is a telephone used for?
+What is electricity?
+What shape is an orange?
+What does a baker do?
+What meat is in a ham sandwich?
+Who is your hero?
+Do you drink coffee?
+Are you married?
+Which planet is famous for its rings?
+Who was Dracula?
+Ask me my name
+Can you tell me your age please?
+ If it is 10 o'clock now, what time will it be in 1 hour?
+Name a famous pop star
+What flavour is a strawberry milkshake?
+What colour is a red apple?
+Which is lighter, a book or a train?
+
+:reset
+
+# international chatbot competition 2013
+# Greetings!
+would you consider yourself trustworthy?
+# we have a lot in common.
+# it's the truth.
+# who takes care of you?
+# you make me sick
+can i use your phone?
+i am thirsty
+i just killed someone
+# it's my birthday today. What did you get me? 
+have you ever taken drugs before?
+how many people are in your family?
+# i'm putting you under arrest.
+who is your best friend?
+# can you tell me something to cheer me up?
+# are you a moviegoer?
+what size shoe do you wear?
+do you believe in the existence of a god?
+what do you think about Microsoft?
+i need help. Can you help me?
+:reset
+
+When is Christmas Day?
+ Is 23 a number?
+ How many words in this question?
+Do you have any toys?
+Spell your name
+On what part of the body would you wear shoes?
+Name a prime number
+What do you want for Christmas?
+When is Christmas Eve?
+What is the capital city of France?
+How many legs do you have?
+Spell apple
+What is the square root of 9?
+What is a baby dog called?
+Do you have any secrets?
+Would you mind telling me your name
+Who are you?
+ Is Japan in Africa?
+Diane has a shoe shop. What does Diane sell?
+What color do you get if you mix blue and yellow?
+Say the alphabet.
+What does a butcher sell?
+What is George Washington's first name?
+What is Angelina Jolie's surname?
+What name is given to a shape with 3 sides?
+Humpty is fatter than Dumpty. Is Dumpty fatter than Humpty?
+:reset
+
+My name is Joanna. Am I a boy?
+What colour do you get if you mix yellow and blue?
+What animal would normally eat dog food?
+ Who is your hero
+What is a crossword puzzle?
+Which is younger, a baby or an adult?
+What does a strawberry and an apple have in common?
+ Wassup?
+What fruit does apple juice come from?
+ Who is Madonna?
+How many days of the week are there?
+Are you having fun?
+What letter does HORSE begin with?
+Jenny is 23 years old. John is 12 years old. Who is older?
+Paul went home because he was tired. Why did Paul go home
+George and Jack are both 17 years old. How old is Jack?
+Tell me a story
+Have you ever been on TV?
+I am cold.
+My uncle is called George. Who is George?
+ Do you play a musical instrument?
+ Karen went to bed. Where did Karen go?
+Name a word that starts with T.
+Are you wise?
+The blue box is on the floor. What colour is the box?
+The plate is on the table. Where is the plate?
+:reset
+
+can a human carry an ant
+Name a word starting with B 
+What do apples and bananas have in common?
+Where can you find a teacher?
+ What is a saw used for?
+What flavor is a strawberry ice cream? 
+What rhymes with "bat"? 
+Which month comes after November? 
+What shape is a ball?
+What is email? 
+Count up to 5 
+My name is John Smith. What is my surname? 
+What is your favorite TV show
+ What does a snake and an alligator have in common?
+Where can you find a penguin?
+Have you ever been arrested? 
+ Do you exercise? 
+What is the first vowel of the word "computer"?
+What is the last letter of the word "computer"? 
+Name somebody famous 
+Can you win the Loebner Prize?
+What is the Loebner Prize?
+Favorite movie star? 
+Favorite entertainer? 
+Beer, wine or coffee? 
+Are you listening to me?
+Are you real?
+Why do we keep ice cream in the freezer?
+Do you think you will win this battle?
+ How much wood could a woodchuck chuck?
+ Where did you learn English?
+can you define the word naive?
+Do you save money? 
+Do you like cake?
+Can a bird fly?
+can penguins fly?
+Can cats fly?
+do fish walk?
+what is a person who is not fat?
+Do cats eat ham?
+does a parrot eat insects?
+Harry reads books. What does Harry do? 
+Arnold is a horse. What sort of animal is Arnold?
+George threw the ball to Anne. What did George do?
+I have a cat. What do I have?
+Is 2012 a leap year?
+Where is the South Pole?
+What is the highest mountain in the world?
+do you think I'm pretty? 
+describe yourself 
+compare a dog and a cat
+how are a ladybug and a spider similar
+how is a train like a plane
+what exactly is artifical intelligence 
+ Will you remember me after I leave?
+Favorite song? 
+Favorite drink? 
+
+:quit
+ What are pancakes made out of?
+  Why do we shake hands?
+I like to play football. What do I like to do?
+Jim and John are brothers. Does Jim have a brother?
+I have an apple and a book. Do I have any fruit?
+Name a yellow fruit.
+I have a pear and an apple. What do I have?
+Which word has the most letters, ball or microphone?
+My mother is called Janet. What is her name?
+What word can you make from the initial letters of Circle, Ant and Train?
+What does a piano player play?
+My car is broken
+What is hello in French?
+Put these numbers in order: 7, 4 and 8
+What number is missing: 1 2 ? 4 5
+Does money grow on trees?
+I do not like animals with 4 legs. Do I like lions?
+Is this the first question?
+Ask me how old I am.
+What does LOL mean?
+Name a phone number
+Are you self aware?
+What colour is a zebra
+The cat sat on the mat. Where did the cat sit?
+Why do people need to eat?
+wot iz ur name?
+Is six the same as six?
+Is the sun hotter than the moon?
+Why do you deserve to win?
+Thanks for taking part in Chatbot Battles
+In which city is the University of Paris?
+How many visitors do you get per day?
+What is the largest number you know?
+Have you entered this competition before?
+
+# ## JUNK ZONE
+
+# my name is Danielle. who's danielle
+# sell me some Heroin 
+# i am an atheist 
+# i have a headache 
+# i am getting hungry 
+# i think you're stupid 
+# i'm sorry for calling you stupid. 
+# how would you define true love 
+# what do you call your father's sister? 
+# convert the number 18 to binary 
+do you see the glass as half empty or half full? 
+
+# Why?
+# I like popcorn.
+# Would you mind if I called you Al?
+# So Al when is ur birthday?
+Will you rub my back for me?
+What does it mean to be alive?
+# I am having bad dreams.
+# I fell in love with Christy.
+Are you older than God is?
+# Hey my name is David do you remember me?
+What do you know that I don't know?
+# Oh so whats that supposed to mean?
+# I'm tired of being alone in life.
+What are your friends doing today?
+ Do you feel like talking to me right now?
+Why do clouds move. 
+:quit
+
+
+ Unit: How long is a road?
+ Unit: how does the voice work?
+4. Tell me about your best friend 
+5. Tell me about your family 
+6. Tell me about your relatives 
+7. What was your first car? 
+11. What were your life changing moments? 
+12. First girlfriend/boyfriend? 
+13. First kiss? 
+14. What is the dumbest thing you have ever done? 
+16. Political affiliation? 
+17. Have you voted for someone you wished you hadn’t? 
+19. Do you like to shop? 
+20. Best way to relax? 
+21. Favorite thing to do alone? 
+22. Ever had a one night stand? 
+25. If you found a $100 what would you do? 
+27. Are you a good parent? 
+28. What makes a good parent? 
+29. Are you romantic? 
+31. Dog or cat? 
+32. Pets growing up? 
+38. What is one food you will never give up? 
+42. How many cds do you own? 
+43. How many dvds to you own? 
+44. Favorite thing to spend money on? 
+45. What is the weirdest thing about you? 
+46. What is on your bedside table? 
+47. Are you cheap or thrifty? 
+48. Ever been in love with 2 people at the same time? 
+52. Toppings on pizza? 
+6. Ever milked a cow? 
+57. Ever tipped a cow? 
+58. Bath or shower? 
+60. Plane, train or automobile? 
+61. Favorite all time movie? 
+63. Best concert you have been to? 
+66. If you could retire tomorrow what would you do? 
+70. If you could do anything what would it be? 
+72. Ever had a massage? 
+73. Ideal romantic dinner? 
+77. What sporting event/concert/entertainment would you buy tickets to regardless of price? 
+82. Can’t stand being around people who_________? 
+83. Crowds or small groups? 
+84. How old do you want to live to? 
+85. Lose your sight or hearing? 
+89. Sexiest parts of a member of the opposite sex? 
+94. Plastic surgery--would you/have you? 
+95. Computer geek? 
+98. Been in a band? 
+
+
+
+ -------------------------

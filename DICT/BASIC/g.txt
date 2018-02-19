@@ -1,0 +1,1476 @@
+﻿ gray ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    grey~1nz (^mount~2) horse of a light gray or whitish color
+    grey~2nz (^clothing~1) clothing that is a grey color
+    grey~3nz (^color~3) a neutral achromatic color midway between white and black
+    grey~4nz (^organization~6) any organization or party whose uniforms or badges are grey
+    gray~5nz (^unit~5) the SI unit of energy absorbed from ionizing radiation
+    grey~5az of an achromatic color of any lightness intermediate between the extremes of white and black
+    grey~6az intermediate in character or position
+    grey~7az used to signify the Confederate forces in the American Civil War 
+    grey~8az showing characteristics of age, especially having grey or white hair
+    gray~10az 
+    grey~10vz turn grey
+    grey~11vz make grey
+ ghost ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    shade~4nz (^shadow~2) a mental representation of some haunting experience
+    touch~7n 
+    ghost~3nz (^soul~5) the visible disembodied soul of a dead person
+    ghost~4nz (^writer~1) a writer who gives the credit of authorship to someone else
+    ghost~5vz write for someone else
+    haunt~2vz haunt like a ghost
+    ghost~7vz move like a ghost
+ grant ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    grant~1nz (^allotment~1) the act of providing a subsidy
+    grant~2nz (^right~4) a right or privilege that has been granted
+    grant~3nz (^contract~2) a contract granting the right to operate a subsidiary business
+    assignment~6nz (^relation~1) a transfer of property by deed of conveyance
+    grant~5nz (^aid~4) any monetary aid
+    yield~7vz be willing to concede
+    accord~5v 
+    allow~5vz let have
+    grant~9vz transfer by deed
+    award~5vz give as judged due or on the basis of merit
+    yield~14vz give over
+    give~39v 
+ generosity ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    generosity~1nz (^distribution~1) acting generously
+    generosity~2nz (^kindness~3) the trait of being willing to give your money or time
+ grey ( meanings=11 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    gray~1n 
+    gray~2n 
+    gray~3n 
+    gray~4n 
+    gray~6a 
+    gray~7a 
+    gray~8a 
+    gray~9a 
+    grey~9az 
+    gray~11v 
+    gray~12v 
+ group ( meanings=5 glosses=5 NOUN_HUMAN NOUN_THEY NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    grouping~1nz any number of entities considered as a unit
+    group~2nz (^set~9) a set that is closed, associative, has an identity element and every element has an inverse
+    group~3nz (^unit~4) two or more atoms bound together as a single unit and forming part of a molecule
+    group~4vz arrange into a group or groups
+    group~5vz form a group or group together
+ grouping ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    group~1n 
+    grouping~2nz (^activity~1) the activity of putting things together in groups
+    grouping~3nz (^organization~5) 
+ getting ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT_PARTICIPLE AUX_BE AUX_VERB_PRESENT NOUN VERB NOUN_SINGULAR NOUN_GERUND COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    getting~1nz (^act~1) the act of acquiring something
+    getting~2vz 
+ going ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=gone 
+    leaving~1nz (^act~1) the act of departing
+    sledding~1nz (^action~1) advancing toward a goal
+    release~11nz (^death~2) euphemistic expressions for death
+    going~4az in full operation
+ giving ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB (null) ) 
+    giving~1nz (^disposal~1) disposing of property by voluntary transfer without receiving value in return
+    gift~1nz (^distribution~1) the act of giving
+    giving~3nz (^communication~2) the imparting of news or promises etc.
+    bountiful~2az given or giving freely
+ gun ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    gun~1nz (^shot~2) the discharge of a firearm as signal or as a salute in military ceremonies
+    gas~1nz (^bar~2) a pedal that controls the throttle valve
+    gun~3nz (^artifact~1) large but transportable armament
+    gun~4nz (^pump~1) a hand-operated pump that resembles a revolver
+    gun~5nz (^weapon~1) a weapon that discharges a missile at high velocity
+    gunman~1n 
+    gunman~2n 
+    gun~8vz shoot with a gun
+ golfing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    golfing~1nz (^playing~1) playing golf
+ grounder ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
+    grounder~1nz (^hit~3) 
+ ground ( meanings=23 glosses=23 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=grind 
+    primer~1nz (^coat~3) the first or preliminary coat of paint or size applied to a surface
+    ground~2nz (^surface~2) the surface (as a wall or canvas) prepared to take the paint for a painting
+    earth~1nz (^connection~3) a connection between an electrical device and a large conducting body, such as the earth
+    ground~4nz (^content~2) a relatively homogeneous percept extending back of the figure on which attention is focused
+    ground~5nz (^scene~3) the part of a scene that lies behind objects in the foreground
+    ground~6nz (^position~14) a position to be won or defended in battle 
+    reason~5nz (^need~1) a rational motive for a belief or action
+    earth~5nz (^object~1) the solid part of the earth's surface
+    soil~2nz (^object~1) material in the top layer of the surface of the earth in which plants can grow 
+    basis~2nz (^foundation~7) a relation that provides the foundation for something
+    earth~6nz (^stuff~7) the loose soft material that makes up a large part of the land surface
+    establish~1vz use as a basis for
+    ground~13vz instruct someone in the fundamentals of a subject
+    ground~14vz connect to a ground
+    ground~15vz fix firmly and stably
+    prime~13vz cover with a primer
+    ground~17vz hit onto the ground
+    ground~18vz hit a groundball
+    ground~19vz throw to the ground in order to stop play and avoid being tackled behind the line of scrimmage
+    ground~20vz place or put on the ground
+    ground~21vz confine or restrict to the ground
+    ground~22vz hit or reach the ground
+    ground~23vz bring to the ground
+ grab ( meanings=8 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    snap~2n 
+    grab~2nz (^device~2) a mechanical device for gripping an object
+    seize~1vz capture the attention or imagination of
+    grab~4vz take or grasp suddenly
+    catch~25v 
+    grab~6vz make a grasping or snatching motion with the hand
+    grab~7vz get hold of or seize quickly and easily
+    grab~8vz obtain illegally or unscrupulously
+ grounding ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    earthing~1nz (^connection~1) fastening electrical equipment to earth
+    foundation~5n 
+ grazing ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    shaving~1nz (^touching~1) 
+    graze~1n 
+ golden ( meanings=7 glosses=6 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    prosperous~1az presaging or likely to bring good luck
+    golden~2az suggestive of gold
+    gold~6az having the deep slightly brownish color of gold
+    fortunate~2az supremely favored
+    prosperous~2az marked by peace and prosperity
+    gold~7az made from or covered with gold
+    golden~7az 
+ general ( meanings=11 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    general~1nz (^fact~1) a fact about the whole 
+    general~2nz (^officer~1) a general officer of the highest rank
+    general~3nz (^head~26) the head of a religious order or congregation
+    general~4az prevailing among and common to the general public
+    universal~5az of worldwide scope or applicability
+    general~6az not specialized or limited to one class of things
+    general~7az applying to all or most members of a category or group
+    general~8az affecting the entire body
+    general~9az somewhat indefinite
+    general~10az 
+    general~11vz command as a general
+ goal ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    goal~1nz (^score~2) a successful attempt at scoring
+    goal~2nz (^artifact~1) game equipment consisting of the place toward which players of a game try to advance a ball or puck in order to score points
+    end~5nz (^content~2) the state of affairs that a plan is intended to achieve and that terminates behavior intended to achieve it
+    finish~7n 
+ graduation ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    graduation~1nz (^conclusion~2) the successful completion of a program of study
+    graduation~2nz (^measure~3) the act of arranging in grades
+    graduation~3nz (^line~15) a line that marks a measurement
+    graduation~4nz (^exercise~5) an academic exercise in which diplomas are conferred
+ gassing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    gassing~1nz (^poisoning~1) the deliberate act of poisoning some person or animal with gas
+    gassing~2nz (^activity~4) the process of interacting with gas
+ grilling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    grilling~1nz (^preparation~1) 
+ gumming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    gumming~1nz (^chew~1) 
+ gait ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    gait~1nz (^walking~1) a person's manner of walking
+    gait~2nz (^travel~1) a horse's manner of moving
+    pace~5n 
+ gallop ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gallop~1nz (^gait~2) a fast gait of a horse
+    gallop~2vz ride at a galloping pace
+    extend~11v 
+    gallop~4vz go at galloping speed
+ goose ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) plural=geese 
+    goose~1nz (^bird~1) web-footed long-necked typically gregarious migratory aquatic birds usually larger and less aquatic than ducks
+    goose~2nz (^poultry~2) flesh of a goose
+    goose~3nz (^fool~2) a man who is a stupid incompetent fool
+    goose~4vz give a spurt of fuel to
+    goose~5vz prod into action
+    goose~6vz pinch in the buttocks
+ grand ( meanings=11 glosses=8 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    grand~1nz (^piano~1) a piano with the strings on a horizontal harp-shaped frame
+    yard~9n 
+    distinguished~1az used of a person's appearance or behavior
+    grand~4az the most important and magnificent in adornment
+    grand~5az of behavior that is impressive and ambitious in scale or scope
+    grand~6az large and impressive in physical size or extent
+    sublime~3az of high moral or intellectual value
+    lordly~1az of or befitting a lord
+    terrific~3a 
+    grand~10az rich and superior in quality
+    grand~11az 
+ gesture ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    gesture~1nz (^motion~2) motion of hands or body to emphasize or help to express a thought or feeling
+    gesture~2nz (^communication~1) something done as an indication of intention
+    motion~3n 
+    motion~8v 
+ grind ( meanings=11 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=ground 
+    mill~1nz (^crush~1) the act of grinding to a powder or dust
+    drudgery~1nz (^labor~1) hard monotonous routine work
+    grind~3nz (^degree~1) the grade of particle fineness to which a substance is ground
+    grind~4nz (^scholar~1) an insignificant student who is ridiculed as being affected or boringly studious
+    grind~5vz reduce to small pieces or particles by pounding or abrading
+    grind~6vz make a grating or grinding sound by rubbing together
+    grind~7vz press or grind with a crushing noise
+    grind~8vz shape or form by grinding
+    grind~9vz created by grinding
+    grind~10vz dance by rotating the pelvis in an erotically suggestive way, often while in contact with one's partner such that the dancers' legs are interlaced
+    drudge~3vz work hard
+ gap ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    break~5n 
+    crack~4n 
+    spread~4n 
+    gap~4nz (^difference~2) a difference between two opinions or two views or two situations
+    gap~5nz (^pass~14) a pass between mountain peaks
+    opening~12nz (^space~8) an open or empty space in or between things
+    breach~4vz make an opening or gap in
+ gash ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gash~1nz (^cut~5) a strong sweeping cut made with a sharp instrument
+    cut~10n 
+    slice~6n 
+    gash~4vz cut open
+ gaming ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    play~2n 
+ game ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    game~1nz (^recreation~2) an amusement or pastime
+    game~2nz (^activity~1) a contest with rules to determine a winner
+    game~3nz (^competition~2) a single play of a sport or other contest
+    game~4nz (^play~5) frivolous or trifling behavior
+    game~5nz (^occupation~2) your occupation or line of work
+    game~6nz (^animal~1) animal hunted for food or sport
+    game~7nz (^artifact~1) the game equipment needed in order to play a particular game
+    plot~1nz (^scheme~2) a secret scheme to do something 
+    game~9nz (^score~9) the score at a particular point or the score needed to win
+    game~10nz (^part~6) a division of play during which one player serves
+    spirited~2az willing to face danger
+    crippled~1az disabled in the feet or legs
+    stake~6v 
+ guessing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    guess~1n 
+ golf ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    golf~1nz (^game~2) a game played on a large open course with 9 or 18 holes
+    golf~2vz play golf
+ go ( meanings=34 glosses=17 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_NOOBJECT ) conjugate=going plural=goes 
+    pass~6n 
+    ecstasy~1nz (^drug~1) street names for methylenedioxymethamphetamine
+    turn~12n 
+    go~4az functioning correctly and ready for action
+    get~7v 
+    proceed~1vz follow a certain course
+    exit~4v 
+    go~8vz be abolished or discarded
+    break~32v 
+    run~21v 
+    plump~5vz give support or make a choice (of) one out of a group or number
+    move~10v 
+    go~13vz to be spent or finished
+    go~14vz be spent
+    rifle~2vz go through in search of something
+    run~27v 
+    move~15v 
+    depart~1vz move away from a place into another direction
+    start~15v 
+    sound~23v 
+    move~20v 
+    go~22vz pass, fare, or elapse
+    go~23vz be or continue to be in a certain condition
+    last~21v 
+    go~25vz be awarded
+    fit~13vz be the right size or shape
+    run~52v 
+    lead~30v 
+    blend~6vz blend or harmonize
+    go~30vz be sounded, played, or expressed
+    go~31vz be contained in
+    run~56v 
+    go~33vz be ranked or compare
+    belong~5v 
+ get ( meanings=37 glosses=11 VERB_PRESENT VERB_INFINITIVE AUX_BE AUX_VERB_PRESENT VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=gotten 
+    mother~6v 
+    have~3v 
+    take~3vz be stricken by an illness, fall victim to an illness
+    produce~2v 
+    make~7v 
+    let~2v 
+    become~1v 
+    commence~1v 
+    receive~2v 
+    catch~14v 
+    puzzle~3v 
+    get~12vz reach by calculation
+    make~17v 
+    drive~13v 
+    get~15vz communicate with a place or person
+    fix~12v 
+    capture~6v 
+    catch~24v 
+    bring~3v 
+    arrest~5v 
+    get~21vz overcome or destroy
+    draw~31v 
+    catch~29v 
+    get~24vz evoke an emotional response
+    get~25vz irritate
+    come~10v 
+    get~27vz reach and board
+    get~28vz leave immediately
+    experience~7v 
+    receive~10v 
+    catch~32v 
+    catch~36v 
+    get~33vz purchase
+    get~34vz come into the possession of something concrete or abstract
+    have~15v 
+    get~36vz acquire as a result of some effort or action
+    get~37vz 
+ gender ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    sex~2nz (^property~2) the properties that distinguish organisms on the basis of their reproductive roles
+    gender~2nz (^family~3) a grammatical category in inflected languages governing the agreement between nouns and pronouns and adjectives
+ guard ( meanings=14 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    guard~1nz (^position~4) a position on a basketball team
+    guard~2nz (^position~4) a position on the line of scrimmage
+    guard~3nz (^assignment~3) the duty of serving as a sentry
+    guard~4nz (^measure~2) a precautionary measure warding off impending danger or damage or injury etc.
+    safety~4nz (^device~2) a device designed to prevent injury or accidents
+    guard~6nz (^position~7) a posture of defence in boxing or fencing
+    guard~7nz (^force~6) a military unit serving to protect some place or person
+    guard~8nz (^athlete~1) the person who plays that position on a football team
+    guard~9nz (^guardian~1) a person who keeps watch over something or someone
+    guard~10nz (^athlete~1) the person who plays the position of guard on a basketball team
+    guard~11vz watch over or shield from danger or harm
+    defend~5vz protect against a challenge or attack
+    guard~13vz to keep watch over
+    guard~14vz take precautions in order to avoid some unwanted consequence
+ gay ( meanings=7 glosses=4 NOUN_HUMAN NOUN_HE NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) 
+    gay~1nz (^individual~1) someone who practices homosexuality
+    sunny~1a 
+    brave~5az brightly colored and showy
+    queer~3az homosexual or arousing homosexual desires
+    gay~5az given to social pleasures often including dissipation
+    merry~2a 
+    jolly~3a 
+ grasping ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    seizing~1nz (^control~1) 
+    grasping~2nz (^understanding~2) understanding with difficulty
+    greedy~2a 
+ grasp ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    grip~1n 
+    grip~5n 
+    reach~3n 
+    hold~7nz (^understanding~2) understanding of the nature or meaning or quality or magnitude of something
+    dig~6v 
+    grasp~6vz hold firmly
+ grip ( meanings=10 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    hold~1nz (^control~1) the act of grasping
+    suitcase~1n 
+    grip~3nz (^pin~3) a flat wire hairpin whose prongs press tightly together
+    hold~3n 
+    grasp~2nz (^influence~2) an intellectual hold or understanding
+    grip~6nz (^worker~2) worker who moves the camera around while a film or television show is being made
+    grip~7nz (^friction~2) the friction between a body and the surface on which it moves
+    grip~8vz hold fast or firmly
+    grip~9vz to grip or seize, as in a wrestling match
+    grip~10vz to render motionless, as with a fixed stare or by arousing terror or awe
+ gasp ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    gasp~1nz (^breath~1) a short labored intake of breath with the mouth open
+    puff~10v 
+ gulp ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    draft~2nz (^swallow~1) a large and hurried swallow
+    gulping~1nz (^response~1) a spasmodic reflex of the throat made as if in swallowing
+    gulp~3vz utter or make a noise, as when swallowing too quickly
+    gulp~4vz to swallow hurriedly or greedily or in one draught
+ gulping ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    gulp~2n 
+    gulping~2nz (^activity~3) 
+ graze ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    grazing~2nz (^feeding~1) the act of grazing
+    graze~2nz (^scratch~10) a superficial abrasion
+    graze~3vz eat lightly, try different dishes
+    rake~4v 
+    crop~9v 
+    crop~10v 
+    graze~7vz break the skin by scraping
+ generation ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    multiplication~1nz (^sex~1) the act of producing offspring or multiplying by such production
+    generation~2nz (^production~4) the production of heat or electricity
+    generation~3nz (^beginning~3) a coming into being
+    generation~4nz (^group~1) group of genetically related organisms constituting a single step in the line of descent
+    generation~5nz (^people~1) all the people living at the same time or of approximately the same age
+    generation~6nz (^period~3) the normal time between successive generations
+    generation~7nz (^phase~4) a stage of technological development or innovation
+ gag ( meanings=9 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gag~1nz (^device~2) restraint put into a person's mouth to prevent speaking or shouting
+    laugh~1n 
+    gag~3vz make an unsuccessful effort to vomit
+    choke~4v 
+    choke~5v 
+    quip~3vz make jokes or quips
+    gag~7vz tie a gag around someone's mouth in order to silence them
+    choke~13v 
+    gag~9vz prevent from speaking out
+ grading ( meanings=3 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    scoring~1n 
+    leveling~3n 
+    scaling~3n 
+ glance ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    glimpse~1nz (^look~1) a quick look
+    glance~2vz hit at an angle
+    peek~2v 
+ glimpse ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    glance~1n 
+    glimpse~2nz (^scene~3) a brief or incomplete view
+    glimpse~3nz (^communication~1) a vague indication
+    glimpse~4vz catch a glimpse of or see briefly
+ gaze ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    regard~1n 
+    stare~3v 
+ glare ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    glare~1nz (^stare~1) an angry stare
+    blaze~3n 
+    glare~3nz (^standing~3) a focus of public attention
+    glare~4vz look at with a fixed gaze
+    glare~5vz shine intensely
+    glare~6vz be sharply reflected
+ gape ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    gape~1nz (^stare~1) a stare of amazement
+    gape~2nz (^motion~3) an expression of openmouthed astonishment
+    gape~3vz look with amazement
+    gape~4vz be wide open
+ gardening ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    gardening~1nz (^farming~2) 
+ grooving ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rifling~1nz (^manufacture~2) the cutting of spiral grooves on the inside of the barrel of a firearm
+ germ ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    microbe~1n 
+    germ~2nz (^structure~3) a small apparently simple structure from which new tissue can develop into a complete organism
+    seed~2n 
+ gather ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gathering~1nz (^collection~1) the act of gathering something
+    gathering~3nz (^creation~3) sewing consisting of small folds or puckers made by pulling tight a thread in a line of stitching
+    gain~6v 
+    amass~1vz collect or gather
+    gather~5vz conclude from evidence
+    gather~6vz look for in nature
+    tuck~5vz draw together into folds or puckers
+    gather~8vz draw and bring closer
+    collect~4v 
+    meet~9v 
+    assemble~3vz get people together
+ gathering ( meanings=4 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    gather~1n 
+    assembly~2n 
+    gather~2n 
+    gathering~4nz (^group~1) 
+ garbage ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    garbage~1nz (^receptacle~1) a receptacle where waste can be discarded
+    garbage~2nz (^message~2) a worthless message
+    refuse~1nz (^waste~5) food that is discarded
+ groove ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    rut~1n 
+    groove~2nz (^piece~11) any furrow or channel on a bodily structure or part
+    channel~8n 
+    rut~4v 
+    groove~5vz make a groove in, or provide with a groove
+ gift ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    giving~2n 
+    talent~1n 
+    gift~3nz (^relation~1) something acquired without compensation
+    give~31v 
+    gift~5vz give qualities or abilities to
+ garage ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    garage~1nz (^building~3) an outbuilding for housing automobiles
+    garage~2nz (^store~2) a repair shop where cars and trucks are serviced and repaired
+    garage~3vz keep or store in a garage
+ gold ( meanings=8 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    gold~1nz (^yellow~1) a deep yellow color
+    gold~2nz (^value~2) something likened to the metal in brightness or preciousness or superiority etc.
+    gold~3nz (^wealth~3) great wealth
+    gold~4nz (^valuable~1) coins made of gold
+    gold~5nz (^metal~2) a soft yellow malleable ductile metallic element
+    golden~3a 
+    golden~6a 
+    gold~8az 
+ government ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    governing~1nz (^event~1) the act of governing
+    government~2nz (^system~5) the system or form by which a community or other political unit is governed
+    government~3nz (^science~2) the study of government of states and other political units
+    government~4nz (^organization~6) the organization that is the governing authority of a political unit
+ governing ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    government~1n 
+    governing~2az responsible for making and enforcing rules and laws
+    governing~3az 
+ great ( meanings=8 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=greatest 
+    great~1nz (^success~3) a person who has achieved distinction and honor in some field
+    large~2a 
+    corking~1az very good
+    outstanding~2a 
+    great~5az relatively large in size or number or extent
+    capital~7a 
+    great~7az remarkable or out of the ordinary in degree or magnitude or effect
+    great~8az 
+ gang ( meanings=5 glosses=4 NOUN_HUMAN NOUN_THEY NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gang~1nz (^tool~2) tool consisting of a combination of implements arranged to work together
+    crew~1nz (^unit~3) an organized group of workmen
+    ring~7n 
+    bunch~3nz (^group~1) an informal body of friends
+    gang~5vz act as an organized group
+ good ( meanings=28 glosses=20 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=better 
+    good~1nz (^artifact~1) articles of commerce
+    good~2nz (^quality~1) moral excellence or admirableness
+    good~3nz (^quality~1) that which is pleasing or valuable or useful
+    good~4nz (^advantage~2) benefit
+    good~5az promoting or enhancing well-being
+    full~1a 
+    near~3a 
+    good~8az thorough
+    good~9az generally admired
+    effective~3az exerting force or influence
+    well~7az resulting favorably
+    good~12az not left to spoil
+    honest~2a 
+    good~14az having desirable or positive qualities especially those suitable for a thing specified
+    good~15az morally admirable
+    good~16az tending to promote physical well-being
+    sound~11a 
+    serious~4a 
+    good~19az agreeable or pleasing
+    right~13a 
+    good~21az capable of pleasing
+    honorable~3az deserving of esteem and respect
+    just~4az of moral excellence
+    skillful~2az having or showing knowledge and skill and aptitude
+    safe~7a 
+    good~26az 
+    well~10bz in a good or proper or satisfactory manner or to a high standard (`good' is a nonstandard dialectal variant for `well')
+    good~28bz completely and absolutely 
+ gallantry ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    gallantry~1nz (^action~1) polite attentiveness to women
+    gallantry~2nz (^courage~1) the qualities of a hero or heroine
+    gallantry~3nz (^manner~1) courtesy towards women
+ giant ( meanings=9 glosses=7 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    giant~1nz (^animal~1) any creature of exceptional size
+    giant~2nz (^enterprise~3) an unusually large enterprise
+    giant~3nz (^star~3) a very bright star of large diameter and low density
+    giant~4nz (^vision~1) an imaginary figure of superhuman size and strength
+    giant~5nz (^adult~2) a person of exceptional importance and reputation
+    monster~4n 
+    whale~2nz (^individual~1) a very large person
+    giant~8az of great mass
+    giant~9az 
+ grass ( meanings=10 glosses=9 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    smoke~3n 
+    pasture~1nz (^feed~1) bulky food like grass or hay for browsing or grazing horses or cattle
+    grass~3nz (^rat~3) a police informer who implicates many people
+    grass~4nz (^plant~1) narrow-leaved green herbage: grown as lawns
+    betray~1vz give away information about somebody
+    grass~6vz shoot down, of birds
+    grass~7vz feed with grass
+    grass~8vz cover with grass
+    grass~9vz spread out clothes on the grass to let it dry and bleach
+    grass~10vz cover with grass
+ green ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_NOOBJECT (null) ) 
+    jet~3nz (^drug~1) street names for ketamine
+    green~2nz (^color~3) green color or pigment
+    green~3nz (^vegetable~1) any of various leafy plants or their leaves and stems eaten as vegetables
+    green~4nz (^parcel~4) an area of closely cropped grass surrounding the hole on a golf course
+    common~1n 
+    green~6az of the color between blue and yellow in the color spectrum
+    green~7az not fully developed or mature
+    green~8az naive and easily deceived or tricked
+    green~9az looking pale and unhealthy
+    green~10az concerned with or supporting or in conformity with the political principles of the Green Party
+    green~11az 
+    green~12vz turn or become green
+ goldfish ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=goldfishes 
+    goldfish~1nz (^fish~1) small golden or orange-red freshwater fishes of Eurasia used as pond or aquarium fishes
+ greater ( meanings=1 glosses=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=great 
+    greater~1az greater in size or importance or degree
+ gopher ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    gopher~1nz (^turtle~1) burrowing edible land tortoise of southeastern North America
+    gopher~2nz (^rat~1) burrowing rodent of the family Geomyidae having large external cheek pouches
+    gopher~3nz (^squirrel~1) any of various terrestrial burrowing rodents of Old and New Worlds
+    gopher~4nz (^worker~3) a zealously energetic person
+ glass ( meanings=13 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    glass~1nz (^telescope~1) a small refracting telescope
+    glass~2nz (^container~1) a container for holding liquids while drinking
+    glass~3nz (^article~1) glassware collectively
+    glass~4nz (^mirror~1) a mirror
+    chalk~2n 
+    glass~6nz (^measure~1) the quantity a glass will hold
+    glass~7nz (^solid~3) a brittle transparent solid with irregular atomic structure
+    glass~8az 
+    glass~9vz become glassy or take on a glass-like appearance
+    glass~10vz put in a glass container
+    glass~11vz enclose with glass
+    glass~12vz scan with binoculars
+    glass~13vz furnish with glass
+ glossy ( meanings=6 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) comparative=glossiest 
+    glossy~1nz (^picture~2) a photograph that is printed on smooth shiny paper
+    slick~4n 
+    showy~1az superficially attractive and stylish
+    shining~2az reflecting light
+    glossy~5az having a surface made smooth and glossy especially by pressing between rollers
+    glossy~6az 
+ garden ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    garden~1nz (^patch~8) a plot of ground where plants are cultivated
+    garden~2nz (^yard~3) a yard or lawn adjoining a house
+    garden~3nz (^flora~2) the flowers or vegetables or fruits or herbs that are cultivated in a garden
+    garden~4vz work in the garden
+ gander ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    gander~1nz (^goose~1) mature male goose
+ gull ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gull~1nz (^bird~1) mostly white aquatic bird having long pointed wings and short legs
+    mug~3n 
+    fool~5v 
+    fool~7v 
+ guide ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    guide~1nz (^structure~1) a structure or marking that serves to direct the motion or positioning of something
+    guide~2nz (^example~4) a model or standard for making comparisons
+    guide~3nz (^reference~5) something that offers basic information or instruction
+    guide~4nz (^leader~2) someone who shows the way by leading or advising
+    scout~2nz (^expert~1) someone who can find paths through unexplored territory
+    usher~1nz (^tender~5) someone employed to conduct others
+    pass~24vz pass over, across, or through
+    head~35v 
+    lead~24v 
+    guide~10vz use as a guide
+    steer~5v 
+ grasshopper ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    grasshopper~1nz (^insect~1) terrestrial plant-eating insect with hind legs adapted for leaping
+    grasshopper~2nz (^alcohol~1) a cocktail made of creme de menthe and cream
+ grape ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    grape~1nz (^shot~8) a cluster of small projectiles fired together from a cannon to produce a hail of shot
+    grape~2nz (^produce~1) any of various juicy fruit of the genus Vitis with green or purple skins
+    grape~3nz (^vine~1) any of numerous woody vines of genus Vitis bearing clusters of edible berries
+ grain ( meanings=15 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    texture~1n 
+    grain~2nz (^texture~3) the direction, texture, or pattern of fibers found in wood or leather or stone or in a woven fabric
+    grain~3nz (^size~2) the smallest possible unit of anything
+    cereal~2n 
+    grain~5nz (^particle~3) a relatively small granular particle of a substance
+    grain~6nz (^cereal~3) a cereal grass
+    grain~7nz (^seed~5) dry seed-like fruit produced by the cereal grasses: e.g. wheat, barley, Indian corn
+    grain~8nz (^unit~5) 1/7000 pound
+    grain~9nz (^weight~7) 1/60 dram
+    grain~10nz (^metric~2) a weight unit used for pearls or diamonds: 50 mg or 1/4 carat
+    grain~11nz (^leather~1) the side of leather from which the hair has been removed
+    grain~12vz become granular
+    grain~13vz form into grains
+    grain~14vz paint to make it look like stone or wood
+    grain~15vz thoroughly work in
+ grade ( meanings=13 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    grade~1nz (^oxen~1) a variety of cattle produced by crossbreeding with a superior breed
+    grade~2nz (^slope~1) the gradient of a slope or road or other surface
+    level~4n 
+    grade~4nz (^distance~1) the height of the ground on which something stands
+    mark~5n 
+    grade~6nz (^sound~4) a degree of ablaut
+    class~6n 
+    grade~8nz (^unit~5) one-hundredth of a right angle
+    level~8nz (^rank~5) a relative position or degree of value in a graded group
+    grade~10vz determine the grade of or assign a grade to
+    mark~18v 
+    range~10v 
+    grade~13vz level to the right gradient
+ goat ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    goat~1nz (^mammal~1) any of numerous agile ruminants related to sheep but having a beard and straight horns
+    butt~8nz (^individual~1) a victim of ridicule or pranks
+ giraffe ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    giraffe~1nz (^mammal~1) tallest living quadruped
+ gorilla ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    gorilla~1nz (^ape~1) largest anthropoid ape
+ gas ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) plural=gasses 
+    throttle~2n 
+    gas~2nz (^status~1) a state of excessive gas in the alimentary canal
+    gas~3nz (^state~7) the state of matter distinguished from the solid and liquid states by: relatively low density and viscosity
+    gasoline~1n 
+    gas~5nz (^matter~1) a fluid in the gaseous state having neither independent shape nor volume and being able to expand indefinitely
+    gas~6nz (^fuel~1) a fossil fuel in the gaseous state
+    blow~14v 
+    gas~8vz attack with gas
+ gangway ( meanings=3 glosses=2 NOUN INTERJECTION NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
+    gangway~1nz (^passage~6) passageway between seating areas as in an auditorium or passenger vehicle or between areas of shelves of goods as in stores
+    gangway~2nz (^bridge~2) 
+    gangway~3nz (^passage~6) a temporary passageway of planks
+ garbage_can ( meanings=1 glosses=1 NOUN NOUN_SINGULAR GRADE1_2 ) 
+    garbage_can~1nz (^bin~1) a bin that holds rubbish until it is collected
+ glove ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    mitt~1nz (^artifact~1) the handwear used by fielders in playing baseball
+    glove~2nz (^artifact~1) boxing equipment consisting of big and padded coverings for the fists of the fighters
+    glove~3nz (^clothing~1) handwear: covers the hand and wrist
+ grave ( meanings=9 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=graver 
+    tomb~1nz (^place~13) a place for the burial of a corpse 
+    grave~2nz (^mark~9) a mark placed above a vowel to indicate pronunciation
+    grave~3nz (^death~7) death of a person
+    dangerous~1a 
+    heavy~22a 
+    solemn~2az dignified and somber in manner or character and committed to keeping promises
+    grave~7az 
+    scratch~13v 
+    grave~9vz shape by whittling away at it
+ gut ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gut~1nz (^cord~1) a strong cord made from the intestines of sheep and used in surgery
+    intestine~1nz (^organ~4) the part of the alimentary canal between the stomach and the anus
+    gut~3nz (^channel~7) a narrow channel or strait
+    gut~4vz remove the guts of
+    gut~5vz empty completely
+ guided ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    guided~1az subject to guidance or control especially after launching
+ gallery ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    heading~1n 
+    gallery~2nz (^structure~1) narrow recessed balcony area along an upper floor on the interior of a building
+    gallery~3nz (^passage~6) a covered corridor
+    gallery~4nz (^room~1) a long usually narrow room used for some specific purpose
+    gallery~5nz (^room~1) a room or series of rooms where works of art are exhibited
+    gallery~6nz (^porch~1) a porch along the outside of a building
+    gallery~7nz (^audience~2) spectators at a golf or tennis match
+ gravity ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    gravity~1nz (^attribute~1) a manner that is serious and solemn
+    gravity~2nz (^feeling~1) a solemn and dignified feeling
+    gravity~3nz (^attraction~5) the force of attraction between all masses in the universe
+ galley ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    galley~1nz (^kitchen~1) the area for food preparation on a ship
+    galley~2nz (^kitchen~1) the kitchen area for food preparation on an airliner
+    galley~3nz (^vessel~1) a crescent-shaped seagoing vessel propelled by oars
+    galley~4nz (^vessel~1) a large medieval vessel with a single deck propelled by sails and oars with guns at stern and prow
+ gasoline ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    gas~4nz (^fuel~1) a volatile flammable mixture of hydrocarbons derived from petroleum
+ gate ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gate~1nz (^barrier~1) a movable barrier in a fence or wall
+    gate~2nz (^device~2) a computer circuit with several inputs but only one output that can be activated by particular combinations of inputs
+    gate~3nz (^passage~6) passageway where passengers can embark or disembark
+    gate~4nz (^gross~1) total admission receipts at a sports event
+    gate~5vz restrict movement to the dormitory or campus as a means of punishment
+    gate~6vz control with a valve or other device that functions like a gate
+    gate~7vz supply with a gate
+ gathered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    collected~2a 
+ gauge ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gauge~1nz (^instrument~2) a measuring instrument for measuring and indicating a quantity such as the thickness of wire or the amount of rain etc.
+    bore~2n 
+    gauge~3nz (^dimension~2) the thickness of wire
+    gauge~4nz (^length~4) the distance between the rails of a railway or between the wheels of a train
+    gauge~5nz (^standard~4) accepted or approved instance or example of a quantity or quality against which others are judged or measured or compared
+    gauge~6vz mix in specific proportions
+    gauge~7vz adapt to a specified measurement
+    gauge~8vz measure precisely and against a standard
+    judge~5v 
+    gauge~10vz determine the capacity, volume, or contents of by measurement and calculation
+    gauge~11vz rub to a uniform size
+ gear ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gear~1nz (^wheel~5) a toothed wheel that engages another toothed mechanism in order to change the speed or direction of transmitted motion
+    gear~2nz (^artifact~1) equipment consisting of miscellaneous articles needed for a particular operation or sport etc.
+    gear~3nz (^device~2) a mechanism for transmitting motion for some specific purpose
+    train~1nz (^device~2) wheelwork consisting of a connected set of rotating gears by which force is transmitted or motion or torque is changed
+    pitch~11v 
+ geared ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    geared~1az equipped with or connected by gears or having gears engaged
+ gearing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    gear~4n 
+ gem ( meanings=5 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    treasure~1n 
+    jewel~1nz (^jewelry~1) a precious or semiprecious stone incorporated into a piece of jewelry
+    muffin~1n 
+    jewel~2nz (^individual~1) a person who is as brilliant and precious as a piece of jewelry
+    stone~7n 
+ ghetto ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) plural=ghettoes 
+    ghetto~1nz (^district~1) a poor densely populated city district occupied by a minority ethnic group linked together by economic hardship and social restrictions
+    ghetto~2nz formerly the restricted quarter of many European cities in which Jews were required to live
+    ghetto~3nz (^life~10) any segregated mode of living or working that results from bias or stereotyping
+    ghetto~4az 
+ glasses ( meanings=1 glosses=1 NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    eyeglasses~1nz (^instrument~2) optical instrument consisting of a frame that holds a pair of lenses for correcting defective vision
+ globe ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    globe~1nz (^artifact~1) a sphere on which a map is represented
+    world~5n 
+    ball~11nz (^shape~1) an object with a spherical shape
+ glory ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    glory~1nz (^beauty~1) brilliant radiant beauty
+    halo~1nz (^light~3) an indication of radiant light drawn around the head of a saint
+    glory~3nz (^honor~4) a state of high honor
+    glory~4vz rejoice proudly
+ glow ( meanings=12 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    gleam~1n 
+    glow~2nz (^light~5) light from nonthermal sources
+    glow~3nz (^feeling~1) a feeling of considerable warmth
+    glowing~1nz (^light~12) the amount of electromagnetic radiation leaving or arriving at a point on a surface
+    glow~5nz (^light~12) a steady even light without flames
+    glow~6nz (^light~12) the phenomenon of light emission by a body as its temperature is raised
+    glow~7nz (^status~1) an alert and refreshed state
+    shine~3v 
+    glow~9vz be exuberant or high-spirited
+    glow~10vz emit a steady even light without flames
+    shine~4v 
+    burn~20v 
+ governor ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    governor~1nz (^control~3) a control that maintains a steady speed in a machine
+    governor~2nz (^leader~2) the head of a state government
+ grace ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    grace~1nz (^disposition~2) a disposition to kindness and compassion
+    grace~2nz (^good~2) the free and unmerited favor or beneficence of God
+    grace~3nz (^behavior~3) a sense of propriety and consideration for others
+    grace~4nz (^carriage~5) elegance and beauty of movement or expression
+    blessing~4nz (^prayer~4) a short prayer of thanks before a meal
+    grace~6nz (^state~1) a state of sanctification by God
+    beautify~2v 
+    deck~7v 
+ graduate ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    graduate~1nz (^instrument~2) a measuring instrument for measuring fluid volume
+    graduate~2nz (^student~1) a person who has received a degree from a school
+    graduate~3az of or relating to studies beyond a bachelor's degree
+    graduate~4vz make fine adjustments or divide into marked intervals for optimal measuring
+    graduate~5vz confer an academic degree upon
+    graduate~6vz receive an academic degree upon completion of one's studies
+ graduated ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    graduated~1az 
+    graduated~2az 
+ grandfather ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    grandpa~1nz (^root~6) the father of your father or mother
+ granny ( meanings=3 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    granny~1nz (^knot~2) a reef knot crossed the wrong way and therefore insecure
+    grandmother~1n 
+    granny~3nz (^adult~2) an old woman
+ graphic ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    graphic~1nz (^picture~3) an image that is generated by a computer
+    graphic~2az describing nudity or sexual activity in graphic detail
+    graphic~3az evoking lifelike images within the mind
+    graphic~4az written or drawn or engraved
+    graphic~5az relating to or presented by a graph
+    graphic~6az of or relating to the graphic arts
+    graphic~7az 
+ gravel ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gravel~1nz (^stone~6) rock fragments and pebbles
+    baffle~3v 
+    gravel~3vz cover with gravel
+    devil~6v 
+ graver ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=grave 
+    graver~1nz (^tool~2) a tool used by an engraver
+ gravy ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    boom~4n 
+    gravy~2nz (^juice~2) the seasoned but not thickened juices that drip from cooking meats
+    gravy~3nz (^seasoning~2) a sauce made by adding stock, flour, or other ingredients to the juice and fat that drips from cooking meats
+ grid ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    grid~1nz (^utensil~1) a cooking utensil of parallel metal bars
+    grid~2nz (^conductor~1) an electrode placed between the cathode and anode of a vacuum tube to control the flow of electrons through the tube
+    grid~3nz (^plate~5) a perforated or corrugated metal plate used in a storage battery as a conductor and support for the active material
+    grid~4nz (^facility~3) a system of high tension cables by which electrical power is distributed throughout a region
+    grid~5nz (^shape~5) a pattern of regularly spaced horizontal and vertical lines
+ grill ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    grill~1nz (^structure~1) a framework of metal bars used as a partition or a grate
+    grill~2nz (^restaurant~1) a restaurant where food is cooked on a grill
+    grill~3vz cook over a grill
+    grill~4vz examine thoroughly
+ grinding ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    grinding~1nz (^noise~5) a harsh and strident sound
+    grinding~2nz (^particle~3) material resulting from the process of grinding
+    abrasion~1n 
+ grocery ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    grocery~1nz (^good~1) consumer goods sold by a grocer
+    market~2nz (^market~3) a marketplace where groceries are sold
+ grotesque ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    grotesque~1nz (^art~2) art characterized by an incongruous mixture of parts of humans and animals interwoven with plants
+    grotesque~2az distorted and unnatural in shape or size
+    fantastic~1a 
+    grotesque~4az 
+ grove ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    orchard~1n 
+    grove~2nz (^forest~1) a small growth of trees without underbrush
+ guitar ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    guitar~1nz (^instrument~3) a stringed instrument usually having six strings
+ gutter ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gutter~1nz (^channel~2) a channel along the eaves or on the roof
+    gutter~2nz (^tool~2) a tool for gutting fish
+    gutter~3nz (^worker~2) a worker who guts things
+    sewer~3n 
+    gutter~5vz provide with gutters
+    gutter~6vz wear or cut gutters into
+    gutter~7vz flow in small streams
+    gutter~8vz burn unsteadily, feebly, or low
+ guy ( meanings=4 glosses=4 NOUN_HUMAN NOUN_HE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    guy~1nz (^brace~1) a cable, wire, or rope that is used to brace something
+    guy~2nz (^man~4) an informal term for a youth or man
+    guy~3vz steady or support with a guy wire or cable
+    roast~5vz subject to laughter or ridicule
+ gymnasium ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=gymnasia 
+    gym~1n 
+ gym ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    gymnasium~1nz (^facility~3) athletic facility equipped for sports or physical training
+ god ( meanings=3 glosses=2 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    idol~1n 
+    deity~1nz (^belief~2) any supernatural being worshipped as controlling some part of the world or some aspect of life or who is the personification of a force
+    god~3nz (^superior~3) a man of such superior qualities that he seems like a deity to other people
+ guest ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    guest~1nz (^computer~1) any computer that is hooked up to a computer network
+    guest~2nz (^visitor~1) a visitor to whom hospitality is extended
+    guest~3nz (^customer~1) a customer of a hotel or restaurant etc.
+ gum ( meanings=10 glosses=9 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gum~1nz (^tissue~1) the tissue of the jaws that surrounds the bases of the teeth
+    gum~2nz (^sweet~3) a preparation for chewing
+    gum~3nz (^tree~1) any of various trees of the genera Eucalyptus or Liquidambar or Nyssa that are sources of gum
+    gum~4nz (^wood~4) wood or lumber from any of various gum trees especially the sweet gum
+    glue~1n 
+    gum~6nz (^emission~5) any of various substances that exude from certain plants
+    gum~7vz exude or form gum
+    gum~8vz become sticky
+    gum~9vz grind with the gums
+    gum~10vz cover, fill, fix or smear with or as if with gum
+ gloss ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    semblance~2n 
+    polish~1nz (^smoothness~4) the property of being smooth and shiny
+    gloss~3nz (^reference~5) an alphabetical list of technical terms in some specialized field of knowledge
+    gloss~4nz (^explanation~2) an explanation or definition of an obscure word in a text
+    color~13v 
+    gloss~6vz provide an interlinear translation of a word or phrase
+    comment~4v 
+    gloss~8vz give a shine or gloss to, usually by rubbing
+ graining ( meanings=1 NOUN NOUN_SINGULAR COMMON2 ) 
+    graining~1nz (^grain~2) 
+ glint ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    glint~1nz (^light~3) a spatially localized brightness
+    spark~2n 
+    shine~5v 
+    glance~3v 
+ gleam ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    gleaming~1nz (^shine~1) an appearance of reflected light
+    gleaming~2nz (^flash~9) a flash of light
+    gleam~3vz appear briefly
+    gleam~4vz shine brightly, like a star or a light
+    glint~3v 
+ gleaming ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    glow~1n 
+    gleam~2n 
+    gleaming~3az bright with a steady but subdued shining
+    gleaming~4az 
+ give ( meanings=45 glosses=34 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=given 
+    spring~3n 
+    give~2vz proffer 
+    give~3vz consent to engage in sexual intercourse with a man
+    give~4vz occur
+    give~5vz estimate the duration or outcome of something
+    devote~1vz dedicate
+    give~7vz inflict as a punishment
+    give~8vz allow to have or take
+    give~9vz guide or direct, as by behavior of persuasion
+    give~10vz submit for consideration, judgment, or use
+    commit~1vz give entirely to a specific person, activity, or cause
+    give~12vz offer in good faith
+    give~13vz manifest or show
+    throw~7v 
+    pay~4vz convey, as of a compliment, regards, attention, etc.
+    give~16vz bestow
+    give~17vz accord by verdict
+    give~18vz propose
+    feed~4v 
+    yield~9vz be flexible under stress of physical force
+    yield~10v 
+    yield~11vz cause to happen or be responsible for
+    establish~6vz bring about
+    give~24vz perform for an audience
+    give~25vz present to view
+    hold~26v 
+    yield~12vz move in order to make room for someone for something
+    collapse~8v 
+    give~29vz transfer possession of something concrete or abstract to somebody
+    give~30vz leave with
+    present~15v 
+    hand~16v 
+    give~33vz convey or reveal information
+    leave~11v 
+    contribute~2vz contribute to some cause
+    apply~5v 
+    give~37vz give 
+    give~38vz cause to have, in the abstract sense or physical sense
+    grant~12vz bestow, especially officially
+    afford~2vz be the cause or source of
+    sacrifice~8vz endure the loss of
+    open~34v 
+    give~43vz deliver in exchange or recompense
+    give~44vz emit or utter
+    give~45vz execute and deliver
+ grit ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    sand~1n 
+    grit~2nz (^stone~6) a hard coarse-grained siliceous sandstone
+    grit~3vz clench together
+    grit~4vz cover with a grit
+ gain ( meanings=13 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gain~1nz (^increase~2) the amount of increase in signal power or voltage or current expressed as the ratio of output to input
+    profit~1n 
+    gain~3nz (^amount~4) the amount by which the revenue of a business exceeds its cost of operating
+    addition~6n 
+    gain~5vz increase 
+    gather~3vz increase or develop
+    advance~9vz rise in rate or price
+    win~4vz obtain advantages, such as points, etc.
+    hit~20v 
+    win~5vz win something through one's efforts
+    make~39v 
+    profit~4v 
+    gain~13vz obtain
+ gamut ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    gamut~1nz (^reach~2) a complete extent or range:
+    gamut~2nz (^scale~5) the entire scale of musical notes
+ growth ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    growth~1nz (^beginning~3) the gradual beginning or coming forth
+    growth~2nz (^flora~2) vegetation that has grown
+    growth~3nz (^object~1) something grown or growing
+    development~8n 
+    growth~5nz (^development~7) a progression from simpler to more complex forms
+    increase~4n 
+    growth~7nz (^sickness~1) an abnormal proliferation of tissue (as in a tumor)
+ genius ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 (null) ) plural=genii 
+    brilliance~3nz (^intelligence~2) unusual mental ability
+    genius~2nz (^talent~1) a natural talent
+    genius~3nz (^ability~2) exceptional creative ability
+    star~5n 
+    brain~5nz (^individual~1) someone who has exceptional intellectual ability and originality
+    genius~6az 
+ growing ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    growing~1nz (^production~2) the production of (semiconductor) crystals by slow crystallization from the molten state
+    growth~4n 
+    growing~3az relating to or suitable for growth
+ guess ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    shot~12nz (^estimate~2) an estimate based on little or no information
+    hypothesis~2nz (^view~9) a message expressing an opinion based on incomplete evidence
+    suppose~1v 
+    guess~4vz guess correctly
+    approximate~4v 
+    venture~4v 
+ grief ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    grief~1nz (^information~2) something that causes great unhappiness
+    grief~2nz (^sadness~2) intense sorrow caused by loss of a loved one
+ given ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PAST_PARTICIPLE PARTICLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=gave 
+    given~1nz (^hypothesis~1) an assumption that is taken for granted
+    granted~1az acknowledged as a supposition
+    minded~1az naturally disposed toward
+ geometry ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    geometry~1nz (^mathematics~1) the pure mathematics of points and lines and curves and surfaces
+ gross ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ADJECTIVE_NOT_PREDICATE NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    gross~1nz (^amount~4) the entire amount of income before any deductions are made
+    gross~2nz (^number~11) twelve dozen
+    rank~8a 
+    gross~4az conspicuously and tastelessly indecent
+    gross~5az repellently fat
+    gross~6az lacking fine distinctions or detail
+    pure~5a 
+    gross~8az before any deductions
+    gross~9az visible to the naked eye
+    gross~10az 
+    gross~11vz earn before taxes, expenses, etc.
+ geology ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    geology~1nz (^science~2) a science that deals with the history of the earth as recorded in rocks
+ geography ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    geography~1nz (^science~2) study of the earth's surface
+ grammar ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    grammar~1nz (^science~2) the branch of linguistics that deals with syntax and morphology
+ guild ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    club~7n 
+ greeting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    greeting~1nz (^acknowledgment~1) 
+ good-bye ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) 
+    goodbye~1nz (^acknowledgment~1) a farewell remark
+ goodbye ( meanings=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    cheerio~1n 
+ glad ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=gladdest 
+    beaming~2az cheerful and bright
+    glad~2az feeling happy appreciation
+    glad~3az showing or causing joy and pleasure
+    happy~4a 
+    glad~5az 
+ gentlemen ( NOUN NOUN_PLURAL COMMON4 NOUN_NODETERMINER posdefault:NOUN ) plural=gentleman 
+ grimace ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    face~11n 
+    grimace~2vz contort the face to indicate a certain mental or emotional state
+ grin ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    smiling~1n 
+    grin~2vz to draw back the lips and reveal the teeth, in a smile, grimace, or snarl
+ grinning ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    grin~1n 
+ graph ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    graph~1nz (^communication~1) a visual representation of the relations between certain quantities plotted with reference to a set of axes
+    chart~5vz represent by means of a graph
+    graph~3vz plot upon a graph
+ gradual ( meanings=3 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    gradual~1nz an antiphon (usually from the Book of Psalms) immediately after the epistle at Mass
+    gradual~2az proceeding in small stages
+    gradual~3az not steep or abrupt
+ giggle ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_NOOBJECT (null) ) 
+    giggle~1nz (^laugh~3) a foolish or nervous laugh
+    titter~2vz laugh nervously
+ gab ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) ) 
+    gab~1nz (^chat~1) light informal conversation for social occasions
+    gab~2vz talk profusely
+ grievance ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    grievance~1nz (^act~1) a complaint about a wrong that causes resentment and is grounds for action
+    grievance~2nz (^charge~6) an allegation that something imposes an illegal obligation or denies some legal right or causes injustice
+    score~6n 
+ growling ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    growling~1nz (^communication~1) a gruff or angry utterance
+    growl~1n 
+ gummed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    gummed~1az covered with adhesive gum
+ growl ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    growling~2nz (^cry~5) the sound of growling
+    rumble~4vz to utter or emit low dull rumbling sounds
+ guilt ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    guilt~1nz (^remorse~1) remorse caused by feeling responsible for some offense
+    guilt~2nz (^status~1) the state of having committed an offense
+ grudge ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    grievance~3n 
+    grudge~2vz accept or admit unwillingly
+    stew~4v 
+ gingerbread ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    gingerbread~1nz (^cake~2) cake flavored with ginger
+ green_bean ( meanings=2 glosses=2 NOUN NOUN_SINGULAR NOUN_NODETERMINER GRADE1_2 ) 
+    green_bean~1nz (^bean~2) immature bean pod eaten as a vegetable
+    green_bean~2nz (^bean~3) a common bean plant cultivated for its slender green edible pods
+ General ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+ generally ( meanings=3 glosses=2 ADVERB COMMON4 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    generally~1bz without distinction of one from others
+    mostly~2b 
+    generally~3bz without regard to specific details or exceptions
+ governed ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    governed~1nz (^people~3) the body of people who are citizens of a particular government
+ gaudy ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=gaudiest 
+    gaudy~1nz (^feast~4) a celebratory reunion feast or entertainment held a college
+    showy~2az marked by conspicuous display
+    loud~3a 
+    gaudy~4az 
+ galaxy ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    galaxy~1nz (^collection~4) a splendid assemblage
+    galaxy~2nz (^collection~4) a collection of star systems
+    galaxy~3nz (^plant~1) tufted evergreen perennial herb having spikes of tiny white flowers and glossy green round to heart-shaped leaves that become coppery to maroon or purplish in fall
+ global ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    world~8az involving the entire earth
+    global~2az having the shape of a sphere or ball
+    global~3az 
+ gaseous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    gaseous~1az existing as or having characteristics of a gas
+    gaseous~2az 
+ glacier ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    glacier~1nz (^object~1) a slowly moving mass of ice
+ goddess ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    goddess~1nz (^god~2) a female deity
+ guardian ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    defender~1nz (^individual~1) a person who cares for persons or property
+ gent ( meanings=2 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    feller~1n 
+    gent~2nz (^gentleman~1) informal abbreviation of `gentleman'
+ girl ( meanings=5 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    daughter~1n 
+    girl~2nz (^female~2) a youthful female person
+    miss~2n 
+    girl~4nz (^woman~3) a friendly informal reference to a grown woman
+    girlfriend~1n 
+ gal ( meanings=3 glosses=3 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    gal~1nz (^miss~2) alliterative term for girl
+    gallon~1nz (^unit~5) United States liquid unit equal to 4 quarts or 3.785 liters
+    gal~3nz (^unit~5) a unit of gravitational acceleration equal to one centimeter per second per second
+ gentleman ( meanings=3 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=gentlemen 
+    gentleman~1nz (^man~4) a man of refinement
+    man~10nz (^servant~1) a manservant who acts as a personal attendant to his employer
+    gentleman~3nz 
+ geographer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    geographer~1nz (^expert~1) an expert on geography
+ girlfriend ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    girl~5nz (^lover~1) a girl or young woman with whom a man is romantically involved
+    girlfriend~2nz (^friend~3) any female friend
+ godmother ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    godmother~1nz (^supporter~4) any woman who serves as a sponsor for a child at baptism
+ goner ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) comparative=gone 
+    toast~3n 
+ grandchild ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=grandchildren 
+    grandchild~1nz (^issue~8) a child of your son or daughter
+ granddaughter ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    granddaughter~1nz (^grandchild~1) a female grandchild
+ grandpa ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    grandfather~1n 
+ grandma ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    granny~2n 
+ grandmother ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    grandma~1nz (^root~6) the mother of your father or mother
+ grandson ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    grandson~1nz (^grandchild~1) a male grandchild
+ grandnephew ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    grandnephew~1nz (^nephew~1) a son of your niece or nephew
+ grandniece ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    grandniece~1nz (^niece~1) a daughter of your niece or nephew
+ grouch ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN VERB_NOOBJECT (null) (null) ) 
+    crank~4n 
+    scold~3v 
+ gunman ( meanings=3 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=gunmen 
+    gun~6nz (^crook~2) a professional killer who uses a gun
+    gun~7nz (^shot~15) a person who shoots a gun
+    gunman~3nz 
+ guiding ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    directing~1az 
+    guiding~2az exerting control or influence
+ gentle ( meanings=11 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    easy~7az marked by moderate steepness
+    easy~8az having little impact
+    gentle~3az having or showing a kindly or tender nature
+    gentle~4az quiet and soothing
+    soft~14az soft and mild
+    blue~8az belonging to or characteristic of the nobility or aristocracy
+    gentle~7az easily handled or managed
+    gentle~8az 
+    gentle~9vz stroke soothingly
+    appease~3vz cause to be more favorably inclined
+    entitle~2vz give a title to someone
+ gale ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    gale~1nz (^wind~8) a strong wind moving 45-90 knots
+ glowing ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB (null) ) 
+    glow~4n 
+    glowing~2az highly enthusiastic
+    glowing~3az 
+ gust ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    blast~6n 
+    gust~2vz 
+ greening ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    greening~1nz (^process~1) 
+ gallon ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    gal~2n 
+    gallon~2nz (^unit~5) a British imperial capacity measure equal to 4 quarts or 4.545 liters
+ gee ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    gee~1nz (^unit~5) a unit of force equal to the force exerted by gravity
+    gee~2vz give a command to a horse to turn to the right side
+    gee~3vz turn to the right side
+ gram ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    gram~1nz (^metric~2) a metric unit of weight equal to one thousandth of a kilogram
+ greatest ( meanings=1 glosses=1 MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=greater 
+    greatest~1az highest in quality
+ gazillion ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_NUMBER KINDERGARTEN ) 
+    million~2nz (^measure~1) a very large indefinite number 
+ glue ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    gum~5nz (^cement~2) cement consisting of a sticky substance that is used as an adhesive
+    glue~2vz be fixed as if by glue
+    paste~5v 
+ gloaming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    dusk~1n 
+ gasses ( NOUN NOUN_PLURAL COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=gas 
+ genii ( NOUN NOUN_PLURAL COMMON2 GRADE3_4 posdefault:NOUN ) plural=genius 
+ ghettoes ( NOUN NOUN_PLURAL COMMON2 GRADE5_6 posdefault:NOUN ) plural=ghetto 
+ goes ( NOUN NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) plural=go 
+ goldfishes ( NOUN NOUN_PLURAL COMMON1 KINDERGARTEN posdefault:NOUN ) plural=goldfish 
+ geese ( NOUN NOUN_PLURAL COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=goose 
+ grandchildren ( NOUN NOUN_PLURAL COMMON4 GRADE3_4 posdefault:NOUN ) plural=grandchild 
+ gymnasia ( NOUN NOUN_PLURAL COMMON2 GRADE3_4 posdefault:NOUN ) plural=gymnasium 
+ grandmom ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER KINDERGARTEN ) 
+    grandmom~1nz 
+ grandpop ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    grandpop~1nz 
+ grown-up ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE ) 
+    grown-up~1nz 
+    grown-up~2az 
+ gunmen ( NOUN NOUN_PLURAL COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) plural=gunman 
+ geez ( INTERJECTION ) 
+ gosh ( INTERJECTION ) 
+ grr ( INTERJECTION ) 
+ grrr ( INTERJECTION ) 
+ grrrr ( INTERJECTION ) 
+ gadzooks ( INTERJECTION ) 
+ gah ( INTERJECTION ) 
+ gee_whiz ( INTERJECTION ) 
+ geepers ( INTERJECTION ) 
+ gesundheit ( INTERJECTION ) 
+ golly ( INTERJECTION ) 
+ greedy ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) comparative=greediest 
+    greedy~1az wanting to eat or drink more than one can reasonably consume
+    grasping~3az immoderately desirous of acquiring e.g. wealth
+    devouring~1az ardently or excessively desirous
+    greedy~4az 
+ galore ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    galore~1az existing in abundance
+    galore~2az in great numbers
+ granted ( meanings=1 PARTICLE ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    given~2a 
+ galling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 ) 
+    pestering~1az causing irritation or annoyance
+ gone ( meanings=4 glosses=3 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=went comparative=goner 
+    departed~2a 
+    gone~2az destroyed or killed
+    gone~3az no longer retained
+    departed~3az well in the past
+ generous ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    generous~1az more than adequate
+    generous~2az willing to give and share unstintingly
+    generous~3az not petty in character and mind
+    generous~4az 
+ glued ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    pasted~1az affixed or as if affixed with glue or paste
+ gracious ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    gracious~1az disposed to bestow favors
+    nice~1a 
+    gracious~3az characterized by charm, good taste, and generosity of spirit
+    gracious~4az characterized by kindness and warm courtesy especially of a king to his subjects
+    gracious~5az 
+ glorious ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    resplendent~1a 
+    glorious~2az having or deserving or conferring glory
+    magnificent~1a 
+    glorious~4az 
+ gorgeous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    gorgeous~1az dazzlingly beautiful
+    gorgeous~2az 
+ glinting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    scintillating~1a 
+ glaring ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    blazing~2az shining intensely
+    gross~3a 
+ gravelly ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) 
+    rough~3a 
+    gravelly~2az abounding in small stones
+    gravelly~3az 
+ gruff ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    gruff~1az deep and harsh sounding as if from shouting or illness or emotion
+    gruff~2az brusque and surly and forbidding
+ guarded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    restrained~1a 
+ greyed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    dulled~1a 
+ grouped ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    sorted~1az arranged into groups
+ grilled ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    barbecued~1a 
+    grilled~2az cooked by radiant heat
+    grilled~3az 
+ goodly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) comparative=goodliest 
+    healthy~1a 
+    goodly~2az 
+ groveling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    grovelling~1a 
+ grovelling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    groveling~1az totally submissive
+ grueling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 ) 
+    hard~2a 
+ gangly ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE (null) ) 
+    gangly~1az 
+    gangly~2az 
+    gangly~3az 
+ grudging ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    grudging~1az 
+    grudging~2az of especially an attitude
+ genuine ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    genuine~1az not fake or counterfeit
+    true~10a 
+    real~12a 
+    genuine~4az 
+ gifted ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 ) 
+    gifted~1az 
+    gifted~2az 
+ glassed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    glassed~1az fitted or covered with glass
+ grumpy ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) comparative=grumpiest 
+    crabbed~1a 
+    grumpy~2az 
+ gainly ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
+    gainly~1az graceful and pleasing
+ grateful ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    thankful~1a 
+    grateful~2az affording comfort or pleasure
+    grateful~3az 
+ graded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    ranked~1az 
+ gripping ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    engrossing~1a 
+ gigantic ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    mammoth~2a 
+    gigantic~2az 
+ grown ( meanings=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=grew 
+    big~9a 
+    grown~2az 
+ ghostly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) comparative=ghostliest 
+    spiritual~3a 
+    ghostly~2az 
+ grooved ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    grooved~1az 
+ gaping ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    gaping~1az with the mouth wide open as in wonder or awe
+ glib ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=glibbest 
+    glib~1az artfully persuasive in speech
+    slick~7a 
+    glib~3az marked by lack of intellectual depth
+ giddy ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=giddiest 
+    silly~4a 
+    giddy~2az having or causing a whirling sensation
+    giddy~3az 
+ garish ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    gaudy~3a 
+    garish~2az 
+ grazed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    grazed~1az scraped or touched lightly in passing
+ galloping ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    galloping~1az 
+ gentled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:VERB ) 
+    gentled~1az 
+ gentling ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:VERB ) 
+    gentling~1az 
+ grained ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    grained~1az 
+ godzillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ gajillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ gagillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ gadzillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ gaudier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=gaudy 
+ gaudiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=gaudier 
+ ghostlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) comparative=ghostly 
+ ghostliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=ghostlier 
+ giddier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=giddy 
+ giddiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 ) comparative=giddier 
+ gladder ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=glad 
+ gladdest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN ) comparative=gladder 
+ glibber ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=glib 
+ glibbest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=glibber 
+ glossier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) comparative=glossy 
+ glossiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=glossier 
+ goodlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=goodly 
+ goodliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=goodlier 
+ greedier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=greedy 
+ greediest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=greedier 
+ grumpier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=grumpy 
+ grumpiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE3_4 ) comparative=grumpier 
+ greatly ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    greatly~1bz to an extraordinary extent or degree
+ gradually ( meanings=1 glosses=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    gradually~1bz in a gradual manner
+ grow ( meanings=10 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=grown 
+    get~4v 
+    turn~14v 
+    grow~3vz become larger, greater, or bigger
+    grow~4vz increase in size by natural process
+    grow~5vz cause to grow or develop
+    mature~10vz develop and reach maturity
+    grow~7vz become attached by or as if by the process of growth
+    develop~10v 
+    raise~23v 
+    arise~6v 
+ gnaw ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    erode~2vz become ground down or deteriorate
+    gnaw~2vz bite or chew on with the teeth
+ get_to ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_DIRECTOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
+    get_to~1vz arrive at the point of
+    irritate~3v 
+    make~35v 
+ germinate ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    sprout~4v 
+    germinate~2vz cause to grow or sprout
+    develop~18v 
+ greet ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    greet~1vz react to in a certain way
+    greet~2vz send greetings to
+    recognize~5v 
+    greet~4vz be perceived by
+ gird ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    arm~7v 
+    encircle~1v 
+    gird~3vz put a girdle on or around
+ glean ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    harvest~6v 
+ grovel ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB ) 
+    cower~1v 
+ govern ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    govern~1vz direct or strongly influence the behavior of
+    order~23vz bring into conformity with rules or principles or usage
+    rule~17vz exercise authority over
+    govern~4vz require to be in a certain grammatical case, voice, or mood
+ got ( meanings=1 VERB_PAST VERB_PAST_PARTICIPLE AUX_BE AUX_VERB_PAST VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=get 
+    got~1vz 
+ gotten ( meanings=1 VERB_PAST_PARTICIPLE AUX_BE AUX_VERB_PAST VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=got 
+    gotten~1vz 
+ gave ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=give 
+ grew ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=grow 
+ going_to ( AUX_VERB_FUTURE KINDERGARTEN ) 
+ gets ( meanings=1 VERB_PRESENT_3PS AUX_BE AUX_VERB_PRESENT VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    gets~1vz 
+ Gov. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Gen. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Gov ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Gen ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Granda ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

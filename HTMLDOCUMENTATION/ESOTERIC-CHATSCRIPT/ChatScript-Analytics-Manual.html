@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-analytics-manual">ChatScript Analytics Manual</h1>
+<p>© Bruce Wilcox, gowilcox@gmail.com <br>Revision 1/31/2018 cs8.0 <br> <br> Your bot has been written and debugged and released. You are getting log files from users. What can you learn from them? That's the job of the analytics tools.</p>
+<h1 id="components-of-a-log-file">Components of a log file</h1>
+<p>A typical log file will have one or more “Start” lines and some number of “Respond” lines.</p>
+<pre><code>Start: user:test bot:rose ip: rand:3089 (~introductions) 0 ==&gt; Hello, I&#39;m Rose. When:Jan15&#39;16-17:03:44 Version:6.02 Build0:Jan15&#39;16-15:39:48
+Build1:Jan15&#39;16-16:23:39 0:Jan15&#39;16-17:03:44 F:0 P:0 Why:~introductions.1.0.~control.7.0
+Respond: user:test bot:rose ip: (~introductions) 1 where do you live ==&gt; I&#39;m not from around here. When:Jan15&#39;16-17:03:46
+Why:~no_task.0.0.~control.21.0=MAIN</code></pre>
+<p>A <code>start</code> line shows conversation initiation. After Start, the line contains the user name, the bot name, the IP address (using a default configuration). Then the current value of the random seed and what topic it ended in in parens and the volley count. That completes the input side.</p>
+<p>The <code>==&gt;</code> indicates the upcoming outputs side. You see the startup message it issued (eg <em>Hello, I'm Rose.</em>). Then a datestamp of when this was issued, followed by the CS engine version, the date stamps when build0, build1, and build2 were created.</p>
+<p><code>F:</code> and <code>P:</code> are specially volley markers for reconstructing conversations. And Why tells you the rule tags of the rule and possibly the reuse prior rule that immediately generated the output. The respond log entry shows you similar information, the only difference being that immediately before the <code>==&gt;</code> is the actual input from the user.</p>
+<h1 id="the-abstract">The Abstract</h1>
+<p>Looking at your entire source script is tedious. It's extensive and hard to read. If you want to see what you've got in a reasonable overview, you need <code>:abstract</code>. It can do a variety of tasks.</p>
+<pre><code>:abstract</code></pre>
+<p>This prints out a view of the entire topic system showing its structure (gambits, rejoinders, responders) as well as conditions on gambits and normal text content of everything, but omits actual code complexity. It is useful for seeing what will be said in response to sample input (if you use the #! and #! x commands on rules. E.g</p>
+<pre><code>Topic: ~introductions[]
+
+t: ( $old %input=0 %hour&lt;12 $name ) Good morning, .
+t: ( $old %input=0 %hour&gt;11 %hour&lt;18 $name ) Good afternoon, .
+t: ( $old %input=0 %hour&gt;18 $name ) Good evening, .
+
+t: Where do you live?
+     a: &quot;Fukushima&quot; =&gt; I&#39;ve heard of _0. Were you born there?
+     a: &quot;I live in Japan&quot; =&gt; I&#39;ve visited Japan.
+     a: &quot;I live in California&quot; =&gt; That&#39;s where I live!
+     a: &quot;Libya&quot; =&gt; I would have thought you lived in Japan, not _0 .
+     a: &quot;Earth&quot; =&gt; Yes, we all live on Earth.
+     a: &quot;Mars&quot; =&gt; I don&#39;t believe you.
+
+t: What do you do for a living?
+
+u: &quot;Am I welcome here?&quot; =&gt; Of course you are welcome.
+
+s: &quot;I&#39;m back&quot; =&gt;
+ [ Where did you go? ]
+ [ Where have you been? ]
+ [ I&#39;m glad. ]
+
+s: &quot;Knock&quot; =&gt; Who&#39;s there? </code></pre>
+<p>While <code>:abstract</code> primary does topics, you can get it to do fact data as well. It will attempt to call a function <code>^abstract_facts()</code>, so if you define that, you can do whatever you want for abstracting facts.</p>
+<pre><code>:abstract ~topicname</code></pre>
+<p>Calling <code>:abstract</code> with a topic will limit it to doing just that topic.</p>
+<pre><code>:abstract 100 ~topicname</code></pre>
+<p>If you want to adjust output of yours that would be too long for something like a phone screen, you can ask <code>:abstract</code> to show you all rules whose output would likely exceed some limit (here 100). Again with a topic name restricts it to that topic and without the name it does the entire system.</p>
+<pre><code>:abstract censor ~mywords </code></pre>
+<p>will note all output which contains any words in mywords. Of course regular uses may also appear. The censor command looks for any words referred to by the concept given.</p>
+<pre><code>:abstract pretty </code></pre>
+<p>will prettyprint topics.</p>
+<pre><code>:abstract canon </code></pre>
+<p>will prettyprint and rewrite patterns using the canonical form of words.</p>
+<pre><code>:abstract nocode </code></pre>
+<p>will not display rules that only have code output You can do all topics in a file by naming the file name instead of the topicname. Don't use the full path, just the actual name of the file.</p>
+<h1 id="time-view-over-log-file---timelog">Time View over Log file - <code>:timelog</code></h1>
+<p>Given a log file (usually a server log), it will compute the average, min, and max response times of the volleys.</p>
+<h1 id="views-over-user-logs---trim">Views over User Logs - <code>:trim</code></h1>
+<p>If you get a lot of user logs (say thousands), reading through them becomes a chore. The logs have a bunch of excess information and are in a bunch of different files. This is where <code>:trim</code> comes in, making it easier to see things. <code>:trim</code> assumes all files in the LOGS directory are user logs and will process them in some manner. It will normally put its output in <code>TMP/tmp.txt</code>.</p>
+<p>If you give a quoted string as first argument and it has &quot;keepname&quot; in it, then instead of dumping everything into tmp.txt, it will create files named after the user logs it discovers (username.txt)</p>
+<p>Your first argument to trim can also be just the name of a user (whose log file will be in <code>USERS/log-xxx.txt</code>) or if that doesn't exist then it is the directory to use, or you can use the name of a log file within the USERs directory (the name should begin <code>log-</code> and not include the directory and need not include the <code>.txt</code> suffix). E.g.,</p>
+<pre><code>:trim c:\FULLLOGS 6</code></pre>
+<p>a directory to read all files within</p>
+<pre><code>:trim log-bob 6</code></pre>
+<p>named log file with <code>.txt</code> defaulted</p>
+<pre><code>:trim bob 6</code></pre>
+<p>user with logfile log-bob.txt in USERS</p>
+<pre><code>:trim n</code></pre>
+<p>Trim will read every file and generate output depending on the integer code given it. The codes are:</p>
+<table style="width:22%;">
+<colgroup>
+<col width="5%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code></td>
+<td>puts the what the user said, followed by what the chatbot said, on single lines, removing all the excess junk.</td>
+</tr>
+<tr class="even">
+<td><code>1</code></td>
+<td>similar to 0, but puts what the chatbot said first, and what the user said after. This is useful for seeing all the responses users have made and can be aggregated to figure out what clever rejoinders you might want.</td>
+</tr>
+<tr class="odd">
+<td><code>2</code></td>
+<td>similar to 0 (user first), but puts the name of the topic the chatbot ended in before either. You can see the flow of topics better with this view.</td>
+</tr>
+<tr class="even">
+<td><code>3</code></td>
+<td>similar to 2 (topic shown), but puts what the chatbot said before the user.</td>
+</tr>
+<tr class="odd">
+<td><code>4</code></td>
+<td>puts the user and chatbot on separate lines, indenting the chatbots line. Easier to read.</td>
+</tr>
+<tr class="even">
+<td><code>5</code></td>
+<td>similar to 3, but indents the user instead of the chatbot.</td>
+</tr>
+<tr class="odd">
+<td><code>6</code></td>
+<td>only lists the users inputs. This is good for creating a file that can recreate a user's experience, if you want to recreate it for debugging or regression.</td>
+</tr>
+<tr class="even">
+<td><code>7</code></td>
+<td>display rule responsible for output. Analogous to :why, it shows the rule tag, the sample input comment if there is one, the rule type and pattern, the input from the user and the output from the chatbot. If the rule doing the output was the target of a local <code>^reuse (same topic)</code>, then the data about the rule comes from the calling rule, not the output rule.</td>
+</tr>
+<tr class="odd">
+<td><code>8</code></td>
+<td>puts the user and chatbot on separate lines, indenting the chatbots line and prefixes it with the topic generating the response. Easier to read and debug.</td>
+</tr>
+<tr class="even">
+<td><code>11</code></td>
+<td>puts the timestamp and user on first line and and chatbot on second line,indenting the chatbots line.</td>
+</tr>
+<tr class="odd">
+<td><code>12</code></td>
+<td>output per line, 2nd rule label generating output, input, =&gt; output.</td>
+</tr>
+<tr class="even">
+<td><code>13</code></td>
+<td>output per line, 1st rule label generating output, input, =&gt; output.</td>
+</tr>
+</tbody>
+</table>
+<p>'12' and '13' are useful for generating where input went (what rule output came from) and then you can sort the tmp.txt file to cluster all inputs that went to the same place. '12' assumes you always output OOB data from postprocessing, so it skips that rule label and uses the second label (the actual user output). <code>13</code> assumes the only data written is data to the user.</p>
+<p>Normally trim displays everything. But with an optional 3rd argument <code>nooob</code>, you can omit out-of-bands data from output. E.g.,</p>
+<pre><code>:trim bob 6 nooob</code></pre>
+<p>You can separately choose to trim input and output oob using a numeric bits, where <code>1</code> is input and <code>2</code> is output (the same as <code>noob</code>) and <code>3</code> is both</p>
+<p><code>:trim 11</code> looks like this:</p>
+<pre><code>Jan25&#39;17-13:49:21  when is the help desk open?
+               The Helpdesk is available Monday through Friday from 7:00AM to 7:00PM Pacific. </code></pre>
+<h1 id="deduping-a-file---dedupe">Deduping a file - <code>:dedupe</code></h1>
+<p><code>:dedupe  filepath</code> outputs into tmp/filename just unique lines from the input (ignoring data after a hash comment marker).</p>
+</body>
+</html>

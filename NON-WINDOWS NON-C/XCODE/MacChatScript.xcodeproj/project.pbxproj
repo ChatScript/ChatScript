@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F7F71421EBC456100744B26 /* libcurl.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7F71401EBC456100744B26 /* libcurl.3.tbd */; };
+		8F7F71451EBC457F00744B26 /* libpthread.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7F71441EBC457F00744B26 /* libpthread.tbd */; };
+		8FB258F01F9EB53F005D81EE /* mainSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258A11F9EB537005D81EE /* mainSystem.cpp */; };
+		8FB258F11F9EB53F005D81EE /* csocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258A31F9EB537005D81EE /* csocket.cpp */; };
+		8FB258F21F9EB53F005D81EE /* mongodb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258AA1F9EB538005D81EE /* mongodb.cpp */; };
+		8FB258F31F9EB53F005D81EE /* functionExecute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258AC1F9EB538005D81EE /* functionExecute.cpp */; };
+		8FB258F41F9EB53F005D81EE /* evserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258AF1F9EB538005D81EE /* evserver.cpp */; };
+		8FB258F51F9EB53F005D81EE /* jsmn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258B11F9EB538005D81EE /* jsmn.cpp */; };
+		8FB258F61F9EB53F005D81EE /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258B21F9EB538005D81EE /* Makefile */; };
+		8FB258F71F9EB53F005D81EE /* englishTagger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258B31F9EB538005D81EE /* englishTagger.cpp */; };
+		8FB258F81F9EB53F005D81EE /* mysql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258B41F9EB538005D81EE /* mysql.cpp */; };
+		8FB258F91F9EB53F005D81EE /* tagger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258B71F9EB538005D81EE /* tagger.cpp */; };
+		8FB258FA1F9EB53F005D81EE /* userCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258B81F9EB539005D81EE /* userCache.cpp */; };
+		8FB258FB1F9EB53F005D81EE /* javascript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258BF1F9EB539005D81EE /* javascript.cpp */; };
+		8FB258FC1F9EB53F005D81EE /* secure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258C11F9EB53A005D81EE /* secure.cpp */; };
+		8FB258FD1F9EB53F005D81EE /* testing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258C21F9EB53A005D81EE /* testing.cpp */; };
+		8FB258FE1F9EB53F005D81EE /* json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258C31F9EB53A005D81EE /* json.cpp */; };
+		8FB258FF1F9EB53F005D81EE /* scriptCompile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258C41F9EB53A005D81EE /* scriptCompile.cpp */; };
+		8FB259001F9EB53F005D81EE /* systemVariables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258C51F9EB53A005D81EE /* systemVariables.cpp */; };
+		8FB259011F9EB53F005D81EE /* textUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258C61F9EB53A005D81EE /* textUtilities.cpp */; };
+		8FB259021F9EB53F005D81EE /* constructCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258CA1F9EB53B005D81EE /* constructCode.cpp */; };
+		8FB259031F9EB53F005D81EE /* privatesrc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258CB1F9EB53B005D81EE /* privatesrc.cpp */; };
+		8FB259041F9EB53F005D81EE /* topicSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258CE1F9EB53B005D81EE /* topicSystem.cpp */; };
+		8FB259051F9EB53F005D81EE /* postgres.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258D01F9EB53B005D81EE /* postgres.cpp */; };
+		8FB259061F9EB53F005D81EE /* english.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258D21F9EB53C005D81EE /* english.cpp */; };
+		8FB259071F9EB53F005D81EE /* factSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258D31F9EB53C005D81EE /* factSystem.cpp */; };
+		8FB259081F9EB53F005D81EE /* dictionarySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258D81F9EB53C005D81EE /* dictionarySystem.cpp */; };
+		8FB259091F9EB53F005D81EE /* userSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258DB1F9EB53D005D81EE /* userSystem.cpp */; };
+		8FB2590A1F9EB53F005D81EE /* infer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258DE1F9EB53D005D81EE /* infer.cpp */; };
+		8FB2590B1F9EB53F005D81EE /* os.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258DF1F9EB53D005D81EE /* os.cpp */; };
+		8FB2590C1F9EB53F005D81EE /* spellcheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258E01F9EB53D005D81EE /* spellcheck.cpp */; };
+		8FB2590D1F9EB53F005D81EE /* markSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258E11F9EB53D005D81EE /* markSystem.cpp */; };
+		8FB2590E1F9EB53F005D81EE /* variableSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258E31F9EB53E005D81EE /* variableSystem.cpp */; };
+		8FB2590F1F9EB53F005D81EE /* patternSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258E41F9EB53E005D81EE /* patternSystem.cpp */; };
+		8FB259101F9EB53F005D81EE /* cs_ev.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258E91F9EB53E005D81EE /* cs_ev.c */; };
+		8FB259111F9EB53F005D81EE /* tokenSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258EA1F9EB53E005D81EE /* tokenSystem.cpp */; };
+		8FB259121F9EB53F005D81EE /* outputSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB258EC1F9EB53F005D81EE /* outputSystem.cpp */; };
+		8FB259171F9EB74F005D81EE /* duktape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB259151F9EB74E005D81EE /* duktape.cpp */; };
+		8FCDEC531EBC4C4200128299 /* MacChatScript in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F7F70C31EBC41AD00744B26 /* MacChatScript */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F7F70C11EBC41AD00744B26 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "${PROJECT_DIR}/../..";
+			dstSubfolderSpec = 0;
+			files = (
+				8FCDEC531EBC4C4200128299 /* MacChatScript in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8F7F70C31EBC41AD00744B26 /* MacChatScript */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacChatScript; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7F71401EBC456100744B26 /* libcurl.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.3.tbd; path = usr/lib/libcurl.3.tbd; sourceTree = SDKROOT; };
+		8F7F71441EBC457F00744B26 /* libpthread.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libpthread.tbd; path = usr/lib/libpthread.tbd; sourceTree = SDKROOT; };
+		8FB258A11F9EB537005D81EE /* mainSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mainSystem.cpp; path = ../../SRC/mainSystem.cpp; sourceTree = "<group>"; };
+		8FB258A21F9EB537005D81EE /* textUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = textUtilities.h; path = ../../SRC/textUtilities.h; sourceTree = "<group>"; };
+		8FB258A31F9EB537005D81EE /* csocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = csocket.cpp; path = ../../SRC/csocket.cpp; sourceTree = "<group>"; };
+		8FB258A41F9EB537005D81EE /* mainSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainSystem.h; path = ../../SRC/mainSystem.h; sourceTree = "<group>"; };
+		8FB258A51F9EB537005D81EE /* userCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = userCache.h; path = ../../SRC/userCache.h; sourceTree = "<group>"; };
+		8FB258A61F9EB537005D81EE /* factSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = factSystem.h; path = ../../SRC/factSystem.h; sourceTree = "<group>"; };
+		8FB258A81F9EB537005D81EE /* evserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = evserver.h; path = ../../SRC/evserver.h; sourceTree = "<group>"; };
+		8FB258A91F9EB537005D81EE /* outputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = outputSystem.h; path = ../../SRC/outputSystem.h; sourceTree = "<group>"; };
+		8FB258AA1F9EB538005D81EE /* mongodb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mongodb.cpp; path = ../../SRC/mongodb.cpp; sourceTree = "<group>"; };
+		8FB258AB1F9EB538005D81EE /* userSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = userSystem.h; path = ../../SRC/userSystem.h; sourceTree = "<group>"; };
+		8FB258AC1F9EB538005D81EE /* functionExecute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = functionExecute.cpp; path = ../../SRC/functionExecute.cpp; sourceTree = "<group>"; };
+		8FB258AD1F9EB538005D81EE /* common1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common1.h; path = ../../SRC/common1.h; sourceTree = "<group>"; };
+		8FB258AE1F9EB538005D81EE /* dictionaryMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dictionaryMore.h; path = ../../SRC/dictionaryMore.h; sourceTree = "<group>"; };
+		8FB258AF1F9EB538005D81EE /* evserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = evserver.cpp; path = ../../SRC/evserver.cpp; sourceTree = "<group>"; };
+		8FB258B01F9EB538005D81EE /* curl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = curl; path = ../../SRC/curl; sourceTree = "<group>"; };
+		8FB258B11F9EB538005D81EE /* jsmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = jsmn.cpp; path = ../../SRC/jsmn.cpp; sourceTree = "<group>"; };
+		8FB258B21F9EB538005D81EE /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../SRC/Makefile; sourceTree = "<group>"; };
+		8FB258B31F9EB538005D81EE /* englishTagger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = englishTagger.cpp; path = ../../SRC/englishTagger.cpp; sourceTree = "<group>"; };
+		8FB258B41F9EB538005D81EE /* mysql.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mysql.cpp; path = ../../SRC/mysql.cpp; sourceTree = "<group>"; };
+		8FB258B51F9EB538005D81EE /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = ../../SRC/common.h; sourceTree = "<group>"; };
+		8FB258B61F9EB538005D81EE /* privatesrc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = privatesrc.h; path = ../../SRC/privatesrc.h; sourceTree = "<group>"; };
+		8FB258B71F9EB538005D81EE /* tagger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tagger.cpp; path = ../../SRC/tagger.cpp; sourceTree = "<group>"; };
+		8FB258B81F9EB539005D81EE /* userCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = userCache.cpp; path = ../../SRC/userCache.cpp; sourceTree = "<group>"; };
+		8FB258B91F9EB539005D81EE /* cs_ev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cs_ev.h; path = ../../SRC/cs_ev.h; sourceTree = "<group>"; };
+		8FB258BA1F9EB539005D81EE /* variableSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variableSystem.h; path = ../../SRC/variableSystem.h; sourceTree = "<group>"; };
+		8FB258BB1F9EB539005D81EE /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../../SRC/include; sourceTree = "<group>"; };
+		8FB258BC1F9EB539005D81EE /* mysql */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mysql; path = ../../SRC/mysql; sourceTree = "<group>"; };
+		8FB258BD1F9EB539005D81EE /* mongodb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mongodb.h; path = ../../SRC/mongodb.h; sourceTree = "<group>"; };
+		8FB258BE1F9EB539005D81EE /* tagger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tagger.h; path = ../../SRC/tagger.h; sourceTree = "<group>"; };
+		8FB258BF1F9EB539005D81EE /* javascript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = javascript.cpp; path = ../../SRC/javascript.cpp; sourceTree = "<group>"; };
+		8FB258C01F9EB539005D81EE /* markSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markSystem.h; path = ../../SRC/markSystem.h; sourceTree = "<group>"; };
+		8FB258C11F9EB53A005D81EE /* secure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = secure.cpp; path = ../../SRC/secure.cpp; sourceTree = "<group>"; };
+		8FB258C21F9EB53A005D81EE /* testing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testing.cpp; path = ../../SRC/testing.cpp; sourceTree = "<group>"; };
+		8FB258C31F9EB53A005D81EE /* json.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = json.cpp; path = ../../SRC/json.cpp; sourceTree = "<group>"; };
+		8FB258C41F9EB53A005D81EE /* scriptCompile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scriptCompile.cpp; path = ../../SRC/scriptCompile.cpp; sourceTree = "<group>"; };
+		8FB258C51F9EB53A005D81EE /* systemVariables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = systemVariables.cpp; path = ../../SRC/systemVariables.cpp; sourceTree = "<group>"; };
+		8FB258C61F9EB53A005D81EE /* textUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = textUtilities.cpp; path = ../../SRC/textUtilities.cpp; sourceTree = "<group>"; };
+		8FB258C71F9EB53A005D81EE /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = json.h; path = ../../SRC/json.h; sourceTree = "<group>"; };
+		8FB258C81F9EB53A005D81EE /* spellcheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spellcheck.h; path = ../../SRC/spellcheck.h; sourceTree = "<group>"; };
+		8FB258C91F9EB53B005D81EE /* os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os.h; path = ../../SRC/os.h; sourceTree = "<group>"; };
+		8FB258CA1F9EB53B005D81EE /* constructCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = constructCode.cpp; path = ../../SRC/constructCode.cpp; sourceTree = "<group>"; };
+		8FB258CB1F9EB53B005D81EE /* privatesrc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = privatesrc.cpp; path = ../../SRC/privatesrc.cpp; sourceTree = "<group>"; };
+		8FB258CC1F9EB53B005D81EE /* constructCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constructCode.h; path = ../../SRC/constructCode.h; sourceTree = "<group>"; };
+		8FB258CD1F9EB53B005D81EE /* csocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = csocket.h; path = ../../SRC/csocket.h; sourceTree = "<group>"; };
+		8FB258CE1F9EB53B005D81EE /* topicSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = topicSystem.cpp; path = ../../SRC/topicSystem.cpp; sourceTree = "<group>"; };
+		8FB258CF1F9EB53B005D81EE /* english.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = english.h; path = ../../SRC/english.h; sourceTree = "<group>"; };
+		8FB258D01F9EB53B005D81EE /* postgres.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = postgres.cpp; path = ../../SRC/postgres.cpp; sourceTree = "<group>"; };
+		8FB258D11F9EB53B005D81EE /* dictionarySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dictionarySystem.h; path = ../../SRC/dictionarySystem.h; sourceTree = "<group>"; };
+		8FB258D21F9EB53C005D81EE /* english.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = english.cpp; path = ../../SRC/english.cpp; sourceTree = "<group>"; };
+		8FB258D31F9EB53C005D81EE /* factSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = factSystem.cpp; path = ../../SRC/factSystem.cpp; sourceTree = "<group>"; };
+		8FB258D41F9EB53C005D81EE /* jsmn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jsmn.h; path = ../../SRC/jsmn.h; sourceTree = "<group>"; };
+		8FB258D51F9EB53C005D81EE /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mprintf.h; path = ../../SRC/mprintf.h; sourceTree = "<group>"; };
+		8FB258D61F9EB53C005D81EE /* scriptCompile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scriptCompile.h; path = ../../SRC/scriptCompile.h; sourceTree = "<group>"; };
+		8FB258D71F9EB53C005D81EE /* systemVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = systemVariables.h; path = ../../SRC/systemVariables.h; sourceTree = "<group>"; };
+		8FB258D81F9EB53C005D81EE /* dictionarySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dictionarySystem.cpp; path = ../../SRC/dictionarySystem.cpp; sourceTree = "<group>"; };
+		8FB258D91F9EB53C005D81EE /* testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testing.h; path = ../../SRC/testing.h; sourceTree = "<group>"; };
+		8FB258DA1F9EB53D005D81EE /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = multi.h; path = ../../SRC/multi.h; sourceTree = "<group>"; };
+		8FB258DB1F9EB53D005D81EE /* userSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = userSystem.cpp; path = ../../SRC/userSystem.cpp; sourceTree = "<group>"; };
+		8FB258DC1F9EB53D005D81EE /* functionExecute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = functionExecute.h; path = ../../SRC/functionExecute.h; sourceTree = "<group>"; };
+		8FB258DD1F9EB53D005D81EE /* easywclient */ = {isa = PBXFileReference; lastKnownFileType = folder; name = easywclient; path = ../../SRC/easywclient; sourceTree = "<group>"; };
+		8FB258DE1F9EB53D005D81EE /* infer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = infer.cpp; path = ../../SRC/infer.cpp; sourceTree = "<group>"; };
+		8FB258DF1F9EB53D005D81EE /* os.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = os.cpp; path = ../../SRC/os.cpp; sourceTree = "<group>"; };
+		8FB258E01F9EB53D005D81EE /* spellcheck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spellcheck.cpp; path = ../../SRC/spellcheck.cpp; sourceTree = "<group>"; };
+		8FB258E11F9EB53D005D81EE /* markSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = markSystem.cpp; path = ../../SRC/markSystem.cpp; sourceTree = "<group>"; };
+		8FB258E21F9EB53D005D81EE /* tokenSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tokenSystem.h; path = ../../SRC/tokenSystem.h; sourceTree = "<group>"; };
+		8FB258E31F9EB53E005D81EE /* variableSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = variableSystem.cpp; path = ../../SRC/variableSystem.cpp; sourceTree = "<group>"; };
+		8FB258E41F9EB53E005D81EE /* patternSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = patternSystem.cpp; path = ../../SRC/patternSystem.cpp; sourceTree = "<group>"; };
+		8FB258E51F9EB53E005D81EE /* infer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = infer.h; path = ../../SRC/infer.h; sourceTree = "<group>"; };
+		8FB258E61F9EB53E005D81EE /* mongo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mongo; path = ../../SRC/mongo; sourceTree = "<group>"; };
+		8FB258E71F9EB53E005D81EE /* patternSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = patternSystem.h; path = ../../SRC/patternSystem.h; sourceTree = "<group>"; };
+		8FB258E81F9EB53E005D81EE /* postgres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = postgres.h; path = ../../SRC/postgres.h; sourceTree = "<group>"; };
+		8FB258E91F9EB53E005D81EE /* cs_ev.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cs_ev.c; path = ../../SRC/cs_ev.c; sourceTree = "<group>"; };
+		8FB258EA1F9EB53E005D81EE /* tokenSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tokenSystem.cpp; path = ../../SRC/tokenSystem.cpp; sourceTree = "<group>"; };
+		8FB258EB1F9EB53F005D81EE /* postgres */ = {isa = PBXFileReference; lastKnownFileType = folder; name = postgres; path = ../../SRC/postgres; sourceTree = "<group>"; };
+		8FB258EC1F9EB53F005D81EE /* outputSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = outputSystem.cpp; path = ../../SRC/outputSystem.cpp; sourceTree = "<group>"; };
+		8FB258ED1F9EB53F005D81EE /* my_sql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = my_sql.h; path = ../../SRC/my_sql.h; sourceTree = "<group>"; };
+		8FB258EE1F9EB53F005D81EE /* topicSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = topicSystem.h; path = ../../SRC/topicSystem.h; sourceTree = "<group>"; };
+		8FB258EF1F9EB53F005D81EE /* evserver */ = {isa = PBXFileReference; lastKnownFileType = folder; name = evserver; path = ../../SRC/evserver; sourceTree = "<group>"; };
+		8FB259141F9EB74E005D81EE /* duk_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = duk_config.h; path = ../../SRC/duktape/duk_config.h; sourceTree = "<group>"; };
+		8FB259151F9EB74E005D81EE /* duktape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = duktape.cpp; path = ../../SRC/duktape/duktape.cpp; sourceTree = "<group>"; };
+		8FB259161F9EB74E005D81EE /* duktape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = duktape.h; path = ../../SRC/duktape/duktape.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F7F70C01EBC41AD00744B26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F7F71451EBC457F00744B26 /* libpthread.tbd in Frameworks */,
+				8F7F71421EBC456100744B26 /* libcurl.3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F2A54AB1C606DB700305D6A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8FB258B51F9EB538005D81EE /* common.h */,
+				8FB258AD1F9EB538005D81EE /* common1.h */,
+				8FB258CA1F9EB53B005D81EE /* constructCode.cpp */,
+				8FB258CC1F9EB53B005D81EE /* constructCode.h */,
+				8FB258E91F9EB53E005D81EE /* cs_ev.c */,
+				8FB258B91F9EB539005D81EE /* cs_ev.h */,
+				8FB258A31F9EB537005D81EE /* csocket.cpp */,
+				8FB258CD1F9EB53B005D81EE /* csocket.h */,
+				8FB258B01F9EB538005D81EE /* curl */,
+				8FB258AE1F9EB538005D81EE /* dictionaryMore.h */,
+				8FB258D81F9EB53C005D81EE /* dictionarySystem.cpp */,
+				8FB258D11F9EB53B005D81EE /* dictionarySystem.h */,
+				8FB258DD1F9EB53D005D81EE /* easywclient */,
+				8FB258D21F9EB53C005D81EE /* english.cpp */,
+				8FB258CF1F9EB53B005D81EE /* english.h */,
+				8FB258B31F9EB538005D81EE /* englishTagger.cpp */,
+				8FB258EF1F9EB53F005D81EE /* evserver */,
+				8FB258AF1F9EB538005D81EE /* evserver.cpp */,
+				8FB258A81F9EB537005D81EE /* evserver.h */,
+				8FB258D31F9EB53C005D81EE /* factSystem.cpp */,
+				8FB258A61F9EB537005D81EE /* factSystem.h */,
+				8FB258AC1F9EB538005D81EE /* functionExecute.cpp */,
+				8FB258DC1F9EB53D005D81EE /* functionExecute.h */,
+				8FB258BB1F9EB539005D81EE /* include */,
+				8FB258DE1F9EB53D005D81EE /* infer.cpp */,
+				8FB258E51F9EB53E005D81EE /* infer.h */,
+				8FB258BF1F9EB539005D81EE /* javascript.cpp */,
+				8FB258B11F9EB538005D81EE /* jsmn.cpp */,
+				8FB258D41F9EB53C005D81EE /* jsmn.h */,
+				8FB258C31F9EB53A005D81EE /* json.cpp */,
+				8FB258C71F9EB53A005D81EE /* json.h */,
+				8FB258A11F9EB537005D81EE /* mainSystem.cpp */,
+				8FB258A41F9EB537005D81EE /* mainSystem.h */,
+				8FB258B21F9EB538005D81EE /* Makefile */,
+				8FB258E11F9EB53D005D81EE /* markSystem.cpp */,
+				8FB258C01F9EB539005D81EE /* markSystem.h */,
+				8FB258E61F9EB53E005D81EE /* mongo */,
+				8FB258AA1F9EB538005D81EE /* mongodb.cpp */,
+				8FB258BD1F9EB539005D81EE /* mongodb.h */,
+				8FB258D51F9EB53C005D81EE /* mprintf.h */,
+				8FB258DA1F9EB53D005D81EE /* multi.h */,
+				8FB258ED1F9EB53F005D81EE /* my_sql.h */,
+				8FB258BC1F9EB539005D81EE /* mysql */,
+				8FB258B41F9EB538005D81EE /* mysql.cpp */,
+				8FB258DF1F9EB53D005D81EE /* os.cpp */,
+				8FB258C91F9EB53B005D81EE /* os.h */,
+				8FB258EC1F9EB53F005D81EE /* outputSystem.cpp */,
+				8FB258A91F9EB537005D81EE /* outputSystem.h */,
+				8FB258E41F9EB53E005D81EE /* patternSystem.cpp */,
+				8FB258E71F9EB53E005D81EE /* patternSystem.h */,
+				8FB258EB1F9EB53F005D81EE /* postgres */,
+				8FB258D01F9EB53B005D81EE /* postgres.cpp */,
+				8FB258E81F9EB53E005D81EE /* postgres.h */,
+				8FB258CB1F9EB53B005D81EE /* privatesrc.cpp */,
+				8FB258B61F9EB538005D81EE /* privatesrc.h */,
+				8FB258C41F9EB53A005D81EE /* scriptCompile.cpp */,
+				8FB258D61F9EB53C005D81EE /* scriptCompile.h */,
+				8FB258C11F9EB53A005D81EE /* secure.cpp */,
+				8FB258E01F9EB53D005D81EE /* spellcheck.cpp */,
+				8FB258C81F9EB53A005D81EE /* spellcheck.h */,
+				8FB258C51F9EB53A005D81EE /* systemVariables.cpp */,
+				8FB258D71F9EB53C005D81EE /* systemVariables.h */,
+				8FB258B71F9EB538005D81EE /* tagger.cpp */,
+				8FB258BE1F9EB539005D81EE /* tagger.h */,
+				8FB258C21F9EB53A005D81EE /* testing.cpp */,
+				8FB258D91F9EB53C005D81EE /* testing.h */,
+				8FB258C61F9EB53A005D81EE /* textUtilities.cpp */,
+				8FB258A21F9EB537005D81EE /* textUtilities.h */,
+				8FB258EA1F9EB53E005D81EE /* tokenSystem.cpp */,
+				8FB258E21F9EB53D005D81EE /* tokenSystem.h */,
+				8FB258CE1F9EB53B005D81EE /* topicSystem.cpp */,
+				8FB258EE1F9EB53F005D81EE /* topicSystem.h */,
+				8FB258B81F9EB539005D81EE /* userCache.cpp */,
+				8FB258A51F9EB537005D81EE /* userCache.h */,
+				8FB258DB1F9EB53D005D81EE /* userSystem.cpp */,
+				8FB258AB1F9EB538005D81EE /* userSystem.h */,
+				8FB258E31F9EB53E005D81EE /* variableSystem.cpp */,
+				8FB258BA1F9EB539005D81EE /* variableSystem.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		8FB92FFE1ACBBC3F00BD7EF2 = {
+			isa = PBXGroup;
+			children = (
+				8FB259141F9EB74E005D81EE /* duk_config.h */,
+				8FB259151F9EB74E005D81EE /* duktape.cpp */,
+				8FB259161F9EB74E005D81EE /* duktape.h */,
+				8F2A54AB1C606DB700305D6A /* Source */,
+				8FB930081ACBBC3F00BD7EF2 /* Products */,
+				8FCEF5681E0B7540004B6762 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8FB930081ACBBC3F00BD7EF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F7F70C31EBC41AD00744B26 /* MacChatScript */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FCEF5681E0B7540004B6762 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F7F71441EBC457F00744B26 /* libpthread.tbd */,
+				8F7F71401EBC456100744B26 /* libcurl.3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F7F70C21EBC41AD00744B26 /* MacChatScript */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F7F70C71EBC41AE00744B26 /* Build configuration list for PBXNativeTarget "MacChatScript" */;
+			buildPhases = (
+				8F7F70BF1EBC41AD00744B26 /* Sources */,
+				8F7F70C01EBC41AD00744B26 /* Frameworks */,
+				8F7F70C11EBC41AD00744B26 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacChatScript;
+			productName = MacChatScript;
+			productReference = 8F7F70C31EBC41AD00744B26 /* MacChatScript */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FB92FFF1ACBBC3F00BD7EF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Bruce Wilcox";
+				TargetAttributes = {
+					8F7F70C21EBC41AD00744B26 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8FB930021ACBBC3F00BD7EF2 /* Build configuration list for PBXProject "MacChatScript" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8FB92FFE1ACBBC3F00BD7EF2;
+			productRefGroup = 8FB930081ACBBC3F00BD7EF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F7F70C21EBC41AD00744B26 /* MacChatScript */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F7F70BF1EBC41AD00744B26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FB258FF1F9EB53F005D81EE /* scriptCompile.cpp in Sources */,
+				8FB2590B1F9EB53F005D81EE /* os.cpp in Sources */,
+				8FB258F21F9EB53F005D81EE /* mongodb.cpp in Sources */,
+				8FB259081F9EB53F005D81EE /* dictionarySystem.cpp in Sources */,
+				8FB258F31F9EB53F005D81EE /* functionExecute.cpp in Sources */,
+				8FB2590F1F9EB53F005D81EE /* patternSystem.cpp in Sources */,
+				8FB2590D1F9EB53F005D81EE /* markSystem.cpp in Sources */,
+				8FB259121F9EB53F005D81EE /* outputSystem.cpp in Sources */,
+				8FB258FC1F9EB53F005D81EE /* secure.cpp in Sources */,
+				8FB258FB1F9EB53F005D81EE /* javascript.cpp in Sources */,
+				8FB258F81F9EB53F005D81EE /* mysql.cpp in Sources */,
+				8FB258F11F9EB53F005D81EE /* csocket.cpp in Sources */,
+				8FB259041F9EB53F005D81EE /* topicSystem.cpp in Sources */,
+				8FB259111F9EB53F005D81EE /* tokenSystem.cpp in Sources */,
+				8FB259101F9EB53F005D81EE /* cs_ev.c in Sources */,
+				8FB259051F9EB53F005D81EE /* postgres.cpp in Sources */,
+				8FB258F01F9EB53F005D81EE /* mainSystem.cpp in Sources */,
+				8FB259091F9EB53F005D81EE /* userSystem.cpp in Sources */,
+				8FB259071F9EB53F005D81EE /* factSystem.cpp in Sources */,
+				8FB258F41F9EB53F005D81EE /* evserver.cpp in Sources */,
+				8FB259011F9EB53F005D81EE /* textUtilities.cpp in Sources */,
+				8FB258FE1F9EB53F005D81EE /* json.cpp in Sources */,
+				8FB258F61F9EB53F005D81EE /* Makefile in Sources */,
+				8FB2590A1F9EB53F005D81EE /* infer.cpp in Sources */,
+				8FB259001F9EB53F005D81EE /* systemVariables.cpp in Sources */,
+				8FB259061F9EB53F005D81EE /* english.cpp in Sources */,
+				8FB258F71F9EB53F005D81EE /* englishTagger.cpp in Sources */,
+				8FB259021F9EB53F005D81EE /* constructCode.cpp in Sources */,
+				8FB2590E1F9EB53F005D81EE /* variableSystem.cpp in Sources */,
+				8FB258FD1F9EB53F005D81EE /* testing.cpp in Sources */,
+				8FB259171F9EB74F005D81EE /* duktape.cpp in Sources */,
+				8FB258F51F9EB53F005D81EE /* jsmn.cpp in Sources */,
+				8FB258F91F9EB53F005D81EE /* tagger.cpp in Sources */,
+				8FB259031F9EB53F005D81EE /* privatesrc.cpp in Sources */,
+				8FB2590C1F9EB53F005D81EE /* spellcheck.cpp in Sources */,
+				8FB258FA1F9EB53F005D81EE /* userCache.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8F7F70C81EBC41AE00744B26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = duktape;
+				LIBRARY_SEARCH_PATHS = "";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_CFLAGS = (
+					"-DDISCARDMONGO=1",
+					"-DDISCARDMYSQL=1",
+					"-DDISCARDPOSTGRES=1",
+					"-DEVSERVER_FORK=1",
+					"-DEVSERVER=1",
+					"-Iduktape",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = duktape;
+			};
+			name = Debug;
+		};
+		8F7F70C91EBC41AE00744B26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = duktape;
+				LIBRARY_SEARCH_PATHS = "";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"-DDISCARDMONGO=1",
+					"-DDISCARDMYSQL=1",
+					"-DDISCARDPOSTGRES=1",
+					"-DEVSERVER_FORK=1",
+					"-DEVSERVER=1",
+					"-Iduktape",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = duktape;
+			};
+			name = Release;
+		};
+		8FB9300C1ACBBC3F00BD7EF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDISCARDMONGO=1",
+					"-DDISCARDMYSQL=1",
+					"-DDISCARDPOSTGRES=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SDKROOT = macosx;
+				SYMROOT = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				USE_HEADERMAP = YES;
+			};
+			name = Debug;
+		};
+		8FB9300D1ACBBC3F00BD7EF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"-DDISCARDMONGO=1",
+					"-DDISCARDMYSQL=1",
+					"-DDISCARDPOSTGRES=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SDKROOT = macosx;
+				SYMROOT = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				USE_HEADERMAP = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F7F70C71EBC41AE00744B26 /* Build configuration list for PBXNativeTarget "MacChatScript" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F7F70C81EBC41AE00744B26 /* Debug */,
+				8F7F70C91EBC41AE00744B26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FB930021ACBBC3F00BD7EF2 /* Build configuration list for PBXProject "MacChatScript" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FB9300C1ACBBC3F00BD7EF2 /* Debug */,
+				8FB9300D1ACBBC3F00BD7EF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8FB92FFF1ACBBC3F00BD7EF2 /* Project object */;
+}

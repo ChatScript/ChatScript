@@ -1,0 +1,871 @@
+﻿ R ( ) lemma=`r` -  
+ R&D ( ) lemma=`r&d` -  
+ R)(C ( ) lemma=`r)(c` -  
+ R. ( ) lemma=`r.`r.` Ncfsnn  SENT  
+ R/3 ( ) lemma=`r/3`r/3`r/3` Mc---d  Npmpny  R  
+ R122230332530 ( ) lemma=`r122230332530` -  
+ R15 ( ) lemma=`r15` Ncfpin  
+ R600a ( ) lemma=`r600a` -  
+ R8 ( ) lemma=`r8` Afpmpif  
+ RADIOT ( ) lemma=`radiot` -  
+ RADIUS ( ) lemma=`radius` -  
+ RAM ( ) lemma=`ram` -  
+ RAMEC ( ) lemma=`ramec` -  
+ RAR ( ) lemma=`rar` -  
+ RAS ( ) lemma=`ras` -  
+ RAY ( ) lemma=`ray` -  
+ RAmbler ( ) lemma=`rambler` -  
+ RB293 ( ) lemma=`rb293` Afpmsnf  
+ RBC ( ) lemma=`rbc` -  
+ RC4 ( ) lemma=`rc4` Afpfsnf  
+ RC5 ( ) lemma=`rc5` Afpfsnf  
+ RC6 ( ) lemma=`rc6` -  
+ RCA ( ) lemma=`rca` -  
+ RCD ( ) lemma=`rcd` -  
+ RDV ( ) lemma=`rdv` -  
+ RE ( ) lemma=`re` -  
+ README ( ) lemma=`readme` -  
+ REALRECORDS ( ) lemma=`realrecords` -  
+ RED ( ) lemma=`red` -  
+ REFUGIE ( ) lemma=`refugie` -  
+ REGNUM ( ) lemma=`regnum` -  
+ RELAX ( ) lemma=`relax` -  
+ REM ( ) lemma=`rem` -  
+ REN ( ) lemma=`ren` -  
+ RENAULT ( ) lemma=`renault` -  
+ RENGER ( ) lemma=`renger` -  
+ RESOURCE ( ) lemma=`resource` -  
+ RESPECT ( ) lemma=`respect` -  
+ REXY ( ) lemma=`rexy` -  
+ REspect ( ) lemma=`respect` -  
+ REиалогового ( ) lemma=`reиалогового` Afpnsgf  
+ REля ( ) lemma=`reля` Ncmsgy  
+ RFC ( ) lemma=`rfc` -  
+ RFS ( ) lemma=`rfs` -  
+ RG ( ) lemma=`rg` -  
+ RIB ( ) lemma=`rib` -  
+ RICH ( ) lemma=`rich` -  
+ RICO ( ) lemma=`rico` -  
+ RIIS ( ) lemma=`riis` -  
+ RIP ( ) lemma=`rip` -  
+ RIX ( ) lemma=`rix` -  
+ RJ ( ) lemma=`rj` -  
+ RJ's ( ) lemma=`rj's` -  
+ RL ( ) lemma=`rl` -  
+ RLH ( ) lemma=`rlh` -  
+ RM ( ) lemma=`rm` -  
+ RMC ( ) lemma=`rmc` -  
+ RMI ( ) lemma=`rmi` -  
+ RO ( ) lemma=`ro` -  
+ ROBOTS ( ) lemma=`robots` -  
+ ROCKER ( ) lemma=`rocker` -  
+ ROL ( ) lemma=`rol` -  
+ ROLF ( ) lemma=`rolf` -  
+ ROM ( ) lemma=`rom` -  
+ ROMIR ( ) lemma=`romir` -  
+ ROMы ( ) lemma=`romы` Ncmpnn  
+ RONA ( ) lemma=`rona` -  
+ RORER ( ) lemma=`rorer` -  
+ ROSAT ( ) lemma=`rosat` -  
+ ROVER ( ) lemma=`rover` -  
+ RPG ( ) lemma=`rpg` -  
+ RPM ( ) lemma=`rpm` -  
+ RQ ( ) lemma=`rq` -  
+ RSA ( ) lemma=`rsa` -  
+ RSCG ( ) lemma=`rscg` -  
+ RSI ( ) lemma=`rsi` -  
+ RSS ( ) lemma=`rss` -  
+ RSV ( ) lemma=`rsv` -  
+ RSVP ( ) lemma=`rsvp` -  
+ RT ( ) lemma=`rt` -  
+ RTCM ( ) lemma=`rtcm` -  
+ RTF ( ) lemma=`rtf` -  
+ RTK ( ) lemma=`rtk` -  
+ RTN ( ) lemma=`rtn` -  
+ RTS ( ) lemma=`rts` -  
+ RU ( ) lemma=`ru` -  
+ RULES ( ) lemma=`rules` -  
+ RUNNING ( ) lemma=`running` -  
+ RUS ( ) lemma=`rus` -  
+ RUSSLAND ( ) lemma=`russland` -  
+ RUpay ( ) lemma=`rupay` -  
+ RUлиNETа ( ) lemma=`ruлиnetа` Npmsgy  
+ RUсский ( ) lemma=`ruсский` Afpmsnf  
+ RW ( ) lemma=`rw` -  
+ RZ3AGE ( ) lemma=`rz3age` -  
+ R[ose ( ) lemma=`r[ose` -  
+ Ra1+ ( ) lemma=`ra1+` -  
+ Ra2 ( ) lemma=`ra2` -  
+ Rabelais ( ) lemma=`rabelais` -  
+ Rabinovich ( ) lemma=`rabinovich` -  
+ Racer ( ) lemma=`racer` -  
+ Rad ( ) lemma=`rad` -  
+ Radeon ( ) lemma=`radeon` -  
+ Radiation ( ) lemma=`radiation` -  
+ Radikal ( ) lemma=`radikal` -  
+ Radio ( ) lemma=`radio` -  
+ RadioManiac ( ) lemma=`radiomaniac` -  
+ Radiogirl ( ) lemma=`radiogirl` -  
+ Radiot ( ) lemma=`radiot` -  
+ Radiotka ( ) lemma=`radiotka` -  
+ Radiott ( ) lemma=`radiott` -  
+ Radiotu ( ) lemma=`radiotu` -  
+ Radost ( ) lemma=`radost` -  
+ Radugi ( ) lemma=`radugi` -  
+ Rae ( ) lemma=`rae` -  
+ Rae8 ( ) lemma=`rae8` -  
+ RagDoll ( ) lemma=`ragdoll` -  
+ Rage ( ) lemma=`rage` -  
+ Rages ( ) lemma=`rages` -  
+ Ragins ( ) lemma=`ragins` -  
+ RaidMax ( ) lemma=`raidmax` -  
+ Raida ( ) lemma=`raida` -  
+ Rain ( ) lemma=`rain` -  
+ RainGirl ( ) lemma=`raingirl` -  
+ Raintree ( ) lemma=`raintree` -  
+ Raise ( ) lemma=`raise` -  
+ Ralf ( ) lemma=`ralf` -  
+ Ralph ( ) lemma=`ralph` -  
+ Ramakrishnan ( ) lemma=`ramakrishnan` -  
+ Rambler ( ) lemma=`rambler` -  
+ Rambler( ( ) lemma=`rambler(` -  
+ Ramla ( ) lemma=`ramla` -  
+ Rammstein ( ) lemma=`rammstein` -  
+ Ramosian ( ) lemma=`ramosian` -  
+ Ramsay ( ) lemma=`ramsay` -  
+ Ranalli ( ) lemma=`ranalli` -  
+ Random ( ) lemma=`random` -  
+ Range ( ) lemma=`range` -  
+ Ranged ( ) lemma=`ranged` -  
+ Ranger ( ) lemma=`ranger` -  
+ Rank ( ) lemma=`rank` -  
+ Raphael ( ) lemma=`raphael` -  
+ Rapist ( ) lemma=`rapist` -  
+ Raptor ( ) lemma=`raptor` -  
+ Raskrutchik ( ) lemma=`raskrutchik` -  
+ Rasse ( ) lemma=`rasse` -  
+ Rasskaz ( ) lemma=`rasskaz` -  
+ Rasskazat ( ) lemma=`rasskazat` -  
+ Rastaman ( ) lemma=`rastaman` -  
+ Rate ( ) lemma=`rate` -  
+ Ratface ( ) lemma=`ratface` -  
+ Ratings ( ) lemma=`ratings` -  
+ Rats ( ) lemma=`rats` -  
+ Raumstrukturelle ( ) lemma=`raumstrukturelle` -  
+ Ravager ( ) lemma=`ravager` -  
+ Ravagers ( ) lemma=`ravagers` -  
+ Ravalli ( ) lemma=`ravalli` -  
+ Ravensburg ( ) lemma=`ravensburg` -  
+ Raw ( ) lemma=`raw` -  
+ Ray ( ) lemma=`ray` -  
+ Ray(5 ( ) lemma=`ray(5` -  
+ Ray(5mana ( ) lemma=`ray(5mana` -  
+ Rayden ( ) lemma=`rayden` -  
+ Raymond ( ) lemma=`raymond` -  
+ Raytheon ( ) lemma=`raytheon` -  
+ Razor ( ) lemma=`razor` -  
+ Razumeetsya ( ) lemma=`razumeetsya` -  
+ Rc3 ( ) lemma=`rc3` -  
+ Rc5+ ( ) lemma=`rc5+` -  
+ Rcv ( ) lemma=`rcv` -  
+ Rd ( ) lemma=`rd` -  
+ Rd1 ( ) lemma=`rd1` -  
+ Rd8 ( ) lemma=`rd8` -  
+ Re ( ) lemma=`re` -  
+ Re1 ( ) lemma=`re1` Ncmpgn  
+ Re1# ( ) lemma=`re1#` -  
+ Re1+ ( ) lemma=`re1+` -  
+ Re8 ( ) lemma=`re8` -  
+ Reach ( ) lemma=`reach` -  
+ Read ( ) lemma=`read` -  
+ ReadIRIS ( ) lemma=`readiris` -  
+ Reader ( ) lemma=`reader` -  
+ Ready ( ) lemma=`ready` -  
+ ReadySwitch ( ) lemma=`readyswitch` -  
+ Real ( ) lemma=`real` -  
+ Reale ( ) lemma=`reale` -  
+ Realist ( ) lemma=`realist` -  
+ Realistic ( ) lemma=`realistic` -  
+ Reality ( ) lemma=`reality` -  
+ Reallocated ( ) lemma=`reallocated` -  
+ Reallocation ( ) lemma=`reallocation` -  
+ Reasonable ( ) lemma=`reasonable` -  
+ Reaver ( ) lemma=`reaver` -  
+ Reb'ata ( ) lemma=`reb'ata` -  
+ Rebel ( ) lemma=`rebel` -  
+ Rebels ( ) lemma=`rebels` -  
+ Rebirth ( ) lemma=`rebirth` -  
+ Rec ( ) lemma=`rec` -  
+ Recalibration ( ) lemma=`recalibration` -  
+ Recall ( ) lemma=`recall` -  
+ Recent ( ) lemma=`recent` -  
+ Recipient ( ) lemma=`recipient` -  
+ Reck ( ) lemma=`reck` -  
+ Reckitt ( ) lemma=`reckitt` -  
+ Recommendation ( ) lemma=`recommendation` -  
+ Recon ( ) lemma=`recon` -  
+ Reconnaissance ( ) lemma=`reconnaissance` -  
+ Reconstruction ( ) lemma=`reconstruction` -  
+ Record ( ) lemma=`record` -  
+ Records ( ) lemma=`records` -  
+ Recovery ( ) lemma=`recovery` -  
+ Recruitment ( ) lemma=`recruitment` -  
+ Recta ( ) lemma=`recta` -  
+ Rectangle ( ) lemma=`rectangle` -  
+ Recules ( ) lemma=`recules` -  
+ RecycleBin ( ) lemma=`recyclebin` -  
+ Red ( ) lemma=`red` -  
+ RedAndr ( ) lemma=`redandr` -  
+ RedJet ( ) lemma=`redjet` -  
+ Reden ( ) lemma=`reden` -  
+ Redirect ( ) lemma=`redirect` -  
+ Rednews ( ) lemma=`rednews` -  
+ Redshift ( ) lemma=`redshift` -  
+ Reference ( ) lemma=`reference` -  
+ Reform ( ) lemma=`reform` -  
+ Refraction ( ) lemma=`refraction` -  
+ RegAdminXP ( ) lemma=`regadminxp` -  
+ RegCleaner ( ) lemma=`regcleaner` -  
+ Regatta ( ) lemma=`regatta` -  
+ Regeneration ( ) lemma=`regeneration` -  
+ Region ( ) lemma=`region` -  
+ Regional ( ) lemma=`regional` -  
+ Regionalen ( ) lemma=`regionalen` -  
+ Register ( ) lemma=`register` -  
+ Registred ( ) lemma=`registred` -  
+ Regnum ( ) lemma=`regnum` -  
+ Regulations ( ) lemma=`regulations` -  
+ Regulatory ( ) lemma=`regulatory` -  
+ Regum ( ) lemma=`regum` -  
+ Reich ( ) lemma=`reich` -  
+ Reichsgericht ( ) lemma=`reichsgericht` -  
+ Reincarnation ( ) lemma=`reincarnation` -  
+ Relational ( ) lemma=`relational` -  
+ Relations ( ) lemma=`relations` -  
+ Relationship ( ) lemma=`relationship` -  
+ Relative ( ) lemma=`relative` -  
+ Relay ( ) lemma=`relay` -  
+ Release ( ) lemma=`release` -  
+ Released ( ) lemma=`released` -  
+ Relevance ( ) lemma=`relevance` -  
+ Religion ( ) lemma=`religion` -  
+ Religions ( ) lemma=`religions` -  
+ Religiosa ( ) lemma=`religiosa` -  
+ Relogix ( ) lemma=`relogix` -  
+ Remains ( ) lemma=`remains` -  
+ Remind ( ) lemma=`remind` -  
+ Remington ( ) lemma=`remington` -  
+ Remizov ( ) lemma=`remizov` -  
+ Remote ( ) lemma=`remote` -  
+ RenardAdamantine ( ) lemma=`renardadamantine` -  
+ Renata ( ) lemma=`renata` -  
+ Renault ( ) lemma=`renault` -  
+ Renegade ( ) lemma=`renegade` -  
+ Renouard ( ) lemma=`renouard` -  
+ Repair ( ) lemma=`repair` -  
+ Repent ( ) lemma=`repent` -  
+ Replaced ( ) lemma=`replaced` -  
+ Replenish ( ) lemma=`replenish` -  
+ Report ( ) lemma=`report` -  
+ Reporting ( ) lemma=`reporting` -  
+ Repository ( ) lemma=`repository` -  
+ Representation ( ) lemma=`representation` -  
+ Reprinted ( ) lemma=`reprinted` -  
+ Reps ( ) lemma=`reps` -  
+ Republic ( ) lemma=`republic` -  
+ Request ( ) lemma=`request` -  
+ Res ( ) lemma=`res` -  
+ Research ( ) lemma=`research` -  
+ Reseller ( ) lemma=`reseller` -  
+ Reservation ( ) lemma=`reservation` -  
+ Reserve ( ) lemma=`reserve` -  
+ Reserved ( ) lemma=`reserved` -  
+ Resident ( ) lemma=`resident` -  
+ Reskin ( ) lemma=`reskin` -  
+ Resolution ( ) lemma=`resolution` -  
+ Resonant ( ) lemma=`resonant` -  
+ Resources ( ) lemma=`resources` -  
+ Respect ( ) lemma=`respect` -  
+ Respected ( ) lemma=`respected` -  
+ Responsys ( ) lemma=`responsys` -  
+ RestoRus ( ) lemma=`restorus` -  
+ Results ( ) lemma=`results` -  
+ Resume ( ) lemma=`resume` -  
+ Resurrection ( ) lemma=`resurrection` -  
+ Retail ( ) lemma=`retail` -  
+ Retaliation ( ) lemma=`retaliation` -  
+ Rethinking ( ) lemma=`rethinking` -  
+ Reto ( ) lemma=`reto` -  
+ Retract ( ) lemma=`retract` -  
+ Retries ( ) lemma=`retries` -  
+ Retry ( ) lemma=`retry` -  
+ Return ( ) lemma=`return` -  
+ Reuters ( ) lemma=`reuters` -  
+ Rev ( ) lemma=`rev` -  
+ Reval ( ) lemma=`reval` -  
+ Revelation ( ) lemma=`revelation` -  
+ Revenge ( ) lemma=`revenge` -  
+ Revenue ( ) lemma=`revenue` -  
+ Review ( ) lemma=`review` -  
+ Revisit ( ) lemma=`revisit` -  
+ Revisited ( ) lemma=`revisited` -  
+ Revolution ( ) lemma=`revolution` -  
+ Revue ( ) lemma=`revue` -  
+ Rex ( ) lemma=`rex` -  
+ Rexque ( ) lemma=`rexque` -  
+ Rezak ( ) lemma=`rezak` -  
+ Reхroth ( ) lemma=`reхroth` -  
+ Rf1+ ( ) lemma=`rf1+` -  
+ Rf2 ( ) lemma=`rf2` -  
+ Rf6 ( ) lemma=`rf6` Ncnsnn  
+ Rf7 ( ) lemma=`rf7` -  
+ Rfe8 ( ) lemma=`rfe8` -  
+ Rfym ( ) lemma=`rfym` -  
+ Rg2 ( ) lemma=`rg2` -  
+ Rg3+ ( ) lemma=`rg3+` Npmsgy  
+ Rg8+ ( ) lemma=`rg8+` -  
+ Rh ( ) lemma=`rh` -  
+ Rh4# ( ) lemma=`rh4#` -  
+ Rh4+ ( ) lemma=`rh4+` Ncmpgn  
+ Rh5+ ( ) lemma=`rh5+` -  
+ Rh8 ( ) lemma=`rh8`rh8` -  Ncmpgn  
+ Rhe1 ( ) lemma=`rhe1` Ncnsin  
+ Rhianna ( ) lemma=`rhianna` -  
+ Rhino ( ) lemma=`rhino` -  
+ RiJ ( ) lemma=`rij` -  
+ Rib ( ) lemma=`rib` -  
+ Richards ( ) lemma=`richards` -  
+ Richardson ( ) lemma=`richardson` -  
+ Richmond ( ) lemma=`richmond` -  
+ Rick ( ) lemma=`rick` -  
+ Rickard ( ) lemma=`rickard` -  
+ Rickman/ ( ) lemma=`rickman/` -  
+ Ricoh ( ) lemma=`ricoh` -  
+ Ricolfi ( ) lemma=`ricolfi` -  
+ Rider ( ) lemma=`rider` -  
+ Rieffer ( ) lemma=`rieffer` -  
+ Rieme ( ) lemma=`rieme` -  
+ Riffin ( ) lemma=`riffin` -  
+ Rifle ( ) lemma=`rifle` -  
+ Rift ( ) lemma=`rift` -  
+ Riga ( ) lemma=`riga` -  
+ Right ( ) lemma=`right` -  
+ Rights ( ) lemma=`rights` -  
+ Rijndael ( ) lemma=`rijndael` -  
+ Rima ( ) lemma=`rima` -  
+ Rince ( ) lemma=`rince` -  
+ Rinella ( ) lemma=`rinella` -  
+ Ring ( ) lemma=`ring` -  
+ Ripoux ( ) lemma=`ripoux` -  
+ Risk ( ) lemma=`risk` -  
+ Rith ( ) lemma=`rith` -  
+ Ritualist ( ) lemma=`ritualist` -  
+ Riva ( ) lemma=`riva` -  
+ River ( ) lemma=`river` -  
+ Rivest ( ) lemma=`rivest` -  
+ Rivolta ( ) lemma=`rivolta` -  
+ Ro ( ) lemma=`ro` -  
+ Road ( ) lemma=`road` -  
+ RoastingHouse ( ) lemma=`roastinghouse` -  
+ Robert ( ) lemma=`robert` -  
+ Robespier ( ) lemma=`robespier` -  
+ Robin ( ) lemma=`robin` -  
+ Robins ( ) lemma=`robins` -  
+ Robot ( ) lemma=`robot` -  
+ Robotic ( ) lemma=`robotic` -  
+ Robots ( ) lemma=`robots` -  
+ Rock ( ) lemma=`rock` -  
+ Rock/ ( ) lemma=`rock/` -  
+ RockPost ( ) lemma=`rockpost` -  
+ Rockets ( ) lemma=`rockets` -  
+ Rodchenko ( ) lemma=`rodchenko` -  
+ Rodent ( ) lemma=`rodent` -  
+ Rodnoff ( ) lemma=`rodnoff` -  
+ Roeder ( ) lemma=`roeder` -  
+ Roetz ( ) lemma=`roetz` -  
+ Roger ( ) lemma=`roger` -  
+ Roginsky ( ) lemma=`roginsky` -  
+ Roi ( ) lemma=`roi` -  
+ Roker ( ) lemma=`roker` -  
+ Roland ( ) lemma=`roland` -  
+ Role ( ) lemma=`role` -  
+ Rolex ( ) lemma=`rolex` -  
+ Roll ( ) lemma=`roll` -  
+ Rolling ( ) lemma=`rolling` -  
+ Rolsen ( ) lemma=`rolsen` -  
+ Roma ( ) lemma=`roma` -  
+ Romains ( ) lemma=`romains` -  
+ Roman ( ) lemma=`roman` -  
+ Romana ( ) lemma=`romana` -  
+ Romania ( ) lemma=`romania` -  
+ Romano ( ) lemma=`romano` -  
+ Romanov ( ) lemma=`romanov` -  
+ Romantic ( ) lemma=`romantic` -  
+ Romantsova ( ) lemma=`romantsova` -  
+ Rome ( ) lemma=`rome` -  
+ Romeins ( ) lemma=`romeins` -  
+ Romenski ( ) lemma=`romenski` -  
+ Romeo ( ) lemma=`romeo` -  
+ Romeos ( ) lemma=`romeos` -  
+ Romero ( ) lemma=`romero` -  
+ Rommire$ ( ) lemma=`rommire$` Afpmsnf  
+ Ron ( ) lemma=`ron` -  
+ Ronald ( ) lemma=`ronald` -  
+ Ronin ( ) lemma=`ronin` -  
+ Root ( ) lemma=`root` -  
+ RosUkrEnergo ( ) lemma=`rosukrenergo` -  
+ Rose ( ) lemma=`rose` -  
+ Rose3 ( ) lemma=`rose3` Ncmsgn  
+ Rosemount ( ) lemma=`rosemount` -  
+ Rosenmontag ( ) lemma=`rosenmontag` -  
+ Roses ( ) lemma=`roses` -  
+ Rosii ( ) lemma=`rosii` -  
+ Rosinen ( ) lemma=`rosinen` -  
+ Rossi ( ) lemma=`rossi` -  
+ Rossii ( ) lemma=`rossii` -  
+ Rossiyu ( ) lemma=`rossiyu` -  
+ Rosso ( ) lemma=`rosso` -  
+ Rossoneri ( ) lemma=`rossoneri` -  
+ Roten ( ) lemma=`roten` -  
+ Rothenberg ( ) lemma=`rothenberg` -  
+ Rotorcraft ( ) lemma=`rotorcraft` -  
+ Rousen ( ) lemma=`rousen` -  
+ Routledge ( ) lemma=`routledge` -  
+ Rover ( ) lemma=`rover` -  
+ RoverScan ( ) lemma=`roverscan` -  
+ Rovn'at ( ) lemma=`rovn'at` -  
+ Roy ( ) lemma=`roy` -  
+ Royal ( ) lemma=`royal` -  
+ Rozzenjogd ( ) lemma=`rozzenjogd` -  
+ Rpm ( ) lemma=`rpm` -  
+ RuPay ( ) lemma=`rupay` -  
+ Rubi ( ) lemma=`rubi` -  
+ Rubin ( ) lemma=`rubin` -  
+ Ruble ( ) lemma=`ruble` -  
+ Rucker ( ) lemma=`rucker` -  
+ Rude ( ) lemma=`rude` -  
+ Rudolf ( ) lemma=`rudolf` -  
+ Ruds ( ) lemma=`ruds` -  
+ Rudy ( ) lemma=`rudy` -  
+ Ruffer ( ) lemma=`ruffer` -  
+ Rufloria ( ) lemma=`rufloria` -  
+ Ruhrgas ( ) lemma=`ruhrgas` -  
+ Rulib ( ) lemma=`rulib` -  
+ Rum ( ) lemma=`rum` -  
+ Run ( ) lemma=`run` -  
+ Rundle ( ) lemma=`rundle` -  
+ Running ( ) lemma=`running` -  
+ RunningTheWave ( ) lemma=`runningthewave` -  
+ Rupay ( ) lemma=`rupay` -  
+ Rupture ( ) lemma=`rupture` -  
+ Rus ( ) lemma=`rus` -  
+ RusTy ( ) lemma=`rusty` -  
+ Russell ( ) lemma=`russell` -  
+ Russes ( ) lemma=`russes` -  
+ Russia ( ) lemma=`russia` -  
+ Russia@astravel ( ) lemma=`russia@astravel` -  
+ Russian ( ) lemma=`russian` -  
+ Russians ( ) lemma=`russians` -  
+ Russland ( ) lemma=`russland` -  
+ Russlanddeutschen ( ) lemma=`russlanddeutschen` -  
+ Russlands ( ) lemma=`russlands` -  
+ Rust04 ( ) lemma=`rust04` -  
+ Ruts ( ) lemma=`ruts` -  
+ Rvushaya ( ) lemma=`rvushaya` -  
+ Rwr ( ) lemma=`rwr` -  
+ Rxa6 ( ) lemma=`rxa6` -  
+ Rxd3 ( ) lemma=`rxd3` -  
+ Rxe2 ( ) lemma=`rxe2` -  
+ Rxe5 ( ) lemma=`rxe5`rxe5` -  Ncmpgn  
+ Rxe8 ( ) lemma=`rxe8` -  
+ Rxf1+ ( ) lemma=`rxf1+` -  
+ Rxf5+ ( ) lemma=`rxf5+` -  
+ Rxf8 ( ) lemma=`rxf8` Ncmpgn  
+ Rxg3–+ ( ) lemma=`rxg3–+` -  
+ Rxh2 ( ) lemma=`rxh2` -  
+ Rxh2+ ( ) lemma=`rxh2+` -  
+ Rygae@mail ( ) lemma=`rygae@mail` -  
+ Ryko ( ) lemma=`ryko` -  
+ Rynes ( ) lemma=`rynes` -  
+ Rytina ( ) lemma=`rytina` -  
+ r ( ) 
+ r- ( ) 
+ r5 ( ) 
+ r7 ( ) 
+ rGizmo ( ) lemma=`rgizmo` -  
+ r^ ( ) 
+ rabotaesh ( ) 
+ rabotaet ( ) 
+ rabotat ( ) 
+ raboti ( ) 
+ rabotu ( ) 
+ race ( ) 
+ racer/284515 ( ) 
+ rad ( ) 
+ radeon ( ) 
+ radeport ( ) 
+ radi ( ) 
+ radial ( ) 
+ radient ( ) 
+ radio ( ) 
+ radio7@radio7 ( ) 
+ radio@e ( ) 
+ radio@medianews ( ) 
+ radio@teos ( ) 
+ radioemission ( ) 
+ radiot ( ) 
+ radiot@mail ( ) 
+ radiowave ( ) 
+ raduate ( ) 
+ radugu ( ) 
+ raf ( ) 
+ rafe ( ) 
+ rahowa ( ) 
+ raiker ( ) 
+ rain ( ) 
+ raincoat ( ) 
+ raines ( ) 
+ rainfall ( ) 
+ raione ( ) 
+ raison ( ) 
+ ralonline ( ) 
+ rambler ( ) 
+ rame ( ) 
+ ran ( ) 
+ ran'she ( ) 
+ ran`she ( ) 
+ random ( ) 
+ range ( ) 
+ ranged ( ) 
+ ranie ( ) 
+ ranse ( ) 
+ rard ( ) 
+ rare ( ) 
+ ras ( ) 
+ raskaza ( ) 
+ rasplakalas ( ) 
+ rasskazal ( ) 
+ rasskazano ( ) 
+ rasskazanoNo ( ) lemma=`rasskazanono` -  
+ rasskazi ( ) 
+ rasstatjsa ( ) 
+ rasuries ( ) 
+ rate ( ) 
+ rather ( ) 
+ rating ( ) 
+ rauxa ( ) 
+ ravagers ( ) 
+ ravan1@yandex ( ) 
+ ravda ( ) 
+ ravissante ( ) 
+ ravni ( ) 
+ ravno ( ) 
+ ravozashita ( ) 
+ raw ( ) 
+ ray ( ) 
+ raymonda ( ) 
+ rays ( ) 
+ raz ( ) 
+ raz(kak ( ) 
+ raza ( ) 
+ razala ( ) 
+ razgovor ( ) 
+ razhiganie ( ) 
+ razmishleniy ( ) 
+ raznye ( ) 
+ razocharovanie ( ) 
+ razoitis ( ) 
+ razu ( ) 
+ razumeetsya ( ) 
+ rc ( ) 
+ rcor ( ) 
+ re ( ) 
+ reactance ( ) 
+ read ( ) 
+ real ( ) 
+ really ( ) 
+ realnie ( ) 
+ realnо ( ) 
+ reason ( ) 
+ reated ( ) 
+ reatetag ( ) 
+ reative ( ) 
+ reaxer ( ) 
+ rebell ( ) 
+ rebenka ( ) 
+ rebenke ( ) 
+ rebenku ( ) 
+ rebnenochek ( ) 
+ rebonok ( ) 
+ rebus ( ) 
+ rebyonka ( ) 
+ recall ( ) 
+ reception ( ) 
+ reco ( ) 
+ recobra ( ) 
+ recommendations ( ) 
+ reconnection ( ) 
+ recordId ( ) lemma=`recordid` -  
+ records ( ) 
+ recuperant ( ) 
+ recv ( ) 
+ redaktor ( ) 
+ reddit ( ) 
+ redial ( ) 
+ redko ( ) 
+ redorches ( ) 
+ redorchestra ( ) 
+ redspyder ( ) 
+ redstavit ( ) 
+ reen ( ) 
+ reenmama ( ) 
+ reenpeace ( ) 
+ reexamined/ ( ) 
+ ref ( ) 
+ refcursor ( ) 
+ references ( ) 
+ referent ( ) 
+ refers ( ) 
+ regard ( ) 
+ regards ( ) 
+ rege ( ) 
+ regi ( ) 
+ region ( ) 
+ region77@samaramail ( ) 
+ regionally ( ) 
+ regions ( ) 
+ regis ( ) 
+ registration ( ) 
+ registred ( ) 
+ regnum ( ) 
+ regum ( ) 
+ reiht ( ) 
+ reinsten ( ) 
+ reinvenescunt ( ) 
+ reklama@computerra ( ) 
+ related ( ) 
+ relation ( ) 
+ relations ( ) 
+ relationship ( ) 
+ relationships ( ) 
+ relative ( ) 
+ relatives ( ) 
+ relativity ( ) 
+ release ( ) 
+ relevant ( ) 
+ relic ( ) 
+ relocation ( ) 
+ rem ( ) 
+ remap ( ) 
+ remapped ( ) 
+ remarquable ( ) 
+ remix ( ) 
+ remya ( ) 
+ remyamn ( ) 
+ rencontre ( ) 
+ rental ( ) 
+ rep ( ) 
+ replication ( ) 
+ replike ( ) 
+ report ( ) 
+ report/wrvh1/en/ ( ) 
+ reported ( ) 
+ reports ( ) 
+ representation ( ) 
+ representative ( ) 
+ reprinta ( ) 
+ reprise ( ) 
+ reproche ( ) 
+ reproduction ( ) 
+ reprodukcii ( ) 
+ required ( ) 
+ res ( ) 
+ research ( ) 
+ reserved ( ) 
+ reset ( ) 
+ resistance/immunity ( ) 
+ resource ( ) 
+ resources ( ) 
+ respect ( ) 
+ response ( ) 
+ restante ( ) 
+ reste ( ) 
+ restituitur ( ) 
+ restoran ( ) 
+ result ( ) 
+ resume ( ) 
+ retaliation ( ) 
+ retrenchment ( ) 
+ retrieved ( ) 
+ retseptu ( ) 
+ return ( ) 
+ revenons ( ) 
+ revention ( ) 
+ revenue ( ) 
+ revertentem ( ) 
+ revesina ( ) 
+ review ( ) 
+ review/ ( ) 
+ revival ( ) 
+ revolutio ( ) 
+ revolving ( ) 
+ rewrite ( ) 
+ rex ( ) 
+ rezinovii ( ) 
+ rezko ( ) 
+ rezonans ( ) 
+ reş ( ) 
+ rfc ( ) 
+ rformance ( ) 
+ rg ( ) 
+ rg/ ( ) 
+ rg/213a ( ) 
+ rg/Contents ( ) lemma=`rg/contents` -  
+ rg/Gaim ( ) lemma=`rg/gaim` -  
+ rg/articles/01/12/20 ( ) 
+ rg/blog/2006/03/31/jabber/ ( ) 
+ rg/documents/ofisр ( ) 
+ rg/external/pubind ( ) 
+ rg/html/iecdd/wdipdf ( ) 
+ rg/html/navbar ( ) 
+ rg/index ( ) 
+ rg/korean/tongyeong ( ) 
+ rg/ondemand ( ) 
+ rg/printview ( ) 
+ rg/programs/sc/2002/sc ( ) 
+ rg/project ( ) 
+ rg/projects/firefox/ ( ) 
+ rg/pub/mirrors/openoffice/stable/1 ( ) 
+ rg/railgun ( ) 
+ rg/research/sibl/index ( ) 
+ rg/sowc04/sowc04 ( ) 
+ rg/story30706 ( ) 
+ rg/ts/countries/ ( ) 
+ rg/wiki/Advanced ( ) lemma=`rg/wiki/advanced` -  
+ rgnsk ( ) 
+ rgnsk@mail ( ) 
+ rgnsk@nm ( ) 
+ rgv ( ) 
+ rhebere ( ) 
+ riba ( ) 
+ rich ( ) 
+ ricochet ( ) 
+ ride ( ) 
+ riden ( ) 
+ riders ( ) 
+ rides ( ) 
+ ridetsya ( ) 
+ riefsa ( ) 
+ rifle ( ) 
+ right ( ) 
+ rights ( ) 
+ rigor ( ) 
+ rilem ( ) 
+ rime ( ) 
+ rintf ( ) 
+ rion ( ) 
+ risk ( ) 
+ risking ( ) 
+ ritardando ( ) 
+ riter ( ) 
+ riterschaft ( ) 
+ rites ( ) 
+ rium ( ) 
+ rj ( ) 
+ rk ( ) 
+ rl ( ) 
+ rmy ( ) 
+ rn ( ) 
+ rnet ( ) 
+ ro ( ) 
+ road ( ) 
+ rock ( ) 
+ rocka ( ) 
+ rocks ( ) 
+ rodax ( ) 
+ rodili ( ) 
+ rodilis ( ) 
+ rodit ( ) 
+ roditelei ( ) 
+ roditeli ( ) 
+ roditelyam ( ) 
+ rofmedia ( ) 
+ rogov@vi ( ) 
+ roi ( ) 
+ rokowac ( ) 
+ role ( ) 
+ rolex ( ) 
+ rolls ( ) 
+ romajana@web ( ) 
+ roman ( ) 
+ romance ( ) 
+ romanov ( ) 
+ rook@mail ( ) 
+ room ( ) 
+ root ( ) 
+ roove ( ) 
+ ror ( ) 
+ roses ( ) 
+ rosni ( ) 
+ rosoft ( ) 
+ rotae ( ) 
+ rotation ( ) 
+ rotignon ( ) 
+ round ( ) 
+ round( ( ) 
+ roverbook ( ) 
+ rovn'at ( ) 
+ rovok ( ) 
+ row ( ) 
+ rows ( ) 
+ royal ( ) 
+ rozaesh ( ) 
+ rozala ( ) 
+ rozhala ( ) 
+ rozhat7 ( ) 
+ rozhdenija ( ) 
+ rozhdeniya ( ) 
+ rozu ( ) 
+ rozumem ( ) 
+ rpg ( ) 
+ rr ( ) 
+ rsc ( ) 
+ rss ( ) 
+ rst ( ) 
+ rtcyclopedia ( ) 
+ rtf ( ) 
+ rthodoxy ( ) 
+ rtonline ( ) 
+ ru ( ) 
+ ru/forum/viewtopic ( ) 
+ ruah ( ) 
+ rubato ( ) 
+ rubric=reviu&id=31550000000009786 ( ) 
+ rubric=reviu&id=31550000000009855 ( ) 
+ rubric=reviu&id=31550000000009936 ( ) 
+ rubric=reviu&id=31550000000009962 ( ) 
+ ruby ( ) 
+ ruchkoi ( ) 
+ rudiments ( ) 
+ ruds ( ) 
+ rue ( ) 
+ rugoi(pereodicheski ( ) 
+ rukax ( ) 
+ rules ( ) 
+ rules1 ( ) 
+ rulez ( ) 
+ run ( ) 
+ running ( ) 
+ rur ( ) 
+ rus ( ) 
+ rusemb@uriel ( ) 
+ ruspunk ( ) 
+ russian@altlinux ( ) 
+ russischen ( ) 
+ russki ( ) 
+ russkij ( ) 
+ russkoj ( ) 
+ russkom ( ) 
+ rv:0 ( ) 
+ rving ( ) 
+ rzyluski ( ) 

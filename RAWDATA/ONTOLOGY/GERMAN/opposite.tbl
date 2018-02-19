@@ -1,0 +1,4565 @@
+﻿
+##<<GERMAN 
+concept: ~numberoperator()
+table: ~numberOperator (^op ^iop) 
+^createfact(^op member ~numberOperator)
+^createfact(^iop inverse ^op)
+DATA:
+
+# have to quote * because otherwise it means ignore- ^ must appear after remainder line, to not look like a script command
+Rest Add \n mod Add \n Modulo add \n  - Plus \n  / multiplizieren  \n % multiplizieren \n Quotient multiplizieren 
+\* Teilen \n x divide \n Exponent "Quadratwurzel" \n Macht "Quadratwurzel" 
+
+^ Wurzel  \n  Plus minus \n minus plus \n subtrahieren hinzufügen  \n Unter add  \n Vorsteuerabzugs hinzufügen \n multiplizieren dividieren 
+mal divide \n divide Zeiten \n + minus \n addieren minus 
+"Take away" hinzufügen \n
+
+
+table: ~opposites (^arg1 ^arg2) # makes bi-directional so dont have to list both ways here
+^createfact(^arg1 opposite ^arg2 0)
+^createfact(^arg2 opposite ^arg1 0)
+DATA:
+prod devel
+Produktion Entwicklung
+Lächeln Stirnrunzeln
+hoch kurz
+sparen verbringen
+Artefakt "natürliches Objekt"
+"schwache Leistungen" Übererfüllung
+Verschwinden "das Auftreten"
+Vorwärtsbewegung Rückzug
+Einschiffung Ausschiffung
+Versagen Qualifikation
+Put-Option Call-Option
+"am schlimmsten" Beste
+"Foul Ball" "Fair Ball"
+Anziehen Lockerung
+Demonetisierung Monetisierung
+"gerade Ticket" Split-Ticket
+"unearned Lauf" "abgegrenztes laufen"
+Degradierung Beförderung
+Beginn Finishing
+Lebendgeburt Spontanabort
+Aktivierung Deaktivierung
+Dekontamination Kontamination
+"sitzend Trab" "steigenden Trab"
+"internationaler Flug" Inlandsflug
+Verzögerung Beschleunigung
+Schließung Öffnung
+Pronation Supination
+"erhöhen, ansteigen" Verminderung
+Maximierung Minimierung
+Dekompression Kompression
+Zusatz Subtraktion
+Inflation Deflation
+Stärkung Schwächung
+Konzentration Verdünnung
+Abschreibung Anerkennung
+Erweiterung Kontraktion
+Flexion Erweiterung
+Entzweiung Vereinigung
+detribalization Tribalisierung
+Verengung Erweiterung
+Inaktivität Aktivität
+Nacht-Spiel "Tag Spiel"
+Auswärtsspiel Heimspiel
+Softball-Spiel "mit harten Bandagen"
+Volley "Boden Schlaganfall"
+"kleiner Eingriff" "Große Operation"
+Homöopathie Allopathie
+Entladung Laden
+Erbsünde "wirkliche Sünde"
+"lässliche Sünde" Todsünde
+"petit Diebstahls" "schwerer Diebstahl"
+Hypopnoe Hyperpnoe
+"disassortative Paarung" Paarungssiebung
+Genehmigung Missbilligung
+dismantlement Herstellung
+Montage dismantlement
+Einstellung Fortsetzung
+Proliferation Nichtverbreitung
+uptick downtick
+Großhandel Verkauf
+Nichtzahlung defrayment
+Entkriminalisierung Kriminalisierung
+Entrechtung enfranchisement
+Freigabe Einstufung
+Entstaatlichung Verstaatlichung
+Demobilisierung Militarisierung
+Abrüstung Ausrüstung
+Destabilisierung Stabilisierung
+Nichteinhaltung Gehorsam
+Zusammenarbeit Wettbewerb
+Konformation Nichteinhaltung
+Bejahung Umkehrung
+Freispruch Schuldspruch
+"Urteil rem" "Urteil in personam"
+"Sonder Urteil" "allgemeine Urteil"
+Rechtseinwand Strafverfolgung
+"Aufhebung der Rassentrennung" Sequestrierung
+nonconformance Konformation
+Nichtbeachtung Beachtung
+ill-Service Bedienung
+Nichterscheinen Teilnahme
+Abwesenheit Gegenwart
+Dezentralisierung Zentralisierung
+Nichtteilnahme Beteiligung
+männlich weiblich
+Gastgeber Parasit
+Prokaryonten Eukaryoten
+"stachelig-gerippten Fisch" "Weichflosser Fisch"
+"carinate Vogel" "flugunfähiger Vogel"
+"Diapsida Reptil" "Anapsida Reptil"
+"Dilettantismus Ente" "Tauchen Ente"
+"heterodactyl Fuß" "zygodactyl Fuß"
+Paarhufer "perissodactyl Säugetier"
+"homocercal fin" "heterozerk fin"
+"digitigrade Säugetier" "plantigrade Säugetier"
+"basso relievo" "Alt relievo"
+Kathode Anode
+Synergisten Antagonist
+Außenfeld Baseball-Diamant
+Weiß schwarz
+Kegel-Datei blunt-Datei
+Generika "proprietäres Medikament"
+"offener Kreislauf" "Geschlossener Stromkreis"
+Ready-made custom-built
+"Nicht-dedizierte Dateiserver" "dedizierte Dateiserver"
+Feuchtkugelthermometer Trockenkugelthermometer
+Naßfliege Trockenfliege
+"intelligente Bombe" "Schwere Bombe"
+"Galvanische Zelle" Elektrolysezelle
+Einfuhr Ausfuhr
+lokal ausdrücken
+"langsame Spur" Überholspur
+Thermoreaktor "schneller Reaktor"
+Rückseite Vorderseite
+Rasenmäher Handrasenmäher
+"weich Droge" "harte Droge"
+"Computer Software" Computerhardware
+Schwanz Kopf
+out-Korb "im Korb"
+Steuerbord Backbord
+Studio Lage
+stabil Mobile
+"flüchtigen Speicher" "nichtflüchtigen Speicher"
+umkehren Vorderseite
+unmentionable Oberbekleidung
+"verschreibungspflichtige Arzneimittel" "Rezeptfreie Medikamente"
+Statorspule Rotorspule
+"Oberfläche Schiff" Tauchkriegsschiff
+Innerlichkeit Äußerlichkeit
+Weltlichkeit Jenseitigkeit
+Introvertiertheit Extravertiertheit
+ambiversion Extravertiertheit
+ambiversion Introvertiertheit
+emotionlessness Emotionalität
+uncheerfulness Fröhlichkeit
+inactiveness active
+unpermissiveness Freizügigkeit
+"krank Natur" Gutmütigkeit
+Ungeduld Nachsicht
+Unangenehme agreeableness
+Stumpfheit Schärfe
+involuntariness Bereitschaft
+frivolousness Ernsthaftigkeit
+Verschlossenheit Mitteilsamkeit
+unsociableness Kontaktfreudigkeit
+Geheimnistuerei Nacktheit
+Unfreundlichkeit Freundlichkeit
+Unzugänglichkeit Zugänglichkeit
+uncongeniality congeniality
+unneighborliness Gutnachbarlichkeit
+inhospitableness hospitableness
+unadaptability Anpassungsfähigkeit
+Inflexibilität Flexibilitäten
+unthoughtfulness Nachdenklichkeit
+Unaufmerksamkeit Aufmerksamkeit
+Nachlässigkeit Sorgfalt
+unmindfulness Achtsamkeit
+incautiousness Vorsicht
+Unvorsichtigkeit Vorsicht
+Weiblichkeit Männlichkeit
+Unzuverlässigkeit Vertrauenswürdigkeit
+irresponsibleness responsibleness
+undependableness dependableness
+unconscientiousness Gewissenhaftigkeit
+Haarlosigkeit Behaarung
+Hässlichkeit Schönheit
+unpleasingness pleasingness
+unattractiveness Attraktivität
+Undurchsichtigkeit uncloudedness
+Undeutlichkeit Deutlichkeit
+Beschränktheit Schärfe
+Unauffälligkeit Auffälligkeit
+Unauffälligkeit Aufdringlichkeit
+Schwierigkeitsstufen Einfachheit
+effortfulness Mühelosigkeit
+Unvereinbarkeit Kompatibilität
+incongruousness congruousness
+unsuitableness suitableness
+Unangemessenheit Angemessenheit
+infelicity Glückseligkeit
+inappositeness appositeness
+Untauglichkeit Angemessenheit
+Sperre Förderfähigkeit
+Unversicherbarkeit Versicherbarkeit
+Unbequemlichkeit Bequemlichkeit
+inopportuneness Opportunität
+Unzugänglichkeit Zugänglichkeit
+Minderwertigkeit "gute Qualität"
+Unveränderlichkeit Wandelbarkeit
+Irreversibilität Reversibilität
+Konstanz changefulness
+invariableness Veränderlichkeit
+unvariedness Vielseitigkeit
+unexchangeability interchangeableness
+inconvertibility Konvertierbarkeit
+immutableness mutableness
+Unabänderlichkeit Veränderlichkeit
+Unterschied Gleichheit
+Unähnlichkeit Ähnlichkeit
+dissimilitude Ähnlichkeit
+Uneinheitlichkeit Gleichförmigkeit
+heterogeneousness Gleichartigkeit
+Inkonsistenz Konsistenz
+Ungleichheit Gleichberechtigung
+Nichtaquivalenz Gleichwertigkeit
+Unebenheit Ebenheit
+Prekarität "vorab beschlossene Sache"
+Unentschlossenheit Schlüssigkeit
+Unberechenbarkeit Vorhersagbarkeit
+improbableness Wahrscheinlichkeit
+Unwahrscheinlichkeit Wahrscheinlichkeit
+counterfactuality factualness
+Abstraktheit Konkretion
+intangibleness tangibleness
+Unkörperlichkeit Körperlichkeit
+Substanzlosigkeit Wesentlichkeit
+Unwirklichkeit Wirklichkeit
+Allgemeinheit Besonderheit
+Gemeinsamkeit Individualität
+Komplexität Einfachheit
+Unregelmäßigkeit Regelmäßigkeit
+Variabilität Unveränderlichkeit
+Unsicherheit Gleichmäßigkeit
+Unbeweglichkeit Mobilität
+Immotilität Motilität
+Unbeweglichkeit movableness
+Dichtheit Lockerheit
+stableness unstableness
+Lockerheit Sicherheit
+Unangenehme Freundlichkeit
+Gemeinheit Nettigkeit
+Unglaublichkeiten Glaubwürdigkeit
+implausibleness plausibleness
+illogicalness logicalness
+Unnatürlichkeit Natürlichkeit
+affectedness unaffectedness
+pretentiousness Anspruchslosigkeit
+Ungesundheit Bekömmlichkeit
+unhealthfulness healthfulness
+insalubriousness Bekömmlichkeit
+Unbefriedigende satis
+Unangemessenheit Adäquat
+unacceptableness Annehmbarkeit
+Unzulässigkeit Zulässigkeit
+Unzulässigkeit Zulässigkeit
+Außergewöhnlichkeit Alltäglichkeit
+Unerwartete expectedness
+Ungewöhnlichkeit Alltäglichkeit
+Ungewöhnlichkeit usualness
+unfamiliarity Vertrautheit
+Ursprünglichkeit Fremdheit
+Unoriginalität Originalität
+Orthodoxie unorthodoxy
+Konventionalität Unkonventionalität
+Unrichtigkeit Richtigkeit
+Ungenauigkeit Genauigkeit
+Ungenauigkeit Genauigkeit
+impreciseness Genauigkeit
+Fehlbarkeit Unfehlbarkeit
+Irre Unfehlbarkeit
+Unwürdigkeit Würdigkeit
+Unbeliebtheit Popularität
+Rechtswidrigkeit Rechtmäßigkeit
+Gesetzwidrigkeit Rechtmäßigkeit
+Unrechtmäßigkeit Legitimität
+Unerlaubtheit licitness
+Uneleganz Eleganz
+Geschmacklosigkeit tastefulness
+Urbanität Ländlichkeit
+Unverständlichkeit Verständlichkeit
+Unleserlichkeit Lesbarkeit
+Unverständlichkeit Verständlichkeit
+Unklarheit pellucidity
+reconditeness pellucidity
+"lexikalische Mehrdeutigkeit" monosemy
+Mehrdeutigkeit Eindeutigkeit
+inexplicitness Eindeutigkeit
+Untugend Gerechtigkeit
+impiousness Frömmigkeit
+Gottlosigkeit Frömmigkeit
+Unmenschlichkeit Menschlichkeit
+Unbarmherzigkeit Barmherzigkeit
+Geiz Großzügigkeit
+illiberality Liberalität
+Selbstsucht Selbstlosigkeit
+Ichbezogenheit Selbstlosigkeit
+Ungerechtigkeit Fairness
+Unfreundlichkeit Güte
+maleficence Wohltätigkeit
+Malignität Liebenswürdigkeit
+Rücksichtslosigkeit considerateness
+Taktlosigkeit Feingefühl
+Unempfindlichkeit Empfindlichkeit
+unperceptiveness Auffassungsgabe
+Unmoral Moral
+Unrichtigkeit Richtigkeit
+Bösartigkeit Güte
+Ungerechtigkeit Gerechtigkeit
+Unrechts rightfulness
+Unbestechlichkeit Bestechlichkeit
+incorruptness Verderbtheit
+Unheiligkeit sanctitude
+Gefährlichkeit Sicherheit
+incurableness curableness
+Feigheit courageousness
+Kleinmut stoutheartedness
+Ängstlichkeit Furchtlosigkeit
+Ängstlichkeit Widerstandsfähigkeit
+Feigheit Unerschrockenheit
+Unentschlossenheit "Festigkeit der Zweck"
+Unentschlossenheit Entschieden
+Unaufrichtigkeit Aufrichtigkeit
+dishonourableness Ehrenhaftigkeit
+entehren Ehre
+Skrupellosigkeit Gewissenhaftigkeit
+unrespectability Seriosität
+Unehrlichkeit honestness
+Unwahrhaftigkeit Wahrhaftigkeit
+Verlogenheit Richtigkeit
+disingenuousness Einfalt
+List artlessness
+Untreue Treue
+Untreue trueness
+Naivität Raffinesse
+Disziplinlosigkeit Disziplin
+Zügellosigkeit Zurückhaltung
+Unmäßigkeit Mäßigkeit
+Demut conceitedness
+Torheit Weisheit
+Unvorsichtigkeit Klugheit
+Kurzsichtigkeit Vorsehung
+distrustfulness trustingness
+Unsauberkeit Sauberkeit
+Unordnung Sauberkeit
+improperness correctitude
+indecorousness decorousness
+"politische Unkorrektheit" "politische Korrektheit"
+Unschicklichkeit seemliness
+unbecomingness becomingness
+Unanständigkeit Anstand
+Schamlosigkeit modestness
+Fassungslosigkeit Gleichmut
+intractableness tractableness
+Wildheit Domestizierung
+Ungehorsam Gehorsam
+Gehorsamsverweigerung Unterordnung
+Ungezwungenheit formal
+unceremoniousness Feierlichkeit
+Unhöflichkeit "gute Manieren"
+Unhöflichkeit Höflichkeit
+ungraciousness Liebenswürdigkeit
+Unhöflichkeit Höflichkeit
+Anisotropie Isotropie
+Indirektheit Geradheit
+mediateness Unmittelbarkeit
+Neuheit oldness
+Veralterung Frische
+youngness oldness
+"Befehlssatz reduziert" "komplexen Befehlssatz"
+Dünnheit Dicke
+Weichheit Härte
+incompressibility Kompressibilität
+unbreakableness breakableness
+Solidität porousness
+Undurchlässigkeit permeableness
+Undurchdringlichkeit penetrability
+nonabsorbency Saugfähigkeit
+raggedness Glätte
+Dumpfheit Helligkeit
+Farblosigkeit Färbung
+"unbunten Farbe" "chromatische Farbe"
+Weiße Schwärze
+Depigmentierung Pigmentierung
+Dunkelheit Leichtigkeit
+Schweigen klingen
+Dissonanz Harmonie
+Niederfrequenz Hochfrequenz
+Weichheit Intensität
+unpalatableness palatableness
+unappetizingness appetizingness
+indigestibleness Verdaulichkeit
+Magerkeit avoirdupois
+Kürze Größe
+Ungeschicklichkeit Anmut
+inanimateness animateness
+insentience Empfindungsvermögen
+feminineness Männlichkeit
+"hohe Temperatur" "niedrige Temperatur"
+Nichtwahrnehmbarkeit Wahrnehmbarkeit
+Unsichtbarkeit visible
+inaudibleness audible
+inelasticity Elastizität
+unmalleability Formbarkeit
+inflexibleness Flexibilitäten
+Schwerelosigkeit Gewichtigkeit
+"die Schwäche" Stärke
+"schwachen Teil" "guter Teil"
+Unzurechnungsfähigkeit Solidität
+Verwundbarkeit Unverwundbarkeit
+Alkalinität Säure
+Unzerstörbarkeit destructibility
+Verspätung earliness
+subsequentness antecedence
+Verspätung Pünktlichkeit
+unseasonableness Rechtzeitigkeit
+Gegenwärtigkeit Vergangensein
+Zukunft Vergangensein
+Gegenwärtigkeit Zukunft
+Kürze Longness
+Unbeständigkeit Dauerhaftigkeit
+Unsterblichkeit Mortalität
+Asymmetrien Symmetrie
+"radiale Asymmetrie" Radialsymmetrie
+gradualness precipitousness
+Rundheit Winkligkeit
+unpointedness pointedness
+Exzentrizität Rund
+crookedness Geradheit
+Geradheit Kräuselung
+Marginalität Zentralität
+posteriority Vorzeitigkeit
+Innerlichkeit Äußerlichkeit
+southernness northernness
+Nähe farawayness
+Konzentration Verteilung
+Oberflächlichkeit profoundness
+niedrig hoch
+Schlankheit Dicke
+Kleinheit Größe
+Negativität Bestimmtheit
+Abnahme Zuwachs
+Insuffizienz Versorgung
+Knappheit copiousness
+Maßlosigkeit Mäßigkeit
+Minderheit Mehrheit
+Oberflächlichkeit profoundness
+Enge Breite
+Niedrigkeit Erhabenheit
+Wertlosigkeit wert
+demerit Tugend
+Unerwünschtheit desirableness
+Schlechtigkeit Güte
+Elfmeter Vorteil
+Preisgünstigkeit Kostspieligkeit
+Fruchtlosigkeit Fruchtbarkeit
+Unproduktivität Ergiebigkeit
+unusefulness Nützlichkeit
+Unbrauchbarkeit Praktikabilität
+impracticableness practicableness
+Undurchführbarkeit feasibleness
+Inkompetenz Kompetenz
+Haftung Vermögenswert
+Nachteil Vorteil
+Nutzlosigkeit Einträglichkeit
+Unzweckmäßigkeit Zweckmäßigkeit
+Schwachstelle "starker Punkt"
+Unratsamkeit Zweckmäßigkeit
+Ungunst Vorteilhaftigkeit
+inauspiciousness auspiciousness
+Destruktivität Konstruktivität
+Bedeutungslosigkeit Bedeutung
+Bedeutungslosigkeit Bedeutung
+Sinnlosigkeit Aussagekraft
+Zwecklosigkeit Zielstrebigkeit
+"als Folge" Folge
+Wesenlosigkeit Wesentlichkeit
+dispensableness indispensableness
+Ohnmacht powerfulness
+unpersuasiveness Überzeugungskraft
+uninterestingness Interestingness
+Unwirksamkeit Wirksamkeit
+inefficaciousness efficaciousness
+Unfähigkeit Fähigkeit
+incapableness Tauglichkeit
+Unfähigkeit Kapazität
+Beschränktheit Unbegrenztheit
+Unlöslichkeit Löslichkeit
+Pessimismus Optimismus
+Teilnahmslosigkeit Empfänglichkeit
+Unlösbarkeit Lösbarkeit
+Beugemuskel Streckmuskel
+"sensorischen Rezeptor" Effektor
+Mark Kortex
+injudiciousness Umsicht
+Dummheit Intelligenz
+Unfähigkeit Eignung
+Unfähigkeit "mentale Fähigkeit"
+incapableness Möglichkeit
+imperfectibility Vervollkommnungsfähigkeit
+uncreativeness "kreatives Denken"
+Höllenregion Himmel
+Analphabetismus Alphabetisierung
+Ungeschicklichkeit Geschicklichkeit
+"in Abstimmung" Koordinierung
+disfluency Geläufigkeit
+Ineffizienz Effizienz
+kinanesthesia "Gefühl der Bewegung"
+Beute-System Verdienst-System
+Bewusstlosigkeit Bewusstsein
+incognizance Bewusstsein
+Unbefangenheit Selbstbewusstsein
+Unempfindlichkeit Sensibilität
+Schlafen Aufwachen
+Zweifelhaftigkeit Sicherheit
+Unaufmerksamkeit Aufmerksamkeit
+Unaufmerksamkeit aufpassen
+Unerfahrenheit Erfahrung
+"synthetisches Denken" "analytisches Denken"
+out-of-the-box-Denken "konvergentes Denken"
+Unverständnis Verständnis
+General besonderen
+Missverständnis Konzeption
+Antitypos Art
+Divergenz Konvergenz
+Mitte Anfang
+Ende Anfang
+Ende Mitte
+Realitätsprinzip Lust-Unlust-Prinzip
+Yin yang
+Boden Zahl
+Unglauben Glauben
+cataphatism Apophatismus
+"Lehre von der Analogie" Apophatismus
+"Lehre von der Analogie" cataphatism
+Nachahmung Formalismus
+Nationalismus Internationalismus
+Pluralismus Monismus
+Nationalismus Multikulturalismus
+hereditarianism Umweltschutz
+Unerleuchtetseins Aufklärung
+"unbeschränkte Intervall" "beschränkten Intervall"
+cacogenics Eugenik
+"ganzheitliche Theorie" "atomistische Theorie"
+Korpuskeltheorie "Wellentheorie des Lichts"
+"Romantische Bewegung" Klassizismus
+"normativ Linguistik" "deskriptive Linguistik"
+Athanasianismus Arianismus
+Parteilichkeit Parteinahme
+"Messe Heit" Ungerechtigkeit
+Intoleranz Toleranz
+Engstirnigkeit Großzügigkeit
+Respektlosigkeit "die Achtung"
+Respektlosigkeit Ehrfurcht
+nonconformance Konformität
+hawkishness dovishness
+Theismus Gottlosigkeit
+Polytheismus Monotheismus
+Rückseite Schön-
+E-Mail Schneckenpost
+"Äquivalent Wort" "entgegengesetzte Wort"
+Einzahl Plural
+"schrägen Fall" Nominativ
+Missdeutung "grammatische Konstruktion"
+"gängiges Substantiv" Eigenname
+Flash-forward Rückblende
+Textausgabe Handelsausgabe
+Source-Programm Objektprogramm
+Dysphemismus Euphemismus
+"Surface Mail" Luftpost
+inhospitality "herzlichen Empfang"
+con Profi
+Nicht-Intervention Intervention
+Missbilligung Lob
+Missbilligung Billigung
+Entmutigung Förderung
+Lüge "wahre Aussage"
+Indizien "direkte Beweise"
+Universal-Satz "insbesondere Satz"
+syncategoreme categoreme
+Understatement Übertreibung
+Kontraindikation Indikation
+"Römische Ziffer" "Hindu-arabischen Ziffer"
+Index Hochgestellt
+Kleinbuchstaben Großbuchstabe
+Proportionalschrift "konstanter Breite Schrift"
+"alten Stil Schriftart" "moderne Schrift"
+Atonalität Tonalität
+"Natürliche Sprache" "künstliche Sprache"
+"eindimensionale Sprache" "mehrdimensionale Sprache"
+"ungeschichtet Sprache" "geschichteten Sprache"
+Tragödie Komödie
+"polyphone Musik" "monophon Musik"
+Lösung Vorbereitung
+Verminderung Augmentation
+verboseness Knappheit
+Konsonant Vokallaut
+"continuant Konsonant" "plosive Sprachklang"
+"direkten Diskurs" "indirekte Rede"
+Uneinigkeit Zustimmung
+Antworten Verhör
+Negativ positiv
+nein ja
+dissuasion Überzeugung
+Schlussfolgerung Anfang
+disembarrassment Verlegenheit
+Erfolg Fehler
+Tod Geburt
+Eintauchen emersion
+Untergang "erhebt euch"
+"erhöhen, ansteigen" Verringerung
+Levitation Gravitation
+Aufstieg fallen
+"niedriges Wasser" Hochwasser
+Flut Ebbe
+Springflut Nipptide
+abnehmend Wachsen
+Selbstbefruchtung Kreuzbefruchtung
+autogamy Allogamie
+Selbstbestäubung Kreuzbestäubung
+"Rotation gegen den Uhrzeigersinn" "Drehung im Uhrzeigersinn"
+Lecken Sieg
+anaphrodisia aphrodisia
+Schmerzhaftigkeit Lustgarten
+"nicht gefallen" Geschmack
+Unlust Neigung
+Missbilligung "die Genehmigung"
+Anglophobia Anglophilie
+misogynism philogyny
+Undankbarkeit Dankbarkeit
+Unbekümmertheit betreffen
+Demut pridefulness
+Feierlichkeit Leichtfertigkeit
+Ruhe Agitation
+Vertrauen "Selbst Misstrauen"
+Unglück Glück
+Trauer joyousness
+Dysphorie Euphorie
+discontentedness Zufriedenheit
+Unzufriedenheit Befriedigung
+Verzweiflung Hoffnung
+Hoffnungslosigkeit hopefulness
+Liebe Hass
+Böswilligkeit Wohlwollen
+Verstimmung "guter Humor"
+"kochen Apfel" "Dessert Apfel"
+Vollmilch Magermilch
+sortenrein "generic Wein"
+jung alt
+vorsichtig mutig
+Leben tot
+uninitiate erleuchtet
+Vegetation Zoologie
+Strafverfolgung Strafverteidiger
+"verteidigende Mannschaft" Angriff
+temporalty Klerus
+"reiche Leute" "arme Leute"
+"singuläre Matrix" "nichtsingulär Matrix"
+nonalignment Koalition
+"sozialistischen Wirtschaft" "kapitalistische Wirtschaft"
+"ohne Marktwirtschaft" Laissez-faire-Wirtschaft
+feindlich freundlich
+Internat Tagesschule
+Abendschule Tagesschule
+"internationales Recht" Zivilrecht
+Rückseite Kopf
+Dort Hier
+antapex "Spitze der Art und Weise der Sonne"
+Perigäum Höhepunkt
+"Punkt Periapsis" "Punkt Apoapsis"
+Perihel aphelion
+perijove apojove
+periselene aposelene
+"absteigend Knoten" "aufsteigenden Knoten"
+Bauchs Knoten
+Kopf Fuß
+Rückseite "Vorderes Ende"
+äußere Innere
+windwärts Lee-Seite
+Minimum maximal
+Zenit Nadir
+links Recht
+Vorderseite zurück
+"besiedelten Gebiet" "ländliches Gebiet"
+"freien Zustand" Slave-Zustand
+"abschreckend wirken" Anreiz
+adience abience
+Deklination acclivity
+"offene Kette" "geschlossene Kette"
+Nebenfluss distributary
+Flachland Hochland
+Staatsgewässer "internationalen Gewässern"
+Anforderung nicht-essentiellen
+"natürliche Erhebung" "natürliche Depression"
+"Guter Geist" cacodaemon
+"juvenile Person" aufgewachsen
+Befreier capturer
+"männliche Person" "weibliche Person"
+Anhänger Führer
+"religiöse Person" "nonreligious Person"
+Arbeitnehmer nonworker
+Trinker nondrinker
+Beschwerdeführer Beklagte
+"erfolglosen Person" succeeder
+Fremder Bekanntschaft
+Agonisten Antagonist
+Feind Freund
+Professional Amateur
+Nachkomme vorgängigen
+Onkel Tante
+"gutes Ei" "schlechtes Ei"
+"guter Kerl" "schlechter Typ"
+"gute Person" "schlechte Person"
+Stier Bär
+Darlehensgeber Kreditnehmer
+Schwester Blutsbruder
+Elternteil Kind
+noncitizen Bürger
+Militärpersonal Zivilist
+romanticist klassizistische
+Laie "Mann des Tuches"
+progressive conservativist
+Nonkonformist Konformist
+Anglikanisch Nonkonformist
+debitor Gläubiger
+Sohn Tochter
+"Krieg Habicht" peacenik
+"Militär Freiwilligen" conscript
+nondriver Treiber
+elitär egalitäre
+"nüchterne Person" "emotionaler Mensch"
+Arbeitgeber Mitarbeiter
+"legen Zeugnis" Gutachter
+introvertiert extrovertiert
+"weiblicher Elternteil" "männliches Elternteil"
+"Haut und Knochen" "Dicker Mensch"
+"männlich Aristokrat" "weibliche Aristokrat"
+"männliche Nachkommen" "weiblichen Nachkommen"
+"männlich Geschwister" "weibliche Geschwister"
+"männliches Kind" "weibliches Kind"
+withholder granter
+Thronfolger Thronfolger
+"Verheiratete Frau" "verheirateter Mann"
+übergeordnete minderwertig
+ambulant stationäre
+"weibliche Monarchen" "männlich Monarch"
+Edelmann Edelfrau
+"Straight Shooter" prevaricator
+necessitarian libertären
+"totgeborenen Kind" "lebend geborenen Säugling"
+Gewinner Verlierer
+Gewinner "ferner liefen"
+Splitter Lumper
+"erwachsene Frau" "männlichen Erwachsenen"
+Frau Mann
+Sadist Masochist
+Nicht-Mitglied Klubkamerad
+Nichte Neffe
+drumbeater überparteiliche
+Einwohner "nicht ansässige"
+"Tabak Benutzer" Nichtraucher
+Pessimist Optimist
+coenobite eremite
+specializer "Mann der Renaissance"
+stander sitter
+Universal-Agent Spezialagent
+technophobe technophile
+Gleichstrom "elektrischen Wechselstrom"
+Abstoßungskraft Anziehungskraft
+Zentripetalkraft Zentrifugalkraft
+"negative Ladung" "positive Ladung"
+Transparenz Opazität
+"pleurocarpous Moos" "acrocarpous Moos"
+Kryptogamen Phanerogamae
+Pilz Pilz
+Gras Kulturpflanze
+Laubwerk immergrün
+"rote Tinte" gewinnen
+Ausgaben Einkommen
+"knappes Geld" "leichtes Geld"
+Papierverlust "Papier Gewinn zu erzielen"
+losings Gewinn
+nonremittal Zahlung
+"ungesicherte Anleihe" "gesicherte Bindung"
+Margin-Konto Bankkonto
+"passive Vertrauen" "aktiv Vertrauen"
+"sofortige Bezahlung" Stundung
+Abbuchung Gutschrift
+Cash-Basis periodengerecht
+"über die Theke Sicherheit" "kotierten Sicherheit"
+Inaktivierung Aktivierung
+"destruktiven Stoffwechsel" "konstruktiven Stoffwechsel"
+katamorphism Anamorphismus
+vermiculation anastalsis
+Ovulation Anovulation
+Synchronbetrieb "asynchronen Betrieb"
+Reprise caenogenesis
+"steigende Preise" Deflation
+Disinflation Deflation
+Entwicklung Degeneration
+liefern Nachfrage
+"steigende Preise" Disinflation
+nondevelopment Entwicklung
+Deflationsspirale Inflationsspirale
+effluence Zufluss
+"reversibler Prozess" "irreversibler Prozess"
+"aufeinanderfolgenden Betrieb" Simultanbetrieb
+Quelle sinken
+führen Defizit
+"aliquant Teil" "aliquoten Teil"
+Höchstgrenze "untere Grenze"
+Beziehungslosigkeit Verbundenheit
+Irrelevanz Relevanz
+Immaterialität Wesentlichkeit
+Unanwendbarkeit Anwendbarkeit
+Beziehungslosigkeit Verwandtschafts
+intransitiveness Transitivität
+"passive Stimme" "Aktive Stimme"
+Verwandtschafts Affinität
+Lee windwärts
+Desynchronisation Synchronisation
+letztere ehemalige
+"konkaven Polygons" "konvexes Polygon"
+"gerade Linie" "gebogene Form"
+"rechtwinkliges Dreieck" "schiefe Dreieck"
+Trapez Parallelogramm
+"wichtigsten Winkel" "reentering Winkel"
+"schiefen Winkel" "rechter Winkel"
+Missverhältnis Anteil
+Dystopie Utopie
+Ablehnung Annahme
+Gleichgewicht Ungleichgewichts
+Aufnahme Ausschluss
+Astigmatismus stigmatism
+"niedrigen Status" "hoher Status"
+Front-Brenner Sparflamme
+Nicht-Existenz Seiendheit
+Nicht-Sein Seiendheit
+spuriousness Echtheit
+Unwirklichkeit realness
+Falschheit "der wahre"
+thereness hereness
+Sympatrie allopatry
+Mischehe Mischehe
+Arbeitslosigkeit Beschäftigung
+Störung Auftrag
+Instabilität Stabilität
+Kriegszustand Frieden
+Immunschwäche immunocompetence
+"kalter Krieg" "heißen Krieg"
+Dunkelheit Beleuchtung
+guiltiness Unschuld
+Instabilität Balance
+Bewegungslosigkeit Bewegung
+Nüchternheit Rausch
+Schläfrigkeit Schlaflosigkeit
+Schlaflosigkeit Hypersomnie
+Anöstrus Brunst
+Hypokapnie Hyperkapnie
+Unterkühlung Hyperthermie
+Potenz Impotenz
+Fruchtbarkeit Unfruchtbarkeit
+Gesundheitsproblem "gute Gesundheit"
+"organische Störung" Funktionsstörung
+Wellness unwellness
+hypoparathyroidism Hyperparathyreoidismus
+Hypotension Bluthochdruck
+Hypothyreose Hyperthyreose
+Hypovolämie Hypervolämie
+Hypokalzämie Hyperkalzämie
+Hypokaliämie Hyperkaliämie
+Hyponatriämie hypernatremia
+hypopigmentation Hyperpigmentierung
+Hypoglykämie Hyperglykämie
+Geisteskrankheit "Psychische Gesundheit"
+Wahnsinn saneness
+"psychotische Depression" "neurotische Depression"
+Begeisterung Depression
+hoch "gedrückte Stimmung"
+Vereinigung Trennung
+Kontinuität Diskontinuität
+Verbundenheit disconnectedness
+Zusammenhalt Zusammenhanglosigkeit
+Verfremdung Verband
+Deklination Verbesserung
+immatureness Reife
+Grün Reife
+Dunkelheit Bedeutung
+entehren Lorbeeren
+Schande Berühmtheit
+disesteem "die Achtung"
+Verruf Ruf
+Schande Ruhm
+Unbehaglichkeit Behaglichkeit
+Unwohlseins Wohlbefinden
+Leere Fülle
+Hohlheit Solidität
+Unvollkommenheit Nonplusultra
+Unvollständigkeit Vollständigkeit
+Varus valgus
+Unglück Glück
+Insolvenz Zahlungsfähigkeit
+impossibleness possible
+impureness Reinheit
+Verarmung Reichtum
+unsanitariness Hygiene
+Unreinheit Sauberkeit
+Unordentlichkeit Ordentlichkeit
+Anomalie Normalität
+untypicality Typizität
+"nonbiodegradable Verschmutzung" "biologisch abbaubare Verschmutzung"
+Zyklon Antizyklon
+inclementness "gutes Wetter"
+susceptibleness Unempfindlichkeit
+waterlessness Nässe
+Achtung Sicherheit
+Unsicherheit Sicherheit
+insecureness Sicherheit
+atonicity Tonus
+Untauglichkeit "körperliche Fitness"
+Weitsichtigkeit Kurzsichtigkeit
+Heterozygotie homozygosity
+Hypotonizität Hypertonus
+"Bleifreies Benzin" "verbleites Benzin"
+Inhibitor Aktivator
+anticatalyst Beschleuniger
+nonconductor Dirigent
+"nicht-kodierenden DNA" "codierende DNA"
+explosive "hoch Explosiv"
+"Weiches Wasser" "hartes Wasser"
+"frisches Wasser" Salzwasser
+Exotoxin Endotoxin
+Betriebszeit Ausfallzeit
+Auszeit Arbeitszeit
+"Zeit zu kommen" "vergangene Zeiten"
+Erholungstag Arbeitstag
+Tod Geburt
+Minderheit "legales Alter"
+Nachtzeit Tageslicht
+Sonnenuntergang "brechen des Tages"
+Wintersonnenwende Sommersonnenwende
+"September Tagundnachtgleiche" Frühlingstagundnachtgleiche
+"Extra Zeit" Regelzeit
+"außerhalb der Saison" Hochsaison
+Trockenzeit Regenzeit
+"Unterseite des Inning" "oben auf dem Inning"
+Mitte Anfangszeit
+Ende Anfangszeit
+Ende Mitte
+Einatmen Ausatmen
+"aktiv sein" "sich ausruhen"
+aufwachen "fangen einige Z"
+aestivate überwintern
+lebendig Einschlafen
+herauskommen "ins Bett legen"
+"führen zu schlafen" aufwachen
+vorbeibringen betäuben
+stimulieren beruhigen
+de-energetisieren stimulieren
+"Verschleiß auf" refreshen
+"machen entspannt" anspannen
+dekomprimieren anspannen
+weinen "auszudrücken Lustigkeit"
+"dress down" Überkleid
+anziehen abnehmen
+ausziehen "zieh Dich an"
+ausziehen habilitieren
+Unterkleid overclothe
+Wegrutschen schlüpfen
+Fehlgeburt "tragen zu Begriff"
+beruhigen reizen
+"gut sein" leiden
+halten erbrechen
+desinfizieren infizieren
+erholen verschlechtern
+"bleiben übrig" Veränderung
+entdifferenzieren unterscheiden
+Entmythologisierung mythologisieren
+"erhöhen, ansteigen" verringern
+dissimilate assimilieren
+devitalize beleben
+verarmen bereichern
+hinzufügen wegbringen
+vollstopfen unclutter
+inaktivieren aktivieren
+beleben betäuben
+verfälschen richtig
+verbessern Ablehnen
+verschärfen verbessern
+Hydrat exsiccate
+Austrocknen nass
+entfeuchten befeuchten
+entriegeln sperren
+lösen engagieren
+schwächen stärken
+oxidieren deoxidize
+sprengen herunterskalieren
+verteilen Vertrag
+strecken Vertrag
+erarbeiten verkürzen
+rückläufig mitkommen
+verjüngen Alter
+indurate erweichen
+Unterbrechung "furbish up"
+abzulassen aufblasen
+alkalize ansäuern
+"schlechter werden" abprallen
+auftauen immobilisieren
+destabilisieren stabilisieren
+desensibilisieren sensibilisieren
+"nach Datum" vordatieren
+melanize aufhellen
+verdunkeln erhellen
+Einfärben verfärben
+deeskalieren intensivieren
+verunstalten verschönern
+verstimmen "tune up"
+disqualifizieren qualifizieren
+Vertrag erweitern
+"nehmen in" rauslassen
+explodieren implodieren
+hydrieren dehydrieren
+focalize verwischen
+focalize trübe
+schätzen abwerten
+verlängern verkürzen
+entmaterialisieren materialisieren
+beenden beginnen
+beenden abführen
+"geboren werden" "Bargeld in der eigenen Chips"
+"auseinander brechen" vereinheitlichen
+Aufheizen abkühlen
+Kochen einfrieren
+entpersönlichen individualisieren
+stimulieren ersticken
+ebnen schärfen
+Absynchronisieren synchronisieren
+übernehmen zerfallen
+entmagnetisieren magnetisieren
+komplizieren vereinfachen
+drucklos "unter Druck setzen"
+dekonzentrieren konzentrieren
+summerize winterize
+entstaatlichen verstaatlichen
+denaturalisieren naturalisieren
+auswandern einwandern
+lösen versteifen
+detransitivize transitivize
+verschwinden erscheinen
+verschwinden mitkommen
+maximieren minimieren
+vergrößern herunterskalieren
+inspissate dünn
+schwinden montieren
+schwinden voll
+aufrollen entfalten
+verengen verzweigen
+verlangsamen beschleunigen
+ungültig bestätigen
+auffüllen entladen
+"in vollem Umfang" leer
+clabber homogenisieren
+halten Eile
+louden beruhigen
+Skew ausrichten
+verunreinigen dekontaminieren
+entkalken verkalken
+demulgieren emulgieren
+nazifizieren entnazifizieren
+nitrifizieren Entstickung
+aktivieren "außer Gefecht"
+Vordergrund Hintergrund
+entmystifizieren verwirren
+ionate de-ionate
+de-iodieren iodieren
+orientalize occidentalize
+entsalzen salinate
+entschlüsseln Gerangel
+Decrescendo Crescendo
+veer zurück
+destalinize stalinize
+ignorieren cognize
+"Überblick verlieren" "Bleib dran"
+"eine Niete ziehen" Rückrufen
+vergessen beachten
+vergessen merken
+"zu Herzen nehmen" Pretermit
+einschließen auslassen
+spiritualize literalize
+subtrahieren addieren
+Fraktion multiplizieren
+integrieren unterscheiden
+synthetisieren Nervenzusammenbruch
+Aktualisierung degradieren
+widerlegen zeigen
+widersprechen begründen
+überschätzen unterschätzen
+missbilligen genehmigen
+"abgeneigt machen" verfügen
+Kufr glauben
+akzeptieren ablehnen
+reprobate approbate
+Vertrauen Misstrauen
+dissoziieren assoziieren
+lehnen Anspruch
+abbringen überzeugen
+überreden "herausreden aus"
+Antlitz Interdikt
+Zustimmung Ablehnen
+auslagern Vertrag
+Dissens einwilligen
+Eintracht "nehmen Ausgabe"
+missbilligen Sanktion
+konfrontieren vermeiden
+bestätigen verweigern
+verleugnen bekennen
+loben "auseinander nehmen"
+untertreiben hyperbolize
+entbinden Schuld
+schönreden verunglimpfen
+undeceive "abseits leiten"
+"Ton aus" "Kopf hoch"
+zischen applaudieren
+segnen anathemize
+deconsecrate weihen
+disoblige unterbringen
+Unterbrechung machen
+Abschied "herzlich willkommen"
+überführen entladen
+flüstern schreien
+kontraindizieren zeigen
+"Mund halten" "die Katze aus dem Sack lassen"
+verschleiern erläutern
+singen devoice
+Auschecken Check-In
+"Uhr aus" "den Arbeitsbeginn registrieren"
+entziffern kodieren
+löschen Aufzeichnung
+verallgemeinern spezifizieren
+kommunizieren exkommunizieren
+öffnen "Taste nach oben"
+unspell buchstabieren
+"bleiben auf der Strecke" "sich beteiligen"
+entmilitarisieren aufbauen
+mobilisieren demobilisieren
+"mache Frieden" Krieg
+entlassen "aufbieten in"
+entmilitarisieren militarisieren
+Sieg verlieren
+zurückfallen "Fortschritt machen"
+"Bleib standhaft" Kapitulation
+verteidigen Attacke
+unterschreiten überschreiten
+Sicherung entschärfen
+verzichten verbrauchen
+"Essen gehen" "Speisen in"
+ausschlafen ausschlafen
+verhungern Futter
+"Fläschchen geben" stillen
+"sei voll" verhungern
+lösen Schließe
+verzichten ergreifen
+aufdrehen verzerren
+Fräulein "mit etwas zusammenstoßen"
+schärfen stumpf
+aufrauen glätten
+verteilen klappen
+entspannen verformen
+auspacken einpacken
+binden unbrace
+unchain Kette
+abschnallen Gurt
+"kommen weg" anfügen
+disjoint verbinden
+zusammenbringen disjoint
+ablösen anfügen
+abkuppeln "Paar auf"
+Suffix Präfix
+unbridle Zaum
+lösen binden
+unlash Peitsche
+abdocken Dock
+degradieren aggrade
+ausspannen hitch
+aufdecken Abdeckung
+lösen befestigen
+zip entpacken
+aufsperren Bar
+öffnen schließen
+unbolt Bolzen
+Schraube abschrauben
+entsiegeln Dichtung
+trennen verbinden
+entlarven Maske
+abfädeln string
+aushängen Haken
+unbelt Gürtel
+unstaple Klammer
+unclip Clip
+aufknöpfen Taste
+unpin Stift
+"Reiß dich zusammen" verteilen
+dekomprimieren "packen zusammen"
+trennen "Stecker in"
+entkorken verkorken
+"Weg tragen" vermitteln
+Kraft Kraft
+entführen Addukt
+ordnen verwickeln
+disarrange ordnen
+behindern lösen
+unclog Würgen
+lockern ersticken
+Mitnahme Pack
+enthüllen Schleier
+unbox Paket
+Uncrate Kiste
+disburden "Gewicht nach unten"
+entladen berechnen
+ausspannen Joch
+Ausspannstation inspan
+ausspannen nutzen
+offsaddle Sattel
+zurückzudrängen anlocken
+ausschalten einschalten
+lösen arbeiten
+untwine verflechten
+unweave verweben
+unbraid pleach
+Gewirr entschlüsseln
+"faserig werden" Gewirr
+"Wind aus" Schnur
+abwickeln Spule
+Funktion Fehlfunktion
+"tick über" Lauf
+gehen ausdenken
+entfernen Anzahlung
+beschmutzen "machen sauber"
+Maschinenwäsche Handwäsche
+aufstehen Hinsetzen
+Lüge Hinsetzen
+Lüge aufstehen
+abschnallen Schnalle
+"Scheide ziehen" ummanteln
+kabellos Draht
+unmake machen
+"Ausstieg aus" "Phase in"
+körperlosen verkörpern
+zerlegen zusammenheften
+abbauen Konfiguration
+ablegen anschlagen
+zuspielen "ham it up"
+beruhigen aufladen
+beruhigen Sorge
+Liebe verabscheuen
+mögen "nicht gefallen"
+vermenschlichen entmenschlichen
+Abwehr anlocken
+demoralisieren berauschen
+betrüben erfreuen
+beschweren erhellen
+missfallen Freude
+"nicht befriedigen" erfüllen
+Unzufriedenheit Inhalt
+Enttäuschung entzücken
+entmutigen neu
+entmutigen ermutigen
+Bohrung interessieren
+gönne "möchten gut"
+"herabsehen auf" "Aufsehen zu"
+"still stehen" Bewegung
+"bleiben an Ort und Stelle" locomote
+ausdenken "Geh weg"
+dableiben Bewegung
+ausziehen einziehen
+halt Anfang
+loslegen halt
+verebben surge
+"gehen unter" schweben
+Reiten gehen
+uncross Kreuz
+"Datei aus" "Datei in"
+Pop-out hereinschneien
+aussteigen auffahren
+"herunter kommen" "nach oben"
+"herunter kommen" aufsteigen
+"gehen unter" ausdenken
+"zur Sprache bringen" erlegen
+begeben "von Bord gehen"
+hinlegen aufstehen
+deglycerolize glycerolize
+wegziehen Fortschritt
+zurück "voran bringen"
+vorausgehen Folgen
+hingehen ankommen
+"oben aus" "Boden aus"
+bleibe verlassen
+"ziehen in" Herausziehen
+"verschieben in" "geh raus"
+"zusteigen, einsteigen, vorwärtskommen" verschwinde
+konvergieren divergieren
+Biege begradigen
+"Kanonenkugel entlang" verweilen
+genießen leiden
+unterbelichten überbelichten
+sensibilisieren desensibilisieren
+ignorieren beachten
+deodourise odourise
+verbergen Show
+schließen öffnen
+desorientieren orientieren
+Fokus verwischen
+louden "sich beruhigen"
+schärfen erweichen
+acidulate edulcorate
+nehmen geben
+verlieren "warten Sie mal"
+verkaufen Kauf
+zulassen "sich weigern"
+enterben vererben
+Export einführen
+hochladen herunterladen
+abdrehen akzeptieren
+Ausloggen Einloggen
+underpay overpay
+"Standard ein" "ante up"
+klar prallen
+Debit Kredit
+under verausgaben
+sparen verschwenden
+disinvest investieren
+"über Bord werfen" beanspruchen
+derequisition requirieren
+"drehen einen Verlust" "drehen einen Gewinn"
+"die Gewinnzone erreichen" "drehen einen Gewinn"
+"drehen einen Verlust" "die Gewinnzone erreichen"
+verlieren wiedergewinnen
+erwerben verlieren
+unterbieten überbieten
+unterbieten überbieten
+abheben Anzahlung
+"Bar bezahlen" berechnen
+"zu wenig berechnen" Überladungs
+notieren markieren
+under "zu viel lagern"
+verleihen leihen
+unmuzzle Schnauze
+kern kern
+Refrain Bewegung
+"nehmen Büro" "Büro verlassen"
+inthronisieren disinvest
+entthronen inthronisieren
+"Kick nach unten" "Kick nach oben"
+engagieren "jdn rausschmeißen"
+"Komm vor" "kommen nach"
+stagnieren Arbeit
+beschränken befreien
+verhindern erlauben
+schließen öffnen
+"beseitigen, abschütteln" schaffen
+"in Unordnung bringen" organisieren
+auszubuchen Lizenz
+einschließen "kein Zutritt"
+Respektlosigkeit befolgen
+munden Boykott
+Vereinen aufteilen
+enfranchise disenfranchise
+formalisieren ungültig
+erinnern liefern
+entkriminalisieren kriminalisieren
+trennen desegregate
+repatriieren Expatriate
+abdrehen "erlauben in"
+declassify klassifizieren
+derestrict beschränken
+deregulieren regularisieren
+kompensieren falsch
+gebärden Fehlverhalten
+fehlschlagen aushandeln
+"mach es" spülen
+bestehen fehlschlagen
+"schief gehen" "die Brötchen verdienen"
+ungehorsam gehorchen
+entlasten implementieren
+rehabilitieren spülen
+beobachten überschreiten
+vertreten "zu verfolgen"
+decolonize besiedeln
+beenden Start
+Fräulein besuchen
+erliegen durchziehen
+beseitigen erfordern
+Fräulein Feature
+ausschließen einschließen
+disharmonieren entsprechen
+entsprechen abweichen
+abweichen gleich
+hinausgehen "Komm herein"
+entsprechen "dagegen sein"
+"Leben bis zu" unterschreiten
+"Gleichgewicht bringen" äquilibrieren
+einzustellen fortsetzen
+nachgeben "fest bleiben"
+widerstehen "leihen sich"
+"nach Datum" antecede
+löschen entzünden
+verteilen "nehmen in"
+klären bedeckt
+unfreundlich freundlich
+unwesentlich bedeutend
+vollständig teilweise
+unvollkommen perfekt
+schlecht Gut
+schlecht Gut
+nachteilig vorteilhaft
+unbefriedigender zufriedenstellend
+nie immer
+unkonventionell konventionell
+"nicht mehr, nicht länger" "immer noch"
+selten häufig
+selten häufig
+unvernünftig vernünftig
+unnatürlich natürlich
+absichtlich circumstantially
+"im Wesentlichen" speziell
+Unglücklicherweise "wie es der Zufall wollte"
+unglücklich glücklich
+unglücklich mirthfully
+maschinell "von Hand"
+unannehmbar akzeptierbar
+maladroitly geschickt
+"nicht durch eine Schuld Anblick" "auf jeden Fall"
+indirekt direkt
+unbeabsichtigt absichtlich
+ruhig laut
+Vorwärts rückwärts
+"nach vorne" rückwärts
+offen verstohlen
+passiv aktiv
+über unten
+"in einem höheren Platz" "zu einem niedrigeren Platz"
+sanely dementedly
+multiplizieren einzeln
+theoretisch "durch empirische Beobachtung"
+spät "hopp, hopp"
+unzulässig zulässigerweise
+vorübergehend permanent
+linear geometrisch
+ergebnislos "ein für alle Mal"
+"auf einer höheren Etage" "auf einer unteren Etage"
+"gegen den Wind" Abwind
+"nach oben" "nach unten"
+oben "nach unten"
+Downstream Upstream
+"in geringerem Maße" "in einem größeren Ausmaß"
+Weniger Mehr
+verspätet "vor der Zeit"
+höchstens zumindest
+"am schlechtesten" "am besten"
+unverantwortlich verantwortungsbewusst
+hervorragend unremarkably
+"an dieser Stelle" Hier
+dorthin hierher
+draußen drinnen
+draußen innen
+"auf den niedrigsten Grad" "in höchstem Maße"
+anorganisch organisch
+inoffiziell offiziell
+peripher zentral
+"Auf der einen Seite" andererseits
+vergeblich erfolgreich
+unsystematisch systematisch
+inkonsequent systematisch
+verfassungswidrig verfassungsmäßig
+undemokratisch demokratisch
+untypisch typisch
+"an erster Stelle" "in zweiter Linie"
+undramatisch dramatisch
+unpassend passend
+Land Off-Shore
+"durch künstliche Mittel" natürlich
+chronisch akut
+ungenügend ausreichend
+stockend "ohne Zögern"
+"außer Kontrolle" "in der Hand"
+versehentlich advertently
+unmindfully advertently
+legitim illegal
+unangenehm bequem
+"im Vertrauen" öffentlich
+öffentlich privat
+aborad orad
+geduldig ungeduldig
+ständig falteringly
+unsymmetrisch symmetrisch
+leicht unbeherrscht
+schwach stark
+sparsam reichlich
+gracelessly anmutig
+rücksichtslos rücksichtsvoll
+"wenig hilfreich" hilfreich
+irrational rational
+unkritisch kritisch
+"Anzeigen von Inkompetenz" kompetent
+nüchtern emotional
+formal informell
+Innenstadt uptown
+"ohne Begeisterung" begeistert
+fein grob
+unsympathetically mitfühlend
+"wenig überzeugend" überzeugend
+ungnädig gnädig
+"in unregelmäßigen Abständen" regelmäßig
+"in gutem Zustand" unsachgemäß
+ungünstig bequem
+abstrakt konkret
+dauntlessly ängstlich
+hoffnungslos hoffentlich
+töricht weise
+unintelligent intelligent
+ununderstandably verständlicherweise
+undiplomatisch diplomatisch
+falsch korrekt
+ungenau genau
+ungerecht justifiedly
+"in aller Ruhe" eilig
+monaurally "für beide Ohren"
+unimaginatively phantasievoll
+ashamedly unverschämt
+unimpressively eindrucksvoll
+unproduktiv produktiv
+dilettantisch "wie ein Experte"
+uninteressant interessant
+unmäßig "in Maßen"
+unrealistisch realistisch
+gedankenlos nachdenklich
+inauspiciously verheißungsvoll
+unhöflicherweise artig
+disagreeably angenehm
+unangenehm angenehm
+eindeutig zweideutig
+zeremoniell unsanft
+"allgemein gesprochen" eng
+treulos treu
+gewaltlos heftig
+endlich unendlich
+klein groß
+unwarily vorsichtig
+ruhig geräuschvoll
+unquietly ruhig
+innerlich "nach außen"
+ungünstig günstig
+freudlos fröhlich
+unwillkürlich freiwillig
+ineffizient zügig
+versehentlich wittingly
+ungerechtfertigt "zu Recht"
+unbescheiden bescheiden
+unschlüssig entschlossen
+unansehnlich attraktiv
+unbewusst bewusst
+nichtkonkurrierend kompetitiv
+unglaublich glaubwürdig
+unanständig anständig
+uncharakteristisch charakteristisch
+"nach außen" "im Inneren"
+"a priori" "A posteriori"
+rechtswidrig rechtmäßig
+Halbzeit Vollzeit
+multilateral einseitig
+"im Uhrzeigersinn" "gegen den Uhrzeigersinn"
+auswärts "nach innen"
+"auf der Bühne" "hinter den Kulissen"
+unappealingly bittend
+disapprovingly zustimmend
+unambitiously entschlossen
+downs "Schau stehlen"
+unassertively assertively
+unartikuliert artikuliert
+unhörbar hörbar
+bloodily unblutig
+unappreciatively anerkennend
+ungewöhnlich seasonably
+Vorwärts achtern
+unvorsichtig vorsichtig
+unchivalrously ritterlich
+"unter der Gürtellinie" ziemlich
+zusammenhanglos zusammenhängend
+inkompatibel kompatibel
+complainingly klaglos
+noncomprehensively umfassend
+bedingungslos bedingt
+unlogisch folgerichtig
+credulously ungläubig
+unschlüssig entscheidend
+dünn dicht
+unmöglich möglicherweise
+unverdienter verdientermaßen
+unumstritten kontrovers
+unschicklich schicklich
+unwillig willentlich
+offensiv defensiv
+offensiv harmlos
+harmlos nachteiliger
+unehrlich ehrlich
+ehrenvoll unehrenhaft
+illoyal loyal
+disobediently gehorsam
+proportional proportional
+reputably disreputably
+respektlos respektvoll
+zutraulich mißtrauisch
+westlichste östlichste
+ineffectually wirksam
+inefficaciously efficaciously
+selbstlos egoistisch
+unelegant elegant
+entmutigend aufmunternd
+unbillig gerecht
+unethisch ethisch
+ungleichmäßig gleichmäßig
+unregelmäßig regelmäßig
+ungleichmäßig gleichermaßen
+"ganz unspektakulär" erregend
+unverzeihlich forgivably
+unzweckmäßig zweckmäßig
+kostengünstig teuer
+ausdruckslos expressiv
+altmodisch fashionably
+uncivilly civilly
+gefühllos fühlend
+infelicitously trefflich
+buchstäblich "im übertragenen Sinne"
+unflexibel flexibel
+unversöhnlich forgivingly
+laut leise
+"sehr laut" "sehr leise"
+freudlos hämisch
+ungrudgingly zähneknirschend
+ungastlich gastfreundlich
+unmenschlich menschlich
+humorlos humorvoll
+unhygienisch hygienisch
+undecipherably decipherably
+legitim illegitim
+unlogisch logisch
+unmoralisch tugendhaft
+penitentially "ohne Reue"
+spürbar unmerklich
+persönlich unpersönlich
+ausdrücklich implizit
+unpräzise beißend
+vorsorglich sorglos
+unvorsichtig providentially
+unzureichend angemessen
+vergleichbar unvergleichlich
+unscheinbar auffallend
+indiskret dezent
+uninformatively informatively
+opportunely "zur Unzeit"
+insecurely sicher
+unsensibel empfindlich
+unaufrichtig unfeignedly
+intolerant tolerant
+intransitiv transitively
+sichtbar unsichtbar
+einschlägig irrelevantly
+ehrfurchtsvoll respektlos
+reiflich unreif
+unüberlegt umsichtig
+staccato Legato
+unhandlich manageably
+unmanfully mannhaft
+böswillig wohlwollend
+minimal maximal
+reich sparsam
+messbar unermesslich
+unmelodiously melodiös
+unmemorably unforgettably
+wahrheitsgemäß mendaciously
+unmusikalisch musikalisch
+"Breit mindedly" engherzig
+unnötigerweise Notwendig
+subjektiv objektiv
+unauffällig aufdringlich
+pessimistisch optimistisch
+obligat optional
+unpalatably schmackhaft
+unpatriotisch patriotically
+unrecognizably erkennbar
+unprätentiös prätentiös
+unrighteously righteously
+unbefangen selbstbewusst
+unsentimental sentimental
+untrennbar abtrennbar
+unsmilingly smilingly
+ungesellig sociably
+unsportingly sportingly
+unromantically romantisch
+taktlos taktvoll
+geschmacklos geschmackvoll
+leicht dick
+dick dünn
+grammatisch ungrammatisch
+beispiellos precedentedly
+unehrenhaft ehrenvoll
+nutzlos nutzbringend
+konkav konvex
+schmerzlos schmerzlich
+adaxially abaxially
+unfähig fähig
+adaxial abaxial
+basiscopic acroscopic
+adductive abducting
+sterben "Entstehen begriffenen"
+ungekürzt gekürzt
+vergleichend Absolute
+"nicht absorptiven" absorbierend
+nicht-adsorptive "oberflächen assimilative"
+adsorbierbare resorbierbar
+gefräßig enthaltsam
+Beton abstrakt
+knapp reichlich
+unabused "schlecht behandelt"
+"nicht akzeptiert wird" akzeptabel
+"nicht zugänglich" zugänglich
+unaccommodating aufnimmt
+ungenau genau
+ungewohnt gewohnt
+alkalisch sauer
+amphiprotische sauer
+amphiprotische alkalisch
+"alkalisch liebend" säureliebenden
+unbestätigter anerkannt
+unacquisitive acquisitive
+basipetal acropetal
+inaktiv aktiv
+aktiv ausgestorben
+stativen dynamisch
+passiv aktiv
+ruhig aktiv
+Potenzial existent
+chronisch acute
+avirulent virulent
+maladaptiven adaptative
+unaddicted süchtig
+nonaddictive sichbilden
+subtraktiven Zusatzstoff
+"nicht adressiert" "Rechnung getragen wird"
+unzureichend angemessene
+"nicht klebenden" Klebstoff
+materiell Verfahrens
+unadoptable adoptable
+undecorated dekoriert
+Anticholinergikum cholinerge
+ungeschickt geschickt
+nachteilig vorteilhaft
+unadventurous abenteuerlich
+"nicht ratsam" ratsam
+"schlecht beraten" "gut beraten"
+anaerobiotic aerophilous
+anaerobe Aerobic
+inaesthetic ästhetische
+unberührt betroffen
+unberührt unnatürlich
+rejective acceptive
+gestrandet "über Wasser"
+furchtlos Angst
+nonaggressive aggressiv
+unaufgeregt gerührt
+unangenehm angenehm
+Luft-zu-Luft Luft-Oberfläche
+Boden-Luft Luft-Oberfläche
+Boden-Luft Luft-zu-Luft
+unwatchful wachsam
+Heuristik algorithmische
+unveräußerlich veräußerlich
+tot "am Leben"
+eccrine apokrinen
+subartesian artesian
+tot Leben
+Analphabeten alphabetisch
+precocial altricial
+egozentrisch altruistisch
+eindeutig mehrdeutig
+ambitionslose ehrgeizig
+emmetropische ametrope
+spärlich reichlich
+catabolic anabole
+cataclinal anaclinal
+astigmatische anastigmatic
+synclinal anticlinal
+katadromer anadromous
+diadromen anadromous
+diadromen katadromer
+katabatic anabatic
+Oral "anal retentive"
+digital analog
+synthetisch analytisch
+Synthetik uninflected
+derivational inflectional
+syncarpous apocarpous
+unangry wütend
+unresentful resentful
+insentient empfindungsfähig
+"nicht lebende" animieren
+unbewegliche animierte
+unbelebten belebt
+leblosen animieren
+Onymous anonym
+Obduktion Antemortem
+anschließend vorgängigen
+retrorse antrorse
+terrestrisch Wasser
+amphibische Wasser
+amphibische terrestrisch
+Erfolg vorausgeht
+beispiellos dagewesene
+nonprehensile Greif
+perinatale antepartum
+postpartale antepartum
+postpartale perinatale
+postprandial präprandiale
+Nachkriegs Vorkriegs
+anterograde rückläufig
+postmeridian antemeridian
+hintere anterioren
+ventralen dorsal
+unanfechtbar beschwerde
+unappendaged appendaged
+unappetitlich appetitlich
+unnahbar zugänglich
+ungeeignet angemessen
+ungebührliche fällig
+malapropos apropos
+peripteral apteral
+nonarbitrable schieds
+noncolumned columned
+nonarboreal baumbewohnenden
+tonigen arenaceous
+unbewaffnet bewaffnet
+ungepanzerten gepanzert
+armless bewaffnet
+ungekünstelt listig
+unartikuliert artikulieren
+nonspeaking Apropos
+unartikuliert artikuliert
+schamlos beschämt
+unassertive "Selbst behaupten"
+nonassociative assoziativ
+"nicht gebunden" verpflichtet
+unbefestigte "befestigt ist"
+pedunculate stalkless
+vagile sessile
+freistehend angebracht
+unstuck stecken
+abnehmbar aufsteckbaren
+unvorsichtige vorsichtig
+unaufmerksam aufmerksam
+unattraktiv attraktiv
+abstoßend attraktiv
+unattraktiv ansprechend
+zurechenbare zurückzuführen
+prädikativen attributive
+"nicht schwanger" schwanger
+unhörbar hörbar
+Unterschall transonic
+Überschall transonic
+Überschall Unterschall
+inauspicious verheißungsvoll
+ungünstig günstig
+unbefugtem autorisiert
+verfassungswidrig Verfassungs
+allochthonous autochthonen
+heterözisch autözisch
+heterogen autogenem
+Handbuch automatisch
+"nicht verfügbar" verfügbar
+schlafend wach
+nonastringent adstringierend
+incognizant cognizant
+unwissentlich Witting
+"nicht alarmgebenden" alarmierend
+entomophil anemophilous
+unreassuring beruhigend
+"es folgen" führt
+rückenfrei unterstützt
+umkehren Vorwärts
+unbalconied balconied
+unbarrelled barrelled
+beakless Schnabelwal
+bettfreien bett
+unbeneficed beneficed
+ungeschichtet geschichtet
+fernless Ferned
+gras grasig
+ungusseted gusseted
+behaarten unbehaart
+awnless begrannt
+nonbearing Lager
+hässlich schön
+hässlich ziemlich
+flach-aufgeblähten aufgeblähter
+ungebändert gebändert
+unbelted schnallte
+maleficent segens
+unmalicious böswillige
+verleumden gutartig
+schlechter besser
+verschlechtert besser
+Verschlechterung Besserung
+Einkammer Zwei-Kammer
+unidirektionale bidirektional
+gesichtslos konfrontiert
+bibless bibbed
+multilateralen einseitig
+unimodal bimodale
+Mono binaurale
+trinucleated binukleäre
+einkernigen binukleäre
+trinucleated einkernigen
+quadrupedal "beiden Beinen"
+Brünette "Licht haarig"
+makellos verunstaltet
+unblutigen blutig
+schüchtern "Fett gedruckt"
+ungebunden gebunden
+unlaced geschnürt
+unfastened "befestigt ist"
+entwirrt verheddert
+unbordered begrenzt
+lentic lotic
+Mittelklasse "untere Schicht"
+Oberklasse "untere Schicht"
+Oberklasse Mittelklasse
+dolichocephalic brachyzephalen
+feige mutig
+feige plucky
+"Flasche gefüttert" gestillten
+atemlos Atmung
+nicht-kristallin kristallin
+landlos gelandet
+dunkel Licht
+unshaded beschattet
+moonless Mondn
+unüberbrückbar überbrückbar
+stumpf hell
+ungetrübt gedimmt
+unvoreingenommen diskriminierend
+engstirnig aufgeschlossenen
+unreconstructed rekonstruiert
+ungebrochen gebrochen
+sisterlike brotherlike
+endergonische exergonic
+identisch brüderlich
+unburied digt
+Leerlauf beschäftigt
+"ohne Knochen" boney
+knöpfte knöpft
+sozialistisch kapitalistische
+wohlklingend cacophonous
+unberechenbar kalkulierbar
+stürmisch ruhig
+uncamphorated Kampfer
+unfähig fähig
+ungepflegt gepflegt
+leichtsinnig vorsichtig
+pflanzenfress "Fleisch fress"
+omnivorous "Fleisch fress"
+insectivorous "Fleisch fress"
+omnivorous pflanzenfress
+insectivorous pflanzenfress
+insectivorous omnivorous
+holophytic holozoic
+acarpellous carpellate
+"ohne Teppich" Teppichboden
+"clincher gebaut" "carvel gebaut"
+uncarved geschnitzt
+catalectic acatalectic
+hypercatalectic acatalectic
+hypercatalectic catalectic
+Radikale cauline
+unzensiert zensiert
+acaudate caudated
+acaulescent caulescent
+noncausative ursächlich
+unvorsichtig vorsichtig
+nichtzelligen zellulären
+inkohärent kohärent
+unsepariert compartmented
+"nicht porös" poriferous
+Peripherie zentrale
+centripetal zentrifugalen
+ableitenden zuführenden
+dezentralisieren Zentralisierung
+unsicher sicher
+"nicht überzeugt" überzeugt
+diffident zuversichtlich
+uncertified zertifiziert
+vermeidbar unvermeidlich
+unabwendbare vermeidbar
+unveränderlich veränderbar
+incommutable commutable
+unveränderlich änderbar
+unveränderbar modifizierbar
+unangepasste eingestellt
+unangepasst eingestellt
+unverändert geändert
+"ohne Abänderungen" geändert
+unverändert geändert
+isotonisch isometrische
+nicht-ionisierten ionisiert
+unveränderlich veränderbar
+uncharakteristisch charakteristisch
+ungeladen berechnet
+lieblos wohltätig
+unchartered gecharterten
+herrenlos "im Besitz"
+unkeusch keusch
+deprimierend heiter
+achlamydeous chlamydeous
+achondritic chondritischen
+triclinic monoklin
+polychromen monochromatische
+achromatisch chromatische
+ungesättigt gesättigt
+"Schwarz und weiß" Farbe
+farblos farbig
+unbefleckt befleckt
+farblos bunt
+dunkel "Hell gefärbt"
+diatonischen chromatische
+transmontane cismontane
+unchristlich Christian
+noncivilized zivilisierten
+nicht-klassischen klassisch
+"nicht klassifiziert" klassifiziert
+unanalysierte analysiert
+unrein reinigen
+dreckig unbedenkliche
+verunreinigen uncontaminating
+nicht-radioaktive radioaktiv
+unklar klar
+undurchsichtig klar
+Radio-Opak strahlendurchlässige
+verwirrt "klares Denken"
+rauem Klemens
+blöd Smart
+schließen weit
+schließen entfernt
+uncousinly cousinly
+unbekleidet bekleidet
+sattelte gesattelt
+bewölkt klar
+Inland Küsten
+Off-Shore landeinwärts
+inkohärent konsistent
+noncollapsible zusammenklappbar
+uncrannied crannied
+distributive Kollektiv
+unterdrückt veröffentlicht
+"nicht veröffentlicht" veröffentlicht
+unpublishable veröffentlichbare
+"nicht gemeldet" berichtet
+unreportable berichts
+noncombinative kombi
+"nicht brennbar" brennbar
+"nicht explosiv" explosiv
+unbeleuchteten beleuchtet
+unbequem geräumig
+unbequem gemütlich
+inkommensurabel angemessen
+unverhältnismäßig verhältnismäßig
+"nicht kommerziellen" kommerziell
+nonresidential Wohn
+noncommissioned beauftragt
+ungewöhnlich verbreitet
+ungewöhnlich gewöhnlich
+hydrophile hydrophob
+oleophoben oleophilen
+Person verbreitet
+verschlossen gesprächig
+lose kompakt
+unvergleichlich vergleichbar
+uncompassionate mitfühlend
+unvereinbar kompatibel
+"nicht mischbar" mischbar
+inkompetent kompetent
+noncompetitive wettbewerbsfähig
+klaglos complaintive
+inkompressibel komprimierbar
+fraktionierte ganze
+Hälfte ganze
+undedicated gewidmet
+unvollständig komplett
+noncomprehensive umfassend
+discomposed "zusammengesetzt ist"
+unverständlich verständlich
+prall konkav
+verteilt konzentriert
+nichtkonzentrische concentrical
+unbekümmert besorgt
+weitschweifig prägnant
+"nicht schlüssig" schlüssig
+unconsummated vollzogen
+unterzuordnen "zu koordinieren"
+diskordanten accordant
+erweitert "Vertrag abgeschlossen"
+hypertrophe vermindert
+unbedingte bedingt
+"nicht durchsetzbar" durchsetzbar
+unenforced "umgesetzt werden"
+nichtleitend "leitend ist"
+unconfined beschränkt
+laufenen überfüllt
+unvereinbar sympathisch
+inkongruent kongruent
+unpassend kongruent
+disjunctive verbindend
+disjunct conjunct
+unverbundenen "in Verbindung gebracht"
+unüberwindlich überwindbar
+bewusstlos bewusst
+entweiht geweiht
+unpriestly priest
+Liberale konservativ
+inkonsistent konsistent
+unauffällig auffällig
+ununterscheidbar erkennbar
+"nicht zu unterscheiden" unterscheidbar
+unbeständig Konstante
+destruktiv konstruktiv
+unzufrieden zufrieden
+unbestreitbar anfechtbar
+inkontinent Kontinent
+sporadisch kontinuierliche
+diskontinuierlich ununterbrochen
+diskontinuierlich kontinuierlich
+abgesetzt fortgesetzt
+unkontrolliert "gesteuert wird"
+unumstritten umstritten
+unargumentative argumentative
+ungünstig praktisch
+unkonventionell konventionell
+konventionell Kern
+nontraditional traditionelle
+abweichend konvergent
+branchless branchy
+"nicht überzeugend" überzeugend
+roh gekocht
+unkooperativ Kooperative
+unbestechlich korrupt
+antagonistisch synergistische
+unbeträchtlich beträchtlich
+unwesentliche erheblich
+"kein Material" Material
+unbodied Körper
+unbrainwashed gehirngewaschen
+unkörperlich körperlich
+falsch richtig
+falsch richtig
+unkorrigiert korrigiert
+unverbesserlich korrigierbar
+Provinz kosmopolitisch
+Abführmittel verstopft
+unconstipated verstopft
+rücksichtslos rücksichtsvoll
+unhöflich höflich
+unhöflich höflich
+unhöflich höflich
+siderisch bürgerlich
+unkreativ originative
+"nicht zu fassen" glaubhaft
+ungläubig leichtgläubig
+unkritisch kritisch
+unvoreingenommen wertend
+"nicht kritisch" kritisch
+uncrossed gekreuzt
+walleyed schiel
+ungekrönte gekrönt
+noncrucial wichtig
+unkristallisiertem kristallisiert
+eindimensionale dreidimensionale
+zweidimensionale dreidimensionale
+zweidimensionale eindimensionale
+multidimensional eindimensionale
+ungeschnitten schneiden
+incurious neugierig
+Langfristigen Strom
+gesegnet verflucht
+unendowed ausgestattet
+vorhang curtained
+Ready-made "Mass angefertigt"
+"maschinell hergestellt" handgemacht
+"Fabrik hergestellt" hausgemachte
+azyklische zyklisch
+Open-Kette zyklisch
+azyklische zyklisch
+"alle zwei Jahre" "ein Jahr"
+Staude "ein Jahr"
+Staude "alle zwei Jahre"
+nächtlich tagaktiv
+unbeschädigt beschädigt
+undatierbaren datierbar
+Hören taub
+unanständig anständig
+unentschlossen entscheidend
+Fragewort deklarative
+"nicht angemeldete" erklärt
+unschicklich schicklich
+"nicht abzugsfähig" absetzbar
+flach tief
+"de jure" "de facto"
+indefeasible anfechtbar
+unbesiegt besiegt
+konform noncompliant
+undefiniert definiert
+"schlecht definiert" "gut definiert"
+unabgeleitetes "abgeleitet sind"
+uninflected gebeugte
+unbestimmt definitive
+indehiscent dehiscent
+begeistert niedergeschlagen
+robust zart
+unzerbrechlich zerbrechlich
+anspruchslos fordern
+flehend Imperativ
+undemokratisch demokratisch
+nonarbitrary willkürlich
+undemonstrative demonstrativ
+unbestreitbar deniable
+connotative denotativen
+unzuverlässig zuverlässig
+unabhängig abhängig
+untergeordnet unabhängig
+überparteiliche Partisan
+nonaligned ausgerichtet
+normativ beschreibend
+undescriptive beschreibend
+unerwünscht wünschenswert
+konserviert "kaputt gemacht"
+unzerstörbar zerstörbar
+unbestimmbar bestimmbar
+unbestimmt bestimmt
+unentwickelt entwickelt
+sinistral dextral
+adiabatische diabatischer
+undifferenziert differenziert
+einfach schwer
+plantigrade digitigrade
+unwürdig würdiger
+unstaatsmännisch staatsmännisch
+unpresidential Präsidentschafts
+monokotylen dikotylen
+fahrlässig fleißig
+unverdünnt verdünnt
+ungesättigt konzentriert
+undiplomatisch diplomatical
+antagonistisch versöhnlich
+indirekt direkt
+abwechselnd direkt
+inverse direkt
+rückläufig direkt
+vermitteln unmittelbar
+undiscerning erkennenden
+indiskret diskret
+unterschiedslos diskriminieren
+undiscriminating diskriminierende
+nondisposable Einweg
+nonreturnable Mehrweg
+proximal distal
+mesial distal
+undeutlich verschieden
+unfokussiert fokussiert
+undiversified diversifiziert
+unteilbar teilbar
+"ohne Papiere" dokumentiert
+unterwürfig herrschsüchtig
+unsubmissive unterwürfig
+untergeordnet Dominant
+rezessiv Dominant
+doppelläufige "mit einem Lauf"
+Einreiher zweireihig
+undramatisch dramatisch
+unactable actable
+untheatrical theatralisch
+ungenießbar trinkbar
+nüchtern berauscht
+scharf stumpf
+ereignislos ereignisreich
+Leben sterben
+stumpf lebhaft
+undynamischer dynamische
+uneager eifrig
+earless Ohr
+Mitte früh
+spät früh
+spät Mitte
+später früh
+unearned verdient
+unruhig einfach
+West Osten
+östlichen Western
+endomorphischen ectomorphic
+mesomorphe ectomorphic
+mesomorphe endomorphischen
+ungenießbar genießbaren
+ungebildet gebildet
+innumerate numerate
+unwirksam operative
+unwirksam wirksam
+mühelos effortful
+inefficacious wirksam
+ineffizient effizient
+unforceful kraftvoll
+unelastisch elastisch
+appointive Wahl
+unassigned zugeordnet
+obligatorisch optional
+unelegant elegant
+"nicht zulässig" "förderfähig sind"
+emotionslos emotional
+theoretisch empirisch
+"angewendet wird" theoretisch
+Selbstständiger Angestellte
+arbeitslos beschäftigt
+unemployable verwendbar
+entzaubert verzaubert
+entmutigend ermutigend
+unbelastet belastet
+unburdened belastet
+exocentric endocentric
+exogame endogamous
+endogamous autogam
+exogame autogam
+Energie-Releasing energieabsorbierenden
+"Wärme abgebenden" wärmeabsorbierenden
+exogenen endogene
+run-on "endständig blockierte"
+unenrgetic energisch
+entrechtet enfranchised
+unexportable exportierbare
+nonexploratory Sondierungs
+uninquisitive erkundigt
+verringert erhöht
+irreduzible reduzierbar
+unaufgeklärt erleuchtet
+nonenterprising unternehmend
+unenthusiastic begeistert
+undesirous begierig
+epizoic entozoic
+ungleich gleich
+unausgeglichen ausgewogen
+hypertonisch isosmotische
+hypotone isosmotische
+hypotone hypertonisch
+eindeutig zweideutig
+unausrottbar eradicable
+exoteric esoterisch
+unwesentlich wesentlich
+unverzichtbar entbehrlich
+verächtlich schätzbar
+unethisch ethischen
+uncomplimentary kostenlos
+uncomplimentary schmeichelhaft
+dysphemistic euphemistisch
+beunruhigt euphorisch
+uneben sogar
+Laub immergrün
+ungenau genau
+unexchangeable austauschbar
+unerregbar erregbar
+unexcited aufgeregt
+unexciting aufregend
+belastendes entlastende
+unerschöpflich exhaustible
+unexhausted erschöpft
+"nicht existent" existent
+nonextant vorhanden
+unerwartet erwartet
+unzweckmäßig zweckmäßig
+unexpendable entbehrlich
+preiswert teuer
+unerfahren erfahren
+"nicht abgelaufen" abgelaufen
+unverständlich erklärbar
+inexplicit ausgedrückt
+ungenutzt ausgebeutet
+unaussprechlich ausdrückbar
+nonprotractile erweiterbar
+unentwirrbaren herausziehbare
+gerupft gebeugt
+fingerless gefingert
+unexpansive expansive
+unauslöschlich löschbar
+intern extern
+innere äußere
+innere "nach außen"
+eyeless Augen
+unspielbar spielbar
+Foul Messe
+unfair Messe
+ungerecht gerecht
+untreu treu
+illoyal treu
+unfehlbar fehlbar
+ungewohnt familiär
+familiär komisch
+unmodern modern
+stillos modern
+langsam schnell
+unfastidious anspruchsvolle
+dünn Fett
+fettfrei Fett
+nonfatal tödlich
+unheilbar heilbar
+unergründlich fathomable
+ungünstig günstig
+unfeathered gefiederten
+unglücklich felicitous
+unfertile fruchtbar
+unvollendet fertig
+unendlich endlich
+"nicht endlich" endlich
+Schließen Öffnung
+letzte zuerst
+Terminal mittlere
+zweite zuerst
+nicht-spaltbaren spaltbar
+"nicht spaltbaren" spaltbares
+untauglich passen
+contrasty Wohnung
+unflexibel flexibel
+beeinträchtigen kompromisslos
+nonrigid starr
+unadaptable anpassungsfähig
+orthotropous campylotropous
+amphitropous anatropous
+Gerade lockig
+footless Pfoten
+toeless toed
+splayfooted Taube-toed
+achtern Vordergrund
+backhanded forehanded
+Adoptiv nativen
+nativen fremd
+nonnative Ureinwohner
+inländisch fremd
+undomestic inländisch
+unvergesslich vergesslichen
+unversöhnlich versöhnlich
+informell formal
+unglücklich glücklich
+"unangenehm riechend" duftend
+geruchlos Geruchsstoffe
+geruchlos duftend
+gebunden frei
+unfixierten fest
+unfrei frei
+selten häufig
+abgestanden frisch
+konserviert frisch
+salzig frisch
+unfreundlich freundlich
+ungefroren gefroren
+unfruchtbar fruchtbar
+leer voll
+undrained abgelassen
+Teilzeit Vollzeit
+"nicht funktionsfähig" funktionell
+Fehlfunktionen Funktion
+organisch funktionell
+unrigged "in Ordnung gebracht"
+unbestückt "ausgestattet ist"
+unfledged flügge
+ungerahmt gerahmt
+unmöbliert möbliert
+ungedeckten "finanziert werden"
+unfueled getankt
+"nicht spezifiziert" angegeben
+ungeared ausgerichtet
+spezifisch General
+unspezifisch spezifisch
+lokal National
+endemisch "weit verbreitet"
+abranchiate Branchiate
+einheitliche Bundes
+dezentral zentralisiert
+nontechnical technisch
+proprietäre nonproprietary
+kleinlich großzügig
+meanspirited großzügig
+fälschen Original
+heliozentrisch geozentrisch
+unbegabt begabt
+unglasiert glasiert
+glassless verglast
+unrühmlich glorreiche
+"No Go" gehen
+schlecht gut
+böse gut
+boshaft gutmütig
+peinlich anmutig
+ungnädig gnädig
+plötzlich allmähliche
+steil allmähliche
+ungrammatisch grammatische
+undankbar dankbar
+diploiden haploidic
+polyploid haploidic
+polyploid diploiden
+unzufrieden glücklich
+unregretting bedauernd
+weich hart
+diffundiert konzentriert
+weichherzig hardhearted
+"nicht alkoholisch" Alkoholiker
+schädlich harmlos
+unharmonisch harmonisch
+unhealthful gesund
+operative medizinisch
+inoperable "betreibbar ist"
+fieberverhütenden pyretic
+ungesund gesund
+schleimiges trocken
+irdischen paradiesisch
+unverdaulich verdaulich
+kopflos geleitet
+unheaded geleitet
+Licht schwer
+schwerelos gewichtig
+Schwerlast Licht-Pflicht
+schwerfüßig leichtfüßig
+aufpassen achtlos
+disqualifizieren ermöglichen
+"nicht hilfreich" hilfreich
+zygodactyl heterodactyl
+homogen heterogen
+heterozygot homozygot
+homosexuellen heterosexuell
+bisexuell heterosexuell
+bisexuell homosexuellen
+nicht-hierarchischer hierarchische
+gesenkt angehoben
+Low-Tech Hightech
+neckless Hals
+platt Decken
+High-schäumende Low-schäumende
+"hohes Interesse" zinsgünstige
+dumpfes schrilles
+nonimitative nachahmenden
+nonechoic onomatopoeical
+"niedrige Auflösung" "hohe Auflösung"
+"schwacher Anstieg" Hoch
+"ein Weg" Zuhause
+heterologe homolog
+autologe homolog
+autologe heterologe
+analog homolog
+heterolog homolog
+analog heterolog
+Walmdach Giebeln
+hipless Walmdach
+unehrenhaft ehrenwert
+unwahr wahrhaftig
+unehrenhaft ehrenwert
+hoffnungslos hoffnungsvoll
+noninstitutionalized institutionalisiert
+"nicht institutionelle" institutionellen
+de-Jodierung Jodierung
+untröstlich consol
+aufrecht horizontal
+geneigt horizontal
+geneigt aufrecht
+unerect vertikal
+Sitzung Stehen
+Laufen Stehen
+Vorbeigehen Laufen
+unwirtlich gastfreundlich
+gütliche feindlich
+kalt heiß
+sommerlich vernalis
+herbstlich vernalis
+winterlicher vernalis
+herbstlich sommerlich
+winterlicher sommerlich
+winterlicher herbstlich
+unmenschlich Mensch
+subhuman übermenschlich
+unmenschlich human
+humorlos humorvoll
+durstig hungrig
+gemächlichen eilte
+"nicht identifizierbar" identifizierbar
+transeunt subjektiv
+unbeeinträchtigt "beeinträchtigt wird"
+unwichtig wichtig
+unscheinbar beeindruckend
+unmerklich bemerkbar
+unimproved verbessert
+uncleared gelöscht
+exaugural Antritts
+Außenbord "nach innen gerichtet"
+Auszucht angeboren
+abgeneigt geneigt
+abgehend eingehend
+deduktiv induktiv
+nonindulgent nachsichtig
+nonindustrial Industrie
+"Nicht ansteckend" infektiös
+supernal infernal
+uninformativ informativ
+agnostical Gnostiker
+"nicht informiert" informiert
+unaufrichtig ingenuous
+unbewohnt bewohnt
+"nicht vererbbaren" vererbbar
+ungehemmt gehemmt
+uninjectable injizierbare
+unverletzt verletzt
+schuldig "reinigen Händen"
+uninteressant inspirierend
+unanschaulich lehrreich
+unenlightening erhellend
+unintegrierten integriert
+"nicht integrierte" integriert
+ungemischte vermischt
+uncombined kombiniert
+disintegrative integrative
+nonintellectual geistigen
+unintelligent intelligent
+unverständlich verständlich
+unbeabsichtigt beabsichtigt
+undesigned absichtliche
+Moderieren "zu vertiefen"
+innerartliche zwischenartliche
+uninteressiert interessiert
+uninteressant interessant
+extramuralen intramurales
+"ultra vires" "intra vires"
+extrinsische intrinsical
+extrospective "Selbst untersuchen"
+extroversive introversive
+ambiversive introversive
+ambiversive extroversive
+"nicht aufdringlich" aufdringlich
+protrusive aufdringlich
+sedimentär eruptiv
+extrusive aufdringlich
+beschränkt invasive
+nicht-invasiv invasive
+schwächend belebend
+"wenig einladend" einladend
+"in vivo" "in vitro"
+unironed gebügelt
+falten faltig
+anisotropen isotropous
+traurig froh
+traurig froh
+freudlos fröhlich
+juiceless saftig
+ungerecht gerade
+unverdient verdient
+Keyless verkeilten
+"nicht nett" Art
+unerkennbar cognoscible
+unbekannt bekannt
+ununderstood verstanden
+unmarkierten markiert
+unbeklagt beklagt
+unlaurelled laurelled
+wenig groß
+geringer "größer ist"
+rechtswidrig rechtmäßig
+bleifrei verbleit
+fest undicht
+uncaulked verstemmt
+ungesäuert gesäuert
+illegal legal
+unleserlich lesbar
+entziffert entziffert
+Adoptiv biologische
+illegitim legitim
+catarrhinian leptorrhinian
+platyrrhinian leptorrhinian
+platyrrhinian catarrhinian
+eusporangiate leptosporangiate
+unähnlich ähnlich
+"nicht wie" mögen
+unwahrscheinlich wahrscheinlich
+unwahrscheinlich wahrscheinlich
+limbless limbed
+unbegrenzt begrenzt
+Sicherheit "in gerader Linie"
+nichtlineare Zusatzstoff
+ungefüttert ausgekleidet
+"nicht angeführt sind" "aufgeführt sind"
+figurative wörtliche
+Analphabet "lesen und schreiben"
+verzeichnet "nicht eingetragen"
+unbewohnbar lebenswerteste
+unliveried livrierten
+entladen geladen
+loamless lehmig
+General lokal
+endemischen Epidemie
+ecdemic Epidemie
+endemischen ecdemic
+gloveless behandschuhten
+"ohne Hut" hatted
+ungelenkte "geführt wird"
+"ohne Beine" legged
+unlogisch logisch
+unextended verlängert
+Midi Mini
+maxi Mini
+maxi Midi
+lossless verlustbehaftete
+kurz lange
+quer längs
+"ohne Deckel" lidded
+fest lose
+unverengten schnürt
+gefunden "hat verloren"
+Gerettet "hat verloren"
+gewonnen "hat verloren"
+weich laut
+dünn voll
+Stärke Klavier
+weich gehärtet
+verhasst liebenswerter
+unbeliebt gefallen
+ungeliebt liebte
+lieblos liebend
+Groß Klein
+luckless glücklich
+dramatisch lyrisch
+Naturweg gemacht
+antimagnetischem magnetisiert
+geographische magnetisch
+nicht-magnetischen magnetisch
+geringer Haupt
+minderjährig Haupt
+minuscular Majuskel
+unüberschaubar überschaubar
+unmanlike manlike
+Ferngesteuert besetzt
+unmarkiert markiert
+Markenlos gebrandmarkt
+unverheiratet verheiratet
+unmated gepaart
+feminin männlich
+unweiblich feminin
+kastrieren männlich
+kastrieren feminin
+"nicht übereinstimmen" abgestimmt
+immateriell Material
+unreif reifen
+gereifter reifen
+"Jahr um" saisonal
+unseasonable season
+ungewürzt gewürzt
+verfrüht "volle Amtszeit"
+minimal maximal
+nonmeaningful sinnvoll
+unermesslich messbar
+fleischlos fleischig
+nicht-mechanische mechanisch
+unmelodischen melodiös
+memberless "gliedrig sind"
+unmined abgebaut
+unmusikalische Musical
+unmelted verflüssigtes
+unbarmherzig barmherzig
+ametabolous metabolous
+intensiv mild
+umfangreich intensive
+unbeteiligt beteiligt
+Zivilist Militär
+nicht-militärischen Militär
+unmitigated gemildert
+ungehärtet temperiert
+ungehärtet Einscheiben
+unbeweglich Mobile
+unportable portable
+unabsetzbar abnehmbar
+nichtmetallischer metallisch
+nonmetamorphic metamorphen
+unmäßig mäßig
+nonmodern modern
+unbescheiden bescheiden
+unverändert geändert
+unmoduliert moduliert
+Molekular molaren
+diclinous monoclinous
+zweihäusig monoecious
+kontrapunktisch monophon
+polygam monogam
+mehrsprachig einsprachig
+mehrwertige einwertiger
+bivalent univalent
+mehrwertige univalent
+mehrwertige bivalent
+"nicht monotone" monotone
+polyvalente einwertiger
+unmoralisch Moral
+illegalen erlaubt
+prinzipienlos prinzipien
+wenige viele
+wenig viel
+Weniger "mehr als"
+"am wenigsten" "die meisten"
+weniger Mehr
+wenigsten "die meisten"
+unsterblich sterblich
+unmotiviert motiviert
+unmotorized motorisiert
+unbewegt "zu bewegen"
+unbewegten "zu bewegen"
+"immer noch" "zu bewegen"
+unmown gemäht
+unseamanlike seemännische
+Interkontinental kontinental
+International National
+innerstaatliches Interstate
+unnatürlich natürlich
+künstlich natürlich
+Übernatürlichen natürlich
+scharf natürlich
+Wohnung natürlich
+Wohnung scharf
+nahe ultimative
+"nicht notwendig" notwendig
+brutto nett
+unneurotic psychoneurotic
+böse nett
+nidifugous Nesthocker
+unedle edel
+"von niedriger Geburt" edel
+unnatürlich normal
+abnormal normal
+hypotensive hypertensive
+normotensiven hypertensive
+normotensiven hypotensive
+paranormal normal
+Süd Norden
+Süd Norden
+noseless nosed
+unbemerkt bemerkt
+unentdeckt "erfaßt wird"
+unbestimmt entschlossen
+harmlos schädliche
+ungehorsam gehorsam
+subjektiv nichtsubjektiven
+unobligated verpflichtet
+fakultatives verpflichten
+unobvious offensichtlich
+ungehindert behindert
+unbewohnt belegt
+harmlos beleidigend
+unappetitliche Bohnenkraut
+Defensive beleidigend
+harmlos säumige
+unapologetic entschuldigend
+inoffizielle offiziell
+unbestätigt bestätigt
+unestablished etabliert
+Unbedingte Anlage
+Off-Site "vor Ort"
+"auf der Straße" "abseits der Straße"
+neu alt
+unreif alt
+"zwei Stück" "ein Stück"
+dreiteilige "ein Stück"
+dreiteilige "zwei Stück"
+offline online
+aus auf
+abgebrochen auf
+offsides onside
+unopen unfastened
+abgeschlossen öffnen
+abgeschlossen geöffnet
+unspaced "beabstandet sind"
+unenclosed Anbei
+ungegerbte "Braun gebrannt"
+ungenutzt geklopft
+"nicht betriebsbereit" betriebsbereit
+ungelegen opportun
+unopposable opposable
+"ohne Widerstand" entgegengesetzt
+wechseln Gegenteil
+Gegenteil wechseln
+pessimistisch optimistisch
+aboral Oral
+abactinal actinal
+ungeordnete ordentlich
+ungeordnet bestellt
+desorganisiert organisiert
+unorganisiert organisiert
+unstrukturierten strukturiert
+außergewöhnlich gewöhnlichen
+anorganisch organisch
+atomistical holistisch
+"Unordnung gebracht" "vereinbart worden"
+unorientierten orientiert
+desorientierenden orientieren
+unoriginell Original
+unorthodox orthodox
+Innen "aus der Tür"
+blank bedeckt
+ungestrichene beschichtet
+"ohne Dach" überdacht
+blattlos belaubt
+unlipped Lippen
+verdeckte offenkundige
+unbezahlte bezahlt
+schmerzlos schmerzlich
+unbemalt gemalt
+undelineated repräsentiert
+unpaintable lackierbar
+ungenießbar schmackhaft
+ungreifbar fühlbar
+aufrecht parallel
+schräg parallel
+aufrecht schräg
+unverzeihlich verzeihlich
+unentschuldbar entschuldbar
+kindliche Eltern
+unparteiisch teilweise
+nichtpartikulären Partikel
+unpassierbar befahrbar
+leidenschaftslos leidenschaftlich
+Geschenk Vergangenheit
+Zukunft Vergangenheit
+Zukunft Geschenk
+ungeborenen geboren
+unparented parented
+mütterliche väterlicherseits
+husbandly wifelike
+ungeduldig geduldig
+matriarchalen patriarchalisch
+unpatronized bevormundet
+unverpackter verpackt
+ungepflastert gepflastert
+unpatriotisch patriotisch
+unpeaceful friedlich
+unremorseful reuigen
+unperceptive perceptive
+unmerklich wahrnehmbar
+unvollkommen perfekt
+unvergänglich verderblich
+unbeständig permanent
+caducous persistent
+irreversibel reversibel
+nonreversible reversibel
+unwiderruflich widerruflich
+unzulässig zulässig
+unzulässig zulässig
+unpermissive permissive
+präventiven permissive
+unperplexed verwirrt
+unpersönlich persönlich
+"abschreckend sind" überzeugend
+undurchdringlich durchdringbaren
+undurchlässig durchlässig
+imperviable durchlässig
+apetalous petalous
+punctureless durchstechbaren
+nonpsychoactive psychotrope
+mental physisch
+polytheistischen monotheistic
+gottlos fromm
+religiös weltlich
+irreligiös religiös
+unerbittlich placable
+gemustert ungemustert
+schick Ebene
+ungeplant geplant
+uncontrived studierte
+unglaubwürdig plausibel
+unangenehm angenehm
+unzufrieden zufrieden
+unangenehm erfreulich
+zwecklos spitz
+stumpf acute
+unpoliert poliert
+unklug Politik
+unpolitisch politische
+unwägbar wägbar
+unpopulär Beliebt
+Anti Profi
+Negativ positiv
+neutral positiv
+neutral Negativ
+Minus Plus
+disconfirming "bestätigt wird"
+unmöglich möglich
+impotent potent
+machtlos mächtig
+unpowered angetrieben
+Niederspannung Hochspannung
+uninfluential einflussreich
+aplacental Plazenta
+unplanted gepflanzt
+ungepflügte gepflügt
+unkultiviert kultiviert
+"nicht vergossen" eingetopft
+unpraktisch praktisch
+ungenau präzise
+verzögert altklug
+unberechenbar vorhersagbar
+unpremeditated vorsätzlich
+unvorbereitet bereit
+"über den Ladentisch" Rezept
+abwesend Geschenk
+schlicht protzig
+anspruchslos protzig
+Sekundär primär
+nebensächlich Basic
+Öffentlichkeit Privatgelände
+inklusive exklusiv
+"benachteiligten Bevölkerungsgruppen" privilegiert
+unproduktiv produktiv
+consumptive generativ
+unreproducible reproduzierbar
+nonprofessional Professional
+unprofessionell Professional
+unrentabel profitabel
+oberflächlich profunde
+opisthognathous hypognathous
+regressiv progressive
+unaussprechlich aussprechbar
+unsachgemäße ordnungsgemäße
+unprophetic prophetische
+Retrospektive prospektiv
+ungeschützt geschützt
+unprotective Schutz
+demütigen stolz
+unbewiesen bewiesen
+improvident provident
+unprovocative provokativ
+unklug klug
+unpünktlich pünktlich
+unbestraft bestraft
+rehabilitative Straf
+gekreuzt reinrassig
+unrein rein
+unberührte "kontaminiert ist"
+zwecklos gezielte
+unqualifiziert qualifiziert
+ungeübte trainiert
+quantitative qualitative
+"außer Frage" fraglich
+laut ruhig
+unruhig reposeful
+unruhig ruhig
+"nicht zufällig" zufällig
+irrational rational
+geistigen emotional
+nonracial Rassen
+"nicht reaktiv" reaktiv
+unfertig bereit
+unwirklich existent
+unwirklich echt
+nominal echt
+unrealistisch realistisch
+unvernünftig vernünftig
+nichtreziproke reziproke
+"nicht raffiniert" raffiniert
+"nicht verarbeitete" verarbeitet
+unbehandelt behandelt
+unoiled geölt
+unrecoverable "einbringbar sind"
+"nicht regenerierten" regenerieren
+unregistrierte Eingetragen
+irregulär regulär
+"nicht reglementiert" geregelt
+unheilbar behebbar
+"nicht erneuerbar" verlängerbar
+unrentable vermietbare
+"nicht reparierbar" rectifiable
+unwiederholbar wiederholbar
+nichtrepetitiven repetitious
+unprintable bedruckbar
+unaufgeforderte "gefordert wurde"
+reimlosen reimen
+vielgestaltig unvarying
+"nicht periodisch" Zeitschrift
+"ohne Beziehung" bezogen
+"ohne Beziehung" bezüglich
+irrelevant relevant
+unachtsam achtsam
+unersetzlich austauschbar
+"nicht repräsentativ" gegenständlich
+"nicht repräsentativ" Vertreter
+anrüchig seriösen
+unempfänglich empfänglich
+unvereinbar "in Einklang zu bringen"
+vorbehaltlos reserviert
+unwiderstehlich resistible
+unentschlossen entschlossen
+unanständig anständig
+respektlos respektvoll
+unverantwortlich verantwortlich
+"nicht reagiert" anspricht
+hemmungslos zurückhaltend
+uneingeschränkt beschränkt
+unrestrictive restriktiv
+unretentive erinnernden
+nonreticulate retikulieren
+nonretractable einziehbar
+"nicht reflektierende" reflektierend
+unreflektiert reflektiert
+unreverberant halligen
+respektlos andächtig
+unrevived wiederbelebt
+unawakened geweckt
+unawed awestricken
+konter revolutionär
+undankbar lohnend
+unrhetorical rhetorisch
+unrhythmisches rhythmisch
+rippenlosen gerippt
+Arm Reich
+moneyless moneyed
+zahlungsunfähig Lösungsmittel
+lehnen Reich
+randlos umrandeten
+handless handed
+handleless abgewickelt
+linkshändig Rechtshändig
+beidhändig Rechtshändig
+beidhändig linkshändig
+Center Recht
+Center links
+hornlos gehörnt
+falsch Recht
+Ungerechte gerecht
+gebrechlich robust
+Platz kreisförmig
+angulate gerundet
+"Wassermelone förmig" Kürbis-förmigen
+städtisch "dem Land"
+rustless verrostet
+unhallowed heilig
+entweihen heilig
+masochistisch sadistisch
+gefährlich Safe
+aus Safe
+unverkäuflich verkäuflich
+anders gleich
+andere gleich
+wahnsinnig gesund
+unersättlich gestillt
+unsarcastic sarkastisch
+ungenügend "zufrieden stellend"
+unbesteigbar skalierbar
+unwissenschaftlich wissenschaftliche
+unwissenschaftlich wissenschaftliche
+skrupellosen gewissenhaft
+unconscientious gewissenhaft
+entsiegelt versiegelt
+ungeöffneten gewickelt
+unseaworthy seetüchtig
+unairworthy lufttüchtig
+unconcealed verborgen
+enthüllt verbergen
+nonsectarian sektiererische
+unsicher ungetrübt
+unsicher sichern
+unversichert versichert
+unseductive verführerisch
+selbstlos egoistisch
+Junior Senior
+unspektakuläre sensationell
+unempfänglich empfindlich
+unempfindlich empfindlich
+Desensibilisierung sensibilisierend
+extrasensory sensorische
+unsent "gesendet wird"
+Joint getrennte
+Antiseptikum infiziert
+germy germfree
+Reinigung Verfälschungs
+frivol ernst
+unplayful spielerisch
+"nicht ausgewählten" ausgewählt
+unbrauchbar "gewartet werden"
+verunsichert angesiedelt
+nicht-wandernd wandernd
+unsexy sexy
+nonsexual sexuelle
+"nicht kastrierten" kastriert
+anaphrodisiac aphrodisiacal
+Anöstrus estrous
+unförmig formschön
+busen breasted
+ungeformt gebildet
+ungeteilt geteilt
+unrasiert rasiert
+ungescherter geschert
+unsheathed ummantelt
+unshoed shodden
+discalceate Calced
+weitsichtig kurzsichtig
+unshrinkable Schrumpfende
+unsighted gesichtet
+"ohne Vorzeichen" unterzeichnet
+unbedeutend signifikant
+nonsignificant signifikant
+ungedämpftem "zum Schweigen gebracht"
+Verbindung unsubdivided
+Komplex einfach
+unaufrichtig aufrichtig
+Plural Singular
+Ordinal Kardinal
+improvisiert scripted
+unsinkbar versenkbar
+mehrere Single
+Single doppelt
+"wahr falsch" Mehrfachauswahl
+Multi-Lane einspurig
+unsized bemessen
+ungelernte Mann
+mathematischen verbal
+fein grob
+smokeless rauchig
+rutschfeste rutschig
+ungeschmierter geschmierten
+unsmooth glatt
+Rütteln glatt
+unfurrowed gefurcht
+rau glatt
+smoothbore rifled
+unsozial soziale
+"ohne Begleitung" begleitet
+ungregarious gesellig
+nahtlos gefalzt
+ungeimpfte ausgesät
+kernlos schäbig
+unshuttered shuttered
+ärmellos Ärmeln
+ungesellig gesellig
+"nicht verkaufte" verkauft
+soleless besohlt
+Flüssigkeit solide
+Gas solide
+Gas Flüssigkeit
+hohl solide
+unauflöslich löslich
+unlöslich löslich
+ungelöst aufgelöst
+Nein etwas
+alle etwas
+alle Nein
+naiv anspruchsvoll
+unsolide klingen
+noneffervescent Brause
+unspecialized spezialisiert
+spineless spinous
+geistlos temperamentvoll
+induziert "Selbst erzeugt"
+geschrieben gesprochen
+stimmlos geäußert
+ungeschriebenen geschrieben
+consonantal vokalisch
+unaufhaltsam arretierbar
+nonsyllabic syllabic
+accentual syllabic
+quantitative syllabic
+quantitative accentual
+instabil stabil
+Legato getrennt
+unstaged inszeniert
+Nicht-Standard Standard
+puder stärke
+starless Sternen
+unterernährt genährt
+unsicher stetig
+stemless stammten
+reizlose anregend
+stimulierend Depressiva
+astomatous stomatous
+krumm Gerade
+Krümmung Gerade
+abgespult gewickelt
+unbelastet betont
+unbetonten akzentuiert
+schwach stark
+fügsam unregenerate
+aufsässig untergeordnet
+erfolglos erfolgreich
+unzureichend ausreichend
+sugarless zuckerhaltig
+minderwertig überlegen
+"darunter liegende" "darüber liegenden"
+adscript Hochgestellt
+adscript Index
+unbeaufsichtigt "überwacht werden"
+"nicht unterstützt" unterstützt
+"ohne Unterstützung" unterstützt
+unkooperative unterstützend
+unüberwindlich überwindbar
+"nicht überrascht" überrascht
+unsurprising überraschend
+unanfällig anfällig
+unimpressionable "leicht zu beeindrucken"
+nonexempt befreit
+"ohne Zeitplan" geplant
+trocken süß
+sauer süß
+ungesäuerten sauer
+unverdächtig vermutlich
+unswept gefegt
+unsworn geschworen
+asymmetrisch symmetrisch
+"bilateral symmetrisch" actinomorphous
+unsympathisch sympathisch
+allopatric sympatric
+diachronen synchron
+asynchron synchron
+asyndetischen syndetic
+antonymous gleichbedeutend
+unsystematisch systematisch
+redselig schweigsam
+untactful taktvoll
+wenig hoch
+ungezähmt gezähmt
+wild zähmen
+immateriellen berührbaren
+immateriellen greifbar
+geschmacklos geschmackvoll
+geschmacklos lecker
+nontaxable nonexempt
+unmäßig gemäßigt
+lax Tempus
+entspannt Tempus
+exterritorialen territorialen
+nonterritorial territorialen
+duroplastischen thermo
+dünn dick
+undenkbar denkbare
+gedankenlos nachdenklich
+verschwenderisch sparsam
+unordentlich aufgeräumt
+ungroomed gepflegt
+ungekämmt gekämmt
+untimbered Werk
+tonlos getönt
+tongueless genutet
+gekippten gekippt
+ruhte müde
+unerträglich erträglich
+intolerant tolerant
+unverkeilten tonal
+zahnlos Zahn
+Boden oben
+Seite oben
+Seite Boden
+"oben ohne" gekrönt
+"ohne Boden" Boden
+Prost "von oben nach unten"
+Polar äquatorialen
+intestate testate
+unberührt berührt
+Tender zäh
+untoughened Einscheiben
+ungiftig giftig
+widerspenstig manipulierbar
+"A la carte" "Table d'hôte"
+unauffindbar nachvollziehbar
+trackless verfolgt
+unbefahrenen gereist
+untrimmed getrimmt
+ungetrübt beunruhigt
+falsch wahr
+misstrauisch zutraulich
+unseriös vertrauenswürdig
+schlauchlos tubed
+untucked versteckt
+unturned gedreht
+untypisch typisch
+overhanded hinterhältig
+"unter der Oberfläche" Oberfläche
+Overhead Oberfläche
+Overhead "unter der Oberfläche"
+nonsubmersible versenkbaren
+tearless weinerlich
+Nichtgewerkschafts Union
+multiparous uniparous
+bipolar unipolar
+geteilt vereinigt
+verwachsen adnate
+zweiklappigen univalve
+absteigend aufsteigend
+fallen steigend
+enttäuschend climactic
+anspruchslos "der gehobenen Kategorie"
+intransitiv transitiv
+unübersetzbar übersetzbar
+unguiculated ungulated
+unten "nach oben"
+mißbraucht benutzt
+nutzlos sinnvoll
+dystopischen utopisch
+ungültig gültig
+wertlos wertvoll
+unveränderlich Variable
+unvarying variiert
+enthüllt verschleiert
+unventilated belüftet
+wirbellos Wirbeltier
+unverletzlich verletzbar
+gewaltlos heftig
+böse tugendhaft
+unsichtbar sichtbar
+ovipar Lebendgebärende
+ovoviviparous Lebendgebärende
+ovoviviparous ovipar
+nonvolatilizable flüchtig
+nonvoluntary freiwillig
+unfreiwillige freiwillig
+unverwundbar verwundbar
+unerwünscht wollte
+cool warm
+kaltblütig warmblütigen
+kaltherzig warmherzig
+nonwashable waschbar
+unwaxed gewachst
+abnimmt "erhöht wird"
+Deflations Inflations
+unweaned entwöhnt
+untragbar tragbar
+weedless schmächtig
+unwillkommen "herzlich willkommen"
+krank Gut
+trocken nass
+trocken laktierenden
+wasserfrei hydratisiert
+wheelless "auf Rädern"
+"blaues Halsband" white-collar
+ungesund gesund
+eng breit
+eng breit
+unüberschaubar wieldy
+wigless wigged
+abgeneigt bereit
+"ohne Flügel" geflügelt
+kabellos verdrahtet
+töricht weise
+unwooded bewaldet
+nicht-holzigen holzig
+weltfremd zeitlich
+unwoven gewebt
+neu getragen
+unwürdig würdig
+wertigen xeric
+mesic xeric
+mesic wertigen
+azonal zonale
+pleurocarpous acrocarpous
+fossorial cursorial
+heterozerk homocercal
+unwebbed Schwimmhäuten
+unfacettierten facettiert
+Gegen ipsilateral
+einspringenden salient
+rückwirkend proaktive
+rh-negativ rh-positiv
+synkategorematischen kategorematische
+nomothetischen idiographic
+"für's Leben" Pro-Wahl
+ungetauften getauft
+maligne gutartig
+calcifugous calcicolous
+nichtinvertierbaren umkehrbar
+immunodeficient immunokompetente
+xenogenetischen allogenen
+"Kurz angespornt" "Lang angespornt"
+schalenlosen geschält
+jawless jawed
+hautlos gehäutet
+nonflowering Blüte
+adient abient
+kathodische anodische
+heterotrophen autotrophen
+ebracteate bracteate
+intrazellulär extrazelluläre
+eremitical coenobitical
+palingenetischen cenogenetische
+achromatinic chromatinic
+omnidirektionale Richtungs
+eugenische cacogenic
+afebrile fiebrig
+fiktionalen fiktiven
+bundfrei geärgert
+"nicht harmonischen" harmonisch
+nichtionische ionische
+unmyelinated myelinisierte
+syntagmatische paradigmatisch
+nonpasserine Sperlings
+nonphotosynthetic photo
+nonruminant Wiederkäuer
+nicht-kugelförmigen sphärisch
+nichtsteroidalen steroidale
+nichteitrig eitrige
+thematischen unthematisch
+nicht-thermischen Thermal
+instrumental Vokal
+hydrokinetischen hydrostatisch
+"nicht räumliche" räumlichen
+nichtsprachlichen sprachlichen
+cephalic kaudal
+nicht-finanzielle Finanz
+prokaryotische eukaryotischen
+avascular Gefäß
+kernigen einkernigen
+nonsurgical chirurgische
+exokrinen endokrinen
+ahistorisch historische
+pro-amerikanisch anti-amerikanisch
+kationischen anionische
+inquisitorischen Akkusationsprinzip
+postnuptial antenuptial
+abteilungs interdepartementale
+allopathischen homöopathische
+translationale nontranslational
+ungerächt gerächt
+uncollected gesammelt
+unbestritten bestritten
+ungefüllt gefüllt
+ungemälztem gemälzt
+ungestellten gestellt
+unverseiftes verseift
+Hass Liebe
+Erwachsene Kind
+Gegenteil wechseln
+emittieren absorbieren
+Refrain Handlung
+"nicht zustimmen" zustimmen
+"nach Datum" predate
+trotzen "leihen sich"
+Ausbeute Stand
+"Gleichgewicht bringen" Balance
+erfüllen unterschreiten
+entsprechen verletzen
+Fräulein haben
+haben Mangel
+vermeiden erfordern
+erliegen überleben
+Ende Start
+fehlschlagen verwalten
+decolonise besiedeln
+verteidigen "zu verfolgen"
+behalten behalten
+befreit erzwingen
+entehren Ehre
+fehlschlagen gelingen
+"sich verhalten" "schlecht benehmen"
+deregulieren regulieren
+ablehnen eingestehen
+beschränken frei
+legalisieren verbieten
+legalisieren verbieten
+entkriminalisieren kriminalisieren
+erinnern Problem
+Vereinen Teilen
+munden Boykott
+verhindern Lassen
+eingestehen ausschließen
+decertify bestätigen
+desorganisieren organisieren
+abschaffen schaffen
+Leerlauf Arbeit
+mieten Feuer
+vorausgehen gelingen
+degradieren fördern
+investieren veräußern
+einbüßen Anspruch
+verlieren "die Gewinnzone erreichen"
+verlieren profitieren
+verlieren behalten
+verlieren finden
+"die Gewinnzone erreichen" profitieren
+sparen Abfall
+zulassen verweigern
+Standard Bezahle
+verkaufen kaufen
+"sich weigern" akzeptieren
+sauer versüßen
+verwirren Orient
+verstecken Show
+desodorieren odorieren
+sensibilisieren desensibilisieren
+erweitern Vertrag
+eilen verweilen
+eingeben Ausfahrt
+verlassen ankommen
+bleibe abfahren
+zurück vorrücken
+zurücktreten vorrücken
+sinken schweben
+hinlegen entstehen
+Hinsetzen entstehen
+erziehen niedriger
+absteigen aufsteigen
+fallen "erhebt euch"
+Set "erhebt euch"
+aussteigen "Spring auf"
+Ebbe Tide
+drücken ziehen
+Anfang halt
+bleibe Bewegung
+"kommen Sie" gehen
+"bleiben an Ort und Stelle" Reise
+"herabsehen auf" bewundern
+gönne Wunsch
+entmutigen ermutigen
+entzaubern verzaubern
+missfallen Bitte
+drücken begeistern
+beschweren erleichtern
+abstoßen anlocken
+ruhig agitieren
+underact übertreiben
+Ebene erziehen
+zerlegen montieren
+entfalten falten
+Lüge sitzen
+Lüge Stand
+Stand sitzen
+Maschinenwäsche Handwäsche
+dreckig reinigen
+entfernen Hütte
+gehen "mach weiter"
+Leerlauf Lauf
+entspannen Wind
+entwirren Ravel
+Knoten entknoten
+unbraid flechten
+unweave weben
+untwine Schnur
+absatteln Sattel
+entlasten Belastung
+auspacken Pack
+unbox Box
+Unstuff Sachen
+unclog verstopfen
+behindern frei
+loslassen halt
+entwirren verwickeln
+unsnarl Knurren
+wegbringen bringen
+entkorken Kork
+ziehen "Stecker in"
+dekomprimieren Kompresse
+versammeln Verbreitung
+Unterbrechung reparieren
+abkuppeln Paar
+beitreten trennen
+Krawatte lösen
+auspacken wickeln
+entspannen Biege
+aufrauen glatt
+schärfen stumpf
+Fräulein schlagen
+aufdrehen Twist
+leben "lebe in"
+"Essen gehen" "essen in"
+widerstehen Kapitulation
+Zurückfallen gewinnen
+entmilitarisieren militarisieren
+entladen gewinnen
+mobilisieren demobilisieren
+entwaffnen Arm
+aussteigen eingeben
+öffnen Nahansicht
+verallgemeinern angeben
+löschen Aufzeichnung
+dekodieren kodieren
+Punch-Out "Schlag ein"
+Stimme devoice
+verschleiern klären
+schweige "sich unterhalten"
+beschweren jubeln
+überführen freisprechen
+disoblige verpflichten
+schmeicheln verunglimpfen
+entheiligen weihen
+segnen Fluch
+boo applaudieren
+loben kritisieren
+undeceive täuschen
+untertreiben überzubewerten
+verleugnen bekennen
+eingestehen verweigern
+Dissens Zustimmung
+erlauben verbieten
+zulassen "nicht zuzulassen"
+unterschätzen überzubewerten
+disesteem Wertschätzung
+Vertrauen Misstrauen
+indispose verfügen
+widerlegen beweisen
+negieren bestätigen
+synthetisieren analysieren
+Teilen multiplizieren
+subtrahieren hinzufügen
+"jemanden bedienen" vernachlässigen
+vergessen Verstand
+ignorieren kennt
+orientalise occidentalise
+spielen verharmlosen
+aktivieren deaktivieren
+integrieren zerfallen
+Skew ausrichten
+verzögern eilen
+gerinnen homogenisieren
+gerinnen homogenisieren
+füllen leer
+härten erweichen
+spezialisieren diversifizieren
+spezialisieren diversifizieren
+schwinden Wachs
+verdicken dünn
+maximieren minimieren
+entnationalisieren verstaatlichen
+dezentralisieren zentralisieren
+dezentralisieren zentralisieren
+zentralisieren dezentralisieren
+drucklos "unter Druck setzen"
+Entmagnetisierung magnetisieren
+desynchronisiert synchronisieren
+entpersönlichen personifizieren
+Anonymisierung personifizieren
+Hitze cool
+disunify vereinheitlichen
+"geboren werden" sterben
+entmaterialisieren materialisieren
+aufhellen verdunkeln
+verdunkeln erleichtern
+eng erweitern
+verstimmen Melodie
+verunstalten verschönern
+deeskalieren eskalieren
+Farbe verfärben
+schwärzen aufhellen
+destabilisieren stabilisieren
+destabilisieren stabilisieren
+entsperren Block
+auftauen einfrieren
+"schlechter werden" "gute Besserung"
+Regress Fortschritt
+strecken schrumpfen
+sprengen reduzieren
+oxidieren Desoxidation
+entfeuchten befeuchten
+Hydrat entwässern
+verschlechtern besser
+beleben betäuben
+Unordnung unclutter
+berauben bereichern
+bleibe Veränderung
+halten erbrechen
+Reifen erfrischen
+Schrei Lachen
+entkleiden Kleid
+Unterkleid Überkleid
+gewinnen reduzieren
+"dress down" Ankleiden
+"Entspannen Sie sich" Tempus
+unstrain Belastung
+de-energetisieren Energie
+de-energetisieren Energie
+stimulieren sedieren
+"Bring zu" betäuben
+aufwachen Schlaf
+"führen zu schlafen" wecken
+aufwachen Einschlafen
+aufstehen "Geh ins Bett"
+herauskommen "abbiegen in"
+estivate überwintern
+einatmen ausatmen
+ehrerbietig respektlos
+wahrheitsgemäß wahrheitswidrig
+unmemorably einprägsam
+reichlich spärlich
+unaufrichtig "Mit freundlichen Grüßen"
+uninstructively instruktiv
+unvorsichtig umsichtig
+unpräzise genau
+"in genau" genau
+reuig impenitently
+reuig "ohne Reue"
+unmoralisch moralisch
+rechtmäßig gesetzlos
+licitly unerlaubt
+unleserlich leserlich
+humorlos humorvoll
+freudlos freudig
+Fortissimo Pianissimo
+billig teuer
+unentschuldbar verzeihlich
+unverzeihlich pardonably
+unverzeihlich forgivably
+ineloquently beredt
+selbstlos egoistisch
+unwirksam effektiv
+vertrauensvoll mißtrauisch
+unehrlich ehrlich
+disagreeably angenehm
+harmlos Umgebungslärm
+unwillig bereitwillig
+credulously ungläubig
+gläubig ungläubig
+glaubwürdig unglaublich
+unfair ziemlich
+nachlässig vorsichtig
+undankbar dankbar
+unambitiously ehrgeizig
+unwissentlich wissentlich
+unwissentlich wittingly
+ineffizient effizient
+ungünstig günstig
+undependably verläßlich
+unreliably zuverlässig
+breit eng
+impolitely höflich
+unpropitiously günstig
+dilettantisch fachmännisch
+fruchtlos fruchtbar
+unnütz profitabel
+monaurally binaurally
+ungerecht "mit Recht"
+"zu Unrecht" Recht
+unverständlich intelligibly
+furchtlos ängstlich
+richtig unsachgemäß
+ungraziös anmutig
+inkompetent kompetent
+leicht schwer
+asymmetrisch symmetrisch
+ständig schwankend
+theoretisch empirisch
+langsam schnell
+unmindfully achtsam
+"Aus der Hand" "in der Hand"
+zögernd "ohne Zögern"
+künstlich natürlich
+ungeeignet geeignet
+"in erster Linie" "in zweiter Linie"
+atypisch typisch
+inkonsequent konsequent
+"am wenigsten" "in höchstem Maße"
+draußen drinnen
+bemerkenswert unremarkably
+schlimmstenfalls bestenfalls
+maximal mindestens
+Weniger Weniger
+Weniger "in einem größeren Ausmaß"
+flussabwärts flußaufwärts
+"nach oben" "nach unten"
+"nach oben" "nach unten"
+"gegen den Wind" Abwind
+ergebnislos schlüssig
+sanely irrsinnig
+voraus zurück
+zufällig bewusst
+"auf keinen Fall" "auf jeden Fall"
+unerträglich ziemlich
+Unglücklicherweise glücklicherweise
+unglücklicherweise Glücklicherweise
+traurig glücklich
+allgemein speziell
+selten häufig
+nie je
+krank Gut
+ganz teilweise
+ungathered versammelt
+postnuptial prenuptial
+exokrinen endokrine
+prokaryontischen eukaryotischen
+afebrile febrile
+eugenische dysgenic
+eremitic cenobitic
+Analphabeten alphabetisch
+flowerless Blüte
+ungeschält geschält
+weltfremd weltlich
+unhandlich wieldy
+wasserfrei wasserhaltiger
+"nicht flüchtig" flüchtig
+ovoviviparous viviparous
+ovipar viviparous
+unverändert variiert
+unguiculate Huftier
+Muscheln univalve
+Überhand hinterhältig
+atypisch typisch
+untraveled gereist
+widerspenstig lenkbar
+atonal tonal
+nontaxable steuerpflichtig
+taktlos taktvoll
+zygomorphic actinomorphic
+unsurprised überrascht
+fügsam stur
+atonic Tonic
+gebogen Gerade
+stimmlos geäußert
+induziert spontan
+"immer noch" funkelnd
+ungelöst gelöst
+unrifled rifled
+Zahlen verbal
+Verbindung einfach
+blind gesichtet
+weitsichtig kurzsichtig
+discalced Calced
+unshod beschlagen
+Unshockable schockbaren
+anaphrodisiac Aphrodisiakum
+asexuell sexuelle
+Antiseptikum septischen
+unhygienisch Sanitär
+extrasensory sensorischen
+unempfänglich sinnvoll
+unscalable skalierbar
+insatiate sättigen
+unverkäuflich verkäuflich
+unheilig heilig
+prolate Oblate
+Winkel gerundet
+Platz runden
+unawed eingeschüchtert
+nonretractile einziehbar
+unretentive remanent
+aperiodische periodische
+vielgestaltig Uniform
+ungereimt gereimt
+nichtrepetitiven repetitiven
+unquotable zitierfähig
+"nicht reparierbar" reparabel
+"nicht erneuerbaren" verlängerbar
+unregenerate regenerieren
+zerebrale emotional
+unruhig erholsam
+unprophetic prophetisch
+opisthognathous prognathous
+"nicht verschreibungspflichtige" Rezept
+unplowed gepflügt
+unstudied studierte
+gemustert Ebene
+undurchlässig durchlässig
+präventiven permissive
+impenitent Büßer
+unrepentant reuigen
+unpeaceful friedlich
+husbandly wifely
+undelineated abgegrenzt
+lippenlos Lippen
+Innen draussen
+desorientierenden Orientieren
+unorientierten orientiert
+atomistischen holistisch
+Gegenteil wechseln
+geschlossen öffnen
+abseits onside
+aus aus
+unappetitliche Bohnenkraut
+subjektiv Objektiv
+unaufdringlich aufdringlich
+unneurotic neurotisch
+brutto Netz
+unbewegt bewegt
+wenigsten wenigsten
+weniger weniger
+"am wenigsten" "am wenigsten"
+polyphon monophon
+unmilitärische Militär
+Ametabolic Stoffwechsel
+gnadenlos barmherzig
+unmelted geschmolzen
+unmusikalisch Musical
+tuneless melodisch
+bedeutungslos sinnvoll
+"das ganze Jahr" saisonal
+Grün reif
+unweiblich fraulich
+unbemannte besetzt
+unmännlich männlich
+Minuskel Majuskel
+geographischen magnetisch
+antimagnetischem magnetisch
+unglücklich glücklich
+verhasst liebenswert
+endemisch ecdemic
+endemisch Epidemie
+unbewohnbar bewohnbar
+verzeichnet Leben
+nichtlineare linear
+unähnlich wie
+platyrrhine leptorrhine
+platyrrhine catarrhine
+catarrhine leptorrhine
+klein groß
+wenig groß
+unlaureled laureled
+unmarkierten markiert
+unerkennbar Erkennbare
+unverdient verdient
+anisotropen isotrop
+faltenlos faltig
+wässrig eruptiv
+unintrusive aufdringlich
+extrospective introspektiv
+extrinsische intrinsische
+Intraspezies- zwischenartliche
+undesigned entworfen
+getrennt integriert
+unerquicklich erbaulich
+schuldig unschuldig
+agnostisch Gnostiker
+transeunt immanent
+humorlos humorvoll
+winterlich herbstlich
+winterlich sommerlich
+winterlich vernalis
+sitzt Stehen
+unerect aufrecht
+geneigt vertikal
+vertikal horizontal
+unehrlich ehrlich
+analog heterologe
+Flachland Hochland
+nonechoic echoic
+deaktivieren ermöglichen
+achtsam unachtsam
+chirurgische medizinisch
+unregretful bedauernd
+polyploid haploid
+diploiden haploid
+geizig großzügig
+endemisch kosmopolitisch
+geruchlos Geruchsstoffe
+übelriechend duftend
+nonnative nativen
+angenommen nativen
+Rückhand Vorhand
+steril fruchtbar
+ungünstig günstig
+nonfat Fett
+stillos stilvoll
+nonextensile extensile
+implizit explizit
+unerklärlich erklärbar
+billig teuer
+ausgestorben vorhanden
+inconvertible Cabrio
+ungerade sogar
+dysphoric euphorisch
+ungeschminkt schmeichelhaft
+hypotone isotonisch
+hypertonisch isotonisch
+unenterprising unternehmend
+uninquiring erkundigt
+lethargisch energisch
+exogene endogener
+exotherme endothermisch
+wärmeabgebenden endoergic
+freiberuflich Angestellte
+forceless kraftvoll
+unwirksam Wirksam
+ungenießbar essbar
+undynamischer dynamisch
+doppelläufige "mit einem Lauf"
+unservile unterwürfig
+unkonzentriert konzentriert
+undiplomatisch diplomatische
+unzuverlässig zuverlässig
+konform trotzig
+interrogatory deklaratorischen
+undatierbaren datierbar
+Staude Jahres
+"alle zwei Jahre" Jahres
+nichtcyclischen zyklisch
+"maschinell hergestellt" handgefertigt
+multidimensional eindimensional
+planar linear
+planar kubisch
+linear kubisch
+noncrucial entscheidend
+unglaublich glaubwürdig
+unkreativ kreativ
+unhöflich bürgerlich
+unumstritten umstritten
+unpriestly priesterlichen
+unsympathisch sympathisch
+"nicht leitend" "leitend ist"
+unenforced "durchgesetzt werden"
+hypertrophe verkümmert
+Exzenter konzentrisch
+konvex konkav
+klaglos beschweren
+"nicht mischbar" mischbar
+Off-Shore Küsten
+"in der Nähe von" weit
+verwirrt "einen klaren Kopf"
+strahlenundurchlässigen strahlendurchlässige
+tramontane cismontane
+farblos bunt
+ungefärbt farbig
+"Schwarz und weiß" Farbe
+unowned "im Besitz"
+unveränderlich veränderlich
+evitable unvermeidlich
+unsicher sicher
+"nicht porös" porös
+acaudate "Nucleus caudatus"
+"Klinker gebaut" "carvel gebaut"
+acarpelous carpellate
+"ohne Knochen" knöcherne
+unburied begraben
+schwesterlich brüderlich
+unvoreingenommen voreingenommen
+feige gutsy
+feige mutig
+ungebunden gebunden
+brünett blond
+quadrupedal zweibeinigen
+Vierfüßler zweibeinigen
+trinucleate zweikernige
+trinucleate einkernigen
+einkernigen zweikernige
+verleumden gutartig
+bellyless aufgeblähter
+behaart unbehaart
+unbarreled barrelled
+"nicht bewusst" bewusst
+heterogenes autogenem
+Überschall Schall
+Unterschall Schall
+unverständlich hörbar
+pedunculate sessile
+ungebunden angebracht
+unassertive durchsetzungs
+ungepanzerten gepanzert
+nonarboreal arboreal
+postnatal perinatale
+postnatal pränatale
+perinatale pränatale
+Synthetik analytisch
+Oral anal
+mager reichlich
+anspruchslos ehrgeizig
+egoistische altruistisch
+unaufmerksam aufmerksam
+unaggressive aggressiv
+inaesthetic ästhetisch
+unadventurous abenteuerlich
+schmucklos geschmückt
+materiell Adjektiv
+nonaddictive "süchtig machend"
+maladaptiven adaptive
+Potenzial tatsächlich
+stativen aktiv
+ruhend aktiv
+amphotere alkalisch
+amphotere sauer
+unabused missbraucht
+"nicht adsorbierenden" Adsorptionsmittel
+"nicht saugfähigen" saugfähig
+relativ Absolute
+adducent abducent
+"im Laufe der Zeit" Regelzeit
+Herbsttagundnachtgleiche Frühlingstagundnachtgleiche
+Sonnenuntergang Sonnenaufgang
+Nacht Tag
+Tod Geburt
+Ruhetag Werktag
+Intron Exon
+Isolator Dirigent
+anticatalyst Katalysator
+Hypotonie Hypertonus
+Hypotonus Hypertonus
+Hyperopie Kurzsichtigkeit
+Untauglichkeit Fitness
+Trockenheit Nässe
+Anfälligkeit Unempfindlichkeit
+"schlechtes Wetter" "gutes Wetter"
+Atypizität Typizität
+Verschmutzung Sauberkeit
+Armut Reichtum
+Verunreinigung Reinheit
+Unmöglichkeit Möglichkeit
+Pech "Viel Glück"
+Unvollkommenheit Perfektion
+Wellness Krankheit
+Beschwerden Komfort
+Verruf Ruf
+Unreife Reife
+Ablehnen Verbesserung
+Kohärenz Zusammenhanglosigkeit
+Union Trennung
+Wahnsinn Vernunft
+Hypoglykämie Hyperglykämie
+Hypokalzämie Hyperkalzämie
+Hypovolämie Hypervolämie
+Hypotension Hypertonie
+Krankheit "gute Gesundheit"
+Potenz Impotenz
+potence Impotenz
+Anöstrus Brunst
+Schläfrigkeit Wachsamkeit
+Nüchternheit Trunkenheit
+Untätigkeit Aktion
+Ungleichgewicht Balance
+Schuld Unschuld
+Krieg Frieden
+exogamy endogamy
+Falschheit Wahrheit
+Nicht-Existenz Existenz
+Nicht-Sein Sein
+"wichtigsten Winkel" "einspringende Winkel"
+"rechtwinkliges Dreieck" "schiefe Dreieck"
+"gerade Linie" Kurve
+Negativität Positivität
+Asynchronität synchron
+desynchronisierenden Synchron
+intransitivity transitivity
+aliquant aliquoten
+Erweiterung Verengung
+Serienbetrieb Parallelbetrieb
+Proliferation nonproliferation
+Peristaltik anastalsis
+palingenesis cenogenesis
+Abfluss Zufluss
+Ausströmen Zustrom
+Inflation Disinflation
+Evolution Übertragung
+Katabolismus anabolism
+"nicht notierte Sicherheit" "kotierten Sicherheit"
+Kasse Kredit
+Verlust gewinnen
+Nichtzahlung Zahlung
+outgo Einkommen
+pleurocarp acrocarp
+Gleichstrom Wechselstrom
+Abstoßung Attraktion
+Ehefrau Mann
+"sich freiwillig melden" draftee
+Generalvertreter Spezialagent
+Onkel Tante
+"dünne Person" "Dicker Mensch"
+Quadrat-Shooter Lügner
+Spezialist Generalist
+Junge Mädchen
+Raucher Nichtraucher
+Schwester Bruder
+serviceman Zivilist
+cenobite eremite
+Königin König
+Kläger Beklagte
+Mutter Vater
+Nicht-Mitglied Mitglied
+Verlierer achiever
+Herr Dame
+Befreier Fänger
+Laie Geistliche
+Falke Taube
+Feind Freund
+elitär egalitär
+Nachkomme Vorfahr
+Schuldner Gläubiger
+jugendlich Erwachsene
+Eudemon CACODEMON
+Staatsgewässer "Hohe See"
+Abstammung Aufstieg
+"abschreckend wirken" Anreiz
+Stadtgebiet "ländliches Gebiet"
+Periselen apolune
+Periapsis Apoapsis
+antapex Apex
+Flora Fauna
+Sozialismus Kapitalismus
+"ohne Marktwirtschaft" Marktwirtschaft
+nonalignment Ausrichtung
+Laien Klerus
+Verteidigung Angriff
+Verteidigung Delikt
+Strafverfolgung Verteidigung
+uninitiate einleiten
+schüchtern mutig
+jung alt
+Sorten Generika
+Vollmilch Magermilch
+"kochen Apfel" "Apfel isst"
+Verstimmung "guter Humor"
+Misogynie philogyny
+Unzufriedenheit Zufriedenheit
+Freudlosigkeit Fröhlichkeit
+Trauer Freude
+Traurigkeit Glück
+Vertrauen Schüchternheit
+Furchtlosigkeit Angst
+Schwerkraft Leichtfertigkeit
+Demut Stolz
+Undankbarkeit Dankbarkeit
+Schmerz Vergnügen
+Niederlage Sieg
+Linksdrehung Rechtsdrehung
+Flut Ebbe
+Ebbe Flut
+Eindringen Austritt
+Lebendgeburt Totgeburt
+Ende Anfang
+Antworten Frage
+"continuant Konsonant" "stoppen Konsonant"
+Konsonant Vokal
+Polyfonie monophony
+"alter Stil" modern
+Proportionalschrift "Schrift mit fester Breite"
+"Römische Ziffer" "Arabischen Ziffer"
+Lüge Wahrheit
+syncategorem categorem
+Universal besonderen
+Noninterference Interferenz
+inhospitality Gastfreundschaft
+Software Hardware
+Missdeutung Bau
+schräg Nominativ
+Synonym Antonym
+Email Schneckenpost
+Email Schneckenpost
+Theismus Atheismus
+Nonkonformismus Konformität
+Nonkonformismus Konformismus
+Unparteilichkeit Parteilichkeit
+Romantik Klassizismus
+Korpuskulartheorie Wellentheorie
+Holismus Atomismus
+Dysgenics Eugenik
+"offene Intervall" "abgeschlossenes Intervall"
+Unglaube Glauben
+Realitätsprinzip Lustprinzip
+Divergenz convergency
+"divergentes Denken" "konvergentes Denken"
+Synthese Analyse
+Unsicherheit Sicherheit
+incognizance cognizance
+kinanesthesia Kinästhesie
+uncreativeness Kreativität
+Analphabetentum Alphabetisierung
+Unfähigkeit Fähigkeit
+Hölle Himmel
+Rezeptor Effektor
+Beuge Strecker
+Endlichkeit infiniteness
+Wirkungslosigkeit Wirksamkeit
+Ohnmacht Leistung
+Zwecklosigkeit Zielstrebigkeit
+Entbehrlichkeit Unentbehrlichkeit
+Wesenlosigkeit Wesentlichkeit
+Unrentabilität Rentabilität
+Unzweckmäßigkeit Zweckmäßigkeit
+Elfmeter Belohnung
+unpropitiousness propitiousness
+unfavorableness Vorteilhaftigkeit
+Undurchführbarkeit Durchführbarkeit
+Undurchführbarkeit Befahrbarkeit
+Nutzlosigkeit Dienstprogramm
+Nutzlosigkeit Nützlichkeit
+Unerwünschtheit wünschenswert
+demerit verdienen
+Niedrigkeit Hoheit
+Enge Weite
+Oberflächlichkeit Tiefe
+Unmäßigkeit Mäßigung
+Knappheit Fülle
+Unzulänglichkeit Angemessenheit
+Kleinheit Größe
+Kleinheit bigness
+Oberflächlichkeit Tiefe
+Nähe farness
+gradualness Plötzlichkeit
+Asymmetrie Symmetrie
+untimeliness Aktualität
+posteriority Priorität
+Leichtigkeit Schwere
+Inflexibilität Flexibilität
+inaudibility Hörbarkeit
+Unsichtbarkeit Sichtweite
+Schärfe Kälte
+Weiblichen Mannsein
+Magerkeit Fettigkeit
+Unverträglichkeit Verdaulichkeit
+"geschmackliche Veränderung" Schmackhaftigkeit
+Weichheit Lautstärke
+"geringe Steigung" "hohe Steigung"
+"unbunten Farbe" "chromatische Farbe"
+Farblosigkeit Farbe
+Rauheit Glätte
+Undurchlässigkeit Durchlässigkeit
+Undurchlässigkeit Permeabilität
+Solidität Porosität
+"Instruction Set Computer reduziert" "komplexe Instruction Set Computer"
+RISC CISC
+mediacy Unmittelbarkeit
+Indirektheit Direktheit
+Unhöflichkeit Höflichkeit
+Ungezwungenheit Formalität
+Wildheit Zahmheit
+Widerspenstigkeit Lenkbarkeit
+Fassungslosigkeit Gelassenheit
+Schamlosigkeit Bescheidenheit
+indecorum Anstand
+"politische Unkorrektheit" "politische Korrektheit"
+Unschicklichkeit Anstand
+improperness Eigentlichkeit
+Leichtsinn Vorsehung
+Torheit Weisheit
+Demut Einbildung
+Naivität Raffinesse
+Untreue Loyalität
+Untreue Treue
+Unehrlichkeit Ehrlichkeit
+disreputability Seriosität
+dishonorableness Ehrenhaftigkeit
+Unentschlossenheit Entscheidung
+Unentschlossenheit resoluteness
+Feigheit gutsiness
+Schüchternheit Mut
+Feigheit Mut
+Unheilbarkeit Heilbarkeit
+Unheiligkeit Heiligkeit
+Ungerechtigkeit Gerechtigkeit
+"unter Berücksichtigung" Berücksichtigung
+Gedankenlosigkeit Nachdenklichkeit
+Unempfindlichkeit Empfindlichkeit
+Bösartigkeit benignity
+Malignität benignancy
+Ungerechtigkeit Eigenkapital
+Egoismus Altruismus
+illiberality Liberalität
+Geiz Großzügigkeit
+Erbarmungslosigkeit Barmherzigkeit
+Gottlosigkeit Frömmigkeit
+Mehrdeutigkeit monosemy
+Mehrdeutigkeit Eindeutigkeit
+Unklarheit Klarheit
+Dunkelheit Klarheit
+Unleserlichkeit Lesbarkeit
+Unschärfen Präzision
+Ungenauigkeit Genauigkeit
+Ungewöhnlichkeit Häufigkeit
+Unzumutbarkeit Annehmbarkeit
+insalubrity salubrity
+Unlogik logicality
+Unwahrscheinlichkeit Plausibilität
+Unglaubwürdigkeit Glaubwürdigkeit
+Lockerheit Festkeit
+Unbeweglichkeit Beweglichkeit
+Komplexität Einfachheit
+Substanzlosigkeit Stofflichkeit
+Unkörperlichkeit Körperlichkeit
+intangibility Greifbarkeit
+impalpability Greifbarkeit
+counterfactuality Faktizität
+unlikeliness Wahrscheinlichkeit
+Unwahrscheinlichkeit Wahrscheinlichkeit
+Heterogenität Homogenität
+Uneinheitlichkeit Gleichmäßigkeit
+Unähnlichkeit Ähnlichkeit
+Unveränderlichkeit Wandlungsfähigkeit
+unexchangeability Austauschbarkeit
+Konstanz Unbeständigkeit
+Unveränderlichkeit Wandelbarkeit
+Minderwertigkeit Überlegenheit
+"geringe Qualität" "gute Qualität"
+Nichtverfügbarkeit Verfügbarkeit
+infelicity Glückseligkeit
+inaptness Eignung
+Untauglichkeit Eignung
+Inkongruenz Kongruenz
+Schwierigkeit Leichtigkeit
+Dumpfheit Schärfe
+Weichheit Schärfe
+Opazität Klarheit
+Unzuverlässigkeit Zuverlässigkeit
+Unzuverlässigkeit Zuverlässigkeit
+unreliableness reliableness
+Verantwortungslosigkeit Verantwortung
+untrustiness Trustiness
+Achtlosigkeit heedfulness
+Unvorsichtigkeit Vorsicht
+incaution Vorsicht
+unneighborliness Nachbarschaft
+Nähe Offenheit
+Ungeselligkeit Geselligkeit
+Frivolität Schwere
+Unwilligkeit Bereitschaft
+Ungeduld "die Geduld"
+unemotionality Emotionalität
+"galvanische Zelle" Elektrolysezelle
+"flüchtigen Speicher" "einen nichtflüchtigen Speicher"
+undergarment overgarment
+"Oberfläche Schiff" versenkbaren
+Stator Rotor
+"intelligente Bombe" "stummen Bombe"
+"verschreibungspflichtige Arzneimittel" "nicht verschreibungspflichtiges Medikament"
+Außenfeld Infield
+Generika Marken-Medikament
+Flachrelief Hochrelief
+Paarhufer Unpaarhufer
+Diapsida Anapsida
+carinate ratite
+Nichteingriffs Engagement
+Nichtbeteiligung Beteiligung
+Versammlung Demontage
+Bärendienst Bedienung
+Beachtung Nichteinhaltung
+Integration Trennung
+Freispruch Überzeugung
+"Urteil rem" "Urteil in personam"
+Destabilisierung Stabilisierung
+Demobilisierung Mobilisierung
+Entwaffnung Bewaffnung
+Abrüstung Rüstung
+Entkriminalisierung Kriminalisierung
+Aufgabe Fortsetzung
+Homöopathie Allopathie
+"weicher Ball" "mit harten Bandagen"
+Entzweiung Union
+detribalisation Tribalisierung
+Erweiterung Kontraktion
+vorrücken Rückzug
+Anfang Fertig
+Versagen Vorbeigehen
+alle nichts
+Vor nach
+erstellen zerstören
+glücklich traurig
+im aus
+laut ruhig
+ordentlich unordentlich
+"zu Ende" unter
+echt Fälschung
+"der rechten Seite nach oben" kopfüber
+zäh einfach
+alte modern
+jeden keiner
+stumm Smart
+verrückt gesund
+##>>

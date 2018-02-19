@@ -1,0 +1,112 @@
+outputmacro: ^showworld()
+	query(direct_vo ? member  '~places -1 ? @4) # get list of all locations
+	\n Current world: \n
+
+	loop()
+	{
+		$$place = first(@4subject)
+		$$place : 
+
+		# show resources at place
+		nofail(RULE query(direct_vo ? member  '~resources -1 ? @3)) # get list of all resources
+		loop()
+		{
+			$$resource = first(@3subject)
+			nofail(RULE query(direct_sv $$place $$resource ?))
+			if (@0object > 0)
+			{
+				$$resource @0object 
+			}
+		}
+		\n
+		# show vehicles at place
+		NOFAIL(RULE query(direct_vo ? vehicle  $$place -1 ? @2)) # get list of all vehicles there
+		loop()
+		{
+			$$vehicle = first(@2subject)
+			^"     $$vehicle : "
+			nofail(RULE query(direct_vo ? member '~resources -1 ? @3)) # get list of all resources
+			loop()
+			{
+				$$resource = first(@3subject)
+				nofail(RULE query(direct_sv $$vehicle $$resource ?))
+				if (@0object > 0)
+				{
+					$$resource @0object 
+				}
+			}
+			\n
+		}
+
+		# show connections to other land
+		NOFAIL(RULE query(direct_sv $$place land_connect  ? -1)) # get list of all land connections
+		loop()
+		{
+			$$land = first(@0object)
+			^"     connected by land to $$land \n"
+		}
+		NOFAIL(RULE query(direct_sv $$place sea_connect  ? -1)) # get list of all land connections
+		loop()
+		{
+			$$land = first(@0object)
+			^"     connected by sea to $$land \n"
+		}
+		NOFAIL(RULE query(direct_sv $$place rail_connect  ? -1)) # get list of all land connections
+		loop()
+		{
+			$$land = first(@0object)
+			^"     connected by rail to $$land \n"
+		}
+	}
+
+outputmacro: ^make_reality() # convert transient facts resulting from planning to real
+	nofail(RULE query(direct_v ? vehicle ?))	# locations of vehicles
+	removeproperty(@0f FACTTRANSIENT)			# make all such facts permament
+	nofail(RULE query(direct_v ? space ?))		# space contents of vehicles 
+	removeproperty(@0f FACTTRANSIENT)			# make all such facts permament
+	query(direct_vo ? member '~resources -1 ? @4) # every resource
+	loop()
+	{
+		$$resource = first(@4subject)
+		nofail(RULE query(direct_v ? $$resource ? ))			# every resource instance
+		removeproperty(@0f FACTTRANSIENT)		# make all such facts permament
+	}
+
+topic: ~INTRODUCTIONS repeat keep (~emogoodbye ~emohello ~emohowzit name here )
+t: ( %input<%userfirstline ) 
+	^keep()   
+	Legal commands are: \n
+	"pile where  what quantity" - move stuff around in world \n
+	"place where what quantity" - add stuff to world  \n
+	"show" - describe state of world \n
+	^"    where can be:  location0 location1 location2 \n"
+	^"    what can be:  stone wood \n"
+	respond(~defineworld)
+	 ^showworld()
+
+u: (< show >) ^showworld() 
+u: ( < place _~places _~resources _~number >) '_1 placed.
+	^Replace_Resource('_1 '_0 _2)
+	 ^make_reality()		
+	 ^showworld()
+
+u: (< pile _~places _~resources _~number >) 
+		@10 = null	# initialize action list
+		if (^acquire('_0 '_1 _2))
+		{
+			Mission accomplished. \n
+			^make_reality()		
+			loop()
+			{
+				$$f = first(@10f)
+				\( ^field($$f subject) ^field($$f verb) ^field($$f Object) \) \n
+			}
+			^showworld()
+		}
+		else {Unable to achieve goal.}
+u: (_*) Illegal command: '_0 \n
+	"pile where  what quantity" - move stuff around in world \n
+	"place where what quantity" - add stuff to world  \n
+	"show" - describe state of world \n
+	^"    what can be:  stone wood \n"
+	^"    where can be:  location0 location1 location2 \n"

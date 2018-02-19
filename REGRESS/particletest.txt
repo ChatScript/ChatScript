@@ -1,0 +1,60 @@
+Have you ever accompanied a singer on a musical instrument? 
+Tagged POS: 
+Have you ever accompanied a boy/girl friend to a pub, disco, night club or casino? 
+Tagged POS: 
+How well did you do when you first went to school according to your teachers? 
+Tagged POS: 
+What was your worst habit when you were a baby according to your parents? 
+Tagged POS: 
+What is your worst habit according to your best friend? 
+Tagged POS: 
+Has anybody ever accused you of something you didn't do? 
+Tagged POS: 
+Has anybody ever accused you of something you did do? 
+Tagged POS: 
+Are you accustomed to taking your shoes off when you go into a house? 
+Tagged POS: 
+Who do you feel most admiration for, film stars, pop singers, footballers or teachers? 
+Tagged POS: 
+What are the advantages and disadvantages of being you? 
+Tagged POS: 
+Are you afraid of making mistakes with your English? 
+Tagged POS: 
+Do you agree with your parents' opinions about most subjects? Is there anybody in your family with whom you disagree strongly? 
+Tagged POS: 
+When you first started school, were you ahead of most of the other children in reading and writing? 
+Tagged POS: 
+Have your parents made any financial allowance or has your employer given you any holiday allowance for your visit to England and The English Language Centre? 
+Tagged POS: 
+Would you make any allowance for someone who was very rude to you if their mother or father had just died? 
+Tagged POS: 
+When was the last time you were really angry or annoyed with someone? Why were you so annoyed with them? 
+Tagged POS: 
+Have you ever been anxious about an examination, a visit to the dentist or hospital treatment? 
+Tagged POS: 
+What is the longest period of time that you have lived apart from your parents or your partner? 
+Tagged POS: 
+Have you ever apologized for something you did or said? 
+Tagged POS: 
+Which jobs have you applied for before or what kind of work do you think you will apply for in the future? 
+Tagged POS: 
+Have you ever argued with your best friend about anything? What did you argue about? 
+Tagged POS: 
+Have you ever done anything which either you or your parents were ashamed of? 
+Tagged POS: 
+When you telephone home, which member of your family, pet or friend do you ask after first? 
+Tagged POS: 
+Have you ever asked for the manager in a hotel, shop or restaurant when the service was very bad? 
+Tagged POS: 
+Have any of your friends ever been astonished at your skills, abilities and achievements? 
+Tagged POS: 
+Have any of your teachers ever been astonished at your good or bad performance in any school subjects? 
+Tagged POS: 
+
+Did you ever become closely attached to a family pet when you were a child? If so, which animal was the pet? 
+Tagged POS: 
+What is your attitude towards smoking in public places? 
+Tagged POS: 
+Do you think you are normally aware of what other people in the same room are thinking and feeling? 
+Tagged POS: 
+

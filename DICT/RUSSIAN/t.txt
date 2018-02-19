@@ -1,0 +1,843 @@
+﻿ T ( ) lemma=`t` -  
+ T. ( ) lemma=`t.` SENT  
+ T1 ( ) lemma=`t1`t1` Ncfsnn  Npmsgy  
+ T100 ( ) lemma=`t100` -  
+ T1N1M0 ( ) lemma=`t1n1m0` -  
+ T1N1Mo ( ) lemma=`t1n1mo` -  
+ T2 ( ) lemma=`t2` -  
+ T3 ( ) lemma=`t3`t3` -  Mc---d  
+ T4 ( ) lemma=`t4` Mc---d  
+ T5 ( ) lemma=`t5` Mc---d  
+ T6 ( ) lemma=`t6` -  
+ T7 ( ) lemma=`t7` -  
+ T8 ( ) lemma=`t8` Ncfsnn  
+ TACACS ( ) lemma=`tacacs` -  
+ TAFFETA ( ) lemma=`taffeta` -  
+ TAIWAN ( ) lemma=`taiwan` -  
+ TAK ( ) lemma=`tak` -  
+ TAKOGO ( ) lemma=`takogo` -  
+ TALBOT ( ) lemma=`talbot` -  
+ TASLAN ( ) lemma=`taslan` -  
+ TATE ( ) lemma=`tate` -  
+ TC ( ) lemma=`tc` -  
+ TCO ( ) lemma=`tco` -  
+ TCP/IP ( ) lemma=`tcp/ip` -  
+ TD ( ) lemma=`td` -  
+ TDC1 ( ) lemma=`tdc1`tdc1`tdc1`tdc1` -  Afpnsif  Vmis-sfa-e  Vmpp-p-a-eg  
+ TDIS ( ) lemma=`tdis` -  
+ TDK ( ) lemma=`tdk` -  
+ TDPSS ( ) lemma=`tdpss` -  
+ TEB'A ( ) lemma=`teb'a` -  
+ TECH ( ) lemma=`tech` -  
+ TECHNICAL ( ) lemma=`technical` -  
+ TEL ( ) lemma=`tel` -  
+ TES ( ) lemma=`tes` -  
+ TEX ( ) lemma=`tex` -  
+ TEZ ( ) lemma=`tez` -  
+ TF1 ( ) lemma=`tf1` Ncmsdy  
+ TGIF ( ) lemma=`tgif` -  
+ THAT ( ) lemma=`that` -  
+ THE ( ) lemma=`the` -  
+ THESIS ( ) lemma=`thesis` -  
+ THINSULATE ( ) lemma=`thinsulate` -  
+ THOU ( ) lemma=`thou` -  
+ TI ( ) lemma=`ti`ti` -  Mo---d  
+ TIFF ( ) lemma=`tiff` -  
+ TIKKA ( ) lemma=`tikka` -  
+ TIME ( ) lemma=`time` -  
+ TIMES ( ) lemma=`times` -  
+ TIR ( ) lemma=`tir` -  
+ TJ ( ) lemma=`tj` -  
+ TKPROF ( ) lemma=`tkprof` -  
+ TMA ( ) lemma=`tma` -  
+ TNO ( ) lemma=`tno` -  
+ TNT ( ) lemma=`tnt` -  
+ TOM ( ) lemma=`tom` -  
+ TOP ( ) lemma=`top` -  
+ TOP25 ( ) lemma=`top25` Ncnsgn  
+ TOUR ( ) lemma=`tour` -  
+ TOZHE ( ) lemma=`tozhe` -  
+ TP ( ) lemma=`tp` -  
+ TPC ( ) lemma=`tpc` -  
+ TPONR ( ) lemma=`tponr` -  
+ TRACECA ( ) lemma=`traceca` -  
+ TRAVEL ( ) lemma=`travel` -  
+ TRILOBAL ( ) lemma=`trilobal` -  
+ TRITON ( ) lemma=`triton` -  
+ TRR ( ) lemma=`trr` -  
+ TRV ( ) lemma=`trv` -  
+ TS93 ( ) lemma=`ts93` Afpfsnf  
+ TSC1 ( ) lemma=`tsc1`tsc1`tsc1` -  Vmpp-p-a-eg  Vmps-sfpsp  
+ TSCe ( ) lemma=`tsce` -  
+ TSIP ( ) lemma=`tsip` -  
+ TSL ( ) lemma=`tsl` -  
+ TURBULENT ( ) lemma=`turbulent` -  
+ TURRINI ( ) lemma=`turrini` -  
+ TV ( ) lemma=`tv` -  
+ TVset ( ) lemma=`tvset` -  
+ TXT ( ) lemma=`txt` -  
+ Ta'Pinu ( ) lemma=`ta'pinu` -  
+ Ta'Qali ( ) lemma=`ta'qali` -  
+ Tabes ( ) lemma=`tabes` -  
+ Table ( ) lemma=`table` -  
+ Tables ( ) lemma=`tables` -  
+ Tablet ( ) lemma=`tablet` -  
+ Tactical ( ) lemma=`tactical` -  
+ Tag ( ) lemma=`tag` -  
+ Tail ( ) lemma=`tail` -  
+ Tainted ( ) lemma=`tainted` -  
+ Tais ( ) lemma=`tais` -  
+ Tak ( ) lemma=`tak` -  
+ Take ( ) lemma=`take` -  
+ Takesha ( ) lemma=`takesha` -  
+ Tal ( ) lemma=`tal` -  
+ Tale ( ) lemma=`tale` -  
+ Talent ( ) lemma=`talent` -  
+ Tales ( ) lemma=`tales` -  
+ Talk ( ) lemma=`talk` -  
+ Tallinn ( ) lemma=`tallinn` -  
+ Tam ( ) lemma=`tam` -  
+ Tamara ( ) lemma=`tamara` -  
+ Tangential ( ) lemma=`tangential` -  
+ Tangerine ( ) lemma=`tangerine` -  
+ Taniguchi ( ) lemma=`taniguchi` -  
+ Tao ( ) lemma=`tao` -  
+ Tape ( ) lemma=`tape` -  
+ Tar ( ) lemma=`tar` -  
+ Target ( ) lemma=`target` -  
+ Tartarorum ( ) lemma=`tartarorum` -  
+ Tarxien ( ) lemma=`tarxien` -  
+ Task ( ) lemma=`task` -  
+ TatkaOz ( ) lemma=`tatkaoz` -  
+ Tatu ( ) lemma=`tatu` -  
+ Tatu@tatu ( ) lemma=`tatu@tatu` -  
+ TauruS ( ) lemma=`taurus` -  
+ Tax ( ) lemma=`tax` -  
+ Taxales ( ) lemma=`taxales` -  
+ Taxi ( ) lemma=`taxi` -  
+ Taxodiaceae ( ) lemma=`taxodiaceae` -  
+ Taxodium ( ) lemma=`taxodium` -  
+ Tay ( ) lemma=`tay` -  
+ Taylor ( ) lemma=`taylor` -  
+ Taк ( ) lemma=`taк`taк` Ncmsnn  Ncmsny  
+ Tchekhovskoy ( ) lemma=`tchekhovskoy` -  
+ Tchltse ( ) lemma=`tchltse` -  
+ Tcl/Tk ( ) lemma=`tcl/tk` -  
+ Te ( ) lemma=`te` -  
+ Te'le'rama ( ) lemma=`te'le'rama` -  
+ Team ( ) lemma=`team` -  
+ Tears ( ) lemma=`tears` -  
+ Tech ( ) lemma=`tech` -  
+ Technics ( ) lemma=`technics` -  
+ Technologies ( ) lemma=`technologies` -  
+ Technology ( ) lemma=`technology` -  
+ Technologyосвящена ( ) lemma=`technologyосвящена` Vmps-sfpsp  
+ Technology™ ( ) lemma=`technology™` Ncmsnn  
+ Technorati ( ) lemma=`technorati` -  
+ Ted ( ) lemma=`ted` -  
+ Teen ( ) lemma=`teen` -  
+ Teiwaz ( ) lemma=`teiwaz` -  
+ Teiws ( ) lemma=`teiws` -  
+ Tektronix ( ) lemma=`tektronix` -  
+ Tel ( ) lemma=`tel` -  
+ Tel(852 ( ) lemma=`tel(852` -  
+ Tele ( ) lemma=`tele` -  
+ Telecom ( ) lemma=`telecom` -  
+ Telecommunications ( ) lemma=`telecommunications` -  
+ Telecordia ( ) lemma=`telecordia` -  
+ Telefonica ( ) lemma=`telefonica` -  
+ Telegraph ( ) lemma=`telegraph` -  
+ Teleport ( ) lemma=`teleport` -  
+ Teleportation ( ) lemma=`teleportation` -  
+ Telescope ( ) lemma=`telescope` -  
+ Telex ( ) lemma=`telex` -  
+ Teller ( ) lemma=`teller` -  
+ Teller'a ( ) lemma=`teller'a` -  
+ Telnet ( ) lemma=`telnet` -  
+ Telution ( ) lemma=`telution` -  
+ Temperature ( ) lemma=`temperature` -  
+ Temple ( ) lemma=`temple` -  
+ Tempora ( ) lemma=`tempora` -  
+ Temps ( ) lemma=`temps` -  
+ Ten ( ) lemma=`ten` -  
+ Tenexod ( ) lemma=`tenexod` -  
+ Tengu ( ) lemma=`tengu` -  
+ Tenpin ( ) lemma=`tenpin` -  
+ Tentacle ( ) lemma=`tentacle` -  
+ Tenth ( ) lemma=`tenth` -  
+ TeraTermPro ( ) lemma=`teratermpro` -  
+ Term ( ) lemma=`term` -  
+ Terminate ( ) lemma=`terminate` -  
+ Terminus ( ) lemma=`terminus` -  
+ TerraSyncля ( ) lemma=`terrasyncля` Ncmsgy  
+ TerraSyncомпании ( ) lemma=`terrasyncомпании` Ncfpnn  
+ TerraSyncриемник ( ) lemma=`terrasyncриемник` Ncmsnn  
+ TerraSyncти ( ) lemma=`terrasyncти` Vmn----a-p  
+ Terranova ( ) lemma=`terranova` -  
+ Terre ( ) lemma=`terre` -  
+ Terrestrial ( ) lemma=`terrestrial` -  
+ Tesla ( ) lemma=`tesla` -  
+ Test ( ) lemma=`test` -  
+ Testy ( ) lemma=`testy` -  
+ Tetka ( ) lemma=`tetka` -  
+ Tetraclinis ( ) lemma=`tetraclinis` -  
+ Tetsuya ( ) lemma=`tetsuya` -  
+ Tetushka ( ) lemma=`tetushka` -  
+ Teufel ( ) lemma=`teufel` -  
+ Tex ( ) lemma=`tex` -  
+ Texts ( ) lemma=`texts` -  
+ Th ( ) lemma=`th` -  
+ Th7 ( ) lemma=`th7` -  
+ Th8 ( ) lemma=`th8` -  
+ ThE ( ) lemma=`the` -  
+ Thaddaeus ( ) lemma=`thaddaeus` -  
+ Thanks ( ) lemma=`thanks` -  
+ That ( ) lemma=`that` -  
+ That's ( ) lemma=`that's` -  
+ Thauris ( ) lemma=`thauris` -  
+ The ( ) lemma=`the` -  
+ TheAera ( ) lemma=`theaera` -  
+ TheBrain ( ) lemma=`thebrain` -  
+ TheSpecialist ( ) lemma=`thespecialist` -  
+ Theater ( ) lemma=`theater` -  
+ Theatre ( ) lemma=`theatre` -  
+ Theed ( ) lemma=`theed` -  
+ Themes ( ) lemma=`themes` -  
+ Then ( ) lemma=`then` -  
+ Theodor ( ) lemma=`theodor` -  
+ Theodore ( ) lemma=`theodore` -  
+ Theodoret ( ) lemma=`theodoret` -  
+ Theological ( ) lemma=`theological` -  
+ Theory ( ) lemma=`theory` -  
+ Ther ( ) lemma=`ther` -  
+ There ( ) lemma=`there` -  
+ There's ( ) lemma=`there's` -  
+ There’s ( ) lemma=`there’s` -  
+ Thermal ( ) lemma=`thermal` -  
+ Thermaltake ( ) lemma=`thermaltake` -  
+ Therry ( ) lemma=`therry` -  
+ Thesaurus ( ) lemma=`thesaurus` -  
+ These ( ) lemma=`these` -  
+ Thestrals ( ) lemma=`thestrals` -  
+ Thexii ( ) lemma=`thexii` -  
+ They ( ) lemma=`they` -  
+ Thin ( ) lemma=`thin` -  
+ Things ( ) lemma=`things` -  
+ Think ( ) lemma=`think` -  
+ ThinkPad ( ) lemma=`thinkpad` -  
+ Third ( ) lemma=`third` -  
+ This ( ) lemma=`this` -  
+ Thomas ( ) lemma=`thomas` -  
+ Thora ( ) lemma=`thora` -  
+ Thorn ( ) lemma=`thorn` -  
+ Thoroughbred ( ) lemma=`thoroughbred` -  
+ Thorsett ( ) lemma=`thorsett` -  
+ Thoughts ( ) lemma=`thoughts` -  
+ Thrash ( ) lemma=`thrash` -  
+ Threaded ( ) lemma=`threaded` -  
+ Three ( ) lemma=`three` -  
+ Threshold ( ) lemma=`threshold` -  
+ Thrifty ( ) lemma=`thrifty` -  
+ Through ( ) lemma=`through` -  
+ Throughput ( ) lemma=`throughput` -  
+ Thrubing ( ) lemma=`thrubing` -  
+ Thu ( ) lemma=`thu` -  
+ Thurisaz ( ) lemma=`thurisaz` -  
+ Thursday ( ) lemma=`thursday` -  
+ Ti ( ) lemma=`ti` -  
+ Ticketing ( ) lemma=`ticketing` -  
+ Ticktockman ( ) lemma=`ticktockman` -  
+ Tide ( ) lemma=`tide` -  
+ Tier ( ) lemma=`tier` -  
+ Ties ( ) lemma=`ties` -  
+ Tikka ( ) lemma=`tikka` -  
+ Time ( ) lemma=`time` -  
+ Timeless ( ) lemma=`timeless` -  
+ Times ( ) lemma=`times` -  
+ Timless ( ) lemma=`timless` -  
+ Timur ( ) lemma=`timur` -  
+ Tindersticks ( ) lemma=`tindersticks` -  
+ Tip ( ) lemma=`tip` -  
+ Tipok ( ) lemma=`tipok` -  
+ Tir ( ) lemma=`tir` -  
+ Tirazh ( ) lemma=`tirazh` -  
+ Tis ( ) lemma=`tis` -  
+ Titan ( ) lemma=`titan` -  
+ Titanic ( ) lemma=`titanic` -  
+ Title ( ) lemma=`title` -  
+ Tkabber ( ) lemma=`tkabber` -  
+ Tlen ( ) lemma=`tlen` -  
+ To ( ) lemma=`to` -  
+ Tobi ( ) lemma=`tobi` -  
+ Tobias ( ) lemma=`tobias` -  
+ Tochter ( ) lemma=`tochter` -  
+ Tod ( ) lemma=`tod` -  
+ Together ( ) lemma=`together` -  
+ Tok ( ) lemma=`tok` -  
+ Tokyo ( ) lemma=`tokyo` -  
+ Tolkien ( ) lemma=`tolkien` -  
+ Tolkiena ( ) lemma=`tolkiena` -  
+ Tolkiene ( ) lemma=`tolkiene` -  
+ Tolko ( ) lemma=`tolko` -  
+ Tolok ( ) lemma=`tolok` -  
+ Tom ( ) lemma=`tom` -  
+ Tombait ( ) lemma=`tombait` -  
+ Tombo ( ) lemma=`tombo` -  
+ Tombstone ( ) lemma=`tombstone` -  
+ Tomiris ( ) lemma=`tomiris` -  
+ Tomita ( ) lemma=`tomita` -  
+ Tomsk ( ) lemma=`tomsk` -  
+ Tonawanda ( ) lemma=`tonawanda` -  
+ Tonda ( ) lemma=`tonda` -  
+ Tone ( ) lemma=`tone` -  
+ Tonight ( ) lemma=`tonight` -  
+ Tony ( ) lemma=`tony` -  
+ Too ( ) lemma=`too` -  
+ ToolBox ( ) lemma=`toolbox` -  
+ Tools ( ) lemma=`tools` -  
+ Tooth ( ) lemma=`tooth` -  
+ Top ( ) lemma=`top` -  
+ Top100 ( ) lemma=`top100` -  
+ Top25 ( ) lemma=`top25`top25` Ncfsnn  Npmsgy  
+ Top500 ( ) lemma=`top500` -  
+ Topological ( ) lemma=`topological` -  
+ Torino ( ) lemma=`torino` -  
+ Toronto ( ) lemma=`toronto` -  
+ Torque ( ) lemma=`torque` -  
+ Torshin ( ) lemma=`torshin` -  
+ Torture ( ) lemma=`torture` -  
+ Toshiba ( ) lemma=`toshiba` -  
+ Total ( ) lemma=`total` -  
+ Touch ( ) lemma=`touch` -  
+ Touring ( ) lemma=`touring` -  
+ Tournament ( ) lemma=`tournament` -  
+ Tours ( ) lemma=`tours` -  
+ Tovarishchi ( ) lemma=`tovarishchi` -  
+ Tower ( ) lemma=`tower` -  
+ Town ( ) lemma=`town` -  
+ Tox ( ) lemma=`tox` -  
+ Toxic ( ) lemma=`toxic` -  
+ Toxics ( ) lemma=`toxics` -  
+ Toy ( ) lemma=`toy` -  
+ Toyota ( ) lemma=`toyota` -  
+ Toлькo ( ) lemma=`toлькo` -  
+ TrYu ( ) lemma=`tryu` -  
+ Tractatus ( ) lemma=`tractatus` -  
+ Trade ( ) lemma=`trade` -  
+ Trader ( ) lemma=`trader` -  
+ Tradition ( ) lemma=`tradition` -  
+ Training ( ) lemma=`training` -  
+ Traite ( ) lemma=`traite` -  
+ Trakhtengerts ( ) lemma=`trakhtengerts` -  
+ Trance ( ) lemma=`trance` -  
+ TransMediale ( ) lemma=`transmediale` -  
+ Transact ( ) lemma=`transact` -  
+ Transaction ( ) lemma=`transaction` -  
+ Transfer ( ) lemma=`transfer` -  
+ Transgas ( ) lemma=`transgas` -  
+ Translation ( ) lemma=`translation` -  
+ Translator's ( ) lemma=`translator's` -  
+ Transport ( ) lemma=`transport` -  
+ Trapped ( ) lemma=`trapped` -  
+ Trappy ( ) lemma=`trappy` -  
+ Trash ( ) lemma=`trash` -  
+ Trasparenze ( ) lemma=`trasparenze` -  
+ Travel ( ) lemma=`travel` -  
+ TravelMate ( ) lemma=`travelmate` -  
+ Tre ( ) lemma=`tre` -  
+ Treants ( ) lemma=`treants` -  
+ Treat ( ) lemma=`treat` -  
+ Treating ( ) lemma=`treating` -  
+ Treatment ( ) lemma=`treatment` -  
+ Tree ( ) lemma=`tree` -  
+ Treets ( ) lemma=`treets` -  
+ Trek ( ) lemma=`trek` -  
+ Trend ( ) lemma=`trend` -  
+ Trendsetter ( ) lemma=`trendsetter` -  
+ Treumann ( ) lemma=`treumann` -  
+ Trexel ( ) lemma=`trexel` -  
+ Tri ( ) lemma=`tri` -  
+ TriSensor ( ) lemma=`trisensor` -  
+ Triade ( ) lemma=`triade` -  
+ Tribe ( ) lemma=`tribe` -  
+ Tribune ( ) lemma=`tribune` -  
+ Tribute ( ) lemma=`tribute` -  
+ Tricennial ( ) lemma=`tricennial` -  
+ Trick ( ) lemma=`trick` -  
+ Tries ( ) lemma=`tries` -  
+ Triest ( ) lemma=`triest` -  
+ Trifon ( ) lemma=`trifon` -  
+ Trimble ( ) lemma=`trimble` -  
+ Trinitron ( ) lemma=`trinitron` -  
+ Triple ( ) lemma=`triple` -  
+ TripleDES ( ) lemma=`tripledes` -  
+ Trix ( ) lemma=`trix` -  
+ Trobadors ( ) lemma=`trobadors` -  
+ Troccoli ( ) lemma=`troccoli` -  
+ Tronics ( ) lemma=`tronics` -  
+ Tropi ( ) lemma=`tropi` -  
+ Tropo ( ) lemma=`tropo` -  
+ Troshichev ( ) lemma=`troshichev` -  
+ Trouble ( ) lemma=`trouble` -  
+ Troublesome ( ) lemma=`troublesome` -  
+ True ( ) lemma=`true` -  
+ Trully( ( ) lemma=`trully(` -  
+ Trust ( ) lemma=`trust` -  
+ Truth ( ) lemma=`truth` -  
+ Tsabo's ( ) lemma=`tsabo's` -  
+ Tsallis ( ) lemma=`tsallis` -  
+ Tsing ( ) lemma=`tsing` -  
+ Tsoka ( ) lemma=`tsoka` -  
+ Tsuga ( ) lemma=`tsuga` -  
+ Tu ( ) lemma=`tu` -  
+ TuRbInA ( ) lemma=`turbina` -  
+ Tube ( ) lemma=`tube` -  
+ Tubingen ( ) lemma=`tubingen` -  
+ Tucson ( ) lemma=`tucson` -  
+ Tue ( ) lemma=`tue` -  
+ Tuecke ( ) lemma=`tuecke` -  
+ Tuesday ( ) lemma=`tuesday` -  
+ Tuesday's ( ) lemma=`tuesday's` -  
+ Tuffieha ( ) lemma=`tuffieha` -  
+ Tugenden ( ) lemma=`tugenden` -  
+ Tunneling ( ) lemma=`tunneling` -  
+ Tupperware ( ) lemma=`tupperware` -  
+ Turbo ( ) lemma=`turbo` -  
+ Tured ( ) lemma=`tured` -  
+ Turenne ( ) lemma=`turenne` -  
+ Turkiye ( ) lemma=`turkiye` -  
+ Turn ( ) lemma=`turn` -  
+ Turned ( ) lemma=`turned` -  
+ Turner ( ) lemma=`turner` -  
+ Turner/ ( ) lemma=`turner/` -  
+ Turrini ( ) lemma=`turrini` -  
+ Turtle ( ) lemma=`turtle` -  
+ Tuscaloosa ( ) lemma=`tuscaloosa` -  
+ Tweaker ( ) lemma=`tweaker` -  
+ Twentieth ( ) lemma=`twentieth` -  
+ Twenty ( ) lemma=`twenty` -  
+ Twilight ( ) lemma=`twilight` -  
+ Two ( ) lemma=`two` -  
+ Ty ( ) lemma=`ty` -  
+ TyECOK ( ) lemma=`tyecok` -  
+ Type ( ) lemma=`type` -  
+ Typhoon ( ) lemma=`typhoon` -  
+ Typin ( ) lemma=`typin` -  
+ Tzapa ( ) lemma=`tzapa` -  
+ Tzapi ( ) lemma=`tzapi` -  
+ T~A1/4re ( ) lemma=`t~a1/4re` -  
+ TВ ( ) lemma=`tв` Npmsny  
+ TС ( ) lemma=`tс` Ncmsnn  
+ Tа ( ) lemma=`tа` Ncmsgn  
+ Tалюша ( ) lemma=`tалюша`tалюша` Ncfsnn  Npmsgy  
+ Tамар ( ) lemma=`tамар` Npmsny  
+ Tеперь ( ) lemma=`tеперь` Vmm-2s-a-p  
+ Tехнология ( ) lemma=`tехнология` Ncfsnn  
+ Tколичество ( ) lemma=`tколичество` Ncnsnn  
+ Tойота ( ) lemma=`tойота` Ncfsnn  
+ Tы ( ) lemma=`tы` Ncmpny  
+ Tьrkiye’de ( ) lemma=`tьrkiye’de` -  
+ T’ui ( ) lemma=`t’ui` -  
+ t ( ) 
+ t( ( ) 
+ t)= ( ) 
+ t. ( ) 
+ t3:29 ( ) 
+ t8:05 ( ) 
+ t8:10 ( ) 
+ t=318 ( ) 
+ t=350 ( ) 
+ t=35645&page=2 ( ) 
+ t=37 ( ) 
+ t=4155 ( ) 
+ t=5046 ( ) 
+ tO( ( ) lemma=`to(` -  
+ tabak ( ) 
+ table ( ) 
+ tabletki ( ) 
+ tabletok ( ) 
+ tail ( ) 
+ tairs ( ) 
+ tak ( ) 
+ takaya ( ) 
+ take ( ) 
+ takes ( ) 
+ takesha ( ) 
+ taki ( ) 
+ takie ( ) 
+ takim ( ) 
+ takix ( ) 
+ tako ( ) 
+ takogo ( ) 
+ takoi ( ) 
+ takovo ( ) 
+ takoy ( ) 
+ takoye ( ) 
+ taksikoz ( ) 
+ takzhe ( ) 
+ talent ( ) 
+ talk ( ) 
+ tam ( ) 
+ tangere ( ) 
+ tanja5 ( ) 
+ tank ( ) 
+ tanleyrus ( ) 
+ tanya@baikalwave ( ) 
+ tanya@knoppix ( ) 
+ tanz'mit ( ) 
+ tar ( ) 
+ tarayus ( ) 
+ target ( ) 
+ targon@ihed ( ) 
+ tarsofthe21stcentury ( ) 
+ tashkent ( ) 
+ tate@utanet ( ) 
+ taty ( ) 
+ tatyana ( ) 
+ tax ( ) 
+ taxoides ( ) 
+ tc ( ) 
+ te ( ) 
+ teach ( ) 
+ teaching ( ) 
+ team ( ) 
+ teatrom ( ) 
+ tebe ( ) 
+ tebja ( ) 
+ tebya ( ) 
+ tech ( ) 
+ techn^e ( ) 
+ technical ( ) 
+ technology ( ) 
+ tekst ( ) 
+ tekstovyx ( ) 
+ tekut ( ) 
+ tel ( ) 
+ telegonia ( ) 
+ teleport ( ) 
+ telescope ( ) 
+ tell ( ) 
+ telneat ( ) 
+ tels ( ) 
+ tem ( ) 
+ tema ( ) 
+ tembolee ( ) 
+ tempecha ( ) 
+ temperament ( ) 
+ temperature ( ) 
+ templ ( ) 
+ temples ( ) 
+ templi ( ) 
+ temu ( ) 
+ ten ( ) 
+ tenant ( ) 
+ tenentur ( ) 
+ teny ( ) 
+ teo ( ) 
+ teper ( ) 
+ teplo ( ) 
+ terminal ( ) 
+ terpenie ( ) 
+ terpenija ( ) 
+ terpeniya ( ) 
+ terrestrem ( ) 
+ terrestrial ( ) 
+ territory ( ) 
+ terve ( ) 
+ terцr ( ) 
+ tesen ( ) 
+ test ( ) 
+ test3 ( ) 
+ testa ( ) 
+ testimonial ( ) 
+ testing/unstable ( ) 
+ testudinatum ( ) 
+ tetanus ( ) 
+ teti ( ) 
+ tetya@usa ( ) 
+ teu ( ) 
+ text ( ) 
+ text@list ( ) 
+ texty ( ) 
+ teyr ( ) 
+ tga ( ) 
+ tgb ( ) 
+ th ( ) 
+ th/0211015 ( ) 
+ th7read=1 ( ) 
+ than ( ) 
+ thasiam ( ) 
+ that ( ) 
+ that's ( ) 
+ that’s ( ) 
+ tha’s ( ) 
+ the ( ) 
+ the13th@hotbox ( ) 
+ their ( ) 
+ them ( ) 
+ then ( ) 
+ theory ( ) 
+ there ( ) 
+ therein ( ) 
+ thes ( ) 
+ these ( ) 
+ they ( ) 
+ thicker ( ) 
+ thieves ( ) 
+ thin ( ) 
+ thing ( ) 
+ think ( ) 
+ this ( ) 
+ thoby ( ) 
+ those ( ) 
+ thou ( ) 
+ though ( ) 
+ thought ( ) 
+ thoughts ( ) 
+ thousand ( ) 
+ thread ( ) 
+ threadid=13 ( ) 
+ threadid=46 ( ) 
+ threshold ( ) 
+ throttled ( ) 
+ through ( ) 
+ ti ( ) 
+ tibiarum ( ) 
+ ticketing ( ) 
+ tie ( ) 
+ tigre ( ) 
+ tigrisha@tiger ( ) 
+ tihi ( ) 
+ tihiy ( ) 
+ tiksi ( ) 
+ till ( ) 
+ time ( ) 
+ times ( ) 
+ timetomax ( ) 
+ timing ( ) 
+ timofeev ( ) 
+ ting ( ) 
+ tinnitus ( ) 
+ tionalization ( ) 
+ tip ( ) 
+ tipa ( ) 
+ tipok ( ) 
+ tir ( ) 
+ tischlerei ( ) 
+ titan ( ) 
+ tkabber/plugins/chat/ermine ( ) 
+ tkyte@TKYTE816 ( ) lemma=`tkyte@tkyte816` Mc---d  
+ tl ( ) 
+ tlk59@yandex ( ) 
+ tm ( ) 
+ tm/ ( ) 
+ tml ( ) 
+ tml#more ( ) 
+ tml/ ( ) 
+ tmИ ( ) lemma=`tmи` Npmsny  
+ to ( ) 
+ toboi ( ) 
+ tochkoi ( ) 
+ tochku ( ) 
+ tochno ( ) 
+ tochnoe ( ) 
+ tocno ( ) 
+ today ( ) 
+ togda ( ) 
+ together ( ) 
+ togi ( ) 
+ togo ( ) 
+ toi ( ) 
+ toilet ( ) 
+ toje ( ) 
+ toka ( ) 
+ toksikoz ( ) 
+ tol'ko ( ) 
+ tol@didi ( ) 
+ tol`ko ( ) 
+ tolkienisty ( ) 
+ tolko ( ) 
+ toll ( ) 
+ tollste ( ) 
+ tomaten ( ) 
+ tombe ( ) 
+ tomorrow ( ) 
+ ton ( ) 
+ tona ( ) 
+ tonn ( ) 
+ too ( ) 
+ tool ( ) 
+ toolbox ( ) 
+ tools ( ) 
+ tooth ( ) 
+ top ( ) 
+ topic ( ) 
+ topic= ( ) 
+ topolia@yandex ( ) 
+ toraya ( ) 
+ tormaznim ( ) 
+ tornado ( ) 
+ toronto ( ) 
+ tort ( ) 
+ torus ( ) 
+ toshe ( ) 
+ toshnit ( ) 
+ tosho ( ) 
+ toshogpi ( ) 
+ tosy ( ) 
+ tot ( ) 
+ total ( ) 
+ tou ( ) 
+ touch ( ) 
+ tough ( ) 
+ tour ( ) 
+ tourist ( ) 
+ tout ( ) 
+ toutes ( ) 
+ toves/ ( ) 
+ town ( ) 
+ tox ( ) 
+ tox@eprst ( ) 
+ tox@lycos ( ) 
+ toxic ( ) 
+ toza ( ) 
+ toze ( ) 
+ tozhe ( ) 
+ tr ( ) 
+ tr@mail ( ) 
+ tracks ( ) 
+ trade ( ) 
+ trader ( ) 
+ traditionnelles"1936 ( ) 
+ trag ( ) 
+ trahajutsja ( ) 
+ trailers)- ( ) 
+ training ( ) 
+ tralsund ( ) 
+ trance ( ) 
+ transaction ( ) 
+ transatlantique ( ) 
+ transeuntem ( ) 
+ transl ( ) 
+ translate ( ) 
+ translit ( ) 
+ transonic ( ) 
+ transport ( ) 
+ trap ( ) 
+ traps ( ) 
+ travel ( ) 
+ travel@bask ( ) 
+ travellers ( ) 
+ treasure ( ) 
+ treat ( ) 
+ tree ( ) 
+ treetop ( ) 
+ tren32 ( ) 
+ trend ( ) 
+ tres ( ) 
+ trex ( ) 
+ tricks ( ) 
+ trics ( ) 
+ trigger ( ) 
+ trip ( ) 
+ triple ( ) 
+ tripper ( ) 
+ triumphalis ( ) 
+ tro ( ) 
+ trodden ( ) 
+ trogaigi ( ) 
+ trojinjaschek ( ) 
+ tru ( ) 
+ trudno ( ) 
+ true ( ) 
+ truePozzer ( ) lemma=`truepozzer` -  
+ trust ( ) 
+ truth ( ) 
+ try ( ) 
+ tr~A©pas ( ) lemma=`tr~a©pas` -  
+ ts ( ) 
+ ts30 ( ) 
+ tseleustremlennaya ( ) 
+ tseloje ( ) 
+ tsoka ( ) 
+ tsoka@pisem ( ) 
+ tsto ( ) 
+ tsvetami ( ) 
+ tt ( ) 
+ ttp ( ) 
+ ttv ( ) 
+ tu ( ) 
+ tuatha- ( ) 
+ tube ( ) 
+ tudent ( ) 
+ tugoff ( ) 
+ tulja ( ) 
+ tulja74 ( ) 
+ tumbling ( ) 
+ tunc ( ) 
+ tuo ( ) 
+ tur ( ) 
+ turbulence ( ) 
+ turbulent ( ) 
+ turkin ( ) 
+ turn ( ) 
+ turns ( ) 
+ turtle ( ) 
+ tut ( ) 
+ tutachki ( ) 
+ tutorial ( ) 
+ tutti ( ) 
+ tv ( ) 
+ tvoego ( ) 
+ tvoemu ( ) 
+ tvoi ( ) 
+ tvplus ( ) 
+ tvshka@rambler ( ) 
+ tw ( ) 
+ twenty ( ) 
+ twice ( ) 
+ two ( ) 
+ txt2fido ( ) 
+ ty ( ) 
+ tyanut ( ) 
+ tyda ( ) 
+ tyoploi ( ) 
+ type ( ) 
+ type="application/x ( ) 
+ type=0 ( ) 
+ types ( ) 
+ typical ( ) 
+ typosty ( ) 
+ tzar'a ( ) 
+ tzunami ( ) 
+ té ( ) 
+ tСервер ( ) lemma=`tсервер` -  
+ tа ( ) 
+ tадреналин ( ) 
+ tв ( ) 
+ tвот ( ) 
+ tга ( ) 
+ tдиалектик ( ) 
+ tдивляется ( ) 
+ tе ( ) 
+ tего ( ) 
+ tейчас ( ) 
+ tеньше ( ) 
+ tи ( ) 
+ tкакой ( ) 
+ tкакую ( ) 
+ tкаунтер ( ) 
+ tкупи ( ) 
+ tлиент ( ) 
+ tообще ( ) 
+ tошел( ( ) 
+ tс ( ) 
+ tсульцю ( ) 
+ tтак ( ) 
+ tткаббер ( ) 
+ tты ( ) 
+ tут ( ) 
+ tышел( ( ) 
+ tя ( ) 
+ t’come ( ) 
+ t’heaven ( ) 

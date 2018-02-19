@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-mongodb">ChatScript MongoDB</h1>
+<blockquote>
+<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
+</blockquote>
+<blockquote>
+<p>Revision 8/12/2017 CS7.53</p>
+</blockquote>
+<p>ChatScript ships with code and WINDOWS libraries for accessing Mongo but you need a database somewhere. On windows mongo access is using ChatScriptMongo.exe . On Linux you have to make <code>mongoserver</code>. On Mac and IOS #define DISCARDMONGO is on by default.</p>
+<p>If you have access to a Mongo server remotely, that's fine. If you need one installed on your machine, see the end for how to install one.</p>
+<p>Remember, you need to be running a version of CS that has been explicitly compiled with Mongo support.</p>
+<h2 id="using-mongo-as-file-server">Using Mongo as file server</h2>
+<p>Aside from using Mongo to store data for a chatbot to look up, one can also use Mongo as a replacement for the local file system of the USERS directory. This allows you to scale CS horizontally by having multiple CS servers all connecting to a common Mongo DB machine so a user can be routed to any server. Log files will remain local but the <code>USERS/topicxxxxx</code> will be rerouted, as will any <code>^export</code> or <code>^import</code> request. If you name your file <code>USERS/ltm-xxxxx</code> then that will be routed to its own collection, otherwise it will go into the same collection as the topic file.</p>
+<p>To set collections, on the command line use:</p>
+<pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection&quot;</code></pre>
+<p>or for user topic and ltm files</p>
+<pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm&quot;</code></pre>
+<p>or for a remote host with no ltm file</p>
+<pre><code>mongo=mongodb://127.0.0.1:27017 ChatScript topic:UserTopics</code></pre>
+<p>or whatever. Using a cs_init.txt file to contain that line is most convenient, so no quotes are needed.</p>
+<p>Obviously put the correct data for your mongo machine. CS will store user topic files in the Mongo machine and well as <code>^export</code> and <code>^import</code> data. For user and server logs it will continue to store those on the local machine. You may have the same or different collection active, one or two via filesystem replacement and once via normal script access.</p>
+<h2 id="access-a-mongo-database">Access A Mongo Database</h2>
+<p>There are only a couple of functions you need.</p>
+<h3 id="mongoinit-server-domain-collection"><code>^mongoinit</code>( server domain collection )</h3>
+<p>Once the named collection is open, it becomes the current database the server uses until you close it no matter how many volleys later that is. Currently you can only have one collection open at a time.</p>
+<p>By the way, if a call to <code>^mongoinit</code> fails, the system will both write why to the user log and set it onto the value of <code>$$mongo_error</code>. <code>^mongonit</code> will fail if the database is already open.</p>
+<h3 id="mongoclose"><code>^mongoclose</code>()</h3>
+<p>closes the currently open collection.</p>
+<h3 id="mongoinsertdocumentkey-string"><code>^mongoinsertdocument</code>(key string)</h3>
+<p>does an up-sert of a json string (which need not have double quotes around it. Key is also a string which does not require double quotes.</p>
+<h3 id="mongodeletedocumentkey"><code>^mongodeletedocument</code>(key)</h3>
+<p>removes the corresponding data.</p>
+<h3 id="mongofinddocumentpattern"><code>^mongofinddocument</code>(pattern)</h3>
+<p>finds documents corresponding to the mongo pattern (see a mongo manual).</p>
+<pre><code>^mongoinit(mongodb://localhost:27017 ChatScript InputOutput)
+
+^mongoinsertdocument(dog ^&quot;I have a dog&quot;)
+$_var = ^mongofinddocument(dog)
+^mongodeletedocument(dog)
+# $_var  ==  I have a dog
+
+^mongoclose()</code></pre>
+</body>
+</html>

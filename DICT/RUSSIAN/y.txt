@@ -1,0 +1,252 @@
+﻿ Y ( ) lemma=`y` -  
+ Y. ( ) lemma=`y.` SENT  
+ YA ( ) lemma=`ya` -  
+ YE ( ) lemma=`ye` -  
+ YERU ( ) lemma=`yeru` -  
+ YEST ( ) lemma=`yest` -  
+ YK ( ) lemma=`yk` -  
+ YLE ( ) lemma=`yle` -  
+ YMO ( ) lemma=`ymo` -  
+ YOU ( ) lemma=`you` -  
+ YOUR ( ) lemma=`your` -  
+ YOГА ( ) lemma=`yoга`yoга` Ncfsnn  Ncmsnn  
+ YOГА- ( ) lemma=`yoга-` -  
+ YS ( ) lemma=`ys` -  
+ YYYY ( ) lemma=`yyyy` -  
+ Y\\ ( ) lemma=`y\\` Vmis-sma-p  
+ Ya ( ) lemma=`ya` -  
+ Yahoo ( ) lemma=`yahoo` -  
+ Yakoff ( ) lemma=`yakoff` -  
+ Yam ( ) lemma=`yam` -  
+ Yamaha ( ) lemma=`yamaha` -  
+ Yandex ( ) lemma=`yandex` -  
+ Yankel ( ) lemma=`yankel` -  
+ Yanochka772005@mail ( ) lemma=`yanochka772005@mail` -  
+ Yao ( ) lemma=`yao` -  
+ Yaponii ( ) lemma=`yaponii` -  
+ Yapontsev ( ) lemma=`yapontsev` -  
+ Yaroslav74 ( ) lemma=`yaroslav74`yaroslav74` -  Ncmsgn  
+ Yassen ( ) lemma=`yassen` -  
+ Yatsutko ( ) lemma=`yatsutko` -  
+ Yavimaya ( ) lemma=`yavimaya` -  
+ Year ( ) lemma=`year` -  
+ Year(sved ( ) lemma=`year(sved` -  
+ Years ( ) lemma=`years` -  
+ Yellow ( ) lemma=`yellow` -  
+ Yeltsin ( ) lemma=`yeltsin` -  
+ Yeoman/ ( ) lemma=`yeoman/` -  
+ Yes ( ) lemma=`yes` -  
+ Yesli ( ) lemma=`yesli` -  
+ Yet ( ) lemma=`yet` -  
+ Ygor ( ) lemma=`ygor` -  
+ Yip ( ) lemma=`yip` -  
+ Yo ( ) lemma=`yo` -  
+ YoSilver ( ) lemma=`yosilver` -  
+ Yoder ( ) lemma=`yoder` -  
+ Yoga ( ) lemma=`yoga` -  
+ Yogi ( ) lemma=`yogi` -  
+ Yojik ( ) lemma=`yojik` -  
+ Yok ( ) lemma=`yok` -  
+ York ( ) lemma=`york` -  
+ Yorkers ( ) lemma=`yorkers` -  
+ Yoshiaki ( ) lemma=`yoshiaki` -  
+ Yoshiyuki ( ) lemma=`yoshiyuki` -  
+ You ( ) lemma=`you` -  
+ You'll ( ) lemma=`you'll` -  
+ You've ( ) lemma=`you've` -  
+ Young ( ) lemma=`young` -  
+ Youngwitch ( ) lemma=`youngwitch` -  
+ Your ( ) lemma=`your` -  
+ Yours ( ) lemma=`yours` -  
+ You« ( ) lemma=`you«` -  
+ You’re ( ) lemma=`you’re` -  
+ Yr ( ) lemma=`yr` -  
+ Ys ( ) lemma=`ys` -  
+ Yu ( ) lemma=`yu` -  
+ Yugin ( ) lemma=`yugin` -  
+ Yuliya ( ) lemma=`yuliya` -  
+ Yulka ( ) lemma=`yulka` -  
+ Yuriy ( ) lemma=`yuriy` -  
+ Yusup ( ) lemma=`yusup` -  
+ Yuumoa ( ) lemma=`yuumoa` -  
+ Yx ( ) lemma=`yx` -  
+ Yцnelik ( ) lemma=`yцnelik` -  
+ Y’understan ( ) lemma=`y’understan` -  
+ y ( ) lemma=`y`y` -  Ncnsnn  
+ y. ( ) 
+ y/kg/ ( ) 
+ y/newage ( ) 
+ yBoy ( ) lemma=`yboy` -  
+ ya ( ) 
+ yahoo ( ) 
+ yakudsa72@gmail ( ) 
+ yama ( ) 
+ yama@narod ( ) 
+ yan ( ) 
+ yandex ( ) 
+ yandex( ( ) 
+ yandexовские ( ) 
+ yanya ( ) 
+ yaroslav ( ) 
+ yatakoy1( ( ) 
+ ybereps ( ) 
+ ycnexal ( ) 
+ ydivlyas ( ) 
+ ye ( ) 
+ yeah ( ) 
+ year ( ) 
+ year^A ( ) lemma=`year^a` -  
+ years ( ) 
+ yeru ( ) 
+ yes ( ) 
+ yesh'o ( ) 
+ yesl'i ( ) 
+ yesli ( ) 
+ yest ( ) 
+ yet ( ) 
+ ygalperin@romance ( ) 
+ ygnes ( ) 
+ ygnis ( ) 
+ ying ( ) 
+ yiti ( ) 
+ yn ( ) 
+ yne ( ) 
+ yogkoi ( ) 
+ you ( ) 
+ you'll ( ) 
+ young ( ) 
+ youngwitch ( ) 
+ your ( ) 
+ yours ( ) 
+ yourusername ( ) 
+ youth ( ) 
+ youu ( ) 
+ youТll ( ) lemma=`youтll` -  
+ you’re ( ) 
+ ypl ( ) 
+ ypавнивания ( ) 
+ ypовней ( ) 
+ ypовня ( ) 
+ ypоды ( ) 
+ ypок ( ) 
+ ys ( ) 
+ yshyol ( ) 
+ ystem ( ) 
+ ytn ( ) 
+ yu ( ) 
+ yulia ( ) 
+ yus ( ) 
+ yushu ( ) 
+ yusup@fmradio ( ) 
+ yxo2@putin ( ) 
+ yxos ( ) 
+ yzhe ( ) 
+ yбедительнее ( ) 
+ yбедить ( ) 
+ yбеждающих ( ) 
+ yбеждён ( ) 
+ yбивает ( ) 
+ yбивать ( ) lemma=`yбивать`yбивать`yбивать` Ncmsnn  Vmif3s-a-p  Vmps-sfpsp  
+ yбивают ( ) 
+ yбился ( ) 
+ yбить ( ) lemma=`yбить`yбить` Afpfsnf  Vmn----a-p  
+ yв ( ) 
+ yверен ( ) 
+ yверены ( ) 
+ yвешанных ( ) 
+ yвидел ( ) 
+ yгла ( ) lemma=`yгла`yгла` -  Npmsgy  
+ yгодно ( ) lemma=`yгодно`yгодно`yгодно`yгодно` Afpnsnf  Mo---d  Momsgd  Monsgd  
+ yгол ( ) 
+ yдаpы ( ) 
+ yдалённая ( ) 
+ yдачная ( ) 
+ yдачно ( ) 
+ yдеpжи ( ) 
+ yдеpживают ( ) 
+ yдеpживающем ( ) 
+ yдента ( ) 
+ yдивился ( ) 
+ yдивляться ( ) 
+ yдивляюсь ( ) 
+ yдобном ( ) 
+ yдовлетвоpяя ( ) 
+ yдовольствие ( ) 
+ yдовольствием ( ) 
+ yдь ( ) lemma=`yдь`yдь`yдь`yдь`yдь` Afpfsif  Afpmsif  Afpmsnf  Afpnsaf  Npmsny  
+ yехать ( ) lemma=`yехать`yехать` Vmgs---a-p  Vmis-p-a-p  
+ yж ( ) lemma=`yж`yж`yж` Ncmpny  Vmis-p-a-p  Vmis-sma-p  
+ yжасен ( ) 
+ yже ( ) lemma=`yже`yже`yже`yже`yже`yже`yже`yже` Afpmpaf  Mo---d  Mo-pa  Mo-pad  Monsad  Monsnd  Ncnsan  Ncnsnn  
+ yжились ( ) 
+ yйдy ( ) 
+ yйдyт ( ) 
+ yйти ( ) 
+ yкpытия ( ) 
+ yказания ( ) 
+ yкладывающееся ( ) 
+ yлеглось ( ) 
+ yлепленнyю ( ) 
+ yлице ( ) 
+ yловок ( ) 
+ yлыбается ( ) 
+ yлыбаюсь ( ) 
+ yлыбаются ( ) 
+ yлыбкy ( ) 
+ yлыбнyлся ( ) 
+ yльптоpа ( ) 
+ yм ( ) 
+ yмалчивая ( ) 
+ yмеешь ( ) 
+ yмереть ( ) 
+ yмной ( ) 
+ yмозаключению ( ) 
+ yмственное ( ) 
+ yниатский ( ) 
+ yниатским ( ) 
+ yнивеp ( ) 
+ yнивеpсальнyю ( ) 
+ yнивеpситета ( ) 
+ yнии ( ) 
+ yнифоpме ( ) 
+ yничтожим ( ) 
+ yнию ( ) 
+ yпала ( ) 
+ yпали ( ) 
+ yподоблении ( ) 
+ yподобляется ( ) 
+ yпоминавшyюся ( ) 
+ yпомянyть ( ) 
+ yпотреблении ( ) 
+ yпотребляют ( ) 
+ yпотребляются ( ) 
+ yсилит ( ) 
+ yсилия ( ) 
+ yсловная ( ) 
+ yсловности ( ) 
+ yсни ( ) 
+ yсопших ( ) 
+ yст ( ) 
+ yстyпает ( ) 
+ yстановления ( ) 
+ yстраивает ( ) 
+ yстраиваете ( ) 
+ yстраивала ( ) 
+ yстроить ( ) 
+ yтвеpждает ( ) 
+ yтвеpжденiях ( ) 
+ yтвеpждение ( ) lemma=`yтвеpждение`yтвеpждение` Afpmpnf  Ncnsan  
+ yтилизовать ( ) 
+ yтончённым ( ) 
+ yтратила ( ) 
+ yхо ( ) 
+ yходить ( ) 
+ yчастие ( ) 
+ yчастником ( ) 
+ yчасть ( ) 
+ yше ( ) 
+ yшей ( ) 
+ yши ( ) 
+ yшки ( ) 
+ yшёл ( ) 
+ y’know ( ) 

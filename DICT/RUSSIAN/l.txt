@@ -1,0 +1,683 @@
+﻿ L ( ) lemma=`l`l` -  Mo---d  
+ L'Apres ( ) lemma=`l'apres` -  
+ L'Elysee ( ) lemma=`l'elysee` -  
+ L'Ghonella ( ) lemma=`l'ghonella` -  
+ L'Infini's ( ) lemma=`l'infini's` -  
+ L'epope ( ) lemma=`l'epope` -  
+ L( ( ) lemma=`l(` -  
+ L. ( ) lemma=`l.` SENT  
+ L1 ( ) lemma=`l1` -  
+ L2 ( ) lemma=`l2` -  
+ L233ologie ( ) lemma=`l233ologie` -  
+ L2F ( ) lemma=`l2f` -  
+ L2TP ( ) lemma=`l2tp` -  
+ LA ( ) lemma=`la` -  
+ LAC ( ) lemma=`lac` -  
+ LADNO ( ) lemma=`ladno` -  
+ LADOFON ( ) lemma=`ladofon` -  
+ LAM ( ) lemma=`lam` -  
+ LAMPUKI ( ) lemma=`lampuki` -  
+ LANGE ( ) lemma=`lange` -  
+ LARTIGUE ( ) lemma=`lartigue` -  
+ LASIK ( ) lemma=`lasik` -  
+ LAUGHLIN ( ) lemma=`laughlin` -  
+ LAYER ( ) lemma=`layer` -  
+ LAlex ( ) lemma=`lalex` -  
+ LC ( ) lemma=`lc` -  
+ LCC ( ) lemma=`lcc` -  
+ LCD ( ) lemma=`lcd` -  
+ LCF ( ) lemma=`lcf` -  
+ LD ( ) lemma=`ld` -  
+ LDPR ( ) lemma=`ldpr` -  
+ LE ( ) lemma=`le` -  
+ LED ( ) lemma=`led` -  
+ LESSnik ( ) lemma=`lessnik` -  
+ LEVITT ( ) lemma=`levitt` -  
+ LFC ( ) lemma=`lfc` -  
+ LG ( ) lemma=`lg` -  
+ LH ( ) lemma=`lh` -  
+ LI ( ) lemma=`li` Mo---d  
+ LIB ( ) lemma=`lib` -  
+ LIEBHERR ( ) lemma=`liebherr` -  
+ LIFE ( ) lemma=`life` -  
+ LIFFE ( ) lemma=`liffe` -  
+ LII ( ) lemma=`lii` Mo---d  
+ LIKE ( ) lemma=`like` -  
+ LILO ( ) lemma=`lilo` -  
+ LINCOLN ( ) lemma=`lincoln` -  
+ LINE ( ) lemma=`line` -  
+ LIS ( ) lemma=`lis` -  
+ LISA ( ) lemma=`lisa` -  
+ LITE ( ) lemma=`lite` -  
+ LITSA ( ) lemma=`litsa` -  
+ LIVE ( ) lemma=`live` -  
+ LJ ( ) lemma=`lj` -  
+ LL ( ) lemma=`ll` Mo---d  
+ LLBL ( ) lemma=`llbl` -  
+ LME ( ) lemma=`lme` -  
+ LMH ( ) lemma=`lmh` -  
+ LNS ( ) lemma=`lns` -  
+ LOA ( ) lemma=`loa` -  
+ LOCAL ( ) lemma=`local` -  
+ LOL ( ) lemma=`lol` -  
+ LOMO ( ) lemma=`lomo` -  
+ LOOVE ( ) lemma=`loove` -  
+ LOlik ( ) lemma=`lolik` -  
+ LOvestory ( ) lemma=`lovestory` -  
+ LP ( ) lemma=`lp` -  
+ LPT ( ) lemma=`lpt` -  
+ LR ( ) lemma=`lr` -  
+ LRH ( ) lemma=`lrh` -  
+ LS ( ) lemma=`ls` -  
+ LSE ( ) lemma=`lse` -  
+ LSN ( ) lemma=`lsn` -  
+ LT ( ) lemma=`lt` -  
+ LTD ( ) lemma=`ltd` -  
+ LTO ( ) lemma=`lto` -  
+ LUCID ( ) lemma=`lucid` -  
+ LUKinter ( ) lemma=`lukinter` -  
+ LV ( ) lemma=`lv`lv` -  Mo---d  
+ LZ ( ) lemma=`lz` -  
+ La ( ) lemma=`la` -  
+ LaBoule ( ) lemma=`laboule` -  
+ LaPerla ( ) lemma=`laperla` -  
+ LaReina ( ) lemma=`lareina` -  
+ LaSalle ( ) lemma=`lasalle` -  
+ LaTeX ( ) lemma=`latex` -  
+ Lab ( ) lemma=`lab` -  
+ Label ( ) lemma=`label` -  
+ LabelPrint ( ) lemma=`labelprint` -  
+ Labor ( ) lemma=`labor` -  
+ Lac ( ) lemma=`lac` -  
+ Lace ( ) lemma=`lace` -  
+ Lact ( ) lemma=`lact` -  
+ Lactantius ( ) lemma=`lactantius` -  
+ Lada ( ) lemma=`lada` -  
+ Ladnin'ko ( ) lemma=`ladnin'ko` -  
+ Lady ( ) lemma=`lady` -  
+ Laegnor ( ) lemma=`laegnor` -  
+ Laferla ( ) lemma=`laferla` -  
+ Lagu ( ) lemma=`lagu` -  
+ Laguna ( ) lemma=`laguna` -  
+ Laguz ( ) lemma=`laguz` -  
+ Lagy ( ) lemma=`lagy` -  
+ Lajaunie ( ) lemma=`lajaunie` -  
+ Lamartine ( ) lemma=`lamartine` -  
+ Lamborghini ( ) lemma=`lamborghini` -  
+ Lamor ( ) lemma=`lamor` -  
+ Lancet ( ) lemma=`lancet` -  
+ Land ( ) lemma=`land` -  
+ LandStar ( ) lemma=`landstar` -  
+ Landauer ( ) lemma=`landauer` -  
+ Landen ( ) lemma=`landen` -  
+ Landing ( ) lemma=`landing` -  
+ Lane ( ) lemma=`lane` -  
+ Lang ( ) lemma=`lang` -  
+ Language ( ) lemma=`language` -  
+ Lanta ( ) lemma=`lanta` -  
+ Laperla ( ) lemma=`laperla` -  
+ Lapsi ( ) lemma=`lapsi` -  
+ Larix ( ) lemma=`larix` -  
+ Larry ( ) lemma=`larry` -  
+ Larsen ( ) lemma=`larsen` -  
+ Larson ( ) lemma=`larson` -  
+ Las ( ) lemma=`las` -  
+ Last ( ) lemma=`last` -  
+ Lastra ( ) lemma=`lastra` -  
+ LateX ( ) lemma=`latex` -  
+ Later ( ) lemma=`later` -  
+ Lather ( ) lemma=`lather` -  
+ Latimeria ( ) lemma=`latimeria` -  
+ Latina ( ) lemma=`latina` -  
+ Latvia ( ) lemma=`latvia` -  
+ Lauder ( ) lemma=`lauder` -  
+ Laue ( ) lemma=`laue` -  
+ Launch ( ) lemma=`launch` -  
+ Laurent ( ) lemma=`laurent` -  
+ Laurie ( ) lemma=`laurie` -  
+ Lausitzring ( ) lemma=`lausitzring` -  
+ Lava ( ) lemma=`lava` -  
+ Lavanya ( ) lemma=`lavanya` -  
+ Law ( ) lemma=`law` -  
+ Laws ( ) lemma=`laws` -  
+ Layer ( ) lemma=`layer` -  
+ Lazarus ( ) lemma=`lazarus` -  
+ Lazy ( ) lemma=`lazy` -  
+ Lazzati ( ) lemma=`lazzati` -  
+ Le ( ) lemma=`le` -  
+ Leabbar ( ) lemma=`leabbar` -  
+ Lead ( ) lemma=`lead` -  
+ Leaders ( ) lemma=`leaders` -  
+ Leadership ( ) lemma=`leadership` -  
+ League ( ) lemma=`league` -  
+ Leah ( ) lemma=`leah` -  
+ Leatherette ( ) lemma=`leatherette` -  
+ Leave ( ) lemma=`leave` -  
+ Leaving ( ) lemma=`leaving` -  
+ Lebachia ( ) lemma=`lebachia` -  
+ Lebensansichten ( ) lemma=`lebensansichten` -  
+ Lebor ( ) lemma=`lebor` -  
+ Lecken ( ) lemma=`lecken` -  
+ Lecturer ( ) lemma=`lecturer` -  
+ Lectures ( ) lemma=`lectures` -  
+ Led ( ) lemma=`led` -  
+ Ledi ( ) lemma=`ledi` -  
+ Ledy ( ) lemma=`ledy` -  
+ Lee ( ) lemma=`lee` -  
+ Lee/ ( ) lemma=`lee/` -  
+ Leeds ( ) lemma=`leeds` -  
+ Leer ( ) lemma=`leer` -  
+ Lefort ( ) lemma=`lefort` -  
+ Left ( ) lemma=`left` -  
+ Legacy ( ) lemma=`legacy` -  
+ Legend ( ) lemma=`legend` -  
+ Legende ( ) lemma=`legende` -  
+ Legends ( ) lemma=`legends` -  
+ Leggere ( ) lemma=`leggere` -  
+ Leghorn ( ) lemma=`leghorn` -  
+ Legitimo ( ) lemma=`legitimo` -  
+ Lehre ( ) lemma=`lehre` -  
+ Leibe ( ) lemma=`leibe` -  
+ Leidenschaft ( ) lemma=`leidenschaft` -  
+ Leipzig ( ) lemma=`leipzig` -  
+ Lemeschevskij ( ) lemma=`lemeschevskij` -  
+ Lemon ( ) lemma=`lemon` -  
+ Lena ( ) lemma=`lena` -  
+ Lennons ( ) lemma=`lennons` -  
+ Lenok ( ) lemma=`lenok` -  
+ Lensing ( ) lemma=`lensing` -  
+ Lenta ( ) lemma=`lenta` -  
+ Lenusya ( ) lemma=`lenusya` -  
+ Leo ( ) lemma=`leo` -  
+ Leon ( ) lemma=`leon` -  
+ Leonard ( ) lemma=`leonard` -  
+ Leondo ( ) lemma=`leondo` -  
+ Leonidas ( ) lemma=`leonidas` -  
+ Lepage ( ) lemma=`lepage` -  
+ Leppard ( ) lemma=`leppard` -  
+ Lepping ( ) lemma=`lepping` -  
+ Lepzig,1926 ( ) lemma=`lepzig,1926` -  
+ Lerner ( ) lemma=`lerner` -  
+ Les ( ) lemma=`les` -  
+ Lesage ( ) lemma=`lesage` -  
+ Leshy ( ) lemma=`leshy` -  
+ Let ( ) lemma=`let` -  
+ Let's ( ) lemma=`let's` -  
+ Leta ( ) lemma=`leta` -  
+ Lethrinops ( ) lemma=`lethrinops` -  
+ Lethrinus ( ) lemma=`lethrinus` -  
+ Lett ( ) lemma=`lett` -  
+ Letter ( ) lemma=`letter` -  
+ Letters ( ) lemma=`letters` -  
+ Level ( ) lemma=`level` -  
+ Leverage ( ) lemma=`leverage` -  
+ Lewis ( ) lemma=`lewis` -  
+ Lewis'a ( ) lemma=`lewis'a` -  
+ Lexa ( ) lemma=`lexa` -  
+ Lexar ( ) lemma=`lexar` -  
+ Lexicon ( ) lemma=`lexicon` -  
+ Leylak ( ) lemma=`leylak` -  
+ Lezhen ( ) lemma=`lezhen` -  
+ Liaison ( ) lemma=`liaison` -  
+ Liaoning ( ) lemma=`liaoning` -  
+ Liath ( ) lemma=`liath` -  
+ Libby ( ) lemma=`libby` -  
+ Liberation ( ) lemma=`liberation` -  
+ Liberty ( ) lemma=`liberty` -  
+ Libraries ( ) lemma=`libraries` -  
+ Library ( ) lemma=`library` -  
+ Lich ( ) lemma=`lich` -  
+ Lichtensteiger ( ) lemma=`lichtensteiger` -  
+ Lichter ( ) lemma=`lichter` -  
+ Lichtf~A1/4lle ( ) lemma=`lichtf~a1/4lle` -  
+ Lichtland ( ) lemma=`lichtland` -  
+ Licinii ( ) lemma=`licinii` -  
+ Licinius ( ) lemma=`licinius` -  
+ Liebeslieder ( ) lemma=`liebeslieder` -  
+ Liebherr ( ) lemma=`liebherr` -  
+ Lied ( ) lemma=`lied` -  
+ Lietuva ( ) lemma=`lietuva` -  
+ Lieu ( ) lemma=`lieu` -  
+ Lifanovsky ( ) lemma=`lifanovsky` -  
+ Life ( ) lemma=`life` -  
+ Lifebook ( ) lemma=`lifebook` -  
+ Light ( ) lemma=`light` -  
+ LightSpeed ( ) lemma=`lightspeed` -  
+ Lightning ( ) lemma=`lightning` -  
+ Lights ( ) lemma=`lights` -  
+ Ligne ( ) lemma=`ligne` -  
+ Liis ( ) lemma=`liis` -  
+ Lija ( ) lemma=`lija` -  
+ Like ( ) lemma=`like` -  
+ Likhachev ( ) lemma=`likhachev` -  
+ Lille ( ) lemma=`lille` -  
+ Lilliott ( ) lemma=`lilliott` -  
+ Lin ( ) lemma=`lin` -  
+ Linde ( ) lemma=`linde` -  
+ Line ( ) lemma=`line` -  
+ Linear ( ) lemma=`linear` -  
+ Lines ( ) lemma=`lines` -  
+ Lingula ( ) lemma=`lingula` -  
+ Lingvo ( ) lemma=`lingvo` -  
+ Lingvисты ( ) lemma=`lingvисты` Ncmpny  
+ Link ( ) lemma=`link` -  
+ LinkNet ( ) lemma=`linknet` -  
+ Linkify ( ) lemma=`linkify` -  
+ Linkin ( ) lemma=`linkin` -  
+ Links ( ) lemma=`links` -  
+ Linkz ( ) lemma=`linkz` -  
+ Linn ( ) lemma=`linn` -  
+ Linnehan ( ) lemma=`linnehan` -  
+ Linstow ( ) lemma=`linstow` -  
+ Linux ( ) lemma=`linux` -  
+ Lionhead ( ) lemma=`lionhead` -  
+ Lipton ( ) lemma=`lipton` -  
+ Lire ( ) lemma=`lire` -  
+ Lisa ( ) lemma=`lisa` -  
+ Lisbon ( ) lemma=`lisbon` -  
+ Lise ( ) lemma=`lise` -  
+ Lismacfinnin ( ) lemma=`lismacfinnin` -  
+ Lisp ( ) lemma=`lisp` -  
+ Lissitzky ( ) lemma=`lissitzky` -  
+ List ( ) lemma=`list` -  
+ List100 ( ) lemma=`list100` -  
+ Lite ( ) lemma=`lite` -  
+ Litera ( ) lemma=`litera` -  
+ Literae ( ) lemma=`literae` -  
+ Literarisch ( ) lemma=`literarisch` -  
+ Literary ( ) lemma=`literary` -  
+ Literatur ( ) lemma=`literatur` -  
+ Literature(19 ( ) lemma=`literature(19` -  
+ Literaturwissenschaft ( ) lemma=`literaturwissenschaft` -  
+ Litho ( ) lemma=`litho` -  
+ Lito ( ) lemma=`lito` -  
+ Littlewoods ( ) lemma=`littlewoods` -  
+ Liu ( ) lemma=`liu` -  
+ Live ( ) lemma=`live` -  
+ LiveJournal ( ) lemma=`livejournal` -  
+ Livejournal ( ) lemma=`livejournal` -  
+ Lively ( ) lemma=`lively` -  
+ Liverpool ( ) lemma=`liverpool` -  
+ Lives ( ) lemma=`lives` -  
+ Living ( ) lemma=`living` -  
+ Livre ( ) lemma=`livre` -  
+ Livsy ( ) lemma=`livsy` -  
+ Liz ( ) lemma=`liz` -  
+ Lizard ( ) lemma=`lizard` -  
+ Lizzy ( ) lemma=`lizzy` -  
+ Lk ( ) lemma=`lk` -  
+ Lm ( ) lemma=`lm` -  
+ Lm1 ( ) lemma=`lm1` -  
+ Lo ( ) lemma=`lo` -  
+ Load ( ) lemma=`load` -  
+ Load/Unload ( ) lemma=`load/unload` -  
+ Loaded ( ) lemma=`loaded` -  
+ Loan ( ) lemma=`loan` -  
+ Lobby ( ) lemma=`lobby` -  
+ Loc ( ) lemma=`loc` -  
+ Local ( ) lemma=`local` -  
+ Lock ( ) lemma=`lock` -  
+ Lockheed ( ) lemma=`lockheed` -  
+ Log ( ) lemma=`log` -  
+ Logged ( ) lemma=`logged` -  
+ Login ( ) lemma=`login` -  
+ Logistic ( ) lemma=`logistic` -  
+ Logistics ( ) lemma=`logistics` -  
+ Logitech ( ) lemma=`logitech` -  
+ Logos ( ) lemma=`logos` -  
+ Loh ( ) lemma=`loh` -  
+ Lois ( ) lemma=`lois` -  
+ Loitering ( ) lemma=`loitering` -  
+ Loknitz ( ) lemma=`loknitz` -  
+ Lolita ( ) lemma=`lolita` -  
+ London ( ) lemma=`london` -  
+ Londone ( ) lemma=`londone` -  
+ Londra ( ) lemma=`londra` -  
+ Long ( ) lemma=`long` -  
+ Longbow ( ) lemma=`longbow` -  
+ Longman ( ) lemma=`longman` -  
+ Look ( ) lemma=`look` -  
+ Look^A ( ) lemma=`look^a` -  
+ Loomis ( ) lemma=`loomis` -  
+ Lord ( ) lemma=`lord` -  
+ Lords ( ) lemma=`lords` -  
+ Lorentz ( ) lemma=`lorentz` -  
+ Loretta ( ) lemma=`loretta` -  
+ Lorin ( ) lemma=`lorin` -  
+ Lorrain ( ) lemma=`lorrain` -  
+ Los ( ) lemma=`los` -  
+ Loss ( ) lemma=`loss` -  
+ Lot ( ) lemma=`lot` -  
+ Lotos76 ( ) lemma=`lotos76` -  
+ Lotta ( ) lemma=`lotta` -  
+ Lotte ( ) lemma=`lotte` -  
+ Lotus ( ) lemma=`lotus` -  
+ Lou ( ) lemma=`lou` -  
+ Louder ( ) lemma=`louder` -  
+ Loue ( ) lemma=`loue` -  
+ Louie ( ) lemma=`louie` -  
+ Louise ( ) lemma=`louise` -  
+ Loulou ( ) lemma=`loulou` -  
+ Love ( ) lemma=`love` -  
+ Loverman ( ) lemma=`loverman` -  
+ Low ( ) lemma=`low` -  
+ Lowe ( ) lemma=`lowe` -  
+ Lowenbrau ( ) lemma=`lowenbrau` -  
+ Loyalty ( ) lemma=`loyalty` -  
+ Ltd ( ) lemma=`ltd` -  
+ Lubov ( ) lemma=`lubov` -  
+ Lubovy ( ) lemma=`lubovy` -  
+ Luboye ( ) lemma=`luboye` -  
+ Lucas ( ) lemma=`lucas` -  
+ Lucent ( ) lemma=`lucent` -  
+ Luchshe ( ) lemma=`luchshe` -  
+ Lucifier ( ) lemma=`lucifier` -  
+ Lucile ( ) lemma=`lucile` -  
+ Luck ( ) lemma=`luck` -  
+ Lucky ( ) lemma=`lucky` -  
+ Lucy@ru ( ) lemma=`lucy@ru` -  
+ Ludens ( ) lemma=`ludens` -  
+ Ludwig ( ) lemma=`ludwig` -  
+ Lugansk ( ) lemma=`lugansk` -  
+ Luibheid ( ) lemma=`luibheid` -  
+ Luke ( ) lemma=`luke` -  
+ Lukitch ( ) lemma=`lukitch` -  
+ Lukomor ( ) lemma=`lukomor` -  
+ Luminous ( ) lemma=`luminous` -  
+ Lumpen ( ) lemma=`lumpen` -  
+ Luna ( ) lemma=`luna` -  
+ Lunde ( ) lemma=`lunde` -  
+ Lussault ( ) lemma=`lussault` -  
+ Lutsenko ( ) lemma=`lutsenko` -  
+ Luxel ( ) lemma=`luxel` -  
+ Lycaonia ( ) lemma=`lycaonia` -  
+ Lycra® ( ) lemma=`lycra®`lycra®`lycra®` Ncfsin  Ncmsgn  Vmip1s-a-e  
+ Lynch ( ) lemma=`lynch` -  
+ Lynskey/ ( ) lemma=`lynskey/` -  
+ Lynx ( ) lemma=`lynx` -  
+ Lynyrd ( ) lemma=`lynyrd` -  
+ Lyu ( ) lemma=`lyu` -  
+ Lyubovnik ( ) lemma=`lyubovnik` -  
+ L~A¤nderkunde ( ) lemma=`l~a¤nderkunde` -  
+ L~A©gende ( ) lemma=`l~a©gende` -  
+ Lдnchen ( ) lemma=`lдnchen` -  
+ l ( ) 
+ l'Arbre ( ) lemma=`l'arbre` -  
+ l'Audiovisuele ( ) lemma=`l'audiovisuele` -  
+ l'Eden ( ) lemma=`l'eden` -  
+ l'Histoire ( ) lemma=`l'histoire` -  
+ l'Hotel ( ) lemma=`l'hotel` -  
+ l'Invasion ( ) lemma=`l'invasion` -  
+ l'empereur ( ) 
+ l. ( ) 
+ l/authors/c ( ) 
+ l7 ( ) 
+ l@fmradio ( ) 
+ lOOK ( ) lemma=`look` -  
+ lV ( ) lemma=`lv` -  
+ la ( ) 
+ laPerla ( ) lemma=`laperla` -  
+ lab ( ) 
+ label ( ) 
+ labor ( ) 
+ lack ( ) 
+ ladies ( ) 
+ ladno ( ) 
+ ladobar ( ) 
+ lados ( ) 
+ lady ( ) 
+ lag ( ) 
+ laissez ( ) 
+ lama ( ) 
+ lancer ( ) 
+ land ( ) 
+ landscapes ( ) 
+ lang ( ) 
+ language ( ) 
+ lantz ( ) 
+ lapides ( ) 
+ lapilli ( ) 
+ lapsik ( ) 
+ lara@kp ( ) 
+ large ( ) 
+ largely ( ) 
+ larger ( ) 
+ larionovvit@rambler ( ) 
+ larity ( ) 
+ larve ( ) 
+ las ( ) 
+ lassical ( ) 
+ last ( ) 
+ lata ( ) 
+ latched ( ) 
+ late ( ) 
+ lates ( ) 
+ latest ( ) 
+ latine ( ) 
+ latinum ( ) 
+ latitude ( ) 
+ laud ( ) 
+ laugh000 ( ) 
+ laughing ( ) 
+ laughter ( ) 
+ laulu ( ) 
+ laulun ( ) 
+ launched ( ) 
+ laura ( ) 
+ lavanya@cnidr ( ) 
+ lavnoe ( ) 
+ law ( ) 
+ lawnoe ( ) 
+ laxifolium ( ) 
+ layGround ( ) lemma=`layground` -  
+ layground ( ) 
+ layoff ( ) 
+ layout ( ) 
+ lazy ( ) 
+ lazy@FMradio ( ) lemma=`lazy@fmradio` -  
+ lazy@fmradio ( ) 
+ lberzin ( ) 
+ lb« ( ) 
+ le ( ) 
+ lead ( ) 
+ leader ( ) 
+ leadership ( ) 
+ leading ( ) 
+ leaf ( ) 
+ learning ( ) 
+ lease ( ) 
+ least ( ) 
+ leau ( ) 
+ leaving ( ) 
+ lebe ( ) 
+ lebt ( ) 
+ lechilas ( ) 
+ led ( ) 
+ ledge ( ) 
+ ledi ( ) 
+ ledy ( ) 
+ left ( ) 
+ leg4e ( ) 
+ lege ( ) 
+ legende ( ) 
+ legkost ( ) 
+ legontwn ( ) 
+ leks ( ) 
+ leksandr ( ) 
+ lemon ( ) 
+ lenaris ( ) 
+ lend ( ) 
+ leningradsky ( ) 
+ leningradskyБорис ( ) lemma=`leningradskyборис` Ncmpny  
+ lent ( ) 
+ lenta ( ) 
+ leonidR ( ) lemma=`leonidr` -  
+ lep ( ) 
+ lermont@mail ( ) 
+ les ( ) 
+ less ( ) 
+ lessons ( ) 
+ let ( ) 
+ letaliter ( ) 
+ lethrinus ( ) 
+ letom ( ) 
+ letters ( ) 
+ lettre ( ) 
+ leuioris ( ) 
+ lev ( ) 
+ level ( ) 
+ levels ( ) 
+ levi ( ) 
+ levin ( ) 
+ levon@afed ( ) 
+ levriere ( ) 
+ levsha ( ) 
+ lex ( ) 
+ lexacv ( ) 
+ lexander ( ) 
+ lexpro ( ) 
+ lexx ( ) 
+ lf ( ) 
+ lfafarm ( ) 
+ lg ( ) 
+ lgorithm ( ) 
+ lgorithm/200011/30040349 ( ) 
+ li ( ) 
+ lia ( ) 
+ liber ( ) 
+ liberte ( ) 
+ libexpat ( ) 
+ libgaim ( ) 
+ libiconv ( ) 
+ library ( ) 
+ libro ( ) 
+ libs ( ) 
+ libxml2 ( ) 
+ licence ( ) 
+ lichno ( ) 
+ lichnost ( ) 
+ licznie ( ) 
+ lies ( ) 
+ lieux ( ) 
+ life ( ) 
+ lifetime ( ) 
+ liftcentres ( ) 
+ light ( ) 
+ lightning ( ) 
+ likdot ( ) 
+ like ( ) 
+ likes ( ) 
+ lilim ( ) 
+ lilim2000@mail ( ) 
+ limit ( ) 
+ limit=true ( ) 
+ limits ( ) 
+ lina@yandex ( ) 
+ line ( ) 
+ lines ( ) 
+ lingua ( ) 
+ linguistic ( ) 
+ link ( ) 
+ link=tests:2628 ( ) 
+ linke ( ) 
+ linku ( ) 
+ linsha ( ) 
+ linux ( ) 
+ linuxe ( ) 
+ linuxi ( ) 
+ linuxoidov ( ) 
+ lis ( ) 
+ liscence ( ) 
+ lisiki ( ) 
+ lisitsyn@garnet ( ) 
+ list ( ) 
+ listed ( ) 
+ lists ( ) 
+ listserv ( ) 
+ litt ( ) 
+ littera ( ) 
+ litterae ( ) 
+ little ( ) 
+ lity ( ) 
+ live ( ) 
+ livejournal ( ) 
+ liver ( ) 
+ lives ( ) 
+ livre ( ) 
+ livret ( ) 
+ lizard ( ) 
+ ljrus ( ) 
+ ljubimije ( ) 
+ lkor ( ) 
+ ll ( ) 
+ ll/outputx ( ) 
+ lleo@aha ( ) 
+ lll ( ) 
+ ln ( ) 
+ lo ( ) 
+ lobanovb@mtu ( ) 
+ locality ( ) 
+ location ( ) 
+ locations ( ) 
+ locked ( ) 
+ locutum ( ) 
+ lofty ( ) 
+ login ( ) 
+ logoi ( ) 
+ logos ( ) 
+ loki443 ( ) 
+ lol ( ) 
+ lon ( ) 
+ lond ( ) 
+ long ( ) 
+ longaeva ( ) 
+ longed ( ) 
+ look ( ) 
+ looking ( ) 
+ looks ( ) 
+ loop ( ) 
+ lord ( ) 
+ loryon ( ) 
+ lot ( ) 
+ lotta ( ) 
+ loud ( ) 
+ loue ( ) 
+ lounge ( ) 
+ love ( ) 
+ love&kiss ( ) 
+ loveliness ( ) 
+ lovely ( ) 
+ lovial( ( ) 
+ low ( ) 
+ lozhky ( ) 
+ lpha ( ) 
+ lpi ( ) 
+ ls ( ) 
+ lsd ( ) 
+ ltavista ( ) 
+ luba ( ) 
+ luba9140@does ( ) 
+ lubili ( ) 
+ lubjeznaya ( ) 
+ lubou ( ) 
+ lubov ( ) 
+ lubyu ( ) 
+ lucem ( ) 
+ lucentes ( ) 
+ lucet ( ) 
+ luche ( ) 
+ luchemu ( ) 
+ lucky ( ) 
+ ludi ( ) 
+ lukom ( ) 
+ lumen ( ) 
+ luminous ( ) 
+ lunch ( ) 
+ lunette ( ) 
+ lurka ( ) 
+ luv ( ) 
+ lux1@yandex ( ) 
+ ly ( ) 
+ lychshe ( ) 
+ lyutsya ( ) 
+ lzelenyi@iki ( ) 

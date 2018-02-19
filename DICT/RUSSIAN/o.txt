@@ -1,0 +1,618 @@
+﻿ O ( ) lemma=`o` -  
+ O'Brien ( ) lemma=`o'brien` -  
+ O'Donnell's ( ) lemma=`o'donnell's` -  
+ O'Halloran/ ( ) lemma=`o'halloran/` -  
+ O'SULLIVAN ( ) lemma=`o'sullivan` -  
+ O'Sanches ( ) lemma=`o'sanches` -  
+ O( ( ) lemma=`o(`o(` -  SENT  
+ O-ONE ( ) lemma=`o-one` -  
+ O. ( ) lemma=`o.` SENT  
+ O8V ( ) lemma=`o8v` -  
+ OASIS ( ) lemma=`oasis` -  
+ OBEC ( ) lemma=`obec` -  
+ OBJECTS ( ) lemma=`objects` -  
+ OBSERVATIONS ( ) lemma=`observations` -  
+ OBSOL'UTNO ( ) lemma=`obsol'utno` -  
+ OC ( ) lemma=`oc` -  
+ OCC ( ) lemma=`occ` -  
+ OCHEN ( ) lemma=`ochen` -  
+ OCI ( ) lemma=`oci` -  
+ OCR ( ) lemma=`ocr` -  
+ OCS ( ) lemma=`ocs` -  
+ ODBC ( ) lemma=`odbc` -  
+ ODBCAD32 ( ) lemma=`odbcad32` -  
+ ODCHENKO ( ) lemma=`odchenko` -  
+ ODYSSEY ( ) lemma=`odyssey` -  
+ OECD ( ) lemma=`oecd` -  
+ OEM ( ) lemma=`oem` -  
+ OF ( ) lemma=`of` -  
+ OFF ( ) lemma=`off` -  
+ OGG ( ) lemma=`ogg` -  
+ OGR&Puzoman ( ) lemma=`ogr&puzoman` -  
+ OGSA ( ) lemma=`ogsa` -  
+ OHIM ( ) lemma=`ohim` -  
+ OI ( ) lemma=`oi` -  
+ OIE ( ) lemma=`oie` -  
+ OK ( ) lemma=`ok` -  
+ OLAP ( ) lemma=`olap` -  
+ OLO ( ) lemma=`olo` -  
+ OLTP ( ) lemma=`oltp` -  
+ OLY ( ) lemma=`oly` -  
+ OM ( ) lemma=`om` -  
+ OMG ( ) lemma=`omg` -  
+ OMI ( ) lemma=`omi` -  
+ OMNI ( ) lemma=`omni` -  
+ ON ( ) lemma=`on` -  
+ ONE ( ) lemma=`one` -  
+ OPEN ( ) lemma=`open` -  
+ OPENING ( ) lemma=`opening` -  
+ OPENSSL ( ) lemma=`openssl` -  
+ OPTION ( ) lemma=`option` -  
+ OR ( ) lemma=`or` -  
+ ORA ( ) lemma=`ora` -  
+ ORBit2 ( ) lemma=`orbit2` -  
+ ORC ( ) lemma=`orc` -  
+ ORDPLUGINS ( ) lemma=`ordplugins` -  
+ ORDSYS ( ) lemma=`ordsys` -  
+ ORG ( ) lemma=`org` -  
+ ORI ( ) lemma=`ori` -  
+ ORIENS ( ) lemma=`oriens` -  
+ ORLD ( ) lemma=`orld` -  
+ OS ( ) lemma=`os` -  
+ OS/390 ( ) lemma=`os/390` -  
+ OSA ( ) lemma=`osa` -  
+ OSAEU ( ) lemma=`osaeu` -  
+ OSD ( ) lemma=`osd` -  
+ OSI ( ) lemma=`osi` -  
+ OSS/BSS ( ) lemma=`oss/bss` -  
+ OTL ( ) lemma=`otl` -  
+ OUTERBRIDGE ( ) lemma=`outerbridge` -  
+ OUTLAST® ( ) lemma=`outlast®` Ncmsnn  
+ OVER ( ) lemma=`over` -  
+ OVERGROUND ( ) lemma=`overground` -  
+ OXFORD ( ) lemma=`oxford` -  
+ O`Reilly ( ) lemma=`o`reilly` -  
+ Obermanns ( ) lemma=`obermanns` -  
+ Object ( ) lemma=`object` -  
+ ObjectWatch ( ) lemma=`objectwatch` -  
+ Objects ( ) lemma=`objects` -  
+ Objet ( ) lemma=`objet` -  
+ Obliterate ( ) lemma=`obliterate` -  
+ Oblivion ( ) lemma=`oblivion` -  
+ Obrazovalsya ( ) lemma=`obrazovalsya` -  
+ Observations ( ) lemma=`observations` -  
+ Observer ( ) lemma=`observer` -  
+ Observing ( ) lemma=`observing` -  
+ Oceania ( ) lemma=`oceania` -  
+ Ochen ( ) lemma=`ochen` -  
+ Oct ( ) lemma=`oct` -  
+ Oct'94 ( ) lemma=`oct'94`oct'94`oct'94` -  Afpfsnf  Mc---d  
+ October ( ) lemma=`october` -  
+ Octoberfest ( ) lemma=`octoberfest` -  
+ Oculus ( ) lemma=`oculus` -  
+ Oder ( ) lemma=`oder` -  
+ Odin ( ) lemma=`odin` -  
+ Odna ( ) lemma=`odna` -  
+ Oeconomicana ( ) lemma=`oeconomicana` -  
+ Oerby ( ) lemma=`oerby` -  
+ Oesterreichischen ( ) lemma=`oesterreichischen` -  
+ Of ( ) lemma=`of` -  
+ Off ( ) lemma=`off` -  
+ Offensive ( ) lemma=`offensive` -  
+ Offer ( ) lemma=`offer` -  
+ Office ( ) lemma=`office` -  
+ Officer ( ) lemma=`officer` -  
+ Officielle ( ) lemma=`officielle` -  
+ Offline ( ) lemma=`offline` -  
+ Offprint ( ) lemma=`offprint` -  
+ Ofizialnyi ( ) lemma=`ofizialnyi` -  
+ Oflameron ( ) lemma=`oflameron` -  
+ Ogam ( ) lemma=`ogam` -  
+ Oggier ( ) lemma=`oggier` -  
+ Oghlin ( ) lemma=`oghlin` -  
+ Ogier ( ) lemma=`ogier` -  
+ Ogr ( ) lemma=`ogr` -  
+ Oh ( ) lemma=`oh` -  
+ Ohio ( ) lemma=`ohio` -  
+ Ohlen ( ) lemma=`ohlen` -  
+ Ohtuleht ( ) lemma=`ohtuleht` -  
+ Oi ( ) lemma=`oi` -  
+ Oils/Fuel ( ) lemma=`oils/fuel` -  
+ Oiseaux ( ) lemma=`oiseaux` -  
+ Ok ( ) lemma=`ok` -  
+ Okin ( ) lemma=`okin` -  
+ Oksenia ( ) lemma=`oksenia` -  
+ Oktoberfest ( ) lemma=`oktoberfest` -  
+ Ol ( ) lemma=`ol` -  
+ Ol\\'ga ( ) lemma=`ol\\'ga` -  
+ Old ( ) lemma=`old` -  
+ Ole962@yandex ( ) lemma=`ole962@yandex` -  
+ Oleg ( ) lemma=`oleg` -  
+ Oleksiy ( ) lemma=`oleksiy` -  
+ Olga ( ) lemma=`olga` -  
+ Oliver ( ) lemma=`oliver` -  
+ Ollfield ( ) lemma=`ollfield` -  
+ Olson ( ) lemma=`olson` -  
+ Olu ( ) lemma=`olu` -  
+ Olya ( ) lemma=`olya` -  
+ Olympus ( ) lemma=`olympus` -  
+ Oman/ ( ) lemma=`oman/` -  
+ Omar ( ) lemma=`omar` -  
+ OmniPage ( ) lemma=`omnipage` -  
+ OmniSTAR ( ) lemma=`omnistar` -  
+ OmniStar ( ) lemma=`omnistar` -  
+ Omnistar ( ) lemma=`omnistar` -  
+ Omnistar/LandStar ( ) lemma=`omnistar/landstar` -  
+ On ( ) lemma=`on` -  
+ OnAir ( ) lemma=`onair` -  
+ OnLine ( ) lemma=`online` -  
+ One ( ) lemma=`one` -  
+ OneNote ( ) lemma=`onenote` -  
+ Onion ( ) lemma=`onion` -  
+ Onishchenko ( ) lemma=`onishchenko` -  
+ Online ( ) lemma=`online` -  
+ Only ( ) lemma=`only` -  
+ Oooh ( ) lemma=`oooh` -  
+ Ooops ( ) lemma=`ooops` -  
+ Op ( ) lemma=`op` -  
+ OpEc ( ) lemma=`opec` -  
+ Opearatzionnim ( ) lemma=`opearatzionnim` -  
+ Opec ( ) lemma=`opec` -  
+ Open ( ) lemma=`open` -  
+ OpenGL ( ) lemma=`opengl` -  
+ OpenOffice ( ) lemma=`openoffice` -  
+ Opera ( ) lemma=`opera` -  
+ Opera/6 ( ) lemma=`opera/6` -  
+ Operating ( ) lemma=`operating` -  
+ Operation ( ) lemma=`operation` -  
+ Operations ( ) lemma=`operations` -  
+ Oppert ( ) lemma=`oppert` -  
+ Opportunity ( ) lemma=`opportunity` -  
+ Opteron ( ) lemma=`opteron` -  
+ Optical ( ) lemma=`optical` -  
+ Optics ( ) lemma=`optics` -  
+ Optimistka ( ) lemma=`optimistka` -  
+ Option ( ) lemma=`option` -  
+ Options ( ) lemma=`options` -  
+ Opus ( ) lemma=`opus` -  
+ Or ( ) lemma=`or` -  
+ Oracal ( ) lemma=`oracal` -  
+ Oracle ( ) lemma=`oracle` -  
+ Oracle8i ( ) lemma=`oracle8i` -  
+ Orafol ( ) lemma=`orafol` -  
+ Oranda ( ) lemma=`oranda` -  
+ Orange ( ) lemma=`orange` -  
+ Orations ( ) lemma=`orations` -  
+ Orb ( ) lemma=`orb` -  
+ Orbit ( ) lemma=`orbit` -  
+ Orbiter ( ) lemma=`orbiter` -  
+ Orchestra ( ) lemma=`orchestra` -  
+ Orchestrator ( ) lemma=`orchestrator` -  
+ Orchid ( ) lemma=`orchid` -  
+ Order ( ) lemma=`order` -  
+ Ordin ( ) lemma=`ordin` -  
+ Ordinary ( ) lemma=`ordinary` -  
+ Ordo ( ) lemma=`ordo` -  
+ Oreal ( ) lemma=`oreal` -  
+ Oregon ( ) lemma=`oregon` -  
+ Organisation ( ) lemma=`organisation` -  
+ Organization ( ) lemma=`organization` -  
+ Organizations ( ) lemma=`organizations` -  
+ Ori ( ) lemma=`ori` -  
+ Orientalen ( ) lemma=`orientalen` -  
+ Oriented ( ) lemma=`oriented` -  
+ Orientis ( ) lemma=`orientis` -  
+ Origin ( ) lemma=`origin` -  
+ Original ( ) lemma=`original` -  
+ Originalwerk ( ) lemma=`originalwerk` -  
+ Orion ( ) lemma=`orion` -  
+ Oroblu ( ) lemma=`oroblu` -  
+ Orohippus ( ) lemma=`orohippus` -  
+ Oromedia ( ) lemma=`oromedia` -  
+ OrskAlex ( ) lemma=`orskalex` -  
+ Orthodoxen ( ) lemma=`orthodoxen` -  
+ Ortiz ( ) lemma=`ortiz` -  
+ Osborn ( ) lemma=`osborn` -  
+ Oscar ( ) lemma=`oscar` -  
+ Osef ( ) lemma=`osef` -  
+ Oslo ( ) lemma=`oslo` -  
+ Ost ( ) lemma=`ost` -  
+ Ostende ( ) lemma=`ostende` -  
+ Osterhaus ( ) lemma=`osterhaus` -  
+ Osteuropa ( ) lemma=`osteuropa` -  
+ Ostfront ( ) lemma=`ostfront` -  
+ Ostmitteleuropa ( ) lemma=`ostmitteleuropa` -  
+ Osya ( ) lemma=`osya` -  
+ Otava ( ) lemma=`otava` -  
+ Otero ( ) lemma=`otero` -  
+ Other ( ) lemma=`other` -  
+ Others ( ) lemma=`others` -  
+ Othil ( ) lemma=`othil` -  
+ Othilia ( ) lemma=`othilia` -  
+ Otiа ( ) lemma=`otiа` Ncfsnn  
+ Ottawa ( ) lemma=`ottawa` -  
+ Ou ( ) lemma=`ou` -  
+ Oui ( ) lemma=`oui` -  
+ Our ( ) lemma=`our` -  
+ Ousler ( ) lemma=`ousler` -  
+ Out ( ) lemma=`out` -  
+ Outlast® ( ) lemma=`outlast®` Ncmsnn  
+ Outlook ( ) lemma=`outlook` -  
+ Outre ( ) lemma=`outre` -  
+ Outshine ( ) lemma=`outshine` -  
+ Ouzounov ( ) lemma=`ouzounov` -  
+ Overlay ( ) lemma=`overlay` -  
+ Overseas ( ) lemma=`overseas` -  
+ Ovunque ( ) lemma=`ovunque` -  
+ Owl ( ) lemma=`owl` -  
+ Own ( ) lemma=`own` -  
+ Ownership ( ) lemma=`ownership` -  
+ Ox ( ) lemma=`ox` -  
+ Oxford ( ) lemma=`oxford` -  
+ Oy ( ) lemma=`oy` -  
+ Oyster ( ) lemma=`oyster` -  
+ Ozi ( ) lemma=`ozi` -  
+ Oлимпийский ( ) lemma=`oлимпийский` Afpmsnf  
+ Oтказ ( ) lemma=`oтказ` Ncmsnn  
+ Oттуда ( ) lemma=`oттуда` Ncfsnn  
+ o ( ) 
+ o'key ( ) 
+ o-three ( ) 
+ o. ( ) 
+ o02@pp01 ( ) 
+ o0chen ( ) 
+ o3opHuk ( ) lemma=`o3ophuk` -  
+ oMEN ( ) lemma=`omen` -  
+ o`u ( ) 
+ oas ( ) 
+ oato ( ) 
+ oato=soato ( ) 
+ ob ( ) 
+ ob'yasnenii ( ) 
+ ob'yasnit ( ) 
+ oba ( ) 
+ obazatelno ( ) 
+ obchenia ( ) 
+ obdumat ( ) 
+ obed ( ) 
+ obediunt ( ) 
+ oberst ( ) 
+ obeshaniya ( ) 
+ obi ( ) 
+ obis ( ) 
+ object ( ) 
+ objects ( ) 
+ oblegchit ( ) 
+ obo ( ) 
+ oboe ( ) 
+ obra ( ) 
+ obratnuyu ( ) 
+ obrazom ( ) 
+ obrazuetsha ( ) 
+ observations ( ) 
+ observed ( ) 
+ obsessio ( ) 
+ obshei ( ) 
+ obsheniya ( ) 
+ obshestve ( ) 
+ obsuzhdaem ( ) 
+ obviously ( ) 
+ obyazateljno ( ) 
+ obyazatelno ( ) 
+ obychnuyu ( ) 
+ oc ( ) 
+ occidental ( ) 
+ occidit ( ) 
+ ochemu ( ) 
+ ochen ( ) 
+ ock ( ) 
+ oconnor ( ) 
+ oder ( ) 
+ odin ( ) 
+ odinochek ( ) 
+ odinocka ( ) 
+ odna ( ) 
+ odnimi ( ) 
+ odno ( ) 
+ odnogo ( ) 
+ odny ( ) 
+ odorem ( ) 
+ odson ( ) 
+ oelonsoftware ( ) 
+ oethe ( ) 
+ of ( ) 
+ off ( ) 
+ offer ( ) 
+ offered ( ) 
+ official ( ) 
+ offline ( ) 
+ offmann ( ) 
+ offset ( ) 
+ offtopic ( ) 
+ ofis ( ) 
+ oformit ( ) 
+ oft ( ) 
+ oft32 ( ) 
+ often ( ) 
+ ofyodorov ( ) 
+ ogisticpluscompany ( ) 
+ oh ( ) 
+ ohemianscafe ( ) 
+ ohne ( ) 
+ ohota ( ) 
+ oi ( ) 
+ oj ( ) 
+ ojet ( ) 
+ ok ( ) 
+ okatorg ( ) 
+ okazalos ( ) 
+ okolo ( ) 
+ okonh ( ) 
+ ol ( ) 
+ ol`ko ( ) 
+ old ( ) 
+ oldberg ( ) 
+ oldier ( ) 
+ oldknight ( ) 
+ oldnews ( ) 
+ ole ( ) 
+ oleg ( ) 
+ olegv@rssi ( ) 
+ olejnik ( ) 
+ olen ( ) 
+ olet ( ) 
+ olgaip ( ) 
+ oli ( ) 
+ olit ( ) 
+ oliver ( ) 
+ olleyes ( ) 
+ olnar ( ) 
+ olny ( ) 
+ olo ( ) 
+ olonel ( ) 
+ olotok ( ) 
+ olsh ( ) 
+ olshoe ( ) 
+ oltali ( ) 
+ olther ( ) 
+ oluchaetsha ( ) 
+ om ( ) 
+ om( ( ) 
+ om/ ( ) 
+ om/10844/ ( ) 
+ om/223556 ( ) 
+ om/30565 ( ) 
+ om/35599 ( ) 
+ om/3denciclopedia/mod ( ) 
+ om/67324 ( ) 
+ om/Athens/Rhodes/7102 ( ) lemma=`om/athens/rhodes/7102` Mc---d  
+ om/NapaValley/Vineyard/1164/dvgratuw ( ) lemma=`om/napavalley/vineyard/1164/dvgratuw` -  
+ om/SoHo/Exhibit/4256/ ( ) lemma=`om/soho/exhibit/4256/` -  
+ om/Survey/index ( ) lemma=`om/survey/index` -  
+ om/albums/y73/imgdm/recept ( ) 
+ om/archives/2005/11/10/021954 ( ) 
+ om/articles/APIWar ( ) lemma=`om/articles/apiwar` -  
+ om/artists/malevich ( ) 
+ om/board/html/emoticons/spam ( ) 
+ om/c/ ( ) 
+ om/cgi ( ) 
+ om/dolphin/tradelink ( ) 
+ om/events/events ( ) 
+ om/finance/19may2005/pens ( ) 
+ om/forum/ ( ) 
+ om/forum/index ( ) 
+ om/go/getflashplayer ( ) 
+ om/kaleidoscope/big/2522 ( ) 
+ om/news/4 ( ) 
+ om/photo/australia/IMG ( ) lemma=`om/photo/australia/img` -  
+ om/power/case/zalman ( ) 
+ om/products/rmi ( ) 
+ om/profile ( ) 
+ om/resources ( ) 
+ om/rss/tornado ( ) 
+ om/russia/20mar2006/sms ( ) 
+ om/softwaretopics/os/linux/ ( ) 
+ om/st/cms ( ) 
+ om/stats/stats ( ) 
+ om/support/welcome ( ) 
+ om/users/ ( ) 
+ om/users/maccolit ( ) 
+ om/users/radioroma/90014 ( ) 
+ om/users/skotina/ ( ) 
+ om/users/speedy ( ) 
+ om/users/von ( ) 
+ om/virt/obzory/Kinoklub/article801 ( ) lemma=`om/virt/obzory/kinoklub/article801` Mc---d  
+ oma ( ) 
+ omanticcollection ( ) 
+ ombats ( ) 
+ ombre ( ) 
+ omcon ( ) 
+ omebusiness ( ) 
+ omemoney ( ) 
+ omen`she ( ) 
+ omeone ( ) 
+ omercant ( ) 
+ omik ( ) 
+ omnia ( ) 
+ omnibus ( ) 
+ omnium ( ) 
+ omogite ( ) 
+ omoousio ( ) 
+ omprice ( ) 
+ omputerra ( ) 
+ omputershopper ( ) 
+ omputerworld ( ) 
+ on ( ) 
+ ona ( ) 
+ onboard ( ) 
+ onc ( ) 
+ once ( ) 
+ onder00 ( ) 
+ one ( ) 
+ oneyempire ( ) 
+ onf ( ) 
+ onference ( ) 
+ onfused ( ) 
+ oni ( ) 
+ online ( ) 
+ only ( ) 
+ onnected ( ) 
+ onograph ( ) 
+ ontrИal ( ) lemma=`ontrиal` -  
+ onzo ( ) 
+ oo ( ) 
+ oobshe ( ) 
+ oogle ( ) 
+ ookcrossing ( ) 
+ ool ( ) 
+ oolparty ( ) 
+ ools ( ) 
+ oom ( ) 
+ oorlum ( ) 
+ op ( ) 
+ opal ( ) 
+ opasnost ( ) 
+ open ( ) 
+ openen ( ) 
+ opensource ( ) 
+ operating ( ) 
+ operations ( ) 
+ opite ( ) 
+ oplachivaeh ( ) 
+ oplatyat ( ) 
+ opredelenie ( ) 
+ oprobovali ( ) 
+ ops$tkyte@ORA8I ( ) lemma=`ops$tkyte@ora8i`ops$tkyte@ora8i`ops$tkyte@ora8i`ops$tkyte@ora8i`ops$tkyte@ora8i` -  Mc---d  Ncmsin  Ncmsnn  Npmsny  
+ opt ( ) 
+ optical ( ) 
+ option ( ) 
+ optional ( ) 
+ opublikovatj ( ) 
+ or ( ) 
+ ora ( ) 
+ oracle ( ) 
+ oral ( ) 
+ oram ( ) 
+ oras ( ) 
+ orator ( ) 
+ orbi ( ) 
+ orbina ( ) 
+ orbiting ( ) 
+ orbot ( ) 
+ orchid ( ) 
+ order ( ) 
+ orders ( ) 
+ orea ( ) 
+ orest ( ) 
+ org ( ) 
+ organization ( ) 
+ organize ( ) 
+ organizma ( ) 
+ organizmu ( ) 
+ orget)DJ ( ) lemma=`orget)dj` -  
+ orientalis ( ) 
+ origin ( ) 
+ original ( ) 
+ originale ( ) 
+ orisKa ( ) lemma=`oriska` -  
+ orldbank ( ) 
+ orny ( ) 
+ ortal ( ) 
+ ortu ( ) 
+ oryachev ( ) 
+ osbalt ( ) 
+ ose1000 ( ) 
+ osef ( ) 
+ oshibaeshsya ( ) 
+ oshnit ( ) 
+ osmetichka ( ) 
+ osmo ( ) 
+ osmotr ( ) 
+ osmotrela ( ) 
+ osnove ( ) 
+ osobennoe ( ) 
+ osobistyредьявите ( ) 
+ osovetuete ( ) 
+ ost ( ) 
+ ostal`nie ( ) 
+ ostalnye ( ) 
+ ostalsha ( ) 
+ ostavat`sha ( ) 
+ ostindustrial ( ) 
+ osts ( ) 
+ osze ( ) 
+ ot ( ) 
+ ota ( ) 
+ otard3151@usmail ( ) 
+ otberut ( ) 
+ otbox ( ) 
+ otelos ( ) 
+ otheby’s ( ) 
+ other ( ) 
+ oti ( ) 
+ otkliki ( ) 
+ otkuda ( ) 
+ otnasheniya ( ) 
+ otnoshenie ( ) 
+ oto ( ) 
+ otocinclus ( ) 
+ otom ( ) 
+ otoplenka ( ) 
+ otorvat ( ) 
+ otpetiy@rambler ( ) 
+ otpravil ( ) 
+ otrudniki ( ) 
+ otsytstvie ( ) 
+ ottyagivayut ( ) 
+ otvarnoi ( ) 
+ otvechaut ( ) 
+ otya ( ) 
+ ou ( ) 
+ oubt ( ) 
+ ouisiana ( ) 
+ our ( ) 
+ ouraniou ( ) 
+ ourceforge ( ) 
+ ourism ( ) 
+ ousia ( ) 
+ out ( ) 
+ outo ( ) 
+ output ( ) 
+ ouv ( ) 
+ ov ( ) 
+ ov/cia/publications/factbook/index ( ) 
+ ov/news/releases/2005/09/20050902 ( ) 
+ ov:8081/glinэ ( ) 
+ ova@mail ( ) 
+ ovecompass ( ) 
+ overbranding ( ) 
+ overcast ( ) 
+ overdressed ( ) 
+ overlay ( ) 
+ overlay1 ( ) 
+ overlay2 ( ) 
+ overnment ( ) 
+ overview ( ) 
+ ovsem ( ) 
+ owerlabs ( ) 
+ owner@domain ( ) 
+ owner@domain\ ( ) 
+ ownership ( ) 
+ ox ( ) 
+ oxudala ( ) 
+ oy ( ) 
+ oyla ( ) 
+ ozenochnyi ( ) 
+ ozete ( ) 
+ ozhet ( ) 
+ ozhiki ( ) 
+ ozilla ( ) 
+ ozon ( ) 
+ ozyrev ( ) 
+ oблaдaют ( ) 
+ oбъявляли ( ) 
+ oль ( ) 
+ oн ( ) 
+ oриентироваться ( ) 
+ oт ( ) lemma=`oт`oт` Afpfsgf  Vmps-sfafpa  
+ o’he ( ) 

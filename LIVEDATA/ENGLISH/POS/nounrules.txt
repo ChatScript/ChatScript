@@ -1,0 +1,1025 @@
+# nouns occur# 1. as subject or indirect object or object of a main clause, subordinate clause, coordinate sentence
+# 2. as object or indirect object of a verbal (noun-infinitive, gerund, or adjective participle)
+# 3. noun functioning as adjective in front of another noun (labeled adjective_noun)
+# 4. at front, in middle, or at end, separated by commas, as address
+# 5. after another noun (with some header when not proper) with or without commas as appositive
+# 6. as object of a preposition
+# 7. before comma or and as part of list
+# 8. before possessive which is before upcoming noun (a determiner) 
+# 9. after To-infinitive (we label verb infinitive as noun-infinitive)
+# 10. as gerund 
+# 11 beware capitalized adjectives before lower case noun...
+# 12 as object complement - simiolar to appositive- I called my cat Garfield or we elected Tim president
+# 1s as subject complement after a linking verb - "he was a cat"
+# 13 noun functioning as adjunct adverbial: time word actually labelled as adverb, usually at start of sentence separated by comma or at end of sentence with no comma  "five years ago, I walked"
+#	  also object name giving location - "I walked home"
+# 14 subject of appositive phrase:  // "wings flapping", the man runs   where verb is ing verb
+
+# subject may be omitted in a clause when subject is the same as rest of sentence
+# subject (pronoun) may be omitted when [you] is implied via a command
+# object (pronouns) may be wrapped when sentence ends in a preposition and its object starts the sentence - "where did you come from?"
+
+# cannot have noun before known possessive if we never had a verb (which could use 2 objects) "what *will my dog do"  but - "to those allies *whose culture we love"
+
+# cant be noun if followed by determiner and no verb before = this/a (Pronoun_subject Determiner)  gives/give (Noun_plural Verb_present_3ps)  the/a (Determiner)   = would need comma "in this house, the"
+# but could be if appositive
+
+# more likely verb than noun day (Noun_singular)  goes/go (Noun_plural +Verb_present_3ps)  by (Particle Adverb)
+
+# command followed by noun "*Buy shoes"
+0	INCLUDE * NOUN_INFINITIVE # though may be noun, lacks determiner
+	STAY START
+DISCARD
+
+# wont be noun if could be adjective before an adjective and then a noun (wont be postpositive) - large (Noun_singular Adverb)  burlap (Adjective_normal)  sacks/sack (Noun_plural)
+ 0	INCLUDE * NOUN_SINGULAR
+	STAY HAS ADVERB
+	IS ADJECTIVE_BITS
+	IS NOUN_BITS
+DISCARD
+
+# for multiple nouns in a row, some proper, use singular - the/a (Determiner)  Thai (+Noun_proper_singular +Noun_proper_plural)  cabinet (Noun_singular)
+-1 IS DETERMINER
+	INCLUDE * NOUN_PROPER_PLURAL
+	STAY HAS NOUN_PROPER_SINGULAR
+	IS NOUN_BITS
+DISCARD
+
+# at sentence start wont have noun followed by pronoun - kill (+Noun_singular +Verb_infinitive)  it (Pronoun_object Pronoun_subject)
+ 0	INCLUDE * NOUN_BITS
+	STAY START
+	CANONLYBE PRONOUN_OBJECT PRONOUN_SUBJECT
+DISCARD
+
+# noun starting sentence followed by determiner wont happen - despite (Noun_singular +Preposition)  the/a (Determiner)
+ 0 INCLUDE * NOUN_BITS
+	STAY START
+	IS DETERMINER PREDETERMINER
+DISCARD  
+
+# in conflict between noun/adverb starting sentence, if noun requires determiner wont be noun "*meanwhile, I went home"
+ 0	INCLUDE * NOUN_SINGULAR
+	STAY START
+	STAY HAS ADVERB
+	STAY !ISABSTRACT
+DISCARD
+
+# noun used as adjective of plural noun will be singular: Japanese (+Noun_proper_singular +Noun_proper_plural)  investors/investor (Noun_plural)
+0 INCLUDE * NOUN_PROPER_SINGULAR
+	STAY CANONLYBE NOUN_BITS
+	IS NOUN_PLURAL
+KEEP
+
+
+# number only, before possible adjective, will be adjective 17 (Noun_number Adjective_number)  big (+Adjective_normal Adverb)
+0 INCLUDE * NOUN_NUMBER
+	STAY CANONLYBE NOUN_NUMBER ADJECTIVE_NUMBER
+	HAS ADJECTIVE_NORMAL
+DISCARD
+
+# noun plural wont have determiner after it -  marks/mark (Noun_plural Verb_present_3ps)  the/a (Determiner) 
+ 0 INCLUDE * NOUN_PLURAL
+	IS DETERMINER
+ DISCARD
+
+# noun-gerund before noun is implausible - *remaining/remain (+Noun_gerund +Adjective_participle)  uses/use (Noun_plural)  unless it is "you can see her correcting homework"
+0	INCLUDE * NOUN_GERUND
+	STAY HAS ADJECTIVE_PARTICIPLE
+	IS NOUN_BITS
+	STAY !ISABSTRACT # nouns not needing determiners might be following a gerund
+ DISCARD
+
+# starting noun singular or plural will be plural since no determiner in front - "*sales of money rose" -- though verb could drive it maybe
+0 INCLUDE * NOUN_SINGULAR
+	STAY START
+	STAY HAS NOUN_PLURAL
+DISCARD
+
+# adjective used as noun will need determiner "the, these, those, some" but not a  "the rich"  "the truly rich"
+REVERSE 0  INCLUDE * NOUN_ADJECTIVE
+	SKIP IS ADVERB
+	!HAS DETERMINER
+DISCARD
+
+# adjective used as noun will need determiner  not "a"  
+REVERSE 0  INCLUDE * NOUN_ADJECTIVE
+	SKIP IS ADVERB
+	ISORIGINAL a
+DISCARD
+
+# singular determiner before plural/singular conflict makes singular- "a *Japanese walked here"
+-1 ISORIGINAL a
+	INCLUDE * NOUN_PLURAL NOUN_PROPER_PLURAL
+	STAY HAS NOUN_SINGULAR NOUN_PROPER_SINGULAR
+DISCARD
+
+# at start wont be noun singular if needs determination and could be infinitive verb - "look at me" unless possible noun follows "garden rakes are good" - assuming no other verbs lie about "Bear had to eat a lot"
+0	INCLUDE * NOUN_SINGULAR
+	STAY START
+	STAY POSSIBLEINFINITIVE
+	STAY !HASPROPERTY NOUN_NODETERMINER
+	STAY !POSTPOS AUX_VERB VERB_BITS - VERB_INFINITIVE
+	!HAS NORMAL_NOUN_BITS
+DISCARD
+
+# noun after possessive will prefer singular to gerund "Warhol's *painting is good"
+-1	IS POSSESSIVE_BITS
+	INCLUDE * NOUN_GERUND
+	STAY NOUN_SINGULAR
+DISCARD
+
+# after comma and before noun, prefer adjective to noun  ", *old ponto
+-1	IS COMMA
+	INCLUDE * NORMAL_NOUN_BITS
+	STAY HAS ADJECTIVE_NORMAL
+	IS NORMAL_NOUN_BITS
+DISCARD
+
+# noun infintive not after preposition
+-1	IS PREPOSITION
+	INCLUDE * TO_INFINITIVE
+DISCARD
+
+# wont be noun number before noun or adjective only - three/3 (+Noun_number Adjective_number)  basic (Noun_singular +Adjective_normal)  
+0	INCLUDE * NOUN_NUMBER
+	CANONLYBE NOUN_BITS ADJECTIVE_BITS
+DISCARD
+
+# wont be noun if no prior verb, could be aux, and followed by signs of noun - will (+Noun_singular Aux_verb_future)  my/I (Pronoun_possessive)  
+0	INCLUDE * NORMAL_NOUN_BITS
+	STAY !PRIORPOS AUX_VERB VERB_BITS # but not noun or adj signs since might be positive or dual noun
+	STAY HAS AUX_VERB
+	IS DETERMINER_BITS - POSSESSIVE # but "her *dog's breath
+DISCARD
+
+# wont be noun after conjunction coord and adverb (Conjunction_coordinate)  - mostly (Adverb)  eats/eat (Noun_singular +Verb_present_3ps)  
+-2 IS CONJUNCTION_COORDINATE
+	IS ADVERB
+	INCLUDE * NORMAL_NOUN_BITS
+DISCARD
+
+# wont be noun after comma if noun requires heading ", *like him" - but plurals are ok "beginning in 1980, *courts" as are proper nouns
+-1	IS COMMA
+	INCLUDE * NOUN_SINGULAR 
+	STAY !HASPROPERTY NOUN_NODETERMINER 
+	!HAS COMMA CONJUNCTION_COORDINATE POSSESSIVE # not "dog, wolf and coyote" and not "dog, *pig's ears"
+DISCARD
+
+# cant be noun infinitve without a TO somewhere in front
+ 0	INCLUDE * NOUN_INFINITIVE
+ 	STAY !PRIORPOS TO_INFINITIVE
+ DISCARD
+
+# noun infintive must bind to a to   "to get *lunch"
+ REVERSE 0	 INCLUDE * NOUN_INFINITIVE
+	SKIP !HAS NOUN_INFINITIVE TO_INFINITIVE
+	IS NOUN_INFINITIVE # some other noun infintiive masks any potential to
+DISCARD
+
+# noun infininitive cannot preceed noun infinitive 
+0	INCLUDE * NOUN_INFINITIVE
+	SKIP !HAS NOUN_INFINITIVE TO_INFINITIVE	# this would interfere with existing to/infinitve matchup
+	IS NOUN_INFINITIVE
+DISCARD
+
+# cant be noun if verb takes no indirect object and no verb occurs later (Verb_present_3ps)  them/they (Pronoun_object)  down (+Noun_singular Verb_present Adverb)  quickly (Adverb) 
+-2 IS VERB_BITS
+	STAY !HASPROPERTY VERB_INDIRECTOBJECT			
+	CANONLYBE PRONOUN_BITS
+	INCLUDE * NOUN_BITS
+	STAY !POSTPOS VERB_BITS
+DISCARD 
+
+# wont be noun followed by adjective when has preceeding noun unless there is a verb later - these/a (Determiner)  snakes/snake (Noun_plural)  spray (+Noun_singular Verb_present)  poisonous (Adjective_normal)  
+-1	IS NOUN_PLURAL # I saw the bank tellers red squids lived on.
+	INCLUDE * NOUN_SINGULAR
+	STAY HAS VERB_PRESENT
+	IS ADJECTIVE_NORMAL
+	STAY !POSTPOS VERB_BITS
+DISCARD
+
+# wont be noun followed by adjective when has preceeding noun - this/a (Determiner)  snake/snake (Noun_plural)  sprays (+Noun_plural Verb_present_3ps)  poisonous (Adjective_normal)  
+-1	IS NOUN_SINGULAR
+	INCLUDE * NOUN_PLURAL
+	STAY HAS VERB_PRESENT_3PS
+	IS ADJECTIVE_NORMAL
+DISCARD
+
+# wont have noun followed by possessive   the/a (Determiner)  fish (Noun_singular)  sticks/stick (Noun_plural Verb_present_3ps)  its/it (Pronoun_possessive) - ??
+0	INCLUDE * NOUN_PLURAL
+	IS PRONOUN_POSSESSIVE
+	STAY PARSEMARK PERSONAL_PRONOUN
+DISCARD
+
+# if adjective preceeds potential noun/verb, be noun - they are just nice (Adjective_normal)  bugs/bug (Noun_plural Verb_present_3ps)  unless time phrase "the six year *old swims"
+-1 IS ADJECTIVE_NORMAL
+	STAY !ISMEMBER ~timeadjmodifier
+	STAY !ISMEMBER ~timeadvmodifier
+	INCLUDE * VERB_BITS
+	STAY CANONLYBE NOUN_BITS VERB_BITS
+DISCARD
+
+# wont be noun before infinitive if can be aux  (+Noun_singular Aux_verb_present +Verb_present)  be (Verb_infinitive
+0	INCLUDE * NOUN_BITS
+	STAY HAS AUX_VERB  # though nouns can occur before infinitives when verb before that requires it "I help the can swim"
+	IS VERB_INFINITIVE
+DISCARD
+
+# after verb and adverb, wont be noun (bad ordering) "it gets too *small"
+-2 IS VERB_BITS
+ 	IS ADVERB
+ 	INCLUDE * NORMAL_NOUN_BITS
+ 	STAY POSSIBLEADJECTIVE
+ DISCARD
+
+# noun singular cannot start sentence unless mass noun or allowed undetermined - "now we run" - but dont force it to be a verb "*Bear ate his breakfast"
+0	INCLUDE * NOUN_SINGULAR
+	STAY START
+	STAY !HASPROPERTY NOUN_NODETERMINER
+	STAY HAS ADVERB ADJECTIVE_BITS
+DISCARD
+
+# conflict between noun number and pronoun, be not noun if not noun after "if you pick *one up" EXCEPT could have  "*one very fine day"
+0	INCLUDE * NOUN_NUMBER
+	STAY CANONLYBE NOUN_NUMBER PRONOUN_BITS
+	SKIP IS ADVERB
+	!HAS NOUN_BITS ADJECTIVE_BITS DETERMINER_BITS
+DISCARD
+
+# ago takes a noun before it (except long ago) " two *days ago"
+0	INCLUDE * NORMAL_NOUN_BITS
+	STAY !ISORIGINAL long		#  it happened long ago
+	ISORIGINAL ago
+KEEP
+
+# noun plural vs verb, noun not followed by noun/pronoun signs "he *carries her home" -- though clause could do it:  and "a few times a day"
+
+# if noun vs adjective participle after a noun, presume it will be participle - "you will have a hard time *talking" (downgrade later if needed)
+# BUT not in "the plant's construction *cost is high" 
+# -1 IS NORMAL_NOUN_BITS
+#	INCLUDE * NORMAL_NOUN_BITS
+#	STAY HAS ADJECTIVE_PARTICIPLE
+# DISCARD
+
+# floating determiner1 needs closing
+-1	IS DETERMINER
+	INCLUDE * NORMAL_NOUN_BITS PRONOUN_BITS
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS ADJECTIVE_BITS ADVERB COMMA CONJUNCTION_COORDINATE
+KEEP
+
+# floating determiner2 needs closing
+-2	IS DETERMINER
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS
+	INCLUDE * NORMAL_NOUN_BITS PRONOUN_BITS
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS ADJECTIVE_BITS ADVERB  COMMA CONJUNCTION_COORDINATE
+KEEP
+
+# floating determiner3 needs closing
+-3	IS DETERMINER
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS
+	INCLUDE * NORMAL_NOUN_BITS PRONOUN_BITS
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS ADJECTIVE_BITS ADVERB COMMA CONJUNCTION_COORDINATE
+KEEP
+
+# cant be noun after subord and subject given in simple form "if you ever *run, go away"  UNLESS it is IMMEDIATEly after "because llama *spit is bad"
+# conjunction coord at end, after noun, be noun "some people are afraid of spiders and *beetles"  but not "she walked up the street and *down the street"
+
+# keep noun at end after determiner
+-1 IS DETERMINER_BITS
+	INCLUDE *  NORMAL_NOUN_BITS NOUN_GERUND NOUN_NUMBER
+	STAY END 
+KEEP
+
+# noun followed by of not phrasal will be noun
+0	INCLUDE * NOUN_BITS
+	ISORIGINAL of
+	STAY !POSSIBLEPHRASAL
+	!ISORIGINAL course
+KEEP
+
+# noun followed by of not possible verb will be noun
+0	INCLUDE * NOUN_BITS
+	STAY !HAS VERB_BITS
+	ISORIGINAL of
+	!ISORIGINAL course
+KEEP
+
+# at start noun cannot be followed by possessive pronoun - despite (Noun_singular +Preposition)  their/they (Pronoun_possessive) 
+0	INCLUDE * NORMAL_NOUN_BITS
+	STAY START
+	IS PRONOUN_POSSESSIVE
+DISCARD
+
+ # noun at end of coord conjunction requires noun before  style (+Noun_singular Verb_present)  and (Conjunction_coordinate)  dedication (Noun_singular)  
+0	INCLUDE * NORMAL_NOUN_BITS
+	IS CONJUNCTION_COORDINATE
+	IS NORMAL_NOUN_BITS
+	STAY END
+KEEP
+
+# after a conjunction  and before determiner, cant be normal noun
+-1 IS CONJUNCTION COMMA 
+	INCLUDE * NORMAL_NOUN_BITS
+	IS DETERMINER PREDETERMINER
+DISCARD
+
+# cannot have singular noun after plural determiner
+-1  IS DETERMINER
+	STAY HASPROPERTY DETERMINER_PLURAL
+	INCLUDE * NOUN_SINGULAR
+DISCARD
+
+# cannot have plural noun after singular determiner
+-1  IS DETERMINER
+	STAY HASPROPERTY DETERMINER_SINGULAR
+	INCLUDE * NOUN_PLURAL
+DISCARD
+
+# gerund requires 3ps tense spitting/spit (+Noun_gerund +Adjective_participle)  cobras/cobra (Noun_plural)  is/be (Aux_be_present)  
+0	INCLUDE * NOUN_GERUND
+	STAY CANONLYBE NOUN_GERUND ADJECTIVE_PARTICIPLE
+	IS NOUN_PLURAL
+	HASORIGINAL VERB_PRESENT_3PS
+KEEP
+
+# gerund requires 3ps tense spitting/spit (+Noun_gerund +Adjective_participle)  cobras/cobra (Noun_plural)  are/be (Aux_be_present)   (verb goes with cobras)
+0	INCLUDE * NOUN_GERUND
+	STAY CANONLYBE NOUN_GERUND ADJECTIVE_PARTICIPLE
+	IS NOUN_PLURAL
+	HASORIGINAL VERB_PRESENT
+DISCARD
+
+# noun/verb conflict followed by pronoun_posessive, if we lack prior verb, then we must be verb if we have noun   the/a (Determiner)  fish (Noun_singular)  sticks/stick (Noun_plural Verb_present_3ps)  its/it (Pronoun_possessive)  
+# except "to those old *allies whose culture we shared"
+
+# then (Adverb)  it (Pronoun_object Pronoun_subject)  gulps/gulp (Noun_plural Verb_present_3ps)  at sentence start, pronoun forced as subject precludes noun after it
+-2	!HAS VERB_BITS AUX_VERB # not "hit them *balls" or "are those balls"
+	STAY START 
+	CANONLYBE PRONOUN_BITS
+	INCLUDE * NORMAL_NOUN_BITS
+	STAY HAS VERB_BITS # this will be our verb
+DISCARD
+
+# can (Aux_verb_present +Verb_present)  tie (+Noun_singular +Verb_infinitive +Verb_present)  wont be noun object without heading - but to be subject verb had to end a clause 
+-1	HAS AUX_VERB
+	STAY CANONLYBE AUX_VERB VERB_BITS
+	INCLUDE * NOUN_SINGULAR
+	STAY !HASPROPERTY NOUN_NODETERMINER
+DISCARD
+
+# at start cant be a noun followed by a pronoun let (Noun_singular +Verb_infinitive +Adjective_participle)  me/I (Pronoun_object)
+0	INCLUDE * NORMAL_NOUN_BITS
+	STAY START
+	IS PRONOUN_BITS
+DISCARD
+
+# or (Conjunction_coordinate)  while (Noun_singular +Preposition Conjunction_subordinate)  you (Pronoun_object Pronoun_subject) # cant put noun before known pronoun after coord conjunct
+-1 IS CONJUNCTION_COORDINATE
+	INCLUDE * NOUN_SINGULAR  
+	CANONLYBE PRONOUN_BITS
+DISCARD
+
+# normal noun after and before a coord conjunct, with punctionation thereafter
+-2  IS NORMAL_NOUN_BITS # "how about cheese and *crackers ?"
+	IS CONJUNCTION_COORDINATE
+	INCLUDE * NORMAL_NOUN_BITS
+	!HAS VERB_BITS
+	IS PUNCTUATION
+KEEP
+
+# normal noun after and before a coord conjunct, with end thereafter - but not "he sticks out of the water and aims
+-2  IS NORMAL_NOUN_BITS # "how about cheese and *crackers "
+	IS CONJUNCTION_COORDINATE
+	INCLUDE * NORMAL_NOUN_BITS
+	!HAS VERB_BITS
+	STAY END
+KEEP
+
+# plural noun at start wont be followed by singular (wont be like bank teller) "predators *might come"
+-1 IS NOUN_PLURAL
+	STAY START
+	INCLUDE * NOUN_SINGULAR
+DISCARD
+
+
+############################################
+########### Rules about existential there
+############################################
+
+# after determiner and before preposition possible will be noun since no room "the *look on her face"
+-1 IS DETERMINER	
+	INCLUDE * NORMAL_NOUN_BITS
+	HAS PREPOSITION  # BUG- is this reliable enough
+KEEP
+
+# there is will be existential
+0  INCLUDE * THERE_EXISTENTIAL
+	SKIP HAS ADVERB   #	"*there still are reasons"
+	HASCANONICALPROPERTY PRESENTATION_VERB
+KEEP
+
+# existential there statement
+0 	INCLUDE  * THERE_EXISTENTIAL 			# (There) is a future in it. 
+	SKIP HAS ADVERB   #	"*there still are reasons"
+	HASORIGINAL AUX_VERB 
+KEEP 
+
+# existential there question "is *there a future in it"
+-1 	START 			  
+	STAY HASORIGINAL AUX_VERB 
+	INCLUDE  * THERE_EXISTENTIAL 
+KEEP 	
+
+# these not after a determiner or regular nouns
+-1	IS DETERMINER NOUN_BITS  - NOUN_GERUND
+	INCLUDE *     THERE_EXISTENTIAL
+DISCARD
+
+# these not after pronoun subject (except if question inversion happens)
+-2	!HAS AUX_VERB
+	IS PRONOUN_SUBJECT
+	INCLUDE *     THERE_EXISTENTIAL  # adjective allowed: Are you sick?
+DISCARD
+
+# there NOT followed by aux or presentation verb will not be existential "there is"  "there would often be"
+0	INCLUDE * THERE_EXISTENTIAL
+	SKIP HAS ADVERB
+	!HASORIGINAL AUX_VERB
+	STAY !HASCANONICALPROPERTY PRESENTATION_VERB
+DISCARD
+
+
+	
+############## OTHER NOUN STUFF
+
+# near sentence start cannot run two nouns separated by adverb "Dogs always *run"
+-2 IS NORMAL_NOUN_BITS
+	IS ADVERB
+	INCLUDE * NORMAL_NOUN_BITS
+DISCARD
+
+# then as a noun will require preposition before it "since *then"
+-1 !HAS PREPOSITION
+	ISORIGINAL then
+	STAY INCLUDE * NOUN_BITS
+DISCARD
+
+# then at start will never be a noun
+0	ISORIGINAL then
+	STAY INCLUDE * NOUN_BITS
+	STAY START
+DISCARD
+
+# singular noun immediately after verb wont be object if has no determiner and needs one "she became *mine" EXCEPT if word after it might be a noun "she won *grant money"
+ # roles don't require determienr "he was chairman" or "he was father"
+
+# noun after determiner and before pronoun "the *dress she"
+-1 IS DETERMINER
+	INCLUDE * NORMAL_NOUN_BITS
+	HAS PRONOUN_SUBJECT 
+	STAY CANONLYBE PRONOUN_BITS
+KEEP
+
+# after prep with solitary adj/determiner available then noun and some break ( ,) will be the noun "of no *dispute," if not adjective
+-2 IS PREPOSITION
+   HAS DETERMINER ADJECTIVE_BITS
+   INCLUDE * NORMAL_NOUN_BITS
+   STAY !HAS ADJECTIVE_BITS	# but watch out for "fell into a *deep, unrelenting sleep
+   IS  COMMA
+KEEP
+
+
+# after prep with solitary adj/determiner available then noun and some break (; end ) will be the noun "of no *dispute,"
+-2 IS PREPOSITION
+   HAS DETERMINER ADJECTIVE_BITS
+   INCLUDE * NORMAL_NOUN_BITS
+   IS PUNCTUATION 
+KEEP
+
+# after prep with solitary adj/determiner available then noun and end  will be the noun  "of no *dispute."
+-2 IS PREPOSITION
+   HAS  DETERMINER ADJECTIVE_BITS
+   INCLUDE * NORMAL_NOUN_BITS
+   STAY END
+KEEP
+
+# noun must preceed possessive "to get *people's attention is hard" but not necssarily possessive pronoun
+0  INCLUDE * NORMAL_NOUN_BITS
+	IS POSSESSIVE 
+KEEP
+
+# mm is interjection or noun for millimeter 
+-1	HAS NOUN_NUMBER ADJECTIVE_NUMBER
+	ISORIGINAL mm
+	STAY INCLUDE * NOUN_BITS
+KEEP
+
+
+# mm is interjection or noun for millimeter 
+-1	!HAS NOUN_NUMBER ADJECTIVE_NUMBER
+	ISORIGINAL mm
+	STAY INCLUDE * NOUN_BITS
+DISCARD
+
+# in conflict between noun proper singular and simple noun plural, want proper if followed by proper - "*Mrs. DoubtFire"
+0	INCLUDE * NOUN_SINGULAR
+	STAY CANONLYBE NOUN_PROPER_SINGULAR NOUN_PLURAL
+	IS NOUN_PROPER_SINGULAR
+DISCARD
+
+# in conflict between noun proper singular and simple noun plural, want simple noun plural - "do *wildflowers grow?"
+0	INCLUDE * NOUN_PROPER_SINGULAR
+	STAY CANONLYBE NOUN_PROPER_SINGULAR NOUN_PLURAL
+DISCARD
+
+# cannot have noun_infinitive after noun - "I took the day *off" -- but can if its causal verb: "I had him swim"
+
+# idiom enough to xxx  will be infinitive if it can, but not "we got close enough to the tree"
+-1 ISORIGINAL enough
+	INCLUDE * TO_INFINITIVE
+	HAS NOUN_INFINITIVE
+KEEP
+
+# the coffee was too hot to drink
+-2 ISORIGINAL too
+	IS ADJECTIVE_NORMAL
+	INCLUDE * TO_INFINITIVE
+	HAS NOUN_INFINITIVE
+KEEP
+
+# idiom enough to xxx  will be infinitive if it can, but not "we got close enough to the tree"
+-1 ISORIGINAL enough
+	INCLUDE * TO_INFINITIVE
+	HAS NOUN_INFINITIVE
+KEEP
+
+# noun infintive MUST follow to at some point - we assume it will not be split be 2 or more eg "to very boldly go"
+-3	!HAS TO_INFINITIVE
+	!HAS TO_INFINITIVE
+	!HAS TO_INFINITIVE
+	INCLUDE * NOUN_INFINITIVE
+DISCARD
+
+# why not a noun at start with helper "why is the wrong question"
+0	INCLUDE * NOUN_BITS	
+	STAY START
+	STAY ISORIGINAL why
+	IS AUX_VERB
+DISCARD
+
+# noun at start of sentence cannot exist before adjective noun pair. must be something else. "*early one morning, I ran"
+0	INCLUDE * NOUN_BITS
+	STAY START
+	IS ADJECTIVE_BITS DETERMINER
+	IS NOUN_BITS
+DISCARD
+
+# noun vs adverb conflict at start before a pronoun will be adverb? "*then he took his dishes to the sink"
+0	INCLUDE * NOUN_BITS
+	STAY START
+	STAY CANONLYBE NOUN_BITS ADVERB
+	IS PRONOUN_BITS
+DISCARD
+
+# noun after verb followed pronoun or noun wont be a noun (not the direct object) by "it flew *past me"  EXCEPT reflexive "I prefer basketball myself"
+# -1 IS VERB_BITS
+#	INCLUDE * NOUN_BITS
+#	IS NOUN_BITS PRONOUN_OBJECT PRONOUN_SUBJECT DETERMINER 
+# DISCARD
+
+# very as adverb before noun, cannot be noun "he can run very *fast"
+-1	IS ADVERB
+	STAY ISORIGINAL very
+	INCLUDE * NOUN_BITS
+DISCARD
+
+# if something is both a noun and a pronoun, dont be noun
+0	INCLUDE * NOUN_BITS
+	STAY HAS PRONOUN_SUBJECT PRONOUN_OBJECT
+DISCARD
+
+# discard NOUN infinitve lacking TO in front of it nearby AND lacking , or coord conjunction before it -- not "she showed Josh how to tie his shoes, knot his shoes, and *go home"
+# have to know whether it is direct object allowed by verb, so must sort in  parser
+
+# in noun verb dual conflict at start, 1st will be noun "mother *let her go"  but careful with imperative + object like "*go home" will be wrong
+
+# noun cannot follow noun and then be followed by possessive or determiner "Sandy *let her child go out alone" - but "to get *people's attention is hard" -- BUT ANY paired noun could be
+
+# noun cannot be followed by possessive pronoun (w/o comma) "Sandy *let her child go away" but not "the child, her love, went out" EXCEPT appositives like "Tom my friend likes meat"
+
+# Noun/adverb time conflict following noun or subject pronoun will be adverb - "I will meet Sally *tonight"
+ -1	IS NOUN_BITS PRONOUN_SUBJECT
+	INCLUDE * NOUN_BITS
+	STAY HAS ADVERB
+	STAY HASPROPERTY TIMEWORD
+DISCARD
+
+
+# actual time followed by am or pm, pm is a noun, with adjective descriptor - "5:00 *p.m."
+-1 HASPROPERTY ACTUAL_TIME
+	INCLUDE * NOUN_BITS
+	STAY HASPROPERTY TIMEWORD
+KEEP
+
+# potential noun at end unclosed from a determiner or adjective must close it : "they have been writing that novel together for a long *time"  - but not "the dog *barks"
+
+############################################
+###### RULES ABOUT NOUN INFINITIVES 
+############################################
+
+# VERB_INFINITIVE is what TO-less Noun-Infinitive starts out as and system changes it over later.
+
+# noun infinitive requires a to before it  "Problems often *become frustrating" BUT not "John let me *drive" "He likes to walk and "swim"
+
+# cannot be noun infinitive without To or and before it BUT To could be preposition so this wouldnt apply  not: "I want to boldly *go" and if has coordinate conjunction or , might be list
+
+# cannot have infinitive BEFORE an aux  # no *man has gone before" but "to fish can be fun"
+
+# noun infinitive must have to before it -- except for verbs that take to-less infintiive.
+
+ # NOUN INFINITIVES cannot follow determiner possessive pronoun_possessive
+ -1 IS DETERMINER POSSESSIVE PRONOUN_POSSESSIVE
+	INCLUDE * NOUN_INFINITIVE
+DISCARD
+
+# noun infinitive conflict with AUX_BE followed by verb-tenses will not be noun - "the basement has to *be flooded" - but not "To never fish is bad"
+0	INCLUDE * NOUN_INFINITIVE 
+	STAY ISCANONICAL be
+	IS VERB_BITS
+DISCARD
+
+# given prep phrase, cannot have noun infintive after noun "as a shark *can go"
+-3	IS PREPOSITION
+	IS DETERMINER ADJECTIVE_BITS
+	IS NORMAL_NOUN_BITS 
+	INCLUDE * NOUN_INFINITIVE
+DISCARD
+
+# given prep phrase, cannot have noun infintive after noun "as sharks *can go"
+-2	IS PREPOSITION
+	IS NORMAL_NOUN_BITS NOUN_GERUND
+	INCLUDE * NOUN_INFINITIVE
+DISCARD
+
+############################################
+########### Rules about noun gerunds
+############################################
+
+# Gerunds are "ing" verbs, used as singular nouns, that can have objects. 
+
+# can have gerund BEFORE an aux -- "swimming will be fun.
+
+#  These are not aux before   "can walking be ..." but can have "has walking been..."
+# Can have aux  before gerund  "will walking to the store have been fun?
+
+# to decide if "ing" after "be" is gerund or participle...
+
+# want to know if this is a question sentence- 
+
+# gerund will not follow possessive AND preceed noun - "I hate his *swimming coach" - it will be adjective participle (except: I hate his swimming rivers" ?)
+-1 IS POSSESSIVE PRONOUN_POSSESSIVE
+	INCLUDE * NOUN_GERUND
+	IS NOUN_BITS
+DISCARD
+
+# but a gerund potential after concrete-noun be   will be the something else rather than the action participle "my cat is *swimming"
+
+# gerund does not follow a noun (except verbal) as a verb tense, its an adjective_participle
+-1	IS	NOUN_BITS - NOUN_GERUND - NOUN_INFINITIVE ADJECTIVE_BITS	# ILLEGAL the *swimming boy flies. The happy *swimming boy flies.  - "I want to avoid swimming"
+	INCLUDE *  NOUN_GERUND	# ILLEGAL as verb: the boy *swimming nearby
+DISCARD
+
+# gerund does directly follow a verb or noun infinitive which takes a gerund " I want to avoid *swimming"
+-1	IS NOUN_INFINITIVE VERB_BITS
+	STAY HASPROPERTY VERB_TAKES_GERUND
+	INCLUDE * NOUN_GERUND
+KEEP
+
+# to have gerund over noun, need object after it, so not with prep  "my *briefing on war"
+0 INCLUDE * NOUN_GERUND
+  STAY HAS NOUN_SINGULAR
+  IS PREPOSITION DETERMINER
+DISCARD
+
+# cant have a past tense gerund after a verb
+-1	IS VERB_BITS
+	INCLUDE * NOUN_GERUND		# the product I hated *sold in Japan, but present tense is ok, the product I hated *selling in Japan was good
+	STAY HAS VERB_PAST
+DISCARD
+
+# gerund cannot follow a normal noun  
+-1	IS NOUN_BITS # he finished his shift *waiting for God.
+	INCLUDE * NOUN_GERUND
+DISCARD
+
+#   we want to avoid "bending" and "frosting" losing the verb canonical forms BUT not be gerund after possessive "warhol's *painting is good"
+-1 !IS POSSESSIVE
+	INCLUDE * NOUN_SINGULAR
+	STAY HAS NOUN_GERUND
+DISCARD
+
+# gerund without sign of a noun or of after it, will not exist  "I like *frosting on my cake"  but not "I like *frosting the cake"
+ # we want to avoid "bending" and "frosting" losing the verb canonical forms
+# but as a verbal it doesnt require it--- they have stopped listening.
+
+# if gerund noun conflict, discard noun if has noun after it
+0	INCLUDE * NOUN_SINGULAR 
+	STAY HAS NOUN_GERUND
+	!IS ADJECTIVE_BITS DETERMINER NOUN_BITS
+DISCARD
+
+# determiner gerund followed by of will be gerund "a *settling of debts"
+-1	IS DETERMINER
+	INCLUDE * NOUN_GERUND
+	ISORIGINAL of
+KEEP
+
+# gerund cannot preceed noun pronoun determiner possessive pronoun possessive "crying the baby" -- but can have an OBJECT -- eating children tastes good
+
+# a gerund potential after abstract-noun be   will be the gerund rather than the action participle "my love is *swimming" - but not "I am being taken"
+-2	IS NOUN_BITS
+	STAY ISABSTRACT
+	ISCANONICAL be
+	STAY !ISORIGINAL been
+	STAY !ISORIGINAL being
+	INCLUDE * NOUN_GERUND
+KEEP
+
+# gerund subject to match singular verb following
+0	INCLUDE * NOUN_GERUND		# *eating children tastes good
+	SKIP IS DETERMINER ADJECTIVE_BITS 
+	IS NOUN_PLURAL
+	HAS VERB_PRESENT_3PS
+KEEP
+
+ # a potential noun gerund  becomes one if follows a preposition, adjective But not if it is also
+-1 IS PREPOSITION   ADJECTIVE_BITS DETERMINER	# "what do you think of *visiting me". "I wonder at John's *keeping calm". 
+	INCLUDE  * NOUN_GERUND  # "Brisk *walking relieves stress."   # "Is there an objection to my *seeing her?"
+	!HAS NORMAL_NOUN_BITS  # may be an adjective_verb in "I like *operating profits"
+KEEP # and  "I found the way to survive a *boring talk"
+
+############################################
+########### Rules about noun singular/plural
+############################################
+
+# SPECIAL aux hack for will and can as sentence start
+0	INCLUDE * NOUN_SINGULAR
+	STAY HAS AUX_VERB
+	STAY START
+DISCARD
+
+# A singular noun after possible to infinitive directly cannot exist (needs determiner or such)  "I want to *go" EXCEPT "I swam to *shore"
+# A singular noun after possible to infinitive with adverb cannot exist (needs determiner or such)  "I want to boldly *go"  EXCEPT "I swam to *shore"
+
+#choice between singular noun and adverb after verb, drop noun IF verb takes no object
+-1	IS VERB_BITS
+	STAY !HASCANONICALPROPERTY VERB_DIRECTOBJECT
+	INCLUDE * NOUN_SINGULAR	
+DISCARD
+
+# plural noun cannot come before singular - except it can "she gave the *children homework"
+
+# number not 1 before noun means noun should be plural 
+# I was born 17 years ago  -- years is both singular and plural
+
+# if this could be a singular noun or a gerund noun, and doesnt follow determiner or adjective, drop singular noun
+ -1	!HAS DETERMINER_BITS ADJECTIVE_BITS
+	INCLUDE *  NOUN_SINGULAR			# Ruling people is good.
+	STAY HAS NOUN_GERUND	
+DISCARD
+
+# ordinary noun cannot follow a proper noun (would want possessive)  EXCEPT TV blanket for example.
+#-1 IS NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL
+#	INCLUDE * NOUN_SINGULAR NOUN_PLURAL
+#DISCARD
+
+#  determiner/noun plurality fail - ILLEGAL: This reports  - LEGAL: the people
+
+# number  1 before noun means noun should not be plural
+-1 HAS ADJECTIVE_NUMBER
+   STAY ISCANONICAL 1
+   INCLUDE  * NOUN_PLURAL
+DISCARD
+
+# these not after pronoun object - but "we  as we watched them *play"
+
+# match determiner/noun/verb plurality - like: This *report documents
+
+# singular noun can follow verb  and preceed a noun --did you go to *house parties - but not if modal "it can *kill"
+
+# special time noun expressions can omitting prepositions
+-1	HASPROPERTY OMITTABLE_TIME_PREPOSITION	# canonical or not matters not
+	INCLUDE * NOUN_SINGULAR NOUN_PLURAL
+	STAY HASCANONICALPROPERTY TIMEWORD		#	Go home next week.
+KEEP
+
+# nouns dont follow noun cardinal (it would be adjective cardinal)  
+
+############################################
+########### Rules about noun cardinal/ordinal
+############################################
+
+# nouns used as adjectives are considered DETERMINERS... You cant say a one ball. (no 2 determiners)  "no one *saw the cat"
+
+# comma non-possessive pronoun noun cant be -- but "they signed autographs, *their faces beaming"
+-2 IS COMMA
+	IS PRONOUN_BITS
+	INCLUDE * NOUN_BITS # awake, she left home.
+DISCARD
+
+# start pronoun (subject/object) noun cant be
+-1 IS PRONOUN_BITS
+	STAY START
+	INCLUDE * NOUN_BITS
+DISCARD
+
+# possessive or determiner before and comma after? its a noun (cardinal)
+-1	IS POSSESSIVE_BITS  DETERMINER
+	INCLUDE * NOUN_NUMBER #	of the 17,
+	IS COMMA
+KEEP
+
+############################################
+########### Rules about nouns
+############################################
+# noun wont preceed a determiner at start of sentence (except gerund phrase or apposive noun 
+# noun can preceed a determiner when determiner describes next thing in some other phrase: we made 20 *contacts this month
+
+# nouns can be:  NOUN_GERUND (walking), NOUN_INFINITIVE (to baby), 
+# and normal: NOUN_SINGULAR, NOUN_PLURAL, NOUN_PROPER_SINGULAR, NOUN_PROPER_PLURAL
+
+#  a Noun infinitive is a kind of noun, so it cant FOLLOW a noun (except a Gerund)
+#0	INCLUDE * NOUN_BITS - NOUN_GERUND # "going to work is fun"   but NOT  "it was taken to a *safe place to be opened" as a phrase modiifying noun
+#	IS TO_INFINITIVE
+#DISCARD
+
+# A noun singular that requires determiner wont be immediately after a preposition to conflict "to (+Preposition To_infinitive)  find (+Noun_infinitive Noun_singular)"  EXCEPT "type of xxx" and its ilk
+-1	CANONLYBE PREPOSITION TO_INFINITIVE 
+	STAY !PARSEMARK PREP_ALLOWS_UNDETERMINED_NOUN  # *per day  or  *of man
+	INCLUDE * NOUN_SINGULAR
+	STAY !HASPROPERTY NOUN_NODETERMINER
+	STAY !HAS VERB_BITS # unless it is modifying yet another noun OR has and after it "to *friend and foe"
+	!HAS NOUN_BITS CONJUNCTION_COORDINATE  
+DISCARD
+
+# noun wont be immediately after passive voice verb "The rock was carved *deep" EXCEPT "they were assigned lunch partners" 
+
+# in a duel between upper and lower case, presume lower as there is no way to tell upper (unless was given upper)
+0	INCLUDE * NOUN_PROPER_SINGULAR
+	STAY HAS NOUN_SINGULAR
+DISCARD
+
+# a noun will not follow a subject pronoun  "he *likes food"  -- but "we gave *him oats" will be legal when indirect object -- but "a high value customer that *banks pine for" is conjunction
+-1 IS PRONOUN_SUBJECT # but "why are we *blacks constantly undermined"
+	STAY !HAS CONJUNCTION
+	INCLUDE * NOUN_SINGULAR  # but "why are we *blacks constantly undermined"   which is why we dont take plurals here
+DISCARD
+
+# a noun before a proper name will not be adjective noun "our old *dog Gizmo"
+0	INCLUDE * ADJECTIVE_NOUN
+	IS NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL
+DISCARD
+
+# these not after pronoun subject (except if question inversion happens)
+-2	!HAS AUX_VERB
+	IS PRONOUN_SUBJECT
+	INCLUDE * NOUN_BITS # adjective allowed: Are you sick?
+DISCARD
+
+# a noun vs adjective in front of a noun, prefer the adjective (discard noun) but NOT GERUND (which can take an object) - not "bugs are a little *like owls"
+0	INCLUDE * NOUN_BITS - NOUN_GERUND - ADJECTIVE_NOUN - NOUN_INFINITIVE # but not infinitve "I want to *correlate fish with sperm"
+	STAY HAS ADJECTIVE_BITS - ADJECTIVE_NOUN
+	STAY !HAS PREPOSITION
+	IS NOUN_SINGULAR NOUN_PLURAL 
+DISCARD
+
+#  noun-adjective conflict following verb be, prefer adjective and discard noun (but may be adverb) - but "I am Jack" is noun - but "there is *one bug"
+-1	ISCANONICAL be # 	# The can is *open .   He is much too shy
+	STAY IS VERB_BITS
+	HAS ADJECTIVE_BITS 
+	STAY INCLUDE * NOUN_BITS
+	STAY !HAS NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL
+	!HAS ADJECTIVE_BITS NOUN_BITS
+DISCARD 
+ 
+# number before a noun or adjective or determiner is an adjective number "*once a week, the toilet is cleaned" 
+0	INCLUDE * NOUN_NUMBER		# "The  designer  window  treatments  in  her  house  ,  installed  *17  years_ago , were outmoded" 
+	IS NOUN_BITS ADJECTIVE_BITS DETERMINER
+DISCARD 
+
+
+ # if this could be a singular noun or a gerund noun, and follows determiner or adjective, drop gerund
+ -1	IS  DETERMINER_BITS ADJECTIVE_BITS
+	INCLUDE *  NOUN_GERUND 			# The (ruling) was good.
+	STAY HAS NOUN_SINGULAR	
+DISCARD 
+
+# singular common noun needs a determiner or possessive/possevie pronoun in front of it, or needs to be object of a gerund or needs to be mass noun
+# after walking *home cant be a noun
+
+# potential noun after determiner/possessive/adject and before verb MUST be a noun "his *home was"
+-1 IS ADJECTIVE_BITS DETERMINER POSSESSIVE PRONOUN_POSSESSIVE
+	INCLUDE * NOUN_BITS
+	IS VERB_BITS AUX_VERB
+KEEP
+
+# potential noun after determiner and at end of sentence is one "what shape is an *orange"
+-1	IS DETERMINER
+	INCLUDE * NOUN_BITS
+	STAY END
+KEEP
+
+# potential noun after determiner and before preposition is one "what shape is the *orange near me"
+-1	IS DETERMINER
+	INCLUDE * NOUN_BITS
+	IS PREPOSITION
+KEEP
+
+# a noun after a postnominal past-tense adjective_participle, wont be  "the window, installed *yesterday,  - vs legal: "the intalled *window
+
+# in a duel between upper and lower case, presume lower as there is no way to tell upper (unless was given upper)
+0	INCLUDE * NOUN_PROPER_SINGULAR
+	STAY HAS NOUN_SINGULAR
+KEEP
+
+# FALSE: to infinitive cannot follow a noun - I like to play -- BUT That is a long way to come
+
+# prep then ? >  must be noun
+-1	IS PREPOSITION
+	INCLUDE * NOUN_BITS
+	STAY END
+KEEP
+
+# possessive ? adverb verb  requires noun
+-1 IS PRONOUN_POSSESSIVE DETERMINER
+	INCLUDE * NOUN_BITS # My coworkers often call our boss an idiot.
+	IS ADVERB
+	IS VERB_BITS AUX_VERB
+KEEP
+
+# possessive/determiner ? determiner  requires that ? be noun (we have an appositve or such) - but "I saw her *light the lamp" can be verbal
+-1 IS PRONOUN_POSSESSIVE DETERMINER
+	STAY !ISORIGINAL her  # could be possessive or indirect object
+	INCLUDE * NOUN_BITS
+	IS DETERMINER
+KEEP
+
+# potential noun at end of sentence after verb taking object # he walked home (adverb )   or   he drank water (be mass noun)
+
+ # "dressed in *red, the men ate first"  but not "to whom did you *give your number"
+
+# adjective/determiner potential noun followed by determiner will be indirect object followed by object (or object of prep phrase, something) - but not "it is very much *like a magician"
+-1	IS DETERMINER ADJECTIVE_BITS # I threw the *man the ball
+	INCLUDE * NOUN_BITS
+	STAY !HAS PREPOSITION
+	IS DETERMINER
+KEEP
+
+# 2 nouns in a row are legal (even if not joined like bank teller) if one is ending a phrase and one starting main sentence
+# or indirectobject and direct object (feeding boys food)
+
+
+# possessive or determiner before and comma after? its a noun (unless an adjective list)
+-1	IS POSSESSIVE_BITS  DETERMINER
+	INCLUDE * NOUN_BITS - NOUN_GERUND	#	in her home,
+	IS COMMA
+	!HAS ADJECTIVE_BITS ADVERB	# cant be a comma list of adjectives
+KEEP
+
+#  a noun (excluding gerund) won't preceed a determiner - BUT IT CAN --(tobe fixed) but "dogs the size of deer walked the street) implied preposition
+
+
+
+# singular common noun wont end a sentence w/o detereminer before unless mass noun...
+ 
+#  determiner/noun plurality match - like: These report *documents
+
+# if this word could be a noun, not a main pronoun, and not an aux verb or infinitive and the next word is a verb, make this a noun (dont do 2 verbs in a row)
+# but happens a lot with clauses and phrases so no. The shawl people *wear is green
+
+# if this word could be a noun and after it is a possessive, make this a noun 
+0	INCLUDE *  NOUN_BITS - NOUN_GERUND
+	IS POSSESSIVE
+ KEEP 
+
+# if prior word IS an adjective and the this word could be a noun and not an adverb or adjective or verb, make it a noun - but not if prep "it is very much *like a magician"
+-1	IS ADJECTIVE_BITS
+	INCLUDE  * NOUN_BITS
+	STAY !HAS ADJECTIVE_BITS ADVERB PREPOSITION VERB_BITS AUX_VERB # not "the beautiful *eat well"
+ KEEP 
+
+# potential noun at end of sentence after possessive or pronoun possessive
+-1	IS  POSSESSIVE_BITS
+	INCLUDE  * NOUN_BITS - NOUN_GERUND
+	STAY END
+KEEP
+
+ # Noun cannot preceed infinitive to - of course it can--- "in an attempt to wring
+ # But want he stubbornly refuses to withdraw his application.
+
+
+# possessive must follow noun
+0	INCLUDE * NOUN_BITS - NOUN_GERUND
+	IS POSSESSIVE
+KEEP

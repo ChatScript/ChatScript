@@ -1,0 +1,118 @@
+#### establish the default bot
+
+table: defaultbot (^name)
+^createfact(^name defaultbot defaultbot)
+DATA:
+nltk
+
+
+#### define the bot
+
+outputmacro: nltk()  # you get safariby default
+$cs_control_main = ~main_control
+$cs_token =  #DO_ESSENTIALS | #DO_CONTRACTIONS    | #DO_PARSE  | #STRICT_CASING | #NO_HYPHEN_END | #NO_COLON_END | #NO_SEMICOLON_END 
+
+#### define the bot control scripts
+
+topic: ~main_control system repeat ()	# executed for each user sentence of input
+u: ( %input<%userfirstline ) 
+	^memorymark()
+	$min = -1
+	Legal commands are: \n
+	tally basepos - shows all canonical by part of speech \n
+	tally base min 2  - shows all canonical with 2 or more hits \n
+	tally raw min 2 - shows all original words with 2 or more hits \n
+	sentiment  - shows sentiment analysis of successive inputs or of ":document" \n
+	reset - clears current mode \n
+	limit n  - sets n (default 500) as sentences to read before auto ^memoryfree() \n
+	- try one of them with ":document REGRESS/moby__dick.txt stats" \n
+
+# on startup, do introduction
+u: (%length=0) fail(topic)
+
+u: (%document _*)	$sentence = '_0 $document = true
+		$$linecount += 1
+		if (!%crosstalk){%crosstalk = 500}
+		if ($$linecount > %crosstalk)
+		{
+			$$linecount = null
+			nofail(RULE ^memoryfree())
+		}
+		if (!$sentiment) # when tallying, show progress. Sentiment traces all anyway
+		{
+			$_tmp = $$linecount % 1000
+			if ($$linecount == 10000 ) {Log(OUTPUT_ECHO 1)}
+			else if ($$linecount == 20000) {Log(OUTPUT_ECHO 2)}
+			else if ($$linecount == 30000) {Log(OUTPUT_ECHO 3)}
+			else if ($_tmp == 0) {Log(OUTPUT_ECHO .)}
+		}
+		refine()
+	a: ($tally=raw) respond(~tallyraw) fail(topic)
+	a: ($tally=base) respond(~tallybase) fail(topic)
+	a: ($tally=basepos) respond(~tallybasepos) fail(topic)
+	a: ($sentiment) respond(~sentiment) fail(topic)
+
+
+u: (!%document $sentiment) respond(~sentiment) end(topic)
+
+# cutoff minimum
+u: (!%document min _~number) $min = _0
+
+u: (!%document) refine()
+	a: (%input<%userfirstline)  NLTK ready. 
+
+	a: (< reset) $tally  = null $sentiment = null
+		$cs_token =  #DO_ESSENTIALS | #DO_CONTRACTIONS    | #DO_PARSE  | #STRICT_CASING | #NO_HYPHEN_END | #NO_COLON_END | #NO_SEMICOLON_END 
+
+	a: (< !no tally basepos) $tally = basepos Tallying basepos with min $min
+
+	a: (< !no tally base) $tally = base Tallying base  with min $min
+
+	a: (< !no tally raw) $tally = raw Tallying raw   with min $min $cs_token =  #DO_ESSENTIALS | #DO_CONTRACTIONS  | #STRICT_CASING | #NO_HYPHEN_END | #NO_COLON_END | #NO_SEMICOLON_END 
+
+	a: (< !no sentiment) $sentiment = 1 Doing sentiment
+
+	a: (< limit _~number) %crosstalk = _0 Memory reclaim at %crosstalk sentences
+
+outputmacro: ^show(^word)
+	$$shown += 1
+	$_tally = ^tally(^word)
+	$_len = length($_tally)
+	if ($_len == 1) {Log((OUTPUT_ECHO OUTPUT_NOQUOTES ) "0000")}
+	else if ($_len == 2) {Log((OUTPUT_ECHO OUTPUT_NOQUOTES ) "000")}
+	else if ($_len == 3) {Log((OUTPUT_ECHO OUTPUT_NOQUOTES ) "00")}
+	else if ($_len == 4) {Log((OUTPUT_ECHO OUTPUT_NOQUOTES ) "0")}
+	Log((OUTPUT_ECHO OUTPUT_NOCOMMANUMBER) $_tally \= ^word  \n)
+
+outputmacro: ^dump(^word)
+	if (^tally(^word) >=  $min)
+	{
+		^show(^word)
+	}
+
+topic: ~document_post system repeat()
+t:  () if ($tally AND $document) 
+	{
+		Log(OUTPUT_ECHO \n) 
+		$$shown = 0
+		walkdictionary('^dump) 
+		Log(OUTPUT_ECHO  $$shown unique words. \n ) 
+		$document = null
+	}
+	else if ($sentiment )
+	{ 
+		$scoregood += 0
+		$scorebad += 0
+		$_tmp = $scoregood - $scorebad
+		Log(OUTPUT_ECHO \n OVERALL RESULT: $_tmp  \( + $scoregood - $scorebad \) \n ) 
+	}
+	^memoryfree()
+
+topic: ~document_pre system repeat()
+t:  ^if (%document)
+	{	
+		$$linecount = 0
+		^memorymark()
+		Log(OUTPUT_ECHO \n Begin $$document \n )
+		if ($sentiment) {Log(OUTPUT_ECHO \n  )  $scoregood = null $scorebad = null}
+	}

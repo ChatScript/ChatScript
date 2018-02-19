@@ -1,0 +1,84 @@
+topic: ~QUIBBLE_OR system random () #          when all else fails, try here. Presumes no existence of real knowledge about us or the world. 
+?: WHY1 ($fail ) [Studies show that most people list their favorite choice first, so I tried to pick what you might have liked most. ] [It was a random pick. ] [I just liked it more ] 
+?: WHY2 ($fail ) [Studies show that most people list their favorite choice last, so I tried to pick what you might have liked most. ] [It was a random pick. ] [I liked the other one less ] 
+?: CHOICE11 (do you like {to } _* or _* ~choose {to } _* ) [I like _0 ] [I'd rather _2 ] 
+?: CHOICE1 (do you !~choose _* or do you _* ) [both. ] [b: _0 ] [d: _1 ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE1 (do you !~choose _* or !do you _* ) [both. ] [b: _0 ] [d: _1 ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE11 (do you like {to } _* or _* _~choose {to } _* ) [I like _0 ] [I'd rather _2 ] 
+?: CHOICE2 (you select _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [I don't like either choice. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE2 (you select _* or !~choose _* ) [b: '_0 ] [d: '_1 ] [I don't like either choice. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE3 (you pick _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [I don't like either choice. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE3 (you pick _* or !~choose _* ) [b: '_0 ] [d: '_1 ] [I don't like either choice. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE4 (you choose {to } _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [I choose neither. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE4 (you choose {to } _* or !~choose {to } _* ) [b: '_0 ] [d: '_1 ] [I choose neither. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE5 (you prefer {to } _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [I choose neither. ] 
+    b: (~why ) ^reuse(WHY1 ) *
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE5 (you prefer {to } _* or !~choose {to } _* ) [b: '_0 ] [d: '_1 ] [I choose neither. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE6 (you like {to } _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [Neither, thank you ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE6 (you like {to } _* or !~choose {to } _* ) [b: '_0 ] [d: '_1 ] [Neither, thank you ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE7 (you desire {to } _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [Neither, thank you ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE7 (you desire {to } _* or !~choose {to } _* ) [b: '_0 ] [d: '_1 ] [Neither, thank you ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE8 (you favor !to _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [Neither, thank you ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE8 (you favor !to _* or !~choose _* ) [b: '_0 ] [d: '_1 ] [Neither, thank you ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+
+?: CHOICE9 (you rather ![be have ] _* or _* _~choose {to } _* ) [b: '_0 ] [d: '_3 ] [Neither of the choices appeals to me. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE9 (you rather ![be have ] _* or !~choose _* ) [b: '_0 ] [d: '_1 ] [Neither of the choices appeals to me. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE12 (you rather {be have } _* or _* rather {be have } _* ) [b: '_0 ] [d: '_2 ] [Neither of the choices appeals to me. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE12 (you rather {be have } _* or !rather {be have } _*) [b: '_0 ] [d: '_1 ] [Neither of the choices appeals to me. ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE10 (be you _* or !be you _* ) [b: I am '_0 . ] [d: I am '_1 . ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE10 (be you _* or be you _* ) [b: I am '_0 . ] [d: I am '_1 . ] 
+    b: (~why ) ^reuse(WHY1 ) 
+    d: (~why ) ^reuse(WHY2 ) 
+?: CHOICE11 (be you _* or be I _* ) [You are '_0 ] [I am '_1 ] 
+	a: ( why) I don't really have a preference, but since you asked me I selected one at random.
+?: (["what be" "which be" ] _~adjective _* or _* ) [I'm just guessing here. How about '_1 ? ] [_2 ] [_1 ] [I have some difficulties in comparing those. ] [Is this a riddle? ] 
+	a: ( ~why) I don't really have a preference, but since you asked me I selected one at random.
+?: (all _* or just _* ) [all '_0 . ] [just '_0 . ] 
+	a: ( ~why) I don't really have a preference, but since you asked me I selected one at random.

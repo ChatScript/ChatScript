@@ -1,0 +1,475 @@
+﻿ K ( ) lemma=`k` -  
+ K"oln ( ) lemma=`k"oln` -  
+ K+S ( ) lemma=`k+s` -  
+ K-101 ( ) lemma=`k-101` -  
+ K. ( ) lemma=`k.` SENT  
+ K/s ( ) lemma=`k/s` -  
+ K1 ( ) lemma=`k1` Mc---d  
+ K2OAL2O3SiО2 ( ) lemma=`k2oal2o3siо2` -  
+ KA ( ) lemma=`ka` -  
+ KAK ( ) lemma=`kak` -  
+ KAYFUYTE ( ) lemma=`kayfuyte` -  
+ KAZH ( ) lemma=`kazh` -  
+ KDE ( ) lemma=`kde` -  
+ KERTESZ ( ) lemma=`kertesz` -  
+ KEV ( ) lemma=`kev` -  
+ KEY ( ) lemma=`key` -  
+ KEYWORDS ( ) lemma=`keywords` -  
+ KFC ( ) lemma=`kfc` -  
+ KG ( ) lemma=`kg` -  
+ KGT ( ) lemma=`kgt` -  
+ KH ( ) lemma=`kh` -  
+ KHW ( ) lemma=`khw` -  
+ KIM ( ) lemma=`kim` -  
+ KISYAKA ( ) lemma=`kisyaka` -  
+ KITE ( ) lemma=`kite` -  
+ KJV ( ) lemma=`kjv` Mo---d  
+ KKK ( ) lemma=`kkk` -  
+ KLEIN ( ) lemma=`klein` -  
+ KMV ( ) lemma=`kmv` -  
+ KNIGOI ( ) lemma=`knigoi` -  
+ KOI ( ) lemma=`koi` -  
+ KOI8 ( ) lemma=`koi8` -  
+ KOINOS ( ) lemma=`koinos` -  
+ KOL ( ) lemma=`kol` -  
+ KOLLIMAP ( ) lemma=`kollimap` -  
+ KONGUR ( ) lemma=`kongur` -  
+ KONTRAKTE ( ) lemma=`kontrakte` -  
+ KORG's ( ) lemma=`korg's` -  
+ KORNEI ( ) lemma=`kornei` -  
+ KOT ( ) lemma=`kot` -  
+ KPG ( ) lemma=`kpg` -  
+ KR ( ) lemma=`kr` -  
+ KSTATI ( ) lemma=`kstati` -  
+ KT ( ) lemma=`kt` -  
+ KWTK ( ) lemma=`kwtk` -  
+ KWU ( ) lemma=`kwu` -  
+ KWord ( ) lemma=`kword` -  
+ KXV ( ) lemma=`kxv` Mo---d  
+ KZ ( ) lemma=`kz` -  
+ Ka ( ) lemma=`ka` -  
+ KaSH ( ) lemma=`kash` -  
+ Kabanov ( ) lemma=`kabanov` -  
+ Kabin ( ) lemma=`kabin` -  
+ Kadet ( ) lemma=`kadet` -  
+ Kadin ( ) lemma=`kadin` -  
+ Kadinin ( ) lemma=`kadinin` -  
+ Kadinlara ( ) lemma=`kadinlara` -  
+ Kaelche ( ) lemma=`kaelche` -  
+ Kahneman ( ) lemma=`kahneman` -  
+ Kaikilla ( ) lemma=`kaikilla` -  
+ Kain ( ) lemma=`kain` -  
+ Kaiser ( ) lemma=`kaiser` -  
+ Kaiseridee ( ) lemma=`kaiseridee` -  
+ Kaisersage ( ) lemma=`kaisersage` -  
+ Kak ( ) lemma=`kak` -  
+ Kaktus ( ) lemma=`kaktus` -  
+ Kalian ( ) lemma=`kalian` -  
+ Kalina ( ) lemma=`kalina` -  
+ Kalinchenko ( ) lemma=`kalinchenko` -  
+ Kalki ( ) lemma=`kalki` -  
+ Kamei ( ) lemma=`kamei` -  
+ Kamenets ( ) lemma=`kamenets` -  
+ Kampers ( ) lemma=`kampers` -  
+ Kan ( ) lemma=`kan` -  
+ Kandinsky ( ) lemma=`kandinsky` -  
+ Kano ( ) lemma=`kano` -  
+ Kaplan ( ) lemma=`kaplan` -  
+ Kaptan ( ) lemma=`kaptan` -  
+ Karlsruhe ( ) lemma=`karlsruhe` -  
+ Karnak ( ) lemma=`karnak` -  
+ Kater ( ) lemma=`kater` -  
+ Katerina ( ) lemma=`katerina` -  
+ Katers ( ) lemma=`katers` -  
+ Katiko ( ) lemma=`katiko` -  
+ KatrinUSA ( ) lemma=`katrinusa` -  
+ Katy ( ) lemma=`katy` -  
+ Katya ( ) lemma=`katya` -  
+ Kaukas ( ) lemma=`kaukas` -  
+ Kaukau ( ) lemma=`kaukau` -  
+ Kaun ( ) lemma=`kaun` -  
+ Kavu ( ) lemma=`kavu` -  
+ Kawai ( ) lemma=`kawai` -  
+ Kawano ( ) lemma=`kawano` -  
+ Kawasaki ( ) lemma=`kawasaki` -  
+ Kay ( ) lemma=`kay` -  
+ Kaycy ( ) lemma=`kaycy` -  
+ Kazakhstan ( ) lemma=`kazakhstan` -  
+ Kaйши ( ) lemma=`kaйши` Npfsgy  
+ Kb ( ) lemma=`kb` -  
+ Kbria ( ) lemma=`kbria` -  
+ Kc7 ( ) lemma=`kc7` -  
+ Kd8 ( ) lemma=`kd8` -  
+ Ke7 ( ) lemma=`ke7` -  
+ Keats ( ) lemma=`keats` -  
+ Kecha ( ) lemma=`kecha` -  
+ Kechа ( ) lemma=`kechа`kechа`kechа`kechа` Ncfsnn  Ncmsay  Npmsgy  Vmis-sfa-p  
+ Keep ( ) lemma=`keep` -  
+ Keeper ( ) lemma=`keeper` -  
+ Kehre ( ) lemma=`kehre` -  
+ Keiben ( ) lemma=`keiben` -  
+ Keichsgеsetze ( ) lemma=`keichsgеsetze` -  
+ Keiser ( ) lemma=`keiser` -  
+ Keisersage ( ) lemma=`keisersage` -  
+ Keith ( ) lemma=`keith` -  
+ Keizai ( ) lemma=`keizai` -  
+ Kemerovo ( ) lemma=`kemerovo` -  
+ Ken ( ) lemma=`ken` -  
+ Kennemund ( ) lemma=`kennemund` -  
+ Kenner ( ) lemma=`kenner` -  
+ Kenner][quote=Jim][ ( ) lemma=`kenner][quote=jim][` Afpmsaf  
+ Kenner][quote=Xtinka ( ) lemma=`kenner][quote=xtinka` -  
+ Kenneth ( ) lemma=`kenneth` -  
+ Kenntnis ( ) lemma=`kenntnis` -  
+ Kenwood ( ) lemma=`kenwood` -  
+ Kerensky ( ) lemma=`kerensky` -  
+ Kerrang ( ) lemma=`kerrang` -  
+ Kerzen ( ) lemma=`kerzen` -  
+ Kessel ( ) lemma=`kessel` -  
+ Kesselman ( ) lemma=`kesselman` -  
+ Key ( ) lemma=`key` -  
+ KeyResumeImport ( ) lemma=`keyresumeimport` -  
+ KeyStaff ( ) lemma=`keystaff` -  
+ Keynes ( ) lemma=`keynes` -  
+ Keyrus ( ) lemma=`keyrus` -  
+ Keys ( ) lemma=`keys` -  
+ Keywords ( ) lemma=`keywords` -  
+ Kf6 ( ) lemma=`kf6` -  
+ Kf7 ( ) lemma=`kf7` -  
+ Kg5 ( ) lemma=`kg5` -  
+ Kg6 ( ) lemma=`kg6`kg6` -  Ncnsnn  
+ Kg7 ( ) lemma=`kg7` -  
+ Kg8 ( ) lemma=`kg8` -  
+ Kh6 ( ) lemma=`kh6`kh6` -  Ncnsnn  
+ Kh7 ( ) lemma=`kh7` -  
+ Kh8 ( ) lemma=`kh8`kh8` -  Afpmpnf  
+ Khalipov ( ) lemma=`khalipov` -  
+ Khan ( ) lemma=`khan` -  
+ Kharkov ( ) lemma=`kharkov` -  
+ Khodorkovsky ( ) lemma=`khodorkovsky` -  
+ Kibble ( ) lemma=`kibble` -  
+ Kibler ( ) lemma=`kibler` -  
+ Kids ( ) lemma=`kids` -  
+ Kiel ( ) lemma=`kiel` -  
+ Kiev ( ) lemma=`kiev` -  
+ Kilgour ( ) lemma=`kilgour` -  
+ Killer ( ) lemma=`killer` -  
+ Kilometric ( ) lemma=`kilometric` -  
+ Kind ( ) lemma=`kind` -  
+ Kindsmord ( ) lemma=`kindsmord` -  
+ Kinematographie ( ) lemma=`kinematographie` -  
+ King ( ) lemma=`king` -  
+ Kingdom ( ) lemma=`kingdom` -  
+ Kings ( ) lemma=`kings` -  
+ Kinney ( ) lemma=`kinney` -  
+ Kinnie ( ) lemma=`kinnie` -  
+ Kinno ( ) lemma=`kinno` -  
+ Kino ( ) lemma=`kino` -  
+ Kira ( ) lemma=`kira` -  
+ Kirpichev ( ) lemma=`kirpichev` -  
+ Kiss ( ) lemma=`kiss` -  
+ Kit ( ) lemma=`kit` -  
+ Kite ( ) lemma=`kite` -  
+ Klack ( ) lemma=`klack` -  
+ Klauda ( ) lemma=`klauda` -  
+ Klaus ( ) lemma=`klaus` -  
+ Klein ( ) lemma=`klein` -  
+ Klicke ( ) lemma=`klicke` -  
+ Klim ( ) lemma=`klim` -  
+ Klingler ( ) lemma=`klingler` -  
+ Klopa ( ) lemma=`klopa` -  
+ Klosterman ( ) lemma=`klosterman` -  
+ Klotz ( ) lemma=`klotz` -  
+ Knews ( ) lemma=`knews` -  
+ Knight ( ) lemma=`knight` -  
+ Knight/Cleric ( ) lemma=`knight/cleric` -  
+ Knights ( ) lemma=`knights` -  
+ Knoppix ( ) lemma=`knoppix` -  
+ Knowledge ( ) lemma=`knowledge` -  
+ Koch ( ) lemma=`koch` -  
+ Kodak ( ) lemma=`kodak` -  
+ Koenig ( ) lemma=`koenig` -  
+ Kok ( ) lemma=`kok` -  
+ Kolbasa ( ) lemma=`kolbasa` -  
+ Koldun ( ) lemma=`koldun` -  
+ Kolg ( ) lemma=`kolg` -  
+ Koln ( ) lemma=`koln` -  
+ Komme ( ) lemma=`komme` -  
+ Kommentar ( ) lemma=`kommentar` -  
+ Kommunarsk ( ) lemma=`kommunarsk` -  
+ Konar ( ) lemma=`konar` -  
+ Kondabarov ( ) lemma=`kondabarov` -  
+ Konez ( ) lemma=`konez` -  
+ Kong ( ) lemma=`kong` -  
+ Konica ( ) lemma=`konica` -  
+ Konqueror ( ) lemma=`konqueror` -  
+ Konquerror ( ) lemma=`konquerror` -  
+ Konrad ( ) lemma=`konrad` -  
+ Konstantin ( ) lemma=`konstantin` -  
+ Kontext ( ) lemma=`kontext` -  
+ Koolance ( ) lemma=`koolance` -  
+ Korallen ( ) lemma=`korallen` -  
+ Korea ( ) lemma=`korea` -  
+ Korealcom ( ) lemma=`korealcom` -  
+ Korean ( ) lemma=`korean` -  
+ Korepanov ( ) lemma=`korepanov` -  
+ Korg ( ) lemma=`korg` -  
+ Korla ( ) lemma=`korla` -  
+ Korol ( ) lemma=`korol` -  
+ Kortirion ( ) lemma=`kortirion` -  
+ Korwin ( ) lemma=`korwin` -  
+ Kostas ( ) lemma=`kostas` -  
+ Kotja ( ) lemma=`kotja` -  
+ Kotleta's ( ) lemma=`kotleta's` -  
+ Kotoryi ( ) lemma=`kotoryi` -  
+ Kotov ( ) lemma=`kotov` -  
+ Kotova ( ) lemma=`kotova` -  
+ Kouzovnikov ( ) lemma=`kouzovnikov` -  
+ Kovrazhkin ( ) lemma=`kovrazhkin` -  
+ Kozub ( ) lemma=`kozub` -  
+ Kraft ( ) lemma=`kraft` -  
+ Kraftwerk ( ) lemma=`kraftwerk` -  
+ Kramatorsk ( ) lemma=`kramatorsk` -  
+ KranX ( ) lemma=`kranx` -  
+ Krausz ( ) lemma=`krausz` -  
+ Kravitz ( ) lemma=`kravitz` -  
+ Kravtsov ( ) lemma=`kravtsov` -  
+ Krawczyk ( ) lemma=`krawczyk` -  
+ Kref ( ) lemma=`kref` -  
+ Kriegswirtschaft ( ) lemma=`kriegswirtschaft` -  
+ Krionics ( ) lemma=`krionics` -  
+ Krokyl ( ) lemma=`krokyl` -  
+ Krone ( ) lemma=`krone` -  
+ Krull ( ) lemma=`krull` -  
+ Kstati ( ) lemma=`kstati` -  
+ Kto ( ) lemma=`kto` -  
+ Kucher ( ) lemma=`kucher` -  
+ Kudela ( ) lemma=`kudela` -  
+ Kudryavtsev ( ) lemma=`kudryavtsev` -  
+ Kuehne ( ) lemma=`kuehne` -  
+ Kueng ( ) lemma=`kueng` -  
+ Kuka ( ) lemma=`kuka` -  
+ Kultur ( ) lemma=`kultur` -  
+ Kumakawa ( ) lemma=`kumakawa` -  
+ Kun ( ) lemma=`kun` -  
+ Kunst ( ) lemma=`kunst` -  
+ Kunsthalle ( ) lemma=`kunsthalle` -  
+ Kuntzel ( ) lemma=`kuntzel` -  
+ Kurantes ( ) lemma=`kurantes` -  
+ Kurt ( ) lemma=`kurt` -  
+ Kusnez ( ) lemma=`kusnez` -  
+ Kusto ( ) lemma=`kusto` -  
+ Kusto(Touchter ( ) lemma=`kusto(touchter` -  
+ Kutaragi ( ) lemma=`kutaragi` -  
+ Kuzbass ( ) lemma=`kuzbass` -  
+ Kuznetsov ( ) lemma=`kuznetsov` -  
+ Kxf6 ( ) lemma=`kxf6` -  
+ Kxh8 ( ) lemma=`kxh8` -  
+ Kyiv ( ) lemma=`kyiv` -  
+ Kyodo ( ) lemma=`kyodo` -  
+ Kz ( ) lemma=`kz` -  
+ KЬbenhagen ( ) lemma=`kьbenhagen` -  
+ Kалина ( ) lemma=`kалина` Ncfsnn  
+ Kенун ( ) lemma=`kенун` Npmsny  
+ Kырaсa ( ) lemma=`kырaсa` -  
+ Kьnste ( ) lemma=`kьnste` -  
+ k ( ) 
+ k. ( ) 
+ k/dcforum/news/1746 ( ) 
+ k/honourcrimes/FMsubmission ( ) lemma=`k/honourcrimes/fmsubmission` -  
+ k/ics/21c/supplem/essay/040313a ( ) 
+ kB ( ) lemma=`kb` Ncmpgn  
+ kT=1 ( ) lemma=`kt=1` Mc---d  
+ kT=150 ( ) lemma=`kt=150` Mc---d  
+ kW ( ) lemma=`kw` -  
+ kai ( ) 
+ kajdyi ( ) 
+ kak ( ) 
+ kakari ( ) 
+ kakaya ( ) 
+ kakoe ( ) 
+ kalsky ( ) 
+ kama ( ) 
+ kamai ( ) 
+ kamerton ( ) 
+ kamilla4you@mail ( ) 
+ kank ( ) 
+ kansa ( ) 
+ kappa ( ) 
+ karaoke ( ) 
+ karatstya ( ) 
+ karmanah ( ) 
+ karmani ( ) 
+ kartaev@nashe ( ) 
+ kartinki ( ) 
+ kartoshki ( ) 
+ kartovel ( ) 
+ kasablanka ( ) 
+ kashi ( ) 
+ kasimir ( ) 
+ kat@mail ( ) 
+ katjaf@mail ( ) 
+ katya ( ) 
+ kaufmann ( ) 
+ kaysi ( ) 
+ kazanskiy@front ( ) 
+ kazdii ( ) 
+ kazdom ( ) 
+ kazetsha ( ) 
+ kazhdoi ( ) 
+ kazhdoje ( ) 
+ kazhets'a ( ) 
+ kazhetsya ( ) 
+ kazo ( ) 
+ kb ( ) 
+ kbps ( ) 
+ ke ( ) 
+ keeped ( ) 
+ keisarevo ( ) 
+ keltishe ( ) 
+ kendery ( ) 
+ kernel ( ) 
+ kernel32 ( ) 
+ kernels ( ) 
+ kerscht ( ) 
+ kesarevo ( ) 
+ ket ( ) 
+ ketnesto ( ) 
+ key ( ) 
+ keycode ( ) 
+ keycodes ( ) 
+ keypad ( ) 
+ khan ( ) 
+ khrm ( ) 
+ ki ( ) 
+ kick ( ) 
+ kidding ( ) 
+ kids ( ) 
+ kielilla ( ) 
+ kievski ( ) 
+ kif86 ( ) 
+ kill ( ) 
+ killer ( ) 
+ kiludr ( ) 
+ kimono ( ) 
+ kimonovskiye ( ) 
+ kin ( ) 
+ kind ( ) 
+ kinda ( ) 
+ kindel ( ) 
+ kinetic ( ) 
+ kingtiger ( ) 
+ kinik@chat ( ) 
+ kira ( ) 
+ kirillol@ucs ( ) 
+ kirkara ( ) 
+ kirpichi ( ) 
+ kk ( ) 
+ kkk ( ) 
+ klasno ( ) 
+ klassnii ( ) 
+ klassnoe ( ) 
+ klaviatura ( ) 
+ klimon ( ) 
+ klinikah ( ) 
+ klinike(kstati ( ) 
+ klinike)Analiz ( ) lemma=`klinike)analiz` -  
+ km ( ) 
+ kmv ( ) 
+ knight ( ) 
+ knizhka ( ) 
+ knizhku ( ) 
+ knocked ( ) 
+ knoppix@knoppix ( ) 
+ know ( ) 
+ knowing ( ) 
+ knowledge ( ) 
+ known ( ) 
+ knows ( ) 
+ kod=8&grup=15086&priz=0&prizx=0&prizy=0&ident=15086&maxro=100 ( ) 
+ kodim@yahoo ( ) 
+ kogda ( ) 
+ kogo ( ) 
+ kokpom ( ) 
+ koks ( ) 
+ kolam ( ) 
+ koldun@inventnet ( ) 
+ koluchey ( ) 
+ kolyasku ( ) 
+ kolyasky ( ) 
+ komen ( ) 
+ komisarov@mail ( ) 
+ komm'du ( ) 
+ komme ( ) 
+ kommentariem ( ) 
+ kompa ( ) 
+ kompanii ( ) 
+ kompi ( ) 
+ komu ( ) 
+ komy ( ) 
+ kon'yak ( ) 
+ kone4no ( ) 
+ konechno ( ) 
+ konethno ( ) 
+ konkretnie ( ) 
+ kontse ( ) 
+ korejskoe ( ) 
+ korinskiy ( ) 
+ korit ( ) 
+ korku(v ( ) 
+ korne@yandex ( ) 
+ korotkie ( ) 
+ korzina ( ) 
+ korzini ( ) 
+ kosmopoisk ( ) 
+ kosmopoisk@kosmopoisk ( ) 
+ kot ( ) 
+ kote ( ) 
+ kotlety ( ) 
+ kotopoi ( ) 
+ kotoruju ( ) 
+ kotoryj ( ) 
+ koul ( ) 
+ kovrazhkin@romance ( ) 
+ kozel ( ) 
+ kozlova@yandex ( ) 
+ krasivaya ( ) 
+ krasivie ( ) 
+ krautkopp ( ) 
+ kravtsov@asp ( ) 
+ kresle ( ) 
+ kreslo ( ) 
+ krivitch ( ) 
+ krovi ( ) 
+ krpack ( ) 
+ krugi ( ) 
+ kryga ( ) 
+ krypnie ( ) 
+ kseroksax ( ) 
+ kstati ( ) 
+ kt ( ) 
+ kto ( ) 
+ kucha ( ) 
+ kuda ( ) 
+ kuję ( ) 
+ kukla ( ) 
+ kulch ( ) 
+ kulebiaki ( ) 
+ kuler ( ) 
+ kulera ( ) 
+ kulova ( ) 
+ kuneginne ( ) 
+ kungur ( ) 
+ kupalnik ( ) 
+ kupil ( ) 
+ kursi ( ) 
+ kusto- ( ) 
+ kusto15@inbox ( ) 
+ kuznecova@yandex ( ) 
+ kvalifikatsii ( ) 
+ kvartire ( ) 
+ kvartiru ( ) 
+ ky ( ) 
+ kybuk ( ) 
+ kypit ( ) 
+ k~A¶sz~A¶n~A¶m ( ) lemma=`k~a¶sz~a¶n~a¶m` -  

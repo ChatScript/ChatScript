@@ -1,0 +1,75 @@
+﻿ACRNM	acronym (ISO, CEI)
+ADJ	Adjectives (mayores, mayor)
+ADV	Adverbs (muy, demasiado, cómo)
+ALFP	Plural letter of the alphabet (As/Aes, bes)
+ALFS	Singular letter of the alphabet (A, b)
+ART	Articles (un, las, la, unas)
+BACKSLASH backslash (\)	
+CARD	Cardinals
+CC	Coordinating conjunction (y, o)
+CCAD	Adversative coordinating conjunction (pero)
+CCNEG	Negative coordinating conjunction (ni)
+CM	comma (,)
+CODE	Alphanumeric code
+COLON	colon (:)
+CQUE	que (as conjunction)
+CSUBF	Subordinating conjunction that introduces finite clauses (apenas)
+CSUBI	Subordinating conjunction that introduces infinite clauses (al)
+CSUBX	Subordinating conjunction underspecified for subord-type (aunque)
+DASH	dash (-)
+DM	Demonstrative pronouns (ésas, ése, esta)
+DOTS	POS tag for "..."
+FO	Formula
+FS	Full stop punctuation marks
+INT	Interrogative pronouns (quiénes, cuántas, cuánto)
+ITJN	Interjection (oh, ja)
+LP	left parenthesis ("(", "[")
+NC	Common nouns (mesas, mesa, libro, ordenador)
+NEG	Negation
+NMEA	measure noun (metros, litros)
+NMON	month name
+NP	Proper nouns
+ORD	Ordinals (primer, primeras, primera)
+PAL	Portmanteau word formed by a and el
+PDEL	Portmanteau word formed by de and el
+PE	Foreign word
+PERCT	percent sign (%)
+PNC	Unclassified word
+PPC	Clitic personal pronoun (le, les)
+PPO	Possessive pronouns (mi, su, sus)
+PPX	Clitics and personal pronouns (nos, me, nosotras, te, sí)
+PREP	Negative preposition (sin)
+PREP	Preposition
+PREP/DEL Complex preposition "después del"
+QT	quotation symbol (" ' `)
+QU	Quantifiers (sendas, cada)
+REL	Relative pronouns (cuyas, cuyo)
+RP	right parenthesis (")", "]")
+SE	Se (as particle)
+SEMICOLON	semicolon (;)
+SLASH	slash (/)
+SYM	Symbols
+UMMX	measure unit (MHz, km, mA)
+VCLIger clitic gerund verb
+VCLIinf clitic infinitive verb
+VCLIfin clitic finite verb
+VEadj	Verb estar. Past participle
+VEfin	Verb estar. Finite
+VEger	Verb estar. Gerund
+VEinf	Verb estar. Infinitive
+VHadj	Verb haber. Past participle
+VHfin	Verb haber. Finite
+VHger	Verb haber. Gerund
+VHinf	Verb haber. Infinitive
+VLadj	Lexical verb. Past participle
+VLfin	Lexical verb. Finite
+VLger	Lexical verb. Gerund
+VLinf	Lexical verb. Infinitive
+VMadj	Modal verb. Past participle
+VMfin	Modal verb. Finite
+VMger	Modal verb. Gerund
+VMinf	Modal verb. Infinitive
+VSadj	Verb ser. Past participle
+VSfin	Verb ser. Finite
+VSger	Verb ser. Gerund
+VSinf	Verb ser. Infinitive

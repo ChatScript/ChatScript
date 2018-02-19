@@ -1,0 +1,310 @@
+# all queries about data are pattern macros or dualmacros
+# all actions are output macros  
+# the fundamental actions are load and unload a resource from a vehicle and move a vehicle
+# all pre existing entities are declared in concepts
+# all created entities will be added to concepts
+# the output is a list of actions in @10
+
+concept: ~places (location0 location1 location2 )		# physical locations
+concept: ~resources(wood stone )						# kinds of resources
+concept: ~carts (cart1)
+concept: ~trains (train1)
+concept: ~ships (ship1)
+concept: ~vehiclekinds (~carts ~ships ~trains)			# all possible vehicle kinds
+
+# facts that can vary
+#	quantities of resource in vehicle and location
+#	cargo space in vehicle left
+#	location of vehicle
+
+table: capacity (^vehicletype ^space)					# how much each vehicle kind can carry
+	createfact(^space space ^vehicletype)
+DATA:
+	~carts 1
+	~trains 10
+	~ships 50
+
+# INITIALIZATION ACTIONS ON A PLACE
+
+outputmacro: ^Connect_by_land (^x ^y)
+	createfact(^x land_connect ^y)
+	createfact(^y land_connect ^x)
+outputmacro: ^Connect_by_rail(^x ^y)
+	createfact(^x rail_connect ^y)
+	createfact(^y rail_connect ^x)
+outputmacro: ^Connect_by_sea(^x ^y)
+	createfact(^x sea_connect ^y)
+	createfact(^y sea_connect ^x)
+outputmacro: ^AddResource(^place ^resource ^quantity)
+	createattribute( ^place ^resource ^quantity )
+
+# PROPERTIES OF A PLACE
+
+dualmacro: ^Connected_by_land (^x ^y)
+	query(direct_svo ^x land_connect ^y)
+dualmacro: ^Connected_by_rail(^x ^y)
+	query(direct_svo ^x rail_connect ^y)
+dualmacro: ^Connected_by_sea(^x ^y)
+	query(direct_svo ^x sea_connect ^y)
+
+# PROPERTIES OF VEHICLES
+
+dualmacro: ^Is_At(^vehicle ^at)
+	query(direct_svo ^vehicle vehicle ^at 1)
+
+patternmacro: ^Has_cargo_space(^vehicle ^quantity)
+	query(direct_sv ^vehicle space ? 1)
+	 @0object>=^quantity
+
+dualmacro: ^IsCart(^vehicle)
+	query(direct_svo ^vehicle member '~carts 1)
+
+dualmacro: ^IsTrain(^vehicle)
+	query(direct_svo ^vehicle member '~trains 1)
+
+dualmacro: ^IsShip(^vehicle)
+	query(direct_svo ^vehicle member '~ships 1)
+
+
+# PROPERTIES OF BOTH VEHICLES AND PLACES
+
+dualmacro: ^Has_Some_Resource(^x ^resource)
+	query(direct_sv ^x ^resource ? 1)
+
+patternmacro: ^Has_Desired_Resource(^resource ^place ^quantity)
+	^Has_Some_Resource(^place ^resource)
+	@0object>=^quantity
+
+# ADD and SUBTRACT RESOURCE FROM A PLACE
+
+outputmacro: ^Take_Resource(^resource ^place ^quantity)
+	if (^quantity < 0) {fail(RULE)} # cannot remove negative quantity
+	query(direct_sv ^place ^resource ? 1)
+	$$tmp = @0object - ^quantity
+	if ($$tmp > 0) 
+	{
+		^createattribute(^place ^resource $$tmp) # lose resource
+	}
+	else if ($$tmp == 0) {delete(@0)} # remove empty resource fact
+	else {fail(rule)}
+
+outputmacro: ^Replace_Resource(^resource ^place ^quantity)
+	if (^quantity < 0) {fail(RULE)} # cannot add negative quantity
+	$$tmp = ^quantity
+	if (query(direct_sv ^place ^resource ? 1)) { $$tmp += @0object } # merge with existing resource amount
+	createattribute( ^place ^resource $$tmp ) # gain resource
+
+# ACTIONS ON A VEHICLE
+
+outputmacro: ^Place_vehicle(^vehicle ^place)
+	^createattribute(^vehicle vehicle ^place) # vehicle can only be in a single place at a time
+
+outputmacro: ^create_vehicle(^vehicle ^place)
+	# manufacture a vehicle
+	query(riccochet_sv-oo  ^vehicle member space 1) # how much cargo space for this vehicle (find concept vehicle is member of, then grab that space info)
+	createattribute(^vehicle space @0subject)  # vehicle allocated cargo space of its class
+	# place the vehicle
+	^Place_vehicle(^vehicle  ^place) # vehicle can only be in a single place at a time
+
+outputmacro: ^Load_Cargo(^vehicle ^place ^resource ^quantity)
+	$$want = ^quantity
+
+	# want no more than what is available
+	if (^place != *)
+	{
+		^Has_Some_Resource(^place ^resource)
+		if ($$want > @0object) {$$want = @0object}	# limit wanted to what's available
+	}
+
+	# want no more than we can carry
+	query(direct_sv  ^vehicle space ? 1)
+	if (@0object == 0) {fail(RULE)} # no room for anything
+	if ($$want > @0object) {$$want = @0object} # limit want to what is possible to carry
+	
+	$$spaceleft = @0object - $$want
+	^createattribute( ^vehicle space $$spaceleft) # lose empty carrying room
+
+	# store new amount on vehicle
+	$$quantity = $$want
+	if (query(direct_sv ^vehicle ^resource ? 1)) { $$quantity += @0object} # merge with any existing resource amount
+	^createattribute( ^vehicle ^resource $$quantity) # merge resource
+	
+	if (^place != * ) # real loading from a place, reduce place contents and record action
+	{ 
+		^Take_Resource(^resource ^place $$want)  # remove resource from location
+		@10 += ^createfact(^vehicle load (^resource load $$want))
+	}
+
+outputmacro: ^Unload_Cargo(^vehicle ^place ^resource ^quantity)
+	$$want = ^quantity
+
+	# limit unload to what we are carrying
+	query(direct_sv ^vehicle ^resource ? 1)
+	$$have = @0object
+	if ($$want > $$have) { $$want = $$have } # max you can unload
+
+	# unload request
+	if ($$want > 0 )
+	{
+		# assign new quantity of resource left
+		$$have -= $$want  # how much will be left
+		if ($$have > 0) {^createattribute(^vehicle ^resource $$have )} # leftover resource in vehicle
+		else # kill off old fact 
+		{
+			delete(@0)
+		}
+
+		# note new cargo space total
+		query(direct_sv ^vehicle space ? 1) # how much room in vehicle
+		$$space = @0object +  $$want		# space from our removal
+		^createattribute(  ^vehicle space $$space) # gain room
+
+		^Replace_Resource(^resource ^place $$want) # put resource on ground
+
+		# record action to take
+		@10 += ^createfact(^vehicle unload (^resource $$want ^place))
+	}
+	# dont fail if unloading 0, we just succeed
+
+outputmacro: ^Unload_All_but(^vehicle ^place ^resource)  # empty the vehicle 
+	loop () # unload every resource on board
+	{ 
+		$$resource = ^iterator(? member ~resources)
+		if ($$resource != ^resource AND ^Has_Some_Resource(^vehicle $$resource)) # vehicle has this resource
+		{
+			^unload_cargo(^vehicle ^place $$resource 100000) # dump the resource locally
+		}
+	}
+
+# MOVE VEHICLES
+
+outputmacro: ^can_travel(^vehicle ^place1 ^place2)
+	if (^place1 == ^place2){} # no travel is needed
+	else if (IsCart(^vehicle))
+	{
+		if (!connected_by_land(^place1 ^place2) ) {fail(RULE)}
+	}
+	else if (IsTrain(^vehicle))
+	{
+		if (!connected_by_rail(^place1 ^place2) ) {fail(RULE)}
+	}
+ 	else if (IsShip(^vehicle))
+	{
+		if (!connected_by_sea(^place1 ^place2) ) {fail(RULE)}
+	}
+	else {fail(RULE)} # should never happen
+
+outputmacro: ^move_vehicle(^vehicle ^place1 ^place2) 
+	if (is_at(^vehicle ^place1 ) AND Can_travel(^vehicle ^place1 ^place2) ) {}
+	else { FAIL(RULE)} 
+	^Place_vehicle(^vehicle ^place2)  # change vehicle location
+	@10 += ^createfact(^vehicle move (^place1 to ^place2))
+
+	
+#  test problem . given resource scattered about, get a stockpile in a place
+topic: ~defineworld() # define ONLY happens once
+u: () 
+# location 0 is an island, locations 1 and 2 are adjoining seaport areas.
+# there are no railroad connections though there is a train
+	^connect_by_sea(location0 location1)
+	^connect_by_sea(location0 location2)
+	^connect_by_land(location1 location2)
+    ^AddResource(location0 stone 1)
+	^AddResource(location1 stone 5)
+	^AddResource(location2 stone 3)
+	^create_vehicle(ship1 location0)
+	^create_vehicle(cart1 location2)
+		^Load_Cargo(cart1 * stone 1)
+	^create_vehicle(train1 location2)
+
+
+############################## ACTUAL PLANS
+
+
+Plan: ^FerryOneLoad(^from  ^resource ^to)  
+	# clear vehicle choice
+	u: () $$vehicle = null 
+
+	# use local vehicle if possible
+	u: PICKLOCALVEHICLE(^query(direct_vo ? vehicle ^from -1 ? @6))  # find all vehicles at this place
+		$$at = ^from
+		$$tmp = first(@6subject) # only need one to ferry
+		if (!can_travel($$tmp ^from ^to)) {fail(rule)}		# cant go there
+		else {$$vehicle = $$tmp}
+
+	# use ANY vehicle
+	u: PICKREMOTEVEHICLE(!$$vehicle ^query(direct_v ? vehicle ? -1 ? @4))  # find all vehicles in the world 
+		$$vehicle = first(@4subject) # only need one to ferry
+		query(direct_sv $$vehicle vehicle ? 1) # where is it
+		$$at = @0object   # found location of vehicle
+		if (!can_travel($$vehicle $$at ^from)) { $$vehicle = null fail(rule)}		# cant get here
+		if (!can_travel($$vehicle ^from ^to)) { $$vehicle = null  fail(rule)}		# cant go there
+
+	u: USEVEHICLE($$vehicle) # we found some vehicle
+		if ($$at != ^from) # bring vehicle here if not here already
+		{
+			^move_vehicle($$vehicle $$at ^from)
+		}
+		Unload_all_but($$vehicle $$at ^resource) # empty its cargo
+		Load_cargo($$vehicle ^from ^resource 1000) # get as much as you can
+		^move_vehicle($$vehicle  ^from ^to)
+		^Unload_Cargo($$vehicle ^to ^resource 1000) # dump it all there
+		end(plan)
+
+		
+# This is a progressive plan. It does a collection of things, each a little harder, until it finishes.
+Plan: ^acquire(^place ^resource ^quantity)
+
+	# instant success
+	u: ALREADY_GOOD(^Has_Desired_Resource(^resource ^place ^quantity)) end(plan) 
+
+	# if we have a vehicle here with some, unload it
+	u: DUMP_ONSITE_VEHICLE(^query(direct_vo ? vehicle ^place -1 ? @4))  
+	# find all vehicles at this place, unload them all as necessary
+		loop()
+		{
+			$$vehicle = first(@4subject) # get vehicle (not backtracking)
+			if (^Has_some_resource($$vehicle ^resource))
+			{
+				^Unload_Cargo($$vehicle ^place ^resource 100000) # unload it all
+				query(direct_sv ^place ^resource ? 1)
+				if (@0object >= ^quantity) {end(plan)} # we have enough
+			}
+		}
+
+	# if vehicle elsewhere is loaded with the stuff, move it to here and unload it
+	u: DUMP_OFFSITE_VEHICLE()  # find all vehicles anywhere with loads of what we need
+		loop()
+		{
+			$$vehicle = ^iterator(?? member ~vehiclekinds) # get vehicle
+			if (^Has_some_resource($$vehicle ^resource))
+			{
+				^query(direct_sv $$vehicle vehicle ?) # where is it
+				$$at = @0object
+				if ($$at != ^place)
+				{
+					^move_vehicle($$vehicle $$at ^place) # travel to correct place
+					^Unload_Cargo($$vehicle ^place ^resource 100000) # unload it all
+					query(direct_sv ^place ^resource ? 1)
+					if (@0object >= ^quantity){end(plan)} # we have enough
+				}
+			}
+		}
+
+	# if elsewhere has stuff, get a vehicle there, load it onto vehicle and bring it here and unload it
+	u: FERRY_FROM_PLACE()  # find all places
+		loop()
+		{
+			$$place = ^iterator(?? member ~places) # get a place
+			loop ()
+			{
+				if ($$place == ^place) {fail(RULE)}
+				else if (^Has_some_resource($$place ^resource))
+				{
+					^FerryOneLoad($$place ^resource ^place) # shift resource from place to desired pace
+					query(direct_sv ^place ^resource ? 1)
+					if (@0object >= ^quantity) {end(plan)} # we have enough
+				}
+				else {FAIL(RULE)} # no more material at that place
+			}
+   		}

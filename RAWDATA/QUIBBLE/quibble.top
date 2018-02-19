@@ -1,0 +1,33 @@
+topic: ~quibble_ALL system ()  
+
+# sentence classes for quibbling
+
+u: ([never not ] ) ^respond(~quibble_not ) 
+
+u: (who) ^respond(~quibble_who ) 
+
+u: (what ) ^respond(~quibble_what ) 
+
+u: (when ) ^respond(~quibble_when ) 
+
+u: (where ) ^respond(~quibble_where ) 
+
+u: (~why) ^respond(~quibble_why ) 
+
+u: (how [many much] ) ^respond(~quibble_howmuch ) 
+
+u: (![much many] how) ^respond(~quibble_how ) 
+
+u: ([because cause ] ) ^respond(~quibble_because ) 
+
+u: (will ) ^respond(~quibble_will ) 
+
+u: (can ) ^respond(~quibble_can ) 
+
+u: (do ) ^respond(~quibble_do ) 
+
+
+# honest responses based on discourse act of user
+
+u: () ^respond(~HONEST_RESPONSE ) 
+

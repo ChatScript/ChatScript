@@ -1,0 +1,1155 @@
+﻿ All ( ) lemma=`all` -  
+ A ( ) lemma=`a` -  
+ A"AAll ( ) lemma=`a"aall` -  
+ A&A ( ) lemma=`a&a` -  
+ A(Air ( ) lemma=`a(air` -  
+ A. ( ) lemma=`a.`a.`a.` Ncfsan  Ncfsnn  SENT  
+ A/- ( ) lemma=`a/-` -  
+ A/48/49 ( ) lemma=`a/48/49` Mc---d  
+ A/E ( ) lemma=`a/e` -  
+ A17 ( ) lemma=`a17` -  
+ A3 ( ) lemma=`a3`a3` -  Npmpgy  
+ A3+ ( ) lemma=`a3+` Ncmsgn  
+ A4 ( ) lemma=`a4`a4` Ncfsgn  Ncmpgn  
+ A5 ( ) lemma=`a5` Ncmsgn  
+ A7 ( ) lemma=`a7` -  
+ AAA ( ) lemma=`aaa` -  
+ AAPs ( ) lemma=`aaps` -  
+ ABB ( ) lemma=`abb` -  
+ ABBYY ( ) lemma=`abbyy` -  
+ ABC ( ) lemma=`abc` -  
+ ABC/WIBC ( ) lemma=`abc/wibc` -  
+ ABC/WIBС ( ) lemma=`abc/wibс` Ncmsnn  
+ ABCD ( ) lemma=`abcd` -  
+ ABS ( ) lemma=`abs` -  
+ AC ( ) lemma=`ac` -  
+ AC'97 ( ) lemma=`ac'97` -  
+ ACADEMIA ( ) lemma=`academia` -  
+ ACC ( ) lemma=`acc` -  
+ ACCELERATED ( ) lemma=`accelerated` -  
+ ACID ( ) lemma=`acid` -  
+ ACM ( ) lemma=`acm` -  
+ ACT ( ) lemma=`act` -  
+ AD ( ) lemma=`ad` -  
+ AD&D ( ) lemma=`ad&d` -  
+ AD*Vantage ( ) lemma=`ad*vantage` -  
+ ADC ( ) lemma=`adc` -  
+ ADR ( ) lemma=`adr` -  
+ ADSL ( ) lemma=`adsl` -  
+ ADinf ( ) lemma=`adinf` -  
+ AEF ( ) lemma=`aef` -  
+ AES ( ) lemma=`aes` -  
+ AEfremov@send ( ) lemma=`aefremov@send` -  
+ AFP ( ) lemma=`afp` -  
+ AG ( ) lemma=`ag` -  
+ AGAiN ( ) lemma=`again` -  
+ AGFA ( ) lemma=`agfa` -  
+ AGN ( ) lemma=`agn` -  
+ AGP ( ) lemma=`agp` -  
+ AGU ( ) lemma=`agu` -  
+ AHTOH ( ) lemma=`ahtoh` -  
+ AI ( ) lemma=`ai` -  
+ AIC ( ) lemma=`aic` -  
+ AIG ( ) lemma=`aig` -  
+ AIKO ( ) lemma=`aiko` -  
+ AIM ( ) lemma=`aim` -  
+ AIR ( ) lemma=`air` -  
+ AIS@ ( ) lemma=`ais@` Npmpny  
+ AISC ( ) lemma=`aisc` -  
+ AIX ( ) lemma=`aix` -  
+ AJ ( ) lemma=`aj` -  
+ AK ( ) lemma=`ak` -  
+ AK&M ( ) lemma=`ak&m` -  
+ AKSSI ( ) lemma=`akssi` -  
+ ALKAN ( ) lemma=`alkan` -  
+ ALL ( ) lemma=`all` -  
+ ALO ( ) lemma=`alo` -  
+ ALPHA ( ) lemma=`alpha` -  
+ ALSULAMOON ( ) lemma=`alsulamoon` -  
+ ALT ( ) lemma=`alt` -  
+ ALTITUDE ( ) lemma=`altitude` -  
+ ALVAREZ ( ) lemma=`alvarez` -  
+ AM ( ) lemma=`am` -  
+ AMANDA ( ) lemma=`amanda` -  
+ AMD ( ) lemma=`amd` -  
+ AMD64 ( ) lemma=`amd64`amd64`amd64`amd64`amd64`amd64`amd64`amd64`amd64` -  Afpfsaf  Afpfsnf  Afpmpnf  Ncfsgn  Ncmpgn  Ncmsgn  Ncnpgn  Npmsgy  
+ AMS ( ) lemma=`ams` -  
+ AMSUNG+DSB ( ) lemma=`amsung+dsb` -  
+ ANASTASIA ( ) lemma=`anastasia` -  
+ AND ( ) lemma=`and` -  
+ ANOTHER ( ) lemma=`another` -  
+ ANPE ( ) lemma=`anpe` -  
+ ANSI ( ) lemma=`ansi` -  
+ ANSI/ISO ( ) lemma=`ansi/iso` -  
+ ANTON ( ) lemma=`anton` -  
+ AOC ( ) lemma=`aoc` -  
+ AOL ( ) lemma=`aol` -  
+ AOR ( ) lemma=`aor` -  
+ AOSHEU ( ) lemma=`aosheu` -  
+ APC ( ) lemma=`apc` -  
+ API ( ) lemma=`api` -  
+ APPROVED ( ) lemma=`approved` -  
+ APS ( ) lemma=`aps` -  
+ AQ ( ) lemma=`aq` -  
+ AQH ( ) lemma=`aqh` -  
+ ARBUS ( ) lemma=`arbus` -  
+ ARDOR ( ) lemma=`ardor` -  
+ AREA ( ) lemma=`area` -  
+ ARF ( ) lemma=`arf` -  
+ ARLOS ( ) lemma=`arlos` -  
+ ARM ( ) lemma=`arm` -  
+ ARPU ( ) lemma=`arpu` -  
+ ARQ ( ) lemma=`arq` -  
+ ARS ( ) lemma=`ars` -  
+ ART ( ) lemma=`art` -  
+ ARTHBURG ( ) lemma=`arthburg` -  
+ ARV ( ) lemma=`arv` -  
+ AS ( ) lemma=`as` -  
+ AS/400 ( ) lemma=`as/400` -  
+ ASCAP ( ) lemma=`ascap` -  
+ ASDK ( ) lemma=`asdk` -  
+ ASF ( ) lemma=`asf` -  
+ ASI ( ) lemma=`asi` -  
+ ASKEW ( ) lemma=`askew` -  
+ ASL ( ) lemma=`asl` -  
+ ASP ( ) lemma=`asp` -  
+ ASP+ ( ) lemma=`asp+`asp+` Ncfsan  Npmsgy  
+ ASPO ( ) lemma=`aspo` -  
+ ASSEDIC ( ) lemma=`assedic` -  
+ ASSET ( ) lemma=`asset` -  
+ ASSOTIATION ( ) lemma=`assotiation` -  
+ ASUS ( ) lemma=`asus` -  
+ ASUSTeK ( ) lemma=`asustek` -  
+ ASYL ( ) lemma=`asyl` -  
+ ASYL( ( ) lemma=`asyl(` -  
+ AT ( ) lemma=`at` -  
+ ATA ( ) lemma=`ata` -  
+ ATB ( ) lemma=`atb` -  
+ ATGET ( ) lemma=`atget` -  
+ ATI ( ) lemma=`ati` -  
+ ATLANT ( ) lemma=`atlant` -  
+ ATM ( ) lemma=`atm` -  
+ ATS ( ) lemma=`ats` -  
+ ATTORNEY ( ) lemma=`attorney` -  
+ ATX ( ) lemma=`atx` -  
+ AUG ( ) lemma=`aug` -  
+ AURORA$ORB$UNAUTHENTICATED ( ) lemma=`aurora$orb$unauthenticated` -  
+ AURORAL ( ) lemma=`auroral` -  
+ AUTO ( ) lemma=`auto` -  
+ AUTOEXEC ( ) lemma=`autoexec` -  
+ AUX ( ) lemma=`aux` -  
+ AV700 ( ) lemma=`av700` -  
+ AVAILABLE ( ) lemma=`available` -  
+ AVE ( ) lemma=`ave` -  
+ AVI ( ) lemma=`avi` -  
+ AVIV ( ) lemma=`aviv` -  
+ AX ( ) lemma=`ax` -  
+ AYLIN ( ) lemma=`aylin`aylin` -  Ncmpnn  
+ AZIRA ( ) lemma=`azira` -  
+ AZY ( ) lemma=`azy` -  
+ Aaaa ( ) lemma=`aaaa` -  
+ Abazid ( ) lemma=`abazid` -  
+ Abbath ( ) lemma=`abbath` -  
+ Abdalla ( ) lemma=`abdalla` -  
+ Abegg ( ) lemma=`abegg` -  
+ Aberlin/ ( ) lemma=`aberlin/` -  
+ AbiWord ( ) lemma=`abiword` -  
+ Abies ( ) lemma=`abies` -  
+ Abilities ( ) lemma=`abilities` -  
+ Ableton ( ) lemma=`ableton` -  
+ Abnormal ( ) lemma=`abnormal` -  
+ About ( ) lemma=`about` -  
+ Abraham ( ) lemma=`abraham` -  
+ Abramovic ( ) lemma=`abramovic` -  
+ Abroad ( ) lemma=`abroad` -  
+ Absence ( ) lemma=`absence` -  
+ Abstracts ( ) lemma=`abstracts` -  
+ Abteilung ( ) lemma=`abteilung` -  
+ Abteilung/Bataillon ( ) lemma=`abteilung/bataillon` -  
+ Ac ( ) lemma=`ac` -  
+ Academia ( ) lemma=`academia` -  
+ Academy ( ) lemma=`academy` -  
+ Accento ( ) lemma=`accento` -  
+ Access ( ) lemma=`access` -  
+ AccessX ( ) lemma=`accessx`accessx` -  Mo---d  
+ AccessXFeedback ( ) lemma=`accessxfeedback` -  
+ AccessXKeys ( ) lemma=`accessxkeys` -  
+ AccessXTimeout ( ) lemma=`accessxtimeout` -  
+ Accessoires ( ) lemma=`accessoires` -  
+ Acconci ( ) lemma=`acconci` -  
+ Accretion ( ) lemma=`accretion` -  
+ Ace ( ) lemma=`ace` -  
+ Acer ( ) lemma=`acer` -  
+ Achievement ( ) lemma=`achievement` -  
+ Acid ( ) lemma=`acid` -  
+ AcidBurn ( ) lemma=`acidburn` -  
+ Acoka ( ) lemma=`acoka` -  
+ Acoustic ( ) lemma=`acoustic` -  
+ Acrobat ( ) lemma=`acrobat` -  
+ Act ( ) lemma=`act` -  
+ Acta ( ) lemma=`acta` -  
+ Actes ( ) lemma=`actes` -  
+ Acting ( ) lemma=`acting` -  
+ Actinostrobus ( ) lemma=`actinostrobus` -  
+ Action ( ) lemma=`action` -  
+ Actions ( ) lemma=`actions` -  
+ Active ( ) lemma=`active` -  
+ ActiveX ( ) lemma=`activex` -  
+ Activists ( ) lemma=`activists` -  
+ Acы ( ) lemma=`acы` Ncmpny  
+ Ad ( ) lemma=`ad` -  
+ Ada ( ) lemma=`ada` -  
+ Adagio ( ) lemma=`adagio` -  
+ Adam ( ) lemma=`adam` -  
+ Adams ( ) lemma=`adams` -  
+ Adaptive ( ) lemma=`adaptive` -  
+ Add ( ) lemma=`add` -  
+ Add05 ( ) lemma=`add05` -  
+ Addiction ( ) lemma=`addiction` -  
+ Addon ( ) lemma=`addon` -  
+ Addref ( ) lemma=`addref` -  
+ Adi ( ) lemma=`adi` -  
+ Adia ( ) lemma=`adia` -  
+ Adidas ( ) lemma=`adidas` -  
+ Adieux ( ) lemma=`adieux` -  
+ Adios ( ) lemma=`adios` -  
+ Adleman ( ) lemma=`adleman` -  
+ Admin ( ) lemma=`admin` -  
+ Administration ( ) lemma=`administration` -  
+ Administrators ( ) lemma=`administrators` -  
+ Admiral ( ) lemma=`admiral` -  
+ Admits ( ) lemma=`admits` -  
+ Adobe ( ) lemma=`adobe` -  
+ Adorada ( ) lemma=`adorada` -  
+ Adorno ( ) lemma=`adorno` -  
+ Ads ( ) lemma=`ads` -  
+ Adults ( ) lemma=`adults` -  
+ Adv ( ) lemma=`adv` -  
+ Advance ( ) lemma=`advance` -  
+ Advanced ( ) lemma=`advanced` -  
+ Advancement ( ) lemma=`advancement` -  
+ Advances ( ) lemma=`advances` -  
+ Adventa ( ) lemma=`adventa` -  
+ Adventure ( ) lemma=`adventure` -  
+ Adverblog ( ) lemma=`adverblog` -  
+ Advertising ( ) lemma=`advertising` -  
+ Advisory ( ) lemma=`advisory` -  
+ Advokatinfo ( ) lemma=`advokatinfo` -  
+ Aegipanum ( ) lemma=`aegipanum` -  
+ Aerial ( ) lemma=`aerial` -  
+ Aero ( ) lemma=`aero` -  
+ Aerogate ( ) lemma=`aerogate` -  
+ Affairs ( ) lemma=`affairs` -  
+ Affairs)- ( ) lemma=`affairs)-` -  
+ Affe ( ) lemma=`affe` -  
+ Affer ( ) lemma=`affer` -  
+ Affidavit ( ) lemma=`affidavit` -  
+ Affleck/ ( ) lemma=`affleck/` -  
+ Afga ( ) lemma=`afga` -  
+ Afonin ( ) lemma=`afonin` -  
+ Afraid ( ) lemma=`afraid` -  
+ Africa ( ) lemma=`africa` -  
+ After ( ) lemma=`after` -  
+ Ag132 ( ) lemma=`ag132` -  
+ Agades ( ) lemma=`agades` -  
+ Again ( ) lemma=`again` -  
+ Against ( ) lemma=`against` -  
+ Agathis ( ) lemma=`agathis` -  
+ Age ( ) lemma=`age` -  
+ Agenda ( ) lemma=`agenda` -  
+ Agent ( ) lemma=`agent` -  
+ Ages ( ) lemma=`ages` -  
+ Agfa ( ) lemma=`agfa` -  
+ Agfa/Lastra ( ) lemma=`agfa/lastra` -  
+ Agilent ( ) lemma=`agilent` -  
+ Agip ( ) lemma=`agip` -  
+ Agosta ( ) lemma=`agosta` -  
+ Agree ( ) lemma=`agree` -  
+ Agreement ( ) lemma=`agreement` -  
+ Ahmedabad ( ) lemma=`ahmedabad` -  
+ Aibo ( ) lemma=`aibo` -  
+ Aiello/ ( ) lemma=`aiello/` -  
+ Aihos ( ) lemma=`aihos` -  
+ Aime ( ) lemma=`aime` -  
+ Ain'l ( ) lemma=`ain'l` -  
+ Ain't ( ) lemma=`ain't` -  
+ Ainura ( ) lemma=`ainura` -  
+ Air ( ) lemma=`air` -  
+ Air"- ( ) lemma=`air"-` -  
+ Air/Earth ( ) lemma=`air/earth` -  
+ Air/Fire ( ) lemma=`air/fire` -  
+ AirMalta ( ) lemma=`airmalta` -  
+ Airbag ( ) lemma=`airbag` -  
+ Airborne ( ) lemma=`airborne` -  
+ Airlines ( ) lemma=`airlines` -  
+ Airships ( ) lemma=`airships` -  
+ Aiwa ( ) lemma=`aiwa` -  
+ Aka ( ) lemma=`aka` -  
+ Akamai ( ) lemma=`akamai` -  
+ Akasa ( ) lemma=`akasa` -  
+ Akentieva ( ) lemma=`akentieva` -  
+ Aksusha1986 ( ) lemma=`aksusha1986` -  
+ Aktualisierte ( ) lemma=`aktualisierte` -  
+ Al ( ) lemma=`al` -  
+ Alain ( ) lemma=`alain` -  
+ Alan ( ) lemma=`alan` -  
+ Albert ( ) lemma=`albert` -  
+ Alberte ( ) lemma=`alberte` -  
+ Albright ( ) lemma=`albright` -  
+ Albugo ( ) lemma=`albugo` -  
+ Alcatel ( ) lemma=`alcatel` -  
+ Alcoa ( ) lemma=`alcoa` -  
+ Aldo ( ) lemma=`aldo` -  
+ Alecsey ( ) lemma=`alecsey` -  
+ Alenka ( ) lemma=`alenka` -  
+ Alert ( ) lemma=`alert` -  
+ Ales ( ) lemma=`ales` -  
+ Alex ( ) lemma=`alex` -  
+ AlexMDiE ( ) lemma=`alexmdie` -  
+ Alexander ( ) lemma=`alexander` -  
+ Alexandersagе ( ) lemma=`alexandersagе` Ncnsnn  
+ Alexej ( ) lemma=`alexej` -  
+ Alexey ( ) lemma=`alexey` -  
+ Alexeyev ( ) lemma=`alexeyev` -  
+ Alexman1 ( ) lemma=`alexman1`alexman1`alexman1` -  Afpmsnf  Ncfsnn  
+ Alexnm ( ) lemma=`alexnm` -  
+ Alffy ( ) lemma=`alffy` -  
+ Alfoldi ( ) lemma=`alfoldi` -  
+ Alfter ( ) lemma=`alfter` -  
+ Alfven ( ) lemma=`alfven` -  
+ Algiz ( ) lemma=`algiz` -  
+ Alhambra ( ) lemma=`alhambra` -  
+ Alhqeia ( ) lemma=`alhqeia` -  
+ Ali ( ) lemma=`ali` -  
+ Alica ( ) lemma=`alica` -  
+ Alice ( ) lemma=`alice` -  
+ Alice's ( ) lemma=`alice's` -  
+ Alicia ( ) lemma=`alicia` -  
+ Alien ( ) lemma=`alien` -  
+ Alina ( ) lemma=`alina` -  
+ AllTime ( ) lemma=`alltime` -  
+ Alle ( ) lemma=`alle` -  
+ Alles ( ) lemma=`alles` -  
+ Alleyne ( ) lemma=`alleyne` -  
+ Allfeld’a ( ) lemma=`allfeld’a` -  
+ Allgemeine ( ) lemma=`allgemeine` -  
+ Alliance ( ) lemma=`alliance` -  
+ Allocation ( ) lemma=`allocation` -  
+ Allons ( ) lemma=`allons` -  
+ Alma ( ) lemma=`alma` -  
+ Almaty ( ) lemma=`almaty` -  
+ Almost ( ) lemma=`almost` -  
+ Alon ( ) lemma=`alon` -  
+ Alpensaga ( ) lemma=`alpensaga` -  
+ Alpha ( ) lemma=`alpha` -  
+ Alshaya ( ) lemma=`alshaya` -  
+ Alsyshka@mail ( ) lemma=`alsyshka@mail` -  
+ Alt ( ) lemma=`alt` -  
+ AltLinux ( ) lemma=`altlinux` -  
+ AltaVista ( ) lemma=`altavista` -  
+ Altar ( ) lemma=`altar` -  
+ Alter ( ) lemma=`alter` -  
+ Alternative ( ) lemma=`alternative` -  
+ Alterrr ( ) lemma=`alterrr` -  
+ Always ( ) lemma=`always` -  
+ Am ( ) lemma=`am` -  
+ Am(add9 ( ) lemma=`am(add9` -  
+ Am7 ( ) lemma=`am7` -  
+ AmaZonka ( ) lemma=`amazonka` -  
+ Amar ( ) lemma=`amar` -  
+ Amazing ( ) lemma=`amazing` -  
+ Amazon ( ) lemma=`amazon` -  
+ Ambassador ( ) lemma=`ambassador` -  
+ Amber ( ) lemma=`amber` -  
+ Ambient ( ) lemma=`ambient` -  
+ Amdocs ( ) lemma=`amdocs` -  
+ Amen ( ) lemma=`amen` -  
+ Amen* ( ) lemma=`amen*` Npmsny  
+ Amentotaxus ( ) lemma=`amentotaxus` -  
+ America ( ) lemma=`america` -  
+ America's ( ) lemma=`america's` -  
+ American ( ) lemma=`american` -  
+ Americas ( ) lemma=`americas` -  
+ Amerike ( ) lemma=`amerike` -  
+ Ameron ( ) lemma=`ameron` -  
+ Ames ( ) lemma=`ames` -  
+ Amiro ( ) lemma=`amiro` -  
+ Amkar2006 ( ) lemma=`amkar2006` -  
+ Amm ( ) lemma=`amm` -  
+ Amnesty ( ) lemma=`amnesty` -  
+ Amnisty ( ) lemma=`amnisty` -  
+ Amoco ( ) lemma=`amoco` -  
+ Amor ( ) lemma=`amor` -  
+ Amount ( ) lemma=`amount` -  
+ Amplification ( ) lemma=`amplification` -  
+ Amplitude ( ) lemma=`amplitude` -  
+ Amstelveen ( ) lemma=`amstelveen` -  
+ Amsterdam ( ) lemma=`amsterdam` -  
+ Amway ( ) lemma=`amway` -  
+ An ( ) lemma=`an` -  
+ AnArcHISt ( ) lemma=`anarchist` -  
+ AnArcHIStа ( ) lemma=`anarchistа` Ncmsay  
+ AnArcHIStушка ( ) lemma=`anarchistушка` Ncfsnn  
+ Analysis ( ) lemma=`analysis` -  
+ Analyzed ( ) lemma=`analyzed` -  
+ Ananova ( ) lemma=`ananova` -  
+ Anarchist ( ) lemma=`anarchist` -  
+ Anarchista ( ) lemma=`anarchista` -  
+ Anarhista ( ) lemma=`anarhista` -  
+ Anatols21 ( ) lemma=`anatols21` Mo-pnd  
+ Anatoly ( ) lemma=`anatoly` -  
+ Anatolyevitch ( ) lemma=`anatolyevitch` -  
+ Anatomy ( ) lemma=`anatomy` -  
+ Ancestors ( ) lemma=`ancestors` -  
+ Anchor ( ) lemma=`anchor` -  
+ And ( ) lemma=`and` -  
+ Anders ( ) lemma=`anders` -  
+ Anderson/ ( ) lemma=`anderson/` -  
+ Andrea ( ) lemma=`andrea` -  
+ Andreas ( ) lemma=`andreas` -  
+ Andreasen ( ) lemma=`andreasen` -  
+ Andres ( ) lemma=`andres` -  
+ Andrew ( ) lemma=`andrew` -  
+ Andrey ( ) lemma=`andrey` -  
+ Andris ( ) lemma=`andris` -  
+ Android ( ) lemma=`android` -  
+ Andron ( ) lemma=`andron` -  
+ Andy ( ) lemma=`andy` -  
+ AndyTL ( ) lemma=`andytl` -  
+ Angel ( ) lemma=`angel` -  
+ AngelBooks ( ) lemma=`angelbooks` -  
+ Angela’s ( ) lemma=`angela’s` -  
+ Angeles ( ) lemma=`angeles` -  
+ Angelin ( ) lemma=`angelin` -  
+ Angels ( ) lemma=`angels` -  
+ Anglo ( ) lemma=`anglo` -  
+ Anglorum ( ) lemma=`anglorum` -  
+ Angryl ( ) lemma=`angryl` -  
+ Aniacudo ( ) lemma=`aniacudo` -  
+ Aniakudo ( ) lemma=`aniakudo` -  
+ Anim'y ( ) lemma=`anim'y` -  
+ Animator ( ) lemma=`animator` -  
+ Anisimova ( ) lemma=`anisimova` -  
+ Anita ( ) lemma=`anita` -  
+ Ankh ( ) lemma=`ankh` -  
+ Ann ( ) lemma=`ann` -  
+ Anna ( ) lemma=`anna` -  
+ Annual ( ) lemma=`annual` -  
+ Annushka ( ) lemma=`annushka` -  
+ Annwn ( ) lemma=`annwn` -  
+ Anomaly ( ) lemma=`anomaly` -  
+ Anonymous ( ) lemma=`anonymous` -  
+ Ansus ( ) lemma=`ansus` -  
+ Ansuz ( ) lemma=`ansuz` -  
+ Ant ( ) lemma=`ant` -  
+ Antarctic ( ) lemma=`antarctic` -  
+ Anthem ( ) lemma=`anthem` -  
+ Anthology ( ) lemma=`anthology` -  
+ Anti ( ) lemma=`anti` -  
+ Antichrist ( ) lemma=`antichrist` -  
+ Antill ( ) lemma=`antill` -  
+ Antimagic ( ) lemma=`antimagic` -  
+ Antimatter ( ) lemma=`antimatter` -  
+ Anton ( ) lemma=`anton` -  
+ Antonio ( ) lemma=`antonio` -  
+ Antonova ( ) lemma=`antonova` -  
+ Antony ( ) lemma=`antony` -  
+ Anubius ( ) lemma=`anubius` -  
+ Anutka ( ) lemma=`anutka` -  
+ AnyHow( ( ) lemma=`anyhow(` -  
+ AnyTime ( ) lemma=`anytime` -  
+ Anya ( ) lemma=`anya` -  
+ Anybody ( ) lemma=`anybody` -  
+ Anyway ( ) lemma=`anyway` -  
+ Anywhere ( ) lemma=`anywhere` -  
+ Anzac ( ) lemma=`anzac` -  
+ Anzhelochka ( ) lemma=`anzhelochka` -  
+ Ao ( ) lemma=`ao` -  
+ ApJ ( ) lemma=`apj` -  
+ ApJL ( ) lemma=`apjl` -  
+ Apache ( ) lemma=`apache` -  
+ Apfelstrudel ( ) lemma=`apfelstrudel` -  
+ Apistogramma ( ) lemma=`apistogramma` -  
+ Apocalypto ( ) lemma=`apocalypto` -  
+ Apollo ( ) lemma=`apollo` -  
+ Aportтами ( ) lemma=`aportтами` Ncmpiy  
+ Appel ( ) lemma=`appel` -  
+ Appications ( ) lemma=`appications` -  
+ Applause ( ) lemma=`applause` -  
+ Apple ( ) lemma=`apple` -  
+ Application ( ) lemma=`application` -  
+ Applications ( ) lemma=`applications` -  
+ Appraisal ( ) lemma=`appraisal` -  
+ Approach ( ) lemma=`approach` -  
+ Apr ( ) lemma=`apr` -  
+ Apr'94 ( ) lemma=`apr'94` -  
+ Apr'95 ( ) lemma=`apr'95` Afpfsnf  
+ Apr'97 ( ) lemma=`apr'97` -  
+ April ( ) lemma=`april` -  
+ Aquilae ( ) lemma=`aquilae` -  
+ ArS ( ) lemma=`ars` -  
+ ArS(17 ( ) lemma=`ars(17` -  
+ ArTTape ( ) lemma=`arttape` -  
+ Ara ( ) lemma=`ara` -  
+ Aran ( ) lemma=`aran` -  
+ Arastirmaso ( ) lemma=`arastirmaso` -  
+ Araucaria ( ) lemma=`araucaria` -  
+ Araucariaceae ( ) lemma=`araucariaceae` -  
+ Araucariales ( ) lemma=`araucariales` -  
+ Arbeitersaga ( ) lemma=`arbeitersaga` -  
+ Arbitron ( ) lemma=`arbitron` -  
+ Arbor ( ) lemma=`arbor` -  
+ Arbre ( ) lemma=`arbre` -  
+ ArcGIS ( ) lemma=`arcgis` -  
+ ArcPad ( ) lemma=`arcpad` -  
+ ArcSoft ( ) lemma=`arcsoft` -  
+ Arcane ( ) lemma=`arcane` -  
+ Arch ( ) lemma=`arch` -  
+ ArchDevil ( ) lemma=`archdevil` -  
+ Archer ( ) lemma=`archer` -  
+ Archers ( ) lemma=`archers` -  
+ Archie ( ) lemma=`archie` -  
+ Architecture ( ) lemma=`architecture` -  
+ Archiv ( ) lemma=`archiv` -  
+ Archive ( ) lemma=`archive` -  
+ Archives ( ) lemma=`archives` -  
+ Archivio ( ) lemma=`archivio` -  
+ Archos ( ) lemma=`archos` -  
+ Arctos ( ) lemma=`arctos` -  
+ Are ( ) lemma=`are` -  
+ Area ( ) lemma=`area` -  
+ Arecibo ( ) lemma=`arecibo` -  
+ Argo/ ( ) lemma=`argo/` -  
+ Argument ( ) lemma=`argument` -  
+ Argus ( ) lemma=`argus` -  
+ Arhi ( ) lemma=`arhi` -  
+ Arhivarushka ( ) lemma=`arhivarushka` -  
+ Arian ( ) lemma=`arian` -  
+ Ariana ( ) lemma=`ariana` -  
+ Arianism ( ) lemma=`arianism` -  
+ Arieh ( ) lemma=`arieh` -  
+ Arina ( ) lemma=`arina` -  
+ Ark ( ) lemma=`ark` -  
+ Arlie ( ) lemma=`arlie` -  
+ Armadillo ( ) lemma=`armadillo` -  
+ Armageddon ( ) lemma=`armageddon` -  
+ Armageddonом ( ) lemma=`armageddonом` Ncmsin  
+ Armed ( ) lemma=`armed` -  
+ Armier ( ) lemma=`armier` -  
+ Armorsmith ( ) lemma=`armorsmith` -  
+ Army ( ) lemma=`army` -  
+ Army’s ( ) lemma=`army’s` -  
+ Arnold ( ) lemma=`arnold` -  
+ Around ( ) lemma=`around` -  
+ Arpege ( ) lemma=`arpege` -  
+ Array ( ) lemma=`array` -  
+ Arrow ( ) lemma=`arrow` -  
+ Arroyo ( ) lemma=`arroyo` -  
+ Art ( ) lemma=`art` -  
+ Art31 ( ) lemma=`art31` Ncmsdn  
+ Artemis ( ) lemma=`artemis` -  
+ Artemjevym ( ) lemma=`artemjevym` -  
+ Arthur ( ) lemma=`arthur` -  
+ Arthur/ ( ) lemma=`arthur/` -  
+ Arthursage ( ) lemma=`arthursage` -  
+ Arthurus ( ) lemma=`arthurus` -  
+ Artifical ( ) lemma=`artifical` -  
+ Artist ( ) lemma=`artist` -  
+ Arts ( ) lemma=`arts` -  
+ Artur ( ) lemma=`artur` -  
+ Arturus ( ) lemma=`arturus` -  
+ As ( ) lemma=`as` -  
+ Ascention ( ) lemma=`ascention` -  
+ Ashram ( ) lemma=`ashram` -  
+ Asia ( ) lemma=`asia` -  
+ AsiaSat2 ( ) lemma=`asiasat2` -  
+ Asian ( ) lemma=`asian` -  
+ Asiens ( ) lemma=`asiens` -  
+ Asimov ( ) lemma=`asimov` -  
+ Asking ( ) lemma=`asking` -  
+ Askold ( ) lemma=`askold` -  
+ Ass ( ) lemma=`ass` -  
+ Assassin ( ) lemma=`assassin` -  
+ Assassinations ( ) lemma=`assassinations` -  
+ Assault/Battery ( ) lemma=`assault/battery` -  
+ Assembly ( ) lemma=`assembly` -  
+ Assertion ( ) lemma=`assertion` -  
+ Assess ( ) lemma=`assess` -  
+ Asset ( ) lemma=`asset` -  
+ Assets ( ) lemma=`assets` -  
+ Assist ( ) lemma=`assist` -  
+ Assistant ( ) lemma=`assistant` -  
+ Associated ( ) lemma=`associated` -  
+ Association ( ) lemma=`association` -  
+ Assotiation ( ) lemma=`assotiation` -  
+ Assurance ( ) lemma=`assurance` -  
+ Aston ( ) lemma=`aston` -  
+ Astra ( ) lemma=`astra` -  
+ AstraNet ( ) lemma=`astranet` -  
+ Astronomy ( ) lemma=`astronomy` -  
+ Astrophel ( ) lemma=`astrophel` -  
+ Astrophysical ( ) lemma=`astrophysical` -  
+ Astrophysics ( ) lemma=`astrophysics` -  
+ Astrup ( ) lemma=`astrup` -  
+ Astrа ( ) lemma=`astrа` Ncfsnn  
+ Asus ( ) lemma=`asus` -  
+ At ( ) lemma=`at` -  
+ Atakyet@mail ( ) lemma=`atakyet@mail` -  
+ Atari ( ) lemma=`atari` -  
+ Athan ( ) lemma=`athan` -  
+ Athens ( ) lemma=`athens` -  
+ Athlon ( ) lemma=`athlon` -  
+ Athrotaxis ( ) lemma=`athrotaxis` -  
+ Ati ( ) lemma=`ati` -  
+ Atlanta ( ) lemma=`atlanta` -  
+ Atlantica ( ) lemma=`atlantica` -  
+ Atlas ( ) lemma=`atlas` -  
+ Att ( ) lemma=`att` -  
+ Attack ( ) lemma=`attack` -  
+ Attack( ( ) lemma=`attack(` -  
+ Attard ( ) lemma=`attard` -  
+ Attelage ( ) lemma=`attelage` -  
+ Attribute ( ) lemma=`attribute` -  
+ Attributes ( ) lemma=`attributes` -  
+ At°= ( ) lemma=`at°=` -  
+ Au92 ( ) lemma=`au92` -  
+ Auction ( ) lemma=`auction` -  
+ Audacity ( ) lemma=`audacity` -  
+ Audi ( ) lemma=`audi` -  
+ Audio ( ) lemma=`audio` -  
+ Auditorium ( ) lemma=`auditorium` -  
+ Aufschwung ( ) lemma=`aufschwung` -  
+ Aug ( ) lemma=`aug` -  
+ Aug'97 ( ) lemma=`aug'97` -  
+ August ( ) lemma=`august` -  
+ Aum ( ) lemma=`aum` -  
+ Aur ( ) lemma=`aur` -  
+ Aurora ( ) lemma=`aurora` -  
+ Auroral ( ) lemma=`auroral` -  
+ Australia ( ) lemma=`australia` -  
+ Authority ( ) lemma=`authority` -  
+ Authorization ( ) lemma=`authorization` -  
+ Authorized ( ) lemma=`authorized` -  
+ Authors ( ) lemma=`authors` -  
+ Auto ( ) lemma=`auto` -  
+ AutoDelivery ( ) lemma=`autodelivery` -  
+ AutoNews ( ) lemma=`autonews` -  
+ Autoloader ( ) lemma=`autoloader` -  
+ Automated ( ) lemma=`automated` -  
+ Autonews ( ) lemma=`autonews` -  
+ Autoquartz ( ) lemma=`autoquartz` -  
+ Autorrecht ( ) lemma=`autorrecht` -  
+ Availability ( ) lemma=`availability` -  
+ Avaks ( ) lemma=`avaks` -  
+ Avalloniae ( ) lemma=`avalloniae` -  
+ Avallonis ( ) lemma=`avallonis` -  
+ Avalon ( ) lemma=`avalon` -  
+ Avanov ( ) lemma=`avanov` -  
+ Avant ( ) lemma=`avant` -  
+ AvantGo ( ) lemma=`avantgo` -  
+ Avatara ( ) lemma=`avatara` -  
+ Avaya ( ) lemma=`avaya` -  
+ Ave ( ) lemma=`ave` -  
+ Avel ( ) lemma=`avel` -  
+ Avenue ( ) lemma=`avenue` -  
+ Aves ( ) lemma=`aves` -  
+ Avishay ( ) lemma=`avishay` -  
+ Avner ( ) lemma=`avner` -  
+ Avoid ( ) lemma=`avoid` -  
+ Avon ( ) lemma=`avon` -  
+ Award ( ) lemma=`award` -  
+ Awareness ( ) lemma=`awareness` -  
+ Away ( ) lemma=`away` -  
+ Axapta ( ) lemma=`axapta` -  
+ Axe ( ) lemma=`axe` -  
+ Axel ( ) lemma=`axel` -  
+ Axiom ( ) lemma=`axiom` -  
+ Axxe ( ) lemma=`axxe` -  
+ Azone ( ) lemma=`azone` -  
+ Azur ( ) lemma=`azur` -  
+ Azura ( ) lemma=`azura` -  
+ Azure ( ) lemma=`azure` -  
+ Aлекс ( ) lemma=`aлекс`aлекс` Ncmsnn  Npmsny  
+ Aлексей ( ) lemma=`aлексей` Npmsny  
+ Aтеизм ( ) lemma=`aтеизм` Ncmsnn  
+ Aхтунг ( ) lemma=`aхтунг` I  
+ a ( ) 
+ a+b+c ( ) 
+ a. ( ) 
+ a/ ( ) 
+ a/blog/ ( ) 
+ a/law/vru ( ) 
+ a/logs/conference ( ) 
+ a/phil/phil8 ( ) 
+ a/poetry/dubikovskaya1 ( ) 
+ a/projects/jabber/devel ( ) 
+ a/shop/ ( ) 
+ a/survey/index ( ) 
+ a/vaisman ( ) 
+ a/~adept/repos/xmpp/ ( ) 
+ a3 ( ) 
+ a4 ( ) 
+ a5 ( ) 
+ a5urbanipa1 ( ) 
+ a6 ( ) 
+ a8 ( ) 
+ a=398 ( ) 
+ a@usa ( ) 
+ aa ( ) 
+ aaa ( ) 
+ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ( ) 
+ aad05 ( ) 
+ ab ( ) 
+ ab/cd ( ) 
+ abber ( ) 
+ abbiano ( ) 
+ aber ( ) 
+ abilily ( ) 
+ abilities ( ) 
+ ability ( ) 
+ able ( ) 
+ abnormalities ( ) 
+ abonent@ntvplus ( ) 
+ abort ( ) 
+ abortah ( ) 
+ about ( ) 
+ abs ( ) 
+ abscondita ( ) 
+ absence ( ) 
+ absent ( ) 
+ absolitelly ( ) 
+ absolute ( ) 
+ abоme ( ) 
+ ac ( ) 
+ ac=unsubscribe&id ( ) 
+ accelerando ( ) 
+ accelerated ( ) 
+ accepted ( ) 
+ access ( ) 
+ accident ( ) 
+ accordance ( ) 
+ account ( ) 
+ accounts ( ) 
+ ach ( ) 
+ achieve ( ) 
+ achievement ( ) 
+ achtung ( ) 
+ acid ( ) 
+ acomnet ( ) 
+ acromedia ( ) 
+ act ( ) 
+ action ( ) 
+ action=display ( ) 
+ action=viewnews&id=160 ( ) 
+ actions ( ) 
+ activa ( ) 
+ activate ( ) 
+ active ( ) 
+ activity ( ) 
+ actu ( ) 
+ actually ( ) 
+ ad ( ) 
+ ad1 ( ) 
+ adas ( ) 
+ add ( ) 
+ adde ( ) 
+ adders ( ) 
+ addr ( ) 
+ address ( ) 
+ addweb ( ) 
+ adek ( ) 
+ adeo ( ) 
+ adept ( ) 
+ adia2 ( ) 
+ adidas ( ) 
+ adiomayak ( ) 
+ adium ( ) 
+ adiumsha ( ) 
+ adm ( ) 
+ admin ( ) 
+ administration ( ) 
+ administrative ( ) 
+ administrator ( ) 
+ adminton ( ) 
+ admiration ( ) 
+ ado ( ) 
+ adolf ( ) 
+ adoze ( ) 
+ adquem ( ) 
+ adresa ( ) 
+ adresom@hotmail ( ) 
+ adrianov ( ) 
+ adv@onair ( ) 
+ advanced ( ) 
+ advapi32 ( ) 
+ adventures ( ) 
+ adversary's ( ) 
+ advertising ( ) 
+ advisory ( ) 
+ aenitur ( ) 
+ aer ( ) 
+ aera ( ) 
+ aerarius ( ) 
+ aeris ( ) 
+ aerius ( ) 
+ aes ( ) 
+ aeternitas ( ) 
+ af@afed ( ) 
+ afal ( ) 
+ aff ( ) 
+ affection ( ) 
+ affective ( ) 
+ affiliation ( ) 
+ affinity ( ) 
+ affirmative ( ) 
+ afraid ( ) 
+ after ( ) 
+ ag ( ) 
+ again ( ) 
+ against ( ) 
+ agassizii ( ) 
+ age ( ) 
+ agellan ( ) 
+ agencies ( ) 
+ agens ( ) 
+ agent ( ) 
+ ager ( ) 
+ agfa ( ) 
+ aggregate ( ) 
+ ago ( ) 
+ agree ( ) 
+ agreement ( ) 
+ agressiv ( ) 
+ ah ( ) 
+ ahava ( ) 
+ ahead ( ) 
+ ahoo ( ) 
+ ahs ( ) 
+ ai ( ) 
+ aic ( ) 
+ aidden ( ) 
+ aided ( ) 
+ ail ( ) 
+ aim ( ) 
+ aimatrix ( ) 
+ aime ( ) 
+ ainGirl ( ) lemma=`aingirl` -  
+ aint000 ( ) 
+ ain’t ( ) 
+ air ( ) 
+ air(familar ( ) 
+ airyаnem ( ) 
+ aithe ( ) 
+ ajdar611@mail ( ) 
+ ak ( ) 
+ aka ( ) 
+ akacham ( ) 
+ akebono ( ) 
+ akep ( ) 
+ akhalin ( ) 
+ akim ( ) 
+ aktakishvili ( ) 
+ akterov ( ) 
+ al ( ) 
+ ala ( ) 
+ alabel ( ) 
+ alala ( ) 
+ alam ( ) 
+ alan ( ) 
+ alb ( ) 
+ alba ( ) 
+ albina ( ) 
+ album ( ) 
+ aldo ( ) 
+ aldof ( ) 
+ alekoz@udmnet ( ) 
+ aleksey ( ) 
+ alenjkiy ( ) 
+ alestine ( ) 
+ alet ( ) 
+ alex15 ( ) 
+ alex656@list ( ) 
+ alexaz@altair ( ) 
+ alexdez ( ) 
+ alexey2004 ( ) lemma=`alexey2004`alexey2004` -  Mc---d  
+ alexeydmitriev77@yandex ( ) 
+ alexk ( ) 
+ alexrom66 ( ) 
+ alexzzz ( ) 
+ alfvenic ( ) 
+ alibeko@mail ( ) 
+ align="middle ( ) 
+ alimoff ( ) 
+ aliningrad ( ) 
+ alisakaknibud ( ) 
+ alivaesh ( ) 
+ alive ( ) 
+ alkitobi ( ) 
+ all ( ) 
+ alle ( ) 
+ allen ( ) 
+ allet ( ) 
+ allocated ( ) 
+ allowScriptAccess="sameDomain ( ) lemma=`allowscriptaccess="samedomain` -  
+ allowed ( ) 
+ alma ( ) 
+ alnikov ( ) 
+ alook00 ( ) 
+ alova@km ( ) 
+ alpha ( ) 
+ already ( ) 
+ als ( ) 
+ alt= ( ) 
+ alt="hlopat ( ) 
+ alter ( ) 
+ altercation ( ) 
+ altered ( ) 
+ altispinosa ( ) 
+ altispinosus ( ) 
+ aluga ( ) 
+ am ( ) 
+ amar ( ) 
+ ambient ( ) 
+ ambler ( ) 
+ ameres ( ) 
+ amerikanskoe ( ) 
+ amerikanzev ( ) 
+ ames ( ) 
+ amis ( ) 
+ among ( ) 
+ amor ( ) 
+ amsung ( ) 
+ an ( ) 
+ analogiu ( ) 
+ analysis ( ) 
+ anc ( ) 
+ anchester ( ) 
+ ancient ( ) 
+ and ( ) 
+ and@mail ( ) 
+ andex ( ) 
+ andinus ( ) 
+ andrei9 ( ) 
+ andresmitch@mail ( ) 
+ andrewmorozov@netscape ( ) 
+ andrewp@infonet ( ) 
+ andy@armo ( ) 
+ anekdot ( ) 
+ anekdots ( ) 
+ ange ( ) 
+ angelina ( ) 
+ angry ( ) 
+ animal ( ) 
+ ankenSee ( ) lemma=`ankensee` -  
+ anna ( ) 
+ announce ( ) 
+ anonymous ( ) 
+ another ( ) 
+ ansata ( ) 
+ anskrit ( ) 
+ ansom ( ) 
+ answer ( ) 
+ ant ( ) 
+ ante ( ) 
+ antiche ( ) 
+ antilogik^e ( ) 
+ antiquitate ( ) 
+ antiquo ( ) 
+ antisovetchinu ( ) 
+ antropos777@rambler ( ) 
+ any ( ) 
+ anya ( ) 
+ anybody ( ) 
+ anymore ( ) 
+ anyway ( ) 
+ anywhere ( ) 
+ anze ( ) 
+ anzueignen ( ) 
+ an’shit ( ) 
+ ap ( ) 
+ apa ( ) 
+ apeal ( ) 
+ apjfonts ( ) 
+ aporia ( ) 
+ aport ( ) 
+ apotkin ( ) 
+ apparatyri ( ) 
+ appeal ( ) 
+ appear ( ) 
+ appearance ( ) 
+ appellaro ( ) 
+ appellatur ( ) 
+ appelons ( ) 
+ application ( ) 
+ applied ( ) 
+ applies ( ) 
+ approach ( ) 
+ approaches ( ) 
+ approximates ( ) 
+ aprйs ( ) 
+ apuan ( ) 
+ apy^a"^a`i ( ) 
+ ar ( ) 
+ araj ( ) 
+ aram ( ) 
+ aramurz ( ) 
+ arbora ( ) 
+ arborem ( ) 
+ arbre ( ) 
+ arc ( ) 
+ arc0 ( ) 
+ arc1 ( ) 
+ archer ( ) 
+ ardiff ( ) 
+ ards ( ) 
+ ardstudio@yandex ( ) 
+ ardven@userline ( ) 
+ are ( ) 
+ areas ( ) 
+ arel ( ) 
+ arendovali ( ) 
+ arese ( ) 
+ ariation ( ) 
+ arida ( ) 
+ arigatoo ( ) 
+ arische ( ) 
+ arketolog ( ) 
+ armor ( ) 
+ armpit ( ) 
+ aro@mail ( ) 
+ arod ( ) 
+ arovol ( ) 
+ arre ( ) 
+ arrre ( ) 
+ art ( ) 
+ artanova ( ) 
+ arthos ( ) 
+ arthurien ( ) 
+ arthurienne ( ) 
+ arthuvienue ( ) 
+ article ( ) 
+ artin ( ) 
+ artisanal ( ) 
+ artist ( ) 
+ artistic ( ) 
+ artistichetn ( ) 
+ artists ( ) 
+ aryanem ( ) 
+ as ( ) 
+ asadovsk@classic ( ) 
+ ascar ( ) 
+ asciturus'a ( ) 
+ asdfghjkl ( ) 
+ asena ( ) 
+ asf ( ) 
+ ashitannie ( ) 
+ ashla ( ) 
+ asinurin@rambler ( ) 
+ ask ( ) 
+ asmork ( ) 
+ asoneofus ( ) 
+ asp ( ) 
+ aspects ( ) 
+ ass ( ) 
+ assasins ( ) 
+ asse ( ) 
+ asset ( ) 
+ assets ( ) 
+ assion ( ) 
+ association ( ) 
+ assoursky ( ) 
+ ast ( ) 
+ astate ( ) 
+ astbb ( ) 
+ astro ( ) 
+ astronet ( ) 
+ at ( ) 
+ ataforce ( ) 
+ atc ( ) 
+ ather ( ) 
+ athom^on ( ) 
+ athoma ( ) 
+ ation ( ) 
+ ational ( ) 
+ ationalsecurity ( ) 
+ atlas ( ) 
+ ato ( ) 
+ atrix ( ) 
+ attachmentid=798 ( ) 
+ attachmentid=799 ( ) 
+ attachmentid=800 ( ) 
+ attachmentid=801 ( ) 
+ attachmentid=802 ( ) 
+ attachmentid=803 ( ) 
+ attack ( ) 
+ attempt ( ) 
+ attention ( ) 
+ attestation ( ) 
+ attractive ( ) 
+ attractiveness ( ) 
+ attrition ( ) 
+ au ( ) 
+ auch ( ) 
+ audio ( ) 
+ audiopirate ( ) 
+ audiopirate@yandex ( ) 
+ auditing ( ) 
+ auditor ( ) 
+ audiuntur ( ) 
+ auer ( ) 
+ auf ( ) 
+ augh000 ( ) 
+ august ( ) 
+ auls ( ) 
+ aura ( ) 
+ auroral ( ) 
+ autem ( ) 
+ auth ( ) 
+ author="Ariana ( ) lemma=`author="ariana` -  
+ author=vtukov ( ) 
+ authorities ( ) 
+ authors ( ) 
+ autier ( ) 
+ auto ( ) 
+ auto@mtu ( ) 
+ autochel ( ) 
+ autofs ( ) 
+ autorization ( ) 
+ autumn ( ) 
+ aux ( ) 
+ availability ( ) 
+ available ( ) 
+ avain@metronet ( ) 
+ avallach ( ) 
+ avarija ( ) 
+ avatar ( ) 
+ avatara ( ) 
+ avatars ( ) 
+ avenen@mail ( ) 
+ average ( ) 
+ averno ( ) 
+ avgust@hot ( ) 
+ avlodar ( ) 
+ avolne ( ) 
+ avrika ( ) 
+ avtor ( ) 
+ awarenes ( ) 
+ awareness ( ) 
+ away ( ) 
+ awesome ( ) 
+ awhile ( ) 
+ awol ( ) 
+ axb4 ( ) 
+ axb5 ( ) 
+ axik ( ) 
+ ay ( ) 
+ ayte ( ) 
+ az ( ) 
+ aze ( ) 
+ azeta ( ) 
+ azetsha ( ) 
+ azh ( ) 
+ azmeshivaesh ( ) 
+ azveyte ( ) 
+ aя ( ) 
+ aёr ( ) 

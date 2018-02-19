@@ -1,0 +1,320 @@
+﻿ knowledge ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    knowledge~1nz the psychological result of perception and learning and reasoning
+ kill ( meanings=17 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    kill~1nz (^destruction~1) the destruction of an enemy plane or ship or tank or missile
+    killing~1nz (^conclusion~2) the act of terminating a life
+    kill~3vz end or extinguish by forceful means
+    kill~4vz destroy a vitally essential quality of or in
+    kill~5vz cause to cease operating
+    kill~6vz tire out completely
+    kill~7vz mark for deletion, rub off, or erase
+    pop~11v 
+    kill~9vz cause to die
+    kill~10vz cause the death of, without intention
+    kill~11vz deprive of life
+    kill~12vz hit with great force
+    kill~13vz hit with so much force as to make a return impossible, in racket games
+    kill~14vz overwhelm with hilarity, pleasure, or admiration
+    kill~15vz be the source of great pain for
+    defeat~4vz thwart the passage of
+    kill~17vz be fatal
+ kite ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    kite~1nz (^hawk~1) any of several small graceful hawks of the family Accipitridae having long pointed wings and feeding on insects and small animals
+    kite~2nz (^toy~1) plaything consisting of a light frame covered with tissue paper
+    kite~3nz (^check~12) a bank check drawn on insufficient funds at another bank in order to take advantage of the float
+    kite~4nz (^check~12) a bank check that has been fraudulently altered to increase its face value
+    kite~5vz fly a kite
+    kite~6vz soar or fly like a kite
+    kite~7vz get credit or money by using a bad check
+    kite~8vz increase the amount fraudulently
+ key ( meanings=20 glosses=18 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    key~1nz (^device~2) metal device shaped in such a way that when it is inserted into the appropriate lock the lock's mechanism can be rotated
+    key~2nz (^bar~2) a lever that actuates a mechanism when depressed
+    key~3nz (^artifact~1) the central building block at the top of an arch or vault
+    key~4nz (^device~2) mechanical device used to wind another device that is driven by a spring
+    key~5nz (^pitch~6) pitch of the voice
+    key~6nz (^explanation~1) something crucial for explaining
+    key~7nz (^evidence~2) a generic term for any device whose possession entitles the holder to a means of access
+    key~8nz (^list~2) a list of words or phrases that explain symbols or abbreviations
+    key~9nz (^list~2) a list of answers to a test
+    key~10nz (^writing~3) any of 24 major or minor diatonic scales that provide the tonal framework for a piece of music
+    paint~3n 
+    key~12nz (^reef~2) a coral reef off the southern coast of Florida
+    key~13nz (^fruit~3) a winged often one-seed indehiscent fruit as of the ash or elm or maple
+    key~14nz (^kilogram~1) a kilogram of a narcotic drug
+    central~3az serving as an essential component
+    key~16vz harmonize with or adjust to
+    key~17vz regulate the musical pitch of
+    name~6v 
+    key~19vz vandalize a car by scratching the sides with a key
+    key~20vz provide with a key
+ killing ( meanings=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    kill~2n 
+    killing~2nz (^death~2) 
+    cleanup~3n 
+    killing~4az 
+ King ( meanings=3 NOUN_HUMAN NOUN_FIRSTNAME NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    King~1nz (^clergyman~1) 
+    King~2nz (^singer~1) 
+    King~3nz (^athlete~1) 
+ kindness ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    kindness~1nz (^action~1) a kind act
+    kindness~2nz (^quality~1) tendency to be kind and forgiving
+    kindness~3nz (^good~2) the quality of being warmhearted and considerate and humane and sympathetic
+ knock ( meanings=11 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    rap~1nz (^blow~2) the act of hitting vigorously
+    roast~1nz (^criticism~1) negative criticism
+    knock~3nz (^misfortune~1) a bad experience
+    knocking~1nz (^sound~5) the sound of knocking 
+    bang~4n 
+    criticize~1vz find fault with
+    knock~7vz deliver a sharp blow or push :
+    bump~4vz knock against with force or violence
+    knock~9vz rap with the knuckles
+    pink~7vz sound like a car engine that is firing too early
+    pink~8vz make light, repeated taps on a surface
+ kick ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    kicking~1nz (^blow~2) the act of delivering a blow with the foot
+    kicking~2nz (^motion~2) a rhythmic thrusting movement of the legs as in swimming or calisthenics
+    kick~3nz (^information~2) the sudden stimulation provided by strong drink 
+    squawk~1nz (^act~1) informal terms for objecting
+    recoil~2nz (^motion~5) the backward jerk of a gun when it is fired
+    flush~3n 
+    plain~12v 
+    kick~8vz make a goal
+    kick~9vz stop consuming
+    kick~10vz strike with the foot
+    recoil~3vz spring back, as from a forceful thrust
+    kick~12vz drive or propel with the foot
+    kick~13vz thrash about or strike out with the feet
+    kick~14vz kick a leg up
+ kicking ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    boot~1n 
+    kick~2n 
+ kiss ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    kiss~1nz (^touching~1) a light glancing touch
+    buss~1nz (^touching~1) the act of caressing with the lips
+    buss~2vz touch with the lips or press the lips as an expression of love, greeting, etc.
+    kiss~4vz touch lightly or gently
+ kneel ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT ) conjugate=knelt 
+    kneeling~1nz (^motion~2) supporting yourself on your knees
+    kneel~2vz rest one's weight on one's knees
+ kneeling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB (null) ) 
+    kneel~1n 
+ knight ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    horse~3nz (^piece~2) a chessman shaped to resemble the head of a horse
+    knight~2nz (^leader~2) originally a person of noble birth trained to arms and chivalry
+    knight~3vz raise to knighthood
+ knee ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    knee~1nz (^piece~11) joint between the femur and tibia in a quadruped
+    knee~2nz (^covering~4) the part of a trouser leg that provides the cloth covering for the knee
+    knee~3nz (^piece~11) hinge joint in the human leg connecting the tibia and fibula with the femur and protected in front by the patella
+ kidnapping ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    kidnapping~1nz (^capture~3) the unlawful act of capturing and carrying away a person against their will and holding them in false imprisonment
+ keeping ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    retention~1n 
+    keeping~2nz (^duty~2) 
+    keeping~3nz (^event~1) conformity or harmony
+ karate ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    karate~1nz (^protection~2) a traditional Japanese system of unarmed combat
+ kissing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    hugging~1n 
+ knife ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) plural=knives 
+    knife~1nz (^cutter~1) edge tool used as a cutting instrument
+    knife~2nz (^weapon~1) a weapon with a handle and blade with a sharp point
+    tongue~8n 
+    knife~4vz use a knife on
+ kingdom ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    kingdom~1nz (^group~1) a basic group of natural objects
+    kingdom~2nz (^group~1) the highest taxonomic group into which organisms are grouped
+    kingdom~3nz (^group~1) a monarchy with a king or queen as head of state
+    kingdom~4nz (^land~5) the domain ruled by a king or queen
+    kingdom~5nz (^country~4) a country with a king as head of state
+    land~10n 
+ kit ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    kit~1nz (^young~1) young of any of various fur-bearing animals
+    outfit~1nz (^gear~2) gear consisting of a set of articles or tools for a specified purpose
+    kit~3nz (^case~2) a case for containing a set of articles
+    kit~4vz supply with a set of articles or tools
+ king ( meanings=7 glosses=5 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ) 
+    king~1nz (^piece~2) the weakest but the most important piece
+    king~2nz (^card~1) one of the four playing cards in a deck bearing the picture of a king
+    king~3nz (^piece~2) a checker that has been moved to the opponent's first row where it is promoted to a piece that is free to move either forward or backward
+    power~6n 
+    king~5nz (^sovereign~1) a male sovereign
+    queen~1n 
+    king~7nz (^note~9) preeminence in a particular category or group or field
+ kangaroo ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    kangaroo~1nz (^marsupial~1) any of several herbivorous leaping marsupials of Australia and New Guinea having large powerful hind legs and a long thick tail
+ koala ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    koala~1nz (^opossum~2) sluggish tailless Australian arboreal marsupial with grey furry ears and coat
+ knot ( meanings=10 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    knot~1nz (^bird~1) a sandpiper that breeds in the Arctic and winters in the southern hemisphere
+    knot~2nz (^fastening~2) any of various fastenings formed by looping and tying a rope upon itself or to another rope or to another object
+    knot~3nz (^texture~2) soft lump or unevenness in a yarn
+    knot~4nz (^bunch~2) a tight cluster of people or things
+    mile~5n 
+    knot~6nz (^shape~1) something twisted and tight and swollen
+    knot~7nz (^wood~4) a hard cross-grained round piece of wood in a board where a branch emerged
+    knot~8vz tie or fasten into a knot
+    knot~9vz tangle or complicate
+    knot~10vz make into knots
+ kitty ( meanings=4 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    kitty~1nz (^animal~1) informal terms referring to a domestic cat
+    kitten~1n 
+    pot~7n 
+    pool~8n 
+ kitten ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    kitty~2nz (^young~1) young domestic cat
+    kitten~2vz have kittens
+ kid ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    nestling~2n 
+    child~2n 
+    kid~3vz tell false information to for fun
+    jolly~6vz be silly or tease one another
+ ketchup ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    ketchup~1nz (^seasoning~2) thick spicy sauce made from tomatoes
+ keep ( meanings=25 glosses=18 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_ADJECTIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=kept 
+    hold~4nz (^cell~3) a cell in a jail or prison
+    keep~2nz (^fastness~1) the main tower within the walls of a medieval castle or fortress
+    sustenance~3n 
+    preserve~4vz prevent from rotting
+    observe~1v 
+    maintain~5vz maintain by writing regular records
+    maintain~6vz supply with necessities and support
+    keep~8vz hold and prevent from leaving
+    keep~9vz retain possession of
+    keep~10vz look after
+    maintain~7vz maintain for use and service
+    keep~12vz have as a supply
+    keep~13vz store or keep customarily
+    save~8v 
+    continue~4v 
+    restrain~5vz keep under control
+    prevent~1vz stop from doing something or being in a certain state
+    observe~8v 
+    observe~9v 
+    keep~20vz supply with room and board
+    keep~21vz raise
+    maintain~10vz keep in a certain state, position, or activity
+    continue~6v 
+    preserve~9vz maintain in safety from injury, harm, or danger
+    keep~25vz fail to spoil or rot
+ keel ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    keel~1nz (^beam~2) one of the main longitudinal beams of the hull of a vessel
+    keel~2nz (^structure~3) the median ridge on the breastbone of birds that fly
+    keel~3nz (^projection~10) a projection or ridge that suggests a keel
+    keel~4vz walk as if unable to control one's movements
+ keg ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    keg~1nz (^barrel~1) small cask or barrel
+    keg~2nz (^measure~1) the quantity contained in a keg
+ kettle ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    kettle~1nz (^pot~1) a metal pot for stewing or boiling
+    kettle~2nz (^instrument~3) a large hemispherical brass or copper percussion instrument with a drumhead that can be tuned by adjusting the tension on it
+    kettle~3nz (^hole~5) a hollow (typically filled by a lake) that results from the melting of a mass of ice trapped in glacial deposits
+    kettle~4nz (^measure~1) the quantity a kettle will hold
+ keyboard ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    keyboard~1nz (^device~2) holder consisting of an arrangement of hooks on which keys or locks can be hung
+    keyboard~2nz (^device~2) device consisting of a set of keys on a piano or organ or typewriter or typesetting machine or computer or the like
+ khaki ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    khaki~1nz (^material~1) a sturdy twilled cloth of a yellowish brown color used especially for military uniforms
+    khaki~2az of a yellowish brown color
+    khaki~3az 
+ kitchen ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    kitchen~1nz (^room~1) a room equipped for preparing meals
+ knob ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    knob~1nz (^handle~1) a round handle
+    boss~1nz (^projection~3) a circular rounded projection or protuberance
+    knob~3nz (^decoration~2) an ornament in the shape of a ball on the hilt of a sword or dagger
+    thickening~2nz (^solid~1) any thickened enlargement
+ kerosene ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    kerosene~1nz (^fuel~1) a flammable hydrocarbon oil used as fuel in lamps and heaters
+ kneecap ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    kneecap~1nz (^bone~2) a small flat triangular bone in front of the knee that protects the knee joint
+    kneecap~2vz shoot in the kneecap, often done by terrorist groups as a warning
+ kidney ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    kidney~1nz (^organ~4) either of two bean-shaped excretory organs that filter wastes from the blood and excrete them and water in urine
+ know-how ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    know-how~1nz (^ability~2) the knowledge and skill required to do something
+ knack ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hang~3n 
+ knowing ( meanings=6 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB (null) ) 
+    knowing~1nz (^operation~8) a clear and certain mental apprehension
+    learned~1a 
+    wise~3a 
+    knowing~4az 
+    knowing~5az 
+    knowing~6az 
+ know ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=known 
+    know~1nz (^knowing~1) the fact of being aware of information that is known to few people
+    recognize~1v 
+    know~3vz be familiar or acquainted with a person or an object
+    know~4vz be cognizant or aware of a fact or a specific piece of information
+    know~5vz be aware of the truth of something
+    know~6vz know how to do or perform something
+    know~7vz have fixed in the mind
+    live~14v 
+    know~9vz perceive as familiar
+    know~10vz be able to distinguish, recognize as being different
+    know~11vz know the nature or character of
+ kind ( meanings=5 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN (null) (null) ) 
+    variety~3n 
+    kind~2az tolerant and forgiving under provocation
+    kind~3az agreeable, conducive to comfort
+    kind~4az having or showing a tender and considerate and helpful nature
+    kind~5az 
+ keen ( meanings=8 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) (null) ) 
+    keen~1nz (^dirge~1) a funeral lament sung with loud wailing
+    keen~2az having a sharp cutting edge or point
+    cutting~11a 
+    swell~5a 
+    keen~5az intense or sharp
+    sharp~12a 
+    keen~7az 
+    keen~8vz express grief verbally
+ knocking ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    knock~4n 
+ kin ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    tribe~1n 
+    family~8n 
+    kin~3az related by blood
+ kindergarten ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    kindergarten~1nz (^preschool~1) a preschool for children age 4 to 6 to prepare them for primary school
+ keeper ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    steward~1n 
+    keeper~2nz (^guardian~1) someone in charge of other people
+ kept ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=keep 
+    kept~1az not violated or disregarded
+ keeled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    keeled~1az 
+ knotted ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    knotted~1az tied with a knot
+    knotted~2az used of old persons or old trees
+    knotted~3az 
+ kilometer ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN (null) ) 
+    kilometer~1nz (^unit~5) a metric unit of length equal to 1000 meters
+ kilogram ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    kilogram~1nz (^metric~2) one thousand grams
+ knives ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) plural=knife 
+ kapish ( INTERJECTION ) 
+ knightly ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) 
+    knightly~1az 
+    knightly~2az 
+    knightly~3az 
+ keyed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    keyed~1az fitted with or secured by a key
+    keyed~2az set to a key or tone
+ known ( meanings=2 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=knew 
+    known~1az apprehended with certainty
+    known~2az 
+ katrillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ kajillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ kabillion ( NOUN NOUN_NUMBER KINDERGARTEN ) 
+ knead ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    knead~1vz manually manipulate , usually for medicinal or relaxation purposes
+    work~13v 
+ kidnap ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    kidnap~1vz take away to an undisclosed location against their will and usually in order to extract a ransom
+ kneeled ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=kneel 
+ knelt ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=kneeled 
+ knew ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=know 

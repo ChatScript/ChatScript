@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript---setting-up-an-amazon-ec2-server">ChatScript - Setting up an Amazon EC2 Server</h1>
+<blockquote>
+<p>© Bruce Wilcox, gowilcox@gmail.com</p>
+</blockquote>
+<p><br>Revision 9/24/2017 cs7.55</p>
+<p>If you want to make your chatbot visible on the web, you need a server. As it turns out, for low traffic, Amazon will let you have a server machine for free for a year and a low fee thereafter. Here is an overview of how to create a ChatScript server on Amazon's cloud services.</p>
+<p>First, you need an Amazon AWS account. Go to http://aws.amazon.com/account/ and sign up for one if you don't have one.</p>
+<p>Second, you need to acquire a server machine. You get one by going to the AWS console: https://console.aws.amazon.com/console/home and clicking on the EC2 (virtual servers in the cloud) link.</p>
+<p>You need to alter security for a machine you will create. By default only you can talk to it. Locate the security tab on the left. Click the “Create Security Group” button and name your group a name and description. When it shows up in the list, click the name. Click on the Inbound tab. This will allow you to change incoming port access to your machine.</p>
+<p>You want to enable HTTP if this will be a web server. Select <code>HTTP</code> from the dropdown and then click <code>Add Rule</code>. You’ll see the rule added to the right side of the panel. It will use 0.0.0.0/0 as the IP addresses, which means let anyone come into the HTTP port.</p>
+<p>Click the <code>Apply Rule Changes</code> button to apply both of these rules. If this machine is just to be a chatscript server instead with the webpage on some other machine, you need to enable the port for ChatScript. Select Inbound, custom TCP, select port 1024 (or whichever you want), select ANYWHERE instead of custom. Then <code>Save</code>.</p>
+<p>You'll need a public-private key to talk to your machine. You may have had this generated when you created the server, else find Keypairs and Select New Keypairs. This will prompt you for a name and then immediately start a file download of a file with .pem. You need this file to access your future server.</p>
+<p>There is a button there that says <code>Launch Instance</code>. Click on that. I use the quick launch wizard choice. Enter a machine label (like My ChatScript Server) then select an Amazon Linux AMI machine (64-bit free tier eligible). The default login id for an AMI machine is ec2-user.</p>
+<p>If you choose an Ubuntu linux, the default user is ubuntu. Once the instance is launched, it will return you to the console where it will show it starting up. Eventually it will be running. Nowaways the interface to selecting your machine is different but the choices are the same.</p>
+<p>Third, you need to add stuff to the machine. There are a couple of ways you might be using the ChatScript server. First, by itself, with a port open to the web and talked to from your client program or webpage. Second, from a webpage on the same machine, opening no port to users for the ChatScript server. I chose the latter, so I had to have a webserver installed and a webpage to talk to ChatScript. A demo webpage named <code>index.php</code> exists in the <code>WEBINTERFACE/SIMPLE</code> directory of chatscript and uses PHP to do the work.</p>
+<blockquote>
+<p>Thanks to Wade for the initial copy of this webpage.</p>
+</blockquote>
+<p>Which means you need a way to communicate with it. I used WinSCP to talk to it along with Putty, and PuttyGen to generate a key from my keypair that WinSCP can use to authenticate itself. Let's assume (non-trivial) that you can get a Putty terminal talking to your instance. You are going to need a few pieces of software on this machine.</p>
+<p>To compile CS src, you will need to have Curl installed, which for some machines is:</p>
+<pre><code>sudo yum -y install libcurl libcurl-devel</code></pre>
+<p>For AMI linux do:</p>
+<ol style="list-style-type: decimal">
+<li>become a superuser with <code>sudo -s</code></li>
+<li>get yum to update itself with <code>yum -y update</code></li>
+<li>Apache (the web server stuff) comes preinstalled but you can try <code>yum install Apache</code> and it should tell you there is nothing to do.</li>
+<li>I needed php to run my webpage, so I did yum install php`</li>
+<li>If you want to be able to debug using gdb the engine itself, and compiling with make and g++ you want to do yum groupinstall &quot;Development Tools&quot;. You may have to do this anyway or use a different package to get the std c library</li>
+</ol>
+<p>For Ubuntu linux:</p>
+<ol style="list-style-type: decimal">
+<li><code>sudo apt-get install make</code> – to get make installed</li>
+<li><code>sudo apt-get update</code> – to get current versions of things</li>
+<li><code>sudo apt-get install g++</code> – to get the compiler</li>
+<li>if you want postgres: <code>sudo apt-get install postgresql postgresql-contrib</code></li>
+<li>if you want your web page to be here; <code>sudo apt-get install apache2</code>and <code>sudo apt-get install php5</code></li>
+<li><code>sudo apt-get install gdb</code> --- for debugger for C++ if you can use it (unlikely)</li>
+</ol>
+<p>Using WinSCP I created a top level folder named ChatScript and transferred a standard ChatScript release up to the server, having first built my bot (so the TOPICS folder was ready). I then had to make ChatScript executable, by the following from Putty:</p>
+<pre><code>cd ChatScript
+chmod +x LinuxChatScript32 </code></pre>
+<p>or</p>
+<pre><code>cd ChatScript
+chmod +x LinuxChatScript64 </code></pre>
+<p>(depending on your machine)</p>
+<p>I also needed the webserver running, so I did <code>service httpd start</code>. Since that starts the webserver, you can prove that works by typing in the web name of your server (found on the console) into a browser and getting back an Apache test page. The server will stop if your machine ever stops, so you might want it to automatically start up whenever the machine does. <code>/sbin/chkconfig httpd on</code> will set autorestart on apache.</p>
+<p>You need to set the IP address in the file <code>WEBINTERFACE/SIMPLE/index.php</code> to be the IP address of your instance. If your webpage is on the same machine as your chatscript server, you should use <code>localhost</code> as the ip address, meaning the current machine. My webpage is on a different machine than my chatscript server. In the Amazon EC2 instances display is a line corresponding to my EC2 machine, which names both my public DNS and my public IP. Either can be used in the script, but I use the IP since it's simpler. I edited the ChatScript test webpage to:</p>
+<pre><code>$host = &quot;1.22.08.4&quot;; // &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; YOUR CHATSCRIPT SERVER IP ADDRESS GOES HERE</code></pre>
+<p>Once you have edited that (I did it using a local editor on my laptop and then uploaded the change along with ChatScript so I didn't have to use a linux editor).</p>
+<p>With the file changed, I copied it to the web server page folder via:</p>
+<pre><code>sudo cp WEBINTERFACE/SIMPLE/*.* /var/www/html</code></pre>
+<p>Then I ran ChatScript via</p>
+<pre><code>./LinuxChatScript32</code></pre>
+<p>and tried to browse see my site again. And talked to my bot!</p>
+<p>If it doesn't talk, you can test to see if its the server or not that is having the problem by using another terminal window and while in the ChatScript directory typing</p>
+<pre><code>./LinuxChatScript32 client=localhost:1024</code></pre>
+<p>and try talking thru that. If that works, the server is fine and your index.php script isn't right for some reason.</p>
+<p>Of course as soon as I leave the WinSCP connection, ChatScript comes down. And if the machine ever restarts or ChatScript ever crashes, your server is dead. So you need a cron job to automatically restart ChatScript.</p>
+<pre><code>crontab LINUX/jobs.cron</code></pre>
+<p>will set an auto restart attempt every 5 minutes. Now I can exit my connection to the instance and ChatScript will start up on its own and keep going.</p>
+<h3 id="better-web-page">BETTER WEB PAGE</h3>
+<p>The SIMPLE webinterface just shows two lines of text. The BETTER webinterface has a scrollable text box to see the history and supports the loopback/callback/alarm OOB messages. You install that just like you did the SIMPLE interface, by</p>
+<pre><code>sudo cp WEBINTERFACE/BETTER/*.* /var/www/html</code></pre>
+<blockquote>
+<p>Thanks to Dave Morton for the improved interface. You need to edit ui.php to set your IP address and bot name.</p>
+</blockquote>
+<p>And beyond that is a SPEECH WEB INTERFACE</p>
+</body>
+</html>

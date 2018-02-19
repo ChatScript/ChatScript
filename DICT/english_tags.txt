@@ -1,0 +1,79 @@
+ # who knows why # is separate (for us its a comment)
+ $ PUNCTUATION
+ '' QUOTE  # `` QUOTE # we dont allow back quote  OPENING QUOTES 
+ ( PAREN
+ ) PAREN
+ ,	COMMA
+ : PUNCTUATION # ':': 'colon or ellipsis',  #    general joiner other punctuation	- ; : -- ...
+ #  QUOTE # Closing quotes 	' "
+ $ CURRENCY  # currency symbol	$ £
+ ( PAREN # opening brackets 	( {
+ ) PAREN # closing brackets 	) }
+ . PUNCTUATION  # '.': 'sentence terminator', 
+
+
+# '``': 'opening quotation mark', 
+# "''": 'closing quotation mark', 
+
+
+# '#': '#', 
+# '-LRB-': '-LRB-',  
+# '-RRB-': '-RRB-', 
+# '-NONE-': '-NONE-'
+
+ CC CONJUNCTION_COORDINATE
+ CD   ADJECTIVE_NUMBER NOUN NOUN_NUMBER
+ DT DETERMINER
+ EX THERE_EXISTENTIAL
+ FW FOREIGN_WORD
+ IN PREPOSITION  CONJUNCTION_SUBORDINATE
+ IN/that CONJUNCTION_SUBORDINATE  PRONOUN_SUBJECT # complementizer turns a clause into the subject or object of a sentence. For example,  Mary believes that it is raining. complementizer is specific to certain modern grammatical theories; in traditional grammar, such words are normally considered either conjunctions or relative pronouns.
+ JJ		 ADJECTIVE_NORMAL NOUN_ADJECTIVE ADJECTIVE_NUMBER ADJECTIVE_PARTICIPLE
+ JJR ADJECTIVE_NORMAL NOUN_ADJECTIVE
+ JJS ADJECTIVE_NORMAL NOUN_ADJECTIVE
+ LS  # list item marker
+ MD AUX_VERB_PRESENT AUX_VERB_FUTURE AUX_VERB_PAST  AUX_BE  AUX_HAVE  
+ NN NOUN_SINGULAR ADJECTIVE_NOUN
+ NNS NOUN_PLURAL
+ NP	NOUN_PROPER_SINGULAR ADJECTIVE_NOUN  # Pennbank:  NNP
+ NPS NOUN_PROPER_PLURAL    # Pennbank:  NNPS
+ PDT PREDETERMINER # both the boys
+ POS POSSESSIVE # 's '
+ PP  PRONOUN_OBJECT  PRONOUN_SUBJECT # Pennbank: PRP
+ PP$ PRONOUN_POSSESSIVE  #  penbank: PRP$
+ RB ADVERB
+ RBR ADVERB
+ RBS  ADVERB
+ RP PARTICLE PREPOSITION	
+ SENT PUNCTUATION	# sentence end punctuation
+ SYM PUNCTUATION # symbol  	@  +  *  ^  |  = (also \ )
+ TO TO_INFINITIVE PREPOSITION
+ UH INTERJECTION 
+ VB AUX_BE AUX_VERB_PRESENT NOUN_INFINITIVE # infinitive form
+ VBD AUX_BE AUX_VERB_PAST VERB_PAST
+ VBG AUX_BE AUX_VERB_PRESENT NOUN NOUN_GERUND VERB_INFINITIVE
+ VBN AUX_BE AUX_VERB_PAST VERB_PAST_PARTICIPLE # past participle
+ VBP AUX_BE AUX_VERB_PRESENT VERB_PRESENT # non-3rd person present
+ VBZ AUX_BE AUX_VERB_PRESENT VERB_PRESENT_3PS # 3rd person present
+ VD AUX_DO AUX_VERB_PRESENT NOUN_INFINITIVE # infinitive form
+ VDD AUX_DO AUX_VERB_PAST VERB_PAST
+ VDG AUX_DO  AUX_VERB_PRESENT NOUN NOUN_GERUND VERB_INFINITIVE
+ VDN AUX_DO AUX_VERB_PAST VERB_PAST_PARTICIPLE # past participle
+ VDP AUX_DO AUX_VERB_PRESENT VERB_PRESENT # non-3rd person present
+ VDZ AUX_DO AUX_VERB_PRESENT VERB_PRESENT_3PS # 3rd person present
+ VH AUX_HAVE AUX_VERB_PRESENT VERB_INFINITIVE # infinitive form
+ VHD AUX_HAVE AUX_VERB_PAST NOUN_INFINITIVE VERB_PAST
+ VHG AUX_HAVE AUX_VERB_PRESENT NOUN NOUN_GERUND  VERB_INFINITIVE
+ VHN AUX_HAVE AUX_VERB_PAST VERB_PAST_PARTICIPLE # past participle
+ VHP AUX_HAVE AUX_VERB_PRESENT VERB_PRESENT # non-3rd person present
+ VHZ AUX_HAVE AUX_VERB_PRESENT VERB_PRESENT_3PS # 3rd person present
+ VV  NOUN_INFINITIVE VERB VERB_INFINITIVE  # base form  Pennbank
+ VVD  VERB_PAST
+ VVG  VERB_PRESENT_PARTICIPLE NOUN NOUN_GERUND ADJECTIVE_PARTICIPLE
+ VVN  VERB_PAST_PARTICIPLE ADJECTIVE_PARTICIPLE
+ VVP  VERB_PRESENT
+ VVZ  VERB_PRESENT_3PS
+ WDT DETERMINER # Wh-deteriminer  - "which boy""
+ WP PRONOUN_SUBJECT PRONOUN_OBJECT # wh-pronoun  "who is that" or what
+ WP$ PRONOUN_POSSESSIVE # possessive wh-pronoun "whose"
+ WRB ADVERB # wh-adverb   where, when

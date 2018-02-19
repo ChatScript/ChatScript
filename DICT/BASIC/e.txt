@@ -1,0 +1,1550 @@
+﻿ effort ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    feat~1nz (^action~1) a notable achievement
+    sweat~1nz (^labor~1) use of physical or mental energy
+    attempt~2nz (^activity~1) earnest and conscientious activity intended to do or accomplish something
+    campaign~2nz (^venture~1) a series of actions advancing a principle or tending toward a particular end
+ Earl ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ exchange ( meanings=17 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exchange~1nz (^capture~2) the capture by both players (usually on consecutive moves) of pieces of equal value
+    exchange~2nz (^capture~2) gaining (or losing) a rook in return for a knight or bishop
+    exchange~3nz (^change~1) the act of putting one thing or person in the place of another:
+    exchange~4nz (^commerce~1) reciprocal transfer of equivalent sums of money 
+    exchange~5nz (^transaction~1) the act of giving something in return for something received
+    exchange~6nz (^event~1) the act of changing one thing for another thing
+    exchange~7nz (^event~1) an unbroken sequence of several successive strokes
+    central~1nz (^work~5) a workplace that serves as a telecommunications facility where lines from telephones can be connected together to permit communication
+    exchange~9nz (^work~5) a workplace for buying and selling
+    exchange~10nz (^conversation~1) a mutual expression of views 
+    exchange~11nz (^process~1) chemical process in which one atom or ion or group changes places with another
+    switch~9v 
+    change~14v 
+    convert~5vz exchange a penalty for a less severe one
+    change~20v 
+    replace~3v 
+    exchange~17vz hand over one and receive another, approximately equivalent
+ entering ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    entering~1nz (^arrival~2) the act of entering
+    entering~2nz (^travel~3) a movement into or inward
+ exclude ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    omit~2v 
+    bar~16v 
+    turn_out~3v 
+    shut~5v 
+    exclude~5vz lack or fail to include
+ expansion ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    expansion~1nz (^increase~1) the act of increasing in size or volume or quantity or scope
+    expansion~2nz (^increase~1) adding information or detail
+    expansion~3nz (^discussion~1) a discussion that provides additional information
+    expansion~4nz (^map~2) a function expressed as a sum or product of terms
+ exit ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exit~1nz (^going~1) the act of going out
+    issue~3n 
+    going~3n 
+    pass~20v 
+    exit~5vz lose the lead
+    leave~9v 
+ evasive ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    evasive~1az deliberately vague or ambiguous
+    evasive~2az avoiding or escaping from difficulty or danger especially enemy fire
+    evasive~3az 
+ event ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    event~1nz something that happens at a given place and time
+    consequence~3n 
+    event~3nz (^process~1) a phenomenon located at a single point in space-time
+    case~19nz (^circumstance~3) a special set of circumstances
+ eye ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    eye~1nz (^hole~1) a small hole or loop 
+    eye~2nz (^organ~4) the organ of sight
+    eye~3nz (^judgment~4) good discernment 
+    eye~4nz (^attention~5) attention to what is seen
+    heart~9n 
+    eyeball~2vz look at
+ emergency ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    emergency~1nz (^brake~1) a brake operated by hand
+    pinch~4nz (^crisis~1) a sudden unforeseen crisis that requires immediate action
+    emergency~3nz (^state~1) a state in which martial law applies
+ escape ( meanings=15 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flight~1nz (^act~1) the act of escaping physically
+    escape~2nz (^agency~1) a means or way of escaping
+    escape~3nz (^avoidance~1) an avoidance of danger or difficulty
+    escape~4nz (^recreation~2) an inclination to retreat from unpleasant realities through diversion or fantasy
+    dodging~2nz (^negligence~1) nonperformance of something distasteful that you are supposed to do
+    escape~6nz (^control~3) a valve in a container in which pressure can build up 
+    escape~7nz (^run~8) the discharge of a fluid from some container
+    escape~8nz (^plant~1) a plant originally cultivated but now growing wild
+    escape~9vz issue or leak, as from a small opening
+    miss~4vz fail to experience
+    escape~11vz escape potentially unpleasant consequences
+    escape~12vz run away from confinement
+    run~41vz flee
+    escape~14vz remove oneself from a familiar environment, usually for pleasure or diversion
+    escape~15vz be incomprehensible to
+ error ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    mistake~1n 
+    error~2nz (^failure~2) a failure of a defensive player to make an out when normal play would have sufficed
+    error~3nz (^quality~1) inadvertent incorrectness
+    error~4nz (^evil~2) departure from what is ethically acceptable
+    error~5nz (^thought~2) a misconception resulting from incorrect information
+    mistake~3n 
+    error~7nz (^event~1) the occurrence of an incorrect result produced by a computer
+ elbowing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    elbowing~1nz (^push~1) jostling with the elbows
+ encounter ( meanings=9 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    encounter~1nz (^connection~1) a casual meeting with a person or thing
+    brush~4n 
+    encounter~3nz (^act~1) a hostile disagreement face-to-face
+    meeting~3nz (^event~1) a casual or unexpected convergence
+    play~23v 
+    meet~7v 
+    chance~7v 
+    encounter~8vz be beset by
+    meet~15v 
+ earthing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    grounding~1n 
+ echo ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=echoes 
+    echo~1nz (^imitation~1) an imitation or repetition
+    echo~2nz (^parallel~1) a close parallel of a feeling, idea, style, etc.
+    echo~3nz (^property~2) the repetition of a sound resulting from reflection of the sound waves
+    echo~4nz (^property~2) a reflected television or radio or radar beam
+    echo~5nz (^reply~2) a reply that repeats what has just been said
+    repeat~3v 
+    ring~15v 
+    recall~12v 
+ election ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    election~1nz (^choice~1) the act of selecting someone or something
+    election~2nz (^vote~1) a vote to select the winner of a position or political office
+    election~3nz (^philosophy~1) the predestination of some individuals as objects of divine mercy
+    election~4nz (^position~16) the status or fact of being elected
+ extra ( meanings=8 glosses=6 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    duplicate~2nz (^artifact~1) something additional of the same kind
+    extra~2nz (^number~7) an additional edition of a newspaper
+    extra~3nz (^player~1) a minor actor in crowd scenes
+    additional~1az further or added
+    surplus~2az more than is needed, desired, or required
+    special~9a 
+    extra~7az 
+    extra~8bz unusually or exceptionally
+ earned ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    earned~1az gained or acquired
+ economy ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    saving~2nz (^action~1) an act of economizing
+    economy~2nz (^virtue~2) frugality in the expenditure of money or resources
+    economy~3nz (^efficiency~1) the efficient use of resources
+    economy~4nz (^system~8) the system of production and distribution and consumption
+ ending ( meanings=5 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    termination~1n 
+    termination~2n 
+    conclusion~5n 
+    finish~4n 
+    end~14n 
+ electrolysis ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 ) 
+    electrolysis~1nz (^cleanup~1) removing superfluous or unwanted hair by passing an electric current through the hair root
+    electrolysis~2nz (^reaction~7) a chemical decomposition reaction produced by passing an electric current through a solution containing ions
+ engagement ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    booking~1nz (^work~2) employment for performers or performing groups that lasts for a limited period of time
+    conflict~1nz (^action~3) a hostile meeting of opposing military forces in the course of a war
+    engagement~3nz (^action~1) the act of giving someone a job
+    engagement~4nz (^event~1) the act of sharing in the activities of a group
+    engagement~5nz (^promise~2) a mutual promise to marry
+    engagement~6nz (^contact~7) contact by fitting together
+    date~2nz (^meeting~5) a meeting arranged in advance
+ easy ( meanings=16 glosses=9 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=easiest 
+    easy~1az obtained with little effort or sacrifice, often obtained illegally
+    easy~2az less in demand and therefore readily obtainable
+    light~16a 
+    easy~4az affording comfort
+    easy~5az posing no difficulty
+    easy~6az free from worry or anxiety
+    gentle~1a 
+    soft~10a 
+    leisurely~1az not hurried or forced
+    easy~10az affording pleasure
+    prosperous~3a 
+    easy~12az readily exploited or tricked
+    easy~13az 
+    easily~3b 
+    soft~21bz in a relaxed manner
+    slowly~1b 
+ endurance ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    endurance~1nz (^strength~1) the power to withstand hardship or stress
+    survival~3nz (^living~4) a state of surviving
+ exploration ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    exploration~1nz (^journey~1) to travel for the purpose of discovery
+    exploration~2nz (^search~3) a careful systematic search
+    exploration~3nz (^thinking~1) a systematic consideration
+ expenditure ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    expenditure~1nz (^depletion~1) the act of consuming something
+    expenditure~2nz (^disbursement~1) the act of spending money for goods or services
+    spending~2nz (^relation~1) money paid out
+ expression ( meanings=9 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    expression~1nz (^squeeze~2) the act of forcing something out by squeezing or pressing
+    face~5n 
+    expression~3nz (^language~3) a group of words that form a constituent of a sentence and are considered as a single unit
+    expression~4nz (^statement~4) a group of symbols that make a mathematical statement
+    expression~5nz (^demonstration~5) expression without words
+    expression~6nz (^style~8) the style of expressing yourself
+    expression~7nz (^communication~2) the communication of your beliefs or opinions
+    saying~1n 
+    expression~9nz (^process~1) the process of expressing a gene
+ extension ( meanings=12 glosses=11 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    extension~1nz (^expansion~1) act of expanding in scope
+    extension~2nz (^stretching~1) act of stretching or straightening out a flexed limb
+    extension~3nz (^education~2) an educational opportunity provided by colleges and universities to people who are not enrolled as regular students
+    wing~2n 
+    extension~5nz (^addition~3) an addition to the length of something
+    extension~6nz (^telephone~1) an additional telephone set that is connected to the same telephone line
+    extension~7nz (^length~3) amount or degree or range to which something extends
+    extension~8nz (^property~2) the ability to raise the working leg high in the air
+    reference~2nz (^substance~3) the most direct or specific meaning of a word or expression
+    extension~10nz (^communication~2) the spreading of something into new regions
+    extension~11nz (^string~7) a string of characters beginning with a period and followed by one or more letters
+    extension~12nz (^wait~2) a mutually agreed delay in the date set for the completion of a job or payment of a debt
+ explosion ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    burst~1nz (^change~1) the act of exploding or bursting
+    explosion~2nz (^swing~4) a golf shot from a bunker that typically moves sand as well as the golf ball
+    explosion~3nz (^outburst~2) a sudden outburst
+    explosion~4nz (^release~2) the terminal forced release of pressure built up during the occlusive phase of a stop consonant
+    detonation~2nz (^event~1) a violent release of energy caused by a chemical or nuclear reaction
+    explosion~6nz (^noise~5) the noise caused by an explosion
+    explosion~7nz (^increase~3) a sudden great increase
+ emptying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    emptying~1nz (^separation~1) 
+ expunging ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    expunging~1nz (^separation~1) 
+ entertainment ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    amusement~1nz (^recreation~2) an activity that is diverting and that holds the attention
+ escapade ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    escapade~1nz (^recreation~2) any carefree episode
+    adventure~1n 
+ exhibit ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR SPELLING_EXCEPTION COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    display~1n 
+    exhibit~2nz (^evidence~3) an object or statement produced before a court of law and referred to while giving evidence
+    march~8v 
+    display~7v 
+    present~14v 
+    exhibit~6vz show an attribute, property, knowledge, or skill
+ end ( meanings=18 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    end~1nz (^position~4) a position on the line of scrimmage
+    end~2nz (^share~1) the part you are expected to play
+    end~3nz (^material~1) a piece of cloth that is left over after the rest has been used or sold
+    end~4nz (^part~6) a final part or section
+    goal~3n 
+    closing~5n 
+    last~3n 
+    end~8nz (^boundary~2) a boundary marking the extremities of something
+    end~9nz (^extremity~3) either extremity of something that has length
+    end~10nz (^surface~5) the surface at either extremity of a three-dimensional object
+    end~11nz (^place~13) one of two places from which people are communicating to each other
+    end~12nz (^athlete~1) the person who plays at one end of the line of scrimmage
+    destruction~3n 
+    ending~5nz (^point~26) the point in time at which something ends
+    end~15vz bring to an end or halt
+    end~16vz put an end to
+    finish~15v 
+    end~18vz be the end of
+ education ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    education~1nz (^profession~1) the profession of teaching
+    teaching~1nz (^activity~1) the activities of educating or instructing
+    training~2nz (^heritage~2) the result of good upbringing 
+    education~4nz (^learning~1) the gradual process of acquiring knowledge
+    education~5nz (^content~2) knowledge acquired by learning and instruction
+ encoding ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    encoding~1nz (^writing~1) 
+ elbow ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    elbow~1nz (^piece~11) the joint of a mammal or bird that corresponds to the human elbow
+    elbow~2nz (^covering~4) the part of a sleeve that covers the elbow joint
+    elbow~3nz (^curve~2) a sharp bend in a road or river
+    elbow~4nz (^pipe~2) a length of pipe with a sharp bend in it
+    elbow~5nz (^piece~11) hinge joint between the forearm and upper arm and the corresponding joint in the forelimb of a quadruped
+    elbow~6vz shove one's elbow into another person's ribs
+    elbow~7vz push one's way with the elbows
+ exercise ( meanings=10 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exercising~1nz (^effort~2) the activity of exerting your muscles in various ways to keep fit
+    example~1nz (^lesson~1) a task performed or problem solved in order to develop skill or understanding
+    practice~4n 
+    exercise~4nz (^activity~1) the act of using
+    exercise~5nz (^ceremony~3) a ceremony that involves processions and speeches
+    exercise~6vz do physical exercise
+    exercise~7vz give a workout to
+    practice~6v 
+    exert~1vz put to use
+    practice~10v 
+ exercising ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    exercise~1n 
+ examination ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    scrutiny~1nz (^work~1) the act of examining something closely
+    testing~1nz (^work~1) the act of giving students or candidates a test to determine what they know or have learned
+    examination~3nz (^thinking~1) a detailed inspection of your conscience
+    examination~4nz (^questioning~1) formal systematic questioning
+    test~6nz (^communication~2) a set of questions or exercises evaluating skill or knowledge
+ electron ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    electron~1nz (^particle~2) an elementary particle with negative charge
+ electronic ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    electronic~1az of or relating to electronics
+    electronic~2az of or concerned with electrons
+    electronic~3az 
+ electric ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    electric~1nz (^automobile~1) a car that is powered by electricity
+    electric~2az affected by emotion as if by electricity
+    electric~3az exceptionally tense
+    electric~4az using or providing or producing or transmitting or operated by electricity
+    electric~5az 
+ example ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    exercise~2n 
+    illustration~2nz (^information~2) an item of information that is typical of a class or group
+    model~5nz (^ideal~1) something to be imitated
+    model~6nz (^content~2) a representative form or pattern
+    lesson~4nz (^advice~1) punishment intended as a warning to others
+    case~14nz (^event~1) an occurrence of something
+ errand ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    errand~1nz (^trip~3) a short trip that is taken in the performance of a necessary task or mission
+ evil ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE (null) ) 
+    evil~1nz (^activity~1) morally objectionable behavior
+    evil~2nz (^quality~1) the quality of being morally wrong in principle or practice
+    evil~3nz (^bad~1) that which causes harm or destruction or misfortune
+    malign~1az having or exerting a malignant influence
+    evil~5az morally bad or wrong
+    evil~6az having the nature of vice
+    evil~7az 
+ embezzlement ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    embezzlement~1nz (^stealing~1) the fraudulent appropriation of funds or property entrusted to your care but actually owned by someone else
+ essay ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    essay~1nz (^effort~3) a tentative attempt
+    essay~2nz (^writing~4) an analytic or interpretive literary composition
+    attempt~4v 
+    prove~8v 
+ enterprise ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    enterprise~1nz (^labor~2) a purposeful or industrious undertaking 
+    enterprise~2nz (^drive~11) readiness to embark on bold new ventures
+    enterprise~3nz (^organization~6) an organization created for business ventures
+ eating ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    feeding~1n 
+ estimate ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    estimate~1nz (^judgment~1) a judgment of the qualities of something or somebody
+    idea~1nz (^thinking~1) an approximate calculation of quantity or degree or worth
+    estimate~3nz (^respect~5) the respect with which a person is held
+    estimate~4nz (^document~2) a document appraising the value of something
+    estimate~5nz (^statement~4) a statement indicating the likely cost of some job
+    guess~5vz judge tentatively or form an estimate of 
+    calculate~2vz judge to be probable
+ engineering ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    technology~1n 
+    engineering~2nz (^room~1) a room in which the engine is located
+    technology~2n 
+ equal ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    match~7n 
+    adequate~1az having the requisite qualities or resources to meet a task
+    equal~3az 
+    match~10v 
+    be~9vz be identical or equivalent to
+    match~19v 
+ extreme ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    extreme~1nz (^degree~1) the furthest or highest degree of something
+    extreme~2nz (^extremity~3) the point located farthest from the middle of something
+    extreme~3az most distant in any direction
+    extreme~4az of the greatest possible degree or extent or intensity
+    extreme~5az far beyond a norm in quantity or amount or degree
+    extreme~6az beyond a norm in views or actions
+    extreme~7az 
+ express ( meanings=13 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    express~1nz (^transportation~3) rapid transport of goods
+    limited~1nz (^transport~3) public transport consisting of a fast train or bus that makes only a few scheduled stops
+    express~3nz (^mail~4) mail that is distributed by a rapid and efficient system
+    express~4az not tacit or implied
+    express~5az without unnecessary stops
+    express~6bz by express
+    utter~3vz articulate
+    show~9vz give expression to
+    express~9vz send by rapid transport or special messenger service
+    convey~2vz serve as a means for expressing something
+    state~10vz indicate through a symbol, formula, etc.
+    extract~7vz obtain from a substance, as by mechanical action
+    express~13vz manifest the effects of 
+ exporting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    exporting~1nz (^commerce~1) 
+ equipping ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    arming~1nz (^event~1) the act of equiping with weapons in preparation for war
+ economic ( meanings=6 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    economical~1a 
+    economic~2az financially rewarding
+    economic~3az concerned with worldly necessities of life 
+    economic~4az of or relating to the science of economics
+    economical~3a 
+    economic~6az 
+ encouragement ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    encouragement~1nz (^aid~2) the act of giving hope or support to someone
+    encouragement~2nz (^approval~2) the expression of approval and support
+    encouragement~3nz (^hope~4) the feeling of being encouraged
+ emission ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    emission~1nz (^act~1) the act of emitting
+    emission~2nz (^flow~2) the occurrence of a flow of water
+    emission~3nz (^activity~3) any of several bodily processes by which substances go out of the body
+    emission~4nz (^release~12) the release of electrons from parent atoms
+    emission~5nz (^stuff~7) a substance that is emitted or released
+ emphasizing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    emphasizing~1nz (^action~1) 
+ ethnic ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    ethnic~1nz (^individual~1) a person who is a member of an ethnic group
+    ethnic~2az not acknowledging the God of Christianity and Judaism and Islam
+    cultural~1a 
+    ethnic~4az 
+ embryo ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    embryo~1nz (^animal~1) an animal organism in the early stages of growth and differentiation that in higher forms merge into fetal stages but in lower forms terminate in commencement of larval life
+    embryo~2nz (^plant~1) a minute rudimentary plant contained within a seed or an archegonium
+ egg ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    egg~1nz (^cell~1) animal reproductive body consisting of an ovum or embryo together with nutritive and protective envelopes
+    ball~6n 
+    egg~3nz (^food~1) oval reproductive body of a fowl used as food
+    egg~4vz coat with beaten egg
+    egg~5vz throw eggs at
+ eagle ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    eagle~1nz (^raptor~1) any of various large keen-sighted diurnal birds of prey noted for their broad wings and strong soaring flight
+    eagle~2nz (^emblem~2) an emblem representing power
+    eagle~3nz (^coin~1) a former gold coin in the United States worth 10 dollars
+    eagle~4nz (^score~9) a score of two strokes under par on a hole
+    eagle~5vz shoot in two strokes under par
+    eagle~6vz shoot two strokes under par
+ elephant ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    elephant~1nz (^mammal~1) five-toed pachyderm
+    elephant~2nz (^emblem~2) the symbol of the Republican Party
+ evening ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB TIMEWORD ) 
+    eve~2nz (^daylight~2) the latter part of the day 
+    evening~2nz (^period~3) the early part of night spent in a special way
+    evening~3nz (^period~3) a later concluding time period
+ edible ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    edible~1nz (^food~1) any substance that can be used as food
+    edible~2az suitable for use as food
+    edible~3az 
+ emperor ( meanings=4 glosses=4 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    emperor~1nz (^butterfly~2) large richly colored butterfly
+    emperor~2nz (^moth~1) large moth of temperate forests of Eurasia having heavily scaled transparent wings
+    emperor~3nz (^grape~2) red table grape of California
+    emperor~4nz (^sovereign~1) the male ruler of an empire
+ entire ( meanings=6 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    entire~1nz (^male~1) uncastrated adult male horse
+    full~3a 
+    intact~1az constituting the undiminished entirety
+    intact~4az sexually competent
+    entire~5az having a smooth edge
+    entire~6az 
+ ewe ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    ewe~1nz (^sheep~1) female sheep
+ elk ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    elk~1nz (^deer~1) common deer of temperate Europe and Asia
+    elk~2nz (^deer~1) large North American deer with large much-branched antlers in the male
+    moose~1nz (^deer~1) large northern deer with enormous flattened antlers in the male
+ eel ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    eel~1nz (^fish~1) voracious snakelike marine or freshwater fishes with smooth slimy usually scaleless skin and having a continuous vertical fin but no ventral fins
+    eel~2nz (^fish~2) the fatty flesh of eel
+ ecstasy ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    go~2n 
+    transport~6n 
+    rapture~2nz (^status~1) a state of elated bliss
+ estate ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    estate~1nz (^class~3) a major social class or order of persons regarded collectively as part of the body politic of the country and formerly possessing distinct political rights
+    land~8n 
+    estate~3nz (^property~5) everything you own
+ elevator ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    lift~6nz (^device~2) lifting device consisting of a platform or cage that is raised and lowered mechanically in a vertical shaft in order to move people from one floor to another in a building
+    elevator~2nz (^surface~1) the airfoil on the tailplane of an aircraft that makes it ascend or descend
+ empty ( meanings=12 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=emptiest 
+    empty~1nz (^container~1) a container that has been emptied
+    empty~2az holding or containing nothing
+    empty~3az emptied of emotion
+    empty~4az needing nourishment
+    vacuous~3az devoid of significance or point
+    empty~6az 
+    empty~7az 
+    void~5vz excrete or discharge from the body
+    empty~9vz become empty or void of its content
+    empty~10vz make void or empty of contents
+    empty~11vz remove
+    abandon~5vz leave behind empty
+ element ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    element~1nz (^part~3) an artifact that is one of the individual parts of which a composite entity is made up
+    ingredient~2n 
+    element~3nz (^environment~1) the most favorable environment for a plant or animal
+    element~4nz (^line~29) a straight line that generates a cylinder or cone
+    element~5nz (^situation~4) the situation in which you are happiest and most effective
+    element~6nz (^substance~1) any of the more than 100 known substances that cannot be separated into simpler substances and that singly or in combination constitute all matter
+    element~7nz (^substance~1) one of four substances thought in ancient and medieval cosmology to constitute the physical universe
+ engine ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    engine~1nz (^motor~1) motor that converts thermal energy to mechanical work
+    engine~2nz (^instrument~2) an instrument or machine that is used in warfare, such as a battering ram, catapult, artillery piece, etc.
+    engine~3nz (^container~1) a wheeled vehicle consisting of a self-propelled engine that is used to draw trains along railway tracks
+    engine~4nz (^cause~1) something used to achieve a purpose
+ ear ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN ) 
+    ear~1nz (^organ~4) the sense organ for hearing and equilibrium
+    ear~2nz (^structure~3) the externally visible cartilaginous structure of the external ear
+    ear~3nz (^hearing~3) good hearing
+    ear~4nz (^attention~5) attention to what is said
+    ear~5nz (^fruit~3) fruiting spike of a cereal plant especially corn
+ early ( meanings=9 glosses=8 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD (null) ) comparative=earliest 
+    early~1az at or near the beginning of a period of time or course of events or before the usual or expected time
+    early~2az being or occurring at an early stage of development
+    early~3az of an early stage in the development of a language or literature
+    early~4az very young
+    former~3a 
+    early~6az expected in the near future
+    early~7bz before the usual time or the time expected
+    early~8bz in good time
+    early~9bz during an early stage
+ easel ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    easel~1nz (^stand~4) an upright tripod for displaying something
+ edge ( meanings=10 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    edge~1nz (^side~1) a sharp side formed by the intersection of two surfaces of an object
+    edge~2nz (^limit~2) the outside limit of an object or area or surface
+    edge~3nz (^advantage~2) a slight competitive advantage
+    edge~4nz (^importance~1) the attribute of urgency in tone of voice
+    border~4nz (^boundary~2) the boundary of a surface
+    boundary~3nz (^line~29) a line determining the limits of an area
+    edge~7vz provide with an edge
+    border~6v 
+    inch~3vz advance slowly, as if by inches
+    border~9vz provide with a border or edge
+ edging ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    edging~1nz (^border~1) border consisting of anything placed on the edge to finish something
+ efficiency ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    efficiency~1nz (^state~1) skillfulness in avoiding wasted time and effort
+    efficiency~2nz (^relation~1) the ratio of the output to the input of any system
+ effigy ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    image~1n 
+ eight ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) comparative=eighter 
+    eight~1nz (^spot~4) one of four playing cards in a deck with eight pips on the face
+    eighter~1nz (^figure~12) the cardinal number that is the sum of seven and one
+    eight~3az being one more than seven
+ elastic ( meanings=5 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    elastic~1nz (^material~1) a fabric made of yarns containing an elastic material
+    elastic~2nz (^band~1) a narrow band of elastic rubber used to hold things together
+    elastic~3az capable of resuming original shape after stretching or compression
+    flexible~5a 
+    elastic~5az 
+ elevated ( meanings=5 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    elevated~1nz (^railroad~2) 
+    raised~2az increased in amount or degree
+    elevated~3az raised above the ground
+    grand~7a 
+    elevated~5az 
+ emblem ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    emblem~1nz (^figure~2) special design or visual object representing a quality, type, group, etc.
+    emblem~2nz (^symbol~1) a visible symbol representing an abstract idea
+ envelope ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    envelope~1nz (^wrap~2) any wrapper or covering
+    envelope~2nz (^container~1) a flat container for a letter, thin package, etc.
+    envelope~3nz (^bag~3) the bag containing the gas in a balloon
+    envelope~4nz (^ability~1) the maximum operating capability of a system 
+    envelope~5nz (^cover~9) a natural covering 
+    envelope~6nz (^curve~5) a curve that is tangent to each of a family of curves
+ exhaust ( meanings=7 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    exhaust~1nz (^system~1) system consisting of the parts of an engine through which burned gases or steam are discharged
+    exhaust~2nz (^gas~5) gases ejected from an engine as waste products
+    beat~12v 
+    release~14v 
+    exhaust~5vz use up the whole supply of
+    eat~2v 
+    tire~5v 
+ export ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    export~1nz (^good~1) commodities sold to a foreign country
+    export~2vz cause to spread in another part of the world
+    export~3vz transfer out of a database or document in a format that can be used by other programs
+    export~4vz sell or transfer abroad
+ exterior ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    outside~1n 
+    outside~2n 
+    exterior~3az situated in or suitable for the outdoors or outside of a building
+    exterior~4az 
+ eyebrow ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    eyebrow~1nz (^hair~4) the arch of hair above each eye
+ earth ( meanings=10 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    ground~3n 
+    world~1n 
+    earth~3nz (^object~1) the abode of mortals 
+    globe~2n 
+    land~6n 
+    ground~11n 
+    earth~7nz (^element~7) once thought to be one of four elements composing the universe
+    earth~8az 
+    earth~9vz connect to the earth
+    earth~10vz hide in the earth like a hunted animal
+ essence ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    perfume~1nz (^artifact~1) a toiletry that emits and diffuses a fragrant odor
+    sum~3nz (^content~2) the choicest or most essential or most vital part of some idea or experience
+    effect~4nz (^import~4) the central meaning or theme of a speech or literary work
+    essence~4nz (^substance~1) any substance possessing to a high degree the predominant properties of a plant or drug or other natural product from which it is extracted
+ eyeglasses ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 ) 
+    glasses~1n 
+ energy ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    vigor~1nz (^life~2) an imaginative lively style 
+    push~4nz (^drive~11) enterprising or ambitious drive
+    vigor~3nz (^strength~3) forceful exertion
+    energy~4nz (^process~1) any source of usable power
+    energy~5nz (^process~1) a thermodynamic quantity equivalent to the capacity of a physical system to do work
+    energy~6nz (^status~1) a healthy capacity for vigorous activity
+ enthusiasm ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    enthusiasm~1nz (^life~2) overflowing with eager enjoyment or approval
+    enthusiasm~2nz (^interest~4) a lively interest
+    enthusiasm~3nz (^feeling~1) a feeling of excitement
+ effect ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    effect~1nz (^appearance~4) an outward appearance
+    force~3nz (^quality~1) having legal validity
+    effect~3nz (^feeling~5) an impression 
+    burden~4n 
+    issue~9n 
+    effect~6nz (^evidence~1) a symptom caused by an illness or a drug
+    effect~7vz produce
+    effect~8vz act so as to bring into existence
+ equality ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    equality~1nz (^quality~1) the quality of being the same in quantity or measure or value or status
+    equality~2nz (^position~16) a state of being essentially equal or equivalent
+ even ( meanings=15 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    evening~1n 
+    even~2az equal in degree or extent or amount
+    level~9a 
+    even~4az being level or straight or regular and without variation as e.g. in shape or texture
+    even~5az divisible by two
+    regular~14az occurring at fixed intervals
+    regular~16az symmetrically arranged
+    even~8az 
+    even~9bz used as an intensive especially to indicate something unexpected
+    still~12b 
+    even~11bz in spite of
+    even~12bz to the full extent
+    even~13vz make even or more even
+    even~14vz become even or more even
+    flush~17v 
+ eccentricity ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    eccentricity~1nz (^quality~1) strange and unconventional behavior
+    eccentricity~2nz (^roundness~2) a circularity that has a different center or deviates from a circular path
+    eccentricity~3nz (^relation~1) a ratio describing the shape of a conic section
+ egoism ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    egoism~1nz (^attribute~1) concern for your own interests and welfare
+    egoism~2nz (^theory~2) the theory that the pursuit of your own welfare in the basis of morality
+ effrontery ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    effrontery~1nz (^audacity~1) audacious behavior that you have no right to
+ elasticity ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    snap~7n 
+ extremely ( meanings=2 glosses=2 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    passing~12bz to an extreme degree
+    extremely~2bz to a high degree or extent
+ expediency ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    expediency~1nz (^advantage~2) the quality of being suited to the end in view
+ eminent ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    towering~1a 
+    high~14a 
+    eminent~3az 
+ eyeball ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    eyeball~1nz (^capsule~5) the ball-shaped capsule containing the vertebrate eye
+    eye~6v 
+ eighth ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN (null) ) 
+ eleventh ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN (null) ) 
+ extremity ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    member~2n 
+    extremity~2nz (^piece~11) that part of a limb that is farthest from the torso
+    extremity~3nz (^part~9) the outermost or farthest region or point
+    extremity~4nz (^degree~7) the greatest or utmost degree
+    extremity~5nz (^misfortune~2) an extreme condition or state
+ equilibrium ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) plural=equilibria 
+    equilibrium~1nz (^sense~2) a sensory system located in structures of the inner ear that registers the orientation of the head
+    equilibrium~2nz (^reaction~7) a chemical reaction and its reverse proceed at equal rates
+    balance~9n 
+    equilibrium~4nz (^situation~4) a stable situation in which forces cancel one another
+ earthly ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:ADJECTIVE ) comparative=earthliest 
+    earthly~1az of or belonging to or characteristic of this earth as distinguished from heaven
+    earthly~2az 
+ ecstatic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    ecstatic~1az feeling great rapture or delight
+    ecstatic~2az 
+ experience ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    experience~1nz (^education~5) the accumulation of knowledge or skill that results from direct participation in events or activities
+    experience~2nz (^content~2) the content of direct observation or participation in an event
+    experience~3nz (^event~1) an event as apprehended
+    have~5v 
+    know~8vz have firsthand knowledge of states, situations, emotions, or sensations
+    feel~11vz undergo an emotional sensation or be in a particular state of mind
+    have~9v 
+    see~14vz go or live through
+ explanation ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    explanation~1nz (^thinking~1) thought that makes something comprehensible
+    account~6nz (^statement~4) a statement that makes something comprehensible by describing the relevant structure or operation or circumstances etc.
+    explanation~3nz (^act~1) the act of explaining
+ excuse ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    excuse~1nz (^example~2) a poor example
+    excuse~2nz (^line~14) a note explaining an absence
+    excuse~3nz (^defense~6) a defense of some offensive behavior or some failure to keep a promise etc.
+    excuse~4vz excuse, overlook, or make allowances for
+    explain~1v 
+    relieve~4vz grant exemption or release to
+    excuse~7vz ask for permission to be released from an engagement
+    apologize~2vz defend, explain, clear away, or make excuses for by reasoning
+    pardon~5vz accept an excuse for
+ evidence ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    evidence~1nz (^information~2) your basis for belief or disbelief
+    evidence~2nz (^communication~1) an indication that makes something evident
+    evidence~3nz (^information~3) all the means by which any alleged matter of fact whose truth is investigated at judicial trial is established or disproved
+    demonstrate~2v 
+    tell~6v 
+    prove~4v 
+ essential ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    necessary~1nz (^thing~1) anything indispensable
+    essential~2az defining rights and duties as opposed to giving the rules by which rights and duties are established
+    essential~3az basic and fundamental
+    essential~4az of the greatest importance
+    essential~5az absolutely necessary
+    essential~6az being or relating to or containing the essence of a plant etc
+    essential~7az 
+ erroneous ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    erroneous~1az containing or characterized by error
+ employee ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    employee~1nz (^worker~2) a worker who is hired to perform a job
+ expectation ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    outlook~2nz (^belief~2) belief about the future
+    expectation~2nz (^mean~1) the sum of the values of a random variable divided by the number of values
+    expectation~3nz (^feeling~1) the feeling that something is about to happen
+    anticipation~4n 
+ expected ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    expected~1az considered likely or probable to happen or arrive
+    expected~2az 
+ ecology ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    ecology~1nz (^biology~1) the branch of biology concerned with the relations between organisms and their environment
+    ecology~2nz (^environment~2) the environment as it relates to living organisms
+ epic ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    epic~1nz (^poem~1) a long narrative poem telling of a hero's deeds
+    epic~2az very imposing or impressive
+    epic~3az constituting or having to do with or suggestive of a literary epic
+ extract ( meanings=10 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    selection~3n 
+    extract~2nz (^solution~5) a solution obtained by steeping or soaking a substance
+    extract~3vz extract by the process of distillation
+    extract~4vz calculate the root of a number
+    extract~5vz take out of a literary work in order to cite or copy
+    pull~11v 
+    express~12v 
+    extract~8vz separate from an ore
+    evoke~3vz deduce or construe (a meaning)
+    extract~10vz get despite difficulties or obstacles
+ encyclopedia ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    encyclopedia~1nz (^reference~5) a reference work containing articles on various topics (often arranged in alphabetical order) dealing with the entire range of human knowledge or with some particular specialty
+ enabling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    enabling~1az providing legal power or sanction
+ editor ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    editor~1nz (^application~7) a program designed to perform such editorial functions as rearrangement or modification or deletion of data
+    editor~2nz (^worker~2) a person responsible for the editorial aspects of publication
+ executive ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    executive~1nz (^organization~7) persons who administer the law
+    executive~2nz (^head~26) someone who manages a government agency or department
+    executive~3nz (^head~26) a person responsible for the administration of a business
+    executive~4az having the function of carrying out plans or orders etc.
+ exclaiming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    exclaiming~1nz (^communication~1) 
+ expose ( meanings=10 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    expose~1nz (^act~1) the exposure of an impostor or a fraud
+    expose~2vz abandon by leaving out in the open air
+    expose~3vz expose while ridiculing
+    discover~4v 
+    queer~4v 
+    expose~6vz remove all or part of one's clothes to show one's body
+    expose~7vz expose or make accessible to some action or influence
+    expose~8vz expose to light, of photographic film
+    expose~9vz disclose to view as by removing a cover
+    exhibit~4v 
+ eclipse ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    eclipse~1nz (^break~13) one celestial body obscures another
+    eclipse~2vz cause an eclipse of by intervention
+    eclipse~3vz be greater in significance than
+ eager ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    bore~3n 
+    eager~2az having or showing keen interest or intense desire or impatient expectancy
+    eager~3az 
+ expense ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    expense~1nz (^hurt~2) a detriment or sacrifice
+    disbursement~2n 
+    expense~3nz (^expenditure~3) money spent to perform work and usually reimbursed by an employer
+    expense~4vz reduce the estimated value of something
+ earthquake ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    earthquake~1nz (^process~1) shaking and vibration at the surface of the earth resulting from underground movement along a fault plane of from volcanic activity
+    earthquake~2nz (^state~1) a disturbance that is extremely disruptive
+ epidemic ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    epidemic~1nz (^event~1) a widespread outbreak of an infectious disease
+    epidemic~2az of disease or anything resembling a disease
+    epidemic~3az 
+ emotion ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    emotion~1nz (^feeling~1) any strong feeling
+ eats ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    eats~1nz (^food~1) 
+ eater ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    eater~1nz (^produce~1) any green goods that are good to eat
+    feeder~6nz (^consumer~1) someone who consumes food for nourishment
+ evaporated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    evaporated~1az drawn off in the form of vapor
+ eggnog ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 ) 
+    eggnog~1nz (^punch~3) a punch made of sweetened milk or cream mixed with eggs and usually alcoholic liquor
+ elderly ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    aged~1nz (^people~1) people who are old collectively
+    aged~4a 
+    elderly~3az 
+ enemy ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    enemy~1nz (^people~1) any hostile group of people
+    enemy~2nz (^force~6) an opposing military force
+    foe~1nz (^opponent~1) an armed adversary 
+    foe~2nz (^competition~3) a personal enemy
+ extended ( meanings=6 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 COMMON1 posdefault:VERB ) 
+    extended~1az 
+    extended~2az beyond the literal or primary sense
+    extended~3az fully extended or stretched forth
+    prolonged~1az 
+    prolonged~2az 
+    extended~6az 
+ empire ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    empire~1nz (^government~4) a group of countries under a single authority
+    empire~2nz (^house~6) a group of diverse companies under common ownership and run as a single organization
+    empire~3nz (^group~1) a monarchy with an emperor as head of state
+    empire~4nz (^land~5) the domain ruled by an emperor or empress
+ eleven ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    eleven~1nz (^team~2) a team that plays football
+    eleven~2nz (^number~11) the cardinal number that is the sum of ten and one
+    eleven~3az being one more than ten
+ established ( meanings=6 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    established~1az introduced from another region and persisting without cultivation
+    established~2az brought about or set up or accepted
+    established~3az 
+    established~4az shown to be valid beyond a reasonable doubt
+    accomplished~2a 
+    established~6az 
+ endangered ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:VERB ) 
+    endangered~1az in imminent danger of extinction
+    endangered~2az 
+ elect ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN GRADE3_4 ADJECTIVE_POSTPOSITIVE posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) 
+    chosen~1nz (^class~3) an exclusive group of people
+    elect~2az elected but not yet installed in office
+    elect~3az selected as the best
+    elect~4vz choose
+    elect~5vz select by a vote for an office or membership
+ environs ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    environs~1nz (^region~4) an outer adjacent area of any place
+    environment~1n 
+ east ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) comparative=easter 
+    east~1nz (^object~1) a location in the eastern part of a country, region, or city
+    east~2nz (^point~22) the cardinal compass point that is at 90 degrees
+    east~3nz (^direction~9) the direction corresponding to the eastward cardinal compass point
+    east~4az situated in or facing or moving toward the east
+    east~5bz to, toward, or in the east
+ environment ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    surround~1nz (^region~4) the area in which something exists or lives
+    environment~2nz (^situation~4) the totality of surrounding conditions
+ equator ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    equator~1nz (^line~23) an imaginary line around the Earth forming the great circle that is equidistant from the north and south poles
+    equator~2nz (^circle~7) a circle dividing a sphere or other surface into two usually equal and symmetrical parts
+ existence ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    creation~5n 
+    being~2n 
+ eon ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    eon~1nz (^belief~2) a divine power or nature emanating from the Supreme Being and playing various roles in the operation of the universe
+    eon~2nz (^age~4) an immeasurably long period of time
+    eon~3nz (^time~1) the longest division of geological time
+ elf ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) plural=elves 
+    brownie~2nz (^sprite~1) fairies that are somewhat mischievous
+ engineer ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    engineer~1nz (^individual~1) a person who uses scientific knowledge to solve practical problems
+    engineer~2nz (^cause~1) the operator of a railway locomotive
+    organize~2v 
+    engineer~4vz design as an engineer
+ expert ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE (null) ) 
+    expert~1nz (^individual~1) a person with special knowledge or ability who performs skillfully
+    good~24a 
+    technical~5az of or relating to or requiring special knowledge to be understood
+    expert~4az 
+ exotic ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    exotic~1az strikingly strange or unusual
+    alien~4az being or from or characteristic of another place or part of the world
+    exotic~3az 
+ ex-wife ( meanings=2 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    ex-wife~1nz (^woman~3) a woman who was formerly a particular man's wife
+    ex-wife~2nz 
+ elder ( meanings=5 glosses=3 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=old 
+    senior~1n 
+    elder~2nz (^official~2) any of various church officers
+    elder~3nz (^bush~4) any of numerous shrubs or small trees of temperate and subtropical northern hemisphere having white flowers and berrylike fruit
+    older~3az used of the older of two persons of the same name especially used to distinguish a father from his son
+    elder~5az 
+ eldest ( meanings=2 glosses=2 MOST_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=elder 
+    eldest~1nz (^issue~8) the offspring who came first in the order of birth
+    eldest~2az first in order of birth
+ elected ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    elected~1az 
+ emeritus ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE ) 
+    emeritus~1nz (^individual~1) a professor or minister who is retired from assigned duties
+    emeritus~2az honorably retired from assigned duties and retaining your title along with the additional title `emeritus' as in `professor emeritus'
+    emeritus~3az 
+ emir ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    emir~1nz (^ruler~2) an independent ruler or chieftain
+ empress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN ) 
+    empress~1nz (^emperor~4) a woman emperor or the wife of an emperor
+ enchantress ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    witch~2nz (^individual~1) a female sorcerer or magician
+    enchantress~2nz (^woman~3) a woman who is considered to be dangerously seductive
+ Esquire ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Esq~1nz (^man~4) a title of respect for a member of the English gentry ranking just below a knight
+ Esq ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Esquire~1n 
+ executrix ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) plural=executrices 
+    executrix~1nz (^individual~1) a woman executor
+ ex-husband ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) 
+    ex-husband~1nz (^man~4) a man who was formerly a certain woman's husband
+ easter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=east 
+    easter~1nz (^wind~8) a wind from the east
+ elves ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=elf 
+    elves~1nz (^event~1) an acronym for emissions of light and very low frequency perturbations due to electromagnetic pulse sources
+ evoked ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    elicited~1a 
+ exploding ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    exploding~1az 
+ elm ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    elm~1nz (^tree~1) any of various trees of the genus Ulmus: important timber or shade trees
+    elm~2nz (^wood~4) hard tough wood of an elm tree
+ expressed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    expressed~1az precisely and clearly expressed or readily observable
+    uttered~1a 
+ earnest ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    earnest~1nz (^security~7) something of value given by one person to another to bind a contract
+    earnest~2az not distracted by anything unrelated to the goal
+    sincere~1a 
+    dear~6a 
+    earnest~5az 
+ erosion ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    corrosion~1nz (^activity~4) erosion by chemical action
+    eroding~1nz (^activity~4) the mechanical process of wearing or grinding something down (as by particles washing over it)
+    erosion~3nz (^decline~3) a gradual decline of something
+    erosion~4nz (^status~1) condition in which the earth's surface is worn away by the action of water and wind
+ eroding ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    wearing~2n 
+ enough ( meanings=4 glosses=1 NOUN_ABSTRACT PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADVERB DETERMINER NOUN_SINGULAR EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN DETERMINER_PLURAL PRONOUN_SINGULAR posdefault:ADVERB ) 
+    enough~1nz (^measure~1) an adequate quantity
+    plenty~3b 
+    enough~3z 
+    enough~4z 
+ eighter ( meanings=1 NOUN NOUN_SINGULAR COMMON1 posdefault:NOUN ) comparative=eight 
+    eight~2n 
+ eighteen ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN posdefault:NOUN ) 
+    eighteen~1nz (^number~11) the cardinal number that is the sum of seventeen and one
+    eighteen~2az being one more than seventeen
+ eighty ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    eighty~1nz (^number~11) the cardinal number that is the product of ten and eight
+    eighty~2az being ten more than seventy
+ employ ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    employ~1nz (^state~1) the state of being employed or having a job
+    apply~3vz put into service
+    hire~4vz engage or hire for work
+ elapsed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    elapsed~1az having passed or slipped by
+ eve ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    eve~1nz (^day~4) the day before
+    even~1n 
+    eve~3nz (^period~3) the period immediately before something
+ era ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    era~1nz (^time~1) a major division of geological time
+    epoch~2nz (^period~3) a period marked by distinctive character or reckoned from a fixed point or event
+ epoch ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    epoch~1nz (^time~1) a unit of geological time that is a subdivision of a period and is itself divided into ages
+    era~2n 
+    epoch~3nz (^date~7) an arbitrarily fixed date that is the point in time relative to which information (as coordinates of a celestial body) is recorded
+ echoes ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=echo 
+ equilibria ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=equilibrium 
+ executrices ( NOUN NOUN_PLURAL COMMON1 ) plural=executrix 
+ eek ( INTERJECTION ) 
+ eeugh ( INTERJECTION ) 
+ eeuh ( INTERJECTION ) 
+ eew ( INTERJECTION ) 
+ eeww ( INTERJECTION ) 
+ eewww ( INTERJECTION ) 
+ eh ( INTERJECTION ) 
+ eheh ( INTERJECTION ) 
+ ew ( INTERJECTION ) 
+ eww ( INTERJECTION ) 
+ ewww ( INTERJECTION ) 
+ ewwww ( INTERJECTION ) 
+ ewwwww ( INTERJECTION ) 
+ eheheh ( INTERJECTION ) 
+ egads ( INTERJECTION ) 
+ er ( INTERJECTION ) 
+ eureka ( INTERJECTION ) 
+ eventually ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    finally~2bz after an unspecified period of time or an especially long delay
+ earlier ( meanings=4 glosses=4 MORE_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN GRADE3_4 posdefault:ADJECTIVE TIMEWORD ) comparative=early 
+    earliest~1az more early than
+    before~1bz earlier in time
+    earlier~3bz before now
+    sooner~2bz comparatives of `soon' or `early'
+ emerging ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    emerging~1az 
+    rising~4az coming to maturity
+ extinct ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    extinct~1az permanently inactive
+    out~2a 
+    extinct~3az no longer in existence
+    extinct~4az 
+ effective ( meanings=7 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    effective~1az existing in fact
+    efficient~1az able to accomplish a purpose
+    good~10a 
+    effective~4az producing or capable of producing an intended result or having a striking effect
+    effective~5az works well as a means or remedy
+    effective~6az ready for service
+    effective~7az 
+ excited ( meanings=5 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB (null) ) 
+    excited~1az 
+    excited~2az in an aroused state
+    excited~3az 
+    mad~3a 
+    excited~5az 
+ ensuing ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    ensuing~1az following immediately and as a result of what went before
+ equipped ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    equipped~1az carrying weapons
+    equipped~2az provided or fitted out with what is necessary or useful or appropriate
+    equipped~3az provided with whatever is necessary for a purpose 
+    equipped~4az prepared with proper equipment
+ embarrassed ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    embarrassed~1az made to feel uncomfortable because of shame or wounded pride
+    abashed~1az feeling or caused to feel uneasy and self-conscious
+    embarrassed~3az 
+ engrossed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wrapped~1az giving or marked by complete attention to
+    engrossed~2az written formally in a large clear script, as a deed or other legal document
+ edged ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    edged~1az having a specified kind of border or edge
+    edged~2az having a cutting edge or especially an edge or edges as specified
+    cutting~13a 
+ encircling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    skirting~1az being all around the edges
+ exchanged ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    exchanged~1az changed for something different
+ exposed ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 COMMON1 posdefault:VERB ) 
+    exposed~1az 
+    open~17a 
+    exposed~3az 
+ exceptional ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    particular~5a 
+    exceptional~2az deviating widely from a norm of physical or mental ability
+    surpassing~1az far beyond what is usual in magnitude or degree
+    exceptional~4az 
+ extraordinary ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    extraordinary~1az serving an unusual or special function in addition to those of the regular officials
+    extraordinary~2az far more than usual or expected
+    extraordinary~3az beyond what is ordinary or usual
+    extraordinary~4az 
+ efficient ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    effective~2a 
+    efficient~2az being effective without wasting time or effort or expense
+    efficient~3az 
+ elliptical ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    elliptical~1az characterized by extreme economy of expression or omission of superfluous elements
+    oval~2a 
+    elliptical~3az 
+ exploded ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    exploded~1az showing the parts of something separated but in positions that show their correct relation to one another
+ errant ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    errant~1az uncontrolled motion that is irregular or unpredictable
+    errant~2az straying from the right course or from accepted standards
+ exact ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL EXTENT_ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    precise~1az characterized by perfect conformity to fact or truth 
+    exact~2az marked by strict and particular and complete accordance with fact
+    exact~3az 
+    take~13vz take as an undesirable consequence of some event or state of affairs
+    demand~7vz claim as due or just
+ exacting ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    exacting~1az requiring precise accuracy
+    exacting~2az severe and unremitting in making demands
+    fastidious~2a 
+    exacting~4az 
+ embarrassing ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    awkward~3a 
+    embarrassing~2az causing to feel shame or chagrin or vexation
+    embarrassing~3az 
+ earliest ( meanings=2 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE3_4 posdefault:ADJECTIVE ) comparative=earlier 
+    earlier~1a 
+    soonest~1b 
+ educated ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    educated~1az possessing an education
+    educated~2az 
+    educated~3az 
+ exhausting ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tiring~1az producing exhaustion
+    draining~1az having a debilitating effect
+ economical ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    economic~1az using the minimum of time or resources necessary for effectiveness
+    stinting~1az avoiding waste
+    economic~5az of or relating to an economy, the system of production and management of material wealth
+    economical~4az 
+ eligible ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    eligible~1az qualified for or allowed or worthy of being chosen
+    eligible~2az 
+ entitled ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    entitled~1az qualified for by right according to law
+    entitled~2az 
+ employed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    employed~1az having your services engaged for
+    employed~2az put to use
+ enthralled ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    delighted~1a 
+    enthralled~2az 
+ encouraging ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    encouraging~1az giving courage or confidence or hope
+    supporting~3az furnishing support and encouragement
+    encouraging~3az 
+ energetic ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    energetic~1az possessing or exerting or displaying energy
+    energetic~2az working hard to promote an enterprise
+    energetic~3az 
+ enhanced ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB (null) ) 
+    enhanced~1az increased or intensified in value or beauty or quality
+    enhanced~2az 
+ exaggerated ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    magnified~1az enlarged to an abnormal degree
+    exaggerated~2az represented as greater than is true or reasonable
+    exaggerated~3az 
+ exciting ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    exciting~1az creating or arousing excitement
+    exciting~2az stimulating interest and discussion
+    exciting~3az 
+ electrifying ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    thrilling~1az causing a surge of emotion or excitement
+ exhausted ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    spent~1a 
+    exhausted~2az drained physically
+    spent~2a 
+ existing ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    existing~1az 
+    existing~2az presently existing
+    existing~3az existing in something specified
+ extant ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    extant~1az still in existence
+ expensive ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    expensive~1az high in price or charging high prices
+    expensive~2az 
+ experienced ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    experienced~1az having experience
+    experienced~2az 
+ eyed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    eyed~1az having an eye or eyes or eyelike feature especially as specified
+ emaciated ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    wasted~2a 
+    emaciated~2az 
+ ended ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    concluded~1a 
+ escaped ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    loose~7a 
+ exasperating ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:VERB ) 
+    aggravating~1az making worse
+    exasperating~2az extremely annoying or displeasing
+ engrossing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    absorbing~1a 
+ entertaining ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    entertaining~1az agreeably diverting
+    entertaining~2az 
+ extraneous ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    outside~9a 
+    extraneous~2az not essential
+    impertinent~2a 
+    foreign~4a 
+ enormous ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    tremendous~1a 
+    enormous~2az 
+ excessive ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    excessive~1az beyond normal limits
+    extravagant~1a 
+    excessive~3az 
+ encircled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    surrounded~1a 
+ extraordinaire ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE ) 
+    extraordinaire~1az extraordinary in a particular capacity
+ evanescent ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    evanescent~1az tending to vanish like vapor
+ enjoyable ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    pleasurable~1a 
+    enjoyable~2az 
+ entertained ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    amused~1az pleasantly occupied
+ encouraged ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    encouraged~1az inspired with confidence
+ evidenced ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    evidenced~1az supported by evidence
+ extravagant ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    excessive~2az unrestrained, especially with regard to feelings
+    extravagant~2az recklessly wasteful
+ echoing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    echoing~1az 
+ enticing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    alluring~1a 
+ effected ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    established~5a 
+ each ( meanings=4 glosses=2 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN DETERMINER_SINGULAR PRONOUN_SINGULAR posdefault:ADVERB OMITTABLE_TIME_PREPOSITION ) 
+    each~1az every one considered individually
+    apiece~1bz to or from every one of two or more 
+    each~3z 
+    each~4z 
+ every ( meanings=2 glosses=1 ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_SINGULAR OMITTABLE_TIME_PREPOSITION ) 
+    every~1az each and all of the members of a group considered singly and without exception
+    every~2z 
+ elicited ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    evoked~1az called forth from a latent or potential state by stimulation
+ emphasized ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    emphasized~1az spoken with emphasis
+ excellent ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    splendid~3az very good
+    excellent~2az 
+ excused ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    excused~1az granted exemption
+ eroded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    eroded~1az 
+ elusory ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) 
+    elusory~1az 
+ electrified ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    electrified~1az 
+ emptied ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    emptied~1az 
+ enslaved ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    enslaved~1az 
+ expecting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    expecting~1az 
+ earthlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=earthly 
+ earthliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=earthlier 
+ easier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=easy 
+ easiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=easier 
+ emptier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=empty 
+ emptiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=emptier 
+ embarrass ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    abash~1vz cause to be embarrassed
+    block~27v 
+ encourage ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) (null) ) 
+    encourage~1vz spur on
+    encourage~2vz inspire with confidence
+    advance~20v 
+ entertain ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    entertain~1vz take into consideration, have in view
+    harbour~3v 
+    entertain~3vz provide entertainment for
+ excite ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    stimulate~2vz act as a stimulant
+    excite~2vz produce a magnetic field in
+    excite~3vz raise to a higher energy level
+    stimulate~6vz stir the feelings, emotions, or peace of
+    sex~6vz stimulate sexually
+    charge~32v 
+    excite~7vz arouse or elicit a feeling
+    stimulate~7vz stir feelings in
+ entirely ( meanings=2 glosses=1 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    wholly~1b 
+    alone~5bz without any others being included or involved
+ easily ( meanings=3 glosses=3 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    well~12bz indicating high probability
+    easily~2bz without question
+    easy~14bz with ease 
+ ever ( meanings=3 glosses=2 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    always~1b 
+    ever~2bz at any time
+    ever~3bz very
+ either ( meanings=4 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT ADVERB DETERMINER COMMON4 COMMON1 KINDERGARTEN DETERMINER_SINGULAR PRONOUN_SINGULAR posdefault:ADVERB ) 
+    either~1bz after a negative statement used as an intensive meaning something like `likewise' or `also'
+    either~2bz 
+    either~3z 
+    either~4z 
+ everywhere ( meanings=1 glosses=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    everywhere~1bz to or in any or all places
+ evidently ( meanings=1 ADVERB COMMON4 GRADE5_6 posdefault:ADVERB ) 
+    obviously~1b 
+ excessively ( meanings=1 ADVERB COMMON2 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    too~1b 
+ especially ( meanings=2 glosses=1 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    particularly~1b 
+    especially~2bz in a special manner
+ elsewhere ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 GRADE3_4 posdefault:ADVERB ) 
+    elsewhere~1bz in or to another place
+ economically ( meanings=3 glosses=3 ADVERB COMMON4 GRADE5_6 posdefault:ADVERB ) 
+    economically~1bz with respect to economic science
+    economically~2bz with respect to the economic system
+    economically~3bz in an economical manner
+ exactly ( meanings=3 glosses=3 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    just~10bz indicating exactness or preciseness
+    exactly~2bz in a precise manner
+    exactly~3bz just as it should be
+ et ( meanings=1 CONJUNCTION_COORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN ) 
+    et~1z 
+ effortlessly ( meanings=1 glosses=1 ADVERB COMMON2 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    effortlessly~1bz without effort or apparent effort
+ else ( meanings=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    else~1bz 
+ even_if ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    even_if~1z 
+ even_though ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    even_though~1z 
+ ever_since ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    ever_since~1z 
+ except_that ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    except_that~1z 
+ except ( meanings=1 PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION VERB_NOOBJECT ) 
+    except~1z 
+ ere ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    ere~1z 
+    ere~2z 
+ excluding ( meanings=1 PREPOSITION COMMON4 posdefault:VERB ) 
+    excluding~1z 
+ exhale ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exhale~1vz expel air
+    emanate~1v 
+ emanate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exhale~2vz give out 
+    emanate~2vz proceed or issue forth, as from a source
+ extend ( meanings=17 glosses=16 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    stretch~10vz extend one's limbs or muscles, or the entire body
+    extend~2vz thrust or extend out
+    stretch~12vz increase in quantity or bulk by adding a cheaper substance
+    carry~3vz continue or extend
+    prolong~1vz lengthen in time
+    extend~6vz prolong the time allowed for payment of
+    extend~7vz extend in scope or range or area
+    extend~8vz expand the influence of
+    strain~15vz use to the utmost
+    extend~10vz open or straighten out
+    gallop~3vz cause to move at full gallop
+    stretch~19vz extend or stretch out to a greater or the full length
+    offer~11vz offer verbally
+    offer~12vz make available
+    pass~41vz stretch out over a distance, space, time, or scope
+    continue~7v 
+    extend~17vz reach outward in space
+ expect ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    bear~5vz be pregnant with
+    expect~2vz look forward to the birth of a child
+    expect~3vz consider reasonable or due
+    expect~4vz regard something as probable or likely
+    look~7vz look forward to the probable occurrence of
+    ask~2v 
+ exude ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exude~1vz release in drops or small quantities
+    exude~2vz make apparent by one's mood or behavior
+ eliminate ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    pass~18v 
+    eliminate~2vz kill in large numbers
+    eliminate~3vz terminate, end, or take out
+    eliminate~4vz remove from two or more equations
+    reject~2vz dismiss from consideration or a contest
+    eliminate~6vz remove from a contest or race
+    eliminate~7vz do away with
+ eject ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    exhaust~4v 
+    squirt~4v 
+    exclude~3v 
+    eject~4vz leave an aircraft rapidly, using an ejection seat or capsule
+ explode ( meanings=10 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    explode~1vz increase rapidly and in an uncontrolled manner
+    burst~5vz burst outward, usually with noise
+    explode~3vz burst and release energy as through a violent chemical or physical reaction
+    explode~4vz be unleashed
+    explode~5vz cause to burst with a violent release of energy
+    explode~6vz show to be baseless, or refute and make obsolete
+    explode~7vz show a violent emotional reaction
+    explode~8vz drive from the stage by noisy disapproval
+    explode~9vz cause to burst as a result of air pressure
+    explode~10vz destroy by exploding
+ extirpate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    extirpate~1vz surgically remove
+    extirpate~2vz pull up by or as if by the roots
+    extirpate~3vz destroy completely, as if down to the roots
+ evaporate ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    melt~2v 
+    evaporate~2vz lose or cause to lose liquid by vaporization leaving a more concentrated residue
+    evaporate~3vz change into a vapor
+    evaporate~4vz cause to change into a vapor
+ enhance ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    raise~7v 
+    enhance~2vz make better or more attractive
+ eat ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=eaten 
+    rust~9vz cause to deteriorate due to the action of water, air, or an acid
+    consume~3vz use up 
+    eat~3vz eat a meal
+    eat~4vz take in solid food
+    feed~5v 
+    eat~6vz worry or cause anxiety in a persistent way
+ erode ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    erode~1vz remove soil or rock
+    gnaw~1v 
+ effuse ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    effuse~1vz give out or emit 
+    effuse~2vz flow or spill forth
+    effuse~3vz pour out
+ embellish ( meanings=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    beautify~1v 
+    pad~9v 
+    ornament~2v 
+    beautify~3v 
+ erupt ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT PRESENTATION_VERB ) 
+    erupt~1vz become active and spew forth lava and rocks
+    erupt~2vz erupt or intensify suddenly
+    erupt~3vz become raw or open
+    erupt~4vz start abruptly
+    erupt~5vz appear on the skin
+    erupt~6vz break out
+    burst~9v 
+    erupt~8vz start to burn or burst into flames
+ enter ( meanings=9 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    enter~1vz set out on 
+    record~12v 
+    participate~1vz become a participant
+    introduce~7v 
+    enter~5vz come on stage
+    enter~6vz to come or go into
+    accede~3vz take on duties or office
+    enter~8vz register formally as a participant or member
+    figure~18v 
+ emerge ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT PRESENTATION_VERB ) 
+    emerge~1vz come out into view, as from concealment
+    emerge~2vz become known or apparent
+    issue~12vz come out of
+    emerge~4vz come up to the surface of or rise
+    emerge~5vz happen or occur as a result of something
+ erase ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    erase~1vz remove from memory or existence
+    erase~2vz wipe out digitally or magnetically recorded information
+    erase~3vz remove by or as if by rubbing or erasing
+ electrify ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    wire~5v 
+    electrify~2vz charge with electricity
+    electrify~3vz excite suddenly and intensely
+ enable ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    enable~1vz render capable or able for some task
+ equip ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    equip~1vz provide with abilities or understanding
+    fit~11v 
+ elevate ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    lift~20v 
+    lift~31v 
+    advance~19v 
+ engross ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    absorb~2v 
+    absorb~3v 
+ educate ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    prepare~3v 
+    educate~2vz give an education to
+    school~10vz teach or refine to be discriminative in taste or judgment
+ elucidate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    crystallize~4v 
+    clarify~2vz make clear and comprehensible
+ establish ( meanings=8 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    found~2v 
+    prove~1v 
+    make~13v 
+    establish~4vz place
+    found~3v 
+    give~23v 
+    build~9v 
+    found~4v 
+ examine ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    canvass~8v 
+    examine~2vz question closely
+    examine~3vz question or examine thoroughly and closely
+    see~18v 
+    test~11v 
+ explore ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    explore~1vz examine for diagnostic purposes
+    explore~2vz examine minutely
+    search~6vz inquire into
+    explore~4vz travel to or penetrate into
+ evaluate ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    judge~3v 
+    appraise~2v 
+ elicit ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    elicit~1vz derive by reason
+    extract~9v 
+    fire~15v 
+ entreat ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) 
+    beseech~1v 
+ entice ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    entice~1vz provoke someone to do something through promises or persuasion
+ eschew ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    eschew~1vz avoid and stay away from deliberately
+ exaggerate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    magnify~3vz to enlarge beyond bounds or the truth
+    exaggerate~2vz do something to an excessive degree
+ explain ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    excuse~5vz serve as a reason or cause or justification of
+    explain~2vz make plain and comprehensible
+    explain~3vz define
+ exclaim ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    cry~8vz utter aloud
+    proclaim~2vz state or announce
+ evoke ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    suggest~4v 
+    conjure~3v 
+    elicit~2v 
+    evoke~4vz evoke or provoke to appear or occur
+    elicit~3v 
+ encode ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    encode~1vz convert information into code
+ emphasize ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    stress~7vz to stress, single out as important
+    emphasize~2vz give extra weight to 
+ entitle ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    title~12vz give a title to
+    gentle~11v 
+    entitle~3vz give the right to
+ emulate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    emulate~1vz compete with successfully
+    emulate~2vz imitate the function of , as by modifying the hardware or the software
+    emulate~3vz strive to equal or match, especially by imitating
+ exert ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    exercise~9v 
+    maintain~8v 
+    exert~3vz make a great effort at a mental or physical task
+ enjoy ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT ) 
+    delight~3v 
+    enjoy~2vz have benefit from
+    bask~2vz derive or receive pleasure from
+    love~8vz get pleasure from
+    enjoy~5vz have for one's benefit
+ encircle ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    gird~2vz bind with something round or circular
+    circle~9v 
+ environ ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 VERB_DIRECTOBJECT ) 
+    surround~4v 
+ evict ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    evict~1vz expel from one's property or force to move out by a legal process
+    evict~2vz expel or eject without recourse to legal process
+ expunge ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    strike~17v 
+ extricate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    extricate~1vz release from entanglement of difficulty
+ enthrall ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    transport~9v 
+ elapse ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    pass~30v 
+ economize ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    husband~2v 
+    save~9v 
+ earn ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    clear~39v 
+    earn~2vz acquire or deserve by one's efforts or actions
+ expedite ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    expedite~1vz process fast and efficiently
+    expedite~2vz speed up the progress of
+ enslave ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    enslave~1vz make a slave of
+ exist ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT PRESENTATION_VERB (null) ) 
+    be~3vz have an existence, be extant
+    survive~1vz support oneself
+ ensue ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    result~6v 
+ excel ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    surpass~4v 
+ eaten ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=ate 
+ everybody ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    everybody~1z 
+ everyone ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE PRONOUN_SINGULAR ANIMATE_BEING ) 
+    everyone~1z 
+ everything ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN PRONOUN_SINGULAR ) 
+    everything~1z 
+ each_other ( meanings=1 PRONOUN_OBJECT KINDERGARTEN ANIMATE_BEING ) 
+    each_other~1z 
+ each_and_every ( meanings=1 DETERMINER KINDERGARTEN DETERMINER_SINGULAR ) 
+    each_and_every~1z 
+ Esq. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Ensign ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

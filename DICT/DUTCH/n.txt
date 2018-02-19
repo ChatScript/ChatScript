@@ -1,0 +1,3035 @@
+﻿ N'etje ( NOUN NOUN_SINGULAR ) lemma=`n` nounsg  
+ N'etjes ( NOUN NOUN_PLURAL ) lemma=`n` nounpl  
+ N's ( NOUN NOUN_PLURAL ) lemma=`n` nounpl  
+ N-bom ( NOUN NOUN_SINGULAR ) 
+ N-bommen ( NOUN NOUN_PLURAL ) lemma=`N-bom` nounpl  
+ N. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`N.`N.` nounabbr  num__ord  
+ N.A.R. ( NOUN NOUN_SINGULAR ) 
+ N.A.V.O. ( NOUN NOUN_SINGULAR ) 
+ N.H. ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`N.H.`N.H.` nounabbr  nounprop  
+ NAM ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NAM`NAM` nounabbr  nounprop  
+ NAP ( NOUN NOUN_SINGULAR ) 
+ NASA ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NASA`NASA` nounabbr  nounprop  
+ NATO ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NATO`NATO` nounabbr  nounprop  
+ NAVO ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NAVO`NAVO` nounabbr  nounprop  
+ NAVO-besluit ( NOUN NOUN_SINGULAR ) 
+ NAVO-besluiten ( NOUN NOUN_PLURAL ) lemma=`NAVO-besluit` nounpl  
+ NAVO-bondgenootschap ( NOUN NOUN_SINGULAR ) 
+ NAVO-communiqué ( NOUN NOUN_SINGULAR ) 
+ NAVO-communiqués ( NOUN NOUN_PLURAL ) lemma=`NAVO-communiqué` nounpl  
+ NAVO-eenheden ( NOUN NOUN_PLURAL ) lemma=`NAVO-eenheid` nounpl  
+ NAVO-eenheid ( NOUN NOUN_SINGULAR ) 
+ NAVO-hoofdkwartier ( NOUN NOUN_SINGULAR ) 
+ NAVO-hoofdkwartieren ( NOUN NOUN_PLURAL ) lemma=`NAVO-hoofdkwartier` nounpl  
+ NAVO-land ( NOUN NOUN_SINGULAR ) 
+ NAVO-landen ( NOUN NOUN_PLURAL ) lemma=`NAVO-land` nounpl  
+ NAVO-leden ( NOUN NOUN_PLURAL ) lemma=`NAVO-lid` nounpl  
+ NAVO-lid ( NOUN NOUN_SINGULAR ) 
+ NAVO-lidmaatschap ( NOUN NOUN_SINGULAR ) 
+ NAVO-lidstaat ( NOUN NOUN_SINGULAR ) 
+ NAVO-lidstaten ( NOUN NOUN_PLURAL ) lemma=`NAVO-lidstaat` nounpl  
+ NAVO-oefening ( NOUN NOUN_SINGULAR ) 
+ NAVO-oefeningen ( NOUN NOUN_PLURAL ) lemma=`NAVO-oefening` nounpl  
+ NAVO-top ( NOUN NOUN_SINGULAR ) 
+ NAVO-troepen ( NOUN NOUN_PLURAL ) 
+ NAVO-verband ( NOUN NOUN_SINGULAR ) 
+ NAVO-verdrag ( NOUN NOUN_SINGULAR ) 
+ NAVO-verdragsgebied ( NOUN NOUN_SINGULAR ) 
+ NAVO-vloot ( NOUN NOUN_SINGULAR ) 
+ NAVO-vloten ( NOUN NOUN_PLURAL ) lemma=`NAVO-vloot` nounpl  
+ NCMV ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NCMV`NCMV` nounabbr  nounprop  
+ NCOS ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NCOS`NCOS` nounabbr  nounprop  
+ NCRV ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NCRV`NCRV` nounabbr  nounprop  
+ NCW ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NCW`NCW` nounabbr  nounprop  
+ NGO ( NOUN NOUN_SINGULAR ) 
+ NGO's ( NOUN NOUN_PLURAL ) lemma=`NGO` nounpl  
+ NHM ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NHM`NHM` nounabbr  nounprop  
+ NIPO ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NIPO`NIPO` nounabbr  nounprop  
+ NJHC ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NJHC`NJHC` nounabbr  nounprop  
+ NKV ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NKV`NKV` nounabbr  nounprop  
+ NMBS ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NMBS`NMBS` nounabbr  nounprop  
+ NMVB ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NMVB`NMVB` nounabbr  nounprop  
+ NNO ( NOUN NOUN_SINGULAR ) 
+ NNW ( NOUN NOUN_SINGULAR ) 
+ NO ( NOUN NOUN_SINGULAR ) 
+ NOC ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NOC`NOC` nounabbr  nounprop  
+ NOS ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NOS`NOS` nounabbr  nounprop  
+ NOS-journaal ( NOUN NOUN_SINGULAR ) 
+ NOS-journaals ( NOUN NOUN_PLURAL ) lemma=`NOS-journaal` nounpl  
+ NOS-journalen ( NOUN NOUN_PLURAL ) lemma=`NOS-journaal` nounpl  
+ NOS-programma ( NOUN NOUN_SINGULAR ) 
+ NOS-programma's ( NOUN NOUN_PLURAL ) lemma=`NOS-programma` nounpl  
+ NOS-televisie ( NOUN NOUN_SINGULAR ) 
+ NOVIB ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NOVIB`NOVIB` nounabbr  nounprop  
+ NR. ( NOUN NOUN_SINGULAR ) 
+ NRS. ( NOUN NOUN_SINGULAR ) 
+ NS ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NS`NS` nounabbr  nounprop  
+ NS-directie ( NOUN NOUN_SINGULAR ) 
+ NS-direktie ( NOUN NOUN_SINGULAR ) 
+ NS-personeel ( NOUN NOUN_SINGULAR ) 
+ NSB ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NSB`NSB` nounabbr  nounprop  
+ NT ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NT`NT` nounabbr  nounprop  
+ NV ( NOUN NOUN_SINGULAR ) 
+ NV's ( NOUN NOUN_PLURAL ) lemma=`NV` nounpl  
+ NVSH ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NVSH`NVSH` nounabbr  nounprop  
+ NVV ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NVV`NVV` nounabbr  nounprop  
+ NW ( NOUN NOUN_SINGULAR ) 
+ NZ ( NOUN NOUN_SINGULAR ) 
+ NZHRM ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`NZHRM`NZHRM` nounabbr  nounprop  
+ Naams ( ADJECTIVE ) 
+ Naamse ( NOUN NOUN_SINGULAR ) 
+ Naamsen ( NOUN NOUN_PLURAL ) lemma=`Naamse` nounpl  
+ Nachitsjevan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nairobi ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nairobisch ( ADJECTIVE ) 
+ Namen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Namenaar ( NOUN NOUN_SINGULAR ) 
+ Namenaars ( NOUN NOUN_PLURAL ) lemma=`Namenaar` nounpl  
+ Namenaren ( NOUN NOUN_PLURAL ) lemma=`Namenaar` nounpl  
+ Namibisch ( ADJECTIVE ) 
+ Namibische ( NOUN NOUN_SINGULAR ) 
+ Namibischen ( NOUN NOUN_PLURAL ) lemma=`Namibische` nounpl  
+ Namibië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Namibiër ( NOUN NOUN_SINGULAR ) 
+ Namibiërs ( NOUN NOUN_PLURAL ) lemma=`Namibiër` nounpl  
+ Nanking ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nankings ( ADJECTIVE ) 
+ Napels ( NOUN NOUN_PROPER_SINGULAR ) 
+ Napolitaan ( NOUN NOUN_SINGULAR ) 
+ Napolitaans ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Napolitaans`Napolitaans` adj  nounprop  
+ Napolitaanse ( NOUN NOUN_SINGULAR ) 
+ Napolitaansen ( NOUN NOUN_PLURAL ) lemma=`Napolitaanse` nounpl  
+ Napolitanen ( NOUN NOUN_PLURAL ) lemma=`Napolitaan` nounpl  
+ Nassau ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nassauer ( NOUN NOUN_SINGULAR ) 
+ Nassauers ( NOUN NOUN_PLURAL ) lemma=`Nassauer` nounpl  
+ Nassaus ( ADJECTIVE ) 
+ Nassause ( NOUN NOUN_SINGULAR ) 
+ Nassausen ( NOUN NOUN_PLURAL ) lemma=`Nassause` nounpl  
+ Nat. ( NOUN NOUN_SINGULAR ) 
+ Nauplion ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nauru ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nauruaan ( NOUN NOUN_SINGULAR ) 
+ Nauruaans ( ADJECTIVE ) 
+ Nauruaanse ( NOUN NOUN_SINGULAR ) 
+ Nauruaansen ( NOUN NOUN_PLURAL ) lemma=`Nauruaanse` nounpl  
+ Nauruanen ( NOUN NOUN_PLURAL ) lemma=`Nauruaan` nounpl  
+ Nazareens ( ADJECTIVE ) 
+ Nazareense ( NOUN NOUN_SINGULAR ) 
+ Nazareensen ( NOUN NOUN_PLURAL ) lemma=`Nazareense` nounpl  
+ Nazareeër ( NOUN NOUN_SINGULAR ) 
+ Nazareeërs ( NOUN NOUN_PLURAL ) lemma=`Nazareeër` nounpl  
+ Nazarener ( NOUN NOUN_SINGULAR ) 
+ Nazareners ( NOUN NOUN_PLURAL ) lemma=`Nazarener` nounpl  
+ Nazareth ( NOUN NOUN_PROPER_SINGULAR ) 
+ Ndjamena ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neanderthaler ( NOUN NOUN_SINGULAR ) 
+ Neanderthalers ( NOUN NOUN_PLURAL ) lemma=`Neanderthaler` nounpl  
+ Neder-Californië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neder-Guinee ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neder-Oostenrijk ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neder-Oostenrijker ( NOUN NOUN_SINGULAR ) 
+ Neder-Oostenrijkers ( NOUN NOUN_PLURAL ) lemma=`Neder-Oostenrijker` nounpl  
+ Neder-Oostenrijks ( ADJECTIVE ) 
+ Neder-Rijn ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neder-Saksen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neder-Saksisch ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Neder-Saksisch`Neder-Saksisch` adj  nounprop  
+ Nederland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nederlanden ( NOUN NOUN_PLURAL ) lemma=`Nederland` nounpl  
+ Nederlander ( NOUN NOUN_SINGULAR ) 
+ Nederlanders ( NOUN NOUN_PLURAL ) lemma=`Nederlander` nounpl  
+ Nederlanderschap ( NOUN NOUN_SINGULAR ) 
+ Nederlands ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Nederlands`Nederlands` adj  nounprop  
+ Nederlands-Indië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nederlandse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nederlands`Nederlandse` adj  nounsg  
+ Nederlandsen ( NOUN NOUN_PLURAL ) lemma=`Nederlandse` nounpl  
+ Nederlandser ( ADJECTIVE ) lemma=`Nederlands` adj  
+ Nederlandsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nederlands`Nederlandsere` adj  nounsg  
+ Nederlandssprekend ( ADJECTIVE ) 
+ Nederlandssprekende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nederlandssprekend`Nederlandssprekende` adj  nounsg  
+ Nederlandst ( ADJECTIVE ) lemma=`Nederlands` adj  
+ Nederlandstalig ( ADJECTIVE ) 
+ Nederlandstalige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nederlandstalig`Nederlandstalige` adj  nounsg  
+ Nederlandstaligen ( NOUN NOUN_PLURAL ) lemma=`Nederlandstalige` nounpl  
+ Nederlandste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nederlands`Nederlandste` adj  nounsg  
+ Nepal ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nepalees ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nepalees`Nepalees` adj  nounsg  
+ Nepalese ( NOUN NOUN_SINGULAR ) 
+ Nepalesen ( NOUN NOUN_PLURAL ) lemma=`Nepalese` nounpl  
+ Nepalezen ( NOUN NOUN_PLURAL ) lemma=`Nepalees` nounpl  
+ Neptunus ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nete ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neurenberg ( NOUN NOUN_PROPER_SINGULAR ) 
+ Neurenberger ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Neurenberger`Neurenberger` adj  nounsg  
+ Neurenbergers ( NOUN NOUN_PLURAL ) lemma=`Neurenberger` nounpl  
+ Neurenbergs ( ADJECTIVE ) 
+ Neurenbergse ( NOUN NOUN_SINGULAR ) 
+ Neurenbergsen ( NOUN NOUN_PLURAL ) lemma=`Neurenbergse` nounpl  
+ Niamey ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nicaragua ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nicaraguaan ( NOUN NOUN_SINGULAR ) 
+ Nicaraguaans ( ADJECTIVE ) 
+ Nicaraguaanse ( NOUN NOUN_SINGULAR ) 
+ Nicaraguaansen ( NOUN NOUN_PLURAL ) lemma=`Nicaraguaanse` nounpl  
+ Nicaraguanen ( NOUN NOUN_PLURAL ) lemma=`Nicaraguaan` nounpl  
+ Nicobaren ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nicosia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Caledonisch ( ADJECTIVE ) 
+ Nieuw-Caledonische ( NOUN NOUN_SINGULAR ) 
+ Nieuw-Caledonischen ( NOUN NOUN_PLURAL ) lemma=`Nieuw-Caledonische` nounpl  
+ Nieuw-Caledonië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Caledoniër ( NOUN NOUN_SINGULAR ) 
+ Nieuw-Caledoniërs ( NOUN NOUN_PLURAL ) lemma=`Nieuw-Caledoniër` nounpl  
+ Nieuw-Castilië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Guinea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Guinees ( ADJECTIVE ) 
+ Nieuw-Guinese ( NOUN NOUN_SINGULAR ) 
+ Nieuw-Guinesen ( NOUN NOUN_PLURAL ) lemma=`Nieuw-Guinese` nounpl  
+ Nieuw-Guineër ( NOUN NOUN_SINGULAR ) 
+ Nieuw-Guineërs ( NOUN NOUN_PLURAL ) lemma=`Nieuw-Guineër` nounpl  
+ Nieuw-Kastilië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Siberische ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Zeeland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nieuw-Zeelander ( NOUN NOUN_SINGULAR ) 
+ Nieuw-Zeelanders ( NOUN NOUN_PLURAL ) lemma=`Nieuw-Zeelander` nounpl  
+ Nieuw-Zeelands ( ADJECTIVE ) 
+ Nieuw-Zeelandse ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`Nieuw-Zeelandse`Nieuw-Zeelandse` nounprop  nounsg  
+ Nieuw-Zeelandsen ( NOUN NOUN_PLURAL ) lemma=`Nieuw-Zeelandse` nounpl  
+ Niger ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nigeraan ( NOUN NOUN_SINGULAR ) 
+ Nigeraans ( ADJECTIVE ) 
+ Nigeraanse ( NOUN NOUN_SINGULAR ) 
+ Nigeraansen ( NOUN NOUN_PLURAL ) lemma=`Nigeraanse` nounpl  
+ Nigeranen ( NOUN NOUN_PLURAL ) lemma=`Nigeraan` nounpl  
+ Nigerees ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Nigerees`Nigerees` adj  nounsg  
+ Nigerese ( NOUN NOUN_SINGULAR ) 
+ Nigeresen ( NOUN NOUN_PLURAL ) lemma=`Nigerese` nounpl  
+ Nigerezen ( NOUN NOUN_PLURAL ) lemma=`Nigerees` nounpl  
+ Nigeria ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nigeriaan ( NOUN NOUN_SINGULAR ) 
+ Nigeriaans ( ADJECTIVE ) 
+ Nigeriaanse ( NOUN NOUN_SINGULAR ) 
+ Nigeriaansen ( NOUN NOUN_PLURAL ) lemma=`Nigeriaanse` nounpl  
+ Nigerianen ( NOUN NOUN_PLURAL ) lemma=`Nigeriaan` nounpl  
+ Nigerisch ( ADJECTIVE ) 
+ Nigerische ( NOUN NOUN_SINGULAR ) 
+ Nigerischen ( NOUN NOUN_PLURAL ) lemma=`Nigerische` nounpl  
+ Nigers ( ADJECTIVE ) 
+ Nigerse ( NOUN NOUN_SINGULAR ) 
+ Nigersen ( NOUN NOUN_PLURAL ) lemma=`Nigerse` nounpl  
+ Nijl ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nijmeegs ( ADJECTIVE ) 
+ Nijmeegse ( NOUN NOUN_SINGULAR ) 
+ Nijmeegsen ( NOUN NOUN_PLURAL ) lemma=`Nijmeegse` nounpl  
+ Nijmegen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nijmegenaar ( NOUN NOUN_SINGULAR ) 
+ Nijmegenaars ( NOUN NOUN_PLURAL ) lemma=`Nijmegenaar` nounpl  
+ Nijmegenaren ( NOUN NOUN_PLURAL ) lemma=`Nijmegenaar` nounpl  
+ Niue ( NOUN NOUN_PROPER_SINGULAR ) 
+ No. ( NOUN NOUN_SINGULAR ) 
+ Nobelprijs ( NOUN NOUN_SINGULAR ) 
+ Nobelprijswinnaar ( NOUN NOUN_SINGULAR ) 
+ Nobelprijswinnaars ( NOUN NOUN_PLURAL ) lemma=`Nobelprijswinnaar` nounpl  
+ Nobelprijzen ( NOUN NOUN_PLURAL ) lemma=`Nobelprijs` nounpl  
+ Noor ( NOUN NOUN_SINGULAR ) 
+ Noord-Afrika ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Afrikaan ( NOUN NOUN_SINGULAR ) 
+ Noord-Afrikaans ( ADJECTIVE ) 
+ Noord-Afrikanen ( NOUN NOUN_PLURAL ) lemma=`Noord-Afrikaan` nounpl  
+ Noord-Amerika ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Amerikaan ( NOUN NOUN_SINGULAR ) 
+ Noord-Amerikaans ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Noord-Amerikaans`Noord-Amerikaans` adj  nounprop  
+ Noord-Amerikaanse ( NOUN NOUN_SINGULAR ) 
+ Noord-Amerikaansen ( NOUN NOUN_PLURAL ) lemma=`Noord-Amerikaanse` nounpl  
+ Noord-Amerikanen ( NOUN NOUN_PLURAL ) lemma=`Noord-Amerikaan` nounpl  
+ Noord-Atlantisch ( ADJECTIVE ) 
+ Noord-Atlantische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Noord-Atlantisch`Noord-Atlantische` adj  nounsg  
+ Noord-Brabander ( NOUN NOUN_SINGULAR ) 
+ Noord-Brabanders ( NOUN NOUN_PLURAL ) lemma=`Noord-Brabander` nounpl  
+ Noord-Brabant ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Brabants ( ADJECTIVE ) 
+ Noord-Brabantse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Noord-Brabants`Noord-Brabantse` adj  nounsg  
+ Noord-Brabantsen ( NOUN NOUN_PLURAL ) lemma=`Noord-Brabantse` nounpl  
+ Noord-Equatoriale ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Europa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Europees ( ADJECTIVE ) 
+ Noord-Friese ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Holland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Hollander ( NOUN NOUN_SINGULAR ) 
+ Noord-Hollanders ( NOUN NOUN_PLURAL ) lemma=`Noord-Hollander` nounpl  
+ Noord-Hollands ( ADJECTIVE ) 
+ Noord-Hollandse ( NOUN NOUN_SINGULAR ) 
+ Noord-Hollandsen ( NOUN NOUN_PLURAL ) lemma=`Noord-Hollandse` nounpl  
+ Noord-Ier ( NOUN NOUN_SINGULAR ) 
+ Noord-Ieren ( NOUN NOUN_PLURAL ) lemma=`Noord-Ier` nounpl  
+ Noord-Ierland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Iers ( ADJECTIVE ) 
+ Noord-Ierse ( NOUN NOUN_SINGULAR ) 
+ Noord-Iersen ( NOUN NOUN_PLURAL ) lemma=`Noord-Ierse` nounpl  
+ Noord-Korea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Koreaan ( NOUN NOUN_SINGULAR ) 
+ Noord-Koreaans ( ADJECTIVE ) 
+ Noord-Koreaanse ( NOUN NOUN_SINGULAR ) 
+ Noord-Koreaansen ( NOUN NOUN_PLURAL ) lemma=`Noord-Koreaanse` nounpl  
+ Noord-Koreanen ( NOUN NOUN_PLURAL ) lemma=`Noord-Koreaan` nounpl  
+ Noord-Oostzeekanaal ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Ossetië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Rijnland-Westf ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noord-Rijnland-Westfalen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordereiland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noorderkanaal ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordkaap ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordoostelijke ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordoostpolder ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordwestelijke ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordwestkaap ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordzee ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noordzeebodem ( NOUN NOUN_SINGULAR ) 
+ Noordzeegebied ( NOUN NOUN_SINGULAR ) 
+ Noordzeekust ( NOUN NOUN_SINGULAR ) 
+ Noordzeeschepen ( NOUN NOUN_PLURAL ) lemma=`Noordzeeschip` nounpl  
+ Noordzeeschip ( NOUN NOUN_SINGULAR ) 
+ Noordzeestrand ( NOUN NOUN_SINGULAR ) 
+ Noordzeestranden ( NOUN NOUN_PLURAL ) lemma=`Noordzeestrand` nounpl  
+ Noordzeevervuiling ( NOUN NOUN_SINGULAR ) 
+ Noordzeewater ( NOUN NOUN_SINGULAR ) 
+ Noorman ( NOUN NOUN_SINGULAR ) 
+ Noormannen ( NOUN NOUN_PLURAL ) lemma=`Noorman` nounpl  
+ Noors ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Noors`Noors` adj  nounprop  
+ Noorse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Noors`Noorse` adj  nounsg  
+ Noorsen ( NOUN NOUN_PLURAL ) lemma=`Noorse` nounpl  
+ Noorwegen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Noren ( NOUN NOUN_PLURAL ) lemma=`Noor` nounpl  
+ Normandisch ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Normandisch`Normandisch` adj  nounprop  
+ Normandische ( NOUN NOUN_SINGULAR ) 
+ Normandischen ( NOUN NOUN_PLURAL ) lemma=`Normandische` nounpl  
+ Normandië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Normandiër ( NOUN NOUN_SINGULAR ) 
+ Normandiërs ( NOUN NOUN_PLURAL ) lemma=`Normandiër` nounpl  
+ Nouakchott ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nouméa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nr. ( NOUN NOUN_SINGULAR ) 
+ Nubisch ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Nubisch`Nubisch` adj  nounprop  
+ Nubische ( NOUN NOUN_SINGULAR ) 
+ Nubischen ( NOUN NOUN_PLURAL ) lemma=`Nubische` nounpl  
+ Nubië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nubiër ( NOUN NOUN_SINGULAR ) 
+ Nubiërs ( NOUN NOUN_PLURAL ) lemma=`Nubiër` nounpl  
+ Nuku'alofa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Nuuk ( NOUN NOUN_PROPER_SINGULAR ) 
+ n ( NOUN NOUN_SINGULAR ) 
+ n's ( NOUN NOUN_PLURAL ) lemma=`n` nounpl  
+ n.a.v. ( PREPOSITION ) 
+ na ( ADVERB PREPOSITION CONJUNCTION_SUBORDINATE ) lemma=`na`na`na` adv  conjsubo  prep  
+ na-aap ( VERB_PRESENT VERB ) lemma=`na-apen` verbpressg  
+ na-aapt ( VERB_PRESENT VERB ) lemma=`na-apen` verbpressg  
+ na-aapte ( VERB_PAST VERB ) lemma=`na-apen` verbpastsg  
+ na-aapten ( VERB_PAST VERB ) lemma=`na-apen` verbpastpl  
+ na-apen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`na-apen`na-apen`na-apen` nounsg  verbinf  verbprespl  
+ na-apend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`na-apen` verbpresp  
+ na-apende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`na-apende`na-apen` nounsg  verbpresp  
+ na-aper ( NOUN NOUN_SINGULAR ) 
+ na-apers ( NOUN NOUN_PLURAL ) lemma=`na-aper` nounpl  
+ naad ( NOUN NOUN_SINGULAR ) 
+ naadloos ( ADJECTIVE ) 
+ naadloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naadloos`naadloze` adj  nounsg  
+ naaf ( NOUN NOUN_SINGULAR ) 
+ naai ( VERB_PRESENT VERB ) lemma=`naaien` verbpressg  
+ naaide ( VERB_PAST VERB ) lemma=`naaien` verbpastsg  
+ naaiden ( VERB_PAST VERB ) lemma=`naaien` verbpastpl  
+ naaidoos ( NOUN NOUN_SINGULAR ) 
+ naaidozen ( NOUN NOUN_PLURAL ) lemma=`naaidoos` nounpl  
+ naaien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naaien`naaien`naaien` nounsg  verbinf  verbprespl  
+ naaiend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naaien` verbpresp  
+ naaiende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naaiende`naaien` nounsg  verbpresp  
+ naaigerei ( NOUN NOUN_SINGULAR ) 
+ naaimachine ( NOUN NOUN_SINGULAR ) 
+ naaimachines ( NOUN NOUN_PLURAL ) lemma=`naaimachine` nounpl  
+ naaister ( NOUN NOUN_SINGULAR ) 
+ naaisters ( NOUN NOUN_PLURAL ) lemma=`naaister` nounpl  
+ naaistertje ( NOUN NOUN_SINGULAR ) lemma=`naaister` nounsg  
+ naaistertjes ( NOUN NOUN_PLURAL ) lemma=`naaister` nounpl  
+ naait ( VERB_PRESENT VERB ) lemma=`naaien` verbpressg  
+ naak ( VERB_PRESENT VERB ) lemma=`naken` verbpressg  
+ naakt ( VERB_PRESENT NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`naakt`naakt`naken` adj  nounsg  verbpressg  
+ naakte ( VERB_PAST NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`naakt`naakte`naken` adj  nounsg  verbpastsg  
+ naakten ( VERB_PAST NOUN VERB NOUN_PLURAL ) lemma=`naakt`naken` nounpl  verbpastpl  
+ naakter ( ADJECTIVE ) lemma=`naakt` adj  
+ naaktere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naakt`naaktere` adj  nounsg  
+ naaktfoto ( NOUN NOUN_SINGULAR ) 
+ naaktfoto's ( NOUN NOUN_PLURAL ) lemma=`naaktfoto` nounpl  
+ naaktst ( ADJECTIVE ) lemma=`naakt` adj  
+ naaktste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naakt`naaktste` adj  nounsg  
+ naaktstrand ( NOUN NOUN_SINGULAR ) 
+ naaktstranden ( NOUN NOUN_PLURAL ) lemma=`naaktstrand` nounpl  
+ naaktzwemmen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naaktzwemmen`naaktzwemmen`naaktzwemmen` nounsg  verbinf  verbprespl  
+ naald ( NOUN NOUN_SINGULAR ) 
+ naaldbomen ( NOUN NOUN_PLURAL ) lemma=`naaldboom` nounpl  
+ naaldboom ( NOUN NOUN_SINGULAR ) 
+ naalden ( NOUN NOUN_PLURAL ) lemma=`naald` nounpl  
+ naaldhak ( NOUN NOUN_SINGULAR ) 
+ naaldhakken ( NOUN NOUN_PLURAL ) lemma=`naaldhak` nounpl  
+ naaldjes ( NOUN NOUN_PLURAL ) lemma=`naald` nounpl  
+ naam ( NOUN NOUN_SINGULAR ) 
+ naambord ( NOUN NOUN_SINGULAR ) 
+ naamborden ( NOUN NOUN_PLURAL ) lemma=`naambord` nounpl  
+ naamdag ( NOUN NOUN_SINGULAR ) 
+ naamdagen ( NOUN NOUN_PLURAL ) lemma=`naamdag` nounpl  
+ naamgenoot ( NOUN NOUN_SINGULAR ) 
+ naamgenoten ( NOUN NOUN_PLURAL ) lemma=`naamgenoot` nounpl  
+ naamgever ( NOUN NOUN_SINGULAR ) 
+ naamgevers ( NOUN NOUN_PLURAL ) lemma=`naamgever` nounpl  
+ naamgeving ( NOUN NOUN_SINGULAR ) 
+ naamkaartje ( NOUN NOUN_SINGULAR ) 
+ naamkaartjes ( NOUN NOUN_PLURAL ) lemma=`naamkaartje` nounpl  
+ naamkunde ( NOUN NOUN_SINGULAR ) 
+ naamloos ( ADJECTIVE ) 
+ naamloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naamloos`naamloze` adj  nounsg  
+ naampje ( NOUN NOUN_SINGULAR ) lemma=`naam` nounsg  
+ naampjes ( NOUN NOUN_PLURAL ) lemma=`naam` nounpl  
+ naamplaat ( NOUN NOUN_SINGULAR ) 
+ naamplaten ( NOUN NOUN_PLURAL ) lemma=`naamplaat` nounpl  
+ naamsbekendheid ( NOUN NOUN_SINGULAR ) 
+ naamsverandering ( NOUN NOUN_SINGULAR ) 
+ naamsveranderingen ( NOUN NOUN_PLURAL ) lemma=`naamsverandering` nounpl  
+ naamval ( NOUN NOUN_SINGULAR ) 
+ naamvallen ( NOUN NOUN_PLURAL ) lemma=`naamval` nounpl  
+ naamwoord ( NOUN NOUN_SINGULAR ) 
+ naamwoordelijk ( ADJECTIVE ) 
+ naamwoordelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naamwoordelijk`naamwoordelijke` adj  nounsg  
+ naamwoorden ( NOUN NOUN_PLURAL ) lemma=`naamwoord` nounpl  
+ naar ( ADJECTIVE PREPOSITION CONJUNCTION_SUBORDINATE ) lemma=`naar`naar`naar` adj  conjsubo  prep  
+ naarder ( ADJECTIVE ) lemma=`naar` adj  
+ naardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naar`naardere` adj  nounsg  
+ naargeestig ( ADJECTIVE ) 
+ naargeestige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naargeestig`naargeestige` adj  nounsg  
+ naargeestiger ( ADJECTIVE ) lemma=`naargeestig` adj  
+ naargeestigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naargeestig`naargeestigere` adj  nounsg  
+ naargeestigst ( ADJECTIVE ) lemma=`naargeestig` adj  
+ naargeestigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naargeestig`naargeestigste` adj  nounsg  
+ naargelang ( PREPOSITION CONJUNCTION_SUBORDINATE ) lemma=`naargelang`naargelang` conjsubo  prep  
+ naarling ( NOUN NOUN_SINGULAR ) 
+ naarlingen ( NOUN NOUN_PLURAL ) lemma=`naarling` nounpl  
+ naarmate ( CONJUNCTION_SUBORDINATE ) 
+ naarst ( ADJECTIVE ) lemma=`naar` adj  
+ naarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naar`naarste` adj  nounsg  
+ naarstig ( ADJECTIVE ) 
+ naarstige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naarstig`naarstige` adj  nounsg  
+ naarstiger ( ADJECTIVE ) lemma=`naarstig` adj  
+ naarstigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naarstig`naarstigere` adj  nounsg  
+ naarstigst ( ADJECTIVE ) lemma=`naarstig` adj  
+ naarstigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naarstig`naarstigste` adj  nounsg  
+ naast ( ADJECTIVE ADVERB PREPOSITION ) lemma=`naast`naast`naast` adj  adv  prep  
+ naaste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naast`naaste` adj  nounsg  
+ naasten ( NOUN NOUN_PLURAL ) lemma=`naaste` nounpl  
+ naastenliefde ( NOUN NOUN_SINGULAR ) 
+ nabeschouwing ( NOUN NOUN_SINGULAR ) 
+ nabeschouwingen ( NOUN NOUN_PLURAL ) lemma=`nabeschouwing` nounpl  
+ nabespreking ( NOUN NOUN_SINGULAR ) 
+ nabesprekingen ( NOUN NOUN_PLURAL ) lemma=`nabespreking` nounpl  
+ nabestaande ( NOUN NOUN_SINGULAR ) 
+ nabestaanden ( NOUN NOUN_PLURAL ) lemma=`nabestaande` nounpl  
+ nabestaandenwet ( NOUN NOUN_SINGULAR ) 
+ nabestaandenwetten ( NOUN NOUN_PLURAL ) lemma=`nabestaandenwet` nounpl  
+ nabestel ( VERB_PRESENT VERB ) lemma=`nabestellen` verbpressg  
+ nabesteld ( VERB_PAST_PARTICIPLE VERB ) lemma=`nabestellen` verbpapa  
+ nabestelde ( VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nabestelde`nabestellen`nabestellen` nounsg  verbpapa  verbpastsg  
+ nabestelden ( VERB_PAST VERB ) lemma=`nabestellen` verbpastpl  
+ nabestellen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nabestellen`nabestellen`nabestellen` nounsg  verbinf  verbprespl  
+ nabestellend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nabestellen` verbpresp  
+ nabestellende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nabestellende`nabestellen` nounsg  verbpresp  
+ nabestelt ( VERB_PRESENT VERB ) lemma=`nabestellen` verbpressg  
+ nabij ( ADJECTIVE ADVERB PREPOSITION ) lemma=`nabij`nabij`nabij` adj  adv  prep  
+ nabije ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nabij`nabije` adj  nounsg  
+ nabijer ( ADJECTIVE ) lemma=`nabij` adj  
+ nabijere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nabij`nabijere` adj  nounsg  
+ nabijgelegen ( ADJECTIVE ) 
+ nabijheid ( NOUN NOUN_SINGULAR ) 
+ nableef ( VERB_PAST VERB ) lemma=`nablijven` verbpastsg  
+ nableven ( VERB_PAST VERB ) lemma=`nablijven` verbpastpl  
+ nablijf ( VERB_PRESENT VERB ) lemma=`nablijven` verbpressg  
+ nablijft ( VERB_PRESENT VERB ) lemma=`nablijven` verbpressg  
+ nablijven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nablijven`nablijven`nablijven` nounsg  verbinf  verbprespl  
+ nablijvend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nablijven` verbpresp  
+ nablijvende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nablijvende`nablijven` nounsg  verbpresp  
+ nablus ( VERB_PRESENT VERB ) lemma=`nablussen` verbpressg  
+ nablussen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nablussen`nablussen`nablussen` nounsg  verbinf  verbprespl  
+ nablussend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nablussen` verbpresp  
+ nablussende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nablussende`nablussen` nounsg  verbpresp  
+ nablust ( VERB_PRESENT VERB ) lemma=`nablussen` verbpressg  
+ nabluste ( VERB_PAST VERB ) lemma=`nablussen` verbpastsg  
+ nablusten ( VERB_PAST VERB ) lemma=`nablussen` verbpastpl  
+ naboots ( VERB_PRESENT VERB ) lemma=`nabootsen` verbpressg  
+ nabootsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nabootsen`nabootsen`nabootsen` nounsg  verbinf  verbprespl  
+ nabootsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nabootsen` verbpresp  
+ nabootsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nabootsende`nabootsen` nounsg  verbpresp  
+ nabootsing ( NOUN NOUN_SINGULAR ) 
+ nabootsingen ( NOUN NOUN_PLURAL ) lemma=`nabootsing` nounpl  
+ nabootst ( VERB_PRESENT VERB ) lemma=`nabootsen` verbpressg  
+ nabootste ( VERB_PAST VERB ) lemma=`nabootsen` verbpastsg  
+ nabootsten ( VERB_PAST VERB ) lemma=`nabootsen` verbpastpl  
+ nabouwen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nabouwen`nabouwen`nabouwen` nounsg  verbinf  verbprespl  
+ naburig ( ADJECTIVE ) 
+ naburige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naburig`naburige` adj  nounsg  
+ nacheck ( VERB_PRESENT VERB ) lemma=`nachecken` verbpressg  
+ nachecken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nachecken`nachecken`nachecken` nounsg  verbinf  verbprespl  
+ nacheckend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nachecken` verbpresp  
+ nacheckende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nacheckende`nachecken` nounsg  verbpresp  
+ nacheckt ( VERB_PRESENT VERB ) lemma=`nachecken` verbpressg  
+ nacheckte ( VERB_PAST VERB ) lemma=`nachecken` verbpastsg  
+ nacheckten ( VERB_PAST VERB ) lemma=`nachecken` verbpastpl  
+ nacht ( NOUN NOUN_SINGULAR ) 
+ nachtbraker ( NOUN NOUN_SINGULAR ) 
+ nachtbrakers ( NOUN NOUN_PLURAL ) lemma=`nachtbraker` nounpl  
+ nachtclub ( NOUN NOUN_SINGULAR ) 
+ nachtclubs ( NOUN NOUN_PLURAL ) lemma=`nachtclub` nounpl  
+ nachtdienst ( NOUN NOUN_SINGULAR ) 
+ nachtdiensten ( NOUN NOUN_PLURAL ) lemma=`nachtdienst` nounpl  
+ nachtegaal ( NOUN NOUN_SINGULAR ) 
+ nachtegaaltje ( NOUN NOUN_SINGULAR ) lemma=`nachtegaal` nounsg  
+ nachtegaaltjes ( NOUN NOUN_PLURAL ) lemma=`nachtegaal` nounpl  
+ nachtegalen ( NOUN NOUN_PLURAL ) lemma=`nachtegaal` nounpl  
+ nachtelijk ( ADJECTIVE ) 
+ nachtelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nachtelijk`nachtelijke` adj  nounsg  
+ nachten ( NOUN NOUN_PLURAL ) lemma=`nacht` nounpl  
+ nachthemd ( NOUN NOUN_SINGULAR ) 
+ nachthemden ( NOUN NOUN_PLURAL ) lemma=`nachthemd` nounpl  
+ nachtjapon ( NOUN NOUN_SINGULAR ) 
+ nachtjaponnen ( NOUN NOUN_PLURAL ) lemma=`nachtjapon` nounpl  
+ nachtjes ( NOUN NOUN_PLURAL ) lemma=`nacht` nounpl  
+ nachtkastje ( NOUN NOUN_SINGULAR ) 
+ nachtkastjes ( NOUN NOUN_PLURAL ) lemma=`nachtkastje` nounpl  
+ nachtkijker ( NOUN NOUN_SINGULAR ) 
+ nachtkijkers ( NOUN NOUN_PLURAL ) lemma=`nachtkijker` nounpl  
+ nachtkus ( NOUN NOUN_SINGULAR ) 
+ nachtkussen ( NOUN NOUN_PLURAL ) lemma=`nachtkus` nounpl  
+ nachtlampje ( NOUN NOUN_SINGULAR ) 
+ nachtlampjes ( NOUN NOUN_PLURAL ) lemma=`nachtlampje` nounpl  
+ nachtleven ( NOUN NOUN_SINGULAR ) 
+ nachtmerrie ( NOUN NOUN_SINGULAR ) 
+ nachtmerries ( NOUN NOUN_PLURAL ) lemma=`nachtmerrie` nounpl  
+ nachtmis ( NOUN NOUN_SINGULAR ) 
+ nachtmissen ( NOUN NOUN_PLURAL ) lemma=`nachtmis` nounpl  
+ nachtploeg ( NOUN NOUN_SINGULAR ) 
+ nachtploegen ( NOUN NOUN_PLURAL ) lemma=`nachtploeg` nounpl  
+ nachtpon ( NOUN NOUN_SINGULAR ) 
+ nachtponnen ( NOUN NOUN_PLURAL ) lemma=`nachtpon` nounpl  
+ nachtrust ( NOUN NOUN_SINGULAR ) 
+ nachts ( NOUN NOUN_SINGULAR ) lemma=`nacht` nounsg  
+ nachtschade ( NOUN NOUN_SINGULAR ) 
+ nachtschaden ( NOUN NOUN_PLURAL ) lemma=`nachtschade` nounpl  
+ nachtslot ( NOUN NOUN_SINGULAR ) 
+ nachtsloten ( NOUN NOUN_PLURAL ) lemma=`nachtslot` nounpl  
+ nachtspiegel ( NOUN NOUN_SINGULAR ) 
+ nachtspiegels ( NOUN NOUN_PLURAL ) lemma=`nachtspiegel` nounpl  
+ nachttrein ( NOUN NOUN_SINGULAR ) 
+ nachttreinen ( NOUN NOUN_PLURAL ) lemma=`nachttrein` nounpl  
+ nachtvlinder ( NOUN NOUN_SINGULAR ) 
+ nachtvlinders ( NOUN NOUN_PLURAL ) lemma=`nachtvlinder` nounpl  
+ nachtvlucht ( NOUN NOUN_SINGULAR ) 
+ nachtvluchten ( NOUN NOUN_PLURAL ) lemma=`nachtvlucht` nounpl  
+ nachtvorst ( NOUN NOUN_SINGULAR ) 
+ nachtvorsten ( NOUN NOUN_PLURAL ) lemma=`nachtvorst` nounpl  
+ nachtwacht ( NOUN NOUN_SINGULAR ) 
+ nachtwachten ( NOUN NOUN_PLURAL ) lemma=`nachtwacht` nounpl  
+ nachtzoen ( NOUN NOUN_SINGULAR ) 
+ nachtzoenen ( NOUN NOUN_PLURAL ) lemma=`nachtzoen` nounpl  
+ nachtzuster ( NOUN NOUN_SINGULAR ) 
+ nachtzusters ( NOUN NOUN_PLURAL ) lemma=`nachtzuster` nounpl  
+ nacompetitie ( NOUN NOUN_SINGULAR ) 
+ nacompetities ( NOUN NOUN_PLURAL ) lemma=`nacompetitie` nounpl  
+ nadacht ( VERB_PAST VERB ) lemma=`nadenken` verbpastsg  
+ nadachten ( VERB_PAST VERB ) lemma=`nadenken` verbpastpl  
+ nadagen ( NOUN NOUN_PLURAL ) 
+ nadarafsluiting ( NOUN NOUN_SINGULAR ) 
+ nadarafsluitingen ( NOUN NOUN_PLURAL ) lemma=`nadarafsluiting` nounpl  
+ nadat ( CONJUNCTION_SUBORDINATE ) 
+ nadeden ( VERB_PAST VERB ) lemma=`nadoen` verbpastpl  
+ nadeed ( VERB_PAST VERB ) lemma=`nadoen` verbpastsg  
+ nadeel ( NOUN NOUN_SINGULAR ) 
+ nadele ( NOUN NOUN_SINGULAR ) lemma=`nadeel` nounsg  
+ nadelen ( NOUN NOUN_PLURAL ) lemma=`nadeel` nounpl  
+ nadelig ( ADJECTIVE ) 
+ nadelige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadelig`nadelige` adj  nounsg  
+ nadeliger ( ADJECTIVE ) lemma=`nadelig` adj  
+ nadeligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadelig`nadeligere` adj  nounsg  
+ nadeligst ( ADJECTIVE ) lemma=`nadelig` adj  
+ nadeligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadelig`nadeligste` adj  nounsg  
+ naden ( NOUN NOUN_PLURAL ) lemma=`naad` nounpl  
+ nadenk ( VERB_PRESENT VERB ) lemma=`nadenken` verbpressg  
+ nadenken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nadenken`nadenken`nadenken` nounsg  verbinf  verbprespl  
+ nadenkend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`nadenkend`nadenken` adj  verbpresp  
+ nadenkende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`nadenkend`nadenkende`nadenken` adj  nounsg  verbpresp  
+ nadenkender ( ADJECTIVE ) lemma=`nadenkend` adj  
+ nadenkendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadenkend`nadenkendere` adj  nounsg  
+ nadenkendst ( ADJECTIVE ) lemma=`nadenkend` adj  
+ nadenkendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadenkend`nadenkendste` adj  nounsg  
+ nadenkt ( VERB_PRESENT VERB ) lemma=`nadenken` verbpressg  
+ nader ( VERB_PRESENT VERB ADJECTIVE ) lemma=`nader`naderen` adj  verbpressg  
+ naderbij ( ADVERB ) 
+ naderde ( VERB_PAST VERB ) lemma=`naderen` verbpastsg  
+ naderden ( VERB_PAST VERB ) lemma=`naderen` verbpastpl  
+ nadere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nader`nadere` adj  nounsg  
+ naderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naderen`naderen`naderen` nounsg  verbinf  verbprespl  
+ naderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naderen` verbpresp  
+ naderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naderende`naderen` nounsg  verbpresp  
+ naderhand ( ADVERB ) 
+ nadering ( NOUN NOUN_SINGULAR ) 
+ nadert ( VERB_PRESENT VERB ) lemma=`naderen` verbpressg  
+ nadezen ( ADVERB ) 
+ nadien ( ADVERB ) 
+ nadoe ( VERB_PRESENT VERB ) lemma=`nadoen` verbpressg  
+ nadoen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nadoen`nadoen`nadoen` nounsg  verbinf  verbprespl  
+ nadoend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nadoen` verbpresp  
+ nadoende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nadoende`nadoen` nounsg  verbpresp  
+ nadoet ( VERB_PRESENT VERB ) lemma=`nadoen` verbpressg  
+ nadorst ( NOUN NOUN_SINGULAR ) 
+ nadruk ( NOUN NOUN_SINGULAR ) 
+ nadrukkelijk ( ADJECTIVE ) 
+ nadrukkelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadrukkelijk`nadrukkelijke` adj  nounsg  
+ nadrukkelijker ( ADJECTIVE ) lemma=`nadrukkelijk` adj  
+ nadrukkelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadrukkelijk`nadrukkelijkere` adj  nounsg  
+ nadrukkelijkst ( ADJECTIVE ) lemma=`nadrukkelijk` adj  
+ nadrukkelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nadrukkelijk`nadrukkelijkste` adj  nounsg  
+ nadrukken ( NOUN NOUN_PLURAL ) lemma=`nadruk` nounpl  
+ nafloot ( VERB_PAST VERB ) lemma=`nafluiten` verbpastsg  
+ nafloten ( VERB_PAST VERB ) lemma=`nafluiten` verbpastpl  
+ nafluit ( VERB_PRESENT VERB ) lemma=`nafluiten` verbpressg  
+ nafluiten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nafluiten`nafluiten`nafluiten` nounsg  verbinf  verbprespl  
+ nafluitend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nafluiten` verbpresp  
+ nafluitende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nafluitende`nafluiten` nounsg  verbpresp  
+ nafta ( NOUN NOUN_SINGULAR ) 
+ naga ( VERB_PRESENT VERB ) lemma=`nagaan` verbpressg  
+ nagaan ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nagaan`nagaan`nagaan` nounsg  verbinf  verbprespl  
+ nagaand ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nagaan` verbpresp  
+ nagaande ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagaande`nagaan` nounsg  verbpresp  
+ nagaat ( VERB_PRESENT VERB ) lemma=`nagaan` verbpressg  
+ nagaf ( VERB_PAST VERB ) lemma=`nageven` verbpastsg  
+ nagaven ( VERB_PAST VERB ) lemma=`nageven` verbpastpl  
+ nageaapt ( VERB_PAST_PARTICIPLE VERB ) lemma=`na-apen` verbpapa  
+ nageaapte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nageaapte`na-apen` nounsg  verbpapa  
+ nagebleven ( VERB_PAST_PARTICIPLE VERB ) lemma=`nablijven` verbpapa  
+ nageblust ( VERB_PAST_PARTICIPLE VERB ) lemma=`nablussen` verbpapa  
+ nagebluste ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagebluste`nablussen` nounsg  verbpapa  
+ nageboorte ( NOUN NOUN_SINGULAR ) 
+ nageboorten ( NOUN NOUN_PLURAL ) lemma=`nageboorte` nounpl  
+ nagebootst ( VERB_PAST_PARTICIPLE VERB ) lemma=`nabootsen` verbpapa  
+ nagebootste ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagebootste`nabootsen` nounsg  verbpapa  
+ nagecheckt ( VERB_PAST_PARTICIPLE VERB ) lemma=`nachecken` verbpapa  
+ nagecheckte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagecheckte`nachecken` nounsg  verbpapa  
+ nagedaan ( VERB_PAST_PARTICIPLE VERB ) lemma=`nadoen` verbpapa  
+ nagedacht ( VERB_PAST_PARTICIPLE VERB ) lemma=`nadenken` verbpapa  
+ nagedachtenis ( NOUN NOUN_SINGULAR ) 
+ nagedane ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagedane`nadoen` nounsg  verbpapa  
+ nageef ( VERB_PRESENT VERB ) lemma=`nageven` verbpressg  
+ nageeft ( VERB_PRESENT VERB ) lemma=`nageven` verbpressg  
+ nagefloten ( VERB_PAST_PARTICIPLE VERB ) lemma=`nafluiten` verbpapa  
+ nagegaan ( VERB_PAST_PARTICIPLE VERB ) lemma=`nagaan` verbpapa  
+ nagegane ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagegane`nagaan` nounsg  verbpapa  
+ nagegeven ( VERB_PAST_PARTICIPLE VERB ) lemma=`nageven` verbpapa  
+ nagehold ( VERB_PAST_PARTICIPLE VERB ) lemma=`nahollen` verbpapa  
+ nageholde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nageholde`nahollen` nounsg  verbpapa  
+ nagehouden ( VERB_PAST_PARTICIPLE VERB ) lemma=`nahouden` verbpapa  
+ nagejaagd ( VERB_PAST_PARTICIPLE VERB ) lemma=`najagen` verbpapa  
+ nagejaagde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagejaagde`najagen` nounsg  verbpapa  
+ nagekaart ( VERB_PAST_PARTICIPLE VERB ) lemma=`nakaarten` verbpapa  
+ nagekeken ( VERB_PAST_PARTICIPLE VERB ) lemma=`nakijken` verbpapa  
+ nageklonken ( VERB_PAST_PARTICIPLE VERB ) lemma=`naklinken` verbpapa  
+ nagekomen ( VERB_PAST_PARTICIPLE VERB ) lemma=`nakomen` verbpapa  
+ nagel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`nagel`nagelen` nounsg  verbpressg  
+ nagelaten ( VERB_PAST_PARTICIPLE VERB ) lemma=`nalaten` verbpapa  
+ nagelbijten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nagelbijten`nagelbijten`nagelbijten` nounsg  verbinf  verbprespl  
+ nagelde ( VERB_PAST VERB ) lemma=`nagelen` verbpastsg  
+ nagelden ( VERB_PAST VERB ) lemma=`nagelen` verbpastpl  
+ nageleefd ( VERB_PAST_PARTICIPLE VERB ) lemma=`naleven` verbpapa  
+ nageleefde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nageleefde`naleven` nounsg  verbpapa  
+ nagelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nagel`nagelen`nagelen`nagelen` nounpl  nounsg  verbinf  verbprespl  
+ nagelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nagelen` verbpresp  
+ nagelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagelende`nagelen` nounsg  verbpresp  
+ nagelezen ( VERB_PAST_PARTICIPLE VERB ) lemma=`nalezen` verbpapa  
+ nagellak ( NOUN NOUN_SINGULAR ) 
+ nagellakken ( NOUN NOUN_PLURAL ) lemma=`nagellak` nounpl  
+ nagelnieuw ( ADJECTIVE ) 
+ nagelopen ( VERB_PAST_PARTICIPLE VERB ) lemma=`nalopen` verbpapa  
+ nagels ( NOUN NOUN_PLURAL ) lemma=`nagel` nounpl  
+ nagelschaartje ( NOUN NOUN_SINGULAR ) 
+ nagelschaartjes ( NOUN NOUN_PLURAL ) lemma=`nagelschaartje` nounpl  
+ nagelt ( VERB_PRESENT VERB ) lemma=`nagelen` verbpressg  
+ nageltje ( NOUN NOUN_SINGULAR ) lemma=`nagel` nounsg  
+ nageltjes ( NOUN NOUN_PLURAL ) lemma=`nagel` nounpl  
+ nagelvijl ( NOUN NOUN_SINGULAR ) 
+ nagelvijlen ( NOUN NOUN_PLURAL ) lemma=`nagelvijl` nounpl  
+ nagemaakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`namaken` verbpapa  
+ nagemaakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagemaakte`namaken` nounsg  verbpapa  
+ nagenoeg ( ADVERB ) 
+ nagepraat ( VERB_PAST_PARTICIPLE VERB ) lemma=`napraten` verbpapa  
+ nageprate ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nageprate`napraten` nounsg  verbpapa  
+ nagerecht ( NOUN NOUN_SINGULAR ) 
+ nagerechten ( NOUN NOUN_PLURAL ) lemma=`nagerecht` nounpl  
+ nagereden ( VERB_PAST_PARTICIPLE VERB ) lemma=`narijden` verbpapa  
+ nagerekend ( VERB_PAST_PARTICIPLE VERB ) lemma=`narekenen` verbpapa  
+ nagerekende ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagerekende`narekenen` nounsg  verbpapa  
+ nagerend ( VERB_PAST_PARTICIPLE VERB ) lemma=`narennen` verbpapa  
+ nagerende ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagerende`narennen` nounsg  verbpapa  
+ nageroepen ( VERB_PAST_PARTICIPLE VERB ) lemma=`naroepen` verbpapa  
+ nageschilderd ( VERB_PAST_PARTICIPLE VERB ) lemma=`naschilderen` verbpapa  
+ nageschilderde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nageschilderde`naschilderen` nounsg  verbpapa  
+ nageschreeuwd ( VERB_PAST_PARTICIPLE VERB ) lemma=`naschreeuwen` verbpapa  
+ nageschreeuwde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nageschreeuwde`naschreeuwen` nounsg  verbpapa  
+ nageslacht ( NOUN NOUN_SINGULAR ) 
+ nageslachten ( NOUN NOUN_PLURAL ) lemma=`nageslacht` nounpl  
+ nageslagen ( VERB_PAST_PARTICIPLE VERB ) lemma=`naslaan` verbpapa  
+ nagespeeld ( VERB_PAST_PARTICIPLE VERB ) lemma=`naspelen` verbpapa  
+ nagespeelde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagespeelde`naspelen` nounsg  verbpapa  
+ nagespeurd ( VERB_PAST_PARTICIPLE VERB ) lemma=`naspeuren` verbpapa  
+ nagespeurde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagespeurde`naspeuren` nounsg  verbpapa  
+ nagesprek ( NOUN NOUN_SINGULAR ) 
+ nagesprekken ( NOUN NOUN_PLURAL ) lemma=`nagesprek` nounpl  
+ nagestaard ( VERB_PAST_PARTICIPLE VERB ) lemma=`nastaren` verbpapa  
+ nagestaarde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagestaarde`nastaren` nounsg  verbpapa  
+ nagestreefd ( VERB_PAST_PARTICIPLE VERB ) lemma=`nastreven` verbpapa  
+ nagestreefde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagestreefde`nastreven` nounsg  verbpapa  
+ nagestuurd ( VERB_PAST_PARTICIPLE VERB ) lemma=`nasturen` verbpapa  
+ nagestuurde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagestuurde`nasturen` nounsg  verbpapa  
+ nagesynchroniseerd ( VERB_PAST_PARTICIPLE VERB ) lemma=`nasynchroniseren` verbpapa  
+ nagesynchroniseerde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagesynchroniseerde`nasynchroniseren` nounsg  verbpapa  
+ nagetafeld ( VERB_PAST_PARTICIPLE VERB ) lemma=`natafelen` verbpapa  
+ nagetafelde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagetafelde`natafelen` nounsg  verbpapa  
+ nagetekend ( VERB_PAST_PARTICIPLE VERB ) lemma=`natekenen` verbpapa  
+ nagetekende ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagetekende`natekenen` nounsg  verbpapa  
+ nageteld ( VERB_PAST_PARTICIPLE VERB ) lemma=`natellen` verbpapa  
+ nagetelde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagetelde`natellen` nounsg  verbpapa  
+ nagetrapt ( VERB_PAST_PARTICIPLE VERB ) lemma=`natrappen` verbpapa  
+ nagetrapte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagetrapte`natrappen` nounsg  verbpapa  
+ nagetrokken ( VERB_PAST_PARTICIPLE VERB ) lemma=`natrekken` verbpapa  
+ nageven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nageven`nageven`nageven` nounsg  verbinf  verbprespl  
+ nagevend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nageven` verbpresp  
+ nagevende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagevende`nageven` nounsg  verbpresp  
+ nagevoeld ( VERB_PAST_PARTICIPLE VERB ) lemma=`navoelen` verbpapa  
+ nagevoelde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagevoelde`navoelen` nounsg  verbpapa  
+ nagevolgd ( VERB_PAST_PARTICIPLE VERB ) lemma=`navolgen` verbpapa  
+ nagevolgde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagevolgde`navolgen` nounsg  verbpapa  
+ nagevorst ( VERB_PAST_PARTICIPLE VERB ) lemma=`navorsen` verbpapa  
+ nagevorste ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagevorste`navorsen` nounsg  verbpapa  
+ nagevraagd ( VERB_PAST_PARTICIPLE VERB ) lemma=`navragen` verbpapa  
+ nagevraagde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagevraagde`navragen` nounsg  verbpapa  
+ nagewerkt ( VERB_PAST_PARTICIPLE VERB ) lemma=`nawerken` verbpapa  
+ nagewezen ( VERB_PAST_PARTICIPLE VERB ) lemma=`nawijzen` verbpapa  
+ nagezegd ( VERB_PAST_PARTICIPLE VERB ) lemma=`nazeggen` verbpapa  
+ nagezegde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagezegde`nazeggen` nounsg  verbpapa  
+ nagezeten ( VERB_PAST_PARTICIPLE VERB ) lemma=`nazitten` verbpapa  
+ nagezien ( VERB_PAST_PARTICIPLE VERB ) lemma=`nazien` verbpapa  
+ nagezocht ( VERB_PAST_PARTICIPLE VERB ) lemma=`nazoeken` verbpapa  
+ nagezochte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nagezochte`nazoeken` nounsg  verbpapa  
+ nagezonden ( VERB_PAST_PARTICIPLE VERB ) lemma=`nazenden` verbpapa  
+ naging ( VERB_PAST VERB ) lemma=`nagaan` verbpastsg  
+ nagingen ( VERB_PAST VERB ) lemma=`nagaan` verbpastpl  
+ nahield ( VERB_PAST VERB ) lemma=`nahouden` verbpastsg  
+ nahielden ( VERB_PAST VERB ) lemma=`nahouden` verbpastpl  
+ nahol ( VERB_PRESENT VERB ) lemma=`nahollen` verbpressg  
+ naholde ( VERB_PAST VERB ) lemma=`nahollen` verbpastsg  
+ naholden ( VERB_PAST VERB ) lemma=`nahollen` verbpastpl  
+ nahollen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nahollen`nahollen`nahollen` nounsg  verbinf  verbprespl  
+ nahollend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nahollen` verbpresp  
+ nahollende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nahollende`nahollen` nounsg  verbpresp  
+ naholt ( VERB_PRESENT VERB ) lemma=`nahollen` verbpressg  
+ nahoud ( VERB_PRESENT VERB ) lemma=`nahouden` verbpressg  
+ nahouden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nahouden`nahouden`nahouden` nounsg  verbinf  verbprespl  
+ nahoudend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nahouden` verbpresp  
+ nahoudende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nahoudende`nahouden` nounsg  verbpresp  
+ nahoudt ( VERB_PRESENT VERB ) lemma=`nahouden` verbpressg  
+ naijver ( NOUN NOUN_SINGULAR ) 
+ najaag ( VERB_PRESENT VERB ) lemma=`najagen` verbpressg  
+ najaagde ( VERB_PAST VERB ) lemma=`najagen` verbpastsg  
+ najaagden ( VERB_PAST VERB ) lemma=`najagen` verbpastpl  
+ najaagt ( VERB_PRESENT VERB ) lemma=`najagen` verbpressg  
+ najaar ( NOUN NOUN_SINGULAR ) 
+ najaars ( NOUN NOUN_SINGULAR ) lemma=`najaar` nounsg  
+ najaarscollectie ( NOUN NOUN_SINGULAR ) 
+ najaarscollecties ( NOUN NOUN_PLURAL ) lemma=`najaarscollectie` nounpl  
+ najaarskollektie ( NOUN NOUN_SINGULAR ) 
+ najaarskollekties ( NOUN NOUN_PLURAL ) lemma=`najaarskollektie` nounpl  
+ najaarsstorm ( NOUN NOUN_SINGULAR ) 
+ najaarsstormen ( NOUN NOUN_PLURAL ) lemma=`najaarsstorm` nounpl  
+ najagen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`najagen`najagen`najagen` nounsg  verbinf  verbprespl  
+ najagend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`najagen` verbpresp  
+ najagende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`najagende`najagen` nounsg  verbpresp  
+ najaren ( NOUN NOUN_PLURAL ) lemma=`najaar` nounpl  
+ najoeg ( VERB_PAST VERB ) lemma=`najagen` verbpastsg  
+ najoegen ( VERB_PAST VERB ) lemma=`najagen` verbpastpl  
+ nakaart ( VERB_PRESENT VERB ) lemma=`nakaarten` verbpressg  
+ nakaarten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nakaarten`nakaarten`nakaarten` nounsg  verbinf  verbprespl  
+ nakaartend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nakaarten` verbpresp  
+ nakaartende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nakaartende`nakaarten` nounsg  verbpresp  
+ nakaartte ( VERB_PAST VERB ) lemma=`nakaarten` verbpastsg  
+ nakaartten ( VERB_PAST VERB ) lemma=`nakaarten` verbpastpl  
+ nakeek ( VERB_PAST VERB ) lemma=`nakijken` verbpastsg  
+ nakeken ( VERB_PAST VERB ) lemma=`nakijken` verbpastpl  
+ naken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naken`naken`naken` nounsg  verbinf  verbprespl  
+ nakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naken` verbpresp  
+ nakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nakende`naken` nounsg  verbpresp  
+ nakijk ( VERB_PRESENT VERB ) lemma=`nakijken` verbpressg  
+ nakijken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nakijken`nakijken`nakijken` nounsg  verbinf  verbprespl  
+ nakijkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nakijken` verbpresp  
+ nakijkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nakijkende`nakijken` nounsg  verbpresp  
+ nakijkt ( VERB_PRESENT VERB ) lemma=`nakijken` verbpressg  
+ naklink ( VERB_PRESENT VERB ) lemma=`naklinken` verbpressg  
+ naklinken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naklinken`naklinken`naklinken` nounsg  verbinf  verbprespl  
+ naklinkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naklinken` verbpresp  
+ naklinkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naklinkende`naklinken` nounsg  verbpresp  
+ naklinkt ( VERB_PRESENT VERB ) lemma=`naklinken` verbpressg  
+ naklonk ( VERB_PAST VERB ) lemma=`naklinken` verbpastsg  
+ naklonken ( VERB_PAST VERB ) lemma=`naklinken` verbpastpl  
+ nakom ( VERB_PRESENT VERB ) lemma=`nakomen` verbpressg  
+ nakomeling ( NOUN NOUN_SINGULAR ) 
+ nakomelingen ( NOUN NOUN_PLURAL ) lemma=`nakomeling` nounpl  
+ nakomelingetje ( NOUN NOUN_SINGULAR ) lemma=`nakomeling` nounsg  
+ nakomelingetjes ( NOUN NOUN_PLURAL ) lemma=`nakomeling` nounpl  
+ nakomelingschap ( NOUN NOUN_SINGULAR ) 
+ nakomen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nakomen`nakomen`nakomen` nounsg  verbinf  verbprespl  
+ nakomend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nakomen` verbpresp  
+ nakomende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nakomende`nakomen` nounsg  verbpresp  
+ nakomertje ( NOUN NOUN_SINGULAR ) 
+ nakomertjes ( NOUN NOUN_PLURAL ) lemma=`nakomertje` nounpl  
+ nakoming ( NOUN NOUN_SINGULAR ) 
+ nakomingen ( NOUN NOUN_PLURAL ) lemma=`nakoming` nounpl  
+ nakomt ( VERB_PRESENT VERB ) lemma=`nakomen` verbpressg  
+ nakwam ( VERB_PAST VERB ) lemma=`nakomen` verbpastsg  
+ nakwamen ( VERB_PAST VERB ) lemma=`nakomen` verbpastpl  
+ nalaat ( VERB_PRESENT VERB ) lemma=`nalaten` verbpressg  
+ nalas ( VERB_PAST VERB ) lemma=`nalezen` verbpastsg  
+ nalaten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nalaten`nalaten`nalaten` nounsg  verbinf  verbprespl  
+ nalatend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nalaten` verbpresp  
+ nalatende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nalatende`nalaten` nounsg  verbpresp  
+ nalatenschap ( NOUN NOUN_SINGULAR ) 
+ nalatenschappen ( NOUN NOUN_PLURAL ) lemma=`nalatenschap` nounpl  
+ nalatig ( ADJECTIVE ) 
+ nalatige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nalatig`nalatige` adj  nounsg  
+ nalatiger ( ADJECTIVE ) lemma=`nalatig` adj  
+ nalatigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nalatig`nalatigere` adj  nounsg  
+ nalatigheden ( NOUN NOUN_PLURAL ) lemma=`nalatigheid` nounpl  
+ nalatigheid ( NOUN NOUN_SINGULAR ) 
+ nalatigst ( ADJECTIVE ) lemma=`nalatig` adj  
+ nalatigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nalatig`nalatigste` adj  nounsg  
+ nalazen ( VERB_PAST VERB ) lemma=`nalezen` verbpastpl  
+ naleef ( VERB_PRESENT VERB ) lemma=`naleven` verbpressg  
+ naleefde ( VERB_PAST VERB ) lemma=`naleven` verbpastsg  
+ naleefden ( VERB_PAST VERB ) lemma=`naleven` verbpastpl  
+ naleeft ( VERB_PRESENT VERB ) lemma=`naleven` verbpressg  
+ nalees ( VERB_PRESENT VERB ) lemma=`nalezen` verbpressg  
+ naleest ( VERB_PRESENT VERB ) lemma=`nalezen` verbpressg  
+ naleven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naleven`naleven`naleven` nounsg  verbinf  verbprespl  
+ nalevend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naleven` verbpresp  
+ nalevende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nalevende`naleven` nounsg  verbpresp  
+ naleving ( NOUN NOUN_SINGULAR ) 
+ nalezen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nalezen`nalezen`nalezen` nounsg  verbinf  verbprespl  
+ nalezend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nalezen` verbpresp  
+ nalezende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nalezende`nalezen` nounsg  verbpresp  
+ naliep ( VERB_PAST VERB ) lemma=`nalopen` verbpastsg  
+ naliepen ( VERB_PAST VERB ) lemma=`nalopen` verbpastpl  
+ naliet ( VERB_PAST VERB ) lemma=`nalaten` verbpastsg  
+ nalieten ( VERB_PAST VERB ) lemma=`nalaten` verbpastpl  
+ naloop ( VERB_PRESENT VERB ) lemma=`nalopen` verbpressg  
+ naloopt ( VERB_PRESENT VERB ) lemma=`nalopen` verbpressg  
+ nalopen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nalopen`nalopen`nalopen` nounsg  verbinf  verbprespl  
+ nalopend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nalopen` verbpresp  
+ nalopende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nalopende`nalopen` nounsg  verbpresp  
+ nam ( VERB_PAST VERB ) lemma=`nemen` verbpastsg  
+ namaak ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`namaak`namaken` nounsg  verbpressg  
+ namaakbont ( NOUN NOUN_SINGULAR ) 
+ namaakleer ( NOUN NOUN_SINGULAR ) 
+ namaakt ( VERB_PRESENT VERB ) lemma=`namaken` verbpressg  
+ namaakte ( VERB_PAST VERB ) lemma=`namaken` verbpastsg  
+ namaakten ( VERB_PAST VERB ) lemma=`namaken` verbpastpl  
+ namaken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`namaken`namaken`namaken` nounsg  verbinf  verbprespl  
+ namakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`namaken` verbpresp  
+ namakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`namakende`namaken` nounsg  verbpresp  
+ name ( NOUN NOUN_SINGULAR ) lemma=`naam|name` nounsg  
+ namelijk ( ADVERB ) 
+ nameloos ( ADJECTIVE ) 
+ nameloost ( ADJECTIVE ) lemma=`nameloos` adj  
+ namelooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nameloos`namelooste` adj  nounsg  
+ nameloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nameloos`nameloze` adj  nounsg  
+ namelozer ( ADJECTIVE ) lemma=`nameloos` adj  
+ namelozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nameloos`namelozere` adj  nounsg  
+ namen ( VERB_PAST NOUN VERB NOUN_PLURAL ) lemma=`naam`nemen` nounpl  verbpastpl  
+ namens ( PREPOSITION ) 
+ namiddag ( NOUN NOUN_SINGULAR ) 
+ namiddagen ( NOUN NOUN_PLURAL ) lemma=`namiddag` nounpl  
+ namiddags ( NOUN NOUN_SINGULAR ) lemma=`namiddag` nounsg  
+ naoorlogs ( ADJECTIVE ) 
+ naoorlogse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naoorlogs`naoorlogse` adj  nounsg  
+ napalm ( NOUN NOUN_SINGULAR ) 
+ napalmbom ( NOUN NOUN_SINGULAR ) 
+ napalmbommen ( NOUN NOUN_PLURAL ) lemma=`napalmbom` nounpl  
+ napoleontisch ( ADJECTIVE ) 
+ nappa ( NOUN NOUN_SINGULAR ) 
+ nappen ( NOUN NOUN_PLURAL ) lemma=`nap` nounpl  
+ napraat ( VERB_PRESENT VERB ) lemma=`napraten` verbpressg  
+ napraatte ( VERB_PAST VERB ) lemma=`napraten` verbpastsg  
+ napraatten ( VERB_PAST VERB ) lemma=`napraten` verbpastpl  
+ napraten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`napraten`napraten`napraten` nounsg  verbinf  verbprespl  
+ napratend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`napraten` verbpresp  
+ napratende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`napratende`napraten` nounsg  verbpresp  
+ napret ( NOUN NOUN_SINGULAR ) 
+ nar ( NOUN NOUN_SINGULAR ) 
+ narcis ( NOUN NOUN_SINGULAR ) 
+ narcisme ( NOUN NOUN_SINGULAR ) 
+ narcissen ( NOUN NOUN_PLURAL ) lemma=`narcis` nounpl  
+ narcistisch ( ADJECTIVE ) 
+ narcistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`narcistisch`narcistische` adj  nounsg  
+ narcistischer ( ADJECTIVE ) lemma=`narcistisch` adj  
+ narcistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`narcistisch`narcistischere` adj  nounsg  
+ narcistischt ( ADJECTIVE ) lemma=`narcistisch` adj  
+ narcistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`narcistisch`narcistischte` adj  nounsg  
+ narcose ( NOUN NOUN_SINGULAR ) 
+ narcotica ( NOUN NOUN_PLURAL ) lemma=`narcoticum` nounpl  
+ narcoticabrigade ( NOUN NOUN_SINGULAR ) 
+ narcoticabrigaden ( NOUN NOUN_PLURAL ) lemma=`narcoticabrigade` nounpl  
+ narcoticabrigades ( NOUN NOUN_PLURAL ) lemma=`narcoticabrigade` nounpl  
+ narcoticum ( NOUN NOUN_SINGULAR ) 
+ narcotiseur ( NOUN NOUN_SINGULAR ) 
+ narcotiseurs ( NOUN NOUN_PLURAL ) lemma=`narcotiseur` nounpl  
+ nare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naar`nare` adj  nounsg  
+ nareden ( VERB_PAST VERB ) lemma=`narijden` verbpastpl  
+ nareed ( VERB_PAST VERB ) lemma=`narijden` verbpastsg  
+ nareken ( VERB_PRESENT VERB ) lemma=`narekenen` verbpressg  
+ narekende ( VERB_PAST VERB ) lemma=`narekenen` verbpastsg  
+ narekenden ( VERB_PAST VERB ) lemma=`narekenen` verbpastpl  
+ narekenen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`narekenen`narekenen`narekenen` nounsg  verbinf  verbprespl  
+ narekenend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`narekenen` verbpresp  
+ narekenende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`narekenende`narekenen` nounsg  verbpresp  
+ narekent ( VERB_PRESENT VERB ) lemma=`narekenen` verbpressg  
+ naren ( VERB_PRESENT VERB ) lemma=`narennen` verbpressg  
+ narende ( VERB_PAST VERB ) lemma=`narennen` verbpastsg  
+ narenden ( VERB_PAST VERB ) lemma=`narennen` verbpastpl  
+ narennen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`narennen`narennen`narennen` nounsg  verbinf  verbprespl  
+ narennend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`narennen` verbpresp  
+ narennende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`narennende`narennen` nounsg  verbpresp  
+ narent ( VERB_PRESENT VERB ) lemma=`narennen` verbpressg  
+ nariep ( VERB_PAST VERB ) lemma=`naroepen` verbpastsg  
+ nariepen ( VERB_PAST VERB ) lemma=`naroepen` verbpastpl  
+ narigheden ( NOUN NOUN_PLURAL ) lemma=`narigheid` nounpl  
+ narigheid ( NOUN NOUN_SINGULAR ) 
+ narijd ( VERB_PRESENT VERB ) lemma=`narijden` verbpressg  
+ narijden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`narijden`narijden`narijden` nounsg  verbinf  verbprespl  
+ narijdend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`narijden` verbpresp  
+ narijdende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`narijdende`narijden` nounsg  verbpresp  
+ narijdt ( VERB_PRESENT VERB ) lemma=`narijden` verbpressg  
+ naroep ( VERB_PRESENT VERB ) lemma=`naroepen` verbpressg  
+ naroepen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naroepen`naroepen`naroepen` nounsg  verbinf  verbprespl  
+ naroepend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naroepen` verbpresp  
+ naroepende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naroepende`naroepen` nounsg  verbpresp  
+ naroept ( VERB_PRESENT VERB ) lemma=`naroepen` verbpressg  
+ narren ( NOUN NOUN_PLURAL ) lemma=`nar` nounpl  
+ narretje ( NOUN NOUN_SINGULAR ) lemma=`nar` nounsg  
+ narretjes ( NOUN NOUN_PLURAL ) lemma=`nar` nounpl  
+ narrig ( ADJECTIVE ) 
+ narrige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`narrig`narrige` adj  nounsg  
+ narriger ( ADJECTIVE ) lemma=`narrig` adj  
+ narrigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`narrig`narrigere` adj  nounsg  
+ narrigst ( ADJECTIVE ) lemma=`narrig` adj  
+ narrigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`narrig`narrigste` adj  nounsg  
+ narwal ( NOUN NOUN_SINGULAR ) 
+ narwallen ( NOUN NOUN_PLURAL ) lemma=`narwal` nounpl  
+ narwals ( NOUN NOUN_PLURAL ) lemma=`narwal` nounpl  
+ nasaal ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nasaal`nasaal` adj  nounsg  
+ nasaalst ( ADJECTIVE ) lemma=`nasaal` adj  
+ nasaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nasaal`nasaalste` adj  nounsg  
+ nasale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nasaal`nasale` adj  nounsg  
+ nasalen ( NOUN NOUN_PLURAL ) lemma=`nasaal` nounpl  
+ nasaler ( ADJECTIVE ) lemma=`nasaal` adj  
+ nasalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nasaal`nasalere` adj  nounsg  
+ naschilder ( VERB_PRESENT VERB ) lemma=`naschilderen` verbpressg  
+ naschilderde ( VERB_PAST VERB ) lemma=`naschilderen` verbpastsg  
+ naschilderden ( VERB_PAST VERB ) lemma=`naschilderen` verbpastpl  
+ naschilderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naschilderen`naschilderen`naschilderen` nounsg  verbinf  verbprespl  
+ naschilderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naschilderen` verbpresp  
+ naschilderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naschilderende`naschilderen` nounsg  verbpresp  
+ naschildert ( VERB_PRESENT VERB ) lemma=`naschilderen` verbpressg  
+ naschok ( NOUN NOUN_SINGULAR ) 
+ naschokken ( NOUN NOUN_PLURAL ) lemma=`naschok` nounpl  
+ nascholing ( NOUN NOUN_SINGULAR ) 
+ nascholingscursus ( NOUN NOUN_SINGULAR ) 
+ nascholingscursussen ( NOUN NOUN_PLURAL ) lemma=`nascholingscursus` nounpl  
+ naschreeuw ( VERB_PRESENT VERB ) lemma=`naschreeuwen` verbpressg  
+ naschreeuwde ( VERB_PAST VERB ) lemma=`naschreeuwen` verbpastsg  
+ naschreeuwden ( VERB_PAST VERB ) lemma=`naschreeuwen` verbpastpl  
+ naschreeuwen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naschreeuwen`naschreeuwen`naschreeuwen` nounsg  verbinf  verbprespl  
+ naschreeuwend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naschreeuwen` verbpresp  
+ naschreeuwende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naschreeuwende`naschreeuwen` nounsg  verbpresp  
+ naschreeuwt ( VERB_PRESENT VERB ) lemma=`naschreeuwen` verbpressg  
+ naschrift ( NOUN NOUN_SINGULAR ) 
+ naschriften ( NOUN NOUN_PLURAL ) lemma=`naschrift` nounpl  
+ naseizoen ( NOUN NOUN_SINGULAR ) 
+ nasi ( NOUN NOUN_SINGULAR ) 
+ nasibal ( NOUN NOUN_SINGULAR ) 
+ nasiballen ( NOUN NOUN_PLURAL ) lemma=`nasibal` nounpl  
+ nasla ( VERB_PRESENT VERB ) lemma=`naslaan` verbpressg  
+ naslaan ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naslaan`naslaan`naslaan` nounsg  verbinf  verbprespl  
+ naslaand ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naslaan` verbpresp  
+ naslaande ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naslaande`naslaan` nounsg  verbpresp  
+ naslaat ( VERB_PRESENT VERB ) lemma=`naslaan` verbpressg  
+ naslagwerk ( NOUN NOUN_SINGULAR ) 
+ naslagwerken ( NOUN NOUN_PLURAL ) lemma=`naslagwerk` nounpl  
+ nasleep ( NOUN NOUN_SINGULAR ) 
+ nasloeg ( VERB_PAST VERB ) lemma=`naslaan` verbpastsg  
+ nasloegen ( VERB_PAST VERB ) lemma=`naslaan` verbpastpl  
+ nasmaak ( NOUN NOUN_SINGULAR ) 
+ nasmaken ( NOUN NOUN_PLURAL ) lemma=`nasmaak` nounpl  
+ naspeel ( VERB_PRESENT VERB ) lemma=`naspelen` verbpressg  
+ naspeelde ( VERB_PAST VERB ) lemma=`naspelen` verbpastsg  
+ naspeelden ( VERB_PAST VERB ) lemma=`naspelen` verbpastpl  
+ naspeelt ( VERB_PRESENT VERB ) lemma=`naspelen` verbpressg  
+ naspel ( NOUN NOUN_SINGULAR ) 
+ naspelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`naspel`naspelen`naspelen`naspelen` nounpl  nounsg  verbinf  verbprespl  
+ naspelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naspelen` verbpresp  
+ naspelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naspelende`naspelen` nounsg  verbpresp  
+ naspeur ( VERB_PRESENT VERB ) lemma=`naspeuren` verbpressg  
+ naspeurde ( VERB_PAST VERB ) lemma=`naspeuren` verbpastsg  
+ naspeurden ( VERB_PAST VERB ) lemma=`naspeuren` verbpastpl  
+ naspeuren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naspeuren`naspeuren`naspeuren` nounsg  verbinf  verbprespl  
+ naspeurend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naspeuren` verbpresp  
+ naspeurende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naspeurende`naspeuren` nounsg  verbpresp  
+ naspeurt ( VERB_PRESENT VERB ) lemma=`naspeuren` verbpressg  
+ nastaar ( VERB_PRESENT VERB ) lemma=`nastaren` verbpressg  
+ nastaarde ( VERB_PAST VERB ) lemma=`nastaren` verbpastsg  
+ nastaarden ( VERB_PAST VERB ) lemma=`nastaren` verbpastpl  
+ nastaart ( VERB_PRESENT VERB ) lemma=`nastaren` verbpressg  
+ nastaren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nastaren`nastaren`nastaren` nounsg  verbinf  verbprespl  
+ nastarend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nastaren` verbpresp  
+ nastarende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nastarende`nastaren` nounsg  verbpresp  
+ nastreef ( VERB_PRESENT VERB ) lemma=`nastreven` verbpressg  
+ nastreefde ( VERB_PAST VERB ) lemma=`nastreven` verbpastsg  
+ nastreefden ( VERB_PAST VERB ) lemma=`nastreven` verbpastpl  
+ nastreeft ( VERB_PRESENT VERB ) lemma=`nastreven` verbpressg  
+ nastreven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nastreven`nastreven`nastreven` nounsg  verbinf  verbprespl  
+ nastrevend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nastreven` verbpresp  
+ nastrevende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nastrevende`nastreven` nounsg  verbpresp  
+ nasturen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nasturen`nasturen`nasturen` nounsg  verbinf  verbprespl  
+ nasturend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nasturen` verbpresp  
+ nasturende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nasturende`nasturen` nounsg  verbpresp  
+ nastuur ( VERB_PRESENT VERB ) lemma=`nasturen` verbpressg  
+ nastuurde ( VERB_PAST VERB ) lemma=`nasturen` verbpastsg  
+ nastuurden ( VERB_PAST VERB ) lemma=`nasturen` verbpastpl  
+ nastuurt ( VERB_PRESENT VERB ) lemma=`nasturen` verbpressg  
+ nasynchroniseer ( VERB_PRESENT VERB ) lemma=`nasynchroniseren` verbpressg  
+ nasynchroniseerde ( VERB_PAST VERB ) lemma=`nasynchroniseren` verbpastsg  
+ nasynchroniseerden ( VERB_PAST VERB ) lemma=`nasynchroniseren` verbpastpl  
+ nasynchroniseert ( VERB_PRESENT VERB ) lemma=`nasynchroniseren` verbpressg  
+ nasynchroniseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nasynchroniseren`nasynchroniseren`nasynchroniseren` nounsg  verbinf  verbprespl  
+ nasynchroniserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nasynchroniseren` verbpresp  
+ nasynchroniserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nasynchroniserende`nasynchroniseren` nounsg  verbpresp  
+ nat ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nat`nat` adj  nounsg  
+ natafel ( VERB_PRESENT VERB ) lemma=`natafelen` verbpressg  
+ natafelde ( VERB_PAST VERB ) lemma=`natafelen` verbpastsg  
+ natafelden ( VERB_PAST VERB ) lemma=`natafelen` verbpastpl  
+ natafelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natafelen`natafelen`natafelen` nounsg  verbinf  verbprespl  
+ natafelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natafelen` verbpresp  
+ natafelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natafelende`natafelen` nounsg  verbpresp  
+ natafelt ( VERB_PRESENT VERB ) lemma=`natafelen` verbpressg  
+ nateken ( VERB_PRESENT VERB ) lemma=`natekenen` verbpressg  
+ natekende ( VERB_PAST VERB ) lemma=`natekenen` verbpastsg  
+ natekenden ( VERB_PAST VERB ) lemma=`natekenen` verbpastpl  
+ natekenen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natekenen`natekenen`natekenen` nounsg  verbinf  verbprespl  
+ natekenend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natekenen` verbpresp  
+ natekenende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natekenende`natekenen` nounsg  verbpresp  
+ natekent ( VERB_PRESENT VERB ) lemma=`natekenen` verbpressg  
+ natel ( VERB_PRESENT VERB ) lemma=`natellen` verbpressg  
+ natelde ( VERB_PAST VERB ) lemma=`natellen` verbpastsg  
+ natelden ( VERB_PAST VERB ) lemma=`natellen` verbpastpl  
+ natellen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natellen`natellen`natellen` nounsg  verbinf  verbprespl  
+ natellend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natellen` verbpresp  
+ natellende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natellende`natellen` nounsg  verbpresp  
+ natelt ( VERB_PRESENT VERB ) lemma=`natellen` verbpressg  
+ natgemaakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`natmaken` verbpapa  
+ natgemaakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natgemaakte`natmaken` nounsg  verbpapa  
+ natgeregend ( VERB_PAST_PARTICIPLE VERB ) lemma=`natregenen` verbpapa  
+ natgeregende ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natgeregende`natregenen` nounsg  verbpapa  
+ natgespoten ( VERB_PAST_PARTICIPLE VERB ) lemma=`natspuiten` verbpapa  
+ natie ( NOUN NOUN_SINGULAR ) 
+ naties ( NOUN NOUN_PLURAL ) lemma=`natie` nounpl  
+ natievorming ( NOUN NOUN_SINGULAR ) 
+ nationaal ( ADJECTIVE ) 
+ nationaal-socialisme ( NOUN NOUN_SINGULAR ) 
+ nationaal-socialist ( NOUN NOUN_SINGULAR ) 
+ nationaal-socialiste ( NOUN NOUN_PLURAL ) lemma=`nationaal-socialist` nounpl  
+ nationaal-socialisten ( NOUN NOUN_PLURAL ) lemma=`nationaal-socialist` nounpl  
+ nationaal-socialistisch ( ADJECTIVE ) 
+ nationaal-socialistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nationaal-socialistisch`nationaal-socialistische` adj  nounsg  
+ nationale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nationaal`nationale` adj  nounsg  
+ nationalen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`nationaal`nationale` adj  nounpl  
+ nationaler ( ADJECTIVE ) lemma=`nationaal` adj  
+ nationaliseer ( VERB_PRESENT VERB ) lemma=`nationaliseren` verbpressg  
+ nationaliseerde ( VERB_PAST VERB ) lemma=`nationaliseren` verbpastsg  
+ nationaliseerden ( VERB_PAST VERB ) lemma=`nationaliseren` verbpastpl  
+ nationaliseert ( VERB_PRESENT VERB ) lemma=`nationaliseren` verbpressg  
+ nationaliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nationaliseren`nationaliseren`nationaliseren` nounsg  verbinf  verbprespl  
+ nationaliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nationaliseren` verbpresp  
+ nationaliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nationaliserende`nationaliseren` nounsg  verbpresp  
+ nationalisme ( NOUN NOUN_SINGULAR ) 
+ nationalist ( NOUN NOUN_SINGULAR ) 
+ nationalisten ( NOUN NOUN_PLURAL ) lemma=`nationalist` nounpl  
+ nationalistisch ( ADJECTIVE ) 
+ nationalistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nationalistisch`nationalistische` adj  nounsg  
+ nationalistischer ( ADJECTIVE ) lemma=`nationalistisch` adj  
+ nationalistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nationalistisch`nationalistischere` adj  nounsg  
+ nationalistischt ( ADJECTIVE ) lemma=`nationalistisch` adj  
+ nationalistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nationalistisch`nationalistischte` adj  nounsg  
+ nationaliteit ( NOUN NOUN_SINGULAR ) 
+ nationaliteiten ( NOUN NOUN_PLURAL ) lemma=`nationaliteit` nounpl  
+ natiën ( NOUN NOUN_PLURAL ) lemma=`natie` nounpl  
+ natje ( NOUN NOUN_SINGULAR ) 
+ natmaak ( VERB_PRESENT VERB ) lemma=`natmaken` verbpressg  
+ natmaakt ( VERB_PRESENT VERB ) lemma=`natmaken` verbpressg  
+ natmaakte ( VERB_PAST VERB ) lemma=`natmaken` verbpastsg  
+ natmaakten ( VERB_PAST VERB ) lemma=`natmaken` verbpastpl  
+ natmaken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natmaken`natmaken`natmaken` nounsg  verbinf  verbprespl  
+ natmakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natmaken` verbpresp  
+ natmakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natmakende`natmaken` nounsg  verbpresp  
+ natrap ( VERB_PRESENT VERB ) lemma=`natrappen` verbpressg  
+ natrappen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natrappen`natrappen`natrappen` nounsg  verbinf  verbprespl  
+ natrappend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natrappen` verbpresp  
+ natrappende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natrappende`natrappen` nounsg  verbpresp  
+ natrapt ( VERB_PRESENT VERB ) lemma=`natrappen` verbpressg  
+ natrapte ( VERB_PAST VERB ) lemma=`natrappen` verbpastsg  
+ natrapten ( VERB_PAST VERB ) lemma=`natrappen` verbpastpl  
+ natregen ( VERB_PRESENT VERB ) lemma=`natregenen` verbpressg  
+ natregende ( VERB_PAST VERB ) lemma=`natregenen` verbpastsg  
+ natregenden ( VERB_PAST VERB ) lemma=`natregenen` verbpastpl  
+ natregenen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natregenen`natregenen`natregenen` nounsg  verbinf  verbprespl  
+ natregenend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natregenen` verbpresp  
+ natregenende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natregenende`natregenen` nounsg  verbpresp  
+ natregent ( VERB_PRESENT VERB ) lemma=`natregenen` verbpressg  
+ natrek ( VERB_PRESENT VERB ) lemma=`natrekken` verbpressg  
+ natrekken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natrekken`natrekken`natrekken` nounsg  verbinf  verbprespl  
+ natrekkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natrekken` verbpresp  
+ natrekkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natrekkende`natrekken` nounsg  verbpresp  
+ natrekt ( VERB_PRESENT VERB ) lemma=`natrekken` verbpressg  
+ natrium ( NOUN NOUN_SINGULAR ) 
+ natrok ( VERB_PAST VERB ) lemma=`natrekken` verbpastsg  
+ natrokken ( VERB_PAST VERB ) lemma=`natrekken` verbpastpl  
+ natspoot ( VERB_PAST VERB ) lemma=`natspuiten` verbpastsg  
+ natspoten ( VERB_PAST VERB ) lemma=`natspuiten` verbpastpl  
+ natspuit ( VERB_PRESENT VERB ) lemma=`natspuiten` verbpressg  
+ natspuiten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`natspuiten`natspuiten`natspuiten` nounsg  verbinf  verbprespl  
+ natspuitend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`natspuiten` verbpresp  
+ natspuitende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`natspuitende`natspuiten` nounsg  verbpresp  
+ natst ( ADJECTIVE ) lemma=`nat` adj  
+ natste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nat`natste` adj  nounsg  
+ natte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nat`natte` adj  nounsg  
+ natter ( ADJECTIVE ) lemma=`nat` adj  
+ nattere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nat`nattere` adj  nounsg  
+ nattigheid ( NOUN NOUN_SINGULAR ) 
+ natura ( NOUN NOUN_SINGULAR ) 
+ naturalisatie ( NOUN NOUN_SINGULAR ) 
+ naturalisaties ( NOUN NOUN_PLURAL ) lemma=`naturalisatie` nounpl  
+ naturaliseer ( VERB_PRESENT VERB ) lemma=`naturaliseren` verbpressg  
+ naturaliseerde ( VERB_PAST VERB ) lemma=`naturaliseren` verbpastsg  
+ naturaliseerden ( VERB_PAST VERB ) lemma=`naturaliseren` verbpastpl  
+ naturaliseert ( VERB_PRESENT VERB ) lemma=`naturaliseren` verbpressg  
+ naturaliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naturaliseren`naturaliseren`naturaliseren` nounsg  verbinf  verbprespl  
+ naturaliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`naturaliseren` verbpresp  
+ naturaliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naturaliserende`naturaliseren` nounsg  verbpresp  
+ naturalisme ( NOUN NOUN_PROPER_SINGULAR ) 
+ naturalist ( NOUN NOUN_SINGULAR ) 
+ naturalisten ( NOUN NOUN_PLURAL ) lemma=`naturalist` nounpl  
+ naturalistisch ( ADJECTIVE ) 
+ naturalistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naturalistisch`naturalistische` adj  nounsg  
+ naturalistischer ( ADJECTIVE ) lemma=`naturalistisch` adj  
+ naturalistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naturalistisch`naturalistischere` adj  nounsg  
+ naturalistischt ( ADJECTIVE ) lemma=`naturalistisch` adj  
+ naturalistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naturalistisch`naturalistischte` adj  nounsg  
+ naturalizatie ( NOUN NOUN_SINGULAR ) 
+ naturalizaties ( NOUN NOUN_PLURAL ) lemma=`naturalizatie` nounpl  
+ naturel ( ADJECTIVE ) 
+ naturelle ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naturel`naturelle` adj  nounsg  
+ naturen ( NOUN NOUN_PLURAL ) lemma=`natuur` nounpl  
+ naturisme ( NOUN NOUN_SINGULAR ) 
+ naturist ( NOUN NOUN_SINGULAR ) 
+ naturisten ( NOUN NOUN_PLURAL ) lemma=`naturist` nounpl  
+ natuur ( NOUN NOUN_SINGULAR ) 
+ natuurbeeld ( NOUN NOUN_SINGULAR ) 
+ natuurbeelden ( NOUN NOUN_PLURAL ) lemma=`natuurbeeld` nounpl  
+ natuurbeheer ( NOUN NOUN_SINGULAR ) 
+ natuurbehoud ( NOUN NOUN_SINGULAR ) 
+ natuurbelang ( NOUN NOUN_SINGULAR ) 
+ natuurbelangen ( NOUN NOUN_PLURAL ) lemma=`natuurbelang` nounpl  
+ natuurbeleid ( NOUN NOUN_SINGULAR ) 
+ natuurbeleving ( NOUN NOUN_SINGULAR ) 
+ natuurbeschermer ( NOUN NOUN_SINGULAR ) 
+ natuurbeschermers ( NOUN NOUN_PLURAL ) lemma=`natuurbeschermer` nounpl  
+ natuurbescherming ( NOUN NOUN_SINGULAR ) 
+ natuurbeschermingswe ( NOUN NOUN_SINGULAR ) 
+ natuurbeschermingswet ( NOUN NOUN_SINGULAR ) 
+ natuurbeschermingswetten ( NOUN NOUN_PLURAL ) lemma=`natuurbeschermingswet` nounpl  
+ natuurfilm ( NOUN NOUN_SINGULAR ) 
+ natuurfilms ( NOUN NOUN_PLURAL ) lemma=`natuurfilm` nounpl  
+ natuurgebied ( NOUN NOUN_SINGULAR ) 
+ natuurgebieden ( NOUN NOUN_PLURAL ) lemma=`natuurgebied` nounpl  
+ natuurgeneeskunde ( NOUN NOUN_SINGULAR ) 
+ natuurgetrouw ( ADJECTIVE ) 
+ natuurgetrouwe ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurgetrouw`natuurgetrouwe` adj  nounsg  
+ natuurgetrouwer ( ADJECTIVE ) lemma=`natuurgetrouw` adj  
+ natuurgetrouwere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurgetrouw`natuurgetrouwere` adj  nounsg  
+ natuurgetrouwst ( ADJECTIVE ) lemma=`natuurgetrouw` adj  
+ natuurgetrouwste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurgetrouw`natuurgetrouwste` adj  nounsg  
+ natuurgeweld ( NOUN NOUN_SINGULAR ) 
+ natuurhistorisch ( ADJECTIVE ) 
+ natuurhistorische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurhistorisch`natuurhistorische` adj  nounsg  
+ natuurijs ( NOUN NOUN_SINGULAR ) 
+ natuurkracht ( NOUN NOUN_SINGULAR ) 
+ natuurkrachten ( NOUN NOUN_PLURAL ) lemma=`natuurkracht` nounpl  
+ natuurkunde ( NOUN NOUN_SINGULAR ) 
+ natuurkundig ( ADJECTIVE ) 
+ natuurkundige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurkundig`natuurkundige` adj  nounsg  
+ natuurkundigen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`natuurkundig`natuurkundige` adj  nounpl  
+ natuurliefhebber ( NOUN NOUN_SINGULAR ) 
+ natuurliefhebbers ( NOUN NOUN_PLURAL ) lemma=`natuurliefhebber` nounpl  
+ natuurlijk ( ADJECTIVE ) 
+ natuurlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurlijk`natuurlijke` adj  nounsg  
+ natuurlijker ( ADJECTIVE ) lemma=`natuurlijk` adj  
+ natuurlijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurlijk`natuurlijkere` adj  nounsg  
+ natuurlijkheid ( NOUN NOUN_SINGULAR ) 
+ natuurlijkst ( ADJECTIVE ) lemma=`natuurlijk` adj  
+ natuurlijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurlijk`natuurlijkste` adj  nounsg  
+ natuurmens ( NOUN NOUN_SINGULAR ) 
+ natuurmensen ( NOUN NOUN_PLURAL ) lemma=`natuurmens` nounpl  
+ natuurmonument ( NOUN NOUN_SINGULAR ) 
+ natuurmonumenten ( NOUN NOUN_PLURAL ) lemma=`natuurmonument` nounpl  
+ natuuronderzoek ( NOUN NOUN_SINGULAR ) 
+ natuuronderzoeken ( NOUN NOUN_PLURAL ) lemma=`natuuronderzoek` nounpl  
+ natuuronderzoeker ( NOUN NOUN_SINGULAR ) 
+ natuuronderzoekers ( NOUN NOUN_PLURAL ) lemma=`natuuronderzoeker` nounpl  
+ natuurontwikkeling ( NOUN NOUN_SINGULAR ) 
+ natuuropvatting ( NOUN NOUN_SINGULAR ) 
+ natuuropvattingen ( NOUN NOUN_PLURAL ) lemma=`natuuropvatting` nounpl  
+ natuurpad ( NOUN NOUN_SINGULAR ) 
+ natuurpaden ( NOUN NOUN_PLURAL ) lemma=`natuurpad` nounpl  
+ natuurpark ( NOUN NOUN_SINGULAR ) 
+ natuurparken ( NOUN NOUN_PLURAL ) lemma=`natuurpark` nounpl  
+ natuurramp ( NOUN NOUN_SINGULAR ) 
+ natuurrampen ( NOUN NOUN_PLURAL ) lemma=`natuurramp` nounpl  
+ natuurreservaat ( NOUN NOUN_SINGULAR ) 
+ natuurreservaten ( NOUN NOUN_PLURAL ) lemma=`natuurreservaat` nounpl  
+ natuurschoon ( NOUN NOUN_SINGULAR ) 
+ natuursteen ( NOUN NOUN_SINGULAR ) 
+ natuurstenen ( NOUN NOUN_PLURAL ) lemma=`natuursteen` nounpl  
+ natuurstudie ( NOUN NOUN_SINGULAR ) 
+ natuurstudies ( NOUN NOUN_PLURAL ) lemma=`natuurstudie` nounpl  
+ natuurtalent ( NOUN NOUN_SINGULAR ) 
+ natuurtalenten ( NOUN NOUN_PLURAL ) lemma=`natuurtalent` nounpl  
+ natuurtechniek ( NOUN NOUN_SINGULAR ) 
+ natuurverschijnsel ( NOUN NOUN_SINGULAR ) 
+ natuurverschijnselen ( NOUN NOUN_PLURAL ) lemma=`natuurverschijnsel` nounpl  
+ natuurverschijnsels ( NOUN NOUN_PLURAL ) lemma=`natuurverschijnsel` nounpl  
+ natuurvoeding ( NOUN NOUN_SINGULAR ) 
+ natuurvriend ( NOUN NOUN_SINGULAR ) 
+ natuurvriendelijk ( ADJECTIVE ) 
+ natuurvrienden ( NOUN NOUN_PLURAL ) lemma=`natuurvriend` nounpl  
+ natuurwaarde ( NOUN NOUN_SINGULAR ) 
+ natuurwet ( NOUN NOUN_SINGULAR ) 
+ natuurwetenschap ( NOUN NOUN_SINGULAR ) 
+ natuurwetenschappelijk ( ADJECTIVE ) 
+ natuurwetenschappelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`natuurwetenschappelijk`natuurwetenschappelijke` adj  nounsg  
+ natuurwetenschappen ( NOUN NOUN_PLURAL ) lemma=`natuurwetenschap` nounpl  
+ natuurwetten ( NOUN NOUN_PLURAL ) lemma=`natuurwet` nounpl  
+ natuurzone ( NOUN NOUN_SINGULAR ) 
+ natuurzonen ( NOUN NOUN_PLURAL ) lemma=`natuurzone` nounpl  
+ natuurzones ( NOUN NOUN_PLURAL ) lemma=`natuurzone` nounpl  
+ nautisch ( ADJECTIVE ) 
+ nautische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nautisch`nautische` adj  nounsg  
+ nauw ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauw`nauw` adj  nounsg  
+ nauwe ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauw`nauwe` adj  nounsg  
+ nauwelijks ( ADVERB ) 
+ nauwer ( ADJECTIVE ) lemma=`nauw` adj  
+ nauwere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauw`nauwere` adj  nounsg  
+ nauwgezet ( ADJECTIVE ) 
+ nauwgezetheid ( NOUN NOUN_SINGULAR ) 
+ nauwgezetst ( ADJECTIVE ) lemma=`nauwgezet` adj  
+ nauwgezetste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwgezet`nauwgezetste` adj  nounsg  
+ nauwgezette ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwgezet`nauwgezette` adj  nounsg  
+ nauwgezetter ( ADJECTIVE ) lemma=`nauwgezet` adj  
+ nauwgezettere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwgezet`nauwgezettere` adj  nounsg  
+ nauwkeurig ( ADJECTIVE ) 
+ nauwkeurige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwkeurig`nauwkeurige` adj  nounsg  
+ nauwkeuriger ( ADJECTIVE ) lemma=`nauwkeurig` adj  
+ nauwkeurigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwkeurig`nauwkeurigere` adj  nounsg  
+ nauwkeurigheid ( NOUN NOUN_SINGULAR ) 
+ nauwkeurigst ( ADJECTIVE ) lemma=`nauwkeurig` adj  
+ nauwkeurigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwkeurig`nauwkeurigste` adj  nounsg  
+ nauwlettend ( ADJECTIVE ) 
+ nauwlettende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwlettend`nauwlettende` adj  nounsg  
+ nauwlettender ( ADJECTIVE ) lemma=`nauwlettend` adj  
+ nauwlettendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwlettend`nauwlettendere` adj  nounsg  
+ nauwlettendst ( ADJECTIVE ) lemma=`nauwlettend` adj  
+ nauwlettendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwlettend`nauwlettendste` adj  nounsg  
+ nauwsluitend ( ADJECTIVE ) 
+ nauwsluitende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauwsluitend`nauwsluitende` adj  nounsg  
+ nauwst ( ADJECTIVE ) lemma=`nauw` adj  
+ nauwste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nauw`nauwste` adj  nounsg  
+ navel ( NOUN NOUN_SINGULAR ) 
+ navelbandje ( NOUN NOUN_SINGULAR ) 
+ navelbandjes ( NOUN NOUN_PLURAL ) lemma=`navelbandje` nounpl  
+ navelbreuk ( NOUN NOUN_SINGULAR ) 
+ navelbreuken ( NOUN NOUN_PLURAL ) lemma=`navelbreuk` nounpl  
+ navels ( NOUN NOUN_PLURAL ) lemma=`navel` nounpl  
+ navelstaarder ( NOUN NOUN_SINGULAR ) 
+ navelstaarders ( NOUN NOUN_PLURAL ) lemma=`navelstaarder` nounpl  
+ navelstaren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navelstaren`navelstaren`navelstaren` nounsg  verbinf  verbprespl  
+ navelstreng ( NOUN NOUN_SINGULAR ) 
+ navelstrengen ( NOUN NOUN_PLURAL ) lemma=`navelstreng` nounpl  
+ naveltje ( NOUN NOUN_SINGULAR ) lemma=`navel` nounsg  
+ naveltjes ( NOUN NOUN_PLURAL ) lemma=`navel` nounpl  
+ naven ( NOUN NOUN_PLURAL ) lemma=`naaf` nounpl  
+ navenant ( ADJECTIVE ) 
+ navertel ( VERB_PRESENT VERB ) lemma=`navertellen` verbpressg  
+ naverteld ( VERB_PAST_PARTICIPLE VERB ) lemma=`navertellen` verbpapa  
+ navertelde ( VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`navertelde`navertellen`navertellen` nounsg  verbpapa  verbpastsg  
+ navertelden ( VERB_PAST VERB ) lemma=`navertellen` verbpastpl  
+ navertellen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navertellen`navertellen`navertellen` nounsg  verbinf  verbprespl  
+ navertellend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`navertellen` verbpresp  
+ navertellende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`navertellende`navertellen` nounsg  verbpresp  
+ navertelt ( VERB_PRESENT VERB ) lemma=`navertellen` verbpressg  
+ navigatie ( NOUN NOUN_SINGULAR ) 
+ navigatie-instrument ( NOUN NOUN_SINGULAR ) 
+ navigatie-instrumenten ( NOUN NOUN_PLURAL ) lemma=`navigatie-instrument` nounpl  
+ navigatieapparatuur ( NOUN NOUN_SINGULAR ) 
+ navigatiefout ( NOUN NOUN_SINGULAR ) 
+ navigatiefouten ( NOUN NOUN_PLURAL ) lemma=`navigatiefout` nounpl  
+ navigatielicht ( NOUN NOUN_SINGULAR ) 
+ navigatielichten ( NOUN NOUN_PLURAL ) lemma=`navigatielicht` nounpl  
+ navigatiemiddel ( NOUN NOUN_SINGULAR ) 
+ navigatiemiddelen ( NOUN NOUN_PLURAL ) lemma=`navigatiemiddel` nounpl  
+ navigatiesysteem ( NOUN NOUN_SINGULAR ) 
+ navigatiesystemen ( NOUN NOUN_PLURAL ) lemma=`navigatiesysteem` nounpl  
+ navigator ( NOUN NOUN_SINGULAR ) 
+ navigators ( NOUN NOUN_PLURAL ) lemma=`navigator` nounpl  
+ navigeer ( VERB_PRESENT VERB ) lemma=`navigeren` verbpressg  
+ navigeerde ( VERB_PAST VERB ) lemma=`navigeren` verbpastsg  
+ navigeerden ( VERB_PAST VERB ) lemma=`navigeren` verbpastpl  
+ navigeert ( VERB_PRESENT VERB ) lemma=`navigeren` verbpressg  
+ navigeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navigeren`navigeren`navigeren` nounsg  verbinf  verbprespl  
+ navigerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`navigeren` verbpresp  
+ navigerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`navigerende`navigeren` nounsg  verbpresp  
+ navoel ( VERB_PRESENT VERB ) lemma=`navoelen` verbpressg  
+ navoelbaar ( ADJECTIVE ) 
+ navoelbaarder ( ADJECTIVE ) lemma=`navoelbaar` adj  
+ navoelbaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`navoelbaar`navoelbaardere` adj  nounsg  
+ navoelbaarst ( ADJECTIVE ) lemma=`navoelbaar` adj  
+ navoelbaarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`navoelbaar`navoelbaarste` adj  nounsg  
+ navoelbare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`navoelbaar`navoelbare` adj  nounsg  
+ navoelde ( VERB_PAST VERB ) lemma=`navoelen` verbpastsg  
+ navoelden ( VERB_PAST VERB ) lemma=`navoelen` verbpastpl  
+ navoelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navoelen`navoelen`navoelen` nounsg  verbinf  verbprespl  
+ navoelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`navoelen` verbpresp  
+ navoelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`navoelende`navoelen` nounsg  verbpresp  
+ navoelt ( VERB_PRESENT VERB ) lemma=`navoelen` verbpressg  
+ navolg ( VERB_PRESENT VERB ) lemma=`navolgen` verbpressg  
+ navolgde ( VERB_PAST VERB ) lemma=`navolgen` verbpastsg  
+ navolgden ( VERB_PAST VERB ) lemma=`navolgen` verbpastpl  
+ navolgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navolgen`navolgen`navolgen` nounsg  verbinf  verbprespl  
+ navolgend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`navolgend`navolgen` adj  verbpresp  
+ navolgende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`navolgend`navolgende`navolgen` adj  nounsg  verbpresp  
+ navolger ( NOUN NOUN_SINGULAR ) 
+ navolgers ( NOUN NOUN_PLURAL ) lemma=`navolger` nounpl  
+ navolging ( NOUN NOUN_SINGULAR ) 
+ navolgingen ( NOUN NOUN_PLURAL ) lemma=`navolging` nounpl  
+ navolgt ( VERB_PRESENT VERB ) lemma=`navolgen` verbpressg  
+ navors ( VERB_PRESENT VERB ) lemma=`navorsen` verbpressg  
+ navorsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navorsen`navorsen`navorsen` nounsg  verbinf  verbprespl  
+ navorsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`navorsen` verbpresp  
+ navorsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`navorsende`navorsen` nounsg  verbpresp  
+ navorst ( VERB_PRESENT VERB ) lemma=`navorsen` verbpressg  
+ navorste ( VERB_PAST VERB ) lemma=`navorsen` verbpastsg  
+ navorsten ( VERB_PAST VERB ) lemma=`navorsen` verbpastpl  
+ navraag ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`navraag`navragen` nounsg  verbpressg  
+ navraagde ( VERB_PAST VERB ) lemma=`navragen` verbpastsg  
+ navraagden ( VERB_PAST VERB ) lemma=`navragen` verbpastpl  
+ navraagt ( VERB_PRESENT VERB ) lemma=`navragen` verbpressg  
+ navragen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`navragen`navragen`navragen` nounsg  verbinf  verbprespl  
+ navragend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`navragen` verbpresp  
+ navragende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`navragende`navragen` nounsg  verbpresp  
+ navrant ( ADJECTIVE ) 
+ navrante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`navrant`navrante` adj  nounsg  
+ navranter ( ADJECTIVE ) lemma=`navrant` adj  
+ navrantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`navrant`navrantere` adj  nounsg  
+ navrantst ( ADJECTIVE ) lemma=`navrant` adj  
+ navrantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`navrant`navrantste` adj  nounsg  
+ navroeg ( VERB_PAST VERB ) lemma=`navragen` verbpastsg  
+ navroegen ( VERB_PAST VERB ) lemma=`navragen` verbpastpl  
+ nawees ( VERB_PAST VERB ) lemma=`nawijzen` verbpastsg  
+ naweeën ( NOUN NOUN_PLURAL ) 
+ nawerk ( VERB_PRESENT VERB ) lemma=`nawerken` verbpressg  
+ nawerken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nawerken`nawerken`nawerken` nounsg  verbinf  verbprespl  
+ nawerkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nawerken` verbpresp  
+ nawerkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nawerkende`nawerken` nounsg  verbpresp  
+ nawerking ( NOUN NOUN_SINGULAR ) 
+ nawerkingen ( NOUN NOUN_PLURAL ) lemma=`nawerking` nounpl  
+ nawerkt ( VERB_PRESENT VERB ) lemma=`nawerken` verbpressg  
+ nawerkte ( VERB_PAST VERB ) lemma=`nawerken` verbpastsg  
+ nawerkten ( VERB_PAST VERB ) lemma=`nawerken` verbpastpl  
+ nawezen ( VERB_PAST VERB ) lemma=`nawijzen` verbpastpl  
+ nawijs ( VERB_PRESENT VERB ) lemma=`nawijzen` verbpressg  
+ nawijst ( VERB_PRESENT VERB ) lemma=`nawijzen` verbpressg  
+ nawijzen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nawijzen`nawijzen`nawijzen` nounsg  verbinf  verbprespl  
+ nawijzend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nawijzen` verbpresp  
+ nawijzende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nawijzende`nawijzen` nounsg  verbpresp  
+ nawoord ( NOUN NOUN_SINGULAR ) 
+ nawoorden ( NOUN NOUN_PLURAL ) lemma=`nawoord` nounpl  
+ nazaat ( NOUN NOUN_SINGULAR ) 
+ nazag ( VERB_PAST VERB ) lemma=`nazien` verbpastsg  
+ nazagen ( VERB_PAST VERB ) lemma=`nazien` verbpastpl  
+ nazat ( VERB_PAST VERB ) lemma=`nazitten` verbpastsg  
+ nazaten ( VERB_PAST NOUN VERB NOUN_PLURAL ) lemma=`nazaat`nazitten` nounpl  verbpastpl  
+ nazeg ( VERB_PRESENT VERB ) lemma=`nazeggen` verbpressg  
+ nazegde ( VERB_PAST VERB ) lemma=`nazeggen` verbpastsg  
+ nazegden ( VERB_PAST VERB ) lemma=`nazeggen` verbpastpl  
+ nazeggen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nazeggen`nazeggen`nazeggen` nounsg  verbinf  verbprespl  
+ nazeggend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nazeggen` verbpresp  
+ nazeggende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nazeggende`nazeggen` nounsg  verbpresp  
+ nazegt ( VERB_PRESENT VERB ) lemma=`nazeggen` verbpressg  
+ nazei ( VERB_PAST VERB ) lemma=`nazeggen` verbpastsg  
+ nazeiden ( VERB_PAST VERB ) lemma=`nazeggen` verbpastpl  
+ nazend ( VERB_PRESENT VERB ) lemma=`nazenden` verbpressg  
+ nazenden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nazenden`nazenden`nazenden` nounsg  verbinf  verbprespl  
+ nazendend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nazenden` verbpresp  
+ nazendende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nazendende`nazenden` nounsg  verbpresp  
+ nazendt ( VERB_PRESENT VERB ) lemma=`nazenden` verbpressg  
+ nazi ( NOUN NOUN_SINGULAR ) 
+ nazi's ( NOUN NOUN_PLURAL ) lemma=`nazi` nounpl  
+ nazi-Duitsland ( NOUN NOUN_SINGULAR ) 
+ nazi-regime ( NOUN NOUN_SINGULAR ) 
+ nazi-regimes ( NOUN NOUN_PLURAL ) lemma=`nazi-regime` nounpl  
+ nazi-verleden ( NOUN NOUN_SINGULAR ) 
+ nazicht ( NOUN NOUN_SINGULAR ) 
+ nazie ( VERB_PRESENT VERB ) lemma=`nazien` verbpressg  
+ nazien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nazien`nazien`nazien` nounsg  verbinf  verbprespl  
+ naziend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nazien` verbpresp  
+ naziende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`naziende`nazien` nounsg  verbpresp  
+ naziet ( VERB_PRESENT VERB ) lemma=`nazien` verbpressg  
+ nazisme ( NOUN NOUN_SINGULAR ) 
+ nazistisch ( ADJECTIVE ) 
+ nazit ( VERB_PRESENT VERB ) lemma=`nazitten` verbpressg  
+ nazitten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nazitten`nazitten`nazitten` nounsg  verbinf  verbprespl  
+ nazittend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nazitten` verbpresp  
+ nazittende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nazittende`nazitten` nounsg  verbpresp  
+ nazocht ( VERB_PAST VERB ) lemma=`nazoeken` verbpastsg  
+ nazochten ( VERB_PAST VERB ) lemma=`nazoeken` verbpastpl  
+ nazoek ( VERB_PRESENT VERB ) lemma=`nazoeken` verbpressg  
+ nazoeken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nazoeken`nazoeken`nazoeken` nounsg  verbinf  verbprespl  
+ nazoekend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nazoeken` verbpresp  
+ nazoekende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nazoekende`nazoeken` nounsg  verbpresp  
+ nazoekt ( VERB_PRESENT VERB ) lemma=`nazoeken` verbpressg  
+ nazomer ( NOUN NOUN_SINGULAR ) 
+ nazomers ( NOUN NOUN_PLURAL ) lemma=`nazomer` nounpl  
+ nazond ( VERB_PAST VERB ) lemma=`nazenden` verbpastsg  
+ nazonden ( VERB_PAST VERB ) lemma=`nazenden` verbpastpl  
+ nazorg ( NOUN NOUN_SINGULAR ) 
+ nazorgen ( NOUN NOUN_PLURAL ) lemma=`nazorg` nounpl  
+ naäpen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`naäpen`naäpen`naäpen` nounsg  verbinf  verbprespl  
+ naïef ( ADJECTIVE ) 
+ naïefst ( ADJECTIVE ) lemma=`naïef` adj  
+ naïefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naïef`naïefste` adj  nounsg  
+ naïeve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naïef`naïeve` adj  nounsg  
+ naïeveling ( NOUN NOUN_SINGULAR ) 
+ naïevelingen ( NOUN NOUN_PLURAL ) lemma=`naïeveling` nounpl  
+ naïeven ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`naïef`naïeve` adj  nounpl  
+ naïever ( ADJECTIVE ) lemma=`naïef` adj  
+ naïevere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`naïef`naïevere` adj  nounsg  
+ naïveteit ( NOUN NOUN_SINGULAR ) 
+ naïveteiten ( NOUN NOUN_PLURAL ) lemma=`naïveteit` nounpl  
+ naïviteit ( NOUN NOUN_SINGULAR ) 
+ naïviteiten ( NOUN NOUN_PLURAL ) lemma=`naïviteit` nounpl  
+ necrofiel ( NOUN NOUN_SINGULAR ) 
+ necrofielen ( NOUN NOUN_PLURAL ) lemma=`necrofiel` nounpl  
+ necrologie ( NOUN NOUN_SINGULAR ) 
+ necrologieën ( NOUN NOUN_PLURAL ) lemma=`necrologie` nounpl  
+ necrose ( NOUN NOUN_SINGULAR ) 
+ nectar ( NOUN NOUN_SINGULAR ) 
+ nectarine ( NOUN NOUN_SINGULAR ) 
+ nectarines ( NOUN NOUN_PLURAL ) lemma=`nectarine` nounpl  
+ nederig ( ADJECTIVE ) 
+ nederige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nederig`nederige` adj  nounsg  
+ nederiger ( ADJECTIVE ) lemma=`nederig` adj  
+ nederigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nederig`nederigere` adj  nounsg  
+ nederigheid ( NOUN NOUN_SINGULAR ) 
+ nederigst ( ADJECTIVE ) lemma=`nederig` adj  
+ nederigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nederig`nederigste` adj  nounsg  
+ nederlaag ( NOUN NOUN_SINGULAR ) 
+ nederlagen ( NOUN NOUN_PLURAL ) lemma=`nederlaag` nounpl  
+ nederpop ( NOUN NOUN_SINGULAR ) 
+ nederwaarts ( ADJECTIVE ) 
+ nederwaartse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nederwaarts`nederwaartse` adj  nounsg  
+ nederwiet ( NOUN NOUN_SINGULAR ) 
+ nederzetting ( NOUN NOUN_SINGULAR ) 
+ nederzettingen ( NOUN NOUN_PLURAL ) lemma=`nederzetting` nounpl  
+ nee ( INTERJECTION ) 
+ neef ( NOUN NOUN_SINGULAR ) 
+ neefje ( NOUN NOUN_SINGULAR ) lemma=`neef` nounsg  
+ neefjes ( NOUN NOUN_PLURAL ) lemma=`neef` nounpl  
+ neeg ( VERB_PAST VERB ) lemma=`nijgen` verbpastsg  
+ neem ( VERB_PRESENT VERB ) lemma=`nemen` verbpressg  
+ neemt ( VERB_PRESENT VERB ) lemma=`nemen` verbpressg  
+ neen ( INTERJECTION ) 
+ neep ( VERB_PAST NOUN VERB NOUN_SINGULAR ) lemma=`neep`nijpen` nounsg  verbpastsg  
+ neer ( NOUN ADVERB NOUN_SINGULAR ) lemma=`neer`neer` adv  nounsg  
+ neerbogen ( VERB_PAST VERB ) lemma=`neerbuigen` verbpastpl  
+ neerboog ( VERB_PAST VERB ) lemma=`neerbuigen` verbpastsg  
+ neerbuig ( VERB_PRESENT VERB ) lemma=`neerbuigen` verbpressg  
+ neerbuigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerbuigen`neerbuigen`neerbuigen` nounsg  verbinf  verbprespl  
+ neerbuigend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`neerbuigend`neerbuigen` adj  verbpresp  
+ neerbuigende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`neerbuigend`neerbuigende`neerbuigen` adj  nounsg  verbpresp  
+ neerbuigender ( ADJECTIVE ) lemma=`neerbuigend` adj  
+ neerbuigendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neerbuigend`neerbuigendere` adj  nounsg  
+ neerbuigendst ( ADJECTIVE ) lemma=`neerbuigend` adj  
+ neerbuigendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neerbuigend`neerbuigendste` adj  nounsg  
+ neerbuigt ( VERB_PRESENT VERB ) lemma=`neerbuigen` verbpressg  
+ neerdaal ( VERB_PRESENT VERB ) lemma=`neerdalen` verbpressg  
+ neerdaalde ( VERB_PAST VERB ) lemma=`neerdalen` verbpastsg  
+ neerdaalden ( VERB_PAST VERB ) lemma=`neerdalen` verbpastpl  
+ neerdaalt ( VERB_PRESENT VERB ) lemma=`neerdalen` verbpressg  
+ neerdalen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerdalen`neerdalen`neerdalen` nounsg  verbinf  verbprespl  
+ neerdalend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerdalen` verbpresp  
+ neerdalende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerdalende`neerdalen` nounsg  verbpresp  
+ neerdruk ( VERB_PRESENT VERB ) lemma=`neerdrukken` verbpressg  
+ neerdrukken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerdrukken`neerdrukken`neerdrukken` nounsg  verbinf  verbprespl  
+ neerdrukkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerdrukken` verbpresp  
+ neerdrukkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerdrukkende`neerdrukken` nounsg  verbpresp  
+ neerdrukt ( VERB_PRESENT VERB ) lemma=`neerdrukken` verbpressg  
+ neerdrukte ( VERB_PAST VERB ) lemma=`neerdrukken` verbpastsg  
+ neerdrukten ( VERB_PAST VERB ) lemma=`neerdrukken` verbpastpl  
+ neerdwarrel ( VERB_PRESENT VERB ) lemma=`neerdwarrelen` verbpressg  
+ neerdwarrelde ( VERB_PAST VERB ) lemma=`neerdwarrelen` verbpastsg  
+ neerdwarrelden ( VERB_PAST VERB ) lemma=`neerdwarrelen` verbpastpl  
+ neerdwarrelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerdwarrelen`neerdwarrelen`neerdwarrelen` nounsg  verbinf  verbprespl  
+ neerdwarrelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerdwarrelen` verbpresp  
+ neerdwarrelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerdwarrelende`neerdwarrelen` nounsg  verbpresp  
+ neerdwarrelt ( VERB_PRESENT VERB ) lemma=`neerdwarrelen` verbpressg  
+ neerga ( VERB_PRESENT VERB ) lemma=`neergaan` verbpressg  
+ neergaan ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neergaan`neergaan`neergaan` nounsg  verbinf  verbprespl  
+ neergaand ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neergaan` verbpresp  
+ neergaande ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergaande`neergaan` nounsg  verbpresp  
+ neergaat ( VERB_PRESENT VERB ) lemma=`neergaan` verbpressg  
+ neergang ( NOUN NOUN_SINGULAR ) 
+ neergebogen ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerbuigen` verbpapa  
+ neergedaald ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerdalen` verbpapa  
+ neergedaalde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergedaalde`neerdalen` nounsg  verbpapa  
+ neergedrukt ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerdrukken` verbpapa  
+ neergedrukte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergedrukte`neerdrukken` nounsg  verbpapa  
+ neergedwarreld ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerdwarrelen` verbpapa  
+ neergedwarrelde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergedwarrelde`neerdwarrelen` nounsg  verbpapa  
+ neergegaan ( VERB_PAST_PARTICIPLE VERB ) lemma=`neergaan` verbpapa  
+ neergegane ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergegane`neergaan` nounsg  verbpapa  
+ neergegooid ( VERB_PAST_PARTICIPLE VERB ) lemma=`neergooien` verbpapa  
+ neergegooide ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergegooide`neergooien` nounsg  verbpapa  
+ neergehaald ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerhalen` verbpapa  
+ neergehaalde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergehaalde`neerhalen` nounsg  verbpapa  
+ neergekeken ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerkijken` verbpapa  
+ neergeknald ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerknallen` verbpapa  
+ neergeknalde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergeknalde`neerknallen` nounsg  verbpapa  
+ neergeknield ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerknielen` verbpapa  
+ neergekomen ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerkomen` verbpapa  
+ neergekwakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerkwakken` verbpapa  
+ neergekwakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergekwakte`neerkwakken` nounsg  verbpapa  
+ neergelaten ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerlaten` verbpapa  
+ neergelegd ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerleggen` verbpapa  
+ neergelegde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergelegde`neerleggen` nounsg  verbpapa  
+ neergeploft ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerploffen` verbpapa  
+ neergeplofte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergeplofte`neerploffen` nounsg  verbpapa  
+ neergepoot ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerpoten` verbpapa  
+ neergepote ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergepote`neerpoten` nounsg  verbpapa  
+ neergeschoten ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerschieten` verbpapa  
+ neergeschreven ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerschrijven` verbpapa  
+ neergeslagen ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerslaan` verbpapa  
+ neergesmakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`neersmakken` verbpapa  
+ neergesmakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergesmakte`neersmakken` nounsg  verbpapa  
+ neergestoken ( VERB_PAST_PARTICIPLE VERB ) lemma=`neersteken` verbpapa  
+ neergestort ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerstorten` verbpapa  
+ neergestorte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergestorte`neerstorten` nounsg  verbpapa  
+ neergestreken ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerstrijken` verbpapa  
+ neergeteld ( VERB_PAST_PARTICIPLE VERB ) lemma=`neertellen` verbpapa  
+ neergetelde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergetelde`neertellen` nounsg  verbpapa  
+ neergevallen ( VERB_PAST_PARTICIPLE VERB ) lemma=`neervallen` verbpapa  
+ neergevlijd ( VERB_PAST_PARTICIPLE VERB ) lemma=`neervlijen` verbpapa  
+ neergevlijde ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergevlijde`neervlijen` nounsg  verbpapa  
+ neergeworpen ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerwerpen` verbpapa  
+ neergezegen ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerzijgen` verbpapa  
+ neergezet ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerzetten` verbpapa  
+ neergezette ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergezette`neerzetten` nounsg  verbpapa  
+ neergezien ( VERB_PAST_PARTICIPLE VERB ) lemma=`neerzien` verbpapa  
+ neerging ( VERB_PAST VERB ) lemma=`neergaan` verbpastsg  
+ neergingen ( VERB_PAST VERB ) lemma=`neergaan` verbpastpl  
+ neergooi ( VERB_PRESENT VERB ) lemma=`neergooien` verbpressg  
+ neergooide ( VERB_PAST VERB ) lemma=`neergooien` verbpastsg  
+ neergooiden ( VERB_PAST VERB ) lemma=`neergooien` verbpastpl  
+ neergooien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neergooien`neergooien`neergooien` nounsg  verbinf  verbprespl  
+ neergooiend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neergooien` verbpresp  
+ neergooiende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neergooiende`neergooien` nounsg  verbpresp  
+ neergooit ( VERB_PRESENT VERB ) lemma=`neergooien` verbpressg  
+ neerhaal ( VERB_PRESENT VERB ) lemma=`neerhalen` verbpressg  
+ neerhaalde ( VERB_PAST VERB ) lemma=`neerhalen` verbpastsg  
+ neerhaalden ( VERB_PAST VERB ) lemma=`neerhalen` verbpastpl  
+ neerhaalt ( VERB_PRESENT VERB ) lemma=`neerhalen` verbpressg  
+ neerhalen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerhalen`neerhalen`neerhalen` nounsg  verbinf  verbprespl  
+ neerhalend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerhalen` verbpresp  
+ neerhalende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerhalende`neerhalen` nounsg  verbpresp  
+ neerkeek ( VERB_PAST VERB ) lemma=`neerkijken` verbpastsg  
+ neerkeken ( VERB_PAST VERB ) lemma=`neerkijken` verbpastpl  
+ neerkijk ( VERB_PRESENT VERB ) lemma=`neerkijken` verbpressg  
+ neerkijken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerkijken`neerkijken`neerkijken` nounsg  verbinf  verbprespl  
+ neerkijkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerkijken` verbpresp  
+ neerkijkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerkijkende`neerkijken` nounsg  verbpresp  
+ neerkijkt ( VERB_PRESENT VERB ) lemma=`neerkijken` verbpressg  
+ neerknal ( VERB_PRESENT VERB ) lemma=`neerknallen` verbpressg  
+ neerknalde ( VERB_PAST VERB ) lemma=`neerknallen` verbpastsg  
+ neerknalden ( VERB_PAST VERB ) lemma=`neerknallen` verbpastpl  
+ neerknallen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerknallen`neerknallen`neerknallen` nounsg  verbinf  verbprespl  
+ neerknallend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerknallen` verbpresp  
+ neerknallende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerknallende`neerknallen` nounsg  verbpresp  
+ neerknalt ( VERB_PRESENT VERB ) lemma=`neerknallen` verbpressg  
+ neerkniel ( VERB_PRESENT VERB ) lemma=`neerknielen` verbpressg  
+ neerknielde ( VERB_PAST VERB ) lemma=`neerknielen` verbpastsg  
+ neerknielden ( VERB_PAST VERB ) lemma=`neerknielen` verbpastpl  
+ neerknielen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerknielen`neerknielen`neerknielen` nounsg  verbinf  verbprespl  
+ neerknielend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerknielen` verbpresp  
+ neerknielende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerknielende`neerknielen` nounsg  verbpresp  
+ neerknielt ( VERB_PRESENT VERB ) lemma=`neerknielen` verbpressg  
+ neerkom ( VERB_PRESENT VERB ) lemma=`neerkomen` verbpressg  
+ neerkomen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerkomen`neerkomen`neerkomen` nounsg  verbinf  verbprespl  
+ neerkomend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerkomen` verbpresp  
+ neerkomende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerkomende`neerkomen` nounsg  verbpresp  
+ neerkomt ( VERB_PRESENT VERB ) lemma=`neerkomen` verbpressg  
+ neerkwak ( VERB_PRESENT VERB ) lemma=`neerkwakken` verbpressg  
+ neerkwakken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerkwakken`neerkwakken`neerkwakken` nounsg  verbinf  verbprespl  
+ neerkwakkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerkwakken` verbpresp  
+ neerkwakkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerkwakkende`neerkwakken` nounsg  verbpresp  
+ neerkwakt ( VERB_PRESENT VERB ) lemma=`neerkwakken` verbpressg  
+ neerkwakte ( VERB_PAST VERB ) lemma=`neerkwakken` verbpastsg  
+ neerkwakten ( VERB_PAST VERB ) lemma=`neerkwakken` verbpastpl  
+ neerkwam ( VERB_PAST VERB ) lemma=`neerkomen` verbpastsg  
+ neerkwamen ( VERB_PAST VERB ) lemma=`neerkomen` verbpastpl  
+ neerlaat ( VERB_PRESENT VERB ) lemma=`neerlaten` verbpressg  
+ neerlandici ( NOUN NOUN_PLURAL ) lemma=`neerlandicus` nounpl  
+ neerlandicus ( NOUN NOUN_SINGULAR ) 
+ neerlandistiek ( NOUN NOUN_SINGULAR ) 
+ neerlaten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerlaten`neerlaten`neerlaten` nounsg  verbinf  verbprespl  
+ neerlatend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerlaten` verbpresp  
+ neerlatende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerlatende`neerlaten` nounsg  verbpresp  
+ neerleg ( VERB_PRESENT VERB ) lemma=`neerleggen` verbpressg  
+ neerlegde ( VERB_PAST VERB ) lemma=`neerleggen` verbpastsg  
+ neerlegden ( VERB_PAST VERB ) lemma=`neerleggen` verbpastpl  
+ neerleggen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerleggen`neerleggen`neerleggen` nounsg  verbinf  verbprespl  
+ neerleggend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerleggen` verbpresp  
+ neerleggende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerleggende`neerleggen` nounsg  verbpresp  
+ neerlegt ( VERB_PRESENT VERB ) lemma=`neerleggen` verbpressg  
+ neerliet ( VERB_PAST VERB ) lemma=`neerlaten` verbpastsg  
+ neerlieten ( VERB_PAST VERB ) lemma=`neerlaten` verbpastpl  
+ neermaaien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neermaaien`neermaaien`neermaaien` nounsg  verbinf  verbprespl  
+ neerplof ( VERB_PRESENT VERB ) lemma=`neerploffen` verbpressg  
+ neerploffen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerploffen`neerploffen`neerploffen` nounsg  verbinf  verbprespl  
+ neerploffend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerploffen` verbpresp  
+ neerploffende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerploffende`neerploffen` nounsg  verbpresp  
+ neerploft ( VERB_PRESENT VERB ) lemma=`neerploffen` verbpressg  
+ neerplofte ( VERB_PAST VERB ) lemma=`neerploffen` verbpastsg  
+ neerploften ( VERB_PAST VERB ) lemma=`neerploffen` verbpastpl  
+ neerpoot ( VERB_PRESENT VERB ) lemma=`neerpoten` verbpressg  
+ neerpootte ( VERB_PAST VERB ) lemma=`neerpoten` verbpastsg  
+ neerpootten ( VERB_PAST VERB ) lemma=`neerpoten` verbpastpl  
+ neerpoten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerpoten`neerpoten`neerpoten` nounsg  verbinf  verbprespl  
+ neerpotend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerpoten` verbpresp  
+ neerpotende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerpotende`neerpoten` nounsg  verbpresp  
+ neerschiet ( VERB_PRESENT VERB ) lemma=`neerschieten` verbpressg  
+ neerschieten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerschieten`neerschieten`neerschieten` nounsg  verbinf  verbprespl  
+ neerschietend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerschieten` verbpresp  
+ neerschietende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerschietende`neerschieten` nounsg  verbpresp  
+ neerschoot ( VERB_PAST VERB ) lemma=`neerschieten` verbpastsg  
+ neerschoten ( VERB_PAST VERB ) lemma=`neerschieten` verbpastpl  
+ neerschreef ( VERB_PAST VERB ) lemma=`neerschrijven` verbpastsg  
+ neerschreven ( VERB_PAST VERB ) lemma=`neerschrijven` verbpastpl  
+ neerschrijf ( VERB_PRESENT VERB ) lemma=`neerschrijven` verbpressg  
+ neerschrijft ( VERB_PRESENT VERB ) lemma=`neerschrijven` verbpressg  
+ neerschrijven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerschrijven`neerschrijven`neerschrijven` nounsg  verbinf  verbprespl  
+ neerschrijvend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerschrijven` verbpresp  
+ neerschrijvende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerschrijvende`neerschrijven` nounsg  verbpresp  
+ neersla ( VERB_PRESENT VERB ) lemma=`neerslaan` verbpressg  
+ neerslaan ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerslaan`neerslaan`neerslaan` nounsg  verbinf  verbprespl  
+ neerslaand ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerslaan` verbpresp  
+ neerslaande ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerslaande`neerslaan` nounsg  verbpresp  
+ neerslaat ( VERB_PRESENT VERB ) lemma=`neerslaan` verbpressg  
+ neerslachtig ( ADJECTIVE ) 
+ neerslachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neerslachtig`neerslachtige` adj  nounsg  
+ neerslachtiger ( ADJECTIVE ) lemma=`neerslachtig` adj  
+ neerslachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neerslachtig`neerslachtigere` adj  nounsg  
+ neerslachtigst ( ADJECTIVE ) lemma=`neerslachtig` adj  
+ neerslachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neerslachtig`neerslachtigste` adj  nounsg  
+ neerslag ( NOUN NOUN_SINGULAR ) 
+ neerslagen ( NOUN NOUN_PLURAL ) lemma=`neerslag` nounpl  
+ neersloeg ( VERB_PAST VERB ) lemma=`neerslaan` verbpastsg  
+ neersloegen ( VERB_PAST VERB ) lemma=`neerslaan` verbpastpl  
+ neersmak ( VERB_PRESENT VERB ) lemma=`neersmakken` verbpressg  
+ neersmakken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neersmakken`neersmakken`neersmakken` nounsg  verbinf  verbprespl  
+ neersmakkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neersmakken` verbpresp  
+ neersmakkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neersmakkende`neersmakken` nounsg  verbpresp  
+ neersmakt ( VERB_PRESENT VERB ) lemma=`neersmakken` verbpressg  
+ neersmakte ( VERB_PAST VERB ) lemma=`neersmakken` verbpastsg  
+ neersmakten ( VERB_PAST VERB ) lemma=`neersmakken` verbpastpl  
+ neerstak ( VERB_PAST VERB ) lemma=`neersteken` verbpastsg  
+ neerstaken ( VERB_PAST VERB ) lemma=`neersteken` verbpastpl  
+ neersteek ( VERB_PRESENT VERB ) lemma=`neersteken` verbpressg  
+ neersteekt ( VERB_PRESENT VERB ) lemma=`neersteken` verbpressg  
+ neersteken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neersteken`neersteken`neersteken` nounsg  verbinf  verbprespl  
+ neerstekend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neersteken` verbpresp  
+ neerstekende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerstekende`neersteken` nounsg  verbpresp  
+ neerstort ( VERB_PRESENT VERB ) lemma=`neerstorten` verbpressg  
+ neerstorten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerstorten`neerstorten`neerstorten` nounsg  verbinf  verbprespl  
+ neerstortend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerstorten` verbpresp  
+ neerstortende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerstortende`neerstorten` nounsg  verbpresp  
+ neerstortte ( VERB_PAST VERB ) lemma=`neerstorten` verbpastsg  
+ neerstortten ( VERB_PAST VERB ) lemma=`neerstorten` verbpastpl  
+ neerstreek ( VERB_PAST VERB ) lemma=`neerstrijken` verbpastsg  
+ neerstreken ( VERB_PAST VERB ) lemma=`neerstrijken` verbpastpl  
+ neerstrijk ( VERB_PRESENT VERB ) lemma=`neerstrijken` verbpressg  
+ neerstrijken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerstrijken`neerstrijken`neerstrijken` nounsg  verbinf  verbprespl  
+ neerstrijkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerstrijken` verbpresp  
+ neerstrijkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerstrijkende`neerstrijken` nounsg  verbpresp  
+ neerstrijkt ( VERB_PRESENT VERB ) lemma=`neerstrijken` verbpressg  
+ neertel ( VERB_PRESENT VERB ) lemma=`neertellen` verbpressg  
+ neertelde ( VERB_PAST VERB ) lemma=`neertellen` verbpastsg  
+ neertelden ( VERB_PAST VERB ) lemma=`neertellen` verbpastpl  
+ neertellen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neertellen`neertellen`neertellen` nounsg  verbinf  verbprespl  
+ neertellend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neertellen` verbpresp  
+ neertellende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neertellende`neertellen` nounsg  verbpresp  
+ neertelt ( VERB_PRESENT VERB ) lemma=`neertellen` verbpressg  
+ neerval ( VERB_PRESENT VERB ) lemma=`neervallen` verbpressg  
+ neervallen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neervallen`neervallen`neervallen` nounsg  verbinf  verbprespl  
+ neervallend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neervallen` verbpresp  
+ neervallende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neervallende`neervallen` nounsg  verbpresp  
+ neervalt ( VERB_PRESENT VERB ) lemma=`neervallen` verbpressg  
+ neerviel ( VERB_PAST VERB ) lemma=`neervallen` verbpastsg  
+ neervielen ( VERB_PAST VERB ) lemma=`neervallen` verbpastpl  
+ neervlij ( VERB_PRESENT VERB ) lemma=`neervlijen` verbpressg  
+ neervlijde ( VERB_PAST VERB ) lemma=`neervlijen` verbpastsg  
+ neervlijden ( VERB_PAST VERB ) lemma=`neervlijen` verbpastpl  
+ neervlijen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neervlijen`neervlijen`neervlijen` nounsg  verbinf  verbprespl  
+ neervlijend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neervlijen` verbpresp  
+ neervlijende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neervlijende`neervlijen` nounsg  verbpresp  
+ neervlijt ( VERB_PRESENT VERB ) lemma=`neervlijen` verbpressg  
+ neerwaarts ( ADJECTIVE ) 
+ neerwaartse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neerwaarts`neerwaartse` adj  nounsg  
+ neerwerp ( VERB_PRESENT VERB ) lemma=`neerwerpen` verbpressg  
+ neerwerpen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerwerpen`neerwerpen`neerwerpen` nounsg  verbinf  verbprespl  
+ neerwerpend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerwerpen` verbpresp  
+ neerwerpende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerwerpende`neerwerpen` nounsg  verbpresp  
+ neerwerpt ( VERB_PRESENT VERB ) lemma=`neerwerpen` verbpressg  
+ neerwierp ( VERB_PAST VERB ) lemma=`neerwerpen` verbpastsg  
+ neerwierpen ( VERB_PAST VERB ) lemma=`neerwerpen` verbpastpl  
+ neerzag ( VERB_PAST VERB ) lemma=`neerzien` verbpastsg  
+ neerzagen ( VERB_PAST VERB ) lemma=`neerzien` verbpastpl  
+ neerzeeg ( VERB_PAST VERB ) lemma=`neerzijgen` verbpastsg  
+ neerzegen ( VERB_PAST VERB ) lemma=`neerzijgen` verbpastpl  
+ neerzet ( VERB_PRESENT VERB ) lemma=`neerzetten` verbpressg  
+ neerzette ( VERB_PAST VERB ) lemma=`neerzetten` verbpastsg  
+ neerzetten ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerzetten`neerzetten`neerzetten`neerzetten` nounsg  verbinf  verbpastpl  verbprespl  
+ neerzettend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerzetten` verbpresp  
+ neerzettende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerzettende`neerzetten` nounsg  verbpresp  
+ neerzie ( VERB_PRESENT VERB ) lemma=`neerzien` verbpressg  
+ neerzien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerzien`neerzien`neerzien` nounsg  verbinf  verbprespl  
+ neerziend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerzien` verbpresp  
+ neerziende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerziende`neerzien` nounsg  verbpresp  
+ neerziet ( VERB_PRESENT VERB ) lemma=`neerzien` verbpressg  
+ neerzijg ( VERB_PRESENT VERB ) lemma=`neerzijgen` verbpressg  
+ neerzijgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neerzijgen`neerzijgen`neerzijgen` nounsg  verbinf  verbprespl  
+ neerzijgend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neerzijgen` verbpresp  
+ neerzijgende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neerzijgende`neerzijgen` nounsg  verbpresp  
+ neerzijgt ( VERB_PRESENT VERB ) lemma=`neerzijgen` verbpressg  
+ neet ( NOUN NOUN_SINGULAR ) 
+ nefast ( ADJECTIVE ) 
+ nefaste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nefast`nefaste` adj  nounsg  
+ nefaster ( ADJECTIVE ) lemma=`nefast` adj  
+ nefastere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nefast`nefastere` adj  nounsg  
+ negatie ( NOUN NOUN_SINGULAR ) 
+ negatief ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`negatief`negatief` adj  nounsg  
+ negatiefst ( ADJECTIVE ) lemma=`negatief` adj  
+ negatiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`negatief`negatiefste` adj  nounsg  
+ negaties ( NOUN NOUN_PLURAL ) lemma=`negatie` nounpl  
+ negatieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`negatief`negatieve` adj  nounsg  
+ negatieven ( NOUN NOUN_PLURAL ) lemma=`negatief` nounpl  
+ negatiever ( ADJECTIVE ) lemma=`negatief` adj  
+ negatievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`negatief`negatievere` adj  nounsg  
+ negeer ( VERB_PRESENT VERB ) lemma=`negeren` verbpressg  
+ negeerde ( VERB_PAST VERB ) lemma=`negeren` verbpastsg  
+ negeerden ( VERB_PAST VERB ) lemma=`negeren` verbpastpl  
+ negeert ( VERB_PRESENT VERB ) lemma=`negeren` verbpressg  
+ negen ( VERB_PAST NOUN VERB NOUN_NUMBER ) lemma=`negen`nijgen` num__card  verbpastpl  
+ negende ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`negen` num__ord  
+ negenen ( NOUN NOUN_NUMBER ) lemma=`negen` num__card  
+ negenmaal ( ADVERB ) 
+ negenogen ( NOUN NOUN_PLURAL ) lemma=`negenoog` nounpl  
+ negenoog ( NOUN NOUN_SINGULAR ) 
+ negentien ( NOUN NOUN_NUMBER ) 
+ negentiende ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`negentien` num__ord  
+ negentienen ( NOUN NOUN_NUMBER ) lemma=`negentien` num__card  
+ negentig ( NOUN NOUN_NUMBER ) 
+ negentigen ( NOUN NOUN_NUMBER ) lemma=`negentig` num__card  
+ negentiger ( NOUN NOUN_SINGULAR ) 
+ negentigers ( NOUN NOUN_PLURAL ) lemma=`negentiger` nounpl  
+ negentigste ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`negentig` num__ord  
+ neger ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`neger`negeren` nounsg  verbpressg  
+ negerbevolking ( NOUN NOUN_SINGULAR ) 
+ negerde ( VERB_PAST VERB ) lemma=`negeren` verbpastsg  
+ negerden ( VERB_PAST VERB ) lemma=`negeren` verbpastpl  
+ negeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`negeren`negeren`negeren` nounsg  verbinf  verbprespl  
+ negerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`negeren` verbpresp  
+ negerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`negerende`negeren` nounsg  verbpresp  
+ negerin ( NOUN NOUN_SINGULAR ) 
+ negerinnen ( NOUN NOUN_PLURAL ) lemma=`negerin` nounpl  
+ negerinnetje ( NOUN NOUN_SINGULAR ) lemma=`negerin` nounsg  
+ negerinnetjes ( NOUN NOUN_PLURAL ) lemma=`negerin` nounpl  
+ negers ( NOUN NOUN_PLURAL ) lemma=`neger` nounpl  
+ negerslaaf ( NOUN NOUN_SINGULAR ) 
+ negerslaven ( NOUN NOUN_PLURAL ) lemma=`negerslaaf` nounpl  
+ negert ( VERB_PRESENT VERB ) lemma=`negeren` verbpressg  
+ negertje ( NOUN NOUN_SINGULAR ) lemma=`neger` nounsg  
+ negertjes ( NOUN NOUN_PLURAL ) lemma=`neger` nounpl  
+ negerzoen ( NOUN NOUN_SINGULAR ) 
+ negerzoenen ( NOUN NOUN_PLURAL ) lemma=`negerzoen` nounpl  
+ negligeetje ( NOUN NOUN_SINGULAR ) lemma=`negligé` nounsg  
+ negligeetjes ( NOUN NOUN_PLURAL ) lemma=`negligé` nounpl  
+ negligé ( NOUN NOUN_SINGULAR ) 
+ negligés ( NOUN NOUN_PLURAL ) lemma=`negligé` nounpl  
+ negorij ( NOUN NOUN_SINGULAR ) 
+ negorijen ( NOUN NOUN_PLURAL ) lemma=`negorij` nounpl  
+ negotie ( NOUN NOUN_SINGULAR ) 
+ negoties ( NOUN NOUN_PLURAL ) lemma=`negotie` nounpl  
+ negrospiritual ( NOUN NOUN_SINGULAR ) 
+ negrospirituals ( NOUN NOUN_PLURAL ) lemma=`negrospiritual` nounpl  
+ negroïde ( ADJECTIVE ) 
+ neig ( VERB_PRESENT VERB ) lemma=`neigen` verbpressg  
+ neigde ( VERB_PAST VERB ) lemma=`neigen` verbpastsg  
+ neigden ( VERB_PAST VERB ) lemma=`neigen` verbpastpl  
+ neigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neigen`neigen`neigen` nounsg  verbinf  verbprespl  
+ neigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neigen` verbpresp  
+ neigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neigende`neigen` nounsg  verbpresp  
+ neiging ( NOUN NOUN_SINGULAR ) 
+ neigingen ( NOUN NOUN_PLURAL ) lemma=`neiging` nounpl  
+ neigt ( VERB_PRESENT VERB ) lemma=`neigen` verbpressg  
+ nek ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`nek`nekken` nounsg  verbpressg  
+ nek-aan-nekrace ( NOUN NOUN_SINGULAR ) 
+ nek-aan-nekraces ( NOUN NOUN_PLURAL ) lemma=`nek-aan-nekrace` nounpl  
+ nekhaar ( NOUN NOUN_SINGULAR ) 
+ nekharen ( NOUN NOUN_PLURAL ) lemma=`nekhaar` nounpl  
+ nekjes ( NOUN NOUN_PLURAL ) lemma=`nek` nounpl  
+ nekken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nek`nekken`nekken`nekken` nounpl  nounsg  verbinf  verbprespl  
+ nekkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nekken` verbpresp  
+ nekkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nekkende`nekken` nounsg  verbpresp  
+ nekkramp ( NOUN NOUN_SINGULAR ) 
+ nekrofiel ( NOUN NOUN_SINGULAR ) 
+ nekrofielen ( NOUN NOUN_PLURAL ) lemma=`nekrofiel` nounpl  
+ nekrologie ( NOUN NOUN_SINGULAR ) 
+ nekrologieën ( NOUN NOUN_PLURAL ) lemma=`nekrologie` nounpl  
+ nekrose ( NOUN NOUN_SINGULAR ) 
+ nekschot ( NOUN NOUN_SINGULAR ) 
+ nekschoten ( NOUN NOUN_PLURAL ) lemma=`nekschot` nounpl  
+ nekslag ( NOUN NOUN_SINGULAR ) 
+ nekslagen ( NOUN NOUN_PLURAL ) lemma=`nekslag` nounpl  
+ nekspier ( NOUN NOUN_SINGULAR ) 
+ nekspieren ( NOUN NOUN_PLURAL ) lemma=`nekspier` nounpl  
+ nekt ( VERB_PRESENT VERB ) lemma=`nekken` verbpressg  
+ nektar ( NOUN NOUN_SINGULAR ) 
+ nekte ( VERB_PAST VERB ) lemma=`nekken` verbpastsg  
+ nekten ( VERB_PAST VERB ) lemma=`nekken` verbpastpl  
+ nekvel ( NOUN NOUN_SINGULAR ) 
+ nel ( NOUN NOUN_SINGULAR ) 
+ nellen ( NOUN NOUN_PLURAL ) lemma=`nel` nounpl  
+ nemen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nemen`nemen`nemen` nounsg  verbinf  verbprespl  
+ nemend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nemen` verbpresp  
+ nemende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nemende`nemen` nounsg  verbpresp  
+ nendertigste ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ neoclassicisme ( NOUN NOUN_SINGULAR ) 
+ neofascisme ( NOUN NOUN_SINGULAR ) 
+ neofascist ( NOUN NOUN_SINGULAR ) 
+ neofascisten ( NOUN NOUN_PLURAL ) lemma=`neofascist` nounpl  
+ neofascistisch ( ADJECTIVE ) 
+ neogotiek ( NOUN NOUN_SINGULAR ) 
+ neoklassicisme ( NOUN NOUN_SINGULAR ) 
+ neoklassiek ( ADJECTIVE ) 
+ neoklassieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neoklassiek`neoklassieke` adj  nounsg  
+ neoklassieken ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`neoklassiek`neoklassieke` adj  nounpl  
+ neoliberaal ( ADJECTIVE ) 
+ neologisme ( NOUN NOUN_SINGULAR ) 
+ neologismen ( NOUN NOUN_PLURAL ) lemma=`neologisme` nounpl  
+ neonazi ( NOUN NOUN_SINGULAR ) 
+ neonazi's ( NOUN NOUN_PLURAL ) lemma=`neonazi` nounpl  
+ neonazisme ( NOUN NOUN_SINGULAR ) 
+ neonazistisch ( ADJECTIVE ) 
+ neonlamp ( NOUN NOUN_SINGULAR ) 
+ neonlampen ( NOUN NOUN_PLURAL ) lemma=`neonlamp` nounpl  
+ neonlicht ( NOUN NOUN_SINGULAR ) 
+ neonlichten ( NOUN NOUN_PLURAL ) lemma=`neonlicht` nounpl  
+ neonreclame ( NOUN NOUN_SINGULAR ) 
+ neonreclames ( NOUN NOUN_PLURAL ) lemma=`neonreclame` nounpl  
+ nep ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`nep`neppen` nounsg  verbpressg  
+ nepen ( VERB_PAST NOUN VERB NOUN_PLURAL ) lemma=`neep`nijpen` nounpl  verbpastpl  
+ nepotisme ( NOUN NOUN_SINGULAR ) 
+ neppen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neppen`neppen`neppen` nounsg  verbinf  verbprespl  
+ neppend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neppen` verbpresp  
+ neppende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neppende`neppen` nounsg  verbpresp  
+ nepper ( NOUN NOUN_SINGULAR ) 
+ neppers ( NOUN NOUN_PLURAL ) lemma=`nepper` nounpl  
+ nepstatuten ( NOUN NOUN_PLURAL ) lemma=`nepstatuut` nounpl  
+ nepstatuut ( NOUN NOUN_SINGULAR ) 
+ nept ( VERB_PRESENT VERB ) lemma=`neppen` verbpressg  
+ nepte ( VERB_PAST VERB ) lemma=`neppen` verbpastsg  
+ nepten ( VERB_PAST VERB ) lemma=`neppen` verbpastpl  
+ neren ( NOUN NOUN_PLURAL ) lemma=`neer` nounpl  
+ nerf ( NOUN NOUN_SINGULAR ) 
+ nergens ( ADVERB ) 
+ nering ( NOUN NOUN_SINGULAR ) 
+ neringdoende ( NOUN NOUN_SINGULAR ) 
+ neringdoenden ( NOUN NOUN_PLURAL ) lemma=`neringdoende` nounpl  
+ neringen ( NOUN NOUN_PLURAL ) lemma=`nering` nounpl  
+ nerinkje ( NOUN NOUN_SINGULAR ) lemma=`nering` nounsg  
+ nerinkjes ( NOUN NOUN_PLURAL ) lemma=`nering` nounpl  
+ nerts ( NOUN NOUN_SINGULAR ) 
+ nertsen ( NOUN NOUN_PLURAL ) lemma=`nerts` nounpl  
+ nertsmantel ( NOUN NOUN_SINGULAR ) 
+ nertsmantels ( NOUN NOUN_PLURAL ) lemma=`nertsmantel` nounpl  
+ nerven ( NOUN NOUN_PLURAL ) lemma=`nerf` nounpl  
+ nerveus ( ADJECTIVE ) 
+ nerveust ( ADJECTIVE ) lemma=`nerveus` adj  
+ nerveuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nerveus`nerveuste` adj  nounsg  
+ nerveuze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nerveus`nerveuze` adj  nounsg  
+ nerveuzer ( ADJECTIVE ) lemma=`nerveus` adj  
+ nerveuzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nerveus`nerveuzere` adj  nounsg  
+ nervositeit ( NOUN NOUN_SINGULAR ) 
+ nes ( NOUN NOUN_SINGULAR ) 
+ nessen ( NOUN NOUN_PLURAL ) lemma=`nes` nounpl  
+ nest ( NOUN NOUN_SINGULAR ) 
+ nestblijver ( NOUN NOUN_SINGULAR ) 
+ nestblijvers ( NOUN NOUN_PLURAL ) lemma=`nestblijver` nounpl  
+ nestel ( VERB_PRESENT VERB ) lemma=`nestelen` verbpressg  
+ nestelde ( VERB_PAST VERB ) lemma=`nestelen` verbpastsg  
+ nestelden ( VERB_PAST VERB ) lemma=`nestelen` verbpastpl  
+ nestelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nestelen`nestelen`nestelen` nounsg  verbinf  verbprespl  
+ nestelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nestelen` verbpresp  
+ nestelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nestelende`nestelen` nounsg  verbpresp  
+ nestelt ( VERB_PRESENT VERB ) lemma=`nestelen` verbpressg  
+ nesten ( NOUN NOUN_PLURAL ) lemma=`nest` nounpl  
+ nestgeur ( NOUN NOUN_SINGULAR ) 
+ nestgeuren ( NOUN NOUN_PLURAL ) lemma=`nestgeur` nounpl  
+ nestje ( NOUN NOUN_SINGULAR ) lemma=`nest` nounsg  
+ nestjes ( NOUN NOUN_PLURAL ) lemma=`nest` nounpl  
+ nestor ( NOUN NOUN_SINGULAR ) 
+ nestors ( NOUN NOUN_PLURAL ) lemma=`nestor` nounpl  
+ nestvlieder ( NOUN NOUN_SINGULAR ) 
+ nestvlieders ( NOUN NOUN_PLURAL ) lemma=`nestvlieder` nounpl  
+ nestwarmte ( NOUN NOUN_SINGULAR ) 
+ net ( NOUN ADJECTIVE ADVERB NOUN_SINGULAR ) lemma=`net`net`net` adj  adv  nounsg  
+ netaansluiting ( NOUN NOUN_SINGULAR ) 
+ netaansluitingen ( NOUN NOUN_PLURAL ) lemma=`netaansluiting` nounpl  
+ netbal ( NOUN NOUN_SINGULAR ) 
+ netballen ( NOUN NOUN_PLURAL ) lemma=`netbal` nounpl  
+ netel ( NOUN NOUN_SINGULAR ) 
+ neteldoek ( NOUN NOUN_SINGULAR ) 
+ netelen ( NOUN NOUN_PLURAL ) lemma=`netel` nounpl  
+ netelig ( ADJECTIVE ) 
+ netelige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`netelig`netelige` adj  nounsg  
+ neteliger ( ADJECTIVE ) lemma=`netelig` adj  
+ neteligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`netelig`neteligere` adj  nounsg  
+ neteligst ( ADJECTIVE ) lemma=`netelig` adj  
+ neteligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`netelig`neteligste` adj  nounsg  
+ netelroos ( NOUN NOUN_SINGULAR ) 
+ netels ( NOUN NOUN_PLURAL ) lemma=`netel` nounpl  
+ neteltje ( NOUN NOUN_SINGULAR ) lemma=`netel` nounsg  
+ neteltjes ( NOUN NOUN_PLURAL ) lemma=`netel` nounpl  
+ neten ( NOUN NOUN_PLURAL ) lemma=`neet` nounpl  
+ netheid ( NOUN NOUN_SINGULAR ) 
+ netjes ( ADJECTIVE ) lemma=`net|netjes` adj  
+ netmaag ( NOUN NOUN_SINGULAR ) 
+ netmagen ( NOUN NOUN_PLURAL ) lemma=`netmaag` nounpl  
+ netnummer ( NOUN NOUN_SINGULAR ) 
+ netnummers ( NOUN NOUN_PLURAL ) lemma=`netnummer` nounpl  
+ netrechter ( NOUN NOUN_SINGULAR ) 
+ netrechters ( NOUN NOUN_PLURAL ) lemma=`netrechter` nounpl  
+ netservice ( NOUN NOUN_SINGULAR ) 
+ netservices ( NOUN NOUN_PLURAL ) lemma=`netservice` nounpl  
+ netspanning ( NOUN NOUN_SINGULAR ) 
+ netspanningen ( NOUN NOUN_PLURAL ) lemma=`netspanning` nounpl  
+ netst ( ADJECTIVE ) lemma=`net` adj  
+ netste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`net`netste` adj  nounsg  
+ netstromen ( NOUN NOUN_PLURAL ) lemma=`netstroom` nounpl  
+ netstroom ( NOUN NOUN_SINGULAR ) 
+ nette ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`net`nette` adj  nounsg  
+ netten ( NOUN NOUN_PLURAL ) lemma=`net` nounpl  
+ netter ( ADJECTIVE ) lemma=`net` adj  
+ nettere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`net`nettere` adj  nounsg  
+ netto ( ADJECTIVE ) 
+ netto-opbrengst ( NOUN NOUN_SINGULAR ) 
+ netto-opbrengsten ( NOUN NOUN_PLURAL ) lemma=`netto-opbrengst` nounpl  
+ nettobedrag ( NOUN NOUN_SINGULAR ) 
+ nettobedragen ( NOUN NOUN_PLURAL ) lemma=`nettobedrag` nounpl  
+ nettogewicht ( NOUN NOUN_SINGULAR ) 
+ nettolonen ( NOUN NOUN_PLURAL ) lemma=`nettoloon` nounpl  
+ nettoloon ( NOUN NOUN_SINGULAR ) 
+ nettoprijs ( NOUN NOUN_SINGULAR ) 
+ nettoprijzen ( NOUN NOUN_PLURAL ) lemma=`nettoprijs` nounpl  
+ nettoresultaat ( NOUN NOUN_SINGULAR ) 
+ nettoresultaten ( NOUN NOUN_PLURAL ) lemma=`nettoresultaat` nounpl  
+ nettowinst ( NOUN NOUN_SINGULAR ) 
+ nettowinsten ( NOUN NOUN_PLURAL ) lemma=`nettowinst` nounpl  
+ netvlies ( NOUN NOUN_SINGULAR ) 
+ netvliezen ( NOUN NOUN_PLURAL ) lemma=`netvlies` nounpl  
+ netwerk ( NOUN NOUN_SINGULAR ) 
+ netwerken ( NOUN NOUN_PLURAL ) lemma=`netwerk` nounpl  
+ neuk ( VERB_PRESENT VERB ) lemma=`neuken` verbpressg  
+ neuken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neuken`neuken`neuken` nounsg  verbinf  verbprespl  
+ neukend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neuken` verbpresp  
+ neukende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neukende`neuken` nounsg  verbpresp  
+ neukt ( VERB_PRESENT VERB ) lemma=`neuken` verbpressg  
+ neukte ( VERB_PAST VERB ) lemma=`neuken` verbpastsg  
+ neukten ( VERB_PAST VERB ) lemma=`neuken` verbpastpl  
+ neuralgie ( NOUN NOUN_SINGULAR ) 
+ neuralgieën ( NOUN NOUN_PLURAL ) lemma=`neuralgie` nounpl  
+ neurastenie ( NOUN NOUN_SINGULAR ) 
+ neurasthenie ( NOUN NOUN_SINGULAR ) 
+ neurie ( VERB_PRESENT VERB ) lemma=`neuriën` verbpressg  
+ neuriede ( VERB_PAST VERB ) lemma=`neuriën` verbpastsg  
+ neurieden ( VERB_PAST VERB ) lemma=`neuriën` verbpastpl  
+ neuriet ( VERB_PRESENT VERB ) lemma=`neuriën` verbpressg  
+ neuriën ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neuriën`neuriën`neuriën` nounsg  verbinf  verbprespl  
+ neuriënd ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neuriën` verbpresp  
+ neuriënde ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neuriënde`neuriën` nounsg  verbpresp  
+ neurochirurg ( NOUN NOUN_SINGULAR ) 
+ neurochirurgen ( NOUN NOUN_PLURAL ) lemma=`neurochirurg` nounpl  
+ neurologen ( NOUN NOUN_PLURAL ) lemma=`neuroloog` nounpl  
+ neurologie ( NOUN NOUN_SINGULAR ) 
+ neurologisch ( ADJECTIVE ) 
+ neurologische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neurologisch`neurologische` adj  nounsg  
+ neuroloog ( NOUN NOUN_SINGULAR ) 
+ neuroot ( NOUN NOUN_SINGULAR ) 
+ neurose ( NOUN NOUN_SINGULAR ) 
+ neurosen ( NOUN NOUN_PLURAL ) lemma=`neurose` nounpl  
+ neuroses ( NOUN NOUN_PLURAL ) lemma=`neurose` nounpl  
+ neuroten ( NOUN NOUN_PLURAL ) lemma=`neuroot` nounpl  
+ neurotici ( NOUN NOUN_PLURAL ) lemma=`neuroticus` nounpl  
+ neuroticus ( NOUN NOUN_SINGULAR ) 
+ neurotisch ( ADJECTIVE ) 
+ neurotische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neurotisch`neurotische` adj  nounsg  
+ neurotischer ( ADJECTIVE ) lemma=`neurotisch` adj  
+ neurotischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neurotisch`neurotischere` adj  nounsg  
+ neurotischt ( ADJECTIVE ) lemma=`neurotisch` adj  
+ neurotischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neurotisch`neurotischte` adj  nounsg  
+ neus ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`neus`neuzen` nounsg  verbpressg  
+ neusbeentje ( NOUN NOUN_SINGULAR ) 
+ neusbeentjes ( NOUN NOUN_PLURAL ) lemma=`neusbeentje` nounpl  
+ neusde ( VERB_PAST VERB ) lemma=`neuzen` verbpastsg  
+ neusden ( VERB_PAST VERB ) lemma=`neuzen` verbpastpl  
+ neusdruppels ( NOUN NOUN_PLURAL ) 
+ neusgat ( NOUN NOUN_SINGULAR ) 
+ neusgaten ( NOUN NOUN_PLURAL ) lemma=`neusgat` nounpl  
+ neusholte ( NOUN NOUN_SINGULAR ) 
+ neusholten ( NOUN NOUN_PLURAL ) lemma=`neusholte` nounpl  
+ neusholtes ( NOUN NOUN_PLURAL ) lemma=`neusholte` nounpl  
+ neushoorn ( NOUN NOUN_SINGULAR ) 
+ neushoorns ( NOUN NOUN_PLURAL ) lemma=`neushoorn` nounpl  
+ neusklank ( NOUN NOUN_SINGULAR ) 
+ neusklanken ( NOUN NOUN_PLURAL ) lemma=`neusklank` nounpl  
+ neuslengte ( NOUN NOUN_SINGULAR ) 
+ neuslengten ( NOUN NOUN_PLURAL ) lemma=`neuslengte` nounpl  
+ neuspeuteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neuspeuteren`neuspeuteren`neuspeuteren` nounsg  verbinf  verbprespl  
+ neusring ( NOUN NOUN_SINGULAR ) 
+ neusringen ( NOUN NOUN_PLURAL ) lemma=`neusring` nounpl  
+ neust ( VERB_PRESENT VERB ) lemma=`neuzen` verbpressg  
+ neusvleugel ( NOUN NOUN_SINGULAR ) 
+ neusvleugels ( NOUN NOUN_PLURAL ) lemma=`neusvleugel` nounpl  
+ neuswortel ( NOUN NOUN_SINGULAR ) 
+ neuswortels ( NOUN NOUN_PLURAL ) lemma=`neuswortel` nounpl  
+ neut ( NOUN NOUN_SINGULAR ) 
+ neuten ( NOUN NOUN_PLURAL ) lemma=`neut` nounpl  
+ neutra ( NOUN NOUN_PLURAL ) lemma=`neutrum` nounpl  
+ neutraal ( ADJECTIVE ) 
+ neutraalst ( ADJECTIVE ) lemma=`neutraal` adj  
+ neutraalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neutraal`neutraalste` adj  nounsg  
+ neutrale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neutraal`neutrale` adj  nounsg  
+ neutraler ( ADJECTIVE ) lemma=`neutraal` adj  
+ neutralere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`neutraal`neutralere` adj  nounsg  
+ neutralisatie ( NOUN NOUN_SINGULAR ) 
+ neutraliseer ( VERB_PRESENT VERB ) lemma=`neutraliseren` verbpressg  
+ neutraliseerde ( VERB_PAST VERB ) lemma=`neutraliseren` verbpastsg  
+ neutraliseerden ( VERB_PAST VERB ) lemma=`neutraliseren` verbpastpl  
+ neutraliseert ( VERB_PRESENT VERB ) lemma=`neutraliseren` verbpressg  
+ neutraliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`neutraliseren`neutraliseren`neutraliseren` nounsg  verbinf  verbprespl  
+ neutraliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neutraliseren` verbpresp  
+ neutraliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neutraliserende`neutraliseren` nounsg  verbpresp  
+ neutraliteit ( NOUN NOUN_SINGULAR ) 
+ neutron ( NOUN NOUN_SINGULAR ) 
+ neutronen ( NOUN NOUN_PLURAL ) lemma=`neutron` nounpl  
+ neutronenbom ( NOUN NOUN_SINGULAR ) 
+ neutronenbommen ( NOUN NOUN_PLURAL ) lemma=`neutronenbom` nounpl  
+ neutrons ( NOUN NOUN_PLURAL ) lemma=`neutron` nounpl  
+ neutrum ( NOUN NOUN_SINGULAR ) 
+ neuzen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`neus`neuzen`neuzen`neuzen` nounpl  nounsg  verbinf  verbprespl  
+ neuzend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`neuzen` verbpresp  
+ neuzende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`neuzende`neuzen` nounsg  verbpresp  
+ nevel ( NOUN NOUN_SINGULAR ) 
+ nevelachtig ( ADJECTIVE ) 
+ nevelachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevelachtig`nevelachtige` adj  nounsg  
+ nevelachtiger ( ADJECTIVE ) lemma=`nevelachtig` adj  
+ nevelachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevelachtig`nevelachtigere` adj  nounsg  
+ nevelachtigst ( ADJECTIVE ) lemma=`nevelachtig` adj  
+ nevelachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevelachtig`nevelachtigste` adj  nounsg  
+ nevelen ( NOUN NOUN_PLURAL ) lemma=`nevel` nounpl  
+ nevelig ( ADJECTIVE ) 
+ nevelige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevelig`nevelige` adj  nounsg  
+ neveliger ( ADJECTIVE ) lemma=`nevelig` adj  
+ neveligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevelig`neveligere` adj  nounsg  
+ neveligst ( ADJECTIVE ) lemma=`nevelig` adj  
+ neveligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevelig`neveligste` adj  nounsg  
+ nevels ( NOUN NOUN_PLURAL ) lemma=`nevel` nounpl  
+ neveltje ( NOUN NOUN_SINGULAR ) lemma=`nevel` nounsg  
+ neveltjes ( NOUN NOUN_PLURAL ) lemma=`nevel` nounpl  
+ neven ( NOUN NOUN_PLURAL ) lemma=`neef` nounpl  
+ nevenactiviteit ( NOUN NOUN_SINGULAR ) 
+ nevenactiviteiten ( NOUN NOUN_PLURAL ) lemma=`nevenactiviteit` nounpl  
+ nevenbedrijf ( NOUN NOUN_SINGULAR ) 
+ nevenbedrijven ( NOUN NOUN_PLURAL ) lemma=`nevenbedrijf` nounpl  
+ nevendoel ( NOUN NOUN_SINGULAR ) 
+ nevendoelen ( NOUN NOUN_PLURAL ) lemma=`nevendoel` nounpl  
+ neveneffect ( NOUN NOUN_SINGULAR ) 
+ neveneffecten ( NOUN NOUN_PLURAL ) lemma=`neveneffect` nounpl  
+ nevenfunctie ( NOUN NOUN_SINGULAR ) 
+ nevenfuncties ( NOUN NOUN_PLURAL ) lemma=`nevenfunctie` nounpl  
+ nevengeschikt ( ADJECTIVE ) 
+ nevengeschikte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevengeschikt`nevengeschikte` adj  nounsg  
+ neveninkomsten ( NOUN NOUN_PLURAL ) 
+ nevenklemtonen ( NOUN NOUN_PLURAL ) lemma=`nevenklemtoon` nounpl  
+ nevenklemtoon ( NOUN NOUN_SINGULAR ) 
+ nevenschikkend ( ADJECTIVE ) 
+ nevenschikkende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevenschikkend`nevenschikkende` adj  nounsg  
+ nevenschikking ( NOUN NOUN_SINGULAR ) 
+ nevenschikkingen ( NOUN NOUN_PLURAL ) lemma=`nevenschikking` nounpl  
+ nevenstaand ( ADJECTIVE ) 
+ nevenstaande ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nevenstaand`nevenstaande` adj  nounsg  
+ nevenvorm ( NOUN NOUN_SINGULAR ) 
+ nevenvormen ( NOUN NOUN_PLURAL ) lemma=`nevenvorm` nounpl  
+ newfoundlander ( NOUN NOUN_SINGULAR ) 
+ newfoundlanders ( NOUN NOUN_PLURAL ) lemma=`newfoundlander` nounpl  
+ nicht ( NOUN NOUN_SINGULAR ) 
+ nichten ( NOUN NOUN_PLURAL ) lemma=`nicht` nounpl  
+ nichtenbar ( NOUN NOUN_SINGULAR ) 
+ nichtenbars ( NOUN NOUN_PLURAL ) lemma=`nichtenbar` nounpl  
+ nichterig ( ADJECTIVE ) 
+ nichterige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nichterig`nichterige` adj  nounsg  
+ nichteriger ( ADJECTIVE ) lemma=`nichterig` adj  
+ nichterigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nichterig`nichterigere` adj  nounsg  
+ nichterigst ( ADJECTIVE ) lemma=`nichterig` adj  
+ nichterigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nichterig`nichterigste` adj  nounsg  
+ nichtje ( NOUN NOUN_SINGULAR ) lemma=`nicht` nounsg  
+ nichtjes ( NOUN NOUN_PLURAL ) lemma=`nicht` nounpl  
+ nicotine ( NOUN NOUN_SINGULAR ) 
+ nicotinearm ( ADJECTIVE ) 
+ nicotinearme ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nicotinearm`nicotinearme` adj  nounsg  
+ nicotinevlek ( NOUN NOUN_SINGULAR ) 
+ nicotinevlekken ( NOUN NOUN_PLURAL ) lemma=`nicotinevlek` nounpl  
+ nicotinevrij ( ADJECTIVE ) 
+ nicotinevrije ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nicotinevrij`nicotinevrije` adj  nounsg  
+ nicotinevrijer ( ADJECTIVE ) lemma=`nicotinevrij` adj  
+ nicotinevrijere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nicotinevrij`nicotinevrijere` adj  nounsg  
+ nicotinevrijst ( ADJECTIVE ) lemma=`nicotinevrij` adj  
+ nicotinevrijste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nicotinevrij`nicotinevrijste` adj  nounsg  
+ niemand ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ niemandsland ( NOUN NOUN_SINGULAR ) 
+ niemendal ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ niemendalletje ( NOUN NOUN_SINGULAR ) 
+ niemendalletjes ( NOUN NOUN_PLURAL ) lemma=`niemendalletje` nounpl  
+ nier ( NOUN NOUN_SINGULAR ) 
+ nierdialyse ( NOUN NOUN_SINGULAR ) 
+ nierdialysen ( NOUN NOUN_PLURAL ) lemma=`nierdialyse` nounpl  
+ nierdialyses ( NOUN NOUN_PLURAL ) lemma=`nierdialyse` nounpl  
+ nieren ( NOUN NOUN_PLURAL ) lemma=`nier` nounpl  
+ niersteen ( NOUN NOUN_SINGULAR ) 
+ nierstenen ( NOUN NOUN_PLURAL ) lemma=`niersteen` nounpl  
+ nierstoot ( NOUN NOUN_SINGULAR ) 
+ nierstoten ( NOUN NOUN_PLURAL ) lemma=`nierstoot` nounpl  
+ niertje ( NOUN NOUN_SINGULAR ) lemma=`nier` nounsg  
+ niertjes ( NOUN NOUN_PLURAL ) lemma=`nier` nounpl  
+ niervergiftiging ( NOUN NOUN_SINGULAR ) 
+ niervormig ( ADJECTIVE ) 
+ niervormige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`niervormig`niervormige` adj  nounsg  
+ niervormiger ( ADJECTIVE ) lemma=`niervormig` adj  
+ niervormigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`niervormig`niervormigere` adj  nounsg  
+ niervormigst ( ADJECTIVE ) lemma=`niervormig` adj  
+ niervormigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`niervormig`niervormigste` adj  nounsg  
+ nierziekte ( NOUN NOUN_SINGULAR ) 
+ nierziekten ( NOUN NOUN_PLURAL ) lemma=`nierziekte` nounpl  
+ nierziektes ( NOUN NOUN_PLURAL ) lemma=`nierziekte` nounpl  
+ nies ( VERB_PRESENT VERB ) lemma=`niesen|niezen` verbpressg  
+ niesbui ( NOUN NOUN_SINGULAR ) 
+ niesbuien ( NOUN NOUN_PLURAL ) lemma=`niesbui` nounpl  
+ niesde ( VERB_PAST VERB ) lemma=`niezen` verbpastsg  
+ niesden ( VERB_PAST VERB ) lemma=`niezen` verbpastpl  
+ niesen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`niesen`niesen`niesen` nounsg  verbinf  verbprespl  
+ niesend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`niesen` verbpresp  
+ niesende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`niesende`niesen` nounsg  verbpresp  
+ niespoeder ( NOUN NOUN_SINGULAR ) 
+ niespoeier ( NOUN NOUN_SINGULAR ) 
+ niest ( VERB_PRESENT VERB ) lemma=`niesen|niezen` verbpressg  
+ nieste ( VERB_PAST VERB ) lemma=`niesen` verbpastsg  
+ niesten ( VERB_PAST VERB ) lemma=`niesen` verbpastpl  
+ niet ( VERB_PRESENT PRONOUN_SUBJECT PRONOUN_OBJECT VERB ADVERB INTERJECTION ) lemma=`niet`niet`niet`nieten` adv  int  pronindef  verbpressg  
+ niet-aanvalsverdrag ( NOUN NOUN_SINGULAR ) 
+ niet-aanvalsverdrage ( NOUN NOUN_PLURAL ) lemma=`niet-aanvalsverdrag` nounpl  
+ niet-aanvalsverdragen ( NOUN NOUN_PLURAL ) lemma=`niet-aanvalsverdrag` nounpl  
+ niet-begrijpend ( ADJECTIVE ) 
+ niet-bestaand ( ADJECTIVE ) 
+ niet-bindend ( ADJECTIVE ) 
+ niet-blanke ( NOUN NOUN_SINGULAR ) 
+ niet-blanken ( NOUN NOUN_PLURAL ) lemma=`niet-blanke` nounpl  
+ niet-commercieel ( ADJECTIVE ) 
+ niet-commerciële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`niet-commercieel`niet-commerciële` adj  nounsg  
+ niet-gebonden ( ADJECTIVE ) 
+ niet-gouvernementeel ( ADJECTIVE ) 
+ niet-leden ( NOUN NOUN_PLURAL ) lemma=`niet-lid` nounpl  
+ niet-lid ( NOUN NOUN_SINGULAR ) 
+ niet-roken ( ADVERB ) 
+ niet-roker ( NOUN NOUN_SINGULAR ) 
+ niet-rokers ( NOUN NOUN_PLURAL ) lemma=`niet-roker` nounpl  
+ niet-werkende ( NOUN NOUN_SINGULAR ) 
+ niet-werkenden ( NOUN NOUN_PLURAL ) lemma=`niet-werkende` nounpl  
+ niet-westers ( ADJECTIVE ) 
+ nieten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nieten`nieten`nieten` nounsg  verbinf  verbprespl  
+ nietend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nieten` verbpresp  
+ nietende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nietende`nieten` nounsg  verbpresp  
+ nietig ( ADJECTIVE ) 
+ nietige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietig`nietige` adj  nounsg  
+ nietiger ( ADJECTIVE ) lemma=`nietig` adj  
+ nietigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietig`nietigere` adj  nounsg  
+ nietigheden ( NOUN NOUN_PLURAL ) lemma=`nietigheid` nounpl  
+ nietigheid ( NOUN NOUN_SINGULAR ) 
+ nietigst ( ADJECTIVE ) lemma=`nietig` adj  
+ nietigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietig`nietigste` adj  nounsg  
+ nietigverklaring ( NOUN NOUN_SINGULAR ) 
+ nietigverklaringen ( NOUN NOUN_PLURAL ) lemma=`nietigverklaring` nounpl  
+ nietje ( NOUN NOUN_SINGULAR ) 
+ nietjes ( NOUN NOUN_PLURAL ) lemma=`nietje` nounpl  
+ nietmachine ( NOUN NOUN_SINGULAR ) 
+ nietmachines ( NOUN NOUN_PLURAL ) lemma=`nietmachine` nounpl  
+ nietpistolen ( NOUN NOUN_PLURAL ) lemma=`nietpistool` nounpl  
+ nietpistool ( NOUN NOUN_SINGULAR ) 
+ niets ( PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADVERB NOUN_SINGULAR ) lemma=`niets`niets`niets` adv  nounsg  pronindef  
+ nietsdoen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nietsdoen`nietsdoen`nietsdoen` nounsg  verbinf  verbprespl  
+ nietsnut ( NOUN NOUN_SINGULAR ) 
+ nietsnutten ( NOUN NOUN_PLURAL ) lemma=`nietsnut` nounpl  
+ nietsontziend ( ADJECTIVE ) 
+ nietsvermoedend ( ADJECTIVE ) 
+ nietsvermoedende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietsvermoedend`nietsvermoedende` adj  nounsg  
+ nietszeggend ( ADJECTIVE ) 
+ nietszeggende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietszeggend`nietszeggende` adj  nounsg  
+ nietszeggender ( ADJECTIVE ) lemma=`nietszeggend` adj  
+ nietszeggendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietszeggend`nietszeggendere` adj  nounsg  
+ nietszeggendst ( ADJECTIVE ) lemma=`nietszeggend` adj  
+ nietszeggendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nietszeggend`nietszeggendste` adj  nounsg  
+ niette ( VERB_PAST VERB ) lemma=`nieten` verbpastsg  
+ niettegenstaande ( PREPOSITION CONJUNCTION_SUBORDINATE ) lemma=`niettegenstaande`niettegenstaande` conjsubo  prep  
+ niettemin ( ADVERB ) 
+ nietten ( VERB_PAST VERB ) lemma=`nieten` verbpastpl  
+ nieuw ( ADJECTIVE ) 
+ nieuwbakken ( ADJECTIVE ) 
+ nieuwbakkener ( ADJECTIVE ) lemma=`nieuwbakken` adj  
+ nieuwbakkenere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwbakken`nieuwbakkenere` adj  nounsg  
+ nieuwbakkenst ( ADJECTIVE ) lemma=`nieuwbakken` adj  
+ nieuwbakkenste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwbakken`nieuwbakkenste` adj  nounsg  
+ nieuwbouw ( NOUN NOUN_SINGULAR ) 
+ nieuwbouwplan ( NOUN NOUN_SINGULAR ) 
+ nieuwbouwplannen ( NOUN NOUN_PLURAL ) lemma=`nieuwbouwplan` nounpl  
+ nieuwbouwwijk ( NOUN NOUN_SINGULAR ) 
+ nieuwbouwwijken ( NOUN NOUN_PLURAL ) lemma=`nieuwbouwwijk` nounpl  
+ nieuwbouwwoning ( NOUN NOUN_SINGULAR ) 
+ nieuwbouwwoningen ( NOUN NOUN_PLURAL ) lemma=`nieuwbouwwoning` nounpl  
+ nieuwe ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuw`nieuwe` adj  nounsg  
+ nieuweling ( NOUN NOUN_SINGULAR ) 
+ nieuwelingen ( NOUN NOUN_PLURAL ) lemma=`nieuweling` nounpl  
+ nieuwer ( ADJECTIVE ) lemma=`nieuw` adj  
+ nieuwere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuw`nieuwere` adj  nounsg  
+ nieuwerwets ( ADJECTIVE ) 
+ nieuwerwetse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwerwets`nieuwerwetse` adj  nounsg  
+ nieuwerwetser ( ADJECTIVE ) lemma=`nieuwerwets` adj  
+ nieuwerwetsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwerwets`nieuwerwetsere` adj  nounsg  
+ nieuwerwetst ( ADJECTIVE ) lemma=`nieuwerwets` adj  
+ nieuwerwetste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwerwets`nieuwerwetste` adj  nounsg  
+ nieuwigheden ( NOUN NOUN_PLURAL ) lemma=`nieuwigheid` nounpl  
+ nieuwigheid ( NOUN NOUN_SINGULAR ) 
+ nieuwjaar ( NOUN NOUN_SINGULAR ) 
+ nieuwjaars ( NOUN NOUN_PLURAL ) lemma=`nieuwjaar` nounpl  
+ nieuwjaarsartikel ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsartikelen ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsartikel` nounpl  
+ nieuwjaarsartikels ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsartikel` nounpl  
+ nieuwjaarsbijeenkoms ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsbijeenkomst ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsbijeenkomsten ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsbijeenkomst` nounpl  
+ nieuwjaarsboodschap ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsboodschapp ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsboodschap` nounpl  
+ nieuwjaarsboodschappen ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsboodschap` nounpl  
+ nieuwjaarsconcert ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsconcerten ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsconcert` nounpl  
+ nieuwjaarsdag ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsdagen ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsdag` nounpl  
+ nieuwjaarsreceptie ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsrecepties ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsreceptie` nounpl  
+ nieuwjaarsreceptiën ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsreceptie` nounpl  
+ nieuwjaarsrede ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarsredes ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarsrede` nounpl  
+ nieuwjaarstoespraak ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarstoespraken ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarstoespraak` nounpl  
+ nieuwjaarswens ( NOUN NOUN_SINGULAR ) 
+ nieuwjaarswensen ( NOUN NOUN_PLURAL ) lemma=`nieuwjaarswens` nounpl  
+ nieuwkomer ( NOUN NOUN_SINGULAR ) 
+ nieuwkomers ( NOUN NOUN_PLURAL ) lemma=`nieuwkomer` nounpl  
+ nieuwkoop ( NOUN NOUN_SINGULAR ) 
+ nieuwkopen ( NOUN NOUN_PLURAL ) lemma=`nieuwkoop` nounpl  
+ nieuwkuis ( NOUN NOUN_SINGULAR ) 
+ nieuwlichter ( NOUN NOUN_SINGULAR ) 
+ nieuwlichters ( NOUN NOUN_PLURAL ) lemma=`nieuwlichter` nounpl  
+ nieuwprijs ( NOUN NOUN_SINGULAR ) 
+ nieuwprijzen ( NOUN NOUN_PLURAL ) lemma=`nieuwprijs` nounpl  
+ nieuws ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuw`nieuws` adj  nounsg  
+ nieuwsanalyse ( NOUN NOUN_SINGULAR ) 
+ nieuwsanalyses ( NOUN NOUN_PLURAL ) lemma=`nieuwsanalyse` nounpl  
+ nieuwsbericht ( NOUN NOUN_SINGULAR ) 
+ nieuwsberichten ( NOUN NOUN_PLURAL ) lemma=`nieuwsbericht` nounpl  
+ nieuwsblad ( NOUN NOUN_SINGULAR ) 
+ nieuwsbladen ( NOUN NOUN_PLURAL ) lemma=`nieuwsblad` nounpl  
+ nieuwsbrief ( NOUN NOUN_SINGULAR ) 
+ nieuwsbrieven ( NOUN NOUN_PLURAL ) lemma=`nieuwsbrief` nounpl  
+ nieuwsdienst ( NOUN NOUN_SINGULAR ) 
+ nieuwsdiensten ( NOUN NOUN_PLURAL ) lemma=`nieuwsdienst` nounpl  
+ nieuwsfoto ( NOUN NOUN_SINGULAR ) 
+ nieuwsfoto's ( NOUN NOUN_PLURAL ) lemma=`nieuwsfoto` nounpl  
+ nieuwsgaring ( NOUN NOUN_SINGULAR ) 
+ nieuwsgierig ( ADJECTIVE ) 
+ nieuwsgierige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwsgierig`nieuwsgierige` adj  nounsg  
+ nieuwsgieriger ( ADJECTIVE ) lemma=`nieuwsgierig` adj  
+ nieuwsgierigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwsgierig`nieuwsgierigere` adj  nounsg  
+ nieuwsgierigheid ( NOUN NOUN_SINGULAR ) 
+ nieuwsgierigst ( ADJECTIVE ) lemma=`nieuwsgierig` adj  
+ nieuwsgierigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuwsgierig`nieuwsgierigste` adj  nounsg  
+ nieuwsjes ( NOUN NOUN_PLURAL ) lemma=`nieuws` nounpl  
+ nieuwslezer ( NOUN NOUN_SINGULAR ) 
+ nieuwslezers ( NOUN NOUN_PLURAL ) lemma=`nieuwslezer` nounpl  
+ nieuwsoverzicht ( NOUN NOUN_SINGULAR ) 
+ nieuwsoverzichten ( NOUN NOUN_PLURAL ) lemma=`nieuwsoverzicht` nounpl  
+ nieuwsrubriek ( NOUN NOUN_SINGULAR ) 
+ nieuwsrubrieken ( NOUN NOUN_PLURAL ) lemma=`nieuwsrubriek` nounpl  
+ nieuwst ( ADJECTIVE ) lemma=`nieuw` adj  
+ nieuwste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nieuw`nieuwste` adj  nounsg  
+ nieuwsuitzending ( NOUN NOUN_SINGULAR ) 
+ nieuwsuitzendingen ( NOUN NOUN_PLURAL ) lemma=`nieuwsuitzending` nounpl  
+ nieuwsvoorziening ( NOUN NOUN_SINGULAR ) 
+ nieuwsvoorzieningen ( NOUN NOUN_PLURAL ) lemma=`nieuwsvoorziening` nounpl  
+ nieuwswaarde ( NOUN NOUN_SINGULAR ) 
+ nieuwszender ( NOUN NOUN_SINGULAR ) 
+ nieuwszenders ( NOUN NOUN_PLURAL ) lemma=`nieuwszender` nounpl  
+ nieuwtje ( NOUN NOUN_SINGULAR ) 
+ nieuwtjes ( NOUN NOUN_PLURAL ) lemma=`nieuwtje` nounpl  
+ nieuwvorming ( NOUN NOUN_SINGULAR ) 
+ nieuwvormingen ( NOUN NOUN_PLURAL ) lemma=`nieuwvorming` nounpl  
+ nieuwwaarde ( NOUN NOUN_SINGULAR ) 
+ nieuwwaarden ( NOUN NOUN_PLURAL ) lemma=`nieuwwaarde` nounpl  
+ niezen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`niezen`niezen`niezen` nounsg  verbinf  verbprespl  
+ niezend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`niezen` verbpresp  
+ niezende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`niezende`niezen` nounsg  verbpresp  
+ nihil ( ADVERB ) 
+ nihilisme ( NOUN NOUN_SINGULAR ) 
+ nihilist ( NOUN NOUN_SINGULAR ) 
+ nihilisten ( NOUN NOUN_PLURAL ) lemma=`nihilist` nounpl  
+ nihilistisch ( ADJECTIVE ) 
+ nihilistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nihilistisch`nihilistische` adj  nounsg  
+ nihilistischer ( ADJECTIVE ) lemma=`nihilistisch` adj  
+ nihilistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nihilistisch`nihilistischere` adj  nounsg  
+ nihilistischt ( ADJECTIVE ) lemma=`nihilistisch` adj  
+ nihilistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nihilistisch`nihilistischte` adj  nounsg  
+ nijd ( NOUN NOUN_SINGULAR ) 
+ nijdas ( NOUN NOUN_SINGULAR ) 
+ nijdassen ( NOUN NOUN_PLURAL ) lemma=`nijdas` nounpl  
+ nijdig ( ADJECTIVE ) 
+ nijdige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijdig`nijdige` adj  nounsg  
+ nijdiger ( ADJECTIVE ) lemma=`nijdig` adj  
+ nijdigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijdig`nijdigere` adj  nounsg  
+ nijdigst ( ADJECTIVE ) lemma=`nijdig` adj  
+ nijdigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijdig`nijdigste` adj  nounsg  
+ nijg ( VERB_PRESENT VERB ) lemma=`nijgen` verbpressg  
+ nijgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nijgen`nijgen`nijgen` nounsg  verbinf  verbprespl  
+ nijgend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nijgen` verbpresp  
+ nijgende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nijgende`nijgen` nounsg  verbpresp  
+ nijgt ( VERB_PRESENT VERB ) lemma=`nijgen` verbpressg  
+ nijlpaard ( NOUN NOUN_SINGULAR ) 
+ nijlpaarden ( NOUN NOUN_PLURAL ) lemma=`nijlpaard` nounpl  
+ nijp ( VERB_PRESENT VERB ) lemma=`nijpen` verbpressg  
+ nijpen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nijpen`nijpen`nijpen` nounsg  verbinf  verbprespl  
+ nijpend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`nijpend`nijpen` adj  verbpresp  
+ nijpende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`nijpend`nijpende`nijpen` adj  nounsg  verbpresp  
+ nijpender ( ADJECTIVE ) lemma=`nijpend` adj  
+ nijpendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijpend`nijpendere` adj  nounsg  
+ nijpendst ( ADJECTIVE ) lemma=`nijpend` adj  
+ nijpendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijpend`nijpendste` adj  nounsg  
+ nijpt ( VERB_PRESENT VERB ) lemma=`nijpen` verbpressg  
+ nijptang ( NOUN NOUN_SINGULAR ) 
+ nijptangen ( NOUN NOUN_PLURAL ) lemma=`nijptang` nounpl  
+ nijver ( ADJECTIVE ) 
+ nijverder ( ADJECTIVE ) lemma=`nijver` adj  
+ nijverdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijver`nijverdere` adj  nounsg  
+ nijvere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijver`nijvere` adj  nounsg  
+ nijverheid ( NOUN NOUN_SINGULAR ) 
+ nijverst ( ADJECTIVE ) lemma=`nijver` adj  
+ nijverste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nijver`nijverste` adj  nounsg  
+ nikkel ( NOUN NOUN_SINGULAR ) 
+ nikker ( NOUN NOUN_SINGULAR ) 
+ nikkers ( NOUN NOUN_PLURAL ) lemma=`nikker` nounpl  
+ nikkertje ( NOUN NOUN_SINGULAR ) lemma=`nikker` nounsg  
+ nikkertjes ( NOUN NOUN_PLURAL ) lemma=`nikker` nounpl  
+ niks ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ niksen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`niksen`niksen`niksen` nounsg  verbinf  verbprespl  
+ niksnut ( NOUN NOUN_SINGULAR ) 
+ niksnutten ( NOUN NOUN_PLURAL ) lemma=`niksnut` nounpl  
+ nimbus ( NOUN NOUN_SINGULAR ) 
+ nimbussen ( NOUN NOUN_PLURAL ) lemma=`nimbus` nounpl  
+ nimf ( NOUN NOUN_SINGULAR ) 
+ nimfen ( NOUN NOUN_PLURAL ) lemma=`nimf` nounpl  
+ nimfomaan ( ADJECTIVE ) 
+ nimfomane ( NOUN NOUN_SINGULAR ) 
+ nimfomanen ( NOUN NOUN_PLURAL ) lemma=`nimfomane` nounpl  
+ nimmer ( ADVERB ) 
+ nimmermeer ( ADVERB ) 
+ nip ( VERB_PRESENT VERB ) lemma=`nippen` verbpressg  
+ nipje ( NOUN NOUN_SINGULAR ) 
+ nipjes ( NOUN NOUN_PLURAL ) lemma=`nipje` nounpl  
+ nippel ( NOUN NOUN_SINGULAR ) 
+ nippels ( NOUN NOUN_PLURAL ) lemma=`nippel` nounpl  
+ nippen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nippen`nippen`nippen` nounsg  verbinf  verbprespl  
+ nippend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nippen` verbpresp  
+ nippende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nippende`nippen` nounsg  verbpresp  
+ nippertje ( NOUN NOUN_SINGULAR ) 
+ nipt ( VERB_PRESENT VERB ADJECTIVE ) lemma=`nipt`nippen` adj  verbpressg  
+ nipte ( VERB_PAST NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`nipt`nipte`nippen` adj  nounsg  verbpastsg  
+ nipten ( VERB_PAST VERB ) lemma=`nippen` verbpastpl  
+ nipter ( ADJECTIVE ) lemma=`nipt` adj  
+ niptere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nipt`niptere` adj  nounsg  
+ niptst ( ADJECTIVE ) lemma=`nipt` adj  
+ niptste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nipt`niptste` adj  nounsg  
+ nirvana ( NOUN NOUN_SINGULAR ) 
+ nirwana ( NOUN NOUN_SINGULAR ) 
+ nis ( NOUN NOUN_SINGULAR ) 
+ nissen ( NOUN NOUN_PLURAL ) lemma=`nis` nounpl  
+ nitraat ( NOUN NOUN_SINGULAR ) 
+ nitraten ( NOUN NOUN_PLURAL ) lemma=`nitraat` nounpl  
+ nitroglycerine ( NOUN NOUN_SINGULAR ) 
+ nitwit ( NOUN NOUN_SINGULAR ) 
+ nitwits ( NOUN NOUN_PLURAL ) lemma=`nitwit` nounpl  
+ niveau ( NOUN NOUN_SINGULAR ) 
+ niveaus ( NOUN NOUN_PLURAL ) lemma=`niveau` nounpl  
+ niveauverschil ( NOUN NOUN_SINGULAR ) 
+ niveauverschillen ( NOUN NOUN_PLURAL ) lemma=`niveauverschil` nounpl  
+ nivelleer ( VERB_PRESENT VERB ) lemma=`nivelleren` verbpressg  
+ nivelleerde ( VERB_PAST VERB ) lemma=`nivelleren` verbpastsg  
+ nivelleerden ( VERB_PAST VERB ) lemma=`nivelleren` verbpastpl  
+ nivelleert ( VERB_PRESENT VERB ) lemma=`nivelleren` verbpressg  
+ nivelleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nivelleren`nivelleren`nivelleren` nounsg  verbinf  verbprespl  
+ nivellerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nivelleren` verbpresp  
+ nivellerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nivellerende`nivelleren` nounsg  verbpresp  
+ nivellering ( NOUN NOUN_SINGULAR ) 
+ nivelleringen ( NOUN NOUN_PLURAL ) lemma=`nivellering` nounpl  
+ nivo ( NOUN NOUN_SINGULAR ) 
+ nl. ( ADVERB ) 
+ nmaal ( ADVERB ) 
+ no. ( NOUN NOUN_SINGULAR ) 
+ nobel ( ADJECTIVE ) 
+ nobele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nobel`nobele` adj  nounsg  
+ nobeler ( ADJECTIVE ) lemma=`nobel` adj  
+ nobelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nobel`nobelere` adj  nounsg  
+ nobelst ( ADJECTIVE ) lemma=`nobel` adj  
+ nobelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nobel`nobelste` adj  nounsg  
+ noblesse ( NOUN NOUN_SINGULAR ) 
+ noch ( CONJUNCTION_COORDINATE ) 
+ nochtans ( ADVERB ) 
+ nocturne ( NOUN NOUN_SINGULAR ) 
+ nocturnes ( NOUN NOUN_PLURAL ) lemma=`nocturne` nounpl  
+ node ( ADVERB ) 
+ nodeloos ( ADJECTIVE ) 
+ nodeloost ( ADJECTIVE ) lemma=`nodeloos` adj  
+ nodelooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nodeloos`nodelooste` adj  nounsg  
+ nodeloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nodeloos`nodeloze` adj  nounsg  
+ nodelozer ( ADJECTIVE ) lemma=`nodeloos` adj  
+ nodelozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nodeloos`nodelozere` adj  nounsg  
+ noden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nood`noden`noden`noden` nounpl  nounsg  verbinf  verbprespl  
+ nodend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`noden` verbpresp  
+ nodende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nodende`noden` nounsg  verbpresp  
+ nodig ( VERB_PRESENT VERB ADJECTIVE ) lemma=`nodig`nodigen` adj  verbpressg  
+ nodigde ( VERB_PAST VERB ) lemma=`nodigen` verbpastsg  
+ nodigden ( VERB_PAST VERB ) lemma=`nodigen` verbpastpl  
+ nodige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nodig`nodige` adj  nounsg  
+ nodigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nodigen`nodigen`nodigen` nounsg  verbinf  verbprespl  
+ nodigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nodigen` verbpresp  
+ nodigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nodigende`nodigen` nounsg  verbpresp  
+ nodiger ( ADJECTIVE ) lemma=`nodig` adj  
+ nodigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nodig`nodigere` adj  nounsg  
+ nodigst ( ADJECTIVE ) lemma=`nodig` adj  
+ nodigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nodig`nodigste` adj  nounsg  
+ nodigt ( VERB_PRESENT VERB ) lemma=`nodigen` verbpressg  
+ noedels ( NOUN NOUN_PLURAL ) 
+ noem ( VERB_PRESENT VERB ) lemma=`noemen` verbpressg  
+ noemde ( VERB_PAST VERB ) lemma=`noemen` verbpastsg  
+ noemden ( VERB_PAST VERB ) lemma=`noemen` verbpastpl  
+ noemen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`noemen`noemen`noemen` nounsg  verbinf  verbprespl  
+ noemend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`noemen` verbpresp  
+ noemende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`noemende`noemen` nounsg  verbpresp  
+ noemenswaardig ( ADJECTIVE ) 
+ noemenswaardige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noemenswaardig`noemenswaardige` adj  nounsg  
+ noemenswaardiger ( ADJECTIVE ) lemma=`noemenswaardig` adj  
+ noemenswaardigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noemenswaardig`noemenswaardigere` adj  nounsg  
+ noemenswaardigst ( ADJECTIVE ) lemma=`noemenswaardig` adj  
+ noemenswaardigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noemenswaardig`noemenswaardigste` adj  nounsg  
+ noemer ( NOUN NOUN_SINGULAR ) 
+ noemers ( NOUN NOUN_PLURAL ) lemma=`noemer` nounpl  
+ noemt ( VERB_PRESENT VERB ) lemma=`noemen` verbpressg  
+ noen ( NOUN NOUN_SINGULAR ) 
+ noenmaal ( NOUN NOUN_SINGULAR ) 
+ noenmalen ( NOUN NOUN_PLURAL ) lemma=`noenmaal` nounpl  
+ noest ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noest`noest` adj  nounsg  
+ noeste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noest`noeste` adj  nounsg  
+ noesten ( NOUN NOUN_PLURAL ) lemma=`noest` nounpl  
+ noester ( ADJECTIVE ) lemma=`noest` adj  
+ noestere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noest`noestere` adj  nounsg  
+ nog ( ADVERB ) 
+ noga ( NOUN NOUN_SINGULAR ) 
+ nogal ( ADVERB ) 
+ nogmaals ( ADVERB ) 
+ nok ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`nok`nokken` nounsg  verbpressg  
+ nokbalk ( NOUN NOUN_SINGULAR ) 
+ nokbalken ( NOUN NOUN_PLURAL ) lemma=`nokbalk` nounpl  
+ nokken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nok`nokken`nokken`nokken` nounpl  nounsg  verbinf  verbprespl  
+ nokkenas ( NOUN NOUN_SINGULAR ) 
+ nokkenassen ( NOUN NOUN_PLURAL ) lemma=`nokkenas` nounpl  
+ nokkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nokken` verbpresp  
+ nokkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nokkende`nokken` nounsg  verbpresp  
+ nokt ( VERB_PRESENT VERB ) lemma=`nokken` verbpressg  
+ nokte ( VERB_PAST VERB ) lemma=`nokken` verbpastsg  
+ nokten ( VERB_PAST VERB ) lemma=`nokken` verbpastpl  
+ nomade ( NOUN NOUN_SINGULAR ) 
+ nomaden ( NOUN NOUN_PLURAL ) lemma=`nomade` nounpl  
+ nomadisch ( ADJECTIVE ) 
+ nomadische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nomadisch`nomadische` adj  nounsg  
+ nomen ( NOUN NOUN_SINGULAR ) 
+ nomenclaturen ( NOUN NOUN_PLURAL ) lemma=`nomenclatuur` nounpl  
+ nomenclatuur ( NOUN NOUN_SINGULAR ) 
+ nomenklatoera ( NOUN NOUN_SINGULAR ) 
+ nomina ( NOUN NOUN_PLURAL ) lemma=`nomen` nounpl  
+ nominaal ( ADJECTIVE ) 
+ nominale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nominaal`nominale` adj  nounsg  
+ nominatie ( NOUN NOUN_SINGULAR ) 
+ nominatief ( NOUN NOUN_SINGULAR ) 
+ nominaties ( NOUN NOUN_PLURAL ) lemma=`nominatie` nounpl  
+ nominatieven ( NOUN NOUN_PLURAL ) lemma=`nominatief` nounpl  
+ non ( NOUN NOUN_SINGULAR ) 
+ non-actief ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`non-actief`non-actief` adj  nounsg  
+ non-actiefstelling ( NOUN NOUN_SINGULAR ) 
+ non-aktief ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`non-aktief`non-aktief` adj  nounsg  
+ non-aktiefstelling ( NOUN NOUN_SINGULAR ) 
+ non-conformisme ( NOUN NOUN_SINGULAR ) 
+ non-conformist ( NOUN NOUN_SINGULAR ) 
+ non-conformisten ( NOUN NOUN_PLURAL ) lemma=`non-conformist` nounpl  
+ non-conformistisch ( ADJECTIVE ) 
+ non-conformistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`non-conformistisch`non-conformistische` adj  nounsg  
+ non-conformistischer ( ADJECTIVE ) lemma=`non-conformistisch` adj  
+ non-conformistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`non-conformistisch`non-conformistischere` adj  nounsg  
+ non-conformistischt ( ADJECTIVE ) lemma=`non-conformistisch` adj  
+ non-conformistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`non-conformistisch`non-conformistischte` adj  nounsg  
+ non-discriminatie ( NOUN NOUN_SINGULAR ) 
+ non-fictie ( NOUN NOUN_SINGULAR ) 
+ non-interventie ( NOUN NOUN_SINGULAR ) 
+ non-profit ( ADJECTIVE ) 
+ non-proliferatie ( NOUN NOUN_SINGULAR ) 
+ non-proliferatieverd ( NOUN NOUN_SINGULAR ) 
+ non-proliferatieverdrag ( NOUN NOUN_SINGULAR ) 
+ non-proliferatieverdragen ( NOUN NOUN_PLURAL ) lemma=`non-proliferatieverdrag` nounpl  
+ non-stop ( ADJECTIVE ) 
+ non-stopvlucht ( NOUN NOUN_SINGULAR ) 
+ non-stopvluchten ( NOUN NOUN_PLURAL ) lemma=`non-stopvlucht` nounpl  
+ nonchalance ( NOUN NOUN_SINGULAR ) 
+ nonchalant ( ADJECTIVE ) 
+ nonchalante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nonchalant`nonchalante` adj  nounsg  
+ nonchalanter ( ADJECTIVE ) lemma=`nonchalant` adj  
+ nonchalantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nonchalant`nonchalantere` adj  nounsg  
+ nonchalantst ( ADJECTIVE ) lemma=`nonchalant` adj  
+ nonchalantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nonchalant`nonchalantste` adj  nounsg  
+ nonius ( NOUN NOUN_SINGULAR ) 
+ noniussen ( NOUN NOUN_PLURAL ) lemma=`nonius` nounpl  
+ nonkel ( NOUN NOUN_SINGULAR ) 
+ nonkels ( NOUN NOUN_PLURAL ) lemma=`nonkel` nounpl  
+ nonnen ( NOUN NOUN_PLURAL ) lemma=`non` nounpl  
+ nonnenklooster ( NOUN NOUN_SINGULAR ) 
+ nonnenkloosters ( NOUN NOUN_PLURAL ) lemma=`nonnenklooster` nounpl  
+ nonnenscholen ( NOUN NOUN_PLURAL ) lemma=`nonnenschool` nounpl  
+ nonnenschool ( NOUN NOUN_SINGULAR ) 
+ nonnetje ( NOUN NOUN_SINGULAR ) lemma=`non` nounsg  
+ nonnetjes ( NOUN NOUN_PLURAL ) lemma=`non` nounpl  
+ nonsens ( NOUN NOUN_SINGULAR ) 
+ nood ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`nood`noden` nounsg  verbpressg  
+ noodaggregaat ( NOUN NOUN_SINGULAR ) 
+ noodaggregaten ( NOUN NOUN_PLURAL ) lemma=`noodaggregaat` nounpl  
+ noodbrug ( NOUN NOUN_SINGULAR ) 
+ noodbruggen ( NOUN NOUN_PLURAL ) lemma=`noodbrug` nounpl  
+ noodde ( VERB_PAST VERB ) lemma=`noden` verbpastsg  
+ noodden ( VERB_PAST VERB ) lemma=`noden` verbpastpl  
+ nooddruft ( NOUN NOUN_SINGULAR ) 
+ noodfonds ( NOUN NOUN_SINGULAR ) 
+ noodfondsen ( NOUN NOUN_PLURAL ) lemma=`noodfonds` nounpl  
+ noodgang ( NOUN NOUN_SINGULAR ) 
+ noodgebouw ( NOUN NOUN_SINGULAR ) 
+ noodgebouwen ( NOUN NOUN_PLURAL ) lemma=`noodgebouw` nounpl  
+ noodgedwongen ( ADJECTIVE ) 
+ noodgeval ( NOUN NOUN_SINGULAR ) 
+ noodgevallen ( NOUN NOUN_PLURAL ) lemma=`noodgeval` nounpl  
+ noodgreep ( NOUN NOUN_SINGULAR ) 
+ noodgrepen ( NOUN NOUN_PLURAL ) lemma=`noodgreep` nounpl  
+ noodhospitaal ( NOUN NOUN_SINGULAR ) 
+ noodhospitaals ( NOUN NOUN_PLURAL ) lemma=`noodhospitaal` nounpl  
+ noodhospitalen ( NOUN NOUN_PLURAL ) lemma=`noodhospitaal` nounpl  
+ noodhulp ( NOUN NOUN_SINGULAR ) 
+ noodhulpen ( NOUN NOUN_PLURAL ) lemma=`noodhulp` nounpl  
+ noodklok ( NOUN NOUN_SINGULAR ) 
+ noodklokken ( NOUN NOUN_PLURAL ) lemma=`noodklok` nounpl  
+ noodkreet ( NOUN NOUN_SINGULAR ) 
+ noodkreten ( NOUN NOUN_PLURAL ) lemma=`noodkreet` nounpl  
+ noodlanding ( NOUN NOUN_SINGULAR ) 
+ noodlandingen ( NOUN NOUN_PLURAL ) lemma=`noodlanding` nounpl  
+ noodlijdend ( ADJECTIVE ) 
+ noodlijdende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodlijdend`noodlijdende` adj  nounsg  
+ noodlijdender ( ADJECTIVE ) lemma=`noodlijdend` adj  
+ noodlijdendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodlijdend`noodlijdendere` adj  nounsg  
+ noodlijdendst ( ADJECTIVE ) lemma=`noodlijdend` adj  
+ noodlijdendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodlijdend`noodlijdendste` adj  nounsg  
+ noodlot ( NOUN NOUN_SINGULAR ) 
+ noodlottig ( ADJECTIVE ) 
+ noodlottige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodlottig`noodlottige` adj  nounsg  
+ noodlottiger ( ADJECTIVE ) lemma=`noodlottig` adj  
+ noodlottigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodlottig`noodlottigere` adj  nounsg  
+ noodlottigst ( ADJECTIVE ) lemma=`noodlottig` adj  
+ noodlottigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodlottig`noodlottigste` adj  nounsg  
+ noodmaatregel ( NOUN NOUN_SINGULAR ) 
+ noodmaatregelen ( NOUN NOUN_PLURAL ) lemma=`noodmaatregel` nounpl  
+ noodoplossing ( NOUN NOUN_SINGULAR ) 
+ noodoplossingen ( NOUN NOUN_PLURAL ) lemma=`noodoplossing` nounpl  
+ noodopvang ( NOUN NOUN_SINGULAR ) 
+ noodplan ( NOUN NOUN_SINGULAR ) 
+ noodplannen ( NOUN NOUN_PLURAL ) lemma=`noodplan` nounpl  
+ noodrantsoen ( NOUN NOUN_SINGULAR ) 
+ noodrantsoenen ( NOUN NOUN_PLURAL ) lemma=`noodrantsoen` nounpl  
+ noodrem ( NOUN NOUN_SINGULAR ) 
+ noodremmen ( NOUN NOUN_PLURAL ) lemma=`noodrem` nounpl  
+ noodreparatie ( NOUN NOUN_SINGULAR ) 
+ noodreparaties ( NOUN NOUN_PLURAL ) lemma=`noodreparatie` nounpl  
+ noodsein ( NOUN NOUN_SINGULAR ) 
+ noodseinen ( NOUN NOUN_PLURAL ) lemma=`noodsein` nounpl  
+ noodsignaal ( NOUN NOUN_SINGULAR ) 
+ noodsignalen ( NOUN NOUN_PLURAL ) lemma=`noodsignaal` nounpl  
+ noodsituatie ( NOUN NOUN_SINGULAR ) 
+ noodsituaties ( NOUN NOUN_PLURAL ) lemma=`noodsituatie` nounpl  
+ noodslachter ( NOUN NOUN_SINGULAR ) 
+ noodslachters ( NOUN NOUN_PLURAL ) lemma=`noodslachter` nounpl  
+ noodslachtplaats ( NOUN NOUN_SINGULAR ) 
+ noodslachtplaatsen ( NOUN NOUN_PLURAL ) lemma=`noodslachtplaats` nounpl  
+ noodsprong ( NOUN NOUN_SINGULAR ) 
+ noodsprongen ( NOUN NOUN_PLURAL ) lemma=`noodsprong` nounpl  
+ noodstop ( NOUN NOUN_SINGULAR ) 
+ noodstoppen ( NOUN NOUN_PLURAL ) lemma=`noodstop` nounpl  
+ noodstops ( NOUN NOUN_PLURAL ) lemma=`noodstop` nounpl  
+ noodt ( VERB_PRESENT VERB ) lemma=`noden` verbpressg  
+ noodtoestand ( NOUN NOUN_SINGULAR ) 
+ noodtoestanden ( NOUN NOUN_PLURAL ) lemma=`noodtoestand` nounpl  
+ noodtribune ( NOUN NOUN_SINGULAR ) 
+ noodtribunes ( NOUN NOUN_PLURAL ) lemma=`noodtribune` nounpl  
+ nooduitgang ( NOUN NOUN_SINGULAR ) 
+ nooduitgangen ( NOUN NOUN_PLURAL ) lemma=`nooduitgang` nounpl  
+ noodvaart ( NOUN NOUN_SINGULAR ) 
+ noodverband ( NOUN NOUN_SINGULAR ) 
+ noodverbanden ( NOUN NOUN_PLURAL ) lemma=`noodverband` nounpl  
+ noodverlichting ( NOUN NOUN_SINGULAR ) 
+ noodvoorziening ( NOUN NOUN_SINGULAR ) 
+ noodvoorzieningen ( NOUN NOUN_PLURAL ) lemma=`noodvoorziening` nounpl  
+ noodweer ( NOUN NOUN_SINGULAR ) 
+ noodzaak ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`noodzaak`noodzaken` nounsg  verbpressg  
+ noodzaakt ( VERB_PRESENT VERB ) lemma=`noodzaken` verbpressg  
+ noodzaakte ( VERB_PAST VERB ) lemma=`noodzaken` verbpastsg  
+ noodzaakten ( VERB_PAST VERB ) lemma=`noodzaken` verbpastpl  
+ noodzakelijk ( ADJECTIVE ) 
+ noodzakelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodzakelijk`noodzakelijke` adj  nounsg  
+ noodzakelijker ( ADJECTIVE ) lemma=`noodzakelijk` adj  
+ noodzakelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodzakelijk`noodzakelijkere` adj  nounsg  
+ noodzakelijkerwijs ( ADVERB ) 
+ noodzakelijkheden ( NOUN NOUN_PLURAL ) lemma=`noodzakelijkheid` nounpl  
+ noodzakelijkheid ( NOUN NOUN_SINGULAR ) 
+ noodzakelijkst ( ADJECTIVE ) lemma=`noodzakelijk` adj  
+ noodzakelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noodzakelijk`noodzakelijkste` adj  nounsg  
+ noodzaken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`noodzaken`noodzaken`noodzaken` nounsg  verbinf  verbprespl  
+ noodzakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`noodzaken` verbpresp  
+ noodzakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`noodzakende`noodzaken` nounsg  verbpresp  
+ nooit ( ADVERB ) 
+ noop ( VERB_PRESENT VERB ) lemma=`nopen` verbpressg  
+ noopt ( VERB_PRESENT VERB ) lemma=`nopen` verbpressg  
+ noopte ( VERB_PAST VERB ) lemma=`nopen` verbpastsg  
+ noopten ( VERB_PAST VERB ) lemma=`nopen` verbpastpl  
+ noord ( NOUN NOUN_SINGULAR ) 
+ noord-zuidtegenstell ( NOUN NOUN_SINGULAR ) 
+ noord-zuidtegenstelling ( NOUN NOUN_SINGULAR ) 
+ noordelijk ( ADJECTIVE ) 
+ noordelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordelijk`noordelijke` adj  nounsg  
+ noordelijker ( ADJECTIVE ) lemma=`noordelijk` adj  
+ noordelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordelijk`noordelijkere` adj  nounsg  
+ noordelijkst ( ADJECTIVE ) lemma=`noordelijk` adj  
+ noordelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordelijk`noordelijkste` adj  nounsg  
+ noorden ( NOUN NOUN_SINGULAR ) 
+ noordenwind ( NOUN NOUN_SINGULAR ) 
+ noordenwinden ( NOUN NOUN_PLURAL ) lemma=`noordenwind` nounpl  
+ noorderbreedte ( NOUN NOUN_SINGULAR ) 
+ noorderburen ( NOUN NOUN_PLURAL ) lemma=`noorderbuur` nounpl  
+ noorderbuur ( NOUN NOUN_SINGULAR ) 
+ noorderkeerkring ( NOUN NOUN_SINGULAR ) 
+ noorderlicht ( NOUN NOUN_SINGULAR ) 
+ noorderling ( NOUN NOUN_SINGULAR ) 
+ noorderlingen ( NOUN NOUN_PLURAL ) lemma=`noorderling` nounpl  
+ noorderzon ( NOUN NOUN_SINGULAR ) 
+ noordkant ( NOUN NOUN_SINGULAR ) 
+ noordkust ( NOUN NOUN_SINGULAR ) 
+ noordkusten ( NOUN NOUN_PLURAL ) lemma=`noordkust` nounpl  
+ noordoostelijk ( ADJECTIVE ) 
+ noordoostelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordoostelijk`noordoostelijke` adj  nounsg  
+ noordoostelijker ( ADJECTIVE ) lemma=`noordoostelijk` adj  
+ noordoostelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordoostelijk`noordoostelijkere` adj  nounsg  
+ noordoostelijkst ( ADJECTIVE ) lemma=`noordoostelijk` adj  
+ noordoostelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordoostelijk`noordoostelijkste` adj  nounsg  
+ noordoosten ( NOUN NOUN_SINGULAR ) 
+ noordoostenwind ( NOUN NOUN_SINGULAR ) 
+ noordoostenwinden ( NOUN NOUN_PLURAL ) lemma=`noordoostenwind` nounpl  
+ noordpijl ( NOUN NOUN_SINGULAR ) 
+ noordpijlen ( NOUN NOUN_PLURAL ) lemma=`noordpijl` nounpl  
+ noordpool ( NOUN NOUN_PROPER_SINGULAR ) 
+ noordpoolcirkel ( NOUN NOUN_SINGULAR ) 
+ noordpoolexpeditie ( NOUN NOUN_SINGULAR ) 
+ noordpoolexpedities ( NOUN NOUN_PLURAL ) lemma=`noordpoolexpeditie` nounpl  
+ noordpoolgebied ( NOUN NOUN_SINGULAR ) 
+ noordpoolgebieden ( NOUN NOUN_PLURAL ) lemma=`noordpoolgebied` nounpl  
+ noordpoolreiziger ( NOUN NOUN_SINGULAR ) 
+ noordpoolreizigers ( NOUN NOUN_PLURAL ) lemma=`noordpoolreiziger` nounpl  
+ noordpunt ( NOUN NOUN_SINGULAR ) 
+ noordpunten ( NOUN NOUN_PLURAL ) lemma=`noordpunt` nounpl  
+ noords ( ADJECTIVE ) 
+ noordse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noords`noordse` adj  nounsg  
+ noordster ( NOUN NOUN_PROPER_SINGULAR ) 
+ noordsterren ( NOUN NOUN_PLURAL ) lemma=`noordster` nounpl  
+ noordwaarts ( ADJECTIVE ) 
+ noordwaartse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordwaarts`noordwaartse` adj  nounsg  
+ noordwestelijk ( ADJECTIVE ) 
+ noordwestelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordwestelijk`noordwestelijke` adj  nounsg  
+ noordwestelijker ( ADJECTIVE ) lemma=`noordwestelijk` adj  
+ noordwestelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordwestelijk`noordwestelijkere` adj  nounsg  
+ noordwestelijkst ( ADJECTIVE ) lemma=`noordwestelijk` adj  
+ noordwestelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`noordwestelijk`noordwestelijkste` adj  nounsg  
+ noordwesten ( NOUN NOUN_SINGULAR ) 
+ noordwestenwind ( NOUN NOUN_SINGULAR ) 
+ noordwestenwinden ( NOUN NOUN_PLURAL ) lemma=`noordwestenwind` nounpl  
+ noordwester ( NOUN NOUN_SINGULAR ) 
+ noordwesters ( NOUN NOUN_PLURAL ) lemma=`noordwester` nounpl  
+ noordwesterstorm ( NOUN NOUN_SINGULAR ) 
+ noordwesterstormen ( NOUN NOUN_PLURAL ) lemma=`noordwesterstorm` nounpl  
+ noordwestkust ( NOUN NOUN_SINGULAR ) 
+ noordzijde ( NOUN NOUN_SINGULAR ) 
+ noot ( NOUN NOUN_SINGULAR ) 
+ nootjes ( NOUN NOUN_PLURAL ) lemma=`noot` nounpl  
+ nootmuskaat ( NOUN NOUN_SINGULAR ) 
+ nop ( NOUN NOUN_SINGULAR ) 
+ nopen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nopen`nopen`nopen` nounsg  verbinf  verbprespl  
+ nopend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nopen` verbpresp  
+ nopende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nopende`nopen` nounsg  verbpresp  
+ nopens ( PREPOSITION ) 
+ nopje ( NOUN NOUN_SINGULAR ) lemma=`nop` nounsg  
+ nopjes ( NOUN NOUN_PLURAL ) lemma=`nop` nounpl  
+ noppen ( NOUN NOUN_PLURAL ) lemma=`nop` nounpl  
+ nor ( NOUN NOUN_SINGULAR ) 
+ norbertijn ( NOUN NOUN_SINGULAR ) 
+ norbertijnen ( NOUN NOUN_PLURAL ) lemma=`norbertijn` nounpl  
+ noren ( NOUN NOUN_PLURAL ) 
+ norm ( NOUN NOUN_SINGULAR ) 
+ normaal ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`normaal`normaal` adj  nounsg  
+ normaalgesproken ( ADVERB ) 
+ normaalscholen ( NOUN NOUN_PLURAL ) lemma=`normaalschool` nounpl  
+ normaalschool ( NOUN NOUN_SINGULAR ) 
+ normaalst ( ADJECTIVE ) lemma=`normaal` adj  
+ normaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`normaal`normaalste` adj  nounsg  
+ normale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`normaal`normale` adj  nounsg  
+ normalen ( NOUN NOUN_PLURAL ) lemma=`normaal` nounpl  
+ normaler ( ADJECTIVE ) lemma=`normaal` adj  
+ normalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`normaal`normalere` adj  nounsg  
+ normalisatie ( NOUN NOUN_SINGULAR ) 
+ normalisaties ( NOUN NOUN_PLURAL ) lemma=`normalisatie` nounpl  
+ normaliseer ( VERB_PRESENT VERB ) lemma=`normaliseren` verbpressg  
+ normaliseerde ( VERB_PAST VERB ) lemma=`normaliseren` verbpastsg  
+ normaliseerden ( VERB_PAST VERB ) lemma=`normaliseren` verbpastpl  
+ normaliseert ( VERB_PRESENT VERB ) lemma=`normaliseren` verbpressg  
+ normaliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`normaliseren`normaliseren`normaliseren` nounsg  verbinf  verbprespl  
+ normaliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`normaliseren` verbpresp  
+ normaliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`normaliserende`normaliseren` nounsg  verbpresp  
+ normalist ( NOUN NOUN_SINGULAR ) 
+ normalisten ( NOUN NOUN_PLURAL ) lemma=`normalist` nounpl  
+ normaliter ( ADVERB ) 
+ normalizatie ( NOUN NOUN_SINGULAR ) 
+ normalizaties ( NOUN NOUN_PLURAL ) lemma=`normalizatie` nounpl  
+ normatief ( ADJECTIVE ) 
+ normatieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`normatief`normatieve` adj  nounsg  
+ normbesef ( NOUN NOUN_SINGULAR ) 
+ normen ( NOUN NOUN_PLURAL ) lemma=`norm` nounpl  
+ normstelling ( NOUN NOUN_SINGULAR ) 
+ normvervaging ( NOUN NOUN_SINGULAR ) 
+ norren ( NOUN NOUN_PLURAL ) lemma=`nor` nounpl  
+ nors ( ADJECTIVE ) 
+ norse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nors`norse` adj  nounsg  
+ norser ( ADJECTIVE ) lemma=`nors` adj  
+ norsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nors`norsere` adj  nounsg  
+ norst ( ADJECTIVE ) lemma=`nors` adj  
+ norste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nors`norste` adj  nounsg  
+ nostalgie ( NOUN NOUN_SINGULAR ) 
+ nostalgisch ( ADJECTIVE ) 
+ nostalgische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nostalgisch`nostalgische` adj  nounsg  
+ nostalgischer ( ADJECTIVE ) lemma=`nostalgisch` adj  
+ nostalgischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nostalgisch`nostalgischere` adj  nounsg  
+ nostalgischt ( ADJECTIVE ) lemma=`nostalgisch` adj  
+ nostalgischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nostalgisch`nostalgischte` adj  nounsg  
+ nota ( NOUN NOUN_SINGULAR ) 
+ nota's ( NOUN NOUN_PLURAL ) lemma=`nota` nounpl  
+ notaatje ( NOUN NOUN_SINGULAR ) lemma=`nota` nounsg  
+ notaatjes ( NOUN NOUN_PLURAL ) lemma=`nota` nounpl  
+ notabele ( NOUN NOUN_SINGULAR ) 
+ notabelen ( NOUN NOUN_PLURAL ) lemma=`notabele` nounpl  
+ notariaat ( NOUN NOUN_SINGULAR ) 
+ notariaten ( NOUN NOUN_PLURAL ) lemma=`notariaat` nounpl  
+ notarieel ( ADJECTIVE ) 
+ notaris ( NOUN NOUN_SINGULAR ) 
+ notariskosten ( NOUN NOUN_PLURAL ) 
+ notarissen ( NOUN NOUN_PLURAL ) lemma=`notaris` nounpl  
+ notariële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`notarieel`notariële` adj  nounsg  
+ notatie ( NOUN NOUN_SINGULAR ) 
+ notaties ( NOUN NOUN_PLURAL ) lemma=`notatie` nounpl  
+ notebomen ( NOUN NOUN_PLURAL ) lemma=`noteboom` nounpl  
+ noteboom ( NOUN NOUN_SINGULAR ) 
+ notedop ( NOUN NOUN_SINGULAR ) 
+ notedoppen ( NOUN NOUN_PLURAL ) lemma=`notedop` nounpl  
+ noteer ( VERB_PRESENT VERB ) lemma=`noteren` verbpressg  
+ noteerde ( VERB_PAST VERB ) lemma=`noteren` verbpastsg  
+ noteerden ( VERB_PAST VERB ) lemma=`noteren` verbpastpl  
+ noteert ( VERB_PRESENT VERB ) lemma=`noteren` verbpressg  
+ notehout ( NOUN NOUN_SINGULAR ) 
+ notehouten ( ADJECTIVE ) 
+ notekraker ( NOUN NOUN_SINGULAR ) 
+ notekrakers ( NOUN NOUN_PLURAL ) lemma=`notekraker` nounpl  
+ notemuskaat ( NOUN NOUN_SINGULAR ) 
+ noten ( NOUN NOUN_PLURAL ) lemma=`noot` nounpl  
+ notenapparaat ( NOUN NOUN_SINGULAR ) 
+ notenbalk ( NOUN NOUN_SINGULAR ) 
+ notenbalken ( NOUN NOUN_PLURAL ) lemma=`notenbalk` nounpl  
+ notenbomen ( NOUN NOUN_PLURAL ) lemma=`notenboom` nounpl  
+ notenboom ( NOUN NOUN_SINGULAR ) 
+ notendop ( NOUN NOUN_SINGULAR ) 
+ notendopje ( NOUN NOUN_SINGULAR ) lemma=`notendop` nounsg  
+ notendoppen ( NOUN NOUN_PLURAL ) lemma=`notendop` nounpl  
+ notenhout ( NOUN NOUN_SINGULAR ) 
+ notenhouten ( ADJECTIVE ) 
+ notenkaas ( NOUN NOUN_SINGULAR ) 
+ notenkazen ( NOUN NOUN_PLURAL ) lemma=`notenkaas` nounpl  
+ notenkraker ( NOUN NOUN_SINGULAR ) 
+ notenkrakers ( NOUN NOUN_PLURAL ) lemma=`notenkraker` nounpl  
+ notenleer ( NOUN NOUN_SINGULAR ) 
+ notenmuskaat ( NOUN NOUN_SINGULAR ) 
+ notenschrift ( NOUN NOUN_SINGULAR ) 
+ notenschriften ( NOUN NOUN_PLURAL ) lemma=`notenschrift` nounpl  
+ noteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`noteren`noteren`noteren` nounsg  verbinf  verbprespl  
+ noterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`noteren` verbpresp  
+ noterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`noterende`noteren` nounsg  verbpresp  
+ notering ( NOUN NOUN_SINGULAR ) 
+ noteringen ( NOUN NOUN_PLURAL ) lemma=`notering` nounpl  
+ notie ( NOUN NOUN_SINGULAR ) 
+ noties ( NOUN NOUN_PLURAL ) lemma=`notie` nounpl  
+ notitie ( NOUN NOUN_SINGULAR ) 
+ notitieblok ( NOUN NOUN_SINGULAR ) 
+ notitieblokken ( NOUN NOUN_PLURAL ) lemma=`notitieblok` nounpl  
+ notitieboekje ( NOUN NOUN_SINGULAR ) 
+ notitieboekjes ( NOUN NOUN_PLURAL ) lemma=`notitieboekje` nounpl  
+ notities ( NOUN NOUN_PLURAL ) lemma=`notitie` nounpl  
+ notoir ( ADJECTIVE ) 
+ notoire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`notoir`notoire` adj  nounsg  
+ notoor ( ADJECTIVE ) 
+ notuleer ( VERB_PRESENT VERB ) lemma=`notuleren` verbpressg  
+ notuleerde ( VERB_PAST VERB ) lemma=`notuleren` verbpastsg  
+ notuleerden ( VERB_PAST VERB ) lemma=`notuleren` verbpastpl  
+ notuleert ( VERB_PRESENT VERB ) lemma=`notuleren` verbpressg  
+ notulen ( NOUN NOUN_PLURAL ) 
+ notuleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`notuleren`notuleren`notuleren` nounsg  verbinf  verbprespl  
+ notulerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`notuleren` verbpresp  
+ notulerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`notulerende`notuleren` nounsg  verbpresp  
+ notulist ( NOUN NOUN_SINGULAR ) 
+ notulisten ( NOUN NOUN_PLURAL ) lemma=`notulist` nounpl  
+ nou ( INTERJECTION ) 
+ nouveauté ( NOUN NOUN_SINGULAR ) 
+ nouveautés ( NOUN NOUN_PLURAL ) lemma=`nouveauté` nounpl  
+ nova ( NOUN NOUN_PLURAL ) lemma=`novum` nounpl  
+ novelle ( NOUN NOUN_SINGULAR ) 
+ novellebundel ( NOUN NOUN_SINGULAR ) 
+ novellebundels ( NOUN NOUN_PLURAL ) lemma=`novellebundel` nounpl  
+ novellen ( NOUN NOUN_PLURAL ) lemma=`novelle` nounpl  
+ novelles ( NOUN NOUN_PLURAL ) lemma=`novelle` nounpl  
+ novellist ( NOUN NOUN_SINGULAR ) 
+ novellisten ( NOUN NOUN_PLURAL ) lemma=`novellist` nounpl  
+ november ( NOUN NOUN_PROPER_SINGULAR ) 
+ novice ( NOUN NOUN_SINGULAR ) 
+ novicen ( NOUN NOUN_PLURAL ) lemma=`novice` nounpl  
+ novices ( NOUN NOUN_PLURAL ) lemma=`novice` nounpl  
+ noviteit ( NOUN NOUN_SINGULAR ) 
+ noviteiten ( NOUN NOUN_PLURAL ) lemma=`noviteit` nounpl  
+ novum ( NOUN NOUN_SINGULAR ) 
+ nozem ( NOUN NOUN_SINGULAR ) 
+ nozems ( NOUN NOUN_PLURAL ) lemma=`nozem` nounpl  
+ nr ( NOUN NOUN_SINGULAR ) 
+ nr. ( NOUN NOUN_SINGULAR ) lemma=`nr.`nr.` nounabbr  nounsg  
+ nrs ( NOUN NOUN_SINGULAR ) 
+ nrs. ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`nrs.`nr.` nounabbr  nounpl  
+ nu ( NOUN ADVERB CONJUNCTION_SUBORDINATE NOUN_SINGULAR ) lemma=`nu`nu`nu` adv  conjsubo  nounsg  
+ nuance ( NOUN NOUN_SINGULAR ) 
+ nuanceer ( VERB_PRESENT VERB ) lemma=`nuanceren` verbpressg  
+ nuanceerde ( VERB_PAST VERB ) lemma=`nuanceren` verbpastsg  
+ nuanceerden ( VERB_PAST VERB ) lemma=`nuanceren` verbpastpl  
+ nuanceert ( VERB_PRESENT VERB ) lemma=`nuanceren` verbpressg  
+ nuancen ( NOUN NOUN_PLURAL ) lemma=`nuance` nounpl  
+ nuanceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nuanceren`nuanceren`nuanceren` nounsg  verbinf  verbprespl  
+ nuancerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nuanceren` verbpresp  
+ nuancerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nuancerende`nuanceren` nounsg  verbpresp  
+ nuancering ( NOUN NOUN_SINGULAR ) 
+ nuanceringen ( NOUN NOUN_PLURAL ) lemma=`nuancering` nounpl  
+ nuances ( NOUN NOUN_PLURAL ) lemma=`nuance` nounpl  
+ nuanceverschil ( NOUN NOUN_SINGULAR ) 
+ nuanceverschillen ( NOUN NOUN_PLURAL ) lemma=`nuanceverschil` nounpl  
+ nuchter ( ADJECTIVE ) 
+ nuchterder ( ADJECTIVE ) lemma=`nuchter` adj  
+ nuchterdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuchter`nuchterdere` adj  nounsg  
+ nuchtere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuchter`nuchtere` adj  nounsg  
+ nuchterheid ( NOUN NOUN_SINGULAR ) 
+ nuchterst ( ADJECTIVE ) lemma=`nuchter` adj  
+ nuchterste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuchter`nuchterste` adj  nounsg  
+ nucleair ( ADJECTIVE ) 
+ nucleairder ( ADJECTIVE ) lemma=`nucleair` adj  
+ nucleairdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nucleair`nucleairdere` adj  nounsg  
+ nucleaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nucleair`nucleaire` adj  nounsg  
+ nucleairst ( ADJECTIVE ) lemma=`nucleair` adj  
+ nucleairste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nucleair`nucleairste` adj  nounsg  
+ nuclei ( NOUN NOUN_PLURAL ) lemma=`nucleus` nounpl  
+ nucleus ( NOUN NOUN_SINGULAR ) 
+ nudisme ( NOUN NOUN_SINGULAR ) 
+ nudist ( NOUN NOUN_SINGULAR ) 
+ nudisten ( NOUN NOUN_PLURAL ) lemma=`nudist` nounpl  
+ nudistenkamp ( NOUN NOUN_SINGULAR ) 
+ nudistenkampen ( NOUN NOUN_PLURAL ) lemma=`nudistenkamp` nounpl  
+ nudistenstrand ( NOUN NOUN_SINGULAR ) 
+ nudistenstranden ( NOUN NOUN_PLURAL ) lemma=`nudistenstrand` nounpl  
+ nuf ( NOUN NOUN_SINGULAR ) 
+ nuffen ( NOUN NOUN_PLURAL ) lemma=`nuf` nounpl  
+ nuffig ( ADJECTIVE ) 
+ nuffige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuffig`nuffige` adj  nounsg  
+ nuffiger ( ADJECTIVE ) lemma=`nuffig` adj  
+ nuffigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuffig`nuffigere` adj  nounsg  
+ nuffigst ( ADJECTIVE ) lemma=`nuffig` adj  
+ nuffigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuffig`nuffigste` adj  nounsg  
+ nuk ( NOUN NOUN_PLURAL ) 
+ nukken ( NOUN NOUN_PLURAL ) lemma=`nuk` nounpl  
+ nukkig ( ADJECTIVE ) 
+ nukkige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nukkig`nukkige` adj  nounsg  
+ nukkiger ( ADJECTIVE ) lemma=`nukkig` adj  
+ nukkigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nukkig`nukkigere` adj  nounsg  
+ nukkigst ( ADJECTIVE ) lemma=`nukkig` adj  
+ nukkigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nukkig`nukkigste` adj  nounsg  
+ nul ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_NUMBER ) lemma=`nul`nul`nul` adj  nounsg  num__card  
+ nulde ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`nul` num__ord  
+ nulgroei ( NOUN NOUN_SINGULAR ) 
+ nulhypothese ( NOUN NOUN_SINGULAR ) 
+ nulhypothesen ( NOUN NOUN_PLURAL ) lemma=`nulhypothese` nounpl  
+ nulhypotheses ( NOUN NOUN_PLURAL ) lemma=`nulhypothese` nounpl  
+ nullen ( NOUN NOUN_PLURAL ) lemma=`nul` nounpl  
+ nullijn ( NOUN NOUN_SINGULAR ) 
+ nullijnen ( NOUN NOUN_PLURAL ) lemma=`nullijn` nounpl  
+ nulmeridiaan ( NOUN NOUN_SINGULAR ) 
+ nulmeridianen ( NOUN NOUN_PLURAL ) lemma=`nulmeridiaan` nounpl  
+ nulnummer ( NOUN NOUN_SINGULAR ) 
+ nulnummers ( NOUN NOUN_PLURAL ) lemma=`nulnummer` nounpl  
+ nuloptie ( NOUN NOUN_SINGULAR ) 
+ nulopties ( NOUN NOUN_PLURAL ) lemma=`nuloptie` nounpl  
+ nulpunt ( NOUN NOUN_SINGULAR ) 
+ nulstand ( NOUN NOUN_SINGULAR ) 
+ nulstanden ( NOUN NOUN_PLURAL ) lemma=`nulstand` nounpl  
+ nultarief ( NOUN NOUN_SINGULAR ) 
+ numeriek ( ADJECTIVE ) 
+ numerieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`numeriek`numerieke` adj  nounsg  
+ numero ( NOUN NOUN_SINGULAR ) 
+ numero's ( NOUN NOUN_PLURAL ) lemma=`numero` nounpl  
+ numerootje ( NOUN NOUN_SINGULAR ) lemma=`numero` nounsg  
+ numerootjes ( NOUN NOUN_PLURAL ) lemma=`numero` nounpl  
+ nummer ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`nummer`nummeren` nounsg  verbpressg  
+ nummerbord ( NOUN NOUN_SINGULAR ) 
+ nummerborden ( NOUN NOUN_PLURAL ) lemma=`nummerbord` nounpl  
+ nummerde ( VERB_PAST VERB ) lemma=`nummeren` verbpastsg  
+ nummerden ( VERB_PAST VERB ) lemma=`nummeren` verbpastpl  
+ nummeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nummeren`nummeren`nummeren` nounsg  verbinf  verbprespl  
+ nummerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nummeren` verbpresp  
+ nummerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nummerende`nummeren` nounsg  verbpresp  
+ nummering ( NOUN NOUN_SINGULAR ) 
+ nummeringen ( NOUN NOUN_PLURAL ) lemma=`nummering` nounpl  
+ nummerplaat ( NOUN NOUN_SINGULAR ) 
+ nummerplaten ( NOUN NOUN_PLURAL ) lemma=`nummerplaat` nounpl  
+ nummers ( NOUN NOUN_PLURAL ) lemma=`nummer` nounpl  
+ nummert ( VERB_PRESENT VERB ) lemma=`nummeren` verbpressg  
+ nummertje ( NOUN NOUN_SINGULAR ) lemma=`nummer` nounsg  
+ nummertjes ( NOUN NOUN_PLURAL ) lemma=`nummer` nounpl  
+ nuntii ( NOUN NOUN_PLURAL ) lemma=`nuntius` nounpl  
+ nuntius ( NOUN NOUN_SINGULAR ) 
+ nuntiussen ( NOUN NOUN_PLURAL ) lemma=`nuntius` nounpl  
+ nurks ( ADJECTIVE ) 
+ nurkse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nurks`nurkse` adj  nounsg  
+ nurkser ( ADJECTIVE ) lemma=`nurks` adj  
+ nurksere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nurks`nurksere` adj  nounsg  
+ nurkst ( ADJECTIVE ) lemma=`nurks` adj  
+ nurkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nurks`nurkste` adj  nounsg  
+ nut ( NOUN NOUN_SINGULAR ) 
+ nutsbedrijf ( NOUN NOUN_SINGULAR ) 
+ nutsbedrijven ( NOUN NOUN_PLURAL ) lemma=`nutsbedrijf` nounpl  
+ nutteloos ( ADJECTIVE ) 
+ nutteloosheid ( NOUN NOUN_SINGULAR ) 
+ nutteloost ( ADJECTIVE ) lemma=`nutteloos` adj  
+ nuttelooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nutteloos`nuttelooste` adj  nounsg  
+ nutteloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nutteloos`nutteloze` adj  nounsg  
+ nuttelozer ( ADJECTIVE ) lemma=`nutteloos` adj  
+ nuttelozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nutteloos`nuttelozere` adj  nounsg  
+ nuttig ( VERB_PRESENT VERB ADJECTIVE ) lemma=`nuttig`nuttigen` adj  verbpressg  
+ nuttigde ( VERB_PAST VERB ) lemma=`nuttigen` verbpastsg  
+ nuttigden ( VERB_PAST VERB ) lemma=`nuttigen` verbpastpl  
+ nuttige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuttig`nuttige` adj  nounsg  
+ nuttigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`nuttigen`nuttigen`nuttigen` nounsg  verbinf  verbprespl  
+ nuttigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`nuttigen` verbpresp  
+ nuttigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nuttigende`nuttigen` nounsg  verbpresp  
+ nuttiger ( ADJECTIVE ) lemma=`nuttig` adj  
+ nuttigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuttig`nuttigere` adj  nounsg  
+ nuttigst ( ADJECTIVE ) lemma=`nuttig` adj  
+ nuttigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nuttig`nuttigste` adj  nounsg  
+ nuttigt ( VERB_PRESENT VERB ) lemma=`nuttigen` verbpressg  
+ nylon ( NOUN NOUN_SINGULAR ) 
+ nylons ( NOUN NOUN_PLURAL ) lemma=`nylon` nounpl  
+ nymfomaan ( ADJECTIVE ) 
+ nymfomane ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`nymfomaan`nymfomane` adj  nounsg  
+ nymfomanen ( NOUN NOUN_PLURAL ) lemma=`nymfomane` nounpl  
+ ná ( ADVERB PREPOSITION CONJUNCTION_SUBORDINATE ) lemma=`ná`ná`ná` adv  conjsubo  prep  

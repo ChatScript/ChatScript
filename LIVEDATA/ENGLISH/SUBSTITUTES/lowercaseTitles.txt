@@ -1,0 +1,24 @@
+# particles in foreign names
+la FOREIGN_WORD 
+de FOREIGN_WORD 
+d' FOREIGN_WORD 
+du FOREIGN_WORD 
+van FOREIGN_WORD 
+von FOREIGN_WORD 
+
+#possessives BUT NOT AT END of title -  John Henry's Pizza Joint is fine
+'
+'s
+
+# prepositions (less than 5 letters)
+to
+of
+on 
+over
+up
+in
+
+#determiners
+the
+
+

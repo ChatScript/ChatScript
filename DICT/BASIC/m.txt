@@ -1,0 +1,2000 @@
+﻿ moral ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    lesson~3n 
+    moral~2az concerned with principles of right and wrong or conforming to standards of behavior and character based on those principles
+    moral~3az psychological rather than physical or tangible in effect
+    moral~4az 
+ member ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    member~1nz (^organ~4) the male organ of copulation
+    extremity~1nz (^piece~11) an external body part that projects from the body
+    member~3nz (^unit~3) an organization that is a member of another organization 
+    member~4nz (^associate~3) one of the persons who compose a social group 
+    member~5nz (^part~12) anything that belongs to a set or class
+ multiplication ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    generation~1n 
+    times~1n 
+    multiplication~3nz (^increase~4) a multiplicative increase
+ magic ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    deception~1nz (^performance~3) an illusory feat
+    magic~2nz (^belief~2) any art that invokes supernatural powers
+    wizardly~1az possessing or using or characteristic of or appropriate to supernatural powers
+    magic~4az 
+ mopping ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    mopping~1nz (^scrub~1) 
+ movement ( meanings=11 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    move~4n 
+    movement~2nz (^change~1) the act of changing the location of something
+    move~5n 
+    effort~4n 
+    movement~5nz (^action~6) the driving and regulating parts of a mechanism 
+    drift~3nz (^disposition~4) a general tendency to change 
+    movement~7nz (^piece~8) a major self-contained part of a symphony or sonata
+    motion~5n 
+    front~3n 
+    motion~6n 
+    movement~11nz (^emission~3) a euphemism for defecation
+ movie ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    film~5n 
+ Major ( meanings=1 NOUN_HUMAN NOUN_FIRSTNAME NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Major~1nz (^leader~2) 
+ matter ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT (null) ) comparative=matte 
+    matter~1nz that which has mass and occupies space
+    matter~2nz (^moment~1) having consequence
+    affair~1nz (^concern~1) a vaguely specified concern
+    matter~4nz (^trouble~2) a problem
+    issue~4n 
+    matter~6nz (^writing~4) written works 
+    weigh~2vz have weight
+ motive ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:NOUN ) 
+    need~1n 
+    motive~2nz (^figure~2) a design or figure that consists of recurring shapes or colors, as in architecture or decoration
+    motive~3nz (^idea~5) a theme that is repeated or elaborated in a piece of music
+    motive~4az impelling to action
+    motor~3a 
+ measure ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    quantity~1nz how much there is or how many there are of something that you can quantify
+    step~1nz (^maneuver~2) any maneuver made as part of progress toward a goal
+    measuring~1nz (^activity~1) the act or process of assigning numbers to phenomena according to a rule
+    measure~4nz (^container~1) a container of some standard capacity that is used to obtain fixed amounts of a substance
+    measure~5nz (^instrument~2) measuring instrument having a sequence of marks at regular intervals
+    bill~7nz (^instrument~5) a statute in draft before it becomes law
+    bar~11nz (^writing~3) musical notation for a repeating pattern of musical beats
+    meter~3nz (^form~13) the accent in a metrical foot of verse
+    standard~4n 
+    measure~10vz express as a number or measure or quantity
+    measure~11vz determine the measurements of something or somebody, take measurements of
+    evaluate~2vz evaluate or estimate the nature, quality, ability, extent, or significance of
+    measure~13vz have certain dimensions
+ market ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    market~1nz (^activity~1) the world of commercial activity where goods and services are bought and sold
+    grocery~2n 
+    market~3nz (^structure~1) an area in a town where a public mercantile establishment is set up
+    market~4nz (^industry~3) the securities markets in the aggregate
+    market~5nz (^class~3) the customers for a particular product or service
+    market~6vz make commercial
+    market~7vz engage in the commercial promotion, sale, or distribution of
+    market~8vz deal in a market
+    market~9vz buy household supplies
+ medical ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    medical~1nz (^examination~1) a thorough physical examination
+    medical~2az requiring or amenable to treatment by medicine especially as opposed to surgery
+    medical~3az of or belonging to Aesculapius or the healing art
+    medical~4az relating to the study or practice of medicine
+    medical~5az 
+    medical~6az 
+ maneuver ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    maneuver~1nz (^escape~1) an action aimed at evading an opponent
+    maneuver~2nz (^move~1) a move made to gain a tactical end
+    play~6n 
+    maneuver~4nz (^operation~6) a military training exercise
+    maneuver~5nz (^program~2) a plan for attaining a particular goal
+    operate~3v 
+    direct~21v 
+    maneuver~8vz act in order to achieve a certain goal
+ male ( meanings=6 glosses=5 NOUN_HUMAN NOUN_HE NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    male~1nz (^animal~1) an animal that produces gametes that can fertilize female gametes (ova)
+    male~2nz (^individual~1) a person who belongs to the sex that cannot have babies
+    male~3az being the sex that produces gametes (spermatozoa) that perform the fertilizing function in generation
+    male~4az for or pertaining to or composed of men or boys
+    male~5az characteristic of a man
+    male~6az 
+ mark ( meanings=28 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    mark~1nz (^success~1) something that exactly succeeds in achieving its goal
+    mark~2nz (^effect~1) the impression created by doing something unusual or extraordinary that people notice and remember
+    cross~4n 
+    scratch~1n 
+    score~3n 
+    sign~2nz (^clue~1) a perceptible indication of something not immediately apparent 
+    stain~3n 
+    print~7n 
+    mark~9nz (^symbol~2) a written or printed symbol 
+    target~3nz (^reference~9) a reference point to shoot at
+    marking~4n 
+    gull~2nz (^individual~1) a person who is gullible and easy to take advantage of
+    mark~13nz (^unit~5) formerly the basic unit of money in Germany
+    mark~14vz insert punctuation marks into
+    mark~15vz make or leave a mark on
+    mark~16vz mark by some ceremony or observation
+    mark~17vz be a distinctive feature, attribute, or trait
+    score~12v 
+    check~19v 
+    mark~20vz remove from a list
+    mark~21vz designate as if by a mark
+    score~13v 
+    set~32vz establish as the highest level or best performance
+    score~16v 
+    pit~14vz mark with a scar
+    label~9vz attach a tag or label to
+    notice~10v 
+    brand~9v 
+ material ( meanings=12 glosses=9 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    textile~1nz (^artifact~1) artifact made by weaving or felting or knitting or crocheting natural or synthetic fibers
+    material~2nz (^artifact~1) things needed for doing or making something
+    material~3nz (^information~3) information that can be used or reworked into a finished form
+    material~4nz (^individual~1) a person judged suitable for admission or employment
+    stuff~7n 
+    real~5a 
+    material~7az derived from or composed of matter
+    material~8az having material or physical form or substance
+    material~9az directly relevant to a matter especially a law case
+    material~10az concerned with or affecting physical as distinct from intellectual or psychological well-being
+    material~11az concerned with worldly rather than spiritual interests
+    material~12az 
+ mistake ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=mistaken 
+    fault~1nz (^act~1) a wrong action attributable to bad judgment or ignorance or inattention
+    mistake~2nz (^thought~2) an understanding of something that is not correct
+    error~6nz (^statement~4) part of a statement that is not correct
+    slip~20vz to make a mistake or be incorrect
+    mistake~5vz identify incorrectly
+ mix-up ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) 
+    mix-up~1nz (^mistake~1) a mistake that results from taking one thing to be another
+ marketing ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    marketing~1nz (^shopping~1) shopping at a market
+    marketing~2nz (^commerce~1) the commercial processes involved in promoting and selling and distributing a product or service
+    selling~1n 
+ moving ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    moving~1az arousing or capable of arousing deep emotion
+    moving~2az in motion
+    moving~3az used of a series of photographs presented so as to create the illusion of motion
+    moving~4az 
+ mine ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE PRONOUN_OBJECT NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mine~1nz (^device~2) explosive device that explodes on contact
+    mine~2nz (^artifact~1) excavation in the earth from which ores and minerals are extracted
+    mine~3vz lay mines
+    mine~4vz get from the earth by excavation
+    mine~5z 
+ moon ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    moon~1nz (^whole~1) any natural satellite of a planet
+    moon~2nz (^whole~1) the natural satellite of the Earth
+    moon~3nz (^object~1) any object resembling a moon
+    moon~4nz (^month~1) the period between successive new moons
+    moon~5vz expose one's buttocks to
+    moon~6vz be idle in a listless or dreamy way
+    daydream~3vz have dreamlike musings or fantasies while awake
+ mouse ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) plural=mice 
+    mouse~1nz (^mammal~1) any of numerous small rodents typically resembling diminutive rats having pointed snouts and small ears on elongated bodies with slender usually hairless tails
+    mouse~2nz (^device~2) a hand-operated electronic device that controls the coordinates of a cursor on your computer screen as you move it around on a pad
+    mouse~3nz (^individual~1) person who is quiet or timid
+    mouse~4nz (^hurt~5) a swollen bruise caused by a blow to the eye
+    mouse~5vz manipulate the mouse of a computer
+    sneak~5vz to go stealthily or furtively
+ mailing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    posting~1nz (^sending~1) the transmission of a letter
+    mailing~2nz (^post~7) mail sent by a sender at one time
+ meeting ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    meeting~1nz (^connection~1) the act of joining together as one
+    meeting~2nz (^assembly~2) the social act of assembling for some common purpose
+    encounter~4n 
+    meeting~4nz (^group~1) a formally arranged gathering
+    meeting~5nz (^group~1) a small informal social gathering
+    meeting~6nz (^point~16) a place where things merge or flow together 
+ mind ( meanings=13 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    head~11nz (^knowledge~1) that which is responsible for one's thoughts and feelings
+    mind~2nz (^intelligence~2) knowledge and intellectual ability
+    mind~3nz (^notice~1) attention
+    mind~4nz (^recall~2) recall or remembrance
+    judgment~6nz (^thought~3) an opinion formed by judging something
+    idea~4nz (^purpose~3) your intention
+    mind~7nz (^individual~1) an important intellectual
+    mind~8vz keep in mind
+    mind~9vz be concerned with or about something or somebody
+    beware~1v 
+    mind~11vz be offended or bothered by
+    mind~12vz be in charge of or deal with
+    listen~3v 
+ move ( meanings=21 glosses=17 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB ) 
+    move~1nz (^decision~1) the act of deciding to do something
+    move~2nz (^play~4) a player's turn to take some action permitted by the rules of the game
+    move~3nz (^change~1) the act of changing your residence or place of business
+    motion~1n 
+    motion~2n 
+    move~6vz be in a state of action
+    move~7vz go or proceed from one point to another
+    go~10vz progress by being changed
+    move~9vz propose formally
+    go~12vz have a turn
+    propel~2vz give an incentive for action
+    impress~7v 
+    move~13vz arouse sympathy or compassion in
+    move~14vz move so as to change position, perform a nontranslational motion
+    travel~4v 
+    move~16vz cause to move or shift into a new position or place, both in a concrete and in an abstract sense
+    move~17vz change residence, affiliation, or place of employment
+    move~18vz dispose of by selling
+    act~12vz perform an action, or work out or perform 
+    proceed~4vz follow a procedure or take a course
+    move~21vz live one's life in a specified environment
+ mate ( meanings=13 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mate~1nz (^move~2) a chess move constituting an inescapable and indefensible attack on the opponent's king
+    match~2n 
+    mate~3nz (^drink~3) South American tea-like drink made from leaves of a South American holly called mate
+    mate~4nz (^officer~3) the officer below the master on a commercial ship
+    mate~5nz (^friend~3) informal term for a friend of the same sex
+    mate~6nz (^animal~1) the partner of an animal 
+    partner~3n 
+    mate~8nz (^associate~3) a fellow member of a team
+    mate~9nz (^tree~1) South American holly
+    fellow~7n 
+    mate~11vz place an opponent's king under an attack from which it cannot escape and thus ending the game
+    pair~5v 
+    pair~6v 
+ means ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_PLURAL COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB ) 
+    agency~1n 
+    means~2nz (^artifact~1) an instrumentality for accomplishing some end
+    substance~6nz (^capital~5) considerable capital 
+ mop ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mop~1nz (^artifact~1) cleaning implement consisting of absorbent material fastened to a handle
+    pout~4v 
+    mop~3vz to wash or wipe with or as if with a mop
+ massacre ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    massacre~1nz (^kill~2) the savage and excessive killing of many people
+    massacre~2vz kill a large number of people indiscriminately
+ mass ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE VERB_NOOBJECT ) plural=masses 
+    mass~1nz (^property~2) the property of a body that causes it to have weight in a gravitational field
+    volume~3n 
+    mass~3nz (^collection~4) an ill-structured collection of similar things
+    people~4n 
+    mass~5nz (^body~11) a body of matter without definite shape
+    mountain~2n 
+    mass~7az formed of separate units gathered into a mass or whole
+    mass~8vz join together into a mass or collect or form a mass
+ mud ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mud~1nz (^slander~2) slanderous remarks or charges
+    clay~3n 
+    mud~3vz plaster with mud
+    mud~4vz soil with mud, muck, or mire
+ marking ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    marking~1nz (^decoration~1) the act of making a visible mark on a surface
+    grading~1n 
+    marking~3nz (^figure~2) a pattern of marks
+    marker~3n 
+ mend ( meanings=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fixing~1n 
+    patch~3n 
+    repair~6v 
+    heal~3v 
+ mending ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    mend~1n 
+    mending~2nz (^clothing~1) garments that must be repaired
+ maintenance ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    care~1n 
+    maintenance~2nz (^activity~1) the unauthorized interference in a legal action by a person having no interest in it so as to obstruct justice or promote unnecessary litigation or unsettle the peace of the community
+    sustenance~1nz (^support~5) the act of sustaining life by food or providing a means of subsistence
+    maintenance~4nz (^payment~3) court-ordered support paid by one spouse to another after they are separated
+    maintenance~5nz (^support~10) means of maintenance of a family or group
+ motion ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    movement~1nz (^change~1) the act of changing location from one place to another
+    movement~3nz (^change~1) a change of position that does not entail a change of location
+    gesture~3nz (^communication~1) the use of movements to communicate familiar or prearranged signals
+    question~4n 
+    movement~8nz (^event~1) a natural event that involves a change in the position or location of something
+    movement~10nz (^process~1) an optical illusion of motion produced by viewing a rapid succession of still pictures of a moving object
+    motion~7nz (^state~1) a state of change
+    gesture~4vz show, express or direct through movement
+ march ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    march~1nz (^progress~2) a steady advance
+    marching~1nz (^walking~1) the act of marching
+    march~3nz (^music~5) genre of music written for marching
+    march~4nz (^event~1) a procession of people walking together
+    march~5nz (^district~1) district consisting of the area on either side of a border or boundary of a country or an area
+    edge~8vz lie adjacent to another or share a boundary
+    march~7vz walk fast, with regular or measured steps
+    parade~5v 
+    process~11vz march in a procession
+    march~10vz force to march
+    march~11vz cause to march or go at a marching pace
+    demonstrate~4vz march in protest
+ meander ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    meander~1nz (^stroll~1) an aimless amble on a winding course
+    meander~2nz (^curve~5) a bend or curve, as in a stream or river
+    wind~13v 
+ marching ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    march~2n 
+ motoring ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    motoring~1nz (^driving~1) the act of driving an automobile
+ maiden ( meanings=3 glosses=3 NOUN_HUMAN NOUN_SHE NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    maid~1nz (^miss~2) an unmarried girl
+    maiden~2nz an over in which no runs are scored
+    inaugural~3az serving to set in motion
+ ministry ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    ministry~1nz (^work~2) the work of a minister of religion
+    ministry~2nz (^building~3) building where the business of a government department is transacted
+    ministry~3nz (^profession~4) religious ministers collectively
+    ministry~4nz (^department~2) a government department under the direction of a minister
+ mount ( meanings=13 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    climb~1n 
+    mount~2nz (^horse~1) a lightweight horse kept for riding only
+    backing~2n 
+    setting~2nz (^mounting~1) a mounting consisting of a piece of metal that holds a gem in place
+    mountain~1n 
+    mount~6vz fix onto a backing, setting, or support
+    rise~16v 
+    mount~8vz attach to a support
+    ride~4v 
+    mount~10vz put up or launch
+    mount~11vz prepare and supply with the necessary equipment for execution or performance
+    climb~7v 
+    mount~13vz get up on the back of
+ mountain ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    mount~5nz (^object~1) a land mass that projects well above its surroundings
+    slew~1nz (^measure~1) a large number or amount or extent
+ make ( meanings=51 glosses=33 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=made 
+    shuffle~2nz (^arrangement~1) the act of mixing cards haphazardly
+    brand~2n 
+    make~3vz act in a certain way so as to acquire
+    pee~3vz eliminate urine
+    shit~7vz have a bowel movement
+    make~6vz behave in a certain way
+    get~5vz give certain properties to something
+    make~8vz put in order or neaten
+    make~9vz develop into
+    make~10vz change from one form into another
+    make~11vz favor the development of
+    make~12vz cause to be enjoyable or pleasurable
+    establish~3vz institute, enact, or establish
+    make~14vz calculate as being
+    make~15vz consider as being
+    draw~18v 
+    have~6v 
+    pretend~5v 
+    make~19vz assure the success of
+    score~17v 
+    create~1vz make or cause to be or to become
+    do~3v 
+    produce~3v 
+    create~3vz create by artistic means
+    do~4v 
+    make~26vz compel or make somebody or something to act in a certain way
+    make~27vz make by shaping or bringing together constituents
+    build~8v 
+    prepare~5v 
+    have~8v 
+    make~31vz gather and light the materials for
+    make~32vz perform or carry out
+    reach~9v 
+    make~34vz reach in time
+    reach~10v 
+    work~22v 
+    take~24vz head into a specified direction
+    make~38vz appear to begin an activity
+    realize~6v 
+    get~35v 
+    name~13vz charge with a function
+    do~8v 
+    make~43vz carry out or commit
+    make~44vz form by assembling individuals or constituents
+    make~45vz constitute the essence of
+    form~22v 
+    make~47vz amount to
+    make~48vz be or be capable of being changed or made into
+    make~49vz add up to
+    make~50vz be suitable for
+    make~51vz undergo fabrication or creation
+ mill ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    grind~1n 
+    factory~1nz (^plant~2) a plant consisting of one or more buildings with facilities for manufacturing
+    mill~3nz (^machine~2) machinery that processes materials by grinding or crushing
+    mill~4vz grind with a mill
+    mill~5vz roll out with a rolling machine
+    mill~6vz produce a ridge around the edge of
+    mill~7vz move about in a confused manner
+ muscle ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    muscle~1nz (^strength~1) possessing muscular strength
+    muscle~2nz (^dominance~2) authority or power or force 
+    muscle~3nz (^tissue~1) animal tissue consisting predominantly of contractile cells
+    muscle~4nz (^organ~4) one of the contractile organs of the body
+    muscle~5nz (^tough~1) a bully employed as a thug or bodyguard
+    muscle~6vz make one's way by force
+ mix ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mixing~1nz (^combination~1) the act of mixing together
+    mixture~2nz (^combine~2) an event that combines things in a mixture
+    mix~3nz (^mixture~3) a commercially prepared mixture of dry ingredients
+    mix~4vz add as an additional element or part
+    combine~5v 
+    mix~6vz combine 
+    shuffle~3vz mix so as to make a random order or arrangement
+    unify~3vz to bring or combine together or with something else
+    mix~9vz open to members of all races and ethnic groups
+ mixture ( meanings=5 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    mix~1n 
+    mix~2n 
+    mixture~3nz (^food~1) any foodstuff made by combining different ingredients
+    variety~6n 
+    mixture~5nz (^substance~1) a substance consisting of two or more substances mixed together (not in fixed proportions and not with chemical bonding)
+ mixing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    mixture~1n 
+ metamorphosis ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 ) plural=metamorphoses 
+    metamorphosis~1nz (^change~1) a complete change of physical form or substance especially as by magic or witchcraft
+    metamorphosis~2nz (^change~1) a striking change in appearance or character or circumstances
+    metamorphosis~3nz (^process~1) the marked and rapid transformation of a larva into an adult that occurs in some animals
+ motorcycling ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    motorcycling~1nz (^cycling~1) riding a motorcycle
+ match ( meanings=19 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    match~1nz (^lighter~2) lighter consisting of a thin piece of wood or cardboard tipped with combustible chemical
+    mate~2nz (^duplicate~1) an exact duplicate
+    match~3nz (^lighter~2) a burning piece of wood or cardboard
+    match~4nz (^counterpart~2) something that resembles or harmonizes with
+    match~5nz (^competition~2) a formal contest in which two or more persons or teams compete
+    couple~2n 
+    peer~1nz (^individual~1) a person who is of equal standing with another in a group
+    catch~9n 
+    match~9nz (^score~9) the score needed to win a match
+    equal~4vz make equal, uniform, corresponding, or matching
+    match~11vz be equal or harmonize
+    fit~10vz make correspond or harmonize
+    oppose~3vz set into opposition or rivalry
+    couple~6v 
+    match~15vz give or join in marriage
+    match~16vz provide funds complementary to
+    meet~11vz satisfy or fulfill
+    check~37v 
+    touch~25v 
+ miniature ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    miniature~1nz (^copy~1) a copy that reproduces a person or thing in greatly reduced size
+    miniature~2nz (^picture~1) painting or drawing included in a book
+    miniature~3az being on a very small scale
+    miniature~4az 
+ marbles ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
+    marbles~1nz (^game~2) a children's game played with little balls made of a hard substance
+    marbles~2nz (^intelligence~2) the basic human power of intelligent thought and perception
+ modern ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    modern~1nz (^face~10) a typeface distinguished by regular shape and hairline serifs and heavy downstrokes
+    modern~2nz (^individual~1) a contemporary person
+    modern~3az characteristic of present-day art and music and literature and architecture
+    modern~4az relating to a recently developed fashion or style
+    modern~5az belonging to the modern era
+    advanced~8az ahead of the times
+    modern~7az 
+ music ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    music~1nz (^activity~1) musical activity 
+    medicine~2nz (^penalty~1) punishment for one's actions
+    music~3nz (^sound~2) any agreeable sounds
+    music~4nz (^sound~2) the sounds produced by singers or musical instruments (or reproductions of such sounds)
+    music~5nz (^communication~1) an artistic form of auditory communication incorporating instrumental or vocal tones in a structured and continuous manner
+ method ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    method~1nz (^activity~1) an acting technique introduced by Stanislavsky in which the actor recalls emotions or reactions from his or her own life and uses them to identify with the character being portrayed
+    method~2nz (^know-how~1) a way of doing something, especially a systematic way
+ military ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    military~1nz (^force~8) the military forces of a nation
+    military~2az associated with or performed by members of the armed services as contrasted with civilians
+    military~3az characteristic of or associated with soldiers or the military
+    military~4az of or relating to the study of the principles of warfare
+    military~5az 
+ minister ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    minister~1nz (^work~2) the job of a head of a government department
+    curate~1nz (^clergyman~1) a person authorized to conduct religious worship
+    minister~3nz (^official~2) a diplomat representing one government to another
+    minister~4nz (^executive~3) a person appointed to a high office in the government
+    minister~5vz work as a minister
+    minister~6vz attend to the wants and needs of others
+ medium ( meanings=14 glosses=12 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    medium~1nz (^occupation~2) an occupation for which you are especially well suited
+    medium~2nz (^communication~2) an intervening substance through which signals can travel as a means for communication
+    medium~3nz (^artifact~1) a means or instrumentality for storing or communicating information
+    medium~4nz (^communication~2) transmissions that are disseminated widely to the public
+    medium~5nz (^environment~1) the surrounding environment
+    medium~6nz (^individual~1) someone who serves as an intermediary between the living and the dead
+    medium~7nz (^state~1) a state that is intermediate between extremes
+    medium~8nz (^substance~1) an intervening substance through which something is achieved
+    medium~9nz (^food~1) a nutrient substance (solid or liquid) that is used to cultivate micro-organisms
+    medium~10nz (^substance~1) a substance in which specimens are preserved or displayed
+    medium~11nz (^liquid~4) a liquid with which pigment is mixed by a painter
+    medium~12az cooked until there is just a little pink meat inside
+    intermediate~3a 
+    medium~14az 
+ medicine ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    medicine~1nz (^profession~1) the learned profession that is mastered by graduate training in a medical school and that is devoted to preventing or alleviating or curing diseases and injuries
+    music~2n 
+    medicine~3nz (^drug~1) something that treats or prevents or alleviates the symptoms of disease
+    medicine~4nz (^science~2) the branches of medical science that deal with nonsurgical techniques
+    medicine~5vz treat medicinally, treat with medicine
+ manual ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE ) 
+    manual~1nz (^practice~4) a prescribed drill in handling a rifle
+    manual~2nz (^reference~5) a small handbook
+    manual~3az requiring human effort
+    manual~4az doing or requiring physical work
+    manual~5az of or relating to the hands
+ microwave ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    microwave~1nz (^appliance~1) kitchen appliance that cooks food by passing an electromagnetic wave through it
+    microwave~2nz (^energy~5) a short electromagnetic wave 
+    zap~2vz cook or heat in a microwave oven
+ major ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    major~1nz (^subject~3) the principal field of study of a student at a university
+    major~2nz (^officer~1) a commissioned military officer in the United States Army or Air Force or Marines
+    major~3nz (^student~2) a university student who is studying a particular field as the principal subject
+    major~4az greater in number or size or amount
+    major~5az greater in scope or effect
+    major~6az of full legal age
+    major~7az of a scale or mode
+    major~8az of the field of academic study in which one concentrates or specializes
+    major~9az of greater importance or stature or rank
+    major~10az of greater seriousness or danger
+    major~11az of the elder of two boys with the same family name
+    major~12az 
+    major~13vz have as one's principal field of study
+ minor ( meanings=12 glosses=10 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    child~1n 
+    small~5az limited in size or scope
+    minor~3az inferior in number or size or amount
+    minor~4az lesser in scope or effect
+    minor~5az not of legal age
+    minor~6az of a scale or mode
+    minor~7az of your secondary field of academic concentration or specialization
+    minor~8az of lesser importance or stature or rank
+    minor~9az of lesser seriousness or danger
+    minor~10az warranting only temporal punishment
+    minor~11az of the younger of two boys with the same family name
+    minor~12az 
+ modified ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    modified~1az changed in form or character
+    limited~7az mediocre
+ mound ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mound~1nz (^position~4) the position on a baseball team of the player who throws the ball for a batter to try to hit
+    hill~1nz (^structure~1) structure consisting of an artificial heap or bank usually of earth or stones
+    hill~2nz (^artifact~1) the slight elevation on which the pitcher stands
+    heap~2nz (^collection~4) a collection of objects laid on top of each other
+    mound~5nz (^hill~3) a small natural hill
+    mound~6vz form into a rounded elevation
+ mission ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    mission~1nz (^work~1) the organized work of a religious missionary
+    charge~1n 
+    mission~3nz (^operation~6) an operation that is assigned by a higher headquarters
+    commission~7n 
+    mission~5nz (^organization~6) an organization of missionaries in a foreign land sent to carry on religious work
+ monkey ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    monkey~1nz (^mammal~1) any of various long-tailed primates
+    monkey~2nz (^child~1) one who is playfully mischievous
+    putter~4vz do random, unplanned work or activities or spend time idly
+    monkey~4vz play around with or alter or falsify, usually secretively or dishonestly
+ mugging ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    mugging~1nz (^attack~3) assault with intent to rob
+ mail ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    mail~1nz (^protection~5) flexible armor made of interlinked metal rings
+    mail~2nz (^transport~3) a conveyance that transports the letters and packages that are conveyed by the postal system
+    post~5n 
+    mail~4nz (^message~1) the bags of letters and packages that are transported by the postal service
+    post~7n 
+    post~12v 
+    mail~7vz send via the postal service
+ mug ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mug~1nz (^vessel~2) with handle and usually cylindrical
+    countenance~2nz (^face~8) the human face
+    fool~1n 
+    mug~4nz (^measure~1) the quantity that can be held in a mug
+    mug~5vz rob at gunpoint or with the threat of violence
+ marathon ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    marathon~1nz (^labor~2) any long and arduous undertaking
+    marathon~2nz (^run~10) a footrace of 26 miles 385 yards
+    marathon~3vz 
+ management ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    direction~2n 
+    management~2nz (^organization~7) those in charge of running a business
+ martial ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    martial~1az of or relating to the armed forces
+    soldierly~1az befitting a warrior
+    martial~3az suggesting war or military life
+ motor ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    motor~1nz (^machine~2) machine that converts other forms of energy into mechanical energy and so imparts motion
+    motor~2nz (^cause~1) a nonspecific agent that imparts motion
+    motive~5az causing or able to cause motion
+    motor~4az conveying information to the muscles from the CNS
+    drive~25v 
+ munch ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    munch~1nz (^bite~2) a large bite
+    munch~2vz chew noisily
+ making ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON2 posdefault:VERB ) 
+    fashioning~1n 
+    making~2nz (^element~1) the components needed for making or doing something
+    making~3nz (^quality~1) 
+ mating ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    coupling~1n 
+ minus ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE PREPOSITION CONJUNCTION_COORDINATE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN ) plural=minuses 
+    subtraction~2nz (^operation~5) an arithmetic operation in which the difference between two numbers is calculated
+    minus~2nz 
+    minus~3az involving disadvantage or harm
+    minus~4az on the negative side or lower end of a scale
+    minus~5z 
+    minus~6z 
+ model ( meanings=16 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=modeller 
+    modeling~1nz (^activity~1) the act of representing something
+    model~2nz (^creation~3) representation of something
+    model~3nz (^form~9) a type of product
+    model~4nz (^hypothesis~1) a hypothetical description of a complex entity or process
+    example~3n 
+    example~4n 
+    model~7nz (^helper~2) a woman who wears clothes to display fashions
+    model~8nz (^helper~2) a person who poses for a photographer or painter or sculptor
+    model~9nz (^leader~2) someone worthy of imitation
+    model~10az worthy of imitation
+    mold~14vz form in clay, wax, etc
+    model~12vz construct a model of
+    model~13vz create a representation or model of
+    pattern~10vz plan or create according to a model or models
+    model~15vz display as a mannequin
+    sit~7vz assume a posture as for artistic purposes
+ modelling ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    model~1n 
+    molding~2nz (^art~1) a preliminary sculpture in wax or clay from which a finished work can be copied
+ modeling ( meanings=3 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    modelling~1n 
+    modelling~2n 
+    molding~3n 
+ molding ( meanings=5 NOUN NOUN_SINGULAR COMMON4 ) 
+    casting~3n 
+    modeling~2n 
+    mold~2n 
+    border~2n 
+    molding~5nz (^decoration~2) 
+ mastering ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    mastering~1nz (^creation~2) the act of making a master recording from which copies can be made
+    mastering~2nz (^education~4) becoming proficient in the use of something
+ mixed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    sundry~1az consisting of a haphazard assortment of different kinds
+    mixed~2az involving or composed of different races
+ mining ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    mining~1nz (^production~4) 
+    mining~2nz (^defense~3) 
+ manufacture ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    industry~1n 
+    manufacturing~1nz (^creation~2) the act of making something from raw materials
+    invent~2vz make up something artificial or untrue
+    construct~4vz put together out of artificial or natural components or parts
+    manufacture~5vz create or produce in a mechanical way
+    manufacture~6vz produce naturally
+ manufacturing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    manufacture~2n 
+ meat ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    center~9n 
+    meat~2nz (^food~3) the flesh of animals used as food
+    meat~3nz (^whole~1) the inner and usually edible part of a seed or grain or nut or fruit stone
+ measuring ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    measure~3n 
+ meter ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    meter~1nz (^instrument~2) any of various measuring instruments for measuring a quantity
+    time~2nz (^property~2) rhythm as given by division into parts of equal duration
+    beat~5n 
+    meter~4nz (^unit~5) the basic unit of length adopted under the Systeme International d'Unites
+    meter~5vz measure with a meter
+    meter~6vz stamp with a meter indicating the postage
+ muster ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) comparative=must 
+    draft~3nz (^event~1) compulsory military service
+    muster~2nz (^group~1) a gathering of military personnel for duty
+    muster~3vz call to duty, military service, jury duty, etc.
+    summon~4v 
+ mapping ( meanings=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    mapping~1nz (^process~2) 
+    map~2n 
+ marriage ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    wedding~1nz (^custom~1) the act of marrying
+    marriage~2nz (^family~1) two people who are married to each other
+    union~9nz (^position~16) the state of being a married couple voluntarily joined for life 
+    marriage~4nz (^union~10) a close and intimate union
+ mask ( meanings=9 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mask~1nz (^activity~1) activity that tries to conceal something
+    mask~2nz (^covering~4) a covering to disguise or conceal the face
+    mask~3nz (^protection~5) a protective covering worn over the face
+    mask~4nz (^party~2) a party of guests wearing costumes and masks
+    mask~5vz put a mask on or cover with a mask
+    mask~6vz shield from light
+    mask~7vz cover with a sauce
+    mask~8vz hide under a false appearance
+    disguise~4vz make unrecognizable
+ masking ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    screening~2n 
+    masking~2nz (^scenery~1) 
+    masking~3nz (^operation~8) the blocking of one sensation resulting from the presence of another sensation
+ money ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    money~1nz (^wealth~2) wealth reckoned in terms of money
+    money~2nz (^standard~4) the most common medium of exchange
+    money~3nz (^currency~3) the official currency issued by a government or national bank
+ merchandising ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    marketing~3nz (^commerce~1) the exchange of goods for an agreed sum of money
+ mutual ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    reciprocal~5a 
+    common~9a 
+    mutual~3az 
+ mock ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=mocker 
+    mock~1nz (^offense~3) the act of mocking or ridiculing
+    mock~2az constituting a copy or imitation of something
+    mock~3vz treat with contempt
+    mock~4vz imitate with mockery and derision
+ malicious ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    malicious~1az having the nature of or resulting from malice
+    malicious~2az 
+ marine ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) comparative=mariner 
+    marine~1nz (^soldier~2) a soldier who serves both on shipboard and on land
+    marine~2az native to or inhabiting the sea
+    marine~3az relating to or characteristic of or occurring on or in the sea
+    marine~4az of or relating to the sea
+    marine~5az of or relating to military personnel who serve both on land and at sea 
+    marine~6az relating to or involving ships or shipping or navigation or seamen
+    marine~7az 
+ mutant ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE ) 
+    mutant~1nz (^animal~1) an animal that has undergone mutation
+    sport~4n 
+    mutant~3az tending to undergo or resulting from mutation
+    mutant~4az 
+ microbe ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    bug~1n 
+ mirror ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mirror~1nz (^device~2) polished surface that forms images by reflecting light
+    mirror~2nz (^portraying~1) a faithful depiction or reflection
+    mirror~3vz reflect or resemble
+    mirror~4vz reflect as if in a mirror
+ may ( AUX_VERB_FUTURE COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN ) 
+ monster ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    monster~1nz (^animal~1) a grossly malformed and usually nonviable fetus
+    monster~2nz (^vision~1) an imaginary creature usually having various human and animal parts
+    monster~3nz (^sport~4) a person or animal that is markedly unusual or deformed
+    giant~6nz (^individual~1) someone or something that is abnormally large and powerful
+    fiend~3nz (^individual~1) a cruel wicked and inhuman person
+ meadow ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    meadow~1nz (^community~1) a field where grass or alfalfa are grown to be made into hay
+ mocker ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) comparative=mock 
+    mocker~1nz (^bird~1) long-tailed grey-and-white songbird of the southern United States able to mimic songs of other birds
+    mocker~2nz (^individual~1) someone who jeers or mocks or treats something with contempt or calls out in derision
+ mocking ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    taunting~2a 
+    teasing~6az 
+ mole ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    mole~1nz (^mammal~1) small velvety-furred burrowing mammal having small eyes and fossorial forefeet
+    mole~2nz (^barrier~1) a protective structure of stone or concrete
+    mole~3nz (^appearance~4) a small congenital pigmented spot on the skin
+    mole~4nz (^seasoning~2) spicy sauce often containing chocolate
+    mole~5nz (^spy~1) a spy who works against enemy espionage
+    mole~6nz (^metric~2) the molecular weight of a substance expressed in grams
+ milk ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    milk~1nz (^humor~3) produced by mammary glands of female mammals for feeding their young
+    milk~2nz (^food~1) a white nutritious liquid secreted by mammals and used as food by human beings
+    milk~3nz (^food~1) any of several nutritive milklike liquids
+    milk~4vz take milk from female mammals
+    milk~5vz add milk to
+    milk~6vz exploit as much as possible
+ mother ( meanings=7 glosses=7 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mother~1nz (^thought~2) a condition that is the inspiration for an activity or situation
+    mother~2nz (^parent~2) a woman who has given birth to a child 
+    mother~3nz (^prioress~1) a term of address for a mother superior
+    mother~4nz (^adult~2) a term of address for an elderly woman
+    mother~5nz (^yeast~2) a stringy slimy substance consisting of yeast cells and bacteria
+    father~6vz make children
+    fuss~6vz care for like a mother
+ mosquito ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) plural=mosquitoes 
+    mosquito~1nz (^insect~1) two-winged insect whose female has a long proboscis to pierce the skin and suck the blood of humans and animals
+ mammal ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    mammal~1nz (^animal~1) any warm-blooded vertebrate having the skin more or less covered with hair
+ marsupial ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:ADJECTIVE ) 
+    marsupial~1nz (^mammal~1) mammals of which the females have a pouch containing the teats where the young are fed and carried
+    marsupial~2az of or relating to the marsupials
+ masked ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    masked~1az having markings suggestive of a mask
+    disguised~1a 
+ mane ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    mane~1nz (^hair~4) long coarse hair growing from the crest of the animal's neck
+    mane~2nz (^hair~4) growth of hair covering the scalp of a human being
+ medicinal ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    medicinal~1az having the properties of medicine
+    medicinal~2az 
+ moth ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    moth~1nz (^insect~1) typically crepuscular or nocturnal insect having a stout body and feathery or hairlike antennae
+ moss ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    moss~1nz (^being~1) tiny leafy-stemmed flowerless plants
+ mare ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    mare~1nz (^horse~1) female equine animal
+    mare~2nz (^part~9) a dark region of considerable extent on the surface of the moon
+ mule ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    mule~1nz (^mammal~1) hybrid offspring of a male donkey and a female horse
+    mule~2nz (^slipper~1) a slipper that has no fitting around the heel
+ moose ( meanings=1 NOUN NOUN_SINGULAR NOUN_PLURAL COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    elk~3n 
+ man ( meanings=12 glosses=9 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) plural=men 
+    human~1n 
+    mankind~1nz (^group~1) all of the living human inhabitants of the earth
+    piece~2n 
+    man~4nz (^adult~2) an adult person who is male 
+    man~5nz (^lover~2) a male person who plays a significant role in the life of a particular woman
+    man~6nz (^male~2) an adult male person who has a manly character 
+    man~7nz (^individual~1) the generic use of the word to refer to any human being
+    man~8nz (^subordinate~2) a male subordinate
+    man~9nz (^worker~2) someone who serves in the armed forces
+    gentleman~2n 
+    man~11vz provide with workers
+    man~12vz take charge of a certain job
+ mankind ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    man~2n 
+ mammoth ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    mammoth~1nz (^elephant~1) any of numerous extinct elephants widely distributed in the Pleistocene
+    gigantic~1az so exceedingly large or extensive as to suggest a giant or mammoth
+    mammoth~3az 
+ mastodon ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    mastodon~1nz (^mammal~1) extinct elephant-like mammal that flourished worldwide from Miocene through Pleistocene times
+ memory ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    store~1nz (^hardware~1) an electronic memory device
+    retention~3nz (^ability~2) the power of retaining and recalling past experience
+    remembering~1nz (^operation~8) the cognitive processes whereby past experience is remembered
+    memory~4nz (^content~2) something that is remembered
+    memory~5nz (^science~2) the area of cognitive psychology that studies memory processes
+ machine ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    automobile~1n 
+    machine~2nz (^device~2) any mechanical or electrical device that transmits or modifies energy to perform or assist in the performance of human tasks
+    machine~3nz (^device~2) a device for overcoming resistance at one point by applying force at some other point
+    machine~4nz (^organization~6) a group that controls the activities of a political party
+    machine~5nz (^organization~6) an intricate organization that accomplishes its goals efficiently
+    machine~6nz (^individual~1) an efficient person
+    machine~7vz make by machinery
+    machine~8vz turn, shape, mold, or otherwise finish by machinery
+ mitt ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    glove~1n 
+    paw~2n 
+ microphone ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    mike~1nz (^device~2) device for converting sound waves into electrical energy
+ merchant ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    merchant~1nz (^individual~1) a businessperson engaged in retail trade
+ master ( meanings=16 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    original~1n 
+    master~2nz (^key~1) key that secures entrance everywhere
+    headmaster~1n 
+    master~4nz (^artist~1) an artist of consummate skill
+    professional~1nz (^authority~6) an authority qualified to teach apprentices
+    master~6nz (^leader~2) directs the work of others
+    master~7nz (^student~1) someone who holds a master's degree from academic institution
+    captain~7n 
+    lord~1nz (^ruler~2) a person who has general authority over others
+    superior~4nz (^individual~1) a combatant who is able to defeat rivals
+    principal~7a 
+    master~12az 
+    control~12v 
+    master~14vz be or become completely proficient or skilled in
+    surmount~2vz get on top of
+    master~16vz have dominance or the power to defeat over
+ memorial ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    monument~1n 
+    memorial~2nz (^message~2) a written statement of facts submitted in conjunction with a petition to an authority
+    memorial~3nz (^recognition~5) a recognition of meritorious service
+ magazine ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    clip~3nz (^device~2) a metal frame or container holding cartridges
+    magazine~2nz (^store~3) a storehouse where weapons and ammunition are stored
+    magazine~3nz (^production~5) product consisting of a paperback periodic publication as a physical object
+    magazine~4nz (^device~2) a light-tight supply chamber holding the film and supplying it for exposure as required
+    magazine~5nz (^press~7) a periodic publication containing pictures and stories and articles of interest to those who purchase it or subscribe to it
+    magazine~6nz (^house~6) a business firm that publishes magazines
+ mariner ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) comparative=marine 
+    tar~1n 
+ melting ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    melting~1az 
+    melting~2az 
+ metal ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    metal~1nz (^mixture~5) a mixture containing two or more metallic elements or metallic and nonmetallic elements usually fused together or dissolving into each other when molten
+    metal~2nz (^element~6) any of several chemical elements that are usually shiny solids that conduct heat or electricity and can be formed into sheets etc.
+    metallic~3az containing or made of or resembling or characteristic of a metal
+    metal~4az 
+    metal~5vz cover with metal
+ men ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=man 
+    men~1nz (^force~8) the force of workers available
+ mouth ( meanings=11 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mouth~1nz (^opening~6) the opening of a jar or bottle
+    mouth~2nz (^opening~7) the externally visible part of the oral cavity on the face and the system of organs surrounding the opening
+    mouth~3nz (^opening~7) the opening through which food is taken in and vocalizations emerge
+    lip~4nz (^counter~8) an impudent or insolent rejoinder
+    mouth~5nz (^object~1) the point where a stream issues into a larger body of water
+    mouth~6nz (^gap~6) an opening that resembles a mouth 
+    mouth~7nz (^eater~2) a person conceived as a consumer of food
+    mouth~8nz (^voice~9) a spokesperson
+    speak~1vz express in speech
+    mouth~10vz articulate silently
+    mouth~11vz touch with the mouth
+ mow ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=mown 
+    mow~1nz (^attic~2) a loft in a barn where hay is stored
+    mop~2v 
+    mow~3vz cut with a blade or mower
+ main ( meanings=6 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    main~1nz (^pipe~2) a principal pipe in a system that distributes water or gas or electricity or that collects sewage
+    main~2nz (^water~3) any very large body of water
+    independent~4az capable of standing syntactically alone as a complete sentence
+    master~11a 
+    main~5az of force
+    main~6az 
+ middle ( meanings=10 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    middle~1nz (^area~3) the middle area of the human torso 
+    middle~2nz (^part~6) an intermediate part or section
+    eye~5n 
+    middle~4nz (^point~26) time between the beginning and the end of a temporal period
+    halfway~1a 
+    middle~6az between an earlier and a later period of time
+    middle~7az of a stage in the development of a language or literature between earlier and later stages
+    middle~8az being neither at the beginning nor at the end in a series
+    middle~9az 
+    middle~10vz put in the middle
+ mailbox ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    mailbox~1nz (^box~2) a private box for delivery of mail
+    mailbox~2nz (^drop~2) public box for deposit of mail
+ mansion ( meanings=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    residence~2n 
+    house~12n 
+ map ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    map~1nz (^creation~3) a diagrammatic representation of the earth's surface
+    function~7nz (^relation~1) a mathematical relation such that each element of a given set (the domain of the function) is associated with an element of another set (the range of the function)
+    represent~1v 
+    map~4vz explore or survey for the purpose of making a map
+    map~5vz make a map of
+    map~6vz depict as if on a map
+    map~7vz plan, delineate, or arrange in detail
+    map~8vz locate within a specific region of a chromosome in relation to known DNA or gene sequences
+ marble ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    marble~1nz (^ball~3) a small ball of glass that is used in various games
+    marble~2nz (^art~2) a sculpture carved from marble
+    marble~3nz (^stone~6) a hard crystalline metamorphic rock that takes a high polish
+    marble~4az 
+    marble~5vz paint or stain like marble
+ marker ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    marker~1nz (^artifact~1) some conspicuous object used to distinguish or mark something
+    marker~2nz (^artifact~1) a writing implement for making a mark
+    mark~11nz (^symbol~2) a distinguishing symbol
+ marquise ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    marquise~1nz (^protection~5) permanent canopy over an entrance of a hotel etc.
+    marquise~2nz (^leader~2) a noblewoman ranking below a duchess and above a countess
+ mat ( meanings=9 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=mater 
+    mat~1nz (^covering~4) a thick flat pad used as a floor covering
+    mat~2nz (^artifact~1) sports equipment consisting of a piece of thick padding on the floor for gymnastic sports
+    mat~3nz (^pad~4) a small pad of material that is used to protect surface from an object placed on it
+    matting~1nz (^mounting~1) mounting consisting of a border or background for a picture
+    matte~1n 
+    mat~6nz (^mass~5) a mass that is densely tangled or interwoven
+    matte~3a 
+    matte~4v 
+    snarl~7vz twist together or entwine into a confusing mass
+ matting ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    mat~4n 
+    matting~2nz (^covering~4) a covering of coarse fabric
+ mattress ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    mattress~1nz (^pad~4) a large thick pad filled with resilient material and often incorporating coiled springs, used as a bed or part of a bed
+ mausoleum ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=mausolea 
+    mausoleum~1nz (^grave~1) a large burial chamber, usually above ground
+ maximum ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) plural=maxima 
+    maximum~1nz (^limit~1) the greatest possible degree
+    maximum~2nz (^limit~3) the point on a curve where the tangent changes from positive on the left to negative on the right
+    maximum~3nz (^peak~4) the largest possible quantity
+    maximum~4az the greatest or most complete or best possible
+    maximum~5az 
+ monument ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    memorial~1nz (^structure~1) a structure erected to commemorate persons or events
+    monument~2nz (^grave~1) a burial vault
+    monument~3nz (^parcel~4) an important site that is marked and preserved as public property
+ menthol ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    menthol~1nz (^application~5) a lotion containing menthol which gives it the smell of mint
+    menthol~2nz (^compound~3) a crystalline compound that has the cool and minty taste and odor that occurs naturally in peppermint oil
+ merchandise ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    product~1n 
+    trade~11v 
+ mercurial ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    mercurial~1az liable to sudden unpredictable change
+    mercurial~2az relating to or containing or caused by mercury
+    mercurial~3az 
+ mercury ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    mercury~1nz (^temperature~1) temperature measured by a mercury thermometer
+    mercury~2nz (^metal~2) a heavy silvery toxic univalent and bivalent metallic element
+ mess ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mess~1nz (^room~1) a military dining room where service personnel eat or relax
+    mess~2nz (^meal~2) a meal eaten in a mess hall by service personnel
+    mess~3nz (^sustenance~2) soft semiliquid food
+    lot~5n 
+    jam~4n 
+    mess~6nz (^status~1) a state of confusion and disorderliness
+    mess~7vz make a mess of or create disorder in
+    mess~8vz eat in a mess hall
+ metallic ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    metallic~1nz (^thread~2) a yarn made partly or entirely of metal
+    metallic~2nz (^material~1) a fabric made of a yarn that is partly or entirely of metal
+    metal~3a 
+    metallic~4az 
+ mike ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    microphone~1n 
+ middling ( meanings=3 glosses=1 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:ADVERB (null) ) 
+    middling~1nz (^good~1) any commodity of intermediate quality or size
+    average~9a 
+    somewhat~1b 
+ mild ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    soft~2a 
+    mild~2az moderate in type or degree or effect or force
+    meek~2az humble in spirit or manner
+    mild~4az 
+ milling ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    milling~1nz (^edge~1) corrugated edge of a coin
+ mint ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) ) comparative=minter 
+    mint~1nz (^plant~2) a plant where money is coined by authority of the government
+    mint~2nz (^candy~1) a candy that is flavored with a mint oil
+    mint~3nz (^seasoning~2) the leaves of a mint plant used fresh or candied
+    mint~4nz (^family~5) any member of the mint family of plants
+    mint~5nz (^plant~1) any north temperate plant of the genus Mentha with aromatic leaves and small mauve flowers
+    mess~4n 
+    mint~7az as if new
+    coin~2v 
+ minute ( meanings=9 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+    hour~1nz (^distance~1) distance measured by the time taken to cover it
+    minute~2nz (^note~2) a short note
+    minute~3nz (^unit~5) a unit of angular distance equal to a 60th of a degree
+    minute~4nz (^measure~1) a unit of time equal to 60 seconds or 1/60th of an hour
+    instant~1n 
+    moment~6nz (^time~5) an indefinitely short time
+    narrow~3a 
+    infinitesimal~2az infinitely or immeasurably small
+    minute~9az 
+ missile ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    missile~1nz (^rocket~2) a rocket carrying a warhead of conventional or nuclear explosives
+    missile~2nz (^weapon~1) a weapon that is forcibly thrown or projected at a targets but is not self-propelled
+ mitten ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    mitten~1nz (^glove~3) glove that encases the thumb separately and the other four fingers together
+ manufactured ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    manufactured~1az produced in a large-scale industrial operation
+ moccasin ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    moccasin~1nz (^shoe~3) soft leather shoe
+ mold ( meanings=14 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    cast~6n 
+    modeling~3nz (^art~2) sculpture produced by molding
+    mold~3nz (^characteristic~1) a distinctive nature, character, or type
+    mold~4nz (^dish~4) a dish or dessert that is formed in or on a mold
+    mold~5nz (^fungus~1) a fungus that produces a superficial growth on various kinds of damp or decaying organic matter
+    mold~6nz (^spoiling~2) the process of becoming mildewed
+    cast~9n 
+    mold~8nz (^soil~4) loose soil rich in organic matter
+    mold~9vz become moldy
+    influence~6v 
+    mold~11vz fit tightly, follow the contours of
+    work~17v 
+    cast~16v 
+    model~11v 
+ morning ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN TIMEWORD ) 
+    morning~1nz (^acknowledgment~1) a conventional expression of greeting or farewell
+    dawn~1nz (^start~6) the earliest period
+    morning~3nz (^period~3) the time period between dawn and noon
+    daybreak~1n 
+ motorboat ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    motorboat~1nz (^boat~1) a boat propelled by an internal-combustion engine
+    motorboat~2vz ride in a motorboat
+ motorcycle ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    bike~2nz (^container~1) a motor vehicle with two wheels and a strong frame
+    cycle~9vz ride a motorcycle
+ motorized ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    motorized~1az using vehicles
+    motored~1az equipped with a motor or motors
+ mounting ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    mounting~1nz (^structure~1) framework used for support or display
+    climbing~1n 
+ mural ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    mural~1nz (^picture~1) a painting that is applied to a wall surface
+    mural~2az of or relating to walls
+ museum ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    museum~1nz (^deposit~2) a depository for collecting and displaying objects having scientific or historical or artistic value
+ mustache ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    mustache~1nz (^hair~4) an unshaved growth of hair on the upper lip
+ mall ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    center~6n 
+    mall~2nz (^walk~6) a public area set aside as a pedestrian walk
+ mum ( meanings=4 glosses=2 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) comparative=mummer 
+    mum~1nz (^silence~2) secrecy
+    mummy~2n 
+    mum~3nz (^flower~2) of China
+    silent~4a 
+ margin ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    tolerance~3n 
+    margin~2nz (^amount~2) an amount beyond the minimum necessary
+    margin~3nz (^space~3) the blank space that surrounds the text on a page
+    margin~4nz (^profit~2) the net sales minus the cost of goods and services sold
+    margin~5nz (^deposit~7) the amount of collateral a customer deposits with a broker when borrowing from the broker to buy securities
+    perimeter~3n 
+ magnanimity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    magnanimity~1nz (^generosity~2) liberality in bestowing gifts
+ malice ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    malice~1nz (^evil~2) the quality of threatening evil
+    venom~1nz (^hate~1) feeling a need to see others suffer
+ maternal ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    paternal~1az relating to or characteristic of or befitting a parent
+    maternal~2az characteristic of a mother
+    maternal~3az related on the mother's side
+    maternal~4az relating to or derived from one's mother
+    maternal~5az 
+ manner ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    manner~1nz (^behavior~3) a way of acting or behaving
+    style~4n 
+    manner~3nz (^form~9) a kind
+ must ( meanings=3 glosses=3 NOUN_ABSTRACT AUX_VERB_FUTURE NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN GRADE5_6 posdefault:NOUN ) comparative=muster 
+    must~1nz (^age~1) the quality of smelling or tasting old or stale or mouldy
+    must~2nz (^drink~3) a necessary or essential thing
+    must~3az highly recommended
+ matte ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) comparative=matter 
+    mat~5nz (^property~2) the property of having little or no contrast
+    matte~2nz (^mixture~5) a mixture of sulfides that forms when sulfide metal ores are smelted
+    matted~2az not reflecting light
+    mat~8vz change texture so as to become matted and felt-like
+ maize ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    lemon~2n 
+    corn~4n 
+    maize~3az 
+ might ( meanings=1 AUX_VERB_FUTURE NOUN NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    power~1n 
+ molar ( meanings=5 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    molar~1nz (^tooth~5) grinding tooth with a broad crown
+    molar~2az pertaining to large units of behavior
+    molar~3az containing one mole of a substance
+    molar~4az designating a solution containing one mole of solute per liter of solution
+    molar~5az of or pertaining to the grinding teeth in the back of a mammal's mouth
+ mean ( meanings=17 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) conjugate=meant 
+    mean~1nz (^average~2) an average of n numbers computed by adding some function of the numbers and dividing by some function of n
+    mean~2az of no value or worth
+    beggarly~1az so small in amount as to deserve contempt
+    tight~7a 
+    mean~5az characterized by malice
+    base~22a 
+    average~6a 
+    beggarly~2az marked by poverty befitting a beggar
+    mean~9az excellent
+    mean~10az 
+    think~10v 
+    mean~12vz destine or designate for a certain purpose
+    mean~13vz intend to refer to
+    intend~3v 
+    intend~4v 
+    mean~16vz have as a logical consequence
+    mean~17vz have a specified degree of importance
+ majority ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    majority~1nz (^figure~5) the property resulting from being or relating to the greater in number of two parts
+    majority~2nz (^measure~1) more than half of the votes
+    majority~3nz (^age~2) the age at which persons are considered competent to manage their own affairs
+ minority ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN (null) ) 
+    minority~1nz (^figure~5) being or relating to the smaller in number of two parts
+    minority~2nz (^group~1) a group of people who differ racially or politically from a larger group of which it is a part
+    minority~3nz (^position~16) any age prior to the legal age
+ mileage ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    mileage~1nz (^distance~1) distance measured in miles
+    mileage~2nz (^compensation~2) a travel allowance at a given rate per mile traveled
+    mileage~3nz (^relation~1) the ratio of the number of miles traveled to the number of gallons of gasoline burned
+ moment ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    import~2nz (^significance~1) having important effects or influence
+    moment~2nz (^information~2) the n-th moment of a distribution is the expected value of the n-th power of the deviations from a fixed value
+    moment~3nz (^force~10) a turning force produced by an object acting at a distance
+    moment~4nz (^nowadays~1) at this time
+    minute~5n 
+    bit~11n 
+ mummy ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    mummy~1nz (^body~6) a body embalmed and dried and wrapped for burial
+    mammy~1nz (^mother~2) informal terms for a mother
+ mamma ( meanings=2 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=mammae 
+    mamma~1nz (^secreter~1) milk-secreting organ of female mammals
+    mum~2n 
+ mystery ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    secret~1nz (^disarray~2) something that baffles understanding and cannot be explained
+    mystery~2nz (^story~2) a story about a crime presented as a novel or play or movie
+ misgiving ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:VERB ) 
+    misgiving~1nz (^doubt~2) doubt about someone's honesty
+    misgiving~2nz (^expectation~1) painful expectation
+    qualm~1nz (^anxiety~1) uneasiness about the fitness of an action
+ meaning ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    substance~3n 
+    significance~3n 
+    significant~2a 
+ microscopic ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    microscopic~1az so small as to be invisible without a microscope
+    microscopic~2az extremely precise with great attention to details
+    microscopic~3az visible under a microscope
+    microscopic~4az of or relating to or used in microscopy
+    microscopic~5az 
+ microcosm ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    microcosm~1nz (^example~4) a miniature model of something
+ mirage ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    mirage~1nz (^thought~2) something illusory and unattainable
+    mirage~2nz (^process~1) an optical illusion in which atmospheric refraction by a layer of hot air distorts or inverts reflections of distant objects
+ materialism ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    materialism~1nz (^philosophy~1) the philosophical theory that matter is the only reality
+    materialism~2nz (^desire~3) a desire for wealth and material possessions with little interest in ethical or spiritual matters
+ mathematics ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN ) 
+    maths~1nz (^science~2) a science dealing with the logic of quantity and shape and arrangement
+ math ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    mathematics~1n 
+ maths ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
+    math~1n 
+ MT ( meanings=4 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    MT~1nz (^technology~2) 
+    MT~2nz (^state~5) 
+    MT~3nz (^metric~2) 
+    MT~4nz (^element~6) 
+ message ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    message~1nz (^communication~1) a communication that is written or spoken or signaled
+    substance~5nz (^communication~1) what a communication that is about something is about
+    message~3vz send a message
+    message~4vz send as a message
+    message~5vz send a message to
+ messaging ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    messaging~1nz (^communication~2) 
+ masculine ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    masculine~1nz (^gender~2) a gender that refers chiefly to males or to objects classified as male
+    masculine~2az associated with men and not with women
+    masculine~3az of grammatical gender
+    masculine~4az ending on an accented beat or syllable
+    masculine~5az 
+ Miss ( meanings=1 glosses=1 NOUN_TITLE_OF_ADDRESS NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Miss~1nz (^title~3) a form of address for an unmarried woman
+ Mr ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 KINDERGARTEN ) 
+    Mr.~1n 
+ Mr. ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN_TITLE_OF_ADDRESS NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) plural=Messrs. 
+    Mr~1nz (^title~3) a form of address for a man
+ Mrs ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Mrs.~1n 
+ Mrs. ( meanings=1 glosses=1 NOUN_TITLE_OF_ADDRESS NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR KINDERGARTEN GRADE1_2 ) plural=Mmes. 
+    Mrs~1nz (^title~3) a form of address for a married woman
+ Ms ( meanings=4 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    Ms.~1n 
+    SM~1nz (^degree~4) 
+    Ms~3nz (^state~5) 
+    Ms~4nz (^upset~5) 
+ Ms. ( meanings=1 glosses=1 NOUN_TITLE_OF_ADDRESS NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR KINDERGARTEN GRADE1_2 ) plural=Mses. 
+    Ms~1nz (^title~3) a form of address for a woman
+ myth ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    myth~1nz (^story~2) a traditional story accepted as history
+ manuscript ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    manuscript~1nz (^writing~4) the form of a literary work submitted for publication
+    manuscript~2nz (^writing~4) handwritten book or document
+ mortgage ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    mortgage~1nz (^interest~6) a conditional conveyance of property as security for the repayment of a loan
+    mortgage~2vz put up as security or collateral
+ meal ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    meal~1nz (^food~1) coarsely ground foodstuff
+    meal~2nz (^sustenance~2) the food served and eaten at one time
+    meal~3nz (^occasion~5) any of the occasions for eating food that occur by custom or habit at more or less fixed times
+ monthly ( meanings=3 glosses=3 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    monthly~1nz (^periodical~1) a periodical that is published every month
+    monthly~2az of or occurring or payable every month
+    monthly~3bz occurring once a month
+ MA ( meanings=3 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON4 KINDERGARTEN ) 
+    MA~1nz (^degree~4) 
+    MA~2nz (^state~5) 
+    MA~3nz (^unit~5) 
+ MD ( meanings=4 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 NOUN_NODETERMINER KINDERGARTEN ) 
+    MD~1nz (^degree~4) 
+    MD~2nz (^state~5) 
+    doctor~2n 
+    MD~4nz (^element~6) 
+ mention ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    mention~1nz (^honor~3) an official recognition of merit
+    credit~6nz (^note~4) a short note recognizing a source of information or of a quoted passage
+    reference~8nz (^comment~2) a remark that calls attention to something or someone
+    observe~2vz make mention of
+    mention~5vz commend
+    refer~4vz make reference to
+ medallion ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    palm~2n 
+    medallion~2nz (^emblem~2) an emblem indicating that a taxicab is registered
+    medallion~3nz (^helping~1) a circular helping of food 
+    medallion~4nz (^coin~1) any of various large ancient Greek coins
+ menace ( meanings=5 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    menace~1nz (^threat~1) a threat or the act of threatening
+    threat~4n 
+    menace~3vz act in a threatening manner
+    menace~4vz express a threat either by an utterance or a gesture
+    threaten~3v 
+ markup ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    markup~1nz (^direction~6) detailed stylistic instructions for typesetting something that is to be printed
+    markup~2nz (^profit~2) the amount added to the cost to determine the asking price
+ monologue ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    monologue~1nz (^speech~3) a dramatic speech by a single actor
+    monologue~2nz (^language~6) a long utterance by one person
+    soliloquy~2nz (^language~6) speech you make to yourself
+ miracle ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    miracle~1nz (^event~1) a marvellous event manifesting a supernatural act of a divine agent
+    miracle~2nz (^event~1) any amazing or wonderful occurrence
+ medley ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    medley~1nz (^piece~8) a musical composition consisting of a series of songs or other musical pieces from various sources
+ murmur ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    murmur~1nz (^sound~4) a schwa that is incidental to the pronunciation of a consonant
+    muttering~1nz (^act~1) a complaint uttered in a low and indistinct tone
+    muttering~2nz (^sound~5) a low continuous indistinct sound
+    murmur~4nz (^evidence~1) an abnormal sound of the heart
+    croak~3v 
+    murmur~6vz speak softly or indistinctly
+ mistaking ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    mistaking~1nz (^explanation~2) 
+ murmuring ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    murmur~2n 
+    murmur~3n 
+    whispering~3a 
+ mutter ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    murmuring~1n 
+    murmuring~2n 
+    murmur~5v 
+    mutter~4vz talk indistinctly
+ muttering ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    mutter~1n 
+    mutter~2n 
+ malediction ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    malediction~1nz (^act~1) the act of calling down a curse that invokes evil 
+ misfortune ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    misfortune~1nz (^trouble~3) unnecessary and unforeseen trouble resulting from an unfortunate event
+    misfortune~2nz (^fortune~4) an unfortunate state resulting from unfavorable outcomes
+ malfunction ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_NOOBJECT ) 
+    malfunction~1nz (^failure~3) a failure to function normally
+    malfunction~2vz fail to function or function improperly
+ miss ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    miss~1nz (^failure~3) a failure to hit
+    girl~3nz (^woman~3) a young woman
+    neglect~6v 
+    escape~10v 
+    miss~5vz fail to reach
+    miss~6vz feel or suffer from the lack of
+    miss~7vz fail to reach or get to
+    lose~6vz fail to perceive or to catch with the senses or the mind
+    miss~9vz fail to attend an event or activity
+    lack~2vz be without
+    miss~11vz be absent
+ meow ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_NOOBJECT (null) ) 
+    meow~1nz (^cry~5) the sound made by a cat
+    meow~2vz cry like a cat
+ moo ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    moo~1nz (^cry~5) the sound made by a cow or bull
+    low~16v 
+ meet ( meanings=15 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=met comparative=meeter 
+    meet~1nz (^competition~2) a meeting at which a number of athletic contests are held
+    fitting~5az being precisely fitting and right
+    encounter~5v 
+    satisfy~1vz fill or meet a want or need
+    touch~18v 
+    meet~6vz meet by design
+    see~12vz come together
+    suffer~9vz undergo or suffer
+    assemble~2vz collect in one place
+    meet~10vz get together socially or for a specific purpose
+    match~17v 
+    meet~12vz get to know
+    fit~14vz satisfy a condition or restriction
+    meet~14vz be adjacent or come together
+    receive~13v 
+ mile ( meanings=8 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN (null) ) 
+    mile~1nz (^run~10) a footrace extending one mile
+    mile~2nz (^unit~5) a unit of length equal to 1,760 yards or 5,280 feet
+    mile~3nz (^unit~5) a Swedish unit of length equivalent to 10 km
+    mile~4nz (^unit~5) an ancient Roman unit of length equivalent to 1620 yards
+    knot~5nz (^unit~5) a unit of length used in navigation
+    mile~6nz (^unit~5) a former British unit of length equivalent to 6,080 feet 
+    mile~7nz (^unit~5) a former British unit of length once used in navigation
+    mile~8nz (^measure~1) a large distance
+ matched ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    matched~1az provided with a worthy adversary or competitor
+    matched~2az going well together
+ marbling ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:VERB ) 
+    marbling~1nz (^fat~3) the intermixture of fat and lean in a cut of meat
+ muffin ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    gem~3nz (^bread~1) a sweet quick bread baked in a cup-shaped pan
+ mad ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=maddest 
+    sore~2az roused to anger
+    sick~5a 
+    frantic~2az marked by uncontrolled excitement or emotion
+    mad~4az very foolish
+ melon ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    melon~1nz (^produce~1) any of numerous fruits of the gourd family having a hard rind and sweet juicy flesh
+    melon~2nz (^vine~1) any of various fruit of cucurbitaceous vines including: muskmelons
+ mango ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) plural=mangoes 
+    mango~1nz (^produce~1) large oval tropical fruit having smooth skin, juicy aromatic pulp, and a large hairy seed
+    mango~2nz (^tree~1) large evergreen tropical tree cultivated for its large oval fruit
+ molded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    shaped~1a 
+ maple ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    maple~1nz (^tree~1) any of numerous trees or shrubs of the genus Acer bearing winged seeds in pairs
+    maple~2nz (^wood~4) wood of any of various maple trees
+ miraculous ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    miraculous~1az peculiarly fortunate or appropriate
+    miraculous~2az being or having the character of a miracle
+    miraculous~3az 
+ malt ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    malt~1nz (^cereal~2) a cereal grain that is kiln-dried after having been germinated by soaking in water
+    malt~2nz (^alcohol~1) a lager of high alcohol content
+    malted~1nz (^milk_shake~1) a milkshake made with malt powder
+    malt~4vz convert into malt
+    malt~5vz convert grain into malt
+    malt~6vz turn into malt, become malt
+    malt~7vz treat with malt or malt extract
+ milk_shake ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    shake~5nz (^drink~4) frothy drink of milk and flavoring and sometimes fruit or ice cream
+ malted ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    malt~3n 
+    malted~2az of grain that has been converted into malt
+ mineral ( meanings=3 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE ) 
+    mineral~1nz (^stuff~7) solid homogeneous inorganic substances occurring in nature having a definite chemical composition
+    mineral~2az composed of matter other than plant or animal
+    mineral~3az relating to minerals
+ maimed ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    wounded~1n 
+    maimed~2az 
+ married ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:VERB ) 
+    married~1az joined in matrimony
+    married~2az of or relating to the state of marriage
+    married~3az 
+ metric ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    metric~1nz (^measure~1) a system of related measures that facilitates the quantification of some particular characteristic
+    metric~2nz (^unit~5) a decimal unit of measurement of the metric system 
+    metric~3nz (^map~2) a function of a topological space that gives, for any two points in the space, a value equal to the distance between them
+    measured~3az the rhythmic arrangement of syllables
+    metric~5az based on the meter as a standard of measurement
+ manufacturer ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    maker~1n 
+    producer~2n 
+ maker ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    manufacturer~1nz (^business~8) a business engaged in manufacturing some product
+    maker~2nz (^creator~1) a person who makes things
+ masses ( meanings=1 NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=mass 
+    mass~4n 
+ mob ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    mob~1nz (^crowd~1) a disorderly crowd of people
+    gang~3n 
+    family~7n 
+    pile~11v 
+ minimum ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:ADJECTIVE ) plural=minima 
+    minimum~1nz (^limit~3) the point on a curve where the tangent changes from negative on the left to positive on the right
+    minimum~2nz (^peak~4) the smallest possible quantity
+    minimum~3az the least possible
+    minimum~4az 
+ meteor ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    meteor~1nz (^whole~1) any of the small solid extraterrestrial bodies that hits the earth's atmosphere
+    meteor~2nz (^light~12) a streak of light in the sky at night that results when a meteoroid hits the earth's atmosphere and air friction causes the meteoroid to melt or vaporize or explode
+ meeter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN GRADE5_6 ) comparative=meet 
+    meeter~1nz (^associate~3) a person who is present and participates in a meeting
+ maid ( meanings=2 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    maiden~1n 
+    maid~2nz (^domestic~1) a female domestic
+ moderate ( meanings=11 glosses=8 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    moderate~1nz (^adult~2) a person who takes a position in the political center
+    moderate~2az not extreme
+    moderate~3az being within reasonable or average limits
+    restrained~5az marked by avoidance of extravagance or extremes
+    moderate~5az 
+    moderate~6vz make less fast or intense
+    temper~5vz restrain
+    lead~20v 
+    tame~10vz make less strong or intense
+    moderate~10vz make less severe or harsh
+    hold~35v 
+ merry ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=merriest 
+    lively~5az quick and energetic
+    gay~6az offering fun and gaiety
+    gay~7az full of or showing high-spirited merriment
+    merry~4az 
+ manager ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    coach~5nz (^leader~2) someone in charge of training an athlete or a team
+    director~2nz (^head~26) someone who controls resources and expenditures
+ minter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) comparative=mint 
+    minter~1nz (^worker~2) a skilled worker who coins or stamps money
+ malefactor ( meanings=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    crook~2n 
+ milkmaid ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    milkmaid~1nz (^hand~13) a woman who works in a dairy
+ maligner ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 GRADE5_6 ) comparative=malign 
+    maligner~1nz (^individual~1) one who attacks the reputation of another by slander or libel
+ managing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    managing~1az 
+ ma ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    mamma~2n 
+ mama ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    ma~1n 
+ mom ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    mama~1n 
+ momma ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    mom~1n 
+ mommy ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    momma~1n 
+ mammy ( meanings=2 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    mommy~1n 
+    mammy~2nz (^nurse~1) an offensive term for a Black nursemaid in the southern U.S.
+ mailman ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    mailman~1nz (^employee~1) a man who delivers the mail
+ male_sibling ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    male_sibling~1nz (^relative~2) a sibling who is male
+ mater ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=mat 
+    mater~1nz (^mother~2) an informal use of the Latin word for mother
+ matriarch ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    matriarch~1nz (^head~26) a female head of a family or tribe
+    matriarch~2nz (^woman~3) a feisty older woman with a big bosom
+ matron ( meanings=3 glosses=3 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    matron~1nz (^wife~1) a married woman who is staid and dignified
+    matron~2nz (^nurse~2) a woman in charge of nursing in a medical institution
+    matron~3nz (^guardian~1) a wardress in a prison
+ mayor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    mayor~1nz (^authority~7) the head of a city government
+ menial ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    menial~1nz (^servant~1) a domestic servant
+    humble~3a 
+    menial~3az 
+ mercenary ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    mercenary~1nz (^individual~1) a person hired to fight for another country than their own
+    mercenary~2az profit oriented
+    mercenary~3az serving for wages in a foreign army
+    mercenary~4az marked by materialism
+    mercenary~5az 
+ messenger ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    messenger~1nz (^traveler~1) a person who carries a message
+ milkman ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    milkman~1nz (^employee~1) someone who delivers milk
+ millionairess ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    millionairess~1nz (^individual~1) a woman millionaire
+ mummer ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) comparative=mum 
+    mummer~1nz (^player~1) 
+ missing ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    lacking~2a 
+    missing~2az not able to be found
+    missing~3az 
+ mistress ( meanings=3 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    mistress~1nz (^leader~2) a woman master who directs the work of others
+    mistress~2nz (^lover~2) an adulterous woman
+    schoolmistress~1n 
+ modeler ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN ) comparative=model 
+    modeller~1n 
+ modeller ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=modeler 
+    modeler~1nz (^creator~1) a person who creates models
+ most ( meanings=7 glosses=4 MOST_FORM PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN DETERMINER_PLURAL PRONOUN_PLURAL posdefault:ADVERB ) comparative=more 
+    most~1az the superlative of `much' that can be used with mass nouns and is usually preceded by `the'
+    most~2az quantifier meaning the greatest in number
+    about~6b 
+    most~4bz used to form the superlative
+    most~5bz very
+    most~6z 
+    most~7z 
+ mother-in-law ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) plural=mothers-in-law 
+    mother-in-law~1nz (^relative~2) the mother of your spouse
+ musician ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    musician~1nz (^artist~1) artist who composes or conducts music as a profession
+    player~2nz (^individual~1) someone who plays a musical instrument
+ millionaire ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    millionaire~1nz (^individual~1) a person whose material wealth is valued at more than a million dollars
+ midnight ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    midnight~1nz (^hour~3) 12 o'clock at night
+ mist ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mist~1nz (^fog~2) a thin fog with condensation near the ground
+    mist~2vz become covered with mist
+    mist~3vz spray finely or cover with mist
+    fog~4v 
+ manila ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    manila~1nz (^paper~7) a strong paper or thin cardboard with a smooth light brown finish made from e.g. Manila hemp
+ multiplier ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) comparative=multiply 
+    multiplier~1nz (^number~11) the number by which a multiplicand is multiplied
+ madder ( meanings=2 glosses=2 MORE_FORM VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=mad 
+    madder~1nz (^plant~1) Eurasian herb having small yellow flowers and red roots formerly an important source of the dye alizarin
+    madder~2vz color a moderate to strong red
+ matching ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    matching~1az 
+    duplicate~3a 
+ mellowing ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    mellowing~1nz (^ripening~2) the process of becoming mellow
+ melt ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    melt~1nz (^heating~2) the process whereby heat changes something from a solid to a liquid
+    disappear~1v 
+    fade~4vz become less clearly visible or distinguishable
+    mellow~9vz become more relaxed, easygoing, or genial
+    dissolve~5vz become or cause to become soft or liquid
+    melt~6vz lose its distinct outline or shape
+    run~19vz reduce or cause to be reduced from a solid to a liquid state, usually by heating
+ millimeter ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN ) 
+    mm~1nz (^unit~5) a metric unit of length equal to one thousandth of a meter
+ mm ( meanings=1 NOUN INTERJECTION NOUN_SINGULAR COMMON4 COMMON1 posdefault:NOUN ) 
+    millimeter~1n 
+ million ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    million~1nz (^number~11) the number that is represented as a one followed by 6 zeros
+    trillion~3n 
+    million~3az denoting a quantity consisting of 1,000,000 items or units
+ modicum ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    modicum~1nz (^measure~1) a small or moderate or token amount
+ much ( meanings=8 glosses=3 ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_SINGULAR posdefault:ADVERB (null) ) comparative=most 
+    much~1az great in quantity or degree or extent
+    practically~1b 
+    much~3bz very
+    much~4bz to a great degree or extent
+    lots~2b 
+    often~2b 
+    much~7z 
+    much~8z 
+ malady ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    illness~1n 
+    malady~2nz (^status~1) any unwholesome or desperate condition
+ measles ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 ) 
+    measles~1nz (^disease~1) an acute and highly contagious viral disease marked by distinct red spots followed by a rash
+ muddle ( meanings=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    pickle~2n 
+    jumble~3n 
+    puddle~5v 
+    puddle~7v 
+ moisture ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    wet~1n 
+ midweek ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADVERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    midweek~1nz (^period~3) the middle of a week
+    midweek~2bz in the middle of the week
+ month ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE posdefault:NOUN TIMEWORD (null) ) 
+    month~1nz (^measure~1) a time unit of approximately 30 days
+    month~2nz (^period~3) one of the twelve divisions of the calendar year
+ meanwhile ( meanings=2 glosses=2 NOUN ADVERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:ADVERB ) 
+    meanwhile~1bz during the intervening time
+    meanwhile~2bz at the same time but in another place
+ Mmes. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL KINDERGARTEN GRADE1_2 ) plural=Mrs. 
+ Messrs. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL KINDERGARTEN ) plural=Mr. 
+ Mses. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL KINDERGARTEN GRADE1_2 ) plural=Ms. 
+ mammae ( NOUN NOUN_PLURAL COMMON1 posdefault:NOUN ) plural=mamma 
+ mangoes ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=mango 
+ mausolea ( NOUN NOUN_PLURAL COMMON1 GRADE5_6 posdefault:NOUN ) plural=mausoleum 
+ maxima ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=maximum 
+ metamorphoses ( NOUN NOUN_PLURAL COMMON2 GRADE3_4 posdefault:NOUN ) plural=metamorphosis 
+ minima ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=minimum 
+ mosquitoes ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=mosquito 
+ mothers-in-law ( NOUN NOUN_PLURAL posdefault:NOUN ) plural=mother-in-law 
+ mice ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) plural=mouse 
+ minuses ( NOUN NOUN_PLURAL COMMON2 NOUN_NODETERMINER posdefault:NOUN ) plural=minus 
+ mullah ( meanings=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    mullah~1nz 
+ mail_truck ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER GRADE1_2 ) 
+    mail_truck~1nz 
+ money_bag ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER GRADE1_2 ) 
+    money_bag~1nz 
+ mmm ( NOUN INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 ) 
+ meh ( INTERJECTION ) 
+ Monseigneur ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Mademoiselle ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ millisecond ( ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+ microsecond ( ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+ mistreated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    abused~1a 
+ mounted ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    mounted~1az decorated with applied ornamentation
+    mounted~2az assembled for use
+ miserable ( meanings=7 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    miserable~1az contemptibly small in amount
+    miserable~2az characterized by physical misery
+    low~5a 
+    poor~2a 
+    suffering~5a 
+    miserable~6az of very poor quality or condition
+    miserable~7az 
+ mailed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB ) 
+    mailed~1az wearing protective mail
+ mesmerizing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    mesmerizing~1az 
+ menacing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    sinister~1a 
+ malign ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=maligner 
+    evil~4a 
+    malign~2az evil or harmful in nature or influence
+    malign~3vz speak unfavorably about
+ matted ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    matted~1az tangled in a dense mass
+    flat~9a 
+ muddy ( meanings=8 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=muddiest 
+    muddy~1az dirty and messy
+    cloudy~1a 
+    dirty~11a 
+    sloppy~5a 
+    muddy~5az 
+    muddy~6vz make turbid
+    muddy~7vz cause to become muddy
+    muddy~8vz dirty with mud
+ muddled ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    woolly~3az 
+    muddled~2az 
+ misty ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) comparative=mistiest 
+    foggy~2a 
+    misty~2az wet with mist
+    misty~3az 
+ missed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    lost~1a 
+ mistaken ( meanings=2 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=mistook 
+    false~2az arising from error
+    mistaken~2az wrong in e.g. opinion or judgment
+ made ( meanings=3 glosses=3 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=make 
+    made~1az produced by a manufacturing process
+    made~2az having the sheets and blankets set in order
+    made~3az successful or assured of success
+ maintained ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    maintained~1az kept in good condition
+    maintained~2az continued in your keeping or use or memory
+ mature ( meanings=12 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    matured~1az fully considered and perfected
+    mature~2az having developed feathers or plumage
+    mature~3az having reached full natural growth or development
+    mature~4az characteristic of maturity
+    ripe~3a 
+    mature~6az 
+    mature~7vz cause to ripen and discharge pus
+    age~6v 
+    ripen~2v 
+    grow~6v 
+    mature~11vz become due for repayment
+    mature~12vz develop and work out fully in one's mind
+ matured ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    mature~1a 
+    matured~2az 
+ meandering ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    wandering~2az of a path e.g.
+ meek ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    meek~1az evidencing little spirit or courage
+    mild~3a 
+    tame~2az very docile
+    meek~4az 
+ mellow ( meanings=10 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    high~9a 
+    mellow~2az having attained to kindliness or gentleness through age and experience
+    mellowed~1az having attained to kindliness or gentleness through age and experience
+    mellowed~2az having a full and pleasing flavor through proper aging
+    mellow~5az unhurried and relaxed
+    mellow~6az 
+    mellow~7bz in a mellow manner
+    mellow~8vz make or grow mellow
+    melt~4v 
+    mellow~10vz soften, make mellow
+ monotonous ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    humdrum~2az tediously repetitious or lacking in variety
+    flat~16a 
+    monotonous~3az 
+ mid ( meanings=3 glosses=1 ADJECTIVE PREPOSITION ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    mid~1az used in combination to denote the middle
+    mid~2az 
+    mid~3z 
+ moody ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=moodiest 
+    moody~1az subject to sharply varying moods
+    sour~5a 
+    moody~3az 
+ mesmerized ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    mesmerized~1az 
+ mortgaged ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    mortgaged~1az burdened with legal or financial obligations
+ magnified ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    exaggerated~1a 
+ multiplied ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    multiplied~1az greatly increased as by multiplication
+ mysterious ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    secret~6a 
+    deep~10a 
+    mysterious~3az 
+ memorable ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    memorable~1az worth remembering
+ musty ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=mustiest 
+    musty~1az stale and unclean smelling
+    musty~2az covered with or smelling of mold
+ malfunctioning ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    malfunctioning~1az not performing or able to perform its regular function
+ miserly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE posdefault:ADVERB ) 
+    mean~4a 
+    miserly~2az 
+ magnanimous ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    big~4a 
+    magnanimous~2az noble and generous in spirit
+    magnanimous~3az 
+ mediocre ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    mediocre~1az poor to middling in quality
+    fair~14a 
+    mediocre~3az moderate to inferior in quality
+ morose ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    moody~2a 
+    morose~2az 
+ mischievous ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    mischievous~1az deliberately causing harm or damage
+    wicked~4az naughtily or annoyingly playful
+    mischievous~3az 
+ morbid ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    morbid~1az caused by or altered by or manifesting disease or pathology
+    morbid~2az suggesting the horror of death and decay
+    morbid~3az suggesting an unhealthy mental state
+    morbid~4az 
+ massive ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    massive~1az consisting of great mass
+    massive~2az imposing in size or bulk or solidity
+    massive~3az imposing in scale or scope or degree or power
+    massive~4az being the same substance throughout
+    massive~5az 
+ miscellaneous ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    assorted~1a 
+    miscellaneous~2az having many aspects
+    miscellaneous~3az 
+ measured ( meanings=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    deliberate~1a 
+    deliberate~2a 
+    metric~4a 
+    measured~4az 
+ magnificent ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    brilliant~3az characterized by grandeur
+    magnificent~2az 
+ minded ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE5_6 posdefault:VERB ) 
+    disposed~1a 
+    minded~2az mentally oriented toward something specified
+ moderating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    moderating~1az lessening in intensity or strength
+ misunderstood ( meanings=2 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 GRADE5_6 posdefault:VERB ) conjugate=misunderstand 
+    misunderstood~1az wrongly understood
+    misunderstood~2az 
+ manageable ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    manageable~1az capable of being managed or controlled
+    manageable~2az capable of existing or taking place or proving true
+ manned ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    manned~1az having a crew
+ mated ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    mated~1az of or relating to a marriage partner
+    mated~2az mated sexually
+    paired~2a 
+ maidenly ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADVERB ) 
+    maidenly~1az 
+ mellowed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    mellow~3a 
+    mellow~4a 
+ mined ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    mined~1az extracted from a source of supply as of minerals from the earth
+ melted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:VERB ) 
+    liquid~9a 
+ many ( meanings=4 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE PREDETERMINER DETERMINER ADJECTIVE_NORMAL COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN DETERMINER_PLURAL PRONOUN_PLURAL posdefault:ADJECTIVE (null) ) 
+    many~1az a quantifier that can be used with count nouns and is often preceded by `as' or `too' or `so' or `that'
+    many~2z 
+    many~3z 
+    many~4z 
+ more ( meanings=5 glosses=4 MORE_FORM PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN PRONOUN_PLURAL posdefault:ADVERB ) comparative=much 
+    more~1az a quantifier meaning greater in size or amount or extent or degree
+    more~2az quantifier meaning greater in number
+    more~3bz used to form the comparative of some adjectives and adverbs
+    more~4bz comparative of much
+    more~5z 
+ motored ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    motorized~2a 
+ moved ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    stirred~3a 
+ mown ( meanings=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=mowed 
+    cut~27a 
+ mastered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    down~9a 
+ mottled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 (null) ) 
+    mottled~1az having spots or patches of color
+ marbled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    marbled~1az 
+ mighty ( meanings=3 glosses=1 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) comparative=mightiest 
+    mighty~1az having or showing great strength or force or intensity
+    mighty~2az 
+    right~24b 
+ muddied ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    muddy~3a 
+ milled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    polished~3a 
+ mirrored ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    mirrored~1az like or characteristic of a mirror image
+ modeled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    modeled~1az 
+ masterly ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) 
+    virtuoso~3a 
+ messy ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) comparative=messiest 
+    messy~1az dirty and disorderly
+    messy~2az 
+ moist ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    damp~2a 
+    moist~2az 
+ muggy ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) comparative=muggiest 
+    sticky~4a 
+ maligned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    maligned~1az 
+ masticated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:VERB ) 
+    masticated~1az 
+ metalled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    metalled~1az 
+ maddest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=madder 
+ merrier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=merry 
+ merriest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=merrier 
+ messier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=messy 
+ messiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 ) comparative=messier 
+ mightier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=mighty 
+ mightiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=mightier 
+ mistier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=misty 
+ mistiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=mistier 
+ moodier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=moody 
+ moodiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=moodier 
+ muddier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=muddy 
+ muddiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=muddier 
+ muggier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=muggy 
+ muggiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=muggier 
+ mustier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=musty 
+ mustiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 posdefault:ADJECTIVE ) comparative=mustier 
+ merely ( meanings=1 glosses=1 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    but~1bz and nothing more
+ mostly ( meanings=2 glosses=2 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    mostly~1bz in large part
+    generally~2bz usually
+ moreover ( meanings=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    furthermore~1b 
+ mightily ( meanings=2 glosses=1 ADVERB COMMON2 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    mighty~3b 
+    mightily~2bz powerfully or vigorously
+ multiply ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB ADVERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=multiplier 
+    multiply~1bz in several ways
+    multiply~2vz have offspring or produce more individuals of a given animal or plant
+    breed~3vz have young or reproduce (organisms)
+    multiply~4vz combine or increase by multiplication
+    multiply~5vz combine by multiplication
+ maybe ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    perhaps~1bz by chance
+ mesmerize ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    mesmerize~1vz induce hypnosis in
+    mesmerize~2vz attract strongly, as if with a magnet
+ maim ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    maim~1vz injure or wound seriously and leave permanent disfiguration or mutilation
+ modify ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    change~13v 
+    modify~2vz make less severe or harsh or extreme
+    modify~3vz add a modifier to a constituent
+ magnify ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    magnify~1vz make large
+    amplify~3vz increase in size, volume or significance
+    amplify~4v 
+ mobilize ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mobilize~1vz cause to move around
+    summon~1v 
+    mobilize~3vz get ready for war
+    mobilize~4vz call to arms
+ misunderstand ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=misunderstood 
+    misunderstand~1vz interpret in the wrong way
+ maintain ( meanings=10 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    keep~5v 
+    maintain~2vz support against an opponent
+    maintain~3vz state categorically
+    defend~2vz state or assert
+    keep~6v 
+    keep~7v 
+    keep~11v 
+    exert~2vz have and exercise
+    preserve~6vz keep in safety and protect from harm, decay, loss, or destruction
+    hold~39v 
+ mispronounce ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 VERB_DIRECTOBJECT (null) ) 
+    mispronounce~1vz pronounce a word incorrectly
+ masticate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    jaw~7v 
+    masticate~2vz grind and knead
+ manage ( meanings=7 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    handle~4v 
+    care~10v 
+    oversee~1v 
+    manage~4vz be successful
+    do~7v 
+    manage~6vz achieve something by means of trickery or devious methods
+    cope~3v 
+ migrate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_NOOBJECT ) 
+    migrate~1vz move from one country or region to another and settle there
+    migrate~2vz move periodically or seasonally
+ marry ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    wed~2vz take in marriage
+    wed~3vz perform a marriage ceremony
+ mistreat ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    abuse~7v 
+ meant ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=mean 
+ met ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN GRADE5_6 posdefault:VERB ) conjugate=meet 
+ mistook ( VERB_PAST VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=mistake 
+ mowed ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=mow 
+ me ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON2 PRONOUN_INDIRECTOBJECT KINDERGARTEN ANIMATE_BEING ) 
+    me~1z 
+ my ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET ) 
+    my~1z 
+    my~2z 
+ myself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN ANIMATE_BEING ) 
+    myself~1z 
+ meself ( meanings=1 PRONOUN_OBJECT PRONOUN_REFLEXIVE KINDERGARTEN ANIMATE_BEING ) 
+    meself~1z 
+ many_of ( meanings=1 PREDETERMINER KINDERGARTEN ) 
+    many_of~1z 
+ Mlle. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Mme. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Mt. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Mlle ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ MMe ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Minister ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Madam ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ minidict ( ) 

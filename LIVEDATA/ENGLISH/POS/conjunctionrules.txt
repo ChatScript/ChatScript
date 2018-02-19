@@ -1,0 +1,407 @@
+# as as conjunction
+# when, where,  why,  whence, whereby, wherein,  whereupon  how - wh_adverbs which should be labeled as conjunction subord if they introduce a clause (also role is adverb)
+
+#  conjuct at start with prep conflict, no verb til comma, cant be conjunct - After(preposition Conjunction_subordinate)  years/year (Noun_plural)  of (Preposition)  decline (Noun_singular)  , -- though it could be.
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY HAS PREPOSITION
+	STAY START
+	SKIP !HAS COMMA VERB_BITS AUX_VERB
+	 IS COMMA
+DISCARD
+
+# obvious that phrase -  I believe that it can  -- but not "I can't cut *that tree down"
+# USED -1 IS VERB_BITS
+#	INCLUDE * CONJUNCTION_SUBORDINATE
+#	STAY ISORIGINAL that
+#	HAS NOUN_BITS PRONOUN_BITS DETERMINER
+#	STAY POSTPOS VERB_BITS
+# KEEP
+
+# obvious conjunt starter - when (Adverb Conjunction_subordinate)  night (Noun_singular)  fell/fall (Noun_singular +Verb_past)  , (Comma)  
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	HAS NORMAL_NOUN_BITS
+	HAS VERB_BITS
+	IS COMMA
+	HAS DETERMINER_BITS ADJECTIVE_BITS NOUN_BITS
+KEEP
+
+# for (+Preposition Conjunction_coordinate)  1988 (Noun_number)  , 
+0  INCLUDE * CONJUNCTION_COORDINATE
+	STAY START
+	STAY HAS PREPOSITION
+	IS NOUN_NUMBER
+DISCARD
+
+# I have uses *for $ 10
+0	INCLUDE * CONJUNCTION_COORDINATE
+ 	STAY ISORIGINAL for
+ 	IS CURRENCY
+DISCARD
+
+# Tom is taller than me *but more tall than - conjunction with comparison
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL but
+	SKIP ISCANONICAL be
+	HAS ADVERB
+	HAS ADJECTIVE_NORMAL
+	ISORIGINAL than
+KEEP
+
+# apparent starting coord subord phrase, "when julio turned the crank, he waited" has all elements before comma and noun and verb thereafter
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	STAY !IS COMMA 
+	IS COMMA
+	STAY PRIORPOS VERB_BITS
+	STAY PRIORPOS NORMAL_NOUN_BITS PRONOUN_SUBJECT
+	STAY HAS2VERBS
+KEEP
+
+# conjunction subord wont start and be followed by comma - why (Adverb Conjunction_subordinate)  , (Comma)  
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	IS COMMA
+DISCARD
+
+# conjunction subord before verb will be pronoun subject if it can be - that/a (Pronoun_subject Conjunction_subordinate)  are/be (Aux_be_present Verb_present)  
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY HAS PRONOUN_SUBJECT
+	IS AUX_VERB VERB_BITS
+DISCARD
+
+# presume simple sentence start - when (Adverb Conjunction_subordinate)  a (Determiner)  llama (Noun_singular)  spits/spit (Noun_plural Verb_present_3ps)  
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	CANONLYBE DETERMINER_BITS ADJECTIVE_BITS
+	HAS NORMAL_NOUN_BITS
+	HAS VERB_BITS AUX_VERB
+KEEP
+
+# conjunct subord WHEN followed by personal pronoun- when (Adverb +Preposition Conjunction_subordinate)  it (Pronoun_object Pronoun_subject) 
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY ISORIGINAL when
+	CANONLYBE PRONOUN_BITS
+	STAY PARSEMARK PERSONAL_PRONOUN
+KEEP
+
+# subord possible followed by pronoun and verb, be suboord "when it rains"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+ 	STAY !HAS ADVERB
+  	CANONLYBE PRONOUN_BITS
+ 	STAY PARSEMARK PERSONAL_PRONOUN
+  	IS VERB_BITS AUX_VERB
+ KEEP
+
+# quotable verb followed by that will be conjunction_subord if followed by signs of noun pronoun "he said *that he" - but not "he said that did he"
+-1	HAS VERB_BITS
+	STAY PARSEMARK QUOTEABLE_VERB
+ 	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY ISORIGINAL that
+  	HAS DETERMINER PRONOUN_SUBJECT ADJECTIVE_BITS NOUN_BITS
+ KEEP
+
+# subord at start, where 2 verbs exist, may be subord " when (Adverb Conjunction_subordinate)  Julio (Noun_proper_singular)  turned/turn (Verb_past)" but maybe it is not
+
+# subord at start, where 2 verbs dont exist, will not be subord " how soft and white it is"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	STAY CANONLYBE CONJUNCTION_SUBORDINATE ADVERB
+	STAY !HAS2VERBS # cant find potential for 2 verb
+DISCARD
+
+# subord conjunct followed by obvious subject verb and not being prep - "when (Adverb Conjunction_subordinate)  I (Pronoun_subject)  threw/throw (Verb_past)" 
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY !START		# but not "*now he is good"
+	STAY !HAS PREPOSITION
+	IS NORMAL_NOUN_BITS
+	IS VERB_BITS
+KEEP
+
+# subord conjunct followed by obvious subject pronoun and  verb and not being prep - "when (Adverb Conjunction_subordinate)  I (Pronoun_subject)  threw/throw (Verb_past)" 
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY !START		# but not "*now he is good"
+	IS PRONOUN_SUBJECT 
+	IS VERB_BITS
+KEEP
+
+# after verb and followed by subject and verb will be conjunction " half will die *before they reach adulthood
+-1 IS VERB_BITS
+	INCLUDE * CONJUNCTION
+	IS NORMAL_NOUN_BITS PRONOUN_BITS
+	CANONLYBE VERB_BITS AUX_VERB
+KEEP
+
+# so and for must coordinate clauses, not mere words so must have a verb after.
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL so
+	STAY !POSTPOS VERB_BITS
+DISCARD
+
+# so and for must coordinate clauses, not mere words so must have a verb after.
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL for
+	STAY !POSTPOS VERB_BITS
+DISCARD
+
+
+# than followed by prep is subor conjunction with omitted sub/verb "he is taller *than in the past"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY ISORIGINAL than
+	HAS PREPOSITION
+KEEP
+
+# so that is a composite subor conjunction
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL so
+	ISORIGINAL that
+KEEP
+
+# so that is a composite subor conjunction
+-1	ISORIGINAL so
+	INCLUDE * CONJUNCTION_SUBORDINATE
+	ISORIGINAL that
+KEEP
+
+# coord conjunction before, cant be after "but if I love"
+-1 IS CONJUNCTION_COORDINATE
+	INCLUDE * CONJUNCTION_COORDINATE
+DISCARD
+
+# leading conjunction with immediate comma will not prefer adverb  -- "*however, the children not withstanding, I love him" same as "*however I love him"
+
+# as is a subordinate conjunction after 'much' or many - "he flew as much *as he could"   "he ate as many *as they saw"
+-2  ISORIGINAL as
+	HAS NOUN_BITS VERB_BITS AUX_VERB ADJECTIVE_BITS ADVERB CONJUNCTION DETERMINER_BITS  PREPOSITION
+	ISORIGINAL as
+	STAY INCLUDE * CONJUNCTION_SUBORDINATE
+	HAS NOUN_BITS PRONOUN_BITS DETERMINER_BITS ADJECTIVE_BITS 
+KEEP
+
+# then at sentence start will not be conjunction
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	STAY ISORIGINAL then
+DISCARD
+
+# that if expression "I believe *that if you come I will go"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY ISORIGINAL that
+	ISORIGINAL if
+KEEP
+
+# coordinate conjunct which could be prep cannot do near end where no verb can be "he eats dogs for food."  of course it can when cordintating single items
+# coordinate conjunct which could be prep cannot do near end where no verb can be and adj noun exists "he eats dogs for my dog."
+# coordinate conjunct which could be prep cannot do near end2 where no verb can be and adj noun exists "he eats dogs for my green dog."
+
+#####################
+## Correlating conjunctions
+#####################
+
+# qword at start wont be conjunction if followed by possible aux verb "*how can I tell"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	ISQUESTION qword # for how
+	HAS AUX_VERB
+DISCARD
+
+# cant have coordinate conjunction at end
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY END
+DISCARD
+
+# neither requires nor/or after it
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL neither
+	STAY !POSTORIGINAL or
+	STAY !POSTORIGINAL nor
+DISCARD
+
+# either requires or after it
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL either
+	STAY !POSTORIGINAL or
+DISCARD
+
+# whether requires or after it
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL whether
+	STAY !POSTORIGINAL or
+DISCARD
+
+# both requires and after it
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL both
+	STAY !POSTORIGINAL and
+DISCARD
+
+# not_only requires but_also after it
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL not_only
+	STAY !POSTORIGINAL but_also
+DISCARD
+
+# conjunction coordinate followed by subject and verb/aux will be  "he can speak *but he can not dance" - but not "*for whom do you speak"
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY !START
+	SKIP IS ADVERB ADJECTIVE_BITS
+	IS PRONOUN_BITS NOUN_BITS
+	IS AUX_VERB VERB_BITS
+KEEP
+
+############################################
+########### Rules about Subordinate conjunctions
+############################################
+
+# if something could be a conjunction subordinate and has no potential freestanding noun/pronoun after it, give it up (except stand alone gerund verb or verb-past-participle and missing subject) "I eat *until satisfied" = until I am satisfied"
+0	INCLUDE  * CONJUNCTION_SUBORDINATE
+	SKIP !HAS NOUN_BITS PRONOUN_BITS NOUN_GERUND VERB_PAST_PARTICIPLE THERE_EXISTENTIAL
+	!HAS NOUN_BITS PRONOUN_BITS NOUN_GERUND THERE_EXISTENTIAL VERB_PAST_PARTICIPLE
+DISCARD 
+
+# if something could be a conjunction subordinate and has no potential freestanding verb after it, give it up
+0	INCLUDE  * CONJUNCTION_SUBORDINATE
+	SKIP !HAS VERB_BITS NOUN_GERUND
+	!HAS VERB_BITS NOUN_GERUND
+DISCARD 
+
+# cannot have subordinate conjunction without a verb or gerund following : "he ran *after the blue ball when I threw it"  "she showed Josh *how to cross his feet, wiggle his toes, and otherwise be nice"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	SKIP !HAS VERB_BITS NOUN_GERUND    # find end of clause perhaps - "*while walking, John ran"
+	!HAS VERB_BITS NOUN_GERUND
+DISCARD
+
+# subordinate conjunction requires at least 2 verbs (main + other including gerund) somewhere in addition...
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	!HAS2VERBS
+DISCARD
+
+# conjunction subordinate followed by aux or verb will not be  "*what have you been doing" except omitted subjects "I would rather watch *than read a book"
+
+# conjunction must have a verb following it - eg NOT "they wrote that novel  - UNLESS both subject and verb omitted!!!  or a noun_gerund w subject omitted
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	SKIP !HAS VERB_BITS NOUN_GERUND
+	!HAS VERB_BITS NOUN_GERUND
+DISCARD
+
+# conjunction subor cannot preceed a participle/verb tense conflict "I want the one that *dangled high"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	HAS VERB_BITS
+	STAY IS ADJECTIVE_PARTICIPLE
+	STAY !HAS ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE   ADVERB NOUN_BITS DETERMINER_BITS PRONOUN_BITS 
+DISCARD
+
+# conjunct subor followed by potential aux will not exist (will be some kind of verb) - *who was that man
+# But aux can be legal in a clause so this rule is false
+
+# cant be conjunction without a potential verb after it or noun_gerund
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY !POSTPOS  VERB_BITS NOUN_GERUND
+DISCARD
+
+# these not after preposition or determiner
+-1	IS PREPOSITION DETERMINER
+	INCLUDE * CONJUNCTION_SUBORDINATE CONJUNCTION_COORDINATE   # (but prep can follow conjunction) LEGAL: I was home, but on the night before I wasn't.
+DISCARD
+
+# subordinate conjunction cannot be followed by pronoun object
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	IS PRONOUN_OBJECT					# after *him we left
+DISCARD
+
+# sequence conjunction subject verb  "*when I threw"
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY !HAS ADVERB # not "now I threw the ball"
+	IS PRONOUN_SUBJECT NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL THERE_EXISTENTIAL 
+	IS VERB_BITS
+KEEP
+
+########################
+# even though phrase as conjunction
+########################
+
+# even though will be adverb + conjunction
+-1	ISORIGINAL even
+	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY ISORIGINAL though
+KEEP
+
+# conjuction subordinate followed by potential pronoun subject could be conjuct  "I remembered *that he is gay",  but not "then he walked".
+
+# looks like obvious subord followed by det adj noun verb -- BUT not "*what book are you reading"
+# but avoid "*that castle is good"
+ #  BUT not "*what book are you reading"
+
+# looks like obvious subord followed by det noun verb
+# but avoid "*that castle is good"
+# When the Purple_People_Plotter plotted
+ # - BUT not "*what book are you reading"
+
+# looks like obvious subord followed by  noun verb
+# but avoid "*that castle is good" and "*now mommy ate
+
+# a potential subordinate conjuction with verb/aux following it is a good thing
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY !HAS PRONOUN_BITS	# avoid "that" which could be either  the team *that wore red
+	IS VERB_BITS AUX_VERB # LEGAL: after being reprimaned, he went home. UNKNOWN: after walking home, he left the city. is walking participle or gerund
+KEEP
+
+# if something could be a conjunction and has a freestanding noun/verb after it, be a conjunction
+# ILLEGAL: Her dress was described as flamboyant, but not today.
+
+# a potential subordinate conjunction between a noun and a potential noun phrase
+-1	IS NOUN_BITS
+	INCLUDE * CONJUNCTION_SUBORDINATE
+	IS DETERMINER_BITS ADJECTIVE_BITS NOUN_BITS
+	SKIP !HAS VERB_BITS
+	IS VERB_BITS
+KEEP
+
+########################
+#  Generic conjunction rules
+########################
+
+# never end a sentence on a conjunction: "what would I use a hammer *for"
+0	INCLUDE * CONJUNCTION
+	STAY END
+DISCARD
+
+
+# conjunction coords cannot be adjacent to each other except "but if" can be and "and although"
+
+# conjunctions subord cannot preceed conj coord (but coord can preceed subord)
+0	INCLUDE *   CONJUNCTION_SUBORDINATE
+	IS  CONJUNCTION_COORDINATE 
+DISCARD
+
+
+# conjunctions subord cannot be adjacent to each other - except " that because of" can be because because is not a conjunction, its an idiom, and "*that if you loved me"
+0	INCLUDE *   CONJUNCTION_SUBORDINATE
+	IS  CONJUNCTION_SUBORDINATE 
+	STAY !ISORIGINAL because
+	STAY !ISORIGINAL if
+DISCARD
+
+# For meaning because as conjunction.
+ # "John thought he had a good chance to get the job, *for his father was on the company's board of trustees." but not "if we go, *then we will go"
+
+########################
+# So as conjunction
+########################
+
+# potential coordinate SO requires subject- cannot coordinate words or phrases
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL so
+	!HAS NOUN_BITS PRONOUN_BITS DETERMINER_BITS CONJUNCTION_SUBORDINATE VERB_BITS # or sentence inversion "so did I"
+DISCARD
+
+
+########################
+# For as conjunction
+########################
+
+# potential coordinate For requires subject- cannot coordinate words or phrases
+0	INCLUDE * CONJUNCTION_COORDINATE
+	STAY ISORIGINAL for
+	!HAS NOUN_BITS PRONOUN_BITS DETERMINER_BITS CONJUNCTION_SUBORDINATE
+DISCARD

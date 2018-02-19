@@ -1,0 +1,123 @@
+﻿ J. ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jack ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jackson ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jacques ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaguar ( NOUN NOUN_PROPER_SINGULAR ) 
+ James ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jane ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaruzelski ( NOUN NOUN_PROPER_SINGULAR ) 
+ Javier ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jazz ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jean ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jennifer ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jerry ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jersey ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jervolino ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jihad ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jim ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jimmy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Johannesburg ( NOUN NOUN_PROPER_SINGULAR ) 
+ John ( NOUN NOUN_PROPER_SINGULAR ) 
+ Johnny ( NOUN NOUN_PROPER_SINGULAR ) 
+ Johnson ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jonathan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jones ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jorge ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jose' ( NOUN NOUN_PROPER_SINGULAR ) lemma=`Josè|José` NPR  
+ Joseph ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jospin ( NOUN NOUN_PROPER_SINGULAR ) 
+ Josè ( NOUN NOUN_PROPER_SINGULAR ) 
+ José ( NOUN NOUN_PROPER_SINGULAR ) 
+ Journal ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jovanotti ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joyce ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jugoslavia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jugovic ( NOUN NOUN_PROPER_SINGULAR ) 
+ Julia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Julio ( NOUN NOUN_PROPER_SINGULAR ) 
+ Junior ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juppe' ( NOUN NOUN_PROPER_SINGULAR ) lemma=`Juppé` NPR  
+ Juppé ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juve ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juventus ( NOUN NOUN_PROPER_SINGULAR ) 
+ jab ( NOUN NOUN_SINGULAR ) 
+ jackpot ( NOUN NOUN_SINGULAR ) 
+ jam ( NOUN NOUN_SINGULAR ) 
+ jamesiana ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesiane ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesiani ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesianissima ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesianissime ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesianissimi ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesianissimo ( ADJECTIVE ) lemma=`jamesiano` ADJ  
+ jamesiano ( ADJECTIVE ) 
+ jattura ( NOUN NOUN_SINGULAR ) 
+ jatture ( NOUN NOUN_SINGULAR ) lemma=`jattura` NOUN  
+ jazz ( NOUN NOUN_SINGULAR ) 
+ jazz-rock ( ADJECTIVE ) 
+ jazzista ( NOUN NOUN_SINGULAR ) 
+ jazzisti ( NOUN NOUN_SINGULAR ) lemma=`jazzista` NOUN  
+ jazzistica ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzistiche ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzistici ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzisticissima ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzisticissime ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzisticissimi ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzisticissimo ( ADJECTIVE ) lemma=`jazzistico` ADJ  
+ jazzistico ( ADJECTIVE ) 
+ jeans ( NOUN NOUN_SINGULAR ) 
+ jeanseria ( NOUN NOUN_SINGULAR ) 
+ jeanserie ( NOUN NOUN_SINGULAR ) lemma=`jeanseria` NOUN  
+ jeep ( NOUN NOUN_SINGULAR ) 
+ jella ( NOUN NOUN_SINGULAR ) 
+ jelle ( NOUN NOUN_SINGULAR ) lemma=`jella` NOUN  
+ jena ( NOUN NOUN_SINGULAR ) 
+ jene ( NOUN NOUN_SINGULAR ) lemma=`jena` NOUN  
+ jet ( NOUN NOUN_SINGULAR ) 
+ jet-set ( NOUN NOUN_SINGULAR ) 
+ jiddish ( ADJECTIVE ) 
+ jingle ( NOUN NOUN_SINGULAR ) 
+ jogging ( NOUN NOUN_SINGULAR ) 
+ joint ( ADJECTIVE ) 
+ joint-venture ( NOUN NOUN_SINGULAR ) 
+ joint-ventures ( NOUN NOUN_SINGULAR ) lemma=`joint-venture` NOUN  
+ jolly ( NOUN NOUN_SINGULAR ) 
+ jospiniana ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospiniane ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospiniani ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospinianissima ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospinianissime ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospinianissimi ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospinianissimo ( ADJECTIVE ) lemma=`jospiniano` ADJ  
+ jospiniano ( ADJECTIVE ) 
+ jr. ( NOUN NOUN_SINGULAR ) lemma=`junior` NOUN  
+ jugoslava ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jugoslavo`jugoslava` ADJ  NOUN  
+ jugoslave ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jugoslavo`jugoslava` ADJ  NOUN  
+ jugoslavi ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jugoslavo`jugoslavo` ADJ  NOUN  
+ jugoslavissima ( ADJECTIVE ) lemma=`jugoslavo` ADJ  
+ jugoslavissime ( ADJECTIVE ) lemma=`jugoslavo` ADJ  
+ jugoslavissimi ( ADJECTIVE ) lemma=`jugoslavo` ADJ  
+ jugoslavissimo ( ADJECTIVE ) lemma=`jugoslavo` ADJ  
+ jugoslavo ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`jugoslavo`jugoslavo` ADJ  NOUN  
+ juke-box ( NOUN NOUN_SINGULAR ) 
+ jukebox ( NOUN NOUN_SINGULAR ) 
+ jumbo ( NOUN NOUN_SINGULAR ) 
+ jungla ( NOUN NOUN_SINGULAR ) 
+ jungle ( NOUN NOUN_SINGULAR ) lemma=`jungla` NOUN  
+ junior ( ADJECTIVE ) 
+ juniores ( NOUN NOUN_SINGULAR ) 
+ junk ( ADJECTIVE ) 
+ juve ( NOUN NOUN_SINGULAR ) 
+ juventina ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juventino`juventina` ADJ  NOUN  
+ juventine ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juventino`juventina` ADJ  NOUN  
+ juventini ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juventino`juventino` ADJ  NOUN  
+ juventinissima ( ADJECTIVE ) lemma=`juventino` ADJ  
+ juventinissime ( ADJECTIVE ) lemma=`juventino` ADJ  
+ juventinissimi ( ADJECTIVE ) lemma=`juventino` ADJ  
+ juventinissimo ( ADJECTIVE ) lemma=`juventino` ADJ  
+ juventino ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`juventino`juventino` ADJ  NOUN  

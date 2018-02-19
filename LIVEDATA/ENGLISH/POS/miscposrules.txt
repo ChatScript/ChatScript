@@ -1,0 +1,239 @@
+#####################
+
+# Composite clause: after (Adjective_more Adverb_more +Preposition Conjunction_subordinate)  her/she (Pronoun_object Pronoun_possessive)  eggs/egg (Noun_plural Verb_present_3ps)  hatch (+Noun_singular Verb_infinitive Verb_present)  , (Comma)
+0	INCLUDE * CONJUNCTION_SUBORDINATE
+	STAY START
+	HAS DETERMINER ADJECTIVE_BITS NORMAL_NOUN_BITS
+	HAS NORMAL_NOUN_BITS
+	HAS VERB_BITS
+	IS COMMA
+KEEP
+
+# Composite clause: after (Adjective_more Adverb_more +Preposition Conjunction_subordinate)  her/she (Pronoun_object Pronoun_possessive)  eggs/egg (Noun_plural Verb_present_3ps)  hatch (+Noun_singular Verb_infinitive Verb_present)  , (Comma)
+-1	IS CONJUNCTION_SUBORDINATE
+	STAY START
+	INCLUDE * DETERMINER_BITS ADJECTIVE_BITS NORMAL_NOUN_BITS
+	HAS NORMAL_NOUN_BITS
+	HAS VERB_BITS
+	IS COMMA
+KEEP
+
+# Composite clause: after (Adjective_more Adverb_more +Preposition Conjunction_subordinate)  her/she (Pronoun_object Pronoun_possessive)  eggs/egg (Noun_plural Verb_present_3ps)  hatch (+Noun_singular Verb_infinitive Verb_present)  , (Comma)
+-2	IS CONJUNCTION_SUBORDINATE
+	STAY START
+	IS DETERMINER_BITS ADJECTIVE_BITS NORMAL_NOUN_BITS
+	INCLUDE * NORMAL_NOUN_BITS
+	HAS VERB_BITS
+	IS COMMA
+KEEP
+
+# Composite clause: after (Adjective_more Adverb_more +Preposition Conjunction_subordinate)  her/she (Pronoun_object Pronoun_possessive)  eggs/egg (Noun_plural Verb_present_3ps)  hatch (+Noun_singular Verb_infinitive Verb_present)  , (Comma)
+-3	IS CONJUNCTION_SUBORDINATE
+	STAY START
+	IS DETERMINER_BITS ADJECTIVE_BITS NORMAL_NOUN_BITS
+	IS NORMAL_NOUN_BITS
+	INCLUDE * VERB_BITS
+	IS COMMA
+KEEP
+
+# numerical noun one instead of pronoun "I want *one more" since referring to count
+0	INCLUDE * NOUN_SINGULAR ADJECTIVE_NUMBER
+	STAY ISORIGINAL one
+	ISORIGINAL more
+KEEP
+
+# numerical noun one instead of pronoun "I want *one less" since referring to count
+0	INCLUDE * NOUN_SINGULAR ADJECTIVE_NUMBER
+	STAY ISORIGINAL one
+	ISORIGINAL less
+KEEP
+
+# numerical noun one instead of pronoun "I want *one fewer" since referring to count
+0	INCLUDE * NOUN_SINGULAR ADJECTIVE_NUMBER
+	STAY ISORIGINAL one
+	ISORIGINAL fewer
+KEEP
+
+# what at sentence start before potential noun and then potential aux or verb will be determiner "*what color is your parachute" or conjunction
+ 0 INCLUDE * DETERMINER CONJUNCTION_SUBORDINATE
+   STAY ISORIGINAL what
+   STAY START
+   HAS NORMAL_NOUN_BITS
+   IS AUX_VERB VERB_BITS
+KEEP
+
+# which at sentence start before potential noun and then potential aux or verb will be determiner "*what color is your parachute" or conjunction
+0 INCLUDE * DETERMINER CONJUNCTION_SUBORDINATE
+   STAY ISORIGINAL which
+   STAY START
+   HAS NORMAL_NOUN_BITS
+   IS AUX_VERB VERB_BITS
+KEEP
+
+# keep bunch of things following be "My former roommate who was also my landlord physically *attacked me"
+REVERSE 0 INCLUDE *  VERB_PRESENT_PARTICIPLE  NOUN_GERUND ADJECTIVE_PARTICIPLE VERB_PAST_PARTICIPLE VERB_PAST
+	STAY !HAS AUX_VERB  
+	SKIP IS ADVERB NOUN_BITS PRONOUN_BITS DETERMINER_BITS
+	HAS AUX_VERB			 # are you most closely attached to this
+	STAY ISCANONICAL be
+KEEP  # who was the meat eaten by
+
+# can ONLY have present/past participle  (or adjective participle) with statement after be/was   "I am {often} *going" -- but "I am *being taken" means could also be aux4  EXCEPT can be adjective_participle
+REVERSE 0	INCLUDE * VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE  AUX_VERB AUX_BE ADJECTIVE_PARTICIPLE
+	SKIP IS ADVERB
+	ISCANONICAL be
+KEEP
+
+# prep /conjunc before noun-gerund will be one of those instead of anything else - "I remembered to eat *after walking home"
+0	INCLUDE * PREPOSITION CONJUNCTION_SUBORDINATE
+	STAY !CANONLYBE  PREPOSITION CONJUNCTION_SUBORDINATE
+	IS NOUN_GERUND
+KEEP
+
+
+# noun infinitive after and when prior was noun_infinitve  "He likes to walk and "swim"
+-2	IS NOUN_INFINITIVE
+	ISORIGINAL and
+	INCLUDE * NOUN_INFINITIVE VERB_INFINITIVE
+KEEP
+
+# set infinitive when comes after object after  special verb 
+REVERSE	0  INCLUDE * NOUN_INFINITIVE VERB_INFINITIVE
+	STAY !HAS PARTICLE	# not "shall we let it *out"
+	IS NOUN_BITS PRONOUN_OBJECT
+	SKIP IS NOUN_DESCRIPTION_BITS
+	HASCANONICALPROPERTY VERB_TAKES_VERBINFINITIVE  
+KEEP
+
+# set noun-infinitive after potential TO if this word could be infinitive and TO-infinitive can preceed it w optional adverb, make this infinitive - except as prep also - but not if following is also a verb (we must be aux) "it was taken to *be opened"
+REVERSE -1 !HAS VERB_BITS
+	INCLUDE  * NOUN_INFINITIVE  VERB_INFINITIVE
+	STAY !HAS NOUN_SINGULAR NOUN_PLURAL # not "He wore fins *to class".  Prefer regualar noun to TO infinitive noun.
+	SKIP IS ADVERB
+	HAS TO_INFINITIVE #   "This is the way *to go." 
+ KEEP 
+
+# noun infinitive having to before it will be. "the workers tried to *lift it"  -- but not "it was taken to *be opened"
+REVERSE -1	!HAS VERB_BITS
+	 INCLUDE * NOUN_INFINITIVE VERB_INFINITIVE
+	SKIP IS ADVERB
+	IS TO_INFINITIVE
+KEEP
+
+# wont be verb after clearly determined "they are not the  *bugs" - but  "that john is very fat *runs counter to what we know"
+-1	IS DETERMINER_BITS 
+	INCLUDE * VERB_BITS  
+DISCARD
+
+# wont be verb after clearly determined "they are not the nice *bugs" - but  "that john is very fat *runs counter to what we know"
+-2	IS DETERMINER_BITS 
+	IS ADJECTIVE_BITS DETERMINER
+	INCLUDE * VERB_BITS  
+DISCARD
+
+# wont be verb after clearly determined determined "they are not the very nice *bugs" - but  "that john is very fat *runs counter to what we know"
+-3	IS DETERMINER_BITS 
+	IS ADJECTIVE_BITS ADVERB DETERMINER # "the most materialistic in"  subject complemnt could well have prep or conjucnt.
+	IS ADJECTIVE_BITS
+	INCLUDE * VERB_BITS  
+DISCARD
+
+# noun/adjective conflict following determiner and not resolved later as noun, must be noun now: "they wrote that *novel together" (or pronoun like "the *one")
+-1	IS DETERMINER ADJECTIVE_BITS
+	INCLUDE * NOUN_BITS PRONOUN_BITS
+	STAY CANONLYBE ADJECTIVE_BITS NOUN_BITS
+	SKIP !HAS NOUN_BITS
+	!HAS NOUN_BITS
+KEEP
+
+# pronoun object after verb or aux will be real "this is *nothing special" or adverb or possessive pronoun - EXCEPT if can be determiner "who will hang *this bell"
+     # except "kate threw it at *her dog"
+
+# pronoun object after prep will be real "this is *nothing special" or adverb or possessive pronoun
+   # except "kate threw it at *her dog"
+
+# sequence conjunction subject verb  "when *I threw"
+-1	IS CONJUNCTION_SUBORDINATE
+	INCLUDE * PRONOUN_SUBJECT NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL THERE_EXISTENTIAL
+	IS VERB_BITS
+KEEP
+
+# sequence conjunction subject verb  "when I *threw" but not if it could be noun also "although US *corn stockpiles grew"
+-2	IS CONJUNCTION_SUBORDINATE
+	IS PRONOUN_SUBJECT NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL 
+	INCLUDE * VERB_BITS AUX_VERB
+	STAY !HAS NOUN_BITS
+KEEP
+
+# omited noun people "the *beautiful eat well"
+-1 ISORIGINAL the
+	INCLUDE * ADJECTIVE_NORMAL NORMAL_NOUN_BITS PRONOUN_BITS
+	IS TO_INFINITIVE PREPOSITION AUX_VERB VERB_BITS
+KEEP
+
+# omited noun people "the *beautiful often eat well"
+-1 ISORIGINAL the
+	INCLUDE * ADJECTIVE_NORMAL NORMAL_NOUN_BITS PRONOUN_BITS
+	IS ADVERB
+	IS VERB_BITS
+KEEP
+
+# st
+############################################
+########### Rules about stuff around determiners
+############################################
+
+# clear path1 to noun after determiner/possessive
+-1 IS DETERMINER_BITS
+	INCLUDE * PRONOUN_BITS NORMAL_NOUN_BITS ADJECTIVE_BITS ADVERB 
+	STAY !HAS DETERMINER_BITS PREPOSITION
+	HAS  PRONOUN_BITS NORMAL_NOUN_BITS ADJECTIVE_BITS
+KEEP
+
+# clear path2 to noun after determiner/possessive
+-2 IS DETERMINER_BITS
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS  TO_INFINITIVE  PREPOSITION CONJUNCTION
+	INCLUDE * PRONOUN_BITS NORMAL_NOUN_BITS ADJECTIVE_BITS ADVERB CONJUNCTION_COORDINATE 
+	STAY !HAS DETERMINER_BITS PREPOSITION
+KEEP
+
+# clear path3 to noun after determiner/possessive not "cost is the highest for *any asbestos worker studied" - but not "the most materialistic *in the 14 markets"
+-3 IS DETERMINER_BITS
+	!HAS NORMAL_NOUN_BITS PRONOUN_BITS TO_INFINITIVE PREPOSITION CONJUNCTION
+	!HAS NORMAL_NOUN_BITS  PRONOUN_BITS  TO_INFINITIVE  PREPOSITION CONJUNCTION
+	INCLUDE * PRONOUN_BITS NORMAL_NOUN_BITS ADJECTIVE_BITS ADVERB  CONJUNCTION_COORDINATE 
+	STAY !HAS DETERMINER_BITS PREPOSITION
+KEEP
+
+
+############################################
+########### Rules about commas
+############################################
+
+# determiner and conjunction and preposition and cannot preceed comma  -- conjunction coordinate can "But, he was certain" but it CAN! "remember *that, although fun, we eat"
+ # but to-infintive can:  I like to, as they say, go home.
+
+############################################
+########### Rules on combinations
+############################################
+
+
+# potential relative adverb in front of noun or pronoun could be a clause starter adverb or conjunction if it can be "*what they found thrilled them"  (relative adverb) or "I saw him when he ate dinner"
+# but not "jacked stopped *when seeing it
+0	INCLUDE * ADVERB CONJUNCTION_SUBORDINATE DETERMINER_BITS PRONOUN_BITS # or "I like *what I ate"  as object of clause
+	STAY PARSEMARK POTENTIAL_CLAUSE_STARTER
+	IS PRONOUN_BITS ADJECTIVE_BITS NOUN_BITS - NOUN_GERUND - NOUN_INFINITIVE DETERMINER_BITS PRONOUN_POSSESSIVE
+KEEP
+
+# conjoined potential noun or verb and pronoun - cant conjoin adjective and pronoun - false: Legal::  The can is open and we can eat 
+# potential adjective or adverb or noun following aux be (not a verb)	# They were (outmoded). But... the men who were *dressed in red ate first
+
+# potential noun/adjective/participle following aux be, but adverb and not followed by potential adjective or adverb - but not "been being"
+-1	ISCANONICAL be # 	# LEGAL: There is nothing here.  All cars were going to the store. ILLEGAL: They were now certain. 
+	STAY IS AUX_VERB
+	INCLUDE *  NOUN_BITS ADJECTIVE_BITS VERB_PRESENT_PARTICIPLE  VERB_PAST_PARTICIPLE
+	STAY !ISORIGINAL being
+	STAY HAS ALL - NOUN_BITS - ADJECTIVE_BITS - VERB_PRESENT_PARTICIPLE  - VERB_PAST_PARTICIPLE
+	STAY !HAS ADVERB
+	!HAS ADJECTIVE_BITS ADVERB 
+KEEP  

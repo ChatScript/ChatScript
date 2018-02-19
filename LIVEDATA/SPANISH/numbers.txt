@@ -1,0 +1,63 @@
+﻿# FILE CONTENT Courtesy of Kevin Crooks 2017
+
+# REAL_NUMBER is a word that directly represents a number, like two
+# WORD_NUMBER is a word that implies a number value, like dozen
+# FRACTION_NUMBER is a word that implies a faction value like half
+cero 0 REAL_NUMBER
+uno 1 REAL_NUMBER
+una 1 REAL_NUMBER
+ún 1 REAL_NUMBER
+dos 2  REAL_NUMBER 
+tres 3  REAL_NUMBER 
+cuatro 4  REAL_NUMBER 
+cinco 5  REAL_NUMBER 
+seis 6  REAL_NUMBER 
+siete 7  REAL_NUMBER  
+ocho 8  REAL_NUMBER 
+nueve 9  REAL_NUMBER  
+diez 10  REAL_NUMBER 
+once 11  REAL_NUMBER  
+doce 12  REAL_NUMBER  
+docena 12  REAL_NUMBER  
+trece 13  REAL_NUMBER 
+catorce 14  REAL_NUMBER 
+quince 15  REAL_NUMBER 
+dieciséis 16  REAL_NUMBER 
+diecisiete 17  REAL_NUMBER 
+dieciocho 18  REAL_NUMBER 
+diecinueve 19 REAL_NUMBER 
+veinte 20  REAL_NUMBER
+veintiuno 21  REAL_NUMBER
+veintiuna 21  REAL_NUMBER
+veintiún 21  REAL_NUMBER
+veintidós 22  REAL_NUMBER
+veintitrés 23  REAL_NUMBER
+veinticuatro 24  REAL_NUMBER
+veinticinco 25  REAL_NUMBER
+veintiséis 26  REAL_NUMBER
+veintisiete 27  REAL_NUMBER
+veintiocho 28  REAL_NUMBER
+veintinueve 29  REAL_NUMBER
+treinta 30  REAL_NUMBER 
+cuarenta 40  REAL_NUMBER 
+cincuenta 50  REAL_NUMBER 
+sesenta 60  REAL_NUMBER 
+setenta 70  REAL_NUMBER 
+ochenta 80  REAL_NUMBER 
+noventa 90  REAL_NUMBER 
+ciento 100  REAL_NUMBER 
+cienta 100  REAL_NUMBER 
+cien 100  REAL_NUMBER 
+cientos 100  REAL_NUMBER 
+doscientos 200  REAL_NUMBER 
+trescientos 300  REAL_NUMBER 
+cuatrocientos 400  REAL_NUMBER 
+quinientos 500  REAL_NUMBER 
+seiscientos 600  REAL_NUMBER 
+setecientos 700  REAL_NUMBER 
+ochocientos 800  REAL_NUMBER 
+novecientos 900  REAL_NUMBER 
+mil 1000  REAL_NUMBER 
+millón 1000000 REAL_NUMBER 
+millones 1000000 REAL_NUMBER 
+billón 1000000000  REAL_NUMBER  

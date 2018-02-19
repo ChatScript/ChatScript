@@ -1,0 +1,188 @@
+:user test
+
+:reset
+
+# 2016 Loebner questions
+My name is Andrew, whats yours?
+Whats up?
+Whats my name?
+What do you know about the Turing Test?
+What do you get if you multiply six by nine?
+Dave drove faster than Mike because he was in a rush. Who was in a rush?
+The cat tried to climb in the box but got stuck because it was too big. What was too big?
+What does Brexit mean?
+For how long have we been talking?
+What colour is bread?
+Why do people get ulcers?
+What comes after "The best laid plans"?
+Do you have a voice?
+Would you like a cup of tea?
+Do you dream of electric sheep?
+Do you identify as a man , or a woman?
+Could you repeat that please?
+Where are you right now?
+How do you respond to "e4 e5"?
+What can you tell me about yourself?
+
+:reset
+
+# 2015 Loebner questions
+Hi, I'm Andrew. Who are you?
+How are you today?
+Are you a human?
+Can you answer this question?
+Do you like tea?
+If a bed doesn't fit in a room because it's too big, what is too big?
+If Alex lent money to Joe because they were broke, who needed the money?
+Should Greece leave the Euro?
+How many words are in this question?
+What colour is the sea?
+How many presidents of the US were called Bush?
+What would you like to drink?
+Will you please tell me the length of your hair?
+What would you say if I gave you a box of chocolates?
+Do you play Chess?
+How do you think it's going?
+What was my first question?
+Did you see the Turing film?
+Why not?
+Are you on Twitter?
+:reset
+
+
+# 2007 LOEBNER
+What time is it? 
+Is it morning, noon, or night? 
+What is a hammer? 
+What would I use a hammer for? 
+Of what use is a taxi? 
+which is bigger, a grape or a grapefruit? 
+Which is faster, a train or a plane? 
+John is older than Mary, and Mary is older than Sarah. Which of them is the oldest? 
+I have a friend named Harry who likes to play tennis. 
+What is the name of the friend I just told you about? 
+Do you know what game Harry likes to play? 
+:reset
+
+
+# 2010 loebner
+My name is Ed. What is your name?
+Which is larger, an ant or an anteater?
+What month of the year is it?
+What is my name?
+Dave is older than Steve but Steve is older than Jane. Who is youngest, Steve or Jane?
+Who is oldest?
+What day will it be tomorrow?
+What's your favorite food?
+My friend Chris likes to play football. What sports do you like to play?
+Are you a human or a computer?
+What letter comes after T?
+Who likes to play football?
+What does Chris like to play?
+What is the name of my friend who likes to play football?
+What is your name?
+What would I do with a screwdriver?
+How many letters are in the word 'banana'?
+Have you watched a good film lately?
+What year will it be next year?
+What's your favorite fruit?
+Do you prefer white or black coffee?
+The football was kicked by Fred. Who kicked the football?
+What did Fred kick?
+:reset
+
+
+#2011 LOEBNER
+My name is Bill. What is your name?
+Which is larger, a pineapple or a pine tree?
+What is a calendar?
+What is my name?
+John is taller than Mary and Mary is taller than Sue. Who is shorter, John or Sue?
+Who is taller, Mary or Sue?
+Who is the tallest?
+What day of the week is it?
+What will be tomorrow's date?
+My friend Bob likes to play tennis. What game does Bob like to play?
+Are you a human or a computer?
+Do you have any brothers or sisters?
+What number comes after twelve?
+The ball was hit by Bill. What did Bill hit?
+Who hit the ball?
+What time do you go to bed at night?
+What is your favorite food?
+What is the name of my friend who likes to play tennis?
+What does Bob like to play?
+What would I do with a knife?
+How many letters are in the alphabet?
+Have you read a good book lately?
+What time is it?
+What's your favorite color?
+Do you prefer cats or dogs?
+:reset
+
+#2012 LOEBNER
+My name is Bill. What is your name?  
+How many letters are there in the name Bill?  
+How many letters are there in my name? 
+Which is larger, an apple or a watermelon?  
+How much is 3 + 2?  
+How much is three plus two?  
+What is my name? 
+If John is taller than Mary, who is the shorter? 
+If it were 3:15 AM now, what time would it be in 60 minutes? 
+My friend John likes to fish for trout.  What does John like to fish for? 
+What number comes after seventeen?  
+What is the name of my friend who fishes for trout? 
+What would I use to put a nail into a wall? 
+What is the 3rd letter in the alphabet?  
+What time is it now?
+:reset
+
+
+
+# 2013 Loebner questions
+ Hello I'm Ronan. What is your name?
+ What is your mother's name?
+ What is your birth sign?
+ How many children do you have?
+ Do you prefer red or white wine?
+ I like bananas. Which is your favorite fruit?
+ What music do you like?
+ What is your favorite song?
+ I like Waiting for Godot. What is your favorite play?
+ What color do you dye your hair?
+ Do you remember my name?
+ Where do you live?
+ Where do you like to go on holidays?
+ I have a Mazda. What make of car do you have?
+ I like Linux. Which computer operating system do you like?
+ I am an athiest. Which religion are you?
+ Who invented the telephone?
+ I am a Type B personality. Which type are you?
+ What emotions are you now feeling?
+ What time do you usually go to bed?
+:reset
+
+
+# 2014 Loebner questions
+Hello, my name is Adam. What is your name?
+I live in Exeter in the UK. Where do you live?
+I like to listen to music and play football.  Do you have any hobbies?
+What is your favourite television program?
+Which is bigger, a cat or a kitten?
+The car couldn’t fit into the parking space because it was too small.  What was too small?
+Which drink do you prefer, coffee, tea or hot chocolate?
+What’s my name?
+Where do I live?
+I like reading science fiction books and car magazines.  What do you like to read?
+What’s the weather like where you are?
+I recently visited New York.  Where is your favourite place to visit and why?
+How many letters are there in the word perambulate?
+Andy is shorter than Mark and Tom is shorter than Andy.  Who is the tallest?
+Are you married?
+What would I do with a spade?
+What is the capital city of Colombia?
+What’s your favourite chocolate bar?
+Which city did I visit recently?
+How many siblings do you have?
+:reset

@@ -1,0 +1,11 @@
+yen ~yen
+eur ~eur
+inr ~inr
+usd ~usd
+$ ~usd
+gbp ~gbp
+cny ~cny
+cad ~cad
+cent ~cent
+cents ~cent
+aud ~aud

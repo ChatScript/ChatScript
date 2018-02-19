@@ -1,0 +1,190 @@
+﻿ H. ( NOUN NOUN_PROPER_SINGULAR ) 
+ Haider ( NOUN NOUN_PROPER_SINGULAR ) 
+ Haiti ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hakkinen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hall ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hamas ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hammamet ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hannover ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hans ( NOUN NOUN_PROPER_SINGULAR ) 
+ Harold ( NOUN NOUN_PROPER_SINGULAR ) 
+ Harris ( NOUN NOUN_PROPER_SINGULAR ) 
+ Harrison ( NOUN NOUN_PROPER_SINGULAR ) 
+ Harry ( NOUN NOUN_PROPER_SINGULAR ) 
+ Harvard ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hassan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Havel ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hebron ( NOUN NOUN_PROPER_SINGULAR ) 
+ Heidegger ( NOUN NOUN_PROPER_SINGULAR ) 
+ Helmut ( NOUN NOUN_PROPER_SINGULAR ) 
+ Helsinki ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hemingway ( NOUN NOUN_PROPER_SINGULAR ) 
+ Henri ( NOUN NOUN_PROPER_SINGULAR ) 
+ Henry ( NOUN NOUN_PROPER_SINGULAR ) 
+ Herald ( NOUN NOUN_PROPER_SINGULAR ) 
+ Herbert ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hezbollah ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hill ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hillary ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hills ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hitchcock ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hitler ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hodgson ( NOUN NOUN_PROPER_SINGULAR ) 
+ Holding ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hollywood ( NOUN NOUN_PROPER_SINGULAR ) 
+ Honda ( NOUN NOUN_PROPER_SINGULAR ) 
+ Honecker ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hong ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hotel ( NOUN NOUN_PROPER_SINGULAR ) 
+ House ( NOUN NOUN_PROPER_SINGULAR ) 
+ Houston ( NOUN NOUN_PROPER_SINGULAR ) 
+ Howard ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hugo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Hussein ( NOUN NOUN_PROPER_SINGULAR ) 
+ ha ( VERB ) lemma=`avere`avere` AUX:fin  VER:fin  
+ habitat ( NOUN NOUN_SINGULAR ) 
+ habitue' ( NOUN NOUN_SINGULAR ) lemma=`habitué` NOUN  
+ habitué ( NOUN NOUN_SINGULAR ) 
+ hacker ( NOUN NOUN_SINGULAR ) 
+ hackers ( NOUN NOUN_SINGULAR ) lemma=`hacker` NOUN  
+ hai ( VERB ) lemma=`avere`avere` AUX:fin  VER:fin  
+ haiderizzata ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzate ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzati ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzatissima ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzatissime ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzatissimi ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzatissimo ( ADJECTIVE ) lemma=`haiderizzato` ADJ  
+ haiderizzato ( ADJECTIVE ) 
+ haitiana ( ADJECTIVE ) lemma=`haitiano` ADJ  
+ haitiane ( ADJECTIVE ) lemma=`haitiano` ADJ  
+ haitiani ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`haitiano`haitiano` ADJ  NOUN  
+ haitianissima ( ADJECTIVE ) lemma=`haitiano` ADJ  
+ haitianissime ( ADJECTIVE ) lemma=`haitiano` ADJ  
+ haitianissimi ( ADJECTIVE ) lemma=`haitiano` ADJ  
+ haitianissimo ( ADJECTIVE ) lemma=`haitiano` ADJ  
+ haitiano ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`haitiano`haitiano` ADJ  NOUN  
+ hall ( NOUN NOUN_SINGULAR ) 
+ hamburger ( NOUN NOUN_SINGULAR ) 
+ han ( NOUN VERB NOUN_SINGULAR ) lemma=`avere`han`avere` AUX:fin  NOUN  VER:fin  
+ handicap ( NOUN NOUN_SINGULAR ) 
+ handicappa ( VERB ) lemma=`handicappare` VER:fin  
+ handicappai ( VERB ) lemma=`handicappare` VER:fin  
+ handicappammo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappan ( VERB ) lemma=`handicappare` VER:fin  
+ handicappando ( NOUN NOUN_GERUND ) lemma=`handicappare` VER:geru  
+ handicappano ( VERB ) lemma=`handicappare` VER:fin  
+ handicappante ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`handicappare` VER:ppre  
+ handicappanti ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`handicappare` VER:ppre  
+ handicappar ( VERB_INFINITIVE VERB ) lemma=`handicappare` VER:infi  
+ handicappare ( VERB_INFINITIVE VERB ) 
+ handicapparon ( VERB ) lemma=`handicappare` VER:fin  
+ handicapparono ( VERB ) lemma=`handicappare` VER:fin  
+ handicappasse ( VERB ) lemma=`handicappare` VER:fin  
+ handicappasser ( VERB ) lemma=`handicappare` VER:fin  
+ handicappassero ( VERB ) lemma=`handicappare` VER:fin  
+ handicappassi ( VERB ) lemma=`handicappare` VER:fin  
+ handicappassimo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappaste ( VERB ) lemma=`handicappare` VER:fin  
+ handicappasti ( VERB ) lemma=`handicappare` VER:fin  
+ handicappata ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`handicappato`handicappare` ADJ  VER:ppast  
+ handicappate ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`handicappato`handicappare`handicappare` ADJ  VER:fin  VER:ppast  
+ handicappati ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`handicappato`handicappato`handicappare` ADJ  NOUN  VER:ppast  
+ handicappatissima ( ADJECTIVE ) lemma=`handicappato` ADJ  
+ handicappatissime ( ADJECTIVE ) lemma=`handicappato` ADJ  
+ handicappatissimi ( ADJECTIVE ) lemma=`handicappato` ADJ  
+ handicappatissimo ( ADJECTIVE ) lemma=`handicappato` ADJ  
+ handicappato ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`handicappato`handicappato`handicappare` ADJ  NOUN  VER:ppast  
+ handicappava ( VERB ) lemma=`handicappare` VER:fin  
+ handicappavamo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappavan ( VERB ) lemma=`handicappare` VER:fin  
+ handicappavano ( VERB ) lemma=`handicappare` VER:fin  
+ handicappavate ( VERB ) lemma=`handicappare` VER:fin  
+ handicappavi ( VERB ) lemma=`handicappare` VER:fin  
+ handicappavo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappera' ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperai ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperan ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperanno ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperebbe ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperebber ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperebbero ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperei ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperemmo ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperemo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappereste ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperesti ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperete ( VERB ) lemma=`handicappare` VER:fin  
+ handicappero' ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperà ( VERB ) lemma=`handicappare` VER:fin  
+ handicapperò ( VERB ) lemma=`handicappare` VER:fin  
+ handicappi ( VERB ) lemma=`handicappare` VER:fin  
+ handicappiamo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappiate ( VERB ) lemma=`handicappare` VER:fin  
+ handicappin ( VERB ) lemma=`handicappare` VER:fin  
+ handicappino ( VERB ) lemma=`handicappare` VER:fin  
+ handicappo ( VERB ) lemma=`handicappare` VER:fin  
+ handicappo' ( VERB ) lemma=`handicappare` VER:fin  
+ handicappò ( VERB ) lemma=`handicappare` VER:fin  
+ hangar ( NOUN NOUN_SINGULAR ) 
+ hanno ( VERB ) lemma=`avere`avere` AUX:fin  VER:fin  
+ happening ( NOUN NOUN_SINGULAR ) 
+ harakiri ( NOUN NOUN_SINGULAR ) 
+ hard ( ADJECTIVE ) 
+ hard-rock ( ADJECTIVE ) 
+ hardware ( NOUN NOUN_SINGULAR ) 
+ hardwares ( NOUN NOUN_SINGULAR ) lemma=`hardware` NOUN  
+ harem ( NOUN NOUN_SINGULAR ) 
+ hegeliana ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegeliane ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegeliani ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegelianissima ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegelianissime ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegelianissimi ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegelianissimo ( ADJECTIVE ) lemma=`hegeliano` ADJ  
+ hegeliano ( ADJECTIVE ) 
+ heiderian-lepenista ( ADJECTIVE ) 
+ heiderian-lepeniste ( ADJECTIVE ) lemma=`heiderian-lepenista` ADJ  
+ heiderian-lepenisti ( ADJECTIVE ) lemma=`heiderian-lepenista` ADJ  
+ heiderian-lepenistissima ( ADJECTIVE ) lemma=`heiderian-lepenista` ADJ  
+ heiderian-lepenistissime ( ADJECTIVE ) lemma=`heiderian-lepenista` ADJ  
+ heiderian-lepenistissimi ( ADJECTIVE ) lemma=`heiderian-lepenista` ADJ  
+ heiderian-lepenistissimo ( ADJECTIVE ) lemma=`heiderian-lepenista` ADJ  
+ hezbollah ( NOUN NOUN_SINGULAR ) 
+ hi-tech ( ADJECTIVE ) 
+ hindu' ( ADJECTIVE ) lemma=`hindù` ADJ  
+ hindù ( ADJECTIVE ) 
+ hippies ( NOUN NOUN_SINGULAR ) lemma=`hippy` NOUN  
+ hippy ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`hippy`hippy` ADJ  NOUN  
+ hit ( NOUN NOUN_SINGULAR ) 
+ hit-parade ( NOUN NOUN_SINGULAR ) 
+ hitleriana ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitleriane ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitleriani ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitlerianissima ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitlerianissime ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitlerianissimi ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitlerianissimo ( ADJECTIVE ) lemma=`hitleriano` ADJ  
+ hitleriano ( ADJECTIVE ) 
+ ho ( VERB ) lemma=`avere`avere` AUX:fin  VER:fin  
+ hobbies ( NOUN NOUN_SINGULAR ) lemma=`hobby` NOUN  
+ hobby ( NOUN NOUN_SINGULAR ) 
+ holding ( NOUN NOUN_SINGULAR ) 
+ hollywoodiana ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodiane ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodiani ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodianissima ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodianissime ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodianissimi ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodianissimo ( ADJECTIVE ) lemma=`hollywoodiano` ADJ  
+ hollywoodiano ( ADJECTIVE ) 
+ home ( NOUN NOUN_SINGULAR ) 
+ hooligan ( NOUN NOUN_SINGULAR ) 
+ hooligans ( NOUN NOUN_SINGULAR ) lemma=`hooligan` NOUN  
+ horror ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`horror`horror` ADJ  NOUN  
+ hotel ( NOUN NOUN_SINGULAR ) 
+ house ( ADJECTIVE ) 
+ hub ( NOUN NOUN_SINGULAR ) 
+ humor ( NOUN NOUN_SINGULAR ) 
+ humour ( NOUN NOUN_SINGULAR ) 
+ humus ( NOUN NOUN_SINGULAR ) 

@@ -1,0 +1,2 @@
+cd ../BINARIES
+ChatScript boottrace 

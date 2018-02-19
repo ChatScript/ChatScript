@@ -1,0 +1,44 @@
+##<<ENGLISH concept: ~modifyabletimenoun (second minute hour day week month year century millenia weekend morning afternoon evening night semester term season session) ##>>
+##<<ENGLISH concept: ~timeadvmodifier (before ago later earlier after hence  ) ##>> # post time modifier time expressions for parser
+
+##<<ENGLISH concept: ~modifyabledistancenoun (furlong mile kilometer inch foot yard centimeter meter lightyear) ##>>
+##<<ENGLISH concept: ~distancemodifier(behind away ahead under after) ##>> # post distance modifier distance expressions for parser
+
+##<<ENGLISH concept: ~adverblist (~CAUSAL_ADVERBS ~CERTAINTY_ADVERBS ~COMMENTING_ADVERBS ~COMPARISON_ADVERBS ~CONDITION_ADVERBS ~CONJUNCTIVE_ADVERBS ~DEGREE_ADVERBS ~EXPLANATORY_ADVERBS ~HOW_ADVERBS 
+          ~PLACE_ADVERBS ~PURPOSE_ADVERBS ~QUESTION_ADVERBS ~RESULT_ADVERBS ~SUPPOSITION_ADVERBS ~TIME_ADVERBS ~VIEWPOINT_ADVERBS ) ##>>
+##<<ENGLISH concept: ~always (always constantly ) ##>>
+##<<ENGLISH concept: ~causal_adverbs (as_a_result_of~b because_of~b because~b due_to_the_fact_that~b due_to~b since~b ) ##>>
+##<<ENGLISH concept: ~certainty_adverbs (certainly~b definitely~b probably~b surely~b undoubtedly~b ) ##>>
+##<<ENGLISH concept: ~commenting_adverbs (certainly~b definitely~b obviously~b simply~b ) ##>>
+##<<ENGLISH concept: ~comparative_degree_adverbs (as~b than~b ) ##>>
+##<<ENGLISH concept: ~comparative_manner_adverbs (as~b ) ##>>
+##<<ENGLISH concept: ~comparison_adverbs (~COMPARATIVE_DEGREE_ADVERBS ~COMPARATIVE_MANNER_ADVERBS ) ##>>
+##<<ENGLISH concept: ~condition_adverbs (if~b on_condition_that~b unless~b whether~b ) ##>>
+##<<ENGLISH concept: ~conjunctive_adverbs (consequently~b furthermore~b however~b likewise~b meanwhile~b moreover~b nevertheless~b otherwise~b sides~b still~b therefore~b ) ##>>
+##<<ENGLISH concept: ~degree_adverbs (all~b almost~b completely~b enough~b especially~b extremely~b fairly~b hardly~b just~b nearly~b particularly~b pretty~b quite~b rather~b scarcely~b too~b very~b ) ##>>
+##<<ENGLISH concept: ~duration_adverbs (for_a_while~b ) ##>>
+##<<ENGLISH concept: ~explanatory_adverbs (as_that~b because~b since~b ) ##>>
+##<<ENGLISH concept: ~extent_adverbs (all~b  almost~b badly~b barely~b bare~b basically~b beyond~b brief~b completely~b deeply~b enough~b entirely~b especially~b exactly~b exact~b extremely~b fairly~b 
+          fully~b further~b halfway~b hardly~b heavily~b high~b how~b just~b kind~b lack~b lightly~b little~b long~b lot~b low~b merely~b mid~b mostly~b much~b nearly~b nothing~b  
+          only~b over~b particularly~b plenty~b practically~b pretty~b quite~b rather~b really~b  scarcely~b seriously~b serious~b short~b simply~b slightly~b slight~b somewhat~b so~b too~b totally~b under~b 
+          very~b within~b ) ##>> # do not add less or more as that breaks comparison analysis
+##<<ENGLISH concept: ~frequency_adverbs (~ALWAYS ~NEVER ~OFTEN ~RARELY daily~b ever~b habitually~b monthly~b steadily~b times~b weekly~b yearly~b ) ##>>
+##<<ENGLISH concept: ~how_adverbs (aggressively~b badly~b beautifully~b carefully~b else~b fast~b freely~b gently~b gradually~b greatly~b greedily~b happily~b hard~b loudly~b passively~b patiently~b 
+          poorly~b quickly~b quietly~b rapidly~b sadly~b safely~b slowly~b softly~b well~b immediately~b stat instantly~b) ##>>
+##<<ENGLISH concept: ~inversion_adverbs (in_no_circumstances~b never~b no_sooner~b not_only~b nowhere~b on_no_account~b only_then~b scarcely~b seldom~b under_no_circumstance~b ) ##>>
+##<<ENGLISH concept: ~speed_adverbs (rapidly slowly speedily lazily efficiently ) ##>>
+##<<ENGLISH concept: ~never (never ) ##>>
+##<<ENGLISH concept: ~often (a_lot commonly~b frequently~b generally~b many_times normally~b often~b regularly~b typically usually lots ) ##>>
+##<<ENGLISH concept: ~place_adverbs (about~b above~b abroad~b across~b ahead~b along~b around~b away~b backwards~b back~b behind~b below~b by~b downhill~b downwards~b down~b eastwards~b everywhere~b 
+          forwards~b here~b homewards~b home~b indoors~b inwards~b in~b nearby~b northwards~b nowhere~b off~b onwards~b on~b outdoors~b outside~b outwards~b out~b overseas~b over~b 
+          round~b sideways~b southwards~b there~b through~b under~b uphill~b upwards~b up~b westwards~b ) ##>>
+##<<ENGLISH concept: ~purpose_adverbs (because~b in_order_that~b in_order_to~b lest~b so~b ) ##>>
+##<<ENGLISH concept: ~question_adverbs (how~b when~b where~b why~b ) ##>>
+##<<ENGLISH concept: ~rarely (every_now_and_then~b from_time_to_time~b occasionally once once_in_a_while~b rarely sometimes~b twice ) ##>>
+##<<ENGLISH concept: ~result_adverbs (and_so~b and_therefore~b hence~b so_that~b so~b therefore~b ) ##>>
+##<<ENGLISH concept: ~sequence_adverbs (first~b fourth~b second~b third~b ) ##>>
+##<<ENGLISH concept: ~supposition_adverbs (although~b even_if~b though~b ) ##>>
+##<<ENGLISH concept: ~time_adverbs (~DURATION_ADVERBS ~FREQUENCY_ADVERBS ~SEQUENCE_ADVERBS ~WHEN_ADVERBS ) ##>>
+##<<ENGLISH concept: ~viewpoint_adverbs (clearly~b confidentially~b economically~b fortunately~b honestly~b ideally~b obviously~b officially~b personally~b seriously~b surely~b surprisingly~b undoubtedly~b ) ##>>
+##<<ENGLISH concept: ~when_adverbs (before~b earlier~b eventually~b finally~b lastly~b later~b next~b nowadays~b now~b soon~b still~b today~b tomorrow~b yesterday~b yet~b) ##>>
+##<<ENGLISH concept: ~nEGATIVE_ADVERB_STARTER (rarely hardly little at_no_time barely no_sooner never scarcely not_only seldom   neither nor only not_since never_before not_until ) ##>>

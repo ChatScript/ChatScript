@@ -1,0 +1,623 @@
+﻿ U ( ) 
+ U.1 ( ) 
+ U.10 ( ) 
+ U.11 ( ) 
+ U.12 ( ) 
+ U.140 ( ) 
+ U.15 ( ) 
+ U.2 ( ) 
+ U.20 ( ) 
+ U.201 ( ) 
+ U.202 ( ) 
+ U.204 ( ) 
+ U.21 ( ) 
+ U.22 ( ) 
+ U.23 ( ) 
+ U.24 ( ) 
+ U.25 ( ) 
+ U.3 ( ) 
+ U.30 ( ) 
+ U.31 ( ) 
+ U.4 ( ) 
+ U.40 ( ) 
+ U.41 ( ) 
+ U.43 ( ) 
+ U.44 ( ) 
+ U.44. ( ) lemma=`U.44` CODE  
+ U.45 ( ) 
+ U.5 ( ) 
+ U.6 ( ) 
+ U.60 ( ) 
+ U.61 ( ) 
+ U.62 ( ) 
+ U.63 ( ) 
+ U.7 ( ) 
+ U.70 ( ) 
+ U.74 ( ) 
+ U.75 ( ) 
+ U.8 ( ) 
+ U.80 ( ) 
+ U.81 ( ) 
+ U.82 ( ) 
+ U.R.S.S ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ U0 ( ) 
+ U1 ( ) 
+ U10 ( ) 
+ U11 ( ) 
+ U12 ( ) 
+ U15 ( ) 
+ U17 ( ) 
+ U19 ( ) 
+ U2 ( ) 
+ U25 ( ) 
+ U3 ( ) 
+ U4 ( ) 
+ U6 ( ) 
+ U7 ( ) 
+ U8 ( ) 
+ U9 ( ) 
+ UA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`UA`UA` ACRNM  NP  
+ UAEF ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UAR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`UAR`UAR` ACRNM  NP  
+ UATLM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UATLX ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UATLXP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UATTXP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`UC`UC` ACRNM  NP  
+ UCS ( ) 
+ UDP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UDPAT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UDPR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UDPS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UDPT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UDST ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UE ( ) 
+ UI ( ) 
+ UIT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UITLM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UIV ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ULT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UNBIND ( ) 
+ UND ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UNESCO ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UNIX ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UPDT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ US ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ USA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ USV ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ UTC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Ucrania ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Uganda ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Ule ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Ultraizquierda ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Um ( ) 
+ Umesono ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Umm ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Una ( CONJUNCTION_SUBORDINATE ) 
+ Und ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Underwood ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unesco ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unger ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Ungermann-Bass ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unidas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unidos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unilever ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Uniplán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unisys ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Units ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Univers ( ) 
+ Universo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unix ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Unión ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Urano ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Urbanismo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Ureaplasma ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Urechis ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Uretrografía ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Urgel ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Urgell ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Uribe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Urquiza ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Uruguay ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Userda ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Usher ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Utah ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Utilisateur ( ) 
+ Uzawa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Uztáriz ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ U£ ( ) 
+ u ( CONJUNCTION_COORDINATE ) lemma=`u`o`o` ALFS  CC  CCAD  
+ ubica ( VERB ) lemma=`ubicar` VLfin  
+ ubicaba ( VERB ) lemma=`ubicar` VLfin  
+ ubicaban ( VERB ) lemma=`ubicar` VLfin  
+ ubicaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`ubicación` NC  
+ ubicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ubicada ( VERB_PAST_PARTICIPLE VERB ) lemma=`ubicar` VLadj  
+ ubicadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`ubicar` VLadj  
+ ubicado ( VERB_PAST_PARTICIPLE VERB ) lemma=`ubicar` VLadj  
+ ubicados ( VERB_PAST_PARTICIPLE VERB ) lemma=`ubicar` VLadj  
+ ubican ( VERB ) lemma=`ubicar` VLfin  
+ ubicando ( NOUN NOUN_GERUND ) lemma=`ubicar` VLger  
+ ubicar ( VERB ) 
+ ubicara ( VERB ) lemma=`ubicar` VLfin  
+ ubicarlo ( VERB_INFINITIVE VERB ) lemma=`ubicar` VCLIinf  
+ ubicaron ( VERB ) lemma=`ubicar` VLfin  
+ ubicarse ( VERB_INFINITIVE VERB ) 
+ ubicará ( VERB ) lemma=`ubicar` VLfin  
+ ubicarán ( VERB ) lemma=`ubicar` VLfin  
+ ubicaré ( VERB ) lemma=`ubicar` VLfin  
+ ubicaría ( VERB ) lemma=`ubicar` VLfin  
+ ubico ( VERB ) lemma=`ubicar` VLfin  
+ ubicuas ( ADJECTIVE ) lemma=`ubicuo` ADJ  
+ ubicándose ( VERB_PAST_PARTICIPLE VERB ) lemma=`ubicar` VLadj  
+ ubicársela ( VERB ) lemma=`ubicar` VLinf  
+ ubicó ( VERB ) lemma=`ubicar` VLfin  
+ ubique ( VERB ) lemma=`ubicar` VLfin  
+ ubiquen ( VERB ) lemma=`ubicar` VLfin  
+ ubiquinona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ubícalo ( ) lemma=`ubicar` VCLIfin  
+ ucraniana ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`ucraniano`ucraniano` ADJ  NC  
+ ucranianas ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`ucraniano`ucraniano` ADJ  NC  
+ ucraniano ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`ucraniano`ucraniano` ADJ  NC  
+ ucranianos ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`ucraniano`ucraniano` ADJ  NC  
+ uda ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ udc ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ udn ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ udp-glucosa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uf ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ufano ( ADJECTIVE ) 
+ uff ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ uh ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ulceraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`ulceración` NC  
+ ulceración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ulcerada ( VERB_PAST_PARTICIPLE VERB ) lemma=`ulcerar` VLadj  
+ ulceradas ( VERB_PAST_PARTICIPLE VERB ) lemma=`ulcerar` VLadj  
+ ulcerosa ( ADJECTIVE ) lemma=`ulceroso` ADJ  
+ ulerior ( ADJECTIVE ) 
+ ulterior ( ADJECTIVE ) 
+ ulteriores ( ADJECTIVE ) lemma=`ulterior` ADJ  
+ ulteriormente ( ADVERB ) lemma=`ulterior` ADV  
+ ultima ( VERB ) lemma=`ultimar` VLfin  
+ ultimada ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultimar` VLadj  
+ ultimadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultimar` VLadj  
+ ultimado ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultimar` VLadj  
+ ultimados ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultimar` VLadj  
+ ultiman ( VERB ) lemma=`ultimar` VLfin  
+ ultimando ( NOUN NOUN_GERUND ) lemma=`ultimar` VLger  
+ ultimar ( VERB ) 
+ ultimara ( VERB ) lemma=`ultimar` VLfin  
+ ultimaron ( VERB ) lemma=`ultimar` VLfin  
+ ultimarán ( VERB ) lemma=`ultimar` VLfin  
+ ultimas ( VERB ) lemma=`ultimar` VLfin  
+ ultime ( VERB ) lemma=`ultimar` VLfin  
+ ultimemos ( VERB ) lemma=`ultimar` VLfin  
+ ultimo ( VERB ADJECTIVE ) lemma=`último`ultimar` ADJ  VLfin  
+ ultimátum ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultimó ( VERB ) lemma=`ultimar` VLfin  
+ ultra ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`ultra`ultra` ADJ  NC  
+ ultracelulare ( ADJECTIVE ) 
+ ultraestructural ( ADJECTIVE ) 
+ ultraestructuralmente ( ADVERB ) 
+ ultrafiltración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultrafiltrado ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultraja ( VERB ) lemma=`ultrajar` VLfin  
+ ultrajada ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultrajar` VLadj  
+ ultrajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultrajar` VLadj  
+ ultrajado ( VERB_PAST_PARTICIPLE VERB ) lemma=`ultrajar` VLadj  
+ ultrajan ( VERB ) lemma=`ultrajar` VLfin  
+ ultrajara ( VERB ) lemma=`ultrajar` VLfin  
+ ultraje ( VERB ) lemma=`ultrajar` VLfin  
+ ultrajes ( VERB ) lemma=`ultrajar` VLfin  
+ ultramar ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultramarinos ( ADJECTIVE ) lemma=`ultramarino` ADJ  
+ ultraoligotrofia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultraperiférico ( ADJECTIVE ) 
+ ultrarrefractario ( ADJECTIVE ) 
+ ultras ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`ultra`ultra` ADJ  NC  
+ ultrasonido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultrasonidos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`ultrasonido` NC  
+ ultrasonografía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ultrasonográfico ( ADJECTIVE ) 
+ ultrasónicas ( ADJECTIVE ) lemma=`ultrasónico` ADJ  
+ ultravioleta ( ADJECTIVE ) 
+ ultravioletas ( ADJECTIVE ) lemma=`ultravioleta` ADJ  
+ umbilical ( ADJECTIVE ) 
+ umbilicales ( ADJECTIVE ) lemma=`umbilical` ADJ  
+ umbral ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ umbrales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`umbral` NC  
+ umbrosos ( ADJECTIVE ) lemma=`umbroso` ADJ  
+ umlaut ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ un ( DETERMINER ) lemma=`un`un` ART  PE  
+ una ( CONJUNCTION_SUBORDINATE DETERMINER ) lemma=`un` ART  
+ unamos ( VERB ) lemma=`unir` VLfin  
+ unan ( VERB ) lemma=`unir` VLfin  
+ unanimidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ unaria ( ADJECTIVE ) lemma=`unario` ADJ  
+ unarios ( ADJECTIVE ) lemma=`unario` ADJ  
+ unas ( DETERMINER ) lemma=`un` ART  
+ unavailable ( ) 
+ unción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ underdiagnosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ undécima ( ADJECTIVE ) lemma=`undécimo` ADJ  
+ undécimo ( ADJECTIVE ) 
+ undécimos ( ADJECTIVE ) lemma=`undécimo` ADJ  
+ une ( VERB ) lemma=`une`unir` PE  VLfin  
+ unen ( VERB ) lemma=`unir` VLfin  
+ ungido ( VERB_PAST_PARTICIPLE VERB ) lemma=`ungir` VLadj  
+ ungieran ( VERB ) lemma=`ungir` VLfin  
+ ungueal ( ADJECTIVE ) 
+ unicatenaria ( ADJECTIVE ) lemma=`unicatenario` ADJ  
+ unicatenario ( ADJECTIVE ) 
+ unicatenarios ( ADJECTIVE ) lemma=`unicatenario` ADJ  
+ unicausal ( ADJECTIVE ) 
+ unicelular ( ADJECTIVE ) 
+ unicelulares ( ADJECTIVE ) lemma=`unicelular` ADJ  
+ unicidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ unida ( VERB_PAST_PARTICIPLE VERB ) lemma=`unir` VLadj  
+ unidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ unidades ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`unidad` NC  
+ unidas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`unido`unir` ADJ  VLadj  
+ unidimensional ( ADJECTIVE ) 
+ unidimensionales ( ADJECTIVE ) lemma=`unidimensional` ADJ  
+ unidimensionalmente ( ADVERB ) lemma=`unidimensional` ADV  
+ unidireccional ( ADJECTIVE ) 
+ unidireccionales ( ADJECTIVE ) lemma=`unidireccional` ADJ  
+ unidireccionalmente ( ADVERB ) lemma=`unidireccional` ADV  
+ unidirectional ( ) 
+ unidirectionnel ( ) 
+ unido ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`unido`unir` ADJ  VLadj  
+ unidos ( VERB_PAST_PARTICIPLE VERB ) lemma=`unir` VLadj  
+ uniendo ( NOUN NOUN_GERUND ) lemma=`unir` VLger  
+ uniera ( VERB ) lemma=`unir` VLfin  
+ unieran ( VERB ) lemma=`unir` VLfin  
+ unieron ( VERB ) lemma=`unir` VLfin  
+ uniese ( VERB ) lemma=`unir` VLfin  
+ uniesen ( VERB ) lemma=`unir` VLfin  
+ uniespecífico ( ADJECTIVE ) 
+ unifica ( VERB ) lemma=`unificar` VLfin  
+ unificaba ( VERB ) lemma=`unificar` VLfin  
+ unificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ unificada ( VERB_PAST_PARTICIPLE VERB ) lemma=`unificar` VLadj  
+ unificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`unificar` VLadj  
+ unificado ( VERB_PAST_PARTICIPLE VERB ) lemma=`unificar` VLadj  
+ unificados ( VERB_PAST_PARTICIPLE VERB ) lemma=`unificar` VLadj  
+ unifican ( VERB ) lemma=`unificar` VLfin  
+ unificando ( NOUN NOUN_GERUND ) lemma=`unificar` VLger  
+ unificar ( VERB ) 
+ unificara ( VERB ) lemma=`unificar` VLfin  
+ unificaron ( VERB ) lemma=`unificar` VLfin  
+ unificarían ( VERB ) lemma=`unificar` VLfin  
+ unificó ( VERB ) lemma=`unificar` VLfin  
+ unifique ( VERB ) lemma=`unificar` VLfin  
+ unifiquen ( VERB ) lemma=`unificar` VLfin  
+ uniformada ( VERB_PAST_PARTICIPLE VERB ) lemma=`uniformar` VLadj  
+ uniformado ( VERB_PAST_PARTICIPLE VERB ) lemma=`uniformar` VLadj  
+ uniformados ( VERB_PAST_PARTICIPLE VERB ) lemma=`uniformar` VLadj  
+ uniformamos ( VERB ) lemma=`uniformar` VLfin  
+ uniformar ( VERB ) 
+ uniformaran ( VERB ) lemma=`uniformar` VLfin  
+ uniforme ( NOUN VERB ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`uniforme`uniforme`uniformar` ADJ  NC  VLfin  
+ uniformemente ( ADVERB ) lemma=`uniforme` ADV  
+ uniformes ( ADJECTIVE ) lemma=`uniforme` ADJ  
+ uniformice ( VERB ) lemma=`uniformizar` VLfin  
+ uniformidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uniformiza ( VERB ) lemma=`uniformizar` VLfin  
+ uniformización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uniformizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`uniformizar` VLadj  
+ uniformizado ( VERB_PAST_PARTICIPLE VERB ) lemma=`uniformizar` VLadj  
+ uniformizan ( VERB ) lemma=`uniformizar` VLfin  
+ uniformizar ( VERB ) 
+ unilateral ( ADJECTIVE ) 
+ unilaterales ( ADJECTIVE ) lemma=`unilateral` ADJ  
+ unilateralmente ( ADVERB ) lemma=`unilateral` ADV  
+ unilatéral ( ) 
+ unimos ( VERB ) lemma=`unir` VLfin  
+ uninefrectomizar ( VERB_PAST_PARTICIPLE VERB ) 
+ uniones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`unión` NC  
+ unionista ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`unionisto`unionista` ADJ  NC  
+ unionistas ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`unionisto`unionista` ADJ  NC  
+ uniparental ( ADJECTIVE ) 
+ unipersonales ( ADJECTIVE ) lemma=`unipersonal` ADJ  
+ unipolar ( ADJECTIVE ) 
+ uniprovinciale ( ADJECTIVE ) 
+ unique ( ) 
+ unir ( VERB ) 
+ uniremos ( VERB ) lemma=`unir` VLfin  
+ unirla ( VERB_INFINITIVE VERB ) lemma=`unir` VCLIinf  
+ unirlo ( VERB_INFINITIVE VERB ) lemma=`unir` VCLIinf  
+ unirlos ( VERB_INFINITIVE VERB ) lemma=`unir` VCLIinf  
+ unirme ( VERB_INFINITIVE VERB ) lemma=`unir` VCLIinf  
+ unirnos ( VERB_INFINITIVE VERB ) lemma=`unir` VCLIinf  
+ uniros ( VERB_INFINITIVE VERB ) lemma=`unir` VCLIinf  
+ unirse ( VERB_INFINITIVE VERB ) 
+ unirá ( VERB ) lemma=`unir` VLfin  
+ unirán ( VERB ) lemma=`unir` VLfin  
+ uniré ( VERB ) lemma=`unir` VLfin  
+ uniría ( VERB ) lemma=`unir` VLfin  
+ unirían ( VERB ) lemma=`unir` VLfin  
+ unispecífico ( ADJECTIVE ) 
+ unit ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`unit`unit` NC  PE  
+ unitaire ( ) 
+ unitaires ( ) 
+ unitaria ( ADJECTIVE ) lemma=`unitario` ADJ  
+ unitariamente ( ADVERB ) lemma=`unitario` ADV  
+ unitarias ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`unitario`unitario` ADJ  NC  
+ unitario ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`unitario`unitario` ADJ  NC  
+ unitarios ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`unitario`unitario` ADJ  NC  
+ units ( ) 
+ unité ( ) 
+ unités ( ) 
+ univalente ( ADJECTIVE ) 
+ univariar ( VERB_PAST_PARTICIPLE VERB ) 
+ universal ( ADJECTIVE ) 
+ universales ( ADJECTIVE ) lemma=`universal` ADJ  
+ universalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ universalista ( ADJECTIVE ) 
+ universalmente ( ADVERB ) lemma=`universal` ADV  
+ universidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ universidades ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`universidad` NC  
+ universitaria ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`universitario`universitario` ADJ  NC  
+ universitarias ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`universitario`universitario` ADJ  NC  
+ universitario ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`universitario`universitario` ADJ  NC  
+ universitarios ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`universitario`universitario` ADJ  NC  
+ universo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ universos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`universo` NC  
+ univocal ( ) 
+ uniéndome ( NOUN NOUN_GERUND ) lemma=`unir` VCLIger  
+ uniéndose ( VERB_PAST_PARTICIPLE VERB ) lemma=`unir` VLadj  
+ uniéramos ( VERB ) lemma=`unir` VLfin  
+ unió ( VERB ) lemma=`unir` VLfin  
+ unión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uno ( ADJECTIVE_NUMBER NOUN_NUMBER ) 
+ unoordo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ unos ( DETERMINER ) lemma=`un` ART  
+ unreasonable ( ) 
+ unsuccessful ( ) 
+ untaba ( VERB ) lemma=`untar` VLfin  
+ untando ( NOUN NOUN_GERUND ) lemma=`untar` VLger  
+ untar ( VERB ) 
+ unánime ( ADJECTIVE ) 
+ unánimemente ( ADVERB ) lemma=`unánime` ADV  
+ unánimes ( ADJECTIVE ) lemma=`unánime` ADJ  
+ uní ( VERB ) lemma=`unir` VLfin  
+ unía ( VERB ) lemma=`unir` VLfin  
+ unían ( VERB ) lemma=`unir` VLfin  
+ unírsenos ( VERB_INFINITIVE VERB ) lemma=`unirse` VCLIinf  
+ unívoca ( ADJECTIVE ) lemma=`unívoco` ADJ  
+ unívocamente ( ADVERB ) lemma=`unívoco` ADV  
+ unívocas ( ADJECTIVE ) lemma=`unívoco` ADJ  
+ unívoco ( ADJECTIVE ) 
+ unívocos ( ADJECTIVE ) lemma=`unívoco` ADJ  
+ up ( ) 
+ uracilo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uranilo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uranio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urbain ( ) 
+ urbana ( ADJECTIVE ) lemma=`urbano` ADJ  
+ urbanamente ( ADVERB ) lemma=`urbano` ADV  
+ urbanas ( ADJECTIVE ) lemma=`urbano` ADJ  
+ urbanidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urbanismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urbanitas ( ADJECTIVE ) lemma=`urbano` ADJ  
+ urbanizable ( ADJECTIVE ) 
+ urbanizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`urbanización` NC  
+ urbanización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urbanizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`urbanizar` VLadj  
+ urbanizado ( VERB_PAST_PARTICIPLE VERB ) lemma=`urbanizar` VLadj  
+ urbanizados ( VERB_PAST_PARTICIPLE VERB ) lemma=`urbanizar` VLadj  
+ urbanizando ( NOUN NOUN_GERUND ) lemma=`urbanizar` VLger  
+ urbanizar ( VERB ) 
+ urbano ( ADJECTIVE ) 
+ urbano-marginale ( ADJECTIVE ) 
+ urbanos ( ADJECTIVE ) lemma=`urbano` ADJ  
+ urbanística ( ADJECTIVE ) lemma=`urbanístico` ADJ  
+ urbanísticas ( ADJECTIVE ) lemma=`urbanístico` ADJ  
+ urbanístico ( ADJECTIVE ) 
+ urbe ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urbes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`urbe` NC  
+ urdida ( ADJECTIVE ) lemma=`urdido` ADJ  
+ urdido ( ADJECTIVE ) 
+ urdimbre ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urdir ( VERB ) 
+ urea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ureido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uremia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ureteral ( ADJECTIVE ) 
+ uretra ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uretritis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uretrografía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urge ( VERB ) lemma=`urgir` VLfin  
+ urgen ( VERB ) lemma=`urgir` VLfin  
+ urgencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urgencias ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`urgencia` NC  
+ urgente ( ADJECTIVE ) 
+ urgentemente ( ADVERB ) lemma=`urgente` ADV  
+ urgentes ( ADJECTIVE ) lemma=`urgente` ADJ  
+ urgentísima ( ADJECTIVE ) lemma=`urgente` ADJ  
+ urgentísimas ( ADJECTIVE ) lemma=`urgente` ADJ  
+ urgentísimo ( ADJECTIVE ) lemma=`urgente` ADJ  
+ urgentísimos ( ADJECTIVE ) lemma=`urgente` ADJ  
+ urgida ( VERB_PAST_PARTICIPLE VERB ) lemma=`urgir` VLadj  
+ urgido ( VERB_PAST_PARTICIPLE VERB ) lemma=`urgir` VLadj  
+ urgidos ( VERB_PAST_PARTICIPLE VERB ) lemma=`urgir` VLadj  
+ urgiendo ( NOUN NOUN_GERUND ) lemma=`urgir` VLger  
+ urgieron ( VERB ) lemma=`urgir` VLfin  
+ urgimos ( VERB ) lemma=`urgir` VLfin  
+ urgir ( VERB ) 
+ urgió ( VERB ) lemma=`urgir` VLfin  
+ urgía ( VERB ) lemma=`urgir` VLfin  
+ urgían ( VERB ) lemma=`urgir` VLfin  
+ uricodepresor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uridina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urinaria ( ADJECTIVE ) lemma=`urinario` ADJ  
+ urinarias ( ADJECTIVE ) lemma=`urinario` ADJ  
+ urinario ( ADJECTIVE ) 
+ urinarios ( ADJECTIVE ) lemma=`urinario` ADJ  
+ urja ( VERB ) lemma=`urgir` VLfin  
+ urjo ( VERB ) lemma=`urgir` VLfin  
+ url ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urna ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urnas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`urna` NC  
+ urobilinógeno ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urodelo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urodelos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`urodelo` NC  
+ urogallo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urogenital ( ADJECTIVE ) 
+ urogenitales ( ADJECTIVE ) lemma=`urogenital` ADJ  
+ urografía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urológicas ( ADJECTIVE ) lemma=`urológico` ADJ  
+ urológicos ( ADJECTIVE ) lemma=`urológico` ADJ  
+ uroporfirina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urotelio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urticaria ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ urticariforme ( ADJECTIVE ) 
+ uruguaya ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`uruguayo`uruguayo` ADJ  NC  
+ uruguayas ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`uruguayo`uruguayo` ADJ  NC  
+ uruguayo ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`uruguayo`uruguayo` ADJ  NC  
+ uruguayos ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`uruguayo`uruguayo` ADJ  NC  
+ urémico ( ADJECTIVE ) 
+ urémicos ( ADJECTIVE ) lemma=`urémico` ADJ  
+ uréter ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uréteres ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`uréter` NC  
+ urólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usa ( VERB ) lemma=`usar` VLfin  
+ usaba ( VERB ) lemma=`usar` VLfin  
+ usaban ( VERB ) lemma=`usar` VLfin  
+ usada ( VERB_PAST_PARTICIPLE VERB ) lemma=`usar` VLadj  
+ usadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`usar` VLadj  
+ usado ( VERB_PAST_PARTICIPLE VERB ) lemma=`usar` VLadj  
+ usados ( VERB_PAST_PARTICIPLE VERB ) lemma=`usar` VLadj  
+ usager ( ) 
+ usamos ( VERB ) lemma=`usar` VLfin  
+ usan ( VERB ) lemma=`usar` VLfin  
+ usando ( NOUN NOUN_GERUND ) lemma=`usar` VLger  
+ usar ( VERB ) 
+ usara ( VERB ) lemma=`usar` VLfin  
+ usaran ( VERB ) lemma=`usar` VLfin  
+ usaremos ( VERB ) lemma=`usar` VLfin  
+ usarla ( VERB_INFINITIVE VERB ) lemma=`usar` VCLIinf  
+ usarlo ( VERB_INFINITIVE VERB ) lemma=`usar` VCLIinf  
+ usaron ( VERB ) lemma=`usar` VLfin  
+ usarse ( VERB_INFINITIVE VERB ) 
+ usará ( VERB ) lemma=`usar` VLfin  
+ usarán ( VERB ) lemma=`usar` VLfin  
+ usaré ( VERB ) lemma=`usar` VLfin  
+ usaría ( VERB ) lemma=`usar` VLfin  
+ usas ( VERB ) lemma=`usar` VLfin  
+ use ( VERB ) lemma=`use`usar` PE  VLfin  
+ usemos ( VERB ) lemma=`usar` VLfin  
+ usen ( VERB ) lemma=`usar` VLfin  
+ usenet ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ user ( ) 
+ usher ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uso ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`uso` NC  
+ ust ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usted ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ ustedes ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ usual ( ADJECTIVE ) 
+ usuales ( ADJECTIVE ) lemma=`usual` ADJ  
+ usualmente ( ADVERB ) lemma=`usual` ADV  
+ usuaria ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usuarias ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`usuario`usuario` ADJ  NC  
+ usuario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usuariocliente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usuarios ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`usuario` NC  
+ usufructo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ usá ( VERB ) lemma=`usar` VLfin  
+ usábamos ( VERB ) lemma=`usar` VLfin  
+ usándolo ( NOUN NOUN_GERUND ) lemma=`usar` VCLIger  
+ usándolos ( NOUN NOUN_GERUND ) lemma=`usar` VCLIger  
+ usándose ( NOUN NOUN_GERUND ) 
+ usó ( VERB ) lemma=`usar` VLfin  
+ ute ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ utensilio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utensilios ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`utensilio` NC  
+ uterina ( ADJECTIVE ) lemma=`uterino` ADJ  
+ uterinas ( ADJECTIVE ) lemma=`uterino` ADJ  
+ uterino ( ADJECTIVE ) 
+ uterorrectal ( ADJECTIVE ) 
+ utile ( ) 
+ utilero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utilice ( VERB ) lemma=`utilizar` VLfin  
+ utilicemos ( VERB ) lemma=`utilizar` VLfin  
+ utilicen ( VERB ) lemma=`utilizar` VLfin  
+ utilicé ( VERB ) lemma=`utilizar` VLfin  
+ utilicémoslas ( VERB ) lemma=`utilizar` VLfin  
+ utilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utilidades ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`utilidad` NC  
+ utilitaria ( ADJECTIVE ) lemma=`utilitario` ADJ  
+ utilitario ( ADJECTIVE ) 
+ utilitarios ( ADJECTIVE ) lemma=`utilitario` ADJ  
+ utiliza ( VERB ) lemma=`utilizar` VLfin  
+ utilizaba ( VERB ) lemma=`utilizar` VLfin  
+ utilizaban ( VERB ) lemma=`utilizar` VLfin  
+ utilizabas ( VERB ) lemma=`utilizar` VLfin  
+ utilizable ( ADJECTIVE ) 
+ utilizables ( ADJECTIVE ) lemma=`utilizable` ADJ  
+ utilizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`utilización` NC  
+ utilización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utilizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`utilizar` VLadj  
+ utilizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`utilizar` VLadj  
+ utilizado ( VERB_PAST_PARTICIPLE VERB ) lemma=`utilizar` VLadj  
+ utilizador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utilizadores ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`utilizador` NC  
+ utilizados ( VERB_PAST_PARTICIPLE VERB ) lemma=`utilizar` VLadj  
+ utilizamos ( VERB ) lemma=`utilizar` VLfin  
+ utilizan ( VERB ) lemma=`utilizar` VLfin  
+ utilizando ( NOUN NOUN_GERUND ) lemma=`utilizar` VLger  
+ utilizar ( VERB ) 
+ utilizara ( VERB ) lemma=`utilizar` VLfin  
+ utilizaran ( VERB ) lemma=`utilizar` VLfin  
+ utilizaremos ( VERB ) lemma=`utilizar` VLfin  
+ utilizarla ( VERB_INFINITIVE VERB ) lemma=`utilizar` VCLIinf  
+ utilizarlas ( VERB_INFINITIVE VERB ) lemma=`utilizar` VCLIinf  
+ utilizarlo ( VERB_INFINITIVE VERB ) lemma=`utilizar` VCLIinf  
+ utilizarlos ( VERB_INFINITIVE VERB ) lemma=`utilizar` VCLIinf  
+ utilizaron ( VERB ) lemma=`utilizar` VLfin  
+ utilizarse ( VERB_INFINITIVE VERB ) 
+ utilizará ( VERB ) lemma=`utilizar` VLfin  
+ utilizarán ( VERB ) lemma=`utilizar` VLfin  
+ utilizaré ( VERB ) lemma=`utilizar` VLfin  
+ utilizaría ( VERB ) lemma=`utilizar` VLfin  
+ utilizarían ( VERB ) lemma=`utilizar` VLfin  
+ utilizas ( VERB ) lemma=`utilizar` VLfin  
+ utilizase ( VERB ) lemma=`utilizar` VLfin  
+ utilizasen ( VERB ) lemma=`utilizar` VLfin  
+ utilizo ( VERB ) lemma=`utilizar` VLfin  
+ utilizándola ( VERB_PAST_PARTICIPLE VERB ) lemma=`utilizar` VLadj  
+ utilizándolas ( NOUN NOUN_GERUND ) lemma=`utilizar` VCLIger  
+ utilizándolo ( NOUN NOUN_GERUND ) lemma=`utilizar` VCLIger  
+ utilizándolos ( VERB_PAST_PARTICIPLE VERB ) lemma=`utilizar` VLadj  
+ utilizándose ( NOUN NOUN_GERUND ) 
+ utilizáramos ( VERB ) lemma=`utilizar` VLfin  
+ utilizásemos ( VERB ) lemma=`utilizar` VLfin  
+ utilizó ( VERB ) lemma=`utilizar` VLfin  
+ utillaje ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utillajes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`utillaje` NC  
+ utilícenos ( VERB ) lemma=`utilizar` VLfin  
+ utilícese ( ) lemma=`utilizarse` VCLIfin  
+ utilísima ( ADJECTIVE ) lemma=`útil` ADJ  
+ utilísimas ( ADJECTIVE ) lemma=`útil` ADJ  
+ utilísimo ( ADJECTIVE ) lemma=`útil` ADJ  
+ utopismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utopía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utopías ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`utopía` NC  
+ utrículo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ utópico ( ADJECTIVE ) 
+ uva ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uvas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`uva` NC  
+ uveítis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ uy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`uy`uy` ITJN  NP  
+ uyuyuy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ u£ ( ) 
+ uña ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`uña`uñir` NC  VLfin  
+ uñas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`uña`uñir` NC  VLfin  
+ uñillas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`uña` NC  
+ Umm_al_Qaiwain ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`Umm~al~Qaiwain` NP  
+ Una_vez_que ( CONJUNCTION_SUBORDINATE ) lemma=`una~vez~que` CSUBF  
+ Unión_de_Repúblicas_Socialistas_Soviéticas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`Unión~de~Repúblicas~Socialistas~Soviéticas` NP  
+ una_vez_que ( CONJUNCTION_SUBORDINATE ) lemma=`una~vez~que` CSUBF  

@@ -1,0 +1,62 @@
+My friend Albert eats rocks
+	# Albert eat rock
+I hit my brother Bob
+	# Bob equal brother
+	# I hit brother
+Charlie is my dog
+	# Charlie equal dog
+	# Charlie isa dog
+My sister's name is Donald
+	# Donald equal sister
+My mother is Elizabeth
+	# Elizabeth equal mother
+My cat is Freddy
+	# Freddy equal cat
+I have an enemy named Grady
+	# Grady equal enemy
+my fish is called Harold
+	# fish equal Harold ????
+	# Harold equal fish
+	# fish isa Harold
+my father likes to play tennis
+	# father like to_play_tennis
+	# father like tennis
+	# father play tennis
+my aunt likes baseball
+	# aunt like baseball
+my uncle likes to play basketball
+	# uncle like to_play_basketball
+	# uncle like basketball
+	# uncle play basketball
+the ball was hit by Ingrid
+	# Ingrid hit ball
+	# ball fact hit
+	# ball ~placepreposition Ingrid ???
+rats will be eaten by mice
+	# mouse eat rat ????
+	# rat fact eat
+	# rat ~placepreposition mouse
+the collie sat
+	# collie fact sit
+the pooch sat on the mat
+	# pouch fact sit
+	# pooch ~placepreposition mat
+the eagle flew after tomorrow
+	# eagle fact fly
+	# eagle ~timepreposition tomorrow
+the beagle was born in 1955
+
+I have 3 cousins
+	# 3 Iown cousin
+	# 3 adjective cousin
+Jerome has brown hair
+	# Jerome doown hair
+	# brown adjective hair
+Kathy is a horse
+	# Kathy equal horse
+	# Kathy isa horse
+the blue box is on the ground
+	# box ~placepreposition ground
+	# blue adjective box
+the coffin is red
+	# red adjective coffin

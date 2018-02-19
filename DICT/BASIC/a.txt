@@ -1,0 +1,2335 @@
+﻿ all ( meanings=6 glosses=2 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADVERB PREDETERMINER DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN DETERMINER_PLURAL PRONOUN_SINGULAR PRONOUN_PLURAL posdefault:ADVERB OMITTABLE_TIME_PREPOSITION ) 
+    all~1az completely given to or absorbed by
+    all~2az quantifier
+    entirely~1b 
+    all~4z 
+    all~5z 
+    all~6z 
+ advance ( meanings=20 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) comparative=advancer 
+    progress~2n 
+    rise~2n 
+    approach~7n 
+    advance~4nz (^transmutation~2) a change for the better
+    progress~3n 
+    advance~6nz (^amount~4) an amount paid before it is earned
+    advanced~1az situated ahead or going before
+    advance~8az being ahead of time or need
+    gain~7v 
+    progress~4v 
+    advance~11vz increase or raise
+    advance~12vz develop further
+    advance~13vz bring forward for consideration or acceptance
+    gain~8v 
+    progress~6v 
+    advance~16vz cause to move forward
+    advance~17vz move forward
+    advance~18vz pay in advance
+    raise~30v 
+    further~6v 
+ animal ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    creature~1nz (^being~1) a living organism characterized by voluntary movement
+    fleshly~1az marked by the appetites and passions of the body
+ adaptation ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    adaptation~1nz (^adjustment~1) the responsive adjustment of a sense organ (as the eye) to varying conditions (as of light)
+    version~4nz (^writing~4) a written work that has been recast in a new form
+    adjustment~5nz (^process~1) the process of adapting to something
+ aversion ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    averting~1nz (^avoidance~1) the act of turning yourself away
+    aversion~2nz (^dislike~2) a feeling of intense dislike
+ agency ( meanings=5 glosses=5 NOUN_HUMAN NOUN_THEY NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    way~1nz (^act~1) how a result is obtained or an end is achieved
+    agency~2nz (^business~8) a business that serves other businesses
+    authority~5nz (^unit~3) an administrative unit of government
+    agency~4nz (^state~1) the state of serving as an official and authorized delegate or agent
+    agency~5nz (^activity~5) the state of being in action or exerting power
+ aircraft ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    aircraft~1nz (^craft~2) a vehicle that can fly
+ audible ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    audible~1nz (^play~7) a football play is changed orally after both teams have assumed their positions at the line of scrimmage
+    audible~2az heard or perceptible by the ear
+ amount ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    measure~1n 
+    amount~2nz (^property~2) the relative magnitude of something with reference to a criterion
+    sum~2nz (^quantity~3) a quantity obtained by the addition of a group of numbers
+    sum~6nz (^relation~1) a quantity of money
+    come~15vz develop into
+    come~16vz add up in number or quantity
+    amount~7vz be tantamount or equivalent to
+ attribute ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    attribute~1nz an abstraction belonging to or characteristic of an entity
+    dimension~3nz (^construct~1) a construct whereby objects or individuals can be distinguished
+    ascribe~1vz attribute or credit to
+    attribute~4vz decide as to where something belongs in a scheme
+ arrival ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    reaching~1nz (^action~1) accomplishment of an objective
+    arrival~2nz (^action~1) the act of arriving at a certain place
+    arrival~3nz (^traveler~1) someone who arrives
+ adjustment ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    adjustment~1nz (^change~1) the act of making something different
+    adjustment~2nz (^activity~1) the act of adjusting something to match a standard
+    fitting~4n 
+    adjustment~4nz (^payment~3) an amount added or deducted on the basis of qualifying circumstances
+    adaptation~3n 
+ award ( meanings=5 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    awarding~1nz (^grant~1) a grant made by a law court
+    honor~3n 
+    prize~3n 
+    present~16v 
+    grant~10v 
+ artifact ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    artifact~1nz (^whole~1) a man-made object taken as a whole
+ article ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    article~1nz (^artifact~1) one of a class of artifacts
+    article~2nz (^nonfiction~1) nonfictional prose forming an independent part of a publication
+    article~3nz (^word~1) a determiner that may indicate the specificity of reference of a noun phrase
+    article~4nz (^section~4) a separate section of a legal document
+    article~5vz bind by a contract
+ act ( meanings=15 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    deed~1nz (^event~1) something that people do or cause to happen
+    act~2nz (^instrument~5) a legal document codifying the result of deliberations of a committee or society or legislative body
+    turn~7n 
+    act~4nz (^writing~4) a subdivision of a play or opera or ballet
+    act~5nz (^expression~5) a manifestation of insincerity
+    do~1v 
+    play~19v 
+    act~8vz discharge one's duties
+    play~39v 
+    play~40v 
+    pretend~7v 
+    move~19v 
+    act~13vz be engaged in an activity, often for no particular purpose other than pleasure
+    work~30v 
+    act~15vz be suitable for theatrical performance
+ application ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    application~1nz (^action~1) the action of putting something into operation
+    application~2nz (^effort~2) a diligent effort
+    coating~1nz (^labor~1) the work of applying something
+    application~4nz (^exercise~4) the act of bringing something to bear
+    application~5nz (^cure~1) liquid preparation having a soothing or antiseptic or medicinal action when applied to the skin
+    application~6nz (^request~1) a verbal or written request for assistance or employment or admission to a school
+    application~7nz (^program~5) a program that gives a computer instructions that provide the user with tools to accomplish a task
+ action ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    action~1nz (^act~1) something done 
+    action~2nz (^work~1) the most important or interesting work or activity in a specific area or field
+    action~3nz (^event~1) a military engagement
+    action~4nz (^event~1) a judicial proceeding brought by one party against another
+    action~5nz (^event~1) an act by a government body or supranational organization
+    action~6nz (^device~2) the operating part that transmits power to a mechanism
+    action~7nz (^drive~11) the trait of being active and energetic and forceful
+    action~8nz (^plot~2) the series of events that form a plot
+    activity~4n 
+    activity~5n 
+    accomplish~1vz put in effect
+    process~13vz institute legal proceedings against
+ accomplished ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    realized~1az successfully completed or brought to an end
+    effected~1az settled securely and unconditionally
+    complete~5a 
+ appearance ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    appearance~1nz (^arrival~2) the act of appearing in public view
+    show~2nz (^pretending~1) pretending that something is the case in order to make a good impression
+    appearing~1nz (^event~1) formal attendance of a party in an action
+    appearance~4nz (^quality~1) outward or visible aspect of a person or thing
+    appearance~5nz (^content~2) a mental representation
+    appearance~6nz (^event~1) the event of coming into sight
+ absence ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    absence~1nz (^event~1) failure to be present
+    absence~2nz (^lack~1) the state of being absent
+    absence~3nz (^attack~9) the occurrence of an abrupt, transient loss or impairment of consciousness , sometimes with light twitching, fluttering eyelids, etc.
+    absence~4nz (^interval~4) the time interval during which something or somebody is away
+ acceptance ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    acceptance~1nz (^getting~1) the act of taking something that is offered
+    acceptance~2nz (^approval~1) the act of accepting with approval
+    acceptance~3nz (^tolerance~2) a disposition to tolerate or accept people or situations
+    acceptance~4nz (^attitude~3) the mental attitude that something is believable and should be accepted as true
+    acceptance~5nz (^agreement~4) words signifying consent to the terms of an offer (thereby creating a contract)
+    acceptance~6nz (^draft~11) banking: a time draft drawn on and accepted by a bank
+    acceptance~7nz (^situation~4) the state of being acceptable and accepted
+ awarding ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    award~1n 
+ arrest ( meanings=6 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    pinch~1n 
+    check~13n 
+    check~25v 
+    cop~2v 
+    catch~28v 
+    hold~28vz cause to stop
+ auction ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    auction~1nz (^sale~2) the public sale of something to the highest bidder
+    auction~2nz (^bridge~1) a variety of bridge in which tricks made in excess of the contract are scored toward game
+    auction~3vz sell at an auction
+ atonement ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    atonement~1nz (^salvation~1) the act of atoning for sin or wrongdoing
+    atonement~2nz (^redress~2) compensation for a wrong
+ amends ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 ) 
+    reparation~1n 
+    redress~2n 
+ autopsy ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    autopsy~1nz (^examination~1) an examination and dissection of a dead body to determine cause of death or the changes produced by disease
+    autopsy~2vz perform an autopsy on a dead body
+ assignment ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    naming~1nz (^decision~1) the act of putting a person into a non-elective position
+    assignment~2nz (^distribution~1) the act of distributing something to designated places or persons
+    assignment~3nz (^duty~1) a duty that you are assigned to perform 
+    assignment~4nz (^labor~2) an undertaking that you have been assigned to do
+    assignment~5nz (^instrument~5) the instrument by which a claim or right or interest or property is transferred from one person to another
+    grant~4n 
+ airplane ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    plane~1nz (^aircraft~1) an aircraft that has a fixed wing and is powered by propellers or jets
+ abdominal ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    abdominal~1nz (^muscle~4) the muscles of the abdomen
+    abdominal~2az of or relating to or near the abdomen
+    abdominal~3az 
+ avoidance ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    dodging~1nz (^act~1) deliberately avoiding
+ averting ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    aversion~1n 
+    averting~2nz (^bar~1) the act of preventing something from occurring
+ assisted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    aided~1az having help
+ attack ( meanings=16 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=attacker 
+    attack~1nz (^beginning~1) a decisive manner of beginning a musical tone or phrase
+    attack~2nz (^play~4) an offensive move in a sport or game
+    attempt~1nz (^crime~1) the act of attacking
+    approach~3n 
+    attack~5nz (^operation~6) an offensive against an enemy (using weapons)
+    attack~6nz (^criticism~3) strong criticism
+    blast~2nz (^criticism~3) intense adverse criticism
+    attack~8nz (^process~1) the onset of a corrosive or destructive process 
+    attack~9nz (^affliction~1) a sudden occurrence of an uncontrollable condition
+    attack~10az 
+    attack~11vz begin to injure
+    attack~12vz set to work upon
+    round~24vz attack in speech or writing
+    attack~14vz take the initiative and go on the offensive
+    attack~15vz launch an attack or assault on
+    attack~16vz attack someone physically or emotionally
+ airing ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    airing~1nz (^change~1) 
+    airing~2nz (^journey~1) a short excursion in the open air
+    spreading~2nz (^communication~2) 
+ approach ( meanings=14 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    approaching~1nz (^motion~1) the act of drawing spatially closer to something
+    approach~2nz (^swing~4) a relatively short golf shot intended to put the ball onto the putting green
+    attack~4nz (^creation~2) ideas or actions intended to deal with a problem or situation
+    access~2nz (^way~4) a way of entering or leaving
+    approach~5nz (^quality~1) a close approximation
+    approaching~2nz (^timing~2) the temporal property of becoming nearer in time
+    advance~3nz (^suggestion~4) a tentative suggestion designed to elicit the reactions of others
+    approaching~3nz (^motion~5) the event of one object coming closer to another
+    approach~9nz (^path~3) the final path followed by an aircraft as it is landing
+    approach~10vz make advances to someone, usually with a proposal or suggestion
+    approach~11vz come near in time
+    approach~12vz move towards
+    approach~13vz begin to deal with
+    approach~14vz come near or verge on, resemble, come nearer in quality, or character
+ approaching ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    coming~3n 
+    coming~4n 
+    approach~8n 
+    coming~5az of the relatively near future
+ access ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    access~1nz (^approach~1) the act of approaching or entering
+    approach~4n 
+    access~3nz (^operation~9) the operation of reading or writing stored information
+    access~4nz (^right~4) the right to obtain or make use of or take advantage of something
+    admission~2n 
+    access~6nz (^writing~3) a code that must be entered in some way (typed or dialed or spoken) to get the use of something (a telephone line or a computer or a local area network etc.)
+    access~7vz reach or gain access to
+    access~8vz obtain or retrieve from a storage device
+ angry ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=angriest 
+    angry~1az feeling or showing anger
+    raging~1az as if showing violent anger
+    angry~3az severely inflamed and painful
+    angry~4az 
+ air ( meanings=15 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    air~1nz (^travel~2) travel via aircraft
+    atmosphere~1nz (^quality~1) a distinctive but intangible quality surrounding a person or thing
+    air~3nz (^medium~2) medium for radio and television broadcasting
+    strain~5n 
+    atmosphere~2nz (^part~9) the mass of air surrounding the Earth
+    air~6nz (^part~9) the region above the ground
+    breeze~2nz (^wind~8) a slight wind 
+    air~8nz (^gas~5) a mixture of gases required for breathing
+    air~9nz (^element~7) once thought to be one of four elements composing the universe
+    vent~6vz expose to cool or cold air so as to cool or freshen
+    air~11vz expose to warm or heated air, so as to dry
+    bare~13v 
+    beam~9v 
+    air~14vz be broadcast
+    air~15vz expose to fresh air
+ ascending ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    rise~1n 
+    ascending~2az moving or going or growing upward
+ about ( meanings=8 PARTICLE ADVERB PREPOSITION CONDITIONAL_IDIOM ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB posdefault:PREPOSITION  poscondition=?1=R ) 
+    some~5b 
+    around~3b 
+    around~7b 
+    around~9b 
+    around~10b 
+    almost~1b 
+    about~7bz 
+    about~8z 
+ addition ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    addition~1nz (^increase~1) the act of adding one thing to another
+    plus~1n 
+    addition~3nz (^element~1) a component that is added to something to improve it
+    addition~4nz (^suburb~1) a suburban area laid out in streets and lots for a future residential area
+    addition~5nz (^relation~1) something added to what you already have
+    increase~5n 
+ arson ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    arson~1nz (^combustion~1) malicious burning to destroy property
+ activity ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    activity~1nz (^act~1) any specific behavior
+    activity~2nz (^attribute~1) the trait of being active
+    activity~3nz (^process~1) an organic process that takes place in the body
+    action~9nz (^process~1) a process existing in or produced by nature 
+    action~10nz (^state~1) the state of being active
+    activity~6nz (^capacity~9) the capacity of a substance to take part in a chemical reaction
+ annoying ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB (null) ) 
+    annoying~1nz (^practice~1) 
+    galling~1a 
+    annoying~3az 
+ abuse ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    abuse~1nz (^practice~1) cruel or inhumane treatment
+    abuse~2nz (^exercise~4) improper or excessive use
+    insult~2nz (^disrespect~3) a rude expression intended to offend or hurt
+    abuse~4vz change the inherent purpose or function of something
+    abuse~5vz use wrongly or improperly or excessively
+    shout~2v 
+    step~20v 
+ antic ( meanings=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_NOOBJECT ) conjugate=anticking 
+    trick~3n 
+    grotesque~3a 
+    clown~3v 
+ amusement ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    entertainment~1n 
+    amusement~2nz (^delight~2) a feeling of delight at being entertained
+ angling ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    angling~1nz (^fishing~1) fishing with a hook and line
+ away ( meanings=14 glosses=13 PARTICLE ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB (null) ) 
+    outside~3a 
+    away~2az used of an opponent's ground
+    away~3az not present
+    forth~3bz from a particular thing or place or position 
+    out~13bz from one's possession
+    by~1bz in reserve
+    aside~6bz out of the way 
+    away~8bz out of existence
+    away~9bz indicating continuing action
+    aside~8bz in a different direction
+    away~11bz in or into a proper place 
+    off~8bz at a distance in space or time
+    away~13bz so as to be removed or gotten rid of
+    away~14bz freely or at will
+ association ( meanings=8 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    association~1nz (^event~1) the act of consorting with or joining with others
+    connection~4nz (^memory~3) the process of bringing ideas or events together in memory or imagination
+    association~3nz (^group~1) a group of organisms (plants and animals) that live together in a certain geographical region and constitute a community with a few dominant species
+    association~4nz (^organization~6) a formal organization of people or groups of people
+    association~5nz (^activity~4) any process of combination (especially in solution) that depends on relatively weak chemical bonding
+    association~6nz (^relation~1) a relation resulting from interaction or dependence
+    tie~8n 
+    association~8nz (^union~10) the state of being connected together as in memory or imagination
+ a ( meanings=2 DETERMINER KINDERGARTEN DETERMINER_SINGULAR PREDETERMINER_TARGET ) 
+    a~1z 
+    a~2z 
+ acting ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    performing~1nz (^activity~1) 
+    acting~2az serving temporarily especially as a substitute
+ assist ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    assist~1nz (^play~6) the act of enabling another player to make a good play
+    aid~2n 
+    assist~3vz act as an assistant in a subordinate or supportive function
+    serve~9v 
+    aid~6v 
+ aerial ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    aerial~1nz (^pass~5) a pass to a receiver downfield from the passer
+    aerial~2nz (^device~2) an electrical device that sends or receives radio or television signals
+    aerial~3az characterized by lightness and insubstantiality
+    aerial~4az existing or living or growing or operating in the air
+    aerial~5az 
+ ace ( meanings=9 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ace~1nz (^service~4) a serve that the receiver is unable to reach
+    ace~2nz (^card~1) one of four playing cards in a deck having a single pip on its face
+    adept~1n 
+    single~2n 
+    crack~11a 
+    ace~6vz serve an ace against
+    ace~7vz play in one stroke
+    ace~8vz score an ace against
+    nail~9v 
+ alternative ( meanings=5 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    option~2n 
+    alternative~2az necessitating a choice between mutually exclusive possibilities
+    alternative~3az pertaining to unconventional choices
+    alternative~4az serving or used in place of another
+    alternative~5az 
+ accounting ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    accounting~1nz (^occupation~2) 
+    accounting~2nz (^system~5) a system that provides quantitative information about finances
+    accounting~3nz (^explanation~2) a convincing explanation that reveals basic causes
+    account~9n 
+    accounting~5nz (^record~7) 
+ arm ( meanings=8 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    arm~1nz (^rest~2) the part of an armchair or sofa that supports the elbow and forearm of a seated person
+    branch~1n 
+    sleeve~1n 
+    weapon~1n 
+    arm~5nz (^limb~4) a human limb
+    branch~2n 
+    gird~1vz prepare oneself for a military confrontation
+    arm~8vz supply with arms
+ analysis ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 ) plural=analyses 
+    analysis~1nz (^work~1) an investigation of the component parts of a whole and their relations in making up the whole
+    analysis~2nz (^therapy~1) a set of techniques for exploring underlying motives and a method of treating various mental disorders
+    analysis~3nz (^thinking~1) the abstract separation of a whole into its constituent parts in order to study the parts and their relations
+    analysis~4nz (^mathematics~1) a branch of mathematics involving calculus and the theory of limits
+    analysis~5nz (^criticism~2) a form of literary criticism in which the structure of a piece of writing is analyzed
+    analysis~6nz (^style~8) the use of closed-class words instead of inflections: e.g., `the father of the bride' instead of `the bride's father'
+ anatomy ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    anatomy~1nz (^analysis~1) a detailed analysis
+    frame~6n 
+    anatomy~3nz (^biology~1) the branch of morphology that deals with the structure of animals
+ attention ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    tending~1nz (^work~1) the work of providing treatment for or attending to someone or something
+    attention~2nz (^action~1) a courteous act indicating affection
+    attention~3nz (^position~7) a motionless erect stance with arms at the sides and feet together
+    attention~4nz (^ability~2) the faculty or power of mental concentration
+    attending~2nz (^operation~8) the process whereby a person concentrates on some features of the environment to the exclusion of others
+    attention~6nz (^attraction~2) a general interest that leads people to want to know more
+ aid ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    care~2n 
+    help~1nz (^activity~1) the activity of contributing to the fulfillment of a need or furtherance of an effort or purpose
+    help~3nz (^resource~1) a resource
+    aid~4nz (^gift~3) money to support a worthy person or cause
+    help~5vz improve the condition of
+    help~9vz give help or assistance
+ anointing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    anointing~1nz (^application~3) 
+ attitude ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    attitude~1nz (^pretending~1) a theatrical pose created for effect
+    position~7n 
+    attitude~3nz (^knowledge~1) a complex mental state involving beliefs and feelings and values and dispositions to act in certain ways
+    attitude~4nz (^direction~9) position of aircraft or spacecraft relative to a frame of reference
+ actual ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    actual~1az presently existing in fact and not merely potential or possible
+    actual~2az being or existing at the present moment
+    actual~3az taking place in reality
+    factual~1az existing in act or fact
+    genuine~3az being or reflecting the essential or genuine character of something
+    actual~6az 
+ anger ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    anger~1nz (^sin~1) belligerence aroused by a real or supposed wrong
+    anger~2nz (^emotion~1) a strong emotion
+    anger~3nz (^status~1) the state of being angry
+    anger~4vz make angry
+    anger~5vz become angry
+ aggravated ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    aggravated~1az incited, especially deliberately, to anger
+    aggravated~2az made more severe or intense especially in law
+ attempt ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT ) 
+    attack~3n 
+    try~1n 
+    undertake~3vz enter upon an activity or enterprise
+    seek~6v 
+ armed ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    armed~1az characterized by having or bearing arms
+    armed~2az furnished with bristles and thorns
+    armed~3az having arms or arms as specified
+    armed~4az 
+ audition ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    tryout~1n 
+    hearing~3n 
+    audition~3vz perform in order to get a role
+ adventure ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    escapade~2nz (^labor~2) a wild and exciting undertaking
+    risk~5v 
+    venture~6v 
+ advertising ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:VERB ) 
+    advertising~1nz (^business~3) the business of drawing public attention to goods and services
+    ad~1n 
+ ad ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    advertisement~1nz (^message~2) a public promotion of some product or service
+ aim ( meanings=11 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    aim~1nz (^direction~1) the action of directing something at an object
+    object~3n 
+    purpose~3n 
+    heading~3nz (^direction~8) the direction or path along which something moves or along which it lies
+    aim~5vz have an ambitious plan or a lofty goal
+    purpose~5v 
+    direct~13v 
+    aim~8vz direct toward an intended goal
+    get~14v 
+    point~32v 
+    direct~18v 
+ artificial ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    stilted~1az artificially formal
+    unreal~2az contrived by art rather than nature
+    artificial~3az not arising from natural growth or characterized by vital processes
+    artificial~4az 
+ arithmetic ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:ADJECTIVE ) 
+    arithmetic~1nz (^mathematics~1) the branch of pure mathematics dealing with the theory of numerical calculations
+    arithmetic~2az relating to or involving arithmetic
+ adult ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN (null) ) 
+    adult~1nz (^animal~1) any mature animal
+    adult~2nz (^individual~1) a fully developed person from maturity onward
+    grown~1az fully developed
+    adult~4az designed to arouse lust
+    adult~5az 
+ art ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    art~1nz (^creation~2) the creation of beautiful or significant things
+    art~2nz (^creation~3) the products of human creativity
+    art~3nz (^ability~2) a superior skill that you can learn by study and practice and observation
+    art~4nz (^communication~1) photographs or other visual representations in a printed publication
+ assembly ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    assembly~1nz (^building~1) the act of constructing something
+    gathering~2nz (^event~1) the social act of assembling
+    assembly~3nz (^machine~2) a group of machine parts that fit together to form a self-contained unit
+    assembly~4nz (^whole~1) a unit consisting of components that have been fitted together
+    assembly~5nz (^facility~3) a public facility to meet for open discussion
+    assembly~6nz (^group~1) a group of persons who are gathered together for a common purpose
+ agriculture ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    farming~2n 
+    agriculture~2nz (^business~3) a large-scale farming enterprise
+    agriculture~3nz (^class~3) the class of people engaged in growing food
+ arts ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
+    arts~1nz (^subject~3) 
+ arrangement ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    arranging~1nz (^composition~2) the act of arranging and adapting a piece of music
+    arrangement~2nz (^position~6) the spatial property of the way in which something is placed
+    organization~5n 
+    agreement~2nz (^preparation~5) the thing arranged or agreed to
+    arrangement~5nz (^piece~8) a piece of music that has been adapted for performance by a particular set of voices or instruments
+    arrangement~6nz (^group~1) an orderly grouping considered as a unit
+ arranging ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    arrangement~1n 
+ avenue ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    avenue~1nz (^approach~3) a line of approach
+    boulevard~1nz (^street~1) a wide street or thoroughfare
+ alcohol ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    alcohol~1nz (^drug~1) a liquor or brew containing alcohol as the active agent
+    alcohol~2nz (^liquid~4) any of a series of volatile hydroxyl compounds that are made from hydrocarbons by distillation
+ active ( meanings=18 glosses=17 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE ) 
+    active~1nz (^individual~1) a person who is a participating member of an organization
+    active~2nz (^voice~11) the voice used to indicate that the grammatical subject of the verb is performing the action or causing the happening denoted by the verb
+    active~3nz (^cause~1) chemical agent capable of activity
+    active~4az characterized by energetic activity
+    active~5az engaged in full-time work
+    active~6az full of activity or engaged in continuous activity
+    active~7az tending to become more severe or wider in scope
+    active~8az disposed to take action or effectuate change
+    active~9az erupting or liable to erupt
+    active~10az capable of erupting
+    active~11az and participial adjectives (e.g. `running' in `running water')) expressing action rather than a state of being
+    active~12az expressing that the subject of the sentence has the semantic function of actor:
+    active~13az exerting influence or producing a change or effect
+    active~14az characterized by an increased occurrence of sunspots and flares and radio emissions
+    alive~6az in operation
+    participating~1az taking part in an activity
+    fighting~2az engaged in or ready for military or naval operations
+    active~18az 
+ aggression ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    aggression~1nz (^action~1) violent action that is hostile and usually unprovoked
+    aggression~2nz (^behavior~1) deliberately unfriendly behavior
+    aggression~3nz (^engagement~2) the act of initiating hostilities
+    aggression~4nz (^disposition~2) a disposition to behave aggressively
+    aggression~5nz (^hate~1) a feeling of hostility that arouses thoughts of attack
+ area ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    area~1nz (^structure~1) a part of a structure having some specific characteristic or function
+    area~2nz (^property~2) the extent of a 2-dimensional surface enclosed within a boundary
+    region~1nz (^piece~11) a part of an animal that has a special function or is supplied by a given artery or nerve
+    area~4nz (^subject~2) a subject of study
+    country~3n 
+    field~17n 
+ assembling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    collecting~1n 
+ agglomeration ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    agglomeration~1nz (^collection~1) the act of collecting in a mass
+    agglomeration~2nz (^collection~4) a jumbled collection or mass
+ ancestor ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    root~6n 
+ allotment ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    parcelling~1nz (^distribution~1) the act of distributing by allotting or apportioning
+    allotment~2nz (^share~4) a share set aside for a specific purpose
+ arming ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    equipping~1n 
+ appeal ( meanings=9 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    appeal~1nz (^event~1) a legal proceeding in which the appellant resorts to a higher court for the purpose of obtaining a review of a lower court decision and a reversal of the lower court's judgment or the granting of a new trial
+    charm~2n 
+    collection~2n 
+    prayer~3n 
+    appeal~5vz request earnestly 
+    appeal~6vz cite as an authority
+    attract~3v 
+    appeal~8vz take a court case to a higher court for review
+    appeal~9vz challenge 
+ acquittal ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    acquittal~1nz (^judgment~2) a judgment of not guilty
+ allegiance ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    commitment~2n 
+    fealty~1nz (^quality~1) the loyalty that citizens owe to their country
+ approval ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    approving~1nz (^support~4) the formal act of approving
+    approval~2nz (^message~2) a message expressing a favorable opinion
+    approval~3nz (^liking~1) a feeling of liking something or someone good
+    approval~4nz (^acceptance~7) acceptance as satisfactory
+ approving ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    blessing~2n 
+    approving~2az 
+ affront ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    insult~1nz (^offense~3) a deliberately offensive act or something producing the effect of deliberate disrespect
+    insult~3vz treat, mention, or speak to rudely
+ attending ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    attending~1nz (^event~1) 
+    attention~5n 
+ appearing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    appearance~3n 
+ answer ( meanings=15 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    answer~1nz (^response~1) a nonverbal reaction
+    answer~2nz (^statement~4) the principal pleading by the defendant in response to plaintiff's complaint
+    result~2nz (^statement~4) a statement that solves a problem or explains how to solve the problem
+    reply~1nz (^statement~4) a statement that is made to reply to a question or request or criticism or accusation
+    answer~5nz (^reply~2) the speech act of replying to a question
+    resolve~4vz understand the meaning of
+    answer~7vz give the correct answer or solution to
+    answer~8vz react to a stimulus or command
+    answer~9vz respond to a signal
+    answer~10vz give a defence or refutation of or in (an argument)
+    respond~3vz react verbally
+    answer~12vz be satisfactory for
+    answer~13vz match or correspond
+    do~11v 
+    answer~15vz be liable or accountable
+ admission ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    admission~1nz (^entering~1) the act of admitting someone to enter
+    access~5nz (^right~4) the right to enter
+    admission~3nz (^acknowledgment~1) an acknowledgment of the truth of something
+    admission~4nz (^charge~14) the fee charged for admission
+ amendment ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    amendment~1nz (^change~1) the act of amending or correcting
+    amendment~2nz (^statement~4) a statement that is added to or revises or improves a proposal or document
+ ant ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    ant~1nz (^insect~1) social insect living in organized colonies
+ amphibian ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    amphibian~1nz (^animal~1) cold-blooded vertebrate typically living on land but breeding in water
+    amphibian~2nz (^airplane~1) an airplane designed to take off and land on water
+    amphibian~3nz (^container~1) a flat-bottomed motor vehicle that can travel on land or water
+    amphibian~4az relating to or characteristic of animals of the class Amphibia
+    amphibian~5az 
+ alligator ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    alligator~1nz (^reptile~1) either of two amphibious reptiles related to crocodiles but with shorter broader snouts
+    alligator~2nz (^leather~1) leather made from alligator's hide
+    alligator~3vz crack and acquire the appearance of alligator hide, as from weathering or improper application
+ ark ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    ark~1nz (^boat~1) a boat built by Noah to save his family and animals from the flood
+ apple ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    apple~1nz (^produce~1) fruit with red or yellow or green skin and sweet to tart crisp whitish flesh
+    apple~2nz (^tree~1) native Eurasian tree widely cultivated in many varieties for its firm rounded edible fruits
+ army ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    army~1nz (^crowd~1) a large number of people united for some specific purpose
+    army~2nz (^service~14) a permanent organization of the military land forces of a nation or state
+ almond ( meanings=3 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    almond~1nz (^nut~5) oval-shaped edible seed of the almond tree
+    almond~2nz (^tree~1) small bushy deciduous tree native to Asia and North Africa having pretty pink blossoms and highly prized edible nuts enclosed in a hard green hull
+    almond~3az 
+ atlas ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    atlas~1nz (^column~1) a figure of a man used as a supporting column
+    atlas~2nz (^bone~2) the 1st cervical vertebra
+    atlas~3nz (^reference~5) a collection of maps in book form
+ armadillo ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    armadillo~1nz (^mammal~1) burrowing chiefly nocturnal mammal with body covered with strong horny plates
+ ape ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ape~1nz (^mammal~1) any of various primates with short tails or no tail at all
+    ape~2nz (^individual~1) person who resembles a nonhuman primate
+    ape~3nz (^individual~1) someone who copies the words or behavior of another
+    ape~4vz represent in or produce a caricature of
+    ape~5vz imitate uncritically and in every aspect
+ abandoned ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    deserted~1az forsaken by owner or inhabitants 
+    abandoned~2az free from constraint
+    abandoned~3az 
+ abbey ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    abbey~1nz (^residence~3) a monastery ruled by an abbot
+    abbey~2nz (^residence~3) a convent ruled by an abbess
+    abbey~3nz (^church~2) a church associated with a monastery or convent
+ accessory ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE ) 
+    supplement~1n 
+    accessory~2nz (^clothing~1) clothing that is worn or carried, but not part of your main clothing
+    accessory~3nz (^crook~2) someone who helps another person commit a crime
+    auxiliary~3az furnishing added support
+    accessory~5az aiding and abetting in a crime
+ acid ( meanings=6 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    superman~1n 
+    acid~2nz (^compound~3) any of various water-soluble compounds having a sour taste and capable of turning litmus red and reacting with a base to form a salt
+    acid~3az having the characteristics of an acid
+    bitter~8a 
+    acid~5az being sour to the taste
+    acid~6az 
+ adjoining ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    adjoining~1az 
+ afterthought ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    afterthought~1nz (^addition~3) an addition that was not included in the original plan
+    afterthought~2nz (^operation~8) thinking again about a choice previously made
+ airfield ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    field~2nz (^facility~3) a place where planes take off and land
+ airline ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    airline~1nz (^line~6) a commercial enterprise that provides scheduled flights for passengers
+    airline~2nz (^hose~1) a hose that carries air under pressure
+ airport ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    airport~1nz (^airfield~1) an airfield equipped with control tower and hangars as well as accommodations for passengers and cargo
+ alarm ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    alarm~1nz (^device~2) a device that signals the occurrence of some undesirable event
+    alarm~2nz (^clock~1) a clock that wakes a sleeper at some preset time
+    alert~1nz (^signal~1) an automatic signal warning of danger
+    dismay~1nz (^fear~1) fear resulting from the awareness of danger
+    alert~8vz warn or arouse to a sense of danger or call to a state of preparedness
+    dismay~3vz fill with apprehension or alarm
+ album ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    album~1nz (^volume~1) a book of blank pages with pockets or envelopes
+    record_album~2n 
+ altar ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    altar~1nz (^structure~1) a raised structure on which gifts or sacrifices to a god are made
+    altar~2nz (^table~1) the table in Christian churches where communion is given
+ aluminum ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    aluminum~1nz (^metal~2) a silvery ductile metallic element found primarily in bauxite
+ ambulance ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    ambulance~1nz (^automobile~1) a vehicle that takes people to and from hospitals
+ amen ( INTERJECTION ) 
+ anachronism ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    anachronism~1nz (^artifact~1) an artifact that belongs to another time
+    anachronism~2nz (^individual~1) a person who seems to be displaced in time
+    anachronism~3nz (^activity~1) something located at a time when it could not have existed or occurred
+ angle ( meanings=7 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    slant~2n 
+    angle~2nz (^space~8) the space between two lines or planes that intersect
+    weight~9v 
+    angle~4vz fish with a hook
+    fish~4v 
+    lean~9v 
+    angle~7vz move or proceed at an angle
+ ankle ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    ankle~1nz (^piece~11) a gliding joint between the distal ends of the tibia and fibula and the proximal end of the talus
+ annex ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    extension~4n 
+    annex~2vz attach to
+    annex~3vz take as if by conquest
+ answering ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    answering~1az 
+ antidote ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    antidote~1nz (^cure~1) a remedy that stops or controls the effects of a poison
+ antique ( meanings=8 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    antique~1nz (^artifact~1) any piece of furniture or decorative object or the like produced in a former period and valuable because of its beauty or rarity
+    antique~2nz (^old_man~3) an elderly man
+    passe~1az out of fashion
+    antique~4az belonging to or lasting from times long ago
+    antique~5az made in or typical of earlier times and valued for its age
+    antique~6az 
+    antique~7vz give an antique appearance to
+    antique~8vz shop for antiques
+ antiseptic ( meanings=5 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    antiseptic~1nz (^medicine~3) a substance that destroys micro-organisms that carry disease without harming body tissues
+    antiseptic~2az devoid of objectionable language
+    antiseptic~3az clean and honest
+    antiseptic~4az thoroughly clean and free of or destructive to disease-causing organisms
+    antiseptic~5az freeing from error or corruption
+ apartment ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    flat~1nz (^housing~2) a suite of rooms usually on one floor of an apartment house
+ aperture ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    aperture~1nz (^opening~6) an man-made opening
+    aperture~2nz (^control~3) a device that controls amount of light admitted
+    aperture~3nz (^hole~4) a natural opening in something
+ apparatus ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) plural=apparatuses 
+    apparatus~1nz (^artifact~1) equipment designed to serve a specific function
+    apparatus~2nz (^piece~11) a group of body parts that work together to perform a given function
+ apparel ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dress~1n 
+    dress~11v 
+ appliance ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    appliance~1nz (^good~1) durable goods for home or office use
+    appliance~2nz (^device~2) a device or control that is very useful for a particular job
+ apron ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    apron~1nz (^clothing~1) a garment of cloth or leather or plastic that is tied about the waist and worn to protect your clothing
+    apron~2nz (^level~2) a paved surface where aircraft stand while not being used
+    apron~3nz (^stage~2) the part of a modern theater stage between the curtain and the orchestra
+    apron~4nz (^parcel~4) the part of the fairway leading onto the green
+ aquarium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=aquaria 
+    aquarium~1nz (^area~1) a tank or pool or bowl filled with water for keeping live fish and underwater animals
+ aqueduct ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    aqueduct~1nz (^passage~6) a conduit that resembles a bridge but carries water over a valley
+ arch ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=archer 
+    arch~1nz (^structure~1) a masonry construction (usually curved) for spanning an opening and supporting the weight above it
+    arch~2nz (^approach~4) a passageway under a curved masonry construction
+    arch~3nz (^structure~3) a curved bony structure supporting or enclosing organs
+    arch~4nz (^curve~5) a curved shape in the vertical plane that spans an opening
+    mischievous~2a 
+    arch~6az expert in skulduggery
+    arch~7az characteristic of those who treat others with condescension
+    curve~9v 
+ arrow ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    arrow~1nz (^missile~2) a projectile with a straight thin shaft and an arrowhead on one end and stabilizing vanes on the other
+    arrow~2nz (^mark~9) a mark to indicate a direction or relation
+ articulated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    articulate~2a 
+ artist ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    artist~1nz (^creator~1) a person whose creative work shows sensitivity and imagination
+ astronomy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    astronomy~1nz (^physics~1) the branch of physics that studies celestial bodies and the universe as a whole
+ atrium ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=atria 
+    atrium~1nz (^court~2) the central area in a building
+    atrium~2nz (^chamber~4) any chamber that is connected to other chambers or passageways
+ attic ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    attic~1nz (^wall~2) a low wall at the top of the entablature
+    attic~2nz (^floor~2) floor consisting of open space at the top of a house just below roof
+    bean~1n 
+ attire ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    dress~2n 
+    attire~2vz put on special clothes to appear particularly appealing and attractive
+ auditorium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=auditoria 
+    auditorium~1nz (^area~1) the area of a theater or concert hall where the audience sits
+ automatic ( meanings=6 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    automatic~1nz (^piece~1) a pistol that will keep firing until the ammunition is gone or the trigger is released
+    automatic~2nz (^piece~1) light machine gun
+    automatic~3az operating with minimal human intervention
+    automatic~4az resembling the unthinking functioning of a machine
+    automatic~5az without volition or conscious control
+    automatic~6az 
+ automobile ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    car~2nz (^container~1) a motor vehicle with four wheels
+ auxiliary ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    aide~2n 
+    auxiliary~2az functioning in a supporting capacity
+    accessory~4a 
+    auxiliary~4az 
+ ax ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) plural=axes 
+    ax~1nz (^cutter~1) an edge tool with a heavy bladed head mounted across a handle
+    ax~2vz terminate
+    ax~3vz chop or split with an ax
+ axis ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    axis~1nz (^device~2) the center around which something rotates
+    axis~2nz (^bone~2) the 2nd cervical vertebra
+    axis~3nz (^line~23) a straight line through a body or figure that satisfies certain conditions
+    axis~4nz (^organization~6) a group of countries in special alliance
+    axis~5nz (^stem~6) the main stem or central part about which plant organs or plant parts such as branches are arranged
+ after ( meanings=4 glosses=2 MORE_FORM PARTICLE ADVERB PREPOSITION CONJUNCTION_SUBORDINATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN GRADE1_2 posdefault:PREPOSITION TIMEWORD (null) (null) ) comparative=aft 
+    afterward~1bz happening at a time subsequent to a reference time
+    after~2bz behind or in the rear
+    after~3z 
+    after~4z 
+ appetite ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    appetite~1nz (^craving~1) a feeling of craving something
+ aspect ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    look~3n 
+    aspect~2nz (^characteristic~1) a characteristic to be considered
+    aspect~3nz (^characteristic~3) a distinct feature or element in a problem
+    view~5n 
+    aspect~5nz (^relation~1) the beginning or duration or completion or repetition of the action of a verb
+ attraction ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    attraction~1nz (^quality~1) the quality of arousing interest
+    attraction~2nz (^characteristic~3) a characteristic that provides pleasure and attracts
+    attraction~3nz (^show~3) an entertainment that is offered to the public
+    draw~9n 
+    attraction~5nz (^force~10) the force by which one object attracts another
+ allure ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    allure~1nz (^attraction~1) the power to entice or attract through personal charm
+    allure~2vz dispose or incline or entice to
+ accord ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    accord~1nz (^characteristic~1) sympathetic compatibility
+    treaty~1nz (^instrument~5) a written agreement between two states or sovereigns
+    accord~3nz (^agreement~4) concurrence of opinion
+    agreement~6nz (^harmony~5) harmony of people's opinions or actions or characters
+    grant~7vz allow to have
+    consort~5v 
+ agreement ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    agreement~1nz (^characteristic~1) compatibility of observations
+    arrangement~4n 
+    understanding~4nz (^statement~4) the statement of an exchange of promises
+    agreement~4nz (^act~1) the verbal act of agreeing
+    agreement~5nz (^relation~1) the determination of grammatical inflection on the basis of word relations
+    accord~4n 
+ atmosphere ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    air~2n 
+    air~5n 
+    atmosphere~3nz (^gas~5) the envelope of gases surrounding any celestial body
+    atmosphere~4nz (^unit~5) a unit of pressure: the pressure that will support a column of mercury 760 mm high at sea level and 0 degrees centigrade
+    atmosphere~5nz (^weather~1) the weather or climate at some place
+    atmosphere~6nz (^status~1) a particular environment or surrounding influence
+ amenity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    amenity~1nz (^sweetness~1) pleasantness resulting from agreeable conditions
+ audacity ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    audacity~1nz (^nerve~1) aggressive boldness or unmitigated effrontery
+    audacity~2nz (^daring~1) fearless daring
+ address ( meanings=18 glosses=18 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    address~1nz (^kindness~3) social skill
+    address~2nz (^position~7) the stance assumed by a golfer in preparation for hitting a golf ball
+    reference~4nz (^writing~3) the code that identifies where a piece of information is stored
+    destination~2nz (^direction~6) written directions for finding some location
+    address~5nz (^sign~4) a sign in front of a house or business carrying the conventional form by which its location is described
+    address~6nz (^speech~4) the manner of speaking to another individual
+    speech~8nz (^act~1) the act of delivering a formal spoken communication to an audience
+    address~8nz (^point~16) the place where a person or organization can be found or communicated with
+    address~9vz adjust and aim at in preparation of hitting
+    address~10vz speak to
+    speak~4vz give a speech to
+    accost~2vz speak to someone
+    direct~16vz put an address on
+    treat~7vz act on verbally or in some form of artistic expression
+    address~15vz direct a question at someone
+    address~16vz address or apply oneself to something, direct one's efforts towards something, such as a question
+    address~17vz access or locate by address
+    call~39vz greet, as with a prescribed form, title, or name
+ abandon ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    abandon~1nz (^attribute~1) the trait of lacking restraint or control
+    abandon~2nz (^feeling~1) a feeling of extreme emotional intensity
+    abandon~3vz stop maintaining or insisting on
+    desert~2v 
+    empty~12v 
+    abandon~6vz give up with the intent of never claiming again
+    abandon~7vz forsake, leave behind
+ arrogance ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    arrogance~1nz (^pride~1) overbearing pride evidenced by a superior manner toward inferiors
+ ancestry ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    ancestry~1nz (^property~2) inherited properties shared with others of your bloodline
+    stock~9n 
+ age ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT TIMEWORD ) 
+    age~1nz (^property~2) how long something has existed
+    age~2nz (^period~3) a time of life at which some particular qualification or power arises
+    age~3nz (^period~3) a late time of life
+    age~4nz (^period~3) a prolonged period of time
+    age~5nz (^era~2) an era of history having some distinctive feature
+    mature~8vz grow old or older
+    age~7vz begin to seem older
+    age~8vz make older
+ angular ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    angular~1az having angles or an angular shape
+    angular~2az measured by an angle or by the rate of change of an angle
+    angular~3az 
+ approximate ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    approximate~1az located close together
+    near~2a 
+    rough~7az not quite exact or correct
+    gauge~9v 
+    approximate~5vz be close or similar
+ advantage ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    reward~2nz (^benefit~1) benefit resulting from some event or action
+    vantage~1nz (^plus~2) the quality of having a superior or more favorable position
+    advantage~3nz (^point~19) first point scored after deuce
+    advantage~4vz give an advantage to
+ average ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    average~1nz (^value~3) an intermediate scale value regarded as normal or usual
+    average~2nz (^information~2) a statistic describing the location of a distribution
+    average~3nz (^relation~1) the ratio of successful performances to opportunities
+    ordinary~6az lacking special distinction, rank, or status
+    medium~13az around the middle of a scale of evaluation
+    mean~7az approximating the statistical norm or average or expected value
+    average~7az relating to or constituting the middle value of an ordered set of values 
+    average~8az relating to or constituting the most frequent value in a distribution
+    mediocre~2az lacking exceptional quality or ability
+    average~10az 
+    average~11vz compute the average of
+    average~12vz achieve or reach on average
+    average~13vz amount to or come to an average, without loss or gain
+ account ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    account~1nz (^profit~1) the quality of taking advantage
+    account~2nz (^importance~1) importance or value
+    story~3n 
+    bill~6nz (^statement~1) an itemized statement of money owed for goods shipped or services rendered
+    report~3nz (^news~5) a short account of the news
+    explanation~2n 
+    report~4nz (^act~1) the act of informing by verbal report
+    score~8nz (^ground~7) grounds
+    accounting~4nz (^statement~1) a statement of recent transactions and the resulting balance
+    account~10nz (^state~1) a formal contractual relationship established to provide for regular banking or brokerage or business services
+    account~11vz furnish a justifying analysis or explanation
+    describe~2vz to give an account or representation of in words
+    calculate~6vz keep an account of
+    account~14vz be the sole or primary factor in the existence, acquisition, supply, or disposal of something
+ authority ( meanings=7 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    sanction~3nz (^permission~2) official permission or approval
+    dominance~2n 
+    confidence~1n 
+    authority~4nz (^book~4) an authoritative written work
+    bureau~2n 
+    authority~6nz (^expert~1) an expert whose views are taken as definitive
+    authority~7nz (^individual~1) persons who exercise (administrative) control over others
+ ability ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    ability~1nz (^quality~1) the quality of being able to perform
+    power~3nz (^knowledge~1) possession of the qualities required to do something or get something done
+ athlete ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    athlete~1nz (^individual~1) a person trained to compete in sports
+ ancient ( meanings=5 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    ancient~1nz (^individual~1) a person who lived in ancient times
+    ancient~2nz (^adult~2) a very old person
+    ancient~3az very old
+    ancient~4az belonging to times long past especially of the historical period before the fall of the Western Roman Empire
+    ancient~5az 
+ acumen ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    acumen~1nz (^intelligence~2) shrewdness shown by keen insight
+    acumen~2nz (^process~3) a tapering point
+ affair ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    thing~6n 
+    occasion~2n 
+    liaison~2nz (^state~1) a usually secretive or illicit sexual relationship
+ amnesia ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    amnesia~1nz (^status~1) partial or total loss of memory
+ assurance ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    authority~3n 
+    assurance~2nz (^statement~4) a statement intended to inspire confidence
+    pledge~1n 
+    assurance~4nz (^insurance~2) a British term for some kinds of insurance
+ argument ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    line~12n 
+    argument~2nz (^quantity~3) a variable in a logical or mathematical expression whose value determines the dependent variable
+    argument~3nz (^value~3) a reference or value that is passed to a function, procedure, subroutine, command, or program
+    argument~4nz (^statement~4) a summary of the subject or plot of a literary work or play or movie
+    statement~3nz (^evidence~2) a fact or assertion offered as evidence that something is true
+    debate~1nz (^word~5) a discussion in which reasons are advanced for and against some proposition or proposal
+    arguing~1nz (^difference~2) a contentious speech act
+ anticipation ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    prediction~1nz (^thinking~1) the act of predicting
+    anticipation~2nz (^expectation~1) something expected 
+    anticipation~3nz (^expectation~3) an expectation
+    expectation~4nz (^status~1) anticipating with confidence of fulfillment
+ alchemy ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    alchemy~1nz (^thought~2) a pseudoscientific forerunner of chemistry in medieval times
+    chemistry~2n 
+ acquaintance ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    acquaintance~1nz (^information~2) personal knowledge or information about someone or something
+    friend~1n 
+    acquaintance~3nz (^state~1) a relationship less intimate than friendship
+ attractive ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    attractive~1az pleasing to the eye or mind especially through beauty or charm
+    attractive~2az having the properties of a magnet
+    attractive~3az having power to arouse interest
+    attractive~4az 
+ alphabet ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    rudiment~2nz (^law~2) the elementary stages of any subject 
+    alphabet~2nz (^script~1) a character set that includes letters and is used to write a language
+ algebra ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    algebra~1nz (^mathematics~1) the mathematics of generalized arithmetical operations
+ applied ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    applied~1az concerned with concrete problems or data rather than with fundamental principles
+ accident ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    stroke~7nz (^event~1) anything that happens suddenly or by chance without an apparent cause
+    accident~2nz (^misfortune~1) an unfortunate mishap
+ abnormal ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    abnormal~1az much greater than the normal
+    abnormal~2az not normal
+    abnormal~3az departing from the normal in e.g. intelligence and development
+    abnormal~4az 
+ adverb ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    adverb~1nz (^family~3) the word class that qualifies verbs or clauses
+    adverb~2nz (^word~1) a word that modifies something other than a noun
+ affected ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    affected~1az acted upon
+    affected~2az 
+    moved~1a 
+ assumed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    false~3a 
+ author ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    source~7n 
+    writer~1n 
+    author~3vz be the author of
+ above ( meanings=5 glosses=3 PARTICLE ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    above~1az appearing earlier in the same text
+    above~2az 
+    above~3bz at an earlier place
+    above~4bz in or to a place that is higher
+    above~5z 
+ annual ( meanings=4 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    yearly~1nz (^reference~5) a reference book that is published regularly once every year
+    annual~2nz (^plant~1) a plant that completes its entire life cycle within the space of a year
+    annual~3az completing its life cycle within a year
+    yearly~2az occurring or payable every year
+ Ave ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+ annals ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 ) 
+    annals~1nz (^history~3) a chronological account of events in successive years
+    annals~2nz (^journal~4) reports of the work of a society or learned body etc
+ autobiography ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    autobiography~1nz (^life~4) a biography of yourself
+ advice ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    advice~1nz (^message~2) a proposal for an appropriate course of action
+ amended ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    amended~1az modified for the better
+    amended~2az of legislation
+ aside ( meanings=9 glosses=2 NOUN_ABSTRACT PARTICLE NOUN ADVERB PREPOSITION NOUN_SINGULAR COMMON4 COMMON1 posdefault:ADVERB ) 
+    aside~1nz (^message~2) 
+    aside~2nz (^speech~3) a line spoken by an actor to the audience but not intended for others on the stage
+    apart~3b 
+    away~6b 
+    aside~5bz on or to one side
+    away~7b 
+    apart~7b 
+    away~10b 
+    aside~9z 
+ applesauce ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    trash~2n 
+    applesauce~2nz (^dish~4) puree of stewed apples usually sweetened and spiced
+ animated ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    alive~3a 
+    animated~2az made to appear to move as living creatures do
+    animated~3az 
+ acknowledgment ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    acknowledgment~1nz (^message~2) a statement acknowledging something or someone
+    reference~7n 
+    recognition~8nz (^acceptance~7) the state or quality of being recognized or acknowledged
+ afternoon ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    afternoon~1nz (^acknowledgment~1) a conventional expression of greeting or farewell
+    afternoon~2nz (^daylight~2) the part of the day between noon and evening
+ anonymous ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    anonymous~1az having no known name or identity or known source
+    anonymous~2az not known or lacking marked individuality
+    anonymous~3az 
+ associate ( meanings=9 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    associate~1nz (^degree~4) a degree granted by a two-year college on successful completion of the undergraduates course of studies
+    associate~2nz (^event~1) any event that usually accompanies or is closely connected with another
+    associate~3nz (^match~7) a person who joins with others in some activity or endeavor
+    associate~4nz (^subordinate~2) a person with subordinate membership in a society, institution, or commercial enterprise
+    fellow~4n 
+    associate~6az having partial rights and privileges or subordinate status
+    connect~1v 
+    associate~8vz bring or come into association or action
+    consort~4v 
+ announcement ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    announcement~1nz (^statement~4) a formal public statement
+    announcement~2nz (^statement~4) a public statement containing information about an event that has happened or is going to happen
+ affidavit ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    affidavit~1nz (^instrument~5) written declaration made under oath
+ alert ( meanings=8 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) (null) (null) ) 
+    alarm~3n 
+    alerting~1nz (^warning~3) a warning serves to make you more alert to danger
+    alert~3nz (^preparation~7) condition of heightened watchfulness or preparation for action
+    watchful~1a 
+    alive~4a 
+    merry~1a 
+    alert~7az 
+    alarm~5v 
+ asterisk ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    star~2n 
+    star~10v 
+ accidental ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    accidental~1nz (^writing~3) a musical notation that makes a note sharp or flat or natural although that is not part of the key signature
+    accidental~2az happening by chance or unexpectedly or unintentionally 
+ actor ( meanings=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    player~1n 
+    worker~3n 
+ ahem ( meanings=1 NOUN INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 ) 
+    hem~2n 
+ audience ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    interview~1nz (^conference~1) a conference 
+    audience~2nz (^group~1) a gathering of spectators or listeners at a performance
+    audience~3nz (^people~4) the part of the general public interested in a source of information or entertainment
+    hearing~6nz (^opportunity~1) an opportunity to state your case and be heard
+ arguing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB ) 
+    argument~7n 
+ altercation ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    altercation~1nz (^row~4) noisy quarrel
+ asking ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    request~2n 
+ anecdote ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    anecdote~1nz (^account~7) short account of an incident
+ alerting ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    alert~2n 
+    alerting~2nz (^status~1) 
+ advertisement ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    advertising~2n 
+ aftermath ( meanings=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    consequence~2n 
+    wake~3n 
+ affliction ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    affliction~1nz (^trouble~3) a cause of great suffering and distress
+    affliction~2nz (^status~1) a condition of suffering or distress due to ill health
+    affliction~3nz (^misfortune~2) a state of great suffering and distress due to adversity
+ affect ( meanings=6 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    affect~1nz (^feeling~1) the conscious subjective aspect of feeling or emotion
+    affect~2vz act physically on
+    touch~13v 
+    pretend~4v 
+    move~12v 
+    regard~10v 
+ amazement ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    amazement~1nz (^feeling~1) the feeling that accompanies something extremely surprising
+ anxiety ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    anxiety~1nz (^emotion~1) a vague unpleasant emotion that is experienced in anticipation of some misfortune
+    anxiety~2nz (^status~1) a relatively permanent state of worry and nervousness occurring in a variety of mental disorders, usually accompanied by compulsive behavior or attacks of panic
+ affection ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    heart~7n 
+ ale ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    ale~1nz (^alcohol~1) a general name for beer made with a top fermenting yeast
+ aged ( meanings=7 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    elderly~1n 
+    cured~1a 
+    ripened~1a 
+    senior~4a 
+    aged~5az 
+    aged~6az at an advanced stage of erosion 
+    aged~7az 
+ at ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    at~1z 
+ apex ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=apices 
+    apex~1nz (^point~16) the point on the celestial sphere toward which the sun and solar system appear to be moving relative to the fixed stars
+    peak~3n 
+ apparent ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    plain~6az clearly revealed to the mind or the senses or judgment
+    seeming~1az appearing as such but not necessarily so
+    apparent~3az 
+ associated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    associated~1az 
+ alien ( meanings=8 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    alien~1nz (^vision~1) a form of life assumed to exist outside the Earth or its atmosphere
+    foreigner~1n 
+    stranger~1n 
+    exotic~2a 
+    foreign~3a 
+    alien~6az 
+    alienate~1v 
+    alienate~3v 
+ able ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    able~1az having the necessary means or skill or know-how or authority to do something
+    able~2az having inherent physical or mental ability or capacity
+    capable~4az have the skills and qualifications to do things well
+    able~4az having a strong healthy body
+    able~5az 
+ accomplice ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    confederate~1n 
+ accused ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    accused~1nz (^defendant~1) a defendant in a criminal proceeding
+    accused~2az 
+ adept ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    genius~4n 
+    expert~2a 
+    adept~3az 
+ actress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN ) 
+    actress~1nz (^player~1) a female actor
+ aide ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    aide~1nz (^officer~1) an officer who acts as military assistant to a more senior officer
+    auxiliary~1nz (^helper~2) someone who acts as assistant
+ adolescent ( meanings=6 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    teenager~1n 
+    adolescent~2az in the state of development between puberty and maturity
+    adolescent~3az displaying or suggesting a lack of maturity
+    teen~2a 
+    adolescent~5az relating to or peculiar to or suggestive of an adolescent
+    adolescent~6az 
+ advancer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 GRADE1_2 ) comparative=advance 
+    advancer~1nz (^traveler~1) someone who advances
+ advisor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    advisor~1nz (^authority~6) an expert who gives advice
+ advocate ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    advocate~1nz (^individual~1) a person who pleads for a cause or propounds an idea
+    counselor~1n 
+    advocate~3vz speak, plead, or argue in favor of
+    recommend~2v 
+ ancestress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    ancestress~1nz (^root~6) a woman ancestor
+ archduchess ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    archduchess~1nz (^princess~1) a wife or widow of an archduke or a princess of the former ruling house of Austria
+ archduke ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    archduke~1nz (^prince~1) a sovereign prince of the former ruling house of Austria
+ archer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) comparative=arch 
+    archer~1nz (^expert~1) a person who is expert in the use of a bow and arrow
+ architect ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    designer~1n 
+ attacker ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) comparative=attack 
+    attacker~1nz (^individual~1) someone who attacks
+ attorney ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    lawyer~1n 
+ aunt ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    aunt~1nz (^relative~2) the sister of your father or mother
+ authoress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    authoress~1nz (^writer~1) a woman author
+ aviator ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    flyer~2n 
+ aviatrix ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    aviatress~1n 
+ aviatress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    aviatrix~1nz (^flier~2) a woman aviator
+ air_hostess ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    hostess~3nz (^steward~4) a woman steward on an airplane
+ alternating ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:VERB ) 
+    alternating~1az occurring by turns
+    alternating~2az reversing direction
+ abrasion ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    grinding~3nz (^friction~2) the wearing down of rock particles by friction due to water or wind or ice
+    abrasion~2nz (^erosion~2) erosion by friction
+    scrape~4n 
+ aromatic ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    aromatic~1az having a strong pleasant odor
+    aromatic~2az of or relating to or containing one or more benzene rings
+    aromatic~3az 
+ autumn ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    fall~11nz (^season~1) the season when the leaves fall from the trees
+ angled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    angled~1az forming or set at an angle
+ authorized ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    authorized~1az endowed with authority
+    authorized~2az 
+    authorized~3az 
+ aging ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    ageing~1nz (^process~1) 
+    ageing~2n 
+    ageing~3a 
+ ageing ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    aging~1n 
+    ripening~2n 
+    aging~3az 
+ are ( meanings=1 VERB_PRESENT AUX_BE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN ) conjugate=am 
+    are~1vz 
+ addend ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE1_2 ) 
+    addend~1nz (^number~11) a number that is added to another number
+ applicability ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    applicability~1nz (^connection~7) relevance by virtue of being applicable to the matter at hand
+ ailment ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    ill~1n 
+ ache ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    aching~1nz (^pain~5) a dull persistent pain
+    pine~4v 
+    hurt~14v 
+    hurt~15v 
+ aching ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    ache~1n 
+    aching~2az causing a dull and steady pain
+ agitated ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    agitated~1az troubled emotionally and usually deeply
+    agitated~2az physically disturbed or set in motion
+ adolescence ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    adolescence~1nz (^state~1) in the state that someone is in between puberty and adulthood
+    adolescence~2nz (^period~3) the time period between the beginning of puberty and adulthood
+ altogether ( meanings=4 glosses=2 NOUN ADVERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADVERB ) 
+    raw~1n 
+    whole~8b 
+    altogether~3bz with everything included or counted
+    altogether~4bz with everything considered 
+ absorbent ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE ) 
+    absorbent~1nz (^stuff~7) a material having capacity or tendency to absorb another substance
+    absorbent~2az having power or capacity or tendency to absorb or soak up something 
+ Ag ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    silver~5n 
+ asphalt ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    asphalt~1nz (^mineral~1) a dark bituminous substance found in natural beds and as residue from petroleum distillation
+    asphalt~2nz (^artifact~1) mixed asphalt and crushed gravel or sand
+    asphalt~3az 
+    asphalt~4vz cover with tar or asphalt
+ analyses ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=analysis 
+ apices ( NOUN NOUN_PLURAL COMMON2 GRADE5_6 posdefault:NOUN ) plural=apex 
+ apparatuses ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=apparatus 
+ aquaria ( NOUN NOUN_PLURAL COMMON2 KINDERGARTEN posdefault:NOUN ) plural=aquarium 
+ atria ( NOUN NOUN_PLURAL COMMON2 GRADE5_6 posdefault:NOUN ) plural=atrium 
+ auditoria ( NOUN NOUN_PLURAL COMMON2 GRADE3_4 posdefault:NOUN ) plural=auditorium 
+ axes ( NOUN NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=ax 
+ a.m. ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    a.m.~1nz 
+    a.m.~2az before noon
+ armload ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    armload~1nz 
+ achoo ( NOUN INTERJECTION NOUN_SINGULAR COMMON2 GRADE1_2 ) 
+ arf ( NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+ aargh ( INTERJECTION ) 
+ aarrghh ( INTERJECTION ) 
+ aha ( INTERJECTION ) 
+ aah ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB INTERJECTION COMMON2 COMMON1 VERB_NOOBJECT ) 
+    ooh~1v 
+ ack ( INTERJECTION ) 
+ ah ( INTERJECTION ) 
+ ahh ( INTERJECTION ) 
+ ahoy ( INTERJECTION ) 
+ alrighty ( INTERJECTION ) 
+ alrighty-roo ( INTERJECTION ) 
+ alack ( INTERJECTION ) 
+ anyhoo ( INTERJECTION ) 
+ attaboy ( INTERJECTION ) 
+ attagirl ( INTERJECTION ) 
+ arg ( INTERJECTION ) 
+ argh ( INTERJECTION ) 
+ aw ( INTERJECTION ) 
+ awww ( INTERJECTION ) 
+ ay ( INTERJECTION ) 
+ aye ( INTERJECTION ) 
+ afterwards ( meanings=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    after~1b 
+ already ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    already~1bz prior to a specified or implied time
+ ago ( meanings=2 glosses=1 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD (null) ) 
+    ago~1az 
+    ago~2bz in the past
+ annually ( meanings=2 glosses=2 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    yearly~3bz without missing a year
+    annually~2bz by the year
+ ample ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    plentiful~1a 
+    ample~2az more than enough in size or scope or capacity
+    ample~3az fairly large
+    ample~4az 
+ abused ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    mistreated~1az 
+    abused~2az used improperly or excessively especially drugs
+ acceptable ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    acceptable~1az worthy of acceptance or satisfactory
+    acceptable~2az adequate for the purpose
+    acceptable~3az meeting requirements
+    acceptable~4az judged to be in conformity with approved usage
+    acceptable~5az 
+ accessible ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    accessible~1az capable of being reached
+    accessible~2az easy to get along with or talk to
+    accessible~3az easily obtained
+    accessible~4az capable of being read with comprehension
+    accessible~5az 
+ accurate ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    accurate~1az conforming exactly or almost exactly to fact or to a standard or performing with total accuracy
+    exact~1a 
+    accurate~3az 
+ accepted ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    recognized~1a 
+    accepted~2az 
+ agile ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    quick~2a 
+    agile~2az mentally quick
+    agile~3az 
+ alive ( meanings=8 glosses=6 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    live~1az capable of erupting
+    live~2az possessing life
+    animated~1az having life or vigor or spirit
+    awake~2az mentally perceptive and responsive
+    alive~5az full of life and spirit
+    active~15a 
+    alive~7az aware of
+    alive~8az 
+ additional ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    extra~4a 
+    additional~2az 
+ addressed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    addressed~1az marked with a destination
+ adequate ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    equal~2a 
+    tolerable~1az about average
+    decent~6az sufficient for the purpose
+    adequate~4az 
+ adorned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    decorated~1a 
+ audacious ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    daring~3a 
+    audacious~2az unrestrained by convention or propriety
+    brave~3a 
+    audacious~4az 
+ advised ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    advised~1az 
+    advised~2az having received information
+ accepting ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    accepting~1az tolerating without protest
+ afloat ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    afloat~1az borne on the water
+    inundated~1az covered with water
+    afloat~3az aimlessly drifting
+ afraid ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE (null) (null) ) 
+    afraid~1az filled with fear or apprehension
+    afraid~2az filled with regret or concern
+    afraid~3az feeling worry or concern or insecurity
+    afraid~4az having feelings of aversion or unwillingness
+    afraid~5az 
+ aghast ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    shocked~1az struck with fear, dread, or consternation
+    aghast~2az 
+ alarmed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    alarmed~1az experiencing a sudden sense of danger
+ apprehensive ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    apprehensive~1az in fear or dread of possible evil or harm
+    worried~1a 
+    apprehensive~3az quick to understand
+    apprehensive~4az 
+ asleep ( meanings=5 glosses=5 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    gone~1az dead
+    asleep~2az in a state of sleep
+    numb~2az lacking sensation
+    asleep~4bz into a sleeping state
+    asleep~5bz in the sleep of death
+ ambiguous ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    ambiguous~1az having more than one possible meaning
+    ambiguous~2az open to two or more interpretations
+    ambiguous~3az having no intrinsic or objective meaning
+ ambitious ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    ambitious~1az having a strong desire for success or achievement
+    challenging~1az requiring full use of your abilities or resources
+    ambitious~3az 
+ angered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    furious~1a 
+ acrimonious ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    bitter~4a 
+ appropriate ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    appropriate~1az suitable for a particular person or place or condition etc
+    appropriate~2az 
+    allow~2vz give or assign a resource to a particular person or cause
+    capture~10v 
+ articulate ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) (null) ) 
+    articulate~1az expressing yourself easily or characterized by clear expressive language
+    articulated~1az consisting of segments held together by joints
+    articulate~3vz express or state clearly
+    say~7v 
+    word~9v 
+    articulate~6vz provide with a joint
+    articulate~7vz unite by forming a joint or joints
+ ashamed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    ashamed~1az feeling shame or guilt or embarrassment or remorse
+    ashamed~2az 
+ attached ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    committed~1a 
+    attached~2az used of buildings joined by common sidewalls
+    attached~3az fond and affectionate
+    connected~4a 
+ attentive ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    attentive~1az giving care or attention
+    thoughtful~2a 
+    attentive~3az 
+ absorbed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    engrossed~1a 
+    absorbed~2az retained without reflection
+ absent ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE PREPOSITION ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    absent~1az lost in thought
+    missing~1a 
+    absent~3az not being in a specified place
+    absent~4az 
+    absent~5z 
+    remove~3v 
+ appealing ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    appealing~1az able to attract interest or draw favorable attention
+    appealing~2az 
+    appealing~3az 
+ approved ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    sanctioned~1a 
+ available ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    available~1az obtainable or accessible and ready for use or service
+    usable~1az convenient for use or disposal
+    available~3az not busy
+    available~4az 
+ awake ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_NOOBJECT ) conjugate=awoken 
+    awake~1az not in a state of sleep
+    alert~5a 
+    awake~3az 
+    wake~4vz stop sleeping
+ awakened ( meanings=2 glosses=2 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=awoke 
+    awakened~1az having been waked up
+    awakened~2az aroused or activated
+ aware ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    aware~1az having or showing knowledge or understanding or realization or perception
+    aware~2az bearing in mind
+    aware~3az 
+ alarming ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    alarming~1az frightening because of an awareness of danger
+ awful ( meanings=8 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE (null) ) 
+    fearful~2a 
+    terrible~2a 
+    amazing~1az inspiring awe or admiration or wonder
+    nasty~4az offensive or even malicious
+    terrible~4a 
+    awful~6az inspired by a feeling of fearful wonderment or reverence
+    awful~7az 
+    awful~8bz used as intensifiers
+ assuring ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    assuring~1az giving confidence
+ advanced ( meanings=9 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    advance~7a 
+    advanced~2az highly developed especially in technology or industry
+    ripe~1a 
+    advanced~4az comparatively late in a course of development
+    advanced~5az 
+    advanced~6az at a higher level in training or knowledge or skill
+    advanced~7az farther along in physical or mental development
+    modern~6a 
+    advanced~9az 
+ assuming ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    assuming~1az 
+ attended ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    attended~1az 
+    accompanied~2a 
+ assured ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    assured~1az marked by assurance
+    assured~2az characterized by certainty or security
+ adjusted ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    adjusted~1az altered to accommodate to certain requirements or bring into a proper relation
+    adjusted~2az adjusted to demands of daily living
+    adjusted~3az having the fit or style adjusted
+    adjusted~4az 
+ ashen ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    white~8a 
+    ashen~2az made of wood of the ash tree
+    ashen~3az 
+ adjacent ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    adjacent~1az near or close to but not necessarily touching
+    next~2a 
+    neighboring~1az having a common boundary or edge
+    adjacent~4az 
+ appareled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
+    dressed~1a 
+ attired ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    appareled~1a 
+ advertised ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    advertised~1az called to public attention
+ according ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:VERB posdefault:PREPOSITION ) 
+    according~1az as reported or stated by
+    according~2az in agreement with or accordant with
+ afire ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 GRADE1_2 posdefault:ADJECTIVE ) 
+    aflame~1a 
+ aflame ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 GRADE1_2 posdefault:ADJECTIVE ) 
+    afire~1az lighted up by or as by fire or flame
+    aflame~2az keenly excited or indicating excitement
+ awkward ( meanings=7 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    uneasy~2az socially uncomfortable
+    awkward~2az causing inconvenience
+    sticky~3a 
+    cumbersome~1az not elegant or graceful in expression
+    awkward~5az lacking grace or skill in manner or movement or performance
+    ungainly~2az difficult to handle or manage especially because of shape
+    awkward~7az 
+ alone ( meanings=6 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) 
+    unparalleled~1az radically distinctive and without equal
+    only~1az exclusive of anyone or anything else
+    alone~3az isolated from others
+    lone~3a 
+    only~5b 
+    solo~5bz without anybody else or anything else
+ abashed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    embarrassed~2a 
+    abashed~2az 
+ apart ( meanings=8 glosses=8 PARTICLE ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    obscure~3az remote and separate physically or socially
+    apart~2az having characteristics not shared by others
+    aside~3bz not taken into account or excluded from consideration
+    apart~4bz into parts or pieces
+    apart~5bz separated or at a distance in place or position or time
+    apart~6bz one from the other
+    aside~7bz placed or kept separate and distinct as for a purpose
+    apart~8bz away from another or others
+ agreed ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    agreed~1az 
+    agreed~2az 
+ abrupt ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    abrupt~1az surprisingly and unceremoniously brusque in manner
+    abrupt~2az exceedingly sudden and unexpected
+    sharp~9a 
+    abrupt~4az marked by sudden changes in subject and sharp transitions
+    abrupt~5az 
+ appraising ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    appraising~1az exercising or involving careful evaluations
+ alleged ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    alleged~1az declared but not proved
+    supposed~4a 
+    alleged~3az 
+ announced ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    proclaimed~1a 
+ amenable ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    amenable~1az disposed or willing to comply
+    amenable~2az liable to answer to a higher authority
+    amenable~3az open to being acted upon in a certain way
+    tractable~1a 
+    amenable~5az 
+ allied ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    allied~1az joined by treaty or agreement
+    allied~2az related by common characteristics or ancestry
+    confederate~3a 
+    allied~4az 
+ assiduous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    assiduous~1az marked by care and persistent effort
+    assiduous~2az 
+ appeasing ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 posdefault:VERB ) 
+    appeasing~1az intended to pacify by acceding to demands or granting concessions
+ alienating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    alienating~1az causing hostility or loss of friendliness
+ anxious ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) (null) ) 
+    dying~3az eagerly desirous
+    uneasy~5a 
+    anxious~3az 
+ attained ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    attained~1az achieved or reached
+ appointed ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    appointed~1az 
+    appointed~2az selected for a job
+    appointed~3az provided with furnishing and accessories 
+    appointed~4az 
+ allotted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    allotted~1az given as a task
+ accrued ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    accumulated~1a 
+ accumulated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    accrued~1az periodically accumulated over time
+ augmented ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    augmented~1az added to or made greater in amount or number or strength
+    augmented~2az 
+ admirable ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    admirable~1az deserving of the highest esteem or admiration
+    admirable~2az inspiring admiration or approval
+ accusing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    accusing~1az 
+ acquainted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB ) 
+    acquainted~1az having fair knowledge of
+ accelerated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    accelerated~1az speeded up, as of an academic course
+ aft ( meanings=2 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE posdefault:ADVERB ) comparative=after 
+    aft~1az situated at or toward the stern or tail
+    aft~2bz at or near or toward the stern of a ship or tail of an airplane
+ adopted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    adopted~1az 
+ abroad ( meanings=4 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    abroad~1az in a foreign country
+    abroad~2bz to or in a foreign country
+    abroad~3bz in a place across an ocean
+    abroad~4bz far away from home or one's usual surroundings
+ articled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    bound~10a 
+ amiable ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    amiable~1az diffusing warmth and friendliness
+    amiable~2az disposed to please
+    amiable~3az 
+ attested ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    documented~2az 
+ abusive ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    abusive~1az characterized by physical or psychological maltreatment
+    abusive~2az expressing offensive reproach
+    abusive~3az 
+ assorted ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    mixed~1a 
+    various~2a 
+ amusing ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    funny~3a 
+    amusing~2az 
+    amusing~3az 
+ amazing ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 ) 
+    awful~3a 
+    amazing~2az surprising greatly
+    amazing~3az 
+ arresting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    arresting~1az 
+ averse ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    averse~1az strongly opposed
+ absolved ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    cleared~2a 
+ acquitted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    acquitted~1az 
+ aggravating ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    exasperating~1a 
+ absorbing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    gripping~1az 
+ appreciated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    appreciated~1az 
+ alike ( meanings=3 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    like~4az having the same or similar characteristics
+    alike~2bz in a like manner
+    likewise~2b 
+ abbreviated ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    brief~4a 
+    abbreviated~2az cut short in duration
+ admired ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    admired~1az regarded with admiration
+ alienated ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    alienated~1az caused to be unloved
+    alienated~2az 
+ amorous ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    amorous~1az inclined toward or displaying love
+    amorous~2az expressive of or exciting sexual love or romance
+ asterisked ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    starred~1az marked with an asterisk
+ alleviated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    relieved~2az made easier to bear
+ adapted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    adapted~1az 
+ a_few ( meanings=2 glosses=1 ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE KINDERGARTEN DETERMINER_PLURAL ) 
+    a_few~1az more than one but indefinitely small in number
+    a_few~2z 
+ affecting ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    touching~3a 
+ arranged ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    staged~1az deliberately arranged for effect
+    arranged~2az planned in advance
+    ordered~3az disposed or placed in a particular kind of order
+ ascertained ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    discovered~1az discovered or determined by scientific observation
+ abhorrent ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    repulsive~3a 
+    abhorrent~2az 
+ attacking ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    attacking~1az 
+ admissible ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    admissible~1az deserving to be admitted
+ amused ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    entertained~1a 
+    amused~2az 
+ annoyed ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    stung~1a 
+    harassed~1a 
+    annoyed~3az 
+ aforethought ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE ) 
+    plotted~1az planned in advance
+ advancing ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    forward~6a 
+ aloof ( meanings=2 glosses=1 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    distant~5a 
+    aloof~2bz in an aloof manner
+ another ( meanings=4 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_SINGULAR PRONOUN_SINGULAR ) 
+    another~1az any of various alternatives
+    another~2z 
+    another~3z 
+    another~4z 
+ around ( meanings=11 glosses=10 PARTICLE ADVERB PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB posdefault:PREPOSITION ) 
+    about~1bz imprecise but fairly close to correct
+    around~2bz in circumference
+    about~2bz in the area or vicinity
+    round~19bz from beginning to end
+    around~5bz by a circular or circuitous route
+    around~6bz in a circle or circular motion
+    about~3bz all around or on all sides
+    around~8bz to a particular destination either specified or understood
+    about~4bz in or to a reversed position or direction
+    about~5bz used of movement to or among many different places or in no particular direction
+    around~11z 
+ alright ( meanings=5 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) 
+    alright~1az nonstandard usage
+    alright~2az 
+    okay~4bz in a satisfactory or adequate manner
+    fine~9bz an expression of agreement normally occurring at the beginning of a sentence
+    alright~5bz without doubt 
+ alluring ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB (null) ) 
+    enticing~1az 
+    alluring~2az 
+ alligatored ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
+    cracked~2az of paint or varnish
+ accompanied ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB ) 
+    accompanied~1az having companions or an escort
+    attended~2az playing or singing with instrumental or vocal accompaniment
+ any ( meanings=4 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB OMITTABLE_TIME_PREPOSITION ) 
+    whatever~1a 
+    any~2bz to any degree or extent
+    any~3z 
+    any~4z 
+ askew ( meanings=2 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    askew~1az turned or twisted toward one side
+    askew~2bz turned or twisted to one side
+ arched ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    bowed~4az 
+    arched~2az constructed with or in the form of an arch or arches
+ arching ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    arched~1a 
+ attempted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    attempted~1az tried unsuccessfully
+ aided ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    assisted~1a 
+ ahead ( meanings=8 glosses=7 PARTICLE ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB (null) (null) ) 
+    leading~6az having the leading position or higher score in a contest
+    before~2b 
+    ahead~3bz ahead of time
+    forwards~1bz in a forward direction
+    ahead~5bz leading or ahead in a competition
+    ahead~6bz to a different or a more advanced time 
+    ahead~7bz to a more advanced or advantageous position
+    forward~9bz toward the future
+ aired ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    aired~1az open to or abounding in fresh air
+ acoustical ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    acoustical~1az of or relating to the science of acoustics
+ avenged ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    avenged~1az for which vengeance has been taken
+ added ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    added~1az 
+ allayed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    allayed~1az 
+ amputated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    amputated~1az 
+ avoided ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    avoided~1az 
+ angrier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=angry 
+ angriest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=angrier 
+ aggravate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    aggravate~1vz make worse
+    aggravate~2vz exasperate or irritate
+ amuse ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    amuse~1vz make laugh
+    amuse~2vz occupy in an agreeable, entertaining or pleasant fashion
+ annoy ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    nettle~2v 
+ as ( meanings=3 glosses=1 PARTICLE ADJECTIVE ADVERB PREPOSITION CONJUNCTION_SUBORDINATE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION (null) ) 
+    as~1bz to the same degree 
+    as~2z 
+    as~3z 
+ always ( meanings=5 glosses=5 ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    ever~1bz at all times
+    always~2bz forever
+    always~3bz at any time or in any event
+    forever~1bz without interruption
+    always~5bz without variation or change, in every case
+ anywhere ( meanings=1 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    anywhere~1bz at or in or to any place
+ anyway ( meanings=2 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    anyways~1b 
+    anyway~2bz in any way whatsoever
+ anyways ( meanings=1 glosses=1 ADVERB COMMON4 KINDERGARTEN ) 
+    anyway~1bz used to indicate that a statement explains or supports a previous statement
+ anymore ( meanings=1 glosses=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    anymore~1bz at the present or from now on
+ a_little ( meanings=2 ADVERB DETERMINER CONDITIONAL_IDIOM KINDERGARTEN posdefault:ADVERB  poscondition=?[AN]=A?![TN]=R ) 
+    a_little~1bz 
+    a_little~2z 
+ again ( meanings=1 glosses=1 ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    again~1bz anew
+ accidentally ( meanings=3 glosses=2 ADVERB COMMON4 GRADE5_6 posdefault:ADVERB ) 
+    accidentally~1bz without advance planning
+    accidentally~2bz without intention
+    incidentally~2b 
+ also ( meanings=1 ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    besides~2b 
+ a_lot ( meanings=1 ADVERB CONDITIONAL_IDIOM KINDERGARTEN posdefault:ADVERB (null)  poscondition=?![TNP]=R ) 
+    much~5bz 
+ afterward ( meanings=1 ADVERB COMMON4 GRADE3_4 posdefault:ADVERB ) 
+    later~3b 
+ along ( meanings=6 glosses=5 PARTICLE ADVERB PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    along~1bz with a forward motion
+    along~2bz in accompaniment or as a companion
+    along~3bz in addition 
+    along~4bz to a more advanced state
+    along~5bz in line with a length or direction 
+    along~6z 
+ aloud ( meanings=2 glosses=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    aloud~1bz using the voice
+    loudly~1b 
+ almost ( meanings=1 glosses=1 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    nearly~1bz slightly short of or not quite accomplished
+ aback ( meanings=2 glosses=2 PARTICLE ADVERB COMMON2 COMMON1 posdefault:ADVERB ) 
+    aback~1bz by surprise
+    aback~2bz having the wind against the forward side of the sails
+ against ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    against~1z 
+ afar ( meanings=1 glosses=1 ADVERB COMMON2 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    afar~1bz at or from or to a great distance
+ and ( meanings=1 CONJUNCTION_COORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    and~1z 
+ ashore ( meanings=1 glosses=1 ADVERB COMMON2 COMMON1 GRADE1_2 posdefault:ADVERB ) 
+    ashore~1bz towards the shore from the water
+ awhile ( meanings=1 glosses=1 ADVERB COMMON4 GRADE3_4 posdefault:ADVERB ) 
+    awhile~1bz for a short time
+ actually ( meanings=4 glosses=4 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    actually~1bz used to imply that one would expect the fact to be the opposite of that stated
+    really~4bz in actual fact
+    actually~3bz as a sentence modifier to add slight emphasis
+    actually~4bz at the present moment
+ across ( meanings=3 glosses=2 PARTICLE ADVERB PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB posdefault:PREPOSITION ) 
+    across~1bz transversely
+    across~2bz to the opposite side
+    across~3z 
+ after_all ( meanings=2 ADVERB CONDITIONAL_IDIOM KINDERGARTEN posdefault:ADVERB  poscondition=?=R ) 
+    after_all~1bz 
+    after_all~2bz 
+ awkwardly ( meanings=1 glosses=1 ADVERB COMMON2 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    awkwardly~1bz in an awkward manner
+ apiece ( meanings=1 ADVERB COMMON2 COMMON1 GRADE3_4 posdefault:ADVERB ) 
+    each~2b 
+ aboard ( meanings=5 glosses=4 ADVERB PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    aboard~1bz on first or second or third base
+    aboard~2bz on a ship, train, plane or other vehicle
+    aboard~3bz part of a group
+    aboard~4bz side by side
+    aboard~5z 
+ astutely ( meanings=1 glosses=1 ADVERB COMMON2 GRADE5_6 posdefault:ADVERB ) 
+    astutely~1bz in a shrewd manner
+ after_which ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    after_which~1z 
+ albeit ( meanings=1 CONJUNCTION_SUBORDINATE COMMON4 KINDERGARTEN ) 
+    albeit~1z 
+ although ( meanings=1 CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    although~1z 
+ as_far_as ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    as_far_as~1z 
+    as_far_as~2z 
+ as_if ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    as_if~1z 
+ as_long_as ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    as_long_as~1z 
+    as_long_as~2z 
+ as_much_as ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    as_much_as~1z 
+    as_much_as~2z 
+ as_soon_as ( meanings=2 PREPOSITION CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    as_soon_as~1z 
+    as_soon_as~2z 
+ as_though ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    as_though~1z 
+ as_a_result ( ADVERB CONDITIONAL_IDIOM KINDERGARTEN  poscondition=?=R ) 
+ among ( meanings=1 PREPOSITION COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    among~1z 
+ arise ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_NOOBJECT PRESENTATION_VERB ) conjugate=arisen 
+    rise~11v 
+    arise~2vz result or issue
+    lift~29vz move upward
+    rise~23vz rise to one's feet
+    rise~25vz take part in a rebellion
+    spring_up~1v 
+    arise~7vz originate or come into being
+ arrange ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    set~20v 
+    put~3vz arrange thoughts, ideas, temporal events
+    arrange~3vz make arrangements for
+    arrange~4vz put into a proper or systematic order
+    stage~9vz plan, organize, and carry out 
+    set~41vz adapt for performance in a different way
+    arrange~7vz set into a specific format
+ assume ( meanings=9 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    wear~6v 
+    adopt~2vz take on a certain form, attribute, or aspect
+    presume~2v 
+    assume~4vz take up someone's soul into heaven
+    feign~2vz make a pretence of
+    take~22v 
+    usurp~1vz seize and take control without authority and possibly with force
+    accept~10v 
+    adopt~7vz take on titles, offices, duties, responsibilities
+ alleviate ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    assuage~1vz provide physical relief, as from pain
+    alleviate~2vz make easier
+ assuage ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    relieve~1v 
+    allay~1vz satisfy 
+    gentle~10v 
+ anoint ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    oil~5v 
+    anoint~2vz choose by or as if by divine intervention
+ adjust ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    adapt~1vz adapt or conform oneself to new or different conditions
+    set~22v 
+    adjust~3vz make correspondent or conformable
+    line_up~1v 
+    adjust~5vz decide how much is to be paid on an insurance claim
+ adapt ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    adjust~1v 
+    adapt~2vz make fit for, or change to suit a new purpose
+ augment ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    augment~1vz enlarge or increase
+    augment~2vz grow or intensify
+ accrue ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    accrue~1vz grow by addition
+    fall~31v 
+ add ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON2 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    add~1vz make an addition 
+    add~2vz make an addition by combining numbers
+    tot~3v 
+    supply~4v 
+    bring~11v 
+    add~6vz constitute an addition
+ accumulate ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    gather~4v 
+    collect~7v 
+ amass ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    accumulate~1v 
+    accumulate~2v 
+ amend ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    remedy~4v 
+    better~12v 
+    amend~3vz make amendments to
+ abbreviate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    abbreviate~1vz shorten
+    reduce~11v 
+ abate ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    abate~1vz become less in amount or intensity
+    slake~2v 
+ amplify ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    amplify~1vz increase the volume of
+    inflate~3v 
+    magnify~2v 
+    exaggerate~1v 
+ appreciate ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    apprize~1v 
+    apprize~2v 
+    appreciate~3vz be fully aware of
+    appreciate~4vz recognize with gratitude
+    prize~7v 
+ apprize ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    appreciate~1vz increase the value of
+    appreciate~2vz gain in value
+    apprize~3vz make aware of
+    advise~2v 
+ ask ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    ask~1vz make a request or demand for something to somebody
+    require~2v 
+    inquire~2vz inquire about
+    ask~4vz direct or put
+    ask~5vz address a question to and expect an answer from
+    ask~6vz require or ask for as a price or condition
+    demand~11v 
+ adjourn ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    recess~6v 
+    retire~10v 
+ acclimate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 VERB_NOOBJECT ) 
+    acclimate~1vz get used to a certain climate
+ absorb ( meanings=9 glosses=6 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    absorb~1vz cause to become one with
+    occupy~1v 
+    steep~7v 
+    absorb~4vz take up mentally
+    absorb~5vz assimilate or take in
+    suck~4v 
+    absorb~7vz become imbued
+    absorb~8vz take up, as of debts or payments
+    absorb~9vz suck or take up or in
+ adopt ( meanings=7 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    adopt~1vz take into one's family
+    take~6v 
+    adopt~3vz take up the cause, ideology, practice, method, of someone and use it as one's own
+    adopt~4vz put into dramatic form
+    borrow~2v 
+    follow~12v 
+    assume~9v 
+ appear ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_NOOBJECT PRESENTATION_VERB (null) ) 
+    appear~1vz come into sight or view
+    appear~2vz come into being or existence, or appear on the scene
+    appear~3vz be issued or published
+    appear~4vz appear as a character on stage or appear in a play, etc.
+    seem~1vz give a certain impression or have a certain outward aspect
+    seem~2vz seem to be true, probable, or apparent
+    appear~7vz present oneself formally, as before a authority
+ accelerate ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    speed~6v 
+    speed~7v 
+ attend ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    hang~14v 
+    assist~4v 
+    see~25v 
+    attend~4vz be present at , etc.
+    attend~5vz to accompany as a circumstance or follow as a result
+ appraise ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    survey~4vz consider in a comprehensive way
+    value~8v 
+ ascertain ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    see~5v 
+    ascertain~2vz learn or discover with certainty
+    find~7v 
+    learn~6v 
+ assure ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) 
+    ascertain~1v 
+    assure~2vz assure somebody of the truth of something with the intention of giving the listener confidence
+    promise~3v 
+    assure~4vz make certain of
+    tell~8v 
+    assure~6vz cause to feel sure
+ affirm ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    corroborate~1v 
+    verify~2v 
+    affirm~3vz say yes to
+ accept ( meanings=11 glosses=9 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    swallow~5v 
+    accept~2vz consider or hold as true
+    accept~3vz be sexually responsive to, used of a female domesticated mammal
+    accept~4vz react favorably to
+    accept~5vz give an affirmative reply to
+    take~33vz make use of or accept for some purpose
+    accept~7vz receive officially, as from a committee
+    take~34v 
+    admit~2vz admit into a group or community
+    bear~11vz take on as one's own the expenses or debts of another person
+    take~43vz be designed to hold or take
+ approve ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    approve~1vz judge to be right or commendable
+    sanction~5v 
+ allow ( meanings=10 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    take_into_account~1v 
+    reserve~8v 
+    countenance~4v 
+    tolerate~2v 
+    grant~8v 
+    allow~6vz grant as a discount or in exchange
+    let~7v 
+    allow~8vz allow the other team to score
+    leave~15v 
+    admit~8vz afford possibility
+ ascribe ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    attribute~3v 
+ adjure ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    adjure~1vz command solemnly
+    conjure~2v 
+ agree ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_NOOBJECT (null) ) 
+    agree~1vz consent or assent to a condition, or agree to do something
+    hold~15vz be in accord
+    agree~3vz achieve harmony of opinion, feeling, or purpose
+    agree~4vz be agreeable or suitable
+    fit~12v 
+    accord~6v 
+    agree~7vz show grammatical agreement
+ appease ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    appease~1vz make peace with
+    quell~2v 
+    assuage~3v 
+ apply ( meanings=10 glosses=8 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    apply~1vz ask 
+    apply~2vz refer to a person or thing
+    use~8v 
+    apply~4vz apply to a surface
+    give~36vz give or convey physically
+    apply~6vz ensure observance of laws and rules
+    use~11v 
+    apply~8vz apply oneself to
+    hold~38vz be pertinent or relevant or applicable
+    apply~10vz be applicable to
+ argue ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    reason~9v 
+    indicate~1vz give evidence of
+    debate~4v 
+ accost ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    solicit~3v 
+    address~12v 
+ authorize ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    clear~32v 
+    authorize~2vz give or delegate power or authority to
+ accede ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    acquiesce~1v 
+    bow~10v 
+    enter~7v 
+ acquiesce ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    accede~1vz to agree or express agreement
+ avoid ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT ) 
+    avoid~1vz stay clear from
+    avoid~2vz refrain from certain foods or beverages
+    avert~2vz prevent the occurrence of
+    avoid~4vz refrain from doing something
+    void~8vz declare invalid
+ admit ( meanings=8 glosses=5 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    admit~1vz declare to be true or admit the existence or reality or truth of
+    take~35v 
+    include~3v 
+    admit~4vz allow to enter
+    admit~5vz serve as a means of entrance
+    hold~44vz have room for
+    admit~7vz give access or entrance to
+    allow~10v 
+ attest ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    attest~1vz authenticate, affirm to be true, genuine, or correct, as in an official capacity
+    attest~2vz establish or verify the usage of
+    evidence~4v 
+    attest~4vz give testimony in a court of law
+ acquaint ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    acquaint~1vz inform
+    acquaint~2vz make familiar or conversant with
+    present~8v 
+ accuse ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    incriminate~1v 
+    charge~24v 
+ advise ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) 
+    counsel~3vz give advice to
+    notify~1vz inform of something
+    suggest~1vz make a proposal, declare a plan for something
+ apologize ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    apologize~1vz acknowledge faults or shortcomings or failing
+    excuse~8v 
+ absolve ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    free~14v 
+    absolve~2vz grant remission of a sin to
+ acquit ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 VERB_DIRECTOBJECT ) 
+    clear~33v 
+    behave~2v 
+ announce ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) ) 
+    declare~3vz announce publicly or officially
+    herald~5v 
+    announce~3vz make known
+    announce~4vz give the names of
+ advertise ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT ) 
+    advertise~1vz call attention to
+    push~7v 
+ allege ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    say~11v 
+ avenge ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    retaliate~2v 
+ afford ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    afford~1vz be able to spare or give up
+    yield~15v 
+    give~42v 
+    afford~4vz have the financial means to do something or buy something
+ allay ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    quench~4v 
+    relieve~6v 
+ amputate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    amputate~1vz remove surgically
+ attach ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    attach~1vz be attached
+    attach~2vz become attached
+    attach~3vz cause to be attached
+    seize~7vz take temporary possession of as a security, by legal authority
+    bind~11v 
+ attract ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    attract~1vz exert a force on causing it to approach or prevent it from moving away
+    draw~28v 
+    appeal~7vz be attractive to
+ accomplish ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    fulfill~2v 
+    reach~12v 
+ assemble ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    tack~11v 
+    gather~10v 
+    gather~11v 
+ adorn ( meanings=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    decorate~2v 
+    clothe~3v 
+    decorate~4v 
+ abash ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    embarrass~1v 
+ alienate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    alien~7vz arouse hostility or indifference in where there had formerly been love, affection, or friendliness
+    alienate~2vz make withdrawn or isolated or emotionally dissociated
+    alien~8vz transfer property or ownership
+ admire ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT ) 
+    admire~1vz feel admiration for
+    admire~2vz look at with admiration
+ ascend ( meanings=8 glosses=8 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT PRESENTATION_VERB ) 
+    ascend~1vz travel up,
+    rise~20vz move to a better position in life or to a better job
+    rise~21vz come up, of celestial bodies
+    ascend~4vz slope upwards
+    ascend~5vz go along towards source
+    ascend~6vz appear to be moving upward, as by means of tendrils
+    ascend~7vz become king or queen
+    ascend~8vz go back in order of genealogical succession
+ arrive ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT ) 
+    get~26vz reach a destination
+    arrive~2vz succeed in a big way
+ attain ( meanings=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    hit~19v 
+    gain~9v 
+    strike~24v 
+    accomplish~2v 
+ avert ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    avert~1vz turn away or aside
+    deflect~5v 
+ allocate ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    allocate~1vz distribute according to a plan or set apart for a special purpose
+ appoint ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) (null) ) 
+    appoint~1vz furnish
+    name~12vz create and charge with a task or function
+    charge~40v 
+ abdicate ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    renounce~4v 
+ abolish ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    abolish~1vz do away with
+ achieve ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    attain~4v 
+ am ( meanings=1 SINGULAR_PERSON VERB_PRESENT AUX_BE VERB COMMON4 COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=be 
+    am~1vz 
+ anticked ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON1 GRADE5_6 ) conjugate=antic 
+ anticking ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON1 GRADE5_6 ) conjugate=anticked 
+ arose ( VERB_PAST VERB COMMON4 GRADE3_4 posdefault:VERB ) conjugate=arise 
+ arisen ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 GRADE3_4 posdefault:VERB ) conjugate=arose 
+ awoke ( VERB_PAST VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=awake 
+ awoken ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=awakened 
+ ate ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=eat 
+ anybody ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    anybody~1z 
+ anyone ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN PRONOUN_SINGULAR ) 
+    anyone~1z 
+ anything ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE PRONOUN_SINGULAR ) 
+    anything~1z 
+ an ( meanings=2 DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_SINGULAR PREDETERMINER_TARGET ) 
+    an~1z 
+    an~2z 
+ any_and_all ( meanings=1 DETERMINER KINDERGARTEN DETERMINER_PLURAL ) 
+    any_and_all~1z 
+ Attny. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ A.G. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Adm. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Ave. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Assn. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Attny ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Adm ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Assn ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Airman ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Aunt ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

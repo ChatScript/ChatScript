@@ -1,0 +1,2925 @@
+﻿ exclude ( ) 
+ E's ( NOUN NOUN_PLURAL ) lemma=`e` nounpl  
+ E'tje ( NOUN NOUN_SINGULAR ) lemma=`e` nounsg  
+ E'tjes ( NOUN NOUN_PLURAL ) lemma=`e` nounpl  
+ E. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`E.`E.` nounabbr  num__ord  
+ E.G. ( NOUN NOUN_SINGULAR ) 
+ E.O. ( NOUN NOUN_SINGULAR ) 
+ E.T.A. ( NOUN NOUN_SINGULAR ) 
+ EEG ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`EEG`EEG` nounabbr  nounprop  
+ EEG-verdrag ( NOUN NOUN_SINGULAR ) 
+ EEG-verdragen ( NOUN NOUN_PLURAL ) lemma=`EEG-verdrag` nounpl  
+ EERSTE ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`eerste`een` nounsg  num__ord  
+ EG ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`EG`EG` nounabbr  nounprop  
+ EG-beleid ( NOUN NOUN_SINGULAR ) 
+ EG-bemiddelaar ( NOUN NOUN_SINGULAR ) 
+ EG-bemiddelaars ( NOUN NOUN_PLURAL ) lemma=`EG-bemiddelaar` nounpl  
+ EG-burger ( NOUN NOUN_SINGULAR ) 
+ EG-burgers ( NOUN NOUN_PLURAL ) lemma=`EG-burger` nounpl  
+ EG-commissaris ( NOUN NOUN_SINGULAR ) 
+ EG-commissarissen ( NOUN NOUN_PLURAL ) lemma=`EG-commissaris` nounpl  
+ EG-commissie ( NOUN NOUN_SINGULAR ) 
+ EG-commissies ( NOUN NOUN_PLURAL ) lemma=`EG-commissie` nounpl  
+ EG-diplomaat ( NOUN NOUN_SINGULAR ) 
+ EG-diplomaten ( NOUN NOUN_PLURAL ) lemma=`EG-diplomaat` nounpl  
+ EG-hulp ( NOUN NOUN_SINGULAR ) 
+ EG-land ( NOUN NOUN_SINGULAR ) 
+ EG-landen ( NOUN NOUN_PLURAL ) lemma=`EG-land` nounpl  
+ EG-leden ( NOUN NOUN_PLURAL ) lemma=`EG-lid` nounpl  
+ EG-lid ( NOUN NOUN_SINGULAR ) 
+ EG-lidstaat ( NOUN NOUN_SINGULAR ) 
+ EG-lidstaten ( NOUN NOUN_PLURAL ) lemma=`EG-lidstaat` nounpl  
+ EG-minister ( NOUN NOUN_SINGULAR ) 
+ EG-ministerraad ( NOUN NOUN_SINGULAR ) 
+ EG-ministerraden ( NOUN NOUN_PLURAL ) lemma=`EG-ministerraad` nounpl  
+ EG-ministers ( NOUN NOUN_PLURAL ) lemma=`EG-minister` nounpl  
+ EG-missie ( NOUN NOUN_SINGULAR ) 
+ EG-missies ( NOUN NOUN_PLURAL ) lemma=`EG-missie` nounpl  
+ EG-niveau ( NOUN NOUN_SINGULAR ) 
+ EG-niveaus ( NOUN NOUN_PLURAL ) lemma=`EG-niveau` nounpl  
+ EG-onderhandelaar ( NOUN NOUN_SINGULAR ) 
+ EG-onderhandelaars ( NOUN NOUN_PLURAL ) lemma=`EG-onderhandelaar` nounpl  
+ EG-onderhandelaren ( NOUN NOUN_PLURAL ) lemma=`EG-onderhandelaar` nounpl  
+ EG-partner ( NOUN NOUN_SINGULAR ) 
+ EG-partners ( NOUN NOUN_PLURAL ) lemma=`EG-partner` nounpl  
+ EG-raad ( NOUN NOUN_SINGULAR ) 
+ EG-raadsvoorzitter ( NOUN NOUN_SINGULAR ) 
+ EG-raadsvoorzitters ( NOUN NOUN_PLURAL ) lemma=`EG-raadsvoorzitter` nounpl  
+ EG-raden ( NOUN NOUN_PLURAL ) lemma=`EG-raad` nounpl  
+ EG-regel ( NOUN NOUN_SINGULAR ) 
+ EG-regeling ( NOUN NOUN_SINGULAR ) 
+ EG-regelingen ( NOUN NOUN_PLURAL ) lemma=`EG-regeling` nounpl  
+ EG-regels ( NOUN NOUN_PLURAL ) lemma=`EG-regel` nounpl  
+ EG-regeringsleider ( NOUN NOUN_SINGULAR ) 
+ EG-regeringsleiders ( NOUN NOUN_PLURAL ) lemma=`EG-regeringsleider` nounpl  
+ EG-richtlijn ( NOUN NOUN_SINGULAR ) 
+ EG-richtlijnen ( NOUN NOUN_PLURAL ) lemma=`EG-richtlijn` nounpl  
+ EG-taal ( NOUN NOUN_SINGULAR ) 
+ EG-talen ( NOUN NOUN_PLURAL ) lemma=`EG-taal` nounpl  
+ EG-top ( NOUN NOUN_SINGULAR ) 
+ EG-toppen ( NOUN NOUN_PLURAL ) lemma=`EG-top` nounpl  
+ EG-verband ( NOUN NOUN_SINGULAR ) 
+ EG-verbanden ( NOUN NOUN_PLURAL ) lemma=`EG-verband` nounpl  
+ EG-verdrag ( NOUN NOUN_SINGULAR ) 
+ EG-verdragen ( NOUN NOUN_PLURAL ) lemma=`EG-verdrag` nounpl  
+ EG-vergadering ( NOUN NOUN_SINGULAR ) 
+ EG-vergaderingen ( NOUN NOUN_PLURAL ) lemma=`EG-vergadering` nounpl  
+ EG-voorzitter ( NOUN NOUN_SINGULAR ) 
+ EG-voorzitters ( NOUN NOUN_PLURAL ) lemma=`EG-voorzitter` nounpl  
+ EG-voorzitterschap ( NOUN NOUN_SINGULAR ) 
+ EG-vredesconferentie ( NOUN NOUN_SINGULAR ) 
+ EG-vredesconferenties ( NOUN NOUN_PLURAL ) lemma=`EG-vredesconferentie` nounpl  
+ EG-waarnemer ( NOUN NOUN_SINGULAR ) 
+ EG-waarnemers ( NOUN NOUN_PLURAL ) lemma=`EG-waarnemer` nounpl  
+ EG-wetgeving ( NOUN NOUN_SINGULAR ) 
+ EG-wetgevingen ( NOUN NOUN_PLURAL ) lemma=`EG-wetgeving` nounpl  
+ EGA ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`EGA`EGA` nounabbr  nounprop  
+ EGKS ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`EGKS`EGKS` nounabbr  nounprop  
+ EHBO ( NOUN NOUN_SINGULAR ) 
+ EHBO-diploma ( NOUN NOUN_SINGULAR ) 
+ EHBO-diploma's ( NOUN NOUN_PLURAL ) lemma=`EHBO-diploma` nounpl  
+ EK ( NOUN NOUN_SINGULAR ) 
+ EK's ( NOUN NOUN_PLURAL ) lemma=`EK` nounpl  
+ EK-advies ( NOUN NOUN_SINGULAR ) 
+ EK-adviezen ( NOUN NOUN_PLURAL ) lemma=`EK-advies` nounpl  
+ EK-voetbal ( NOUN NOUN_SINGULAR ) 
+ EO ( NOUN NOUN_PROPER_SINGULAR ) 
+ EOE-index ( NOUN NOUN_SINGULAR ) 
+ EOE-indexen ( NOUN NOUN_PLURAL ) lemma=`EOE-index` nounpl  
+ ETA ( NOUN NOUN_SINGULAR ) 
+ ETA-commando ( NOUN NOUN_SINGULAR ) 
+ ETA-commando's ( NOUN NOUN_PLURAL ) lemma=`ETA-commando` nounpl  
+ ETA-geweld ( NOUN NOUN_SINGULAR ) 
+ ETA-kommando ( NOUN NOUN_SINGULAR ) 
+ Ecuador ( NOUN NOUN_PROPER_SINGULAR ) 
+ Ecuadoraan ( NOUN NOUN_SINGULAR ) 
+ Ecuadoraans ( ADJECTIVE ) 
+ Ecuadoraanse ( NOUN NOUN_SINGULAR ) 
+ Ecuadoraansen ( NOUN NOUN_PLURAL ) lemma=`Ecuadoraanse` nounpl  
+ Ecuadoranen ( NOUN NOUN_PLURAL ) lemma=`Ecuadoraan` nounpl  
+ Ecuadoriaan ( NOUN NOUN_SINGULAR ) 
+ Ecuadoriaans ( ADJECTIVE ) 
+ Ecuadoriaanse ( NOUN NOUN_SINGULAR ) 
+ Ecuadoriaansen ( NOUN NOUN_PLURAL ) lemma=`Ecuadoriaanse` nounpl  
+ Ecuadorianen ( NOUN NOUN_PLURAL ) lemma=`Ecuadoriaan` nounpl  
+ Edwardmeer ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eems ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eerste-Kamerleden ( NOUN NOUN_PLURAL ) lemma=`Eerste-Kamerlid` nounpl  
+ Eerste-Kamerlid ( NOUN NOUN_SINGULAR ) 
+ Eger ( NOUN NOUN_PROPER_SINGULAR ) 
+ Egina ( NOUN NOUN_PROPER_SINGULAR ) 
+ Egypte ( NOUN NOUN_PROPER_SINGULAR ) 
+ Egyptenaar ( NOUN NOUN_SINGULAR ) 
+ Egyptenaars ( NOUN NOUN_PLURAL ) lemma=`Egyptenaar` nounpl  
+ Egyptenaren ( NOUN NOUN_PLURAL ) lemma=`Egyptenaar` nounpl  
+ Egyptisch ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Egyptisch`Egyptisch` adj  nounprop  
+ Egyptische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Egyptisch`Egyptische` adj  nounsg  
+ Egyptischen ( NOUN NOUN_PLURAL ) lemma=`Egyptische` nounpl  
+ Eindhoven ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eindhovenaar ( NOUN NOUN_SINGULAR ) 
+ Eindhovenaars ( NOUN NOUN_PLURAL ) lemma=`Eindhovenaar` nounpl  
+ Eindhovenaren ( NOUN NOUN_PLURAL ) lemma=`Eindhovenaar` nounpl  
+ Eindhovens ( ADJECTIVE ) 
+ Eindhovense ( NOUN NOUN_SINGULAR ) 
+ Eindhovensen ( NOUN NOUN_PLURAL ) lemma=`Eindhovense` nounpl  
+ Elboers ( NOUN NOUN_PROPER_SINGULAR ) 
+ Elbroes ( NOUN NOUN_PROPER_SINGULAR ) 
+ Elfstedentocht ( NOUN NOUN_SINGULAR ) 
+ Elzas ( NOUN NOUN_PROPER_SINGULAR ) 
+ Elzaskanaal ( NOUN NOUN_PROPER_SINGULAR ) 
+ Elzasser ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Elzasser`Elzasser` adj  nounsg  
+ Elzasserin ( NOUN NOUN_SINGULAR ) 
+ Elzasserinnen ( NOUN NOUN_PLURAL ) lemma=`Elzasserin` nounpl  
+ Elzassers ( NOUN NOUN_PLURAL ) lemma=`Elzasser` nounpl  
+ Elzassisch ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Elzassisch`Elzassisch` adj  nounprop  
+ Elzassische ( NOUN NOUN_SINGULAR ) 
+ Elzassischen ( NOUN NOUN_PLURAL ) lemma=`Elzassische` nounpl  
+ Emmen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Emmenaar ( NOUN NOUN_SINGULAR ) 
+ Emmenaren ( NOUN NOUN_PLURAL ) lemma=`Emmenaar` nounpl  
+ Emmens ( ADJECTIVE ) 
+ Emmense ( NOUN NOUN_SINGULAR ) 
+ Emmensen ( NOUN NOUN_PLURAL ) lemma=`Emmense` nounpl  
+ Engeland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Engels ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Engels`Engels` adj  nounprop  
+ Engelse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Engels`Engelse` adj  nounsg  
+ Engelsen ( NOUN NOUN_PLURAL ) lemma=`Engelse|Engelsman` nounpl  
+ Engelser ( ADJECTIVE ) lemma=`Engels` adj  
+ Engelsere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Engels`Engelsere` adj  nounsg  
+ Engelsman ( NOUN NOUN_SINGULAR ) 
+ Engelst ( ADJECTIVE ) lemma=`Engels` adj  
+ Engelstalig ( ADJECTIVE ) 
+ Engelstalige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Engelstalig`Engelstalige` adj  nounsg  
+ Engelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Engels`Engelste` adj  nounsg  
+ Enschede ( NOUN NOUN_PROPER_SINGULAR ) 
+ Enschededer ( NOUN NOUN_SINGULAR ) 
+ Enschededers ( NOUN NOUN_PLURAL ) lemma=`Enschededer` nounpl  
+ Enschedees ( ADJECTIVE ) 
+ Enschedese ( NOUN NOUN_SINGULAR ) 
+ Enschedesen ( NOUN NOUN_PLURAL ) lemma=`Enschedese` nounpl  
+ Enschedeër ( NOUN NOUN_SINGULAR ) 
+ Enschedeërs ( NOUN NOUN_PLURAL ) lemma=`Enschedeër` nounpl  
+ Equatoriaal-Guinea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Equatoriaal-Guinees ( ADJECTIVE ) 
+ Equatoriaal-Guineeër ( NOUN NOUN_SINGULAR ) 
+ Equatoriaal-Guineeërs ( NOUN NOUN_PLURAL ) lemma=`Equatoriaal-Guineeër` nounpl  
+ Equatoriaal-Guinese ( NOUN NOUN_SINGULAR ) 
+ Equatoriaal-Guinesen ( NOUN NOUN_PLURAL ) lemma=`Equatoriaal-Guinese` nounpl  
+ Erevan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eritrea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eritrees ( ADJECTIVE ) 
+ Eritreeër ( NOUN NOUN_SINGULAR ) 
+ Eritreeërs ( NOUN NOUN_PLURAL ) lemma=`Eritreeër` nounpl  
+ Eritrese ( NOUN NOUN_SINGULAR ) 
+ Eritresen ( NOUN NOUN_PLURAL ) lemma=`Eritrese` nounpl  
+ Ertsgebergte ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eskimo ( NOUN NOUN_SINGULAR ) 
+ Eskimo's ( NOUN NOUN_PLURAL ) lemma=`Eskimo` nounpl  
+ Esperanto ( NOUN NOUN_PROPER_SINGULAR ) 
+ Est ( NOUN NOUN_SINGULAR ) 
+ Esten ( NOUN NOUN_PLURAL ) lemma=`Est` nounpl  
+ Estisch ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Estisch`Estisch` adj  nounprop  
+ Estische ( NOUN NOUN_SINGULAR ) 
+ Estischen ( NOUN NOUN_PLURAL ) lemma=`Estische` nounpl  
+ Estland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Estlander ( NOUN NOUN_SINGULAR ) 
+ Estlanders ( NOUN NOUN_PLURAL ) lemma=`Estlander` nounpl  
+ Estlands ( ADJECTIVE ) 
+ Estlandse ( NOUN NOUN_SINGULAR ) 
+ Estlandsen ( NOUN NOUN_PLURAL ) lemma=`Estlandse` nounpl  
+ Ests ( ADJECTIVE ) 
+ Estse ( NOUN NOUN_SINGULAR ) 
+ Estsen ( NOUN NOUN_PLURAL ) lemma=`Estse` nounpl  
+ Ethiopisch ( ADJECTIVE ) 
+ Ethiopische ( NOUN NOUN_SINGULAR ) 
+ Ethiopischen ( NOUN NOUN_PLURAL ) lemma=`Ethiopische` nounpl  
+ Ethiopië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Ethiopiër ( NOUN NOUN_SINGULAR ) 
+ Ethiopiërs ( NOUN NOUN_PLURAL ) lemma=`Ethiopiër` nounpl  
+ Euboea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eufraat ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eurazië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Euro-top ( NOUN NOUN_SINGULAR ) 
+ Euro-toppen ( NOUN NOUN_PLURAL ) lemma=`Euro-top` nounpl  
+ Euro-tops ( NOUN NOUN_PLURAL ) lemma=`Euro-top` nounpl  
+ Eurocity ( NOUN NOUN_SINGULAR ) 
+ Eurocity's ( NOUN NOUN_PLURAL ) lemma=`Eurocity` nounpl  
+ Eurokorps ( NOUN NOUN_PROPER_SINGULAR ) 
+ Europa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Europa's ( NOUN NOUN_SINGULAR ) lemma=`Europa` nounsg  
+ Europacup ( NOUN NOUN_SINGULAR ) 
+ Europacups ( NOUN NOUN_PLURAL ) lemma=`Europacup` nounpl  
+ Europeaan ( NOUN NOUN_SINGULAR ) 
+ Europeanen ( NOUN NOUN_PLURAL ) lemma=`Europeaan` nounpl  
+ Europees ( ADJECTIVE ) 
+ Europese ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Europees`Europese` adj  nounsg  
+ Europesen ( NOUN NOUN_PLURAL ) lemma=`Europese` nounpl  
+ Eurotas ( NOUN NOUN_PROPER_SINGULAR ) 
+ Eurotunnel ( NOUN NOUN_PROPER_SINGULAR ) 
+ Exc. ( NOUN NOUN_SINGULAR ) 
+ Excellentie ( NOUN NOUN_SINGULAR ) 
+ Excellenties ( NOUN NOUN_PLURAL ) lemma=`Excellentie` nounpl  
+ e ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`e`e` nounsg  num__ord  
+ e's ( NOUN NOUN_PLURAL ) lemma=`e` nounpl  
+ e-mail ( NOUN NOUN_SINGULAR ) 
+ e-mails ( NOUN NOUN_PLURAL ) lemma=`e-mail` nounpl  
+ e. ( ADJECTIVE ADJECTIVE_NUMBER ) 
+ e.a. ( ADVERB ) 
+ e.c.g. ( NOUN NOUN_SINGULAR ) 
+ e.d. ( ADVERB ) 
+ e.d.m. ( ADVERB ) 
+ e.g. ( ADVERB ) 
+ e.k. ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`e.k.`e.k.` adj  nounabbr  
+ e.v. ( ADVERB ) 
+ eb ( NOUN NOUN_SINGULAR ) 
+ ebbe ( NOUN NOUN_SINGULAR ) 
+ ebbehout ( NOUN NOUN_SINGULAR ) 
+ ebben ( ADJECTIVE ) 
+ ebbenhout ( NOUN NOUN_SINGULAR ) 
+ ebbenhouten ( ADJECTIVE ) 
+ ebonieten ( ADJECTIVE ) 
+ ecg ( NOUN NOUN_SINGULAR ) 
+ ecg's ( NOUN NOUN_PLURAL ) lemma=`ecg` nounpl  
+ echec ( NOUN NOUN_SINGULAR ) 
+ echecs ( NOUN NOUN_PLURAL ) lemma=`echec` nounpl  
+ echo ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`echo`echoën` nounsg  verbpressg  
+ echo's ( NOUN NOUN_PLURAL ) lemma=`echo` nounpl  
+ echode ( VERB_PAST VERB ) lemma=`echoën` verbpastsg  
+ echoden ( VERB_PAST VERB ) lemma=`echoën` verbpastpl  
+ echografie ( NOUN NOUN_SINGULAR ) 
+ echografieën ( NOUN NOUN_PLURAL ) lemma=`echografie` nounpl  
+ echoot ( VERB_PRESENT VERB ) lemma=`echoën` verbpressg  
+ echootje ( NOUN NOUN_SINGULAR ) lemma=`echo` nounsg  
+ echootjes ( NOUN NOUN_PLURAL ) lemma=`echo` nounpl  
+ echoscopie ( NOUN NOUN_SINGULAR ) 
+ echoscopieën ( NOUN NOUN_PLURAL ) lemma=`echoscopie` nounpl  
+ echoën ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`echoën`echoën`echoën` nounsg  verbinf  verbprespl  
+ echoënd ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`echoën` verbpresp  
+ echoënde ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`echoënde`echoën` nounsg  verbpresp  
+ echt ( NOUN ADJECTIVE ADVERB NOUN_SINGULAR ) lemma=`echt`echt`echt` adj  adv  nounsg  
+ echtbreekster ( NOUN NOUN_SINGULAR ) 
+ echtbreeksters ( NOUN NOUN_PLURAL ) lemma=`echtbreekster` nounpl  
+ echtbreker ( NOUN NOUN_SINGULAR ) 
+ echtbrekers ( NOUN NOUN_PLURAL ) lemma=`echtbreker` nounpl  
+ echtbreuk ( NOUN NOUN_SINGULAR ) 
+ echte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`echt`echte` adj  nounsg  
+ echtelieden ( NOUN NOUN_PLURAL ) 
+ echtelijk ( ADJECTIVE ) 
+ echtelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`echtelijk`echtelijke` adj  nounsg  
+ echter ( ADJECTIVE ADVERB ) lemma=`echt`echter` adj  adv  
+ echtere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`echt`echtere` adj  nounsg  
+ echtgenoot ( NOUN NOUN_SINGULAR ) 
+ echtgenoots ( NOUN NOUN_SINGULAR ) lemma=`echtgenoot` nounsg  
+ echtgenote ( NOUN NOUN_SINGULAR ) 
+ echtgenoten ( NOUN NOUN_PLURAL ) lemma=`echtgenoot|echtgenote` nounpl  
+ echtgenotes ( NOUN NOUN_PLURAL ) lemma=`echtgenote` nounpl  
+ echtheid ( NOUN NOUN_SINGULAR ) 
+ echtpaar ( NOUN NOUN_SINGULAR ) 
+ echtparen ( NOUN NOUN_PLURAL ) lemma=`echtpaar` nounpl  
+ echtscheiding ( NOUN NOUN_SINGULAR ) 
+ echtscheidingen ( NOUN NOUN_PLURAL ) lemma=`echtscheiding` nounpl  
+ echtst ( ADJECTIVE ) lemma=`echt` adj  
+ echtste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`echt`echtste` adj  nounsg  
+ echtvereniging ( NOUN NOUN_SINGULAR ) 
+ echtverenigingen ( NOUN NOUN_PLURAL ) lemma=`echtvereniging` nounpl  
+ eclatant ( ADJECTIVE ) 
+ eclatante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eclatant`eclatante` adj  nounsg  
+ eclatanter ( ADJECTIVE ) lemma=`eclatant` adj  
+ eclatantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eclatant`eclatantere` adj  nounsg  
+ eclatantst ( ADJECTIVE ) lemma=`eclatant` adj  
+ eclatantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eclatant`eclatantste` adj  nounsg  
+ eclectisch ( ADJECTIVE ) 
+ eclectische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eclectisch`eclectische` adj  nounsg  
+ eclips ( NOUN NOUN_SINGULAR ) 
+ eclipsen ( NOUN NOUN_PLURAL ) lemma=`eclips` nounpl  
+ ecologen ( NOUN NOUN_PLURAL ) lemma=`ecoloog` nounpl  
+ ecologie ( NOUN NOUN_SINGULAR ) 
+ ecologisch ( ADJECTIVE ) 
+ ecologische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ecologisch`ecologische` adj  nounsg  
+ ecoloog ( NOUN NOUN_SINGULAR ) 
+ econome ( NOUN NOUN_SINGULAR ) 
+ economen ( NOUN NOUN_PLURAL ) lemma=`econome|econoom` nounpl  
+ economes ( NOUN NOUN_PLURAL ) lemma=`econome` nounpl  
+ econometrie ( NOUN NOUN_SINGULAR ) 
+ econometrist ( NOUN NOUN_SINGULAR ) 
+ econometristen ( NOUN NOUN_PLURAL ) lemma=`econometrist` nounpl  
+ economie ( NOUN NOUN_SINGULAR ) 
+ economisch ( ADJECTIVE ) 
+ economische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`economisch`economische` adj  nounsg  
+ economischer ( ADJECTIVE ) lemma=`economisch` adj  
+ economischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`economisch`economischere` adj  nounsg  
+ economischt ( ADJECTIVE ) lemma=`economisch` adj  
+ economischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`economisch`economischte` adj  nounsg  
+ economist ( NOUN NOUN_SINGULAR ) 
+ economisten ( NOUN NOUN_PLURAL ) lemma=`economist` nounpl  
+ econoom ( NOUN NOUN_SINGULAR ) 
+ ecosysteem ( NOUN NOUN_SINGULAR ) 
+ ecosystemen ( NOUN NOUN_PLURAL ) lemma=`ecosysteem` nounpl  
+ ecru ( ADJECTIVE ) 
+ ecu ( NOUN NOUN_SINGULAR ) 
+ ecu's ( NOUN NOUN_PLURAL ) lemma=`ecu` nounpl  
+ eczeem ( NOUN NOUN_SINGULAR ) 
+ eczema ( NOUN NOUN_SINGULAR ) 
+ eczemen ( NOUN NOUN_PLURAL ) lemma=`eczeem|eczema` nounpl  
+ ede ( NOUN NOUN_SINGULAR ) lemma=`ede|eed` nounsg  
+ edel ( ADJECTIVE ) 
+ edelachtbaar ( ADJECTIVE ) 
+ edelachtbaarder ( ADJECTIVE ) lemma=`edelachtbaar` adj  
+ edelachtbaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edelachtbaar`edelachtbaardere` adj  nounsg  
+ edelachtbaarst ( ADJECTIVE ) lemma=`edelachtbaar` adj  
+ edelachtbaarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edelachtbaar`edelachtbaarste` adj  nounsg  
+ edelachtbare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edelachtbaar`edelachtbare` adj  nounsg  
+ edelachtbaren ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`edelachtbaar`edelachtbare` adj  nounpl  
+ edele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edel`edele` adj  nounsg  
+ edelen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`edel`edele` adj  nounpl  
+ edeler ( ADJECTIVE ) lemma=`edel` adj  
+ edelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edel`edelere` adj  nounsg  
+ edelheid ( NOUN NOUN_SINGULAR ) 
+ edelhert ( NOUN NOUN_SINGULAR ) 
+ edelherten ( NOUN NOUN_PLURAL ) lemma=`edelhert` nounpl  
+ edellieden ( NOUN NOUN_PLURAL ) lemma=`edelman` nounpl  
+ edelman ( NOUN NOUN_SINGULAR ) 
+ edelmoedig ( ADJECTIVE ) 
+ edelmoedige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edelmoedig`edelmoedige` adj  nounsg  
+ edelmoediger ( ADJECTIVE ) lemma=`edelmoedig` adj  
+ edelmoedigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edelmoedig`edelmoedigere` adj  nounsg  
+ edelmoedigst ( ADJECTIVE ) lemma=`edelmoedig` adj  
+ edelmoedigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edelmoedig`edelmoedigste` adj  nounsg  
+ edelsmeden ( NOUN NOUN_PLURAL ) lemma=`edelsmid` nounpl  
+ edelsmid ( NOUN NOUN_SINGULAR ) 
+ edelst ( ADJECTIVE ) lemma=`edel` adj  
+ edelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`edel`edelste` adj  nounsg  
+ edelsteen ( NOUN NOUN_SINGULAR ) 
+ edelstenen ( NOUN NOUN_PLURAL ) lemma=`edelsteen` nounpl  
+ edelweiss ( NOUN NOUN_SINGULAR ) 
+ eden ( NOUN NOUN_PLURAL ) lemma=`eed` nounpl  
+ edict ( NOUN NOUN_SINGULAR ) 
+ edicten ( NOUN NOUN_PLURAL ) lemma=`edict` nounpl  
+ edikt ( NOUN NOUN_SINGULAR ) 
+ editie ( NOUN NOUN_SINGULAR ) 
+ edities ( NOUN NOUN_PLURAL ) lemma=`editie` nounpl  
+ educatie ( NOUN NOUN_SINGULAR ) 
+ educatief ( ADJECTIVE ) 
+ educatiefst ( ADJECTIVE ) lemma=`educatief` adj  
+ educatiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`educatief`educatiefste` adj  nounsg  
+ educaties ( NOUN NOUN_PLURAL ) lemma=`educatie` nounpl  
+ educatieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`educatief`educatieve` adj  nounsg  
+ educatiever ( ADJECTIVE ) lemma=`educatief` adj  
+ educatievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`educatief`educatievere` adj  nounsg  
+ eed ( NOUN NOUN_SINGULAR ) 
+ eega ( NOUN NOUN_SINGULAR ) 
+ eega's ( NOUN NOUN_PLURAL ) lemma=`eega` nounpl  
+ eegaas ( NOUN NOUN_PLURAL ) lemma=`eega` nounpl  
+ eegaatje ( NOUN NOUN_SINGULAR ) lemma=`eega` nounsg  
+ eegaatjes ( NOUN NOUN_PLURAL ) lemma=`eega` nounpl  
+ eegade ( NOUN NOUN_SINGULAR ) 
+ eekhoorn ( NOUN NOUN_SINGULAR ) 
+ eekhoorns ( NOUN NOUN_PLURAL ) lemma=`eekhoorn` nounpl  
+ eekhoorntje ( NOUN NOUN_SINGULAR ) lemma=`eekhoorn` nounsg  
+ eekhoorntjes ( NOUN NOUN_PLURAL ) lemma=`eekhoorn` nounpl  
+ eekhoorntjesbrood ( NOUN NOUN_SINGULAR ) 
+ eelt ( NOUN NOUN_SINGULAR ) 
+ eeltig ( ADJECTIVE ) 
+ eeltige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeltig`eeltige` adj  nounsg  
+ eeltiger ( ADJECTIVE ) lemma=`eeltig` adj  
+ eeltigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeltig`eeltigere` adj  nounsg  
+ eeltigst ( ADJECTIVE ) lemma=`eeltig` adj  
+ eeltigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeltig`eeltigste` adj  nounsg  
+ een ( PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE DETERMINER NOUN_NUMBER ) lemma=`een`een`een`een` adj  det__art  num__card  pronindef  
+ een-twee-drie ( ADVERB ) 
+ een-tweetje ( NOUN NOUN_SINGULAR ) 
+ een-tweetjes ( NOUN NOUN_PLURAL ) lemma=`een-tweetje` nounpl  
+ eenakter ( NOUN NOUN_SINGULAR ) 
+ eenakters ( NOUN NOUN_PLURAL ) lemma=`eenakter` nounpl  
+ eenaktertje ( NOUN NOUN_SINGULAR ) lemma=`eenakter` nounsg  
+ eenaktertjes ( NOUN NOUN_PLURAL ) lemma=`eenakter` nounpl  
+ eenbaansweg ( NOUN NOUN_SINGULAR ) 
+ eenbaanswegen ( NOUN NOUN_PLURAL ) lemma=`eenbaansweg` nounpl  
+ eencellig ( ADJECTIVE ) 
+ eencellige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eencellig`eencellige` adj  nounsg  
+ eencelligen ( NOUN NOUN_PLURAL ) lemma=`eencellige` nounpl  
+ eencilinder ( NOUN NOUN_SINGULAR ) 
+ eencilinders ( NOUN NOUN_PLURAL ) lemma=`eencilinder` nounpl  
+ eend ( NOUN NOUN_SINGULAR ) 
+ eendaags ( ADJECTIVE ) 
+ eendaagse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eendaags`eendaagse` adj  nounsg  
+ eendagskuiken ( NOUN NOUN_SINGULAR ) 
+ eendagskuikens ( NOUN NOUN_PLURAL ) lemma=`eendagskuiken` nounpl  
+ eendagsvlieg ( NOUN NOUN_SINGULAR ) 
+ eendagsvliegen ( NOUN NOUN_PLURAL ) lemma=`eendagsvlieg` nounpl  
+ eendebek ( NOUN NOUN_SINGULAR ) 
+ eendebekken ( NOUN NOUN_PLURAL ) lemma=`eendebek` nounpl  
+ eendelig ( ADJECTIVE ) 
+ eendelige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eendelig`eendelige` adj  nounsg  
+ eenden ( NOUN NOUN_PLURAL ) lemma=`eend` nounpl  
+ eendenbek ( NOUN NOUN_SINGULAR ) 
+ eendenbekken ( NOUN NOUN_PLURAL ) lemma=`eendenbek` nounpl  
+ eendenkooi ( NOUN NOUN_SINGULAR ) 
+ eendenkooien ( NOUN NOUN_PLURAL ) lemma=`eendenkooi` nounpl  
+ eendenwak ( NOUN NOUN_SINGULAR ) 
+ eendenwakken ( NOUN NOUN_PLURAL ) lemma=`eendenwak` nounpl  
+ eender ( ADJECTIVE ) 
+ eendje ( NOUN NOUN_SINGULAR ) lemma=`eend` nounsg  
+ eendjes ( NOUN NOUN_PLURAL ) lemma=`eend` nounpl  
+ eendracht ( NOUN NOUN_SINGULAR ) 
+ eendrachtig ( ADJECTIVE ) 
+ eendrachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eendrachtig`eendrachtige` adj  nounsg  
+ eendrachtiger ( ADJECTIVE ) lemma=`eendrachtig` adj  
+ eendrachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eendrachtig`eendrachtigere` adj  nounsg  
+ eendrachtigst ( ADJECTIVE ) lemma=`eendrachtig` adj  
+ eendrachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eendrachtig`eendrachtigste` adj  nounsg  
+ eenduidig ( ADJECTIVE ) 
+ eenduidige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenduidig`eenduidige` adj  nounsg  
+ eenduidigheid ( NOUN NOUN_SINGULAR ) 
+ eeneiig ( ADJECTIVE ) 
+ eeneiige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeneiig`eeneiige` adj  nounsg  
+ eenendertigste ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`eenendertig` num__ord  
+ eengezinswoning ( NOUN NOUN_SINGULAR ) 
+ eengezinswoningen ( NOUN NOUN_PLURAL ) lemma=`eengezinswoning` nounpl  
+ eenheden ( NOUN NOUN_PLURAL ) lemma=`eenheid` nounpl  
+ eenheid ( NOUN NOUN_SINGULAR ) 
+ eenheidspartij ( NOUN NOUN_SINGULAR ) 
+ eenheidspartijen ( NOUN NOUN_PLURAL ) lemma=`eenheidspartij` nounpl  
+ eenheidsprijs ( NOUN NOUN_SINGULAR ) 
+ eenheidsprijzen ( NOUN NOUN_PLURAL ) lemma=`eenheidsprijs` nounpl  
+ eenheidsstaat ( NOUN NOUN_SINGULAR ) 
+ eenheidsstaten ( NOUN NOUN_PLURAL ) lemma=`eenheidsstaat` nounpl  
+ eenheidstaat ( NOUN NOUN_SINGULAR ) 
+ eenheidsworst ( NOUN NOUN_SINGULAR ) 
+ eenheidsworsten ( NOUN NOUN_PLURAL ) lemma=`eenheidsworst` nounpl  
+ eenhoevig ( ADJECTIVE ) 
+ eenhoevige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenhoevig`eenhoevige` adj  nounsg  
+ eenhoorn ( NOUN NOUN_SINGULAR ) 
+ eenhoorns ( NOUN NOUN_PLURAL ) lemma=`eenhoorn` nounpl  
+ eenieder ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ eenjarig ( ADJECTIVE ) 
+ eenjarige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenjarig`eenjarige` adj  nounsg  
+ eenkennig ( ADJECTIVE ) 
+ eenkennige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenkennig`eenkennige` adj  nounsg  
+ eenlettergrepig ( ADJECTIVE ) 
+ eenlettergrepige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenlettergrepig`eenlettergrepige` adj  nounsg  
+ eenling ( NOUN NOUN_SINGULAR ) 
+ eenlingen ( NOUN NOUN_PLURAL ) lemma=`eenling` nounpl  
+ eenmaal ( ADVERB ) 
+ eenmalig ( ADJECTIVE ) 
+ eenmalige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenmalig`eenmalige` adj  nounsg  
+ eenmansbedrijf ( NOUN NOUN_SINGULAR ) 
+ eenmansbedrijven ( NOUN NOUN_PLURAL ) lemma=`eenmansbedrijf` nounpl  
+ eenmansboot ( NOUN NOUN_SINGULAR ) 
+ eenmansboten ( NOUN NOUN_PLURAL ) lemma=`eenmansboot` nounpl  
+ eenmansfractie ( NOUN NOUN_SINGULAR ) 
+ eenmansfracties ( NOUN NOUN_PLURAL ) lemma=`eenmansfractie` nounpl  
+ eenmanszaak ( NOUN NOUN_SINGULAR ) 
+ eenmanszaakjes ( NOUN NOUN_PLURAL ) lemma=`eenmanszaak` nounpl  
+ eenmanszaken ( NOUN NOUN_PLURAL ) lemma=`eenmanszaak` nounpl  
+ eenmanszeilboot ( NOUN NOUN_SINGULAR ) 
+ eenmanszeilboten ( NOUN NOUN_PLURAL ) lemma=`eenmanszeilboot` nounpl  
+ eenmotorig ( ADJECTIVE ) 
+ eenogig ( ADJECTIVE ) 
+ eenogige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenogig`eenogige` adj  nounsg  
+ eenoudergezin ( NOUN NOUN_SINGULAR ) 
+ eenoudergezinnen ( NOUN NOUN_PLURAL ) lemma=`eenoudergezin` nounpl  
+ eenparig ( ADJECTIVE ) 
+ eenparige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenparig`eenparige` adj  nounsg  
+ eenpariger ( ADJECTIVE ) lemma=`eenparig` adj  
+ eenparigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenparig`eenparigere` adj  nounsg  
+ eenparigst ( ADJECTIVE ) lemma=`eenparig` adj  
+ eenparigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenparig`eenparigste` adj  nounsg  
+ eenpersoonsbed ( NOUN NOUN_SINGULAR ) 
+ eenpersoonsbedden ( NOUN NOUN_PLURAL ) lemma=`eenpersoonsbed` nounpl  
+ eenpersoonshuishoude ( NOUN NOUN_SINGULAR ) 
+ eenpersoonshuishouden ( NOUN NOUN_SINGULAR ) 
+ eenpersoonshuishoudens ( NOUN NOUN_PLURAL ) lemma=`eenpersoonshuishouden` nounpl  
+ eenpersoonskamer ( NOUN NOUN_SINGULAR ) 
+ eenpersoonskamers ( NOUN NOUN_PLURAL ) lemma=`eenpersoonskamer` nounpl  
+ eenrichtingsverkeer ( NOUN NOUN_SINGULAR ) 
+ eenrichtingverkeer ( NOUN NOUN_SINGULAR ) 
+ eens ( ADJECTIVE ADVERB ) lemma=`eens`eens` adj  adv  
+ eensdeels ( ADVERB ) 
+ eensgezind ( ADJECTIVE ) 
+ eensgezinde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eensgezind`eensgezinde` adj  nounsg  
+ eensgezindheid ( NOUN NOUN_SINGULAR ) 
+ eensklaps ( ADVERB ) 
+ eensluidend ( ADJECTIVE ) 
+ eensluidende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eensluidend`eensluidende` adj  nounsg  
+ eenstemmig ( ADJECTIVE ) 
+ eenstemmige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenstemmig`eenstemmige` adj  nounsg  
+ eenstemmigheid ( NOUN NOUN_SINGULAR ) 
+ eentalig ( ADJECTIVE ) 
+ eentalige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eentalig`eentalige` adj  nounsg  
+ eentje ( NOUN NOUN_NUMBER ) lemma=`een` num__card  
+ eentonig ( ADJECTIVE ) 
+ eentonige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eentonig`eentonige` adj  nounsg  
+ eentoniger ( ADJECTIVE ) lemma=`eentonig` adj  
+ eentonigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eentonig`eentonigere` adj  nounsg  
+ eentonigheid ( NOUN NOUN_SINGULAR ) 
+ eentonigst ( ADJECTIVE ) lemma=`eentonig` adj  
+ eentonigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eentonig`eentonigste` adj  nounsg  
+ eenvormig ( ADJECTIVE ) 
+ eenvormige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenvormig`eenvormige` adj  nounsg  
+ eenvormiger ( ADJECTIVE ) lemma=`eenvormig` adj  
+ eenvormigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenvormig`eenvormigere` adj  nounsg  
+ eenvormigst ( ADJECTIVE ) lemma=`eenvormig` adj  
+ eenvormigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenvormig`eenvormigste` adj  nounsg  
+ eenvoud ( NOUN NOUN_SINGULAR ) 
+ eenvoudig ( ADJECTIVE ADVERB ) lemma=`eenvoudig`eenvoudig` adj  adv  
+ eenvoudige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenvoudig`eenvoudige` adj  nounsg  
+ eenvoudiger ( ADJECTIVE ) lemma=`eenvoudig` adj  
+ eenvoudigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenvoudig`eenvoudigere` adj  nounsg  
+ eenvoudigst ( ADJECTIVE ) lemma=`eenvoudig` adj  
+ eenvoudigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenvoudig`eenvoudigste` adj  nounsg  
+ eenvoudigweg ( ADVERB ) 
+ eenwording ( NOUN NOUN_SINGULAR ) 
+ eenwordingsproces ( NOUN NOUN_SINGULAR ) 
+ eenwordingsprocessen ( NOUN NOUN_PLURAL ) lemma=`eenwordingsproces` nounpl  
+ eenzaam ( ADJECTIVE ) 
+ eenzaamheid ( NOUN NOUN_SINGULAR ) 
+ eenzaamst ( ADJECTIVE ) lemma=`eenzaam` adj  
+ eenzaamste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzaam`eenzaamste` adj  nounsg  
+ eenzame ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzaam`eenzame` adj  nounsg  
+ eenzamer ( ADJECTIVE ) lemma=`eenzaam` adj  
+ eenzamere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzaam`eenzamere` adj  nounsg  
+ eenzelfde ( ADJECTIVE ) 
+ eenzelvig ( ADJECTIVE ) 
+ eenzelvige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzelvig`eenzelvige` adj  nounsg  
+ eenzelviger ( ADJECTIVE ) lemma=`eenzelvig` adj  
+ eenzelvigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzelvig`eenzelvigere` adj  nounsg  
+ eenzelvigheid ( NOUN NOUN_SINGULAR ) 
+ eenzelvigst ( ADJECTIVE ) lemma=`eenzelvig` adj  
+ eenzelvigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzelvig`eenzelvigste` adj  nounsg  
+ eenzijdig ( ADJECTIVE ) 
+ eenzijdige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzijdig`eenzijdige` adj  nounsg  
+ eenzijdiger ( ADJECTIVE ) lemma=`eenzijdig` adj  
+ eenzijdigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzijdig`eenzijdigere` adj  nounsg  
+ eenzijdigheid ( NOUN NOUN_SINGULAR ) 
+ eenzijdigst ( ADJECTIVE ) lemma=`eenzijdig` adj  
+ eenzijdigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eenzijdig`eenzijdigste` adj  nounsg  
+ eer ( VERB_PRESENT NOUN VERB CONJUNCTION_SUBORDINATE NOUN_SINGULAR ) lemma=`eer`eer`eren` conjsubo  nounsg  verbpressg  
+ eerbaar ( ADJECTIVE ) 
+ eerbaarder ( ADJECTIVE ) lemma=`eerbaar` adj  
+ eerbaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbaar`eerbaardere` adj  nounsg  
+ eerbaarheid ( NOUN NOUN_SINGULAR ) 
+ eerbaarst ( ADJECTIVE ) lemma=`eerbaar` adj  
+ eerbaarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbaar`eerbaarste` adj  nounsg  
+ eerbare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbaar`eerbare` adj  nounsg  
+ eerbetoon ( NOUN NOUN_SINGULAR ) 
+ eerbewijs ( NOUN NOUN_SINGULAR ) 
+ eerbewijzen ( NOUN NOUN_PLURAL ) lemma=`eerbewijs` nounpl  
+ eerbied ( NOUN NOUN_SINGULAR ) 
+ eerbiedig ( VERB_PRESENT VERB ADJECTIVE ) lemma=`eerbiedig`eerbiedigen` adj  verbpressg  
+ eerbiedigde ( VERB_PAST VERB ) lemma=`eerbiedigen` verbpastsg  
+ eerbiedigden ( VERB_PAST VERB ) lemma=`eerbiedigen` verbpastpl  
+ eerbiedige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbiedig`eerbiedige` adj  nounsg  
+ eerbiedigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`eerbiedigen`eerbiedigen`eerbiedigen` nounsg  verbinf  verbprespl  
+ eerbiedigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eerbiedigen` verbpresp  
+ eerbiedigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eerbiedigende`eerbiedigen` nounsg  verbpresp  
+ eerbiediger ( ADJECTIVE ) lemma=`eerbiedig` adj  
+ eerbiedigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbiedig`eerbiedigere` adj  nounsg  
+ eerbiediging ( NOUN NOUN_SINGULAR ) 
+ eerbiedigst ( ADJECTIVE ) lemma=`eerbiedig` adj  
+ eerbiedigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbiedig`eerbiedigste` adj  nounsg  
+ eerbiedigt ( VERB_PRESENT VERB ) lemma=`eerbiedigen` verbpressg  
+ eerbiedwaardig ( ADJECTIVE ) 
+ eerbiedwaardige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbiedwaardig`eerbiedwaardige` adj  nounsg  
+ eerbiedwaardiger ( ADJECTIVE ) lemma=`eerbiedwaardig` adj  
+ eerbiedwaardigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbiedwaardig`eerbiedwaardigere` adj  nounsg  
+ eerbiedwaardigst ( ADJECTIVE ) lemma=`eerbiedwaardig` adj  
+ eerbiedwaardigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerbiedwaardig`eerbiedwaardigste` adj  nounsg  
+ eerdaags ( ADVERB ) 
+ eerde ( VERB_PAST VERB ) lemma=`eren` verbpastsg  
+ eerden ( VERB_PAST VERB ) lemma=`eren` verbpastpl  
+ eerder ( ADJECTIVE ADVERB ) lemma=`eerder`eerder` adj  adv  
+ eerdere ( ADJECTIVE ) lemma=`eerder` adj  
+ eerdergenoemd ( ADJECTIVE ) 
+ eergevoel ( NOUN NOUN_SINGULAR ) 
+ eergisteren ( ADVERB ) 
+ eerherstel ( NOUN NOUN_SINGULAR ) 
+ eerlang ( ADVERB ) 
+ eerlijk ( ADJECTIVE ) 
+ eerlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerlijk`eerlijke` adj  nounsg  
+ eerlijker ( ADJECTIVE ) lemma=`eerlijk` adj  
+ eerlijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerlijk`eerlijkere` adj  nounsg  
+ eerlijkheid ( NOUN NOUN_SINGULAR ) 
+ eerlijkheidshalve ( ADVERB ) 
+ eerlijkst ( ADJECTIVE ) lemma=`eerlijk` adj  
+ eerlijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerlijk`eerlijkste` adj  nounsg  
+ eerloos ( ADJECTIVE ) 
+ eerloost ( ADJECTIVE ) lemma=`eerloos` adj  
+ eerlooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerloos`eerlooste` adj  nounsg  
+ eerloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerloos`eerloze` adj  nounsg  
+ eerlozer ( ADJECTIVE ) lemma=`eerloos` adj  
+ eerlozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerloos`eerlozere` adj  nounsg  
+ eerst ( ADVERB ) 
+ eerste ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`eerste`een` nounsg  num__ord  
+ eerstegraads ( ADJECTIVE ) 
+ eerstegraadse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerstegraads`eerstegraadse` adj  nounsg  
+ eerstehulppost ( NOUN NOUN_SINGULAR ) 
+ eerstehulpposten ( NOUN NOUN_PLURAL ) lemma=`eerstehulppost` nounpl  
+ eerstejaars ( NOUN ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`eerstejaars`eerstejaars`eerstejaars` adj  nounpl  nounsg  
+ eersteklas ( ADJECTIVE ) 
+ eerstelijns ( ADJECTIVE ) 
+ eersteling ( NOUN NOUN_SINGULAR ) 
+ eerstelingen ( NOUN NOUN_PLURAL ) lemma=`eersteling` nounpl  
+ eerstelingetje ( NOUN NOUN_SINGULAR ) lemma=`eersteling` nounsg  
+ eerstelingetjes ( NOUN NOUN_PLURAL ) lemma=`eersteling` nounpl  
+ eersterangs ( ADJECTIVE ) 
+ eersterangse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eersterangs`eersterangse` adj  nounsg  
+ eerstgeboren ( ADJECTIVE ) 
+ eerstgenoemd ( ADJECTIVE ) 
+ eerstgenoemde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerstgenoemd`eerstgenoemde` adj  nounsg  
+ eerstgenoemden ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`eerstgenoemd`eerstgenoemde` adj  nounpl  
+ eerstkomend ( ADJECTIVE ) 
+ eerstkomende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerstkomend`eerstkomende` adj  nounsg  
+ eerstvolgend ( ADJECTIVE ) 
+ eerstvolgende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerstvolgend`eerstvolgende` adj  nounsg  
+ eert ( VERB_PRESENT VERB ) lemma=`eren` verbpressg  
+ eertijds ( ADVERB ) 
+ eervol ( ADJECTIVE ) 
+ eervolle ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eervol`eervolle` adj  nounsg  
+ eervoller ( ADJECTIVE ) lemma=`eervol` adj  
+ eervollere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eervol`eervollere` adj  nounsg  
+ eervolst ( ADJECTIVE ) lemma=`eervol` adj  
+ eervolste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eervol`eervolste` adj  nounsg  
+ eerwaard ( ADJECTIVE ) 
+ eerwaarde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerwaard`eerwaarde` adj  nounsg  
+ eerwaarden ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`eerwaard`eerwaarde` adj  nounpl  
+ eerwaarder ( ADJECTIVE ) lemma=`eerwaard` adj  
+ eerwaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerwaard`eerwaardere` adj  nounsg  
+ eerwaardst ( ADJECTIVE ) lemma=`eerwaard` adj  
+ eerwaardste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerwaard`eerwaardste` adj  nounsg  
+ eerzaam ( ADJECTIVE ) 
+ eerzaamst ( ADJECTIVE ) lemma=`eerzaam` adj  
+ eerzaamste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerzaam`eerzaamste` adj  nounsg  
+ eerzame ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerzaam`eerzame` adj  nounsg  
+ eerzamer ( ADJECTIVE ) lemma=`eerzaam` adj  
+ eerzamere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerzaam`eerzamere` adj  nounsg  
+ eerzucht ( NOUN NOUN_SINGULAR ) 
+ eerzuchtig ( ADJECTIVE ) 
+ eerzuchtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerzuchtig`eerzuchtige` adj  nounsg  
+ eerzuchtiger ( ADJECTIVE ) lemma=`eerzuchtig` adj  
+ eerzuchtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerzuchtig`eerzuchtigere` adj  nounsg  
+ eerzuchtigst ( ADJECTIVE ) lemma=`eerzuchtig` adj  
+ eerzuchtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eerzuchtig`eerzuchtigste` adj  nounsg  
+ eet ( VERB_PRESENT VERB ) lemma=`eten` verbpressg  
+ eetbaar ( ADJECTIVE ) 
+ eetbaarheid ( NOUN NOUN_SINGULAR ) 
+ eetbare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eetbaar`eetbare` adj  nounsg  
+ eetcafé ( NOUN NOUN_SINGULAR ) 
+ eetcafés ( NOUN NOUN_PLURAL ) lemma=`eetcafé` nounpl  
+ eetgerei ( NOUN NOUN_SINGULAR ) 
+ eetgewoonte ( NOUN NOUN_SINGULAR ) 
+ eetgewoonten ( NOUN NOUN_PLURAL ) lemma=`eetgewoonte` nounpl  
+ eetgewoontes ( NOUN NOUN_PLURAL ) lemma=`eetgewoonte` nounpl  
+ eethoek ( NOUN NOUN_SINGULAR ) 
+ eethoeken ( NOUN NOUN_PLURAL ) lemma=`eethoek` nounpl  
+ eethuis ( NOUN NOUN_SINGULAR ) 
+ eethuizen ( NOUN NOUN_PLURAL ) lemma=`eethuis` nounpl  
+ eetkamer ( NOUN NOUN_SINGULAR ) 
+ eetkamers ( NOUN NOUN_PLURAL ) lemma=`eetkamer` nounpl  
+ eetlepel ( NOUN NOUN_SINGULAR ) 
+ eetlepels ( NOUN NOUN_PLURAL ) lemma=`eetlepel` nounpl  
+ eetlust ( NOUN NOUN_SINGULAR ) 
+ eettafel ( NOUN NOUN_SINGULAR ) 
+ eettafels ( NOUN NOUN_PLURAL ) lemma=`eettafel` nounpl  
+ eettafeltjes ( NOUN NOUN_PLURAL ) lemma=`eettafel` nounpl  
+ eettent ( NOUN NOUN_SINGULAR ) 
+ eettenten ( NOUN NOUN_PLURAL ) lemma=`eettent` nounpl  
+ eettentje ( NOUN NOUN_SINGULAR ) lemma=`eettent` nounsg  
+ eetzaal ( NOUN NOUN_SINGULAR ) 
+ eetzalen ( NOUN NOUN_PLURAL ) lemma=`eetzaal` nounpl  
+ eeuw ( NOUN NOUN_SINGULAR ) 
+ eeuwen ( NOUN NOUN_PLURAL ) lemma=`eeuw` nounpl  
+ eeuwenlang ( ADJECTIVE ) 
+ eeuwenlange ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeuwenlang`eeuwenlange` adj  nounsg  
+ eeuwenoud ( ADJECTIVE ) 
+ eeuwenoude ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeuwenoud`eeuwenoude` adj  nounsg  
+ eeuwfeest ( NOUN NOUN_SINGULAR ) 
+ eeuwfeesten ( NOUN NOUN_PLURAL ) lemma=`eeuwfeest` nounpl  
+ eeuwig ( ADJECTIVE ) 
+ eeuwigdurend ( ADJECTIVE ) 
+ eeuwigdurende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeuwigdurend`eeuwigdurende` adj  nounsg  
+ eeuwige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eeuwig`eeuwige` adj  nounsg  
+ eeuwiger ( ADJECTIVE ) lemma=`eeuwig` adj  
+ eeuwigheden ( NOUN NOUN_PLURAL ) lemma=`eeuwigheid` nounpl  
+ eeuwigheid ( NOUN NOUN_SINGULAR ) 
+ eeuws ( NOUN NOUN_SINGULAR ) lemma=`eeuw` nounsg  
+ eeuwwisseling ( NOUN NOUN_SINGULAR ) 
+ eeuwwisselingen ( NOUN NOUN_PLURAL ) lemma=`eeuwwisseling` nounpl  
+ effect ( NOUN NOUN_SINGULAR ) 
+ effectbal ( NOUN NOUN_SINGULAR ) 
+ effectballen ( NOUN NOUN_PLURAL ) lemma=`effectbal` nounpl  
+ effectbejag ( NOUN NOUN_SINGULAR ) 
+ effecten ( NOUN NOUN_PLURAL ) lemma=`effect` nounpl  
+ effectenbeurs ( NOUN NOUN_SINGULAR ) 
+ effectenbeurzen ( NOUN NOUN_PLURAL ) lemma=`effectenbeurs` nounpl  
+ effectenbezitter ( NOUN NOUN_SINGULAR ) 
+ effectenbezitters ( NOUN NOUN_PLURAL ) lemma=`effectenbezitter` nounpl  
+ effectenhandel ( NOUN NOUN_SINGULAR ) 
+ effectenmakelaar ( NOUN NOUN_SINGULAR ) 
+ effectenmakelaars ( NOUN NOUN_PLURAL ) lemma=`effectenmakelaar` nounpl  
+ effectenverkeer ( NOUN NOUN_SINGULAR ) 
+ effectief ( ADJECTIVE ) 
+ effectiefst ( ADJECTIVE ) lemma=`effectief` adj  
+ effectiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`effectief`effectiefste` adj  nounsg  
+ effectieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`effectief`effectieve` adj  nounsg  
+ effectiever ( ADJECTIVE ) lemma=`effectief` adj  
+ effectievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`effectief`effectievere` adj  nounsg  
+ effectiviteit ( NOUN NOUN_SINGULAR ) 
+ effectje ( NOUN NOUN_SINGULAR ) lemma=`effect` nounsg  
+ effectueer ( VERB_PRESENT VERB ) lemma=`effectueren` verbpressg  
+ effectueerde ( VERB_PAST VERB ) lemma=`effectueren` verbpastsg  
+ effectueerden ( VERB_PAST VERB ) lemma=`effectueren` verbpastpl  
+ effectueert ( VERB_PRESENT VERB ) lemma=`effectueren` verbpressg  
+ effectueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`effectueren`effectueren`effectueren` nounsg  verbinf  verbprespl  
+ effectuerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`effectueren` verbpresp  
+ effectuerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`effectuerende`effectueren` nounsg  verbpresp  
+ effekt ( NOUN NOUN_SINGULAR ) 
+ effektief ( ADJECTIVE ) 
+ effektieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`effektief`effektieve` adj  nounsg  
+ effen ( VERB_PRESENT VERB ADJECTIVE ) lemma=`effen`effenen` adj  verbpressg  
+ effende ( VERB_PAST VERB ) lemma=`effenen` verbpastsg  
+ effenden ( VERB_PAST VERB ) lemma=`effenen` verbpastpl  
+ effenen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`effenen`effenen`effenen` nounsg  verbinf  verbprespl  
+ effenend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`effenen` verbpresp  
+ effenende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`effenende`effenen` nounsg  verbpresp  
+ effenheid ( NOUN NOUN_SINGULAR ) 
+ effent ( VERB_PRESENT VERB ) lemma=`effenen` verbpressg  
+ efficiënt ( ADJECTIVE ) 
+ efficiënte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`efficiënt`efficiënte` adj  nounsg  
+ efficiënter ( ADJECTIVE ) lemma=`efficiënt` adj  
+ efficiëntere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`efficiënt`efficiëntere` adj  nounsg  
+ efficiëntie ( NOUN NOUN_SINGULAR ) 
+ efficiëntst ( ADJECTIVE ) lemma=`efficiënt` adj  
+ efficiëntste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`efficiënt`efficiëntste` adj  nounsg  
+ eg ( VERB_PRESENT VERB ) lemma=`eggen` verbpressg  
+ egaal ( ADJECTIVE ) 
+ egaalst ( ADJECTIVE ) lemma=`egaal` adj  
+ egaalste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egaal`egaalste` adj  nounsg  
+ egale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egaal`egale` adj  nounsg  
+ egaler ( ADJECTIVE ) lemma=`egaal` adj  
+ egalere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egaal`egalere` adj  nounsg  
+ egaliseer ( VERB_PRESENT VERB ) lemma=`egaliseren` verbpressg  
+ egaliseerde ( VERB_PAST VERB ) lemma=`egaliseren` verbpastsg  
+ egaliseerden ( VERB_PAST VERB ) lemma=`egaliseren` verbpastpl  
+ egaliseert ( VERB_PRESENT VERB ) lemma=`egaliseren` verbpressg  
+ egaliseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`egaliseren`egaliseren`egaliseren` nounsg  verbinf  verbprespl  
+ egaliserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`egaliseren` verbpresp  
+ egaliserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`egaliserende`egaliseren` nounsg  verbpresp  
+ egards ( NOUN NOUN_PLURAL ) 
+ egde ( VERB_PAST VERB ) lemma=`eggen` verbpastsg  
+ egden ( VERB_PAST VERB ) lemma=`eggen` verbpastpl  
+ egel ( NOUN NOUN_SINGULAR ) 
+ egelantier ( NOUN NOUN_SINGULAR ) 
+ egelantieren ( NOUN NOUN_PLURAL ) lemma=`egelantier` nounpl  
+ egelantiers ( NOUN NOUN_PLURAL ) lemma=`egelantier` nounpl  
+ egels ( NOUN NOUN_PLURAL ) lemma=`egel` nounpl  
+ egeltje ( NOUN NOUN_SINGULAR ) lemma=`egel` nounsg  
+ egeltjes ( NOUN NOUN_PLURAL ) lemma=`egel` nounpl  
+ egge ( NOUN NOUN_SINGULAR ) 
+ eggen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`eg|egge`eggen`eggen`eggen` nounpl  nounsg  verbinf  verbprespl  
+ eggend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eggen` verbpresp  
+ eggende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eggende`eggen` nounsg  verbpresp  
+ eggetje ( NOUN NOUN_SINGULAR ) lemma=`egge` nounsg  
+ eggetjes ( NOUN NOUN_PLURAL ) lemma=`egge` nounpl  
+ eglantier ( NOUN NOUN_SINGULAR ) 
+ eglantieren ( NOUN NOUN_PLURAL ) lemma=`eglantier` nounpl  
+ eglantiers ( NOUN NOUN_PLURAL ) lemma=`eglantier` nounpl  
+ ego ( NOUN NOUN_SINGULAR ) 
+ ego's ( NOUN NOUN_PLURAL ) lemma=`ego` nounpl  
+ egocentrisch ( ADJECTIVE ) 
+ egocentrische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egocentrisch`egocentrische` adj  nounsg  
+ egocentrischer ( ADJECTIVE ) lemma=`egocentrisch` adj  
+ egocentrischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egocentrisch`egocentrischere` adj  nounsg  
+ egocentrischt ( ADJECTIVE ) lemma=`egocentrisch` adj  
+ egocentrischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egocentrisch`egocentrischte` adj  nounsg  
+ egocentrisme ( NOUN NOUN_SINGULAR ) 
+ egotrip ( NOUN NOUN_SINGULAR ) 
+ egotripper ( NOUN NOUN_SINGULAR ) 
+ egotrippers ( NOUN NOUN_PLURAL ) lemma=`egotripper` nounpl  
+ egotrips ( NOUN NOUN_PLURAL ) lemma=`egotrip` nounpl  
+ egoïsme ( NOUN NOUN_SINGULAR ) 
+ egoïst ( NOUN NOUN_SINGULAR ) 
+ egoïste ( NOUN NOUN_SINGULAR ) 
+ egoïsten ( NOUN NOUN_PLURAL ) lemma=`egoïst|egoïste` nounpl  
+ egoïstes ( NOUN NOUN_PLURAL ) lemma=`egoïste` nounpl  
+ egoïstisch ( ADJECTIVE ) 
+ egoïstische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egoïstisch`egoïstische` adj  nounsg  
+ egoïstischer ( ADJECTIVE ) lemma=`egoïstisch` adj  
+ egoïstischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egoïstisch`egoïstischere` adj  nounsg  
+ egoïstischt ( ADJECTIVE ) lemma=`egoïstisch` adj  
+ egoïstischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`egoïstisch`egoïstischte` adj  nounsg  
+ egt ( VERB_PRESENT VERB ) lemma=`eggen` verbpressg  
+ eh ( INTERJECTION ) 
+ ei ( NOUN NOUN_SINGULAR ) 
+ eicel ( NOUN NOUN_SINGULAR ) 
+ eiceldonatie ( NOUN NOUN_SINGULAR ) 
+ eiceldonaties ( NOUN NOUN_PLURAL ) lemma=`eiceldonatie` nounpl  
+ eicellen ( NOUN NOUN_PLURAL ) lemma=`eicel` nounpl  
+ eider ( NOUN NOUN_SINGULAR ) 
+ eidereend ( NOUN NOUN_SINGULAR ) 
+ eidereenden ( NOUN NOUN_PLURAL ) lemma=`eidereend` nounpl  
+ eidooier ( NOUN NOUN_SINGULAR ) 
+ eidooiers ( NOUN NOUN_PLURAL ) lemma=`eidooier` nounpl  
+ eierdooier ( NOUN NOUN_SINGULAR ) 
+ eierdooiers ( NOUN NOUN_PLURAL ) lemma=`eierdooier` nounpl  
+ eierdopje ( NOUN NOUN_SINGULAR ) 
+ eierdopjes ( NOUN NOUN_PLURAL ) lemma=`eierdopje` nounpl  
+ eieren ( NOUN NOUN_PLURAL ) lemma=`ei` nounpl  
+ eierstok ( NOUN NOUN_SINGULAR ) 
+ eierstokken ( NOUN NOUN_PLURAL ) lemma=`eierstok` nounpl  
+ eiertjes ( NOUN NOUN_PLURAL ) lemma=`ei` nounpl  
+ eigeel ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigeel`eigeel` adj  nounsg  
+ eigele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigeel`eigele` adj  nounsg  
+ eigen ( ADJECTIVE ) 
+ eigenaar ( NOUN NOUN_SINGULAR ) 
+ eigenaardig ( ADJECTIVE ) 
+ eigenaardige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenaardig`eigenaardige` adj  nounsg  
+ eigenaardiger ( ADJECTIVE ) lemma=`eigenaardig` adj  
+ eigenaardigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenaardig`eigenaardigere` adj  nounsg  
+ eigenaardigheden ( NOUN NOUN_PLURAL ) lemma=`eigenaardigheid` nounpl  
+ eigenaardigheid ( NOUN NOUN_SINGULAR ) 
+ eigenaardigst ( ADJECTIVE ) lemma=`eigenaardig` adj  
+ eigenaardigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenaardig`eigenaardigste` adj  nounsg  
+ eigenaars ( NOUN NOUN_PLURAL ) lemma=`eigenaar` nounpl  
+ eigenaren ( NOUN NOUN_PLURAL ) lemma=`eigenaar` nounpl  
+ eigenares ( NOUN NOUN_SINGULAR ) 
+ eigenaresse ( NOUN NOUN_SINGULAR ) 
+ eigenaressen ( NOUN NOUN_PLURAL ) lemma=`eigenares` nounpl  
+ eigenbelang ( NOUN NOUN_SINGULAR ) 
+ eigendom ( NOUN NOUN_SINGULAR ) 
+ eigendommen ( NOUN NOUN_PLURAL ) lemma=`eigendom` nounpl  
+ eigendomsbewijs ( NOUN NOUN_SINGULAR ) 
+ eigendomsbewijzen ( NOUN NOUN_PLURAL ) lemma=`eigendomsbewijs` nounpl  
+ eigendomsrecht ( NOUN NOUN_SINGULAR ) 
+ eigendomsrechten ( NOUN NOUN_PLURAL ) lemma=`eigendomsrecht` nounpl  
+ eigendomsverhouding ( NOUN NOUN_SINGULAR ) 
+ eigendomsverhoudinge ( NOUN NOUN_PLURAL ) lemma=`eigendomsverhouding` nounpl  
+ eigendomsverhoudingen ( NOUN NOUN_PLURAL ) lemma=`eigendomsverhouding` nounpl  
+ eigendunk ( NOUN NOUN_SINGULAR ) 
+ eigene ( ADJECTIVE ) lemma=`eigen` adj  
+ eigengemaakt ( ADJECTIVE ) 
+ eigengemaakte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigengemaakt`eigengemaakte` adj  nounsg  
+ eigengereid ( ADJECTIVE ) 
+ eigengereide ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigengereid`eigengereide` adj  nounsg  
+ eigengereider ( ADJECTIVE ) lemma=`eigengereid` adj  
+ eigengereidere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigengereid`eigengereidere` adj  nounsg  
+ eigengereidst ( ADJECTIVE ) lemma=`eigengereid` adj  
+ eigengereidste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigengereid`eigengereidste` adj  nounsg  
+ eigenhandig ( ADJECTIVE ) 
+ eigenhandige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenhandig`eigenhandige` adj  nounsg  
+ eigenheid ( NOUN NOUN_SINGULAR ) 
+ eigenheimer ( NOUN NOUN_SINGULAR ) 
+ eigenheimers ( NOUN NOUN_PLURAL ) lemma=`eigenheimer` nounpl  
+ eigenlijk ( ADJECTIVE ) 
+ eigenlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenlijk`eigenlijke` adj  nounsg  
+ eigenmachtig ( ADJECTIVE ) 
+ eigenmachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenmachtig`eigenmachtige` adj  nounsg  
+ eigenmachtiger ( ADJECTIVE ) lemma=`eigenmachtig` adj  
+ eigenmachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenmachtig`eigenmachtigere` adj  nounsg  
+ eigenmachtigst ( ADJECTIVE ) lemma=`eigenmachtig` adj  
+ eigenmachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenmachtig`eigenmachtigste` adj  nounsg  
+ eigennaam ( NOUN NOUN_SINGULAR ) 
+ eigennamen ( NOUN NOUN_PLURAL ) lemma=`eigennaam` nounpl  
+ eigenschap ( NOUN NOUN_SINGULAR ) 
+ eigenschappen ( NOUN NOUN_PLURAL ) lemma=`eigenschap` nounpl  
+ eigenste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigen|eigenste`eigenste` adj  nounsg  
+ eigentijds ( ADJECTIVE ) 
+ eigentijdse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigentijds`eigentijdse` adj  nounsg  
+ eigenwaan ( NOUN NOUN_SINGULAR ) 
+ eigenwaarde ( NOUN NOUN_SINGULAR ) 
+ eigenwijs ( ADJECTIVE ) 
+ eigenwijst ( ADJECTIVE ) lemma=`eigenwijs` adj  
+ eigenwijste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenwijs`eigenwijste` adj  nounsg  
+ eigenwijze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenwijs`eigenwijze` adj  nounsg  
+ eigenwijzer ( ADJECTIVE ) lemma=`eigenwijs` adj  
+ eigenwijzere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenwijs`eigenwijzere` adj  nounsg  
+ eigenzinnig ( ADJECTIVE ) 
+ eigenzinnige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenzinnig`eigenzinnige` adj  nounsg  
+ eigenzinniger ( ADJECTIVE ) lemma=`eigenzinnig` adj  
+ eigenzinnigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenzinnig`eigenzinnigere` adj  nounsg  
+ eigenzinnigst ( ADJECTIVE ) lemma=`eigenzinnig` adj  
+ eigenzinnigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eigenzinnig`eigenzinnigste` adj  nounsg  
+ eik ( NOUN NOUN_SINGULAR ) 
+ eikel ( NOUN NOUN_SINGULAR ) 
+ eikels ( NOUN NOUN_PLURAL ) lemma=`eikel` nounpl  
+ eikeltje ( NOUN NOUN_SINGULAR ) lemma=`eikel` nounsg  
+ eikeltjes ( NOUN NOUN_PLURAL ) lemma=`eikel` nounpl  
+ eiken ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`eiken`eik` adj  nounpl  
+ eikenhouten ( ADJECTIVE ) 
+ eiland ( NOUN NOUN_SINGULAR ) 
+ eilandbewoner ( NOUN NOUN_SINGULAR ) 
+ eilandbewoners ( NOUN NOUN_PLURAL ) lemma=`eilandbewoner` nounpl  
+ eilanden ( NOUN NOUN_PLURAL ) lemma=`eiland` nounpl  
+ eilandengroep ( NOUN NOUN_SINGULAR ) 
+ eilandengroepen ( NOUN NOUN_PLURAL ) lemma=`eilandengroep` nounpl  
+ eilander ( NOUN NOUN_SINGULAR ) 
+ eilanders ( NOUN NOUN_PLURAL ) lemma=`eilander` nounpl  
+ eileider ( NOUN NOUN_SINGULAR ) 
+ eileiders ( NOUN NOUN_PLURAL ) lemma=`eileider` nounpl  
+ eind ( NOUN NOUN_SINGULAR ) 
+ eindbedrag ( NOUN NOUN_SINGULAR ) 
+ eindbedragen ( NOUN NOUN_PLURAL ) lemma=`eindbedrag` nounpl  
+ eindbestemming ( NOUN NOUN_SINGULAR ) 
+ eindbestemmingen ( NOUN NOUN_PLURAL ) lemma=`eindbestemming` nounpl  
+ eindbod ( NOUN NOUN_SINGULAR ) 
+ eindcijfer ( NOUN NOUN_SINGULAR ) 
+ eindcijfers ( NOUN NOUN_PLURAL ) lemma=`eindcijfer` nounpl  
+ einddiploma ( NOUN NOUN_SINGULAR ) 
+ einddiploma's ( NOUN NOUN_PLURAL ) lemma=`einddiploma` nounpl  
+ einddoel ( NOUN NOUN_SINGULAR ) 
+ einddoelen ( NOUN NOUN_PLURAL ) lemma=`einddoel` nounpl  
+ einde ( NOUN NOUN_SINGULAR ) 
+ eindejaarsfeesten ( NOUN NOUN_PLURAL ) 
+ eindejaarspremie ( NOUN NOUN_SINGULAR ) 
+ eindejaarspremies ( NOUN NOUN_PLURAL ) lemma=`eindejaarspremie` nounpl  
+ eindelijk ( ADVERB ) 
+ eindeloos ( ADJECTIVE ) 
+ eindeloosheden ( NOUN NOUN_PLURAL ) lemma=`eindeloosheid` nounpl  
+ eindeloosheid ( NOUN NOUN_SINGULAR ) 
+ eindeloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eindeloos`eindeloze` adj  nounsg  
+ einden ( NOUN NOUN_PLURAL ) lemma=`eind|einde` nounpl  
+ einder ( NOUN NOUN_SINGULAR ) 
+ einders ( NOUN NOUN_PLURAL ) lemma=`einder` nounpl  
+ eindes ( NOUN NOUN_PLURAL ) lemma=`einde` nounpl  
+ eindexamen ( NOUN NOUN_SINGULAR ) 
+ eindexamenbesluit ( NOUN NOUN_SINGULAR ) 
+ eindexamenbesluiten ( NOUN NOUN_PLURAL ) lemma=`eindexamenbesluit` nounpl  
+ eindexamenpakket ( NOUN NOUN_SINGULAR ) 
+ eindexamenpakketten ( NOUN NOUN_PLURAL ) lemma=`eindexamenpakket` nounpl  
+ eindexamenprogramma ( NOUN NOUN_SINGULAR ) 
+ eindexamenprogramma' ( NOUN NOUN_PLURAL ) lemma=`eindexamenprogramma` nounpl  
+ eindexamenprogramma's ( NOUN NOUN_PLURAL ) lemma=`eindexamenprogramma` nounpl  
+ eindexamens ( NOUN NOUN_PLURAL ) lemma=`eindexamen` nounpl  
+ eindexamenvak ( NOUN NOUN_SINGULAR ) 
+ eindexamenvakken ( NOUN NOUN_PLURAL ) lemma=`eindexamenvak` nounpl  
+ eindfase ( NOUN NOUN_SINGULAR ) 
+ eindfasen ( NOUN NOUN_PLURAL ) lemma=`eindfase` nounpl  
+ eindfases ( NOUN NOUN_PLURAL ) lemma=`eindfase` nounpl  
+ eindgebruiker ( NOUN NOUN_SINGULAR ) 
+ eindgebruikers ( NOUN NOUN_PLURAL ) lemma=`eindgebruiker` nounpl  
+ eindig ( VERB_PRESENT VERB ADJECTIVE ) lemma=`eindig`eindigen` adj  verbpressg  
+ eindigde ( VERB_PAST VERB ) lemma=`eindigen` verbpastsg  
+ eindigden ( VERB_PAST VERB ) lemma=`eindigen` verbpastpl  
+ eindige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eindig`eindige` adj  nounsg  
+ eindigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`eindigen`eindigen`eindigen` nounsg  verbinf  verbprespl  
+ eindigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eindigen` verbpresp  
+ eindigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eindigende`eindigen` nounsg  verbpresp  
+ eindigheid ( NOUN NOUN_SINGULAR ) 
+ eindigt ( VERB_PRESENT VERB ) lemma=`eindigen` verbpressg  
+ eindje ( NOUN NOUN_SINGULAR ) 
+ eindjes ( NOUN NOUN_PLURAL ) lemma=`eindje` nounpl  
+ eindklassement ( NOUN NOUN_SINGULAR ) 
+ eindklassementen ( NOUN NOUN_PLURAL ) lemma=`eindklassement` nounpl  
+ eindklassering ( NOUN NOUN_SINGULAR ) 
+ eindklasseringen ( NOUN NOUN_PLURAL ) lemma=`eindklassering` nounpl  
+ eindklemtonen ( NOUN NOUN_PLURAL ) lemma=`eindklemtoon` nounpl  
+ eindklemtoon ( NOUN NOUN_SINGULAR ) 
+ eindmontage ( NOUN NOUN_SINGULAR ) 
+ eindoordeel ( NOUN NOUN_SINGULAR ) 
+ eindoordelen ( NOUN NOUN_PLURAL ) lemma=`eindoordeel` nounpl  
+ eindproduct ( NOUN NOUN_SINGULAR ) 
+ eindproducten ( NOUN NOUN_PLURAL ) lemma=`eindproduct` nounpl  
+ eindprodukt ( NOUN NOUN_SINGULAR ) 
+ eindpunt ( NOUN NOUN_SINGULAR ) 
+ eindpunten ( NOUN NOUN_PLURAL ) lemma=`eindpunt` nounpl  
+ eindrapport ( NOUN NOUN_SINGULAR ) 
+ eindrapporten ( NOUN NOUN_PLURAL ) lemma=`eindrapport` nounpl  
+ eindredacteur ( NOUN NOUN_SINGULAR ) 
+ eindredacteuren ( NOUN NOUN_PLURAL ) lemma=`eindredacteur` nounpl  
+ eindredacteurs ( NOUN NOUN_PLURAL ) lemma=`eindredacteur` nounpl  
+ eindresultaat ( NOUN NOUN_SINGULAR ) 
+ eindresultaten ( NOUN NOUN_PLURAL ) lemma=`eindresultaat` nounpl  
+ eindronde ( NOUN NOUN_SINGULAR ) 
+ eindronden ( NOUN NOUN_PLURAL ) lemma=`eindronde` nounpl  
+ eindrondes ( NOUN NOUN_PLURAL ) lemma=`eindronde` nounpl  
+ eindspel ( NOUN NOUN_SINGULAR ) 
+ eindspelen ( NOUN NOUN_PLURAL ) lemma=`eindspel` nounpl  
+ eindsprint ( NOUN NOUN_SINGULAR ) 
+ eindsprinten ( NOUN NOUN_PLURAL ) lemma=`eindsprint` nounpl  
+ eindsprints ( NOUN NOUN_PLURAL ) lemma=`eindsprint` nounpl  
+ eindspurt ( NOUN NOUN_SINGULAR ) 
+ eindstation ( NOUN NOUN_SINGULAR ) 
+ eindstations ( NOUN NOUN_PLURAL ) lemma=`eindstation` nounpl  
+ eindstreep ( NOUN NOUN_SINGULAR ) 
+ eindstrepen ( NOUN NOUN_PLURAL ) lemma=`eindstreep` nounpl  
+ eindstrijd ( NOUN NOUN_SINGULAR ) 
+ eindstuk ( NOUN NOUN_SINGULAR ) 
+ eindstukken ( NOUN NOUN_PLURAL ) lemma=`eindstuk` nounpl  
+ eindtijd ( NOUN NOUN_SINGULAR ) 
+ eindtijden ( NOUN NOUN_PLURAL ) lemma=`eindtijd` nounpl  
+ einduitslag ( NOUN NOUN_SINGULAR ) 
+ einduitslagen ( NOUN NOUN_PLURAL ) lemma=`einduitslag` nounpl  
+ eindverantwoordelijk ( NOUN NOUN_SINGULAR ) 
+ eindverantwoordelijkheden ( NOUN NOUN_PLURAL ) lemma=`eindverantwoordelijkheid` nounpl  
+ eindverantwoordelijkheid ( NOUN NOUN_SINGULAR ) 
+ eindverslag ( NOUN NOUN_SINGULAR ) 
+ eindverslagen ( NOUN NOUN_PLURAL ) lemma=`eindverslag` nounpl  
+ eindvoorstel ( NOUN NOUN_SINGULAR ) 
+ eindvoorstellen ( NOUN NOUN_PLURAL ) lemma=`eindvoorstel` nounpl  
+ eirond ( ADJECTIVE ) 
+ eironde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eirond`eironde` adj  nounsg  
+ eironder ( ADJECTIVE ) lemma=`eirond` adj  
+ eirondere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eirond`eirondere` adj  nounsg  
+ eirondst ( ADJECTIVE ) lemma=`eirond` adj  
+ eirondste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eirond`eirondste` adj  nounsg  
+ eis ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`eis`eisen` nounsg  verbpressg  
+ eisen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`eis`eisen`eisen`eisen` nounpl  nounsg  verbinf  verbprespl  
+ eisend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eisen` verbpresp  
+ eisende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eisende`eisen` nounsg  verbpresp  
+ eisenpakket ( NOUN NOUN_SINGULAR ) 
+ eisenpakketten ( NOUN NOUN_PLURAL ) lemma=`eisenpakket` nounpl  
+ eiser ( NOUN NOUN_SINGULAR ) 
+ eiseres ( NOUN NOUN_SINGULAR ) 
+ eiseressen ( NOUN NOUN_PLURAL ) lemma=`eiseres` nounpl  
+ eisers ( NOUN NOUN_PLURAL ) lemma=`eiser` nounpl  
+ eisprong ( NOUN NOUN_SINGULAR ) 
+ eisprongen ( NOUN NOUN_PLURAL ) lemma=`eisprong` nounpl  
+ eist ( VERB_PRESENT VERB ) lemma=`eisen` verbpressg  
+ eiste ( VERB_PAST VERB ) lemma=`eisen` verbpastsg  
+ eisten ( VERB_PAST VERB ) lemma=`eisen` verbpastpl  
+ eitand ( NOUN NOUN_SINGULAR ) 
+ eitanden ( NOUN NOUN_PLURAL ) lemma=`eitand` nounpl  
+ eitje ( NOUN NOUN_SINGULAR ) lemma=`ei` nounsg  
+ eitjes ( NOUN NOUN_PLURAL ) lemma=`ei` nounpl  
+ eivol ( ADJECTIVE ) 
+ eivolle ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eivol`eivolle` adj  nounsg  
+ eivormig ( ADJECTIVE ) 
+ eivormige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eivormig`eivormige` adj  nounsg  
+ eivormiger ( ADJECTIVE ) lemma=`eivormig` adj  
+ eivormigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eivormig`eivormigere` adj  nounsg  
+ eivormigst ( ADJECTIVE ) lemma=`eivormig` adj  
+ eivormigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eivormig`eivormigste` adj  nounsg  
+ eiwit ( NOUN NOUN_SINGULAR ) 
+ eiwithoudend ( ADJECTIVE ) 
+ eiwitten ( NOUN NOUN_PLURAL ) lemma=`eiwit` nounpl  
+ ejaculatie ( NOUN NOUN_SINGULAR ) 
+ ejaculaties ( NOUN NOUN_PLURAL ) lemma=`ejaculatie` nounpl  
+ ejaculeer ( VERB_PRESENT VERB ) lemma=`ejaculeren` verbpressg  
+ ejaculeerde ( VERB_PAST VERB ) lemma=`ejaculeren` verbpastsg  
+ ejaculeerden ( VERB_PAST VERB ) lemma=`ejaculeren` verbpastpl  
+ ejaculeert ( VERB_PRESENT VERB ) lemma=`ejaculeren` verbpressg  
+ ejaculeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`ejaculeren`ejaculeren`ejaculeren` nounsg  verbinf  verbprespl  
+ ejaculerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`ejaculeren` verbpresp  
+ ejaculerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ejaculerende`ejaculeren` nounsg  verbpresp  
+ eklektisch ( ADJECTIVE ) 
+ eklips ( NOUN NOUN_SINGULAR ) 
+ ekologie ( NOUN NOUN_SINGULAR ) 
+ ekologisch ( ADJECTIVE ) 
+ ekoloog ( NOUN NOUN_SINGULAR ) 
+ ekonome ( NOUN NOUN_SINGULAR ) 
+ ekonometrie ( NOUN NOUN_SINGULAR ) 
+ ekonometrist ( NOUN NOUN_SINGULAR ) 
+ ekonomie ( NOUN NOUN_SINGULAR ) 
+ ekonomisch ( ADJECTIVE ) 
+ ekonomische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ekonomisch`ekonomische` adj  nounsg  
+ ekonomist ( NOUN NOUN_SINGULAR ) 
+ ekonoom ( NOUN NOUN_SINGULAR ) 
+ ekosysteem ( NOUN NOUN_SINGULAR ) 
+ ekseem ( NOUN NOUN_SINGULAR ) 
+ eksemplarisch ( ADJECTIVE ) 
+ ekster ( NOUN NOUN_SINGULAR ) 
+ eksterogen ( NOUN NOUN_PLURAL ) lemma=`eksteroog` nounpl  
+ eksteroog ( NOUN NOUN_SINGULAR ) 
+ eksters ( NOUN NOUN_PLURAL ) lemma=`ekster` nounpl  
+ ekstertje ( NOUN NOUN_SINGULAR ) lemma=`ekster` nounsg  
+ ekstertjes ( NOUN NOUN_PLURAL ) lemma=`ekster` nounpl  
+ ekwatoriaal ( ADJECTIVE ) 
+ ekwivalent ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ekwivalent`ekwivalent` adj  nounsg  
+ el ( NOUN NOUN_SINGULAR ) 
+ elan ( NOUN NOUN_SINGULAR ) 
+ eland ( NOUN NOUN_SINGULAR ) 
+ elanden ( NOUN NOUN_PLURAL ) lemma=`eland` nounpl  
+ elasticiteit ( NOUN NOUN_SINGULAR ) 
+ elastiek ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`elastiek`elastieken` nounsg  verbpressg  
+ elastieken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE NOUN_SINGULAR NOUN_PLURAL ) lemma=`elastieken`elastiek`elastieken`elastieken`elastieken` adj  nounpl  nounsg  verbinf  verbprespl  
+ elastiekend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`elastieken` verbpresp  
+ elastiekende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`elastiekende`elastieken` nounsg  verbpresp  
+ elastiekje ( NOUN NOUN_SINGULAR ) 
+ elastiekjes ( NOUN NOUN_PLURAL ) lemma=`elastiekje` nounpl  
+ elastiekt ( VERB_PRESENT VERB ) lemma=`elastieken` verbpressg  
+ elastiekte ( VERB_PAST VERB ) lemma=`elastieken` verbpastsg  
+ elastiekten ( VERB_PAST VERB ) lemma=`elastieken` verbpastpl  
+ elastisch ( ADJECTIVE ) 
+ elastische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elastisch`elastische` adj  nounsg  
+ elastischer ( ADJECTIVE ) lemma=`elastisch` adj  
+ elastischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elastisch`elastischere` adj  nounsg  
+ elastischt ( ADJECTIVE ) lemma=`elastisch` adj  
+ elastischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elastisch`elastischte` adj  nounsg  
+ elders ( ADVERB ) 
+ eldorado ( NOUN NOUN_SINGULAR ) 
+ eldorado's ( NOUN NOUN_PLURAL ) lemma=`eldorado` nounpl  
+ eldoradootje ( NOUN NOUN_SINGULAR ) lemma=`eldorado` nounsg  
+ eldoradootjes ( NOUN NOUN_PLURAL ) lemma=`eldorado` nounpl  
+ electoraal ( ADJECTIVE ) 
+ electoraat ( NOUN NOUN_SINGULAR ) 
+ electorale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`electoraal`electorale` adj  nounsg  
+ electoraten ( NOUN NOUN_PLURAL ) lemma=`electoraat` nounpl  
+ electra ( NOUN NOUN_SINGULAR ) 
+ electricien ( NOUN NOUN_SINGULAR ) 
+ electrisch ( ADJECTIVE ) 
+ electrode ( NOUN NOUN_SINGULAR ) 
+ electromagnetisch ( ADJECTIVE ) 
+ electron ( NOUN NOUN_SINGULAR ) 
+ electronica ( NOUN NOUN_SINGULAR ) 
+ electronisch ( ADJECTIVE ) 
+ electrotechnisch ( ADJECTIVE ) 
+ elegant ( ADJECTIVE ) 
+ elegante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elegant`elegante` adj  nounsg  
+ eleganter ( ADJECTIVE ) lemma=`elegant` adj  
+ elegantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elegant`elegantere` adj  nounsg  
+ elegantie ( NOUN NOUN_SINGULAR ) 
+ elegantst ( ADJECTIVE ) lemma=`elegant` adj  
+ elegantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elegant`elegantste` adj  nounsg  
+ elegie ( NOUN NOUN_SINGULAR ) 
+ elegieën ( NOUN NOUN_PLURAL ) lemma=`elegie` nounpl  
+ elektoraal ( ADJECTIVE ) 
+ elektra ( NOUN NOUN_SINGULAR ) 
+ elektricien ( NOUN NOUN_SINGULAR ) 
+ elektriciens ( NOUN NOUN_PLURAL ) lemma=`elektricien` nounpl  
+ elektriciteit ( NOUN NOUN_SINGULAR ) 
+ elektriciteiten ( NOUN NOUN_PLURAL ) lemma=`elektriciteit` nounpl  
+ elektriciteitsaanslu ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsaansluiting ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsaansluitingen ( NOUN NOUN_PLURAL ) lemma=`elektriciteitsaansluiting` nounpl  
+ elektriciteitsbedrij ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsbedrijf ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsbedrijven ( NOUN NOUN_PLURAL ) lemma=`elektriciteitsbedrijf` nounpl  
+ elektriciteitscentra ( NOUN NOUN_SINGULAR ) 
+ elektriciteitscentrale ( NOUN NOUN_SINGULAR ) 
+ elektriciteitscentrales ( NOUN NOUN_PLURAL ) lemma=`elektriciteitscentrale` nounpl  
+ elektriciteitskabel ( NOUN NOUN_SINGULAR ) 
+ elektriciteitskabels ( NOUN NOUN_PLURAL ) lemma=`elektriciteitskabel` nounpl  
+ elektriciteitsnet ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsnetten ( NOUN NOUN_PLURAL ) lemma=`elektriciteitsnet` nounpl  
+ elektriciteitsvoorzi ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsvoorziening ( NOUN NOUN_SINGULAR ) 
+ elektriciteitsvoorzieningen ( NOUN NOUN_PLURAL ) lemma=`elektriciteitsvoorziening` nounpl  
+ elektrificeer ( VERB_PRESENT VERB ) lemma=`elektrificeren` verbpressg  
+ elektrificeerde ( VERB_PAST VERB ) lemma=`elektrificeren` verbpastsg  
+ elektrificeerden ( VERB_PAST VERB ) lemma=`elektrificeren` verbpastpl  
+ elektrificeert ( VERB_PRESENT VERB ) lemma=`elektrificeren` verbpressg  
+ elektrificeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`elektrificeren`elektrificeren`elektrificeren` nounsg  verbinf  verbprespl  
+ elektrificerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`elektrificeren` verbpresp  
+ elektrificerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`elektrificerende`elektrificeren` nounsg  verbpresp  
+ elektrisch ( ADJECTIVE ) 
+ elektrische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektrisch`elektrische` adj  nounsg  
+ elektrischer ( ADJECTIVE ) lemma=`elektrisch` adj  
+ elektrischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektrisch`elektrischere` adj  nounsg  
+ elektrischt ( ADJECTIVE ) lemma=`elektrisch` adj  
+ elektrischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektrisch`elektrischte` adj  nounsg  
+ elektro-encefalogram ( NOUN NOUN_SINGULAR ) 
+ elektro-encefalogrammen ( NOUN NOUN_PLURAL ) lemma=`elektro-encefalogram` nounpl  
+ elektrocardiogram ( NOUN NOUN_SINGULAR ) 
+ elektrocardiogrammen ( NOUN NOUN_PLURAL ) lemma=`elektrocardiogram` nounpl  
+ elektrocuteer ( VERB_PRESENT VERB ) lemma=`elektrocuteren` verbpressg  
+ elektrocuteerde ( VERB_PAST VERB ) lemma=`elektrocuteren` verbpastsg  
+ elektrocuteerden ( VERB_PAST VERB ) lemma=`elektrocuteren` verbpastpl  
+ elektrocuteert ( VERB_PRESENT VERB ) lemma=`elektrocuteren` verbpressg  
+ elektrocuteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`elektrocuteren`elektrocuteren`elektrocuteren` nounsg  verbinf  verbprespl  
+ elektrocuterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`elektrocuteren` verbpresp  
+ elektrocuterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`elektrocuterende`elektrocuteren` nounsg  verbpresp  
+ elektrocutie ( NOUN NOUN_SINGULAR ) 
+ elektrocuties ( NOUN NOUN_PLURAL ) lemma=`elektrocutie` nounpl  
+ elektrode ( NOUN NOUN_SINGULAR ) 
+ elektroden ( NOUN NOUN_PLURAL ) lemma=`elektrode` nounpl  
+ elektrodes ( NOUN NOUN_PLURAL ) lemma=`elektrode` nounpl  
+ elektrokuteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`elektrokuteren`elektrokuteren`elektrokuteren` nounsg  verbinf  verbprespl  
+ elektromagneet ( NOUN NOUN_SINGULAR ) 
+ elektromagneetjes ( NOUN NOUN_PLURAL ) lemma=`elektromagneet` nounpl  
+ elektromagneten ( NOUN NOUN_PLURAL ) lemma=`elektromagneet` nounpl  
+ elektromagnetisch ( ADJECTIVE ) 
+ elektromagnetische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektromagnetisch`elektromagnetische` adj  nounsg  
+ elektromonteur ( NOUN NOUN_SINGULAR ) 
+ elektromonteurs ( NOUN NOUN_PLURAL ) lemma=`elektromonteur` nounpl  
+ elektromotor ( NOUN NOUN_SINGULAR ) 
+ elektromotoren ( NOUN NOUN_PLURAL ) lemma=`elektromotor` nounpl  
+ elektromotors ( NOUN NOUN_PLURAL ) lemma=`elektromotor` nounpl  
+ elektron ( NOUN NOUN_SINGULAR ) 
+ elektronen ( NOUN NOUN_PLURAL ) lemma=`elektron` nounpl  
+ elektronenmicroscoop ( NOUN NOUN_SINGULAR ) 
+ elektronenmicroscope ( NOUN NOUN_PLURAL ) lemma=`elektronenmicroscoop` nounpl  
+ elektronenmicroscopen ( NOUN NOUN_PLURAL ) lemma=`elektronenmicroscoop` nounpl  
+ elektronica ( NOUN NOUN_SINGULAR ) 
+ elektronica-industri ( NOUN NOUN_SINGULAR ) 
+ elektronica-industrie ( NOUN NOUN_SINGULAR ) 
+ elektronica-industrieën ( NOUN NOUN_PLURAL ) lemma=`elektronica-industrie` nounpl  
+ elektronicaconcern ( NOUN NOUN_SINGULAR ) 
+ elektronicaconcerns ( NOUN NOUN_PLURAL ) lemma=`elektronicaconcern` nounpl  
+ elektronika ( NOUN NOUN_SINGULAR ) 
+ elektronisch ( ADJECTIVE ) 
+ elektronische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektronisch`elektronische` adj  nounsg  
+ elektronischer ( ADJECTIVE ) lemma=`elektronisch` adj  
+ elektronischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektronisch`elektronischere` adj  nounsg  
+ elektronischt ( ADJECTIVE ) lemma=`elektronisch` adj  
+ elektronischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektronisch`elektronischte` adj  nounsg  
+ elektroshock ( NOUN NOUN_SINGULAR ) 
+ elektroshocks ( NOUN NOUN_PLURAL ) lemma=`elektroshock` nounpl  
+ elektrotechniek ( NOUN NOUN_SINGULAR ) 
+ elektrotechnisch ( ADJECTIVE ) 
+ elektrotechnische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elektrotechnisch`elektrotechnische` adj  nounsg  
+ element ( NOUN NOUN_SINGULAR ) 
+ elementair ( ADJECTIVE ) 
+ elementairder ( ADJECTIVE ) lemma=`elementair` adj  
+ elementairdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elementair`elementairdere` adj  nounsg  
+ elementaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elementair`elementaire` adj  nounsg  
+ elementairst ( ADJECTIVE ) lemma=`elementair` adj  
+ elementairste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elementair`elementairste` adj  nounsg  
+ elementen ( NOUN NOUN_PLURAL ) lemma=`element` nounpl  
+ elementje ( NOUN NOUN_SINGULAR ) lemma=`element` nounsg  
+ elf ( NOUN NOUN_SINGULAR NOUN_NUMBER ) lemma=`elf`elf` nounsg  num__card  
+ elfde ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`elf` num__ord  
+ elfen ( NOUN NOUN_PLURAL ) lemma=`elf` nounpl  
+ elfenbankje ( NOUN NOUN_SINGULAR ) 
+ elfenbankjes ( NOUN NOUN_PLURAL ) lemma=`elfenbankje` nounpl  
+ elfendertigst ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`elfendertig` num__ord  
+ elfstedentochten ( NOUN NOUN_PLURAL ) lemma=`elfstedentocht` nounpl  
+ elftal ( NOUN NOUN_SINGULAR ) 
+ elftallen ( NOUN NOUN_PLURAL ) lemma=`elftal` nounpl  
+ eliminatie ( NOUN NOUN_SINGULAR ) 
+ eliminaties ( NOUN NOUN_PLURAL ) lemma=`eliminatie` nounpl  
+ elimineer ( VERB_PRESENT VERB ) lemma=`elimineren` verbpressg  
+ elimineerde ( VERB_PAST VERB ) lemma=`elimineren` verbpastsg  
+ elimineerden ( VERB_PAST VERB ) lemma=`elimineren` verbpastpl  
+ elimineert ( VERB_PRESENT VERB ) lemma=`elimineren` verbpressg  
+ elimineren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`elimineren`elimineren`elimineren` nounsg  verbinf  verbprespl  
+ eliminerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`elimineren` verbpresp  
+ eliminerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eliminerende`elimineren` nounsg  verbpresp  
+ elitair ( ADJECTIVE ) 
+ elitaire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elitair`elitaire` adj  nounsg  
+ elite ( NOUN NOUN_SINGULAR ) 
+ elites ( NOUN NOUN_PLURAL ) lemma=`elite` nounpl  
+ elitetroep ( NOUN NOUN_SINGULAR ) 
+ elitetroepen ( NOUN NOUN_PLURAL ) lemma=`elitetroep` nounpl  
+ elixer ( NOUN NOUN_SINGULAR ) 
+ elixers ( NOUN NOUN_PLURAL ) lemma=`elixer` nounpl  
+ elixir ( NOUN NOUN_SINGULAR ) 
+ elixirs ( NOUN NOUN_PLURAL ) lemma=`elixir` nounpl  
+ elk ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`elk`elk` det__indef  pronindef  
+ elkaar ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ elkander ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ elke ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`elk`elk` det__indef  pronindef  
+ elkeen ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ ellebogen ( NOUN NOUN_PLURAL ) lemma=`elleboog` nounpl  
+ ellebogenwerk ( NOUN NOUN_SINGULAR ) 
+ elleboog ( NOUN NOUN_SINGULAR ) 
+ ellen ( NOUN NOUN_PLURAL ) lemma=`el` nounpl  
+ ellende ( NOUN NOUN_SINGULAR ) 
+ ellendeling ( NOUN NOUN_SINGULAR ) 
+ ellendelingen ( NOUN NOUN_PLURAL ) lemma=`ellendeling` nounpl  
+ ellenden ( NOUN NOUN_PLURAL ) lemma=`ellende` nounpl  
+ ellendes ( NOUN NOUN_PLURAL ) lemma=`ellende` nounpl  
+ ellendig ( ADJECTIVE ) 
+ ellendige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellendig`ellendige` adj  nounsg  
+ ellendiger ( ADJECTIVE ) lemma=`ellendig` adj  
+ ellendigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellendig`ellendigere` adj  nounsg  
+ ellendigst ( ADJECTIVE ) lemma=`ellendig` adj  
+ ellendigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellendig`ellendigste` adj  nounsg  
+ ellenlang ( ADJECTIVE ) 
+ ellenlange ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellenlang`ellenlange` adj  nounsg  
+ ellepijp ( NOUN NOUN_SINGULAR ) 
+ ellepijpen ( NOUN NOUN_PLURAL ) lemma=`ellepijp` nounpl  
+ elletje ( NOUN NOUN_SINGULAR ) lemma=`el` nounsg  
+ elletjes ( NOUN NOUN_PLURAL ) lemma=`el` nounpl  
+ ellips ( NOUN NOUN_SINGULAR ) 
+ ellipsen ( NOUN NOUN_PLURAL ) lemma=`ellips` nounpl  
+ ellipsvormig ( ADJECTIVE ) 
+ ellipsvormige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellipsvormig`ellipsvormige` adj  nounsg  
+ ellipsvormiger ( ADJECTIVE ) lemma=`ellipsvormig` adj  
+ ellipsvormigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellipsvormig`ellipsvormigere` adj  nounsg  
+ ellipsvormigst ( ADJECTIVE ) lemma=`ellipsvormig` adj  
+ ellipsvormigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ellipsvormig`ellipsvormigste` adj  nounsg  
+ elliptisch ( ADJECTIVE ) 
+ elliptische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`elliptisch`elliptische` adj  nounsg  
+ elpee ( NOUN NOUN_SINGULAR ) 
+ elpees ( NOUN NOUN_PLURAL ) lemma=`elpee` nounpl  
+ elpenbeen ( NOUN NOUN_SINGULAR ) 
+ els ( NOUN NOUN_SINGULAR ) 
+ elve ( NOUN NOUN_SINGULAR ) 
+ elven ( NOUN NOUN_NUMBER ) lemma=`elf` num__card  
+ elzen ( NOUN NOUN_PLURAL ) lemma=`els` nounpl  
+ email ( NOUN NOUN_SINGULAR ) 
+ emaille ( NOUN NOUN_SINGULAR ) 
+ emailleer ( VERB_PRESENT VERB ) lemma=`emailleren` verbpressg  
+ emailleerde ( VERB_PAST VERB ) lemma=`emailleren` verbpastsg  
+ emailleerden ( VERB_PAST VERB ) lemma=`emailleren` verbpastpl  
+ emailleert ( VERB_PRESENT VERB ) lemma=`emailleren` verbpressg  
+ emaillen ( ADJECTIVE ) 
+ emailleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`emailleren`emailleren`emailleren` nounsg  verbinf  verbprespl  
+ emaillerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`emailleren` verbpresp  
+ emaillerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`emaillerende`emailleren` nounsg  verbpresp  
+ emancipatie ( NOUN NOUN_SINGULAR ) 
+ emancipatieactivitei ( NOUN NOUN_SINGULAR ) 
+ emancipatieactiviteit ( NOUN NOUN_SINGULAR ) 
+ emancipatieactiviteiten ( NOUN NOUN_PLURAL ) lemma=`emancipatieactiviteit` nounpl  
+ emancipatiebeleid ( NOUN NOUN_SINGULAR ) 
+ emancipatiebeweging ( NOUN NOUN_SINGULAR ) 
+ emancipatiebeweginge ( NOUN NOUN_PLURAL ) lemma=`emancipatiebeweging` nounpl  
+ emancipatiebewegingen ( NOUN NOUN_PLURAL ) lemma=`emancipatiebeweging` nounpl  
+ emancipatiedoelstell ( NOUN NOUN_SINGULAR ) 
+ emancipatiedoelstelling ( NOUN NOUN_SINGULAR ) 
+ emancipatiedoelstellingen ( NOUN NOUN_PLURAL ) lemma=`emancipatiedoelstelling` nounpl  
+ emancipatiegroeperin ( NOUN NOUN_SINGULAR ) 
+ emancipatiegroepering ( NOUN NOUN_SINGULAR ) 
+ emancipatiegroeperingen ( NOUN NOUN_PLURAL ) lemma=`emancipatiegroepering` nounpl  
+ emancipatieraad ( NOUN NOUN_SINGULAR ) 
+ emancipatieraden ( NOUN NOUN_PLURAL ) lemma=`emancipatieraad` nounpl  
+ emancipaties ( NOUN NOUN_PLURAL ) lemma=`emancipatie` nounpl  
+ emancipatiestreven ( NOUN NOUN_SINGULAR ) 
+ emancipatiewerk ( NOUN NOUN_SINGULAR ) 
+ emancipatoir ( ADJECTIVE ) 
+ emancipatoire ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emancipatoir`emancipatoire` adj  nounsg  
+ emancipatoor ( ADJECTIVE ) 
+ emancipatorisch ( ADJECTIVE ) 
+ emancipatorische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emancipatorisch`emancipatorische` adj  nounsg  
+ emancipeer ( VERB_PRESENT VERB ) lemma=`emanciperen` verbpressg  
+ emancipeerde ( VERB_PAST VERB ) lemma=`emanciperen` verbpastsg  
+ emancipeerden ( VERB_PAST VERB ) lemma=`emanciperen` verbpastpl  
+ emancipeert ( VERB_PRESENT VERB ) lemma=`emanciperen` verbpressg  
+ emanciperen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`emanciperen`emanciperen`emanciperen` nounsg  verbinf  verbprespl  
+ emanciperend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`emanciperen` verbpresp  
+ emanciperende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`emanciperende`emanciperen` nounsg  verbpresp  
+ emballage ( NOUN NOUN_SINGULAR ) 
+ embargo ( NOUN NOUN_SINGULAR ) 
+ embargo's ( NOUN NOUN_PLURAL ) lemma=`embargo` nounpl  
+ embleem ( NOUN NOUN_SINGULAR ) 
+ embleempje ( NOUN NOUN_SINGULAR ) lemma=`embleem` nounsg  
+ embleempjes ( NOUN NOUN_PLURAL ) lemma=`embleem` nounpl  
+ emblemen ( NOUN NOUN_PLURAL ) lemma=`embleem` nounpl  
+ embolie ( NOUN NOUN_SINGULAR ) 
+ embryo ( NOUN NOUN_SINGULAR ) 
+ embryo's ( NOUN NOUN_PLURAL ) lemma=`embryo` nounpl  
+ embryologen ( NOUN NOUN_PLURAL ) lemma=`embryoloog` nounpl  
+ embryologie ( NOUN NOUN_SINGULAR ) 
+ embryoloog ( NOUN NOUN_SINGULAR ) 
+ embryonaal ( ADJECTIVE ) 
+ embryonale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`embryonaal`embryonale` adj  nounsg  
+ emeritaat ( NOUN NOUN_SINGULAR ) 
+ emeritus-hoogleraar ( NOUN NOUN_SINGULAR ) 
+ emeritus-hoogleraren ( NOUN NOUN_PLURAL ) lemma=`emeritus-hoogleraar` nounpl  
+ emier ( NOUN NOUN_SINGULAR ) 
+ emigrant ( NOUN NOUN_SINGULAR ) 
+ emigranten ( NOUN NOUN_PLURAL ) lemma=`emigrant` nounpl  
+ emigratie ( NOUN NOUN_SINGULAR ) 
+ emigraties ( NOUN NOUN_PLURAL ) lemma=`emigratie` nounpl  
+ emigreer ( VERB_PRESENT VERB ) lemma=`emigreren` verbpressg  
+ emigreerde ( VERB_PAST VERB ) lemma=`emigreren` verbpastsg  
+ emigreerden ( VERB_PAST VERB ) lemma=`emigreren` verbpastpl  
+ emigreert ( VERB_PRESENT VERB ) lemma=`emigreren` verbpressg  
+ emigreren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`emigreren`emigreren`emigreren` nounsg  verbinf  verbprespl  
+ emigrerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`emigreren` verbpresp  
+ emigrerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`emigrerende`emigreren` nounsg  verbpresp  
+ eminent ( ADJECTIVE ) 
+ eminente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eminent`eminente` adj  nounsg  
+ eminenter ( ADJECTIVE ) lemma=`eminent` adj  
+ eminentere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eminent`eminentere` adj  nounsg  
+ eminentst ( ADJECTIVE ) lemma=`eminent` adj  
+ eminentste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eminent`eminentste` adj  nounsg  
+ emir ( NOUN NOUN_SINGULAR ) 
+ emiraat ( NOUN NOUN_SINGULAR ) 
+ emiraten ( NOUN NOUN_PLURAL ) lemma=`emiraat` nounpl  
+ emirs ( NOUN NOUN_PLURAL ) lemma=`emir` nounpl  
+ emissie ( NOUN NOUN_SINGULAR ) 
+ emissies ( NOUN NOUN_PLURAL ) lemma=`emissie` nounpl  
+ emmer ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`emmer`emmeren` nounsg  verbpressg  
+ emmerde ( VERB_PAST VERB ) lemma=`emmeren` verbpastsg  
+ emmerden ( VERB_PAST VERB ) lemma=`emmeren` verbpastpl  
+ emmeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`emmeren`emmeren`emmeren` nounsg  verbinf  verbprespl  
+ emmerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`emmeren` verbpresp  
+ emmerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`emmerende`emmeren` nounsg  verbpresp  
+ emmers ( NOUN NOUN_PLURAL ) lemma=`emmer` nounpl  
+ emmert ( VERB_PRESENT VERB ) lemma=`emmeren` verbpressg  
+ emmertje ( NOUN NOUN_SINGULAR ) lemma=`emmer` nounsg  
+ emmertjes ( NOUN NOUN_PLURAL ) lemma=`emmer` nounpl  
+ emoe ( NOUN NOUN_SINGULAR ) 
+ emoes ( NOUN NOUN_PLURAL ) lemma=`emoe` nounpl  
+ emolumenten ( NOUN NOUN_PLURAL ) 
+ emotie ( NOUN NOUN_SINGULAR ) 
+ emotieloos ( ADJECTIVE ) 
+ emotieloost ( ADJECTIVE ) lemma=`emotieloos` adj  
+ emotielooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emotieloos`emotielooste` adj  nounsg  
+ emotieloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emotieloos`emotieloze` adj  nounsg  
+ emotielozer ( ADJECTIVE ) lemma=`emotieloos` adj  
+ emotielozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emotieloos`emotielozere` adj  nounsg  
+ emoties ( NOUN NOUN_PLURAL ) lemma=`emotie` nounpl  
+ emotionaliteit ( NOUN NOUN_SINGULAR ) 
+ emotionaliteiten ( NOUN NOUN_PLURAL ) lemma=`emotionaliteit` nounpl  
+ emotioneel ( ADJECTIVE ) 
+ emotioneelst ( ADJECTIVE ) lemma=`emotioneel` adj  
+ emotioneelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emotioneel`emotioneelste` adj  nounsg  
+ emotionele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emotioneel`emotionele` adj  nounsg  
+ emotionelen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`emotioneel`emotionele` adj  nounpl  
+ emotioneler ( ADJECTIVE ) lemma=`emotioneel` adj  
+ emotionelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`emotioneel`emotionelere` adj  nounsg  
+ empire ( NOUN NOUN_SINGULAR ) 
+ empirie ( NOUN NOUN_SINGULAR ) 
+ empirisch ( ADJECTIVE ) 
+ empirische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`empirisch`empirische` adj  nounsg  
+ empirischer ( ADJECTIVE ) lemma=`empirisch` adj  
+ empirischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`empirisch`empirischere` adj  nounsg  
+ empirischt ( ADJECTIVE ) lemma=`empirisch` adj  
+ empirischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`empirisch`empirischte` adj  nounsg  
+ emplacement ( NOUN NOUN_SINGULAR ) 
+ emplacementen ( NOUN NOUN_PLURAL ) lemma=`emplacement` nounpl  
+ emplooi ( NOUN NOUN_SINGULAR ) 
+ emplooien ( NOUN NOUN_PLURAL ) lemma=`emplooi` nounpl  
+ emplooitje ( NOUN NOUN_SINGULAR ) lemma=`emplooi` nounsg  
+ emplooitjes ( NOUN NOUN_PLURAL ) lemma=`emplooi` nounpl  
+ employee ( NOUN NOUN_SINGULAR ) 
+ employees ( NOUN NOUN_PLURAL ) lemma=`employee` nounpl  
+ employeetje ( NOUN NOUN_SINGULAR ) lemma=`employee|employé` nounsg  
+ employeetjes ( NOUN NOUN_PLURAL ) lemma=`employee|employé` nounpl  
+ employé ( NOUN NOUN_SINGULAR ) 
+ employés ( NOUN NOUN_PLURAL ) lemma=`employé` nounpl  
+ emulgator ( NOUN NOUN_SINGULAR ) 
+ emulgatoren ( NOUN NOUN_PLURAL ) lemma=`emulgator` nounpl  
+ emulgators ( NOUN NOUN_PLURAL ) lemma=`emulgator` nounpl  
+ emulsie ( NOUN NOUN_SINGULAR ) 
+ emulsies ( NOUN NOUN_PLURAL ) lemma=`emulsie` nounpl  
+ en ( CONJUNCTION_COORDINATE ) 
+ en/of ( CONJUNCTION_COORDINATE ) 
+ enclave ( NOUN NOUN_SINGULAR ) 
+ enclaves ( NOUN NOUN_PLURAL ) lemma=`enclave` nounpl  
+ encycliek ( NOUN NOUN_SINGULAR ) 
+ encyclieken ( NOUN NOUN_PLURAL ) lemma=`encycliek` nounpl  
+ encyclopedie ( NOUN NOUN_SINGULAR ) 
+ encyclopedieën ( NOUN NOUN_PLURAL ) lemma=`encyclopedie` nounpl  
+ encyclopedisch ( ADJECTIVE ) 
+ encyclopedische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`encyclopedisch`encyclopedische` adj  nounsg  
+ end ( NOUN NOUN_SINGULAR ) 
+ endeldarm ( NOUN NOUN_SINGULAR ) 
+ endeldarmen ( NOUN NOUN_PLURAL ) lemma=`endeldarm` nounpl  
+ enden ( NOUN NOUN_PLURAL ) lemma=`end` nounpl  
+ ene ( NOUN DETERMINER NOUN_NUMBER ) lemma=`ene`een` det__art  num__card  
+ enenmale ( ADVERB ) 
+ energetisch ( ADJECTIVE ) 
+ energetische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energetisch`energetische` adj  nounsg  
+ energie ( NOUN NOUN_SINGULAR ) 
+ energiebedrijf ( NOUN NOUN_SINGULAR ) 
+ energiebedrijven ( NOUN NOUN_PLURAL ) lemma=`energiebedrijf` nounpl  
+ energiebehoefte ( NOUN NOUN_SINGULAR ) 
+ energiebehoeften ( NOUN NOUN_PLURAL ) lemma=`energiebehoefte` nounpl  
+ energiebeleid ( NOUN NOUN_SINGULAR ) 
+ energiebesparend ( ADJECTIVE ) 
+ energiebesparende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energiebesparend`energiebesparende` adj  nounsg  
+ energiebesparender ( ADJECTIVE ) lemma=`energiebesparend` adj  
+ energiebesparendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energiebesparend`energiebesparendere` adj  nounsg  
+ energiebesparendst ( ADJECTIVE ) lemma=`energiebesparend` adj  
+ energiebesparendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energiebesparend`energiebesparendste` adj  nounsg  
+ energiebesparing ( NOUN NOUN_SINGULAR ) 
+ energiebron ( NOUN NOUN_SINGULAR ) 
+ energiebronnen ( NOUN NOUN_PLURAL ) lemma=`energiebron` nounpl  
+ energiecampagne ( NOUN NOUN_SINGULAR ) 
+ energiecampagnes ( NOUN NOUN_PLURAL ) lemma=`energiecampagne` nounpl  
+ energiecentrale ( NOUN NOUN_SINGULAR ) 
+ energiecentrales ( NOUN NOUN_PLURAL ) lemma=`energiecentrale` nounpl  
+ energiecrises ( NOUN NOUN_PLURAL ) lemma=`energiecrisis` nounpl  
+ energiecrisis ( NOUN NOUN_SINGULAR ) 
+ energiecrisissen ( NOUN NOUN_PLURAL ) lemma=`energiecrisis` nounpl  
+ energiegebruik ( NOUN NOUN_SINGULAR ) 
+ energiehandvest ( NOUN NOUN_SINGULAR ) 
+ energiehandvesten ( NOUN NOUN_PLURAL ) lemma=`energiehandvest` nounpl  
+ energieheffing ( NOUN NOUN_SINGULAR ) 
+ energieheffingen ( NOUN NOUN_PLURAL ) lemma=`energieheffing` nounpl  
+ energiek ( ADJECTIVE ) 
+ energieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energiek`energieke` adj  nounsg  
+ energieker ( ADJECTIVE ) lemma=`energiek` adj  
+ energiekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energiek`energiekere` adj  nounsg  
+ energiekst ( ADJECTIVE ) lemma=`energiek` adj  
+ energiekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energiek`energiekste` adj  nounsg  
+ energieleverancier ( NOUN NOUN_SINGULAR ) 
+ energieleveranciers ( NOUN NOUN_PLURAL ) lemma=`energieleverancier` nounpl  
+ energieonderzoek ( NOUN NOUN_SINGULAR ) 
+ energieopwekking ( NOUN NOUN_SINGULAR ) 
+ energieplan ( NOUN NOUN_SINGULAR ) 
+ energieplannen ( NOUN NOUN_PLURAL ) lemma=`energieplan` nounpl  
+ energieprijs ( NOUN NOUN_SINGULAR ) 
+ energieprijzen ( NOUN NOUN_PLURAL ) lemma=`energieprijs` nounpl  
+ energieprobleem ( NOUN NOUN_SINGULAR ) 
+ energieproblemen ( NOUN NOUN_PLURAL ) lemma=`energieprobleem` nounpl  
+ energietekort ( NOUN NOUN_SINGULAR ) 
+ energietekorten ( NOUN NOUN_PLURAL ) lemma=`energietekort` nounpl  
+ energieverbruik ( NOUN NOUN_SINGULAR ) 
+ energieverlies ( NOUN NOUN_SINGULAR ) 
+ energieverliezen ( NOUN NOUN_PLURAL ) lemma=`energieverlies` nounpl  
+ energieverslindend ( ADJECTIVE ) 
+ energieverslindende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energieverslindend`energieverslindende` adj  nounsg  
+ energieverslindender ( ADJECTIVE ) lemma=`energieverslindend` adj  
+ energieverslindendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energieverslindend`energieverslindendere` adj  nounsg  
+ energieverslindendst ( ADJECTIVE ) lemma=`energieverslindend` adj  
+ energieverslindendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`energieverslindend`energieverslindendste` adj  nounsg  
+ energieverspilling ( NOUN NOUN_SINGULAR ) 
+ energievoorziening ( NOUN NOUN_SINGULAR ) 
+ energiewinning ( NOUN NOUN_SINGULAR ) 
+ energiezuinig ( ADJECTIVE ) 
+ energieën ( NOUN NOUN_PLURAL ) lemma=`energie` nounpl  
+ enerverend ( ADJECTIVE ) 
+ enerzijds ( ADVERB ) 
+ enfin ( ADVERB INTERJECTION ) lemma=`enfin`enfin` adv  int  
+ eng ( ADJECTIVE ) 
+ engageer ( VERB_PRESENT VERB ) lemma=`engageren` verbpressg  
+ engageerde ( VERB_PAST VERB ) lemma=`engageren` verbpastsg  
+ engageerden ( VERB_PAST VERB ) lemma=`engageren` verbpastpl  
+ engageert ( VERB_PRESENT VERB ) lemma=`engageren` verbpressg  
+ engagement ( NOUN NOUN_SINGULAR ) 
+ engagementen ( NOUN NOUN_PLURAL ) lemma=`engagement` nounpl  
+ engageren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`engageren`engageren`engageren` nounsg  verbinf  verbprespl  
+ engagerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`engageren` verbpresp  
+ engagerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`engagerende`engageren` nounsg  verbpresp  
+ enge ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eng`enge` adj  nounsg  
+ engel ( NOUN NOUN_SINGULAR ) 
+ engelachtig ( ADJECTIVE ) 
+ engelachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`engelachtig`engelachtige` adj  nounsg  
+ engelachtiger ( ADJECTIVE ) lemma=`engelachtig` adj  
+ engelachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`engelachtig`engelachtigere` adj  nounsg  
+ engelachtigst ( ADJECTIVE ) lemma=`engelachtig` adj  
+ engelachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`engelachtig`engelachtigste` adj  nounsg  
+ engelbewaarder ( NOUN NOUN_SINGULAR ) 
+ engelbewaarders ( NOUN NOUN_PLURAL ) lemma=`engelbewaarder` nounpl  
+ engelen ( NOUN NOUN_PLURAL ) lemma=`engel` nounpl  
+ engelengeduld ( NOUN NOUN_SINGULAR ) 
+ engelenhaar ( NOUN NOUN_SINGULAR ) 
+ engeltje ( NOUN NOUN_SINGULAR ) lemma=`engel` nounsg  
+ engeltjes ( NOUN NOUN_PLURAL ) lemma=`engel` nounpl  
+ enger ( ADJECTIVE ) lemma=`eng` adj  
+ engerd ( NOUN NOUN_SINGULAR ) 
+ engerds ( NOUN NOUN_PLURAL ) lemma=`engerd` nounpl  
+ engere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eng`engere` adj  nounsg  
+ enggeestig ( ADJECTIVE ) 
+ enggeestige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enggeestig`enggeestige` adj  nounsg  
+ enggeestiger ( ADJECTIVE ) lemma=`enggeestig` adj  
+ enggeestigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enggeestig`enggeestigere` adj  nounsg  
+ enggeestigst ( ADJECTIVE ) lemma=`enggeestig` adj  
+ enggeestigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enggeestig`enggeestigste` adj  nounsg  
+ engst ( ADJECTIVE ) lemma=`eng` adj  
+ engste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eng`engste` adj  nounsg  
+ engte ( NOUN NOUN_SINGULAR ) 
+ engten ( NOUN NOUN_PLURAL ) lemma=`engte` nounpl  
+ engtes ( NOUN NOUN_PLURAL ) lemma=`engte` nounpl  
+ enig ( PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ) lemma=`enig`enig`enig` adj  det__indef  pronindef  
+ enige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enig`enig`enige` adj  det__indef  nounsg  
+ enigen ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`enig` pronindef  
+ enigerlei ( ADJECTIVE ) 
+ enigermate ( ADVERB ) 
+ eniggeboren ( ADJECTIVE ) 
+ enigma ( NOUN NOUN_SINGULAR ) 
+ enigma's ( NOUN NOUN_PLURAL ) lemma=`enigma` nounpl  
+ enigmata ( NOUN NOUN_PLURAL ) lemma=`enigma` nounpl  
+ enigst ( ADJECTIVE ) lemma=`enig|enigst` adj  
+ enigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enigst`enigste` adj  nounsg  
+ enigszins ( ADVERB ) 
+ enjambement ( NOUN NOUN_SINGULAR ) 
+ enjambementen ( NOUN NOUN_PLURAL ) lemma=`enjambement` nounpl  
+ enkel ( PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE ADVERB NOUN_SINGULAR ) lemma=`enkel`enkel`enkel`enkel`enkel` adj  adv  det__indef  nounsg  pronindef  
+ enkelband ( NOUN NOUN_SINGULAR ) 
+ enkelbanden ( NOUN NOUN_PLURAL ) lemma=`enkelband` nounpl  
+ enkele ( ) lemma=`enkel` det__indef  
+ enkelen ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`enkel` pronindef  
+ enkeling ( NOUN NOUN_SINGULAR ) 
+ enkelingen ( NOUN NOUN_PLURAL ) lemma=`enkeling` nounpl  
+ enkels ( NOUN NOUN_PLURAL ) lemma=`enkel` nounpl  
+ enkelspel ( NOUN NOUN_SINGULAR ) 
+ enkelspelen ( NOUN NOUN_PLURAL ) lemma=`enkelspel` nounpl  
+ enkelspellen ( NOUN NOUN_PLURAL ) lemma=`enkelspel` nounpl  
+ enkelsporig ( ADJECTIVE ) 
+ enkelsporige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enkelsporig`enkelsporige` adj  nounsg  
+ enkeltje ( NOUN NOUN_SINGULAR ) lemma=`enkel` nounsg  
+ enkeltjes ( NOUN NOUN_PLURAL ) lemma=`enkel` nounpl  
+ enkelvoud ( NOUN NOUN_SINGULAR ) 
+ enkelvouden ( NOUN NOUN_PLURAL ) lemma=`enkelvoud` nounpl  
+ enkelvoudig ( ADJECTIVE ) 
+ enkelvoudige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enkelvoudig`enkelvoudige` adj  nounsg  
+ enkelvoudiger ( ADJECTIVE ) lemma=`enkelvoudig` adj  
+ enkelvoudigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enkelvoudig`enkelvoudigere` adj  nounsg  
+ enkelvoudigst ( ADJECTIVE ) lemma=`enkelvoudig` adj  
+ enkelvoudigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enkelvoudig`enkelvoudigste` adj  nounsg  
+ enkelvoudsvorm ( NOUN NOUN_SINGULAR ) 
+ enkelvoudsvormen ( NOUN NOUN_PLURAL ) lemma=`enkelvoudsvorm` nounpl  
+ enkelzijdig ( ADJECTIVE ) 
+ enkelzijdige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enkelzijdig`enkelzijdige` adj  nounsg  
+ enorm ( ADJECTIVE ) 
+ enorme ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enorm`enorme` adj  nounsg  
+ enormer ( ADJECTIVE ) lemma=`enorm` adj  
+ enormere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enorm`enormere` adj  nounsg  
+ enormiteit ( NOUN NOUN_SINGULAR ) 
+ enormiteiten ( NOUN NOUN_PLURAL ) lemma=`enormiteit` nounpl  
+ enormst ( ADJECTIVE ) lemma=`enorm` adj  
+ enormste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enorm`enormste` adj  nounsg  
+ enquête ( NOUN NOUN_SINGULAR ) 
+ enquêtecommissie ( NOUN NOUN_SINGULAR ) 
+ enquêtecommissies ( NOUN NOUN_PLURAL ) lemma=`enquêtecommissie` nounpl  
+ enquêteer ( VERB_PRESENT VERB ) lemma=`enquêteren` verbpressg  
+ enquêteerde ( VERB_PAST VERB ) lemma=`enquêteren` verbpastsg  
+ enquêteerden ( VERB_PAST VERB ) lemma=`enquêteren` verbpastpl  
+ enquêteert ( VERB_PRESENT VERB ) lemma=`enquêteren` verbpressg  
+ enquêteformulier ( NOUN NOUN_SINGULAR ) 
+ enquêteformulieren ( NOUN NOUN_PLURAL ) lemma=`enquêteformulier` nounpl  
+ enquêteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`enquêteren`enquêteren`enquêteren` nounsg  verbinf  verbprespl  
+ enquêterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`enquêteren` verbpresp  
+ enquêterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`enquêterende`enquêteren` nounsg  verbpresp  
+ enquêteresultaat ( NOUN NOUN_SINGULAR ) 
+ enquêteresultaten ( NOUN NOUN_PLURAL ) lemma=`enquêteresultaat` nounpl  
+ enquêtes ( NOUN NOUN_PLURAL ) lemma=`enquête` nounpl  
+ enquêteur ( NOUN NOUN_SINGULAR ) 
+ enquêteurs ( NOUN NOUN_PLURAL ) lemma=`enquêteur` nounpl  
+ enquêtevraag ( NOUN NOUN_SINGULAR ) 
+ enquêtevragen ( NOUN NOUN_PLURAL ) lemma=`enquêtevraag` nounpl  
+ enquêtrice ( NOUN NOUN_SINGULAR ) 
+ enquêtrices ( NOUN NOUN_PLURAL ) lemma=`enquêtrice` nounpl  
+ ensceneer ( VERB_PRESENT VERB ) lemma=`ensceneren` verbpressg  
+ ensceneerde ( VERB_PAST VERB ) lemma=`ensceneren` verbpastsg  
+ ensceneerden ( VERB_PAST VERB ) lemma=`ensceneren` verbpastpl  
+ ensceneert ( VERB_PRESENT VERB ) lemma=`ensceneren` verbpressg  
+ ensceneren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`ensceneren`ensceneren`ensceneren` nounsg  verbinf  verbprespl  
+ enscenerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`ensceneren` verbpresp  
+ enscenerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`enscenerende`ensceneren` nounsg  verbpresp  
+ enscenering ( NOUN NOUN_SINGULAR ) 
+ ensceneringen ( NOUN NOUN_PLURAL ) lemma=`enscenering` nounpl  
+ ensemble ( NOUN NOUN_SINGULAR ) 
+ ensembles ( NOUN NOUN_PLURAL ) lemma=`ensemble` nounpl  
+ ent ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`ent`enten` nounsg  verbpressg  
+ entameer ( VERB_PRESENT VERB ) lemma=`entameren` verbpressg  
+ entameerde ( VERB_PAST VERB ) lemma=`entameren` verbpastsg  
+ entameerden ( VERB_PAST VERB ) lemma=`entameren` verbpastpl  
+ entameert ( VERB_PRESENT VERB ) lemma=`entameren` verbpressg  
+ entameren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`entameren`entameren`entameren` nounsg  verbinf  verbprespl  
+ entamerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`entameren` verbpresp  
+ entamerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`entamerende`entameren` nounsg  verbpresp  
+ enten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ent`enten`enten`enten` nounpl  nounsg  verbinf  verbprespl  
+ entend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`enten` verbpresp  
+ entende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`entende`enten` nounsg  verbpresp  
+ enter ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`enter`enteren` nounsg  verbpressg  
+ enterde ( VERB_PAST VERB ) lemma=`enteren` verbpastsg  
+ enterden ( VERB_PAST VERB ) lemma=`enteren` verbpastpl  
+ enteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`enteren`enteren`enteren` nounsg  verbinf  verbprespl  
+ enterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`enteren` verbpresp  
+ enterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`enterende`enteren` nounsg  verbpresp  
+ enters ( NOUN NOUN_PLURAL ) lemma=`enter` nounpl  
+ entert ( VERB_PRESENT VERB ) lemma=`enteren` verbpressg  
+ entertainer ( NOUN NOUN_SINGULAR ) 
+ entertainers ( NOUN NOUN_PLURAL ) lemma=`entertainer` nounpl  
+ entertainment ( NOUN NOUN_SINGULAR ) 
+ entertainments ( NOUN NOUN_PLURAL ) lemma=`entertainment` nounpl  
+ entertje ( NOUN NOUN_SINGULAR ) lemma=`enter` nounsg  
+ entertjes ( NOUN NOUN_PLURAL ) lemma=`enter` nounpl  
+ enthoesiast ( ADJECTIVE ) 
+ enthousiasme ( NOUN NOUN_SINGULAR ) 
+ enthousiasmeer ( VERB_PRESENT VERB ) lemma=`enthousiasmeren` verbpressg  
+ enthousiasmeerde ( VERB_PAST VERB ) lemma=`enthousiasmeren` verbpastsg  
+ enthousiasmeerden ( VERB_PAST VERB ) lemma=`enthousiasmeren` verbpastpl  
+ enthousiasmeert ( VERB_PRESENT VERB ) lemma=`enthousiasmeren` verbpressg  
+ enthousiasmeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`enthousiasmeren`enthousiasmeren`enthousiasmeren` nounsg  verbinf  verbprespl  
+ enthousiasmerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`enthousiasmeren` verbpresp  
+ enthousiasmerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`enthousiasmerende`enthousiasmeren` nounsg  verbpresp  
+ enthousiast ( ADJECTIVE ) 
+ enthousiaste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enthousiast`enthousiaste` adj  nounsg  
+ enthousiaster ( ADJECTIVE ) lemma=`enthousiast` adj  
+ enthousiastere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`enthousiast`enthousiastere` adj  nounsg  
+ entiteit ( NOUN NOUN_SINGULAR ) 
+ entiteiten ( NOUN NOUN_PLURAL ) lemma=`entiteit` nounpl  
+ entoesiasme ( NOUN NOUN_SINGULAR ) 
+ entoesiast ( ADJECTIVE ) 
+ entourage ( NOUN NOUN_SINGULAR ) 
+ entourages ( NOUN NOUN_PLURAL ) lemma=`entourage` nounpl  
+ entousiast ( ADJECTIVE ) 
+ entrecote ( NOUN NOUN_SINGULAR ) 
+ entrecotes ( NOUN NOUN_PLURAL ) lemma=`entrecote` nounpl  
+ entrecôte ( NOUN NOUN_SINGULAR ) 
+ entrecôtes ( NOUN NOUN_PLURAL ) lemma=`entrecôte` nounpl  
+ entree ( NOUN NOUN_SINGULAR ) 
+ entreebewijs ( NOUN NOUN_SINGULAR ) 
+ entreebewijzen ( NOUN NOUN_PLURAL ) lemma=`entreebewijs` nounpl  
+ entreebiljet ( NOUN NOUN_SINGULAR ) 
+ entreebiljetten ( NOUN NOUN_PLURAL ) lemma=`entreebiljet` nounpl  
+ entreegeld ( NOUN NOUN_SINGULAR ) 
+ entreegelden ( NOUN NOUN_PLURAL ) lemma=`entreegeld` nounpl  
+ entreehal ( NOUN NOUN_SINGULAR ) 
+ entreehallen ( NOUN NOUN_PLURAL ) lemma=`entreehal` nounpl  
+ entreekaart ( NOUN NOUN_SINGULAR ) 
+ entreekaarten ( NOUN NOUN_PLURAL ) lemma=`entreekaart` nounpl  
+ entreeprijs ( NOUN NOUN_SINGULAR ) 
+ entreeprijzen ( NOUN NOUN_PLURAL ) lemma=`entreeprijs` nounpl  
+ entrees ( NOUN NOUN_PLURAL ) lemma=`entree` nounpl  
+ entreetje ( NOUN NOUN_SINGULAR ) lemma=`entree` nounsg  
+ entreetjes ( NOUN NOUN_PLURAL ) lemma=`entree` nounpl  
+ entrepot ( NOUN NOUN_SINGULAR ) 
+ entrepots ( NOUN NOUN_PLURAL ) lemma=`entrepot` nounpl  
+ entte ( VERB_PAST VERB ) lemma=`enten` verbpastsg  
+ entten ( VERB_PAST VERB ) lemma=`enten` verbpastpl  
+ envelop ( NOUN NOUN_SINGULAR ) 
+ envelopje ( NOUN NOUN_SINGULAR ) lemma=`envelop` nounsg  
+ envelopjes ( NOUN NOUN_PLURAL ) lemma=`envelop` nounpl  
+ enveloppe ( NOUN NOUN_SINGULAR ) 
+ enveloppen ( NOUN NOUN_PLURAL ) lemma=`envelop|enveloppe` nounpl  
+ enveloppes ( NOUN NOUN_PLURAL ) lemma=`enveloppe` nounpl  
+ enz ( ADVERB ) 
+ enz. ( ADVERB ) 
+ enzovoort ( ADVERB ) 
+ enzym ( NOUN NOUN_SINGULAR ) 
+ enzymen ( NOUN NOUN_PLURAL ) lemma=`enzym` nounpl  
+ eoe-indices ( NOUN NOUN_PLURAL ) lemma=`EOE-index` nounpl  
+ epateer ( VERB_PRESENT VERB ) lemma=`epateren` verbpressg  
+ epateerde ( VERB_PAST VERB ) lemma=`epateren` verbpastsg  
+ epateerden ( VERB_PAST VERB ) lemma=`epateren` verbpastpl  
+ epateert ( VERB_PRESENT VERB ) lemma=`epateren` verbpressg  
+ epateren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`epateren`epateren`epateren` nounsg  verbinf  verbprespl  
+ epaterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`epateren` verbpresp  
+ epaterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`epaterende`epateren` nounsg  verbpresp  
+ epaulet ( NOUN NOUN_SINGULAR ) 
+ epauletten ( NOUN NOUN_PLURAL ) lemma=`epaulet` nounpl  
+ epen ( NOUN NOUN_PLURAL ) lemma=`epos` nounpl  
+ epicentra ( NOUN NOUN_PLURAL ) lemma=`epicentrum` nounpl  
+ epicentrum ( NOUN NOUN_SINGULAR ) 
+ epicentrums ( NOUN NOUN_PLURAL ) lemma=`epicentrum` nounpl  
+ epidemie ( NOUN NOUN_SINGULAR ) 
+ epidemieën ( NOUN NOUN_PLURAL ) lemma=`epidemie` nounpl  
+ epidemisch ( ADJECTIVE ) 
+ epidemische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`epidemisch`epidemische` adj  nounsg  
+ epiek ( NOUN NOUN_SINGULAR ) 
+ epigonen ( NOUN NOUN_PLURAL ) lemma=`epigoon` nounpl  
+ epigoon ( NOUN NOUN_SINGULAR ) 
+ epigram ( NOUN NOUN_SINGULAR ) 
+ epigrammen ( NOUN NOUN_PLURAL ) lemma=`epigram` nounpl  
+ epigrammetje ( NOUN NOUN_SINGULAR ) lemma=`epigram` nounsg  
+ epigrammetjes ( NOUN NOUN_PLURAL ) lemma=`epigram` nounpl  
+ epileer ( VERB_PRESENT VERB ) lemma=`epileren` verbpressg  
+ epileerde ( VERB_PAST VERB ) lemma=`epileren` verbpastsg  
+ epileerden ( VERB_PAST VERB ) lemma=`epileren` verbpastpl  
+ epileert ( VERB_PRESENT VERB ) lemma=`epileren` verbpressg  
+ epilepsie ( NOUN NOUN_SINGULAR ) 
+ epileptica ( NOUN NOUN_SINGULAR ) 
+ epileptica's ( NOUN NOUN_PLURAL ) lemma=`epileptica` nounpl  
+ epilepticae ( NOUN NOUN_PLURAL ) lemma=`epileptica` nounpl  
+ epileptici ( NOUN NOUN_PLURAL ) lemma=`epilepticus` nounpl  
+ epilepticus ( NOUN NOUN_SINGULAR ) 
+ epileptisch ( ADJECTIVE ) 
+ epileptische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`epileptisch`epileptische` adj  nounsg  
+ epileren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`epileren`epileren`epileren` nounsg  verbinf  verbprespl  
+ epilerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`epileren` verbpresp  
+ epilerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`epilerende`epileren` nounsg  verbpresp  
+ epilogen ( NOUN NOUN_PLURAL ) lemma=`epiloog` nounpl  
+ epiloog ( NOUN NOUN_SINGULAR ) 
+ episch ( ADJECTIVE ) 
+ epische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`episch`epische` adj  nounsg  
+ episcopaat ( NOUN NOUN_SINGULAR ) 
+ episcopaten ( NOUN NOUN_PLURAL ) lemma=`episcopaat` nounpl  
+ episkopaat ( NOUN NOUN_SINGULAR ) 
+ episode ( NOUN NOUN_SINGULAR ) 
+ episoden ( NOUN NOUN_PLURAL ) lemma=`episode` nounpl  
+ episodes ( NOUN NOUN_PLURAL ) lemma=`episode` nounpl  
+ epistel ( NOUN NOUN_SINGULAR ) 
+ epistels ( NOUN NOUN_PLURAL ) lemma=`epistel` nounpl  
+ episteltje ( NOUN NOUN_SINGULAR ) lemma=`epistel` nounsg  
+ episteltjes ( NOUN NOUN_PLURAL ) lemma=`epistel` nounpl  
+ epiteton ( NOUN NOUN_SINGULAR ) 
+ epitheta ( NOUN NOUN_PLURAL ) lemma=`epitheton` nounpl  
+ epitheton ( NOUN NOUN_SINGULAR ) 
+ epithetons ( NOUN NOUN_PLURAL ) lemma=`epitheton` nounpl  
+ eponiem ( NOUN NOUN_SINGULAR ) 
+ eponiemen ( NOUN NOUN_PLURAL ) lemma=`eponiem` nounpl  
+ eponiemenwoordenboek ( NOUN NOUN_SINGULAR ) 
+ eponiemenwoordenboeken ( NOUN NOUN_PLURAL ) lemma=`eponiemenwoordenboek` nounpl  
+ epos ( NOUN NOUN_SINGULAR ) 
+ epossen ( NOUN NOUN_PLURAL ) lemma=`epos` nounpl  
+ epoxy ( NOUN NOUN_SINGULAR ) 
+ epoxylaag ( NOUN NOUN_SINGULAR ) 
+ epoxylagen ( NOUN NOUN_PLURAL ) lemma=`epoxylaag` nounpl  
+ epoxyplamuren ( NOUN NOUN_PLURAL ) lemma=`epoxyplamuur` nounpl  
+ epoxyplamuur ( NOUN NOUN_SINGULAR ) 
+ epoxyproduct ( NOUN NOUN_SINGULAR ) 
+ epoxyproducten ( NOUN NOUN_PLURAL ) lemma=`epoxyproduct` nounpl  
+ epoxyteer ( NOUN NOUN_SINGULAR ) 
+ equator ( NOUN NOUN_SINGULAR ) 
+ equatoriaal ( ADJECTIVE ) 
+ equatoriale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`equatoriaal`equatoriale` adj  nounsg  
+ equipage ( NOUN NOUN_SINGULAR ) 
+ equipages ( NOUN NOUN_PLURAL ) lemma=`equipage` nounpl  
+ equipe ( NOUN NOUN_SINGULAR ) 
+ equipes ( NOUN NOUN_PLURAL ) lemma=`equipe` nounpl  
+ equivalent ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`equivalent`equivalent` adj  nounsg  
+ equivalente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`equivalent`equivalente` adj  nounsg  
+ equivalenten ( NOUN NOUN_PLURAL ) lemma=`equivalent` nounpl  
+ er ( ADVERB ) 
+ eraan ( ADVERB ) 
+ erachter ( ADVERB ) 
+ eraf ( ADVERB ) 
+ erbarm ( VERB_PRESENT VERB ) lemma=`erbarmen` verbpressg  
+ erbarmd ( VERB_PAST_PARTICIPLE VERB ) lemma=`erbarmen` verbpapa  
+ erbarmde ( VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`erbarmde`erbarmen`erbarmen` nounsg  verbpapa  verbpastsg  
+ erbarmden ( VERB_PAST VERB ) lemma=`erbarmen` verbpastpl  
+ erbarmelijk ( ADJECTIVE ) 
+ erbarmelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erbarmelijk`erbarmelijke` adj  nounsg  
+ erbarmelijker ( ADJECTIVE ) lemma=`erbarmelijk` adj  
+ erbarmelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erbarmelijk`erbarmelijkere` adj  nounsg  
+ erbarmelijkst ( ADJECTIVE ) lemma=`erbarmelijk` adj  
+ erbarmelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erbarmelijk`erbarmelijkste` adj  nounsg  
+ erbarmen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`erbarmen`erbarmen`erbarmen` nounsg  verbinf  verbprespl  
+ erbarmend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`erbarmen` verbpresp  
+ erbarmende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`erbarmende`erbarmen` nounsg  verbpresp  
+ erbarmt ( VERB_PRESENT VERB ) lemma=`erbarmen` verbpressg  
+ erbij ( ADVERB ) 
+ erbinnen ( ADVERB ) 
+ erboven ( ADVERB ) 
+ erbovenop ( ADVERB ) 
+ erbovenuit ( ADVERB ) 
+ erbuiten ( ADVERB ) 
+ erdoor ( ADVERB ) 
+ erdoorheen ( ADVERB ) 
+ ere ( NOUN NOUN_SINGULAR ) 
+ erebaan ( NOUN NOUN_SINGULAR ) 
+ erebanen ( NOUN NOUN_PLURAL ) lemma=`erebaan` nounpl  
+ erecode ( NOUN NOUN_SINGULAR ) 
+ erecodes ( NOUN NOUN_PLURAL ) lemma=`erecode` nounpl  
+ erectie ( NOUN NOUN_SINGULAR ) 
+ erecties ( NOUN NOUN_PLURAL ) lemma=`erectie` nounpl  
+ eredienst ( NOUN NOUN_SINGULAR ) 
+ erediensten ( NOUN NOUN_PLURAL ) lemma=`eredienst` nounpl  
+ eredivisie ( NOUN NOUN_SINGULAR ) 
+ eredivisieclub ( NOUN NOUN_SINGULAR ) 
+ eredivisieclubs ( NOUN NOUN_PLURAL ) lemma=`eredivisieclub` nounpl  
+ eredivisies ( NOUN NOUN_PLURAL ) lemma=`eredivisie` nounpl  
+ eredoctoraat ( NOUN NOUN_SINGULAR ) 
+ eredoctoraten ( NOUN NOUN_PLURAL ) lemma=`eredoctoraat` nounpl  
+ eregast ( NOUN NOUN_SINGULAR ) 
+ eregasten ( NOUN NOUN_PLURAL ) lemma=`eregast` nounpl  
+ erektie ( NOUN NOUN_SINGULAR ) 
+ ereleden ( NOUN NOUN_PLURAL ) lemma=`erelid` nounpl  
+ erelid ( NOUN NOUN_SINGULAR ) 
+ erelijst ( NOUN NOUN_SINGULAR ) 
+ erelijsten ( NOUN NOUN_PLURAL ) lemma=`erelijst` nounpl  
+ erelonen ( NOUN NOUN_PLURAL ) lemma=`ereloon` nounpl  
+ ereloon ( NOUN NOUN_SINGULAR ) 
+ eremetaal ( NOUN NOUN_SINGULAR ) 
+ eren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`eren`eren`eren` nounsg  verbinf  verbprespl  
+ erend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eren` verbpresp  
+ erende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`erende`eren` nounsg  verbpresp  
+ ereplaats ( NOUN NOUN_SINGULAR ) 
+ ereplaatsen ( NOUN NOUN_PLURAL ) lemma=`ereplaats` nounpl  
+ erepodia ( NOUN NOUN_PLURAL ) lemma=`erepodium` nounpl  
+ erepodium ( NOUN NOUN_SINGULAR ) 
+ erepodiums ( NOUN NOUN_PLURAL ) lemma=`erepodium` nounpl  
+ ereprijs ( NOUN NOUN_SINGULAR ) 
+ ereprijzen ( NOUN NOUN_PLURAL ) lemma=`ereprijs` nounpl  
+ ereronde ( NOUN NOUN_SINGULAR ) 
+ ereronden ( NOUN NOUN_PLURAL ) lemma=`ereronde` nounpl  
+ ererondes ( NOUN NOUN_PLURAL ) lemma=`ereronde` nounpl  
+ eresaluten ( NOUN NOUN_PLURAL ) lemma=`eresaluut` nounpl  
+ eresaluut ( NOUN NOUN_SINGULAR ) 
+ ereschuld ( NOUN NOUN_SINGULAR ) 
+ ereschulden ( NOUN NOUN_PLURAL ) lemma=`ereschuld` nounpl  
+ eretitel ( NOUN NOUN_SINGULAR ) 
+ eretitels ( NOUN NOUN_PLURAL ) lemma=`eretitel` nounpl  
+ erewoord ( NOUN NOUN_SINGULAR ) 
+ erezaak ( NOUN NOUN_SINGULAR ) 
+ erezaken ( NOUN NOUN_PLURAL ) lemma=`erezaak` nounpl  
+ erf ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`erf`erven` nounsg  verbpressg  
+ erfde ( VERB_PAST VERB ) lemma=`erven` verbpastsg  
+ erfdeel ( NOUN NOUN_SINGULAR ) 
+ erfdelen ( NOUN NOUN_PLURAL ) lemma=`erfdeel` nounpl  
+ erfden ( VERB_PAST VERB ) lemma=`erven` verbpastpl  
+ erfelijk ( ADJECTIVE ) 
+ erfelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erfelijk`erfelijke` adj  nounsg  
+ erfelijkheid ( NOUN NOUN_SINGULAR ) 
+ erfelijkheidsleer ( NOUN NOUN_SINGULAR ) 
+ erfenis ( NOUN NOUN_SINGULAR ) 
+ erfenisje ( NOUN NOUN_SINGULAR ) lemma=`erfenis` nounsg  
+ erfenissen ( NOUN NOUN_PLURAL ) lemma=`erfenis` nounpl  
+ erfgenaam ( NOUN NOUN_SINGULAR ) 
+ erfgenaampje ( NOUN NOUN_SINGULAR ) lemma=`erfgenaam` nounsg  
+ erfgenaampjes ( NOUN NOUN_PLURAL ) lemma=`erfgenaam` nounpl  
+ erfgename ( NOUN NOUN_SINGULAR ) 
+ erfgenamen ( NOUN NOUN_PLURAL ) lemma=`erfgenaam|erfgename` nounpl  
+ erfgenames ( NOUN NOUN_PLURAL ) lemma=`erfgename` nounpl  
+ erfgoed ( NOUN NOUN_SINGULAR ) 
+ erfgoederen ( NOUN NOUN_PLURAL ) lemma=`erfgoed` nounpl  
+ erflater ( NOUN NOUN_SINGULAR ) 
+ erflaters ( NOUN NOUN_PLURAL ) lemma=`erflater` nounpl  
+ erflating ( NOUN NOUN_SINGULAR ) 
+ erflatingen ( NOUN NOUN_PLURAL ) lemma=`erflating` nounpl  
+ erfopvolging ( NOUN NOUN_SINGULAR ) 
+ erfopvolgingen ( NOUN NOUN_PLURAL ) lemma=`erfopvolging` nounpl  
+ erfpacht ( NOUN NOUN_SINGULAR ) 
+ erfpacht- ( NOUN NOUN_SINGULAR ) lemma=`erfpacht` noun*kop  
+ erfpachten ( NOUN NOUN_PLURAL ) lemma=`erfpacht` nounpl  
+ erfpachter ( NOUN NOUN_SINGULAR ) 
+ erfpachters ( NOUN NOUN_PLURAL ) lemma=`erfpachter` nounpl  
+ erfrecht ( NOUN NOUN_SINGULAR ) 
+ erfrechtelijk ( ADJECTIVE ) 
+ erfrechtelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erfrechtelijk`erfrechtelijke` adj  nounsg  
+ erfstuk ( NOUN NOUN_SINGULAR ) 
+ erfstukken ( NOUN NOUN_PLURAL ) lemma=`erfstuk` nounpl  
+ erft ( VERB_PRESENT VERB ) lemma=`erven` verbpressg  
+ erfzonde ( NOUN NOUN_SINGULAR ) 
+ erg ( ADJECTIVE ADVERB ) lemma=`erg`erg` adj  adv  
+ erge ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erg`erge` adj  nounsg  
+ ergens ( ADVERB ) 
+ erger ( VERB_PRESENT VERB ADJECTIVE ) lemma=`erg|kwaad`ergeren` adj  verbpressg  
+ ergerde ( VERB_PAST VERB ) lemma=`ergeren` verbpastsg  
+ ergerden ( VERB_PAST VERB ) lemma=`ergeren` verbpastpl  
+ ergere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erg|kwaad`ergere` adj  nounsg  
+ ergeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`ergeren`ergeren`ergeren` nounsg  verbinf  verbprespl  
+ ergerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`ergeren` verbpresp  
+ ergerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ergerende`ergeren` nounsg  verbpresp  
+ ergerlijk ( ADJECTIVE ) 
+ ergerlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ergerlijk`ergerlijke` adj  nounsg  
+ ergerlijker ( ADJECTIVE ) lemma=`ergerlijk` adj  
+ ergerlijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ergerlijk`ergerlijkere` adj  nounsg  
+ ergerlijkst ( ADJECTIVE ) lemma=`ergerlijk` adj  
+ ergerlijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ergerlijk`ergerlijkste` adj  nounsg  
+ ergernis ( NOUN NOUN_SINGULAR ) 
+ ergernisjes ( NOUN NOUN_PLURAL ) lemma=`ergernis` nounpl  
+ ergernissen ( NOUN NOUN_PLURAL ) lemma=`ergernis` nounpl  
+ ergerniswekkend ( ADJECTIVE ) 
+ ergert ( VERB_PRESENT VERB ) lemma=`ergeren` verbpressg  
+ ergo ( ADVERB ) 
+ ergonomie ( NOUN NOUN_SINGULAR ) 
+ ergonomisch ( ADJECTIVE ) 
+ ergonomische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ergonomisch`ergonomische` adj  nounsg  
+ ergotherapie ( NOUN NOUN_SINGULAR ) 
+ ergst ( ADJECTIVE ) lemma=`erg|kwaad` adj  
+ ergste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erg|kwaad`ergste` adj  nounsg  
+ erheen ( ADVERB ) 
+ erica ( NOUN NOUN_SINGULAR ) 
+ erica's ( NOUN NOUN_PLURAL ) lemma=`erica` nounpl  
+ erika ( NOUN NOUN_SINGULAR ) 
+ erin ( ADVERB ) 
+ erken ( VERB_PRESENT VERB ) lemma=`erkennen` verbpressg  
+ erkend ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`erkend`erkennen` adj  verbpapa  
+ erkende ( VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`erkend`erkende`erkennen`erkennen` adj  nounsg  verbpapa  verbpastsg  
+ erkenden ( VERB_PAST VERB ) lemma=`erkennen` verbpastpl  
+ erkennen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`erkennen`erkennen`erkennen` nounsg  verbinf  verbprespl  
+ erkennend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`erkennen` verbpresp  
+ erkennende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`erkennende`erkennen` nounsg  verbpresp  
+ erkenning ( NOUN NOUN_SINGULAR ) 
+ erkent ( VERB_PRESENT VERB ) lemma=`erkennen` verbpressg  
+ erkentelijk ( ADJECTIVE ) 
+ erkentelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erkentelijk`erkentelijke` adj  nounsg  
+ erkentelijker ( ADJECTIVE ) lemma=`erkentelijk` adj  
+ erkentelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erkentelijk`erkentelijkere` adj  nounsg  
+ erkentelijkheid ( NOUN NOUN_SINGULAR ) 
+ erkentelijkst ( ADJECTIVE ) lemma=`erkentelijk` adj  
+ erkentelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erkentelijk`erkentelijkste` adj  nounsg  
+ erker ( NOUN NOUN_SINGULAR ) 
+ erkers ( NOUN NOUN_PLURAL ) lemma=`erker` nounpl  
+ erkertje ( NOUN NOUN_SINGULAR ) lemma=`erker` nounsg  
+ erlangs ( ADVERB ) 
+ ermede ( ADVERB ) 
+ ermee ( ADVERB ) 
+ erna ( ADVERB ) 
+ ernaar ( ADVERB ) 
+ ernaartoe ( ADVERB ) 
+ ernaast ( ADVERB ) 
+ ernst ( NOUN NOUN_SINGULAR ) 
+ ernstig ( ADJECTIVE ADVERB ) lemma=`ernstig`ernstig` adj  adv  
+ ernstige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ernstig`ernstige` adj  nounsg  
+ ernstiger ( ADJECTIVE ) lemma=`ernstig` adj  
+ ernstigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ernstig`ernstigere` adj  nounsg  
+ ernstigst ( ADJECTIVE ) lemma=`ernstig` adj  
+ ernstigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ernstig`ernstigste` adj  nounsg  
+ erodeer ( VERB_PRESENT VERB ) lemma=`eroderen` verbpressg  
+ erodeerde ( VERB_PAST VERB ) lemma=`eroderen` verbpastsg  
+ erodeerden ( VERB_PAST VERB ) lemma=`eroderen` verbpastpl  
+ erodeert ( VERB_PRESENT VERB ) lemma=`eroderen` verbpressg  
+ eroderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`eroderen`eroderen`eroderen` nounsg  verbinf  verbprespl  
+ eroderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eroderen` verbpresp  
+ eroderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eroderende`eroderen` nounsg  verbpresp  
+ erogeen ( ADJECTIVE ) 
+ erogene ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erogeen`erogene` adj  nounsg  
+ erom ( ADVERB ) 
+ eromheen ( ADVERB ) 
+ eronder ( ADVERB ) 
+ eronderdoor ( ADVERB ) 
+ eronderuit ( ADVERB ) 
+ erop ( ADVERB ) 
+ eropaan ( ADVERB ) 
+ eropaf ( ADVERB ) 
+ eropin ( ADVERB ) 
+ eropna ( ADVERB ) 
+ eropuit ( ADVERB ) 
+ erosie ( NOUN NOUN_SINGULAR ) 
+ erosies ( NOUN NOUN_PLURAL ) lemma=`erosie` nounpl  
+ erotiek ( NOUN NOUN_SINGULAR ) 
+ erotisch ( ADJECTIVE ) 
+ erotische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erotisch`erotische` adj  nounsg  
+ erotischer ( ADJECTIVE ) lemma=`erotisch` adj  
+ erotischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erotisch`erotischere` adj  nounsg  
+ erotischt ( ADJECTIVE ) lemma=`erotisch` adj  
+ erotischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erotisch`erotischte` adj  nounsg  
+ erover ( ADVERB ) 
+ eroverheen ( ADVERB ) 
+ errata ( NOUN NOUN_PLURAL ) lemma=`erratum` nounpl  
+ erratum ( NOUN NOUN_SINGULAR ) 
+ ertegen ( ADVERB ) 
+ ertegenaan ( ADVERB ) 
+ ertegenin ( ADVERB ) 
+ ertegenop ( ADVERB ) 
+ ertegenover ( ADVERB ) 
+ ertoe ( ADVERB ) 
+ erts ( NOUN NOUN_SINGULAR ) 
+ ertsen ( NOUN NOUN_PLURAL ) lemma=`erts` nounpl  
+ ertsgebergten ( NOUN NOUN_PLURAL ) lemma=`ertsgebergte` nounpl  
+ ertshoudend ( ADJECTIVE ) 
+ ertsrijk ( ADJECTIVE ) 
+ ertussen ( ADVERB ) 
+ ertussendoor ( ADVERB ) 
+ ertussenin ( ADVERB ) 
+ ertussenuit ( ADVERB ) 
+ erudiet ( ADJECTIVE ) 
+ erudiete ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erudiet`erudiete` adj  nounsg  
+ erudieter ( ADJECTIVE ) lemma=`erudiet` adj  
+ erudietere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erudiet`erudietere` adj  nounsg  
+ erudietst ( ADJECTIVE ) lemma=`erudiet` adj  
+ erudietste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`erudiet`erudietste` adj  nounsg  
+ eruditie ( NOUN NOUN_SINGULAR ) 
+ eruit ( ADVERB ) 
+ eruitgezien ( VERB_PAST_PARTICIPLE VERB ) lemma=`eruitzien` verbpapa  
+ eruitzag ( VERB_PAST VERB ) lemma=`eruitzien` verbpastsg  
+ eruitzagen ( VERB_PAST VERB ) lemma=`eruitzien` verbpastpl  
+ eruitzie ( VERB_PRESENT VERB ) lemma=`eruitzien` verbpressg  
+ eruitzien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`eruitzien`eruitzien`eruitzien` nounsg  verbinf  verbprespl  
+ eruitziend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eruitzien` verbpresp  
+ eruitziende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`eruitziende`eruitzien` nounsg  verbpresp  
+ eruitziet ( VERB_PRESENT VERB ) lemma=`eruitzien` verbpressg  
+ eruptie ( NOUN NOUN_SINGULAR ) 
+ erupties ( NOUN NOUN_PLURAL ) lemma=`eruptie` nounpl  
+ ervaar ( VERB_PRESENT VERB ) lemma=`ervaren` verbpressg  
+ ervaart ( VERB_PRESENT VERB ) lemma=`ervaren` verbpressg  
+ ervan ( ADVERB ) 
+ ervandaan ( ADVERB ) 
+ ervandoor ( ADVERB ) 
+ ervanlangs ( ADVERB ) 
+ ervantussen ( ADVERB ) 
+ ervaren ( VERB_PRESENT VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`ervaren`ervaren`ervaren`ervaren`ervaren` adj  nounsg  verbinf  verbpapa  verbprespl  
+ ervarend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`ervaren` verbpresp  
+ ervarende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ervarende`ervaren` nounsg  verbpresp  
+ ervarener ( ADJECTIVE ) lemma=`ervaren` adj  
+ ervarenere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ervaren`ervarenere` adj  nounsg  
+ ervarenst ( ADJECTIVE ) lemma=`ervaren` adj  
+ ervarenste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ervaren`ervarenste` adj  nounsg  
+ ervaring ( NOUN NOUN_SINGULAR ) 
+ ervaringen ( NOUN NOUN_PLURAL ) lemma=`ervaring` nounpl  
+ ervaringsleer ( NOUN NOUN_SINGULAR ) 
+ ervaringswereld ( NOUN NOUN_SINGULAR ) 
+ ervaringswerelden ( NOUN NOUN_PLURAL ) lemma=`ervaringswereld` nounpl  
+ erven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`erf`erven`erven`erven` nounpl  nounsg  verbinf  verbprespl  
+ ervend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`erven` verbpresp  
+ ervende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ervende`erven` nounsg  verbpresp  
+ ervoer ( VERB_PAST VERB ) lemma=`ervaren` verbpastsg  
+ ervoeren ( VERB_PAST VERB ) lemma=`ervaren` verbpastpl  
+ ervoor ( ADVERB ) 
+ erwt ( NOUN NOUN_SINGULAR ) 
+ erwten ( NOUN NOUN_PLURAL ) lemma=`erwt` nounpl  
+ erwtensoep ( NOUN NOUN_SINGULAR ) 
+ erwtjes ( NOUN NOUN_PLURAL ) lemma=`erwt` nounpl  
+ es ( NOUN NOUN_SINGULAR ) 
+ escalatie ( NOUN NOUN_SINGULAR ) 
+ escalaties ( NOUN NOUN_PLURAL ) lemma=`escalatie` nounpl  
+ escaleer ( VERB_PRESENT VERB ) lemma=`escaleren` verbpressg  
+ escaleerde ( VERB_PAST VERB ) lemma=`escaleren` verbpastsg  
+ escaleerden ( VERB_PAST VERB ) lemma=`escaleren` verbpastpl  
+ escaleert ( VERB_PRESENT VERB ) lemma=`escaleren` verbpressg  
+ escaleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`escaleren`escaleren`escaleren` nounsg  verbinf  verbprespl  
+ escalerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`escaleren` verbpresp  
+ escalerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`escalerende`escaleren` nounsg  verbpresp  
+ escapade ( NOUN NOUN_SINGULAR ) 
+ escapades ( NOUN NOUN_PLURAL ) lemma=`escapade` nounpl  
+ escapadetje ( NOUN NOUN_SINGULAR ) lemma=`escapade` nounsg  
+ escapadetjes ( NOUN NOUN_PLURAL ) lemma=`escapade` nounpl  
+ escorte ( NOUN NOUN_SINGULAR ) 
+ escorteer ( VERB_PRESENT VERB ) lemma=`escorteren` verbpressg  
+ escorteerde ( VERB_PAST VERB ) lemma=`escorteren` verbpastsg  
+ escorteerden ( VERB_PAST VERB ) lemma=`escorteren` verbpastpl  
+ escorteert ( VERB_PRESENT VERB ) lemma=`escorteren` verbpressg  
+ escorteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`escorteren`escorteren`escorteren` nounsg  verbinf  verbprespl  
+ escorterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`escorteren` verbpresp  
+ escorterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`escorterende`escorteren` nounsg  verbpresp  
+ escortes ( NOUN NOUN_PLURAL ) lemma=`escorte` nounpl  
+ escudo ( NOUN NOUN_SINGULAR ) 
+ escudo's ( NOUN NOUN_PLURAL ) lemma=`escudo` nounpl  
+ esculaap ( NOUN NOUN_SINGULAR ) 
+ esculapen ( NOUN NOUN_PLURAL ) lemma=`esculaap` nounpl  
+ esdoorn ( NOUN NOUN_SINGULAR ) 
+ esdoorns ( NOUN NOUN_PLURAL ) lemma=`esdoorn` nounpl  
+ esdoren ( NOUN NOUN_SINGULAR ) 
+ esdorens ( NOUN NOUN_PLURAL ) lemma=`esdoren` nounpl  
+ eskader ( NOUN NOUN_SINGULAR ) 
+ eskaders ( NOUN NOUN_PLURAL ) lemma=`eskader` nounpl  
+ eskadertje ( NOUN NOUN_SINGULAR ) lemma=`eskader` nounsg  
+ eskadertjes ( NOUN NOUN_PLURAL ) lemma=`eskader` nounpl  
+ eskimo's ( NOUN NOUN_PLURAL ) lemma=`eskimo` nounpl  
+ eskimohond ( NOUN NOUN_SINGULAR ) 
+ eskimohonden ( NOUN NOUN_PLURAL ) lemma=`eskimohond` nounpl  
+ eskulaap ( NOUN NOUN_SINGULAR ) 
+ esoterisch ( ADJECTIVE ) 
+ esoterische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`esoterisch`esoterische` adj  nounsg  
+ esp ( NOUN NOUN_SINGULAR ) 
+ espen ( NOUN NOUN_PLURAL ) lemma=`esp` nounpl  
+ espresso ( NOUN NOUN_SINGULAR ) 
+ esprit ( NOUN NOUN_SINGULAR ) 
+ essay ( NOUN NOUN_SINGULAR ) 
+ essaybundel ( NOUN NOUN_SINGULAR ) 
+ essaybundels ( NOUN NOUN_PLURAL ) lemma=`essaybundel` nounpl  
+ essayist ( NOUN NOUN_SINGULAR ) 
+ essayisten ( NOUN NOUN_PLURAL ) lemma=`essayist` nounpl  
+ essayprijsvraag ( NOUN NOUN_SINGULAR ) 
+ essayprijsvragen ( NOUN NOUN_PLURAL ) lemma=`essayprijsvraag` nounpl  
+ essays ( NOUN NOUN_PLURAL ) lemma=`essay` nounpl  
+ essen ( NOUN NOUN_PLURAL ) lemma=`es` nounpl  
+ essence ( NOUN NOUN_SINGULAR ) 
+ essencen ( NOUN NOUN_PLURAL ) lemma=`essence` nounpl  
+ essences ( NOUN NOUN_PLURAL ) lemma=`essence` nounpl  
+ essentie ( NOUN NOUN_SINGULAR ) 
+ essentieel ( ADJECTIVE ) 
+ essenties ( NOUN NOUN_PLURAL ) lemma=`essentie` nounpl  
+ essentiële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`essentieel`essentiële` adj  nounsg  
+ establishment ( NOUN NOUN_SINGULAR ) 
+ estafette ( NOUN NOUN_SINGULAR ) 
+ estafetten ( NOUN NOUN_PLURAL ) lemma=`estafette` nounpl  
+ estafetteploeg ( NOUN NOUN_SINGULAR ) 
+ estafetteploegen ( NOUN NOUN_PLURAL ) lemma=`estafetteploeg` nounpl  
+ estafettes ( NOUN NOUN_PLURAL ) lemma=`estafette` nounpl  
+ estafettestokje ( NOUN NOUN_SINGULAR ) 
+ estafettestokjes ( NOUN NOUN_PLURAL ) lemma=`estafettestokje` nounpl  
+ ester ( NOUN NOUN_SINGULAR ) 
+ esters ( NOUN NOUN_PLURAL ) lemma=`ester` nounpl  
+ estetiek ( NOUN NOUN_SINGULAR ) 
+ estetika ( NOUN NOUN_SINGULAR ) 
+ estetikus ( NOUN NOUN_SINGULAR ) 
+ esthetica ( NOUN NOUN_SINGULAR ) 
+ esthetici ( NOUN NOUN_PLURAL ) lemma=`estheticus` nounpl  
+ estheticus ( NOUN NOUN_SINGULAR ) 
+ esthetiek ( NOUN NOUN_SINGULAR ) 
+ esthetisch ( ADJECTIVE ) 
+ esthetische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`esthetisch`esthetische` adj  nounsg  
+ esthetischer ( ADJECTIVE ) lemma=`esthetisch` adj  
+ esthetischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`esthetisch`esthetischere` adj  nounsg  
+ esthetischt ( ADJECTIVE ) lemma=`esthetisch` adj  
+ esthetischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`esthetisch`esthetischte` adj  nounsg  
+ estuaria ( NOUN NOUN_PLURAL ) lemma=`estuarium` nounpl  
+ estuarium ( NOUN NOUN_SINGULAR ) 
+ etablissement ( NOUN NOUN_SINGULAR ) 
+ etablissementen ( NOUN NOUN_PLURAL ) lemma=`etablissement` nounpl  
+ etage ( NOUN NOUN_SINGULAR ) 
+ etages ( NOUN NOUN_PLURAL ) lemma=`etage` nounpl  
+ etalage ( NOUN NOUN_SINGULAR ) 
+ etalagepop ( NOUN NOUN_SINGULAR ) 
+ etalagepoppen ( NOUN NOUN_PLURAL ) lemma=`etalagepop` nounpl  
+ etalages ( NOUN NOUN_PLURAL ) lemma=`etalage` nounpl  
+ etaleer ( VERB_PRESENT VERB ) lemma=`etaleren` verbpressg  
+ etaleerde ( VERB_PAST VERB ) lemma=`etaleren` verbpastsg  
+ etaleerden ( VERB_PAST VERB ) lemma=`etaleren` verbpastpl  
+ etaleert ( VERB_PRESENT VERB ) lemma=`etaleren` verbpressg  
+ etaleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`etaleren`etaleren`etaleren` nounsg  verbinf  verbprespl  
+ etalerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`etaleren` verbpresp  
+ etalerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`etalerende`etaleren` nounsg  verbpresp  
+ etaleur ( NOUN NOUN_SINGULAR ) 
+ etaleurs ( NOUN NOUN_PLURAL ) lemma=`etaleur` nounpl  
+ etaleuse ( NOUN NOUN_SINGULAR ) 
+ etaleuses ( NOUN NOUN_PLURAL ) lemma=`etaleuse` nounpl  
+ etappe ( NOUN NOUN_SINGULAR ) 
+ etappen ( NOUN NOUN_PLURAL ) lemma=`etappe` nounpl  
+ etappes ( NOUN NOUN_PLURAL ) lemma=`etappe` nounpl  
+ etc ( ADVERB ) 
+ etc. ( ADVERB ) 
+ etcetera ( ADVERB ) 
+ eten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`eten`eten`eten` nounsg  verbinf  verbprespl  
+ etend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`eten` verbpresp  
+ etende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`etende`eten` nounsg  verbpresp  
+ etensresten ( NOUN NOUN_PLURAL ) 
+ etenstijd ( NOUN NOUN_SINGULAR ) 
+ etenswaar ( NOUN NOUN_SINGULAR ) 
+ etenswaren ( NOUN NOUN_PLURAL ) lemma=`etenswaar` nounpl  
+ etentje ( NOUN NOUN_SINGULAR ) 
+ etentjes ( NOUN NOUN_PLURAL ) lemma=`etentje` nounpl  
+ eter ( NOUN NOUN_SINGULAR ) 
+ eterisch ( ADJECTIVE ) 
+ eters ( NOUN NOUN_PLURAL ) lemma=`eter` nounpl  
+ ether ( NOUN NOUN_SINGULAR ) 
+ etherisch ( ADJECTIVE ) 
+ etherische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`etherisch`etherische` adj  nounsg  
+ etherpiraat ( NOUN NOUN_SINGULAR ) 
+ etherpiraten ( NOUN NOUN_PLURAL ) lemma=`etherpiraat` nounpl  
+ etherreclame ( NOUN NOUN_SINGULAR ) 
+ ethers ( NOUN NOUN_PLURAL ) lemma=`ether` nounpl  
+ ethiek ( NOUN NOUN_SINGULAR ) 
+ ethisch ( ADJECTIVE ) 
+ ethische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ethisch`ethische` adj  nounsg  
+ ethischer ( ADJECTIVE ) lemma=`ethisch` adj  
+ ethischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ethisch`ethischere` adj  nounsg  
+ ethischt ( ADJECTIVE ) lemma=`ethisch` adj  
+ ethischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ethisch`ethischte` adj  nounsg  
+ ethos ( NOUN NOUN_SINGULAR ) 
+ etiek ( NOUN NOUN_SINGULAR ) 
+ etiket ( NOUN NOUN_SINGULAR ) 
+ etiketje ( NOUN NOUN_SINGULAR ) lemma=`etiket` nounsg  
+ etiketjes ( NOUN NOUN_PLURAL ) lemma=`etiket` nounpl  
+ etiketteer ( VERB_PRESENT VERB ) lemma=`etiketteren` verbpressg  
+ etiketteerde ( VERB_PAST VERB ) lemma=`etiketteren` verbpastsg  
+ etiketteerden ( VERB_PAST VERB ) lemma=`etiketteren` verbpastpl  
+ etiketteert ( VERB_PRESENT VERB ) lemma=`etiketteren` verbpressg  
+ etiketten ( NOUN NOUN_PLURAL ) lemma=`etiket` nounpl  
+ etiketteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`etiketteren`etiketteren`etiketteren` nounsg  verbinf  verbprespl  
+ etiketterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`etiketteren` verbpresp  
+ etiketterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`etiketterende`etiketteren` nounsg  verbpresp  
+ etikettering ( NOUN NOUN_SINGULAR ) 
+ etiketteringen ( NOUN NOUN_PLURAL ) lemma=`etikettering` nounpl  
+ etiquette ( NOUN NOUN_SINGULAR ) 
+ etisch ( ADJECTIVE ) 
+ etmaal ( NOUN NOUN_SINGULAR ) 
+ etmaaltje ( NOUN NOUN_SINGULAR ) lemma=`etmaal` nounsg  
+ etmaaltjes ( NOUN NOUN_PLURAL ) lemma=`etmaal` nounpl  
+ etmalen ( NOUN NOUN_PLURAL ) lemma=`etmaal` nounpl  
+ etnisch ( ADJECTIVE ) 
+ etnische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`etnisch`etnische` adj  nounsg  
+ etnocentrisch ( ADJECTIVE ) 
+ etnocentrische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`etnocentrisch`etnocentrische` adj  nounsg  
+ etos ( NOUN NOUN_SINGULAR ) 
+ ets ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`ets`etsen` nounsg  verbpressg  
+ etsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ets`etsen`etsen`etsen` nounpl  nounsg  verbinf  verbprespl  
+ etsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`etsen` verbpresp  
+ etsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`etsende`etsen` nounsg  verbpresp  
+ etsje ( NOUN NOUN_SINGULAR ) lemma=`ets` nounsg  
+ etsplaat ( NOUN NOUN_SINGULAR ) 
+ etsplaten ( NOUN NOUN_PLURAL ) lemma=`etsplaat` nounpl  
+ etst ( VERB_PRESENT VERB ) lemma=`etsen` verbpressg  
+ etste ( VERB_PAST VERB ) lemma=`etsen` verbpastsg  
+ etsten ( VERB_PAST VERB ) lemma=`etsen` verbpastpl  
+ ettelijke ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=`ettelijke`ettelijke` det__indef  pronindef  
+ etter ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`etter`etteren` nounsg  verbpressg  
+ etterde ( VERB_PAST VERB ) lemma=`etteren` verbpastsg  
+ etterden ( VERB_PAST VERB ) lemma=`etteren` verbpastpl  
+ etteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`etteren`etteren`etteren` nounsg  verbinf  verbprespl  
+ etterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`etteren` verbpresp  
+ etterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`etterende`etteren` nounsg  verbpresp  
+ etters ( NOUN NOUN_PLURAL ) lemma=`etter` nounpl  
+ ettert ( VERB_PRESENT VERB ) lemma=`etteren` verbpressg  
+ etude ( NOUN NOUN_SINGULAR ) 
+ etudes ( NOUN NOUN_PLURAL ) lemma=`etude` nounpl  
+ etui ( NOUN NOUN_SINGULAR ) 
+ etuis ( NOUN NOUN_PLURAL ) lemma=`etui` nounpl  
+ etuitje ( NOUN NOUN_SINGULAR ) lemma=`etui` nounsg  
+ etuitjes ( NOUN NOUN_PLURAL ) lemma=`etui` nounpl  
+ etymologie ( NOUN NOUN_SINGULAR ) 
+ etymologieën ( NOUN NOUN_PLURAL ) lemma=`etymologie` nounpl  
+ etymologisch ( ADJECTIVE ) 
+ etymologische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`etymologisch`etymologische` adj  nounsg  
+ eucalyptus ( NOUN NOUN_SINGULAR ) 
+ eucalyptussen ( NOUN NOUN_PLURAL ) lemma=`eucalyptus` nounpl  
+ eucharistie ( NOUN NOUN_SINGULAR ) 
+ eucharistieviering ( NOUN NOUN_SINGULAR ) 
+ eucharistievieringen ( NOUN NOUN_PLURAL ) lemma=`eucharistieviering` nounpl  
+ eufemisme ( NOUN NOUN_SINGULAR ) 
+ eufemismen ( NOUN NOUN_PLURAL ) lemma=`eufemisme` nounpl  
+ eufemistisch ( ADJECTIVE ) 
+ eufemistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eufemistisch`eufemistische` adj  nounsg  
+ eufemistischer ( ADJECTIVE ) lemma=`eufemistisch` adj  
+ eufemistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eufemistisch`eufemistischere` adj  nounsg  
+ eufemistischt ( ADJECTIVE ) lemma=`eufemistisch` adj  
+ eufemistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eufemistisch`eufemistischte` adj  nounsg  
+ euforie ( NOUN NOUN_SINGULAR ) 
+ euforisch ( ADJECTIVE ) 
+ euh ( INTERJECTION ) 
+ eunuch ( NOUN NOUN_SINGULAR ) 
+ eunuchen ( NOUN NOUN_PLURAL ) lemma=`eunuch` nounpl  
+ eureka ( INTERJECTION ) 
+ euro ( NOUN NOUN_SINGULAR ) 
+ euro's ( NOUN NOUN_PLURAL ) lemma=`euro` nounpl  
+ eurocentrisme ( NOUN NOUN_SINGULAR ) 
+ eurocheque ( NOUN NOUN_SINGULAR ) 
+ eurocheques ( NOUN NOUN_PLURAL ) lemma=`eurocheque` nounpl  
+ eurokotter ( NOUN NOUN_SINGULAR ) 
+ eurokotters ( NOUN NOUN_PLURAL ) lemma=`eurokotter` nounpl  
+ euroland ( NOUN NOUN_SINGULAR ) 
+ eurolanden ( NOUN NOUN_PLURAL ) lemma=`euroland` nounpl  
+ europarlement ( NOUN NOUN_SINGULAR ) 
+ europarlementariër ( NOUN NOUN_SINGULAR ) 
+ europarlementariërs ( NOUN NOUN_PLURAL ) lemma=`europarlementariër` nounpl  
+ eurorekening ( NOUN NOUN_SINGULAR ) 
+ eurorekeningen ( NOUN NOUN_PLURAL ) lemma=`eurorekening` nounpl  
+ eutanasie ( NOUN NOUN_SINGULAR ) 
+ euthanasie ( NOUN NOUN_SINGULAR ) 
+ euthanasiedebat ( NOUN NOUN_SINGULAR ) 
+ euvel ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`euvel`euvel` adj  nounsg  
+ euvele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`euvel`euvele` adj  nounsg  
+ euvelen ( NOUN NOUN_PLURAL ) lemma=`euvel` nounpl  
+ euveler ( ADJECTIVE ) lemma=`euvel` adj  
+ euvelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`euvel`euvelere` adj  nounsg  
+ euvels ( NOUN NOUN_PLURAL ) lemma=`euvel` nounpl  
+ euvelst ( ADJECTIVE ) lemma=`euvel` adj  
+ euvelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`euvel`euvelste` adj  nounsg  
+ euveltje ( NOUN NOUN_SINGULAR ) lemma=`euvel` nounsg  
+ euveltjes ( NOUN NOUN_PLURAL ) lemma=`euvel` nounpl  
+ evacuatie ( NOUN NOUN_SINGULAR ) 
+ evacuatieplan ( NOUN NOUN_SINGULAR ) 
+ evacuatieplannen ( NOUN NOUN_PLURAL ) lemma=`evacuatieplan` nounpl  
+ evacuaties ( NOUN NOUN_PLURAL ) lemma=`evacuatie` nounpl  
+ evacuee ( NOUN NOUN_SINGULAR ) 
+ evacueer ( VERB_PRESENT VERB ) lemma=`evacueren` verbpressg  
+ evacueerde ( VERB_PAST VERB ) lemma=`evacueren` verbpastsg  
+ evacueerden ( VERB_PAST VERB ) lemma=`evacueren` verbpastpl  
+ evacueert ( VERB_PRESENT VERB ) lemma=`evacueren` verbpressg  
+ evacuees ( NOUN NOUN_PLURAL ) lemma=`evacuee|evacué` nounpl  
+ evacueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`evacueren`evacueren`evacueren` nounsg  verbinf  verbprespl  
+ evacuerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`evacueren` verbpresp  
+ evacuerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`evacuerende`evacueren` nounsg  verbpresp  
+ evacué ( NOUN NOUN_SINGULAR ) 
+ evacués ( NOUN NOUN_PLURAL ) lemma=`evacué` nounpl  
+ evakostuum ( NOUN NOUN_SINGULAR ) 
+ evakostuums ( NOUN NOUN_PLURAL ) lemma=`evakostuum` nounpl  
+ evaluatie ( NOUN NOUN_SINGULAR ) 
+ evaluatieonderzoek ( NOUN NOUN_SINGULAR ) 
+ evaluatieonderzoeken ( NOUN NOUN_PLURAL ) lemma=`evaluatieonderzoek` nounpl  
+ evaluaties ( NOUN NOUN_PLURAL ) lemma=`evaluatie` nounpl  
+ evalueer ( VERB_PRESENT VERB ) lemma=`evalueren` verbpressg  
+ evalueerde ( VERB_PAST VERB ) lemma=`evalueren` verbpastsg  
+ evalueerden ( VERB_PAST VERB ) lemma=`evalueren` verbpastpl  
+ evalueert ( VERB_PRESENT VERB ) lemma=`evalueren` verbpressg  
+ evalueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`evalueren`evalueren`evalueren` nounsg  verbinf  verbprespl  
+ evaluerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`evalueren` verbpresp  
+ evaluerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`evaluerende`evalueren` nounsg  verbpresp  
+ evangelie ( NOUN NOUN_SINGULAR ) 
+ evangelies ( NOUN NOUN_PLURAL ) lemma=`evangelie` nounpl  
+ evangelisatie ( NOUN NOUN_SINGULAR ) 
+ evangelisch ( ADJECTIVE ) 
+ evangelische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evangelisch`evangelische` adj  nounsg  
+ evangelist ( NOUN NOUN_SINGULAR ) 
+ evangeliste ( NOUN NOUN_SINGULAR ) 
+ evangelisten ( NOUN NOUN_PLURAL ) lemma=`evangelist` nounpl  
+ evangelistes ( NOUN NOUN_PLURAL ) lemma=`evangeliste` nounpl  
+ evangeliën ( NOUN NOUN_PLURAL ) lemma=`evangelie` nounpl  
+ even ( ADJECTIVE ADVERB ) lemma=`even`even` adj  adv  
+ evenaar ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`evenaar`evenaren` nounsg  verbpressg  
+ evenaarde ( VERB_PAST VERB ) lemma=`evenaren` verbpastsg  
+ evenaarden ( VERB_PAST VERB ) lemma=`evenaren` verbpastpl  
+ evenaars ( NOUN NOUN_PLURAL ) lemma=`evenaar` nounpl  
+ evenaart ( VERB_PRESENT VERB ) lemma=`evenaren` verbpressg  
+ evenals ( CONJUNCTION_COORDINATE ) 
+ evenaren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`evenaren`evenaren`evenaren` nounsg  verbinf  verbprespl  
+ evenarend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`evenaren` verbpresp  
+ evenarende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`evenarende`evenaren` nounsg  verbpresp  
+ evenbeeld ( NOUN NOUN_SINGULAR ) 
+ evenbeelden ( NOUN NOUN_PLURAL ) lemma=`evenbeeld` nounpl  
+ eveneens ( ADVERB ) 
+ evenement ( NOUN NOUN_SINGULAR ) 
+ evenementen ( NOUN NOUN_PLURAL ) lemma=`evenement` nounpl  
+ evengoed ( ADVERB ) 
+ evenknie ( NOUN NOUN_SINGULAR ) 
+ evenknieën ( NOUN NOUN_PLURAL ) lemma=`evenknie` nounpl  
+ evenmin ( ADVERB ) 
+ evenredig ( ADJECTIVE ) 
+ evenredige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenredig`evenredige` adj  nounsg  
+ evenrediger ( ADJECTIVE ) lemma=`evenredig` adj  
+ evenredigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenredig`evenredigere` adj  nounsg  
+ evenredigheden ( NOUN NOUN_PLURAL ) lemma=`evenredigheid` nounpl  
+ evenredigheid ( NOUN NOUN_SINGULAR ) 
+ evenredigst ( ADJECTIVE ) lemma=`evenredig` adj  
+ evenredigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenredig`evenredigste` adj  nounsg  
+ eventualiteit ( NOUN NOUN_SINGULAR ) 
+ eventualiteiten ( NOUN NOUN_PLURAL ) lemma=`eventualiteit` nounpl  
+ eventueel ( ADJECTIVE ) 
+ eventuele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`eventueel`eventuele` adj  nounsg  
+ evenveel ( NOUN NOUN_NUMBER ) 
+ evenvele ( NOUN NOUN_NUMBER ) lemma=`evenveel` num__card  
+ evenwel ( ADVERB ) 
+ evenwicht ( NOUN NOUN_SINGULAR ) 
+ evenwichtig ( ADJECTIVE ) 
+ evenwichtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenwichtig`evenwichtige` adj  nounsg  
+ evenwichtiger ( ADJECTIVE ) lemma=`evenwichtig` adj  
+ evenwichtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenwichtig`evenwichtigere` adj  nounsg  
+ evenwichtigheid ( NOUN NOUN_SINGULAR ) 
+ evenwichtigst ( ADJECTIVE ) lemma=`evenwichtig` adj  
+ evenwichtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenwichtig`evenwichtigste` adj  nounsg  
+ evenwichtsbalk ( NOUN NOUN_SINGULAR ) 
+ evenwichtsbalken ( NOUN NOUN_PLURAL ) lemma=`evenwichtsbalk` nounpl  
+ evenwichtsorgaan ( NOUN NOUN_SINGULAR ) 
+ evenwichtsorganen ( NOUN NOUN_PLURAL ) lemma=`evenwichtsorgaan` nounpl  
+ evenwijdig ( ADJECTIVE ) 
+ evenwijdige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenwijdig`evenwijdige` adj  nounsg  
+ evenwijdiger ( ADJECTIVE ) lemma=`evenwijdig` adj  
+ evenwijdigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenwijdig`evenwijdigere` adj  nounsg  
+ evenwijdigheid ( NOUN NOUN_SINGULAR ) 
+ evenwijdigst ( ADJECTIVE ) lemma=`evenwijdig` adj  
+ evenwijdigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evenwijdig`evenwijdigste` adj  nounsg  
+ evenzeer ( ADVERB ) 
+ ever ( NOUN NOUN_SINGULAR ) 
+ evers ( NOUN NOUN_PLURAL ) lemma=`ever` nounpl  
+ evertje ( NOUN NOUN_SINGULAR ) lemma=`ever` nounsg  
+ evertjes ( NOUN NOUN_PLURAL ) lemma=`ever` nounpl  
+ everzwijn ( NOUN NOUN_SINGULAR ) 
+ everzwijnen ( NOUN NOUN_PLURAL ) lemma=`everzwijn` nounpl  
+ evident ( ADJECTIVE ) 
+ evidente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evident`evidente` adj  nounsg  
+ evidenter ( ADJECTIVE ) lemma=`evident` adj  
+ evidentere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evident`evidentere` adj  nounsg  
+ evidentst ( ADJECTIVE ) lemma=`evident` adj  
+ evidentste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`evident`evidentste` adj  nounsg  
+ evolueer ( VERB_PRESENT VERB ) lemma=`evolueren` verbpressg  
+ evolueerde ( VERB_PAST VERB ) lemma=`evolueren` verbpastsg  
+ evolueerden ( VERB_PAST VERB ) lemma=`evolueren` verbpastpl  
+ evolueert ( VERB_PRESENT VERB ) lemma=`evolueren` verbpressg  
+ evolueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`evolueren`evolueren`evolueren` nounsg  verbinf  verbprespl  
+ evoluerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`evolueren` verbpresp  
+ evoluerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`evoluerende`evolueren` nounsg  verbpresp  
+ evolutie ( NOUN NOUN_SINGULAR ) 
+ evolutiebiologie ( NOUN NOUN_SINGULAR ) 
+ evoluties ( NOUN NOUN_PLURAL ) lemma=`evolutie` nounpl  
+ evolutietheorie ( NOUN NOUN_SINGULAR ) 
+ evolutietheorieën ( NOUN NOUN_PLURAL ) lemma=`evolutietheorie` nounpl  
+ evolutionair ( ADJECTIVE ) 
+ evolutionist ( NOUN NOUN_SINGULAR ) 
+ evolutionisten ( NOUN NOUN_PLURAL ) lemma=`evolutionist` nounpl  
+ ex ( NOUN NOUN_SINGULAR ) 
+ ex-Joegoslaaf ( NOUN NOUN_SINGULAR ) 
+ ex-burgemeester ( NOUN NOUN_SINGULAR ) 
+ ex-burgemeesters ( NOUN NOUN_PLURAL ) lemma=`ex-burgemeester` nounpl  
+ ex-communist ( NOUN NOUN_SINGULAR ) 
+ ex-communisten ( NOUN NOUN_PLURAL ) lemma=`ex-communist` nounpl  
+ ex-communistisch ( ADJECTIVE ) 
+ ex-echtgenoot ( NOUN NOUN_SINGULAR ) 
+ ex-echtgenoten ( NOUN NOUN_PLURAL ) lemma=`ex-echtgenoot` nounpl  
+ ex-gedetineerde ( NOUN NOUN_SINGULAR ) 
+ ex-gedetineerden ( NOUN NOUN_PLURAL ) lemma=`ex-gedetineerde` nounpl  
+ ex-gevangene ( NOUN NOUN_SINGULAR ) 
+ ex-gevangenen ( NOUN NOUN_PLURAL ) lemma=`ex-gevangene` nounpl  
+ ex-joegoslaven ( NOUN NOUN_PLURAL ) lemma=`ex-Joegoslaaf` nounpl  
+ ex-kolonie ( NOUN NOUN_SINGULAR ) 
+ ex-kolonies ( NOUN NOUN_PLURAL ) lemma=`ex-kolonie` nounpl  
+ ex-koloniën ( NOUN NOUN_PLURAL ) lemma=`ex-kolonie` nounpl  
+ ex-leden ( NOUN NOUN_PLURAL ) lemma=`ex-lid` nounpl  
+ ex-legerleider ( NOUN NOUN_SINGULAR ) 
+ ex-legerleiders ( NOUN NOUN_PLURAL ) lemma=`ex-legerleider` nounpl  
+ ex-libris ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`ex-libris`ex-libris` nounpl  nounsg  
+ ex-librissen ( NOUN NOUN_PLURAL ) lemma=`ex-libris` nounpl  
+ ex-lid ( NOUN NOUN_SINGULAR ) 
+ ex-man ( NOUN NOUN_SINGULAR ) 
+ ex-mannen ( NOUN NOUN_PLURAL ) lemma=`ex-man` nounpl  
+ ex-minister ( NOUN NOUN_SINGULAR ) 
+ ex-ministers ( NOUN NOUN_PLURAL ) lemma=`ex-minister` nounpl  
+ ex-partner ( NOUN NOUN_SINGULAR ) 
+ ex-partners ( NOUN NOUN_PLURAL ) lemma=`ex-partner` nounpl  
+ ex-premier ( NOUN NOUN_SINGULAR ) 
+ ex-premiers ( NOUN NOUN_PLURAL ) lemma=`ex-premier` nounpl  
+ ex-president ( NOUN NOUN_SINGULAR ) 
+ ex-presidenten ( NOUN NOUN_PLURAL ) lemma=`ex-president` nounpl  
+ ex-staatssecretaris ( NOUN NOUN_SINGULAR ) 
+ ex-staatssecretariss ( NOUN NOUN_PLURAL ) lemma=`ex-staatssecretaris` nounpl  
+ ex-staatssecretarissen ( NOUN NOUN_PLURAL ) lemma=`ex-staatssecretaris` nounpl  
+ ex-voorzitter ( NOUN NOUN_SINGULAR ) 
+ ex-voorzitters ( NOUN NOUN_PLURAL ) lemma=`ex-voorzitter` nounpl  
+ ex-vriendin ( NOUN NOUN_SINGULAR ) 
+ ex-vriendinnen ( NOUN NOUN_PLURAL ) lemma=`ex-vriendin` nounpl  
+ ex-vrouw ( NOUN NOUN_SINGULAR ) 
+ ex-vrouwen ( NOUN NOUN_PLURAL ) lemma=`ex-vrouw` nounpl  
+ ex-werknemer ( NOUN NOUN_SINGULAR ) 
+ ex-werknemers ( NOUN NOUN_PLURAL ) lemma=`ex-werknemer` nounpl  
+ exact ( ADJECTIVE ) 
+ exacte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exact`exacte` adj  nounsg  
+ exacter ( ADJECTIVE ) lemma=`exact` adj  
+ exactere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exact`exactere` adj  nounsg  
+ exactheid ( NOUN NOUN_SINGULAR ) 
+ exactst ( ADJECTIVE ) lemma=`exact` adj  
+ exactste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exact`exactste` adj  nounsg  
+ exakt ( ADJECTIVE ) 
+ examen ( NOUN NOUN_SINGULAR ) 
+ exameneis ( NOUN NOUN_SINGULAR ) 
+ exameneisen ( NOUN NOUN_PLURAL ) lemma=`exameneis` nounpl  
+ examenkandidaat ( NOUN NOUN_SINGULAR ) 
+ examenkandidaten ( NOUN NOUN_PLURAL ) lemma=`examenkandidaat` nounpl  
+ examenpakket ( NOUN NOUN_SINGULAR ) 
+ examenpakketten ( NOUN NOUN_PLURAL ) lemma=`examenpakket` nounpl  
+ examenprogramma ( NOUN NOUN_SINGULAR ) 
+ examenprogramma's ( NOUN NOUN_PLURAL ) lemma=`examenprogramma` nounpl  
+ examens ( NOUN NOUN_PLURAL ) lemma=`examen` nounpl  
+ examenstof ( NOUN NOUN_SINGULAR ) 
+ examentje ( NOUN NOUN_SINGULAR ) lemma=`examen` nounsg  
+ examentjes ( NOUN NOUN_PLURAL ) lemma=`examen` nounpl  
+ examentraining ( NOUN NOUN_SINGULAR ) 
+ examentrainingen ( NOUN NOUN_PLURAL ) lemma=`examentraining` nounpl  
+ examenvak ( NOUN NOUN_SINGULAR ) 
+ examenvakken ( NOUN NOUN_PLURAL ) lemma=`examenvak` nounpl  
+ examina ( NOUN NOUN_PLURAL ) lemma=`examen` nounpl  
+ examinator ( NOUN NOUN_SINGULAR ) 
+ examinatoren ( NOUN NOUN_PLURAL ) lemma=`examinator` nounpl  
+ examinators ( NOUN NOUN_PLURAL ) lemma=`examinator` nounpl  
+ examinatrice ( NOUN NOUN_SINGULAR ) 
+ examinatrices ( NOUN NOUN_PLURAL ) lemma=`examinatrice` nounpl  
+ examineer ( VERB_PRESENT VERB ) lemma=`examineren` verbpressg  
+ examineerde ( VERB_PAST VERB ) lemma=`examineren` verbpastsg  
+ examineerden ( VERB_PAST VERB ) lemma=`examineren` verbpastpl  
+ examineert ( VERB_PRESENT VERB ) lemma=`examineren` verbpressg  
+ examineren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`examineren`examineren`examineren` nounsg  verbinf  verbprespl  
+ examinerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`examineren` verbpresp  
+ examinerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`examinerende`examineren` nounsg  verbpresp  
+ excelleer ( VERB_PRESENT VERB ) lemma=`excelleren` verbpressg  
+ excelleerde ( VERB_PAST VERB ) lemma=`excelleren` verbpastsg  
+ excelleerden ( VERB_PAST VERB ) lemma=`excelleren` verbpastpl  
+ excelleert ( VERB_PRESENT VERB ) lemma=`excelleren` verbpressg  
+ excellent ( ADJECTIVE ) 
+ excellente ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excellent`excellente` adj  nounsg  
+ excellenter ( ADJECTIVE ) lemma=`excellent` adj  
+ excellentere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excellent`excellentere` adj  nounsg  
+ excellenties ( NOUN NOUN_PLURAL ) lemma=`excellentie` nounpl  
+ excellentst ( ADJECTIVE ) lemma=`excellent` adj  
+ excellentste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excellent`excellentste` adj  nounsg  
+ excelleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`excelleren`excelleren`excelleren` nounsg  verbinf  verbprespl  
+ excellerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`excelleren` verbpresp  
+ excellerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`excellerende`excelleren` nounsg  verbpresp  
+ excentriek ( ADJECTIVE ) 
+ excentrieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excentriek`excentrieke` adj  nounsg  
+ excentriekeling ( NOUN NOUN_SINGULAR ) 
+ excentriekelingen ( NOUN NOUN_PLURAL ) lemma=`excentriekeling` nounpl  
+ excentrieker ( ADJECTIVE ) lemma=`excentriek` adj  
+ excentriekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excentriek`excentriekere` adj  nounsg  
+ excentriekst ( ADJECTIVE ) lemma=`excentriek` adj  
+ excentriekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excentriek`excentriekste` adj  nounsg  
+ excentrisch ( ADJECTIVE ) 
+ excentrische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excentrisch`excentrische` adj  nounsg  
+ excentrischer ( ADJECTIVE ) lemma=`excentrisch` adj  
+ excentrischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excentrisch`excentrischere` adj  nounsg  
+ excentrischt ( ADJECTIVE ) lemma=`excentrisch` adj  
+ excentrischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excentrisch`excentrischte` adj  nounsg  
+ exceptioneel ( ADJECTIVE ) 
+ exceptioneelst ( ADJECTIVE ) lemma=`exceptioneel` adj  
+ exceptioneelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exceptioneel`exceptioneelste` adj  nounsg  
+ exceptionele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exceptioneel`exceptionele` adj  nounsg  
+ exceptioneler ( ADJECTIVE ) lemma=`exceptioneel` adj  
+ exceptionelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exceptioneel`exceptionelere` adj  nounsg  
+ excerpeer ( VERB_PRESENT VERB ) lemma=`excerperen` verbpressg  
+ excerpeerde ( VERB_PAST VERB ) lemma=`excerperen` verbpastsg  
+ excerpeerden ( VERB_PAST VERB ) lemma=`excerperen` verbpastpl  
+ excerpeert ( VERB_PRESENT VERB ) lemma=`excerperen` verbpressg  
+ excerperen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`excerperen`excerperen`excerperen` nounsg  verbinf  verbprespl  
+ excerperend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`excerperen` verbpresp  
+ excerperende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`excerperende`excerperen` nounsg  verbpresp  
+ excerpt ( NOUN NOUN_SINGULAR ) 
+ excerpten ( NOUN NOUN_PLURAL ) lemma=`excerpt` nounpl  
+ exces ( NOUN NOUN_SINGULAR ) 
+ excessen ( NOUN NOUN_PLURAL ) lemma=`exces` nounpl  
+ excessief ( ADJECTIVE ) 
+ excessiefst ( ADJECTIVE ) lemma=`excessief` adj  
+ excessiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excessief`excessiefste` adj  nounsg  
+ excessieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excessief`excessieve` adj  nounsg  
+ excessiever ( ADJECTIVE ) lemma=`excessief` adj  
+ excessievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`excessief`excessievere` adj  nounsg  
+ exclusief ( ADJECTIVE ) 
+ exclusiefst ( ADJECTIVE ) lemma=`exclusief` adj  
+ exclusiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exclusief`exclusiefste` adj  nounsg  
+ exclusieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exclusief`exclusieve` adj  nounsg  
+ exclusiever ( ADJECTIVE ) lemma=`exclusief` adj  
+ exclusievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exclusief`exclusievere` adj  nounsg  
+ excommunicatie ( NOUN NOUN_SINGULAR ) 
+ excommunicaties ( NOUN NOUN_PLURAL ) lemma=`excommunicatie` nounpl  
+ excommuniceer ( VERB_PRESENT VERB ) lemma=`excommuniceren` verbpressg  
+ excommuniceerde ( VERB_PAST VERB ) lemma=`excommuniceren` verbpastsg  
+ excommuniceerden ( VERB_PAST VERB ) lemma=`excommuniceren` verbpastpl  
+ excommuniceert ( VERB_PRESENT VERB ) lemma=`excommuniceren` verbpressg  
+ excommuniceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`excommuniceren`excommuniceren`excommuniceren` nounsg  verbinf  verbprespl  
+ excommunicerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`excommuniceren` verbpresp  
+ excommunicerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`excommunicerende`excommuniceren` nounsg  verbpresp  
+ excursie ( NOUN NOUN_SINGULAR ) 
+ excursies ( NOUN NOUN_PLURAL ) lemma=`excursie` nounpl  
+ excuseer ( VERB_PRESENT VERB INTERJECTION ) lemma=`excuseer`excuseren` int  verbpressg  
+ excuseerde ( VERB_PAST VERB ) lemma=`excuseren` verbpastsg  
+ excuseerden ( VERB_PAST VERB ) lemma=`excuseren` verbpastpl  
+ excuseert ( VERB_PRESENT VERB ) lemma=`excuseren` verbpressg  
+ excuseren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`excuseren`excuseren`excuseren` nounsg  verbinf  verbprespl  
+ excuserend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`excuseren` verbpresp  
+ excuserende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`excuserende`excuseren` nounsg  verbpresp  
+ excuses ( NOUN NOUN_PLURAL ) lemma=`excuus` nounpl  
+ excuus ( NOUN NOUN_SINGULAR ) 
+ executeer ( VERB_PRESENT VERB ) lemma=`executeren` verbpressg  
+ executeerde ( VERB_PAST VERB ) lemma=`executeren` verbpastsg  
+ executeerden ( VERB_PAST VERB ) lemma=`executeren` verbpastpl  
+ executeert ( VERB_PRESENT VERB ) lemma=`executeren` verbpressg  
+ executeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`executeren`executeren`executeren` nounsg  verbinf  verbprespl  
+ executerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`executeren` verbpresp  
+ executerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`executerende`executeren` nounsg  verbpresp  
+ executie ( NOUN NOUN_SINGULAR ) 
+ executies ( NOUN NOUN_PLURAL ) lemma=`executie` nounpl  
+ executiewaarde ( NOUN NOUN_SINGULAR ) 
+ exegese ( NOUN NOUN_SINGULAR ) 
+ exegesen ( NOUN NOUN_PLURAL ) lemma=`exegese` nounpl  
+ exegeses ( NOUN NOUN_PLURAL ) lemma=`exegese` nounpl  
+ exemplaar ( NOUN NOUN_SINGULAR ) 
+ exemplaartje ( NOUN NOUN_SINGULAR ) lemma=`exemplaar` nounsg  
+ exemplaartjes ( NOUN NOUN_PLURAL ) lemma=`exemplaar` nounpl  
+ exemplaren ( NOUN NOUN_PLURAL ) lemma=`exemplaar` nounpl  
+ exemplarisch ( ADJECTIVE ) 
+ exemplarische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exemplarisch`exemplarische` adj  nounsg  
+ exen ( NOUN NOUN_PLURAL ) lemma=`ex` nounpl  
+ exercitie ( NOUN NOUN_SINGULAR ) 
+ exercities ( NOUN NOUN_PLURAL ) lemma=`exercitie` nounpl  
+ exercitiën ( NOUN NOUN_PLURAL ) lemma=`exercitie` nounpl  
+ exhibitionisme ( NOUN NOUN_SINGULAR ) 
+ exhibitionist ( NOUN NOUN_SINGULAR ) 
+ exhibitionisten ( NOUN NOUN_PLURAL ) lemma=`exhibitionist` nounpl  
+ exhibitionistisch ( ADJECTIVE ) 
+ exhibitionistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exhibitionistisch`exhibitionistische` adj  nounsg  
+ existeer ( VERB_PRESENT VERB ) lemma=`existeren` verbpressg  
+ existeerde ( VERB_PAST VERB ) lemma=`existeren` verbpastsg  
+ existeerden ( VERB_PAST VERB ) lemma=`existeren` verbpastpl  
+ existeert ( VERB_PRESENT VERB ) lemma=`existeren` verbpressg  
+ existentie ( NOUN NOUN_SINGULAR ) 
+ existentieel ( ADJECTIVE ) 
+ existenties ( NOUN NOUN_PLURAL ) lemma=`existentie` nounpl  
+ existentiële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`existentieel`existentiële` adj  nounsg  
+ existeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`existeren`existeren`existeren` nounsg  verbinf  verbprespl  
+ existerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`existeren` verbpresp  
+ existerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`existerende`existeren` nounsg  verbpresp  
+ exkommuniceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`exkommuniceren`exkommuniceren`exkommuniceren` nounsg  verbinf  verbprespl  
+ exodus ( NOUN NOUN_SINGULAR ) 
+ exorbitant ( ADJECTIVE ) 
+ exorbitante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exorbitant`exorbitante` adj  nounsg  
+ exorbitanter ( ADJECTIVE ) lemma=`exorbitant` adj  
+ exorbitantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exorbitant`exorbitantere` adj  nounsg  
+ exorbitantst ( ADJECTIVE ) lemma=`exorbitant` adj  
+ exorbitantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exorbitant`exorbitantste` adj  nounsg  
+ exorcisme ( NOUN NOUN_SINGULAR ) 
+ exotisch ( ADJECTIVE ) 
+ exotische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exotisch`exotische` adj  nounsg  
+ exotischer ( ADJECTIVE ) lemma=`exotisch` adj  
+ exotischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exotisch`exotischere` adj  nounsg  
+ exotischt ( ADJECTIVE ) lemma=`exotisch` adj  
+ exotischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exotisch`exotischte` adj  nounsg  
+ expandeer ( VERB_PRESENT VERB ) lemma=`expanderen` verbpressg  
+ expandeerde ( VERB_PAST VERB ) lemma=`expanderen` verbpastsg  
+ expandeerden ( VERB_PAST VERB ) lemma=`expanderen` verbpastpl  
+ expandeert ( VERB_PRESENT VERB ) lemma=`expanderen` verbpressg  
+ expanderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`expanderen`expanderen`expanderen` nounsg  verbinf  verbprespl  
+ expanderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`expanderen` verbpresp  
+ expanderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`expanderende`expanderen` nounsg  verbpresp  
+ expansie ( NOUN NOUN_SINGULAR ) 
+ expansief ( ADJECTIVE ) 
+ expansiefst ( ADJECTIVE ) lemma=`expansief` adj  
+ expansiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expansief`expansiefste` adj  nounsg  
+ expansieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expansief`expansieve` adj  nounsg  
+ expansiever ( ADJECTIVE ) lemma=`expansief` adj  
+ expansievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expansief`expansievere` adj  nounsg  
+ expediteur ( NOUN NOUN_SINGULAR ) 
+ expediteuren ( NOUN NOUN_PLURAL ) lemma=`expediteur` nounpl  
+ expediteurs ( NOUN NOUN_PLURAL ) lemma=`expediteur` nounpl  
+ expeditie ( NOUN NOUN_SINGULAR ) 
+ expeditieleider ( NOUN NOUN_SINGULAR ) 
+ expeditieleiders ( NOUN NOUN_PLURAL ) lemma=`expeditieleider` nounpl  
+ expedities ( NOUN NOUN_PLURAL ) lemma=`expeditie` nounpl  
+ experiment ( NOUN NOUN_SINGULAR ) 
+ experimenteel ( ADJECTIVE ) 
+ experimenteer ( VERB_PRESENT VERB ) lemma=`experimenteren` verbpressg  
+ experimenteerde ( VERB_PAST VERB ) lemma=`experimenteren` verbpastsg  
+ experimenteerden ( VERB_PAST VERB ) lemma=`experimenteren` verbpastpl  
+ experimenteert ( VERB_PRESENT VERB ) lemma=`experimenteren` verbpressg  
+ experimentele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`experimenteel`experimentele` adj  nounsg  
+ experimenten ( NOUN NOUN_PLURAL ) lemma=`experiment` nounpl  
+ experimenteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`experimenteren`experimenteren`experimenteren` nounsg  verbinf  verbprespl  
+ experimenterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`experimenteren` verbpresp  
+ experimenterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`experimenterende`experimenteren` nounsg  verbpresp  
+ experimentjes ( NOUN NOUN_PLURAL ) lemma=`experiment` nounpl  
+ expert ( NOUN NOUN_SINGULAR ) 
+ expertise ( NOUN NOUN_SINGULAR ) 
+ expertisen ( NOUN NOUN_PLURAL ) lemma=`expertise` nounpl  
+ expertises ( NOUN NOUN_PLURAL ) lemma=`expertise` nounpl  
+ experts ( NOUN NOUN_PLURAL ) lemma=`expert` nounpl  
+ explicatie ( NOUN NOUN_SINGULAR ) 
+ explicaties ( NOUN NOUN_PLURAL ) lemma=`explicatie` nounpl  
+ expliceer ( VERB_PRESENT VERB ) lemma=`expliceren` verbpressg  
+ expliceerde ( VERB_PAST VERB ) lemma=`expliceren` verbpastsg  
+ expliceerden ( VERB_PAST VERB ) lemma=`expliceren` verbpastpl  
+ expliceert ( VERB_PRESENT VERB ) lemma=`expliceren` verbpressg  
+ expliceren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`expliceren`expliceren`expliceren` nounsg  verbinf  verbprespl  
+ explicerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`expliceren` verbpresp  
+ explicerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`explicerende`expliceren` nounsg  verbpresp  
+ expliciet ( ADJECTIVE ) 
+ expliciete ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expliciet`expliciete` adj  nounsg  
+ expliciteer ( VERB_PRESENT VERB ) lemma=`expliciteren` verbpressg  
+ expliciteerde ( VERB_PAST VERB ) lemma=`expliciteren` verbpastsg  
+ expliciteerden ( VERB_PAST VERB ) lemma=`expliciteren` verbpastpl  
+ expliciteert ( VERB_PRESENT VERB ) lemma=`expliciteren` verbpressg  
+ expliciteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`expliciteren`expliciteren`expliciteren` nounsg  verbinf  verbprespl  
+ expliciterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`expliciteren` verbpresp  
+ expliciterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`expliciterende`expliciteren` nounsg  verbpresp  
+ expliqueer ( VERB_PRESENT VERB ) lemma=`expliqueren` verbpressg  
+ expliqueerde ( VERB_PAST VERB ) lemma=`expliqueren` verbpastsg  
+ expliqueerden ( VERB_PAST VERB ) lemma=`expliqueren` verbpastpl  
+ expliqueert ( VERB_PRESENT VERB ) lemma=`expliqueren` verbpressg  
+ expliqueren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`expliqueren`expliqueren`expliqueren` nounsg  verbinf  verbprespl  
+ expliquerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`expliqueren` verbpresp  
+ expliquerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`expliquerende`expliqueren` nounsg  verbpresp  
+ explodeer ( VERB_PRESENT VERB ) lemma=`exploderen` verbpressg  
+ explodeerde ( VERB_PAST VERB ) lemma=`exploderen` verbpastsg  
+ explodeerden ( VERB_PAST VERB ) lemma=`exploderen` verbpastpl  
+ explodeert ( VERB_PRESENT VERB ) lemma=`exploderen` verbpressg  
+ exploderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`exploderen`exploderen`exploderen` nounsg  verbinf  verbprespl  
+ exploderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`exploderen` verbpresp  
+ exploderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`exploderende`exploderen` nounsg  verbpresp  
+ exploitant ( NOUN NOUN_SINGULAR ) 
+ exploitanten ( NOUN NOUN_PLURAL ) lemma=`exploitant` nounpl  
+ exploitatie ( NOUN NOUN_SINGULAR ) 
+ exploitatiekosten ( NOUN NOUN_PLURAL ) 
+ exploitaties ( NOUN NOUN_PLURAL ) lemma=`exploitatie` nounpl  
+ exploitatiesubsidie ( NOUN NOUN_SINGULAR ) 
+ exploitatiesubsidies ( NOUN NOUN_PLURAL ) lemma=`exploitatiesubsidie` nounpl  
+ exploitatietekort ( NOUN NOUN_SINGULAR ) 
+ exploitatietekorten ( NOUN NOUN_PLURAL ) lemma=`exploitatietekort` nounpl  
+ exploiteer ( VERB_PRESENT VERB ) lemma=`exploiteren` verbpressg  
+ exploiteerde ( VERB_PAST VERB ) lemma=`exploiteren` verbpastsg  
+ exploiteerden ( VERB_PAST VERB ) lemma=`exploiteren` verbpastpl  
+ exploiteert ( VERB_PRESENT VERB ) lemma=`exploiteren` verbpressg  
+ exploiteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`exploiteren`exploiteren`exploiteren` nounsg  verbinf  verbprespl  
+ exploiterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`exploiteren` verbpresp  
+ exploiterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`exploiterende`exploiteren` nounsg  verbpresp  
+ exploratie ( NOUN NOUN_SINGULAR ) 
+ exploraties ( NOUN NOUN_PLURAL ) lemma=`exploratie` nounpl  
+ exploreer ( VERB_PRESENT VERB ) lemma=`exploreren` verbpressg  
+ exploreerde ( VERB_PAST VERB ) lemma=`exploreren` verbpastsg  
+ exploreerden ( VERB_PAST VERB ) lemma=`exploreren` verbpastpl  
+ exploreert ( VERB_PRESENT VERB ) lemma=`exploreren` verbpressg  
+ exploreren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`exploreren`exploreren`exploreren` nounsg  verbinf  verbprespl  
+ explorerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`exploreren` verbpresp  
+ explorerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`explorerende`exploreren` nounsg  verbpresp  
+ explosie ( NOUN NOUN_SINGULAR ) 
+ explosief ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`explosief`explosief` adj  nounsg  
+ explosiefst ( ADJECTIVE ) lemma=`explosief` adj  
+ explosiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`explosief`explosiefste` adj  nounsg  
+ explosiegevaar ( NOUN NOUN_SINGULAR ) 
+ explosiemotor ( NOUN NOUN_SINGULAR ) 
+ explosiemotoren ( NOUN NOUN_PLURAL ) lemma=`explosiemotor` nounpl  
+ explosiemotors ( NOUN NOUN_PLURAL ) lemma=`explosiemotor` nounpl  
+ explosies ( NOUN NOUN_PLURAL ) lemma=`explosie` nounpl  
+ explosieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`explosief`explosieve` adj  nounsg  
+ explosieven ( NOUN NOUN_PLURAL ) lemma=`explosief` nounpl  
+ explosiever ( ADJECTIVE ) lemma=`explosief` adj  
+ explosievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`explosief`explosievere` adj  nounsg  
+ expo ( NOUN NOUN_SINGULAR ) 
+ expo's ( NOUN NOUN_PLURAL ) lemma=`expo` nounpl  
+ exponent ( NOUN NOUN_SINGULAR ) 
+ exponenten ( NOUN NOUN_PLURAL ) lemma=`exponent` nounpl  
+ exponentieel ( ADJECTIVE ) 
+ exponentiële ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exponentieel`exponentiële` adj  nounsg  
+ export ( NOUN NOUN_SINGULAR ) 
+ exporteer ( VERB_PRESENT VERB ) lemma=`exporteren` verbpressg  
+ exporteerde ( VERB_PAST VERB ) lemma=`exporteren` verbpastsg  
+ exporteerden ( VERB_PAST VERB ) lemma=`exporteren` verbpastpl  
+ exporteert ( VERB_PRESENT VERB ) lemma=`exporteren` verbpressg  
+ exporteren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`exporteren`exporteren`exporteren` nounsg  verbinf  verbprespl  
+ exporterend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`exporteren` verbpresp  
+ exporterende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`exporterende`exporteren` nounsg  verbpresp  
+ exporteur ( NOUN NOUN_SINGULAR ) 
+ exporteurs ( NOUN NOUN_PLURAL ) lemma=`exporteur` nounpl  
+ exportland ( NOUN NOUN_SINGULAR ) 
+ exportlanden ( NOUN NOUN_PLURAL ) lemma=`exportland` nounpl  
+ exportmarkt ( NOUN NOUN_SINGULAR ) 
+ exportmarkten ( NOUN NOUN_PLURAL ) lemma=`exportmarkt` nounpl  
+ exportproduct ( NOUN NOUN_SINGULAR ) 
+ exportproducten ( NOUN NOUN_PLURAL ) lemma=`exportproduct` nounpl  
+ exportverbod ( NOUN NOUN_SINGULAR ) 
+ exportvergunning ( NOUN NOUN_SINGULAR ) 
+ exportvergunningen ( NOUN NOUN_PLURAL ) lemma=`exportvergunning` nounpl  
+ exportvolume ( NOUN NOUN_SINGULAR ) 
+ exposeer ( VERB_PRESENT VERB ) lemma=`exposeren` verbpressg  
+ exposeerde ( VERB_PAST VERB ) lemma=`exposeren` verbpastsg  
+ exposeerden ( VERB_PAST VERB ) lemma=`exposeren` verbpastpl  
+ exposeert ( VERB_PRESENT VERB ) lemma=`exposeren` verbpressg  
+ exposeetje ( NOUN NOUN_SINGULAR ) lemma=`exposé` nounsg  
+ exposeetjes ( NOUN NOUN_PLURAL ) lemma=`exposé` nounpl  
+ exposeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`exposeren`exposeren`exposeren` nounsg  verbinf  verbprespl  
+ exposerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`exposeren` verbpresp  
+ exposerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`exposerende`exposeren` nounsg  verbpresp  
+ expositie ( NOUN NOUN_SINGULAR ) 
+ expositieruimte ( NOUN NOUN_SINGULAR ) 
+ expositieruimten ( NOUN NOUN_PLURAL ) lemma=`expositieruimte` nounpl  
+ expositieruimtes ( NOUN NOUN_PLURAL ) lemma=`expositieruimte` nounpl  
+ exposities ( NOUN NOUN_PLURAL ) lemma=`expositie` nounpl  
+ exposure ( NOUN NOUN_SINGULAR ) 
+ exposé ( NOUN NOUN_SINGULAR ) 
+ exposés ( NOUN NOUN_PLURAL ) lemma=`exposé` nounpl  
+ expres ( NOUN NOUN_SINGULAR ) 
+ expresbrief ( NOUN NOUN_SINGULAR ) 
+ expresbrieven ( NOUN NOUN_PLURAL ) lemma=`expresbrief` nounpl  
+ expresse ( NOUN NOUN_SINGULAR ) 
+ expressen ( NOUN NOUN_PLURAL ) lemma=`expres|expresse` nounpl  
+ expresses ( NOUN NOUN_PLURAL ) lemma=`expresse` nounpl  
+ expressie ( NOUN NOUN_SINGULAR ) 
+ expressief ( ADJECTIVE ) 
+ expressiefst ( ADJECTIVE ) lemma=`expressief` adj  
+ expressiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expressief`expressiefste` adj  nounsg  
+ expressies ( NOUN NOUN_PLURAL ) lemma=`expressie` nounpl  
+ expressieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expressief`expressieve` adj  nounsg  
+ expressiever ( ADJECTIVE ) lemma=`expressief` adj  
+ expressievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expressief`expressievere` adj  nounsg  
+ expressionisme ( NOUN NOUN_SINGULAR ) 
+ expressionist ( NOUN NOUN_SINGULAR ) 
+ expressionisten ( NOUN NOUN_PLURAL ) lemma=`expressionist` nounpl  
+ expressionistisch ( ADJECTIVE ) 
+ expressionistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expressionistisch`expressionistische` adj  nounsg  
+ expressionistischer ( ADJECTIVE ) lemma=`expressionistisch` adj  
+ expressionistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expressionistisch`expressionistischere` adj  nounsg  
+ expressionistischt ( ADJECTIVE ) lemma=`expressionistisch` adj  
+ expressionistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`expressionistisch`expressionistischte` adj  nounsg  
+ expressiviteit ( NOUN NOUN_SINGULAR ) 
+ exprestrein ( NOUN NOUN_SINGULAR ) 
+ exprestreinen ( NOUN NOUN_PLURAL ) lemma=`exprestrein` nounpl  
+ expresweg ( NOUN NOUN_SINGULAR ) 
+ expreswegen ( NOUN NOUN_PLURAL ) lemma=`expresweg` nounpl  
+ exquis ( ADJECTIVE ) 
+ exquise ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exquis`exquise` adj  nounsg  
+ exquiser ( ADJECTIVE ) lemma=`exquis` adj  
+ exquisere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exquis`exquisere` adj  nounsg  
+ exquist ( ADJECTIVE ) lemma=`exquis` adj  
+ exquiste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exquis`exquiste` adj  nounsg  
+ extase ( NOUN NOUN_SINGULAR ) 
+ extases ( NOUN NOUN_PLURAL ) lemma=`extase` nounpl  
+ extatisch ( ADJECTIVE ) 
+ extatische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extatisch`extatische` adj  nounsg  
+ extatischer ( ADJECTIVE ) lemma=`extatisch` adj  
+ extatischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extatisch`extatischere` adj  nounsg  
+ extatischt ( ADJECTIVE ) lemma=`extatisch` adj  
+ extatischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extatisch`extatischte` adj  nounsg  
+ extaze ( NOUN NOUN_SINGULAR ) 
+ extensief ( ADJECTIVE ) 
+ extensiefst ( ADJECTIVE ) lemma=`extensief` adj  
+ extensiefste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extensief`extensiefste` adj  nounsg  
+ extensieve ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extensief`extensieve` adj  nounsg  
+ extensiever ( ADJECTIVE ) lemma=`extensief` adj  
+ extensievere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extensief`extensievere` adj  nounsg  
+ extern ( ADJECTIVE ) 
+ externe ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extern`externe` adj  nounsg  
+ extra ( ADJECTIVE ) 
+ extraatje ( NOUN NOUN_SINGULAR ) 
+ extraatjes ( NOUN NOUN_PLURAL ) lemma=`extraatje` nounpl  
+ extract ( NOUN NOUN_SINGULAR ) 
+ extracten ( NOUN NOUN_PLURAL ) lemma=`extract` nounpl  
+ extractie ( NOUN NOUN_SINGULAR ) 
+ extracties ( NOUN NOUN_PLURAL ) lemma=`extractie` nounpl  
+ extrakt ( NOUN NOUN_SINGULAR ) 
+ extramuraal ( ADJECTIVE ) 
+ extramurale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extramuraal`extramurale` adj  nounsg  
+ extrapolatie ( NOUN NOUN_SINGULAR ) 
+ extrapolaties ( NOUN NOUN_PLURAL ) lemma=`extrapolatie` nounpl  
+ extrapoleer ( VERB_PRESENT VERB ) lemma=`extrapoleren` verbpressg  
+ extrapoleerde ( VERB_PAST VERB ) lemma=`extrapoleren` verbpastsg  
+ extrapoleerden ( VERB_PAST VERB ) lemma=`extrapoleren` verbpastpl  
+ extrapoleert ( VERB_PRESENT VERB ) lemma=`extrapoleren` verbpressg  
+ extrapoleren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`extrapoleren`extrapoleren`extrapoleren` nounsg  verbinf  verbprespl  
+ extrapolerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`extrapoleren` verbpresp  
+ extrapolerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`extrapolerende`extrapoleren` nounsg  verbpresp  
+ extravagant ( ADJECTIVE ) 
+ extravagante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extravagant`extravagante` adj  nounsg  
+ extravaganter ( ADJECTIVE ) lemma=`extravagant` adj  
+ extravagantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extravagant`extravagantere` adj  nounsg  
+ extravagantst ( ADJECTIVE ) lemma=`extravagant` adj  
+ extravagantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extravagant`extravagantste` adj  nounsg  
+ extraversie ( NOUN NOUN_SINGULAR ) 
+ extravert ( ADJECTIVE ) 
+ extraverte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extravert`extraverte` adj  nounsg  
+ extraverter ( ADJECTIVE ) lemma=`extravert` adj  
+ extravertere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extravert`extravertere` adj  nounsg  
+ extravertst ( ADJECTIVE ) lemma=`extravert` adj  
+ extravertste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extravert`extravertste` adj  nounsg  
+ extreem ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extreem`extreem` adj  nounsg  
+ extreem-links ( ADJECTIVE ) 
+ extreem-nationalistisch ( ADJECTIVE ) 
+ extreem-rechts ( ADJECTIVE ) 
+ extreemst ( ADJECTIVE ) lemma=`extreem` adj  
+ extreemste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extreem`extreemste` adj  nounsg  
+ extreme ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extreem`extreme` adj  nounsg  
+ extremen ( NOUN NOUN_PLURAL ) lemma=`extreem` nounpl  
+ extremer ( ADJECTIVE ) lemma=`extreem` adj  
+ extremere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extreem`extremere` adj  nounsg  
+ extremisme ( NOUN NOUN_SINGULAR ) 
+ extremist ( NOUN NOUN_SINGULAR ) 
+ extremisten ( NOUN NOUN_PLURAL ) lemma=`extremist` nounpl  
+ extremistisch ( ADJECTIVE ) 
+ extremistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extremistisch`extremistische` adj  nounsg  
+ extremistischer ( ADJECTIVE ) lemma=`extremistisch` adj  
+ extremistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extremistisch`extremistischere` adj  nounsg  
+ extremistischt ( ADJECTIVE ) lemma=`extremistisch` adj  
+ extremistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extremistisch`extremistischte` adj  nounsg  
+ extremiteit ( NOUN NOUN_SINGULAR ) 
+ extremiteiten ( NOUN NOUN_PLURAL ) lemma=`extremiteit` nounpl  
+ extrovert ( ADJECTIVE ) 
+ extroverte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extrovert`extroverte` adj  nounsg  
+ extroverter ( ADJECTIVE ) lemma=`extrovert` adj  
+ extrovertere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extrovert`extrovertere` adj  nounsg  
+ extrovertst ( ADJECTIVE ) lemma=`extrovert` adj  
+ extrovertste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`extrovert`extrovertste` adj  nounsg  
+ exuberant ( ADJECTIVE ) 
+ exuberante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exuberant`exuberante` adj  nounsg  
+ exuberanter ( ADJECTIVE ) lemma=`exuberant` adj  
+ exuberantere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exuberant`exuberantere` adj  nounsg  
+ exuberantst ( ADJECTIVE ) lemma=`exuberant` adj  
+ exuberantste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`exuberant`exuberantste` adj  nounsg  
+ eye-liner ( NOUN NOUN_SINGULAR ) 
+ eye-liners ( NOUN NOUN_PLURAL ) lemma=`eye-liner` nounpl  
+ eyeliner ( NOUN NOUN_SINGULAR ) 
+ eyeliners ( NOUN NOUN_PLURAL ) lemma=`eyeliner` nounpl  
+ ezel ( NOUN NOUN_SINGULAR ) 
+ ezelin ( NOUN NOUN_SINGULAR ) 
+ ezelinnen ( NOUN NOUN_PLURAL ) lemma=`ezelin` nounpl  
+ ezelinnetje ( NOUN NOUN_SINGULAR ) lemma=`ezelin` nounsg  
+ ezelinnetjes ( NOUN NOUN_PLURAL ) lemma=`ezelin` nounpl  
+ ezels ( NOUN NOUN_PLURAL ) lemma=`ezel` nounpl  
+ ezelsbruggetje ( NOUN NOUN_SINGULAR ) 
+ ezelsbruggetjes ( NOUN NOUN_PLURAL ) lemma=`ezelsbruggetje` nounpl  
+ ezelsoor ( NOUN NOUN_SINGULAR ) 
+ ezelsoren ( NOUN NOUN_PLURAL ) lemma=`ezelsoor` nounpl  
+ ezeltje ( NOUN NOUN_SINGULAR ) lemma=`ezel` nounsg  
+ ezeltjes ( NOUN NOUN_PLURAL ) lemma=`ezel` nounpl  

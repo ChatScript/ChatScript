@@ -1,0 +1,46 @@
+﻿ Y-assen ( NOUN NOUN_PLURAL ) lemma=`Y-as` nounpl  
+ Y-chromosomen ( NOUN NOUN_PLURAL ) lemma=`Y-chromosoom` nounpl  
+ Y-chromosoom ( NOUN NOUN_SINGULAR ) 
+ Y. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`Y.`Y.` nounabbr  num__ord  
+ Yamoussoukro ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yaoundé ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yaren ( NOUN NOUN_PROPER_SINGULAR ) 
+ y ( NOUN NOUN_SINGULAR ) 
+ y's ( NOUN NOUN_PLURAL ) lemma=`y` nounpl  
+ y-as ( NOUN NOUN_SINGULAR ) 
+ y-assen ( NOUN NOUN_PLURAL ) lemma=`y-as` nounpl  
+ yahtze ( NOUN NOUN_SINGULAR ) 
+ yahtzee ( NOUN NOUN_SINGULAR ) 
+ yalesleutel ( NOUN NOUN_SINGULAR ) 
+ yalesleutels ( NOUN NOUN_PLURAL ) lemma=`yalesleutel` nounpl  
+ yaleslot ( NOUN NOUN_SINGULAR ) 
+ yalesloten ( NOUN NOUN_PLURAL ) lemma=`yaleslot` nounpl  
+ yang ( NOUN NOUN_SINGULAR ) 
+ yank ( NOUN NOUN_SINGULAR ) 
+ yankee ( NOUN NOUN_SINGULAR ) 
+ yankees ( NOUN NOUN_PLURAL ) lemma=`yankee` nounpl  
+ yanks ( NOUN NOUN_PLURAL ) lemma=`yank` nounpl  
+ yard ( NOUN NOUN_SINGULAR ) 
+ yards ( NOUN NOUN_PLURAL ) lemma=`yard` nounpl  
+ yell ( NOUN NOUN_SINGULAR ) 
+ yells ( NOUN NOUN_PLURAL ) lemma=`yell` nounpl  
+ yen ( NOUN NOUN_SINGULAR ) 
+ yens ( NOUN NOUN_PLURAL ) lemma=`yen` nounpl  
+ yeti ( NOUN NOUN_SINGULAR ) 
+ yin ( NOUN NOUN_SINGULAR ) 
+ yoga ( NOUN NOUN_SINGULAR ) 
+ yoghurt ( NOUN NOUN_SINGULAR ) 
+ yoghurtijs ( NOUN NOUN_SINGULAR ) 
+ yogi ( NOUN NOUN_SINGULAR ) 
+ yogi's ( NOUN NOUN_PLURAL ) lemma=`yogi` nounpl  
+ yogin ( NOUN NOUN_PLURAL ) lemma=`yogi` nounpl  
+ ypsilon ( NOUN NOUN_SINGULAR ) 
+ ypsilons ( NOUN NOUN_PLURAL ) lemma=`ypsilon` nounpl  
+ yuca ( NOUN NOUN_SINGULAR ) 
+ yuca's ( NOUN NOUN_PLURAL ) lemma=`yuca` nounpl  
+ yucca ( NOUN NOUN_SINGULAR ) 
+ yucca's ( NOUN NOUN_PLURAL ) lemma=`yucca` nounpl  
+ yup ( NOUN NOUN_SINGULAR ) 
+ yuppen ( NOUN NOUN_PLURAL ) lemma=`yup` nounpl  
+ yuppie ( NOUN NOUN_SINGULAR ) 
+ yuppies ( NOUN NOUN_PLURAL ) lemma=`yuppie` nounpl  

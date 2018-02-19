@@ -1,0 +1,1187 @@
+﻿ Z.a.c. ( ) 
+ ZEP ( ) 
+ Zaire ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zambie ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zamet ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zebigbos ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zenzila ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zimbabwe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zinoview ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zita ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zurich ( NOUN NOUN_PROPER_SINGULAR ) 
+ z ( NOUN NOUN_SINGULAR ) 
+ zabre ( NOUN NOUN_SINGULAR ) 
+ zabres ( NOUN NOUN_SINGULAR ) lemma=`zabre` NOM  
+ zada ( VERB_PAST VERB ) lemma=`zader` VER:simp  
+ zadai ( VERB_PAST VERB ) lemma=`zader` VER:simp  
+ zadaient ( VERB ) lemma=`zader` VER:impf  
+ zadais ( VERB ) lemma=`zader` VER:impf  
+ zadait ( VERB ) lemma=`zader` VER:impf  
+ zadant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zader` VER:ppre  
+ zadas ( VERB_PAST VERB ) lemma=`zader` VER:simp  
+ zadasse ( VERB ) lemma=`zader` VER:subi  
+ zadassent ( VERB ) lemma=`zader` VER:subi  
+ zadasses ( VERB ) lemma=`zader` VER:subi  
+ zadassiez ( VERB ) lemma=`zader` VER:subi  
+ zadassions ( VERB ) lemma=`zader` VER:subi  
+ zade ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zader`zader`zader` VER:impe  VER:pres  VER:subp  
+ zadent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zader`zader` VER:pres  VER:subp  
+ zader ( VERB_INFINITIVE VERB ) 
+ zadera ( VERB ) lemma=`zader` VER:futu  
+ zaderai ( VERB ) lemma=`zader` VER:futu  
+ zaderaient ( VERB ) lemma=`zader` VER:cond  
+ zaderais ( VERB ) lemma=`zader` VER:cond  
+ zaderait ( VERB ) lemma=`zader` VER:cond  
+ zaderas ( VERB ) lemma=`zader` VER:futu  
+ zaderez ( VERB ) lemma=`zader` VER:futu  
+ zaderiez ( VERB ) lemma=`zader` VER:cond  
+ zaderions ( VERB ) lemma=`zader` VER:cond  
+ zaderons ( VERB ) lemma=`zader` VER:futu  
+ zaderont ( VERB ) lemma=`zader` VER:futu  
+ zades ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zader`zader` VER:pres  VER:subp  
+ zadez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zader`zader` VER:impe  VER:pres  
+ zadiez ( VERB ) lemma=`zader`zader` VER:impf  VER:subp  
+ zadions ( VERB ) lemma=`zader`zader` VER:impf  VER:subp  
+ zadons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zader`zader` VER:impe  VER:pres  
+ zadruga ( NOUN NOUN_SINGULAR ) 
+ zadrugas ( NOUN NOUN_SINGULAR ) lemma=`zadruga` NOM  
+ zadâmes ( VERB_PAST VERB ) lemma=`zader` VER:simp  
+ zadât ( VERB ) lemma=`zader` VER:subi  
+ zadâtes ( VERB_PAST VERB ) lemma=`zader` VER:simp  
+ zadèrent ( VERB_PAST VERB ) lemma=`zader` VER:simp  
+ zadé ( VERB_PAST_PARTICIPLE VERB ) lemma=`zader` VER:pper  
+ zadée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zader` VER:pper  
+ zadées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zader` VER:pper  
+ zadés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zader` VER:pper  
+ zagaie ( NOUN NOUN_SINGULAR ) 
+ zagaies ( NOUN NOUN_SINGULAR ) lemma=`zagaie` NOM  
+ zain ( ADJECTIVE ) 
+ zains ( ADJECTIVE ) lemma=`zain` ADJ  
+ zaire ( NOUN NOUN_SINGULAR ) 
+ zaires ( NOUN NOUN_SINGULAR ) lemma=`zaire` NOM  
+ zairois ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zairois`zairois` ADJ  NOM  
+ zairoise ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zairois`zairois` ADJ  NOM  
+ zairoises ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zairois`zairois` ADJ  NOM  
+ zakouski ( NOUN NOUN_SINGULAR ) 
+ zambien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zambien`zambien` ADJ  NOM  
+ zambienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zambien`zambien` ADJ  NOM  
+ zambiennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zambien`zambien` ADJ  NOM  
+ zambiens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zambien`zambien` ADJ  NOM  
+ zamenis ( NOUN NOUN_SINGULAR ) 
+ zamia ( NOUN NOUN_SINGULAR ) 
+ zamias ( NOUN NOUN_SINGULAR ) lemma=`zamia` NOM  
+ zamier ( NOUN NOUN_SINGULAR ) 
+ zamiers ( NOUN NOUN_SINGULAR ) lemma=`zamier` NOM  
+ zamorin ( NOUN NOUN_SINGULAR ) 
+ zamorins ( NOUN NOUN_SINGULAR ) lemma=`zamorin` NOM  
+ zancle ( NOUN NOUN_SINGULAR ) 
+ zancles ( NOUN NOUN_SINGULAR ) lemma=`zancle` NOM  
+ zanni ( NOUN NOUN_SINGULAR ) 
+ zannis ( NOUN NOUN_SINGULAR ) lemma=`zanni` NOM  
+ zanzi ( NOUN NOUN_SINGULAR ) 
+ zanzibar ( NOUN NOUN_SINGULAR ) 
+ zanzibars ( NOUN NOUN_SINGULAR ) lemma=`zanzibar` NOM  
+ zanzis ( NOUN NOUN_SINGULAR ) lemma=`zanzi` NOM  
+ zaouia ( NOUN NOUN_SINGULAR ) 
+ zaouias ( NOUN NOUN_SINGULAR ) lemma=`zaouia` NOM  
+ zapatero ( NOUN NOUN_SINGULAR ) 
+ zapateros ( NOUN NOUN_SINGULAR ) lemma=`zapatero` NOM  
+ zapatéado ( NOUN NOUN_SINGULAR ) 
+ zapatéados ( NOUN NOUN_SINGULAR ) lemma=`zapatéado` NOM  
+ zazou ( NOUN NOUN_SINGULAR ) 
+ zazous ( NOUN NOUN_SINGULAR ) lemma=`zazou` NOM  
+ zaïbatsu ( NOUN NOUN_SINGULAR ) 
+ zaïbatsus ( NOUN NOUN_SINGULAR ) lemma=`zaïbatsu` NOM  
+ zaïmph ( NOUN NOUN_SINGULAR ) 
+ zaïmphs ( NOUN NOUN_SINGULAR ) lemma=`zaïmph` NOM  
+ zaïre ( NOUN NOUN_SINGULAR ) 
+ zaïres ( NOUN NOUN_SINGULAR ) lemma=`zaïre` NOM  
+ zaïrois ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zaïrois`zaïrois` ADJ  NOM  
+ zaïroise ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zaïrois`zaïrois` ADJ  NOM  
+ zaïroises ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zaïrois`zaïrois` ADJ  NOM  
+ zeb ( NOUN NOUN_SINGULAR ) 
+ zebs ( NOUN NOUN_SINGULAR ) lemma=`zeb` NOM  
+ zelanti ( NOUN NOUN_SINGULAR ) 
+ zellige ( NOUN NOUN_SINGULAR ) 
+ zelliges ( NOUN NOUN_SINGULAR ) lemma=`zellige` NOM  
+ zem-zem ( NOUN NOUN_SINGULAR ) 
+ zem-zems ( NOUN NOUN_SINGULAR ) lemma=`zem-zem` NOM  
+ zemstvo ( NOUN NOUN_SINGULAR ) 
+ zemstvos ( NOUN NOUN_SINGULAR ) lemma=`zemstvo` NOM  
+ zen ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zen`zen` ADJ  NOM  
+ zend ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zend`zend` ADJ  NOM  
+ zends ( NOUN NOUN_SINGULAR ) lemma=`zend` NOM  
+ zens ( NOUN NOUN_SINGULAR ) lemma=`zen` NOM  
+ zeppelin ( NOUN NOUN_SINGULAR ) 
+ zeppelins ( NOUN NOUN_SINGULAR ) lemma=`zeppelin` NOM  
+ zerbia ( NOUN NOUN_SINGULAR ) 
+ zerbias ( NOUN NOUN_SINGULAR ) lemma=`zerbia` NOM  
+ zerda ( NOUN NOUN_SINGULAR ) 
+ zerdas ( NOUN NOUN_SINGULAR ) lemma=`zerda` NOM  
+ zest ( NOUN NOUN_SINGULAR ) lemma=`zest`zest` INT  NOM  
+ zesta ( VERB_PAST VERB ) lemma=`zester` VER:simp  
+ zestai ( VERB_PAST VERB ) lemma=`zester` VER:simp  
+ zestaient ( VERB ) lemma=`zester` VER:impf  
+ zestais ( VERB ) lemma=`zester` VER:impf  
+ zestait ( VERB ) lemma=`zester` VER:impf  
+ zestant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zester` VER:ppre  
+ zestas ( VERB_PAST VERB ) lemma=`zester` VER:simp  
+ zestasse ( VERB ) lemma=`zester` VER:subi  
+ zestassent ( VERB ) lemma=`zester` VER:subi  
+ zestasses ( VERB ) lemma=`zester` VER:subi  
+ zestassiez ( VERB ) lemma=`zester` VER:subi  
+ zestassions ( VERB ) lemma=`zester` VER:subi  
+ zeste ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`zeste`zeste`zester`zester`zester` INT  NOM  VER:impe  VER:pres  VER:subp  
+ zestent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zester`zester` VER:pres  VER:subp  
+ zester ( VERB_INFINITIVE VERB ) 
+ zestera ( VERB ) lemma=`zester` VER:futu  
+ zesterai ( VERB ) lemma=`zester` VER:futu  
+ zesteraient ( VERB ) lemma=`zester` VER:cond  
+ zesterais ( VERB ) lemma=`zester` VER:cond  
+ zesterait ( VERB ) lemma=`zester` VER:cond  
+ zesteras ( VERB ) lemma=`zester` VER:futu  
+ zesterez ( VERB ) lemma=`zester` VER:futu  
+ zesteriez ( VERB ) lemma=`zester` VER:cond  
+ zesterions ( VERB ) lemma=`zester` VER:cond  
+ zesterons ( VERB ) lemma=`zester` VER:futu  
+ zesteront ( VERB ) lemma=`zester` VER:futu  
+ zestes ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`zeste`zester`zester` NOM  VER:pres  VER:subp  
+ zesteur ( NOUN NOUN_SINGULAR ) 
+ zesteurs ( NOUN NOUN_SINGULAR ) lemma=`zesteur` NOM  
+ zesteuse ( NOUN NOUN_SINGULAR ) 
+ zesteuses ( NOUN NOUN_SINGULAR ) lemma=`zesteuse` NOM  
+ zestez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zester`zester` VER:impe  VER:pres  
+ zestiez ( VERB ) lemma=`zester`zester` VER:impf  VER:subp  
+ zestions ( VERB ) lemma=`zester`zester` VER:impf  VER:subp  
+ zestons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zester`zester` VER:impe  VER:pres  
+ zests ( NOUN NOUN_SINGULAR ) lemma=`zest` NOM  
+ zestâmes ( VERB_PAST VERB ) lemma=`zester` VER:simp  
+ zestât ( VERB ) lemma=`zester` VER:subi  
+ zestâtes ( VERB_PAST VERB ) lemma=`zester` VER:simp  
+ zestèrent ( VERB_PAST VERB ) lemma=`zester` VER:simp  
+ zesté ( VERB_PAST_PARTICIPLE VERB ) lemma=`zester` VER:pper  
+ zestée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zester` VER:pper  
+ zestées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zester` VER:pper  
+ zestés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zester` VER:pper  
+ zeugite ( NOUN NOUN_SINGULAR ) 
+ zeugites ( NOUN NOUN_SINGULAR ) lemma=`zeugite` NOM  
+ zeugma ( NOUN NOUN_SINGULAR ) 
+ zeugmas ( NOUN NOUN_SINGULAR ) lemma=`zeugma` NOM  
+ zeugme ( NOUN NOUN_SINGULAR ) 
+ zeugmes ( NOUN NOUN_SINGULAR ) lemma=`zeugme` NOM  
+ zeunérite ( NOUN NOUN_SINGULAR ) 
+ zeunérites ( NOUN NOUN_SINGULAR ) lemma=`zeunérite` NOM  
+ zeuzère ( NOUN NOUN_SINGULAR ) 
+ zeuzères ( NOUN NOUN_SINGULAR ) lemma=`zeuzère` NOM  
+ zibeline ( NOUN NOUN_SINGULAR ) 
+ zibelines ( NOUN NOUN_SINGULAR ) lemma=`zibeline` NOM  
+ zibeth ( NOUN NOUN_SINGULAR ) 
+ zibeths ( NOUN NOUN_SINGULAR ) lemma=`zibeth` NOM  
+ zibéthin ( NOUN NOUN_SINGULAR ) 
+ zibéthins ( NOUN NOUN_SINGULAR ) lemma=`zibéthin` NOM  
+ zicral ( NOUN NOUN_SINGULAR ) 
+ zicrals ( NOUN NOUN_SINGULAR ) lemma=`zicral` NOM  
+ zicrone ( NOUN NOUN_SINGULAR ) 
+ zicrones ( NOUN NOUN_SINGULAR ) lemma=`zicrone` NOM  
+ zieuta ( VERB_PAST VERB ) lemma=`zieuter` VER:simp  
+ zieutai ( VERB_PAST VERB ) lemma=`zieuter` VER:simp  
+ zieutaient ( VERB ) lemma=`zieuter` VER:impf  
+ zieutais ( VERB ) lemma=`zieuter` VER:impf  
+ zieutait ( VERB ) lemma=`zieuter` VER:impf  
+ zieutant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zieuter` VER:ppre  
+ zieutas ( VERB_PAST VERB ) lemma=`zieuter` VER:simp  
+ zieutasse ( VERB ) lemma=`zieuter` VER:subi  
+ zieutassent ( VERB ) lemma=`zieuter` VER:subi  
+ zieutasses ( VERB ) lemma=`zieuter` VER:subi  
+ zieutassiez ( VERB ) lemma=`zieuter` VER:subi  
+ zieutassions ( VERB ) lemma=`zieuter` VER:subi  
+ zieute ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zieuter`zieuter`zieuter` VER:impe  VER:pres  VER:subp  
+ zieutent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zieuter`zieuter` VER:pres  VER:subp  
+ zieuter ( VERB_INFINITIVE VERB ) 
+ zieutera ( VERB ) lemma=`zieuter` VER:futu  
+ zieuterai ( VERB ) lemma=`zieuter` VER:futu  
+ zieuteraient ( VERB ) lemma=`zieuter` VER:cond  
+ zieuterais ( VERB ) lemma=`zieuter` VER:cond  
+ zieuterait ( VERB ) lemma=`zieuter` VER:cond  
+ zieuteras ( VERB ) lemma=`zieuter` VER:futu  
+ zieuterez ( VERB ) lemma=`zieuter` VER:futu  
+ zieuteriez ( VERB ) lemma=`zieuter` VER:cond  
+ zieuterions ( VERB ) lemma=`zieuter` VER:cond  
+ zieuterons ( VERB ) lemma=`zieuter` VER:futu  
+ zieuteront ( VERB ) lemma=`zieuter` VER:futu  
+ zieutes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zieuter`zieuter` VER:pres  VER:subp  
+ zieutez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zieuter`zieuter` VER:impe  VER:pres  
+ zieutiez ( VERB ) lemma=`zieuter`zieuter` VER:impf  VER:subp  
+ zieutions ( VERB ) lemma=`zieuter`zieuter` VER:impf  VER:subp  
+ zieutons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zieuter`zieuter` VER:impe  VER:pres  
+ zieutâmes ( VERB_PAST VERB ) lemma=`zieuter` VER:simp  
+ zieutât ( VERB ) lemma=`zieuter` VER:subi  
+ zieutâtes ( VERB_PAST VERB ) lemma=`zieuter` VER:simp  
+ zieutèrent ( VERB_PAST VERB ) lemma=`zieuter` VER:simp  
+ zieuté ( VERB_PAST_PARTICIPLE VERB ) lemma=`zieuter` VER:pper  
+ zieutée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zieuter` VER:pper  
+ zieutées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zieuter` VER:pper  
+ zieutés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zieuter` VER:pper  
+ zig ( NOUN NOUN_SINGULAR ) 
+ ziggourat ( NOUN NOUN_SINGULAR ) 
+ ziggourats ( NOUN NOUN_SINGULAR ) lemma=`ziggourat` NOM  
+ zigomar ( NOUN NOUN_SINGULAR ) 
+ zigomars ( NOUN NOUN_SINGULAR ) lemma=`zigomar` NOM  
+ zigoto ( NOUN NOUN_SINGULAR ) 
+ zigotos ( NOUN NOUN_SINGULAR ) lemma=`zigoto` NOM  
+ zigouilla ( VERB_PAST VERB ) lemma=`zigouiller` VER:simp  
+ zigouillage ( NOUN NOUN_SINGULAR ) 
+ zigouillages ( NOUN NOUN_SINGULAR ) lemma=`zigouillage` NOM  
+ zigouillai ( VERB_PAST VERB ) lemma=`zigouiller` VER:simp  
+ zigouillaient ( VERB ) lemma=`zigouiller` VER:impf  
+ zigouillais ( VERB ) lemma=`zigouiller` VER:impf  
+ zigouillait ( VERB ) lemma=`zigouiller` VER:impf  
+ zigouillant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zigouiller` VER:ppre  
+ zigouillas ( VERB_PAST VERB ) lemma=`zigouiller` VER:simp  
+ zigouillasse ( VERB ) lemma=`zigouiller` VER:subi  
+ zigouillassent ( VERB ) lemma=`zigouiller` VER:subi  
+ zigouillasses ( VERB ) lemma=`zigouiller` VER:subi  
+ zigouillassiez ( VERB ) lemma=`zigouiller` VER:subi  
+ zigouillassions ( VERB ) lemma=`zigouiller` VER:subi  
+ zigouille ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigouiller`zigouiller`zigouiller` VER:impe  VER:pres  VER:subp  
+ zigouillent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigouiller`zigouiller` VER:pres  VER:subp  
+ zigouiller ( VERB_INFINITIVE VERB ) 
+ zigouillera ( VERB ) lemma=`zigouiller` VER:futu  
+ zigouillerai ( VERB ) lemma=`zigouiller` VER:futu  
+ zigouilleraient ( VERB ) lemma=`zigouiller` VER:cond  
+ zigouillerais ( VERB ) lemma=`zigouiller` VER:cond  
+ zigouillerait ( VERB ) lemma=`zigouiller` VER:cond  
+ zigouilleras ( VERB ) lemma=`zigouiller` VER:futu  
+ zigouillerez ( VERB ) lemma=`zigouiller` VER:futu  
+ zigouilleriez ( VERB ) lemma=`zigouiller` VER:cond  
+ zigouillerions ( VERB ) lemma=`zigouiller` VER:cond  
+ zigouillerons ( VERB ) lemma=`zigouiller` VER:futu  
+ zigouilleront ( VERB ) lemma=`zigouiller` VER:futu  
+ zigouilles ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigouiller`zigouiller` VER:pres  VER:subp  
+ zigouillez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigouiller`zigouiller` VER:impe  VER:pres  
+ zigouilliez ( VERB ) lemma=`zigouiller`zigouiller` VER:impf  VER:subp  
+ zigouillions ( VERB ) lemma=`zigouiller`zigouiller` VER:impf  VER:subp  
+ zigouillons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigouiller`zigouiller` VER:impe  VER:pres  
+ zigouillâmes ( VERB_PAST VERB ) lemma=`zigouiller` VER:simp  
+ zigouillât ( VERB ) lemma=`zigouiller` VER:subi  
+ zigouillâtes ( VERB_PAST VERB ) lemma=`zigouiller` VER:simp  
+ zigouillèrent ( VERB_PAST VERB ) lemma=`zigouiller` VER:simp  
+ zigouillé ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigouiller` VER:pper  
+ zigouillée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigouiller` VER:pper  
+ zigouillées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigouiller` VER:pper  
+ zigouillés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigouiller` VER:pper  
+ zigs ( NOUN NOUN_SINGULAR ) lemma=`zig` NOM  
+ zigue ( NOUN NOUN_SINGULAR ) 
+ zigues ( NOUN NOUN_SINGULAR ) lemma=`zigue` NOM  
+ zigzag ( NOUN NOUN_SINGULAR ) 
+ zigzagant ( ADJECTIVE ) 
+ zigzagante ( ADJECTIVE ) lemma=`zigzagant` ADJ  
+ zigzagantes ( ADJECTIVE ) lemma=`zigzagant` ADJ  
+ zigzagants ( ADJECTIVE ) lemma=`zigzagant` ADJ  
+ zigzags ( NOUN NOUN_SINGULAR ) lemma=`zigzag` NOM  
+ zigzagua ( VERB_PAST VERB ) lemma=`zigzaguer` VER:simp  
+ zigzaguai ( VERB_PAST VERB ) lemma=`zigzaguer` VER:simp  
+ zigzaguaient ( VERB ) lemma=`zigzaguer` VER:impf  
+ zigzaguais ( VERB ) lemma=`zigzaguer` VER:impf  
+ zigzaguait ( VERB ) lemma=`zigzaguer` VER:impf  
+ zigzaguant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zigzaguer` VER:ppre  
+ zigzaguas ( VERB_PAST VERB ) lemma=`zigzaguer` VER:simp  
+ zigzaguasse ( VERB ) lemma=`zigzaguer` VER:subi  
+ zigzaguassent ( VERB ) lemma=`zigzaguer` VER:subi  
+ zigzaguasses ( VERB ) lemma=`zigzaguer` VER:subi  
+ zigzaguassiez ( VERB ) lemma=`zigzaguer` VER:subi  
+ zigzaguassions ( VERB ) lemma=`zigzaguer` VER:subi  
+ zigzague ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigzaguer`zigzaguer`zigzaguer` VER:impe  VER:pres  VER:subp  
+ zigzaguent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigzaguer`zigzaguer` VER:pres  VER:subp  
+ zigzaguer ( VERB_INFINITIVE VERB ) 
+ zigzaguera ( VERB ) lemma=`zigzaguer` VER:futu  
+ zigzaguerai ( VERB ) lemma=`zigzaguer` VER:futu  
+ zigzagueraient ( VERB ) lemma=`zigzaguer` VER:cond  
+ zigzaguerais ( VERB ) lemma=`zigzaguer` VER:cond  
+ zigzaguerait ( VERB ) lemma=`zigzaguer` VER:cond  
+ zigzagueras ( VERB ) lemma=`zigzaguer` VER:futu  
+ zigzaguerez ( VERB ) lemma=`zigzaguer` VER:futu  
+ zigzagueriez ( VERB ) lemma=`zigzaguer` VER:cond  
+ zigzaguerions ( VERB ) lemma=`zigzaguer` VER:cond  
+ zigzaguerons ( VERB ) lemma=`zigzaguer` VER:futu  
+ zigzagueront ( VERB ) lemma=`zigzaguer` VER:futu  
+ zigzagues ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigzaguer`zigzaguer` VER:pres  VER:subp  
+ zigzaguez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigzaguer`zigzaguer` VER:impe  VER:pres  
+ zigzaguiez ( VERB ) lemma=`zigzaguer`zigzaguer` VER:impf  VER:subp  
+ zigzaguions ( VERB ) lemma=`zigzaguer`zigzaguer` VER:impf  VER:subp  
+ zigzaguons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zigzaguer`zigzaguer` VER:impe  VER:pres  
+ zigzaguâmes ( VERB_PAST VERB ) lemma=`zigzaguer` VER:simp  
+ zigzaguât ( VERB ) lemma=`zigzaguer` VER:subi  
+ zigzaguâtes ( VERB_PAST VERB ) lemma=`zigzaguer` VER:simp  
+ zigzaguèrent ( VERB_PAST VERB ) lemma=`zigzaguer` VER:simp  
+ zigzagué ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigzaguer` VER:pper  
+ zigzaguée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigzaguer` VER:pper  
+ zigzaguées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigzaguer` VER:pper  
+ zigzagués ( VERB_PAST_PARTICIPLE VERB ) lemma=`zigzaguer` VER:pper  
+ zilcade ( NOUN NOUN_SINGULAR ) 
+ zilcades ( NOUN NOUN_SINGULAR ) lemma=`zilcade` NOM  
+ zinc ( NOUN NOUN_SINGULAR ) 
+ zincage ( NOUN NOUN_SINGULAR ) 
+ zincages ( NOUN NOUN_SINGULAR ) lemma=`zincage` NOM  
+ zincifère ( ADJECTIVE ) 
+ zincifères ( ADJECTIVE ) lemma=`zincifère` ADJ  
+ zincique ( ADJECTIVE ) 
+ zinciques ( ADJECTIVE ) lemma=`zincique` ADJ  
+ zincite ( NOUN NOUN_SINGULAR ) 
+ zincites ( NOUN NOUN_SINGULAR ) lemma=`zincite` NOM  
+ zincographie ( NOUN NOUN_SINGULAR ) 
+ zincographies ( NOUN NOUN_SINGULAR ) lemma=`zincographie` NOM  
+ zincogravure ( NOUN NOUN_SINGULAR ) 
+ zincogravures ( NOUN NOUN_SINGULAR ) lemma=`zincogravure` NOM  
+ zincose ( NOUN NOUN_SINGULAR ) 
+ zincoses ( NOUN NOUN_SINGULAR ) lemma=`zincose` NOM  
+ zincosite ( NOUN NOUN_SINGULAR ) 
+ zincosites ( NOUN NOUN_SINGULAR ) lemma=`zincosite` NOM  
+ zincs ( NOUN NOUN_SINGULAR ) lemma=`zinc` NOM  
+ zine ( NOUN NOUN_SINGULAR ) 
+ zines ( NOUN NOUN_SINGULAR ) lemma=`zine` NOM  
+ zingage ( NOUN NOUN_SINGULAR ) 
+ zingages ( NOUN NOUN_SINGULAR ) lemma=`zingage` NOM  
+ zingari ( NOUN NOUN_SINGULAR ) 
+ zingaro ( NOUN NOUN_SINGULAR ) 
+ zingel ( NOUN NOUN_SINGULAR ) 
+ zingels ( NOUN NOUN_SINGULAR ) lemma=`zingel` NOM  
+ zingibéracées ( NOUN NOUN_SINGULAR ) 
+ zingua ( VERB_PAST VERB ) lemma=`zinguer` VER:simp  
+ zinguai ( VERB_PAST VERB ) lemma=`zinguer` VER:simp  
+ zinguaient ( VERB ) lemma=`zinguer` VER:impf  
+ zinguais ( VERB ) lemma=`zinguer` VER:impf  
+ zinguait ( VERB ) lemma=`zinguer` VER:impf  
+ zinguant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zinguer` VER:ppre  
+ zinguas ( VERB_PAST VERB ) lemma=`zinguer` VER:simp  
+ zinguasse ( VERB ) lemma=`zinguer` VER:subi  
+ zinguassent ( VERB ) lemma=`zinguer` VER:subi  
+ zinguasses ( VERB ) lemma=`zinguer` VER:subi  
+ zinguassiez ( VERB ) lemma=`zinguer` VER:subi  
+ zinguassions ( VERB ) lemma=`zinguer` VER:subi  
+ zingue ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinguer`zinguer`zinguer` VER:impe  VER:pres  VER:subp  
+ zinguent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinguer`zinguer` VER:pres  VER:subp  
+ zinguer ( VERB_INFINITIVE VERB ) 
+ zinguera ( VERB ) lemma=`zinguer` VER:futu  
+ zinguerai ( VERB ) lemma=`zinguer` VER:futu  
+ zingueraient ( VERB ) lemma=`zinguer` VER:cond  
+ zinguerais ( VERB ) lemma=`zinguer` VER:cond  
+ zinguerait ( VERB ) lemma=`zinguer` VER:cond  
+ zingueras ( VERB ) lemma=`zinguer` VER:futu  
+ zinguerez ( VERB ) lemma=`zinguer` VER:futu  
+ zinguerie ( NOUN NOUN_SINGULAR ) 
+ zingueries ( NOUN NOUN_SINGULAR ) lemma=`zinguerie` NOM  
+ zingueriez ( VERB ) lemma=`zinguer` VER:cond  
+ zinguerions ( VERB ) lemma=`zinguer` VER:cond  
+ zinguerons ( VERB ) lemma=`zinguer` VER:futu  
+ zingueront ( VERB ) lemma=`zinguer` VER:futu  
+ zingues ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinguer`zinguer` VER:pres  VER:subp  
+ zingueur ( NOUN NOUN_SINGULAR ) 
+ zingueurs ( NOUN NOUN_SINGULAR ) lemma=`zingueur` NOM  
+ zinguez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinguer`zinguer` VER:impe  VER:pres  
+ zinguiez ( VERB ) lemma=`zinguer`zinguer` VER:impf  VER:subp  
+ zinguions ( VERB ) lemma=`zinguer`zinguer` VER:impf  VER:subp  
+ zinguons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinguer`zinguer` VER:impe  VER:pres  
+ zinguâmes ( VERB_PAST VERB ) lemma=`zinguer` VER:simp  
+ zinguât ( VERB ) lemma=`zinguer` VER:subi  
+ zinguâtes ( VERB_PAST VERB ) lemma=`zinguer` VER:simp  
+ zinguèrent ( VERB_PAST VERB ) lemma=`zinguer` VER:simp  
+ zingué ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinguer` VER:pper  
+ zinguée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinguer` VER:pper  
+ zinguées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinguer` VER:pper  
+ zingués ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinguer` VER:pper  
+ zinjanthrope ( NOUN NOUN_SINGULAR ) 
+ zinjanthropes ( NOUN NOUN_SINGULAR ) lemma=`zinjanthrope` NOM  
+ zinnia ( NOUN NOUN_SINGULAR ) 
+ zinnias ( NOUN NOUN_SINGULAR ) lemma=`zinnia` NOM  
+ zinzinula ( VERB_PAST VERB ) lemma=`zinzinuler` VER:simp  
+ zinzinulai ( VERB_PAST VERB ) lemma=`zinzinuler` VER:simp  
+ zinzinulaient ( VERB ) lemma=`zinzinuler` VER:impf  
+ zinzinulais ( VERB ) lemma=`zinzinuler` VER:impf  
+ zinzinulait ( VERB ) lemma=`zinzinuler` VER:impf  
+ zinzinulant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zinzinuler` VER:ppre  
+ zinzinulas ( VERB_PAST VERB ) lemma=`zinzinuler` VER:simp  
+ zinzinulasse ( VERB ) lemma=`zinzinuler` VER:subi  
+ zinzinulassent ( VERB ) lemma=`zinzinuler` VER:subi  
+ zinzinulasses ( VERB ) lemma=`zinzinuler` VER:subi  
+ zinzinulassiez ( VERB ) lemma=`zinzinuler` VER:subi  
+ zinzinulassions ( VERB ) lemma=`zinzinuler` VER:subi  
+ zinzinule ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinzinuler`zinzinuler`zinzinuler` VER:impe  VER:pres  VER:subp  
+ zinzinulent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinzinuler`zinzinuler` VER:pres  VER:subp  
+ zinzinuler ( VERB_INFINITIVE VERB ) 
+ zinzinulera ( VERB ) lemma=`zinzinuler` VER:futu  
+ zinzinulerai ( VERB ) lemma=`zinzinuler` VER:futu  
+ zinzinuleraient ( VERB ) lemma=`zinzinuler` VER:cond  
+ zinzinulerais ( VERB ) lemma=`zinzinuler` VER:cond  
+ zinzinulerait ( VERB ) lemma=`zinzinuler` VER:cond  
+ zinzinuleras ( VERB ) lemma=`zinzinuler` VER:futu  
+ zinzinulerez ( VERB ) lemma=`zinzinuler` VER:futu  
+ zinzinuleriez ( VERB ) lemma=`zinzinuler` VER:cond  
+ zinzinulerions ( VERB ) lemma=`zinzinuler` VER:cond  
+ zinzinulerons ( VERB ) lemma=`zinzinuler` VER:futu  
+ zinzinuleront ( VERB ) lemma=`zinzinuler` VER:futu  
+ zinzinules ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinzinuler`zinzinuler` VER:pres  VER:subp  
+ zinzinulez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinzinuler`zinzinuler` VER:impe  VER:pres  
+ zinzinuliez ( VERB ) lemma=`zinzinuler`zinzinuler` VER:impf  VER:subp  
+ zinzinulions ( VERB ) lemma=`zinzinuler`zinzinuler` VER:impf  VER:subp  
+ zinzinulons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zinzinuler`zinzinuler` VER:impe  VER:pres  
+ zinzinulâmes ( VERB_PAST VERB ) lemma=`zinzinuler` VER:simp  
+ zinzinulât ( VERB ) lemma=`zinzinuler` VER:subi  
+ zinzinulâtes ( VERB_PAST VERB ) lemma=`zinzinuler` VER:simp  
+ zinzinulèrent ( VERB_PAST VERB ) lemma=`zinzinuler` VER:simp  
+ zinzinulé ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinzinuler` VER:pper  
+ zinzinulée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinzinuler` VER:pper  
+ zinzinulées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinzinuler` VER:pper  
+ zinzinulés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zinzinuler` VER:pper  
+ zinzolin ( NOUN NOUN_SINGULAR ) 
+ zinzolins ( NOUN NOUN_SINGULAR ) lemma=`zinzolin` NOM  
+ zioniste ( ADJECTIVE ) 
+ zionistes ( ADJECTIVE ) lemma=`zioniste` ADJ  
+ zip ( NOUN NOUN_SINGULAR ) 
+ zippa ( VERB_PAST VERB ) lemma=`zipper` VER:simp  
+ zippai ( VERB_PAST VERB ) lemma=`zipper` VER:simp  
+ zippaient ( VERB ) lemma=`zipper` VER:impf  
+ zippais ( VERB ) lemma=`zipper` VER:impf  
+ zippait ( VERB ) lemma=`zipper` VER:impf  
+ zippant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zipper` VER:ppre  
+ zippas ( VERB_PAST VERB ) lemma=`zipper` VER:simp  
+ zippasse ( VERB ) lemma=`zipper` VER:subi  
+ zippassent ( VERB ) lemma=`zipper` VER:subi  
+ zippasses ( VERB ) lemma=`zipper` VER:subi  
+ zippassiez ( VERB ) lemma=`zipper` VER:subi  
+ zippassions ( VERB ) lemma=`zipper` VER:subi  
+ zippe ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zipper`zipper`zipper` VER:impe  VER:pres  VER:subp  
+ zippent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zipper`zipper` VER:pres  VER:subp  
+ zipper ( VERB_INFINITIVE VERB ) 
+ zippera ( VERB ) lemma=`zipper` VER:futu  
+ zipperai ( VERB ) lemma=`zipper` VER:futu  
+ zipperaient ( VERB ) lemma=`zipper` VER:cond  
+ zipperais ( VERB ) lemma=`zipper` VER:cond  
+ zipperait ( VERB ) lemma=`zipper` VER:cond  
+ zipperas ( VERB ) lemma=`zipper` VER:futu  
+ zipperez ( VERB ) lemma=`zipper` VER:futu  
+ zipperiez ( VERB ) lemma=`zipper` VER:cond  
+ zipperions ( VERB ) lemma=`zipper` VER:cond  
+ zipperons ( VERB ) lemma=`zipper` VER:futu  
+ zipperont ( VERB ) lemma=`zipper` VER:futu  
+ zippes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zipper`zipper` VER:pres  VER:subp  
+ zippez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zipper`zipper` VER:impe  VER:pres  
+ zippiez ( VERB ) lemma=`zipper`zipper` VER:impf  VER:subp  
+ zippions ( VERB ) lemma=`zipper`zipper` VER:impf  VER:subp  
+ zippons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zipper`zipper` VER:impe  VER:pres  
+ zippâmes ( VERB_PAST VERB ) lemma=`zipper` VER:simp  
+ zippât ( VERB ) lemma=`zipper` VER:subi  
+ zippâtes ( VERB_PAST VERB ) lemma=`zipper` VER:simp  
+ zippèrent ( VERB_PAST VERB ) lemma=`zipper` VER:simp  
+ zippé ( VERB_PAST_PARTICIPLE VERB ) lemma=`zipper` VER:pper  
+ zippée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zipper` VER:pper  
+ zippées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zipper` VER:pper  
+ zippés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zipper` VER:pper  
+ zips ( NOUN NOUN_SINGULAR ) lemma=`zip` NOM  
+ zircon ( NOUN NOUN_SINGULAR ) 
+ zirconate ( NOUN NOUN_SINGULAR ) 
+ zirconates ( NOUN NOUN_SINGULAR ) lemma=`zirconate` NOM  
+ zircone ( NOUN NOUN_SINGULAR ) 
+ zircones ( NOUN NOUN_SINGULAR ) lemma=`zircone` NOM  
+ zirconite ( NOUN NOUN_SINGULAR ) 
+ zirconites ( NOUN NOUN_SINGULAR ) lemma=`zirconite` NOM  
+ zirconium ( NOUN NOUN_SINGULAR ) 
+ zirconiums ( NOUN NOUN_SINGULAR ) lemma=`zirconium` NOM  
+ zircons ( NOUN NOUN_SINGULAR ) lemma=`zircon` NOM  
+ zirconyle ( NOUN NOUN_SINGULAR ) 
+ zirconyles ( NOUN NOUN_SINGULAR ) lemma=`zirconyle` NOM  
+ zircothermie ( NOUN NOUN_SINGULAR ) 
+ zircothermies ( NOUN NOUN_SINGULAR ) lemma=`zircothermie` NOM  
+ zist ( NOUN NOUN_SINGULAR ) 
+ zists ( NOUN NOUN_SINGULAR ) lemma=`zist` NOM  
+ zizanie ( NOUN NOUN_SINGULAR ) 
+ zizanies ( NOUN NOUN_SINGULAR ) lemma=`zizanie` NOM  
+ zizique ( NOUN NOUN_SINGULAR ) 
+ ziziques ( NOUN NOUN_SINGULAR ) lemma=`zizique` NOM  
+ zloty ( NOUN NOUN_SINGULAR ) 
+ zlotys ( NOUN NOUN_SINGULAR ) lemma=`zloty` NOM  
+ zoanthaires ( NOUN NOUN_SINGULAR ) 
+ zoanthropie ( NOUN NOUN_SINGULAR ) 
+ zoanthropies ( NOUN NOUN_SINGULAR ) lemma=`zoanthropie` NOM  
+ zoarium ( NOUN NOUN_SINGULAR ) 
+ zoariums ( NOUN NOUN_SINGULAR ) lemma=`zoarium` NOM  
+ zob ( NOUN NOUN_SINGULAR ) 
+ zobs ( NOUN NOUN_SINGULAR ) lemma=`zob` NOM  
+ zodiacal ( ADJECTIVE ) 
+ zodiacale ( ADJECTIVE ) lemma=`zodiacal` ADJ  
+ zodiacales ( ADJECTIVE ) lemma=`zodiacal` ADJ  
+ zodiacaux ( ADJECTIVE ) lemma=`zodiacal` ADJ  
+ zodiaque ( NOUN NOUN_SINGULAR ) 
+ zodiaques ( NOUN NOUN_SINGULAR ) lemma=`zodiaque` NOM  
+ zola ( NOUN NOUN_SINGULAR ) 
+ zolas ( NOUN NOUN_SINGULAR ) lemma=`zola` NOM  
+ zoliste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoliste`zoliste` ADJ  NOM  
+ zolistes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoliste`zoliste` ADJ  NOM  
+ zombi ( NOUN NOUN_SINGULAR ) 
+ zombie ( NOUN NOUN_SINGULAR ) 
+ zombies ( NOUN NOUN_SINGULAR ) lemma=`zombie` NOM  
+ zombis ( NOUN NOUN_SINGULAR ) lemma=`zombi` NOM  
+ zona ( VERB_PAST NOUN VERB NOUN_SINGULAR ) lemma=`zona`zoner` NOM  VER:simp  
+ zonage ( NOUN NOUN_SINGULAR ) 
+ zonages ( NOUN NOUN_SINGULAR ) lemma=`zonage` NOM  
+ zonai ( VERB_PAST VERB ) lemma=`zoner` VER:simp  
+ zonaient ( VERB ) lemma=`zoner` VER:impf  
+ zonais ( VERB ) lemma=`zoner` VER:impf  
+ zonait ( VERB ) lemma=`zoner` VER:impf  
+ zonal ( ADJECTIVE ) 
+ zonale ( ADJECTIVE ) lemma=`zonal` ADJ  
+ zonales ( ADJECTIVE ) lemma=`zonal` ADJ  
+ zonalité ( NOUN NOUN_SINGULAR ) 
+ zonalités ( NOUN NOUN_SINGULAR ) lemma=`zonalité` NOM  
+ zonant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoner` VER:ppre  
+ zonard ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonard`zonard` ADJ  NOM  
+ zonarde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonard`zonard` ADJ  NOM  
+ zonardes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonard`zonard` ADJ  NOM  
+ zonards ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonard`zonard` ADJ  NOM  
+ zonas ( VERB_PAST NOUN VERB NOUN_SINGULAR ) lemma=`zona`zoner` NOM  VER:simp  
+ zonasse ( VERB ) lemma=`zoner` VER:subi  
+ zonassent ( VERB ) lemma=`zoner` VER:subi  
+ zonasses ( VERB ) lemma=`zoner` VER:subi  
+ zonassiez ( VERB ) lemma=`zoner` VER:subi  
+ zonassions ( VERB ) lemma=`zoner` VER:subi  
+ zonation ( NOUN NOUN_SINGULAR ) 
+ zonations ( NOUN NOUN_SINGULAR ) lemma=`zonation` NOM  
+ zonaux ( ADJECTIVE ) lemma=`zonal` ADJ  
+ zone ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`zone`zoner`zoner`zoner` NOM  VER:impe  VER:pres  VER:subp  
+ zonent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoner`zoner` VER:pres  VER:subp  
+ zoner ( VERB_INFINITIVE VERB ) 
+ zonera ( VERB ) lemma=`zoner` VER:futu  
+ zonerai ( VERB ) lemma=`zoner` VER:futu  
+ zoneraient ( VERB ) lemma=`zoner` VER:cond  
+ zonerais ( VERB ) lemma=`zoner` VER:cond  
+ zonerait ( VERB ) lemma=`zoner` VER:cond  
+ zoneras ( VERB ) lemma=`zoner` VER:futu  
+ zonerez ( VERB ) lemma=`zoner` VER:futu  
+ zoneriez ( VERB ) lemma=`zoner` VER:cond  
+ zonerions ( VERB ) lemma=`zoner` VER:cond  
+ zonerons ( VERB ) lemma=`zoner` VER:futu  
+ zoneront ( VERB ) lemma=`zoner` VER:futu  
+ zones ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`zone`zoner`zoner` NOM  VER:pres  VER:subp  
+ zonez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoner`zoner` VER:impe  VER:pres  
+ zonier ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonier`zonier` ADJ  NOM  
+ zoniers ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonier`zonier` ADJ  NOM  
+ zoniez ( VERB ) lemma=`zoner`zoner` VER:impf  VER:subp  
+ zoning ( NOUN NOUN_SINGULAR ) 
+ zonings ( NOUN NOUN_SINGULAR ) lemma=`zoning` NOM  
+ zonions ( VERB ) lemma=`zoner`zoner` VER:impf  VER:subp  
+ zonite ( NOUN NOUN_SINGULAR ) 
+ zonites ( NOUN NOUN_SINGULAR ) lemma=`zonite` NOM  
+ zonière ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonier`zonier` ADJ  NOM  
+ zonières ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonier`zonier` ADJ  NOM  
+ zonons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoner`zoner` VER:impe  VER:pres  
+ zonule ( NOUN NOUN_SINGULAR ) 
+ zonules ( NOUN NOUN_SINGULAR ) lemma=`zonule` NOM  
+ zonure ( NOUN NOUN_SINGULAR ) 
+ zonures ( NOUN NOUN_SINGULAR ) lemma=`zonure` NOM  
+ zonzon ( NOUN NOUN_SINGULAR ) 
+ zonzonna ( VERB_PAST VERB ) lemma=`zonzonner` VER:simp  
+ zonzonnai ( VERB_PAST VERB ) lemma=`zonzonner` VER:simp  
+ zonzonnaient ( VERB ) lemma=`zonzonner` VER:impf  
+ zonzonnais ( VERB ) lemma=`zonzonner` VER:impf  
+ zonzonnait ( VERB ) lemma=`zonzonner` VER:impf  
+ zonzonnant ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`zonzonnant`zonzonner` ADJ  VER:ppre  
+ zonzonnante ( ADJECTIVE ) lemma=`zonzonnant` ADJ  
+ zonzonnantes ( ADJECTIVE ) lemma=`zonzonnant` ADJ  
+ zonzonnants ( ADJECTIVE ) lemma=`zonzonnant` ADJ  
+ zonzonnas ( VERB_PAST VERB ) lemma=`zonzonner` VER:simp  
+ zonzonnasse ( VERB ) lemma=`zonzonner` VER:subi  
+ zonzonnassent ( VERB ) lemma=`zonzonner` VER:subi  
+ zonzonnasses ( VERB ) lemma=`zonzonner` VER:subi  
+ zonzonnassiez ( VERB ) lemma=`zonzonner` VER:subi  
+ zonzonnassions ( VERB ) lemma=`zonzonner` VER:subi  
+ zonzonne ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zonzonner`zonzonner`zonzonner` VER:impe  VER:pres  VER:subp  
+ zonzonnent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zonzonner`zonzonner` VER:pres  VER:subp  
+ zonzonner ( VERB_INFINITIVE VERB ) 
+ zonzonnera ( VERB ) lemma=`zonzonner` VER:futu  
+ zonzonnerai ( VERB ) lemma=`zonzonner` VER:futu  
+ zonzonneraient ( VERB ) lemma=`zonzonner` VER:cond  
+ zonzonnerais ( VERB ) lemma=`zonzonner` VER:cond  
+ zonzonnerait ( VERB ) lemma=`zonzonner` VER:cond  
+ zonzonneras ( VERB ) lemma=`zonzonner` VER:futu  
+ zonzonnerez ( VERB ) lemma=`zonzonner` VER:futu  
+ zonzonneriez ( VERB ) lemma=`zonzonner` VER:cond  
+ zonzonnerions ( VERB ) lemma=`zonzonner` VER:cond  
+ zonzonnerons ( VERB ) lemma=`zonzonner` VER:futu  
+ zonzonneront ( VERB ) lemma=`zonzonner` VER:futu  
+ zonzonnes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zonzonner`zonzonner` VER:pres  VER:subp  
+ zonzonnez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zonzonner`zonzonner` VER:impe  VER:pres  
+ zonzonniez ( VERB ) lemma=`zonzonner`zonzonner` VER:impf  VER:subp  
+ zonzonnions ( VERB ) lemma=`zonzonner`zonzonner` VER:impf  VER:subp  
+ zonzonnons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zonzonner`zonzonner` VER:impe  VER:pres  
+ zonzonnâmes ( VERB_PAST VERB ) lemma=`zonzonner` VER:simp  
+ zonzonnât ( VERB ) lemma=`zonzonner` VER:subi  
+ zonzonnâtes ( VERB_PAST VERB ) lemma=`zonzonner` VER:simp  
+ zonzonnèrent ( VERB_PAST VERB ) lemma=`zonzonner` VER:simp  
+ zonzonné ( VERB_PAST_PARTICIPLE VERB ) lemma=`zonzonner` VER:pper  
+ zonzonnée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zonzonner` VER:pper  
+ zonzonnées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zonzonner` VER:pper  
+ zonzonnés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zonzonner` VER:pper  
+ zonzons ( NOUN NOUN_SINGULAR ) lemma=`zonzon` NOM  
+ zonâmes ( VERB_PAST VERB ) lemma=`zoner` VER:simp  
+ zonât ( VERB ) lemma=`zoner` VER:subi  
+ zonâtes ( VERB_PAST VERB ) lemma=`zoner` VER:simp  
+ zonèrent ( VERB_PAST VERB ) lemma=`zoner` VER:simp  
+ zoné ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zoné`zoner` ADJ  VER:pper  
+ zonée ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zoné`zoner` ADJ  VER:pper  
+ zonées ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zoné`zoner` ADJ  VER:pper  
+ zonés ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zoné`zoner` ADJ  VER:pper  
+ zoo ( NOUN NOUN_SINGULAR ) 
+ zoobiologie ( NOUN NOUN_SINGULAR ) 
+ zoobiologies ( NOUN NOUN_SINGULAR ) lemma=`zoobiologie` NOM  
+ zoochimie ( NOUN NOUN_SINGULAR ) 
+ zoochimies ( NOUN NOUN_SINGULAR ) lemma=`zoochimie` NOM  
+ zoochlorelles ( NOUN NOUN_SINGULAR ) 
+ zoochorie ( NOUN NOUN_SINGULAR ) 
+ zoochories ( NOUN NOUN_SINGULAR ) lemma=`zoochorie` NOM  
+ zoocécidie ( NOUN NOUN_SINGULAR ) 
+ zoocécidies ( NOUN NOUN_SINGULAR ) lemma=`zoocécidie` NOM  
+ zoocénose ( NOUN NOUN_SINGULAR ) 
+ zoocénoses ( NOUN NOUN_SINGULAR ) lemma=`zoocénose` NOM  
+ zooflagellés ( NOUN NOUN_SINGULAR ) 
+ zoogamète ( NOUN NOUN_SINGULAR ) 
+ zoogamètes ( NOUN NOUN_SINGULAR ) lemma=`zoogamète` NOM  
+ zooglée ( NOUN NOUN_SINGULAR ) 
+ zooglées ( NOUN NOUN_SINGULAR ) lemma=`zooglée` NOM  
+ zoographe ( NOUN NOUN_SINGULAR ) 
+ zoographes ( NOUN NOUN_SINGULAR ) lemma=`zoographe` NOM  
+ zoographie ( NOUN NOUN_SINGULAR ) 
+ zoographies ( NOUN NOUN_SINGULAR ) lemma=`zoographie` NOM  
+ zoographique ( ADJECTIVE ) 
+ zoographiques ( ADJECTIVE ) lemma=`zoographique` ADJ  
+ zoogène ( ADJECTIVE ) 
+ zoogènes ( ADJECTIVE ) lemma=`zoogène` ADJ  
+ zoogénie ( NOUN NOUN_SINGULAR ) 
+ zoogénies ( NOUN NOUN_SINGULAR ) lemma=`zoogénie` NOM  
+ zoogéographe ( NOUN NOUN_SINGULAR ) 
+ zoogéographes ( NOUN NOUN_SINGULAR ) lemma=`zoogéographe` NOM  
+ zoogéographie ( NOUN NOUN_SINGULAR ) 
+ zoogéographies ( NOUN NOUN_SINGULAR ) lemma=`zoogéographie` NOM  
+ zoohormone ( NOUN NOUN_SINGULAR ) 
+ zoohormones ( NOUN NOUN_SINGULAR ) lemma=`zoohormone` NOM  
+ zoolite ( NOUN NOUN_SINGULAR ) 
+ zoolites ( NOUN NOUN_SINGULAR ) lemma=`zoolite` NOM  
+ zoolithe ( NOUN NOUN_SINGULAR ) 
+ zoolithes ( NOUN NOUN_SINGULAR ) lemma=`zoolithe` NOM  
+ zoologie ( NOUN NOUN_SINGULAR ) 
+ zoologies ( NOUN NOUN_SINGULAR ) lemma=`zoologie` NOM  
+ zoologique ( ADJECTIVE ) 
+ zoologiquement ( ADVERB ) 
+ zoologiques ( ADJECTIVE ) lemma=`zoologique` ADJ  
+ zoologiste ( NOUN NOUN_SINGULAR ) 
+ zoologistes ( NOUN NOUN_SINGULAR ) lemma=`zoologiste` NOM  
+ zoolâtre ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoolâtre`zoolâtre` ADJ  NOM  
+ zoolâtres ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoolâtre`zoolâtre` ADJ  NOM  
+ zoolâtrie ( NOUN NOUN_SINGULAR ) 
+ zoolâtries ( NOUN NOUN_SINGULAR ) lemma=`zoolâtrie` NOM  
+ zoom ( NOUN NOUN_SINGULAR ) 
+ zooma ( VERB_PAST VERB ) lemma=`zoomer` VER:simp  
+ zoomai ( VERB_PAST VERB ) lemma=`zoomer` VER:simp  
+ zoomaient ( VERB ) lemma=`zoomer` VER:impf  
+ zoomais ( VERB ) lemma=`zoomer` VER:impf  
+ zoomait ( VERB ) lemma=`zoomer` VER:impf  
+ zoomancie ( NOUN NOUN_SINGULAR ) 
+ zoomancies ( NOUN NOUN_SINGULAR ) lemma=`zoomancie` NOM  
+ zoomanie ( NOUN NOUN_SINGULAR ) 
+ zoomanies ( NOUN NOUN_SINGULAR ) lemma=`zoomanie` NOM  
+ zoomant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoomer` VER:ppre  
+ zoomas ( VERB_PAST VERB ) lemma=`zoomer` VER:simp  
+ zoomasse ( VERB ) lemma=`zoomer` VER:subi  
+ zoomassent ( VERB ) lemma=`zoomer` VER:subi  
+ zoomasses ( VERB ) lemma=`zoomer` VER:subi  
+ zoomassiez ( VERB ) lemma=`zoomer` VER:subi  
+ zoomassions ( VERB ) lemma=`zoomer` VER:subi  
+ zoome ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoomer`zoomer`zoomer` VER:impe  VER:pres  VER:subp  
+ zooment ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoomer`zoomer` VER:pres  VER:subp  
+ zoomer ( VERB_INFINITIVE VERB ) 
+ zoomera ( VERB ) lemma=`zoomer` VER:futu  
+ zoomerai ( VERB ) lemma=`zoomer` VER:futu  
+ zoomeraient ( VERB ) lemma=`zoomer` VER:cond  
+ zoomerais ( VERB ) lemma=`zoomer` VER:cond  
+ zoomerait ( VERB ) lemma=`zoomer` VER:cond  
+ zoomeras ( VERB ) lemma=`zoomer` VER:futu  
+ zoomerez ( VERB ) lemma=`zoomer` VER:futu  
+ zoomeriez ( VERB ) lemma=`zoomer` VER:cond  
+ zoomerions ( VERB ) lemma=`zoomer` VER:cond  
+ zoomerons ( VERB ) lemma=`zoomer` VER:futu  
+ zoomeront ( VERB ) lemma=`zoomer` VER:futu  
+ zoomes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoomer`zoomer` VER:pres  VER:subp  
+ zoomez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoomer`zoomer` VER:impe  VER:pres  
+ zoomiez ( VERB ) lemma=`zoomer`zoomer` VER:impf  VER:subp  
+ zoomions ( VERB ) lemma=`zoomer`zoomer` VER:impf  VER:subp  
+ zoomons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zoomer`zoomer` VER:impe  VER:pres  
+ zoomorphe ( ADJECTIVE ) 
+ zoomorphes ( ADJECTIVE ) lemma=`zoomorphe` ADJ  
+ zoomorphie ( NOUN NOUN_SINGULAR ) 
+ zoomorphies ( NOUN NOUN_SINGULAR ) lemma=`zoomorphie` NOM  
+ zoomorphisme ( NOUN NOUN_SINGULAR ) 
+ zoomorphismes ( NOUN NOUN_SINGULAR ) lemma=`zoomorphisme` NOM  
+ zooms ( NOUN NOUN_SINGULAR ) lemma=`zoom` NOM  
+ zoomâmes ( VERB_PAST VERB ) lemma=`zoomer` VER:simp  
+ zoomât ( VERB ) lemma=`zoomer` VER:subi  
+ zoomâtes ( VERB_PAST VERB ) lemma=`zoomer` VER:simp  
+ zoomèrent ( VERB_PAST VERB ) lemma=`zoomer` VER:simp  
+ zoomé ( VERB_PAST_PARTICIPLE VERB ) lemma=`zoomer` VER:pper  
+ zoomée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zoomer` VER:pper  
+ zoomées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zoomer` VER:pper  
+ zoomés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zoomer` VER:pper  
+ zoonomie ( NOUN NOUN_SINGULAR ) 
+ zoonomies ( NOUN NOUN_SINGULAR ) lemma=`zoonomie` NOM  
+ zoonose ( NOUN NOUN_SINGULAR ) 
+ zoonoses ( NOUN NOUN_SINGULAR ) lemma=`zoonose` NOM  
+ zooparasite ( NOUN NOUN_SINGULAR ) 
+ zooparasites ( NOUN NOUN_SINGULAR ) lemma=`zooparasite` NOM  
+ zoopathie ( NOUN NOUN_SINGULAR ) 
+ zoopathies ( NOUN NOUN_SINGULAR ) lemma=`zoopathie` NOM  
+ zoophage ( ADJECTIVE ) 
+ zoophages ( ADJECTIVE ) lemma=`zoophage` ADJ  
+ zoophagie ( NOUN NOUN_SINGULAR ) 
+ zoophagies ( NOUN NOUN_SINGULAR ) lemma=`zoophagie` NOM  
+ zoophile ( ADJECTIVE ) 
+ zoophiles ( ADJECTIVE ) lemma=`zoophile` ADJ  
+ zoophilie ( NOUN NOUN_SINGULAR ) 
+ zoophilies ( NOUN NOUN_SINGULAR ) lemma=`zoophilie` NOM  
+ zoophobie ( NOUN NOUN_SINGULAR ) 
+ zoophobies ( NOUN NOUN_SINGULAR ) lemma=`zoophobie` NOM  
+ zoophore ( NOUN NOUN_SINGULAR ) 
+ zoophores ( NOUN NOUN_SINGULAR ) lemma=`zoophore` NOM  
+ zoophorique ( ADJECTIVE ) 
+ zoophoriques ( ADJECTIVE ) lemma=`zoophorique` ADJ  
+ zoophyte ( NOUN NOUN_SINGULAR ) 
+ zoophytes ( NOUN NOUN_SINGULAR ) lemma=`zoophyte` NOM  
+ zoophytique ( ADJECTIVE ) 
+ zoophytiques ( ADJECTIVE ) lemma=`zoophytique` ADJ  
+ zooplancton ( NOUN NOUN_SINGULAR ) 
+ zooplanctons ( NOUN NOUN_SINGULAR ) lemma=`zooplancton` NOM  
+ zooprophylaxie ( NOUN NOUN_SINGULAR ) 
+ zooprophylaxies ( NOUN NOUN_SINGULAR ) lemma=`zooprophylaxie` NOM  
+ zoopsie ( NOUN NOUN_SINGULAR ) 
+ zoopsies ( NOUN NOUN_SINGULAR ) lemma=`zoopsie` NOM  
+ zoopsychiatrie ( NOUN NOUN_SINGULAR ) 
+ zoopsychiatries ( NOUN NOUN_SINGULAR ) lemma=`zoopsychiatrie` NOM  
+ zoopsychologie ( NOUN NOUN_SINGULAR ) 
+ zoopsychologies ( NOUN NOUN_SINGULAR ) lemma=`zoopsychologie` NOM  
+ zoos ( NOUN NOUN_SINGULAR ) lemma=`zoo` NOM  
+ zoosporange ( NOUN NOUN_SINGULAR ) 
+ zoosporanges ( NOUN NOUN_SINGULAR ) lemma=`zoosporange` NOM  
+ zoospore ( NOUN NOUN_SINGULAR ) 
+ zoospores ( NOUN NOUN_SINGULAR ) lemma=`zoospore` NOM  
+ zoostérol ( NOUN NOUN_SINGULAR ) 
+ zoostérols ( NOUN NOUN_SINGULAR ) lemma=`zoostérol` NOM  
+ zoosémiotique ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoosémiotique`zoosémiotique` ADJ  NOM  
+ zoosémiotiques ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoosémiotique`zoosémiotique` ADJ  NOM  
+ zootaxie ( NOUN NOUN_SINGULAR ) 
+ zootaxies ( NOUN NOUN_SINGULAR ) lemma=`zootaxie` NOM  
+ zootechnicien ( NOUN NOUN_SINGULAR ) 
+ zootechnicienne ( NOUN NOUN_SINGULAR ) lemma=`zootechnicien` NOM  
+ zootechniciennes ( NOUN NOUN_SINGULAR ) lemma=`zootechnicien` NOM  
+ zootechniciens ( NOUN NOUN_SINGULAR ) lemma=`zootechnicien` NOM  
+ zootechnie ( NOUN NOUN_SINGULAR ) 
+ zootechnies ( NOUN NOUN_SINGULAR ) lemma=`zootechnie` NOM  
+ zootechnique ( ADJECTIVE ) 
+ zootechniques ( ADJECTIVE ) lemma=`zootechnique` ADJ  
+ zoothérapeutique ( ADJECTIVE ) 
+ zoothérapeutiques ( ADJECTIVE ) lemma=`zoothérapeutique` ADJ  
+ zoothérapie ( NOUN NOUN_SINGULAR ) 
+ zoothérapies ( NOUN NOUN_SINGULAR ) lemma=`zoothérapie` NOM  
+ zootomie ( NOUN NOUN_SINGULAR ) 
+ zootomies ( NOUN NOUN_SINGULAR ) lemma=`zootomie` NOM  
+ zootoxine ( NOUN NOUN_SINGULAR ) 
+ zootoxines ( NOUN NOUN_SINGULAR ) lemma=`zootoxine` NOM  
+ zootrope ( NOUN NOUN_SINGULAR ) 
+ zootropes ( NOUN NOUN_SINGULAR ) lemma=`zootrope` NOM  
+ zooxanthelles ( NOUN NOUN_SINGULAR ) 
+ zooïde ( ADJECTIVE ) 
+ zooïdes ( ADJECTIVE ) lemma=`zooïde` ADJ  
+ zorille ( NOUN NOUN_SINGULAR ) 
+ zorilles ( NOUN NOUN_SINGULAR ) lemma=`zorille` NOM  
+ zoroastrien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoroastrien`zoroastrien` ADJ  NOM  
+ zoroastrienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoroastrien`zoroastrien` ADJ  NOM  
+ zoroastriennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoroastrien`zoroastrien` ADJ  NOM  
+ zoroastriens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoroastrien`zoroastrien` ADJ  NOM  
+ zoroastrisme ( NOUN NOUN_SINGULAR ) 
+ zoroastrismes ( NOUN NOUN_SINGULAR ) lemma=`zoroastrisme` NOM  
+ zorongo ( NOUN NOUN_SINGULAR ) 
+ zorongos ( NOUN NOUN_SINGULAR ) lemma=`zorongo` NOM  
+ zorrino ( NOUN NOUN_SINGULAR ) 
+ zorrinos ( NOUN NOUN_SINGULAR ) lemma=`zorrino` NOM  
+ zostère ( NOUN NOUN_SINGULAR ) 
+ zostères ( NOUN NOUN_SINGULAR ) lemma=`zostère` NOM  
+ zostéracées ( NOUN NOUN_SINGULAR ) 
+ zostérien ( ADJECTIVE ) 
+ zostérienne ( ADJECTIVE ) lemma=`zostérien` ADJ  
+ zostériennes ( ADJECTIVE ) lemma=`zostérien` ADJ  
+ zostériens ( ADJECTIVE ) lemma=`zostérien` ADJ  
+ zostérops ( NOUN NOUN_SINGULAR ) 
+ zou ( ) 
+ zouave ( NOUN NOUN_SINGULAR ) 
+ zouaves ( NOUN NOUN_SINGULAR ) lemma=`zouave` NOM  
+ zoubrovka ( NOUN NOUN_SINGULAR ) 
+ zoubrovkas ( NOUN NOUN_SINGULAR ) lemma=`zoubrovka` NOM  
+ zozo ( NOUN NOUN_SINGULAR ) 
+ zozos ( NOUN NOUN_SINGULAR ) lemma=`zozo` NOM  
+ zozota ( VERB_PAST VERB ) lemma=`zozoter` VER:simp  
+ zozotai ( VERB_PAST VERB ) lemma=`zozoter` VER:simp  
+ zozotaient ( VERB ) lemma=`zozoter` VER:impf  
+ zozotais ( VERB ) lemma=`zozoter` VER:impf  
+ zozotait ( VERB ) lemma=`zozoter` VER:impf  
+ zozotant ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`zozotant`zozoter` ADJ  VER:ppre  
+ zozotante ( ADJECTIVE ) lemma=`zozotant` ADJ  
+ zozotantes ( ADJECTIVE ) lemma=`zozotant` ADJ  
+ zozotants ( ADJECTIVE ) lemma=`zozotant` ADJ  
+ zozotas ( VERB_PAST VERB ) lemma=`zozoter` VER:simp  
+ zozotasse ( VERB ) lemma=`zozoter` VER:subi  
+ zozotassent ( VERB ) lemma=`zozoter` VER:subi  
+ zozotasses ( VERB ) lemma=`zozoter` VER:subi  
+ zozotassiez ( VERB ) lemma=`zozoter` VER:subi  
+ zozotassions ( VERB ) lemma=`zozoter` VER:subi  
+ zozote ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zozoter`zozoter`zozoter` VER:impe  VER:pres  VER:subp  
+ zozotement ( NOUN NOUN_SINGULAR ) 
+ zozotements ( NOUN NOUN_SINGULAR ) lemma=`zozotement` NOM  
+ zozotent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zozoter`zozoter` VER:pres  VER:subp  
+ zozoter ( VERB_INFINITIVE VERB ) 
+ zozotera ( VERB ) lemma=`zozoter` VER:futu  
+ zozoterai ( VERB ) lemma=`zozoter` VER:futu  
+ zozoteraient ( VERB ) lemma=`zozoter` VER:cond  
+ zozoterais ( VERB ) lemma=`zozoter` VER:cond  
+ zozoterait ( VERB ) lemma=`zozoter` VER:cond  
+ zozoteras ( VERB ) lemma=`zozoter` VER:futu  
+ zozoterez ( VERB ) lemma=`zozoter` VER:futu  
+ zozoteriez ( VERB ) lemma=`zozoter` VER:cond  
+ zozoterions ( VERB ) lemma=`zozoter` VER:cond  
+ zozoterons ( VERB ) lemma=`zozoter` VER:futu  
+ zozoteront ( VERB ) lemma=`zozoter` VER:futu  
+ zozotes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zozoter`zozoter` VER:pres  VER:subp  
+ zozoteur ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zozoteur`zozoteur` ADJ  NOM  
+ zozoteurs ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zozoteur`zozoteur` ADJ  NOM  
+ zozoteuse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zozoteur`zozoteur` ADJ  NOM  
+ zozoteuses ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zozoteur`zozoteur` ADJ  NOM  
+ zozotez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zozoter`zozoter` VER:impe  VER:pres  
+ zozotiez ( VERB ) lemma=`zozoter`zozoter` VER:impf  VER:subp  
+ zozotions ( VERB ) lemma=`zozoter`zozoter` VER:impf  VER:subp  
+ zozotons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zozoter`zozoter` VER:impe  VER:pres  
+ zozotâmes ( VERB_PAST VERB ) lemma=`zozoter` VER:simp  
+ zozotât ( VERB ) lemma=`zozoter` VER:subi  
+ zozotâtes ( VERB_PAST VERB ) lemma=`zozoter` VER:simp  
+ zozotèrent ( VERB_PAST VERB ) lemma=`zozoter` VER:simp  
+ zozoté ( VERB_PAST_PARTICIPLE VERB ) lemma=`zozoter` VER:pper  
+ zozotée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zozoter` VER:pper  
+ zozotées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zozoter` VER:pper  
+ zozotés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zozoter` VER:pper  
+ zoé ( NOUN NOUN_SINGULAR ) 
+ zoécie ( NOUN NOUN_SINGULAR ) 
+ zoécies ( NOUN NOUN_SINGULAR ) lemma=`zoécie` NOM  
+ zoés ( NOUN NOUN_SINGULAR ) lemma=`zoé` NOM  
+ zoïde ( NOUN NOUN_SINGULAR ) 
+ zoïdes ( NOUN NOUN_SINGULAR ) lemma=`zoïde` NOM  
+ zoïle ( NOUN NOUN_SINGULAR ) 
+ zoïles ( NOUN NOUN_SINGULAR ) lemma=`zoïle` NOM  
+ zoïsme ( NOUN NOUN_SINGULAR ) 
+ zoïsmes ( NOUN NOUN_SINGULAR ) lemma=`zoïsme` NOM  
+ zoïte ( NOUN NOUN_SINGULAR ) 
+ zoïtes ( NOUN NOUN_SINGULAR ) lemma=`zoïte` NOM  
+ zucchette ( NOUN NOUN_SINGULAR ) 
+ zucchettes ( NOUN NOUN_SINGULAR ) lemma=`zucchette` NOM  
+ zuchette ( NOUN NOUN_SINGULAR ) 
+ zuchettes ( NOUN NOUN_SINGULAR ) lemma=`zuchette` NOM  
+ zumique ( ADJECTIVE ) 
+ zumiques ( ADJECTIVE ) lemma=`zumique` ADJ  
+ zup ( NOUN NOUN_SINGULAR ) 
+ zups ( NOUN NOUN_SINGULAR ) lemma=`zup` NOM  
+ zupéen ( ADJECTIVE ) 
+ zupéenne ( ADJECTIVE ) lemma=`zupéen` ADJ  
+ zupéennes ( ADJECTIVE ) lemma=`zupéen` ADJ  
+ zupéens ( ADJECTIVE ) lemma=`zupéen` ADJ  
+ zut ( ) 
+ zutique ( ADJECTIVE ) 
+ zutiques ( ADJECTIVE ) lemma=`zutique` ADJ  
+ zutisme ( NOUN NOUN_SINGULAR ) 
+ zutismes ( NOUN NOUN_SINGULAR ) lemma=`zutisme` NOM  
+ zutiste ( NOUN NOUN_SINGULAR ) 
+ zutistes ( NOUN NOUN_SINGULAR ) lemma=`zutiste` NOM  
+ zwanze ( NOUN NOUN_SINGULAR ) 
+ zwinglianisme ( NOUN NOUN_SINGULAR ) 
+ zwinglianismes ( NOUN NOUN_SINGULAR ) lemma=`zwinglianisme` NOM  
+ zwinglien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwinglien`zwinglien` ADJ  NOM  
+ zwinglienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwinglien`zwinglien` ADJ  NOM  
+ zwingliennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwinglien`zwinglien` ADJ  NOM  
+ zwingliens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwinglien`zwinglien` ADJ  NOM  
+ zyeuta ( VERB_PAST VERB ) lemma=`zyeuter` VER:simp  
+ zyeutai ( VERB_PAST VERB ) lemma=`zyeuter` VER:simp  
+ zyeutaient ( VERB ) lemma=`zyeuter` VER:impf  
+ zyeutais ( VERB ) lemma=`zyeuter` VER:impf  
+ zyeutait ( VERB ) lemma=`zyeuter` VER:impf  
+ zyeutant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zyeuter` VER:ppre  
+ zyeutas ( VERB_PAST VERB ) lemma=`zyeuter` VER:simp  
+ zyeutasse ( VERB ) lemma=`zyeuter` VER:subi  
+ zyeutassent ( VERB ) lemma=`zyeuter` VER:subi  
+ zyeutasses ( VERB ) lemma=`zyeuter` VER:subi  
+ zyeutassiez ( VERB ) lemma=`zyeuter` VER:subi  
+ zyeutassions ( VERB ) lemma=`zyeuter` VER:subi  
+ zyeute ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zyeuter`zyeuter`zyeuter` VER:impe  VER:pres  VER:subp  
+ zyeutent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zyeuter`zyeuter` VER:pres  VER:subp  
+ zyeuter ( VERB_INFINITIVE VERB ) 
+ zyeutera ( VERB ) lemma=`zyeuter` VER:futu  
+ zyeuterai ( VERB ) lemma=`zyeuter` VER:futu  
+ zyeuteraient ( VERB ) lemma=`zyeuter` VER:cond  
+ zyeuterais ( VERB ) lemma=`zyeuter` VER:cond  
+ zyeuterait ( VERB ) lemma=`zyeuter` VER:cond  
+ zyeuteras ( VERB ) lemma=`zyeuter` VER:futu  
+ zyeuterez ( VERB ) lemma=`zyeuter` VER:futu  
+ zyeuteriez ( VERB ) lemma=`zyeuter` VER:cond  
+ zyeuterions ( VERB ) lemma=`zyeuter` VER:cond  
+ zyeuterons ( VERB ) lemma=`zyeuter` VER:futu  
+ zyeuteront ( VERB ) lemma=`zyeuter` VER:futu  
+ zyeutes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zyeuter`zyeuter` VER:pres  VER:subp  
+ zyeutez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zyeuter`zyeuter` VER:impe  VER:pres  
+ zyeutiez ( VERB ) lemma=`zyeuter`zyeuter` VER:impf  VER:subp  
+ zyeutions ( VERB ) lemma=`zyeuter`zyeuter` VER:impf  VER:subp  
+ zyeutons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zyeuter`zyeuter` VER:impe  VER:pres  
+ zyeutâmes ( VERB_PAST VERB ) lemma=`zyeuter` VER:simp  
+ zyeutât ( VERB ) lemma=`zyeuter` VER:subi  
+ zyeutâtes ( VERB_PAST VERB ) lemma=`zyeuter` VER:simp  
+ zyeutèrent ( VERB_PAST VERB ) lemma=`zyeuter` VER:simp  
+ zyeuté ( VERB_PAST_PARTICIPLE VERB ) lemma=`zyeuter` VER:pper  
+ zyeutée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zyeuter` VER:pper  
+ zyeutées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zyeuter` VER:pper  
+ zyeutés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zyeuter` VER:pper  
+ zygnéma ( NOUN NOUN_SINGULAR ) 
+ zygnémales ( NOUN NOUN_SINGULAR ) 
+ zygnémas ( NOUN NOUN_SINGULAR ) lemma=`zygnéma` NOM  
+ zygoma ( NOUN NOUN_SINGULAR ) 
+ zygomas ( NOUN NOUN_SINGULAR ) lemma=`zygoma` NOM  
+ zygomatique ( ADJECTIVE ) 
+ zygomatiques ( ADJECTIVE ) lemma=`zygomatique` ADJ  
+ zygomorphe ( ADJECTIVE ) 
+ zygomorphes ( ADJECTIVE ) lemma=`zygomorphe` ADJ  
+ zygomycètes ( NOUN NOUN_SINGULAR ) 
+ zygophyllacées ( NOUN NOUN_SINGULAR ) 
+ zygophylle ( NOUN NOUN_SINGULAR ) 
+ zygophylles ( NOUN NOUN_SINGULAR ) lemma=`zygophylle` NOM  
+ zygophyllum ( NOUN NOUN_SINGULAR ) 
+ zygophyllums ( NOUN NOUN_SINGULAR ) lemma=`zygophyllum` NOM  
+ zygopétale ( NOUN NOUN_SINGULAR ) 
+ zygopétales ( NOUN NOUN_SINGULAR ) lemma=`zygopétale` NOM  
+ zygose ( NOUN NOUN_SINGULAR ) 
+ zygoses ( NOUN NOUN_SINGULAR ) lemma=`zygose` NOM  
+ zygote ( NOUN NOUN_SINGULAR ) 
+ zygotes ( NOUN NOUN_SINGULAR ) lemma=`zygote` NOM  
+ zygotène ( ADJECTIVE ) 
+ zygotènes ( ADJECTIVE ) lemma=`zygotène` ADJ  
+ zygène ( NOUN NOUN_SINGULAR ) 
+ zygènes ( NOUN NOUN_SINGULAR ) lemma=`zygène` NOM  
+ zyklon ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zyklon`zyklon` ADJ  NOM  
+ zyklons ( NOUN NOUN_SINGULAR ) lemma=`zyklon` NOM  
+ zymase ( NOUN NOUN_SINGULAR ) 
+ zymases ( NOUN NOUN_SINGULAR ) lemma=`zymase` NOM  
+ zymique ( ADJECTIVE ) 
+ zymiques ( ADJECTIVE ) lemma=`zymique` ADJ  
+ zymogène ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zymogène`zymogène` ADJ  NOM  
+ zymogènes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zymogène`zymogène` ADJ  NOM  
+ zymologie ( NOUN NOUN_SINGULAR ) 
+ zymologies ( NOUN NOUN_SINGULAR ) lemma=`zymologie` NOM  
+ zymose ( NOUN NOUN_SINGULAR ) 
+ zymoses ( NOUN NOUN_SINGULAR ) lemma=`zymose` NOM  
+ zymostérol ( NOUN NOUN_SINGULAR ) 
+ zymostérols ( NOUN NOUN_SINGULAR ) lemma=`zymostérol` NOM  
+ zymotechnie ( NOUN NOUN_SINGULAR ) 
+ zymotechnies ( NOUN NOUN_SINGULAR ) lemma=`zymotechnie` NOM  
+ zymotechnique ( ADJECTIVE ) 
+ zymotechniques ( ADJECTIVE ) lemma=`zymotechnique` ADJ  
+ zymothermie ( NOUN NOUN_SINGULAR ) 
+ zymothermies ( NOUN NOUN_SINGULAR ) lemma=`zymothermie` NOM  
+ zymothérapie ( NOUN NOUN_SINGULAR ) 
+ zymothérapies ( NOUN NOUN_SINGULAR ) lemma=`zymothérapie` NOM  
+ zymotique ( ADJECTIVE ) 
+ zymotiques ( ADJECTIVE ) lemma=`zymotique` ADJ  
+ zython ( NOUN NOUN_SINGULAR ) 
+ zythons ( NOUN NOUN_SINGULAR ) lemma=`zython` NOM  
+ zythum ( NOUN NOUN_SINGULAR ) 
+ zythums ( NOUN NOUN_SINGULAR ) lemma=`zythum` NOM  
+ zèbre ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`zèbre`zébrer`zébrer`zébrer` NOM  VER:impe  VER:pres  VER:subp  
+ zèbrent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zébrer`zébrer` VER:pres  VER:subp  
+ zèbres ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`zèbre`zébrer`zébrer` NOM  VER:pres  VER:subp  
+ zèd ( NOUN NOUN_SINGULAR ) 
+ zèds ( NOUN NOUN_SINGULAR ) lemma=`zèd` NOM  
+ zèf ( NOUN NOUN_SINGULAR ) 
+ zèfs ( NOUN NOUN_SINGULAR ) lemma=`zèf` NOM  
+ zèle ( NOUN NOUN_SINGULAR ) 
+ zèles ( NOUN NOUN_SINGULAR ) lemma=`zèle` NOM  
+ zèph ( NOUN NOUN_SINGULAR ) 
+ zèphs ( NOUN NOUN_SINGULAR ) lemma=`zèph` NOM  
+ zèthe ( NOUN NOUN_SINGULAR ) 
+ zèthes ( NOUN NOUN_SINGULAR ) lemma=`zèthe` NOM  
+ zébi ( NOUN NOUN_SINGULAR ) 
+ zébis ( NOUN NOUN_SINGULAR ) lemma=`zébi` NOM  
+ zébra ( VERB_PAST VERB ) lemma=`zébrer` VER:simp  
+ zébrai ( VERB_PAST VERB ) lemma=`zébrer` VER:simp  
+ zébraient ( VERB ) lemma=`zébrer` VER:impf  
+ zébrais ( VERB ) lemma=`zébrer` VER:impf  
+ zébrait ( VERB ) lemma=`zébrer` VER:impf  
+ zébrant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zébrer` VER:ppre  
+ zébras ( VERB_PAST VERB ) lemma=`zébrer` VER:simp  
+ zébrasse ( VERB ) lemma=`zébrer` VER:subi  
+ zébrassent ( VERB ) lemma=`zébrer` VER:subi  
+ zébrasses ( VERB ) lemma=`zébrer` VER:subi  
+ zébrassiez ( VERB ) lemma=`zébrer` VER:subi  
+ zébrassions ( VERB ) lemma=`zébrer` VER:subi  
+ zébrer ( VERB_INFINITIVE VERB ) 
+ zébrera ( VERB ) lemma=`zébrer` VER:futu  
+ zébrerai ( VERB ) lemma=`zébrer` VER:futu  
+ zébreraient ( VERB ) lemma=`zébrer` VER:cond  
+ zébrerais ( VERB ) lemma=`zébrer` VER:cond  
+ zébrerait ( VERB ) lemma=`zébrer` VER:cond  
+ zébreras ( VERB ) lemma=`zébrer` VER:futu  
+ zébrerez ( VERB ) lemma=`zébrer` VER:futu  
+ zébreriez ( VERB ) lemma=`zébrer` VER:cond  
+ zébrerions ( VERB ) lemma=`zébrer` VER:cond  
+ zébrerons ( VERB ) lemma=`zébrer` VER:futu  
+ zébreront ( VERB ) lemma=`zébrer` VER:futu  
+ zébrez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zébrer`zébrer` VER:impe  VER:pres  
+ zébriez ( VERB ) lemma=`zébrer`zébrer` VER:impf  VER:subp  
+ zébrions ( VERB ) lemma=`zébrer`zébrer` VER:impf  VER:subp  
+ zébrons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zébrer`zébrer` VER:impe  VER:pres  
+ zébrule ( NOUN NOUN_SINGULAR ) 
+ zébrules ( NOUN NOUN_SINGULAR ) lemma=`zébrule` NOM  
+ zébrure ( NOUN NOUN_SINGULAR ) 
+ zébrures ( NOUN NOUN_SINGULAR ) lemma=`zébrure` NOM  
+ zébrâmes ( VERB_PAST VERB ) lemma=`zébrer` VER:simp  
+ zébrâne ( NOUN NOUN_SINGULAR ) 
+ zébrânes ( NOUN NOUN_SINGULAR ) lemma=`zébrâne` NOM  
+ zébrât ( VERB ) lemma=`zébrer` VER:subi  
+ zébrâtes ( VERB_PAST VERB ) lemma=`zébrer` VER:simp  
+ zébrèrent ( VERB_PAST VERB ) lemma=`zébrer` VER:simp  
+ zébré ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zébré`zébrer` ADJ  VER:pper  
+ zébrée ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zébré`zébrer` ADJ  VER:pper  
+ zébrées ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zébré`zébrer` ADJ  VER:pper  
+ zébrés ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`zébré`zébrer` ADJ  VER:pper  
+ zébu ( NOUN NOUN_SINGULAR ) 
+ zébus ( NOUN NOUN_SINGULAR ) lemma=`zébu` NOM  
+ zédoaire ( NOUN NOUN_SINGULAR ) 
+ zédoaires ( NOUN NOUN_SINGULAR ) lemma=`zédoaire` NOM  
+ zédoarine ( NOUN NOUN_SINGULAR ) 
+ zédoarines ( NOUN NOUN_SINGULAR ) lemma=`zédoarine` NOM  
+ zée ( NOUN NOUN_SINGULAR ) 
+ zéen ( NOUN NOUN_SINGULAR ) 
+ zéens ( NOUN NOUN_SINGULAR ) lemma=`zéen` NOM  
+ zées ( NOUN NOUN_SINGULAR ) lemma=`zée` NOM  
+ zélandais ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélandais`zélandais` ADJ  NOM  
+ zélandaise ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélandais`zélandais` ADJ  NOM  
+ zélandaises ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélandais`zélandais` ADJ  NOM  
+ zélateur ( NOUN NOUN_SINGULAR ) 
+ zélateurs ( NOUN NOUN_SINGULAR ) lemma=`zélateur` NOM  
+ zélatrice ( NOUN NOUN_SINGULAR ) lemma=`zélateur` NOM  
+ zélatrices ( NOUN NOUN_SINGULAR ) lemma=`zélateur` NOM  
+ zélote ( NOUN NOUN_SINGULAR ) 
+ zélotes ( NOUN NOUN_SINGULAR ) lemma=`zélote` NOM  
+ zélotisme ( NOUN NOUN_SINGULAR ) 
+ zélotismes ( NOUN NOUN_SINGULAR ) lemma=`zélotisme` NOM  
+ zélé ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélé`zélé` ADJ  NOM  
+ zélée ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélé`zélé` ADJ  NOM  
+ zélées ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélé`zélé` ADJ  NOM  
+ zélés ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zélé`zélé` ADJ  NOM  
+ zénana ( NOUN NOUN_SINGULAR ) 
+ zénanas ( NOUN NOUN_SINGULAR ) lemma=`zénana` NOM  
+ zénith ( NOUN NOUN_SINGULAR ) 
+ zénithal ( ADJECTIVE ) 
+ zénithale ( ADJECTIVE ) lemma=`zénithal` ADJ  
+ zénithales ( ADJECTIVE ) lemma=`zénithal` ADJ  
+ zénithaux ( ADJECTIVE ) lemma=`zénithal` ADJ  
+ zéniths ( NOUN NOUN_SINGULAR ) lemma=`zénith` NOM  
+ zéolithe ( NOUN NOUN_SINGULAR ) 
+ zéolithes ( NOUN NOUN_SINGULAR ) lemma=`zéolithe` NOM  
+ zéolitique ( ADJECTIVE ) 
+ zéolitiques ( ADJECTIVE ) lemma=`zéolitique` ADJ  
+ zéolitisation ( NOUN NOUN_SINGULAR ) 
+ zéolitisations ( NOUN NOUN_SINGULAR ) lemma=`zéolitisation` NOM  
+ zéophage ( ADJECTIVE ) 
+ zéophages ( ADJECTIVE ) lemma=`zéophage` ADJ  
+ zéotrope ( ADJECTIVE ) 
+ zéotropes ( ADJECTIVE ) lemma=`zéotrope` ADJ  
+ zéphyr ( NOUN NOUN_SINGULAR ) 
+ zéphyrien ( ADJECTIVE ) 
+ zéphyrienne ( ADJECTIVE ) lemma=`zéphyrien` ADJ  
+ zéphyriennes ( ADJECTIVE ) lemma=`zéphyrien` ADJ  
+ zéphyriens ( ADJECTIVE ) lemma=`zéphyrien` ADJ  
+ zéphyrine ( NOUN NOUN_SINGULAR ) 
+ zéphyrines ( NOUN NOUN_SINGULAR ) lemma=`zéphyrine` NOM  
+ zéphyrs ( NOUN NOUN_SINGULAR ) lemma=`zéphyr` NOM  
+ zéro ( NOUN NOUN_SINGULAR ) 
+ zéros ( NOUN NOUN_SINGULAR ) lemma=`zéro` NOM  
+ zérotage ( NOUN NOUN_SINGULAR ) 
+ zérotages ( NOUN NOUN_SINGULAR ) lemma=`zérotage` NOM  
+ zérovalent ( ADJECTIVE ) 
+ zérovalente ( ADJECTIVE ) lemma=`zérovalent` ADJ  
+ zérovalentes ( ADJECTIVE ) lemma=`zérovalent` ADJ  
+ zérovalents ( ADJECTIVE ) lemma=`zérovalent` ADJ  
+ zérumbet ( NOUN NOUN_SINGULAR ) 
+ zérumbets ( NOUN NOUN_SINGULAR ) lemma=`zérumbet` NOM  
+ zéthus ( NOUN NOUN_SINGULAR ) 
+ zétète ( NOUN NOUN_SINGULAR ) 
+ zétètes ( NOUN NOUN_SINGULAR ) lemma=`zétète` NOM  
+ zététique ( ADJECTIVE ) 
+ zététiques ( ADJECTIVE ) lemma=`zététique` ADJ  
+ zézaie ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer`zézayer`zézayer` VER:impe  VER:pres  VER:subp  
+ zézaiement ( NOUN NOUN_SINGULAR ) 
+ zézaiements ( NOUN NOUN_SINGULAR ) lemma=`zézaiement` NOM  
+ zézaient ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer`zézayer` VER:pres  VER:subp  
+ zézaiera ( VERB ) lemma=`zézayer` VER:futu  
+ zézaierai ( VERB ) lemma=`zézayer` VER:futu  
+ zézaieraient ( VERB ) lemma=`zézayer` VER:cond  
+ zézaierais ( VERB ) lemma=`zézayer` VER:cond  
+ zézaierait ( VERB ) lemma=`zézayer` VER:cond  
+ zézaieras ( VERB ) lemma=`zézayer` VER:futu  
+ zézaierez ( VERB ) lemma=`zézayer` VER:futu  
+ zézaieriez ( VERB ) lemma=`zézayer` VER:cond  
+ zézaierions ( VERB ) lemma=`zézayer` VER:cond  
+ zézaierons ( VERB ) lemma=`zézayer` VER:futu  
+ zézaieront ( VERB ) lemma=`zézayer` VER:futu  
+ zézaies ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer`zézayer` VER:pres  VER:subp  
+ zézaya ( VERB_PAST VERB ) lemma=`zézayer|zézayer` VER:simp  
+ zézayai ( VERB_PAST VERB ) lemma=`zézayer|zézayer` VER:simp  
+ zézayaient ( VERB ) lemma=`zézayer|zézayer` VER:impf  
+ zézayais ( VERB ) lemma=`zézayer|zézayer` VER:impf  
+ zézayait ( VERB ) lemma=`zézayer|zézayer` VER:impf  
+ zézayant ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`zézayant`zézayer|zézayer` ADJ  VER:ppre  
+ zézayante ( ADJECTIVE ) lemma=`zézayant` ADJ  
+ zézayantes ( ADJECTIVE ) lemma=`zézayant` ADJ  
+ zézayants ( ADJECTIVE ) lemma=`zézayant` ADJ  
+ zézayas ( VERB_PAST VERB ) lemma=`zézayer|zézayer` VER:simp  
+ zézayasse ( VERB ) lemma=`zézayer|zézayer` VER:subi  
+ zézayassent ( VERB ) lemma=`zézayer|zézayer` VER:subi  
+ zézayasses ( VERB ) lemma=`zézayer|zézayer` VER:subi  
+ zézayassiez ( VERB ) lemma=`zézayer|zézayer` VER:subi  
+ zézayassions ( VERB ) lemma=`zézayer|zézayer` VER:subi  
+ zézaye ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer`zézayer`zézayer` VER:impe  VER:pres  VER:subp  
+ zézayent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer`zézayer` VER:pres  VER:subp  
+ zézayer ( VERB_INFINITIVE VERB ) lemma=`zézayer|zézayer` VER:infi  
+ zézayera ( VERB ) lemma=`zézayer` VER:futu  
+ zézayerai ( VERB ) lemma=`zézayer` VER:futu  
+ zézayeraient ( VERB ) lemma=`zézayer` VER:cond  
+ zézayerais ( VERB ) lemma=`zézayer` VER:cond  
+ zézayerait ( VERB ) lemma=`zézayer` VER:cond  
+ zézayeras ( VERB ) lemma=`zézayer` VER:futu  
+ zézayerez ( VERB ) lemma=`zézayer` VER:futu  
+ zézayeriez ( VERB ) lemma=`zézayer` VER:cond  
+ zézayerions ( VERB ) lemma=`zézayer` VER:cond  
+ zézayerons ( VERB ) lemma=`zézayer` VER:futu  
+ zézayeront ( VERB ) lemma=`zézayer` VER:futu  
+ zézayes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer`zézayer` VER:pres  VER:subp  
+ zézayez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer|zézayer`zézayer|zézayer` VER:impe  VER:pres  
+ zézayiez ( VERB ) lemma=`zézayer|zézayer`zézayer|zézayer` VER:impf  VER:subp  
+ zézayions ( VERB ) lemma=`zézayer|zézayer`zézayer|zézayer` VER:impf  VER:subp  
+ zézayons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`zézayer|zézayer`zézayer|zézayer` VER:impe  VER:pres  
+ zézayâmes ( VERB_PAST VERB ) lemma=`zézayer|zézayer` VER:simp  
+ zézayât ( VERB ) lemma=`zézayer|zézayer` VER:subi  
+ zézayâtes ( VERB_PAST VERB ) lemma=`zézayer|zézayer` VER:simp  
+ zézayèrent ( VERB_PAST VERB ) lemma=`zézayer|zézayer` VER:simp  
+ zézayé ( VERB_PAST_PARTICIPLE VERB ) lemma=`zézayer|zézayer` VER:pper  
+ zézayée ( VERB_PAST_PARTICIPLE VERB ) lemma=`zézayer|zézayer` VER:pper  
+ zézayées ( VERB_PAST_PARTICIPLE VERB ) lemma=`zézayer|zézayer` VER:pper  
+ zézayés ( VERB_PAST_PARTICIPLE VERB ) lemma=`zézayer|zézayer` VER:pper  
+ zêta ( NOUN NOUN_SINGULAR ) 
+ zêtas ( NOUN NOUN_SINGULAR ) lemma=`zêta` NOM  

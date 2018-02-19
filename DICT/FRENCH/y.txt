@@ -1,0 +1,306 @@
+﻿ Yang ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yann ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yannick ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yasmina ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yin ( NOUN NOUN_PROPER_SINGULAR ) 
+ York ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yougoslavie ( NOUN NOUN_PROPER_SINGULAR ) 
+ Youssouf ( NOUN NOUN_PROPER_SINGULAR ) 
+ Ypres ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yser ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yvelines ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yves ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yvette ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yvon ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yvonne ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yémen ( NOUN NOUN_PROPER_SINGULAR ) 
+ y ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ ya ( NOUN NOUN_SINGULAR ) 
+ yachmak ( NOUN NOUN_SINGULAR ) 
+ yachmaks ( NOUN NOUN_SINGULAR ) lemma=`yachmak` NOM  
+ yacht ( NOUN NOUN_SINGULAR ) 
+ yacht-club ( NOUN NOUN_SINGULAR ) 
+ yacht-clubs ( NOUN NOUN_SINGULAR ) lemma=`yacht-club` NOM  
+ yachting ( NOUN NOUN_SINGULAR ) 
+ yachtings ( NOUN NOUN_SINGULAR ) lemma=`yachting` NOM  
+ yachtman ( NOUN NOUN_SINGULAR ) 
+ yachtmans ( NOUN NOUN_SINGULAR ) lemma=`yachtman` NOM  
+ yachts ( NOUN NOUN_SINGULAR ) lemma=`yacht` NOM  
+ yack ( NOUN NOUN_SINGULAR ) 
+ yacks ( NOUN NOUN_SINGULAR ) lemma=`yack` NOM  
+ yagé ( NOUN NOUN_SINGULAR ) 
+ yagés ( NOUN NOUN_SINGULAR ) lemma=`yagé` NOM  
+ yak ( NOUN NOUN_SINGULAR ) 
+ yaka ( NOUN NOUN_SINGULAR ) 
+ yakas ( NOUN NOUN_SINGULAR ) lemma=`yaka` NOM  
+ yaks ( NOUN NOUN_SINGULAR ) lemma=`yak` NOM  
+ yamba ( NOUN NOUN_SINGULAR ) 
+ yambas ( NOUN NOUN_SINGULAR ) lemma=`yamba` NOM  
+ yang ( NOUN NOUN_SINGULAR ) 
+ yangs ( NOUN NOUN_SINGULAR ) lemma=`yang` NOM  
+ yankee ( NOUN NOUN_SINGULAR ) 
+ yankees ( NOUN NOUN_SINGULAR ) lemma=`yankee` NOM  
+ yaouled ( NOUN NOUN_SINGULAR ) 
+ yaouleds ( NOUN NOUN_SINGULAR ) lemma=`yaouled` NOM  
+ yaourt ( NOUN NOUN_SINGULAR ) 
+ yaourtière ( NOUN NOUN_SINGULAR ) 
+ yaourtières ( NOUN NOUN_SINGULAR ) lemma=`yaourtière` NOM  
+ yaourts ( NOUN NOUN_SINGULAR ) lemma=`yaourt` NOM  
+ yapok ( NOUN NOUN_SINGULAR ) 
+ yapoks ( NOUN NOUN_SINGULAR ) lemma=`yapok` NOM  
+ yard ( NOUN NOUN_SINGULAR ) 
+ yards ( NOUN NOUN_SINGULAR ) lemma=`yard` NOM  
+ yas ( NOUN NOUN_SINGULAR ) lemma=`ya` NOM  
+ yashiva ( NOUN NOUN_SINGULAR ) 
+ yashivas ( NOUN NOUN_SINGULAR ) lemma=`yashiva` NOM  
+ yass ( NOUN NOUN_SINGULAR ) 
+ yassa ( NOUN NOUN_SINGULAR ) 
+ yassas ( NOUN NOUN_SINGULAR ) lemma=`yassa` NOM  
+ yatagan ( NOUN NOUN_SINGULAR ) 
+ yatagans ( NOUN NOUN_SINGULAR ) lemma=`yatagan` NOM  
+ yawl ( NOUN NOUN_SINGULAR ) 
+ yawls ( NOUN NOUN_SINGULAR ) lemma=`yawl` NOM  
+ yayamadou ( NOUN NOUN_SINGULAR ) 
+ yayamadous ( NOUN NOUN_SINGULAR ) lemma=`yayamadou` NOM  
+ yddisch ( ADJECTIVE ) 
+ yearling ( NOUN NOUN_SINGULAR ) 
+ yearlings ( NOUN NOUN_SINGULAR ) lemma=`yearling` NOM  
+ yen ( NOUN NOUN_SINGULAR ) 
+ yen-min-piao ( NOUN NOUN_SINGULAR ) 
+ yens ( NOUN NOUN_SINGULAR ) lemma=`yen` NOM  
+ yeoman ( NOUN NOUN_SINGULAR ) 
+ yeomanry ( NOUN NOUN_SINGULAR ) 
+ yeomanrys ( NOUN NOUN_SINGULAR ) lemma=`yeomanry` NOM  
+ yeomans ( NOUN NOUN_SINGULAR ) lemma=`yeoman` NOM  
+ yerkish ( NOUN NOUN_SINGULAR ) 
+ yerkishs ( NOUN NOUN_SINGULAR ) lemma=`yerkish` NOM  
+ yes-man ( NOUN NOUN_SINGULAR ) 
+ yes-mans ( NOUN NOUN_SINGULAR ) lemma=`yes-man` NOM  
+ yeti ( NOUN NOUN_SINGULAR ) 
+ yetis ( NOUN NOUN_SINGULAR ) lemma=`yeti` NOM  
+ yeuse ( NOUN NOUN_SINGULAR ) 
+ yeuses ( NOUN NOUN_SINGULAR ) lemma=`yeuse` NOM  
+ yeux ( NOUN NOUN_SINGULAR ) lemma=`œil` NOM  
+ yiddish ( NOUN NOUN_SINGULAR ) 
+ yiddishs ( NOUN NOUN_SINGULAR ) lemma=`yiddish` NOM  
+ yin ( NOUN NOUN_SINGULAR ) 
+ yins ( NOUN NOUN_SINGULAR ) lemma=`yin` NOM  
+ yippie ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yippie`yippie` ADJ  NOM  
+ yippies ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yippie`yippie` ADJ  NOM  
+ yippy ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yippy`yippy` ADJ  NOM  
+ yippys ( NOUN NOUN_SINGULAR ) lemma=`yippy` NOM  
+ ylang-ylang ( NOUN NOUN_SINGULAR ) 
+ ylang-ylangs ( NOUN NOUN_SINGULAR ) lemma=`ylang-ylang` NOM  
+ ylem ( NOUN NOUN_SINGULAR ) 
+ ylems ( NOUN NOUN_SINGULAR ) lemma=`ylem` NOM  
+ ylia ( NOUN NOUN_SINGULAR ) 
+ ylias ( NOUN NOUN_SINGULAR ) lemma=`ylia` NOM  
+ ylure ( NOUN NOUN_SINGULAR ) 
+ ylures ( NOUN NOUN_SINGULAR ) lemma=`ylure` NOM  
+ yo-yo ( NOUN NOUN_SINGULAR ) 
+ yo-yos ( NOUN NOUN_SINGULAR ) lemma=`yo-yo` NOM  
+ yod ( NOUN NOUN_SINGULAR ) 
+ yodisa ( VERB_PAST VERB ) lemma=`yodiser` VER:simp  
+ yodisai ( VERB_PAST VERB ) lemma=`yodiser` VER:simp  
+ yodisaient ( VERB ) lemma=`yodiser` VER:impf  
+ yodisais ( VERB ) lemma=`yodiser` VER:impf  
+ yodisait ( VERB ) lemma=`yodiser` VER:impf  
+ yodisant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`yodiser` VER:ppre  
+ yodisas ( VERB_PAST VERB ) lemma=`yodiser` VER:simp  
+ yodisasse ( VERB ) lemma=`yodiser` VER:subi  
+ yodisassent ( VERB ) lemma=`yodiser` VER:subi  
+ yodisasses ( VERB ) lemma=`yodiser` VER:subi  
+ yodisassiez ( VERB ) lemma=`yodiser` VER:subi  
+ yodisassions ( VERB ) lemma=`yodiser` VER:subi  
+ yodise ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodiser`yodiser`yodiser` VER:impe  VER:pres  VER:subp  
+ yodisent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodiser`yodiser` VER:pres  VER:subp  
+ yodiser ( VERB_INFINITIVE VERB ) 
+ yodisera ( VERB ) lemma=`yodiser` VER:futu  
+ yodiserai ( VERB ) lemma=`yodiser` VER:futu  
+ yodiseraient ( VERB ) lemma=`yodiser` VER:cond  
+ yodiserais ( VERB ) lemma=`yodiser` VER:cond  
+ yodiserait ( VERB ) lemma=`yodiser` VER:cond  
+ yodiseras ( VERB ) lemma=`yodiser` VER:futu  
+ yodiserez ( VERB ) lemma=`yodiser` VER:futu  
+ yodiseriez ( VERB ) lemma=`yodiser` VER:cond  
+ yodiserions ( VERB ) lemma=`yodiser` VER:cond  
+ yodiserons ( VERB ) lemma=`yodiser` VER:futu  
+ yodiseront ( VERB ) lemma=`yodiser` VER:futu  
+ yodises ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodiser`yodiser` VER:pres  VER:subp  
+ yodisez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodiser`yodiser` VER:impe  VER:pres  
+ yodisiez ( VERB ) lemma=`yodiser`yodiser` VER:impf  VER:subp  
+ yodisions ( VERB ) lemma=`yodiser`yodiser` VER:impf  VER:subp  
+ yodisons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodiser`yodiser` VER:impe  VER:pres  
+ yodisâmes ( VERB_PAST VERB ) lemma=`yodiser` VER:simp  
+ yodisât ( VERB ) lemma=`yodiser` VER:subi  
+ yodisâtes ( VERB_PAST VERB ) lemma=`yodiser` VER:simp  
+ yodisèrent ( VERB_PAST VERB ) lemma=`yodiser` VER:simp  
+ yodisé ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodiser` VER:pper  
+ yodisée ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodiser` VER:pper  
+ yodisées ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodiser` VER:pper  
+ yodisés ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodiser` VER:pper  
+ yodla ( VERB_PAST VERB ) lemma=`yodler` VER:simp  
+ yodlai ( VERB_PAST VERB ) lemma=`yodler` VER:simp  
+ yodlaient ( VERB ) lemma=`yodler` VER:impf  
+ yodlais ( VERB ) lemma=`yodler` VER:impf  
+ yodlait ( VERB ) lemma=`yodler` VER:impf  
+ yodlant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`yodler` VER:ppre  
+ yodlas ( VERB_PAST VERB ) lemma=`yodler` VER:simp  
+ yodlasse ( VERB ) lemma=`yodler` VER:subi  
+ yodlassent ( VERB ) lemma=`yodler` VER:subi  
+ yodlasses ( VERB ) lemma=`yodler` VER:subi  
+ yodlassiez ( VERB ) lemma=`yodler` VER:subi  
+ yodlassions ( VERB ) lemma=`yodler` VER:subi  
+ yodle ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodler`yodler`yodler` VER:impe  VER:pres  VER:subp  
+ yodlent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodler`yodler` VER:pres  VER:subp  
+ yodler ( VERB_INFINITIVE VERB ) 
+ yodlera ( VERB ) lemma=`yodler` VER:futu  
+ yodlerai ( VERB ) lemma=`yodler` VER:futu  
+ yodleraient ( VERB ) lemma=`yodler` VER:cond  
+ yodlerais ( VERB ) lemma=`yodler` VER:cond  
+ yodlerait ( VERB ) lemma=`yodler` VER:cond  
+ yodleras ( VERB ) lemma=`yodler` VER:futu  
+ yodlerez ( VERB ) lemma=`yodler` VER:futu  
+ yodleriez ( VERB ) lemma=`yodler` VER:cond  
+ yodlerions ( VERB ) lemma=`yodler` VER:cond  
+ yodlerons ( VERB ) lemma=`yodler` VER:futu  
+ yodleront ( VERB ) lemma=`yodler` VER:futu  
+ yodles ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodler`yodler` VER:pres  VER:subp  
+ yodleur ( NOUN NOUN_SINGULAR ) 
+ yodleurs ( NOUN NOUN_SINGULAR ) lemma=`yodleur` NOM  
+ yodleuse ( NOUN NOUN_SINGULAR ) lemma=`yodleur` NOM  
+ yodleuses ( NOUN NOUN_SINGULAR ) lemma=`yodleur` NOM  
+ yodlez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodler`yodler` VER:impe  VER:pres  
+ yodliez ( VERB ) lemma=`yodler`yodler` VER:impf  VER:subp  
+ yodlions ( VERB ) lemma=`yodler`yodler` VER:impf  VER:subp  
+ yodlons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yodler`yodler` VER:impe  VER:pres  
+ yodlâmes ( VERB_PAST VERB ) lemma=`yodler` VER:simp  
+ yodlât ( VERB ) lemma=`yodler` VER:subi  
+ yodlâtes ( VERB_PAST VERB ) lemma=`yodler` VER:simp  
+ yodlèrent ( VERB_PAST VERB ) lemma=`yodler` VER:simp  
+ yodlé ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodler` VER:pper  
+ yodlée ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`yodlée`yodler` NOM  VER:pper  
+ yodlées ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`yodlée`yodler` NOM  VER:pper  
+ yodlés ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodler` VER:pper  
+ yods ( NOUN NOUN_SINGULAR ) lemma=`yod` NOM  
+ yoga ( NOUN NOUN_SINGULAR ) 
+ yogas ( NOUN NOUN_SINGULAR ) lemma=`yoga` NOM  
+ yoghourt ( NOUN NOUN_SINGULAR ) 
+ yoghourts ( NOUN NOUN_SINGULAR ) lemma=`yoghourt` NOM  
+ yogi ( NOUN NOUN_SINGULAR ) 
+ yogique ( ADJECTIVE ) 
+ yogiques ( ADJECTIVE ) lemma=`yogique` ADJ  
+ yogis ( NOUN NOUN_SINGULAR ) lemma=`yogi` NOM  
+ yogisme ( NOUN NOUN_SINGULAR ) 
+ yogismes ( NOUN NOUN_SINGULAR ) lemma=`yogisme` NOM  
+ yogourt ( NOUN NOUN_SINGULAR ) 
+ yogourts ( NOUN NOUN_SINGULAR ) lemma=`yogourt` NOM  
+ yohimbehe ( NOUN NOUN_SINGULAR ) 
+ yohimbehes ( NOUN NOUN_SINGULAR ) lemma=`yohimbehe` NOM  
+ yohimbine ( NOUN NOUN_SINGULAR ) 
+ yohimbines ( NOUN NOUN_SINGULAR ) lemma=`yohimbine` NOM  
+ yole ( NOUN NOUN_SINGULAR ) 
+ yoles ( NOUN NOUN_SINGULAR ) lemma=`yole` NOM  
+ yorkshire-terrier ( NOUN NOUN_SINGULAR ) 
+ yorkshire-terriers ( NOUN NOUN_SINGULAR ) lemma=`yorkshire-terrier` NOM  
+ yoruba ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yoruba`yoruba` ADJ  NOM  
+ yorubas ( NOUN NOUN_SINGULAR ) lemma=`yoruba` NOM  
+ youde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`youde`youde` ADJ  NOM  
+ youdes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`youde`youde` ADJ  NOM  
+ yougoslave ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yougoslave`yougoslave` ADJ  NOM  
+ yougoslaves ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yougoslave`yougoslave` ADJ  NOM  
+ youp ( ) 
+ youpi ( ) 
+ youpin ( NOUN NOUN_SINGULAR ) 
+ youpine ( NOUN NOUN_SINGULAR ) lemma=`youpin` NOM  
+ youpines ( NOUN NOUN_SINGULAR ) lemma=`youpin` NOM  
+ youpins ( NOUN NOUN_SINGULAR ) lemma=`youpin` NOM  
+ yourte ( NOUN NOUN_SINGULAR ) 
+ yourtes ( NOUN NOUN_SINGULAR ) lemma=`yourte` NOM  
+ youtre ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`youtre`youtre` ADJ  NOM  
+ youtres ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`youtre`youtre` ADJ  NOM  
+ youyou ( NOUN NOUN_SINGULAR ) 
+ youyous ( NOUN NOUN_SINGULAR ) lemma=`youyou` NOM  
+ yoyota ( VERB_PAST VERB ) lemma=`yoyoter` VER:simp  
+ yoyotai ( VERB_PAST VERB ) lemma=`yoyoter` VER:simp  
+ yoyotaient ( VERB ) lemma=`yoyoter` VER:impf  
+ yoyotais ( VERB ) lemma=`yoyoter` VER:impf  
+ yoyotait ( VERB ) lemma=`yoyoter` VER:impf  
+ yoyotant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`yoyoter` VER:ppre  
+ yoyotas ( VERB_PAST VERB ) lemma=`yoyoter` VER:simp  
+ yoyotasse ( VERB ) lemma=`yoyoter` VER:subi  
+ yoyotassent ( VERB ) lemma=`yoyoter` VER:subi  
+ yoyotasses ( VERB ) lemma=`yoyoter` VER:subi  
+ yoyotassiez ( VERB ) lemma=`yoyoter` VER:subi  
+ yoyotassions ( VERB ) lemma=`yoyoter` VER:subi  
+ yoyote ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yoyoter`yoyoter`yoyoter` VER:impe  VER:pres  VER:subp  
+ yoyotent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yoyoter`yoyoter` VER:pres  VER:subp  
+ yoyoter ( VERB_INFINITIVE VERB ) 
+ yoyotera ( VERB ) lemma=`yoyoter` VER:futu  
+ yoyoterai ( VERB ) lemma=`yoyoter` VER:futu  
+ yoyoteraient ( VERB ) lemma=`yoyoter` VER:cond  
+ yoyoterais ( VERB ) lemma=`yoyoter` VER:cond  
+ yoyoterait ( VERB ) lemma=`yoyoter` VER:cond  
+ yoyoteras ( VERB ) lemma=`yoyoter` VER:futu  
+ yoyoterez ( VERB ) lemma=`yoyoter` VER:futu  
+ yoyoteriez ( VERB ) lemma=`yoyoter` VER:cond  
+ yoyoterions ( VERB ) lemma=`yoyoter` VER:cond  
+ yoyoterons ( VERB ) lemma=`yoyoter` VER:futu  
+ yoyoteront ( VERB ) lemma=`yoyoter` VER:futu  
+ yoyotes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yoyoter`yoyoter` VER:pres  VER:subp  
+ yoyotez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yoyoter`yoyoter` VER:impe  VER:pres  
+ yoyotiez ( VERB ) lemma=`yoyoter`yoyoter` VER:impf  VER:subp  
+ yoyotions ( VERB ) lemma=`yoyoter`yoyoter` VER:impf  VER:subp  
+ yoyotons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`yoyoter`yoyoter` VER:impe  VER:pres  
+ yoyotâmes ( VERB_PAST VERB ) lemma=`yoyoter` VER:simp  
+ yoyotât ( VERB ) lemma=`yoyoter` VER:subi  
+ yoyotâtes ( VERB_PAST VERB ) lemma=`yoyoter` VER:simp  
+ yoyotèrent ( VERB_PAST VERB ) lemma=`yoyoter` VER:simp  
+ yoyoté ( VERB_PAST_PARTICIPLE VERB ) lemma=`yoyoter` VER:pper  
+ yoyotée ( VERB_PAST_PARTICIPLE VERB ) lemma=`yoyoter` VER:pper  
+ yoyotées ( VERB_PAST_PARTICIPLE VERB ) lemma=`yoyoter` VER:pper  
+ yoyotés ( VERB_PAST_PARTICIPLE VERB ) lemma=`yoyoter` VER:pper  
+ yponomeute ( NOUN NOUN_SINGULAR ) 
+ yponomeutes ( NOUN NOUN_SINGULAR ) lemma=`yponomeute` NOM  
+ ypréau ( NOUN NOUN_SINGULAR ) 
+ ypréaux ( NOUN NOUN_SINGULAR ) lemma=`ypréau` NOM  
+ ypérite ( NOUN NOUN_SINGULAR ) 
+ ypérites ( NOUN NOUN_SINGULAR ) lemma=`ypérite` NOM  
+ ypérité ( ADJECTIVE ) 
+ ypéritée ( ADJECTIVE ) lemma=`ypérité` ADJ  
+ ypéritées ( ADJECTIVE ) lemma=`ypérité` ADJ  
+ ypérités ( ADJECTIVE ) lemma=`ypérité` ADJ  
+ ysopet ( NOUN NOUN_SINGULAR ) 
+ ysopets ( NOUN NOUN_SINGULAR ) lemma=`ysopet` NOM  
+ ytterbine ( NOUN NOUN_SINGULAR ) 
+ ytterbines ( NOUN NOUN_SINGULAR ) lemma=`ytterbine` NOM  
+ ytterbium ( NOUN NOUN_SINGULAR ) 
+ ytterbiums ( NOUN NOUN_SINGULAR ) lemma=`ytterbium` NOM  
+ yttria ( NOUN NOUN_SINGULAR ) 
+ yttrialite ( NOUN NOUN_SINGULAR ) 
+ yttrialites ( NOUN NOUN_SINGULAR ) lemma=`yttrialite` NOM  
+ yttrias ( NOUN NOUN_SINGULAR ) lemma=`yttria` NOM  
+ yttrifère ( ADJECTIVE ) 
+ yttrifères ( ADJECTIVE ) lemma=`yttrifère` ADJ  
+ yttrique ( ADJECTIVE ) 
+ yttriques ( ADJECTIVE ) lemma=`yttrique` ADJ  
+ yttrium ( NOUN NOUN_SINGULAR ) 
+ yttriums ( NOUN NOUN_SINGULAR ) lemma=`yttrium` NOM  
+ yttrié ( ADJECTIVE ) 
+ yttriée ( ADJECTIVE ) lemma=`yttrié` ADJ  
+ yttriées ( ADJECTIVE ) lemma=`yttrié` ADJ  
+ yttriés ( ADJECTIVE ) lemma=`yttrié` ADJ  
+ yu ( NOUN NOUN_SINGULAR ) 
+ yuan ( NOUN NOUN_SINGULAR ) 
+ yuans ( NOUN NOUN_SINGULAR ) lemma=`yuan` NOM  
+ yucca ( NOUN NOUN_SINGULAR ) 
+ yuccas ( NOUN NOUN_SINGULAR ) lemma=`yucca` NOM  
+ yuppie ( NOUN NOUN_SINGULAR ) 
+ yuppies ( NOUN NOUN_SINGULAR ) lemma=`yuppie` NOM  
+ yus ( NOUN NOUN_SINGULAR ) lemma=`yu` NOM  
+ yèble ( NOUN NOUN_SINGULAR ) 
+ yèbles ( NOUN NOUN_SINGULAR ) lemma=`yèble` NOM  
+ yé-yé ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yé-yé`yé-yé` ADJ  NOM  
+ yé-yés ( NOUN NOUN_SINGULAR ) lemma=`yé-yé` NOM  
+ yéménite ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yéménite`yéménite` ADJ  NOM  
+ yéménites ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`yéménite`yéménite` ADJ  NOM  

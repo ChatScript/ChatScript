@@ -1,0 +1,41 @@
+$.		
+adj		ADJECTIVE
+adj*kop		ADJECTIVE
+adjabbr		ADJECTIVE
+adv		ADVERB
+advabbr		ADVERB
+conjcoord	CONJUNCTION_COORDINATE
+conjsubo	CONJUNCTION_SUBORDINATE
+det__art	DETERMINER
+det__demo	# attributively used demonstrative pronoun
+det__indef	# attributively used indefinite pronoun
+det__poss	# attributively used possessive pronoun
+det__quest	# attributively used question pronoun
+det__rel	# attributively used relative pronoun
+int		INTERJECTION
+noun*kop	NOUN NOUN_SINGULAR
+nounabbr	NOUN NOUN_SINGULAR
+nounpl		NOUN NOUN_PLURAL
+nounprop	NOUN NOUN_PROPER_SINGULAR
+nounsg		NOUN NOUN_SINGULAR
+num__card	NOUN NOUN_NUMBER
+num__ord	ADJECTIVE ADJECTIVE_NUMBER
+partte		PARTICLE # "te"
+prep		PREPOSITION
+prepabbr	PREPOSITION
+pronadv		ADVERB # pronomial adverb
+prondemo	PRONOUN_SUBJECT PRONOUN_OBJECT # demonstrative pronoun (used substitutively)
+pronindef	PRONOUN_SUBJECT PRONOUN_OBJECT # indefined pronoun
+pronpers	PRONOUN_SUBJECT PRONOUN_OBJECT # personal pronoun
+pronposs	PRONOUN_POSSESSIVE
+pronquest	PRONOUN_SUBJECT PRONOUN_OBJECT #  question pronoun
+pronrefl	PRONOUN_SUBJECT PRONOUN_OBJECT #  reflexive pronoun
+pronrel		PRONOUN_SUBJECT PRONOUN_OBJECT #  relative pronoun
+punc		# (non-sentential) punctuation
+verbinf		VERB VERB_INFINITIVE
+verbpapa	VERB VERB_PAST_PARTICIPLE
+verbpastpl	VERB VERB_PAST # plural past tense verb
+verbpastsg	VERB VERB_PAST # singular past tense verb
+verbpresp	VERB VERB_PRESENT_PARTICIPLE # present participle verb
+verbprespl	VERB VERB_PRESENT # plural present tense verb
+verbpressg	VERB VERB_PRESENT # singular present tense verb

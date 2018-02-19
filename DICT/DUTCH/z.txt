@@ -1,0 +1,2528 @@
+﻿ Z'je ( NOUN NOUN_SINGULAR ) lemma=`z` nounsg  
+ Z'jes ( NOUN NOUN_PLURAL ) lemma=`z` nounpl  
+ Z's ( NOUN NOUN_PLURAL ) lemma=`z` nounpl  
+ Z. ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`Z.`Z.` nounabbr  num__ord  
+ Z.I.V. ( NOUN NOUN_SINGULAR ) 
+ ZH ( NOUN NOUN_SINGULAR ) 
+ ZIV ( NOUN NOUN_SINGULAR ) 
+ ZKH ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR ) lemma=`ZKH`ZKH` nounabbr  nounprop  
+ ZM ( NOUN NOUN_SINGULAR ) 
+ Zagreb ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zagrebber ( NOUN NOUN_SINGULAR ) 
+ Zagrebbers ( NOUN NOUN_PLURAL ) lemma=`Zagrebber` nounpl  
+ Zagrebs ( ADJECTIVE ) 
+ Zagrebse ( NOUN NOUN_SINGULAR ) 
+ Zagrebsen ( NOUN NOUN_PLURAL ) lemma=`Zagrebse` nounpl  
+ Zakinthos ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zakynthos ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zambezi ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zambia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zambiaan ( NOUN NOUN_SINGULAR ) 
+ Zambiaans ( ADJECTIVE ) 
+ Zambiaanse ( NOUN NOUN_SINGULAR ) 
+ Zambiaansen ( NOUN NOUN_PLURAL ) lemma=`Zambiaanse` nounpl  
+ Zambianen ( NOUN NOUN_PLURAL ) lemma=`Zambiaan` nounpl  
+ Zaïre ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zaïrees ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zaïrees`Zaïrees` adj  nounsg  
+ Zaïrese ( NOUN NOUN_SINGULAR ) 
+ Zaïresen ( NOUN NOUN_PLURAL ) lemma=`Zaïrese` nounpl  
+ Zaïrezen ( NOUN NOUN_PLURAL ) lemma=`Zaïrees` nounpl  
+ Zeeland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zeeuw ( NOUN NOUN_SINGULAR ) 
+ Zeeuwen ( NOUN NOUN_PLURAL ) lemma=`Zeeuw` nounpl  
+ Zeeuws ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Zeeuws`Zeeuws` adj  nounprop  
+ Zeeuws-Vlaams ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Zeeuws-Vlaams`Zeeuws-Vlaams` adj  nounprop  
+ Zeeuws-Vlaamse ( NOUN NOUN_SINGULAR ) 
+ Zeeuws-Vlaamsen ( NOUN NOUN_PLURAL ) lemma=`Zeeuws-Vlaamse` nounpl  
+ Zeeuws-Vlaanderen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zeeuws-Vlaming ( NOUN NOUN_SINGULAR ) 
+ Zeeuws-Vlamingen ( NOUN NOUN_PLURAL ) lemma=`Zeeuws-Vlaming` nounpl  
+ Zeeuwse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zeeuws`Zeeuwse` adj  nounsg  
+ Zeeuwsen ( NOUN NOUN_PLURAL ) lemma=`Zeeuwse` nounpl  
+ Zenne ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zevenburgen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zevengebergte ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zimbabwaan ( NOUN NOUN_SINGULAR ) 
+ Zimbabwaans ( ADJECTIVE ) 
+ Zimbabwaanse ( NOUN NOUN_SINGULAR ) 
+ Zimbabwaansen ( NOUN NOUN_PLURAL ) lemma=`Zimbabwaanse` nounpl  
+ Zimbabwanen ( NOUN NOUN_PLURAL ) lemma=`Zimbabwaan` nounpl  
+ Zimbabwe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zoetermeer ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zoetermeerder ( NOUN NOUN_SINGULAR ) 
+ Zoetermeerders ( NOUN NOUN_PLURAL ) lemma=`Zoetermeerder` nounpl  
+ Zoetermeers ( ADJECTIVE ) 
+ Zoetermeerse ( NOUN NOUN_SINGULAR ) 
+ Zoetermeersen ( NOUN NOUN_PLURAL ) lemma=`Zoetermeerse` nounpl  
+ Zuid-Afrika ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Afrikaan ( NOUN NOUN_SINGULAR ) 
+ Zuid-Afrikaans ( ADJECTIVE ) 
+ Zuid-Afrikaanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zuid-Afrikaans`Zuid-Afrikaanse` adj  nounsg  
+ Zuid-Afrikaansen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Afrikaanse` nounpl  
+ Zuid-Afrikanen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Afrikaan` nounpl  
+ Zuid-Amerika ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Amerikaan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Amerikaans ( ADJECTIVE ) 
+ Zuid-Amerikaanse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zuid-Amerikaans`Zuid-Amerikaanse` adj  nounsg  
+ Zuid-Amerikaansen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Amerikaanse` nounpl  
+ Zuid-Amerikanen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Amerikaan` nounpl  
+ Zuid-Australisch ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Europa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Europees ( ADJECTIVE ) 
+ Zuid-Holland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Hollander ( NOUN NOUN_SINGULAR ) 
+ Zuid-Hollanders ( NOUN NOUN_PLURAL ) lemma=`Zuid-Hollander` nounpl  
+ Zuid-Hollands ( ADJECTIVE ) 
+ Zuid-Hollandse ( NOUN NOUN_SINGULAR ) 
+ Zuid-Hollandsen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Hollandse` nounpl  
+ Zuid-Korea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Koreaan ( NOUN NOUN_SINGULAR ) 
+ Zuid-Koreaans ( ADJECTIVE ) 
+ Zuid-Koreaanse ( NOUN NOUN_SINGULAR ) 
+ Zuid-Koreaansen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Koreaanse` nounpl  
+ Zuid-Koreanen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Koreaan` nounpl  
+ Zuid-Molukken ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Ossetië ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Tirol ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuid-Tiroler ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zuid-Tiroler`Zuid-Tiroler` adj  nounsg  
+ Zuid-Tirolers ( NOUN NOUN_PLURAL ) lemma=`Zuid-Tiroler` nounpl  
+ Zuid-Tirools ( ADJECTIVE ) 
+ Zuid-Tiroolse ( NOUN NOUN_SINGULAR ) 
+ Zuid-Tiroolsen ( NOUN NOUN_PLURAL ) lemma=`Zuid-Tiroolse` nounpl  
+ Zuidereiland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuidoostkaap ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuidpoolgebied ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuidwestkaap ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zweden ( NOUN NOUN_PLURAL NOUN_PROPER_SINGULAR ) lemma=`Zweed`Zweden` nounpl  nounprop  
+ Zweed ( NOUN NOUN_SINGULAR ) 
+ Zweeds ( NOUN ADJECTIVE NOUN_PROPER_SINGULAR ) lemma=`Zweeds`Zweeds` adj  nounprop  
+ Zweedse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zweeds`Zweedse` adj  nounsg  
+ Zweedsen ( NOUN NOUN_PLURAL ) lemma=`Zweedse` nounpl  
+ Zwitser ( NOUN NOUN_SINGULAR ) 
+ Zwitserland ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zwitsers ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`Zwitsers`Zwitser` adj  nounpl  
+ Zwitserse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`Zwitsers`Zwitserse` adj  nounsg  
+ Zwitsersen ( NOUN NOUN_PLURAL ) lemma=`Zwitserse` nounpl  
+ Zwolle ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zwollenaar ( NOUN NOUN_SINGULAR ) 
+ Zwollenaars ( NOUN NOUN_PLURAL ) lemma=`Zwollenaar` nounpl  
+ Zwollenaren ( NOUN NOUN_PLURAL ) lemma=`Zwollenaar` nounpl  
+ Zwoller ( ADJECTIVE ) 
+ Zwols ( ADJECTIVE ) 
+ Zwolse ( NOUN NOUN_SINGULAR ) 
+ Zwolsen ( NOUN NOUN_PLURAL ) lemma=`Zwolse` nounpl  
+ z ( NOUN NOUN_SINGULAR ) 
+ z'n ( PRONOUN_POSSESSIVE ) 
+ z's ( NOUN NOUN_PLURAL ) lemma=`z` nounpl  
+ z.g. ( ADJECTIVE ) 
+ zaad ( NOUN NOUN_SINGULAR ) 
+ zaadbal ( NOUN NOUN_SINGULAR ) 
+ zaadballen ( NOUN NOUN_PLURAL ) lemma=`zaadbal` nounpl  
+ zaadcel ( NOUN NOUN_SINGULAR ) 
+ zaadcellen ( NOUN NOUN_PLURAL ) lemma=`zaadcel` nounpl  
+ zaaddodend ( ADJECTIVE ) 
+ zaaddodende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zaaddodend`zaaddodende` adj  nounsg  
+ zaadje ( NOUN NOUN_SINGULAR ) lemma=`zaad` nounsg  
+ zaadjes ( NOUN NOUN_PLURAL ) lemma=`zaad` nounpl  
+ zaadkiem ( NOUN NOUN_SINGULAR ) 
+ zaadkiemen ( NOUN NOUN_PLURAL ) lemma=`zaadkiem` nounpl  
+ zaadleider ( NOUN NOUN_SINGULAR ) 
+ zaadleiders ( NOUN NOUN_PLURAL ) lemma=`zaadleider` nounpl  
+ zaadlozing ( NOUN NOUN_SINGULAR ) 
+ zaadlozingen ( NOUN NOUN_PLURAL ) lemma=`zaadlozing` nounpl  
+ zaag ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zaag`zagen` nounsg  verbpressg  
+ zaagde ( VERB_PAST VERB ) lemma=`zagen` verbpastsg  
+ zaagden ( VERB_PAST VERB ) lemma=`zagen` verbpastpl  
+ zaagjes ( NOUN NOUN_PLURAL ) lemma=`zaag` nounpl  
+ zaagmachine ( NOUN NOUN_SINGULAR ) 
+ zaagmachines ( NOUN NOUN_PLURAL ) lemma=`zaagmachine` nounpl  
+ zaagsel ( NOUN NOUN_SINGULAR ) 
+ zaagt ( VERB_PRESENT VERB ) lemma=`zagen` verbpressg  
+ zaagvis ( NOUN NOUN_SINGULAR ) 
+ zaagvissen ( NOUN NOUN_PLURAL ) lemma=`zaagvis` nounpl  
+ zaai ( VERB_PRESENT VERB ) lemma=`zaaien` verbpressg  
+ zaaide ( VERB_PAST VERB ) lemma=`zaaien` verbpastsg  
+ zaaiden ( VERB_PAST VERB ) lemma=`zaaien` verbpastpl  
+ zaaien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zaaien`zaaien`zaaien` nounsg  verbinf  verbprespl  
+ zaaiend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zaaien` verbpresp  
+ zaaiende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zaaiende`zaaien` nounsg  verbpresp  
+ zaaigoed ( NOUN NOUN_SINGULAR ) 
+ zaait ( VERB_PRESENT VERB ) lemma=`zaaien` verbpressg  
+ zaaitijd ( NOUN NOUN_SINGULAR ) 
+ zaaitijden ( NOUN NOUN_PLURAL ) lemma=`zaaitijd` nounpl  
+ zaak ( NOUN NOUN_SINGULAR ) 
+ zaakgelastigde ( NOUN NOUN_SINGULAR ) 
+ zaakgelastigden ( NOUN NOUN_PLURAL ) lemma=`zaakgelastigde` nounpl  
+ zaakregister ( NOUN NOUN_SINGULAR ) 
+ zaakregisters ( NOUN NOUN_PLURAL ) lemma=`zaakregister` nounpl  
+ zaaks ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zaaks`zaak` adj  nounsg  
+ zaakvoerder ( NOUN NOUN_SINGULAR ) 
+ zaakvoerders ( NOUN NOUN_PLURAL ) lemma=`zaakvoerder` nounpl  
+ zaal ( NOUN NOUN_SINGULAR ) 
+ zaalsport ( NOUN NOUN_SINGULAR ) 
+ zaalsporten ( NOUN NOUN_PLURAL ) lemma=`zaalsport` nounpl  
+ zaaltje ( NOUN NOUN_SINGULAR ) lemma=`zaal` nounsg  
+ zaaltjes ( NOUN NOUN_PLURAL ) lemma=`zaal` nounpl  
+ zaalvoetbal ( NOUN NOUN_SINGULAR ) 
+ zacht ( ADJECTIVE ) 
+ zachtaardig ( ADJECTIVE ) 
+ zachtaardige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtaardig`zachtaardige` adj  nounsg  
+ zachtaardiger ( ADJECTIVE ) lemma=`zachtaardig` adj  
+ zachtaardigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtaardig`zachtaardigere` adj  nounsg  
+ zachtaardigst ( ADJECTIVE ) lemma=`zachtaardig` adj  
+ zachtaardigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtaardig`zachtaardigste` adj  nounsg  
+ zachte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zacht`zachte` adj  nounsg  
+ zachten ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zacht`zachte` adj  nounpl  
+ zachter ( ADJECTIVE ) lemma=`zacht` adj  
+ zachtere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zacht`zachtere` adj  nounsg  
+ zachtheid ( NOUN NOUN_SINGULAR ) 
+ zachtjes ( ADJECTIVE ADVERB ) lemma=`zacht`zachtjes` adj  adv  
+ zachtjesaan ( ADVERB ) 
+ zachtkens ( ADJECTIVE ) lemma=`zacht` adj  
+ zachtmoedig ( ADJECTIVE ) 
+ zachtmoedige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtmoedig`zachtmoedige` adj  nounsg  
+ zachtmoediger ( ADJECTIVE ) lemma=`zachtmoedig` adj  
+ zachtmoedigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtmoedig`zachtmoedigere` adj  nounsg  
+ zachtmoedigst ( ADJECTIVE ) lemma=`zachtmoedig` adj  
+ zachtmoedigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtmoedig`zachtmoedigste` adj  nounsg  
+ zachtst ( ADJECTIVE ) lemma=`zacht` adj  
+ zachtste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zacht`zachtste` adj  nounsg  
+ zachtzinnig ( ADJECTIVE ) 
+ zachtzinnige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtzinnig`zachtzinnige` adj  nounsg  
+ zachtzinniger ( ADJECTIVE ) lemma=`zachtzinnig` adj  
+ zachtzinnigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtzinnig`zachtzinnigere` adj  nounsg  
+ zachtzinnigst ( ADJECTIVE ) lemma=`zachtzinnig` adj  
+ zachtzinnigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zachtzinnig`zachtzinnigste` adj  nounsg  
+ zadel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zadel`zadelen` nounsg  verbpressg  
+ zadeldak ( NOUN NOUN_SINGULAR ) 
+ zadeldaken ( NOUN NOUN_PLURAL ) lemma=`zadeldak` nounpl  
+ zadelde ( VERB_PAST VERB ) lemma=`zadelen` verbpastsg  
+ zadelden ( VERB_PAST VERB ) lemma=`zadelen` verbpastpl  
+ zadelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zadelen`zadelen`zadelen` nounsg  verbinf  verbprespl  
+ zadelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zadelen` verbpresp  
+ zadelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zadelende`zadelen` nounsg  verbpresp  
+ zadelpijn ( NOUN NOUN_SINGULAR ) 
+ zadelpijnen ( NOUN NOUN_PLURAL ) lemma=`zadelpijn` nounpl  
+ zadels ( NOUN NOUN_PLURAL ) lemma=`zadel` nounpl  
+ zadelt ( VERB_PRESENT VERB ) lemma=`zadelen` verbpressg  
+ zadeltas ( NOUN NOUN_SINGULAR ) 
+ zadeltassen ( NOUN NOUN_PLURAL ) lemma=`zadeltas` nounpl  
+ zadeltje ( NOUN NOUN_SINGULAR ) lemma=`zadel` nounsg  
+ zadeltjes ( NOUN NOUN_PLURAL ) lemma=`zadel` nounpl  
+ zadelvast ( ADJECTIVE ) 
+ zadelvaste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zadelvast`zadelvaste` adj  nounsg  
+ zaden ( NOUN NOUN_PLURAL ) lemma=`zaad` nounpl  
+ zag ( VERB_PAST VERB ) lemma=`zien` verbpastsg  
+ zagemeel ( NOUN NOUN_SINGULAR ) 
+ zagen ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zaag`zagen`zagen`zien`zagen` nounpl  nounsg  verbinf  verbpastpl  verbprespl  
+ zagend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zagen` verbpresp  
+ zagende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zagende`zagen` nounsg  verbpresp  
+ zak ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zak`zakken` nounsg  verbpressg  
+ zakagenda ( NOUN NOUN_SINGULAR ) 
+ zakagenda's ( NOUN NOUN_PLURAL ) lemma=`zakagenda` nounpl  
+ zakboekje ( NOUN NOUN_SINGULAR ) 
+ zakboekjes ( NOUN NOUN_PLURAL ) lemma=`zakboekje` nounpl  
+ zakcentje ( NOUN NOUN_SINGULAR ) 
+ zakcentjes ( NOUN NOUN_PLURAL ) lemma=`zakcentje` nounpl  
+ zakdoek ( NOUN NOUN_SINGULAR ) 
+ zakdoeken ( NOUN NOUN_PLURAL ) lemma=`zakdoek` nounpl  
+ zake ( NOUN NOUN_SINGULAR ) lemma=`zaak` nounsg  
+ zakelijk ( ADJECTIVE ) 
+ zakelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zakelijk`zakelijke` adj  nounsg  
+ zakelijker ( ADJECTIVE ) lemma=`zakelijk` adj  
+ zakelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zakelijk`zakelijkere` adj  nounsg  
+ zakelijkst ( ADJECTIVE ) lemma=`zakelijk` adj  
+ zakelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zakelijk`zakelijkste` adj  nounsg  
+ zaken ( NOUN NOUN_PLURAL ) lemma=`zaak|zaken` nounpl  
+ zakenlieden ( NOUN NOUN_PLURAL ) lemma=`zakenman` nounpl  
+ zakenlui ( NOUN NOUN_PLURAL ) lemma=`zakenman` nounpl  
+ zakenlui/-lieden ( NOUN NOUN_PLURAL ) lemma=`zakenman` nounpl  
+ zakenman ( NOUN NOUN_SINGULAR ) 
+ zakenmannen ( NOUN NOUN_PLURAL ) lemma=`zakenman` nounpl  
+ zakenreis ( NOUN NOUN_SINGULAR ) 
+ zakenreizen ( NOUN NOUN_PLURAL ) lemma=`zakenreis` nounpl  
+ zakenrelatie ( NOUN NOUN_SINGULAR ) 
+ zakenrelaties ( NOUN NOUN_PLURAL ) lemma=`zakenrelatie` nounpl  
+ zakenvrouw ( NOUN NOUN_SINGULAR ) 
+ zakenvrouwen ( NOUN NOUN_PLURAL ) lemma=`zakenvrouw` nounpl  
+ zakformaat ( NOUN NOUN_SINGULAR ) 
+ zakgeld ( NOUN NOUN_SINGULAR ) 
+ zakjapanner ( NOUN NOUN_SINGULAR ) 
+ zakjapanners ( NOUN NOUN_PLURAL ) lemma=`zakjapanner` nounpl  
+ zakje ( NOUN NOUN_SINGULAR ) lemma=`zak` nounsg  
+ zakjes ( NOUN NOUN_PLURAL ) lemma=`zak` nounpl  
+ zakken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zak`zakken`zakken`zakken` nounpl  nounsg  verbinf  verbprespl  
+ zakkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zakken` verbpresp  
+ zakkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zakkende`zakken` nounsg  verbpresp  
+ zakkenroller ( NOUN NOUN_SINGULAR ) 
+ zakkenrollers ( NOUN NOUN_PLURAL ) lemma=`zakkenroller` nounpl  
+ zakkenwasser ( NOUN NOUN_SINGULAR ) 
+ zakkenwassers ( NOUN NOUN_PLURAL ) lemma=`zakkenwasser` nounpl  
+ zaklantaarn ( NOUN NOUN_SINGULAR ) 
+ zaklantaarns ( NOUN NOUN_PLURAL ) lemma=`zaklantaarn` nounpl  
+ zaklantaren ( NOUN NOUN_SINGULAR ) 
+ zaklantarens ( NOUN NOUN_PLURAL ) lemma=`zaklantaren` nounpl  
+ zaklopen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zaklopen`zaklopen`zaklopen` nounsg  verbinf  verbprespl  
+ zakmes ( NOUN NOUN_SINGULAR ) 
+ zakmessen ( NOUN NOUN_PLURAL ) lemma=`zakmes` nounpl  
+ zakt ( VERB_PRESENT VERB ) lemma=`zakken` verbpressg  
+ zakte ( VERB_PAST VERB ) lemma=`zakken` verbpastsg  
+ zakten ( VERB_PAST VERB ) lemma=`zakken` verbpastpl  
+ zal ( VERB_PRESENT VERB ) lemma=`zullen` verbpressg  
+ zalen ( NOUN NOUN_PLURAL ) lemma=`zaal` nounpl  
+ zalf ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zalf`zalven` nounsg  verbpressg  
+ zalfde ( VERB_PAST VERB ) lemma=`zalven` verbpastsg  
+ zalfden ( VERB_PAST VERB ) lemma=`zalven` verbpastpl  
+ zalfje ( NOUN NOUN_SINGULAR ) lemma=`zalf` nounsg  
+ zalfjes ( NOUN NOUN_PLURAL ) lemma=`zalf` nounpl  
+ zalft ( VERB_PRESENT VERB ) lemma=`zalven` verbpressg  
+ zalig ( ADJECTIVE ) 
+ zalige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zalig`zalige` adj  nounsg  
+ zaligen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zalig`zalige` adj  nounpl  
+ zaliger ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zalig|zaliger`zaliger` adj  nounsg  
+ zaligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zalig`zaligere` adj  nounsg  
+ zaligheden ( NOUN NOUN_PLURAL ) lemma=`zaligheid` nounpl  
+ zaligheid ( NOUN NOUN_SINGULAR ) 
+ zaligst ( ADJECTIVE ) lemma=`zalig` adj  
+ zaligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zalig`zaligste` adj  nounsg  
+ zalm ( NOUN NOUN_SINGULAR ) 
+ zalmen ( NOUN NOUN_PLURAL ) lemma=`zalm` nounpl  
+ zalmforel ( NOUN NOUN_SINGULAR ) 
+ zalmforellen ( NOUN NOUN_PLURAL ) lemma=`zalmforel` nounpl  
+ zalmpje ( NOUN NOUN_SINGULAR ) lemma=`zalm` nounsg  
+ zalmpjes ( NOUN NOUN_PLURAL ) lemma=`zalm` nounpl  
+ zalven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zalf`zalven`zalven`zalven` nounpl  nounsg  verbinf  verbprespl  
+ zalvend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`zalvend`zalven` adj  verbpresp  
+ zalvende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zalvend`zalvende`zalven` adj  nounsg  verbpresp  
+ zalvender ( ADJECTIVE ) lemma=`zalvend` adj  
+ zalvendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zalvend`zalvendere` adj  nounsg  
+ zalvendst ( ADJECTIVE ) lemma=`zalvend` adj  
+ zalvendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zalvend`zalvendste` adj  nounsg  
+ zand ( NOUN NOUN_SINGULAR ) 
+ zandachtig ( ADJECTIVE ) 
+ zandachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandachtig`zandachtige` adj  nounsg  
+ zandachtiger ( ADJECTIVE ) lemma=`zandachtig` adj  
+ zandachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandachtig`zandachtigere` adj  nounsg  
+ zandachtigst ( ADJECTIVE ) lemma=`zandachtig` adj  
+ zandachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandachtig`zandachtigste` adj  nounsg  
+ zandbak ( NOUN NOUN_SINGULAR ) 
+ zandbakken ( NOUN NOUN_PLURAL ) lemma=`zandbak` nounpl  
+ zandbank ( NOUN NOUN_SINGULAR ) 
+ zandbanken ( NOUN NOUN_PLURAL ) lemma=`zandbank` nounpl  
+ zanden ( NOUN NOUN_PLURAL ) lemma=`zand` nounpl  
+ zanderig ( ADJECTIVE ) 
+ zanderige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zanderig`zanderige` adj  nounsg  
+ zanderiger ( ADJECTIVE ) lemma=`zanderig` adj  
+ zanderigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zanderig`zanderigere` adj  nounsg  
+ zanderigst ( ADJECTIVE ) lemma=`zanderig` adj  
+ zanderigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zanderig`zanderigste` adj  nounsg  
+ zandig ( ADJECTIVE ) 
+ zandige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandig`zandige` adj  nounsg  
+ zandiger ( ADJECTIVE ) lemma=`zandig` adj  
+ zandigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandig`zandigere` adj  nounsg  
+ zandigst ( ADJECTIVE ) lemma=`zandig` adj  
+ zandigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandig`zandigste` adj  nounsg  
+ zandkleurig ( ADJECTIVE ) 
+ zandkleurige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandkleurig`zandkleurige` adj  nounsg  
+ zandkleuriger ( ADJECTIVE ) lemma=`zandkleurig` adj  
+ zandkleurigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandkleurig`zandkleurigere` adj  nounsg  
+ zandkleurigst ( ADJECTIVE ) lemma=`zandkleurig` adj  
+ zandkleurigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zandkleurig`zandkleurigste` adj  nounsg  
+ zandkorrel ( NOUN NOUN_SINGULAR ) 
+ zandkorrels ( NOUN NOUN_PLURAL ) lemma=`zandkorrel` nounpl  
+ zandloper ( NOUN NOUN_SINGULAR ) 
+ zandlopers ( NOUN NOUN_PLURAL ) lemma=`zandloper` nounpl  
+ zandmannetje ( NOUN NOUN_SINGULAR ) 
+ zandmannetjes ( NOUN NOUN_PLURAL ) lemma=`zandmannetje` nounpl  
+ zandsteen ( NOUN NOUN_SINGULAR ) 
+ zandstraal ( VERB_PRESENT VERB ) lemma=`zandstralen` verbpressg  
+ zandstraalde ( VERB_PAST VERB ) lemma=`zandstralen` verbpastsg  
+ zandstraalden ( VERB_PAST VERB ) lemma=`zandstralen` verbpastpl  
+ zandstraalt ( VERB_PRESENT VERB ) lemma=`zandstralen` verbpressg  
+ zandstralen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zandstralen`zandstralen`zandstralen` nounsg  verbinf  verbprespl  
+ zandstralend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zandstralen` verbpresp  
+ zandstralende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zandstralende`zandstralen` nounsg  verbpresp  
+ zandwoestijn ( NOUN NOUN_SINGULAR ) 
+ zandwoestijnen ( NOUN NOUN_PLURAL ) lemma=`zandwoestijn` nounpl  
+ zang ( NOUN NOUN_SINGULAR ) 
+ zangboek ( NOUN NOUN_SINGULAR ) 
+ zangboeken ( NOUN NOUN_PLURAL ) lemma=`zangboek` nounpl  
+ zangen ( NOUN NOUN_PLURAL ) lemma=`zang` nounpl  
+ zanger ( NOUN NOUN_SINGULAR ) 
+ zangeres ( NOUN NOUN_SINGULAR ) 
+ zangeresje ( NOUN NOUN_SINGULAR ) lemma=`zangeres` nounsg  
+ zangeresjes ( NOUN NOUN_PLURAL ) lemma=`zangeres` nounpl  
+ zangeressen ( NOUN NOUN_PLURAL ) lemma=`zangeres` nounpl  
+ zangerig ( ADJECTIVE ) 
+ zangerige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zangerig`zangerige` adj  nounsg  
+ zangeriger ( ADJECTIVE ) lemma=`zangerig` adj  
+ zangerigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zangerig`zangerigere` adj  nounsg  
+ zangerigst ( ADJECTIVE ) lemma=`zangerig` adj  
+ zangerigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zangerig`zangerigste` adj  nounsg  
+ zangers ( NOUN NOUN_PLURAL ) lemma=`zanger` nounpl  
+ zangertje ( NOUN NOUN_SINGULAR ) lemma=`zanger` nounsg  
+ zangertjes ( NOUN NOUN_PLURAL ) lemma=`zanger` nounpl  
+ zangkoor ( NOUN NOUN_SINGULAR ) 
+ zangkoren ( NOUN NOUN_PLURAL ) lemma=`zangkoor` nounpl  
+ zangles ( NOUN NOUN_SINGULAR ) 
+ zanglessen ( NOUN NOUN_PLURAL ) lemma=`zangles` nounpl  
+ zanglijster ( NOUN NOUN_SINGULAR ) 
+ zanglijsters ( NOUN NOUN_PLURAL ) lemma=`zanglijster` nounpl  
+ zangstem ( NOUN NOUN_SINGULAR ) 
+ zangstemmen ( NOUN NOUN_PLURAL ) lemma=`zangstem` nounpl  
+ zangvogel ( NOUN NOUN_SINGULAR ) 
+ zangvogels ( NOUN NOUN_PLURAL ) lemma=`zangvogel` nounpl  
+ zangwedstrijd ( NOUN NOUN_SINGULAR ) 
+ zangwedstrijden ( NOUN NOUN_PLURAL ) lemma=`zangwedstrijd` nounpl  
+ zangzaad ( NOUN NOUN_SINGULAR ) 
+ zanik ( VERB_PRESENT VERB ) lemma=`zaniken` verbpressg  
+ zaniken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zaniken`zaniken`zaniken` nounsg  verbinf  verbprespl  
+ zanikend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zaniken` verbpresp  
+ zanikende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zanikende`zaniken` nounsg  verbpresp  
+ zanikt ( VERB_PRESENT VERB ) lemma=`zaniken` verbpressg  
+ zanikte ( VERB_PAST VERB ) lemma=`zaniken` verbpastsg  
+ zanikten ( VERB_PAST VERB ) lemma=`zaniken` verbpastpl  
+ zat ( VERB_PAST PRONOUN_SUBJECT PRONOUN_OBJECT VERB ADJECTIVE ) lemma=`zat`zat`zat`zitten` adj  det__indef  pronindef  verbpastsg  
+ zaten ( VERB_PAST VERB ) lemma=`zitten` verbpastpl  
+ zaterdag ( NOUN NOUN_PROPER_SINGULAR ) 
+ zaterdagcompetitie ( NOUN NOUN_SINGULAR ) 
+ zaterdagcompetities ( NOUN NOUN_PLURAL ) lemma=`zaterdagcompetitie` nounpl  
+ zaterdagen ( NOUN NOUN_PLURAL ) lemma=`zaterdag` nounpl  
+ zaterdags ( ADJECTIVE ) 
+ zaterdagse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zaterdags`zaterdagse` adj  nounsg  
+ zatlap ( NOUN NOUN_SINGULAR ) 
+ zatlappen ( NOUN NOUN_PLURAL ) lemma=`zatlap` nounpl  
+ zatlaps ( NOUN NOUN_PLURAL ) lemma=`zatlap` nounpl  
+ zatst ( ADJECTIVE ) lemma=`zat` adj  
+ zatste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zat`zatste` adj  nounsg  
+ zatte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zat`zatte` adj  nounsg  
+ zatter ( ADJECTIVE ) lemma=`zat` adj  
+ zattere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zat`zattere` adj  nounsg  
+ zavel ( NOUN NOUN_SINGULAR ) 
+ ze ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_POSSESSIVE ) lemma=`ze`ze` pronpers  pronposs  
+ zeboe ( NOUN NOUN_SINGULAR ) 
+ zeboes ( NOUN NOUN_PLURAL ) lemma=`zeboe` nounpl  
+ zebra ( NOUN NOUN_SINGULAR ) 
+ zebra's ( NOUN NOUN_PLURAL ) lemma=`zebra` nounpl  
+ zebraatje ( NOUN NOUN_SINGULAR ) lemma=`zebra` nounsg  
+ zebraatjes ( NOUN NOUN_PLURAL ) lemma=`zebra` nounpl  
+ zebracode ( NOUN NOUN_SINGULAR ) 
+ zebracodes ( NOUN NOUN_PLURAL ) lemma=`zebracode` nounpl  
+ zebrapad ( NOUN NOUN_SINGULAR ) 
+ zebrapaden ( NOUN NOUN_PLURAL ) lemma=`zebrapad` nounpl  
+ zede ( NOUN NOUN_SINGULAR ) 
+ zedelijk ( ADJECTIVE ) 
+ zedelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedelijk`zedelijke` adj  nounsg  
+ zedelijker ( ADJECTIVE ) lemma=`zedelijk` adj  
+ zedelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedelijk`zedelijkere` adj  nounsg  
+ zedelijkst ( ADJECTIVE ) lemma=`zedelijk` adj  
+ zedelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedelijk`zedelijkste` adj  nounsg  
+ zedeloos ( ADJECTIVE ) 
+ zedeloost ( ADJECTIVE ) lemma=`zedeloos` adj  
+ zedelooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedeloos`zedelooste` adj  nounsg  
+ zedeloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedeloos`zedeloze` adj  nounsg  
+ zedelozer ( ADJECTIVE ) lemma=`zedeloos` adj  
+ zedelozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedeloos`zedelozere` adj  nounsg  
+ zeden ( NOUN NOUN_PLURAL ) lemma=`zede|zeden` nounpl  
+ zedenbederf ( NOUN NOUN_SINGULAR ) 
+ zedendelict ( NOUN NOUN_SINGULAR ) 
+ zedendelicten ( NOUN NOUN_PLURAL ) lemma=`zedendelict` nounpl  
+ zedenleer ( NOUN NOUN_SINGULAR ) 
+ zedenpolitie ( NOUN NOUN_SINGULAR ) 
+ zedenpreek ( NOUN NOUN_SINGULAR ) 
+ zedenpreken ( NOUN NOUN_PLURAL ) lemma=`zedenpreek` nounpl  
+ zedes ( NOUN NOUN_PLURAL ) lemma=`zede` nounpl  
+ zedig ( ADJECTIVE ) 
+ zedige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedig`zedige` adj  nounsg  
+ zediger ( ADJECTIVE ) lemma=`zedig` adj  
+ zedigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedig`zedigere` adj  nounsg  
+ zedigst ( ADJECTIVE ) lemma=`zedig` adj  
+ zedigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zedig`zedigste` adj  nounsg  
+ zee ( NOUN NOUN_SINGULAR ) 
+ zee-egel ( NOUN NOUN_SINGULAR ) 
+ zee-egels ( NOUN NOUN_PLURAL ) lemma=`zee-egel` nounpl  
+ zee-engte ( NOUN NOUN_SINGULAR ) 
+ zee-engten ( NOUN NOUN_PLURAL ) lemma=`zee-engte` nounpl  
+ zee-engtes ( NOUN NOUN_PLURAL ) lemma=`zee-engte` nounpl  
+ zeeatlas ( NOUN NOUN_SINGULAR ) 
+ zeeatlassen ( NOUN NOUN_PLURAL ) lemma=`zeeatlas` nounpl  
+ zeebaars ( NOUN NOUN_SINGULAR ) 
+ zeebaarzen ( NOUN NOUN_PLURAL ) lemma=`zeebaars` nounpl  
+ zeebanket ( NOUN NOUN_SINGULAR ) 
+ zeebonk ( NOUN NOUN_SINGULAR ) 
+ zeebonken ( NOUN NOUN_PLURAL ) lemma=`zeebonk` nounpl  
+ zeeduivel ( NOUN NOUN_SINGULAR ) 
+ zeeduivels ( NOUN NOUN_PLURAL ) lemma=`zeeduivel` nounpl  
+ zeef ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zeef`zeven` nounsg  verbpressg  
+ zeefde ( VERB_PAST VERB ) lemma=`zeven` verbpastsg  
+ zeefden ( VERB_PAST VERB ) lemma=`zeven` verbpastpl  
+ zeefdoek ( NOUN NOUN_SINGULAR ) 
+ zeefdoeken ( NOUN NOUN_PLURAL ) lemma=`zeefdoek` nounpl  
+ zeefdruk ( NOUN NOUN_SINGULAR ) 
+ zeefdrukken ( NOUN NOUN_PLURAL ) lemma=`zeefdruk` nounpl  
+ zeefje ( NOUN NOUN_SINGULAR ) lemma=`zeef` nounsg  
+ zeefjes ( NOUN NOUN_PLURAL ) lemma=`zeef` nounpl  
+ zeeft ( VERB_PRESENT VERB ) lemma=`zeven` verbpressg  
+ zeeg ( VERB_PAST VERB ) lemma=`zijgen` verbpastsg  
+ zeegat ( NOUN NOUN_SINGULAR ) 
+ zeegaten ( NOUN NOUN_PLURAL ) lemma=`zeegat` nounpl  
+ zeegevecht ( NOUN NOUN_SINGULAR ) 
+ zeegevechten ( NOUN NOUN_PLURAL ) lemma=`zeegevecht` nounpl  
+ zeegezicht ( NOUN NOUN_SINGULAR ) 
+ zeegezichten ( NOUN NOUN_PLURAL ) lemma=`zeegezicht` nounpl  
+ zeehond ( NOUN NOUN_SINGULAR ) 
+ zeehonden ( NOUN NOUN_PLURAL ) lemma=`zeehond` nounpl  
+ zeek ( VERB_PAST VERB ) lemma=`zeiken` verbpastsg  
+ zeekaart ( NOUN NOUN_SINGULAR ) 
+ zeekaarten ( NOUN NOUN_PLURAL ) lemma=`zeekaart` nounpl  
+ zeekant ( NOUN NOUN_SINGULAR ) 
+ zeekanten ( NOUN NOUN_PLURAL ) lemma=`zeekant` nounpl  
+ zeeklimaat ( NOUN NOUN_SINGULAR ) 
+ zeekoe ( NOUN NOUN_SINGULAR ) 
+ zeekoeien ( NOUN NOUN_PLURAL ) lemma=`zeekoe` nounpl  
+ zeekraal ( NOUN NOUN_SINGULAR ) 
+ zeelands ( NOUN NOUN_SINGULAR ) lemma=`zeeland` nounsg  
+ zeeleeuw ( NOUN NOUN_SINGULAR ) 
+ zeeleeuwen ( NOUN NOUN_PLURAL ) lemma=`zeeleeuw` nounpl  
+ zeelieden ( NOUN NOUN_PLURAL ) lemma=`zeeman` nounpl  
+ zeelieden/-lui ( NOUN NOUN_PLURAL ) lemma=`zeeman` nounpl  
+ zeelt ( NOUN NOUN_SINGULAR ) 
+ zeelten ( NOUN NOUN_PLURAL ) lemma=`zeelt` nounpl  
+ zeelucht ( NOUN NOUN_SINGULAR ) 
+ zeelui ( NOUN NOUN_PLURAL ) lemma=`zeeman` nounpl  
+ zeem ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zeem`zemen` nounsg  verbpressg  
+ zeemacht ( NOUN NOUN_SINGULAR ) 
+ zeemachten ( NOUN NOUN_PLURAL ) lemma=`zeemacht` nounpl  
+ zeeman ( NOUN NOUN_SINGULAR ) 
+ zeemannen ( NOUN NOUN_PLURAL ) lemma=`zeeman` nounpl  
+ zeemde ( VERB_PAST VERB ) lemma=`zemen` verbpastsg  
+ zeemden ( VERB_PAST VERB ) lemma=`zemen` verbpastpl  
+ zeemeermin ( NOUN NOUN_SINGULAR ) 
+ zeemeerminnen ( NOUN NOUN_PLURAL ) lemma=`zeemeermin` nounpl  
+ zeemeeuw ( NOUN NOUN_SINGULAR ) 
+ zeemeeuwen ( NOUN NOUN_PLURAL ) lemma=`zeemeeuw` nounpl  
+ zeemijn ( NOUN NOUN_SINGULAR ) 
+ zeemijnen ( NOUN NOUN_PLURAL ) lemma=`zeemijn` nounpl  
+ zeemlap ( NOUN NOUN_SINGULAR ) 
+ zeemlappen ( NOUN NOUN_PLURAL ) lemma=`zeemlap` nounpl  
+ zeemleer ( NOUN NOUN_SINGULAR ) 
+ zeemleren ( ADJECTIVE ) 
+ zeemogendheden ( NOUN NOUN_PLURAL ) lemma=`zeemogendheid` nounpl  
+ zeemogendheid ( NOUN NOUN_SINGULAR ) 
+ zeemonster ( NOUN NOUN_SINGULAR ) 
+ zeemonsters ( NOUN NOUN_PLURAL ) lemma=`zeemonster` nounpl  
+ zeempje ( NOUN NOUN_SINGULAR ) lemma=`zeem` nounsg  
+ zeempjes ( NOUN NOUN_PLURAL ) lemma=`zeem` nounpl  
+ zeemt ( VERB_PRESENT VERB ) lemma=`zemen` verbpressg  
+ zeemzoet ( ADJECTIVE ) 
+ zeen ( NOUN NOUN_SINGULAR ) 
+ zeentje ( NOUN NOUN_SINGULAR ) lemma=`zeen` nounsg  
+ zeentjes ( NOUN NOUN_PLURAL ) lemma=`zeen` nounpl  
+ zeep ( NOUN NOUN_SINGULAR ) 
+ zeepaardje ( NOUN NOUN_SINGULAR ) 
+ zeepaardjes ( NOUN NOUN_PLURAL ) lemma=`zeepaardje` nounpl  
+ zeepbakje ( NOUN NOUN_SINGULAR ) 
+ zeepbakjes ( NOUN NOUN_PLURAL ) lemma=`zeepbakje` nounpl  
+ zeepbel ( NOUN NOUN_SINGULAR ) 
+ zeepbellen ( NOUN NOUN_PLURAL ) lemma=`zeepbel` nounpl  
+ zeepsop ( NOUN NOUN_SINGULAR ) 
+ zeer ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeer`zeer` adj  nounsg  
+ zeeramp ( NOUN NOUN_SINGULAR ) 
+ zeerampen ( NOUN NOUN_PLURAL ) lemma=`zeeramp` nounpl  
+ zeerder ( ADJECTIVE ) lemma=`zeer` adj  
+ zeerdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeer`zeerdere` adj  nounsg  
+ zeerecht ( NOUN NOUN_SINGULAR ) 
+ zeerechten ( NOUN NOUN_PLURAL ) lemma=`zeerecht|zeerechten` nounpl  
+ zeerob ( NOUN NOUN_SINGULAR ) 
+ zeerobben ( NOUN NOUN_PLURAL ) lemma=`zeerob` nounpl  
+ zeerover ( NOUN NOUN_SINGULAR ) 
+ zeerovers ( NOUN NOUN_PLURAL ) lemma=`zeerover` nounpl  
+ zeerst ( ADJECTIVE ) lemma=`zeer` adj  
+ zeerste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeer`zeerste` adj  nounsg  
+ zeeslag ( NOUN NOUN_SINGULAR ) 
+ zeeslagen ( NOUN NOUN_PLURAL ) lemma=`zeeslag` nounpl  
+ zeeslagje ( NOUN NOUN_SINGULAR ) lemma=`zeeslag` nounsg  
+ zeeslagjes ( NOUN NOUN_PLURAL ) lemma=`zeeslag` nounpl  
+ zeespiegel ( NOUN NOUN_SINGULAR ) 
+ zeespiegels ( NOUN NOUN_PLURAL ) lemma=`zeespiegel` nounpl  
+ zeetje ( NOUN NOUN_SINGULAR ) lemma=`zee` nounsg  
+ zeetjes ( NOUN NOUN_PLURAL ) lemma=`zee` nounpl  
+ zeevaart ( NOUN NOUN_SINGULAR ) 
+ zeevaartscholen ( NOUN NOUN_PLURAL ) lemma=`zeevaartschool` nounpl  
+ zeevaartschool ( NOUN NOUN_SINGULAR ) 
+ zeevarend ( ADJECTIVE ) 
+ zeevarende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeevarend`zeevarende` adj  nounsg  
+ zeevarenden ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zeevarend`zeevarende` adj  nounpl  
+ zeevruchten ( NOUN NOUN_PLURAL ) 
+ zeewaardig ( ADJECTIVE ) 
+ zeewaardige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeewaardig`zeewaardige` adj  nounsg  
+ zeewaardiger ( ADJECTIVE ) lemma=`zeewaardig` adj  
+ zeewaardigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeewaardig`zeewaardigere` adj  nounsg  
+ zeewaardigst ( ADJECTIVE ) lemma=`zeewaardig` adj  
+ zeewaardigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeewaardig`zeewaardigste` adj  nounsg  
+ zeewaarts ( ADVERB ) 
+ zeewier ( NOUN NOUN_SINGULAR ) 
+ zeewieren ( NOUN NOUN_PLURAL ) lemma=`zeewier` nounpl  
+ zeezeilen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zeezeilen`zeezeilen`zeezeilen` nounsg  verbinf  verbprespl  
+ zeeziek ( ADJECTIVE ) 
+ zeezieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeeziek`zeezieke` adj  nounsg  
+ zeezieker ( ADJECTIVE ) lemma=`zeeziek` adj  
+ zeeziekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeeziek`zeeziekere` adj  nounsg  
+ zeeziekst ( ADJECTIVE ) lemma=`zeeziek` adj  
+ zeeziekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeeziek`zeeziekste` adj  nounsg  
+ zeezout ( NOUN NOUN_SINGULAR ) 
+ zeeëgel ( NOUN NOUN_SINGULAR ) 
+ zeeën ( NOUN NOUN_PLURAL ) lemma=`zee` nounpl  
+ zeeëngte ( NOUN NOUN_SINGULAR ) 
+ zeg ( VERB_PRESENT VERB INTERJECTION ) lemma=`zeg`zeggen` int  verbpressg  
+ zegde ( VERB_PAST VERB ) lemma=`zeggen` verbpastsg  
+ zegden ( VERB_PAST VERB ) lemma=`zeggen` verbpastpl  
+ zege ( NOUN NOUN_SINGULAR ) 
+ zegel ( NOUN NOUN_SINGULAR ) 
+ zegelafdruk ( NOUN NOUN_SINGULAR ) 
+ zegelafdrukken ( NOUN NOUN_PLURAL ) lemma=`zegelafdruk` nounpl  
+ zegelbewaarder ( NOUN NOUN_SINGULAR ) 
+ zegelbewaarders ( NOUN NOUN_PLURAL ) lemma=`zegelbewaarder` nounpl  
+ zegelboekje ( NOUN NOUN_SINGULAR ) 
+ zegelboekjes ( NOUN NOUN_PLURAL ) lemma=`zegelboekje` nounpl  
+ zegellak ( NOUN NOUN_SINGULAR ) 
+ zegelring ( NOUN NOUN_SINGULAR ) 
+ zegelringen ( NOUN NOUN_PLURAL ) lemma=`zegelring` nounpl  
+ zegels ( NOUN NOUN_PLURAL ) lemma=`zegel` nounpl  
+ zegeltje ( NOUN NOUN_SINGULAR ) lemma=`zegel` nounsg  
+ zegeltjes ( NOUN NOUN_PLURAL ) lemma=`zegel` nounpl  
+ zegen ( VERB_PRESENT VERB_PAST NOUN VERB NOUN_SINGULAR ) lemma=`zegen`zijgen`zegenen` nounsg  verbpastpl  verbpressg  
+ zegende ( VERB_PAST VERB ) lemma=`zegenen` verbpastsg  
+ zegenden ( VERB_PAST VERB ) lemma=`zegenen` verbpastpl  
+ zegenen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zegenen`zegenen`zegenen` nounsg  verbinf  verbprespl  
+ zegenend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zegenen` verbpresp  
+ zegenende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zegenende`zegenen` nounsg  verbpresp  
+ zegening ( NOUN NOUN_SINGULAR ) 
+ zegeningen ( NOUN NOUN_PLURAL ) lemma=`zegening` nounpl  
+ zegenrijk ( ADJECTIVE ) 
+ zegenrijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zegenrijk`zegenrijke` adj  nounsg  
+ zegenrijker ( ADJECTIVE ) lemma=`zegenrijk` adj  
+ zegenrijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zegenrijk`zegenrijkere` adj  nounsg  
+ zegenrijkst ( ADJECTIVE ) lemma=`zegenrijk` adj  
+ zegenrijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zegenrijk`zegenrijkste` adj  nounsg  
+ zegens ( NOUN NOUN_PLURAL ) lemma=`zegen` nounpl  
+ zegent ( VERB_PRESENT VERB ) lemma=`zegenen` verbpressg  
+ zegepalm ( NOUN NOUN_SINGULAR ) 
+ zegepalmen ( NOUN NOUN_PLURAL ) lemma=`zegepalm` nounpl  
+ zegepraal ( VERB_PRESENT VERB ) lemma=`zegepralen` verbpressg  
+ zegepraalde ( VERB_PAST VERB ) lemma=`zegepralen` verbpastsg  
+ zegepraalden ( VERB_PAST VERB ) lemma=`zegepralen` verbpastpl  
+ zegepraalt ( VERB_PRESENT VERB ) lemma=`zegepralen` verbpressg  
+ zegepralen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zegepralen`zegepralen`zegepralen` nounsg  verbinf  verbprespl  
+ zegepralend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zegepralen` verbpresp  
+ zegepralende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zegepralende`zegepralen` nounsg  verbpresp  
+ zegereeks ( NOUN NOUN_SINGULAR ) 
+ zegereeksen ( NOUN NOUN_PLURAL ) lemma=`zegereeks` nounpl  
+ zeges ( NOUN NOUN_PLURAL ) lemma=`zege` nounpl  
+ zegevier ( VERB_PRESENT VERB ) lemma=`zegevieren` verbpressg  
+ zegevierde ( VERB_PAST VERB ) lemma=`zegevieren` verbpastsg  
+ zegevierden ( VERB_PAST VERB ) lemma=`zegevieren` verbpastpl  
+ zegevieren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zegevieren`zegevieren`zegevieren` nounsg  verbinf  verbprespl  
+ zegevierend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zegevieren` verbpresp  
+ zegevierende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zegevierende`zegevieren` nounsg  verbpresp  
+ zegeviert ( VERB_PRESENT VERB ) lemma=`zegevieren` verbpressg  
+ zegge ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zegge`zeggen` nounsg  verbpressg  
+ zeggen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zegge`zeggen`zeggen`zeggen` nounpl  nounsg  verbinf  verbprespl  
+ zeggend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeggen` verbpresp  
+ zeggende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zeggende`zeggen` nounsg  verbpresp  
+ zeggenschap ( NOUN NOUN_SINGULAR ) 
+ zegslieden ( NOUN NOUN_PLURAL ) lemma=`zegsman` nounpl  
+ zegslui ( NOUN NOUN_PLURAL ) lemma=`zegsman` nounpl  
+ zegsman ( NOUN NOUN_SINGULAR ) 
+ zegsvrouw ( NOUN NOUN_SINGULAR ) 
+ zegsvrouwen ( NOUN NOUN_PLURAL ) lemma=`zegsvrouw` nounpl  
+ zegswijze ( NOUN NOUN_SINGULAR ) 
+ zegswijzen ( NOUN NOUN_PLURAL ) lemma=`zegswijze` nounpl  
+ zegt ( VERB_PRESENT VERB ) lemma=`zeggen` verbpressg  
+ zei ( VERB_PAST VERB ) lemma=`zeggen` verbpastsg  
+ zeiden ( VERB_PAST VERB ) lemma=`zeggen` verbpastpl  
+ zeik ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zeik`zeiken` nounsg  verbpressg  
+ zeiken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zeiken`zeiken`zeiken` nounsg  verbinf  verbprespl  
+ zeikend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeiken` verbpresp  
+ zeikende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zeikende`zeiken` nounsg  verbpresp  
+ zeikerig ( ADJECTIVE ) 
+ zeikerige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeikerig`zeikerige` adj  nounsg  
+ zeikeriger ( ADJECTIVE ) lemma=`zeikerig` adj  
+ zeikerigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeikerig`zeikerigere` adj  nounsg  
+ zeikerigst ( ADJECTIVE ) lemma=`zeikerig` adj  
+ zeikerigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeikerig`zeikerigste` adj  nounsg  
+ zeiknat ( ADJECTIVE ) 
+ zeiknatst ( ADJECTIVE ) lemma=`zeiknat` adj  
+ zeiknatste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeiknat`zeiknatste` adj  nounsg  
+ zeiknatte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeiknat`zeiknatte` adj  nounsg  
+ zeiknatter ( ADJECTIVE ) lemma=`zeiknat` adj  
+ zeiknattere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeiknat`zeiknattere` adj  nounsg  
+ zeikstraal ( NOUN NOUN_SINGULAR ) 
+ zeikstralen ( NOUN NOUN_PLURAL ) lemma=`zeikstraal` nounpl  
+ zeikt ( VERB_PRESENT VERB ) lemma=`zeiken` verbpressg  
+ zeikte ( VERB_PAST VERB ) lemma=`zeiken` verbpastsg  
+ zeikten ( VERB_PAST VERB ) lemma=`zeiken` verbpastpl  
+ zeikwijf ( NOUN NOUN_SINGULAR ) 
+ zeikwijven ( NOUN NOUN_PLURAL ) lemma=`zeikwijf` nounpl  
+ zeil ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zeil`zeilen` nounsg  verbpressg  
+ zeilboot ( NOUN NOUN_SINGULAR ) 
+ zeilboten ( NOUN NOUN_PLURAL ) lemma=`zeilboot` nounpl  
+ zeilde ( VERB_PAST VERB ) lemma=`zeilen` verbpastsg  
+ zeilden ( VERB_PAST VERB ) lemma=`zeilen` verbpastpl  
+ zeildoek ( NOUN NOUN_SINGULAR ) 
+ zeilen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zeil`zeilen`zeilen`zeilen` nounpl  nounsg  verbinf  verbprespl  
+ zeilend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeilen` verbpresp  
+ zeilende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zeilende`zeilen` nounsg  verbpresp  
+ zeilplank ( NOUN NOUN_SINGULAR ) 
+ zeilplanken ( NOUN NOUN_PLURAL ) lemma=`zeilplank` nounpl  
+ zeilt ( VERB_PRESENT VERB ) lemma=`zeilen` verbpressg  
+ zeiltje ( NOUN NOUN_SINGULAR ) lemma=`zeil` nounsg  
+ zeiltjes ( NOUN NOUN_PLURAL ) lemma=`zeil` nounpl  
+ zeis ( NOUN NOUN_SINGULAR ) 
+ zeisen ( NOUN NOUN_PLURAL ) lemma=`zeis` nounpl  
+ zeken ( VERB_PAST VERB ) lemma=`zeiken` verbpastpl  
+ zeker ( VERB_PRESENT VERB ADJECTIVE ADVERB ) lemma=`zeker`zeker`zeker`zekeren` adj  adv  det__indef  verbpressg  
+ zekerde ( VERB_PAST VERB ) lemma=`zekeren` verbpastsg  
+ zekerden ( VERB_PAST VERB ) lemma=`zekeren` verbpastpl  
+ zekerder ( ADJECTIVE ) lemma=`zeker` adj  
+ zekerdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeker`zekerdere` adj  nounsg  
+ zekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeker`zeker`zekere` adj  det__indef  nounsg  
+ zekeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zekeren`zekeren`zekeren` nounsg  verbinf  verbprespl  
+ zekerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zekeren` verbpresp  
+ zekerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zekerende`zekeren` nounsg  verbpresp  
+ zekerheden ( NOUN NOUN_PLURAL ) lemma=`zekerheid` nounpl  
+ zekerheid ( NOUN NOUN_SINGULAR ) 
+ zekerheidshalve ( ADVERB ) 
+ zekering ( NOUN NOUN_SINGULAR ) 
+ zekeringen ( NOUN NOUN_PLURAL ) lemma=`zekering` nounpl  
+ zekeringkast ( NOUN NOUN_SINGULAR ) 
+ zekeringkasten ( NOUN NOUN_PLURAL ) lemma=`zekeringkast` nounpl  
+ zekerst ( ADJECTIVE ) lemma=`zeker` adj  
+ zekerste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeker`zekerste` adj  nounsg  
+ zekert ( VERB_PRESENT VERB ) lemma=`zekeren` verbpressg  
+ zelden ( ADVERB ) 
+ zeldzaam ( ADJECTIVE ) 
+ zeldzaamst ( ADJECTIVE ) lemma=`zeldzaam` adj  
+ zeldzaamste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeldzaam`zeldzaamste` adj  nounsg  
+ zeldzame ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeldzaam`zeldzame` adj  nounsg  
+ zeldzamen ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zeldzaam`zeldzame` adj  nounpl  
+ zeldzamer ( ADJECTIVE ) lemma=`zeldzaam` adj  
+ zeldzamere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeldzaam`zeldzamere` adj  nounsg  
+ zelf ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ zelfanalyse ( NOUN NOUN_SINGULAR ) 
+ zelfanalysen ( NOUN NOUN_PLURAL ) lemma=`zelfanalyse` nounpl  
+ zelfanalyses ( NOUN NOUN_PLURAL ) lemma=`zelfanalyse` nounpl  
+ zelfbediening ( NOUN NOUN_SINGULAR ) 
+ zelfbedrog ( NOUN NOUN_SINGULAR ) 
+ zelfbeheersing ( NOUN NOUN_SINGULAR ) 
+ zelfbeklag ( NOUN NOUN_SINGULAR ) 
+ zelfbeschikkingsrech ( NOUN NOUN_SINGULAR ) 
+ zelfbeschikkingsrecht ( NOUN NOUN_SINGULAR ) 
+ zelfbevrediging ( NOUN NOUN_SINGULAR ) 
+ zelfbewust ( ADJECTIVE ) 
+ zelfbewuste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfbewust`zelfbewuste` adj  nounsg  
+ zelfbewuster ( ADJECTIVE ) lemma=`zelfbewust` adj  
+ zelfbewustere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfbewust`zelfbewustere` adj  nounsg  
+ zelfde ( ADJECTIVE ) 
+ zelfdoding ( NOUN NOUN_SINGULAR ) 
+ zelfdodingen ( NOUN NOUN_PLURAL ) lemma=`zelfdoding` nounpl  
+ zelfgebakken ( ADJECTIVE ) 
+ zelfgekozen ( ADJECTIVE ) 
+ zelfgemaakt ( ADJECTIVE ) 
+ zelfgenoegzaam ( ADJECTIVE ) 
+ zelfgenoegzaamst ( ADJECTIVE ) lemma=`zelfgenoegzaam` adj  
+ zelfgenoegzaamste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfgenoegzaam`zelfgenoegzaamste` adj  nounsg  
+ zelfgenoegzame ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfgenoegzaam`zelfgenoegzame` adj  nounsg  
+ zelfgenoegzamer ( ADJECTIVE ) lemma=`zelfgenoegzaam` adj  
+ zelfgenoegzamere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfgenoegzaam`zelfgenoegzamere` adj  nounsg  
+ zelfingenomen ( ADJECTIVE ) 
+ zelfingenomene ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfingenomen`zelfingenomene` adj  nounsg  
+ zelfingenomener ( ADJECTIVE ) lemma=`zelfingenomen` adj  
+ zelfingenomenere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfingenomen`zelfingenomenere` adj  nounsg  
+ zelfingenomenst ( ADJECTIVE ) lemma=`zelfingenomen` adj  
+ zelfingenomenste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfingenomen`zelfingenomenste` adj  nounsg  
+ zelfkant ( NOUN NOUN_SINGULAR ) 
+ zelfkanten ( NOUN NOUN_PLURAL ) lemma=`zelfkant` nounpl  
+ zelfkennis ( NOUN NOUN_SINGULAR ) 
+ zelfklevend ( ADJECTIVE ) 
+ zelfklevende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfklevend`zelfklevende` adj  nounsg  
+ zelfklevender ( ADJECTIVE ) lemma=`zelfklevend` adj  
+ zelfklevendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfklevend`zelfklevendere` adj  nounsg  
+ zelfklevendst ( ADJECTIVE ) lemma=`zelfklevend` adj  
+ zelfklevendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfklevend`zelfklevendste` adj  nounsg  
+ zelfmedelijden ( NOUN NOUN_SINGULAR ) 
+ zelfmoord ( NOUN NOUN_SINGULAR ) 
+ zelfmoordcommando ( NOUN NOUN_SINGULAR ) 
+ zelfmoordcommando's ( NOUN NOUN_PLURAL ) lemma=`zelfmoordcommando` nounpl  
+ zelfmoorden ( NOUN NOUN_PLURAL ) lemma=`zelfmoord` nounpl  
+ zelfmoordenaar ( NOUN NOUN_SINGULAR ) 
+ zelfmoordenaars ( NOUN NOUN_PLURAL ) lemma=`zelfmoordenaar` nounpl  
+ zelfmoordneiging ( NOUN NOUN_SINGULAR ) 
+ zelfmoordneigingen ( NOUN NOUN_PLURAL ) lemma=`zelfmoordneiging` nounpl  
+ zelfmoordpiloot ( NOUN NOUN_SINGULAR ) 
+ zelfmoordpiloten ( NOUN NOUN_PLURAL ) lemma=`zelfmoordpiloot` nounpl  
+ zelfmoordpoging ( NOUN NOUN_SINGULAR ) 
+ zelfmoordpogingen ( NOUN NOUN_PLURAL ) lemma=`zelfmoordpoging` nounpl  
+ zelfontbranding ( NOUN NOUN_SINGULAR ) 
+ zelfontplooiing ( NOUN NOUN_SINGULAR ) 
+ zelfontspanner ( NOUN NOUN_SINGULAR ) 
+ zelfontspanners ( NOUN NOUN_PLURAL ) lemma=`zelfontspanner` nounpl  
+ zelfportret ( NOUN NOUN_SINGULAR ) 
+ zelfportretten ( NOUN NOUN_PLURAL ) lemma=`zelfportret` nounpl  
+ zelfreinigend ( ADJECTIVE ) 
+ zelfreinigende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfreinigend`zelfreinigende` adj  nounsg  
+ zelfrijzend ( ADJECTIVE ) 
+ zelfrijzende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfrijzend`zelfrijzende` adj  nounsg  
+ zelfs ( ADVERB ) 
+ zelfstandig ( ADJECTIVE ) 
+ zelfstandige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfstandig`zelfstandige` adj  nounsg  
+ zelfstandigen ( NOUN NOUN_PLURAL ) lemma=`zelfstandige` nounpl  
+ zelfstandiger ( ADJECTIVE ) lemma=`zelfstandig` adj  
+ zelfstandigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfstandig`zelfstandigere` adj  nounsg  
+ zelfstandigst ( ADJECTIVE ) lemma=`zelfstandig` adj  
+ zelfstandigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfstandig`zelfstandigste` adj  nounsg  
+ zelfstrijkend ( ADJECTIVE ) 
+ zelfstrijkende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfstrijkend`zelfstrijkende` adj  nounsg  
+ zelfstudie ( NOUN NOUN_SINGULAR ) 
+ zelfverdediging ( NOUN NOUN_SINGULAR ) 
+ zelfverheerlijking ( NOUN NOUN_SINGULAR ) 
+ zelfvertrouwen ( NOUN NOUN_SINGULAR ) 
+ zelfverzekerd ( ADJECTIVE ) 
+ zelfverzekerde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfverzekerd`zelfverzekerde` adj  nounsg  
+ zelfverzekerder ( ADJECTIVE ) lemma=`zelfverzekerd` adj  
+ zelfverzekerdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfverzekerd`zelfverzekerdere` adj  nounsg  
+ zelfverzekerdst ( ADJECTIVE ) lemma=`zelfverzekerd` adj  
+ zelfverzekerdste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfverzekerd`zelfverzekerdste` adj  nounsg  
+ zelfvoldaan ( ADJECTIVE ) 
+ zelfvoldaanst ( ADJECTIVE ) lemma=`zelfvoldaan` adj  
+ zelfvoldaanste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfvoldaan`zelfvoldaanste` adj  nounsg  
+ zelfvoldane ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfvoldaan`zelfvoldane` adj  nounsg  
+ zelfvoldaner ( ADJECTIVE ) lemma=`zelfvoldaan` adj  
+ zelfvoldanere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfvoldaan`zelfvoldanere` adj  nounsg  
+ zelfzucht ( NOUN NOUN_SINGULAR ) 
+ zelfzuchtig ( ADJECTIVE ) 
+ zelfzuchtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfzuchtig`zelfzuchtige` adj  nounsg  
+ zelfzuchtiger ( ADJECTIVE ) lemma=`zelfzuchtig` adj  
+ zelfzuchtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfzuchtig`zelfzuchtigere` adj  nounsg  
+ zelfzuchtigst ( ADJECTIVE ) lemma=`zelfzuchtig` adj  
+ zelfzuchtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zelfzuchtig`zelfzuchtigste` adj  nounsg  
+ zemel ( VERB_PRESENT VERB ) lemma=`zemelen` verbpressg  
+ zemelaar ( NOUN NOUN_SINGULAR ) 
+ zemelaars ( NOUN NOUN_PLURAL ) lemma=`zemelaar` nounpl  
+ zemelde ( VERB_PAST VERB ) lemma=`zemelen` verbpastsg  
+ zemelden ( VERB_PAST VERB ) lemma=`zemelen` verbpastpl  
+ zemelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zemelen`zemelen`zemelen`zemelen` nounpl  nounsg  verbinf  verbprespl  
+ zemelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zemelen` verbpresp  
+ zemelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zemelende`zemelen` nounsg  verbpresp  
+ zemelt ( VERB_PRESENT VERB ) lemma=`zemelen` verbpressg  
+ zemeltjes ( NOUN NOUN_PLURAL ) lemma=`zemelen` nounpl  
+ zemen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zeem`zemen`zemen`zemen` nounpl  nounsg  verbinf  verbprespl  
+ zemend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zemen` verbpresp  
+ zemende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zemende`zemen` nounsg  verbpresp  
+ zenboeddhisme ( NOUN NOUN_PROPER_SINGULAR ) 
+ zend ( VERB_PRESENT VERB ) lemma=`zenden` verbpressg  
+ zendamateur ( NOUN NOUN_SINGULAR ) 
+ zendamateurs ( NOUN NOUN_PLURAL ) lemma=`zendamateur` nounpl  
+ zendapparatuur ( NOUN NOUN_SINGULAR ) 
+ zendeling ( NOUN NOUN_SINGULAR ) 
+ zendelingen ( NOUN NOUN_PLURAL ) lemma=`zendeling` nounpl  
+ zenden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zenden`zenden`zenden` nounsg  verbinf  verbprespl  
+ zendend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zenden` verbpresp  
+ zendende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zendende`zenden` nounsg  verbpresp  
+ zender ( NOUN NOUN_SINGULAR ) 
+ zenders ( NOUN NOUN_PLURAL ) lemma=`zender` nounpl  
+ zendertje ( NOUN NOUN_SINGULAR ) lemma=`zender` nounsg  
+ zendertjes ( NOUN NOUN_PLURAL ) lemma=`zender` nounpl  
+ zendgolf ( NOUN NOUN_SINGULAR ) 
+ zendgolven ( NOUN NOUN_PLURAL ) lemma=`zendgolf` nounpl  
+ zending ( NOUN NOUN_SINGULAR ) 
+ zendingen ( NOUN NOUN_PLURAL ) lemma=`zending` nounpl  
+ zendingsgenootschap ( NOUN NOUN_SINGULAR ) 
+ zendingsgenootschapp ( NOUN NOUN_PLURAL ) lemma=`zendingsgenootschap` nounpl  
+ zendingsgenootschappen ( NOUN NOUN_PLURAL ) lemma=`zendingsgenootschap` nounpl  
+ zendingspost ( NOUN NOUN_SINGULAR ) 
+ zendingsposten ( NOUN NOUN_PLURAL ) lemma=`zendingspost` nounpl  
+ zendingswerk ( NOUN NOUN_SINGULAR ) 
+ zendmachtiging ( NOUN NOUN_SINGULAR ) 
+ zendmachtigingen ( NOUN NOUN_PLURAL ) lemma=`zendmachtiging` nounpl  
+ zendschepen ( NOUN NOUN_PLURAL ) lemma=`zendschip` nounpl  
+ zendschip ( NOUN NOUN_SINGULAR ) 
+ zendstation ( NOUN NOUN_SINGULAR ) 
+ zendstations ( NOUN NOUN_PLURAL ) lemma=`zendstation` nounpl  
+ zendt ( VERB_PRESENT VERB ) lemma=`zenden` verbpressg  
+ zendtijd ( NOUN NOUN_SINGULAR ) 
+ zendtijden ( NOUN NOUN_PLURAL ) lemma=`zendtijd` nounpl  
+ zendtoestel ( NOUN NOUN_SINGULAR ) 
+ zendtoestellen ( NOUN NOUN_PLURAL ) lemma=`zendtoestel` nounpl  
+ zenen ( NOUN NOUN_PLURAL ) lemma=`zeen` nounpl  
+ zenit ( NOUN NOUN_SINGULAR ) 
+ zenuw ( NOUN NOUN_SINGULAR ) 
+ zenuwachtig ( ADJECTIVE ) 
+ zenuwachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwachtig`zenuwachtige` adj  nounsg  
+ zenuwachtiger ( ADJECTIVE ) lemma=`zenuwachtig` adj  
+ zenuwachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwachtig`zenuwachtigere` adj  nounsg  
+ zenuwachtigst ( ADJECTIVE ) lemma=`zenuwachtig` adj  
+ zenuwachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwachtig`zenuwachtigste` adj  nounsg  
+ zenuwarts ( NOUN NOUN_SINGULAR ) 
+ zenuwartsen ( NOUN NOUN_PLURAL ) lemma=`zenuwarts` nounpl  
+ zenuwcel ( NOUN NOUN_SINGULAR ) 
+ zenuwcellen ( NOUN NOUN_PLURAL ) lemma=`zenuwcel` nounpl  
+ zenuwcentra ( NOUN NOUN_PLURAL ) lemma=`zenuwcentrum` nounpl  
+ zenuwcentrum ( NOUN NOUN_SINGULAR ) 
+ zenuwcentrums ( NOUN NOUN_PLURAL ) lemma=`zenuwcentrum` nounpl  
+ zenuwen ( NOUN NOUN_PLURAL ) lemma=`zenuw|zenuwen` nounpl  
+ zenuwgas ( NOUN NOUN_SINGULAR ) 
+ zenuwgassen ( NOUN NOUN_PLURAL ) lemma=`zenuwgas` nounpl  
+ zenuwgestel ( NOUN NOUN_SINGULAR ) 
+ zenuwlijder ( NOUN NOUN_SINGULAR ) 
+ zenuwlijders ( NOUN NOUN_PLURAL ) lemma=`zenuwlijder` nounpl  
+ zenuwlijer ( NOUN NOUN_SINGULAR ) 
+ zenuwlijers ( NOUN NOUN_PLURAL ) lemma=`zenuwlijer` nounpl  
+ zenuwpees ( NOUN NOUN_SINGULAR ) 
+ zenuwpezen ( NOUN NOUN_PLURAL ) lemma=`zenuwpees` nounpl  
+ zenuwslopend ( ADJECTIVE ) 
+ zenuwslopende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwslopend`zenuwslopende` adj  nounsg  
+ zenuwslopender ( ADJECTIVE ) lemma=`zenuwslopend` adj  
+ zenuwslopendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwslopend`zenuwslopendere` adj  nounsg  
+ zenuwslopendst ( ADJECTIVE ) lemma=`zenuwslopend` adj  
+ zenuwslopendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwslopend`zenuwslopendste` adj  nounsg  
+ zenuwstelsel ( NOUN NOUN_SINGULAR ) 
+ zenuwstelsels ( NOUN NOUN_PLURAL ) lemma=`zenuwstelsel` nounpl  
+ zenuwtje ( NOUN NOUN_SINGULAR ) lemma=`zenuw` nounsg  
+ zenuwtjes ( NOUN NOUN_PLURAL ) lemma=`zenuw` nounpl  
+ zenuwtrek ( NOUN NOUN_SINGULAR ) 
+ zenuwtrekken ( NOUN NOUN_PLURAL ) lemma=`zenuwtrek` nounpl  
+ zenuwziek ( ADJECTIVE ) 
+ zenuwzieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwziek`zenuwzieke` adj  nounsg  
+ zenuwzieker ( ADJECTIVE ) lemma=`zenuwziek` adj  
+ zenuwziekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwziek`zenuwziekere` adj  nounsg  
+ zenuwziekst ( ADJECTIVE ) lemma=`zenuwziek` adj  
+ zenuwziekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zenuwziek`zenuwziekste` adj  nounsg  
+ zepen ( NOUN NOUN_PLURAL ) lemma=`zeep` nounpl  
+ zeppelin ( NOUN NOUN_SINGULAR ) 
+ zeppelins ( NOUN NOUN_PLURAL ) lemma=`zeppelin` nounpl  
+ zere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeer`zere` adj  nounsg  
+ zerk ( NOUN NOUN_SINGULAR ) 
+ zerken ( NOUN NOUN_PLURAL ) lemma=`zerk` nounpl  
+ zerkjes ( NOUN NOUN_PLURAL ) lemma=`zerk` nounpl  
+ zes ( NOUN NOUN_NUMBER ) 
+ zesdaags ( ADJECTIVE ) 
+ zesdaagse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zesdaags`zesdaagse` adj  nounsg  
+ zesdaagsen ( NOUN NOUN_PLURAL ) lemma=`zesdaagse` nounpl  
+ zesde ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`zes` num__ord  
+ zeshoek ( NOUN NOUN_SINGULAR ) 
+ zeshoeken ( NOUN NOUN_PLURAL ) lemma=`zeshoek` nounpl  
+ zesmaal ( ADVERB ) 
+ zessen ( NOUN NOUN_NUMBER ) lemma=`zes` num__card  
+ zestien ( NOUN NOUN_NUMBER ) 
+ zestiende ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`zestien` num__ord  
+ zestienen ( NOUN NOUN_NUMBER ) lemma=`zestien` num__card  
+ zestienmaal ( ADVERB ) 
+ zestig ( NOUN NOUN_NUMBER ) 
+ zestigen ( NOUN NOUN_NUMBER ) lemma=`zestig` num__card  
+ zestigste ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`zestig` num__ord  
+ zet ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zet`zetten` nounsg  verbpressg  
+ zetbaas ( NOUN NOUN_SINGULAR ) 
+ zetbazen ( NOUN NOUN_PLURAL ) lemma=`zetbaas` nounpl  
+ zetel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zetel`zetelen` nounsg  verbpressg  
+ zetelde ( VERB_PAST VERB ) lemma=`zetelen` verbpastsg  
+ zetelden ( VERB_PAST VERB ) lemma=`zetelen` verbpastpl  
+ zetelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zetelen`zetelen`zetelen` nounsg  verbinf  verbprespl  
+ zetelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zetelen` verbpresp  
+ zetelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zetelende`zetelen` nounsg  verbpresp  
+ zetels ( NOUN NOUN_PLURAL ) lemma=`zetel` nounpl  
+ zetelt ( VERB_PRESENT VERB ) lemma=`zetelen` verbpressg  
+ zeteltje ( NOUN NOUN_SINGULAR ) lemma=`zetel` nounsg  
+ zeteltjes ( NOUN NOUN_PLURAL ) lemma=`zetel` nounpl  
+ zetelverdeling ( NOUN NOUN_SINGULAR ) 
+ zetelverdelingen ( NOUN NOUN_PLURAL ) lemma=`zetelverdeling` nounpl  
+ zetelwinst ( NOUN NOUN_SINGULAR ) 
+ zetje ( NOUN NOUN_SINGULAR ) lemma=`zet` nounsg  
+ zetklaar ( ADJECTIVE ) 
+ zetmachine ( NOUN NOUN_SINGULAR ) 
+ zetmachines ( NOUN NOUN_PLURAL ) lemma=`zetmachine` nounpl  
+ zetmeel ( NOUN NOUN_SINGULAR ) 
+ zetpil ( NOUN NOUN_SINGULAR ) 
+ zetpillen ( NOUN NOUN_PLURAL ) lemma=`zetpil` nounpl  
+ zette ( VERB_PAST VERB ) lemma=`zetten` verbpastsg  
+ zetten ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zet`zetten`zetten`zetten`zetten` nounpl  nounsg  verbinf  verbpastpl  verbprespl  
+ zettend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zetten` verbpresp  
+ zettende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zettende`zetten` nounsg  verbpresp  
+ zetwerk ( NOUN NOUN_SINGULAR ) 
+ zeug ( NOUN NOUN_SINGULAR ) 
+ zeugen ( NOUN NOUN_PLURAL ) lemma=`zeug` nounpl  
+ zeul ( VERB_PRESENT VERB ) lemma=`zeulen` verbpressg  
+ zeulde ( VERB_PAST VERB ) lemma=`zeulen` verbpastsg  
+ zeulden ( VERB_PAST VERB ) lemma=`zeulen` verbpastpl  
+ zeulen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zeulen`zeulen`zeulen` nounsg  verbinf  verbprespl  
+ zeulend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeulen` verbpresp  
+ zeulende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zeulende`zeulen` nounsg  verbpresp  
+ zeult ( VERB_PRESENT VERB ) lemma=`zeulen` verbpressg  
+ zeur ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zeur`zeuren` nounsg  verbpressg  
+ zeurde ( VERB_PAST VERB ) lemma=`zeuren` verbpastsg  
+ zeurden ( VERB_PAST VERB ) lemma=`zeuren` verbpastpl  
+ zeurderig ( ADJECTIVE ) 
+ zeurderige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeurderig`zeurderige` adj  nounsg  
+ zeurderiger ( ADJECTIVE ) lemma=`zeurderig` adj  
+ zeurderigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeurderig`zeurderigere` adj  nounsg  
+ zeurderigst ( ADJECTIVE ) lemma=`zeurderig` adj  
+ zeurderigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zeurderig`zeurderigste` adj  nounsg  
+ zeuren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zeur`zeuren`zeuren`zeuren` nounpl  nounsg  verbinf  verbprespl  
+ zeurend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeuren` verbpresp  
+ zeurende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zeurende`zeuren` nounsg  verbpresp  
+ zeurkous ( NOUN NOUN_SINGULAR ) 
+ zeurkousen ( NOUN NOUN_PLURAL ) lemma=`zeurkous` nounpl  
+ zeurpiet ( NOUN NOUN_SINGULAR ) 
+ zeurpieten ( NOUN NOUN_PLURAL ) lemma=`zeurpiet` nounpl  
+ zeurt ( VERB_PRESENT VERB ) lemma=`zeuren` verbpressg  
+ zeven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL NOUN_NUMBER ) lemma=`zeef`zeven`zeven`zeven`zeven` nounpl  nounsg  num__card  verbinf  verbprespl  
+ zevend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeven` verbpresp  
+ zevende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR ) lemma=`zevende`zeven`zeven` nounsg  num__ord  verbpresp  
+ zevenen ( NOUN NOUN_NUMBER ) lemma=`zeven` num__card  
+ zevenhoek ( NOUN NOUN_SINGULAR ) 
+ zevenhoeken ( NOUN NOUN_PLURAL ) lemma=`zevenhoek` nounpl  
+ zevenmaal ( ADVERB ) 
+ zevenmijlslaarzen ( NOUN NOUN_PLURAL ) 
+ zeventien ( NOUN NOUN_NUMBER ) 
+ zeventiende ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`zeventien` num__ord  
+ zeventienen ( NOUN NOUN_NUMBER ) lemma=`zeventien` num__card  
+ zeventig ( NOUN NOUN_NUMBER ) 
+ zeventigen ( NOUN NOUN_NUMBER ) lemma=`zeventig` num__card  
+ zeventigste ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`zeventig` num__ord  
+ zever ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zever`zeveren` nounsg  verbpressg  
+ zeveraar ( NOUN NOUN_SINGULAR ) 
+ zeveraars ( NOUN NOUN_PLURAL ) lemma=`zeveraar` nounpl  
+ zeverde ( VERB_PAST VERB ) lemma=`zeveren` verbpastsg  
+ zeverden ( VERB_PAST VERB ) lemma=`zeveren` verbpastpl  
+ zeveren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zeveren`zeveren`zeveren` nounsg  verbinf  verbprespl  
+ zeverend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zeveren` verbpresp  
+ zeverende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zeverende`zeveren` nounsg  verbpresp  
+ zevers ( NOUN NOUN_PLURAL ) lemma=`zever` nounpl  
+ zevert ( VERB_PRESENT VERB ) lemma=`zeveren` verbpressg  
+ zgn ( ADJECTIVE ) 
+ zgn. ( ADJECTIVE ) 
+ zich ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ zicht ( NOUN NOUN_SINGULAR ) 
+ zichtbaar ( ADJECTIVE ) 
+ zichtbaarder ( ADJECTIVE ) lemma=`zichtbaar` adj  
+ zichtbaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zichtbaar`zichtbaardere` adj  nounsg  
+ zichtbaarst ( ADJECTIVE ) lemma=`zichtbaar` adj  
+ zichtbaarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zichtbaar`zichtbaarste` adj  nounsg  
+ zichtbare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zichtbaar`zichtbare` adj  nounsg  
+ zichten ( NOUN NOUN_PLURAL ) lemma=`zicht` nounpl  
+ zichtzending ( NOUN NOUN_SINGULAR ) 
+ zichtzendingen ( NOUN NOUN_PLURAL ) lemma=`zichtzending` nounpl  
+ zichzelf ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ zie ( VERB_PRESENT VERB ) lemma=`zien` verbpressg  
+ zied ( VERB_PRESENT VERB ) lemma=`zieden` verbpressg  
+ ziedde ( VERB_PAST VERB ) lemma=`zieden` verbpastsg  
+ ziedden ( VERB_PAST VERB ) lemma=`zieden` verbpastpl  
+ zieden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zieden`zieden`zieden` nounsg  verbinf  verbprespl  
+ ziedend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`ziedend`zieden` adj  verbpresp  
+ ziedende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`ziedend`ziedende`zieden` adj  nounsg  verbpresp  
+ ziedender ( ADJECTIVE ) lemma=`ziedend` adj  
+ ziedendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziedend`ziedendere` adj  nounsg  
+ ziedendst ( ADJECTIVE ) lemma=`ziedend` adj  
+ ziedendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziedend`ziedendste` adj  nounsg  
+ ziedt ( VERB_PRESENT VERB ) lemma=`zieden` verbpressg  
+ ziek ( VERB_PRESENT VERB ADJECTIVE ) lemma=`ziek`zieken` adj  verbpressg  
+ ziekbed ( NOUN NOUN_SINGULAR ) 
+ ziekbedden ( NOUN NOUN_PLURAL ) lemma=`ziekbed` nounpl  
+ zieke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziek`zieke` adj  nounsg  
+ ziekelijk ( ADJECTIVE ) 
+ ziekelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziekelijk`ziekelijke` adj  nounsg  
+ ziekelijker ( ADJECTIVE ) lemma=`ziekelijk` adj  
+ ziekelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziekelijk`ziekelijkere` adj  nounsg  
+ ziekelijkst ( ADJECTIVE ) lemma=`ziekelijk` adj  
+ ziekelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziekelijk`ziekelijkste` adj  nounsg  
+ zieken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zieke`zieken`zieken`zieken` nounpl  nounsg  verbinf  verbprespl  
+ ziekenbezoek ( NOUN NOUN_SINGULAR ) 
+ ziekenbezoeken ( NOUN NOUN_PLURAL ) lemma=`ziekenbezoek` nounpl  
+ ziekenboeg ( NOUN NOUN_SINGULAR ) 
+ ziekenboegen ( NOUN NOUN_PLURAL ) lemma=`ziekenboeg` nounpl  
+ ziekenbroeder ( NOUN NOUN_SINGULAR ) 
+ ziekenbroeders ( NOUN NOUN_PLURAL ) lemma=`ziekenbroeder` nounpl  
+ ziekend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zieken` verbpresp  
+ ziekende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ziekende`zieken` nounsg  verbpresp  
+ ziekenfonds ( NOUN NOUN_SINGULAR ) 
+ ziekenfondsbril ( NOUN NOUN_SINGULAR ) 
+ ziekenfondsbrillen ( NOUN NOUN_PLURAL ) lemma=`ziekenfondsbril` nounpl  
+ ziekenfondsen ( NOUN NOUN_PLURAL ) lemma=`ziekenfonds` nounpl  
+ ziekenfondskaart ( NOUN NOUN_SINGULAR ) 
+ ziekenfondskaarten ( NOUN NOUN_PLURAL ) lemma=`ziekenfondskaart` nounpl  
+ ziekenfondspremie ( NOUN NOUN_SINGULAR ) 
+ ziekenfondspremies ( NOUN NOUN_PLURAL ) lemma=`ziekenfondspremie` nounpl  
+ ziekenhuis ( NOUN NOUN_SINGULAR ) 
+ ziekenhuizen ( NOUN NOUN_PLURAL ) lemma=`ziekenhuis` nounpl  
+ ziekenwagen ( NOUN NOUN_SINGULAR ) 
+ ziekenwagens ( NOUN NOUN_PLURAL ) lemma=`ziekenwagen` nounpl  
+ zieker ( ADJECTIVE ) lemma=`ziek` adj  
+ ziekere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziek`ziekere` adj  nounsg  
+ ziekjes ( ADJECTIVE ) lemma=`ziek` adj  
+ ziekmakend ( ADJECTIVE ) 
+ ziekmakende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziekmakend`ziekmakende` adj  nounsg  
+ ziekmelding ( NOUN NOUN_SINGULAR ) 
+ ziekmeldingen ( NOUN NOUN_PLURAL ) lemma=`ziekmelding` nounpl  
+ ziekst ( ADJECTIVE ) lemma=`ziek` adj  
+ ziekste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`ziek`ziekste` adj  nounsg  
+ ziekt ( VERB_PRESENT VERB ) lemma=`zieken` verbpressg  
+ ziekte ( VERB_PAST NOUN VERB NOUN_SINGULAR ) lemma=`ziekte`zieken` nounsg  verbpastsg  
+ ziekte- ( NOUN NOUN_SINGULAR ) lemma=`ziekte` noun*kop  
+ ziektebeeld ( NOUN NOUN_SINGULAR ) 
+ ziektebeelden ( NOUN NOUN_PLURAL ) lemma=`ziektebeeld` nounpl  
+ ziektekiem ( NOUN NOUN_SINGULAR ) 
+ ziektekiemen ( NOUN NOUN_PLURAL ) lemma=`ziektekiem` nounpl  
+ ziekten ( VERB_PAST NOUN VERB NOUN_PLURAL ) lemma=`ziekte`ziekten` nounpl  verbpastpl  
+ ziektes ( NOUN NOUN_PLURAL ) lemma=`ziekte` nounpl  
+ ziekteverlof ( NOUN NOUN_SINGULAR ) 
+ ziekteverloven ( NOUN NOUN_PLURAL ) lemma=`ziekteverlof` nounpl  
+ ziel ( NOUN NOUN_SINGULAR ) 
+ ziele ( NOUN NOUN_SINGULAR ) lemma=`ziel` nounsg  
+ zieleheil ( NOUN NOUN_SINGULAR ) 
+ zielen ( NOUN NOUN_PLURAL ) lemma=`ziel` nounpl  
+ zielenheil ( NOUN NOUN_SINGULAR ) 
+ zielenknijper ( NOUN NOUN_SINGULAR ) 
+ zielenknijpers ( NOUN NOUN_PLURAL ) lemma=`zielenknijper` nounpl  
+ zielenpiet ( NOUN NOUN_SINGULAR ) 
+ zielenpieten ( NOUN NOUN_PLURAL ) lemma=`zielenpiet` nounpl  
+ zielenpoot ( NOUN NOUN_SINGULAR ) 
+ zielenpoten ( NOUN NOUN_PLURAL ) lemma=`zielenpoot` nounpl  
+ zielenrust ( NOUN NOUN_SINGULAR ) 
+ zielenzorg ( NOUN NOUN_SINGULAR ) 
+ zielepiet ( NOUN NOUN_SINGULAR ) 
+ zielepieten ( NOUN NOUN_PLURAL ) lemma=`zielepiet` nounpl  
+ zielepoot ( NOUN NOUN_SINGULAR ) 
+ zielepoten ( NOUN NOUN_PLURAL ) lemma=`zielepoot` nounpl  
+ zielerust ( NOUN NOUN_SINGULAR ) 
+ zielig ( ADJECTIVE ) 
+ zielige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielig`zielige` adj  nounsg  
+ zieliger ( ADJECTIVE ) lemma=`zielig` adj  
+ zieligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielig`zieligere` adj  nounsg  
+ zieligjes ( ADJECTIVE ) lemma=`zielig` adj  
+ zieligst ( ADJECTIVE ) lemma=`zielig` adj  
+ zieligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielig`zieligste` adj  nounsg  
+ zielknijper ( NOUN NOUN_SINGULAR ) 
+ zielknijpers ( NOUN NOUN_PLURAL ) lemma=`zielknijper` nounpl  
+ zielloos ( ADJECTIVE ) 
+ zielloost ( ADJECTIVE ) lemma=`zielloos` adj  
+ ziellooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielloos`ziellooste` adj  nounsg  
+ zielloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielloos`zielloze` adj  nounsg  
+ ziellozer ( ADJECTIVE ) lemma=`zielloos` adj  
+ ziellozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielloos`ziellozere` adj  nounsg  
+ zielsbedroefd ( ADJECTIVE ) 
+ zielsbedroefde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsbedroefd`zielsbedroefde` adj  nounsg  
+ zielsbedroefder ( ADJECTIVE ) lemma=`zielsbedroefd` adj  
+ zielsbedroefdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsbedroefd`zielsbedroefdere` adj  nounsg  
+ zielsbedroefdst ( ADJECTIVE ) lemma=`zielsbedroefd` adj  
+ zielsbedroefdste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsbedroefd`zielsbedroefdste` adj  nounsg  
+ zielsblij ( ADJECTIVE ) 
+ zielsblije ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsblij`zielsblije` adj  nounsg  
+ zielsblijer ( ADJECTIVE ) lemma=`zielsblij` adj  
+ zielsblijere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsblij`zielsblijere` adj  nounsg  
+ zielsblijst ( ADJECTIVE ) lemma=`zielsblij` adj  
+ zielsblijste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsblij`zielsblijste` adj  nounsg  
+ zielsgelukkig ( ADJECTIVE ) 
+ zielsgelukkige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsgelukkig`zielsgelukkige` adj  nounsg  
+ zielsgelukkiger ( ADJECTIVE ) lemma=`zielsgelukkig` adj  
+ zielsgelukkigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsgelukkig`zielsgelukkigere` adj  nounsg  
+ zielsgelukkigst ( ADJECTIVE ) lemma=`zielsgelukkig` adj  
+ zielsgelukkigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsgelukkig`zielsgelukkigste` adj  nounsg  
+ zielsgraag ( ADVERB ) 
+ zielsrust ( NOUN NOUN_SINGULAR ) 
+ zielsveel ( ADVERB ) 
+ zielsverwant ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsverwant`zielsverwant` adj  nounsg  
+ zielsverwante ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zielsverwant`zielsverwante` adj  nounsg  
+ zielsverwanten ( NOUN NOUN_PLURAL ) lemma=`zielsverwant` nounpl  
+ zielszorg ( NOUN NOUN_SINGULAR ) 
+ zieltje ( NOUN NOUN_SINGULAR ) lemma=`ziel` nounsg  
+ zieltjes ( NOUN NOUN_PLURAL ) lemma=`ziel` nounpl  
+ zieltogen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zieltogen`zieltogen`zieltogen` nounsg  verbinf  verbprespl  
+ zieltogend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zieltogen` verbpresp  
+ zieltogende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zieltogende`zieltogen` nounsg  verbpresp  
+ zieltoog ( VERB_PRESENT VERB ) lemma=`zieltogen` verbpressg  
+ zieltoogde ( VERB_PAST VERB ) lemma=`zieltogen` verbpastsg  
+ zieltoogden ( VERB_PAST VERB ) lemma=`zieltogen` verbpastpl  
+ zieltoogt ( VERB_PRESENT VERB ) lemma=`zieltogen` verbpressg  
+ zielverwant ( NOUN NOUN_SINGULAR ) 
+ zielverwanten ( NOUN NOUN_PLURAL ) lemma=`zielverwant` nounpl  
+ zielzorg ( NOUN NOUN_SINGULAR ) 
+ zien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zien`zien`zien` nounsg  verbinf  verbprespl  
+ ziend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zien` verbpresp  
+ ziende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`ziende`ziende`zien` adj  nounsg  verbpresp  
+ zienderogen ( ADVERB ) 
+ ziener ( NOUN NOUN_SINGULAR ) 
+ zieners ( NOUN NOUN_PLURAL ) lemma=`ziener` nounpl  
+ zienswijze ( NOUN NOUN_SINGULAR ) 
+ zienswijzen ( NOUN NOUN_PLURAL ) lemma=`zienswijze` nounpl  
+ zier ( NOUN NOUN_SINGULAR ) 
+ ziertje ( NOUN NOUN_SINGULAR ) lemma=`zier` nounsg  
+ ziertjes ( NOUN NOUN_PLURAL ) lemma=`zier` nounpl  
+ ziet ( VERB_PRESENT VERB ) lemma=`zien` verbpressg  
+ zift ( VERB_PRESENT VERB ) lemma=`ziften` verbpressg  
+ ziften ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`ziften`ziften`ziften` nounsg  verbinf  verbprespl  
+ ziftend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`ziften` verbpresp  
+ ziftende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ziftende`ziften` nounsg  verbpresp  
+ ziftte ( VERB_PAST VERB ) lemma=`ziften` verbpastsg  
+ ziftten ( VERB_PAST VERB ) lemma=`ziften` verbpastpl  
+ zigeuner ( NOUN NOUN_SINGULAR ) 
+ zigeunerin ( NOUN NOUN_SINGULAR ) 
+ zigeunerinnen ( NOUN NOUN_PLURAL ) lemma=`zigeunerin` nounpl  
+ zigeunerkamp ( NOUN NOUN_SINGULAR ) 
+ zigeunerkampen ( NOUN NOUN_PLURAL ) lemma=`zigeunerkamp` nounpl  
+ zigeunermuziek ( NOUN NOUN_SINGULAR ) 
+ zigeunerorkest ( NOUN NOUN_SINGULAR ) 
+ zigeunerorkesten ( NOUN NOUN_PLURAL ) lemma=`zigeunerorkest` nounpl  
+ zigeuners ( NOUN NOUN_PLURAL ) lemma=`zigeuner` nounpl  
+ zigeunertje ( NOUN NOUN_SINGULAR ) lemma=`zigeuner` nounsg  
+ zigeunervolk ( NOUN NOUN_SINGULAR ) 
+ zigzag ( VERB_PRESENT VERB ADVERB ) lemma=`zigzag`zigzaggen` adv  verbpressg  
+ zigzagde ( VERB_PAST VERB ) lemma=`zigzaggen` verbpastsg  
+ zigzagden ( VERB_PAST VERB ) lemma=`zigzaggen` verbpastpl  
+ zigzaggen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zigzaggen`zigzaggen`zigzaggen` nounsg  verbinf  verbprespl  
+ zigzaggend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zigzaggen` verbpresp  
+ zigzaggende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zigzaggende`zigzaggen` nounsg  verbpresp  
+ zigzagt ( VERB_PRESENT VERB ) lemma=`zigzaggen` verbpressg  
+ zij ( VERB_PRESENT PRONOUN_SUBJECT PRONOUN_OBJECT NOUN VERB NOUN_SINGULAR ) lemma=`zij`zij`zijn` nounsg  pronpers  verbpressg  
+ zij-ingang ( NOUN NOUN_SINGULAR ) 
+ zij-ingangen ( NOUN NOUN_PLURAL ) lemma=`zij-ingang` nounpl  
+ zijd ( ADVERB ) 
+ zijde ( NOUN NOUN_SINGULAR ) 
+ zijdeachtig ( ADJECTIVE ) 
+ zijdeachtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijdeachtig`zijdeachtige` adj  nounsg  
+ zijdeachtiger ( ADJECTIVE ) lemma=`zijdeachtig` adj  
+ zijdeachtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijdeachtig`zijdeachtigere` adj  nounsg  
+ zijdeachtigst ( ADJECTIVE ) lemma=`zijdeachtig` adj  
+ zijdeachtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijdeachtig`zijdeachtigste` adj  nounsg  
+ zijdeglans ( NOUN NOUN_SINGULAR ) 
+ zijdelings ( ADJECTIVE ) 
+ zijdelingse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijdelings`zijdelingse` adj  nounsg  
+ zijden ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zijden`zij|zijde` adj  nounpl  
+ zijdes ( NOUN NOUN_PLURAL ) lemma=`zij|zijde` nounpl  
+ zijg ( VERB_PRESENT VERB ) lemma=`zijgen` verbpressg  
+ zijgang ( NOUN NOUN_SINGULAR ) 
+ zijgangen ( NOUN NOUN_PLURAL ) lemma=`zijgang` nounpl  
+ zijgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zijgen`zijgen`zijgen` nounsg  verbinf  verbprespl  
+ zijgend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zijgen` verbpresp  
+ zijgende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zijgende`zijgen` nounsg  verbpresp  
+ zijgt ( VERB_PRESENT VERB ) lemma=`zijgen` verbpressg  
+ zijig ( ADJECTIVE ) 
+ zijige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijig`zijige` adj  nounsg  
+ zijiger ( ADJECTIVE ) lemma=`zijig` adj  
+ zijigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijig`zijigere` adj  nounsg  
+ zijigst ( ADJECTIVE ) lemma=`zijig` adj  
+ zijigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijig`zijigste` adj  nounsg  
+ zijingang ( NOUN NOUN_SINGULAR ) 
+ zijingangen ( NOUN NOUN_PLURAL ) lemma=`zijingang` nounpl  
+ zijkant ( NOUN NOUN_SINGULAR ) 
+ zijkanten ( NOUN NOUN_PLURAL ) lemma=`zijkant` nounpl  
+ zijmuren ( NOUN NOUN_PLURAL ) lemma=`zijmuur` nounpl  
+ zijmuur ( NOUN NOUN_SINGULAR ) 
+ zijn ( VERB_PRESENT VERB_INFINITIVE NOUN VERB POSSESSIVE NOUN_SINGULAR ) lemma=`zijn`zijn`zijn`zijn` det__poss  nounsg  verbinf  verbprespl  
+ zijnd ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zijn` verbpresp  
+ zijnde ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zijnde`zijn` nounsg  verbpresp  
+ zijne ( POSSESSIVE PRONOUN_POSSESSIVE ) lemma=`zijne`zijne` det__poss  pronposs  
+ zijnen ( POSSESSIVE PRONOUN_POSSESSIVE ) lemma=`zijn`zijne` det__poss  pronposs  
+ zijnet ( NOUN NOUN_SINGULAR ) 
+ zijnetten ( NOUN NOUN_PLURAL ) lemma=`zijnet` nounpl  
+ zijspan ( NOUN NOUN_SINGULAR ) 
+ zijspannen ( NOUN NOUN_PLURAL ) lemma=`zijspan` nounpl  
+ zijsprong ( NOUN NOUN_SINGULAR ) 
+ zijsprongen ( NOUN NOUN_PLURAL ) lemma=`zijsprong` nounpl  
+ zijstraat ( NOUN NOUN_SINGULAR ) 
+ zijstraten ( NOUN NOUN_PLURAL ) lemma=`zijstraat` nounpl  
+ zijtak ( NOUN NOUN_SINGULAR ) 
+ zijtakken ( NOUN NOUN_PLURAL ) lemma=`zijtak` nounpl  
+ zijwaarts ( ADJECTIVE ) 
+ zijwaartse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zijwaarts`zijwaartse` adj  nounsg  
+ zijweg ( NOUN NOUN_SINGULAR ) 
+ zijwegen ( NOUN NOUN_PLURAL ) lemma=`zijweg` nounpl  
+ zijwind ( NOUN NOUN_SINGULAR ) 
+ zijwinden ( NOUN NOUN_PLURAL ) lemma=`zijwind` nounpl  
+ zilt ( ADJECTIVE ) 
+ zilte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zilt`zilte` adj  nounsg  
+ zilver ( NOUN NOUN_SINGULAR ) 
+ zilveren ( ADJECTIVE ) 
+ zilvererts ( NOUN NOUN_SINGULAR ) 
+ zilvergehalte ( NOUN NOUN_SINGULAR ) 
+ zilvergoed ( NOUN NOUN_SINGULAR ) 
+ zilverkleurig ( ADJECTIVE ) 
+ zilverkleurige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zilverkleurig`zilverkleurige` adj  nounsg  
+ zilverkleuriger ( ADJECTIVE ) lemma=`zilverkleurig` adj  
+ zilverkleurigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zilverkleurig`zilverkleurigere` adj  nounsg  
+ zilverkleurigst ( ADJECTIVE ) lemma=`zilverkleurig` adj  
+ zilverkleurigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zilverkleurig`zilverkleurigste` adj  nounsg  
+ zilverling ( NOUN NOUN_SINGULAR ) 
+ zilverlingen ( NOUN NOUN_PLURAL ) lemma=`zilverling` nounpl  
+ zilvermeeuw ( NOUN NOUN_SINGULAR ) 
+ zilvermeeuwen ( NOUN NOUN_PLURAL ) lemma=`zilvermeeuw` nounpl  
+ zilvermijn ( NOUN NOUN_SINGULAR ) 
+ zilvermijnen ( NOUN NOUN_PLURAL ) lemma=`zilvermijn` nounpl  
+ zilverpapier ( NOUN NOUN_SINGULAR ) 
+ zilverpoets ( NOUN NOUN_SINGULAR ) 
+ zilversmeden ( NOUN NOUN_PLURAL ) lemma=`zilversmid` nounpl  
+ zilversmid ( NOUN NOUN_SINGULAR ) 
+ zilveruitje ( NOUN NOUN_SINGULAR ) 
+ zilveruitjes ( NOUN NOUN_PLURAL ) lemma=`zilveruitje` nounpl  
+ zilvervliesrijst ( NOUN NOUN_SINGULAR ) 
+ zilverwerk ( NOUN NOUN_SINGULAR ) 
+ zilverwerken ( NOUN NOUN_PLURAL ) lemma=`zilverwerk` nounpl  
+ zin ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zin`zinnen` nounsg  verbpressg  
+ zinde ( VERB_PAST VERB ) lemma=`zinnen` verbpastsg  
+ zindeel ( NOUN NOUN_SINGULAR ) 
+ zindelen ( NOUN NOUN_PLURAL ) lemma=`zindeel` nounpl  
+ zindelijk ( ADJECTIVE ) 
+ zindelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zindelijk`zindelijke` adj  nounsg  
+ zindelijker ( ADJECTIVE ) lemma=`zindelijk` adj  
+ zindelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zindelijk`zindelijkere` adj  nounsg  
+ zindelijkst ( ADJECTIVE ) lemma=`zindelijk` adj  
+ zindelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zindelijk`zindelijkste` adj  nounsg  
+ zinden ( VERB_PAST VERB ) lemma=`zinnen` verbpastpl  
+ zinder ( VERB_PRESENT VERB ) lemma=`zinderen` verbpressg  
+ zinderde ( VERB_PAST VERB ) lemma=`zinderen` verbpastsg  
+ zinderden ( VERB_PAST VERB ) lemma=`zinderen` verbpastpl  
+ zinderen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zinderen`zinderen`zinderen` nounsg  verbinf  verbprespl  
+ zinderend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zinderen` verbpresp  
+ zinderende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zinderende`zinderen` nounsg  verbpresp  
+ zindert ( VERB_PRESENT VERB ) lemma=`zinderen` verbpressg  
+ zing ( VERB_PRESENT VERB ) lemma=`zingen` verbpressg  
+ zingen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zingen`zingen`zingen` nounsg  verbinf  verbprespl  
+ zingend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zingen` verbpresp  
+ zingende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zingende`zingen` nounsg  verbpresp  
+ zingt ( VERB_PRESENT VERB ) lemma=`zingen` verbpressg  
+ zink ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zink`zinken` nounsg  verbpressg  
+ zinken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zinken`zinken`zinken`zinken` adj  nounsg  verbinf  verbprespl  
+ zinkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zinken` verbpresp  
+ zinkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zinkende`zinken` nounsg  verbpresp  
+ zinkstuk ( NOUN NOUN_SINGULAR ) 
+ zinkstukken ( NOUN NOUN_PLURAL ) lemma=`zinkstuk` nounpl  
+ zinkt ( VERB_PRESENT VERB ) lemma=`zinken` verbpressg  
+ zinlijkheid ( NOUN NOUN_SINGULAR ) 
+ zinloos ( ADJECTIVE ) 
+ zinloost ( ADJECTIVE ) lemma=`zinloos` adj  
+ zinlooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinloos`zinlooste` adj  nounsg  
+ zinloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinloos`zinloze` adj  nounsg  
+ zinlozer ( ADJECTIVE ) lemma=`zinloos` adj  
+ zinlozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinloos`zinlozere` adj  nounsg  
+ zinnebeeld ( NOUN NOUN_SINGULAR ) 
+ zinnebeelden ( NOUN NOUN_PLURAL ) lemma=`zinnebeeld` nounpl  
+ zinnelijk ( ADJECTIVE ) 
+ zinnelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnelijk`zinnelijke` adj  nounsg  
+ zinnelijker ( ADJECTIVE ) lemma=`zinnelijk` adj  
+ zinnelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnelijk`zinnelijkere` adj  nounsg  
+ zinnelijkheid ( NOUN NOUN_SINGULAR ) 
+ zinnelijkst ( ADJECTIVE ) lemma=`zinnelijk` adj  
+ zinnelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnelijk`zinnelijkste` adj  nounsg  
+ zinnen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zin|zinnen`zinnen`zinnen`zinnen` nounpl  nounsg  verbinf  verbprespl  
+ zinnend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zinnen` verbpresp  
+ zinnende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zinnende`zinnen` nounsg  verbpresp  
+ zinnenprikkelend ( ADJECTIVE ) 
+ zinnenprikkelende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnenprikkelend`zinnenprikkelende` adj  nounsg  
+ zinnenprikkelender ( ADJECTIVE ) lemma=`zinnenprikkelend` adj  
+ zinnenprikkelendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnenprikkelend`zinnenprikkelendere` adj  nounsg  
+ zinnenprikkelendst ( ADJECTIVE ) lemma=`zinnenprikkelend` adj  
+ zinnenprikkelendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnenprikkelend`zinnenprikkelendste` adj  nounsg  
+ zinnetje ( NOUN NOUN_SINGULAR ) lemma=`zin` nounsg  
+ zinnetjes ( NOUN NOUN_PLURAL ) lemma=`zin` nounpl  
+ zinnig ( ADJECTIVE ) 
+ zinnige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnig`zinnige` adj  nounsg  
+ zinniger ( ADJECTIVE ) lemma=`zinnig` adj  
+ zinnigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnig`zinnigere` adj  nounsg  
+ zinnigst ( ADJECTIVE ) lemma=`zinnig` adj  
+ zinnigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinnig`zinnigste` adj  nounsg  
+ zins ( NOUN NOUN_SINGULAR ) lemma=`zin` nounsg  
+ zinsbegoocheling ( NOUN NOUN_SINGULAR ) 
+ zinsbegoochelingen ( NOUN NOUN_PLURAL ) lemma=`zinsbegoocheling` nounpl  
+ zinsbouw ( NOUN NOUN_SINGULAR ) 
+ zinsdeel ( NOUN NOUN_SINGULAR ) 
+ zinsdelen ( NOUN NOUN_PLURAL ) lemma=`zinsdeel` nounpl  
+ zinsnede ( NOUN NOUN_SINGULAR ) 
+ zinsneden ( NOUN NOUN_PLURAL ) lemma=`zinsnede` nounpl  
+ zinspeel ( VERB_PRESENT VERB ) lemma=`zinspelen` verbpressg  
+ zinspeelde ( VERB_PAST VERB ) lemma=`zinspelen` verbpastsg  
+ zinspeelden ( VERB_PAST VERB ) lemma=`zinspelen` verbpastpl  
+ zinspeelt ( VERB_PRESENT VERB ) lemma=`zinspelen` verbpressg  
+ zinspelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zinspelen`zinspelen`zinspelen` nounsg  verbinf  verbprespl  
+ zinspelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zinspelen` verbpresp  
+ zinspelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zinspelende`zinspelen` nounsg  verbpresp  
+ zinspeling ( NOUN NOUN_SINGULAR ) 
+ zinspelingen ( NOUN NOUN_PLURAL ) lemma=`zinspeling` nounpl  
+ zinsverbijstering ( NOUN NOUN_SINGULAR ) 
+ zint ( VERB_PRESENT VERB ) lemma=`zinnen` verbpressg  
+ zintuig ( NOUN NOUN_SINGULAR ) 
+ zintuigen ( NOUN NOUN_PLURAL ) lemma=`zintuig` nounpl  
+ zintuiglijk ( ADJECTIVE ) 
+ zintuiglijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zintuiglijk`zintuiglijke` adj  nounsg  
+ zintuiglijker ( ADJECTIVE ) lemma=`zintuiglijk` adj  
+ zintuiglijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zintuiglijk`zintuiglijkere` adj  nounsg  
+ zintuiglijkst ( ADJECTIVE ) lemma=`zintuiglijk` adj  
+ zintuiglijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zintuiglijk`zintuiglijkste` adj  nounsg  
+ zinvol ( ADJECTIVE ) 
+ zinvolle ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinvol`zinvolle` adj  nounsg  
+ zinvoller ( ADJECTIVE ) lemma=`zinvol` adj  
+ zinvollere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinvol`zinvollere` adj  nounsg  
+ zinvolst ( ADJECTIVE ) lemma=`zinvol` adj  
+ zinvolste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zinvol`zinvolste` adj  nounsg  
+ zionisme ( NOUN NOUN_SINGULAR ) 
+ zionistisch ( ADJECTIVE ) 
+ zionistische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zionistisch`zionistische` adj  nounsg  
+ zionistischer ( ADJECTIVE ) lemma=`zionistisch` adj  
+ zionistischere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zionistisch`zionistischere` adj  nounsg  
+ zionistischt ( ADJECTIVE ) lemma=`zionistisch` adj  
+ zionistischte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zionistisch`zionistischte` adj  nounsg  
+ zit ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zit`zitten` nounsg  verbpressg  
+ zitbad ( NOUN NOUN_SINGULAR ) 
+ zitbaden ( NOUN NOUN_PLURAL ) lemma=`zitbad` nounpl  
+ zitje ( NOUN NOUN_SINGULAR ) 
+ zitjes ( NOUN NOUN_PLURAL ) lemma=`zitje` nounpl  
+ zitkamer ( NOUN NOUN_SINGULAR ) 
+ zitkamers ( NOUN NOUN_PLURAL ) lemma=`zitkamer` nounpl  
+ zitkuil ( NOUN NOUN_SINGULAR ) 
+ zitkuilen ( NOUN NOUN_PLURAL ) lemma=`zitkuil` nounpl  
+ zitplaats ( NOUN NOUN_SINGULAR ) 
+ zitplaatsen ( NOUN NOUN_PLURAL ) lemma=`zitplaats` nounpl  
+ zitten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zitten`zitten`zitten` nounsg  verbinf  verbprespl  
+ zittenblijven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zittenblijven`zittenblijven`zittenblijven` nounsg  verbinf  verbprespl  
+ zittenblijver ( NOUN NOUN_SINGULAR ) 
+ zittenblijvers ( NOUN NOUN_PLURAL ) lemma=`zittenblijver` nounpl  
+ zittend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`zittend`zitten` adj  verbpresp  
+ zittende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zittend`zittende`zitten` adj  nounsg  verbpresp  
+ zitting ( NOUN NOUN_SINGULAR ) 
+ zittingen ( NOUN NOUN_PLURAL ) lemma=`zitting` nounpl  
+ zitvlak ( NOUN NOUN_SINGULAR ) 
+ zitvlakken ( NOUN NOUN_PLURAL ) lemma=`zitvlak` nounpl  
+ zitvlees ( NOUN NOUN_SINGULAR ) 
+ zo ( ADVERB CONJUNCTION_COORDINATE INTERJECTION ) lemma=`zo`zo`zo` adv  conjcoord  int  
+ zo'n ( ) lemma=`zo'n`zo'n` det__demo  det__excl  
+ zo-even ( ADVERB ) 
+ zoal ( ADVERB ) 
+ zoals ( CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE ) lemma=`zoals`zoals` conjcoord  conjsubo  
+ zocht ( VERB_PAST VERB ) lemma=`zoeken` verbpastsg  
+ zochten ( VERB_PAST VERB ) lemma=`zoeken` verbpastpl  
+ zodanig ( ADJECTIVE ADVERB ) lemma=`zodanig`zodanig` adj  adv  
+ zodanige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zodanig`zodanige` adj  nounsg  
+ zodat ( CONJUNCTION_SUBORDINATE ) 
+ zode ( NOUN NOUN_SINGULAR ) 
+ zoden ( NOUN NOUN_PLURAL ) lemma=`zode` nounpl  
+ zodoende ( ADVERB ) 
+ zodra ( CONJUNCTION_SUBORDINATE ) 
+ zoeaaf ( NOUN NOUN_SINGULAR ) 
+ zoeaven ( NOUN NOUN_PLURAL ) lemma=`zoeaaf` nounpl  
+ zoef ( VERB_PRESENT VERB ) lemma=`zoeven` verbpressg  
+ zoefde ( VERB_PAST VERB ) lemma=`zoeven` verbpastsg  
+ zoefden ( VERB_PAST VERB ) lemma=`zoeven` verbpastpl  
+ zoeft ( VERB_PRESENT VERB ) lemma=`zoeven` verbpressg  
+ zoek ( VERB_PRESENT NOUN VERB ADVERB NOUN_SINGULAR ) lemma=`zoek`zoek`zoeken` adv  nounsg  verbpressg  
+ zoekbracht ( VERB_PAST VERB ) lemma=`zoekbrengen` verbpastsg  
+ zoekbrachten ( VERB_PAST VERB ) lemma=`zoekbrengen` verbpastpl  
+ zoekbreng ( VERB_PRESENT VERB ) lemma=`zoekbrengen` verbpressg  
+ zoekbrengen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoekbrengen`zoekbrengen`zoekbrengen` nounsg  verbinf  verbprespl  
+ zoekbrengend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoekbrengen` verbpresp  
+ zoekbrengende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoekbrengende`zoekbrengen` nounsg  verbpresp  
+ zoekbrengt ( VERB_PRESENT VERB ) lemma=`zoekbrengen` verbpressg  
+ zoeken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoeken`zoeken`zoeken` nounsg  verbinf  verbprespl  
+ zoekend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoeken` verbpresp  
+ zoekende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoekende`zoeken` nounsg  verbpresp  
+ zoeker ( NOUN NOUN_SINGULAR ) 
+ zoekers ( NOUN NOUN_PLURAL ) lemma=`zoeker` nounpl  
+ zoekertje ( NOUN NOUN_SINGULAR ) lemma=`zoeker` nounsg  
+ zoekertjes ( NOUN NOUN_PLURAL ) lemma=`zoeker` nounpl  
+ zoekgebracht ( VERB_PAST_PARTICIPLE VERB ) lemma=`zoekbrengen` verbpapa  
+ zoekgebrachte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoekgebrachte`zoekbrengen` nounsg  verbpapa  
+ zoekgemaakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`zoekmaken` verbpapa  
+ zoekgemaakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoekgemaakte`zoekmaken` nounsg  verbpapa  
+ zoeklicht ( NOUN NOUN_SINGULAR ) 
+ zoeklichten ( NOUN NOUN_PLURAL ) lemma=`zoeklicht` nounpl  
+ zoekmaak ( VERB_PRESENT VERB ) lemma=`zoekmaken` verbpressg  
+ zoekmaakt ( VERB_PRESENT VERB ) lemma=`zoekmaken` verbpressg  
+ zoekmaakte ( VERB_PAST VERB ) lemma=`zoekmaken` verbpastsg  
+ zoekmaakten ( VERB_PAST VERB ) lemma=`zoekmaken` verbpastpl  
+ zoekmaken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoekmaken`zoekmaken`zoekmaken` nounsg  verbinf  verbprespl  
+ zoekmakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoekmaken` verbpresp  
+ zoekmakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoekmakende`zoekmaken` nounsg  verbpresp  
+ zoekplaatje ( NOUN NOUN_SINGULAR ) 
+ zoekplaatjes ( NOUN NOUN_PLURAL ) lemma=`zoekplaatje` nounpl  
+ zoekraken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoekraken`zoekraken`zoekraken` nounsg  verbinf  verbprespl  
+ zoekt ( VERB_PRESENT VERB ) lemma=`zoeken` verbpressg  
+ zoel ( ADJECTIVE ) 
+ zoele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoel`zoele` adj  nounsg  
+ zoeler ( ADJECTIVE ) lemma=`zoel` adj  
+ zoelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoel`zoelere` adj  nounsg  
+ zoelst ( ADJECTIVE ) lemma=`zoel` adj  
+ zoelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoel`zoelste` adj  nounsg  
+ zoem ( VERB_PRESENT VERB ) lemma=`zoemen` verbpressg  
+ zoemde ( VERB_PAST VERB ) lemma=`zoemen` verbpastsg  
+ zoemden ( VERB_PAST VERB ) lemma=`zoemen` verbpastpl  
+ zoemen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoemen`zoemen`zoemen` nounsg  verbinf  verbprespl  
+ zoemend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoemen` verbpresp  
+ zoemende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoemende`zoemen` nounsg  verbpresp  
+ zoemer ( NOUN NOUN_SINGULAR ) 
+ zoemers ( NOUN NOUN_PLURAL ) lemma=`zoemer` nounpl  
+ zoemertje ( NOUN NOUN_SINGULAR ) lemma=`zoemer` nounsg  
+ zoemertjes ( NOUN NOUN_PLURAL ) lemma=`zoemer` nounpl  
+ zoemt ( VERB_PRESENT VERB ) lemma=`zoemen` verbpressg  
+ zoemtonen ( NOUN NOUN_PLURAL ) lemma=`zoemtoon` nounpl  
+ zoemtoon ( NOUN NOUN_SINGULAR ) 
+ zoen ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zoen`zoenen` nounsg  verbpressg  
+ zoende ( VERB_PAST VERB ) lemma=`zoenen` verbpastsg  
+ zoenden ( VERB_PAST VERB ) lemma=`zoenen` verbpastpl  
+ zoenen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zoen`zoenen`zoenen`zoenen` nounpl  nounsg  verbinf  verbprespl  
+ zoenend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoenen` verbpresp  
+ zoenende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoenende`zoenen` nounsg  verbpresp  
+ zoenerig ( ADJECTIVE ) 
+ zoenerige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoenerig`zoenerige` adj  nounsg  
+ zoeneriger ( ADJECTIVE ) lemma=`zoenerig` adj  
+ zoenerigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoenerig`zoenerigere` adj  nounsg  
+ zoenerigst ( ADJECTIVE ) lemma=`zoenerig` adj  
+ zoenerigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoenerig`zoenerigste` adj  nounsg  
+ zoent ( VERB_PRESENT VERB ) lemma=`zoenen` verbpressg  
+ zoentje ( NOUN NOUN_SINGULAR ) lemma=`zoen` nounsg  
+ zoentjes ( NOUN NOUN_PLURAL ) lemma=`zoen` nounpl  
+ zoet ( VERB_PRESENT VERB ADJECTIVE ) lemma=`zoet`zoeten` adj  verbpressg  
+ zoete ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoet`zoete` adj  nounsg  
+ zoetekauw ( NOUN NOUN_SINGULAR ) 
+ zoetekauwen ( NOUN NOUN_PLURAL ) lemma=`zoetekauw` nounpl  
+ zoeten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoeten`zoeten`zoeten` nounsg  verbinf  verbprespl  
+ zoetend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoeten` verbpresp  
+ zoetende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoetende`zoeten` nounsg  verbpresp  
+ zoeter ( ADJECTIVE ) lemma=`zoet` adj  
+ zoetere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoet`zoetere` adj  nounsg  
+ zoetgevooisd ( ADJECTIVE ) 
+ zoetgevooisde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetgevooisd`zoetgevooisde` adj  nounsg  
+ zoethoudertje ( NOUN NOUN_SINGULAR ) 
+ zoethoudertjes ( NOUN NOUN_PLURAL ) lemma=`zoethoudertje` nounpl  
+ zoethout ( NOUN NOUN_SINGULAR ) 
+ zoetig ( ADJECTIVE ) 
+ zoetige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetig`zoetige` adj  nounsg  
+ zoetiger ( ADJECTIVE ) lemma=`zoetig` adj  
+ zoetigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetig`zoetigere` adj  nounsg  
+ zoetigheden ( NOUN NOUN_PLURAL ) lemma=`zoetigheid` nounpl  
+ zoetigheid ( NOUN NOUN_SINGULAR ) 
+ zoetigst ( ADJECTIVE ) lemma=`zoetig` adj  
+ zoetigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetig`zoetigste` adj  nounsg  
+ zoetje ( NOUN NOUN_SINGULAR ) 
+ zoetjes ( NOUN ADJECTIVE ADVERB NOUN_PLURAL ) lemma=`zoet`zoetjes`zoetje` adj  adv  nounpl  
+ zoetjesaan ( ADVERB ) 
+ zoetsappig ( ADJECTIVE ) 
+ zoetsappige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetsappig`zoetsappige` adj  nounsg  
+ zoetsappiger ( ADJECTIVE ) lemma=`zoetsappig` adj  
+ zoetsappigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetsappig`zoetsappigere` adj  nounsg  
+ zoetsappigst ( ADJECTIVE ) lemma=`zoetsappig` adj  
+ zoetsappigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetsappig`zoetsappigste` adj  nounsg  
+ zoetst ( ADJECTIVE ) lemma=`zoet` adj  
+ zoetste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoet`zoetste` adj  nounsg  
+ zoetstof ( NOUN NOUN_SINGULAR ) 
+ zoetstoffen ( NOUN NOUN_PLURAL ) lemma=`zoetstof` nounpl  
+ zoette ( VERB_PAST VERB ) lemma=`zoeten` verbpastsg  
+ zoetten ( VERB_PAST VERB ) lemma=`zoeten` verbpastpl  
+ zoetwatervis ( NOUN NOUN_SINGULAR ) 
+ zoetwatervissen ( NOUN NOUN_PLURAL ) lemma=`zoetwatervis` nounpl  
+ zoetzure ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetzuur`zoetzure` adj  nounsg  
+ zoetzuur ( ADJECTIVE ) 
+ zoetzuurder ( ADJECTIVE ) lemma=`zoetzuur` adj  
+ zoetzuurdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetzuur`zoetzuurdere` adj  nounsg  
+ zoetzuurst ( ADJECTIVE ) lemma=`zoetzuur` adj  
+ zoetzuurste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoetzuur`zoetzuurste` adj  nounsg  
+ zoeven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zoeven`zoeven`zoeven` nounsg  verbinf  verbprespl  
+ zoevend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zoeven` verbpresp  
+ zoevende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoevende`zoeven` nounsg  verbpresp  
+ zog ( NOUN NOUN_SINGULAR ) 
+ zogeheten ( ADJECTIVE ) 
+ zogen ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zogen`zogen`zuigen`zogen` nounsg  verbinf  verbpastpl  verbprespl  
+ zogenaamd ( ADJECTIVE ) 
+ zogenaamde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zogenaamd`zogenaamde` adj  nounsg  
+ zogend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zogen` verbpresp  
+ zogende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zogende`zogen` nounsg  verbpresp  
+ zogenoemd ( ADJECTIVE ) 
+ zogenoemde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zogenoemd`zogenoemde` adj  nounsg  
+ zogezegd ( ADVERB ) 
+ zogezien ( ADVERB ) 
+ zojuist ( ADVERB ) 
+ zolang ( ADVERB CONJUNCTION_SUBORDINATE ) lemma=`zolang`zolang` adv  conjsubo  
+ zolder ( NOUN NOUN_SINGULAR ) 
+ zolderetage ( NOUN NOUN_SINGULAR ) 
+ zolderetages ( NOUN NOUN_PLURAL ) lemma=`zolderetage` nounpl  
+ zoldergat ( NOUN NOUN_SINGULAR ) 
+ zoldergaten ( NOUN NOUN_PLURAL ) lemma=`zoldergat` nounpl  
+ zoldering ( NOUN NOUN_SINGULAR ) 
+ zolderingen ( NOUN NOUN_PLURAL ) lemma=`zoldering` nounpl  
+ zolderluik ( NOUN NOUN_SINGULAR ) 
+ zolderluiken ( NOUN NOUN_PLURAL ) lemma=`zolderluik` nounpl  
+ zolders ( NOUN NOUN_PLURAL ) lemma=`zolder` nounpl  
+ zoldertje ( NOUN NOUN_SINGULAR ) lemma=`zolder` nounsg  
+ zoldertjes ( NOUN NOUN_PLURAL ) lemma=`zolder` nounpl  
+ zoldertrap ( NOUN NOUN_SINGULAR ) 
+ zoldertrappen ( NOUN NOUN_PLURAL ) lemma=`zoldertrap` nounpl  
+ zolderverdieping ( NOUN NOUN_SINGULAR ) 
+ zolderverdiepingen ( NOUN NOUN_PLURAL ) lemma=`zolderverdieping` nounpl  
+ zolen ( NOUN NOUN_PLURAL ) lemma=`zool` nounpl  
+ zomaar ( ADVERB ) 
+ zomede ( CONJUNCTION_COORDINATE ) 
+ zomen ( NOUN NOUN_PLURAL ) lemma=`zoom` nounpl  
+ zomer ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zomer`zomeren` nounsg  verbpressg  
+ zomercollectie ( NOUN NOUN_SINGULAR ) 
+ zomercollecties ( NOUN NOUN_PLURAL ) lemma=`zomercollectie` nounpl  
+ zomerde ( VERB_PAST VERB ) lemma=`zomeren` verbpastsg  
+ zomerden ( VERB_PAST VERB ) lemma=`zomeren` verbpastpl  
+ zomeren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zomeren`zomeren`zomeren` nounsg  verbinf  verbprespl  
+ zomerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zomeren` verbpresp  
+ zomerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zomerende`zomeren` nounsg  verbpresp  
+ zomerhuis ( NOUN NOUN_SINGULAR ) 
+ zomerhuisje ( NOUN NOUN_SINGULAR ) lemma=`zomerhuis` nounsg  
+ zomerhuisjes ( NOUN NOUN_PLURAL ) lemma=`zomerhuis` nounpl  
+ zomerhuizen ( NOUN NOUN_PLURAL ) lemma=`zomerhuis` nounpl  
+ zomerjurk ( NOUN NOUN_SINGULAR ) 
+ zomerjurken ( NOUN NOUN_PLURAL ) lemma=`zomerjurk` nounpl  
+ zomerjurkje ( NOUN NOUN_SINGULAR ) lemma=`zomerjurk` nounsg  
+ zomerjurkjes ( NOUN NOUN_PLURAL ) lemma=`zomerjurk` nounpl  
+ zomerkade ( NOUN NOUN_SINGULAR ) 
+ zomerkaden ( NOUN NOUN_PLURAL ) lemma=`zomerkade` nounpl  
+ zomerkleden ( NOUN NOUN_PLURAL ) lemma=`zomerkleed` nounpl  
+ zomerkleed ( NOUN NOUN_SINGULAR ) 
+ zomerkleren ( NOUN NOUN_PLURAL ) lemma=`zomerkleed|zomerkleren` nounpl  
+ zomerkollektie ( NOUN NOUN_SINGULAR ) 
+ zomerkollekties ( NOUN NOUN_PLURAL ) lemma=`zomerkollektie` nounpl  
+ zomermaand ( NOUN NOUN_SINGULAR ) 
+ zomermaanden ( NOUN NOUN_PLURAL ) lemma=`zomermaand` nounpl  
+ zomeropruiming ( NOUN NOUN_SINGULAR ) 
+ zomeropruimingen ( NOUN NOUN_PLURAL ) lemma=`zomeropruiming` nounpl  
+ zomers ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zomers`zomer` adj  nounpl  
+ zomerse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zomers`zomerse` adj  nounsg  
+ zomersproeten ( NOUN NOUN_PLURAL ) 
+ zomert ( VERB_PRESENT VERB ) lemma=`zomeren` verbpressg  
+ zomertijd ( NOUN NOUN_SINGULAR ) 
+ zomertje ( NOUN NOUN_SINGULAR ) lemma=`zomer` nounsg  
+ zomertjes ( NOUN NOUN_PLURAL ) lemma=`zomer` nounpl  
+ zomerverblijf ( NOUN NOUN_SINGULAR ) 
+ zomerverblijven ( NOUN NOUN_PLURAL ) lemma=`zomerverblijf` nounpl  
+ zompig ( ADJECTIVE ) 
+ zompige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zompig`zompige` adj  nounsg  
+ zompiger ( ADJECTIVE ) lemma=`zompig` adj  
+ zompigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zompig`zompigere` adj  nounsg  
+ zompigst ( ADJECTIVE ) lemma=`zompig` adj  
+ zompigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zompig`zompigste` adj  nounsg  
+ zon ( VERB_PRESENT VERB_PAST NOUN VERB NOUN_SINGULAR ) lemma=`zon`zinnen`zonnen` nounsg  verbpastsg  verbpressg  
+ zona ( NOUN NOUN_SINGULAR ) 
+ zonaal ( ADJECTIVE ) 
+ zonale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonaal`zonale` adj  nounsg  
+ zond ( VERB_PAST VERB ) lemma=`zenden` verbpastsg  
+ zondaar ( NOUN NOUN_SINGULAR ) 
+ zondaars ( NOUN NOUN_PLURAL ) lemma=`zondaar` nounpl  
+ zondag ( NOUN NOUN_PROPER_SINGULAR ) 
+ zondagcompetitie ( NOUN NOUN_SINGULAR ) 
+ zondagcompetities ( NOUN NOUN_PLURAL ) lemma=`zondagcompetitie` nounpl  
+ zondagen ( NOUN NOUN_PLURAL ) lemma=`zondag` nounpl  
+ zondagkompetitie ( NOUN NOUN_SINGULAR ) 
+ zondagkompetities ( NOUN NOUN_PLURAL ) lemma=`zondagkompetitie` nounpl  
+ zondags ( ADJECTIVE ) 
+ zondagscompetitie ( NOUN NOUN_SINGULAR ) 
+ zondagscompetities ( NOUN NOUN_PLURAL ) lemma=`zondagscompetitie` nounpl  
+ zondagsdienst ( NOUN NOUN_SINGULAR ) 
+ zondagsdiensten ( NOUN NOUN_PLURAL ) lemma=`zondagsdienst` nounpl  
+ zondagse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zondags`zondagse` adj  nounsg  
+ zondagskind ( NOUN NOUN_SINGULAR ) 
+ zondagskinderen ( NOUN NOUN_PLURAL ) lemma=`zondagskind` nounpl  
+ zondagsrijder ( NOUN NOUN_SINGULAR ) 
+ zondagsrijders ( NOUN NOUN_PLURAL ) lemma=`zondagsrijder` nounpl  
+ zondagsrust ( NOUN NOUN_SINGULAR ) 
+ zondagsscholen ( NOUN NOUN_PLURAL ) lemma=`zondagsschool` nounpl  
+ zondagsschool ( NOUN NOUN_SINGULAR ) 
+ zondaren ( NOUN NOUN_PLURAL ) lemma=`zondaar` nounpl  
+ zonde ( VERB_PAST NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zonde`zonde`zonnen` adj  nounsg  verbpastsg  
+ zondebok ( NOUN NOUN_SINGULAR ) 
+ zondebokken ( NOUN NOUN_PLURAL ) lemma=`zondebok` nounpl  
+ zonden ( VERB_PAST NOUN VERB NOUN_PLURAL ) lemma=`zonde`zenden|zonnen` nounpl  verbpastpl  
+ zonder ( PREPOSITION CONJUNCTION_SUBORDINATE ) lemma=`zonder`zonder` conjsubo  prep  
+ zonderling ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonderling`zonderling` adj  nounsg  
+ zonderlinge ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonderling`zonderlinge` adj  nounsg  
+ zonderlingen ( NOUN NOUN_PLURAL ) lemma=`zonderling` nounpl  
+ zonderlinger ( ADJECTIVE ) lemma=`zonderling` adj  
+ zonderlingere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonderling`zonderlingere` adj  nounsg  
+ zonderlingst ( ADJECTIVE ) lemma=`zonderling` adj  
+ zonderlingste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonderling`zonderlingste` adj  nounsg  
+ zondes ( NOUN NOUN_PLURAL ) lemma=`zonde` nounpl  
+ zondetje ( NOUN NOUN_SINGULAR ) lemma=`zonde` nounsg  
+ zondetjes ( NOUN NOUN_PLURAL ) lemma=`zonde` nounpl  
+ zondeval ( NOUN NOUN_SINGULAR ) 
+ zondig ( VERB_PRESENT VERB ADJECTIVE ) lemma=`zondig`zondigen` adj  verbpressg  
+ zondigde ( VERB_PAST VERB ) lemma=`zondigen` verbpastsg  
+ zondigden ( VERB_PAST VERB ) lemma=`zondigen` verbpastpl  
+ zondige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zondig`zondige` adj  nounsg  
+ zondigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zondigen`zondigen`zondigen` nounsg  verbinf  verbprespl  
+ zondigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zondigen` verbpresp  
+ zondigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zondigende`zondigen` nounsg  verbpresp  
+ zondiger ( ADJECTIVE ) lemma=`zondig` adj  
+ zondigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zondig`zondigere` adj  nounsg  
+ zondigst ( ADJECTIVE ) lemma=`zondig` adj  
+ zondigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zondig`zondigste` adj  nounsg  
+ zondigt ( VERB_PRESENT VERB ) lemma=`zondigen` verbpressg  
+ zondvloed ( NOUN NOUN_SINGULAR ) 
+ zone ( NOUN NOUN_SINGULAR ) 
+ zoneclips ( NOUN NOUN_SINGULAR ) 
+ zoneclipsen ( NOUN NOUN_PLURAL ) lemma=`zoneclips` nounpl  
+ zonedekking ( NOUN NOUN_SINGULAR ) 
+ zonen ( NOUN NOUN_PLURAL ) lemma=`zone|zoon` nounpl  
+ zones ( NOUN NOUN_PLURAL ) lemma=`zone` nounpl  
+ zonet ( ADVERB ) 
+ zong ( VERB_PAST VERB ) lemma=`zingen` verbpastsg  
+ zongen ( VERB_PAST VERB ) lemma=`zingen` verbpastpl  
+ zonk ( VERB_PAST VERB ) lemma=`zinken` verbpastsg  
+ zonken ( VERB_PAST VERB ) lemma=`zinken` verbpastpl  
+ zonnebaad ( VERB_PRESENT VERB ) lemma=`zonnebaden` verbpressg  
+ zonnebaadde ( VERB_PAST VERB ) lemma=`zonnebaden` verbpastsg  
+ zonnebaadden ( VERB_PAST VERB ) lemma=`zonnebaden` verbpastpl  
+ zonnebaadt ( VERB_PRESENT VERB ) lemma=`zonnebaden` verbpressg  
+ zonnebad ( NOUN NOUN_SINGULAR ) 
+ zonnebaden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zonnebad`zonnebaden`zonnebaden`zonnebaden` nounpl  nounsg  verbinf  verbprespl  
+ zonnebadend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zonnebaden` verbpresp  
+ zonnebadende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zonnebadende`zonnebaden` nounsg  verbpresp  
+ zonnebank ( NOUN NOUN_SINGULAR ) 
+ zonnebanken ( NOUN NOUN_PLURAL ) lemma=`zonnebank` nounpl  
+ zonnebloem ( NOUN NOUN_SINGULAR ) 
+ zonnebloemen ( NOUN NOUN_PLURAL ) lemma=`zonnebloem` nounpl  
+ zonnebloemolie ( NOUN NOUN_SINGULAR ) 
+ zonnebrand ( NOUN NOUN_SINGULAR ) 
+ zonnebrandolie ( NOUN NOUN_SINGULAR ) 
+ zonnebril ( NOUN NOUN_SINGULAR ) 
+ zonnebrillen ( NOUN NOUN_PLURAL ) lemma=`zonnebril` nounpl  
+ zonnedauw ( NOUN NOUN_SINGULAR ) 
+ zonnejaar ( NOUN NOUN_SINGULAR ) 
+ zonnejaren ( NOUN NOUN_PLURAL ) lemma=`zonnejaar` nounpl  
+ zonneklaar ( ADJECTIVE ) 
+ zonneklare ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonneklaar`zonneklare` adj  nounsg  
+ zonneklopper ( NOUN NOUN_SINGULAR ) 
+ zonnekloppers ( NOUN NOUN_PLURAL ) lemma=`zonneklopper` nounpl  
+ zonnekoning ( NOUN NOUN_PROPER_SINGULAR ) 
+ zonnemaand ( NOUN NOUN_SINGULAR ) 
+ zonnemaanden ( NOUN NOUN_PLURAL ) lemma=`zonnemaand` nounpl  
+ zonnen ( VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zon`zonnen`zonnen`zinnen`zonnen` nounpl  nounsg  verbinf  verbpastpl  verbprespl  
+ zonnend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zonnen` verbpresp  
+ zonnende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zonnende`zonnen` nounsg  verbpresp  
+ zonnescherm ( NOUN NOUN_SINGULAR ) 
+ zonneschermen ( NOUN NOUN_PLURAL ) lemma=`zonnescherm` nounpl  
+ zonneslag ( NOUN NOUN_SINGULAR ) 
+ zonneslags ( NOUN NOUN_PLURAL ) lemma=`zonneslag` nounpl  
+ zonnestand ( NOUN NOUN_SINGULAR ) 
+ zonnestanden ( NOUN NOUN_PLURAL ) lemma=`zonnestand` nounpl  
+ zonnesteek ( NOUN NOUN_SINGULAR ) 
+ zonnesteken ( NOUN NOUN_PLURAL ) lemma=`zonnesteek` nounpl  
+ zonnestelsel ( NOUN NOUN_SINGULAR ) 
+ zonnestelsels ( NOUN NOUN_PLURAL ) lemma=`zonnestelsel` nounpl  
+ zonnetje ( NOUN NOUN_SINGULAR ) lemma=`zon` nounsg  
+ zonnetjes ( NOUN NOUN_PLURAL ) lemma=`zon` nounpl  
+ zonnewende ( NOUN NOUN_SINGULAR ) 
+ zonnewijzer ( NOUN NOUN_SINGULAR ) 
+ zonnewijzers ( NOUN NOUN_PLURAL ) lemma=`zonnewijzer` nounpl  
+ zonnig ( ADJECTIVE ) 
+ zonnige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonnig`zonnige` adj  nounsg  
+ zonniger ( ADJECTIVE ) lemma=`zonnig` adj  
+ zonnigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonnig`zonnigere` adj  nounsg  
+ zonnigst ( ADJECTIVE ) lemma=`zonnig` adj  
+ zonnigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonnig`zonnigste` adj  nounsg  
+ zonovergoten ( ADJECTIVE ) 
+ zonovergotene ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zonovergoten`zonovergotene` adj  nounsg  
+ zonsondergang ( NOUN NOUN_SINGULAR ) 
+ zonsondergangen ( NOUN NOUN_PLURAL ) lemma=`zonsondergang` nounpl  
+ zonsopgang ( NOUN NOUN_SINGULAR ) 
+ zonsopgangen ( NOUN NOUN_PLURAL ) lemma=`zonsopgang` nounpl  
+ zonsverduistering ( NOUN NOUN_SINGULAR ) 
+ zonsverduisteringen ( NOUN NOUN_PLURAL ) lemma=`zonsverduistering` nounpl  
+ zont ( VERB_PRESENT VERB ) lemma=`zonnen` verbpressg  
+ zonzij ( NOUN NOUN_SINGULAR ) 
+ zonzijde ( NOUN NOUN_SINGULAR ) 
+ zoo ( NOUN NOUN_SINGULAR ) 
+ zoo's ( NOUN NOUN_PLURAL ) lemma=`zoo` nounpl  
+ zoog ( VERB_PRESENT VERB_PAST VERB ) lemma=`zuigen`zogen` verbpastsg  verbpressg  
+ zoogde ( VERB_PAST VERB ) lemma=`zogen` verbpastsg  
+ zoogden ( VERB_PAST VERB ) lemma=`zogen` verbpastpl  
+ zoogdier ( NOUN NOUN_SINGULAR ) 
+ zoogdieren ( NOUN NOUN_PLURAL ) lemma=`zoogdier|zoogdieren` nounpl  
+ zoogt ( VERB_PRESENT VERB ) lemma=`zogen` verbpressg  
+ zooi ( NOUN NOUN_SINGULAR ) 
+ zooien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zooi`zooien`zooien`zooien` nounpl  nounsg  verbinf  verbprespl  
+ zooitje ( NOUN NOUN_SINGULAR ) lemma=`zooi` nounsg  
+ zooitjes ( NOUN NOUN_PLURAL ) lemma=`zooi` nounpl  
+ zool ( NOUN NOUN_SINGULAR ) 
+ zooltje ( NOUN NOUN_SINGULAR ) lemma=`zool` nounsg  
+ zooltjes ( NOUN NOUN_PLURAL ) lemma=`zool` nounpl  
+ zoom ( NOUN NOUN_SINGULAR ) 
+ zoomlens ( NOUN NOUN_SINGULAR ) 
+ zoomlenzen ( NOUN NOUN_PLURAL ) lemma=`zoomlens` nounpl  
+ zoompje ( NOUN NOUN_SINGULAR ) lemma=`zoom` nounsg  
+ zoompjes ( NOUN NOUN_PLURAL ) lemma=`zoom` nounpl  
+ zoon ( NOUN NOUN_SINGULAR ) 
+ zoons ( NOUN NOUN_PLURAL ) lemma=`zoon` nounpl  
+ zoontje ( NOUN NOUN_SINGULAR ) lemma=`zoon` nounsg  
+ zoontjes ( NOUN NOUN_PLURAL ) lemma=`zoon` nounpl  
+ zoop ( VERB_PAST VERB ) lemma=`zuipen` verbpastsg  
+ zootje ( NOUN NOUN_SINGULAR ) 
+ zootjes ( NOUN NOUN_PLURAL ) lemma=`zootje` nounpl  
+ zopas ( ADVERB ) 
+ zopen ( VERB_PAST VERB ) lemma=`zuipen` verbpastpl  
+ zorg ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zorg`zorgen` nounsg  verbpressg  
+ zorgde ( VERB_PAST VERB ) lemma=`zorgen` verbpastsg  
+ zorgden ( VERB_PAST VERB ) lemma=`zorgen` verbpastpl  
+ zorgelijk ( ADJECTIVE ) 
+ zorgelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgelijk`zorgelijke` adj  nounsg  
+ zorgelijker ( ADJECTIVE ) lemma=`zorgelijk` adj  
+ zorgelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgelijk`zorgelijkere` adj  nounsg  
+ zorgelijkst ( ADJECTIVE ) lemma=`zorgelijk` adj  
+ zorgelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgelijk`zorgelijkste` adj  nounsg  
+ zorgeloos ( ADJECTIVE ) 
+ zorgeloost ( ADJECTIVE ) lemma=`zorgeloos` adj  
+ zorgelooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgeloos`zorgelooste` adj  nounsg  
+ zorgeloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgeloos`zorgeloze` adj  nounsg  
+ zorgelozer ( ADJECTIVE ) lemma=`zorgeloos` adj  
+ zorgelozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgeloos`zorgelozere` adj  nounsg  
+ zorgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zorg`zorgen`zorgen`zorgen` nounpl  nounsg  verbinf  verbprespl  
+ zorgend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zorgen` verbpresp  
+ zorgende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zorgende`zorgen` nounsg  verbpresp  
+ zorgenkind ( NOUN NOUN_SINGULAR ) 
+ zorgenkinderen ( NOUN NOUN_PLURAL ) lemma=`zorgenkind` nounpl  
+ zorgjes ( NOUN NOUN_PLURAL ) lemma=`zorg` nounpl  
+ zorglijk ( ADJECTIVE ) 
+ zorglijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorglijk`zorglijke` adj  nounsg  
+ zorglijker ( ADJECTIVE ) lemma=`zorglijk` adj  
+ zorglijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorglijk`zorglijkere` adj  nounsg  
+ zorglijkst ( ADJECTIVE ) lemma=`zorglijk` adj  
+ zorglijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorglijk`zorglijkste` adj  nounsg  
+ zorgt ( VERB_PRESENT VERB ) lemma=`zorgen` verbpressg  
+ zorgvuldig ( ADJECTIVE ) 
+ zorgvuldige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgvuldig`zorgvuldige` adj  nounsg  
+ zorgvuldiger ( ADJECTIVE ) lemma=`zorgvuldig` adj  
+ zorgvuldigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgvuldig`zorgvuldigere` adj  nounsg  
+ zorgvuldigst ( ADJECTIVE ) lemma=`zorgvuldig` adj  
+ zorgvuldigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgvuldig`zorgvuldigste` adj  nounsg  
+ zorgwekkend ( ADJECTIVE ) 
+ zorgwekkende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgwekkend`zorgwekkende` adj  nounsg  
+ zorgwekkender ( ADJECTIVE ) lemma=`zorgwekkend` adj  
+ zorgwekkendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgwekkend`zorgwekkendere` adj  nounsg  
+ zorgwekkendst ( ADJECTIVE ) lemma=`zorgwekkend` adj  
+ zorgwekkendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgwekkend`zorgwekkendste` adj  nounsg  
+ zorgzaam ( ADJECTIVE ) 
+ zorgzaamst ( ADJECTIVE ) lemma=`zorgzaam` adj  
+ zorgzaamste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgzaam`zorgzaamste` adj  nounsg  
+ zorgzame ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgzaam`zorgzame` adj  nounsg  
+ zorgzamer ( ADJECTIVE ) lemma=`zorgzaam` adj  
+ zorgzamere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zorgzaam`zorgzamere` adj  nounsg  
+ zot ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zot`zot` adj  nounsg  
+ zotst ( ADJECTIVE ) lemma=`zot` adj  
+ zotste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zot`zotste` adj  nounsg  
+ zotte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zot`zotte` adj  nounsg  
+ zotten ( NOUN NOUN_PLURAL ) lemma=`zot` nounpl  
+ zotter ( ADJECTIVE ) lemma=`zot` adj  
+ zottere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zot`zottere` adj  nounsg  
+ zou ( VERB_PAST VERB ) lemma=`zullen` verbpastsg  
+ zouaaf ( NOUN NOUN_SINGULAR ) 
+ zouaven ( NOUN NOUN_PLURAL ) lemma=`zouaaf` nounpl  
+ zoude ( VERB_PAST VERB ) lemma=`zullen` verbpastsg  
+ zouden ( VERB_PAST VERB ) lemma=`zullen` verbpastpl  
+ zout ( VERB_PRESENT NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zout`zout`zouten` adj  nounsg  verbpressg  
+ zoutarm ( ADJECTIVE ) 
+ zoutarme ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoutarm`zoutarme` adj  nounsg  
+ zoutarmer ( ADJECTIVE ) lemma=`zoutarm` adj  
+ zoutarmere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoutarm`zoutarmere` adj  nounsg  
+ zoutarmst ( ADJECTIVE ) lemma=`zoutarm` adj  
+ zoutarmste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoutarm`zoutarmste` adj  nounsg  
+ zoute ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zout`zoute` adj  nounsg  
+ zouteloos ( ADJECTIVE ) 
+ zouteloost ( ADJECTIVE ) lemma=`zouteloos` adj  
+ zoutelooste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zouteloos`zoutelooste` adj  nounsg  
+ zouteloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zouteloos`zouteloze` adj  nounsg  
+ zoutelozer ( ADJECTIVE ) lemma=`zouteloos` adj  
+ zoutelozere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zouteloos`zoutelozere` adj  nounsg  
+ zouten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zout`zouten`zouten`zouten` nounpl  nounsg  verbinf  verbprespl  
+ zoutend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zouten` verbpresp  
+ zoutende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zoutende`zouten` nounsg  verbpresp  
+ zouter ( ADJECTIVE ) lemma=`zout` adj  
+ zoutere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zout`zoutere` adj  nounsg  
+ zoutje ( NOUN NOUN_SINGULAR ) 
+ zoutjes ( NOUN NOUN_PLURAL ) lemma=`zoutje` nounpl  
+ zoutloos ( ADJECTIVE ) 
+ zoutloze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoutloos`zoutloze` adj  nounsg  
+ zoutst ( ADJECTIVE ) lemma=`zout` adj  
+ zoutste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zout`zoutste` adj  nounsg  
+ zoutte ( VERB_PAST VERB ) lemma=`zouten` verbpastsg  
+ zoutten ( VERB_PAST VERB ) lemma=`zouten` verbpastpl  
+ zoutvaatje ( NOUN NOUN_SINGULAR ) 
+ zoutvaatjes ( NOUN NOUN_PLURAL ) lemma=`zoutvaatje` nounpl  
+ zoutzuur ( NOUN NOUN_SINGULAR ) 
+ zoveel ( NOUN ADVERB NOUN_NUMBER ) lemma=`zoveel`zoveel` adv  num__card  
+ zoveelste ( ADJECTIVE ADJECTIVE_NUMBER ) lemma=`zoveel` num__ord  
+ zovele ( NOUN NOUN_NUMBER ) lemma=`zoveel` num__card  
+ zovelen ( NOUN NOUN_NUMBER ) lemma=`zoveel` num__card  
+ zover ( ADVERB ) 
+ zowaar ( ADVERB ) 
+ zowat ( ADVERB ) 
+ zowel ( ADVERB CONJUNCTION_COORDINATE ) lemma=`zowel`zowel` adv  conjcoord  
+ zozeer ( ADVERB ) 
+ zozo ( ADVERB ) 
+ zoölogie ( NOUN NOUN_SINGULAR ) 
+ zoölogisch ( ADJECTIVE ) 
+ zoölogische ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zoölogisch`zoölogische` adj  nounsg  
+ zucht ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zucht`zuchten` nounsg  verbpressg  
+ zuchten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zucht`zuchten`zuchten`zuchten` nounpl  nounsg  verbinf  verbprespl  
+ zuchtend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zuchten` verbpresp  
+ zuchtende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zuchtende`zuchten` nounsg  verbpresp  
+ zuchtte ( VERB_PAST VERB ) lemma=`zuchten` verbpastsg  
+ zuchtten ( VERB_PAST VERB ) lemma=`zuchten` verbpastpl  
+ zuid ( NOUN NOUN_SINGULAR ) 
+ zuidelijk ( ADJECTIVE ) 
+ zuidelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidelijk`zuidelijke` adj  nounsg  
+ zuidelijker ( ADJECTIVE ) lemma=`zuidelijk` adj  
+ zuidelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidelijk`zuidelijkere` adj  nounsg  
+ zuidelijkst ( ADJECTIVE ) lemma=`zuidelijk` adj  
+ zuidelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidelijk`zuidelijkste` adj  nounsg  
+ zuiden ( NOUN NOUN_SINGULAR ) 
+ zuiderbreedte ( NOUN NOUN_SINGULAR ) 
+ zuidergrens ( NOUN NOUN_SINGULAR ) 
+ zuidergrenzen ( NOUN NOUN_PLURAL ) lemma=`zuidergrens` nounpl  
+ zuiderkeerkring ( NOUN NOUN_SINGULAR ) 
+ zuiders ( ADJECTIVE ) 
+ zuiderse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuiders`zuiderse` adj  nounsg  
+ zuidgrens ( NOUN NOUN_SINGULAR ) 
+ zuidgrenzen ( NOUN NOUN_PLURAL ) lemma=`zuidgrens` nounpl  
+ zuidoostelijk ( ADJECTIVE ) 
+ zuidoostelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidoostelijk`zuidoostelijke` adj  nounsg  
+ zuidoostelijker ( ADJECTIVE ) lemma=`zuidoostelijk` adj  
+ zuidoostelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidoostelijk`zuidoostelijkere` adj  nounsg  
+ zuidoostelijkst ( ADJECTIVE ) lemma=`zuidoostelijk` adj  
+ zuidoostelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidoostelijk`zuidoostelijkste` adj  nounsg  
+ zuidpool ( NOUN NOUN_SINGULAR ) 
+ zuidpoolcirkel ( NOUN NOUN_SINGULAR ) 
+ zuidpoolgebieden ( NOUN NOUN_PLURAL ) lemma=`zuidpoolgebied` nounpl  
+ zuidvrucht ( NOUN NOUN_SINGULAR ) 
+ zuidvruchten ( NOUN NOUN_PLURAL ) lemma=`zuidvrucht` nounpl  
+ zuidwaarts ( ADJECTIVE ) 
+ zuidwaartse ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidwaarts`zuidwaartse` adj  nounsg  
+ zuidwestelijk ( ADJECTIVE ) 
+ zuidwestelijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidwestelijk`zuidwestelijke` adj  nounsg  
+ zuidwestelijker ( ADJECTIVE ) lemma=`zuidwestelijk` adj  
+ zuidwestelijkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidwestelijk`zuidwestelijkere` adj  nounsg  
+ zuidwestelijkst ( ADJECTIVE ) lemma=`zuidwestelijk` adj  
+ zuidwestelijkste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuidwestelijk`zuidwestelijkste` adj  nounsg  
+ zuidwester ( NOUN NOUN_SINGULAR ) 
+ zuidwesters ( NOUN NOUN_PLURAL ) lemma=`zuidwester` nounpl  
+ zuig ( VERB_PRESENT VERB ) lemma=`zuigen` verbpressg  
+ zuigeling ( NOUN NOUN_SINGULAR ) 
+ zuigelingen ( NOUN NOUN_PLURAL ) lemma=`zuigeling` nounpl  
+ zuigen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zuigen`zuigen`zuigen` nounsg  verbinf  verbprespl  
+ zuigend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zuigen` verbpresp  
+ zuigende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zuigende`zuigen` nounsg  verbpresp  
+ zuiger ( NOUN NOUN_SINGULAR ) 
+ zuigers ( NOUN NOUN_PLURAL ) lemma=`zuiger` nounpl  
+ zuigertje ( NOUN NOUN_SINGULAR ) lemma=`zuiger` nounsg  
+ zuigertjes ( NOUN NOUN_PLURAL ) lemma=`zuiger` nounpl  
+ zuigfles ( NOUN NOUN_SINGULAR ) 
+ zuigflessen ( NOUN NOUN_PLURAL ) lemma=`zuigfles` nounpl  
+ zuiging ( NOUN NOUN_SINGULAR ) 
+ zuignap ( NOUN NOUN_SINGULAR ) 
+ zuignappen ( NOUN NOUN_PLURAL ) lemma=`zuignap` nounpl  
+ zuigt ( VERB_PRESENT VERB ) lemma=`zuigen` verbpressg  
+ zuigtablet ( NOUN NOUN_SINGULAR ) 
+ zuigtabletten ( NOUN NOUN_PLURAL ) lemma=`zuigtablet` nounpl  
+ zuil ( NOUN NOUN_SINGULAR ) 
+ zuilen ( NOUN NOUN_PLURAL ) lemma=`zuil` nounpl  
+ zuilengalerij ( NOUN NOUN_SINGULAR ) 
+ zuilengalerijen ( NOUN NOUN_PLURAL ) lemma=`zuilengalerij` nounpl  
+ zuiltje ( NOUN NOUN_SINGULAR ) lemma=`zuil` nounsg  
+ zuiltjes ( NOUN NOUN_PLURAL ) lemma=`zuil` nounpl  
+ zuinig ( ADJECTIVE ) 
+ zuinige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuinig`zuinige` adj  nounsg  
+ zuiniger ( ADJECTIVE ) lemma=`zuinig` adj  
+ zuinigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuinig`zuinigere` adj  nounsg  
+ zuinigjes ( ADJECTIVE ) lemma=`zuinig` adj  
+ zuinigst ( ADJECTIVE ) lemma=`zuinig` adj  
+ zuinigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuinig`zuinigste` adj  nounsg  
+ zuip ( VERB_PRESENT VERB ) lemma=`zuipen` verbpressg  
+ zuipen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zuipen`zuipen`zuipen` nounsg  verbinf  verbprespl  
+ zuipend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zuipen` verbpresp  
+ zuipende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zuipende`zuipen` nounsg  verbpresp  
+ zuiplap ( NOUN NOUN_SINGULAR ) 
+ zuiplappen ( NOUN NOUN_PLURAL ) lemma=`zuiplap` nounpl  
+ zuippartij ( NOUN NOUN_SINGULAR ) 
+ zuippartijen ( NOUN NOUN_PLURAL ) lemma=`zuippartij` nounpl  
+ zuipschuit ( NOUN NOUN_SINGULAR ) 
+ zuipschuiten ( NOUN NOUN_PLURAL ) lemma=`zuipschuit` nounpl  
+ zuipt ( VERB_PRESENT VERB ) lemma=`zuipen` verbpressg  
+ zuivel ( NOUN NOUN_SINGULAR ) 
+ zuivelfabriek ( NOUN NOUN_SINGULAR ) 
+ zuivelfabrieken ( NOUN NOUN_PLURAL ) lemma=`zuivelfabriek` nounpl  
+ zuivelindustrie ( NOUN NOUN_SINGULAR ) 
+ zuivelproduct ( NOUN NOUN_SINGULAR ) 
+ zuivelproducten ( NOUN NOUN_PLURAL ) lemma=`zuivelproduct` nounpl  
+ zuivelprodukt ( NOUN NOUN_SINGULAR ) 
+ zuivelprodukten ( NOUN NOUN_PLURAL ) lemma=`zuivelprodukt` nounpl  
+ zuiver ( VERB_PRESENT VERB ADJECTIVE ) lemma=`zuiver`zuiveren` adj  verbpressg  
+ zuiverde ( VERB_PAST VERB ) lemma=`zuiveren` verbpastsg  
+ zuiverden ( VERB_PAST VERB ) lemma=`zuiveren` verbpastpl  
+ zuiverder ( ADJECTIVE ) lemma=`zuiver` adj  
+ zuiverdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuiver`zuiverdere` adj  nounsg  
+ zuivere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuiver`zuivere` adj  nounsg  
+ zuiveren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zuiveren`zuiveren`zuiveren` nounsg  verbinf  verbprespl  
+ zuiverend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zuiveren` verbpresp  
+ zuiverende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zuiverende`zuiveren` nounsg  verbpresp  
+ zuivering ( NOUN NOUN_SINGULAR ) 
+ zuiveringen ( NOUN NOUN_PLURAL ) lemma=`zuivering` nounpl  
+ zuiverst ( ADJECTIVE ) lemma=`zuiver` adj  
+ zuiverste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuiver`zuiverste` adj  nounsg  
+ zuivert ( VERB_PRESENT VERB ) lemma=`zuiveren` verbpressg  
+ zulk ( ) lemma=`zulk`zulk` det__demo  det__excl  
+ zulke ( ) lemma=`zulk`zulk` det__demo  det__excl  
+ zulks ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ zullen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zullen`zullen`zullen` nounsg  verbinf  verbprespl  
+ zullend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zullen` verbpresp  
+ zullende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zullende`zullen` nounsg  verbpresp  
+ zult ( NOUN NOUN_SINGULAR ) 
+ zure ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuur`zure` adj  nounsg  
+ zuren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zuur`zuren`zuren`zuren` nounpl  nounsg  verbinf  verbprespl  
+ zurend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zuren` verbpresp  
+ zurende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zurende`zuren` nounsg  verbpresp  
+ zurig ( ADJECTIVE ) 
+ zurige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zurig`zurige` adj  nounsg  
+ zuriger ( ADJECTIVE ) lemma=`zurig` adj  
+ zurigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zurig`zurigere` adj  nounsg  
+ zurigst ( ADJECTIVE ) lemma=`zurig` adj  
+ zurigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zurig`zurigste` adj  nounsg  
+ zuring ( NOUN NOUN_SINGULAR ) 
+ zurkel ( NOUN NOUN_SINGULAR ) 
+ zus ( NOUN ADVERB NOUN_SINGULAR ) lemma=`zus`zus` adv  nounsg  
+ zussen ( NOUN NOUN_PLURAL ) lemma=`zus` nounpl  
+ zuster ( NOUN NOUN_SINGULAR ) 
+ zusteren ( NOUN NOUN_PLURAL ) lemma=`zuster` nounpl  
+ zusterliefde ( NOUN NOUN_SINGULAR ) 
+ zusterlijk ( ADJECTIVE ) 
+ zusterlijke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zusterlijk`zusterlijke` adj  nounsg  
+ zusters ( NOUN NOUN_PLURAL ) lemma=`zuster` nounpl  
+ zusterschap ( NOUN NOUN_SINGULAR ) 
+ zusterschappen ( NOUN NOUN_PLURAL ) lemma=`zusterschap` nounpl  
+ zustertje ( NOUN NOUN_SINGULAR ) lemma=`zuster` nounsg  
+ zustertjes ( NOUN NOUN_PLURAL ) lemma=`zuster` nounpl  
+ zuur ( VERB_PRESENT NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zuur`zuur`zuren` adj  nounsg  verbpressg  
+ zuurde ( VERB_PAST VERB ) lemma=`zuren` verbpastsg  
+ zuurdeeg ( NOUN NOUN_SINGULAR ) 
+ zuurden ( VERB_PAST VERB ) lemma=`zuren` verbpastpl  
+ zuurder ( ADJECTIVE ) lemma=`zuur` adj  
+ zuurdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuur`zuurdere` adj  nounsg  
+ zuurdesem ( NOUN NOUN_SINGULAR ) 
+ zuurkool ( NOUN NOUN_SINGULAR ) 
+ zuurpruim ( NOUN NOUN_SINGULAR ) 
+ zuurpruimen ( NOUN NOUN_PLURAL ) lemma=`zuurpruim` nounpl  
+ zuurst ( ADJECTIVE ) lemma=`zuur` adj  
+ zuurste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuur`zuurste` adj  nounsg  
+ zuurstof ( NOUN NOUN_SINGULAR ) 
+ zuurstofapparaat ( NOUN NOUN_SINGULAR ) 
+ zuurstofapparaten ( NOUN NOUN_PLURAL ) lemma=`zuurstofapparaat` nounpl  
+ zuurstofarm ( ADJECTIVE ) 
+ zuurstoffles ( NOUN NOUN_SINGULAR ) 
+ zuurstofflessen ( NOUN NOUN_PLURAL ) lemma=`zuurstoffles` nounpl  
+ zuurstofhoudend ( ADJECTIVE ) 
+ zuurstofrijk ( ADJECTIVE ) 
+ zuurstoftekort ( NOUN NOUN_SINGULAR ) 
+ zuurstoftekorten ( NOUN NOUN_PLURAL ) lemma=`zuurstoftekort` nounpl  
+ zuurstok ( NOUN NOUN_SINGULAR ) 
+ zuurstokken ( NOUN NOUN_PLURAL ) lemma=`zuurstok` nounpl  
+ zuurt ( VERB_PRESENT VERB ) lemma=`zuren` verbpressg  
+ zuurtje ( NOUN NOUN_SINGULAR ) 
+ zuurtjes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zuur`zuurtje` adj  nounpl  
+ zuurverdiend ( ADJECTIVE ) 
+ zuurverdiende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuurverdiend`zuurverdiende` adj  nounsg  
+ zuurzoet ( ADJECTIVE ) 
+ zuurzoete ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuurzoet`zuurzoete` adj  nounsg  
+ zuurzoeter ( ADJECTIVE ) lemma=`zuurzoet` adj  
+ zuurzoetere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuurzoet`zuurzoetere` adj  nounsg  
+ zuurzoetst ( ADJECTIVE ) lemma=`zuurzoet` adj  
+ zuurzoetste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zuurzoet`zuurzoetste` adj  nounsg  
+ zwaai ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwaai`zwaaien` nounsg  verbpressg  
+ zwaaide ( VERB_PAST VERB ) lemma=`zwaaien` verbpastsg  
+ zwaaiden ( VERB_PAST VERB ) lemma=`zwaaien` verbpastpl  
+ zwaaien ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zwaai`zwaaien`zwaaien`zwaaien` nounpl  nounsg  verbinf  verbprespl  
+ zwaaiend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwaaien` verbpresp  
+ zwaaiende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwaaiende`zwaaien` nounsg  verbpresp  
+ zwaailicht ( NOUN NOUN_SINGULAR ) 
+ zwaailichten ( NOUN NOUN_PLURAL ) lemma=`zwaailicht` nounpl  
+ zwaait ( VERB_PRESENT VERB ) lemma=`zwaaien` verbpressg  
+ zwaan ( NOUN NOUN_SINGULAR ) 
+ zwaantje ( NOUN NOUN_SINGULAR ) lemma=`zwaan` nounsg  
+ zwaantjes ( NOUN NOUN_PLURAL ) lemma=`zwaan` nounpl  
+ zwaar ( ADJECTIVE ADVERB ) lemma=`zwaar`zwaar` adj  adv  
+ zwaarbewaakt ( ADJECTIVE ) 
+ zwaarbewapend ( ADJECTIVE ) 
+ zwaard ( NOUN NOUN_SINGULAR ) 
+ zwaarden ( NOUN NOUN_PLURAL ) lemma=`zwaard` nounpl  
+ zwaarder ( ADJECTIVE ) lemma=`zwaar` adj  
+ zwaardere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaar`zwaardere` adj  nounsg  
+ zwaargebouwd ( ADJECTIVE ) 
+ zwaargebouwde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaargebouwd`zwaargebouwde` adj  nounsg  
+ zwaargewapend ( ADJECTIVE ) 
+ zwaargewapende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaargewapend`zwaargewapende` adj  nounsg  
+ zwaargewond ( ADJECTIVE ) 
+ zwaargewonde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaargewond`zwaargewonde` adj  nounsg  
+ zwaarlijvig ( ADJECTIVE ) 
+ zwaarlijvige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarlijvig`zwaarlijvige` adj  nounsg  
+ zwaarlijviger ( ADJECTIVE ) lemma=`zwaarlijvig` adj  
+ zwaarlijvigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarlijvig`zwaarlijvigere` adj  nounsg  
+ zwaarlijvigst ( ADJECTIVE ) lemma=`zwaarlijvig` adj  
+ zwaarlijvigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarlijvig`zwaarlijvigste` adj  nounsg  
+ zwaarmoedig ( ADJECTIVE ) 
+ zwaarmoedige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarmoedig`zwaarmoedige` adj  nounsg  
+ zwaarmoediger ( ADJECTIVE ) lemma=`zwaarmoedig` adj  
+ zwaarmoedigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarmoedig`zwaarmoedigere` adj  nounsg  
+ zwaarmoedigst ( ADJECTIVE ) lemma=`zwaarmoedig` adj  
+ zwaarmoedigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarmoedig`zwaarmoedigste` adj  nounsg  
+ zwaarst ( ADJECTIVE ) lemma=`zwaar` adj  
+ zwaarste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaar`zwaarste` adj  nounsg  
+ zwaarte ( NOUN NOUN_SINGULAR ) 
+ zwaartekracht ( NOUN NOUN_SINGULAR ) 
+ zwaartepunt ( NOUN NOUN_SINGULAR ) 
+ zwaartepunten ( NOUN NOUN_PLURAL ) lemma=`zwaartepunt` nounpl  
+ zwaarwegend ( ADJECTIVE ) 
+ zwaarwegende ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarwegend`zwaarwegende` adj  nounsg  
+ zwaarwegender ( ADJECTIVE ) lemma=`zwaarwegend` adj  
+ zwaarwegendere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarwegend`zwaarwegendere` adj  nounsg  
+ zwaarwegendst ( ADJECTIVE ) lemma=`zwaarwegend` adj  
+ zwaarwegendste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarwegend`zwaarwegendste` adj  nounsg  
+ zwaarwichtig ( ADJECTIVE ) 
+ zwaarwichtige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarwichtig`zwaarwichtige` adj  nounsg  
+ zwaarwichtiger ( ADJECTIVE ) lemma=`zwaarwichtig` adj  
+ zwaarwichtigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarwichtig`zwaarwichtigere` adj  nounsg  
+ zwaarwichtigst ( ADJECTIVE ) lemma=`zwaarwichtig` adj  
+ zwaarwichtigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaarwichtig`zwaarwichtigste` adj  nounsg  
+ zwabber ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwabber`zwabberen` nounsg  verbpressg  
+ zwabberde ( VERB_PAST VERB ) lemma=`zwabberen` verbpastsg  
+ zwabberden ( VERB_PAST VERB ) lemma=`zwabberen` verbpastpl  
+ zwabberen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwabberen`zwabberen`zwabberen` nounsg  verbinf  verbprespl  
+ zwabberend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwabberen` verbpresp  
+ zwabberende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwabberende`zwabberen` nounsg  verbpresp  
+ zwabbers ( NOUN NOUN_PLURAL ) lemma=`zwabber` nounpl  
+ zwabbert ( VERB_PRESENT VERB ) lemma=`zwabberen` verbpressg  
+ zwabbertje ( NOUN NOUN_SINGULAR ) lemma=`zwabber` nounsg  
+ zwabbertjes ( NOUN NOUN_PLURAL ) lemma=`zwabber` nounpl  
+ zwachtel ( NOUN NOUN_SINGULAR ) 
+ zwachtels ( NOUN NOUN_PLURAL ) lemma=`zwachtel` nounpl  
+ zwachteltje ( NOUN NOUN_SINGULAR ) lemma=`zwachtel` nounsg  
+ zwachteltjes ( NOUN NOUN_PLURAL ) lemma=`zwachtel` nounpl  
+ zwager ( NOUN NOUN_SINGULAR ) 
+ zwagers ( NOUN NOUN_PLURAL ) lemma=`zwager` nounpl  
+ zwagertje ( NOUN NOUN_SINGULAR ) lemma=`zwager` nounsg  
+ zwagertjes ( NOUN NOUN_PLURAL ) lemma=`zwager` nounpl  
+ zwak ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwak`zwak` adj  nounsg  
+ zwakbegaafd ( ADJECTIVE ) 
+ zwakbegaafde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwakbegaafd`zwakbegaafde` adj  nounsg  
+ zwakbegaafden ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zwakbegaafd`zwakbegaafde` adj  nounpl  
+ zwakbegaafder ( ADJECTIVE ) lemma=`zwakbegaafd` adj  
+ zwakbegaafdere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwakbegaafd`zwakbegaafdere` adj  nounsg  
+ zwakbegaafdst ( ADJECTIVE ) lemma=`zwakbegaafd` adj  
+ zwakbegaafdste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwakbegaafd`zwakbegaafdste` adj  nounsg  
+ zwakheden ( NOUN NOUN_PLURAL ) lemma=`zwakheid` nounpl  
+ zwakheid ( NOUN NOUN_SINGULAR ) 
+ zwakjes ( ADJECTIVE ) lemma=`zwak|zwakjes` adj  
+ zwakke ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwak`zwakke` adj  nounsg  
+ zwakkeling ( NOUN NOUN_SINGULAR ) 
+ zwakkelingen ( NOUN NOUN_PLURAL ) lemma=`zwakkeling` nounpl  
+ zwakken ( NOUN NOUN_PLURAL ) lemma=`zwak` nounpl  
+ zwakker ( ADJECTIVE ) lemma=`zwak` adj  
+ zwakkere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwak`zwakkere` adj  nounsg  
+ zwakst ( ADJECTIVE ) lemma=`zwak` adj  
+ zwakste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwak`zwakste` adj  nounsg  
+ zwakstroom ( NOUN NOUN_SINGULAR ) 
+ zwakte ( NOUN NOUN_SINGULAR ) 
+ zwaktebod ( NOUN NOUN_SINGULAR ) 
+ zwakteboden ( NOUN NOUN_PLURAL ) lemma=`zwaktebod` nounpl  
+ zwakten ( NOUN NOUN_PLURAL ) lemma=`zwakte` nounpl  
+ zwaktes ( NOUN NOUN_PLURAL ) lemma=`zwakte` nounpl  
+ zwakzinnig ( ADJECTIVE ) 
+ zwakzinnige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwakzinnig`zwakzinnige` adj  nounsg  
+ zwakzinniger ( ADJECTIVE ) lemma=`zwakzinnig` adj  
+ zwakzinnigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwakzinnig`zwakzinnigere` adj  nounsg  
+ zwakzinnigst ( ADJECTIVE ) lemma=`zwakzinnig` adj  
+ zwakzinnigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwakzinnig`zwakzinnigste` adj  nounsg  
+ zwalk ( VERB_PRESENT VERB ) lemma=`zwalken` verbpressg  
+ zwalken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwalken`zwalken`zwalken` nounsg  verbinf  verbprespl  
+ zwalkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwalken` verbpresp  
+ zwalkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwalkende`zwalken` nounsg  verbpresp  
+ zwalkt ( VERB_PRESENT VERB ) lemma=`zwalken` verbpressg  
+ zwalkte ( VERB_PAST VERB ) lemma=`zwalken` verbpastsg  
+ zwalkten ( VERB_PAST VERB ) lemma=`zwalken` verbpastpl  
+ zwaluw ( NOUN NOUN_SINGULAR ) 
+ zwaluwen ( NOUN NOUN_PLURAL ) lemma=`zwaluw` nounpl  
+ zwaluwstaart ( NOUN NOUN_SINGULAR ) 
+ zwaluwstaarten ( NOUN NOUN_PLURAL ) lemma=`zwaluwstaart` nounpl  
+ zwaluwtje ( NOUN NOUN_SINGULAR ) lemma=`zwaluw` nounsg  
+ zwaluwtjes ( NOUN NOUN_PLURAL ) lemma=`zwaluw` nounpl  
+ zwam ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwam`zwammen` nounsg  verbpressg  
+ zwamde ( VERB_PAST VERB ) lemma=`zwammen` verbpastsg  
+ zwamden ( VERB_PAST VERB ) lemma=`zwammen` verbpastpl  
+ zwammen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zwam`zwammen`zwammen`zwammen` nounpl  nounsg  verbinf  verbprespl  
+ zwammend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwammen` verbpresp  
+ zwammende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwammende`zwammen` nounsg  verbpresp  
+ zwammetje ( NOUN NOUN_SINGULAR ) lemma=`zwam` nounsg  
+ zwammetjes ( NOUN NOUN_PLURAL ) lemma=`zwam` nounpl  
+ zwamneus ( NOUN NOUN_SINGULAR ) 
+ zwamneuzen ( NOUN NOUN_PLURAL ) lemma=`zwamneus` nounpl  
+ zwamt ( VERB_PRESENT VERB ) lemma=`zwammen` verbpressg  
+ zwanehals ( NOUN NOUN_SINGULAR ) 
+ zwanehalzen ( NOUN NOUN_PLURAL ) lemma=`zwanehals` nounpl  
+ zwanen ( NOUN NOUN_PLURAL ) lemma=`zwaan` nounpl  
+ zwanenhals ( NOUN NOUN_SINGULAR ) 
+ zwanenhalzen ( NOUN NOUN_PLURAL ) lemma=`zwanenhals` nounpl  
+ zwanenzang ( NOUN NOUN_SINGULAR ) 
+ zwanenzangen ( NOUN NOUN_PLURAL ) lemma=`zwanenzang` nounpl  
+ zwanezang ( NOUN NOUN_SINGULAR ) 
+ zwanezangen ( NOUN NOUN_PLURAL ) lemma=`zwanezang` nounpl  
+ zwang ( NOUN NOUN_SINGULAR ) 
+ zwanger ( ADJECTIVE ) 
+ zwangere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwanger`zwangere` adj  nounsg  
+ zwangerschap ( NOUN NOUN_SINGULAR ) 
+ zwangerschappen ( NOUN NOUN_PLURAL ) lemma=`zwangerschap` nounpl  
+ zwangerschapsgymnast ( NOUN NOUN_SINGULAR ) 
+ zwangerschapsgymnastiek ( NOUN NOUN_SINGULAR ) 
+ zwangerschapsonderbr ( NOUN NOUN_SINGULAR ) 
+ zwangerschapsonderbreking ( NOUN NOUN_SINGULAR ) 
+ zwangerschapsonderbrekingen ( NOUN NOUN_PLURAL ) lemma=`zwangerschapsonderbreking` nounpl  
+ zwangerschapstest ( NOUN NOUN_SINGULAR ) 
+ zwangerschapstests ( NOUN NOUN_PLURAL ) lemma=`zwangerschapstest` nounpl  
+ zwangerschapsverlof ( NOUN NOUN_SINGULAR ) 
+ zware ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwaar`zware` adj  nounsg  
+ zwart ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwart`zwart` adj  nounsg  
+ zwart-wit ( ADJECTIVE ) 
+ zwartboek ( NOUN NOUN_SINGULAR ) 
+ zwartboeken ( NOUN NOUN_PLURAL ) lemma=`zwartboek` nounpl  
+ zwarte ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwart`zwarte` adj  nounsg  
+ zwartekousenkerk ( NOUN NOUN_SINGULAR ) 
+ zwartekousenkerken ( NOUN NOUN_PLURAL ) lemma=`zwartekousenkerk` nounpl  
+ zwarten ( NOUN NOUN_PLURAL ) lemma=`zwarte` nounpl  
+ zwartepiet ( NOUN NOUN_SINGULAR ) 
+ zwartepieten ( NOUN NOUN_PLURAL ) lemma=`zwartepiet` nounpl  
+ zwarter ( ADJECTIVE ) lemma=`zwart` adj  
+ zwartere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwart`zwartere` adj  nounsg  
+ zwartgallig ( ADJECTIVE ) 
+ zwartgallige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwartgallig`zwartgallige` adj  nounsg  
+ zwartgalliger ( ADJECTIVE ) lemma=`zwartgallig` adj  
+ zwartgalligere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwartgallig`zwartgalligere` adj  nounsg  
+ zwartgalligst ( ADJECTIVE ) lemma=`zwartgallig` adj  
+ zwartgalligste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwartgallig`zwartgalligste` adj  nounsg  
+ zwartgeblakerd ( ADJECTIVE ) 
+ zwartgemaakt ( VERB_PAST_PARTICIPLE VERB ) lemma=`zwartmaken` verbpapa  
+ zwartgemaakte ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwartgemaakte`zwartmaken` nounsg  verbpapa  
+ zwartgereden ( VERB_PAST_PARTICIPLE VERB ) lemma=`zwartrijden` verbpapa  
+ zwartkijker ( NOUN NOUN_SINGULAR ) 
+ zwartkijkers ( NOUN NOUN_PLURAL ) lemma=`zwartkijker` nounpl  
+ zwartmaak ( VERB_PRESENT VERB ) lemma=`zwartmaken` verbpressg  
+ zwartmaakt ( VERB_PRESENT VERB ) lemma=`zwartmaken` verbpressg  
+ zwartmaakte ( VERB_PAST VERB ) lemma=`zwartmaken` verbpastsg  
+ zwartmaakten ( VERB_PAST VERB ) lemma=`zwartmaken` verbpastpl  
+ zwartmaken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwartmaken`zwartmaken`zwartmaken` nounsg  verbinf  verbprespl  
+ zwartmakend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwartmaken` verbpresp  
+ zwartmakende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwartmakende`zwartmaken` nounsg  verbpresp  
+ zwartreden ( VERB_PAST VERB ) lemma=`zwartrijden` verbpastpl  
+ zwartreed ( VERB_PAST VERB ) lemma=`zwartrijden` verbpastsg  
+ zwartrijd ( VERB_PRESENT VERB ) lemma=`zwartrijden` verbpressg  
+ zwartrijden ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwartrijden`zwartrijden`zwartrijden` nounsg  verbinf  verbprespl  
+ zwartrijdend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwartrijden` verbpresp  
+ zwartrijdende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwartrijdende`zwartrijden` nounsg  verbpresp  
+ zwartrijdt ( VERB_PRESENT VERB ) lemma=`zwartrijden` verbpressg  
+ zwartrok ( NOUN NOUN_SINGULAR ) 
+ zwartrokken ( NOUN NOUN_PLURAL ) lemma=`zwartrok` nounpl  
+ zwartst ( ADJECTIVE ) lemma=`zwart` adj  
+ zwartste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwart`zwartste` adj  nounsg  
+ zwartwerker ( NOUN NOUN_SINGULAR ) 
+ zwartwerkers ( NOUN NOUN_PLURAL ) lemma=`zwartwerker` nounpl  
+ zwavel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwavel`zwavelen` nounsg  verbpressg  
+ zwavelde ( VERB_PAST VERB ) lemma=`zwavelen` verbpastsg  
+ zwavelden ( VERB_PAST VERB ) lemma=`zwavelen` verbpastpl  
+ zwavelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwavelen`zwavelen`zwavelen` nounsg  verbinf  verbprespl  
+ zwavelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwavelen` verbpresp  
+ zwavelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwavelende`zwavelen` nounsg  verbpresp  
+ zwavelstokje ( NOUN NOUN_SINGULAR ) 
+ zwavelstokjes ( NOUN NOUN_PLURAL ) lemma=`zwavelstokje` nounpl  
+ zwavelt ( VERB_PRESENT VERB ) lemma=`zwavelen` verbpressg  
+ zwavelzuur ( NOUN NOUN_SINGULAR ) 
+ zweef ( VERB_PRESENT VERB ) lemma=`zweven` verbpressg  
+ zweefbrug ( NOUN NOUN_SINGULAR ) 
+ zweefbruggen ( NOUN NOUN_PLURAL ) lemma=`zweefbrug` nounpl  
+ zweefde ( VERB_PAST VERB ) lemma=`zweven` verbpastsg  
+ zweefden ( VERB_PAST VERB ) lemma=`zweven` verbpastpl  
+ zweefduik ( NOUN NOUN_SINGULAR ) 
+ zweefmolen ( NOUN NOUN_SINGULAR ) 
+ zweefmolens ( NOUN NOUN_PLURAL ) lemma=`zweefmolen` nounpl  
+ zweeft ( VERB_PRESENT VERB ) lemma=`zweven` verbpressg  
+ zweefvlieg ( VERB_PRESENT VERB ) lemma=`zweefvliegen` verbpressg  
+ zweefvliegde ( VERB_PAST VERB ) lemma=`zweefvliegen` verbpastsg  
+ zweefvliegden ( VERB_PAST VERB ) lemma=`zweefvliegen` verbpastpl  
+ zweefvliegen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zweefvliegen`zweefvliegen`zweefvliegen` nounsg  verbinf  verbprespl  
+ zweefvliegend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zweefvliegen` verbpresp  
+ zweefvliegende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zweefvliegende`zweefvliegen` nounsg  verbpresp  
+ zweefvliegt ( VERB_PRESENT VERB ) lemma=`zweefvliegen` verbpressg  
+ zweefvliegtuig ( NOUN NOUN_SINGULAR ) 
+ zweefvliegtuigen ( NOUN NOUN_PLURAL ) lemma=`zweefvliegtuig` nounpl  
+ zweeg ( VERB_PAST VERB ) lemma=`zwijgen` verbpastsg  
+ zweem ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zweem`zwemen` nounsg  verbpressg  
+ zweemde ( VERB_PAST VERB ) lemma=`zwemen` verbpastsg  
+ zweemden ( VERB_PAST VERB ) lemma=`zwemen` verbpastpl  
+ zweempje ( NOUN NOUN_SINGULAR ) lemma=`zweem` nounsg  
+ zweempjes ( NOUN NOUN_PLURAL ) lemma=`zweem` nounpl  
+ zweemt ( VERB_PRESENT VERB ) lemma=`zwemen` verbpressg  
+ zweep ( NOUN NOUN_SINGULAR ) 
+ zweepjes ( NOUN NOUN_PLURAL ) lemma=`zweep` nounpl  
+ zweepslag ( NOUN NOUN_SINGULAR ) 
+ zweepslagen ( NOUN NOUN_PLURAL ) lemma=`zweepslag` nounpl  
+ zweer ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zweer`zweren` nounsg  verbpressg  
+ zweerde ( VERB_PAST VERB ) lemma=`zweren` verbpastsg  
+ zweerden ( VERB_PAST VERB ) lemma=`zweren` verbpastpl  
+ zweert ( VERB_PRESENT VERB ) lemma=`zweren` verbpressg  
+ zweertje ( NOUN NOUN_SINGULAR ) lemma=`zweer` nounsg  
+ zweertjes ( NOUN NOUN_PLURAL ) lemma=`zweer` nounpl  
+ zweet ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zweet`zweten` nounsg  verbpressg  
+ zweetband ( NOUN NOUN_SINGULAR ) 
+ zweetbanden ( NOUN NOUN_PLURAL ) lemma=`zweetband` nounpl  
+ zweethanden ( NOUN NOUN_PLURAL ) 
+ zweetkamertje ( NOUN NOUN_SINGULAR ) 
+ zweetkamertjes ( NOUN NOUN_PLURAL ) lemma=`zweetkamertje` nounpl  
+ zweetklier ( NOUN NOUN_SINGULAR ) 
+ zweetklieren ( NOUN NOUN_PLURAL ) lemma=`zweetklier` nounpl  
+ zweetlucht ( NOUN NOUN_SINGULAR ) 
+ zweette ( VERB_PAST VERB ) lemma=`zweten` verbpastsg  
+ zweetten ( VERB_PAST VERB ) lemma=`zweten` verbpastpl  
+ zweetvoeten ( NOUN NOUN_PLURAL ) 
+ zwegen ( VERB_PAST VERB ) lemma=`zwijgen` verbpastpl  
+ zwel ( VERB_PRESENT VERB ) lemma=`zwellen` verbpressg  
+ zwelg ( VERB_PRESENT VERB ) lemma=`zwelgen` verbpressg  
+ zwelgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwelgen`zwelgen`zwelgen` nounsg  verbinf  verbprespl  
+ zwelgend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwelgen` verbpresp  
+ zwelgende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwelgende`zwelgen` nounsg  verbpresp  
+ zwelgpartij ( NOUN NOUN_SINGULAR ) 
+ zwelgpartijen ( NOUN NOUN_PLURAL ) lemma=`zwelgpartij` nounpl  
+ zwelgt ( VERB_PRESENT VERB ) lemma=`zwelgen` verbpressg  
+ zwellen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwellen`zwellen`zwellen` nounsg  verbinf  verbprespl  
+ zwellend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwellen` verbpresp  
+ zwellende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwellende`zwellen` nounsg  verbpresp  
+ zwelling ( NOUN NOUN_SINGULAR ) 
+ zwellingen ( NOUN NOUN_PLURAL ) lemma=`zwelling` nounpl  
+ zwellinkje ( NOUN NOUN_SINGULAR ) lemma=`zwelling` nounsg  
+ zwellinkjes ( NOUN NOUN_PLURAL ) lemma=`zwelling` nounpl  
+ zwelt ( VERB_PRESENT VERB ) lemma=`zwellen` verbpressg  
+ zwem ( VERB_PRESENT VERB ) lemma=`zwemmen` verbpressg  
+ zwembaan ( NOUN NOUN_SINGULAR ) 
+ zwembad ( NOUN NOUN_SINGULAR ) 
+ zwembaden ( NOUN NOUN_PLURAL ) lemma=`zwembad` nounpl  
+ zwembadje ( NOUN NOUN_SINGULAR ) lemma=`zwembad` nounsg  
+ zwembanen ( NOUN NOUN_PLURAL ) lemma=`zwembaan` nounpl  
+ zwembassin ( NOUN NOUN_SINGULAR ) 
+ zwembassins ( NOUN NOUN_PLURAL ) lemma=`zwembassin` nounpl  
+ zwembroek ( NOUN NOUN_SINGULAR ) 
+ zwembroeken ( NOUN NOUN_PLURAL ) lemma=`zwembroek` nounpl  
+ zwemdiploma ( NOUN NOUN_SINGULAR ) 
+ zwemdiploma's ( NOUN NOUN_PLURAL ) lemma=`zwemdiploma` nounpl  
+ zwemen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwemen`zwemen`zwemen` nounsg  verbinf  verbprespl  
+ zwemend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwemen` verbpresp  
+ zwemende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwemende`zwemen` nounsg  verbpresp  
+ zwemleraar ( NOUN NOUN_SINGULAR ) 
+ zwemleraars ( NOUN NOUN_PLURAL ) lemma=`zwemleraar` nounpl  
+ zwemleraren ( NOUN NOUN_PLURAL ) lemma=`zwemleraar` nounpl  
+ zwemles ( NOUN NOUN_SINGULAR ) 
+ zwemlessen ( NOUN NOUN_PLURAL ) lemma=`zwemles` nounpl  
+ zwemmen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwemmen`zwemmen`zwemmen` nounsg  verbinf  verbprespl  
+ zwemmend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwemmen` verbpresp  
+ zwemmende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwemmende`zwemmen` nounsg  verbpresp  
+ zwempak ( NOUN NOUN_SINGULAR ) 
+ zwempakken ( NOUN NOUN_PLURAL ) lemma=`zwempak` nounpl  
+ zwemsport ( NOUN NOUN_SINGULAR ) 
+ zwemt ( VERB_PRESENT VERB ) lemma=`zwemmen` verbpressg  
+ zwemvest ( NOUN NOUN_SINGULAR ) 
+ zwemvesten ( NOUN NOUN_PLURAL ) lemma=`zwemvest` nounpl  
+ zwemvlies ( NOUN NOUN_SINGULAR ) 
+ zwemvliezen ( NOUN NOUN_PLURAL ) lemma=`zwemvlies` nounpl  
+ zwemvogel ( NOUN NOUN_SINGULAR ) 
+ zwemvogels ( NOUN NOUN_PLURAL ) lemma=`zwemvogel` nounpl  
+ zwemwedstrijd ( NOUN NOUN_SINGULAR ) 
+ zwemwedstrijden ( NOUN NOUN_PLURAL ) lemma=`zwemwedstrijd` nounpl  
+ zwendel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwendel`zwendelen` nounsg  verbpressg  
+ zwendelaar ( NOUN NOUN_SINGULAR ) 
+ zwendelaars ( NOUN NOUN_PLURAL ) lemma=`zwendelaar` nounpl  
+ zwendelde ( VERB_PAST VERB ) lemma=`zwendelen` verbpastsg  
+ zwendelden ( VERB_PAST VERB ) lemma=`zwendelen` verbpastpl  
+ zwendelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwendelen`zwendelen`zwendelen` nounsg  verbinf  verbprespl  
+ zwendelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwendelen` verbpresp  
+ zwendelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwendelende`zwendelen` nounsg  verbpresp  
+ zwendelt ( VERB_PRESENT VERB ) lemma=`zwendelen` verbpressg  
+ zwengel ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwengel`zwengelen` nounsg  verbpressg  
+ zwengelde ( VERB_PAST VERB ) lemma=`zwengelen` verbpastsg  
+ zwengelden ( VERB_PAST VERB ) lemma=`zwengelen` verbpastpl  
+ zwengelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwengelen`zwengelen`zwengelen` nounsg  verbinf  verbprespl  
+ zwengelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwengelen` verbpresp  
+ zwengelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwengelende`zwengelen` nounsg  verbpresp  
+ zwengels ( NOUN NOUN_PLURAL ) lemma=`zwengel` nounpl  
+ zwengelt ( VERB_PRESENT VERB ) lemma=`zwengelen` verbpressg  
+ zwengeltje ( NOUN NOUN_SINGULAR ) lemma=`zwengel` nounsg  
+ zwengeltjes ( NOUN NOUN_PLURAL ) lemma=`zwengel` nounpl  
+ zwenk ( VERB_PRESENT VERB ) lemma=`zwenken` verbpressg  
+ zwenken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwenken`zwenken`zwenken` nounsg  verbinf  verbprespl  
+ zwenkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwenken` verbpresp  
+ zwenkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwenkende`zwenken` nounsg  verbpresp  
+ zwenkt ( VERB_PRESENT VERB ) lemma=`zwenken` verbpressg  
+ zwenkte ( VERB_PAST VERB ) lemma=`zwenken` verbpastsg  
+ zwenkten ( VERB_PAST VERB ) lemma=`zwenken` verbpastpl  
+ zwenkwiel ( NOUN NOUN_SINGULAR ) 
+ zwenkwielen ( NOUN NOUN_PLURAL ) lemma=`zwenkwiel` nounpl  
+ zwepen ( NOUN NOUN_PLURAL ) lemma=`zweep` nounpl  
+ zweren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zweer`zweren`zweren`zweren` nounpl  nounsg  verbinf  verbprespl  
+ zwerend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zweren` verbpresp  
+ zwerende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwerende`zweren` nounsg  verbpresp  
+ zwerf ( VERB_PRESENT VERB ) lemma=`zwerven` verbpressg  
+ zwerfblok ( NOUN NOUN_SINGULAR ) 
+ zwerfblokken ( NOUN NOUN_PLURAL ) lemma=`zwerfblok` nounpl  
+ zwerfkat ( NOUN NOUN_SINGULAR ) 
+ zwerfkatten ( NOUN NOUN_PLURAL ) lemma=`zwerfkat` nounpl  
+ zwerfkei ( NOUN NOUN_SINGULAR ) 
+ zwerfkeien ( NOUN NOUN_PLURAL ) lemma=`zwerfkei` nounpl  
+ zwerft ( VERB_PRESENT VERB ) lemma=`zwerven` verbpressg  
+ zwerftocht ( NOUN NOUN_SINGULAR ) 
+ zwerftochten ( NOUN NOUN_PLURAL ) lemma=`zwerftocht` nounpl  
+ zwerk ( NOUN NOUN_SINGULAR ) 
+ zwerm ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwerm`zwermen` nounsg  verbpressg  
+ zwermde ( VERB_PAST VERB ) lemma=`zwermen` verbpastsg  
+ zwermden ( VERB_PAST VERB ) lemma=`zwermen` verbpastpl  
+ zwermen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zwerm`zwermen`zwermen`zwermen` nounpl  nounsg  verbinf  verbprespl  
+ zwermend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwermen` verbpresp  
+ zwermende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwermende`zwermen` nounsg  verbpresp  
+ zwermpje ( NOUN NOUN_SINGULAR ) lemma=`zwerm` nounsg  
+ zwermpjes ( NOUN NOUN_PLURAL ) lemma=`zwerm` nounpl  
+ zwermt ( VERB_PRESENT VERB ) lemma=`zwermen` verbpressg  
+ zwerven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwerven`zwerven`zwerven` nounsg  verbinf  verbprespl  
+ zwervend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwerven` verbpresp  
+ zwervende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwervende`zwerven` nounsg  verbpresp  
+ zwerver ( NOUN NOUN_SINGULAR ) 
+ zwervers ( NOUN NOUN_PLURAL ) lemma=`zwerver` nounpl  
+ zwerversbestaan ( NOUN NOUN_SINGULAR ) 
+ zweten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zweten`zweten`zweten` nounsg  verbinf  verbprespl  
+ zwetend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zweten` verbpresp  
+ zwetende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwetende`zweten` nounsg  verbpresp  
+ zweterig ( ADJECTIVE ) 
+ zweterige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zweterig`zweterige` adj  nounsg  
+ zweteriger ( ADJECTIVE ) lemma=`zweterig` adj  
+ zweterigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zweterig`zweterigere` adj  nounsg  
+ zweterigst ( ADJECTIVE ) lemma=`zweterig` adj  
+ zweterigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zweterig`zweterigste` adj  nounsg  
+ zwets ( VERB_PRESENT VERB ) lemma=`zwetsen` verbpressg  
+ zwetsen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwetsen`zwetsen`zwetsen` nounsg  verbinf  verbprespl  
+ zwetsend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwetsen` verbpresp  
+ zwetsende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwetsende`zwetsen` nounsg  verbpresp  
+ zwetst ( VERB_PRESENT VERB ) lemma=`zwetsen` verbpressg  
+ zwetste ( VERB_PAST VERB ) lemma=`zwetsen` verbpastsg  
+ zwetsten ( VERB_PAST VERB ) lemma=`zwetsen` verbpastpl  
+ zweven ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zweven`zweven`zweven` nounsg  verbinf  verbprespl  
+ zwevend ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ) lemma=`zwevend`zweven` adj  verbpresp  
+ zwevende ( VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE NOUN_SINGULAR ) lemma=`zwevend`zwevende`zweven` adj  nounsg  verbpresp  
+ zweverig ( ADJECTIVE ) 
+ zweverige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zweverig`zweverige` adj  nounsg  
+ zweveriger ( ADJECTIVE ) lemma=`zweverig` adj  
+ zweverigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zweverig`zweverigere` adj  nounsg  
+ zweverigst ( ADJECTIVE ) lemma=`zweverig` adj  
+ zweverigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zweverig`zweverigste` adj  nounsg  
+ zwezerik ( NOUN NOUN_SINGULAR ) 
+ zwezeriken ( NOUN NOUN_PLURAL ) lemma=`zwezerik` nounpl  
+ zwicht ( VERB_PRESENT VERB ) lemma=`zwichten` verbpressg  
+ zwichten ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwichten`zwichten`zwichten` nounsg  verbinf  verbprespl  
+ zwichtend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwichten` verbpresp  
+ zwichtende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwichtende`zwichten` nounsg  verbpresp  
+ zwichtte ( VERB_PAST VERB ) lemma=`zwichten` verbpastsg  
+ zwichtten ( VERB_PAST VERB ) lemma=`zwichten` verbpastpl  
+ zwiep ( VERB_PRESENT VERB ) lemma=`zwiepen` verbpressg  
+ zwiepen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwiepen`zwiepen`zwiepen` nounsg  verbinf  verbprespl  
+ zwiepend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwiepen` verbpresp  
+ zwiepende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwiepende`zwiepen` nounsg  verbpresp  
+ zwieper ( NOUN NOUN_SINGULAR ) 
+ zwieperd ( NOUN NOUN_SINGULAR ) 
+ zwieperds ( NOUN NOUN_PLURAL ) lemma=`zwieperd` nounpl  
+ zwiepers ( NOUN NOUN_PLURAL ) lemma=`zwieper` nounpl  
+ zwiept ( VERB_PRESENT VERB ) lemma=`zwiepen` verbpressg  
+ zwiepte ( VERB_PAST VERB ) lemma=`zwiepen` verbpastsg  
+ zwiepten ( VERB_PAST VERB ) lemma=`zwiepen` verbpastpl  
+ zwier ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwier`zwieren` nounsg  verbpressg  
+ zwierde ( VERB_PAST VERB ) lemma=`zwieren` verbpastsg  
+ zwierden ( VERB_PAST VERB ) lemma=`zwieren` verbpastpl  
+ zwieren ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwieren`zwieren`zwieren` nounsg  verbinf  verbprespl  
+ zwierend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwieren` verbpresp  
+ zwierende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwierende`zwieren` nounsg  verbpresp  
+ zwierf ( VERB_PAST VERB ) lemma=`zwerven` verbpastsg  
+ zwierig ( ADJECTIVE ) 
+ zwierige ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwierig`zwierige` adj  nounsg  
+ zwieriger ( ADJECTIVE ) lemma=`zwierig` adj  
+ zwierigere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwierig`zwierigere` adj  nounsg  
+ zwierigst ( ADJECTIVE ) lemma=`zwierig` adj  
+ zwierigste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwierig`zwierigste` adj  nounsg  
+ zwiert ( VERB_PRESENT VERB ) lemma=`zwieren` verbpressg  
+ zwierven ( VERB_PAST VERB ) lemma=`zwerven` verbpastpl  
+ zwijg ( VERB_PRESENT VERB ) lemma=`zwijgen` verbpressg  
+ zwijgen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwijgen`zwijgen`zwijgen` nounsg  verbinf  verbprespl  
+ zwijgend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwijgen` verbpresp  
+ zwijgende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwijgende`zwijgen` nounsg  verbpresp  
+ zwijger ( NOUN NOUN_SINGULAR ) 
+ zwijgers ( NOUN NOUN_PLURAL ) lemma=`zwijger` nounpl  
+ zwijggeld ( NOUN NOUN_SINGULAR ) 
+ zwijggelden ( NOUN NOUN_PLURAL ) lemma=`zwijggeld` nounpl  
+ zwijgplicht ( NOUN NOUN_SINGULAR ) 
+ zwijgt ( VERB_PRESENT VERB ) lemma=`zwijgen` verbpressg  
+ zwijgzaam ( ADJECTIVE ) 
+ zwijgzaamst ( ADJECTIVE ) lemma=`zwijgzaam` adj  
+ zwijgzaamste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwijgzaam`zwijgzaamste` adj  nounsg  
+ zwijgzame ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwijgzaam`zwijgzame` adj  nounsg  
+ zwijgzamer ( ADJECTIVE ) lemma=`zwijgzaam` adj  
+ zwijgzamere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwijgzaam`zwijgzamere` adj  nounsg  
+ zwijm ( NOUN NOUN_SINGULAR ) 
+ zwijmel ( VERB_PRESENT VERB ) lemma=`zwijmelen` verbpressg  
+ zwijmelde ( VERB_PAST VERB ) lemma=`zwijmelen` verbpastsg  
+ zwijmelden ( VERB_PAST VERB ) lemma=`zwijmelen` verbpastpl  
+ zwijmelen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwijmelen`zwijmelen`zwijmelen` nounsg  verbinf  verbprespl  
+ zwijmelend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwijmelen` verbpresp  
+ zwijmelende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwijmelende`zwijmelen` nounsg  verbpresp  
+ zwijmelt ( VERB_PRESENT VERB ) lemma=`zwijmelen` verbpressg  
+ zwijn ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwijn`zwijnen` nounsg  verbpressg  
+ zwijnde ( VERB_PAST VERB ) lemma=`zwijnen` verbpastsg  
+ zwijnden ( VERB_PAST VERB ) lemma=`zwijnen` verbpastpl  
+ zwijnen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zwijn`zwijnen`zwijnen`zwijnen` nounpl  nounsg  verbinf  verbprespl  
+ zwijnend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwijnen` verbpresp  
+ zwijnende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwijnende`zwijnen` nounsg  verbpresp  
+ zwijnenstal ( NOUN NOUN_SINGULAR ) 
+ zwijnenstallen ( NOUN NOUN_PLURAL ) lemma=`zwijnenstal` nounpl  
+ zwijnestal ( NOUN NOUN_SINGULAR ) 
+ zwijnestallen ( NOUN NOUN_PLURAL ) lemma=`zwijnestal` nounpl  
+ zwijnt ( VERB_PRESENT VERB ) lemma=`zwijnen` verbpressg  
+ zwijntje ( NOUN NOUN_SINGULAR ) lemma=`zwijn` nounsg  
+ zwijntjes ( NOUN NOUN_PLURAL ) lemma=`zwijn` nounpl  
+ zwik ( VERB_PRESENT NOUN VERB NOUN_SINGULAR ) lemma=`zwik`zwikken` nounsg  verbpressg  
+ zwikje ( NOUN NOUN_SINGULAR ) lemma=`zwik` nounsg  
+ zwikjes ( NOUN NOUN_PLURAL ) lemma=`zwik` nounpl  
+ zwikken ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`zwik`zwikken`zwikken`zwikken` nounpl  nounsg  verbinf  verbprespl  
+ zwikkend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwikken` verbpresp  
+ zwikkende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwikkende`zwikken` nounsg  verbpresp  
+ zwikt ( VERB_PRESENT VERB ) lemma=`zwikken` verbpressg  
+ zwikte ( VERB_PAST VERB ) lemma=`zwikken` verbpastsg  
+ zwikten ( VERB_PAST VERB ) lemma=`zwikken` verbpastpl  
+ zwoeg ( VERB_PRESENT VERB ) lemma=`zwoegen` verbpressg  
+ zwoegde ( VERB_PAST VERB ) lemma=`zwoegen` verbpastsg  
+ zwoegden ( VERB_PAST VERB ) lemma=`zwoegen` verbpastpl  
+ zwoegen ( VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) lemma=`zwoegen`zwoegen`zwoegen` nounsg  verbinf  verbprespl  
+ zwoegend ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`zwoegen` verbpresp  
+ zwoegende ( VERB_PRESENT_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`zwoegende`zwoegen` nounsg  verbpresp  
+ zwoegt ( VERB_PRESENT VERB ) lemma=`zwoegen` verbpressg  
+ zwoel ( ADJECTIVE ) 
+ zwoele ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwoel`zwoele` adj  nounsg  
+ zwoeler ( ADJECTIVE ) lemma=`zwoel` adj  
+ zwoelere ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwoel`zwoelere` adj  nounsg  
+ zwoelst ( ADJECTIVE ) lemma=`zwoel` adj  
+ zwoelste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`zwoel`zwoelste` adj  nounsg  
+ zwoer ( VERB_PAST VERB ) lemma=`zweren` verbpastsg  
+ zwoerd ( NOUN NOUN_SINGULAR ) 
+ zwoerden ( NOUN NOUN_PLURAL ) lemma=`zwoerd` nounpl  
+ zwoeren ( VERB_PAST VERB ) lemma=`zweren` verbpastpl  
+ zwol ( VERB_PAST VERB ) lemma=`zwellen` verbpastsg  
+ zwolg ( VERB_PAST VERB ) lemma=`zwelgen` verbpastsg  
+ zwolgen ( VERB_PAST VERB ) lemma=`zwelgen` verbpastpl  
+ zwollen ( VERB_PAST VERB ) lemma=`zwellen` verbpastpl  
+ zwom ( VERB_PAST VERB ) lemma=`zwemmen` verbpastsg  
+ zwommen ( VERB_PAST VERB ) lemma=`zwemmen` verbpastpl  
+ zwoor ( VERB_PAST VERB ) lemma=`zweren` verbpastsg  
+ zwoord ( NOUN NOUN_SINGULAR ) 
+ zwoorden ( NOUN NOUN_PLURAL ) lemma=`zwoord` nounpl  
+ zworen ( VERB_PAST VERB ) lemma=`zweren` verbpastpl  

@@ -1,0 +1,1617 @@
+﻿ leaner ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) comparative=lean 
+    leaner~1nz (^throw~1) the throw of a horseshoe so as to lean against (but not encircle) the stake
+ literature ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    literature~1nz (^profession~1) the profession or art of a writer
+    lit~1n 
+    literature~3nz (^writing~4) creative writing of recognized artistic value
+    literature~4nz (^writing~4) published writings in a particular style on a particular subject
+ laying ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    laying~1nz (^birth~3) 
+ living ( meanings=11 glosses=9 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    life~3nz (^experience~2) the experience of being alive
+    living~2nz (^people~1) people who are still living
+    support~10n 
+    life~9nz (^being~2) the condition of living or the state of being alive
+    living~5az absolute
+    living~6az in its natural state and place
+    living~7az still in active use
+    surviving~1az still in existence
+    living~9az true to life
+    living~10az pertaining to living persons
+    living~11az 
+ life ( meanings=14 glosses=12 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=lives 
+    life~1nz (^whole~1) living things collectively
+    spirit~3nz (^activity~2) animation and energy in action or expression
+    living~1n 
+    biography~1nz (^history~3) an account of the series of events making up a person's life
+    life~5nz (^need~1) a motive for living
+    life~6nz (^individual~1) a living person
+    life~7nz (^process~1) the organic phenomenon that distinguishes living organisms from nonliving ones
+    life~8nz (^being~2) the course of existence of an individual
+    living~4n 
+    life~10nz (^being~2) a characteristic state or mode of living
+    life~11nz (^period~3) the period during which something is functional 
+    life~12nz (^period~3) the period between birth and the present time
+    life~13nz (^period~3) the period from the present until death
+    life~14nz (^sentence~3) a prison term lasting as long as the prisoner lives
+ leaving ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    going~1n 
+ leveling ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    leveling~1nz (^act~1) 
+    razing~1n 
+    grading~2nz (^building~1) changing the ground level to a smooth horizontal or gently sloping surface
+ landing ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB ) 
+    landing~1nz (^arrival~2) the act of coming to land after a voyage
+    landing~2nz (^arrival~2) the act of coming down to the earth 
+    landing~3nz (^structure~1) structure providing a place where boats can land people or goods
+    landing~4nz (^level~2) an intermediate platform in a staircase
+ leave ( meanings=17 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=left 
+    parting~1nz (^going~1) the act of departing politely
+    leave~2nz (^permission~2) permission to do something
+    leave~3nz (^period~3) the period of time during which you are absent from work or duty
+    leave~4vz leave unchanged or undisturbed or refrain from taking
+    leave~5vz be survived by after one's death
+    forget~3vz leave behind unintentionally
+    leave~7vz go and leave behind, either intentionally or by neglect or forgetfulness
+    leave~8vz go away from a place
+    exit~6vz move out of or depart from
+    will~6vz leave or give by will after one's death
+    give~34vz transmit 
+    leave~12vz put into the care or protection of someone
+    depart~5vz remove oneself from an association with or participation in
+    lead~27v 
+    provide~7v 
+    leave~16vz act or be so as to become in a specified state
+    leave~17vz have left or have as a remainder
+ loss ( meanings=8 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    loss~1nz (^failure~2) the act of losing someone or something
+    deprivation~2nz (^disadvantage~1) the disadvantage that results from losing something
+    loss~3nz (^experience~3) the experience of losing a loved one
+    passing~7n 
+    loss~5nz (^decrease~3) military personnel lost by death or capture
+    red~3nz (^amount~4) the amount by which the cost of a business exceeds its revenue
+    loss~7nz (^relation~1) something that is lost
+    loss~8nz (^decline~3) gradual decline in amount or activity
+ leaning ( meanings=5 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    leaning~1nz (^act~1) the act of deviating from a vertical position
+    list~1n 
+    leaning~3nz (^disposition~4) 
+    tendency~3n 
+    tipped~1a 
+ lift ( meanings=36 glosses=27 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    raise~1n 
+    lift~2nz (^drive~2) a ride in a car
+    lift~3nz (^transportation~2) transportation of people or goods by air
+    lift~4nz (^operation~4) plastic surgery to remove wrinkles and other signs of aging from your face
+    lift~5nz (^aid~2) the act of giving temporary assistance
+    elevator~1n 
+    lift~7nz (^layer~3) one of the layers forming the heel of a shoe or boot
+    lift~8nz (^device~2) a device worn in a shoe or boot to make the wearer look taller or to correct a shortened leg
+    lift~9nz (^transport~3) a powered conveyance that carries skiers up a hill
+    rise~8nz (^wave~5) a wave that lifts the surface of the water or ground
+    raising~3nz (^rise~9) the event of something being raised upward
+    lift~12nz (^force~10) the component of the aerodynamic forces acting on an airfoil that opposes gravity
+    lift~13vz perform cosmetic surgery on someone's face
+    lift~14vz remove from a surface
+    lift~15vz take off or away by decreasing
+    lift~16vz remove from a seedbed or from a nursery
+    lift~17vz remove by scalping
+    raise~8v 
+    lift~19vz rise upward, as from pressure or moisture
+    raise~9v 
+    raise~10v 
+    lift~22vz call to stop the hunt or to retire, as of hunting dogs
+    rescind~1vz cancel officially
+    lift~24vz make audible
+    lift~25vz take out of the ground
+    lift~26vz fly people or goods to or from places not accessible by other means
+    hoist~2vz raise or haul up with or as if with mechanical help
+    lift~28vz take hold of something and move it to a different location
+    rise~19v 
+    raise~26v 
+    raise~27v 
+    pinch~12v 
+    lift~33vz take illegally
+    lift~34vz take without referencing from someone else's writing or speech
+    lift~35vz pay off
+    rise~27vz rise up
+ line ( meanings=36 glosses=31 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    occupation~2n 
+    line~2nz (^event~1) acting in conformity
+    cable~3n 
+    line~4nz (^artifact~1) something that is long and thin and flexible
+    line~5nz (^road~2) the road consisting of railroad track and roadbed
+    line~6nz (^business~8) a commercial organization serving as a common carrier
+    line~7nz (^product~1) a particular kind of product or merchandise
+    line~8nz (^pipe~2) a pipe used to transport liquids or gases
+    line~9nz (^system~1) mechanical system in a factory whereby an article is conveyed through sites at which successive operations are performed on it
+    line~10nz (^connection~3) a telephone connection
+    contrast~4nz (^discrimination~2) a conceptual separation or distinction
+    argument~1nz (^thinking~1) a course of reasoning aimed at demonstrating a truth or falsehood
+    channel~6nz (^communication~2) a means of communication or access
+    note~3nz (^letter~1) a short personal letter
+    line~15nz (^print~7) a mark that is long relative to its width
+    line~16nz (^text~1) text consisting of a row of words written across a page or computer screen
+    line~17nz (^communication~2) persuasive but insincere talk that is usually intended to deceive or impress
+    tune~3nz (^music~5) a succession of notes forming a distinctive sequence
+    ancestry~2n 
+    course~7n 
+    line~21nz (^arrangement~6) a formation of people or things one behind another
+    line~22nz (^arrangement~6) a formation of people or things one beside another
+    line~23nz (^object~1) a spatial location defined by a real or imaginary unidimensional extent
+    line~24nz (^print~7) in games or sports
+    line~25nz (^position~14) a fortified position 
+    line~26nz (^energy~5) a single frequency of radiation in a spectrum
+    line~27nz (^credit~8) the maximum credit that a customer is allowed
+    line~28nz (^unit~5) space for one line of print used to measure advertising
+    line~29nz (^shape~1) a length without breadth or thickness
+    seam~3nz (^solid~1) a slight depression in the smoothness of a surface
+    line~31vz reinforce with fabric
+    line~32vz fill plentifully
+    line~33vz cover the interior of
+    line~34vz mark with lines
+    draw~30v 
+    line~36vz be in line with
+ lick ( meanings=7 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    poke~1n 
+    lap~1n 
+    lick~3nz (^deposit~4) a salt deposit that animals regularly lick
+    work~11v 
+    lap~8v 
+    bat~7v 
+    lap~9v 
+ lap ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    lick~2nz (^touching~1) touching with the tongue
+    circle~1n 
+    lap~3nz (^flap~1) a flap that lies over another part
+    lap~4nz (^covering~4) the part of a piece of clothing that covers the thighs
+    lap~5nz (^thigh~1) the upper side of the thighs of a seated person
+    lap~6nz (^field~17) an area of control or responsibility
+    wash~9v 
+    lick~5vz take up with the tongue
+    lick~7vz pass the tongue over
+    lap~10vz move with or cause to move with a whistling or hissing sound
+    lap~11vz lie partly over or alongside of something or of one another
+ leading ( meanings=7 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    leading~1nz (^activity~1) 
+    lead~5n 
+    leading~3az going or proceeding or going in advance
+    star~9a 
+    preeminent~1a 
+    ahead~1a 
+    leading~7az 
+ lucky ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) comparative=luckiest 
+    golden~1a 
+    lucky~2az occurring by chance
+    lucky~3az having or bringing good fortune
+    lucky~4az 
+ last ( meanings=22 glosses=18 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:VERB OMITTABLE_TIME_PREPOSITION VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    last~1nz (^activity~1) a person's dying act
+    last~2nz (^device~2) holding device shaped like a human foot that is used to fashion or repair shoes
+    end~7nz (^finish~4) the concluding parts of an event or occurrence
+    last~4nz (^unit~5) a unit of capacity for grain equal to 80 bushels
+    last~5nz (^weight~7) a unit of weight equal to 4,000 pounds
+    last~6nz (^rank~5) the last or lowest in an ordering or series
+    death~6n 
+    conclusion~9n 
+    last~9az occurring at the time of death
+    lowest~1az lowest in rank or importance
+    final~3az not to be altered or undone
+    concluding~1az occurring at or forming an end or termination
+    last~13az coming after all others in time or space or degree or being the only one remaining
+    last~14az highest in extent or degree
+    last~15az most unlikely or unsuitable
+    final~5az conclusive in a process or progression
+    last~17az immediately past
+    last~18az 
+    last~19bz most_recently
+    finally~3b 
+    survive~2vz continue to live through hardship or adversity
+    last~22vz persist for a specified period of time
+ light ( meanings=47 glosses=43 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=lit comparative=lighter 
+    light~1nz (^device~2) any device serving as a source of illumination
+    lighter~2n 
+    light~3nz (^property~2) the visual effect of illumination on objects or scenes as created in pictures
+    spark~1nz (^energy~1) merriment expressed by a brightness or gleam or animation of countenance
+    luminosity~1nz (^property~2) the quality of being luminous
+    light~6nz (^knowledge~1) public awareness
+    light~7nz (^understanding~2) mental understanding as an enlightening experience
+    light~8nz (^position~9) a particular perspective or aspect of a situation
+    light~9nz (^signal~1) a visual warning signal
+    light~10nz (^scene~8) an illuminated area
+    light~11nz (^friend~3) a person regarded very fondly
+    light~12nz (^energy~5) electromagnetic radiation that can produce a visual sensation
+    lighting~4nz (^state~1) having abundant light or illumination
+    light~14nz (^status~1) a condition of spiritual awareness
+    light~15az characterized by or emitting light
+    loose~2az casual and unrestrained in sexual behavior
+    light~17az having a relatively small amount of coloring agent
+    light~18az loose and large-grained in consistency
+    light~19az easily disturbed
+    light~20az demanding little effort
+    lite~1az having relatively few calories
+    light~22az easily assimilated in the alimentary canal
+    light~23az of comparatively little physical weight or density
+    light~24az designed for ease of movement or to carry little weight
+    light~25az psychologically light
+    light~26az not great in degree or quantity or number
+    light~27az not having atomic weight greater than average
+    light~28az of little intensity or power or force
+    tripping~1az moving easily and quickly
+    light~30az of the military or industry
+    clean~17az free from anything that dulls or dims
+    light~32az silly or trivial
+    light~33az intended primarily as entertainment
+    light~34az having little importance
+    weak~10az pronounced with little or no stress
+    short~13a 
+    light~37az marked by temperance in indulgence
+    light~38az very thin and insubstantial
+    faint~7az weak and likely to lose consciousness
+    light~40az 
+    lightly~5b 
+    light~42vz make lighter or brighter
+    light~43vz begin to smoke
+    light~44vz alight from
+    light~45vz to come to rest, settle
+    fall~30vz fall to somebody by assignment or lot
+    light~47vz cause to start burning
+ land ( meanings=17 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    farming~1nz (^occupation~2) agriculture considered as an occupation or way of life
+    country~1n 
+    country~2n 
+    country~4n 
+    land~5nz (^region~4) territory over which rule or control is exercised
+    ground~8n 
+    ground~9n 
+    estate~2nz (^immovable~1) extensive landed property retained by the owner for his own use
+    land~9nz (^immovable~1) the land on which real estate is located
+    kingdom~6nz (^field~17) a domain in which something is dominant
+    bring~1v 
+    land~12vz reach or come to rest
+    land~13vz cause to come to the ground
+    down~26vz shoot at and force to come down
+    shore~4v 
+    land~16vz bring ashore
+    land~17vz deliver 
+ limp ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN posdefault:VERB posdefault:ADJECTIVE VERB_NOOBJECT ) comparative=limper 
+    hitch~1nz (^gait~1) the uneven manner of walking that results from an injured leg
+    limp~2az not firm
+    limp~3az lacking in strength or firmness or resilience
+    hitch~11vz walk impeded by some physical limitation or injury
+    limp~5vz proceed slowly or with difficulty
+ low ( meanings=16 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR EXTENT_ADVERB COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE VERB_NOOBJECT (null) (null) (null) ) comparative=lowest 
+    low~1nz (^gear~3) the lowest forward gear ratio in the gear box of a motor vehicle
+    low~2nz (^degree~1) a low level or position or degree
+    low~3nz (^atmosphere~5) an air mass of lower pressure
+    down~5a 
+    miserable~3az of the most contemptible kind
+    low~6az literal meanings
+    low~7az less than normal in degree or intensity or amount
+    low~8az used of sounds and voices
+    low~9az very low in volume
+    broken~11a 
+    low~11az unrefined in character
+    low~12az no longer sufficient
+    small~12a 
+    low~14az 
+    low~15bz in a low position
+    moo~2vz make a low noise, characteristic of bovines
+ leg ( meanings=8 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    stage~1n 
+    leg~2nz (^length~4) the distance traveled by a sailing vessel on a single tack
+    leg~3nz (^covering~4) a cloth covering consisting of the part of a pair of trousers that covers a person's leg
+    leg~4nz (^support~6) one of the supports for a piece of furniture
+    peg~4nz (^device~2) a prosthesis that replaces a missing leg
+    leg~6nz (^limb~4) a human limb
+    leg~7nz (^limb~4) a structure in animals that is similar to a human leg and used for locomotion
+    branch~6n 
+ long ( meanings=12 glosses=11 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB (null) ) comparative=longest 
+    long~1az having or being more than normal or necessary:
+    long~2az primarily spatial sense
+    long~3az primarily temporal sense
+    long~4az of relatively long duration
+    long~5az holding securities or commodities in expectation of a rise in prices
+    long~6az planning prudently for the future
+    long~7az good at remembering
+    long~8az involving substantial risk
+    long~9az of relatively great height
+    long~10az 
+    long~11bz for an extended time or at a distant time
+    long~12vz desire strongly or persistently
+ letting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    rental~2n 
+ left ( meanings=11 glosses=10 NOUN_ABSTRACT VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB ) conjugate=leave 
+    left~1nz (^turn~4) a turn toward the side of the body that is on the north when the person is facing east
+    left~2nz (^parcel~4) the piece of ground in the outfield on the catcher's left
+    left~3nz (^hand~4) the hand that is on the left side of the body
+    left~4nz (^sect~2) those who support varying degrees of social or political or economic change designed to promote the public welfare
+    left~5nz (^position~12) location near or direction toward the left side
+    remaining~1az not used up
+    left~7az intended for the left hand
+    left~8az of or belonging to the political or intellectual left
+    left~9az being or located on or directed toward the side of the body to the west when facing north
+    left~10az 
+    left~11bz toward or on the left
+ lighting ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    firing~3nz (^combustion~1) 
+    lighting~2nz (^trade~1) the craft of providing artificial light
+    lighting~3nz (^apparatus~1) apparatus for supplying artificial light effects for the stage or a film
+    light~13n 
+ lawn ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    lawn~1nz (^field~12) a field of cultivated and mowed grass
+ lateral ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    lateral~1nz (^pass~5) a pass to a receiver upfield from the passer
+    lateral~2az lying away from the median and sagittal plane of a body
+    lateral~3az situated at or extending to the side
+ let ( meanings=7 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) conjugate=let 
+    let~1nz (^service~4) a serve that strikes the net before falling into the receiver's court
+    have~4v 
+    let~3vz leave unchanged
+    let~4vz actively cause something to happen
+    permit~3v 
+    rent~6v 
+    permit~5v 
+ logging ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    logging~1nz (^work~1) the work of cutting down trees for timber
+ loose ( meanings=18 glosses=17 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    loose~1az not affixed
+    easy~3a 
+    loose~3az not compact or dense in structure or arrangement
+    loose~4az not in the possession or control of any player
+    loose~5az emptying easily or excessively
+    free~2az not literal
+    escaped~1az having escaped, especially from confinement
+    loose~8az not tight
+    informal~4az not officially recognized or controlled
+    loose~10az not carefully arranged in a package
+    loose~11az lacking a sense of restraint or responsibility
+    open~22az full of small openings or gaps
+    loose~13az not tense or taut
+    free~12bz without restraint
+    relax~3vz become loose or looser or less tight
+    loose~16vz make loose or looser
+    loose~17vz turn loose or free from restraint
+    release~21vz grant freedom to
+ lumbering ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    lumbering~1nz (^trade~1) the trade of cutting or preparing or selling timber
+    heavy~20a 
+ learned ( meanings=4 glosses=3 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=learnt 
+    lettered~1az highly educated
+    conditioned~2az established by conditioning or learning
+    learned~3az having or showing profound knowledge
+    learned~4az 
+ law ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    law~1nz (^profession~1) the learned profession that is mastered by graduate study in a law school and that is responsible for the judicial system
+    law~2nz (^construct~1) a rule or body of rules of conduct inherent in human nature and essential to or binding upon human society
+    law~3nz (^construct~1) a generalization that describes recurring facts or events in nature
+    law~4nz (^philosophy~3) the branch of philosophy concerned with the law and the principles that lead courts to make the decisions they do
+    law~5nz (^instrument~5) legal document setting forth rules governing a particular kind of activity
+    police~1n 
+    law~7nz (^collection~4) the collection of rules imposed by authority
+ labor ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_NOOBJECT ) 
+    toil~1nz (^work~1) productive work 
+    project~1nz (^work~1) any piece of work that is undertaken or attempted
+    labor~3nz (^class~3) a social class comprising those who do manual labor or work for wages
+    labor~4nz (^front~3) an organized attempt by workers to improve their status by united action or the leaders of this movement
+    labor~5nz (^birth~3) concluding state of pregnancy
+    labor~6vz undergo the efforts of childbirth
+    tug~9v 
+    dig~13v 
+ least ( meanings=4 glosses=3 NOUN_ABSTRACT MOST_FORM NOUN ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN DETERMINER_PLURAL posdefault:ADVERB ) comparative=less 
+    least~1nz (^matter~3) something that is of no importance
+    least~2az the superlative of `little' that can be used with mass nouns and is usually preceded by `the'
+    least~3bz used to form the superlative
+    least~4z 
+ loading ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    loading~1nz (^handling~2) the labor of putting a load of something on or in a vehicle or ship or container etc.
+    freight~2n 
+    burden~1n 
+    load~9n 
+    loading~5nz (^relation~1) the ratio of the gross weight of an airplane to some factor determining its lift
+ lesson ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    lesson~1nz (^schoolwork~1) a task assigned for individual study
+    lesson~2nz (^instruction~2) a unit of instruction
+    moral~1nz (^import~4) the significance of a story or event
+    example~5n 
+ language ( meanings=6 glosses=6 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    speech~1nz (^ability~2) the mental faculty or power of vocal communication
+    language~2nz (^operation~8) the cognitive processes involved in producing and understanding linguistic communication
+    language~3nz (^communication~1) a systematic means of communicating by the use of sounds or conventional symbols
+    language~4nz (^word~1) a system of words used to name things in a particular discipline
+    lyric~2nz (^text~1) the text of a popular song or musical-comedy number
+    speech~5nz (^communication~1) communication by word of mouth
+ liberty ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    liberty~1nz (^activity~1) an act of undue intimacy
+    liberty~2nz (^independence~2) immunity from arbitrary exercise of authority: political independence
+    liberty~3nz (^freedom~1) freedom of choice
+    liberty~4nz (^freedom~1) personal freedom from servitude or confinement or oppression
+    liberty~5nz (^leave~3) leave granted to a sailor or naval officer
+ legal ( meanings=7 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    legal~1az allowed by official rules
+    legal~2az established by or founded upon law or official or accepted rules
+    sound~16a 
+    legal~4az of or relating to jurisprudence
+    legal~5az relating to or characteristic of the profession of law
+    legal~6az 
+    legal~7az 
+ lying ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB ) conjugate=lain 
+    lying~1nz (^activity~1) the deliberate act of deviating from the truth
+    lying~2az 
+ large ( meanings=12 glosses=10 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=larger 
+    large~1nz (^size~1) a garment size for a large person
+    big~1a 
+    large~3az having broad power and range and scope
+    prominent~1az conspicuous in position or importance
+    magnanimous~1az generous and understanding and tolerant
+    big~7az above average in size or number or quantity or magnitude or extent
+    large~7az ostentatiously lofty in style
+    large~8az fairly large or important in effect
+    large~9az 
+    big~14bz in a boastful manner
+    large~11bz with the wind abaft the beam
+    large~12bz at a distance, wide of something
+ lost ( meanings=10 glosses=9 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=lose 
+    missed~1az not caught with the senses or the mind
+    helpless~2az unable to function
+    lost~3az no longer in your possession or control
+    lost~4az spiritually or physically doomed or destroyed
+    lost~5az not gained or won
+    confused~4az having lost your bearings
+    bewildered~1az perplexed by many conflicting situations or statements
+    lost~8az incapable of being recovered or regained
+    preoccupied~2az deeply absorbed in thought
+    lost~10az 
+ lock ( meanings=15 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    lock~1nz (^grip~1) any wrestling hold in which some part of the opponent's body is twisted or pressured
+    lock~2nz (^fastening~2) a fastener fitted to a door or drawer to keep it firmly closed
+    lock~3nz (^device~2) a restraint incorporated into the ignition switch to prevent the use of a vehicle by persons who do not have the key
+    lock~4nz (^area~1) enclosure consisting of a section of canal that can be closed to control the water level
+    lock~5nz (^device~2) a mechanism that detonates the charge of a gun
+    curl~1nz (^hair~4) a strand or cluster of hair
+    lock~7vz become rigid or immoveable
+    lock~8vz place in a place where something cannot be removed or someone cannot escape
+    lock~9vz fasten with a lock
+    operate~5vz keep engaged
+    lock~11vz become engaged or intermeshed with one another
+    lock~12vz hold in a locking position
+    lock~13vz build locks in order to facilitate the navigation of vessels
+    lock~14vz hold fast 
+    lock~15vz pass by means through a lock in a waterway
+ lining ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    lining~1nz (^protection~2) the act of attaching an inside lining
+    facing~1nz (^application~3) providing something with a surface of a different material
+    lining~3nz (^material~1) a piece of cloth that is used as the inside surface of a garment
+    lining~4nz (^protection~5) a protective covering that protects an inside surface
+ locking ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    locking~1nz (^protection~2) the act of locking something up to protect it
+ lunching ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    lunching~1nz (^feeding~1) the act of eating lunch
+ love ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    love~1nz (^object~2) any object of warm affection or devotion
+    love~2nz (^desire~2) a deep feeling of sexual desire and attraction
+    love~3nz (^emotion~1) a strong positive emotion of regard and affection
+    honey~2n 
+    love~5nz (^score~9) a score of zero in tennis or squash
+    love~6vz have a great affection or liking for
+    love~7vz be enamored or in love with
+    enjoy~4v 
+ look ( meanings=14 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT PRESENTATION_VERB ) 
+    looking~1nz (^activity~1) the act of directing the eyes toward something and perceiving it visually
+    look~2nz (^appearance~4) physical appearance
+    expression~2n 
+    feel~4n 
+    look~5vz have a certain outward or facial expression
+    bet~3v 
+    wait~3v 
+    look~8vz convey by one's expression
+    look~9vz perceive with attention
+    appear~5v 
+    search~9v 
+    attend~3vz take charge of or deal with
+    look~13vz accord in appearance with
+    face~21v 
+ looking ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 COMMON1 posdefault:VERB ) 
+    look~1n 
+    looking~2nz (^search~3) 
+    sounding~5a 
+ listening ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    hearing~1n 
+ lecture ( meanings=5 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    lecturing~1nz (^instruction~2) teaching by giving a discourse on some subject
+    speech~2n 
+    talk~5n 
+    rag~7v 
+    talk~6v 
+ lecturing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    lecture~1n 
+ lace ( meanings=8 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=lacer 
+    lace~1nz (^material~1) a delicate decorative fabric woven in an open web of symmetrical patterns
+    lacing~2nz (^cord~1) a cord that is drawn through eyelets or around hooks in order to draw together two edges
+    lace~3az 
+    lace~4vz add alcohol to 
+    lace~5vz spin,wind, or twist together
+    lace~6vz draw through eyes or holes
+    lace~7vz do lacework
+    braid~5v 
+ lip ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    lip~1nz (^perimeter~3) either the outer margin or the inner margin of the aperture of a gastropod's shell
+    rim~1nz (^edge~1) the top edge of a vessel or other container
+    lip~3nz (^piece~11) either of two fleshy folds of tissue that surround the mouth and play a role in speaking
+    mouth~4n 
+    lip~5nz (^whole~1) either of the two parts of a bilabiate corolla or calyx
+ logic ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    logic~1nz (^sense~1) reasoned and reasonable judgment
+    logic~2nz (^system~5) a system of reasoning
+    logic~3nz (^law~2) the principles that guide reasoning within a given field or situation
+    logic~4nz (^system~5) the system of operations performed by a computer that underlies the machine's representation of logical operations
+    logic~5nz (^philosophy~3) the branch of philosophy that analyzes inference
+ limited ( meanings=8 glosses=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    express~2n 
+    limited~2az including only a part
+    limited~3az not unlimited
+    special~4a 
+    limited~5az small in range or scope
+    limited~6az not excessive
+    modified~2a 
+    circumscribed~1a 
+ listing ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    listing~1nz (^organization~2) 
+    list~2n 
+ lustrum ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    lustrum~1nz (^ceremony~2) a ceremonial purification of the Roman population every five years following the census
+    lustrum~2nz (^period~3) a period of five years
+ Lord ( meanings=2 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Lord~1nz (^belief~2) 
+    noble~1n 
+ leisure ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    leisure~1nz (^rest~1) freedom to choose a pastime or enjoyable activity
+    leisure~2nz (^period~3) time available for ease and relaxation
+ loafing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    loafing~1nz (^act~1) 
+ lag ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    lag~1nz (^delay~1) the act of slowing down or falling behind
+    lag~2nz (^strip~4) one of several thin slats of wood forming the sides of a barrel or bucket
+    lag~3nz (^interval~4) the time between one event, process, or period and another
+    lag~4vz cover with lagging to prevent heat loss
+    lag~5vz throw or pitch at a mark, as with coins
+    lag~6vz hang or fall (behind) in movement, progress, development, etc.
+    jail~2v 
+ lending ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    loaning~1nz (^disposal~1) disposing of money or property with the expectation that the same thing will be returned
+ loaning ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    lending~1n 
+ license ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    permit~1nz (^direction~2) the act of giving a formal authorization
+    permit~2nz (^instrument~5) a legal document giving official permission to do something
+    license~3nz (^liberty~3) freedom to deviate deliberately from normally applicable rules or practices
+    license~4nz (^liberty~3) excessive freedom
+    certify~4vz authorize officially
+ loan ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    loan~1nz (^word~1) a word borrowed from another language
+    loan~2nz (^debt~2) the temporary provision of money
+    lend~1v 
+ leash ( meanings=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    collar~2n 
+    lead~6n 
+    three~2n 
+    rope~3v 
+ licking ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    whacking~1n 
+    defeat~1n 
+ lacing ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    licking~1n 
+    lace~2n 
+    lacing~3nz (^alcohol~1) a small amount of liquor added to a food or beverage
+ lead ( meanings=32 glosses=21 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=led comparative=leader 
+    lead~1nz (^play~4) the playing of a card to start a trick in bridge
+    lead~2nz (^activity~1) a position of leadership 
+    lead~3nz (^connection~3) a jumper that consists of a short piece of wire
+    lead~4nz (^element~6) mixture of graphite with clay in different degrees of hardness
+    leading~2nz (^strip~3) thin strip of metal used to separate lines of type in printing
+    tether~1nz (^device~2) restraint consisting of a rope used to restrain an animal
+    lead~7nz (^timing~2) the timing of ignition relative to the position of the piston in an internal-combustion engine
+    lead~8nz (^advantage~2) an advantage held by a competitor in a race
+    track~9n 
+    lead~10nz (^section~4) the introductory section of a story
+    lead~11nz (^article~2) a news story of major importance
+    wind~5n 
+    lead~13nz (^position~12) the position taken by a base runner preparing to advance to the next base
+    star~7n 
+    lead~15nz (^score~9) the score by which a team or individual is winning
+    lead~16nz (^angle~2) the angle between the direction a gun is aimed and the position of a moving target
+    lead~17nz (^metal~2) a soft heavy toxic malleable metallic element
+    lead~18az 
+    lead~19vz cause to undertake a certain action
+    chair~6v 
+    conduct~3v 
+    lead~22vz move ahead in time or space
+    head~37v 
+    conduct~5v 
+    head~38v 
+    conduce~1vz be conducive to
+    result~7v 
+    lead~28vz tend to or result in
+    go~27v 
+    go~28vz lead, extend, or afford access
+    run~53vz cause something to pass or lead somewhere
+    top~21vz be ahead of others
+ lion ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    lion~1nz (^cat~2) large gregarious predatory feline of Africa and India having a tawny coat with a shaggy mane in the male
+    lion~2nz (^adult~2) a celebrity who is lionized
+ leprosy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    leprosy~1nz (^disease~1) chronic granulomatous communicable disease occurring in tropical and subtropical regions
+ leather ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    leather~1nz (^stuff~7) an animal skin made smooth and flexible by removing the hair and then tanning
+    leather~2az 
+    leather~3vz whip with a leather strap
+ layer ( meanings=6 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) comparative=lay 
+    layer~1nz (^structure~3) thin structure composed of a single thickness of cells
+    layer~2nz (^hen~3) a hen that lays eggs
+    bed~5nz (^artifact~1) single thickness of usually some homogeneous substance
+    level~6nz (^place~3) an abstract place usually conceived as having depth
+    layer~5nz (^part~9) a relatively thin sheetlike expanse or region lying over or under another
+    layer~6vz make or form a layer
+ lemon ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN (null) ) 
+    lemon~1nz (^artifact~1) an artifact that is defective or unsatisfactory
+    maize~1nz (^yellow~1) a strong yellow color
+    lemon~3nz (^nip~4) a distinctive tart flavor characteristic of lemons
+    lemon~4nz (^produce~1) yellow oval fruit with juicy acidic flesh
+    lemon~5nz (^tree~1) a small evergreen tree that originated in Asia but is widely cultivated for its fruit
+    lemon~6az 
+ little ( meanings=13 glosses=9 NOUN_ABSTRACT PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE ADVERB DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN PRONOUN_SINGULAR posdefault:ADJECTIVE (null) (null) ) comparative=littler 
+    little~1nz (^measure~1) a small amount or duration
+    little~2az small in a way that arouses feelings 
+    trivial~1az small and of little importance
+    small~4az limited or below average in number or quantity or magnitude or extent
+    small~6az faint
+    small~7az lowercase
+    slight~3a 
+    small~10az young, immature
+    short~14az low in stature
+    little~10az 
+    little~11bz not much
+    little~12z 
+    little~13z 
+ lesser ( meanings=2 glosses=2 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:ADJECTIVE ) comparative=little 
+    lesser~1az smaller in size or amount or value
+    lesser~2az of less size or importance
+ laughing ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    laughing~1az showing or feeling mirth or pleasure or happiness
+ limestone ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    limestone~1nz (^stone~6) a sedimentary rock consisting mainly of calcium that was deposited by the remains of marine animals
+    limestone~2az 
+ leopard ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    leopard~1nz (^cat~2) large feline of African and Asian forests usually having a tawny coat with black spots
+    leopard~2nz (^fur~3) the pelt of a leopard
+ lizard ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    lizard~1nz (^reptile~1) relatively long-bodied reptile with usually two pairs of legs and a tapering tail
+    lizard~2nz (^individual~1) a man who idles about in the lounges of hotels and bars in search of women who would support him
+ lined ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    lined~1az bordered by a line of things
+    lined~2az having a lining or a liner
+    seamed~1a 
+ lake ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    lake~1nz (^water~3) a body of water surrounded by land
+    lake~2nz (^color~8) any of numerous bright translucent organic pigments
+    lake~3nz (^color~8) a purplish red pigment prepared from lac or cochineal
+ liver ( meanings=5 glosses=5 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) comparative=live 
+    liver~1nz (^organ~4) large and complicated reddish-brown glandular organ located in the upper right portion of the abdominal cavity
+    liver~2nz (^meat~2) liver of an animal used as meat
+    liver~3nz (^individual~1) someone who lives in a place
+    liver~4nz (^individual~1) a person who has a special life style
+    liver~5az having a reddish-brown color
+ lug ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    lug~1nz (^worm~1) marine worms having a row of tufted gills along each side of the back
+    lug~2nz (^projection~3) a projecting piece that is used to lift or support or turn something
+    lug~3nz (^sheet~1) a sail with four corners that is hoisted from a yard that is oblique to the mast
+    tug~7v 
+    stuff~12v 
+ leech ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    leech~1nz (^worm~1) carnivorous or bloodsucking aquatic or terrestrial worms typically having a sucker at each end
+    parasite~2n 
+    bleed~2v 
+ lady ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    dame~2nz (^woman~3) a woman of refinement
+    lady~2nz (^woman~3) a polite name for any woman
+ ladybug ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    ladybird~1n 
+ ladybird ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    ladybug~1nz (^beetle~1) small round bright-colored and spotted beetle that usually feeds on aphids and other insect pests
+ leaf ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=leaves 
+    leaf~1nz (^section~2) hinged or detachable flat section
+    leaf~2nz (^sheet~5) a sheet of any written or printed material
+    leaf~3nz (^whole~1) the main organ of photosynthesis and transpiration in higher plants
+    leaf~4vz produce leaves, of plants
+    leaf~5vz turn over pages
+    thumb~6v 
+ louse ( meanings=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) plural=lice 
+    louse~1nz (^insect~1) 
+    louse~2nz (^insect~1) 
+    louse~3nz (^insect~1) 
+    insect~2n 
+ locust ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    locust~1nz (^grasshopper~1) migratory grasshoppers of warm regions having short antennae
+    locust~2nz (^tree~1) any of various hardwood trees of the family Leguminosae
+    locust~3nz (^wood~4) hardwood from any of various locust trees
+ lantern ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    lantern~1nz (^lamp~1) light in a transparent protective case
+ larva ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) plural=larvae 
+    larva~1nz (^animal~1) the immature free-living form of most invertebrates and amphibians and fish which at hatching from the egg is fundamentally unlike its parent and must metamorphose
+ lamp ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    lamp~1nz (^device~2) an artificial source of visible illumination
+    lamp~2nz (^furniture~1) a piece of furniture holding one or more electric light bulbs
+ lamb ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    lamb~1nz (^young~1) young sheep
+    lamb~2nz (^meat~2) the flesh of a young domestic sheep eaten as food
+    dear~2nz (^innocent~1) a sweet innocent mild-mannered person
+    lamb~4nz (^individual~1) a person easily deceived or cheated
+    lamb~5vz give birth to a lamb
+ llama ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    llama~1nz (^mammal~1) wild or domesticated South American cud-chewing animal related to camels but smaller and lacking a hump
+ lobby ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT (null) (null) ) 
+    foyer~1n 
+    lobby~2nz (^unit~3) a group of people who try actively to influence legislation
+    lobby~3nz (^people~1) the people who support some common cause or business or principle or sectional interest
+    lobby~4vz detain in conversation by or as if by holding on to the outer garments of
+ limb ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    arm~2n 
+    limb~2nz (^curve~5) the graduated arc that is attached to an instrument for measuring angles
+    limb~3nz (^part~3) either of the two halves of a bow from handle to tip
+    limb~4nz (^member~2) one of the jointed appendages of an animal used for locomotion or grasping: arm
+    limb~5nz (^edge~5) the circumferential edge of the apparent disc of the sun or the moon or a planet
+    limb~6nz (^branch~5) any of the main branches arising from the trunk or a bough of a tree
+ lighter ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=light 
+    lighter~1nz (^boat~1) a flatbottom boat for carrying heavy loads
+    light~2nz (^device~2) a device for lighting or igniting fuel or charges or fires
+    lighter~3nz (^fuel~1) a substance used to ignite or kindle a fire
+    lighter~4vz transport in a flatbottom boat
+ lumber ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    lumber~1nz (^bat~3) an implement used in baseball by the batter
+    timber~5nz (^artifact~1) the wood of trees cut and prepared for use as building material
+    log~7v 
+    pound~21v 
+ lighthouse ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    beacon~1nz (^tower~1) a tower with a light that gives warning of shoals to passing ships
+ litter ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=lit 
+    bedding~2nz (^stuff~7) material used to provide a bed for animals
+    litter~2nz (^transport~3) conveyance consisting of a chair or bed carried on two poles by bearers
+    litter~3nz (^group~1) the offspring at one birth of a multiparous mammal
+    litter~4nz (^trash~4) rubbish carelessly dropped or left about
+    litter~5vz give birth to a litter of animals
+    litter~6vz make a place messy by strewing garbage around
+    litter~7vz strew
+ loud ( meanings=4 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB (null) ) 
+    loud~1az characterized by or producing sound of great volume or intensity
+    loud~2az used chiefly as a direction or description in music
+    flash~11a 
+    aloud~2b 
+ load ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    loading~2n 
+    loading~3nz (^weight~1) weight to be borne or conveyed
+    load~3nz (^device~2) electrical device to which electrical power is delivered
+    load~4nz (^chemical~1) the front part of a guided missile or rocket or torpedo that carries the nuclear or explosive charge or the chemical or biological agents
+    burden~2nz (^headache~1) an onerous or difficult concern
+    load~6nz (^deposit~5) a deposit of valuable ore occurring within definite boundaries separating it from surrounding rocks
+    load~7nz (^power~8) the power output of a generator or power plant
+    load~8nz (^measure~1) an amount of alcohol sufficient to intoxicate
+    loading~4nz (^measure~1) a quantity that can be processed or transported at one time
+    stretch~15vz corrupt, debase, or make impure by adding a foreign or inferior substance
+    load~11vz fill or place a load on
+    charge~30v 
+    load~13vz put on a structure or conveyance
+    load~14vz transfer from a storage device to a computer's memory
+ laundry ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    laundry~1nz (^work~5) workplace where clothes are washed and ironed
+    wash~3n 
+ loving ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB (null) ) 
+    loving~1az feeling or showing love and affection
+    loving~2az 
+ lot ( meanings=8 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    draw~6n 
+    bunch~1nz (^collection~4) any collection in its entirety
+    set~10n 
+    lot~4nz (^parcel~4) a parcel of land having fixed boundaries
+    heap~3n 
+    fortune~4n 
+    deal~17v 
+    lot~8vz divide into lots, as of land, for example
+ leader ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN (null) ) comparative=lead 
+    leader~1nz (^feature~1) a featured article of merchandise sold at a loss in order to draw customers
+    leader~2nz (^individual~1) a person who rules or guides or inspires others
+ level ( meanings=20 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=leveller 
+    floor~2n 
+    level~2nz (^surface~2) a flat surface at right angles to a plumb line
+    level~3nz (^device~2) indicator that establishes the horizontal when a bubble is centered in a tube of liquid
+    degree~1n 
+    level~5nz (^height~2) height above ground
+    layer~4n 
+    stage~7n 
+    grade~9n 
+    tied~4az of the score in a contest
+    flat~12a 
+    level~11az oriented at right angles to the plumb
+    level~12az being on a precise horizontal plane
+    level~13az not showing abrupt variations
+    level~14az 
+    level~15vz become level or even
+    level~16vz talk frankly with
+    point~33v 
+    level~18vz aim at
+    even~15vz make level or straight
+    raze~1vz tear down so as to make flat with the ground
+ lid ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    hat~2n 
+    lid~2nz (^cover~8) a movable top or cover for closing the opening at the top of a box, chest, jar, pan, etc.
+    lid~3nz (^flap~3) either of two folds of skin that can be moved to cover or open the eye
+ lens ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    lens~1nz (^device~2) a transparent optical device used to converge or diverge transmitted light and to form images
+    lens~2nz (^artifact~1) electronic equipment that uses a magnetic or electric field in order to focus a beam of electrons
+    lens~3nz (^organ~4) biconvex transparent body situated behind the iris in the eye
+    lens~4nz (^line~13) a channel through which something can be seen or understood
+ lapping ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    lapping~1nz (^covering~4) 
+ lab ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    laboratory~1nz (^work~5) a workplace for the conduct of scientific research
+ laboratory ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    lab~1n 
+    laboratory~2nz (^region~4) a region resembling a laboratory inasmuch as it offers opportunities for observation and practice and experimentation
+ lacquer ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    lacquer~1nz (^coat~3) a hard glossy coating
+    lacquer~2nz (^gum~6) a black resinous substance obtained from certain trees and used as a natural varnish
+    lacquer~3az 
+    lacquer~4vz coat with lacquer
+ ladder ( meanings=4 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    ladder~1nz (^way~4) steps consisting of two parallel members connected by rungs
+    run~9n 
+    ladder~3nz (^degree~7) ascending stages by which somebody or something can progress
+    run~18v 
+ lame ( meanings=6 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    lame~1nz (^material~1) a fabric interwoven with threads of metal
+    square~5n 
+    game~12a 
+    feeble~4az pathetically lacking in force or effectiveness
+    lame~5az 
+    lame~6vz deprive of the use of a limb, especially a leg
+ lane ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    lane~1nz (^way~4) a narrow way or road
+    lane~2nz (^path~2) a well-defined track or path
+ laugh ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_NOOBJECT (null) ) 
+    joke~4nz (^humor~5) a humorous anecdote or remark intended to provoke laughter
+    laugh~2nz (^motion~3) a facial expression characteristic of a person laughing
+    laugh~3nz (^communication~1) the sound of laughing
+    laugh~4vz produce laughter
+ lay ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=laid comparative=layer 
+    lay~1nz (^poem~1) a narrative poem of popular origin
+    lay~2nz (^song~3) a narrative song with a recurrent refrain
+    lay~3az not of or from a profession
+    lay~4az characteristic of those who are not members of the clergy
+    place~26v 
+    lay~6vz put in a horizontal position
+    lay~7vz lay eggs
+    lay~8vz prepare or position for action or operation
+    lay~9vz impose as a duty, burden, or punishment
+ lazy ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) comparative=laziest 
+    lazy~1az disinclined to work or exertion
+    lazy~2az moving slowly and gently
+    lazy~3az 
+ length ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    length~1nz (^section~2) a section of something that is long and narrow
+    duration~1nz (^property~2) continuance in time
+    length~3nz (^property~2) the linear extent in space from one end to the other
+    distance~2nz (^size~2) size of the gap between two places
+    length~5nz (^property~2) the property of being the extent of something from beginning to end
+ letter ( meanings=8 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    letter~1nz (^document~1) a written message addressed to a person or organization
+    letter~2nz (^honor~3) an award earned by participation in a school sport
+    letter~3nz (^character~6) the conventional characters of the alphabet used to represent speech
+    letter~4nz (^explanation~2) a strictly literal interpretation 
+    letter~5nz (^proprietor~1) owner who lets another person use something for hire
+    letter~6vz mark letters on or mark with letters
+    letter~7vz set down or print with letters
+    letter~8vz win an athletic letter
+ library ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    library~1nz (^deposit~2) a depository built to contain books and other materials for reading and study
+    library~2nz (^room~1) a room where books are kept
+    library~3nz (^building~3) a building that houses a collection of books and other materials
+    library~4nz (^collection~4) a collection of standard programs and subroutines that are stored and available for immediate use
+    library~5nz (^collection~4) a collection of literary documents or records kept for reference or borrowing
+ lie ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=lying 
+    lie~1nz (^statement~4) a statement that deviates from or perverts the truth
+    lie~2nz (^position~12) position or manner in which something is situated
+    lie~3vz tell an untruth
+    lie~4vz be lying, be prostrate
+    lie_down~1v 
+    dwell~4vz originate 
+    lie~7vz be located or situated somewhere
+    rest~18v 
+    lie~9vz be and remain in a particular state or condition
+ linen ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    linen~1nz (^good~1) white goods or clothing made with linen cloth
+    linen~2nz (^material~1) a fabric woven with fibers from the flax plant
+    linen~3nz (^paper~7) a high-quality paper made of linen fibers or with a linen finish
+    linen~4az 
+ liquid ( meanings=12 glosses=9 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE (null) ) 
+    liquid~1nz (^sound~4) a frictionless continuant that is not a nasal consonant
+    liquid~2nz (^state~7) the state in which a substance exhibits a characteristic readiness to flow with little or no tendency to disperse and relatively high incompressibility
+    liquid~3nz (^matter~1) fluid matter having no fixed shape but a fixed volume
+    liquid~4nz (^substance~1) a substance that is liquid at room temperature and pressure
+    liquid~5az clear and bright
+    liquid~6az in cash or easily convertible to cash
+    smooth~5a 
+    liquid~8az smooth and flowing in quality
+    melted~1az changed from a solid to a liquid state
+    liquid~10az existing as or having characteristics of a liquid
+    swimming~3a 
+    liquid~12az 
+ live ( meanings=20 glosses=14 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=liver 
+    alive~1a 
+    alive~2a 
+    live~3az exerting force or containing energy
+    hot~2az charged or energized with electricity
+    live~5az of current relevance
+    live~6az in current use or ready for use
+    live~7az abounding with life and energy
+    lively~4az elastic
+    live~9az actually being performed at the time of hearing or viewing
+    live~10az charged with an explosive
+    live~11az highly reverberant
+    live~12az 
+    live~13bz not recorded
+    experience~5v 
+    be~5vz have life, be alive
+    live~16vz lead a certain kind of life
+    live~17vz pursue a positive and satisfying existence
+    exist~2v 
+    go~24v 
+    dwell~3vz inhabit or live in
+ local ( meanings=6 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) 
+    local~1nz (^transport~3) public transport consisting of a bus or train that stops at all stations or stops
+    local~2nz (^drug~1) anesthetic that numbs a particular area of the body
+    local~3az relating to or applicable to or concerned with the administration of a city or town or district rather than a larger area
+    local~4az affecting only a restricted part or area of the body
+    local~5az of or belonging to or characteristic of a particular locality or neighborhood
+    local~6az 
+ locket ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    locket~1nz (^case~2) a small ornamental case
+ log ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    log~1nz (^instrument~2) measuring instrument that consists of a float that trails from a ship by a knotted line in order to measure the ship's speed through the water
+    log~2nz (^record~6) a written record of events on a voyage
+    log~3nz (^record~6) a written record of messages sent or received
+    log~4nz (^power~4) the exponent required to produce a given number
+    log~5nz (^wood~4) a segment of the trunk of a tree when stripped of branches
+    log~6vz enter into a log, as on ships and planes
+    lumber~3vz cut lumber, as in woods and forests
+ loom ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_NOOBJECT ) 
+    loom~1nz (^machine~2) a textile machine for weaving yarn into a textile
+    loom~2vz weave on a loom
+    tower~4v 
+    loom~4vz come into view indistinctly, often threateningly
+    loom~5vz hang over, as of something threatening, dark, or menacing
+ loophole ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    loophole~1nz (^hole~1) a small hole in a fortified wall
+    loophole~2nz (^saying~1) an ambiguity that makes it possible to evade a difficulty or obligation
+ lover ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    lover~1nz (^individual~1) a person who loves someone or is loved by someone
+    lover~2nz (^individual~1) a significant other to whom you are not related by marriage
+    fan~2n 
+ lower ( meanings=6 glosses=1 MORE_FORM VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) comparative=low 
+    lower~1nz (^bed~1) 
+    frown~2v 
+    lower~3vz 
+    lower~4vz set lower
+    lower~5vz 
+    lower~6vz 
+ lunar ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    lunar~1az of or relating to or associated with the moon
+    lunar~2az 
+ lunchroom ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    lunchroom~1nz (^restaurant~1) a restaurant where lunch can be purchased
+ luxury ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    luxury~1nz (^attribute~1) something that is an indulgence rather than a necessity
+    luxury~2nz (^price~2) the quality possessed by something that is excessively expensive
+    luxury~3nz (^wealth~4) wealth as evidenced by sumptuous living
+ loquacity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 GRADE5_6 posdefault:NOUN ) 
+    loquacity~1nz (^attribute~1) the quality of being wordy and talkative
+ leer ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    leer~1nz (^face~5) a suggestive or sneering look or grin
+    sneer~1n 
+    leer~3vz look suggestively or obliquely
+ longevity ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    longevity~1nz (^age~1) the property of being long-lived
+    longevity~2nz (^length~2) duration of service
+ lifestyle ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    lifestyle~1nz (^fashion~3) a manner of living that reflects the person's values and attitudes
+ lavender ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN (null) ) 
+    lavender~1nz (^purple~1) a pale purple color
+    lavender~2nz (^bush~4) any of various Old World aromatic shrubs or subshrubs with usually mauve or blue flowers
+    lavender~3az of a pale purple color
+    lavender~4az 
+ luminosity ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    light~5n 
+ lassitude ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    lassitude~1nz (^property~2) weakness characterized by a lack of vitality or energy
+    lassitude~2nz (^feeling~1) a feeling of lack of interest or energy
+    lassitude~3nz (^status~1) a state of comatose torpor
+ list ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    lean~1nz (^position~6) the property possessed by a line or surface that departs from the vertical
+    listing~2nz (^information~3) a database containing an ordered array of items
+    name~7vz give or make a list of
+    number~13v 
+    heel~11v 
+    lean~10vz cause to lean to the side
+    list~7vz include in a list
+ lean ( meanings=11 glosses=8 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB posdefault:ADJECTIVE VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=leaned comparative=leaner 
+    leaning~2n 
+    thin~2az lacking excess flesh
+    lean~3az not profitable or prosperous
+    lean~4az lacking in mineral content or combustible material
+    lean~5az containing little excess
+    lean~6az 
+    lean~7vz rely on for support
+    lean~8vz cause to lean or incline
+    slant~5vz to incline or bend from a vertical position
+    list~6v 
+    tend~3vz have a tendency or disposition to do or be something
+ limit ( meanings=9 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    boundary~1nz (^property~2) the greatest possible degree of something
+    limit~2nz (^boundary~2) the boundary of a specific area
+    limit~3nz (^extremity~3) as far as something can go
+    limit~4nz (^measure~1) the greatest amount of something that is possible or allowed
+    limit~5nz (^measure~1) the mathematical value toward which a function goes as the independent variable approaches infinity
+    limit~6nz (^end~14) final or latest limiting point
+    restrain~1vz place limits on 
+    circumscribe~1vz restrict or confine,
+    define~1vz decide upon or fix definitely
+ latitude ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    latitude~1nz (^reach~2) scope for freedom of e.g. action or thought
+    latitude~2nz (^angle~2) the angular distance between an imaginary line around a heavenly body parallel to its equator and the equator itself
+    parallel~2nz (^line~23) an imaginary line around the Earth parallel to the equator
+    latitude~4nz (^liberty~3) freedom from normal restraints in conduct
+ landmark ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    landmark~1nz (^structure~3) an anatomical structure used as a point of origin in locating other anatomical structures or as point from which measurements can be taken
+    landmark~2nz (^reference~9) a mark showing the boundary of a piece of land
+    landmark~3nz (^occasion~1) an event marking a unique or important historical change of course or one on which important developments depend
+    landmark~4nz (^position~12) the position of a prominent or well-known object in a particular landscape
+ lien ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    lien~1nz (^tissue~1) a large dark-red oval organ on the left side of the body between the stomach and the diaphragm
+    lien~2nz (^interest~6) the right to take another's property if an obligation is not discharged
+ lung ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    lung~1nz (^organ~4) either of two saclike respiratory organs in the chest of vertebrates
+ larynx ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=larynges 
+    larynx~1nz (^organ~4) a cartilaginous structure at the top of the trachea
+ learning ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    learning~1nz (^operation~8) the cognitive process of acquiring skill or knowledge
+    learning~2nz (^education~5) profound scholarly knowledge
+ logical ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    ordered~1az marked by an orderly, logical, and aesthetically consistent relation of parts
+    logical~2az capable of or reflecting the capability for correct and valid reasoning
+    logical~3az capable of thinking and expressing yourself in a clear and consistent manner
+    legitimate~4a 
+    logical~5az 
+ like ( meanings=13 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE PARTICLE NOUN VERB ADJECTIVE PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_GERUND VERB_DIRECTOBJECT (null) (null) (null) ) 
+    like~1nz (^form~9) a kind of person
+    like~2nz (^form~9) a similar kind
+    similar~1a 
+    similar~2a 
+    same~2a 
+    comparable~2az conforming in every respect
+    like~7az 
+    like~8z 
+    like~9vz feel about or towards
+    like~10vz be fond of
+    like~11vz find enjoyable or agreeable
+    wish~10v 
+    like~13vz want to have
+ lowest ( meanings=2 glosses=1 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:ADJECTIVE ) comparative=lower 
+    last~10a 
+    lowest~2bz in the lowest position
+ lit ( meanings=3 glosses=1 NOUN_ABSTRACT VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB ) conjugate=lighted plural=litai comparative=litter 
+    literature~2nz (^subject~3) the humanistic study of a body of literature
+    lighted~1a 
+    lighted~2a 
+ liaison ( meanings=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    contact~5n 
+    affair~3n 
+ legend ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    caption~1n 
+    legend~2nz (^story~2) a story about mythical or supernatural beings or events
+ lyric ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    lyric~1nz (^poem~1) a short poem of songlike quality
+    language~5n 
+    lyric~3az expressing deep emotion
+    lyric~4az used of a singer or singing voice that is light in volume and modest in range
+    lyric~5az of or relating to a category of poetry that expresses emotion 
+    lyric~6az relating to or being musical drama
+    lyric~7vz write lyrics for
+ lettering ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    inscription~2n 
+ lineup ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    card~4n 
+    lineup~2nz (^line~22) a line of persons arranged by police for inspection or identification
+ luncheon ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    lunch~1n 
+ libel ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    libel~1nz (^statement~4) the written statement of a plaintiff explaining the cause of action and any relief he seeks
+    libel~2nz (^depreciation~2) a false and malicious publication printed for the purpose of defaming a living person
+    libel~3vz print slanderous statements against
+ latent ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    latent~1az not presently active
+    latent~2az potentially existing but not presently evident or realized
+ latest ( meanings=3 glosses=3 NOUN_ABSTRACT MOST_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) comparative=later 
+    latest~1nz (^news~3) the most recent news or development
+    latest~2az up to the immediate present
+    latest~3az in the current fashion or style
+ LLM ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    LLM~1nz (^degree~4) 
+ label ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    label~1nz (^brand~5) trade name of a company that produces musical recordings
+    label~2nz (^act~1) a brief description given for purposes of identification
+    label~3nz (^marker~3) an identifying or descriptive marker that is attached to an object
+    label~4nz (^substance~1) a radioactive isotope that is used in a compound in order to trace the mechanism of a chemical reaction
+    label~5vz distinguish by using a radioactive isotope or an isotope of unusual mass for tracing through chemical reactions
+    label~6vz distinguish by introducing a labeled atom
+    judge~6v 
+    label~8vz assign a label to
+    tag~7v 
+ la ( meanings=2 glosses=1 DETERMINER COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    la~1nz (^syllable~1) the syllable naming the sixth note of a major or minor scale in solmization
+    la~2z 
+ lied ( VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB ) conjugate=lie plural=lieder 
+ lessening ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    decrease~3n 
+ landslide ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    landslide~1nz (^slide~7) a slide of a large mass of dirt and rock down a mountain or cliff
+    landslide~2nz (^victory~1) an overwhelming electoral victory
+ longing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    longing~1nz (^desire~2) 
+ liking ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    liking~1nz (^feeling~1) a feeling of pleasure and enjoyment
+ loathing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    loathing~1nz (^disgust~1) 
+ lunch ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT TIMEWORD ) 
+    luncheon~1nz (^meal~2) a midday meal
+    lunch~2vz take the midday meal
+    lunch~3vz provide a midday meal for
+ lemonade ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    lemonade~1nz (^drink~3) sweetened beverage of diluted lemon juice
+ lump ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ball~9n 
+    lump~2nz (^piece~11) a large piece of something without definite shape
+    oaf~1nz (^individual~1) an awkward stupid person
+    swelling~3nz (^evidence~1) an abnormal protuberance or localized enlargement
+    lump~5vz group or chunk together in a certain order or place side by side
+    lump~6vz put together indiscriminately
+ loaf ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) plural=loaves 
+    loaf~1nz (^food~3) a quantity of food formed in a particular shape
+    loaf~2nz (^bread~1) a shaped mass of baked bread that is usually sliced before eating
+    loiter~1vz be about
+    loaf~4vz be lazy or idle
+ lasagna ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    lasagna~1nz (^food~3) very wide flat strips of pasta
+    lasagna~2nz (^dish~4) baked dish of layers of lasagna pasta with sauce and cheese and meat or vegetables
+ lettuce ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    lettuce~1nz (^green~3) leaves of any of various plants of Lactuca sativa
+    lettuce~2nz (^plant~1) any of various plants of the genus Lactuca
+    sugar~2n 
+ lye ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    lye~1nz (^compound~3) a strong solution of sodium or potassium hydroxide
+ lime ( meanings=9 glosses=8 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    lime~1nz (^produce~1) the green acidic fruit of any of various lime trees
+    lime~2nz (^tree~1) any of various deciduous trees of the genus Tilia with heart-shaped leaves and drooping cymose clusters of yellowish often fragrant flowers
+    lime~3nz (^tree~1) any of various related trees bearing limes
+    lime~4nz (^stuff~7) a sticky adhesive that is smeared on small branches to capture small birds
+    lime~5nz (^compound~3) a white crystalline oxide used in the production of calcium hydroxide
+    lime~6nz (^compound~3) a caustic substance produced by heating limestone
+    lime~7az 
+    lime~8vz cover with lime so as to induce growth
+    lime~9vz spread birdlime on branches to catch birds
+ legislature ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    legislature~1nz (^assembly~6) persons who make or amend or repeal laws
+ Ltd. ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+    Ltd.~1nz (^company~1) 
+ league ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    conference~2n 
+    league~2nz (^union~7) an association of states or organizations or individuals for common action
+    league~3nz (^unit~5) an obsolete unit of distance of variable length
+    league~4vz unite to form a league
+ landed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    landed~1az owning or consisting of land or real estate
+ longitude ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    longitude~1nz (^angle~2) the angular distance between a point on any meridian and the prime meridian at Greenwich
+ ledge ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    shelf~2n 
+ loved ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    loved~1az held dear
+    loved~2az 
+ lad ( meanings=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    laddie~1n 
+    chap~3n 
+ laddie ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    cub~2nz (^boy~3) a male child
+ lovely ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=loveliest 
+    lovely~1nz (^model~8) a very pretty girl who works as a photographer's model
+    lovely~2az appealing to the emotions as well as the eye
+    lovely~3az lovable especially in a childlike or naive way
+    lovely~4az 
+ lieutenant ( meanings=4 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    deputy~1n 
+    lieutenant~2nz (^guardian~1) an officer in a police force
+    lieutenant~3nz (^officer~1) a commissioned military officer
+    lieutenant~4nz (^officer~1) an officer holding a commissioned rank in the United States Navy or the United States Coast Guard
+ limper ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 ) comparative=limp 
+    limper~1nz (^walker~4) someone who has a limp and walks with a hobbling gait
+ laborer ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    jack~10n 
+ lacer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 GRADE3_4 ) comparative=lace 
+    lacer~1nz (^workman~1) a workman who laces shoes or footballs or books
+ Lady ( meanings=1 NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+    Lady~1nz (^leader~2) 
+ lama ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    lama~1nz (^priest~2) a Tibetan or Mongolian priest of Lamaism
+ lass ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    lassie~1n 
+ lassie ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    lass~1nz (^miss~2) a girl or young woman who is unmarried
+ laureate ( meanings=2 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:NOUN ) 
+    laureate~1nz (^individual~1) someone honored for great achievements
+    laureate~2az worthy of the greatest honor or distinction
+ lawmaker ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    lawmaker~1nz (^leader~2) a maker of laws
+ lawyer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    attorney~1nz (^professional~2) a professional person authorized to practice law
+ layman ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    layman~1nz (^commoner~1) someone who is not a clergyman or a professional person
+ lesbian ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    lesbian~1nz (^gay~1) a female homosexual
+    lesbian~2az of or relating to or characterized by homosexual relations between woman
+ leveler ( meanings=2 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER KINDERGARTEN ) comparative=level 
+    leveller~1n 
+    leveler~2nz 
+ leveller ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=leveler 
+    leveler~1nz (^individual~1) a radical who advocates the abolition of social distinctions
+ liar ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    liar~1nz (^cheat~3) a person who has lied or who lies repeatedly
+ licensed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    commissioned~1a 
+ lieder ( NOUN NOUN_PLURAL COMMON2 posdefault:NOUN ) plural=lied 
+ linguist ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    linguist~1nz (^individual~1) a person who speaks more than one language
+    linguist~2nz (^scientist~1) a specialist in linguistics
+ little_brother ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    little_brother~1nz (^blood_brother~2) a younger brother
+ loner ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=lone 
+    loner~1nz (^individual~1) a person who avoids the company or assistance of others
+ lone ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=loner 
+    sole~6a 
+    lonely~3a 
+    lonely~4a 
+ longer ( meanings=2 glosses=2 MORE_FORM NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=long 
+    longer~1nz (^individual~1) a person with a strong desire for something
+    longer~2bz for more time
+ lord ( meanings=2 glosses=1 NOUN_HUMAN NOUN_HE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    master~9n 
+    lord~2vz make a lord of someone
+ luck ( meanings=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    chance~3n 
+    fortune~2n 
+    fate~3n 
+ luminous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    luminous~1az softly bright or radiant
+    luminous~2az 
+ late ( meanings=12 glosses=10 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN GRADE3_4 posdefault:ADJECTIVE TIMEWORD (null) ) comparative=latest 
+    late~1az having died recently
+    late~2az being or occurring at an advanced period of time or after a usual or expected time
+    later~2a 
+    late~4az of a later stage in the development of a language or literature
+    former~5az of the immediate past
+    recent~2az of the immediate past or just previous to the present time
+    tardy~1az after the expected or usual time
+    late~8az 
+    late~9bz later than usual or than expected
+    recently~1bz in the recent past
+    deep~22bz to an advanced time
+    late~12bz at an advanced age or stage
+ lily ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    lily~1nz (^plant~1) any liliaceous plant of the genus Lilium having showy pendulous flowers
+ livelihood ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    keep~3n 
+ listed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    listed~1az on a list
+ leafing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    leafing~1nz (^development~8) 
+ liter ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 ) comparative=lite 
+    liter~1nz (^unit~5) a metric unit of capacity, formerly defined as the volume of one kilogram of pure water under standard conditions
+ lots ( meanings=2 glosses=1 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    heaps~1nz (^measure~1) a large number or amount
+    a_lot~1b 
+ limiting ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    limiting~1nz (^relation~1) 
+    constraining~1a 
+    limiting~3az strictly limiting the reference of a modified word or phrase
+ lethargic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    lethargic~1az deficient in alertness or activity
+    lethargic~2az 
+ lack ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR EXTENT_ADVERB COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    want~3nz (^need~3) the state of needing something that is absent or unavailable
+    miss~10v 
+ limping ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    limping~1nz (^disability~1) 
+    limping~2az 
+ leaded ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    leaded~1az fixed in place by means of thin strips of lead
+    leaded~2az treated or mixed with lead
+    leaded~3az having thin strips of lead between the lines of type
+ lagging ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    lagging~1nz (^artifact~1) used to wrap around pipes or boilers or laid in attics to prevent loss of heat
+    lagging~2az 
+ laid ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=lay 
+    set~15az set down according to a plan:
+ larvae ( NOUN NOUN_PLURAL COMMON4 GRADE3_4 posdefault:NOUN ) plural=larva 
+ larynges ( NOUN NOUN_PLURAL COMMON1 GRADE5_6 ) plural=larynx 
+ leaves ( NOUN NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB ) plural=leaf 
+ lives ( NOUN NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=life 
+ litai ( NOUN NOUN_PLURAL COMMON1 ) plural=lit 
+ loaves ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) plural=loaf 
+ lice ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) plural=louse 
+ lesbo ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    lesbo~1nz 
+ landform ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    landform~1nz 
+ lunch_box ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER KINDERGARTEN ) 
+    lunch_box~1nz 
+ la-di-dah ( INTERJECTION ) 
+ lordy ( INTERJECTION ) 
+ lately ( meanings=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    late~10b 
+ later ( meanings=5 glosses=4 MORE_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN GRADE3_4 posdefault:ADVERB TIMEWORD ) comparative=late 
+    later~1az coming at a subsequent time or stage
+    late~3az at or toward an end or late period or stage of development
+    afterwards~1b 
+    later~4bz at some eventual time in the future
+    later~5bz comparative of the adverb `late'
+ lacking ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 posdefault:VERB (null) ) 
+    wanting~1a 
+    wanting~2a 
+ lively ( meanings=7 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:ADJECTIVE (null) ) comparative=liveliest 
+    vital~2a 
+    lively~2az filled with events or activity
+    lively~3az full of life and energy
+    live~8a 
+    spanking~2a 
+    lively~6az full of zest or vigor
+    lively~7az 
+ lightly ( meanings=7 glosses=7 ADVERB EXTENT_ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    lightly~1bz with indifference or without dejection
+    lightly~2bz indulging with temperance
+    lightly~3bz to a slight degree
+    lightly~4bz with little weight or force
+    light~41bz with few burdens
+    lightly~6bz in a small quantity or extent
+    lightly~7bz without good reason
+ layered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    layered~1az 
+ leering ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    leering~1az showing sly or knowing malice in a glance
+    leering~2az sidelong and slyly lascivious
+ laced ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tied~2a 
+    laced~2az edged or streaked with color
+ lighted ( meanings=3 glosses=2 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=light 
+    lit~2az provided with artificial light
+    lit~3az set afire or burning
+    lighted~3az 
+ loaded ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    loaded~1az charged with associative significance and often meant to mislead or influence
+    wet~2a 
+    loaded~3az 
+    loaded~4az charged with ammunition
+    flush~9a 
+ laboring ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    toiling~1az 
+ lenient ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    lenient~1az characterized by tolerance and mercy
+    lenient~2az not strict
+    soft~15a 
+ likely ( meanings=6 glosses=4 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    likely~1az within the realm of credibility
+    likely~2az has a good chance of being the case or of coming about
+    probable~3az likely but not certain to be or become true or real
+    potential~4az expected to become or be
+    likely~5az 
+    probably~1b 
+ licked ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    licked~1az having been got the better of
+ lonely ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=loneliest 
+    lonesome~1a 
+    solitary~3az devoid of creatures
+    solitary~5az characterized by or preferring solitude
+    solitary~6az lacking companions or companionship
+    lonely~5az 
+ lonesome ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    lonely~1az marked by dejection from being alone
+    only~2az being the only one
+    lonesome~3az 
+ lettered ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    knowing~2a 
+    lettered~2az 
+ laborious ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    grueling~1a 
+    laborious~2az 
+ labored ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    heavy~9a 
+    strained~3a 
+ lukewarm ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    tepid~1az feeling or showing little interest or enthusiasm
+    tepid~2az moderately warm
+    lukewarm~3az 
+ loyal ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    firm~3a 
+    loyal~2az steadfast in allegiance or duty
+    patriotic~1az inspired by love for your country
+    loyal~4az 
+ lite ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) comparative=liter 
+    light~21a 
+ lifted ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    lifted~1az 
+ ludicrous ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    ludicrous~1az broadly or extravagantly humorous
+    ludicrous~2az incongruous
+    ludicrous~3az 
+ leisurely ( meanings=2 glosses=1 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    easy~9a 
+    leisurely~2bz in an unhurried way or at one's convenience
+ lessened ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    diminished~4a 
+    lessened~2az decreased in severity
+ labeled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    labelled~1a 
+ labelled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    tagged~1az bearing or marked with a label or tag
+ larger ( meanings=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=large 
+    bigger~1a 
+ littler ( meanings=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) comparative=least 
+    smaller~1a 
+ legitimate ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    legitimate~1az authorized, sanctioned by, or in accordance with law
+    legitimate~2az of marriages and offspring
+    legitimate~3az in accordance with recognized or accepted standards or principles
+    logical~4az based on known statements or events or conditions
+    legitimate~5vz make legitimate
+    legitimate~6vz show or affirm to be just and legitimate
+    legitimate~7vz make legal
+ lasting ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    durable~1a 
+    lasting~2az 
+    lasting~3az 
+    lasting~4az lasting a long time without change
+ liked ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    liked~1az found pleasant or attractive
+    liked~2az 
+ less ( meanings=9 glosses=5 MORE_FORM PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE ADVERB PREPOSITION CONJUNCTION_COORDINATE DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN DETERMINER_PLURAL PRONOUN_SINGULAR posdefault:ADVERB ) comparative=lesser 
+    less~1az a quantifier meaning not as great in amount or degree
+    less~2az fewer
+    less~3az lower in quality
+    less~4bz used to form the comparative of some adjectives and adverbs
+    less~5bz comparative of little
+    less~6z 
+    less~7z 
+    less~8z 
+    less~9z 
+ lordly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) comparative=lordliest 
+    grand~8a 
+    disdainful~1a 
+ lowly ( meanings=5 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE posdefault:ADVERB ) comparative=lowliest 
+    humble~1a 
+    petty~4a 
+    menial~2a 
+    humble~4a 
+    lowly~5az 
+ leafed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    leaved~1az having leaves or leaves as specified
+    leafed~2az 
+ leaved ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    leafed~1a 
+ lucrative ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    lucrative~1az producing a sizeable profit
+ luscious ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    luscious~1az having strong sexual appeal
+    yummy~1a 
+    luscious~3az 
+ lubricated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    lubricated~1az smeared with oil or grease to reduce friction
+ littered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    littered~1az 
+ leathered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    leathered~1az 
+ longest ( meanings=1 glosses=1 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=longer 
+    longest~1bz for the most time
+ lazier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE3_4 posdefault:ADJECTIVE ) comparative=lazy 
+ laziest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE3_4 posdefault:ADJECTIVE ) comparative=lazier 
+ livelier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) comparative=lively 
+ liveliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) comparative=livelier 
+ lonelier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=lonely 
+ loneliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=lonelier 
+ lordlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=lordly 
+ lordliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) comparative=lordlier 
+ lovelier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=lovely 
+ loveliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=lovelier 
+ lowlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) comparative=lowly 
+ lowliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) comparative=lowlier 
+ luckier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=lucky 
+ luckiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=luckier 
+ likewise ( meanings=4 glosses=3 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    too~2bz in addition
+    alike~3bz equally
+    likewise~3bz in like or similar manner
+    likewise~4bz 
+ loudly ( meanings=3 glosses=3 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    loud~4bz with relatively high volume
+    loudly~2bz used as a direction in music
+    loudly~3bz in manner that attracts attention
+ lest ( meanings=1 CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    lest~1z 
+ lose ( meanings=11 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=lost 
+    suffer~5vz be set at a disadvantage
+    lose~2vz fail to win
+    lose~3vz retreat
+    lose~4vz place where one cannot find it again
+    lose~5vz suffer the loss of a person through death or removal
+    miss~8v 
+    lose~7vz allow to go out of sight
+    lose~8vz miss from one's possessions
+    lose~9vz fail to keep or to maintain
+    lose~10vz fail to get or obtain
+    lose~11vz fail to make money in a business
+ lessen ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    diminish~1v 
+    lessen~2vz wear off or die down
+    decrease~6v 
+ lubricate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    lubricate~1vz make slippery or smooth through the application of a lubricant
+    lubricate~2vz apply a lubricant to
+    lubricate~3vz have lubricating properties
+ line_up ( meanings=6 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB GRADE1_2 VERB_DIRECTOBJECT VERB_NOOBJECT PHRASAL_VERB VERB_CONJUGATE1 ) 
+    adjust~4vz place in a line or arrange so as to be parallel or straight
+    line_up~2vz take one's position before a kick-off
+    dress~21v 
+    line_up~4vz form a queue, form a line, stand in line
+    find~15v 
+    line_up~6vz form a line
+ learn ( meanings=6 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=learned 
+    learn~1vz gain knowledge or skills
+    pick_up~4v 
+    read~3v 
+    learn~4vz commit to memory
+    teach~2v 
+    see~8v 
+ lurk ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    lurk~1vz wait in hiding to attack
+    loaf~3v 
+    lurk~3vz lie in wait, lie in ambush, behave in a sneaky and secretive manner
+ loathe ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    loathe~1vz find repugnant
+ lie_down ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB KINDERGARTEN VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
+    lie~5vz assume a reclining position
+ listen ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB SPELLING_EXCEPTION COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    listen~1vz hear with intention
+    hear~4vz listen and pay attention
+    mind~13vz pay close attention to
+ lend ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) conjugate=lent 
+    loan~3vz give temporarily
+    bestow~3v 
+    lend~3vz have certain characteristics of qualities for something
+ loiter ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 VERB_NOOBJECT ) 
+    lurk~2v 
+ led ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=lead 
+ leant ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=lean 
+ leaned ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=leant 
+ learnt ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 GRADE5_6 posdefault:VERB ) conjugate=learn 
+ lent ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=lend 
+ lain ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=lied 
+ Lieut. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Lt. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Lieut ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Lt ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Ltd ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Lieutenant ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

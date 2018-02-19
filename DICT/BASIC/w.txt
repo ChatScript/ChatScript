@@ -1,0 +1,1366 @@
+﻿ waiver ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    release~3n 
+ white ( meanings=18 glosses=17 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    white~1nz (^trouser~2) trousers made of flannel or gabardine or tweed or white cloth
+    white~2nz (^piece~2) the lighter pieces
+    white~3nz (^color~3) the quality or state of the achromatic color of greatest lightness
+    white~4nz (^ingredient~3) the white part of an egg
+    white~5az of or belonging to a racial group having light skin coloration
+    white~6az of summer nights in northern latitudes where the sun barely sets
+    white~7az being of the achromatic color of maximum lightness
+    blanched~1az anemic looking from illness or emotion
+    white~9az having lost its color
+    white~10az having cream or milk added
+    blank~6az not written or printed on
+    white~12az benevolent
+    white~13az glowing white with heat
+    white~14az restricted to whites only
+    snowy~3az marked by the presence of snow
+    white~16az free from moral blemish or impurity
+    white~17az 
+    white~18vz turn white
+ wheeling ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    rolling~1nz (^act~1) propelling something on wheels
+ wash ( meanings=19 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    washing~1n 
+    wash~2nz (^enterprise~1) any enterprise in which losses and gains cancel out
+    washing~2n 
+    wash~4nz (^picture~1) a watercolor made by applying a series of monochrome washes one over the other
+    wash~5nz (^paint~1) a thin coat of water-base paint
+    wash~6nz (^erosion~2) the erosive process of washing away soil or gravel by water 
+    wash~7vz to cleanse by licking
+    wash~8vz cleanse with soap and water
+    lap~7vz wash or flow against
+    wash~10vz make moist
+    wash~11vz form by erosion
+    wash~12vz remove by the application of water or other liquid and soap or some other cleaning agent
+    wash~13vz apply a thin coating of paint, metal, etc., to
+    rinse~6v 
+    wash~15vz cleanse with a cleaning agent, such as soap, and water
+    wash~16vz separate dirt or gravel from
+    wash~17vz move by or as if by water
+    wash~18vz admit to testing or proof
+    wash~19vz be capable of being washed
+ whoopee ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN INTERJECTION NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
+    whoopee~1nz (^celebration~1) noisy and boisterous revelry
+ wandering ( meanings=5 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    wandering~1nz (^travel~2) 
+    winding~2a 
+    wandering~3az having no fixed course
+    wandering~4az migratory
+    wandering~5az 
+ whole ( meanings=8 glosses=7 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    unit~1nz (^object~1) an assemblage of parts that is regarded as a single entity
+    whole~2nz (^construct~1) all of something including all its component elements or parts
+    whole~3az including all components without exception
+    whole~4az having the same parents
+    solid~7az acting together as a single undiversified whole
+    whole~6az exhibiting or restored to vigorous good health
+    whole~7az not injured
+    completely~1b 
+ world ( meanings=8 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:NOUN ) 
+    earth~2nz (^concern~1) the concerns of this life as distinguished from heaven and the afterlife
+    world~2nz (^experience~2) all of your experiences that determine how things appear to you
+    world~3nz (^class~3) people in general
+    public~2n 
+    earth~4nz (^planet~1) the 3rd planet from the sun
+    universe~3n 
+    world~7nz (^piece~11) a part of the earth that can be considered separately
+    global~1a 
+ winning ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    winning~1nz (^success~1) succeeding with great difficulty
+    taking~2a 
+    victorious~2a 
+    winning~4az 
+ wild ( meanings=18 glosses=13 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    wilderness~2nz (^region~4) a wild and uninhabited area left in its natural condition
+    wild~2nz (^state~1) a wild primitive state untouched by civilization
+    angry~2a 
+    barbaric~1az without civilizing influences
+    wild~5az deviating widely from an intended course
+    crazy~2a 
+    waste~6a 
+    violent~3az intensely vivid or loud
+    wild~9az in a state of extreme emotion
+    fantastic~5a 
+    hazardous~1az involving risk or danger
+    wild~12az talking or behaving irrationally
+    unfounded~1az without a basis in reason or fact
+    wild~14az in a natural state
+    wild~15az marked by extreme lack of restraint or control
+    wild~16az 
+    wild~17bz in a wild or undomesticated manner
+    wild~18bz in an uncontrolled and rampant manner
+ wink ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    winking~1nz (^response~1) a reflex that closes and opens the eyes rapidly
+    wink~2nz (^motion~3) closing one eye quickly as a signal
+    instant~2n 
+    blink~2vz briefly shut the eyes
+    wink~5vz signal by winking
+    blink~3vz force to go away by blinking
+    flash~19vz gleam or glow intermittently
+ winking ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    blinking~1n 
+    blinking~3a 
+ wipe ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    rub~1nz (^contact~2) the act of rubbing or wiping
+    wipe~2vz rub with a circular motion
+ walk ( meanings=17 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    pass~3n 
+    walking~1n 
+    walk~3nz (^travel~2) the act of walking somewhere
+    walk~4nz (^gait~2) a slow gait of a horse in which two feet are always on the ground
+    walk~5nz (^calling~1) careers in general
+    walk~6nz (^path~2) a path set aside for walking
+    walk~7nz (^carriage~5) manner of walking
+    walk~8vz obtain a base on balls
+    walk~9vz give a base on balls to
+    walk~10vz take a walk
+    walk~11vz use one's feet to advance
+    walk~12vz make walk
+    walk~13vz accompany or escort
+    walk~14vz traverse or cover by walking
+    walk~15vz walk at a pace
+    walk~16vz be or act in association with
+    walk~17vz live or behave in a specified manner
+ worst ( meanings=6 glosses=6 NOUN_ABSTRACT MOST_FORM VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=worse 
+    worst~1nz (^effort~3) the weakest effort or poorest achievement one is capable of
+    worst~2nz (^evil~2) the greatest damage or wickedness of which one is capable
+    worst~3nz (^result~3) the least favorable outcome
+    worst~4az most wanting in quality or value or condition
+    worst~5bz to the highest degree of inferiority or badness
+    whip~7vz defeat thoroughly
+ whip ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    whip~1nz (^blow~2) a quick blow delivered with a whip or whiplike object
+    whip~2nz (^instrument~2) an instrument with a handle and a flexible lash that is used for whipping
+    whip~3nz (^property~2) the flexibility of the shaft of a golf club
+    whip~4nz (^dessert~1) a dessert made of sugar and stiffly beaten egg whites or cream and usually flavored with fruit
+    whip~5nz (^lawmaker~1) a legislator appointed by the party to enforce discipline
+    whip~6vz subject to harsh criticism
+    worst~6v 
+    whip~8vz strike as if by whipping
+    strap~8v 
+    whip~10vz whip with or as if with a wire whisk
+    whip~11vz thrash about flexibly in the manner of a whiplash
+ way ( meanings=13 glosses=8 NOUN_ABSTRACT PARTICLE NOUN ADVERB NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    means~1n 
+    way~2nz (^journey~1) a journey or passage
+    path~1n 
+    way~4nz (^artifact~1) any artifact consisting of a road or path affording passage from one place to another
+    fashion~3n 
+    way~6nz (^distance~1) the property of distance in general
+    way~7nz (^choice~2) doing as one pleases or chooses
+    way~8nz (^category~1) a general category of things
+    direction~8n 
+    way~10nz (^share~4) a portion of something divided into shares
+    room~3n 
+    way~12nz (^status~1) the condition of things generally
+    way~13bz to a great degree or by a great distance
+ wing ( meanings=12 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    wing~1nz (^organ~4) a movable organ for flying
+    annex~1nz (^addition~3) an addition that extends a main building
+    wing~3nz (^barrier~1) a barrier that surrounds the wheels of a vehicle to block splashing water or mud
+    wing~4nz (^surface~1) one of the horizontal airfoils on either side of the fuselage of an airplane
+    wing~5nz (^stage~2) a stage area out of sight of the audience
+    wing~6nz (^helping~1) the wing of a fowl
+    wing~7nz (^force~6) a unit of military aircraft
+    wing~8nz (^arrangement~6) the side of military or naval formation
+    wing~9nz (^group~1) a group within a political party or legislature or other organization that holds distinct views or has a particular function
+    wing~10nz (^position~12) a position to the side and just to the rear of another aircraft
+    wing~11nz (^athlete~1) a hockey player stationed in a forward position on either side
+    fly~16vz travel through the air
+ work ( meanings=33 glosses=29 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    work~1nz (^activity~1) activity directed toward making or doing something
+    work~2nz (^occupation~2) the occupation for which you are paid
+    work~3nz (^production~5) the total output of a writer or artist 
+    work~4nz (^production~5) a product produced or accomplished through the effort or activity or agency of a person or thing
+    work~5nz (^point~16) a place where work is done
+    study~5n 
+    work~7nz (^energy~5) a manifestation of energy
+    work~8vz arrive at a certain condition through repeated motion
+    sour~11vz go sour or spoil
+    work~10vz cause to undergo fermentation
+    solve~1v 
+    work~12vz use or manipulate to one's advantage
+    knead~2vz make uniform
+    operate~6vz perform as expected when applied
+    work~15vz move into or onto
+    bring~7v 
+    form~19v 
+    process~10vz shape, form, or improve a material
+    crop~12vz prepare for crops
+    work~20vz gratify and charm, usually in order to influence
+    work~21vz move in an agitated manner
+    make~36vz proceed along a path
+    work~23vz provoke or excite
+    work~24vz proceed towards a goal or along a path or through an activity
+    work~25vz cause to work
+    work~26vz be employed
+    work~27vz exert oneself by doing mental or physical work for a purpose or out of necessity
+    work~28vz cause to operate or function
+    work~29vz operate in or through
+    act~14vz have an effect or outcome
+    influence~8vz have and exert influence or effect
+    work~32vz operate in a certain place, area, or specialty
+    work~33vz behave in a certain way when handled
+ working ( meanings=7 glosses=6 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 GRADE1_2 posdefault:VERB (null) ) 
+    working~1nz (^artifact~1) a mine or quarry that is being or has been worked
+    working~2az serving to permit or facilitate further work or activity
+    working~3az actively engaged in paid work
+    running~7az performing or capable of performing
+    working~5az adopted as a temporary basis for further work
+    working~6az adequate for practical use
+    working~7az 
+ washing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB ) 
+    wash~1nz (^work~1) the work of cleansing
+    laundry~2nz (^clothing~1) garments or white goods that can be cleaned by laundering
+ window ( meanings=8 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ) 
+    window~1nz (^structure~1) a framework of wood or metal that contains a glass windowpane and is built into a wall or roof to admit light or air
+    window~2nz (^opening~6) a transparent opening in a vehicle that allow vision out of the sides or back
+    window~3nz (^sheet~4) a transparent panel inserted in an otherwise opaque material
+    window~4nz (^display~3) a rectangular part of a computer screen that contains a display different from the rest of the screen
+    window~5nz (^opening~6) an opening in a wall or screen that admits light and air and through which customers can be served
+    window~6nz (^sheet~4) a pane of glass in a window
+    window~7nz (^gap~6) an opening that resembles a window in appearance or function
+    window~8nz (^period~3) the time period that is considered best for starting or finishing something
+ wetting ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    wetting~1nz (^change~1) the act of making something wet
+    wetting~2nz (^emission~3) 
+ watering ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:VERB ) 
+    watering~1nz (^wetting~1) wetting with water
+    tearing~1nz (^activity~3) shedding tears
+ walking ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    walk~2nz (^travel~1) the act of traveling by foot
+    walking~2az close enough to be walked to
+    walking~3az 
+ wading ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    wading~1nz (^walking~1) walking with your feet in shallow water
+ water ( meanings=10 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    water~1nz (^facility~3) a facility that provides a source of water
+    water~2nz (^food~1) a liquid necessary for the life of most animals and plants
+    water~3nz (^thing~1) the part of the earth's surface covered with water 
+    water~4nz (^compound~3) binary compound that occurs at room temperature as a clear colorless odorless tasteless liquid
+    water~5nz (^element~7) once thought to be one of four elements composing the universe
+    pee~2nz (^waste~5) liquid excretory product
+    water~7vz secrete or form water, as tears or saliva
+    water~8vz supply with water, as with channels or ditches or streams
+    water~9vz fill with tears
+    water~10vz provide with water
+ wind ( meanings=15 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=wound 
+    twist~4n 
+    wind~2nz (^breath~1) breath
+    wind~3nz (^response~1) a reflex that expels intestinal gas through the anus
+    wind~4nz (^instrument~3) a musical instrument in which the sound is produced by an enclosed column of air that is moved by the breath
+    tip~1n 
+    wind~6nz (^talk~2) empty rhetoric or insincere or exaggerated talk
+    wind~7nz (^influence~5) a tendency or force that influences events
+    wind~8nz (^weather~1) air moving from an area of high pressure to an area of low pressure
+    lift~27v 
+    wind~10vz form into a wreath
+    wind~11vz coil the spring of by turning a stem
+    roll~23v 
+    wander~3vz to move or cause to move in a sinuous, spiral, or circular course
+    nose~13v 
+    twist~23v 
+ winding ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    wind~1n 
+    meandering~1a 
+    twisting~3az 
+ wave ( meanings=13 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    wave~1nz (^motion~2) a movement like that of a sudden occurrence or increase in a specified phenomenon
+    wave~2nz (^hair~4) a hairdo that creates undulations in the hair
+    waving~1nz (^motion~3) the act of signaling by a movement of the hand
+    wave~4nz (^motion~5) a movement up and down or back and forth
+    wave~5nz (^motion~5) one of a series of ridges that moves across the surface of a liquid
+    wave~6nz (^rise~6) something that rises rapidly
+    wave~7nz (^weather~1) a persistent and widespread unusual weather condition 
+    wave~8nz (^curve~5) an undulating curve
+    wave~9vz set waves in
+    wave~10vz signal with the hands or nod
+    curl~5vz twist or roll into coils or ringlets
+    flourish~7vz move or swing back and forth
+    roll~30v 
+ wag ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    shake~1n 
+    card~10n 
+    wag~3vz move from side to side
+ worrying ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    worrying~1nz (^motion~2) the act of moving something by repeated tugs or pushes
+    badgering~1n 
+    distressing~2a 
+    worrying~4az 
+ waver ( meanings=10 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_NOOBJECT ) 
+    waver~1nz (^motion~2) the act of moving back and forth
+    waver~2nz (^pause~1) the act of pausing uncertainly
+    waver~3nz (^individual~1) someone who communicates by waving
+    waver~4vz give off unsteady sounds, alternating in amplitude or frequency
+    weave~4v 
+    fluctuate~2v 
+    quiver~5v 
+    waver~8vz move hesitatingly, as if about to give way
+    hesitate~1v 
+    waver~10vz be unsure or weak
+ wiggle ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    squirm~1nz (^motion~2) the act of wiggling
+    wiggle~2vz move to and fro
+ withholding ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    withholding~1nz (^subtraction~1) the act of deducting from an employee's salary
+    withholding~2nz (^retention~1) the act of holding back or keeping within your possession or control
+    withholding~3nz (^tax~1) 
+ weakening ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    weakening~1nz (^decrease~1) the act of reducing the strength of something
+    weakening~2nz (^transmutation~2) becoming weaker
+    weakening~3az moderating by making pain or sorrow weaker
+    weakening~4az causing debilitation
+ word ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    word~1nz (^part~12) a unit of language that native speakers can identify
+    news~3n 
+    word~3nz (^secret~2) a secret word or phrase known only to a restricted group
+    word~4nz (^statement~4) a brief statement
+    discussion~2nz (^language~6) an exchange of views on some topic
+    word~6nz (^order~7) a verbal command for action
+    word~7nz (^promise~2) a promise
+    word~8nz (^unit~5) a word is a string of bits stored in computer memory
+    articulate~5vz put into words or an expression
+ wound ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) conjugate=wind 
+    wounding~1nz (^hurt~1) the act of inflicting a wound
+    injury~4nz (^loss~5) a casualty to military personnel resulting from combat
+    wound~3nz (^hurt~4) a figurative injury 
+    wound~4nz (^hurt~5) an injury to living tissue
+    wound~5az put in a coil
+    wound~6vz cause injuries or bodily harm to
+    hurt~13vz hurt the feelings of
+ wounding ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    wound~1n 
+    wounding~2az causing physical or especially psychological injury
+ wrestling ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    wrestling~1nz (^sport~2) the sport of hand-to-hand struggle between unarmed contestants who try to throw each other down
+    wrestle~1n 
+ war ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    war~1nz (^effort~4) a concerted campaign to end something that is injurious
+    war~2nz (^action~3) the waging of armed conflict against an enemy
+    war~3nz (^struggle~3) an active struggle between competing entities
+    war~4nz (^state~1) a legal state created by a declaration of war and ended by official declaration during which the international rules of war apply
+    war~5vz make or wage war
+ wrong ( meanings=13 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    damage~2nz (^injury~1) any harm or injury resulting from a violation of a legal right
+    wrong~2nz (^injustice~2) that which is contrary to the principles of justice or law
+    faulty~1az characterized by errors
+    wrong~4az not appropriate for a purpose or occasion
+    wrong~5az not correct
+    wrong~6az based on or acting or judging in error
+    wrong~7az not functioning properly
+    wrong~8az badly timed
+    wrong~9az used of the side of cloth or clothing intended to face inward
+    wrong~10az not in accord with established usage or procedure
+    wrong~11az contrary to conscience or morality or law
+    wrong~12bz in an inaccurate manner
+    wrong~13vz treat unjustly
+ whistling ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    whistling~1nz (^music~1) the act of whistling a tune
+    whistle~4n 
+    whistle~5n 
+ writing ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    writing~1nz (^activity~1) the activity of putting something in written form
+    composition~1n 
+    writing~3nz (^communication~1) letters or symbols that are written or imprinted on a surface to represent the sounds or words of a language
+    writing~4nz (^communication~1) the work of a writer
+    writing~5nz (^work~3) the collected work of an author
+ wrestle ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    wrestling~2nz (^struggle~1) the act of engaging in close hand-to-hand combat
+    wrestle~2vz engage in deep thought, consideration, or debate
+    wrestle~3vz combat to overcome an opposing tendency or force
+    wrestle~4vz engage in a wrestling match
+    squirm~2v 
+ weight ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    weight~1nz (^artifact~1) an artifact that is heavy
+    weight~2nz (^artifact~1) sports equipment used in calisthenic exercises and weightlifting
+    weight~3nz (^property~2) the vertical force exerted by a mass as a result of gravity
+    weight~4nz (^importance~1) the relative importance granted to something
+    weight~5nz (^sadness~2) an oppressive feeling of heavy force
+    weighting~1nz (^constant~2) a coefficient assigned to elements of a frequency distribution in order to represent their relative importance
+    weight~7nz (^unit~5) a unit used to measure weight
+    weight~8nz (^metric~1) a system of units used to express the weight of something
+    slant~3vz present with a bias
+    burden~6vz weight down with a load
+ wiring ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    wiring~1nz (^labor~1) the work of installing the wires for an electrical system or device
+    wiring~2nz (^device~2) a circuit of wires for the distribution of electricity
+ waxing ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    waxing~1nz (^application~3) the application of wax to a surface
+    waxing~2nz (^increase~3) a gradual increase in magnitude or extent
+    waxing~3az pertaining to the period during which the visible surface of the moon increases
+ waste ( meanings=16 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=waster 
+    waste~1nz (^activity~1) useless or profitless activity
+    waste~2nz (^act~1) reduction in the value of an estate caused by act or neglect
+    waste~3nz (^attribute~1) the trait of wasting resources
+    waste~4nz (^wild~1) an uninhabited wilderness that is worthless for cultivation
+    waste~5nz (^stuff~7) any materials unused and rejected as worthless or unwanted
+    wild~7az located in a dismal or remote area
+    rot~4vz become physically weaker
+    desolate~4vz cause extensive destruction or ruin utterly
+    waste~9vz cause to grow thin or weak
+    waste~10vz lose vigor, health, or flesh, as through grief
+    consume~4vz spend extravagantly
+    waste~12vz use inefficiently or inappropriately
+    waste~13vz get rid of by killing
+    waste~14vz run off as waste
+    waste~15vz get rid of
+    blow~27vz spend thoughtlessly
+ written ( VERB_PAST_PARTICIPLE VERB COMMON4 COMMON1 KINDERGARTEN GRADE5_6 posdefault:VERB ) conjugate=wrote 
+ women ( NOUN NOUN_PLURAL COMMON4 COMMON2 GRADE1_2 posdefault:NOUN ) plural=woman 
+ whispering ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    whisper~1n 
+    whisper~2n 
+    murmuring~3az making a low continuous indistinct sound
+ wear ( meanings=12 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=worn 
+    wearing~1nz (^act~1) the act of having on your person as a covering or adornment
+    clothing~1n 
+    wear~3nz (^decay~5) impairment resulting from long use
+    wear~4vz have or show an appearance of
+    bear~3v 
+    assume~1vz put clothing on one's body
+    wear~7vz be dressed in
+    tire~2vz exhaust or get tired through overuse or great strain or stress
+    wear~9vz deteriorate through use or stress
+    bust~7v 
+    wear~11vz last and be usable
+    wear~12vz have in one's aspect
+ wearing ( meanings=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    wear~1n 
+    erosion~2n 
+    exhausting~1a 
+    wearing~4az 
+ watching ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    observation~1nz (^look~1) the act of observing
+ watch ( meanings=13 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=watches 
+    watch~1nz (^work~1) a purposeful surveillance to guard or observe
+    watch~2nz (^ceremony~2) the rite of staying awake for devotional purposes
+    watch~3nz (^instrument~2) a small portable timepiece
+    scout~1nz (^guard~9) a person employed to keep watch for some anticipated event
+    watch~5nz (^period~3) a period of time during which some of a ship's crew are on duty
+    watch~6nz (^period~3) the period during which someone is on duty
+    check~22v 
+    watch~8vz observe with attention
+    watch~9vz observe or determine by looking
+    watch~10vz look attentively
+    catch~34v 
+    watch~12vz be vigilant, be on the lookout or be careful
+    follow~15v 
+ weaving ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    weaving~1nz (^trade~1) creating fabric
+ wake ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=woken 
+    viewing~1nz (^watch~2) a vigil held over a corpse the night before burial
+    wake~2nz (^wave~5) the wave that spreads behind a boat as it moves forward
+    aftermath~2nz (^result~4) the consequences of an event 
+    awake~4v 
+    wake~5vz cause to become awake or conscious
+    wake~6vz be awake, be alert, be there
+    wake~7vz make aware of
+    heat~10vz arouse or excite feelings and passions
+ wedding ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ) 
+    marriage~1n 
+    wedding~2nz (^ceremony~3) the social event at which the ceremony of marriage is performed
+    wedding~3nz (^party~2) a party of people at a wedding
+ wall ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    wall~1nz (^mound~2) an embankment built around a space for defensive purposes
+    wall~2nz (^structure~1) an architectural partition with a height and length greater than its thickness
+    wall~3nz (^fence~1) a masonry fence 
+    wall~4nz (^layer~3) a layer of material that encloses space
+    wall~5nz (^layer~5) a layer (a lining or membrane) that encloses a structure
+    wall~6nz (^object~1) anything that suggests a wall in structure or function or effect
+    wall~7nz (^object~1) a vertical smooth rock face (as of a cave or mountain)
+    wall~8nz (^difficulty~4) a difficult or awkward situation
+    fence~4v 
+ wait ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    waiting~1nz (^act~1) the act of waiting 
+    delay~2nz (^break~16) time during which some action is awaited
+    expect~5v 
+    waitress~2v 
+    wait~5vz stay in one place and anticipate or expect something
+    wait~6vz wait before acting
+ waiting ( meanings=3 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    wait~1n 
+    waiting~2az being and remaining ready and available for use
+    waiting~3az 
+ wholesale ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=wholesaler 
+    wholesale~1nz (^merchandising~1) the selling of goods to merchants
+    sweeping~2az ignoring distinctions
+    wholesale~3bz on a large scale without careful discrimination
+    wholesale~4bz at a wholesale price
+    wholesale~5vz sell in large quantities
+ wine ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    wine~1nz (^red~1) a red as dark as red wine
+    wine~2nz (^alcohol~1) fermented juice
+    wine~3vz treat to wine
+    wine~4vz drink wine
+ whacking ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) 
+    beating~1nz (^penalty~1) the act of inflicting corporal punishment with repeated blows
+    whacking~2az enormous
+    whacking~3bz extremely
+ whipping ( meanings=5 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    tanning~2nz (^whacking~1) 
+    beating~2nz (^fight~3) the act of overcoming or outdoing
+    whipping~3nz (^stitch~1) 
+    whipping~4nz (^defeat~1) 
+    whipping~5az smart and fashionable
+ wildcat ( meanings=6 glosses=5 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) comparative=wildcatter 
+    wildcat~1nz (^cat~1) any small or medium-sized cat resembling the domestic cat and living in the wild
+    wildcat~2nz (^well~1) an exploratory oil well drilled in land not known to be an oil field
+    wolf~2n 
+    wildcat~4az drilled speculatively in an area not known to be productive
+    wildcat~5az without official authorization
+    wildcat~6az outside the bounds of legitimate or ethical business practices
+ waking ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    waking~1nz (^status~1) the state of remaining awake
+    waking~2az 
+ witching ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 ) 
+    witching~1nz (^practice~3) the use or practice of witchcraft
+    magic~3a 
+    witching~3az 
+ wolf ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) plural=wolves 
+    wolf~1nz (^carnivore~2) any of various predatory carnivorous canine mammals of North America and Eurasia that usually hunt in packs
+    beast~2nz (^attacker~1) a cruelly rapacious person
+    wolf~3nz (^individual~1) a man who is aggressive in making amorous advances to women
+    wolf~4vz eat hastily
+ whale ( meanings=3 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    whale~1nz (^mammal~1) any of the larger cetacean mammals having a streamlined body and breathing through a blowhole on the head
+    giant~7n 
+    whale~3vz hunt for whales
+ widow ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    widow~1nz (^woman~3) a woman whose husband is dead especially one who has not remarried
+    widow~2vz cause to be without a spouse
+ wood ( meanings=5 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    wood~1nz (^club~5) a golf club with a long shaft used to hit long shots
+    wood~2nz (^wind~4) any wind instrument other than the brass instruments
+    forest~1n 
+    wood~4nz (^stuff~7) the hard fibrous lignified substance under the bark of trees
+    wood~5az 
+ wren ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    wren~1nz (^bird~1) any of several small active brown birds of the northern hemisphere with short upright tails
+ winter ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT TIMEWORD ) 
+    wintertime~1n 
+    winter~2vz spend the winter
+ worm ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    worm~1nz (^animal~1) any of numerous relatively small elongated soft-bodied animals especially of the phyla Annelida and Chaetognatha and Nematoda and Nemertea and Platyhelminthes
+    worm~2nz (^screw~2) screw thread on a gear with the teeth of a worm wheel or rack
+    worm~3nz (^program~5) a software program capable of reproducing itself that can spread from one computer to the next over a network
+    louse~4nz (^individual~1) a person who has a nasty or unethical character undeserving of respect
+    wrestle~5v 
+ woodpecker ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    woodpecker~1nz (^bird~1) bird with strong claws and a stiff tail adapted for climbing and a hard chisel-like bill for boring into wood for insects
+ wishing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    wish~4n 
+ wool ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    fleece~1nz (^coat~1) outer coat of especially sheep and yaks
+    woolen~1nz (^material~1) a fabric made from the hair of sheep
+    wool~3nz (^stuff~7) fiber sheared from animals and twisted into yarn for weaving
+    wool~4az 
+ wheat ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    straw~2nz (^yellow~1) a variable yellow tint
+    wheat~2nz (^cereal~2) grains of common wheat
+    wheat~3nz (^cereal~3) annual or biennial grass having erect flower spikes and light brown grains
+    wheat~4az 
+ walrus ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 ) 
+    walrus~1nz (^mammal~1) either of two large northern marine mammals having ivory tusks and tough hide over thick blubber
+ weevil ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    weevil~1nz (^beetle~1) any of several families of mostly small beetles that feed on plants and plant products
+ worker ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    worker~1nz (^insect~1) sterile member of a colony of social insects that forages for food and cares for the larvae
+    worker~2nz (^individual~1) a person who works at a specific occupation
+    actor~2nz (^individual~1) a person who acts and gets things done
+    worker~4nz (^commoner~1) a member of the working class 
+ wasp ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    wasp~1nz (^insect~1) social or solitary hymenopterans typically having a slender body with the abdomen attached by a narrow stalk and having a formidable sting
+ wheel ( meanings=11 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    bicycle~1n 
+    rack~5nz (^instrument~2) an instrument of torture that stretches or disjoints or mutilates victims
+    wheel~3nz (^artifact~1) game equipment consisting of a wheel with slots that is used for gambling
+    wheel~4nz (^control~3) a handwheel that is used for steering
+    wheel~5nz (^machine~3) a simple machine consisting of a circular frame with spokes that can rotate on a shaft or axle (as in vehicles or other machines)
+    wheel~6nz (^device~2) a circular helm to control the rudder of a vessel
+    wheel~7nz (^force~5) forces that provide energy and direction
+    roll~29vz move along on or as if on wheels or a wheeled vehicle
+    bicycle~2v 
+    wheel~10vz change directions as if revolving on a pivot
+    wheel~11vz wheel somebody or something
+ wax ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    wax~1nz (^unit~4) any of various substances of either mineral origin or plant or animal origin
+    wax~2az 
+    mount~7v 
+    full~11v 
+    wax~5vz cover with wax
+ woolly ( meanings=5 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE (null) ) comparative=woolliest 
+    woolly~1az covered with dense cottony hairs or hairlike filaments
+    woolly~2az 
+    muddled~1a 
+    woolly~4az 
+    woolly~5az 
+ woodchuck ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    woodchuck~1nz (^mammal~1) reddish brown North American marmot
+ woodland ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    timber~4n 
+ withers ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    withers~1nz (^piece~11) the highest part of the back at the base of the neck of various animals especially draft animals
+ whiting ( meanings=6 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    whiting~1nz (^fish~1) 
+    whiting~2nz (^fish~1) 
+    whiting~3nz (^fish~1) any of several food fishes of North American coastal waters
+    whiting~4nz (^fish~1) a small fish of the genus Sillago
+    whiting~5nz (^food~3) flesh of any of a number of slender food fishes especially of Atlantic coasts of North America
+    whiting~6nz (^food~3) flesh of a cod-like fish of the Atlantic waters of Europe
+ wahoo ( meanings=3 glosses=3 NOUN INTERJECTION NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    wahoo~1nz (^fish~1) large fast-moving predacious food and game fish
+    wahoo~2nz (^bush~4) deciduous shrub having purple capsules enclosing scarlet seeds
+    wahoo~3nz (^bush~4) upright deciduous plant with crimson pods and seeds
+ warning ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    warning~1nz (^advice~1) 
+    warning~2nz (^telling~2) notification of something, usually in advance
+    warning~3nz (^act~1) a message informing of danger
+    warning~4az 
+ wagon ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    wagon~1nz (^automobile~1) a car that has a long body and rear door with space behind rear seat
+    wagon~2nz (^van~1) van used by police to transport prisoners
+    wagon~3nz (^container~1) any of various kinds of wheeled vehicles drawn by an animal or a tractor
+    wagon~4nz (^container~1) a child's four-wheeled toy cart sometimes used for coasting
+ wedge ( meanings=9 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    wedge~1nz (^block~3) a block of wood used to prevent the sliding or rolling of a heavy object
+    wedge~2nz (^machine~3) something solid that is usable as an inclined plane that can be pushed between two things to separate them
+    wedge~3nz (^iron~2) an iron with considerable loft and a broad sole
+    wedge~4nz (^heel~1) a heel that is an extension of the sole of the shoe
+    wedge~5nz (^mark~9) a diacritical mark placed above certain letters (such as the letter c) to indicate pronunciation
+    hero~2n 
+    wedge~7nz (^triangle~3) any shape that is triangular in cross section
+    force~15v 
+    deposit~10v 
+ welcome ( meanings=7 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=welcomer 
+    welcome~1nz (^acknowledgment~1) a greeting or reception
+    welcome~2nz (^acceptance~7) the state of being welcome
+    welcome~3az giving pleasure or satisfaction or received with pleasure or freely granted
+    welcome~4az 
+    receive~5vz bid welcome to
+    welcome~6vz receive someone, as into one's house
+    welcome~7vz accept gladly
+ warmer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=warm 
+    warmer~1nz (^device~2) device that heats water or supplies warmth to a room
+ woman ( meanings=4 glosses=4 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN ) plural=women 
+    woman~1nz (^class~3) women as a class
+    woman~2nz (^cleaner~2) a human female employed to do housework
+    woman~3nz (^adult~2) an adult female person 
+    woman~4nz (^female~2) a female person who plays a significant role in the life of a particular man
+ wooden ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    wooden~1az lacking ease or grace
+    wooden~2az made or consisting of or employing wood
+    wooden~3az 
+ whistle ( meanings=11 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    whistle~1nz (^recorder~1) an inexpensive fipple flute
+    whistle~2nz (^device~2) acoustic device that forces air or steam against an edge or into a cavity and so produces a loud shrill sound
+    whistle~3nz (^wind~4) a small wind instrument that produces a whistling sound by blowing into it
+    whistling~2nz (^signal~1) the act of signalling by whistling or blowing a whistle
+    whistling~3nz (^sound~5) the sound made by something moving rapidly or by steam coming out of a small aperture
+    whistle~6vz utter or express by whistling
+    whistle~7vz give a signal by whistling
+    sing~2v 
+    whistle~9vz move with, or as with, a whistling sound
+    whistle~10vz move, send, or bring as if by whistling
+    whistle~11vz make whistling sounds
+ weed ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    dope~1n 
+    weed~2nz (^band~1) a black band worn by a man as a sign of mourning
+    weed~3nz (^plant~1) any plant that crowds out cultivated plants
+    weed~4vz clear of weeds
+ weighing ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    weighing~1nz (^thinking~1) 
+ waist ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    waist~1nz (^part~3) the narrow part of the shoe connecting the heel and the wide part of the sole
+    waist~2nz (^area~3) the narrowing of the body between the ribs and hips
+ weather ( meanings=6 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    weather~1nz (^process~1) the atmospheric conditions that comprise the state of the atmosphere in terms of temperature and wind and clouds and precipitation
+    weather~2az towards the side exposed to wind
+    weather~3vz change under the action or influence of the weather
+    weather~4vz sail to the windward of
+    weather~5vz cause to slope
+    brave~7vz face and withstand with courage
+ wrapping ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB ) 
+    wrapping~1nz (^bandage~1) an enveloping bandage
+    wrap~2n 
+ walker ( meanings=4 glosses=4 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    walker~1nz (^structure~1) an enclosing framework on casters or wheels
+    walker~2nz (^structure~1) a light enclosing framework with rubber castors or wheels and handles
+    walker~3nz (^shoe~3) a shoe designed for comfortable walking
+    walker~4nz (^traveler~1) a person who travels by foot
+ wallet ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    wallet~1nz (^case~2) a pocket-size case for holding papers and paper money
+ warming ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    warming~1nz (^weather~1) warm weather following a freeze
+    heating~2n 
+    warming~3az 
+    warming~4az imparting heat
+ washcloth ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    washcloth~1nz (^linen~1) bath linen consisting of a piece of cloth used to wash the face and body
+ washer ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 ) 
+    washer~1nz (^appliance~1) a home appliance for washing clothes and linens automatically
+    washer~2nz (^seal~3) seal consisting of a flat disk placed to prevent leakage
+    washer~3nz (^worker~2) someone who washes things for a living
+ wastebasket ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE1_2 posdefault:NOUN ) 
+    wastebasket~1nz (^container~1) a container with an open top
+ weapon ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    arm~4nz (^instrument~2) any instrument or instrumentality used in fighting or hunting
+    weapon~2nz (^communication~2) a means of persuading or arguing
+ weave ( meanings=5 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=woven 
+    weave~1nz (^figure~2) pattern of weaving or structure of a fabric
+    interweave~1vz interlace by or as if by weaving
+    tissue~3v 
+    waver~5vz sway to and fro
+    thread~9v 
+ well ( meanings=23 glosses=19 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL INTERJECTION NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB VERB_NOOBJECT ) 
+    well~1nz (^artifact~1) a deep hole or shaft dug or drilled to obtain water or oil or gas or brine
+    well~2nz (^room~1) an enclosed compartment in a ship or plane for holding something as e.g. fish or a plane's landing gear or for protecting something as e.g. a ship's pumps
+    well~3nz (^shaft~6) an open shaft through the floors of a building
+    well~4nz (^vessel~2) a cavity or vessel used to contain liquid
+    well~5nz (^source~3) an abundant source
+    well~6az wise or advantageous and hence advisable
+    good~11a 
+    well~8az in good health especially after having suffered illness or injury
+    well~9az 
+    good~27b 
+    well~11bz without unusual distress or resentment
+    easily~1b 
+    well~13bz thoroughly or completely
+    well~14bz favorably
+    well~15bz to a suitable or appropriate extent or degree
+    well~16bz in financial comfort
+    well~17bz in a manner affording benefit or advantage
+    well~18bz to a great extent or degree
+    well~19bz with skill or in a pleasing manner
+    well~20bz with prudence or propriety
+    well~21bz with great or especially intimate knowledge
+    well~22bz entirely or fully
+    swell~9vz come up, as of a liquid
+ wet ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) conjugate=wetted comparative=wettest 
+    moisture~1nz (^status~1) wetness caused by water
+    stiff~3a 
+    wet~3az consisting of or trading in alcoholic liquor
+    wet~4az covered or soaked with a liquid such as water
+    wet~5az producing or secreting milk
+    wet~6az supporting or permitting the legal production and sale of alcoholic beverages
+    wet~7az containing moisture or volatile components
+    wet~8vz make one's bed or clothes wet by urinating
+    wet~9vz cause to become wet
+ wheelchair ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    wheelchair~1nz (^chair~2) a movable chair mounted on large wheels
+ wheeled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wheeled~1az having wheels
+ wick ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    wick~1nz (^cord~1) a loosely woven cord that draws fuel by capillary action up into the flame
+    wick~2nz (^cord~1) any piece of cord that conveys liquid by capillary action
+ wide ( meanings=12 glosses=7 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    wide~1az not on target
+    full~2a 
+    broad~4a 
+    broad~8a 
+    wide~5az fully open or extended
+    broad~9a 
+    wide~7az great in degree
+    wide~8az 
+    wide~9bz to or over a great extent or range
+    wide~10bz with or by a broad space
+    wide~11bz far from the intended target
+    wide~12bz to the fullest extent possible
+ wig ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    wig~1nz (^dress~2) hairpiece covering the head and made of real or synthetic hair
+    wig~2nz (^criticism~3) British slang for a scolding
+ willow ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    willow~1nz (^machine~2) a textile machine having a system of revolving spikes for opening and cleaning raw textile fibers
+    willow~2nz (^tree~1) any of numerous deciduous trees and shrubs of the genus Salix
+ wiper ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    wiper~1nz (^device~2) a mechanical device that cleans the windshield
+    wiper~2nz (^contact~3) contact consisting of a conducting arm that rotates over a series of fixed contacts and comes to rest on an outlet
+    wiper~3nz (^worker~2) a worker who wipes
+ wire ( meanings=9 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT (null) ) 
+    wire~1nz (^connection~3) ligament made of metal and used to fasten things or make cages or fences etc
+    wire~2nz (^conductor~1) a metal conductor that carries electricity over a distance
+    telegram~1n 
+    wire~4nz (^finish~7) the finishing line on a racetrack
+    electrify~1vz equip for use with electricity
+    telegraph~2v 
+    wire~7vz fasten with wire
+    wire~8vz string on a wire
+    wire~9vz provide with electrical circuits
+ witch ( meanings=5 glosses=4 NOUN_HUMAN NOUN_SHE NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    witch~1nz (^vision~1) a being imagined to have special powers derived from the devil
+    enchantress~1n 
+    witch~3nz (^adult~2) an ugly evil-looking old woman
+    witch~4nz (^individual~1) a believer in Wicca
+    witch~5vz cast a spell over someone or something
+ witness ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    witness~1nz (^evidence~3) testimony by word or deed to your religious faith
+    spectator~2n 
+    witness~3nz (^individual~1) someone who sees an event and reports what happened
+    witness~4nz (^signer~1) a person who attests to the genuineness of a document or signature by adding their own signature
+    witness~5nz (^individual~1) a person who testifies under oath in a court of law
+    witness~6vz be a witness to
+    find~11v 
+ woolen ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    wool~2n 
+    woolen~2az of or related to or made of wool
+ worldly ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) comparative=worldliest 
+    worldly~1az very sophisticated especially because of surfeit
+    worldly~2az 
+ worsted ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
+    worsted~1nz (^material~1) a woolen fabric with a hard textured surface and no nap
+    worsted~2nz (^thread~2) 
+ wrap ( meanings=7 glosses=6 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) 
+    wrap~1nz (^clothing~1) cloak that is folded or wrapped around a person
+    wrapping~2nz (^covering~4) the covering in which something is wrapped
+    wrap~3nz (^sandwich~1) a sandwich in which the filling is rolled up in a soft tortilla
+    wrap~4vz arrange or fold as a cover or protection
+    wind~12v 
+    wrap~6vz crash into so as to coil around
+    wrap~7vz enclose or enfold completely with or as if with a covering
+ wrench ( meanings=7 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    wrench~1nz (^tool~2) a hand tool that is used to hold or twist a nut or bolt
+    twist~8n 
+    pull~7n 
+    turn~13v 
+    wring~2vz twist and compress, as if in pain or anguish
+    twist~20v 
+    wrench~7vz make a sudden twisting motion
+ wrist ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    wrist~1nz (^piece~11) a joint between the distal end of the radius and the proximal row of carpal bones
+ willful ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    willful~1az habitually disposed to disobedience and opposition
+    willful~2az done by design
+ worn ( meanings=2 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB (null) ) conjugate=wore 
+    drawn~2a 
+    worn~2az affected by wear
+ wavering ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    wavering~1nz (^quality~1) 
+    wavering~2nz (^doubt~2) 
+    vacillating~1a 
+ will ( meanings=6 glosses=5 NOUN_ABSTRACT AUX_VERB_FUTURE NOUN NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    will~1nz (^ability~2) the capability of conscious choice and decision and intention
+    will~2nz (^purpose~3) a fixed and persistent intent or purpose
+    will~3nz (^instrument~5) a legal document declaring a person's wishes regarding the disposal of their property when they die
+    will~4vz determine by choice
+    will~5vz decree or ordain
+    leave~10v 
+ wise ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    wise~1nz (^fashion~3) a way of doing or being
+    smart~3a 
+    knowing~3az evidencing the possession of inside information
+    judicious~1az marked by the exercise of good judgment or common sense in practical matters
+    wise~5az having or prompted by wisdom or discernment
+    wise~6az 
+ weak ( meanings=13 glosses=11 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    weak~1az deficient in intelligence or mental power
+    weak~2az overly diluted
+    weak~3az likely to fail under stress or pressure
+    frail~4az wanting in moral strength, courage, or will
+    faint~5az deficient in magnitude
+    weak~6az not having authority, political strength, or governing power
+    weak~7az having standard (or regular) inflection
+    decrepit~1az lacking bodily or muscular strength or vitality
+    weak~9az deficient or lacking in some skill
+    light~35a 
+    weak~11az wanting in physical strength
+    weak~12az tending downward in price
+    weak~13az 
+ wealth ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    wealth~1nz (^quantity~2) the quality of profuse abundance
+    wealth~2nz (^property~5) property that has economic utility: a monetary value or an exchange value
+    riches~1nz (^relation~1) an abundance of material possessions and resources
+    wealth~4nz (^status~1) the state of being rich and affluent
+ wilderness ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    wilderness~1nz (^quantity~2) a bewildering profusion
+    wild~1n 
+    wilderness~3nz (^situation~4) a state of disfavor
+ width ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    width~1nz (^dimension~2) the extent of something from side to side
+ worth ( meanings=5 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    worth~1nz (^quality~1) the quality that renders something desirable or valuable or useful
+    worth~2nz (^measure~1) an indefinite quantity of something having a specified value
+    worth~3az having a specified value
+    deserving~1az worthy of being treated in a particular way
+    worth~5z 
+ worse ( meanings=4 glosses=3 MORE_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=bad 
+    worse~1az inferior to another in quality or condition or desirability
+    worse~2az changed for the worse in health or fitness
+    worse~3az 
+    worse~4bz in a less effective or successful or desirable manner
+ wit ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    brain~3nz (^intelligence~2) mental ability
+    humour~5n 
+    wag~2n 
+ writer ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    author~2nz (^individual~1) writes professionally (for pay)
+    writer~2nz (^individual~1) a person who is able to write and has written something
+ wonder ( meanings=6 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) (null) ) 
+    wonder~1nz (^status~1) a state in which you want to learn more about something
+    wonder~2nz (^event~1) something that causes feelings of wonder
+    wonder~3nz (^amazement~1) the feeling aroused by something strange and surprising
+    inquire~1vz have a wish or desire to know something
+    question~11v 
+    wonder~6vz be amazed at
+ wish ( meanings=10 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) (null) (null) (null) ) 
+    wish~1nz (^preference~2) the particular preference that you have
+    regard~5n 
+    wish~3nz (^request~2) an expression of some desire or inclination
+    want~1nz (^desire~2) a specific feeling of desire
+    bid~7v 
+    wish~6vz order politely
+    wish~7vz make or express a wish
+    wish~8vz hope for
+    wish~9vz feel or express a desire or hope concerning the future or fortune of
+    care~9v 
+ worry ( meanings=8 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT COMMON_PARTICIPLE_VERB (null) ) 
+    concern~2n 
+    trouble~5n 
+    worry~3vz touch or rub constantly
+    worry~4vz lacerate by biting
+    worry~5vz disturb the peace of mind of
+    care~7vz be concerned with
+    worry~7vz be worried, concerned, anxious, troubled, or uneasy
+    concern~7v 
+ weekly ( meanings=3 glosses=3 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE TIMEWORD ) 
+    weekly~1nz (^periodical~1) a periodical that is published every week
+    weekly~2az of or occurring every seven days
+    weekly~3bz without missing a week
+ write ( meanings=10 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) conjugate=written 
+    write~1vz communicate or express by writing
+    save~4vz record data on a computer
+    write~3vz communicate in writing
+    write~4vz communicate by letter
+    write~5vz mark or trace on a surface
+    write~6vz create code, write a computer program
+    compose~3vz produce a literary work
+    spell~9vz write or name the letters that comprise the conventionally accepted form of 
+    compose~4vz write music
+    publish~2vz have issued for publication
+ warranty ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    warranty~1nz (^pledge~1) a written assurance that some product or service will be provided or will meet certain specifications
+ what ( meanings=3 QWORD PRONOUN_SUBJECT PRONOUN_OBJECT PREDETERMINER DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN PRONOUN_RELATIVE ) 
+    what~1z 
+    what~2z 
+    what~3z 
+ wow ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB INTERJECTION NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) 
+    scream~1n 
+    wow~2vz impress greatly
+ wording ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    wording~1nz (^expression~6) 
+ whisper ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    whispering~1nz (^communication~1) speaking softly without vibration of the vocal cords
+    whispering~2nz (^noise~5) a light noise, like the noise of silk clothing or leaves blowing in the wind
+    whisper~3vz speak softly
+ want ( meanings=9 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT (null) (null) (null) ) 
+    wishing~1n 
+    need~2n 
+    lack~1n 
+    deprivation~3nz (^poverty~1) a state of extreme poverty
+    want~5vz wish or demand the presence of
+    need~5v 
+    want~7vz hunt or look for
+    desire~4v 
+    want~9vz be without, lack
+ waving ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    wave~3n 
+ wanted ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    treasured~1az characterized by feeling or showing fond affection for
+    wanted~2az desired or wished for or sought
+    wanted~3az 
+ wring ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) conjugate=wrung 
+    squeeze~5n 
+    wrench~5v 
+    wring~3vz twist and press out of shape
+    wring~4vz twist, squeeze, or compress in order to extract liquid
+    rack~17v 
+ win ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=won 
+    win~1nz (^victory~1) a victory 
+    win~2nz (^gain~3) something won
+    win~3vz be the winner in a contest or competition
+    advance~14v 
+    gain~10v 
+    succeed~2v 
+ withering ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    withering~1nz (^weakening~2) any weakening or degeneration
+    withering~2az 
+    withering~3az 
+ won ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PAST VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=win 
+    won~1nz (^unit~5) the basic unit of money in North Korea
+    won~2nz (^unit~5) the basic unit of money in South Korea
+    won~3az not subject to defeat
+ walnut ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN (null) ) 
+    walnut~1nz (^nut~5) nut of any of various walnut trees having a wrinkled two-lobed seed with a hard shell
+    walnut~2nz (^tree~1) any of various trees of the genus Juglans
+    walnut~3nz (^wood~4) hard dark-brown wood of any of various walnut trees
+ wounded ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    maimed~1nz (^people~1) people who are wounded
+    hurt~7a 
+    wounded~3az 
+ welcoming ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    welcoming~1az very cordial
+ woods ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    wood~3n 
+ west ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) comparative=wester 
+    west~1nz (^object~1) a location in the western part of a country, region, or city
+    west~2nz (^point~22) the cardinal compass point that is a 270 degrees
+    west~3nz (^direction~9) the direction corresponding to the westward cardinal compass point
+    west~4az situated in or facing or moving toward the west
+    west~5bz to, toward, or in the west
+ why ( meanings=2 glosses=1 NOUN_ABSTRACT QWORD NOUN ADVERB CONJUNCTION_SUBORDINATE NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN CONJUNCT_SUBORD_NOUN ) 
+    why~1nz (^ground~7) the cause or intention underlying an action or situation, especially in the phrase `the whys and wherefores'
+    why~2z 
+ wee ( meanings=5 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:ADJECTIVE VERB_NOOBJECT (null) ) 
+    wee~1nz (^time~5) a short time
+    wee~2az very early
+    bitty~1a 
+    wee~4az 
+    puddle~4v 
+ waterfall ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    waterfall~1nz (^water~3) a steep descent of the water of a river
+ weird ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    weird~1az strikingly odd or unusual
+    weird~2az suggesting the operation of supernatural influences
+    weird~3az 
+ wizard ( meanings=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 GRADE5_6 posdefault:NOUN ) 
+    virtuoso~1n 
+    sorcerer~1n 
+    witching~2a 
+ wetter ( meanings=3 glosses=3 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=wet 
+    wetter~1nz (^individual~1) someone suffering from enuresis
+    wetter~2nz (^workman~1) a workman who wets the work in a manufacturing process
+    wetter~3nz (^cause~1) a chemical agent capable of reducing the surface tension of a liquid in which it is dissolved
+ waiter ( meanings=2 glosses=2 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    waiter~1nz (^employee~1) a person whose occupation is to serve at table
+    waiter~2nz (^individual~1) a person who waits or awaits
+ weirdo ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    crazy~1nz (^unfortunate~1) someone deranged and possibly dangerous
+    creep~4nz (^individual~1) someone unpleasantly strange or eccentric
+ waster ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=waste 
+    waster~1nz (^individual~1) a person who destroys or ruins or lays waste to
+    waster~2nz (^consumer~1) someone who dissipates resources self-indulgently
+ welcomer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=welcome 
+    welcomer~1nz (^individual~1) a person who greets
+ wholesaler ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) comparative=wholesale 
+    wholesaler~1nz (^individual~1) someone who buys large quantities of goods and resells to merchants rather than to the ultimate customers
+ waitress ( meanings=2 glosses=2 NOUN_HUMAN NOUN_SHE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_NOOBJECT ) 
+    waitress~1nz (^waiter~1) a woman waiter
+    wait~4vz serve as a waiter or waitress in a restaurant
+ warlock ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    warlock~1nz (^witch~1) a male witch or demon
+ weekend ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_NOOBJECT TIMEWORD ) 
+    weekend~1nz (^period~3) a time period usually extending from Friday night through Sunday
+    weekend~2vz spend the weekend
+ whited ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    whited~1az 
+ widower ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    widower~1nz (^man~4) a man whose wife is dead especially one who has not remarried
+ wife ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) plural=wives 
+    wife~1nz (^partner~3) a married woman
+ wildcatter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 GRADE1_2 ) comparative=wildcat 
+    wildcatter~1nz (^businessman~1) an oilman who drills exploratory wells in territory not known to be an oil field
+ workman ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    workman~1nz (^employee~1) an employee who performs manual or industrial labor
+ warm ( meanings=14 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) comparative=warmer 
+    warm~1az of a seeker
+    warm~2az uncomfortable because of possible danger or trouble
+    warm~3az characterized by liveliness or excitement or disagreement
+    warm~4az characterized by strong enthusiasm
+    quick~3a 
+    strong~2a 
+    tender~8a 
+    warm~8az having or producing a comfortable and agreeable degree of heat or imparting or maintaining heat
+    warm~9az psychologically warm
+    warm~10az inducing the impression of warmth
+    warm~11az 
+    warm~12bz in a warm manner
+    warm~13vz make warm or warmer
+    warm~14vz get warm or warmer
+ wester ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=west 
+    wester~1nz (^wind~8) wind that blows from west to east
+ winged ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    winged~1az very fast
+    winged~2az having wings or as if having wings of a specified kind
+    winged~3az 
+ watered ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    watered~1az having a wavelike pattern
+ weighting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    weight~6n 
+ wasting ( meanings=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    wasting~1nz (^evidence~1) 
+    wasting~2nz (^infirmity~1) 
+ wove ( VERB_PAST VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB ) conjugate=weaved 
+ week ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE posdefault:NOUN TIMEWORD (null) ) 
+    week~1nz (^period~3) hours or days of work in a calendar week
+    week~2nz (^period~3) a period of seven consecutive days starting on Sunday
+    week~3nz (^period~3) any period of seven consecutive days
+ wintertime ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    winter~1nz (^season~1) the coldest season of the year
+ while ( meanings=3 NOUN PREPOSITION CONJUNCTION_SUBORDINATE NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION TIMEWORD ) 
+    spell~3n 
+    while~2z 
+    while~3z 
+ watches ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB ) plural=watch 
+ wives ( NOUN NOUN_PLURAL COMMON4 posdefault:NOUN ) plural=wife 
+ wolves ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) plural=wolf 
+ whew ( NOUN INTERJECTION NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+ whaa ( INTERJECTION ) 
+ whaa> ( INTERJECTION ) 
+ waa ( INTERJECTION ) 
+ waaa ( INTERJECTION ) 
+ wah ( INTERJECTION ) 
+ whee ( INTERJECTION ) 
+ whoa ( INTERJECTION KINDERGARTEN ) 
+ whoo ( INTERJECTION ) 
+ whoops ( INTERJECTION COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+ whoopsey ( INTERJECTION ) 
+ woops ( INTERJECTION ) 
+ wuzzup ( INTERJECTION ) 
+ when ( meanings=2 QWORD ADVERB PREPOSITION CONJUNCTION_SUBORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION CONJUNCT_SUBORD_NOUN TIMEWORD ) 
+    when~1z 
+    when~2z 
+ wanting ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 GRADE1_2 posdefault:VERB ) 
+    deficient~1az inadequate in amount or degree
+    absent~2az nonexistent
+ watchful ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    alert~4az engaged in or accustomed to close observation
+    watchful~2az experiencing or accompanied by sleeplessness
+    watchful~3az 
+ wrapped ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    absorbed~1a 
+    clothed~2a 
+    wrapped~3az enclosed securely in a covering of paper or the like
+    wrapped~4az 
+ with ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    with~1z 
+ wired ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    wired~1az tied or bound with wire
+    pumped~1az 
+    wired~3az equipped with wire or wires especially for electric or telephone service
+    wired~4az 
+ winded ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    blown~1a 
+    winded~2az 
+ windy ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=windiest 
+    windy~1az abounding in or exposed to the wind or breezes
+    verbose~1az using or containing too many words
+    windy~3az resembling the wind in speed, force, or variability
+    impractical~2az not practical or realizable
+    windy~5az 
+ weighted ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    weighted~1az adjusted to reflect value or proportion
+    weighted~2az made heavy or weighted down with weariness
+    weighted~3az 
+ waxy ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) comparative=waxiest 
+    waxy~1az having the paleness of wax
+    pliable~1a 
+    waxy~3az easily impressed or influenced
+    waxy~4az made of or covered with wax
+    waxy~5az 
+ washed ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:VERB (null) ) 
+    washed~1az clean by virtue of having been washed in water
+    washed~2az wet as from washing
+ without ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    without~1z 
+ wedged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wedged~1az 
+ wasted ( meanings=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    diminished~1a 
+    cadaverous~1a 
+    wasted~3az 
+    wasted~4az 
+ wondering ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    questioning~2a 
+ worried ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB (null) ) 
+    apprehensive~2az mentally upset over possible misfortune or danger etc
+    upset~9a 
+    worried~3az 
+ withered ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    wizened~1a 
+    sear~1a 
+ wizened ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    withered~1az lean and wrinkled by shrinkage as from age or illness
+ wed ( meanings=3 VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) conjugate=wedded 
+    wedded~1a 
+    marry~1v 
+    tie~17v 
+ wedded ( meanings=2 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=wed 
+    wed~1az having been taken in marriage
+    wedded~2az 
+ widowed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    widowed~1az single because of death of the spouse
+ wicked ( meanings=6 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 (null) ) 
+    severe~4a 
+    repellent~5a 
+    wicked~3az having committed unrighteous acts
+    arch~5a 
+    wicked~5az morally bad in principle or practice
+    wicked~6az 
+ wiggly ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE posdefault:ADVERB ) 
+    wiggly~1az moving in a twisting or snake-like or wormlike fashion
+    wiggly~2az curved or curving in and out
+ wizardly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADVERB ) 
+    charming~1a 
+    wizardly~2az 
+ wonderful ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    tremendous~2a 
+    wonderful~2az 
+ wrenching ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    racking~1az causing great physical or mental suffering
+ warring ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    warring~1az 
+ withdrawn ( meanings=2 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=withdrew 
+    withdrawn~1az tending to reserve or introspection
+    recluse~2az withdrawn from society
+ whatever ( meanings=4 QWORD PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE CONJUNCTION_SUBORDINATE DETERMINER ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN PRONOUN_SINGULAR CONJUNCT_SUBORD_NOUN PRONOUN_RELATIVE ) 
+    whatsoever~1a 
+    whatever~2z 
+    whatever~3z 
+    whatever~4z 
+ whatsoever ( meanings=2 glosses=1 PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN PRONOUN_RELATIVE ) 
+    any~1az one or some or every or all without specification
+    whatsoever~2z 
+ whispered ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    whispered~1az spoken in soft hushed tones without vibrations of the vocal cords
+ warmed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    warmed~1az having been warmed up
+ waxed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    waxed~1az treated with wax
+ woven ( meanings=1 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB posdefault:ADJECTIVE ) conjugate=wove 
+    woven~1az made or constructed by interlacing threads or strips of material or other elements into a whole
+ weathered ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    weathered~1az 
+    weathered~2az 
+ worthwhile ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    worthwhile~1az sufficiently valuable to justify the investment of time or interest
+    worthwhile~2az 
+ weatherly ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
+    weatherly~1az making very little leeway when close-hauled
+ waxier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=waxy 
+ waxiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL GRADE5_6 ) comparative=waxier 
+ wettest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=wetter 
+ windier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=windy 
+ windiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=windier 
+ woollier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) comparative=woolly 
+ woolliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=woollier 
+ worldlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 posdefault:ADJECTIVE ) comparative=worldly 
+ worldliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) comparative=worldlier 
+ wholly ( meanings=1 ADVERB COMMON4 GRADE5_6 posdefault:ADVERB ) 
+    altogether~2b 
+ within ( meanings=2 ADVERB PREPOSITION EXTENT_ADVERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    inside~10b 
+    within~2z 
+ whence ( meanings=1 glosses=1 QWORD ADVERB CONJUNCTION_SUBORDINATE COMMON2 COMMON1 KINDERGARTEN ) 
+    whence~1bz from what place, source, or cause
+ wherever ( meanings=2 glosses=1 ADVERB CONJUNCTION_SUBORDINATE COMMON4 KINDERGARTEN CONJUNCT_SUBORD_NOUN ) 
+    wherever~1bz where in the world
+    wherever~2z 
+ whether ( meanings=4 ADVERB CONJUNCTION_COORDINATE CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    whether~1bz 
+    whether~2z 
+    whether~3z 
+    whether~4z 
+ whom ( meanings=1 QWORD PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN PRONOUN_RELATIVE ) 
+    whom~1z 
+ who ( meanings=1 QWORD PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON2 KINDERGARTEN PRONOUN_RELATIVE ) 
+    who~1z 
+ whose ( meanings=2 QWORD DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON1 KINDERGARTEN PRONOUN_RELATIVE ) 
+    whose~1z 
+    whose~2z 
+ whomever ( meanings=1 QWORD PRONOUN_OBJECT COMMON2 COMMON1 KINDERGARTEN PRONOUN_SINGULAR PRONOUN_RELATIVE ) 
+    whomever~1z 
+ whoever ( meanings=1 QWORD PRONOUN_SUBJECT COMMON4 KINDERGARTEN PRONOUN_SINGULAR PRONOUN_RELATIVE ) 
+    whoever~1z 
+ which ( meanings=3 QWORD PRONOUN_SUBJECT PRONOUN_OBJECT CONJUNCTION_SUBORDINATE DETERMINER COMMON4 COMMON2 COMMON1 KINDERGARTEN PRONOUN_RELATIVE ) 
+    which~1z 
+    which~2z 
+    which~3z 
+ whichever ( meanings=3 QWORD PRONOUN_SUBJECT PRONOUN_OBJECT DETERMINER COMMON4 KINDERGARTEN PRONOUN_SINGULAR PRONOUN_RELATIVE ) 
+    whichever~1z 
+    whichever~2z 
+    whichever~3z 
+ where ( meanings=2 QWORD PRONOUN_SUBJECT PRONOUN_OBJECT ADVERB CONJUNCTION_SUBORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION CONJUNCT_SUBORD_NOUN PRONOUN_RELATIVE ) 
+    where~1z 
+    where~2z 
+ whereby ( meanings=1 QWORD ADVERB CONJUNCTION_SUBORDINATE COMMON4 KINDERGARTEN ) 
+    whereby~1z 
+ whereein ( QWORD ADVERB CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+ whereupon ( meanings=1 QWORD ADVERB CONJUNCTION_SUBORDINATE COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    whereupon~1z 
+ whenever ( meanings=1 QWORD ADVERB CONJUNCTION_SUBORDINATE COMMON4 COMMON1 KINDERGARTEN CONJUNCT_SUBORD_NOUN ) 
+    whenever~1z 
+ whereever ( QWORD ADVERB CONJUNCTION_SUBORDINATE COMMON2 KINDERGARTEN ) 
+ whereeof ( CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+ whither ( CONJUNCTION_SUBORDINATE COMMON2 COMMON1 KINDERGARTEN ) 
+ where_if ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    where_if~1z 
+ whereas ( meanings=1 CONJUNCTION_SUBORDINATE COMMON4 KINDERGARTEN posdefault:PREPOSITION ) 
+    whereas~1z 
+ whereafter ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN ) 
+    whereafter~1z 
+ whether_or_not ( meanings=1 CONJUNCTION_SUBORDINATE KINDERGARTEN posdefault:PREPOSITION ) 
+    whether_or_not~1z 
+ withdraw ( meanings=12 glosses=12 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=withdrawn 
+    take~4vz remove something concrete, as by lifting, pushing, or taking off, or remove something abstract
+    withdraw~2vz keep away from others
+    swallow~7vz take back what one has said
+    retreat~8vz make a retreat from an earlier commitment or activity
+    withdraw~5vz release from something that holds fast, connects, or entangles
+    retire~4vz lose interest
+    retreat~9vz pull back or move away or backward
+    draw~42vz remove from (a supply source)
+    recall~10vz cause to be returned
+    retire~8vz withdraw from active participation
+    withdraw~11vz retire gracefully
+    adjourn~2vz break from a meeting or gathering
+ wither ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    wither~1vz wither, as with a loss of moisture
+    fade~6v 
+ wander ( meanings=5 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    digress~1v 
+    drift~12v 
+    weave~5v 
+    wander~4vz go via an indirect route or at no set pace
+    cheat~9v 
+ warn ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) 
+    warn~1vz notify, usually in advance
+    warn~2vz ask to go away
+    warn~3vz notify of danger, potential harm, or risk
+    discourage~1v 
+ weigh ( meanings=5 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    consider~6v 
+    count~10v 
+    press~22v 
+    weigh~4vz determine the weight of
+    weigh~5vz have a certain weight
+ wade ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    wade~1vz walk 
+ withhold ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) conjugate=withheld 
+    withhold~1vz hold back
+    withhold~2vz retain and refrain from disbursing
+ was ( meanings=1 SINGULAR_PERSON VERB_PAST AUX_BE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=been 
+    was~1vz 
+ were ( meanings=1 VERB_PAST AUX_BE VERB COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=was 
+    were~1vz 
+ went ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=go 
+ waked ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON2 KINDERGARTEN posdefault:VERB ) conjugate=wake 
+ woke ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=waked 
+ woken ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=woke 
+ wore ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=wear 
+ weaved ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 GRADE3_4 posdefault:VERB ) conjugate=weave 
+ wetted ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=wet 
+ withdrew ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=withdraw 
+ withheld ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 GRADE5_6 posdefault:VERB ) conjugate=withhold 
+ wrung ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=wring 
+ wrote ( VERB_PAST VERB COMMON4 COMMON1 KINDERGARTEN GRADE5_6 posdefault:VERB ) conjugate=write 
+ would ( AUX_VERB_FUTURE COMMON4 COMMON2 COMMON1 KINDERGARTEN ) 
+ we ( meanings=1 PRONOUN_SUBJECT COMMON4 COMMON2 KINDERGARTEN PRONOUN_PLURAL ANIMATE_BEING ) 
+    we~1z 
+ whosever ( meanings=1 PRONOUN_SUBJECT PRONOUN_POSSESSIVE KINDERGARTEN PRONOUN_RELATIVE ) 
+    whosever~1z 
+ whosesoever ( meanings=1 PRONOUN_POSSESSIVE KINDERGARTEN PRONOUN_RELATIVE ) 
+    whosesoever~1z 
+ whomsoever ( meanings=1 PRONOUN_OBJECT COMMON2 COMMON1 KINDERGARTEN PRONOUN_SINGULAR PRONOUN_RELATIVE ) 
+    whomsoever~1z 
+ whosoever ( meanings=1 PRONOUN_SUBJECT COMMON2 COMMON1 KINDERGARTEN PRONOUN_SINGULAR PRONOUN_RELATIVE ) 
+    whosoever~1z 

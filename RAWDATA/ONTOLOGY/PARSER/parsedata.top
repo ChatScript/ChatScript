@@ -1,0 +1,56 @@
+# this data is used by the internal engine parser via ~special_english_attributes
+##<<ENGLISH 
+
+concept: ~misc_parsedata (~causal_to_infinitive_verbs  )
+
+# "After common nouns referring to time, when is often replaced by that or dropped in an informal style."
+# "that" as object of the relative clause can be omitted "the chickens that(object) I love"  but not as subject  "the chickens that love"
+concept: ~causal_to_infinitive_verbs VERB VERB_INFINITIVE ( # "I authorize you to find him'
+	adjure  advocate allow allure announce appoint apprize assist ask assure assume authorize  believe bother bribe burden  call cause certify challenge  choose clamor clear compel commission conceive condemn confess consider condition conjure constrain convince countenance counsel
+		deem  decide declare defy demand  devote  disincline disqualify dispose   elect  enable  entitle equip     
+		  fit  forget force    hate have 
+		help hire hold hope imagine incite incline induce instigate  insist   invite  know  learn like  love  mean   name need     pay   persuade plan  prefer   presume
+		proclaim profess  pronounce promise  rate    remember  report    rumour        summon  suggest take take_into_account    think threaten   tip train trust # actually would_like instead of like
+		understand   vote want warn  wish)  
+
+# these verbs take to noun infinitive as object
+# agree aim appear arrange ask attempt be_able beg begin care choose condescend consent continue
+# dare decide deserve detest dislike expect fail forget get happen have hesitate hope hurry intend leap
+# leave like long love mean neglect offer ought plan prefer prepare proceed promise propose refuse remember say
+# (probably all noted by wordnet)
+
+# these verb take gerunds as object
+# admit advise appreciate avoid can't_help complete consider delay deny detest dislike enjoy escape excuse
+# finish forbit get_through have imagine mind miss permit postpone practice quit recall report resent
+# resist resume risk spend_time suggest tolerate waste_time
+
+# these verb followed by preposition and gerund
+# admit to   approve of   argue about  believe in  care about complain about concentrate on confess to 
+# depend on disapprove of  discourage from  dreama about  fell like forget about insist on object to plan on
+# prevent (someone) from  refrain from succeed in talk about thinkg about worry about
+
+
+
+concept: ~verbs_of_perception( feel hear "listen to" "look at" notice observe see smell watch) # can use "we watched them play" verbs without to
+
+concept: ~completeness_adjectives ( all_over)
+
+ # get - wet, dry, crazy
+ # go - bad, stale  - home as an adjective cant be
+ # grow- younger, old, older, dangerous
+ # turn - nasty, any color
+
+
+ concept: ~quotableverbs(  add think  # used as member only, no flags, cannot refer to concepts
+describe educate elucidate explain explicate expound inform talk teach tell   advise alert allege announce apologize 
+	apprise articulate ascribe ask assert assure attest beg belabor belabour beseech blab 
+          bluster boast brag brief caution characterize claim clarify comment complain confabulate confess confide convey corroborate counsel declare 
+          describe dictate disclose divulge drawl drone educate elaborate elucidate encourage entreat enunciate espouse exclaim express gloat gripe 
+          grouch grouse hint illustrate imply inform insinuate insist instruct intimate iterate justify leak lecture lobby mention message moralize 
+          narrate note notify orate prattle preachify preach proclaim promulgate pronounce prophesy propose rabbit_on recite recount reiterate relate 
+          relay remark remind repeat reply report respond reveal  say sermonise sermonize speak spiel state suggest sweet-talk talk tell testify 
+          theorize update utter venture verbalise verbalize verify vocalise vocalize vociferate voice warn wheedle )
+
+concept: ~restrictive_adverbs( only no still up down just) # "I ate *only chicken"  vs  "I ate the *only chicken"  "there are *still beauty plans left" 
+# also directionals because they are too hard to deal with
+##>>

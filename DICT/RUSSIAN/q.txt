@@ -1,0 +1,167 @@
+﻿ Q ( ) lemma=`q` -  
+ Q3 ( ) lemma=`q3` Ncmsln  
+ Q32 ( ) lemma=`q32` -  
+ Q59 ( ) lemma=`q59` Afpmpaf  
+ Q60 ( ) lemma=`q60` -  
+ QCA ( ) lemma=`qca` -  
+ QRP ( ) lemma=`qrp` -  
+ QUOTE ( ) lemma=`quote` -  
+ QUOTE( ( ) lemma=`quote(` -  
+ QUOTE(Andris ( ) lemma=`quote(andris` -  
+ QUOTE(Angelin ( ) lemma=`quote(angelin` -  
+ QUOTE(Ant ( ) lemma=`quote(ant` -  
+ QUOTE(Baboon ( ) lemma=`quote(baboon` -  
+ QUOTE(BatMent ( ) lemma=`quote(batment` -  
+ QUOTE(DMA ( ) lemma=`quote(dma` -  
+ QUOTE(Guest ( ) lemma=`quote(guest` -  
+ QUOTE(IED ( ) lemma=`quote(ied` -  
+ QUOTE(IgorK ( ) lemma=`quote(igork` -  
+ QUOTE(Jacob ( ) lemma=`quote(jacob` -  
+ QUOTE(Jezebel ( ) lemma=`quote(jezebel` -  
+ QUOTE(Lisa ( ) lemma=`quote(lisa` -  
+ QUOTE(Lukitch ( ) lemma=`quote(lukitch` -  
+ QUOTE(Myxa ( ) lemma=`quote(myxa` -  
+ QUOTE(Natka ( ) lemma=`quote(natka` -  
+ QUOTE(Net ( ) lemma=`quote(net` -  
+ QUOTE(Nicholaes ( ) lemma=`quote(nicholaes` -  
+ QUOTE(PTE ( ) lemma=`quote(pte` -  
+ QUOTE(Snake ( ) lemma=`quote(snake` -  
+ QUOTE(Ulisses ( ) lemma=`quote(ulisses` -  
+ QUOTE(Veronika ( ) lemma=`quote(veronika` -  
+ QUOTE(Z ( ) lemma=`quote(z` -  
+ QUOTE(alkitobi ( ) lemma=`quote(alkitobi` -  
+ QUOTE(fanat210 ( ) lemma=`quote(fanat210` -  
+ QUOTE(koks ( ) lemma=`quote(koks` -  
+ QUOTE(lexx ( ) lemma=`quote(lexx` -  
+ QUOTE(mark ( ) lemma=`quote(mark` -  
+ QUOTE(monk ( ) lemma=`quote(monk` -  
+ QUOTE(nslynko ( ) lemma=`quote(nslynko` -  
+ QUOTE(referent ( ) lemma=`quote(referent` -  
+ QUOTE(romanov ( ) lemma=`quote(romanov` -  
+ Qa6 ( ) lemma=`qa6` -  
+ Qawra ( ) lemma=`qawra` -  
+ Qb2 ( ) lemma=`qb2` -  
+ Qb4 ( ) lemma=`qb4` Ncmpgn  
+ Qb5 ( ) lemma=`qb5` -  
+ Qb6 ( ) lemma=`qb6` -  
+ Qb6+ ( ) lemma=`qb6+` Ncmpgn  
+ Qb8 ( ) lemma=`qb8` Ncmpgn  
+ Qc6 ( ) lemma=`qc6` -  
+ Qc7 ( ) lemma=`qc7` -  
+ Qd8 ( ) lemma=`qd8` Ncmpgn  
+ Qe2+ ( ) lemma=`qe2+` -  
+ Qe5 ( ) lemma=`qe5` Ncmpgn  
+ Qe5+ ( ) lemma=`qe5+` -  
+ Qe6 ( ) lemma=`qe6` -  
+ Qe8 ( ) lemma=`qe8` Ncmpgn  
+ Qf1+ ( ) lemma=`qf1+` -  
+ Qf2 ( ) lemma=`qf2` -  
+ Qf2+ ( ) lemma=`qf2+` Ncmpgn  
+ Qf4 ( ) lemma=`qf4` -  
+ Qf6 ( ) lemma=`qf6` -  
+ Qg2 ( ) lemma=`qg2` -  
+ Qg2# ( ) lemma=`qg2#` -  
+ Qg2+ ( ) lemma=`qg2+` -  
+ Qg6 ( ) lemma=`qg6` -  
+ Qg6+ ( ) lemma=`qg6+` -  
+ Qg8 ( ) lemma=`qg8` -  
+ Qh2 ( ) lemma=`qh2` -  
+ Qh2+ ( ) lemma=`qh2+` -  
+ Qh3+ ( ) lemma=`qh3+` -  
+ Qh4+ ( ) lemma=`qh4+` -  
+ Qh5# ( ) lemma=`qh5#` Ncmpgn  
+ Qh6 ( ) lemma=`qh6` -  
+ Qim ( ) lemma=`qim` -  
+ Qim/Mnajdra ( ) lemma=`qim/mnajdra` -  
+ QoS ( ) lemma=`qos` -  
+ Qt ( ) lemma=`qt` -  
+ Quadriga ( ) lemma=`quadriga` -  
+ Quake ( ) lemma=`quake` -  
+ Qualification ( ) lemma=`qualification` -  
+ Qualifications ( ) lemma=`qualifications` -  
+ Quandro ( ) lemma=`quandro` -  
+ Quanta ( ) lemma=`quanta` -  
+ Quantity( ( ) lemma=`quantity(` -  
+ Quantum ( ) lemma=`quantum` -  
+ Quark ( ) lemma=`quark` -  
+ Quartely ( ) lemma=`quartely` -  
+ Quarterly ( ) lemma=`quarterly` -  
+ Quartus ( ) lemma=`quartus` -  
+ Quartz ( ) lemma=`quartz` -  
+ Quasiadiabatic ( ) lemma=`quasiadiabatic` -  
+ Quatre ( ) lemma=`quatre` -  
+ Quazatron ( ) lemma=`quazatron` -  
+ Queen ( ) lemma=`queen` -  
+ Queene ( ) lemma=`queene` -  
+ Quest ( ) lemma=`quest` -  
+ Questions ( ) lemma=`questions` -  
+ Queues ( ) lemma=`queues` -  
+ Qui ( ) lemma=`qui` -  
+ QuickSave ( ) lemma=`quicksave` -  
+ Quicksilver ( ) lemma=`quicksilver` -  
+ Quid ( ) lemma=`quid` -  
+ Quiet ( ) lemma=`quiet` -  
+ Quietly ( ) lemma=`quietly` -  
+ Quinquet ( ) lemma=`quinquet` -  
+ Quiter ( ) lemma=`quiter` -  
+ Quotations ( ) lemma=`quotations` -  
+ Qxb2 ( ) lemma=`qxb2` -  
+ Qxd4+ ( ) lemma=`qxd4+` -  
+ Qxd4–+ ( ) lemma=`qxd4–+` -  
+ Qxe1 ( ) lemma=`qxe1` -  
+ Qxe2+ ( ) lemma=`qxe2+` Ncmpgn  
+ Qxe4 ( ) lemma=`qxe4` Mc---d  
+ Qxf3# ( ) lemma=`qxf3#` -  
+ Qxf4 ( ) lemma=`qxf4` -  
+ Qxf4+ ( ) lemma=`qxf4+` -  
+ Qxf6 ( ) lemma=`qxf6` -  
+ Qxf8 ( ) lemma=`qxf8` -  
+ Qxg3+ ( ) lemma=`qxg3+` -  
+ Qxh2# ( ) lemma=`qxh2#` -  
+ Qxh2+ ( ) lemma=`qxh2+` -  
+ Qxh3+ ( ) lemma=`qxh3+`qxh3+` -  Ncmpgn  
+ q ( ) 
+ q3 ( ) 
+ q=30&pub=1051 ( ) 
+ qc/0211050 ( ) 
+ qeioth ( ) 
+ qody ( ) 
+ qodzic ( ) 
+ qua ( ) 
+ quaSVIDITSVBVMra ( ) lemma=`quasviditsvbvmra` -  
+ quae ( ) 
+ quality ( ) 
+ quality="high ( ) 
+ quam ( ) 
+ quantum ( ) 
+ quartum ( ) 
+ quartz ( ) 
+ quatre ( ) 
+ que ( ) 
+ queen ( ) 
+ query ( ) 
+ question ( ) 
+ qui ( ) 
+ quibene ( ) 
+ quiet ( ) 
+ quis ( ) 
+ quit ( ) 
+ quite ( ) 
+ quo ( ) 
+ quod ( ) 
+ quoi ( ) 
+ quondam ( ) 
+ quos ( ) 
+ quote ( ) 
+ quote= ( ) 
+ quote=Andris ( ) lemma=`quote=andris` -  
+ quote=Andris][quote=der ( ) lemma=`quote=andris][quote=der` -  
+ quote=Disan2 ( ) lemma=`quote=disan2` Mc---d  
+ quote=Jim][ ( ) lemma=`quote=jim][` -  
+ quote=S ( ) lemma=`quote=s` -  
+ quote=Xtinka ( ) lemma=`quote=xtinka` -  
+ quote=Xtinka]1 ( ) lemma=`quote=xtinka]1` Mc---d  
+ quote=der ( ) 
+ qwdddddd ( ) 
+ qwerty@ostrov ( ) 
+ qwes ( ) 

@@ -1,0 +1,2552 @@
+﻿ forward ( meanings=12 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE PARTICLE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE1_2 posdefault:ADVERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT ) 
+    forward~1nz (^position~4) a position on a basketball, soccer, or hockey team
+    forward~2nz (^athlete~1) the person who plays the position of forward in certain games, such as basketball, soccer, or hockey
+    forward~3az at or near or directed toward the front
+    forward~4az of the transmission gear causing forward movement in a motor vehicle
+    forward~5az used of temperament or behavior
+    advancing~1az moving forward
+    ahead~4b 
+    forwards~2bz at or to or toward the front
+    ahead~8b 
+    forth~2bz forward in time or order or degree
+    forward~11bz near or toward the bow of a ship or cockpit of a plane
+    forward~12vz send or ship onward from an intermediate post or station in transit
+ force ( meanings=19 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    force~1nz (^out~1) a putout of a base runner who is required to run
+    violence~1nz (^aggression~1) an act of aggression 
+    effect~2n 
+    strength~3n 
+    force~5nz (^influence~2) a powerful effect or influence
+    force~6nz (^unit~3) a unit that is part of some military service
+    force~7nz (^group~1) a group of people having the power of effective action
+    force~8nz (^organization~6) group of people willing to obey orders
+    power~7n 
+    force~10nz (^process~1) the influence that produces a change in a physical quantity
+    force~11vz impose urgently, importunately, or inexorably
+    force~12vz do forcibly
+    pull~14v 
+    drive~23v 
+    squeeze~13v 
+    storm~5v 
+    impel~2vz urge or force to an action
+    push~9v 
+    pressure~8v 
+ faux ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 ) 
+    fake~5a 
+ foiling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    foiling~1nz (^act~1) 
+ forced ( meanings=4 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) 
+    constrained~1az lacking spontaneity
+    forced~2az made necessary by an unexpected situation or emergency
+    forced~3az forced or compelled
+    forced~4az produced by or subjected to forcing
+ flexible ( meanings=6 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    flexible~1az bending and snapping back readily without breaking
+    flexible~2az able to flex
+    flexible~3az capable of being changed
+    flexible~4az making or willing to make concessions
+    pliable~2az able to adjust readily to different conditions
+    flexible~6az 
+ focusing ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:VERB ) conjugate=focussed 
+    focusing~1nz (^increase~1) the act of bringing into focus
+    centering~2n 
+ fray ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fray~1nz (^fight~3) a noisy fight
+    rub~4v 
+    fray~3vz wear away by rubbing
+ fell ( meanings=4 glosses=1 VERB_PRESENT VERB_PAST VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=fall comparative=feller 
+    cruel~1a 
+    drop~22v 
+    fell~3vz sew a seam by folding the edges
+    fly~18v 
+ feeling ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB ) 
+    feeling~1nz (^state~1) the experiencing of affective and emotional states
+    feeling~2nz (^operation~8) an intuitive understanding of something
+    feeling~3nz (^operation~8) a physical sensation that you experience
+    touch~6nz (^operation~8) the sensation produced by pressure receptors in the skin
+    belief~1nz (^thought~2) a vague idea in which some confidence is placed
+    look~4n 
+ flurry ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fuss~1n 
+    flurry~2nz (^snow~2) a light brief snowfall and gust of wind 
+    confuse~5v 
+    flurry~4vz move in an agitated or confused manner
+ financial ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    fiscal~1az involving financial matters
+    financial~2az 
+    financial~3az 
+ founding ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    introduction~2n 
+ fingering ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    fingering~1nz (^touching~1) touching something with the fingers
+    fingering~2nz (^position~5) the placement of the fingers for playing different notes on a musical instrument
+ flora ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) plural=florae 
+    plant~1n 
+    flora~2nz (^collection~4) all the plant life in a particular region or period
+ fire ( meanings=18 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    firing~4nz (^attack~5) the act of firing weapons or artillery at an enemy
+    fire~2nz (^fireplace~1) a fireplace in which a relatively small fire is burning
+    attack~7n 
+    fire~4nz (^event~1) the event of something burning 
+    fire~5nz (^trial~5) a severe trial
+    fire~6nz (^feeling~1) feelings of great warmth and intensity
+    flaming~1nz (^combustion~2) the process of combustion of inflammable materials producing heat and light and smoke
+    fire~8nz (^fuel~1) fuel that is burning and is used as a means for cooking
+    fire~9nz (^element~7) once thought to be one of four elements composing the universe
+    fire~10vz bake in a kiln so as to harden
+    burn~11v 
+    fire~12vz cause to go off
+    fire~13vz go off or discharge
+    fire~14vz start firing a weapon
+    raise~25v 
+    fire~16vz drive out or away by or as if by fire
+    fuel~5vz provide with fuel
+    dismiss~5vz terminate the employment of
+ flow ( meanings=14 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    stream~1n 
+    flowing~1nz (^travel~3) the motion characteristic of fluids
+    stream~3n 
+    flow~4nz (^activity~4) any uninterrupted stream or discharge
+    period~2n 
+    stream~5n 
+    flow~7nz (^rate~4) the amount of fluid that flows in a given time
+    flow~8vz undergo menstruation
+    flow~9vz cover or swamp with water
+    hang~11vz fall or flow in a certain way
+    flow~11vz move or progress freely as if in a stream
+    course~12v 
+    flow~13vz cause to flow
+    flow~14vz be abundantly present
+ firing ( meanings=4 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    firing~1nz (^shot~2) 
+    release~4n 
+    lighting~1n 
+    fire~1n 
+ food ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    nutrient~1nz (^substance~2) any substance that can be metabolized by an animal to give energy and build tissue
+    food~2nz (^content~2) anything that provides mental stimulus for thinking
+    food~3nz (^solid~3) any solid substance that is used as a source of nourishment
+ form ( meanings=23 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    shape~1n 
+    form~2nz (^cast~6) a mold for setting concrete
+    form~3nz (^dummy~2) a life-size dummy used to display clothes
+    shape~2n 
+    form~5nz (^fashion~3) a particular mode in which something is manifested
+    shape~3n 
+    form~7nz (^ability~1) an ability to perform well
+    figure~6n 
+    kind~1nz (^category~1) a category of things distinguished by some common characteristic or quality
+    shape~5n 
+    form~11nz (^word~1) the phonological or orthographic sound or appearance of a word that can be used to describe or identify something
+    form~12nz (^document~2) a printed document with spaces in which to write
+    form~13nz (^style~8) an arrangement of the elements in a composition or discourse
+    strain~7nz (^group~1) a group of organisms within a species that differ in trivial ways from similar groups
+    course~6n 
+    phase~2n 
+    shape~8v 
+    form~18vz assume a form or shape
+    shape~10v 
+    form~20vz establish or impress firmly in the mind
+    organize~6v 
+    make~46vz to compose or represent:
+    spring~11v 
+ feat ( meanings=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    effort~1n 
+ find ( meanings=18 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=found 
+    discovery~1nz (^act~1) the act of discovering something
+    discovery~2nz (^understanding~2) a productive insight
+    find~3vz accept and make use of one's personality, abilities, and situation
+    get~9v 
+    feel~7vz come to believe on the basis of emotion, intuitions, or indefinite grounds
+    discover~3v 
+    determine~6vz establish after a calculation, investigation, experiment, survey, or study
+    rule~15vz decide on and make a declaration about
+    discover~5v 
+    find~10vz succeed in reaching
+    see~15vz perceive or be contemporaneous with
+    notice~11v 
+    find~13vz perceive oneself to be in a certain condition or place
+    find~14vz obtain through effort or management
+    line_up~5vz get something or somebody for a specific purpose
+    recover~5v 
+    encounter~7v 
+    find~18vz come upon after searching
+ flight ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    escape~1n 
+    flight~2nz (^trip~3) a scheduled trip by plane between designated airports
+    flying~1nz (^air~1) an instance of traveling by air
+    flight~4nz (^way~4) a stairway between one floor or landing and the next
+    flight~5nz (^ability~2) passing above and beyond ordinary bounds
+    flight~6nz (^force~6) an air force unit smaller than a squadron
+    flight~7nz (^arrangement~6) a formation of aircraft in flight
+    flight~8nz (^flock~1) a flock of flying birds
+    flight~9nz (^process~1) the path followed by an object moving through space
+    flight~10vz decorate with feathers
+    flight~11vz fly in a flock
+    flight~12vz shoot a bird in flight
+ flying ( meanings=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    flight~3n 
+    fast~8a 
+    flying~3az 
+    flying~4az 
+ failure ( meanings=7 glosses=7 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    failure~1nz (^skip~1) an unexpected omission
+    failure~2nz (^act~1) an act that fails
+    failure~3nz (^event~1) an event that does not accomplish its intended purpose
+    failure~4nz (^unfortunate~1) a person with a record of failing
+    failure~5nz (^upset~5) loss of ability to function normally
+    failure~6nz (^fortune~4) lack of success
+    bankruptcy~2nz (^status~1) inability to discharge all your debts as they come due
+ failing ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    failing~1nz (^failure~2) failure to reach a minimum required performance
+    failing~2nz (^state~1) 
+    failing~3az below acceptable in performance
+    failing~4z 
+ fall ( meanings=43 glosses=36 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_NOOBJECT TIMEWORD ) conjugate=fallen 
+    surrender~1nz (^loss~1) the act of surrendering 
+    spill~1n 
+    fall~3nz (^sin~1) a lapse into sin
+    dip~4nz (^decrease~2) a sudden sharp decrease in some quantity
+    drop~5nz (^descent~3) a free and rapid descent by the force of gravity
+    fall~6nz (^travel~3) a movement downward
+    fall~7nz (^weakening~2) a sudden decline in strength or number or importance
+    pin~10nz (^victory~1) when a wrestler's shoulders are forced to the mat
+    decline~1nz (^side~12) a downward slope or bend
+    gloaming~1n 
+    autumn~1n 
+    fall~12vz pass suddenly and passively into a state of body or mind
+    lessen~1vz decrease in size, extent, or range
+    settle~2vz come as if by falling
+    fall~15vz go as if by falling
+    fall~16vz occur at a specified time or place
+    fall~17vz begin vigorously
+    fall~18vz be born, used chiefly of lambs
+    fall~19vz come out
+    fall~20vz be cast down
+    fall~21vz assume a disappointed or sad expression
+    flow~10v 
+    fall~23vz move downward and lower, but not necessarily all the way
+    fall~24vz descend in free fall under the influence of gravity
+    fall~25vz drop oneself to a lower or less erect position
+    fall~26vz lose an upright position suddenly
+    fall~27vz slope downward
+    fall~28vz move in a specified direction
+    pass~32v 
+    light~46v 
+    accrue~2vz come into the possession of
+    fall~32vz be captured
+    fall~33vz to be given by assignment or distribution
+    fall~34vz to be given by right or inheritance
+    fall~35vz lose office or power
+    fall~36vz suffer defeat, failure, or ruin
+    fall~37vz yield to temptation or sin
+    fall~38vz lose one's chastity
+    strike~27v 
+    fall~40vz die, as in battle or in a hunt
+    fall~41vz be due
+    come~18vz come under, be classified or included
+    fall~43vz fall from clouds
+ fault ( meanings=8 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    error~1n 
+    fault~2nz (^service~4) a serve that is illegal (e.g., that lands outside the prescribed area)
+    fault~3nz (^responsibility~2) responsibility for a bad situation or event
+    fault~4nz (^worth~1) the quality of being inadequate or falling short of perfection
+    fault~5nz (^failure~3) equipment failure attributable to some defect in a circuit (loose connection or insulation failure or short circuit etc.)
+    break~14n 
+    flaw~3n 
+    blame~5v 
+ freeing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    release~1n 
+ fling ( meanings=7 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=flung 
+    fling~1nz (^throw~1) the act of flinging
+    fling~2nz (^change~1) a brief indulgence of your impulses
+    crack~2n 
+    fling~4vz throw with force or recklessness
+    fling~5vz move in an abrupt or headlong manner
+    toss~9v 
+    fling~7vz 
+ flip ( meanings=18 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=flipper 
+    pass~2n 
+    somersault~1nz (^tumble~2) an acrobatic feat in which the feet roll over the head and return
+    flip~3nz (^dive~2) a dive in which the diver somersaults before entering the water
+    toss~3n 
+    flip~5nz (^throw~1) a sudden, quick movement
+    flip~6nz (^alcohol~1) hot or cold alcoholic mixed drink containing a beaten egg
+    flip~7az marked by casual disrespect
+    switch~8v 
+    flip~9vz go mad, go crazy
+    flip~10vz react in an excited, delighted, or surprised way
+    flip~11vz turn upside down, or throw so as to reverse
+    flip~12vz move with a flick or light motion
+    switch~13v 
+    toss~5v 
+    toss~8v 
+    flip~16vz cause to move with a flick
+    twitch~6vz toss with a sharp movement so as to cause to turn over in the air
+    leaf~6v 
+ free ( meanings=23 glosses=19 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=freest 
+    free~1nz (^people~1) people who are free
+    loose~6a 
+    innocent~3az completely wanting or lacking
+    free~4az unconstrained or not chemically bound in a molecule or not fixed and capable of relatively unrestricted motion
+    detached~4az not fixed in position
+    free~6az able to act at will
+    free~7az not held in servitude
+    free~8az not occupied or in use
+    spare~9az not taken up by scheduled activities
+    free~10az costing nothing
+    free~11az 
+    loose~14b 
+    release~15vz make available
+    absolve~1vz let off the hook
+    free~15vz free or remove obstruction from
+    free~16vz remove or force out from a position
+    release~19vz release as a result of a chemical reaction or physical decomposition
+    relinquish~3vz part with a possession or right
+    rid~1vz relieve from
+    loose~18v 
+    free~21vz free from obligations or duties
+    release~22vz make available for publication
+    relieve~11vz grant relief or an exemption from a rule or requirement to
+ flush ( meanings=18 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flush~1nz (^response~1) sudden reddening of the face
+    flush~2nz (^flow~2) a sudden rapid flow 
+    charge~10n 
+    flush~4nz (^hand~9) a poker hand with all 5 cards in the same suit
+    bloom~4nz (^status~1) a rosy color taken as a sign of good health
+    flush~6nz (^evidence~1) sudden brief sensation of heat
+    bloom~6n 
+    flush~8az of a surface exactly even with an adjoining one, forming the same plane
+    loaded~5az having an abundant supply of money or possessions of value
+    flush~10bz squarely or solidly
+    flush~11bz in the same plane
+    flush~12vz turn red, as if in embarrassment or shame
+    flush~13vz cause to flow or flood with or as if with water
+    flush~14vz flow freely
+    flush~15vz irrigate with water from a sluice
+    purge~6vz rinse, clean, or empty with a liquid
+    level~19v 
+    flush~18vz glow or cause to glow with warm color or light
+ forwarding ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    forwarding~1nz (^sending~1) the act of sending on to another destination
+    forwarding~2nz (^progress~1) 
+ fielding ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    fielding~1nz (^handling~1) handling the ball while playing in the field
+ fair ( meanings=18 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) 
+    carnival~2nz (^show~1) a traveling show
+    fair~2nz (^sale~3) a sale of miscellany
+    fair~3nz (^collection~4) a competitive exhibition of farm products
+    fair~4nz (^group~1) gathering of producers to promote business
+    sightly~1az very pleasing to the eye
+    fair~6az pale or light-colored
+    fair~7az free of clouds or rain
+    fair~8az hit between the foul lines
+    just~1az free from favoritism or self-interest or bias or deception
+    honest~1a 
+    clean~13a 
+    fair~12az attractively feminine
+    reasonable~1az not excessive or extreme
+    middling~2a 
+    fair~15az 
+    fairly~2b 
+    clean~22b 
+    fair~18vz join so that the external surfaces blend smoothly
+ fly ( meanings=20 glosses=19 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=flown comparative=flyer 
+    fly~1nz (^hit~3) a hit that flies up in the air
+    fly~2nz (^insect~1) two-winged insects characterized by active flight
+    fly~3nz (^opening~6) an opening in a garment that is closed by a zipper or by buttons concealed under a fold of cloth
+    fly~4nz (^bait~1) fisherman's lure consisting of a fishhook decorated to look like an insect
+    fly~5nz (^flap~1) flap consisting of a piece of canvas that can be drawn back to provide entrance to a tent
+    fly~6az not to be deceived or hoodwinked
+    vanish~1vz decrease rapidly and disappear
+    fly~8vz change quickly from one emotional state to another
+    fly~9vz hit a fly
+    fly~10vz transport by aeroplane
+    fly~11vz be dispersed or disseminated
+    fly~12vz travel in an airplane
+    fly~13vz move quickly or suddenly
+    fly~14vz travel over in an aircraft
+    fly~15vz cause to fly or float
+    wing~12v 
+    pilot~8vz operate an airplane
+    vanish~4vz pass away rapidly
+    flee~1vz run away quickly
+    fly~20vz display in the air or cause to float
+ fastening ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    fastening~1nz (^connection~1) 
+    fixing~4nz (^device~2) restraint that attaches to something or holds something in place
+ flash ( meanings=19 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=flasher 
+    flash~1nz (^lamp~1) a lamp for providing momentary light to take a photograph
+    flash~2nz (^patch~4) a bright patch of color used for decoration or identification
+    flash~3nz (^light~3) a momentary brightness
+    flash~4nz (^understanding~2) a sudden brilliant understanding
+    flash~5nz (^bulletin~1) a short news announcement concerning some on-going news story
+    flash~6nz (^signal~1) a burst of light used to communicate or illuminate
+    flash~7nz (^display~5) a gaudy outward display
+    flashing~2nz (^experience~3) a short vivid experience
+    flash~9nz (^event~1) a sudden intense burst of radiant energy
+    heartbeat~3n 
+    cheap~4a 
+    flash~12vz appear briefly
+    flash~13vz emit a brief burst of light
+    flash~14vz make known or cause to appear with great speed
+    flash~15vz protect by covering with a thin sheet of metal
+    shoot~18v 
+    flash~17vz expose or show briefly
+    flash~18vz display proudly
+    blink~4v 
+ finding ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    finding~1nz (^find~1) 
+    finding~2nz (^judgment~2) the decision of a court on issues of fact or law
+    finding~3nz (^object~1) something that is found
+ fix ( meanings=17 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    fix~1nz (^find~1) a determination of the place where something is
+    fix~2nz (^release~3) an exemption granted after influence is brought to bear
+    mending~1nz (^change~1) the act of putting something in working order again
+    fix~4nz (^shot~4) something craved, especially an intravenous injection of a narcotic drug
+    hole~7n 
+    fix~6vz make infertile
+    mend~3v 
+    prepare~1v 
+    fix~9vz kill, preserve, and harden in order to prepare for microscopic study
+    fix~10vz make fixed, stable or stationary
+    limit~9v 
+    get~16vz take vengeance on or get even
+    fasten~3v 
+    deposit~11vz put firmly
+    fix~15vz set or place definitely
+    cook~4v 
+    fix~17vz influence an event or its outcome by illegal means
+ fast ( meanings=16 glosses=13 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB VERB_NOOBJECT (null) ) comparative=fastest 
+    fasting~1nz (^control~1) abstaining from food
+    fast~2az causing a shortening of exposure time
+    loyal~1az unwavering in devotion to friend or vow or cause
+    fast~4az acting or moving or capable of acting or moving quickly
+    fast~5az at a rapid tempo
+    fast~6az indicating a time ahead of or later than the correct time
+    firm~4az securely fixed in place
+    quick~6a 
+    fast~9az unrestrained by convention or morality
+    fast~10az resistant to destruction or fading
+    fast~11az conducive to rapid speeds
+    fast~12az 
+    fast~13bz quickly or rapidly 
+    tight~15b 
+    fast~15vz abstain from eating
+    fast~16vz abstain from certain foods, as for religious or medical reasons
+ fake ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) (null) ) comparative=faker 
+    fake~1nz (^maneuver~2) a deceptive move made by a football player
+    fake~2nz (^imitation~2) something that is a counterfeit
+    fraud~3n 
+    fake~4az fraudulent
+    imitation~5az not genuine or real
+    fake~6az 
+    bull~11vz speak insincerely or without regard for facts or truths
+    counterfeit~3vz make a copy of with the intent to deceive
+    cook~6vz tamper, with the purpose of deception
+ football ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) 
+    football~1nz (^sport~2) any of various games played with a ball in which two teams try to kick or carry or propel the ball into each other's goal
+    football~2nz (^ball~3) the inflated oblong ball used in playing American football
+ field ( meanings=21 glosses=18 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    field~1nz (^business~3) a particular kind of commercial enterprise
+    airfield~1n 
+    field~3nz (^content~2) the area that is visible
+    discipline~5n 
+    field~5nz (^set~8) all the competitors in a particular contest or sporting event
+    field~6nz (^set~8) all of the horses in a particular horse race
+    field~7nz (^set~9) a set of elements such that addition and multiplication are commutative and associative and multiplication is distributive over addition and there are two elements 0 and 1
+    field~8nz (^set~8) a set of one or more adjacent characters comprising a unit of information
+    field~9nz (^parcel~4) a region where a battle is being fought
+    theater~3n 
+    field~11nz (^region~4) somewhere where practical work is done or data is collected
+    field~12nz (^parcel~4) a piece of land cleared of trees and usually enclosed
+    field~13nz (^parcel~4) a piece of land prepared for playing a game
+    field~14nz (^region~4) a geographic region under which something valuable is found
+    plain~2nz (^ground~8) extensive tract of level open land
+    field~16nz (^process~1) the space around a radiating body within which its electromagnetic oscillations can exert force on another similar body not in contact with it
+    orbit~5nz (^environment~2) a particular environment or walk of life
+    field~18vz select for a game
+    field~19vz answer adequately or successfully
+    field~20vz play as a fielder
+    field~21vz catch or pick up in baseball or cricket
+ forfeit ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    sacrifice~2n 
+    forfeit~2nz (^penalty~4) a penalty for a fault or mistake that involves losing or giving up something
+    forfeit~3nz (^loss~7) something that is lost or surrendered as a penalty
+    forfeited~1az surrendered as a penalty
+    forfeit~5vz lose or lose the right to (s.th.) by some error, offense, or crime
+ finish ( meanings=15 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    finishing~1nz (^conclusion~2) the act of finishing
+    coating~4nz (^appearance~4) a decorative texture or appearance of a surface 
+    finish~3nz (^taste~3) the taste of a wine on the back of the tongue (as it is swallowed)
+    conclusion~8nz (^event~1) event whose occurrence ends something
+    finish~5nz (^failure~3) the downfall of someone 
+    finish~6nz (^event~1) designated event that concludes a contest 
+    destination~3nz (^end~9) the place designated as the end 
+    polish~2nz (^perfection~3) a highly developed state of perfection
+    last~8nz (^end~14) the temporal end
+    finish~10vz cause to finish a relationship with somebody
+    finish~11vz finally be or do something
+    complete~8vz come or bring to a finish or an end
+    finish~13vz finish eating all the food on one's plate or on the table
+    finish~14vz provide with a finish
+    cease~2vz have an end, in a temporal, spatial, or quantitative sense
+ finishing ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    finish~1n 
+    finish~2n 
+ fade ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:VERB VERB_NOOBJECT ) 
+    fade~1nz (^conclusion~2) gradually ceasing to be visible
+    slicing~2n 
+    fade~3vz become feeble
+    melt~3v 
+    pass~21v 
+    wither~2vz lose freshness, vigor, or vitality
+ first ( meanings=5 glosses=4 NOUN ADJECTIVE ADVERB ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON2 COMMON1 ORDINAL KINDERGARTEN posdefault:ADVERB (null) ) 
+    first~1az 
+    first~2bz before anything else
+    first~3bz the initial time
+    first~4bz prominently forward
+    first~5bz before another in time, space, or importance
+ foundation ( meanings=7 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    creation~1n 
+    base~7n 
+    foundation~3nz (^clothing~1) a woman's undergarment worn to give shape to the contours of the body
+    base~9n 
+    grounding~2nz (^education~5) education or instruction in the fundamentals of a field of knowledge
+    foundation~6nz (^institution~5) an institution supported by an endowment
+    foundation~7nz (^relation~1) the basis on which something is grounded
+ frying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    frying~1nz (^preparation~1) 
+ face ( meanings=22 glosses=19 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    face~1nz (^surface~2) a vertical surface of a building or cliff
+    face~2nz (^front~1) the side upon which the use of a thing depends 
+    face~3nz (^surface~2) the striking or working surface of an implement
+    face~4nz (^appearance~4) the general outward appearance of something
+    aspect~1nz (^countenance~1) the feelings expressed on a person's face
+    brass~4n 
+    face~7nz (^position~16) status in the eyes of others
+    face~8nz (^piece~11) the front of the human head from the forehead to the chin and ear to ear
+    face~9nz (^piece~11) the part of an animal corresponding to the human face
+    case~13nz (^type~4) a specific size and style of type within a type family
+    grimace~1nz (^motion~3) a contorted facial expression
+    side~9nz (^surface~5) a surface forming part of the outside of an object
+    face~13nz (^individual~1) a part of a person that is used to refer to a person
+    face~14vz deal with head on
+    present~11v 
+    face~16vz oppose, as in hostility or a competition
+    face~17vz cover the front or surface of
+    face~18vz line the edge with a different material
+    face~19vz turn so as to face
+    face~20vz turn so as to expose the face
+    front~14v 
+    face~22vz be opposite
+ fixing ( meanings=4 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    repair~1n 
+    fixing~2nz (^process~1) 
+    fixing~3nz (^operation~4) 
+    fastening~2n 
+ foot ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) plural=feet 
+    foot~1nz (^walk~3) travel by walking
+    foot~2nz (^extremity~2) the pedal extremity of vertebrates other than human beings
+    foot~3nz (^organ~4) any of various organs of locomotion or attachment in invertebrates
+    foot~4nz (^support~6) a support resembling a pedal extremity
+    foundation~2n 
+    foot~6nz (^extremity~2) the part of the leg of a human being below the ankle joint
+    foot~7nz (^measure~8) a group of 2 or 3 syllables forming the basic unit of poetic rhythm
+    infantry~1nz (^force~6) an army unit consisting of soldiers who fight on foot
+    foot~9nz (^bottom~4) the lower part of anything
+    foot~10nz (^representative~3) a member of a surveillance team who works on foot or rides as a passenger
+    foot~11nz (^unit~5) a linear unit of length equal to 12 inches or a third of a yard
+    foot~12vz add a column of numbers
+    hoof~4vz walk
+    pick~20v 
+ ford ( meanings=3 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fording~1nz (^crossing~1) the act of crossing a stream or river by wading or in a car or on a horse
+    crossing~7n 
+    ford~3vz cross a river where it's shallow
+ fording ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    ford~1n 
+ fireman ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) plural=firemen 
+    fireman~1nz (^play~3) play in which children pretend to put out a fire
+    firefighter~1n 
+    fireman~3nz (^athlete~1) a pitcher who does not start the game
+    fireman~4nz (^jack~10) a laborer who tends fires
+    fireman~5nz 
+ following ( meanings=7 glosses=6 NOUN_ABSTRACT NOUN ADJECTIVE PREPOSITION ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 KINDERGARTEN posdefault:VERB ) 
+    chase~1nz (^motion~1) the act of pursuing in an effort to overtake or capture
+    following~2nz (^people~4) a group of followers or enthusiasts
+    following~3az about to be mentioned or specified
+    next~1az immediately following in time or order
+    following~5az going or proceeding or coming after in the same direction
+    following~6az in the desired direction
+    following~7z 
+ flop ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADVERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    collapse~1nz (^descent~1) the act of throwing yourself down
+    bust~4n 
+    flop~3nz (^failure~4) someone who is unsuccessful
+    flop~4nz (^operation~9) an arithmetic operation performed on floating-point numbers
+    right~25b 
+    flop~6bz with a flopping sound
+    flop~7vz fall suddenly and abruptly
+    flop~8vz fall loosely
+    founder~7vz fail utterly
+ flood ( meanings=10 glosses=10 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flood~1nz (^stream~1) a large flow
+    flood~2nz (^filling~1) the act of flooding
+    flood~3nz (^light~1) light that is a source of artificial illumination having a broad beam
+    flood~4nz (^tide~1) the occurrence of incoming water 
+    flood~5nz (^process~1) the rising of a body of water and its overflowing onto normally dry land
+    flood~6nz (^mountain~2) an overwhelming number or amount
+    flood~7vz cover with liquid, usually water
+    flood~8vz become filled to overflowing
+    inundate~2vz fill quickly beyond capacity
+    flood~10vz supply with an excess of
+ feather ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    feathering~1nz (^motion~2) turning an oar parallel to the water between pulls
+    feather~2nz (^cover~9) the light horny waterproof structure forming the external covering of birds
+    feather~3az 
+    feather~4vz grow feathers
+    square~21v 
+    square~22v 
+    feather~7vz cover or fit with feathers
+    feather~8vz join tongue and groove, in carpentry
+ feathering ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    feather~1n 
+ false ( meanings=11 glosses=7 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    false~1az not dependable in devotion or affection
+    mistaken~1a 
+    fictitious~1a 
+    sour~6a 
+    false~5az designed to deceive
+    faux~1a 
+    false~7az inappropriate to reality or facts
+    false~8az deliberately deceptive
+    false~9az not in accordance with the fact or reality or actuality
+    false~10az erroneous and usually accidental
+    false~11bz in a disloyal and faithless manner
+ fracture ( meanings=9 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    crack~1n 
+    fault~6n 
+    break~15n 
+    break~19v 
+    fracture~5vz break 
+    fracture~6vz become fractured
+    fracture~7vz violate or abuse
+    fracture~8vz break into pieces
+    fracture~9vz interrupt, break, or destroy
+ fork ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    forking~1nz (^division~1) the act of branching out or dividing into branches
+    fork~2nz (^article~1) cutlery used for serving and eating food
+    fork~3nz (^tool~2) an agricultural tool used for lifting or digging
+    fork~4nz (^angle~2) the angle formed by the inner sides of the legs where they join the human trunk
+    fork~5nz (^branch~6) the region of the angle formed by the junction of two branches
+    fork~6vz shape like a fork
+    branch~7v 
+    fork~8vz place under attack with one's own pieces, of two enemy pieces
+    fork~9vz lift with a pitchfork
+ forking ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    branching~1n 
+    forking~2nz (^shape~1) 
+ filling ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    filling~1nz (^change~1) the act of filling something
+    filling~2nz (^device~2) a dental appliance consisting of any of various substances (as metal or plastic) inserted into a prepared cavity in a tooth
+    pick~6n 
+    filling~4nz (^mixture~3) a food mixture used to fill pastry or sandwiches etc.
+    filling~5nz (^flow~4) flow into something
+    fill~2n 
+ fold ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    folding~1nz (^change~1) the act of folding
+    fold~2nz (^pen~3) a pen for sheep
+    fold~3nz (^structure~3) a folded part
+    flock~2nz (^group~1) a group of sheep or goats
+    faithful~1nz (^group~1) a group of people who adhere to a common faith and habitually attend a given church
+    folding~2nz (^activity~4) a geological process that causes a bend in a stratum of rock
+    bend~5nz (^shape~1) an angular or rounded shape made by folding
+    fold~8vz incorporate a food ingredient into a mixture by repeatedly turning it over without stirring or beating
+    fold~9vz become folded or folded up
+    fold~10vz bend or lay so that one part covers the other
+    fold~11vz confine in a fold, like sheep
+    close~36v 
+ folding ( meanings=4 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 posdefault:VERB ) 
+    fold~1n 
+    fold~6n 
+    folding~3nz (^process~1) 
+    folding~4az 
+ fashion ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fashion~1nz (^practice~1) characteristic or habitual practice
+    fashion~2nz (^good~1) consumer goods in the current mode
+    manner~2nz (^property~2) how something is done or how it happens
+    fashion~4nz (^trend~1) the latest and most admired style in clothes and cosmetics and behavior
+    fashion~5vz make out of components 
+ fun ( meanings=5 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE ) 
+    fun~1nz (^recreation~2) activities that are enjoyable or amusing
+    fun~2nz (^activity~1) violent and excited activity
+    fun~3nz (^attribute~1) a disposition to find causes for amusement
+    sport~3n 
+    fun~5az 
+ floating ( meanings=7 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    floating~1nz (^swimming~1) the act of someone who floats on the water
+    floating~2az borne up by or suspended in a liquid
+    floating~3az not definitely committed to a party or policy
+    floating~4az not firmly connected
+    floating~5az inclined to move or be moved about
+    vagrant~2a 
+    floating~7az 
+ full ( meanings=13 glosses=8 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=fuller 
+    good~6az having the normally expected amount
+    wide~2az having ample fabric
+    total~3a 
+    total~4a 
+    full~5az containing as much or as many as is possible or normal
+    broad~6a 
+    full~7az having marked deepness and body
+    replete~2az filled to satisfaction with food or drink
+    full~9az 
+    fully~1b 
+    wax~4vz increase in phase
+    full~12vz make fuller by pleating or gathering
+    full~13vz beat for the purpose of cleaning and thickening
+ fight ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=fought 
+    fight~1nz (^boxing~2) a boxing or wrestling match
+    engagement~2n 
+    scrap~1nz (^struggle~3) the act of fighting
+    fight~4nz (^drive~11) an aggressive willingness to compete
+    fight~5nz (^argument~7) an intense verbal dispute
+    struggle~4vz be engaged in a fight
+    defend~3vz fight against or resist strongly
+    struggle~7vz make a strenuous or labored effort
+    campaign~7v 
+ figure ( meanings=18 glosses=15 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    figure~1nz (^play~6) a predetermined set of movements in dancing or skating
+    design~2nz (^decoration~2) a decorative or artistic work
+    figure~3nz (^model~2) a model of a bodily form 
+    figure~4nz (^effect~1) the impression produced by a person
+    number~3nz (^amount~2) the property possessed by a sum or total or indefinite quantity of units or individuals
+    build~2nz (^body~5) alternative names for the body of a human being
+    figure~7nz (^content~2) a unitary percept having structure and coherence that is the object of attention and that stands out against a ground
+    fig~1nz (^illustration~4) a diagram or picture illustrating textual material
+    image~7nz (^device~5) language used in a figurative or nonliteral sense
+    figure~10nz (^adult~2) a well-known or notable person
+    figure~11nz (^amount~4) an amount of money expressed numerically
+    digit~3nz (^number~11) one of the elements that collectively form a system of numeration
+    figure~13nz (^shape~1) a combination of points and lines and planes that form a visible palpable shape
+    figure~14vz understand
+    calculate~1v 
+    estimate~7v 
+    project~9v 
+    enter~9vz be or play a part of or in
+ fox ( meanings=6 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fox~1nz (^carnivore~2) alert carnivorous mammal with pointed muzzle and ears and a bushy tail
+    fox~2nz (^cheat~3) a shifty deceptive person
+    fox~3nz (^fur~3) the grey or reddish-brown fur of a fox
+    fox~4vz become discolored with, or as if with, mildew spots
+    throw~6v 
+    trick~8v 
+ farming ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 GRADE1_2 posdefault:VERB ) 
+    land~1n 
+    agriculture~1nz (^production~4) the practice of cultivating the land or raising stock
+    farming~3az relating to rural matters
+ fishing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB ) 
+    fishing~1nz (^sport~2) the act of someone who fishes as a diversion
+    fishing~2nz (^business~3) the occupation of catching fish for a living
+ frame ( meanings=17 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    frame~1nz (^part~6) one of the ten divisions into which bowling is divided
+    framing~2nz (^structure~1) a framework that supports and protects a picture or a mirror
+    frame~3nz (^structure~1) the framework for a pair of eyeglasses
+    frame~4nz (^picture~2) a single one of a series of still transparent pictures forming a cinema, television or video film
+    skeleton~1n 
+    shape~4n 
+    skeleton~2n 
+    frame~8nz (^system~5) a system of assumptions and standards that sanction behavior and give it meaning
+    frame~9nz (^application~7) an application that divides the user's display into two or more windows that can be scrolled independently
+    frame~10nz (^drawing~6) a single drawing in a comic_strip
+    frame~11nz (^part~6) one of nine divisions of play during which each team has a turn at bat
+    compose~1vz make up plans or basic details for
+    couch~4vz formulate in a particular style or language
+    border~8vz enclose in or as if in a frame
+    frame~15vz construct by fitting or uniting parts together
+    frame~16vz take or catch as if in a snare or trap
+    frame~17vz enclose in a frame, as of a picture
+ fives ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER ) 
+    fives~1nz (^game~2) a game resembling handball
+ five ( meanings=4 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) comparative=fiver 
+    five~1nz (^dice~1) a playing card or a domino or a die whose upward face shows five pips
+    five~2nz (^team~2) a team that plays basketball
+    pentad~1nz (^figure~12) 
+    five~4az being one more than four
+ fan ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fan~1nz (^device~2) a device for creating a current of air by movement of a surface or surfaces
+    lover~3nz (^individual~1) an ardent follower and admirer
+    fan~3nz (^champion~4) an enthusiastic devotee of sports
+    fan~4vz make fiercer
+    fan~5vz strike out , (of a pitcher)
+    fan~6vz separate the chaff from by using air currents
+    fan~7vz agitate the air
+ film ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    film~1nz (^object~1) a thin coating or layer
+    film~2nz (^artifact~1) photographic material consisting of a base of celluloid covered with a photographic emulsion
+    film~3nz (^sheet~4) a thin sheet of material used to wrap or cover things
+    cinema~2n 
+    picture~7n 
+    shoot~7v 
+    film~7vz record in film
+ festival ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    festival~1nz (^celebration~1) an organized series of acts and performances 
+    festival~2nz (^period~3) a day or period of time set aside for feasting and celebration
+ floor ( meanings=12 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    flooring~1nz (^level~2) the inside lower horizontal surface 
+    story~1nz (^structure~1) a structure consisting of a room or set of rooms at a single position along a vertical scale
+    floor~3nz (^room~1) a large room in a exchange where the trading is done
+    floor~4nz (^hall~4) the legislative hall where members debate and vote and conduct other business
+    floor~5nz (^right~4) the parliamentary right to address an assembly
+    base~11nz (^control~8) a lower limit
+    floor~7nz (^group~1) the occupants of a floor
+    floor~8nz (^surface~6) the bottom surface of any lake or other body of water
+    floor~9nz (^ground~8) the ground on which people and animals move about
+    floor~10nz (^surface~6) the lower inside surface of any hollow structure
+    dump~5vz knock down with force
+    shock~16vz surprise greatly
+ folk ( meanings=4 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    folk~1nz (^music~5) the traditional and typically anonymous music that is an expression of the life of people in a community
+    folk~2nz (^people~1) people in general 
+    family~2n 
+    tribe~4n 
+ furor ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    furor~1nz (^motion~2) a sudden outburst
+    fad~1n 
+ fuss ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    stir~1n 
+    spat~3nz (^row~4) a quarrel about petty points
+    trouble~4n 
+    flap~5nz (^status~1) an excited state of agitation
+    fuss~5vz worry unnecessarily or excessively
+    mother~7v 
+ fit ( meanings=16 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=fittest 
+    burst~2n 
+    fit~2nz (^fashion~3) the manner in which something fits
+    fit~3nz (^attack~9) a sudden uncontrollable attack
+    scene~10n 
+    fit~5az physically and mentally sound or healthy
+    fit~6az meeting adequate standards for a purpose
+    set~16a 
+    fit~8vz insert or adjust several objects or people
+    fit~9vz make fit
+    match~12v 
+    outfit~4v 
+    match~18v 
+    go~26v 
+    meet~13v 
+    suit~8v 
+    fit~16vz conform to some shape or size
+ front ( meanings=14 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    front~1nz (^side~1) the side that is seen or that goes first
+    front~2nz (^appearance~5) the outward appearance of a person
+    movement~9nz (^group~1) a group of people with a common ideology who try together to achieve certain general goals
+    front~4nz (^face~12) the side that is forward or prominent
+    front~5nz (^line~25) the line along which opposing armies face each other
+    front~6nz (^position~12) the part of something that is nearest to the normal viewer
+    presence~4nz (^neighborhood~2) the immediate proximity of someone or something
+    front~8nz (^cheat~3) a person used as a cover for some questionable activity
+    front~9nz (^process~1) the atmospheric phenomenon created at the boundary between two different air masses
+    front~10nz (^field~17) a sphere of activity involving effort
+    front~11az relating to or located in the front
+    front~12az 
+    breast~5v 
+    look~14vz be oriented in a certain direction, often with respect to another reference point
+ frog ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    toad~1nz (^amphibian~1) any of various tailless stout-bodied amphibians with long hind limbs for leaping
+    frog~2nz (^decoration~2) a decorative loop of braid or cord
+    frog~3nz (^individual~1) a person of French descent
+    frog~4vz hunt frogs for food
+ facility ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    facility~1nz (^service~5) a service that an organization or a piece of equipment offers you
+    facility~2nz (^artifact~1) something designed and created to serve a particular function and to afford a particular convenience or service
+    facility~3nz (^artifact~1) a building or place that provides a particular service or is used for a particular industry
+    facility~4nz (^simplicity~2) a natural effortlessness
+    facility~5nz (^state~1) skillful performance or ability without difficulty
+ family ( meanings=8 glosses=8 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON2 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    family~1nz (^tribe~1) primary social group
+    folk~3nz (^origin~4) people descended from a common ancestor
+    category~2nz (^collection~4) a collection of things sharing a common attribute
+    household~1nz (^unit~3) a social unit living together
+    family~5nz (^group~1) a taxonomic group containing one or more genera
+    family~6nz (^association~4) an association of people who share common beliefs or activities
+    mob~3nz (^group~1) a loose affiliation of gangsters in charge of organized criminal activities
+    kin~2nz (^relative~2) a person having kinship with another or others
+ fundamental ( meanings=6 glosses=4 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    fundamental~1nz (^tone~5) the lowest tone of a harmonic series
+    fundamental~2nz (^cause~5) any factor that could be considered important to the understanding of a particular business
+    key~15a 
+    rudimentary~3az being or involving basic facts or principles
+    fundamental~5az far-reaching and thoroughgoing in effect especially on the nature of something
+    fundamental~6az 
+ female ( meanings=6 glosses=5 NOUN_HUMAN NOUN_SHE NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) 
+    female~1nz (^animal~1) an animal that produces gametes that can be fertilized by male gametes (spermatozoa)
+    female~2nz (^individual~1) a person who belongs to the sex that can have babies
+    female~3az being the sex that produces fertilizable gametes (ova) from which offspring develop
+    female~4az for or pertaining to or composed of women or girls
+    female~5az characteristic of or peculiar to a woman
+    female~6az 
+ faith ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    faith~1nz (^commitment~2) loyalty or allegiance to a cause or a person
+    trust~3nz (^belief~2) complete confidence in a person or plan etc
+    religion~1nz (^virtue~2) a strong belief in a supernatural power or powers that control human destiny
+    religion~2nz (^institution~5) an institution to express belief in a divine power
+ flooding ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    flooding~1nz (^therapy~1) 
+ friction ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    rubbing~1nz (^effort~2) effort expended in moving one object over another with pressure
+    rubbing~3nz (^process~1) the resistance encountered when one body is moved in contact with another
+    clash~3n 
+ function ( meanings=10 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    office~2n 
+    purpose~2n 
+    routine~2nz (^package~2) a set sequence of steps, part of larger computer program
+    affair~2n 
+    function~5nz (^group~1) a formal or official social gathering or ceremony
+    function~6nz (^relation~1) a relation such that one thing is dependent on another
+    mapping~2n 
+    function~8vz perform duties attached to a particular office or place or function
+    go~16v 
+    serve~15v 
+ fatigue ( meanings=6 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fatigue~1nz (^assignment~3) labor of a nonmilitary kind done by soldiers 
+    fatigue~2nz (^boredom~1) boredom resulting from overexposure to something
+    fatigue~3nz (^state~1) temporary loss of strength and energy resulting from hard physical or mental work
+    fatigue~4nz (^state~1) used of materials in a weakened state caused by long stress
+    wear~8v 
+    tire~3v 
+ fool ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    mark~12n 
+    sap~2nz (^simple~1) a person who lacks good judgment
+    fool~3nz (^clown~1) a professional clown employed to entertain a king or nobleman in the Middle Ages
+    fool~4vz indulge in horseplay
+    cod~6vz fool or hoax
+    shoot~12v 
+    gull~4vz make a fool or dupe of
+ fibbing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    fibbing~1nz (^lying~1) 
+ fraud ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    humbug~1nz (^deception~2) something intended to deceive
+    fraud~2nz (^crime~1) intentional deception resulting in injury to another person
+    pretender~2n 
+ feigning ( meanings=2 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    pretending~1n 
+    feigning~2nz (^deception~3) 
+ four ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE ) 
+    four~1nz (^dice~1) a playing card or domino or die whose upward face shows four pips
+    quartet~5nz (^figure~12) the cardinal number that is the sum of three and one
+    four~3az being one more than three
+ foreign ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=foreigner 
+    strange~3az relating to or originating in or characteristic of another place or part of the world
+    foreign~2az of concern to or concerning the affairs of other nations 
+    alien~5az not contained in or deriving from the essential nature of something
+    extraneous~4az not belonging to that in which it is contained
+    foreign~5az 
+ foray ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    foray~1nz (^effort~3) an initial attempt 
+    foray~2nz (^attack~5) a sudden short attack
+    foray~3vz briefly enter enemy territory
+    strip~18v 
+ friendly ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=friendliest 
+    friendly~1nz (^force~8) troops belonging to or allied with your own military forces
+    friendly~2az characteristic of or befitting a friend
+    friendly~3az of or belonging to your own country's forces or those of an ally
+    friendly~4az easy to understand or use
+    favorable~5az inclined to help or support
+    friendly~6az 
+ fitting ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:VERB ) 
+    fitting~1nz (^trial~1) putting clothes on to see whether they fit
+    fitting~2nz (^artifact~1) furnishings and equipment (especially for a ship or hotel)
+    fitting~3nz (^supplement~1) a small and often standardized accessory to a larger system
+    adjustment~3nz (^advance~4) making or becoming suitable
+    meet~2a 
+    fitting~6az in harmony with the spirit of particular persons or occasion
+ freeze ( meanings=14 glosses=14 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=frozen 
+    freeze~1nz (^control~1) fixing at a particular level
+    freeze~2nz (^pause~1) an interruption or temporary suspension of progress or movement
+    frost~1nz (^weather~1) weather cold enough to cause freezing
+    freezing~1nz (^activity~4) the withdrawal of heat to change something from a liquid to a solid
+    freeze~5vz suddenly behave coldly and formally
+    freeze~6vz anesthetize by cold
+    freeze~7vz be cold
+    block~13vz prohibit the conversion or use of 
+    freeze~9vz stop a process or a habit by imposing a freeze on it
+    freeze~10vz change to ice
+    freeze~11vz cause to freeze
+    freeze~12vz change from a liquid to a solid when cold
+    freeze~13vz stop moving or become immobilized
+    freeze~14vz be very cold, below the freezing point
+ filing ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    filing~1nz (^retention~1) preservation and methodical arrangement as of documents and papers etc.
+    filing~2nz (^manufacture~2) the act of using a file
+    filing~3nz (^submission~5) the entering of a legal document into the public record
+    filing~4nz (^piece~11) a fragment rubbed off by the use of a file
+ facing ( meanings=4 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    lining~2n 
+    facing~2nz (^protection~5) 
+    facing~3nz (^lining~4) a lining applied to the edge of a garment for ornamentation or strengthening
+    veneer~1n 
+ feeding ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    eating~1nz (^activity~3) the act of consuming food
+    feeding~2nz (^supply~1) 
+ feasting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    banqueting~1n 
+ fondling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    cuddling~1n 
+ feel ( meanings=17 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_TAKES_ADJECTIVE VERB_DIRECTOBJECT (null) ) conjugate=felt 
+    feel~1nz (^sex~1) manual stimulation of the genital area for sexual pleasure
+    feel~2nz (^property~2) a property perceived by touch
+    feel~3nz (^knowing~1) an intuitive awareness
+    tone~9n 
+    feel~5vz be conscious of a physical, mental, or emotional state
+    feel~6vz have a feeling or perception about oneself in reaction to someone's behavior or attitude
+    find~5v 
+    finger~5v 
+    feel~9vz pass one's hands over the sexual organs of
+    feel~10vz examine by palpation
+    experience~6v 
+    sense~8v 
+    feel~13vz undergo passive experience of:
+    feel~14vz grope or feel in search of something
+    feel~15vz produce a certain impression
+    feel~16vz find by testing or cautious exploration
+    feel~17vz be felt or perceived in a certain way
+ forty ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    forty~1nz (^number~11) the cardinal number that is the product of ten and four
+    forty~2az being ten more than thirty
+ filming ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    filming~1nz (^activity~1) 
+ flower ( meanings=4 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_NOOBJECT ) 
+    bloom~2n 
+    flower~2nz (^plant~1) a plant cultivated for its blooms or blossoms
+    blossom~2n 
+    bloom~7v 
+ fashioning ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    making~1nz (^production~2) the act that results in something coming to be
+ framing ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    framing~1nz (^creation~2) formulation of the plans and important details
+    frame~2n 
+ fueling ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    fueling~1nz (^supply~1) 
+ fasting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    fast~1n 
+ finance ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    finance~1nz (^business~3) the commercial activity of providing funds and capital
+    finance~2nz (^direction~2) the management of money and credit and banking and investments
+    finance~3nz (^science~2) the branch of economics that studies the management of money and other assets
+    finance~4vz obtain or provide money for
+    finance~5vz sell or provide on credit
+ financing ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    funding~1nz (^finance~1) the act of financing
+ funding ( meanings=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    financing~1n 
+    support~11n 
+ factory ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    mill~2n 
+ freight ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    freight~1nz (^transportation~3) transporting goods commercially at rates cheaper than express rates
+    load~1nz (^product~1) goods carried by a large vehicle
+    freight~3nz (^rate~2) the charge for transporting something by common carrier
+    freight~4vz load with goods for transportation
+    freight~5vz transport commercially as cargo
+ ferry ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    ferrying~1nz (^transportation~3) transport by boat or aircraft
+    ferry~2nz (^boat~1) a boat that transports people or vehicles across a body of water and operates on a regular schedule
+    ferry~3vz travel by ferry
+    ferry~4vz transport by ferry
+    ferry~5vz transport from one place to another
+ ferrying ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    ferry~1n 
+ fostering ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    nurture~1n 
+    fostering~2nz (^encouragement~2) encouragement
+ foster ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT ) 
+    foster~1az providing or receiving nurture or parental care though not related by blood or legal ties
+    nurture~3v 
+    foster~3vz bring up under fosterage
+    further~5v 
+ fighting ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 posdefault:VERB ) 
+    fight~3n 
+    active~17a 
+ fencing ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    fencing~1nz (^play~1) the art or sport of fighting with swords
+    fence~1n 
+    fencing~3nz (^artifact~1) 
+ final ( meanings=6 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:ADJECTIVE ) 
+    final~1nz (^examination~5) an examination administered at the end of an academic term
+    final~2nz (^match~5) the final match between the winners of all previous matches in an elimination tournament
+    last~11a 
+    last~12a 
+    net~7a 
+    final~6az 
+ favor ( meanings=9 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    favor~1nz (^kindness~1) an act of gracious kindness
+    favor~2nz (^souvenir~1) souvenir consisting of a small gift given to a guest at a party
+    favor~3nz (^advantage~2) an advantage to the benefit of someone or something
+    favor~4nz (^disposition~4) an inclination to approve
+    favor~5nz (^approval~3) a feeling of favorable regard
+    favor~6vz consider as the favorite
+    prefer~3vz promote over another
+    favor~8vz bestow a privilege upon
+    favor~9vz treat gently or carefully
+ forgiveness ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    pardon~1nz (^kindness~1) the act of excusing a mistake or offense
+    forgiveness~2nz (^compassion~2) compassionate feelings that support a willingness to forgive
+ feud ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    feud~1nz (^struggle~3) a bitter quarrel between two parties
+    feud~2vz carry out a feud
+ fixed ( meanings=5 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE1_2 posdefault:VERB ) 
+    frozen~1a 
+    fixed~2az having a fixed and unchanging value
+    fixed~3az securely placed or fastened or set
+    set~14a 
+    fixed~5az 
+ feeder ( meanings=6 glosses=5 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    feeder~1nz (^animal~1) an animal being fattened or suitable for fattening
+    feeder~2nz (^animal~1) an animal that feeds on a particular source of food
+    feeder~3nz (^device~2) an outdoor device that supplies food for wild birds
+    feeder~4nz (^machine~2) a machine that automatically provides a supply of some material
+    feeder~5nz (^branch~3) a branch that flows into the main stream
+    eater~2n 
+ fish ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=fishes 
+    fish~1nz (^animal~1) any of various mostly cold-blooded aquatic vertebrates usually having scales and breathing through gills
+    fish~2nz (^food~3) the flesh of fish used as food
+    fish~3vz catch or try to catch fish or shellfish
+    angle~5vz seek indirectly
+ flame ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fire~7n 
+    flame~2vz criticize harshly, usually via an electronic medium
+    flame~3vz be in flames or aflame
+    flame~4vz shine with a sudden light
+ fang ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    fang~1nz (^tooth~5) hollow or grooved tooth of a venomous snake
+    fang~2nz (^tooth~5) canine tooth of a carnivorous animal
+    fang~3nz (^member~2) an appendage of insects that is capable of injecting venom
+ finch ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    finch~1nz (^bird~1) any of numerous small songbirds with short stout bills adapted for crushing seeds
+ fringed ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fringed~1az having a decorative edging of hanging cords or strips
+    fringed~2az surrounded as with a border or fringe
+    fringed~3az 
+ fence ( meanings=7 glosses=7 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fencing~2nz (^barrier~1) a barrier that serves to enclose an area
+    fence~2nz (^trader~1) a dealer in stolen property
+    argue~3vz have an argument about something
+    surround~3vz surround with a wall in order to fortify
+    fence~5vz fight with fencing swords
+    fence~6vz enclose with a fence
+    fence~7vz receive stolen goods
+ fowl ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    poultry~1n 
+    bird~4n 
+    fowl~3vz hunt fowl in the forest
+    fowl~4vz hunt fowl
+ farm ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    farm~1nz (^work~5) workplace consisting of farm buildings and cultivated land as a unit
+    produce~4v 
+    farm~3vz collect fees or profits
+    farm~4vz be a farmer
+ fur ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    fur~1nz (^coat~1) dense coat of fine silky hairs on mammals
+    fur~2nz (^clothing~1) a garment made of the dressed hairy coat of a mammal
+    fur~3nz (^stuff~7) the dressed hairy coat of a mammal
+    fur~4az 
+ fleece ( meanings=7 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    wool~1n 
+    fleece~2nz (^material~1) a soft bulky fabric with deep pile
+    fleece~3nz (^leather~1) tanned skin of a sheep with the fleece left on
+    fleece~4nz (^wool~3) the wool of a sheep or similar animal
+    fleece~5az 
+    shear~6vz shear the wool from
+    soak~10v 
+ fin ( meanings=9 glosses=8 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fin~1nz (^member~2) organ of locomotion and balance in fishes and some other aquatic animals
+    fin~2nz (^device~2) a stabilizer on a ship that resembles the fin of a fish
+    flipper~2nz (^shoe~3) a shoe for swimming
+    fin~4nz (^strip~4) one of a set of parallel slats in a door or window to admit air and reject rain
+    fin~5nz (^decoration~2) one of a pair of decorations projecting above the rear fenders of an automobile
+    five~3n 
+    fin~7vz show the fins above the water while swimming
+    fin~8vz propel oneself through the water in a finning motion
+    fin~9vz equip with fins
+ fruit ( meanings=5 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    yield~2nz (^production~5) an amount of a product
+    fruit~2nz (^consequence~2) the consequence of some effort or action
+    fruit~3nz (^whole~1) the ripened reproductive body of a seed plant
+    fruit~4vz bear fruit
+    fruit~5vz cause to bear fruit
+ frosted ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    frosted~1az having a roughened coating resembling frost
+    frosted~2az 
+ flag ( meanings=12 glosses=12 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flag~1nz (^tail~1) a conspicuously marked or shaped tail
+    flag~2nz (^emblem~1) emblem usually consisting of a rectangular piece of cloth of distinctive design
+    flag~3nz (^stone~1) stratified stone that splits into pieces suitable as paving stones
+    pin~5nz (^artifact~1) flagpole used to mark the position of the hole on a golf green
+    flag~5nz (^list~2) a listing printed in all issues of a newspaper or magazine that gives the name of the publication and the names of the editorial staff, etc.
+    flag~6nz (^signal~1) a rectangular piece of fabric used as a signalling device
+    flag~7nz (^plant~1) plants with sword-shaped leaves and erect stalks bearing bright-colored flowers composed of three petals and three drooping sepals
+    flag~8vz become less intense
+    flag~9vz provide with a flag
+    flag~10vz communicate or signal with a flag
+    flag~11vz decorate with flags
+    sag~2vz droop, sink, or settle from or as if from pressure or loss of tautness
+ firefly ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    firefly~1nz (^beetle~1) nocturnal beetle common in warm regions having luminescent abdominal organs
+    firefly~2nz (^beetle~1) tropical American click beetle having bright luminous spots
+ flour ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    flour~1nz (^food~1) fine powdery foodstuff obtained by grinding and sifting the meal of a cereal grain
+    flour~2vz convert grain into flour
+    flour~3vz cover with flour
+ flesh ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    anatomy~2n 
+    flesh~2nz (^tissue~1) the soft tissue of the body of a vertebrate: mainly muscle tissue and fat
+    flesh~3nz (^whole~1) a soft moist part of a fruit
+    flesh~4vz remove adhering flesh from when preparing leather manufacture
+ fungus ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 ) plural=fungi 
+    fungus~1nz (^being~1) an organism of the kingdom Fungi lacking chlorophyll and feeding on organic matter
+    fungus~2az 
+ fig ( meanings=3 glosses=2 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    figure~8n 
+    fig~2nz (^produce~1) fleshy sweet pear-shaped yellowish or purple multiple fruit eaten fresh or preserved or dried
+    fig~3nz (^tree~1) Mediterranean tree widely cultivated for its edible fruit
+ forest ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) comparative=forester 
+    woods~1nz (^flora~2) the trees and other plants in a large densely wooded area
+    woodland~1nz (^community~1) land that is covered with trees and shrubs
+    forest~3az 
+    forest~4vz establish a forest on previously unforested land
+ foal ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    foal~1nz (^young~1) a young horse
+    foal~2vz give birth to a foal
+ fourth ( meanings=1 glosses=1 NOUN ADJECTIVE ADVERB ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON2 COMMON1 ORDINAL KINDERGARTEN (null) ) 
+    fourth~1bz in the fourth place
+ fawn ( meanings=5 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    fawn~1nz (^young~1) a young deer
+    fawn~2nz (^brown~1) a color or pigment varying around a light grey-brown color
+    fawn~3vz have fawns
+    fawn~4vz try to gain favor by cringing or flattering
+    creep~8v 
+ flipper ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) comparative=flip 
+    flipper~1nz (^limb~4) the flat broad limb of aquatic animals specialized for swimming
+    fin~3n 
+ float ( meanings=16 glosses=16 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT PRESENTATION_VERB ) 
+    float~1nz (^structure~3) an air-filled sac near the spinal column in many fishes that helps maintain buoyancy
+    float~2nz (^artifact~1) something that floats on the surface of water
+    float~3nz (^tool~2) a hand tool with a flat face used for smoothing and finishing the surface of plaster or cement or stucco
+    float~4nz (^display~2) an elaborate display mounted on a platform carried by a truck in a procession or parade
+    float~5nz (^drink~4) a drink with ice cream floating in it
+    float~6nz (^stock~14) the number of shares outstanding and available for trading by the public
+    float~7nz (^interval~4) the time interval between the deposit of a check in a bank and its payment
+    float~8vz convert from a fixed point notation to a floating point notation
+    float~9vz allow to fluctuate
+    float~10vz make the surface of level or smooth
+    float~11vz put into the water
+    float~12vz move lightly, as if suspended
+    float~13vz set afloat
+    drift~13vz be in motion due to some air or water current
+    swim~2vz be afloat either on or below a liquid surface and not sink to the bottom
+    float~16vz circulate or discuss tentatively
+ frost ( meanings=7 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    freeze~3n 
+    icing~3nz (^freeze~4) the formation of frost or ice on a surface
+    frost~3nz (^ice~7) ice crystals forming a white deposit
+    frost~4vz damage by frost
+    frost~5vz cover with frost
+    frost~6vz provide with a rough or speckled surface or appearance
+    ice~10v 
+ foyer ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    hall~1n 
+ flat ( meanings=25 glosses=20 NOUN_ABSTRACT NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE (null) ) comparative=flattest 
+    apartment~1n 
+    flat~2nz (^scenery~1) scenery consisting of a wooden frame covered with painted canvas
+    flat~3nz (^tire~1) a deflated pneumatic tire
+    flat~4nz (^box~2) a shallow box in which seedlings are started
+    flat~5nz (^car~3) freight car without permanent sides or roof
+    flat~6nz (^writing~3) a musical notation indicating one half step lower than the note named
+    flat~7nz (^field~15) a level tract of land
+    flat~8az commercially inactive
+    mat~7a 
+    flat~10az having a relatively broad surface in relation to depth or thickness
+    flat~11az lacking the expected range or depth
+    plane~6a 
+    flat~13az lacking contrast or shading between tones
+    flat~14az horizontally level
+    prostrate~1az stretched out and lying at full length along the ground
+    monotonous~2az sounded or spoken in a tone unvarying in pitch
+    flat~17az lowered in pitch by one chromatic semitone
+    flat~18az not modified or restricted by reservations
+    flat~19az having lost effervescence
+    flat~20az lacking stimulating characteristics
+    insipid~2az lacking taste or flavor or tang
+    flat~22az flattened laterally along the whole length
+    flat~23az 
+    straight~21b 
+    flat~25bz with flat sails
+ fine ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=finest 
+    fine~1nz (^penalty~4) money extracted as a penalty
+    fine~2az characterized by elegance or refinement or accomplishment
+    fine~3az minutely precise especially in differences in meaning
+    fine~4az free from impurities
+    ok~1az being satisfactory or in satisfactory condition
+    fine~6az of textures that are smooth to the touch or substances consisting of relatively small particles
+    fine~7az thin in thickness or diameter
+    fine~8az 
+    alright~4b 
+    fine~10bz in a delicate manner
+    ticket~7v 
+ funny ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE (null) ) comparative=funniest 
+    funny~1nz (^laugh~1) an account of an amusing incident 
+    curious~2az beyond or deviating from the usual or expected
+    comical~1az arousing or provoking laughter
+    fishy~1az not as expected
+    funny~5az experiencing odd bodily sensations
+    funny~6az 
+ flasher ( meanings=3 glosses=3 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) comparative=flash 
+    flasher~1nz (^light~1) a light that flashes on and off
+    flasher~2nz (^device~2) an electrical device that automatically turns a lamp on and off
+    flasher~3nz (^individual~1) someone with a compulsive desire to expose the genitals
+ finger ( meanings=7 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    finger~1nz (^covering~4) one of the parts of a glove that provides covering for a finger or thumb
+    finger~2nz (^digit~1) any of the terminal members of the hand 
+    digit~2nz (^unit~5) the length of breadth of a finger used as a linear measure
+    finger~4vz indicate the fingering for the playing of musical scores for keyboard instruments
+    feel~8vz examine by touch
+    thumb~4vz feel or handle with the fingers
+    finger~7vz search for on the computer
+ feed ( meanings=12 glosses=11 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) conjugate=fed 
+    feed~1nz (^food~1) food for domestic livestock
+    feed~2vz introduce continuously
+    feed~3vz provide with fertilizers or add nutrients to
+    give~19vz give food to
+    eat~5vz take in food
+    feed~6vz serve as food for
+    feed~7vz feed into
+    feed~8vz provide as food
+    feast~5vz gratify
+    prey~4vz profit from in an exploitatory manner
+    run~40v 
+    feed~12vz support or promote
+ floss ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    floss~1nz (^thread~2) a soft thread for cleaning the spaces between the teeth
+    floss~2nz (^thread~2) a soft loosely twisted thread used in embroidery
+    floss~3vz use dental floss to clean
+ formal ( meanings=9 glosses=7 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    formal~1nz (^dress~3) a gown for evening wear
+    ball~8n 
+    courtly~1az refined or imposing in manner or appearance
+    formal~4az being in accord with established forms and conventions and requirements 
+    formal~5az adhering to traditional standards of correctness and without casual, contracted, and colloquial forms
+    formal~6az logically deductive
+    formal~7az characteristic of or befitting a person in authority
+    formal~8az represented in simplified or symbolic form
+    formal~9az 
+ fridge ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    fridge~1nz (^refrigerator~1) a refrigerator in which the coolant is pumped around by an electric motor
+ fabric ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    cloth~1n 
+    fabric~2nz (^structure~2) the underlying structure
+    fabric~3az 
+ facade ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    facade~1nz (^front~1) the face or front of a building
+    facade~2nz (^deception~3) a showy misrepresentation intended to conceal something unpleasant
+ facsimile ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_INDIRECTOBJECT VERB_NOOBJECT ) 
+    facsimile~1nz (^copier~1) duplicator that transmits the copy by wire or radio
+    facsimile~2nz (^copy~1) an exact copy or reproduction
+    facsimile~3vz send something via a facsimile machine
+ fancy ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT (null) ) comparative=fanciest 
+    fancy~1nz (^vision~1) a kind of imagination that was held by Coleridge to be more casual and superficial than true imagination
+    illusion~3nz (^thought~2) something many people believe that is false
+    fancy~3nz (^liking~1) a predisposition to like something
+    fancy~4az not plain
+    fancy~5az 
+    figure~17v 
+    fancy~7vz have a fancy or particular liking or desire for
+ farmer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    farmer~1nz (^creator~1) a person who operates a farm
+ fat ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE VERB_DIRECTOBJECT (null) ) comparative=fattest 
+    fat~1nz (^property~2) excess bodily weight
+    fat~2nz (^tissue~1) a kind of body tissue containing stored fat that serves as a source of energy
+    fat~3nz (^unit~4) a soft greasy substance occurring in organic tissue and consisting of a mixture of lipids 
+    fat~4az having an abundance of flesh
+    fat~5az containing or composed of fat
+    rich~4a 
+    fat~7az lucrative
+    fat~8az having a relatively large diameter
+    plump~6vz make fat or plump
+ faucet ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    faucet~1nz (^control~3) a regulator for controlling the flow of a liquid from a reservoir
+ feature ( meanings=8 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    feature~1nz (^product~1) an article of merchandise that is displayed or advertised more than other articles
+    feature~2nz (^piece~11) the characteristic parts of a person's face: eyes and nose and mouth and chin
+    characteristic~3n 
+    feature~4nz (^attribute~2) a distinctive characteristic of a linguistic unit that serves to distinguish it from other units of the same kind
+    feature~5nz (^article~2) a special or prominent article in a newspaper or magazine
+    feature~6nz (^picture~7) the principal film in a program at a movie theater
+    have~17v 
+    sport~9v 
+ felt ( meanings=3 glosses=2 VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=feel 
+    felt~1nz (^material~1) a fabric made of compressed matted animal fibers
+    felt~2az 
+    felt~3vz mat together and make felt-like
+ fifth ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN (null) ) 
+ file ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT (null) ) 
+    file~1nz (^tool~2) a steel hand tool with small sharp teeth on some or all of its surfaces
+    file~2nz (^furniture~1) office furniture consisting of a container for keeping papers in order
+    file~3nz (^record~6) a set of related records kept together
+    file~4nz (^line~21) a line of persons or things ranged one behind the other
+    charge~26v 
+    file~6vz place in a container for keeping records
+    file~7vz record in a public office or in a court of law
+    file~8vz smooth with a file
+    file~9vz proceed in line
+ fire_truck ( meanings=1 glosses=1 NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    fire_truck~1nz (^truck~2) any of various large trucks that carry firemen and equipment to the site of a fire
+ fireplace ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    fireplace~1nz (^recess~2) an open recess in a wall at the base of a chimney where a fire can be built
+ fire_station ( meanings=1 glosses=1 NOUN NOUN_SINGULAR KINDERGARTEN ) 
+    fire_station~1nz (^station~1) a station housing fire apparatus and firemen
+ firework ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    firework~1nz (^chemical~1) a device with an explosive that burns at a low rate and with colored flames
+ firmer ( COMMON2 COMMON1 KINDERGARTEN ) comparative=firm 
+ fitted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    fitted~1az being the right size and shape to fit as desired
+ flagging ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    flagging~1nz (^walk~6) a walk of flagstones
+    flagging~2nz (^collection~4) flagstones collectively
+    flagging~3az weak from exhaustion
+ flail ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flail~1nz (^artifact~1) an implement consisting of handle with a free swinging stick at the end
+    flail~2vz give a thrashing to
+    flail~3vz move like a flail
+ flap ( meanings=11 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flap~1nz (^covering~4) any broad thin and limber covering attached at one edge
+    flap~2nz (^surface~1) a movable airfoil that is part of an aircraft wing
+    flap~3nz (^tissue~1) a movable piece of tissue partly connected to the body
+    flapping~1nz (^wave~4) the motion made by flapping up and down
+    fuss~4n 
+    flap~6vz pronounce with a flap, of alveolar sounds
+    flap~7vz make a fuss
+    flap~8vz move noisily
+    wave~13v 
+    beat~28v 
+    beat~29v 
+ flashing ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:VERB ) 
+    flashing~1nz (^sheet~4) sheet metal shaped and attached to a roof for strength and weatherproofing
+    flash~8n 
+ flask ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    flask~1nz (^bottle~1) bottle that has a narrow neck
+    flask~2nz (^measure~1) the quantity a flask will hold
+ fleet ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    fleet~1nz (^collection~4) a group of warships organized as a tactical unit
+    fleet~2nz (^line~6) a group of steamships operating together under the same ownership
+    fleet~3nz (^collection~4) group of motor vehicles operating together under the same ownership
+    fleet~4nz (^collection~4) group of aircraft operating together under the same ownership
+    swift~3a 
+    fade~5v 
+    dart~5vz move along rapidly and lightly
+ flooring ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:VERB ) 
+    floor~1n 
+    flooring~2nz (^artifact~1) building material used in laying floors
+ fluorescent ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    fluorescent~1nz (^artifact~1) a lighting fixture that uses a fluorescent lamp
+    fluorescent~2az emitting light during exposure to radiation from an external source
+    fluorescent~3az brilliantly colored and apparently giving off light
+    fluorescent~4az 
+ flute ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    flute~1nz (^wood~2) a high-pitched woodwind instrument
+    fluting~1nz (^channel~8) a groove or furrow in cloth etc
+    flute~3nz (^glass~2) a tall narrow wineglass
+    flute~4vz form flutes in
+ fluting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:VERB ) 
+    flute~2n 
+ foible ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    foible~1nz (^part~3) the weaker part of a sword's blade from the forte to the tip
+    idiosyncrasy~1n 
+ foil ( meanings=9 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    foil~1nz (^steel~2) a light slender flexible sword tipped by a button
+    foil~2nz (^sheet~4) a piece of thin and flexible sheet metal
+    foil~3nz (^picture~3) picture consisting of a positive photograph or drawing on a transparent base
+    foil~4nz (^device~2) a device consisting of a flat or curved piece so that its surface reacts to the water it is passing through
+    foil~5nz (^attention~6) anything that serves by contrast to call attention to another thing's good qualities
+    foil~6az 
+    foil~7vz cover or back with foil
+    baffle~4v 
+    foil~9vz enhance by contrast
+ folder ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN ) 
+    folder~1nz (^covering~4) covering that is folded over to protect the contents
+    brochure~1nz (^book~4) a small book usually having a paper cover
+ footing ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    footing~1nz (^support~6) 
+    ground~10n 
+    footing~3nz (^position~16) status with respect to the relations between people or groups
+ fortress ( meanings=1 NOUN NOUN_SINGULAR COMMON4 GRADE5_6 ) 
+    fort~1n 
+ fort ( meanings=5 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fortress~1nz (^defense~5) a fortified defensive structure
+    fort~2nz (^post~3) a fortified military post where troops are stationed
+    fort~3vz station in a fort
+    fort~4vz enclose by or as if by a fortification
+    fort~5vz gather in, or as if in, a fort, as for protection or defense
+ fountain ( meanings=4 glosses=2 NOUN NOUN_SINGULAR COMMON4 GRADE3_4 ) 
+    fountain~1nz (^artifact~1) a plumbing fixture that provides a flow of water
+    jet~1n 
+    fountain~3nz (^structure~1) a structure from which an artificially produced jet of water arises
+    spring~5n 
+ fraction ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    fraction~1nz (^part~3) a small part or item forming a piece of a whole
+    fraction~2nz (^real~3) the quotient of two rational numbers
+    fraction~3nz (^chemical~1) a component of a mixture that has been separated by a fractional process
+    divide~3v 
+ frail ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    frail~1nz (^basket~2) a basket for holding dried fruit
+    frail~2nz (^weight~7) the weight of a frail full of raisins or figs
+    fragile~2a 
+    weak~4a 
+    frail~5az physically weak
+    frail~6az 
+ fringe ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fringe~1nz (^edging~1) an ornamental border consisting of short lengths of hanging threads or tassels
+    bang~2n 
+    fringe~3nz (^group~1) a social group holding marginal or extreme views
+    fringe~4nz (^district~1) a part of the city far removed from the center
+    fringe~5nz (^process~1) one of the light or dark bands produced by the interference and diffraction of light
+    fringe~6nz (^edge~6) the outside boundary or surface of something
+    fringe~7vz decorate with or as if with a surrounding fringe
+    fringe~8vz adorn with a fringe
+ fuel ( meanings=5 glosses=4 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fuel~1nz (^substance~2) a substance that can be consumed to produce energy
+    fuel~2vz stimulate
+    fuel~3vz take in fuel, as of a ship
+    fuel~4vz provide with a combustible substance that provides energy
+    fire~17v 
+ funeral ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:NOUN ) 
+    funeral~1nz (^ceremony~3) a ceremony at which a dead person is buried or cremated
+ furniture ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    furniture~1nz (^artifact~1) furnishings that make a room or other area ready for occupancy
+ future ( meanings=8 glosses=7 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    future~1nz (^good~1) bulk commodities bought or sold at an agreed price for delivery at a specified future date
+    future~2nz (^family~3) a verb tense that expresses actions or states in the future
+    futurity~2nz (^time~1) the time yet to come
+    succeeding~2az elected but not yet serving
+    future~5az yet to be or coming
+    future~6az effective in or looking toward the future
+    future~7az a verb tense or other formation referring to events or states that have not yet happened
+    future~8az 
+ forget ( meanings=4 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 GRADE3_4 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=forgotten 
+    block~16v 
+    bury~1vz dismiss from the mind
+    leave~6v 
+    forget~4vz forget to do something
+ fastness ( meanings=3 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 ) 
+    fastness~1nz (^defense~5) a strongly fortified defensive structure
+    fastness~2nz (^quality~1) the quality of being fixed in place as by some firm attachment
+    speed~3n 
+ focus ( meanings=12 glosses=9 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) conjugate=focusing plural=foci 
+    focus~1nz (^quality~1) maximum clarity or distinctness of an image rendered by an optical system
+    focus~2nz (^quality~1) maximum clarity or distinctness of an idea
+    focusing~2n 
+    focus~4nz (^point~16) a fixed reference point on the concave side of a conic section
+    focus~5nz (^point~16) a point of convergence of light or a point from which it diverges
+    focus~6nz (^point~16) a central point or locus of an infection in an organism
+    stress~5n 
+    focus~8vz put into focus
+    focus~9vz become focussed or come into focus
+    center~21v 
+    focus~11vz bring into focus or alignment
+    focus~12vz cause to converge on or toward a central point
+ far ( meanings=10 glosses=9 PARTICLE ADJECTIVE ADVERB PREPOSITION ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB (null) (null) ) comparative=furthest 
+    far~1az located at a great distance in time or space or degree
+    far~2az being of a considerable distance or length
+    far~3az beyond a norm in opinion or actions
+    far~4az being the animal or vehicle on the right or being on the right side of an animal or vehicle
+    far~5bz at or to or from a great distance in space
+    far~6bz remote in time
+    far~7bz to a considerable degree
+    far~8bz at or to a certain point or degree
+    far~9bz to an advanced stage or point
+    far~10z 
+ fealty ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    allegiance~2n 
+ fluster ( meanings=3 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fluster~1nz (^disposition~2) a disposition that is confused or nervous and upset
+    fluster~2vz cause to be nervous or upset
+    fluster~3vz be flustered
+ fragrance ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    sweetness~2n 
+    perfume~2nz (^smell~4) a distinctive odor that is pleasant
+ freezing ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    freeze~4n 
+    freezing~2az 
+ futurity ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 GRADE5_6 posdefault:NOUN ) 
+    futurity~1nz (^timing~2) the quality of being in or of the future
+    future~3n 
+ futility ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    futility~1nz (^quality~1) uselessness as a consequence of having no practical result
+ favorable ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    lucky~1a 
+    favorable~2az occurring at a convenient or suitable time
+    favorable~3az tending to promote or facilitate
+    favorable~4az encouraging or approving or pleasing
+    friendly~5a 
+ freedom ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    freedom~1nz (^state~1) the condition of being free
+    freedom~2nz (^status~1) immunity from an obligation or duty
+ franchise ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    franchise~1nz (^right~4) a statutory right or privilege granted to a person or group by a government
+    franchise~2nz (^grant~3) an authorization to sell a company's goods or services in a particular place
+    franchise~3nz (^business~8) a business established or operated under an authorization to sell or distribute a company's goods or services in a particular area
+    franchise~4vz grant a franchise to
+ freckle ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    freckle~1nz (^spot~6) a small brownish spot on the skin
+    freckle~2vz mark with freckles
+    freckle~3vz become freckled
+ festering ( meanings=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:VERB ) 
+    festering~1nz (^humor~3) 
+    festering~2nz (^activity~3) 
+ forehead ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    forehead~1nz (^bone~2) the large cranial bone forming the front part of the cranium: includes the upper part of the orbits
+    forehead~2nz (^feature~2) the part of the face above the eyes
+ fist ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fist~1nz (^hand~4) a hand with the fingers clenched in the palm
+    fist~2vz 
+ fallen ( meanings=4 glosses=4 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=fell 
+    fallen~1az killed in battle
+    fallen~2az having lost your chastity
+    fallen~3az having fallen in or collapsed
+    fallen~4az having dropped by the force of gravity
+ fictitious ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    pretended~1az adopted in order to deceive
+    fancied~1az formed or conceived by the imagination
+ fog ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    daze~1nz (^disarray~2) confusion characterized by lack of clarity
+    fog~2nz (^cloud~3) droplets of water vapor suspended in the air near the ground
+    fog~3nz (^atmosphere~5) an atmosphere in which visibility is reduced because of a cloud of some substance
+    cloud~13v 
+ forbidden ( meanings=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 GRADE5_6 posdefault:VERB ) conjugate=forbade 
+    out~8a 
+    forbidden~2az 
+ focussing ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    focus~3n 
+ flavor ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    nip~4n 
+    flavor~2nz (^form~9) the six kinds of quarks
+    spirit~8n 
+    season~6v 
+ fad ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN ) 
+    craze~2n 
+ fortune ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    luck~1nz (^process~1) an unknown and unpredictable phenomenon that causes an event to result one way rather than another
+    luck~2nz (^process~1) an unknown and unpredictable phenomenon that leads to a favorable outcome
+    fortune~3nz (^treasure~4) a large amount of wealth or prosperity
+    luck~3nz (^condition~5) your overall circumstances or condition in life 
+ favorite ( meanings=5 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    favorite~1nz (^choice~2) something regarded with special favor or liking
+    darling~1nz (^lover~1) a special loved one
+    favorite~3nz (^competition~3) a competitor thought likely to win
+    favored~1az preferred above all others and treated with partiality
+    favorite~5az appealing to the general public
+ figuring ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    figuring~1nz (^thinking~1) 
+ fact ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    fact~1nz (^information~2) a piece of information about circumstances that exist or events that have occurred
+    fact~2nz (^construct~1) a concept whose truth can be proved
+    fact~3nz (^information~3) a statement or assertion of verified information about something that is the case or has happened
+    fact~4nz (^being~2) an event known to have happened or something known to have existed
+ folklore ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    folklore~1nz (^content~2) the unwritten lore of a culture
+ frontier ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN ) 
+    frontier~1nz (^subject~3) an undeveloped field of study
+    frontier~2nz (^boundary~2) an international boundary or the area immediately inside the boundary
+    frontier~3nz (^wild~1) a wilderness at the edge of a settled area of a country
+ feminine ( meanings=6 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    feminine~1nz (^gender~2) a gender that refers chiefly to females or to objects classified as female
+    feminine~2az associated with women and not with men
+    feminine~3az befitting or characteristic of a woman especially a mature woman
+    feminine~4az of grammatical gender
+    feminine~5az ending on an unaccented beat or syllable
+    feminine~6az 
+ fiction ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    fiction~1nz (^writing~4) a literary work based on the imagination and not necessarily on fact
+    fiction~2nz (^statement~4) a deliberately false or improbable account
+ federal ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    federal~1az national
+    federal~2az characterized by or constituting a form of government in which power is divided between one central and several regional authorities
+    federal~3az of or relating to the central government of a federation
+    federal~4az 
+ fiscal ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    financial~1a 
+    fiscal~2az 
+ forecasting ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    prediction~2n 
+ forecast ( meanings=4 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_PARTICIPLE NOUN_SINGULAR COMMON4 COMMON1 GRADE3_4 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT ) conjugate=forecast 
+    forecast~1nz (^prediction~2) a prediction about how something will develop
+    figure~16v 
+    presage~3v 
+    calculate~5v 
+ fib ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    story~5n 
+    fib~2vz tell a relatively insignificant lie
+ flourish ( meanings=8 glosses=6 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:NOUN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    flourish~1nz (^line~18) a short lively tune played on brass instruments
+    flourish~2nz (^wave~3) the act of waving
+    flourish~3nz (^style~8) a display of ornamental speech or language
+    flourish~4nz (^motion~3) a showy gesture
+    flourish~5nz (^decoration~2) an ornamental embellishment in writing
+    boom~6v 
+    wave~12v 
+    prosper~1vz make steady progress
+ frown ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT (null) ) 
+    scowl~1nz (^motion~3) a facial expression of dislike or displeasure
+    lower~2vz look angry or sullen, wrinkle one's forehead, as if to signal disapproval
+ figured ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    figured~1az adorned with patterns
+ frozen ( meanings=8 glosses=7 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:VERB (null) ) conjugate=froze 
+    fixed~1az incapable of being changed or moved or undone
+    frozen~2az not convertible to cash
+    frozen~3az preserved by freezing sufficiently rapidly to retain flavor and nutritional value
+    frozen~4az turned into ice
+    frigid~2az devoid of warmth and cordiality
+    frozen~6az not thawed
+    rooted~1az absolutely still
+    frozen~8az 
+ flier ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=fly 
+    flyer~1nz (^ad~1) an advertisement intended for wide distribution
+    aviator~1nz (^worker~2) someone who operates an aircraft
+    flyer~3nz (^traveler~1) someone who travels by air
+ flyer ( meanings=3 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) comparative=flier 
+    bill~9n 
+    flier~2n 
+    flier~3n 
+ feast ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    feast~1nz (^thing~10) something experienced with great delight
+    feast~2nz (^party~1) an elaborate party
+    banquet~1n 
+    banquet~2nz (^dinner~2) a ceremonial dinner party for many people
+    feed~9v 
+    banquet~3vz partake in a feast or banquet
+    banquet~4vz provide a feast or banquet for
+ falling ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    dropping~1a 
+    falling~2az becoming lower or less in degree or value
+    falling~3az decreasing in amount or degree
+ famine ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
+    famine~1nz (^catastrophe~1) a severe shortage of food resulting in violent hunger and starvation and death
+    dearth~2n 
+ fate ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_TAKES_INDIRECT_THEN_TOINFINITIVE ) 
+    destiny~1nz (^event~1) an event that will inevitably happen in the future
+    destiny~2nz (^cause~1) the ultimate agency regarded as predetermining the course of events 
+    destiny~3n 
+    fate~4vz decree or designate beforehand
+ fatal ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE ) 
+    fatal~1az controlled or decreed by fate
+    fatal~2az having momentous consequences
+    fatal~3az bringing death
+    black~12a 
+    fatal~5az 
+ flowing ( meanings=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    flow~2n 
+    sleek~2a 
+ fading ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    fading~1nz (^weakening~2) 
+ flapping ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    flap~4n 
+ faint ( meanings=9 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE3_4 posdefault:ADJECTIVE VERB_NOOBJECT ) 
+    faint~1nz (^change~5) a spontaneous loss of consciousness caused by insufficient blood to the brain
+    faint~2az lacking conviction or boldness or courage
+    dim~4a 
+    faint~4az indistinctly understood or felt or perceived
+    weak~5a 
+    feeble~3az lacking strength or vigor
+    light~39a 
+    faint~8az 
+    faint~9vz pass out from weakness, physical or emotional distress due to a loss of blood supply to the brain
+ fever ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    fever~1nz (^anticipation~3) intense nervous anticipation
+    fever~2nz (^evidence~1) a rise in the temperature of the body
+ feelings ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
+    feelings~1nz (^feeling~1) emotional or moral sensitivity 
+ fidget ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 NOUN_NODETERMINER GRADE5_6 posdefault:VERB VERB_NOOBJECT ) 
+    fidget~1nz (^feeling~1) a feeling of agitation expressed in continual motion
+    fidget~2vz move restlessly
+ fear ( meanings=8 glosses=7 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT ) 
+    fright~1nz (^emotion~1) an emotion experienced in anticipation of some specific pain or danger
+    fear~2nz (^emotion~1) a feeling of profound respect for someone or something
+    care~6n 
+    fear~4vz regard with feelings of respect and reverence
+    dread~3vz be afraid or scared of
+    fear~6vz be uneasy or apprehensive about
+    fear~7vz be sorry
+    fear~8vz be afraid or feel anxious or apprehensive about a possible or probable situation or event
+ fright ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fear~1n 
+    scare~3v 
+ fond ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_ONLY_PREDICATE COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) 
+    fond~1az having a strong preference or liking for
+    fond~2az extravagantly or foolishly loving and indulgent
+    warm~7az having or displaying warmth or affection
+    fond~4az absurd or silly because unlikely
+    fond~5az 
+ fellow ( meanings=8 glosses=6 NOUN_HUMAN NOUN_HE NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
+    boyfriend~1n 
+    bloke~1nz (^male~2) a boy or man
+    colleague~1nz (^associate~3) a person who is member of one's class or profession
+    companion~2nz (^friend~3) a friend who is frequently in the company of another
+    buster~5nz (^man~4) an informal form of address for a man
+    fellow~6nz (^member~4) a member of a learned society
+    mate~10nz (^single~2) one of a pair
+    fellow~8az 
+ fresh ( meanings=14 glosses=8 ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fresher 
+    wise~2a 
+    fresh~2az not yet used or soiled
+    fresh~3az recently made, produced, or harvested
+    fresh~4az not canned or otherwise preserved
+    sweet~6a 
+    bracing~2az imparting vitality and energy
+    fresh~7az beginning or occurring again
+    new~6a 
+    clean~16a 
+    sweet~14a 
+    fresh~11az with restored energy
+    fresh~12az having recently calved and therefore able to give milk
+    fresh~13az 
+    new~10bz very recently
+ frosting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 
+    icing~2n 
+ fry ( meanings=4 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    kid~1n 
+    fry~2vz cook on a hot surface using fat
+    fry~3vz kill by electrocution, as in the electric chair
+    fry~4vz be excessively hot
+ french_fries ( meanings=1 glosses=1 NOUN NOUN_PLURAL NOUN_NODETERMINER KINDERGARTEN ) plural=french_fry 
+    fries~1nz (^potato~1) strips of potato fried in deep fat
+ fries ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:VERB ) 
+    french_fries~1n 
+ flavoring ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER ) 
+    seasoning~2n 
+ firm ( meanings=15 glosses=10 VERB_PRESENT VERB_INFINITIVE NOUN VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) comparative=firmer 
+    house~6n 
+    strong~1a 
+    fast~3a 
+    fast~7a 
+    solid~9az not soft or yielding to pressure
+    firm~6az possessing the tone and resiliency of healthy tissue
+    unfaltering~1az marked by firm determination or resolution
+    firm~8az securely established
+    firm~9az not subject to revision or change
+    steady~6az not liable to fluctuate or especially to fall
+    firm~11az not shaking or trembling
+    firm~12az 
+    firm~13bz with resolute determination
+    firm~14vz make taut or tauter
+    firm~15vz become taut or tauter
+ fried ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ) 
+    fried~1az cooked by frying in fat
+ flock ( meanings=7 glosses=5 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 GRADE1_2 posdefault:NOUN VERB_NOOBJECT ) 
+    flock~1nz (^group~1) a group of birds
+    fold~4n 
+    flock~3nz (^fold~5) a church congregation guided by a pastor
+    troop~3nz (^crowd~1) an orderly crowd
+    plenty~2n 
+    cluster~3vz come together as in a cluster or flock
+    flock~7vz move as a crowd or in a group
+ faithful ( meanings=7 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    fold~5n 
+    faithful~2nz (^following~2) any loyal and steadfast following
+    close~4a 
+    faithful~4az steadfast in affection or allegiance
+    faithful~5az not having sexual relations with anyone except your husband or wife, or your boyfriend or girlfriend
+    faithful~6az 
+    faithful~7az 
+ fund ( meanings=9 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    fund~1nz (^institution~5) a financial institution that sells shares to individuals and invests in securities issued by other companies
+    fund~2nz (^money~2) a reserve of money set aside for some purpose
+    stock~15n 
+    fund~4vz furnish money for
+    fund~5vz accumulate a fund for the discharge of a recurrent liability
+    fund~6vz invest money in government securities
+    fund~7vz provide a fund for the redemption of principal or payment of interest
+    fund~8vz place or store up in a fund for accumulation
+    fund~9vz convert into long-term debt that bears fixed interest and is represented by bonds
+ freshman ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) plural=freshmen 
+    fresher~1n 
+    freshman~2nz (^beginner~2) any new participant in some activity
+    freshman~3nz 
+    freshman~4az used of a person in the first year of an experience 
+ few ( meanings=4 glosses=2 NOUN_ABSTRACT PRONOUN_SUBJECT PRONOUN_OBJECT NOUN ADJECTIVE DETERMINER ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN DETERMINER_PLURAL PRONOUN_PLURAL (null) ) comparative=fewest 
+    few~1nz (^class~3) a small elite group
+    few~2az a quantifier that can be used with count nouns and is often preceded by `a'
+    few~3z 
+    few~4z 
+ flake ( meanings=6 glosses=5 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    bit~8n 
+    flake~2nz (^individual~1) a person with an unusual or odd personality
+    flake~3nz (^crystal~6) a crystal of snow
+    peel~3vz come off in flakes or thin small pieces
+    flake~5vz cover with flakes or as if with flakes
+    flake~6vz form into flakes
+ faulting ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:VERB ) 
+    fracture~2n 
+ fossil ( meanings=3 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN ) 
+    fossil~1nz (^remains~2) the remains of a plant or animal that existed in a past geological age and that has been excavated from the soil
+    fossil~2nz (^adult~2) someone whose style is out of fashion
+    fossil~3az characteristic of a fossil
+ Father ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR COMMON1 KINDERGARTEN ) 
+ fiend ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    devil~2n 
+    fiend~2nz (^champion~4) a person motivated by irrational enthusiasm 
+    devil~4n 
+ familiar ( meanings=8 glosses=5 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_ONLY_PREDICATE COMMON4 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    familiar~1nz (^spirit~5) a spirit that acts as an assistant to a witch or wizard
+    associate~5n 
+    familiar~3nz (^servant~1) a person attached to the household of a high official who renders service in return for support
+    familiar~4az having mutual interests or affections
+    familiar~5az well known or easily recognized
+    familiar~6az within normal everyday experience
+    conversant~1a 
+    familiar~8az 
+ friend ( meanings=4 glosses=3 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    acquaintance~2nz (^individual~1) a person with whom you are acquainted
+    friend~2nz (^associate~3) an associate who provides cooperation or assistance
+    friend~3nz (^individual~1) a person you know well and regard with affection and trust
+    supporter~5n 
+ fornicatress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) 
+    fornicatress~1nz (^individual~1) a woman adulterer
+ famous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
+    noted~2az widely known and esteemed
+    famous~2az 
+ feller ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=fell 
+    lad~2n 
+    feller~2nz (^jack~10) a person who fells trees
+ father ( meanings=6 glosses=4 NOUN_HUMAN NOUN_HE VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT ) 
+    father~1nz (^head~26) the head of an organized crime family
+    father~2nz (^parent~2) a male parent 
+    father~3nz (^leader~2) a person who holds an important or distinguished position in some organization
+    father~4nz (^root~6) the founder of a family
+    founder~1n 
+    get~1v 
+ femme ( meanings=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    femme~1nz 
+ foe ( meanings=2 NOUN NOUN_SINGULAR COMMON4 KINDERGARTEN posdefault:NOUN ) 
+    opposition~4n 
+    enemy~4n 
+ fakeer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 KINDERGARTEN ) comparative=fake 
+    fakeer~1nz (^individual~1) a Muslim or Hindu mendicant monk who is regarded as a holy man
+ fancier ( meanings=1 glosses=1 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) comparative=fancy 
+    fancier~1nz (^lover~1) a person having a strong liking for something
+ father-in-law ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR KINDERGARTEN posdefault:NOUN ) plural=fathers-in-law 
+    father-in-law~1nz (^father~2) the father of your spouse
+ fiance ( meanings=1 glosses=1 NOUN_HUMAN NOUN_HE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    fiance~1nz (^lover~1) a man who is engaged to be married
+ fiancee ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    fiancee~1nz (^lover~1) a woman who is engaged to be married
+ firefighter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    fireman~2nz (^guardian~1) a member of a fire department who tries to extinguish fires
+ fitter ( meanings=2 glosses=1 MORE_FORM NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE1_2 posdefault:NOUN posdefault:ADJECTIVE ) comparative=fit 
+    fitter~1nz (^tailor~1) someone who fits a garment to a particular person
+    healthier~1a 
+ flatterer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=flat 
+    flatterer~1nz (^individual~1) a person who uses flattery
+ foolish ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE (null) (null) ) 
+    foolish~1az having or revealing stupidity
+    foolish~2az devoid of good sense or judgment
+    foolish~3az 
+ forecaster ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
+    forecaster~1nz (^individual~1) 
+ foreigner ( meanings=2 glosses=2 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=foreign 
+    alien~2nz (^traveler~1) a person who comes from a foreign country
+    outsider~1nz (^stranger~1) someone who is excluded from or is not a member of a group
+ foreman ( meanings=3 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) plural=foremen 
+    chief~1n 
+    foreman~2nz (^juror~1) a man who is foreperson of a jury
+    foreman~3nz 
+ forester ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) comparative=forest 
+    forester~1nz (^farmer~1) someone trained in forestry
+ founder ( meanings=7 glosses=3 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 posdefault:NOUN VERB_NOOBJECT ) comparative=found 
+    beginner~1n 
+    founder~2nz (^worker~2) a worker who makes metal castings
+    founder~3nz (^evidence~1) 
+    founder~4vz stumble and nearly fall
+    give~28v 
+    founder~6vz sink below the surface
+    flop~9v 
+ foundress ( meanings=1 glosses=1 NOUN_HUMAN NOUN_SHE NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN ) 
+    foundress~1nz (^beginner~1) a woman founder
+ fraternal ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    fraternal~1az like or characteristic of or befitting a brother
+    fraternal~2az derived from two separate fertilized ova
+    fraternal~3az of or relating to a fraternity or society of usually men
+    fraternal~4az 
+ fresher ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fresh 
+    freshman~1nz (^student~2) a first-year undergraduate
+ fugitive ( meanings=3 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) 
+    fugitive~1nz (^crook~2) someone who is sought by law officers
+    fugitive~2nz (^individual~1) someone who flees from an uncongenial situation
+    fleeting~1az lasting for a markedly brief time
+ fuller ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=full 
+    fuller~1nz (^workman~1) a workman who fulls freshly woven cloth for a living
+ faker ( meanings=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=fakeer 
+    fake~3n 
+ frequenter ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 KINDERGARTEN posdefault:NOUN ) comparative=frequent 
+    frequenter~1nz (^customer~1) a regular customer
+ forgetful ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    forgetful~1az failing to keep in mind
+    forgetful~2az not mindful or attentive
+    short~11a 
+    forgetful~4az 
+ forked ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    double~6a 
+    branched~2az 
+ flowering ( meanings=4 glosses=2 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB ) 
+    blossoming~1nz (^development~8) 
+    flowering~2nz (^development~7) a developmental process
+    flowering~3az having a flower or bloom
+    flowering~4az 
+ fragrant ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    fragrant~1az pleasant-smelling
+    fragrant~2az 
+ flaming ( meanings=4 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 posdefault:VERB ) 
+    flame~1n 
+    flaming~2az very intense
+    blinking~2a 
+    flaming~4az 
+ flooded ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ) 
+    afloat~2a 
+ friendship ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    friendship~1nz (^state~1) the state of being friends
+ flamboyant ( meanings=4 glosses=3 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    flamboyant~1nz (^tree~1) showy tropical tree or shrub native to Madagascar
+    florid~2az elaborately or excessively ornamented
+    showy~4az marked by ostentation but often tasteless
+    flamboyant~4az 
+ fruiting ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fruiting~1az capable of bearing fruit
+ fragile ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    fragile~1az vulnerably delicate
+    delicate~2a 
+    thin~4a 
+    fragile~4az 
+ found ( meanings=4 glosses=2 VERB_PRESENT VERB_PAST VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) conjugate=find comparative=founder 
+    found~1az come upon unexpectedly or after searching
+    base~28v 
+    plant~9v 
+    establish~8vz set up or found
+ fifty ( meanings=3 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN ) 
+    fifty~1nz (^note~7) a United States bill worth 50 dollars
+    fifty~2nz (^number~11) the cardinal number that is the product of ten and five
+    fifty~3az being ten more than forty
+ fiver ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) comparative=five 
+    fiver~1nz (^note~7) 
+ functioning ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 posdefault:VERB (null) ) 
+    operation~10n 
+    functioning~2az performing or able to perform its regular function
+ fill ( meanings=11 glosses=8 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT (null) ) 
+    fill~1nz (^enough~1) a quantity sufficient to satisfy
+    filling~6nz (^stuff~7) any material that fills a space or container
+    fill~3vz plug with a substance
+    fill~4vz become full
+    fill~5vz make full, also in a metaphorical sense
+    meet~4v 
+    replete~3vz fill to satisfaction
+    fill~8vz eat until one is sated
+    fill~9vz appoint someone to
+    occupy~4v 
+    occupy~7v 
+ fourteen ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER KINDERGARTEN posdefault:NOUN ) 
+    fourteen~1nz (^number~11) the cardinal number that is the sum of thirteen and one
+    fourteen~2az being one more than thirteen
+ fifteen ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
+    fifteen~1nz (^number~11) the cardinal number that is the sum of fourteen and one
+    fifteen~2az being one more than fourteen
+ former ( meanings=6 glosses=3 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN ) 
+    former~1nz (^rank~5) the first of two or the first mentioned of two
+    former~2az referring to the first of two things or persons mentioned 
+    other~2az belonging to the distant past
+    sometime~1a 
+    previous~3a 
+    former~6az 
+ fester ( meanings=2 glosses=2 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN VERB_NOOBJECT ) 
+    fester~1nz (^sore~1) a sore that has become inflamed and formed pus
+    fester~2vz ripen and generate pus
+ frostbite ( meanings=1 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) conjugate=frostbitten 
+    frostbite~1nz (^hurt~5) destruction of tissue by freezing and characterized by tingling, blistering and possibly gangrene
+ fame ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) 
+    fame~1nz (^honor~4) the state or quality of being widely honored and acclaimed
+    fame~2nz (^repute~1) favorable public reputation
+ flaw ( meanings=4 glosses=4 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT ) 
+    flaw~1nz (^state~1) an imperfection in a plan or theory or legal document that causes it to fail or that reduces its effectiveness
+    flaw~2nz (^state~1) defect or weakness in a person's character
+    fault~7nz (^state~1) an imperfection in an object or machine
+    flaw~4vz add a flaw or blemish to
+ fertilizer ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) 
+    fertilizer~1nz (^chemical~1) any substance such as manure or a mixture of nitrates used to make soil more fertile
+ fortnight ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN TIMEWORD ) 
+    fortnight~1nz (^period~3) a period of fourteen consecutive days
+ fertile ( meanings=5 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    fertile~1az capable of reproducing
+    fat~6a 
+    fertile~3az bearing in abundance especially offspring
+    fertile~4az intellectually productive
+    fertile~5az 
+ firemen ( NOUN NOUN_PLURAL COMMON2 COMMON1 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN ) plural=fireman 
+ french_fry ( NOUN NOUN_SINGULAR KINDERGARTEN ) plural=french_fries 
+ fathers-in-law ( NOUN NOUN_PLURAL posdefault:NOUN ) plural=father-in-law 
+ fishes ( NOUN NOUN_PLURAL COMMON4 KINDERGARTEN posdefault:NOUN ) plural=fish 
+ florae ( NOUN NOUN_PLURAL COMMON1 GRADE5_6 ) plural=flora 
+ foci ( NOUN NOUN_PLURAL COMMON2 COMMON1 GRADE5_6 posdefault:NOUN ) plural=focus 
+ focuses ( NOUN NOUN_PLURAL COMMON4 posdefault:VERB ) 
+ feet ( NOUN NOUN_PLURAL COMMON4 COMMON1 KINDERGARTEN TAKES_POSTPOSITIVE_ADJECTIVE posdefault:NOUN ) plural=foot 
+ fungi ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=fungus 
+ funguses ( NOUN NOUN_PLURAL COMMON1 ) 
+ firedrill ( meanings=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER KINDERGARTEN ) 
+    firedrill~1nz 
+ foremen ( NOUN NOUN_PLURAL COMMON2 NOUN_NODETERMINER GRADE3_4 posdefault:NOUN ) plural=foreman 
+ freshmen ( NOUN NOUN_PLURAL COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) plural=freshman 
+ fiddle-dee-dee ( INTERJECTION ) 
+ fiddlesticks ( INTERJECTION COMMON1 ) 
+ fie ( INTERJECTION COMMON1 ) 
+ foo ( INTERJECTION ) 
+ fooey ( INTERJECTION ) 
+ femtosecond ( ADJECTIVE ADJECTIVE_NUMBER NOUN_NUMBER ORDINAL KINDERGARTEN posdefault:NOUN TIMEWORD (null) ) 
+ finally ( meanings=3 glosses=2 ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
+    finally~1bz as the end result of a succession or process
+    eventually~1b 
+    last~20bz the item at the end
+ fortnightly ( meanings=2 glosses=2 ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB TIMEWORD ) 
+    biweekly~3az occurring every two weeks
+    biweekly~4bz every two weeks
+ faulty ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) comparative=faultiest 
+    wrong~3a 
+    faulty~2az having a defect
+    faulty~3az 
+ feathered ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    feathered~1az adorned with feathers or plumes
+    feathered~2az having or covered with feathers
+    feathered~3az 
+ fearful ( meanings=6 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:ADJECTIVE ) 
+    fearful~1az experiencing or showing fear
+    dread~2a 
+    fearful~3az timid by nature or revealing timidity
+    fearful~4az lacking courage
+    fearful~5az extremely distressing
+    fearful~6az 
+ frightened ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB (null) ) 
+    scared~1az made afraid
+    terrified~1az thrown into a state of intense fear or desperation
+    frightened~3az 
+ fearless ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    fearless~1az oblivious of dangers or perils or calmly resolute in facing them
+    audacious~3a 
+    fearless~3az 
+ frantic ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    frantic~1az excessively agitated
+    excited~4a 
+    frantic~3az 
+ furious ( meanings=4 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    angered~1az marked by extreme anger
+    wild~3a 
+    fierce~4a 
+    furious~4az 
+ facile ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    silver~6a 
+    facile~2az performing adroitly and without effort
+    facile~3az arrived at without due care or effort
+    facile~4az 
+ forceful ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) 
+    forceful~1az forceful and definite in expression or action
+    forceful~2az characterized by or full of force or strength 
+ fortunate ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    fortunate~1az presaging good fortune
+    golden~4a 
+    fortunate~3az having unexpected good fortune
+    fortunate~4az 
+ for ( meanings=2 PARTICLE PREPOSITION CONJUNCTION_COORDINATE COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    for~1z 
+    for~2z 
+ finer ( meanings=1 glosses=1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fine 
+    finer~1az greater in quality or excellence
+ faced ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    faced~1az having a face or facing especially of a specified kind or number
+ featured ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    featured~1az having facial features as specified
+    featured~2az made a feature or highlight
+ fastened ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    tied~3a 
+    buttoned~1az furnished or closed with buttons or something buttonlike
+    fastened~3az firmly closed or secured
+ fierce ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    rough~4az violently agitated and turbulent
+    fierce~2az ruthless in competition
+    tearing~2az marked by extreme intensity of emotions or convictions
+    ferocious~1az marked by extreme and violent energy
+    fierce~5az 
+ fated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 ) 
+    doomed~3a 
+ focused ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    focused~1az of an optical system adjusted to produce a clear image
+    focussed~1a 
+    focussed~2a 
+ flushed ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    red~6a 
+    flushed~2az 
+    flushed~3az 
+ faded ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB (null) ) 
+    faded~1az 
+    faded~2az 
+    faded~3az 
+ fogged ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    foggy~1a 
+    fogged~2az 
+ foggy ( meanings=5 glosses=4 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=foggiest 
+    fogged~1az obscured by fog
+    misty~1az filled or abounding with fog or mist
+    blurred~2az indistinct or hazy in outline
+    dazed~2az stunned or confused and slow to react
+    foggy~5az 
+ farther ( meanings=4 glosses=4 MORE_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON4 KINDERGARTEN ) comparative=far 
+    farther~1az more distant in especially space or time
+    further~1az more distant in especially degree
+    further~2bz to or at a greater distance in time or space 
+    further~3bz to or at a greater extent or degree or a more advanced stage 
+ farthest ( meanings=3 glosses=3 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN ) comparative=farther 
+    furthest~1az most remote in space or time or order
+    furthest~2bz to the greatest distance in space or time 
+    furthest~3bz to the greatest degree or extent or most advanced stage 
+ furthest ( meanings=3 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN ) comparative=further 
+    farthest~1a 
+    farthest~2b 
+    farthest~3b 
+ further ( meanings=6 glosses=3 MORE_FORM VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADVERB ADJECTIVE_NORMAL EXTENT_ADVERB ADJECTIVE_NOT_PREDICATE COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT ) comparative=farthest 
+    farther~2a 
+    farther~3b 
+    farther~4b 
+    further~4bz in addition or furthermore
+    foster~4vz promote the growth of
+    encourage~3vz contribute to the progress or growth of
+ frequent ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE VERB_DIRECTOBJECT ) comparative=frequenter 
+    frequent~1az frequently encountered
+    frequent~2az coming at short intervals or habitually
+    haunt~3vz be a regular or frequent visitor to a certain place
+    shop~7vz do one's shopping at
+ fretful ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    fretful~1az habitually complaining
+    fretful~2az nervous and unable to relax
+    fretful~3az 
+ flustered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    perturbed~1a 
+ fanned ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fanned~1az 
+ fulfilled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    fulfilled~1az completed to perfection
+ flagrant ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    glaring~2a 
+ focussed ( meanings=2 glosses=2 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 GRADE5_6 posdefault:VERB ) conjugate=focus 
+    focused~2az converging on a point
+    focused~3az being in focus or brought into focus
+ fanciful ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    fanciful~1az indulging in or influenced by fancy
+    fanciful~2az having a curiously intricate quality
+    imaginary~2a 
+    fanciful~4az 
+ fabulous ( meanings=4 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE (null) ) 
+    fabulous~1az barely credible
+    fabulous~2az extremely pleasing
+    fabulous~3az based on or told of in traditional stories
+    fabulous~4az 
+ finished ( meanings=5 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:VERB ) 
+    ruined~1az brought to ruin
+    finished~2az ended or brought to an end
+    finished~3az brought to the desired final state
+    finished~4az having a surface coating or finish applied
+    finished~5az brought to or having the greatest excellence
+ fawning ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fawning~1az 
+    fawning~2az 
+    fawning~3az 
+ forcible ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    physical~3a 
+    forcible~2az 
+ fired ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ) 
+    dismissed~1az having lost your job
+ frustrating ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    frustrating~1az discouraging by hindering
+    frustrating~2az preventing realization or attainment of a desire
+ flattering ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    flattering~1az showing or representing to advantage
+    flattering~2az 
+ forgiving ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB (null) ) 
+    forgiving~1az 
+    forgiving~2az inclined or able to forgive and show mercy
+ fully ( meanings=3 glosses=3 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    full~10bz to the greatest degree or extent
+    fully~2bz sufficiently
+    fully~3bz referring to a quantity
+ fingered ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fingered~1az having or resembling a finger or fingers
+ fantastic ( meanings=5 glosses=5 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN ADJECTIVE_POSTPOSITIVE posdefault:ADJECTIVE (null) ) 
+    antic~2az ludicrously odd
+    wonderful~1az extraordinarily good or great 
+    fantastic~3az extravagantly fanciful in design, construction, appearance
+    fantastic~4az existing in fancy only
+    wild~10az fanciful and unrealistic
+ fastidious ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    fastidious~1az giving careful attention to detail
+    exacting~3az having complicated nutritional requirements
+ flighted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 ADJECTIVE_POSTPOSITIVE posdefault:VERB ) 
+    flighted~1az having feathers
+ footed ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    footed~1az having feet
+    footed~2az 
+ frostbitten ( meanings=2 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON2 GRADE5_6 posdefault:VERB ) conjugate=frostbit 
+    frostbitten~1az injured by freezing or partial freezing
+    frostbitten~2az 
+ filled ( meanings=3 glosses=3 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    filled~1az generously supplied with
+    filled~2az taken up
+    filled~3az of purchase orders that have been filled
+ framed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    framed~1az provided with a frame
+ funded ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    funded~1az furnished with funds
+ fueled ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    fueled~1az heated, driven, or produced by burning fuel
+ florid ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    ruddy~2az inclined to a healthy reddish color often associated with outdoor life
+    flamboyant~2a 
+    florid~3az 
+ fooling ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fooling~1az characterized by a feeling of irresponsibility
+ floored ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    floored~1az provided with a floor
+ frigid ( meanings=4 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE (null) ) 
+    icy~3a 
+    icy~4a 
+    cold~12a 
+    frigid~4az 
+ fashioned ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    fashioned~1az planned and made or fashioned artistically
+ funereal ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE5_6 posdefault:ADJECTIVE ) 
+    funereal~1az suited to or suggestive of a grave or burial
+ filmed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    filmed~1az recorded on film
+ fleeting ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fugitive~3a 
+    fleeting~2az 
+ forfeited ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    forfeit~4a 
+ favored ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    preferred~2a 
+ fewer ( meanings=3 glosses=1 MORE_FORM PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE DETERMINER ADJECTIVE_NORMAL COMMON4 PRONOUN_INDIRECTOBJECT KINDERGARTEN DETERMINER_PLURAL PRONOUN_PLURAL ) comparative=few 
+    fewer~1az quantifier meaning a smaller number of
+    fewer~2z 
+    fewer~3z 
+ fewest ( meanings=2 glosses=1 MOST_FORM ADJECTIVE DETERMINER ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE COMMON2 COMMON1 KINDERGARTEN DETERMINER_PLURAL ) comparative=fewer 
+    fewest~1az quantifier meaning the smallest in number
+    fewest~2z 
+ forgotten ( meanings=1 glosses=1 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=forgot 
+    disregarded~1az not noticed inadvertently
+ fatherly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) 
+    fatherly~1az 
+    fatherly~2az 
+ flawed ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
+    flawed~1az 
+ fleshly ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADVERB ) comparative=fleshliest 
+    animal~2a 
+    fleshly~2az 
+ flowered ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    flowered~1az resembling or made of or suggestive of flowers
+    flowered~2az 
+ freckled ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB (null) ) 
+    freckled~1az 
+    freckled~2az 
+ fed ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=feed 
+ frowning ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    frowning~1az showing displeasure or anger
+ feasible ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    feasible~1az capable of being done with means at hand and circumstances as they are
+ feeble ( meanings=5 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    feeble~1az lacking strength
+    weak~8a 
+    faint~6a 
+    lame~4a 
+    feeble~5az 
+ fishy ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fishiest 
+    suspect~3a 
+    fishy~2az of or relating to or resembling fish
+    fishy~3az 
+ factual ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 
+    actual~4a 
+    factual~2az of or relating to or characterized by facts
+ fancied ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fictitious~2a 
+ frivolous ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    frivolous~1az not serious in content or attitude or behavior
+    frivolous~2az 
+ formed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
+    formed~1az having or given a form or shape
+ feigned ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    feigned~1az not genuine
+ fluctuating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    fluctuating~1az having unpredictable ups and downs
+ flourishing ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    booming~2a 
+    flourishing~2az 
+ foiled ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    disappointed~1a 
+ frustrated ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE1_2 posdefault:VERB (null) ) 
+    defeated~3az disappointingly unsuccessful
+ frugal ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    economical~2a 
+    frugal~2az 
+ fatigued ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    exhausted~3a 
+ ferocious ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:ADJECTIVE ) 
+    furious~3a 
+    ferocious~2az 
+ forested ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:VERB ) 
+    forested~1az covered with forest
+ felted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    felted~1az made by combining fibers with a binder using heat and pressure
+ frayed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) 
+    frayed~1az worn away or tattered along the edges
+ filched ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    filched~1az 
+ frogged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    frogged~1az 
+ fruited ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
+    fruited~1az 
+ finest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=finer 
+ faster ( meanings=1 MORE_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE posdefault:ADVERB ) comparative=fast 
+    quicker~1b 
+ fastest ( meanings=1 MOST_FORM ADJECTIVE ADVERB ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=faster 
+    quickest~1b 
+ fanciest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fancier 
+ fatter ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fat 
+ fattest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fatter 
+ faultier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=faulty 
+ faultiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE5_6 ) comparative=faultier 
+ fishier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=fishy 
+ fishiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 KINDERGARTEN ) comparative=fishier 
+ fittest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=fitter 
+ flatter ( meanings=1 glosses=1 MORE_FORM VERB_PRESENT VERB_INFINITIVE VERB ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:VERB posdefault:ADJECTIVE VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) comparative=flatterer 
+    flatter~1vz praise somewhat dishonestly
+ flattest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=flatter 
+ fleshlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL ) comparative=fleshly 
+ fleshliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL ) comparative=fleshlier 
+ foggier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON1 GRADE1_2 posdefault:ADJECTIVE ) comparative=foggy 
+ foggiest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 GRADE1_2 posdefault:ADJECTIVE ) comparative=foggier 
+ freer ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=free 
+ freest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 KINDERGARTEN posdefault:ADJECTIVE ) comparative=freer 
+ friendlier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=friendly 
+ friendliest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=friendlier 
+ funnier ( MORE_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) comparative=funny 
+ funniest ( MOST_FORM ADJECTIVE ADJECTIVE_NORMAL COMMON4 KINDERGARTEN posdefault:ADJECTIVE ) comparative=funnier 
+ frustrate ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    rag~11v 
+    queer~5v 
+ fulfill ( meanings=3 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT COMMON_PARTICIPLE_VERB ) 
+    fill~6v 
+    action~11v 
+    satisfy~3vz meet the requirements or expectations of
+ forever ( meanings=3 glosses=2 ADVERB COMMON4 COMMON1 GRADE5_6 posdefault:ADVERB ) 
+    always~4b 
+    forever~2bz for a limitless time
+    forever~3bz for a very long or seemingly endless time
+ from ( meanings=1 PARTICLE PREPOSITION COMMON4 COMMON2 COMMON1 KINDERGARTEN posdefault:PREPOSITION ) 
+    from~1z 
+ furthermore ( meanings=1 glosses=1 ADVERB COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    moreover~1bz in addition
+ fairly ( meanings=3 glosses=2 ADVERB EXTENT_ADVERB COMMON4 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    jolly~5b 
+    fair~16bz without favoring one party, in a fair evenhanded manner
+    fair~17bz in conformity with the rules or laws and without fraud or cheating
+ fortunately ( meanings=1 glosses=1 ADVERB COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB ) 
+    fortunately~1bz by good fortune
+ forwards ( meanings=2 ADVERB COMMON4 posdefault:ADVERB ) 
+    forward~7b 
+    forward~8b 
+ forth ( meanings=3 glosses=1 PARTICLE ADVERB COMMON4 COMMON1 GRADE3_4 posdefault:ADVERB ) 
+    forth~1bz out into view
+    forward~10b 
+    off~7b 
+ for_example ( meanings=1 ADVERB CONDITIONAL_IDIOM KINDERGARTEN posdefault:ADVERB  poscondition=?=R ) 
+    for_example~1bz 
+ freely ( meanings=1 glosses=1 ADVERB COMMON4 KINDERGARTEN posdefault:ADVERB ) 
+    freely~1bz in a free manner
+ follow ( meanings=24 glosses=22 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_GERUND VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    follow~1vz keep informed
+    follow~2vz behave in accordance or in agreement with
+    follow~3vz keep to
+    follow~4vz grasp the meaning
+    trace~8vz follow, discover, or ascertain the course of development of something
+    follow~6vz perform an accompaniment to
+    follow~7vz imitate in behavior
+    follow~8vz travel along a certain course
+    follow~9vz to travel behind, go after, come after
+    pursue~2vz follow in or as if in pursuit
+    survey~9vz keep under surveillance
+    adopt~6vz choose and follow
+    succeed~1v 
+    be~2vz work in a specific place, with a specific subject, or in a specific function
+    observe~6v 
+    follow~16vz act in accordance with someone's rules, commands, or wishes
+    follow~17vz adhere to or practice
+    follow~18vz accept and follow the leadership or command or guidance of
+    come~14vz to be the product or result
+    follow~20vz be later in time
+    follow~21vz come as a logical consequence
+    follow~22vz come after in time, as a result
+    follow~23vz be next
+    follow~24vz to bring something about at a later time than
+ fail ( meanings=11 glosses=10 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 COMMON1 KINDERGARTEN posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fail~1vz get worse
+    die~7v 
+    fail~3vz prove insufficient
+    betray~4vz disappoint, prove undependable to
+    fail~5vz become bankrupt or insolvent
+    fail~6vz fall short in what is expected
+    bomb~5vz fail to get a passing grade
+    fail~8vz judge unacceptable
+    fail~9vz be unsuccessful
+    neglect~9vz fail to do something
+    fail~11vz be unable
+ fluctuate ( meanings=3 glosses=3 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fluctuate~1vz be unstable
+    vacillate~1vz move or sway in a rising and falling or wavelike pattern
+    fluctuate~3vz cause to fluctuate or move in a wavelike pattern
+ fasten ( meanings=4 glosses=4 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    fasten~1vz make tight or tighter
+    fasten~2vz attach to
+    fix~13vz cause to be firmly attached
+    fasten~4vz become fixed or fastened
+ forbid ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 posdefault:VERB VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT ) conjugate=forbidden 
+    prohibit~1v 
+    prevent~2v 
+ flout ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    scoff~2v 
+    jeer~2v 
+ feign ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB VERB_TAKES_TOINFINITIVE VERB_DIRECTOBJECT (null) ) 
+    affect~4v 
+    assume~5v 
+ forgive ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 KINDERGARTEN posdefault:VERB VERB_DIRECTOBJECT VERB_INDIRECTOBJECT (null) ) conjugate=forgiven 
+    forgive~1vz stop blaming or grant forgiveness
+    forgive~2vz absolve from payment
+ fondle ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE3_4 posdefault:VERB VERB_DIRECTOBJECT (null) ) 
+    fondle~1vz touch or stroke lightly in a loving or endearing manner
+ flee ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON4 GRADE5_6 posdefault:VERB VERB_NOOBJECT ) conjugate=fled 
+    fly~19v 
+ filch ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 GRADE5_6 posdefault:VERB VERB_DIRECTOBJECT ) 
+    purloin~1v 
+ fought ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=fight 
+ fled ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=flee 
+ flung ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE1_2 posdefault:VERB ) conjugate=fling 
+ flew ( VERB_PAST VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=fly 
+ flown ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=flew 
+ forbade ( VERB_PAST VERB COMMON2 COMMON1 GRADE5_6 posdefault:VERB ) conjugate=forbid 
+ forgot ( VERB_PAST VERB_PAST_PARTICIPLE VERB COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=forget 
+ forgave ( VERB_PAST VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=forgive 
+ forgiven ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=forgave 
+ froze ( VERB_PAST VERB COMMON2 COMMON1 KINDERGARTEN posdefault:VERB ) conjugate=freeze 
+ frostbit ( VERB_PAST VERB COMMON1 GRADE5_6 ) conjugate=frostbite 
+ Ft. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Ft ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
