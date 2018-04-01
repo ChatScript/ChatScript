@@ -1638,6 +1638,7 @@ CALLFRAME* ChangeDepth(int value,char* name,bool nostackCutback, char* code)
 	{
         bool abort = false;
         CALLFRAME* frame = releaseStackDepth[globalDepth];
+
 #ifndef DISCARDTESTING
         if (globalDepth && *name && debugCall)
         {

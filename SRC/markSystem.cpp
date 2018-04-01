@@ -468,7 +468,9 @@ void MarkMeaningAndImplications(int depth, int exactWord,MEANING M,int start, in
 			sprintf(word,(char*)"%s~~",X->word);
 			MarkWordHit(depth, exactWord, FindWord(word, 0, PRIMARY_CASE_ALLOWED),0,start,end); // direct reference in a pattern
 			if (!ind) break;	// has no meaning index
-			T = GetMeanings(X)[ind];
+			MEANING* meanings = GetMeanings(X);
+			if (!meanings) break;
+			T = meanings[ind];
 			if (!T) break;
 			if ((T & MEANING_BASE) == (M & MEANING_BASE)) break; // end of loop
 			++n;

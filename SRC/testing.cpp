@@ -5234,26 +5234,61 @@ static void C_TimeLog(char* input)
         (*printer)("no such file");
         return;
     }
-    int count = 0;
-    int time = 0;
-    int min = 100000;
-    int max = 0;
+
+    int count[64];
+    int time[64];
+    int min[64];
+    int max[64];
+	memset(count, 0, sizeof(count));
+	memset(time, 0, sizeof(time));
+	memset(max, 0, sizeof(max));
+	for (int i = 0; i < 64; ++i) min[i] = 100000;
+	char bot[64][100];
+	int botid;
+	memset(bot, 0, sizeof(bot));
+
     while (ReadALine(readBuffer, in) >= 0)
     {
+		char botname[1000];
+		char* botptr = strstr(readBuffer, "bot:");
+		int botid = 0;
+		if (botptr)
+		{
+			ReadCompiledWord(botptr + 4, botname);
+			int i;
+			for (i = 0; i < 64; ++i)
+			{
+				if (!bot[i][0]) // not allocated yet
+				{
+					strcpy(bot[i], botname);
+					botid = i;
+					break;
+				}
+				if (!stricmp(bot[i], botname))
+				{
+					botid = i;
+					break;
+				}
+			}
+		}
         char* timeinfo = strstr(readBuffer, "ms Why");
         if (timeinfo)
         {
-            ++count;
+            ++count[botid];
             while (IsDigit(*--timeinfo)); 
             int decode = atoi(timeinfo + 1);
-            if (decode > max) max = decode;
-            if (decode < min) min = decode;
-            time += decode;
+            if (decode > max[botid]) max[botid] = decode;
+            if (decode < min[botid]) min[botid] = decode;
+            time[botid] += decode;
         }
     }
     fclose(in);
-    int avg = time / count;
-    Log(STDUSERLOG,"Lines %d min %d  max %d avg %d\r\n", count, min, max, avg);
+	for (int i = 0; i < 64; ++i)
+	{
+		if (!bot[i][0]) break; 
+		int avg = time[i] / count[i];
+		Log(STDUSERLOG, "%s Lines %d min %d  max %d avg %d\r\n",bot[i], count[i], min[i], max[i], avg);
+	}
 }
 
 static void C_VerifySentence(char* input)

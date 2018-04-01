@@ -1420,6 +1420,7 @@ retry:
 	}
 exit:
 	ChangeDepth(-1,id,true); // rule
+	++rulesExecuted;
 	currentIterator = oldIterator;
 	
 	if (traceChanged) trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
@@ -2438,6 +2439,19 @@ static void AddRecursiveInternal(WORDP D,unsigned int intbits,bool dictionaryBui
 	}
 }
 
+static void InsureSafeSpellcheck(char* word)
+{
+	if (!word || !*word) return;
+	// Spellcheck should not harm keywords or components of keywords. Insure some mark exists.
+	// Spellcheck can adjust case without causing recognition damage.
+	WORDP X = FindWord(word, 0, LOWERCASE_LOOKUP);
+	if (X && (X->properties & TAG_TEST || X->systemFlags & PATTERN_WORD)) return; 
+	WORDP Y = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (Y && (Y->properties & TAG_TEST || Y->systemFlags & PATTERN_WORD)) return; 
+	WORDP Z = StoreWord(word);
+	if (Z) AddSystemFlag(Z, PATTERN_WORD);
+}
+
 void InitKeywords(const char* fname,const char* layer,unsigned int build,bool dictionaryBuild,bool concept)
 { 
 	char word[MAX_WORD_SIZE];
@@ -2637,6 +2651,32 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 						}
 					}
 				}
+
+				// insure whole word safe from spell check
+				char* space = strchr(D->word, ' ');
+				char* underscore = strchr(D->word, '_');
+				if (!space && !underscore) InsureSafeSpellcheck(D->word); // rrotect whole word
+
+				// insure pieces safe from spellcheck
+				char sep = 0;
+				if (space && underscore) { ; }
+				else if (space) sep = ' ';
+				else sep = '_';
+				if (sep)
+				{
+					char word[MAX_WORD_SIZE];
+					strcpy(word, D->word);
+					char* at = word;
+					char* old = word;
+					while ((at = strchr(at, sep))) // break apart into pieces.
+					{
+						*at++ = 0;
+						InsureSafeSpellcheck(old);
+						old = at;
+					}
+					if (*old) InsureSafeSpellcheck(old);
+				}
+
 			}
 			else // recurse on concept
 			{

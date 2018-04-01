@@ -768,12 +768,6 @@ FunctionResult JSONOpenCode(char* buffer)
 	{
 		Log(STDTRACELOG, (char*)"\r\n");
 		Log(STDTRACETABLOG, (char*)"Json method/url: %s %s\r\n", raw_kind, fixedUrl);
-		if (bIsExtraHeaders)
-		{
-			Log(STDTRACELOG, (char*)"\r\n");
-			Log(STDTRACETABLOG, (char*)"Json header: %s\r\n", extraRequestHeadersRaw);
-			Log(STDTRACETABLOG, (char*)"");
-		}
 		if (kind == 'P' || kind == 'U')
 		{
 			Log(STDTRACELOG, (char*)"\r\n");
@@ -803,12 +797,12 @@ FunctionResult JSONOpenCode(char* buffer)
 	}
 
 	// Assuming a content return type of JSON.
-	header = curl_slist_append(header, "Content-Type: application/json");
 	int gzip = 0;
 	int deflate = 0;
 	int compress = 0;
 	int identity = 0;
 	int wild = 0;
+	bool contentSeen = false;
 
 	// If any extra REQUEST headers were specified, add them now.
 	if (bIsExtraHeaders) 
@@ -836,7 +830,7 @@ FunctionResult JSONOpenCode(char* buffer)
 				MakeLowerCopy(value,fieldValue);
 				len = strlen(value);
 				while (value[len-1] == ' ') value[--len] = 0;	// remove trailing blanks, forcing the field to abut the ~
-
+				if (!strnicmp(name, "Content-type", 12)) contentSeen = true;
 				if (strstr(name,(char*)"accept-encoding"))
 				{
 					gzip = EncodingValue((char*)"gzip",value,gzip);
@@ -874,7 +868,20 @@ FunctionResult JSONOpenCode(char* buffer)
 		} // while (p)
 
 	} // if (extraRequestHeadersRaw)
-	
+	if (!contentSeen) header = curl_slist_append(header, "Content-Type: application/json");
+
+	if (trace & TRACE_JSON)
+	{
+		Log(STDTRACELOG, (char*)"\r\n");
+		curl_slist* list = header;
+		while (list)
+		{
+			Log(STDTRACETABLOG, (char*)"JSON header: %s\r\n", list->data);
+			list = list->next;
+		}
+		Log(STDTRACETABLOG, (char*)"");
+	}
+
 	char coding[MAX_WORD_SIZE];
 	*coding = 0;
 	if (wild == 2) // authorizes anything not mentioned

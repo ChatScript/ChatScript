@@ -56,7 +56,7 @@ char lognames[MAX_LOG_NAMES][200];
 FILE* logfiles[MAX_LOG_NAMES];
 char* codeStart = NULL;
 char* realCode = NULL;
-
+int rulesExecuted = 0;
 bool planning = false;
 
 #define MAX_REUSE_SAFETY 100
@@ -2976,7 +2976,11 @@ static FunctionResult UnmarkCode(char* buffer)
 		}
 	}
 	if (IsDigit(*ptr) || *ptr == '_') ptr = ReadCompiledWord(ptr, buffer);  // the locator, leave it unevaled as number or match var
-	else if (*ptr == USERVAR_PREFIX) strcpy(buffer, GetUserVariable(buffer));
+	else if (*ptr == USERVAR_PREFIX)
+	{
+		ptr = ReadCompiledWord(ptr, buffer);
+		strcpy(buffer, GetUserVariable(buffer));
+	}
 	else if (*ptr) ptr = GetCommandArg(ptr, buffer, result, 0); // evaluate the locator as a number presumably
 
 	if (!*buffer) 
@@ -4276,6 +4280,8 @@ static FunctionResult SaveSentenceCode(char* buffer)
  	if (documentMode) return FAILRULE_BIT;
 	char* arg1 = ARGUMENT(1);
 	if (!*arg1) return FAILRULE_BIT;	// need an id
+	if (wordCount && !wordStarts[1]) return FAILRULE_BIT;
+	
 	MEANING M = MakeMeaning(StoreWord(arg1,AS_IS));
 
 	// compute words (4byte int) needed
@@ -4906,12 +4912,12 @@ static FunctionResult BurstCode(char* buffer) //   take value and break into fac
         ++scan;
         size_t len = strlen(scan);
         if (scan[len - 1] == '"') scan[len - 1] = 0;
-        if (*scan == 0) // explode into characters
+        if (*scan == 0) // burst into characters
         {
-            --ptr; //   what to explode
+            --ptr; //   what to burst
             char word[MAX_WORD_SIZE];
             word[1] = 0;
-            SET_FACTSET_COUNT(impliedSet, 0);
+            if (impliedSet != ALREADY_HANDLED) SET_FACTSET_COUNT(impliedSet, 0);
             while (*++ptr && ptr[1]) // leave rest for end
             {
                 unsigned int charLen = UTFCharSize(ptr);
@@ -4928,7 +4934,7 @@ static FunctionResult BurstCode(char* buffer) //   take value and break into fac
                     FACT* F = CreateFact(T, verb, object, FACTTRANSIENT | FACTDUPLICATE);
                     AddFact(impliedSet, F);
                 }
-                else //   dump straight to output buffer, first piece only
+                else if (!count) //   dump straight to output buffer, first piece only
                 {
                     strcpy(buffer, word);
                     break;

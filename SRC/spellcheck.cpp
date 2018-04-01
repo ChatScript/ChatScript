@@ -384,7 +384,7 @@ bool SpellCheckSentence()
 		if (D && !IS_NEW_WORD(D))
 		{
             bool good = false;
-			if (D->properties & (FOREIGN_WORD| PART_OF_SPEECH) || *D->word == '~' || D->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
+			if (D->properties & TAG_TEST|| *D->word == '~' || D->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
 			else if (D <= dictionaryPreBuild[LAYER_0]) good = true; // in dictionary - if a substitute would have happend by now
             else if (stricmp(language, "English")) good = true; // foreign word we know
             else if (IsConceptMember(D)) good = true;
@@ -440,12 +440,14 @@ bool SpellCheckSentence()
 		char* dot = strchr(word, '.');
 		if (dot && FindWord(word, 0)) continue;
 
-		// split conjoined sentetence Missouri.Fix
+		// split conjoined sentetence Missouri.Fix  or Missouri..Fix
 		if (dot && dot != word && dot[1])
 		{
 			*dot = 0;
 			WORDP X = FindWord(word, 0);
-			WORDP Y = FindWord(dot + 1, 0);
+			char* rest = dot + 1;
+			while (rest[1] == '.') ++rest; // swallow all excess dots
+			WORDP Y = FindWord(rest + 1, 0);
 			if (X && Y) // we recognize the words
 			{
 				char* tokens[4];
@@ -454,7 +456,7 @@ bool SpellCheckSentence()
 				tokens[2] = oper;
 				*oper = '.';
 				oper[1] = 0;
-				tokens[3] = dot + 1;
+				tokens[3] = rest + 1;
 				ReplaceWords("dotsentence", i, 1, 3, tokens);
 				fixedSpell = true;
 				continue;

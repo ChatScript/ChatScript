@@ -135,7 +135,6 @@ You can also do `!^query`. Or
     if (^query(direct_vo ? want toy)) {@0subject wants a toy.}
 
 
-
 ## Private queries
 
 You can define your own queries beyond the LIVEDATA ones. 
@@ -793,6 +792,28 @@ Factset names like `@1` are not mnemonic. You can "rename" them as follows:
 in a script before any uses of `@bettername`, which now mean `@12`. Then you can do:
 
     $$tmp = @betternamesubject
+
+## Predefined  queries
+
+`exact_`  - use the given arguments without expanding beyond them. Most efficient when you
+know exactly what you want.
+
+`exact_svrange` - find facts given subject and verb, where object is a number and must be in range (>= propogate <= match)
+`exact_vrange`	find facts given verb, where object must be number in range (>= propogate <= match)
+```
+e.g. @0 = ^query(exact_vrange ? myverb ? -1 ? ? $_lowvalue $_highvalue)
+```
+
+`direct_` and `direct_flag`
+
+`up2set` -  propogate upwards from subject to find the fact that leads to object of which is a given concept 
+```
+given: (soap member ~hygiene_items) and (~hygiene_item member ~personal_items) and (~personal_items member ~drugstore) and (~drugstore member ~storetypes)
+given  ^query(up2set soap ? '~store_type 10 )   - ie, what kind of store sells soap
+yields (~drugstore member ~storetypes) 
+```
+
+`up2seta` - similar to up2set but you name the verb instead of assuming member/is
 
 
 ## Defining your own queries

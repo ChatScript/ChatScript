@@ -746,6 +746,10 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if (comma && end > comma && (!IsDigit(comma[1]) ||!IsDigit(comma[-1]))) end = comma;
 
 	if (end == ptr) ++end;	// must shift at least 1
+
+	// possessive ending? swallow whole token like "K-9's"
+	if (*(end - 1) == 's' && (end - ptr) > 2 && *(end - 2) == '\'') return end - 2;
+
 	WORDP X = FindWord(ptr,end-ptr,PRIMARY_CASE_ALLOWED);
 	// avoid punctuation so we can detect emoticons
 	if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & PATTERN_WORD || X->internalBits & HAS_SUBSTITUTE)) // we know this word (with exceptions)
@@ -804,9 +808,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			return end;
 		}
 	}
-
-	// possessive ending? swallow whole token like "K-9's"
-	if (*(end-1) == 's' && (end-ptr) > 2 && *(end-2) == '\'') return end - 2;
 
 	//  e-mail, needs to not see - as a stopper.
 	WORDP W = (fullstopper) ? FindWord(ptr,fullstopper-ptr) : NULL;
@@ -2129,7 +2130,7 @@ static WORDP ViableIdiom(char* text,int i,unsigned int n)
 	if (!word)
 	{
 		size_t len = strlen(text);
-		if (text[len-1] == 's') word = FindWord(text, len-1, STANDARD_LOOKUP);
+		if (text[len - 1] == 's' && text[0] != '<') word = FindWord(text, len - 1, STANDARD_LOOKUP);
 		if (!word) return 0;
 	}
     bool again = primaryLookupSucceeded;

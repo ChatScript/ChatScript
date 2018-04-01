@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -524,6 +524,16 @@ datum: ^secondkeys(~accidents) repair</code></pre>
 <pre><code>rename: @bettername @12</code></pre>
 <p>in a script before any uses of <code>@bettername</code>, which now mean <code>@12</code>. Then you can do:</p>
 <pre><code>$$tmp = @betternamesubject</code></pre>
+<h2 id="predefined-queries">Predefined queries</h2>
+<p><code>exact_</code> - use the given arguments without expanding beyond them. Most efficient when you know exactly what you want.</p>
+<p><code>exact_svrange</code> - find facts given subject and verb, where object is a number and must be in range (&gt;= propogate &lt;= match) <code>exact_vrange</code> find facts given verb, where object must be number in range (&gt;= propogate &lt;= match)</p>
+<pre><code>e.g. @0 = ^query(exact_vrange ? myverb ? -1 ? ? $_lowvalue $_highvalue)</code></pre>
+<p><code>direct_</code> and <code>direct_flag</code></p>
+<p><code>up2set</code> - propogate upwards from subject to find the fact that leads to object of which is a given concept</p>
+<pre><code>given: (soap member ~hygiene_items) and (~hygiene_item member ~personal_items) and (~personal_items member ~drugstore) and (~drugstore member ~storetypes)
+given  ^query(up2set soap ? &#39;~store_type 10 )   - ie, what kind of store sells soap
+yields (~drugstore member ~storetypes) </code></pre>
+<p><code>up2seta</code> - similar to up2set but you name the verb instead of assuming member/is</p>
 <h2 id="defining-your-own-queries">Defining your own queries</h2>
 <p>The query code wanders around facts to find those you want. But since facts can represent anything, you may need to custom tailor the query system, which itself is a mini-programming language. The full query function is takes nine arguments and any arguments at the end you omit default themselves.</p>
 <p>All query kinds are defined in <code>LIVEDATA/queries.txt</code> and you can add entries to that (or revise existing ones). The essential things a query needs to be able to do is:</p>

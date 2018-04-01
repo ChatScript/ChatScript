@@ -63,6 +63,8 @@
 #		~	= stop on intersection 
 #			followed by char label to intersect
 #		f   = fact must have flag given by match variable
+#		>= range above (use propgate field)
+#		<= range below (use match field)
 #
 # Facts that match will either become result facts OR, if this is a riccochet search, will stimulate further processing.
 
@@ -121,6 +123,12 @@ QUERY: exact_svo	"1oQ 2vT 3sT: queue o: match v2 s3"	# (dog love cat)
 # 3. mark subject with 3 (no queuing)
 # 4. walk thru q, looking at facts where q item is object
 # 5. accept facts where verb is marked with 2 and subject is marked with 3
+
+# find facts given subject and verb, where object must be in range of object (>= propogate <= match)
+QUERY: exact_svrange	"1sQ 2vT: queue s: match v2 <=o >=o"	# 
+
+# find facts given verb, where object must be in range of object (>= propogate <= match)
+QUERY: exact_vrange	"1vQ: queue v: match <=o >=o"	# 
 
 ##########
 # simple direct match queries

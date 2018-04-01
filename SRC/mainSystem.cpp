@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "8.1";
+char* version = "8.2";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1705,7 +1705,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     // protective level 0 callframe
     globalDepth = -1;
     ChangeDepth(1, ""); // never enter debugger on this
-    
+	rulesExecuted = 0;
     pendingUserReset = false;
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	timerCheckInstance = 0;
@@ -2698,6 +2698,8 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE) mytrace = 0;
 	ResetSentence();
 	ResetTokenSystem();
+	ClearWhereInSentence();
+	ClearTriedData();
 
 	char* ptr = input;
 	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark

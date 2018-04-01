@@ -130,170 +130,170 @@ file: 0  C:/ChatScript/RAWDATA/HARRY/keywordless.top
           line: 42 380  # @0 = ^query ( direct_v ? extra
           Complexity of rule ~keywordless.4.0- ?: 1
 file: 0  C:/ChatScript/RAWDATA/HARRY/simplecontrol.top
-    macro: 2  ^harry
-          line: 3 0  # $cs_token = 4096 | 255 | 512 |
-          line: 4 60  # $cs_token += 67108864 | 65536 
-          line: 6 90  # ^addtopic ( ~introductions ) 
-          line: 7 119  # $cs_control_main = ~control 
-          line: 9 147  # $userprompt = ^"%user: >" 
-          line: 10 173  # $botprompt = ^"HARRY: " 
-          line: 11 197  # $singleresponse = 1 
+    macro: 9  ^harry
+          line: 10 0  # $cs_token = 4096 | 255 | 512 |
+          line: 11 60  # $cs_token += 67108864 | 65536 
+          line: 13 90  # ^addtopic ( ~introductions ) 
+          line: 14 119  # $cs_control_main = ~control 
+          line: 16 147  # $userprompt = ^"%user: >" 
+          line: 17 173  # $botprompt = ^"HARRY: " 
+          line: 18 197  # $singleresponse = 1 
           Complexity of ^harry: 1
-    topic: 19  ~control
-        rule: 22  ~control.0.0 u: 
-          line: 23 0  # ^gambit ( ~introductions ) 
+    topic: 21  ~control
+        rule: 24  ~control.0.0 u: 
+          line: 25 0  # ^gambit ( ~introductions ) 
           Complexity of rule ~control.0.0- u: 1
-        rule: 25  ~control.1.0 u: 
-          line: 25 0  # $shutup = 1 
+        rule: 27  ~control.1.0 u: 
+          line: 27 0  # $shutup = 1 
           Complexity of rule ~control.1.0- u: 1
-        rule: 26  ~control.2.0 u: 
-          line: 26 0  # $shutup = null 
+        rule: 28  ~control.2.0 u: 
+          line: 28 0  # $shutup = null 
           Complexity of rule ~control.2.0- u: 1
-        rule: 28  ~control.3.0 u: 
-          line: 28 0  # Callback seen. 
+        rule: 30  ~control.3.0 u: 
+          line: 30 0  # Callback seen. 
           Complexity of rule ~control.3.0- u: 1
-        rule: 29  ~control.4.0 u: 
-          line: 29 0  # Loopback seen. 
+        rule: 31  ~control.4.0 u: 
+          line: 31 0  # Loopback seen. 
           Complexity of rule ~control.4.0- u: 1
-        rule: 30  ~control.5.0 u: 
-          line: 30 0  # Alarm seen. 
+        rule: 32  ~control.5.0 u: 
+          line: 32 0  # Alarm seen. 
           Complexity of rule ~control.5.0- u: 1
-        rule: 31  ~control.6.0 u: 
-          line: 31 0  # \[ loopback=1000 \] Loopback r
+        rule: 33  ~control.6.0 u: 
+          line: 33 0  # \[ loopback=1000 \] Loopback r
           Complexity of rule ~control.6.0- u: 1
-        rule: 32  ~control.7.0 u: 
-          line: 32 0  # \[ callback=1000 \] Callback r
+        rule: 34  ~control.7.0 u: 
+          line: 34 0  # \[ callback=1000 \] Callback r
           Complexity of rule ~control.7.0- u: 1
-        rule: 33  ~control.8.0 u: 
-          line: 33 0  # \[ alarm=5000 \] Alarm request
+        rule: 35  ~control.8.0 u: 
+          line: 35 0  # \[ alarm=5000 \] Alarm request
           Complexity of rule ~control.8.0- u: 1
-        rule: 35  ~control.9.0 u: 
-          line: 36 0  # $_responsecount = %response 
-          if 37 32  
-          ifend 37 85  
-          line: 37 28  # ^if 00n( $singleresponse ) 00v
-          line: 39 86  # $$currenttopic = %topic 
-          if 41 114  
-          ifend 41 193  
-          line: 41 110  # ^if 00A( %response == $_respon
-          if 43 198  
-          line: 43 194  # ^if 00R( %length == 0 and %res
-          line: 44 254  # { 
-          line: 45 256  # ^nofail ( TOPIC ^gambit ( $$cu
-          ifend 46 306  
-          line: 46 301  # } 004 
-          if 48 311  
-          ifend 48 403  
-          line: 48 307  # ^if 00A( %response == $_respon
-          if 50 408  
-          line: 50 404  # ^if 00A( %response == $_respon
-          line: 51 447  # { 
-          line: 52 449  # @8 = ^keywordtopics ( ) 
-          loop 53 479  
-          line: 53 473  # ^loop ( -1 ) aaa 
-          line: 54 490  # { 
-          line: 55 492  # $$topic = ^first ( @8subject )
-          line: 56 523  # ^nofail ( TOPIC ^respond ( $$t
-          if 57 566  
-          line: 57 562  # ^if 00A( %response != $_respon
-          line: 58 605  # { 
-          line: 59 607  # ^end ( RULE ) 
-          ifend 60 626  
-          line: 60 621  # } 004 
-          loopend 61 629  
-          line: 61 627  # } 
-          ifend 62 634  
-          line: 62 629  # } 004 
-          if 65 639  
-          line: 65 635  # ^if 00A( %response == $_respon
-          line: 66 678  # { 
-          line: 67 680  # ^nofail ( TOPIC ^respond ( ~ke
-          ifend 68 729  
-          line: 68 724  # } 004 
-          if 73 734  
-          line: 73 730  # ^if 00P( %response == $_respon
-          line: 74 788  # { 
-          line: 75 790  # ^nofail ( TOPIC ^respond ( ~qu
-          ifend 76 839  
-          line: 76 834  # } 004 
-          if 79 844  
-          line: 79 840  # ^if 00F( %outputrejoinder or %
-          line: 80 888  # { 
-          line: 81 890  # ^end ( TOPIC ) 
-          ifend 82 910  
-          line: 82 905  # } 004 
-          if 85 915  
-          ifend 85 1037  
-          line: 85 911  # ^if 00%( %response == $_respon
-          if 87 1042  
-          line: 87 1038  # ^if 00A( %response == $_respon
-          line: 88 1081  # { 
-          line: 89 1083  # @8 = ^keywordtopics ( ) 
-          loop 90 1113  
-          line: 90 1107  # ^loop ( -1 ) aaa 
-          line: 91 1124  # { 
-          line: 92 1126  # $$topic = ^first ( @8subject )
-          line: 93 1157  # ^nofail ( TOPIC ^gambit ( $$to
-          if 94 1199  
-          line: 94 1195  # ^if 00A( %response != $_respon
-          line: 95 1238  # { 
-          line: 96 1240  # ^end ( RULE ) 
-          ifend 97 1259  
-          line: 97 1254  # } 004 
-          loopend 98 1262  
-          line: 98 1260  # } 
-          ifend 99 1267  
-          line: 99 1262  # } 004 
-          if 100 1272  
-          ifend 100 1363  
-          line: 100 1268  # ^if 00A( %response == $_respon
-          if 102 1368  
-          line: 102 1364  # ^if 00A( %response == $_respon
-          line: 103 1407  # { 
-          line: 104 1409  # @8 = ^gambittopics ( ) 
-          loop 105 1438  
-          line: 105 1432  # ^loop ( -1 ) aaa 
-          line: 106 1449  # { 
-          line: 107 1451  # $$topic = ^pick ( @8subject ) 
-          line: 108 1481  # ^nofail ( TOPIC ^gambit ( $$to
-          if 109 1523  
-          line: 109 1519  # ^if 00A( %response != $_respon
-          line: 110 1562  # { 
-          line: 111 1564  # ^end ( RULE ) 
-          ifend 112 1583  
-          line: 112 1578  # } 004 
-          loopend 113 1586  
-          line: 113 1584  # } 
-          ifend 114 1591  
-          line: 114 1586  # } 004 
-          if 116 1596  
-          line: 116 1592  # ^if 00A( %response == $_respon
-          line: 117 1635  # { 
-          line: 118 1637  # ^repeat ( ) 
-          line: 119 1649  # I don't know what to say. 
-          ifend 120 1680  
-          line: 120 1675  # } 004 
+        rule: 37  ~control.9.0 u: 
+          line: 38 0  # $_responsecount = %response 
+          if 39 32  
+          ifend 39 85  
+          line: 39 28  # ^if 00n( $singleresponse ) 00v
+          line: 41 86  # $$currenttopic = %topic 
+          if 43 114  
+          ifend 43 193  
+          line: 43 110  # ^if 00A( %response == $_respon
+          if 45 198  
+          line: 45 194  # ^if 00R( %length == 0 and %res
+          line: 46 254  # { 
+          line: 47 256  # ^nofail ( TOPIC ^gambit ( $$cu
+          ifend 48 306  
+          line: 48 301  # } 004 
+          if 50 311  
+          ifend 50 403  
+          line: 50 307  # ^if 00A( %response == $_respon
+          if 52 408  
+          line: 52 404  # ^if 00A( %response == $_respon
+          line: 53 447  # { 
+          line: 54 449  # @8 = ^keywordtopics ( ) 
+          loop 55 479  
+          line: 55 473  # ^loop ( -1 ) aaa 
+          line: 56 490  # { 
+          line: 57 492  # $$topic = ^first ( @8subject )
+          line: 58 523  # ^nofail ( TOPIC ^respond ( $$t
+          if 59 566  
+          line: 59 562  # ^if 00A( %response != $_respon
+          line: 60 605  # { 
+          line: 61 607  # ^end ( RULE ) 
+          ifend 62 626  
+          line: 62 621  # } 004 
+          loopend 63 629  
+          line: 63 627  # } 
+          ifend 64 634  
+          line: 64 629  # } 004 
+          if 67 639  
+          line: 67 635  # ^if 00A( %response == $_respon
+          line: 68 678  # { 
+          line: 69 680  # ^nofail ( TOPIC ^respond ( ~ke
+          ifend 70 729  
+          line: 70 724  # } 004 
+          if 75 734  
+          line: 75 730  # ^if 00P( %response == $_respon
+          line: 76 788  # { 
+          line: 77 790  # ^nofail ( TOPIC ^respond ( ~qu
+          ifend 78 839  
+          line: 78 834  # } 004 
+          if 81 844  
+          line: 81 840  # ^if 00F( %outputrejoinder or %
+          line: 82 888  # { 
+          line: 83 890  # ^end ( TOPIC ) 
+          ifend 84 910  
+          line: 84 905  # } 004 
+          if 87 915  
+          ifend 87 1037  
+          line: 87 911  # ^if 00%( %response == $_respon
+          if 89 1042  
+          line: 89 1038  # ^if 00A( %response == $_respon
+          line: 90 1081  # { 
+          line: 91 1083  # @8 = ^keywordtopics ( ) 
+          loop 92 1113  
+          line: 92 1107  # ^loop ( -1 ) aaa 
+          line: 93 1124  # { 
+          line: 94 1126  # $$topic = ^first ( @8subject )
+          line: 95 1157  # ^nofail ( TOPIC ^gambit ( $$to
+          if 96 1199  
+          line: 96 1195  # ^if 00A( %response != $_respon
+          line: 97 1238  # { 
+          line: 98 1240  # ^end ( RULE ) 
+          ifend 99 1259  
+          line: 99 1254  # } 004 
+          loopend 100 1262  
+          line: 100 1260  # } 
+          ifend 101 1267  
+          line: 101 1262  # } 004 
+          if 102 1272  
+          ifend 102 1363  
+          line: 102 1268  # ^if 00A( %response == $_respon
+          if 104 1368  
+          line: 104 1364  # ^if 00A( %response == $_respon
+          line: 105 1407  # { 
+          line: 106 1409  # @8 = ^gambittopics ( ) 
+          loop 107 1438  
+          line: 107 1432  # ^loop ( -1 ) aaa 
+          line: 108 1449  # { 
+          line: 109 1451  # $$topic = ^pick ( @8subject ) 
+          line: 110 1481  # ^nofail ( TOPIC ^gambit ( $$to
+          if 111 1523  
+          line: 111 1519  # ^if 00A( %response != $_respon
+          line: 112 1562  # { 
+          line: 113 1564  # ^end ( RULE ) 
+          ifend 114 1583  
+          line: 114 1578  # } 004 
+          loopend 115 1586  
+          line: 115 1584  # } 
+          ifend 116 1591  
+          line: 116 1586  # } 004 
+          if 118 1596  
+          line: 118 1592  # ^if 00A( %response == $_respon
+          line: 119 1635  # { 
+          line: 120 1637  # ^repeat ( ) 
+          line: 121 1649  # I don't know what to say. 
+          ifend 122 1680  
+          line: 122 1675  # } 004 
           Complexity of rule ~control.9.0- u: 17
-    topic: 123  ~xpostprocess
-        rule: 125  ~xpostprocess.0.0 t: 
-          loop 126 6  
-          line: 126 0  # ^loop ( -1 ) aaa 
-          line: 127 17  # { 
-          line: 128 19  # $$tmp = ^last ( @9subject ) 
-          if 129 51  
-          line: 129 47  # ^if 00O( ! %server and %os == 
-          line: 130 104  # { 
-          line: 131 106  # $$tmp = ^"talk \"$$tmp\" " 
-          line: 132 133  # ^popen ( $$tmp null ) 
-          ifend 133 160  
-          line: 133 155  # } 004 
-          if 134 165  
-          line: 134 161  # ^if 00K( ! %server and %os == 
-          line: 135 214  # { 
-          line: 136 216  # $$shellerror = ^system ( "^say
-          ifend 137 266  
-          line: 137 261  # } 004 
-          loopend 139 269  
+    topic: 125  ~xpostprocess
+        rule: 127  ~xpostprocess.0.0 t: 
+          loop 128 6  
+          line: 128 0  # ^loop ( -1 ) aaa 
+          line: 129 17  # { 
+          line: 130 19  # $$tmp = ^last ( @9subject ) 
+          if 131 51  
+          line: 131 47  # ^if 00O( ! %server and %os == 
+          line: 132 104  # { 
+          line: 133 106  # $$tmp = ^"talk \"$$tmp\" " 
+          line: 134 133  # ^popen ( $$tmp null ) 
+          ifend 135 160  
+          line: 135 155  # } 004 
+          if 136 165  
+          line: 136 161  # ^if 00K( ! %server and %os == 
+          line: 137 214  # { 
+          line: 138 216  # $$shellerror = ^system ( "^say
+          ifend 139 266  
+          line: 139 261  # } 004 
+          loopend 141 269  
           Complexity of rule ~xpostprocess.0.0- t: 3
 file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_because.top
     topic: 1  ~quibble_because

@@ -4115,6 +4115,7 @@ static void MigrateObjects(int start, int end)
 			{
 				ExtendChunk(at, object, verbals);
 				if (phrase) ExtendChunk(at, object, phrases);
+				if (at == objectRef[at]) break; // avoid bad loop
 				at = objectRef[at]; // extend to cover HIS object if he is gerund or infintiive
 			}
 		}
@@ -4125,6 +4126,7 @@ static void MigrateObjects(int start, int end)
 			while (at && (object = objectRef[at]) && object > at)
 			{
 				ExtendChunk(at, object, clauses);
+				if (at == objectRef[at]) break; // avoid bad loop
 				at = objectRef[object]; // extend to cover HIS object
 			}
 		}
@@ -4138,6 +4140,7 @@ static void MigrateObjects(int start, int end)
 			while (at && (object = objectRef[at]) && object > at)
 			{
 				ExtendChunk(at, object, phrases);
+				if (at == objectRef[at]) break; // avoid bad loop
 				at = objectRef[at]; // extend to cover HIS object
 			}
 		}

@@ -70,6 +70,7 @@ extern TestMode wasCommand;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
+extern int rulesExecuted;
 extern char* realCode;
 extern unsigned int callIndex;
 extern WORDP callStack[MAX_CALL_DEPTH];
