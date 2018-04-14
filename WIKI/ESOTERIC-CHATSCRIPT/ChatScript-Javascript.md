@@ -105,22 +105,22 @@ function fib(n) {
     return fib(n-1) + fib(n-2);
 }
 
-function test(i) {
+function test(j) {
      var res = [];
-     for (i = 0; i < 5; i++) {
+     for (i = 0; i < j; i++) {
      res.push(fib(i));
      }
  print(res.join(' '));
 }
 
 topic: ~keywordless()
-u: (test) ^testx(4)
+u: (test) ^testx(5)
 
 ````
 
 In the above example, if the `~keywordless` topic sees an input of `test` it will call
-`^testx` with a value of four. This will cause the javascript to be loaded and the 
-javascript function `test` called with an integer value 4. This will,
+`^testx` with a value of five. This will cause the javascript to be loaded and the 
+javascript function `test` called with an integer value 5. This will,
 in turn, print out on the console `0 1 1 2 3` (but since that is not ChatScript output
 the system will move on to some other rule to try to generate output).
  

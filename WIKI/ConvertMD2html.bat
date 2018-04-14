@@ -3,6 +3,7 @@ pandoc ChatScript-Advanced-User-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-
 pandoc ChatScript-Basic-User-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Basic-User-Manual.html
 pandoc ChatScript-Debugging-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Debugging-Manual.html
 pandoc Practicum-rejoinders.md -s -o ../HTMLDOCUMENTATION/Practicum-rejoinders.html
+pandoc Practicum-messaging.md -s -o ../HTMLDOCUMENTATION/Practicum-messaging.html
 pandoc ChatScript-Fact-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Fact-Manual.html
 pandoc ChatScript-Finalizing-A-Bot.md -s -o ../HTMLDOCUMENTATION/ChatScript-Finalizing-A-Bot.html
 pandoc ChatScript-Json.md -s -o ../HTMLDOCUMENTATION/ChatScript-Json.html
