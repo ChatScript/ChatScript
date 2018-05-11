@@ -1813,34 +1813,43 @@ You can see them and even change them during a volley,
 but they will always refresh back to their original values at the start of the next volley. 
 
 
-## Assigning match variables to user variables
+## Match Variables
 
-    $$stuff = _0
-
+Match variables like `_5` are generally the result of using an underscore in a pattern match.
 Match variables hold 3 pieces of data 
 
 * original word(s) 
 * canonical word(s) 
 * position, range location of the word(s). 
 
-User variables only have a single piece of data. 
-So onmassignment you lose 2 of the 3 pieces from the match variable. 
-You can choose which words (original or canonical) when you assign.
+You can transfer part of Assigning match variables to user variables:
+```
+$$stuff = _0
+```
 
-    $$stuff = '_0 - original words
+but user variables only have a single piece of data. 
+So on assignment you lose 2 of the 3 pieces from the match variable. 
+You can choose which words (original or canonical) when you assign.
+```
+$$stuff = '_0 #  original words
+```
     
 You can store positional data onto a different variable using `^position(start _0)` or
-
+```
     ^position(end _0).
     _0 = $$stuff
-
+```
 When you assign onto a match variable from a user variable, you make both original and
 canonical values of the match variable the same, and the positional data is set to 0.
-
+```
     _0 = _10
+```
+This is a transfer from one match variable to another, so no data is lost.
 
-This is a transfer from one match variable to another, so no data is lost
+One unusual property of match variables is that they are not cleared between volleys. 
+This makes them the ONLY way you can pass data between volleys on a server where different users are involved.
 
+Note: Match variables have a 20,000 character limit.
 
 ## JSON dotted notation for variables
 
@@ -1941,6 +1950,9 @@ is a way to dynamically add facts and user variables into the base system common
 users. And returned output will go to the console and if a server, into the server log
 Note that when a user alters a system `$variable`, it will be refreshed back to its original
 value for each user.
+
+If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the 
+normal json naming space.
 
 
 ## `^CS_REBOOT()`

@@ -314,7 +314,7 @@ your server is in Virginia and you are in Colorado).
 | variable           | description 
 | --------           | ------------
 | `%inputrejoinder`  |  rule tag of any pending rejoinder for input or null if none pending
-| `%lastoutput`      |  the text of the last generated response for the current volley  
+| `%lastoutput`      |  the text of the last generated response for the current volley - always null across volleys  
 | `%lastquestion`    |  Boolean did last output end in a ?
 | `%outputrejoinder` |  rule tag if system set a rejoinder for its current output or 0
 | `%response`        |  number of committed responses that have been generated for this sentence (see Advanced User- Advanced Output: Committed Responses 

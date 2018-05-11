@@ -1,3 +1,3 @@
 
-pandoc Practicum-messaging.md -s -o ../PDFDOCUMENTATION/Practicum-messaging.pdf
+pandoc Practicum-Gleaning.md -s -o ../PDFDOCUMENTATION/Practicum-Gleaning.pdf
 pause

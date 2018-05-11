@@ -495,15 +495,13 @@ A sample call might be:
 ```
 $$url = "https://api.github.com/users/test/repos"
 $$user_agent = ^"User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"
-
 ^jsonopen(GET $$url "" $$user_agent)
 ```
+where GitHub requires user-agent data. Use `http://` and `https://` in front of your urls.
 
-where GitHub requires user-agent data.
 As an example of a complex header value you might create neatly,
 ```
-$header = ^"Authorization: 8daWs-dwQPpXkuzJO0o
-~Accept: application/json
+$header = ^"Accept: application/json
 ~Accept-Encoding: identity,*;q=0
 ~Accept-Language: en-US,en;q=0.5
 ~Cache-Control: no-cache
