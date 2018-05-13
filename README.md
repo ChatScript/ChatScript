@@ -76,7 +76,7 @@ Above example mentioned in article [How to build your first chatbot using ChatSc
 * Integrated tools to support maintaining and testing large systems.
 * UTF8 support allows scripts written in any language
 * User support forum on [chatbots.org](https://www.chatbots.org/ai_zone/viewforum/44/) 
-* Issues or bugs on this [repo](https://github.com/bwilcox-1234/ChatScript/issues)
+* Issues or bugs on this [repo](https://github.com/ChatScript/ChatScript/issues)
 
 
 # Getting started
@@ -85,7 +85,7 @@ Above example mentioned in article [How to build your first chatbot using ChatSc
 
 Take this project and put it into some directory on your machine (typically we call the directory ChatScript, but you can name it whatever). That takes care of installation.
 
-    git clone https://github.com/bwilcox-1234/ChatScript
+    git clone https://github.com/ChatScript/ChatScript.git
 
 
 ## Standalone mode - run locally on a console (for developement/test)
@@ -166,6 +166,8 @@ On windows if you have Visual Studio installed, launch `VS2010/chatscript.sln` o
 The result will go in the `BINARIES` directory.
 
 On Linux, go stand in the SRC directory and type `make server` (assuming you have make and g++ installed). This creates BINARIES/ChatScript, which can run as a server or locally. There are other make choices for installing PostGres or Mongo.
+
+For Mac follow the Linux instructions. You have to have the xcode command line tools installed.
 
 
 # Full Documentation
