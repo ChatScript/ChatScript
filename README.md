@@ -167,7 +167,7 @@ The result will go in the `BINARIES` directory.
 
 On Linux, go stand in the SRC directory and type `make server` (assuming you have make and g++ installed). This creates BINARIES/ChatScript, which can run as a server or locally. There are other make choices for installing PostGres or Mongo.
 
-For Mac follow the Linux instructions. You have to have the xcode command line tools installed.
+For Mac follow the instructions in the [Chatscript on a Mac Guild](/WIKI/OVERVIEWS-AND-TUTORIALS/ChatScript-on-a-Mac.md).
 
 
 # Full Documentation
