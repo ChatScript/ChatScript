@@ -2390,7 +2390,7 @@ name of topic or concept
 						++n;
 						++ptr;
 					}
-					if (n >= SEQUENCE_LIMIT) BADSCRIPT((char*)"PATTERN-? Too many  words in string %s, will never match\r\n",word)
+					if (n >= SEQUENCE_LIMIT) WARNSCRIPT((char*)"Too many words in string %s, may never match\r\n",word)
 				}
 				break;
 			case SYSVAR_PREFIX: //   system data
