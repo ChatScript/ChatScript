@@ -71,7 +71,7 @@
     <ClCompile Include="..\SRC\csocket.cpp" />
     <ClCompile Include="..\SRC\cs_ev.c" />
     <ClCompile Include="..\SRC\dictionarySystem.cpp" />
-    <ClCompile Include="..\SRC\duktape\duktape.c" />
+    <ClCompile Include="..\SRC\duktape\duktape.cpp" />
     <ClCompile Include="..\SRC\english.cpp" />
     <ClCompile Include="..\SRC\englishtagger.cpp" />
     <ClCompile Include="..\SRC\evserver.cpp" />
