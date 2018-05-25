@@ -86,7 +86,7 @@
  how's how+is
  how've how+have
  how_'s how+is
- i'd I+'d
+ i'd I+would
  i'd_'ve I+would+have
  i'll I+will
  i'm I+am
