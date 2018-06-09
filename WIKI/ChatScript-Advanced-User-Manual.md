@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/04/2017 cs7.61
+<br>Revision 6/9/2018 cs8.3
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -1365,7 +1365,7 @@ override this if you define `$cs_looplimit` to have some value you prefer.
 
 ## `^loop`( n )
 
-Loop can be given a count. This can be either a number, or you can use a factset id to
+Loop can be given a count. This can be either a number,  function call that results in a number, or you can use a factset id to
 loop through each item of the factset via
 
    ^loop (@0)

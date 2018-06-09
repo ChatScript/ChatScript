@@ -39,7 +39,6 @@ a.i. artificial+intelligence
  meds medications
  real_estate real_estate
  board_of_directors board_of_directors
- im I+am
  1am 1+am
  2am 2+am
  3am 3+am

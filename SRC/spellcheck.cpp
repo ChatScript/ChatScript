@@ -640,6 +640,26 @@ bool SpellCheckSentence()
 			}
 		}
 
+        // merge with prior token?
+        if (i != 1 && *wordStarts[i - 1] != '"') // allow piece to stand, sequences code will find it
+        {
+            char join[MAX_WORD_SIZE * 3];
+            strcpy(join, wordStarts[i - 1]);
+            strcat(join, "_");
+            strcat(join, word);
+            WORDP D = FindWord(join, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
+            if (D && D->properties & PART_OF_SPEECH && !(D->properties & AUX_VERB)) 
+            {
+                ++i;
+                continue;
+            }
+            if (D && D->systemFlags & PATTERN_WORD) 
+            {
+                ++i;
+                continue;
+            }
+        }
+
 		// sloppy omitted g in lookin
 		if (word[len - 1] == 'n' && word[len - 2] == 'i')
 		{
@@ -1490,6 +1510,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
             WORDINFO dictWordData;
             ComputeWordData(D->word, &dictWordData);
             int val = EditDistance(dictWordData, realWordData, min);
+            if (D->internalBits & UPPERCASE_HASH) ++val; // lower case should win any tie against proper name
 			if (val <= min) // as good or better
 			{
 				if (spellTrace) Log(STDTRACELOG,"    found: %s %d\r\n", D->word, val);

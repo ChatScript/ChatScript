@@ -250,7 +250,8 @@ unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result)
 	else if (compiling) {;} // during compilation most recent always matches
 	else if (!(myBot & botid)) defn = allaccess;
 	result = (!defn) ? FAILRULE_BIT : NOPROBLEM_BIT;
-	if (!defn) ReportBug((char*) "Function %s not found for bot",D->word)
+	if (!defn) 
+        ReportBug((char*) "Function %s not found for bot %s",D->word,computerID)
 	return defn; // point at (
 }
 
@@ -931,6 +932,7 @@ char* DoFunction(char* name,char* ptr,char* buffer,FunctionResult &result) // Do
 	char* oldcode = codeStart;
 	char* oldRealCode = realCode;
 	int oldtrace = trace;
+	int oldtiming = timing;
 	if (stricmp(name,"^substitute")) impliedIf = ALREADY_HANDLED;	// we all allow immediate if context to pass thru here safely
 	result = NOPROBLEM_BIT;
 
@@ -1034,6 +1036,7 @@ char* DoFunction(char* name,char* ptr,char* buffer,FunctionResult &result) // Do
 	realCode = oldRealCode;
 
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
+	timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 
 	if (ptr && *ptr == ')') // skip ) and space if there is one...
 	{
@@ -1401,7 +1404,8 @@ unsigned int Callback(WORDP D,char* arguments, bool boot,bool mainoutput)
 {
 	if (! D || !(D->internalBits & FUNCTION_NAME)) return FAILRULE_BIT;
 	unsigned int oldtrace = trace;
-	if (!boot) trace = 0;
+	unsigned int oldtiming = timing;
+	if (!boot) trace = timing = 0;
 	char args[MAX_WORD_SIZE];
 	strcpy(args,arguments);
 	FunctionResult result;
@@ -1414,6 +1418,7 @@ unsigned int Callback(WORDP D,char* arguments, bool boot,bool mainoutput)
 	}
 	if (!mainoutput) FreeOutputBuffer();
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
+	timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 	return result;
 }
 
@@ -1779,6 +1784,7 @@ static FunctionResult DoRefine(char* buffer,char* arg1, bool fail, bool doall)
     char* locals = GetTopicLocals(currentTopicID);
     bool updateDisplay = locals && DifferentTopicContext(0, currentTopicID);
 	unsigned int oldTrace = EstablishTopicTrace();
+	unsigned int oldTiming = EstablishTopicTiming();
 
 	bool failed = false;
 
@@ -1819,6 +1825,7 @@ static FunctionResult DoRefine(char* buffer,char* arg1, bool fail, bool doall)
 	RESTOREOLDCONTEXT()
 
 	trace = (modifiedTrace) ? modifiedTraceVal : oldTrace;
+	timing = (modifiedTiming) ? modifiedTimingVal : oldTiming;
 	// finding none does not fail unless told to fail
 	if (fail && (!currentRule || level != *currentRule)) result = FAILRULE_BIT;
 	return result; 
@@ -1895,7 +1902,8 @@ static FunctionResult RejoinderCode(char* buffer)
 	}
 
 	unsigned int oldtrace = EstablishTopicTrace();
-	if (trace & TRACE_TOPIC && CheckTopicTrace()) 
+	unsigned int oldtiming = EstablishTopicTiming();
+	if (trace & TRACE_TOPIC && CheckTopicTrace())
 	{
 		char label[MAX_WORD_SIZE];
 		*label = 0;
@@ -1943,13 +1951,14 @@ static FunctionResult RejoinderCode(char* buffer)
 	}
 	if (pushed) PopTopic(); 
 
-    if (inputSentenceCount) // this is the 2nd sentence that failed, give up
+    if (inputSentenceCount > 1) // this is the 2nd sentence that failed, give up
     {   
 		if (trace & TRACE_FLOW) Log(STDTRACELOG,(char*)"Clearing input rejoinder on 2nd sentence");
         inputRejoinderRuleID = NO_REJOINDER;
         unusedRejoinder = false;
     }
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
+	timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 	return  result;
 }
 
@@ -2182,6 +2191,7 @@ FunctionResult RegularReuse(int topicid, int id, char* rule,char* buffer,char* a
     CALLFRAME* oldframe = GetCallFrame(globalDepth);
 
 	unsigned int oldTrace = EstablishTopicTrace();
+	unsigned int oldTiming = EstablishTopicTiming();
 	char* locals = GetTopicLocals(currentTopicID);
     bool updateDisplay = locals && DifferentTopicContext(0, currentTopicID);
 	int holdindex = responseIndex;
@@ -2202,6 +2212,7 @@ FunctionResult RegularReuse(int topicid, int id, char* rule,char* buffer,char* a
 	currentReuseTopic = oldreusetopic;
 
 	trace = (modifiedTrace) ? modifiedTraceVal : oldTrace;
+	timing = (modifiedTiming) ? modifiedTimingVal : oldTiming;
 
 	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)""); //   restore index from lower level
 	if (!result && holdindex == responseIndex && !stricmp(arg3,(char*)"FAIL")) return FAILRULE_BIT; // user wants notification of failure
@@ -2277,12 +2288,12 @@ static FunctionResult SetRejoinderCode(char* buffer)
 
 	if (!stricmp(tag,(char*)"copy") || !stricmp(tag,(char*)"output")) // disable rejoinder
 	{
-		outputRejoinderRuleID = NO_REJOINDER;
+        outputRejoinderRuleID = outputRejoinderRuleID = NO_REJOINDER;
 		return NOPROBLEM_BIT;
 	}
 	if (!stricmp(tag,(char*)"input")) // disable rejoinder
 	{
-		inputRejoinderRuleID = NO_REJOINDER;
+        inputRejoinderRuleID = inputRejoinderRuleID = NO_REJOINDER;
 		return NOPROBLEM_BIT;
 	}
 
@@ -2976,12 +2987,12 @@ static FunctionResult UnmarkCode(char* buffer)
 		}
 	}
 	if (IsDigit(*ptr) || *ptr == '_') ptr = ReadCompiledWord(ptr, buffer);  // the locator, leave it unevaled as number or match var
-	else if (*ptr == USERVAR_PREFIX)
-	{
-		ptr = ReadCompiledWord(ptr, buffer);
-		strcpy(buffer, GetUserVariable(buffer));
-	}
-	else if (*ptr) ptr = GetCommandArg(ptr, buffer, result, 0); // evaluate the locator as a number presumably
+    else if (*ptr == USERVAR_PREFIX)
+    {
+        ptr = ReadCompiledWord(ptr, buffer);
+        strcpy(buffer, GetUserVariable(buffer));
+    }
+    else if (*ptr) ptr = GetCommandArg(ptr, buffer, result, 0); // evaluate the locator as a number presumably
 
 	if (!*buffer) 
 	{
@@ -3051,10 +3062,13 @@ static FunctionResult UnmarkCode(char* buffer)
 		WORDP D = FindWord(word); //   set or word to unmark at specific location
 		if (D) 
 		{
-			if (trace & TRACE_OUTPUT) Log(STDTRACELOG, (char*)"unmark %s %d(%s)\r\n", D->word,startPosition, wordStarts[startPosition]);
-			RemoveMatchValue(D,startPosition);
-			RemoveConceptTopic(concepts,D,startPosition);
-			RemoveConceptTopic(topics,D,startPosition);	
+            for (int i = startPosition; i <= endPosition; ++i)
+            {
+                if (trace & TRACE_OUTPUT) Log(STDTRACELOG, (char*)"unmark %s %d(%s)\r\n", D->word, i, wordStarts[i]);
+                RemoveMatchValue(D, startPosition);
+                RemoveConceptTopic(concepts, D, startPosition);
+                RemoveConceptTopic(topics, D, startPosition);
+            }
 #ifndef DISCARDTESTING
             if (debugMark)
             {
@@ -3831,6 +3845,7 @@ static FunctionResult SetResponseCode(char* buffer)
 		size_t len = strlen(data);
 		if (data[len - 1] == '"') data[len - 1] = 0;
 	}
+    if (!stricmp(data, "null")) *data = 0;
 	responseData[responseOrder[index]].response = AllocateHeap(data, 0);
 	return NOPROBLEM_BIT;
 }
@@ -4030,19 +4045,6 @@ static FunctionResult EnvironmentCode(char* buffer)
 	const char* env_p = std::getenv(ARGUMENT(1));
 	if (!env_p || !*env_p) return FAILRULE_BIT;
 	strcpy(buffer,env_p);
-	return NOPROBLEM_BIT;
-}
-
-static FunctionResult ReviseOutputCode(char* buffer)
-{
-	// if (postProcessing) return FAILRULE_BIT;
-	char* arg1 = ARGUMENT(1); // index first, rest is output
-	if (!IsDigit(*arg1)) return FAILRULE_BIT;
-	int index = atoi(arg1) - 1;
-	if (index >= responseIndex || index < 0) return FAILRULE_BIT;
-	char* arg2 = ARGUMENT(2);
-	if (!stricmp(arg2,"null") || !stricmp(arg2,"\"\"")) *arg2 = 0;
-	responseData[index].response = AllocateHeap(arg2,0);
 	return NOPROBLEM_BIT;
 }
 
@@ -4280,9 +4282,8 @@ static FunctionResult SaveSentenceCode(char* buffer)
  	if (documentMode) return FAILRULE_BIT;
 	char* arg1 = ARGUMENT(1);
 	if (!*arg1) return FAILRULE_BIT;	// need an id
-	if (wordCount && !wordStarts[1]) return FAILRULE_BIT;
-	
-	MEANING M = MakeMeaning(StoreWord(arg1,AS_IS));
+    if (wordCount && !wordStarts[1]) return FAILRULE_BIT;
+    MEANING M = MakeMeaning(StoreWord(arg1,AS_IS));
 
 	// compute words (4byte int) needed
 	int size = 2; // basic list
@@ -4537,7 +4538,7 @@ void ResetBaseMemory()
 FunctionResult MemoryFreeCode(char* buffer)
 {
 	if (!memoryText) return FAILRULE_BIT;
-	memset(wordStarts,0,sizeof(char*) * MAX_SENTENCE_LENGTH);
+	memset(wordStarts,0,sizeof(char*)*MAX_SENTENCE_LENGTH);
 	ClearTriedData();
 	ClearUserVariables(memoryText); // reset any above and delete from list but leave alone ones below
 	ResetFactSystem(memoryFact);// empties all fact sets and releases facts above marker
@@ -8795,7 +8796,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^print",PrintCode,STREAM_ARG,0,(char*)"isolated output message from current stream"}, 
 	{ (char*)"^preprint",PrePrintCode,STREAM_ARG,0,(char*)"add output before existing output"}, 
 	{ (char*)"^repeat",RepeatCode,0,SAMELINE,(char*)"set repeat flag so can repeat output"}, 
-	{ (char*)"^reviseoutput",ReviseOutputCode,2,0,(char*)"takes index and output, replacing output at that index"}, 
+	{ (char*)"^reviseoutput",SetResponseCode,2,0,(char*)"Same as ^SetResponse, takes index and output, replacing output at that index"},
 
 	{ (char*)"\r\n---- Output Access",0,0,0,(char*)""},
 	{ (char*)"^lastsaid",LastSaidCode,0,0,(char*)"get what chatbot said just before"},

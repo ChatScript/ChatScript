@@ -250,44 +250,83 @@ void TCPServerSocket::setListen(int queueLen) throw(SocketException) {
 
 #ifndef DISCARDCLIENT
 
+static void ReadSocket(TCPSocket* sock, char* response)
+{
+    int bytesReceived = 1;              // Bytes read on each recv()
+    int totalBytesReceived = 0;         // Total bytes read
+    char* base = response;
+    *response = 0;
+    while (bytesReceived > 0)
+    {
+        // Receive up to the buffer size bytes from the sender
+        bytesReceived = sock->recv(base, MAX_WORD_SIZE);
+        totalBytesReceived += bytesReceived;
+        base += bytesReceived;
+        if (trace) (*printer)((char*)"Received %d bytes\r\n", bytesReceived);
+        if (totalBytesReceived > 2 && response[totalBytesReceived - 3] == 0 && response[totalBytesReceived - 2] == 0xfe && response[totalBytesReceived - 1] == 0xff) break; // positive confirmation was enabled
+    }
+    *base = 0;
+}
+
 void Client(char* login)// test client for a server
 {
 	char word[MAX_WORD_SIZE];
-	(*printer)((char*)"%s",(char*)"\r\n\r\n** Client launched\r\n");
-	char* data = AllocateBuffer(); // limited size
-	char* input = AllocateBuffer(); // limited size
-	FILE* source = stdin;
+    if (!trace) echo = false;
+    (*printer)((char*)"%s",(char*)"\r\n\r\n** Client launched\r\n");
+    char* from = login;
 
-	char* from = login;
-	*input = 0;
-	if (*from == '*') // let user go first.
+	char* data = AllocateBuffer(); // read from user or file
+    char* response = AllocateBuffer(); // returned from chatbot
+    char* sendbuffer = AllocateBuffer(); // staged message to chatbot
+    FILE* source = stdin;
+    char user[500];
+    size_t userlen;
+    size_t botlen;
+    size_t msglen;
+    *user = 0;
+    char* msg;
+    char bot[500];
+    *bot = 0;
+    char* botp = bot;
+    *data = 0;
+    if (*from == '*') // let user go first.
 	{
 		++from;
 		(*printer)((char*)"%s",(char*)"\r\ninput:    ");
-		ReadALine(input,source);
+		ReadALine(data,source); // actual user input
+        msg = data;
 	}
+    else msg = "";
 
 restart: // start with user
 	char* separator = strchr(from,':'); // login is username  or  username:botname
-	char* bot;
 	if (separator)
 	{
 		*separator = 0;
-		bot = separator + 1;
+		botp = separator + 1;
+        strcpy(bot, botp);
 	}
-	else bot = from + strlen(from);	// just a 0
+    else
+    {
+        botp = from + strlen(from);	// just a 0
+        *botp = 0;
+    }
 	sprintf(logFilename,(char*)"log-%s.txt",from);
+    strcpy(user, from);
 
 	// message to server is 3 strings-   username, botname, null (start conversation) or message
-	char* ptr = data;
-	strcpy(ptr,from); // username
-	ptr += strlen(ptr);
+	char* ptr = sendbuffer;
+    strcpy(ptr,user); // username
+	ptr += strlen(user);
 	*ptr++ = 0; 
-	strcpy(ptr,bot);
+    strcpy(ptr,botp);
 	ptr += strlen(ptr); // botname
 	*ptr++ = 0; 
-	strcpy(ptr,input);  // null message - start conversation or given message, user starts first
-	try 
+    *ptr = 0;
+    size_t baselen = ptr - sendbuffer; // length of  message user/bot header not including message
+    bool converse = false;
+    FILE* sourcefile = NULL;
+    try
 	{
 
 SOURCE: 
@@ -295,76 +334,120 @@ SOURCE:
 	{
 		char file[SMALL_WORD_SIZE];
 		ReadCompiledWord(ptr+8,file);
-		FILE* sourcefile = fopen(file,(char*)"rb");
+		sourcefile = fopen(file,(char*)"rb");
 		ReadALine(ptr,sourcefile,100000 - 100);
 	}
-
-	echo = 1;
+    else if (!strncmp(ptr, (char*)":converse ", 9))
+    {
+        char file[SMALL_WORD_SIZE];
+        ReadCompiledWord(ptr + 8, file);
+        sourcefile = fopen(file, (char*)"rb");
+    }
+    char* sep = NULL;
+    TCPSocket *sock;
+    int n = 0;
 	while (ALWAYS)
-	{
-			size_t len = (ptr-data) + 1 + strlen(ptr);
-			TCPSocket *sock = new TCPSocket(serverIP, (unsigned short)port);
-			sock->send(data, len );
-			(*printer)((char*)"Sent %d bytes of data to port %d\r\n",(int)len, port);
+	{   
+        if ((++n%1000) == 0)  (*printer)((char*)"On Line %d\r\n", n);
+        if (converse) // do a conversation of multiple lines each tagged with user until done
+        {
+            ptr = data;
+            if (fgets(ptr, 100000 - 100, sourcefile ) == NULL) break;
+            if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data,data+3,strlen(data+2));// UTF8 BOM
+            // (*printer)((char*)"Read %s\r\n",  data);
 
-			int bytesReceived = 1;              // Bytes read on each recv()
-			int totalBytesReceived = 0;         // Total bytes read
-			char* base = ptr;
-			while (bytesReceived > 0) 
-			{
-				// Receive up to the buffer size bytes from the sender
-				bytesReceived = sock->recv(base, MAX_WORD_SIZE);
-				totalBytesReceived += bytesReceived;
-				base += bytesReceived;
-				(*printer)((char*)"Received %d bytes\r\n",bytesReceived);
-				if (totalBytesReceived > 2 && ptr[totalBytesReceived-3] == 0 && ptr[totalBytesReceived-2] == 0xfe && ptr[totalBytesReceived-1] == 0xff) break; // positive confirmation was enabled
-			}
-			delete(sock);
-			*base = 0;
+            size_t l = strlen(ptr);
+            ptr[l - 2] = 0; // remove crlf
+            
+            // a line is username message
+            char* blank = strchr(ptr, '\t'); // user / botname
+            if (!blank) continue;
+            *blank = 0;  // user string now there
 
-			// chatbot replies this
-			Log(STDTRACELOG,(char*)"%s",ptr);
+            sep = strchr(blank + 1, '\t'); // botname / message
+            if (!sep) continue;
+            *sep = 0; // bot string now there
+            strcpy(bot, blank + 1);
+            botp = bot;
+            botlen = strlen(bot);
 
-			// we say that  until :exit
-			(*printer)((char*)"%s",(char*)"\r\n>    ");
-			ReadALine(ptr,source,100000 - 100);
-			strcat(ptr,(char*)" "); // never send empty line
-			if (!strnicmp(SkipWhitespace(ptr),(char*)":quit",5)) break;
-			if (!strnicmp(SkipWhitespace(ptr),(char*)":source",7)) goto SOURCE;
-			if (!strnicmp(SkipWhitespace(ptr),(char*)":restart",8)) 
-			{
-				// send restart on to server...
-				len = (ptr-data) + 1 + strlen(ptr);
-				sock = new TCPSocket(serverIP, (unsigned short)port);
-				sock->send(data, len );
-				(*printer)((char*)":restart sent data to port %d\r\n",port);
+            if (stricmp(ptr, user)) // change over user with null start message
+            {
+                strcpy(user, data);
+                strcpy(sendbuffer, user);
+                userlen = strlen(user);
+                sendbuffer[userlen + 1] = 0;
+                botlen = strlen(bot);
+                strcpy(sendbuffer + userlen + 1, bot);
+                sendbuffer[userlen + 1 + botlen + 1] = 0;
+                baselen = userlen + botlen + 2;
+                sendbuffer[baselen] = 0;
+                // (*printer)((char*)"Sent login %s\r\n", data);
+                sock = new TCPSocket(serverIP, (unsigned short)port);
+                sock->send(sendbuffer, baselen+1);
+                ReadSocket(sock, response);
+            }
+            msg = sep + 1;
+        }
 
-				int bytesReceived = 1;              // Bytes read on each recv()
-				int totalBytesRead = 0;         // Total bytes read
-				char* inbase = ptr;
-				while (bytesReceived > 0) 
-				{
-					// Receive up to the buffer size bytes from the sender
-					bytesReceived = sock->recv(inbase, MAX_WORD_SIZE);
-					totalBytesRead += bytesReceived;
-					inbase += bytesReceived;
-					(*printer)((char*)"Received %d bytes\r\n",bytesReceived);
-					if (totalBytesRead > 2 && ptr[totalBytesRead-3] == 0 && ptr[totalBytesRead-2] == 0xfe && ptr[totalBytesRead-1] == 0xff) break; // positive confirmation was enabled
-				}
-				delete(sock);
-				*inbase = 0;
-				Log(STDTRACELOG,(char*)"%s",ptr); 	// chatbot replies this
+        // send our normal message now
+        msglen = strlen(msg);
+        strncpy(sendbuffer + baselen, msg,msglen+1);
 
-				(*printer)((char*)"%s",(char*)"\r\nEnter client user name: ");
-				ReadALine(word,source);
-				(*printer)((char*)"%s",(char*)"\r\n");
-				from = word;
-				goto restart;
-			}
-		}
+        size_t len = baselen + msglen + 1;
+		sock = new TCPSocket(serverIP, (unsigned short)port);
+	    sock->send(sendbuffer, len);
+        if (!converse) (*printer)((char*)"Sent %d bytes of data to port %d - %s|%s\r\n",(int)len, port, sendbuffer,msg);
+        ReadSocket(sock, response);
+        if (strstr(response, "IGNORE_"))
+        {
+            int xx = 0;
+        }
+        if (!trace) echo = !converse;
+		Log(STDTRACELOG,(char*)"%s", response); // chatbot replies this
+        delete(sock);
+
+		// we say that  until :exit
+		if (!converse) (*printer)((char*)"%s",(char*)"\r\n>    ");
+        else Log(STDTRACELOG, "%s %s %s\r\n", user, bot, response);
+        if (!converse)
+        {
+            if (!ReadALine(data, source, 100000 - 100)) break; // next thing we want to send
+            strcat(data, (char*)" "); // never send empty line
+            msg = data;
+            // special instructions
+		    if (!strnicmp(SkipWhitespace(data),(char*)":quit",5)) break;
+		    else if (!strnicmp(SkipWhitespace(data),(char*)":source",7)) goto SOURCE;
+            else if (!converse && !strncmp(data, (char*)":converse ", 9))
+            {
+                char file[SMALL_WORD_SIZE];
+                ReadCompiledWord(data + 9, file);
+                sourcefile = fopen(file, (char*)"rb");
+                converse = true;
+                continue;
+            }
+		    else if (!strnicmp(SkipWhitespace(data),(char*)":restart",8))
+		    {
+				    // send restart on to server...
+				    sock = new TCPSocket(serverIP, (unsigned short)port);
+				    sock->send(data, strlen(data)+1);
+				    (*printer)((char*)":restart sent data to port %d\r\n",port);
+                    ReadSocket(sock, response);
+				    Log(STDTRACELOG,(char*)"%s", response); 	// chatbot replies this
+                    delete(sock);
+
+				    (*printer)((char*)"%s",(char*)"\r\nEnter client user name: ");
+				    ReadALine(word,source);
+				    (*printer)((char*)"%s",(char*)"\r\n");
+				    from = word;
+				    goto restart;
+		    }
+	    }
+    }
+
 	}
-
 	catch(SocketException e) { myexit((char*)"failed to connect to server\r\n");}
+    if (sourceFile) fclose(sourceFile);
 }
 #endif
 
@@ -450,9 +533,9 @@ void* RegressLoad(void* junk)// test load for a server
 	// message to server is 3 strings-   username, botname, null (start conversation) or message
 	echo = 1;
 	char* ptr = data;
-	strcpy(ptr,from);
+    strcpy(ptr,from);
 	ptr += strlen(ptr) + 1;
-	strcpy(ptr,bot);
+    strcpy(ptr,bot);
 	ptr += strlen(ptr) + 1;
 	*buffer = 0;
 	int counter = 0;
@@ -463,7 +546,7 @@ void* RegressLoad(void* junk)// test load for a server
 		char word[MAX_WORD_SIZE];
 		ReadCompiledWord(revertBuffer+1,word);
 		if (!*word || *word == '#' || *word == ':') continue;
-		strcpy(ptr,revertBuffer+1);
+        strcpy(ptr,revertBuffer+1);
 		try 
 		{
 			size_t len = (ptr-data) + 1 + strlen(ptr);
@@ -920,7 +1003,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 	*IP = 0;
     try {
         strcpy(buffer,sock->getForeignAddress().c_str());	// get IP address
-		strcpy(IP,buffer);
+        strcpy(IP,buffer);
 		buffer += strlen(buffer) + 1;				// use this space after IP for messaging
     } catch (SocketException e)
 	{ 
@@ -989,15 +1072,15 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 		{
 			if (*bot == '1' && bot[1] == 0) // echo test to prove server running (generates no log traces)
 			{
-				strcpy(output,(char*)"1");
+                strcpy(output,(char*)"1");
 				return Done(sock,memory);
 			}
 
-			strcpy(output,(char*)"[you have no user id]\r\n"); 
+            strcpy(output,(char*)"[you have no user id]\r\n");
 			return Done(sock,memory);
 		}
 
-		strcpy(userName,user);
+        strcpy(userName,user);
 
 		// Request load of user data
 

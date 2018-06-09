@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 2/18/2018 cs8.1
+<br>Revision 6/9/2018 cs8.3
 
 # Real World JSON
 
@@ -287,8 +287,8 @@ You may omit the leading . of a path and CS will by default assume it
 ## Direct access via JSON variables `$myvar.field` and `$myvar[]
 
 If a variable holds a JSON object value, you can directly set and get from fields of that object
-using dotted notation. This can be a fixed static fieldname you give or a variable value:
- `$myvar.$myfield` is legal.
+using dotted notation. This can be a fixed static fieldname you give or a user variable value or a match variable value (quoted or unquoted):
+ `$myvar.$myfield` is legal, as is `$myvar._0` or `$myvar.'_0`.
 
 Dotted notation is cleaner and faster than `^jsonpath` and `jsonobjectinsert` and for get, has
 the advantage that it never fails, it only returns null if it can't find the field. 
@@ -307,6 +307,9 @@ Similarly you can access JSON arrays using array notation:
 $x = $$array[5]
 $x = $$array[$_tmp]
 $$obj.name[4] += 3
+$$obj.$_kind[4] += 3
+$$obj._0[4] += 3
+$$obj.'_0[4] += 3
 ```
 
 ```

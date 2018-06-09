@@ -371,7 +371,7 @@ void StdNumber(char* word,char*& buffer,int controls) // text numbers may have s
 {
 	size_t len = strlen(word);
 	char* ptr = word;
-    if ( IsAlphaUTF8(*ptr) || !IsDigitWord(word, AMERICAN_NUMBERS) || strchr(word,':')) // either its not a number or its a time - leave unchanged
+    if (IsAlphaUTF8(*ptr) || !IsDigitWord(word, AMERICAN_NUMBERS) || strchr(word,':')) // either its not a number or its a time - leave unchanged
     {
         strcpy(buffer,word);  
 		if (controls & OUTPUT_NOUNDERSCORE)
@@ -392,14 +392,21 @@ void StdNumber(char* word,char*& buffer,int controls) // text numbers may have s
 		percent = true;
 	}
 
+    char c = IsFloat(word, end);
+    if (c == 'e') // leave exponent numbers in original form. 
+    {
+        strcpy(buffer, word);
+        return;
+    }
+
 	int useNumberStyle = numberStyle;
 	if (controls & OUTPUT_NOCOMMANUMBER || len < 5) useNumberStyle = NOSTYLE_NUMBERS;
 
-	if (IsFloat(word,end))
+	if (c == 1)
 	{
 		if (!fullfloat) // insure is not full
 		{
-			char c = word[len];
+			c = word[len];
 			word[len] = 0;
 			WriteFloat(buffer, atof(word), useNumberStyle);
 			word[len] = c;

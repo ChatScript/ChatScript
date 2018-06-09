@@ -1,6 +1,6 @@
 # ChatScript Practicum: Gleaning
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/6/2018 cs8.2  
+<br>Revision 6/9/2018 cs8.3
 
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.
@@ -289,9 +289,140 @@ And we can handle an appositive name like this:
 u: APPOSITIVE(~petanimals _*~3 ~verb)    
 ```
 
+# Dealing with false positives
+
+Gleaning is typically done from a finite set of choices. And sometimes you have to resolve issues around accepting or rejecting a match.
+Consider the `~country` set provided by ChatScript. It includes countries like `Turkey` and `Togo`. 'Turkey' is an issue because maybe the user
+is referring to the bird.  So when you glean, you have to decide whether your code will try to detect the bird contexts or the country contexts. E.g.,
+```
+u: NOTTURKEY (_Turkey) ^refine() ^retry(RULE)
+    a: (@_0- *~4 [in from live reside of])
+    a: (<<Turkey [Istanbul Ankara Izmir Bursa Adana]>>)
+    a: () ^unmark(~country _0)
+```
+Above code tries to detect Turkey used as a country, and ignore all other uses.  It won't be perfect. It is probably harder to discard ones based on the bird,
+but here is an attempt:
+```
+u: NOTTURKEY (_Turkey) ^refine() ^retry(RULE)
+    a: (@_0- [~determiner ~possessive]) ^unmark(~country _0)
+
+`Togo is a different problem. A perfectly unique word, but users can easily misspell `to go` by omitting the space. In the situation where this arose, we virtually never
+expect the country to be referenced, so we just decided to ignore it as a country altogether.  There are 3 ways to do this. First, remove it from the `~country` concept set.
+Problem is, that ships with ChatScript, so tampering with that creates confusion when you upgrade to a new release. And there are other contexts where you might want to recognize it 
+as a country.  Second, you could add a glean rule like this:
+```
+u: NOTTOGO (_Togo) ^unmark(~country _0) ^retry(RULE)
+```
+That kills all country uses of Togo. But it's inelegant to dedicate a rule to it.  
+
+The third trick is to define a customized concept set and use that in your code instead.
+```
+concept: ~ourcountries (!Togo ~country)
+```
+You can exclude specific items from a concept set that is inheriting items from other concept sets. You have to discard them one-by-one, meaning you cannot say
+`(![choice1 choice2) ~inheritfrom)```.
+
+Our last example is Georgia (the state) versus South Georgia (part of the Falkland Islands) versus Georgia (the country). 
+When someone says `South Georgia` clearly it will trigger `Georgia`. Or will it?
+That depends on various things. One is the state of $cs_token having proper name merging on or not. As a single token `South_Georgia` you might not expect `Georgia` to be 
+matched. But CS has a default ability to peek into a proper name and match the last word of that name. So if you have not set `#NO_WITHIN`, then CS will still see Georgia.
+Old CS was less powerful, so it needed to peek within. Nowadays I am not fond of peeking within, or even merging tokens together, since the system can easily discover
+matches in phrases without having to merge the tokens. So except in rare bots, I turn off Proper name merging. You can force a single word token (regardless of the setting of proper name merging) via:
+```
+replace: "South Georgia" South_Georgia
+```
+but you also have to tell $cs_token to include #NO_WITHIN so it won't peek.  
+
+An alternative even with peek within is to let it match. Now that gets interesting. Because even though the input may (via revision) list South_Georgia as a single word, when you match
+it like this: `(_~country)` you may still see `Georgia` as the value (since it is a country if peek within is on), even though that is not the tokenized value but merely a peek into the token. 
+To get past this, you need to actually look at the actual value as tokenized. So you can do this:
+```
+u: COUNTRY (_~country ) 
+    $_index = ^position(START _0)
+    if (_0 == Georgia AND ^wordAtIndex(canonical $_index) == South_Georgia)
+    {
+        _0 = South_Georgia
+        ^setposition(_0 $_index $_index)
+    }
+```
+This code discovers that Georgia is being returned as the country in `_0`. It retrieves the start position in the sentence of the match.
+It pulls that word from the sentence, and if it is actually `South Georgia`, it revises the value of _0 (causing the location of the match to be destroyed) and 
+then revises the match position of _0. It's obscure. But it fixes the problem.
+
+So what should you do?  Well, I advise against allowing peek within. Whether or not you want proper name merging is up to you. But if names are not being merged and you don't force
+`replace` to make it a single token then you can easily block the Georgia part of the match with this:
+```
+u: NOTGEORGIA (_Georgia @_0- South) ^unmark(~country _0) ^retry(RULE)
+```
+I prefer that to this rule: 
+```
+u: NOTGEORGIA (South _Georgia) ^unmark(~country _0) ^retry(RULE)
+```
+because the important word to match is Georgia. If that's not there, who cares about matching `South`? It's faster to test on what you require, rather than some preliminary junk.
+But matching the words in order makes for a clearer pattern, and CS is fast enough you may prefer clarity. But when you have multiple conditions to test for, using a ^refine, then
+you always match on the primary word and then refine on the secondary ones.
+
+# Extending the concept of concept
+
+Concepts are lists of words or phrases. But sometimes you wish you could use patterns. You can. You can create a pseudo-concept using rules.
+
+```
+u: (my *~2 (wife husband daughter son)
+```
+The above is a classic simple sequential pattern. We can convert this into a 'concept' as follows:
+```
+u: (_(my *~2 (wife husband daughter son)) ^mark(~myfamily _0)
+```
+The above rule creates a fake concept called `~myfamily` that takes up a contiguous sequence of words. Thereafter you can do things like:
+```
+u: ( ~myfamily enjoys)
+```
+The above will match "my only husband enjoys".  ^mark can be applied to fake words as well, but it is usually more confusing to see visually, so it's better
+to use it to create a fake concept.
+
+You need to remember this is a multiword pattern, in this case containing the word 'my'. So a rule like this:
+```
+u: ( can [ I  ~myfamily] love)
+```
+will fail on input like this `can my daughter love pizza`. Why? Because canonical `I` will match my, it therefore ignores ~myfamily because it has a match,
+and then `love` is not the next word (`daughter`), so matching fails. And an internal retry will try to move the first match (`can`) which doesn't work.
+
+Note: since these are dynamic markings, you cannot use these words inside of some other concept's list and expect it to be detected. converting a `[]` list
+into a concept is the classic way to find the earliest match among all words, rather than walking  `[]` in order, which finds only the first word in the list.
+
+
+# Multi-sentence Gleaning
+
+The above stuff works fine on single sentence inputs, but how do you manage to glean multi-sentence inputs?  For that you have to modify the control 
+script itself. You need to leaf thru all sentences to glean, and then later decide how to react to those sentences. Here is what such a control script
+might look like:
+```
+topic: ~main_control system repeat()
+	... # OOB and other stuff
+
+# save input to retrieve later
+u: GLEAN() $_sentenceCount += 1
+	$_tmp = ^saveSentence($_sentenceCount) 
+	^nofail(TOPIC ^respond(~glean_data))
+	if (%more) {^end(SENTENCE)}
+
+u: OUTPUT()
+	$_count = 0		
+	loop($_sentenceCount)
+	{
+		$_count += 1
+		^restoreSentence($_count)
+		^respond(~realcontrol)
+	}
+```
+The GLEAN rule counts how many sentences there are, saves them, and gleans them until there are no more
+sentences.  The OUTPUT rule restores each sentence and passes it off to a more normal control topic to
+handle the user output determination. One assumes that the GLEAN topic will have set various facts and
+variables to remember what it found so the ~realcontrol topic can be guided in what it does.
+
 # Understanding meaning is hard
 
 Obviously we can devise sentences where all these things fail. Language is difficult. I mean, if I say
 "my feline harold who likes birds kills snakes."  Is it a cat? What is the name of the cat?
 Is it Harold or is it some Indian name like "Harold who likes birds"? What you need to do is make assumptions and then
-also write code where the user can correct you when you get it wrong.
+also write code where the user can correct you when you get it wrong. And generally you are aiming to match the probable. And accept the failures of the improbable.

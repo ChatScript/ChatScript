@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 1/31/2018 cs8.0
+<br>Revision 6/9/2018 cs8.3
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does testpaand
@@ -769,6 +769,9 @@ Shows the dictionary and concept hierarchy of things above the given word or con
 Shows the dictionary hierarchy below a word or, if the word is name of a concept, the
 members of the concept. Since displaying down can subsume a lot of entries, you can
 specify how many levels down to display (n). The default is 1.
+
+### `:allmembers ~concept ~notconcept ~notconcept1 ...`
+Dumps the members of ~concept into TMP/tmp.txt, one per line, but excludes any that are member of the ~nonconcept sets.
 
 ### `:findwords pattern`
 This uses the pattern of characters and * to name words and phrases in the dictionary

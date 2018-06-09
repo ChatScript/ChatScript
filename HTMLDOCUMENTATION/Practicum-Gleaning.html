@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-practicum-gleaning">ChatScript Practicum: Gleaning</h1>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
+<p>'''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.</p>
+<p>To glean is to extract information. If there is one thing that makes a chatbot seem intelligent it is the ability to grab information from what the user says and make use of it in subsequent volleys. The very first chatbot, Eliza, fooled humans merely by grabbing critical keywords from a user's input and spitting back precanned questions. If a user said &quot;my wife is like my mother&quot;, Eliza could focus on <code>like</code> and respond &quot;In what way?&quot; Or it could focus on the word mother and say &quot;Tell me more about your mother&quot;. It did not store information beyond the use for generating the reply. But our use of gleaning is to detect information and hold it around.</p>
+<p>The process of coding gleaning takes the following steps. First, decide what you want to glean. Second, generate sample sentences containing data to be gleaned. Typically 4 or 5. Third, write script to perform the gleaning. Fourth, decide how to store the results. Fifth, find a way to make use of the gleaned data. Sixth, read logs, find new sentences you don't handle and handle them.</p>
+<p>What you glean is up to you. Name, hobby, illnesses, favorite fruit, whatever. Let's consider gleaning information about a pet. You might want to glean kind of animal, name, breed, age, gender. Obviously first in line is gleaning kind of animal. To simplify things, we will start by only learning about pets of the speaker. If the user says &quot;my friend has a dog&quot;, we won't care (otherwise we have to master gleaning who owns the dog other than <code>I</code>).</p>
+<h1 id="gleaning-animal-type">Gleaning animal type</h1>
+<p>We start with sample simple sentences. How might a user typically say they have a dog?</p>
+<pre><code>I own a dog.
+I have a puppy.
+My dog is hungry.
+I own a grey cocker spaniel.</code></pre>
+<p>These would be common ways to express ownership of a dog. There are also obscure ways, and at some point we will have to throw in the towel and admit our program will not be perfect. Things like:</p>
+<pre><code>I possess a dog. 
+I bought a dog the other day. 
+I have raised this puppy from birth.</code></pre>
+<p>Taking our simple sentences, we then generate scripts to detect them. We need to decide what we are gleaning. I'm gleaning the kind of animal, in this case always a dog. <code>puppy</code> is tied to age and <code>spaniel</code> is tied to breed. The 3 key components of the pattern are detecting the animal and the evidence of ownership and evidence of 'I-ness'.</p>
+<p>For now I will use rules that accept both statements and questions, because maybe the user will ask a question and reveal pet ownership like &quot;What should I feed my dog?&quot;</p>
+<h3 id="sentence-1-i-own-a-dog.">Sentence 1 &quot;I own a dog.&quot;</h3>
+<pre><code>u: OWN(&#39;I  own  a dog) $pet = dog</code></pre>
+<p>This covers my first sample. But it's very specific and won't handle <code>I own a black dog</code>. So I generalize it by allowing a few intervening words.</p>
+<pre><code>u: OWN(&#39;I  own *~4 dog) $pet = dog</code></pre>
+<p>I don't use the infinite wildcard <code>*</code> because I expect the word <code>dog</code> to be close. Infinite wildcards risk false detection. My pattern avoids sentences like <code>I own a cat because I hate dogs.</code> Similarly I generalize between <code>'I</code> and <code>own</code> to catch <code>I already own a dog</code>.</p>
+<pre><code>u: OWN(&#39;I  *~2 own *~4 dog) $pet = dog</code></pre>
+<h3 id="sentence-2-i-have-a-puppy">Sentence 2 &quot;I have a puppy&quot;</h3>
+<p>To handle the next sample input, I need to detect <code>puppy</code> and <code>have</code>. I could write entirely new patterns, but that would become unwieldy to maintain. And someday I'll want to detect other animals and breeds. So I create a concept to hold the dogs I want to detect, and I use the preexisting ChatScript concept for ownership (or else I could define a new one). While I show the concept next to the <code>u:</code>, in reality there would be some intervening topic declaration.</p>
+<pre><code>concept: ~dogpet ( dog puppy)
+u: OWN(&#39;I *~2  ~own *~4 ~dogpet) $pet = dog</code></pre>
+<h3 id="sentence-3-my-dog-is-hungry">Sentence 3 &quot;my dog is hungry&quot;</h3>
+<p>The third sentence requires a new pattern construction that simultaneously handles <code>I</code> and ownership.</p>
+<pre><code>concept: ~dogpet ( dog puppy)
+u: OWN(&#39;I *~2  ~own *~4 ~dogpet) $pet = dog
+u: MY(my *~4 ~dogpet) $pet = dog</code></pre>
+<p>Again I allow some space between <code>my</code> and <code>~dogpet</code> to support <code>my brown mangy dog</code>. From experience I know to allow for some intervening words all along. Otherwise I'd write my pattern initially without and add generalization later.</p>
+<h3 id="sentence-4-i-own-a-grey-cocker-spaniel.">Sentence 4 &quot;I own a grey cocker spaniel.&quot;</h3>
+<p>The fourth sentence requires detection of a dog breed. For that, we just add the corresponding CS concept to our <code>~dogpet</code>. Or invent a new one.</p>
+<pre><code>concept: ~dogpet ( dog puppy ~dog_breeds)
+u: OWN(&#39;I *~2  ~own *~4 ~dogpet) $pet = dog
+u: MY(my *~4 ~dogpet) $pet = dog</code></pre>
+<h3 id="is-your-glean-stable">Is your glean stable?</h3>
+<p>One flaw of all of the above rules is that they can change their mind about what pet is given. Probably it's better to insure it stops after finding a pet. So I add <code>!$pet</code>.</p>
+<pre><code>concept: ~dogpet ( dog puppy ~dog_breeds)
+u: OWN(!$pet &#39;I *~2  ~own *~4 ~dogpet) $pet = dog
+u: MY(!$pet my *~4 ~dogpet) $pet = dog</code></pre>
+<p>The above cannot handle the following volley input: &quot;I own a pet. It is a dog.&quot; To handle that would require code to manage pronoun resolution. Also doable, but not in this lesson. But this example is extremely unlikely to be seen, so too bad.</p>
+<h2 id="expanding-from-dogs-to-all-animals">Expanding from dogs to all animals</h2>
+<p>And so we have simple detection of owning a dog. And if we want to expand this to handle other animals? We have to do two things. First, expand (and rename) our pet concept. Second, save the right kind of pet animal. This will require memorizing the animal said, and sometimes decoding it into the appropriate animal type. I use ^refine for that to keep the code clear.</p>
+<pre><code>concept: ~petlist ( ~animals puppy ~dog_breeds ~cat_breeds)
+u: OWN(!$pet &#39;I *~2  ~own *~4 ~petlist) ^refine()
+    a: ([_0==puppy _0?~dog_breeds _0==dog) $pet = dog
+    a: ([_0==kitten _0?~cat_breeds _0==cat) $pet = cat
+    a: () $pet = _0
+u: MY(!$pet my *~4 ~dogpet) ^refine()
+    a: ([_0==puppy _0?~dog_breeds _0==dog) $pet = dog
+    a: ([_0==kitten _0?~cat_breeds _0==cat) $pet = cat
+    a: () $pet = _0</code></pre>
+<h3 id="using-reuse">Using ^reuse</h3>
+<p>Something like above would do the job. But I repeated that ^refine for the MY rule and created code that is harder to maintain. Rather than repeat the code, I would use <code>^reuse</code> like this:</p>
+<pre><code>concept: ~petlist ( ~animals puppy ~dog_breeds ~cat_breeds)
+u: OWN(!$pet &#39;I *~2  ~own *~4 ~petlist) ^refine()
+    a: ([_0==puppy _0?~dog_breeds _0==dog) $pet = dog
+    a: ([_0==kitten _0?~cat_breeds _0==cat) $pet = cat
+    a: () $pet = _0
+u: MY(my *~4_ ~petlist) ^reuse(OWN)</code></pre>
+<p>But that won't work if I have text to also send to the user as in below, because we get the dog message as well as the cat message.</p>
+<pre><code>u: OWN(!$pet &#39;I *~2  ~own *~4 _~petlist) ^refine() I love dogs.
+    a: ([_0==puppy _0?~dog_breeds _0==dog) $pet = dog
+    a: ([_0==kitten _0?~cat_breeds _0==cat) $pet = cat
+    a: () $pet = _0
+u: MY(!$pet my *~4 _~petlist) ^reuse(OWN) I love cats.</code></pre>
+<h3 id="placeholder-rules---s-label">Placeholder rules - s: LABEL(?)</h3>
+<p>To fix our problem, create a placeholder rule to ^reuse that says nothing and can't be triggered accidently.</p>
+<pre><code>concept: ~petlist ( ~animals puppy ~dog_breeds ~cat_breeds)
+u: OWN(!$pet &#39;I *~2  ~own *~4 _~petlist) ^reuse(SAVEPET) I love dogs.
+u: MY(!$pet my *~4 _~petlist) ^reuse(SAVEPET) I love cats.
+s: SAVEPET(?) ^refine() 
+    a: ([_0==puppy _0?~dog_breeds _0==dog) $pet = dog
+    a: ([_0==kitten _0?~cat_breeds _0==cat) $pet = cat
+    a: () $pet = _0</code></pre>
+<p>The SAVEPET placeholder rule never triggers on its own, because it requires the input to be both a statement (s:) and a question (?). Won't happen. And the SAVEPET rule is given in _0 the matched animal from either rule calling it.</p>
+<p>OK. We have detected one animal type. Now, do we go on to more data about it or do we work on someone who owns multiple animals? I'd move on to more data because our chatbot can appear smart merely recognizing one. And writing patterns to detect multiple instances is more complex. And writing where to store the answer is more complex.</p>
+<h1 id="gleaning-animal-gender">Gleaning animal gender</h1>
+<p>We start the same way, deciding sample sentences.</p>
+<pre><code>I have a female golden retriever.
+My cow is hungry. 
+My cat is grey and he lives outdoors.
+My cat is grey. He lives outdoors.</code></pre>
+<p>While I could stumble my way through a bunch of iterations, let me just jump to how I think the answer goes.</p>
+<pre><code>concept: ~femaleness (she her female cow)
+concept: ~maleness (he him male bull)
+...old code for detecting animal type ...
+u: ($pet ~femaleness) $petgender = female
+u: ($pet ~maleness) $petgender = male</code></pre>
+<p>The above gets us gender in most situations. We require that a pet has been detected already. While seeing a gender pronoun in a later sentence is common, one does not typically see one before the item referred to. You won't likely see &quot;she loves milk does my cat&quot; but you could see &quot;my cat she does love milk&quot;</p>
+<p>We don't care if the gender marker has occured in the same sentence or a later one. It's a start. Then we have to think of inputs we can get fooled by. We will be fooled by inputs that involve gender but not of our pet, like <code>My dog was sick so my sister was sad and she said so.</code> For now I don't care. In advanced code we could handle this. Similarly it will be a lot of work to correctly distinguish &quot;Harold has a cat who scratched him&quot; and &quot;Harold has a cat who scratched himself&quot;. So we won't bother. We will tolerate errors to get it right most of the time.</p>
+<h1 id="preventing-false-positives">Preventing false positives</h1>
+<p>Gleaning from specific words or phrases (concept sets) is easy. The hardest thing is to avoid false positives, where the keyword doesn't mean what you think it does. There are two ways to handle this.</p>
+<h3 id="using-refine">Using ^refine</h3>
+<p>The first is to use '^refine' and something like <code>@_0+</code> to exclude some matches.</p>
+<pre><code>u: (!$pet _~petanimals) ^refine() ^retry(RULE)
+    #! My teenager is feeling puppy love -- dont react
+    #! he still has puppy fat in his cheeks -- don&#39;t react
+    a: (@_0+ [love fat])      
+    #! you&#39;d have to be one sick puppy to want to go to the hospital -- dont react
+    a: (@_0- sick)      
+    a: () $pet = _0  
+)</code></pre>
+<p>The above has the advantage of entirely local code- it's clear and you know where to modify things. It keeps scanning the sentence until $pet has be set or matches run out. It is also faster and easier to read in traces, because if the main pattern doesnt match, you never have to try all the rejoinder rules.</p>
+<h3 id="using-unmark">Using ^unmark</h3>
+<p>The alternative is to hide ~petanimals from matching. This would be good if there are several rules depending upon it. You would do that like this:</p>
+<pre><code>#! My teenager is feeling puppy love -- dont react
+#! he still has puppy fat in his cheeks -- don&#39;t react
+u: NOTPUPPY (_~petanimals [love fat]) 
+    ^unmark(~petanimals _0)
+    ^retry(RULE)
+#! you&#39;d have to be one sick puppy to want to go to the hospital -- dont react
+u: NOTPUPPY(_~petanimals @_0- sick)   
+     ^unmark(~petanimals _0)
+    ^retry(RULE)</code></pre>
+<p>The above hides inappropriate detections of ~petanimals, leaving only the valid ones. It is better to use ^unmark on the specific concept rather than doing <code>^unmark(* _0)</code> because making the word completely invisible can have unintended other consequences. But the above is messier, slower, uses more code, and generates more trace than this equivalent:</p>
+<pre><code>u: NOTPUPPY (_~petanimals) ^refine() ^retry(RULE)
+    #! My teenager is feeling puppy love -- dont react
+    #! he still has puppy fat in his cheeks -- don&#39;t react
+    a: (@_0+ [love fat]) ^unmark(~petanimals _0)  
+    #! you&#39;d have to be one sick puppy to want to go to the hospital -- dont react
+    a: (@_0- sick)  ^unmark(~petanimals _0) </code></pre>
+<p>So mostly I think using ^refine is better than multiple top-level rules.</p>
+<h1 id="gleaning-names">Gleaning names</h1>
+<p>Some things you need to glean will not show up in a concept set, or may only partially. The classic example is gleaning a name. It can be any word or sequence of words and what you usually have to detect is the context bounding the name. You have to start making assumptions about what a reasonable name will consist of. So, as always, first write sample inputs, then make patterns for them.</p>
+<pre><code>His name is Roger.
+we call him rabbit.
+HE IS CALLED HAROLD THE MAGNIFICENT AND IS 12.
+My cat Harold likes birds.</code></pre>
+<p>So we start with the first sentence.</p>
+<pre><code>u: (name is _~noun_proper_singular)</code></pre>
+<p>The above is simple, but will fail when the system doesnt know the name. Like for &quot;His name is pansy.&quot; So maybe we also need a context dependent rule.</p>
+<pre><code>u: NAMEIS(name _is) ^refine()
+    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = &#39;_0&#39;
+    a: CONTEXTNAME(@_0+  _*~3 [&gt; , ~conjunction])  $petname = &#39;_0</code></pre>
+<p>Note here we don't want the canonical of the name, we want the actual name, so we use quoted _0. The CONTEXTNAME pattern assumes names are usually 3 or fewer in length and are bounded by some typical delimiter like end of sentence, comma or <code>and</code>. It would fail for <code>Her name is Little Red Riding Hood</code>, unless the user is using capital letters meaningfully and proper name merging is on. We could increase the wildcard to <code>*~4</code>. But the wider we make that wildcard, the more room for mischief. &quot;My name is something my mother liked.&quot;</p>
+<p>And we can extend the rule to handle <code>called</code> like this:</p>
+<pre><code>u: NAMEIS(name _is) ^refine()
+    #! his name is Peter
+    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = &#39;_0&#39;
+    #! his name is master of all.
+    a: CONTEXTNAME(@_0+  _*~3 [&gt; , ~conjunction])  $petname = &#39;_0
+#! he is called Roger
+u: CALLED( is _called) ^refine(NAMEIS)  
+#!  we call it Roger
+u: CALLED1( &#39;call _[him her it] ) ^reuse(NAMEIS) </code></pre>
+<p>And we can handle an appositive name like this:</p>
+<pre><code>#! my cat Harold the Great jumped from the roof
+u: APPOSITIVE(~petanimals _*~3 ~verb)    </code></pre>
+<h1 id="dealing-with-false-positives">Dealing with false positives</h1>
+<p>Gleaning is typically done from a finite set of choices. And sometimes you have to resolve issues around accepting or rejecting a match. Consider the <code>~country</code> set provided by ChatScript. It includes countries like <code>Turkey</code> and <code>Togo</code>. 'Turkey' is an issue because maybe the user is referring to the bird. So when you glean, you have to decide whether your code will try to detect the bird contexts or the country contexts. E.g.,</p>
+<pre><code>u: NOTTURKEY (_Turkey) ^refine() ^retry(RULE)
+    a: (@_0- *~4 [in from live reside of])
+    a: (&lt;&lt;Turkey [Istanbul Ankara Izmir Bursa Adana]&gt;&gt;)
+    a: () ^unmark(~country _0)</code></pre>
+<p>Above code tries to detect Turkey used as a country, and ignore all other uses. It won't be perfect. It is probably harder to discard ones based on the bird, but here is an attempt:</p>
+<pre><code>u: NOTTURKEY (_Turkey) ^refine() ^retry(RULE)
+    a: (@_0- [~determiner ~possessive]) ^unmark(~country _0)
+
+`Togo is a different problem. A perfectly unique word, but users can easily misspell `to go` by omitting the space. In the situation where this arose, we virtually never
+expect the country to be referenced, so we just decided to ignore it as a country altogether.  There are 3 ways to do this. First, remove it from the `~country` concept set.
+Problem is, that ships with ChatScript, so tampering with that creates confusion when you upgrade to a new release. And there are other contexts where you might want to recognize it 
+as a country.  Second, you could add a glean rule like this:</code></pre>
+<p>u: NOTTOGO (_Togo) ^unmark(~country _0) ^retry(RULE)</p>
+<pre><code>That kills all country uses of Togo. But it&#39;s inelegant to dedicate a rule to it.  
+
+The third trick is to define a customized concept set and use that in your code instead.</code></pre>
+<p>concept: ~ourcountries (!Togo ~country)</p>
+<pre><code>You can exclude specific items from a concept set that is inheriting items from other concept sets. You have to discard them one-by-one, meaning you cannot say
+`(![choice1 choice2) ~inheritfrom)```.
+
+Our last example is Georgia (the state) versus South Georgia (part of the Falkland Islands) versus Georgia (the country). 
+When someone says `South Georgia` clearly it will trigger `Georgia`. Or will it?
+That depends on various things. One is the state of $cs_token having proper name merging on or not. As a single token `South_Georgia` you might not expect `Georgia` to be 
+matched. But CS has a default ability to peek into a proper name and match the last word of that name. So if you have not set `#NO_WITHIN`, then CS will still see Georgia.
+Old CS was less powerful, so it needed to peek within. Nowadays I am not fond of peeking within, or even merging tokens together, since the system can easily discover
+matches in phrases without having to merge the tokens. So except in rare bots, I turn off Proper name merging. You can force a single word token (regardless of the setting of proper name merging) via:</code></pre>
+<p>replace: &quot;South Georgia&quot; South_Georgia</p>
+<pre><code>but you also have to tell $cs_token to include #NO_WITHIN so it won&#39;t peek.  
+
+An alternative even with peek within is to let it match. Now that gets interesting. Because even though the input may (via revision) list South_Georgia as a single word, when you match
+it like this: `(_~country)` you may still see `Georgia` as the value (since it is a country if peek within is on), even though that is not the tokenized value but merely a peek into the token. 
+To get past this, you need to actually look at the actual value as tokenized. So you can do this:</code></pre>
+<p>u: COUNTRY (_~country ) $_index = ^position(START _0) if (_0 == Georgia AND ^wordAtIndex(canonical $_index) == South_Georgia) { _0 = South_Georgia ^setposition(_0 $_index $_index) }</p>
+<pre><code>This code discovers that Georgia is being returned as the country in `_0`. It retrieves the start position in the sentence of the match.
+It pulls that word from the sentence, and if it is actually `South Georgia`, it revises the value of _0 (causing the location of the match to be destroyed) and 
+then revises the match position of _0. It&#39;s obscure. But it fixes the problem.
+
+So what should you do?  Well, I advise against allowing peek within. Whether or not you want proper name merging is up to you. But if names are not being merged and you don&#39;t force
+`replace` to make it a single token then you can easily block the Georgia part of the match with this:</code></pre>
+<p>u: NOTGEORGIA (_Georgia <span class="citation">@_0</span>- South) ^unmark(~country _0) ^retry(RULE)</p>
+<pre><code>I prefer that to this rule: </code></pre>
+<p>u: NOTGEORGIA (South _Georgia) ^unmark(~country _0) ^retry(RULE)</p>
+<pre><code>because the important word to match is Georgia. If that&#39;s not there, who cares about matching `South`? It&#39;s faster to test on what you require, rather than some preliminary junk.
+But matching the words in order makes for a clearer pattern, and CS is fast enough you may prefer clarity. But when you have multiple conditions to test for, using a ^refine, then
+you always match on the primary word and then refine on the secondary ones.
+
+# Extending the concept of concept
+
+Concepts are lists of words or phrases. But sometimes you wish you could use patterns. You can. You can create a pseudo-concept using rules.
+</code></pre>
+<p>u: (my *~2 (wife husband daughter son)</p>
+<pre><code>The above is a classic simple sequential pattern. We can convert this into a &#39;concept&#39; as follows:</code></pre>
+<p>u: (_(my *~2 (wife husband daughter son)) ^mark(~myfamily _0)</p>
+<pre><code>The above rule creates a fake concept called `~myfamily` that takes up a contiguous sequence of words. Thereafter you can do things like:</code></pre>
+<p>u: ( ~myfamily enjoys)</p>
+<pre><code>The above will match &quot;my only husband enjoys&quot;.  ^mark can be applied to fake words as well, but it is usually more confusing to see visually, so it&#39;s better
+to use it to create a fake concept.
+
+You need to remember this is a multiword pattern, in this case containing the word &#39;my&#39;. So a rule like this:</code></pre>
+<p>u: ( can [ I ~myfamily] love)</p>
+<pre><code>will fail on input like this `can my daughter love pizza`. Why? Because canonical `I` will match my, it therefore ignores ~myfamily because it has a match,
+and then `love` is not the next word (`daughter`), so matching fails. And an internal retry will try to move the first match (`can`) which doesn&#39;t work.
+
+Note: since these are dynamic markings, you cannot use these words inside of some other concept&#39;s list and expect it to be detected. converting a `[]` list
+into a concept is the classic way to find the earliest match among all words, rather than walking  `[]` in order, which finds only the first word in the list.
+
+
+# Multi-sentence Gleaning
+
+The above stuff works fine on single sentence inputs, but how do you manage to glean multi-sentence inputs?  For that you have to modify the control 
+script itself. You need to leaf thru all sentences to glean, and then later decide how to react to those sentences. Here is what such a control script
+might look like:</code></pre>
+<p>topic: ~main_control system repeat() ... # OOB and other stuff</p>
+<h1 id="save-input-to-retrieve-later">save input to retrieve later</h1>
+<p>u: GLEAN() $_sentenceCount += 1 <span class="math inline"><em></em><sub><em>t</em></sub><em>m</em><em>p</em>=<sup><em>s</em></sup><em>a</em><em>v</em><em>e</em><em>S</em><em>e</em><em>n</em><em>t</em><em>e</em><em>n</em><em>c</em><em>e</em>(</span>_sentenceCount) ^nofail(TOPIC ^respond(~glean_data)) if (%more) {^end(SENTENCE)}</p>
+<p>u: OUTPUT() <span class="math inline"><em></em><sub><em>c</em></sub><em>o</em><em>u</em><em>n</em><em>t</em> = 0<em>l</em><em>o</em><em>o</em><em>p</em>(</span>_sentenceCount) { <span class="math inline"><em></em><sub><em>c</em></sub><em>o</em><em>u</em><em>n</em><em>t</em> + =1<sup><em>r</em></sup><em>e</em><em>s</em><em>t</em><em>o</em><em>r</em><em>e</em><em>S</em><em>e</em><em>n</em><em>t</em><em>e</em><em>n</em><em>c</em><em>e</em>(</span>_count) ^respond(~realcontrol) } ``` The GLEAN rule counts how many sentences there are, saves them, and gleans them until there are no more sentences. The OUTPUT rule restores each sentence and passes it off to a more normal control topic to handle the user output determination. One assumes that the GLEAN topic will have set various facts and variables to remember what it found so the ~realcontrol topic can be guided in what it does.</p>
+<h1 id="understanding-meaning-is-hard">Understanding meaning is hard</h1>
+<p>Obviously we can devise sentences where all these things fail. Language is difficult. I mean, if I say &quot;my feline harold who likes birds kills snakes.&quot; Is it a cat? What is the name of the cat? Is it Harold or is it some Indian name like &quot;Harold who likes birds&quot;? What you need to do is make assumptions and then also write code where the user can correct you when you get it wrong. And generally you are aiming to match the probable. And accept the failures of the improbable.</p>
+</body>
+</html>

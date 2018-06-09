@@ -25,6 +25,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define WILDCARD_END(x) ( x >> 16)
 extern  unsigned int modifiedTraceVal;
 extern bool	modifiedTrace;
+extern unsigned int modifiedTimingVal;
+extern bool modifiedTiming;
 
 extern  int wildcardIndex;
 extern char wildcardOriginalText[MAX_WILDCARDS+1][MAX_USERVAR_SIZE+1];  //   spot wild cards can be stored

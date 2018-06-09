@@ -154,6 +154,7 @@ bool IsFraction(char* token);
 // boolean style tests
 bool AdjustUTF8(char* start, char* buffer);
 bool IsArithmeticOperator(char* word);
+bool IsArithmeticOp(char* word);
 unsigned IsNumber(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool placeAllowed = true); // returns kind of number
 bool IsPlaceNumber(char* word, int useNumberStyle = AMERICAN_NUMBERS);
 bool IsDigitWord(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool comma = false);
@@ -161,7 +162,7 @@ bool IsDigitWithNumberSuffix(char* number,int useNumberStyle = AMERICAN_NUMBERS)
 bool IsUrl(char* word, char* end);
 unsigned int IsMadeOfInitials(char * word,char* end);
 bool IsNumericDate(char* word,char* end);
-bool IsFloat(char* word, char* end, int useNumberStyle = AMERICAN_NUMBERS);
+char IsFloat(char* word, char* end, int useNumberStyle = AMERICAN_NUMBERS);
 char GetTemperatureLetter (char* ptr);
 char* IsTextCurrency(char* ptr, char* end);
 bool IsLegalName(char* name,bool label = false);

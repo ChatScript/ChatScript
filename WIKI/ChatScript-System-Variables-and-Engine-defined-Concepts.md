@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/29/2017 cs7.71
+<br>Revision 6/9/2018 cs8.3
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)

@@ -481,9 +481,9 @@
 ##<<ENGLISH concept: ~fabric_store (~clothing_material fabric_store ) ##>>
 ##<<ENGLISH concept: ~fairytale_characters PROBABLE_NOUN (dragon frog king knight prince princess queen wizard ) ##>>
 ##<<ENGLISH concept: ~fake_religious_sect (Christian_Science Christian_Scientist Freemason Freemasonry Moonie Satanism Satanist Scientologist Scientology Unification_Church Wicca Wiccan Witch Witchcraft ) ##>>
-##<<ENGLISH concept: ~family_adult   PROBABLE_NOUN ANIMATE_BEING (~family_adult_female ~family_adult_generic ~family_adult_male ) ##>>
+##<<ENGLISH concept: ~family_adult   PROBABLE_NOUN ANIMATE_BEING (~family_adult_female partner ~family_adult_generic ~family_adult_male ) ##>>
 ##<<ENGLISH concept: ~family_adult_female   PROBABLE_NOUN ANIMATE_BEING (~mother aunt aunty daughter-in-law ex-wife fiancee girlfriend godmother gran grandma grandmom grandmother granny 
-          matriarch mistress mother-in-law partner spinster step-mother stepmother widow wife ) ##>>
+          matriarch mistress mother-in-law  spinster step-mother stepmother widow wife ) ##>>
 ##<<ENGLISH concept: ~family_adult_generic NOUN_HUMAN PROBABLE_NOUN ANIMATE_BEING (ancestor clan cousin descendant descendent elders folks grandparent heir parent partner spouse 
           stepparent tribe ) ##>>
 ##<<ENGLISH concept: ~family_adult_male PROBABLE_NOUN ANIMATE_BEING (~brother ~family_grandfather ~father boyfriend brother-in-law ex-husband father-in-law fiance hubby husband 
@@ -1678,7 +1678,7 @@ executor beneficiary magistrate conservator ) ##>>
 ##<<ENGLISH concept: ~role_member PROBABLE_NOUN (~role_nationality_member ~role_political_member ~role_religious_member citizen civilian foreigner immigrant local member native passenger pilgrim 
           refugee resident settler stranger tourist traveler ) ##>>
 ##<<ENGLISH concept: ~role_misc   PROBABLE_NOUN (adult altar_boy audience bum character disciplinarian fellow fool hippie hobo human individual mutant peer player predecessor scavenger zombie
-          scout servant spokespersonstick-in-the-mud spokeswoman sponsor stakeholder stooge stoolie stoolpigeon straggler supplicant surfboarder survivalist survivor swinger sympathizer 
+          scout servant spokesperson stick-in-the-mud spokeswoman sponsor stakeholder stooge stoolie stoolpigeon straggler supplicant surfboarder survivalist survivor swinger sympathizer 
           tattletale taxpayer techie technophile technophobe teetotalist teetotaller telepathist tempter temptress third-rater thrill-seeker throwback thrower toastmaster tomboy weirdo ) ##>>
 ##<<ENGLISH concept: ~role_nationality_member PROBABLE_NOUN (African Algerian alien American Andorrian Arab Argentinian Armenian Asian Athenian Australian Austrian Bolivian Bosnian Brazilian Brit 
           Bulgarian Cambodian Canadian Chilean Chinese Columbian Costa_Rican Cuban Czech Dane Dutchman Earthling Estonian European extraterrestrial Finn Frenchman Georgian German Greek 
@@ -1690,7 +1690,7 @@ executor beneficiary magistrate conservator ) ##>>
           reactionary revolutionary senator vice-president ) ##>>
 ##<<ENGLISH concept: ~role_religious_member PROBABLE_NOUN (Bhuddist Catholic Christian Christian_Scientist Freemason Hindu Jew Jewish Lutheran Moonie Muslim Orthodox Presbyterian Protestant Satanist 
           Scientologist Sikh Unitarian Wiccan ) ##>>
-##<<ENGLISH concept: ~role_romantic PROBABLE_NOUN (~dating_friend ~sexual_preference_nouns ~spouse bachelor bride bridegroom confidant Mr. Mrs. ) ##>>
+##<<ENGLISH concept: ~role_romantic PROBABLE_NOUN (~dating_friend ~sexual_preference_nouns ~spouse bachelor bride bridegroom confidant Mr. Mrs. fiancé fiancée ex temptress) ##>>
 ##<<ENGLISH concept: ~role_worship   PROBABLE_NOUN (deity fan follower groupie idol spectator ) ##>>
 ##<<ENGLISH concept: ~roman_gods   (Apollo Ceres Cupid Diana god_Mars Janus Jove Juno Jupiter Mercury Minerva Neptune Pluto Venus Vesta Vulcan ) ##>>
 ##<<ENGLISH concept: ~roomlist   (atrium attic basement bathroom bedroom closet conservatory den dining_room entryway foyer garage garden greenhouse hall hallway kitchen laundry 

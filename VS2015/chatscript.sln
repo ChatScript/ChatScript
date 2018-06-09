@@ -54,8 +54,8 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Treetagger|Win32.ActiveCfg = Debug Treetagger|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Treetagger|Win32.Build.0 = Debug Treetagger|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug Treetagger|x64.ActiveCfg = Debug Treetagger|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.ActiveCfg = Release1|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.Build.0 = Release1|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.Build.0 = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|x64.ActiveCfg = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|Win32.ActiveCfg = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|Win32.Build.0 = Debug|Win32
@@ -63,8 +63,8 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.ActiveCfg = Release1|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.Build.0 = Release1|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|x64.ActiveCfg = Release1|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|Win32.ActiveCfg = Release1|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|Win32.Build.0 = Release1|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|Win32.ActiveCfg = ReleaseDLL|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|Win32.Build.0 = ReleaseDLL|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|x64.ActiveCfg = ReleaseDLL|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseMongo|Win32.ActiveCfg = ReleaseMongo|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseMongo|Win32.Build.0 = ReleaseMongo|Win32
@@ -72,8 +72,8 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseMySQL|Win32.ActiveCfg = ReleaseMySQL|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseMySQL|Win32.Build.0 = ReleaseMySQL|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseMySQL|x64.ActiveCfg = ReleaseMySQL|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|Win32.ActiveCfg = ReleasePostgres|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|Win32.Build.0 = ReleasePostgres|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|Win32.ActiveCfg = Release1|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|Win32.Build.0 = Release1|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|x64.ActiveCfg = ReleasePostgres|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.ActiveCfg = releaseTreetagger|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.Build.0 = releaseTreetagger|Win32

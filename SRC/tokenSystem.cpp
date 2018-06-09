@@ -551,7 +551,13 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// if token ends in period and does not start with digit (not float) and word we know,
 	// return prior
 
-	if (*token == '.' && !IsInteger(token + 1, false, numberStyle) && FindWord(token + 1)) return ptr + 1; // sentence end then word we know
+	if (*token == '.' && !IsInteger(token + 1, false, numberStyle) && FindWord(token + 1))
+	{
+		if (token[1] != '?') return ptr + 1; // sentence end then word we know
+		++count;
+		words[count] = AllocateHeap((char*)"?");
+		return ptr+2; // delete the period
+	}
 	
 	if (token[l - 1] == '.' && FindWord(token, l - 1)) return ptr + l - 1;
   
@@ -746,7 +752,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if (comma && end > comma && (!IsDigit(comma[1]) ||!IsDigit(comma[-1]))) end = comma;
 
 	if (end == ptr) ++end;	// must shift at least 1
-
+	
 	// possessive ending? swallow whole token like "K-9's"
 	if (*(end - 1) == 's' && (end - ptr) > 2 && *(end - 2) == '\'') return end - 2;
 
@@ -1913,17 +1919,24 @@ void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 	}
 }
 
-static bool Substitute(WORDP found,char* sub, int i,int erasing)
+static bool Substitute(WORDP found, char* sub, int i, int erasing)
 { //   erasing is 1 less than the number of words involved
+	if (sub && !strchr(sub, '+') && erasing == 0 && !strcmp(sub, wordStarts[i])) return false; // changing single word case to what it already is?
+
+	char wordlist[MAX_WORD_SIZE];
+	*wordlist = 0;
+	if (sub) strcpy(wordlist, sub);
+	char* ptr = wordlist;
+
 	// see if we have test condition to process (starts with !) and has [ ] with list of words to NOT match after
 	if (sub && *sub == '!')
 	{
 		if (*++sub != '[') // not a list, a bug
 		{
-			if (!stricmp(sub,(char*)"tense")) // 'd depends on tense
+			if (!stricmp(sub, (char*)"tense")) // 'd depends on tense
 			{
-				WORDP X = (i < wordCount) ? FindWord(wordStarts[i+1]) : 0;
-				WORDP Y = (i < (wordCount-1)) ? FindWord(wordStarts[i+2]) : 0;
+				WORDP X = (i < wordCount) ? FindWord(wordStarts[i + 1]) : 0;
+				WORDP Y = (i < (wordCount - 1)) ? FindWord(wordStarts[i + 2]) : 0;
 				if (X && X->properties & VERB_INFINITIVE)
 				{
 					sub = "would";
@@ -1943,24 +1956,24 @@ static bool Substitute(WORDP found,char* sub, int i,int erasing)
 			}
 			else
 			{
-				ReportBug((char*)"bad substitute %s",sub)
-				return false;
+				ReportBug((char*)"bad substitute %s", sub)
+					return false;
 			}
 		}
 		else
 		{
 			char word[MAX_WORD_SIZE];
 			bool match = false;
-			char* ptr = sub+1;
+			char* ptr = sub + 1;
 			while (ALWAYS)
 			{
-				ptr = ReadSystemToken(ptr,word);
+				ptr = ReadSystemToken(ptr, word);
 				if (*word == ']') break;
-				if ( *word == '>')
+				if (*word == '>')
 				{
-					if ( i == wordCount) match = true;
+					if (i == wordCount) match = true;
 				}
-				else if (i < wordCount && !stricmp(wordStarts[i+1],word)) match = true;
+				else if (i < wordCount && !stricmp(wordStarts[i + 1], word)) match = true;
 			}
 			if (match) return false;	// not to do
 			sub = ptr;	// here is the thing to sub
@@ -1969,14 +1982,23 @@ static bool Substitute(WORDP found,char* sub, int i,int erasing)
 	}
 	else if (*found->word == '?' && found->word[1] == '`') // unit substitution
 	{
-		char* tokens[3];
+		while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
+		char* tokens[50];
+		char words[50][1000];
 		char* at = wordStarts[i];
 		while (IsDigit(*++at) || *at == '.');
 		char c = *at;
 		*at = 0;	// closes out units
-		tokens[1] = wordStarts[i]; // the word after the erase zone
-		tokens[2] = sub;
-		ReplaceWords("Number units", i, 1, 2, tokens); // remove 1, add 2
+		strcpy(words[1], wordStarts[i]); // the word after the erase zone
+		tokens[1] = words[1];
+		int count = 1;
+		ptr = wordlist;
+		while (ptr && *ptr)
+		{
+			ptr = ReadCompiledWord(ptr, words[++count]);
+			tokens[count] = words[count];
+		}
+		ReplaceWords("Number units", i, 1, count, tokens); // remove 1, add count
 		*at = c;
 		return true;
 	}
@@ -1989,53 +2011,47 @@ static bool Substitute(WORDP found,char* sub, int i,int erasing)
 			return false;
 		}
 
-		if (sub && *sub == '%') 
+		if (sub && *sub == '%')
 		{
-			if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG,(char*)"substitute flag:  %s\r\n",sub+1);
-			tokenFlags |= (int)FindMiscValueByName(sub+1);
+			if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"substitute flag:  %s\r\n", sub + 1);
+			tokenFlags |= (int)FindMiscValueByName(sub + 1);
 		}
-		else if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) 
+		else if (trace & TRACE_SUBSTITUTE && CheckTopicTrace())
 		{
-			Log(STDTRACELOG,(char*)"  substitute erase:  ");
-			for (int j = i; j < i+erasing+1; ++j) Log(STDTRACELOG,(char*)"%s ",wordStarts[j]);
-			Log(STDTRACELOG,(char*)"\r\n");
-		}	
+			Log(STDTRACELOG, (char*)"  substitute erase:  ");
+			for (int j = i; j < i + erasing + 1; ++j) Log(STDTRACELOG, (char*)"%s ", wordStarts[j]);
+			Log(STDTRACELOG, (char*)"\r\n");
+		}
 		char* tokens[15];
-		tokens[1] = wordStarts[i+erasing+1]; // the word after the erase zone
+		tokens[1] = wordStarts[i + erasing + 1]; // the word after the erase zone
 		int extra = (tokens[1] && *tokens[1]) ? 1 : 0;
 
-		int newWordCount =  wordCount - (erasing+1);
+		int newWordCount = wordCount - (erasing + 1);
 		if (newWordCount == 0) return false;	// dont erase sentence completely
 
-		if (i != wordCount)	ReplaceWords("Deleting",i,erasing+1 + extra,extra,tokens); // remove the removals + the one after if there is one. replace with just the one
-		else 	ReplaceWords("Deleting",i,erasing+1,erasing,tokens); // remove 1, add 0
+		if (i != wordCount)	ReplaceWords("Deleting", i, erasing + 1 + extra, extra, tokens); // remove the removals + the one after if there is one. replace with just the one
+		else 	ReplaceWords("Deleting", i, erasing + 1, erasing, tokens); // remove 1, add 0
 		return true;
 	}
 
-	//   substitution match
-	if (!strchr(sub,'+') && erasing == 0 && !strcmp(sub,wordStarts[i])) return false; // changing single word case to what it already is?
-	
-    char wordlist[MAX_WORD_SIZE];
-    strcpy(wordlist,sub);
-    char* ptr = wordlist;
-    while ((ptr= strchr(ptr,'+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
+	while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
 
 	char* tokens[MAX_SENTENCE_LENGTH];			// the new tokens we will substitute
-	memset(tokens,0,sizeof(char*) * MAX_SENTENCE_LENGTH);
+	memset(tokens, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
 	int count;
 	if (*sub == '"') // use the content internally literally - like "a_lot"  meaning want it as a single word
 	{
 		count = 1;
 		size_t len = strlen(wordlist);
-		tokens[1] = AllocateHeap(wordlist+1,len-2); // remove quotes from it now
-		if (!tokens[1]) tokens[1] = AllocateHeap((char*)"a"); 
+		tokens[1] = AllocateHeap(wordlist + 1, len - 2); // remove quotes from it now
+		if (!tokens[1]) tokens[1] = AllocateHeap((char*)"a");
 	}
-    else Tokenize(wordlist,count,tokens); // get the tokenization of the substitution
+	else Tokenize(wordlist, count, tokens); // get the tokenization of the substitution
 
 	if (count == 1 && !erasing) //   simple replacement
 	{
-		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG,(char*)"  substitute simple replace: \"%s\" with %s\r\n",wordStarts[i],tokens[1]);
-		ReplaceWords("Replacement",i,1,1,tokens);	
+		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"  substitute simple replace: \"%s\" with %s\r\n", wordStarts[i], tokens[1]);
+		ReplaceWords("Replacement", i, 1, 1, tokens);
 	}
 	else // multi replacement
 	{
@@ -2045,8 +2061,8 @@ static bool Substitute(WORDP found,char* sub, int i,int erasing)
 		}
 		if ((wordCount + (count - erase)) >= REAL_SENTENCE_LIMIT) return false;	// cant fit
 
-		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG,(char*)"  substitute replace: \"%s\" with \"%s\"\r\n",found->word,wordlist);
-		ReplaceWords("Multireplace",i, erase, count,tokens);
+		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"  substitute replace: \"%s\" with \"%s\"\r\n", found->word, wordlist);
+		ReplaceWords("Multireplace", i, erase, count, tokens);
 	}
 	return true;
 }
@@ -2129,8 +2145,8 @@ static WORDP ViableIdiom(char* text,int i,unsigned int n)
 	WORDP word = FindWord(text,0, STANDARD_LOOKUP);
 	if (!word)
 	{
-		size_t len = strlen(text);
-		if (text[len - 1] == 's' && text[0] != '<') word = FindWord(text, len - 1, STANDARD_LOOKUP);
+		size_t len = strlen(text);  // watch out for <his  
+		if (text[len-1] == 's' && text[0] != '<') word = FindWord(text, len-1, STANDARD_LOOKUP);
 		if (!word) return 0;
 	}
     bool again = primaryLookupSucceeded;

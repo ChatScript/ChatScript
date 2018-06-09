@@ -1,6 +1,6 @@
 # ChatScript Practicum: Control Flow
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/10/2018 cs8.2  
+<br>Revision 6/9/2018 cs8.3
 
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.

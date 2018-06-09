@@ -287,7 +287,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 				WORDP D = Meaning2Word(M);
 				strcpy(str,D->word);
 			}
-			else if ((numberEnd = IsJsonNumber(str)) != NULL) {;} 
+			else if ((numberEnd = IsJsonNumber(str)) && numberEnd == (str + strlen(str))) {;}
 			else *flags = JSON_STRING_VALUE; // cannot be number
 		}
 		*retMeaning = MakeMeaning(StoreWord(str,AS_IS)); 
@@ -1102,9 +1102,10 @@ static int orderJsonArrayMembers(WORDP D, FACT** store)
 	return max + 1; // for the 0th value
 }
 
-static char* jwritehierarchy(int depth, char* buffer, WORDP D, int subject, int nest )
+static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer, WORDP D, int subject, int nest )
 {
 	char* xxoriginal = buffer;
+	char* basis = buffer;
 	unsigned int size = (buffer - currentOutputBase + 200); // 200 slop to protect us
 	if (size >= currentOutputLimit) 
 	{
@@ -1137,9 +1138,14 @@ static char* jwritehierarchy(int depth, char* buffer, WORDP D, int subject, int 
 	}
 	D->inferMark = inferMark;
 	
-	if (D->word[1] == 'a') strcat(buffer,(char*)"[    # ");
-	else strcat(buffer,(char*)"{    # ");
-	strcat(buffer,D->word);
+	if (D->word[1] == 'a') strcat(buffer,(char*)"[    ");
+	else strcat(buffer,(char*)"{    ");
+	if (nest <= 1) strcat(buffer, (char*)"... "); // show we had more but stopped
+	else
+	{
+		strcat(buffer, (char*)"# ");
+		strcat(buffer, D->word);
+	}
 	buffer += strlen(buffer);
 
 	if (nest-- <= 0) // immediately close a composite
@@ -1149,15 +1155,23 @@ static char* jwritehierarchy(int depth, char* buffer, WORDP D, int subject, int 
 		buffer += strlen(buffer);
 		return buffer; // do nothing now. dont do this composite
 	}
-	strcat(buffer,(char*)"\r\n");
+	strcat(buffer, (char*)"\r\n");
 	buffer += strlen(buffer);
+	if (log)
+	{
+		Log(STDTRACETABLOG, "%s", basis);
+		basis = buffer;
+	}
 
 	FACT* F =  GetSubjectNondeadHead(MakeMeaning(D));
 	int indexsize = 0;
 	bool invert = false;
 	char* limit;
 	FACT** stack = (FACT**)InfiniteStack64(limit, "jwritehierarchy");
-	if (F && F->flags & JSON_ARRAY_FACT) indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
+	if (F && F->flags & JSON_ARRAY_FACT)
+	{
+		indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
+	}
 	else // json object
 	{
 		invert = true; 
@@ -1200,10 +1214,18 @@ static char* jwritehierarchy(int depth, char* buffer, WORDP D, int subject, int 
 		}
 		else continue;	 // not a json fact, an accident of something else that matched
 		// continuing composite
-		buffer = jwritehierarchy(depth+2,buffer, Meaning2Word(F->object),F->flags, nest);
+		buffer = jwritehierarchy(log,defaultZero,depth+2,buffer, Meaning2Word(F->object),F->flags, nest);
 		if (i < (indexsize-1)) strcpy(buffer++,(char*)",");
-		strcpy(buffer,(char*)"\r\n");
+		strcpy(buffer, (char*)"\r\n");
 		buffer += 2;
+		if (log)
+		{
+			char* nl = strchr(buffer, '\n');
+			if (nl) basis = nl + 1;
+			Log(STDTRACETABLOG, "%s", basis);
+			basis = buffer;
+		}
+		if (defaultZero) break;
 	}
 	buffer = jtab(depth-2,buffer);
 	if (D->word[1] == 'a') strcpy(buffer,(char*)"]");
@@ -1235,8 +1257,15 @@ FunctionResult JSONTreeCode(char* buffer)
 	int nest = atoi(arg2);
 	strcpy(buffer,(char*)"JSON=> \r\n");
 	NextInferMark();
+	bool log = false;
+	bool defaultZero = false;
+	if (*ARGUMENT(3))
+	{
+		log = true;
+		if (*ARGUMENT(4) != 0) defaultZero = true;
+	}
 	buffer += strlen(buffer);
-	buffer = jwritehierarchy(2,buffer,D,(arg1[1] == 'o') ? JSON_OBJECT_VALUE : JSON_ARRAY_VALUE,nest > 0 ? nest : 20000); // nest of 0 (unspecified) is infinitiy
+	buffer = jwritehierarchy(log,defaultZero,2,buffer,D,(arg1[1] == 'o') ? JSON_OBJECT_VALUE : JSON_ARRAY_VALUE,nest > 0 ? nest : 20000); // nest of 0 (unspecified) is infinitiy
 	strcpy(buffer,(char*)"\r\n<=JSON \r\n");
 	buffer += strlen(buffer);
 	return NOPROBLEM_BIT;
@@ -1965,7 +1994,7 @@ FunctionResult JSONVariableAssign(char* word,char* value)
 	char c = *separator;
 	*separator = 0;
 
-	char* val = GetUserVariable(word); // gets the initial variable
+	char* val = GetUserVariable(word); // gets the initial variable (must be a variable)
 	if (c == '.' && strnicmp(val,"jo-",3))
     { 
         if (trace & TRACE_VARIABLESET) Log(STDTRACELOG, "AssignFail Object: %s->%s\r\n", word, val);
@@ -2010,7 +2039,7 @@ LOOP: // now we look at $x.key or $x[0]
 	WORDP keyname;
 	char keyx[MAX_WORD_SIZE];
 	strcpy(keyx,separator+1);
-	if (*keyx == '$') // indirection key
+	if (*keyx == '$') // indirection key user variable
 	{
 		char* answer = GetUserVariable(keyx);
 		strcpy(keyx,answer);
@@ -2022,6 +2051,19 @@ LOOP: // now we look at $x.key or $x[0]
 			return FAILRULE_BIT;	// cannot be indirection
 		}
 	}
+    else if ((*keyx == '_' && IsDigit(keyx[1])) || (*keyx == '\'' && keyx[1] == '_' && IsDigit(keyx[2]))) // indirection key match variable
+    {
+        int index = (*keyx == '_') ? atoi(keyx + 1) : atoi(keyx + 2);
+        if (*keyx == '_') strcpy(keyx, wildcardCanonicalText[index]);
+        else strcpy(keyx, wildcardOriginalText[index]);
+        if (!*keyx)
+            return FAILRULE_BIT;
+        if (*keyx == '$')
+        {
+            if (trace & TRACE_VARIABLESET) Log(STDTRACELOG, (char*)"JsonVarStillVar: %s.%s\r\n", fullpath, keyx);
+            return FAILRULE_BIT;	// cannot be indirection
+        }
+    }
 	// now we have retrieved the key/index
 	if (*keyx == ']') keyname = NULL;  // [] use
 	else keyname =  StoreWord(keyx,AS_IS);  // key indexing

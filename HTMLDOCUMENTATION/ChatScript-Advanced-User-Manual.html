@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/04/2017 cs7.61</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/9/2018 cs8.3</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -646,7 +646,7 @@ t: ^loop () { This is forever, not. end(LOOP)}</code></pre>
 <p>The first gambit prints <em>Hello. me me me me me</em>. The second loop would print forever, but actually prints out This is forever, not. because after starting output, the loop is terminated.</p>
 <p>Loop also has a built in limit of 1000 so it will never run forever. You can override this if you define <code>$cs_looplimit</code> to have some value you prefer.</p>
 <h2 id="loop-n"><code>^loop</code>( n )</h2>
-<p>Loop can be given a count. This can be either a number, or you can use a factset id to loop through each item of the factset via</p>
+<p>Loop can be given a count. This can be either a number, function call that results in a number, or you can use a factset id to loop through each item of the factset via</p>
 <p>^loop (<span class="citation">@0</span>)</p>
 <h2 id="if-construct---if-or-if">If Construct - <code>if</code> or <code>^if</code></h2>
 <p>The if allows you to conditionally execute blocks of script. The full syntax is:</p>
@@ -836,22 +836,25 @@ In that case, you don't have a variable but you need to create one dynamically.<
 <p>See also Indirect Pattern Elements in <a href="ChatScript-Pattern-Redux.html">ChatScript Pattern Redux</a> manual.</p>
 <h2 id="bot-variables">Bot variables</h2>
 <p>You can also define variables that are &quot;owned&quot; by the bot. Any variables you create as part of layer 0 or layer 1 are always resident. As are any variables you define on the command line starting ChatScript. You can see them and even change them during a volley, but they will always refresh back to their original values at the start of the next volley.</p>
-<h2 id="assigning-match-variables-to-user-variables">Assigning match variables to user variables</h2>
-<pre><code>$$stuff = _0</code></pre>
-<p>Match variables hold 3 pieces of data</p>
+<h2 id="match-variables">Match Variables</h2>
+<p>Match variables like <code>_5</code> are generally the result of using an underscore in a pattern match. Match variables hold 3 pieces of data</p>
 <ul>
 <li>original word(s)</li>
 <li>canonical word(s)</li>
 <li>position, range location of the word(s).</li>
 </ul>
-<p>User variables only have a single piece of data. So onmassignment you lose 2 of the 3 pieces from the match variable. You can choose which words (original or canonical) when you assign.</p>
-<pre><code>$$stuff = &#39;_0 - original words</code></pre>
+<p>You can transfer part of Assigning match variables to user variables:</p>
+<pre><code>$$stuff = _0</code></pre>
+<p>but user variables only have a single piece of data. So on assignment you lose 2 of the 3 pieces from the match variable. You can choose which words (original or canonical) when you assign.</p>
+<pre><code>$$stuff = &#39;_0 #  original words</code></pre>
 <p>You can store positional data onto a different variable using <code>^position(start _0)</code> or</p>
-<pre><code>^position(end _0).
-_0 = $$stuff</code></pre>
+<pre><code>    ^position(end _0).
+    _0 = $$stuff</code></pre>
 <p>When you assign onto a match variable from a user variable, you make both original and canonical values of the match variable the same, and the positional data is set to 0.</p>
-<pre><code>_0 = _10</code></pre>
-<p>This is a transfer from one match variable to another, so no data is lost</p>
+<pre><code>    _0 = _10</code></pre>
+<p>This is a transfer from one match variable to another, so no data is lost.</p>
+<p>One unusual property of match variables is that they are not cleared between volleys. This makes them the ONLY way you can pass data between volleys on a server where different users are involved.</p>
+<p>Note: Match variables have a 20,000 character limit.</p>
 <h2 id="json-dotted-notation-for-variables">JSON dotted notation for variables</h2>
 <p>If a variable holds a JSON object value, you can directly set and get from fields of that object using dotted notation.</p>
 <p>This can be a fixed static fieldname or a variable value- <code>$myvar.$myfield</code> is legal.</p>
@@ -914,6 +917,7 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <h2 id="csboot"><code>^CSBOOT()</code></h2>
 <pre><code>outputmacro: ^CSBOOT()</code></pre>
 <p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users. And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
+<p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
 <h2 id="cs_reboot"><code>^CS_REBOOT()</code></h2>
 <pre><code>outputmacro: ^CS_REBOOT()</code></pre>
 <p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and Variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the <code>^CS_REBOOT</code> function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>

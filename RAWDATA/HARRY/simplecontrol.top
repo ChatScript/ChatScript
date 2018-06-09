@@ -1,3 +1,10 @@
+
+table: defaultbot (^name)
+^createfact(^name defaultbot defaultbot)
+DATA:
+harry
+
+
 # this function is executed once for every new user chatting with harry
 outputmacro: harry()  # you get harry by default
 $cs_token = #DO_INTERJECTION_SPLITTING  | #DO_SUBSTITUTE_SYSTEM   | #DO_NUMBER_MERGE | #DO_DATE_MERGE  | #DO_PROPERNAME_MERGE  | #DO_SPELLCHECK  | #DO_PARSE 
@@ -10,11 +17,6 @@ $userprompt = ^"%user: >"
 $botprompt = ^"HARRY: "
 $singleResponse = 1 # issue only 1 output message
 
-
-table: defaultbot (^name)
-^createfact(^name defaultbot defaultbot)
-DATA:
-harry
 
 topic: ~control system ()
 

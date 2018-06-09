@@ -192,7 +192,7 @@ unsigned int GetIthSpot(WORDP D,int i, int& start, int& end)
     return start;
 }
 
-unsigned int GetNextSpot(WORDP D,int start,int &startPosition,int& endPosition, bool reverse)
+unsigned int GetNextSpot(WORDP D,int start,int &startPosition,int& endPosition, bool reverse,int legalgap)
 {//   spot can be 1-31,  range can be 0-7 -- 7 means its a string, set last marker back before start so can rescan
 	//   BUG - we should note if match is literal or canonical, so can handle that easily during match eg
 	//   '~shapes matches square but not squares (whereas currently literal fails because it is not ~shapes
@@ -221,7 +221,7 @@ unsigned int GetNextSpot(WORDP D,int start,int &startPosition,int& endPosition, 
 		{
 			if (at < start) // valid. but starts far from where we are
 			{
-				startPosition = at;
+                startPosition = at; // bug fix backward gaps as well
 				endPosition = end;
 				uppercaseFind = (data[i + 2] << 24) | (data[i+3]<<16) | (data[i+4]<<8) | (data[i + 5]);
 				continue; // find the CLOSEST without going over
@@ -231,6 +231,10 @@ unsigned int GetNextSpot(WORDP D,int start,int &startPosition,int& endPosition, 
 		else if (at > start)
 		{
 			if (at == 0xff) return 0; // end of data going forward
+            if (legalgap)
+            {
+                if ((at - start) > legalgap) return 0; // too far away and optional
+            }
 			startPosition = at;
 			endPosition = end;
 			uppercaseFind = (data[i + 2] << 24) | (data[i + 3] << 16) | (data[i + 4] << 8) | (data[i + 5]);

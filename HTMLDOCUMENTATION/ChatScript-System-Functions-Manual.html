@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -157,7 +157,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="mark"><code>^mark()</code></h3>
 <p>Clears all global unmarks. restore a global ^unmark(0) exactly as it was before the global unmark.</p>
 <h3 id="unmark-word-_0"><code>^unmark ( word _0 )</code></h3>
-<p>The inverse of specific <code>^mark</code>, this takes a matchvariable that was filled at the position in the sentence you want erased and removes the mark on the word or concept set or topic name given. Pattern matching for it in that position will now fail. But it is not symmetric to <code>^mark</code> because it does not remove all implied marks that mark may have set.</p>
+<p>The inverse of specific <code>^mark</code>, this takes a matchvariable that was filled at the position in the sentence you want erased and removes the mark on the word or concept set or topic name given. Pattern matching for it in that position will now fail. If the word was a phrase, then all words in that phrase have the mark removed. Thus <code>South Georgia</code> which has <code>Georgia</code> embedded within it, and both might be ~geographic_area, will have both words unmarked if you unmark ~geographic_area. But it is not symmetric to <code>^mark</code> because it does not remove all implied marks that mark may have set.</p>
 <h3 id="unmark-n"><code>^unmark ( * n )</code></h3>
 <p>Assuming <code>n</code> is within <code>1</code> and sentence word limit, this unmarks all concepts at nth word location. If n was gotten from <code>^position</code> of a match variable, it is the range of that match variable.</p>
 <h3 id="unmark-word-all"><code>^unmark ( word all )</code></h3>
@@ -210,8 +210,8 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <p>The arguments, separated by spaces, are injected back into the input stream as the next input, processed before any pending additional input. Typically this command is then followed by <code>^fail(SENTENCE)</code> to cancel current processing and move onto the revised input.</p>
 <p>Since the sentence is fed in immediately after the current input, if you want to feed in multiple sentences, you must reverse the order so the last sentence to be processed is submitted via input first. You can detect that the current sentence comes from <code>^input</code> and not from the user by <code>%revisedInput</code> (bool) being true (1).</p>
 <h3 id="original-_n"><code>^original ( _n )</code></h3>
-<p>The argument is the name of a match variable. Whatever it has memorized will be used to locate the corresponding series of words in the original raw input from the user that led to this match.</p>
-<p>E.g., if the input was: <em>I lick ice crem</em>, the converted input became <em>I lick ice_create</em> and you'd memorized the food onto a match variable, then you could do <code>^original(_0)</code> and get back <em>ice crem</em>.</p>
+<p>The argument is the name of a match variable. Whatever it has memorized will be used to locate the corresponding series of words in the original raw input from the user that led to this match. That is, the value is prior to any spell correction done by ChatScript.</p>
+<p>E.g., if the input was: <em>I lick ice crem</em>, the converted input became <em>I lick ice_cream</em> and you'd memorized the food onto a match variable, then you could do <code>^original(_0)</code> and get back <em>ice crem</em>.</p>
 <p>Another example:</p>
 <pre><code># get foreign language proper name, without any CS standard processing.
 u: what&#39;s your first name?

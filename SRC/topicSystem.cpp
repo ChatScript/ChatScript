@@ -1138,15 +1138,16 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 	unsigned int oldtrace = trace;
 	unsigned int oldtiming = timing;
 	bool traceChanged = false;
+	bool timingChanged = false;
 	if ( GetDebugRuleMark(currentTopicID,id))  
 	{
 		trace = (unsigned int) -1; 
 		traceChanged = true;
 	}
-	if (GetTimingRuleMark(currentTopicID, id))
+	if (GetTimingRuleMark(currentTopicID,id))
 	{
 		timing = ((unsigned int)-1 ^ TIME_ALWAYS) | (oldtiming & TIME_ALWAYS);
-		traceChanged = true;
+		timingChanged = true;
 	}
 	uint64 start_time = ElapsedMilliseconds();
 
@@ -1279,9 +1280,13 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 	if (traceChanged) 
 	{
 		trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
-		timing = oldtiming;
 	}
 	else if (modifiedTrace) trace = modifiedTraceVal;
+	if (timingChanged)
+	{
+		timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
+	}
+	else if (modifiedTiming) trace = modifiedTimingVal;
 	norejoinder = oldnorejoinder;
 
     return result;
@@ -1303,11 +1308,18 @@ FunctionResult TestRule(int ruleID,char* rule,char* buffer,bool refine)
 	unsigned int oldIterator = currentIterator;
 	currentIterator = 0;
 	unsigned int oldtrace = trace;
+	unsigned int oldtiming = timing;
 	bool traceChanged = false;
-	if (GetDebugRuleMark(currentTopicID, ruleID))
+	bool timingChanged = false;
+	if (GetDebugRuleMark(currentTopicID,ruleID)) 
 	{
 		trace = (unsigned int) -1 ;
 		traceChanged = true;
+	}
+	if (GetTimingRuleMark(currentTopicID,ruleID))
+	{
+		timing = ((unsigned int)-1 ^ TIME_ALWAYS) | (oldtiming & TIME_ALWAYS);
+		timingChanged = true;
 	}
 	++ruleCount;
     FunctionResult result = NOPROBLEM_BIT;
@@ -1420,12 +1432,14 @@ retry:
 	}
 exit:
 	ChangeDepth(-1,id,true); // rule
-	++rulesExecuted;
-	currentIterator = oldIterator;
+    ++rulesExecuted;
+    currentIterator = oldIterator;
 	
 	if (traceChanged) trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 	else if (modifiedTrace) trace = modifiedTraceVal;
-	return result; 
+	if (timingChanged) timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
+	else if (modifiedTiming) timing = modifiedTimingVal;
+	return result;
 }
 
 static int RuleID(int type,char* ptr)
@@ -1918,7 +1932,7 @@ bool ReadUserTopics()
 			block->topicFlags |= TOPIC_USED; 
 			int size = (int) block->topicBytesRules; // how many bytes of data in memory
 			bool ignore = false;
-			if ((block->topicChecksum && checksum != block->topicChecksum) || size < bytes) ignore = true; // topic changed or has shrunk = discard our data
+			if ((block->topicChecksum && checksum != block->topicChecksum && checksum) || size < bytes) ignore = true; // topic changed or has shrunk = discard our data
 			unsigned char* bits = block->topicUsed;
 			unsigned char* startbits = bits;
 			while (*at != ' ') // til byte marks used up
@@ -2441,15 +2455,20 @@ static void AddRecursiveInternal(WORDP D,unsigned int intbits,bool dictionaryBui
 
 static void InsureSafeSpellcheck(char* word)
 {
-	if (!word || !*word) return;
-	// Spellcheck should not harm keywords or components of keywords. Insure some mark exists.
-	// Spellcheck can adjust case without causing recognition damage.
-	WORDP X = FindWord(word, 0, LOWERCASE_LOOKUP);
-	if (X && (X->properties & TAG_TEST || X->systemFlags & PATTERN_WORD)) return; 
-	WORDP Y = FindWord(word, 0, UPPERCASE_LOOKUP);
-	if (Y && (Y->properties & TAG_TEST || Y->systemFlags & PATTERN_WORD)) return; 
-	WORDP Z = StoreWord(word);
-	if (Z) AddSystemFlag(Z, PATTERN_WORD);
+    if (!word || !*word) return;
+    // Spellcheck should not harm keywords or components of keywords. Insure some mark exists.
+    // Spellcheck can adjust case without causing recognition damage.
+    WORDP X = FindWord(word, 0, LOWERCASE_LOOKUP);
+    if (X && (X->properties & TAG_TEST || X->systemFlags & PATTERN_WORD)) return;
+    WORDP Y = FindWord(word, 0, UPPERCASE_LOOKUP);
+    if (Y && (Y->properties & TAG_TEST || Y->systemFlags & PATTERN_WORD)) return;
+    char data[MAX_WORD_SIZE];
+    MakeLowerCopy(data, word);
+    WORDP Z;
+    size_t len = strlen(data);
+    if (data[len-1] == 's') Z = StoreWord(data); // dont force uppercase on plurals like Cousins
+    else Z = StoreWord(word);
+    if (Z) AddSystemFlag(Z, PATTERN_WORD);
 }
 
 void InitKeywords(const char* fname,const char* layer,unsigned int build,bool dictionaryBuild,bool concept)
@@ -2651,33 +2670,31 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 						}
 					}
 				}
+                // insure whole word safe from spell check
+                char* space = strchr(D->word, ' ');
+                char* underscore = strchr(D->word, '_');
+                if (!space && !underscore) InsureSafeSpellcheck(D->word); // rrotect whole word
 
-				// insure whole word safe from spell check
-				char* space = strchr(D->word, ' ');
-				char* underscore = strchr(D->word, '_');
-				if (!space && !underscore) InsureSafeSpellcheck(D->word); // rrotect whole word
-
-				// insure pieces safe from spellcheck
-				char sep = 0;
-				if (space && underscore) { ; }
-				else if (space) sep = ' ';
-				else sep = '_';
-				if (sep)
-				{
-					char word[MAX_WORD_SIZE];
-					strcpy(word, D->word);
-					char* at = word;
-					char* old = word;
-					while ((at = strchr(at, sep))) // break apart into pieces.
-					{
-						*at++ = 0;
-						InsureSafeSpellcheck(old);
-						old = at;
-					}
-					if (*old) InsureSafeSpellcheck(old);
-				}
-
-			}
+                                                                          // insure pieces safe from spellcheck
+                char sep = 0;
+                if (space && underscore) { ; }
+                else if (space) sep = ' ';
+                else sep = '_';
+                if (sep)
+                {
+                    char word[MAX_WORD_SIZE];
+                    strcpy(word, D->word);
+                    char* at = word;
+                    char* old = word;
+                    while ((at = strchr(at, sep))) // break apart into pieces.
+                    {
+                        *at++ = 0;
+                        InsureSafeSpellcheck(old);
+                        old = at;
+                    }
+                    if (*old) InsureSafeSpellcheck(old);
+                }
+            }
 			else // recurse on concept
 			{
 				if (type || sys || parse || required)

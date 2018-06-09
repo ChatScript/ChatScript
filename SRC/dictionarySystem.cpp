@@ -422,6 +422,7 @@ static char* predefinedSets[] = //  some internally mapped concepts not includin
 	(char*)"~distance_noun_modify_adjective",(char*)"~modelnumber",
 	(char*)"~time_noun_modify_adverb",
 	(char*)"~time_noun_modify_adjective",
+	(char*)"~capacronym",
     NULL
 };
 

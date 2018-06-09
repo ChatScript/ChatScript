@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represents collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within <code>[]</code>, e.g.,</p>
 <pre><code>[ A 2 [ help life] [] ]</code></pre>
@@ -175,14 +175,17 @@ $_response = ^jsonopen(transient POST $_url $_data $_header $_userAgent) </code>
 <p>You may omit the leading . of a path and CS will by default assume it</p>
 <pre><code>^jsonpath(&quot;st. helen&quot;.data $tmp)</code></pre>
 <h2 id="direct-access-via-json-variables-myvar.field-and-myvar">Direct access via JSON variables <code>$myvar.field</code> and `$myvar[]</h2>
-<p>If a variable holds a JSON object value, you can directly set and get from fields of that object using dotted notation. This can be a fixed static fieldname you give or a variable value: <code>$myvar.$myfield</code> is legal.</p>
+<p>If a variable holds a JSON object value, you can directly set and get from fields of that object using dotted notation. This can be a fixed static fieldname you give or a user variable value or a match variable value (quoted or unquoted): <code>$myvar.$myfield</code> is legal, as is <code>$myvar._0</code> or <code>$myvar.'_0</code>.</p>
 <p>Dotted notation is cleaner and faster than <code>^jsonpath</code> and <code>jsonobjectinsert</code> and for get, has the advantage that it never fails, it only returns null if it can't find the field. If the path does not contain a json object at a level below the top, one will automatically be created on assignment, and have the same transient/permanent property as the immediately containing object. If the top level variable is not currently an object, assignment will fail. CS will not create an object for you because it doesn't know if it should be transient or permanent.</p>
 <pre><code>$x = $$obj.name.value.data.side 
 $$obj.name.value.data.side = 7</code></pre>
 <p>Similarly you can access JSON arrays using array notation:</p>
 <pre><code>$x = $$array[5]
 $x = $$array[$_tmp]
-$$obj.name[4] += 3</code></pre>
+$$obj.name[4] += 3
+$$obj.$_kind[4] += 3
+$$obj._0[4] += 3
+$$obj.&#39;_0[4] += 3</code></pre>
 <pre><code>$x.foo[] = Bruce</code></pre>
 <p>If foo is currently undefined, the system will create a JSON array for you, with permanency that matches the JSON object of $x. You cannot do $x[] and have this happen because at the top level the system does not know what permanency to use. Once there is a JSON array in $x.foo, assignments with <code>foo[]</code> will add elements to the array. You cannot designate the index, it will be the next index in succession.</p>
 <p>You can also do</p>
@@ -284,11 +287,10 @@ This allows you to remove their transient flags or save them in the users perman
 <p>A sample call might be:</p>
 <pre><code>$$url = &quot;https://api.github.com/users/test/repos&quot;
 $$user_agent = ^&quot;User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)&quot;
-
 ^jsonopen(GET $$url &quot;&quot; $$user_agent)</code></pre>
-<p>where GitHub requires user-agent data. As an example of a complex header value you might create neatly,</p>
-<pre><code>$header = ^&quot;Authorization: 8daWs-dwQPpXkuzJO0o
-~Accept: application/json
+<p>where GitHub requires user-agent data. Use <code>http://</code> and <code>https://</code> in front of your urls.</p>
+<p>As an example of a complex header value you might create neatly,</p>
+<pre><code>$header = ^&quot;Accept: application/json
 ~Accept-Encoding: identity,*;q=0
 ~Accept-Language: en-US,en;q=0.5
 ~Cache-Control: no-cache

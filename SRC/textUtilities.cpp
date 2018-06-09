@@ -1031,6 +1031,24 @@ bool IsArithmeticOperator(char* word)
 		);
 } 
 
+bool IsArithmeticOp(char* word)
+{
+    word = SkipWhitespace(word);
+    char c = *word;
+    if (c == '+' || c == '-' || c == '*' || c == '/' || c == '&') return true;
+    return
+        ((c == '|' && (word[1] == ' ' || word[1] == '^' || word[1] == '=')) ||
+        (c == '%' && !word[1]) ||
+            (c == '%' && word[1] == ' ') ||
+            (c == '%' && word[1] == '=') ||
+            (c == '^' && !word[1]) ||
+            (c == '^' && word[1] == ' ') ||
+            (c == '^' && word[1] == '=') ||
+            (c == '<' && word[1] == '<') ||
+            (c == '>' && word[1] == '>')
+            );
+}
+
 char* IsUTF8(char* buffer,char* character) // swallow a single utf8 character (ptr past it) or return null 
 {
 	*character = *buffer;
@@ -1493,7 +1511,7 @@ char* WriteFloat(char* buffer, double value, int useNumberStyle)
 	return buffer;
 }
 
-bool IsFloat(char* word, char* end, int useNumberStyle)
+char IsFloat(char* word, char* end, int useNumberStyle)
 {
 	if (*(end - 1) == '.') return false;	 // float does not end with ., that is sentence end
 	if (*word == '-' || *word == '+') ++word; // ignore sign
@@ -1517,7 +1535,9 @@ bool IsFloat(char* word, char* end, int useNumberStyle)
 			else return false; // non digit is fatal
 		}
     }
-    return (period == 1 || exponent);
+    if (period == 1) return 1;
+    if (exponent) return 'e';
+    return 0;
 }
 
 bool IsNumericDate(char* word,char* end) // 01.02.2009 or 1.02.2009 or 1.2.2009
@@ -1985,7 +2005,7 @@ int ReadALine(char* buffer,FILE* in,unsigned int limit,bool returnEmptyLines,boo
 	currentFileLine = maxFileLine; // revert to best seen
 	if (currentFileLine == 0)
 	{
-		BOM = (BOM == BOMSET) ? BOMUTF8 : NOBOM; // start of file, set BOM to null
+		BOM = (BOM == BOMSET) ? BOMSET : NOBOM; // start of file, set BOM to null
 		hasHighChar = false; // for outside verify
 	}
 	*buffer = 0;
@@ -2274,7 +2294,7 @@ RESUME:
 	buffer[1] = 0;
 	buffer[2] = 1; //   clear ahead to make it obvious we are at end when debugging
 
-	if (hasutf && BOM)  hasbadutf = AdjustUTF8(start, start - 1); // DO NOT ADJUST BINARY FILES
+	if (hasutf && BOM == BOMUTF8)  hasbadutf = AdjustUTF8(start, start - 1); // DO NOT ADJUST BINARY FILES
 	if (hasbadutf && showBadUTF && !server)  
 		Log(STDTRACELOG,(char*)"Bad UTF-8 %s at %d in %s\r\n",start,currentFileLine,currentFilename);
     return (buffer - start);

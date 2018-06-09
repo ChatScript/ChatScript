@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 1/31/2018 cs8.0</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/9/2018 cs8.3</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does testpaand finding out where it doesn't do what you expected.</p>
 <p>If you dont have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -524,6 +524,8 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>Shows the dictionary and concept hierarchy of things above the given word or concept.</p>
 <h3 id="down-word-n"><code>:down word n</code></h3>
 <p>Shows the dictionary hierarchy below a word or, if the word is name of a concept, the members of the concept. Since displaying down can subsume a lot of entries, you can specify how many levels down to display (n). The default is 1.</p>
+<h3 id="allmembers-concept-notconcept-notconcept1-..."><code>:allmembers ~concept ~notconcept ~notconcept1 ...</code></h3>
+<p>Dumps the members of ~concept into TMP/tmp.txt, one per line, but excludes any that are member of the ~nonconcept sets.</p>
 <h3 id="findwords-pattern"><code>:findwords pattern</code></h3>
 <p>This uses the pattern of characters and * to name words and phrases in the dictionary matching it. E.g.</p>
 <pre><code>:findwords *_executive

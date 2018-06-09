@@ -968,8 +968,10 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
 		}  
 		if (*at && IsPunctuation(*at) & ARITHMETICS && *at != '=')
 		{
-			// - is legal in a var or word token
-			if (*at != '-' || (!IsAlphaUTF8OrDigit(at[1]) && at[1] != '_'))
+            if (*at == '.' && at[1] == '_' && IsDigit(at[2])) {} // json field reference indirection
+            else if (*at == '.' && at[1] == '\'' && at[2] == '_' && IsDigit(at[3])) {} // json field reference indirection
+                                                                // - is legal in a var or word token
+			else if (*at != '-' || (!IsAlphaUTF8OrDigit(at[1]) && at[1] != '_'))
 			{
 				ptr -= strlen(at);
 				*at = 0;
@@ -2776,7 +2778,8 @@ static char* ReadIfTest(char* ptr, FILE* in, char* &data)
     }
     MakeLowerCase(nextToken);
 	
-	if (*nextToken != '(' && *word == '^' && word[1] != '"' && IsAlphaUTF8(word[1])) BADSCRIPT((char*)"%s is not the name of a local function argument\r\n",word)
+	if (*nextToken != '(' && *word == '^' && word[1] != '"' && IsAlphaUTF8(word[1])) 
+        BADSCRIPT((char*)"%s is not the name of a local function argument\r\n",word)
 	if (*nextToken == '(')  // function call?
 	{
 		if (*word != '^') //     a call w/o its ^
@@ -3079,6 +3082,7 @@ static char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinder
 static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
 {
     priorLine = currentFileLine;
+    char* original = data;
 	strcpy(data,(char*)"^loop ");
 	data += 6;
     if (mapFile && dataBase)
@@ -3101,8 +3105,21 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
         AddMapOutput(priorLine);
         priorLine = currentFileLine;
     }
-    if (*word == '^'  && IsAlphaUTF8(word[1])) BADSCRIPT((char*)"%s is not the name of a local function argument\r\n",word)
-	if (*word == ')')  strcpy(data,(char*)"-1"); //   omitted, use -1
+    if (*word == '^'  && IsAlphaUTF8(word[1]))
+    {
+        WORDP D = FindWord(word, 0, LOWERCASE_LOOKUP);
+        if (!D || !(D->internalBits & FUNCTION_NAME))
+            BADSCRIPT((char*)"%s is not the name of a local function argument\r\n", word)
+            ReadNextSystemToken(in, ptr, nextToken, false, true);
+            ptr = ReadCall(word, ptr, in, data, *nextToken == '(', false); //   add function call
+            ptr = ReadNextSystemToken(in, ptr, word, false, false);
+            if (priorLine != currentFileLine)
+            {
+                AddMapOutput(priorLine);
+                priorLine = currentFileLine;
+            }
+    }
+	else if (*word == ')')  strcpy(data,(char*)"-1"); //   omitted, use -1
 	else if (!stricmp(word,(char*)"-1")) // precompiled previously -1
 	{
 		strcpy(data,word);
@@ -3110,7 +3127,7 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
 		if (*word != ')') BADSCRIPT((char*)"Loop counter %s was not closed by )\r\n",word);
 	}
 	else if (!IsDigit(*word) && *word != USERVAR_PREFIX && *word != '_' && *word != SYSVAR_PREFIX  && *word != '^'  && *word != '@') 
-		BADSCRIPT((char*)"LOOP-2 counter must be $var, _#, %var, @factset or ^fnarg  -%s",word)
+		BADSCRIPT((char*)"LOOP-2 counter must be $var, _#, %var, @factset or ^fnarg or function call -%s",word)
 	else 
 	{
 		strcpy(data,word);
@@ -3123,7 +3140,8 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
     }
 	data += strlen(data);
 	*data++ = ' ';
-	if (*word != ')') BADSCRIPT((char*)"LOOP-3 counter must end with )  -%s\r\n",word)
+	if (*word != ')') 
+        BADSCRIPT((char*)"LOOP-3 counter must end with )  -%s\r\n",word)
 	*data++ = ')';
 	*data++ = ' ';
 	char* loopstart = data;
@@ -3163,6 +3181,7 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
     }
 	return ptr; // caller adds extra space after
 }
+
 static char* ReadJavaScript(FILE* in, char* &data,char* ptr)
 {
 	strcpy(data,"*JavaScript");
@@ -3539,7 +3558,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 
 static void ReadTopLevelRule(char* typeval,char* &ptr, FILE* in,char* data,char* basedata)
 {//   handles 1 responder/gambit + all rejoinders attached to it
-	char type[10];
+	char type[100];
 	complexity = 1;
 	strcpy(type,typeval);
 	char info[400];
@@ -4463,7 +4482,8 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 		{
 		case '(': case '[':
 			if (!keywordsDone && topicFlagsDone) BADSCRIPT((char*)"TOPIC-3 Illegal bracking in topic keywords %s\r\n",word)
-			if (flags & TOPIC_SHARE && flags & TOPIC_SYSTEM) BADSCRIPT((char*)"TOPIC-? Don't need SHARE on SYSTEM topic %s, it is already shared via system\r\n",currentTopicName)
+			if (flags & TOPIC_SHARE && flags & TOPIC_SYSTEM) 
+				BADSCRIPT((char*)"TOPIC-? Don't need SHARE on SYSTEM topic %s, it is already shared via system\r\n",currentTopicName)
 			topicFlagsDone = true; //   topic flags must occur before list of keywords
 			++parenLevel;
 			break;
@@ -4507,7 +4527,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 				else if (!stricmp(word,(char*)"priority"))  flags |= TOPIC_PRIORITY; 
 				else if (!stricmp(word,(char*)"random")) flags |= TOPIC_RANDOM;
 				else if (!stricmp(word,(char*)"repeat")) flags |= TOPIC_REPEAT; 
-				else if (!stricmp(word,(char*)"safe")) flags |= -1 ^TOPIC_SAFE;
+				else if (!stricmp(word,(char*)"safe")) flags |= TOPIC_SAFE;
 				else if (!stricmp(word,(char*)"share")) flags |= TOPIC_SHARE;
 				else if (!stricmp(word,(char*)"stay")) 
 				{

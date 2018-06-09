@@ -204,12 +204,12 @@ static bool FindPartialInSentenceTest(char* test, int start,int originalstart,bo
 }
 
 static bool MatchTest(bool reverse,WORDP D, int start,char* op, char* compare,int quote,
-	int& actualStart, int& actualEnd, bool exact) // is token found somewhere after start?
+	int& actualStart, int& actualEnd, bool exact,int legalgap) // is token found somewhere after start?
 {
 	if (start == INFINITE_MATCH) start = (reverse) ? (wordCount + 1) : 0;
 	uppercaseFind = 0;
 	if (deeptrace) Log(STDTRACELOG,(char*)" matchtesting:%s ",D->word);
-	while (GetNextSpot(D,start,actualStart,actualEnd,reverse)) // find a spot later where token is in sentence
+	while (GetNextSpot(D,start,actualStart,actualEnd,reverse,legalgap)) // find a spot later where token is in sentence
     {
 		if (deeptrace) Log(STDTRACELOG,(char*)" matchtest:%s %d-%d ",D->word,actualStart,actualEnd);
 		if (exact && (start+1) != actualStart) return false;	// we are doing _0?~hello or whatever. Must be on the mark
@@ -264,7 +264,7 @@ static bool FindPhrase(char* word, int start,bool reverse, int & actualStart, in
 	for (int i = 0; i < n; ++i) // use the set of burst words - but "Andy Warhol" might be a SINGLE word.
 	{
 		WORDP D = FindWord(GetBurstWord(i));
-		matched = MatchTest(reverse,D,actualEnd,NULL,NULL,0,actualStart,actualEnd,false);
+		matched = MatchTest(reverse,D,actualEnd,NULL,NULL,0,actualStart,actualEnd,false,0);
 		if (matched)
 		{
 			if (oldend > 0 && actualStart != (oldend + 1)) // do our words match in sequence NO. retry later in sentence
@@ -350,6 +350,9 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
 	int &returnstart,int& returnend,int &uppercasem,int& firstMatched,int positionStart,int positionEnd, bool reverse)
 {//   always STARTS past initial opening thing ( [ {  and ends with closing matching thing
 	int startdepth = globalDepth;
+    int wildgap = 0;
+    if (wildcardSelector &  WILDGAP && *kind == '{')
+        wildgap = ((wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff) + 1;
 	memset(&matchedBits[depth],0,sizeof(uint64) * 4);  // nesting level zone of bit matches
     char word[MAX_WORD_SIZE];
 	char* orig = ptr;
@@ -408,7 +411,7 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
 				if (!stricmp(word,(char*)"'s"))
 				{
 					matched = MatchTest(reverse,FindWord(word),(positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd,NULL,NULL,
-						statusBits & QUOTE_BIT,positionStart,positionEnd,false);
+						statusBits & QUOTE_BIT,positionStart,positionEnd,false,0);
 					if (!matched) uppercaseFind = -1;
 					else foundaword = true;
 					if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart;
@@ -785,7 +788,7 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
 						{
 							matched = MatchTest(reverse,FindWord(currentOutputBase),
 								(positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd,NULL,NULL,false,
-								positionStart,positionEnd,false); 
+								positionStart,positionEnd,false,0); 
 							uppercaseFind = -1;
 							if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
 						}
@@ -914,6 +917,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 						select |= WILDGAP;
 					}
 					else if (select & WILDMEMORIZESPECIFIC) select ^= WILDMEMORIZESPECIFIC;
+
                     matched = Match(buffer,ptr,depth+1,positionEnd,type, localRebindable,select,returnStart,
 						returnEnd,uppercasemat,whenmatched,positionStart,positionEnd,reverse); //   subsection ok - it is allowed to set position vars, if ! get used, they dont matter because we fail
 					wildcardSelector = oldselect; // restore outer environment
@@ -963,6 +967,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 						{ // what happens with ( *~3 {boy} bottle) ? // not legal
 							wildcardSelector ^= WILDMEMORIZESPECIFIC; // do not memorize it further
 						}
+                        originalWildcardSelector = wildcardSelector;
                         statusBits |= NOT_BIT; //   we didnt match and pretend we didnt want to
 					}
 					else // no match for ( or [ or << means we have to restore old positions regardless of what happened inside
@@ -1015,7 +1020,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 				if (!word[1]) // simple % 
 				{
 					matched = MatchTest(reverse,FindWord(word),(positionEnd < basicStart && firstMatched < 0) ? basicStart: positionEnd,NULL,NULL,
-						statusBits & QUOTE_BIT,positionStart,positionEnd,false); //   possessive 's
+						statusBits & QUOTE_BIT,positionStart,positionEnd,false,0); //   possessive 's
 					uppercaseFind = -1;
 					if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
 				}
@@ -1039,7 +1044,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 				if (!word[1]) //   the simple = being present
 				{
 					matched = MatchTest(reverse,FindWord(word),(positionEnd < basicStart && firstMatched < 0)  ? basicStart : positionEnd,NULL,NULL,
-						statusBits & QUOTE_BIT,positionStart,positionEnd,false); //   possessive 's
+						statusBits & QUOTE_BIT,positionStart,positionEnd,false,0); //   possessive 's
 					uppercaseFind = -1;
 					if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
 				}
@@ -1082,7 +1087,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 						}
 
 						matched = MatchTest(reverse,FindWord(val),(positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd,NULL,NULL,
-							quoted,positionStart,positionEnd,false); 
+							quoted,positionStart,positionEnd,false,0); 
 						uppercaseFind = -1;
 						if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
 						if (trace & TRACE_PATTERN) sprintf(word,(char*)"%s(%s)%s",lhs,val,op);
@@ -1111,7 +1116,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 					else // find and test
 					{
 						matched = MatchTest(reverse,FindWord(lhs),(positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd,op,rhs,
-							quoted,positionStart,positionEnd,false); //   MUST match later 
+							quoted,positionStart,positionEnd,false,0); //   MUST match later 
 						uppercaseFind = -1;
 						if (!matched) break;
 					}
@@ -1120,7 +1125,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
             case '\\': //   escape to allow [ ] () < > ' {  } ! as words and 's possessive And anything else for that matter
 				{
 					matched =  MatchTest(reverse,FindWord(word+1),(positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd,NULL,NULL,
-						statusBits & QUOTE_BIT,positionStart,positionEnd,false);
+						statusBits & QUOTE_BIT,positionStart,positionEnd,false,0);
 					uppercaseFind = -1;
 					if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart;
 					if (matched) {}
@@ -1138,7 +1143,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 			default: //   ordinary words, concept/topic, numbers, : and ~ and | and & accelerator
 			matchit:
 				matched = MatchTest(reverse,FindWord(word),(positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd,NULL,NULL,
-					statusBits & QUOTE_BIT,positionStart,positionEnd,false);
+					statusBits & QUOTE_BIT,positionStart,positionEnd,false,wildgap);
 				
 				if (!matched) uppercaseFind = -1;
 				else foundaword = true;
@@ -1193,7 +1198,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 			memorizationStart = started = (wildcardSelector & 0x000000ff); // actual word we started at
 			unsigned int ignore = started;
 			int x;
-			int limit = (wildcardSelector >> 8) & 0x000000ff; 
+			int limit = (wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff;
 			if (reverse)
 			{
 				x = started - begin; // *~2 debug() something will generate a -1 started... this is safe here
@@ -1283,7 +1288,9 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
         {
             positionStart = oldStart;
             positionEnd = oldEnd;
-  			if (*kind == '(' || *kind == '<') wildcardSelector = 0; /// should NOT clear this inside a [] or a {} on failure since they must try again
+            if (*word == '{')
+                wildcardSelector = originalWildcardSelector; // failed optional match after return from calling it, need to restore any wildcard eg:  test *~1 {me} [ready]
+            else if (*kind == '(' || *kind == '<') wildcardSelector = 0; /// should NOT clear this inside a [] or a {} on failure since they must try again
 			else // [] and {} get alternate attemps so reset context
 			{
 				wildcardSelector = originalWildcardSelector;

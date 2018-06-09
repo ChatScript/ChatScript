@@ -415,9 +415,11 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 
 	unsigned int varthread = userVariableThreadList;
 	bool traceseen = false;
+	bool timingseen = false;
 	char word[MAX_WORD_SIZE];
 
 	if (modifiedTrace) trace = modifiedTraceVal; // script set the value
+	if (modifiedTiming) timing = modifiedTimingVal; // script set the value
 	while (varthread)
 	{
 		unsigned int* cell = (unsigned int*)Index2Heap(varthread);
@@ -459,6 +461,12 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 				sprintf(word,(char*)"%u",(unsigned int)trace);
 				val = word;
 			}
+			if (!stricmp(D->word, "$cs_time"))
+			{
+				timingseen = true;
+				sprintf(word, (char*)"%u", (unsigned int)timing);
+				val = word;
+			}
 			if (!val) val = ""; // for null variables being marked as traced
 			if (D->internalBits & MACRO_TRACE) 
 			{
@@ -479,6 +487,11 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 	if (!traceseen && !traceUniversal)
 	{
 		sprintf(ptr,(char*)"$cs_trace=%d\r\n",trace);
+		ptr += strlen(ptr);
+	}
+	if (!timingseen)
+	{
+		sprintf(ptr, (char*)"$cs_time=%d\r\n", timing);
 		ptr += strlen(ptr);
 	}
 

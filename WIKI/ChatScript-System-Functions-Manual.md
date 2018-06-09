@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 2/18/2018 cs8.1
+<br>Revision 6/9/2018 cs8.3
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -403,8 +403,10 @@ the global unmark.
 The inverse of specific `^mark`, this takes a matchvariable that was
 filled at the position in the sentence you want erased and removes the mark on the word
 or concept set or topic name given. Pattern matching for it in that position will now fail.
+If the word was a phrase, then all words in that phrase have the mark removed. Thus
+`South Georgia` which has `Georgia` embedded within it, and both might be ~geographic_area, will have both words unmarked if you unmark ~geographic_area.
 But it is not symmetric to `^mark` because it does not remove all implied marks that mark
-may have set.
+may have set. 
 
 ### `^unmark ( * n )`
 
@@ -565,9 +567,9 @@ from `^input` and not from the user by `%revisedInput` (bool) being true (1).
 
 The argument is the name of a match variable.
 Whatever it has memorized will be used to locate the corresponding series of words 
-in the original raw input from the user that led to this match. 
+in the original raw input from the user that led to this match. That is, the value is prior to any spell correction done by ChatScript.
 
-E.g., if the input was: _I lick ice crem_, the converted input became _I lick ice_create_ and you'd memorized the food onto a match variable, then you could do `^original(_0)` and get back _ice crem_.
+E.g., if the input was: _I lick ice crem_, the converted input became _I lick ice_cream_ and you'd memorized the food onto a match variable, then you could do `^original(_0)` and get back _ice crem_.
 
 Another example:
 

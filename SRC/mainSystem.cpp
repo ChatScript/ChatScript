@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "8.2";
+char* version = "8.3";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -171,7 +171,7 @@ int totalCounter = 0;							// protecting ^input from cycling
 char userPrefix[MAX_WORD_SIZE];			// label prefix for user input
 char botPrefix[MAX_WORD_SIZE];			// label prefix for bot output
 
-bool unusedRejoinder;							// inputRejoinder has been executed, blocking further calls to ^Rejoinder
+bool unusedRejoinder = true;							// inputRejoinder has been executed, blocking further calls to ^Rejoinder
 	
 char inputCopy[INPUT_BUFFER_SIZE]; // the original input we were given, we will work on this
 
@@ -218,6 +218,7 @@ static void HandleBoot(WORDP boot, bool reboot)
 	if (boot && !noboot) // run script on startup of system. data it generates will also be layer 1 data
 	{
 		int oldtrace = trace;
+		int oldtiming = timing;
 		if (*bootcmd)
 		{
 			char* at = bootcmd;
@@ -248,6 +249,7 @@ static void HandleBoot(WORDP boot, bool reboot)
 			ReturnToAfterLayer(2, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
 		}
 		trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
+		timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 		stackFree = stackStart; // drop any possible stack used
 	}
 	rebooting = false;
@@ -556,6 +558,7 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg,(char*)"outputsize=",11)) outputsize = atoi(arg+11); // bytes avail for log buffer
 	else if (!stricmp(arg, (char*)"time")) timing = (unsigned int)-1 ^ TIME_ALWAYS;
 	else if (!strnicmp(arg,(char*)"bootcmd=",8)) strcpy(bootcmd,arg+8); 
+    else if (!strnicmp(arg, (char*)"authorize", 9)) overrideAuthorization = true;
 	else if (!strnicmp(arg,(char*)"dir=",4))
 	{
 #ifdef WIN32
@@ -1004,6 +1007,9 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	echo = false;
 
 	InitStandalone();
+#ifdef PRIVATE_CODE
+    PrivateInit(privateParams);
+#endif
 #ifndef DISCARDMYSQL
 	if (mysqlconf) MySQLUserFilesCode(); //Forked must hook uniquely AFTER forking
 #endif
@@ -1016,9 +1022,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	if (*mongodbparams)  MongoSystemInit(mongodbparams);
 #endif
 
-#ifdef PRIVATE_CODE
-	PrivateInit(privateParams); 
-#endif
 	EncryptInit(encryptParams);
 	DecryptInit(decryptParams);
 	ResetEncryptTags();
@@ -1705,12 +1708,14 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     // protective level 0 callframe
     globalDepth = -1;
     ChangeDepth(1, ""); // never enter debugger on this
-	rulesExecuted = 0;
+    rulesExecuted = 0;
     pendingUserReset = false;
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	timerCheckInstance = 0;
 	modifiedTraceVal = 0;
 	modifiedTrace = false;
+	modifiedTimingVal = 0;
+	modifiedTiming = false;
 	if (server && servertrace) trace = -1;
 	myBot = 0;
 	if (!documentMode) {
@@ -1845,7 +1850,6 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 			else fact = Meaning2Word(F->subject)->word;
 		}
 
-		ReportBug((char*) "No such bot  %s - %s - %s status: %s", user, usee, incoming,fact);
 		ReadComputerID(); // presume default bot log file
 		CopyUserTopicFile("nosuchbot");
 		if (nosuchbotrestart) pendingRestart = true;
@@ -2698,8 +2702,8 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE) mytrace = 0;
 	ResetSentence();
 	ResetTokenSystem();
-	ClearWhereInSentence();
-	ClearTriedData();
+    ClearWhereInSentence();
+    ClearTriedData();
 
 	char* ptr = input;
 	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark

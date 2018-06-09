@@ -77,6 +77,7 @@ FunctionResult RunJavaScript(char* definition, char* buffer, unsigned int args)
 	}
 	else if (!stricmp(word,"eval")) 
 	{
+		code = ReadCompiledWord(code, word);
 		if (!*code) return FAILRULE_BIT; // require some code
 	}
 	else if (!*name) return FAILRULE_BIT;	// need to define someting, be it a compile or a call

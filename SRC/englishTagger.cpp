@@ -3087,8 +3087,7 @@ static void Tags(char* buffer, int i)
 
 char* DumpAnalysis(int start, int end,uint64 flags[MAX_SENTENCE_LENGTH],const char* label,bool original,bool roleDisplay)
 {
-	static char buffer[BIG_WORD_SIZE];
-	*buffer = 0;
+	char* buffer = AllocateBuffer();
 	char* ambiguous = "";
 	char* faultyparse = "";
 	if (!original && tokenFlags & FAULTY_PARSE) faultyparse = "badparse "; // only one of ambiguous (worse) and faultyparse will be true
@@ -3172,7 +3171,8 @@ char* DumpAnalysis(int start, int end,uint64 flags[MAX_SENTENCE_LENGTH],const ch
 	}
 
 	strcat(buffer,(char*)"\r\n");
-	return buffer;
+	FreeBuffer();
+	return buffer; // released, be careful
 }
 
 void MarkTags(unsigned int i)
@@ -4115,7 +4115,7 @@ static void MigrateObjects(int start, int end)
 			{
 				ExtendChunk(at, object, verbals);
 				if (phrase) ExtendChunk(at, object, phrases);
-				if (at == objectRef[at]) break; // avoid bad loop
+				if (at == objectRef[at]) break;
 				at = objectRef[at]; // extend to cover HIS object if he is gerund or infintiive
 			}
 		}
@@ -4123,10 +4123,10 @@ static void MigrateObjects(int start, int end)
 		{
 			at = i;
 			// see if it has an object also...spread to cover that...
-			while (at && (object = objectRef[at]) && object > at)
+			while (at && (object = objectRef[at]) && object > at )
 			{
 				ExtendChunk(at, object, clauses);
-				if (at == objectRef[at]) break; // avoid bad loop
+				if (objectRef[object] == at) break; // bad loop
 				at = objectRef[object]; // extend to cover HIS object
 			}
 		}
@@ -4140,7 +4140,7 @@ static void MigrateObjects(int start, int end)
 			while (at && (object = objectRef[at]) && object > at)
 			{
 				ExtendChunk(at, object, phrases);
-				if (at == objectRef[at]) break; // avoid bad loop
+				if (at == objectRef[at]) break;
 				at = objectRef[at]; // extend to cover HIS object
 			}
 		}

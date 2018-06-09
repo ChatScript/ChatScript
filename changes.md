@@ -1,3 +1,24 @@
+# version 8.3 6/9/2018
+1. new manual Practicum - Messaging
+2. loop now allows function call as argument:  loop( ^length(@0)) {...}
+3. new manual Practicum-ControlFlow
+4. may now use match variables and quoted match variables in json indirections:  
+    $_x[_5] = 4
+    $_x._5 = 5
+    $_x['_5) = 5
+    $_x.'_5 = 5
+    $_tmp = $_x._5
+    etc
+5. :allmembers ~concept ~nonconcept ~nonconcept dumps the members of ~concept into TMP/tmp.txt, one per line, 
+   but excludes any that are member of the ~nonconcept sets.
+6. command line param "authorize" allows all server users to use : commands, regardless of authorized.txt.
+7. new manual Practicum - Gleaning
+
+# version 8.2 4/1/2018
+1. debugger has autosizing to your screen and save/restore for size/location adjustments you make
+2. ^query(exact_svrange x y ? -1 ? ? lowvalue highvalue) Finds facts whose object is x<=object<=y numeric
+3. ^query(exact_vrange ? y ? -1 ? ? lowvalue highvalue)  see Predefined  queries section in Facts Manual
+ 
 # version 8.1 2-18-2018
 1.CS Debugger now has been released in Release mode, so maybe it works for you, and has new features-- read the manual again.
 2. new manuals: Practicum- Rejoinders and Practicum- Patterns
