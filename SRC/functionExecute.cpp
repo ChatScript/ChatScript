@@ -6131,7 +6131,11 @@ static FunctionResult SubstituteCode(char* buffer)
 
     // find value
     char* find = ARGUMENT(3);
-    if (!*find) return FAILRULE_BIT;
+    if (!*find)
+    {
+        FreeBuffer();
+        return FAILRULE_BIT;
+    }
     size_t findLen = strlen(find);
     if (findLen > 1 && *find == '"' && find[findLen - 1] == '"') // find of a quoted thing means use interior
     {
