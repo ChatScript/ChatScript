@@ -446,6 +446,8 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		char* currency2;
 		unsigned char* cur1 = GetCurrency((unsigned char*) val1, currency1);
 		unsigned char* cur2 = GetCurrency((unsigned char*) val2, currency2); // use text string comparison though isdigitword calls it a number
+        char* end1 = val1 + strlen(val1);
+        char* end2 = val1 + strlen(val2);
 
 		if (*val1 == '#' || !IsDigitWord(val1,AMERICAN_NUMBERS,true) || *val2 == '#' ||  !IsDigitWord(val2,AMERICAN_NUMBERS,true) || 
             strchr(val1, ':') || strchr(val2, ':') || 
@@ -483,7 +485,7 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 			else result = FAILRULE_BIT;
 		}
 		//   handle double ops
-		else if ((strchr(val1,'.') && val1[1]) || (strchr(val2,'.') && val2[1])) // at least one arg is float
+		else if (IsFloat(val1, end1, numberStyle) || IsFloat(val2, end2, numberStyle)) // at least one arg is float
 		{
 			char* comma = 0; 
 			while ((comma = strchr(val1,',')))  memmove(comma,comma+1,strlen(comma)); // remove embedded commas

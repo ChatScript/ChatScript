@@ -6022,7 +6022,7 @@ static void C_AllMembers(char* input)
     follown = 0;
     if (!D)
     {
-        printf("%s not found\r\n",D->word);
+        printf("%s not found\r\n");
         return;
     }
 

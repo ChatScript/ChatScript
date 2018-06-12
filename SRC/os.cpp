@@ -1605,7 +1605,7 @@ void BugBacktrace(FILE* out)
         CALLFRAME* priorframe = GetCallFrame(i - 1);
 		fprintf(out,"Finished %d: heapusedOnEntry: %d heapUsedNow: %d buffers:%d stackused: %d stackusedNow:%d %s ",
 			i,frame->heapDepth,(int)(heapBase-heapFree),frame->memindex,(int)(heapFree - (char*)releaseStackDepth[i]), (int)(stackFree-stackStart),frame->label);
-		if (!TraceFunctionArgs(out, frame->label, (i > 0) ? priorframe->argumentStartIndex: 0, frame->argumentStartIndex)) fprintf(out, " - %s", rule);
+		if (priorframe && !TraceFunctionArgs(out, frame->label, (i > 0) ? priorframe->argumentStartIndex: 0, frame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
 	while (--i > 1) 

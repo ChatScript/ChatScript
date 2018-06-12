@@ -1089,9 +1089,12 @@ char* ResultCode(FunctionResult result)
 	return ans;
 };
 
- static void AddInput(char* buffer)
+ static bool AddInput(char* buffer)
 {
-	char* copy = AllocateStack(nextInput,0);
+     size_t len = strlen(buffer);
+     if (len > 5000) return false; // dont accept so much. we want natural communication only
+     
+    char* copy = AllocateStack(nextInput,0);
 	strcpy(nextInput,(char*)" `` "); // system separator marks start of internal input
 	char* ptr = nextInput + 4;
 	unsigned int n = BurstWord(buffer);
@@ -1107,6 +1110,7 @@ char* ResultCode(FunctionResult result)
 	ReleaseStack(copy);
 	if (strlen(nextInput) > 1000) nextInput[1000] = 0;	// overflow
 	MoreToCome();
+    return true;
 }
 
 static unsigned int ComputeSyllables(char* word)
@@ -3196,8 +3200,12 @@ static FunctionResult InputCode(char* buffer)
 
 	if (showInput) Log(ECHOSTDTRACELOG,(char*)"^input: %s\r\n",buffer);
 	else if (trace & TRACE_FLOW) Log(STDTRACELOG,(char*)"^input given: %s\r\n",buffer);
-	AddInput(buffer);
-	strcpy(lastInputSubstitution,buffer);
+    if (!AddInput(buffer))
+    {
+        *buffer = 0;
+        return FAILRULE_BIT;
+    }
+    strcpy(lastInputSubstitution,buffer);
     *buffer = 0;
 	return NOPROBLEM_BIT;
 }
@@ -6085,90 +6093,95 @@ static FunctionResult ExtractCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
-static FunctionResult SubstituteCode(char* buffer) 
-{ 
-	char* arg1 = ARGUMENT(1);
-	bool wordMode = false;
-	bool insensitive = false;
-	if (*arg1 == '"') ++arg1;
-	char word[MAX_WORD_SIZE];
-	while (*arg1)
-	{
-		arg1 = ReadCompiledWord(arg1,word);
-		if (!*word) break;
-		if (*word == 'c' || *word == 'C') wordMode = false;
-		if (*word == 'w' || *word == 'W') wordMode = true;
-		if (*word == 'i' || *word == 'I') insensitive = true;
-	}
-	char* xxoriginal = buffer;	// for debug
-	// adjust substitution value
-	char* substituteValue = ARGUMENT(4);
-	size_t substituteLen = strlen(substituteValue);
-	if (substituteLen > 1 && *substituteValue == '"' && substituteValue[substituteLen-1] == '"') // quoted expression means use the interior of it
-	{
-		substituteValue[substituteLen-1] = 0; 
-		++substituteValue;
-		substituteLen -= 2; 
-	}
-	// if (*substituteValue != '_') Convert2Blanks(substituteValue); // if we explicitly request _, use it  but Task_Test will be ruined
-
-	// what to search in, held in local copy because may be made all lowercase
-	char copy[MAX_WORD_SIZE * 4];
-	*copy = ' '; // protective leading blank for -1 test
-	char* arg2 = ARGUMENT(2);
-	strcpy(copy+1,arg2);
-	char* target = copy+1;
-	// target may be null string
-
-	// find value
-	char* find = ARGUMENT(3);
-  	if (!*find) return FAILRULE_BIT;
-	size_t findLen = strlen(find);
-	if (findLen > 1 && *find == '"' && find[findLen-1] == '"') // find of a quoted thing means use interior
-	{
-		find[findLen-1] = 0; 
-		++find;
-		findLen -= 2; 
-	}
-	if (findLen == 0) // can never make headway
-		return FAILRULE_BIT;
-
-    char* found;
-	bool changed = false;
-	strcpy(buffer,arg2);
-	char* target2 = buffer;
-	size_t subslen = strlen(substituteValue);
-	if (insensitive)
-	{
-		MakeLowerCase(find);
-		MakeLowerCase(target);  // only changes local searching copy, not output
-	}
-	while ((found = strstr(target,find))) // case sensitive
+static FunctionResult SubstituteCode(char* buffer)
+{
+    char* arg1 = ARGUMENT(1);
+    bool wordMode = false;
+    bool insensitive = false;
+    if (*arg1 == '"') ++arg1;
+    char word[MAX_WORD_SIZE];
+    while (*arg1)
     {
-		char* found2 = target2 + (found - target);  // corresponding position in output buffer
-		target = found + findLen;  // next place to search from
-		// no partial matches
-		if (wordMode)
-		{
-			char c = found[findLen];	
-			if (IsAlphaUTF8OrDigit(c) || IsAlphaUTF8OrDigit(*(found-1))) // skip nonword match
-			{
-				target2 = found2 + findLen;
-				continue;
-			}
-		}
-		changed = true;
-		char buf[MAX_WORD_SIZE * 4];
-		strcpy(buf,found2+findLen); // preserve what comes after the match
-		strcpy(found2,substituteValue);
-		strcat(found2,buf);
-		target2 = found2 + subslen;
-	}
+        arg1 = ReadCompiledWord(arg1, word);
+        if (!*word) break;
+        if (*word == 'c' || *word == 'C') wordMode = false;
+        if (*word == 'w' || *word == 'W') wordMode = true;
+        if (*word == 'i' || *word == 'I') insensitive = true;
+    }
+    char* xxoriginal = buffer;	// for debug
+                                // adjust substitution value
+    char* substituteValue = ARGUMENT(4);
+    size_t substituteLen = strlen(substituteValue);
+    if (substituteLen > 1 && *substituteValue == '"' && substituteValue[substituteLen - 1] == '"') // quoted expression means use the interior of it
+    {
+        substituteValue[substituteLen - 1] = 0;
+        ++substituteValue;
+        substituteLen -= 2;
+    }
+    // if (*substituteValue != '_') Convert2Blanks(substituteValue); // if we explicitly request _, use it  but Task_Test will be ruined
 
-	// check for FAIL request
-	char* notify = ARGUMENT(5);
-	if (*notify || impliedIf != ALREADY_HANDLED) return (changed) ? NOPROBLEM_BIT : FAILRULE_BIT; // if user wants possible failure result
-	return NOPROBLEM_BIT;
+    // what to search in, held in local copy because may be made all lowercase
+    char* copy = AllocateBuffer();
+    *copy = ' '; // protective leading blank for -1 test
+    char* arg2 = ARGUMENT(2);
+    size_t xlen = strlen(arg2);
+    strcpy(copy + 1, arg2);
+    char* target = copy + 1;
+    // target may be null string
+
+    // find value
+    char* find = ARGUMENT(3);
+    if (!*find) return FAILRULE_BIT;
+    size_t findLen = strlen(find);
+    if (findLen > 1 && *find == '"' && find[findLen - 1] == '"') // find of a quoted thing means use interior
+    {
+        find[findLen - 1] = 0;
+        ++find;
+        findLen -= 2;
+    }
+    if (findLen == 0)
+    {
+        FreeBuffer();   /// using buffer where no collision is expected
+        return FAILRULE_BIT; // can never make headway
+    }
+    char* found;
+    bool changed = false;
+    strcpy(buffer, arg2);
+    char* target2 = buffer;
+    size_t subslen = strlen(substituteValue);
+    if (insensitive)
+    {
+        MakeLowerCase(find);
+        MakeLowerCase(target);  // only changes local searching copy, not output
+    }
+    char* buf = AllocateBuffer();
+    while ((found = strstr(target, find))) // case sensitive
+    {
+        char* found2 = target2 + (found - target);  // corresponding position in output buffer
+        target = found + findLen;  // next place to search from
+                                   // no partial matches
+        if (wordMode)
+        {
+            char c = found[findLen];
+            if (IsAlphaUTF8OrDigit(c) || IsAlphaUTF8OrDigit(*(found - 1))) // skip nonword match
+            {
+                target2 = found2 + findLen;
+                continue;
+            }
+        }
+        changed = true;
+        strcpy(buf, found2 + findLen); // preserve what comes after the match
+        strcpy(found2, substituteValue);
+        strcat(found2, buf);
+        target2 = found2 + subslen;
+    }
+
+    // check for FAIL request
+    FreeBuffer();  
+    FreeBuffer();   
+    char* notify = ARGUMENT(5);
+    if (*notify || impliedIf != ALREADY_HANDLED) return (changed) ? NOPROBLEM_BIT : FAILRULE_BIT; // if user wants possible failure result
+    return NOPROBLEM_BIT;
 }
 
 static void SpellOne(WORDP D, uint64 data)
