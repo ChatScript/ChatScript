@@ -9359,10 +9359,21 @@ static void C_Rewrite(char* file) // single line test inputs
     (*printer)("done\r\n");
 }
 
+//RunTest	Suite	Comment	Name	Category	Specialty	Location	ChatType	Source	 OOB for first message	WelcomeMessage	1stMessage	1stResponse	2ndMessage	2ndResponse	3rdMessage	3rdResponse	4thMessage	4thResponse	5thMessage	5thResponse	6thMessage	6thResponse	7thMessage	7thResponse	8thMessage	8thResponse	9thMessage	9thResponse	10thMessage	10thResponse	11thMessage	11thResponse	12thMessage	12thResponse	13thMessage	13thResponse	14thMessage	14thResponse	15thMessage	15thResponse	16thMessage	16thResponse	17thMessage	17thResponse	18thMessage	18thResponse	19thMessage	19thResponse	20thMessage	20thResponse
+// Yes	smoke	Guardianship_Incapacity		legal	family		FunnelQuestion	sip	[{"deviceCategory":"desktop","intent":"Guardianship","confidence":"0.90"}]	Welcome! How can I help with your family law question?	incapacitate	What's the full extent of the incapacity? Have there been any expert medical opinions?	No	Was an advanced directive or living will signed before the incapacity?	No	Anything else you want the lawyer to know before I connect you?	No	OK. Got it. I'm sending you to a secure page on JustAnswer so you can place the $5 fully-refundable deposit now. While you're filling out that form, I'll tell the Family Lawyer about your situation and then connect you two.																																
+
 static void C_Rewrite1(char* file) // single line test inputs
 {
+    int uid = 0;
+#ifdef JUNK
     char name[MAX_WORD_SIZE];
     char* output = AllocateBuffer();
+    char category[MAX_WORD_SIZE];
+    char source[MAX_WORD_SIZE];
+    char oob[MAX_WORD_SIZE * 4];
+    char specialty[MAX_WORD_SIZE];
+    char location[MAX_WORD_SIZE];
+    char type[MAX_WORD_SIZE];
     sprintf(name, "%s/tmp.txt", tmp);
     FILE* in = fopen(file, "rb");
     if (!in)
@@ -9371,29 +9382,64 @@ static void C_Rewrite1(char* file) // single line test inputs
         return;
     }
     FILE* out = FopenUTF8Write(name);
+    char user[100];
+    *user = 0;
+    char* secondary;
     while (fgets(readBuffer, 10000, in) != NULL)
-    {// VAChat_SKEY	VAMessage_SKEY	RowInsertTime	CategoryName	SubCategoryName	LocationName	Message	BotResponse	chatQuestionsPosted
+    {
+        char* ptr = strchr(readBuffer,'\t'); // start of smoke
+        ptr = strchr(ptr+1, '\t'); // start of suite
+        ptr = strchr(ptr + 1, '\t'); // start of comment
+        ptr = strchr(ptr + 1, '\t'); // start of name
+        ptr = strchr(ptr + 1, '\t'); // start of category
+        ReadCompiledWord(ptr + 1, category);
 
-       // char* chaid = strchr(readBuffer, '\t'); 
-       // *chaid = 0;
-        char* cat = strchr(readBuffer + 1, '\t');
-        *cat++ = 0;
-        char* spec = strchr(cat + 1, '\t');
-        *spec++ = 0;
-        char* loc = strchr(spec, '\t'); 
-        *loc++ = 0;
-        char* input = strchr(loc , '\t');
-        *input++ = 0;
-        if (!stricmp(loc,"Null"))  sprintf(output, "%s\t\t[ category: %s specialty: %s ]\r\n", readBuffer, cat, spec);
-        else sprintf(output, "%s\t\t[ category: %s specialty: %s location: %s ]\r\n", readBuffer, cat,  spec, loc);
+        ptr = strchr(ptr + 1, '\t'); // start of specialty
+        secondary = strchr(ptr + 1, '\t');
+        *secondary = 0;
+        strcpy(specialty, ptr + 1);
+        ptr = secondary;
+
+        ptr = strchr(ptr + 1, '\t'); // start of location
+        secondary = strchr(ptr + 1, '\t');
+        *secondary = 0;
+        strcpy(location, ptr + 1);
+        ptr = secondary;
+
+        ptr = strchr(ptr + 1, '\t'); // start of type
+        ReadCompiledWord(ptr + 1, type);
+        ptr = strchr(ptr + 1, '\t'); // start of source
+        ReadCompiledWord(ptr + 1, source);
+        ptr = strchr(ptr + 1, '\t'); // start of oob 1st msg
+        secondary = strchr(ptr + 1, '\t');
+        *secondary = 0;
+        strcpy(oob, ptr + 1);
+        ptr = secondary;
+        ptr = strchr(ptr + 1, '\t'); // start of welcome
+        ptr = strchr(ptr + 1, '\t'); // start of 1st user message
+
+        ++uid;
+
+        if (!stricmp(location, "Null"))  sprintf(output, "x%d\t\t[ category: %s specialty: %s ]\r\n", uid, category, specialty);
+        else sprintf(output, "x%d\t\t[ category: %s specialty: %s location: %s ]\r\n", uid, category, specialty, location);
         fprintf(out, "%s", output);
-        sprintf(output, "%s\t\t%s", readBuffer, input);
-        fprintf(out, "%s", output);
+
+        while (1)
+        {
+            secondary = strchr(ptr + 1, '\t'); // start of user response
+            *secondary = 0;
+            char* end = strchr(secondary+1,)
+            sprintf(output, "%s\r\n", ptr);
+            fprintf(out, "%s", output);
+
+        }
+    
     }
     fclose(in);
     fclose(out);
     FreeBuffer();
     (*printer)("done\r\n");
+#endif
 }
 
 static void C_QuoteLines(char* file)
@@ -10005,6 +10051,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":clean",C_Clean,(char*)"Convert source files to NL instead of CR/LF for unix"},
     { (char*)":medtable",C_Medtable,(char*)"Read lines from file, add quotes around them, write to tmp/tmp.txt" },
     { (char*)":rewrite",C_Rewrite,(char*)"Read lines from file, reformat,  write to tmp/tmp.txt" },
+    { (char*)":rewrite1",C_Rewrite1,(char*)"Read lines from file, reformat,  write to tmp/tmp.txt" },
     { (char*)":quotelines",C_QuoteLines,(char*)"Read lines from file, add quotes around them, write to tmp/tmp.txt" },
 	{ (char*)":striplog",C_StripLog,(char*)"Read lines from a server log file, reducing them to normal inputs for :source, write to tmp/tmp.txt" },
 #ifndef DISCARDPOSTGRES

@@ -557,12 +557,12 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
     if (*oldValue == '_') oldValue = GetwildcardText(GetWildcardID(oldValue), true); // onto a wildcard
     else if (*oldValue == USERVAR_PREFIX) oldValue = GetUserVariable(oldValue); // onto user variable
     else if (*oldValue == '^') oldValue = FNVAR(oldValue + 1); // onto function argument
-    else if (!IsDigit(*oldValue)) return FAILRULE_BIT; // illegal
+    else if (*oldValue && !IsDigit(*oldValue)) return FAILRULE_BIT; // illegal
 
     if (*moreValue == '_') moreValue = GetwildcardText(GetWildcardID(moreValue), true);
     else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue);
     else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
-    else if (!IsDigit(*moreValue)) return FAILRULE_BIT; // illegal
+    else if (*oldValue && !IsDigit(*moreValue)) return FAILRULE_BIT; // illegal
 
                                                         // perform numeric op
     bool floating = false;
