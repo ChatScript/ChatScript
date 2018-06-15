@@ -1,0 +1,1831 @@
+﻿ x ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaboca ( ADJECTIVE ) lemma=`xaboco` AQ0  
+ xabocas ( ADJECTIVE ) lemma=`xaboco` AQ0  
+ xaboco ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaboco`xaboco` AQ0  NCMS  
+ xabocos ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaboco`xaboco` AQ0  NCMP  
+ xabouca ( VERB ADJECTIVE ) lemma=`xabouco`xaboucar`xaboucar` AQ0  VMI  VMM  
+ xaboucada ( VERB ) lemma=`xaboucar` VMP  
+ xaboucadas ( VERB ) lemma=`xaboucar` VMP  
+ xaboucado ( VERB ) lemma=`xaboucar` VMP  
+ xaboucados ( VERB ) lemma=`xaboucar` VMP  
+ xaboucai ( VERB ) lemma=`xaboucar`xaboucar` VMI  VMM  
+ xaboucais ( VERB ) lemma=`xaboucar` VMI  
+ xaboucam ( VERB ) lemma=`xaboucar` VMI  
+ xaboucamo ( VERB ) lemma=`xaboucar` VMI  
+ xaboucamos ( VERB ) lemma=`xaboucar` VMI  
+ xaboucando ( NOUN NOUN_GERUND ) lemma=`xaboucar` VMG  
+ xaboucar ( VERB_INFINITIVE VERB ) lemma=`xaboucar`xaboucar` VMN  VMS  
+ xaboucara ( VERB ) lemma=`xaboucar` VMI  
+ xaboucaram ( VERB ) lemma=`xaboucar` VMI  
+ xaboucaras ( VERB ) lemma=`xaboucar` VMI  
+ xaboucarde ( VERB_INFINITIVE VERB ) lemma=`xaboucar` VMN  
+ xaboucardes ( VERB_INFINITIVE VERB ) lemma=`xaboucar`xaboucar` VMN  VMS  
+ xaboucare ( VERB_INFINITIVE VERB ) lemma=`xaboucar` VMN  
+ xaboucarei ( VERB ) lemma=`xaboucar` VMI  
+ xaboucareis ( VERB ) lemma=`xaboucar` VMI  
+ xaboucarem ( VERB_INFINITIVE VERB ) lemma=`xaboucar`xaboucar` VMN  VMS  
+ xaboucaremos ( VERB ) lemma=`xaboucar` VMI  
+ xaboucares ( VERB_INFINITIVE VERB ) lemma=`xaboucar`xaboucar` VMN  VMS  
+ xaboucaria ( VERB ) lemma=`xaboucar` VMI  
+ xaboucariam ( VERB ) lemma=`xaboucar` VMI  
+ xaboucarias ( VERB ) lemma=`xaboucar` VMI  
+ xaboucarmo ( VERB_INFINITIVE VERB ) lemma=`xaboucar` VMN  
+ xaboucarmos ( VERB_INFINITIVE VERB ) lemma=`xaboucar`xaboucar` VMN  VMS  
+ xaboucará ( VERB ) lemma=`xaboucar` VMI  
+ xaboucarás ( VERB ) lemma=`xaboucar` VMI  
+ xaboucarão ( VERB ) lemma=`xaboucar` VMI  
+ xaboucaríamos ( VERB ) lemma=`xaboucar` VMI  
+ xaboucaríeis ( VERB ) lemma=`xaboucar` VMI  
+ xaboucas ( VERB ADJECTIVE ) lemma=`xabouco`xaboucar` AQ0  VMI  
+ xaboucasse ( VERB ) lemma=`xaboucar` VMS  
+ xaboucassem ( VERB ) lemma=`xaboucar` VMS  
+ xaboucasses ( VERB ) lemma=`xaboucar` VMS  
+ xaboucaste ( VERB ) lemma=`xaboucar` VMI  
+ xaboucastes ( VERB ) lemma=`xaboucar` VMI  
+ xaboucava ( VERB ) lemma=`xaboucar` VMI  
+ xaboucavam ( VERB ) lemma=`xaboucar` VMI  
+ xaboucavas ( VERB ) lemma=`xaboucar` VMI  
+ xabouco ( VERB ADJECTIVE ) lemma=`xabouco`xaboucar` AQ0  VMI  
+ xaboucos ( ADJECTIVE ) lemma=`xabouco` AQ0  
+ xaboucou ( VERB ) lemma=`xaboucar` VMI  
+ xaboucá ( VERB_INFINITIVE VERB ) lemma=`xaboucar` VMN  
+ xaboucámo ( VERB ) lemma=`xaboucar` VMI  
+ xaboucámos ( VERB ) lemma=`xaboucar` VMI  
+ xaboucáramo ( VERB ) lemma=`xaboucar` VMI  
+ xaboucáramos ( VERB ) lemma=`xaboucar` VMI  
+ xaboucárei ( VERB ) lemma=`xaboucar` VMI  
+ xaboucáreis ( VERB ) lemma=`xaboucar` VMI  
+ xaboucásseis ( VERB ) lemma=`xaboucar` VMS  
+ xaboucássemos ( VERB ) lemma=`xaboucar` VMS  
+ xaboucávamo ( VERB ) lemma=`xaboucar` VMI  
+ xaboucávamos ( VERB ) lemma=`xaboucar` VMI  
+ xaboucávei ( VERB ) lemma=`xaboucar` VMI  
+ xaboucáveis ( VERB ) lemma=`xaboucar` VMI  
+ xabouque ( VERB ) lemma=`xaboucar`xaboucar` VMM  VMS  
+ xabouquei ( VERB ) lemma=`xaboucar` VMI  
+ xabouqueira ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xabouqueiro`xabouqueiro` AQ0  NCFS  
+ xabouqueiras ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xabouqueiro`xabouqueiro` AQ0  NCFP  
+ xabouqueiro ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xabouqueiro`xabouqueiro` AQ0  NCMS  
+ xabouqueiros ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xabouqueiro`xabouqueiro` AQ0  NCMP  
+ xabouqueis ( VERB ) lemma=`xaboucar`xaboucar` VMM  VMS  
+ xabouquem ( VERB ) lemma=`xaboucar`xaboucar` VMM  VMS  
+ xabouquemo ( VERB ) lemma=`xaboucar` VMM  
+ xabouquemos ( VERB ) lemma=`xaboucar`xaboucar` VMM  VMS  
+ xabouques ( VERB ) lemma=`xaboucar`xaboucar` VMM  VMS  
+ xabraque ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xabraques ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xabraque` NCMP  
+ xabrega ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xabregana ( ADJECTIVE ) lemma=`xabregano` AQ0  
+ xabreganas ( ADJECTIVE ) lemma=`xabregano` AQ0  
+ xabregano ( ADJECTIVE ) 
+ xabreganos ( ADJECTIVE ) lemma=`xabregano` AQ0  
+ xabregas ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xabregas`xabrega` AQ0  NCFP  
+ xacoca ( ADJECTIVE ) lemma=`xacoco` AQ0  
+ xacocas ( ADJECTIVE ) lemma=`xacoco` AQ0  
+ xacoco ( ADJECTIVE ) 
+ xacocos ( ADJECTIVE ) lemma=`xacoco` AQ0  
+ xadrez ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xadreza ( VERB ) lemma=`xadrezar`xadrezar` VMI  VMM  
+ xadrezada ( VERB ) lemma=`xadrezar` VMP  
+ xadrezadas ( VERB ) lemma=`xadrezar` VMP  
+ xadrezado ( VERB ) lemma=`xadrezar` VMP  
+ xadrezados ( VERB ) lemma=`xadrezar` VMP  
+ xadrezai ( VERB ) lemma=`xadrezar`xadrezar` VMI  VMM  
+ xadrezais ( VERB ) lemma=`xadrezar` VMI  
+ xadrezam ( VERB ) lemma=`xadrezar` VMI  
+ xadrezamo ( VERB ) lemma=`xadrezar` VMI  
+ xadrezamos ( VERB ) lemma=`xadrezar` VMI  
+ xadrezando ( NOUN NOUN_GERUND ) lemma=`xadrezar` VMG  
+ xadrezar ( VERB_INFINITIVE VERB ) lemma=`xadrezar`xadrezar` VMN  VMS  
+ xadrezara ( VERB ) lemma=`xadrezar` VMI  
+ xadrezaram ( VERB ) lemma=`xadrezar` VMI  
+ xadrezaras ( VERB ) lemma=`xadrezar` VMI  
+ xadrezarde ( VERB_INFINITIVE VERB ) lemma=`xadrezar` VMN  
+ xadrezardes ( VERB_INFINITIVE VERB ) lemma=`xadrezar`xadrezar` VMN  VMS  
+ xadrezare ( VERB_INFINITIVE VERB ) lemma=`xadrezar` VMN  
+ xadrezarei ( VERB ) lemma=`xadrezar` VMI  
+ xadrezareis ( VERB ) lemma=`xadrezar` VMI  
+ xadrezarem ( VERB_INFINITIVE VERB ) lemma=`xadrezar`xadrezar` VMN  VMS  
+ xadrezaremos ( VERB ) lemma=`xadrezar` VMI  
+ xadrezares ( VERB_INFINITIVE VERB ) lemma=`xadrezar`xadrezar` VMN  VMS  
+ xadrezaria ( VERB ) lemma=`xadrezar` VMI  
+ xadrezariam ( VERB ) lemma=`xadrezar` VMI  
+ xadrezarias ( VERB ) lemma=`xadrezar` VMI  
+ xadrezarmo ( VERB_INFINITIVE VERB ) lemma=`xadrezar` VMN  
+ xadrezarmos ( VERB_INFINITIVE VERB ) lemma=`xadrezar`xadrezar` VMN  VMS  
+ xadrezará ( VERB ) lemma=`xadrezar` VMI  
+ xadrezarás ( VERB ) lemma=`xadrezar` VMI  
+ xadrezarão ( VERB ) lemma=`xadrezar` VMI  
+ xadrezaríamos ( VERB ) lemma=`xadrezar` VMI  
+ xadrezaríeis ( VERB ) lemma=`xadrezar` VMI  
+ xadrezas ( VERB ) lemma=`xadrezar` VMI  
+ xadrezasse ( VERB ) lemma=`xadrezar` VMS  
+ xadrezassem ( VERB ) lemma=`xadrezar` VMS  
+ xadrezasses ( VERB ) lemma=`xadrezar` VMS  
+ xadrezaste ( VERB ) lemma=`xadrezar` VMI  
+ xadrezastes ( VERB ) lemma=`xadrezar` VMI  
+ xadrezava ( VERB ) lemma=`xadrezar` VMI  
+ xadrezavam ( VERB ) lemma=`xadrezar` VMI  
+ xadrezavas ( VERB ) lemma=`xadrezar` VMI  
+ xadreze ( VERB ) lemma=`xadrezar`xadrezar` VMM  VMS  
+ xadrezei ( VERB ) lemma=`xadrezar` VMI  
+ xadrezeis ( VERB ) lemma=`xadrezar`xadrezar` VMM  VMS  
+ xadrezem ( VERB ) lemma=`xadrezar`xadrezar` VMM  VMS  
+ xadrezemo ( VERB ) lemma=`xadrezar` VMM  
+ xadrezemos ( VERB ) lemma=`xadrezar`xadrezar` VMM  VMS  
+ xadrezes ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez`xadrezar`xadrezar` NCMP  VMM  VMS  
+ xadrezinha ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez`xadrez` AQD  NCFS  
+ xadrezinhas ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez`xadrez` AQD  NCFP  
+ xadrezinho ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez` NCMS  
+ xadrezinhos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez` NCMP  
+ xadrezista ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xadrezistas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrezista` NCCP  
+ xadrezito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez` NCMS  
+ xadrezitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xadrez` NCMP  
+ xadrezo ( VERB ) lemma=`xadrezar` VMI  
+ xadrezou ( VERB ) lemma=`xadrezar` VMI  
+ xadrezá ( VERB_INFINITIVE VERB ) lemma=`xadrezar` VMN  
+ xadrezámo ( VERB ) lemma=`xadrezar` VMI  
+ xadrezámos ( VERB ) lemma=`xadrezar` VMI  
+ xadrezáramo ( VERB ) lemma=`xadrezar` VMI  
+ xadrezáramos ( VERB ) lemma=`xadrezar` VMI  
+ xadrezárei ( VERB ) lemma=`xadrezar` VMI  
+ xadrezáreis ( VERB ) lemma=`xadrezar` VMI  
+ xadrezásseis ( VERB ) lemma=`xadrezar` VMS  
+ xadrezássemos ( VERB ) lemma=`xadrezar` VMS  
+ xadrezávamo ( VERB ) lemma=`xadrezar` VMI  
+ xadrezávamos ( VERB ) lemma=`xadrezar` VMI  
+ xadrezávei ( VERB ) lemma=`xadrezar` VMI  
+ xadrezáveis ( VERB ) lemma=`xadrezar` VMI  
+ xafarraz ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xafarrazes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xafarraz` NCMP  
+ xaguão ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaguões ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaguão` NCMP  
+ xaia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaia` NCFP  
+ xaile ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xailes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaile` NCMP  
+ xaimel ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaiméis ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaimel` NCMP  
+ xaireis ( ADJECTIVE ) lemma=`xairel` AQ0  
+ xairel ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xairel`xairel` AQ0  NCMS  
+ xairelada ( ADJECTIVE ) lemma=`xairelado` AQ0  
+ xaireladas ( ADJECTIVE ) lemma=`xairelado` AQ0  
+ xairelado ( ADJECTIVE ) 
+ xairelados ( ADJECTIVE ) lemma=`xairelado` AQ0  
+ xairéis ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xairel` NCMP  
+ xaiá ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaiás ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaiá` NCFP  
+ xajá ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xajás ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xajá` NCFP  
+ xale ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xales ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMP  
+ xalezinho ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMS  
+ xalezinhos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMP  
+ xalezito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMS  
+ xalezitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMP  
+ xalinho ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMS  
+ xalinhos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xale` NCMP  
+ xalmas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xama ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xama`xama` AQ0  NCCS  
+ xamane ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xamanes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xamane` NCCP  
+ xamanismo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xamanismos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xamanismo` NCMP  
+ xamanista ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xamanistas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xamanista` NCCP  
+ xamanística ( ADJECTIVE ) lemma=`xamanístico` AQ0  
+ xamanísticas ( ADJECTIVE ) lemma=`xamanístico` AQ0  
+ xamanístico ( ADJECTIVE ) 
+ xamanísticos ( ADJECTIVE ) lemma=`xamanístico` AQ0  
+ xamas ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xama`xama` AQ0  NCCP  
+ xamata ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xamatas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xamata` NCFP  
+ xamate ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xamates ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xamate` NCMP  
+ xampu ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xampus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xampu` NCMP  
+ xamã ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xamãs ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xamã` NCCP  
+ xangaense ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangaense`xangaense` AQ0  NCCS  
+ xangaenses ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangaense`xangaense` AQ0  NCCP  
+ xangaês ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangaês`xangaês` AQ0  NCMS  
+ xangaêsa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangaês` NCFS  
+ xangaêsas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangaês` NCFP  
+ xangaêses ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangaês` NCMP  
+ xangaêss ( ADJECTIVE ) lemma=`xangaês` AQ0  
+ xangaína ( ADJECTIVE ) lemma=`xangaíno` AQ0  
+ xangaínas ( ADJECTIVE ) lemma=`xangaíno` AQ0  
+ xangaíno ( ADJECTIVE ) 
+ xangaínos ( ADJECTIVE ) lemma=`xangaíno` AQ0  
+ xangô ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xangôs ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xangô` NCMP  
+ xantato ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantatos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantato` NCMP  
+ xanteloma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantelomas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xanteloma` NCMP  
+ xantena ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantenas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantena` NCFP  
+ xanteína ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xanteínas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xanteína` NCFP  
+ xantina ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantinas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantina` NCFP  
+ xanto ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantocarotina ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantocarotinas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantocarotina` NCFP  
+ xantocromia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantocromias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantocromia` NCFP  
+ xantocéfala ( ADJECTIVE ) lemma=`xantocéfalo` AQ0  
+ xantocéfalas ( ADJECTIVE ) lemma=`xantocéfalo` AQ0  
+ xantocéfalo ( ADJECTIVE ) 
+ xantocéfalos ( ADJECTIVE ) lemma=`xantocéfalo` AQ0  
+ xantodermia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantodermias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantodermia` NCFP  
+ xantofila ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantofilas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantofila` NCFP  
+ xantogénica ( ADJECTIVE ) lemma=`xantogénico` AQ0  
+ xantogénicas ( ADJECTIVE ) lemma=`xantogénico` AQ0  
+ xantogénico ( ADJECTIVE ) 
+ xantogénicos ( ADJECTIVE ) lemma=`xantogénico` AQ0  
+ xantogénio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantogénios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantogénio` NCMP  
+ xantoleucito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantoleucitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantoleucito` NCMP  
+ xantoma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantomas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantoma` NCMP  
+ xantomatose ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantomatoses ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantomatose` NCFP  
+ xantoplasma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantoplasmas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantoplasma` NCMP  
+ xantoplastídio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantoplastídios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantoplastídio` NCMP  
+ xantopsia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantopsias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantopsia` NCFP  
+ xantorriza ( ADJECTIVE ) lemma=`xantorrizo` AQ0  
+ xantorrizas ( ADJECTIVE ) lemma=`xantorrizo` AQ0  
+ xantorrizo ( ADJECTIVE ) 
+ xantorrizos ( ADJECTIVE ) lemma=`xantorrizo` AQ0  
+ xantos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xanto` NCMP  
+ xantose ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantoses ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantose` NCFP  
+ xantosperma ( ADJECTIVE ) lemma=`xantospermo` AQ0  
+ xantospermas ( ADJECTIVE ) lemma=`xantospermo` AQ0  
+ xantospermo ( ADJECTIVE ) 
+ xantospermos ( ADJECTIVE ) lemma=`xantospermo` AQ0  
+ xantoxilácea ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantoxiláceas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantoxilácea` NCFP  
+ xantoxílea ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantoxíleas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantoxílea` NCFP  
+ xantungue ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantungues ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantungue` NCMP  
+ xantólito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantólitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantólito` NCMP  
+ xantóxila ( ADJECTIVE ) lemma=`xantóxilo` AQ0  
+ xantóxilas ( ADJECTIVE ) lemma=`xantóxilo` AQ0  
+ xantóxilo ( ADJECTIVE ) 
+ xantóxilos ( ADJECTIVE ) lemma=`xantóxilo` AQ0  
+ xantúria ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xantúrias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xantúria` NCFP  
+ xanxereense ( ADJECTIVE ) 
+ xanxereenses ( ADJECTIVE ) lemma=`xanxereense` AQ0  
+ xapuriense ( ADJECTIVE ) 
+ xapurienses ( ADJECTIVE ) lemma=`xapuriense` AQ0  
+ xaputa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaputas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaputa` NCFP  
+ xaque ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaqueada ( VERB ) lemma=`xaquear` VMP  
+ xaqueadas ( VERB ) lemma=`xaquear` VMP  
+ xaqueado ( VERB ) lemma=`xaquear` VMP  
+ xaqueados ( VERB ) lemma=`xaquear` VMP  
+ xaqueai ( VERB ) lemma=`xaquear`xaquear` VMI  VMM  
+ xaqueais ( VERB ) lemma=`xaquear` VMI  
+ xaqueamo ( VERB ) lemma=`xaquear` VMI  
+ xaqueamos ( VERB ) lemma=`xaquear` VMI  
+ xaqueando ( NOUN NOUN_GERUND ) lemma=`xaquear` VMG  
+ xaquear ( VERB_INFINITIVE VERB ) lemma=`xaquear`xaquear` VMN  VMS  
+ xaqueara ( VERB ) lemma=`xaquear` VMI  
+ xaquearam ( VERB ) lemma=`xaquear` VMI  
+ xaquearas ( VERB ) lemma=`xaquear` VMI  
+ xaquearde ( VERB_INFINITIVE VERB ) lemma=`xaquear` VMN  
+ xaqueardes ( VERB_INFINITIVE VERB ) lemma=`xaquear`xaquear` VMN  VMS  
+ xaqueare ( VERB_INFINITIVE VERB ) lemma=`xaquear` VMN  
+ xaquearei ( VERB ) lemma=`xaquear` VMI  
+ xaqueareis ( VERB ) lemma=`xaquear` VMI  
+ xaquearem ( VERB_INFINITIVE VERB ) lemma=`xaquear`xaquear` VMN  VMS  
+ xaquearemos ( VERB ) lemma=`xaquear` VMI  
+ xaqueares ( VERB_INFINITIVE VERB ) lemma=`xaquear`xaquear` VMN  VMS  
+ xaquearia ( VERB ) lemma=`xaquear` VMI  
+ xaqueariam ( VERB ) lemma=`xaquear` VMI  
+ xaquearias ( VERB ) lemma=`xaquear` VMI  
+ xaquearmo ( VERB_INFINITIVE VERB ) lemma=`xaquear` VMN  
+ xaquearmos ( VERB_INFINITIVE VERB ) lemma=`xaquear`xaquear` VMN  VMS  
+ xaqueará ( VERB ) lemma=`xaquear` VMI  
+ xaquearás ( VERB ) lemma=`xaquear` VMI  
+ xaquearão ( VERB ) lemma=`xaquear` VMI  
+ xaquearíamos ( VERB ) lemma=`xaquear` VMI  
+ xaquearíeis ( VERB ) lemma=`xaquear` VMI  
+ xaqueasse ( VERB ) lemma=`xaquear` VMS  
+ xaqueassem ( VERB ) lemma=`xaquear` VMS  
+ xaqueasses ( VERB ) lemma=`xaquear` VMS  
+ xaqueaste ( VERB ) lemma=`xaquear` VMI  
+ xaqueastes ( VERB ) lemma=`xaquear` VMI  
+ xaqueava ( VERB ) lemma=`xaquear` VMI  
+ xaqueavam ( VERB ) lemma=`xaquear` VMI  
+ xaqueavas ( VERB ) lemma=`xaquear` VMI  
+ xaqueei ( VERB ) lemma=`xaquear` VMI  
+ xaqueeis ( VERB ) lemma=`xaquear`xaquear` VMM  VMS  
+ xaqueemo ( VERB ) lemma=`xaquear` VMM  
+ xaqueemos ( VERB ) lemma=`xaquear`xaquear` VMM  VMS  
+ xaqueia ( VERB ) lemma=`xaquear`xaquear` VMI  VMM  
+ xaqueiam ( VERB ) lemma=`xaquear` VMI  
+ xaqueias ( VERB ) lemma=`xaquear` VMI  
+ xaqueie ( VERB ) lemma=`xaquear`xaquear` VMM  VMS  
+ xaqueiem ( VERB ) lemma=`xaquear`xaquear` VMM  VMS  
+ xaqueies ( VERB ) lemma=`xaquear`xaquear` VMM  VMS  
+ xaqueio ( VERB ) lemma=`xaquear` VMI  
+ xaqueou ( VERB ) lemma=`xaquear` VMI  
+ xaques ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaque` NCMP  
+ xaqueá ( VERB_INFINITIVE VERB ) lemma=`xaquear` VMN  
+ xaqueámo ( VERB ) lemma=`xaquear` VMI  
+ xaqueámos ( VERB ) lemma=`xaquear` VMI  
+ xaqueáramo ( VERB ) lemma=`xaquear` VMI  
+ xaqueáramos ( VERB ) lemma=`xaquear` VMI  
+ xaqueárei ( VERB ) lemma=`xaquear` VMI  
+ xaqueáreis ( VERB ) lemma=`xaquear` VMI  
+ xaqueásseis ( VERB ) lemma=`xaquear` VMS  
+ xaqueássemos ( VERB ) lemma=`xaquear` VMS  
+ xaqueávamo ( VERB ) lemma=`xaquear` VMI  
+ xaqueávamos ( VERB ) lemma=`xaquear` VMI  
+ xaqueávei ( VERB ) lemma=`xaquear` VMI  
+ xaqueáveis ( VERB ) lemma=`xaquear` VMI  
+ xara ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarafa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarafo` NCFS  
+ xarafas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarafo` NCFP  
+ xarafim ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarafins ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarafim` NCMP  
+ xarafo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarafos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarafo` NCMP  
+ xaras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xara` NCFP  
+ xarau ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaraus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarau` NCMP  
+ xarda ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xardas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarda` NCFP  
+ xardosa ( ADJECTIVE ) lemma=`xardoso` AQ0  
+ xardosas ( ADJECTIVE ) lemma=`xardoso` AQ0  
+ xardoso ( ADJECTIVE ) 
+ xardosos ( ADJECTIVE ) lemma=`xardoso` AQ0  
+ xarel ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarelete ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xareletes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarelete` NCMP  
+ xareta ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaretas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xareta` NCFP  
+ xarifado ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarifados ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarifado` NCMP  
+ xarife ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarifes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarife` NCMP  
+ xaroco ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarocos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaroco` NCMP  
+ xaropa ( VERB ) lemma=`xaropar`xaropar` VMI  VMM  
+ xaropada ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaropada`xaropar` NCFS  VMP  
+ xaropadas ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaropada`xaropar` NCFP  VMP  
+ xaropado ( VERB ) lemma=`xaropar` VMP  
+ xaropados ( VERB ) lemma=`xaropar` VMP  
+ xaropai ( VERB ) lemma=`xaropar`xaropar` VMI  VMM  
+ xaropais ( VERB ) lemma=`xaropar` VMI  
+ xaropam ( VERB ) lemma=`xaropar` VMI  
+ xaropamo ( VERB ) lemma=`xaropar` VMI  
+ xaropamos ( VERB ) lemma=`xaropar` VMI  
+ xaropando ( NOUN NOUN_GERUND ) lemma=`xaropar` VMG  
+ xaropar ( VERB_INFINITIVE VERB ) lemma=`xaropar`xaropar` VMN  VMS  
+ xaropara ( VERB ) lemma=`xaropar` VMI  
+ xaroparam ( VERB ) lemma=`xaropar` VMI  
+ xaroparas ( VERB ) lemma=`xaropar` VMI  
+ xaroparde ( VERB_INFINITIVE VERB ) lemma=`xaropar` VMN  
+ xaropardes ( VERB_INFINITIVE VERB ) lemma=`xaropar`xaropar` VMN  VMS  
+ xaropare ( VERB_INFINITIVE VERB ) lemma=`xaropar` VMN  
+ xaroparei ( VERB ) lemma=`xaropar` VMI  
+ xaropareis ( VERB ) lemma=`xaropar` VMI  
+ xaroparem ( VERB_INFINITIVE VERB ) lemma=`xaropar`xaropar` VMN  VMS  
+ xaroparemos ( VERB ) lemma=`xaropar` VMI  
+ xaropares ( VERB_INFINITIVE VERB ) lemma=`xaropar`xaropar` VMN  VMS  
+ xaroparia ( VERB ) lemma=`xaropar` VMI  
+ xaropariam ( VERB ) lemma=`xaropar` VMI  
+ xaroparias ( VERB ) lemma=`xaropar` VMI  
+ xaroparmo ( VERB_INFINITIVE VERB ) lemma=`xaropar` VMN  
+ xaroparmos ( VERB_INFINITIVE VERB ) lemma=`xaropar`xaropar` VMN  VMS  
+ xaropará ( VERB ) lemma=`xaropar` VMI  
+ xaroparás ( VERB ) lemma=`xaropar` VMI  
+ xaroparão ( VERB ) lemma=`xaropar` VMI  
+ xaroparíamos ( VERB ) lemma=`xaropar` VMI  
+ xaroparíeis ( VERB ) lemma=`xaropar` VMI  
+ xaropas ( VERB ) lemma=`xaropar` VMI  
+ xaropasse ( VERB ) lemma=`xaropar` VMS  
+ xaropassem ( VERB ) lemma=`xaropar` VMS  
+ xaropasses ( VERB ) lemma=`xaropar` VMS  
+ xaropaste ( VERB ) lemma=`xaropar` VMI  
+ xaropastes ( VERB ) lemma=`xaropar` VMI  
+ xaropava ( VERB ) lemma=`xaropar` VMI  
+ xaropavam ( VERB ) lemma=`xaropar` VMI  
+ xaropavas ( VERB ) lemma=`xaropar` VMI  
+ xarope ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarope`xaropar`xaropar` NCMS  VMM  VMS  
+ xaropeada ( VERB ) lemma=`xaropear` VMP  
+ xaropeadas ( VERB ) lemma=`xaropear` VMP  
+ xaropeado ( VERB ) lemma=`xaropear` VMP  
+ xaropeados ( VERB ) lemma=`xaropear` VMP  
+ xaropeai ( VERB ) lemma=`xaropear` VMM  
+ xaropeais ( VERB ) lemma=`xaropear` VMI  
+ xaropeamos ( VERB ) lemma=`xaropear` VMI  
+ xaropeando ( NOUN NOUN_GERUND ) lemma=`xaropear` VMG  
+ xaropear ( VERB_INFINITIVE VERB ) lemma=`xaropear`xaropear` VMN  VMS  
+ xaropeara ( VERB ) lemma=`xaropear` VMI  
+ xaropearam ( VERB ) lemma=`xaropear` VMI  
+ xaropearas ( VERB ) lemma=`xaropear` VMI  
+ xaropeardes ( VERB_INFINITIVE VERB ) lemma=`xaropear`xaropear` VMN  VMS  
+ xaropearei ( VERB ) lemma=`xaropear` VMI  
+ xaropeareis ( VERB ) lemma=`xaropear` VMI  
+ xaropearem ( VERB_INFINITIVE VERB ) lemma=`xaropear`xaropear` VMN  VMS  
+ xaropearemos ( VERB ) lemma=`xaropear` VMI  
+ xaropeares ( VERB_INFINITIVE VERB ) lemma=`xaropear`xaropear` VMN  VMS  
+ xaropearia ( VERB ) lemma=`xaropear` VMI  
+ xaropeariam ( VERB ) lemma=`xaropear` VMI  
+ xaropearias ( VERB ) lemma=`xaropear` VMI  
+ xaropearmos ( VERB_INFINITIVE VERB ) lemma=`xaropear`xaropear` VMN  VMS  
+ xaropeará ( VERB ) lemma=`xaropear` VMI  
+ xaropearás ( VERB ) lemma=`xaropear` VMI  
+ xaropearão ( VERB ) lemma=`xaropear` VMI  
+ xaropearíamos ( VERB ) lemma=`xaropear` VMI  
+ xaropearíeis ( VERB ) lemma=`xaropear` VMI  
+ xaropeasse ( VERB ) lemma=`xaropear` VMS  
+ xaropeassem ( VERB ) lemma=`xaropear` VMS  
+ xaropeasses ( VERB ) lemma=`xaropear` VMS  
+ xaropeaste ( VERB ) lemma=`xaropear` VMI  
+ xaropeastes ( VERB ) lemma=`xaropear` VMI  
+ xaropeava ( VERB ) lemma=`xaropear` VMI  
+ xaropeavam ( VERB ) lemma=`xaropear` VMI  
+ xaropeavas ( VERB ) lemma=`xaropear` VMI  
+ xaropeei ( VERB ) lemma=`xaropear` VMI  
+ xaropeeis ( VERB ) lemma=`xaropear` VMS  
+ xaropeemos ( VERB ) lemma=`xaropear`xaropear` VMM  VMS  
+ xaropei ( VERB ) lemma=`xaropar` VMI  
+ xaropeia ( VERB ) lemma=`xaropear`xaropear` VMI  VMM  
+ xaropeiam ( VERB ) lemma=`xaropear` VMI  
+ xaropeias ( VERB ) lemma=`xaropear` VMI  
+ xaropeie ( VERB ) lemma=`xaropear`xaropear` VMM  VMS  
+ xaropeiem ( VERB ) lemma=`xaropear`xaropear` VMM  VMS  
+ xaropeies ( VERB ) lemma=`xaropear` VMS  
+ xaropeio ( VERB ) lemma=`xaropear` VMI  
+ xaropeis ( VERB ) lemma=`xaropar`xaropar` VMM  VMS  
+ xaropem ( VERB ) lemma=`xaropar`xaropar` VMM  VMS  
+ xaropemo ( VERB ) lemma=`xaropar` VMM  
+ xaropemos ( VERB ) lemma=`xaropar`xaropar` VMM  VMS  
+ xaropeou ( VERB ) lemma=`xaropear` VMI  
+ xaropes ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarope`xaropar`xaropar` NCMP  VMM  VMS  
+ xaropeáramos ( VERB ) lemma=`xaropear` VMI  
+ xaropeáreis ( VERB ) lemma=`xaropear` VMI  
+ xaropeásseis ( VERB ) lemma=`xaropear` VMS  
+ xaropeássemos ( VERB ) lemma=`xaropear` VMS  
+ xaropeávamos ( VERB ) lemma=`xaropear` VMI  
+ xaropeáveis ( VERB ) lemma=`xaropear` VMI  
+ xaropo ( VERB ) lemma=`xaropar` VMI  
+ xaroposa ( ADJECTIVE ) lemma=`xaroposo` AQ0  
+ xaroposas ( ADJECTIVE ) lemma=`xaroposo` AQ0  
+ xaroposo ( ADJECTIVE ) 
+ xaroposos ( ADJECTIVE ) lemma=`xaroposo` AQ0  
+ xaropou ( VERB ) lemma=`xaropar` VMI  
+ xaropá ( VERB_INFINITIVE VERB ) lemma=`xaropar` VMN  
+ xaropámo ( VERB ) lemma=`xaropar` VMI  
+ xaropámos ( VERB ) lemma=`xaropar` VMI  
+ xaropáramo ( VERB ) lemma=`xaropar` VMI  
+ xaropáramos ( VERB ) lemma=`xaropar` VMI  
+ xaropárei ( VERB ) lemma=`xaropar` VMI  
+ xaropáreis ( VERB ) lemma=`xaropar` VMI  
+ xaropásseis ( VERB ) lemma=`xaropar` VMS  
+ xaropássemos ( VERB ) lemma=`xaropar` VMS  
+ xaropávamo ( VERB ) lemma=`xaropar` VMI  
+ xaropávamos ( VERB ) lemma=`xaropar` VMI  
+ xaropávei ( VERB ) lemma=`xaropar` VMI  
+ xaropáveis ( VERB ) lemma=`xaropar` VMI  
+ xarrasca ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarrascas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarrasca` NCFP  
+ xarroco ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xarrocos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarroco` NCMP  
+ xará ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xará`xará`xará` AQ0  NCCS  NCMS  
+ xarás ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xará`xará`xará` AQ0  NCCP  NCMP  
+ xaréis ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarel` NCMP  
+ xarém ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaréns ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xarém` NCMP  
+ xaréu ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaréus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaréu` NCMP  
+ xate ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xates ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xate` NCMP  
+ xauter ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xauteres ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xauter` NCMP  
+ xavante ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xavantense ( ADJECTIVE ) 
+ xavantenses ( ADJECTIVE ) lemma=`xavantense` AQ0  
+ xavantes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xavante` NCCP  
+ xaveco ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xavecos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaveco` NCMP  
+ xaxim ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaxinense ( ADJECTIVE ) 
+ xaxinenses ( ADJECTIVE ) lemma=`xaxinense` AQ0  
+ xaxins ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaxim` NCMP  
+ xaí ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xaís ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xaí` NCMP  
+ xecado ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xecados ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xecado` NCMP  
+ xeique ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeiques ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeique` NCMP  
+ xelim ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xelindró ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xelindrós ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xelindró` NCMP  
+ xelins ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xelim` NCMP  
+ xelma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xelmas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xelma` NCFP  
+ xenarto ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenartos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenarto` NCMP  
+ xenartra ( ADJECTIVE ) lemma=`xenartro` AQ0  
+ xenartras ( ADJECTIVE ) lemma=`xenartro` AQ0  
+ xenartro ( ADJECTIVE ) 
+ xenartros ( ADJECTIVE ) lemma=`xenartro` AQ0  
+ xenato ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenatos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenato` NCMP  
+ xenelasia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenelasias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenelasia` NCFP  
+ xeno-estrogénio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenoestrogénios` NCMS  
+ xeno-estrogénios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenoestrogénios` NCMP  
+ xenobiose ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenobioses ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenobiose` NCFP  
+ xenodonte ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenodontes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenodonte` NCMP  
+ xenoestrogénio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenoestrogénios` NCMS  
+ xenoestrogénios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenofilia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenofilias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenofilia` NCFP  
+ xenofobia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenofobias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenofobia` NCFP  
+ xenofobismo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenofobismos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenofobismo` NCMP  
+ xenoglossia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenoglossias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenoglossia` NCFP  
+ xenologia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenologias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenologia` NCFP  
+ xenomania ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenomanias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenomania` NCFP  
+ xenomórfica ( ADJECTIVE ) lemma=`xenomórfico` AQ0  
+ xenomórficas ( ADJECTIVE ) lemma=`xenomórfico` AQ0  
+ xenomórfico ( ADJECTIVE ) 
+ xenomórficos ( ADJECTIVE ) lemma=`xenomórfico` AQ0  
+ xenxém ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenxéns ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenxém` NCMP  
+ xenófila ( ADJECTIVE ) lemma=`xenófilo` AQ0  
+ xenófilas ( ADJECTIVE ) lemma=`xenófilo` AQ0  
+ xenófilo ( ADJECTIVE ) 
+ xenófilos ( ADJECTIVE ) lemma=`xenófilo` AQ0  
+ xenófoba ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenófobo` NCFS  
+ xenófobas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenófobo` NCFP  
+ xenófobo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenófobos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenófobo` NCMP  
+ xenólito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenólitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenólito` NCMP  
+ xenótimo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenótimos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenótimo` NCMP  
+ xenônio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xenônios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xenônio` NCMP  
+ xepa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xepas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xepa` NCFP  
+ xeque ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeque-mate ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeques ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeque` NCMP  
+ xeques-mate ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeque-mate` NCMP  
+ xeques-mates ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeque-mate` NCMP  
+ xerafim ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerafins ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerafim` NCMP  
+ xereta ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xereta`xeretar`xeretar` NCCS  VMI  VMM  
+ xeretada ( VERB ) lemma=`xeretar` VMP  
+ xeretadas ( VERB ) lemma=`xeretar` VMP  
+ xeretado ( VERB ) lemma=`xeretar` VMP  
+ xeretados ( VERB ) lemma=`xeretar` VMP  
+ xeretai ( VERB ) lemma=`xeretar`xeretar` VMI  VMM  
+ xeretais ( VERB ) lemma=`xeretar` VMI  
+ xeretam ( VERB ) lemma=`xeretar` VMI  
+ xeretamo ( VERB ) lemma=`xeretar` VMI  
+ xeretamos ( VERB ) lemma=`xeretar` VMI  
+ xeretando ( NOUN NOUN_GERUND ) lemma=`xeretar` VMG  
+ xeretar ( VERB_INFINITIVE VERB ) lemma=`xeretar`xeretar` VMN  VMS  
+ xeretara ( VERB ) lemma=`xeretar` VMI  
+ xeretaram ( VERB ) lemma=`xeretar` VMI  
+ xeretaras ( VERB ) lemma=`xeretar` VMI  
+ xeretarde ( VERB_INFINITIVE VERB ) lemma=`xeretar` VMN  
+ xeretardes ( VERB_INFINITIVE VERB ) lemma=`xeretar`xeretar` VMN  VMS  
+ xeretare ( VERB_INFINITIVE VERB ) lemma=`xeretar` VMN  
+ xeretarei ( VERB ) lemma=`xeretar` VMI  
+ xeretareis ( VERB ) lemma=`xeretar` VMI  
+ xeretarem ( VERB_INFINITIVE VERB ) lemma=`xeretar`xeretar` VMN  VMS  
+ xeretaremos ( VERB ) lemma=`xeretar` VMI  
+ xeretares ( VERB_INFINITIVE VERB ) lemma=`xeretar`xeretar` VMN  VMS  
+ xeretaria ( VERB ) lemma=`xeretar` VMI  
+ xeretariam ( VERB ) lemma=`xeretar` VMI  
+ xeretarias ( VERB ) lemma=`xeretar` VMI  
+ xeretarmo ( VERB_INFINITIVE VERB ) lemma=`xeretar` VMN  
+ xeretarmos ( VERB_INFINITIVE VERB ) lemma=`xeretar`xeretar` VMN  VMS  
+ xeretará ( VERB ) lemma=`xeretar` VMI  
+ xeretarás ( VERB ) lemma=`xeretar` VMI  
+ xeretarão ( VERB ) lemma=`xeretar` VMI  
+ xeretaríamos ( VERB ) lemma=`xeretar` VMI  
+ xeretaríeis ( VERB ) lemma=`xeretar` VMI  
+ xeretas ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xereta`xeretar` NCCP  VMI  
+ xeretasse ( VERB ) lemma=`xeretar` VMS  
+ xeretassem ( VERB ) lemma=`xeretar` VMS  
+ xeretasses ( VERB ) lemma=`xeretar` VMS  
+ xeretaste ( VERB ) lemma=`xeretar` VMI  
+ xeretastes ( VERB ) lemma=`xeretar` VMI  
+ xeretava ( VERB ) lemma=`xeretar` VMI  
+ xeretavam ( VERB ) lemma=`xeretar` VMI  
+ xeretavas ( VERB ) lemma=`xeretar` VMI  
+ xerete ( VERB ) lemma=`xeretar`xeretar` VMM  VMS  
+ xereteada ( VERB ) lemma=`xeretear` VMP  
+ xereteadas ( VERB ) lemma=`xeretear` VMP  
+ xereteado ( VERB ) lemma=`xeretear` VMP  
+ xereteados ( VERB ) lemma=`xeretear` VMP  
+ xereteai ( VERB ) lemma=`xeretear` VMM  
+ xereteais ( VERB ) lemma=`xeretear` VMI  
+ xereteamos ( VERB ) lemma=`xeretear` VMI  
+ xereteando ( NOUN NOUN_GERUND ) lemma=`xeretear` VMG  
+ xeretear ( VERB_INFINITIVE VERB ) lemma=`xeretear`xeretear` VMN  VMS  
+ xereteara ( VERB ) lemma=`xeretear` VMI  
+ xeretearam ( VERB ) lemma=`xeretear` VMI  
+ xeretearas ( VERB ) lemma=`xeretear` VMI  
+ xereteardes ( VERB_INFINITIVE VERB ) lemma=`xeretear`xeretear` VMN  VMS  
+ xeretearei ( VERB ) lemma=`xeretear` VMI  
+ xereteareis ( VERB ) lemma=`xeretear` VMI  
+ xeretearem ( VERB_INFINITIVE VERB ) lemma=`xeretear`xeretear` VMN  VMS  
+ xeretearemos ( VERB ) lemma=`xeretear` VMI  
+ xereteares ( VERB_INFINITIVE VERB ) lemma=`xeretear`xeretear` VMN  VMS  
+ xeretearia ( VERB ) lemma=`xeretear` VMI  
+ xereteariam ( VERB ) lemma=`xeretear` VMI  
+ xeretearias ( VERB ) lemma=`xeretear` VMI  
+ xeretearmos ( VERB_INFINITIVE VERB ) lemma=`xeretear`xeretear` VMN  VMS  
+ xereteará ( VERB ) lemma=`xeretear` VMI  
+ xeretearás ( VERB ) lemma=`xeretear` VMI  
+ xeretearão ( VERB ) lemma=`xeretear` VMI  
+ xeretearíamos ( VERB ) lemma=`xeretear` VMI  
+ xeretearíeis ( VERB ) lemma=`xeretear` VMI  
+ xereteasse ( VERB ) lemma=`xeretear` VMS  
+ xereteassem ( VERB ) lemma=`xeretear` VMS  
+ xereteasses ( VERB ) lemma=`xeretear` VMS  
+ xereteaste ( VERB ) lemma=`xeretear` VMI  
+ xereteastes ( VERB ) lemma=`xeretear` VMI  
+ xereteava ( VERB ) lemma=`xeretear` VMI  
+ xereteavam ( VERB ) lemma=`xeretear` VMI  
+ xereteavas ( VERB ) lemma=`xeretear` VMI  
+ xereteei ( VERB ) lemma=`xeretear` VMI  
+ xereteeis ( VERB ) lemma=`xeretear` VMS  
+ xereteemos ( VERB ) lemma=`xeretear`xeretear` VMM  VMS  
+ xeretei ( VERB ) lemma=`xeretar` VMI  
+ xereteia ( VERB ) lemma=`xeretear`xeretear` VMI  VMM  
+ xereteiam ( VERB ) lemma=`xeretear` VMI  
+ xereteias ( VERB ) lemma=`xeretear` VMI  
+ xereteie ( VERB ) lemma=`xeretear`xeretear` VMM  VMS  
+ xereteiem ( VERB ) lemma=`xeretear`xeretear` VMM  VMS  
+ xereteies ( VERB ) lemma=`xeretear` VMS  
+ xereteio ( VERB ) lemma=`xeretear` VMI  
+ xereteis ( VERB ) lemma=`xeretar`xeretar` VMM  VMS  
+ xeretem ( VERB ) lemma=`xeretar`xeretar` VMM  VMS  
+ xeretemo ( VERB ) lemma=`xeretar` VMM  
+ xeretemos ( VERB ) lemma=`xeretar`xeretar` VMM  VMS  
+ xereteou ( VERB ) lemma=`xeretear` VMI  
+ xeretes ( VERB ) lemma=`xeretar`xeretar` VMM  VMS  
+ xereteáramos ( VERB ) lemma=`xeretear` VMI  
+ xereteáreis ( VERB ) lemma=`xeretear` VMI  
+ xereteásseis ( VERB ) lemma=`xeretear` VMS  
+ xereteássemos ( VERB ) lemma=`xeretear` VMS  
+ xereteávamos ( VERB ) lemma=`xeretear` VMI  
+ xereteáveis ( VERB ) lemma=`xeretear` VMI  
+ xereto ( VERB ) lemma=`xeretar` VMI  
+ xeretou ( VERB ) lemma=`xeretar` VMI  
+ xeretá ( VERB_INFINITIVE VERB ) lemma=`xeretar` VMN  
+ xeretámo ( VERB ) lemma=`xeretar` VMI  
+ xeretámos ( VERB ) lemma=`xeretar` VMI  
+ xeretáramo ( VERB ) lemma=`xeretar` VMI  
+ xeretáramos ( VERB ) lemma=`xeretar` VMI  
+ xeretárei ( VERB ) lemma=`xeretar` VMI  
+ xeretáreis ( VERB ) lemma=`xeretar` VMI  
+ xeretásseis ( VERB ) lemma=`xeretar` VMS  
+ xeretássemos ( VERB ) lemma=`xeretar` VMS  
+ xeretávamo ( VERB ) lemma=`xeretar` VMI  
+ xeretávamos ( VERB ) lemma=`xeretar` VMI  
+ xeretávei ( VERB ) lemma=`xeretar` VMI  
+ xeretáveis ( VERB ) lemma=`xeretar` VMI  
+ xerez ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerezes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerez` NCMP  
+ xerga ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xergas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerga` NCFP  
+ xergão ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xergões ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xergão` NCMP  
+ xerifado ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerifados ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerifado` NCMP  
+ xerife ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerifes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerife` NCMP  
+ xerifina ( ADJECTIVE ) lemma=`xerifino` AQ0  
+ xerifinas ( ADJECTIVE ) lemma=`xerifino` AQ0  
+ xerifino ( ADJECTIVE ) 
+ xerifinos ( ADJECTIVE ) lemma=`xerifino` AQ0  
+ xerimbabo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerimbabos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerimbabo` NCMP  
+ xeringosa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeringosas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeringosa` NCFP  
+ xeringueira ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeringueiras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeringueira` NCFP  
+ xeroca ( VERB ) lemma=`xerocar`xerocar` VMI  VMM  
+ xerocada ( VERB ) lemma=`xerocar` VMP  
+ xerocadas ( VERB ) lemma=`xerocar` VMP  
+ xerocado ( VERB ) lemma=`xerocar` VMP  
+ xerocados ( VERB ) lemma=`xerocar` VMP  
+ xerocai ( VERB ) lemma=`xerocar`xerocar` VMI  VMM  
+ xerocais ( VERB ) lemma=`xerocar` VMI  
+ xerocam ( VERB ) lemma=`xerocar` VMI  
+ xerocamo ( VERB ) lemma=`xerocar` VMI  
+ xerocamos ( VERB ) lemma=`xerocar` VMI  
+ xerocando ( NOUN NOUN_GERUND ) lemma=`xerocar` VMG  
+ xerocar ( VERB_INFINITIVE VERB ) lemma=`xerocar`xerocar` VMN  VMS  
+ xerocara ( VERB ) lemma=`xerocar` VMI  
+ xerocaram ( VERB ) lemma=`xerocar` VMI  
+ xerocaras ( VERB ) lemma=`xerocar` VMI  
+ xerocarde ( VERB_INFINITIVE VERB ) lemma=`xerocar` VMN  
+ xerocardes ( VERB_INFINITIVE VERB ) lemma=`xerocar`xerocar` VMN  VMS  
+ xerocare ( VERB_INFINITIVE VERB ) lemma=`xerocar` VMN  
+ xerocarei ( VERB ) lemma=`xerocar` VMI  
+ xerocareis ( VERB ) lemma=`xerocar` VMI  
+ xerocarem ( VERB_INFINITIVE VERB ) lemma=`xerocar`xerocar` VMN  VMS  
+ xerocaremos ( VERB ) lemma=`xerocar` VMI  
+ xerocares ( VERB_INFINITIVE VERB ) lemma=`xerocar`xerocar` VMN  VMS  
+ xerocaria ( VERB ) lemma=`xerocar` VMI  
+ xerocariam ( VERB ) lemma=`xerocar` VMI  
+ xerocarias ( VERB ) lemma=`xerocar` VMI  
+ xerocarmo ( VERB_INFINITIVE VERB ) lemma=`xerocar` VMN  
+ xerocarmos ( VERB_INFINITIVE VERB ) lemma=`xerocar`xerocar` VMN  VMS  
+ xerocará ( VERB ) lemma=`xerocar` VMI  
+ xerocarás ( VERB ) lemma=`xerocar` VMI  
+ xerocarão ( VERB ) lemma=`xerocar` VMI  
+ xerocaríamos ( VERB ) lemma=`xerocar` VMI  
+ xerocaríeis ( VERB ) lemma=`xerocar` VMI  
+ xerocas ( VERB ) lemma=`xerocar` VMI  
+ xerocasse ( VERB ) lemma=`xerocar` VMS  
+ xerocassem ( VERB ) lemma=`xerocar` VMS  
+ xerocasses ( VERB ) lemma=`xerocar` VMS  
+ xerocaste ( VERB ) lemma=`xerocar` VMI  
+ xerocastes ( VERB ) lemma=`xerocar` VMI  
+ xerocava ( VERB ) lemma=`xerocar` VMI  
+ xerocavam ( VERB ) lemma=`xerocar` VMI  
+ xerocavas ( VERB ) lemma=`xerocar` VMI  
+ xeroco ( VERB ) lemma=`xerocar` VMI  
+ xerocou ( VERB ) lemma=`xerocar` VMI  
+ xerocá ( VERB_INFINITIVE VERB ) lemma=`xerocar` VMN  
+ xerocámo ( VERB ) lemma=`xerocar` VMI  
+ xerocámos ( VERB ) lemma=`xerocar` VMI  
+ xerocáramo ( VERB ) lemma=`xerocar` VMI  
+ xerocáramos ( VERB ) lemma=`xerocar` VMI  
+ xerocárei ( VERB ) lemma=`xerocar` VMI  
+ xerocáreis ( VERB ) lemma=`xerocar` VMI  
+ xerocásseis ( VERB ) lemma=`xerocar` VMS  
+ xerocássemos ( VERB ) lemma=`xerocar` VMS  
+ xerocávamo ( VERB ) lemma=`xerocar` VMI  
+ xerocávamos ( VERB ) lemma=`xerocar` VMI  
+ xerocávei ( VERB ) lemma=`xerocar` VMI  
+ xerocáveis ( VERB ) lemma=`xerocar` VMI  
+ xerocópia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerocópias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerocópia` NCFP  
+ xerodermia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerodermias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerodermia` NCFP  
+ xerofagia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerofagias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerofagia` NCFP  
+ xerofilia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerofilias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerofilia` NCFP  
+ xerofitia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerofitias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerofitia` NCFP  
+ xerofitismo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerofitismos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerofitismo` NCMP  
+ xeroftalmia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeroftalmias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeroftalmia` NCFP  
+ xeroftálmica ( ADJECTIVE ) lemma=`xeroftálmico` AQ0  
+ xeroftálmicas ( ADJECTIVE ) lemma=`xeroftálmico` AQ0  
+ xeroftálmico ( ADJECTIVE ) 
+ xeroftálmicos ( ADJECTIVE ) lemma=`xeroftálmico` AQ0  
+ xerofítica ( ADJECTIVE ) lemma=`xerofítico` AQ0  
+ xerofíticas ( ADJECTIVE ) lemma=`xerofítico` AQ0  
+ xerofítico ( ADJECTIVE ) 
+ xerofíticos ( ADJECTIVE ) lemma=`xerofítico` AQ0  
+ xerografa ( VERB ) lemma=`xerografar`xerografar` VMI  VMM  
+ xerografada ( VERB ) lemma=`xerografar` VMP  
+ xerografadas ( VERB ) lemma=`xerografar` VMP  
+ xerografado ( VERB ) lemma=`xerografar` VMP  
+ xerografados ( VERB ) lemma=`xerografar` VMP  
+ xerografai ( VERB ) lemma=`xerografar` VMM  
+ xerografais ( VERB ) lemma=`xerografar` VMI  
+ xerografam ( VERB ) lemma=`xerografar` VMI  
+ xerografamos ( VERB ) lemma=`xerografar` VMI  
+ xerografando ( NOUN NOUN_GERUND ) lemma=`xerografar` VMG  
+ xerografar ( VERB_INFINITIVE VERB ) lemma=`xerografar`xerografar` VMN  VMS  
+ xerografara ( VERB ) lemma=`xerografar` VMI  
+ xerografaram ( VERB ) lemma=`xerografar` VMI  
+ xerografaras ( VERB ) lemma=`xerografar` VMI  
+ xerografardes ( VERB_INFINITIVE VERB ) lemma=`xerografar`xerografar` VMN  VMS  
+ xerografarei ( VERB ) lemma=`xerografar` VMI  
+ xerografareis ( VERB ) lemma=`xerografar` VMI  
+ xerografarem ( VERB_INFINITIVE VERB ) lemma=`xerografar`xerografar` VMN  VMS  
+ xerografaremos ( VERB ) lemma=`xerografar` VMI  
+ xerografares ( VERB_INFINITIVE VERB ) lemma=`xerografar`xerografar` VMN  VMS  
+ xerografaria ( VERB ) lemma=`xerografar` VMI  
+ xerografariam ( VERB ) lemma=`xerografar` VMI  
+ xerografarias ( VERB ) lemma=`xerografar` VMI  
+ xerografarmos ( VERB_INFINITIVE VERB ) lemma=`xerografar`xerografar` VMN  VMS  
+ xerografará ( VERB ) lemma=`xerografar` VMI  
+ xerografarás ( VERB ) lemma=`xerografar` VMI  
+ xerografarão ( VERB ) lemma=`xerografar` VMI  
+ xerografaríamos ( VERB ) lemma=`xerografar` VMI  
+ xerografaríeis ( VERB ) lemma=`xerografar` VMI  
+ xerografas ( VERB ) lemma=`xerografar` VMI  
+ xerografasse ( VERB ) lemma=`xerografar` VMS  
+ xerografassem ( VERB ) lemma=`xerografar` VMS  
+ xerografasses ( VERB ) lemma=`xerografar` VMS  
+ xerografaste ( VERB ) lemma=`xerografar` VMI  
+ xerografastes ( VERB ) lemma=`xerografar` VMI  
+ xerografava ( VERB ) lemma=`xerografar` VMI  
+ xerografavam ( VERB ) lemma=`xerografar` VMI  
+ xerografavas ( VERB ) lemma=`xerografar` VMI  
+ xerografe ( VERB ) lemma=`xerografar`xerografar` VMM  VMS  
+ xerografei ( VERB ) lemma=`xerografar` VMI  
+ xerografeis ( VERB ) lemma=`xerografar` VMS  
+ xerografem ( VERB ) lemma=`xerografar`xerografar` VMM  VMS  
+ xerografemos ( VERB ) lemma=`xerografar`xerografar` VMM  VMS  
+ xerografes ( VERB ) lemma=`xerografar` VMS  
+ xerografia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerografias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerografia` NCFP  
+ xerografo ( VERB ) lemma=`xerografar` VMI  
+ xerografou ( VERB ) lemma=`xerografar` VMI  
+ xerografáramos ( VERB ) lemma=`xerografar` VMI  
+ xerografáreis ( VERB ) lemma=`xerografar` VMI  
+ xerografásseis ( VERB ) lemma=`xerografar` VMS  
+ xerografássemos ( VERB ) lemma=`xerografar` VMS  
+ xerografávamos ( VERB ) lemma=`xerografar` VMI  
+ xerografáveis ( VERB ) lemma=`xerografar` VMI  
+ xerográfica ( ADJECTIVE ) lemma=`xerográfico` AQ0  
+ xerográficas ( ADJECTIVE ) lemma=`xerográfico` AQ0  
+ xerográfico ( ADJECTIVE ) 
+ xerográficos ( ADJECTIVE ) lemma=`xerográfico` AQ0  
+ xeroma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeromas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeroma` NCMP  
+ xeroque ( VERB ) lemma=`xerocar`xerocar` VMM  VMS  
+ xeroquei ( VERB ) lemma=`xerocar` VMI  
+ xeroqueis ( VERB ) lemma=`xerocar`xerocar` VMM  VMS  
+ xeroquem ( VERB ) lemma=`xerocar`xerocar` VMM  VMS  
+ xeroquemo ( VERB ) lemma=`xerocar` VMM  
+ xeroquemos ( VERB ) lemma=`xerocar`xerocar` VMM  VMS  
+ xeroques ( VERB ) lemma=`xerocar`xerocar` VMM  VMS  
+ xerorradiografia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerorradiografias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerorradiografia` NCFP  
+ xerose ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeroses ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerose` NCFP  
+ xeroterma ( ADJECTIVE ) lemma=`xerotermo` AQ0  
+ xerotermas ( ADJECTIVE ) lemma=`xerotermo` AQ0  
+ xerotermo ( ADJECTIVE ) 
+ xerotermos ( ADJECTIVE ) lemma=`xerotermo` AQ0  
+ xeroxa ( VERB ) lemma=`xeroxar`xeroxar` VMI  VMM  
+ xeroxada ( VERB ) lemma=`xeroxar` VMP  
+ xeroxadas ( VERB ) lemma=`xeroxar` VMP  
+ xeroxado ( VERB ) lemma=`xeroxar` VMP  
+ xeroxados ( VERB ) lemma=`xeroxar` VMP  
+ xeroxai ( VERB ) lemma=`xeroxar` VMM  
+ xeroxais ( VERB ) lemma=`xeroxar` VMI  
+ xeroxam ( VERB ) lemma=`xeroxar` VMI  
+ xeroxamos ( VERB ) lemma=`xeroxar` VMI  
+ xeroxando ( NOUN NOUN_GERUND ) lemma=`xeroxar` VMG  
+ xeroxar ( VERB_INFINITIVE VERB ) lemma=`xeroxar`xeroxar` VMN  VMS  
+ xeroxara ( VERB ) lemma=`xeroxar` VMI  
+ xeroxaram ( VERB ) lemma=`xeroxar` VMI  
+ xeroxaras ( VERB ) lemma=`xeroxar` VMI  
+ xeroxardes ( VERB_INFINITIVE VERB ) lemma=`xeroxar`xeroxar` VMN  VMS  
+ xeroxarei ( VERB ) lemma=`xeroxar` VMI  
+ xeroxareis ( VERB ) lemma=`xeroxar` VMI  
+ xeroxarem ( VERB_INFINITIVE VERB ) lemma=`xeroxar`xeroxar` VMN  VMS  
+ xeroxaremos ( VERB ) lemma=`xeroxar` VMI  
+ xeroxares ( VERB_INFINITIVE VERB ) lemma=`xeroxar`xeroxar` VMN  VMS  
+ xeroxaria ( VERB ) lemma=`xeroxar` VMI  
+ xeroxariam ( VERB ) lemma=`xeroxar` VMI  
+ xeroxarias ( VERB ) lemma=`xeroxar` VMI  
+ xeroxarmos ( VERB_INFINITIVE VERB ) lemma=`xeroxar`xeroxar` VMN  VMS  
+ xeroxará ( VERB ) lemma=`xeroxar` VMI  
+ xeroxarás ( VERB ) lemma=`xeroxar` VMI  
+ xeroxarão ( VERB ) lemma=`xeroxar` VMI  
+ xeroxaríamos ( VERB ) lemma=`xeroxar` VMI  
+ xeroxaríeis ( VERB ) lemma=`xeroxar` VMI  
+ xeroxas ( VERB ) lemma=`xeroxar` VMI  
+ xeroxasse ( VERB ) lemma=`xeroxar` VMS  
+ xeroxassem ( VERB ) lemma=`xeroxar` VMS  
+ xeroxasses ( VERB ) lemma=`xeroxar` VMS  
+ xeroxaste ( VERB ) lemma=`xeroxar` VMI  
+ xeroxastes ( VERB ) lemma=`xeroxar` VMI  
+ xeroxava ( VERB ) lemma=`xeroxar` VMI  
+ xeroxavam ( VERB ) lemma=`xeroxar` VMI  
+ xeroxavas ( VERB ) lemma=`xeroxar` VMI  
+ xeroxe ( VERB ) lemma=`xeroxar`xeroxar` VMM  VMS  
+ xeroxei ( VERB ) lemma=`xeroxar` VMI  
+ xeroxeis ( VERB ) lemma=`xeroxar` VMS  
+ xeroxem ( VERB ) lemma=`xeroxar`xeroxar` VMM  VMS  
+ xeroxemos ( VERB ) lemma=`xeroxar`xeroxar` VMM  VMS  
+ xeroxes ( VERB ) lemma=`xeroxar` VMS  
+ xeroxo ( VERB ) lemma=`xeroxar` VMI  
+ xeroxou ( VERB ) lemma=`xeroxar` VMI  
+ xeroxáramos ( VERB ) lemma=`xeroxar` VMI  
+ xeroxáreis ( VERB ) lemma=`xeroxar` VMI  
+ xeroxásseis ( VERB ) lemma=`xeroxar` VMS  
+ xeroxássemos ( VERB ) lemma=`xeroxar` VMS  
+ xeroxávamos ( VERB ) lemma=`xeroxar` VMI  
+ xeroxáveis ( VERB ) lemma=`xeroxar` VMI  
+ xerume ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xerumes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerume` NCMP  
+ xerém ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeréns ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerém` NCMP  
+ xerófaga ( ADJECTIVE ) lemma=`xerófago` AQ0  
+ xerófagas ( ADJECTIVE ) lemma=`xerófago` AQ0  
+ xerófago ( ADJECTIVE ) 
+ xerófagos ( ADJECTIVE ) lemma=`xerófago` AQ0  
+ xerófila ( ADJECTIVE ) lemma=`xerófilo` AQ0  
+ xerófilas ( ADJECTIVE ) lemma=`xerófilo` AQ0  
+ xerófilo ( ADJECTIVE ) 
+ xerófilos ( ADJECTIVE ) lemma=`xerófilo` AQ0  
+ xerófita ( ADJECTIVE ) lemma=`xerófito` AQ0  
+ xerófitas ( ADJECTIVE ) lemma=`xerófito` AQ0  
+ xerófito ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerófito`xerófito` AQ0  NCMS  
+ xerófitos ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xerófito`xerófito` AQ0  NCMP  
+ xeta ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xetas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeta` NCFP  
+ xetra ( VERB ) lemma=`xetrar`xetrar` VMI  VMM  
+ xetrada ( VERB ) lemma=`xetrar` VMP  
+ xetradas ( VERB ) lemma=`xetrar` VMP  
+ xetrado ( VERB ) lemma=`xetrar` VMP  
+ xetrados ( VERB ) lemma=`xetrar` VMP  
+ xetrai ( VERB ) lemma=`xetrar` VMM  
+ xetrais ( VERB ) lemma=`xetrar` VMI  
+ xetram ( VERB ) lemma=`xetrar` VMI  
+ xetramos ( VERB ) lemma=`xetrar` VMI  
+ xetrando ( NOUN NOUN_GERUND ) lemma=`xetrar` VMG  
+ xetrar ( VERB_INFINITIVE VERB ) lemma=`xetrar`xetrar` VMN  VMS  
+ xetrara ( VERB ) lemma=`xetrar` VMI  
+ xetraram ( VERB ) lemma=`xetrar` VMI  
+ xetraras ( VERB ) lemma=`xetrar` VMI  
+ xetrardes ( VERB_INFINITIVE VERB ) lemma=`xetrar`xetrar` VMN  VMS  
+ xetrarei ( VERB ) lemma=`xetrar` VMI  
+ xetrareis ( VERB ) lemma=`xetrar` VMI  
+ xetrarem ( VERB_INFINITIVE VERB ) lemma=`xetrar`xetrar` VMN  VMS  
+ xetraremos ( VERB ) lemma=`xetrar` VMI  
+ xetrares ( VERB_INFINITIVE VERB ) lemma=`xetrar`xetrar` VMN  VMS  
+ xetraria ( VERB ) lemma=`xetrar` VMI  
+ xetrariam ( VERB ) lemma=`xetrar` VMI  
+ xetrarias ( VERB ) lemma=`xetrar` VMI  
+ xetrarmos ( VERB_INFINITIVE VERB ) lemma=`xetrar`xetrar` VMN  VMS  
+ xetrará ( VERB ) lemma=`xetrar` VMI  
+ xetrarás ( VERB ) lemma=`xetrar` VMI  
+ xetrarão ( VERB ) lemma=`xetrar` VMI  
+ xetraríamos ( VERB ) lemma=`xetrar` VMI  
+ xetraríeis ( VERB ) lemma=`xetrar` VMI  
+ xetras ( VERB ) lemma=`xetrar` VMI  
+ xetrasse ( VERB ) lemma=`xetrar` VMS  
+ xetrassem ( VERB ) lemma=`xetrar` VMS  
+ xetrasses ( VERB ) lemma=`xetrar` VMS  
+ xetraste ( VERB ) lemma=`xetrar` VMI  
+ xetrastes ( VERB ) lemma=`xetrar` VMI  
+ xetrava ( VERB ) lemma=`xetrar` VMI  
+ xetravam ( VERB ) lemma=`xetrar` VMI  
+ xetravas ( VERB ) lemma=`xetrar` VMI  
+ xetre ( VERB ) lemma=`xetrar`xetrar` VMM  VMS  
+ xetrei ( VERB ) lemma=`xetrar` VMI  
+ xetreis ( VERB ) lemma=`xetrar` VMS  
+ xetrem ( VERB ) lemma=`xetrar`xetrar` VMM  VMS  
+ xetremos ( VERB ) lemma=`xetrar`xetrar` VMM  VMS  
+ xetres ( VERB ) lemma=`xetrar` VMS  
+ xetro ( VERB ) lemma=`xetrar` VMI  
+ xetrou ( VERB ) lemma=`xetrar` VMI  
+ xetráramos ( VERB ) lemma=`xetrar` VMI  
+ xetráreis ( VERB ) lemma=`xetrar` VMI  
+ xetrásseis ( VERB ) lemma=`xetrar` VMS  
+ xetrássemos ( VERB ) lemma=`xetrar` VMS  
+ xetrávamos ( VERB ) lemma=`xetrar` VMI  
+ xetráveis ( VERB ) lemma=`xetrar` VMI  
+ xetá ( INTERJECTION ) 
+ xeura ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xeuras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xeura` NCFP  
+ xevá ( ADJECTIVE ) 
+ xevás ( ADJECTIVE ) lemma=`xevá` AQ0  
+ xexé ( ADJECTIVE ) 
+ xexés ( ADJECTIVE ) lemma=`xexé` AQ0  
+ xexéu ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xexéus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xexéu` NCMP  
+ xi ( INTERJECTION ) 
+ xiba ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xibas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiba` NCFP  
+ xicaca ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xicacas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xicaca` NCFP  
+ xicarada ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xicaradas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xicarada` NCFP  
+ xicrinha ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xícara` NCFS  
+ xicrinhas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xícara` NCFP  
+ xifiplastrão ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xifiplastrões ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifiplastrão` NCMP  
+ xifirrinca ( ADJECTIVE ) lemma=`xifirrinco` AQ0  
+ xifirrincas ( ADJECTIVE ) lemma=`xifirrinco` AQ0  
+ xifirrinco ( ADJECTIVE ) 
+ xifirrincos ( ADJECTIVE ) lemma=`xifirrinco` AQ0  
+ xifisterno ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xifisternos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifisterno` NCMP  
+ xifoidiana ( ADJECTIVE ) lemma=`xifoidiano` AQ0  
+ xifoidianas ( ADJECTIVE ) lemma=`xifoidiano` AQ0  
+ xifoidiano ( ADJECTIVE ) 
+ xifoidianos ( ADJECTIVE ) lemma=`xifoidiano` AQ0  
+ xifopagia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xifopagias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifopagia` NCFP  
+ xifosuro ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xifosuros ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifosuro` NCMP  
+ xifíida ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xifíidas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifíida` NCMP  
+ xifófila ( ADJECTIVE ) lemma=`xifófilo` AQ0  
+ xifófilas ( ADJECTIVE ) lemma=`xifófilo` AQ0  
+ xifófilo ( ADJECTIVE ) 
+ xifófilos ( ADJECTIVE ) lemma=`xifófilo` AQ0  
+ xifógapa ( ADJECTIVE ) lemma=`xifógapo` AQ0  
+ xifógapas ( ADJECTIVE ) lemma=`xifógapo` AQ0  
+ xifógapo ( ADJECTIVE ) 
+ xifógapos ( ADJECTIVE ) lemma=`xifógapo` AQ0  
+ xifóide ( ADJECTIVE ) 
+ xifóidea ( ADJECTIVE ) lemma=`xifóideo` AQ0  
+ xifóideas ( ADJECTIVE ) lemma=`xifóideo` AQ0  
+ xifóideo ( ADJECTIVE ) 
+ xifóideos ( ADJECTIVE ) lemma=`xifóideo` AQ0  
+ xifóides ( ADJECTIVE ) lemma=`xifóide` AQ0  
+ xifópaga ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifópago`xifópago` AQ0  NCFS  
+ xifópagas ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifópago`xifópago` AQ0  NCFP  
+ xifópago ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xifópagos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xifópago` NCMP  
+ xigogo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xigogos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xigogo` NCMP  
+ xiita ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiita`xiita` AQ0  NCCS  
+ xiitas ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiita`xiita` AQ0  NCCP  
+ xila ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilarmónico ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilarmónicos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilarmónico` NCMP  
+ xilas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xila` NCFP  
+ xilema ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilemas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilema` NCMP  
+ xilemática ( ADJECTIVE ) lemma=`xilemático` AQ0  
+ xilemáticas ( ADJECTIVE ) lemma=`xilemático` AQ0  
+ xilemático ( ADJECTIVE ) 
+ xilemáticos ( ADJECTIVE ) lemma=`xilemático` AQ0  
+ xileno ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilenos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xileno` NCMP  
+ xilidina ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilidinas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilidina` NCFP  
+ xilindró ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilindrós ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilindró` NCMP  
+ xilo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilobálsamo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilobálsamos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilobálsamo` NCMP  
+ xilocarpo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilocarpos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilocarpo` NCMP  
+ xilocultura ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xiloculturas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilocultura` NCFP  
+ xilofagia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilofagias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilofagia` NCFP  
+ xilofinista ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilofinistas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilofinista` NCCP  
+ xilofone ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilofones ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilofone` NCMP  
+ xilofória ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilofórias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilofória` NCFP  
+ xiloglifia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xiloglifias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiloglifia` NCFP  
+ xiloglífica ( ADJECTIVE ) lemma=`xiloglífico` AQ0  
+ xiloglíficas ( ADJECTIVE ) lemma=`xiloglífico` AQ0  
+ xiloglífico ( ADJECTIVE ) 
+ xiloglíficos ( ADJECTIVE ) lemma=`xiloglífico` AQ0  
+ xilografa ( VERB ) lemma=`xilografar`xilografar` VMI  VMM  
+ xilografada ( VERB ) lemma=`xilografar` VMP  
+ xilografadas ( VERB ) lemma=`xilografar` VMP  
+ xilografado ( VERB ) lemma=`xilografar` VMP  
+ xilografados ( VERB ) lemma=`xilografar` VMP  
+ xilografai ( VERB ) lemma=`xilografar` VMM  
+ xilografais ( VERB ) lemma=`xilografar` VMI  
+ xilografam ( VERB ) lemma=`xilografar` VMI  
+ xilografamos ( VERB ) lemma=`xilografar` VMI  
+ xilografando ( NOUN NOUN_GERUND ) lemma=`xilografar` VMG  
+ xilografar ( VERB_INFINITIVE VERB ) lemma=`xilografar`xilografar` VMN  VMS  
+ xilografara ( VERB ) lemma=`xilografar` VMI  
+ xilografaram ( VERB ) lemma=`xilografar` VMI  
+ xilografaras ( VERB ) lemma=`xilografar` VMI  
+ xilografardes ( VERB_INFINITIVE VERB ) lemma=`xilografar`xilografar` VMN  VMS  
+ xilografarei ( VERB ) lemma=`xilografar` VMI  
+ xilografareis ( VERB ) lemma=`xilografar` VMI  
+ xilografarem ( VERB_INFINITIVE VERB ) lemma=`xilografar`xilografar` VMN  VMS  
+ xilografaremos ( VERB ) lemma=`xilografar` VMI  
+ xilografares ( VERB_INFINITIVE VERB ) lemma=`xilografar`xilografar` VMN  VMS  
+ xilografaria ( VERB ) lemma=`xilografar` VMI  
+ xilografariam ( VERB ) lemma=`xilografar` VMI  
+ xilografarias ( VERB ) lemma=`xilografar` VMI  
+ xilografarmos ( VERB_INFINITIVE VERB ) lemma=`xilografar`xilografar` VMN  VMS  
+ xilografará ( VERB ) lemma=`xilografar` VMI  
+ xilografarás ( VERB ) lemma=`xilografar` VMI  
+ xilografarão ( VERB ) lemma=`xilografar` VMI  
+ xilografaríamos ( VERB ) lemma=`xilografar` VMI  
+ xilografaríeis ( VERB ) lemma=`xilografar` VMI  
+ xilografas ( VERB ) lemma=`xilografar` VMI  
+ xilografasse ( VERB ) lemma=`xilografar` VMS  
+ xilografassem ( VERB ) lemma=`xilografar` VMS  
+ xilografasses ( VERB ) lemma=`xilografar` VMS  
+ xilografaste ( VERB ) lemma=`xilografar` VMI  
+ xilografastes ( VERB ) lemma=`xilografar` VMI  
+ xilografava ( VERB ) lemma=`xilografar` VMI  
+ xilografavam ( VERB ) lemma=`xilografar` VMI  
+ xilografavas ( VERB ) lemma=`xilografar` VMI  
+ xilografe ( VERB ) lemma=`xilografar`xilografar` VMM  VMS  
+ xilografei ( VERB ) lemma=`xilografar` VMI  
+ xilografeis ( VERB ) lemma=`xilografar` VMS  
+ xilografem ( VERB ) lemma=`xilografar`xilografar` VMM  VMS  
+ xilografemos ( VERB ) lemma=`xilografar`xilografar` VMM  VMS  
+ xilografes ( VERB ) lemma=`xilografar` VMS  
+ xilografia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilografias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilografia` NCFP  
+ xilografo ( VERB ) lemma=`xilografar` VMI  
+ xilografou ( VERB ) lemma=`xilografar` VMI  
+ xilografáramos ( VERB ) lemma=`xilografar` VMI  
+ xilografáreis ( VERB ) lemma=`xilografar` VMI  
+ xilografásseis ( VERB ) lemma=`xilografar` VMS  
+ xilografássemos ( VERB ) lemma=`xilografar` VMS  
+ xilografávamos ( VERB ) lemma=`xilografar` VMI  
+ xilografáveis ( VERB ) lemma=`xilografar` VMI  
+ xilograva ( VERB ) lemma=`xilogravar`xilogravar` VMI  VMM  
+ xilogravada ( ADJECTIVE ) lemma=`xilogravado` AQ0  
+ xilogravadas ( ADJECTIVE ) lemma=`xilogravado` AQ0  
+ xilogravado ( ADJECTIVE ) 
+ xilogravador ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilogravadora ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilogravador` NCFS  
+ xilogravadoras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilogravador` NCFP  
+ xilogravadores ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilogravador` NCMP  
+ xilogravados ( ADJECTIVE ) lemma=`xilogravado` AQ0  
+ xilogravai ( VERB ) lemma=`xilogravar` VMM  
+ xilogravais ( VERB ) lemma=`xilogravar` VMI  
+ xilogravam ( VERB ) lemma=`xilogravar` VMI  
+ xilogravamos ( VERB ) lemma=`xilogravar` VMI  
+ xilogravando ( NOUN NOUN_GERUND ) lemma=`xilogravar` VMG  
+ xilogravar ( VERB_INFINITIVE VERB ) lemma=`xilogravar`xilogravar` VMN  VMS  
+ xilogravara ( VERB ) lemma=`xilogravar` VMI  
+ xilogravaram ( VERB ) lemma=`xilogravar` VMI  
+ xilogravaras ( VERB ) lemma=`xilogravar` VMI  
+ xilogravardes ( VERB_INFINITIVE VERB ) lemma=`xilogravar`xilogravar` VMN  VMS  
+ xilogravarei ( VERB ) lemma=`xilogravar` VMI  
+ xilogravareis ( VERB ) lemma=`xilogravar` VMI  
+ xilogravarem ( VERB_INFINITIVE VERB ) lemma=`xilogravar`xilogravar` VMN  VMS  
+ xilogravaremos ( VERB ) lemma=`xilogravar` VMI  
+ xilogravares ( VERB_INFINITIVE VERB ) lemma=`xilogravar`xilogravar` VMN  VMS  
+ xilogravaria ( VERB ) lemma=`xilogravar` VMI  
+ xilogravariam ( VERB ) lemma=`xilogravar` VMI  
+ xilogravarias ( VERB ) lemma=`xilogravar` VMI  
+ xilogravarmos ( VERB_INFINITIVE VERB ) lemma=`xilogravar`xilogravar` VMN  VMS  
+ xilogravará ( VERB ) lemma=`xilogravar` VMI  
+ xilogravarás ( VERB ) lemma=`xilogravar` VMI  
+ xilogravarão ( VERB ) lemma=`xilogravar` VMI  
+ xilogravaríamos ( VERB ) lemma=`xilogravar` VMI  
+ xilogravaríeis ( VERB ) lemma=`xilogravar` VMI  
+ xilogravas ( VERB ) lemma=`xilogravar` VMI  
+ xilogravasse ( VERB ) lemma=`xilogravar` VMS  
+ xilogravassem ( VERB ) lemma=`xilogravar` VMS  
+ xilogravasses ( VERB ) lemma=`xilogravar` VMS  
+ xilogravaste ( VERB ) lemma=`xilogravar` VMI  
+ xilogravastes ( VERB ) lemma=`xilogravar` VMI  
+ xilogravava ( VERB ) lemma=`xilogravar` VMI  
+ xilogravavam ( VERB ) lemma=`xilogravar` VMI  
+ xilogravavas ( VERB ) lemma=`xilogravar` VMI  
+ xilograve ( VERB ) lemma=`xilogravar`xilogravar` VMM  VMS  
+ xilogravei ( VERB ) lemma=`xilogravar` VMI  
+ xilograveis ( VERB ) lemma=`xilogravar` VMS  
+ xilogravem ( VERB ) lemma=`xilogravar`xilogravar` VMM  VMS  
+ xilogravemos ( VERB ) lemma=`xilogravar`xilogravar` VMM  VMS  
+ xilograves ( VERB ) lemma=`xilogravar` VMS  
+ xilogravo ( VERB ) lemma=`xilogravar` VMI  
+ xilogravou ( VERB ) lemma=`xilogravar` VMI  
+ xilogravura ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilogravuras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilogravura` NCFP  
+ xilograváramos ( VERB ) lemma=`xilogravar` VMI  
+ xilograváreis ( VERB ) lemma=`xilogravar` VMI  
+ xilogravásseis ( VERB ) lemma=`xilogravar` VMS  
+ xilogravássemos ( VERB ) lemma=`xilogravar` VMS  
+ xilogravávamos ( VERB ) lemma=`xilogravar` VMI  
+ xilograváveis ( VERB ) lemma=`xilogravar` VMI  
+ xilográfica ( ADJECTIVE ) lemma=`xilográfico` AQ0  
+ xilográficas ( ADJECTIVE ) lemma=`xilográfico` AQ0  
+ xilográfico ( ADJECTIVE ) 
+ xilográficos ( ADJECTIVE ) lemma=`xilográfico` AQ0  
+ xilogénio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilogénios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilogénio` NCMP  
+ xilol ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilolatria ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilolatrias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilolatria` NCFP  
+ xilologia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilologias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilologia` NCFP  
+ xiloma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilomancia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilomancias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilomancia` NCFP  
+ xilomas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiloma` NCMP  
+ xilometria ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilometrias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilometria` NCFP  
+ xilopódio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilopódios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilopódio` NCMP  
+ xilos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilo` NCMP  
+ xilose ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xiloses ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilose` NCFP  
+ xilreu ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilreus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilreu` NCMP  
+ xilênio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilênios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilênio` NCMP  
+ xilócopa ( ADJECTIVE ) lemma=`xilócopo` AQ0  
+ xilócopas ( ADJECTIVE ) lemma=`xilócopo` AQ0  
+ xilócopo ( ADJECTIVE ) 
+ xilócopos ( ADJECTIVE ) lemma=`xilócopo` AQ0  
+ xilódia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilódias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilódia` NCFP  
+ xilódio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilódios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilódio` NCMP  
+ xilófaga ( ADJECTIVE ) lemma=`xilófago` AQ0  
+ xilófagas ( ADJECTIVE ) lemma=`xilófago` AQ0  
+ xilófago ( ADJECTIVE ) 
+ xilófagos ( ADJECTIVE ) lemma=`xilófago` AQ0  
+ xilófila ( ADJECTIVE ) lemma=`xilófilo` AQ0  
+ xilófilas ( ADJECTIVE ) lemma=`xilófilo` AQ0  
+ xilófilo ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilófilo`xilófilo` AQ0  NCMS  
+ xilófilos ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilófilo`xilófilo` AQ0  NCMP  
+ xilófito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilófitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilófito` NCMP  
+ xilóforo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilóforos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilóforo` NCMP  
+ xilógena ( ADJECTIVE ) lemma=`xilógeno` AQ0  
+ xilógenas ( ADJECTIVE ) lemma=`xilógeno` AQ0  
+ xilógeno ( ADJECTIVE ) 
+ xilógenos ( ADJECTIVE ) lemma=`xilógeno` AQ0  
+ xilóglifa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilóglifo` NCFS  
+ xilóglifas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilóglifo` NCFP  
+ xilóglifo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilóglifos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilóglifo` NCMP  
+ xilógrafa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilógrafo` NCFS  
+ xilógrafas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilógrafo` NCFP  
+ xilógrafo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilógrafos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilógrafo` NCMP  
+ xilóide ( ADJECTIVE ) 
+ xilóides ( ADJECTIVE ) lemma=`xilóide` AQ0  
+ xilóis ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilol` NCMP  
+ xilólatra ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilólatras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilólatra` NCCP  
+ xilólito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilólitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilólito` NCMP  
+ xilóloga ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilólogo` NCFS  
+ xilólogas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilólogo` NCFP  
+ xilólogo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilólogos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilólogo` NCMP  
+ xilópia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilópias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilópia` NCFP  
+ xilórgão ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xilórgões ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xilórgão` NCMP  
+ ximango ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximangos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximango` NCMP  
+ ximarrão ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximarrões ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximarrão` NCMP  
+ ximbaúva ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximbaúvas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximbaúva` NCFP  
+ ximbeque ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximbeques ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximbeque` NCMP  
+ ximbica ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximbicas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximbica` NCFP  
+ ximburu ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximburus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximburu` NCMP  
+ ximburé ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximburés ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximburé` NCMP  
+ ximbute ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ ximbutes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`ximbute` NCMP  
+ xinga ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xinga`xingar`xingar` NCFS  VMI  VMM  
+ xingada ( VERB ) lemma=`xingar` VMP  
+ xingadas ( VERB ) lemma=`xingar` VMP  
+ xingadela ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xingadelas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingadela` NCFP  
+ xingado ( VERB ) lemma=`xingar` VMP  
+ xingador ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingador`xingador` AQ0  NCMS  
+ xingadora ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingador`xingador` AQ0  NCFS  
+ xingadoras ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingador`xingador` AQ0  NCFP  
+ xingadores ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingador`xingador` AQ0  NCMP  
+ xingados ( VERB ) lemma=`xingar` VMP  
+ xingai ( VERB ) lemma=`xingar`xingar` VMI  VMM  
+ xingais ( VERB ) lemma=`xingar` VMI  
+ xingam ( VERB ) lemma=`xingar` VMI  
+ xingamento ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xingamentos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingamento` NCMP  
+ xingamo ( VERB ) lemma=`xingar` VMI  
+ xingamos ( VERB ) lemma=`xingar` VMI  
+ xingando ( NOUN NOUN_GERUND ) lemma=`xingar` VMG  
+ xingar ( VERB_INFINITIVE VERB ) lemma=`xingar`xingar` VMN  VMS  
+ xingara ( VERB ) lemma=`xingar` VMI  
+ xingaram ( VERB ) lemma=`xingar` VMI  
+ xingaras ( VERB ) lemma=`xingar` VMI  
+ xingarde ( VERB_INFINITIVE VERB ) lemma=`xingar` VMN  
+ xingardes ( VERB_INFINITIVE VERB ) lemma=`xingar`xingar` VMN  VMS  
+ xingare ( VERB_INFINITIVE VERB ) lemma=`xingar` VMN  
+ xingarei ( VERB ) lemma=`xingar` VMI  
+ xingareis ( VERB ) lemma=`xingar` VMI  
+ xingarem ( VERB_INFINITIVE VERB ) lemma=`xingar`xingar` VMN  VMS  
+ xingaremos ( VERB ) lemma=`xingar` VMI  
+ xingares ( VERB_INFINITIVE VERB ) lemma=`xingar`xingar` VMN  VMS  
+ xingaria ( VERB ) lemma=`xingar` VMI  
+ xingariam ( VERB ) lemma=`xingar` VMI  
+ xingarias ( VERB ) lemma=`xingar` VMI  
+ xingarmo ( VERB_INFINITIVE VERB ) lemma=`xingar` VMN  
+ xingarmos ( VERB_INFINITIVE VERB ) lemma=`xingar`xingar` VMN  VMS  
+ xingará ( VERB ) lemma=`xingar` VMI  
+ xingarás ( VERB ) lemma=`xingar` VMI  
+ xingarão ( VERB ) lemma=`xingar` VMI  
+ xingaríamos ( VERB ) lemma=`xingar` VMI  
+ xingaríeis ( VERB ) lemma=`xingar` VMI  
+ xingas ( VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xinga`xingar` NCFP  VMI  
+ xingasse ( VERB ) lemma=`xingar` VMS  
+ xingassem ( VERB ) lemma=`xingar` VMS  
+ xingasses ( VERB ) lemma=`xingar` VMS  
+ xingaste ( VERB ) lemma=`xingar` VMI  
+ xingastes ( VERB ) lemma=`xingar` VMI  
+ xingava ( VERB ) lemma=`xingar` VMI  
+ xingavam ( VERB ) lemma=`xingar` VMI  
+ xingavas ( VERB ) lemma=`xingar` VMI  
+ xingação ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xingações ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingação` NCMP  
+ xingo ( VERB ) lemma=`xingar` VMI  
+ xingos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xingo` NCMP  
+ xingou ( VERB ) lemma=`xingar` VMI  
+ xingue ( VERB ) lemma=`xingar`xingar` VMM  VMS  
+ xinguei ( VERB ) lemma=`xingar` VMI  
+ xingueis ( VERB ) lemma=`xingar`xingar` VMM  VMS  
+ xinguem ( VERB ) lemma=`xingar`xingar` VMM  VMS  
+ xinguemo ( VERB ) lemma=`xingar` VMM  
+ xinguemos ( VERB ) lemma=`xingar`xingar` VMM  VMS  
+ xinguense ( ADJECTIVE ) 
+ xinguenses ( ADJECTIVE ) lemma=`xinguense` AQ0  
+ xingues ( VERB ) lemma=`xingar`xingar` VMM  VMS  
+ xingá ( VERB_INFINITIVE VERB ) lemma=`xingar` VMN  
+ xingámo ( VERB ) lemma=`xingar` VMI  
+ xingámos ( VERB ) lemma=`xingar` VMI  
+ xingáramo ( VERB ) lemma=`xingar` VMI  
+ xingáramos ( VERB ) lemma=`xingar` VMI  
+ xingárei ( VERB ) lemma=`xingar` VMI  
+ xingáreis ( VERB ) lemma=`xingar` VMI  
+ xingásseis ( VERB ) lemma=`xingar` VMS  
+ xingássemos ( VERB ) lemma=`xingar` VMS  
+ xingávamo ( VERB ) lemma=`xingar` VMI  
+ xingávamos ( VERB ) lemma=`xingar` VMI  
+ xingávei ( VERB ) lemma=`xingar` VMI  
+ xingáveis ( VERB ) lemma=`xingar` VMI  
+ xintoísmo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xintoísmos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xintoísmo` NCMP  
+ xintoísta ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xintoístas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xintoísta` NCCP  
+ xintó ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xintós ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xintó` NCMP  
+ xinxim ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xinxins ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xinxim` NCMP  
+ xipo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xipos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xipo` NCMP  
+ xiquexique ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xiquexiquense ( ADJECTIVE ) 
+ xiquexiquenses ( ADJECTIVE ) lemma=`xiquexiquense` AQ0  
+ xiquexiques ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiquexique` NCMP  
+ xiridácea ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xiridáceas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiridácea` NCFP  
+ xiridáceo ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiridáceo`xiridáceo` AQ0  NCMS  
+ xiridáceos ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiridáceo`xiridáceo` AQ0  NCMP  
+ xiriubeira ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xiriubeiras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiriubeira` NCFP  
+ xiró ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xirós ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xiró` NCMP  
+ xis ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xises ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xis` NCMP  
+ xisgaraviz ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xisgaravizes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xisgaraviz` NCMP  
+ xistarca ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xistarcas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xistarca` NCMP  
+ xistenta ( ADJECTIVE ) lemma=`xistento` AQ0  
+ xistentas ( ADJECTIVE ) lemma=`xistento` AQ0  
+ xistento ( ADJECTIVE ) 
+ xistentos ( ADJECTIVE ) lemma=`xistento` AQ0  
+ xisto ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xistocarpa ( ADJECTIVE ) lemma=`xistocarpo` AQ0  
+ xistocarpas ( ADJECTIVE ) lemma=`xistocarpo` AQ0  
+ xistocarpo ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xistocarpo`xistocarpo` AQ0  NCMS  
+ xistocarpos ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xistocarpo`xistocarpo` AQ0  NCMP  
+ xistocristalina ( ADJECTIVE ) lemma=`xistocristalino` AQ0  
+ xistocristalinas ( ADJECTIVE ) lemma=`xistocristalino` AQ0  
+ xistocristalino ( ADJECTIVE ) 
+ xistocristalinos ( ADJECTIVE ) lemma=`xistocristalino` AQ0  
+ xistos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xisto` NCMP  
+ xistosa ( ADJECTIVE ) lemma=`xistoso` AQ0  
+ xistosas ( ADJECTIVE ) lemma=`xistoso` AQ0  
+ xistosidade ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xistosidades ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xistosidade` NCFP  
+ xistoso ( ADJECTIVE ) 
+ xistosos ( ADJECTIVE ) lemma=`xistoso` AQ0  
+ xistro ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xistros ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xistro` NCMP  
+ xistrópode ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xistrópodes ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xistrópode` NCMP  
+ xistóide ( ADJECTIVE ) 
+ xistóides ( ADJECTIVE ) lemma=`xistóide` AQ0  
+ xivaísmo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xivaísmos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xivaísmo` NCMP  
+ xivaísta ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xivaístas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xivaísta` NCCP  
+ xivaíta ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xivaítas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xivaíta` NCCP  
+ xixi ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xixica ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xixicas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixica` NCFP  
+ xixis ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixi` NCMP  
+ xixizinho ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixi` NCMS  
+ xixizinhos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixi` NCMP  
+ xixizito ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixi` NCMS  
+ xixizitos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixi` NCMP  
+ xixuão ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xixuãos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xixuão` NCMP  
+ xoca ( VERB ) lemma=`xocar`xocar` VMI  VMM  
+ xocada ( VERB ) lemma=`xocar` VMP  
+ xocadas ( VERB ) lemma=`xocar` VMP  
+ xocado ( VERB ) lemma=`xocar` VMP  
+ xocados ( VERB ) lemma=`xocar` VMP  
+ xocai ( VERB ) lemma=`xocar`xocar` VMI  VMM  
+ xocais ( VERB ) lemma=`xocar` VMI  
+ xocam ( VERB ) lemma=`xocar` VMI  
+ xocamo ( VERB ) lemma=`xocar` VMI  
+ xocamos ( VERB ) lemma=`xocar` VMI  
+ xocando ( NOUN NOUN_GERUND ) lemma=`xocar` VMG  
+ xocar ( VERB_INFINITIVE VERB ) lemma=`xocar`xocar` VMN  VMS  
+ xocara ( VERB ) lemma=`xocar` VMI  
+ xocaram ( VERB ) lemma=`xocar` VMI  
+ xocaras ( VERB ) lemma=`xocar` VMI  
+ xocarde ( VERB_INFINITIVE VERB ) lemma=`xocar` VMN  
+ xocardes ( VERB_INFINITIVE VERB ) lemma=`xocar`xocar` VMN  VMS  
+ xocare ( VERB_INFINITIVE VERB ) lemma=`xocar` VMN  
+ xocarei ( VERB ) lemma=`xocar` VMI  
+ xocareis ( VERB ) lemma=`xocar` VMI  
+ xocarem ( VERB_INFINITIVE VERB ) lemma=`xocar`xocar` VMN  VMS  
+ xocaremos ( VERB ) lemma=`xocar` VMI  
+ xocares ( VERB_INFINITIVE VERB ) lemma=`xocar`xocar` VMN  VMS  
+ xocaria ( VERB ) lemma=`xocar` VMI  
+ xocariam ( VERB ) lemma=`xocar` VMI  
+ xocarias ( VERB ) lemma=`xocar` VMI  
+ xocarmo ( VERB_INFINITIVE VERB ) lemma=`xocar` VMN  
+ xocarmos ( VERB_INFINITIVE VERB ) lemma=`xocar`xocar` VMN  VMS  
+ xocará ( VERB ) lemma=`xocar` VMI  
+ xocarás ( VERB ) lemma=`xocar` VMI  
+ xocarão ( VERB ) lemma=`xocar` VMI  
+ xocaríamos ( VERB ) lemma=`xocar` VMI  
+ xocaríeis ( VERB ) lemma=`xocar` VMI  
+ xocas ( VERB ) lemma=`xocar` VMI  
+ xocasse ( VERB ) lemma=`xocar` VMS  
+ xocassem ( VERB ) lemma=`xocar` VMS  
+ xocasses ( VERB ) lemma=`xocar` VMS  
+ xocaste ( VERB ) lemma=`xocar` VMI  
+ xocastes ( VERB ) lemma=`xocar` VMI  
+ xocava ( VERB ) lemma=`xocar` VMI  
+ xocavam ( VERB ) lemma=`xocar` VMI  
+ xocavas ( VERB ) lemma=`xocar` VMI  
+ xoco ( VERB ) lemma=`xocar` VMI  
+ xocou ( VERB ) lemma=`xocar` VMI  
+ xocá ( VERB_INFINITIVE VERB ) lemma=`xocar` VMN  
+ xocámo ( VERB ) lemma=`xocar` VMI  
+ xocámos ( VERB ) lemma=`xocar` VMI  
+ xocáramo ( VERB ) lemma=`xocar` VMI  
+ xocáramos ( VERB ) lemma=`xocar` VMI  
+ xocárei ( VERB ) lemma=`xocar` VMI  
+ xocáreis ( VERB ) lemma=`xocar` VMI  
+ xocásseis ( VERB ) lemma=`xocar` VMS  
+ xocássemos ( VERB ) lemma=`xocar` VMS  
+ xocávamo ( VERB ) lemma=`xocar` VMI  
+ xocávamos ( VERB ) lemma=`xocar` VMI  
+ xocávei ( VERB ) lemma=`xocar` VMI  
+ xocáveis ( VERB ) lemma=`xocar` VMI  
+ xodozinho ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xodó` NCMS  
+ xodozinhos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xodó` NCMP  
+ xodó ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xodós ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xodó` NCMP  
+ xofrango ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xofrangos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xofrango` NCMP  
+ xoque ( VERB ) lemma=`xocar`xocar` VMM  VMS  
+ xoquei ( VERB ) lemma=`xocar` VMI  
+ xoqueis ( VERB ) lemma=`xocar`xocar` VMM  VMS  
+ xoquem ( VERB ) lemma=`xocar`xocar` VMM  VMS  
+ xoquemo ( VERB ) lemma=`xocar` VMM  
+ xoquemos ( VERB ) lemma=`xocar`xocar` VMM  VMS  
+ xoques ( VERB ) lemma=`xocar`xocar` VMM  VMS  
+ xorca ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xorcas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xorca` NCFP  
+ xorda ( ADJECTIVE ) lemma=`xordo` AQ0  
+ xordas ( ADJECTIVE ) lemma=`xordo` AQ0  
+ xordo ( ADJECTIVE ) 
+ xordos ( ADJECTIVE ) lemma=`xordo` AQ0  
+ xota ( VERB ) lemma=`xotar`xotar` VMI  VMM  
+ xotada ( VERB ) lemma=`xotar` VMP  
+ xotadas ( VERB ) lemma=`xotar` VMP  
+ xotado ( VERB ) lemma=`xotar` VMP  
+ xotados ( VERB ) lemma=`xotar` VMP  
+ xotai ( VERB ) lemma=`xotar`xotar` VMI  VMM  
+ xotais ( VERB ) lemma=`xotar` VMI  
+ xotam ( VERB ) lemma=`xotar` VMI  
+ xotamo ( VERB ) lemma=`xotar` VMI  
+ xotamos ( VERB ) lemma=`xotar` VMI  
+ xotando ( NOUN NOUN_GERUND ) lemma=`xotar` VMG  
+ xotar ( VERB_INFINITIVE VERB ) lemma=`xotar`xotar` VMN  VMS  
+ xotara ( VERB ) lemma=`xotar` VMI  
+ xotaram ( VERB ) lemma=`xotar` VMI  
+ xotaras ( VERB ) lemma=`xotar` VMI  
+ xotarde ( VERB_INFINITIVE VERB ) lemma=`xotar` VMN  
+ xotardes ( VERB_INFINITIVE VERB ) lemma=`xotar`xotar` VMN  VMS  
+ xotare ( VERB_INFINITIVE VERB ) lemma=`xotar` VMN  
+ xotarei ( VERB ) lemma=`xotar` VMI  
+ xotareis ( VERB ) lemma=`xotar` VMI  
+ xotarem ( VERB_INFINITIVE VERB ) lemma=`xotar`xotar` VMN  VMS  
+ xotaremos ( VERB ) lemma=`xotar` VMI  
+ xotares ( VERB_INFINITIVE VERB ) lemma=`xotar`xotar` VMN  VMS  
+ xotaria ( VERB ) lemma=`xotar` VMI  
+ xotariam ( VERB ) lemma=`xotar` VMI  
+ xotarias ( VERB ) lemma=`xotar` VMI  
+ xotarmo ( VERB_INFINITIVE VERB ) lemma=`xotar` VMN  
+ xotarmos ( VERB_INFINITIVE VERB ) lemma=`xotar`xotar` VMN  VMS  
+ xotará ( VERB ) lemma=`xotar` VMI  
+ xotarás ( VERB ) lemma=`xotar` VMI  
+ xotarão ( VERB ) lemma=`xotar` VMI  
+ xotaríamos ( VERB ) lemma=`xotar` VMI  
+ xotaríeis ( VERB ) lemma=`xotar` VMI  
+ xotas ( VERB ) lemma=`xotar` VMI  
+ xotasse ( VERB ) lemma=`xotar` VMS  
+ xotassem ( VERB ) lemma=`xotar` VMS  
+ xotasses ( VERB ) lemma=`xotar` VMS  
+ xotaste ( VERB ) lemma=`xotar` VMI  
+ xotastes ( VERB ) lemma=`xotar` VMI  
+ xotava ( VERB ) lemma=`xotar` VMI  
+ xotavam ( VERB ) lemma=`xotar` VMI  
+ xotavas ( VERB ) lemma=`xotar` VMI  
+ xote ( VERB INTERJECTION ) lemma=`xote`xotar`xotar` I  VMM  VMS  
+ xotei ( VERB ) lemma=`xotar` VMI  
+ xoteis ( VERB ) lemma=`xotar`xotar` VMM  VMS  
+ xotem ( VERB ) lemma=`xotar`xotar` VMM  VMS  
+ xotemo ( VERB ) lemma=`xotar` VMM  
+ xotemos ( VERB ) lemma=`xotar`xotar` VMM  VMS  
+ xotes ( VERB ) lemma=`xotar`xotar` VMM  VMS  
+ xoto ( VERB ) lemma=`xotar` VMI  
+ xotou ( VERB ) lemma=`xotar` VMI  
+ xotá ( VERB_INFINITIVE VERB ) lemma=`xotar` VMN  
+ xotámo ( VERB ) lemma=`xotar` VMI  
+ xotámos ( VERB ) lemma=`xotar` VMI  
+ xotáramo ( VERB ) lemma=`xotar` VMI  
+ xotáramos ( VERB ) lemma=`xotar` VMI  
+ xotárei ( VERB ) lemma=`xotar` VMI  
+ xotáreis ( VERB ) lemma=`xotar` VMI  
+ xotásseis ( VERB ) lemma=`xotar` VMS  
+ xotássemos ( VERB ) lemma=`xotar` VMS  
+ xotávamo ( VERB ) lemma=`xotar` VMI  
+ xotávamos ( VERB ) lemma=`xotar` VMI  
+ xotávei ( VERB ) lemma=`xotar` VMI  
+ xotáveis ( VERB ) lemma=`xotar` VMI  
+ xucra ( ADJECTIVE ) lemma=`xucro` AQ0  
+ xucras ( ADJECTIVE ) lemma=`xucro` AQ0  
+ xucrice ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xucrices ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xucrice` NCFP  
+ xucrismo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xucrismos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xucrismo` NCMP  
+ xucro ( ADJECTIVE ) 
+ xucros ( ADJECTIVE ) lemma=`xucro` AQ0  
+ xumberga ( VERB ) lemma=`xumbergar`xumbergar` VMI  VMM  
+ xumbergada ( VERB ) lemma=`xumbergar` VMP  
+ xumbergadas ( VERB ) lemma=`xumbergar` VMP  
+ xumbergado ( VERB ) lemma=`xumbergar` VMP  
+ xumbergados ( VERB ) lemma=`xumbergar` VMP  
+ xumbergai ( VERB ) lemma=`xumbergar` VMM  
+ xumbergais ( VERB ) lemma=`xumbergar` VMI  
+ xumbergam ( VERB ) lemma=`xumbergar` VMI  
+ xumbergamo ( VERB ) lemma=`xumbergar` VMI  
+ xumbergamos ( VERB ) lemma=`xumbergar` VMI  
+ xumbergando ( NOUN NOUN_GERUND ) lemma=`xumbergar` VMG  
+ xumbergar ( VERB_INFINITIVE VERB ) lemma=`xumbergar`xumbergar` VMN  VMS  
+ xumbergara ( VERB ) lemma=`xumbergar` VMI  
+ xumbergaram ( VERB ) lemma=`xumbergar` VMI  
+ xumbergaras ( VERB ) lemma=`xumbergar` VMI  
+ xumbergardes ( VERB_INFINITIVE VERB ) lemma=`xumbergar`xumbergar` VMN  VMS  
+ xumbergarei ( VERB ) lemma=`xumbergar` VMI  
+ xumbergareis ( VERB ) lemma=`xumbergar` VMI  
+ xumbergarem ( VERB_INFINITIVE VERB ) lemma=`xumbergar`xumbergar` VMN  VMS  
+ xumbergaremos ( VERB ) lemma=`xumbergar` VMI  
+ xumbergares ( VERB_INFINITIVE VERB ) lemma=`xumbergar`xumbergar` VMN  VMS  
+ xumbergaria ( VERB ) lemma=`xumbergar` VMI  
+ xumbergariam ( VERB ) lemma=`xumbergar` VMI  
+ xumbergarias ( VERB ) lemma=`xumbergar` VMI  
+ xumbergarmo ( VERB_INFINITIVE VERB ) lemma=`xumbergar` VMN  
+ xumbergarmos ( VERB_INFINITIVE VERB ) lemma=`xumbergar`xumbergar` VMN  VMS  
+ xumbergará ( VERB ) lemma=`xumbergar` VMI  
+ xumbergarás ( VERB ) lemma=`xumbergar` VMI  
+ xumbergarão ( VERB ) lemma=`xumbergar` VMI  
+ xumbergaríamos ( VERB ) lemma=`xumbergar` VMI  
+ xumbergaríeis ( VERB ) lemma=`xumbergar` VMI  
+ xumbergas ( VERB ) lemma=`xumbergar` VMI  
+ xumbergasse ( VERB ) lemma=`xumbergar` VMS  
+ xumbergassem ( VERB ) lemma=`xumbergar` VMS  
+ xumbergasses ( VERB ) lemma=`xumbergar` VMS  
+ xumbergaste ( VERB ) lemma=`xumbergar` VMI  
+ xumbergastes ( VERB ) lemma=`xumbergar` VMI  
+ xumbergava ( VERB ) lemma=`xumbergar` VMI  
+ xumbergavam ( VERB ) lemma=`xumbergar` VMI  
+ xumbergavas ( VERB ) lemma=`xumbergar` VMI  
+ xumbergo ( VERB ) lemma=`xumbergar` VMI  
+ xumbergou ( VERB ) lemma=`xumbergar` VMI  
+ xumbergue ( VERB ) lemma=`xumbergar`xumbergar` VMM  VMS  
+ xumberguei ( VERB ) lemma=`xumbergar` VMI  
+ xumbergueis ( VERB ) lemma=`xumbergar`xumbergar` VMM  VMS  
+ xumberguem ( VERB ) lemma=`xumbergar`xumbergar` VMM  VMS  
+ xumberguemo ( VERB ) lemma=`xumbergar` VMM  
+ xumberguemos ( VERB ) lemma=`xumbergar`xumbergar` VMM  VMS  
+ xumbergues ( VERB ) lemma=`xumbergar`xumbergar` VMM  VMS  
+ xumbergámo ( VERB ) lemma=`xumbergar` VMI  
+ xumbergámos ( VERB ) lemma=`xumbergar` VMI  
+ xumbergáramo ( VERB ) lemma=`xumbergar` VMI  
+ xumbergáramos ( VERB ) lemma=`xumbergar` VMI  
+ xumbergáreis ( VERB ) lemma=`xumbergar` VMI  
+ xumbergásseis ( VERB ) lemma=`xumbergar` VMS  
+ xumbergássemos ( VERB ) lemma=`xumbergar` VMS  
+ xumbergávamo ( VERB ) lemma=`xumbergar` VMI  
+ xumbergávamos ( VERB ) lemma=`xumbergar` VMI  
+ xumbergáveis ( VERB ) lemma=`xumbergar` VMI  
+ xumbrega ( VERB ) lemma=`xumbregar`xumbregar` VMI  VMM  
+ xumbregada ( VERB ) lemma=`xumbregar` VMP  
+ xumbregadas ( VERB ) lemma=`xumbregar` VMP  
+ xumbregado ( VERB ) lemma=`xumbregar` VMP  
+ xumbregados ( VERB ) lemma=`xumbregar` VMP  
+ xumbregai ( VERB ) lemma=`xumbregar` VMM  
+ xumbregais ( VERB ) lemma=`xumbregar` VMI  
+ xumbregam ( VERB ) lemma=`xumbregar` VMI  
+ xumbregamos ( VERB ) lemma=`xumbregar` VMI  
+ xumbregando ( NOUN NOUN_GERUND ) lemma=`xumbregar` VMG  
+ xumbregar ( VERB_INFINITIVE VERB ) lemma=`xumbregar`xumbregar` VMN  VMS  
+ xumbregara ( VERB ) lemma=`xumbregar` VMI  
+ xumbregaram ( VERB ) lemma=`xumbregar` VMI  
+ xumbregaras ( VERB ) lemma=`xumbregar` VMI  
+ xumbregardes ( VERB_INFINITIVE VERB ) lemma=`xumbregar`xumbregar` VMN  VMS  
+ xumbregarei ( VERB ) lemma=`xumbregar` VMI  
+ xumbregareis ( VERB ) lemma=`xumbregar` VMI  
+ xumbregarem ( VERB_INFINITIVE VERB ) lemma=`xumbregar`xumbregar` VMN  VMS  
+ xumbregaremos ( VERB ) lemma=`xumbregar` VMI  
+ xumbregares ( VERB_INFINITIVE VERB ) lemma=`xumbregar`xumbregar` VMN  VMS  
+ xumbregaria ( VERB ) lemma=`xumbregar` VMI  
+ xumbregariam ( VERB ) lemma=`xumbregar` VMI  
+ xumbregarias ( VERB ) lemma=`xumbregar` VMI  
+ xumbregarmos ( VERB_INFINITIVE VERB ) lemma=`xumbregar`xumbregar` VMN  VMS  
+ xumbregará ( VERB ) lemma=`xumbregar` VMI  
+ xumbregarás ( VERB ) lemma=`xumbregar` VMI  
+ xumbregarão ( VERB ) lemma=`xumbregar` VMI  
+ xumbregaríamos ( VERB ) lemma=`xumbregar` VMI  
+ xumbregaríeis ( VERB ) lemma=`xumbregar` VMI  
+ xumbregas ( VERB ) lemma=`xumbregar` VMI  
+ xumbregasse ( VERB ) lemma=`xumbregar` VMS  
+ xumbregassem ( VERB ) lemma=`xumbregar` VMS  
+ xumbregasses ( VERB ) lemma=`xumbregar` VMS  
+ xumbregaste ( VERB ) lemma=`xumbregar` VMI  
+ xumbregastes ( VERB ) lemma=`xumbregar` VMI  
+ xumbregava ( VERB ) lemma=`xumbregar` VMI  
+ xumbregavam ( VERB ) lemma=`xumbregar` VMI  
+ xumbregavas ( VERB ) lemma=`xumbregar` VMI  
+ xumbrego ( VERB ) lemma=`xumbregar` VMI  
+ xumbregou ( VERB ) lemma=`xumbregar` VMI  
+ xumbregue ( VERB ) lemma=`xumbregar`xumbregar` VMM  VMS  
+ xumbreguei ( VERB ) lemma=`xumbregar` VMI  
+ xumbregueis ( VERB ) lemma=`xumbregar` VMS  
+ xumbreguem ( VERB ) lemma=`xumbregar`xumbregar` VMM  VMS  
+ xumbreguemos ( VERB ) lemma=`xumbregar`xumbregar` VMM  VMS  
+ xumbregues ( VERB ) lemma=`xumbregar` VMS  
+ xumbregáramos ( VERB ) lemma=`xumbregar` VMI  
+ xumbregáreis ( VERB ) lemma=`xumbregar` VMI  
+ xumbregásseis ( VERB ) lemma=`xumbregar` VMS  
+ xumbregássemos ( VERB ) lemma=`xumbregar` VMS  
+ xumbregávamos ( VERB ) lemma=`xumbregar` VMI  
+ xumbregáveis ( VERB ) lemma=`xumbregar` VMI  
+ xurda ( VERB ) lemma=`xurdir`xurdir` VMM  VMS  
+ xurdais ( VERB ) lemma=`xurdir` VMS  
+ xurdam ( VERB ) lemma=`xurdir`xurdir` VMM  VMS  
+ xurdamos ( VERB ) lemma=`xurdir`xurdir` VMM  VMS  
+ xurdas ( VERB ) lemma=`xurdir` VMS  
+ xurde ( VERB ) lemma=`xurdir`xurdir` VMI  VMM  
+ xurdem ( VERB ) lemma=`xurdir` VMI  
+ xurdes ( VERB ) lemma=`xurdir` VMI  
+ xurdi ( VERB ) lemma=`xurdir`xurdir` VMI  VMM  
+ xurdia ( VERB ) lemma=`xurdir` VMI  
+ xurdiam ( VERB ) lemma=`xurdir` VMI  
+ xurdias ( VERB ) lemma=`xurdir` VMI  
+ xurdida ( VERB ) lemma=`xurdir` VMP  
+ xurdidas ( VERB ) lemma=`xurdir` VMP  
+ xurdido ( VERB ) lemma=`xurdir` VMP  
+ xurdidos ( VERB ) lemma=`xurdir` VMP  
+ xurdimos ( VERB ) lemma=`xurdir` VMI  
+ xurdindo ( NOUN NOUN_GERUND ) lemma=`xurdir` VMG  
+ xurdir ( VERB_INFINITIVE VERB ) lemma=`xurdir`xurdir` VMN  VMS  
+ xurdira ( VERB ) lemma=`xurdir` VMI  
+ xurdiram ( VERB ) lemma=`xurdir` VMI  
+ xurdiras ( VERB ) lemma=`xurdir` VMI  
+ xurdirdes ( VERB_INFINITIVE VERB ) lemma=`xurdir`xurdir` VMN  VMS  
+ xurdirei ( VERB ) lemma=`xurdir` VMI  
+ xurdireis ( VERB ) lemma=`xurdir` VMI  
+ xurdirem ( VERB_INFINITIVE VERB ) lemma=`xurdir`xurdir` VMN  VMS  
+ xurdiremos ( VERB ) lemma=`xurdir` VMI  
+ xurdires ( VERB_INFINITIVE VERB ) lemma=`xurdir`xurdir` VMN  VMS  
+ xurdiria ( VERB ) lemma=`xurdir` VMI  
+ xurdiriam ( VERB ) lemma=`xurdir` VMI  
+ xurdirias ( VERB ) lemma=`xurdir` VMI  
+ xurdirmos ( VERB_INFINITIVE VERB ) lemma=`xurdir`xurdir` VMN  VMS  
+ xurdirá ( VERB ) lemma=`xurdir` VMI  
+ xurdirás ( VERB ) lemma=`xurdir` VMI  
+ xurdirão ( VERB ) lemma=`xurdir` VMI  
+ xurdiríamos ( VERB ) lemma=`xurdir` VMI  
+ xurdiríeis ( VERB ) lemma=`xurdir` VMI  
+ xurdis ( VERB ) lemma=`xurdir` VMI  
+ xurdisse ( VERB ) lemma=`xurdir` VMS  
+ xurdissem ( VERB ) lemma=`xurdir` VMS  
+ xurdisses ( VERB ) lemma=`xurdir` VMS  
+ xurdiste ( VERB ) lemma=`xurdir` VMI  
+ xurdistes ( VERB ) lemma=`xurdir` VMI  
+ xurdiu ( VERB ) lemma=`xurdir` VMI  
+ xurdo ( VERB ) lemma=`xurdir` VMI  
+ xurdíamos ( VERB ) lemma=`xurdir` VMI  
+ xurdíeis ( VERB ) lemma=`xurdir` VMI  
+ xurdíramos ( VERB ) lemma=`xurdir` VMI  
+ xurdíreis ( VERB ) lemma=`xurdir` VMI  
+ xurdísseis ( VERB ) lemma=`xurdir` VMS  
+ xurdíssemos ( VERB ) lemma=`xurdir` VMS  
+ xurreira ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xurreiras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xurreira` NCFP  
+ xuru ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xurumbambo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xurumbambos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xurus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xuru` NCMP  
+ xuxa ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xuxas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xuxa` NCCP  
+ xuxo ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xuxos ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xuxo` NCMP  
+ xué ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xué`xué` AQ0  NCMS  
+ xués ( ADJECTIVE NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xué`xué` AQ0  NCMP  
+ xx ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`x` NCMP  
+ xá ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xácara ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xácaras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xácara` NCFP  
+ xácoma ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xácomas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xácoma` NCFP  
+ xágara ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xágaras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xágara` NCFP  
+ xáquema ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xáquemas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xáquema` NCFP  
+ xáquima ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xáquimas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xáquima` NCFP  
+ xás ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xá` NCMP  
+ xátria ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xátrias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xátria` NCMP  
+ xávega ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xávegas ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xávega` NCFP  
+ xântica ( ADJECTIVE ) lemma=`xântico` AQ0  
+ xânticas ( ADJECTIVE ) lemma=`xântico` AQ0  
+ xântico ( ADJECTIVE ) 
+ xânticos ( ADJECTIVE ) lemma=`xântico` AQ0  
+ xântio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xântios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xântio` NCMP  
+ xénio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xénios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xénio` NCMP  
+ xénon ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xénons ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xénon` NCMP  
+ xérox ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xéroxs ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xérox` NCMP  
+ xéu ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xéus ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xéu` NCMP  
+ xênia ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xênias ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xênia` NCFP  
+ xênica ( ADJECTIVE ) lemma=`xênico` AQ0  
+ xênicas ( ADJECTIVE ) lemma=`xênico` AQ0  
+ xênico ( ADJECTIVE ) 
+ xênicos ( ADJECTIVE ) lemma=`xênico` AQ0  
+ xênio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xênios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xênio` NCMP  
+ xícara ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xícaras ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xícara` NCFP  
+ xífio ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xífios ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xífio` NCMP  
+ xílon ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ xílones ( NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`xílon` NCMP  
+ xística ( ADJECTIVE ) lemma=`xístico` AQ0  
+ xísticas ( ADJECTIVE ) lemma=`xístico` AQ0  
+ xístico ( ADJECTIVE ) 
+ xísticos ( ADJECTIVE ) lemma=`xístico` AQ0  
+ xó ( INTERJECTION ) 
+ xô ( INTERJECTION ) 
