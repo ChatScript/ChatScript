@@ -447,7 +447,7 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		unsigned char* cur1 = GetCurrency((unsigned char*) val1, currency1);
 		unsigned char* cur2 = GetCurrency((unsigned char*) val2, currency2); // use text string comparison though isdigitword calls it a number
         char* end1 = val1 + strlen(val1);
-        char* end2 = val1 + strlen(val2);
+        char* end2 = val2 + strlen(val2);
 
 		if (*val1 == '#' || !IsDigitWord(val1,AMERICAN_NUMBERS,true) || *val2 == '#' ||  !IsDigitWord(val2,AMERICAN_NUMBERS,true) || 
             strchr(val1, ':') || strchr(val2, ':') || 
