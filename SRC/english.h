@@ -36,7 +36,6 @@ extern char* usedTrace;
 extern int usedWordIndex;
 extern uint64 usedType;
 
-void SetRole( int i, uint64 role, bool revise = false,  int currentVerb = verbStack[roleIndex]);
 void DecodeTag(char* buffer, uint64 type, uint64 tie,uint64 originalbits);
 bool IsDate(char* original);
 uint64 GetPosData( int at, char* original,WORDP &revise,WORDP &entry,WORDP &canonical,uint64 &sysflags,uint64 &cansysflags, bool firstTry = true,bool nogenerate = false,int start = 0);

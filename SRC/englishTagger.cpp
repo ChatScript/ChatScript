@@ -113,6 +113,7 @@ static int predicateZone; // where is main verb found
 static unsigned int currentZone;
 static unsigned int ambiguous;
 static bool ResolveByStatistic(int i,bool &changed);
+static void SetRole(int i, uint64 role, bool revise = false, int currentVerb = verbStack[roleIndex]);
 
 #ifdef JUNK
 Subject complements are after linking verbs. We label noun complements as direct objects and adjective complements as subject_complement.
@@ -1258,11 +1259,12 @@ static void InitRoleSentence(int start, int end)
 
     startStack[0] = (unsigned char)startSentence;
     objectRef[0] = objectRef[MAX_SENTENCE_LENGTH - 1] = 0;
+#ifndef DISCARDPARSER
     if (*wordStarts[start] == '"' && parseFlags[start + 1] & QUOTEABLE_VERB) // absorb quote reference into sentence
     {
         SetRole(start, MAINOBJECT, true);
     }
-
+#endif
     if (trace & TRACE_POS) Log(STDTRACELOG, (char*)"  *** Sentence start: %s (%d) to %s (%d)\r\n", wordStarts[startSentence], startSentence, wordStarts[endSentence], endSentence);
 }
 
@@ -3764,7 +3766,7 @@ static void AddRole( int i, uint64 role)
 	if (trace & TRACE_POS) Log(STDTRACELOG,(char*)"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
 }
 
-void SetRole( int i, uint64 role,bool revise, int currentVerb)
+static void SetRole( int i, uint64 role,bool revise, int currentVerb)
 {
 	if (i < startSentence || i > endSentence) return; // precaution
 

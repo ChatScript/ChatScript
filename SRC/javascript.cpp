@@ -1,3 +1,4 @@
+#include "common.h"
 #ifndef DISCARDJAVASCRIPT
 #include "duktape/duktape.h"
 //#include "duktape/duktape.cpp"

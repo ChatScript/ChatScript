@@ -1188,7 +1188,6 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 	bool oldErase = ruleErased; // allow underling gambits to erase themselves. If they do, we dont have to.
 	ruleErased = false;
 
- #ifndef DISCARDTESTING
     CALLFRAME* frame = GetCallFrame(globalDepth);
     char rulename[200];
     *rulename = 0;
@@ -1204,7 +1203,6 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
         sprintf(rulename,"%s.%d.%d{}", GetTopicName(currentTopicID), TOPLEVELID(id), REJOINDERID(id)); 
         ChangeDepth(1, rulename, false, ptr);
     }
-#endif
 	Output(ptr,buffer,result);
 	if (*buffer == '`') buffer = strrchr(buffer,'`') + 1; // skip any output already put out
     if (!paren) ChangeDepth(-1, rulename, false, ptr);

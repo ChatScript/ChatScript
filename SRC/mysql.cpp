@@ -1,5 +1,5 @@
-#ifndef DISCARDMYSQL
 #include "common.h"
+#ifndef DISCARDMYSQL
 extern "C" {
 #include "mysql/include/mysql.h"
 }
