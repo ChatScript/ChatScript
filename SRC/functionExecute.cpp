@@ -8967,7 +8967,8 @@ SystemFunctionInfo systemFunctionSet[] =
 #ifndef DISCARDJSONOPEN
 	{ "^jsonopen", JSONOpenCode, VARIABLE_ARG_COUNT, SAMELINE, "send command to JSON server and parse reply strings" },
 #endif
-	{ "^jsonreadcsv", JSONReadCSVCode, VARIABLE_ARG_COUNT, SAMELINE, "read tsv file into json array of objects" },
+	{ "^readfile", JSONReadCSVCode, VARIABLE_ARG_COUNT, SAMELINE, "read tsv file into json array of objects or call function with spread args or call function with any line-oriented file" },
+    { "^jsonreadcsv", JSONReadCSVCode, VARIABLE_ARG_COUNT, SAMELINE, "deprecated name for ^readfile" },
 
 
 

@@ -1081,9 +1081,9 @@ At most it will last for the duration of the current volley (several sentences m
 after which it should be presumed trashed. Whenever you start a volley, 
 you should presume match variables all hold unknown junk.
 
-You are allowed `_0` through `_20`. 
+You are allowed `_0` through `_30`. 
 
-I often use the `_10` to `_20` range as "safe" variables for the duration of a volley, 
+I often use the above `_10` range as "safe" variables for the duration of a volley, 
 because I will never match that many variables in a single sentence. 
 I am unlikely to even match more than 5. So I can dedicate them any way I want to. 
 

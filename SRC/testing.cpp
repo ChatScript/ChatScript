@@ -6022,7 +6022,7 @@ static void C_AllMembers(char* input)
     follown = 0;
     if (!D)
     {
-        printf("%s not found\r\n");
+        printf("%s not found\r\n",concept);
         return;
     }
 
@@ -10047,7 +10047,7 @@ CommandInfo commandSet[] = // NEW
     { (char*)":dedupe",C_Dedupe,(char*)"echo input file to TMP/tmp.txt without duplicate lines)" },
 	{ (char*)":topicdump",C_TopicDump,(char*)"Dump topic data suitable for inclusion as extra topics into TMP/tmp.txt (:extratopic or PerformChatGivenTopic)"},
 	{ (char*)":builddict",BuildDictionary,(char*)" basic, layer0, layer1, foreign, or wordnet are options instead of default full"}, 
-	{ (char*)":buildforeign",BuildForeign,(char*)"regenerate foreign language dictionary"}, 
+	{ (char*)":buildforeign",BuildForeign,(char*)"regenerate foreign language dictionary given name of language"}, 
 	{ (char*)":clean",C_Clean,(char*)"Convert source files to NL instead of CR/LF for unix"},
     { (char*)":medtable",C_Medtable,(char*)"Read lines from file, add quotes around them, write to tmp/tmp.txt" },
     { (char*)":rewrite",C_Rewrite,(char*)"Read lines from file, reformat,  write to tmp/tmp.txt" },

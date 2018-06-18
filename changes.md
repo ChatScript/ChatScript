@@ -1,3 +1,9 @@
+# version 8.31 6/18/2018
+1. ^readfile(line filename 'function) will read lines from the file and pass them untouched
+   as the sole argument of function. This is formerly called: ^jsonreadcvs which is legal but
+   deprecated.
+2. max match variable is now _30 instead of _20
+
 # version 8.3 6/9/2018
 1. new manual Practicum - Messaging
 2. loop now allows function call as argument:  loop( ^length(@0)) {...}

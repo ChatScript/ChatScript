@@ -458,7 +458,7 @@ supplying `level`. Level 0 is all. Level 1 is the top level of data. Etc.
 
 assigns a text sequence to add to jo- and ja- items created thereafter. See System functions manual.
 
-### `^jsonreadcsv`( TAB filepath {'^fn})
+### `^readfile`( TAB filepath {'^fn}) and `^readfile`( LINE filepath '^fn)
 
 reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array.
 The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted.
@@ -467,6 +467,10 @@ If an optional 3rd parameter of a function name is given, the code does not crea
 Instead it calls the function with each field of a line being an argument. This is sort of analogous to `:document` mode
 in that you can potentially read large amounts of data in a single volley and may need to use `^memorymark` and
 `^memoryfree` to manage the issue.
+
+`^readfile ( LINE filepath 'function)` reads a file and passes each line untouched as the sole argument to the function.
+
+Formerly called ^readfile (still accepted).
 
 ### `^jsonundecodestring`( string ) 
 

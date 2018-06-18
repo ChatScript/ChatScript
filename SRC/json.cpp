@@ -2450,10 +2450,23 @@ FunctionResult JSONDeleteCode(char* buffer)
 		F = GetObjectNondeadNext(F);
 	}
 	
-	// now confirm we have nothing left
+	// now confirm we have nothing leftf
 	F = GetSubjectNondeadHead(D); // should all be dead now
 	if (F && !(F->flags & JSON_FLAGS)) return FAILRULE_BIT;
 	return NOPROBLEM_BIT;
+}
+
+static char* SetArgument(char* ptr, size_t len)
+{
+    char* limit;
+    char* data = InfiniteStack(limit, "JSONReadCSVFileCode");
+    *data = ENDUNIT;
+    data[1] = ENDUNIT;
+    data += 2;
+    strncpy(data, ptr, len);
+    data[len] = 0;
+    CompleteBindStack();
+    return data;
 }
 
 FunctionResult JSONReadCSVCode(char* buffer)
@@ -2461,91 +2474,116 @@ FunctionResult JSONReadCSVCode(char* buffer)
 	int index = JSONArgs(); // not needed but allowed
 	bool commadelimit = (!stricmp(ARGUMENT(index),"comma"));
 	bool tabdelimit = (!stricmp(ARGUMENT(index),"tab"));
-	if (!tabdelimit) return FAILRULE_BIT;
+    bool wholeLine = (!stricmp(ARGUMENT(index), "line"));;
+    if (!tabdelimit && !wholeLine) return FAILRULE_BIT;
 	++index;
+    char* data;
 	char* name = ARGUMENT(index++);
 	FILE* in = FopenReadOnly(name);
 	if (!in) return FAILRULE_BIT;
+    char var[100];
 
 	char* fnname = ARGUMENT(index);
 	if (fnname && *fnname == '\'') ++fnname;
 	if (fnname && *fnname != '^') return FAILRULE_BIT; // optional function
-
+    if (wholeLine && (!fnname || !*fnname)) return FAILRULE_BIT; // cannot build json, must call
+   
 	unsigned int arrayflags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags | JSON_OBJECT_VALUE;
 	unsigned int flags = JSON_OBJECT_FACT | jsonPermanent | jsonCreateFlags;
-	char* initialData = AllocateStack(NULL,1); // placeholder label
 	MEANING arrayName = NULL;
 	int arrayIndex = 0;
-	if (!fnname) // if building json structure
+	if (!fnname) //  building json structure, set header that we will return
 	{
 		arrayName = GetUniqueJsonComposite((char*)"ja-") ;
 		WORDP D = Meaning2Word(arrayName);
 		sprintf(buffer, "%s", D->word);
 	}
+    char call[400];
     FunctionResult result = NOPROBLEM_BIT;
-	while (ReadALine(readBuffer,in,maxBufferSize,false,false) >= 0) // create json facts from csv
+	while (1) 
 	{
-		MEANING object = NULL;
-		if (!fnname) // not passing to a routine, building json structure
-		{
-			object = GetUniqueJsonComposite((char*)"jo-");
-			WORDP E = Meaning2Word(object);
-			CreateFact(arrayName,MakeMeaning(StoreWord(arrayIndex++)),object,arrayflags); // WATCH OUT FOR EMPTY SET!!!
-		}
-		int field = 0;
-        char call[400];
+        char* allocation = AllocateStack(NULL, 4); // reserve a freeing id. variables passed in can be freed on return of call
+        int field = 0;
         sprintf(call, "( ");
-		char* ptr = readBuffer;
-		strcpy(ptr+strlen(ptr),"\t"); // trailing tab forces recog of all fields
-		char* tab;
-		while ((tab = strchr(ptr,'\t'))) // for each field ending in a tab
-		{
-			int len = tab - ptr;	
-			char* limit;
-			char* data = InfiniteStack(limit,"JSONReadCSVFileCode");
-			if (fnname)
-			{
-				*data = ENDUNIT;
-				data[1] = ENDUNIT;
-				data += 2;
-			}
-			strncpy(data,ptr,len);
-			data[len] = 0;
-			CompleteBindStack();
+        if (!wholeLine)
+        {
+            if (ReadALine(readBuffer, in, maxBufferSize, false, false) < 0) break;
+ 		    MEANING object = NULL;
+		    if (!fnname) // not passing to a routine, building json structure
+		    {
+			    object = GetUniqueJsonComposite((char*)"jo-");
+			    WORDP E = Meaning2Word(object);
+			    CreateFact(arrayName,MakeMeaning(StoreWord(arrayIndex++)),object,arrayflags); // WATCH OUT FOR EMPTY SET!!!
+		    }
+		    char* ptr = readBuffer;
+		    strcpy(ptr+strlen(ptr),"\t"); // trailing tab forces recog of all fields
+		    char* tab;
+		    while ((tab = strchr(ptr,'\t'))) // for each field ending in a tab
+		    {
+			    int len = tab - ptr;
+                char* limit;
+			    data = InfiniteStack(limit,"JSONReadCSVFileCode");
+			    if (fnname)
+			    {
+				    *data = ENDUNIT;
+				    data[1] = ENDUNIT;
+				    data += 2;
+			    }
+			    strncpy(data,ptr,len);
+			    data[len] = 0;
+			    CompleteBindStack();
 			
-			if (!fnname) // not passing to a routine, building json structure
-			{
-				char indexval[400];
-				sprintf(indexval,"%d",field++);
-				MEANING key = MakeMeaning(StoreWord(indexval));
-				if (*data)
-				{
-					MEANING valx = jsonValue(data,flags);
-					CreateFact(object,key,valx,flags);
-				}
-				ReleaseStack(data);
-			}
-            else
-            {
-                char var[100];
-                sprintf(var, "$__%d", field++); // internal variable cannot be entered in script
-                WORDP V = StoreWord(var);
-                V->w.userValue = data; // has the 2 hidden markers of preevaled
-                strcat(call, var);
-                strcat(call, " ");
-            }
+			    if (!fnname) // not passing to a routine, building json structure
+			    {
+				    char indexval[400];
+				    sprintf(indexval,"%d",field++);
+				    MEANING key = MakeMeaning(StoreWord(indexval));
+				    if (*data)
+				    {
+					    MEANING valx = jsonValue(data,flags);
+					    CreateFact(object,key,valx,flags);
+				    }
+				    ReleaseStack(data);
+			    }
+                else
+                {
+                    sprintf(var, "$__%d", field++); // internal variable cannot be entered in script
+                    WORDP V = StoreWord(var);
+                    V->w.userValue = SetArgument(ptr, len); // has the 2 hidden markers of preevaled
+                    strcat(call, var);
+                    strcat(call, " ");
+                }
 			
-			ptr = tab + 1;
-		}
+			    ptr = tab + 1;
+		    }
+        }
+        else // get whole line untouched by readaline
+        {
+            *readBuffer = 0;
+            fgets(readBuffer, maxBufferSize, in);
+            if (!*readBuffer) break;
+            sprintf(var, "$__%d", field++); // internal variable cannot be entered in script
+            WORDP V = StoreWord(var);
+            V->w.userValue = SetArgument(readBuffer, strlen(readBuffer) - 2); // has the 2 hidden markers of preevaled
+            strcat(call, var);
+            strcat(call, " ");
+        }
+
         if (fnname) // invoke function
         {
             strcat(call, ")");
             DoFunction(fnname, call, buffer, result);
             if (result != NOPROBLEM_BIT) break;
         }
+        ReleaseStack(allocation); // deallocate all transient var data on call
+        for (int i = 0; i < field; ++i) // remove bad pointers
+        {
+            sprintf(var, "$__%d", i); // internal variable cannot be entered in script
+            WORDP V = FindWord(var);
+            if (V) V->w.userValue = NULL;
+        }
 	}
 
-	ReleaseStack(initialData);
 	fclose(in);
 	currentFact = NULL;
 	return result;

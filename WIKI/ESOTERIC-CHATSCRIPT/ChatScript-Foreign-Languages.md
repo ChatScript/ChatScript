@@ -28,8 +28,8 @@ ChatScript supports UTF8, so making output or patterns in the language is entire
 
 ChatScript supports two kinds of conditional compile comments. Single line comments look like this:
 ```
-#ENGLISH this line will compile if the language is English but not if the language is GERMAN.
-#GERMAN this line will not compile if the language is English but will compile if the language is GERMAN.
+#ENGLISH this line will compile if the language is English.
+#GERMAN this line will not compile if the language is English.
 ```
 As always, such comments run til end of line.  The other comment is the block comment like this:
 ```

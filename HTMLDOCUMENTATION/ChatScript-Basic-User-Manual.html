@@ -558,8 +558,8 @@ For temple:
 <pre><code>?: ( do you eat _~meat ) No, I hate _0.</code></pre>
 <p>If the input is do you eat ham the output would be No, I hate ham. Of course, the value of <code>_0</code> is only guaranteed for the execution of this rule. Match variables may be clobbered when you execute another rule. Or they may last for a while.</p>
 <p>At most it will last for the duration of the current volley (several sentences maybe) after which it should be presumed trashed. Whenever you start a volley, you should presume match variables all hold unknown junk.</p>
-<p>You are allowed <code>_0</code> through <code>_20</code>.</p>
-<p>I often use the <code>_10</code> to <code>_20</code> range as &quot;safe&quot; variables for the duration of a volley, because I will never match that many variables in a single sentence. I am unlikely to even match more than 5. So I can dedicate them any way I want to.</p>
+<p>You are allowed <code>_0</code> through <code>_30</code>.</p>
+<p>I often use the above <code>_10</code> range as &quot;safe&quot; variables for the duration of a volley, because I will never match that many variables in a single sentence. I am unlikely to even match more than 5. So I can dedicate them any way I want to.</p>
 <p>When the system memorizes your underscore match, it stores both the original word, its canonical form, and the position of the text. On output, by default you get the canonical form. If you want the original form, you must precede your reference with an apostrophe.</p>
 <pre><code>?: ( do you eat _ [ ham eggs bacon] ) I eat &#39;_0.</code></pre>
 <p>If the input is do you eat eggs the output is I eat eggs. Had I not used the apostrophe, the output would have been I eat egg.</p>

@@ -241,9 +241,11 @@ This allows you to remove their transient flags or save them in the users perman
 <p><code>^Jsongather</code> normally gathers all levels of the data recursively. You can limit how far down it goes by supplying <code>level</code>. Level 0 is all. Level 1 is the top level of data. Etc.</p>
 <h3 id="jsonlabel-label"><code>^jsonlabel</code>( label )</h3>
 <p>assigns a text sequence to add to jo- and ja- items created thereafter. See System functions manual.</p>
-<h3 id="jsonreadcsv-tab-filepath-fn"><code>^jsonreadcsv</code>( TAB filepath {'^fn})</h3>
+<h3 id="readfile-tab-filepath-fn-and-readfile-line-filepath-fn"><code>^readfile</code>( TAB filepath {'^fn}) and <code>^readfile</code>( LINE filepath '^fn)</h3>
 <p>reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array. The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted.</p>
 <p>If an optional 3rd parameter of a function name is given, the code does not create a JSON structure to return. Instead it calls the function with each field of a line being an argument. This is sort of analogous to <code>:document</code> mode in that you can potentially read large amounts of data in a single volley and may need to use <code>^memorymark</code> and <code>^memoryfree</code> to manage the issue.</p>
+<p><code>^readfile ( LINE filepath 'function)</code> reads a file and passes each line untouched as the sole argument to the function.</p>
+<p>Formerly called ^readfile (still accepted).</p>
 <h3 id="jsonundecodestring-string"><code>^jsonundecodestring</code>( string )</h3>
 <p>removes all json escape markers back to normal for possible printout to a user. This translates \n to newline, \r to carriage return, \t to tab, and \&quot; to a simple quote.</p>
 <h2 id="web-json">WEB JSON</h2>
