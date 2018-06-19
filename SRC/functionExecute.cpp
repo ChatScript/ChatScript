@@ -2292,12 +2292,12 @@ static FunctionResult SetRejoinderCode(char* buffer)
 
 	if (!stricmp(tag,(char*)"copy") || !stricmp(tag,(char*)"output")) // disable rejoinder
 	{
-        outputRejoinderRuleID = outputRejoinderRuleID = NO_REJOINDER;
+        outputRejoinderRuleID = outputRejoinderTopic = NO_REJOINDER;
 		return NOPROBLEM_BIT;
 	}
 	if (!stricmp(tag,(char*)"input")) // disable rejoinder
 	{
-        inputRejoinderRuleID = inputRejoinderRuleID = NO_REJOINDER;
+        inputRejoinderRuleID = inputRejoinderTopic = NO_REJOINDER;
 		return NOPROBLEM_BIT;
 	}
 
