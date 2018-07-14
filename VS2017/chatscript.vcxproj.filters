@@ -221,7 +221,7 @@
     <ClCompile Include="..\SRC\postgres.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\SRC\duktape\duktape.c">
+    <ClCompile Include="..\SRC\duktape\duktape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
