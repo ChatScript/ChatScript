@@ -1058,6 +1058,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
     {
         if (FindFileData.dwFileAttributes  & FILE_ATTRIBUTE_DIRECTORY)
         {
+            size_t len = strlen(FindFileData.cFileName);
             if (recursive) seendirs = true;
         }
         else
@@ -1121,13 +1122,17 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 	for (unsigned int i = 0;i < files.size();i++) 
 	{
 		const char* file = files[i].c_str();
+        size_t len = strlen(file);
 		if (*file != '.' && stricmp(file,(char*)"bugs.txt")) 
 		{
 			sprintf(name,(char*)"%s/%s",directory,file);
-			(*function)(name,flags);
+			(*function)(name,flags); // fails if directory
 		}
         sprintf(xname, "%s/%s", directory, file);
-        if (isDirectory(xname)) seendirs = true;
+        if (isDirectory(xname))
+        {
+            if (recursive) seendirs = true;
+        }
         else (*function)(xname, flags); // simple file
      }
 
