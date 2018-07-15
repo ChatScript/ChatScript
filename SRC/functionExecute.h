@@ -96,7 +96,7 @@ void DeletePermanentJavaScript();
 void DeleteTransientJavaScript();
 unsigned int MACRO_ARGUMENT_COUNT(unsigned char* defn);
 void DebugConcepts(int list, int wordindex);
-
+FunctionResult FindRuleCode1(char* buffer, char* word);
 //   argument data for user calls
 char* InitDisplay(char* list);
 void RestoreDisplay(char** base, char* list);

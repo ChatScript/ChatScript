@@ -1191,7 +1191,7 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
     CALLFRAME* frame = GetCallFrame(globalDepth);
     char rulename[200];
     *rulename = 0;
-    char* paren = strchr(frame->label, '(');
+    char* paren = (frame && frame->label) ? strchr(frame->label, '(') : NULL;
     if (paren)
     {
         *paren = '{';

@@ -8018,6 +8018,37 @@ static FunctionResult FieldCode(char* buffer)
 	return result;
 }
 
+FunctionResult FindRuleCode1(char* buffer,char* word)
+{
+    for (int topicid = 1; topicid <= numberOfTopics; ++topicid)
+    {
+        char* tname = GetTopicName(topicid);
+        if (!*tname) continue;
+        char* rule = GetTopicData(topicid);
+        int ruleID = 0;
+        char label[MAX_WORD_SIZE];
+        while (rule)
+        {
+            GetLabel(rule, label);
+            if (!stricmp(label, word))
+            {
+                sprintf(buffer, "%s.%d.%d", tname, TOPLEVELID(ruleID), REJOINDERID(ruleID));
+                return NOPROBLEM_BIT;
+            }
+            rule = FindNextRule(NEXTRULE, rule, ruleID);
+        }
+
+    }
+    return FAILRULE_BIT;
+}
+
+static FunctionResult FindRuleCode(char* buffer)
+{
+    char word[MAX_WORD_SIZE];
+    strcpy(word, ARGUMENT(1));
+    return FindRuleCode1(buffer, word);
+}
+
 static FunctionResult FindCode(char* buffer) // given a set, find the ordered position of the 2nd argument in it 
 {   
 	char word[MAX_WORD_SIZE];
@@ -8830,7 +8861,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^authorized",AuthorizedCode,0,0,(char*)"is current user authorized"},
 	{ (char*)"^addcontext",AddContextCode,2,0,(char*)"set topic and label as a context"},
 	{ (char*)"^clearcontext",ClearContextCode,2,0,(char*)"clear all context"},
-	{ (char*)"^argument",ArgumentCode,VARIABLE_ARG_COUNT,0,(char*)"returns the calling scope's nth argument (given n and possible fn name)"},
+    { (char*)"^findrule",FindRuleCode,1,0,(char*)"Given rule label, find rule anywhere in all topics" },
+    { (char*)"^argument",ArgumentCode,VARIABLE_ARG_COUNT,0,(char*)"returns the calling scope's nth argument (given n and possible fn name)"},
 	{ (char*)"^callstack",CallstackCode,1,0,(char*)"return callstack facts in named factset"}, 
 	{ (char*)"^clearmatch",ClearMatchCode,0,0,(char*)"erase all match variables" },
 	{ (char*)"^command",CommandCode,STREAM_ARG,0,(char*)"execute a : command"},
@@ -8920,7 +8952,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^deserialize", DeserializeCode, 1, 0, "transcribes a string into a factset" },
 	{ (char*)"^field",FieldCode,2,0,(char*)"get a field of a fact"}, 
 	{ (char*)"^find",FindCode,2,0,(char*)"Given set or factset, find ordinal position of item within it"},
-	{ (char*)"^findfact",FindFactCode,3,0,(char*)"given simple non-facts subject verb object, see if fact exists of it"},
+    { (char*)"^findfact",FindFactCode,3,0,(char*)"given simple non-facts subject verb object, see if fact exists of it"},
 	{ (char*)"^findmarkedfact",FindMarkedFactCode,3,0,(char*)"given a subject,a verb, and a mark, return a marked fact that can be found propogating from subject using verb  or null"},
 	{ (char*)"^first",FLRCodeF,STREAM_ARG,0,(char*)"get first element of a factset and remove it"},
 	{ (char*)"^flushfacts",FlushFactsCode,1,0,(char*)"erase all facts created after here"}, 

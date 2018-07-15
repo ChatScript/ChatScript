@@ -396,8 +396,10 @@ static char* HandleQuoter(char* ptr,char** words, int& count)
 		}
 	}
 	++count;
-	words[count] = AllocateHeap(ptr+1,end-ptr-1); // stripped quotes off simple word
+    if ((end - ptr) <= 1) words[count] = AllocateHeap((char*)"a"); // protection from erroneous
+	else words[count] = AllocateHeap(ptr+1,end-ptr-1); // stripped quotes off simple word
 	if (!words[count]) words[count] = AllocateHeap((char*)"a"); // safe replacement
+    if (!words[count]) --count; // flush it
 	return  end + 1;
 }
 
@@ -430,7 +432,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// OOB which has { or [ inside starter, must swallow all as one string lest reading JSON blow token limit on sentence. And we can do jsonparse.
 	if (oobStart && oobJson) // support JSON parsing
 	{
-		if (count == 0 && *ptr == '[') return ptr + 1;	// start of oob
+		if (count == 0 && (*ptr == '[' || *ptr == '{')) return ptr + 1;	// start of oob
 		int level = 0;
 		char* jsonStart = ptr;
 		--ptr;
@@ -489,10 +491,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
             if (tokenControl & SPLIT_QUOTE)
             {
                 char* end = strchr(ptr + 1, '"');
-                if (end) // strip the quotes
+                if (end) // strip the quotes and try agin
                 {
                     *ptr = ' ';
                     *end = ' ';
+                    return ptr;
                 }
                 else return ptr + 1; // split up quote marks
             }
@@ -953,7 +956,6 @@ char* Tokenize(char* input,int &mycount,char** words,bool all,bool nomodify,bool
 	// nomodify is true on analyzing outputs into sentences, because user format may be fixed
     char* ptr = SkipWhitespace(input);
 	int count = 0;
-
     char* html = input;
     bool oobJson = false;
     unsigned int quoteCount = 0;
@@ -1040,13 +1042,18 @@ char* Tokenize(char* input,int &mycount,char** words,bool all,bool nomodify,bool
 		int oldCount = count;
 		if (!*ptr) break; 
 		char* end = FindWordEnd(ptr,priorToken,words,count,nomodify,oobStart,oobJson);
-		if (count != oldCount)	// FindWordEnd performed allocation already 
+ 		if (count != oldCount)	// FindWordEnd performed allocation already 
 		{
 			if (count > 0) strcpy(priorToken, words[count]);
 			ptr = SkipWhitespace(end);
 			continue;
 		}
-		else if ((end - ptr) > (MAX_WORD_SIZE - 3)) // too big to handle, suppress it.
+        else if (end == ptr) // didnt change, we must have erased a quote pair
+        {
+            ptr = SkipWhitespace(end);
+            continue;
+        }
+        else if ((end - ptr) > (MAX_WORD_SIZE - 3)) // too big to handle, suppress it.
 		{
 			char word[MAX_WORD_SIZE];
 			strncpy(word, ptr, MAX_WORD_SIZE - 25);
@@ -1071,7 +1078,6 @@ char* Tokenize(char* input,int &mycount,char** words,bool all,bool nomodify,bool
 		else if (*priorToken && paren) --paren;
 
 		char startc = *priorToken;
-
 		//   reserve next word, unless we have too many
 		if (++count > REAL_SENTENCE_LIMIT ) 
 		{

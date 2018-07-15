@@ -103,7 +103,8 @@ void ScriptWarn()
 
 void AddError(char* buffer)
 {
-	sprintf(errors[errorIndex++],(char*)"line %d of %s: %s",currentFileLine,currentFilename,buffer);
+    if (*botheader) sprintf(errors[errorIndex++],(char*)"*** Error- line %d of %s bot:%s : %s\r\n", currentFileLine, currentFilename, botheader,buffer);
+    else sprintf(errors[errorIndex++], (char*)"*** Error- line %d of %s: %s\r\n", currentFileLine, currentFilename,buffer);
 	if (errorIndex >= MAX_ERRORS) --errorIndex;
 }
 
@@ -118,7 +119,8 @@ void ScriptError()
 	{
 		++hasErrors; 
 		patternContext = false; 
-		Log(STDTRACELOG,(char*)"*** Error- line %d of %s: ",currentFileLine,currentFilename);
+        if (*botheader) Log(STDTRACELOG, (char*)"*** Error- line %d of %s bot:%s : ", currentFileLine, currentFilename, botheader);
+        else Log(STDTRACELOG, (char*)"*** Error- line %d of %s: ", currentFileLine, currentFilename);
 	}
 }
 

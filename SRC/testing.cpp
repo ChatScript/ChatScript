@@ -2208,6 +2208,8 @@ static void C_TrimField(char* file)
 	while (fgets(readBuffer, 10000000, in) != NULL)
 	{
 		if (!*readBuffer) break;
+
+
         ++n;
 		//VA-51382515	legal	family		I have a friend who has a half brother. His father won't let him see his brother. Does my friend have any rights in this matter?
 		char* at = strchr(readBuffer, '\t'); // to cat
@@ -9453,13 +9455,13 @@ static void C_QuoteLines(char* file)
 		return;
 	}
 	FILE* out = FopenUTF8Write(name);
-	// format is  word  `lemma` POSes
 	char word[MAX_WORD_SIZE];
 	word[0] = '"';
 	while (ReadALine(readBuffer, in) >= 0)
 	{
 		char* ptr = SkipWhitespace(readBuffer);
 		if (!*ptr) continue;
+       
 		strcpy(word+1, ptr);
 		size_t len = strlen(word);
 		if (word[len - 1] == ' ') --len;

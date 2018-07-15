@@ -289,6 +289,8 @@ void Client(char* login)// test client for a server
     *bot = 0;
     char* botp = bot;
     *data = 0;
+    int count = -1;
+    int skip = 0;
     if (*from == '*') // let user go first.
 	{
 		++from;
@@ -325,6 +327,8 @@ restart: // start with user
     *ptr = 0;
     size_t baselen = ptr - sendbuffer; // length of  message user/bot header not including message
     bool converse = false;
+    bool starts = false;
+    bool raw = false;
     FILE* sourcefile = NULL;
     try
 	{
@@ -343,6 +347,36 @@ SOURCE:
         ReadCompiledWord(ptr + 8, file);
         sourcefile = fopen(file, (char*)"rb");
     }
+    else if (!strncmp(ptr, (char*)":starts ", 8))
+    {
+        char file[SMALL_WORD_SIZE];
+        ptr = ReadCompiledWord(ptr + 8, file);
+        source = fopen(file, (char*)"rb");
+        starts = true;
+        ptr = SkipWhitespace(ptr);
+        char num[100];
+        ptr = ReadCompiledWord(ptr, num);
+        count = atoi(num);
+        if (count == 0) count = 1000000;
+        ptr = ReadCompiledWord(ptr, num);
+        skip = atoi(num);
+        ptr = data;
+    }
+    else if (!strncmp(ptr, (char*)":raw ", 5))
+    {
+        char file[SMALL_WORD_SIZE];
+        ptr = ReadCompiledWord(ptr + 5, file);
+        source = fopen(file, (char*)"rb");
+        raw = true;
+        ptr = SkipWhitespace(ptr);
+        char num[100];
+        ptr = ReadCompiledWord(ptr, num);
+        count = atoi(num);
+        if (count == 0) count = 1000000;
+        ptr = ReadCompiledWord(ptr, num);
+        skip = atoi(num);
+        ptr = data;
+    }
     char* sep = NULL;
     TCPSocket *sock;
     int n = 0;
@@ -352,13 +386,13 @@ SOURCE:
         if (converse) // do a conversation of multiple lines each tagged with user until done
         {
             ptr = data;
-            if (fgets(ptr, 100000 - 100, sourcefile ) == NULL) break;
-            if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data,data+3,strlen(data+2));// UTF8 BOM
+            if (fgets(ptr, 100000 - 100, sourcefile) == NULL) break;
+            if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
             // (*printer)((char*)"Read %s\r\n",  data);
 
             size_t l = strlen(ptr);
             ptr[l - 2] = 0; // remove crlf
-            
+
             // a line is username message
             char* blank = strchr(ptr, '\t'); // user / botname
             if (!blank) continue;
@@ -384,33 +418,103 @@ SOURCE:
                 sendbuffer[baselen] = 0;
                 // (*printer)((char*)"Sent login %s\r\n", data);
                 sock = new TCPSocket(serverIP, (unsigned short)port);
-                sock->send(sendbuffer, baselen+1);
+                sock->send(sendbuffer, baselen + 1);
                 ReadSocket(sock, response);
             }
             msg = sep + 1;
         }
+        else if (starts)
+        {
+            ptr = data;
+            if (fgets(ptr, 100000 - 100, source) == NULL) 
+                break;
+            if (--skip > 0) continue;
+            if (--count < 0)
+                break;
+            if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+            char cat[MAX_WORD_SIZE];
+            char spec[MAX_WORD_SIZE];
+            size_t l = strlen(ptr);
+            ptr[l - 2] = 0; // remove crlf
 
+            // userid, chatid, cat, spec, loc, message
+            char* blank = strchr(ptr, '\t'); 
+            if (!blank) continue;
+            *blank = 0;  // user string now there
+            strcpy(user, data);
+            ptr = blank + 1;
+            blank = strchr(ptr, '\t'); // end of chatid
+            ptr = blank + 1; // cat
+            blank = strchr(ptr,'\t');
+            *blank = 0;
+            strcpy(cat, ptr);
+            ptr = blank + 1; // spec
+            blank = strchr(ptr, '\t');
+            *blank = 0;
+            strcpy(spec, ptr);
+            ptr = blank + 1; // loc
+            ptr = strchr(ptr + 1, '\t'); // end of loc
+            
+            ptr = ptr + 1; // start of message
+            blank = strchr(ptr, '\t'); 
+            *blank = 0; // mark end of message
+
+            strcpy(sendbuffer, user);
+            userlen = strlen(sendbuffer);
+            *bot = 0;
+            botlen = strlen(bot);
+            sendbuffer[userlen + 1] = 0;
+            strcpy(sendbuffer + userlen + 1, bot);
+            sendbuffer[userlen + 1 + botlen + 1] = 0;
+            baselen = userlen + botlen + 2;
+            char* at = sendbuffer + baselen;
+            sprintf(at , "[ category: %s specialty: %s ]", cat, spec);
+            sock = new TCPSocket(serverIP, (unsigned short)port);
+            sock->send(sendbuffer, baselen + 1 + strlen(at));
+            ReadSocket(sock, response);
+        }
+        else if (raw)
+        {
+            ptr = data;
+            if (fgets(ptr, 100000 - 100, source) == NULL)
+                break;
+            if (--skip > 0) continue;
+            if (--count < 0)
+                break;
+            if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+            strcpy(user, "user1");
+            strcpy(sendbuffer, user);
+            userlen = strlen(sendbuffer);
+            *bot = 0;
+            botlen = strlen(bot);
+            sendbuffer[userlen + 1] = 0;
+            strcpy(sendbuffer + userlen + 1, bot);
+            sendbuffer[userlen + 1 + botlen + 1] = 0;
+            baselen = userlen + botlen + 2;
+            char* at = sendbuffer + baselen;
+            sprintf(at, "[ category: %s ]", "legal");
+            sock = new TCPSocket(serverIP, (unsigned short)port);
+            sock->send(sendbuffer, baselen + 1 + strlen(at));
+            ReadSocket(sock, response);
+        }
         // send our normal message now
-        msglen = strlen(msg);
-        strncpy(sendbuffer + baselen, msg,msglen+1);
+        msglen = strlen(ptr);
+        strncpy(sendbuffer + baselen, ptr,msglen+1);
 
         size_t len = baselen + msglen + 1;
 		sock = new TCPSocket(serverIP, (unsigned short)port);
 	    sock->send(sendbuffer, len);
-        if (!converse) (*printer)((char*)"Sent %d bytes of data to port %d - %s|%s\r\n",(int)len, port, sendbuffer,msg);
+        if (!converse && !starts && !raw) (*printer)((char*)"Sent %d bytes of data to port %d - %s|%s\r\n",(int)len, port, sendbuffer,msg);
         ReadSocket(sock, response);
-        if (strstr(response, "IGNORE_"))
-        {
-            int xx = 0;
-        }
         if (!trace) echo = !converse;
-		Log(STDTRACELOG,(char*)"%s", response); // chatbot replies this
+		if (!starts && !raw) Log(STDTRACELOG,(char*)"%s", response); // chatbot replies this
         delete(sock);
 
 		// we say that  until :exit
-		if (!converse) (*printer)((char*)"%s",(char*)"\r\n>    ");
+		if (!converse && !starts && !raw) (*printer)((char*)"%s",(char*)"\r\n>    ");
+        else if (starts || raw) {}
         else Log(STDTRACELOG, "%s %s %s\r\n", user, bot, response);
-        if (!converse)
+        if (!converse && !starts && !raw)
         {
             if (!ReadALine(data, source, 100000 - 100)) break; // next thing we want to send
             strcat(data, (char*)" "); // never send empty line
@@ -418,6 +522,16 @@ SOURCE:
             // special instructions
 		    if (!strnicmp(SkipWhitespace(data),(char*)":quit",5)) break;
 		    else if (!strnicmp(SkipWhitespace(data),(char*)":source",7)) goto SOURCE;
+            else if (!strnicmp(SkipWhitespace(data), (char*)":starts", 7))
+            {
+                ptr = data;
+                goto SOURCE;
+            }
+            else if (!strnicmp(SkipWhitespace(data), (char*)":raw", 4))
+            {
+                ptr = data;
+                goto SOURCE;
+            }
             else if (!converse && !strncmp(data, (char*)":converse ", 9))
             {
                 char file[SMALL_WORD_SIZE];
@@ -446,7 +560,8 @@ SOURCE:
     }
 
 	}
-	catch(SocketException e) { myexit((char*)"failed to connect to server\r\n");}
+	catch(SocketException e) { 
+        myexit((char*)"failed to connect to server\r\n");}
     if (sourceFile) fclose(sourceFile);
 }
 #endif
