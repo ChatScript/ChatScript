@@ -1600,8 +1600,8 @@ bool IsUrl(char* word, char* end)
 	char* at = strchr(tmp,'@');	// check for email
 	if (at) 
 	{
-		char* dot = strchr(at+2,'.'); // must have character after @ and before .
-		if (dot && IsAlphaUTF8(dot[1])) return true;
+		char* dot = strchr(at+2,'.'); // must have character or digit after @ and before . (RFC1123 section 2.1)
+		if (dot && IsAlphaUTF8OrDigit(dot[1])) return true;
 	}
 
 	//	check domain suffix is somewhat known as a TLD
@@ -2591,8 +2591,15 @@ char* Purify(char* msg) // used for logging to remove real newline characters so
 
 size_t OutputLimit(unsigned char* data) // insert eols where limitations exist
 {
+    char* original1 = (char*)data;
 	char extra[HIDDEN_OVERLAP+1];
-	strncpy(extra,((char*)data) + strlen((char*)data),HIDDEN_OVERLAP); // preserve any hidden data on why and serverctrlz
+    char* mydata = (char*)data;
+    size_t len = strlen(mydata) + 1; // ptr to ctrlz ctrlz + why
+    char* zzwhy = mydata + len;
+    size_t len1 = strlen(zzwhy) + 1; 
+    char* active = zzwhy + len1 + 1;
+    size_t len2 = strlen(active) + 1;
+	memcpy(extra, zzwhy,HIDDEN_OVERLAP); // preserve any hidden data on why and serverctrlz
 
 	unsigned char* original = data;
 	unsigned char* lastBlank = data;
@@ -2611,7 +2618,7 @@ size_t OutputLimit(unsigned char* data) // insert eols where limitations exist
 		if (*data == ' ') lastBlank = data;
 		else if (*data == '\n') lastAt = lastBlank = data+1; // internal newlines restart checking
 	}
-	strncpy(((char*)data) + strlen((char*)data), extra, HIDDEN_OVERLAP);
+	memcpy(((char*)data) +  1, extra, HIDDEN_OVERLAP);
 	return data - original;
 }
 

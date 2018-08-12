@@ -4720,7 +4720,7 @@
  tree_sloth ( meanings=1 NOUN NOUN_SINGULAR ) 
     sloth~2n 
  three-toed_sloth ( meanings=1 NOUN NOUN_SINGULAR ) 
-    ai~1n 
+    Bradypus_tridactylus~1n 
  two-toed_sloth ( meanings=2 NOUN NOUN_SINGULAR ) 
     unai~1n 
     unai~2n 
@@ -12785,8 +12785,6 @@
     Henri_Toulouse-Lautrec~1n 
  Tourette ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Gilles_de_la_Tourette~1n 
- Town ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    Ithiel_Town~1n 
  Toynbee ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Arnold_Toynbee~1n 
  Tradescant ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
@@ -15958,6 +15956,8 @@
  tubae ( NOUN NOUN_PLURAL COMMON1 ) plural=tuba 
  turves ( NOUN NOUN_PLURAL COMMON1 posdefault:NOUN ) plural=turf 
  tympana ( NOUN NOUN_PLURAL COMMON1 posdefault:NOUN ) plural=tympanum 
+ timeout ( meanings=1 NOUN NOUN_SINGULAR ) 
+    timeout~1nz 
  toastie ( meanings=2 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
     toastie~1nz 
     toastie~2nz 
@@ -20104,6 +20104,8 @@
     those~1z 
     those~2z 
     those~3z 
+ themself ( meanings=1 PRONOUN_OBJECT PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
+    themself~1z 
  themselves ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_PLURAL posdefault:NOUN ANIMATE_BEING ) 
     themselves~1z 
  the_only ( meanings=1 DETERMINER KINDERGARTEN DETERMINER_SINGULAR ) 

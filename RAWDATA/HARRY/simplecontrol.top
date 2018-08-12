@@ -1,32 +1,47 @@
+# This is the main control script. Start here to trace the ChatScript processing steps. 
+# When you see this "#", anything after this is a comment, it is not code that is executed. 
+# For example, this line is a comment.
 
+# this function is executed once for every new user chatting with harry
+outputmacro: harry()  # you get harry by default
+# The $cs_token is set to a variety of features I want for tokenizing inpu.
+$cs_token = #DO_INTERJECTION_SPLITTING  | #DO_SUBSTITUTE_SYSTEM   | #DO_NUMBER_MERGE | #DO_DATE_MERGE  | #DO_PROPERNAME_MERGE  | #DO_SPELLCHECK  | #DO_PARSE 
+$cs_token += #SPLIT_QUOTE | #NO_WITHIN
+
+# This sets the default topic to be using when running the system
+^addtopic(~introductions)
+
+$cs_control_main = ~control
+# $cs_control_post = ~XPOSTPROCESS  # uncomment to enable talk
+# The postprocess topic I define will allow windows system to use verbal output
+
+$userprompt = ^"%user: >"
+$botprompt = ^"HARRY: "
+$singleResponse = 1 # issue only 1 output message
+# This means, after one output is generated, no more will be reacted to.
+# Alternatively one might have a reaction to every single sentence in the user's input.
+
+# This tells the engine what bot to use if no botname is provided in the message
 table: defaultbot (^name)
 ^createfact(^name defaultbot defaultbot)
 DATA:
 harry
 
-
-# this function is executed once for every new user chatting with harry
-outputmacro: harry()  # you get harry by default
-$cs_token = #DO_INTERJECTION_SPLITTING  | #DO_SUBSTITUTE_SYSTEM   | #DO_NUMBER_MERGE | #DO_DATE_MERGE  | #DO_PROPERNAME_MERGE  | #DO_SPELLCHECK  | #DO_PARSE 
-$cs_token += #SPLIT_QUOTE | #NO_WITHIN
-
-^addtopic(~introductions)
-$cs_control_main = ~control
-# $cs_control_post = ~XPOSTPROCESS  # uncomment to enable talk
-$userprompt = ^"%user: >"
-$botprompt = ^"HARRY: "
-$singleResponse = 1 # issue only 1 output message
-
-
+# This topic is what gets executed for every sentence of user input because
+# it is set in the bot macro as the control script. It is declared "system" because
+# we dont wont rules erased from it as they are used.
 topic: ~control system ()
 
-# on startup, do introduction
+# on startup, do introduction.  It takes the user input which starts a new conversation and looks for a response in  ~introductions
 u: ( %input<%userfirstline) 
 	gambit(~introductions)
 
+# if the user says shut up anywhere in the response, set the variable $shutup to 1, which is used later to stop using the talk output in windows
 u: (< shut up >) $shutup = 1
+# if the user says talk anywhere in the response, set the variable $shutup to null, which is used later to reestablish verbal output
 u: (< talk  >) $shutup = null
 
+# The below mere confirm oob data seen when using basic abilities
 u: (\[ callback \]) Callback seen.
 u: (\[ loopback \]) Loopback seen.
 u: (\[ alarm \]) Alarm seen.
@@ -36,6 +51,9 @@ u: (< alarm test) \[ alarm=5000 \] Alarm requested.
 
 u: () # main per-sentence processing
 	$_responseCount = %response
+    # %response == $_responseCount means we have not generated an output for this input yet,
+    # so allow continued analysis until we do.
+
 	if ($singleResponse) {$_responseCount = 0} # disable this to respond to each sentence in a volley
 
 	$$currenttopic = %topic		# get the current topic at start of volley
@@ -83,7 +101,6 @@ u: () # main per-sentence processing
 		end(TOPIC)
 	}
 
-
 	if (%response == $_responseCount AND ^marked($$currenttopic)) { nofail(TOPIC ^gambit($$currenttopic)) } # gambit current topic since keywords match current topic
 
 	if (%response == $_responseCount) # gambit from ANY matching topic
@@ -115,10 +132,10 @@ u: () # main per-sentence processing
 		}
 	}
 	
-	if (%response == $_responseCount) 
+	if (%response == $_responseCount)  # we failed, somehow, to find something to say to user. Say something
 	{
 		 ^repeat() 
-		 I don't know what to say. 
+         I don't know what to say.
 	}
 
 

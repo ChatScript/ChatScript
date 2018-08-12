@@ -9883,7 +9883,7 @@
  DoL ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
     Labor_Department~1n 
  Department_of_State ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    State~1n 
+    United_States_Department_of_State~1n 
  DoS ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     State_Department~2n 
  Department_of_the_Interior ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 

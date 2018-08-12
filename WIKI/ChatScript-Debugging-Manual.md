@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/9/2018 cs8.3
+<br>Revision 8/12/2018 cs8.4
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does testpaand
@@ -185,6 +185,28 @@ didn't intend it. Words it doesn't recognize arise either because you made a typ
 
 Words in upper case are again words it knows as lower case, 
 but you used it as upper case. Maybe right or wrong.
+
+### ignorespell: ... ###
+You can disable case spelling warnings for specific words by
+naming them in lower case like this:
+```
+ignorespell: me or
+```
+This will not warn you when the system detects `me` or `ME` (abbreviation of Maine).
+You can also globally turn off spell warnings using
+```
+ignorespell: *
+```
+which remains in effect until you do 
+```
+ignorespell: !*
+```
+
+You can, for example, fix all warnings you can in a file, And
+once you believe there are no more issues and the file is
+frozen, just turn ignorespell on at start of file and off at 
+end of file.
+
 
 Editing the main dictionary is not a task for the faint-hearted. But ChatScript maintains
 secondary dictionaries in the `TOPIC` folder and those are easy to adjust. To alter them,

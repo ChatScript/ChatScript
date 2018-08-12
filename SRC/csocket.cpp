@@ -402,9 +402,9 @@ SOURCE:
             if (!sep) continue;
             *sep = 0; // bot string now there
             strcpy(bot, blank + 1);
+
             botp = bot;
             botlen = strlen(bot);
-
             if (stricmp(ptr, user)) // change over user with null start message
             {
                 strcpy(user, data);
@@ -422,6 +422,7 @@ SOURCE:
                 ReadSocket(sock, response);
             }
             msg = sep + 1;
+            ptr = msg;
         }
         else if (starts)
         {
@@ -442,8 +443,8 @@ SOURCE:
             if (!blank) continue;
             *blank = 0;  // user string now there
             strcpy(user, data);
-            ptr = blank + 1;
-            blank = strchr(ptr, '\t'); // end of chatid
+            //ptr = blank + 1;
+            //blank = strchr(ptr, '\t'); // end of chatid
             ptr = blank + 1; // cat
             blank = strchr(ptr,'\t');
             *blank = 0;
@@ -457,7 +458,7 @@ SOURCE:
             
             ptr = ptr + 1; // start of message
             blank = strchr(ptr, '\t'); 
-            *blank = 0; // mark end of message
+            if (blank) *blank = 0; // mark end of message
 
             strcpy(sendbuffer, user);
             userlen = strlen(sendbuffer);
@@ -511,7 +512,11 @@ SOURCE:
         delete(sock);
 
 		// we say that  until :exit
-		if (!converse && !starts && !raw) (*printer)((char*)"%s",(char*)"\r\n>    ");
+        if (!converse && !starts && !raw)
+        {
+            (*printer)((char*)"%s", response);
+            (*printer)((char*)"%s", (char*)"\r\n>    ");
+        }
         else if (starts || raw) {}
         else Log(STDTRACELOG, "%s %s %s\r\n", user, bot, response);
         if (!converse && !starts && !raw)
@@ -519,6 +524,7 @@ SOURCE:
             if (!ReadALine(data, source, 100000 - 100)) break; // next thing we want to send
             strcat(data, (char*)" "); // never send empty line
             msg = data;
+            ptr = data;
             // special instructions
 		    if (!strnicmp(SkipWhitespace(data),(char*)":quit",5)) break;
 		    else if (!strnicmp(SkipWhitespace(data),(char*)":source",7)) goto SOURCE;
@@ -713,12 +719,13 @@ void LogChat(uint64 starttime,char* user,char* bot,char* IP, int turn,char* inpu
 	char* date = GetTimeInfo(&ptm,true)+SKIPWEEKDAY;
 	date[15] = 0;	// suppress year
 	memmove(date+3,date+4,13); // compress out space
-	char* why = output + strlen(output) + 3; //skip terminator + 2 ctrl z end marker
-	char* activeTopic = why + strlen(why) + 1;
+    size_t len = strlen(output);
+    char* why = output + len + HIDDEN_OFFSET; //skip terminator + 2 ctrl z end marker
+    char* activeTopic = (*why) ? (char*)(why + strlen(why) + 1) : (char*)"";
 	uint64 endtime = ElapsedMilliseconds(); 
 	char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
 	if (*input) Log(SERVERLOG,(char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %s\r\n", nl,user,bot,IP,activeTopic,turn,input,Purify(output),date,(int)(endtime - starttime),why);
-	else Log(SERVERLOG,(char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms Version:%s Build0:%s Build1:%s %s\r\n",nl, user,bot,IP,activeTopic,turn,Purify(output),date,(int)(endtime - starttime),version,timeStamp[0],timeStamp[1],why);
+	else Log(SERVERLOG,(char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %s Version:%s Build0:%s Build1:%s %s\r\n",nl, user,bot,IP,activeTopic,turn,Purify(output),date,(int)(endtime - starttime),why,version,timeStamp[0],timeStamp[1],why);
 }
 
 #ifndef EVSERVER // til end of file
@@ -1064,7 +1071,11 @@ void InternetServer()
 
 static void ServerTransferDataToClient()
 {
-    strcpy(clientBuffer+SERVERTRANSERSIZE,ourMainOutputBuffer);
+    size_t len = strlen(ourMainOutputBuffer) + 1;
+    size_t len1 = strlen(ourMainOutputBuffer + len) + 1; // hidden why
+    size_t len2 = strlen(ourMainOutputBuffer + len + len1 ) + 1;
+    size_t offset = SERVERTRANSERSIZE;
+    memcpy(clientBuffer+offset,ourMainOutputBuffer,len+len1+len2);
     clientBuffer[sizeof(int)] = 0; // mark we are done.... 
 #ifndef WIN32
     pendingClients--;

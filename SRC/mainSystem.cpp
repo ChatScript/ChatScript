@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "8.31";
+char* version = "8.4";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1454,7 +1454,7 @@ void ResetSentence() // read for next sentence to process from raw system level 
 void ComputeWhy(char* buffer,int n)
 {
 	strcpy(buffer,(char*)"Why:");
-	buffer += strlen(buffer);
+	buffer += 4;
 	int start = 0;
 	int end = responseIndex;
 	if (n >= 0) 
@@ -1501,7 +1501,7 @@ void ComputeWhy(char* buffer,int n)
 			}
 		}
 		strcpy(buffer,(char*)" ");
-		buffer += strlen(buffer);
+		buffer += 1;
 	}
 }
 
@@ -1609,7 +1609,7 @@ void FinishVolley(char* incoming,char* output,char* postvalue,int limit)
 	// massage output going to user
 	if (!documentMode)
 	{
-		FactizeResult();
+        if (!(responseControl & RESPONSE_NOFACTUALIZE)) FactizeResult();
 		postProcessing = 1;
 		++outputNest; 
 		OnceCode((char*)"$cs_control_post",postvalue);
@@ -1630,25 +1630,34 @@ void FinishVolley(char* incoming,char* output,char* postvalue,int limit)
 		if (*incoming) strcpy(timePrior,GetMyTime(curr)); // when we did the last volley
 		// Log the results
 		GetActiveTopicName(activeTopic); // will show currently the most interesting topic
-		if (userLog && prepareMode != POS_MODE && prepareMode != PREPARE_MODE  && prepareMode != TOKENIZE_MODE)
-		{
-			char buff[20000];
-			char time15[MAX_WORD_SIZE];
-			unsigned int lapsedMilliseconds = (unsigned int) (ElapsedMilliseconds() - volleyStartTime);
-			*time15 = 0;
-			sprintf(time15,(char*)" F:%d ",lapsedMilliseconds);
-			*buff = 0;
-			if (responseIndex && regression != NORMAL_REGRESSION) ComputeWhy(buff,-1);
-			char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
+        
+        size_t len = strlen(output);
+        char* buff = output + len + 1;
+        *buff++ = (char)0xfe; // positive termination
+        *buff++ = (char)0xff; // positive termination for servers
+        *buff = 0;
+        if (responseIndex && regression != NORMAL_REGRESSION) ComputeWhy(buff, -1);
+        size_t len1 = strlen(buff) + 1;
+        buff += len1;
+        strcpy(buff, activeTopic); // currently the most interesting topic
 
-			if (*incoming && regression == NORMAL_REGRESSION) Log(STDTRACELOG,(char*)"%s(%s) %s ==> %s %s\r\n",nl,activeTopic,TrimSpaces(incoming),Purify(output),buff); // simpler format for diff
+        if (userLog && prepareMode != POS_MODE && prepareMode != PREPARE_MODE  && prepareMode != TOKENIZE_MODE)
+		{
+            char time15[MAX_WORD_SIZE];
+            unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
+            *time15 = 0;
+            sprintf(time15, (char*)" F:%d ", lapsedMilliseconds);
+			
+            char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
+            char* poutput = Purify(output);
+			if (*incoming && regression == NORMAL_REGRESSION) Log(STDTRACELOG,(char*)"%s(%s) %s ==> %s %s\r\n",nl,activeTopic,TrimSpaces(incoming),poutput,buff); // simpler format for diff
 			else if (!*incoming) 
 			{
-				Log(STDUSERLOG,(char*)"%sStart: user:%s bot:%s ip:%s rand:%d (%s) %d ==> %s  When:%s Version:%s Build0:%s Build1:%s 0:%s F:%s P:%s %s\r\n",nl,loginID,computerID,callerIP,randIndex,activeTopic,volleyCount,Purify(output),when,version,timeStamp[0],timeStamp[1],timeturn0,timeturn15,timePrior,buff); // conversation start
+				Log(STDUSERLOG,(char*)"%sStart: user:%s bot:%s ip:%s rand:%d (%s) %d ==> %s  When:%s %s Version:%s Build0:%s Build1:%s 0:%s F:%s P:%s %s\r\n",nl,loginID,computerID,callerIP,randIndex,activeTopic,volleyCount,poutput,when,buff,version,timeStamp[0],timeStamp[1],timeturn0,timeturn15,timePrior,buff); // conversation start
 			}
 			else 
 			{
-				Log(STDUSERLOG,(char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  %s ==> %s  When:%s %s %s\r\n",nl,loginID,computerID,callerIP,activeTopic,volleyCount,incoming,Purify(output),when,buff,time15);  // normal volley
+				Log(STDUSERLOG,(char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  %s ==> %s  When:%s %s %s\r\n",nl,loginID,computerID,callerIP,activeTopic,volleyCount,incoming,poutput,when,buff,time15);  // normal volley
 			}
 			if (shortPos) 
 			{
@@ -1922,12 +1931,6 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 	// compute response and hide additional information after it about why
 	FinishVolley(mainInputBuffer,output,NULL,outputsize); // use original input main buffer, so :user and :bot can cancel for a restart of concerasation
-	char* after = output + strlen(output) + 1;
-	*after++ = (char)0xfe; // positive termination
-	*after++ = (char)0xff; // positive termination for servers
-	ComputeWhy(after,-1);
-	after += strlen(after) + 1;
-	strcpy(after,activeTopic); // currently the most interesting topic
 #ifndef DISCARDJAVASCRIPT
 	DeleteTransientJavaScript(); // unload context if there
 #endif

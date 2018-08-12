@@ -905,6 +905,16 @@ static char* Output_Dollar(char* word, char* ptr, char* space,char*& buffer, uns
 			ptr = PerformAssignment(word,ptr,buffer,result); 
 		else
 		{
+            char* at1 = word;
+            while (*at1 == '_' || *at1 == '$') ++at1;
+            while (IsLegalNameCharacter(*++at1)); // find real end of var
+            if (at1 && *at1)
+            {
+                *at1 = 0;
+                size_t len = at1 - word;
+                ptr = ptr - len;
+            }
+
 			char* value = GetUserVariable(word,nojson);
 			StdNumber(value,buffer,controls);
 			char* at = SkipWhitespace(buffer);

@@ -3234,8 +3234,8 @@ void MarkTags(unsigned int i)
 			else if (bit & WEB_URL && strchr(originalLower[i]->word+1,'@'))
 			{
 				char* x = strchr(originalLower[i]->word+1,'@');
-				if (x && IsAlphaUTF8(x[1])) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~email_url")),start,stop);
-			}
+                if (x && IsAlphaUTF8OrDigit(x[1])) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord((char*)"~email_url")), start, stop);
+            }
 			else if (bit & MARK_FLAGS)  MarkMeaningAndImplications(0, 0,sysMeanings[j],start,stop);
 			bit >>= 1;
 		}

@@ -1355,7 +1355,7 @@ retry:
 		Log(STDTRACELOG,(char*)"\r\n");
 	}
 	int whenmatched = 0;
-	if (*ptr == '(') // pattern requirement
+    if (*ptr == '(') // pattern requirement
 	{
 		wildcardIndex = 0;
 		int uppercasem = 0;
@@ -2627,7 +2627,8 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 					else AddProperty(D,NOUN_SINGULAR);
 				}
 			}
-			else if (IsAlphaUTF8(p1[0])) AddSystemFlag(D,PATTERN_WORD); // blocks spell checking to something else
+            // dont protect upper case that has lowercase. spell check will leave it anyway (Children as starter of a title)
+			else if (IsAlphaUTF8(p1[0]) && !FindWord(p1, 0, LOWERCASE_LOOKUP)) AddSystemFlag(D,PATTERN_WORD); // blocks spell checking to something else
 			
 			unsigned int index = Meaning2Index(U);
 			if (index) U = GetMaster(U); // if not currently the master, switch to master
@@ -2652,7 +2653,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 				if (D->internalBits & UPPERCASE_HASH)
 				{
 					size_t len = strlen(D->word);
-					if (D->word[len-1] != 's') AddProperty(D,NOUN|NOUN_PROPER_SINGULAR); // could have been plural for all we know
 					char* underscore = strchr(D->word,'_');
 					if (underscore) 
 					{
@@ -2678,7 +2678,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 if (space && underscore) { ; }
                 else if (space) sep = ' ';
                 else sep = '_';
-                if (sep)
+                if (sep && !(D->internalBits & UPPERCASE_HASH))
                 {
                     char word[MAX_WORD_SIZE];
                     strcpy(word, D->word);
@@ -2687,7 +2687,9 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                     while ((at = strchr(at, sep))) // break apart into pieces.
                     {
                         *at++ = 0;
-                        InsureSafeSpellcheck(old);
+                        size_t len = strlen(old);
+                        if (IsAlphaUTF8DigitNumeric(old[len - 1])) // no ending punctuation
+                            InsureSafeSpellcheck(old);
                         old = at;
                     }
                     if (*old) InsureSafeSpellcheck(old);

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/9/2018 cs8.3</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/12/2018 cs8.4</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does testpaand finding out where it doesn't do what you expected.</p>
 <p>If you dont have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -154,6 +154,14 @@
 <pre><code>*** Warning- flowglow is unknown as a word in pattern</code></pre>
 <p>Warnings about words in patterns that it doesn't recognize or it recognizes in lower case but you used upper case may or may not matter. Neither of these is wrong, unless you didn't intend it. Words it doesn't recognize arise either because you made a typo (requiring you fix it) or simply because the word isn't in the dictionary.</p>
 <p>Words in upper case are again words it knows as lower case, but you used it as upper case. Maybe right or wrong.</p>
+<h3 id="ignorespell-...">ignorespell: ...</h3>
+<p>You can disable case spelling warnings for specific words by naming them in lower case like this:</p>
+<pre><code>ignorespell: me or</code></pre>
+<p>This will not warn you when the system detects <code>me</code> or <code>ME</code> (abbreviation of Maine). You can also globally turn off spell warnings using</p>
+<pre><code>ignorespell: *</code></pre>
+<p>which remains in effect until you do</p>
+<pre><code>ignorespell: !*</code></pre>
+<p>You can, for example, fix all warnings you can in a file, And once you believe there are no more issues and the file is frozen, just turn ignorespell on at start of file and off at end of file.</p>
 <p>Editing the main dictionary is not a task for the faint-hearted. But ChatScript maintains secondary dictionaries in the <code>TOPIC</code> folder and those are easy to adjust. To alter them, you can define concepts that add local dictionary entries. The names of important word type bits are in <code>src/dictionarySystem.h</code> but the basics are <code>NOUN</code>, <code>VERB</code>, <code>ADJECTIVE</code>, and <code>ADVERB</code>.</p>
 <pre><code>concept: ~morenoun NOUN (fludge flwoa boara)</code></pre>
 <p>A concept like the above, declared before use of those words, will define them into the local dictionary as nouns and suppress the warning message. You can be more specific as well with multiple flags like this:</p>

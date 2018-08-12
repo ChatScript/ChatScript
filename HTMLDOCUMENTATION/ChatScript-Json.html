@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/12/2018 cs8.4</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represents collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within <code>[]</code>, e.g.,</p>
 <pre><code>[ A 2 [ help life] [] ]</code></pre>
@@ -140,6 +140,8 @@ $_response = ^jsonopen(transient POST $_url $_data $_header $_userAgent) </code>
 <pre><code>[ {&quot;token&quot;: &quot;myid&quot;, &quot;accounts&quot;: [&quot;whatever&quot;]}]  User message</code></pre>
 <p>and then have a pattern to grab the OOB data and call <code>jsonparse</code> with it (using SAFE as a parameter). OOB input is not subject to human tokenization behavior, spellchecking, etc.</p>
 <p>Note: There is a limit to how much JSON you can pass as OOB data nominally, because it is considered a single token. You can bypass this limit by asking the tokenizer to directly process OOB data, returning the JSON structure name instead of all the content. Just enable <code>#JSON_DIRECT_FROM_OOB</code> on the <code>$cs_token</code> value and if it finds OOB data that is entirely JSON, it will parse it and return something like <code>jo-t1</code> or <code>ja-t1</code> in its place. Eg. <code>[ { &quot;key&quot;: &quot;value} ]</code> will return tokenized as <code>[jo-t1]</code>.</p>
+<pre><code>u: GIVEN_JSON(&lt; \[  _* \] ^JsonKind(&#39;_0)) $$json = &#39;_0 # tokenizer returns transient JSON as object name</code></pre>
+<p>then you can do $$json.field directly.</p>
 <p>Note: <code>^jsonparse</code> autoconverts backslash-unnnn into corresponding the utf8 characters.</p>
 <h2 id="jsonformatstring"><code>jsonformat</code>(string)</h2>
 <p>Because technically JSON requires you put quotes around field names (though various places ignore that requirement) and because CS doesn't, the function takes in a slack json text string and outputs a strict one.</p>

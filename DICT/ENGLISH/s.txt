@@ -22769,8 +22769,6 @@
  State_Department ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     State_Department~1nz (^government_department~1) a department of government in one of the 50 states
     Department_of_State~1n 
- State ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    United_States_Department_of_State~1n 
  Social_Security_Administration ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     SSA~1nz (^independent_agency~1) an independent government agency responsible for the Social Security system
  SSA ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 

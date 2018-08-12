@@ -55,12 +55,18 @@ directory (which you dont have) and
 
 If you want actual POS values and lemmas (canonical form of a word), you will need a POS-tagger of some sort or use ^pos(canonical) ona word.
 While it is possible to hook in an external tagger via a web call, that will be noticably slower than an
-in-built system. 
+in-built system. You would call the service and then appropriately decode its output using^setcanon,
+^settag, ^setrole (if you get such from external service), and ^setoriginal (maybe).
 
 ChatScript supports in-build TreeTagger system, which supports a number of languages. However,
 you can only use this if you have a commercial license. You can try it out using `^popen`, as is done in the German
 bot, however it will be slow because it has to reinitialize TreeTagger for every sentence. The in-built system
 does not. A license (per language) is about $1000 for universal life-time use. You can contact me if you want to arrange to use it.
+
+# Ontology
+
+CS ships with a Spanish and some other dictionaries that provides spelling of words (for spell correction) and parts of speech of words.
+It also ships with some ontologies like LIVEDATA/ONTOLOGY/SPANISH which you can do :build 0 if you have set language=SPANISH in cs_init.txt file.
 
 # Running CS in a foreign language
 

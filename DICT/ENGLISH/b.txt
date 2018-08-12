@@ -13875,8 +13875,6 @@
     Bodhisattva~1n 
  Blessed_Trinity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     Sacred_Trinity~1nz (^God_Almighty~1) the union of the Father and Son and Holy Ghost in one Godhead
- Blessed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
-    Blessed~1az worthy of worship
  bad_fairy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     bad_fairy~1nz (^evil_spirit~1) a fairy that tends to cause harm
  Beelzebub ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
@@ -15211,8 +15209,6 @@
     Arna_Wendell_Bontemps~1n 
  Boole ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     George_Boole~1n 
- Born ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    Max_Born~1n 
  Borodin ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Aleksandr_Borodin~1n 
  Bose ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 

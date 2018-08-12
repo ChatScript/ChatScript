@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/9/2018 cs8.3
+<br>Revision 8/12/2018 cs8.4
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -2047,9 +2047,17 @@ suppress those messages with `:build filename nosubstitution`
 
 ## Files
 
-When you name a file or directory, :build will ignore files that end in ~ or .bak (the
-common backup names from editors on Windows and Linux).
-
+When you name a file or directory, :build will ignore files that do not end in .top or .tbl .
+When you name a directory, it walks all the files in that directory, but does not
+recurse into subdirectories unless you explicitly ask it to by adding a second slash after the
+directory name. If the contents of your filesxxx build file had this:
+```
+topic.top
+subdirectory1/
+subdirectory2//
+```
+then it would compile topic.top, all files within subdirectory1 non-recursively,
+and all files recursively in subdirectory2.
 
 ## Trace
 

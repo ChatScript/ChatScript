@@ -171,12 +171,12 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 
 		if (*ptr == '(') // old format - std if internals
 		{
-			endptr = strchr(ptr,'{') - 3; // offset to jump past pattern
+			endptr = strchr(ptr,'{') - ACCELLSIZE; // offset to jump past pattern
 		}
 		else // new format, can use std if or pattern match
 		{
 			endptr = ptr + Decode(ptr);
-			ptr += 3; // skip jump to end of pattern and point to pattern
+			ptr += ACCELLSIZE; // skip jump to end of pattern and point to pattern
 		}
 
 		//   Perform TEST condition

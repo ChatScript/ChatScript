@@ -1123,17 +1123,12 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 	{
 		const char* file = files[i].c_str();
         size_t len = strlen(file);
-		if (*file != '.' && stricmp(file,(char*)"bugs.txt")) 
+		if (*file != '.') 
 		{
 			sprintf(name,(char*)"%s/%s",directory,file);
 			(*function)(name,flags); // fails if directory
+            if (recursive && isDirectory(xname)) seendirs = true;
 		}
-        sprintf(xname, "%s/%s", directory, file);
-        if (isDirectory(xname))
-        {
-            if (recursive) seendirs = true;
-        }
-        else (*function)(xname, flags); // simple file
      }
 
     if (!seendirs) return;

@@ -7685,8 +7685,7 @@
     Army_of_the_Righteous~1n 
  Lashkar-e-Tayyiba ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Lashkar-e-Toiba~1n 
- LET ( meanings=1 COMMON1 ) 
-    Lashkar-e-Tayyiba~1n 
+ LET ( COMMON1 ) 
  Laskar_Jihad ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Holy_War_Warriors~1n 
  Lautaro_Youth_Movement ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
@@ -8291,10 +8290,8 @@
     logomania~1nz (^cacoethes~1) pathologically excessive talking
  logomania ( meanings=1 NOUN NOUN_SINGULAR COMMON1 ) 
     logorrhea~1n 
- Light ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    Christ_Within~1n 
  Light_Within ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Light~1n 
+    Christ_Within~1n 
  libidinal_energy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     libidinal_energy~1nz (^psychic_energy~1) psychic energy produced by the libido
  libidinal ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) 

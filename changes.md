@@ -1,3 +1,14 @@
+# version 8.4 8/12/2018
+1. ^findrule(label) finds a rule with that label (not tag) anywhere in all topics
+    and returns the tag for it (presumes unique label)
+2. in filesxxx build file, if you name a directory with two tailing slashes, 
+	then the system will compile all files recursively within and below that folder.
+3. $cs_responseControl RESPONSE_NOFACTUALIZE to suppress fact creation of bots output
+4. script compiler directive  ignorespell:  to block some kinds of spelling warnings
+	ignorespell:  word1 word2 ...    (use lower case form of word, will not warn about upper and lower case mixtures)
+ 	ignorespell: *    turn off all spelling warnings on casing
+	ignorespell: !*   turn on all spell warnings on casing
+
 # version 8.31 6/18/2018
 1. ^readfile(line filename 'function) will read lines from the file and pass them untouched
    as the sole argument of function. This is formerly called: ^jsonreadcvs which is legal but

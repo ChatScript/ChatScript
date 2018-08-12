@@ -59,6 +59,7 @@ extern char dbTimeLogfileName[200];
 extern bool serverctrlz;
 #define CLIENT_CHUNK_LENGTH 4*1024
 #define HIDDEN_OVERLAP 103	// possible concealed data
+#define HIDDEN_OFFSET 3 // past 2 ctrl z's
 
 // server stuff
 string interface_g;
@@ -626,7 +627,7 @@ int evsrv_do_chat(Client_t *client)
 	if (mysqlconf) MySQLUserFilesCode(); //Forked must hook uniquely AFTER forking
 #endif
 
-	if (!client->data) 	client->data = (char*) malloc(outputsize);
+	if (!client->data) 	client->data = (char*) malloc(outputsize+8);
 	if (!client->data) (*printer)("Malloc failed for child data\r\n");
 
 RESTART_RETRY:

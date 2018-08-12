@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/9/2018 cs8.3
+<br>Revision 8/12/2018 cs8.4
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -89,6 +89,13 @@ will be a keyword of some topic to pick. E.g.,
 
     ^gambit(~ PENDING ~mygeneraltopic FAIL)
 
+
+### `^findrule ( label )`
+
+On the assumption that you only have one occurence of a rule label in your script,
+if you provide that label to this function, it will find the corresponding rule anywhere
+in your script and return the rule tag corresponding to it. If you have more than one such labelled Rule
+it merely returns the first one it finds (which will be earliest rule in earliest compiled topic).
 
 ### `^getrule ( what label )`
 
@@ -747,6 +754,7 @@ These flags apply to output as it is sent to the user:
 | `RESPONSE_REMOVETILDE`            | remove leading ~ on class names               |
 | `RESPONSE_NOCONVERTSPECIAL`    | don't convert ecaped n, r, and t into ascii direct characters  |
 | `RESPONSE_CURLYQUOTES`    | change simple quotes to curly quotes (starting and ending)  |
+| `RESPONSE_NOFACTUALIZE`    | suppresses building bot output facts (for postprocessing)  |
 
 
 ### `^preprint ( stream )`

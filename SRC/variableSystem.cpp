@@ -64,6 +64,7 @@ void JoinMatch(int start, int end, int index, bool inpattern)
 {
     // concatenate the match value
     bool started = false;
+    bool proper = false;
     for (int i = start; i <= end; ++i)
     {
         if (i < 1 || i > wordCount) continue;	// ignore off end
@@ -76,11 +77,14 @@ void JoinMatch(int start, int end, int index, bool inpattern)
             strcat(wildcardCanonicalText[index], wildcardSeparator);
         }
         else started = true;
+        if (IsUpperCase(*wildcardOriginalText[index])) proper = true;
         strcat(wildcardOriginalText[index], word);
         if (wordCanonical[i]) strcat(wildcardCanonicalText[index], wordCanonical[i]);
         else strcat(wildcardCanonicalText[index], word);
     }
-    if (strstr(wildcardCanonicalText[index], "unknown-word")) strcpy(wildcardCanonicalText[index], "unknown-word"); // if any are unknown, the composite is unknown
+    // proper names canonical is same 
+    if (!proper && strstr(wildcardCanonicalText[index], "unknown-word")) strcpy(wildcardCanonicalText[index], "unknown-word"); // if any are unknown, the composite is unknown
+    else if (proper && start != end) strcpy(wildcardCanonicalText[index], wildcardOriginalText[index]);
     bbb = 1;
     WORDP D;
     if (uppercaseFind > 0 && uppercaseFind != 0x01000000) D = Index2Word((uppercaseFind & 0x00ffffff));
@@ -264,7 +268,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         }
         else if (*separator == '.') // it is a key
         {
-            if (*label != '_' && *label != '\'') // any variable ref will be in dictionary as will field name
+            if ((*label != '_' && *label != '\'') || (separator[1] == '_' && !IsDigit(separator[2])) || (separator[1] == '\'' && separator[2] == '_' && !IsDigit(separator[3]))) // any variable ref will be in dictionary as will field name
             {
                 key = FindWord(label, len, PRIMARY_CASE_ALLOWED); // case sensitive find
                 if (!key) goto NULLVALUE; // dont recognize such a name
@@ -557,12 +561,12 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
     if (*oldValue == '_') oldValue = GetwildcardText(GetWildcardID(oldValue), true); // onto a wildcard
     else if (*oldValue == USERVAR_PREFIX) oldValue = GetUserVariable(oldValue); // onto user variable
     else if (*oldValue == '^') oldValue = FNVAR(oldValue + 1); // onto function argument
-    else if (*oldValue && !IsDigit(*oldValue)) return FAILRULE_BIT; // illegal
+    else if (*oldValue && !IsNumberStarter(*oldValue)) return FAILRULE_BIT; // illegal
 
     if (*moreValue == '_') moreValue = GetwildcardText(GetWildcardID(moreValue), true);
     else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue);
     else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
-    else if (*oldValue && !IsDigit(*moreValue)) return FAILRULE_BIT; // illegal
+    else if (*oldValue && !IsNumberStarter(*moreValue)) return FAILRULE_BIT; // illegal
 
                                                         // perform numeric op
     bool floating = false;

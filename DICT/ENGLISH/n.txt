@@ -4248,8 +4248,6 @@
     United_Front~1nz (^coalition~2) a multiethnic alliance in Afghanistan who practice a moderate form of Islam and are united in their opposition to the Taliban
  Nation_of_Islam ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     Nation_of_Islam~1nz (^religious_movement~1) a group of militant Black Americans who profess Islamic religious beliefs and advocate independence for Black Americans
- Nation ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Carry_Nation~1n 
  National_Association_of_Realtors ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     National_Association_of_Realtors~1nz (^association~4) a United States association of real estate agents which follows a strict code of ethics
  North_Frigid_Zone ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 

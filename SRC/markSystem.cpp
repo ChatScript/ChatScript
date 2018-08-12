@@ -490,7 +490,12 @@ static void HuntMatch(bool canonical, char* word,bool strict,int start, int end,
 	WORDP set[20];
 	WORDP D;
 	int oldtrace = trace;
-	int i = GetWords(word,set,strict); // words in any case and with mixed underscore and spaces
+    // if user typed upper case specifically, trust him
+    if (start == end && start != 1 && IsUpperCase(word[0]))
+    {
+        if (!IsUpperCase(word[1])) strict = true;
+    }
+    int i = GetWords(word,set,strict); // words in any case and with mixed underscore and spaces
 	while (i) 
 	{
 		D = set[--i];

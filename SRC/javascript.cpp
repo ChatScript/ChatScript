@@ -72,14 +72,14 @@ FunctionResult RunJavaScript(char* definition, char* buffer, unsigned int args)
 	bool compile = false;
 	if (!stricmp(word,"compile")) 
 	{
-		code = ReadCompiledWord(code,word);
+		char* ptr = ReadCompiledWord(code,word);
 		compile = true; // compile vs eval
-		if (!*code) return FAILRULE_BIT; // require some code
+		if (!*ptr) return FAILRULE_BIT; // require some code
 	}
 	else if (!stricmp(word,"eval")) 
 	{
-		code = ReadCompiledWord(code, word);
-		if (!*code) return FAILRULE_BIT; // require some code
+		char* ptr = ReadCompiledWord(code, word);
+		if (!*ptr) return FAILRULE_BIT; // require some code
 	}
 	else if (!*name) return FAILRULE_BIT;	// need to define someting, be it a compile or a call
 	

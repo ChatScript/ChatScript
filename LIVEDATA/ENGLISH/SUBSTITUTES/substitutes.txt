@@ -545,7 +545,7 @@ prof. professor
  carry_out_an_evaluation_of evaluate
  CD_'s CDs
  cease_and_desist cease
- cellphone cell+phone
+
  cemataries cemetaries
  cematary cemetary
  Century century
@@ -860,7 +860,7 @@ prof. professor
  how_ya_doing how+are+you+doing
  hows how+is
  hygenic hygienic
- i'ts it's
+ i'ts it+is
  i-Pad iPad
  i-Phone iPhone
  I_,_myself_, I

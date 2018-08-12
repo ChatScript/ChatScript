@@ -1,3 +1,4 @@
+ nebuliser nebulizer
  accessorise accessorize
  accessorised accessorized
  accessorises accessorizes
@@ -1137,6 +1138,7 @@
  patronisingly patronizingly
  pedalled pedaled
  pedalling pedaling
+ paycheque paycheck
  pedestrianisation pedestrianization
  pedestrianise pedestrianize
  pedestrianised pedestrianized

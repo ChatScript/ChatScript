@@ -3401,8 +3401,6 @@
     Vilna~1n 
  Valdosta ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Valdosta~1nz (^town~2) a town in southern Georgia near the Florida border
- Village ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Greenwich_Village~1n 
  Verrazano_Narrows ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Verrazano_Narrows~1nz (^narrow~1) a narrow channel of water separating Staten Island and Brooklyn
  Verrazano ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 

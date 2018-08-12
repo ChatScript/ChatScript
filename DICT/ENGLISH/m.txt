@@ -14064,7 +14064,7 @@
  Marc_Blitzstein ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Blitzstein~1nz (^piano_player~1) United States pianist and composer of operas and musical plays
  Max_Born ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Born~1nz (^nuclear_physicist~1) British nuclear physicist honored for his contributions to quantum mechanics (1882-1970)
+    Max_Born~1nz (^nuclear_physicist~1) British nuclear physicist honored for his contributions to quantum mechanics (1882-1970)
  Mathew_B._Brady ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Brady~2nz (^photographer~1) United States pioneer photographer famous for his portraits
  Marcel_Lajos_Breuer ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 

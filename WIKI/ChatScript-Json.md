@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/9/2018 cs8.3
+<br>Revision 8/12/2018 cs8.4
 
 # Real World JSON
 
@@ -199,6 +199,11 @@ Note: There is a limit to how much JSON you can pass as OOB data
 nominally, because it is considered a single token. 
 You can bypass this limit by asking the tokenizer to directly process OOB data, returning the JSON structure name instead of all the content. Just enable `#JSON_DIRECT_FROM_OOB`  on the `$cs_token` value and if it finds OOB data that is entirely JSON, it will parse it and return something like `jo-t1` or `ja-t1` in its place. Eg.
 `[ { "key": "value} ]` will return tokenized as `[jo-t1]`.
+
+```
+u: GIVEN_JSON(< \[  _* \] ^JsonKind('_0)) $$json = '_0 # tokenizer returns transient JSON as object name
+```
+then you can do $$json.field directly.
 
 Note: `^jsonparse` autoconverts backslash-unnnn into corresponding the utf8 characters.
 

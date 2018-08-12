@@ -6256,7 +6256,7 @@
  Iron_Lady ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Thatcher~1n 
  Ithiel_Town ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Town~1nz (^designer~1) United States architect who was noted for his design and construction of truss bridges
+    Ithiel_Town~1nz (^designer~1) United States architect who was noted for his design and construction of truss bridges
  Ivan_Turgenev ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Ivan_Sergeevich_Turgenev~1n 
  Ivan_Sergeevich_Turgenev ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 

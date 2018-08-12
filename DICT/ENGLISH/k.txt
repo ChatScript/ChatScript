@@ -3634,8 +3634,6 @@
  Kuznets ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Simon_Kuznets~1n 
  Kyd ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    Kid~1n 
- Kid ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
     Thomas_Kyd~1n 
  Karl_Landsteiner ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Landsteiner~1nz (^diagnostician~1) United States pathologist who discovered human blood groups (1868-1943)

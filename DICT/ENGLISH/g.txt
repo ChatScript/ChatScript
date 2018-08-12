@@ -10882,7 +10882,7 @@
  Great_White_Way ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Broadway~1nz (^street~1) a street in Manhattan that passes through Times Square
  Greenwich_Village ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Village~1nz (^community~4) a mainly residential district of Manhattan
+    Greenwich_Village~1nz (^community~4) a mainly residential district of Manhattan
  Goldsboro ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Goldsboro~1nz (^town~2) a town that is a major tobacco center in eastern North Carolina
  Greensboro ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 

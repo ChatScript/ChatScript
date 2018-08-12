@@ -1266,16 +1266,17 @@ static void ReadIDECommandsMap(char* sysfile)
     FakeMapEntry("    :i xxx", "analogous to clicking on words in script window", maxlines, maxchar, sysfile);
     FakeMapEntry("    :i var = xxx", "break when var is set to xxx  can also be < or > values", maxlines, maxchar, sysfile);
     FakeMapEntry("    :xxx", "you can use various engine debug commands", maxlines, maxchar, sysfile);
+    FakeMapEntry("    :trace", "also sets default trace value when R-click on movement buttons", maxlines, maxchar, sysfile);
     FakeMapEntry("    xxx", "input to ChatScript engine", maxlines, maxchar, sysfile);
     FakeMapEntry("Output Window", "", maxlines, maxchar, sysfile);
     FakeMapEntry("Sentence Window", "", maxlines, maxchar, sysfile);
     FakeMapEntry("    L-click cycles mode", "displays: current sentence internal, sentence user typed, cannonical form of sentence", maxlines, maxchar, sysfile);
     FakeMapEntry("    R-click on word", "displays: displays marked concepts/topics of word", maxlines, maxchar, sysfile);
     FakeMapEntry("Buttons", "", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Go", "resume execution", maxlines, maxchar, sysfile);
-    FakeMapEntry("    In", "go to more refined level", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Out", "go to less refined level", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Next", "go to next item at same level or go out", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Go", "resume execution - rclick enables trace all", maxlines, maxchar, sysfile);
+    FakeMapEntry("    In", "go to more refined level - rclick enables trace", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Out", "go to less refined level - rclick enables trace", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Next", "go to next item at same level or go out - rclick enables trace", maxlines, maxchar, sysfile);
     FakeMapEntry("    Stop", "used during execution, stop as soon as possible", maxlines, maxchar, sysfile);
     FakeMapEntry("    Msg", "l-click: break when submitting output for user   r-click: turn off break", maxlines, maxchar, sysfile);
     FakeMapEntry("    Fail", "l-click: enable break if system function fails  r-click: turn off break   ctr-click: fail input", maxlines, maxchar, sysfile);
@@ -1889,8 +1890,20 @@ void CheckForEnter() // on input edit scriptData.window
             else if (AlignName(word));
             else 
             {
-                strcat(word, " - not found\r\n");
-                DebugOutput(word);
+                char tag[MAX_WORD_SIZE];
+                FunctionResult result = FindRuleCode1(word, tag);
+                MAPDATA* found = NULL;
+                if (result == NOPROBLEM_BIT) // found the topic
+                {
+                    char* at = strchr(tag, '.');
+                    strcpy(at + 1, word);
+                    found = AlignName(word);
+                }
+                if (!found)
+                {
+                    strcat(word, " - not found\r\n");
+                    DebugOutput(word);
+                }
             }
         }
         else
@@ -2473,6 +2486,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
        0, 0, 0, 0, nullptr, nullptr, hInstance, nullptr);
    if (!hParent) return FALSE;
 
+
+ 
    int xlimit = GetSystemMetrics(SM_CXMAXIMIZED);
    int ylimit = GetSystemMetrics(SM_CYMAXIMIZED);
    xlimit -= 30; // scroll
@@ -3170,7 +3185,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             debugAction = DebugAction;
 
             if (message == WM_LBUTTONDOWN) trace = 0;
-            else { trace = idetrace; }
+            else { trace = idetrace; if (!trace) trace = -1;}
             Go();
         }
         else if (hWnd == hInButton)
@@ -3180,13 +3195,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             debugCall = DebugCall;
             idestop = true; // break anywhere in or over or out
             if (message == WM_LBUTTONDOWN) trace = 0;
-            else { trace = idetrace; }
+            else { trace = idetrace; if (!trace) trace = -1; }
             Go();
         }
         else if (hWnd == hOutButton)
         {
             if (message == WM_LBUTTONDOWN) trace = 0;
-            else { trace = idetrace; }
+            else { trace = idetrace; if (!trace) trace = -1;}
 
             // OUT means leave either current action level or call depth and 
             // stop as soon as possible thereafter

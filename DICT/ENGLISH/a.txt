@@ -5812,8 +5812,6 @@
     armadillo~1nz (^edentate~1) burrowing chiefly nocturnal mammal with body covered with strong horny plates
  apar ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
     three-banded_armadillo~1n 
- ai ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
-    Bradypus_tridactylus~1n 
  animal_leg ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     animal_leg~1nz (^leg~7) the leg of an animal
  air_bladder ( meanings=1 NOUN NOUN_SINGULAR ) 
@@ -11899,7 +11897,7 @@
  Al_Qanoon ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Lashkar-e-Omar~1n 
  Army_of_the_Pure ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    LET~1n 
+    Lashkar-e-Tayyiba~1n 
  Army_of_the_Righteous ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     Lashkar-e-Taiba~1nz (^foreign_terrorist_organization~1) a brutal terrorist group active in Kashmir
  Al-Jama'a_al-Islamiyyah_al-Muqatilah_bi-Libya ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
@@ -19600,10 +19598,8 @@
     adenosine_deaminase~1n 
  adenosine_monophosphate ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     adenylic_acid~1nz (^base~19) a nucleotide found in muscle cells and important in metabolism
- AMP ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    adenosine_monophosphate~1n 
  adenylic_acid ( meanings=1 NOUN NOUN_SINGULAR ) 
-    AMP~1n 
+    adenosine_monophosphate~1n 
  adenosine_diphosphate ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     ADP~2nz (^base~19) an ester of adenosine that is converted to ATP for energy storage
  adenosine_triphosphate ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 

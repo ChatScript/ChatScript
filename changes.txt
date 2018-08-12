@@ -1,3 +1,14 @@
+version 8.4 8/12/2018
+1. ^findrule(label) finds a rule with that label (not tag) anywhere in all topics
+    and returns the tag for it (presumes unique label)
+2. in filesxxx build file, if you name a directory with two tailing slashes, 
+	then the system will compile all files recursively within and below that folder.
+3. $cs_responseControl RESPONSE_NOFACTUALIZE to suppress fact creation of bots output
+4. script compiler directive  ignorespell:  to block some kinds of spelling warnings
+	ignorespell:  word1 word2 ...    (use lower case form of word, will not warn about upper and lower case mixtures)
+ 	ignorespell: *    turn off all spelling warnings on casing
+	ignorespell: !*   turn on all spell warnings on casing
+
 version 8.31 6/18/2018
 1. ^readfile(line filename 'function) will read lines from the file and pass them untouched
    as the sole argument of function. This is formerly called: ^jsonreadcvs which is legal but
@@ -1014,7 +1025,7 @@ if you turned off some files and used DO_SUBSTITUTE, you may want to add in DO_N
 5. for composite proper names, mark will now mark also the last word, and if the name is a human name, the first word as well. 
 6. %bot added, parallels $bot (and is better to use system variable)
 7. systemflags for pos-tag tie values now exposed via names:
-PROBABLE_PREPOSITION, PROBABLE_ADVERB, PROBABLE_ADJECTIVE,PROBABLE_VERB,PROBABLE_NOUN usable with ^GetProperty
+     PROBABLE_ADVERB, PROBABLE_ADJECTIVE,PROBABLE_VERB,PROBABLE_NOUN usable with ^GetProperty
 8. ^"xxx" strings (both format and functional) are now allowed to use [][] choices and make function calls.
 
 

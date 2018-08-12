@@ -23601,7 +23601,7 @@
  Carry_Nation ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Carry_Amelia_Moore_Nation~1n 
  Carry_Amelia_Moore_Nation ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Nation~1nz (^dry~1) United States prohibitionist who raided saloons and destroyed bottles of liquor with a hatchet
+    Carry_Nation~1nz (^dry~1) United States prohibitionist who raided saloons and destroyed bottles of liquor with a hatchet
  Carlos_the_Jackal ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Carlos~1n 
  Cardinal_Newman ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 

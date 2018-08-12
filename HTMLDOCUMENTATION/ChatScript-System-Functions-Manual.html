@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/12/2018 cs8.4</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -50,6 +50,8 @@ t: () name(xxx) # explicitly add an empty pattern</code></pre>
 <p>If value is a topic name, runs the topic in gambit mode to see if any gambits arise. If none arise from the first value, it will try the second, and so on. It does not fail unless a rule forces it to fail or the named topic doesn’t exist or is disabled. You can supply an optional last argument <code>FAIL</code>, in which case it will return <code>FAILRULE_BIT</code> if it didn't fail but it didn't generate any new output either.</p>
 <p>The value may be <code>~</code>, which means use the current topic you are within. It can also be <code>PENDING</code>, which means pick a topic from the pending topics stack (they are all pending being returned to but not including the current topic). Or it can be any other word, which will be a keyword of some topic to pick. E.g.,</p>
 <pre><code>^gambit(~ PENDING ~mygeneraltopic FAIL)</code></pre>
+<h3 id="findrule-label"><code>^findrule ( label )</code></h3>
+<p>On the assumption that you only have one occurence of a rule label in your script, if you provide that label to this function, it will find the corresponding rule anywhere in your script and return the rule tag corresponding to it. If you have more than one such labelled Rule it merely returns the first one it finds (which will be earliest rule in earliest compiled topic).</p>
 <h3 id="getrule-what-label"><code>^getrule ( what label )</code></h3>
 <p>for the given rule label or tag, return some fragment of the rule.</p>
 <p><em>what</em> can be <code>tag</code>, <code>type</code>,<code>label</code>, <code>pattern</code>, <code>output</code>,<code>topic</code>, and <code>usable</code>.</p>
@@ -389,6 +391,10 @@ u: what&#39;s your first name?
 <tr class="odd">
 <td><code>RESPONSE_CURLYQUOTES</code></td>
 <td>change simple quotes to curly quotes (starting and ending)</td>
+</tr>
+<tr class="even">
+<td><code>RESPONSE_NOFACTUALIZE</code></td>
+<td>suppresses building bot output facts (for postprocessing)</td>
 </tr>
 </tbody>
 </table>

@@ -2196,7 +2196,6 @@
 + hunky_dory 
 + jazzed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + keenest MOST_FORM ADJECTIVE ADJECTIVE_NORMAL GRADE3_4 
-+ manners NOUN NOUN_PLURAL KINDERGARTEN 
 + pioneering VERB_PRESENT_PARTICIPLE VERB GRADE3_4 
 + psyched VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + reinvented VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
@@ -2563,7 +2562,6 @@
 + shiz NOUN 
 + shiznit NOUN 
 + smeg NOUN 
-+ abs NOUN NOUN_PLURAL 
 + rowing_machine 
 + to_jog 
 + antipersonnel_mine 
@@ -3147,7 +3145,6 @@
 + cheese_eating_surrender_monkey 
 + cow_kisser 
 + dyke_jumper 
-+ lowlander MORE_FORM ADJECTIVE ADJECTIVE_NORMAL 
 + plastic_paddy 
 + pommie_grant 
 + sideways_cooter 

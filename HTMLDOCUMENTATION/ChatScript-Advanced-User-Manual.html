@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/9/2018 cs8.3</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/12/2018 cs8.4</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -948,7 +948,11 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <pre><code>topic: ~mytopic (cheese cheese~n)</code></pre>
 <p>Since you have accepted all forms of cheese, you don't need to name <code>cheese~n</code>. <code>:build</code> also warns you about various substitutions that might affect your patterns. You can suppress those messages with <code>:build filename nosubstitution</code></p>
 <h2 id="files">Files</h2>
-<p>When you name a file or directory, :build will ignore files that end in ~ or .bak (the common backup names from editors on Windows and Linux).</p>
+<p>When you name a file or directory, :build will ignore files that do not end in .top or .tbl . When you name a directory, it walks all the files in that directory, but does not recurse into subdirectories unless you explicitly ask it to by adding a second slash after the directory name. If the contents of your filesxxx build file had this:</p>
+<pre><code>topic.top
+subdirectory1/
+subdirectory2//</code></pre>
+<p>then it would compile topic.top, all files within subdirectory1 non-recursively, and all files recursively in subdirectory2.</p>
 <h2 id="trace">Trace</h2>
 <p>Sometimes you might fail to place a paren properly, swallow a whole lot of input and crash. Finding where the problem is may be hard. You can therefore turn on a trace which will show you all the rules it successfully completes.</p>
 <pre><code>:build harry trace</code></pre>
