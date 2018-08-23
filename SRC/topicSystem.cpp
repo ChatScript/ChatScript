@@ -525,6 +525,24 @@ char* GetTopicData(int topicid)
     return (data+JUMP_OFFSET); //   point past accellerator to the t:
 }
 
+void WalkTopics(char* function, char* buffer)
+{
+    for (int i = 1; i <= numberOfTopics; ++i)
+    {
+        if (!*GetTopicName(i)) continue;
+        topicBlock* block = TI(i);
+        char label[MAX_WORD_SIZE];
+        // skip if current bot cannot access
+        if (block->topicRestriction && !strstr(block->topicRestriction, computerIDwSpace)) continue;
+        
+        FunctionResult result;
+        char word[MAX_WORD_SIZE];
+        sprintf(word, (char*)"( %s )", GetTopicName(i));
+        *buffer = 0;
+        DoFunction(function, word, buffer, result);
+    }
+}
+
 char* GetTopicLocals(int topicid)
 {
     char* data = GetTopicBlockData(topicid); //   predefined topic or user private topic

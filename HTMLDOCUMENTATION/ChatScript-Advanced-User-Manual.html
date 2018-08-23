@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/12/2018 cs8.4</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/23/2018 cs8.5</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -89,6 +89,16 @@
 </tr>
 </tbody>
 </table>
+<h3 id="system-variables">System variables</h3>
+<p>System variables begin with %. Normally these are simply read-only data, but it is legal to assign to them as well, with certain consequences.</p>
+<pre><code>%response = 5</code></pre>
+<p>The first consequence is that the change is global, across all bots and users, whether the system is stand-alone or a server.</p>
+<p>The other consequence is that usually the change is locked in permanently until you tell the system to release it by assigning a dot to it.</p>
+<pre><code>%response = .  # release current override and use the normal value again</code></pre>
+<p>Some assignments are not locking. %input is one of those.</p>
+<p>In addition to overriding system variables, if &quot;regression&quot; via</p>
+<pre><code>%regression = 1</code></pre>
+<p>is turned on, some variables return fixed values. Things like date and time have a constant value so as not to interfere with regression testing.</p>
 <h3 id="facts">Facts</h3>
 <p>ChatScript supports structured triples of data called facts, which can be found by querying for them. The 3 fields of a fact are either text strings or fact references to other facts. So you might have a fact like</p>
 <pre><code>(I eat &quot;meat-loving plants&quot;)</code></pre>
@@ -717,6 +727,9 @@ u: ( &lt;&lt; what time &gt;&gt; ) $test = ^mymac() join(ok $test)</code></pre>
 <p>However, it is clearer and cleaner if you are returning data to be stored somewhere else (not to be merely immediately sent to the user), to use <code>^return(&quot;tested here&quot;)</code>. This both creates the result, and ends the function immediately even if other code follows.</p>
 <p><strong>Note - calls to macros use &quot;pass by reference&quot;, so the actual value of the <code>^variable</code> is the name of what was passed in, and it is generally (but not always) evaluated on use.</strong></p>
 <p>You may make references to outputmacros before they are defined, EXCEPT when the Function is directly or indirectly referenced from a table. Tables immediately execute as they are compiled, and you will get an error if a function it tries to use is not defined.</p>
+<h2 id="indirect-function-calls">Indirect function calls</h2>
+<p>You can store an outputmacro name on a variable and then call that indirectly.</p>
+<pre><code>^$_xx(value1)  if $_xx holds a function name</code></pre>
 <h2 id="sharing-function-definitions">Sharing function definitions</h2>
 <p>ChatScript requires that a function be defined before use. When you use that function from multiple files, you may have trouble ordering the files for compilation if you merely name the folder in <code>filesxxx.txt</code> since you cannot guarantee compilation order unless you explicitly name the files. But you can also just put your functions in a top level file and then have your other files in folders, and name it and then them in your <code>filesxxx.txt</code> file.</p>
 <h2 id="save-restore-locals">Save-Restore locals</h2>

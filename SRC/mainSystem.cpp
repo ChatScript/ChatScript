@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "8.4";
+char* version = "8.5";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1529,7 +1529,7 @@ static void FactizeResult() // takes the initial given result
 			int count;
 			char* starts[MAX_SENTENCE_LENGTH];
 			memset(starts,0,sizeof(char*)*MAX_SENTENCE_LENGTH);
-			ptr = Tokenize(ptr,count,(char**) starts,false,true);   //   only used to locate end of sentence but can also affect tokenFlags (no longer care)
+			ptr = Tokenize(ptr,count,(char**) starts,false);   //   only used to locate end of sentence but can also affect tokenFlags (no longer care)
 			char c = *ptr; // is there another sentence after this?
 			char c1 = 0;
 			if (c)  
@@ -2710,7 +2710,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 
 	char* ptr = input;
 	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark
-    ptr = Tokenize(ptr,wordCount,wordStarts,false,false,oobstart); 
+    ptr = Tokenize(ptr,wordCount,wordStarts,false,oobstart); 
 	upperCount = 0;
 	lowerCount = 0;
 	for (int i = 1; i <= wordCount; ++i)   // see about SHOUTing

@@ -459,6 +459,7 @@ bool SpellCheckSentence()
 				tokens[3] = rest + 1;
 				ReplaceWords("dotsentence", i, 1, 3, tokens);
 				fixedSpell = true;
+				*dot = '.';  // restore the dot so the original is still in derivationSentence
 				continue;
 			}
 			else 

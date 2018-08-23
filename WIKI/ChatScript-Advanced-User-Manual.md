@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/12/2018 cs8.4
+<br>Revision 8/23/2018 cs8.5
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -121,6 +121,31 @@ User variables also come in permanent and transient forms.
 | transient    | `$$transientvar` | start with `$$` and completely disappear when a user interaction happens (are not saved to disk). You can see and alter their value from anywhere.
 | local        | `$_localvar`     |  (described later) start with `$_` and completely disappear when a user interaction happens (are not saved to disk). You can see and alter their value only within the topic or outputmacro they are used.
 
+### System variables
+
+System variables begin with %. Normally these are simply read-only data,
+but it is legal to assign to them as well, with certain consequences.
+```
+%response = 5
+```
+
+The first consequence is that the change is global, across all bots and users, whether
+the system is stand-alone or a server.
+
+The other consequence is that usually the change is locked in permanently until you
+tell the system to release it by assigning a dot to it.
+```
+%response = .  # release current override and use the normal value again
+```
+
+Some assignments are not locking. %input is one of those.
+
+In addition to overriding system variables, if "regression" via
+```
+%regression = 1
+```
+is turned on, some variables return fixed values. Things like date and time have a constant
+value so as not to interfere with regression testing.
 
 ### Facts 
 
@@ -1526,6 +1551,12 @@ You may make references to outputmacros before they are defined, EXCEPT when the
 is directly or indirectly referenced from a table. Tables immediately execute as they
 are compiled, and you will get an error if a function it tries to use is not defined.
 
+## Indirect function calls
+
+You can store an outputmacro name on a variable and then call that indirectly.
+```
+^$_xx(value1)  if $_xx holds a function name
+```
 
 ## Sharing function definitions
 

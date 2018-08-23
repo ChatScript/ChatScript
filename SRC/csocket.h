@@ -32,6 +32,7 @@ extern bool echoServer;
 #endif
 
 extern char serverIP[100];
+void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output);
 
 #ifndef DISCARDCLIENT
 extern "C" {void Client(char* login);}

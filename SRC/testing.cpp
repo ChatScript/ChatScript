@@ -55,8 +55,6 @@ bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
 
 
 #ifndef DISCARDTESTING
-void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output);
-
 static void C_Trace(char* input);
 static void C_DoInternal(char* input,bool internal);
 static int nooob = 0;

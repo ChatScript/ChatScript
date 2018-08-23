@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/12/2018 cs8.4</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/23/2018 cs8.5</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -1167,8 +1167,12 @@ u: what&#39;s your first name?
 <p>And the dictionary has some words which are composites, like <em>iced_coffee</em> and it will automatically convert the two words into a single token. If you wanted to stop this behavior, you could disable this composite word via</p>
 <pre><code> ^removeproperty(iced_coffee NOUN)</code></pre>
 <p>since it is declared as a NOUN (you can see with <code>:word iced_coffee</code>). You can do this to nouns, adjectives, adverbs.</p>
-<h3 id="walkdictionary-function"><code>^walkdictionary ( 'function )</code></h3>
+<h3 id="walkdictionary-function"><code>^walkdictionary ( '^function )</code></h3>
 <p>calls the named output macro from every word in the dictionary. The function should have 1 argument, the word.</p>
+<h3 id="walktopics-function"><code>^walktopics ( '^function )</code></h3>
+<p>calls the named output macro for every topic the current bot can access. The function should have 1 argument, the topic name.</p>
+<h3 id="walkvariables-function"><code>^walkvariables ( '^function )</code></h3>
+<p>calls the named output macro for every global permanent user variable currently non-null. The function should have 1 argument, the topic name. It does not involve $$ or $_ variables, or bot variables.</p>
 <h3 id="iterator-member-concept"><code>^Iterator ( ? member ~concept )</code></h3>
 <p>An iterator is a repeatable fact query that allows you to walk through each member of a concept, either at top level or recursively. Useful in conjunction with a <code>loop()</code>, the function is defined in the planning manual but can be used outside of planning. You can have one iterator in progress per rule.</p>
 <pre><code>loop () # unload every resource on board
@@ -1202,9 +1206,10 @@ u: what&#39;s your first name?
 <p>For a concept, if the member chosen is itself a concept, the system will recurse to pick randomly from that concept. If the argument to pick is a $var or _var, it will be evaluated and then pick will be tried on the result (but it won't recurse to try that again).</p>
 <p>If the argument is a JSON object it randomly picks a fact whose verb/object is a key-value pair. If the argument is a JSON array, it randomly picks a fact whose verb is the index and whose object is the value. The fact id returned can be used with ^field or you can use something like $result.object to get the specific object.</p>
 <h3 id="reset-what"><code>^reset ( what ? )</code></h3>
-<p>What can be user or topic or factset.</p>
+<p>What can be user or topic or factset or VARIABLES or FACTS or HISTORY.</p>
 <p>If what is user, the system drops all history and starts the user afresh from first meeting (launching a new conversation), having erased the user topic file.</p>
-<p>If what is a factset, the &quot;next&quot; pointer for walking the set is reset back to the beginning. If what is a topic, all rules are re-enabled and all last accessed values are reset to 0.</p>
+<p>If what is a factset, the &quot;next&quot; pointer for walking the set is reset back to the beginning. If what is a topic, all rules are re-enabled and all last accessed values are reset to 0. If what is VARIABLES then it sets all global user variables to NULL, leaving alone<br />
+$$, $_ and bot variables. If what is FACTS, it kills all permanent user facts If what is HISTORY it forgets what was said previously.</p>
 <h1 id="fact-functions">FACT FUNCTIONS</h1>
 <h3 id="findfact-subject-verb-object"><code>^findfact ( subject verb object )</code></h3>
 <p>The simplest fact find involves knowing all the components (meanings) and asking if the fact already exists. If it does, it returns the index of the fact. If it doesn't it returns <code>FAILRULE_BIT</code>.</p>

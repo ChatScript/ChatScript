@@ -656,7 +656,7 @@ static char* Output_Function(char* word, char* ptr,  char* space,char*& buffer, 
 		else // we are right side (expression) indirect
 		{
 			Output(word+1,buffer,result,controls); // no leading space  - we now have the variable value from the indirection
-			if (word[1] == USERVAR_PREFIX) // direct retry to avoid json issues
+			if (word[1] == USERVAR_PREFIX && *ptr != '(') // direct retry to avoid json issues (unless function call)
 			{
 				strcpy(word,GetUserVariable(word+1));
 				Output_Dollar(word, "", space,buffer,controls,result,false,false); // allow json processing
@@ -907,7 +907,12 @@ static char* Output_Dollar(char* word, char* ptr, char* space,char*& buffer, uns
 		{
             char* at1 = word;
             while (*at1 == '_' || *at1 == '$') ++at1;
-            while (IsLegalNameCharacter(*++at1)); // find real end of var
+            while (*++at1)
+            {
+                if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']'); // find real end of var allowing json references
+                else if ((*at1 == '$') && (*(at1 - 1) == '[' || *(at1 - 1) == '.')) { ; } // allowed variable json ref
+                else break;
+            }
             if (at1 && *at1)
             {
                 *at1 = 0;

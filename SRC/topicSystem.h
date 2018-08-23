@@ -63,6 +63,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define NEXTTOPLEVEL 2			// only responders and gambits
 
 #define NOMORERULES 0x0fffffff		// finished walking a rule index map
+typedef void(*TOPIC_FUNCTION)(char* topicName, uint64 data);
 
 #define MAX_TOPIC_STACK 50
 extern int currentBeforeLayer;
@@ -150,6 +151,7 @@ void AddKeep(char* ptr);
 int TopicInUse(int topic);
 int PushTopic(int topic);
 void PopTopic();
+void WalkTopics(char* function, char* buffer);
 bool CheckTopicTrace();
 bool CheckTopicTime();
 FunctionResult DoOutput(char* buffer,char* rule, unsigned int id, bool refine = false);

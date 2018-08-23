@@ -421,7 +421,7 @@ static WORDP UnitSubstitution(char* buffer)
 	return (D && allowed & D->internalBits) ? D : NULL; // allowed transform
 }
 
-static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, bool nomodify, bool oobStart, bool oobJson)
+static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, bool oobStart, bool oobJson)
 {
 	char* start = ptr;
 	char c = *ptr;
@@ -533,7 +533,28 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
     char token[MAX_WORD_SIZE];
     ReadCompiledWord(ptr, token);
+    char* slash = strchr(token, '/');
+    if (slash)
+    {
+        if (slash == token) return ptr + 1;
+        char* slash1 = strchr(slash + 1, '/'); // keep possible date?
+        if (!slash1)  // split it off if not date info
+        {
+            *slash = 0;
+            // not dual number fraction like 1 / 4 or 50 / 50
+            if (IsDigit(*token) && IsNumber(token) && IsDigit(slash[1]) && IsNumber(slash + 1))
+            {
+                *slash = '/'; // let be a token
+            }
+        }
+    }
     size_t l = strlen(token);
+
+    // ends in question or exclaim
+    if (token[l - 1] == '!' || token[l - 1] == '?')
+    {
+        if (l > 1) token[--l] = 0; // remove it from token
+    }
 
 	if (*ptr == '?') return ptr + 1; // we dont have anything that should join after ?    but  ) might start emoticon
 	if (*ptr == 0xc2 && ptr[1] == 0xbf) return ptr + 2; // inverted spanish ?
@@ -761,8 +782,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (*end == ';' && !stopper) stopper = end;
 		if (*end == '-' && !(tokenControl & TOKEN_AS_IS) && !stopper) stopper = end; // alternate possible end  (e.g. 8.4-ounce)
 		if (*end == ';' && !fullstopper) fullstopper = end; // alternate possible end  (e.g. 8.4-ounce)
-		if (end[0] == '.' && end[1] == '.' && end[2] == '.') break; // ...
-	}
+		if (*end == '.' && end[1] == '.' && end[2] == '.') break; // ...
+        if (*end == '.' && !IsDigit(end[1])) break; // ...
+    }
 	if (comma && end > comma && (!IsDigit(comma[1]) ||!IsDigit(comma[-1]))) end = comma;
 
 	if (end == ptr) ++end;	// must shift at least 1
@@ -927,8 +949,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				else if (c == 'n' && ptr[1] == 'd'){;} // 2nd
 				else if (c == 'r' && ptr[1] == 'd'){;} // 3rd
 				else if (c == 't' && ptr[1] == 'h'){;} // 5th
-				else // break apart known word but not single value or non-word
-				{
+                else if (start != (ptr-1)) // break apart known word but not single value or non-word
+				{ // dont break 3bbd52f7-b5e2-4477-903d-31c7b45f4d79-1511314121
 					char word[MAX_WORD_SIZE];
 					ReadCompiledWord(ptr-1,word); // what is the word
 					if (FindWord(word,0)) return ptr; // we know this second word after the digit
@@ -962,9 +984,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
     return ptr;
 }
 
-char* Tokenize(char* input,int &mycount,char** words,bool all,bool nomodify,bool oobStart) //   return ptr to stuff to continue analyzing later
+char* Tokenize(char* input,int &mycount,char** words,bool all,bool oobStart) //   return ptr to stuff to continue analyzing later
 {	// all is true if to pay no attention to end of sentence -- eg for a quoted string
-	// nomodify is true on analyzing outputs into sentences, because user format may be fixed
     char* ptr = SkipWhitespace(input);
 	int count = 0;
     char* html = input;
@@ -1052,7 +1073,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all,bool nomodify,bool
 		// find end of word 
 		int oldCount = count;
 		if (!*ptr) break; 
-		char* end = FindWordEnd(ptr,priorToken,words,count,nomodify,oobStart,oobJson);
+		char* end = FindWordEnd(ptr,priorToken,words,count,oobStart,oobJson);
  		if (count != oldCount)	// FindWordEnd performed allocation already 
 		{
 			if (count > 0) strcpy(priorToken, words[count]);

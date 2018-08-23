@@ -905,6 +905,7 @@ void MarkAllImpliedWords()
 		{
 			CU = FindWord(original,0,UPPERCASE_LOOKUP);	// try to find an upper to go with it, in case we can use that, but not as a human name
 			if (OU){;} // it was originally uppercase or there is no lower case meaning
+			else if (finalPosValues[i] & IDIOM){;}	// keep if idiom
 			else if (CU && CU->properties & (NOUN_FIRSTNAME|NOUN_HUMAN)) CU = NULL;	// remove accidental names 
 			else if (CU && !CU->properties && !(CU->systemFlags & PATTERN_WORD)) CU = NULL; // there is no use for this (maybe only a sequence head)
 		}

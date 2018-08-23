@@ -1,3 +1,15 @@
+# Version 8.5
+1. ^walktopics('^func) finds the topics current bot can access
+and calls ^func with topic name, iteratively.
+2. ^walkvariables('^func)
+3. ^reset(VARIABLES) - sets all global user variables to NULL
+4. ^reset(FACTS) - kills all permanent user facts
+5. ^reset(HISTORY) forget what was said previously
+6. not new but now documented %input = n  sets that system variable
+   Other system variables can be set as well, sometimes locking them
+   into that value until you do %xxx = .
+7. indirect function call ^$_xx()  if $_xx holds a function name
+
 # version 8.4 8/12/2018
 1. ^findrule(label) finds a rule with that label (not tag) anywhere in all topics
     and returns the tag for it (presumes unique label)

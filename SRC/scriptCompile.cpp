@@ -569,7 +569,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
 			while ((hat = strchr(hat+1,'#'))) // rename #constant or ##constant
 			{
 				if (*(hat-1) == '\\') continue;	// escaped
-				if (IsAlphaUTF8OrDigit(*(hat-1) )) continue; // not a starter
+				if (IsAlphaUTF8OrDigit(*(hat-1) ) || IsDigit(hat[1]) || *(hat - 1) == '&') continue; // not a starter, maybe #533; constant stuff
 				char* at = hat;
 				if (at[1] == '#')  ++at;	// user constant
 				while (*++at && (IsAlphaUTF8OrDigit(*at) || *at == '_')){;} // find end
@@ -1497,12 +1497,12 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 		if (stricmp(arg2,(char*)"PHRASE") && stricmp(arg2,(char*)"VERBAL") && stricmp(arg2,(char*)"CLAUSE")&& stricmp(arg2,(char*)"NOUNPHRASE")) 
 			BADSCRIPT((char*)"CALL- ? 2nd argument to ^getparse must be PHRASE, VERBAL, CLAUSE, NOUNPHRASE- %s\r\n",arg2)
 	}
-	else if (!stricmp(D->word,(char*)"^reset"))
-	{
-		if (stricmp(arg1,(char*)"user") && stricmp(arg1,(char*)"topic") && stricmp(arg1,(char*)"output")  && *arg1 != '@') 
-			BADSCRIPT((char*)"CALL- 10 1st argument to ^reset must be USER or TOPIC or OUTPUT or an @set- %s\r\n",arg1)
-	}
-	else if (!stricmp(D->word,(char*)"^substitute"))
+    else if (!stricmp(D->word, (char*)"^reset"))
+    {
+        if (stricmp(arg1, (char*)"history") &&  stricmp(arg1, (char*)"facts") &&  stricmp(arg1, (char*)"variables") && stricmp(arg1, (char*)"user") && stricmp(arg1, (char*)"topic") && stricmp(arg1, (char*)"output") && *arg1 != '@')
+            BADSCRIPT((char*)"CALL- 10 1st argument to ^reset must be USER or TOPIC or OUTPUT or VARIABLES or FACTS or HISTORY or an @set- %s\r\n", arg1)
+    }
+    else if (!stricmp(D->word,(char*)"^substitute"))
 	{
 		if (stricmp(arg1,(char*)"word") && stricmp(arg1,(char*)"character")  && stricmp(arg1,(char*)"insensitive") && *arg1 != '"' && *arg1 != '^') 
 			BADSCRIPT((char*)"CALL- 11 1st argument to ^substitute must be WORD or CHARACTER or INSENSITIVE- %s\r\n",arg1)
@@ -1790,7 +1790,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 				if (*word == '^' && (*nextToken == '(' || IsDigit(word[1])))   //   function call or function var ref 
 				{
 					WORDP D = FindWord(word,0,LOWERCASE_LOOKUP);
-					if (!IsDigit(word[1]) && *nextToken == '(' && (!D || !(D->internalBits & FUNCTION_NAME))) 
+					if (!IsDigit(word[1]) && word[1] != USERVAR_PREFIX && *nextToken == '(' && (!D || !(D->internalBits & FUNCTION_NAME)))
 						BADSCRIPT((char*)"CALL-1 Default call to function not yet defined %s\r\n",word)
 					if (*nextToken != '(' && !IsDigit(word[1])) BADSCRIPT((char*)"CALL-? Unknown function variable %s\r\n",word)
 
@@ -5252,7 +5252,7 @@ static void DoubleCheckFunctionDefinition()
 				++hasErrors;
 			}
 		}
-		else
+		else if (functionName[1] != USERVAR_PREFIX) // allow function calls indirect off variables
 		{
 			Log(BADSCRIPTLOG, (char*)"*** Error- Undefined function %s \r\n", functionName);
 			++hasErrors;

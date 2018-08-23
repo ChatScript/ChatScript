@@ -659,7 +659,7 @@ void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 	sprintf(langfile, "treetagger/%s.par", language);
 	MakeLowerCase(langfile);
 	//write_treetagger();
-	bool result = init_treetagger(langfile, AllocateHeap, GetWord); //  NULL, NULL);  /*  Initialization of the tagger with the language parameter file */
+	bool result = init_treetagger(langfile, AllocateHeap, GetWord); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
 	if (strstr(params, "chunk") && result)
 	{
 		sprintf(langfile, "treetagger/%s_chunker.par", language);
@@ -1353,7 +1353,8 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 
 #ifdef TREETAGGER
 	ts.number_of_words = 0; // declare no data in english known to merge into our postagging code
-	if (externalPostagger) (*externalPostagger)();
+    bool oob = (*wordStarts[startSentence] == '[' && *wordStarts[endSentence] == ']');
+    if (externalPostagger && !oob) (*externalPostagger)();
 #endif
 	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag"))
 	{

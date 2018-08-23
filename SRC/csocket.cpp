@@ -34,6 +34,23 @@ serverFinishedBy is what time the answer must be delivered (1 second before the 
 bool echoServer = false;
 
 char serverIP[100];
+
+
+void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output)
+{
+    struct tm ptm;
+    char* date = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
+    date[15] = 0;	// suppress year
+    memmove(date + 3, date + 4, 13); // compress out space
+    size_t len = strlen(output);
+    char* why = output + len + HIDDEN_OFFSET; //skip terminator + 2 ctrl z end marker
+    char* activeTopic = (*why) ? (char*)(why + strlen(why) + 1) : (char*)"";
+    uint64 endtime = ElapsedMilliseconds();
+    char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
+    if (*input) Log(SERVERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %s\r\n", nl, user, bot, IP, activeTopic, turn, input, Purify(output), date, (int)(endtime - starttime), why);
+    else Log(SERVERLOG, (char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %s Version:%s Build0:%s Build1:%s %s\r\n", nl, user, bot, IP, activeTopic, turn, Purify(output), date, (int)(endtime - starttime), why, version, timeStamp[0], timeStamp[1], why);
+}
+
 #ifndef DISCARDSERVER
 
 #ifdef EVSERVER
@@ -711,21 +728,6 @@ void* RegressLoad(void* junk)// test load for a server
 		else msg++;
 	}
 	return 0;
-}
-
-void LogChat(uint64 starttime,char* user,char* bot,char* IP, int turn,char* input,char* output)
-{
-	struct tm ptm;
-	char* date = GetTimeInfo(&ptm,true)+SKIPWEEKDAY;
-	date[15] = 0;	// suppress year
-	memmove(date+3,date+4,13); // compress out space
-    size_t len = strlen(output);
-    char* why = output + len + HIDDEN_OFFSET; //skip terminator + 2 ctrl z end marker
-    char* activeTopic = (*why) ? (char*)(why + strlen(why) + 1) : (char*)"";
-	uint64 endtime = ElapsedMilliseconds(); 
-	char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
-	if (*input) Log(SERVERLOG,(char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %s\r\n", nl,user,bot,IP,activeTopic,turn,input,Purify(output),date,(int)(endtime - starttime),why);
-	else Log(SERVERLOG,(char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %s Version:%s Build0:%s Build1:%s %s\r\n",nl, user,bot,IP,activeTopic,turn,Purify(output),date,(int)(endtime - starttime),why,version,timeStamp[0],timeStamp[1],why);
 }
 
 #ifndef EVSERVER // til end of file

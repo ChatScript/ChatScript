@@ -643,13 +643,6 @@ static void BindVariables(CALLFRAME* frame,FunctionResult& result, char* buffer)
             }
             else if (*val && *(val - 1) != '`') val = AllocateStack(val, 0, true);
             arg->w.userValue = val;
-            if (!stricmp(arg->word, "$_specialty"))
-            {
-                WORDP D = FindWord("$specialty");
-                WORDP E = FindWord("$_specialty");
-                // D->w.userValue
-                int xx = 0;
-            }
 #ifndef DISCARDTESTING
             if (debugVar) (*debugVar)(arg->word, arg->w.userValue);
 #endif
@@ -3910,7 +3903,7 @@ static FunctionResult TokenizeCode(char* buffer)
 		int count;
 		char* starts[MAX_SENTENCE_LENGTH];
 		memset(starts,0,sizeof(char*)*MAX_SENTENCE_LENGTH);
-		ptr = Tokenize(ptr,count,(char**) starts,false,true);   //   only used to locate end of sentence but can also affect tokenFlags (no longer care)
+		ptr = Tokenize(ptr,count,(char**) starts,false);   //   only used to locate end of sentence but can also affect tokenFlags (no longer care)
 		if (!raw)
 		{
 			wordCount = count;
@@ -6380,6 +6373,72 @@ static FunctionResult WalkDictionaryCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static FunctionResult WalkVariablesCode(char* buffer)
+{
+    FunctionResult result;
+    xbuffer = buffer;
+    char fn[MAX_WORD_SIZE];
+    char* function = ReadShortCommandArg(ARGUMENT(1), fn, result, OUTPUT_NOQUOTES);
+    if (result != NOPROBLEM_BIT) return result;
+    function = fn;
+    if (*function == '\'') ++function; // skip over the ' 
+    WORDP D = FindWord(function, 0, LOWERCASE_LOOKUP);
+    if (!D || !(D->internalBits & FUNCTION_NAME)) return FAILRULE_BIT;
+
+    unsigned int varthread = userVariableThreadList;
+    char word[MAX_WORD_SIZE];
+    while (varthread)
+    {
+        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
+        WORDP D = Index2Word(cell[1]);
+        varthread = cell[0];
+        if (D->word[1] != TRANSIENTVAR_PREFIX && D->word[1] != LOCALVAR_PREFIX && D->w.userValue ) // transients not dumped, nor are NULL values
+        {
+            // if var is actually system var, and value is unchanged (may have edited and restored), dont save it
+            unsigned int varthread1 = botVariableThreadList;
+            while (varthread1)
+            {
+                cell = (unsigned int*)Index2Heap(varthread1);
+                varthread1 = cell[0];
+                WORDP E = Index2Word(cell[1]);
+                if (D == E) break; // changed back to normal
+            }
+            if (varthread1) continue; // not really changed
+
+            varthread1 = kernelVariableThreadList;
+            while (varthread1)
+            {
+                cell = (unsigned int*)Index2Heap(varthread1);
+                varthread1 = cell[0];
+                WORDP E = Index2Word(cell[1]);
+                if (D == E) break;// changed back to normal
+            }
+            if (varthread1) continue; // not really changed
+
+            FunctionResult result;
+            char word[MAX_WORD_SIZE];
+            sprintf(word, (char*)"( %s )", D->word);
+            *buffer = 0;
+            DoFunction(function, word, buffer, result);
+        }
+    }
+    return NOPROBLEM_BIT;
+}
+
+static FunctionResult WalkTopicsCode(char* buffer)
+{
+    FunctionResult result;
+    xbuffer = buffer;
+    char fn[MAX_WORD_SIZE];
+    char* function = ReadShortCommandArg(ARGUMENT(1), fn, result, OUTPUT_NOQUOTES);
+    if (result != NOPROBLEM_BIT) return result;
+    function = fn;
+    if (*function == '\'') ++function; // skip over the ' 
+    WORDP D = FindWord(function, 0, LOWERCASE_LOOKUP);
+    if (!D || !(D->internalBits & FUNCTION_NAME)) return FAILRULE_BIT;
+    WalkTopics(function,buffer);
+    return NOPROBLEM_BIT;
+}
 
 //////////////////////////////////////////////////////////
 /// DICTIONARY
@@ -7075,18 +7134,73 @@ static FunctionResult ResetCode(char* buffer)
 #endif
 		return ENDINPUT_BIT;
 	}
-	else if (!stricmp(word,(char*)"TOPIC"))
-	{
-		word = ARGUMENT(2);
-		int topicid;
-		if (*word == '*' && word[1] == 0) // all topics
-		{
-			if (!all) ResetTopics(); 
-		}
-		else if ((topicid = FindTopicIDByName(word))) ResetTopic(topicid);
-		else return FAILRULE_BIT;
-		return NOPROBLEM_BIT;
-	}
+    else if (!stricmp(word, (char*)"HISTORY")) //    
+    {
+        chatbotSaidIndex = humanSaidIndex = 0;
+        *humanSaid[humanSaidIndex] = 0;
+        *chatbotSaid[chatbotSaidIndex] = 0;
+        return NOPROBLEM_BIT;
+    }
+    else if (!stricmp(word, (char*)"FACTS")) // delete permanent user facts
+    {
+        FACT* F = factFree + 1;
+        while (--F > factLocked)
+        {
+            if (!(F->flags & FACTTRANSIENT)) F->flags |= FACTDEAD;
+        }
+        return NOPROBLEM_BIT;
+    }
+    else if (!stricmp(word, (char*)"VARIABLES"))
+    {
+        unsigned int varthread = userVariableThreadList;
+        char word[MAX_WORD_SIZE];
+        while (varthread)
+        {
+            unsigned int* cell = (unsigned int*)Index2Heap(varthread);
+            WORDP D = Index2Word(cell[1]);
+            varthread = cell[0];
+            if (D->word[1] != TRANSIENTVAR_PREFIX && D->word[1] != LOCALVAR_PREFIX && D->w.userValue) // transients not dumped, nor are NULL values
+            {
+
+                // if var is actually system var, and value is unchanged (may have edited and restored), dont save it
+                unsigned int varthread1 = botVariableThreadList;
+                while (varthread1)
+                {
+                    cell = (unsigned int*)Index2Heap(varthread1);
+                    varthread1 = cell[0];
+                    WORDP E = Index2Word(cell[1]);
+                    if (D == E) break; // changed back to normal
+                }
+                if (varthread1) continue; // not really changed
+
+                varthread1 = kernelVariableThreadList;
+                while (varthread1)
+                {
+                    cell = (unsigned int*)Index2Heap(varthread1);
+                    varthread1 = cell[0];
+                    WORDP E = Index2Word(cell[1]);
+                    if (D == E) break;// changed back to normal
+                }
+                if (varthread1) continue; // not really changed
+                D->w.userValue = NULL;
+            }
+        }
+        return NOPROBLEM_BIT;
+    }
+    else if (!stricmp(word, (char*)"TOPIC"))
+    {
+        word = ARGUMENT(2);
+        int topicid;
+        if (*word == '*' && word[1] == 0) // all topics
+        {
+            if (!all) ResetTopics();
+            ResetContext(); // all context history
+            pendingTopicIndex = 0;
+        }
+        else if ((topicid = FindTopicIDByName(word))) ResetTopic(topicid);
+        else return FAILRULE_BIT;
+        return NOPROBLEM_BIT;
+    }
 	else if (!stricmp(word,(char*)"OUTPUT"))
 	{
 		responseIndex = 0;
@@ -8792,6 +8906,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^keywordtopics",KeywordTopicsCode,VARIABLE_ARG_COUNT,0,(char*)"get facts of topics that cover keywords mentioned in input"}, 
 	{ (char*)"^pendingtopics",PendingTopicsCode,1,0,(char*)"return list of currently pending topics as facts in 1st arg"}, 
 	{ (char*)"^querytopics",QueryTopicsCode,1,0,(char*)"get topics of which 1st arg is a keyword?"}, 
+    { (char*)"^walktopics",WalkTopicsCode,1,0,(char*)"call a function on every topic accessible to this bot" },
+    { (char*)"^walkvariables",WalkVariablesCode,1,0,(char*)"call a function on every global user variable" },
 
 	{ (char*)"\r\n---- Marking & Parser Info",0,0,0,(char*)""},
 	{ (char*)"^gettag",GetTagCode,1,SAMELINE,(char*)"for word n, return its postag concept" },

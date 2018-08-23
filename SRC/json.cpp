@@ -2045,11 +2045,6 @@ LOOP: // now we look at $x.key or $x[0]
 		strcpy(keyx,answer);
 		if (!*keyx) 
 			return FAILRULE_BIT;
-		if (*keyx == '$')
-		{
-			if (trace & TRACE_VARIABLESET) Log(STDTRACELOG,(char*)"JsonVarStillVar: %s.%s\r\n",fullpath,keyx);
-			return FAILRULE_BIT;	// cannot be indirection
-		}
 	}
     else if ((*keyx == '_' && IsDigit(keyx[1])) || (*keyx == '\'' && keyx[1] == '_' && IsDigit(keyx[2]))) // indirection key match variable
     {
@@ -2058,11 +2053,6 @@ LOOP: // now we look at $x.key or $x[0]
         else strcpy(keyx, wildcardOriginalText[index]);
         if (!*keyx)
             return FAILRULE_BIT;
-        if (*keyx == '$')
-        {
-            if (trace & TRACE_VARIABLESET) Log(STDTRACELOG, (char*)"JsonVarStillVar: %s.%s\r\n", fullpath, keyx);
-            return FAILRULE_BIT;	// cannot be indirection
-        }
     }
 	// now we have retrieved the key/index
 	if (*keyx == ']') keyname = NULL;  // [] use
@@ -2450,7 +2440,7 @@ FunctionResult JSONDeleteCode(char* buffer)
 		F = GetObjectNondeadNext(F);
 	}
 	
-	// now confirm we have nothing leftf
+	// now confirm we have nothing left
 	F = GetSubjectNondeadHead(D); // should all be dead now
 	if (F && !(F->flags & JSON_FLAGS)) return FAILRULE_BIT;
 	return NOPROBLEM_BIT;
@@ -2474,7 +2464,7 @@ FunctionResult JSONReadCSVCode(char* buffer)
 	int index = JSONArgs(); // not needed but allowed
 	bool commadelimit = (!stricmp(ARGUMENT(index),"comma"));
 	bool tabdelimit = (!stricmp(ARGUMENT(index),"tab"));
-    bool wholeLine = (!stricmp(ARGUMENT(index), "line"));;
+    bool wholeLine = (!stricmp(ARGUMENT(index), "line"));
     if (!tabdelimit && !wholeLine) return FAILRULE_BIT;
 	++index;
     char* data;
