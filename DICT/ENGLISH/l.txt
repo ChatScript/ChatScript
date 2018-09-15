@@ -8604,8 +8604,6 @@
     Londoner~1nz (^English_person~1) a native or resident of London
  Laconian ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Laconian~1nz (^Hellene~1) a resident of Laconia
- Lesbian ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Lesbian~1nz (^Hellene~1) a resident of Lesbos
  Lapplander ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Lapp~2nz (^European~1) a member of an indigenous nomadic people living in northern Scandinavia and herding reindeer
  Latin_American ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 

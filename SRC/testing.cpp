@@ -2198,7 +2198,7 @@ static void C_CheckList(char* file)
 	(*printer)("done\r\n");
 }
 
-static void C_TrimField(char* file)
+static void C_JA2Starts(char* file)
 {
 	FILE* out = FopenUTF8Write("tmp/tmp.txt");
 	FILE* in = FopenReadOnly(file);
@@ -2208,12 +2208,12 @@ static void C_TrimField(char* file)
 		return;
 	}
     int n = 0;
-    char old[MAX_WORD_SIZE];
+    char old[MAX_WORD_SIZE * 10];
+    char copy[MAX_WORD_SIZE * 10];
 	while (fgets(readBuffer, 10000000, in) != NULL)
 	{
 		if (!*readBuffer) break;
-
-
+        strcpy(copy, readBuffer);
         ++n;
 		//VA-51382515	legal	family		I have a friend who has a half brother. His father won't let him see his brother. Does my friend have any rights in this matter?
 		char* at = strchr(readBuffer, '\t'); // to cat
@@ -2223,28 +2223,27 @@ static void C_TrimField(char* file)
 			return;
 		}
 		at = strchr(at+1, '\t'); // to spec
-        if (!at)
-        {
-            int xx = 0;
-        }
+        if (!at) continue;
 		at = strchr(at + 1, '\t'); // to loc
-        if (!at)
-        {
-            int xx = 0;
-        }
+        if (!at) continue;
+#ifndef LOCATIONIFY
+        memmove(at + 1, at, strlen(at)+1);
+        *at = '\t';
+#endif
         at = strchr(at + 1, '\t'); // to input
-        if (!at)
+        if (!at) continue;
+        char* end = strchr(at + 1, '\t'); // to output
+        if (!end) strcat(at, "\t");
+        else
         {
-            int xx = 0;
+            char* at = end + 1; // start of output, remove any quotes
+            while ((at = strchr(at, '"'))) 
+                *at = ' ';
         }
-        if (!at[1])
-        {
-            int xx = 0;
-        }
-        strncpy(old, readBuffer, MAX_WORD_SIZE - 3);
-        old[MAX_WORD_SIZE - 3] = 0;
-        if (strlen(at+1) < 50) continue;  // nominal 5 words
-		fprintf(out, "%s", readBuffer);
+        
+        strncpy(old, readBuffer, (MAX_WORD_SIZE * 10) - 3);
+        old[(MAX_WORD_SIZE*10) - 3] = 0;
+		fprintf(out, "%s", old);
 		*readBuffer = 0;
 	}
 	fclose(out);
@@ -2271,7 +2270,7 @@ static void C_RemoveCRLF(char* file)
     fclose(in);
 }
 
-static void C_Field2Source(char* file)
+static void C_JA2Source(char* file)
 {
     FILE* out = FopenUTF8Write("tmp/tmp.txt");
     FILE* in = FopenReadOnly(file);
@@ -2286,12 +2285,14 @@ static void C_Field2Source(char* file)
     char specialty[MAX_WORD_SIZE];
     char location[MAX_WORD_SIZE];
     char input[MAX_WORD_SIZE * 10];
+    char copy[MAX_WORD_SIZE * 10];
     while (fgets(readBuffer, 10000000, in) != NULL)
     {
         if (!*readBuffer) break;
+        strcpy(copy, readBuffer);
         ++n;
         //VA-51382515	legal	family	alberta 	I have a friend who has a half brother. His father won't let him see his brother. Does my friend have any rights in this matter?
-        char* at = strchr(readBuffer, '\t'); // to cat
+        char* at = strchr(readBuffer, '\t'); // to category
         if (!at)
         {
             (*printer)("not found delimiter %s\r\n", readBuffer);
@@ -2301,19 +2302,20 @@ static void C_Field2Source(char* file)
         *at = 0;
         strcpy(id, readBuffer);
         char* start = at + 1;
-        at = strchr(start, '\t'); // to spec
+        at = strchr(start, '\t'); // to specialty
         *at = 0;
         strcpy(category, start);
-
         start = at + 1; 
-        at = strchr(start, '\t'); // to loc
+        at = strchr(start, '\t'); // to loc or beyond
         *at = 0;
         strcpy(specialty, start); 
-
+        *location = 0;
+#ifdef LOCALIZE
         start = at + 1; 
         at = strchr(start, '\t'); // to input
         *at = 0;
         strcpy(location, start);
+#endif
         strcpy(input, at + 1);
 
         if (!*specialty) strcpy(specialty, "NULL");
@@ -7826,12 +7828,12 @@ void C_Why(char* buffer)
 		int topic = responseData[order].topic;
 		int id;
 		char* rest = GetRuleIDFromText(responseData[order].id,id);
-		Log(STDTRACELOG,(char*)"%s%s  %s\r\n",GetTopicName(topic),responseData[order].id,ShowRule(GetRule(topic,id)));
+		Log(STDTRACELOG,(char*)"%s.%d.%d  %s\r\n",GetTopicName(topic), TOPLEVELID(id), REJOINDERID(id),ShowRule(GetRule(topic,id)));
 		if (*rest) // format will be ~topic.3.0.5.3.3  where last 3 are the via rule info
 		{
 			topic = atoi(rest+1);
-			GetRuleIDFromText(rest+1,id);
-			Log(STDTRACELOG,(char*)" via %s%s  %s\r\n",GetTopicName(topic),rest,ShowRule(GetRule(topic,id)));
+			rest = GetRuleIDFromText(rest+1,id);
+			Log(STDTRACELOG,(char*)" via %s.%d.%d %s\r\n",GetTopicName(topic), TOPLEVELID(id), REJOINDERID(id),ShowRule(GetRule(topic,id)));
 		}
 	}
 }
@@ -9722,8 +9724,10 @@ static void TrimIt(char* name,uint64 flag)
 		char copy[MAX_BUFFER_SIZE];
 		strcpy(copy,readBuffer);
 
-		// fields in log file are: type, user, bot, ip, resulting topic, (current volley id),  input,  output, dateinfo, possible f:,  followed by rule tags for each issued output.
-		
+        // fields in log file are: type, user, bot, ip, rand, resulting topic, (current volley id),  input,  output, dateinfo (when), possible f:,  followed by rule tags for each issued output.
+        //Start: user:dat bot : pearl ip : rand:2366 (~introductions) 0 == >[why = ~introductions.1.0.~control.6.0 | v = 36.0]`Hello, I'm Pearl Wilson, the Expert's Assistant on JustAnswer.How can I help ? When : Sep14'18-12:02:49 Why:~xpostprocess.4.0=OOBRESULT.~control.4.0 ~introductions.1.0.~control.6.0  Version:8.5 Build0:Sep10'18 - 07 : 32 : 40 Build1 : Sep13'18-13:55:30 0:Sep14'18 - 12 : 02 : 49 F : 0 P : 0
+        //Respond : user : dat bot : pearl ip : () 1   test me == >[alarm = 0 | loopback = 0 | why = ~phase2.8.0 = MAINCONTROL.~phase2.7.0 | v = 36.0]`What can I say ? When : Sep14'18-12:04:48 Why:~xpostprocess.4.0=OOBRESULT.~control.10.3 ~phase2.8.0=MAINCONTROL.~phase2.7.0   F:4932 
+
 		// fields in regress file are: Start: user:test bot:rose rand:3089 (resulting topic), volleyid,  input:  output: Good morning. 
 		// Respond: user:test bot:rose (resulting topic), volleyid input output 
 
@@ -10137,8 +10141,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":trim",C_Trim,(char*)"Strip excess off chatlog file to make simple file TMP/tmp.txt"}, 
 	
     { (char*)":removecrlf",C_RemoveCRLF,(char*)"echo file  to TMP/tmp.txt with no crlf " },
-    { (char*)":field2source",C_Field2Source,(char*)"echo csv  to TMP/tmp.txt reformatting to source " },
-    { (char*)":trimfield",C_TrimField,(char*)"echo file to TMP/tmp.txt minus short line in column" },
+    { (char*)":ja2source",C_JA2Source,(char*)"JA echo csv  to TMP/tmp.txt reformatting to source " },
+    { (char*)":ja2starts",C_JA2Starts,(char*)"JA echo file to TMP/tmp.txt minus short line in column" },
 	{ (char*)":trimdown",C_TrimDown,(char*)"echo  to TMP/tmp.txt single word entries from a :down list" },
 	{ (char*)":checklist",C_CheckList,(char*)"echo  to TMP/tmp.txt words in file list that can be verbs" },
 
@@ -10154,7 +10158,7 @@ CommandInfo commandSet[] = // NEW
     { (char*)":rewriteconverse",C_RewriteConverse,(char*)"Read lines from file, reformat as conversation,  write to tmp/tmp.txt" },
     { (char*)":rewrite1",C_Rewrite1,(char*)"Read lines from file, reformat,  write to tmp/tmp.txt" },
     { (char*)":quotelines",C_QuoteLines,(char*)"Read lines from file, add quotes around them, write to tmp/tmp.txt" },
-	{ (char*)":striplog",C_StripLog,(char*)"Read lines from a server log file, reducing them to normal inputs for :source, write to tmp/tmp.txt" },
+    { (char*)":striplog",C_StripLog,(char*)"Read lines from a server log file, reducing them to normal inputs for :source, write to tmp/tmp.txt" },
 #ifndef DISCARDPOSTGRES
 	{ (char*)":endpguser",C_EndPGUser,(char*)"Switch from postgres user topic to file system"},
 #endif

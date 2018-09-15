@@ -529,9 +529,10 @@ static size_t CurlWriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void
 void CurlShutdown()
 {
 	if (curl_done_init) curl_global_cleanup ();
+	curl_done_init = false;
 }
 
-static FunctionResult InitCurl()
+FunctionResult InitCurl()
 {
 	// Get curl ready -- do this ONCE only during run of CS
 	if (!curl_done_init) {

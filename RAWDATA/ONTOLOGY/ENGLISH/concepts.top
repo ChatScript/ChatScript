@@ -2030,7 +2030,7 @@ executor beneficiary magistrate conservator ) ##>>
 ##<<ENGLISH concept: ~weapon_modern (~gas_weapon ~weapon_massdestruction ~weapon_missile ~weapon_stun EMP modern_weapon modern_weaponry ) ##>>
 ##<<ENGLISH concept: ~weapon_nuclear (A-bomb atom_bomb atomic_bomb atomic_weapon clean_bomb dirty_bomb fission_bomb fusion_bomb H-bomb hydrogen_bomb megaton_bomb neutron_bomb nuclear_weapon nuke 
           plutonium_bomb thermonuclear_bomb ) ##>>
-##<<ENGLISH concept: ~weapon_stun (stun_baton stun_gun taser ) ##>>
+##<<ENGLISH concept: ~weapon_stun (stun_baton stun_gun Taser ) ##>>
 ##<<ENGLISH concept: ~wearable (~all_shields ~clothes ) ##>>
 ##<<ENGLISH concept: ~weatherkinds (~bad_weather ~good_weather ~reallybadweather climate dew weather ) ##>>
 ##<<ENGLISH concept: ~weatherprocess (~natural_disasters ~seasons ~weather_verbs ) ##>>

@@ -5,10 +5,11 @@ concept: ~misc_parsedata (~causal_to_infinitive_verbs  )
 
 # "After common nouns referring to time, when is often replaced by that or dropped in an informal style."
 # "that" as object of the relative clause can be omitted "the chickens that(object) I love"  but not as subject  "the chickens that love"
+
 concept: ~causal_to_infinitive_verbs VERB VERB_INFINITIVE ( # "I authorize you to find him'
 	adjure  advocate allow allure announce appoint apprize assist ask assure assume authorize  believe bother bribe burden  call cause certify challenge  choose clamor clear compel commission conceive condemn confess consider condition conjure constrain convince countenance counsel
 		deem  decide declare defy demand  devote  disincline disqualify dispose   elect  enable  entitle equip     
-		  fit  forget force    hate have 
+	fit  forget force    hate have 
 		help hire hold hope imagine incite incline induce instigate  insist   invite  know  learn like  love  mean   name need     pay   persuade plan  prefer   presume
 		proclaim profess  pronounce promise  rate    remember  report    rumour        summon  suggest take take_into_account    think threaten   tip train trust # actually would_like instead of like
 		understand   vote want warn  wish)  
@@ -19,6 +20,12 @@ concept: ~causal_to_infinitive_verbs VERB VERB_INFINITIVE ( # "I authorize you t
 # leave like long love mean neglect offer ought plan prefer prepare proceed promise propose refuse remember say
 # (probably all noted by wordnet)
 
+# Somebody----s somebody INFINITIVE   VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE
+# I make you vomit
+# make get render request induce stimulate cause have get make
+# let invite bid catch take_in overhear let allow permit
+
+
 # these verb take gerunds as object
 # admit advise appreciate avoid can't_help complete consider delay deny detest dislike enjoy escape excuse
 # finish forbit get_through have imagine mind miss permit postpone practice quit recall report resent
@@ -28,8 +35,6 @@ concept: ~causal_to_infinitive_verbs VERB VERB_INFINITIVE ( # "I authorize you t
 # admit to   approve of   argue about  believe in  care about complain about concentrate on confess to 
 # depend on disapprove of  discourage from  dreama about  fell like forget about insist on object to plan on
 # prevent (someone) from  refrain from succeed in talk about thinkg about worry about
-
-
 
 concept: ~verbs_of_perception( feel hear "listen to" "look at" notice observe see smell watch) # can use "we watched them play" verbs without to
 

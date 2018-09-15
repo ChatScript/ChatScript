@@ -619,7 +619,7 @@ static char* Output_Function(char* word, char* ptr,  char* space,char*& buffer, 
 		if (!once && IsAssignmentOperator(ptr)) ptr = PerformAssignment(word,ptr,buffer,result); 
 		else
 		{
-			char* value = FNVAR(word+1);
+            char* value = FNVAR(word+1);
 			size_t len = strlen(value);
 			size_t size = (buffer - currentOutputBase);
 			if ((size + len) >= (currentOutputLimit-50) ) 

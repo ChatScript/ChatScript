@@ -20,6 +20,8 @@ char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote = false,bool var
 
 #define NUMBER_OF_LAYERS 4
 
+#define MAX_CONFIG_LINES 200
+
 typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 #define MAX_DICTIONARY	 0x001fffff				//   2M word vocabulary limit 
 #define NODEBITS 0x00ffffff

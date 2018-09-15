@@ -371,6 +371,11 @@ The relationship operators are:
 
 Comparing two text strings (not numbers) will do it based on case-independent alpha sorting.
 
+The ? operator has two forms. `xxx?~yyy` will look for actual membership in the set whereas
+`_n?~yyy` will only see if the location of match detection of _n is the same as a 
+corresponding match location for the concept. If the concept has not been marked, then 
+obviously no match is found.
+
 Note: You can put `!` before the tokens instead of using `!=` and `!?`. E.g.,
 
     u: ( _~noun !_0?~fruit ) if the noun is not in fruit concept

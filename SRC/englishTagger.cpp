@@ -168,7 +168,7 @@ static char* tagOps [] =
 	(char*)"HAS2VERBS",(char*)"ISQWORD",(char*)"ISQUESTION",(char*)"ISABSTRACT",
 	(char*)"POSSIBLEINFINITIVE",(char*)"POSSIBLEADJECTIVE", "POSSIBLETOLESSVERB",// 23
 	(char*)"POSSIBLEADJECTIVEPARTICIPLE",(char*)"HOWSTART",(char*)"POSSIBLEPHRASAL",(char*)"POSSIBLEPARTICLE",(char*)"ISCOMPARATIVE",(char*)"ISEXCLAIM",
-	(char*)"ISORIGINALMEMBER",(char*)"ISSUPERLATIVE",(char*)"SINGULAR",(char*)"ISPROBABLE",(char*)"PLURAL",
+	(char*)"ISORIGINALMEMBER",(char*)"ISSUPERLATIVE",(char*)"SINGULAR",(char*)"ISPROBABLE",(char*)"PLURAL",(char*)"DUALNOUN",
 };
 	
 unsigned char bitCounts[MAX_SENTENCE_LENGTH]; // number of tags still to resolve in this word position
@@ -1225,7 +1225,7 @@ static void PerformPosTag(int start, int end)
 
 static void InitRoleSentence(int start, int end)
 {
-	roleIndex = 0;
+    roleIndex = 0;
     quotationRoleIndex = 0;
     quotationCounter = 0;
     int i;
@@ -1265,7 +1265,7 @@ static void InitRoleSentence(int start, int end)
         SetRole(start, MAINOBJECT, true);
     }
 #endif
-    if (trace & TRACE_POS) Log(STDTRACELOG, (char*)"  *** Sentence start: %s (%d) to %s (%d)\r\n", wordStarts[startSentence], startSentence, wordStarts[endSentence], endSentence);
+    if (trace & TRACE_POS) Log(STDTRACELOG, (char*)"  *** Sentence start: %s (%d) to %s (%d)\r\n", wordStarts[start], start, wordStarts[end], end);
 }
 
 void TagInit()
@@ -1400,6 +1400,7 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 
 		// bug - make a noun out of 1st quote if part of sentence...
 		tokenFlags &= -1 ^ SENTENCE_TOKENFLAGS; // reset results bits
+        if (trace & TRACE_POS) Log(STDUSERLOG, "tag from %d to %d\r\n", i, end);
 		PerformPosTag(i,end); // do this zone
 		i = end;
 	}
@@ -1631,6 +1632,22 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			else if (posValues[i] & (NOUN_SINGULAR|NOUN_PROPER_SINGULAR)) answer = true;
 			else answer = false;
 			break;
+        case DUALNOUN:
+        {
+            if (i > 1 && posValues[i] & NOUN_BITS)
+            {
+                char word[MAX_WORD_SIZE];
+                strcpy(word, wordStarts[i-1]);
+                strcat(word, "_");
+                strcat(word, wordStarts[i]);
+                WORDP Z = FindWord(word);
+                if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+                {
+                    answer = true;
+                    break;
+                }
+            }
+        }
 		case PLURAL:	 // pronoun or noun
 			if (posValues[i] & (PRONOUN_SUBJECT|PRONOUN_OBJECT)) answer = (lcSysFlags[i] & PRONOUN_PLURAL) ? true : false;
 			else if (posValues[i] & (NOUN_PLURAL|NOUN_PROPER_PLURAL)) answer = true;
@@ -1951,28 +1968,13 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 				}
 				break;
 			case POSSIBLETOLESSVERB: // allows noun infinitive
-			{
-				 int verb = i;
-				bool nonadverb = false;
-				while (--verb >= startSentence)
-				{
-					if (ignoreWord[verb]) continue;
-					if (posValues[verb] & VERB_BITS)
-					{
-						if ( canSysFlags[verb] & VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE )
-						{
-							answer = true;
-							break;
-						}
-					}
-					else if (posValues[verb] & TO_INFINITIVE && !nonadverb)
-					{
-						answer = true;
-						break;
-					}
-					if (!(posValues[verb] & ADVERB)) nonadverb = true;
-				}
-				break;
+            {
+                if (i == 1) break; // not long enough
+                if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE)
+                {
+                    answer = true;
+                }
+                break;
 			}
 		case HOWSTART:
 			{
@@ -2110,7 +2112,13 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 					answer = true;
 					break;
 				}
-			}
+                // simple imperative with no subject before? how can we tell unless we are close to front
+                if (i == 1) 
+                {
+                    answer = true;
+                    break;
+                }
+        }
 			break;
 		case PARSEMARK:
 			if (parseFlags[i] & bits) answer = true;
@@ -3266,7 +3274,7 @@ The algorithm is:
 2. Assign roles as we go, forcing bindings that seem to make sense at the time. This is subject to garden-path phenomena, which means when we detect inconsistency later,
 we have to go back and patch up the roles and even the POS tags to make a coherent whole. Probability is built into the expectation of role coercions we do as we go.
 
-E.g., when we have two nouns and dont need the second, we have to decide is it appositive or is it start of implied clause.
+E.g., when we have two nouns and dont need the second, we have to decide is it appositive or before is adjective noun or is it start of implied clause.
 
 3. As parsing progresses, we enter and exit new nested roleLevels as phrases, verbals and clauses spring into being and become complete. A roleLevel indicates what we are currently seeking or allow
 like a subject, verb, object, etc. So until we see a verb, for example, we are not expected to see an object. We may mislabel an object as a subject (because we were seeking that) but have to
@@ -6814,8 +6822,16 @@ static unsigned int GuessAmbiguousNoun(int i, bool &changed)
 		if (posValues[i] & VERB_INFINITIVE &&  canSysFlags[currentVerb] & (VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE | VERB_TAKES_VERBINFINITIVE)) {;}
 		else if (LimitValues(i,NOUN_BITS,(char*)"something looking like noun followed by potential prep, make it a noun when we need one",changed)) return GUESS_RETRY;
 	}
-	// if something could be noun and next could be verb and we are hunting for both, be noun. Unless we have obvious verb coming up
-	if (posValues[i] & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL|NOUN_PLURAL|NOUN_SINGULAR) && posValues[NextPos(i)] & ((VERB_BITS - VERB_INFINITIVE)|AUX_VERB) && needRoles[roleIndex] & (SUBJECT2|MAINSUBJECT) && needRoles[roleIndex] & (MAINVERB|VERB2))
+	// if start could be verb and next could be noun and we are hunting for both, be verb as command.
+    // and if we could be a singular noun, then we wont be at start (no determiner)
+    if (posValues[i] & VERB_INFINITIVE && i == 1 && 
+        posValues[i] & NOUN_SINGULAR &&
+        posValues[NextPos(i)] & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_PLURAL | NOUN_SINGULAR)
+        && needRoles[roleIndex] & (SUBJECT2 | MAINSUBJECT) && needRoles[roleIndex] & (MAINVERB | VERB2))
+    {
+        if (LimitValues(i, VERB_BITS, (char*)"potential command verb followed by potential noun and we need both, take it as command", changed)) return GUESS_RETRY;
+    }
+    if (posValues[i] & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_PLURAL | NOUN_SINGULAR) && posValues[NextPos(i)] & ((VERB_BITS - VERB_INFINITIVE) | AUX_VERB) && needRoles[roleIndex] & (SUBJECT2 | MAINSUBJECT) && needRoles[roleIndex] & (MAINVERB | VERB2))
 	{
 		int at = i;
 		while (++at <= endSentence && !(posValues[at] & (VERB_BITS|AUX_VERB)))
@@ -7106,11 +7122,31 @@ static unsigned int GuessAmbiguousVerb(int i, bool &changed)
 	}
 
 	// if something at the end of the sentence could be a verb and we dont want one.... dont be  "He can speak Spanish but he can't write it very *well."
-	if (posValues[i] & VERB_BITS && i == (int)endSentence && !(needRoles[MAINLEVEL] & MAINVERB) && roleIndex == MAINLEVEL)
-	{
+    if (i > 1 && posValues[i] & VERB_BITS && i == (int)endSentence && !(needRoles[MAINLEVEL] & MAINVERB) && roleIndex == MAINLEVEL)
+    {
+        char word[MAX_WORD_SIZE];
+        strcpy(word, wordStarts[i]);
+        strcat(word, "_");
+        strcat(word, wordStarts[i - 1]);
+        WORDP Z = FindWord(word);
+        if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+        {
+            if (LimitValues(i, -1 ^ VERB_BITS, (char*)"known dual noun at end", changed)) return GUESS_RETRY;
+        }
+
 		// but if current verb is possible aux, convert over
 		unsigned int verb = verbStack[roleIndex];
-		if (verb && allOriginalWordBits[verb] & AUX_VERB) // "what song do you like"
+        int x = verb;
+        if (x) // see if noun after verb and before us
+        {
+            while (++x < i)
+            {
+                if (posValues[x] & (NOUN_BITS | PRONOUN_SUBJECT | PRONOUN_OBJECT))
+                    break;
+            }
+        }
+        // confirm word order inversion "*do dogs *sing" as opposed to "That *is my savings *account" -- "be" wont be question
+		if (verb && allOriginalWordBits[verb] & AUX_VERB && x && x != i && !(posValues[verb] & AUX_BE)) // "what song do you like"
 		{
 			bool limited = LimitValues(verb,AUX_VERB,(char*)"potential verb at end of sentence becomes main, This main becomes aux",changed);
 			limited |= LimitValues(i,VERB_BITS,(char*)"potential verb at end of sentence becomes main, main becomes aux",changed); 
@@ -9649,11 +9685,27 @@ restart:
 					SetRole(i,MAINSUBJECT);
 				}
 				// unexpected noun/pronoun - may be appositive
-				else if (IsLegalAppositive(i-1,i))
-				{
-					SetRole(i,APPOSITIVE);
-					crossReference[i] =  (unsigned char) (i-1);
-				}
+                else if (IsLegalAppositive(i - 1, i))
+                {
+                    // try for dual noun
+                    char word[MAX_WORD_SIZE];
+                    strcpy(word, wordStarts[i - 1]);
+                    strcat(word, "_");
+                    strcat(word, wordStarts[i]);
+                    WORDP Z = FindWord(word);
+                    if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+                    {
+                        SetRole(i, roles[i - 1]);
+                        roles[i - 1] = 0;
+                        posValues[i - 1] = ADJECTIVE_NOUN;
+                        posValues[i] &= NOUN_BITS;
+                    }
+                    else
+                    {
+                        SetRole(i, APPOSITIVE);
+                        crossReference[i] = (unsigned char)(i - 1);
+                    }
+                }
 		
 				else if (posValues[i] == NOUN_GERUND && needRoles[roleIndex] & CLAUSE && needRoles[roleIndex] & SUBJECT2) {;} // omitted subject "John ran while *walking"
 				else if (roles[i-1] & (MAINOBJECT|OBJECT2) && parseFlags[verbStack[roleIndex]] & FACTITIVE_NOUN_VERB) SetRole(i,OBJECT_COMPLEMENT);

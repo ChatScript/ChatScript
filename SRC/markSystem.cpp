@@ -485,7 +485,7 @@ void MarkMeaningAndImplications(int depth, int exactWord,MEANING M,int start, in
 	}
 }
 
-static void HuntMatch(bool canonical, char* word,bool strict,int start, int end, unsigned int& usetrace)
+static void HuntMatch(int canonical, char* word,bool strict,int start, int end, unsigned int& usetrace)
 {
 	WORDP set[20];
 	WORDP D;
@@ -518,6 +518,18 @@ static void HuntMatch(bool canonical, char* word,bool strict,int start, int end,
 			}
 			if (!F) continue;
 		}
+        // not allowed to detect uppercase when user input 
+        // is form is conjugated (fitted != Fit) except
+        // for Plural noun
+        if (start == end && IsUpperCase(*D->word) && canonical == 2){ ; }
+        else if (start == end && IsUpperCase(*D->word) &&
+            stricmp(D->word, wordStarts[start]))
+        {
+           // size_t len = strlen(wordStarts[start]);
+            //if (wordStarts[start][len-1] != 's') // too uncommon, dont want fits to match
+                continue;
+        }
+        if (canonical == 2) canonical = 0;
 		trace = (D->subjectHead || D->systemFlags & PATTERN_WORD || D->properties & PART_OF_SPEECH)  ? usetrace : 0; // being a subject head means belongs to some set. being a marked word means used as a keyword
 		if ((*D->word == 'I' || *D->word == 'i'  ) && !D->word[1]){;} // dont follow out this I or i word
 		else  MarkMeaningAndImplications(0, 0,MakeMeaning(D),start,end, canonical,true);
@@ -608,9 +620,9 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 		}
 		
 		// scan interesting initial words (spaced, underscored, capitalized) but we need to recognize bots in lower case, so try all cases here as well
-		HuntMatch(false,rawbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
-		HuntMatch(true,canonbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
-		HuntMatch(false,originalbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
+		HuntMatch(0,rawbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
+		HuntMatch(1,canonbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
+		HuntMatch(2,originalbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
 
 		//   fan out for addon pieces
 		int k = 0;

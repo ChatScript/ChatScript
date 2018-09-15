@@ -766,6 +766,7 @@ CALLFRAME* GetCallFrame(int depth)
 static char* UserCall(char* buffer,char* ptr, CALLFRAME* frame,FunctionResult &result)
 {
     WORDP D = frame->name;
+    char* originalbuffer = buffer;
 	unsigned int j = 0;
 	ptr = SkipWhitespace(ptr+1); // aim to next major thing after ( 
 	callArgumentBases[callIndex] = callArgumentBase; // call stack
@@ -888,12 +889,13 @@ static char* UserCall(char* buffer,char* ptr, CALLFRAME* frame,FunctionResult &r
 		}
 		if (callArgumentIndex >= MAX_ARGUMENT_COUNT) --callArgumentIndex; // force lock to fail but swallow all args to update ptr
 		++j;
-		ptr = SkipWhitespace(ptr); 
+		ptr = SkipWhitespace(ptr);
 	} // end of argument processing
 
     // fnvar base remains visible when other frames which are system calls get added
     int oldFnvarbase = fnVarbase; // interpret ^0 using this base
     fnVarbase = callArgumentBase;
+    *originalbuffer = 0;
 	ptr = InvokeUser(buffer,ptr,result,frame,args,startRawArg);
     fnVarbase = oldFnvarbase;
 
@@ -1817,14 +1819,15 @@ static FunctionResult DoRefine(char* buffer,char* arg1, bool fail, bool doall)
 			result = GambitCode(buffer+strlen(buffer));
 		}
 	}
-	if (updateDisplay && !failed) RestoreDisplay((char**)releaseStackDepth[globalDepth],locals);
+    if (updateDisplay && !failed) RestoreDisplay((char**)releaseStackDepth[globalDepth],locals);
+    
+    // finding none does not fail unless told to fail
+    if (fail && (!currentRule || level != *currentRule)) result = FAILRULE_BIT;
 
 	RESTOREOLDCONTEXT()
 
 	trace = (modifiedTrace) ? modifiedTraceVal : oldTrace;
 	timing = (modifiedTiming) ? modifiedTimingVal : oldTiming;
-	// finding none does not fail unless told to fail
-	if (fail && (!currentRule || level != *currentRule)) result = FAILRULE_BIT;
 	return result; 
 }
 

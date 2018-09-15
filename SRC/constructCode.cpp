@@ -395,13 +395,14 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		if (*word1 == '_') // use only precomputed match from memorization
 		{
 			unsigned int index = GetWildcardID(word1);
-			index = WILDCARD_START(wildcardPosition[index]);
-			D = FindWord(val2); // as is
+			int begin = WILDCARD_START(wildcardPosition[index]);
+            int finish = WILDCARD_END(wildcardPosition[index]);
+            D = FindWord(val2); // as is
 			WORDP D2 = NULL;
-			if (index && D)
+			if (begin && D)
 			{
 				int start, end;
-				if (GetNextSpot(D,index-1,start,end) == index) result = NOPROBLEM_BIT; // otherwise failed and we would have known
+				if (GetNextSpot(D, begin -1,start,end) == begin && end == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
 			}
 			if (*op == '!') result = (result != NOPROBLEM_BIT) ? NOPROBLEM_BIT : FAILRULE_BIT;
 		}

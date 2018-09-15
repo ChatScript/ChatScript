@@ -70,6 +70,12 @@ DISCARD
 	IS NOUN_PLURAL
 KEEP
 
+# singular noun at start of sentence lacks determiner. If it can be infinitive verb followed by noun phrase, prefer that "*book tickets"
+0   INCLUDE * NOUN_SINGULAR
+    STAY HAS VERB_INFINITIVE
+    STAY START
+    HAS NOUN_SINGULAR NOUN_PLURAL DETERMINER PRONOUN_POSSESSIVE
+DISCARD
 
 # number only, before possible adjective, will be adjective 17 (Noun_number Adjective_number)  big (+Adjective_normal Adverb)
 0 INCLUDE * NOUN_NUMBER
@@ -165,7 +171,7 @@ DISCARD
 	!HAS COMMA CONJUNCTION_COORDINATE POSSESSIVE # not "dog, wolf and coyote" and not "dog, *pig's ears"
 DISCARD
 
-# cant be noun infinitve without a TO somewhere in front
+# cant be noun infinitive without a TO somewhere in front - except after verb allowing it - I made him talk
  0	INCLUDE * NOUN_INFINITIVE
  	STAY !PRIORPOS TO_INFINITIVE
  DISCARD
@@ -174,7 +180,7 @@ DISCARD
  REVERSE 0	 INCLUDE * NOUN_INFINITIVE
 	SKIP !HAS NOUN_INFINITIVE TO_INFINITIVE
 	IS NOUN_INFINITIVE # some other noun infintiive masks any potential to
-DISCARD
+  DISCARD
 
 # noun infininitive cannot preceed noun infinitive 
 0	INCLUDE * NOUN_INFINITIVE

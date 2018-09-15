@@ -23165,8 +23165,6 @@
     Pablo_Casals~1n 
  Casanova_de_Seingalt ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Giovanni_Jacopo_Casanova~1n 
- Cash ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Johnny_Cash~1n 
  Cassirer ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Ernst_Cassirer~1n 
  Cassius_Longinus ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 

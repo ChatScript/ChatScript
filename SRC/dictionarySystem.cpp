@@ -4726,7 +4726,13 @@ static void readData(char* file)
 						}
 						else if (frameNumber == 8 || frameNumber == 9 || frameNumber == 10 || frameNumber == 11 || (frameNumber >= 15 && frameNumber <= 21)) AddSystemFlag(D, VERB_DIRECTOBJECT);
 						else if (frameNumber == 24)  AddSystemFlag(D, VERB_TAKES_INDIRECT_THEN_TOINFINITIVE);
-						else if (frameNumber == 25)  AddSystemFlag(D, VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE);
+                        else if (frameNumber == 25)
+                        {
+                            //FILE* F = FopenUTF8WriteAppend("verb.txt");
+                            //fprintf(F,"%s\r\n", D->word);
+                            //fclose(F);
+                            AddSystemFlag(D, VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE);
+                        }
 						//   BUG- what if frame 6 uses noun? how do we know what that looks like?
 						else if (frameNumber == 31 || frameNumber == 30 || frameNumber == 7 || frameNumber == 6 || frameNumber == 5)
 						{

@@ -44,7 +44,8 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
     memmove(date + 3, date + 4, 13); // compress out space
     size_t len = strlen(output);
     char* why = output + len + HIDDEN_OFFSET; //skip terminator + 2 ctrl z end marker
-    char* activeTopic = (*why) ? (char*)(why + strlen(why) + 1) : (char*)"";
+    size_t len1 = strlen(why);
+    char* activeTopic = (*why) ? (char*)(why + len1 + 1) : (char*)"";
     uint64 endtime = ElapsedMilliseconds();
     char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
     if (*input) Log(SERVERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %s\r\n", nl, user, bot, IP, activeTopic, turn, input, Purify(output), date, (int)(endtime - starttime), why);
@@ -291,6 +292,7 @@ void Client(char* login)// test client for a server
     if (!trace) echo = false;
     (*printer)((char*)"%s",(char*)"\r\n\r\n** Client launched\r\n");
     char* from = login;
+    char copy[MAX_WORD_SIZE * 10];
 
 	char* data = AllocateBuffer(); // read from user or file
     char* response = AllocateBuffer(); // returned from chatbot
@@ -406,7 +408,7 @@ SOURCE:
             if (fgets(ptr, 100000 - 100, sourcefile) == NULL) break;
             if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
             // (*printer)((char*)"Read %s\r\n",  data);
-
+            strcpy(copy, ptr);
             size_t l = strlen(ptr);
             ptr[l - 2] = 0; // remove crlf
 
@@ -449,13 +451,15 @@ SOURCE:
             if (--skip > 0) continue;
             if (--count < 0)
                 break;
+            strcpy(copy, ptr);
             if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
             char cat[MAX_WORD_SIZE];
             char spec[MAX_WORD_SIZE];
+            char loc[MAX_WORD_SIZE];
             size_t l = strlen(ptr);
             ptr[l - 2] = 0; // remove crlf
-
-            // userid, chatid, cat, spec, loc, message
+            char output[MAX_WORD_SIZE * 10];
+            // userid, chatid, cat, spec, loc, message, output
             char* blank = strchr(ptr, '\t'); 
             if (!blank) continue;
             *blank = 0;  // user string now there
@@ -471,13 +475,18 @@ SOURCE:
             *blank = 0;
             strcpy(spec, ptr);
             ptr = blank + 1; // loc
-            ptr = strchr(ptr + 1, '\t'); // end of loc
-            
-            ptr = ptr + 1; // start of message
+            blank = strchr(ptr, '\t'); // end of loc
+            *blank = 0;
+            strcpy(loc, ptr);
+            ptr = blank + 1; // start of message
             blank = strchr(ptr, '\t'); 
-            if (blank) *blank = 0; // mark end of message
-
-            strcpy(sendbuffer, user);
+            if (blank)
+            {
+                strcpy(output, blank + 1);
+                *blank = 0; // mark end of message
+            }
+            else *output = 0;
+            strcpy(sendbuffer, "user1"); // same user here always
             userlen = strlen(sendbuffer);
             *bot = 0;
             botlen = strlen(bot);
@@ -486,7 +495,8 @@ SOURCE:
             sendbuffer[userlen + 1 + botlen + 1] = 0;
             baselen = userlen + botlen + 2;
             char* at = sendbuffer + baselen;
-            sprintf(at , "[ category: %s specialty: %s ]", cat, spec);
+            if (!*loc) sprintf(at , "[ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user,output);
+            else sprintf(at, "[ category: %s specialty: %s id: %s location: %s  expect: \"%s\"]", cat, spec, user,loc,output);
             sock = new TCPSocket(serverIP, (unsigned short)port);
             sock->send(sendbuffer, baselen + 1 + strlen(at));
             ReadSocket(sock, response);
@@ -499,6 +509,7 @@ SOURCE:
             if (--skip > 0) continue;
             if (--count < 0)
                 break;
+            strcpy(copy, ptr);
             if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
             strcpy(user, "user1");
             strcpy(sendbuffer, user);
@@ -1073,11 +1084,13 @@ void InternetServer()
 
 static void ServerTransferDataToClient()
 {
-    size_t len = strlen(ourMainOutputBuffer) + 1;
-    size_t len1 = strlen(ourMainOutputBuffer + len) + 1; // hidden why
-    size_t len2 = strlen(ourMainOutputBuffer + len + len1 ) + 1;
+    size_t len = strlen(ourMainOutputBuffer); // main message
+    char* why = ourMainOutputBuffer + len + 1;
+    size_t len1 = strlen(why); // hidden why
+    char* topic = why + len1 + 1;
+    size_t len2 = strlen(topic); // hidden active topic
     size_t offset = SERVERTRANSERSIZE;
-    memcpy(clientBuffer+offset,ourMainOutputBuffer,len+len1+len2);
+    memcpy(clientBuffer+offset,ourMainOutputBuffer,len+len1+len2 + 4);
     clientBuffer[sizeof(int)] = 0; // mark we are done.... 
 #ifndef WIN32
     pendingClients--;

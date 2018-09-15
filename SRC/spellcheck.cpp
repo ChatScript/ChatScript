@@ -356,7 +356,27 @@ bool SpellCheckSentence()
 	for (int i = startWord; i <= wordCount; ++i)
 	{
 		char* word = wordStarts[i];
-		char* tokens[2];
+		char* tokens[3];
+        char hyphenword[MAX_WORD_SIZE];
+        if (i != wordCount) // merge 2 adj words w hyphen if can, even though one or both are legal words
+        {
+            WORDP X = FindWord(word);
+            WORDP Y = FindWord(wordStarts[i + 1]);
+            if (X && Y) { ; } // dont merge 2 known words
+            else
+            {
+                strcpy(hyphenword, word);
+                size_t len = strlen(hyphenword);
+                strcpy(hyphenword + len++, "-");
+                strcpy(hyphenword + len, wordStarts[i + 1]);
+                WORDP X = FindWord(hyphenword);
+                if (X)
+                {
+                    tokens[1] = X->word;
+                    ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
+                }
+            }
+        }
 		if (spellTrace)
 		{
 			strcpy(spellCheckWord, word);
@@ -861,7 +881,6 @@ bool SpellCheckSentence()
 					--i;
 				}
 			}
-			continue; // ignore hypenated errors that we couldnt solve, because no one mistypes a hypen
 		}
 
 		// see if number in front of unit split like 10mg
@@ -1312,7 +1331,7 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
             val += 16;  // only delete 1 letter
 
             if (*priorCharDict == *currentCharReal) val -= 14; // low cost for dropping an excess repeated letter (wherre->where not wherry)
-            else if (*currentCharReal == '-') val -= 10; //   very low cost for removing a hypen 
+            else if (*currentCharReal == '-') val -= 14; //   very low cost for removing a hypen 
 
             dictinfo = resumeDict; // skip over letter we match momentarily
             realinfo = resumeReal1; // move on past our junk letter and match letter
@@ -1324,6 +1343,8 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
             val += 16; // only add 1 letter
             // better to add repeated letter than to drop a letter
             if (*currentCharDict == *priorCharReal) val -= 6; // low cost for adding a repeated letter
+            else if (*currentCharDict == '-') 
+                val -= 14; // very low cost for adding a hyphen
             else if (*currentCharDict == 'e' && *nextCharDict == 'o') val -= 10; // yoman->yeoman
             dictinfo = resumeDict1; // skip over letter we match momentarily
             realinfo = resumeReal; // move on past our junk letter and match letter
@@ -1511,8 +1532,14 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
             WORDINFO dictWordData;
             ComputeWordData(D->word, &dictWordData);
             int val = EditDistance(dictWordData, realWordData, min);
+
+            // adjustments
+            size_t l = strlen(originalWord) - 1;
+            if (*D->word != *originalWord) ++val;  // starts not same
+            if (D->word[l] != originalWord[l]) ++val; // doesnt end the same
             if (D->internalBits & UPPERCASE_HASH) ++val; // lower case should win any tie against proper name
-			if (val <= min) // as good or better
+			
+            if (val <= min) // as good or better
 			{
 				if (spellTrace) Log(STDTRACELOG,"    found: %s %d\r\n", D->word, val);
 				if (val < min)
@@ -1570,6 +1597,10 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 		if (choices[j]->internalBits & HAS_SUBSTITUTE)
 			common = 0xff10000000000000ULL;
 		common |= choices[j]->systemFlags & AGE_LEARNED;
+
+
+
+
         if (common < commonmin) continue;
         if (common > commonmin) // this one is more common
         {

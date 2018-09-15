@@ -1,3 +1,9 @@
+# Status
+The former repository of ChatScript was at https://github.com/bwilcox-1234/ChatScript, however, I lost
+access to this repository (2 factor authentication lost that I didn't want in the first place and I could not convince
+github to restore my access). So it is no longer maintained. But the global user ChatScript 
+became available, and is a better name anyway.
+
 # ChatScript
 Natural Language tool/dialog manager
 
@@ -57,11 +63,11 @@ Above example mentioned in article [How to build your first chatbot using ChatSc
 * Extensive extensible ontology of nouns, verbs, adjectives, adverbs.
 * Data as fact triples enables inferencing and supports JSON representation.
 * Rules can examine and alter engine and script behavior.
-* Planner capabilities allow a bot to act in real/virtual worlds.
 * Remembers user interactions across conversations.
 * Document mode allows you to scan documents for content.
 * Ability to control local machines via popen/tcpopen/jsonopen.
 * Ability to read structured JSON data from websites.
+* Built in english pos-tagging and parsing
 * [Postgres](https://www.postgresql.org/) and [Mongo](https://www.mongodb.com/) databases support for big data or large-user-volume chatbots.
 
 ## OS Features

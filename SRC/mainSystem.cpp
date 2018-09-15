@@ -14,6 +14,8 @@ int outputlevel = 0;
 char* outputCode[MAX_GLOBAL];
 static bool argumentsSeen = false;
 char* configFile = "cs_init.txt";	// can set config params
+char* configLines[MAX_WORD_SIZE];	// can set config params
+int configLinesLength;	// can set config params
 char language[40];							// indicate current language used
 char livedata[500];		// where is the livedata folder
 char languageFolder[500];		// where is the livedata language folder
@@ -374,6 +376,10 @@ void CreateSystem()
 		}
         if (*word == 'V') SetBotVariable(word); // predefined bot variable in level 1
 	}
+	for (int i=0;i<configLinesLength;i++){
+		char*word = configLines[i];
+        if (*word == 'V') SetBotVariable(word); // these are level 1 values
+	}
 
 	kernelVariableThreadList = botVariableThreadList;
 	botVariableThreadList = 0;
@@ -473,13 +479,15 @@ void CreateSystem()
 	else (*printer)(route);
 #endif
 #ifndef DISCARDMONGO
-	if (*mongodbparams) sprintf(route,"    Mongo enabled. FileSystem routed to %s\r\n",mongodbparams);
+	//if (*mongodbparams) sprintf(route,"    Mongo enabled. FileSystem routed to %s\r\n",mongodbparams);
+	if (*mongodbparams) sprintf(route,"    Mongo enabled. FileSystem routed to MongoDB\r\n");
 	else sprintf(route,"    Mongo enabled.\r\n"); 
 	if (server) Log(SERVERLOG,route);
 	else (*printer)(route);
 #endif
 #ifndef DISCARDPOSTGRES
-	if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed to %s\r\n", postgresparams);
+	// if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed to %s\r\n", postgresparams);
+	if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
 	else sprintf(route, "    Postgres enabled.\r\n");
 	if (server) Log(SERVERLOG, route);
 	else (*printer)(route);
@@ -537,7 +545,7 @@ static void ProcessArgument(char* arg)
         (*printer)("CommandLine: %s\r\n",path);
 		argumentsSeen = true;
 	}
-    (*printer)("    %s\r\n",arg);
+    // (*printer)("    %s\r\n",arg);
 	if (!stricmp(arg,(char*)"trace")) trace = (unsigned int) -1; 
 	else if (!strnicmp(arg,(char*)"language=",9)) 
 	{
@@ -791,12 +799,72 @@ void ProcessArguments(int argc, char* argv[])
 	for (int i = 1; i < argc; ++i) ProcessArgument(argv[i]);
 }
 
+ 
+static void ProcessConfigLines(){
+	for (int i=0; i< configLinesLength; i++){
+		ProcessArgument(TrimSpaces(configLines[i],true));
+	}
+}
+
+#ifdef WIN32
+#include "curl.h"
+#else
+#include <curl/curl.h>
+#endif
+
+static size_t ConfigCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+    ((string*)userp)->append((char*)contents, size * nmemb);
+    return size * nmemb;
+}
+
+static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int headerCount){
+	InitCurl();
+	CURL *req = curl_easy_init();
+	string response_string;
+	curl_easy_setopt(req, CURLOPT_CUSTOMREQUEST, "GET");
+	curl_easy_setopt(req, CURLOPT_URL, configUrl);
+	struct curl_slist *headers = NULL;
+	for (int i = 0; i<headerCount; i++)
+    {
+		headers = curl_slist_append(headers, configUrlHeaders[i]);
+	}
+	headers = curl_slist_append(headers, "Accept: text/plain");
+	headers = curl_slist_append(headers, "Cache-Control: no-cache");
+	curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(req, CURLOPT_WRITEFUNCTION, ConfigCallback);
+	curl_easy_setopt(req, CURLOPT_WRITEDATA, &response_string);
+	CURLcode ret = curl_easy_perform(req);
+	char word[MAX_WORD_SIZE] = {'\0'};
+	int wordcount = 0;
+	for (int i=0;i<=response_string.size();i++){
+		if( response_string[i] == '\n' || (response_string[i] == '\\' && response_string[i+1] == 'n')  ){
+			configLines[configLinesLength] = (char*)malloc(sizeof(char)*MAX_WORD_SIZE);
+			strcpy(configLines[configLinesLength++],TrimSpaces(word,true));
+			for (int ti=0;ti<MAX_WORD_SIZE;ti++){
+				word[ti]='\0';
+			}
+			wordcount=0;
+			if(!(response_string[i] == '\n' ))
+				i++;
+		}
+		else{
+			word[wordcount++] = response_string[i];
+		}
+	}
+	    curl_easy_cleanup(req);
+		CurlShutdown();
+	ProcessConfigLines();
+}
+
 static void ReadConfig()
 {
 	char buffer[MAX_WORD_SIZE];
 	FILE* in = FopenReadOnly(configFile);
 	if (!in) return;
-	while (ReadALine(buffer,in,MAX_WORD_SIZE) >= 0) ProcessArgument(TrimSpaces(buffer,true));
+	while (ReadALine(buffer,in,MAX_WORD_SIZE) >= 0){
+		ProcessArgument(TrimSpaces(buffer,true));
+	}
 	fclose(in);
 }
 
@@ -852,9 +920,12 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	strcpy(language,(char*)"ENGLISH");
 
 	*loginID = 0;
-
+	char*configUrl = NULL;
+	char*configHeaders[20];
+	int headerCount = 0;
 	for (int i = 1; i < argc; ++i) // essentials
 	{
+		char* configHeader;
 		if (!strnicmp(argv[i],(char*)"buffer=",7))  // number of large buffers available  8x80000
 		{
 			maxBufferLimit = atoi(argv[i]+7); 
@@ -867,6 +938,13 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 			}
 		}
 		if (!strnicmp(argv[i],(char*)"config=",7)) configFile = argv[i]+7;
+		if (!strnicmp(argv[i],(char*)"configUrl=",10)) configUrl = argv[i]+10;
+		if (!strnicmp(argv[i],(char*)"configHeader=",13)) {
+			configHeader = argv[i]+13;
+			configHeaders[headerCount] = (char*)malloc(sizeof(char)*strlen(configHeader)+1);
+			strcpy(configHeaders[headerCount],configHeader);
+			configHeaders[headerCount++][strlen(configHeader)] = '\0';
+		}
 	}
 
 	currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = (char*)malloc(outputsize);
@@ -887,7 +965,8 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	baseBufferIndex = bufferIndex;
 	quitting = false;
 	echo = true;	
-
+	if (configUrl != NULL)
+		LoadconfigFromUrl(configUrl, configHeaders, headerCount);
 	ReadConfig();
 	ProcessArguments(argc,argv);
 	MakeDirectory(tmp);
@@ -1604,101 +1683,105 @@ static void ConcatResult(char* result,char* limit)
 	tokenControl = control;
 }
 
-void FinishVolley(char* incoming,char* output,char* postvalue,int limit)
+void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
 {
-	// massage output going to user
-	if (!documentMode)
-	{
+    // massage output going to user
+    if (!documentMode)
+    {
         if (!(responseControl & RESPONSE_NOFACTUALIZE)) FactizeResult();
-		postProcessing = 1;
-		++outputNest; 
-		OnceCode((char*)"$cs_control_post",postvalue);
-		--outputNest;
-		postProcessing = 0;
+        postProcessing = 1;
+        ++outputNest;
+        OnceCode((char*)"$cs_control_post", postvalue);
+        --outputNest;
+        postProcessing = 0;
 
-		char* at = output;
-		if (autonumber)
-		{
-			sprintf(at,(char*)"%d: ",volleyCount);
-			at += strlen(at);
-		}
-		ConcatResult(at,output + limit-100); // save space for after data
-		
-		time_t curr = time(0);
-		if (regression) curr = 44444444; 
-		char* when = GetMyTime(curr); // now
-		if (*incoming) strcpy(timePrior,GetMyTime(curr)); // when we did the last volley
-		// Log the results
-		GetActiveTopicName(activeTopic); // will show currently the most interesting topic
-        
-        size_t len = strlen(output);
-        char* buff = output + len + 1;
+        char* at = output;
+        if (autonumber)
+        {
+            sprintf(at, (char*)"%d: ", volleyCount);
+            at += strlen(at);
+        }
+        ConcatResult(at, output + limit - 100); // save space for after data
+
+        time_t curr = time(0);
+        if (regression) curr = 44444444;
+        char* when = GetMyTime(curr); // now
+        if (*incoming) strcpy(timePrior, GetMyTime(curr)); // when we did the last volley
+                                                           // Log the results
+        GetActiveTopicName(activeTopic); // will show currently the most interesting topic
+
+                                         // compute hidden data
+        char* buff = AllocateBuffer();
+        char* origbuff = buff;
         *buff++ = (char)0xfe; // positive termination
         *buff++ = (char)0xff; // positive termination for servers
         *buff = 0;
         if (responseIndex && regression != NORMAL_REGRESSION) ComputeWhy(buff, -1);
-        size_t len1 = strlen(buff) + 1;
-        buff += len1;
-        strcpy(buff, activeTopic); // currently the most interesting topic
 
         if (userLog && prepareMode != POS_MODE && prepareMode != PREPARE_MODE  && prepareMode != TOKENIZE_MODE)
-		{
+        {
             char time15[MAX_WORD_SIZE];
             unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
             *time15 = 0;
             sprintf(time15, (char*)" F:%d ", lapsedMilliseconds);
-			
+
             char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
             char* poutput = Purify(output);
-			if (*incoming && regression == NORMAL_REGRESSION) Log(STDTRACELOG,(char*)"%s(%s) %s ==> %s %s\r\n",nl,activeTopic,TrimSpaces(incoming),poutput,buff); // simpler format for diff
-			else if (!*incoming) 
-			{
-				Log(STDUSERLOG,(char*)"%sStart: user:%s bot:%s ip:%s rand:%d (%s) %d ==> %s  When:%s %s Version:%s Build0:%s Build1:%s 0:%s F:%s P:%s %s\r\n",nl,loginID,computerID,callerIP,randIndex,activeTopic,volleyCount,poutput,when,buff,version,timeStamp[0],timeStamp[1],timeturn0,timeturn15,timePrior,buff); // conversation start
-			}
-			else 
-			{
-				Log(STDUSERLOG,(char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  %s ==> %s  When:%s %s %s\r\n",nl,loginID,computerID,callerIP,activeTopic,volleyCount,incoming,poutput,when,buff,time15);  // normal volley
-			}
-			if (shortPos) 
-			{
-				Log(STDTRACELOG,(char*)"%s",DumpAnalysis(1,wordCount,posValues,(char*)"Tagged POS",false,true));
-				Log(STDTRACELOG,(char*)"\r\n");
-			}
-		}
+            if (*incoming && regression == NORMAL_REGRESSION) Log(STDTRACELOG, (char*)"%s(%s) %s ==> %s %s\r\n", nl, activeTopic, TrimSpaces(incoming), poutput, origbuff+2); // simpler format for diff
+            else if (!*incoming)
+            {
+                Log(STDUSERLOG, (char*)"%sStart: user:%s bot:%s ip:%s rand:%d (%s) %d ==> %s  When:%s %s Version:%s Build0:%s Build1:%s 0:%s F:%s P:%s\r\n", nl, loginID, computerID, callerIP, randIndex, activeTopic, volleyCount, poutput, when, origbuff+2, version, timeStamp[0], timeStamp[1], timeturn0, timeturn15, timePrior); // conversation start
+            }
+            else
+            {
+                Log(STDUSERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  %s ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, incoming, poutput, when, origbuff+2, time15);  // normal volley
+            }
+            if (shortPos)
+            {
+                Log(STDTRACELOG, (char*)"%s", DumpAnalysis(1, wordCount, posValues, (char*)"Tagged POS", false, true));
+                Log(STDTRACELOG, (char*)"\r\n");
+            }
+        }
 
-		// now convert output separators between rule outputs to space from ' for user display result (log has ', user sees nothing extra) 
-		if (prepareMode != REGRESS_MODE)
-		{ 
-			char* sep = output+1;
-			while ((sep = strchr(sep,ENDUNIT))) 
-			{
-				if (*(sep-1) == ' ' || *(sep-1) == '\n') memmove(sep,sep+1,strlen(sep)); // since prior had space, we can just omit our separator.
-				else if (!sep[1]) *sep = 0; // show nothing extra on last separator
-				else if (sep[1] == ' ' && !sep[2]) *sep = 0; // show nothing extra on last separator w blank after
-				else *sep = ' ';
-			}
-		}
+        // now convert output separators between rule outputs to space from ' for user display result (log has ', user sees nothing extra) 
+        if (prepareMode != REGRESS_MODE)
+        {
+            char* sep = output + 1;
+            while ((sep = strchr(sep, ENDUNIT)))
+            {
+                if (*(sep - 1) == ' ' || *(sep - 1) == '\n') memmove(sep, sep + 1, strlen(sep)); // since prior had space, we can just omit our separator.
+                else if (!sep[1]) *sep = 0; // show nothing extra on last separator
+                else if (sep[1] == ' ' && !sep[2]) *sep = 0; // show nothing extra on last separator w blank after
+                else *sep = ' ';
+            }
+        }
+        size_t lenx = strlen(output) + 1;
+        strcpy(output + lenx, origbuff); // hidden why
+        size_t leny = strlen(output + lenx);
+        buff = output + lenx + leny + 1;
+        strcpy(buff, activeTopic); // currently the most interesting topic
+
+        FreeBuffer();
         if (debugEndTurn) (*debugEndTurn)(output);
         if (!stopUserWrite) WriteUserData(curr, false);
         else stopUserWrite = false;
 
-		ClearVolleyWordMaps();
-		ShowStats(false);
-		ResetToPreUser(); // back to empty state before any user
-	}
-	else
-	{
-		// Don't do anything after a single line of a document
-		if (postProcessing)
-		{
-			++outputNest;
-			OnceCode((char*)" ", postvalue);
-			--outputNest;
-		}
-		*output = 0;
-	}
+        ClearVolleyWordMaps();
+        ShowStats(false);
+        ResetToPreUser(); // back to empty state before any user
+    }
+    else
+    {
+        // Don't do anything after a single line of a document
+        if (postProcessing)
+        {
+            ++outputNest;
+            OnceCode((char*)" ", postvalue);
+            --outputNest;
+        }
+        *output = 0;
+    }
 }
-
 int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* output,char* topicData)
 {
 	CreateFakeTopics(topicData);

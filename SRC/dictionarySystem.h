@@ -561,7 +561,8 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define SINGULAR 37
 #define ISPROBABLE 38
 #define PLURAL 39
-#define LASTCONTROL PLURAL  // add new ops to optable as well
+#define DUALNOUN 40
+#define LASTCONTROL DUALNOUN  // add new ops to optable as well
 
 #define SKIP 1 // if it matches, move ptr along, if it doesnt DONT
 #define STAY 2

@@ -4,6 +4,26 @@
 # its the ONLY possible verb "Carlos smiled."  -- DONT DO that as a phase 1 rule
 
 
+# I *made him talk - noun infinitive w/o to  - but not I made him cake
+# TRACE 0  INCLUDE * VERB_BITS 
+ #    STAY POSSIBLETOLESSVERB
+ #    HAS PRONOUN_SUBJECT PRONOUN_OBJECT NOUN_BITS
+ #    HAS NOUN_INFINITIVE
+# KEEP
+
+# I made him *talk - noun infinitive w/o to
+#  -2  IS VERB_BITS 
+ #    STAY POSSIBLETOLESSVERB
+ #    HAS PRONOUN_SUBJECT PRONOUN_OBJECT NOUN_BITS
+  #   INCLUDE * NOUN_INFINITIVE
+#  KEEP
+
+# not verb at end if dual noun possible - that is my savings *account
+0  INCLUDE * VERB_INFINITIVE VERB_PRESENT
+    STAY END
+    STAY DUALNOUN
+DISCARD
+
 # coord conjuct after noun will generally not be verb at end of sentence "Josh ate carrots and *dip"
 -2	IS NOUN_PLURAL NOUN_SINGULAR
 	IS CONJUNCTION_COORDINATE
@@ -35,6 +55,7 @@ DISCARD
 	INCLUDE * VERB_PRESENT_3PS
 	STAY !PRIORPOS CONJUNCTION_COORDINATE PREPOSITION # not: "because gains at home *offset"
 DISCARD
+
 
 # cant put verb after noun comma unless another comma comes before - magazine (Noun_singular)  , (Comma)  billed/bill (+Verb_past +Adjective_participle)
 -2	IS NOUN_BITS

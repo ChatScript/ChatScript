@@ -84,7 +84,8 @@ void AddWarning(char* buffer)
 	else if (strstr(warnings[warnIndex-1],(char*)" changes ")) {++substitutes;}
 	else if (strstr(warnings[warnIndex-1],(char*)"is unknown as a word")) {++badword;}
 	else if (strstr(warnings[warnIndex-1],(char*)"in opposite case")){++cases;}
-	else if (strstr(warnings[warnIndex-1],(char*)"a function call")){++functionCall;}
+    else if (strstr(warnings[warnIndex - 1], (char*)"multiple spellings")) { ++cases; }
+    else if (strstr(warnings[warnIndex-1],(char*)"a function call")){++functionCall;}
 	if (warnIndex >= MAX_WARNINGS) --warnIndex;
 }
 
@@ -1440,7 +1441,7 @@ static void NoteUse(char* label,char* topicName)
 		FILE* out = FopenUTF8WriteAppend(file);
 		if (out)
 		{
-			fprintf(out,(char*)"%s %s %s %d\r\n",label,topicName,currentFilename,currentFileLine);
+			fprintf(out,(char*)"%s %s %s %d %s\r\n",label,topicName,currentFilename,currentFileLine, botheader);
 			fclose(out); // dont use FClose
 		}
 	}
@@ -2042,7 +2043,8 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
 		if (!flags) // try upper case
 		{
 			WORDP E = FindWord(word,0,SECONDARY_CASE_ALLOWED); // uppercase
-			if (E && E != D && E->word[2]) WARNSCRIPT((char*)"Word %s only known in upper case\r\n",word)   
+			if (E && E != D && E->word[2]) 
+                WARNSCRIPT((char*)"Word %s only known in upper case\r\n",word)   
 			else if (E && !(E->internalBits & UPPERCASE_HASH) && !D ) WARNSCRIPT((char*)"%s is not a known word. Is it misspelled?\r\n",word)
 			canonical = E; // the base word
 		}
@@ -5277,12 +5279,14 @@ static void DoubleCheckReuse()
 		ptr = ReadCompiledWord(ptr,topicname);					// from topic
 		ptr = ReadCompiledWord(ptr,tmpWord);				// from file
 		int line;
-		ReadInt(ptr,line);									// from line
-		WORDP D = FindWord(word);
+		ptr = ReadInt(ptr,line);									// from line
+        char bothead[MAX_WORD_SIZE];
+        ptr = ReadCompiledWord(ptr, bothead);				// from bot
+        WORDP D = FindWord(word);
 		if (!D) // cannot find full label
 		{
-			if (!strcmp(topicname,word))  WARNSCRIPT((char*)"Missing local label %s for reuse/unerase in topic %s in File: %s Line: %d\r\n",word,topicname,tmpWord,line)
-			else  WARNSCRIPT((char*)"Missing cross-topic label %s for reuse in File: %s Line: %d\r\n",word,tmpWord,line)
+			if (!strcmp(topicname,word))  WARNSCRIPT((char*)"Missing local label %s for reuse/unerase in topic %s in File: %s Line: %d Bot: %s\r\n",word,topicname,tmpWord,line,bothead)
+			else  WARNSCRIPT((char*)"Missing cross-topic label %s for reuse in File: %s Line: %d Bot: %s\r\n",word,tmpWord,line,bothead)
 		}
 	}
 	fclose(in); // dont use Fclose
@@ -5573,7 +5577,8 @@ static void DumpWarnings()
 		else if (strstr(warnings[i],(char*)"is unknown as a word")) {}
 		else if (strstr(warnings[i],(char*)"in opposite case")){}
 		else if (strstr(warnings[i],(char*)"a function call")){}
-		else Log(ECHOSTDTRACELOG,(char*)"  %s",warnings[i]);
+        else if (strstr(warnings[i], (char*)"multiple spellings")) {}
+        else Log(ECHOSTDTRACELOG,(char*)"  %s",warnings[i]);
 	}
 }
 

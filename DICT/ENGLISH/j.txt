@@ -3102,7 +3102,7 @@
  Johnny_Cash ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     John_Cash~1nz (^singer~1) United States country music singer and songwriter
  John_Cash ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Cash~1n 
+    Johnny_Cash~1n 
  Jean_Francois_Champollion ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Champollion~1nz (^Egyptologist~1) Frenchman and Egyptologist who studied the Rosetta Stone and in 1821 became the first person to decipher Egyptian hieroglyphics
  John_Chapman ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 

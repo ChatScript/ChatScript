@@ -361,9 +361,15 @@ Note: the system has two kinds of concepts.
 
 * _Enumerated_ concepts are ones formed from an explicit list of members. Stuff in definitions of `concept: ~xxx()` are that. 
 
-* There are also _internal_ concepts marked by the system. These include part of speech of a word (requires using the pos-tagger to decide from the input what part of speech it was of possibly several), grammatical roles, words from infinite sets like `~number` and `~placenumber` and `~weburl`, and so forth.  
+* There are also _internal_ concepts (dynamic concepts) marked by the system. These include part of speech of a word (requires using the pos-tagger to decide from the input what part of speech it was of possibly several), grammatical roles, words from infinite sets like `~number` and `~placenumber` and `~weburl`, and so forth.  
 
-In a pattern of some kind, if you are referencing a sentence location using a match variable, you can match both kinds of concepts. But if you are not tied to a location in  a sentence, you can't match internally computed ones. So something like
+The ? operator has two forms. `xxx?~yyy` will look for actual membership in the set whereas
+`_n?~yyy` will only see if the location of match detection of _n is the same as a 
+corresponding match location for the concept. If the concept has not been marked, then 
+obviously no match is found.
+
+In a pattern of some kind, if you are referencing a sentence location using a match variable, you can match both kinds enumerated and dynamic concepts. 
+But if you are not tied to a location in  a sentence, you can't match internally computed ones. So something like
 
     if ( pattern 23?~number )
 
@@ -374,7 +380,6 @@ will fail. Even
 will fail given that deciding practical is an adjective (it could also be a noun) hasn't been performed by pos-tagging.
 
 All internal concepts are members of the concept `~internal_concepts`.
-
 
 
 # ADVANCED TOPICS
@@ -2544,7 +2549,7 @@ Similarly, if a rule uses `^refine()`, the actual output will come from a `rejoi
 These can never erase themselves directly, so the erasure will again rebound to the caller.
 
 Note that a topic declared system NEVER erases its rules, neither gambits nor responders,
-even if you put ^erase() on a rule.
+even if you put ^disable(RULE ~) on a rule.
 
     u: (~emogoodbye)
 

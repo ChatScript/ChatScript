@@ -360,6 +360,7 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
     if (trace & TRACE_PATTERN  && CheckTopicTrace()) Log(STDTRACETABLOG, "%s ",kind); //   start on new indented line
     bool matched;
 	unsigned int startNest = functionNest;
+    int startfnvarbase = fnVarbase;
 	int wildcardBase = wildcardIndex;
 	unsigned int result;
 	int bidirectional = 0;
@@ -833,8 +834,8 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
 						}
 					}
 					if ((trace & TRACE_PATTERN || D->internalBits & MACRO_TRACE)  && CheckTopicTrace()) Log(STDTRACELOG,(char*)")\r\n"); 
-					callArgumentBase = argStack[functionNest];
-					ptrStack[functionNest++] = ptr+2; // skip closing paren and space
+                    callArgumentBase =  fnVarbase = argStack[functionNest] - 1;
+                    ptrStack[functionNest++] = ptr + 2; // skip closing paren and space
 					ptr = (char*)FindAppropriateDefinition(D, result); 
 					if (ptr)
 					{
@@ -871,8 +872,8 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
  					if (trace & TRACE_PATTERN  && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)""); 
 					--functionNest;
                     callArgumentIndex = argStack[functionNest]; //   end of argument list (for next argument set)
-                    callArgumentBase = baseStack[functionNest]; //   base of callArgumentList
-					ptr = ptrStack[functionNest]; // continue using prior code
+                    fnVarbase = callArgumentBase = baseStack[functionNest]; //   base of callArgumentList
+                    ptr = ptrStack[functionNest]; // continue using prior code
 					trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 					continue;
                 }
@@ -1472,6 +1473,7 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
     {
         callArgumentIndex = argStack[startNest];
         callArgumentBase = baseStack[startNest];
+        fnVarbase = callArgumentIndex - 1;
 		functionNest = startNest;
     }
 	
