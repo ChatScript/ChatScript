@@ -3469,6 +3469,15 @@ static FunctionResult TimeInfoFromSecondsCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static FunctionResult StatsCode(char* buffer)
+{
+    if (!stricmp(ARGUMENT(1), "facts"))
+    {
+        sprintf(buffer, "%d", factEnd - factFree);
+        return NOPROBLEM_BIT;
+    }
+    return FAILRULE_BIT;
+}
 
 static FunctionResult TimeToSecondsCode(char* buffer)
 {
@@ -3675,13 +3684,25 @@ static FunctionResult FormatCode(char* buffer)
 		fvalue = Convert2Float(arg3);
 		sprintf(buffer, arg2, fvalue);
 	}
-	else if (!stricmp(arg1, "integer"))
-	{
-		ivalue = Convert2Integer(arg3);
-		value = (int)ivalue;
-		if (strstr(arg2,"ll") ) sprintf(buffer, arg2, ivalue);
-		else sprintf(buffer, arg2, value);
-	}
+    else if (!stricmp(arg1, "integer") || !stricmp(arg1, "int"))
+    {
+        fvalue = Convert2Float(arg3);
+        bool minus = false;
+        if (fvalue < 0)
+        {
+            minus = true;
+            fvalue *= -1.0;
+        }
+        ivalue = (int64)fvalue;
+        value = (int)ivalue;
+        if (minus)
+        {
+            ivalue *= -1;
+            value *= -1;
+        }
+        if (strstr(arg2, "ll")) sprintf(buffer, arg2, ivalue);
+        else sprintf(buffer, arg2, value);
+    }
 	else return FAILRULE_BIT;
 	return NOPROBLEM_BIT;
 }
@@ -4557,7 +4578,7 @@ int MoveListToStack(int list)
 	while (list)
 	{
 		unsigned int* from = (unsigned int*)Index2Heap(list);
-		unsigned int* at = (unsigned int*)AllocateStack(NULL, 2 * sizeof(uint64), false, true); //  PreserveProperty
+		unsigned int* at = (unsigned int*)AllocateStack(NULL, 2 * sizeof(uint64), false, 4); //  PreserveProperty
 		*at = tmplist; // linked list thread
 		at[1] = from[1]; // index of D (word)
 		tmplist = Stack2Index((char*)at);
@@ -7771,6 +7792,7 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 				X = AddToList(GetSubjectHead(newfact),F,GetSubjectNext,SetSubjectNext);  // dont use nondead
 				SetSubjectHead(newfact,X);
 				F->subject = newsubject;
+                ModBaseFact(F);
 			}
 		}
 		else // word replacement
@@ -7784,7 +7806,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 				X = AddToList(GetSubjectHead(newsubject),F,GetSubjectNext,SetSubjectNext);  // dont use nondead
 				SetSubjectHead(newsubject,X);
 				F->subject = MakeMeaning(newsubject);
-			}
+                ModBaseFact(F);
+            }
 		} 
 	}
 	if (stricmp(verb,(char*)"null"))
@@ -7804,7 +7827,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 				X = AddToList(GetVerbHead(newfact),F,GetVerbNext,SetVerbNext);  // dont use nondead
 				SetVerbHead(newfact,X);
 				F->verb = newverb;
-			}
+                ModBaseFact(F);
+            }
 		}
 		else // word replacement
 		{
@@ -7817,7 +7841,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 				X = AddToList(GetVerbHead(newverb),F,GetVerbNext,SetVerbNext);  // dont use nondead
 				SetVerbHead(newverb,X);
 				F->verb = MakeMeaning(newverb);
-			}
+                ModBaseFact(F);
+            }
 		} 
 	}
 	if (stricmp(object,(char*)"null"))
@@ -7836,7 +7861,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 				X = AddToList(GetObjectHead(newfact),F,GetObjectNext,SetObjectNext);  // dont use nondead
 				SetObjectHead(newfact,X);
 				F->object = newobject;
-			}
+                ModBaseFact(F);
+            }
 		}
 		else // word replacement
 		{
@@ -7858,7 +7884,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 				X = AddToList(GetObjectHead(newObject),F,GetObjectNext,SetObjectNext);  // dont use nondead
 				SetObjectHead(newObject,X);
 				F->object = value;
-			}
+                ModBaseFact(F);
+            }
 		} 
 	}
 
@@ -8943,12 +8970,14 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^setwildcardindex",SetWildcardIndexCode,STREAM_ARG,SAMELINE,(char*)"resume wildcard allocation at this number"}, 
 	{ (char*)"^isnormalword",IsNormalWordCode,1,SAMELINE,(char*)"resume wildcard allocation at this number" },
 	{ (char*)"^wordAtIndex",WordAtIndexCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"1st arg original canonical, Get word at index or possible range" },
-	{ (char*)"\r\n---- Numbers",0,0,0,(char*)""},
+	
+    { (char*)"\r\n---- Numbers",0,0,0,(char*)""},
 	{ (char*)"^compute",ComputeCode,3,SAMELINE,(char*)"perform a numerical computation"}, 
 	{ (char*)"^isnumber",IsNumberCode,1,SAMELINE,(char*)"is this an integer or double number or currency"}, 
 	{ (char*)"^timefromseconds",TimeFromSecondsCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"given time/date in seconds, return the timeinfo string corresponding to it"}, 
 	{ (char*)"^timeinfofromseconds",TimeInfoFromSecondsCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"given time/date in seconds and indicator of daylight savings or not, returning a sequence of 6 matchvariables (sec min hr date mo yr)"},
 	{ (char*)"^timetoseconds",TimeToSecondsCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"given time/date a series of 6 values (sec min hr date mo yr), return the timeinfo string corresponding to it"}, 
+    { (char*)"^stats",StatsCode,1,SAMELINE,(char*)"given facts, tells how many facts are left" },
 
 	{ (char*)"\r\n---- Debugging",0,0,0,(char*)""},
 	{ (char*)"^debug",DebugCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"only useful for debug code breakpoint"}, 

@@ -1,6 +1,8 @@
 ##<<ENGLISH concept: ~determinerlist (a an the ) ##>>
 ##<<ENGLISH concept: ~qwords (where when why how whom who whose whomever whoever what which whichever whatever ) ##>>
 
+# exceptions to "of" following a noun (these are not going to be nouns)
+##<<ENGLISH concept: ~verbof_exceptions (talk tell think come dream give tire) ##>> 
 ##<<ENGLISH concept: ~static_verbs ( ~states_of_being ~sensory_states ~mental_states ~own ~measurement_states ~eternal_truths) ##>>
 ##<<ENGLISH concept: ~states_of_being (be seem appear look resemble "looks like" becomes get) ##>> # descriptors
 ##<<ENGLISH concept: ~sensory_states (appear feel hear look  see  smell sound taste ) ##>> # descriptors

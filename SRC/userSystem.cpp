@@ -129,14 +129,14 @@ static char* WriteUserFacts(char* ptr,bool sharefile,int limit,char* saveJSON)
     {
 		if (!(setControl & (uint64) ((uint64)1 << i))) continue; // purely transient stuff
 
-		//   remove dead references
+		//   remove dead references 
 		FACT** set = factSet[i];
         count = FACTSET_COUNT(i);
 		unsigned int j;
         for (j = 1; j <= count; ++j)
 		{
 			FACT* F = set[j];
-			if (F && F->flags & FACTDEAD)
+            if (F && F->flags & FACTDEAD)
 			{
 				memmove(&set[j],&set[j+1],sizeof(FACT*) * (count - j));
 				--count;
@@ -172,7 +172,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,int limit,char* saveJSON)
 	{
 		if (shared && !sharefile)  continue;
 		if (saveJSON && !(F->flags & MARKED_FACT2) && F->flags & (JSON_OBJECT_FACT | JSON_ARRAY_FACT)) continue; // dont write this out
-		if (!(F->flags & (FACTDEAD|FACTTRANSIENT|MARKED_FACT|FACTBUILD2))) --limit; // we will write this
+		if (!(F->flags & (FACTDEAD|FACTTRANSIENT|MARKED_FACT|FACTBUILD2| FACTBOOT))) --limit; // we will write this
 	}
 	// ends on factlocked, which is not to be written out
 	int counter = 0;
@@ -182,7 +182,9 @@ static char* WriteUserFacts(char* ptr,bool sharefile,int limit,char* saveJSON)
 		if (shared && !sharefile)  continue;
 		if (saveJSON && !(F->flags & MARKED_FACT2) && F->flags & (JSON_OBJECT_FACT | JSON_ARRAY_FACT)) continue; // dont write this out
 		if (F->flags & MARKED_FACT2) F->flags ^= MARKED_FACT2;	// turn off json marking bit
-		if (!(F->flags & (FACTDEAD|FACTTRANSIENT|MARKED_FACT|FACTBUILD2)))
+        if (F->flags & FACTBOOT && !(F->flags & (FACTDEAD | FACTTRANSIENT))) 
+            bootFacts = true;
+        if (!(F->flags & (FACTDEAD|FACTTRANSIENT|MARKED_FACT|FACTBUILD2| FACTBOOT)))
 		{
 			++counter;
 			WriteFact(F,true,ptr,false,true); // facts are escaped safe for JSON

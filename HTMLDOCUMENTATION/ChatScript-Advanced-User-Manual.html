@@ -177,9 +177,10 @@ concept: ~active_verbs ONLY_NONE (sleep)</code></pre>
 <p>Note: the system has two kinds of concepts.</p>
 <ul>
 <li><p><em>Enumerated</em> concepts are ones formed from an explicit list of members. Stuff in definitions of <code>concept: ~xxx()</code> are that.</p></li>
-<li><p>There are also <em>internal</em> concepts marked by the system. These include part of speech of a word (requires using the pos-tagger to decide from the input what part of speech it was of possibly several), grammatical roles, words from infinite sets like <code>~number</code> and <code>~placenumber</code> and <code>~weburl</code>, and so forth.</p></li>
+<li><p>There are also <em>internal</em> concepts (dynamic concepts) marked by the system. These include part of speech of a word (requires using the pos-tagger to decide from the input what part of speech it was of possibly several), grammatical roles, words from infinite sets like <code>~number</code> and <code>~placenumber</code> and <code>~weburl</code>, and so forth.</p></li>
 </ul>
-<p>In a pattern of some kind, if you are referencing a sentence location using a match variable, you can match both kinds of concepts. But if you are not tied to a location in a sentence, you can't match internally computed ones. So something like</p>
+<p>The ? operator has two forms. <code>xxx?~yyy</code> will look for actual membership in the set whereas <code>_n?~yyy</code> will only see if the location of match detection of _n is the same as a corresponding match location for the concept. If the concept has not been marked, then obviously no match is found.</p>
+<p>In a pattern of some kind, if you are referencing a sentence location using a match variable, you can match both kinds enumerated and dynamic concepts. But if you are not tied to a location in a sentence, you can't match internally computed ones. So something like</p>
 <pre><code>if ( pattern 23?~number )</code></pre>
 <p>will fail. Even</p>
 <pre><code>if ( pattern practical?~adjective )</code></pre>
@@ -1205,7 +1206,7 @@ I like $var1</code></pre>
 <p>The system's default behavior is to erase rules that put output into the output stream, so they won't repeat themselves later. You can explicitly make a rule erase with <code>^erase()</code> and not erase with <code>^keep()</code> and you can make the topic not allow responders to erase with keep as a topic flag.</p>
 <p>So, if a rule generates output, it will try to erase itself. If a rule uses <code>^reuse()</code>, then the rule that actually generated the output will be the called rule. If for some reason it cannot erase itself, then the erasure will rebound to the caller, who will try to erase himself.</p>
 <p>Similarly, if a rule uses <code>^refine()</code>, the actual output will come from a <code>rejoinder()</code>. These can never erase themselves directly, so the erasure will again rebound to the caller.</p>
-<p>Note that a topic declared system NEVER erases its rules, neither gambits nor responders, even if you put ^erase() on a rule.</p>
+<p>Note that a topic declared system NEVER erases its rules, neither gambits nor responders, even if you put ^disable(RULE ~) on a rule.</p>
 <pre><code>u: (~emogoodbye)</code></pre>
 <p><strong><em>How can I get the original input when I have a pattern like <code>u: (~emogoodbye)</code> ?</em></strong></p>
 <p>To get the original input, you need to do the following:</p>

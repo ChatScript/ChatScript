@@ -68,7 +68,7 @@ unsigned int flagsRedefines = 0;		// systemflags changes on locked dictionary en
 static int freeTriedList = 0;
 bool xbuildDictionary = false;				// indicate when building a dictionary
 char dictionaryTimeStamp[20];		// indicate when dictionary was built
-char* mini = "";
+char* mini = ""; // what language
 unsigned int* hashbuckets = 0;
 static unsigned int rawWords = 0;	
 
@@ -4947,7 +4947,7 @@ static void readPrepositions(char* file, bool addmeaning)
 
 static void readSpellingExceptions(char* file) // dont double consonants when making past tense
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -4955,10 +4955,10 @@ static void readSpellingExceptions(char* file) // dont double consonants when ma
 		Log(STDUSERLOG, "** Missing file %s\r\n", file);
 		return;
 	}
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		ptr = ReadWord(ptr, word);
 		if (*word == 0) continue;
 		WORDP D = StoreWord(word, 0);
@@ -4969,7 +4969,7 @@ static void readSpellingExceptions(char* file) // dont double consonants when ma
 
 static void AdjNotPredicate(char* file)
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -4977,10 +4977,10 @@ static void AdjNotPredicate(char* file)
 		Log(STDUSERLOG, "** Missing file %s\r\n", file);
 		return;
 	}
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		while (ptr)
 		{
 			ptr = ReadWord(ptr, word);
@@ -4994,7 +4994,7 @@ static void AdjNotPredicate(char* file)
 
 static bool readPronouns(char* file)
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -5002,10 +5002,10 @@ static bool readPronouns(char* file)
 		Log(STDUSERLOG, "** Missing file %s\r\n", file);
 		return false;
 	}
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		ptr = ReadWord(ptr, word);    //   the pronoun
 		if (*word == 0) continue;
 		WORDP D = StoreWord(word, 0);
@@ -5031,7 +5031,7 @@ static bool readPronouns(char* file)
 
 static void readHomophones(char* file)
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -5039,10 +5039,10 @@ static void readHomophones(char* file)
 		Log(STDUSERLOG, "** Missing file %s\r\n", file);
 		return;
 	}
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		WORDP D = NULL;
 		WORDP E = NULL;
 		while (ALWAYS)
@@ -6222,7 +6222,7 @@ static void readIrregularVerbs(char* file)
 
 static void readIrregularNouns(char* file)
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -6231,10 +6231,10 @@ static void readIrregularNouns(char* file)
 		return;
 	}
 
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		ptr = ReadWord(ptr, word);    //   the singular
 		if (*word == 0) continue;
 		WORDP singular = StoreWord(word, NOUN);
@@ -6260,7 +6260,7 @@ static void readIrregularNouns(char* file)
 
 static void readIrregularAdverbs(char* file)
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -6269,10 +6269,10 @@ static void readIrregularAdverbs(char* file)
 		return;
 	}
 
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		ptr = ReadWord(ptr, word);    //   the basic
 		if (*word == 0) continue;
 		WORDP basic = StoreWord(word, ADVERB | ADVERB);
@@ -6298,7 +6298,7 @@ static void readIrregularAdverbs(char* file)
 
 static void readWordByAge(char* file, uint64 grade)
 {
-	char input_string[MAX_BUFFER_SIZE];
+	char inputstring[MAX_BUFFER_SIZE];
 	char word[MAX_WORD_SIZE];
 	FILE* in = FopenReadNormal(file);
 	if (!in)
@@ -6307,10 +6307,10 @@ static void readWordByAge(char* file, uint64 grade)
 		return;
 	}
 
-	while (fget_input_string(false, false, input_string, in) != 0)
+	while (fget_input_string(false, false, inputstring, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
-		char* ptr = input_string;
+		if (inputstring[0] == '#' || inputstring[0] == 0) continue;
+		char* ptr = inputstring;
 		ptr = ReadWord(ptr, word);    //   the name
 		if (*word == 0) continue;
 		size_t len = strlen(word);
@@ -6984,26 +6984,25 @@ static void CleanDead(WORDP D, uint64 junk) // insure all synonym circulars poin
 
 		if (GetMeanings(D)[i] & SYNSET_MARKER) // we are the synset head, adjust our links upward to be dead or not
 		{
-			MEANING M = MakeMeaning(D, i); // correct ptr to use for uplink has no flags on it
-			MEANING base = M;
-			if (synhead) M = synhead;	// the actual facts base for synset was dead
+			MEANING Mx = MakeMeaning(D, i); // correct ptr to use for uplink has no flags on it
+			MEANING basex = Mx;
+			if (synhead) Mx = synhead;	// the actual facts base for synset was dead
 			FACT* F = NULL;
 			while (ALWAYS)
 			{
-				F = UpLink(M);  // goes up one level from ORIGINAL synset master - all words are already alive or dead marked
+				F = UpLink(Mx);  // goes up one level from ORIGINAL synset master - all words are already alive or dead marked
 				if (!F) break; // no uplink
-				WORDP X = Meaning2Word(F->object);
-				if (X->internalBits & DELETED_MARK) // fact SHOULD be dead as object certainly is
+				if (Meaning2Word(F->object)->internalBits & DELETED_MARK) // fact SHOULD be dead as object certainly is
 				{
 					F->flags |= FACTDEAD;
 				}
 				else break; // valid uplink endpoint found (though link itself may or may not be dead already)
-				M = F->object;	// transfer thru dead link to find valid
+				Mx = F->object;	// transfer thru dead link to find valid
 			}
-			if (F && F->subject != base)
+			if (F && F->subject != basex)
 			{
 				F->flags |= FACTDEAD; // last fact from a dead trail
-				CreateFact(base, Mis, F->object); // indirect uplinks all dead, make a direct uplink
+				CreateFact(basex, Mis, F->object); // indirect uplinks all dead, make a direct uplink
 			}
 		}
 	}
@@ -7077,7 +7076,7 @@ static void AddShortDict(char* name)
 	}
 	StartFile(name);
 	char word[MAX_WORD_SIZE];
-	WORDP base = dictionaryFree;
+	WORDP basex = dictionaryFree;
 	while (ReadALine(readBuffer, in) >= 0)
 	{
 		ReadCompiledWord(readBuffer, word);
@@ -7094,7 +7093,7 @@ static void AddShortDict(char* name)
 	}
 	fclose(in);
 
-	if (dictionaryFree == base)
+	if (dictionaryFree == basex)
 	{
 		Log(STDUSERLOG, "***** NO dict from topics? %s\r\n", name);
 	}
@@ -7140,13 +7139,13 @@ void ReadForeign()
 	fclose(in);
 }
 
-static void ReadEnglish(int mini)
+static void ReadEnglish(int minid)
 {
 	//   proper names
 	readNames("RAWDICT/LINKPARSER/entities.locations.sing", NOUN | NOUN_PROPER_SINGULAR, 0);
 	readNames("RAWDICT/lastnames.txt", NOUN | NOUN_PROPER_SINGULAR | NOUN_HUMAN, 0);
 	// before nouns so we can autogender proper names
-	if (mini <= 0) // full dictionary only
+	if (minid <= 0) // full dictionary only
 	{
 		readFirstNames("RAWDICT/firstnames.txt");
 		readNames("RAWDICT/LINKPARSER/entities.given-female.sing", NOUN | NOUN_SHE | NOUN_HUMAN | NOUN_FIRSTNAME | NOUN_PROPER_SINGULAR, 0);
@@ -7157,7 +7156,7 @@ static void ReadEnglish(int mini)
 
 
 	// ADD WORD LEAST LIKELY TO BE USED FIRST TO IMPROVE DICTIONARY BUCKET LOOKUP
-	if (mini <= 0) 	readSupplementalWord("RAWDICT/foreign.txt", FOREIGN_WORD, 0); // only on a full dictionary
+	if (minid <= 0) 	readSupplementalWord("RAWDICT/foreign.txt", FOREIGN_WORD, 0); // only on a full dictionary
 
 																				  //   noun data
 	(*printer)("reading noun data\r\n");
@@ -7173,7 +7172,7 @@ static void ReadEnglish(int mini)
 	readOnomatopoeia("RAWDICT/onomatopoeia.txt");
 	readSupplementalWord("RAWDICT/interjectionlist.txt", INTERJECTION, 0);
 	readSupplementalWord("RAWDICT/otherlist.txt", 0, 0);
-	if (mini <= 0) readHomophones("RAWDICT/homophones.txt");// full dictionary
+	if (minid <= 0) readHomophones("RAWDICT/homophones.txt");// full dictionary
 
 															// gender information
 	ReadSexed("RAWDICT/he.txt", NOUN_HE | NOUN_HUMAN);
@@ -7314,7 +7313,7 @@ static void ReadEnglish(int mini)
 	readCommonness();
 	ReadBNCPosData();
 	readNonPos("RAWDICT/nonpos.txt");
-	if (mini >= 0) ReadDeadSynset("RAWDICT/deadsynset.txt"); // if we dont want wordnet all (which is the usual)
+	if (minid >= 0) ReadDeadSynset("RAWDICT/deadsynset.txt"); // if we dont want wordnet all (which is the usual)
 	readNonNames("RAWDICT/nonnames.txt"); //   override our dictionary on some words it thinks of as names that are too common
 	readNonWords("RAWDICT/nonwords.txt");
 }
@@ -7433,11 +7432,11 @@ static void readMassNouns(char* file)
 	fclose(in);
 }
 
-void LoadRawDictionary(int mini) // 6 == foreign
+void LoadRawDictionary(int minid) // 6 == foreign
 {
 	sprintf(logFilename, "USERS/dictionary_log.txt");
 	FILE* out = FopenUTF8Write(logFilename);
-	if (mini && mini != 6) fprintf(out, "Mini: %d\r\n", mini);
+	if (minid && minid != 6) fprintf(out, "Mini: %d\r\n", minid);
 	fclose(out);
 	ClearWordMaps();
 
@@ -7447,7 +7446,7 @@ void LoadRawDictionary(int mini) // 6 == foreign
 	Dqword = StoreWord("~qwords");
 	AddInternalFlag(Dqword, CONCEPT);
 
-	if (mini != 6) ReadEnglish(mini);
+	if (minid != 6) ReadEnglish(minid);
 
 	// By now, the full NORMAL dictionary has been created.
 
@@ -7469,22 +7468,22 @@ void LoadRawDictionary(int mini) // 6 == foreign
 	// dictionary is full and normal right now
 
 	// remove EVERYTHING by default (except aux verbs, prepositions, conjunctions, determiners, pronouns, currency, Punctuation)
-	if (mini > 0 && mini != 6) WalkDictionary(DeleteAllWords, 0);
+	if (minid > 0 && minid != 6) WalkDictionary(DeleteAllWords, 0);
 
-	if (mini >= 2 && mini != 6) // merge in layer0 stuff-- dont do layer 1, which should remain dynamic, but keep keywords we know about
+	if (minid >= 2 && minid != 6) // merge in layer0 stuff-- dont do layer 1, which should remain dynamic, but keep keywords we know about
 	{
 		// then revive specifics 
 		AddShortDict("TOPIC/BUILD0/dict0.txt"); // add dictionary entries defined by level 0 dictionary entries
-		if (mini == 3) AddShortDict("TOPIC/BUILD1/dict1.txt"); // add dictionary entries defined by level 1 dictionary entries
+		if (minid == 3) AddShortDict("TOPIC/BUILD1/dict1.txt"); // add dictionary entries defined by level 1 dictionary entries
 
 		FACT* F = factFree;
 		InitKeywords("TOPIC/BUILD0/keywords0.txt", NULL, BUILD0, true, false); // propogate entries into the dictionary with types as needed (just not concept names)- also creates facts we want to destroy
-		if (mini == 3)	InitKeywords("TOPIC/BUILD1/keywords1.txt", NULL, BUILD1, true, false); // propogate entries into the dictionary with types as needed - also creates facts we want to destroy
+		if (minid == 3)	InitKeywords("TOPIC/BUILD1/keywords1.txt", NULL, BUILD1, true, false); // propogate entries into the dictionary with types as needed - also creates facts we want to destroy
 		CheckShortFacts();
 		while (factFree > F) FreeFact(factFree--);
 
 		CheckShortDictionary("TOPIC/BUILD0/patternWords0.txt", true); // could live w/o pattern words, but extra amount is small
-		if (mini == 3)	CheckShortDictionary("TOPIC/BUILD1/patternWords1.txt", true);
+		if (minid == 3)	CheckShortDictionary("TOPIC/BUILD1/patternWords1.txt", true);
 
 		WalkDictionary(MoveSetsToBase);
 	}
@@ -7493,13 +7492,13 @@ void LoadRawDictionary(int mini) // 6 == foreign
 
 	char aux[MAX_WORD_SIZE];
 	sprintf(aux, "RAWDICT/auxdict.txt");
-	if (mini != 6)
+	if (minid != 6)
 	{
 		CheckShortDictionary(aux, false); // vocabulary specific to this app
 		ReadAbbreviations("LIVEDATA/abbreviations.txt"); // needed for burst/tokenizing
 		ReadTitles("RAWDICT/titles.txt"); //   forms of address like Mr. (before readData so things like potage_St._Germain are correctly handled - burst needs to know them...
 		WalkDictionary(DefineShortCanonicals, 0); // all more and most forms as needed
-		ReadWordFrequency("RAWDICT/500kwords.txt", 20000, mini > 0); // add most frequent words NOT already known or until dict is 20K
+		ReadWordFrequency("RAWDICT/500kwords.txt", 20000, minid > 0); // add most frequent words NOT already known or until dict is 20K
 		didSomething = true;
 		while (didSomething)
 		{

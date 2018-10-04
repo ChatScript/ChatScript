@@ -10,7 +10,7 @@ How to support non-English languages at end of manual.
 
 ## Perspective on State of the Art Pos-tagging and Parsing
 
-Back in school we learned the various parts of speech (noun, verb, adjective, adverb, preposition …)
+Back in school we learned the various parts of speech (noun, verb, adjective, adverb, preposition ...)
 and were taught basic rules of grammar. Why? 
 To help us understand meaning. But fancy grammar is not needed for basic meaning. 
 _Me hungry_ is perfectly understandable. And context also dictates
@@ -61,17 +61,17 @@ These "good" results are for kinds of material the tagger is trained for and
 degrades on other works until trained there. 
 They are rarely trained on other kinds of work because the training data isn't there.
 
-But there's a fundamental flaw with the that each word can be given a correct pos tag. Idioms are not
+Furthermore, there's a fundamental flaw with the idea that each word can be given a correct pos tag. Idioms are not
 addressed. For example: the idiom _until recently_ is an adverb idiom. Yet under normal pos-taggers it
 becomes a preposition and an adverb. So where is the object of the preposition? But hey, at least it's
 one of the words is right.
 
-More than is a particularly interesting combo. _More than one ate meat_. They label _more_ an adjective
-and than a preposition/conjunction while they correctly label the subject as one and the noun phrase
+`More than` is a particularly interesting combo. _More than one ate meat_. They label _more_ an adjective
+and _than_ a preposition/conjunction while they correctly label the subject as one and the noun phrase
 contains a quantifier phrase. 
 What about _they sold more than 150 units_. The word than is either a
  preposition or a subordinate conjunction under some pos-taggers. But more than is also an idiom whose
-composite pos would be as a quantifier. 
+composite postag would be as a quantifier. 
 
 Quantifiers join articles and determiners as something that
 comes before a noun (_all children_) and denote quantity. Then mix that with being allowed to omit
@@ -123,28 +123,35 @@ accuracy (99.x%) and run rapidly. Their primary flaw is you have to hand code al
 versions of them.
 
 
-## Complaints about statistical pos-parsers
+## Complaints about statistical pos-parsers and Stanford's in particular
 
-So one complaint I have is with accuracy. Another complaint is speed and memory requirements. 
+So one complaint I have is with accuracy. 
+Even on work they are trained on, they reflect probability of words. So they become blind
+to low probability events. Like `I ate everything but my dog`. The dictionary tells us that `but` is
+usually a coordinating conjunction, but also rarely a preposition. In the sentence above,
+ML parsers always claim it is a coordinating conjuction, though in fact it is a preposition. And you can't parse
+this sentence correctly if you are wrong about the part of speech.
+
+Another complaint is speed and memory requirements. 
 The simpler of the Stanford parsers is the PCFG one. On an Intel i5 2.53 Mhz machine, a 27 word sentence
 takes 1.5 seconds and 100 Mb. ChatScript takes under 10 milliseconds and 50Mb with a full dictionary.
 You can run with a large dictionary in 16Mb for a cellphone.
 
-And a third complaint is that Stanford's will always return a parse, even if the parse is not reasonable.
+And a fourth complaint is that Stanford's system will always return a parse, even if the parse is not reasonable.
 The parse of _is it on me_? given that it treats on as an adverb instead of a preposition, is garbage and is
 similar to _is it me_? with an extra adverb tacked on. For other sentences it can't say _I find no verb so
 either this isn't a sentence or something is wrong_. It has no way of knowing that maybe it failed when
 sometimes one clearly could if one knew grammar.
 
-My fourth complaint, the output is a tree structure, which then needs to be reinterpreted by some other
+My fifth complaint, the output is a tree structure, which then needs to be reinterpreted by some other
 tool.
 
-And my fifth complaint is that Stanford's errors are uniformly distributed. It doesn't matter if the
+And my sixth complaint is that Stanford's errors are uniformly distributed. It doesn't matter if the
 sentence is a short one, a first grade sentence, whatever. It will make errors in simple sentences as well
 as complex ones. Particularly for chat, simple sentences are more likely, so I would prefer a pos-tagger
 that was more accurate on easy stuff.
 
-And my final complaint is that you can't readily fix any Stanford's mistakes. It has to be trained on a
+And my final complaint is that you can't readily fix an ML tagger's mistakes. It has to be trained on a
 corpus and creating one that will fix issues is hard and not ever done.
 
 

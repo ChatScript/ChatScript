@@ -768,7 +768,7 @@ void MigrateUserVariables()
         D->word = AllocateStack(D->word, 0); // reallocate name
 
                                              // recreate thread list
-        unsigned int* data = (unsigned int*)AllocateStack(NULL, 8, false, true); // allocate list
+        unsigned int* data = (unsigned int*)AllocateStack(NULL, 8, false, 4); // allocate list
         data[0] = userVariableThreadList;
         data[1] = cell[1];
         userVariableThreadList = Stack2Index((char*)data);

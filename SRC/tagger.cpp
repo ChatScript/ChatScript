@@ -407,14 +407,14 @@ void DumpSentence(int start,int end)
 
 	if (tokenFlags & PASSIVE) strcat(buffer,(char*)" PASSIVE ");
 	strcat(buffer,(char*)"\n");
-	for (int i = 1; i <= describedPhrases; ++i)
+	for (i = 1; i <= describedPhrases; ++i)
 	{
 		sprintf(word,(char*)"Phrase %d :",i);
 		strcat(buffer,word);
 		Describe(describePhrase[i],buffer);
 		strcat(buffer,(char*)"\n");
 	}
-	for (int i = 1; i <= describedVerbals; ++i)
+	for (i = 1; i <= describedVerbals; ++i)
 	{
 		sprintf(word,(char*)"Verbal %d: (",i);
 		strcat(buffer,word);
@@ -440,7 +440,7 @@ void DumpSentence(int start,int end)
 		}
 		strcat(buffer,(char*)"\n");
 	}
-	for (int i = 1; i <= describedClauses; ++i)
+	for (i = 1; i <= describedClauses; ++i)
 	{
 		sprintf(word,(char*)"Clause %d %s : ",i,wordStarts[describeClause[i]]);
 		strcat(buffer,word);
@@ -472,7 +472,7 @@ void DumpSentence(int start,int end)
 		strcat(buffer,(char*)"\n");
 	}
 
-	for (int i = start; i <= to; ++i) // show phrases
+	for (i = start; i <= to; ++i) // show phrases
 	{
 		if (ignoreWord[i]) continue;
 		if (i >= to) continue; // ignore
@@ -498,7 +498,7 @@ void DumpSentence(int start,int end)
 		}
 	}
 
-	for (int i = start; i <= to; ++i) // show phrases
+	for (i = start; i <= to; ++i) // show phrases
 	{
 		if (ignoreWord[i]) continue;
 		if ( phrases[i] && phrases[i] != phrases[i-1] && (i != wordCount || phrases[wordCount] != phrases[1])) 

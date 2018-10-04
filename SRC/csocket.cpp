@@ -1317,6 +1317,8 @@ static void* MainChatbotServer()
 		else strcpy(ourMainOutputBuffer,(char*)"Hey, sorry. I forgot what I was thinking about.");
 		ServerTransferDataToClient();
 #endif
+        factThread = NULL;
+        userVariableThreadList = NULL;
 		ResetBuffers(); //   in the event of a trapped bug, return here, we will still own the chatlock
 	}
     chatbotExists = true;   //  if a client can get the chatlock now, he will be happy

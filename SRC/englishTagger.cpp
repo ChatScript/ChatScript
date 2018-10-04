@@ -5341,7 +5341,8 @@ static int ConjoinImmediate( int i, bool & changed)
 			while (++deepAfter <= endSentence)
 			{
 				if (posValues[deepAfter] & (NOUN_BITS|PRONOUN_BITS) && !ignoreWord[deepAfter]) break; // but may be wrong one
-			}
+                if (posValues[deepAfter] & CONJUNCTION_COORDINATE) break; // dont pass a boundary possible sentence
+            }
 		}
 		else if (posValues[deepAfter] & NORMAL_NOUN_BITS && needRoles[roleIndex] & OBJECT2)
 		{

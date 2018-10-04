@@ -45,6 +45,8 @@ extern FACT* factFree;		//   end of facts - most recent fact allocated (ready fo
 extern MEANING Mmember;
 extern MEANING Mexclude;
 extern MEANING Mis;
+extern unsigned int botVariableThreadList;
+extern int* factThread;
 
 extern size_t maxFacts;		// allocation limit of facts
 extern uint64 myBot;
@@ -57,6 +59,7 @@ inline FACTOID currentFactIndex() { return (currentFact) ? (FACTOID)((currentFac
 FACT* FactTextIndex2Fact(char* word);
 void RipFacts(FACT* F,WORDP dictbase);
 void WeaveFacts(FACT* F);
+FACT* WeaveFact(FACT* currentFact, unsigned int properties);
 
 // fact system startup and shutdown
 void InitFacts();
@@ -87,6 +90,8 @@ void ClearUserFacts();
 extern char traceSubject[100];
 extern char traceVerb[100];
 extern char traceObject[100];
+extern bool recordBoot;
+extern bool bootFacts;
 
 // factset information
 char* GetSetType(char* x);
@@ -151,4 +156,8 @@ inline void SetSubjectHead(MEANING M, FACT* value) {SetSubjectHead(Meaning2Word(
 inline void SetVerbHead(MEANING M, FACT* value) {SetVerbHead(Meaning2Word(M),value);}
 inline void SetObjectHead(MEANING M, FACT* value) {SetObjectHead(Meaning2Word(M),value);}
 
+void ModBaseFact(FACT* F);
+void RedoSystemFactFields();
+void NoteBotFacts();
+void MigrateFactsToBoot(FACT* oldFactFree, FACT* F);
 #endif

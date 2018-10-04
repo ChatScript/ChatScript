@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 8/23/2018 cs8.5
+<br>Revision 10/4/2018 cs8.6
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1093,6 +1093,9 @@ rule. This has a 5 volley context and are used in normal rule patterns.
 
     u: (^incontext(PLAYTENNIS) why) because it was fun.
 
+### `^stats ( FACTS )`
+
+FACTS: Returns how many free facts remain.
 
 # External Access Functions
 

@@ -707,6 +707,17 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		entry = canonical = StoreWord(original,PUNCTUATION);
 		return PUNCTUATION;
 	}
+
+    // x between or after number like "5 x" or "5 x 5"
+    if (at > 1 && (*original == 'x' || *original == 'X') && !original[1])
+    {
+        if (IsDigit(*wordStarts[at - 1]))
+        {
+            entry = canonical = StoreWord(original, PUNCTUATION);
+            return PUNCTUATION;
+        }
+    }
+
 	if (*original == '.')
 	{
 		if (!original[1] || !strcmp(original,(char*)"..."))  // periods we NORMALLY kill off  .   and ...

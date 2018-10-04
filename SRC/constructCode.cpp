@@ -235,8 +235,8 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 			executed = true;
             ptr += 5;
 
-            CALLFRAME* frame = ChangeDepth(0, "If{}", false, ptr);
-            frame->code = ptr;
+            CALLFRAME* frameptr = ChangeDepth(0, "If{}", false, ptr);
+            frameptr->code = ptr;
             ptr = Output(ptr,buffer,result); //   skip accelerator-3 and space and { and space - returns on next useful token
 			ptr += Decode(ptr);	//   offset to end of if entirely
 			if (*(ptr-1) == 0)  --ptr;// no space after?
@@ -395,20 +395,19 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		if (*word1 == '_') // use only precomputed match from memorization
 		{
 			unsigned int index = GetWildcardID(word1);
-			int begin = WILDCARD_START(wildcardPosition[index]);
-            int finish = WILDCARD_END(wildcardPosition[index]);
+			unsigned int begin = WILDCARD_START(wildcardPosition[index]);
+            unsigned int finish = WILDCARD_END(wildcardPosition[index]);
             D = FindWord(val2); // as is
-			WORDP D2 = NULL;
 			if (begin && D)
 			{
 				int start, end;
-				if (GetNextSpot(D, begin -1,start,end) == begin && end == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
+				if (GetNextSpot(D, begin -1,start,end) == begin && (unsigned int) end == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
 			}
 			if (*op == '!') result = (result != NOPROBLEM_BIT) ? NOPROBLEM_BIT : FAILRULE_BIT;
 		}
 		else if (!strnicmp(val2, "ja-", 3)) // is it in array?
 		{
-			WORDP D = FindWord(val1);
+			D = FindWord(val1);
 			if (!D) return FAILRULE_BIT;
 			MEANING M = MakeMeaning(D);
 

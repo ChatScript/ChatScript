@@ -1,3 +1,30 @@
+# Version 8.6 10/4/2018
+
+1. configurl=http://xxx as a command line or config file parameter allows you to 
+request additional parameters from a url. This would be important if for security reasons
+you didn't want some parameters visible in a text file or on the run command of CS.
+
+2. Normally facts created by user script only impact that user (saved in their topic file).
+Now you can create facts that can affect all users. Maybe you want to write a bot that
+learns from users like Microsoft's Tay did.
+a) (secondary) When you modify some pre-user fact (layer 0, layer 1, boot layer) the change
+will move into the boot layer and thereafter be visible to all users.
+b) (primary) When you create JSON data in a special way, it will migrate to the boot layer at the
+end of the user's turn and not be saved in the user topic file. To do this,
+merely use BOOT instead of PERMANENT or TRANSIENT on the initial args to a 
+json structure creator, eg ^jsoncreate(BOOT OBJECT). 
+Facts moved to boot will be lost if the server restarts or you call the boot
+function. A command line argument of "recordboot" will direct CS to write the
+these facts into a top level file  "bootfacts.txt" as they are migrated to boot.  You would be responsible
+for writing a boot function that reads it on execution to recover these facts on startup. Direct modification of
+system facts in (a) are not saved. You would have to write your own scripts to track
+those changes.
+
+There is no way of collecting garbage from abandoned pre-user data, so do the
+above too often and the server may run out of memory and die.
+
+3. ^stats(FACTS) returns how many free facts are left.
+
 # Version 8.5
 1. ^walktopics('^func) finds the topics current bot can access
 and calls ^func with topic name, iteratively.

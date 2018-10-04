@@ -113,6 +113,17 @@ REVERSE 0  INCLUDE * NOUN_ADJECTIVE
 	ISORIGINAL a
 DISCARD
 
+# they *speak of many things (also do talk?) see below
+0  INCLUDE * VERB_BITS
+    STAY  ISMEMBER ~verbof_exceptions
+    ISORIGINAL of
+KEEP 
+
+# possible noun before "of" - the *dog of my dreams
+0  INCLUDE * NOUN_PLURAL NOUN_PROPER_PLURAL NOUN_SINGULAR NOUN_PROPER_SINGULAR
+   ISORIGINAL of
+KEEP # but wrong for "they speak of many things"  see above
+
 # singular determiner before plural/singular conflict makes singular- "a *Japanese walked here"
 -1 ISORIGINAL a
 	INCLUDE * NOUN_PLURAL NOUN_PROPER_PLURAL

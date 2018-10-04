@@ -206,6 +206,7 @@ so which one is found first in the sentence is what sets the position. For an in
 </tbody>
 </table>
 <p>Comparing two text strings (not numbers) will do it based on case-independent alpha sorting.</p>
+<p>The ? operator has two forms. <code>xxx?~yyy</code> will look for actual membership in the set whereas <code>_n?~yyy</code> will only see if the location of match detection of _n is the same as a corresponding match location for the concept. If the concept has not been marked, then obviously no match is found.</p>
 <p>Note: You can put <code>!</code> before the tokens instead of using <code>!=</code> and <code>!?</code>. E.g.,</p>
 <pre><code>u: ( _~noun !_0?~fruit ) if the noun is not in fruit concept</code></pre>
 <h4 id="dynamic-matching">Dynamic matching</h4>

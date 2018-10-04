@@ -39,7 +39,8 @@ extern unsigned int tracedFunctionsIndex;
 extern WORDP tracedFunctionsList[MAX_TRACED_FUNCTIONS];
 extern char wildcardSeparator[2];
 extern unsigned int userVariableThreadList;
-extern unsigned int botVariableThreadList;
+
+extern unsigned int botFactThreadList;
 extern unsigned int kernelVariableThreadList;
 // wildcard accessors
 char* GetwildcardText(unsigned int i, bool canon);

@@ -91,7 +91,7 @@ Above example mentioned in article [How to build your first chatbot using ChatSc
 
 Take this project and put it into some directory on your machine (typically we call the directory ChatScript, but you can name it whatever). That takes care of installation.
 
-    git clone https://github.com/bwilcox-1234/ChatScript
+    git clone https://github.com/ChatScript/ChatScript
 
 
 ## Standalone mode - run locally on a console (for developement/test)

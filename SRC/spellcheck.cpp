@@ -625,6 +625,20 @@ bool SpellCheckSentence()
 			}
 		}
 
+        // split off trailing - 
+        if (len > 1 && word[len - 1] == '-')
+        {
+            WORDP X = FindWord(word, len - 1);
+            if (X)
+            {
+                tokens[1] = X->word;
+                tokens[2] = "-";
+                ReplaceWords("trailing hyphen split", i, 1, 2, tokens);
+                fixedSpell = true;
+                continue;
+            }
+        }
+
 		// merge with next token?
 		if (i != wordCount && *wordStarts[i + 1] != '"')
 		{
@@ -879,6 +893,7 @@ bool SpellCheckSentence()
 					wordStarts[i] = D->word;
 					fixedSpell = true;
 					--i;
+                    continue;
 				}
 			}
 		}

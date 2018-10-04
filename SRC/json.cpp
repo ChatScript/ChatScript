@@ -72,7 +72,12 @@ static int JSONArgs()
 			jsonPermanent = 0;
 			used = true;
 		}
-		else if (!stricmp(word,(char*)"USER_FLAG4"))  
+        else if (!stricmp(word, (char*)"boot")) // build to migrate to system boot layer
+        {
+            jsonPermanent = FACTBOOT;
+            used = true;
+        }
+        else if (!stricmp(word,(char*)"USER_FLAG4"))
 		{
 			jsonCreateFlags |= USER_FLAG4;
 			used = true;
@@ -126,6 +131,7 @@ MEANING GetUniqueJsonComposite(char* prefix)
 	char namebuff[MAX_WORD_SIZE];
 	char* permanence = "";
 	if (jsonPermanent == FACTTRANSIENT) permanence = "t";
+    else if (jsonPermanent == FACTBOOT) permanence = "b";
 	while (1)
 	{
 		sprintf(namebuff, "%s%s%s%d", prefix,permanence, jsonLabel,objectcnt);
@@ -1934,10 +1940,11 @@ MEANING jsonValue(char* value, unsigned int& flags)
 FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objectvalue  
 {
 	int index = JSONArgs();
-	unsigned int flags = JSON_OBJECT_FACT | jsonPermanent | jsonCreateFlags;
-	char* objectname = ARGUMENT(index++);
+  	char* objectname = ARGUMENT(index++);
 	if (strnicmp(objectname,(char*)"jo-",3)) return FAILRULE_BIT;
-	WORDP D = FindWord(objectname);
+    if (objectname[3] == 'b') jsonPermanent = FACTBOOT;
+    unsigned int flags = JSON_OBJECT_FACT | jsonPermanent | jsonCreateFlags;
+    WORDP D = FindWord(objectname);
 	if (!D) return FAILRULE_BIT;
 
 	char* keyname = ARGUMENT(index++);
@@ -2006,7 +2013,9 @@ FunctionResult JSONVariableAssign(char* word,char* value)
         if (trace & TRACE_VARIABLESET) Log(STDTRACELOG, "AssignFail Array: %s->%s\r\n", word, val);
         return FAILRULE_BIT;	// not a json array
     }
+    bool bootfact = (val[3] == 'b');
     if (trace) strcpy(fullpath, val);
+
 	WORDP leftside = FindWord(val);
     if (!leftside)
     {
@@ -2096,7 +2105,10 @@ LOOP: // now we look at $x.key or $x[0]
 				unsigned int oldArgumentIndex = callArgumentIndex;
 				callArgumentBase = callArgumentIndex;
 				callArgumentBases[callIndex++] = callArgumentIndex - 1; // call stack
-				ARGUMENT(1) = (priorLeftside->word[3] == 't') ? (char*)"transient" : (char*)"permanent";
+                if (bootfact) ARGUMENT(1) = (char*)"boot";
+                else if (priorLeftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
+                else if (priorLeftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
+                else ARGUMENT(1) = (char*)"permanent";
 				ARGUMENT(2) = "object";
 				callArgumentIndex += 2;
 				JSONCreateCode(loc); // get new object name
@@ -2106,7 +2118,9 @@ LOOP: // now we look at $x.key or $x[0]
 
 				leftside = FindWord(loc);
 				unsigned int flags = JSON_OBJECT_FACT;
-				if (loc[3] == 't') flags |= FACTTRANSIENT;
+                if (bootfact) flags |= FACTBOOT;
+				else if (loc[3] == 't') flags |= FACTTRANSIENT;
+                else if (loc[3] == 'b') flags |= FACTBOOT;
 				MEANING valx = jsonValue(leftside->word, flags);
 				F = CreateFact(MakeMeaning(priorLeftside), MakeMeaning(keyname), valx, flags);
 			}
@@ -2119,15 +2133,20 @@ LOOP: // now we look at $x.key or $x[0]
 				unsigned int oldArgumentIndex = callArgumentIndex;
 				callArgumentBase = callArgumentIndex;
 				callArgumentBases[callIndex++] = callArgumentIndex - 1; // call stack
-				ARGUMENT(1) = (priorLeftside->word[3] == 't') ? (char*)"transient" : (char*)"permanent";
-				ARGUMENT(2) = "array";
+                if (bootfact) ARGUMENT(1) = (char*) "boot";
+                else if (priorLeftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
+                else if (priorLeftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
+                else ARGUMENT(1) = (char*)"permanent";
+                ARGUMENT(2) = "array";
 				callArgumentIndex += 2;
 				JSONCreateCode(loc); // get new array name
 		
 				leftside = FindWord(loc);
 				unsigned int flags = (priorLeftside->word[1] == 'o') ? JSON_OBJECT_FACT : JSON_ARRAY_FACT;
-				if (loc[3] == 't') flags |= FACTTRANSIENT;
-				MEANING valx = jsonValue(leftside->word, flags);
+                if (bootfact) flags |= FACTBOOT;
+                else if (loc[3] == 't') flags |= FACTTRANSIENT;
+                else if (loc[3] == 'b') flags |= FACTBOOT;
+                MEANING valx = jsonValue(leftside->word, flags);
 				F = CreateFact(MakeMeaning(priorLeftside), MakeMeaning(keyname), valx, flags);
 				
 				--callIndex;
@@ -2147,7 +2166,9 @@ LOOP: // now we look at $x.key or $x[0]
 
 	// now at final resting place
 	unsigned int flags = JSON_OBJECT_FACT;
-	if (leftside->word[3] == 't') flags |= FACTTRANSIENT; // like jo-t34
+    if (bootfact) flags |= FACTBOOT;
+	else if (leftside->word[3] == 't') flags |= FACTTRANSIENT; // like jo-t34
+    else if (leftside->word[3] == 'b') flags |= FACTBOOT; // like jo-b34
 
 	MEANING object = MakeMeaning(leftside);
 	MEANING key = MakeMeaning(keyname);
@@ -2177,7 +2198,7 @@ LOOP: // now we look at $x.key or $x[0]
 				Log(STDTRACETABLOG,(char*)"JsonVar kill: %s %s ", fullpath,recurse);
 				TraceFact(F,true);
 			}
-			KillFact(F,jsonkill);
+			KillFact(F,jsonkill); // wont do it in boot or earlier
 			break;
 		}
 		F = GetSubjectNondeadNext(F);
@@ -2192,18 +2213,18 @@ LOOP: // now we look at $x.key or $x[0]
 			{
 				WORDP oldObject = Meaning2Word(F->object);
 				WORDP newObject = Meaning2Word(valx);
-				flags = F->flags;
+				flags = F->flags & (-1 ^ FACTBOOT);
 				flags &= -1 ^ (JSON_PRIMITIVE_VALUE | JSON_STRING_VALUE | JSON_OBJECT_VALUE | JSON_ARRAY_VALUE);
 				valx = jsonValue(value, flags);
 				newObject = Meaning2Word(valx);
-
 				FACT* X = DeleteFromList(GetObjectHead(oldObject), F, GetObjectNext, SetObjectNext);  // dont use nondead
 				SetObjectHead(oldObject, X);
 				X = AddToList(GetObjectHead(newObject), F, GetObjectNext, SetObjectNext);  // dont use nondead
 				SetObjectHead(newObject, X);
 				F->object = valx;
 				F->flags = flags;	// revised for possible new object type
-			}
+                ModBaseFact(F);
+            }
 			else CreateFact(object, key, valx, flags);// not deleting using json literal   ^"" or "" would be the literal null in json
 		}
 	}
@@ -2214,7 +2235,10 @@ LOOP: // now we look at $x.key or $x[0]
 		unsigned int oldArgumentIndex = callArgumentIndex;
 		callArgumentBase = callArgumentIndex;
 		callArgumentBases[callIndex++] = callArgumentIndex - 1; // call stack
-		ARGUMENT(1) = (leftside->word[3] == 't') ? (char*)"transient unique" : (char*)"permanent unique";
+        if (bootfact) ARGUMENT(1) = (char*)"boot";
+        else if (leftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
+        else if (leftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
+        else ARGUMENT(1) = (char*)"permanent";
 		ARGUMENT(2) = leftside->word;
 		ARGUMENT(3) = value;
 		callArgumentIndex += 3;
@@ -2345,6 +2369,7 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
     WORDP O = FindWord(arrayname);
     if (!O) return FAILRULE_BIT;
     char* val = ARGUMENT(index);
+    if (arrayname[3] == 'b') jsonPermanent = FACTBOOT;
     unsigned int flags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags;
     MEANING value = jsonValue(val, flags);
     return DoJSONArrayInsert(jsonNoduplicate,O, value,flags,buffer);
@@ -2391,6 +2416,7 @@ static void FixArrayFact(FACT* F, int index)
 	X = AddToList(GetVerbHead(newverb),F,GetVerbNext,SetVerbNext);  // dont use nondead
 	SetVerbHead(newverb,X);
 	F->verb = MakeMeaning(newverb);
+    ModBaseFact(F); 
 }
 
 void JsonRenumber(FACT* G) // given array fact dying, renumber around it

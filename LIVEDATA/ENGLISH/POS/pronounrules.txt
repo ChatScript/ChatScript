@@ -10,6 +10,11 @@ DISCARD
 	STAY HAS PRONOUN_OBJECT
 DISCARD
 
+# pronoun before "of" -  *some of my dreams
+ 0  INCLUDE * PRONOUN_SUBJECT PRONOUN_OBJECT
+    ISORIGINAL of
+KEEP 
+
 # wont be singular pronoun before nonsingular verb possibility - other (+Adjective_normal Pronoun_subject Determiner)  major (Noun_singular Verb_present +Adjective_normal) 
 0 INCLUDE * PRONOUN_SUBJECT
  	STAY  SINGULAR

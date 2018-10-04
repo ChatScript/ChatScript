@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "8.5";
+char* version = "8.6";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -9,7 +9,7 @@ bool loadingUser = false;
 char traceuser[500];
 int traceUniversal;
 PRINTER printer = printf;
-unsigned int idetrace = -1;
+unsigned int idetrace = (unsigned int) -1;
 int outputlevel = 0;
 char* outputCode[MAX_GLOBAL];
 static bool argumentsSeen = false;
@@ -376,9 +376,10 @@ void CreateSystem()
 		}
         if (*word == 'V') SetBotVariable(word); // predefined bot variable in level 1
 	}
-	for (int i=0;i<configLinesLength;i++){
-		char*word = configLines[i];
-        if (*word == 'V') SetBotVariable(word); // these are level 1 values
+	for (int i=0;i<configLinesLength;i++)
+    {
+		char* line = configLines[i];
+        if (*line == 'V') SetBotVariable(line); // these are level 1 values
 	}
 
 	kernelVariableThreadList = botVariableThreadList;
@@ -559,6 +560,7 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg, "defaultbot=", 11)) strcpy(defaultbot, arg + 11);
 	else if (!strnicmp(arg, "traceuser=", 10)) strcpy(traceuser, arg + 10);
 	else if (!stricmp(arg,"noboot")) noboot = true;
+    else if (!stricmp(arg, "recordboot")) recordBoot = true;
 	else if (!stricmp(arg, "servertrace")) servertrace = true;
 	else if (!strnicmp(arg,(char*)"apikey=",7)) strcpy(apikey,arg+7);
 	else if (!strnicmp(arg,(char*)"logsize=",8)) logsize = atoi(arg+8); // bytes avail for log buffer
@@ -794,9 +796,9 @@ static void ProcessArgument(char* arg)
 #endif
 }
 
-void ProcessArguments(int argc, char* argv[])
+void ProcessArguments(int xargc, char* xargv[])
 {
-	for (int i = 1; i < argc; ++i) ProcessArgument(argv[i]);
+	for (int i = 1; i < xargc; ++i) ProcessArgument(xargv[i]);
 }
 
  
@@ -837,7 +839,7 @@ static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int header
 	CURLcode ret = curl_easy_perform(req);
 	char word[MAX_WORD_SIZE] = {'\0'};
 	int wordcount = 0;
-	for (int i=0;i<=response_string.size();i++){
+	for (unsigned int i=0; i<=response_string.size(); i++){
 		if( response_string[i] == '\n' || (response_string[i] == '\\' && response_string[i+1] == 'n')  ){
 			configLines[configLinesLength] = (char*)malloc(sizeof(char)*MAX_WORD_SIZE);
 			strcpy(configLines[configLinesLength++],TrimSpaces(word,true));
@@ -1031,7 +1033,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 		if (!strnicmp(argv[i],(char*)"build0=",7))
 		{
 			sprintf(logFilename,(char*)"%s/build0_log.txt",users);
-			FILE* in = FopenUTF8Write(logFilename);
+			in = FopenUTF8Write(logFilename);
 			FClose(in);
 			commandLineCompile = true;
 			int result = ReadTopicFiles(argv[i]+7,BUILD0,NO_SPELL);
@@ -1040,7 +1042,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 		if (!strnicmp(argv[i],(char*)"build1=",7))
 		{
 			sprintf(logFilename,(char*)"%s/build1_log.txt",users);
-			FILE* in = FopenUTF8Write(logFilename);
+			in = FopenUTF8Write(logFilename);
 			FClose(in);
 			commandLineCompile = true;
 			int result = ReadTopicFiles(argv[i]+7,BUILD1,NO_SPELL);
@@ -1233,25 +1235,25 @@ void ProcessOOB(char* output)
 		if (end)
 		{
 			uint64 milli = ElapsedMilliseconds();
-			char* at = strstr(ptr,(char*)"loopback="); // loopback is reset after every user output
-			if (at) 
+			char* atptr = strstr(ptr,(char*)"loopback="); // loopback is reset after every user output
+			if (atptr)
 			{
-				at = SkipWhitespace(at+9);
-				loopBackDelay = atoi(at);
+                atptr = SkipWhitespace(atptr +9);
+				loopBackDelay = atoi(atptr);
 				loopBackTime = milli + loopBackDelay;
 			}
-			at = strstr(ptr,(char*)"callback="); // call back is canceled if user gets there first
-			if (at) 
+            atptr = strstr(ptr,(char*)"callback="); // call back is canceled if user gets there first
+			if (atptr)
 			{
-				at = SkipWhitespace(at+9);
-				callBackDelay = atoi(at);
+                atptr = SkipWhitespace(atptr +9);
+				callBackDelay = atoi(atptr);
 				callBackTime = milli + callBackDelay;
 			}
-			at = strstr(ptr,(char*)"alarm="); // alarm stays pending until it launches
-			if (at) 
+            atptr = strstr(ptr,(char*)"alarm="); // alarm stays pending until it launches
+			if (atptr)
 			{
-				at = SkipWhitespace(at+6);
-				alarmDelay = atoi(at);
+				atptr = SkipWhitespace(atptr +6);
+				alarmDelay = atoi(atptr);
 				alarmTime = milli + alarmDelay;
 			}
 			if (!oob) memmove(output,end+1,strlen(end)); // delete oob data so not printed to user
@@ -1509,14 +1511,18 @@ void ResetToPreUser() // prepare for multiple sentences being processed - data l
 	fullfloat = false;
 
 	//  Revert to pre user-loaded state, fresh for a new user
+    FACT* F = factLocked; // start of user-space facts
+    FACT* oldFactFree = factFree; // end of user fact space
 	ReturnToAfterLayer(LAYER_BOOT,false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
-	ReestablishBotVariables(); // any changes user made to a variable will be reset
+    MigrateFactsToBoot(oldFactFree, F); // move relevant user facts or changes to bot facts to boot layer
+
+    ReestablishBotVariables(); // any changes user made to a variable will be reset
 	ResetTopicSystem(false);
 	ResetUserChat();
 	ResetFunctionSystem();
 	ResetTopicReply();
 	currentBeforeLayer = LAYER_USER;
- 	//   ordinary locals
+
 	inputSentenceCount = 0;
 }
 
@@ -1569,8 +1575,8 @@ void ComputeWhy(char* buffer,int n)
 			more = strchr(more+1,'.'); // r top level + rejoinder
 			char* dotinfo = more;
 			more = GetRuleIDFromText(more,id);
-			char* rule = GetRule(topicid,id);
-			GetLabel(rule,label);
+			char* ruleptr = GetRule(topicid,id);
+			GetLabel(ruleptr,label);
 			sprintf(buffer,(char*)".%s%s",GetTopicName(topicid),dotinfo); // topic and rule 
 			buffer += strlen(buffer);
 			if (*label)
@@ -1808,7 +1814,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	modifiedTrace = false;
 	modifiedTimingVal = 0;
 	modifiedTiming = false;
-	if (server && servertrace) trace = -1;
+	if (server && servertrace) trace = (unsigned int)-1;
 	myBot = 0;
 	if (!documentMode) {
 		tokenCount = 0;
@@ -2251,8 +2257,8 @@ loopback:
 			buffer = inputCopy;
 			goto loopback;
 		}
-		char* at = SkipWhitespace(buffer);
-		if (*at != '[') ++inputSentenceCount; // dont increment if OOB message
+		char* atptr = SkipWhitespace(buffer);
+		if (*atptr != '[') ++inputSentenceCount; // dont increment if OOB message
 		if (sourceFile && wordCount)
 		{
 			sourceTokens += wordCount;
@@ -2371,10 +2377,10 @@ retry:
 			char* name = GetTopicName(topicid);
 			Log(STDTRACELOG,(char*)"%s (%s) : (char*)",name,N->word);
 			//   look at references for this topic
-			int start = -1;
+			int startx = -1;
 			int startPosition = 0;
 			int endPosition = 0;
-			while (GetIthSpot(D,++start, startPosition, endPosition)) // find matches in sentence
+			while (GetIthSpot(D,++startx, startPosition, endPosition)) // find matches in sentence
 			{
 				// value of match of this topic in this sentence
 				for (int k = startPosition; k <= endPosition; ++k) 
@@ -2584,7 +2590,7 @@ char* SkipOOB(char* buffer)
 	return noOob;
 }
 
-bool AddResponse(char* msg, unsigned int responseControl)
+bool AddResponse(char* msg, unsigned int control)
 {
 	if (!msg ) return true;
 	if (*msg == '`') msg = strrchr(msg,'`'); // skip any previously outputed msg
@@ -2602,18 +2608,18 @@ bool AddResponse(char* msg, unsigned int responseControl)
 	 
 	// Do not change any oob data or test for repeat
 	char* at = SkipOOB(buffer);
-	if (!(responseControl & RESPONSE_NOCONVERTSPECIAL)) ConvertNL(at);
-	if (responseControl & RESPONSE_REMOVETILDE) RemoveTilde(at);
-	if (responseControl & RESPONSE_ALTERUNDERSCORES)
+	if (!(control & RESPONSE_NOCONVERTSPECIAL)) ConvertNL(at);
+	if (control & RESPONSE_REMOVETILDE) RemoveTilde(at);
+	if (control & RESPONSE_ALTERUNDERSCORES)
 	{
 		Convert2Underscores(at); 
 		Convert2Blanks(at);
 	}
-	if (responseControl & RESPONSE_CURLYQUOTES) ConvertQuotes(at);
-	if (responseControl & RESPONSE_UPPERSTART) 	*at = GetUppercaseData(*at); 
+	if (control & RESPONSE_CURLYQUOTES) ConvertQuotes(at);
+	if (control & RESPONSE_UPPERSTART) 	*at = GetUppercaseData(*at);
 
 	//   remove spaces before commas (geofacts often have them in city_,_state)
-	if (responseControl & RESPONSE_REMOVESPACEBEFORECOMMA)
+	if (control & RESPONSE_REMOVESPACEBEFORECOMMA)
 	{
 		char* ptr = at;
 		while (ptr && *ptr)

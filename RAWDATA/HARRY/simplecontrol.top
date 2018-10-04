@@ -14,12 +14,16 @@ $cs_token += #SPLIT_QUOTE | #NO_WITHIN | #STRICT_CASING
 $cs_control_main = ~control
 # $cs_control_post = ~XPOSTPROCESS  # uncomment to enable talk
 # The postprocess topic I define will allow windows system to use verbal output
-
 $userprompt = ^"%user: >"
 $botprompt = ^"HARRY: "
-$singleResponse = 1 # issue only 1 output message
+
+
 # This means, after one output is generated, no more will be reacted to.
 # Alternatively one might have a reaction to every single sentence in the user's input.
+$singleResponse = 1 # issue only 1 output message
+
+# windows can do voice output if the next line is removed
+$SHUTUP = 1
 
 # This tells the engine what bot to use if no botname is provided in the message
 table: defaultbot (^name)

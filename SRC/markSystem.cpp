@@ -503,7 +503,7 @@ static void HuntMatch(int canonical, char* word,bool strict,int start, int end, 
 		// dont redo effort
 		if (D->internalBits & BEEN_HERE) continue;	// huntmatch already covered this
 		D->internalBits |= BEEN_HERE;
-		int* chunk = (int*)AllocateStack(NULL, 8, false, true);
+		int* chunk = (int*)AllocateStack(NULL, 8, false, 4);
 		chunk[0] = wordlist;
 		chunk[1] = Word2Index(D);
 		wordlist = Stack2Index((char*)chunk);

@@ -501,7 +501,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
             }
 			else // see if merely highlighting a word
 			{
-				char* word = AllocateStack(NULL,INPUT_BUFFER_SIZE,false,false);
+				char* word = AllocateStack(NULL,INPUT_BUFFER_SIZE,false,0);
 				char* tail = ReadCompiledWord(ptr, word);
 				char* close = strchr(word + 1, '"');
 				ReleaseStack(word);

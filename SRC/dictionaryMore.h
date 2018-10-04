@@ -110,6 +110,9 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define LOWERCASE_LOOKUP 4096
 #define UPPERCASE_LOOKUP 8192
 
+
+#define FACTBOOT 0x00004000 // fact is to save with boot layer after creating during user 
+
 #define NO_EXTENDED_WRITE_FLAGS ( PATTERN_WORD  )
 
 // system flags revealed via concepts
