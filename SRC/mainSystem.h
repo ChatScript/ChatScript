@@ -126,7 +126,6 @@ extern unsigned int choiceCount;
 extern int externalTagger;
 extern bool redo;
 extern bool commandLineCompile;
-extern char websocketParam[1000];
 extern int inputCounter,totalCounter;
 extern int inputSentenceCount;  
 extern char* extraTopicData;

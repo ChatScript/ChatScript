@@ -59,12 +59,6 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 #include "evserver.h"
 #endif
 
-#ifdef WIN32
-//#define WEBSOCKET 1
-#include "easywclient/easywsclient.hpp"
-#include "easywclient/easywsclient.cpp" 
-#endif
-
 #define DOSOCKETS 1
 #endif
 #ifndef DISCARDCLIENT
@@ -439,6 +433,7 @@ SOURCE:
                 sock = new TCPSocket(serverIP, (unsigned short)port);
                 sock->send(sendbuffer, baselen + 1);
                 ReadSocket(sock, response);
+                delete(sock);
             }
             msg = sep + 1;
             ptr = msg;
@@ -446,7 +441,7 @@ SOURCE:
         else if (starts)
         {
             ptr = data;
-            if (fgets(ptr, 100000 - 100, source) == NULL) 
+            if (fgets(ptr, 100000 - 100, source) == NULL)
                 break;
             if (--skip > 0) continue;
             if (--count < 0)
@@ -500,6 +495,7 @@ SOURCE:
             sock = new TCPSocket(serverIP, (unsigned short)port);
             sock->send(sendbuffer, baselen + 1 + strlen(at));
             ReadSocket(sock, response);
+            delete(sock);
         }
         else if (raw)
         {
@@ -525,6 +521,7 @@ SOURCE:
             sock = new TCPSocket(serverIP, (unsigned short)port);
             sock->send(sendbuffer, baselen + 1 + strlen(at));
             ReadSocket(sock, response);
+            delete(sock);
         }
         // send our normal message now
         msglen = strlen(ptr);
@@ -1052,33 +1049,11 @@ void handle_message(const std::string & message)
 
 void InternetServer()
 {
-	if (!*websocketParam)
-	{
-		_beginthread((void(__cdecl *)(void *))AcceptSockets, 0, 0);	// the thread that does accepts... spinning off clients
-		MainChatbotServer();  // run the server from the main thread
-		CloseHandle(hChatLockMutex);
-		DeleteCriticalSection(&TestCriticalSection);
-		DeleteCriticalSection(&LogCriticalSection);
-	}
-	else
-	{
-		using easywsclient::WebSocket;
-		WebSocket::pointer ws = WebSocket::from_url(websocketParam); //"ws://localhost:8126/foo"
-		if (!ws) myexit("unable to establish websocket\r\n");
-		assert(ws);
-
-		ws->send("{\"id\" : \"ai0\", \"secret\" : \"abc123\", \"status\":\"register\" }");
-		ws->send("{\"id\" : \"ai0\", \"secret\" : \"abc123\",\"status\":\"roundInformation\" }");
-
-		while (true) {
-			ws->poll(-1);
-			ws->dispatch(handle_message);
-			(*printer)("sent %s\r\n", ourMainOutputBuffer);
-			ws->send(ourMainOutputBuffer);
-		}
-		ws->close();
-		delete ws;
-	}
+	_beginthread((void(__cdecl *)(void *))AcceptSockets, 0, 0);	// the thread that does accepts... spinning off clients
+	MainChatbotServer();  // run the server from the main thread
+	CloseHandle(hChatLockMutex);
+	DeleteCriticalSection(&TestCriticalSection);
+	DeleteCriticalSection(&LogCriticalSection);
 }
 #endif
 

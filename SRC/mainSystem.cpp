@@ -23,7 +23,6 @@ char systemFolder[500];		// where is the livedata system folder
 bool noboot = false;
 static char* erasename = "csuser_erase";
 bool build0Requested = false;
-char websocketParam[1000];
 bool build1Requested = false;
 bool servertrace = false;
 bool pendingRestart = false;
@@ -752,7 +751,6 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg,(char*)"serverlog")) serverLog = true;
 	else if (!stricmp(arg,(char*)"noserverprelog")) serverPreLog = false;
 	else if (!stricmp(arg,(char*)"serverctrlz")) serverctrlz = 1;
-	else if (!strnicmp(arg, (char*)"websocket=",10)) strcpy(websocketParam,arg + 10);
 	else if (!strnicmp(arg,(char*)"port=",5))  // be a server
 	{
         port = atoi(arg+5); // accept a port=
@@ -891,7 +889,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	*sourceInput = 0;
     *buildfiles = 0;
 	*apikey = 0;
-	*websocketParam = 0;
 	*bootcmd = 0;
 #ifndef DISCARDMONGO
 	*mongodbparams = 0;
