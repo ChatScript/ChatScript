@@ -3476,6 +3476,18 @@ static FunctionResult StatsCode(char* buffer)
         sprintf(buffer, "%d", factEnd - factFree);
         return NOPROBLEM_BIT;
     }
+    if (!stricmp(ARGUMENT(1), "text"))
+    {
+        sprintf(buffer, "%d",   heapFree - stackFree);
+        return NOPROBLEM_BIT;
+    }
+    if (!stricmp(ARGUMENT(1), "dict"))
+    {
+        int index = Word2Index(dictionaryFree);
+        int dictfree = (int)(maxDictEntries - index);
+        sprintf(buffer, "%d", dictfree);
+        return NOPROBLEM_BIT;
+    }
     return FAILRULE_BIT;
 }
 
@@ -3679,7 +3691,7 @@ static FunctionResult FormatCode(char* buffer)
 	double fvalue;
 	int64 ivalue;
 	int value;
-	if (!stricmp(arg1, "float"))
+	if (!stricmp(arg1, "float") || !stricmp(arg1, "double"))
 	{
 		fvalue = Convert2Float(arg3);
 		sprintf(buffer, arg2, fvalue);
@@ -3972,7 +3984,16 @@ static FunctionResult TokenizeCode(char* buffer)
 
 static FunctionResult AnalyzeCode(char* buffer)
 {
+    char* oldnext = nextInput;
 	char* word = ARGUMENT(1);
+    bool more = false;
+    char junk[100];
+    char* check = ReadCompiledWord(word, junk);
+    if (!stricmp(junk, "more"))
+    {
+        more = true;
+        word = check;
+    }
 	SAVEOLDCONTEXT()
 	FunctionResult result;
 	Output(word,buffer,result);
@@ -3986,9 +4007,14 @@ static FunctionResult AnalyzeCode(char* buffer)
 			*buffer = ' ';
 		}
 	}
-	PrepareSentence(buffer,true,false,true); 
+	PrepareSentence(buffer,true,false,false); 
 	*buffer = 0; // only wanted effect of script
+    if (more && *nextInput) // set up for possible continuation
+    {
+        strcpy(buffer, nextInput);
+    }
 	RESTOREOLDCONTEXT()
+    nextInput =  oldnext;
 	return NOPROBLEM_BIT;
 }
 
@@ -6021,6 +6047,8 @@ static FunctionResult FindTextCode(char* buffer)
 	// find value
 	char* find = ARGUMENT(2);
   	if (!*find) return FAILRULE_BIT;
+    else if (*find == '\\' && find[1] == 't') find = "\t";
+    else if (*find == '\\' && find[1] == 'n') find = "\n";
 
 	unsigned int start = atoi(ARGUMENT(3));
 	if (start >= UTFStrlen(target)) return FAILRULE_BIT;
@@ -8977,7 +9005,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^timefromseconds",TimeFromSecondsCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"given time/date in seconds, return the timeinfo string corresponding to it"}, 
 	{ (char*)"^timeinfofromseconds",TimeInfoFromSecondsCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"given time/date in seconds and indicator of daylight savings or not, returning a sequence of 6 matchvariables (sec min hr date mo yr)"},
 	{ (char*)"^timetoseconds",TimeToSecondsCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"given time/date a series of 6 values (sec min hr date mo yr), return the timeinfo string corresponding to it"}, 
-    { (char*)"^stats",StatsCode,1,SAMELINE,(char*)"given facts, tells how many facts are left" },
+    { (char*)"^stats",StatsCode,1,SAMELINE,(char*)"given FACTS, tells how many facts are left, given TEXT tells how much heap is left, given DICT tells how many free entries left" },
 
 	{ (char*)"\r\n---- Debugging",0,0,0,(char*)""},
 	{ (char*)"^debug",DebugCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"only useful for debug code breakpoint"}, 
@@ -8986,7 +9014,7 @@ SystemFunctionInfo systemFunctionSet[] =
 
 	{ (char*)"\r\n---- Output Generation - not legal in post processing",0,0,0,(char*)""},
 	{ (char*)"^flushoutput",FlushOutputCode,0,SAMELINE,(char*)"force existing output out"}, 
-	{ (char*)"^format",FormatCode,3,SAMELINE,(char*)"sprintf equiv: int64/doublefloat formatstring value" },
+	{ (char*)"^format",FormatCode,3,SAMELINE,(char*)"sprintf equiv: int/integer/float/double formatstring value" },
 	{ (char*)"^insertprint",InsertPrintCode,STREAM_ARG,0,(char*)"add output before named responseIndex"},
 	{ (char*)"^keephistory",KeepHistoryCode,2,SAMELINE,(char*)"trim history of USER or BOT to number of entries given -- see also $cs_userhistorylimit"}, 
 	{ (char*)"^print",PrintCode,STREAM_ARG,0,(char*)"isolated output message from current stream"}, 
@@ -9127,7 +9155,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^getremotefile",GetRemoteFileCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"retrieve data from external fileserver"},
 
 	{ "\r\n---- JSON Related", 0, 0, 0, "" },
-	{ "^jsoncopy", JSONCopyCode, VARIABLE_ARG_COUNT, 0, "given json array or json object, creates a duplicate copy" },
+    { "^jsontext", JSONTextCode, 1, 0, "given json fact id, outputs quotes around value of field if it needs it" },
+    { "^jsoncopy", JSONCopyCode, VARIABLE_ARG_COUNT, 0, "given json array or json object, creates a duplicate copy" },
 	{ "^jsoncreate", JSONCreateCode, VARIABLE_ARG_COUNT, 0, "given array or object, creates a new one" },
 	{ "^jsondelete", JSONDeleteCode, 1, 0, "deprecated in favor of ^delete" },
 	{ "^jsongather", JSONGatherCode, VARIABLE_ARG_COUNT, 0, "stores the json facts referred to by the name into a fact set" },

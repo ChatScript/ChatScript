@@ -3872,7 +3872,8 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 			case '$': // declaring local
 				if (typeFlags & IS_PATTERN_MACRO) BADSCRIPT((char*)"MACRO-? May not use locals in a pattern/dual macro - %s\r\n",word)
 				if (word[1] != '_') BADSCRIPT((char*)"MACRO-? Variable name as argument must be local %s\r\n",word)
-				if (strchr(word,'.') || strchr(word,'[')) BADSCRIPT((char*)"MACRO-? Variable name as argument must be simple, not json reference %s\r\n",word)
+				if (strchr(word,'.') || strchr(word,'[')) 
+                    BADSCRIPT((char*)"MACRO-? Variable name as argument must be simple, not json reference %s\r\n",word)
 				AddDisplay(word);
 				strcpy(functionArguments[functionArgumentCount++],word);
 				if (functionArgumentCount > MAX_ARG_LIMIT)  BADSCRIPT((char*)"MACRO-7 Too many callArgumentList to %s - max is %d\r\n",macroName,MAX_ARG_LIMIT)

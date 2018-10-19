@@ -91,6 +91,7 @@ std::map <WORDP, WORDP> canonicalWords;
 std::map <WORDP, int> wordValues; // per volley
 std::map <WORDP, MEANING> backtracks; // per volley
 std::map <WORDP, int> triedData; // per volley index into heap space
+std::map <WORDP, int> countData; 
 
 int concepts[MAX_SENTENCE_LENGTH];  // concept chains per word
 int topics[MAX_SENTENCE_LENGTH];  // topics chains per word
@@ -975,10 +976,7 @@ static WORDP AllocateEntry()
 	WORDP  D = dictionaryFree++;
 	int index = Word2Index(D);
     int avail = (int)(maxDictEntries - index);
-	if (avail <= 0)
-	{
-		ReportBug((char*)"FATAL: used up all dict nodes\r\n")
-	}
+	if (avail <= 0) ReportBug((char*)"FATAL: used up all dict nodes\r\n")
     if (avail < worstDictAvail) worstDictAvail = avail;
     memset(D,0,sizeof(WORDENTRY));
 	return D;
@@ -2323,8 +2321,8 @@ bool ReadDictionary(char* file)
 			}
 			if (glossIndex != glossCount)
 			{
-				ReportBug((char*)"Actual gloss index of %s %d not matching count of expected %d ",D->word,glossIndex,glossCount);
-			}
+				ReportBug((char*)"FATAL: Actual gloss index of %s %d not matching count of expected %d ",D->word,glossIndex,glossCount);
+            }
 		}
 	}
 	FClose(in);

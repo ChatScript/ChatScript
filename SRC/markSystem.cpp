@@ -1031,7 +1031,8 @@ void MarkAllImpliedWords()
 		D = (CL) ? CL : CU; //   best recognition
 		if (!D) D = StoreWord(original); // just so we can't fail later
 		char* last;
-		if ( D->properties & NOUN && !(D->internalBits & UPPERCASE_HASH) && (last = strrchr(D->word,'_')) && finalPosValues[i] & NOUN) StdMark(MakeMeaning(FindWord(last+1,0)), i, i,true); //   composite noun, store last word as referenced also
+		if (!(tokenControl & NO_WITHIN) && D->properties & NOUN && !(D->internalBits & UPPERCASE_HASH) && (last = strrchr(D->word,'_')) && finalPosValues[i] & NOUN)
+            StdMark(MakeMeaning(FindWord(last+1,0)), i, i,true); //   composite noun, store last word as referenced also
 
 		// ALL Foreign words detectable by utf8 char
 		D = (OL) ? OL : OU;

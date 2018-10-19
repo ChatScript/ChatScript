@@ -330,22 +330,22 @@ void ReformatString(char starter, char* input,char*& output, FunctionResult& res
 		else if (prior == '\\') // protected special character
 		{
 			++input;
-			if (starter == '"' && *input == 'n') 
+			if ((starter == '"' || starter == '\'') && *input == 'n')
 			{
 				strcpy(output,"\\n");
 				output += 2;
 			}
-			else if (starter == '"' && *input == 't') 
+			else if ((starter == '"' || starter == '\'') && *input == 't')
 			{
 				strcpy(output,"\\t");
 				output += 2;
 			}
-			else if (starter == '"' && *input == 'r') 
+			else if ((starter == '"' || starter == '\'') && *input == 'r')
 			{
 				strcpy(output,"\\r");
 				output += 2;
 			}
-			else if (starter == '"') *output++ = *input; // just pass along the protected char in ^"xxx" strings
+			else if ((starter == '"' || starter == '\'')) *output++ = *input; // just pass along the protected char in ^"xxx" strings
 			else // is ^'xxxx' string - other than our special ' we need, leave all other escapes alone as legal json
 			{
 				if (str) *output++ = *input;  // copy inside a string
@@ -394,6 +394,11 @@ void StdNumber(char* word,char*& buffer,int controls) // text numbers may have s
 
     char c = IsFloat(word, end);
     if (c == 'e') // leave exponent numbers in original form. 
+    {
+        strcpy(buffer, word);
+        return;
+    }
+    if (controls & (ASSIGNMENT | OUTPUT_UNTOUCHEDSTRING)) // make no transformation on assignment
     {
         strcpy(buffer, word);
         return;

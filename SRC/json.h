@@ -26,6 +26,7 @@ FunctionResult JSONLabelCode(char* buffer) ;
 FunctionResult JSONUndecodeStringCode(char* buffer) ;
 FunctionResult JSONWriteCode(char* buffer);
 FunctionResult JSONParseCode(char* buffer);
+FunctionResult JSONTextCode(char* buffer);
 FunctionResult JSONArrayDeleteCode(char* buffer);
 FunctionResult JSONArraySizeCode(char* buffer);
 FunctionResult JSONGatherCode(char* buffer);

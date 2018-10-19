@@ -1200,7 +1200,7 @@ static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer,
 		size = (buffer - currentOutputBase + 400); // 400 slop to protect us
 		if (size >= currentOutputLimit) 
 		{
-			ReportBug((char*)"Json too much %d items size %d", indexsize,size);
+			ReportBug((char*)"JsonWrite too much output %d items size %d", indexsize,size);
 			ReleaseStack((char*)stack);
 			return buffer; // too much output
 		}
@@ -2373,6 +2373,18 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
     unsigned int flags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags;
     MEANING value = jsonValue(val, flags);
     return DoJSONArrayInsert(jsonNoduplicate,O, value,flags,buffer);
+}
+
+FunctionResult JSONTextCode(char* buffer)
+{
+    char* id = ARGUMENT(1);
+    FACT* F = Index2Fact(atoi(id));
+    if (!F) return FAILRULE_BIT;
+    if (!(F->flags & (JSON_ARRAY_FACT | JSON_OBJECT_FACT))) return FAILRULE_BIT;
+    char* name = Meaning2Word(F->object)->word;
+    if (F->flags & JSON_STRING_VALUE) sprintf(buffer, "\"%s\"", name);
+    else strcpy(buffer, name);
+    return NOPROBLEM_BIT;
 }
 
 FunctionResult JSONCopyCode(char* buffer)

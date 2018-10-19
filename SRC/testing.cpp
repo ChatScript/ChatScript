@@ -480,7 +480,6 @@ static void C_Tokenize(char* input)
 {
     uint64 oldToken = tokenControl;
     input = SkipWhitespace(input);
-    static bool prepass = true;
     char word[MAX_WORD_SIZE];
     if (*input == USERVAR_PREFIX) // set token control to this
     {
@@ -495,17 +494,9 @@ static void C_Tokenize(char* input)
         }
     }
     input = SkipWhitespace(input);
-    if (!strnicmp(input, (char*)"NOPREPASS", 9) || !strnicmp(input, (char*)"PREPASS", 7))
-    {
-        prepass = strnicmp(input, (char*)"NOPREPASS", 9) ? true : false;
-        input = ReadCompiledWord(input, word);
-    }
-
     if (!*input) prepareMode = (prepareMode == TOKENIZE_MODE) ? NO_MODE : TOKENIZE_MODE;
     else
     {
-        char prepassTopic[MAX_WORD_SIZE];
-        strcpy(prepassTopic, GetUserVariable((char*)"$cs_prepass"));
         unsigned int oldtrace = trace;
         unsigned int oldtiming = timing;
         nextInput = input;
@@ -513,11 +504,9 @@ static void C_Tokenize(char* input)
         while (*nextInput)
         {
             prepareMode = TOKENIZE_MODE;
-            if (*prepassTopic) Log(STDTRACELOG, (char*)"Prepass: %s\r\n", prepass ? (char*)"ON" : (char*)"OFF");
             PrepareSentence(nextInput, true, true, false, oobstart);
             oobstart = false;
             prepareMode = NO_MODE;
-            if (prepass && PrepassSentence(prepassTopic)) continue;
         }
         trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
         timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
@@ -5370,6 +5359,40 @@ static void C_VerifySentence(char* input)
 	}
 }
 
+#include <map>
+using namespace std;
+extern std::map <WORDP, int> countData; // per volley index into heap space
+static void C_CountWords(char* input)
+{
+    FILE* in = FopenReadOnly(input);
+    if (!in)
+    {
+        (*printer)("no such file");
+        return;
+    }
+    while (ReadALine(readBuffer, in) >= 0)
+    {
+        char word[MAX_WORD_SIZE];
+        char* ptr = readBuffer;
+        while (1)
+        {
+            ptr = ReadCompiledWord(ptr,word);
+            if (!*word) break;
+            WORDP D = StoreWord(word);
+            countData[D] += 1;
+        }
+    }
+    fclose(in);
+    FILE* out = FopenUTF8Write("tmp/out.txt");
+    // show content:
+    for (std::map<WORDP, int>::iterator it = countData.begin(); it != countData.end(); ++it)
+    {
+        fprintf(out,"%6.6d %s\r\n",it->second,it->first->word);
+    }
+    fclose(out);
+    printf("done\r\n");
+}
+
 static void C_WordDump(char* input)
 {
 	WalkDictionary(WordDump,0);
@@ -6077,7 +6100,8 @@ static void C_Dedupe(char* input)
 	while (ReadALine(readBuffer, in) >= 0)
 	{
 		if (!*readBuffer) continue;
-		char* comment = readBuffer;
+        char* line = TrimSpaces(readBuffer); // remove leading/trailing spaces
+		char* comment = line;
 		while ((comment = strchr(comment, '#')))
 		{
 			if (comment[1] == ' ' && *(comment - 1) == ' ')
@@ -10177,6 +10201,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":worddump",C_WordDump,(char*)"show words via hardcoded test"}, 
 	{ (char*)":verifySentence",C_VerifySentence,(char*)"verification data"}, 
     { (char*)":timelog",C_TimeLog,(char*)"avg min and max of a log named" },
+    { (char*)":countwords",C_CountWords,(char*)"generate counts of words listed in file" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

@@ -116,7 +116,7 @@ void ResetUserChat()
 	for (unsigned int i = 0; i <= MAX_FIND_SETS; ++i) SET_FACTSET_COUNT(i,0);
 }
 
-static char* WriteUserFacts(char* ptr,bool sharefile,int limit,char* saveJSON)
+static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* saveJSON)
 {
 	if (!ptr) return NULL;
 	
@@ -573,9 +573,10 @@ static bool ReadUserVariables()
 static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 {
 	// need to get fact limit variable for WriteUserFacts BEFORE writing user variables, which clears them
-	int count = userFactCount;
+	unsigned int count = userFactCount;
 	char* value = GetUserVariable("$cs_userfactlimit");
-	if (*value) count = atoi(value);
+    if (*value == '*') count = (unsigned int)-1;
+    else if (*value) count = atoi(value);
 
 	int messageCount = MAX_USER_MESSAGES;
 	value = GetUserVariable("$cs_userhistorylimit");

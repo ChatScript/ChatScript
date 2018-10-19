@@ -412,7 +412,6 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 	}
 	entry = StoreWord(original);
 	char number[MAX_WORD_SIZE];
-	char* value;
 	uint64 baseflags = (entry) ? entry->properties : 0;
 	if (kind == ROMAN_NUMBER) baseflags = 0; // ignore other meanings
 	char* br = hyphen;
@@ -469,10 +468,15 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 	else if (kind == CURRENCY_NUMBER) // money
 	{
 		char copy[MAX_WORD_SIZE];
-		strcpy(copy, original);
+        char* value;
+        strcpy(copy, original);
+        value = NULL;
 		unsigned char* currency = GetCurrency((unsigned char*)copy, value);
-		if (currency > (unsigned char*)value) *currency = 0; // remove trailing currency
-		int64 n = Convert2Integer(value, numberStyle);
+        if (value && currency && currency > (unsigned char*)value) *currency = 0; // remove trailing currency
+        
+        if (!value) value = "0"; // eg 100$% faulty number
+
+        int64 n = Convert2Integer(value, numberStyle);
 		double fn = Convert2Float(value, numberStyle);
 		if ((double)n == fn)
 		{
