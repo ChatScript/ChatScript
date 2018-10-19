@@ -36,18 +36,18 @@ FunctionResult JSONDeleteCode(char* buffer);
 FunctionResult JSONCopyCode(char* buffer);
 FunctionResult JSONCreateCode(char* buffer);
 FunctionResult JSONReadCSVCode(char* buffer);
-FunctionResult InitCurl();
 MEANING GetUniqueJsonComposite(char* prefix);
 MEANING jsonValue(char* value, unsigned int& flags);
 void JsonRenumber(FACT* F);
 void jkillfact(WORDP D);
 void InitJSONNames();
 char* jwrite(char* buffer, WORDP D, int subject);
+FunctionResult InitCurl();
+void CurlShutdown();
 
 #ifndef DISCARDJSONOPEN
 char* UrlEncodePiece(char* input);
 FunctionResult JSONOpenCode(char* buffer);
-void CurlShutdown();
 #endif
 
 #endif

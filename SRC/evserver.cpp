@@ -303,7 +303,9 @@ int fork_child(ev_child *child_watcher = 0)
 
     // child
     ev_loop_fork(l_g);
+#ifndef DISCARDJSONOPEN
     CurlShutdown();
+#endif
     for (int i = 0; i < cur_children_g; i++)   ev_child_stop(l_g, &children_g[i]);
     cur_children_g = 0;
     parent_g = false;

@@ -819,7 +819,8 @@ static size_t ConfigCallback(void *contents, size_t size, size_t nmemb, void *us
 }
 
 static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int headerCount){
-	InitCurl();
+#ifndef DISCARDJSONOPEN 
+    InitCurl();
 	CURL *req = curl_easy_init();
 	string response_string;
 	curl_easy_setopt(req, CURLOPT_CUSTOMREQUEST, "GET");
@@ -855,6 +856,7 @@ static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int header
 	    curl_easy_cleanup(req);
 		CurlShutdown();
 	ProcessConfigLines();
+#endif
 }
 
 static void ReadConfig()
