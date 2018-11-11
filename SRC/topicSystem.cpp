@@ -1378,12 +1378,10 @@ retry:
 		wildcardIndex = 0;
 		int uppercasem = 0;
 		whenmatched = 0;
+        char oldmark[MAX_SENTENCE_LENGTH];
+        memcpy(oldmark, unmarked,  MAX_SENTENCE_LENGTH);
  		if (start > wordCount || !Match(buffer,ptr+2,0,start,(char*)"(",1,0,start,end,uppercasem,whenmatched,0,0)) result = FAILMATCH_BIT;  // skip paren and blank, returns start as the location for retry if appropriate
-		if (clearUnmarks) // remove transient global disables.
-		{
-			clearUnmarks = false;
-			for (int i = 1; i <= wordCount; ++i) unmarked[i] = 1;
-		}
+        memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
 	}
 	ShowMatchResult(result, rule,label);
 
@@ -3209,7 +3207,7 @@ int PushTopic(int topicid) // -1 = failed  0 = unneeded  1 = pushed
     if (topicIndex >= MAX_TOPIC_STACK) 
     {
 		--topicIndex;
-        ReportBug((char*)"PusTopic overflow")
+        ReportBug((char*)"PushTopic overflow")
         return -1;
     }
 	currentTopicID = topicid;

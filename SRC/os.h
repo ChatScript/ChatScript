@@ -63,6 +63,7 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
     }x;
 #ifndef DISCARDCOUNTER
     unsigned int counter;			// general storage slot
+//    unsigned int counter1;			// general storage slot
 #endif
 } WORDENTRY;
 

@@ -28,11 +28,7 @@ char* SystemVariable(char* word,char* value)
 {
 	WORDP D = FindWord(word);
 	unsigned int index = (D) ? D->x.topicIndex : 0;
-	if (!index) 
-	{
-		ReportBug((char*)"No system variable %s  ",word)
-		return "";
-	}
+	if (!index) return "";
 	char* var = (*sysvars[index].address)(value);
 	if (!var) return "";
 	return var;

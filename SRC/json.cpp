@@ -512,29 +512,6 @@ static int my_trace(CURL *handle, curl_infotype type, char *data, size_t size, v
 	return 0;
 }
 
-FunctionResult InitCurl()
-{
-    // Get curl ready -- do this ONCE only during run of CS
-    if (!curl_done_init) {
-#ifdef WIN32
-        if (InitWinsock() == FAILRULE_BIT) // only init winsock one per any use- we might have done this from TCPOPEN or PGCode
-        {
-            ReportBug((char*)"Winsock init failed");
-            return FAILRULE_BIT;
-        }
-#endif
-        curl_global_init(CURL_GLOBAL_SSL);
-        curl_done_init = true;
-    }
-    return NOPROBLEM_BIT;
-}
-
-void CurlShutdown()
-{
-    if (curl_done_init) curl_global_cleanup();
-    curl_done_init = false;
-}
-
 // This is the function we pass to LC, which writes the output to a BufferStruct
 static size_t CurlWriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data) {
 	size_t realsize = size * nmemb;
@@ -553,6 +530,29 @@ static size_t CurlWriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void
 	currentLoc[realsize] = 0;
 	currentLoc += realsize;
 	return realsize;
+}
+
+void CurlShutdown()
+{
+	if (curl_done_init) curl_global_cleanup ();
+	curl_done_init = false;
+}
+
+FunctionResult InitCurl()
+{
+	// Get curl ready -- do this ONCE only during run of CS
+	if (!curl_done_init) {
+#ifdef WIN32
+		if (InitWinsock() == FAILRULE_BIT) // only init winsock one per any use- we might have done this from TCPOPEN or PGCode
+		{
+			ReportBug((char*)"Winsock init failed");
+			return FAILRULE_BIT;
+		}
+#endif
+		curl_global_init(CURL_GLOBAL_SSL);
+		curl_done_init = true;
+	}
+	return NOPROBLEM_BIT;
 }
 
 char* UrlEncodePiece(char* input)
@@ -2108,7 +2108,7 @@ LOOP: // now we look at $x.key or $x[0]
                 if (bootfact) ARGUMENT(1) = (char*)"boot";
                 else if (priorLeftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
                 else if (priorLeftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
-                else ARGUMENT(1) = (char*)"permanent";
+                else ARGUMENT(1) = (char*)"permanent unique";
 				ARGUMENT(2) = "object";
 				callArgumentIndex += 2;
 				JSONCreateCode(loc); // get new object name

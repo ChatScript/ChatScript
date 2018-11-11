@@ -29,7 +29,7 @@
  <aargh ~emopain
  <aarrghh ~emopain
  <abso-fucking-lutely ~yes
- <absolutely ~yes
+ <absolutely> ~yes
  <accept> ~yes
  <accepted> ~yes
  <adieu ~emogoodbye
@@ -779,7 +779,6 @@
  <he_is_not> ~no
  <he_is> ~yes
  howzit ~emohowzit
- I_will_be_back ~emogoodbye
  I_would_say_so ~yes
  <it_does_not> ~no
  <it_does> ~yes

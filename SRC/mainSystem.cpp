@@ -25,6 +25,7 @@ static char* erasename = "csuser_erase";
 bool build0Requested = false;
 bool build1Requested = false;
 bool servertrace = false;
+static int repeatLimit = 0;
 bool pendingRestart = false;
 bool pendingUserReset = false;
 bool rebooting = false;
@@ -558,10 +559,11 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg,"ltmencrypt")) ltmEncrypt = true;
 	else if (!strnicmp(arg, "defaultbot=", 11)) strcpy(defaultbot, arg + 11);
 	else if (!strnicmp(arg, "traceuser=", 10)) strcpy(traceuser, arg + 10);
-	else if (!stricmp(arg,"noboot")) noboot = true;
-    else if (!stricmp(arg, "recordboot")) recordBoot = true;
-	else if (!stricmp(arg, "servertrace")) servertrace = true;
-	else if (!strnicmp(arg,(char*)"apikey=",7)) strcpy(apikey,arg+7);
+	else if (!stricmp(arg, (char*)"noboot")) noboot = true;
+    else if (!stricmp(arg, (char*)"recordboot")) recordBoot = true;
+	else if (!stricmp(arg, (char*)"servertrace")) servertrace = true;
+    else if (!strnicmp(arg, (char*)"repeatlimit=",12)) repeatLimit = atoi(arg+12);
+    else if (!strnicmp(arg,(char*)"apikey=",7)) strcpy(apikey,arg+7);
 	else if (!strnicmp(arg,(char*)"logsize=",8)) logsize = atoi(arg+8); // bytes avail for log buffer
 	else if (!strnicmp(arg, (char*)"loglimit=", 9)) loglimit = atoi(arg + 9); // max mb of log file before change files
 	else if (!strnicmp(arg,(char*)"outputsize=",11)) outputsize = atoi(arg+11); // bytes avail for log buffer
@@ -2801,8 +2803,20 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
     ptr = Tokenize(ptr,wordCount,wordStarts,false,oobstart); 
 	upperCount = 0;
 	lowerCount = 0;
+    int repeat = 0;
 	for (int i = 1; i <= wordCount; ++i)   // see about SHOUTing
 	{
+        if (i < wordCount) // junk input?
+        {
+            if (!strcmp(wordStarts[i], wordStarts[i + 1])) ++repeat;
+            else repeat = 0;
+        }
+        if (repeatLimit && repeat >= repeatLimit)
+        {
+            *ptr = 0;
+            *input = 0;
+            wordCount = 2;
+        }
 		char* at = wordStarts[i] - 1;
 		while (*++at)
 		{

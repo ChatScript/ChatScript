@@ -438,7 +438,7 @@ correct punctuation or casing or spelling. These block that:
 | `DO_SPELLCHECK`     |  perform internal spell checking 
 | `ONLY_LOWERCASE`    |  force all input (except "I") to be lower case, refuse to recognize uppercase forms of anything 
 | `NO_IMPERATIVE`     | 
-| `NO_WITHIN`         |  
+| `NO_WITHIN`         |  don't match fragments within a composite word
 | `NO_SENTENCE_END`   | do not break input into sentences
 
 Normally the tokenizer breaks apart some kinds of sentences into two. These
@@ -449,8 +449,8 @@ prevent that:
 | `NO_COLON_END`     |  don't break apart a sentence after a colon 
 | `NO_SEMICOLON_END` |  don't break apart a sentence after a semi-colon 
 | `UNTOUCHED_INPUT`  |  if set to this alone, will tokenize only on spaces, leaving everything but spacing untouched  
-| `LEAVE_QUOTE`      |  if input is found withing " " it will become a single token exactly as it is seen. W/o Leave_Quote, it is converted into a word without quotes and using underscores instead of spaces. So "My Fair Lady" becomes My_Fair_Lady, which would match a movie title if you had one, unlike _My Fair Lady_ becoming the resulting token and unrecognized
-
+| `LEAVE_QUOTE`      |  if input is found within " " it will become a single token exactly as it is seen. W/o Leave_Quote, it is converted into a word without quotes and using underscores instead of spaces. So "My Fair Lady" becomes My_Fair_Lady, which would match a movie title if you had one, unlike _My Fair Lady_ becoming the resulting token and unrecognized
+| `SPLIT_QUOTE`      |  if input is found within " " the quotes will be removed.
 
 Note
 
@@ -566,7 +566,7 @@ contents.
 | `$cs_abstract`       |  topic used by :abstract to display facts if you want them displayed | 
 | `$cs_prepass`        |  topic used between parsing and running user control script. Useful to supplement parsing, setting the question value, and revising input idioms | 
 | `$cs_wildcardseparator` |  when a match variable covers multiple words, what should separate them- by default it's a space, but underscore is handy too. Initial system character is space, creating fidelity with what was typed. Useful if _ can be recognized in input (web addresses). Changing to _ is consistent with multi-word representation and keyword recognition for concepts. CS automatically converts _ to space on output, so internal use of _ is normal |
-| `$cs_userfactlimit`       | how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100 | 
+| `$cs_userfactlimit`       | how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100. * means all. | 
 | `$cs_outputchoice`    |  for regression: forces specific one of a [] [] output choice block - base 0 | 
 | `$cs_response`          |  controls some characteristics of how responses are formatted | 
 | `$cs_randIndex`         |  the random seed for this volley | 

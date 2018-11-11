@@ -2186,7 +2186,8 @@ name of topic or concept
 #endif
 
 	char word[MAX_WORD_SIZE];
-	char nestKind[100];
+	char nestKind[1000];
+    int nestLine[1000];
 	int nestIndex = 0;
 	patternContext = true;
 	char* start = ptr;
@@ -2286,6 +2287,7 @@ name of topic or concept
 					if (memorizeSeen) BADSCRIPT((char*)"PATTERN-14 Cannot use _ before << \r\n")
 					if (nestKind[nestIndex-1] == '<') BADSCRIPT((char*)"PATTERN-15 << already in progress\r\n")
 					if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before <<\r\n")
+                    nestLine[nestIndex] = currentFileLine;
                     nestKind[nestIndex++] = '<';
 				}
 				else if (word[1])  BADSCRIPT((char*)"PATTERN-17 %s cannot start with <\r\n",word)
@@ -2321,14 +2323,15 @@ name of topic or concept
 					if (memorizeSeen) BADSCRIPT((char*)"PATTERN-22 Cannot use _ before  >> \r\n")
 					if (nestKind[nestIndex - 1] != '<') BADSCRIPT((char*)"PATTERN-23 Have no << in progress\r\n");
 					if (variableGapSeen) BADSCRIPT((char*)"PATTERN-24 Cannot use wildcard inside >>\r\n")
-                    if (nestKind[--nestIndex] != '<') BADSCRIPT((char*)"PATTERN-24 Failing to close <<\r\n")
+                    if (nestKind[--nestIndex] != '<') BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d\r\n", nestKind[nestIndex],nestLine[nestIndex])
 
 				}
 				variableGapSeen = false;
 				break; //   sentence end align
 			case '(':	//   sequential pattern unit begin
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n");
-				nestKind[nestIndex++] = '(';
+                nestLine[nestIndex] = currentFileLine;
+                nestKind[nestIndex++] = '(';
 				break;
 			case ')':	//   sequential pattern unit end
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-26 Quoting ) is meaningless.\r\n");
@@ -2336,18 +2339,19 @@ name of topic or concept
 				if (variableGapSeen && nestIndex > 1) 
 					BADSCRIPT((char*)"PATTERN-26 Cannot have wildcard followed by )\r\n")
 				if (nestKind[--nestIndex] != '(') 
-					BADSCRIPT((char*)"PATTERN-9 ) is not closing corresponding (\r\n")
+					BADSCRIPT((char*)"PATTERN-9 ) should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
 				break;
 			case '[':	//   list of pattern choices begin
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-30 Quoting [ is meaningless.\r\n");
-				nestKind[nestIndex++] = '[';
+                nestLine[nestIndex] = currentFileLine;
+                nestKind[nestIndex++] = '[';
 				break;
 			case ']':	//   list of pattern choices end
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-31 Quoting ] is meaningless.\r\n");
 				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-32 Cannot use _ before  ]\r\n")
 				if (variableGapSeen) BADSCRIPT((char*)"PATTERN-33 Cannot have wildcard followed by ]\r\n")
 				if (nestKind[--nestIndex] != '[')
-					BADSCRIPT((char*)"PATTERN-34 ] is not closing corresponding [\r\n")
+					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
 				break;
 			case '{':	//   list of optional choices begins
 				if (variableGapSeen)
@@ -2363,13 +2367,14 @@ name of topic or concept
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-35 Quoting { is meaningless.\r\n");
 				if (notSeen)  BADSCRIPT((char*)"PATTERN-36 !{ is pointless since { can fail or not anyway\r\n")
 				if (nestIndex && nestKind[nestIndex-1] == '{') BADSCRIPT((char*)"PATTERN-37 {{ is illegal\r\n")
-				nestKind[nestIndex++] = '{';
+                nestLine[nestIndex] = currentFileLine;
+                nestKind[nestIndex++] = '{';
 				break;
 			case '}':	//   list of optional choices ends
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-38 Quoting } is meaningless.\r\n");
 				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-39 Cannot use _ before  }\r\n")
 				if (variableGapSeen) BADSCRIPT((char*)"PATTERN-40 Cannot have wildcard followed by }\r\n")
-				if (nestKind[--nestIndex] != '{') BADSCRIPT((char*)"PATTERN-41 } is not closing corresponding {\r\n")
+				if (nestKind[--nestIndex] != '{') BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
 				break;
 			case '\\': //   literal next character
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-42 Quoting an escape is meaningless.\r\n");
@@ -2721,7 +2726,7 @@ name of topic or concept
 	if (macro && nestIndex != 1) 
 		BADSCRIPT((char*)"PATTERN-68 Failed to balance ( or [ or { properly in macro for %s\r\n",startPattern)
 	else if (!macro && nestIndex != 0) 
-		BADSCRIPT((char*)"PATTERN-69 Failed to balance ( or [ or { or << properly, still at %c for %s\r\n",nestKind[nestIndex-1],startPattern);
+		BADSCRIPT((char*)"PATTERN-69 Failed to close %c started at line %d : %s\r\n",nestKind[nestIndex-1],nestLine[nestIndex-1],startPattern);
 
 	patternContext = false;
 	return ptr;

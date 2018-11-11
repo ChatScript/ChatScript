@@ -31,7 +31,6 @@
 #define GAPLIMITSHIFT 8
 
 bool matching = false;
-bool clearUnmarks = false;
 bool deeptrace = false;
 static char* returnPtr = NULL;
 

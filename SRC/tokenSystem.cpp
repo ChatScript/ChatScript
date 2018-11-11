@@ -549,12 +549,14 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         }
     }
     size_t l = strlen(token);
-
+  
     // ends in question or exclaim
     if (token[l - 1] == '!' || token[l - 1] == '?')
     {
         if (l > 1) token[--l] = 0; // remove it from token
     }
+    if (IsUrl(token, token + strlen(token)))
+        return ptr + strlen(token);
 
 	if (*ptr == '?') return ptr + 1; // we dont have anything that should join after ?    but  ) might start emoticon
 	if (*ptr == 0xc2 && ptr[1] == 0xbf) return ptr + 2; // inverted spanish ?

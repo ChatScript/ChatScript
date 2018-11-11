@@ -556,7 +556,7 @@ Allocations happen during volley processing as
 	}
 	char* used = heapFree - len;
 	if (used <= ((char*)stackFree + 2000) || nominalLeft < 0) 
-		ReportBug((char*)"FATAL: Out of transient heap space\r\n")
+		ReportBug((char*)"FATAL: Out of permanent heap space\r\n")
     if (word) 
 	{
 		if (purelocal) // never use clear true with this

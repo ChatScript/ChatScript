@@ -1206,7 +1206,7 @@
 </tr>
 <tr class="even">
 <td><code>NO_WITHIN</code></td>
-<td></td>
+<td>don't match fragments within a composite word</td>
 </tr>
 <tr class="odd">
 <td><code>NO_SENTENCE_END</code></td>
@@ -1241,7 +1241,11 @@
 </tr>
 <tr class="even">
 <td><code>LEAVE_QUOTE</code></td>
-<td>if input is found withing &quot; &quot; it will become a single token exactly as it is seen. W/o Leave_Quote, it is converted into a word without quotes and using underscores instead of spaces. So &quot;My Fair Lady&quot; becomes My_Fair_Lady, which would match a movie title if you had one, unlike <em>My Fair Lady</em> becoming the resulting token and unrecognized</td>
+<td>if input is found within &quot; &quot; it will become a single token exactly as it is seen. W/o Leave_Quote, it is converted into a word without quotes and using underscores instead of spaces. So &quot;My Fair Lady&quot; becomes My_Fair_Lady, which would match a movie title if you had one, unlike <em>My Fair Lady</em> becoming the resulting token and unrecognized</td>
+</tr>
+<tr class="odd">
+<td><code>SPLIT_QUOTE</code></td>
+<td>if input is found within &quot; &quot; the quotes will be removed.</td>
 </tr>
 </tbody>
 </table>
@@ -1385,7 +1389,7 @@ s: (name is _*)
 </tr>
 <tr class="even">
 <td><code>$cs_userfactlimit</code></td>
-<td>how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100</td>
+<td>how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100. * means all.</td>
 </tr>
 <tr class="odd">
 <td><code>$cs_outputchoice</code></td>

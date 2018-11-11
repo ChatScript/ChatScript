@@ -1,238 +1,181 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice 4.1.5  (Win32)">
-	<META NAME="CREATED" CONTENT="0;0">
-	<META NAME="CHANGEDBY" CONTENT="v q">
-	<META NAME="CHANGED" CONTENT="20181004;7521353">
-	<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-	<STYLE TYPE="text/css">
-	<!--
-		PRE.cjk { font-family: "NSimSun", monospace }
-		H2.cjk { font-family: "SimSun" }
-		H2.ctl { font-family: "Mangal" }
-		H3.cjk { font-family: "SimSun" }
-		H3.ctl { font-family: "Mangal" }
-		CODE.cjk { font-family: "NSimSun", monospace }
-	-->
-	</STYLE>
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<H1><A NAME="status"></A>Status</H1>
-<P>The former repository of ChatScript was at
-https://github.com/bwilcox-1234/ChatScript, however, I lost access to
-this repository (2 factor authentication lost that I didn't want in
-the first place and I could not convince github to restore my
-access). So it is no longer maintained. But the global user
-ChatScript became available, and is a better name anyway.</P>
-<H1><A NAME="chatscript"></A>ChatScript</H1>
-<P>Natural Language tool/dialog manager</P>
-<P>ChatScript is the next generation chatbot engine that has won the
-Loebner's 4 times and is the basis for natural language company for a
-variety of tech startups.</P>
-<P>ChatScript is a rule-based engine, where rules are created by
-humans writers in program scripts through a process called dialog
-flow scripting. These use a scripting metalanguage (simply called a
-&quot;script&quot;) as their source code. Here what a ChatScript
-script file looks like:</P>
-<PRE CLASS="western"><CODE CLASS="western">#</CODE>
-<CODE CLASS="western"># file: food.top</CODE>
-<CODE CLASS="western">#</CODE>
-<CODE CLASS="western">topic: ~food []</CODE>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<h1 id="status">Status</h1>
+<p>The former repository of ChatScript was at https://github.com/bwilcox-1234/ChatScript, however, I lost access to this repository (2 factor authentication lost that I didn't want in the first place and I could not convince github to restore my access). So it is no longer maintained. But the global user ChatScript became available, and is a better name anyway.</p>
+<h1 id="chatscript">ChatScript</h1>
+<p>Natural Language tool/dialog manager</p>
+<p>ChatScript is the next generation chatbot engine that has won the Loebner's 4 times and is the basis for natural language company for a variety of tech startups.</p>
+<p>ChatScript is a rule-based engine, where rules are created by humans writers in program scripts through a process called dialog flow scripting. These use a scripting metalanguage (simply called a &quot;script&quot;) as their source code. Here what a ChatScript script file looks like:</p>
+<pre><code>#
+# file: food.top
+#
+topic: ~food []
 
-<CODE CLASS="western">#! I like spinach</CODE>
-<CODE CLASS="western">s: ( I like spinach ) Are you a fan of the Popeye cartoons?</CODE>
-<CODE CLASS="western">    </CODE>
-<CODE CLASS="western">    </CODE><CODE CLASS="western">a: ( ~yes )  I used to watch him as a child. Did you lust after Olive Oyl?</CODE>
-<CODE CLASS="western">            </CODE><CODE CLASS="western">b: ( ~no ) Me neither. She was too skinny.</CODE>
-<CODE CLASS="western">            </CODE><CODE CLASS="western">b: ( yes ) You probably like skinny models.</CODE>
-<CODE CLASS="western">    </CODE>
-<CODE CLASS="western">    </CODE><CODE CLASS="western">a: ( ~no ) What cartoons do you watch?</CODE>
-<CODE CLASS="western">            </CODE><CODE CLASS="western">b: ( none ) You lead a deprived life.</CODE>
-<CODE CLASS="western">            </CODE><CODE CLASS="western">b: ( Mickey Mouse ) The Disney icon.</CODE>
+#! I like spinach
+s: ( I like spinach ) Are you a fan of the Popeye cartoons?
+    
+    a: ( ~yes )  I used to watch him as a child. Did you lust after Olive Oyl?
+            b: ( ~no ) Me neither. She was too skinny.
+            b: ( yes ) You probably like skinny models.
+    
+    a: ( ~no ) What cartoons do you watch?
+            b: ( none ) You lead a deprived life.
+            b: ( Mickey Mouse ) The Disney icon.
 
-<CODE CLASS="western">#! I often eat chicken</CODE>
-<CODE CLASS="western">u: ( ![ not never rarely ] I * ~ingest * ~meat ) You eat meat.</CODE>
+#! I often eat chicken
+u: ( ![ not never rarely ] I * ~ingest * ~meat ) You eat meat.
 
-<CODE CLASS="western">#! I really love chicken</CODE>
-<CODE CLASS="western">u: ( !~negativeWords I * ~like * ~meat ) You like meat.</CODE>
+#! I really love chicken
+u: ( !~negativeWords I * ~like * ~meat ) You like meat.
 
-<CODE CLASS="western">#! do you eat bacon?</CODE>
-<CODE CLASS="western">?: ( do you eat _ [ ham eggs bacon] ) I eat '_0</CODE>
+#! do you eat bacon?
+?: ( do you eat _ [ ham eggs bacon] ) I eat &#39;_0
 
-<CODE CLASS="western">#! do you like eggs or sushi?</CODE>
-<CODE CLASS="western">?: ( do you like _* or _* ) I don't like '_0 so I guess that means I prefer '_1.</CODE>
+#! do you like eggs or sushi?
+?: ( do you like _* or _* ) I don&#39;t like &#39;_0 so I guess that means I prefer &#39;_1.
 
-<CODE CLASS="western">#! I adore kiwi.</CODE>
-<CODE CLASS="western">s: ( ~like ~fruit ![~animal _bear] )  Vegan, you too...</CODE>
+#! I adore kiwi.
+s: ( ~like ~fruit ![~animal _bear] )  Vegan, you too...
 
-<CODE CLASS="western">#! do you eat steak?</CODE>
-<CODE CLASS="western">?: ( do you eat _~meat ) No, I hate _0.</CODE>
+#! do you eat steak?
+?: ( do you eat _~meat ) No, I hate _0.
 
-<CODE CLASS="western">#! I eat fish.</CODE>
-<CODE CLASS="western">s: ( I eat _*1 &gt; ) </CODE>
-<CODE CLASS="western">  </CODE><CODE CLASS="western">$food = '_0 </CODE>
-<CODE CLASS="western">  </CODE><CODE CLASS="western">I eat oysters.</CODE></PRE><P>
-Above example mentioned in article <A HREF="https://medium.freecodecamp.com/chatscript-for-beginners-chatbots-developers-c58bb591da8#.2qdxjuyvs">How
-to build your first chatbot using ChatScript</A>.</P>
-<H2 CLASS="western"><A NAME="basic-features"></A>Basic Features</H2>
-<UL>
-	<LI><P STYLE="margin-bottom: 0in">Powerful pattern matching aimed at
-	detecting meaning. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Simple rule layout combined with
-	C-style general scripting. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Built-in WordNet dictionary for
-	ontology and spell-checking. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Extensive extensible ontology of
-	nouns, verbs, adjectives, adverbs. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Data as fact triples enables
-	inferencing and supports JSON representation. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Rules can examine and alter engine
-	and script behavior. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Remembers user interactions across
-	conversations. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Document mode allows you to scan
-	documents for content. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Ability to control local machines
-	via popen/tcpopen/jsonopen. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Ability to read structured JSON
-	data from websites. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Built in english pos-tagging and
-	parsing 
-	</P>
-	<LI><P><A HREF="https://www.postgresql.org/">Postgres</A> and <A HREF="https://www.mongodb.com/">Mongo</A>
-	databases support for big data or large-user-volume chatbots. 
-	</P>
-</UL>
-<H2 CLASS="western"><A NAME="os-features"></A>OS Features</H2>
-<UL>
-	<LI><P STYLE="margin-bottom: 0in">Runs on Windows or Linux or Mac or
-	iOS or Android 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Fast server performance supports a
-	thousand simultaneous users. 
-	</P>
-	<LI><P>Multiple bots can cohabit on the same server. 
-	</P>
-</UL>
-<H2 CLASS="western"><A NAME="support-features"></A>Support Features</H2>
-<UL>
-	<LI><P STYLE="margin-bottom: 0in">Mature technology in use by
-	various parties around the world. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Integrated tools to support
-	maintaining and testing large systems. 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">UTF8 support allows scripts
-	written in any language 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">User support forum on <A HREF="https://www.chatbots.org/ai_zone/viewforum/44/">chatbots.org</A>
-		</P>
-	<LI><P>Issues or bugs on this <A HREF="https://github.com/bwilcox-1234/ChatScript/issues">repo</A>
-		</P>
-</UL>
-<H1><A NAME="getting-started"></A>Getting started</H1>
-<H2 CLASS="western"><A NAME="installation"></A>Installation</H2>
-<P>Take this project and put it into some directory on your machine
-(typically we call the directory ChatScript, but you can name it
-whatever). That takes care of installation.</P>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">git clone https://github.com/ChatScript/ChatScript</CODE></PRE><H2 CLASS="western">
-<A NAME="standalone-mode---run-locally-on-a-console-for-developementtest"></A>
-Standalone mode - run locally on a console (for developement/test)</H2>
-<P>From your ChatScript home directory, go to the BINARIES directory:</P>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">cd BINARIES</CODE></PRE><P>
-And run the ChatScript engine</P>
-<H3 CLASS="western"><A NAME="windows"></A>Windows</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">ChatScript</CODE></PRE><H3 CLASS="western">
-<A NAME="linux"></A>Linux</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">./LinuxChatScript64 local</CODE></PRE><P>
-Note: to set the file executable: <CODE CLASS="western">chmod a+x
-./LinuxChatScript64</CODE></P>
-<H3 CLASS="western"><A NAME="macos"></A>MacOS</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">./MacChatScript local</CODE></PRE><P>
-This will cause ChatScript to load and ask you for a username. Enter
-whatever you want. You are then talking to the default demo bot
-<CODE CLASS="western">Harry</CODE>.</P>
-<H2 CLASS="western"><A NAME="server-mode-for-production"></A>Server
-Mode (for production)</H2>
-<P>From your ChatScript home directory, go to the BINARIES directory
-and run the ChatScript engine as server ### Run the server on Windows</P>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">ChatScript port=1024</CODE></PRE><H3 CLASS="western">
-<A NAME="run-the-server-on-linux"></A>Run the server on Linux</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">./LinuxChatScript64</CODE></PRE><H3 CLASS="western">
-<A NAME="run-the-server-on-macos"></A>Run the server on MacOS</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">./MacChatScript</CODE></PRE><P>
-This will cause ChatScript to load as a server.<BR>But you also need
-a client (to test client-server communication). You can run a
-separate command window and go to the BINARIES directory and type</P>
-<H3 CLASS="western"><A NAME="run-a-client-test-on-windows"></A>Run a
-client (test) on Windows</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">ChatScript client=localhost:1024 </CODE></PRE><H3 CLASS="western">
-<A NAME="run-a-client-test-on-linux"></A>Run a client (test) on Linux</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">./LinuxChatScript64 client=localhost:1024</CODE></PRE><H3 CLASS="western">
-<A NAME="run-a-client-test-on-macos"></A>Run a client (test) on MacOS</H3>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">./MacChatScript client=localhost:1024</CODE></PRE><P>
-This will cause ChatScript to load as a client and you can talk to
-the server.</P>
-<H2 CLASS="western"><A NAME="how-to-build-a-bot"></A>How to build a
-bot</H2>
-<P>Run ChatScript locally. From the ChatScript command prompt, type</P>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">:build Harry</CODE></PRE><P>
-or whatever other preinstalled bot exists. If you have revised basic
-data, you can first:</P>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><CODE CLASS="western">:build 0</CODE></PRE><H2 CLASS="western">
-<A NAME="how-to-compile-the-engine."></A>How to compile the engine.</H2>
-<P>On windows if you have Visual Studio installed, launch
-<CODE CLASS="western">VS2010/chatscript.sln</CODE> or
-<CODE CLASS="western">VS2015/chatscript.sln</CODE> and do a build.
-The result will go in the <CODE CLASS="western">BINARIES</CODE>
-directory.</P>
-<P>On Linux, go stand in the SRC directory and type <CODE CLASS="western">make
-server</CODE> (assuming you have make and g++ installed). This
-creates BINARIES/ChatScript, which can run as a server or locally.
-There are other make choices for installing PostGres or Mongo.</P>
-<H1><A NAME="full-documentation"></A>Full Documentation</H1>
-<P><A HREF="/WIKI/README.html">ChatScript Wiki (user guides,
-tutorials, papers)</A></P>
-<H1><A NAME="contributing"></A>Contributing</H1>
-<OL>
-	<LI><P STYLE="margin-bottom: 0in">Fork it 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Create your feature branch (git
-	checkout -b my-new-feature) 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Commit your changes (git commit
-	-am 'Add some feature') 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">Push to the branch (git push
-	origin my-new-feature) 
-	</P>
-	<LI><P>Create new Pull Request 
-	</P>
-</OL>
-<H1><A NAME="last-releases"></A>Last releases</H1>
-<P><A HREF="/changes.md">changes.md</A></P>
-<H1><A NAME="author"></A>Author</H1>
-<UL>
-	<LI><P STYLE="margin-bottom: 0in">Bruce Wilcox 
-	</P>
-	<LI><P STYLE="margin-bottom: 0in">home website:
-	<A HREF="http://www.brilligunderstanding.com/">BrilligUnderstanding.com</A>
-		</P>
-	<LI><P>mail: <A HREF="mailto:gowilcox@gmail.com">gowilcox@gmail.com</A>
-		</P>
-</UL>
-</BODY>
-</HTML>
+#! I eat fish.
+s: ( I eat _*1 &gt; ) 
+  $food = &#39;_0 
+  I eat oysters.</code></pre>
+<p>Above example mentioned in article <a href="https://medium.freecodecamp.com/chatscript-for-beginners-chatbots-developers-c58bb591da8#.2qdxjuyvs">How to build your first chatbot using ChatScript</a>.</p>
+<h2 id="basic-features">Basic Features</h2>
+<ul>
+<li>Powerful pattern matching aimed at detecting meaning.</li>
+<li>Simple rule layout combined with C-style general scripting.</li>
+<li>Built-in WordNet dictionary for ontology and spell-checking.</li>
+<li>Extensive extensible ontology of nouns, verbs, adjectives, adverbs.</li>
+<li>Data as fact triples enables inferencing and supports JSON representation.</li>
+<li>Rules can examine and alter engine and script behavior.</li>
+<li>Remembers user interactions across conversations.</li>
+<li>Document mode allows you to scan documents for content.</li>
+<li>Ability to control local machines via popen/tcpopen/jsonopen.</li>
+<li>Ability to read structured JSON data from websites.</li>
+<li>Built in english pos-tagging and parsing</li>
+<li><a href="https://www.postgresql.org/">Postgres</a> and <a href="https://www.mongodb.com/">Mongo</a> databases support for big data or large-user-volume chatbots.</li>
+</ul>
+<h2 id="os-features">OS Features</h2>
+<ul>
+<li>Runs on Windows or Linux or Mac or iOS or Android</li>
+<li>Fast server performance supports a thousand simultaneous users.</li>
+<li>Multiple bots can cohabit on the same server.</li>
+</ul>
+<h2 id="support-features">Support Features</h2>
+<ul>
+<li>Mature technology in use by various parties around the world.</li>
+<li>Integrated tools to support maintaining and testing large systems.</li>
+<li>UTF8 support allows scripts written in any language</li>
+<li>User support forum on <a href="https://www.chatbots.org/ai_zone/viewforum/44/">chatbots.org</a></li>
+<li>Issues or bugs on this <a href="https://github.com/bwilcox-1234/ChatScript/issues">repo</a></li>
+</ul>
+<h1 id="getting-started">Getting started</h1>
+<h2 id="installation">Installation</h2>
+<p>Take this project and put it into some directory on your machine (typically we call the directory ChatScript, but you can name it whatever). That takes care of installation.</p>
+<pre><code>git clone https://github.com/ChatScript/ChatScript</code></pre>
+<h2 id="standalone-mode---run-locally-on-a-console-for-developementtest">Standalone mode - run locally on a console (for developement/test)</h2>
+<p>From your ChatScript home directory, go to the BINARIES directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> BINARIES</code></pre></div>
+<p>And run the ChatScript engine</p>
+<h3 id="windows">Windows</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">ChatScript</span></code></pre></div>
+<h3 id="linux">Linux</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./LinuxChatScript64</span> local</code></pre></div>
+<p>Note: to set the file executable: <code>chmod a+x ./LinuxChatScript64</code></p>
+<h3 id="macos">MacOS</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./MacChatScript</span> local</code></pre></div>
+<p>This will cause ChatScript to load and ask you for a username. Enter whatever you want. You are then talking to the default demo bot <code>Harry</code>.</p>
+<h2 id="server-mode-for-production">Server Mode (for production)</h2>
+<p>From your ChatScript home directory, go to the BINARIES directory and run the ChatScript engine as server ### Run the server on Windows</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">ChatScript</span> port=1024</code></pre></div>
+<h3 id="run-the-server-on-linux">Run the server on Linux</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./LinuxChatScript64</span></code></pre></div>
+<h3 id="run-the-server-on-macos">Run the server on MacOS</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./MacChatScript</span></code></pre></div>
+<p>This will cause ChatScript to load as a server.<br />
+But you also need a client (to test client-server communication). You can run a separate command window and go to the BINARIES directory and type</p>
+<h3 id="run-a-client-test-on-windows">Run a client (test) on Windows</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">ChatScript</span> client=localhost:1024 </code></pre></div>
+<h3 id="run-a-client-test-on-linux">Run a client (test) on Linux</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./LinuxChatScript64</span> client=localhost:1024</code></pre></div>
+<h3 id="run-a-client-test-on-macos">Run a client (test) on MacOS</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./MacChatScript</span> client=localhost:1024</code></pre></div>
+<p>This will cause ChatScript to load as a client and you can talk to the server.</p>
+<h2 id="how-to-build-a-bot">How to build a bot</h2>
+<p>Run ChatScript locally. From the ChatScript command prompt, type</p>
+<pre><code>:build Harry</code></pre>
+<p>or whatever other preinstalled bot exists. If you have revised basic data, you can first:</p>
+<pre><code>:build 0</code></pre>
+<h2 id="how-to-compile-the-engine.">How to compile the engine.</h2>
+<p>On windows if you have Visual Studio installed, launch <code>VS2010/chatscript.sln</code> or <code>VS2015/chatscript.sln</code> and do a build. The result will go in the <code>BINARIES</code> directory.</p>
+<p>On Linux, go stand in the SRC directory and type <code>make server</code> (assuming you have make and g++ installed). This creates BINARIES/ChatScript, which can run as a server or locally. There are other make choices for installing PostGres or Mongo.</p>
+<h1 id="full-documentation">Full Documentation</h1>
+<p><a href="/WIKI/README.md">ChatScript Wiki (user guides, tutorials, papers)</a></p>
+<h1 id="contributing">Contributing</h1>
+<ol style="list-style-type: decimal">
+<li>Fork it</li>
+<li>Create your feature branch (git checkout -b my-new-feature)</li>
+<li>Commit your changes (git commit -am 'Add some feature')</li>
+<li>Push to the branch (git push origin my-new-feature)</li>
+<li>Create new Pull Request</li>
+</ol>
+<h1 id="last-releases">Last releases</h1>
+<p><a href="/changes.md">changes.md</a></p>
+<h1 id="author">Author</h1>
+<ul>
+<li>Bruce Wilcox</li>
+<li>home website: <a href="http://www.brilligunderstanding.com">BrilligUnderstanding.com</a></li>
+<li>mail: <a href="mailto:gowilcox@gmail.com">gowilcox@gmail.com</a></li>
+</ul>
+</body>
+</html>

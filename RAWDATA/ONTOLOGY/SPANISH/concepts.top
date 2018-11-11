@@ -1061,5 +1061,5 @@
 #SPANISH concept: ~XWEIGHTNOUNS (      centigramo gramo kilo kilogramo onza libra piedra tonelada peso  )
 #SPANISH concept: ~YELLOW ( ~yellow_other      beige pulir Cítrico citrino Gamboge espeluznante nanquín ocre leonado amarillo amarillento  )
 #SPANISH concept: ~YELLOW_OTHER (      albaricoque mantequilla "botón de oro" "caramelo de azúcar con mantequilla" canario cromo oro "Vara de oro" limón mostaza melocotón caqui primavera azafrán ante azufre Mandarina  )
-#SPANISH concept: ~YESANSWER ( ~yes      Y "está bien" "está bien" yo Ya Ys  )
+#SPANISH concept: ~YESANSWER ( ~yes      "está bien" )
 #SPANISH concept: ~NOANSWER ( ~no      norte  )

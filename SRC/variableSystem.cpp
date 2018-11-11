@@ -1026,7 +1026,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     else
     {
         ptr = GetCommandArg(ptr, buffer, result, OUTPUT_NOCOMMANUMBER | ASSIGNMENT); // need to see null assigned -- store raw numbers, not with commas, lest relations break
-        if (*buffer == '#') // substitute a constant? user type-in :set command for example
+        if (*buffer == '#' && !strchr(buffer,' ')) // substitute a constant? user type-in :set command for example
         {
             uint64 n = FindValueByName(buffer + 1);
             if (!n) n = FindSystemValueByName(buffer + 1);
@@ -1171,10 +1171,10 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
         if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s(%s)\r\n", word, originalWord1, buffer);
         SetUserVariable(word + 1, buffer, true); // '$xx = value  -- like passed thru as argument
     }
-    else if (*word == SYSVAR_PREFIX)
+    else if (*word == SYSVAR_PREFIX && !strchr(buffer, ' '))
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s(%s)\r\n", word, originalWord1, buffer);
-        SystemVariable(word, buffer);
+        SystemVariable(word, buffer); // assignment onto system var
     }
     else if (*word == '^') // overwrite function arg
     {

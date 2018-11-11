@@ -330,6 +330,15 @@ servertrace
 when present, forces all users to have tracing turned on. Traces go to the user logs.
 
 ```
+repeatLimit=n
+```
+
+Servers are subject to malicious inputs, often generated as repeated words over and over.
+This detects repeated input and if the number of sequential repeats is non-zero and equal or
+greater to this parameter, such inputs will be truncated to just the initial repeats. All
+other input in this volley will be discarded.
+
+```
 erasename=myname
 ```
 :reset, when called from running script, is unable to fully reset the system.

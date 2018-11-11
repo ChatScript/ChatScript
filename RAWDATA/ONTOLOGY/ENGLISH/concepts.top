@@ -483,17 +483,17 @@
 ##<<ENGLISH concept: ~fake_religious_sect (Christian_Science Christian_Scientist Freemason Freemasonry Moonie Satanism Satanist Scientologist Scientology Unification_Church Wicca Wiccan Witch Witchcraft ) ##>>
 ##<<ENGLISH concept: ~family_adult   PROBABLE_NOUN ANIMATE_BEING (~family_adult_female partner ~family_adult_generic ~family_adult_male ) ##>>
 ##<<ENGLISH concept: ~family_adult_female   PROBABLE_NOUN ANIMATE_BEING (~mother aunt aunty daughter-in-law ex-wife fiancee girlfriend godmother gran grandma grandmom grandmother granny 
-          matriarch mistress mother-in-law  spinster step-mother stepmother widow wife ) ##>>
+          matriarch mistress mother-in-law  spinster stepmother widow wife ) ##>>
 ##<<ENGLISH concept: ~family_adult_generic NOUN_HUMAN PROBABLE_NOUN ANIMATE_BEING (ancestor clan cousin descendant descendent elders folks grandparent heir parent partner spouse 
           stepparent tribe ) ##>>
 ##<<ENGLISH concept: ~family_adult_male PROBABLE_NOUN ANIMATE_BEING (~brother ~family_grandfather ~father boyfriend brother-in-law ex-husband father-in-law fiance hubby husband 
-          patriarch scion son-in-law step-father stepfather uncle widower ) ##>>
+          patriarch scion son-in-law  stepfather uncle widower ) ##>>
 ##<<ENGLISH concept: ~family_children  PROBABLE_NOUN ANIMATE_BEING (~family_children_female ~family_children_generic ~family_children_male ) ##>>
-##<<ENGLISH concept: ~family_children_female  PROBABLE_NOUN ANIMATE_BEING (~sister daughter granddaughter grandniece niece sister sister-in-law step-daughter step-sister stepdaughter 
+##<<ENGLISH concept: ~family_children_female  PROBABLE_NOUN ANIMATE_BEING (~sister daughter granddaughter grandniece niece sister sister-in-law stepdaughter 
           stepsister ) ##>>
-##<<ENGLISH concept: ~family_children_generic NOUN_HUMAN  PROBABLE_NOUN ANIMATE_BEING (baby child cousin grandchild grandkid infant kid offspring progeny sibling step-child stepchild 
+##<<ENGLISH concept: ~family_children_generic NOUN_HUMAN  PROBABLE_NOUN ANIMATE_BEING (baby child cousin grandchild grandkid infant kid offspring progeny sibling stepchild 
           teen teenager toddler tot twin ward youth nephling) ##>>
-##<<ENGLISH concept: ~family_children_male PROBABLE_NOUN ANIMATE_BEING (~brother brother grandnephew grandson nephew scion son step-son step-brother stepson  ) ##>>
+##<<ENGLISH concept: ~family_children_male PROBABLE_NOUN ANIMATE_BEING (~brother brother grandnephew grandson nephew scion son  stepson stepbrother ) ##>>
 ##<<ENGLISH concept: ~family_grandfather  PROBABLE_NOUN ANIMATE_BEING (granddad granddaddy grandfather grandpa grandpaw grandpop ) ##>>
 ##<<ENGLISH concept: ~family_members  PROBABLE_NOUN ANIMATE_BEING (~family_adult ~family_children relative twin ) ##>>
 ##<<ENGLISH concept: ~farm_animals  PROBABLE_NOUN ANIMATE_BEING (boar bull calf chick cow duck duckling ewe foal goose gosling hen mare pig piglet ram rooster stallion ) ##>>
@@ -505,7 +505,7 @@
           paste peg pin ribbon rivet riveter rope safety_pin scotch_tape screw shoe_lace shoelace shoestring spike stake staple stitch strap string tape tent_peg thread thumbtack twine 
           welder zipper ) ##>>
 ##<<ENGLISH concept: ~fastfood_place (breakfast burger dinner food french_fries fried_chicken fries hamburger lunch milk_shake ) ##>>
-##<<ENGLISH concept: ~father  PROBABLE_NOUN ANIMATE_BEING (dad dada daddy father old_man pa papa pappy pop step-father ) ##>>
+##<<ENGLISH concept: ~father  PROBABLE_NOUN ANIMATE_BEING (dad dada daddy father old_man pa papa pappy pop stepfather ) ##>>
 ##<<ENGLISH concept: ~favorite (best coolest fave favorite greatest like_most like_the_most love_the_most most_beloved most_like most_liked most_love most_loved ) ##>>
 ##<<ENGLISH concept: ~feeling_adequate (adequate capable competent composed confident encouraged excited in_control organized proud responsible satisfied ) ##>>
 ##<<ENGLISH concept: ~feeling_admiration (admiration amazed amazement ) ##>>
@@ -1277,7 +1277,7 @@
 
 ##<<ENGLISH concept: ~more (again another continue do_it_again further go_on more other repeat resume what_else ) ##>>
 ##<<ENGLISH concept: ~morningthings (~groom arise awake breakfast dawn daylight dress get_up go_to_the_office go_to_work morning shave shower wake ) ##>>
-##<<ENGLISH concept: ~mother   PROBABLE_NOUN ANIMATE_BEING (ma mama mamma mammy mom momma mommy mother mother-in-law mum mummy mummy~2 step-mother ) ##>>
+##<<ENGLISH concept: ~mother   PROBABLE_NOUN ANIMATE_BEING (ma mama mamma mammy mom momma mommy mother mother-in-law mum mummy mummy~2 stepmother ) ##>>
 ##<<ENGLISH concept: ~mountain (mountain ) ##>>
 ##<<ENGLISH concept: ~mountain_sports (climbing hiking mountain_biking mountain_climbing mountaineering ) ##>>
 ##<<ENGLISH concept: ~movers (box_wrench chopstick crescent_wrench crowbar dustpan elevator fan flat-nosed_pliers fork hammer ladle lever mallet monkey_wrench needle-nosed_pliers open-end_wrench 

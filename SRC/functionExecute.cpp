@@ -1388,13 +1388,11 @@ bool RuleTest(char* data) // see if pattern matches
 	int uppercasem = 0;
 	int matched = 0;
 	char* buffer = AllocateStack(NULL,MAX_BUFFER_SIZE); // not expecting big data from function call in match
-	bool answer =  Match(buffer,pattern+2,0,0,(char*)"(",1,0,junk,junk,uppercasem,matched,0,0); // start past the opening paren
-	ReleaseStack(buffer);
-	if (clearUnmarks) // remove transient global disables.
-	{
-		clearUnmarks = false;
-		for (int i = 1; i <= wordCount; ++i) unmarked[i] = 1;
-	}
+    char oldmark[MAX_SENTENCE_LENGTH];
+    memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
+    bool answer =  Match(buffer,pattern+2,0,0,(char*)"(",1,0,junk,junk,uppercasem,matched,0,0); // start past the opening paren
+    memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
+    ReleaseStack(buffer);
 	ShowMatchResult(answer ? NOPROBLEM_BIT : FAILRULE_BIT, pattern+2,NULL);
 	return answer;
 }
@@ -2943,6 +2941,58 @@ static FunctionResult SetCanonCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static FunctionResult ReplaceWordCode(char* buffer)
+{
+    char* ptr = ARGUMENT(1);
+    char word[MAX_WORD_SIZE];
+    FunctionResult result;
+    ptr = ReadShortCommandArg(ptr, word, result); // set
+    if (result & ENDCODES) return result;
+
+    // get location
+    int startPosition = wordCount;
+    if (*ptr == '^')
+    {
+        ptr = GetPossibleFunctionArgument(ptr, buffer); // pass thru or convert
+        char word2[MAX_WORD_SIZE];
+        if (!IsDigit(*buffer) && *buffer != '_')
+        {
+            strcpy(word2, buffer);
+            GetCommandArg(word2, buffer, result, 0); // should be small
+        }
+    }
+    if (IsDigit(*ptr) || *ptr == '_') ptr = ReadCompiledWord(ptr, buffer);  // the locator, leave it unevaled as number or match var
+    else if (*ptr == USERVAR_PREFIX)
+    {
+        ptr = ReadCompiledWord(ptr, buffer);
+        strcpy(buffer, GetUserVariable(buffer));
+    }
+    else if (*ptr) ptr = GetCommandArg(ptr, buffer, result, 0); // evaluate the locator as a number presumably
+
+    if (IsDigit(*buffer))
+    {
+        int val = atoi(buffer);
+        startPosition = val & 0x0000ffff;
+    }
+    else if (*buffer == '_')
+    {
+        startPosition = WILDCARD_START(wildcardPosition[GetWildcardID(buffer)]); // the match location
+    }
+    else
+    {
+        *buffer = 0;
+        return FAILRULE_BIT;
+    }
+    if (startPosition < 1 || startPosition > wordCount)
+    {
+        *buffer = 0;
+        return NOPROBLEM_BIT;	// fail silently
+    }
+    wordCanonical[startPosition] =  wordStarts[startPosition] = AllocateHeap(word, 0);
+    *buffer = 0;
+    return NOPROBLEM_BIT;
+}
+
 static FunctionResult UnmarkCode(char* buffer)
 {
 	// unmark() // disable global unmarks
@@ -2958,7 +3008,6 @@ static FunctionResult UnmarkCode(char* buffer)
 	FunctionResult result;
 	ptr = ReadShortCommandArg(ptr,word,result);// set
 	if (result & ENDCODES) return result;
-	if (matching) clearUnmarks = true; // mark done during a pattern should be undone
 	
 	if (!*word) // unmark() reenables generic unmarking
 	{
@@ -4288,13 +4337,10 @@ FunctionResult MatchCode(char* buffer)
 	int last = 0;
 	if (*base == '(') ++base;		// skip opening paren of a pattern
  	if (*base == ' ') ++base;		// skip opening space of a pattern
+    char oldmark[MAX_SENTENCE_LENGTH];
+    memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
     bool match = Match(buffer,base,0,0,(char*)"(",1,0,first,last,uppercasem,matched,0,0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
-	
-	if (clearUnmarks) // remove transient global disables.
-	{
-		clearUnmarks = false;
-		for (int i = 1; i <= wordCount; ++i) unmarked[i] = 1;
-	}
+    memcpy( unmarked, oldmark, MAX_SENTENCE_LENGTH);
 	ShowMatchResult(!match ? FAILRULE_BIT : NOPROBLEM_BIT ,base,NULL);
 	if (!match) return FAILRULE_BIT;
 	char data[10];
@@ -8970,7 +9016,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"\r\n---- Marking & Parser Info",0,0,0,(char*)""},
 	{ (char*)"^gettag",GetTagCode,1,SAMELINE,(char*)"for word n, return its postag concept" },
 	{ (char*)"^mark",MarkCode,STREAM_ARG,SAMELINE,(char*)"mark word/concept in sentence"},
-	{ (char*)"^marked",MarkedCode,1,SAMELINE,(char*)"BOOLEAN - is word/concept marked in sentence"}, 
+    { (char*)"^replaceword",ReplaceWordCode,STREAM_ARG,SAMELINE,(char*)"assign word as original in sentence at _ var location" },
+    { (char*)"^marked",MarkedCode,1,SAMELINE,(char*)"BOOLEAN - is word/concept marked in sentence"},
 	{ (char*)"^position",PositionCode,STREAM_ARG,SAMELINE,(char*)"get FIRST or LAST position of an _ var"}, 
 	{ (char*)"^setposition",SetPositionCode,STREAM_ARG,SAMELINE,(char*)"set absolute match position"}, 
 	{ (char*)"^setpronoun",SetPronounCode,STREAM_ARG,SAMELINE,(char*)"replace pronoun with word"}, 

@@ -9,4 +9,6 @@
  <.	# erase leading period
  i I
  -_-
+ <¿ # remove starting inverted question mark
+ <¡ # remove starting inverted exclamation mark
 

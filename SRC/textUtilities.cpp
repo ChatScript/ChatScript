@@ -886,7 +886,7 @@ void AcquirePosMeanings(bool facts)
 uint64 FindValueByName(char* name)
 {
 	if (!*name || *name == '?') return 0; // ? is the default argument to call
-	char word[MAX_WORD_SIZE];
+    char word[MAX_WORD_SIZE * 4];
 	word[0] = ENDUNIT;
 	MakeUpperCopy(word+1,name);
 	WORDP D = FindWord(word);
@@ -924,7 +924,7 @@ bool IsModelNumber(char* word)
 uint64 FindSystemValueByName(char* name)
 {
 	if (!*name || *name == '?') return 0; // ? is the default argument to call
-	char word[MAX_WORD_SIZE];
+	char word[MAX_WORD_SIZE * 4];
 	word[0] = ENDUNIT;
 	word[1] = ENDUNIT;
 	MakeUpperCopy(word+2,name);

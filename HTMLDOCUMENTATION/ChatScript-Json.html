@@ -196,6 +196,7 @@ $$obj.&#39;_0[4] += 3</code></pre>
 <p>You can also do</p>
 <pre><code>    $_array1 +=  $_array2 -- copies contents of array2 into array1
     $_array1 += value -- adds value into array1</code></pre>
+<p>Adding an element to an array using these notations will automatically select DUPLICATE entries being legal. If you want the insertion to be unique, use ^jsonarrayinsert(UNIQUE xxx xxx).</p>
 <p>The only restriction on arrays is that you cannot add a new array index value without using ^jsonarrayinsert as you are not allowed to create discontiguous indices.</p>
 <p><strong>NOTE</strong> JSON is normally a non-recursive structure with no shared pointers. But ChatScript allows you to store references to JSON structures in multiple places of other JSON structures. This has its hazards. It presents no problem when transcribing to text for a website using <code>^jsonwrite</code> . And when you have something like this:</p>
 <pre><code>$x = ^jsoncreate(object)
@@ -232,6 +233,9 @@ $x.field = null</code></pre>
 <p>If the key has an existing value then if the value is a json object it will be recursively deleted provided its data is not referenced by some other fact (not by any variables). You can suppress this with the <code>SAFE</code> flag. <code>^jsonarraydelete(SAFE $obj $key)</code>.</p>
 <h3 id="jsonarraysize-name"><code>^jsonarraysize</code>( name )</h3>
 <p>deprecated in favor of ^length</p>
+<h3 id="jsontextfactid">`^jsontext(factid)</h3>
+<p>^jsontext adds quotes if object of fact is a json text and FAILS if object is not a json fact.</p>
+<p>CS represents json text as ordinary unquoted text, but text that looks like float numbers would be subject to possible float truncations or expansion of digits. This preserves it as text.</p>
 <h3 id="jsoncopy-name"><code>^jsoncopy</code>( name )</h3>
 <p>Given the name of a json structure, makes a duplicate of it. If it is not the name of a json structure, it merely returns what you pass it.</p>
 <h3 id="jsonobjectinsert-jsonflags-objectname-key-value"><code>^jsonobjectinsert</code>( {JSONFLAGS} objectname key value )</h3>
@@ -250,7 +254,7 @@ This allows you to remove their transient flags or save them in the users perman
 <p>reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array. The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted.</p>
 <p>If an optional 3rd parameter of a function name is given, the code does not create a JSON structure to return. Instead it calls the function with each field of a line being an argument. This is sort of analogous to <code>:document</code> mode in that you can potentially read large amounts of data in a single volley and may need to use <code>^memorymark</code> and <code>^memoryfree</code> to manage the issue.</p>
 <p><code>^readfile ( LINE filepath 'function)</code> reads a file and passes each line untouched as the sole argument to the function.</p>
-<p>Formerly called ^readfile (still accepted).</p>
+<p>Formerly called ^jsonreadfile (still accepted).</p>
 <h3 id="jsonundecodestring-string"><code>^jsonundecodestring</code>( string )</h3>
 <p>removes all json escape markers back to normal for possible printout to a user. This translates \n to newline, \r to carriage return, \t to tab, and \&quot; to a simple quote.</p>
 <h2 id="web-json">WEB JSON</h2>

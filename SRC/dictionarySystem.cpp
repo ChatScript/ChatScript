@@ -666,8 +666,8 @@ void InitDictionary()
 	if ( dictionaryBase == 0) // 1st startup allocation -- not needed on a reload
 	{
 		dictionaryBase = (WORDP) malloc(size);
-	}
-
+    }
+    if (dictionaryBase == 0) myexit("Cannot allocate dictionary space");
 #ifdef EXPLAIN
 	Conjoined heap space					Independent heap space
 											heapBase -- allocates downwards

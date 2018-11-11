@@ -1,6 +1,6 @@
 #ifdef INFORMATION
 Copyright (C) 2011-2012 by Outfit7
-Further modifed by Bruce Wilcox 2014-2106
+Further modifed by Bruce Wilcox 2014-2018
 
 Released under Bruce Wilcox License as follows:
 
@@ -103,13 +103,13 @@ struct Client_t
     ev_io ev_r;
     ev_io ev_w;
     struct ev_loop *l;
-    Buffer_t incomming;
     bool requestValid;
     string ip;
     char* bot;
     char* message;
     char* user;
     char* data = NULL;
+    Buffer_t incomming;
 
     Client_t(int fd, struct ev_loop *l_p) : fd(fd), l(l_p), requestValid(false)
     {
@@ -616,7 +616,7 @@ int evsrv_do_chat(Client_t *client)
  	uint64 starttime = ElapsedMilliseconds(); 
     client->prepare_for_chat();
 	size_t len = strlen(client->message);
-	if (len >= INPUT_BUFFER_SIZE - 100) client->message[INPUT_BUFFER_SIZE-1] = 0; // limit user input
+	if (len >= INPUT_BUFFER_SIZE - 300) client->message[INPUT_BUFFER_SIZE-300] = 0; // limit user input
 	echo = false;
 	bool restarted = false;
 #ifndef DISCARDPOSTGRES

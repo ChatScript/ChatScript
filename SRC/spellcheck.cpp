@@ -415,7 +415,8 @@ bool SpellCheckSentence()
             }
 		}
 		if (IsDate(word)) continue; // allow 1970/10/5 or similar
-        
+        if (IsUrl(word,word+strlen(word))) continue;
+
         // he's probably messing with us
         if (++badcount > 10 && !goodcount) break;
         if (badcount > 30 ) break;

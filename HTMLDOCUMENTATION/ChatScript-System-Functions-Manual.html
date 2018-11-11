@@ -620,8 +620,8 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p><em>label</em> can be a simple text label or a <code>topicname.textlabel</code>. The system tracks rule labels that generated output to the user or rules starting with the label <code>CX_</code> whether or not the rule generates output as long as it didn't fail during output.</p>
 <p><code>^inContext</code> will return how many volleys have happened since the referenced rule (normal return) if the label has output within the 5 prior volleys and will fail if not. It's like an extension of rejoinders. Rejoinders have a 1 volley context and must be placed immediately after a rule. This has a 5 volley context and are used in normal rule patterns.</p>
 <pre><code>u: (^incontext(PLAYTENNIS) why) because it was fun.</code></pre>
-<h3 id="stats-facts"><code>^stats ( FACTS )</code></h3>
-<p>FACTS: Returns how many free facts remain.</p>
+<h3 id="stats-facts-dict-text"><code>^stats ( FACTS / DICT / TEXT )</code></h3>
+<p>FACTS: Returns how many free facts remain. DICT: Returns how many empty dictionary entries remain. TEXT: Returns how much space for both stack and heap remain.</p>
 <h1 id="external-access-functions">External Access Functions</h1>
 <h3 id="environment-variablename"><code>^environment ( variablename )</code></h3>
 <p>Access environment variables of the operating system. E.g.</p>
@@ -1397,6 +1397,7 @@ concept: ~canine (dog)</code></pre>
 <pre><code>@2 = ^intersectfact(@0 @1object)</code></pre>
 <h3 id="keywordtopics"><code>^keywordtopics ()</code></h3>
 <p>Lists topics and priority values for matching keywords in input. An optional argument if <code>gambit</code>, will ignore topics without available gambits. The verb used is: <code>^keywordtopics</code>.</p>
+<p>Note: it does not attempt to match the topic you are currently in, as the normal control scripts should already have tried that topic before coming to the more random thrashing of ^keywordtopics.</p>
 <h3 id="last-fact-set-annotated"><code>^last ( fact-set-annotated )</code></h3>
 <p>Retrieve the last fact – see <code>^first</code> for a more complete explanation.</p>
 <h3 id="length-word"><code>^length ( word )</code></h3>

@@ -617,7 +617,7 @@
 #FRENCH concept: ~MONERA ANIMATE_BEING (      Bactéries "Famille de bactéries" Filoviridae germe microbe "Microflore probiotique" "Vraies bactéries" virus  )
 #FRENCH concept: ~MONEY_CONTAINER (      "Caisse d'aumône" porte-monnaie "Boîte de donation" "Courroie monétaire" tirelire "Sac d'argent" "Penny bank" tirelire "Boîte pauvre"  )
 #FRENCH concept: ~MONTH_NAMES (      Avr Avril Août Août Déc Décembre Fév Février Jan Janvier Juil Juillet Jun Juin Mar Mars Mai mai Nov Novembre Oct Octobre Sep Sept Septembre  )
-#FRENCH concept: ~MONTH_NAMES_INDEX DUPLICATE (      3 3 7 7 11 11 1 1 0 0 6 6 5 5 2 2 4 4 dix dix 9 9 8 8 8  )
+#FRENCH concept: ~MONTH_NAMES_INDEX DUPLICATE (      3 3 7 7 11 11 1 1 0 0 6 6 5 5 2 2 4 4 10 10 9 9 8 8 8  )
 #FRENCH concept: ~DAYSINMONTH DUPLICATE (      30 30 31 31 31 31 28 28 31 31 31 31 30 30 31 31 31 31 30 30 31 31 30 30 30  )
 #FRENCH concept: ~MONTH_PROPER_NAMES DUPLICATE (      Avril Avril Août Août Décembre Décembre Février Février Janvier Janvier Juillet Juillet Juin Juin Mars Mars Mai Mai Novembre Novembre Octobre Octobre Septembre Septembre Septembre  )
 #FRENCH concept: ~MORE (      encore "un autre" continuer refais-le "plus loin" continue plus autre répéter CV "quoi d'autre"  )
@@ -1061,6 +1061,6 @@
 #FRENCH concept: ~XWEIGHTNOUNS (      centigramme gramme kilo kilogramme once livre pierre tonne poids  )
 #FRENCH concept: ~YELLOW ( ~yellow_other      beige chamois Citronné Citrine Gamboge Lugubre nankin ocre fauve jaune jaunâtre  )
 #FRENCH concept: ~YELLOW_OTHER (      abricot beurre Porte-bourrelet Boeuf canari chrome or Goldenrod citron moutarde pêche "Le caïman" primevère Safran suède soufre mandarine  )
-#FRENCH concept: ~YESANSWER ( ~yes      Y "c'est bon" "c'est bon" Yo Ya Ys  )
+#FRENCH concept: ~YESANSWER ( ~yes      "c'est bon"  )
 #FRENCH concept: ~NOANSWER ( ~no      N  )
 

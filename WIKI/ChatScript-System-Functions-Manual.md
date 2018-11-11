@@ -1093,9 +1093,11 @@ rule. This has a 5 volley context and are used in normal rule patterns.
 
     u: (^incontext(PLAYTENNIS) why) because it was fun.
 
-### `^stats ( FACTS )`
+### `^stats ( FACTS / DICT / TEXT )`
 
 FACTS: Returns how many free facts remain.
+DICT: Returns how many empty dictionary entries remain.
+TEXT: Returns how much space for both stack and heap remain.
 
 # External Access Functions
 
@@ -2528,6 +2530,8 @@ Lists topics and priority values for matching keywords in input.
 An optional argument if `gambit`, will ignore topics without available gambits. 
 The verb used is: `^keywordtopics`.
 
+Note: it does not attempt to match the topic you are currently in, as the normal control scripts
+should already have tried that topic before coming to the more random thrashing of ^keywordtopics.
 
 ### `^last ( fact-set-annotated )`
 

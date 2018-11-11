@@ -12547,7 +12547,7 @@
  Trygve_Lie ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Trygve_Halvden_Lie~1n 
  Trygve_Halvden_Lie ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
-    Lie~1nz (^diplomatist~1) Norwegian diplomat who was the first Secretary General of the United Nations
+    Trygve_Lie~1nz (^diplomatist~1) Norwegian diplomat who was the first Secretary General of the United Nations
  Titus_Livius ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Livy~1nz (^historian~1) Roman historian whose history of Rome filled 142 volumes including the earliest history of the war with Hannibal (59 BC to AD 17)
  Titus_Lucretius_Carus ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 

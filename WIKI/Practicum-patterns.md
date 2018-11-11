@@ -701,6 +701,28 @@ u: (_blood pressure) ^unmark(* _0) ^retry(RULE)
 
 u: () ^mark(* _10)  -- refresh all hidden words
 ```
+
+## Replacing words - `^replaceword(word _n)`
+
+You can already mark and unmark words, which is what is used for pattern matching.
+But the word itself in the sentence is what is retrieved when memorizing a word.
+You can change the word itself just by providing the word you want used 
+and the location in the sentence (as a match variable).  Replacing a word does 
+not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).
+
+This is handy, for example, for making it easy to see what was used to create an interjection.
+If the mark on a word in ~emogoodbye, Then
+```
+u: (_~emogoodbye) 
+   $_tmp = ^original(_0)
+   ^replaceword($_tmp _0)
+```
+will make it so when you do this in later patterns:
+```
+u: (_~emogoodbye) _0 is now the original text
+```
+
+
 ## Fixing CS substitutions
 
 ^unmark and ^mark can be used to "correct" the behavior of standard

@@ -188,13 +188,11 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 			int uppercasem = 0;
 			int whenmatched = 0;
 			bool failed = false;
+            char oldmark[MAX_SENTENCE_LENGTH];
+            memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
 			if (!Match(buffer,ptr+10,0,start,(char*)"(",1,0,start,end,uppercasem,whenmatched,0,0)) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
-			if (clearUnmarks) // remove transient global disables.
-			{
-				clearUnmarks = false;
-				for (int i = 1; i <= wordCount; ++i) unmarked[i] = 1;
-			}
-			ShowMatchResult((failed) ? FAILRULE_BIT : NOPROBLEM_BIT, ptr+10,NULL);
+            memcpy(unmarked,oldmark, MAX_SENTENCE_LENGTH);
+            ShowMatchResult((failed) ? FAILRULE_BIT : NOPROBLEM_BIT, ptr+10,NULL);
 
 			if (!failed) 
 			{

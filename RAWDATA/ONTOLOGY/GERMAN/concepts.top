@@ -1061,5 +1061,5 @@
 #GERMAN concept: ~XWEIGHTNOUNS (      Zentigramm Gramm Kilo Kilogramm Unze Pfund Stein Tonne Gewicht   )
 #GERMAN concept: ~YELLOW ( ~yellow_other      Beige polieren citreous Citrin gamboge grell Nanking Ocker tawny Gelb gelblich   )
 #GERMAN concept: ~YELLOW_OTHER (      Aprikose Butter Butterblume Butterbonbon Kanarienvogel Chrom Gold Goldrute Zitrone Senf Pfirsich Persimmon Primel Safran Wildleder Schwefel Mandarine   )
-#GERMAN concept: ~YESANSWER ( ~yes      Y "Es ist in Ordnung" "es ist okay" yo ya ys  )
+#GERMAN concept: ~YESANSWER ( ~yes      "es ist in Ordnung" "es ist okay" )
 #GERMAN concept: ~NOANSWER ( ~no      N   )

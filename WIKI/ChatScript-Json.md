@@ -349,6 +349,10 @@ You can also do
     $_array1 += value -- adds value into array1
 ```
 
+Adding an element to an array using these notations will automatically
+select DUPLICATE entries being legal. If you want the insertion to be unique, use
+^jsonarrayinsert(UNIQUE xxx xxx).
+
 The only restriction on arrays is that you cannot add a new array index value without using ^jsonarrayinsert
 as you are not allowed to create discontiguous indices.
 
@@ -440,6 +444,14 @@ suppress this with the `SAFE` flag. `^jsonarraydelete(SAFE $obj $key)`.
 deprecated in favor of ^length
 
 
+### `^jsontext(factid)
+
+^jsontext adds quotes if object of fact is a json text and
+FAILS if object is not a json fact.  
+
+CS represents json text as ordinary unquoted text, but text that looks like float numbers would be
+subject to possible float truncations or expansion of digits. This preserves it as text.
+
 ### `^jsoncopy`( name ) 
 
 Given the name of a json structure, makes a duplicate of it. If it is not the name of a json structure, it merely returns what you pass it.
@@ -491,7 +503,7 @@ in that you can potentially read large amounts of data in a single volley and ma
 
 `^readfile ( LINE filepath 'function)` reads a file and passes each line untouched as the sole argument to the function.
 
-Formerly called ^readfile (still accepted).
+Formerly called ^jsonreadfile (still accepted).
 
 ### `^jsonundecodestring`( string ) 
 

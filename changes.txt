@@ -1,3 +1,23 @@
+Version 8.7 11/11/2018
+
+1. $cs_userfactlimit = * means keep all facts
+2. documented #SPLIT_QUOTE tokencontrol (removes double quotes from input)
+3. ^stats(TEXT) bytes of heap left, ^stats(DICT) dictionary entries left
+4. ^jsontext(FactId) adds quotes if object of fact is a json text 
+    FAILS if not a json fact.  CS represents json text as ordinary
+    unquoted text, but text that looks like float numbers would be
+    subject to possible float truncations or expansion of digits.
+5. ^replaceword(word location) arguments are like ^mark and ^unmark, except this changes the
+actual original word at the position (which is just 1 word of the sentence). This changes no concept
+markings (which you can do yourself with mark and unmark). With this, for example, you could unrevise a spellfix
+like this:
+	u: (_~emosad) $_tmp = ^original(_0)  ^replaceword($_tmp _0)  
+6. Parameter:  repeatLimit=n
+Servers are subject to malicious inputs, often generated as repeated words over and over.
+This detects repeated input and if the number of sequential repeats is non-zero and equal or
+greater to this parameter, such inputs will be truncated to just the initial repeats. All
+other input in this volley will be discarded.
+
 Version 8.6 10/4/2018
 
 1. configurl=http://xxx as a command line or config file parameter allows you to 

@@ -9640,8 +9640,6 @@
     Claude_Levi-Strauss~1n 
  Lichtenstein ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Roy_Lichtenstein~1n 
- Lie ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
-    Trygve_Lie~1n 
  Liliuokalani ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Lydia_Kamekeha_Paki_Liliuokalani~1n 
  Lydia_Kamekeha_Paki_Liliuokalani ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
@@ -12654,6 +12652,17 @@
  lymphopoieses ( NOUN NOUN_PLURAL ) plural=lymphopoiesis 
  lyses ( NOUN NOUN_PLURAL COMMON1 ) plural=lysis 
  listente ( NOUN NOUN_PLURAL ) plural=sente 
+ logon ( meanings=1 NOUN NOUN_SINGULAR ) 
+    logon~1nz 
+ login ( meanings=1 NOUN NOUN_SINGULAR ) 
+    login~1nz 
+ log-in ( meanings=2 glosses=1 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR VERB_NOOBJECT ) 
+    log-in~1nz 
+    log_on~1vz enter a computer
+ logout ( meanings=1 NOUN NOUN_SINGULAR ) 
+    logout~1nz 
+ logoff ( meanings=1 NOUN NOUN_SINGULAR ) 
+    logoff~1nz 
  listbot ( meanings=1 NOUN NOUN_SINGULAR ) 
     listbot~1nz 
  Loebner ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
@@ -15057,12 +15066,10 @@
     eavesdrop~1vz listen without the speaker's knowledge
  luck_into ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_DIRECTOBJECT PHRASAL_VERB VERB_CONJUGATE1 ) 
     come_upon~1v 
- log_in ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
-    log-in~1vz enter a computer
+ log_in ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
+    log-in~2v 
  log_on ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_DIRECTOBJECT VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
     log_in~1v 
- log-in ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_NOOBJECT ) 
-    log_on~1v 
  log_out ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
     log_off~1vz exit a computer
  log_off ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_DIRECTOBJECT VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 

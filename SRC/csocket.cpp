@@ -347,20 +347,20 @@ restart: // start with user
 	{
 
 SOURCE: 
-	if (!strncmp(ptr,(char*)":source ",8)) 
+	if (!strnicmp(ptr,(char*)":source ",8)) 
 	{
 		char file[SMALL_WORD_SIZE];
 		ReadCompiledWord(ptr+8,file);
 		sourcefile = fopen(file,(char*)"rb");
 		ReadALine(ptr,sourcefile,100000 - 100);
 	}
-    else if (!strncmp(ptr, (char*)":converse ", 9))
+    else if (!strnicmp(ptr, (char*)":converse ", 9))
     {
         char file[SMALL_WORD_SIZE];
         ReadCompiledWord(ptr + 8, file);
         sourcefile = fopen(file, (char*)"rb");
     }
-    else if (!strncmp(ptr, (char*)":starts ", 8))
+    else if (!strnicmp(ptr, (char*)":starts ", 8))
     {
         char file[SMALL_WORD_SIZE];
         ptr = ReadCompiledWord(ptr + 8, file);
@@ -375,7 +375,7 @@ SOURCE:
         skip = atoi(num);
         ptr = data;
     }
-    else if (!strncmp(ptr, (char*)":raw ", 5))
+    else if (!strnicmp(ptr, (char*)":raw ", 5))
     {
         char file[SMALL_WORD_SIZE];
         ptr = ReadCompiledWord(ptr + 5, file);
