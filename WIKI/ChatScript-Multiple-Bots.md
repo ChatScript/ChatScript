@@ -66,7 +66,7 @@ be unique. A conversation between a specific bot and user results in a separate 
 bot learns the others do not.
 
 If you try to create two bots by having separate folders for each, and merely clone copies of an original folder,
-like `~control` and `~inTtroductions` and `~childhood` and you will get an error message when compiling.
+like `~control` and `~introductions` and `~childhood` and you will get an error message when compiling.
 Likely you would want only one copy of `~control` that both bots used. 
 And either they should have different topic names for `~introductions` and `~childhood` 
 OR you must put a bot restriction on things. See below
