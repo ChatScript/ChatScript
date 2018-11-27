@@ -21,8 +21,7 @@ pandoc Installing-and-Updating-ChatScript.md -s -o ../PDFDOCUMENTATION/Installin
 pandoc ChatScript-Multiple-Bots.md -s -o ../PDFDOCUMENTATION/ChatScript-Multiple-Bots.pdf
 pandoc README.md -s -o ../PDFDOCUMENTATION/README.pdf
 pandoc ChatScript-Common-Beginner-Mistakes.md -s -o ../PDFDOCUMENTATION/ChatScript-Common-Beginner-Mistakes.pdf
-
-
+pandoc Practicum-spelling_and_interjections.md -s -o ../PDFDOCUMENTATION/Practicum-spelling_and_interjections.pdf
 
 pandoc CLIENTS-AND-SERVERS/ChatScript-Amazon-Server.md -s -o ../PDFDOCUMENTATION/CLIENTS-AND-SERVERS/ChatScript-Amazon-Server.pdf
 pandoc CLIENTS-AND-SERVERS/ChatScript-ClientServer-Manual.md -s -o ../PDFDOCUMENTATION/CLIENTS-AND-SERVERS/ChatScript-ClientServer-Manual.pdf

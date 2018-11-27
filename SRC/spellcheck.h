@@ -14,10 +14,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
+
+typedef struct WORDINFO
+{
+    char* word;
+    int charlen; // characters in word
+    int bytelen; // bytes in word
+} WORDINFO;
+
 extern bool multichoice;
 extern bool spellTrace;
 extern int spellTraceIndex;
 bool SpellCheckSentence();
 char* SpellFix(char* word,int position,uint64 posflags);
 void InitSpellCheck();
+void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choices, unsigned int& index, int& min);
 #endif

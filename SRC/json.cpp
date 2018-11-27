@@ -77,11 +77,6 @@ static int JSONArgs()
             jsonPermanent = FACTBOOT;
             used = true;
         }
-        else if (!stricmp(word,(char*)"USER_FLAG4"))
-		{
-			jsonCreateFlags |= USER_FLAG4;
-			used = true;
-		}
 		else if (!stricmp(word,(char*)"USER_FLAG3"))  
 		{
 			jsonCreateFlags |= USER_FLAG3;

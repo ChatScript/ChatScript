@@ -616,7 +616,7 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
     WORDP s = (properties & FACTSUBJECT) ? NULL : Meaning2Word(subject);
     WORDP v = (properties & FACTVERB) ? NULL : Meaning2Word(verb);
 	WORDP o = (properties & FACTOBJECT) ? NULL : Meaning2Word(object);
-	if (s && *s->word == 0)
+    if (s && *s->word == 0)
 	{
 		ReportBug((char*)"bad choice in fact subject")
 		return NULL;

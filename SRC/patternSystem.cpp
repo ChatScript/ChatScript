@@ -1307,13 +1307,17 @@ DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or opt
 				if (bidirectional == 1) reverse = !reverse;
 				bidirectional = 0;
 			}
-			else if (bidirectional == 1)
+			else if (bidirectional == 1) // looking back failed
 			{
 				reverse = !reverse;
-				bidirectional = 2;
+				bidirectional = 2; // look forward
 				ptr = priorPiece;
 				wildcardSelector = bidirectionalSelector;
 				wildcardIndex = bidirectionalWildcardIndex;
+                if (trace & TRACE_PATTERN  && CheckTopicTrace())
+                {
+                    Log(STDUSERLOG, "%s- *~nb-flip ",word);
+                }
 				continue;
 			}
 			else bidirectional = 0; // give up fully

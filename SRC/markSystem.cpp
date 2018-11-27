@@ -277,8 +277,9 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
  
 			if (restrict && !(restrict & flags)) {;} // type restriction in effect for this concept member
 			else if (canonical && F->flags & ORIGINAL_ONLY) {;} // incoming is not original words and must be
-
-			//   index meaning restriction (0 means all)
+            else if (F->flags & START_ONLY && start != 1) { ; }  // must begin the sentence
+            else if (F->flags & END_ONLY && end != wordCount) { ; }  // must begin the sentence
+                                                                 //   index meaning restriction (0 means all)
 			else if (index == Meaning2Index(F->subject)) // match generic or exact subject 
 			{
 				bool mark = true;

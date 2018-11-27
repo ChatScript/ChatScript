@@ -2566,13 +2566,31 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 		if (n > GETMULTIWORDHEADER(E)) SETMULTIWORDHEADER(E,n);	//   mark it can go this far for an idiom
 
 		WORDP S = NULL;
-		if (replacement[0] != 0 && replacement[0] != '#') 	//   with no substitute, it will just erase itself
-		{
-			D->w.substitutes = S = StoreWord(replacement,AS_IS);  //   the valid word
-			AddSystemFlag(S,SUBSTITUTE_RECIPIENT);
-			// for the emotions (like ~emoyes) we want to be able to reverse access, so make them a member of the set
-			if (*S->word == '~') CreateFact(MakeMeaning(D),Mmember,MakeMeaning(S));
-		}
+        if (replacement[0] != 0 && replacement[0] != '#') 	//   with no substitute, it will just erase itself
+        {
+            D->w.substitutes = S = StoreWord(replacement, AS_IS);  //   the valid word
+            AddSystemFlag(S, SUBSTITUTE_RECIPIENT);
+            // for the emotions (like ~emoyes) we want to be able to reverse access, so make them a member of the set
+            if (*S->word == '~')
+            {
+                int flags = 0;
+                if (*D->word == '<') flags |= START_ONLY;
+                if (D->word[strlen(D->word)-1] == '>') flags |= END_ONLY;
+                CreateFact(MakeMeaning(D), Mmember, MakeMeaning(S),flags);
+                char copy[MAX_WORD_SIZE];
+                char* ptr = D->word;
+                if (*ptr == '<')
+                {
+                    ++ptr;
+                    char* end = strchr(ptr, '>');
+                    if (end) *end = 0;
+                    strcpy(copy, ptr);
+                    char* match = ptr;
+                    while ((match = strchr(match, '`'))) *match = '_';
+                    CreateFact(MakeMeaning(StoreWord(ptr)), Mmember, MakeMeaning(S),flags);
+                }
+            }
+        }
 
         //   if original has hyphens, replace as single words also. Note burst form for initial marking will be the same
         bool hadHyphen = false;

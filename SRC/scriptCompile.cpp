@@ -1592,7 +1592,7 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 	else if (!strcmp(D->word,(char*)"^query"))
 	{
 		unsigned int flags = atoi(argset[9]);
-		if (flags & (USER_FLAG1|USER_FLAG2|USER_FLAG3|USER_FLAG4) && !strstr(arg1,(char*)"flag_")) BADSCRIPT((char*)"CALL-24 ^query involving USER_FLAG1 must be named xxxflag_\r\n")
+		if (flags & (USER_FLAG1|USER_FLAG2|USER_FLAG3) && !strstr(arg1,(char*)"flag_")) BADSCRIPT((char*)"CALL-24 ^query involving USER_FLAG1 must be named xxxflag_\r\n")
 		if (!stricmp(arg1,(char*)"direct_s") || !stricmp(arg1,(char*)"exact_s"))
 		{
 			if (!*arg2 || *arg2 == '?') BADSCRIPT((char*)"CALL-24 Must name subject argument to query\r\n")
@@ -1602,7 +1602,7 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 			if (*argset[9] && *argset[9] != '?') BADSCRIPT((char*)"CALL-28 Cannot name match argument to query %s - %s\r\n",arg1,argset[9])
 		}
 		flags = atoi(argset[5]);
-		if (flags & (USER_FLAG1|USER_FLAG2|USER_FLAG3|USER_FLAG4)  && flags < 0x00ffffff) WARNSCRIPT((char*)"Did you want a xxxflag_ query with USER_FLAG in 9th position for %s\r\n",arg1)
+		if (flags & (USER_FLAG1|USER_FLAG2|USER_FLAG3)  && flags < 0x00ffffff) WARNSCRIPT((char*)"Did you want a xxxflag_ query with USER_FLAG in 9th position for %s\r\n",arg1)
 		if (!stricmp(arg1,(char*)"direct_v") || !stricmp(arg1,(char*)"exact_v"))
 		{
 			if (*arg2 && *arg2 != '?') BADSCRIPT((char*)"CALL-29 Cannot name subject argument to query - %s\r\n",arg2)
@@ -2202,6 +2202,7 @@ name of topic or concept
 	bool memorizeSeen = false; // memorization pending
 	bool quoteSeen = false;	// saw '
 	bool notSeen = false;	 // saw !
+    bool bidirectionalSeen = false; // saw *~nb
 	bool doubleNotSeen = false; // saw !!
 	size_t len;
 	bool startSeen = false; // starting token or not
@@ -2329,7 +2330,9 @@ name of topic or concept
 				variableGapSeen = false;
 				break; //   sentence end align
 			case '(':	//   sequential pattern unit begin
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n");
+                if (bidirectionalSeen)
+                    BADSCRIPT((char*)"PATTERN-34 ] Cant use ( after bidirectional gap- scanning backwards is bad\r\n")
+                if (quoteSeen) BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n");
                 nestLine[nestIndex] = currentFileLine;
                 nestKind[nestIndex++] = '(';
 				break;
@@ -2354,7 +2357,9 @@ name of topic or concept
 					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
 				break;
 			case '{':	//   list of optional choices begins
-				if (variableGapSeen)
+				if (bidirectionalSeen)
+                    BADSCRIPT((char*)"PATTERN-34 ] Cant use { after bidirectional gap - will always match scanning backwards\r\n")
+                if (variableGapSeen)
 				{
 					// if we can see end of } and it has a gap after it... thats a problem - two gaps in succession is the equivalent
 					char* end = strchr(ptr,'}');
@@ -2411,10 +2416,10 @@ name of topic or concept
 						BADSCRIPT((char*)"PATTERN-5? cannot stick %s wildcard inside {} or []\r\n",word)
 					variableGapSeen = true;
 					int n = word[2] - '0';
-					if (!word[2]) BADSCRIPT((char*)"PATTERN-52 *~ is not legal, you need a digit after it\r\n")
-					else if (n == 0) BADSCRIPT((char*)"PATTERN-53 *~1 is the smallest close-range gap - %s\r\n",word)
-					else if (word[3] && word[3] != 'b') BADSCRIPT((char*)"PATTERN-54 *~9 is the largest close-range gap or bad stuff is stuck to your token- %s\r\n",word)
-				}
+                    if (!word[2]) BADSCRIPT((char*)"PATTERN-52 *~ is not legal, you need a digit after it\r\n")
+                    else if (n == 0 && word[2] != '0') BADSCRIPT((char*)"PATTERN-53 *~1 is the smallest close-range gap - %s\r\n", word)
+                    else if (word[3] && word[3] != 'b') BADSCRIPT((char*)"PATTERN-54 *~9 is the largest close-range gap or bad stuff is stuck to your token- %s\r\n", word)
+                }
 				else if (word[1]) BADSCRIPT((char*)"PATTERN-55 * jammed against some other token- %s\r\n",word)
 				else 
 				{
@@ -2717,9 +2722,10 @@ name of topic or concept
 		strcpy(data,word);
 		data += strlen(data);
 		*data++ = ' ';	
-
+        bidirectionalSeen = false;
 		if (nestIndex == 0) break; //   we completed this level
-	}
+        if (*word == '*' && word[1] == '~' && word[3] && word[3] == 'b') bidirectionalSeen = true;
+    }   
 	*data = 0;
 
 	//   leftovers?
@@ -3394,7 +3400,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 				}
 				break;
 			case '(': 
-				++level;
+                 ++level;
 
 				if (!paren++) 
 				{
@@ -3713,10 +3719,6 @@ Then one of 3 kinds of character:
 					strcat(label,(char*)".");
 					MakeUpperCase(word); // full label to test if exists.
 					strcat(label,word);
-                    if (!stricmp(word, "COUNTER"))
-                    {
-                        int xx = 0;
-                    }
 					strcpy(labelName,word);
 					MakeUpperCase(label); // full label to test if exists.
 					WORDP E = StoreWord(label,AS_IS);
@@ -4355,7 +4357,7 @@ static void SetJumpOffsets(char* data) // store jump offset for each rule
     }
  }
 
-static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANING concept,uint64 type,bool ignoreSpell,unsigned int build,bool duplicate)
+static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANING concept,uint64 type,bool ignoreSpell,unsigned int build,bool duplicate,bool startOnly,bool endOnly)
 {
 	// read the keywords zone of the concept
 	char* at;
@@ -4432,6 +4434,10 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 			} // end ordinary word
 			unsigned int flags = quoted ? ORIGINAL_ONLY : 0;
 			if (duplicate) flags |= FACTDUPLICATE;
+            if (startOnly)  
+                flags |= START_ONLY;
+            if (endOnly) 
+                flags |= END_ONLY;
 			if (build & BUILD1) flags |= FACTBUILD1; // concept facts from build 1
 			else if (build & BUILD2) flags |= FACTBUILD2; // concept facts from build 1
 			FACT* F = CreateFact(M,(notted) ? Mexclude : Mmember,concept, flags); 
@@ -4603,7 +4609,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 				else if (!stricmp(word,(char*)"user"));
                 else BADSCRIPT((char*)"Bad topic flag %s for topic %s\r\n",word,currentTopicName)
 			}
-			else if (!keywordsDone) ptr = ReadKeyword(word,ptr,notted,quoted,topicValue,0,false,build,false);//   absorb keyword list
+			else if (!keywordsDone) ptr = ReadKeyword(word,ptr,notted,quoted,topicValue,0,false,build,false,false,false);//   absorb keyword list
 			else if (!stricmp(word,(char*)"datum:")) // absorb a top-level data table line
 			{
 				ptr = ReadTable(ptr,in,build,true);
@@ -5033,6 +5039,8 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 	bool notted = false;
 	bool more = false;
 	bool undeclared = true;
+    bool startOnly = false;
+    bool endOnly = false;
 	int parenLevel = 0;
 	uint64 type = 0;
 	uint64 sys;
@@ -5086,7 +5094,22 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 					duplicate = true;
 					continue;
 				}
-				char* paren = strchr(word,'(');
+                if (!stricmp(word, (char*)"INTERJECTION")) // match member as interjection
+                {
+                    endOnly = startOnly = true;
+                    continue;
+                }
+                if (!stricmp(word, (char*)"START_ONLY")) // match member only at start of sentence
+                {
+                    startOnly = true;
+                    continue;
+                }
+                if (!stricmp(word, (char*)"END_ONLY")) // match member only at end of sentence
+                {
+                    endOnly = true;
+                    continue;
+                }
+                char* paren = strchr(word,'(');
 				if (paren) // handle attachment of paren + stuff
 				{
 					while (*--ptr != '(');
@@ -5142,7 +5165,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 				if (parenLevel < 0) BADSCRIPT((char*)"CONCEPT-6 Missing ( for concept definition %s\r\n",conceptName)
 				break;
 			default: 
-				 ptr = ReadKeyword(word,ptr,notted,quoted,concept,type,ignoreSpell,build,duplicate);
+				 ptr = ReadKeyword(word,ptr,notted,quoted,concept,type,ignoreSpell,build,duplicate,startOnly,endOnly);
 		}
 		if (parenLevel == 0) break;
 
@@ -5337,7 +5360,24 @@ static void WriteConcepts(WORDP D, uint64 build)
 	}
 	if (D->internalBits & FAKE_NOCONCEPTLIST) fprintf(out,(char*)"%s",(char*)"NOCONCEPTLIST ");
 	if (D->internalBits & UPPERCASE_MATCH) fprintf(out,(char*)"%s",(char*)"UPPERCASE_MATCH ");
-	fprintf(out,(char*)"%s",(char*)"( ");
+    FACT* E = GetObjectHead(D);
+    int n = 10;
+    while (E)
+    {
+        if (E->verb == Mmember && E->flags & START_ONLY)
+        {
+            fprintf(out, (char*)"%s", (char*)"START_ONLY ");
+        }
+        if (E->verb == Mmember && E->flags & END_ONLY)
+        {
+            fprintf(out, (char*)"%s", (char*)"END_ONLY ");
+        }
+        if (E->verb == Mmember && E->flags & (END_ONLY | START_ONLY)) break;
+
+        if (--n == 0) break; // should have found by now
+        E = GetObjectNext(E);
+    }
+    fprintf(out, (char*)"%s", (char*)"( ");
 
 	size_t lineSize = 0;
 	NextInferMark();
@@ -5447,7 +5487,6 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 			int result = fread(&xoffset,1,4,in);
 			if (result != 4) // ran out
 			{
-				int xx = 0;
 				break;
 			}
 			if (xoffset != offset) 

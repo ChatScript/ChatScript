@@ -6992,7 +6992,6 @@ static char* WriteFactFlags(FACT* F)
 	if (F->flags & ORIGINAL_ONLY) strcat(buffer,"ORIGINAL_ONLY ");
 	if (F->flags & FACTBUILD2) strcat(buffer,"FACTBUILD2 ");
 	if (F->flags & FACTBUILD1) strcat(buffer,"FACTBUILD1 ");
-	if (F->flags & USER_FLAG4) strcat(buffer,"USER_FLAG4 ");
 	if (F->flags & USER_FLAG3) strcat(buffer,"USER_FLAG3 ");
 	if (F->flags & USER_FLAG2) strcat(buffer,"USER_FLAG2 ");
 	if (F->flags & USER_FLAG1) strcat(buffer,"USER_FLAG1 ");

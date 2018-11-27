@@ -1456,22 +1456,6 @@ exit:
 	return result;
 }
 
-static int RuleID(int type,char* ptr)
-{
-    char* base = GetTopicData(currentTopicID);
-    unsigned int* indices = TI(currentTopicID)->ruleOffset;
-    topicBlock* block = TI(currentTopicID);
-    unsigned int* map = (type == STATEMENT || type == QUESTION || type == STATEMENT_QUESTION) ? block->responderTag : block->gambitTag;
-    int ruleID = (map) ? *map : NOMORERULES;
-    while (ruleID != NOMORERULES) //   find all choices-- layout is like "t: xxx () yyy"  or   "u: () yyy"  or   "t: this is text" -- there is only 1 space before useful label or data
-    {
-        if (indices[ruleID] == 0xffffffff) break; // end of the line
-        if ((base + indices[ruleID]) == ptr) return ruleID;
-        ruleID = *++map;
-    }
-    return NOMORERULES;
-}
-
 static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,char* rule)
 {
 	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE)  && CheckTopicTrace()) 
@@ -2507,6 +2491,8 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	unsigned int intbits = 0;
 	unsigned int parse= 0;
 	unsigned int required = 0;
+    bool startOnly = false;
+    bool endOnly = false;
 	StartFile(fname);
 	bool endseen = true;
 	MEANING T = 0;
@@ -2548,7 +2534,17 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 					intbits |= PREFER_THIS_UPPERCASE;
 					continue;
 				}
-				uint64 val = FindValueByName(word);
+                if (!stricmp(word, (char*)"START_ONLY"))
+                {
+                    startOnly = true;
+                    continue;
+                }
+                if (!stricmp(word, (char*)"END_ONLY"))
+                {
+                    endOnly = true;
+                    continue;
+                }
+                uint64 val = FindValueByName(word);
 				if ( val) type |= val;
 				else 
 				{
@@ -2688,7 +2684,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 char* space = strchr(D->word, ' ');
                 char* underscore = strchr(D->word, '_');
                 if (!space && !underscore) InsureSafeSpellcheck(D->word); // rrotect whole word
-
                                                                           // insure pieces safe from spellcheck
                 char sep = 0;
                 if (space && underscore) { ; }
@@ -2727,7 +2722,10 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	
 			MEANING verb = (*word == '!') ? Mexclude : Mmember;
 			int flags = (original) ? (FACTDUPLICATE|ORIGINAL_ONLY) : FACTDUPLICATE;
-			if (build == BUILD2) flags |= FACTBUILD2;
+            if (startOnly) 
+                flags |= START_ONLY;
+            if (endOnly) flags |= END_ONLY;
+            if (build == BUILD2) flags |= FACTBUILD2;
 			CreateFact(U,verb,T,flags ); // script compiler will have removed duplicates if that was desired
 		}
 		if (*word == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line

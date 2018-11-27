@@ -612,7 +612,6 @@ In fact, whenever you write the quoted keyword phrase,
 if all its words are canonical, you can match canonical and noncanonincal forms. 
 _"TV show"_ matchs _TV shows_ as well as _TV show_.
 
-
 ## Implied concept Sets
 
 When you make a pattern using [] or {} and it only contains words, phrases, And

@@ -568,9 +568,9 @@ static char* SystemCall(char* buffer,char* ptr, CALLFRAME* frame,FunctionResult 
 	if (result & ENDCODES); // failed during argument processing
 	else 
 	{
-        char* paren = strchr(frame->label,'(');
-        *paren = '{';
-        paren[1] = '}';
+        char* parenx = strchr(frame->label,'(');
+        *parenx = '{';
+        parenx[1] = '}';
 		ChangeDepth(0,NULL); // enable debugger access now
 		result = (*info->fn)(buffer);
 	}
@@ -977,7 +977,7 @@ char* DoFunction(char* name,char* ptr,char* buffer,FunctionResult &result) // Do
 		// make a short description for which call this is, if we can
 		char word[MAX_WORD_SIZE];
 		*word = 0;
-		if (callArgumentIndex > (frame->varBaseIndex +1))
+		if (callArgumentIndex > (unsigned int)(frame->varBaseIndex +1))
 		{
 			strncpy(word,callArgumentList[frame->varBaseIndex+1],40);
 			if (*word == '$') strncpy(word,GetUserVariable(word),40);
@@ -1012,7 +1012,7 @@ char* DoFunction(char* name,char* ptr,char* buffer,FunctionResult &result) // Do
 			// make a short description for which call this is, if we can
 			char word[MAX_WORD_SIZE];
 			*word = 0;
-			if (callArgumentIndex > frame->varBaseIndex + 1)
+			if (callArgumentIndex > (unsigned int)(frame->varBaseIndex + 1))
 			{
 				strncpy(word,callArgumentList[frame->varBaseIndex+1],40);
 				if (*word == '$') strncpy(word,GetUserVariable(word),40);
@@ -4182,6 +4182,51 @@ FunctionResult DebugCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+FunctionResult SpellCheckCode(char* buffer)
+{
+    WORDP choices[4000];
+    unsigned int index = 0;
+    int min = 35; // allow 2 changes as needed
+
+    char* xarg = ARGUMENT(1); // input string
+    char* dict = ARGUMENT(2);   // json array
+    if (strnicmp(dict, "ja-",3)) return FAILRULE_BIT;
+    WORDP dictionary = FindWord(dict);
+    if (!dictionary) return FAILRULE_BIT;
+    FACT* F;
+    WORDINFO realWordData;
+    char* output = buffer;
+
+    // loop thru tokens of input
+    char originalWord[MAX_WORD_SIZE];
+    char* ptr = xarg;
+    char lcword[MAX_WORD_SIZE];
+    while (ptr && *ptr) // walk thru sentence
+    {
+        ptr = ReadCompiledWord(ptr, originalWord);
+        WORDP D = FindWord(originalWord, 0, PRIMARY_CASE_ALLOWED);
+        index = 0;
+        MakeLowerCopy(lcword, originalWord);
+        ComputeWordData(lcword, &realWordData);
+
+        F = GetSubjectHead(dictionary);
+        while (F)
+        {
+            D = Meaning2Word(F->object);
+            CheckWord(originalWord, realWordData, D, choices, index, min);
+            if (index > 3997) break;
+            F = GetSubjectNext(F);
+        }
+        if (index)  strcpy(output, choices[0]->word); // pick first guess, no tiebreaks
+        else strcpy(output, originalWord);
+        output += strlen(output);
+        *output++ = ' ';
+    }
+    *output = 0;
+    return NOPROBLEM_BIT;
+}
+
+
 static FunctionResult ReturnCode(char* buffer)
 {
 	FunctionResult result;
@@ -6488,7 +6533,7 @@ static FunctionResult WalkVariablesCode(char* buffer)
     while (varthread)
     {
         unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        WORDP D = Index2Word(cell[1]);
+        D = Index2Word(cell[1]);
         varthread = cell[0];
         if (D->word[1] != TRANSIENTVAR_PREFIX && D->word[1] != LOCALVAR_PREFIX && D->w.userValue ) // transients not dumped, nor are NULL values
         {
@@ -6513,7 +6558,6 @@ static FunctionResult WalkVariablesCode(char* buffer)
             }
             if (varthread1) continue; // not really changed
 
-            FunctionResult result;
             char word[MAX_WORD_SIZE];
             sprintf(word, (char*)"( %s )", D->word);
             *buffer = 0;
@@ -7251,7 +7295,6 @@ static FunctionResult ResetCode(char* buffer)
     else if (!stricmp(word, (char*)"VARIABLES"))
     {
         unsigned int varthread = userVariableThreadList;
-        char word[MAX_WORD_SIZE];
         while (varthread)
         {
             unsigned int* cell = (unsigned int*)Index2Heap(varthread);
@@ -7259,7 +7302,6 @@ static FunctionResult ResetCode(char* buffer)
             varthread = cell[0];
             if (D->word[1] != TRANSIENTVAR_PREFIX && D->word[1] != LOCALVAR_PREFIX && D->w.userValue) // transients not dumped, nor are NULL values
             {
-
                 // if var is actually system var, and value is unchanged (may have edited and restored), dont save it
                 unsigned int varthread1 = botVariableThreadList;
                 while (varthread1)
@@ -9151,7 +9193,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^rhyme",RhymeCode,1,0,(char*)"find a rhyming word"}, 
 	{ (char*)"^substitute",SubstituteCode,VARIABLE_ARG_COUNT,0,(char*)"alter a string by substitution"}, 
 	{ (char*)"^spell",SpellCode,1,0,(char*)"find words matching pattern and store as facts"}, 
-	{ (char*)"^sexed",SexedCode,4,0,(char*)"pick a word based on sex of given word"}, 
+    { (char*)"^spellcheck",SpellCheckCode,2,0,(char*)"Given tokenized sentence and JSON array of words, return adjusted sentence" },
+    { (char*)"^sexed",SexedCode,4,0,(char*)"pick a word based on sex of given word"},
 	{ (char*)"^tally",TallyCode,VARIABLE_ARG_COUNT,0,(char*)"get or set a word value"},
 	{ (char*)"^walkdictionary",WalkDictionaryCode,1,0,(char*)"call a function on every word in the dictionary"},
 #ifndef DISCARDCOUNTER

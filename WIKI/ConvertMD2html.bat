@@ -20,6 +20,8 @@ pandoc ChatScript-Command-Line-Parameters.md -s -o ../HTMLDOCUMENTATION/ChatScri
 pandoc Installing-and-Updating-ChatScript.md -s -o ../HTMLDOCUMENTATION/Installing-and-Updating-ChatScript.html
 pandoc ChatScript-Multiple-Bots.md -s -o ../HTMLDOCUMENTATION/ChatScript-Multiple-Bots.html
 pandoc ChatScript-Common-Beginner-Mistakes.md -s -o ../HTMLDOCUMENTATION/ChatScript-Common-Beginner-Mistakes.html
+pandoc Practicum-spelling_and_interjections -s -o ../HTMLDOCUMENTATION/Practicum-spelling_and_interjections.html
+
 
 
 pandoc README.md -s -o ../HTMLDOCUMENTATION/README.html

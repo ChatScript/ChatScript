@@ -1,4 +1,23 @@
-# Version 8.7 11/11/2018
+# Version 8.8 11/26/2018
+
+1. ^spellcheck(input dictionary)
+input is tokenized words separated by spaces
+dictionary is json array of words
+It outputs the input words adjusted by any spelling correction.
+Useful if you read dynamic menus from an API endpoint and then want
+to match user input against that menu, whose elements may not be
+in the main CS dictionary
+
+2. Interjections from LIVEDATA now also mark their words as a normal
+concept set entries, so you can suppress changing the words to an
+interjection and yet still match on the interjection concept. This
+make writing scripts for interjections significantly easier. See new
+document below.
+
+3.  new document Practicum- spelling and interjections
+
+4. you cannot use { or ( immediately after a bidirectional wildcard
+    and *~0b is now legal# Version 8.7 11/11/2018
 
 1. $cs_userfactlimit = * means keep all facts
 2. documented #SPLIT_QUOTE tokencontrol (removes double quotes from input)

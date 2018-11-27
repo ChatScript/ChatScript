@@ -1,3 +1,3 @@
 
-pandoc ESOTERIC-CHATSCRIPT/ChatScript-Foreign-Languages.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Foreign-Languages.pdf
+pandoc Practicum-spelling_and_interjections.md -s -o ../PDFDOCUMENTATION/Practicum-spelling_and_interjections.pdf
 pause

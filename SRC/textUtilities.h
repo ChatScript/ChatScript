@@ -62,13 +62,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 #define LETTERMAX 40
 
-typedef struct WORDINFO
-{
-    char* word;
-    int charlen; // characters in word
-    int bytelen; // bytes in word
-} WORDINFO;
-
 // accesses to these arrays MUST use unsigned char in the face of UTF8 strings
 extern int BOM;
 extern unsigned char punctuation[];

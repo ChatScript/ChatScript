@@ -802,19 +802,21 @@ _sure_ and _I am sure are_ different.
 Words that have a different meaning at the start of a sentence are commonly called interjections. 
 
 In ChatScript these are defined by the `interjections.txt` file (for English language, see [interjections.txt](../LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt)). 
+Also there are some in the `texting.txt` file.
 
 In addition, the file augments this concept with _discourse acts_, phrases that are like an interjection. 
-All interjections and discourse acts map to concept sets, which come thru as the user input instead of what they wrote. 
+All interjections and discourse acts map to concept sets, which either come thru as the user input instead of what they wrote or
+merely be marked as interjections, leaving the words unchanged (see interjections in `Practicum - Spelling and Interjections`). 
 
 For example _yes_ and _sure_ and _of course_ are all treated as meaning the discourse act 
-of agreement in the interjections file. So you don’t see _yes_, I will go coming out of the engine. 
+of agreement in the interjections file. If you dont suppress interjection word remapping, you don’t see _yes_, I will go coming out of the engine. 
 The interjections file will remap that to the sentence `~yes`, breaking off that into its own
 sentence, followed by I will go as a new sentence. 
 
 These generic interjections (which are open to author control via `interjections.txt`) listed
 in the [ChatScript System Variables and Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md) manual. 
 
-Because all interjections at the start of a sentence are broken off into their own sentence,
+If  interjections at the start of a sentence are broken off into their own sentence (by default-- you can block this),
 this kind of pattern does not work:
 
     u: ( ~yes _* )
@@ -824,6 +826,7 @@ sentence instead. This means interjections act somewhat differently from other c
 If you use a word in a pattern which may get remapped on input, the script compiler will
 issue a warning. Likely you should use the remapped name instead. 
 
+But you can turn off this behavior and then the above pattern works perfectly well.
 
 ## Canonization
 

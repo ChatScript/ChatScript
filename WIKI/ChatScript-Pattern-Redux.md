@@ -5,7 +5,8 @@
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
 Since pattern matching is of such importance, 
-this concise manual lists everything about patterns in one place.
+this concise manual lists everything about patterns in one place,
+including patterns not listed in the Advanced manual.
 
 NOTE<br>
 despite the extraordinary range of weird matching abilities, 
@@ -233,7 +234,8 @@ for example, but not allow a pattern to match weirdly.
 matches _I like my cats_ or _I like a yellow cat_. 
 
 `*~2b` is similar to `*~2` except it tries to match bidirectionally. First it tries to match
-behind it, and if that fails, it tries forward (like *~2).
+behind it, and if that fails, it tries forward (like *~2). You may not follow a bidirectional
+wildcard with either `{` or `(`.
 
 You can also request a match of a specific number of words in succession using `*n`. `*1` means get the next word. 
 If you are already positionally on the end of the sentence, this match fails. 
