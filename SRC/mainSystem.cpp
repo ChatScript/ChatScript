@@ -6,6 +6,7 @@ FILE* userInitFile;
 int externalTagger = 0;
 char defaultbot[100];
 bool loadingUser = false;
+int inputLimit = 0;
 char traceuser[500];
 int traceUniversal;
 PRINTER printer = printf;
@@ -553,6 +554,7 @@ static void ProcessArgument(char* arg)
 		strcpy(language,arg+9);
 		MakeUpperCase(language);
 	}
+    else if (!strnicmp(arg, (char*)"inputlimit=", 11)) inputLimit = atoi(arg+11);
     else if (!strnicmp(arg, (char*)"debug=",6)) strcpy(arg+6,debugEntry);
     else if (!strnicmp(arg, "erasename=", 10)) erasename = arg + 10;
 	else if (!stricmp(arg,"userencrypt")) userEncrypt = true;
@@ -1838,6 +1840,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	mainInputBuffer = incoming;
 	mainOutputBuffer = output;
 	size_t len = strlen(incoming);
+    if (inputLimit && inputLimit <= len) incoming[inputLimit] = 0;
 	if (len >= INPUT_BUFFER_SIZE) incoming[INPUT_BUFFER_SIZE-1] = 0; // chop to legal safe limit
 	// now validate that token size MAX_WORD_SIZE is not invalidated and block all control chars to spaces
     char* at = mainInputBuffer;

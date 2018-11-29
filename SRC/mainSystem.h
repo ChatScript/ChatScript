@@ -104,6 +104,7 @@ extern int responseIndex;
 extern bool documentMode;
 extern bool assignedLogin;
 extern bool servertrace;
+extern int inputLimit;
 extern int outputchoice;
 extern int traceUniversal;
 extern char apikey[100];

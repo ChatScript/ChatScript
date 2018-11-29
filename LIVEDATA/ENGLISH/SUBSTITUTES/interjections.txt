@@ -1,3 +1,51 @@
+ # texting interjections
+   bfn ~emogoodbye
+ lol ~emolaugh
+ lolz ~emolaugh
+wth ~emomisunderstand
+bbfn ~emogoodbye
+ <omg ~emosurprise
+ <rofl ~emolaugh
+ <roflmao ~emolaugh
+ <roflol ~emolaugh
+ <rotfl ~emolaugh
+ <rotflmao ~emolaugh
+ <rotflol ~emolaugh
+ <ta-ta-for-now ~emogoodbye
+ <ta ~emothanks
+ <ta_ta ~emogoodbye
+ <ta_very_much ~emothanks
+ <tnt ~emogoodbye
+ <tnx ~emothanks
+ <ttfn ~emogoodbye
+ <ttyl ~emogoodbye
+ <ty ~emothanks
+ <tyvm ~emothanks
+ <lmao ~emolaugh
+ <lmfao ~emolaugh
+ <logoff ~emogoodbye
+ <logout ~emogoodbye
+ <lolwut ~emosurprise
+ <lulz> ~emolaugh
+ <gtg ~emogoodbye
+  <gn ~emogoodbye
+ <gnstdltbbb ~emogoodbye
+ <l8r ~emogoodbye
+ <l8r_l8r ~emogoodbye
+ <wtf ~emosurprise
+ <zz ~emobored
+  <ack ~yes
+<cu ~emogoodbye
+ <cya ~emogoodbye
+ <cyal8r ~emogoodbye
+:( ~emosad
+ :)   ~emohappy
+ :@ ~emosurprise
+ :[ ~emosad
+ :]  ~emohappy
+ :{ ~emosad
+ :}   ~emohappy
+ # normal interjections
  <not_a_prayer> ~no 
  <top_of_the_morning ~emohello
  <top_of_the_morning_to_you ~emohello

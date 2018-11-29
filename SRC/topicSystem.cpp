@@ -2722,8 +2722,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	
 			MEANING verb = (*word == '!') ? Mexclude : Mmember;
 			int flags = (original) ? (FACTDUPLICATE|ORIGINAL_ONLY) : FACTDUPLICATE;
-            if (startOnly) 
-                flags |= START_ONLY;
+            if (startOnly) flags |= START_ONLY;
             if (endOnly) flags |= END_ONLY;
             if (build == BUILD2) flags |= FACTBUILD2;
 			CreateFact(U,verb,T,flags ); // script compiler will have removed duplicates if that was desired

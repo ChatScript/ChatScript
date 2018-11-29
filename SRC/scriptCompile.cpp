@@ -4434,10 +4434,8 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 			} // end ordinary word
 			unsigned int flags = quoted ? ORIGINAL_ONLY : 0;
 			if (duplicate) flags |= FACTDUPLICATE;
-            if (startOnly)  
-                flags |= START_ONLY;
-            if (endOnly) 
-                flags |= END_ONLY;
+            if (startOnly) flags |= START_ONLY;
+            if (endOnly) flags |= END_ONLY;
 			if (build & BUILD1) flags |= FACTBUILD1; // concept facts from build 1
 			else if (build & BUILD2) flags |= FACTBUILD2; // concept facts from build 1
 			FACT* F = CreateFact(M,(notted) ? Mexclude : Mmember,concept, flags); 

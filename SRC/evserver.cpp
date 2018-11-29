@@ -617,7 +617,8 @@ int evsrv_do_chat(Client_t *client)
     client->prepare_for_chat();
 	size_t len = strlen(client->message);
 	if (len >= INPUT_BUFFER_SIZE - 300) client->message[INPUT_BUFFER_SIZE-300] = 0; // limit user input
-	echo = false;
+    if (inputLimit && inputLimit <= len) client->message[inputLimit] = 0;
+    echo = false;
 	bool restarted = false;
 #ifndef DISCARDPOSTGRES
 	if (*postgresparams && !postgresInited)  

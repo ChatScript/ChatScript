@@ -6140,6 +6140,8 @@ static FunctionResult FindTextCode(char* buffer)
   	if (!*find) return FAILRULE_BIT;
     else if (*find == '\\' && find[1] == 't') find = "\t";
     else if (*find == '\\' && find[1] == 'n') find = "\n";
+    else if (*find == '\\' && find[1] == '\\' && find[2] == 't') find = "\\t";
+    else if (*find == '\\' && find[1] == '\\' && find[2] == 'n') find = "\\n";
 
 	unsigned int start = atoi(ARGUMENT(3));
 	if (start >= UTFStrlen(target)) return FAILRULE_BIT;
