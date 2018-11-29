@@ -10164,8 +10164,6 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":worddump",C_WordDump,(char*)"show words via hardcoded test"}, 
 	{ (char*)":verifySentence",C_VerifySentence,(char*)"verification data"}, 
     { (char*)":timelog",C_TimeLog,(char*)"avg min and max of a log named" },
-    { (char*)":countwords",C_CountWords,(char*)"generate counts of words listed in file" },
-    { (char*)":countcat",C_CountCat,(char*)"generate counts of words listed in file" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"
