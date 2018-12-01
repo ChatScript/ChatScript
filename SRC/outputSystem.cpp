@@ -875,7 +875,7 @@ static char* Output_Underscore(char* word, char* ptr, char* space,char*& buffer,
 		if (id >= 0)
 		{
 			StdNumber(wildcardCanonicalText[id],buffer,controls);
-			if (controls & OUTPUT_NOQUOTES && *buffer == '"') // remove quotes from variable data
+			if (controls & OUTPUT_NOQUOTES && *buffer == '"') // remove quotes from match variable's data
 			{
 				size_t len = strlen(buffer);
 				if (buffer[len-1] == '"')
@@ -928,7 +928,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space,char*& buffer, uns
 			char* value = GetUserVariable(word,nojson);
 			StdNumber(value,buffer,controls);
 			char* at = SkipWhitespace(buffer);
-			if (controls & OUTPUT_NOQUOTES && *at == '"') // remove quotes from variable data
+			if (controls & OUTPUT_NOQUOTES && *at == '"') // remove quotes from a variable's data
 			{
 				size_t len = strlen(at);
 				if (at[len-1] == '"')

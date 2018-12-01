@@ -158,6 +158,7 @@
  we're we+are
  we've we+have
  weren't were+not
+ what's what+is
  what'd what+did
  what'll what+will
  what're what+are

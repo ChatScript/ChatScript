@@ -6531,7 +6531,6 @@ static FunctionResult WalkVariablesCode(char* buffer)
     if (!D || !(D->internalBits & FUNCTION_NAME)) return FAILRULE_BIT;
 
     unsigned int varthread = userVariableThreadList;
-    char word[MAX_WORD_SIZE];
     while (varthread)
     {
         unsigned int* cell = (unsigned int*)Index2Heap(varthread);
@@ -6560,10 +6559,10 @@ static FunctionResult WalkVariablesCode(char* buffer)
             }
             if (varthread1) continue; // not really changed
 
-            char word[MAX_WORD_SIZE];
-            sprintf(word, (char*)"( %s )", D->word);
+            char wordx[MAX_WORD_SIZE];
+            sprintf(wordx, (char*)"( %s )", D->word);
             *buffer = 0;
-            DoFunction(function, word, buffer, result);
+            DoFunction(function, wordx, buffer, result);
         }
     }
     return NOPROBLEM_BIT;
@@ -9135,7 +9134,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^command",CommandCode,STREAM_ARG,0,(char*)"execute a : command"},
 	{ (char*)"^end",EndCode,1,SAMELINE,(char*)"cease current processing thru this level"}, 
 	{ (char*)"^eval",EvalCode,STREAM_ARG,0,(char*)"evaluate stream"}, 
-	{ (char*)"^fail",FailCode,1,SAMELINE,(char*)"return a return code of some kind - allowed to erase facts on sentence fail"}, 
+    { (char*)"^eval1",EvalCode,1,0,(char*)"evaluate stream after evaluation" },
+    { (char*)"^fail",FailCode,1,SAMELINE,(char*)"return a return code of some kind - allowed to erase facts on sentence fail"},
 	{ (char*)"^incontext",InContextCode,1,0,(char*)"returns normally if given label or topic.label have output recently else fails"},
 	{ (char*)"^load",LoadCode,1,0,(char*)"Dynamic load of a layer as layer 2"},
 	{ (char*)"^match",MatchCode,STREAM_ARG,0,(char*)"Perform given pattern match"},

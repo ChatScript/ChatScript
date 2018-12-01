@@ -886,9 +886,9 @@ Can be used to execute `:`commands from script as well.
 
 _Flags_ are optional and match the flag capabilities of `^print`. 
 
-One common flag would be `OUTPUT_NOQUOTES` if you wanted to string enclosing "" from a value. E.g.,
+One common flag would be `OUTPUT_NOQUOTES` if you wanted to remove the enclosing "" from a user variable value. E.g.,
 
-    $$tmp = ^eval(OUTPUT_NOQUOTES ^arg1)
+    $$tmp = ^eval(OUTPUT_NOQUOTES $$arg1)
 
 `^eval` is also particularly used with variables, when you know the value of a variable is
 itself a variable name and you want its actual value, e.g.
@@ -1628,6 +1628,8 @@ A negative start is a backwards offset from end.
 
     ^extract($$source -5 -1) # from end, 5 characters before and get 1 character before. i.e. the 6th char from end.
 
+Note start offset is 0-based indexing, but if you used ^findtext, it was
+1-based index so you probably need to subtract 1.
 
 ### `^findtext ( source substring offset {insensitive} )`
 
@@ -1645,6 +1647,13 @@ these will be converted to blanks before execution,
 to allow that or the space notation to be considered equivalent 
 (unless your source or substring is literally an underscore only).
 
+If you want to find a newline or tab character, then pass in the string
+\n or \t.  That will find an actual ascii character of such.
+If you want to find the ascii string "\n", then use \\n and \\t to find them.
+Normal scripts don't have ascii newline or tab in them. You wrote the backslashed 
+characters and they are converted to the appropriate ascii characters on output to the user. 
+But if you have read data from an external source, it will likely be the
+actual ascii characters.
 
 ### `^flags ( word )`
 

@@ -275,12 +275,22 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 			unsigned int restrict = GETTYPERESTRICTION(F->subject );
 			if (!restrict && index) restrict = GETTYPERESTRICTION(GetMeaning(D,index)); // new (may be unneeded)
  
-			if (restrict && !(restrict & flags)) {;} // type restriction in effect for this concept member
-			else if (canonical && F->flags & ORIGINAL_ONLY) {;} // incoming is not original words and must be
-            else if (F->flags & START_ONLY && start != 1) { ; }  // must begin the sentence
-            else if (F->flags & END_ONLY && end != wordCount) { ; }  // must begin the sentence
-                                                                 //   index meaning restriction (0 means all)
-			else if (index == Meaning2Index(F->subject)) // match generic or exact subject 
+            // for true interjection, END_ONLY can mean wordCount or next word is , or - 
+            bool block = false;
+            if (canonical && F->flags & ORIGINAL_ONLY) { block = true; } // incoming is not original words and must be
+            if (restrict && !(restrict & flags)) { block = true; } // type restriction in effect for this concept member
+            if (F->flags & START_ONLY && start != 1) { block = true; }  // must begin the sentence
+            if (F->flags & END_ONLY && end != wordCount && !(F->flags & START_ONLY)) { block = true; }  // must begin the sentence
+            if (F->flags & (START_ONLY | END_ONLY) && start == 1)
+            {
+                if (end == wordCount) { ; }
+                else if (*wordStarts[end + 1] == ',') { ; }
+                else if (*wordStarts[end + 1] == '-') { ; }
+                else block = true;
+            }
+            
+            //   index meaning restriction (0 means all)
+            if (!block && index == Meaning2Index(F->subject)) // match generic or exact subject 
 			{
 				bool mark = true;
 				// test for word not included in set

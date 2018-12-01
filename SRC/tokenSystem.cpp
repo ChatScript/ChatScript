@@ -2231,10 +2231,26 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
     
 		//   we have to check both cases, because idiomheaders might accidently match a substitute
 		WORDP localfound = found; //   we want the longest match, but do not expect multiple matches at a particular distance
-		if (i == 1 && j == wordCount)  //   try for matching at end AND start
-        {
+        if (i == 1 && j < wordCount)  //   try for matching at end AND start
+        { // pure interjection ending in comma or -
+            if (*wordStarts[j + 1] == ',' || *wordStarts[j + 1] == '-')
+            {
+                word = NULL;
+                *ptr++ = '>';
+                *ptr-- = 0;
+                word = ViableIdiom(buffer, 1, n);
+                if (word)
+                {
+                    found = word;
+                    idiomMatch = n;     //   n words ADDED to 1st word
+                }
+                *ptr = 0; //   remove tail end
+            }
+        }
+        if (i == 1 && j == wordCount)  //   try for matching at end AND start
+        { // pure interjection
 			word = NULL;
-			*ptr++ = '>'; //   end marker
+			*ptr++ = '>'; 
 			*ptr-- = 0;
 			word = ViableIdiom(buffer,1,n);
 			if (word) 

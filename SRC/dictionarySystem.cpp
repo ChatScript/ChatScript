@@ -2512,7 +2512,8 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
     {
         if (*readBuffer == '#' || *readBuffer == 0) continue;
         char* ptr = ReadCompiledWord(readBuffer,original); //   original phrase
-		if (*original == '"')
+        if (*original == '#') continue;
+        if (*original == '"')
 		{
 			size_t len = strlen(original);
 			original[len-1] = 0;
@@ -2520,9 +2521,7 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 			char* at = original;
 			while ((at = strchr(at,' '))) *at = '_';	// change spaces to blanks
 		}
-		
         if (original[0] == 0 || original[0] == '#') continue;
-		
 		//   replacement can be multiple words joined by + and treated as a single entry.  
 		ptr = ReadCompiledWord(ptr,replacement);    //   replacement phrase
 		if (*replacement == '"')
@@ -2545,6 +2544,7 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 					Log(ECHOSTDTRACELOG, (char*)"Overriding substitute for %s which was %s and is now %s from file %s\r\n", original, S->word, replacement, name);
 			}
 		}
+
 		D = StoreWord(original,AS_IS); //   original word
 		AddInternalFlag(D,fileFlag|HAS_SUBSTITUTE|build);
 		D->w.glosses = NULL;
@@ -2553,7 +2553,8 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 		if (GetPlural(D))  SetPlural(D,0); // why?
 		if (GetComparison(D))  SetComparison(D,0);
 		if (GetTense(D)) SetTense(D,0);
-
+        
+        char copy[MAX_WORD_SIZE];
 		unsigned int n = BurstWord(D->word);
 		char wd[MAX_WORD_SIZE];
 		strcpy(wd,JoinWords(1));
@@ -2564,7 +2565,6 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 		if (len > 1 && myword[len-1] == '>')  myword[len-1] = 0;	// do not show the > on the starter for lookup
 		WORDP E = StoreWord(myword);		// create the 1-word header
 		if (n > GETMULTIWORDHEADER(E)) SETMULTIWORDHEADER(E,n);	//   mark it can go this far for an idiom
-
 		WORDP S = NULL;
         if (replacement[0] != 0 && replacement[0] != '#') 	//   with no substitute, it will just erase itself
         {
@@ -2577,14 +2577,13 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
                 if (*D->word == '<') flags |= START_ONLY;
                 if (D->word[strlen(D->word)-1] == '>') flags |= END_ONLY;
                 CreateFact(MakeMeaning(D), Mmember, MakeMeaning(S),flags);
-                char copy[MAX_WORD_SIZE];
-                char* ptr = D->word;
+                strcpy(copy, ptr);
+                char* ptr = copy;
                 if (*ptr == '<')
                 {
                     ++ptr;
-                    char* end = strchr(ptr, '>');
+                    char* end = strrchr(ptr, '>');
                     if (end) *end = 0;
-                    strcpy(copy, ptr);
                     char* match = ptr;
                     while ((match = strchr(match, '`'))) *match = '_';
                     CreateFact(MakeMeaning(StoreWord(ptr)), Mmember, MakeMeaning(S),flags);
@@ -2594,7 +2593,6 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 
         //   if original has hyphens, replace as single words also. Note burst form for initial marking will be the same
         bool hadHyphen = false;
-		char copy[MAX_WORD_SIZE];
 		strcpy(copy,original);
         ptr = copy;
         while (*++ptr) // replace all alphabetic hypens using _
@@ -3170,7 +3168,7 @@ void ReadLiveData()
 		ReadSubstitutes((char*)"substitutes.txt",0,NULL,DO_SUBSTITUTES);
 		ReadSubstitutes((char*)"contractions.txt",0,NULL,DO_CONTRACTIONS);
 		ReadSubstitutes((char*)"interjections.txt",0,NULL,DO_INTERJECTIONS);
-		ReadSubstitutes((char*)"british.txt",0,NULL,DO_BRITISH);
+        ReadSubstitutes((char*)"british.txt",0,NULL,DO_BRITISH);
 		ReadSubstitutes((char*)"spellfix.txt",0,NULL,DO_SPELLING);
 		ReadSubstitutes((char*)"texting.txt",0,NULL,DO_TEXTING);
 		ReadSubstitutes((char*)"noise.txt",0,NULL,DO_NOISE);

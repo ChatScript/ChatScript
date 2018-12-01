@@ -58,9 +58,7 @@ bbfn ~emogoodbye
  bla ~emobored
  <oh? why?
  <never> ~no 
- <no_, ~no 
  <no> ~no 
- <no_- ~no 
  <none> ~no 
   <continue ~yes
  <make_it_so> ~yes
@@ -250,8 +248,6 @@ bbfn ~emogoodbye
  <greetings ~emohello
  <grin ~emolaugh
  <grins ~emolaugh
- <gross_- ~emodisgust
- <gross_, ~emodisgust
  <gross> ~emodisgust
  <ha-ha-ha ~emolaugh
  <ha-ha ~emolaugh
@@ -589,7 +585,6 @@ bbfn ~emogoodbye
  <quit ~emogoodbye
  <really_? ~emosurprise
  <really> ~emoskeptic
- <right_, ~yes
  <right_brah ~yes
  <right_on ~yes
  <right> ~yes

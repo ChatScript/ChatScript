@@ -179,7 +179,7 @@ When you want more radical change, you can do this:
 ```
 s: (_* find me _*)
     $_join = ^join( "never have I seen" '_0 " " '_1' .)
-    
+    $_join = ^substitute(character $_join _ " ")
     ^analyze($_join)
         or
     ^input($_join)
@@ -192,7 +192,8 @@ sentence and exit our script and come back in with this new sentence,
 before continuing with other sentences of the user's input.  When
 you can organize your rules to support use of ^analyze and then Just
 allow rules to continue, that is most efficient (avoiding coming into the
-control script yet again).
+control script yet again). The ^substitute call is in case you have underscores instead of 
+blanks being used when memorizing input.
 
 Just to be clear, when you use ^mark, it doesn't change the word, just what is 
 marked about it for pattern matching. You can, for example, do this:
