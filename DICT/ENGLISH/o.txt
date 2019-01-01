@@ -2986,10 +2986,6 @@
     oriflamme~2nz (^symbol~1) an inspiring symbol or ideal that serves as a rallying point in a struggle
  O_ring ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     O_ring~1nz (^gasket~1) a gasket consisting of a flat ring of rubber or plastic
- O ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    type_O~1n 
-    O~2nz (^letter~3) the 15th letter of the Roman alphabet
-    oxygen~1n 
  Orlon ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Orlon~1nz (^acrylic~1) an acrylic fiber or the lightweight crease-resistant fabric made with Orlon yarns
  orlop_deck ( meanings=1 NOUN NOUN_SINGULAR ) 
@@ -3222,7 +3218,7 @@
  oxygen_mask ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     oxygen_mask~1nz (^breathing_apparatus~1) a breathing device that is placed over the mouth and nose
  oxygen ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
-    O~3nz (^element~6) a nonmetallic bivalent element that is normally a colorless odorless tasteless nonflammable diatomic gas
+    oxygen~1nz (^element~6) a nonmetallic bivalent element that is normally a colorless odorless tasteless nonflammable diatomic gas
     oxygen~2az 
  oxyphenbutazone ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 ) 
     Tandearil~1nz (^anti-inflammatory_drug~1) an anti-inflammatory drug used to treat arthritis and bursitis
@@ -4274,7 +4270,7 @@
     omicron~1nz (^letter~3) the 15th letter of the Greek alphabet
  omega ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
     omega~1nz (^letter~3) the last letter of the Greek alphabet
-    Z~2nz (^finish~4) the ending of a series or sequence
+    omega~2nz (^finish~4) the ending of a series or sequence
  Occidental ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     Occidental~1nz (^artificial_language~1) an artificial language
     Occidental~2nz (^inhabitant~1) a native inhabitant of the Occident

@@ -779,7 +779,7 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 	size_t len = strlen(loginID);
 	while (*at && (at = strstr(at, loginID))) // any in list
 	{
-		if (at == traceuser || at[len] == ',' || !at[len]) trace = -1;
+		if (at == traceuser || at[len] == ',' || !at[len]) trace = (unsigned int)-1;
 		at += 1;
 	}
     loadingUser = false;

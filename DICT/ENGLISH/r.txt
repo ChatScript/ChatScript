@@ -8432,10 +8432,6 @@
     roman~1n 
  raster_font ( meanings=1 NOUN NOUN_SINGULAR ) 
     screen_font~1n 
- R ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
-    R~1nz (^letter~3) the 18th letter of the Roman alphabet
-    gas_constant~1n 
-    roentgen~1n 
  rho ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
     rho~1nz (^letter~3) the 17th letter of the Greek alphabet
  resh ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 ) 
@@ -11534,7 +11530,7 @@
  roentgen_ray ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     X-ray~2nz (^ionizing_radiation~1) electromagnetic radiation of short wavelength produced when high-speed electrons strike a solid target
  roentgen ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
-    R~3nz (^radioactivity_unit~1) a unit of radiation exposure
+    roentgen~1nz (^radioactivity_unit~1) a unit of radiation exposure
  resting_spore ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     resting_spore~1nz (^spore~1) a spore of certain algae or fungi that lies dormant
  rosid_dicot_family ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
@@ -12917,7 +12913,7 @@
  resistance_unit ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     resistance_unit~1nz (^electromagnetic_unit~1) the reciprocal of conductance
  reciprocal_ohm ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
-    S~3nz (^conductance_unit~1) a unit of conductance equal to the reciprocal of an ohm
+    mho~1nz (^conductance_unit~1) a unit of conductance equal to the reciprocal of an ohm
  rydberg ( meanings=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
     rydberg_constant~1n 
  rydberg_constant ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 

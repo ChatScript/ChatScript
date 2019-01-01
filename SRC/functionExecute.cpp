@@ -9134,7 +9134,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^command",CommandCode,STREAM_ARG,0,(char*)"execute a : command"},
 	{ (char*)"^end",EndCode,1,SAMELINE,(char*)"cease current processing thru this level"}, 
 	{ (char*)"^eval",EvalCode,STREAM_ARG,0,(char*)"evaluate stream"}, 
-    { (char*)"^eval1",EvalCode,1,0,(char*)"evaluate stream after evaluation" },
+    { (char*)"^evaltwice",EvalCode,1,0,(char*)"evaluate stream after evaluation" },
     { (char*)"^fail",FailCode,1,SAMELINE,(char*)"return a return code of some kind - allowed to erase facts on sentence fail"},
 	{ (char*)"^incontext",InContextCode,1,0,(char*)"returns normally if given label or topic.label have output recently else fails"},
 	{ (char*)"^load",LoadCode,1,0,(char*)"Dynamic load of a layer as layer 2"},

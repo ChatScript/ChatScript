@@ -1409,7 +1409,7 @@
  Bekele ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_HE NOUN NOUN_PROPER_SINGULAR ) 
  Bel ( meanings=2 glosses=2 NOUN_HUMAN NOUN_FIRSTNAME NOUN_SHE NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
     Bel~1nz (^Semitic_deity~1) Babylonian god of the earth
-    B~4nz (^sound_unit~1) a logarithmic unit of sound intensity equal to 10 decibels
+    Bel~2nz (^sound_unit~1) a logarithmic unit of sound intensity equal to 10 decibels
  Bela ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_HE NOUN NOUN_PROPER_SINGULAR ) 
  Belakane ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_SHE NOUN NOUN_PROPER_SINGULAR ) 
  Belda ( NOUN_HUMAN NOUN_FIRSTNAME NOUN_SHE NOUN NOUN_PROPER_SINGULAR ) 
@@ -4768,14 +4768,7 @@
     bacteroidal~1a 
     bacteroid~3az 
  bacillus ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) plural=bacilli 
-    B~1nz (^true_bacteria~1) aerobic rod-shaped spore-producing bacterium
- B ( meanings=6 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    bacillus~1n 
-    type_B~1n 
-    B~3nz (^letter~3) the 2nd letter of the Roman alphabet
-    Bel~2n 
-    boron~1n 
-    B-complex_vitamin~1n 
+    bacillus~1nz (^true_bacteria~1) aerobic rod-shaped spore-producing bacterium
  Bacillus_anthracis ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     anthrax_bacillus~1nz (^bacillus~1) a species of bacillus that causes anthrax in humans and in animals 
  Bacillus_subtilis ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
@@ -8410,7 +8403,7 @@
  boron_chamber ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     boron_chamber~1nz (^ionization_chamber~1) an ionization chamber lined with boron or filled with boron trifluoride gas for counting low velocity neutrons
  boron ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
-    B~5nz (^element~6) a trivalent metalloid element
+    boron~1nz (^element~6) a trivalent metalloid element
  boron_counter_tube ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     boron_counter_tube~1nz (^proportional_counter_tube~1) a proportional counter tube for counting neutrons
  borstal ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 posdefault:NOUN ) 
@@ -19112,7 +19105,7 @@
  B-complex_vitamin ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     B_vitamin~1nz (^water-soluble_vitamin~1) originally thought to be a single vitamin but now separated into several B vitamins
  B_complex ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    B~6n 
+    B-complex_vitamin~1n 
  B_vitamin ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     vitamin_B~1n 
  biotin ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 

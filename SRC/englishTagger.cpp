@@ -1198,8 +1198,11 @@ static void PerformPosTag(int start, int end)
 	}
 	idiomed = false;
 	tokenFlags &= -1 ^ FAULTY_PARSE;
+
+    // here is pos tagging
 	if ((wordCount < 2 && posValues[start] & VERB_INFINITIVE) || !ApplyRules()) tokenFlags |= FAULTY_PARSE; // dont pos 1 or 2 word sentences.... not likely to get it right
-	if (prepareMode == POSTIME_MODE) posTiming += ElapsedMilliseconds() - startTime;
+	
+    if (prepareMode == POSTIME_MODE) posTiming += ElapsedMilliseconds() - startTime;
 
 	unsigned int foreign = 0;
 	for (int i = start; i <= end; ++i) 
@@ -3692,7 +3695,8 @@ void MarkRoles(int i)
 	if (role & OMITTED_TIME_PREP) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~omittedtimeprep")),start,stop);
 	if (role & DISTANCE_NOUN_MODIFY_ADVERB) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~DISTANCE_NOUN_MODIFY_ADVERB")),start,stop);
 	if (role & DISTANCE_NOUN_MODIFY_ADJECTIVE) MarkMeaningAndImplications(0,0,MakeMeaning(StoreWord((char*)"~DISTANCE_NOUN_MODIFY_ADJECTIVE")),start,stop); 
-	if (role & TIME_NOUN_MODIFY_ADVERB) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~TIME_NOUN_MODIFY_ADVERB")),start,stop);
+    if (role & PASSIVE_VERB) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord((char*)"~PASSIVE_VERB")), start, stop);
+    if (role & TIME_NOUN_MODIFY_ADVERB) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~TIME_NOUN_MODIFY_ADVERB")),start,stop);
 	if (role & TIME_NOUN_MODIFY_ADJECTIVE) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~TIME_NOUN_MODIFY_ADJECTIVE")),start,stop);
 	if (role & OMITTED_OF_PREP) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~omittedofprep")),start,stop);
 

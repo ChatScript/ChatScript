@@ -6271,7 +6271,7 @@
  Lente_Iletin ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     Lente_Insulin~1n 
  liothyronine ( meanings=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 
-    T~2n 
+    triiodothyronine~1n 
  lochia ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 
     lochia~1nz (^humor~3) substance discharged from the vagina that gradually decreases in amount during the weeks following childbirth
  leukorrhea ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 

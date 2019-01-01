@@ -1,3 +1,30 @@
+# version 9.0 1/1/2019
+
+1. param inputlimit=n truncates user input to this size.
+    On a server, users have a default limit of 80K per volley
+    but malicious users abuse this. You can set this to explicitly limit
+    how much input users can actually provide.  Consequences of excess
+    input are, for example, sluggish performance because it may try to spell correct junk input.
+2. ^eval1(arg)
+    like ^eval(x) but evaluates its argument before passing into ^eval.
+3. mark ~PASSIVE_VERB on such.
+4. !~set in concept declaration - see advanced concepts: exclusion.
+    e.g., concept: ~wildanimals (!~pet_animals ~animals)
+5. "fundamental meanings" can now be used as keywords in concepts, topics, and patterns.
+    see advanced cs: advanced concepts: fundamental meaning (quoted below)
+Fundamental meaning consists of an actor, an action, and an optional actee.
+In the active voice sentence "I love you", the actor is "I", the action is "love",
+and the actee is "you". In the passive voice sentence "I was arrested", there is no actor,
+the verb is "arrested", and the actee is "I". Wherease in the passive voice sentence
+"I was arrested by the police", the actor is "police". 
+
+Fundamental meaning patterns always have a verb, which as a keyword is designated as  
+"|arrest|" or whatever word or concept you want to detect.
+A pattern which includes a fundamental actor is shown as  
+"~pronoun|arrest|". One that includes an actee is
+"|arrest|~police", whereas one that has both actor and actee is
+"~pronoun|arrest|~police".
+
 # Version 8.8 11/26/2018
 
 1. ^spellcheck(input dictionary)

@@ -13490,9 +13490,6 @@
     percentage~2n 
  percentage_sign ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     percent_sign~1nz (^character~6) a sign used to indicate that the number preceding it should be understood as a proportion multiplied by 100
- P ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    P~1nz (^letter~3) the 16th letter of the Roman alphabet
-    phosphorus~1n 
  p ( COMMON4 COMMON2 ) 
  pi ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER ) 
     pi~1nz (^letter~3) the 16th letter of the Greek alphabet
@@ -23112,7 +23109,7 @@
  potassium_alum ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     potash_alum~1nz (^aluminum~1) a white crystalline double sulfate of aluminum: the potassium double sulfate of aluminum
  potassium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
-    K~7nz (^metal~2) a light soft silver-white metallic element of the alkali metal group
+    K~1nz (^metal~2) a light soft silver-white metallic element of the alkali metal group
  potash_alum ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     alum~3n 
  potash ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
@@ -23126,7 +23123,7 @@
  phosphor ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     phosphor~1nz (^synthetic~1) a synthetic substance that is fluorescent or phosphorescent
  phosphorus ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER ) 
-    P~2nz (^element~6) a multivalent nonmetallic element of the nitrogen family that occurs commonly in inorganic phosphate rocks and as organic phosphates in all living cells
+    phosphorus~1nz (^element~6) a multivalent nonmetallic element of the nitrogen family that occurs commonly in inorganic phosphate rocks and as organic phosphates in all living cells
     phosphorus~2az 
  Pt ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     platinum~1n 

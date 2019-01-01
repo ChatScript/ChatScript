@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/23/2018 cs8.5
+<br>Revision 1/1/2019 cs9.0
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -312,6 +312,66 @@ If you need to actually allow a token to have embedded punctuation in it, you ca
 file and the tokenizer will respect it.
 
 # ADVANCED CONCEPTS
+
+
+## Concept Exclusion
+
+In basic chatscript we learned you can build concepts by augmentation (out of concepts), like 
+```
+concept: ~animals (~birds ~dogs otter)
+```
+
+You can also build concepts using exclusion, like
+```
+concept: ~animals (~birds ~dogs otter !robin)
+```
+This concept includes all birds except the robin. Using !, you can
+tell CS that certain words are not members of a concept, even though they
+may have been added elsewhere in the declaration either directly or via inclusion
+of some concept. You can also use ! with concepts to remove all members
+of a concept. E.g.
+```
+concept: ~wildanimals (!~pet_animals ~animals)
+```
+Animals which are pets are not considered wild, so here is a clean
+declaration of that.
+
+## Fundamental Meaning Keywords
+
+Fundamental meaning is the basic minimal form of the sentence without all the 
+embellishments of phrases, verbals, clauses, adjectives, and adverbs. Your
+fundamental sentence consists of main subject, main verb, and optional main object.
+The absolute minimal sentence always has a main verb. In the case of "Go", we have a
+command verb and implied subject "you".
+
+Fundamental meaning consists of an actor, an action, and an optional actee.
+In the active voice sentence "I love you", the actor is "I", the action is "love",
+and the actee is "you". In the passive voice sentence "I was arrested", there is no actor,
+the verb is "arrested", and the actee is "I". Wherease in the passive voice sentence
+"I was arrested by the police", the actor is "police". 
+
+Fundamental meaning patterns always have a verb, which as a keyword is designated as  
+"|arrest|" or whatever word or concept you want to detect.
+A pattern which includes a fundamental actor is shown as  
+"~pronoun|arrest|". One that includes an actee is
+"|arrest|~police", whereas one that has both actor and actee is
+"~pronoun|arrest|~police". So one can write:
+```
+concept: ~crimeverbs (arrest convict imprison steal)
+topic: ~crimesentences (|~crimeverbs|)
+```
+
+For command sentences, the implied subject is always "you",
+so you can write:
+```
+concept: ~me_told_go (you|~movement_verbs|)
+```
+
+Note: these keywords can only be recognized if the system's parser can
+manage to parse out the main subject, main verb, and main object of the input sentence.
+This works well for relatively simple sentences.
+
+## Additional data on concepts
 
 Concepts can have part of speech information attached to them (using `dictionarysystem.h` values). Eg.
 
@@ -2535,7 +2595,7 @@ general you can make important keywords.
 ___What really happens with rule erasure?___
 
 The system's default behavior is to erase rules that put output into the output stream, so
-they won't repeat themselves later. You can explicitly make a rule erase with `^erase()` and
+they won't repeat themselves later. You can explicitly make a rule erase with `^disable()` and
 not erase with `^keep()` and you can make the topic not allow responders to erase with
 keep as a topic flag. 
 

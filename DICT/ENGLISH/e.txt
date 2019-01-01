@@ -4798,7 +4798,7 @@
  enthalpy ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     total_heat~1n 
  entropy ( meanings=2 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
-    S~1n 
+    randomness~2n 
     information~1n 
  elasticity ( meanings=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
     snap~7n 

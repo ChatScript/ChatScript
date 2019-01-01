@@ -1584,7 +1584,7 @@
     grand_tour~2nz (^tour~1) an extended cultural tour of Europe taken by wealthy young Englishmen as part of their education
  grand ( meanings=11 glosses=8 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN posdefault:ADJECTIVE ) 
     grand_piano~1nz (^piano~1) a piano with the strings on a horizontal harp-shaped frame
-    K~6n 
+    yard~9n 
     magisterial~1az used of a person's appearance or behavior
     grand~4az the most important and magnificent in adornment
     heroic~4az of behavior that is impressive and ambitious in scale or scope
@@ -7041,13 +7041,7 @@
     anchor~1nz (^hook~5) a mechanical device that prevents a vessel from moving
  G_suit ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     anti-G_suit~1n 
- G ( meanings=7 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
-    G~1nz (^letter~3) the 7th letter of the Roman alphabet
-    gravitational_constant~1n 
-    GB~2n 
-    GB~3n 
-    yard~9n 
-    deoxyguanosine_monophosphate~1n 
+ G ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     guanine~1n 
  gadget ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
     convenience~1n 
@@ -9009,11 +9003,11 @@
  group_A ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     type_A~1nz (^blood_group~1) the blood group whose red cells carry the A antigen
  group_B ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    B~2nz (^blood_group~1) the blood group whose red cells carry the B antigen
+    type_B~1nz (^blood_group~1) the blood group whose red cells carry the B antigen
  group_AB ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     AB~1nz (^blood_group~1) the blood group whose red cells carry both the A and B antigens
  group_O ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    O~1nz (^blood_group~1) the blood group whose red cells carry neither the A nor B antigens
+    type_O~1nz (^blood_group~1) the blood group whose red cells carry neither the A nor B antigens
  grume ( meanings=2 glosses=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 
     blood_clot~1n 
     grume~2nz (^liquid~4) a thick viscous liquid
@@ -18146,9 +18140,9 @@
     congius~1nz (^Imperial_capacity_unit~1) a British imperial capacity measure equal to 4 quarts or 4.545 liters
  gigabyte ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     GiB~1nz (^computer_memory_unit~1) a unit of information equal to 1024 mebibytes or 2^30 bytes
-    G~4nz (^computer_memory_unit~1) a unit of information equal to 1000 megabytes or 10^9 bytes
+    GB~3nz (^computer_memory_unit~1) a unit of information equal to 1000 megabytes or 10^9 bytes
  gibibyte ( meanings=1 NOUN NOUN_SINGULAR COMMON1 ) 
-    G~3n 
+    GB~2n 
  GiB ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 
     gibibyte~1n 
  gigabit ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
@@ -18794,7 +18788,7 @@
     grout~1nz (^plaster~4) a thin mortar that can be poured and used to fill cracks in masonry or brickwork
     grout~2vz bind with grout
  guanine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
-    G~7nz (^purine~2) a purine base found in DNA and RNA
+    G~1nz (^purine~2) a purine base found in DNA and RNA
  guinea_gold ( meanings=2 glosses=2 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     guinea_gold~1nz (^gold~5) 22-karat gold from which guinea coins were made
     red_brass~1nz (^brass~7) brass with enough copper to give it a reddish tint

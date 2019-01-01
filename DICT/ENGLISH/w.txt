@@ -4751,15 +4751,10 @@
     reveille~2nz (^bugle_call~1) signal to wake up
  written_symbol ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     printed_symbol~1nz (^symbol~2) a written or printed symbol
- W ( meanings=4 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    w~1n 
-    watt~1n 
-    west~2n 
-    tungsten~1n 
  w ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:NOUN ) 
     double-u~1n 
  wye ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
-    Y~1nz (^letter~3) the 25th letter of the Roman alphabet
+    wye~1nz (^letter~3) the 25th letter of the Roman alphabet
  waw ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 ) 
     waw~1nz (^letter~3) the 6th letter of the Hebrew alphabet
  white_feather ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
@@ -8213,7 +8208,7 @@
  wave_number ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     wave_number~1nz (^frequency~3) the reciprocal of the wavelength of a wave
  watt ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
-    W~2nz (^power_unit~1) a unit of power equal to 1 joule per second
+    watt~1nz (^power_unit~1) a unit of power equal to 1 joule per second
  Western_Samoan_monetary_unit ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     Western_Samoan_monetary_unit~1nz (^monetary_unit~1) monetary unit in Western Samoa
  watt_second ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
@@ -8408,7 +8403,7 @@
  weapon-grade_plutonium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     weapons_plutonium~1nz (^plutonium_239~1) plutonium 239 that is recovered when nuclear weapons are disassembled
  wolfram ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
-    W~4n 
+    tungsten~1n 
  white_lead_ore ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     cerussite~1nz (^mineral~1) a mineral consisting of lead carbonate that is an important source of lead
  wood_coal ( meanings=2 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 

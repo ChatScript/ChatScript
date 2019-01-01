@@ -6123,12 +6123,6 @@
     T_hinge~1nz (^flexible_joint~1) a hinge that looks like the letter T when it is opened
  T_hinge ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     tee_hinge~1n 
- T ( meanings=5 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    thyroxin~1n 
-    triiodothyronine~1n 
-    T~3nz (^letter~3) the 20th letter of the Roman alphabet
-    deoxythymidine_monophosphate~1n 
-    thymine~1n 
  telecom_hotel ( meanings=1 NOUN NOUN_SINGULAR ) 
     telco_building~1n 
  telecom ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
@@ -8426,11 +8420,11 @@
  thyrocalcitonin ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 
     calcitonin~1nz (^thyroid_hormone~1) thyroid hormone that tends to lower the level of calcium in the blood plasma and inhibit resorption of bone
  thyroxine ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
-    tetraiodothyronine~1n 
+    thyroxin~1n 
  thyroxin ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
-    thyroxine~1n 
+    tetraiodothyronine~1n 
  tetraiodothyronine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 
-    T~1nz (^thyroid_hormone~1) hormone produced by the thyroid glands to regulate metabolism by controlling the rate of oxidation in cells
+    thyroxine~1nz (^thyroid_hormone~1) hormone produced by the thyroid glands to regulate metabolism by controlling the rate of oxidation in cells
  triiodothyronine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
     liothyronine~1nz (^thyroid_hormone~1) thyroid hormone similar to thyroxine but with one less iodine atom per molecule and produced in smaller quantity
  tobacco_juice ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
@@ -15500,7 +15494,7 @@
  thrombokinase ( meanings=1 NOUN NOUN_SINGULAR COMMON1 ) 
     thromboplastin~1n 
  thymine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
-    T~5nz (^pyrimidine~2) a base found in DNA and derived from pyrimidine
+    thymine~1nz (^pyrimidine~2) a base found in DNA and derived from pyrimidine
  thymidine ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     deoxythymidine~1n 
  thymol ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 

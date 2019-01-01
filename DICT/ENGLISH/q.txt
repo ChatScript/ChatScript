@@ -597,8 +597,6 @@
     matter_of_fact~2nz (^question~2) a disputed factual contention that is generally left for a jury to decide
  question_of_law ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     matter_of_law~1nz (^question~2) a disputed legal contention that is generally left for a judge to decide
- Q ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
-    Q~1nz (^letter~3) the 17th letter of the Roman alphabet
  q ( COMMON4 COMMON1 ) 
  qoph ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     qoph~1nz (^letter~3) the 19th letter of the Hebrew alphabet

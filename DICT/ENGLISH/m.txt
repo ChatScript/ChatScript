@@ -16965,7 +16965,7 @@
  millifarad ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     millifarad~1nz (^capacitance_unit~1) a unit of capacitance equal to one thousandth of a farad
  mho ( meanings=1 NOUN NOUN_SINGULAR COMMON2 ) 
-    reciprocal_ohm~1n 
+    siemens~1n 
  milliampere ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     mA~1nz (^current_unit~1) one thousandth of an ampere
  mA ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON4 ) 

@@ -2728,7 +2728,7 @@
  normality ( meanings=4 glosses=4 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
     normality~1nz (^conformance~1) conformity with the norm
     normalcy~1nz (^expectedness~1) expectedness as a consequence of being usual or regular or common
-    N~2nz (^relative_quantity~1) concentration expressed in gram equivalents of solute per liter
+    normality~3nz (^relative_quantity~1) concentration expressed in gram equivalents of solute per liter
     normalcy~2nz (^status~1) being within certain limits that define the range of normal functioning
  navigability ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
     navigability~1nz (^quality~1) the quality of being suitable for the passage of a ship or aircraft
@@ -3181,7 +3181,7 @@
  nitrogen_narcosis ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     nitrogen_narcosis~1nz (^narcosis~1) confused or stuporous state caused by high levels of dissolved nitrogen in the blood
  nitrogen ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
-    N~5nz (^element~6) a common nonmetallic element that is normally a colorless odorless tasteless inert diatomic gas
+    nitrogen~1nz (^element~6) a common nonmetallic element that is normally a colorless odorless tasteless inert diatomic gas
  nosiness ( meanings=1 NOUN NOUN_SINGULAR COMMON1 ) 
     prying~1n 
  niff ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 posdefault:NOUN ) 
@@ -3615,12 +3615,6 @@
     Napierian_logarithm~1n 
  Napierian_logarithm ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     natural_logarithm~1nz (^log~4) a logarithm to the base e
- N ( meanings=5 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    N~1nz (^letter~3) the 14th letter of the Roman alphabet
-    normality~3n 
-    newton~1n 
-    north~2n 
-    nitrogen~1n 
  n ( COMMON4 COMMON2 ) 
  nu ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
     nu~1nz (^letter~3) the 13th letter of the Greek alphabet
@@ -6423,7 +6417,7 @@
  nanovolt ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     nanovolt~1nz (^potential_unit~1) a unit of potential equal to one billionth of a volt
  newton ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
-    N~3nz (^force_unit~1) a unit of force equal to the force that imparts an acceleration of 1 m/sec/sec to a mass of 1 kilogram
+    newton~1nz (^force_unit~1) a unit of force equal to the force that imparts an acceleration of 1 m/sec/sec to a mass of 1 kilogram
  nautical_linear_unit ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     nautical_linear_unit~1nz (^linear_measure~1) a linear unit of distance used in navigation
  nanometer ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 ) 

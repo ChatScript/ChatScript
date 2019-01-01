@@ -7608,7 +7608,7 @@
  sulphur_bacteria ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     sulfur_bacteria~1nz (^thiobacillus~1) any bacterium of the genus Thiobacillus
  sulphur ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN VERB_DIRECTOBJECT ADJECTIVE_GOOD_SUBJECT_COMPLEMENT ) 
-    S~5nz (^element~6) an abundant tasteless odorless multivalent nonmetallic element
+    sulfur~1nz (^element~6) an abundant tasteless odorless multivalent nonmetallic element
     sulfur~3vz treat with sulphur in order to preserve
  sulfur_bacteria ( meanings=1 NOUN NOUN_SINGULAR ) 
     thiobacteria~1n 
@@ -11698,7 +11698,7 @@
  skipping ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:VERB ) 
     skipping~1az 
  super_acid ( meanings=1 NOUN NOUN_SINGULAR ) 
-    K~1n 
+    jet~3n 
  super ( meanings=5 glosses=3 NOUN ADJECTIVE ADVERB ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:ADJECTIVE ) 
     superintendent~2nz (^caretaker~1) a caretaker for an apartment house
     super~2az including more than a specified category
@@ -16130,12 +16130,6 @@
     sword_knot~1nz (^tassel~1) an ornamental tassel on the hilt of a sword
  S_wrench ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     S_wrench~1nz (^open-end_wrench~1) a wrench with an S-shaped handle
- S ( meanings=5 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    randomness~2n 
-    S~2nz (^letter~3) the 19th letter of the Roman alphabet
-    siemens~1n 
-    south~2n 
-    sulfur~1n 
  Sydney_Harbor_Bridge ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Sydney_Harbor_Bridge~1nz (^steel_arch_bridge~1) a steel arch bridge in Sydney, Australia
  synagogue ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
@@ -32434,7 +32428,7 @@
  square_mile ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     square_mile~1nz (^square_measure~1) an area of 640 acres
  siemens ( meanings=1 NOUN NOUN_SINGULAR COMMON4 posdefault:NOUN ) 
-    mho~1n 
+    reciprocal_ohm~1n 
  standard_candle ( meanings=1 NOUN NOUN_SINGULAR ) 
     candela~1n 
  sthene ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 

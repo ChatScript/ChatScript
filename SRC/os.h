@@ -2,7 +2,7 @@
 #define _OSH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2018 by Bruce Wilcox
+Copyright (C)2011-2019 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -21,6 +21,9 @@ struct FACT;
 
 typedef unsigned int FACTOID; //   a fact index
 typedef unsigned int FACTOID_OR_MEANING;	// a fact or a meaning (same representation)
+
+typedef unsigned int STACKREF; // stack offset reference
+typedef unsigned int HEAPREF; // heap offset reference
 
 struct WORDENTRY;
 typedef WORDENTRY* WORDP;
@@ -134,10 +137,10 @@ extern char* stackStart;
 extern char* heapEnd;
 extern unsigned long minHeapAvailable;
 extern int loglimit;
-char* Index2Heap(unsigned int offset);
-inline unsigned int Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapBase - str);}
-inline unsigned int Stack2Index(char* str) { return (!str) ? 0 : (unsigned int)(str - stackStart); }
-inline char* Index2Stack(unsigned int ptr) { return (!ptr) ? 0 : (stackStart + ptr); }
+char* Index2Heap(HEAPREF offset);
+inline HEAPREF Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapBase - str);}
+inline STACKREF Stack2Index(char* str) { return (!str) ? 0 : (unsigned int)(str - stackStart); }
+inline char* Index2Stack(STACKREF ptr) { return (!ptr) ? 0 : (stackStart + ptr); }
 
 // MEMORY SYSTEM
 void ResetBuffers();

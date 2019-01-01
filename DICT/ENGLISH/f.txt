@@ -7394,11 +7394,6 @@
     typewriter_font~1n 
  font_cartridge ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     cartridge_font~1nz (^face~10) any font that is contained in a cartridge that can be plugged into a computer printer
- F ( meanings=4 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    F~1nz (^letter~3) the 6th letter of the Roman alphabet
-    farad~1n 
-    degree_Fahrenheit~1n 
-    fluorine~1n 
  f ( COMMON4 COMMON1 ) 
  full_stop ( meanings=1 NOUN NOUN_SINGULAR ) 
     point~15n 
@@ -11704,7 +11699,7 @@
  flux_unit ( meanings=1 NOUN NOUN_SINGULAR ) 
     magnetic_flux_unit~1n 
  farad ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
-    F~2nz (^capacitance_unit~1) the capacitance of a capacitor that has an equal and opposite charge of 1 coulomb on each plate and a voltage difference of 1 volt between the plates
+    farad~1nz (^capacitance_unit~1) the capacitance of a capacitor that has an equal and opposite charge of 1 coulomb on each plate and a voltage difference of 1 volt between the plates
  footcandle ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     footcandle~1nz (^illumination_unit~1) a unit of illuminance on a surface that is everywhere 1 foot from a point source of 1 candle
  foot-lambert ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
@@ -12131,7 +12126,7 @@
  Fm ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     fermium~1n 
  fluorine ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
-    F~4nz (^element~6) a nonmetallic univalent element belonging to the halogens
+    fluorine~1nz (^element~6) a nonmetallic univalent element belonging to the halogens
  francium ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 NOUN_NODETERMINER ) 
     Fr~1nz (^metal~2) a radioactive element of the alkali-metal group discovered as a disintegration product of actinium
     francium~2az 

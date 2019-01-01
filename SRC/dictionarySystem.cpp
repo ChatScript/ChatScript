@@ -421,7 +421,8 @@ static char* predefinedSets[] = //  some internally mapped concepts not includin
 	(char*)"~kindergarten",(char*)"~grade1_2",(char*)"~grade3_4",(char*)"~grade5_6",(char*)"~twitter_name",(char*)"~hashtag_label",
 	(char*)"~shout",(char*)"~distance_noun_modify_adverb",
 	(char*)"~distance_noun_modify_adjective",(char*)"~modelnumber",
-	(char*)"~time_noun_modify_adverb",
+    (char*)"~passive_verb",
+    (char*)"~time_noun_modify_adverb",
 	(char*)"~time_noun_modify_adjective",
 	(char*)"~capacronym",
     NULL
@@ -2577,7 +2578,7 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
                 if (*D->word == '<') flags |= START_ONLY;
                 if (D->word[strlen(D->word)-1] == '>') flags |= END_ONLY;
                 CreateFact(MakeMeaning(D), Mmember, MakeMeaning(S),flags);
-                strcpy(copy, ptr);
+                strcpy(copy, D->word);
                 char* ptr = copy;
                 if (*ptr == '<')
                 {

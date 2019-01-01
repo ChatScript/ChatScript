@@ -364,9 +364,6 @@
     holandric_gene~1n 
  Y_chromosome ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Y_chromosome~1nz (^sex_chromosome~1) the sex chromosome that is carried by men
- Y ( meanings=2 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    wye~1n 
-    yttrium~1n 
  yellow_spot ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     macular_area~1n 
     yellow_spot~2nz (^plant_disease~1) any of several fungous or viral diseases characterized by yellow spotting on the leaves
@@ -1112,7 +1109,7 @@
  ytterbium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
     Yb~2nz (^metal~2) a soft silvery metallic element
  yttrium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
-    Y~2nz (^metal~2) a silvery metallic element that is common in rare-earth minerals
+    yttrium~1nz (^metal~2) a silvery metallic element that is common in rare-earth minerals
  ytterbite ( meanings=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER ) 
     gadolinite~1n 
  yellow_metal ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 

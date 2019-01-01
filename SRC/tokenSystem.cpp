@@ -490,11 +490,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		{
             if (tokenControl & SPLIT_QUOTE)
             {
-                char* end = strchr(ptr + 1, '"');
-                if (end) // strip the quotes and try agin
+                char* end1 = strchr(ptr + 1, '"');
+                if (end1) // strip the quotes and try agin
                 {
                     *ptr = ' ';
-                    *end = ' ';
+                    *end1 = ' ';
                     return ptr;
                 }
                 else return ptr + 1; // split up quote marks
@@ -1430,8 +1430,8 @@ static void HandleFirstWord() // Handle capitalization of starting word of sente
 		char* tokens[2];
 		tokens[1] = word;
 		ReplaceWords("multiword",1,1,1,tokens);
-		WORDP D = FindWord(wordStarts[1]);
-		if (D) AddProperty(D,NOUN_PROPER_SINGULAR);
+		WORDP E = FindWord(wordStarts[1]);
+		if (E) AddProperty(E,NOUN_PROPER_SINGULAR);
 	}
 }
 
@@ -1451,8 +1451,8 @@ bool DateZone(int i, int& start, int& end)
 		if (IsDigit(*next++) && IsDigit(*next++) &&IsDigit(*next++) && IsDigit(*next++) && !*next) ++end;	// swallow year
 		else if (*wordStarts[end+1] == ',')
 		{
-			char* next = wordStarts[end+2];
-			if (IsDigit(*next++) && IsDigit(*next++) &&IsDigit(*next++) && IsDigit(*next++) && !*next) end += 2;	// swallow comma year
+			char* nextx = wordStarts[end+2];
+			if (IsDigit(*next++) && IsDigit(*nextx++) &&IsDigit(*nextx++) && IsDigit(*nextx++) && !*nextx) end += 2;	// swallow comma year
 		}
 	}
 	return (start != end); // there is something there

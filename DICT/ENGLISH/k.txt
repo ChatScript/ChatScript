@@ -1839,13 +1839,7 @@
  knave ( meanings=2 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
     jack~4n 
     rapscallion~2n 
- K ( meanings=7 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    jet~3n 
-    K~2nz (^letter~3) the 11th letter of the Roman alphabet
-    kilobyte~1n 
-    kilobyte~2n 
-    kelvin~1n 
-    G~5n 
+ K ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     potassium~1n 
  Kaaba ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Caaba~1nz (^shrine~1) a black stone building in Mecca that is shaped like a cube and that is the most sacred Muslim pilgrim shrine
@@ -4065,10 +4059,10 @@
     KiB~1nz (^computer_memory_unit~1) a unit of information equal to 1024 bytes
     kB~2nz (^computer_memory_unit~1) a unit of information equal to 1000 bytes
  kibibyte ( meanings=1 NOUN NOUN_SINGULAR COMMON1 ) 
-    K~3n 
+    kilobyte~1n 
  KB ( meanings=2 NOUN NOUN_PROPER_SINGULAR ) 
     kibibyte~1n 
-    K~4n 
+    kilobyte~2n 
  kB ( meanings=2 NOUN NOUN_PROPER_SINGULAR COMMON4 ) 
     KB~1n 
     KB~2n 
@@ -4160,7 +4154,7 @@
  kwai ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
     yuan~1n 
  kelvin ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
-    K~5nz (^temperature_unit~1) the basic unit of thermodynamic temperature adopted under the Systeme International d'Unites
+    kelvin~1nz (^temperature_unit~1) the basic unit of thermodynamic temperature adopted under the Systeme International d'Unites
  kilogram ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:NOUN ) 
     kilo~1nz (^metric_weight_unit~1) one thousand grams
  kg ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 posdefault:NOUN ) 

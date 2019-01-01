@@ -5320,9 +5320,33 @@ static void DoubleCheckReuse()
 	remove(file);
 }
 
+static void WriteCMore(FACT* F, char*&word,FILE* out,size_t& lineSize)
+{
+    // write it out- this INVERTS the order now and when read back in, will be reestablished correctly 
+    // but dictionary storage locations will be inverted
+    size_t wlen = strlen(word);
+    if (F->botBits) // add restrictor 
+    {
+#ifdef WIN32
+        sprintf(word + wlen - 1, (char*)"`%I64u ", F->botBits);
+#else
+        sprintf(word + wlen - 1, (char*)"`%llu ", F->botBits);
+#endif
+        wlen = strlen(word);
+    }
+    fwrite(word, 1, wlen, out);
+    lineSize += wlen;
+    if (lineSize > 500) // avoid long lines
+    {
+        fprintf(out, (char*)"%s", (char*)"\r\n    ");
+        lineSize = 0;
+    }
+    *word = 0;
+}
+
 static void WriteConcepts(WORDP D, uint64 build)
 {
-	char* name = D->word;
+    char* name = D->word;
 	if (*name != '~' || !(D->internalBits & build)) return; // not a topic or concept or not defined this build
 	RemoveInternalFlag(D,(BUILD0|BUILD1));
 	// write out keywords 
@@ -5358,8 +5382,8 @@ static void WriteConcepts(WORDP D, uint64 build)
 	}
 	if (D->internalBits & FAKE_NOCONCEPTLIST) fprintf(out,(char*)"%s",(char*)"NOCONCEPTLIST ");
 	if (D->internalBits & UPPERCASE_MATCH) fprintf(out,(char*)"%s",(char*)"UPPERCASE_MATCH ");
-    FACT* E = GetObjectHead(D);
     int n = 10;
+    FACT* E = GetObjectHead(D);
     while (E)
     {
         if (E->verb == Mmember && E->flags & START_ONLY)
@@ -5380,15 +5404,16 @@ static void WriteConcepts(WORDP D, uint64 build)
 	size_t lineSize = 0;
 	NextInferMark();
 
-	FACT* F = GetObjectNondeadHead(D);
+    // write out set members here, dont write out excludes here 
+    char* word = AllocateStack(NULL, MAX_BUFFER_SIZE);
+    FACT* F = GetObjectNondeadHead(D);
 	if (F)
 	{
-		char* word = AllocateStack(NULL,MAX_BUFFER_SIZE);
 		while (F) 
 		{
 			if (build == BUILD1 && !(F->flags & FACTBUILD1)) {;} // defined by earlier level
 			else if (build == BUILD2 && !(F->flags & FACTBUILD2)) {;} // defined by earlier level
-			else if (F->verb == Mmember|| F->verb == Mexclude) // the only relevant facts
+            else if (F->verb == Mmember)
 			{
 				WORDP E = Meaning2Word(F->subject);
 				AddInternalFlag(E,BEEN_HERE);
@@ -5420,33 +5445,78 @@ static void WriteConcepts(WORDP D, uint64 build)
 
 				// write it out- this INVERTS the order now and when read back in, will be reestablished correctly 
 				// but dictionary storage locations will be inverted
-				if (F->verb == Mexclude) fwrite((char*)"!",1,1,out);
-
-				size_t wlen = strlen(word);
-				if (F->botBits) // add restrictor 
-				{
-#ifdef WIN32
-					sprintf(word+wlen-1,(char*)"`%I64u ",F->botBits); 
-#else
-					sprintf(word+wlen-1,(char*)"`%llu ",F->botBits); 
-#endif
-					wlen = strlen(word);
-				}
-				fwrite(word,1,wlen,out);
-				lineSize += wlen;
-				if (lineSize > 500) // avoid long lines
-				{
-					fprintf(out,(char*)"%s",(char*)"\r\n    ");
-					lineSize = 0;
-				}
-				KillFact(F);
+                WriteCMore(F, word, out,lineSize);
 			}
 			F = GetObjectNondeadNext(F);
 		}
-		ReleaseStack(word);
 	}
 
-	fprintf(out,(char*)"%s",(char*)")\r\n");
+    // now do set excludes
+    F = GetObjectNondeadHead(D);
+    if (F)
+    {
+        while (F)
+        {
+            WORDP E = Meaning2Word(F->subject);
+            if (build == BUILD1 && !(F->flags & FACTBUILD1)) { ; } // defined by earlier level
+            else if (build == BUILD2 && !(F->flags & FACTBUILD2)) { ; } // defined by earlier level
+            else if (F->verb == Mexclude && *E->word == '~') // the only relevant facts
+            {
+                sprintf(word, (char*)"!%s ", WriteMeaning(F->subject, true));
+                WriteCMore(F, word, out, lineSize);
+            }
+            F = GetObjectNondeadNext(F);
+        }
+    }
+    // now write out simple excludes only
+    F = GetObjectNondeadHead(D);
+    if (F)
+    {
+        while (F)
+        {
+            WORDP E = Meaning2Word(F->subject);
+            if (build == BUILD1 && !(F->flags & FACTBUILD1)) { ; } // defined by earlier level
+            else if (build == BUILD2 && !(F->flags & FACTBUILD2)) { ; } // defined by earlier level
+            else if (F->verb == Mexclude && *E->word != '~') // the only relevant facts
+            {
+                AddInternalFlag(E, BEEN_HERE);
+                if (*E->word == '"') // change string to std token
+                {
+                    strcpy(word, E->word + 1);
+                    size_t len = strlen(word);
+                    word[len - 1] = ' ';			// remove trailing quote
+                    ForceUnderscores(word);
+                }
+                else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"'%s ", WriteMeaning(F->subject, true));
+                else sprintf(word, (char*)"%s ", WriteMeaning(F->subject, true));
+
+                char* dict = strchr(word + 1, '~'); // has a wordnet attribute on it
+                if (dict) //  full wordnet word reference
+                {
+                    if (E->inferMark != inferMark) SetTriedMeaning(E, 0);
+                    E->inferMark = inferMark;
+                    if (dict)
+                    {
+                        unsigned int which = atoi(dict + 1);
+                        if (which) // given a meaning index, mark it
+                        {
+                            uint64 offset = 1ull << which;
+                            SetTriedMeaning(E, GetTriedMeaning(E) | offset);
+                        }
+                    }
+                }
+
+                // write it out- this INVERTS the order now and when read back in, will be reestablished correctly 
+                // but dictionary storage locations will be inverted
+                WriteCMore(F, word, out, lineSize);
+                KillFact(F);
+            }
+            else KillFact(F);
+            F = GetObjectNondeadNext(F);
+        }
+    }
+    ReleaseStack(word);
+    fprintf(out,(char*)"%s",(char*)")\r\n");
 	fclose(out); // dont use Fclose
 }
 

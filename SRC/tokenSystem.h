@@ -3,7 +3,7 @@
 #include "common.h"
 
 #ifdef INFORMATION
-Copyright (C)2011-2018 by Bruce Wilcox
+Copyright (C)2011-2019 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -16,12 +16,18 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
 
+#define FUNDAMENTAL_VERB 1
+#define FUNDAMENTAL_OBJECT 2
+#define FUNDAMENTAL_SUBJECT 4
+#define FUNDAMENTAL_SUBJECT_OBJECT 8
+
 extern uint64 tokenFlags;  
 extern char* wordStarts[MAX_SENTENCE_LENGTH];
 extern bool capState[MAX_SENTENCE_LENGTH];	
 extern bool originalCapState[MAX_SENTENCE_LENGTH];	
 extern int wordCount;	
 extern int inputNest;
+extern int hasFundamentalMeanings;
 void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens);
 int BurstWord(char* word, int contractionStyle = 0);
 char* GetBurstWord(unsigned int n);

@@ -429,7 +429,7 @@ void CompleteBindStack()
 	infiniteStack = false;
 }
 
-char* Index2Heap(unsigned int offset) 
+char* Index2Heap(HEAPREF offset)
 { 
 	if (!offset) return NULL;
 	char* ptr = heapBase - offset;
@@ -1619,8 +1619,9 @@ void BugBacktrace(FILE* out)
 	while (--i > 1) 
 	{
         frame = GetCallFrame(i);
-		strncpy(rule,frame->rule,50);
-		rule[50] = 0;
+        if (frame->rule) strncpy(rule,frame->rule,50);
+        else strcpy(rule, "unknown rule");
+        rule[50] = 0;
 		fprintf(out,"BugDepth %d: heapusedOnEntry: %d buffers:%d stackused: %d %s ",
 			i,frame->heapDepth,GetCallFrame(i)->memindex,
             (int)(heapFree - (char*)releaseStackDepth[i]), frame->label);
@@ -1654,6 +1655,9 @@ CALLFRAME* ChangeDepth(int value,char* name,bool nostackCutback, char* code)
             if (result) abort = true;
         }
 #endif
+        frame->name = NULL;
+        frame->rule = NULL;
+        frame->label = NULL;
 		if (frame->memindex  != bufferIndex)
 		{
 			ReportBug((char*)"depth %d not closing bufferindex correctly at %s bufferindex now %d was %d\r\n",globalDepth,name,bufferIndex,frame->memindex);
@@ -1677,7 +1681,7 @@ CALLFRAME* ChangeDepth(int value,char* name,bool nostackCutback, char* code)
         stackFree = (char*)(((uint64)stackFree + 7) & 0xFFFFFFFFFFFFFFF8ULL);
         CALLFRAME* frame = (CALLFRAME*) stackFree;
         stackFree += sizeof(CALLFRAME);
-        memset(frame, 0, sizeof(CALLFRAME));
+        memset(frame, 0,sizeof(CALLFRAME));
         frame->label = name;
         frame->code = code;
         frame->rule = (currentRule) ? currentRule : (char*) "";
@@ -1803,6 +1807,49 @@ int myprintf(const char * fmt, ...)
     va_end(ap);
     if (debugOutput) (*debugOutput)(logmainbuffer);
     return 1;
+}
+
+static FILE* rotateLogOnLimit(char *fname,char* directory) {
+    FILE* out = FopenUTF8WriteAppend(fname);
+    if (!out) // see if we can create the directory (assuming its missing)
+    {
+        MakeDirectory(directory);
+        out = userFileSystem.userCreate(fname);
+        if (!out && !inLog) ReportBug((char*)"unable to create logfile %s", fname);
+    }
+
+    int64 size = 0;
+    if (out && loglimit) {
+        // roll log if it is too big
+        int r = fseek(out, 0, SEEK_END);
+#ifdef WIN32
+        size = _ftelli64(out);
+#else
+        size = ftello(out);
+#endif
+        // get MB count of it roughly
+        size /= 1000000;  // MB bytes
+    }
+    if (size > loglimit)
+    {
+        // roll log if it is too big
+        fclose(out);
+        time_t curr = time(0);
+        char* when = GetMyTime(curr); // now
+        char newname[MAX_WORD_SIZE];
+        strcpy(newname, fname);
+        char* at = strrchr(newname, '.');
+        sprintf(at, "-%s.txt", when);
+        at = strchr(newname, ':');
+        *at = '-';
+        at = strchr(newname, ':');
+        *at = '-';
+
+        int result = rename(fname, newname);
+        if (result != 0) perror("Error renaming file");
+        out = FopenUTF8WriteAppend(fname);
+    }
+    return out;
 }
 
 unsigned int Log(unsigned int channel,const char * fmt, ...)
@@ -1986,8 +2033,8 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 	
 		bugLog = true;
 		char name[MAX_WORD_SIZE];
-		sprintf(name,(char*)"%s/bugs.txt",logs);
-		FILE* bug = FopenUTF8WriteAppend(name);
+		sprintf(name,(char*)"%s/bugs.txt",logs); 
+		FILE* bug = rotateLogOnLimit(name,logs);
 		char located[MAX_WORD_SIZE];
 		*located = 0;
 		if (currentTopicID && currentRule) sprintf(located,(char*)" script: %s.%d.%d",GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID));
@@ -2063,125 +2110,17 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 			sprintf(holdBuffer,"%s - %s", GetTimeInfo(&ptm),logmainbuffer);
 			strcpy(logmainbuffer, holdBuffer);
 		}
-		out =  FopenUTF8WriteAppend(fname);
- 		if (!out) // see if we can create the directory (assuming its missing)
-		{
-            MakeDirectory(users);
-			out = userFileSystem.userCreate(fname);
-			if (!out && !inLog) ReportBug((char*)"unable to create user logfile %s", fname);
-		}
+		out =  rotateLogOnLimit(fname,users);
 	}
 	else if(channel == DBTIMELOG) // do db log 
 	{
 		strcpy(fname, dbTimeLogfileName); // one might speed up forked servers by having mutex per pid instead of one common one
-		out = FopenUTF8WriteAppend(fname);
- 		if (!out) // see if we can create the directory (assuming its missing)
-		{
-            MakeDirectory(logs);
-			out = userFileSystem.userCreate(fname);
-		}
-
-		if (loglimit)
-		{ 
-			// roll log if it is too big
-			int64 size;
-			int r = fseek(out, 0, SEEK_END);
-	#ifdef WIN32
-			size = _ftelli64(out);
-	#else
-			size = ftello(out);
-	#endif
-			// get MB count of it roughly
-			size /= 1000000;  // MB bytes
-			if (size >= loglimit)
-			{
-				fclose(out);
-				time_t curr = time(0);
-				char* when = GetMyTime(curr); // now
-				char newname[MAX_WORD_SIZE];
-				char* old = strrchr(fname, '/');
-				strcpy(newname, old+1); // just the name, no directory path
-				char* at = strrchr(newname, '.');
-				sprintf(at, "-%s.txt",when);
-				at = strchr(newname, ':');
-				*at = '-';
-				at = strchr(newname, ':');
-				*at = '-';
-
-#ifdef WIN32
-				SetCurrentDirectory((char*)"LOGS"); 
-#else
-				chdir((char*)"LOGS");
-#endif
-				int result = rename(old+1, newname); // some renames cant handle directory spec
-				if (result != 0) 
-					perror("Error renaming file");
-
-#ifdef WIN32
-				SetCurrentDirectory((char*)"..");
-#else
-				chdir((char*)"..");
-#endif
-
-				out = FopenUTF8WriteAppend(fname);
-			}
-		}
-	}
+        out = rotateLogOnLimit(fname,logs);
+ 	}
     else // do server log 
 	{
 		strcpy(fname, serverLogfileName); // one might speed up forked servers by having mutex per pid instead of one common one
-		out = FopenUTF8WriteAppend(fname);
- 		if (!out) // see if we can create the directory (assuming its missing)
-		{
-            MakeDirectory(logs);
-			out = userFileSystem.userCreate(fname);
-		}
-
-		if (loglimit)
-		{ 
-			// roll log if it is too big
-			int64 size;
-			int r = fseek(out, 0, SEEK_END);
-	#ifdef WIN32
-			size = _ftelli64(out);
-	#else
-			size = ftello(out);
-	#endif
-			// get MB count of it roughly
-			size /= 1000000;  // MB bytes
-			if (size >= loglimit)
-			{
-				fclose(out);
-				time_t curr = time(0);
-				char* when = GetMyTime(curr); // now
-				char newname[MAX_WORD_SIZE];
-				char* old = strrchr(fname, '/');
-				strcpy(newname, old+1); // just the name, no directory path
-				char* at = strrchr(newname, '.');
-				sprintf(at, "-%s.txt",when);
-				at = strchr(newname, ':');
-				*at = '-';
-				at = strchr(newname, ':');
-				*at = '-';
-
-#ifdef WIN32
-				SetCurrentDirectory((char*)"LOGS"); 
-#else
-				chdir((char*)"LOGS");
-#endif
-				int result = rename(old+1, newname); // some renames cant handle directory spec
-				if (result != 0) 
-					perror("Error renaming file");
-
-#ifdef WIN32
-				SetCurrentDirectory((char*)"..");
-#else
-				chdir((char*)"..");
-#endif
-
-				out = FopenUTF8WriteAppend(fname);
-			}
-		}
+        out = rotateLogOnLimit(fname, logs);
 	}
 
     if (out) 
