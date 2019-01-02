@@ -7,6 +7,7 @@
 
 bool hypotheticalMatch = false;
 int currentBeforeLayer = 0;
+int hasFundamentalMeanings = 0;
 
 // functions that manage topic execution (hence displays) are: PerformTopic (gambit, responder), 
 // Reusecode, RefineCode, Rejoinder, Plan
@@ -531,7 +532,6 @@ void WalkTopics(char* function, char* buffer)
     {
         if (!*GetTopicName(i)) continue;
         topicBlock* block = TI(i);
-        char label[MAX_WORD_SIZE];
         // skip if current bot cannot access
         if (block->topicRestriction && !strstr(block->topicRestriction, computerIDwSpace)) continue;
         
@@ -2498,11 +2498,13 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	MEANING T = 0;
 	WORDP set = NULL;
 	while (ReadALine(readBuffer, in)>= 0) //~hate (~dislikeverb )
-	{
+	{// T~tax_expert~2  is a multibot reference  vx'801 is a bot referenced member on basic concept
 		char word[MAX_WORD_SIZE];
 		*word = 0;
 		char name[MAX_WORD_SIZE];
 		char* ptr = readBuffer;
+
+        // process topic/concept definition
 		if (*readBuffer == '~' || endseen || *readBuffer == 'T') // concept, not-a-keyword, topic
 		{
 			parse = 0;
@@ -2510,11 +2512,13 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			type = 0;
 			sys = 0;
 			intbits = 0;
+            startOnly = false;
+            endOnly = false;
 			// get the main concept name
 			ptr = ReadCompiledWord(ptr,word); //   leaves ptr on next good word
-			if (*word == 'T') memmove(word,word+1,strlen(word));
+			if (*word == 'T') memmove(word,word+1,strlen(word)); // remove T
 			strcpy(name,word);
-			T = ReadMeaning(word,true,true);
+			T = ReadMeaning(name,true,true);
 			set = Meaning2Word(T);
 			AddInternalFlag(set,(unsigned int) (CONCEPT|build));// sets and concepts are both sets. Topics get extra labelled on script load
 			if (dictionaryBuild) AddSystemFlag(set,MARKED_WORD);
@@ -2523,36 +2527,37 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			// read any properties to mark on the members
 			while (*ptr != '(' && *ptr != '"')
 			{
-				ptr = ReadCompiledWord(ptr,word);
-				if (!stricmp(word,(char*)"UPPERCASE_MATCH"))
+                char word3[MAX_WORD_SIZE];
+				ptr = ReadCompiledWord(ptr, word3);
+				if (!stricmp(word3,(char*)"UPPERCASE_MATCH"))
 				{
 					intbits |= UPPERCASE_MATCH;
 					continue;
 				}
-				if (!stricmp(word, (char*)"PREFER_THIS_UPPERCASE"))
+				if (!stricmp(word3, (char*)"PREFER_THIS_UPPERCASE"))
 				{
 					intbits |= PREFER_THIS_UPPERCASE;
 					continue;
 				}
-                if (!stricmp(word, (char*)"START_ONLY"))
+                if (!stricmp(word3, (char*)"START_ONLY"))
                 {
                     startOnly = true;
                     continue;
                 }
-                if (!stricmp(word, (char*)"END_ONLY"))
+                if (!stricmp(word3, (char*)"END_ONLY"))
                 {
                     endOnly = true;
                     continue;
                 }
-                uint64 val = FindValueByName(word);
+                uint64 val = FindValueByName(word3);
 				if ( val) type |= val;
 				else 
 				{
-					val = FindSystemValueByName(word);
+					val = FindSystemValueByName(word3);
 					if ( val) sys |= val;
 					else 
 					{
-						val = FindParseValueByName(word);
+						val = FindParseValueByName(word3);
 						if (val) parse |= val;
 						else break; // unknown
 					}
@@ -2563,123 +2568,124 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			AddParseBits(set,parse); 
 			AddInternalFlag(set,intbits);
 			if (sys & DELAYED_RECURSIVE_DIRECT_MEMBER) sys ^= DELAYED_RECURSIVE_DIRECT_MEMBER; // only mark top set for this recursive membership
-			char* dot = strchr(word,'.');
+			char* dot = strchr(name,'.');
 			if (dot) // convert the topic family to the root name --- BUG breaks with amazon data...
 			{
 				*dot = 0;
-				T = ReadMeaning(word,true,true);
+				T = ReadMeaning(name,true,true);
 			}
 			ptr += 2;	//   skip the ( and space
 			endseen = false;
 		}
-
 		required = set->systemFlags & (PROBABLE_NOUN|PROBABLE_VERB|PROBABLE_ADJECTIVE|PROBABLE_ADVERB); // aka ONLY_NOUN ONLY_VERB etc
 		if (set->systemFlags & ONLY_NONE) 
 			sys &= -1 ^ ONLY_NONE; // dont pass this on to anyone
-		// now read the keywords
-		while (ALWAYS)
-		{
-			// may have ` after it so simulate ReadCompiledWord which wont tolerate it
-			char* at = word;
-			if (!*ptr) break;
-			ptr = SkipWhitespace(ptr);
-			while(*ptr && *ptr != ' ')
-			{
-				*at++ = *ptr++;
-			}
-			*at = 0;
-			if (*ptr) ++ptr;	// skip over space for next time
+		
+        // now read the keywords
+        char keyword[MAX_WORD_SIZE];
+        while (ALWAYS)
+        {
+            // may have ` after it so simulate ReadCompiledWord which wont tolerate it
+            char* at = keyword; // place to write into
+            if (!*ptr) break;
+            ptr = SkipWhitespace(ptr);
+            while (*ptr && *ptr != ' ')
+            {
+                *at++ = *ptr++;
+            }
+            *at = 0; 
+            if (*ptr) ++ptr;	// skip over space for next time
 
-			if (*word == ')' ||  !*word  ) break; // til end of keywords or end of line
-			MEANING U;
-			myBot = 0;
-			char* botflag = strchr(word,'`');
-			if (botflag)
-			{
-				*botflag = 0;
-				myBot = atoi64(botflag+1);
-			}
-			char* p1 = word;
-			bool original = false;
-			if (*p1 == '\'' && p1[1]) // quoted value but not standalone '   
-			{
-				++p1;
-				original = true;
-			}
-			if (*p1 == '\\' && p1[1] == '\'') ++p1;  // protected \'s or similar
-			if (*word == '!' && word[1]) 
-			{
-				++p1;
-				AddInternalFlag(set,HAS_EXCLUDE);
-			}
-			U = ReadMeaning(p1,true,true);
-			if (!U) continue; // bug fix for "Buchon Fris " ending in space incorrectly
-			if (Meaning2Index(U)) U = GetMaster(U); // use master if given specific meaning
-				
-			WORDP D = Meaning2Word(U);
-			if (D->internalBits & DELETED_MARK  && !(D->internalBits & TOPIC)) RemoveInternalFlag(D,DELETED_MARK); 
-			if (dictionaryBuild) AddSystemFlag(D,MARKED_WORD);
-			if (type && !strchr(p1+1,'~')) // not dictionary entry
-			{
-				AddSystemFlag(D,sys);
-				AddParseBits(D,parse); 
-				uint64 type1 = type;
-				if (D->internalBits & UPPERCASE_HASH && type & NOUN_SINGULAR)
-				{
-					type1 ^= NOUN_SINGULAR;
-					type1 = NOUN_PROPER_SINGULAR;
-				}
+            if (*keyword == ')' || !*keyword) break; // til end of keywords or end of line
+            MEANING U;
+            myBot = 0;
+            char* botflag = strchr(keyword, '`');
+            if (botflag)
+            {
+                *botflag = 0;
+                myBot = atoi64(botflag + 1);
+            }
+            char* p1 = keyword;
+            bool original = false;
+            if (*p1 == '\'' && p1[1]) // quoted value but not standalone '   
+            {
+                ++p1;
+                original = true;
+            }
+            if (*p1 == '\\' && p1[1] == '\'') ++p1;  // protected \'s or similar
+            if (*keyword == '!' && keyword[1])
+            {
+                ++p1;
+                AddInternalFlag(set, HAS_EXCLUDE);
+            }
+            U = ReadMeaning(p1, true, true);
+            if (!U) continue; // bug fix for "Buchon Fris " ending in space incorrectly
+            if (Meaning2Index(U)) U = GetMaster(U); // use master if given specific meaning
+            if (strchr(keyword + 1, '~')) StoreWord(keyword, AS_IS); // make sure pos-marked words enter dictionary for markhit later
+            WORDP D = Meaning2Word(U);
+            if (D->internalBits & DELETED_MARK && !(D->internalBits & TOPIC)) RemoveInternalFlag(D, DELETED_MARK);
+            if (dictionaryBuild) AddSystemFlag(D, MARKED_WORD);
+            if (type && !strchr(p1 + 1, '~')) // not dictionary entry
+            {
+                AddSystemFlag(D, sys);
+                AddParseBits(D, parse);
+                uint64 type1 = type;
+                if (D->internalBits & UPPERCASE_HASH && type & NOUN_SINGULAR)
+                {
+                    type1 ^= NOUN_SINGULAR;
+                    type1 = NOUN_PROPER_SINGULAR;
+                }
 
-				AddProperty(D, type1); // require type doesnt set the type, merely requires it be that
-				AddInternalFlag(D,intbits);
-				if (type & NOUN && *p1 != '~' && !(D->properties & (NOUN_SINGULAR|NOUN_PLURAL|NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL|NOUN_NUMBER)))
-				{
-					if (D->internalBits & UPPERCASE_HASH) AddProperty(D,NOUN_PROPER_SINGULAR);
-					else if (IsNumber(word) != NOT_A_NUMBER) AddProperty(D,NOUN_NUMBER);
-					else AddProperty(D,NOUN_SINGULAR);
-				}
-			}
+                AddProperty(D, type1); // require type doesnt set the type, merely requires it be that
+                AddInternalFlag(D, intbits);
+                if (type & NOUN && *p1 != '~' && !(D->properties & (NOUN_SINGULAR | NOUN_PLURAL | NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_NUMBER)))
+                {
+                    if (D->internalBits & UPPERCASE_HASH) AddProperty(D, NOUN_PROPER_SINGULAR);
+                    else if (IsNumber(keyword) != NOT_A_NUMBER) AddProperty(D, NOUN_NUMBER);
+                    else AddProperty(D, NOUN_SINGULAR);
+                }
+            }
             // dont protect upper case that has lowercase. spell check will leave it anyway (Children as starter of a title)
-			else if (IsAlphaUTF8(p1[0]) && !FindWord(p1, 0, LOWERCASE_LOOKUP)) AddSystemFlag(D,PATTERN_WORD); // blocks spell checking to something else
-			
-			unsigned int index = Meaning2Index(U);
-			if (index) U = GetMaster(U); // if not currently the master, switch to master
+            else if (IsAlphaUTF8(p1[0]) && !FindWord(p1, 0, LOWERCASE_LOOKUP)) AddSystemFlag(D, PATTERN_WORD); // blocks spell checking to something else
 
-			 // recursively do all members of an included set. When we see the set here and its defined, we will scan it
-			// if we are DEFINING it now, we scan and mark. Eventually it will propogate
-			if (*D->word != '~') // do simple word properties
-			{
-				uint64 type1 = type;
-				if (type & NOUN_SINGULAR && D->internalBits & UPPERCASE_HASH)
-				{
-					type1 ^= NOUN_SINGULAR;
-					type1 |= NOUN_PROPER_SINGULAR;
-				}
-				AddProperty(D, type1);
-				AddSystemFlag(D,sys);
-				AddParseBits(D,parse); 
-				AddInternalFlag(D,intbits);
-				U |= (type | required)  & (NOUN|VERB|ADJECTIVE|ADVERB); // add any pos restriction as well
+            unsigned int index = Meaning2Index(U);
+            if (index) U = GetMaster(U); // if not currently the master, switch to master
 
-				// if word is proper name, allow it to be substituted
-				if (D->internalBits & UPPERCASE_HASH)
-				{
-					size_t len = strlen(D->word);
-					char* underscore = strchr(D->word,'_');
-					if (underscore) 
-					{
-						unsigned int n = 1;
-						char* at = underscore-1;
-						while ((at = strchr(at+1,'_'))) ++n;
-						if (n > 1 && n > GETMULTIWORDHEADER(D)) 
-						{
-							*underscore = 0;
-							WORDP E = StoreWord(D->word);
-							*underscore = '_';
-							if (n > GETMULTIWORDHEADER(E)) SETMULTIWORDHEADER(E, n);	//   mark it can go this far for an idiom
-						}
-					}
-				}
+             // recursively do all members of an included set. When we see the set here and its defined, we will scan it
+            // if we are DEFINING it now, we scan and mark. Eventually it will propogate
+            if (*D->word != '~') // do simple word properties
+            {
+                uint64 type1 = type;
+                if (type & NOUN_SINGULAR && D->internalBits & UPPERCASE_HASH)
+                {
+                    type1 ^= NOUN_SINGULAR;
+                    type1 |= NOUN_PROPER_SINGULAR;
+                }
+                AddProperty(D, type1);
+                AddSystemFlag(D, sys);
+                AddParseBits(D, parse);
+                AddInternalFlag(D, intbits);
+                U |= (type | required)  & (NOUN | VERB | ADJECTIVE | ADVERB); // add any pos restriction as well
+
+                // if word is proper name, allow it to be substituted
+                if (D->internalBits & UPPERCASE_HASH)
+                {
+                    size_t len = strlen(D->word);
+                    char* underscore = strchr(D->word, '_');
+                    if (underscore)
+                    {
+                        unsigned int n = 1;
+                        char* at = underscore - 1;
+                        while ((at = strchr(at + 1, '_'))) ++n;
+                        if (n > 1 && n > GETMULTIWORDHEADER(D))
+                        {
+                            *underscore = 0;
+                            WORDP E = StoreWord(D->word);
+                            *underscore = '_';
+                            if (n > GETMULTIWORDHEADER(E)) SETMULTIWORDHEADER(E, n);	//   mark it can go this far for an idiom
+                        }
+                    }
+                }
                 // insure whole word safe from spell check
                 char* space = strchr(D->word, ' ');
                 char* underscore = strchr(D->word, '_');
@@ -2691,10 +2697,10 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 else sep = '_';
                 if (sep && !(D->internalBits & UPPERCASE_HASH))
                 {
-                    char word[MAX_WORD_SIZE];
-                    strcpy(word, D->word);
-                    char* at = word;
-                    char* old = word;
+                    char wordcopy[MAX_WORD_SIZE];
+                    strcpy(wordcopy, D->word);
+                    char* at = wordcopy;
+                    char* old = wordcopy;
                     while ((at = strchr(at, sep))) // break apart into pieces.
                     {
                         *at++ = 0;
@@ -2706,28 +2712,52 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                     if (*old) InsureSafeSpellcheck(old);
                 }
             }
-			else // recurse on concept
-			{
-				if (type || sys || parse || required)
-				{
-					holdset[holdindex] = D;
-					holdprop[holdindex] = type;
-					holdsys[holdindex] = sys;
-					holdparse[holdindex] = parse;
-					holdrequired[holdindex] = required;
-					++holdindex;
-					if (holdindex >= 10000) ReportBug((char*)"FATAL: Too much concept recursion in keywordinit");
-				}
-			}
-	
-			MEANING verb = (*word == '!') ? Mexclude : Mmember;
-			int flags = (original) ? (FACTDUPLICATE|ORIGINAL_ONLY) : FACTDUPLICATE;
+            else // recurse on concept
+            {
+                if (type || sys || parse || required)
+                {
+                    holdset[holdindex] = D;
+                    holdprop[holdindex] = type;
+                    holdsys[holdindex] = sys;
+                    holdparse[holdindex] = parse;
+                    holdrequired[holdindex] = required;
+                    ++holdindex;
+                    if (holdindex >= 10000) ReportBug((char*)"FATAL: Too much concept recursion in keywordinit");
+                }
+            }
+
+            MEANING verb = (*keyword == '!') ? Mexclude : Mmember;
+            int flags = (original) ? (FACTDUPLICATE | ORIGINAL_ONLY) : FACTDUPLICATE;
             if (startOnly) flags |= START_ONLY;
             if (endOnly) flags |= END_ONLY;
             if (build == BUILD2) flags |= FACTBUILD2;
-			CreateFact(U,verb,T,flags ); // script compiler will have removed duplicates if that was desired
-		}
-		if (*word == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line
+            CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
+            char* name = Meaning2Word(U)->word;
+            char* begin = strchr(name, '|');
+            char* end = (begin) ? strchr(begin + 1, '|') : NULL;
+            if (begin && end)
+            {
+                char word1[MAX_WORD_SIZE];
+                hasFundamentalMeanings = FUNDAMENTAL_VERB;
+                strncpy(word1, begin, end - begin + 1);
+                word1[end - begin + 1] = 0;
+                StoreWord(word1); // make VERB findable because we care about it
+                if (begin != name)
+                {
+                    hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT;
+                    char c = end[1];
+                    end[1] = 0;
+                    StoreWord(name); // make subject findable because we care about it
+                    end[1] = c;
+                }
+                if (end && end[1])
+                {
+                    hasFundamentalMeanings |= FUNDAMENTAL_OBJECT;
+                    if (begin != name) hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT_OBJECT;
+                }
+            }
+        }
+		if (*keyword == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line
 	}
 	while (holdindex--) // now all local set defines shall have happened- wont work CROSS build zones
 	{

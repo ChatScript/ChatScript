@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/9/2018 cs8.3
+<br>Revision 1/1/2019 cs9.0
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -260,7 +260,7 @@ setting them.
 | --------            | ---------------------------------------------- |
 | `%date`             | one or two digit day of the month 
 | `%day`              |Sunday, etc
-| `%daynumber`        | 0-6 where 0 = Sunday
+| `%daynumber`        | 1-7 where 1 = Sunday
 | `%fulltime`         | seconds representing the current time and date (Unix epoch time) 
 | `%hour`             |  0-23
 | `%timenumbers`      | completely consistent full time info in numbers that you can do <br>`_0 = ^burst(%timenumbers)`to get  `_0` =seconds (2digit) <br>`_1`=minutes (2digit) <br>`_2`=hours (2digit) <br>`_3`=dayinweek(0-6 Sunday=0) <br>`_4`=dateinmonth (1-31) <br>`_5`=month(0-11 January=0) <br>`_6`=year.<br>You need to get it simultaneously if you want to do accurate things with current time, since retrieving %hour %minute separately allows time to change between calls 

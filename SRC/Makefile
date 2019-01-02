@@ -1,5 +1,8 @@
 .PHONY = clean binary server debugserver standalone pgserver debugpgserver mysqlserver debugmysqlserver mongoserver debugmongoserver foreignserver mongotreetaggerserver 
 
+# WARNING: optimization level -O3 is potentially hazardous
+# I think I have seen code fail because of it.
+
 # Removed the 'all' target.  It does not  make sense since each build target requires a different set of defines.
 # So we need to clean before building each target in order compile in the right stuff.  
 #
@@ -18,7 +21,7 @@ server: PGLOAD= -pthread
 server: INCLUDEDIRS=-Ievserver
 server: binary
 server: EXECUTABLE=$(executable.server)
-server: CFLAGS=-c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing 
+server: CFLAGS=-c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
 
 executable.debugserver=../BINARIES/ChatScriptDebug
 debugserver: DEFINES+= -DLOCKUSERFILE=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1 
@@ -34,7 +37,7 @@ standalone: PGLOAD= -pthread
 standalone: INCLUDEDIRS=-Ievserver
 standalone: binary
 standalone: EXECUTABLE=$(executable.standalone)
-standalone: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing 
+standalone: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
 
 executable.pgserver=../BINARIES/ChatScriptpg
 pgserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1
@@ -42,7 +45,7 @@ pgserver: PGLOAD= -lpq -pthread
 pgserver: binary
 pgserver: EXECUTABLE=$(executable.pgserver)
 pgserver: INCLUDEDIRS=-Ievserver -Ipostgres
-pgserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing 
+pgserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
 
 executable.debugpgserver=../BINARIES/ChatScriptpgDebug
 debugpgserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDMONGO=1 -DDISCARDMYSQL=1
@@ -74,7 +77,7 @@ mongoserver: PGLOAD= -pthread -lmongoc-1.0 -lbson-1.0
 mongoserver: binary
 mongoserver: EXECUTABLE=$(executable.mongoserver)
 mongoserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
-mongoserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
+mongoserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
 
 executable.treetaggerserver=../BINARIES/ChatScriptTT
 treetaggerserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMYSQL=1  -DDISCARDMONGO=1  -DTREETAGGER=1
@@ -82,7 +85,7 @@ treetaggerserver: PGLOAD= -pthread -L../BINARIES -ltreetagger
 treetaggerserver: binary
 treetaggerserver: EXECUTABLE=$(executable.treetaggerserver)
 treetaggerserver: INCLUDEDIRS=-Iinclude 
-treetaggerserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
+treetaggerserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
 
 executable.debugmongoserver=../BINARIES/ChatScriptMongoDebug
 debugmongoserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1
@@ -98,7 +101,7 @@ foreignserver: PGLOAD= -pthread -L../treetagger -L../BINARIES -ltreetagger
 foreignserver: INCLUDEDIRS=-Ievserver
 foreignserver: binary
 foreignserver: EXECUTABLE=$(executable.foreignserver)
-foreignserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing 
+foreignserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O2
 
 executable.mongotreetaggerserver=../BINARIES/ChatScriptMongoForeign
 mongotreetaggerserver: DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1 -DTREETAGGER=1
@@ -106,7 +109,7 @@ mongotreetaggerserver: PGLOAD= -pthread  -L../BINARIES -ltreetagger
 mongotreetaggerserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
 mongotreetaggerserver: binary
 mongotreetaggerserver: EXECUTABLE=$(executable.mongotreetaggerserver)
-mongotreetaggerserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing 
+mongotreetaggerserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
 
 UNAME := $(shell uname)
 

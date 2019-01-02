@@ -345,7 +345,8 @@ FACT* SpecialFact(FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object,unsigned in
 	if (++factFree == factEnd) 
 	{
 		--factFree;
-		ReportBug((char*)"out of fact space at %d",Fact2Index(factFree))
+        if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(factFree))
+        ReportBug((char*)"out of fact space at %d",Fact2Index(factFree))
 		(*printer)((char*)"%s",(char*)"out of fact space");
 		return factFree; // dont return null because we dont want to crash anywhere
 	}
@@ -1140,7 +1141,8 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	if (++factFree == factEnd) 
 	{
 		--factFree;
-		ReportBug((char*)"out of fact space at %d",Fact2Index(factFree))
+        if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(factFree))
+        ReportBug((char*)"out of fact space at %d",Fact2Index(factFree))
 		(*printer)((char*)"%s",(char*)"out of fact space");
 		return NULL;
 	}

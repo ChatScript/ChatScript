@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/4/2018 cs8.6</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/14/2019 cs9.0</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -135,6 +135,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <pre><code>^setrejoinder(copy %inputrejoinder)</code></pre>
 <p>If <em>kind</em> is output or copy and no tag is given or the <em>tag</em> is <code>null</code>, the output rejoinder is cleared (analogous to ^disable).</p>
 <p>If the <em>kind</em> is input and no tag is given or the <em>tag</em> is <code>null</code>, the input rejoinder is cleared.</p>
+<p>To kill a set outputrejoinder, use ^disable(OUTPUTREJOINDER).</p>
 <h3 id="topicflags-topic"><code>^topicflags ( topic )</code></h3>
 <p>Given a topic name, return the control bits for that topic. The bits are mapped in dictionary_system.h as <code>TOPIC_*</code>.</p>
 <h3 id="sleep-milliseconds"><code>^sleep ( milliseconds )</code></h3>
@@ -480,8 +481,8 @@ u: what&#39;s your first name?
 <h3 id="eval-flags-stream"><code>^eval ( flags stream )</code></h3>
 <p>To evaluate a stream as though it were output (like to assign a variable). Can be used to execute <code>:</code>commands from script as well.</p>
 <p><em>Flags</em> are optional and match the flag capabilities of <code>^print</code>.</p>
-<p>One common flag would be <code>OUTPUT_NOQUOTES</code> if you wanted to string enclosing &quot;&quot; from a value. E.g.,</p>
-<pre><code>$$tmp = ^eval(OUTPUT_NOQUOTES ^arg1)</code></pre>
+<p>One common flag would be <code>OUTPUT_NOQUOTES</code> if you wanted to remove the enclosing &quot;&quot; from a user variable value. E.g.,</p>
+<pre><code>$$tmp = ^eval(OUTPUT_NOQUOTES $$arg1)</code></pre>
 <p><code>^eval</code> is also particularly used with variables, when you know the value of a variable is itself a variable name and you want its actual value, e.g.</p>
 <pre><code>$nox = 1
 $$tmp = join($ no x)
@@ -849,10 +850,12 @@ u: (%document)
 <pre><code>^extract($$source -1 +1) # from end, 1 character before and get 1 character
 
 ^extract($$source -5 -1) # from end, 5 characters before and get 1 character before. i.e. the 6th char from end.</code></pre>
+<p>Note start offset is 0-based indexing, but if you used ^findtext, it was 1-based index so you probably need to subtract 1.</p>
 <h3 id="findtext-source-substring-offset-insensitive"><code>^findtext ( source substring offset {insensitive} )</code></h3>
 <p>Find case sensitive substring within source+offset and return offset starting immediately after match. Useful for data extraction using <code>^popen</code> and <code>^tcpopen</code> when combined with <code>^extract</code>. <code>$$findtext_start</code> is bound to the actual start of the match. <code>$$findtext_word</code> is bound to the word index in which the match was found where one or more blanks separate words. Indexing starts at 1 (same as sentence positional notation).</p>
 <p>An optional fourth argument <code>insensitive</code> will match insensitively.</p>
 <p>Failing to match will generate a rule failure. If the source or substring contains an <code>_</code>, these will be converted to blanks before execution, to allow that or the space notation to be considered equivalent (unless your source or substring is literally an underscore only).</p>
+<p>If you want to find a newline or tab character, then pass in the string or . That will find an actual ascii character of such. If you want to find the ascii string &quot;&quot;, then use \n and \t to find them. Normal scripts don't have ascii newline or tab in them. You wrote the backslashed characters and they are converted to the appropriate ascii characters on output to the user. But if you have read data from an external source, it will likely be the actual ascii characters.</p>
 <h3 id="flags-word"><code>^flags ( word )</code></h3>
 <p>get the 64bit systemflags of a word.</p>
 <h3 id="intersectwords-arg1-arg2-optional"><code>^intersectwords ( arg1 arg2 optional )</code></h3>

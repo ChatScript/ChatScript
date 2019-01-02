@@ -1841,8 +1841,9 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
 
                     char wantrule[MAX_WORD_SIZE];
                     strcpy(wantrule, ShowRule(rule));
-                    Log(STDTRACETABLOG, (char*)"Bad sample topic: %d  (%s.%d.%d)   %s  =>   %s  (%s) \r\n   want: : %s\r\n    got: %s%s\r\n", ++err, topic, TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), test, responseData[0].response, GetTopicName(replytopic), wantrule,
-                        responseData[0].id, gotrule);
+                    Log(STDTRACETABLOG, (char*)"Bad sample topic: %d  (%s.%d.%d)   %s  =>   %s\r\n", ++err, topic, TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), test, responseData[0].response);
+                    Log(STDTRACETABLOG, (char*)"   want: %s.%d.%d %s\r\n", GetTopicName(topicID), TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), wantrule );
+                    Log(STDTRACETABLOG, (char*)"   got : %s%s %s\r\n", GetTopicName(replytopic), responseData[0].id, gotrule);
                     if (gotrule2) Log(STDTRACETABLOG, (char*)"    via %s.%d.%d: %s", GetTopicName(replytopic2), TOPLEVELID(gotid2), REJOINDERID(gotid2), gotrule2);
                     Log(STDTRACELOG, (char*)"\r\n\r\n");
                 }
@@ -1894,10 +1895,11 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
                     {
                         char tmp[MAX_WORD_SIZE];
                         strcpy(tmp, ShowRule(rule));
-                        Log(STDTRACETABLOG, (char*)"Bad sample rule %d %s  For: %s \r\n   want- %d.%d %s\r\n   got - %s => %s", ++err, topic, test,
-                            TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), tmp,
-                            responseData[0].id + 1, ShowRule(gotrule));
-                        if (*gotrule2) Log(STDTRACELOG, (char*)"\r\n   via %s.%d.%d: %s", GetTopicName(replytopic2), TOPLEVELID(gotid2), REJOINDERID(gotid2), gotrule2);
+                        Log(STDTRACETABLOG, (char*)"Bad sample rule %d %s  For input: %s ==> %s\r\n", ++err, topic, test, responseData[0].response);
+                        Log(STDTRACETABLOG, (char*)"    want - %s.%d.%d %s\r\n",
+                            GetTopicName(topicID),TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), tmp);
+                        Log(STDTRACETABLOG, (char*)"    got - %s%s = > %s", GetTopicName(topicID),responseData[0].id, ShowRule(gotrule));
+                            if (*gotrule2) Log(STDTRACELOG, (char*)"\r\n   via %s.%d.%d: %s", GetTopicName(replytopic2), TOPLEVELID(gotid2), REJOINDERID(gotid2), gotrule2);
                         Log(STDTRACELOG, (char*)"\r\n\r\n");
                     }
                     *end = ENDUNIT;
@@ -5356,6 +5358,182 @@ static void C_VerifySentence(char* input)
 		(*printer)("\r\n\r\n");
 	}
 }
+
+#include <map>
+using namespace std;
+extern std::map <WORDP, int> countData; // per volley index into heap space
+static void C_CountWords(char* input)
+{
+    if (!stricmp(input, "all"))
+    {
+        C_CountWords("car");
+        C_CountWords("computer");
+        C_CountWords("legal");
+        C_CountWords("appraisals");
+        C_CountWords("consumer_electronics");
+        C_CountWords("business_and_finance_homework");
+        C_CountWords("home_improvement");
+        C_CountWords("medical");
+        C_CountWords("boat");
+        C_CountWords("tax");
+        C_CountWords("heavy_equipment");
+        C_CountWords("general");
+        C_CountWords("engineering");
+        C_CountWords("homework");
+        return;
+    }
+    char filename[MAX_WORD_SIZE];
+    sprintf(filename, "mlcat/%s.txt", input);
+    FILE* in = FopenReadOnly(filename);
+    if (!in)
+    {
+        (*printer)("no such file %s\r\n",input);
+        return;
+    }
+    while (ReadALine(readBuffer, in) >= 0)
+    {
+        char word[MAX_WORD_SIZE];
+        char* ptr = readBuffer;
+        while (1)
+        {
+            ptr = ReadCompiledWord(ptr,word);
+            if (!*word) break;
+            WORDP D = StoreWord(word);
+            countData[D] += 1;
+        }
+    }
+    fclose(in);
+    sprintf(filename, "mlcatcount/%s.txt", input);
+    FILE* out = FopenUTF8Write(filename);
+    // show content:
+    for (std::map<WORDP, int>::iterator it = countData.begin(); it != countData.end(); ++it)
+    {
+        fprintf(out,"%6.6d %s \r\n",it->second,it->first->word);
+    }
+    fclose(out);
+    countData.clear();
+    printf("done %s\r\n",input);
+}
+
+static void C_CountCat1(char* input) // mark count of cats involved
+{
+    char filename[MAX_WORD_SIZE];
+    sprintf(filename, "mlcatcount/%s.txt", input);
+    FILE* in = FopenReadOnly(filename);
+    if (!in)
+    {
+        (*printer)("no such file %s\r\n", input);
+        return;
+    }
+    while (ReadALine(readBuffer, in) >= 0) // read count and word per line
+    {
+        char word[MAX_WORD_SIZE];
+        char* ptr = readBuffer;
+        ptr = ReadCompiledWord(ptr, word);
+        if (!*word) break;
+        int count = atoi(word); // how many times this word in cat 
+        ptr = ReadCompiledWord(ptr, word); // the word
+        WORDP D = StoreWord(word);
+        if (count >= 1) D->counter += 1; // how many files have it significantly
+//        if (count > D->counter1) D->counter1 = count; // max
+    }
+    fclose(in);
+}
+
+static void C_CountCat2(char* input)
+{
+    // discard words going to 4 or more cats with 10 or more counts
+    char filename[MAX_WORD_SIZE];
+    sprintf(filename, "mlcatcount/%s.txt", input);
+    FILE* in = FopenReadOnly(filename);
+    if (!in) return;
+
+    sprintf(filename, "mlcatcount/good-%s.txt", input);
+    FILE* outgood = FopenUTF8Write(filename);
+    sprintf(filename, "mlcatcount/bad-%s.txt", input);
+    FILE* outbad = FopenUTF8Write(filename);
+    sprintf(filename, "mlcatcount/unique-%s.txt", input);
+    FILE* outunique = FopenUTF8Write(filename);
+    int accept = 0;
+    int reject = 0;
+    int unique = 1;
+    while (ReadALine(readBuffer, in) >= 0) // read count and word per line
+    {
+        char word[MAX_WORD_SIZE];
+        char* ptr = readBuffer;
+        ptr = ReadCompiledWord(ptr, word);
+        if (!*word) break;
+        int count = atoi(word); // how many times this word in cat 
+        ptr = ReadCompiledWord(ptr, word); // the word
+        WORDP D = StoreWord(word);
+        bool weak = false;
+//        if ((count * 5) < D->counter1 && D->counter1 > 100) weak = true;
+        if (D->internalBits & UPPERCASE_HASH) weak = true;
+        if (!(D->properties & (VERB|NOUN))) weak = true;
+
+        if (weak || D->counter >= 10 || *word == '~' || IsDigitWord(word)) // not enough discrimination
+        {
+            ++reject;
+            fprintf(outbad, "%d %6.6d %s\r\n", D->counter,count, word);
+        }
+        else
+        {
+            ++accept;
+            fprintf(outgood, "%d %6.6d %s\r\n", D->counter, count, word);
+            if (D->counter == 1)
+            {
+                fprintf(outunique, "%d %6.6d %s\r\n", D->counter, count, word);
+                ++unique;
+            }
+        }
+    }
+    fprintf(outgood, "%d\r\n", accept);
+    fprintf(outbad, "%d\r\n", reject);
+    fprintf(outunique, "%d\r\n", unique);
+
+    fclose(in);
+    fclose(outgood);
+    fclose(outbad);
+    fclose(outunique);
+}
+
+static void C_CountCat(char* input)
+{
+    // read words, count how many cats they are in
+    C_CountCat1("car");
+    C_CountCat1("computer");
+    C_CountCat1("legal");
+    C_CountCat1("appraisals");
+    C_CountCat1("consumer_electronics");
+    C_CountCat1("business_and_finance_homework");
+    C_CountCat1("home_improvement");
+    C_CountCat1("medical");
+    C_CountCat1("boat");
+    C_CountCat1("tax");
+    C_CountCat1("heavy_equipment");
+    C_CountCat1("general");
+    C_CountCat1("engineering");
+    C_CountCat1("homework");
+
+    // read words, sort by good or bad keys
+    C_CountCat2("car");
+    C_CountCat2("computer");
+    C_CountCat2("legal");
+    C_CountCat2("appraisals");
+    C_CountCat2("consumer_electronics");
+    C_CountCat2("business_and_finance_homework");
+    C_CountCat2("home_improvement");
+    C_CountCat2("medical");
+    C_CountCat2("boat");
+    C_CountCat2("tax");
+    C_CountCat2("heavy_equipment");
+    C_CountCat2("general");
+    C_CountCat2("engineering");
+    C_CountCat2("homework");
+
+    printf("done %s\r\n", input);
+}
+
 
 static void C_WordDump(char* input)
 {
@@ -10164,6 +10342,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":worddump",C_WordDump,(char*)"show words via hardcoded test"}, 
 	{ (char*)":verifySentence",C_VerifySentence,(char*)"verification data"}, 
     { (char*)":timelog",C_TimeLog,(char*)"avg min and max of a log named" },
+    { (char*)":countwords",C_CountWords,(char*)"generate counts of words listed in file" },
+    { (char*)":countcat",C_CountCat,(char*)"generate counts of words listed in file" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

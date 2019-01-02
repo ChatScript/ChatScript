@@ -1477,7 +1477,7 @@
           the_play theater to_juggle ) ##>>
 ##<<ENGLISH concept: ~performlist (dance juggle play~40 sing to_act to_sing ) ##>>
 ##<<ENGLISH concept: ~personal_article (comb contact_lenses eyeglasses hairbrush handbag luggage personal_article razor toothbrush tweezer umbrella ) ##>>
-##<<ENGLISH concept: ~pet_animals   PROBABLE_NOUN ANIMATE_BEING (~bird angelfish animal bird canary catfish cat~1 cat~2 chameleon chicken~1 colt dog~1 dolphin donkey~1 ferret fish 
+##<<ENGLISH concept: ~pet_animals    ANIMATE_BEING (~bird angelfish  bird canary catfish cat~1 cat~2 chameleon chicken~1 colt dog~1 dolphin donkey~1 ferret fish 
           frog~1 gerbil goldfish guinea_pig hamster hedgehog horse~1 iguana kitten lizard monkey~1 mouse~1 mule parakeet parrot pig~1 rabbit~1 raccoon rattlesnake rat~1 salamander~1 
           snake spider~1 turtle~1 ) ##>>
 ##<<ENGLISH concept: ~pet_cage (aquarium aviary barn bird-house bird_cage bird_house birdcage birdhouse cage coop dog-house doghouse fish_tank hutch kennel stable sty terrarium vivarium ) ##>>

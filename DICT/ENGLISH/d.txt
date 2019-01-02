@@ -8963,7 +8963,7 @@
  d ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON2 ) 
     five_hundred~3a 
  double-u ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
-    W~1nz (^letter~3) the 23rd letter of the Roman alphabet
+    w~1nz (^letter~3) the 23rd letter of the Roman alphabet
  daleth ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     daleth~1nz (^letter~3) the 4th letter of the Hebrew alphabet
  double_quotes ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
@@ -13570,7 +13570,7 @@
  degree_Celsius ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     degree_centigrade~1n 
  degree_Fahrenheit ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
-    F~3nz (^degree~6) a degree on the Fahrenheit scale of temperature
+    degree_Fahrenheit~1nz (^degree~6) a degree on the Fahrenheit scale of temperature
  degree_day ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     degree_day~1nz (^temperature_unit~1) a unit used in estimating fuel requirements for heating a building
     commencement_day~1n 
@@ -13666,13 +13666,13 @@
     polar~4a 
     diametral~1az related to or along a diameter
  due_north ( meanings=1 NOUN NOUN_SINGULAR ) 
-    N~4n 
+    north~2n 
  due_east ( meanings=1 NOUN NOUN_SINGULAR ) 
     E~2n 
  due_south ( meanings=1 NOUN NOUN_SINGULAR ) 
-    S~4n 
+    south~2n 
  due_west ( meanings=1 NOUN NOUN_SINGULAR ) 
-    W~3n 
+    west~2n 
  doctor-patient_relation ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     doctor-patient_relation~1nz (^medical_relation~1) the responsibility of a physician to act in the best interests of the patient
  director-stockholder_relation ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
@@ -14325,11 +14325,11 @@
  deoxycytidine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
     cytidine~1nz (^nucleoside~1) a nucleoside component of DNA
  deoxyguanosine_monophosphate ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
-    G~6nz (^base~19) one of the four nucleotides used in building DNA
+    deoxyguanosine_monophosphate~1nz (^base~19) one of the four nucleotides used in building DNA
  deoxyguanosine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
     guanosine~1nz (^nucleoside~1) a nucleoside component of DNA
  deoxythymidine_monophosphate ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
-    T~4nz (^base~19) one of the four nucleotides used in building DNA
+    deoxythymidine_monophosphate~1nz (^base~19) one of the four nucleotides used in building DNA
  deoxythymidine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 ) 
     thymidine~1nz (^nucleoside~1) a nucleoside component of DNA
  deoxyribonucleic_acid ( meanings=1 NOUN NOUN_SINGULAR ) 

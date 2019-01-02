@@ -2,7 +2,7 @@
 #define _DICTIONARYSYSTEM_H
 
 #ifdef INFORMATION
-Copyright (C)2011-2018 by Bruce Wilcox
+Copyright (C)2011-2019 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -411,6 +411,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define TIME_NOUN_MODIFY_ADVERB		0x0000008000000000ULL
 #define TIME_NOUN_MODIFY_ADJECTIVE	    0x0000010000000000ULL
 #define DISTANCE_NOUN_MODIFY_ADJECTIVE	0x0000020000000000ULL
+#define PASSIVE_VERB 0x0000040000000000ULL
 // end of roles/needroles
 
 

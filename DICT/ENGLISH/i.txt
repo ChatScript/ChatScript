@@ -4580,7 +4580,7 @@
  infix_notation ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     infix_notation~1nz (^mathematical_notation~1) a notation for forming mathematical expressions using parentheses and governed by rules of operator precedence
  izzard ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
-    Z~1nz (^letter~3) the 26th letter of the Roman alphabet
+    zee~1nz (^letter~3) the 26th letter of the Roman alphabet
  iota ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER GRADE5_6 posdefault:NOUN ) 
     iota~1nz (^letter~3) the 9th letter of the Greek alphabet
     smidge~1nz (^small_indefinite_quantity~1) a tiny or scarcely detectable amount

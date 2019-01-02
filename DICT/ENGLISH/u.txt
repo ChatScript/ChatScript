@@ -1618,10 +1618,6 @@
     unicameral_script~1nz (^face~10) a script with a single case
  unicameral ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) 
     unicameral~1az composed of one legislative body
- U ( meanings=3 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    U~1nz (^letter~3) the 21st letter of the Roman alphabet
-    uranium~1n 
-    uracil~1n 
  u ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:ADJECTIVE ) 
     u~1az of or appropriate to the upper classes especially in language use
  upsilon ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
@@ -2806,7 +2802,7 @@
  unit_of_measurement ( meanings=1 NOUN NOUN_SINGULAR ) 
     unit~5n 
  universal_gas_constant ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
-    R~2nz (^constant~2) the universal constant in the gas equation: pressure times volume = R times temperature
+    gas_constant~1nz (^constant~2) the universal constant in the gas equation: pressure times volume = R times temperature
  universal_gravitational_constant ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     constant_of_gravitation~1nz (^constant~2) the universal constant relating force to mass and distance in Newton's law of gravitation
  unit_of_viscosity ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
@@ -2999,7 +2995,7 @@
  Uut ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 NOUN_NODETERMINER ) 
     ununtrium~1n 
  uranium ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON4 NOUN_NODETERMINER posdefault:NOUN ) 
-    U~2nz (^metal~2) a heavy toxic silvery-white radioactive metallic element
+    uranium~1nz (^metal~2) a heavy toxic silvery-white radioactive metallic element
     uranium~2az 
  uranium_235 ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     uranium_235~1nz (^uranium~1) a uranium isotope with mass number 235
@@ -3045,7 +3041,7 @@
  urethane ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     urethane~1nz (^ester~1) an ester of carbamic acid
  uracil ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
-    U~3nz (^base~19) a base containing nitrogen that is found in RNA and derived from pyrimidine
+    uracil~1nz (^base~19) a base containing nitrogen that is found in RNA and derived from pyrimidine
  uraninite ( meanings=1 NOUN NOUN_SINGULAR COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
     pitchblende~1n 
  uranium_ore ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 

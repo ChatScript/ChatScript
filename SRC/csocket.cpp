@@ -533,7 +533,6 @@ SOURCE:
         if (!converse && !starts && !raw) (*printer)((char*)"Sent %d bytes of data to port %d - %s|%s\r\n",(int)len, port, sendbuffer,msg);
         ReadSocket(sock, response);
         if (!trace) echo = !converse;
-		if (!starts && !raw) Log(STDTRACELOG,(char*)"%s", response); // chatbot replies this
         delete(sock);
 
 		// we say that  until :exit

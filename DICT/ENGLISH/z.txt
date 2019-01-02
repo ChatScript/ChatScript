@@ -405,14 +405,11 @@
  Zionism ( meanings=2 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     Zionism~1nz (^policy~3) a policy for establishing and developing a national homeland for Jews in Palestine
     Zionist_movement~1n 
- Z ( meanings=2 NOUN NOUN_PROPER_SINGULAR ) 
-    ezed~1n 
-    omega~2n 
  z ( COMMON4 COMMON1 ) 
  zee ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
-    izzard~1n 
+    ezed~1n 
  zed ( meanings=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
-    zee~1n 
+    izzard~1n 
  zeta ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 NOUN_NODETERMINER posdefault:NOUN ) 
     zeta~1nz (^letter~3) the 6th letter of the Greek alphabet
  zayin ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 

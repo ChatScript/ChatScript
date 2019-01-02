@@ -28406,7 +28406,7 @@
     cosmogenic~1az pertaining to the branch of astronomy dealing with the origin and history and structure and dynamics of the universe
     cosmological~3az 
  constant_of_gravitation ( meanings=1 NOUN NOUN_SINGULAR ) 
-    G~2n 
+    gravitational_constant~1n 
  cardinality ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     cardinality~1nz (^number~11) the number of elements in a set or group (considered as a property of that grouping)
  conversion_factor ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 

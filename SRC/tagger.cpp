@@ -532,7 +532,9 @@ char* roleSets[] =
 	(char*)"~subject2",(char*)"~verb2",(char*)"~object2",(char*)"~indirectobject2",(char*)"~byobject2",(char*)"~ofobject2",
 	(char*)"~appositive",(char*)"~adverbial",(char*)"~adjectival",
 	(char*)"~subjectcomplement",(char*)"~objectcomplement",(char*)"~address",(char*)"~postnominaladjective",(char*)"~adjectivecomplement",(char*)"~omittedtimeprep",(char*)"~omittedofprep",
-	(char*)"~comma_phrase",(char*)"~tagquestion",(char*)"~absolute_phrase",(char*)"~omitted_subject_verb",(char*)"~reflexive",(char*)"~DISTANCE_NOUN_MODIFY_ADVERB",(char*)"~DISTANCE_NOUN_MODIFY_ADJECTIVE",(char*)"~TIME_NOUN_MODIFY_ADVERB",(char*)"~TIME_NOUN_MODIFY_ADJECTIVE",
+	(char*)"~comma_phrase",(char*)"~tagquestion",(char*)"~absolute_phrase",(char*)"~omitted_subject_verb",(char*)"~reflexive",
+    (char*)"~DISTANCE_NOUN_MODIFY_ADVERB",(char*)"~DISTANCE_NOUN_MODIFY_ADJECTIVE",
+    (char*)"~PASSIVE_VERB",(char*)"~TIME_NOUN_MODIFY_ADVERB",(char*)"~TIME_NOUN_MODIFY_ADJECTIVE",
 	(char*)"~conjunct_noun",(char*)"~conjunct_verb",(char*)"~conjunct_adjective",(char*)"~conjunct_adverb",(char*)"~conjunct_phrase",(char*)"~conjunct_clause",(char*)"~conjunct_sentence",
 	NULL
 };
@@ -582,7 +584,8 @@ char* GetRole(uint64 role)
 	if (role & OMITTED_TIME_PREP) strcat(answer, "OMITTED_TIME_PREP ");
 	if (role & DISTANCE_NOUN_MODIFY_ADVERB) strcat(answer, "DISTANCE_NOUN_MODIFY_ADVERB ");
 	if (role & DISTANCE_NOUN_MODIFY_ADJECTIVE) strcat(answer, "DISTANCE_NOUN_MODIFY_ADJECTIVE ");
-	if (role & TIME_NOUN_MODIFY_ADVERB) strcat(answer, "TIME_NOUN_MODIFY_ADVERB ");
+    if (role & PASSIVE_VERB) strcat(answer, "PASSIVE_VERB ");
+    if (role & TIME_NOUN_MODIFY_ADVERB) strcat(answer, "TIME_NOUN_MODIFY_ADVERB ");
 	if (role & TIME_NOUN_MODIFY_ADJECTIVE) strcat(answer, "TIME_NOUN_MODIFY_ADJECTIVE ");
 	if (role & OMITTED_OF_PREP) strcat(answer, "OMITTED_OF_PREP ");
 	if (role & ADDRESS) strcat(answer, "ADDRESS ");

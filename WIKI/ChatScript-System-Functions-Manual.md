@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/4/2018 cs8.6
+<br>Revision 1/14/2019 cs9.0
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -332,6 +332,7 @@ cleared (analogous to ^disable).
 
 If the _kind_ is input and no tag is given or the _tag_ is `null`, the input rejoinder is cleared.
 
+To kill a set outputrejoinder, use ^disable(OUTPUTREJOINDER).
 
 ### `^topicflags ( topic )`
 

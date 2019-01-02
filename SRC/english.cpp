@@ -1520,6 +1520,14 @@ void SetSentenceTense(int start, int end)
 	else if (roles[start] & MAINVERB && (!stricmp(wordStarts[start+1],(char*)"you") || subjectStack[MAINLEVEL])) tokenFlags |= QUESTIONMARK; 
 	else if (roles[start] & MAINVERB && posValues[start] & VERB_INFINITIVE) tokenFlags |= COMMANDMARK|IMPLIED_YOU; 
 
+    if (start > 1 && posValues[start] & VERB_PAST_PARTICIPLE)
+    {
+        if (aux[start-1] == AUX_BE || aux[start - 2] == AUX_BE)
+            roles[start] |= PASSIVE_VERB;
+        if (roles[start] & MAINVERB && roles[start] & PASSIVE_VERB)
+            tokenFlags |= PASSIVE;
+    }
+
 	// determine sentence tense when not past from verb using aux (may pick wrong aux)
 	for (int i = start; i <= end; ++i)
     {
@@ -1626,10 +1634,8 @@ void SetSentenceTense(int start, int end)
 		}
 		else if (aux[auxIndex-1] & AUX_BE && mainverbTense & VERB_PRESENT_PARTICIPLE) tokenFlags |= CONTINUOUS; 
 
-		// compute passive
 		if ((aux[auxIndex-1] & AUX_BE || (canonicalLower[auxIndex-1] && !stricmp(canonicalLower[auxIndex-1]->word,(char*)"get"))) && mainverbTense & VERB_PAST_PARTICIPLE) // "he is lost" "he got lost"
 		{
-			tokenFlags |= PASSIVE;
 			if (aux[auxIndex-1] & VERB_PRESENT_PARTICIPLE)  tokenFlags |= CONTINUOUS;	// being xxx
 		}
 		
