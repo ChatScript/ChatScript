@@ -319,13 +319,12 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define FACTBUILD1	        0x00100000  // fact created during build 1 (for concepts)
 
 // user flags
-#define END_ONLY			0x00080000
+#define USER_FLAG4			0x00080000
 #define USER_FLAG3			0x00040000
 #define USER_FLAG2			0x00020000
 #define USER_FLAG1			0x00010000
 
 #define USER_FLAGS			0x000F0000 
-#define SYSTEM_FLAGS		0xFFF0FFF0 // system used top 12 bits and bottom 12
 #define START_ONLY          0x00008000  // interjection membership fact
 // FACTBOOT 0x00004000  // FACTBOOT - user created fact migrates to boot declared not visible to script
 #define JSON_OBJECT_FACT	0x00002000 // on subject side of triple
@@ -342,10 +341,10 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define FACTVERB			0x00000040	//   is 1st in its bucket (transient flag for read/WriteBinary) which MIRRORS DICT BUCKETHEADER flag: 
 #define FACTOBJECT		    0x00000020  //   does not apply to canonical forms of words, only the original form - for classes and sets, means dont chase the set
 #define FACTDUPLICATE		0x00000010	//   allow repeats of this fact
-//unused		0x00000001	
-//unused		0x00000002	
+//unused		0x00000008	
 //unused		0x00000004	
-//unused		0x00000005	
+//unused		0x00000002	
+#define END_ONLY    		0x00000001	
 
 // end of fact flags
 

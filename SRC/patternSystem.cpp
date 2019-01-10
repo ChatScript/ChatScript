@@ -28,7 +28,9 @@
 #define WILDMEMORIZESPECIFIC	0X80000000  //   while 0x1f0000 is wildcard index to use
 #define GAP_SHIFT 16
 #define SPECIFIC_SHIFT 24
+#define CLEAR_SPECIFIC_INDEX 0x00ffffff
 #define GAPLIMITSHIFT 8
+#define CLEAR_GAP_INDEX 0xff00ffff
 
 bool matching = false;
 bool deeptrace = false;
@@ -439,19 +441,22 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition, char* 
 				// if we are going to memorize something AND we previously matched inside a phrase, we need to move to after phrase...
 				if ((positionStart - positionEnd) == 1 && !reverse) positionEnd = positionStart; // If currently matched a phrase, move to end. 
 				else if ((positionEnd - positionStart) == 1 && reverse) positionStart = positionEnd; // If currently matched a phrase, move to end. 
-				
+
 				//  aba or ~dat or **ar*
 				if (ptr[0] != '*' || ptr[1] == '*') // wildcard word
 				{
-					wildcardSelector |= (WILDMEMORIZESPECIFIC + (wildcardIndex << SPECIFIC_SHIFT)); 
+                    wildcardSelector &= CLEAR_SPECIFIC_INDEX;
+                    wildcardSelector |= (WILDMEMORIZESPECIFIC + (wildcardIndex << SPECIFIC_SHIFT));
 				}
 				// *1 or *-2 or *elle (single wild token pattern match)
 				else if (IsDigit(ptr[1]) ||  ptr[1] == '-' || IsAlphaUTF8(ptr[1])) 
 				{
-					wildcardSelector |= (WILDMEMORIZESPECIFIC + (wildcardIndex << SPECIFIC_SHIFT)); 
+                    wildcardSelector &= CLEAR_SPECIFIC_INDEX;
+                    wildcardSelector |= (WILDMEMORIZESPECIFIC + (wildcardIndex << SPECIFIC_SHIFT));
 				}
 				else // *~ or *
 				{
+                    wildcardSelector &= CLEAR_GAP_INDEX;
 					wildcardSelector |=  (WILDMEMORIZEGAP + (wildcardIndex << GAP_SHIFT)); // variable gap
 				}
 				SetWildCardNull(); // dummy match to reserve place

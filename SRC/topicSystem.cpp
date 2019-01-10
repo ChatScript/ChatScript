@@ -2315,6 +2315,33 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 	FClose(in);
 }
 
+void CheckFundamentalMeaning(char* name)
+{
+    char* begin = strchr(name, '|');
+    char* end = (begin) ? strchr(begin + 1, '|') : NULL;
+    if (begin && end)
+    {
+        char word1[MAX_WORD_SIZE];
+        hasFundamentalMeanings = FUNDAMENTAL_VERB;
+        strncpy(word1, begin, end - begin + 1);
+        word1[end - begin + 1] = 0;
+        StoreWord(word1); // make VERB findable because we care about it
+        if (begin != name)
+        {
+            hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT;
+            char c = end[1];
+            end[1] = 0;
+            StoreWord(name); // make subject findable because we care about it
+            end[1] = c;
+        }
+        if (end && end[1])
+        {
+            hasFundamentalMeanings |= FUNDAMENTAL_OBJECT;
+            if (begin != name) hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT_OBJECT;
+        }
+    }
+}
+
 static void ReadPatternData(const char* fname,const char* layer,unsigned int build)
 {
     char word[MAX_WORD_SIZE];
@@ -2339,6 +2366,7 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		if (old && (old->systemFlags & PATTERN_WORD)) old = NULL;	// old is not changing value at all
 		else if (build != BUILD2) old = NULL; // only protect from a layer 2 load
 		StoreWord(name,0,PATTERN_WORD|build);
+        CheckFundamentalMeaning(name);
 		// if old was not previously pattern word and it is now, we will have to unwind on unload. If new word, word gets unwound automatically
 		if (old)
 		{
@@ -2732,30 +2760,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             if (endOnly) flags |= END_ONLY;
             if (build == BUILD2) flags |= FACTBUILD2;
             CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
-            char* name = Meaning2Word(U)->word;
-            char* begin = strchr(name, '|');
-            char* end = (begin) ? strchr(begin + 1, '|') : NULL;
-            if (begin && end)
-            {
-                char word1[MAX_WORD_SIZE];
-                hasFundamentalMeanings = FUNDAMENTAL_VERB;
-                strncpy(word1, begin, end - begin + 1);
-                word1[end - begin + 1] = 0;
-                StoreWord(word1); // make VERB findable because we care about it
-                if (begin != name)
-                {
-                    hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT;
-                    char c = end[1];
-                    end[1] = 0;
-                    StoreWord(name); // make subject findable because we care about it
-                    end[1] = c;
-                }
-                if (end && end[1])
-                {
-                    hasFundamentalMeanings |= FUNDAMENTAL_OBJECT;
-                    if (begin != name) hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT_OBJECT;
-                }
-            }
+            CheckFundamentalMeaning(Meaning2Word(U)->word);
         }
 		if (*keyword == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line
 	}

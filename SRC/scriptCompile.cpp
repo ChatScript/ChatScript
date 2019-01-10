@@ -4445,6 +4445,24 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 	return ptr;
 }
 
+bool HasBotMember(WORDP concept, uint64 id)
+{
+    FACT* F = GetObjectHead(concept);
+    while (F)
+    {
+        if (F->verb == Mmember)
+        {
+            // limited to a specific bot
+            // We ARE allowed to add to general in existing layer
+            if (id && F->botBits & id) return true;
+            // we are general and it has general already
+            if (!id) return true;
+        }
+        F = GetObjectNext(F);
+    }
+    return false;
+}
+
 static char* ReadBot(char* ptr)
 {
 	*botheader = ' ';
@@ -4512,9 +4530,17 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 			strcpy(currentTopicName,word);
     		Log(STDTRACELOG,(char*)"Reading topic %s\r\n",currentTopicName);
 			topicName = FindWord(currentTopicName);
-			if (!myBot && topicName && topicName->internalBits & CONCEPT && !(topicName->internalBits & TOPIC) && topicName->internalBits & (BUILD0|BUILD1|BUILD2))
-				WARNSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s\r\n",currentTopicName)
-			topicName = StoreWord(currentTopicName);
+            if (!myBot && topicName && topicName->internalBits & CONCEPT && !(topicName->internalBits & TOPIC) && topicName->internalBits & (BUILD0 | BUILD1 | BUILD2))
+                WARNSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s\r\n", currentTopicName)
+            if (topicName && topicName->internalBits & CONCEPT && !(topicName->internalBits & TOPIC) && 
+                topicName->internalBits & (BUILD0 | BUILD1 | BUILD2) != build)
+                    BADSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s in prior layer\r\n", currentTopicName)
+            if (topicName && HasBotMember(topicName, myBot))
+            {
+                BADSCRIPT((char*)"TOPIC-1 Concept already defined %s\r\n", currentTopicName)
+            }
+
+            topicName = StoreWord(currentTopicName);
 			if (!IsLegalName(currentTopicName)) BADSCRIPT((char*)"TOPIC-2 Illegal characters in topic name %s\r\n",currentTopicName)
 			topicValue = MakeMeaning(topicName);
 			// handle potential multiple topics of same name
@@ -5147,7 +5173,13 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			{
 				if (!myBot && D->internalBits & CONCEPT && D->internalBits & (BUILD0|BUILD1|BUILD2))
 					WARNSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n",conceptName)
-			}
+                if (D->internalBits & CONCEPT && D->internalBits & (BUILD0 | BUILD1 | BUILD2) != build)
+                    BADSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s in prior layer\r\n", conceptName)
+                if (HasBotMember(D, myBot))
+                {
+                    BADSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n", conceptName)
+                }
+            }
 			AddInternalFlag(D,(unsigned int)(build|CONCEPT));
 		}
 

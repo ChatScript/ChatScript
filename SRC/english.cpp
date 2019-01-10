@@ -1522,9 +1522,11 @@ void SetSentenceTense(int start, int end)
 
     if (start > 1 && posValues[start] & VERB_PAST_PARTICIPLE)
     {
-        if (aux[start-1] == AUX_BE || aux[start - 2] == AUX_BE)
+         if (aux[start - 1] == AUX_BE || aux[start - 2] == AUX_BE)
             roles[start] |= PASSIVE_VERB;
-        if (roles[start] & MAINVERB && roles[start] & PASSIVE_VERB)
+         else if (!stricmp(wordCanonical[start - 1], "get") || (start > 2 &&  !stricmp(wordCanonical[start - 2], "get") ))
+             roles[start] |= PASSIVE_VERB;
+         if (roles[start] & MAINVERB && roles[start] & PASSIVE_VERB)
             tokenFlags |= PASSIVE;
     }
 
