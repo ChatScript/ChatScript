@@ -12815,6 +12815,8 @@
  hypothalami ( NOUN NOUN_PLURAL COMMON1 posdefault:NOUN ) plural=hypothalamus 
  hypotheses ( NOUN NOUN_PLURAL COMMON4 GRADE5_6 posdefault:NOUN ) plural=hypothesis 
  hyraces ( NOUN NOUN_PLURAL COMMON1 ) plural=hyrax 
+ HIPAA ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) plural=NOUN 
+    HIPAA~1nz 
  HVAC ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     HVAC~1nz 
  Hearts ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 ) 

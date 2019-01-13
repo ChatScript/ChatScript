@@ -3724,8 +3724,9 @@
     ophthalmic~2az of or relating to the eye
  ovarian_artery ( meanings=1 NOUN NOUN_SINGULAR ) 
     arteria_ovarica~1n 
- ovarian ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:ADJECTIVE ) 
+ ovarian ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:ADJECTIVE ) 
     ovarian~1az of or involving the ovaries
+    ovarian~2az 
  oesophageal_veins ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     venae_esophageae~1nz (^vein~2) small veins from the esophagus emptying into the brachiocephalic vein or the azygos veins
  oblique_vein_of_the_left_atrium ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 

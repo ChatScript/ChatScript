@@ -27115,6 +27115,8 @@
     posed~1az arranged for pictorial purposes
  posted ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 COMMON1 posdefault:VERB ) 
     posted~1az publicly announced
+ post-traumatic ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    post-traumatic~1az 
  pound-denominated ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
     pound-denominated~1az 
  pleated-front ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
