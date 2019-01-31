@@ -39,7 +39,9 @@ extract($postVars);
 if (isset($send))
 {
     // open client connection to TCP server
-	$userip = ($_SERVER['X_FORWARDED_FOR']) ? $_SERVER['X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']; // get actual ip address of user as his id
+	$userip = $_SERVER['REMOTE_ADDR']; // get actual ip address of user as his id
+    // To check for proxies you can replace the line above with the code below, but it is easily faked so it's insecure:
+    // $userip = isset($_SERVER['X_FORWARDED_FOR']) ? $_SERVER['X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 
     $msg = $userip.$null.$bot.$null.$message.$null;
 
@@ -50,6 +52,7 @@ if (isset($send))
     }
 
     // write message to socket server
+    $ret = '';
     fputs($fp,$msg);
     while (!feof($fp))
 	{
