@@ -6,6 +6,7 @@ static unsigned int undefinedCallThreadList = 0;
 static bool nospellcheck = false;
 static int complexity = 0;
 static int priorLine = 0;
+static char* currentTopicBots = NULL;
 bool autoset = false;
 static char macroName[MAX_WORD_SIZE];
 static uint64 macroid;
@@ -45,7 +46,7 @@ static char errors[MAX_ERRORS][MAX_WORD_SIZE];
 static unsigned int errorIndex = 0;
 static char functionArguments[MAX_ARGUMENT_COUNT+1][500];
 static int functionArgumentCount = 0;
-char botheader[MAX_WORD_SIZE];
+char scopeBotName[MAX_WORD_SIZE];
 static bool renameInProgress = false;
 static bool endtopicSeen = false; // needed when ending a plan
 
@@ -96,7 +97,7 @@ void ScriptWarn()
 		++hasWarnings; 
 		if (*currentFilename)
 		{
-			if (*botheader) Log(STDTRACELOG, (char*)"*** Warning- line %d of %s bot:%s : ", currentFileLine, currentFilename, botheader);
+			if (*scopeBotName) Log(STDTRACELOG, (char*)"*** Warning- line %d of %s bot:%s : ", currentFileLine, currentFilename, scopeBotName);
 			else Log(STDTRACELOG, (char*)"*** Warning- line %d of %s: ", currentFileLine, currentFilename);
 		}
 		else Log(STDTRACELOG, (char*)"*** Warning-  ");
@@ -105,7 +106,7 @@ void ScriptWarn()
 
 void AddError(char* buffer)
 {
-    if (*botheader) sprintf(errors[errorIndex++],(char*)"*** Error- line %d of %s bot:%s : %s\r\n", currentFileLine, currentFilename, botheader,buffer);
+    if (*scopeBotName) sprintf(errors[errorIndex++],(char*)"*** Error- line %d of %s bot:%s : %s\r\n", currentFileLine, currentFilename, scopeBotName,buffer);
     else sprintf(errors[errorIndex++], (char*)"*** Error- line %d of %s: %s\r\n", currentFileLine, currentFilename,buffer);
 	if (errorIndex >= MAX_ERRORS) --errorIndex;
 }
@@ -121,7 +122,7 @@ void ScriptError()
 	{
 		++hasErrors; 
 		patternContext = false; 
-        if (*botheader) Log(STDTRACELOG, (char*)"*** Error- line %d of %s bot:%s : ", currentFileLine, currentFilename, botheader);
+        if (*scopeBotName) Log(STDTRACELOG, (char*)"*** Error- line %d of %s bot:%s : ", currentFileLine, currentFilename, scopeBotName);
         else Log(STDTRACELOG, (char*)"*** Error- line %d of %s: ", currentFileLine, currentFilename);
 	}
 }
@@ -1432,8 +1433,15 @@ static void WritePatternWord(char* word)
 
 static void NoteUse(char* label,char* topicName)
 {
-	MakeUpperCase(label);
-	WORDP D = FindWord(label);
+    char labelx[MAX_WORD_SIZE];
+    char* bots = scopeBotName;
+    if (!*scopeBotName) bots = "*";
+    if (*bots == ' ') ++bots;
+    sprintf(labelx, "%s-%s", label, bots);
+    int len = strlen(labelx);
+    if (labelx[len - 1] == ' ') labelx[len - 1] = 0;
+	MakeUpperCase(labelx);
+	WORDP D = FindWord(labelx);
 	if (!D || !(D->internalBits & LABEL))
 	{
 		char file[200];
@@ -1441,8 +1449,9 @@ static void NoteUse(char* label,char* topicName)
 		FILE* out = FopenUTF8WriteAppend(file);
 		if (out)
 		{
-			fprintf(out,(char*)"%s %s %s %d %s\r\n",label,topicName,currentFilename,currentFileLine, botheader);
-			fclose(out); // dont use FClose
+            if (scopeBotName) fprintf(out, (char*)"%s %s %s %d\r\n", label, scopeBotName, currentFilename, currentFileLine); // generic
+			else fprintf(out,(char*)"%s * %s %d\r\n",label,currentFilename,currentFileLine); // specific bot
+            fclose(out); // dont use FClose
 		}
 	}
 }
@@ -2357,7 +2366,10 @@ name of topic or concept
 					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
 				break;
 			case '{':	//   list of optional choices begins
-				if (bidirectionalSeen)
+                if (nestKind[nestIndex-1] == '[') BADSCRIPT((char*)"PATTERN-15 {} within [] is pointless because it always matches\r\n")
+                if (nestKind[nestIndex - 1] == '<' && !memorizeSeen) 
+                    BADSCRIPT((char*)"PATTERN-15 {} within << >> is pointless unless you memorize because it always matches\r\n")
+                if (bidirectionalSeen)
                     BADSCRIPT((char*)"PATTERN-34 ] Cant use { after bidirectional gap - will always match scanning backwards\r\n")
                 if (variableGapSeen)
 				{
@@ -2455,7 +2467,7 @@ name of topic or concept
 						++n;
 						++ptr;
 					}
-					if (n >= SEQUENCE_LIMIT) WARNSCRIPT((char*)"Too many words in string %s, may never match\r\n",word)
+					if (n >= SEQUENCE_LIMIT) WARNSCRIPT((char*)"PATTERN-? Too many  words in string %s, may never match\r\n",word)
 				}
 				break;
 			case SYSVAR_PREFIX: //   system data
@@ -3714,15 +3726,36 @@ Then one of 3 kinds of character:
 					else if (!stricmp(word,(char*)"if") || !stricmp(word,(char*)"loop")) WARNSCRIPT((char*)"label: %s is a potential flow control (if/loop) in %s. Add ^ if you want it treated as a control word.\r\n",word,currentFilename)
 					sprintf(info,"        rule: %s.%d.%d-%s %s",currentTopicName,TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),name+1, kind);
 					AddMap(info,NULL); // rule
-					//  potential ^reuse label
-					strcpy(label,currentTopicName); 
-					strcat(label,(char*)".");
-					MakeUpperCase(word); // full label to test if exists.
-					strcat(label,word);
+	
+                    char* bots = currentTopicBots; 
+                    if (!bots)
+                    {
+                        bots = "*"; // general access
+                    }
+                    while (bots)
+                    {
+                        char* end = strchr(bots, ' ');
+                        char c = 0;
+                        if (end) *end = 0;
+                        sprintf(label, "%s.%s-%s", currentTopicName, word, bots );
+                        MakeUpperCase(label);
+                        WORDP E = StoreWord(label, AS_IS);
+                        // c && strstr(label, "FINALASK"))
+                        //    Log(STDTRACELOG, "NOTE: %sr\n", label);
+                        AddInternalFlag(E, LABEL);
+                        if (end) // bot names are separated by spaces
+                        {
+                            *end = ' ';
+                            bots = end + 1;
+                        }
+                        else
+                        {
+                            bots = NULL; // end of loop
+                        }
+                    }
+
+					MakeUpperCase(word); 
 					strcpy(labelName,word);
-					MakeUpperCase(label); // full label to test if exists.
-					WORDP E = StoreWord(label,AS_IS);
-					AddInternalFlag(E,LABEL);
 					if (strchr(word,'.')) BADSCRIPT((char*)"RULE-2 Label %s must not contain a period\r\n",word)
 					if (len > 160) BADSCRIPT((char*)"RULE-2 Label %s must be less than 160 characters\r\n",word)
 					int fulllen = len;
@@ -4465,7 +4498,7 @@ bool HasBotMember(WORDP concept, uint64 id)
 
 static char* ReadBot(char* ptr)
 {
-	*botheader = ' ';
+	*scopeBotName = ' ';
 	ptr = SkipWhitespace(ptr);
 	char* original = ptr;
 	if (IsDigit(*ptr))
@@ -4474,18 +4507,18 @@ static char* ReadBot(char* ptr)
 		ptr = ReadInt64(ptr,n); // change bot id
 		myBot = n;
 	}
-	MakeLowerCopy(botheader+1,ptr); // presumes til end of line
-	size_t len = strlen(botheader);
-	while (botheader[len-1] == ' ') botheader[--len] = 0;
+	MakeLowerCopy(scopeBotName+1,ptr); // presumes til end of line
+	size_t len = strlen(scopeBotName);
+	while (scopeBotName[len-1] == ' ') scopeBotName[--len] = 0;
 	if (len == 0) 
 	{
 		Log(STDTRACELOG,(char*)"Reading bot restriction: %s\r\n",original);
 		return ""; // there is no header anymore
 	}
 
-	strcat(botheader," "); // single trailing space
+	strcat(scopeBotName," "); // single trailing space
 	char* x;
-	while ((x = strchr(botheader,','))) *x = ' ';	// change comma to space. all bot names have spaces on both sides
+	while ((x = strchr(scopeBotName,','))) *x = ' ';	// change comma to space. all bot names have spaces on both sides
 	Log(STDTRACELOG,(char*)"Reading bot restriction: %s\r\n",original);
 	return "";
 }
@@ -4558,7 +4591,8 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
             AddMap((char*)"    topic:", currentTopicName);
 
 			AddInternalFlag(topicName,(unsigned int)(build|CONCEPT|TOPIC));
-			topicName->w.botNames = NULL;
+			topicName->w.topicBots = NULL;
+            currentTopicBots = NULL;
 			continue;
 		}
 
@@ -4576,6 +4610,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 				BADSCRIPT((char*)"TOPIC-? Don't need SHARE on SYSTEM topic %s, it is already shared via system\r\n",currentTopicName)
 			topicFlagsDone = true; //   topic flags must occur before list of keywords
 			++parenLevel;
+            if (!topicName->w.topicBots && *scopeBotName) topicName->w.topicBots = AllocateHeap(scopeBotName + 1, strlen(scopeBotName + 2));
 			break;
 		case ')': case ']':
 			--parenLevel;
@@ -4601,8 +4636,9 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 					MakeLowerCopy(botlist,word+4);
 					char* x;
 					while ((x = strchr(botlist,','))) *x = ' ';	// change comma to space. all bot names have spaces on both sides
-					topicName->w.botNames = AllocateHeap(botlist,strlen(botlist)); // bot=harry,georgia,roger
-				}
+					topicName->w.topicBots = AllocateHeap(botlist,strlen(botlist)); // bot=harry,georgia,roger
+                    currentTopicBots = topicName->w.topicBots;
+                }
                 else if (!stricmp(word,(char*)"deprioritize")) flags |= TOPIC_LOWPRIORITY; 
 				else if (!stricmp(word,(char*)"noblocking")) flags |= TOPIC_NOBLOCKING; 
  				else if (!stricmp(word,(char*)"nopatterns") || !stricmp(word,(char*)"nopattern")) flags |= TOPIC_NOPATTERNS; 
@@ -4662,7 +4698,6 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	if (parenLevel) BADSCRIPT((char*)"TOPIC-5 Failure to balance ( in %s\r\n",currentTopicName)
 	if (!topicName) BADSCRIPT((char*)"TOPIC-6 No topic name?\r\n")
 	if (toplevelrules > MAX_TOPIC_RULES) BADSCRIPT((char*)"TOPIC-8 %s has too many rules- %d must be limited to %d. Call a subtopic.\r\n",currentTopicName,toplevelrules,MAX_TOPIC_RULES)
-	if (!topicName->w.botNames && *botheader) topicName->w.botNames = AllocateHeap(botheader,strlen(botheader)); //  harry,georgia,roger
 
 	size_t len = pack-data;
     SetJumpOffsets(data); 
@@ -4687,7 +4722,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	if (out)
 	{
 		// write out topic data
-		char* restriction = (topicName->w.botNames) ? topicName->w.botNames : (char*)"all";
+		char* restriction = (topicName->w.topicBots) ? topicName->w.topicBots : (char*)"all";
 		unsigned int len1 = (unsigned int)strlen(restriction);
 		fprintf(out, (char*)"TOPIC: %s 0x%x %d %d %d %d %s\r\n", currentTopicName, (unsigned int)flags, (unsigned int)checksum, (unsigned int)toplevelrules, (unsigned int)gambits, (unsigned int)(len + len1 + 7), currentFilename);
 		fprintf(out, (char*)"\" %s \" ", restriction);
@@ -4957,6 +4992,11 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
 			ptr -= strlen(replace); //   let someone else see this starter 
 			break; 
 		}
+        if (*word == '\'')
+        {
+            memmove(word + 1, word, strlen(word)+1);
+            *word = '*';
+        }
 		char filename[SMALL_WORD_SIZE];
 		sprintf(filename,(char*)"%s/BUILD%s/private%s.txt",topic,baseName,baseName);
 		FILE* out = FopenUTF8WriteAppend(filename);
@@ -5288,7 +5328,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 	if (!globalBotScope) // restore any local change from this file
 	{
 		myBot = 0;
-		*botheader = 0;
+		*scopeBotName = 0;
 	}
 }
 
@@ -5330,23 +5370,28 @@ static void DoubleCheckReuse()
 	FILE* in = FopenReadWritten(file);
 	if (!in) return;
 
-	char word[MAX_WORD_SIZE];
-	char topicname[MAX_WORD_SIZE];
-	while (ReadALine(readBuffer,in) >= 0)
+	char label[MAX_WORD_SIZE];
+    char bothead[MAX_WORD_SIZE];
+    while (ReadALine(readBuffer,in) >= 0)
 	{
-		char *ptr = ReadCompiledWord(readBuffer,word);		// topic + label
-		ptr = ReadCompiledWord(ptr,topicname);					// from topic
-		ptr = ReadCompiledWord(ptr,tmpWord);				// from file
+		char *ptr = ReadCompiledWord(readBuffer, label);		// topic + label
+        ptr = ReadCompiledWord(ptr, bothead);				// from file
+        MakeUpperCase(bothead);
+        ptr = ReadCompiledWord(ptr,tmpWord);				// from file
 		int line;
-		ptr = ReadInt(ptr,line);									// from line
-        char bothead[MAX_WORD_SIZE];
-        ptr = ReadCompiledWord(ptr, bothead);				// from bot
-        WORDP D = FindWord(word);
-		if (!D) // cannot find full label
-		{
-			if (!strcmp(topicname,word))  WARNSCRIPT((char*)"Missing local label %s for reuse/unerase in topic %s in File: %s Line: %d Bot: %s\r\n",word,topicname,tmpWord,line,bothead)
-			else  WARNSCRIPT((char*)"Missing cross-topic label %s for reuse in File: %s Line: %d Bot: %s\r\n",word,tmpWord,line,bothead)
-		}
+		ptr = ReadInt(ptr,line);	
+        // from line
+        char labelx[MAX_WORD_SIZE];
+        sprintf(labelx, "%s-%s", label, bothead);
+        WORDP D = FindWord(labelx);
+        if (!D) // cant find as bot specific, check for general
+        {
+            sprintf(labelx, "%s-*", label);
+            D = FindWord(labelx);
+        }
+
+		if (!D) 
+            WARNSCRIPT((char*)"Missing label %s for reuse in bot %s in File: %s Line: %d \r\n",label, bothead, tmpWord,line)
 	}
 	fclose(in); // dont use Fclose
 	remove(file);
@@ -5378,6 +5423,7 @@ static void WriteCMore(FACT* F, char*&word,FILE* out,size_t& lineSize)
 
 static void WriteConcepts(WORDP D, uint64 build)
 {
+    seeAllFacts = true; // do for all bots at once
     char* name = D->word;
 	if (*name != '~' || !(D->internalBits & build)) return; // not a topic or concept or not defined this build
 	RemoveInternalFlag(D,(BUILD0|BUILD1));
@@ -5550,10 +5596,12 @@ static void WriteConcepts(WORDP D, uint64 build)
     ReleaseStack(word);
     fprintf(out,(char*)"%s",(char*)")\r\n");
 	fclose(out); // dont use Fclose
+    seeAllFacts = false;
 }
 
 static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 {
+
 	// Note that topic labels (topic.name) and pattern words  will not get written
 	FILE* in = NULL;
     char file[SMALL_WORD_SIZE];
@@ -5575,7 +5623,9 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		ReportBug((char*)"prebuild bin not found")
 		return;
 	}
-	for (WORDP D = dictionaryBase+1; D < dictionaryFree; ++D) 
+	
+    seeAllFacts = true;
+    for (WORDP D = dictionaryBase+1; D < dictionaryFree; ++D)
 	{
 		uint64 oldproperties = 0;
 		uint64 oldflags = 0;
@@ -5679,12 +5729,13 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		D->systemFlags = flags;
 	}
 	fclose(in); // dont use Fclose
+    seeAllFacts = false;
 }
 
 static void WriteExtendedFacts(FILE* factout,FILE* dictout,unsigned int build)
 {
 	if (!factout || !dictout) return;
-
+    seeAllFacts = true;
 	char* buffer = AllocateBuffer();
 	bool oldshared = shared;
 	shared = false;
@@ -5698,6 +5749,7 @@ static void WriteExtendedFacts(FILE* factout,FILE* dictout,unsigned int build)
 	else if (build == BUILD1) WriteFacts(factout,factsPreBuild[LAYER_1]);
 	//else if (build == BUILD2) WriteFacts(factout,factsPreBuild[LAYER_BOOT],FACTBUILD2);
 	// factout closed by Writefacts
+    seeAllFacts = false;
 }
 
 static void ClearTopicConcept(WORDP D, uint64 build)
@@ -5741,7 +5793,7 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
     nospellcheck = false;
 	undefinedCallThreadList = 0;
 	isDescribe = false;
-	*botheader = 0;
+	*scopeBotName = 0;
 	myBot = 0;
 	globalBotScope = false;
 	if (build == BUILD2) // for dynamic segment, we are allowed full names

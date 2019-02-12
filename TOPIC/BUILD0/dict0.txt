@@ -635,6 +635,7 @@
 + drugs VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE1_2 
 + Dien_Bien_Phu NOUN_TITLE_OF_WORK 
 + Dunkirk NOUN_TITLE_OF_WORK 
++ drake NOUN_HE 
 + Doberman posdefault:NOUN 
 + Doberman_pinscher posdefault:NOUN 
 + Donald_Duck NOUN_HUMAN NOUN_HE 

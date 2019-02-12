@@ -4352,7 +4352,7 @@ static void C_Build(char* input)
 		else if (buildId == BUILD1) MakeDirectory((char*)"TOPIC/BUILD1");
 		else if (buildId == BUILD2) MakeDirectory((char*)"TOPIC/BUILD2");
 		userVariableThreadList = 0;
-		*botheader = 0; 
+		*scopeBotName = 0; 
 		ReadTopicFiles(word, buildId, spell);
 
 		if (!stricmp(computerID,(char*)"anonymous")) *computerID = 0;	// use default

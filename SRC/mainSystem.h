@@ -19,10 +19,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 typedef struct RESPONSE
 {
+    char* response;						// answer sentences, 1 or more per input line
+    char* patternchoice;
     unsigned int responseInputIndex;                        // which input sentence does this stem from?
 	int topic;										// topic of rule
 	char id[24];											// .100.30
-	char* response;						// answer sentences, 1 or more per input line
 } RESPONSE;
 
 #define SENTENCE_LIMIT 50 // how many sentence from user do we accept
@@ -101,6 +102,7 @@ extern char languageFolder[500];
 extern char systemFolder[500];
 extern bool rebooting;
 extern int responseIndex;
+extern bool trustpos;
 extern bool documentMode;
 extern bool assignedLogin;
 extern bool servertrace;

@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.0";
+char* version = "9.1";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -554,6 +554,7 @@ static void ProcessArgument(char* arg)
 		strcpy(language,arg+9);
 		MakeUpperCase(language);
 	}
+    else if (!stricmp(arg, (char*)"trustpos")) trustpos = true;
     else if (!strnicmp(arg, (char*)"inputlimit=", 11)) inputLimit = atoi(arg+11);
     else if (!strnicmp(arg, (char*)"debug=",6)) strcpy(arg+6,debugEntry);
     else if (!strnicmp(arg, "erasename=", 10)) erasename = arg + 10;
@@ -878,7 +879,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 { // this work mostly only happens on first startup, not on a restart
 	*traceuser = 0;
 	*hide = 0;
-	*botheader = 0;
+	*scopeBotName = 0;
 	FILE* in = FopenStaticReadOnly((char*)"SRC/dictionarySystem.h"); // SRC/dictionarySystem.h
 	if (!in) // if we are not at top level, try going up a level
 	{
@@ -2549,6 +2550,8 @@ void FlipResponses()
 
 static void SaveResponse(char* msg)
 {
+    responseData[responseIndex].patternchoice = patternchoice;
+    multichoice = NULL;
 	responseData[responseIndex].response = AllocateHeap(msg,0);
     responseData[responseIndex].responseInputIndex = inputSentenceCount; // which sentence of the input was this in response to
 	responseData[responseIndex].topic = currentTopicID; // what topic wrote this

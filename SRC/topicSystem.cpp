@@ -1327,7 +1327,8 @@ FunctionResult TestRule(int ruleID,char* rule,char* buffer,bool refine)
 	unsigned int oldtiming = timing;
 	bool traceChanged = false;
 	bool timingChanged = false;
-	if (GetDebugRuleMark(currentTopicID,ruleID)) 
+    patternchoice = NULL;
+    if (GetDebugRuleMark(currentTopicID,ruleID))
 	{
 		trace = (unsigned int) -1 ;
 		traceChanged = true;

@@ -40,7 +40,7 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
 
                                     //   if you edit this, you may need to change ReadBinaryEntry and WriteBinaryEntry
     union {
-        char* botNames;				//   for topic name (start with ~) or planname (start with ^) - bot topic applies to  - only used by script compiler
+        char* topicBots;				//   for topic name (start with ~) or planname (start with ^) - bot topic applies to  - only used by script compiler
         unsigned int planArgCount;	// number of arguments in a plan
         unsigned char* fndefinition; //   for nonplan macro name (start with ^) - if FUNCTION_NAME is on and not system function, is user script - 1st byte is argument count
         char* userValue;			//   if a $uservar (start with $) OR if a search label uservar 

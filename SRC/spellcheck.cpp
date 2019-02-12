@@ -416,6 +416,18 @@ bool SpellCheckSentence()
 		if (IsDate(word)) continue; // allow 1970/10/5 or similar
         if (IsUrl(word,word+strlen(word))) continue;
 
+        if (*word == '\'')
+        {
+            WORDP X = ApostropheBreak(word);
+            if (X)
+            {
+                tokens[1] = X->word;
+                ReplaceWords("' replace", i, 1, 1, tokens);
+                fixedSpell = true;
+                continue;
+            }
+        }
+
         // he's probably messing with us
         if (++badcount > 10 && !goodcount) break;
         if (badcount > 30 ) break;
@@ -461,7 +473,8 @@ bool SpellCheckSentence()
 		if (dot && FindWord(word, 0)) continue;
 
 		// split conjoined sentetence Missouri.Fix  or Missouri..Fix
-		if (dot && dot != word && dot[1])
+		// but dont split float values like 0.5%
+        if (dot && dot != word && dot[1] && !IsDigit(dot[1]))
 		{
 			*dot = 0;
 			WORDP X = FindWord(word, 0);

@@ -287,7 +287,8 @@ void Client(char* login)// test client for a server
     (*printer)((char*)"%s",(char*)"\r\n\r\n** Client launched\r\n");
     char* from = login;
     char copy[MAX_WORD_SIZE * 10];
-
+    char priorcat[MAX_WORD_SIZE];
+    char priorspec[MAX_WORD_SIZE];
 	char* data = AllocateBuffer(); // read from user or file
     char* response = AllocateBuffer(); // returned from chatbot
     char* sendbuffer = AllocateBuffer(); // staged message to chatbot
@@ -296,6 +297,8 @@ void Client(char* login)// test client for a server
     size_t userlen;
     size_t botlen;
     size_t msglen;
+    *priorcat = 0;
+    *priorspec = 0;
     *user = 0;
     char* msg;
     char bot[500];
@@ -365,12 +368,17 @@ SOURCE:
         char file[SMALL_WORD_SIZE];
         ptr = ReadCompiledWord(ptr + 8, file);
         source = fopen(file, (char*)"rb");
+        if (!source)
+        {
+            printf("%s not found\r\n", file);
+            myexit("not found");
+        }
         starts = true;
         ptr = SkipWhitespace(ptr);
         char num[100];
         ptr = ReadCompiledWord(ptr, num);
         count = atoi(num);
-        if (count == 0) count = 1000000;
+        if (count == 0) count = 1000000; // count and skip optional, default to all
         ptr = ReadCompiledWord(ptr, num);
         skip = atoi(num);
         ptr = data;
@@ -454,7 +462,9 @@ SOURCE:
             size_t l = strlen(ptr);
             ptr[l - 2] = 0; // remove crlf
             char output[MAX_WORD_SIZE * 10];
-            // userid, chatid, cat, spec, loc, message, output
+            // userid, cat, spec, loc, message, output
+            // userid can be blank, we overwrite with user1 name
+            // if userid is 1, these are conversations which end when cat/spec changes
             char* blank = strchr(ptr, '\t'); 
             if (!blank) continue;
             *blank = 0;  // user string now there
@@ -469,6 +479,7 @@ SOURCE:
             blank = strchr(ptr, '\t');
             *blank = 0;
             strcpy(spec, ptr);
+            if (!stricmp(spec, "none")) strcpy(spec, "general");
             ptr = blank + 1; // loc
             blank = strchr(ptr, '\t'); // end of loc
             *blank = 0;
@@ -490,12 +501,23 @@ SOURCE:
             sendbuffer[userlen + 1 + botlen + 1] = 0;
             baselen = userlen + botlen + 2;
             char* at = sendbuffer + baselen;
+            bool newstart = true;
+            if (!stricmp(user,"converse"))
+            {
+                if (!stricmp(cat, priorcat) || !stricmp(spec, priorspec)) 
+                    newstart = false;
+            }
+            strcpy(priorcat, cat);
+            strcpy(priorspec, spec);
             if (!*loc) sprintf(at , "[ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user,output);
             else sprintf(at, "[ category: %s specialty: %s id: %s location: %s  expect: \"%s\"]", cat, spec, user,loc,output);
-            sock = new TCPSocket(serverIP, (unsigned short)port);
-            sock->send(sendbuffer, baselen + 1 + strlen(at));
-            ReadSocket(sock, response);
-            delete(sock);
+            if (newstart) 
+            {
+                sock = new TCPSocket(serverIP, (unsigned short)port);
+                sock->send(sendbuffer, baselen + 1 + strlen(at));
+                ReadSocket(sock, response);
+                delete(sock);
+            }
         }
         else if (raw)
         {
@@ -534,6 +556,8 @@ SOURCE:
         ReadSocket(sock, response);
         if (!trace) echo = !converse;
         delete(sock);
+        char* pastoob = strrchr(response, ']');
+        if (pastoob) ++pastoob;
 
 		// we say that  until :exit
         if (!converse && !starts && !raw)

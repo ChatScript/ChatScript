@@ -1443,11 +1443,16 @@ void SetSentenceTense(int start, int end)
 	{
 		if ((trace & TRACE_POS || prepareMode == POS_MODE) && CheckTopicTrace()) Log(STDTRACELOG,(char*)"Not a sentence\r\n");
 		if (tokenFlags & (QUESTIONMARK|EXCLAMATIONMARK)) {;}
-		else if (posValues[startSentence] & AUX_VERB) tokenFlags |= QUESTIONMARK;// its a question because AUX starts
+		else if (posValues[startSentence] & AUX_VERB
+            && !(posValues[startSentence+1] & TO_INFINITIVE)) tokenFlags |= QUESTIONMARK;// its a question because AUX starts
 		else if (allOriginalWordBits[startSentence]  & QWORD)
 		{
-			if (!stricmp(wordStarts[startSentence],(char*)"how") && endSentence != 1 && !(posValues[startSentence+1] & (AUX_VERB | VERB_BITS)));  // not "how very american you are"
-			else tokenFlags |= QUESTIONMARK; 
+            int i = startSentence;
+            if (posValues[i + 1] & (ADVERB | ADJECTIVE)) ++i;
+            if (i < wordCount && !stricmp(wordStarts[i + 1], "much")) ++i;
+            // how
+            if (posValues[i+1] & (VERB_BITS | AUX_VERB))
+                tokenFlags |= QUESTIONMARK;
 		}
 		else if (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD) tokenFlags |= QUESTIONMARK;
 	}
@@ -1471,7 +1476,8 @@ void SetSentenceTense(int start, int end)
 			if (roles[i] & MAINVERB) foundVerb = true;
 			if (roles[i] & MAINSUBJECT) 
 			{
-				if (i == startSentence && originalLower[startSentence] && originalLower[startSentence]->properties & QWORD) tokenFlags |= QUESTIONMARK;
+				if (i == startSentence && originalLower[startSentence] && originalLower[startSentence]->properties & QWORD && posValues[startSentence+1] & (VERB_BITS & AUX_VERB_TENSES)) 
+                    tokenFlags |= QUESTIONMARK;
 				break;
 			}
 			if (phrases[i] || clauses[i] || verbals[i]) continue;
@@ -1517,7 +1523,8 @@ void SetSentenceTense(int start, int end)
 	else if (!stricmp(wordStarts[start],(char*)"how") && !stricmp(wordStarts[start+1],(char*)"many")) tokenFlags |= QUESTIONMARK; 
 	else if (posValues[start] & AUX_VERB && (!(posValues[start] & AUX_DO) || !(allOriginalWordBits[start] & AUX_VERB_PRESENT))){;} // not "didn't leave today." ommited subject
 	else if (roles[start] & MAINVERB && !stricmp(wordStarts[start],(char*)"assume")) tokenFlags |= COMMANDMARK|IMPLIED_YOU; // treat as sentence command
-	else if (roles[start] & MAINVERB && (!stricmp(wordStarts[start+1],(char*)"you") || subjectStack[MAINLEVEL])) tokenFlags |= QUESTIONMARK; 
+    // dont want "ate a cherry" to be a question so commented out rule
+    //	else if (roles[start] & MAINVERB && (!stricmp(wordStarts[start+1],(char*)"you") || subjectStack[MAINLEVEL])) tokenFlags |= QUESTIONMARK;
 	else if (roles[start] & MAINVERB && posValues[start] & VERB_INFINITIVE) tokenFlags |= COMMANDMARK|IMPLIED_YOU; 
 
     if (start > 1 && posValues[start] & VERB_PAST_PARTICIPLE)

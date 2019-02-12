@@ -386,7 +386,7 @@ void StdNumber(char* word,char*& buffer,int controls) // text numbers may have s
 	// capture any percentage symbol
 	char* end = word + len;
 	bool percent = false;
-	if (*(end - 1) == '%')
+	if (*(end - 1) == '%' &&  !(controls & (ASSIGNMENT | OUTPUT_UNTOUCHEDSTRING)))
 	{
 		*--end = 0;
 		percent = true;

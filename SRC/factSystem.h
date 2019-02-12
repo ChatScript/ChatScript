@@ -51,6 +51,7 @@ extern int* factThread;
 extern size_t maxFacts;		// allocation limit of facts
 extern uint64 myBot;
 void SortFacts(char* set, int alpha, int setpass = -1);
+extern bool seeAllFacts;
 
 // fact index accessing
 FACTOID Fact2Index(FACT* F);

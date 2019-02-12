@@ -24,7 +24,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 extern unsigned int buildID; // build 0 or build 1
 extern char* newBuffer;
 extern bool compiling;
-extern char botheader[MAX_WORD_SIZE];
+extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
 extern uint64 grade;
 extern char* lastDeprecation;

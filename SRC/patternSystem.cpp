@@ -35,7 +35,7 @@
 bool matching = false;
 bool deeptrace = false;
 static char* returnPtr = NULL;
-
+char* patternchoice = NULL;
 // pattern macro  calling data
 static unsigned int functionNest = 0;	// recursive depth of macro calling
 #define MAX_PAREN_NEST 50
@@ -388,6 +388,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
         int id;
         char* nextTokenStart = SkipWhitespace(ptr);
         returnPtr = nextTokenStart; // where we last were before token... we cant fail on _ and that's what we care about
+        char* starttoken = nextTokenStart;
         ptr = ReadCompiledWord(nextTokenStart, word);
         if (*word == '<' && word[1] == '<')  ++nextTokenStart; // skip the 1st < of <<  form
         if (*word == '>' && word[1] == '>')  ++nextTokenStart; // skip the 1st > of >>  form
@@ -928,7 +929,8 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 wildcardSelector = oldselect; // restore outer environment
                 if (matched)
                 {
-                    // return positions are always returned forward looking
+                    // monitor which pattern in multiple matched
+                     // return positions are always returned forward looking
                     if (reverse && returnStart > returnEnd)
                     {
                         int x = returnStart;
@@ -1469,6 +1471,10 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             }
             else if (*kind == '{' || *kind == '[')
             {
+                if (*kind == '[' && depth == 1)
+                {
+                    patternchoice = starttoken;
+                }
                 success = true;
                 break;	// we matched all needed in this
             }

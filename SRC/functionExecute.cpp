@@ -3944,6 +3944,30 @@ static FunctionResult ResponseCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static FunctionResult ResponsePatternCode(char* buffer)
+{
+    int index = atoi(ARGUMENT(1)) - 1;
+    if (index >= responseIndex || index < 0) return FAILRULE_BIT;
+    char* end = responseData[responseOrder[index]].patternchoice;
+    int nest = 0;
+    if (!end) return NOPROBLEM_BIT; // there is no pattern 
+    --end;
+    while (*++end)
+    {
+        if (!strnicmp(end,"[",1) || !strnicmp(end, "(", 1) ||
+            !strnicmp(end, "{", 1) || !strnicmp(end, "<<", 2))
+            ++nest;
+        else if (!strnicmp(end, "]", 1) || !strnicmp(end, ")", 1) ||
+            !strnicmp(end, "}", 1) || !strnicmp(end, ">>", 2))
+            --nest;
+        if (*end == ' ' && nest == 0) break;
+    }
+    char* start = responseData[responseOrder[index]].patternchoice;
+    strncpy(buffer,start,end-start );
+    buffer[end - start] = 0;
+    return NOPROBLEM_BIT;
+}
+
 static FunctionResult ResponseQuestionCode(char* buffer)
 {
 	int index = atoi(ARGUMENT(1)) - 1; // which response (1 based)
@@ -9115,7 +9139,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"\r\n---- Output Access",0,0,0,(char*)""},
 	{ (char*)"^lastsaid",LastSaidCode,0,0,(char*)"get what chatbot said just before"},
 	{ (char*)"^response",ResponseCode,1,0,(char*)"raw text for this response, including punctuation"},
-	{ (char*)"^setresponse",SetResponseCode,2,0,(char*)"response id and raw text to replace with" },
+    { (char*)"^responsepattern",ResponsePatternCode,1,0,(char*)"[] pattern for this response" },
+    { (char*)"^setresponse",SetResponseCode,2,0,(char*)"response id and raw text to replace with" },
 	{ (char*)"^responsequestion",ResponseQuestionCode,1,SAMELINE,(char*)"BOOLEAN - 1 if response ends in ?  0 otherwise"},
 	{ (char*)"^responseruleid",ResponseRuleIDCode,1,SAMELINE,(char*)"rule tag generating this response"},
 	

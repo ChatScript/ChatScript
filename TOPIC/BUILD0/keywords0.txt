@@ -2114,7 +2114,7 @@
 ~hattributes ( strength muscle luck intelligence imagination dexterity cool agility )
 ~hawaii_landmarks ( Waimea_Bay Waikiki_Beach Waikiki_Aquarium University_of_Hawaii Punchbowl_Cemetery Polynesian_Cultural_Center Pearl_Harbor Pali_Lookout Kailua_Beach_Park Iolani_Palace International_Market Honolulu_Zoo Hawaiian_Waters_Adventure_Park Hanauma_Bay Dole_Plantation Diamond_Head_Crater Bishop_Museum Atlantis_Submarines Arizona_Memorial )
 ~hawaiian_gods ( Pele Lono Kukailimoku Kane Kanaloa )
-~malesexanimals NOUN_HE ( rooster bull )
+~malesexanimals NOUN_HE ( drake rooster bull )
 ~royalty_male PROBABLE_NOUN ANIMATE_BEING ( prince Marquis Lordship lord Knight king Esquire Earl Duke Duc Comte Baron Archduke )
 ~health_food_shop ( wholemeal vitamin sugar_free_food soy mineral low_fat_food health_food_shop )
 ~height_words ( tall shorts meter m inch foot )

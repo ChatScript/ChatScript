@@ -867,7 +867,7 @@ static void SetCanonicalValue(int start,int end)
 		if (canonicalLower[i] && IsDigit(*canonicalLower[i]->word)) wordCanonical[i] = canonicalLower[i]->word; // leave numbers alone
 		else if (canonicalLower[i] && originalLower[i]) 
 		{
-			if (posValues[i] & NOUN_SINGULAR && !(allOriginalWordBits[i] & NOUN_GERUND) && stricmp(canonicalLower[i]->word,(char*)"unknown-word")) // saw does not become see, it stays original - but singing should still be sing and "what do you think of dafatgat" should remain
+			if (!GetCanonical(originalLower[i]) && posValues[i] & NOUN_SINGULAR && !(allOriginalWordBits[i] & NOUN_GERUND) && stricmp(canonicalLower[i]->word,(char*)"unknown-word")) // saw does not become see, it stays original - but singing should still be sing and "what do you think of dafatgat" should remain
 			{
 				canonicalLower[i] = originalLower[i];
 				wordCanonical[i] = originalLower[i]->word; 

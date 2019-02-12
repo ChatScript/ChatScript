@@ -403,6 +403,24 @@ static char* HandleQuoter(char* ptr,char** words, int& count)
 	return  end + 1;
 }
 
+WORDP ApostropheBreak(char* aword)
+{
+    char word[MAX_WORD_SIZE];
+    *word = '*';
+    strcpy(word + 1, aword);
+    WORDP D = FindWord(word);
+    if (D)
+    {
+        if (D->internalBits & HAS_SUBSTITUTE)
+        {
+            WORDP X = GetSubstitute(D); 
+            uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
+            return (allowed) ? X : NULL; // allowed to break
+        }
+    }
+    return NULL;
+}
+
 static WORDP UnitSubstitution(char* buffer)
 {
 	char value[MAX_WORD_SIZE];
@@ -482,6 +500,15 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		}
 		return ptr;
 	}
+
+    // special break on token
+    if (*ptr == '\'')
+    {
+        char word[MAX_WORD_SIZE];
+        ReadCompiledWord(ptr,word);
+        WORDP X = ApostropheBreak(word);
+        if (X) return ptr + strlen(word); // allow token
+    }
 
 	if (kind & QUOTERS) // quoted strings 
 	{
@@ -606,6 +633,13 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	{
 		*pipe = 0; // break apart token
 	}
+
+    // check for apostrophe
+    char* apost = strchr(token, '\'');
+    if (apost && ApostropheBreak(apost))
+    {
+        return ptr + (apost - token);
+    }
 
 	// check for float
 	if (strchr(token, numberPeriod) || strchr(token, 'e') || strchr(token, 'E'))
@@ -842,12 +876,13 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if (atsign && atsign < end)
 	{
 		char* period = strchr(atsign+1,'.');
-		if (period && period < end && IsAlphaUTF8(ptr[end-ptr-1]) &&  IsAlphaUTF8(ptr[end-ptr-2])) // can be domain data
+		if (period && period < end && IsAlphaUTF8(ptr[end-ptr-1]) &&  IsAlphaUTF8(ptr[end-ptr-2])) // top level domain is alpha
 		{
-			// find end of email text word
+			// find end of email domain, can be letters or numbers or hyphen
+			// there maybe be several parts to the domain
 			while (*++period)
 			{
-				if (!IsAlphaUTF8(*period)) return period;
+				if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return period;
 			}
 			return end;
 		}
@@ -2191,14 +2226,15 @@ static WORDP ViableIdiom(char* text,int i,unsigned int n)
 { // n is words merged into "word"
 
 	WORDP word = FindWord(text,0, STANDARD_LOOKUP);
-	if (!word)
+    WORDP X = Viability(word, i, n);
+	if (!word || (!X && word->word[2] && word->word[3])) //avoid is -> I
 	{
 		size_t len = strlen(text);  // watch out for <his  
 		if (text[len-1] == 's' && text[0] != '<') word = FindWord(text, len-1, STANDARD_LOOKUP);
 		if (!word) return 0;
 	}
     bool again = primaryLookupSucceeded;
-    WORDP X = Viability(word, i, n);
+    X = Viability(word, i, n);
     if (X || !again) return X;
     
 	// allowed to try other case
@@ -2362,7 +2398,7 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
         unsigned int count = 0;
 		WORDP D = FindWord(buffer+1,0,PRIMARY_CASE_ALLOWED); // main word a header?
   		if (D) count = GETMULTIWORDHEADER(D);
-		else if (wordStarts[i][len-1] == 's') // consider singular?
+        if (!count && wordStarts[i][len-1] == 's') // consider singular?
 		{
 			D = FindWord(wordStarts[i], len-1, PRIMARY_CASE_ALLOWED);
 			if (D) count = GETMULTIWORDHEADER(D);

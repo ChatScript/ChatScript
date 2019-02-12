@@ -44,7 +44,7 @@ FACT* currentFact = NULL;		// current fact
 MEANING Mmember;				// represents concept sets
 MEANING Mis;					// represents wordnet hierarchy
 MEANING Mexclude;				// represents restriction of word not allowed in set (blocking inheritance)
-
+bool seeAllFacts = false;
 FACT* Index2Fact(FACTOID e)
 { 
 	FACT* F = NULL;
@@ -66,7 +66,7 @@ static bool UnacceptableFact(FACT* F,bool jsonavoid)
 {
 	if (!F || F->flags & FACTDEAD) return true;
 	// if ownership flags exist (layer0 or layer1) and we have different ownership.
-	if (!compiling && F->botBits && !(F->botBits & myBot)) return true;
+	if (!seeAllFacts &&  F->botBits && !(F->botBits & myBot)) return true;
 	return false;
 }
 

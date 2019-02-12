@@ -2346,7 +2346,7 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash,bool noblank,int limit)
 			break;
 		}
     }
-    if (n == 0 || !c) // ran dry instead of finding the end
+    if (!n  || !c) // ran dry instead of finding the end
 	{	
 		if (backslash) // probably a normal end quote with attached stuff
 		{
@@ -2357,9 +2357,8 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash,bool noblank,int limit)
 			*buffer = 0;
 			return ptr;
 		}
-		*buffer = 0;
- 		if (!n) Log(STDTRACELOG,(char*)"bad double-quoting?  %s %d %s - string size exceeds limit of %d\r\n",start,currentFileLine,currentFilename,limit);
-		else Log(STDTRACELOG,(char*)"bad double-quoting1?  %s %d %s missing tail doublequote \r\n",start,currentFileLine,currentFilename);
+		*buffer = 0; 
+        WARNSCRIPT((char*)"bad double-quoting?  %s %d %s\r\n", start, currentFileLine, currentFilename);
 		return NULL;	// no closing quote... refuse
 	}
 

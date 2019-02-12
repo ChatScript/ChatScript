@@ -40,6 +40,7 @@ Thereafter the system chases up the synset hierarchy fanning out to sets marked 
 int maxRefSentence = (((MAX_XREF_SENTENCE  * REF_ELEMENTS) + 3) / 4) * 4; // start+end offsets for this many entries + alignment slop
 int uppercaseFind = -1; // unknown
 static bool failFired = false;
+bool trustpos = false;
 int marklimit = 0;
 static int wordlist = 0;
 static HEAPREF pendingConceptList = 0;
@@ -81,6 +82,7 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int index, int start, int en
 {	//   keep closest to start at bottom, when run out, drop later ones 
     if (!D || !D->word) return false;
 	if (end > wordCount) end = wordCount;   
+
 	if (start > wordCount) 
 	{
 		ReportBug((char*)"save position is too big")
@@ -770,10 +772,12 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 		}
 		
 		// scan interesting initial words (spaced, underscored, capitalized) but we need to recognize bots in lower case, so try all cases here as well
-		HuntMatch(0,rawbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
-		HuntMatch(1,canonbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
-		HuntMatch(2,originalbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i,usetrace);
-
+        if (!trustpos) // the base words would already be scanned and marked by pos
+        {
+            HuntMatch(0, rawbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
+            HuntMatch(1, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
+            HuntMatch(2, originalbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
+        }
 		//   fan out for addon pieces
 		int k = 0;
 		int index = 0;
