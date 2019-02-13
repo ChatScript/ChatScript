@@ -1433,24 +1433,37 @@ static void WritePatternWord(char* word)
 
 static void NoteUse(char* label,char* topicName)
 {
+    char xlabel[MAX_WORD_SIZE];
+    char* dot = strchr(label, '.');
+    char* tilde = strchr(label + 1, '~');
+    if (tilde)
+    {
+        *tilde = 0;
+        sprintf(xlabel, "%s%s", label, dot);
+        *tilde = '~';
+    }
+    else strcpy(xlabel, label);
+
     char labelx[MAX_WORD_SIZE];
     char* bots = scopeBotName;
-    if (!*scopeBotName) bots = "*";
+    if (!*bots) bots = "*";
     if (*bots == ' ') ++bots;
-    sprintf(labelx, "%s-%s", label, bots);
-    int len = strlen(labelx);
-    if (labelx[len - 1] == ' ') labelx[len - 1] = 0;
-	MakeUpperCase(labelx);
+    int len = strlen(bots);
+    if (bots[len - 1] == ' ') bots[len - 1] = 0;
+    MakeUpperCase(bots);
+
+    sprintf(labelx, "%s-%s", xlabel,bots);
+    MakeUpperCase(labelx);
 	WORDP D = FindWord(labelx);
-	if (!D || !(D->internalBits & LABEL))
+	if (!D || !(D->internalBits & LABEL)) // bug doesnt look for generic if bots exists
 	{
 		char file[200];
 		sprintf(file,"%s/missingLabel.txt",topic);
 		FILE* out = FopenUTF8WriteAppend(file);
 		if (out)
 		{
-            if (scopeBotName) fprintf(out, (char*)"%s %s %s %d\r\n", label, scopeBotName, currentFilename, currentFileLine); // generic
-			else fprintf(out,(char*)"%s * %s %d\r\n",label,currentFilename,currentFileLine); // specific bot
+            if (scopeBotName) fprintf(out, (char*)"%s %s %s %d\r\n", xlabel, scopeBotName, currentFilename, currentFileLine); // generic
+			else fprintf(out,(char*)"%s * %s %d\r\n",xlabel,currentFilename,currentFileLine); // specific bot
             fclose(out); // dont use FClose
 		}
 	}
@@ -3632,13 +3645,19 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 	return ptr;
 }
 
-static void ReadTopLevelRule(char* typeval,char* &ptr, FILE* in,char* data,char* basedata)
+static void ReadTopLevelRule(WORDP topicName, char* typeval,char* &ptr, FILE* in,char* data,char* basedata)
 {//   handles 1 responder/gambit + all rejoinders attached to it
 	char type[100];
 	complexity = 1;
 	strcpy(type,typeval);
 	char info[400];
 	char kind[MAX_WORD_SIZE];
+
+    char tname[MAX_WORD_SIZE];
+    strcpy(tname, topicName->word);
+    char* tilde = strchr(tname + 1, '~');
+    if (tilde) *tilde = 0; // remove dup index
+
 	strcpy(kind,type);
 	char word[MAX_WORD_SIZE];
 	char rejoinders[256];	//   legal levels a: thru q:
@@ -3727,31 +3746,20 @@ Then one of 3 kinds of character:
 					sprintf(info,"        rule: %s.%d.%d-%s %s",currentTopicName,TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),name+1, kind);
 					AddMap(info,NULL); // rule
 	
-                    char* bots = currentTopicBots; 
-                    if (!bots)
+                    char* bots = topicName->w.topicBots;
+                    if (!bots || !*bots)
                     {
                         bots = "*"; // general access
                     }
-                    while (bots)
+                     while (*bots)
                     {
-                        char* end = strchr(bots, ' ');
-                        char c = 0;
-                        if (end) *end = 0;
-                        sprintf(label, "%s.%s-%s", currentTopicName, word, bots );
+                        char bot[MAX_WORD_SIZE];
+                        bots = ReadCompiledWord(bots, bot);
+                        if (!*bot) break;
+                        sprintf(label, "%s.%s-%s", tname, word, bot );
                         MakeUpperCase(label);
                         WORDP E = StoreWord(label, AS_IS);
-                        // c && strstr(label, "FINALASK"))
-                        //    Log(STDTRACELOG, "NOTE: %sr\n", label);
                         AddInternalFlag(E, LABEL);
-                        if (end) // bot names are separated by spaces
-                        {
-                            *end = ' ';
-                            bots = end + 1;
-                        }
-                        else
-                        {
-                            bots = NULL; // end of loop
-                        }
                     }
 
 					MakeUpperCase(word); 
@@ -4566,7 +4574,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
             if (!myBot && topicName && topicName->internalBits & CONCEPT && !(topicName->internalBits & TOPIC) && topicName->internalBits & (BUILD0 | BUILD1 | BUILD2))
                 WARNSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s\r\n", currentTopicName)
             if (topicName && topicName->internalBits & CONCEPT && !(topicName->internalBits & TOPIC) && 
-                topicName->internalBits & (BUILD0 | BUILD1 | BUILD2) != build)
+                (topicName->internalBits & (BUILD0 | BUILD1 | BUILD2)) != build)
                     BADSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s in prior layer\r\n", currentTopicName)
             if (topicName && HasBotMember(topicName, myBot))
             {
@@ -4588,7 +4596,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 					strcpy(duplicateTopicName,currentTopicName);
 			}
 			strcpy(currentTopicName,topicName->word);
-            AddMap((char*)"    topic:", currentTopicName);
+            AddMap((char*)"    topic:", topicName->word);
 
 			AddInternalFlag(topicName,(unsigned int)(build|CONCEPT|TOPIC));
 			topicName->w.topicBots = NULL;
@@ -4610,7 +4618,8 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 				BADSCRIPT((char*)"TOPIC-? Don't need SHARE on SYSTEM topic %s, it is already shared via system\r\n",currentTopicName)
 			topicFlagsDone = true; //   topic flags must occur before list of keywords
 			++parenLevel;
-            if (!topicName->w.topicBots && *scopeBotName) topicName->w.topicBots = AllocateHeap(scopeBotName + 1, strlen(scopeBotName + 2));
+            if (!topicName->w.topicBots && *scopeBotName) 
+                topicName->w.topicBots = AllocateHeap(scopeBotName, strlen(scopeBotName)+1);
 			break;
 		case ')': case ']':
 			--parenLevel;
@@ -4684,7 +4693,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 					strcpy(pack,ENDUNITTEXT+1);	//   init 1st rule
 					pack += strlen(pack);
 				}
-				ReadTopLevelRule(lowercaseForm,ptr,in,pack,data);
+				ReadTopLevelRule(topicName,lowercaseForm,ptr,in,pack,data);
 				currentRuleID = TOPLEVELID(currentRuleID) + 1;
 				pack += strlen(pack);
 				if ((pack - data) > (MAX_TOPIC_SIZE - 2000)) BADSCRIPT((char*)"TOPIC-4 Topic %s data too big. Split it by calling another topic using u: () respond(~subtopic) and putting the rest of the rules in that subtopic\r\n",currentTopicName)
@@ -4789,12 +4798,12 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 	*planName = 0;
 	functionArgumentCount = 0;
 	int parenLevel = 0;
-	WORDP D = NULL;
 	bool gettingArguments = true;
 	endtopicSeen = false;
 	patternContext = false;
 	int baseArgumentCount = 0;
 	unsigned int duplicateCount = 0;
+    WORDP plan = NULL;
 	while (gettingArguments) //   read as many tokens as needed to get the name and argumentList
 	{
 		char word[MAX_WORD_SIZE];
@@ -4813,7 +4822,7 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 			Log(STDTRACELOG,(char*)"Reading plan %s\r\n",planName);
 
 			// handle potential multiple plans of same name
-			WORDP plan = FindWord(planName);
+			plan = FindWord(planName);
 			char name[MAX_WORD_SIZE];
 			strcpy(name,planName);
 			if (plan) baseArgumentCount = plan->w.planArgCount;
@@ -4825,7 +4834,7 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 				strcpy(planName,name);
 			}
 
-			D = StoreWord(planName);
+            plan = StoreWord(planName);
 			continue;
 		}
 
@@ -4853,13 +4862,13 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 				BADSCRIPT((char*)"PLAN-7 Bad argument to plan definition %s",planName)
 		}
 	}
-	if (!D) return ptr; //   nothing defined
+	if (!plan) return ptr; //   nothing defined
 	if (parenLevel) BADSCRIPT((char*)"PLAN-5 Failure to balance ( in %s\r\n",planName)
 	if (duplicateCount && functionArgumentCount != baseArgumentCount) 
 		BADSCRIPT((char*)"PLAN->? Additional copies of %s must have %d arguments\r\n",planName,baseArgumentCount)
-	AddInternalFlag(D,(unsigned int)(FUNCTION_NAME|build|IS_PLAN_MACRO));
-	D->w.planArgCount = functionArgumentCount;
-	currentFunctionDefinition = D;
+	AddInternalFlag(plan,(unsigned int)(FUNCTION_NAME|build|IS_PLAN_MACRO));
+    plan->w.planArgCount = functionArgumentCount;
+	currentFunctionDefinition = plan;
 	
 	char* data = (char*) malloc(MAX_TOPIC_SIZE); // use a big chunk of memory for the data
 	*data = 0;
@@ -4899,14 +4908,13 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 					strcpy(pack,ENDUNITTEXT+1);	//   init 1st rule
 					pack += strlen(pack);
 				}
-				ReadTopLevelRule(lowercaseForm,ptr,in,pack,data);
+				ReadTopLevelRule(plan,lowercaseForm,ptr,in,pack,data);
 				pack += strlen(pack);
 				if ((pack - data) > (MAX_TOPIC_SIZE - 2000)) BADSCRIPT((char*)"PLAN-4 Plan %s data too big. Split it by calling another topic using u: () respond(~subtopic) and putting the rest of the rules in that subtopic\r\n",planName)
 			}
 			else BADSCRIPT((char*)"Expecting responder for plan %s, got %s\r\n",planName,word)
 		}
 	}
-
 	--jumpIndex;
 
 	if (toplevelrules > MAX_TOPIC_RULES) BADSCRIPT((char*)"PLAN-8 %s has too many rules- %d must be limited to %d. Call a plantopic.\r\n",planName,toplevelrules,MAX_TOPIC_RULES)
@@ -4994,8 +5002,8 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
 		}
         if (*word == '\'')
         {
-            memmove(word + 1, word, strlen(word)+1);
-            *word = '*';
+            memmove(replace + 1, replace, strlen(replace));
+            *replace = '*';
         }
 		char filename[SMALL_WORD_SIZE];
 		sprintf(filename,(char*)"%s/BUILD%s/private%s.txt",topic,baseName,baseName);
