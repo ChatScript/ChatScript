@@ -214,3 +214,9 @@ using namespace std;
 #endif
 
 #endif
+
+#ifdef LINUX
+	// headers for error handling
+	#include <signal.h>
+	#include <execinfo.h>
+#endif

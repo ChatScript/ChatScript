@@ -467,7 +467,12 @@ int evsrv_init(const string &interfaceKind, int port, char* arg) {
     }
 #endif
 
-    if (parent_after_fork == 1 && cur_children_g > 0)  return 1; // parent of child does not accept/handle connections
+    if (parent_after_fork == 1 && cur_children_g > 0){
+        setSignalHandlers();
+        return 1; // parent of child does not accept/handle connections
+    }else{
+        setSignalHandlers();
+    }
 
     if (listen(srv_socket_g, listen_queue_length_g) < 0) {
         Log(SERVERLOG, "evserver: listen() failed, errno: %s\r\n", strerror(errno));

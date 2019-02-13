@@ -310,3 +310,9 @@ unsigned int random(unsigned int range);
 uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & hasUTF8Characters);
 
 #endif
+
+
+#ifdef LINUX
+	void setSignalHandlers ();
+	void signalHandler( int signalcode );
+#endif

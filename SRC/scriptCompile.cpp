@@ -1415,9 +1415,9 @@ static void WritePatternWord(char* word)
     else if (nospellcheck) {;}
     else if (lower && lower->internalBits & DO_NOISE && !(lower->internalBits & HAS_SUBSTITUTE)) {} // told not to check
     else if (upper && (GetMeaningCount(upper) > 0 || upper->properties & NORMAL_WORD )){;} // clearly known as upper case
-	else if (lower && lower->properties & NORMAL_WORD && !(lower->properties & (DETERMINER|AUX_VERB)))
+	else if (!(spellCheck & NO_SPELL) && lower && lower->properties & NORMAL_WORD && !(lower->properties & (DETERMINER|AUX_VERB)))
 		WARNSCRIPT((char*)"Keyword %s should not be uppercase - did prior rule fail to close\r\n",word)
-	else if (spellCheck && lower && lower->properties & VERB && !(lower->properties & NOUN))
+	else if (!(spellCheck & NO_SPELL) && spellCheck && lower && lower->properties & VERB && !(lower->properties & NOUN))
 		WARNSCRIPT((char*)"Uppercase keyword %s is usually a verb.  Did prior rule fail to close\r\n",word)
 	
         char* pos;
@@ -5003,8 +5003,8 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
 		}
         if (*word == '\'')
         {
-            memmove(replace + 1, replace, strlen(replace));
-            *replace = '*';
+            memmove(word + 1, word, strlen(word)+1);
+            *word = '*';
         }
 		char filename[SMALL_WORD_SIZE];
 		sprintf(filename,(char*)"%s/BUILD%s/private%s.txt",topic,baseName,baseName);

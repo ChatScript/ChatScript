@@ -198,6 +198,56 @@ void mystart(char* msg)
 	if (server) Log(SERVERLOG, word);
 }
 
+
+/////////////////////////////////////////////////////////
+/// Fatal Error/signal logging
+/////////////////////////////////////////////////////////
+#ifdef LINUX 
+
+	void signalHandler( int signalcode ) {
+		char word[MAX_WORD_SIZE];
+		void *array[30];
+		size_t size;
+		// get void*'s for all entries on the stack
+		size = backtrace(array, 30);
+		// print out all the frames to stderr
+		sprintf(word, (char*)"Fatal Error: signal code %d\n", signalcode);
+		Log(SERVERLOG, word);
+		FILE*fp = FopenUTF8WriteAppend(serverLogfileName);
+		fseek(fp, 0, SEEK_END);
+		int fd = fileno(fp);
+		backtrace_symbols_fd(array, size, fd); //STDERR_FILENO);
+		fclose(fp);
+		// terminate program  
+		exit(signalcode);  
+	}
+
+	void setSignalHandlers () {
+		char word[MAX_WORD_SIZE];
+		struct sigaction sa;
+		sa.sa_handler = &signalHandler;
+		sigfillset(&sa.sa_mask); // Block every signal during the handler
+		// Handle relevant signals
+		if (sigaction(SIGSEGV, &sa, NULL) == -1) {
+			sprintf(word, (char*)"Error: cannot handle SIGSEGV");
+			Log(SERVERLOG, word);
+		}
+		if (sigaction(SIGHUP, &sa, NULL) == -1) {
+			sprintf(word, (char*)"Error: cannot handle SIGHUP");
+			Log(SERVERLOG, word);
+		}
+		if (sigaction(SIGINT, &sa, NULL) == -1) {
+			sprintf(word, (char*)"Error: cannot handle SIGINT");
+			Log(SERVERLOG, word);
+		}
+		if (sigaction(SIGBUS, &sa, NULL) == -1) {
+			sprintf(word, (char*)"Error: cannot handle SIGBUS");
+			Log(SERVERLOG, word);
+		}
+	}
+
+#endif
+
 /////////////////////////////////////////////////////////
 /// MEMORY SYSTEM
 /////////////////////////////////////////////////////////
