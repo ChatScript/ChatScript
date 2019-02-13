@@ -1,3 +1,3 @@
 
-pandoc Practicum-spelling_and_interjections.md -s -o ../PDFDOCUMENTATION/Practicum-spelling_and_interjections.pdf
+pandoc ChatScript-System-Functions-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-System-Functions-Manual.pdf
 pause

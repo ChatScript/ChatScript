@@ -1,3 +1,23 @@
+# version 9.1 2/12/2019
+1. restored USER_FLAG4 for facts
+2. command line parameter "trustpos" allows things like
+    concept: ~all(feel~n)  
+    to work. By default we dont trust pos-tagger and CS will tolerate
+    all forms. 
+3. ^responsepattern(responseid)
+    part of the ^response.. world, returns the pattern that matched inside []
+    of rule generating output (if it is matched that way)
+    For a rule like:
+        u: ([  (pattern 1) (pattern 2) ([try 3])])
+    It will tell you which piece of the pattern matched.
+    Handy for debugging why a pattern matches incorrectly w/o
+    having to read a trace log and analyzing each + and -.
+4:  replace: 'xxx  yyy
+    allows you to split during tokenization any word followed by 'xxx into two words,
+    original sans 'xxx and yyy. eg
+    replace: 've have
+    gives "companies've =>  "companies have"
+    
 # version 9.0 1/1/2019
 
 1. param inputlimit=n truncates user input to this size.

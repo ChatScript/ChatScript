@@ -93,6 +93,11 @@ If no matching facts are found, the query function returns the RULE fail code.
 If the above query finds a fact `(I own dog)` then the rule says yes. 
 If not, the rule fails during output. This query could have been put inside the pattern instead.
 
+Note: if an argument to a query is a concept name, it will be expanded to all its 
+constituent members unless you put a quote in front of it. You probably want this:
+```
+@0 = ^query(direct_vo ? member '~conceptname)
+```
 
 ### `^query`(kind subject verb object count fromset toset propagate match)
 
@@ -748,7 +753,7 @@ Flags you can set for yourself include:
 
 | flag          | description
 |---------------|---------------------------------
-|`USER_FLAG1`<br>`USER_FLAG2`<br>`USER_FLAG3`<br>`USER_FLAG4`<br>`USER_FLAG5`<br>`USER_FLAG6`<br>`USER_FLAG1`<br>`USER_FLAG8` | user defined
+|`USER_FLAG1`<br>`USER_FLAG2`<br>`USER_FLAG3`<br>`USER_FLAG4` | user defined
 
 Facts created by JSON code have user markings also, renamed as
 

@@ -1445,9 +1445,10 @@ static void NoteUse(char* label,char* topicName)
     else strcpy(xlabel, label);
 
     char labelx[MAX_WORD_SIZE];
-    char* bots = scopeBotName;
-    if (!*bots) bots = "*";
-    if (*bots == ' ') ++bots;
+    char bots[MAX_WORD_SIZE];
+    strcpy(bots, scopeBotName);
+    if (*bots == ' ') strcpy(bots, scopeBotName + 1);
+    if (!*bots) strcpy(bots, "*");
     int len = strlen(bots);
     if (bots[len - 1] == ' ') bots[len - 1] = 0;
     MakeUpperCase(bots);

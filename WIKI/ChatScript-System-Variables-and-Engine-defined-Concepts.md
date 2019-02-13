@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/1/2019 cs9.0
+<br>Revision 2/12/2019 cs9.1
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -537,6 +537,19 @@ replace: ?_km kilometers
 The ?_ matches a digit number followed immediately by km, like `1.2km` and will separate the number and replace the units
 with the given replacement. The input can be singular or have an 's' like `10.5dollars`. And it can be with or without abbreviation periods,
 like `10kps` or `10k.p.s`
+
+## Apostrophe Substitutionsreplace
+```
+replace: 'xxx  yyy
+```
+allows you to split during tokenization any word followed by 'xxx into two words,
+original sans 'xxx and yyy. eg
+```
+replace: 've have
+```
+gives "companies've =>  "companies have".
+
+
 
 # Interchange Variables
 

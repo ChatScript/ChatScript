@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-Revision 1/1/2019 cs9.0
+<br>Revision 2/12/2019 cs9.1
 
 # Command Line Parameters
 
@@ -115,6 +115,14 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`logsize=n`          | When server log file exceeds n megabytes, rename it and start with a new file.
 |`defaultbot=name`   | overrides defaultbot table for what bot to default to
 |`inputlimit=n`     | truncate user input line to this size
+|`trustpos`     | obey word~n and other pos restrictions in keywords
+
+Trustpos is normally off by default because CS is only about 94% accurate in its
+built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
+a word rather than miss a match. Ergo concept: ~all(feel~n) will match any use of "feel" rather than
+just noun meaning. But combining CS with Treetagger for english (if you license it) is better at
+pos-tagging than either alone, making it competitive with the best taggers in the world.
+    
 
 Here few command line parameters usage examples of usual edit/compile developement phase, running ChatScript from a Linux terminal console (standalone mode):
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> Revision 1/1/2019 cs9.0</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 2/12/2019 cs9.1</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
 <p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). Or you can name where the file is on a command line parameter <code>config=xxx</code>. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
 <p>Config file data are command line parameters, 1 per line, like below:</p>
@@ -218,8 +218,13 @@ port=20</code></pre>
 <td><code>inputlimit=n</code></td>
 <td>truncate user input line to this size</td>
 </tr>
+<tr class="even">
+<td><code>trustpos</code></td>
+<td>obey word~n and other pos restrictions in keywords</td>
+</tr>
 </tbody>
 </table>
+<p>Trustpos is normally off by default because CS is only about 94% accurate in its built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of a word rather than miss a match. Ergo concept: <sub>all(feel</sub>n) will match any use of &quot;feel&quot; rather than just noun meaning. But combining CS with Treetagger for english (if you license it) is better at pos-tagging than either alone, making it competitive with the best taggers in the world.</p>
 <p>Here few command line parameters usage examples of usual edit/compile developement phase, running ChatScript from a Linux terminal console (standalone mode):</p>
 <p>Rebuild <em>level0</em> (compiling system ChatScript files, listed usually in file <code>files0.txt</code>):</p>
 <pre><code>BINARIES/LinuxChatScript64 local build0=files0.txt </code></pre>

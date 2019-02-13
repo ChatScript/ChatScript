@@ -206,6 +206,15 @@ concept: ~active_verbs ONLY_NONE (sleep)</code></pre>
 <pre><code>if ( pattern practical?~adjective )</code></pre>
 <p>will fail given that deciding practical is an adjective (it could also be a noun) hasn't been performed by pos-tagging.</p>
 <p>All internal concepts are members of the concept <code>~internal_concepts</code>.</p>
+<h2 id="alternate-ways-of-populating-a-concept">Alternate ways of populating a Concept</h2>
+<p>Normally concepts are an enumeration set you define like this:</p>
+<pre><code>concept: ~myconcept (word1 word2 &quot;phrase of mine&quot;)</code></pre>
+<p>But you can also extend a concept merely by creating facts:</p>
+<pre><code>    $_tmp = ^createfact(word3 member ~myconcept)</code></pre>
+<p>Concept membership is actually represented by facts of the above form.</p>
+<p>A third way does not actually create members of a concept and does not require mere words and phrases. You can use any pattern whatsoever. And you cannot list it like you would normal members of a concept. You meremly execute a rule early on in your script that marks places in a sentence.</p>
+<pre><code>u: FAKEIT ( _(find * way)) ^mark(~myconcept _0)</code></pre>
+<p>The above detects a pattern, records the location start and end of it so that you can then mark where in the sentence ~myconcept will now be detected by any future patterns of yours.</p>
 <h1 id="advanced-topics">ADVANCED TOPICS</h1>
 <p>There are several things to know about advanced topics.</p>
 <h2 id="topic-execution">Topic Execution</h2>
@@ -339,7 +348,7 @@ u: ( dog ) I hate dogs</code></pre>
 
 # subtopic about swimming
 r: Do you like the ocean?
-
+:bui
 t: I like swimming in the ocean.
 
 t: I often go to the beach to swim.
@@ -966,7 +975,9 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <p>When the system exits a topic and this function is defined by you, it will be invoked after the topic is processed. You will be given the name of the topic and the text value representing what it returned. E.g., NOPROBLEM. The range of names of these are defined in mainsystem.h (minus _BIT) but are your basic FAILTOPIC, etc.</p>
 <h2 id="autoinitfile">AutoInitFile</h2>
 <p>When a user is initialized for the first time, the system will attempt to read a top-level file named for the user as <code>bruce-init.txt</code> (if user is bruce). If found, commands will be executed from there (analogous to the <code>:source</code> command. This will be read after any <code>source=</code> command line parameter.</p>
-<h1 id="advanced-build">Advanced <code>:build</code></h1>
+<h1 id="advanced">Advanced `</h1>
+<h2 id="anti-virus-software-and-build">Anti-virus software and :build</h2>
+<p>Windows Defender, Norton, and the like have a real-time monitoring system on files. You can disable the ChatScript folder from being analyzed. On a Mac w/o this stuff, a compile of a bot might take 14 seconds, wherease with AV software interferring on Windows it takes 4 minutes. CS writes to its TOPIC folder and LOGS directories in lots of little pieces, that AV wants to monitor.</p>
 <h2 id="build-warning-messages">Build warning messages</h2>
 <p>Build will warn you of a number of situations which, not illegal, might be mistakes. It has several messages about words it doesn't recognize being used as keywords in patterns and concepts. You can suppress those messages by augmenting the dictionary OR just telling the system not to tell you</p>
 <pre><code>:build 0 nospell</code></pre>

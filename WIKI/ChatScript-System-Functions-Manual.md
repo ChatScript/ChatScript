@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/14/2019 cs9.0
+<br>Revision 2/12/2019 cs9.1
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -805,6 +805,13 @@ The final rule will be first and the relay second, eg `~keywordless.30.0.~contro
 If the _id_ is `-1`, then all output generated will be included, analogous to what happens in
 the log file for `why` in the entries.
 
+### `^responsepattern(responseid)`
+Returns the pattern that matched inside [] of rule generating output (if it is matched that way)
+For a rule like:
+        u: ([  (pattern 1) (pattern 2) ([try 3])])
+It will tell you which piece of the pattern matched.
+Handy for debugging why a pattern matches incorrectly w/o
+having to read a trace log and analyzing each + and -.
 
 ## PostProcessing Functions
 
@@ -1128,12 +1135,12 @@ and sent to the declared function, which must be an output macro or system funct
 The function can do whatever it wants. Any output it prints to the output buffer will be concatenated together 
 to be the output from ChatScript. If you need a doublequote in the command string, use a backslash in front of
 each one.  They will be removed prior to sending the command. E.g.,
-
+```
     outputmacro: ^myfunc(^arg)
     ^arg \n
     topic: ~test( testing )
     u: () popen( "dir *.* /on" '^myfunc)
-
+```
 output this:
 ```
 Volume in drive C is OS
@@ -1649,8 +1656,8 @@ to allow that or the space notation to be considered equivalent
 (unless your source or substring is literally an underscore only).
 
 If you want to find a newline or tab character, then pass in the string
-\n or \t.  That will find an actual ascii character of such.
-If you want to find the ascii string "\n", then use \\n and \\t to find them.
+`\n` or `\t`.  That will find an actual ascii character of such.
+If you want to find the ascii string `\n`, then use \\n and \\t to find them.
 Normal scripts don't have ascii newline or tab in them. You wrote the backslashed 
 characters and they are converted to the appropriate ascii characters on output to the user. 
 But if you have read data from an external source, it will likely be the

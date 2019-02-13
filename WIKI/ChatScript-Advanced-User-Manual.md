@@ -441,6 +441,29 @@ will fail given that deciding practical is an adjective (it could also be a noun
 
 All internal concepts are members of the concept `~internal_concepts`.
 
+## Alternate ways of populating a Concept
+Normally concepts are an enumeration set you define like this:
+```
+concept: ~myconcept (word1 word2 "phrase of mine")
+```
+But you can also extend a concept merely by creating facts:
+```
+    $_tmp = ^createfact(word3 member ~myconcept)
+```
+Concept membership is actually represented by facts of the above form.
+
+A third way does not actually create members of a concept and does
+not require mere words and phrases. You can use any pattern whatsoever.
+And you cannot list it like you would normal members of a concept.
+You meremly execute a rule early on in your script that marks
+places in a sentence. 
+```
+u: FAKEIT ( _(find * way)) ^mark(~myconcept _0)
+```
+The above detects a pattern, records the location start and end of it so 
+that you can then mark where in the sentence ~myconcept will now be detected
+by any future patterns of yours.
+
 
 # ADVANCED TOPICS
 
@@ -572,7 +595,7 @@ Topic: ~beach [beach sand ocean sand_castle]
 
 # subtopic about swimming
 r: Do you like the ocean?
-
+:bui
 t: I like swimming in the ocean.
 
 t: I often go to the beach to swim.
@@ -2098,7 +2121,11 @@ the user as `bruce-init.txt` (if user is bruce). If found, commands will be exec
 to the `:source` command. This will be read after any `source=` command line parameter.
 
 
-# Advanced `:build`
+# Advanced `
+
+## Anti-virus software and :build
+
+Windows Defender, Norton, and the like have a real-time monitoring system on files. You can disable the ChatScript folder from being analyzed. On a Mac w/o this stuff, a compile of a bot might take 14 seconds, wherease with AV software interferring on Windows it takes 4 minutes. CS writes to its TOPIC folder and LOGS directories in lots of little pieces, that AV wants to monitor.
 
 ## Build warning messages
 

@@ -3206,7 +3206,7 @@ void MakeUpperCase(char* ptr)
 			*ptr = (char)c & 0xfe;
 		}
 		else if (utfcharacter[1]) ptr = x - 1;
-		else *ptr = GetUppercaseData(*ptr);
+        else  *ptr = GetUppercaseData(*ptr);
 	}
 }
 

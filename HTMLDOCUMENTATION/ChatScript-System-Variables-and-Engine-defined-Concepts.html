@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/1/2019 cs9.0</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/12/2019 cs9.1</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1289,6 +1289,11 @@ s: (name is _*)
 <p>A special kind of private substitution (equally applicable in regular substitution files) is the numeric substitution.</p>
 <pre><code>replace: ?_km kilometers</code></pre>
 <p>The ?_ matches a digit number followed immediately by km, like <code>1.2km</code> and will separate the number and replace the units with the given replacement. The input can be singular or have an 's' like <code>10.5dollars</code>. And it can be with or without abbreviation periods, like <code>10kps</code> or <code>10k.p.s</code></p>
+<h2 id="apostrophe-substitutionsreplace">Apostrophe Substitutionsreplace</h2>
+<pre><code>replace: &#39;xxx  yyy</code></pre>
+<p>allows you to split during tokenization any word followed by 'xxx into two words, original sans 'xxx and yyy. eg</p>
+<pre><code>replace: &#39;ve have</code></pre>
+<p>gives &quot;companies've =&gt; &quot;companies have&quot;.</p>
 <h1 id="interchange-variables">Interchange Variables</h1>
 <p>The following variables can be defined in a script and the engine will react to their contents.</p>
 <table style="width:39%;">

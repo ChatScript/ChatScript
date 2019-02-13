@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/14/2019 cs9.0</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/12/2019 cs9.1</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -415,6 +415,8 @@ u: what&#39;s your first name?
 <h3 id="responseruleid-id"><code>^responseruleid ( id )</code></h3>
 <p>The rule tag generating this response from which you can get the topic. May be joined pair of rule tags if rule was relayed (reuse) from a different rule). The final rule will be first and the relay second, eg <code>~keywordless.30.0.~control.3.4</code>.</p>
 <p>If the <em>id</em> is <code>-1</code>, then all output generated will be included, analogous to what happens in the log file for <code>why</code> in the entries.</p>
+<h3 id="responsepatternresponseid"><code>^responsepattern(responseid)</code></h3>
+<p>Returns the pattern that matched inside [] of rule generating output (if it is matched that way) For a rule like: u: ([ (pattern 1) (pattern 2) ([try 3])]) It will tell you which piece of the pattern matched. Handy for debugging why a pattern matches incorrectly w/o having to read a trace log and analyzing each + and -.</p>
 <h2 id="postprocessing-functions">PostProcessing Functions</h2>
 <p>These functions are only available during postprocessing.</p>
 <h3 id="postprintbefore-stream"><code>^postprintbefore ( stream )</code></h3>
@@ -633,10 +635,10 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p>The command string is a string to pass the os shell to execute. That will return output strings (some number of them) which will have any <code>\r</code> or <code>\n</code> changed to blanks and then the string stripped of leading and trailing blanks.</p>
 <p>The string is then wrapped in double quotes so it looks like a standard ChatScript single argument string, and sent to the declared function, which must be an output macro or system function name, preceded by a quote.</p>
 <p>The function can do whatever it wants. Any output it prints to the output buffer will be concatenated together to be the output from ChatScript. If you need a doublequote in the command string, use a backslash in front of each one. They will be removed prior to sending the command. E.g.,</p>
-<pre><code>outputmacro: ^myfunc(^arg)
-^arg \n
-topic: ~test( testing )
-u: () popen( &quot;dir *.* /on&quot; &#39;^myfunc)</code></pre>
+<pre><code>    outputmacro: ^myfunc(^arg)
+    ^arg \n
+    topic: ~test( testing )
+    u: () popen( &quot;dir *.* /on&quot; &#39;^myfunc)</code></pre>
 <p>output this:</p>
 <pre><code>Volume in drive C is OS
 Volume Serial Number is 24CB-C5FC
@@ -855,7 +857,7 @@ u: (%document)
 <p>Find case sensitive substring within source+offset and return offset starting immediately after match. Useful for data extraction using <code>^popen</code> and <code>^tcpopen</code> when combined with <code>^extract</code>. <code>$$findtext_start</code> is bound to the actual start of the match. <code>$$findtext_word</code> is bound to the word index in which the match was found where one or more blanks separate words. Indexing starts at 1 (same as sentence positional notation).</p>
 <p>An optional fourth argument <code>insensitive</code> will match insensitively.</p>
 <p>Failing to match will generate a rule failure. If the source or substring contains an <code>_</code>, these will be converted to blanks before execution, to allow that or the space notation to be considered equivalent (unless your source or substring is literally an underscore only).</p>
-<p>If you want to find a newline or tab character, then pass in the string or . That will find an actual ascii character of such. If you want to find the ascii string &quot;&quot;, then use \n and \t to find them. Normal scripts don't have ascii newline or tab in them. You wrote the backslashed characters and they are converted to the appropriate ascii characters on output to the user. But if you have read data from an external source, it will likely be the actual ascii characters.</p>
+<p>If you want to find a newline or tab character, then pass in the string <code>\n</code> or <code>\t</code>. That will find an actual ascii character of such. If you want to find the ascii string <code>\n</code>, then use \n and \t to find them. Normal scripts don't have ascii newline or tab in them. You wrote the backslashed characters and they are converted to the appropriate ascii characters on output to the user. But if you have read data from an external source, it will likely be the actual ascii characters.</p>
 <h3 id="flags-word"><code>^flags ( word )</code></h3>
 <p>get the 64bit systemflags of a word.</p>
 <h3 id="intersectwords-arg1-arg2-optional"><code>^intersectwords ( arg1 arg2 optional )</code></h3>

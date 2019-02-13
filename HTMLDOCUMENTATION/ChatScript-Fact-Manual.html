@@ -120,6 +120,8 @@ $fact = ^createfact( Bob own dog)
 <p>If no matching facts are found, the query function returns the RULE fail code.</p>
 <pre><code>?: (do you have a dog) ^query( direct_svo I own dog) Yes.</code></pre>
 <p>If the above query finds a fact <code>(I own dog)</code> then the rule says yes. If not, the rule fails during output. This query could have been put inside the pattern instead.</p>
+<p>Note: if an argument to a query is a concept name, it will be expanded to all its constituent members unless you put a quote in front of it. You probably want this:</p>
+<pre><code>@0 = ^query(direct_vo ? member &#39;~conceptname)</code></pre>
 <h3 id="querykind-subject-verb-object-count-fromset-toset-propagate-match"><code>^query</code>(kind subject verb object count fromset toset propagate match)</h3>
 <p>Query can actually take up to 9 arguments. Default values are <code>?</code>. The count argument defaults to <code>-1</code> and indicates how many answers to limit to. When you just want or expect a single one, use <code>1</code> as the value.</p>
 <p><code>fromset</code> specifies that the set of initial values should come from the designated factset. Special values of fromset are <code>user</code> and <code>system</code> which do not name where the facts come from but specify that matching facts should only come from the named domain of facts.</p>
@@ -469,11 +471,7 @@ datum: ^secondkeys(~accidents) repair</code></pre>
 </tbody>
 </table>
 <p>Flags you can set for yourself include:</p>
-<table style="width:69%;">
-<colgroup>
-<col width="22%" />
-<col width="47%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th>flag</th>
@@ -482,7 +480,7 @@ datum: ^secondkeys(~accidents) repair</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>USER_FLAG1</code><br><code>USER_FLAG2</code><br><code>USER_FLAG3</code><br><code>USER_FLAG4</code><br><code>USER_FLAG5</code><br><code>USER_FLAG6</code><br><code>USER_FLAG1</code><br><code>USER_FLAG8</code></td>
+<td><code>USER_FLAG1</code><br><code>USER_FLAG2</code><br><code>USER_FLAG3</code><br><code>USER_FLAG4</code></td>
 <td>user defined</td>
 </tr>
 </tbody>
