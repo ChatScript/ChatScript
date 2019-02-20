@@ -151,7 +151,7 @@ u: WILLNOT3 (will * not < !~qwords < ![you I ] ) Why not?
     
 # WOULDN'T (WOULD NOT)
 u: WOULDNT1 (I < * would * not < !~qwords ) [Why not? ] [Is there some reason not to? ] [I would. ] [Why wouldn't you? ] [b: If you wouldn't, who would? ] 
-    b: ([none no no_one ] ) Will you pay me money if I find someone who would? 
+    b: ([none no_one no ] ) Will you pay me money if I find someone who would? 
 u: WOULDNT2 (you < * would * not < !~qwords ) [Why not? ] [True, I might not. ] [Wouldn't doesn't mean I couldn't. ] 
 u: WOULDNT2 (would * not < !~qwords < ![you I ] ) [Why not? ] [True, others might not. ] [But I would. ] 
 ?: (would * it * not * be * _~goodness ) [Yes, it would be _0 . ] [Sure would be. ] 

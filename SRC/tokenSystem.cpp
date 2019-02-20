@@ -560,8 +560,14 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
     char token[MAX_WORD_SIZE];
     ReadCompiledWord(ptr, token);
+    WORDP X = FindWord(token);
+    size_t xx = strlen(token);
+    if (X && !IsDigit(*token) && !IsPunctuation(token[xx-1])) // we know the word and it cant be a number
+    {
+        return ptr + strlen(token);
+    }
     char* slash = strchr(token, '/');
-    if (slash)
+    if (slash) // dont break up word like km/h
     {
         if (slash == token) return ptr + 1;
         char* slash1 = strchr(slash + 1, '/'); // keep possible date?
@@ -828,7 +834,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// possessive ending? swallow whole token like "K-9's"
 	if (*(end - 1) == 's' && (end - ptr) > 2 && *(end - 2) == '\'') return end - 2;
 
-	WORDP X = FindWord(ptr,end-ptr,PRIMARY_CASE_ALLOWED);
+	X = FindWord(ptr,end-ptr,PRIMARY_CASE_ALLOWED);
 	// avoid punctuation so we can detect emoticons
 	if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & PATTERN_WORD || X->internalBits & HAS_SUBSTITUTE)) // we know this word (with exceptions)
 	{

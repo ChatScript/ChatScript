@@ -2165,6 +2165,35 @@ void EndScriptCompiler()
 	}
 }
 
+static void OverCover(char* laterword, STACKREF keywordList[1000],
+    char nestKind[1000], int nestIndex)
+{ //  [ your  "your own"] has your blocking detection of your_own and we want the longer match
+    if (nestKind[nestIndex - 1] != '[' && nestKind[nestIndex - 1] != '{') return;
+    char word1[MAX_WORD_SIZE];
+    strcpy(word1, laterword);
+    char* underscore = strchr(word1, '_');
+    if (underscore) // see if masked by earlier word
+    {
+        *underscore = 0; // initial word of phrase
+        STACKREF item = keywordList[nestIndex - 1];
+        while (item)
+        {
+            char* data = Index2Stack(item);
+            char* priorword = data + sizeof(STACKREF); // eg your
+            if (!strcmp(priorword, word1)) BADSCRIPT((char*)"Keyword phrase %s occluded by %s. Switch their order.", laterword, priorword)
+                item = *((STACKREF*)data);
+        }
+        *underscore = '_';
+    }
+
+    // add to list
+    size_t len = strlen(laterword) + sizeof(STACKREF) + 1;
+    char* data = AllocateStack(NULL, len,false, sizeof(STACKREF));
+    * ((STACKREF*)data) = keywordList[nestIndex - 1];
+    keywordList[nestIndex - 1] = Stack2Index(data);
+    strcpy(data+sizeof(STACKREF), laterword); // the name
+}
+
 char* ReadPattern(char* ptr, FILE* in, char* &data,bool macro, bool ifstatement, bool livecall)
 { //   called from topic or patternmacro
 #ifdef INFORMATION //   meaning of leading characters
@@ -2210,9 +2239,11 @@ name of topic or concept
 
 	char word[MAX_WORD_SIZE];
 	char nestKind[1000];
+    STACKREF keywordList[1000];
     int nestLine[1000];
 	int nestIndex = 0;
 	patternContext = true;
+    char* stackbase = AllocateStack(NULL, 4);
 	char* start = ptr;
 
 	//   if macro call, there is no opening ( or closing )
@@ -2370,6 +2401,7 @@ name of topic or concept
 			case '[':	//   list of pattern choices begin
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-30 Quoting [ is meaningless.\r\n");
                 nestLine[nestIndex] = currentFileLine;
+                keywordList[nestIndex] = 0;
                 nestKind[nestIndex++] = '[';
 				break;
 			case ']':	//   list of pattern choices end
@@ -2382,7 +2414,7 @@ name of topic or concept
 			case '{':	//   list of optional choices begins
                 if (nestKind[nestIndex-1] == '[') BADSCRIPT((char*)"PATTERN-15 {} within [] is pointless because it always matches\r\n")
                 if (nestKind[nestIndex - 1] == '<' && !memorizeSeen) 
-                    BADSCRIPT((char*)"PATTERN-15 {} within << >> is pointless unless you memorize because it always matches\r\n")
+                    WARNSCRIPT((char*)"PATTERN-15 {} within << >> is pointless unless you memorize or use ^matches because it always matches\r\n")
                 if (bidirectionalSeen)
                     BADSCRIPT((char*)"PATTERN-34 ] Cant use { after bidirectional gap - will always match scanning backwards\r\n")
                 if (variableGapSeen)
@@ -2398,6 +2430,7 @@ name of topic or concept
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-35 Quoting { is meaningless.\r\n");
 				if (notSeen)  BADSCRIPT((char*)"PATTERN-36 !{ is pointless since { can fail or not anyway\r\n")
 				if (nestIndex && nestKind[nestIndex-1] == '{') BADSCRIPT((char*)"PATTERN-37 {{ is illegal\r\n")
+                keywordList[nestIndex] = 0;
                 nestLine[nestIndex] = currentFileLine;
                 nestKind[nestIndex++] = '{';
 				break;
@@ -2709,7 +2742,8 @@ name of topic or concept
 						if (ifstatement && !strcmp(word,"PATTERN")) {;} // allow uppercase
 						else
 						{
-							WritePatternWord(word);
+                            OverCover(word, keywordList,nestKind,nestIndex);
+                            WritePatternWord(word);
 							WriteKey(word);
 						}
 					}
@@ -2720,7 +2754,8 @@ name of topic or concept
 				{
 					if (!livecall)
 					{
-						WriteKey(word);
+                        OverCover(word, keywordList, nestKind, nestIndex);
+                        WriteKey(word);
 						WritePatternWord(word);
 					}
 					len -= 2;
@@ -2731,6 +2766,7 @@ name of topic or concept
 				if (!livecall && spellCheck && !(spellCheck & NO_SPELL)) SpellCheckScriptWord(word,startSeen ? 1 : 0,false);
 				if (!livecall && strcmp(word,"PATTERN"))
 				{
+                    OverCover(word, keywordList, nestKind, nestIndex);
 					WriteKey(word); 
 					WritePatternWord(word); //   memorize it to know its important
 				}
@@ -2761,6 +2797,7 @@ name of topic or concept
 		BADSCRIPT((char*)"PATTERN-69 Failed to close %c started at line %d : %s\r\n",nestKind[nestIndex-1],nestLine[nestIndex-1],startPattern);
 
 	patternContext = false;
+    ReleaseStack(stackbase);
 	return ptr;
 }
 
@@ -5222,7 +5259,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			{
 				if (!myBot && D->internalBits & CONCEPT && D->internalBits & (BUILD0|BUILD1|BUILD2))
 					WARNSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n",conceptName)
-                if (D->internalBits & CONCEPT && D->internalBits & (BUILD0 | BUILD1 | BUILD2) != build)
+                if ((D->internalBits & CONCEPT) && D->internalBits & (BUILD0 | BUILD1 | BUILD2) != build)
                     BADSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s in prior layer\r\n", conceptName)
                 if (HasBotMember(D, myBot))
                 {

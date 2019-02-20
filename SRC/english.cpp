@@ -668,6 +668,15 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		properties = ProcessNumber(at, original, revise, entry, canonical, sysflags, cansysflags, firstTry, nogenerate, start,kind); // case sensitive, may add word to dictionary, will not augment flags of existing wordskind);
 	if (canonical && (IsDigit(*canonical->word) || IsNonDigitNumberStarter(*canonical->word))) return properties;
 	entry = FindWord(original, 0, PRIMARY_CASE_ALLOWED);
+    size_t x = strlen(original);
+    // if uppercase, see if lowercase singular exists
+    if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && original[x - 1] == 's') // possible plural
+    {
+        WORDP singular = FindWord(original, x-1, LOWERCASE_LOOKUP);
+        if (singular) entry = singular;
+        else if (original[x-2] == 'e') singular = FindWord(original, x - 2, LOWERCASE_LOOKUP);
+        if (singular) entry = singular;
+    }
 
 	if (!csEnglish)
 	{

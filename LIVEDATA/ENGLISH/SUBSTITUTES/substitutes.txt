@@ -162,8 +162,8 @@ prof. professor
  ,_okay_? %QUESTIONMARK
  ,_yes_? %QUESTIONMARK
  <am_I_not am+i
-  <because? why?
- <becos? why?
+  <because? why+?
+ <becos? why+?
  <but_how how
  <but_what what
  <but_when when
@@ -247,6 +247,10 @@ prof. professor
  '16 2016
  '17 2017
  '18 2018
+ '19 2019
+ '20 2020
+ '21 2021
+ '22 2022
  '70 1970
  '71 1971
  '72 1972
@@ -849,9 +853,14 @@ prof. professor
  how_do_you_think_it_is how+is+it
  how_do_you_think_it_will how+will+it
  how_ever however
+ how_in_heck how
+ how_in_hell how
+ how_in_the_heck how
+ how_in_the_world how
  how_is_u how+is+your
  how_long_till how+long+until
  how_so why
+ how_the_heck how
  how_ya_doing how+are+you+doing
  hows how+is
  hygenic hygienic
@@ -1382,8 +1391,13 @@ prof. professor
  what_brings_you_into why+are+you+into
  what_brings_you_out why+are+you+out
  what_brings_you_to why+are+you+at
+ what_in_hell what
+ what_in_the_heck what
+ what_in_the_hell what
+ what_in_the_world what
  what_is_going_on_in what+is+happening+in
  what_is_u what+is+your
+ what_the_heck what
  whateva whatever
  whatevah whatever
  whats what+is
@@ -1400,13 +1414,23 @@ prof. professor
  where_do_you_believe_it_will where+will+it
  where_do_you_think_it_is where+is+it
  where_do_you_think_it_will where+will+it
+ where_in_heck where
+ where_in_the_heck where
+ where_in_the_hell where
+ where_in_the_world where
  where_is_u where+is+your
-  which_comprised_of which+consisted+of
+ where_the_heck where
+ where_the_hell where
+ which_comprised_of which+consisted+of
  whichones which+ones
  whicht_he which+the
  who_do_you_believe who
  who_do_you_think who
  who_id who+is
+ who_in_heck who
+ who_in_hell who
+ who_in_the_heck who
+ who_in_the_world who
  who_is_u who+is+your
  who_the_heck who
  who_where who+were
@@ -1419,6 +1443,10 @@ prof. professor
  why_do_you_think_I_am why+am+i
  why_do_you_think_it_is why+is+it
  why_do_you_think_it_will why+will+it
+ why_in_heck why
+ why_in_hell why
+ why_in_the_heck why
+ why_in_the_world why
  why_is_it_that why+do
  why_the_heck why
  widow_woman widow

@@ -4921,8 +4921,8 @@ FunctionResult ArgumentCode(char* buffer)
 	if (requestedArg > arg) return FAILRULE_BIT;	// not a legal arg value, too high
 	char* limited;
 	char* x = InfiniteStack(limited, "ArgumentCode");
-	strcpy(buffer, GetArgOfMacro(callArgumentBases[frame->argumentStartIndex] + requestedArg, x, MAX_BUFFER_SIZE));
-	ReleaseInfiniteStack();
+	strcpy(buffer, GetArgOfMacro(frame->varBaseIndex + requestedArg, x, MAX_BUFFER_SIZE));
+    ReleaseInfiniteStack();
 	return NOPROBLEM_BIT;
 }
 
@@ -7294,7 +7294,15 @@ static FunctionResult ResetCode(char* buffer)
 		ResetUser(buffer);
 		globalDepth = depth;
 		*buffer = 0;
-		ProcessInput(buffer);
+        int index = bufferIndex;
+        char* s = stackFree;
+        ProcessInput(buffer);
+        if (s != stackFree) 
+            stackFree = s;
+        if (index != bufferIndex)
+        {
+            bufferIndex = index;
+        }
 
 #ifndef DISCARDTESTING
 		wasCommand = COMMANDED;	// lie so system will save revised user file

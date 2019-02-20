@@ -1,6 +1,6 @@
 concept: ~internal_concepts(
 ~moneynumber  ~currency
-~number ~model_number ~float ~integer ~positiveinteger ~negativeinteger ~placenumber ~daynumber
+~number ~modelnumber ~float ~integer ~positiveinteger ~negativeinteger ~placenumber ~daynumber
 ~shout ~yearnumber
 ~adjective_noun ~pronoun ~adjective ~aux_verb
 ~noun ~verb ~adjective ~adverb ~preposition ~conjunction_coordinate ~conjunction_subordinate

@@ -1631,7 +1631,7 @@ uint64 logCount = 0;
 
 bool TraceFunctionArgs(FILE* out, char* name, int start, int end)
 {
-	if (name[0] == '~') return false;
+	if (!name || name[0] == '~') return false;
 	WORDP D = FindWord(name);
 	if (!D) return false;		// like fake ^ruleoutput
 
@@ -1653,7 +1653,7 @@ void BugBacktrace(FILE* out)
 	int i = globalDepth;
 	char rule[MAX_WORD_SIZE];
     CALLFRAME* frame = GetCallFrame(i);
-	if (frame && *(frame->label)) 
+	if (frame && frame->label && *(frame->label)) 
 	{
 		rule[0] = 0;
 		if (currentRule) {

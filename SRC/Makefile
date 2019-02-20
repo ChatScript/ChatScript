@@ -21,7 +21,7 @@ server: PGLOAD= -pthread
 server: INCLUDEDIRS=-Ievserver
 server: binary
 server: EXECUTABLE=$(executable.server)
-server: CFLAGS=-c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
+server: CFLAGS=-c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2 -rdynamic
 
 executable.debugserver=../BINARIES/ChatScriptDebug
 debugserver: DEFINES+= -DLOCKUSERFILE=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1 
@@ -37,7 +37,7 @@ standalone: PGLOAD= -pthread
 standalone: INCLUDEDIRS=-Ievserver
 standalone: binary
 standalone: EXECUTABLE=$(executable.standalone)
-standalone: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
+standalone: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2 -rdynamic
 
 executable.pgserver=../BINARIES/ChatScriptpg
 pgserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1
@@ -45,7 +45,7 @@ pgserver: PGLOAD= -lpq -pthread
 pgserver: binary
 pgserver: EXECUTABLE=$(executable.pgserver)
 pgserver: INCLUDEDIRS=-Ievserver -Ipostgres
-pgserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
+pgserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2 -rdynamic
 
 executable.debugpgserver=../BINARIES/ChatScriptpgDebug
 debugpgserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDMONGO=1 -DDISCARDMYSQL=1
@@ -77,7 +77,7 @@ mongoserver: PGLOAD= -pthread -lmongoc-1.0 -lbson-1.0
 mongoserver: binary
 mongoserver: EXECUTABLE=$(executable.mongoserver)
 mongoserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
-mongoserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
+mongoserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2 -rdynamic
 
 executable.treetaggerserver=../BINARIES/ChatScriptTT
 treetaggerserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMYSQL=1  -DDISCARDMONGO=1  -DTREETAGGER=1
@@ -85,7 +85,7 @@ treetaggerserver: PGLOAD= -pthread -L../BINARIES -ltreetagger
 treetaggerserver: binary
 treetaggerserver: EXECUTABLE=$(executable.treetaggerserver)
 treetaggerserver: INCLUDEDIRS=-Iinclude 
-treetaggerserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
+treetaggerserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2 -rdynamic
 
 executable.debugmongoserver=../BINARIES/ChatScriptMongoDebug
 debugmongoserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1
@@ -101,7 +101,7 @@ foreignserver: PGLOAD= -pthread -L../treetagger -L../BINARIES -ltreetagger
 foreignserver: INCLUDEDIRS=-Ievserver
 foreignserver: binary
 foreignserver: EXECUTABLE=$(executable.foreignserver)
-foreignserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O2
+foreignserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O2 -rdynamic
 
 executable.mongotreetaggerserver=../BINARIES/ChatScriptMongoForeign
 mongotreetaggerserver: DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1 -DTREETAGGER=1
@@ -109,7 +109,7 @@ mongotreetaggerserver: PGLOAD= -pthread  -L../BINARIES -ltreetagger
 mongotreetaggerserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
 mongotreetaggerserver: binary
 mongotreetaggerserver: EXECUTABLE=$(executable.mongotreetaggerserver)
-mongotreetaggerserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2
+mongotreetaggerserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -O2 -rdynamic
 
 UNAME := $(shell uname)
 

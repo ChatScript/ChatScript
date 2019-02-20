@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.11";
+char* version = "9.12";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1807,6 +1807,8 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
     
+    stackFree = stackStart; // begin fresh
+                          
     // protective level 0 callframe
     globalDepth = -1;
     ChangeDepth(1, ""); // never enter debugger on this
@@ -2033,8 +2035,9 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 FunctionResult Reply() 
 {
+    char* s = stackFree;
+    int depth = globalDepth;
 	callback =  (wordCount > 1 && *wordStarts[1] == OOB_START && (!stricmp(wordStarts[2],(char*)"callback") || !stricmp(wordStarts[2],(char*)"alarm") || !stricmp(wordStarts[2],(char*)"loopback"))); // dont write temp save
-	stackFree = stackStart;
 	withinLoop = 0;
 	choiceCount = 0;
 	callIndex = 0;
@@ -2059,7 +2062,16 @@ FunctionResult Reply()
         if (pushed) PopTopic();
     }
     ChangeDepth(-1, topicName);
-    if (globalDepth) ReportBug((char*)"Main code global depth not 0");
+    if (globalDepth != depth)
+    {
+        ReportBug((char*)"Reply global depth %d not returned to %d", globalDepth, depth);
+        globalDepth = depth;
+    }
+    if (stackFree != s)
+    {
+        ReportBug((char*)"Reply Stack not returned to initial value");
+        stackFree = s;
+    }
     return result;
 }
 
@@ -2427,7 +2439,8 @@ retry:
 
 void OnceCode(const char* var,char* function) //   run before doing any of his input
 {
-	stackFree = stackStart; // drop any possible stack used
+    // cannot drop stack because may be executing from ^reset(USER)
+	// stackFree = stackStart; // drop any possible stack used
 	withinLoop = 0;
 	callIndex = 0;
 	topicIndex = currentTopicID = 0; 

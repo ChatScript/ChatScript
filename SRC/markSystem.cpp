@@ -776,7 +776,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
         {
             HuntMatch(0, rawbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
             HuntMatch(1, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
-            HuntMatch(2, originalbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
+            HuntMatch(2, originalbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace); // using start and end have derivation issues when multiple replaces happen
         }
 		//   fan out for addon pieces
 		int k = 0;

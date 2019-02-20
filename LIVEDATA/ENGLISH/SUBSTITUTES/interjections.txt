@@ -56,9 +56,11 @@ bbfn ~emogoodbye
  wtf ~emomisunderstand
  bla_bla_bla ~emobored
  bla ~emobored
- <oh? why?
+ <oh? why+?
  <never> ~no 
+ <no_, ~no 
  <no> ~no 
+ <no_- ~no 
  <none> ~no 
   <continue ~yes
  <make_it_so> ~yes
@@ -75,7 +77,7 @@ bbfn ~emogoodbye
  <aargh ~emopain
  <aarrghh ~emopain
  <abso-fucking-lutely ~yes
- <absolutely> ~yes
+ <absolutely ~yes
  <accept> ~yes
  <accepted> ~yes
  <adieu ~emogoodbye
@@ -248,6 +250,8 @@ bbfn ~emogoodbye
  <greetings ~emohello
  <grin ~emolaugh
  <grins ~emolaugh
+ <gross_- ~emodisgust
+ <gross_, ~emodisgust
  <gross> ~emodisgust
  <ha-ha-ha ~emolaugh
  <ha-ha ~emolaugh
@@ -585,6 +589,7 @@ bbfn ~emogoodbye
  <quit ~emogoodbye
  <really_? ~emosurprise
  <really> ~emoskeptic
+ <right_, ~yes
  <right_brah ~yes
  <right_on ~yes
  <right> ~yes
@@ -629,6 +634,7 @@ bbfn ~emogoodbye
  <thank_you_,_goodnight ~emothanks
  <thank_you_for_the_flowers ~emothanks
  <thank_you_goodnight ~emothanks
+ <thank_you_much ~emothanks
  <thank_you_so_much ~emothanks
  <thank_you_very_much ~emothanks
  <thank_you_very_much_indeed ~emothanks
@@ -640,6 +646,7 @@ bbfn ~emogoodbye
  <thanks_man ~emothanks
  <thanks_mate ~emothanks
  <thanks_my_friend ~emothanks
+ <thanks_so_much ~emothanks
  <thanks_to_everybody ~emothanks
  <thanks_to_you_all ~emothanks
  <thanks_very_much ~emothanks
@@ -822,6 +829,7 @@ bbfn ~emogoodbye
  <he_is_not> ~no
  <he_is> ~yes
  howzit ~emohowzit
+ I_will_be_back ~emogoodbye
  I_would_say_so ~yes
  <it_does_not> ~no
  <it_does> ~yes

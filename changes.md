@@ -1,3 +1,6 @@
+# version 9.12 2/20/2019
+1. bug fixes
+
 # version 9.11 2/13/2019
 1. bug fixes
 

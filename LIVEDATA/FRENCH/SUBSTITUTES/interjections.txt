@@ -105,6 +105,8 @@
 <certainement> ~yes
 <chose_sûre ~yes
 <ciao ~emogoodbye
+<comment_allez-vous> ~emohowzit
+<comment_allez_vous> ~emohowzit
 <comment_avez-vous_été> ~emohowzit
 <comment_avez-vous_fait> ~emohowzit
 <comment_ça_se_passe? ~emohowzit
