@@ -5259,9 +5259,9 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			{
 				if (!myBot && D->internalBits & CONCEPT && D->internalBits & (BUILD0|BUILD1|BUILD2))
 					WARNSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n",conceptName)
-                if ((D->internalBits & CONCEPT) && D->internalBits & (BUILD0 | BUILD1 | BUILD2) != build)
+                if ((D->internalBits & CONCEPT) && (D->internalBits & (BUILD0 | BUILD1 | BUILD2)) != build)
                     BADSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s in prior layer\r\n", conceptName)
-                if (HasBotMember(D, myBot))
+                if (HasBotMember(D, myBot) && (D->internalBits & CONCEPT))
                 {
                     BADSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n", conceptName)
                 }

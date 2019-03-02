@@ -2123,7 +2123,9 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		return true;
 	}
 
-	while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
+    char* wordptr = wordlist;
+    if (*ptr == '\\') ++wordptr; // dont touch + signs
+    else while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
 
 	char* tokens[MAX_SENTENCE_LENGTH];			// the new tokens we will substitute
 	memset(tokens, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
@@ -2131,11 +2133,11 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 	if (*sub == '"') // use the content internally literally - like "a_lot"  meaning want it as a single word
 	{
 		count = 1;
-		size_t len = strlen(wordlist);
-		tokens[1] = AllocateHeap(wordlist + 1, len - 2); // remove quotes from it now
+		size_t len = strlen(wordptr);
+		tokens[1] = AllocateHeap(wordptr + 1, len - 2); // remove quotes from it now
 		if (!tokens[1]) tokens[1] = AllocateHeap((char*)"a");
 	}
-	else Tokenize(wordlist, count, tokens); // get the tokenization of the substitution
+	else Tokenize(wordptr, count, tokens); // get the tokenization of the substitution
 
 	if (count == 1 && !erasing) //   simple replacement
 	{
@@ -2150,7 +2152,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		}
 		if ((wordCount + (count - erase)) >= REAL_SENTENCE_LIMIT) return false;	// cant fit
 
-		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"  substitute replace: \"%s\" with \"%s\"\r\n", found->word, wordlist);
+		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"  substitute replace: \"%s\" with \"%s\"\r\n", found->word, wordptr);
 		ReplaceWords("Multireplace", i, erase, count, tokens);
 	}
 	return true;

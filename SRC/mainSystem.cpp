@@ -547,7 +547,7 @@ static void ProcessArgument(char* arg)
         (*printer)("CommandLine: %s\r\n",path);
 		argumentsSeen = true;
 	}
-    // (*printer)("    %s\r\n",arg);
+    (*printer)("    %s\r\n",arg);
 	if (!stricmp(arg,(char*)"trace")) trace = (unsigned int) -1; 
 	else if (!strnicmp(arg,(char*)"language=",9)) 
 	{
