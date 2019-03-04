@@ -914,7 +914,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space,char*& buffer, uns
             while (*at1 == '_' || *at1 == '$') ++at1;
             while (*++at1)
             {
-                if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']'); // find real end of var allowing json references
+                if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']' || *at1 == '$'); // find real end of var allowing json references
                 else if ((*at1 == '$') && (*(at1 - 1) == '[' || *(at1 - 1) == '.')) { ; } // allowed variable json ref
                 else break;
             }

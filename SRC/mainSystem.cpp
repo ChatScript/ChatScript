@@ -2035,7 +2035,6 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 FunctionResult Reply() 
 {
-    char* s = stackFree;
     int depth = globalDepth;
 	callback =  (wordCount > 1 && *wordStarts[1] == OOB_START && (!stricmp(wordStarts[2],(char*)"callback") || !stricmp(wordStarts[2],(char*)"alarm") || !stricmp(wordStarts[2],(char*)"loopback"))); // dont write temp save
 	withinLoop = 0;
@@ -2044,7 +2043,7 @@ FunctionResult Reply()
 	ResetOutput();
 	ResetTopicReply();
 	ResetReuseSafety();
-	if (trace & TRACE_OUTPUT) 
+    if (trace & TRACE_OUTPUT)
 	{
 		Log(STDTRACELOG,(char*)"\r\n\r\nReply input: ");
 		for (int i = 1; i <= wordCount; ++i) Log(STDTRACELOG,(char*)"%s ",wordStarts[i]);
@@ -2061,16 +2060,11 @@ FunctionResult Reply()
         result = PerformTopic(0, currentOutputBase); //   allow control to vary
         if (pushed) PopTopic();
     }
-    ChangeDepth(-1, topicName);
+    ChangeDepth(-1, topicName); 
     if (globalDepth != depth)
     {
         ReportBug((char*)"Reply global depth %d not returned to %d", globalDepth, depth);
         globalDepth = depth;
-    }
-    if (stackFree != s)
-    {
-        ReportBug((char*)"Reply Stack not returned to initial value");
-        stackFree = s;
     }
     return result;
 }

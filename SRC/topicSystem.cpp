@@ -1304,7 +1304,6 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 	}
 	else if (modifiedTiming) trace = modifiedTimingVal;
 	norejoinder = oldnorejoinder;
-
     return result;
 }
 
