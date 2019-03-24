@@ -211,7 +211,9 @@ static char* GetPossibleFunctionArgument(char* arg, char* word)
 FunctionResult JavascriptArgEval(unsigned int index, char* buffer)
 {
 	FunctionResult result;
-	char* arg = ARGUMENT(index);
+	char argNum[10];
+	sprintf(argNum, "%d", index);
+	char* arg = FNVAR(argNum);
 	GetCommandArg(arg,buffer,result,OUTPUT_UNTOUCHEDSTRING);
 	return result;
 }
@@ -5281,9 +5283,13 @@ static char* NextWord(char* ptr, WORDP& D,bool canon)
 		uint64 sysflags = 0;
 		uint64 cansysflags = 0;
 		WORDP revise;
-		GetPosData(-1,word,revise,entry,canonical,sysflags,cansysflags); 
+        char* oldheap = heapFree;
+        WORDP olddict = dictionaryFree;
+		GetPosData(-1,word,revise,entry,canonical,sysflags,cansysflags);
 		if (canonical) strcpy(word,canonical->word);
 		else if (entry) strcpy(word,entry->word);
+        // revert any allocation made to dictionary for new word
+		DictionaryRelease(olddict, oldheap);
 	}
 	MakeLowerCase(word);
 	D = StoreWord(word);
@@ -5510,6 +5516,23 @@ static FunctionResult POSCode(char* buffer)
 		}
 		else return FAILRULE_BIT;
 	}
+
+     if (!stricmp(arg1, (char*) "ismixedcase"))
+     {
+         int bits = 0;
+         --arg1;
+         while (*++arg1)
+         {
+             if (IsUpperCase(*arg1)) bits |= 1;
+             if (IsLowerCase(*arg1)) bits |= 2;
+         }
+         if (bits == 3)
+         {
+             strcpy(buffer, "1");
+             return NOPROBLEM_BIT;
+         }
+         else return FAILRULE_BIT;
+    }
 	if (!stricmp(arg1, (char*) "isinteger"))
 	{
 		if (IsInteger(arg2, false))
@@ -6082,7 +6105,11 @@ static FunctionResult POSCode(char* buffer)
 					}
 				}
 			}
+            char* oldheap = heapFree;
+            WORDP olddict = dictionaryFree;
 			if (!canonical) GetPosData(-1, arg2, revise, entry, canonical, sysflags, cansysflags);
+            // revert any allocation made to dictionary for new word
+			DictionaryRelease(olddict, oldheap);
 		}
 		if (canonical) strcpy(buffer, canonical->word);
 		else if (entry) strcpy(buffer, entry->word);
@@ -6847,6 +6874,8 @@ static FunctionResult HasAnyPropertyCode(char* buffer)
 	char* arg = ARGUMENT(1);
 	WORDP D = FindWord(arg,0,PRIMARY_CASE_ALLOWED);
 	WORDP revise;
+    char* oldheap = heapFree;
+    WORDP olddict = dictionaryFree;
 	if (!D)  GetPosData(-1,arg,revise,D,canonical,dprop,dsys);  // WARNING- created dict entry if it doesnt exist yet
 	else 
 	{
@@ -6856,6 +6885,9 @@ static FunctionResult HasAnyPropertyCode(char* buffer)
 	uint64 properties;
 	uint64 flags;
 	unsigned int internalbits;
+    // revert any allocation made to dictionary for new word
+	DictionaryRelease(olddict, oldheap);
+
 	ArgFlags(properties,flags,internalbits);
 	if ((internalbits & CONCEPT) && (D->internalBits & TOPIC))  internalbits ^= CONCEPT;
 	return (dprop & properties || dsys & flags || D->internalBits & internalbits) ? NOPROBLEM_BIT : FAILRULE_BIT;
@@ -6869,7 +6901,9 @@ static FunctionResult HasAllPropertyCode(char* buffer)
 	char* arg = ARGUMENT(1);
 	WORDP D = FindWord(arg,0,PRIMARY_CASE_ALLOWED);
 	WORDP revise;
-	if (!D)  GetPosData(-1,arg,revise,D,canonical,dprop,dsys); 
+    char* oldheap = heapFree;
+    WORDP olddict = dictionaryFree;
+	if (!D)  GetPosData(-1,arg,revise,D,canonical,dprop,dsys);
 	else 
 	{
 		dsys = D->systemFlags;
@@ -6879,6 +6913,9 @@ static FunctionResult HasAllPropertyCode(char* buffer)
 	uint64 flags;
 	unsigned int internalbits;
 	ArgFlags(properties,flags,internalbits);
+    // revert any allocation made to dictionary for new word
+	DictionaryRelease(olddict, oldheap);
+
 	if (!flags && !properties) return FAILRULE_BIT;
 	if ((internalbits & CONCEPT) && (D->internalBits & TOPIC)) return FAILRULE_BIT;
 	return ((dprop & properties) == properties && (dsys & flags) == flags && (D->internalBits & internalbits) == internalbits) ? NOPROBLEM_BIT : FAILRULE_BIT; // has all the bits given

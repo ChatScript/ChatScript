@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-advanced-concept-manual">ChatScript Advanced Concept Manual</h1>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/24/2019 cs9.2</p>
+<h1 id="advanced-concepts">ADVANCED CONCEPTS</h1>
+<h2 id="concept-exclusion">Concept Exclusion</h2>
+<p>In basic chatscript we learned you can build concepts by augmentation (out of concepts), like</p>
+<pre><code>concept: ~animals (~birds ~dogs otter)</code></pre>
+<p>You can also build concepts using exclusion, like</p>
+<pre><code>concept: ~animals (~birds ~dogs otter !robin)</code></pre>
+<p>This concept includes all birds except the robin. Using !, you can tell CS that certain words are not members of a concept, even though they may have been added elsewhere in the declaration either directly or via inclusion of some concept. You can also use ! with concepts to remove all members of a concept. E.g.</p>
+<pre><code>concept: ~wildanimals (!~pet_animals ~animals)</code></pre>
+<p>Animals which are pets are not considered wild, so here is a clean declaration of that.</p>
+<h2 id="fundamental-meaning-keywords">Fundamental Meaning Keywords</h2>
+<p>Fundamental meaning is the basic minimal form of the sentence without all the embellishments of phrases, verbals, clauses, adjectives, and adverbs. Your fundamental sentence consists of main subject, main verb, and optional main object. The absolute minimal sentence always has a main verb. In the case of &quot;Go&quot;, we have a command verb and implied subject &quot;you&quot;.</p>
+<p>Fundamental meaning consists of an actor, an action, and an optional actee. In the active voice sentence &quot;I love you&quot;, the actor is &quot;I&quot;, the action is &quot;love&quot;, and the actee is &quot;you&quot;. In the passive voice sentence &quot;I was arrested&quot;, there is no actor, the verb is &quot;arrested&quot;, and the actee is &quot;I&quot;. Wherease in the passive voice sentence &quot;I was arrested by the police&quot;, the actor is &quot;police&quot;.</p>
+<p>Fundamental meaning patterns always have a verb, which as a keyword is designated as<br />
+&quot;|arrest|&quot; or whatever word or concept you want to detect. A pattern which includes a fundamental actor is shown as<br />
+&quot;~pronoun|arrest|&quot;. One that includes an actee is &quot;|arrest|~police&quot;, whereas one that has both actor and actee is &quot;<sub>pronoun|arrest|</sub>police&quot;. So one can write:</p>
+<pre><code>concept: ~crimeverbs (arrest convict imprison steal)
+topic: ~crimesentences (|~crimeverbs|)</code></pre>
+<p>For command sentences, the implied subject is always &quot;you&quot;, so you can write:</p>
+<pre><code>concept: ~me_told_go (you|~movement_verbs|)</code></pre>
+<p>Note: these keywords can only be recognized if the system's parser can manage to parse out the main subject, main verb, and main object of the input sentence. This works well for relatively simple sentences.</p>
+<h2 id="additional-data-on-concepts">Additional data on concepts</h2>
+<p>Concepts can have part of speech information attached to them (using <code>dictionarysystem.h</code> values). Eg.</p>
+<pre><code>concept: ~mynouns NOUN NOUN_SINGULAR (boxdead foxtrot)
+concept: ~myadjectives ADJECTIVE ADJECTIVE_BASIC (moony dizcious)</code></pre>
+<p>Since the script compile issues warning messages on words it doesn't recognize, in case you misspelled them, you can also add <code>IGNORESPELLING</code> as a flag on the concept:</p>
+<pre><code>concept: ~unknownwords IGNORESPELLING (asl daghh)</code></pre>
+<p>and you can combine pos declarations and ignorespelling. This is applied recursively to any concepts that are members of this concept. That may be a bit excessive.</p>
+<p>Rather than assigning parts of speech you can recursively limit a concept's words to a part of speech using <code>ONLY_NOUNS</code>, <code>ONLY_VERBS</code>, <code>ONLY_ADJECTIVES</code>, or <code>ONLY_ADVERBS</code>.</p>
+<pre><code>Concept: ~verbs ONLY_VERBS (sit sleep)</code></pre>
+<p>This will not react to noun meanings of sleep. The current ontology files for verbs, adverbs, and adjectives all have the appropriate <code>ONLY</code> marked on them.</p>
+<p>When you don't want a member concept marked as a consequence, you can use <code>ONLY_NONE</code> to block propogate. Thus:</p>
+<pre><code>concept: ~verbs ONLY_VERBS (~active_verbs sit)
+concept: ~active_verbs ONLY_NONE (sleep)</code></pre>
+<p>will prevent sleep from being required to be a verb form. Note that verb forms do not include verbs used as nouns (ie gerunds).</p>
+<p>Normally if you declare a concept a second time, the system considers that an error. If you add the marker <code>MORE</code> to its definition, it will allow you to augment an existing list.</p>
+<pre><code>concept: ~city MORE (Tokyo)</code></pre>
+<p>Normally concepts (and topics) discard repeated keywords. For concepts, you can force it to allow repeats using <code>DUPLICATE</code></p>
+<pre><code>concept: ~mapword DUPLICATE (year month day year month day) # the concept has 6 members</code></pre>
+<p>Concepts can be built from other concepts that do not have specific words.</p>
+<pre><code>Concept: ~myconcept (!thisword ~otherconcept)</code></pre>
+<p>Note: the system has two kinds of concepts.</p>
+<ul>
+<li><p><em>Enumerated</em> concepts are ones formed from an explicit list of members. Stuff in definitions of <code>concept: ~xxx()</code> are that.</p></li>
+<li><p>There are also <em>internal</em> concepts (dynamic concepts) marked by the system. These include part of speech of a word (requires using the pos-tagger to decide from the input what part of speech it was of possibly several), grammatical roles, words from infinite sets like <code>~number</code> and <code>~placenumber</code> and <code>~weburl</code>, and so forth.</p></li>
+</ul>
+<p>The ? operator has two forms. <code>xxx?~yyy</code> will look for actual membership in the set whereas <code>_n?~yyy</code> will only see if the location of match detection of _n is the same as a corresponding match location for the concept. If the concept has not been marked, then obviously no match is found.</p>
+<p>In a pattern of some kind, if you are referencing a sentence location using a match variable, you can match both kinds enumerated and dynamic concepts. But if you are not tied to a location in a sentence, you can't match internally computed ones. So something like</p>
+<pre><code>if ( pattern 23?~number )</code></pre>
+<p>will fail. Even</p>
+<pre><code>if ( pattern practical?~adjective )</code></pre>
+<p>will fail given that deciding practical is an adjective (it could also be a noun) hasn't been performed by pos-tagging.</p>
+<p>All internal concepts are members of the concept <code>~internal_concepts</code>.</p>
+<h2 id="alternate-ways-of-populating-a-concept">Alternate ways of populating a Concept</h2>
+<p>Normally concepts are an enumeration set you define like this:</p>
+<pre><code>concept: ~myconcept (word1 word2 &quot;phrase of mine&quot;)</code></pre>
+<p>But you can also extend a concept merely by creating facts:</p>
+<pre><code>    $_tmp = ^createfact(word3 member ~myconcept)</code></pre>
+<p>Concept membership is actually represented by facts of the above form.</p>
+<p>A third way does not actually create members of a concept and does not require mere words and phrases. You can use any pattern whatsoever. And you cannot list it like you would normal members of a concept. You meremly execute a rule early on in your script that marks places in a sentence.</p>
+<pre><code>u: FAKEIT ( _(find * way)) ^mark(~myconcept _0)</code></pre>
+<p>The above detects a pattern, records the location start and end of it so that you can then mark where in the sentence ~myconcept will now be detected by any future patterns of yours.</p>
+</body>
+</html>

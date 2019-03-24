@@ -26,12 +26,13 @@ static int jsonCreateFlags = 0;
 static char jsonLabel[MAX_JSON_LABEL+1];
 bool safeJsonParse = false;
 int jsonIdIncrement = 1;
+int jsonDefaults = 0;
 int jsonStore = 0; // where to put json fact refs
 int jsonIndex;
 int jsonOpenSize = 0;
 unsigned int jsonPermanent = FACTTRANSIENT;
-bool jsonNoduplicate = false;
-bool jsonDuplicate = false;
+bool jsonNoArrayduplicate = false;
+bool jsonObjectDuplicate = false;
 bool jsonDontKill = false;
 bool directJsonText = false;
 static char* curlBufferBase = NULL;
@@ -54,9 +55,11 @@ static int JSONArgs()
 	bool used = false;
 	jsonCreateFlags = 0;
 	jsonPermanent = FACTTRANSIENT; // default
-	jsonNoduplicate = false;
-	jsonDuplicate = false;
-	char* arg1 = ARGUMENT(1);
+    jsonNoArrayduplicate = false;
+    jsonObjectDuplicate = false;
+    if (jsonDefaults & JSON_ARRAY_UNIQUE) jsonNoArrayduplicate = true;
+    if (jsonDefaults & JSON_OBJECT_DUPLICATE) jsonObjectDuplicate = true;
+    char* arg1 = ARGUMENT(1);
 	if (*arg1 == '"') // remove quotes
 	{
 		++arg1;
@@ -99,12 +102,12 @@ static int JSONArgs()
 		}
 		else if (!stricmp(word,(char*)"unique"))  
 		{
-			jsonNoduplicate = true;
+            jsonNoArrayduplicate = true;
 			used = true;
 		}
 		else if (!stricmp(word,(char*)"duplicate"))  
 		{
-			jsonDuplicate = true;
+            jsonObjectDuplicate = true;
 			used = true;
 		}
 		else if (!stricmp(word,(char*)"transient"))  used = true;
@@ -1957,7 +1960,7 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 
 	// remove old value if it exists, do not allow multiple values UNLESS jsonDuplicate is set
 	FACT* F = GetSubjectNondeadHead(D);
-	if (jsonDuplicate) F = NULL; // allow multiple values - if not allowing multiple values, remove all
+	if (jsonObjectDuplicate) F = NULL; // allow multiple values - if not allowing multiple values, remove all
 	while (F)	// already there, delete it, 
 	{
 		FACT* G = GetSubjectNondeadNext(F);
@@ -2367,7 +2370,10 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
     if (arrayname[3] == 'b') jsonPermanent = FACTBOOT;
     unsigned int flags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags;
     MEANING value = jsonValue(val, flags);
-    return DoJSONArrayInsert(jsonNoduplicate,O, value,flags,buffer);
+    
+    bool nodup = (bool)(jsonDefaults & JSON_ARRAY_UNIQUE);
+    if (jsonNoArrayduplicate) nodup = true;
+    return DoJSONArrayInsert(nodup,O, value,flags,buffer);
 }
 
 FunctionResult JSONTextCode(char* buffer)
@@ -2435,7 +2441,7 @@ void JsonRenumber(FACT* G) // given array fact dying, renumber around it
 	int indexsize = orderJsonArrayMembers(D, stack);
 	CompleteBindStack64(indexsize, (char*)stack);
 	int downindex = 0;
-	for (int i = 0; i < index; ++i)
+	for (int i = 0; i < index && i < indexsize; ++i)
 	{
 		FACT* F = stack[i];
 		if (!F) ++downindex; // we are missing a fact here - already deleted?
@@ -2588,7 +2594,10 @@ FunctionResult JSONReadCSVCode(char* buffer)
             if (!*readBuffer) break;
             sprintf(var, "$__%d", field++); // internal variable cannot be entered in script
             WORDP V = StoreWord(var);
-            V->w.userValue = SetArgument(readBuffer, strlen(readBuffer) - 2); // has the 2 hidden markers of preevaled
+            size_t len = strlen(readBuffer);
+            if (readBuffer[len - 1] == '\n') --len; // remove trailing line data
+            if (readBuffer[len - 1] == '\r') --len;
+            V->w.userValue = SetArgument(readBuffer, len); 
             strcat(call, var);
             strcat(call, " ");
         }

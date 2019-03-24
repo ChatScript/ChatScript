@@ -534,9 +534,10 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				ReleaseStack(word);
 				if (close && !strchr(word, ' ')) // we dont need quotes
 				{
-					if (tokenControl & LEAVE_QUOTE) return tail;
+					int wordLen = close - word;
+					if (tokenControl & LEAVE_QUOTE) return ptr + wordLen + 1;  // leave what is after the quotes e.g. a comma
 					*ptr = ' ';			// kill off starting dq
-					ptr[close - word] = ' ';	// kill off closing dq
+					ptr[wordLen] = ' ';	// kill off closing dq
 					return ptr;
 				}
 			}
@@ -560,11 +561,18 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
     char token[MAX_WORD_SIZE];
     ReadCompiledWord(ptr, token);
-    WORDP X = FindWord(token);
-    size_t xx = strlen(token);
-    if (X && !IsDigit(*token) && !IsPunctuation(token[xx-1])) // we know the word and it cant be a number
+
+	// if this was 93302-42345 then we need to keep - separate, not as minus
+	if (*token == '-' && IsInteger(token + 1, false, numberStyle) && IsInteger(priorToken, false, numberStyle))
+	{
+		return ptr + 1;
+	}
+
+	WORDP X = FindWord(token);
+	size_t xx = strlen(token);
+	if (X && !IsDigit(*token) && token[xx - 1] != '?' && token[xx - 1] != '!' && token[xx - 1] != ',' && token[xx - 1] != ';' && token[xx - 1] != ':') // we know the word and it cant be a number
     {
-        return ptr + strlen(token);
+        return ptr + xx;
     }
     char* slash = strchr(token, '/');
     if (slash) // dont break up word like km/h
@@ -603,12 +611,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if (*ptr == ',' && ptr[1] != ':') return ptr + 1; // comma not emoticon
 	if (*ptr == '|') return ptr + 1;
 	if (*ptr == '(' || *ptr == '[' || *ptr == '{') return ptr + 1;
-    
-    // if this was 93302-42345 then we need to keep - separate, not as minus
-    if (*token == '-' && IsInteger(token + 1, false, numberStyle) && IsInteger(priorToken, false, numberStyle))
-    {
-        return ptr + 1;
-    }
 
 	// if we actually have this token in dictionary, accept it. (eg abbreviations, etc)
 	WORDP Z = FindWord(token); // either case
@@ -700,7 +702,20 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if ((IsDigit(token[0])|| IsDigit(token[1])) && IsDigitWord(token, numberStyle, true)) return ptr + strlen(token);
 
 	// check for date
-	if (IsDate(token)) return ptr + strlen(token);
+	if (IsDate(token)) {
+		// if there is date check for it from begining of token as there might be some data present after it
+		char* tokenPosition = ptr;
+		int separatorCount = 0;
+		int dateLength = 0;
+		int tokenLength = strlen(token);
+		while(dateLength != tokenLength) {
+			if(*tokenPosition == '/' || *tokenPosition == '-' || *tokenPosition == '.' || *tokenPosition == ',' || *tokenPosition == ';' || *tokenPosition == '|') separatorCount += 1;
+			if(separatorCount == 3) return ptr + dateLength;
+			*tokenPosition++;
+			dateLength++;
+		}
+		return ptr + strlen(token);
+	}
 
     // check for two numbers separated by a hyphen
     char* hyp = strchr(token, '-');
@@ -923,7 +938,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	char* place = ptr;
 	while (IsDigit(*place)) ++place;
 	if (!stricmp(language, "english") && (!stricmp(place,"st") || !stricmp(place,"nd") || !stricmp(place,"rd"))) return end;
-	else if (!stricmp(language, "french") && (!stricmp(place, "er") || !stricmp(place, "ere") || !stricmp(place, "ère") || !stricmp(place, "nd") || !stricmp(place, "nde") || !stricmp(place, "eme") || !stricmp(place, "ème"))) return end;
+	else if (!stricmp(language, "french") && (!stricmp(place, "er") || !stricmp(place, "ere") || !stricmp(place, "Ã¨re") || !stricmp(place, "nd") || !stricmp(place, "nde") || !stricmp(place, "eme") || !stricmp(place, "Ã¨me"))) return end;
 	int len = end - ptr;
 	char next2;
 	if (*ptr == '/') return ptr+1; // split of things separated
@@ -2123,9 +2138,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		return true;
 	}
 
-    char* wordptr = wordlist;
-    if (*ptr == '\\') ++wordptr; // dont touch + signs
-    else while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
+	while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
 
 	char* tokens[MAX_SENTENCE_LENGTH];			// the new tokens we will substitute
 	memset(tokens, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
@@ -2133,11 +2146,11 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 	if (*sub == '"') // use the content internally literally - like "a_lot"  meaning want it as a single word
 	{
 		count = 1;
-		size_t len = strlen(wordptr);
-		tokens[1] = AllocateHeap(wordptr + 1, len - 2); // remove quotes from it now
+		size_t len = strlen(wordlist);
+		tokens[1] = AllocateHeap(wordlist + 1, len - 2); // remove quotes from it now
 		if (!tokens[1]) tokens[1] = AllocateHeap((char*)"a");
 	}
-	else Tokenize(wordptr, count, tokens); // get the tokenization of the substitution
+	else Tokenize(wordlist, count, tokens); // get the tokenization of the substitution
 
 	if (count == 1 && !erasing) //   simple replacement
 	{
@@ -2152,7 +2165,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		}
 		if ((wordCount + (count - erase)) >= REAL_SENTENCE_LIMIT) return false;	// cant fit
 
-		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"  substitute replace: \"%s\" with \"%s\"\r\n", found->word, wordptr);
+		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDTRACELOG, (char*)"  substitute replace: \"%s\" with \"%s\"\r\n", found->word, wordlist);
 		ReplaceWords("Multireplace", i, erase, count, tokens);
 	}
 	return true;

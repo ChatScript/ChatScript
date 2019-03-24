@@ -56,10 +56,10 @@ char* MongoCleanEscapes(char* to, char* at,int limit)
 			*to++ = '\n'; // legal
 			++at;
 		}
-		else if (*at == '\\') // remove backslashed "
+		/*else if (*at == '\\') // remove backslashed "
 		{
 			*to++ = *++at;
-		}
+		}*/
 		else *to++ = *at;
 		if ((to-start) >= limit) // too much, kill it
 		{
@@ -249,19 +249,14 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
         {
             if (pDoc != NULL)
             {
-                pStrTemp = bson_as_json( pDoc, NULL );
-                if( pStrTemp != NULL )
-                {
-                    char* at = strstr(pStrTemp,"KeyValue");
-                    if (at) // point into the buffer to the get value
-                    {
-                        at += 8 + 5;
-                        mongoKeyValue = at;
-                        size_t len = strlen(at);
-                        at[len-3] = 0;	// remove key data
-                    }
-                    break;
-                }
+            	bson_iter_t iter;
+            	if (bson_iter_init_find(&iter, pDoc, "KeyValue")) {
+					const bson_value_t *value;
+    				value = bson_iter_value (&iter);
+    				if ( value->value_type == BSON_TYPE_UTF8){
+    					mongoKeyValue = value->value.v_utf8.str;
+    				}
+            	}
             }
         }
 		uint64 endtime = ElapsedMilliseconds();

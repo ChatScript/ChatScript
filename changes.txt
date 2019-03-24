@@ -1,3 +1,21 @@
+version 9.2 3/24/2019
+1.  replace:  blackdecker \BLACK+DECKER now allowed to prevent + 
+    from interpreting to space
+2. ChatScript Advanced Manual has been split so that main areas of cs like concepts, topics, etc
+	have their own advanced manuals and the Advanced manual itself is just a grab-bag of unique 
+	capabilities
+3. ^pos(ismixedcase $_word)  returns 1 if word is has both
+        upper and lowercase letters. Fails otherwise.
+4. $cs_json_array_defaults
+    Normal syntax:  $data.array[] = data1 
+    This will store data1 non-uniquely (you can get repeats).
+    You can use ^jsonarrayinsert(UNIQUE $data.array data1) to 
+    avoid this, but its clumsy.  So now you can define for your
+    bot $cs_json_array_defaults = #JSON_ARRAY_UNIQUE to default
+    all such assigns to be unique unless specified otherwise
+5. %serverlogfolder %userlogfolder %tmpfolder give the current
+    paths to those folders
+
 version 9.12 2/20/2019
 1. bug fixes
 

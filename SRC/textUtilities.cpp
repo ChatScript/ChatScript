@@ -432,6 +432,7 @@ bool IsDate(char* original)
 			}
 		}
 		else if (!separator) separator = *original;
+		else if (*original != separator && separatorcount == 2 && !alpha) return true; //when there is already a date but still have different seperators.(eg: 18-02-2019.)
 		else if (*original != separator) return false; // cannot be
 
 		if (*original == separator) // start a new block
@@ -1675,8 +1676,10 @@ char* ReadFlags(char* ptr,uint64& flags,bool &bad, bool &response,bool factcall)
 	if (!*ptr) return start;
 	if (*ptr != '(') // simple solo flag
 	{
-		char word[MAX_WORD_SIZE];
-		ptr = ReadCompiledWord(ptr,word);
+        char word1[MAX_WORD_SIZE];
+        char* word = word1;
+        ptr = ReadCompiledWord(ptr, word);
+        if (*word == '$') word = GetUserVariable(word);
 		if (!strnicmp(word,(char*)"RESPONSE_",9)) response = true; // saw a response flag
 		if (IsDigit(*word) || *word == 'x') ReadInt64(word,(int64&)flags);
 		else

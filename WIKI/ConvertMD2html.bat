@@ -1,5 +1,10 @@
 pandoc ../README.md -s -o ../README.html
 pandoc ChatScript-Advanced-User-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Advanced-User-Manual.html
+pandoc ChatScript-Advanced-Topic-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Advanced-Topic-Manual.html
+pandoc ChatScript-Advanced-Concept-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Advanced-Concept-Manual.html
+pandoc ChatScript-Advanced-Pattern-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Advanced-Pattern-Manual.html
+pandoc ChatScript-Advanced-Variable-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Advanced-Variable-Manual.html
+pandoc ChatScript-Advanced-Output-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Advanced-Output-Manual.html
 pandoc ChatScript-Basic-User-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Basic-User-Manual.html
 pandoc ChatScript-Debugging-Manual.md -s -o ../HTMLDOCUMENTATION/ChatScript-Debugging-Manual.html
 pandoc Practicum-ControlFlow.md -s -o ../HTMLDOCUMENTATION/Practicum-ControlFlow.html
@@ -20,7 +25,7 @@ pandoc ChatScript-Command-Line-Parameters.md -s -o ../HTMLDOCUMENTATION/ChatScri
 pandoc Installing-and-Updating-ChatScript.md -s -o ../HTMLDOCUMENTATION/Installing-and-Updating-ChatScript.html
 pandoc ChatScript-Multiple-Bots.md -s -o ../HTMLDOCUMENTATION/ChatScript-Multiple-Bots.html
 pandoc ChatScript-Common-Beginner-Mistakes.md -s -o ../HTMLDOCUMENTATION/ChatScript-Common-Beginner-Mistakes.html
-pandoc Practicum-spelling_and_interjections -s -o ../HTMLDOCUMENTATION/Practicum-spelling_and_interjections.html
+pandoc Practicum-spelling_and_interjections.md -s -o ../HTMLDOCUMENTATION/Practicum-spelling_and_interjections.html
 
 
 

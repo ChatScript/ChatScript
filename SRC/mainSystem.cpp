@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.12";
+char* version = "9.2";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -877,7 +877,14 @@ static void ReadConfig()
 
 unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
 { // this work mostly only happens on first startup, not on a restart
-	*traceuser = 0;
+    for (int i = 0; i <= MAX_WILDCARDS; ++i)
+    {
+        wildcardOriginalText[i][0] = 0;
+        wildcardCanonicalText[i][0] = 0;
+        wildcardPosition[i] = 0;
+    }
+    
+    *traceuser = 0;
 	*hide = 0;
 	*scopeBotName = 0;
 	FILE* in = FopenStaticReadOnly((char*)"SRC/dictionarySystem.h"); // SRC/dictionarySystem.h
@@ -1820,6 +1827,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	modifiedTrace = false;
 	modifiedTimingVal = 0;
 	modifiedTiming = false;
+    jsonDefaults = 0;
 	if (server && servertrace) trace = (unsigned int)-1;
 	myBot = 0;
 	if (!documentMode) {

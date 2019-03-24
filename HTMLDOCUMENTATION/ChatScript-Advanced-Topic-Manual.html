@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-advanced-topic-manual">ChatScript Advanced Topic Manual</h1>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/24/2019 cs9.2</p>
+<h1 id="advanced-topics">ADVANCED TOPICS</h1>
+<p>There are several things to know about advanced topics.</p>
+<h2 id="topic-execution">Topic Execution</h2>
+<p>When a topic is executing rules, it does not stop just because a rule matches. It will keep executing rules until some rule generates ouput for the user or something issues an appropriate <code>^end</code> or <code>^fail</code> call. So you can do things like this:</p>
+<pre><code>u: ( I love ) $userloves = true
+
+u: ( dog ) $animal = dog
+
+u: ( love ) Glad to hear it
+
+u: ( dog ) I hate dogs</code></pre>
+<p>and given <em>I love dogs</em>, the system will set $userloves and $animal and output <em>glad to hear it</em>.</p>
+<h2 id="topic-control-flags">Topic Control Flags</h2>
+<p>The first are topic flags, that control a topic's overall behavior. These are placed between the topic name and the (keywords list). You may have multiple flags. E.g.</p>
+<pre><code>topic: ~rust keep random [rust iron oxide]</code></pre>
+<p>The flags and their meanings are:</p>
+<table style="width:42%;">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>random</code></td>
+<td>search rules randomly instead of linearly</td>
+</tr>
+<tr class="even">
+<td><code>norandom</code></td>
+<td>(default) search rules linearly</td>
+</tr>
+<tr class="odd">
+<td><code>keep</code></td>
+<td>do not erase responders ever. Gambits (and rejoinders) are not affected by this</td>
+</tr>
+<tr class="even">
+<td><code>erase</code></td>
+<td>(default) erase responders that successfully generate output.<br>Gambits automatically erase unless you suppress them specifically.</td>
+</tr>
+<tr class="odd">
+<td><code>nostay</code></td>
+<td>do not consider this a topic to remain in, leave it (except for rejoinders)</td>
+</tr>
+<tr class="even">
+<td><code>stay</code></td>
+<td>(default) make this a pending topic when it generates output</td>
+</tr>
+<tr class="odd">
+<td><code>repeat</code></td>
+<td>allow rules to generate output which has been output recently</td>
+</tr>
+<tr class="even">
+<td><code>norepeat</code></td>
+<td>(default) do not generate output if it matches output made recently</td>
+</tr>
+<tr class="odd">
+<td><code>priority</code></td>
+<td>raise the priority of this topic when matching keywords</td>
+</tr>
+<tr class="even">
+<td><code>normal</code></td>
+<td>(default) give this topic normal priority when matching keywords</td>
+</tr>
+<tr class="odd">
+<td><code>deprioritize</code></td>
+<td>lower the priority of this topic when matching keywords</td>
+</tr>
+<tr class="even">
+<td><code>system</code></td>
+<td>this is a system topic. It is automatically <code>nostay</code>, <code>keep</code>.<br><code>keep</code> automatically applies to gambits as well. The system never looks to these topics for gambits. System topics can never be considered pending (defined shortly). They can not have themselves or their rules be enabled or disabled. Their status/data is never saved to user files.</td>
+</tr>
+<tr class="odd">
+<td><code>user</code></td>
+<td>(default) this is a normal topic</td>
+</tr>
+<tr class="even">
+<td><code>noblocking</code></td>
+<td>should not perform any blocking tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="odd">
+<td><code>nopatterns</code></td>
+<td>should not perform any pattern tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="even">
+<td><code>nosamples</code></td>
+<td>should not perform any sample tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="odd">
+<td><code>nokeys</code></td>
+<td>should not perform any keyword tests on this topic in <code>:verify</code></td>
+</tr>
+<tr class="even">
+<td><code>more</code></td>
+<td>normally if you try to redeclare a concept, you get an error. <code>more</code> tells CS you intend to extend the concept and allows additional keywords.</td>
+</tr>
+<tr class="odd">
+<td><code>bot=name</code></td>
+<td>if this is given, only named bots are allowed to use this topic. See <a href="ChatScript-Multiple-Bots.html">ChatScript Multiple Bots</a> manual.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rules-that-erase-and-repeat">Rules that erase and repeat</h2>
+<p>Normally a rule that successfully generates output directly erases itself so it won't run again. Gambits do this and responders do this.</p>
+<p>Gambits will erase themselves even if they don't generate output. They are intended to tell a story or progress some action, and so do their thing and then disappear automatically.</p>
+<p>Rejoinders don't erase individually, they disappear when the rule they are controlled by disappears. A rule that is marked keep will not erase itself. Nor will responders in a topic marked keep (but gambits still will).</p>
+<p>Responders that generate output erase themselves. Responders that cause others to generate output will not normally erase themselves (unless...):</p>
+<pre><code>u: ( * ) respond(~reactor)</code></pre>
+<p>If the above rule causes output to be generated, this rule won't erase itself, the rule invoked from the <code>~reactor</code> topic that actually generated the output will erase itself. But, if the rule generating the output is marked keep, then since someone has to pay the price for output, it will be this calling rule instead.</p>
+<p><code>Repeat</code> does not stop a rule from firing, it merely suppresses its output. So the rule fires, does any other effects it might have, but does not generate output. For a responder, if it doesn't generate output, then it won't erase itself. For a gambit, it will because gambits erase themselves regardless of whether they generate output or not.</p>
+<h2 id="keywords-vs-control-script">Keywords vs Control Script</h2>
+<p>A topic can be invoked as a result of its keywords or by a direct call from the control script or some other topic. If you intend to call it from script, then there is almost never any reason to give it keywords as well, because that may result in it being called twice, which is wasteful, or out of order, if there was a reason for the point you called it from script.</p>
+<h2 id="pending-topics">Pending Topics</h2>
+<p>The second thing to know about topics is what makes a topic pending. Control flow passes through various topics, some of which become pending, meaning one wants to continue in those topics when talking to the user. Topics that can never be pending are: system topics, blocked topics (you can block a topic so it won't execute), and nostay topics.</p>
+<p>What makes a remaining topic pending is one of two things. Either the system is currently executing rules in the topic or the system previously generated a user response from the topic. When the system leaves a topic that didn't say anything to the user, it is no longer pending. But once a topic has said something, the system expects to continue in that topic or resume that topic.</p>
+<p>The system has an ordered list of pending topics. The order is:</p>
+<ul>
+<li>1st- being within that topic executing rules now,</li>
+<li>2nd- the most recently added topic (or revived topic) is the most pending.</li>
+</ul>
+<p>You can get the name of the current most pending topic<code>(%topic)</code>, add pending topics yourself <code>(^addtopic())</code>, and remove a topic off the list <code>(^poptopic())</code>.</p>
+<h2 id="random-gambit">Random Gambit</h2>
+<p>The third thing about topics is that they introduce another type, the random gambit, <code>r:</code>.</p>
+<p>The topic gambit <code>t:</code> executes in sequence forming in effect one big story for the duration of the topic. You can force them to be dished randomly by setting the random flag on the topic, but that will also randomize the responders. And sometimes what you want is semirandomness in gambits.</p>
+<p>That is, a topic treated as a collection of subtopics for gambit purposes. This is <code>r:</code> The engine selects an <code>r:</code> gambit randomly, but any <code>t:</code> topic gambits that follow it up until the next random gambit are considered &quot;attached&quot; to it. They will be executed in sequence until they are used up, after which the next random gambit is selected.</p>
+<pre><code>Topic: ~beach [beach sand ocean sand_castle]
+
+# subtopic about swimming
+r: Do you like the ocean?
+:bui
+t: I like swimming in the ocean.
+
+t: I often go to the beach to swim.
+
+# subtopic about sand castles.
+r: Have you made sand castles?
+    a: (~yes) Maybe sometime you can make some that I can go see.
+    a: (~no) I admire those who make luxury sand castles.
+
+t: I&#39;ve seen pictures of some really grand sand castles.</code></pre>
+<p>This topic has a subtopic on swimming and one on sand castles. It will select the subtopic randomly, then over time exhaust it before moving onto the other subtopic.</p>
+<p>Note any <code>t:</code> gambits occurring before the first <code>r:</code> gambit, will get executed linearly until the <code>r:</code> gambits can fire.</p>
+<h2 id="overview-of-the-control-script">Overview of the control script</h2>
+<p>Normally you start using the system with the pre-given control script. But it's just a topic and you can modify it or write your own.</p>
+<p>The typical flow of control is for the control script to try to invoke a pending rejoinder. This allows the system to directly test rules related to its last output, rules that anticipate how the user will respond.</p>
+<p>Unlike responders and gambits, the engine will keep trying rejoinders below a rule until the pattern of one matches and the output doesn't fail.</p>
+<p>Not failing does not require that it generate user output. Merely that it doesn't return a fail code. Whereas responders and gambits are tried until user output is generated (or you run out of them in a topic).</p>
+<p>If no output is generated from rejoinders, the system would test responders. First in the current topic, to see if the current topic can be continued directly. If that fails to generate output, the system would check other topics whose keywords match the input to see if they have responders that match. If that fails, the system would call topics explicitly named which do not involve keywords. These are generic topics you might have set up.</p>
+<p>If finding a responder fails, the system would try to issue a gambit. First, from a topic with matching keywords. If that fails, the system would try to issue a gambit from the current topic. If that fails, the system would generate a random gambit.</p>
+<p>Once you find an output, the work of the system is nominally done. It records what rule generated the output, so it can see rejoinders attached to it on next input. And it records the current topic, so that will be biased for responding to the next input. And then the system is done. The next input starts the process of trying to find appropriate rules anew.</p>
+<p>There are actually three control scripts (or one invoked multiple ways). The first is the preprocess, called before any user sentences are analyzed. The main script is invoked for each input sentence. The postprocess is invoked after all user input is complete. It allows you to examine what was generated (but not to generate new output except using special routines <code>^postprintbefore</code> and <code>^postprintafter</code>).</p>
+</body>
+</html>

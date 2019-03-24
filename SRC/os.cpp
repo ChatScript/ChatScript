@@ -195,7 +195,7 @@ void mystart(char* msg)
 		fprintf(in, (char*)"%s", word);
 		FClose(in);
 	}
-	if (server) Log(SERVERLOG, word);
+	if (server) Log(SERVERLOG, "%s",word);
 }
 
 

@@ -1,5 +1,10 @@
 pandoc ../README.md -s -o ../README.pdf
 pandoc ChatScript-Advanced-User-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-User-Manual.pdf
+pandoc ChatScript-Advanced-Topic-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Topic-Manual.pdf
+pandoc ChatScript-Advanced-Concept-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Concept-Manual.pdf
+pandoc ChatScript-Advanced-Pattern-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Pattern-Manual.pdf
+pandoc ChatScript-Advanced-Variable-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Variable-Manual.pdf
+pandoc ChatScript-Advanced-Output-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Output-Manual.pdf
 pandoc ChatScript-Basic-User-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Basic-User-Manual.pdf
 pandoc Practicum-ControlFlow.md -s -o ../PDFDOCUMENTATION/Practicum-ControlFlow.pdf
 pandoc Practicum-rejoinders.md -s -o ../PDFDOCUMENTATION/Practicum-rejoinders.pdf

@@ -1,6 +1,7 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/4/2018 cs8.6
+<br>Revision 3/24/2019 cs9.2
+
 
 # Real World JSON
 
@@ -614,6 +615,10 @@ buffer without being checked.
 
 
 ^JSONopen automatically url-encodes headers and urls 
+
+Note: CS blocks until the call is complete. On a production server if you expect that the call can take
+serious time, you are advised to send the request in OOB to your own additional layer which returns to CS immediately.
+Then it makes the call and when the call completes, makes a call back to CS with the results in OOB.
 
 #### `JSONOpen and local files`
 

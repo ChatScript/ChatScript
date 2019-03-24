@@ -459,6 +459,12 @@ void SetUserVariable(const char* var, char* word, bool assignment)
         else SpecialFact(MakeMeaning(D), (MEANING)(D->w.userValue - heapBase), 0);
     }
     D->w.userValue = word;
+    if (!stricmp(var, (char*)"$cs_json_array_defaults"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        jsonDefaults = val;
+    }
 
     // tokencontrol changes are noticed by the engine
     if (!stricmp(var, (char*)"$cs_token"))

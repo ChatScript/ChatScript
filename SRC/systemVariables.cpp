@@ -980,6 +980,33 @@ static char* Sresponse(char* value)
 	return systemValue;
 }   
 
+static char* Sserverlogfolder(char* value) 
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold,value);
+	if (*hold != '.') return hold;
+	strcpy(systemValue, logs);
+    return systemValue;
+}
+
+static char* Suserlogfolder(char* value) 
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold,value);
+	if (*hold != '.') return hold;
+	strcpy(systemValue, users);
+    return systemValue;
+}
+
+static char* Stmpfolder(char* value) 
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold,value);
+	if (*hold != '.') return hold;
+	strcpy(systemValue, tmp);
+    return systemValue;
+}
+
 SYSTEMVARIABLE sysvars[] =
 { // do not use underscores in name
 	{ (char*)"",0,(char*)""},
@@ -1066,6 +1093,9 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%lastquestion",SlastQuestion,(char*)"Boolean - did last output end in a ?"}, 
 	{ (char*)"%outputrejoinder",SoutputRejoinder,(char*)"tag of current output rejoinder or null"}, 
 	{ (char*)"%response",Sresponse,(char*)"Numeric count of responses generated for current volley"}, 
+	{ (char*)"%serverlogfolder",Sserverlogfolder,(char*)"server logs folder"}, 
+	{ (char*)"%userlogfolder",Suserlogfolder,(char*)"user logs folder"}, 
+	{ (char*)"%tmpfolder",Stmpfolder,(char*)"TMP folder"}, 
 	
 	{NULL,NULL,(char*)""},
 };

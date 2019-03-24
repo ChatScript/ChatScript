@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 2/12/2019 cs9.1
+<br>Revision 3/24/2019 cs9.2
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1721,6 +1721,7 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `isfloat`      | word | return 1 if it is float, fails otherwise
 | `isuppercase`      | word | return 1 if it begins with an uppercase letter, fails otherwise
 | `isalluppercase`      | word | return 1 if it starts uppercase, and consists of entirely uppercase letters, hyphen, underscore and ampersand, fails otherwise
+| `ismixed case`      | word | return 1 if it has both upper and lowercase letters, fails otherwise
 | `type`               | word         | returns concept, number, word, or unknown
 | `common`             | word         | returns level of commonness of the word
 | `verb`               | verb         | given verb in any form, return requested form

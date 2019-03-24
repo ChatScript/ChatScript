@@ -298,6 +298,10 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // repeated internal bits
 #define HAS_SUBSTITUTE			0x00000800		//   word has substitute attached 
 
+// default values for json creation 
+#define JSON_ARRAY_UNIQUE 1
+#define JSON_OBJECT_DUPLICATE 2
+
 // flags on facts  FACT FLAGS
 
 #define FACTATTRIBUTE	    0x10000000  // fact is an attribute fact, object can vary while subject/verb should be fixed 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/12/2019 cs9.1</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/24/2019 cs9.2</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -937,146 +937,151 @@ u: (%document)
 <td>return 1 if it starts uppercase, and consists of entirely uppercase letters, hyphen, underscore and ampersand, fails otherwise</td>
 </tr>
 <tr class="odd">
+<td><code>ismixed case</code></td>
+<td>word</td>
+<td>return 1 if it has both upper and lowercase letters, fails otherwise</td>
+</tr>
+<tr class="even">
 <td><code>type</code></td>
 <td>word</td>
 <td>returns concept, number, word, or unknown</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>common</code></td>
 <td>word</td>
 <td>returns level of commonness of the word</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>verb</code></td>
 <td>verb</td>
 <td>given verb in any form, return requested form</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>present_participle</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>past_participle</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>infinitive</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>past</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>present3ps</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>present</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>verb</code></td>
 <td><code>match</code> noun</td>
 <td>returns noun form matching verb (sing./plural).<br>e.g. (<em>walk match dog</em>) -&gt; <em>walks</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>aux</code></td>
 <td>auxverb <code>pronoun</code></td>
 <td>returns verb form matching pronoun supplied.<br>for <em>do</em>,<em>have</em>, <em>be</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>pronoun</code></td>
 <td>word <code>flip</code></td>
 <td>changes person form for 1st and 2nd person</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>adjective</code></td>
 <td>word <code>more</code></td>
 <td>writes the adjective in its comparative form: <em>fast</em> -&gt; <em>faster</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>most</code></td>
 <td>word</td>
 <td>the superlative form. <em>beautiful</em> -&gt; <em>most beautiful</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>adverb</code></td>
 <td>word <code>more</code></td>
 <td>writes comparative form: <em>strong</em> -&gt; <em>strongly</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>noun</code></td>
 <td>word <code>proper</code></td>
 <td>return word as a proper noun (appropriately cased)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>lowercaseexist</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>uppercaseexist</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>singular</code></td>
 <td>word or a number</td>
 <td>== 1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>plural</code></td>
 <td>word or a number</td>
 <td>&gt; 1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>irregular</code></td>
 <td>word</td>
 <td>return value only for irregular nouns</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>determiner</code></td>
 <td>word <code>noun</code></td>
 <td>add a determiner &quot;a/an&quot; if it needs one</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>place</code></td>
 <td>integer</td>
 <td>return place number of integer</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>capitalize</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>uppercase</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>lowercase</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>allupper</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>canonical</code></td>
 <td>word</td>
 <td>see notes</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>integer</code></td>
 <td>floatnumber</td>
 <td>generate integer if float is exact integer</td>

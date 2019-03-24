@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 2/12/2019 cs9.1
+<br>Revision 3/24/2019 cs9.2
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -538,7 +538,7 @@ The ?_ matches a digit number followed immediately by km, like `1.2km` and will 
 with the given replacement. The input can be singular or have an 's' like `10.5dollars`. And it can be with or without abbreviation periods,
 like `10kps` or `10k.p.s`
 
-## Apostrophe Substitutionsreplace
+## Apostrophe Substitutions replace
 ```
 replace: 'xxx  yyy
 ```
@@ -549,6 +549,12 @@ replace: 've have
 ```
 gives "companies've =>  "companies have".
 
+## Replacing to a word with + in it
+Normally `replace:  x  y+z`  will generate 2 words, y and z.  If you need a plus
+in your word, you can escape your 2nd word:
+```
+    replace: "black and decker" \BLACK+DECKER
+```
 
 
 # Interchange Variables

@@ -670,7 +670,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	entry = FindWord(original, 0, PRIMARY_CASE_ALLOWED);
     size_t x = strlen(original);
     // if uppercase, see if lowercase singular exists
-    if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && original[x - 1] == 's') // possible plural
+    if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && !entry->properties & properties & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_HUMAN | PRONOUN_SUBJECT | PRONOUN_OBJECT) && original[x - 1] == 's') // possible plural
     {
         WORDP singular = FindWord(original, x-1, LOWERCASE_LOOKUP);
         if (singular) entry = singular;

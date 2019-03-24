@@ -412,11 +412,11 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 			D = FindWord(val2);
 			if (!D) return FAILRULE_BIT;
 			
-			FACT* F = GetObjectNondeadHead(D);
+			FACT* F = GetSubjectNondeadHead(D);
 			while (F)
 			{
 				if (F->object == M) return NOPROBLEM_BIT;
-				F = GetObjectNondeadNext(F);
+				F = GetSubjectNondeadNext(F);
 			}
 			return FAILRULE_BIT;
 		}
