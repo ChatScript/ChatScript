@@ -1,6 +1,6 @@
 # ChatScript Basic User Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 2/18/2018 cs8.1
+<br>Revision 4/26/2019 cs9.3
 
 * [Overview](ChatScript-Basic-User-Manual.md#overview)
 * [Simple Topics](ChatScript-Basic-User-Manual.md#simple-topics)
@@ -456,9 +456,6 @@ it used, and then next time it will output the second gambit and mark it used, a
 Similarly, a responder that reacts to an input will give its message and then erase itself. If
 the user repeats his input, that rule cannot respond again, and some other rule will have to
 answer. 
-
-The file `RAWDATA/skeleton.top` has a bunch of topics already predefined with
-keywords but no responders or gambits. 
 
 If you filled in some of these topics with rules and hooked the file into 
 `RAWDATA/filesHarry.txt` and rebuilt the data, you’d have a chatbot. 

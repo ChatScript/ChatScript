@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-basic-user-manual">ChatScript Basic User Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/26/2019 cs9.3</p>
 <ul>
 <li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
 <li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple Topics</a></li>
@@ -302,7 +302,6 @@ You can have responders intermixed with gambits.</p>
 <p>For responders, rules are usually ordered most specific to least specific, possibly bunched by a theme. So a responder trying to catch what color is your hair would be before one that simply would react to any reference to your hair.</p>
 <p>By default, the system avoids repeating itself, marking as used-up rules that it matches that generate output. This is how a topic story gets told. It outputs the first gambit, marks it used, and then next time it will output the second gambit and mark it used, and so on.</p>
 <p>Similarly, a responder that reacts to an input will give its message and then erase itself. If the user repeats his input, that rule cannot respond again, and some other rule will have to answer.</p>
-<p>The file <code>RAWDATA/skeleton.top</code> has a bunch of topics already predefined with keywords but no responders or gambits.</p>
 <p>If you filled in some of these topics with rules and hooked the file into <code>RAWDATA/filesHarry.txt</code> and rebuilt the data, you’d have a chatbot.</p>
 <h2 id="rejoinders">Rejoinders</h2>
 <p>If you expect the user might respond in a particular manner to the chatbot’s last output, you can script rules to examine his next input and see if it matches. When it works, it makes your chatbot seem like it understands the user. These are called rejoinders and all rules can have them.</p>

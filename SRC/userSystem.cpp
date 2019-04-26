@@ -9,7 +9,6 @@ bool serverRetryOK = false;
 bool stopUserWrite = false;
 static bool verifyUserFacts = true;
 static char* backupMessages = NULL;
-static int jsonptrThreadList;
 
 #define MAX_USER_MESSAGES MAX_USED
 
@@ -415,7 +414,7 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 {
 	if (!ptr) return NULL;
 
-	unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
 	bool traceseen = false;
 	bool timingseen = false;
 	char word[MAX_WORD_SIZE];
@@ -436,7 +435,7 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 			if (val && val[0] == 'j' && (val[1] == 'o' || val[1] == 'a') && val[2] == '-' && val[3] != 't' && saveJSON) SaveJSON(FindWord(val));
 
 			// if var is actually system var, and value is unchanged (may have edited and restored), dont save it
-			unsigned int varthread1 =  botVariableThreadList;
+			HEAPLINK varthread1 =  botVariableThreadList;
 			while (varthread1)
 			{
 				cell = (unsigned int*)Index2Heap(varthread1);
@@ -597,7 +596,6 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 	char* saveJSON = GetUserVariable("$cs_saveusedJson");
 	if (!*saveJSON) saveJSON = NULL;
 
-	jsonptrThreadList = 0;
 	ptr = WriteUserVariables(ptr,sharefile,false, saveJSON);  // json safe
 	if (!ptr)
 	{

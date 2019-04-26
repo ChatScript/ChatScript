@@ -1,6 +1,6 @@
 ﻿# ChatScript Advanced Pattern Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/24/2019 cs9.2
+<br>Revision 4/26/2019 cs9.3
 
 
 # ADVANCED PATTERNS
@@ -395,6 +395,12 @@ and `@_4` must start at word 5 and after it completes then `life` must be the ne
 You can request n words before the current position using `*-n`. For example
 
     u: ( I love * > _*-1 ) capture last word of sentence
+
+## Match Variable assignment in a pattern
+
+Aside from the use of _ to memorize a match, you can directly assign to a match variable either
+a constant word, another matchvar, or a user variable. This is not obviously useful
+normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.
 
 
 ## Gory details about strings

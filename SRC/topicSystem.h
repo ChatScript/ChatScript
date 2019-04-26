@@ -194,7 +194,7 @@ bool TopLevelStatement(char* word);
 bool TopLevelGambit(char* word);
 bool Rejoinder(char* word);
 char* GetLabel(char* rule,char* label);
-char* GetPattern(char* rule,char* label,char* pattern,int limit = MAX_WORD_SIZE); // returns start of output and modified pattern
+char* GetPattern(char* rule, char* label, char* pattern, bool friendly = false, int limit = MAX_WORD_SIZE); // returns start of output and modified pattern
 char* GetOutputCopy(char* ptr); // returns copy of output only
 bool TopLevelRule(char* word);
 char* GetTopicName(int topic,bool actual = true);

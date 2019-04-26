@@ -2,11 +2,9 @@
 
 > ChatScript Guide To Documentation
 
-
 > © Bruce Wilcox, gowilcox@gmail.com
 
-
-> Revision 7/31/16 cs6.7a
+<br>Revision 4/26/2019 cs9.3
 
 ChatScript has a lot of documentation in various manuals, so knowing what to read may seem daunting.
 Here is an overview.
@@ -50,11 +48,25 @@ NLTK means nothing to you.
 <br>An illustration of hooking in an external pos-tagger for foreign language support.
 
 
-
 ## Advanced ChatScript
 
+* [ChatScript Advanced Concept Manual](ChatScript-Advanced-Concept-Manual.md)
+<br>Once you've master basic CS, this is the place to go next for more on concepts.
+
+* [ChatScript Advanced User Manual](ChatScript-Advanced-Output-Manual.md)
+<br>Once you've master basic CS, this is the place to go next for more on output code.
+
+* [ChatScript Advanced User Manual](ChatScript-Advanced-Pattern-Manual.md)
+<br>Once you've master basic CS, this is the place to go next for more advanced patterns.
+
+* [ChatScript Advanced User Manual](ChatScript-Advanced-Topic-Manual.md)
+<br>Once you've master basic CS, this is the place to go next for more advanced Topics.
+
+* [ChatScript Advanced User Manual](ChatScript-Advanced-Variables-Manual.md)
+<br>Once you've master basic CS, this is the place to go next for more information about variables.
+
 * [ChatScript Advanced User Manual](ChatScript-Advanced-User-Manual.md)
-<br>Once you've master basic CS, this is the place to go next.
+<br>Once you've master basic CS, this is the place to go next for esoteric advanced subjects.
 
 * [ChatScript System Functions Manual](ChatScript-System-Functions-Manual.md)
 <br>A listing of all the functions of CS.
@@ -82,9 +94,37 @@ really advanced users wanting the appropriate mental model.
 * [ChatScript System Variables and Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md)
 <br> Engine-defined Concepts. System Variables. Control over Input. Interchange Variables.
 
+* [ChatScript Spelling and Marking Abilities](ChatScript-Spelling-Marking.md)
+<br> How to control spell correction and marking.
+
 * [Installing and Updating ChatScript](Installing-and-Updating-ChatScript.md)
 <br>Installing on Windows, Mac, Linux. Updating ChatScript (advanced).
 
+
+## ChatScript Practicums
+
+Practicums discuss alternate ways of implementing something and how to pick among them.
+
+* [Practicum Concepts and Meaning](Practicum-Concepts-and-Meaning.md)
+<br> Practical guide to detecting meaning.
+
+* [Practicum Control Flow](Practicum-ControlFlow.md)
+<br> Building more advanced control scripts to guide your bot's processing.
+
+* [Practicum Gleaning](Practicum-Gleaning.md)
+<br> Choices in how to gather data from user input.
+
+* [Practicum Messaging](Practicum-messaging.md)
+<br> Issues in input and output to the bot.
+
+* [Practicum Patterns](Practicum-patterns.md)
+<br> Issues in pattern matching.
+
+* [Practicum Rejoinders](Practicum-rejoinders.md)
+<br> Issues in using rejoinders.
+
+* [Practicum Spelling and Interjections](Practicum-spelling-and-interjections.md)
+<br> Issues in spell checking and handling interjections.
 
 ## Specialized ChatScript
 

@@ -22,7 +22,8 @@ Layer0 : facts resulting from topic system build0
     This is ReturnToDictionaryFreeze for unpeeling 3 / 4 and ReturnDictionaryToWordNet for unpeeling layer 2.
 
 #endif
-unsigned int botFactThreadList = 0; // facts from lock layers whose value was changed in OBJ
+static HEAPLINK jsonptrThreadList;
+HEAPLINK botFactThreadList = 0; // facts from lock layers whose value was changed in OBJ
 int worstFactFree = 1000000;
 char traceSubject[100];
 char traceVerb[100];
@@ -33,7 +34,7 @@ uint64 allowedBots = 0xffffffffffffffffULL; // default fact visibility restricti
 uint64 myBot = 0;							// default fact creation restriction
 size_t maxFacts = MAX_FACT_NODES;	// how many facts we can create at max
 int* factThread = 0;
-
+bool factsExhausted = false;
 FACT* factBase = NULL;			// start of all facts
 FACT* factEnd = NULL;			// end of all facts
 FACT* factsPreBuild[NUMBER_OF_LAYERS+1];		// end of build0 facts, start of build1 facts
@@ -1144,6 +1145,7 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
         if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(factFree))
         ReportBug((char*)"out of fact space at %d",Fact2Index(factFree))
 		(*printer)((char*)"%s",(char*)"out of fact space");
+        factsExhausted = true;
 		return NULL;
 	}
 	currentFact = factFree;

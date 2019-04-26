@@ -31,7 +31,7 @@
 #define SPECIFIC_SLOT 0x1f000000
 #define SPECIFIC_SHIFT 24
 #define GAPLIMITSHIFT 8
-
+int patternDepth = 0;
 bool matching = false;
 bool deeptrace = false;
 static char* returnPtr = NULL;
@@ -111,6 +111,19 @@ static void DecodeFNRef(char* side)
     strcpy(side, at);
 }
 
+static void DecodeAssignment(char* word, char* lhs, char* op, char* rhs)
+{
+    // get the operator
+    char* assign = word + Decode(word + 1, 1); // use accelerator to point to op in the middle
+    strncpy(lhs, word + 2, assign - word - 2);
+    lhs[assign - word - 2] = 0;
+    *op = *assign++; // :
+    op[1] = '=';
+    op[2] = 0;
+    ++assign;
+    strcpy(rhs, assign);
+}
+
 static void DecodeComparison(char* word, char* lhs, char* op, char* rhs)
 {
     // get the operator
@@ -127,6 +140,19 @@ static void DecodeComparison(char* word, char* lhs, char* op, char* rhs)
     }
     strcpy(rhs, compare);
 }
+
+static void CleanUpLine(char* line)
+{
+    if (*wildcardSeparator == ' ')
+    {
+        while ((line = strchr(line, '_'))) *line = ' ';
+    }
+    else if (*wildcardSeparator == '_')
+    {
+        while ((line = strchr(line, ' '))) *line = '_';
+    }
+}
+
 
 bool MatchesPattern(char* word, char* pattern) //   does word match pattern of characters and *
 {
@@ -351,6 +377,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
         int &returnstart, int& returnend, int &uppercasem, int& firstMatched, int positionStart, int positionEnd, bool reverse)
 {//   always STARTS past initial opening thing ( [ {  and ends with closing matching thing
     int startdepth = globalDepth;
+    patternDepth = depth;
     int wildgap = 0;
     if (wildcardSelector &  WILDGAP && *kind == '{')
         wildgap = ((wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff) + 1;
@@ -631,63 +658,63 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             if (beginmatch == -1) beginmatch = startposition + 1;
             if (word[1] == '-') //   backward grab, -1 is word before now -- BUG does not respect unmark system
             {
-                int at;
-                if (!reverse) at = positionEnd - (word[2] - '0') - 1; // limited to 9 back
-                else  at = positionEnd + (word[2] - '0') - 1;
-                if (reverse && at > wordCount)
+                int atx;
+                if (!reverse) atx = positionEnd - (word[2] - '0') - 1; // limited to 9 back
+                else  atx = positionEnd + (word[2] - '0') - 1;
+                if (reverse && atx > wordCount)
                 {
-                    oldEnd = at; //   set last match AFTER our word
-                    positionStart = positionEnd = at - 1; //   cover the word now
+                    oldEnd = atx; //   set last match AFTER our word
+                    positionStart = positionEnd = atx - 1; //   cover the word now
                     matched = true;
                 }
-                else if (!reverse && at >= 0) //   no earlier than pre sentence start
+                else if (!reverse && atx >= 0) //   no earlier than pre sentence start
                 {
-                    oldEnd = at; //   set last match BEFORE our word
-                    positionStart = positionEnd = at + 1; //   cover the word now
+                    oldEnd = atx; //   set last match BEFORE our word
+                    positionStart = positionEnd = atx + 1; //   cover the word now
                     matched = true;
                 }
                 else matched = false;
             }
             else if (IsDigit(word[1]))  // fixed length gap
             {
-                int at;
+                int atx;
                 int count = word[1] - '0';	// how many to swallow
                 if (reverse)
                 {
                     int begin = positionStart - 1;
-                    at = positionStart; // start here
-                    while (count-- && --at >= 1) // can we swallow this (not an ignored word)
+                    atx = positionStart; // start here
+                    while (count-- && --atx >= 1) // can we swallow this (not an ignored word)
                     {
-                        if (unmarked[at])
+                        if (unmarked[atx])
                         {
                             ++count;	// ignore this word
-                            if (at == begin) --begin;	// ignore this as starter
+                            if (atx == begin) --begin;	// ignore this as starter
                         }
                     }
-                    if (at >= 1) // pretend match
+                    if (atx >= 1) // pretend match
                     {
                         positionEnd = begin; // pretend match here -  wildcard covers the gap
-                        positionStart = at;
+                        positionStart = atx;
                         matched = true;
                     }
                     else  matched = false;
                 }
                 else
                 {
-                    at = positionEnd; // start here
+                    atx = positionEnd; // start here
                     int begin = positionEnd + 1;
-                    while (count-- && ++at <= wordCount) // can we swallow this (not an ignored word)
+                    while (count-- && ++atx <= wordCount) // can we swallow this (not an ignored word)
                     {
-                        if (unmarked[at])
+                        if (unmarked[atx])
                         {
                             ++count;	// ignore this word
-                            if (at == begin) ++begin;	// ignore this as starter
+                            if (atx == begin) ++begin;	// ignore this as starter
                         }
                     }
-                    if (at <= wordCount) // pretend match
+                    if (atx <= wordCount) // pretend match
                     {
                         positionStart = begin; // pretend match here -  wildcard covers the gap
-                        positionEnd = at;
+                        positionEnd = atx;
                         matched = true;
                     }
                     else  matched = false;
@@ -783,11 +810,11 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
 
                     if (*rhs == '^') // local function argument or indirect ^$ var  is LHS. copy across real argument
                     {
-                        char* at = "";
-                        if (rhs[1] == USERVAR_PREFIX) at = GetUserVariable(rhs + 1);
-                        else if (IsDigit(rhs[1])) at = FNVAR(rhs + 1);
-                        at = SkipWhitespace(at);
-                        strcpy(rhs, at);
+                        char* atx = "";
+                        if (rhs[1] == USERVAR_PREFIX) atx = GetUserVariable(rhs + 1);
+                        else if (IsDigit(rhs[1])) atx = FNVAR(rhs + 1);
+                        atx = SkipWhitespace(atx);
+                        strcpy(rhs, atx);
                     }
 
                     if (*op == '?' && opptr[0] != '~')
@@ -886,6 +913,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             {
                 globalDepth = startdepth;
                 uppercaseFind = -1;
+                patternDepth--;
                 return false; // shouldn't happen
             }
             break;
@@ -1045,6 +1073,62 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 if (!word[1]) matched = (tokenFlags & QUESTIONMARK) ? true : false;
                 else matched = false;
             }
+            break;
+        case ':': // assignment
+        {
+            if (word[1] != '=') goto matchit;
+            char lhsside[MAX_WORD_SIZE];
+            char* lhs = lhsside;
+            char op[10];
+            char rhsside[MAX_WORD_SIZE];
+            char* rhs = rhsside;
+            DecodeAssignment(word, lhs, op, rhs);
+            if (*lhs == '_' && *rhs == '_') // match var to matchvar canonical assign
+            {
+                int leftindex = GetWildcardID(lhs);
+                int rightindex = GetWildcardID(rhs);
+                strcpy(wildcardOriginalText[leftindex], wildcardCanonicalText[rightindex]);
+                strcpy(wildcardCanonicalText[leftindex], wildcardCanonicalText[rightindex]);
+                CleanUpLine(wildcardOriginalText[leftindex]);
+                CleanUpLine(wildcardCanonicalText[leftindex]);
+                wildcardPosition[leftindex] = wildcardPosition[rightindex];
+                if (trace & TRACE_PATTERN) sprintf(word, (char*)"_%s=%s", lhs, wildcardOriginalText[leftindex]);
+            }
+            else if (*lhs == '_' && *rhs == '\'' && rhs[1] == '_') // match var to quoted matchvar assign
+            {
+                int leftindex = GetWildcardID(lhs);
+                int rightindex = GetWildcardID(rhs + 1);
+                strcpy(wildcardOriginalText[leftindex], wildcardOriginalText[rightindex]);
+                strcpy(wildcardCanonicalText[leftindex], wildcardOriginalText[rightindex]);
+                CleanUpLine(wildcardOriginalText[leftindex]);
+                CleanUpLine(wildcardCanonicalText[leftindex]);
+                wildcardPosition[leftindex] = wildcardPosition[rightindex];
+                if (trace & TRACE_PATTERN) sprintf(word, (char*)"_%s=%s", lhs, wildcardOriginalText[leftindex]);
+            }
+            else if (*lhs == '_' && *rhs == '$') //  var to matchvar assign 
+            {
+                int leftindex = GetWildcardID(lhs);
+                strcpy(wildcardOriginalText[leftindex], GetUserVariable(rhs));
+                strcpy(wildcardCanonicalText[leftindex], GetUserVariable(rhs));
+                CleanUpLine(wildcardOriginalText[leftindex]);
+                CleanUpLine(wildcardCanonicalText[leftindex]);
+                wildcardPosition[leftindex] = 0;
+                if (trace & TRACE_PATTERN) sprintf(word, (char*)"_%s=%s", lhs, wildcardOriginalText[leftindex]);
+            }
+            else if (*lhs == '_' && IsAlphaUTF8DigitNumeric(*rhs)) //  literal to matchvar assign 
+            {
+                int leftindex = GetWildcardID(lhs);
+                strcpy(wildcardOriginalText[leftindex], rhs);
+                strcpy(wildcardCanonicalText[leftindex], rhs);
+                CleanUpLine(wildcardOriginalText[leftindex]);
+                CleanUpLine(wildcardCanonicalText[leftindex]);
+                wildcardPosition[leftindex] = 0;
+                if (trace & TRACE_PATTERN) sprintf(word, (char*)"_%s=%s", lhs, wildcardOriginalText[leftindex]);
+            }
+        }
+            matched = true;
+            uppercaseFind = -1;
+
             break;
         case '=': //   a comparison test - never quotes the left side. Right side could be quoted
                   //   format is:  = 1-bytejumpcodeToComparator leftside comparator rightside
@@ -1532,14 +1616,15 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             char* copy = AllocateStack(NULL, MAX_WORD_SIZE);
             strncpy(copy, ptr, 80);
             strcpy(copy + 75, (char*)"...");
-            char* at = strchr(copy, ')');
-            if (at) at[1] = 0;
+            char* atx = strchr(copy, ')');
+            if (atx) atx[1] = 0;
             CleanOutput(copy);
             Log(STDTRACELOG, (char*)"        Remaining pattern: %s\r\n", copy);
             ReleaseStack(copy);
         }
         else Log(STDTRACELOG, (char*)")+\r\n");
     }
+    patternDepth--;
     return success;
 }
 

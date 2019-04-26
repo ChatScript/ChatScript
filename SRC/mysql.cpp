@@ -358,10 +358,10 @@ FunctionResult MySQLInitCode(char* buffer)
    MYSQL_RES *res;
    MYSQL_ROW row;
    char *myserver = "localhost";
-   char *user = "root";
-   char *password = "mysql"; 
-   char *database = "mysql";
-   conn = mysql_init(NULL);
+   char *user = "bruce";
+   char *password = "bruce"; 
+   char *database = "bruce";
+   conn = mysql_init(NULL); // port 33060
 
    if (!mysql_real_connect(conn, myserver, user, password, database, 0, NULL, 0)) {
       fprintf(stderr, "%s\r\n", mysql_error(conn));

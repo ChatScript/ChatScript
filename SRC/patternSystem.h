@@ -26,5 +26,6 @@ bool Match(char* buffer,char* ptr, unsigned int depth, int startposition,char* k
 extern bool matching;
 extern char* patternchoice;
 extern bool deeptrace;
+extern int patternDepth;
 void ShowMatchResult(FunctionResult result, char* rule,char* label);
 #endif

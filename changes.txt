@@ -1,3 +1,14 @@
+version 9.3 
+0. new practicum document: Practicum-Concepts-and_meaning
+1. %factexhaustion , which can take assignment to false to turn off the flag
+
+2. assignment in patterns  _0:=  var or matchvar or 'matchvar- eg
+3. ^compilepattern
+4. ^testpattern
+5. ^compileoutput
+6. ^testoutput
+The above 4 functions allow you to synthesize a rule from its component parts. This allows some other dialog system to use CS capabilities as an external API (e.g. web-based scriptwriting). It also means you can store compiled patterns and outputs in a database and mix and match rules in synthetic topics on the fly. #2 supports ^testpattern by allowing a pattern to glean data and return values.
+
 version 9.2 3/24/2019
 1.  replace:  blackdecker \BLACK+DECKER now allowed to prevent + 
     from interpreting to space

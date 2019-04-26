@@ -17,6 +17,3 @@ This rebuilds the simple script and reinitiates a conversation.
 You can then type in What is your name? and get back your new answer. The quibbles are all in files
 under `RAWDATA/QUIBBLE`, sorted by kind of sentence.
 
-In` RAWDATA/skeleton.top` there are a whole slew of predefined topic declarations with keywords. You
-create some new topic file perhaps based on one of the topics listed and then dump it into the HARRY
-folder and do `:build Harry`.

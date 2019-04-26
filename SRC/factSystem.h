@@ -45,9 +45,10 @@ extern FACT* factFree;		//   end of facts - most recent fact allocated (ready fo
 extern MEANING Mmember;
 extern MEANING Mexclude;
 extern MEANING Mis;
-extern unsigned int botVariableThreadList;
+extern HEAPLINK botVariableThreadList;
 extern int* factThread;
 
+extern bool factsExhausted;
 extern size_t maxFacts;		// allocation limit of facts
 extern uint64 myBot;
 void SortFacts(char* set, int alpha, int setpass = -1);

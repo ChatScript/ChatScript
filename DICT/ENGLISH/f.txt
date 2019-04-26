@@ -12872,9 +12872,9 @@
     cowardly~1az lacking courage
     frightful~2az extremely distressing
     fearful~6az 
- frightened ( meanings=3 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ADJECTIVE_GOOD_SUBJECT_COMPLEMENT ) 
+ frightened ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE3_4 posdefault:VERB ADJECTIVE_GOOD_SUBJECT_COMPLEMENT ) 
     scared~1az made afraid
-    terrified~1az thrown into a state of intense fear or desperation
+    panicky~1a 
     frightened~3az 
  fearless ( meanings=3 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 GRADE3_4 posdefault:ADJECTIVE ADJECTIVE_GOOD_SUBJECT_COMPLEMENT ) 
     unafraid~1az oblivious of dangers or perils or calmly resolute in facing them

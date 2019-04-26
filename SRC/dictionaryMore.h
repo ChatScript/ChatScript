@@ -36,6 +36,7 @@
 #define QUERY_KIND				0x00000200		// is a query item (from LIVEDATA or query:)
 #define LABEL					QUERY_KIND		// transient scriptcompiler use
 #define RENAMED					QUERY_KIND		// _alpha name renames _number or @name renames @n
+#define OVERRIDE_CONCEPT        QUERY_KIND      // this concept name is overridden by ^testpattern
 #define PREFER_THIS_UPPERCASE	0x00000400		// given choice of uppercases, retrieve this
 #define NOTIME_TOPIC			0x00000800		// dont time this topic (topic names)
 #define NOTIME_FN				NOTIME_TOPIC	// dont time this function (on functions only)
@@ -168,7 +169,7 @@ void SetCanonical(WORDP D,MEANING M);
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
 void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
-void Add2ConceptTopicList(int list[256], WORDP D,int start,int end,bool unique);
+void Add2ConceptTopicList(HEAPLINK list[256], WORDP D,int start,int end,bool unique);
 void SuffixMeaning(MEANING T,char* at, bool withPos);
 int UTFCharSize(char* utf);
 
@@ -247,7 +248,7 @@ int GetWords(char* word, WORDP* set,bool strict);
 bool StricmpUTF(char* w1, char* w2, int len);
 void ReadQueryLabels(char* file);
 void ClearWordWhere(WORDP D,int at);
-void RemoveConceptTopic(int list[256],WORDP D, int at);
+void RemoveConceptTopic(HEAPLINK list[256],WORDP D, int at);
 char* UseDictionaryFile(char* name);
 void ClearWhereInSentence();
 void ClearTriedData();

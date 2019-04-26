@@ -38,10 +38,10 @@ extern char impliedOp;
 extern unsigned int tracedFunctionsIndex;
 extern WORDP tracedFunctionsList[MAX_TRACED_FUNCTIONS];
 extern char wildcardSeparator[2];
-extern unsigned int userVariableThreadList;
+extern HEAPLINK userVariableThreadList;
 
-extern unsigned int botFactThreadList;
-extern unsigned int kernelVariableThreadList;
+extern HEAPLINK botFactThreadList;
+extern HEAPLINK kernelVariableThreadList;
 // wildcard accessors
 char* GetwildcardText(unsigned int i, bool canon);
 void SetWildCard(char* value,char* canonicalVale,const char* index,unsigned int position);

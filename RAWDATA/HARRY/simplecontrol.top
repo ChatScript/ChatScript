@@ -4,7 +4,7 @@
 
 # this function is executed once for every new user chatting with harry
 outputmacro: harry()  # you get harry by default
-# The $cs_token is set to a variety of features I want for tokenizing inpu.
+# The $cs_token is set to a variety of features I want for tokenizing input.
 $cs_token = #DO_INTERJECTION_SPLITTING  | #DO_SUBSTITUTE_SYSTEM   | #DO_NUMBER_MERGE | #DO_DATE_MERGE  | #DO_PROPERNAME_MERGE  | #DO_SPELLCHECK  | #DO_PARSE 
 $cs_token += #SPLIT_QUOTE | #NO_WITHIN | #STRICT_CASING
 $cs_token -= #DO_INTERJECTIONS

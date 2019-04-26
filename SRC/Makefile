@@ -24,7 +24,7 @@ server: EXECUTABLE=$(executable.server)
 server: CFLAGS=-c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
 
 executable.debugserver=../BINARIES/ChatScriptDebug
-debugserver: DEFINES+= -DLOCKUSERFILE=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1 
+debugserver: DEFINES+= -DLOCKUSERFILE=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDEBUG 
 debugserver: PGLOAD= -pthread
 debugserver: INCLUDEDIRS=-Ievserver
 debugserver: binary

@@ -7821,7 +7821,7 @@
     panhandle~3vz beg by accosting people in the street and asking for money
  panic_button ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
     panic_button~1nz (^button~3) a button to push in order to summon help in case of an emergency
- panic ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+ panic ( meanings=4 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 NOUN_NODETERMINER GRADE1_2 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=panicking 
     affright~1nz (^fear~1) an overwhelming feeling of fear and anxiety
     scare~2n 
     panic~3vz cause sudden fear in or fill with sudden panic
@@ -24550,12 +24550,12 @@
     plummy~1az affectedly mellow and rich
     plummy~2az very desirable
  panicky ( meanings=2 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ADJECTIVE_GOOD_SUBJECT_COMPLEMENT ) 
-    frightened~2a 
-    panicky~2az 
- panicked ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) 
-    panicky~1a 
- panic-stricken ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
     panicked~1a 
+    panicky~2az 
+ panicked ( meanings=1 glosses=1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON2 COMMON1 GRADE1_2 posdefault:ADJECTIVE ) conjugate=panic 
+    terrified~1az thrown into a state of intense fear or desperation
+ panic-stricken ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
+    frightened~2a 
  panic-struck ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
     panic-stricken~1a 
  pugnacious ( meanings=3 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) 
@@ -30203,6 +30203,7 @@
     abound_in~1vz exist in large quantity
  persist_in ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_DIRECTOBJECT PHRASAL_VERB VERB_CONJUGATE1 ) 
     continue~10v 
+ panicking ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE GRADE1_2 ) conjugate=panicked 
  pooped_out ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE VERB_CONJUGATE1 ) conjugate=poop_out 
  pooping_out ( VERB_PRESENT_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE VERB_CONJUGATE1 ) conjugate=pooped_out 
  prettied_up ( VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_PARTICIPLE VERB_CONJUGATE1 ) conjugate=pretty_up 

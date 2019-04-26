@@ -717,65 +717,76 @@ char* ShowRule(char* rule,bool concise)
 	return result;
 }
 
-char* GetPattern(char* ptr,char* label,char* pattern,int limit)
+char* GetPattern(char* ptr, char* label, char* pattern, bool friendly, int limit)
 {
-	if (label) *label = 0;
-	if (!ptr || !*ptr) return NULL;
-	if (ptr[1] == ':') ptr = GetLabel(ptr,label);
-	else ptr += 3; // why ever true?
-	char* patternStart = ptr;
-	// acquire the pattern data of this rule
-	if (*patternStart == '(') ptr = BalanceParen(patternStart+1,true,false); // go past pattern to new token
-	int patternlen = ptr - patternStart;
-	char* to = pattern;
-	if (pattern)
-	{
-		*pattern = 0;
-		if (patternlen > limit) patternlen = limit-1;
-		strncpy(pattern,patternStart,patternlen);
-		pattern[patternlen] = 0;
-		char name[MAX_WORD_SIZE];
+    if (label) *label = 0;
+    if (!ptr || !*ptr) return NULL;
+    if (ptr[1] == ':') ptr = GetLabel(ptr, label);
+    else ptr += 3; // why ever true?
+    char* patternStart = ptr;
+    // acquire the pattern data of this rule
+    if (*patternStart == '(') ptr = BalanceParen(patternStart + 1, true, false); // go past pattern to new token
+    int patternlen = ptr - patternStart;
+    char* to = pattern;
+    if (pattern)
+    {
+        *pattern = 0;
+        if (patternlen > limit)
+        {
+            if (!friendly)
+            {
+                ReportBug("GetPattern exceeded limit of %d from %d\r\n", limit, patternlen);
+                return pattern;
+            }
+            patternlen = limit - 1;
+        }
+        strncpy(pattern, patternStart, patternlen); // literal copy of internal pattern
+        pattern[patternlen] = 0;
+        if (!friendly) return ptr;
 
-		char word[MAX_WORD_SIZE];
-		strcpy(word,pattern);
-		size_t len = strlen(word) - 1;
-		char* from = word-1;
-		bool blank = true;
-		while (*++from)
-		{
-			if (*from == '=' && blank) // this is a relational test
-			{
-				if (!from[1]) break;	// end of data before accelerator
-				char* compare = from + Decode(from+1,1); // use accelerator to point to op in the middle
-				if (compare > (word + len)) 
-					break; // passes limited area
-				char c = *compare;
-				if (c == '=' || c == '<' || c == '>' || c == '!' || c == '?' || c == '&')
-				{
-					++from;
-					blank = false;
-					continue;
-				}
-			}
-			else if (*from == '*' && (IsAlphaUTF8(from[1]) || from[1] == '*')) // find partial word
-			{
-				ReadCompiledWord(from,name);
-				if (strchr(from+1,'*'))
-				{
-					blank = false;
-					continue;
-				}
-			}
-			else if (*from == '\\' && blank) *to++ = *from++; // literal next
-		
-			to[1] = 0;
-			*to++ = *from;
-			if (blank && *from == '!') {;} // !_0?~fruit comparison
-			else blank = (*from == ' ');
-		}
-		*to = 0;
-	}
-	return ptr; // start of output ptr
+        // for printouts, get prettier form
+        char name[MAX_WORD_SIZE];
+        char word[MAX_WORD_SIZE];
+        strcpy(word, pattern);
+        size_t len = strlen(word) - 1;
+        char* from = word - 1;
+        bool blank = true;
+        while (*++from)
+        {
+            if (!friendly) {}
+            else if (*from == '=' && blank) // this is a relational test
+            {
+                if (!from[1]) break;	// end of data before accelerator
+                char* compare = from + Decode(from + 1, 1); // use accelerator to point to op in the middle
+                if (compare > (word + len))
+                    break; // passes limited area
+                char c = *compare;
+                if (c == '=' || c == '<' || c == '>' || c == '!' || c == '?' || c == '&')
+                {
+                    ++from;
+                    blank = false;
+                    continue;
+                }
+            }
+            else if (*from == '*' && (IsAlphaUTF8(from[1]) || from[1] == '*')) // find partial word
+            {
+                ReadCompiledWord(from, name);
+                if (strchr(from + 1, '*'))
+                {
+                    blank = false;
+                    continue;
+                }
+            }
+            else if (*from == '\\' && blank) *to++ = *from++; // literal next
+
+            to[1] = 0;
+            *to++ = *from;
+            if (blank && *from == '!') { ; } // !_0?~fruit comparison
+            else blank = (*from == ' ');
+        }
+        *to = 0;
+    }
+    return ptr; // start of output ptr
 }
 
 char* GetOutputCopy(char* ptr)
@@ -1171,7 +1182,7 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 
 	char label[MAX_LABEL_SIZE];
 	char pattern[MAX_WORD_SIZE];
-	char* ptr = GetPattern(rule,label,pattern,100);  // go to output
+	char* ptr = GetPattern(rule,label,pattern,true,100);  // go to output
 
 	// coverage counter
 	int coverage = (unsigned char) rule[2];
@@ -1366,7 +1377,7 @@ retry:
 		{
 			char* limitstack;
 			char* pattern = InfiniteStack(limitstack,"TestRule"); // transient
-			GetPattern(rule,NULL,pattern);
+			GetPattern(rule,NULL,pattern,true);
 			CleanOutput(pattern);
 			Log(STDTRACELOG,(char*)"       pattern: %s",pattern);
 			ReleaseInfiniteStack();

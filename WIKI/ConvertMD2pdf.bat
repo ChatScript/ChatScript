@@ -9,7 +9,10 @@ pandoc ChatScript-Basic-User-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Basi
 pandoc Practicum-ControlFlow.md -s -o ../PDFDOCUMENTATION/Practicum-ControlFlow.pdf
 pandoc Practicum-rejoinders.md -s -o ../PDFDOCUMENTATION/Practicum-rejoinders.pdf
 pandoc Practicum-messaging.md -s -o ../PDFDOCUMENTATION/Practicum-messaging.pdf
+pandoc Practicum-patterns.md -s -o ../PDFDOCUMENTATION/Practicum-patterns.pdf
 pandoc Practicum-Gleaning.md -s -o ../PDFDOCUMENTATION/Practicum-Gleaning.pdf
+pandoc Practicum-Concepts-and-meaning.md -s -o ../PDFDOCUMENTATION/Practicum-Concepts-and-meaning.pdf
+pandoc Practicum-spelling_and_interjections.md -s -o ../PDFDOCUMENTATION/Practicum-spelling_and_interjections.pdf
 pandoc ChatScript-Debugging-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Debugging-Manual.pdf
 pandoc ChatScript-Fact-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Fact-Manual.pdf
 pandoc ChatScript-Finalizing-A-Bot.md -s -o ../PDFDOCUMENTATION/ChatScript-Finalizing-A-Bot.pdf
@@ -22,11 +25,12 @@ pandoc ChatScript-Pattern-Redux.md -s -o ../PDFDOCUMENTATION/ChatScript-Pattern-
 pandoc ChatScript-System-Functions-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-System-Functions-Manual.pdf
 pandoc ChatScript-System-Variables-and-Engine-defined-Concepts.md -s -o ../PDFDOCUMENTATION/ChatScript-System-Variables-and-Engine-defined-Concepts.pdf
 pandoc ChatScript-Command-Line-Parameters.md -s -o ../PDFDOCUMENTATION/ChatScript-Command-Line-Parameters.pdf
-pandoc Installing-and-Updating-ChatScript.md -s -o ../PDFDOCUMENTATION/Installing-and-Updating-ChatScript.pdf
+pandoc ChatScript-Coding-Standards.md -s -o ../PDFDOCUMENTATION/ChatScript-Coding-Standards.pdf
 pandoc ChatScript-Multiple-Bots.md -s -o ../PDFDOCUMENTATION/ChatScript-Multiple-Bots.pdf
-pandoc README.md -s -o ../PDFDOCUMENTATION/README.pdf
 pandoc ChatScript-Common-Beginner-Mistakes.md -s -o ../PDFDOCUMENTATION/ChatScript-Common-Beginner-Mistakes.pdf
-pandoc Practicum-spelling_and_interjections.md -s -o ../PDFDOCUMENTATION/Practicum-spelling_and_interjections.pdf
+pandoc Installing-and-Updating-ChatScript.md -s -o ../PDFDOCUMENTATION/Installing-and-Updating-ChatScript.pdf
+pandoc README.md -s -o ../PDFDOCUMENTATION/README.pdf
+pandoc Documentation-Guide.md -s -o ../PDFDOCUMENTATION/Documentation-Guide.pdf
 
 pandoc CLIENTS-AND-SERVERS/ChatScript-Amazon-Server.md -s -o ../PDFDOCUMENTATION/CLIENTS-AND-SERVERS/ChatScript-Amazon-Server.pdf
 pandoc CLIENTS-AND-SERVERS/ChatScript-ClientServer-Manual.md -s -o ../PDFDOCUMENTATION/CLIENTS-AND-SERVERS/ChatScript-ClientServer-Manual.pdf

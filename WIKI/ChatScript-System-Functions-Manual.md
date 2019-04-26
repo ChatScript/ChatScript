@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/24/2019 cs9.2
+<br>Revision 4/26/2019 cs9.3
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -19,15 +19,17 @@ they are used from the output side of a rule, but in many cases nothing prevents
 invoking them from inside a pattern.  When used in a pattern, they do not write out any text output to the user. 
 But their output will be tested the same as it would from an `if` statement, meaning 0 and false are failures.
 
-You can write them with or without a `^` in front of their name. With is clearer, but you
-don’t have to. The only time you must is if the first thing you want to do in a gambit is
-call a function (unlikely).
+You can write them with or without a `^` in front of their name in output. With is clearer, but you
+don’t have to. The only times you must is if the first thing you want to do in a gambit is
+call a function (unlikely) or you are in a pattern.
 
     t: name(xxx) 
+    u: ( [find (me go) ])
 
-This is ambiguous. Is it function call or label and pattern?
+These are ambiguous. In the gambit is it function call or label. In
+the responder is find a function name or just a word?
 
-The above is treated as a label and pattern. You can force it to be a function call by one of
+The above gambit is treated as a label and pattern. You can force it to be a function call by one of
 these:
 
     t: ^name(xxx)   # explicilty say it is a function
@@ -570,24 +572,21 @@ if you want to feed in multiple sentences, you must reverse the order so the las
 be processed is submitted via input first. You can detect that the current sentence comes
 from `^input` and not from the user by `%revisedInput` (bool) being true (1).
 
+Note: the input sentence is not what the user originally typed, so don't expect it to reflect
+appropriately in %originalInput. Also it is tokenized on entry, so things like commas may already have
+been separated.
+
 
 ### `^original ( _n )`
 
 The argument is the name of a match variable.
 Whatever it has memorized will be used to locate the corresponding series of words 
 in the original raw input from the user that led to this match. That is, the value is prior to any spell correction done by ChatScript.
-
-E.g., if the input was: _I lick ice crem_, the converted input became _I lick ice_cream_ and you'd memorized the food onto a match variable, then you could do `^original(_0)` and get back _ice crem_.
-
-Another example:
-
-    # get foreign language proper name, without any CS standard processing.
-    u: what's your first name?
-        #! Anna Lisa
-        a: ( _* )
-	   $firstname = ^original ( _0 )
-	   Nice to meet you, $firstname 
-
+```
+u: (my _life) ^original(_0)
+```
+For input "my lif" spell correction will change the input to "life", which matches here,
+but ^original will return "lif".
 
 ### `^position ( which _var )`
 
@@ -1122,7 +1121,6 @@ The arguments, separated by spaces, are passed as a text string to the operating
 The function always succeeds, returning the return code of the call. You can transfer data back and forth via
 files by using `^import` and `^export` of facts.
 
-
 ### `^popen ( commandstring 'function )`
 
 The command string is a string to pass the os shell to execute. 
@@ -1322,6 +1320,142 @@ If the name includes the substring "ltm",
 then the file will  be decryptable and routes to databases 
 if the filesystem has been overridden by Mongo, Postgres, or MySQL.
 
+## CS External API- ^CompilePattern
+The external API functions allow execution of rule behaviors from outside of ChatScript.
+This function takes in a pattern string like 
+```
+(   [ ~bottle test] *  me)
+```
+and compiles it to internal format. Alternatively it accepts a std CS 'if' condition like
+```
+if ($var >= 1 AND !$var2)
+```
+
+It returns JSON object notation in ordinary user output, e.g.  
+```
+{ "code": "(....)" } 
+```
+You can take that code value and save it away somewhere and later pass it into ^testpattern.
+Should compilation fail, then there will be no CODE field and instead you will have an errors field. 
+```
+{"errors": [ xxx yyy ] } 
+```
+In either case you may see a warnings field
+```
+{"warnings": [ xxx yyy ] } 
+```
+where xxx and yyy are warning messages.
+
+The code returned may have additional data at the start. This is used to inform spelling correction
+to protect words occurring in the pattern. For best results you  should compile patterns in the same bot environment
+you expect to execute them in. The pattern won't explictly protect words it thinks the bot will already be protecting.
+
+## CS External API- ^TestPattern
+The external API functions allow execution of rule behaviors from outside of ChatScript.
+^testpattern will execute a list of patterns and tell you which one (if any) matched and possibly return match variables.
+The argument is a JSON object as follows
+```
+{ 
+"input": "range leak", -- required
+"patterns": [  -- at least one required
+    { 
+    "pattern": code-returned-from-compilepattern, 
+    "return1": "$stovetype"  -- optional
+    }, 
+    { "pattern": code-returned-from-compilepattern, 
+    "return1": "$leaktype" -- optional
+    } ], 
+"style": "earliest", -- optional
+"variables": { -- optional
+    "$faucet": "testing", 
+    "$x": 1 }, 
+"concepts": [  -- optional
+    { "name": "~stove", 
+    "values": [ "oven", "range", "cooktop" ] 
+    }, 
+    { "name": "~leaky", 
+    "values": [ "'leak", "drip", "spill" ] } ] 
+}
+```
+Input is the user input (one or more sentences) to be matched against.
+
+Patterns is an array of std ChatScript pattern strings. If they use memorization,
+you are allowed up to 2 return values and _0 and _1 will be returned under the variable
+names you provide. It will return the canonical values of those match variables.  If you
+need the original values, you can perform an assignment inside the pattern using something
+like $_0:='_0  (see Match variable assignment in Advanced patterns). The return values may
+be omitted.
+
+The variables and concepts fields are optional and provide context. 
+
+Style is also optional
+and defaults to `first`. Other choices are all, best, and last. First means stop running
+patterns and sentences as soon as you get a match. The makes the call faster and if your 
+patterns are ordered best first, there is no incentive to try lower priority patterns or more
+sentences. Last is the opposite, presumes that the patterns are ordered worst first. In addition,
+last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result).
+All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns
+are ordered best first, but once a match has been found it will move on to additional sentences
+to see if a better match can be found. 
+
+Result is ordinary user output JSON object: 
+```
+{ 
+    "match": 1,  -- index of matching pattern
+    "newglobals": { "$stovetype": "range", "$leaktype": "leak" }  
+}
+```
+If nothing matched, the value of `match` is false. Otherwise it is the index of the matching
+pattern (0-based). If there are return values from matching one or more patterns, those will
+be listed in `newglobals`, which is omitted if there are none. Values of null are never returned.
+
+## CS External API- ^CompileOutput
+The external API functions allow execution of rule behaviors from outside of ChatScript.
+This function takes in an output string like 
+```
+if ($test) {test me}
+^callmycode($test)
+```
+and compiles it to internal format.
+It returns JSON object notation in ordinary user output, e.g.  
+```
+{ "code": "(....)" } 
+```
+You can take that code value and save it away somewhere and later pass it into ^testpattern.
+Should compilation fail, then there will be no CODE field and instead you will have an errors field. 
+```
+{"errors": [ xxx yyy ] } 
+```
+In either case you may see a warnings field
+```
+{"warnings": [ xxx yyy ] } 
+```
+where xxx and yyy are warning messages.
+
+## CS External API- ^TestOutput
+The external API functions allow execution of rule behaviors from outside of ChatScript.
+The argument is a JSON object as follows
+```
+{ 
+"output":  code-returned-from-compile-output, 
+"variables": { -- optional
+    "$faucet": "testing", 
+    "$x": 1 }, 
+}
+```
+
+The result is a JSON object
+```
+{
+    output: "message to user", 
+    variables:  {"$x": "1", "$y": "testing"}  -- optional
+}
+```
+Output may be blank if nothing is intended to be generated or the code fails in execution.
+Variables will be present if the code changes permanent global variables. Changes to transient variables $$
+and local variables  $_ will not be returned. If nothing is returned, the field is omitted.
+Variables set to null are never returned.
+ 
 
 ## Debugging Function `^debug ()`
 

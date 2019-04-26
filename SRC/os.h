@@ -24,6 +24,8 @@ typedef unsigned int FACTOID_OR_MEANING;	// a fact or a meaning (same representa
 
 typedef unsigned int STACKREF; // stack offset reference
 typedef unsigned int HEAPREF; // heap offset reference
+typedef unsigned int HEAPLINK; //   a threaded list in the heap
+typedef unsigned int STACKLINK; //   a threaded list in the stack
 
 struct WORDENTRY;
 typedef WORDENTRY* WORDP;
@@ -86,7 +88,7 @@ typedef struct CALLFRAME
     int oldRuleID;
     int oldTopic;
     int oldRuleTopic;
-    int memindex;
+    unsigned int memindex;
     char* oldRule;
     int heapDepth;
     union  {
@@ -171,6 +173,7 @@ void EncryptInit(char* params);
 void DecryptInit(char* params);
 void EncryptRestart();
 extern unsigned int currentFileLine;
+extern unsigned int currentLineColumn;
 extern unsigned int maxFileLine;
 extern char currentFilename[MAX_WORD_SIZE];
 int FClose(FILE* file);

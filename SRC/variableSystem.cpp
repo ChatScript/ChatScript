@@ -10,7 +10,7 @@ There are 5 kinds of variables.
 4. Function variables beginning with ^
 5. System variables beginning with %
 #endif
-unsigned int userVariableThreadList = 0;
+HEAPLINK userVariableThreadList = 0;
 int impliedSet = ALREADY_HANDLED;	// what fact set is involved in operation
 int impliedWild = ALREADY_HANDLED;	// what wildcard is involved in operation
 char impliedOp = 0;					// for impliedSet, what op is in effect += = 
@@ -24,8 +24,8 @@ char wildcardSeparator[2];
 //   list of active variables needing saving
 
 WORDP tracedFunctionsList[MAX_TRACED_FUNCTIONS];
-unsigned int kernelVariableThreadList = 0;
-unsigned int botVariableThreadList = 0;
+HEAPLINK kernelVariableThreadList = 0;
+HEAPLINK botVariableThreadList = 0;
 unsigned int tracedFunctionsIndex;
 unsigned int modifiedTraceVal = 0;
 bool modifiedTrace = false;
@@ -36,7 +36,8 @@ void InitVariableSystem()
 {
     *wildcardSeparator = ' ';
     wildcardSeparator[1] = 0;
-    kernelVariableThreadList = botVariableThreadList = userVariableThreadList = tracedFunctionsIndex = 0;
+    kernelVariableThreadList = botVariableThreadList = userVariableThreadList = 0;
+    tracedFunctionsIndex = 0;
 }
 
 int GetWildcardID(char* x) // wildcard id is "_10" or "_3"
@@ -386,7 +387,7 @@ NULLVALUE:
 
 void ClearUserVariableSetFlags()
 {
-    unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
     while (varthread)
     {
         unsigned int* cell = (unsigned int*)Index2Heap(varthread);
@@ -398,7 +399,7 @@ void ClearUserVariableSetFlags()
 
 void ShowChangedVariables()
 {
-    unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
     while (varthread)
     {
         unsigned int* cell = (unsigned int*)Index2Heap(varthread);
@@ -458,12 +459,13 @@ void SetUserVariable(const char* var, char* word, bool assignment)
         if (D->w.userValue == NULL) SpecialFact(MakeMeaning(D), (MEANING)1, 0);
         else SpecialFact(MakeMeaning(D), (MEANING)(D->w.userValue - heapBase), 0);
     }
-    D->w.userValue = word;
+    if (testOutput)  SetVariable(D, word);
+    else D->w.userValue = word;
     if (!stricmp(var, (char*)"$cs_json_array_defaults"))
     {
         int64 val = 0;
         if (word && *word) ReadInt64(word, val);
-        jsonDefaults = val;
+        jsonDefaults = (int)val;
     }
 
     // tokencontrol changes are noticed by the engine
@@ -556,7 +558,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
     {
         char pattern[110];
         char label[MAX_LABEL_SIZE];
-        GetPattern(currentRule, label, pattern, 100);  // go to output
+        GetPattern(currentRule, label, pattern, true,100);  // go to output
         Log(ECHOSTDTRACELOG, "%s -> %s at %s.%d.%d %s %s\r\n", D->word, word, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
     }
 }
@@ -740,7 +742,7 @@ void ClearBotVariables()
 
 void NoteBotVariables() // system defined variables
 {
-    unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
     while (varthread)
     {
         unsigned int* cell = (unsigned int*)Index2Heap(varthread);
@@ -762,7 +764,7 @@ void NoteBotVariables() // system defined variables
 
 void MigrateUserVariables()
 {
-    unsigned int varthread = userVariableThreadList; // does not include $_ locals
+    HEAPLINK varthread = userVariableThreadList; // does not include $_ locals
     userVariableThreadList = 0;
     while (varthread)
     {
@@ -783,11 +785,11 @@ void MigrateUserVariables()
 
 void RecoverUserVariables()
 {
-    unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
     userVariableThreadList = 0;
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Stack(varthread);
+        STACKLINK* cell = (unsigned int*)Index2Stack(varthread);
         varthread = cell[0];
 
         WORDP D = Index2Word(cell[1]); // 0 based
@@ -797,13 +799,13 @@ void RecoverUserVariables()
         unsigned int* data = (unsigned int*)AllocateHeap(NULL, 2, 4); // allocate list
         data[0] = userVariableThreadList;
         data[1] = cell[1];
-        userVariableThreadList = Heap2Index((char*)data);
+        userVariableThreadList = (HEAPLINK)Heap2Index((char*)data);
     }
 }
 
 void ClearUserVariables(char* above)
 {
-    unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
     unsigned int* prevcell = 0;
     while (varthread)
     {
@@ -852,7 +854,7 @@ void DumpUserVariables()
 
     // count entries
     int counter = 0;
-    unsigned int varthread = userVariableThreadList;
+    HEAPLINK varthread = userVariableThreadList;
     while (varthread)
     {
         unsigned int* cell = (unsigned int*)Index2Heap(varthread);

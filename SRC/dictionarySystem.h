@@ -318,6 +318,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // normal flags
 #define FACTAUTODELETE      0x00800000 // delete when json deletes
+#define OVERRIDE_MEMBER_FACT FACTAUTODELETE // used in ^testpattern matching
 #define ORIGINAL_ONLY       0x00400000  //  dont match on canonicals
 #define FACTBUILD2			0x00200000 
 #define FACTBUILD1	        0x00100000  // fact created during build 1 (for concepts)

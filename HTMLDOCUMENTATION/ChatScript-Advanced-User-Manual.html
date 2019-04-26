@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/24/2019 cs9.2</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/26/2019 cs9.3</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -244,7 +244,7 @@ subdirectory2//</code></pre>
 <h2 id="reset-user-defined">Reset User-defined</h2>
 <p>Normally, a build will leave your current user identity alone. All state remains unchanged, except that topics you have changed will be reset for the bot (as though it has not yet ever seen those topics). But if you want to start over with the new system as a new user, you can request this on the build command.</p>
 <pre><code>:build 0 reset </code></pre>
-<p>reinit the current character from scratch (equivalent to <code>:reset user</code>).</p>
+<p>reinit the current user from scratch (equivalent to <code>:reset user</code>).</p>
 <h2 id="build-layers">Build Layers</h2>
 <p>The build system has two layers, 0 and 1. When you say :build 0, the system looks in the top level directory for a file <code>files0.txt</code>. Similarly when you say <code>:build 1</code> it looks for <code>files1.txt</code>. Whatever files are listed inside a <code>filesxxx.txt</code> are what gets built.</p>
 <p>And the last character of the file name (e.g., <code>files0</code>) is what is critical for deciding what level to build on. If the name ends in 0, it builds level 0. If it doesn't, it builds level 1. This means you can create a bunch of files to build things any way you want. You can imagine:</p>

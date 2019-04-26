@@ -74,8 +74,10 @@ static char staticPath[MAX_WORD_SIZE]; // files that never change
 static char readPath[MAX_WORD_SIZE];   // readonly files that might be overwritten from outside
 static char writePath[MAX_WORD_SIZE];  // files written by app
 unsigned int currentFileLine = 0;				// line number in file being read
+unsigned int currentLineColumn = 0;				// column number in file being read
 unsigned int maxFileLine = 0;				// line number in file being read
 unsigned int peekLine = 0;
+unsigned int currentFileColumn = 0;
 char currentFilename[MAX_WORD_SIZE];	// name of file being read
 
 // error recover 
@@ -593,7 +595,7 @@ Allocations happen during volley processing as
 	{
 		newword += ALLOCATESTRING_SIZE_SAFEMARKER;
 		allocationSize -= ALLOCATESTRING_SIZE_PREFIX + ALLOCATESTRING_SIZE_SAFEMARKER; // includes the end of string marker
-		if (ALLOCATESTRING_SIZE_PREFIX == 3)		*newword++ = (unsigned char)(allocationSize >> 16); 
+		if (ALLOCATESTRING_SIZE_PREFIX == 3) *newword++ = (unsigned char)(allocationSize >> 16); 
 		*newword++ = (unsigned char)(allocationSize >> 8) & 0x000000ff;  
 		*newword++ = (unsigned char) (allocationSize & 0x000000ff);
 	}
@@ -1115,7 +1117,6 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
     {
         if (FindFileData.dwFileAttributes  & FILE_ATTRIBUTE_DIRECTORY)
         {
-            size_t len = strlen(FindFileData.cFileName);
             if (recursive) seendirs = true;
         }
         else
@@ -1203,16 +1204,16 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 #endif
 }
 
-string GetUserPathString(const string &loginID)
+string GetUserPathString(const string &login)
 {
     string userPath;
-    if (loginID.length() == 0)  return userPath; // empty string
-	size_t len = loginID.length();
+    if (login.length() == 0)  return userPath; // empty string
+	size_t len = login.length();
 	int counter = 0;
     for (size_t i = 0; i < len; i++) // use each character
 	{
-		if (loginID.c_str()[i] == '.' || loginID.c_str()[i] == '_') continue; // ignore IP . stuff
-        userPath.append(1, loginID.c_str()[i]);
+		if (login.c_str()[i] == '.' || login.c_str()[i] == '_') continue; // ignore IP . stuff
+        userPath.append(1, login.c_str()[i]);
         userPath.append(1, '/');
 		if (++counter >= 4) break;
     }
@@ -1638,7 +1639,7 @@ bool TraceFunctionArgs(FILE* out, char* name, int start, int end)
 	unsigned int args = end - start;
 	char arg[MAX_WORD_SIZE];
 	fprintf(out, "( ");
-	for (int i = 0; i < args; ++i)
+	for (unsigned int i = 0; i < args; ++i)
 	{
 		strncpy(arg, callArgumentList[start + i], 50); // may be name and not value?
 		arg[50] = 0;
@@ -1975,7 +1976,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 				*at++ = *++ptr;
 			}
 
-			int n = globalDepth;
+			int n = globalDepth + patternDepth;
 			if (n < 0) n = 0; //   just in case
 			for (int i = 0; i < n; i++)
 			{

@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/24/2019 cs9.2
+<br>Revision 4/26/2019 cs9.3
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -513,7 +513,7 @@ user, you can request this on the build command.
 
     :build 0 reset 
     
- reinit the current character from scratch (equivalent to `:reset user`).
+ reinit the current user from scratch (equivalent to `:reset user`).
 
 
 ## Build Layers

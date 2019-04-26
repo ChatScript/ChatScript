@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/9/2018 cs8.3
+<br>Revision 4/26/2019 cs9.3
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
 * [Advanced Facts](ChatScript-Fact-Manual.md#advanced-facts)
@@ -152,10 +152,10 @@ Name is the name to give your query and the query command string is placed withi
 
 ## System-reserved verbs
 
-The system builds the Word-net hierarchy using the verb `isa`, 
+The system builds the Word-net hierarchy using the verb `is`, 
 with the lower-level (more specific) word as subject and the upper-level word as object. E.g.
 
-    (dog~1 isa animal~4)
+    (dog~1 is animal~4)
 
 The system builds concept and topic sets using the verb `member` 
 with the member value as subject and the set name as object. E.g.

@@ -67,10 +67,13 @@ enum TestMode {
 //   argument data for system calls
 extern TestMode wasCommand;
 
+extern HEAPLINK patternwordthread;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
 extern int rulesExecuted;
+extern  bool testExternOutput;
+
 extern char* realCode;
 extern unsigned int callIndex;
 extern WORDP callStack[MAX_CALL_DEPTH];
@@ -90,7 +93,7 @@ extern int globalDepth;
 #ifdef WIN32
 FunctionResult InitWinsock();
 #endif
-
+void SetVariable(WORDP D, char* value);
 FunctionResult RunJavaScript(char* definition, char* buffer,unsigned int args);
 void DeletePermanentJavaScript();
 void DeleteTransientJavaScript();

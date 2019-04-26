@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/26/2019 cs9.3</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
@@ -142,8 +142,8 @@ $fact = ^createfact( Bob own dog)
 <pre><code>query: name &quot;value&quot;</code></pre>
 <p>Name is the name to give your query and the query command string is placed within double quotes.</p>
 <h2 id="system-reserved-verbs">System-reserved verbs</h2>
-<p>The system builds the Word-net hierarchy using the verb <code>isa</code>, with the lower-level (more specific) word as subject and the upper-level word as object. E.g.</p>
-<pre><code>(dog~1 isa animal~4)</code></pre>
+<p>The system builds the Word-net hierarchy using the verb <code>is</code>, with the lower-level (more specific) word as subject and the upper-level word as object. E.g.</p>
+<pre><code>(dog~1 is animal~4)</code></pre>
 <p>The system builds concept and topic sets using the verb <code>member</code> with the member value as subject and the set name as object. E.g.</p>
 <pre><code> (run member ~movementverbs)</code></pre>
 <p>When you build a table and a data member has a short-form like <em>Paris</em> for *Paris,_France*, the verb is also <code>member</code> with subject as short form and long form as object. E.g.,</p>

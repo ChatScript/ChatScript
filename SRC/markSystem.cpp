@@ -378,6 +378,16 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 		if (F->verb == Mmember) // ~concept members and word equivalent
 		{
             TraceHierarchy(F,"");
+            WORDP concept = Meaning2Word(F->object);
+            if (concept->internalBits & OVERRIDE_CONCEPT) // override by ^testpattern, is this legal fact?
+            {
+                if (!(F->flags & OVERRIDE_MEMBER_FACT)) // pretend he doesnt exist
+                {
+                    F = GetSubjectNondeadNext(F);
+                    continue;
+                }
+            }
+
             // if subject has type restriction, it must pass
 			unsigned int restrict = GETTYPERESTRICTION(F->subject );
 			if (!restrict && index) restrict = GETTYPERESTRICTION(GetMeaning(D,index)); // new (may be unneeded)

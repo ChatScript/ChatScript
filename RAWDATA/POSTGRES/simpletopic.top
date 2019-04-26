@@ -1,24 +1,39 @@
 
-
-outputmacro: ^myfunc(^db)
-	preprint(^db \n)
+outputmacro: ^myfunc1($_arg1 $_arg2)
+	$_arg1 $_arg2 \n 
+    ^flushoutput()
 
 topic: ~INTRODUCTIONS repeat keep (~emogoodbye ~emohello ~emohowzit name )
 t: ^keep() ready- type:  open, table, tables, store, list, drop, or close
 
-u: (open)  if (^dbinit( dbname = postgres port = 5432 user = postgres password = 1993egop  )) {db opened}
+u: (open)  if (^dbinit( dbname = postgres port = 5432 user = postgres   )) {db opened}
 		   else {dbinit failed - $$db_error}
 u: (close)  if (^dbclose()) {db closed}
 		   else {dbclose failed  - $$db_error}
 u: (tables)  if (^dbexecute(^"SELECT  * FROM pg_catalog.pg_tables;" '^myfunc)) {table s created}
 			else {dbexecute failed tables - $$db_error} # to see tables: SELECT * FROM pg_catalog.pg_tables
+
+# holds simple integer
 u: (table)  if (^dbexecute(^"CREATE TABLE s (articleid integer, wordcount integer);" )) {table s created}
 			else {dbexecute failed table - $$db_error} # to see tables: SELECT * FROM pg_catalog.pg_tables
 u: (store) if (^dbexecute(^"INSERT INTO s VALUES (1, 2);")) {completed}
 		   else {dbexecute failed insert- $$db_error}
+
+# holds text string
+u: (table1)  if (^dbexecute(^"CREATE TABLE t (articleid integer, wordcount text);" )) {table t created}
+			else {dbexecute failed table - $$db_error} # to see tables: SELECT * FROM pg_catalog.pg_tables
+u: (store1) if (^dbexecute(^"INSERT INTO t VALUES (1, '\"test this\"');")) {completed}
+		   else {dbexecute failed insert- $$db_error}
+# note if you omit the quotes, then the 2 word string comes back from postgres, is passed to CS function
+# but as two independent arguments (the string has been split apart)
+
 u: (list) if (^dbexecute(^"SELECT * FROM s;" '^myfunc )) {completed}
 		   else {dbexecute failed list from table- $$db_error}
+u: (list1) if (^dbexecute(^"SELECT * FROM t;" '^myfunc )) {completed}
+		   else {dbexecute failed list from table- $$db_error}
 u: (drop)  	if (!^dbexecute(^"DROP TABLE s;" NULL )) {table s dropped} 
+		else {dbexecute failed drop - $$db_error}
+u: (drop1)  	if (!^dbexecute(^"DROP TABLE t;" NULL )) {table t dropped} 
 		else {dbexecute failed drop - $$db_error}
 
 

@@ -442,6 +442,18 @@ static char* Sdict(char* value)
     return systemValue;
 }
 
+static char* SfactExhaustion(char* value)
+{
+    static char hold[50] = ".";
+    if (value)
+    {
+        if (!stricmp(value, "false")) factsExhausted = false;
+        else return AssignValue(hold, value);
+    }
+    if (*hold != '.') return hold;
+    return (factsExhausted) ? (char*)"1" : (char*)"";
+}
+
 static char* Sversion(char* value)
 {
 	static char hold[50] = ".";
@@ -1059,6 +1071,10 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%os",Sos,(char*)"String - os involved: linux windows mac ios"}, 
 	{ (char*)"%script",Sscript,(char*)"String - when build1 and build0 were compiled)"}, 
 	{ (char*)"%version",Sversion,(char*)"String - engine version number"}, 
+    { (char*)"%factexhaustion",SfactExhaustion,(char*)"did fact space run out 1 - 0 " },
+
+    
+
 
 	{ (char*)"\r\n---- Input variables",0,(char*)""},
 	{ (char*)"%bot",Sbot,(char*)"String - bot in use"}, 

@@ -17,6 +17,8 @@ Global
 		Debug Treetagger|x64 = Debug Treetagger|x64
 		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
+		DebugMySql|Win32 = DebugMySql|Win32
+		DebugMySql|x64 = DebugMySql|x64
 		dictionarybuild|Win32 = dictionarybuild|Win32
 		dictionarybuild|x64 = dictionarybuild|x64
 		Release|Win32 = Release|Win32
@@ -37,6 +39,9 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.ActiveCfg = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|Win32.Build.0 = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Debug|x64.ActiveCfg = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.DebugMySql|Win32.ActiveCfg = DebugMySql|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.DebugMySql|Win32.Build.0 = DebugMySql|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.DebugMySql|x64.ActiveCfg = DebugMySql|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|Win32.ActiveCfg = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|Win32.Build.0 = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.dictionarybuild|x64.ActiveCfg = dictionarybuild|Win32
@@ -62,6 +67,10 @@ Global
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|Win32.Build.0 = Release|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|x64.ActiveCfg = Debug|x64
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug|x64.Build.0 = Debug|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.DebugMySql|Win32.ActiveCfg = DebugMySql|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.DebugMySql|Win32.Build.0 = DebugMySql|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.DebugMySql|x64.ActiveCfg = DebugMySql|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.DebugMySql|x64.Build.0 = DebugMySql|x64
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|Win32.ActiveCfg = Debug|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|Win32.Build.0 = Debug|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.dictionarybuild|x64.ActiveCfg = Debug|x64

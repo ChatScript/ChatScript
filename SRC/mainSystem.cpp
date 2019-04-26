@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.2";
+char* version = "9.3";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1820,6 +1820,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     globalDepth = -1;
     ChangeDepth(1, ""); // never enter debugger on this
     rulesExecuted = 0;
+    factsExhausted = false;
     pendingUserReset = false;
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	timerCheckInstance = 0;

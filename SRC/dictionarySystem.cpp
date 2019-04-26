@@ -63,8 +63,8 @@ but is needed when seeing the dictionary definitions(:word) and if one wants to 
 #endif
 int worstDictAvail = 1000000;
 bool dictionaryBitsChanged = false;
-unsigned int propertyRedefines = 0;	// property changes on locked dictionary entries
-unsigned int flagsRedefines = 0;		// systemflags changes on locked dictionary entries
+HEAPLINK propertyRedefines = 0;	// property changes on locked dictionary entries
+HEAPLINK flagsRedefines = 0;		// systemflags changes on locked dictionary entries
 static int freeTriedList = 0;
 bool xbuildDictionary = false;				// indicate when building a dictionary
 char dictionaryTimeStamp[20];		// indicate when dictionary was built
@@ -93,8 +93,8 @@ std::map <WORDP, MEANING> backtracks; // per volley
 std::map <WORDP, int> triedData; // per volley index into heap space
 std::map <WORDP, int> countData; 
 
-int concepts[MAX_SENTENCE_LENGTH];  // concept chains per word
-int topics[MAX_SENTENCE_LENGTH];  // topics chains per word
+HEAPLINK concepts[MAX_SENTENCE_LENGTH];  // concept chains per word
+HEAPLINK topics[MAX_SENTENCE_LENGTH];  // topics chains per word
 
 bool fullDictionary = true;				// we have a big master dictionary, not a mini dictionary
 bool primaryLookupSucceeded = false;
@@ -115,7 +115,7 @@ MEANING GetMeaning(WORDP D, int index)
 	else return MakeMeaning(D); // switch to generic non null meaning
 }
 
-void RemoveConceptTopic(int list[256], WORDP D,int index)
+void RemoveConceptTopic(HEAPLINK list[256], WORDP D,int index)
 {
 	MEANING M = MakeMeaning(D);
 	int at = list[index];
@@ -134,7 +134,7 @@ void RemoveConceptTopic(int list[256], WORDP D,int index)
 	}
 }
 
-void Add2ConceptTopicList(int list[256], WORDP D,int start,int end,bool unique)
+void Add2ConceptTopicList(HEAPLINK list[256], WORDP D,int start,int end,bool unique)
 {
 	MEANING M = MakeMeaning(D);
 	if (unique)
@@ -148,7 +148,7 @@ void Add2ConceptTopicList(int list[256], WORDP D,int start,int end,bool unique)
 		}
 	}
 
-	unsigned int* entry = (unsigned int*) AllocateHeap(NULL,2, sizeof(MEANING),false); // ref and link for topics and concepts indexed by word
+    unsigned int* entry = (unsigned int*) AllocateHeap(NULL,2, sizeof(MEANING),false); // ref and link for topics and concepts indexed by word
 	entry[1] = list[start];
 	list[start] = Heap2Index((char*) entry);
 	entry[0] = M;
@@ -433,7 +433,7 @@ void DictionaryRelease(WORDP until,char* stringUsed)
 	WORDP D;
 	while (propertyRedefines) // must release these
 	{
-		unsigned int * at = (unsigned int *) Index2Heap(propertyRedefines); // 1st is index of next, 2nd is index of dict, 3/4 is properties to replace
+        HEAPLINK * at = (HEAPLINK *) Index2Heap(propertyRedefines); // 1st is index of next, 2nd is index of dict, 3/4 is properties to replace
 		if (!at) // bug - its been killed
 		{
 			propertyRedefines = 0;
@@ -446,7 +446,7 @@ void DictionaryRelease(WORDP until,char* stringUsed)
 	}
 	while (flagsRedefines) // must release these
 	{
-		unsigned int * at = (unsigned int*) Index2Heap(flagsRedefines); // 1st is index of next, 2nd is index of dict, 3/4 is properties to replace
+        HEAPLINK * at = (HEAPLINK*) Index2Heap(flagsRedefines); // 1st is index of next, 2nd is index of dict, 3/4 is properties to replace
 		if (!at) // bug - its been killed
 		{
 			flagsRedefines = 0;

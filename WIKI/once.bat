@@ -1,3 +1,3 @@
 
-pandoc ChatScript-System-Functions-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-System-Functions-Manual.pdf
+pandoc Practicum-Concepts-and-meaning.md -s -o ../PDFDOCUMENTATION/Practicum-Concepts-and-meaning.pdf
 pause

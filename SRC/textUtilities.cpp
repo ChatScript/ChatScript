@@ -1386,8 +1386,8 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 		int index = numberValues[i].word;
 		if (!index) break;
 		char* w = Index2Heap(index);
-		char* num = Index2Heap(index);
-		if (len == numberValues[i].length && !strnicmp(word, num, len))
+		char* numx = Index2Heap(index);
+		if (len == numberValues[i].length && !strnicmp(word, numx, len))
 		{
 			return numberValues[i].realNumber;  // a match 
 		}
@@ -1679,7 +1679,10 @@ char* ReadFlags(char* ptr,uint64& flags,bool &bad, bool &response,bool factcall)
         char word1[MAX_WORD_SIZE];
         char* word = word1;
         ptr = ReadCompiledWord(ptr, word);
-        if (*word == '$') word = GetUserVariable(word);
+		if (*word == '$') {
+			char* val = GetUserVariable(word);
+			val = ReadCompiledWord(val, word);
+		}
 		if (!strnicmp(word,(char*)"RESPONSE_",9)) response = true; // saw a response flag
 		if (IsDigit(*word) || *word == 'x') ReadInt64(word,(int64&)flags);
 		else
@@ -2465,9 +2468,9 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 				*word++ = *ptr++;
 				continue;
 			}
-			else if (c == end && (*ptr == ' ' || nestingData[(unsigned char)*ptr] == -1 || *ptr == 0)) // a terminator followed by white space or closing bracket or end of data terminated
+			else if (c == end && (IsWhiteSpace(*ptr) || nestingData[(unsigned char)*ptr] == -1 || *ptr == 0)) // a terminator followed by white space or closing bracket or end of data terminated
 			{
-				if (*ptr == ' ') ++ptr;
+				if (IsWhiteSpace(*ptr)) ++ptr;
 				break; // blank or nul after closer
 			}
 			*word++ = c;
@@ -2477,7 +2480,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 		{
 			ptr = start;
 			word = original;
-			while ((c = *ptr++) && c != ' ') 
+			while ((c = *ptr++) && !IsWhiteSpace(c)) 
 			{
 				if ((word-original) > (MAX_WORD_SIZE - 3)) break;
 				*word++ = c; // run til nul or blank
@@ -2491,7 +2494,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 		char priorchar = 0;
 		while ((c = *ptr++) && c != ENDUNIT) 
 		{
-			if (c == ' ') break;
+			if (IsWhiteSpace(c)) break;
 			// PAY NO SPECIAL ATTENTION TO NON-STARTING QUOTEMARKS, ESP 69"
 			if (special) // try to end a variable if not utf8 char or such
 			{
@@ -2534,7 +2537,7 @@ char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with (
 			continue;
 		}
 		if (quoting) continue;	// stuff in quotes is safe 
-		if (wildcards && *ptr == '_' && !IsDigit(ptr[1]) && *(ptr-1) == ' ')
+		if (wildcards && *ptr == '_' && !IsDigit(ptr[1]) && IsWhiteSpace(*(ptr-1)))
 		{
 			SetWildCardNull();
 		}

@@ -500,7 +500,7 @@ static char* ProcessChoice(char* ptr,char* buffer,FunctionResult &result,int con
 		char* ptr = SkipWhitespace(choiceset[r]);
 		if (*ptr == ']') break; // choice does nothing by intention
 		char level = 0;
-		if (IsAlphaUTF8(*ptr) && ptr[1] == ':' && ptr[2] == ' ') 
+		if (IsAlphaUTF8(*ptr) && ptr[1] == ':' && IsWhiteSpace(ptr[2])) 
 		{
 			level = *ptr;
 			ptr += 3; // skip special rejoinder

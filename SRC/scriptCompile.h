@@ -19,16 +19,23 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define NOTE_KEYWORDS 4 // track keywords used
 #define NO_SUBSTITUTE_WARNING 8 // dont warn about substitutions
 #define NO_SPELL 16		// test nothing
+#define MAX_ERRORS 200
+#define MAX_WARNINGS 200
 
 #define ARGSETLIMIT 40 // ^0...^39
 extern unsigned int buildID; // build 0 or build 1
 extern char* newBuffer;
+extern char* oldBuffer;
 extern bool compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
 extern uint64 grade;
 extern char* lastDeprecation;
 extern unsigned int buildId;
+extern char errors[MAX_ERRORS][MAX_WORD_SIZE];
+extern unsigned int errorIndex;
+extern char warnings[MAX_WARNINGS][MAX_WORD_SIZE];
+extern unsigned int warnIndex;
 
 void ScriptError();
 void EraseTopicFiles(unsigned int build,char* name);
@@ -39,12 +46,13 @@ char* ReadDisplayOutput(char* ptr,char* buffer);
   
 #ifndef DISCARDSCRIPTCOMPILER
 int ReadTopicFiles(char* name,unsigned int build, int spell);
-char* ReadPattern(char* ptr, FILE* in, char* &data,bool macro,bool ifstatement, bool livecall = false);
+char* ReadPattern(char* ptr, FILE* in, char* &data,bool macro,bool ifstatement);
+char* ReadIf(char* word, char* ptr, FILE* in, char* &data, char* rejoinders);
 char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &data,char* rejoinders,char* existingRead = NULL,WORDP call = NULL, bool choice = false);
 char* CompileString(char* ptr);
 void ScriptWarn();
 void EndScriptCompiler();
-bool StartScriptCompiler();
+bool StartScriptCompiler(bool normal = true,bool live = false);
 #define WARNSCRIPT(...) {if (compiling) {ScriptWarn(); Log(STDTRACELOG, __VA_ARGS__);} } // readpattern calls from functions should not issue warnings
 #else
 #define WARNSCRIPT(...) {Log(STDTRACELOG, __VA_ARGS__); } // readpattern calls from functions should not issue warnings
@@ -52,7 +60,7 @@ bool StartScriptCompiler();
 
 // ALWAYS AVAILABLE
 extern unsigned int hasErrors;
-
+void UnbindBeenHere();
 void AddWarning(char* buffer);
 void AddError(char* buffer);
 char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscore=true,bool peek=false);

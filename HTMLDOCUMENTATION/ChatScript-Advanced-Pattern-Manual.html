@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/24/2019 cs9.2</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/26/2019 cs9.3</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
 <p>You cannot make a concept out with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes. E.g.</p>
@@ -158,6 +158,8 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <h2 id="backward-wildcards">Backward Wildcards</h2>
 <p>You can request n words before the current position using <code>*-n</code>. For example</p>
 <pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
+<h2 id="match-variable-assignment-in-a-pattern">Match Variable assignment in a pattern</h2>
+<p>Aside from the use of _ to memorize a match, you can directly assign to a match variable either a constant word, another matchvar, or a user variable. This is not obviously useful normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.</p>
 <h2 id="gory-details-about-strings">Gory details about strings</h2>
 <p>'Strings in Output'</p>
 <p>A double quoted string in output retains its quotes.</p>

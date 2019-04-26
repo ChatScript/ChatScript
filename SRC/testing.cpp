@@ -1299,7 +1299,7 @@ static void C_TestPattern(char* input)
             --jumpIndex;
             return;
         }
-        bool inited = StartScriptCompiler();
+        bool inited = StartScriptCompiler(false);
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
         ptr = ReadPattern(readBuffer, NULL, pack, false, false); // swallows the pattern
         if (inited) EndScriptCompiler();
@@ -8643,7 +8643,7 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 	while (rule && *rule) // for each rule
 	{
 		preprint = false;
-		char* output = GetPattern(rule,label,pattern);
+		char* output = GetPattern(rule,label,pattern,true);
 		char* end = strchr(output,'`');
 		bool norule = EmptyReuse(output,topicID);
 		if (!*output || *output == ENDUNIT || norule) 
@@ -9170,7 +9170,7 @@ static void C_Coverage(char* input)
 		{
 			char label[MAX_WORD_SIZE];
 			char pattern[MAX_WORD_SIZE];
-			GetPattern(data,label,pattern);
+			GetPattern(data,label,pattern,true);
 			if (data[2] != ' ') // write out used ones
 			{
 				int referenceValue = (unsigned char)data[2]; // centered around 32 which is blank
@@ -9208,7 +9208,7 @@ static void C_ShowCoverage(char* input)
 		{
 			char label[MAX_WORD_SIZE];
 			char pattern[MAX_WORD_SIZE];
-			char* output = GetPattern(data,label,pattern);
+			char* output = GetPattern(data,label,pattern,true);
 			pattern[40] = 0;
 			char tag[MAX_WORD_SIZE];
 			sprintf(tag,"%s.%d.%d",name,TOPLEVELID(id),REJOINDERID(id));
@@ -10044,7 +10044,7 @@ static void TrimIt(char* name,uint64 flag)
 				rule =  (reuseRule) ?  reuseRule : GetRule(topicidx,id); // show the rule whose pattern matched
 				char pattern[MAX_WORD_SIZE];
 				*pattern = 0;
-				if (rule) GetPattern(rule,NULL,pattern);
+				if (rule) GetPattern(rule,NULL,pattern,true);
 				else rule = "-";
 				if (!*pattern) strcpy(pattern,(char*)"()"); // gambits for example
 				if (start) start = false;
@@ -10499,6 +10499,7 @@ TestMode DoCommand(char* input,char* output,bool authorize)
 	char* ptr = NULL;
 #ifndef DISCARDSCRIPTCOMPILER
 	char* hold = newBuffer;
+    oldBuffer = NULL; // we must be top level
 	bool inited = StartScriptCompiler();
 #endif
 	ReadNextSystemToken(NULL,ptr,NULL,false,false);		// flush any pending data in input cache

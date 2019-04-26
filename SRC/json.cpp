@@ -30,7 +30,7 @@ int jsonDefaults = 0;
 int jsonStore = 0; // where to put json fact refs
 int jsonIndex;
 int jsonOpenSize = 0;
-unsigned int jsonPermanent = FACTTRANSIENT;
+static unsigned int jsonPermanent = FACTTRANSIENT;
 bool jsonNoArrayduplicate = false;
 bool jsonObjectDuplicate = false;
 bool jsonDontKill = false;
@@ -124,11 +124,12 @@ void InitJSONNames()
 	jsonIdIncrement = 1;
 }
 
-MEANING GetUniqueJsonComposite(char* prefix) 
+MEANING GetUniqueJsonComposite(char* prefix,unsigned int permanent) 
 {
 	char namebuff[MAX_WORD_SIZE];
 	char* permanence = "";
-	if (jsonPermanent == FACTTRANSIENT) permanence = "t";
+    if (permanent == FACTTRANSIENT) permanence = "t";
+	else if (jsonPermanent == FACTTRANSIENT) permanence = "t";
     else if (jsonPermanent == FACTBOOT) permanence = "b";
 	while (1)
 	{
@@ -1321,7 +1322,7 @@ static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bo
 				while (*++at)
 				{
 					char c = *at;
-					if (c == '{' || c == '}' || c == '[' || c == ']' || c == ',' || c == ':' || c == ' ') break;
+					if (c == '{' || c == '}' || c == '[' || c == ']' || c == ',' || c == ':' || IsWhiteSpace(c)) break;
 				}
 				if (!*at) raw = true; // safe to use raw output
 			}
@@ -1671,7 +1672,7 @@ FunctionResult JSONParseCode(char* buffer)
 				if (*at == '"' && at[-1] != '\\') quote = false; // turn off quoted expr
 				continue;
 			}
-			else if (*at == ':' || *at == ',' || *at == ' ') continue;
+			else if (*at == ':' || *at == ',' || IsWhiteSpace(*at)) continue;
 			else if (*at == '{' || *at == '[' ) ++bracket; // an opener
 			else if (*at == '}' || *at == ']') // a closer
 			{
@@ -2253,7 +2254,7 @@ LOOP: // now we look at $x.key or $x[0]
 	{
 		char pattern[MAX_WORD_SIZE];
 		char label[MAX_LABEL_SIZE];
-		GetPattern(currentRule,label,pattern,100);  // go to output
+		GetPattern(currentRule,label,pattern,true,100);  // go to output
 		Log(ECHOSTDTRACELOG,"%s -> %s at %s.%d.%d %s %s\r\n",word,value, GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),label,pattern);
 	}
 
