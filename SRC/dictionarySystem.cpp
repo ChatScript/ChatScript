@@ -893,7 +893,7 @@ int UTFCharSize(char* utf)
 	return count;
 }
 
-WORDP FindWord(const char* word, int len,uint64 caseAllowed) 
+WORDP FindWord(const char* word, unsigned int len,uint64 caseAllowed) 
 {
 	if (word == NULL || *word == 0) return NULL;
 	if (len == 0) len = strlen(word);

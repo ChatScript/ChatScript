@@ -1455,9 +1455,9 @@ uint64 ElapsedMilliseconds()
     FILETIME t; // 100 - nanosecond intervals since midnight Jan 1, 1601.
     GetSystemTimeAsFileTime(&t);
     uint64 x = (LONGLONG)t.dwLowDateTime + ((LONGLONG)(t.dwHighDateTime) << 32LL);
-    x /= 10000; // 100-nanosecond intervals in a millisecond
     x -= 116444736000000000LL; //  unix epoch  Jan 1, 1970.
-    count = x;
+	x /= 10000; // 100-nanosecond intervals in a millisecond
+	count = x;
 #elif IOS
 	struct timeval x_time; 
 	gettimeofday(&x_time, NULL); 
@@ -1676,7 +1676,8 @@ void BugBacktrace(FILE* out)
 		fprintf(out,"BugDepth %d: heapusedOnEntry: %d buffers:%d stackused: %d %s ",
 			i,frame->heapDepth,GetCallFrame(i)->memindex,
             (int)(heapFree - (char*)releaseStackDepth[i]), frame->label);
-		if (!TraceFunctionArgs(out, frame->label, GetCallFrame(i-1)->argumentStartIndex, GetCallFrame(i - 1)->argumentStartIndex)) fprintf(out, " - %s", rule);
+        CALLFRAME* priorFrame = GetCallFrame(i - 1);
+		if (!TraceFunctionArgs(out, frame->label, priorFrame->argumentStartIndex, priorFrame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
 }

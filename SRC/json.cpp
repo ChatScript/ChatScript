@@ -735,7 +735,7 @@ FunctionResult JSONOpenCode(char* buffer)
 
 	// Make sure the raw extra REQUEST headers parameter value is not empty and
 	//  not the ChatScript empty argument character.
-	if (strlen(extraRequestHeadersRaw) > 0)
+	if (*extraRequestHeadersRaw)
 	{
 		// If the parameter value is only 1 characters long and it is a question mark,
 		//  then ignore it since it's the "placeholder" (i.e. - "empty") parameter value

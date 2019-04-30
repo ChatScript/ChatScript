@@ -129,7 +129,7 @@ means `eat a meal`. The worst word in the dictionary is `break` with 63 noun and
 
 Along with the above data, the CS dictionary (based on WordNet from Princeton University) defines vertical concepts because the words are linked
 into an ontology. An ontology is a hierarchy of words (particularly nouns) such that a word
-lower in the hierarchy inherits all the meaning of its upper parents. This is an "is" fact
+lower in the hierarchy inherits all the characteristics of its upper parents. This is an "is" fact
 relationship (concepts use "member" facts). A canine is a dog. A dog is a mammal. A mammal is an animal. And so on.
 Things which are true of the higher level are also true of the lower representations of it.
 If an animal eats food, then by definition a canine does too (assuming still alive).
@@ -192,7 +192,7 @@ Given an input of "The child is my father", that pattern matches "my". You have 
 of canonical values around pronouns because maybe what you really wanted was `'I`' to be matched.
 Still, if you changed the pattern to `'I` and if your input was "The child is mine because I raised it", again you will still match 'I'
 from later in the sentence and skip past `child`. It behooves you to put the least frequently used words
-first in your list, to improve the odds of a valid match. Or replace those words with a concept set actual reference. particularly
+first in your list, to improve the odds of a valid match. Or replace those words with a concept set actual reference, particularly
 if your pseudo concept is used in multiple rules.  In particular if you use a concept instead of a pseudo concept,
 you only have to edit one place when you want to alter it. If you did it in each pattern, you have to remember to edit all of them,
 and likely they will start getting out of sync with each other.

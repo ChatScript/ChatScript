@@ -399,7 +399,7 @@ You can request n words before the current position using `*-n`. For example
 ## Match Variable assignment in a pattern
 
 Aside from the use of _ to memorize a match, you can directly assign to a match variable either
-a constant word, another matchvar, or a user variable. This is not obviously useful
+a constant word, another matchvar, or a system or user variable. This is not obviously useful
 normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.
 
 

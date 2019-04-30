@@ -1087,8 +1087,9 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             {
                 int leftindex = GetWildcardID(lhs);
                 int rightindex = GetWildcardID(rhs);
-                strcpy(wildcardOriginalText[leftindex], wildcardCanonicalText[rightindex]);
-                strcpy(wildcardCanonicalText[leftindex], wildcardCanonicalText[rightindex]);
+                size_t len = strlen(wildcardCanonicalText[rightindex]) + 1;
+                memcpy(wildcardOriginalText[leftindex], wildcardCanonicalText[rightindex],len);
+                memcpy(wildcardCanonicalText[leftindex], wildcardCanonicalText[rightindex], len);
                 CleanUpLine(wildcardOriginalText[leftindex]);
                 CleanUpLine(wildcardCanonicalText[leftindex]);
                 wildcardPosition[leftindex] = wildcardPosition[rightindex];
@@ -1098,8 +1099,9 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             {
                 int leftindex = GetWildcardID(lhs);
                 int rightindex = GetWildcardID(rhs + 1);
-                strcpy(wildcardOriginalText[leftindex], wildcardOriginalText[rightindex]);
-                strcpy(wildcardCanonicalText[leftindex], wildcardOriginalText[rightindex]);
+                size_t len = strlen(wildcardOriginalText[rightindex]) + 1;
+                memcpy(wildcardOriginalText[leftindex], wildcardOriginalText[rightindex], len);
+                memcpy(wildcardCanonicalText[leftindex], wildcardOriginalText[rightindex], len);
                 CleanUpLine(wildcardOriginalText[leftindex]);
                 CleanUpLine(wildcardCanonicalText[leftindex]);
                 wildcardPosition[leftindex] = wildcardPosition[rightindex];
@@ -1110,6 +1112,17 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 int leftindex = GetWildcardID(lhs);
                 strcpy(wildcardOriginalText[leftindex], GetUserVariable(rhs));
                 strcpy(wildcardCanonicalText[leftindex], GetUserVariable(rhs));
+                CleanUpLine(wildcardOriginalText[leftindex]);
+                CleanUpLine(wildcardCanonicalText[leftindex]);
+                wildcardPosition[leftindex] = 0;
+                if (trace & TRACE_PATTERN) sprintf(word, (char*)"_%s=%s", lhs, wildcardOriginalText[leftindex]);
+            }
+            else if (*lhs == '_' && *rhs == '%') //  systemvar to matchvar assign 
+            {
+                int leftindex = GetWildcardID(lhs);
+                char* val = SystemVariable(word, NULL);
+                strcpy(wildcardOriginalText[leftindex], val);
+                strcpy(wildcardCanonicalText[leftindex], val);
                 CleanUpLine(wildcardOriginalText[leftindex]);
                 CleanUpLine(wildcardCanonicalText[leftindex]);
                 wildcardPosition[leftindex] = 0;
@@ -1571,7 +1584,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
     {
         callArgumentIndex = argStack[startNest];
         callArgumentBase = baseStack[startNest];
-        fnVarbase = callArgumentIndex - 1;
+        fnVarbase = startfnvarbase;
         functionNest = startNest;
     }
 

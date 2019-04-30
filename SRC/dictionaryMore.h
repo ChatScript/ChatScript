@@ -142,7 +142,7 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define TENSEFIELD 2
 #define PLURALFIELD 3
 
-#define Index2Word(n) (dictionaryBase+n)
+#define Index2Word(n) (dictionaryBase + (size_t)n)
 #define Word2Index(D) ((uint64) (D-dictionaryBase))
 #define GetMeanings(D) ((MEANING*) Index2Heap(D->meanings))
 MEANING GetMeaning(WORDP D, int index);
@@ -189,8 +189,8 @@ extern uint64 adverbFormat;
 extern MEANING posMeanings[64];
 extern MEANING sysMeanings[64];
 extern bool xbuildDictionary;
-extern unsigned int propertyRedefines;	// property changes on locked dictionary entries
-extern unsigned int flagsRedefines;		// systemflags changes on locked dictionary entries
+extern HEAPLINK propertyRedefines;	// property changes on locked dictionary entries
+extern HEAPLINK flagsRedefines;		// systemflags changes on locked dictionary entries
 
 extern FACT* factLocked;
 extern char* stringLocked;
@@ -235,7 +235,7 @@ bool TraceHierarchyTest(int x);
 void WriteDictDetailsBeforeLayer(int layer);
 WORDP StoreWord(char* word, uint64 properties = 0);
 WORDP StoreWord(char* word, uint64 properties, uint64 flags);
-WORDP FindWord(const char* word, int len = 0,uint64 caseAllowed = STANDARD_LOOKUP);
+WORDP FindWord(const char* word, unsigned int len = 0,uint64 caseAllowed = STANDARD_LOOKUP);
 WORDP FullStore(char* word, uint64 properties, uint64 flags);
 unsigned char BitCount(uint64 n);
 void ClearVolleyWordMaps();

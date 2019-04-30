@@ -1984,7 +1984,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 		*nameData = argumentCount;
 		strcpy(nameData + 1, name);
 		char* filename = AllocateHeap(currentFilename, 0, 1);
-		int* data = (int*)AllocateHeap(NULL, 4, 4);
+		int* data = (int*)AllocateHeap(NULL, 4, sizeof(int));
 		data[0] = undefinedCallThreadList;
 		data[1] = Heap2Index(nameData);
 		data[2] = Heap2Index(filename);

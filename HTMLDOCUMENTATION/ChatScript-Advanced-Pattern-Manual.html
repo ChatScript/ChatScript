@@ -159,7 +159,7 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>You can request n words before the current position using <code>*-n</code>. For example</p>
 <pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
 <h2 id="match-variable-assignment-in-a-pattern">Match Variable assignment in a pattern</h2>
-<p>Aside from the use of _ to memorize a match, you can directly assign to a match variable either a constant word, another matchvar, or a user variable. This is not obviously useful normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.</p>
+<p>Aside from the use of _ to memorize a match, you can directly assign to a match variable either a constant word, another matchvar, or a system or user variable. This is not obviously useful normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.</p>
 <h2 id="gory-details-about-strings">Gory details about strings</h2>
 <p>'Strings in Output'</p>
 <p>A double quoted string in output retains its quotes.</p>

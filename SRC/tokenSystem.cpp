@@ -142,8 +142,8 @@ int ValidPeriodToken(char* start, char* end, char next,char next2) // token with
 	if (len > 100) return TOKEN_EXCLUSIVE; // makes no sense
 	if (len == 2) // letter period combo like H.
 	{
-		char* next = SkipWhitespace(start + 2);
-		if (IsUpperCase(*next) || !*next) return TOKEN_INCLUSIVE;	// Letter period like E. before a name
+		char* next1 = SkipWhitespace(start + 2);
+		if (IsUpperCase(*next1) || !*next1) return TOKEN_INCLUSIVE;	// Letter period like E. before a name
 	}
 	if (IsWhiteSpace(next) && IsDigit(*start)) return TOKEN_EXCLUSIVE;	// assume no one uses double period without a digit after it.
 	if (FindWord(start,len)) return TOKEN_INCLUSIVE;	// nov.  recognized by system for later use
@@ -554,8 +554,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		else if (c == '"' && tokenControl & TOKEN_AS_IS) return ptr + 1;
 		else
 		{
-			char* end = HandleQuoter(ptr, words, count);
-			if (end)  return end;
+			char* end1 = HandleQuoter(ptr, words, count);
+			if (end1)  return end1;
 		}
         if (!IsDigit(ptr[1])) return ptr + 1; // just return isolated quote
 	}
@@ -807,10 +807,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		return at;
 	}
 
-	if (comma && IsDigit(*(comma-1)) && !IsDigit(comma[1])) return comma; // $7 99
-	if (comma && IsDigit(comma[1]) && IsDigit(comma[2]) && IsDigit(comma[3]) && IsDigit(comma[4])) return comma; // 25,2019 
-	if (comma && !IsCommaNumberSegment(comma+1,NULL)) return comma; // 25,2 rest of word is not valid comma segments
-
 	if (kind & BRACKETS && ( (c != '>' && c != '<') || next != '=') ) 
 	{
 		if (c == '<' && next == '/') return ptr + 2; // keep html together  </
@@ -819,6 +815,16 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (c == '{' && next == '{') return ptr + 2; // keep html together  {{
 		if (c == '}' && next == '}') return ptr + 2; // keep html together  }}
 		return ptr+1; // keep all brackets () [] {} <> separate but  <= and >= are operations
+	}
+
+	if (comma) {
+		unsigned char beforeComma = IsPunctuation(*(comma - 1));
+
+		if (IsDigit(*(comma - 1)) && !IsDigit(comma[1])) return comma; // $7 99
+		if (!(beforeComma & BRACKETS)) { // need to continue to normal word end if a bracket before the comma
+			if (IsDigit(comma[1]) && IsDigit(comma[2]) && IsDigit(comma[3]) && IsDigit(comma[4])) return comma; // 25,2019 
+			if (!IsCommaNumberSegment(comma + 1, NULL)) return comma; // 25,2 rest of word is not valid comma segments
+		}
 	}
 
 	//   find "normal" word end, including all touching nonwhitespace, keeping periods (since can be part of word) but not ? or ! which cant
@@ -867,9 +873,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		// but No. must not be recognized unless followed by a digit
 		else if (!strnicmp(ptr,(char*)"no.",end-ptr))
 		{
-			char* at = end;
-			if (*at) while (*++at && *at == ' ');
-			if (IsDigit(*at)) return end;
+			char* at1 = end;
+			if (*at1) while (*++at1 && *at1 == ' ');
+			if (IsDigit(*at1)) return end;
 		}
 
 		else return end;
@@ -883,9 +889,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			//  No. must not be recognized unless followed by a digit
 			if (!strnicmp(ptr,(char*)"no.",end-ptr))
 			{
-				char* at = end;
-				if (*at) while (*++at && *at == ' ');
-				if (IsDigit(*at)) return end;
+				char* at1 = end;
+				if (*at1) while (*++at1 && *at1 == ' ');
+				if (IsDigit(*at1)) return end;
 			}
 
 			else return end;
@@ -897,15 +903,18 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if (atsign && atsign < end)
 	{
 		char* period = strchr(atsign+1,'.');
-		if (period && period < end && IsAlphaUTF8(ptr[end-ptr-1]) &&  IsAlphaUTF8(ptr[end-ptr-2])) // top level domain is alpha
+		char* emailEnd = end;
+		if (IsPunctuation(ptr[end - ptr - 1])) emailEnd = end - 1;
+
+		if (period && period < end && IsAlphaUTF8(ptr[emailEnd-ptr-1]) &&  IsAlphaUTF8(ptr[emailEnd-ptr-2])) // top level domain is alpha
 		{
 			// find end of email domain, can be letters or numbers or hyphen
 			// there maybe be several parts to the domain
-			while (*++period)
+			while (*++period && period < emailEnd)
 			{
 				if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return period;
 			}
-			return end;
+			return emailEnd;
 		}
 	}
 
@@ -1042,8 +1051,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
     return ptr;
 }
 
-char* Tokenize(char* input,int &mycount,char** words,bool all,bool oobStart) //   return ptr to stuff to continue analyzing later
-{	// all is true if to pay no attention to end of sentence -- eg for a quoted string
+char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
+{	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
     char* ptr = SkipWhitespace(input);
 	int count = 0;
     char* html = input;
@@ -1221,7 +1230,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all,bool oobStart) // 
 		if (*ptr == ')' && nest == 1){;}
 		else if (*ptr == ']' && nest == 1){;}
 		else if (tokenControl & TOKEN_AS_IS) {;} // penn bank input already broken up as sentences
-		else if (all || tokenControl & NO_SENTENCE_END || startc == ',' || token[1]){continue;}	// keep going - ) for closing whatever
+		else if (all1 || tokenControl & NO_SENTENCE_END || startc == ',' || token[1]){continue;}	// keep going - ) for closing whatever
 		else if ( (count > 1 && *token == '\'' && ( (*words[count-1] == '.' && !words[count-1][1]) || *words[count-1] == '!' || *words[count-1] == '?'))) break; // end here
 		else if (IsPunctuation(startc) & ENDERS || (startc == ']' && *words[1] == '[' && !nest)) //   done a sentence or oob fragment
 		{
@@ -1260,16 +1269,16 @@ char* Tokenize(char* input,int &mycount,char** words,bool all,bool oobStart) // 
 	}
 	words[count+1] = AllocateHeap((char*)"");	// mark as empty
 
-	// if all is a quote, remove quotes if it is just around a single word
+	// if all1 is a quote, remove quotes if it is just around a single word
 	if (count == 3 && *words[1] == '"' && *words[count] == '"')
 	{
-		memmove(words,words+1,count * sizeof(char*)); // move all down
+		memmove(words,words+1,count * sizeof(char*)); // move all1 down
 		count -= 2;
 	}
-	// if all is a quote, remove quotes if it is just around a single word
+	// if all1 is a quote, remove quotes if it is just around a single word
 	else if (count  == 3 && *words[1] == '\'' && *words[count] == '\'')
 	{
-		memmove(words,words+1,count * sizeof(char*)); // move all down
+		memmove(words,words+1,count * sizeof(char*)); // move all1 down
 		count -= 2;
 	}
 	mycount = count;
@@ -1471,12 +1480,12 @@ static void HandleFirstWord() // Handle capitalization of starting word of sente
 		}
 		if (i >= n) // there is nothing special about his word (like eBay or TED)
 		{
-			char word[MAX_WORD_SIZE];
-			MakeLowerCopy(word,wordStarts[1]);
-			if (FindWord(word,0,LOWERCASE_LOOKUP))
+			char word1[MAX_WORD_SIZE];
+			MakeLowerCopy(word1,wordStarts[1]);
+			if (FindWord(word1,0,LOWERCASE_LOOKUP))
 			{
 				char* tokens[2];
-				tokens[1] = word;
+				tokens[1] = word1;
 				ReplaceWords("lowercase",1,1,1,tokens);
 			}
 		}
@@ -1486,8 +1495,8 @@ static void HandleFirstWord() // Handle capitalization of starting word of sente
 		char* tokens[2];
 		tokens[1] = word;
 		ReplaceWords("multiword",1,1,1,tokens);
-		WORDP E = FindWord(wordStarts[1]);
-		if (E) AddProperty(E,NOUN_PROPER_SINGULAR);
+		WORDP E1 = FindWord(wordStarts[1]);
+		if (E1) AddProperty(E1,NOUN_PROPER_SINGULAR);
 	}
 }
 
@@ -1583,8 +1592,8 @@ void ProperNameMerge()
 
 		if (IsUpperCase(*word) && start != UNINIT && i == wordCount) // composite at end of sentence
 		{
-			int end = i;
-			i = FinishName(start,end,upperStart,kind,Z);
+			int end1 = i;
+			i = FinishName(start,end1,upperStart,kind,Z);
 			continue;
 		}
 			
@@ -2010,9 +2019,9 @@ void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 		char* limit;
 		char* buffer = InfiniteStack(limit,"ReplaceWords");
 		char* original = buffer;
-		for (int i = 1; i <= wordCount; ++i)
+		for (int i1 = 1; i1 <= wordCount; ++i1)
 		{
-			strcpy(buffer,wordStarts[i]);
+			strcpy(buffer,wordStarts[i1]);
 			buffer += strlen(buffer);
 			*buffer++ = ' ';
 		}
@@ -2068,10 +2077,10 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		{
 			char word[MAX_WORD_SIZE];
 			bool match = false;
-			char* ptr = sub + 1;
+			char* ptr1 = sub + 1;
 			while (ALWAYS)
 			{
-				ptr = ReadSystemToken(ptr, word);
+				ptr1 = ReadSystemToken(ptr1, word);
 				if (*word == ']') break;
 				if (*word == '>')
 				{
@@ -2080,7 +2089,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 				else if (i < wordCount && !stricmp(wordStarts[i + 1], word)) match = true;
 			}
 			if (match) return false;	// not to do
-			sub = ptr;	// here is the thing to sub
+			sub = ptr1;	// here is the thing to sub
 			if (!*sub) sub = 0;
 		}
 	}

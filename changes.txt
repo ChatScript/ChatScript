@@ -1,4 +1,14 @@
-version 9.3 
+version 9.31 4/30/2019
+0. pattern assignment now allowed with system variables also   (_0:=%time)
+1. changes to the ^testoutput function. it does NOT erase its changes. It may return null
+    for variable assignments. It will return a text string representing the json data if
+    a returned variable is a json structure name.
+2. for both ^testinput and ^testoutput, if the value of an incoming variable looks like
+    a json structure, it will be converted into the std internal json data structure and
+    the variable set to its json name.
+3. ^testpattern matchvar returns the original text, not the canonical
+
+version 9.3 4/26/2019
 0. new practicum document: Practicum-Concepts-and_meaning
 1. %factexhaustion , which can take assignment to false to turn off the flag
 

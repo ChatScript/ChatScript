@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/26/2019 cs9.3
+<br>Revision 4/30/2019 cs9.31
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -470,6 +470,11 @@ so normal matching will occur.
 
 `^unmark()` will restore the set of generic unmarks that were flipped off using `^mark()`.
 
+### `^replaceword(word _0)`
+
+You can change the word itself at the location just by providing the word you want used 
+and the location in the sentence (as a match variable).  Replacing a word does 
+not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).
 
 ### `^position ( how matchvariable )`
 
@@ -1381,9 +1386,9 @@ Input is the user input (one or more sentences) to be matched against.
 
 Patterns is an array of std ChatScript pattern strings. If they use memorization,
 you are allowed up to 2 return values and _0 and _1 will be returned under the variable
-names you provide. It will return the canonical values of those match variables.  If you
-need the original values, you can perform an assignment inside the pattern using something
-like $_0:='_0  (see Match variable assignment in Advanced patterns). The return values may
+names you provide. It will return the original values of those match variables.  If you
+need the canonical values, you can perform an assignment inside the pattern using something
+like $_0:=_0  (see Match variable assignment in Advanced patterns). The return values may
 be omitted.
 
 The variables and concepts fields are optional and provide context. 
@@ -1444,25 +1449,27 @@ The argument is a JSON object as follows
 }
 ```
 
+If a variable value above looks like a JSON arry or object, will be transformed into the corresponding
+internal JSON name.
+
 The result is a JSON object
 ```
 {
     output: "message to user", 
-    variables:  {"$x": "1", "$y": "testing"}  -- optional
+    newglobals:  {"$x": "1", "$y": "testing"}  -- optional
 }
 ```
 Output may be blank if nothing is intended to be generated or the code fails in execution.
-Variables will be present if the code changes permanent global variables. Changes to transient variables $$
+Newglobals will be present if the code changes permanent global variables. Changes to transient variables $$
 and local variables  $_ will not be returned. If nothing is returned, the field is omitted.
-Variables set to null are never returned.
- 
+If a permanent variable is set to a JSON structure, the entire JSON string will BE
+send (and not the JSON name).
 
 ## Debugging Function `^debug ()`
 
 As a last ditch, you can add this function call into a pattern or the output and it will call
 DebugCode in `functionExecute.cpp` so you know exactly where you are and can use a
 debugger to follow code thereafter if you can debug c code.
-
 
 ## Logging Function `^log ( ... )`
 

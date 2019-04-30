@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/26/2019 cs9.3</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/30/2019 cs9.31</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -179,6 +179,8 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <p>Reminder: If you do a generic unmark from within a pattern, it is transient and will be turned off when the pattern match finishes (so you don't ruin later rules), whereas when you do it from output, then the change persists for the rest of the volley. Furthermore it is handy to flip specific collections of generic unmarks on an off.</p>
 <p><code>^mark()</code> memorizes the set of all * unmarks (generic unmarks) and then turns them off so normal matching will occur.</p>
 <p><code>^unmark()</code> will restore the set of generic unmarks that were flipped off using <code>^mark()</code>.</p>
+<h3 id="replacewordword-_0"><code>^replaceword(word _0)</code></h3>
+<p>You can change the word itself at the location just by providing the word you want used and the location in the sentence (as a match variable). Replacing a word does not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).</p>
 <h3 id="position-how-matchvariable"><code>^position ( how matchvariable )</code></h3>
 <p>This returns the integer representing where the named match variable is located.</p>
 <p><em>how</em> can be <code>START</code>, <code>END</code>, or <code>BOTH</code>. Both means an encoding of where the start and end of the the match was. See <code>@_n</code> in pattern matching to set a position or the <code>^setposition</code> function.</p>
@@ -773,7 +775,7 @@ else { $$tcpopen_error }</code></pre>
     &quot;values&quot;: [ &quot;&#39;leak&quot;, &quot;drip&quot;, &quot;spill&quot; ] } ] 
 }</code></pre>
 <p>Input is the user input (one or more sentences) to be matched against.</p>
-<p>Patterns is an array of std ChatScript pattern strings. If they use memorization, you are allowed up to 2 return values and _0 and _1 will be returned under the variable names you provide. It will return the canonical values of those match variables. If you need the original values, you can perform an assignment inside the pattern using something like $_0:='_0 (see Match variable assignment in Advanced patterns). The return values may be omitted.</p>
+<p>Patterns is an array of std ChatScript pattern strings. If they use memorization, you are allowed up to 2 return values and _0 and _1 will be returned under the variable names you provide. It will return the original values of those match variables. If you need the canonical values, you can perform an assignment inside the pattern using something like $_0:=_0 (see Match variable assignment in Advanced patterns). The return values may be omitted.</p>
 <p>The variables and concepts fields are optional and provide context.</p>
 <p>Style is also optional and defaults to <code>first</code>. Other choices are all, best, and last. First means stop running patterns and sentences as soon as you get a match. The makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Last is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
 <p>Result is ordinary user output JSON object:</p>
@@ -801,12 +803,13 @@ else { $$tcpopen_error }</code></pre>
     &quot;$faucet&quot;: &quot;testing&quot;, 
     &quot;$x&quot;: 1 }, 
 }</code></pre>
+<p>If a variable value above looks like a JSON arry or object, will be transformed into the corresponding internal JSON name.</p>
 <p>The result is a JSON object</p>
 <pre><code>{
     output: &quot;message to user&quot;, 
-    variables:  {&quot;$x&quot;: &quot;1&quot;, &quot;$y&quot;: &quot;testing&quot;}  -- optional
+    newglobals:  {&quot;$x&quot;: &quot;1&quot;, &quot;$y&quot;: &quot;testing&quot;}  -- optional
 }</code></pre>
-<p>Output may be blank if nothing is intended to be generated or the code fails in execution. Variables will be present if the code changes permanent global variables. Changes to transient variables (<span class="math inline">$$) and local variables ($</span>_) will not be returned. If nothing is returned, the field is omitted. Variables set to null are never returned.</p>
+<p>Output may be blank if nothing is intended to be generated or the code fails in execution. Newglobals will be present if the code changes permanent global variables. Changes to transient variables $$ and local variables $_ will not be returned. If nothing is returned, the field is omitted. If a permanent variable is set to a JSON structure, the entire JSON string will BE send (and not the JSON name).</p>
 <h2 id="debugging-function-debug">Debugging Function <code>^debug ()</code></h2>
 <p>As a last ditch, you can add this function call into a pattern or the output and it will call DebugCode in <code>functionExecute.cpp</code> so you know exactly where you are and can use a debugger to follow code thereafter if you can debug c code.</p>
 <h2 id="logging-function-log-...">Logging Function <code>^log ( ... )</code></h2>

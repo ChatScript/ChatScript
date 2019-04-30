@@ -27,6 +27,7 @@ extern  unsigned int modifiedTraceVal;
 extern bool	modifiedTrace;
 extern unsigned int modifiedTimingVal;
 extern bool modifiedTiming;
+extern HEAPLINK variableChangedThreadlist;
 
 extern  int wildcardIndex;
 extern char wildcardOriginalText[MAX_WILDCARDS+1][MAX_USERVAR_SIZE+1];  //   spot wild cards can be stored
@@ -49,6 +50,7 @@ void SetWildCard(int start, int end, bool inpattern = false);
 void SetWildCardGiven(int start, int end, bool inpattern, int index);
 void SetWildCardIndexStart(int);
 int GetWildcardID(char* x);
+void SetVariable(WORDP D, char* value);
 
 // Variables loaded from bot (topic system)
 void ClearBotVariables();

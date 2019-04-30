@@ -8131,7 +8131,7 @@ static void Translate(char* msg,char* to, char* apikey)
 			if (*phrase) 
 			{
 				// had previously started a phrase, so copy it over as a quoted string
-				if (strlen(word1) > 0)
+				if (*word1)
 				{
 					strcat(phrase, word1);
 					numwords++;

@@ -53,7 +53,6 @@ Memory management:
 #define MAX_LOG_NAMES 16
 HEAPLINK patternwordthread = NULL;
 char* fnOutput = NULL;
-HEAPLINK variableExternalList = 0;
 char lognames[MAX_LOG_NAMES][200];	
 FILE* logfiles[MAX_LOG_NAMES];
 char* codeStart = NULL;
@@ -4311,13 +4310,14 @@ FunctionResult MatchesCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
-FunctionResult MatchCode(char* buffer) 
-{     
+
+FunctionResult MatchCode(char* buffer)
+{
     char word[MAX_WORD_SIZE];
     char word1[MAX_WORD_SIZE];
     char* at = ReadCompiledWord(ARGUMENT(1), word1);
     if (!*word1) return FAILRULE_BIT;
-
+    bool functionString = false;
     if (*word1 == USERVAR_PREFIX && !*at) strcpy(word, GetUserVariable(word1)); //   solitary user var, decode it  eg match($var)
     else if (*word1 == '_' && !*at) strcpy(word, wildcardCanonicalText[GetWildcardID(word1)]); //   solitary user var, decode it  eg match($var)
     else if (*word1 == '@' && !*at)
@@ -4326,7 +4326,11 @@ FunctionResult MatchCode(char* buffer)
         ReadShortCommandArg(word1, word, result, OUTPUT_NOQUOTES);
         if (result != NOPROBLEM_BIT) return result;
     }
-    else if (word1[0] == FUNCTIONSTRING && word1[1] == '(') strcpy(word, word1 + 1);
+    else if (word1[0] == FUNCTIONSTRING && word1[1] == '(')
+    {
+        strcpy(word, word1 + 1);
+        functionString = true;
+    }
     else strcpy(word, ARGUMENT(1)); // otherwise it is what to say (like from idiom table)
     WORDP X = FindWord(word);
     char* pack = AllocateBuffer();
@@ -4343,7 +4347,7 @@ FunctionResult MatchCode(char* buffer)
         if (dot && IsDigit(dot[1])) rule = GetRuleTag(currentTopicID, id, word);
         else rule = GetLabelledRule(currentTopicID, word, (char*)"", fulllabel, crosstopic, id, currentTopicID);
         RESTOREOLDCONTEXT()
-        if (!rule) { FreeBuffer();  return FAILRULE_BIT; }
+            if (!rule) { FreeBuffer();  return FAILRULE_BIT; }
         if (!GetPattern(rule, NULL, pack, false, MAX_BUFFER_SIZE)) // out of space
         {
             return FAILRULE_BIT;
@@ -4361,7 +4365,7 @@ FunctionResult MatchCode(char* buffer)
             {
                 word[len - 1] = ' '; // change closing " to space
                 ++ptr;	// skip opening "
-                if (*ptr == FUNCTIONSTRING) ++ptr; // bypass the mark
+                if (*ptr == FUNCTIONSTRING) ++ptr; // bypass the mark  "^" is compiled string
 
                                                    // now purify of any internal \" " marked strings
                 char* x = strchr(ptr, '\\');
@@ -4371,6 +4375,11 @@ FunctionResult MatchCode(char* buffer)
                     x = strchr(x + 1, '\\'); // next?
                 }
             }
+        }
+        if (*ptr == '|') // compilepattern keyword spellcheck protector
+        {
+            char* at1 = strchr(ptr + 1, '|');
+            if (at1) ptr = at1 + 1;
         }
         if (*ptr == FUNCTIONSTRING) ++ptr;	// skip compiled string mark
         while (*ptr == ' ') ++ptr;	// prepare for start
@@ -4382,12 +4391,13 @@ FunctionResult MatchCode(char* buffer)
 
         at = pack;
         *at = 0;
-#ifdef DISCARDSCRIPTCOMPILER 
         base = ptr;	// do the best you can, may not be laid out properly
-#else
+
         bool inited;
         int oldDepth = globalDepth;
-        if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
+        if (functionString) {} // the compiled pattern
+#ifndef DISCARDSCRIPTCOMPILER 
+        else if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
         {
             if (inited) EndScriptCompiler();
             --jumpIndex;
@@ -4395,15 +4405,18 @@ FunctionResult MatchCode(char* buffer)
             FreeBuffer();
             return FAILRULE_BIT;
         }
-        char junk[MAX_WORD_SIZE];
-        inited = StartScriptCompiler(false,true);
-        ReadNextSystemToken(NULL, NULL, junk, false, false); // flush cache
-        ReadPattern(ptr, NULL, at, false, false); // compile the pattern
-        if (inited) EndScriptCompiler();
-        strcat(at, (char*)" )");
-        at = pack; // for debug retry
-        base = pack; // the compiled pattern
-        --jumpIndex;
+        else
+        {
+            char junk[MAX_WORD_SIZE];
+            inited = StartScriptCompiler(false, true);
+            ReadNextSystemToken(NULL, NULL, junk, false, false); // flush cache
+            ReadPattern(ptr, NULL, at, false, false); // compile the pattern
+            if (inited) EndScriptCompiler();
+            strcat(at, (char*)" )");
+            at = pack; // for debug retry
+            base = pack; // the compiled pattern
+            --jumpIndex;
+        }
 #endif
     }
     if (!*base) { FreeBuffer();  return FAILRULE_BIT; }	// NO DATA?
@@ -6749,20 +6762,24 @@ static FunctionResult AddPropertyCode(char* buffer)
 		AddSystemFlag(D,sysval);
 		if (internalBits & CONCEPT) AddInternalFlag(D,(unsigned int)(CONCEPT|buildID)); 
 	}
-	else if (*arg1 == '@') // add to all properties of fact set
-	{
-		for (unsigned int i = 1; i <= count; ++i)
-		{
-			FACT* F = factSet[store][i];
-			if (arg3 == 's') D = Meaning2Word(F->subject); 
-			else if (arg3 == 'v') D = Meaning2Word(F->verb);
-			else if (arg3 == 'o') D = Meaning2Word(F->object);
-			else
-			{
-				F->flags |= sysval;
-				if (trace & TRACE_INFER && CheckTopicTrace()) TraceFact(F);
-			}
-			if (D)
+    else if (*arg1 == '@') // add to all properties of fact set
+    {
+        for (unsigned int i = 1; i <= count; ++i)
+        {
+            FACT* F = factSet[store][i];
+            if (arg3 == 's') D = Meaning2Word(F->subject);
+            else if (arg3 == 'v') D = Meaning2Word(F->verb);
+            else if (arg3 == 'o') D = Meaning2Word(F->object);
+            else
+            {
+                // cannot mark a fact as dead if not in current layer
+                if (F <= factsPreBuild[currentBeforeLayer] && sysval & FACTDEAD) {
+                    sysval ^= FACTDEAD;
+                }
+                F->flags |= sysval;
+                if (trace & TRACE_INFER && CheckTopicTrace()) TraceFact(F);
+            }
+            if (D)
 			{
 				uint64 val1 = val;
 				if (val1 & NOUN_SINGULAR && D->internalBits & UPPERCASE_HASH) //make it right
@@ -8202,50 +8219,59 @@ static FunctionResult CreateAttributeCode(char* buffer)
 	return (currentFact) ? NOPROBLEM_BIT : FAILRULE_BIT; // fails if pre-existing fact cant be killed because used in fact
 }
 
-static void UnbindVariables()
+static void UnbindVariables() // undo all variable changes
 {
-    while (variableExternalList)
+    HEAPLINK list = variableChangedThreadlist;
+    while (list)
     {
-        char** entry = (char**) Index2Heap(variableExternalList);
+        char** entry = (char**)Index2Heap(list);
         char* thread = entry[0];
         unsigned long x = (unsigned long)thread;
-        variableExternalList = (unsigned int)x;
+        list = (unsigned int)x;
         WORDP variable = (WORDP)entry[1];
         variable->w.userValue = entry[2];
     }
 }
 
-void SetVariable(WORDP D, char* value)
-{
-    char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
-    heapval[0] = (char*)variableExternalList;
-    variableExternalList = Heap2Index((char*)heapval);
-    heapval[1] = (char*) D; // save name
-    heapval[2] = D->w.userValue; // save old value
-    D->w.userValue = value;
-}
-
 static void MakeVariables(MEANING array) // array of objects describing a variable
 {
-    variableExternalList = 0;
+    variableChangedThreadlist = 0;
     WORDP V = FindWord(Meaning2Word(array)->word); // array of objects (variable name and value)
     FACT* F = GetSubjectNondeadHead(V);
     while (F) // save old values and assign new ones to variables
     {
-        SetVariable(Meaning2Word(F->verb), Meaning2Word(F->object)->word);
+        char* text = Meaning2Word(F->object)->word;
+        char* base = SkipWhitespace(text);
+        if (*base == '{' || *base == '[') // possible json
+        {
+            size_t len = strlen(base);
+            while (len > 0 && IsWhiteSpace(base[len - 1])) --len; 
+            bool matched = false;
+            if (len && base[len - 1] == '}' && *base == '{') matched = true;
+            else if (len && base[len - 1] == ']' && *base == '[') matched = true;
+            if (matched)
+            {
+                char* buffer = AllocateBuffer();
+                ParseJson(buffer, base, len, true);
+                strcpy(text, buffer);
+                FreeBuffer();
+            }
+        }
+        WORDP D = Meaning2Word(F->verb);
+        if (*D->word == '$') SetVariable(D, text); // require it be variable or ignore it
         F = GetSubjectNondeadNext(F);
     }
 }
 
 static FunctionResult MakeConcepts(MEANING array)
 {
- /*   
- "concepts": [  <<- array is this. 
+    /*
+    "concepts": [  <<- array is this.
     {    "name": "~stove",
-        "values" : ["oven", "range", "cooktop"]      },
-        { "name": "~leaky",
-        "values" : ["'leak",          "drip",          "spill"] }],
-*/
+    "values" : ["oven", "range", "cooktop"]      },
+    { "name": "~leaky",
+    "values" : ["'leak",          "drip",          "spill"] }],
+    */
     FACT* G = GetSubjectNondeadHead(array); // list of json objects representing concepts
     while (G) // walk list of concepts and bind new memberships
     {
@@ -8272,7 +8298,7 @@ static FunctionResult MakeConcepts(MEANING array)
             }
             else return FAILRULE_BIT;
             conceptName->internalBits |= OVERRIDE_CONCEPT;
-            
+
             while (members) //  xxx member ~concept
             {
                 int flags = FACTTRANSIENT | OVERRIDE_MEMBER_FACT;
@@ -8283,7 +8309,7 @@ static FunctionResult MakeConcepts(MEANING array)
                     flags |= ORIGINAL_ONLY;
                     m = MakeMeaning(StoreWord(P->word + 1));
                 }
-                CreateFact(m, Mmember, MakeMeaning(conceptName),  flags ); // force membership
+                CreateFact(m, Mmember, MakeMeaning(conceptName), flags); // force membership
                 members = GetSubjectNondeadNext(members);
             }
 
@@ -8297,8 +8323,8 @@ static FunctionResult MakeConcepts(MEANING array)
 
 static void UnbindConcepts(MEANING array, FACT* oldfact)
 {
-    while (factFree > oldfact) FreeFact(factFree--); 
-    
+    while (factFree > oldfact) FreeFact(factFree--);
+
     FACT* G = GetSubjectNondeadHead(array); // list of json objects representing concepts
     while (G) // walk list of concepts and bind new memberships
     {
@@ -8308,7 +8334,7 @@ static void UnbindConcepts(MEANING array, FACT* oldfact)
             FACT* F = GetSubjectNondeadHead(conceptObject->object); // 2 facts, name + array
             WORDP conceptName = Meaning2Word(F->object);
             conceptName->internalBits &= -1 ^ OVERRIDE_CONCEPT; // safe if they pass the same concept twice
-            
+
             conceptObject = GetObjectNondeadNext(conceptObject);
         }
 
@@ -8316,16 +8342,17 @@ static void UnbindConcepts(MEANING array, FACT* oldfact)
     }
 }
 
-static bool TestPatternAgainstSentence(char* pattern,char* buffer)
+static bool TestPatternAgainstSentence(char* pattern, char* buffer)
 {
     char* base = pattern;
-    if (*base == '|') base = strchr(base + 1, '|') + 1; // skip spellcheck protection
+    if (*base == '^' && base[1] == '(') ++base; // skip over ^ marker of string compilation
+    else if (*base == '|') base = strchr(base + 1, '|') + 1; // skip spellcheck protection
     int uppercasem = 0;
     int matched = 0;
     wildcardIndex = 0;  //   reset wildcard allocation on top-level pattern match
     int first = 0;
     int last = 0;
-     char oldmark[MAX_SENTENCE_LENGTH];
+    char oldmark[MAX_SENTENCE_LENGTH];
     memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
     for (int i = 0; i <= MAX_WILDCARDS; ++i)
     {
@@ -8357,28 +8384,19 @@ static void BindReturnVars(MEANING varresultsobject, MEANING return1, MEANING re
     for (int matchindex = 0; matchindex < 2; ++matchindex)
     {
         if (returns[matchindex] == 0) break; // no more values wanted
-        if (!*wildcardCanonicalText[matchindex]) break;
-       
+        if (!*wildcardOriginalText[matchindex]) break;
+
         MEANING returnit = returns[matchindex];
         // store the var results
 #define JSON_PRIMITIVE_VALUE 0x00000100 // on object side of triple
         int flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE;
-        if (!stricmp(wildcardCanonicalText[matchindex], "unknown-word")) // unknown canonical, use original
-        {
-            returnvals[returnvalsIndex++] = returnit;
-            returnvals[returnvalsIndex++] = MakeMeaning(StoreWord(wildcardOriginalText[matchindex], AS_IS));
-            SetVariable(Meaning2Word(returnit), wildcardOriginalText[matchindex]); // make change to have local effect immediately
-        }
-        else if (*wildcardCanonicalText[matchindex] && stricmp(wildcardCanonicalText[matchindex],"null"))
-        {
-            returnvals[returnvalsIndex++] = returnit;
-            returnvals[returnvalsIndex++] = MakeMeaning(StoreWord(wildcardCanonicalText[matchindex], AS_IS));
-            SetVariable(Meaning2Word(returnit), wildcardCanonicalText[matchindex]); // make change to have local effect immediately
-        }
+        returnvals[returnvalsIndex++] = returnit;
+        returnvals[returnvalsIndex++] = MakeMeaning(StoreWord(wildcardOriginalText[matchindex], AS_IS));
+        SetVariable(Meaning2Word(returnit), wildcardOriginalText[matchindex]); // make change to have local effect immediately
     }
 }
 
-static bool ProtectKeywords(FACT* F,bool protect)
+static bool ProtectKeywords(FACT* F, bool protect)
 {
     bool protectedKey = false;
     char word[MAX_WORD_SIZE];
@@ -8396,7 +8414,7 @@ static bool ProtectKeywords(FACT* F,bool protect)
                     pattern = ReadCompiledWord(pattern, word);
                     if (protect)
                     {
-                        WORDP D = StoreWord(word);
+                        WORDP D = StoreWord(word,AS_IS);
                         if (D->systemFlags & PATTERN_WORD) // already has marker so dont erase on cleanup
                         {
                             *pstart = 1;    // we dont unprotect this
@@ -8407,7 +8425,7 @@ static bool ProtectKeywords(FACT* F,bool protect)
                             protectedKey = true;
                         }
                     }
-                    else if (*word != 1) RemoveSystemFlag(StoreWord(word), PATTERN_WORD); // unprotect new protections
+                    else if (*word != 1) RemoveSystemFlag(StoreWord(word,AS_IS), PATTERN_WORD); // unprotect new protections
                 }
             }
         }
@@ -8417,36 +8435,36 @@ static bool ProtectKeywords(FACT* F,bool protect)
 }
 
 static FunctionResult TestPatternCode(char* buffer)
-{ 
+{
     FunctionResult result = NOPROBLEM_BIT;
     char* arg = ARGUMENT(1); // json object
-    if (strnicmp(arg, "jo-",3)) return FAILRULE_BIT;
+    if (strnicmp(arg, "jo-", 3)) return FAILRULE_BIT;
     WORDP D = FindWord(arg);
     if (!D) return FAILRULE_BIT;
     // patterns can have concept and variable references, no FUNCTION calls
-    // { input: xxx, patterns: [ ], variables: [ {name: x, value: y} }, style: best/first, concepts: {cname: x, values: [a,b]}}
+    // { input: xxx, patterns: [ ], variables: {name: x, value: y }, style: best/first, concepts: {cname: x, values: [a,b]}}
     // how do we handle gleaning
     // returns pattern index matched, possible return variable
 
     /* This is the json object format
-    {   
-	 "input": "This is my life. I have a leak.",   
-	 "patterns": [  { "pattern":  "(  _~stove ) ", "return1": "$stove"},
-                    { "(  faucet ) " }   
-                 ],   
-	 "variables": [   
-		{   "varname": "$faucet",        "varvalue": 1      },      
-		{    "varname": "$taskseen"      }    ],    
-	"concepts": [       
-		{    "name": "~stove",        
-		    "values": [   "oven",          "range",          "cooktop"        ]      },      
-		{     "name": "~leaky",        
-	 	    "values": [   "'leak",          "drip",          "spill"        ]      }    ],    
-	"style": "first",    or last, or all
+    {
+    "input": "This is my life. I have a leak.",
+    "patterns": [  { "pattern":  "(  _~stove ) ", "return1": "$stove"},
+    { "(  faucet ) " }
+    ],
+    "variables": 
+    {   "varname": "$faucet",        "varvalue": 1 ,
+        "varname": "$taskseen"      }    
+    "concepts": [
+    {    "name": "~stove",
+    "values": [   "oven",          "range",          "cooktop"        ]      },
+    {     "name": "~leaky",
+    "values": [   "'leak",          "drip",          "spill"        ]      }    ],
+    "style": "first",    or last, or all
     "raw": true
-	  }  
-}  
-*/
+    }
+    }
+    */
     MEANING returnvals[10000];
     int returnvalsIndex = 0;
 
@@ -8489,10 +8507,10 @@ static FunctionResult TestPatternCode(char* buffer)
         if (strstr(word, ":=") || *word == '(' || *word == ')' || *word == '[' || *word == ']' || *word == '{' || *word == '}') {}
         else realpattern = true;
     }
-    
+
     // define concepts -  [  {name: [] } ]
     FACT* oldfact = factFree;
-    variableExternalList = 0;
+    variableChangedThreadlist = 0;
     if (conceptlist) result = MakeConcepts(conceptlist);
     if (result != NOPROBLEM_BIT)
     {
@@ -8500,7 +8518,7 @@ static FunctionResult TestPatternCode(char* buffer)
         return result;
     }
     if (variables) MakeVariables(variables);
-   
+
     // return JSON object with result: index and possible match values in the future
     // get the object
     MEANING resultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
@@ -8522,7 +8540,7 @@ static FunctionResult TestPatternCode(char* buffer)
             return FAILRULE_BIT; // too many
         }
         // meanwhile, protect keywords listed under pattern protection
-        protectedKey = ProtectKeywords(F,true);
+        protectedKey = ProtectKeywords(F, true);
         F = GetSubjectNondeadNext(F);
     }
     int max = count;
@@ -8569,11 +8587,11 @@ static FunctionResult TestPatternCode(char* buffer)
             else
             {
                 char* p = Meaning2Word(pattern)->word;
-                bool match = TestPatternAgainstSentence(p,buffer);
+                bool match = TestPatternAgainstSentence(p, buffer);
                 if (match)
                 {
                     winner = index; // found highest priority match on this sentence
-                    BindReturnVars(varresultobject, return1, return2,returnvals, returnvalsIndex);
+                    BindReturnVars(varresultobject, return1, return2, returnvals, returnvalsIndex);
                 }
             }
             ++index;
@@ -8582,7 +8600,7 @@ static FunctionResult TestPatternCode(char* buffer)
     }
 
     // cleanup
-    if (conceptlist) UnbindConcepts(conceptlist,oldfact);
+    if (conceptlist) UnbindConcepts(conceptlist, oldfact);
     if (variables) UnbindVariables();
     if (protectedKey)
     {
@@ -8603,11 +8621,11 @@ static FunctionResult TestPatternCode(char* buffer)
     {
         char word1[MAX_WORD_SIZE];
         sprintf(word1, "%d", winner);
-        CreateFact(resultobject, match, MakeMeaning(StoreWord(word1,AS_IS)), flags);
+        CreateFact(resultobject, match, MakeMeaning(StoreWord(word1, AS_IS)), flags);
     }
-    else 
+    else
     {
-        CreateFact(resultobject, match, MakeMeaning(StoreWord("false", AS_IS)),flags);
+        CreateFact(resultobject, match, MakeMeaning(StoreWord("false", AS_IS)), flags);
     }
     if (returnvalsIndex) // we have return values 
     {
@@ -8664,7 +8682,7 @@ static FunctionResult TestOutputCode(char* buffer)
         return FAILRULE_BIT;    // must have output
     }
 
-    variableExternalList = 0;
+    variableChangedThreadlist = 0;
     testExternOutput = true;
     if (variables) MakeVariables(variables);
 
@@ -8678,31 +8696,64 @@ static FunctionResult TestOutputCode(char* buffer)
     int winner = 100000;
     char* check = Meaning2Word(output)->word;
     Output(check, buffer, result, 0);
+    for (int i = 0; i < responseIndex; ++i)
+    {
+        strcat(buffer, responseData[responseOrder[i]].response);
+        strcat(buffer, " ");
+    }
+    responseIndex = 0;
     testExternOutput = false;
 
     // variables set?
     MEANING globals = NULL;
-    while (userVariableThreadList != varlist)
+    int list = variableChangedThreadlist;
+    while (list)
     {
-        char* data = Index2Heap(userVariableThreadList);
-        WORDP var = Index2Word(((unsigned int*)data)[1]);
-        userVariableThreadList = ((unsigned int*)data)[0];
-        if (D->word[1] == '_' || D->word[1] == '$') continue; // dont send back transients and locals
-        D->internalBits &= -1 ^ VAR_CHANGED;
-        if (D->w.userValue) // never send null
+        char** data = (char**) Index2Heap(list);
+        WORDP var = ((WORDP*)data)[1];
+        char* olddata = data[2];
+        list = ((unsigned int*)data)[0];
+        if (var->word[1] == '_' || var->word[1] == '$') continue; // dont send back transients and locals
+        if (var->internalBits & BEEN_HERE) continue; // only most recent value
+        
+        var->internalBits |= BEEN_HERE;
+        var->internalBits &= -1 ^ VAR_CHANGED;
+        if (!globals)
         {
-            if (!globals)
+            globals = MakeMeaning(StoreWord("newglobals", AS_IS));
+            CreateFact(resultobject, globals, varresultobject, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_OBJECT_VALUE);
+        }
+        MEANING name = MakeMeaning(var);
+        if (var->w.userValue)
+        {
+            char* text = var->w.userValue;
+            MEANING value;
+            if (!strnicmp(text, "jo-", 3) || !strnicmp(text, "ja-", 3)) // write json text
             {
-                globals = MakeMeaning(StoreWord("newglobals", AS_IS));
-                CreateFact(resultobject, globals, varresultobject, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_OBJECT_VALUE);
+                AllocateOutputBuffer(); 
+                NextInferMark();
+                jwrite(currentOutputBase, FindWord(text), true);
+                value = MakeMeaning(StoreWord(currentOutputBase,AS_IS));
+                FreeOutputBuffer();
             }
-            MEANING name = MakeMeaning(D);
-            MEANING value = MakeMeaning(StoreWord(D->w.userValue));
+            else  value = MakeMeaning(StoreWord(text,AS_IS));
             CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
         }
+        else // set to null
+        {
+            MEANING value = MakeMeaning(StoreWord("null"),AS_IS);
+            CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_PRIMITIVE_VALUE);
+        }
     }
-
-    UnbindVariables(); 
+    while (list) // disable been here markers
+    {
+        char** data = (char**)Index2Heap(list);
+        WORDP var = ((WORDP*)data)[1];
+        list = ((unsigned int*)data)[0];
+        var->internalBits &= -1 ^ BEEN_HERE;
+    }
+    variableChangedThreadlist = 0;
+    UnbindVariables();
 
     if (result != NOPROBLEM_BIT)
     {
@@ -8712,16 +8763,16 @@ static FunctionResult TestOutputCode(char* buffer)
     }
 
     // store the result text
-    unsigned int flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE;
     MEANING match = MakeMeaning(StoreWord("output", AS_IS));
-    CreateFact(resultobject, match, MakeMeaning(StoreWord(buffer, AS_IS)), flags);
+    if (!*buffer) CreateFact(resultobject, match, MakeMeaning(StoreWord("null", AS_IS)), JSON_OBJECT_FACT | FACTTRANSIENT | JSON_PRIMITIVE_VALUE);
+    else CreateFact(resultobject, match, MakeMeaning(StoreWord(buffer, AS_IS)), JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
 
     currentFact = NULL; // dont pass up changes in facts
     sprintf(buffer, "%s", Meaning2Word(resultobject)->word);
     return NOPROBLEM_BIT;
 }
 
-static void DSEReturnCode(char* startData,char* data,MEANING M)
+static void DSEReturnCode(char* startData, char* data, MEANING M,bool pattern)
 {
     // store the compiled code
     unsigned int flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE;
@@ -8731,20 +8782,25 @@ static void DSEReturnCode(char* startData,char* data,MEANING M)
         char* hold = AllocateBuffer();
         char* ptr = hold;
         *hold = 0;
-        if (patternwordthread)
+        if (!pattern) {}
+        else if (patternwordthread)
         {
             *ptr++ = '|';
             int list = patternwordthread;
             while (list)
             {
                 char** heapval = (char**)Index2Heap(list);
-                list = (int) (long)heapval[0];
+                list = (int)(long)heapval[0];
                 WORDP D = (WORDP)heapval[1];
-                sprintf(ptr, "%s ", D->word); 
+                sprintf(ptr, "%s ", D->word);
                 ptr += strlen(ptr);
             }
             *ptr++ = '|'; // close marker
-            *ptr = 0;
+        }
+        else
+        {
+            strcpy(ptr, "^%s");
+            ++ptr;
         }
         strcpy(ptr, startData);
 
@@ -8811,7 +8867,7 @@ static FunctionResult CompilePatternCode(char* buffer)
     arg = SkipWhitespace(arg);
 
     // if test or pattern test
-    if (*arg != '(' && strncmp(arg,"if",2)) return FAILRULE_BIT;
+    if (*arg != '(' && strncmp(arg, "if", 2)) return FAILRULE_BIT;
 
     int oldDepth = globalDepth;
     //  =>  {code: xxx, errors: [], warnings: [] }
@@ -8827,9 +8883,9 @@ static FunctionResult CompilePatternCode(char* buffer)
     else
     {
         patternwordthread = 0;
-        inited = StartScriptCompiler(false,true);
+        inited = StartScriptCompiler(false, true);
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
-        *data = 0; 
+        *data = 0;
         strcpy(readBuffer, arg);
         compiling = true;
         currentFileLine = 0;
@@ -8847,7 +8903,7 @@ static FunctionResult CompilePatternCode(char* buffer)
             char* ptr = ReadCompiledWord(readBuffer, word);
             strcpy(word, "^if");
             strcat(ptr, " { 1 }");
-            ReadIf(word, ptr, NULL,data, NULL);
+            ReadIf(word, ptr, NULL, data, NULL);
         }
 #endif
 
@@ -8855,9 +8911,9 @@ static FunctionResult CompilePatternCode(char* buffer)
     compiling = false;
     if (inited) EndScriptCompiler();
     // get the object
-    MEANING M = GetUniqueJsonComposite((char*)"jo-",FACTTRANSIENT);
+    MEANING M = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
 
-    DSEReturnCode(startData, data, M);
+    DSEReturnCode(startData, data, M,true);
     UnbindBeenHere();
 
     WORDP D = Meaning2Word(M);
@@ -8907,14 +8963,14 @@ static FunctionResult CompileOutputCode(char* buffer)
 #ifndef DISCARDSCRIPTCOMPILER
         char rejoinders[256];	//   legal levels a: thru q:
         memset(rejoinders, 0, sizeof(rejoinders));
-        ReadOutput(false,false,readBuffer, NULL, data, rejoinders, NULL,NULL,false);
+        ReadOutput(false, false, readBuffer, NULL, data, rejoinders, NULL, NULL, false);
 #endif
     }
     compiling = false;
     if (inited) EndScriptCompiler();
     // get the object
     MEANING M = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
-    DSEReturnCode(startData, data, M);
+    DSEReturnCode(startData, data, M,false);
     UnbindBeenHere();
 
     WORDP D = Meaning2Word(M);

@@ -14,6 +14,7 @@ HEAPLINK userVariableThreadList = 0;
 int impliedSet = ALREADY_HANDLED;	// what fact set is involved in operation
 int impliedWild = ALREADY_HANDLED;	// what wildcard is involved in operation
 char impliedOp = 0;					// for impliedSet, what op is in effect += = 
+HEAPLINK variableChangedThreadlist = 0;
 
 int wildcardIndex = 0;
 char wildcardOriginalText[MAX_WILDCARDS + 1][MAX_USERVAR_SIZE + 1];  // spot wild cards can be stored
@@ -430,6 +431,21 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
     }
 }
 
+void SetVariable(WORDP D, char* value)
+{
+    if (D->w.userValue == value) return;
+
+    if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue,value))) // only permanent variables get tracked
+    {
+        char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
+        ((unsigned int*)heapval)[0] = variableChangedThreadlist;
+        variableChangedThreadlist = Heap2Index((char*)heapval);
+        heapval[1] = (char*)D; // save name
+        heapval[2] = D->w.userValue; // save old value
+    }
+    D->w.userValue = value;
+}
+
 void SetUserVariable(const char* var, char* word, bool assignment)
 {
     char varname[MAX_WORD_SIZE];
@@ -459,7 +475,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
         if (D->w.userValue == NULL) SpecialFact(MakeMeaning(D), (MEANING)1, 0);
         else SpecialFact(MakeMeaning(D), (MEANING)(D->w.userValue - heapBase), 0);
     }
-    if (testOutput)  SetVariable(D, word);
+    if (testExternOutput)  SetVariable(D, word);
     else D->w.userValue = word;
     if (!stricmp(var, (char*)"$cs_json_array_defaults"))
     {
@@ -711,7 +727,17 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
     {
         char* dot = strchr(var, '.');
         if (!dot) SetUserVariable(var, result, true);
-        else JSONVariableAssign(var, result);// json object insert
+        else
+        {
+            if (testExternOutput)
+            {
+                *dot = 0;
+                WORDP D = StoreWord(var);
+                *dot = '.';
+                SetVariable(D, D->w.userValue); // force change of internal content detect
+            }
+            JSONVariableAssign(var, result);// json object insert
+        }
     }
     else if (*var == '^') strcpy(FNVAR(var + 1), result);
     return NOPROBLEM_BIT;
@@ -1172,7 +1198,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
         char* dot = strchr(word, '.');
         if (!dot) dot = strstr(word, "[]"); // array assign?
         if (!dot || nojson) SetUserVariable(word, buffer, true);
-        else result = JSONVariableAssign(word, buffer);// json object insert
+         else result = JSONVariableAssign(word, buffer);// json object insert
     }
     else if (*word == '\'' && word[1] == USERVAR_PREFIX)
     {

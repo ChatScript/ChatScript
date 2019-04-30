@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.3";
+char* version = "9.31";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1163,9 +1163,9 @@ void CloseSystem()
 #ifndef DISCARDJSONOPEN
 	CurlShutdown();
 #endif
-	if (logmainbuffer) free(logmainbuffer);
+	free(logmainbuffer);
 	logmainbuffer = NULL;
-	if (ourMainOutputBuffer) free(ourMainOutputBuffer);
+	free(ourMainOutputBuffer);
 	ourMainOutputBuffer = NULL;
 }
 
@@ -1815,7 +1815,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
     
     stackFree = stackStart; // begin fresh
-                          
+    variableChangedThreadlist = 0;
+
     // protective level 0 callframe
     globalDepth = -1;
     ChangeDepth(1, ""); // never enter debugger on this

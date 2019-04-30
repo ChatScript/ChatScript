@@ -141,7 +141,7 @@ static char* SFullTimeMS(char* value)
     if (value) return AssignValue(hold, value);
     if (*hold != '.') return hold;
     uint64 elapsedMS = ElapsedMilliseconds();
-    sprintf(systemValue, (char*)"%u", (unsigned int)elapsedMS);
+    sprintf(systemValue, (char*)"%llu", elapsedMS);
     return systemValue;
 }
 
