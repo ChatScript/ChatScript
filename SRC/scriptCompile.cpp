@@ -49,6 +49,7 @@ static int functionArgumentCount = 0;
 char scopeBotName[MAX_WORD_SIZE];
 static bool renameInProgress = false;
 static bool endtopicSeen = false; // needed when ending a plan
+static char* nextToken;			// current lookahead token
 
 unsigned int buildID = 0;
 
@@ -69,6 +70,7 @@ static char* topicFiles[] = //   files created by a topic refresh from scratch
 };
 static void WriteKey(char* word);
 static FILE* mapFile = NULL;					// for IDE
+static FILE* patternFile = NULL; // where to store pattern words
 
 
 void InitScriptSystem()
@@ -88,6 +90,56 @@ void AddWarning(char* buffer)
     else if (strstr(warnings[warnIndex-1],(char*)"a function call")){++functionCall;}
 	if (warnIndex >= MAX_WARNINGS) --warnIndex;
 }
+
+
+bool StartScriptCompiler(bool normal, bool live)
+{
+#ifndef DISCARDSCRIPTCOMPILER
+    if (nextToken && normal) return false;
+    if (oldBuffer) return false; // already running one
+    patternFile = NULL;
+    beenHereThreadList = 0;
+    livecall = live;
+    oldBuffer = newBuffer;
+    warnIndex = errorIndex = 0;
+    newBuffer = AllocateStack(NULL, MAX_BUFFER_SIZE);
+    nextToken = AllocateStack(NULL, MAX_BUFFER_SIZE); // able to swallow big
+#endif
+    return true;
+}
+
+void EndScriptCompiler()
+{
+#ifndef DISCARDSCRIPTCOMPILER
+    if (newBuffer)
+    {
+        ReleaseStack(newBuffer);
+        newBuffer = oldBuffer;
+        oldBuffer = NULL;
+        nextToken = NULL;
+    }
+#endif
+}
+
+void ScriptError()
+{
+    #ifndef DISCARDSCRIPTCOMPILER
+    callingSystem = 0;
+    chunking = false;
+    outputStart = NULL;
+
+    renameInProgress = false;
+    if (compiling)
+    {
+        ++hasErrors;
+        patternContext = false;
+        if (*scopeBotName) Log(STDTRACELOG, (char*)"*** Error- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+        else Log(STDTRACELOG, (char*)"*** Error- line %d column %d of %s: ", currentFileLine, currentLineColumn, currentFilename);
+    }
+#endif
+}
+
+#ifndef DISCARDSCRIPTCOMPILER
 
 void ScriptWarn()
 {
@@ -122,6 +174,7 @@ void UnbindBeenHere()
     }
 }
 
+#endif
 
 void AddError(char* buffer)
 {
@@ -130,54 +183,763 @@ void AddError(char* buffer)
     if (*buffer == '\n') ++buffer;
     size_t len = strlen(buffer);
     while (buffer[len - 1] == '\n' || buffer[len - 1] == '\r') buffer[--len] = 0;
-    sprintf(message, "%s - line %d column %d of %s %s\r\n",buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+    sprintf(message, "%s - line %d column %d of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
     sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
-	if (errorIndex >= MAX_ERRORS) --errorIndex;
+    if (errorIndex >= MAX_ERRORS) --errorIndex;
 }
 
-void ScriptError()
+static char* FindComparison(char* word)
 {
-	callingSystem = 0;
-	chunking = false;
-	outputStart = NULL;
+    if (!*word || !word[1] || !word[2] || *word == '"') return NULL; //   if token is short, we cannot do the below word+1 scans 
+    if (*word == '.') return NULL; //  .<_3 is not a comparison
+    if (*word == '\\') return NULL; // escaped is not a comparison
+    if (*word == '!' && word[1] == '?' && word[2] == '$') return NULL;
+    if (*word == '_' && word[1] == '?' && word[2] == '$') return NULL;
+    if (*word == '?' && word[1] == '$') return NULL;
+    char* at = strchr(word + 1, '!');
+    if (at && *word == '!') at = NULL;	 // ignore !!
+    if (!at) at = strchr(word + 1, '<');
+    if (!at) at = strchr(word + 1, '>');
+    if (!at)
+    {
+        at = strchr(word + 1, '&');
+        if (at && (at[1] == '_' || at[1] == ' ')) at = 0;	// ignore & as part of a name
+    }
+    if (!at) at = strchr(word + 1, '=');
+    if (!at) at = strchr(word + 1, '?');  //   member of set
+    if (!at)
+    {
+        at = strchr(word + 1, '!');  //   negation
+        if (at && (at[1] == '=' || at[1] == '?'));
+        else at = NULL;
+    }
+    return at;
+}
 
-	renameInProgress = false;
-	if (compiling)
-	{
-		++hasErrors; 
-		patternContext = false; 
-        if (*scopeBotName) Log(STDTRACELOG, (char*)"*** Error- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn,currentFilename, scopeBotName);
-        else Log(STDTRACELOG, (char*)"*** Error- line %d column %d of %s: ", currentFileLine, currentLineColumn,currentFilename);
-	}
+static void InsureAppropriateCase(char* word)
+{
+    char c;
+    char* at = FindComparison(word);
+    //   force to lower case various standard things
+    //   topcs/sets/classes/user vars/ functions and function vars  are always lower case
+    if (at) //   a comparison has 2 sides
+    {
+        c = *at;
+        *at = 0;
+        InsureAppropriateCase(word);
+        if (at[1] == '=' || at[1] == '?') InsureAppropriateCase(at + 2); // == or >= or such
+        else InsureAppropriateCase(at + 1);
+        *at = c;
+    }
+    else if (*word == '_' || *word == '\'') InsureAppropriateCase(word + 1);
+    else if (*word == USERVAR_PREFIX)
+    {
+        char* dot = strchr(word, '.');
+        if (dot) *dot = 0;
+        MakeLowerCase(word);
+        if (dot) *dot = '.';
+    }
+    else if ((*word == '^' && word[1] != '"') || *word == '~' || *word == SYSVAR_PREFIX || *word == '|') MakeLowerCase(word);
+    else if (*word == '@' && IsDigit(word[1])) MakeLowerCase(word);	//   potential factref like @2subject
+}
+
+static int GetFunctionArgument(char* arg) //   get index of argument (0-based) if it is value, else -1
+{
+    for (int i = 0; i < functionArgumentCount; ++i)
+    {
+        if (!stricmp(arg, functionArguments[i])) return i;
+    }
+    return -1; //   failed
+}
+
+static void FindDeprecated(char* ptr, char* value, char* message)
+{
+    char* comment = strstr(ptr, (char*)"# ");
+    char* at = ptr;
+    size_t len = strlen(value);
+    while (at)
+    {
+        at = strstr(at, value);
+        if (!at) break;
+        if (*(at - 1) == USERVAR_PREFIX) // $$xxx should be ignored
+        {
+            at += 2;
+            continue;
+        }
+        if (comment && at > comment) return; // inside a comment
+        char word[MAX_WORD_SIZE];
+        ReadCompiledWord(at, word);
+        if (!stricmp(value, word))
+        {
+            lastDeprecation = at;
+            BADSCRIPT(message);
+        }
+        at += len;
+    }
 }
 
 static void AddDisplay(char* word)
 {
-	MakeLowerCase(word);
-	for (int i = 0; i < displayIndex; ++i)
-	{
-		if (!strcmp(word,display[i])) return;	// no duplicates needed
-	}
-	strcpy(display[displayIndex],word);
-	if (++displayIndex >= MAX_DISPLAY) BADSCRIPT("Display argument limited to %d:  %s\r\n",MAX_DISPLAY,word)
+    MakeLowerCase(word);
+    for (int i = 0; i < displayIndex; ++i)
+    {
+        if (!strcmp(word, display[i])) return;	// no duplicates needed
+    }
+    strcpy(display[displayIndex], word);
+    if (++displayIndex >= MAX_DISPLAY) BADSCRIPT("Display argument limited to %d:  %s\r\n", MAX_DISPLAY, word)
 }
 
 static char* ReadDisplay(FILE* in, char* ptr)
 {
-	char word[SMALL_WORD_SIZE];
-	ptr = ReadNextSystemToken(in,ptr,word,false);
-	while (1)
-	{
-		ptr = ReadNextSystemToken(in,ptr,word,false);
-		if (*word == ')') break;
-		if (*word != USERVAR_PREFIX) 
-			BADSCRIPT("Display argument must be uservar of $$ $ or $_: %s\r\n",word)
-		if (strchr(word,'.'))
-			BADSCRIPT("Display argument cannot be dot-selected %s\r\n",word)
-		AddDisplay(word); // explicit display
-	}
-	return ptr;
+    char word[SMALL_WORD_SIZE];
+    ptr = ReadNextSystemToken(in, ptr, word, false);
+    while (1)
+    {
+        ptr = ReadNextSystemToken(in, ptr, word, false);
+        if (*word == ')') break;
+        if (*word != USERVAR_PREFIX)
+            BADSCRIPT("Display argument must be uservar of $$ $ or $_: %s\r\n", word)
+            if (strchr(word, '.'))
+                BADSCRIPT("Display argument cannot be dot-selected %s\r\n", word)
+                AddDisplay(word); // explicit display
+    }
+    return ptr;
 }
+
+char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how we tokenize system stuff (rules and topic system) words -remaps & to AND
+{
+    *word = 0;
+    if (!ptr)  return 0;
+    char tmp[MAX_WORD_SIZE];
+    char* start = word;
+    ptr = SkipWhitespace(ptr);
+    FindDeprecated(ptr, (char*)"$bot", (char*)"Deprecated $bot needs to be $cs_bot");
+    FindDeprecated(ptr, (char*)"$login", (char*)"Deprecated $login needs to be $cs_login");
+    FindDeprecated(ptr, (char*)"$userfactlimit", (char*)"Deprecated $userfactlimit needs to be $cs_userfactlimit");
+    FindDeprecated(ptr, (char*)"$crashmsg", (char*)"Deprecated $crashmsg needs to be $cs_crashmsg");
+    FindDeprecated(ptr, (char*)"$token", (char*)"Deprecated $token needs to be $cs_token");
+    FindDeprecated(ptr, (char*)"$response", (char*)"Deprecated $response needs to be $cs_response");
+    FindDeprecated(ptr, (char*)"$randindex", (char*)"Deprecated $randindex needs to be $cs_randindex");
+    FindDeprecated(ptr, (char*)"$wildcardseparator", (char*)"Deprecated $wildcardseparator needs to be $cs_wildcardseparator");
+    FindDeprecated(ptr, (char*)"$abstract", (char*)"Deprecated $abstract needs to be $cs_abstract");
+    FindDeprecated(ptr, (char*)"$prepass", (char*)"Deprecated $prepass needs to be $cs_prepass");
+    FindDeprecated(ptr, (char*)"$control_main", (char*)"Deprecated $control_main needs to be $cs_control_main");
+    FindDeprecated(ptr, (char*)"$control_pre", (char*)"Deprecated $control_pre needs to be $cs_control_pre");
+    FindDeprecated(ptr, (char*)"$control_post", (char*)"Deprecated $control_post needs to be $cs_control_post");
+#ifdef INFORMATION
+    A token is nominally a contiguous collection of characters broken off by tab or space(since return and newline are stripped off).
+        Tokens to include whitespace are encased in doublequotes.
+
+        Characters with reserved status automatically also break into individual tokens and to include them you must put \ before them.These include :
+    []() {}  always and separate into individual tokens except for _(_[_{
+
+        < > and << >> are reserved, but only when at start or end of token.Allowed comparisons embedded.As is <= and >=
+        Tokens ending with ' or 's break off(possessive) in patterns.
+
+        Tokens starting with prefix characters ' or ! or _ keep together, except per reserved tokens.	'$junk  is one token.
+        Variables ending with punctuation separate the punctuation.$hello.is two tokens as is _0.
+
+        Reserved characters in a composite token with _ before or after are kept.E.g.This_(_story_is_)_done
+        You can include a reserved tokens by putting \ in front of them.
+
+        Some tokens revise their start, like the pattern tokens representing comparison.They do this in the script compiler.
+#endif
+
+        // strings
+        if (*ptr == '"' || (*ptr == '^' && ptr[1] == '"') || (*ptr == '^' && ptr[1] == '\'') || (*ptr == '\\' && ptr[1] == '"')) //   doublequote maybe with functional heading
+        {
+            // simple \"
+            if (*ptr == '\\' && (!ptr[2] || ptr[2] == ' ' || ptr[2] == '\t' || ptr[2] == ENDUNIT)) // legal
+            {
+                *word = '\\';
+                word[1] = '"';
+                word[2] = 0;
+                return ptr + 2;
+            }
+            bool backslash = false;
+            bool noblank = true;
+            bool functionString = false;
+            if (*ptr == '^')
+            {
+                *word++ = *ptr++;	// ^"script"    swallows ^
+                noblank = false; // allowed blanks at start or rear
+                functionString = true;
+            }
+            else if (*ptr == '\\') //  \"string is this"
+            {
+                backslash = true;
+                ++ptr;
+            }
+            char* end = ReadQuote(ptr,word,backslash,noblank,MAX_WORD_SIZE);	//   swallow ending marker and points past
+            if (!callingSystem && !isDescribe && !chunking && !functionString && *word == '"' && word[1] != '^' && strstr(word,"$_"))
+                WARNSCRIPT((char*)"%s has potential local var $_ in it. This cannot be passed as argument to user macros. Is it intended to be?\r\n",word)
+                if (end)
+                {
+                    if (*word == '"' && word[1] != FUNCTIONSTRING && !functionString) return end; // all legal within
+                                                                                                  // NOW WE SEE A FUNCTION STRING
+                                                                                                  // when seeing ^, see if it remaps as a function argument
+                                                                                                  // check for internal ^ also...
+                    char* hat = word - 1;
+                    if ((*word == '"' || *word == '\'') && functionString) hat = word; // came before
+                    else if (*word == '"' && word[1] == FUNCTIONSTRING) hat = word + 1;
+                    else if ((word[1] == '"' || word[1] == '\'') && *word == FUNCTIONSTRING) hat = word;
+
+                    // locate any local variable references in active strings
+                    char* at = word;
+                    while ((at = strchr(at,USERVAR_PREFIX)))
+                    {
+                        if (at[1] == LOCALVAR_PREFIX)
+                        {
+                            char* start = at;
+                            while (++at)
+                            {
+                                if (!IsAlphaUTF8OrDigit(*at) && *at != '_' && *at != '-')
+                                {
+                                    char c = *at;
+                                    *at = 0;
+                                    AddDisplay(start);
+                                    *at = c;
+                                    break;
+                                }
+                            }
+                        }
+                        else ++at;
+                    }
+
+                    while ((hat = strchr(hat + 1,'^'))) // find a hat within
+                    {
+                        if (IsDigit(hat[1])) continue; // normal internal
+                        if (*(hat - 1) == '\\') continue;	// escaped
+                        char* atx = hat;
+                        while (*++atx && (IsAlphaUTF8OrDigit(*atx) || *atx == '_')) { ; }
+                        char c = *atx;
+                        *atx = 0;
+                        int index = GetFunctionArgument(hat);
+                        WORDP D = FindWord(hat); // in case its a function name
+                        *atx = c;
+                        if (index >= 0) // was a function argument
+                        {
+                            strcpy(tmp,atx); // protect chunk
+                            sprintf(hat,(char*)"^%d%s",index,tmp);
+                        }
+                        else if (D && D->internalBits & FUNCTION_NAME) { ; }
+                        else if (!renameInProgress && !(hat[1] == USERVAR_PREFIX || hat[1] == '_'))
+                        {
+                            *atx = 0;
+                            WARNSCRIPT((char*)"%s is not a recognized function argument. Is it intended to be?\r\n",hat)
+                                *atx = c;
+                        }
+                    }
+
+                    hat = word - 1;
+                    while ((hat = strchr(hat + 1,'_'))) // rename _var? 
+                    {
+                        if (IsAlphaUTF8OrDigit(*(hat - 1)) || *(hat - 1) == '_' || *(hat - 1) == '-') continue; // not a starter
+                        if (IsDigit(hat[1])) continue; // normal _ var
+                        if (*(hat - 1) == '\\' || *(hat - 1) == '"') continue;	// escaped or quoted
+                        char* atx = hat;
+                        while (*++atx && (IsAlphaUTF8OrDigit(*atx))) { ; } // find end
+                        WORDP D = FindWord(hat,atx - hat,LOWERCASE_LOOKUP);
+                        if (D && D->internalBits & RENAMED) // remap matchvar inside  string
+                        {
+                            strcpy(tmp,atx); // protect chunk
+                            sprintf(hat + 1,(char*)"%d%s",(unsigned int)D->properties,tmp);
+                        }
+                    }
+
+                    hat = word - 1;
+                    while ((hat = strchr(hat + 1,'@'))) // rename @set?  
+                    {
+                        if (IsAlphaUTF8OrDigit(*(hat - 1))) continue; // not a starter
+                        if (IsDigit(hat[1]) || hat[1] == '_') continue; // normal @ var or @_marker
+                        if (*(hat - 1) == '\\') continue;	// escaped
+                        char* atx = GetSetEnd(hat);
+                        WORDP D = FindWord(hat,atx - hat,LOWERCASE_LOOKUP);
+                        if (D && D->internalBits & RENAMED)  // rename @set inside string
+                        {
+                            strcpy(tmp,atx); // protect chunk
+                            sprintf(hat + 1,(char*)"%d%s",(unsigned int)D->properties,tmp);
+                        }
+                        else if (!renameInProgress)  // can do anything safely in a simple quoted string
+                        {
+                            char c = *at;
+                            *at = 0;
+                            WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",hat)
+                                *at = c;
+                        }
+                    }
+                    hat = word - 1;
+                    if (strstr(readBuffer, "rename:")) // accept rename of existing constant twice in a row
+                        hat = " ";
+                    while ((hat = strchr(hat + 1,'#'))) // rename #constant or ##constant
+                    {
+                        if (*(hat - 1) == '\\') continue;	// escaped
+                        if (IsAlphaUTF8OrDigit(*(hat - 1)) || IsDigit(hat[1]) || *(hat - 1) == '&') continue; // not a starter, maybe #533; constant stuff
+                        char* at = hat;
+                        if (at[1] == '#')  ++at;	// user constant
+                        while (*++at && (IsAlphaUTF8OrDigit(*at) || *at == '_')) { ; } // find end
+                        strcpy(tmp,at); // protect chunk
+                        *at = 0;
+                        uint64 n;
+                        if (hat[1] == '#' && IsAlphaUTF8(hat[2])) // user constant
+                        {
+                            WORDP D = FindWord(hat,at - hat,LOWERCASE_LOOKUP);
+                            if (D && D->internalBits & RENAMED)  // remap #constant inside string
+                            {
+                                n = D->properties;
+                                if (D->systemFlags & CONSTANT_IS_NEGATIVE)
+                                {
+                                    int64 x = (int64)n;
+                                    x = -x;
+#ifdef WIN32
+                                    sprintf(hat,(char*)"%I64d%s",(long long int) x,tmp);
+#else
+                                    sprintf(hat,(char*)"%lld%s",(long long int) x,tmp);
+#endif					
+                                }
+                                else
+                                {
+#ifdef WIN32
+                                    sprintf(hat,(char*)"%I64d%s",(long long int) n,tmp);
+#else
+                                    sprintf(hat,(char*)"%lld%s",(long long int) n,tmp);
+#endif		
+                                }
+                            }
+                        }
+                        else // system constant
+                        {
+                            n = FindValueByName(hat + 1);
+                            if (!n) n = FindSystemValueByName(hat + 1);
+                            if (!n) n = FindParseValueByName(hat + 1);
+                            if (!n) n = FindMiscValueByName(hat + 1);
+                            if (n)
+                            {
+#ifdef WIN32
+                                sprintf(hat,(char*)"%I64d%s",(long long int) n,tmp);
+#else
+                                sprintf(hat,(char*)"%lld%s",(long long int) n,tmp);
+#endif		
+                            }
+                        }
+                        if (!*hat)
+                        {
+                            *hat = '#';
+                            BADSCRIPT((char*)"Bad # constant %s\r\n",hat)
+                        }
+                    }
+
+                    return end;					//   if we did swallow a string
+                }
+            if (*ptr == '\\') // was this \"xxx with NO closing
+            {
+                memmove(word + 1,word,strlen(word) + 1);
+                *word = '\\';
+            }
+            else
+            {
+                word = start;
+                if (*start == '^') --ptr;
+            }
+        }
+
+    // the normal composite token
+    bool quote = false;
+    char* xxorig = ptr;
+    bool var = (*ptr == '$');
+    int brackets = 0;
+    while (*ptr)
+    {
+        if (*ptr == ENDUNIT) break;
+        if (patternContext && quote) {} // allow stuff in comparison quote
+        else if (*ptr == ' ' || *ptr == '\t') break; // legal
+        if (patternContext && *ptr == '"') quote = !quote;
+
+        char c = *ptr++;
+        *word++ = c;
+        *word = 0;
+        if ((word - start) > (MAX_WORD_SIZE - 2)) break; // avoid overflow
+                                                         // want to leave array json notation alone but react to [...] touching a variable - $var]
+        if (var && c == '[') // ANY variable should be separated by space from a [ if not json array
+        {
+            ++brackets; // this MUST then be a json array and brackets will balance
+            if (brackets > 1) BADSCRIPT("$var MUST be separated from [ unless you intend json array reference\r\n")
+        }
+        else if (var && c == ']')
+        {
+            if (--brackets < 0) // if brackets is set, we must be in json array
+            {
+                --ptr;
+                --word;
+                break;
+            }
+        }
+        else if (GetNestingData(c)) // break off nesting attached to a started token unless its an escaped token
+        {
+            size_t len = word - start;
+            if (len == 1) break;		// automatically token by itself
+            if (len == 2)
+            {
+                if ((*start == '_' || *start == '!') && (c == '[' || c == '(' || c == '{')) break; // one token as _( or !( 
+                if (*start == '\\') break;	// one token escaped
+            }
+            // split off into two tokens
+            --ptr;
+            --word;
+            break;
+        }
+    }
+    *word = 0;
+
+    word = start;
+    size_t len = strlen(word);
+    if (len == 0) return ptr;
+    if (patternContext && word[len - 1] == '"' && word[len - 2] != '\\')
+    {
+        char* quote = strchr(word, '"');
+        if (quote == word + len - 1) BADSCRIPT("Tailing quote without start: %s\r\n", word)
+    }
+    if (*word == '#' && !strstr(readBuffer,"rename:")) // is this a constant from dictionary.h? or user constant
+    {
+        uint64 n;
+        if (word[1] == '#' && IsAlphaUTF8(word[2])) // user constant
+        {
+            WORDP D = FindWord(word,0,LOWERCASE_LOOKUP);
+            if (D && D->internalBits & RENAMED)  // remap #constant 
+            {
+                n = D->properties;
+                if (D->systemFlags & CONSTANT_IS_NEGATIVE)
+                {
+                    int64 x = (int64)n;
+                    x = -x;
+#ifdef WIN32
+                    sprintf(word,(char*)"%I64d",(long long int) x);
+#else
+                    sprintf(word,(char*)"%lld",(long long int) x);
+#endif					
+                }
+                else
+                {
+#ifdef WIN32
+                    sprintf(word,(char*)"%I64d",(long long int) n);
+#else
+                    sprintf(word,(char*)"%lld",(long long int) n);
+#endif		
+                }
+            }
+
+            else if (renameInProgress) { ; } // leave token alone, defining
+            else BADSCRIPT((char*)"Bad user constant %s\r\n",word)
+        }
+        else // system constant
+        {
+            n = FindValueByName(word + 1);
+            if (!n) n = FindSystemValueByName(word + 1);
+            if (!n) n = FindParseValueByName(word + 1);
+            if (!n) n = FindMiscValueByName(word + 1);
+            if (n)
+            {
+#ifdef WIN32
+                sprintf(word,(char*)"%I64d",(long long int) n);
+#else
+                sprintf(word,(char*)"%lld",(long long int) n);
+#endif		
+            }
+            else if (!IsDigit(word[1]) && word[1] != '!') //treat rest as a comment line (except if has number after it, which is user text OR internal arg reference for function
+            {
+                if (IsAlphaUTF8(word[1]))
+                    BADSCRIPT((char*)"Bad numeric # constant %s\r\n",word)
+                    *ptr = 0;
+                *word = 0;
+            }
+        }
+    }
+    if (*word == '_' && (IsAlphaUTF8(word[1]))) // is this a rename _
+    {
+        WORDP D = FindWord(word);
+        if (D && D->internalBits & RENAMED) sprintf(word + 1,(char*)"%d",(unsigned int)D->properties); // remap match var convert to number
+                                                                                                       // patterns can underscore ANYTING
+    }
+    if (*word == '\'' &&  word[1] == '_' && (IsAlphaUTF8(word[2]))) // is this a rename _ with '
+    {
+        WORDP D = FindWord(word + 1);
+        if (D && D->internalBits & RENAMED) sprintf(word + 2,(char*)"%d",(unsigned int)D->properties); // remap match var convert to number
+        else if (!renameInProgress && !patternContext)  // patterns can underscore ANYTING
+            WARNSCRIPT((char*)"%s is not a recognized _rename. Should it be?\r\n",word + 1)
+    }
+    if (*word == '@' && IsAlphaUTF8(word[1])) // is this a rename @
+    {
+        char* at = GetSetEnd(word);
+        WORDP D = FindWord(word,at - word);
+        if (D && D->internalBits & RENAMED) // remap @set in string
+        {
+            strcpy(tmp,at); // protect chunk
+            sprintf(word + 1,(char*)"%d%s",(unsigned int)D->properties,tmp);
+        }
+        else if (!renameInProgress)  WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",word)
+    }
+    if (*word == '@' && word[1] == '_' && IsAlphaUTF8(word[2])) // is this a rename @_0+
+    {
+        size_t lenx = strlen(word);
+        WORDP D = FindWord(word + 1, lenx - 1); // @_data marker
+        char c = 0;
+        if (!D)
+        {
+            c = word[lenx - 1];
+            word[lenx - 1] = 0;
+            D = FindWord(word + 1, lenx - 2);
+            word[lenx - 1] = c;
+        }
+        if (D && D->internalBits & RENAMED)
+        {
+            if (c) sprintf(word + 2,(char*)"%d%c",(unsigned int)D->properties,c); // remap @set in string
+            else sprintf(word + 2, (char*)"%d", (unsigned int)D->properties); // remap @set in string
+        }
+        else if (!renameInProgress)  WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",word)
+    }
+
+    // some tokens require special splitting
+
+    //   break off starting << from <<hello   
+    if (*word == '<' && word[1] != '=')
+    {
+        if (len == 3 && *word == word[1] && word[2] == '=') { ; }
+        else if (word[1] == '<')
+        {
+            if (word[2]) // not assign operator
+            {
+                ptr -= strlen(word) - 2;  // safe
+                word[2] = 0;
+                len -= 2;
+            }
+        }
+    }
+
+    //   break off ending  >> from hello>> 
+    if (len > 2 && word[len - 1] == '>')
+    {
+        if (len == 3 && *word == word[1] && word[2] == '=') { ; }
+        else if (word[len - 2] == '>')
+        {
+            ptr -= 2;
+            word[len - 2] = 0;
+            len -= 2;
+        }
+    }
+
+    // break off punctuation from variable end 
+    if (len > 2 && ((*word == USERVAR_PREFIX && !IsDigit(word[1])) || *word == '^' || (*word == '@' && IsDigit(word[1])) || *word == SYSVAR_PREFIX || (*word == '_' && IsDigit(word[1])) || (*word == '\'' && word[1] == '_'))) // not currency
+    {
+        if (!patternContext || word[len - 1] != '?') // BUT NOT $$xxx? in pattern context
+        {
+            while (IsRealPunctuation(word[len - 1])) // one would be enough, but $hello... needs to be addressed
+            {
+                --len;
+                --ptr;
+            }
+            word[len] = 0;
+        }
+    }
+
+    // break off opening < in pattern
+    if (patternContext && *word == '<' && word[1] != '<')
+    {
+        ptr -= len - 1;
+        len = 1;
+        word[1] = 0;
+    }
+
+    // break off closing > in pattern unless escaped or notted
+    if (len == 2 && (*word == '!' || *word == '\\')) { ; }
+    else if (patternContext && len > 1 && word[len - 1] == '>' && word[len - 2] != '>' && word[len - 2] != '_' && word[len - 2] != '!')
+    {
+        ptr -= len - 1;
+        --len;
+        word[len - 1] = 0;
+    }
+
+    // find internal comparison op if any
+    char* at = (patternContext) ? FindComparison(word) : 0;
+    if (at && *word == '*' && !IsDigit(word[1]))
+    {
+        if (compiling) BADSCRIPT((char*)"TOKENS-1 Cannot do comparison on variable gap %s . Memorize and compare against _# instead later.\r\n",word)
+    }
+
+    if (at && *at == '!' && at[1] == '$') { ; } // allow !$xxx
+    else if (at) // revise comparison operators
+    {
+        if (*at == '!') ++at;
+        ++at;
+
+        if (*at == '^' && at[1]) // remap function arg on right side.
+        {
+            int index = GetFunctionArgument(at);
+            if (index >= 0) sprintf(at,(char*)"^%d",index);
+        }
+        if (*at == '_' && IsAlphaUTF8(word[1])) // remap rename matchvar arg on right side.
+        {
+            WORDP D = FindWord(at);
+            if (D && D->internalBits & RENAMED) sprintf(at,(char*)"_%d",(unsigned int)D->properties);
+        }
+        if (*at == '@' && IsAlphaUTF8(word[1])) // remap @set arg on right side.
+        {
+            char* at1 = GetSetEnd(at);
+            WORDP D = FindWord(at,at1 - at);
+            if (D && D->internalBits & RENAMED) // remap @set on right side
+            {
+                strcpy(tmp,at1); // protect chunk
+                sprintf(at + 1,(char*)"%d%s",(unsigned int)D->properties,tmp);
+            }
+        }
+
+        // check for remap on LHS
+        if (*word == '^')
+        {
+            char c = *--at;
+            *at = 0;
+            int index = GetFunctionArgument(word);
+            *at = c;
+            if (index >= 0)
+            {
+                sprintf(tmp,(char*)"^%d%s",index,at);
+                strcpy(word,tmp);
+            }
+        }
+        // check for rename on LHS
+        if (*word == '_' && IsAlphaUTF8(word[1]))
+        {
+            char* atx = word;
+            while (IsAlphaUTF8OrDigit(*++atx)) { ; }
+            WORDP D = FindWord(word,atx - word);
+            if (D && D->internalBits & RENAMED) // remap match var
+            {
+                sprintf(tmp,(char*)"%d%s",(unsigned int)D->properties,atx);
+                strcpy(word + 1,tmp);
+            }
+        }
+        // check for rename on LHS
+        if (*word == '@' && IsAlphaUTF8(word[1]))
+        {
+            char* atx = GetSetEnd(word);
+            WORDP D = FindWord(word,atx - word);
+            if (D && D->internalBits & RENAMED) // remap @set in string
+            {
+                strcpy(tmp,atx); // protect chunk
+                sprintf(word + 1,(char*)"%d%s",(unsigned int)D->properties,tmp);
+            }
+        }
+    }
+    // when seeing ^, see if it remaps as a function argument
+    // check for internal ^ also...
+    char* hat = word - 1;
+    while ((hat = strchr(hat + 1,'^'))) // find a hat within
+    {
+        char* at = hat;
+        while (*++at && (IsAlphaUTF8(*at) || *at == '_' || IsDigit(*at))) { ; }
+        char c = *at;
+        *at = 0; // terminate it so internal ^ is recognized uniquely
+        strcpy(tmp,hat);
+        *at = c;
+
+        while (*tmp)
+        {
+            int index = GetFunctionArgument(tmp);
+            if (index >= 0)
+            {
+                char remainder[MAX_WORD_SIZE];
+                strcpy(remainder,at); // protect chunk AFTER this
+                sprintf(hat,(char*)"^%d%s",index,remainder);
+                break;
+            }
+            else tmp[0] = 0;	// just abort it for now shrink it smaller, to handle @9subject kinds of behaviors 
+        }
+    }
+
+    // same for quoted function arg
+    if (*word == '\'' && word[1] == '^' && word[2])
+    {
+        int index = GetFunctionArgument(word + 1);
+        if (index >= 0) sprintf(word,(char*)"'^%d",index);
+    }
+
+    // break apart math on variables eg $value+2 as a service to the user
+    if ((*word == '%' || *word == '$') && word[1]) // cannot use _ here as that will break memorization pattern tokens
+    {
+        char* atx = word + 1;
+        if (atx[1] == '$' || atx[1] == '_') ++atx;	// skip over 2ndary marker
+        --atx;
+        while (LegalVarChar(*++atx) || (*atx == '\\' && atx[1] == '$'));  // find end of initial word - allowing \ for json $
+        if (*word == '$' && (*atx == '.' || *atx == '[' || *atx == ']') && (LegalVarChar(atx[1]) || atx[1] == '$' || atx[1] == '[' || atx[1] == ']' || (atx[1] == '\\' && atx[2] == '$')))// allow $x.y as a complete name
+        {
+            while (LegalVarChar(*++atx) || *atx == '.' || *atx == '$' || (*atx == '[' || *atx == ']' || (*atx == '\\' && atx[1] == '$')));  // find end of field name sequence
+            if (*(atx - 1) == '.') --atx; // tailing period cannot be part of it
+        }
+        if (*atx && IsPunctuation(*atx) & ARITHMETICS && *atx != '=')
+        {
+            if (*atx == '.' && atx[1] == '_' && IsDigit(atx[2])) {} // json field reference indirection
+            else if (*atx == '.' && atx[1] == '\'' && atx[2] == '_' && IsDigit(atx[3])) {} // json field reference indirection
+                                                                                           // - is legal in a var or word token
+            else if (*atx != '-' || (!IsAlphaUTF8OrDigit(atx[1]) && atx[1] != '_'))
+            {
+                ptr -= strlen(atx);
+                *atx = 0;
+                len = atx - start;
+            }
+        }
+    }
+    char* tilde = (IsAlphaUTF8(*word)) ? strchr(word + 1,'~') : 0;
+    if (tilde) // has specific meaning like African-american~1n or African-american~1
+    {
+        if (IsDigit(*++tilde)) // we know the meaning, removing any POS marker since that is redundant
+        {
+            if (IsDigit(*++tilde)) ++tilde;
+            if (*tilde && !tilde[1])  *tilde = 0; // trim off pos marker
+
+                                                  // now force meaning to master
+            MEANING M = ReadMeaning(word,true,false);
+            if (M)
+            {
+                M = GetMaster(M);
+                sprintf(word,(char*)"%s~%d",Meaning2Word(M)->word,Meaning2Index(M));
+            }
+        }
+    }
+
+    // universal cover of simple use - complex tokens require processing elsewhere
+    if (*word == USERVAR_PREFIX && word[1] == LOCALVAR_PREFIX)
+    {
+        char* at = word + 1;
+        while (*++at)
+        {
+            if (!IsAlphaUTF8OrDigit(*at) && *at != '-' && *at != '_') break;
+        }
+        if (*at == '.')  // root of a dotted variable
+        {
+            *at = 0;
+            AddDisplay(word);
+            *at = '.';
+        }
+        else if (!*at)  AddDisplay(word);
+    }
+
+    InsureAppropriateCase(word);
+    return ptr;
+}
+
+void EraseTopicFiles(unsigned int build, char* name)
+{
+    int i = -1;
+    while (topicFiles[++i])
+    {
+        char file[SMALL_WORD_SIZE];
+        sprintf(file, (char*)"%s/%s%s.txt", topic, topicFiles[i], name);
+        remove(file);
+        sprintf(file, (char*)"%s/BUILD%s/%s%s.txt", topic, name, topicFiles[i], name);
+        remove(file);
+    }
+}
+
+#ifndef DISCARDSCRIPTCOMPILER
 
 static char* WriteDisplay(char* pack)
 {
@@ -199,52 +961,11 @@ static char* WriteDisplay(char* pack)
 	return pack;
 }
 
-void EraseTopicFiles(unsigned int build,char* name)
-{
-	int i = -1;
-	while (topicFiles[++i])
-	{
-		char file[SMALL_WORD_SIZE];
-		sprintf(file,(char*)"%s/%s%s.txt",topic,topicFiles[i],name);
-		remove(file);
-		sprintf(file,(char*)"%s/BUILD%s/%s%s.txt",topic,name,topicFiles[i],name);
-		remove(file);
-	}
-}
-
 static char* FindAssignment(char* word)
 {
     char* assign = strchr(word + 1, ':');
     if (!assign || assign[1] != '=') return NULL;
     return assign;
-}
-
-static char* FindComparison(char* word)
-{
-	if (!*word || !word[1] || !word[2]) return NULL; //   if token is short, we cannot do the below word+1 scans 
-	if (*word == '.') return NULL; //  .<_3 is not a comparison
-	if (*word == '\\') return NULL; // escaped is not a comparison
-	if (*word == '!' && word[1] == '?' && word[2] == '$') return NULL;
-	if (*word == '_' && word[1] == '?' && word[2] == '$') return NULL;
-	if (*word == '?' && word[1] == '$') return NULL;
-	char* at = strchr(word+1,'!'); 
-	if (at && *word == '!') at = NULL;	 // ignore !!
-	if (!at) at = strchr(word+1,'<');
-	if (!at) at = strchr(word+1,'>');
-	if (!at) 
-	{
-		at = strchr(word+1,'&');
-		if (at && (at[1] == '_' || at[1] == ' ')) at = 0;	// ignore & as part of a name
-	}
-	if (!at) at = strchr(word+1,'=');
-	if (!at) at = strchr(word+1,'?');  //   member of set
-	if (!at)
-	{
-		at = strchr(word+1,'!');  //   negation
-		if (at && (at[1] == '=' || at[1] == '?'));
-		else at = NULL;
-	}
-	return at;
 }
 
 static void AddMapOutput(int line)
@@ -377,689 +1098,6 @@ comes from the old buffer. Meanwhile the newbuffer continues to have content for
     else currentLineColumn = (result - readBuffer);
 	return result; // ptr into READBUFFER or 1 if from peek zone
 }
-
-static void InsureAppropriateCase(char* word)
-{
-	char c;
-	char* at = FindComparison(word);
-	//   force to lower case various standard things
-	//   topcs/sets/classes/user vars/ functions and function vars  are always lower case
- 	if (at) //   a comparison has 2 sides
-	{
-		c = *at;
-		*at = 0;
-		InsureAppropriateCase(word);
-		if (at[1] == '=' || at[1] == '?') InsureAppropriateCase(at+2); // == or >= or such
-		else InsureAppropriateCase(at+1);
-		*at = c;
-	}
-	else if (*word == '_' || *word == '\'') InsureAppropriateCase(word+1);
-	else if (*word == USERVAR_PREFIX)
-	{
-		char* dot = strchr(word,'.');
-		if (dot) *dot = 0;
-		MakeLowerCase(word);	
-		if (dot) *dot = '.';
-	}
-	else if ((*word == '^' && word[1] != '"') || *word == '~' ||  *word == SYSVAR_PREFIX || *word == '|' ) MakeLowerCase(word);	
-	else if (*word == '@' && IsDigit(word[1])) MakeLowerCase(word);	//   potential factref like @2subject
-}
-
-static int GetFunctionArgument(char* arg) //   get index of argument (0-based) if it is value, else -1
-{
-	for (int i = 0; i < functionArgumentCount; ++i)
-	{
-		if (!stricmp(arg,functionArguments[i])) return i;
-	}
-	return -1; //   failed
-}
-
-static void FindDeprecated(char* ptr, char* value, char* message)
-{
-	char* comment = strstr(ptr,(char*)"# ");
-	char* at = ptr;
-	size_t len = strlen(value);
-	while (at)
-	{
-		at = strstr(at,value);
-		if (!at) break;
-		if (*(at-1) == USERVAR_PREFIX) // $$xxx should be ignored
-		{
-			at += 2;
-			continue;
-		}
-		if (comment && at > comment) return; // inside a comment
-		char word[MAX_WORD_SIZE];
-		ReadCompiledWord(at,word);
-		if (!stricmp(value,word))
-		{
-			lastDeprecation = at;
-			BADSCRIPT(message);
-		}
-		at += len;
-	}
-}
-
-char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how we tokenize system stuff (rules and topic system) words -remaps & to AND
-{
-	*word = 0;
-    if (!ptr)  return 0;
-	char tmp[MAX_WORD_SIZE];
-    char* start = word;
-    ptr = SkipWhitespace(ptr);
-	FindDeprecated(ptr,(char*)"$bot",(char*)"Deprecated $bot needs to be $cs_bot");
-	FindDeprecated(ptr,(char*)"$login",(char*)"Deprecated $login needs to be $cs_login");
-	FindDeprecated(ptr,(char*)"$userfactlimit",(char*)"Deprecated $userfactlimit needs to be $cs_userfactlimit");
-	FindDeprecated(ptr,(char*)"$crashmsg",(char*)"Deprecated $crashmsg needs to be $cs_crashmsg");
-	FindDeprecated(ptr,(char*)"$token",(char*)"Deprecated $token needs to be $cs_token");
-	FindDeprecated(ptr,(char*)"$response",(char*)"Deprecated $response needs to be $cs_response");
-	FindDeprecated(ptr,(char*)"$randindex",(char*)"Deprecated $randindex needs to be $cs_randindex");
-	FindDeprecated(ptr,(char*)"$wildcardseparator",(char*)"Deprecated $wildcardseparator needs to be $cs_wildcardseparator");
-	FindDeprecated(ptr,(char*)"$abstract",(char*)"Deprecated $abstract needs to be $cs_abstract");
-	FindDeprecated(ptr,(char*)"$prepass",(char*)"Deprecated $prepass needs to be $cs_prepass");
-	FindDeprecated(ptr,(char*)"$control_main",(char*)"Deprecated $control_main needs to be $cs_control_main");
-	FindDeprecated(ptr,(char*)"$control_pre",(char*)"Deprecated $control_pre needs to be $cs_control_pre");
-	FindDeprecated(ptr,(char*)"$control_post",(char*)"Deprecated $control_post needs to be $cs_control_post");
-#ifdef INFORMATION
-	A token is nominally a contiguous collection of characters broken off by tab or space (since return and newline are stripped off).
-	Tokens to include whitespace are encased in doublequotes.
-
-	Characters with reserved status automatically also break into individual tokens and to include them you must put \ before them. These include:
-	[ ]  ( )  { }  always and separate into individual tokens except for _(  _[   _{ 
-
-	< > and << >> are reserved, but only when at start or end of token. Allowed comparisons embedded. As is <= and >=
-	Tokens ending with ' or 's break off (possessive) in patterns.  
-	
-	Tokens starting with prefix characters ' or ! or _ keep together, except per reserved tokens.	'$junk  is one token.
-	Variables ending with punctuation separate the punctuation.  $hello. is two tokens as is _0.
-
-	Reserved characters in a composite token with _ before or after are kept. E.g. This_(_story_is_)_done
-	You can include a reserved tokens by putting \ in front of them.
-
-	Some tokens revise their start, like the pattern tokens representing comparison. They do this in the script compiler.
-#endif
-
-	// strings
-	if (*ptr == '"' || ( *ptr  == '^' && ptr[1] == '"') || ( *ptr  == '^' && ptr[1] == '\'') || (*ptr == '\\' && ptr[1] == '"')) //   doublequote maybe with functional heading
-	{
-		// simple \"
-		if (*ptr == '\\' && (!ptr[2] || ptr[2] == ' ' || ptr[2] == '\t' || ptr[2] == ENDUNIT)) // legal
-		{
-			*word = '\\';
-			word[1] = '"';
-			word[2] = 0;
-			return ptr+2;
-		}
-		bool backslash = false;
-		bool noblank = true;
-		bool functionString = false;
-		if (*ptr == '^') 
-		{
-			*word++ = *ptr++;	// ^"script"    swallows ^
-			noblank = false; // allowed blanks at start or rear
-			functionString = true;
-		}
-		else if (*ptr == '\\') //  \"string is this"
-		{
-			backslash = true;
-			++ptr;
-		}
-		char* end = ReadQuote(ptr,word,backslash,noblank,MAX_WORD_SIZE);	//   swallow ending marker and points past
-		if (!callingSystem && !isDescribe && !chunking && !functionString && *word == '"' && word[1] != '^' && strstr(word,"$_")) 
-			WARNSCRIPT((char*)"%s has potential local var $_ in it. This cannot be passed as argument to user macros. Is it intended to be?\r\n",word)
-		if (end)  
-		{
-			if (*word == '"' && word[1] != FUNCTIONSTRING && !functionString) return end; // all legal within
-			// NOW WE SEE A FUNCTION STRING
-			// when seeing ^, see if it remaps as a function argument
-			// check for internal ^ also...
-			char* hat = word-1;
-			if ((*word == '"' || *word == '\'') && functionString) hat = word; // came before
-			else if (*word == '"' && word[1] == FUNCTIONSTRING) hat = word+1;
-			else if ((word[1] == '"' || word[1] == '\'') && *word == FUNCTIONSTRING) hat = word;
-
-			// locate any local variable references in active strings
-			char* at = word;
-			while ((at = strchr(at,USERVAR_PREFIX)))
-			{
-				if (at[1] == LOCALVAR_PREFIX)
-				{
-					char* start = at;
-					while (++at)
-					{
-						if (!IsAlphaUTF8OrDigit(*at) && *at != '_' && *at != '-')
-						{
-							char c = *at;
-							*at = 0;
-							AddDisplay(start);
-							*at = c;
-							break;
-						}
-					}
-				}
-				else ++at;
-			}
-			
-			while ( (hat = strchr(hat+1,'^'))) // find a hat within
-			{
-				if (IsDigit(hat[1])) continue; // normal internal
-				if (*(hat-1) == '\\') continue;	// escaped
-				char* atx = hat;
-				while (*++atx && (IsAlphaUTF8OrDigit(*atx)  || *atx == '_')){;}
-				char c = *atx;
-				*atx = 0;
-				int index = GetFunctionArgument(hat);
-				WORDP D = FindWord(hat); // in case its a function name
-				*atx = c;
-				if (index >= 0) // was a function argument
-				{
-					strcpy(tmp,atx); // protect chunk
-					sprintf(hat,(char*)"^%d%s",index,tmp);
-				}
-				else if (D && D->internalBits & FUNCTION_NAME){;}
-				else if (!renameInProgress && !(hat[1] == USERVAR_PREFIX || hat[1] == '_'))  
-				{
-					*atx = 0;
-					WARNSCRIPT((char*)"%s is not a recognized function argument. Is it intended to be?\r\n",hat)
-					*atx = c;
-				}
-			}
-
-			hat = word-1;
-			while ((hat = strchr(hat+1,'_'))) // rename _var? 
-			{
-				if (IsAlphaUTF8OrDigit(*(hat-1) ) || *(hat-1) == '_' || *(hat-1) == '-') continue; // not a starter
-				if (IsDigit(hat[1])) continue; // normal _ var
-				if (*(hat-1) == '\\' || *(hat-1) == '"') continue;	// escaped or quoted
-				char* atx = hat;
-				while (*++atx && (IsAlphaUTF8OrDigit(*atx))){;} // find end
-				WORDP D = FindWord(hat,atx-hat,LOWERCASE_LOOKUP);
-				if (D && D->internalBits & RENAMED) // remap matchvar inside  string
-				{
-					strcpy(tmp,atx); // protect chunk
-					sprintf(hat+1,(char*)"%d%s",(unsigned int)D->properties,tmp);
-				}
-			}
-
-			hat = word-1;
-			while ((hat = strchr(hat+1,'@'))) // rename @set?  
-			{
-				if (IsAlphaUTF8OrDigit(*(hat-1) )) continue; // not a starter
-				if (IsDigit(hat[1]) || hat[1] == '_') continue; // normal @ var or @_marker
-				if (*(hat-1) == '\\') continue;	// escaped
-				char* atx = GetSetEnd(hat);
-				WORDP D = FindWord(hat,atx-hat,LOWERCASE_LOOKUP);
-				if (D && D->internalBits & RENAMED)  // rename @set inside string
-				{
-					strcpy(tmp,atx); // protect chunk
-					sprintf(hat+1,(char*)"%d%s",(unsigned int)D->properties,tmp);
-				}
-				else if (!renameInProgress)  // can do anything safely in a simple quoted string
-				{
-					char c = *at;
-					*at = 0;
-					WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",hat)
-					*at = c;
-				}
-			}
-			hat = word-1;
-			if (strstr(readBuffer, "rename:")) // accept rename of existing constant twice in a row
-				hat = " ";
-			while ((hat = strchr(hat+1,'#'))) // rename #constant or ##constant
-			{
-				if (*(hat-1) == '\\') continue;	// escaped
-				if (IsAlphaUTF8OrDigit(*(hat-1) ) || IsDigit(hat[1]) || *(hat - 1) == '&') continue; // not a starter, maybe #533; constant stuff
-				char* at = hat;
-				if (at[1] == '#')  ++at;	// user constant
-				while (*++at && (IsAlphaUTF8OrDigit(*at) || *at == '_')){;} // find end
-				strcpy(tmp,at); // protect chunk
-				*at = 0;
-				uint64 n;
-				if (hat[1] == '#' && IsAlphaUTF8(hat[2])) // user constant
-				{
-					WORDP D = FindWord(hat,at-hat,LOWERCASE_LOOKUP);
-					if (D && D->internalBits & RENAMED)  // remap #constant inside string
-					{
-						n = D->properties; 
-						if (D->systemFlags & CONSTANT_IS_NEGATIVE) 
-						{
-							int64 x = (int64) n;
-							x = -x;
-#ifdef WIN32
-							sprintf(hat,(char*)"%I64d%s",(long long int) x,tmp); 
-#else
-							sprintf(hat,(char*)"%lld%s",(long long int) x,tmp); 
-#endif					
-						}
-						else
-						{
-#ifdef WIN32
-							sprintf(hat,(char*)"%I64d%s",(long long int) n,tmp); 
-#else
-							sprintf(hat,(char*)"%lld%s",(long long int) n,tmp); 
-#endif		
-						}
-					}
-				}
-				else // system constant
-				{
-					n = FindValueByName(hat+1);
-					if (!n) n = FindSystemValueByName(hat+1);
-					if (!n) n = FindParseValueByName(hat+1);
-					if (!n) n = FindMiscValueByName(hat+1);
-					if (n)
-					{
-#ifdef WIN32
-						sprintf(hat,(char*)"%I64d%s",(long long int) n,tmp); 
-#else
-						sprintf(hat,(char*)"%lld%s",(long long int) n,tmp); 
-#endif		
-					}
-				}
-				if (!*hat) 
-				{
-					*hat = '#';
-					BADSCRIPT((char*)"Bad # constant %s\r\n",hat)
-				}
-			}
-
-			return end;					//   if we did swallow a string
-		}
-		if (*ptr == '\\') // was this \"xxx with NO closing
-		{
-			memmove(word+1,word,strlen(word)+1);
-			*word = '\\';
-		}
-		else
-		{
-			word = start;
-			if (*start == '^') --ptr;
-		}
-	}
-
-	// the normal composite token
-	bool quote = false;
-	char* xxorig = ptr;
-	bool var = (*ptr == '$');
-	int brackets = 0;
-	while (*ptr) 
-	{
-		if (*ptr == ENDUNIT) break;
-		if (patternContext && quote) {} // allow stuff in comparison quote
-		else if (*ptr == ' ' || *ptr == '\t') break; // legal
-		if (patternContext && *ptr == '"') quote = !quote;
-
-		char c = *ptr++;
-		*word++ = c;
-		*word = 0;
-		if ((word - start) > (MAX_WORD_SIZE - 2)) break; // avoid overflow
-		// want to leave array json notation alone but react to [...] touching a variable - $var]
-		if (var && c == '[') // ANY variable should be separated by space from a [ if not json array
-		{
-			++brackets; // this MUST then be a json array and brackets will balance
-			if (brackets > 1) BADSCRIPT("$var MUST be separated from [ unless you intend json array reference\r\n")
-		}
-		else if (var && c == ']') 
-		{
-			if (--brackets < 0) // if brackets is set, we must be in json array
-			{
-				--ptr;
-				--word;
-				break;  
-			}
-		}
-		else if (GetNestingData(c)) // break off nesting attached to a started token unless its an escaped token
-		{
-			size_t len = word - start;
-			if (len == 1) break;		// automatically token by itself
-			if (len == 2)
-			{
-				if ((*start == '_' || *start == '!') && (c == '[' || c == '(' || c == '{')) break; // one token as _( or !( 
-				if (*start == '\\') break;	// one token escaped
-			}
-			// split off into two tokens
-			--ptr;
-			--word;
-			break;  
-		}
-	}
-	*word = 0;
-
-    word = start;
-	size_t len = strlen(word);
-	if (len == 0) return ptr; 
-	if (patternContext && word[len - 1] == '"' && word[len - 2] != '\\')
-	{
-		char* quote = strchr(word, '"');
-		if (quote == word+len-1) BADSCRIPT("Tailing quote without start: %s\r\n", word)
-	}
-	if (*word == '#' && !strstr(readBuffer,"rename:")) // is this a constant from dictionary.h? or user constant
-	{
-		uint64 n;
-		if (word[1] == '#' && IsAlphaUTF8(word[2])) // user constant
-		{
-			WORDP D = FindWord(word,0,LOWERCASE_LOOKUP);
-			if (D && D->internalBits & RENAMED)  // remap #constant 
-			{
-				n = D->properties; 
-				if (D->systemFlags & CONSTANT_IS_NEGATIVE) 
-				{
-					int64 x = (int64) n;
-					x = -x;
-#ifdef WIN32
-					sprintf(word,(char*)"%I64d",(long long int) x); 
-#else
-					sprintf(word,(char*)"%lld",(long long int) x); 
-#endif					
-				}
-				else
-				{
-#ifdef WIN32
-					sprintf(word,(char*)"%I64d",(long long int) n); 
-#else
-					sprintf(word,(char*)"%lld",(long long int) n); 
-#endif		
-				}
-			}
-
-			else if (renameInProgress) {;} // leave token alone, defining
-			else BADSCRIPT((char*)"Bad user constant %s\r\n",word)
-		}
-		else // system constant
-		{
-			n = FindValueByName(word+1);
-			if (!n) n = FindSystemValueByName(word+1);
-			if (!n) n = FindParseValueByName(word+1);
-			if (!n) n = FindMiscValueByName(word+1);
-			if (n)
-			{
-#ifdef WIN32
-				sprintf(word,(char*)"%I64d",(long long int) n); 
-#else
-				sprintf(word,(char*)"%lld",(long long int) n); 
-#endif		
-			}
-			else if (!IsDigit(word[1]) && word[1] != '!') //treat rest as a comment line (except if has number after it, which is user text OR internal arg reference for function
-			{
-				if (IsAlphaUTF8(word[1])) 
-					BADSCRIPT((char*)"Bad numeric # constant %s\r\n",word)
-				*ptr = 0;
-				*word = 0;
-			}
-		}
-	}
-	if ( *word == '_' && (IsAlphaUTF8(word[1]) ) ) // is this a rename _
-	{
-		WORDP D = FindWord(word);
-		if (D && D->internalBits & RENAMED) sprintf(word+1,(char*)"%d",(unsigned int)D->properties); // remap match var convert to number
-		// patterns can underscore ANYTING
-	}
-	if (*word == '\'' &&  word[1] == '_' && (IsAlphaUTF8(word[2]) ) ) // is this a rename _ with '
-	{
-		WORDP D = FindWord(word+1);
-		if (D && D->internalBits & RENAMED) sprintf(word+2,(char*)"%d",(unsigned int)D->properties); // remap match var convert to number
-		else if (!renameInProgress && !patternContext)  // patterns can underscore ANYTING
-			WARNSCRIPT((char*)"%s is not a recognized _rename. Should it be?\r\n",word+1)
-	}
-	if ( *word == '@' && IsAlphaUTF8(word[1]) ) // is this a rename @
-	{
-		char* at = GetSetEnd(word);
-		WORDP D = FindWord(word,at-word);
-		if (D && D->internalBits & RENAMED) // remap @set in string
-		{
-			strcpy(tmp,at); // protect chunk
-			sprintf(word+1,(char*)"%d%s",(unsigned int)D->properties,tmp);
-		}
-		else if (!renameInProgress)  WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",word)
-	}
-	if ( *word == '@' && word[1] == '_' && IsAlphaUTF8(word[2])) // is this a rename @_0+
-	{
-		size_t lenx = strlen(word);
-		WORDP D = FindWord(word + 1, lenx - 1); // @_data marker
-		char c = 0;
-		if (!D)
-		{
-			c = word[lenx - 1];
-			word[lenx - 1] = 0;
-			D = FindWord(word + 1, lenx - 2);
-			word[lenx - 1] = c;
-		}
-		if (D && D->internalBits & RENAMED) 
-		{
-			if (c) sprintf(word+2,(char*)"%d%c",(unsigned int)D->properties,c); // remap @set in string
-			else sprintf(word + 2, (char*)"%d", (unsigned int)D->properties); // remap @set in string
-		}
-		else if (!renameInProgress)  WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",word)
-	}
-
-	// some tokens require special splitting
-		
-	//   break off starting << from <<hello   
-	if (*word == '<' && word[1] != '=')
-	{
-		if (len == 3 && *word == word[1] && word[2] == '=') {;}
-		else if (word[1] == '<')
-		{
-			if (word[2]) // not assign operator
-			{
-				ptr -= strlen(word) - 2;  // safe
-				word[2] = 0;
-				len -= 2;
-			}
-		}
-	}
-
-	//   break off ending  >> from hello>> 
-	if (len > 2 && word[len-1] == '>')
-	{
-		if (len == 3 && *word == word[1] && word[2] == '=') {;}
-		else if (word[len-2] == '>')
-		{
-			ptr -= 2;
-			word[len-2] = 0;
-			len -= 2;
-		}
-	}
-
-	// break off punctuation from variable end 
-	if (len > 2 && ((*word == USERVAR_PREFIX && !IsDigit(word[1]))  || *word == '^' || (*word == '@' && IsDigit(word[1])) || *word == SYSVAR_PREFIX || (*word == '_' && IsDigit(word[1])) || (*word == '\'' && word[1] == '_'))) // not currency
-	{
-		if (!patternContext || word[len-1] != '?') // BUT NOT $$xxx? in pattern context
-		{
-			while (IsRealPunctuation(word[len-1])) // one would be enough, but $hello... needs to be addressed
-			{
-				--len;
-				--ptr;
-			}
-			word[len] = 0;
-		}
-	}
-
-	// break off opening < in pattern
-	if (patternContext && *word == '<' && word[1] != '<')
-	{
-		ptr -= len - 1;
-		len = 1;
-		word[1] = 0;
-	}
-
-	// break off closing > in pattern unless escaped or notted
-	if (len == 2 && (*word == '!' || *word == '\\')){;}
-	else if (patternContext && len > 1 && word[len-1] == '>' && word[len-2] != '>' && word[len-2] != '_' && word[len-2] != '!')
-	{
-		ptr -= len - 1;
-		--len;
-		word[len-1] = 0;
-	}
-
-	// find internal comparison op if any
-	char* at = (patternContext) ? FindComparison(word) : 0;
-	if (at && *word == '*' && !IsDigit(word[1])) 
-	{
-		if (compiling) BADSCRIPT((char*)"TOKENS-1 Cannot do comparison on variable gap %s . Memorize and compare against _# instead later.\r\n",word)
-	}
-	
-	if (at && *at == '!' && at[1] == '$') { ; } // allow !$xxx
-	else if (at) // revise comparison operators
-	{
-		if (*at == '!') ++at;
-		++at;
-		
-		if (*at == '^' && at[1]) // remap function arg on right side.
-		{
-			int index = GetFunctionArgument(at);
-			if (index >= 0) sprintf(at,(char*)"^%d",index);
-		}
-		if (*at == '_' && IsAlphaUTF8(word[1]) ) // remap rename matchvar arg on right side.
-		{
-			WORDP D = FindWord(at);
-			if (D && D->internalBits & RENAMED) sprintf(at,(char*)"_%d",(unsigned int)D->properties);
-		}
-		if (*at == '@' && IsAlphaUTF8(word[1]) ) // remap @set arg on right side.
-		{
-			char* at1 = GetSetEnd(at);
-			WORDP D = FindWord(at,at1-at);
-			if (D && D->internalBits & RENAMED) // remap @set on right side
-			{
-				strcpy(tmp,at1); // protect chunk
-				sprintf(at+1,(char*)"%d%s",(unsigned int)D->properties,tmp);
-			}
-		}
-
-		// check for remap on LHS
-		if (*word == '^')
-		{
-			char c = *--at;
-			*at = 0;
-			int index = GetFunctionArgument(word);
-			*at = c;
-			if (index >= 0) 
-			{
-				sprintf(tmp,(char*)"^%d%s",index,at);
-				strcpy(word,tmp);
-			}
-		}
-		// check for rename on LHS
-		if (*word == '_' && IsAlphaUTF8(word[1]) )
-		{
-			char* atx = word;
-			while (IsAlphaUTF8OrDigit(*++atx)){;}
-			WORDP D = FindWord(word,atx-word);
-			if (D && D->internalBits & RENAMED) // remap match var
-			{
-				sprintf(tmp,(char*)"%d%s",(unsigned int)D->properties,atx);
-				strcpy(word+1,tmp);
-			}
-		}
-		// check for rename on LHS
-		if (*word == '@' && IsAlphaUTF8(word[1]) ) 
-		{
-			char* atx = GetSetEnd(word);
-			WORDP D = FindWord(word,atx-word);
-			if (D && D->internalBits & RENAMED) // remap @set in string
-			{
-				strcpy(tmp,atx); // protect chunk
-				sprintf(word+1,(char*)"%d%s",(unsigned int)D->properties,tmp);
-			}
-		}
-	}
-	// when seeing ^, see if it remaps as a function argument
-	// check for internal ^ also...
-	char* hat = word-1;
-	while ( (hat = strchr(hat+1,'^'))) // find a hat within
-	{
-		char* at = hat;
-		while (*++at && (IsAlphaUTF8(*at)  || *at == '_' || IsDigit(*at))){;}
-		char c = *at;
-		*at = 0; // terminate it so internal ^ is recognized uniquely
-		strcpy(tmp,hat);
-		*at = c;
-
-		while (*tmp)
-		{
-			int index = GetFunctionArgument(tmp);
-			if (index >= 0) 
-			{
-				char remainder[MAX_WORD_SIZE];
-				strcpy(remainder,at); // protect chunk AFTER this
-				sprintf(hat,(char*)"^%d%s",index,remainder);
-				break;
-			}
-			else tmp[0] = 0;	// just abort it for now shrink it smaller, to handle @9subject kinds of behaviors 
-		}
-	}
-
-	// same for quoted function arg
-	if (*word == '\'' && word[1] == '^' && word[2])
-	{
-		int index = GetFunctionArgument(word+1);
-		if (index >= 0) sprintf(word,(char*)"'^%d",index);
-	}
-
-	// break apart math on variables eg $value+2 as a service to the user
-	if ((*word == '%'  || *word == '$') && word[1]) // cannot use _ here as that will break memorization pattern tokens
-	{
-		char* atx = word + 1;
-		if (atx[1] == '$' || atx[1] == '_') ++atx;	// skip over 2ndary marker
-		--atx;
-		while (LegalVarChar(*++atx) );  // find end of initial word
-		if (*word == '$' && (*atx == '.'  || *atx == '[' || *atx == ']') &&  (LegalVarChar(atx[1]) || atx[1] == '$' || atx[1] == '[' || atx[1] == ']'))// allow $x.y as a complete name
-		{
-			while (LegalVarChar(*++atx) || *atx == '.' || *atx == '$' || (*atx == '[' || *atx == ']') );  // find end of field name sequence
-			if (*(atx-1) == '.') --atx; // tailing period cannot be part of it
-		}  
-		if (*atx && IsPunctuation(*atx) & ARITHMETICS && *atx != '=')
-		{
-            if (*atx == '.' && atx[1] == '_' && IsDigit(atx[2])) {} // json field reference indirection
-            else if (*atx == '.' && atx[1] == '\'' && atx[2] == '_' && IsDigit(atx[3])) {} // json field reference indirection
-                                                                // - is legal in a var or word token
-			else if (*atx != '-' || (!IsAlphaUTF8OrDigit(atx[1]) && atx[1] != '_'))
-			{
-				ptr -= strlen(atx);
-				*atx = 0;
-				len = atx - start;
-			}
-		}
-	}
-	char* tilde = (IsAlphaUTF8(*word)) ? strchr(word+1,'~') : 0;
-	if (tilde) // has specific meaning like African-american~1n or African-american~1
-	{
-		if (IsDigit(*++tilde)) // we know the meaning, removing any POS marker since that is redundant
-		{
-			if (IsDigit(*++tilde)) ++tilde;
-			if (*tilde && !tilde[1])  *tilde = 0; // trim off pos marker
-
-			// now force meaning to master
-			MEANING M = ReadMeaning(word,true,false);
-			if (M) 
-			{
-				M = GetMaster(M);
-				sprintf(word,(char*)"%s~%d",Meaning2Word(M)->word,Meaning2Index(M));
-			}
-		}
-	}
-
-	// universal cover of simple use - complex tokens require processing elsewhere
-	if (*word == USERVAR_PREFIX && word[1] == LOCALVAR_PREFIX) 
-	{
-		char* at = word + 1;
-		while (*++at)
-		{
-			if (!IsAlphaUTF8OrDigit(*at) && *at != '-' && *at != '_') break;
-		}
-		if (*at == '.')  // root of a dotted variable
-		{
-			*at = 0;
-			AddDisplay(word);
-			*at = '.';
-		}
-		else if (!*at)  AddDisplay(word);
-	}
-
-	InsureAppropriateCase(word);
-	return ptr; 
-}
-
 char* ReadDisplayOutput(char* ptr,char* buffer) // locate next output fragment to display (that will be executed)
 {
 	char next[MAX_WORD_SIZE];
@@ -1193,8 +1231,6 @@ static char assignKind[MAX_WORD_SIZE];	// what we are assigning from in an assig
 static char currentTopicName[MAX_WORD_SIZE];	// current topic being read
 static char lowercaseForm[MAX_WORD_SIZE];		// a place to put a lower case copy of a token
 static WORDP currentFunctionDefinition;			// current macro defining or executing
-static FILE* patternFile = NULL; // where to store pattern words
-static char* nextToken;			// current lookahead token
 
 static char verifyLines[100][MAX_WORD_SIZE];	// verification lines for a rule to dump after seeing a rule
 static unsigned int verifyIndex = 0;			// index of how many verify lines seen
@@ -1588,11 +1624,11 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 	}
 	else if (!stricmp(D->word, (char*)"^pos"))
 	{
-		if (stricmp(arg1, (char*)"conjugate") && stricmp(arg1, (char*)"raw") && stricmp(arg1, (char*)"allupper") && stricmp(arg1, (char*)"syllable") && stricmp(arg1, (char*)"ADJECTIVE") && stricmp(arg1, (char*)"ADVERB") && stricmp(arg1, (char*)"VERB") && stricmp(arg1, (char*)"AUX") && stricmp(arg1, (char*)"PRONOUN") && stricmp(arg1, (char*)"TYPE") && stricmp(arg1, (char*)"HEX32") && stricmp(arg1, (char*)"HEX64")
+		if (stricmp(arg1, (char*)"conjugate") && stricmp(arg1, (char*)"preexists") && stricmp(arg1, (char*)"raw") && stricmp(arg1, (char*)"allupper") && stricmp(arg1, (char*)"syllable") && stricmp(arg1, (char*)"ADJECTIVE") && stricmp(arg1, (char*)"ADVERB") && stricmp(arg1, (char*)"VERB") && stricmp(arg1, (char*)"AUX") && stricmp(arg1, (char*)"PRONOUN") && stricmp(arg1, (char*)"TYPE") && stricmp(arg1, (char*)"HEX32") && stricmp(arg1, (char*)"HEX64")
 			&& stricmp(arg1, (char*)"NOUN") && stricmp(arg1, (char*)"DETERMINER") && stricmp(arg1, (char*)"PLACE") && stricmp(arg1, (char*)"common")
 			&& stricmp(arg1, (char*)"capitalize") && stricmp(arg1, (char*)"uppercase") && stricmp(arg1, (char*)"lowercase")
-			&& stricmp(arg1, (char*)"canonical") && stricmp(arg1, (char*)"integer") && stricmp(arg1, (char*)"IsModelNumber") && stricmp(arg1, (char*)"IsInteger") && stricmp(arg1, (char*)"IsUppercase") && stricmp(arg1, (char*)"IsFloat"))
-			BADSCRIPT((char*)"CALL- 12 1st argument to ^pos must be SYLLABLE or ALLUPPER or VERB or AUX or PRONOUN or NOUN or ADJECTIVE or ADVERB or DETERMINER or PLACE or COMMON or CAPITALIZE or UPPERCASE or LOWERCASE or CANONICAL or INTEGER or HEX32 or HEX64 or ISMODELNUMBER or ISINTEGER or ISUPPERCASE or ISFLOAT - %s\r\n", arg1)
+			&& stricmp(arg1, (char*)"canonical") && stricmp(arg1, (char*)"integer") && stricmp(arg1, (char*)"IsModelNumber") && stricmp(arg1, (char*)"IsInteger") && stricmp(arg1, (char*)"IsUppercase") && stricmp(arg1, (char*)"IsFloat") && stricmp(arg1, (char*)"IsMixedCase"))
+			BADSCRIPT((char*)"CALL- 12 1st argument to ^pos must be SYLLABLE or ALLUPPER or VERB or AUX or PRONOUN or NOUN or ADJECTIVE or ADVERB or DETERMINER or PLACE or COMMON or CAPITALIZE or UPPERCASE or LOWERCASE or CANONICAL or INTEGER or HEX32 or HEX64 or ISMODELNUMBER or ISINTEGER or ISUPPERCASE or ISFLOAT or ISMIXEDCASE - %s\r\n", arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^getrule"))
 	{
@@ -2194,32 +2230,6 @@ static char* ReadDescribe(char* ptr, FILE* in,unsigned int build)
 		fclose(out); // dont use Fclose
 	}
 	return ptr;
-}
-
-bool StartScriptCompiler(bool normal,bool live)
-{
-	if (nextToken && normal ) return false;
-    if (oldBuffer) return false; // already running one
-    patternFile = NULL;
-    beenHereThreadList = 0;
-    livecall = live;
-    oldBuffer = newBuffer;
-    warnIndex = errorIndex = 0;
-	newBuffer = AllocateStack(NULL,MAX_BUFFER_SIZE);
-	nextToken = AllocateStack(NULL, MAX_BUFFER_SIZE); // able to swallow big
-	return true;
-
-}
-
-void EndScriptCompiler()
-{
-	if (newBuffer)
-	{
-		ReleaseStack(newBuffer);
-		newBuffer = oldBuffer;
-        oldBuffer = NULL;
-        nextToken = NULL;
-    }
 }
 
 static void OverCover(char* laterword, STACKREF keywordList[1000],
@@ -6183,4 +6193,5 @@ char* CompileString(char* ptr) // incoming is:  ^"xxx" or ^'xxxx'
 	data[len+1] = 0;
 	return data;
 }
+#endif
 #endif

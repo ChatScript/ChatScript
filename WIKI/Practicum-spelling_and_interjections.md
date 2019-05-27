@@ -1,6 +1,6 @@
 # ChatScript Practicum: Spelling and Interjections
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/1/2019 cs9.0  
+<br>Revision 5/27/2019 cs9.4
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.
 
@@ -367,3 +367,64 @@ u: (_~no _*)  do something for the no, Then
 ```
 After handling the no, the above simply hides the interjection and 
 the system now only sees whatever else was input.
+
+# Rule-based spellchecking
+Sometimes users join words together in ways spellcheck can't readily detect. But
+you can write scripts to do it.
+
+## Replacing 1 word with multiple words
+In the context of products with brands and models, sometimes user join them with hyphens.
+If the pieces are already in the dictionary, CS will split them automatically. But if not,
+you can do so manually. The trick is to be able to add extra words to the sentence.
+```
+u: (_*1 _10:=_0) # e.g. Epson-566 
+    if (^pos(preexists '_0)){^retry(TOPRULE)}
+    if ( _0 != unknown-word AND ^pos(preexists _0) ){^retry(TOPRULE)}
+    _5 = ^burst('_0 -)
+    if (!_6) {^retry(TOPRULE)}
+    $_brand = ^pos(uppercase _5)
+    $_model = _6
+    if (!^pos(ismodelnumber $_model) AND !^pos(isinteger $_model) ) {^retry(TOPRULE)}
+    if ($_brand !? ~brands){^retry(RULE)}
+
+    if (PATTERN @_10- _* ) {$_start = '_0}
+    if (PATTERN @_10+ _* ) {$_end = '_0}
+    $_sentence = ^join($_start  " "  $_brand  " " $_model " " $_end )
+    $_sentence = ^substitute(character $_sentence _ " ")
+    ^analyze($_sentence)
+    ^retry(TOPRULE)
+```
+This code splits a word at a hyphen if it can (assuming the word is not already in the dictionary).
+It then confirms the model is a potential model number and the brand is a known brand.
+If so, then it gets the sentence fragments before and after this word and forces an 
+in-place reanalysis of this new sentence (which now has the proper words) and then continues
+merrily hunting for more and then continuing with the rest of analysis.
+
+The above was easy because you could split on a hyphen. Otherwise you can maybe do this:
+```
+u: (_*1 _10:=_0) # check for Epson566 
+    if (^pos(preexists '_0)){^retry(TOPRULE)}
+    if ( _0 != unknown-word AND ^pos(preexists _0) ){^retry(TOPRULE)}
+    @0 = ^burst('_0 "") # character burst
+    Loop()
+    {
+        $_char = ^first(@0subject)
+        if ($_char ? ~digits OR $_remainder)
+        {
+            $_remainder = ^join($_remainder $_char)
+        }
+        else {$_word = ^join($_word $_char)}
+    }
+    $_brand = ^pos(uppercase $_word)
+    $_model = $_remainder
+    if (!^pos(ismodelnumber $_model) AND !^pos(isinteger $_model) ) {^retry(TOPRULE)}
+    if ($_brand !? ~all_tech_brands){^retry(RULE)}
+
+    if (PATTERN @_10- _* ) {$_start = '_0}
+    if (PATTERN @_10+ _* ) {$_end = '_0}
+    $_sentence = ^join($_start  " "  $_brand  " " $_model " " $_end )
+    $_sentence = ^substitute(character $_sentence _ " ")
+    ^analyze($_sentence)
+    ^retry(TOPRULE)
+```
+

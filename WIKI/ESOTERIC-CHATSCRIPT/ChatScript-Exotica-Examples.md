@@ -8,9 +8,9 @@ you want to direct the system to be elsewhere, you can use SetRejoinder to do th
 example wherein the normal rejoinders are set to cover a small robot's rejoinders to the dangers of
 getting wet.
 ```
-t: If you poured coffee over me or let me fall into the bathtub what do you think would happen?
+t: REJOIN() If you poured coffee over me or let me fall into the bathtub what do you think would happen?
   #! why
-  a: REJOIN(~why) I want you to think about and understand my vulnerabilities.
+  a: (~why) I want you to think about and understand my vulnerabilities.
   
   #! get wet
   a: (wet) And then? ^setRejoinder(REJOIN)
@@ -42,11 +42,15 @@ actually generate output. Below is a sample rule from such a topic:
 u: (< [~describe ~list ~explain]) SetTokenFlags(#QUESTIONMARK)
 ```
 After this rule executes, no output is generated so it doesn't disturb other topics. But the question flag is
-now on, so a rule like:
+now on, so a rule in a later topic like:
 ```
 ?: (bird) What about birds?
 ```
 Will now react if the input is _tell me about birds_
+
+Note that the change will not impact rule matching within the topic you have just done the change,
+because it has commited the set of rules it will try to match. So it only applies to later topics.
+
 
 
 ## Passing in parameters

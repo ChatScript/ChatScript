@@ -1,6 +1,6 @@
-﻿# ChatScript Advanced Pattern Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/26/2019 cs9.3
+# ChatScript Advanced Pattern Manual
+copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
+<br>Revision 5/27/2019 cs9.4
 
 
 # ADVANCED PATTERNS
@@ -59,7 +59,7 @@ the meaning you want.
     concept: ~buildings [ shelter~1 living_accomodations~1 building~3 ]
 
 The concept `~buildings` represents 760 general and specific building words found in the
-WordNet dictionary – any word which is a child of: definition 1 of shelter, definition 1 of
+WordNet dictionary   any word which is a child of: definition 1 of shelter, definition 1 of
 accommodations, or definition 3 of building in WordNet's ontology. 
 
 How would you be able to figure out creating this? 
@@ -122,7 +122,7 @@ _I've been clean for months_ to target it, but not _I clean my house_.
 You can call any predefined system function. It will fail the pattern if it returns any fail or end code. 
 It will pass otherwise.  The most likely functions you would call would be:
 
-`^query` – to see if some fact data could be found.
+`^query`   to see if some fact data could be found.
 Many functions make no sense to call, because they are only useful on output and their
 behavior on the pattern side is unpredictable.
 
@@ -398,8 +398,14 @@ You can request n words before the current position using `*-n`. For example
 
 ## Match Variable assignment in a pattern
 
-Aside from the use of _ to memorize a match, you can directly assign to a match variable either
-a constant word, another matchvar, or a system or user variable. This is not obviously useful
+Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value.
+You cannot do arithmetic or function calls for these assignments, but you can transfer data to and
+from match variables, regular variables, and system variables.
+``` 
+    $value = 5
+    ( _some_test  $value:=5 $value1:=_0 $value2:='_0 $value3:=%time )
+```
+This is not obviously useful
 normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.
 
 
@@ -585,8 +591,8 @@ Then `[ ]` quits. So if you have a pattern like:
 and an input like _the raccoon at the bear_, then matching would proceed as
 
 * find the word the (position 1 in sentence)
-* try to find bear starting at position 2 – found at position 5
-* try to find the word ate starting at position 6 – fails
+* try to find bear starting at position 2   found at position 5
+* try to find the word ate starting at position 6   fails
 
 The system is allowed to backtrack and see if the first match can be made later. So it will
 try to find the later than position one. It would succeed in relocating it to position 4. 

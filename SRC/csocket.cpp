@@ -282,6 +282,7 @@ static void ReadSocket(TCPSocket* sock, char* response)
 
 void Client(char* login)// test client for a server
 {
+#ifndef DISCARDSERVER
     char word[MAX_WORD_SIZE];
     if (!trace) echo = false;
     (*printer)((char*)"%s", (char*)"\r\n\r\n** Client launched\r\n");
@@ -367,10 +368,10 @@ restart: // start with user
             sourcefile = fopen(file, (char*)"rb");
             converse = true;
         }
-        else if (!strnicmp(ptr, (char*)":jastarts ", 8))
+        else if (!strnicmp(ptr, (char*)":jastarts ", 9))
         {
             char file[SMALL_WORD_SIZE];
-            ptr = ReadCompiledWord(ptr + 8, file);
+            ptr = ReadCompiledWord(ptr + 9, file);
             source = fopen(file, (char*)"rb");
             if (!source)
             {
@@ -500,12 +501,14 @@ restart: // start with user
                 // get category
                 ptr = blank + 1; // cat star
                 blank = strchr(ptr, '\t');
+                if (!blank) continue;
                 *blank = 0;
                 strcpy(cat, ptr);
 
                 // get specialty
                 ptr = blank + 1; // spec
                 blank = strchr(ptr, '\t');
+                if (!blank) continue;
                 *blank = 0;
                 strcpy(spec, ptr);
                 if (!stricmp(spec, "none") || !stricmp(spec, "null") || *spec == 0) strcpy(spec, "general");
@@ -662,6 +665,7 @@ restart: // start with user
         myexit((char*)"failed to connect to server\r\n");
     }
     if (sourceFile) fclose(sourceFile);
+#endif
 }
 #endif
 

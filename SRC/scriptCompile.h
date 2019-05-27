@@ -43,7 +43,9 @@ void InitScriptSystem();
 void SaveCanon(char* word, char* canon);
 
 char* ReadDisplayOutput(char* ptr,char* buffer);
-  
+void EndScriptCompiler();
+bool StartScriptCompiler(bool normal = true, bool live = false);
+
 #ifndef DISCARDSCRIPTCOMPILER
 int ReadTopicFiles(char* name,unsigned int build, int spell);
 char* ReadPattern(char* ptr, FILE* in, char* &data,bool macro,bool ifstatement);
@@ -51,8 +53,6 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data, char* rejoinders);
 char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &data,char* rejoinders,char* existingRead = NULL,WORDP call = NULL, bool choice = false);
 char* CompileString(char* ptr);
 void ScriptWarn();
-void EndScriptCompiler();
-bool StartScriptCompiler(bool normal = true,bool live = false);
 #define WARNSCRIPT(...) {if (compiling) {ScriptWarn(); Log(STDTRACELOG, __VA_ARGS__);} } // readpattern calls from functions should not issue warnings
 #else
 #define WARNSCRIPT(...) {Log(STDTRACELOG, __VA_ARGS__); } // readpattern calls from functions should not issue warnings

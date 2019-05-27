@@ -9,15 +9,15 @@
 </head>
 <body>
 <h1 id="chatscript-multiple-bots-manual">ChatScript Multiple Bots Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/25/2017 cs7.51</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/27/2019 cs9.4</p>
 <p>The system can support multiple bots cohabiting the same engine. You can restrict topics to be available only to certain bots. You can also restrict facts and functions, such that variants exist per bot.</p>
 <h1 id="restriction-by-rule">Restriction by Rule</h1>
 <p>The simplest thing is to restrict rules to being available only to certain bots by using something like</p>
-<pre><code>?: ($bot=harry ...)
+<pre><code>?: (%bot=harry ...)
 
-?: (!$bot=harry ...).
+?: (%bot!=harry ...).
 
-t: ($bot=harry) My name is harry.</code></pre>
+t: (%bot=harry) My name is harry.</code></pre>
 <p>You specify which bot you want when you login, by appending <code>:botname</code> to your login name, e.g., <code>bruce:harry</code>. The demo system has only one bot, Harry. If it had two bots in it,Harry and Georgia, you could get Georgia by logging in as <code>yourname:georgia</code>. And you can confirm who she is by asking <code>what is your name</code>.</p>
 <p>When you don't give a botname, you get the default bot. How does the system know what that is? It looks for a fact in the database whose subject will be the default bot name and whose verb is defaultbot. If none is found, the default bot is called anonymous, and probably nothing works at all. Defining the default bot is what a table does when you compile <code>simplecontrol.top</code>. It has:</p>
 <pre><code>table: defaultbot (^name)
@@ -81,5 +81,7 @@ set the <code>$cs_botid</code> from a table. More convenient is to use the <code
 <p>You disable ownership rules with</p>
 <pre><code>bot: 0</code></pre>
 <p>In the build file, you need to compile all bot definition macros and the default bot macro under bot: 0 ownership. All other bots can be built independently by using bot ids that are powers of two and unique bot names. ``` bot: 0 private/Mine/CONTROL/botmacro.top private/Mine1/CONTROL/botmacro.top private/Mine2/CONTROL/botmacro.top bot: 1 John private/John/ bot: 2 Harry private/Harry/ bot: 4 Martha private/Martha/</p>
+<h1 id="changing-bot-id-on-the-fly">Changing bot id on the fly</h1>
+<p>^changebot(botname botid) allows a bot to pretend to be another bot and access its data, functions, and topics. Variables are not affected by this. The user topic file will remain as the user came into the server.</p>
 </body>
 </html>

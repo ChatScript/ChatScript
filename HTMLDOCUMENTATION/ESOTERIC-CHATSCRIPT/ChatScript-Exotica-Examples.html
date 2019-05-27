@@ -14,9 +14,9 @@
 </blockquote>
 <h2 id="setrejoinder"><code>^SetRejoinder</code></h2>
 <p>Normally the rejoinder is script immediately after the executed gambit or responder or rejoinder. But if you want to direct the system to be elsewhere, you can use SetRejoinder to do that. Below is an example wherein the normal rejoinders are set to cover a small robot's rejoinders to the dangers of getting wet.</p>
-<pre><code>t: If you poured coffee over me or let me fall into the bathtub what do you think would happen?
+<pre><code>t: REJOIN() If you poured coffee over me or let me fall into the bathtub what do you think would happen?
   #! why
-  a: REJOIN(~why) I want you to think about and understand my vulnerabilities.
+  a: (~why) I want you to think about and understand my vulnerabilities.
   
   #! get wet
   a: (wet) And then? ^setRejoinder(REJOIN)
@@ -32,9 +32,10 @@
 <p><em>Tell me about birds</em> is very similar in spirit to <em>what do you know about birds</em>, for example, yet one is a statement (a command) and one is a question. If you want to extend the system marking of questions for your own purposes, you can. You would just write a topic filled with appropriate rules and call it from your control script before you do other things that might actually generate output. Below is a sample rule from such a topic:</p>
 <pre><code>#! Tell me about birds.
 u: (&lt; [~describe ~list ~explain]) SetTokenFlags(#QUESTIONMARK)</code></pre>
-<p>After this rule executes, no output is generated so it doesn't disturb other topics. But the question flag is now on, so a rule like:</p>
+<p>After this rule executes, no output is generated so it doesn't disturb other topics. But the question flag is now on, so a rule in a later topic like:</p>
 <pre><code>?: (bird) What about birds?</code></pre>
 <p>Will now react if the input is <em>tell me about birds</em></p>
+<p>Note that the change will not impact rule matching within the topic you have just done the change, because it has commited the set of rules it will try to match. So it only applies to later topics.</p>
 <h2 id="passing-in-parameters">Passing in parameters</h2>
 <p>When you want to send in avatar data or other data, there is a notion of &quot;out-of-band&quot; communcation. The standard way (arbitrary) is to include the information at the front of the input, with <code>[ ]</code>. This can then be parsed out in various ways depending on how you want. If you are setting variables, for example, here is code for that:</p>
 <pre><code>u: (\[ _* \] _*) # grab params and main sentence - a param looks like location:100

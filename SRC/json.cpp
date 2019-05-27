@@ -167,15 +167,23 @@ static char* IsJsonNumber(char* str)
 	return NULL;
 }
 
-static bool ConvertUnicode(char* str) // convert \uxxxx to utf8
+static bool ConvertUnicode(char* str) // convert \uxxxx to utf8  and escaped characters to normal
 {
 	char* at = str;
 	bool converted = false;
 	while ((at = strchr(at, '\\')))
 	{
-		char* base = at;
-		++at;
-		if (*at != 'u') continue;
+		char* base = at++;
+        if (*at != 'u')
+        {
+            if (*at  == '"' || *at == '\\') // json escaped \" stuff is not escaped in CS
+            {
+                memcpy(base, at, strlen(base)); // skip over the escaped char (in case its a \)
+                at = base + 1;
+                converted = true;
+            }
+            continue;
+        }
 
 		int value = 0;
 		char c = GetLowercaseData(*++at);
@@ -303,6 +311,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 		char* str = InfiniteStack(limit,"factsJsonHelper string");
 		strncpy(str,jsontext + curr.start,size);
 		str[size] = 0;
+        Log(STDUSERLOG, "jsmn %s ||  %s\r\n", jsontext,str);
 		if (ConvertUnicode(str)) size = strlen(str);
 		
 		*flags = JSON_STRING_VALUE; // string null
@@ -1129,7 +1138,7 @@ static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer,
 	if (!(subject&(JSON_ARRAY_VALUE|JSON_OBJECT_VALUE)))
 	{
 		if (subject & JSON_STRING_VALUE) *buffer++ = '"';
-		if (subject & JSON_STRING_VALUE) AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase));
+		if (subject & JSON_STRING_VALUE) AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase),false);
 		else strcpy(buffer,D->word);
 		buffer += strlen(buffer);
 		if (subject & JSON_STRING_VALUE) *buffer++ = '"';
@@ -1477,7 +1486,7 @@ char* jwrite(char* buffer, WORDP D, int subject )
 			return buffer + strlen(buffer);
 		}
 		if (subject & JSON_STRING_VALUE) strcpy(buffer++,(char*)"\"");
-		if (subject & JSON_STRING_VALUE) AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase));
+		if (subject & JSON_STRING_VALUE) AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase),false);
 		else strcpy(buffer,D->word);
 		buffer += strlen(buffer);
 		if (subject & JSON_STRING_VALUE) strcpy(buffer++,(char*)"\"");
@@ -2048,12 +2057,11 @@ LOOP: // now we look at $x.key or $x[0]
 	WORDP keyname;
 	char keyx[MAX_WORD_SIZE];
 	strcpy(keyx,separator+1);
-	if (*keyx == '$') // indirection key user variable
+	if (*keyx == '$' ) // indirection key user variable
 	{
-		char* answer = GetUserVariable(keyx);
+        char* answer = GetUserVariable(keyx);
 		strcpy(keyx,answer);
-		if (!*keyx) 
-			return FAILRULE_BIT;
+		if (!*keyx)  return FAILRULE_BIT;
 	}
     else if ((*keyx == '_' && IsDigit(keyx[1])) || (*keyx == '\'' && keyx[1] == '_' && IsDigit(keyx[2]))) // indirection key match variable
     {
@@ -2063,6 +2071,7 @@ LOOP: // now we look at $x.key or $x[0]
         if (!*keyx)
             return FAILRULE_BIT;
     }
+    else if (*keyx == '\\' && keyx[1] == '$') memmove(keyx, keyx + 1, strlen(keyx));
 	// now we have retrieved the key/index
 	if (*keyx == ']') keyname = NULL;  // [] use
 	else keyname =  StoreWord(keyx,AS_IS);  // key indexing
@@ -2171,6 +2180,7 @@ LOOP: // now we look at $x.key or $x[0]
 
 	MEANING object = MakeMeaning(leftside);
 	MEANING key = MakeMeaning(keyname);
+    int index = (keyname) ? atoi(keyname->word) : 0;
 	MEANING valx = 0;
 	if (key && stricmp(value, "null")) valx = jsonValue(value, flags);// not deleting using json literal   ^"" or "" would be the literal null in json
 
@@ -2179,7 +2189,7 @@ LOOP: // now we look at $x.key or $x[0]
 	FACT* F = GetSubjectNondeadHead(leftside);
 	while (F)	// already there, delete it if not referenced elsewhere
 	{
-		if (F->verb == key)
+		if (F->verb == key || index == -1 )
 		{
 			if (F->object == valx) break; // already here
 			if (stricmp(value, "null") && !(F->flags & (JSON_OBJECT_VALUE | JSON_ARRAY_VALUE)))

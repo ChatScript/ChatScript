@@ -418,7 +418,7 @@ static char* predefinedSets[] = //  some internally mapped concepts not includin
 {
 	 (char*)"~repeatme",(char*)"~repeatinput1",(char*)"~repeatinput2",(char*)"~repeatinput3",(char*)"~repeatinput4",(char*)"~repeatinput5",(char*)"~repeatinput6",(char*)"~uppercase",(char*)"~utf8",(char*)"~sentenceend",
 	(char*)"~pos",(char*)"~sys",(char*)"~grammar_role",(char*)"~daynumber",(char*)"~yearnumber",(char*)"~dateinfo",(char*)"~formatteddate",(char*)"~email_url",(char*)"~fahrenheit",(char*)"~celsius",(char*)"~kelvin",
-	(char*)"~kindergarten",(char*)"~grade1_2",(char*)"~grade3_4",(char*)"~grade5_6",(char*)"~twitter_name",(char*)"~hashtag_label",
+	(char*)"~kindergarten",(char*)"~grade1_2",(char*)"~grade3_4",(char*)"~grade5_6",(char*)"~twitter_name",(char*)"~hashtag_label",(char*)"~filename",
 	(char*)"~shout",(char*)"~distance_noun_modify_adverb",
 	(char*)"~distance_noun_modify_adjective",(char*)"~modelnumber",
     (char*)"~passive_verb",

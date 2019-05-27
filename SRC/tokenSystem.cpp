@@ -473,7 +473,10 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 						ARGUMENT(1) = "TRANSIENT SAFE";
 						ARGUMENT(2) = jsonStart;
 						char word[MAX_WORD_SIZE];
+                        uint64 oldbot = myBot;
+                        myBot = 0; // universal access to this transient json
 						FunctionResult result = JSONParseCode(word);
+                        myBot = oldbot;
 						++count;
 						if (result == NOPROBLEM_BIT) words[count] = AllocateHeap(word); // insert json object
 						else words[count] = AllocateHeap((char*)"bad json");
@@ -552,6 +555,13 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (c == '\'' && !(tokenControl & TOKEN_AS_IS) && !IsAlphaUTF8(ptr[1]) && !IsDigit(ptr[1])) 	return ptr + 1; // is this quote or apostrophe - for penntag dont touch it - for 've  leave it alone also leave '82 alone
 		else if (c == '\''  && tokenControl & TOKEN_AS_IS) { ; } // for penntag dont touch it - for 've  leave it alone also leave '82 alone
 		else if (c == '"' && tokenControl & TOKEN_AS_IS) return ptr + 1;
+		else if (c == '*' && ptr[1] == '.' && (IsLowerCase(ptr[2]) || IsDigit(ptr[2]))) { 
+			char ext[MAX_WORD_SIZE];
+			ReadCompiledWord(ptr+2, ext);
+			if (IsFileExtension(ext)) {
+				return ptr + strlen(ext) + 2;
+			}
+		}
 		else
 		{
 			char* end1 = HandleQuoter(ptr, words, count);
@@ -846,7 +856,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (*end == '-' && !(tokenControl & TOKEN_AS_IS) && !stopper) stopper = end; // alternate possible end  (e.g. 8.4-ounce)
 		if (*end == ';' && !fullstopper) fullstopper = end; // alternate possible end  (e.g. 8.4-ounce)
 		if (*end == '.' && end[1] == '.' && end[2] == '.') break; // ...
-        if (*end == '.' && !IsDigit(end[1])) break; // ...
+        if (*end == '.' && !IsDigit(end[1]) && !IsFileExtension(end+1)) break; // ...
     }
 	if (comma && end > comma && (!IsDigit(comma[1]) ||!IsDigit(comma[-1]))) end = comma;
 
@@ -916,6 +926,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			}
 			return emailEnd;
 		}
+	}
+
+	// could be a file name
+	if (IsFileName(token)) {
+		return ptr + strlen(token);
 	}
 
 	//  e-mail, needs to not see - as a stopper.
@@ -1097,14 +1112,16 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 		}
 		else ++html;
 	}
+
+    // json oob may have \", users wont
 	html = input;
-	while ((html = strstr(html,(char*)"&quot;")) != 0) // &quot;
+	while (!oobStart && (html = strstr(html,(char*)"&quot;")) != 0) // &quot;
 	{
 		*html = '"';
 		memmove(html+1,html+6,strlen(html+5));
 	}
 	html = input;
-	while ((html = strchr(html,'\\')) != 0) // \"  remove this
+	while (!oobStart && (html = strchr(html,'\\')) != 0) // \"  remove this -- but not for json input!
 	{
 		if (html[1] == '"')	memmove(html, html + 1, strlen(html));
 		++html;
@@ -1863,8 +1880,8 @@ void ProcessSplitUnderscores()
 		char* under = strchr(original,'_');
 		if (!under) continue;
 
-		// dont split if email or url
-		if (strchr(original, '@') || strchr(original, '.')) continue;
+		// dont split if email or url or hashtag
+		if (strchr(original, '@') || strchr(original, '.') || original[0] == '#') continue;
 
 		int index = 1;
 		while (under)

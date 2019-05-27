@@ -575,7 +575,7 @@ void ChangeSpecial(char* buffer)
 	ReleaseInfiniteStack();
 }
 
-char* AddEscapes(char* to, char* from, bool normal,int limit) // normal true means dont flag with extra markers
+char* AddEscapes(char* to, char* from, bool normal,int limit,bool addescapes) // normal true means dont flag with extra markers
 {
 	limit -= 200; // dont get close to limit
 	char* start = to;
@@ -599,10 +599,10 @@ char* AddEscapes(char* to, char* from, bool normal,int limit) // normal true mea
 			*to++ = '\\'; 
 			*to++ = 't'; // legal
 		}
-		else if (*at == '"') { // we  need to preserve that it was escaped, though we always escape it in json anyway, because writeuservars needs to know
+		else if (*at == '"' || (*at == '\\' && !addescapes)) { // we  need to preserve that it was escaped, though we always escape it in json anyway, because writeuservars needs to know
 			if (!normal) *to++ = ESCAPE_FLAG; 
 			*to++ = '\\'; 
-			*to++ = '"';
+			*to++ = *at;
 		}
 		// detect it is already escaped
 		else if (*at == '\\')
@@ -1608,7 +1608,7 @@ bool IsUrl(char* word, char* end)
 	//	check domain suffix is somewhat known as a TLD
 	//	fireze.it OR www.amazon.co.uk OR amazon.com OR kore.ai
 	char* firstPeriod = strchr(tmp, '.');
-	if (!firstPeriod) return false; // not a possible url
+	if (!firstPeriod || firstPeriod[1] == '.') return false; // not a possible url
 	char* domainEnd = strchr(firstPeriod, '/');
 	if (domainEnd) *domainEnd = 0;
 	ptr = strrchr(tmp, '.'); // last period - KNOWN to exist
@@ -1619,6 +1619,70 @@ bool IsUrl(char* word, char* end)
 	// check for common suffices - https://w3techs.com/technologies/overview/top_level_domain/all
 	// most up to date list of all TLDs at http://data.iana.org/TLD/tlds-alpha-by-domain.txt
 	return (!strnicmp(ptr,(char*)"com",3) || !strnicmp(ptr,(char*)"net",3) || !strnicmp(ptr,(char*)"org",3) || !strnicmp(ptr,(char*)"edu",3) || !strnicmp(ptr,(char*)"biz",3) || !strnicmp(ptr,(char*)"gov",3) || !strnicmp(ptr,(char*)"mil",3) || !strnicmp(ptr, (char*)"info", 4));
+}
+
+bool IsFileExtension(char* word)
+{
+	// needs to be lowercase alphanumeric
+	char* ptr = word-1;
+	while (*++ptr)
+	{
+		if (IsLowerCase(*ptr) || IsDigit(*ptr) || *ptr == '.') continue;
+		return false;
+	}
+
+	size_t len = strlen(word);
+	// most extensions are 3 characters
+	if (len == 3) return true;
+
+	// other lengths are more exclusive : https://fileinfo.com/filetypes/common
+	if (len == 1) {
+		return (!strnicmp(word, (char*)"a", 1) || !strnicmp(word, (char*)"c", 1) || !strnicmp(word, (char*)"h", 1) || !strnicmp(word, (char*)"m", 1) || !strnicmp(word, (char*)"z", 1));
+	}
+	else if (len == 2) {
+		return (!strnicmp(word, (char*)"7z", 2) || !strnicmp(word, (char*)"ai", 2) || !strnicmp(word, (char*)"cs", 2) || !strnicmp(word, (char*)"db", 2) || !strnicmp(word, (char*)"gz", 2) || !strnicmp(word, (char*)"js", 2) || !strnicmp(word, (char*)"pl", 2) || !strnicmp(word, (char*)"ps", 2) || !strnicmp(word, (char*)"py", 2) || !strnicmp(word, (char*)"rm", 2) || !strnicmp(word, (char*)"sh", 2) || !strnicmp(word, (char*)"vb", 2));
+	}
+	else if (len == 4) {
+		return (!strnicmp(word, (char*)"aspx", 4) || !strnicmp(word, (char*)"docx", 4) || !strnicmp(word, (char*)"h264", 4) || !strnicmp(word, (char*)"heic", 4) || !strnicmp(word, (char*)"html", 4) || !strnicmp(word, (char*)"icns", 4) || !strnicmp(word, (char*)"indd", 4) || !strnicmp(word, (char*)"java", 4) || !strnicmp(word, (char*)"jpeg", 4) || !strnicmp(word, (char*)"mpeg", 4) || !strnicmp(word, (char*)"midi", 4) || !strnicmp(word, (char*)"pptx", 4) || !strnicmp(word, (char*)"sitx", 4) || !strnicmp(word, (char*)"tiff", 4) || !strnicmp(word, (char*)"xlsx", 4) || !strnicmp(word, (char*)"zipx", 4));
+	}
+	else {
+		return (!strnicmp(word, (char*)"class", 5) || !strnicmp(word, (char*)"gadget", 6) || !strnicmp(word, (char*)"swift", 5) || !strnicmp(word, (char*)"tar.gz", 6) || !strnicmp(word, (char*)"toast", 5) || !strnicmp(word, (char*)"xhtml", 5));
+	}
+}
+
+bool IsFileName(char* word)
+{
+	// check for a file extension
+	char* ext = strrchr(word, '.');
+	if (!ext) return false;
+
+	char* ptr = word-1;
+	char* last = ptr+strlen(word);
+	char first = *word;
+
+	// ignore wrapping quotes
+	if ((first == '"' || first == '\'') && *last == first) {
+		ptr++;
+		*last = 0;
+	}
+	else {
+		first = 0;
+	}
+
+	bool valid = IsFileExtension(ext + 1);
+	if (valid) {
+		if (ptr[1] == '*' && (ptr + 2) == ext) ptr = ext;		// *.ext
+		else if (IsAlphaUTF8(ptr[1]) && ptr[2] == ':') { ptr += 2; }	// Windows drive
+
+		while (valid && ++ptr < ext) {
+			if (IsAlphaUTF8OrDigit(*ptr) || *ptr == '/' || *ptr == '\\') continue;
+			if (first && *ptr == ' ') continue;  // spaces inside a quoted name
+			valid = false;
+		}
+	}
+
+	if (first) *last = first;
+	return valid;
 }
 
 unsigned int IsMadeOfInitials(char * word,char* end) 
@@ -2498,11 +2562,11 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 			// PAY NO SPECIAL ATTENTION TO NON-STARTING QUOTEMARKS, ESP 69"
 			if (special) // try to end a variable if not utf8 char or such
 			{
-				if (special == '$' && (c == '.' || c == '[') && (LegalVarChar(*ptr) || *ptr == '$' )) {;} // legal data following . or [
+				if (special == '$' && (c == '.' || c == '[') && (LegalVarChar(*ptr) || *ptr == '$' || (*ptr == '\\' && ptr[1] == '$') )) {;} // legal data following . or [
 				else if (special == '$' &&  c == ']' && bracket) {;} // allowed trailing array close
-				else if (special == '$' && c == '$' && (priorchar == '.' || priorchar == '[' || priorchar == '$' || priorchar == 0)){;} // legal start of interval variable or transient var continued
+				else if (special == '$' && c == '$' && (priorchar == '.' || priorchar == '[' || priorchar == '$' || priorchar == 0 || priorchar == '\\')){;} // legal start of interval variable or transient var continued
 				else if ((special == '%' || special == '_' || special == '@') && priorchar == 0) {;}
-				else if (!LegalVarChar(c)) 
+				else if (!LegalVarChar(c) && c != '\\') 
 					break;
 				if (c == '[' && !bracket) bracket = true;
 				else if (c == ']' && bracket) bracket = false;

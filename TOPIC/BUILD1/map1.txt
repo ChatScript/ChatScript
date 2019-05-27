@@ -9,7 +9,7 @@
 # Complexity of rule full_rule_tag_with_possible_label rule_kind complexity_metric (complexity metric for rule) 
 # bot: name_of_macro_it_happens_in botid (possible bot macro) 
 
-file: 0  C:/ChatScript/RAWDATA/HARRY/childhood.top
+file: 0  c:/ChatScript/RAWDATA/HARRY/childhood.top
     topic: 2  ~childhood
         rule: 6  ~childhood.0.0- t: 
           line: 6 0  # Did you run away from home whe
@@ -80,7 +80,7 @@ file: 0  C:/ChatScript/RAWDATA/HARRY/childhood.top
         rule: 68  ~childhood.10.0 u: 
           line: 68 0  # I was born. I survived childho
           Complexity of rule ~childhood.10.0- u: 1
-file: 0  C:/ChatScript/RAWDATA/HARRY/introductions.top
+file: 0  c:/ChatScript/RAWDATA/HARRY/introductions.top
     topic: 2  ~introductions
         rule: 5  ~introductions.0.0 t: 
           line: 6 0  # ^keep ( ) 
@@ -102,7 +102,7 @@ file: 0  C:/ChatScript/RAWDATA/HARRY/introductions.top
         rule: 22  ~introductions.3.0 u: 
           line: 22 0  # My name is 
           Complexity of rule ~introductions.3.0- u: 1
-file: 0  C:/ChatScript/RAWDATA/HARRY/keywordless.top
+file: 0  c:/ChatScript/RAWDATA/HARRY/keywordless.top
     topic: 4  ~keywordless
         rule: 6  ~keywordless.0.0 u: 
           line: 6 0  # ^keep ( ) ^repeat ( ) '_0 
@@ -129,7 +129,7 @@ file: 0  C:/ChatScript/RAWDATA/HARRY/keywordless.top
           line: 39 332  # $$tmp = ^jsonopen ( GET $$url 
           line: 42 380  # @0 = ^query ( direct_v ? extra
           Complexity of rule ~keywordless.4.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/HARRY/simplecontrol.top
+file: 0  c:/ChatScript/RAWDATA/HARRY/simplecontrol.top
     macro: 6  ^harry
           line: 8 0  # $cs_token = 4096 | 255 | 512 |
           line: 9 60  # $cs_token += 67108864 | 65536 
@@ -297,7 +297,7 @@ file: 0  C:/ChatScript/RAWDATA/HARRY/simplecontrol.top
           line: 161 261  # } 004 
           loopend 163 269  
           Complexity of rule ~xpostprocess.0.0- t: 3
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_because.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_because.top
     topic: 1  ~quibble_because
         rule: 2  ~quibble_because.0.0 s: 
           line: 2 0  # [ Facts aren't real. They are 
@@ -353,7 +353,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_because.top
         rule: 19  ~quibble_because.9.1 a: 
           line: 19 0  # You could try to improve 
           Complexity of rule ~quibble_because.9.1- a: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_can.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_can.top
     topic: 2  ~quibble_will
         rule: 5  ~quibble_will.0.0 ?: 
           line: 5 0  # I might. Or I might not. Depen
@@ -594,7 +594,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_can.top
         rule: 88  ~quibble_can.72.1 b: 
           line: 88 0  # Sounds good. I can always use 
           Complexity of rule ~quibble_can.72.1- b: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_do.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_do.top
     topic: 1  ~quibble_do
         rule: 4  ~quibble_do.0.0 ?: 
           line: 4 0  # [ Wishing doesn't usually work
@@ -922,7 +922,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_do.top
           Complexity of rule ~quibble_do.101.0- ?: 1
         rule: 115  ~quibble_do.102.0 ?: 
           Complexity of rule ~quibble_do.102.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_how.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_how.top
     topic: 1  ~quibble_howmuch
         rule: 3  ~quibble_howmuch.0.0 ?: 
           line: 3 0  # anything from 0 to 10, eleven 
@@ -1650,7 +1650,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_how.top
           Complexity of rule ~quibble_how.202.0- ?: 1
         rule: 249  ~quibble_how.203.0 ?: 
           Complexity of rule ~quibble_how.203.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_misc.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_misc.top
     topic: 3  ~quibble_misc
         rule: 5  ~quibble_misc.0.0 u: 
           line: 5 0  # All the future does is ruin th
@@ -3874,7 +3874,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_misc.top
         rule: 945  ~quibble_misc.633.1 b: 
           line: 945 0  # If a parselmouth speaks to sna
           Complexity of rule ~quibble_misc.633.1- b: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_not.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_not.top
     topic: 1  ~quibble_not
         rule: 2  ~quibble_not.0.0 s: 
           line: 2 0  # [ True. It's what I'm talking 
@@ -4559,7 +4559,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_not.top
           Complexity of rule ~quibble_not.164.0- u: 1
         rule: 274  ~quibble_not.165.0 u: 
           Complexity of rule ~quibble_not.165.0- u: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_or.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_or.top
     topic: 1  ~quibble_or
         rule: 2  ~quibble_or.0.0-WHY1 ?: 
           line: 2 0  # [ Studies show that most peopl
@@ -4789,7 +4789,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_or.top
         rule: 84  ~quibble_or.28.1 a: 
           line: 84 0  # I don't really have a preferen
           Complexity of rule ~quibble_or.28.1- a: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_what.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_what.top
     topic: 1  ~quibble_what
         rule: 3  ~quibble_what.0.0 ?: 
           line: 3 0  # [ Not much I'm afraid. ] [ Ver
@@ -5218,7 +5218,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_what.top
           Complexity of rule ~quibble_what.114.0- ?: 1
         rule: 199  ~quibble_what.115.0 ?: 
           Complexity of rule ~quibble_what.115.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_when.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_when.top
     topic: 2  ~quibble_when
         rule: 4  ~quibble_when.0.0 ?: 
           line: 4 0  # [ Maybe next year. ] [ Shortly
@@ -5330,7 +5330,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_when.top
           Complexity of rule ~quibble_when.32.0- ?: 1
         rule: 40  ~quibble_when.33.0 ?: 
           Complexity of rule ~quibble_when.33.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_where.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_where.top
     topic: 1  ~quibble_where
         rule: 3  ~quibble_where.0.0 ?: 
           line: 3 0  # [ Whereever I can. ] [ Usually
@@ -5467,7 +5467,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_where.top
         rule: 47  ~quibble_where.42.0 ?: 
           line: 47 0  # On my 
           Complexity of rule ~quibble_where.42.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_who.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_who.top
     topic: 1  ~quibble_who
         rule: 3  ~quibble_who.0.0 ?: 
           line: 3 0  # [ I'll tell them that. ] [ Yes
@@ -5639,7 +5639,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_who.top
           Complexity of rule ~quibble_who.54.0- ?: 1
         rule: 59  ~quibble_who.55.0 ?: 
           Complexity of rule ~quibble_who.55.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_why.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/eliza_why.top
     topic: 1  ~quibble_why
         rule: 3  ~quibble_why.0.0-LIE ?: 
           line: 3 0  # [ because it is human nature t
@@ -5982,7 +5982,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/eliza_why.top
           Complexity of rule ~quibble_why.109.0- ?: 1
         rule: 116  ~quibble_why.110.0 ?: 
           Complexity of rule ~quibble_why.110.0- ?: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/honest.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/honest.top
     topic: 3  ~intent
         rule: 5  ~intent.0.0 u: 
           line: 5 0  # ^refine ( ) 
@@ -6352,7 +6352,7 @@ file: 0  C:/ChatScript/RAWDATA/QUIBBLE/honest.top
           Complexity of rule ~honest_response.44.0- u: 1
         rule: 315  ~honest_response.45.0-GRUNT u: 
           Complexity of rule ~honest_response.45.0-GRUNT u: 1
-file: 0  C:/ChatScript/RAWDATA/QUIBBLE/quibble.top
+file: 0  c:/ChatScript/RAWDATA/QUIBBLE/quibble.top
     topic: 1  ~quibble_all
         rule: 5  ~quibble_all.0.0 u: 
           line: 5 0  # ^respond ( ~quibble_not ) 

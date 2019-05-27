@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/30/2019 cs9.31
+<br>Revision 5/27/2019 cs9.4
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -329,10 +329,10 @@ wrong. For this use the kind of "copy" which does not have issues with this.
 
     ^setrejoinder(copy %inputrejoinder)
 
-If _kind_ is output or copy and no tag is given or the _tag_ is `null`, the output rejoinder is
+If _kind_ is output or copy and the _tag_ is `null`, the output rejoinder is
 cleared (analogous to ^disable). 
 
-If the _kind_ is input and no tag is given or the _tag_ is `null`, the input rejoinder is cleared.
+If the _kind_ is input and the _tag_ is `null`, the input rejoinder is cleared.
 
 To kill a set outputrejoinder, use ^disable(OUTPUTREJOINDER).
 
@@ -616,6 +616,9 @@ was perceived to be a question.
 
 For example, I treat _tell me about cars_ sentences as questions by marking them as such from script 
 (equivalent to _what do you know about cars?_).
+
+Note that the change will not impact rule matching within the topic you have just done the change,
+because it has commited the set of rules it will try to match. So it only applies to later topics.
 
 
 ### `^setwildcardindex ( value )`
@@ -1363,13 +1366,9 @@ The argument is a JSON object as follows
 { 
 "input": "range leak", -- required
 "patterns": [  -- at least one required
-    { 
-    "pattern": code-returned-from-compilepattern, 
-    "return1": "$stovetype"  -- optional
-    }, 
-    { "pattern": code-returned-from-compilepattern, 
-    "return1": "$leaktype" -- optional
-    } ], 
+    string-returned-from-compilepattern, 
+    string-returned-from-compilepattern, 
+    ], 
 "style": "earliest", -- optional
 "variables": { -- optional
     "$faucet": "testing", 
@@ -1384,12 +1383,12 @@ The argument is a JSON object as follows
 ```
 Input is the user input (one or more sentences) to be matched against.
 
-Patterns is an array of std ChatScript pattern strings. If they use memorization,
-you are allowed up to 2 return values and _0 and _1 will be returned under the variable
-names you provide. It will return the original values of those match variables.  If you
-need the canonical values, you can perform an assignment inside the pattern using something
-like $_0:=_0  (see Match variable assignment in Advanced patterns). The return values may
-be omitted.
+Patterns is an array of pattern strings as returned by CompilePattern. They can use memorization
+and they can assign values. If they use memorization,
+you can assign those onto normal variables, which if permanent variables will
+be returned as "newglobals". You can perform an assignment inside the pattern using something
+like $answer:=_0  (see Match variable assignment in Advanced patterns). 
+The "newglobals will  be omitted if there are no changes.
 
 The variables and concepts fields are optional and provide context. 
 
@@ -1892,6 +1891,8 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `allupper`           | word         |
 | `canonical`          | word         | see notes
 | `integer`            | floatnumber  | generate integer if float is exact integer
+| `preexists`            | word  | return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.
+
 
 Example:
 
@@ -2801,3 +2802,7 @@ statement like:
 
     @1 = ^unpackfactref(@0)
 
+### ^changebot(botname botid)
+^changebot(botname botid) allows a bot to pretend to be another bot and access its data,
+functions, and topics.  Variables are not affected by this. The user topic file will remain
+as the user came into the server.

@@ -1,3 +1,23 @@
+version - 9.4  5/27/2019
+1. You can treat a json object as an array of fields.
+    $data = ^jsoncreate(transient object)
+    $data.tablet.testit = 1
+    $cx = 0
+    $_field $data.tablet[$cx]
+    returns field name of object after which you can do
+    $data.tablet.$_field to get the value
+ 2. $data.something[-1]  is the opposite end from [0], applies to object or arrays
+    For arrays it's the highest index value. For objects its the first field name.
+ 3. ^pos(preexists word) -- was word in dictionary BEFORE this volley?
+ 4. to use a variable name AS a field name, escape it
+    $data.\$varname = hello  uses $varname as field name and not indirecting via $varname
+ 5. full := assign in pattern
+ 6. data format for testpattern simplified, now parterns is array of strings not array of objects
+ 7. Rule-based spellchecking  added to spelling practicum
+ 8. ^changebot(botname botid) change identity on the fly, allowing this bot to see facts, functions,
+ and topics of botname instead of itself.
+ 9.  updated documentation to note that RESPONSE_NOCONVERTSPECIAL on $cs_ response is default.
+
 version 9.31 4/30/2019
 0. pattern assignment now allowed with system variables also   (_0:=%time)
 1. changes to the ^testoutput function. it does NOT erase its changes. It may return null

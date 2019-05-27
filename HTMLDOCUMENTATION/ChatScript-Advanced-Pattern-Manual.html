@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/26/2019 cs9.3</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 5/27/2019 cs9.4</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
 <p>You cannot make a concept out with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes. E.g.</p>
@@ -30,7 +30,7 @@
 <h2 id="dictionary-keyword-sets">Dictionary Keyword sets</h2>
 <p>In ChatScript, WordNet ontologies are invoked by naming the word, a <code>~</code>, and the index of the meaning you want.</p>
 <pre><code>concept: ~buildings [ shelter~1 living_accomodations~1 building~3 ]</code></pre>
-<p>The concept <code>~buildings</code> represents 760 general and specific building words found in the WordNet dictionary – any word which is a child of: definition 1 of shelter, definition 1 of accommodations, or definition 3 of building in WordNet's ontology.</p>
+<p>The concept <code>~buildings</code> represents 760 general and specific building words found in the WordNet dictionary any word which is a child of: definition 1 of shelter, definition 1 of accommodations, or definition 3 of building in WordNet's ontology.</p>
 <p>How would you be able to figure out creating this? This is described under <code>:up</code> in Word Commands later.</p>
 <p><code>Building~3</code> and <code>building~3n</code> are equivalent.</p>
 <p>The first is what you might say to refer to the 3rd meaning of building. Internally <code>building~3n</code> denotes the 3rd meaning and its a <em>noun</em> meaning.</p>
@@ -51,7 +51,7 @@
 <p>The topic on <code>~drugs</code> would want in its keyword list <code>clean~a</code> to allow <em>I've been clean for months</em> to target it, but not <em>I clean my house</em>.</p>
 <h2 id="system-functions">System Functions</h2>
 <p>You can call any predefined system function. It will fail the pattern if it returns any fail or end code. It will pass otherwise. The most likely functions you would call would be:</p>
-<p><code>^query</code> – to see if some fact data could be found. Many functions make no sense to call, because they are only useful on output and their behavior on the pattern side is unpredictable.</p>
+<p><code>^query</code> to see if some fact data could be found. Many functions make no sense to call, because they are only useful on output and their behavior on the pattern side is unpredictable.</p>
 <h2 id="macros">Macros</h2>
 <p>Just as you can use sets to &quot;share&quot; data across rules, you can also write macros to share code.</p>
 <h3 id="pattern-macros">Pattern macros</h3>
@@ -159,7 +159,10 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>You can request n words before the current position using <code>*-n</code>. For example</p>
 <pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
 <h2 id="match-variable-assignment-in-a-pattern">Match Variable assignment in a pattern</h2>
-<p>Aside from the use of _ to memorize a match, you can directly assign to a match variable either a constant word, another matchvar, or a system or user variable. This is not obviously useful normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.</p>
+<p>Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value. You cannot do arithmetic or function calls for these assignments, but you can transfer data to and from match variables, regular variables, and system variables.</p>
+<pre><code>    $value = 5
+    ( _some_test  $value:=5 $value1:=_0 $value2:=&#39;_0 $value3:=%time )</code></pre>
+<p>This is not obviously useful normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.</p>
 <h2 id="gory-details-about-strings">Gory details about strings</h2>
 <p>'Strings in Output'</p>
 <p>A double quoted string in output retains its quotes.</p>
@@ -227,8 +230,8 @@ u: ( I love you today when )</code></pre>
 <p>and an input like <em>the raccoon at the bear</em>, then matching would proceed as</p>
 <ul>
 <li>find the word the (position 1 in sentence)</li>
-<li>try to find bear starting at position 2 – found at position 5</li>
-<li>try to find the word ate starting at position 6 – fails</li>
+<li>try to find bear starting at position 2 found at position 5</li>
+<li>try to find the word ate starting at position 6 fails</li>
 </ul>
 <p>The system is allowed to backtrack and see if the first match can be made later. So it will try to find the later than position one. It would succeed in relocating it to position 4.</p>
 <p>It would then try to find the word bear afterwards, and succeed at position 5. It would then try to find the word ate after that and fail. It would retry trying to reset the pattern to find the after position 4 and fail. The match fails.</p>

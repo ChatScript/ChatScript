@@ -84,7 +84,7 @@ char* ReadField(char* ptr,char* &field,char fieldkind,unsigned int& flags);
 char* EatFact(char* ptr,char* buffer,unsigned int flags = 0,bool attribute = false);
 FACT* ReadFact(char* &ptr,unsigned int build);
 void ReadFacts(const char* name,const char* layer,unsigned int build,bool user = false);
-char* WriteFact(FACT* F,bool comments,char* buffer,bool ignoreDead = false,bool eol = false);
+char* WriteFact(FACT* F,bool comments,char* buffer,bool ignoreDead = false,bool eol = false,bool displayonly = false);
 void WriteFacts(FILE* out,FACT* from,int flags = 0);
 bool ReadBinaryFacts(FILE* in);
 void WriteBinaryFacts(FILE* out,FACT* F);

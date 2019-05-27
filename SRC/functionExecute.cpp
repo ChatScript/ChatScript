@@ -4084,6 +4084,7 @@ static FunctionResult AnalyzeCode(char* buffer)
 			*buffer = ' ';
 		}
 	}
+    if (trace & TRACE_OUTPUT) Log(STDTRACELOG, "Analyze: %s ",buffer);
 	PrepareSentence(buffer,true,false,false); 
 	*buffer = 0; // only wanted effect of script
     if (more && *nextInput) // set up for possible continuation
@@ -4883,6 +4884,16 @@ FunctionResult AddContextCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+FunctionResult ChangeBotCode(char* buffer)
+{
+    char* name = ARGUMENT(1);
+    uint64 id = (uint64) atoi64(ARGUMENT(2));
+    MakeLowerCopy(computerID, name);
+    strcpy(computerIDwSpace + 1, computerID);
+    strcat(computerIDwSpace, (char*)" "); // trailing space
+    return NOPROBLEM_BIT;
+}
+
 FunctionResult InContextCode(char* buffer)
 {
 	char* arg = ARGUMENT(1);
@@ -5541,11 +5552,11 @@ static FunctionResult POSCode(char* buffer)
      if (!stricmp(arg1, (char*) "ismixedcase"))
      {
          int bits = 0;
-         --arg1;
-         while (*++arg1)
+         --arg2;
+         while (*++arg2)
          {
-             if (IsUpperCase(*arg1)) bits |= 1;
-             if (IsLowerCase(*arg1)) bits |= 2;
+             if (IsUpperCase(*arg2)) bits |= 1;
+             if (IsLowerCase(*arg2)) bits |= 2;
          }
          if (bits == 3)
          {
@@ -5572,7 +5583,23 @@ static FunctionResult POSCode(char* buffer)
 		}
 		else return FAILRULE_BIT;
 	}
-	if (!stricmp(arg1, (char*) "isalluppercase"))
+    if (!stricmp(arg1, (char*) "preexists"))
+    {
+        WORDP D = FindWord(arg2, 0, PRIMARY_CASE_ALLOWED);
+        if (D && !IS_NEW_WORD(D))
+        {
+            strcpy(buffer, "1");
+            return NOPROBLEM_BIT;
+        }
+        D = FindWord(arg2, 0, SECONDARY_CASE_ALLOWED);
+        if (D && !IS_NEW_WORD(D))
+        {
+            strcpy(buffer, "1");
+            return NOPROBLEM_BIT;
+        }
+        return FAILRULE_BIT;
+    }
+    if (!stricmp(arg1, (char*) "isalluppercase"))
 	{
 		char* ptr = arg2;
 		while (*++ptr)
@@ -8219,9 +8246,9 @@ static FunctionResult CreateAttributeCode(char* buffer)
 	return (currentFact) ? NOPROBLEM_BIT : FAILRULE_BIT; // fails if pre-existing fact cant be killed because used in fact
 }
 
-static void UnbindVariables() // undo all variable changes
+static void UnbindVariables(int changes) // undo all variable changes
 {
-    HEAPLINK list = variableChangedThreadlist;
+    HEAPLINK list = changes;
     while (list)
     {
         char** entry = (char**)Index2Heap(list);
@@ -8233,9 +8260,11 @@ static void UnbindVariables() // undo all variable changes
     }
 }
 
-static void MakeVariables(MEANING array) // array of objects describing a variable
+static int MakeVariables(MEANING array) // array of objects describing a variable
 {
     variableChangedThreadlist = 0;
+    if (!array) return 0;
+
     WORDP V = FindWord(Meaning2Word(array)->word); // array of objects (variable name and value)
     FACT* F = GetSubjectNondeadHead(V);
     while (F) // save old values and assign new ones to variables
@@ -8261,6 +8290,7 @@ static void MakeVariables(MEANING array) // array of objects describing a variab
         if (*D->word == '$') SetVariable(D, text); // require it be variable or ignore it
         F = GetSubjectNondeadNext(F);
     }
+    return variableChangedThreadlist;
 }
 
 static FunctionResult MakeConcepts(MEANING array)
@@ -8303,7 +8333,10 @@ static FunctionResult MakeConcepts(MEANING array)
             {
                 int flags = FACTTRANSIENT | OVERRIDE_MEMBER_FACT;
                 MEANING m = members->object;
-                WORDP P = Meaning2Word(m);
+                char hold[MAX_WORD_SIZE];
+                strcpy(hold, JoinWords(BurstWord(Meaning2Word(m)->word, CONTRACTIONS)));
+                WORDP P = StoreWord(hold);
+                m = MakeMeaning(P);
                 if (*P->word == '\'')
                 {
                     flags |= ORIGINAL_ONLY;
@@ -8375,63 +8408,87 @@ static bool TestPatternAgainstSentence(char* pattern, char* buffer)
     return match;
 }
 
-static void BindReturnVars(MEANING varresultsobject, MEANING return1, MEANING return2,
-    MEANING returnvals[10000], int& returnvalsIndex)
-{
-    MEANING returns[2];
-    returns[0] = return1;
-    returns[1] = return2;
-    for (int matchindex = 0; matchindex < 2; ++matchindex)
-    {
-        if (returns[matchindex] == 0) break; // no more values wanted
-        if (!*wildcardOriginalText[matchindex]) break;
-
-        MEANING returnit = returns[matchindex];
-        // store the var results
-#define JSON_PRIMITIVE_VALUE 0x00000100 // on object side of triple
-        int flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE;
-        returnvals[returnvalsIndex++] = returnit;
-        returnvals[returnvalsIndex++] = MakeMeaning(StoreWord(wildcardOriginalText[matchindex], AS_IS));
-        SetVariable(Meaning2Word(returnit), wildcardOriginalText[matchindex]); // make change to have local effect immediately
-    }
-}
-
-static bool ProtectKeywords(FACT* F, bool protect)
+static bool ProtectKeywords(char* pattern, bool protect)
 {
     bool protectedKey = false;
     char word[MAX_WORD_SIZE];
-    FACT* G = GetSubjectNondeadHead(F->object);
-    while (G)
+    if (*pattern++ == '|') // keyword protection zone
     {
-        if (!stricmp(Meaning2Word(G->verb)->word, "pattern"))
+        while (*pattern != '|')
         {
-            char* pattern = Meaning2Word(G->object)->word;
-            if (*pattern++ == '|') // keyword protection zone
+            char* pstart = pattern;
+            pattern = ReadCompiledWord(pattern, word);
+            if (protect)
             {
-                while (*pattern != '|')
+                WORDP D = StoreWord(word,AS_IS);
+                if (D->systemFlags & PATTERN_WORD) *pstart = 1;    // we dont unprotect this // already has marker so dont erase on cleanup
+                else
                 {
-                    char* pstart = pattern;
-                    pattern = ReadCompiledWord(pattern, word);
-                    if (protect)
-                    {
-                        WORDP D = StoreWord(word,AS_IS);
-                        if (D->systemFlags & PATTERN_WORD) // already has marker so dont erase on cleanup
-                        {
-                            *pstart = 1;    // we dont unprotect this
-                        }
-                        else
-                        {
-                            AddSystemFlag(D, PATTERN_WORD);
-                            protectedKey = true;
-                        }
-                    }
-                    else if (*word != 1) RemoveSystemFlag(StoreWord(word,AS_IS), PATTERN_WORD); // unprotect new protections
+                    AddSystemFlag(D, PATTERN_WORD);
+                    protectedKey = true;
                 }
             }
+            else if (*word != 1) RemoveSystemFlag(StoreWord(word,AS_IS), PATTERN_WORD); // unprotect new protections
         }
-        G = GetSubjectNondeadNext(G);
     }
     return protectedKey;
+}
+
+static void HandleChangedVariables(MEANING resultobject)
+{
+    // variables set?
+    MEANING globals = NULL;
+    MEANING varresultobject = NULL;
+
+    int list = variableChangedThreadlist; // global list of variables that changed
+    while (list)
+    {
+        char** data = (char**)Index2Heap(list);
+        WORDP var = ((WORDP*)data)[1];
+        char* olddata = data[2];
+        list = ((unsigned int*)data)[0];
+        if (var->word[1] == '_' || var->word[1] == '$') continue; // SHOULD NOT HAPPEN dont send back transients and locals
+        if (var->internalBits & BEEN_HERE) continue; // only most recent value
+
+        var->internalBits |= BEEN_HERE;
+        var->internalBits &= -1 ^ VAR_CHANGED;
+        if (!globals)
+        {
+            globals = MakeMeaning(StoreWord("newglobals", AS_IS));
+            varresultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
+            CreateFact(resultobject, globals, varresultobject, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_OBJECT_VALUE);
+        }
+        MEANING name = MakeMeaning(var);
+        if (var->w.userValue)
+        {
+            char* text = var->w.userValue;
+            MEANING value;
+            if (!strnicmp(text, "jo-", 3) || !strnicmp(text, "ja-", 3)) // write json text
+            {
+                AllocateOutputBuffer();
+                NextInferMark();
+                jwrite(currentOutputBase, FindWord(text), true);
+                value = MakeMeaning(StoreWord(currentOutputBase, AS_IS));
+                FreeOutputBuffer();
+            }
+            else  value = MakeMeaning(StoreWord(text, AS_IS));
+            CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
+        }
+        else // set to null
+        {
+            MEANING value = MakeMeaning(StoreWord("null", AS_IS));
+            CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_PRIMITIVE_VALUE);
+        }
+    }
+    list = variableChangedThreadlist; 
+    while (list) // disable been here markers
+    {
+        char** data = (char**)Index2Heap(list);
+        WORDP var = ((WORDP*)data)[1];
+        list = ((unsigned int*)data)[0];
+        var->internalBits &= -1 ^ BEEN_HERE;
+    }
+    UnbindVariables(variableChangedThreadlist); // undo changes we made to globals (leaves transients though and pure locals)
 }
 
 static FunctionResult TestPatternCode(char* buffer)
@@ -8449,8 +8506,8 @@ static FunctionResult TestPatternCode(char* buffer)
     /* This is the json object format
     {
     "input": "This is my life. I have a leak.",
-    "patterns": [  { "pattern":  "(  _~stove ) ", "return1": "$stove"},
-    { "(  faucet ) " }
+    "patterns": [  "( _~stove )" ,
+                   "( faucet ) "
     ],
     "variables": 
     {   "varname": "$faucet",        "varvalue": 1 ,
@@ -8465,8 +8522,6 @@ static FunctionResult TestPatternCode(char* buffer)
     }
     }
     */
-    MEANING returnvals[10000];
-    int returnvalsIndex = 0;
 
     MEANING input = NULL;
     MEANING patterns = NULL;
@@ -8479,7 +8534,7 @@ static FunctionResult TestPatternCode(char* buffer)
         WORDP field = Meaning2Word(F->verb);
         if (!stricmp(field->word, "input")) input = F->object;
         else if (!stricmp(field->word, "patterns")) patterns = F->object;
-        else if (!stricmp(field->word, "variables")) variables = F->object;
+        else if (!stricmp(field->word, "variables")) variables = F->object; // we will ignore these (deprecated)
         else if (!stricmp(field->word, "concepts")) conceptlist = F->object;
         else if (!stricmp(field->word, "style")) style = Meaning2Word(F->object)->word; // first, all, best, last
         else
@@ -8510,29 +8565,34 @@ static FunctionResult TestPatternCode(char* buffer)
 
     // define concepts -  [  {name: [] } ]
     FACT* oldfact = factFree;
-    variableChangedThreadlist = 0;
     if (conceptlist) result = MakeConcepts(conceptlist);
     if (result != NOPROBLEM_BIT)
     {
         if (trace) Log(STDTRACELOG, "Concept defn bad ");
         return result;
     }
-    if (variables) MakeVariables(variables);
+
+    // do incoming variable assignments
+    int changedIncomingVariables = MakeVariables(variables);
+    // prepare for changes in variables during execution
+    variableChangedThreadlist = 0;
+    testExternOutput = true; // will assign changes for new variables
 
     // return JSON object with result: index and possible match values in the future
     // get the object
     MEANING resultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
     D = Meaning2Word(resultobject);
 
-    MEANING varresultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
     // since analysis is expensive, we analyze a sentence then test all patterns on it
     // test the patterns - presume compiled, not using RETRY on pattern, not returning value
     int count = 0;
     FACT* facts[10000];
     F = GetSubjectNondeadHead(patterns);
     bool protectedKey = false;
+
     while (F) // pattern objects in inverse order and protect patternwords
     {
+        //(ja - t1002 0 jo - t1003 //  jo-t1003 is pattern object OR the pattern
         facts[count++] = F;
         if (count >= 10000)
         {
@@ -8540,7 +8600,21 @@ static FunctionResult TestPatternCode(char* buffer)
             return FAILRULE_BIT; // too many
         }
         // meanwhile, protect keywords listed under pattern protection
-        protectedKey = ProtectKeywords(F, true);
+        protectedKey = false;
+        char* pattern = Meaning2Word(F->object)->word; // may directly be pattern
+        if (*pattern == 'j' && pattern[1] == 'o') // old notation
+        {
+            FACT* G = GetSubjectNondeadHead(F->object);
+            while (G)
+            {
+                if (!stricmp(Meaning2Word(G->verb)->word, "pattern"))
+                {
+                    pattern = Meaning2Word(G->object)->word;
+                }
+                G = GetSubjectNondeadNext(G);
+            }
+        }
+        protectedKey = ProtectKeywords(pattern, true);
         F = GetSubjectNondeadNext(F);
     }
     int max = count;
@@ -8563,22 +8637,17 @@ static FunctionResult TestPatternCode(char* buffer)
         while (--count >= 0) // walk array of pattern objects- pattern, return1, return2 - but they are in reverse order!
         {
             F = facts[count];
-            MEANING return1 = NULL;
-            MEANING return2 = NULL;
-            MEANING pattern = NULL;
-            FACT* G = GetSubjectNondeadHead(F->object);
-            while (G)
+            char* pattern = Meaning2Word(F->object)->word; // may directly be pattern
+            if (*pattern == 'j' && pattern[1] == 'o') // old notation
             {
-                char* verb = Meaning2Word(G->verb)->word;
-                if (!stricmp(verb, "pattern")) pattern = G->object;
-                else if (!stricmp(verb, "return1")) return1 = G->object;
-                else if (!stricmp(verb, "return2")) return2 = G->object;
-                else
+                pattern = NULL;
+                FACT* G = GetSubjectNondeadHead(F->object);
+                while (G)
                 {
-                    if (trace) Log(STDTRACELOG, "Unknown field in pattern %s ", verb);
-                    return FAILRULE_BIT;
+                    char* verb = Meaning2Word(G->verb)->word;
+                    if (!stricmp(verb, "pattern")) pattern = Meaning2Word(G->object)->word;
+                    G = GetSubjectNondeadNext(G);
                 }
-                G = GetSubjectNondeadNext(G);
             }
             if (!pattern) return FAILRULE_BIT;
 
@@ -8586,13 +8655,8 @@ static FunctionResult TestPatternCode(char* buffer)
             else if (winner != 100000 && stricmp(style, "all") && stricmp(style, "latest") && index >= winner) { ; }
             else
             {
-                char* p = Meaning2Word(pattern)->word;
-                bool match = TestPatternAgainstSentence(p, buffer);
-                if (match)
-                {
-                    winner = index; // found highest priority match on this sentence
-                    BindReturnVars(varresultobject, return1, return2, returnvals, returnvalsIndex);
-                }
+                bool match = TestPatternAgainstSentence(pattern, buffer);
+                if (match) winner = index; // found highest priority match on this sentence
             }
             ++index;
         }
@@ -8601,13 +8665,28 @@ static FunctionResult TestPatternCode(char* buffer)
 
     // cleanup
     if (conceptlist) UnbindConcepts(conceptlist, oldfact);
-    if (variables) UnbindVariables();
+    
+    // variables set?
+    HandleChangedVariables(resultobject);
+    testExternOutput = false;
+    UnbindVariables(changedIncomingVariables);
+    variableChangedThreadlist = 0;
+
     if (protectedKey)
     {
         F = GetSubjectNondeadHead(patterns);
         while (F) // unprotect patternwords we protected
         {
-            ProtectKeywords(F, false);
+            FACT* G = GetSubjectNondeadHead(F->object);
+            while (G)
+            {
+                if (!stricmp(Meaning2Word(G->verb)->word, "pattern"))
+                {
+                    char* pattern = Meaning2Word(G->object)->word;
+                    ProtectKeywords(pattern, false);
+                }
+                G = GetSubjectNondeadNext(G);
+            }
             F = GetSubjectNondeadNext(F);
         }
     }
@@ -8626,18 +8705,6 @@ static FunctionResult TestPatternCode(char* buffer)
     else
     {
         CreateFact(resultobject, match, MakeMeaning(StoreWord("false", AS_IS)), flags);
-    }
-    if (returnvalsIndex) // we have return values 
-    {
-        MEANING globals = MakeMeaning(StoreWord("newglobals", AS_IS));
-        CreateFact(resultobject, globals, varresultobject, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_OBJECT_VALUE);
-        for (int i = 0; i < returnvalsIndex; ++i)
-        {
-            MEANING name = returnvals[i++];
-            MEANING value = returnvals[i];
-            CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
-
-        }
     }
     currentFact = NULL; // dont pass up changes in facts
     sprintf(buffer, "%s", Meaning2Word(resultobject)->word);
@@ -8682,17 +8749,16 @@ static FunctionResult TestOutputCode(char* buffer)
         return FAILRULE_BIT;    // must have output
     }
 
+    // do incoming variable assignments
+    int changedIncomingVariables =  MakeVariables(variables);
+    // prepare for changes in variables during execution
     variableChangedThreadlist = 0;
-    testExternOutput = true;
-    if (variables) MakeVariables(variables);
+    testExternOutput = true; // will assign changes for new variables
 
     // return JSON object with result: index and possible match values in the future
     // get the object
     MEANING resultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
     D = Meaning2Word(resultobject);
-    MEANING varresultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
-
-    HEAPLINK varlist = userVariableThreadList; // where we started with user vars
     int winner = 100000;
     char* check = Meaning2Word(output)->word;
     Output(check, buffer, result, 0);
@@ -8702,59 +8768,15 @@ static FunctionResult TestOutputCode(char* buffer)
         strcat(buffer, " ");
     }
     responseIndex = 0;
-    testExternOutput = false;
 
+    MEANING varresultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
+    
     // variables set?
-    MEANING globals = NULL;
-    int list = variableChangedThreadlist;
-    while (list)
-    {
-        char** data = (char**) Index2Heap(list);
-        WORDP var = ((WORDP*)data)[1];
-        char* olddata = data[2];
-        list = ((unsigned int*)data)[0];
-        if (var->word[1] == '_' || var->word[1] == '$') continue; // dont send back transients and locals
-        if (var->internalBits & BEEN_HERE) continue; // only most recent value
-        
-        var->internalBits |= BEEN_HERE;
-        var->internalBits &= -1 ^ VAR_CHANGED;
-        if (!globals)
-        {
-            globals = MakeMeaning(StoreWord("newglobals", AS_IS));
-            CreateFact(resultobject, globals, varresultobject, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_OBJECT_VALUE);
-        }
-        MEANING name = MakeMeaning(var);
-        if (var->w.userValue)
-        {
-            char* text = var->w.userValue;
-            MEANING value;
-            if (!strnicmp(text, "jo-", 3) || !strnicmp(text, "ja-", 3)) // write json text
-            {
-                AllocateOutputBuffer(); 
-                NextInferMark();
-                jwrite(currentOutputBase, FindWord(text), true);
-                value = MakeMeaning(StoreWord(currentOutputBase,AS_IS));
-                FreeOutputBuffer();
-            }
-            else  value = MakeMeaning(StoreWord(text,AS_IS));
-            CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
-        }
-        else // set to null
-        {
-            MEANING value = MakeMeaning(StoreWord("null"),AS_IS);
-            CreateFact(varresultobject, name, value, JSON_OBJECT_FACT | FACTTRANSIENT | JSON_PRIMITIVE_VALUE);
-        }
-    }
-    while (list) // disable been here markers
-    {
-        char** data = (char**)Index2Heap(list);
-        WORDP var = ((WORDP*)data)[1];
-        list = ((unsigned int*)data)[0];
-        var->internalBits &= -1 ^ BEEN_HERE;
-    }
+    HandleChangedVariables(resultobject);
+    testExternOutput = false;
+    UnbindVariables(changedIncomingVariables);
     variableChangedThreadlist = 0;
-    UnbindVariables();
-
+    
     if (result != NOPROBLEM_BIT)
     {
         if (trace) Log(STDTRACELOG, "Code failed execution ");
@@ -8856,6 +8878,7 @@ static void DSEReturnCode(char* startData, char* data, MEANING M,bool pattern)
 static FunctionResult CompilePatternCode(char* buffer)
 {
     FunctionResult result = NOPROBLEM_BIT;
+#ifndef DISCARDSCRIPTCOMPILER
     char* arg = ARGUMENT(1); // text string to compile
     arg = SkipWhitespace(arg);
     if (*arg == '"') // remove quotes around the whole thing
@@ -8866,8 +8889,15 @@ static FunctionResult CompilePatternCode(char* buffer)
     }
     arg = SkipWhitespace(arg);
 
+    // alter json internal \" to simple "
+    char* ptr = arg;
+    while (*++ptr)
+    {
+        if (*ptr == '\\' && (ptr[1] == '"' || ptr[1] == '\\')) memmove(ptr, ptr + 1, strlen(ptr));
+    }
+
     // if test or pattern test
-    if (*arg != '(' && strncmp(arg, "if", 2)) return FAILRULE_BIT;
+    if (*arg != '(' && strncmp(arg, "if", 2) &&  strncmp(arg, "^if", 3)) return FAILRULE_BIT;
 
     int oldDepth = globalDepth;
     //  =>  {code: xxx, errors: [], warnings: [] }
@@ -8900,10 +8930,10 @@ static FunctionResult CompilePatternCode(char* buffer)
         {
             strcpy(currentFilename, "^CompileIf");
             char word[MAX_WORD_SIZE];
-            char* ptr = ReadCompiledWord(readBuffer, word);
+            char* ptr1 = ReadCompiledWord(readBuffer, word);
             strcpy(word, "^if");
             strcat(ptr, " { 1 }");
-            ReadIf(word, ptr, NULL, data, NULL);
+            ReadIf(word, ptr1, NULL, data, NULL);
         }
 #endif
 
@@ -8922,12 +8952,14 @@ static FunctionResult CompilePatternCode(char* buffer)
     FreeBuffer();
     patternwordthread = 0;
     currentFact = NULL; // we have swallowed all facts
+#endif
     return result;
 }
 
 static FunctionResult CompileOutputCode(char* buffer)
 {
     FunctionResult result = NOPROBLEM_BIT;
+#ifndef DISCARDSCRIPTCOMPILER
     char* arg = ARGUMENT(1); // text string to compile
     arg = SkipWhitespace(arg);
     if (*arg == '"') // remove quotes around the whole thing
@@ -8937,6 +8969,13 @@ static FunctionResult CompileOutputCode(char* buffer)
         if (arg[len - 1] == '"') arg[len - 1] = 0;
     }
     arg = SkipWhitespace(arg);
+
+    // alter json internal \" to simple "
+    char* ptr = arg;
+    while (*++ptr)
+    {
+        if (*ptr == '\\' && (ptr[1] == '"' || ptr[1] == '\\')) memmove(ptr, ptr + 1, strlen(ptr));
+    }
 
     int oldDepth = globalDepth;
     //  =>  {code: xxx, errors: [], warnings: [] }
@@ -8978,6 +9017,7 @@ static FunctionResult CompileOutputCode(char* buffer)
     globalDepth = oldDepth; // may have altered in compiler abort
     FreeBuffer();
     currentFact = NULL; // we have swallowed all facts
+#endif
     return result;
 }
 
@@ -9954,7 +9994,9 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"\r\n---- Control Flow",0,0,0,(char*)""},
 	{ (char*)"^authorized",AuthorizedCode,0,0,(char*)"is current user authorized"},
 	{ (char*)"^addcontext",AddContextCode,2,0,(char*)"set topic and label as a context"},
-	{ (char*)"^clearcontext",ClearContextCode,2,0,(char*)"clear all context"},
+    { (char*)"^changebot",ChangeBotCode,2,0,(char*)"become this bot" },
+  
+    { (char*)"^clearcontext",ClearContextCode,2,0,(char*)"clear all context"},
     { (char*)"^findrule",FindRuleCode,1,0,(char*)"Given rule label, find rule anywhere in all topics" },
     { (char*)"^argument",ArgumentCode,VARIABLE_ARG_COUNT,0,(char*)"returns the calling scope's nth argument (given n and possible fn name)"},
 	{ (char*)"^callstack",CallstackCode,1,0,(char*)"return callstack facts in named factset"}, 

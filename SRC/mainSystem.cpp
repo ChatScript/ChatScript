@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.31";
+char* version = "9.4";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -500,6 +500,7 @@ void CreateSystem()
 
 void ReloadSystem()
 {//   reset the basic system through wordnet but before topics
+    myBot = 0; // facts loaded here are universal
 	InitFacts(); // malloc space
 	InitStackHeap(); // malloc space
 	InitDictionary(); // malloc space

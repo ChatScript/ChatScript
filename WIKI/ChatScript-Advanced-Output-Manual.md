@@ -1,6 +1,6 @@
 ﻿# ChatScript Advanced User's Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/24/2019 cs9.2
+Â© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
+<br>Revision 5/27/2019 cs9.4
 
 
 
@@ -342,10 +342,14 @@ combination of values to alter behavior. The default value is
 ```
 $cs_response = #RESPONSE_UPPERSTART +
                #RESPONSE_REMOVESPACEBEFORECOMMA +
-               #RESPONSE_ALTERUNDERSCORES
+               #RESPONSE_ALTERUNDERSCORES +
+               #RESPONSE_REMOVETILDE +
+               #RESPONSE_NOCONVERTSPECIAL 
+
 ```
 which controls automatically up-casing the first letter of output, removing spaces before
-commas, and converting underscores to spaces (and also removing `~` from concept names). 
+commas, and converting underscores to spaces, removing `~` from concept names, and not converting
+carriage return, newline, and tabs from CS backslashed notation to actual ASCII character. 
 
 Equivalently 
 

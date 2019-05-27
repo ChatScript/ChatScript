@@ -187,7 +187,12 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 		{
 			++counter;
 			WriteFact(F,true,ptr,false,true); // facts are escaped safe for JSON
-			if (trace & TRACE_USERFACT) Log(STDTRACELOG,(char*)"Fact Saved %s",ptr);
+            if (trace & TRACE_USERFACT)
+            {
+                char data[MAX_WORD_SIZE];
+                WriteFact(F, true, data, false, true,true);
+                Log(STDTRACELOG, (char*)"Fact Saved %s", data);
+            }
 			ptr += strlen(ptr);
 			if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) 
 			{

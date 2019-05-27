@@ -120,7 +120,7 @@ void ConvertNL(char* ptr);
 char* IsSymbolCurrency(char* ptr);
 void ComputeWordData(char* word, WORDINFO* info);
 char* CopyRemoveEscapes(char* to, char* at,int limit,bool all = false);
-char* AddEscapes(char* to, char* from,bool normal,int limit);
+char* AddEscapes(char* to, char* from,bool normal,int limit,bool addescape=true);
 void AcquireDefines(char* fileName);
 void AcquirePosMeanings(bool facts);
 char* FindNameByValue(uint64 val); // properties
@@ -153,6 +153,8 @@ bool IsPlaceNumber(char* word, int useNumberStyle = AMERICAN_NUMBERS);
 bool IsDigitWord(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool comma = false);
 bool IsDigitWithNumberSuffix(char* number,int useNumberStyle = AMERICAN_NUMBERS);
 bool IsUrl(char* word, char* end);
+bool IsFileExtension(char* word);
+bool IsFileName(char* word);
 unsigned int IsMadeOfInitials(char * word,char* end);
 bool IsNumericDate(char* word,char* end);
 char IsFloat(char* word, char* end, int useNumberStyle = AMERICAN_NUMBERS);

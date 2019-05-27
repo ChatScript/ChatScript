@@ -369,7 +369,7 @@ bool SpellCheckSentence()
                 strcpy(hyphenword + len++, "-");
                 strcpy(hyphenword + len, wordStarts[i + 1]);
                 WORDP XX = FindWord(hyphenword);
-                if (XX)
+                if (XX && !IS_NEW_WORD(XX))
                 {
                     tokens[1] = XX->word;
                     ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
@@ -458,6 +458,18 @@ bool SpellCheckSentence()
 		//  dont spell check email or other things with @ or . in them
 		if (strchr(word, '@') || strchr(word, '&') || strchr(word, '$')) continue;
 
+		//  dont spell check hashtags
+		if (word[0] == '#' && !IsDigit(word[1])) {
+			bool validHash = true;
+			for (int i = 1; i < size; ++i) {
+				if (!IsAlphaUTF8OrDigit(word[i]) && word[i] != '_') {
+					validHash = false;
+					break;
+				}
+			}
+			if (validHash) continue;
+		}
+
 		// dont spell check names of json objects or arrays
 		if (!strnicmp(word, "ja-", 3) || !strnicmp(word, "jo-", 3)) continue;
 
@@ -471,33 +483,36 @@ bool SpellCheckSentence()
 		// dont spell check abbreviations with dots, e.g. p.m.
 		char* dot = strchr(word, '.');
 		if (dot && FindWord(word, 0)) continue;
+        
+        // dont spellcheck model numbers
+        if (IsModelNumber(word)) continue;
 
 		// split conjoined sentetence Missouri.Fix  or Missouri..Fix
 		// but dont split float values like 0.5%
         if (dot && dot != word && dot[1] && !IsDigit(dot[1]))
 		{
 			*dot = 0;
-			WORDP X = FindWord(word, 0);
+			// don't spell correct if this looks like a filename
 			char* rest = dot + 1;
-			while (rest[1] == '.') ++rest; // swallow all excess dots
-			WORDP Y = FindWord(rest + 1, 0);
-			if (X && Y) // we recognize the words
-			{
-				char oper[10];
-				tokens[1] = word;
-				tokens[2] = oper;
-				*oper = '.';
-				oper[1] = 0;
-				tokens[3] = rest + 1;
-				ReplaceWords("dotsentence", i, 1, 3, tokens);
-				fixedSpell = true;
-				*dot = '.';  // restore the dot so the original is still in derivationSentence
-				continue;
+			if (!IsFileExtension(rest)) {
+				WORDP X = FindWord(word, 0);
+				while (rest[1] == '.') ++rest; // swallow all excess dots
+				WORDP Y = FindWord(rest + 1, 0);
+				if (X && Y) // we recognize the words
+				{
+					char oper[10];
+					tokens[1] = word;
+					tokens[2] = oper;
+					*oper = '.';
+					oper[1] = 0;
+					tokens[3] = rest + 1;
+					ReplaceWords("dotsentence", i, 1, 3, tokens);
+					fixedSpell = true;
+					*dot = '.';  // restore the dot so the original is still in derivationSentence
+					continue;
+				}
 			}
-			else 
-			{
-				*dot = '.';  // restore the dot
-			}
+			*dot = '.';  // restore the dot
 		}
 
 		//  dont spell check things with . in them

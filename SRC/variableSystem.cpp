@@ -154,13 +154,14 @@ void SetWildCardGivenValue(char* original, char* canonical, int start, int end, 
 {
     if (end < start) end = start;				// matched within a token
     if (end > wordCount && start != end) end = wordCount; // for start==end we allow being off end, eg _>
-    wildcardPosition[index] = start | (end << 16);
     *wildcardOriginalText[index] = 0;
     *wildcardCanonicalText[index] = 0;
     if (start == 0 || wordCount == 0 || (end == 0 && start != 1)) // null match, like _{ .. }
     {
     }
     else JoinMatch(start, end, index, false); // did match
+    if (start == 0) start = end = 1;
+    wildcardPosition[index] = start | (end << 16);
 }
 
 void SetWildCardIndexStart(int index)
@@ -244,7 +245,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         else D = FindWord(item); // the basic item
         if (!D) goto NULLVALUE;
         if (*separator == '.' && strncmp(item, "jo-", 3) && !factvalue) goto NULLVALUE; // cannot be dotted
-        if (*separator == '[' && strncmp(item, "ja-", 3)) goto NULLVALUE; // cannot be indexed
+        //else if (*separator == '[' && strncmp(item, "ja-", 3)) goto NULLVALUE; // cannot be indexed
 
                                                                           // is there more later
         char* separator1 = (char*)strchr(separator + 1, '.');	// more dot like $x.y.z?
@@ -272,6 +273,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         {
             if ((*label != '_' && *label != '\'') || (separator[1] == '_' && !IsDigit(separator[2])) || (separator[1] == '\'' && separator[2] == '_' && !IsDigit(separator[3]))) // any variable ref will be in dictionary as will field name
             {
+                if (*label == '\\') ++label; // escaped $, not indirection
                 key = FindWord(label, len, PRIMARY_CASE_ALLOWED); // case sensitive find
                 if (!key) goto NULLVALUE; // dont recognize such a name
                 label = key->word;
@@ -293,11 +295,15 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         }
         else // it is an index - of either array OR object
         {
-            if (IsDigit(*label))
+            if (IsDigit(*label) || (*label == '-' && label[1] == '1'))
             {
                 char* end = strchr(label, ']');
                 key = FindWord(label, end - label);
-                if (!key) goto NULLVALUE;
+                if (!key)
+                {
+                    if (*label != '-' || !IsDigit(label[1])) goto NULLVALUE;
+                    key = StoreWord("-1", 0, AS_IS);
+                }
                 label = key->word;
             }
             else if (*label == '$') // indirect via user variable
@@ -333,12 +339,27 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
             item = answer;
             goto LOOPDEEPER;
         }
+        MEANING verb = MakeMeaning(key);
+        int selected = atoi(label);
 
         FACT* F = GetSubjectNondeadHead(D);
-        MEANING verb = MakeMeaning(key);
+        if (!strnicmp(D->word,"jo-",3) && bracket1 && *bracket1 == ']' && !bracket1[1]) // index into json object
+        {
+            int count = 0;
+            while (F)
+            {
+                if (count++ == selected) break;
+                if (selected == -1 && GetSubjectNondeadNext(F) == NULL) break; // first
+                F = GetSubjectNondeadNext(F);
+            }
+            if (!F) goto NULLVALUE;
+            answer = Meaning2Word(F->verb)->word;
+            goto ANSWER;
+        }
+
         while (F)
         {
-            if (F->verb == verb)
+            if (F->verb == verb || selected == -1 )// newest fact
             {
                 answer = Meaning2Word(F->object)->word;
                 if (!strcmp(answer, "null"))
@@ -433,17 +454,27 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
 
 void SetVariable(WORDP D, char* value)
 {
-    if (D->w.userValue == value) return;
-
-    if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue,value))) // only permanent variables get tracked
+    // check for json assign
+    if (strchr(D->word, '.') || strchr(D->word, '['))
     {
-        char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
-        ((unsigned int*)heapval)[0] = variableChangedThreadlist;
-        variableChangedThreadlist = Heap2Index((char*)heapval);
-        heapval[1] = (char*)D; // save name
-        heapval[2] = D->w.userValue; // save old value
+        JSONVariableAssign(D->word, value);
+        // note we do not revert such assignments at end but the json header
+        // should have been transiently created and will autodisappear
     }
-    D->w.userValue = value;
+    else // normal var
+    {
+        if (D->w.userValue == value) return;
+
+        if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue, value))) // only permanent variables get tracked
+        {
+            char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
+            ((unsigned int*)heapval)[0] = variableChangedThreadlist;
+            variableChangedThreadlist = Heap2Index((char*)heapval);
+            heapval[1] = (char*)D; // save name
+            heapval[2] = D->w.userValue; // save old value
+        }
+        D->w.userValue = value;
+    }
 }
 
 void SetUserVariable(const char* var, char* word, bool assignment)
@@ -1044,15 +1075,32 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     if (*op == '=' && impliedSet >= 0) SET_FACTSET_COUNT(impliedSet, 0); // force to be empty for @0 = ^first(...)
     char originalWord1[MAX_WORD_SIZE];
     ReadCompiledWord(ptr, originalWord1);
-
-    // get the from value
+    
     assignFromWild = (*ptr == '_' && IsDigit(ptr[1])) ? GetWildcardID(ptr) : -1;
+    
+    // get the from value when assigning to _ var from a function var wildcard
+    bool wildwild = false;
+    if (*word == '_' && *originalWord1 == '^' && IsDigit(originalWord1[1])) // function argument
+    {
+        char* value = FNVAR(originalWord1 + 1);
+        if (*value == '_'  && IsDigit(value[1]))
+        {
+            assignFromWild = GetWildcardID(value);
+            ptr = ReadCompiledWord(ptr, buffer); // assigning from wild to wild. Just copy across
+            strcpy(buffer, value);
+            wildwild = true;
+            if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s => %s ", word, value );
+        }
+    }
     if (*word == '_' && *ptr == '\'' && ptr[1] == '_' && IsDigit(ptr[2]))
     {
         assignFromWild = GetWildcardID(ptr + 1); // allow quoted assign across
         ptr = ReadCompiledWord(ptr + 1, buffer);
     }
-    else if (assignFromWild >= 0 && *word == '_') ptr = ReadCompiledWord(ptr, buffer); // assigning from wild to wild. Just copy across
+    else if (assignFromWild >= 0 && *word == '_')
+    {
+        if (!wildwild) ptr = ReadCompiledWord(ptr, buffer); // assigning from wild to wild. Just copy across
+    }
     else if (*ptr == '(')
     {
         ptr = ProcessMath(ptr, buffer, result);
@@ -1250,7 +1298,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             FACT* F = factSet[set][count];
             unsigned int id = Fact2Index(F);
             char fact[MAX_WORD_SIZE];
-            WriteFact(F, false, fact, false, false);
+            WriteFact(F, false, fact, false, false,true);
             Log(STDUSERLOG, (char*)"last value @%d[%d] is %d %s", set, count, id, fact); // show last item in set
         }
     }

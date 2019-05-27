@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/24/2019 cs9.2
+<br>Revision 5/27/2019 cs9.4
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -202,6 +202,9 @@ Additionally, there is
 | `~positiveinteger`     |
 | `~negativeinteger`     |
 | `~modelnumber`         | not a true number, but a word with both alpha and numeric
+| `~filename`         | looks like a filename with extension
+| `~fileext`         | .xxx  file extension
+
 
 To can be a preposition or it can be special. When used in the infinitive phrase To go, it is
 marked `~to_infinitive` and is followed by `~noun_infinitive`.

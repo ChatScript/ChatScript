@@ -3100,6 +3100,8 @@
  uteri ( NOUN NOUN_PLURAL COMMON2 posdefault:NOUN ) plural=uterus 
  utriculi ( NOUN NOUN_PLURAL COMMON1 ) plural=utriculus 
  uvulae ( NOUN NOUN_PLURAL COMMON1 ) plural=uvula 
+ uninstaller ( meanings=1 NOUN NOUN_SINGULAR ) 
+    uninstaller~1nz 
  USB ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON1 NOUN_NODETERMINER ) 
     USB~1nz 
  u-joint ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
@@ -7191,6 +7193,8 @@
     unposed~1az not arranged for pictorial purposes
  unsaponified ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON1 ) 
     unsaponified~1az not converted into soap
+ undelivered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    undelivered~1az 
  underaged ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 ) 
     underaged~1az 
  underwhelming ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:ADJECTIVE ) 
@@ -9026,6 +9030,8 @@
     unlabel~1vz 
  unenchant ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_DIRECTOBJECT VERB_NOOBJECT ) 
     unenchant~1vz 
+ unsubscribe ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_NOOBJECT ) 
+    unsubscribe~1vz 
  unfriend ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON1 VERB_DIRECTOBJECT VERB_NOOBJECT ) 
     unfriend~1vz 
  unemploy ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 VERB_DIRECTOBJECT VERB_NOOBJECT ) 

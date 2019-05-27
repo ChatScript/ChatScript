@@ -38,6 +38,6 @@ concept: ~internal_concepts(
 ~pos ~sys ~grammar_role ~daynumber ~yearnumber ~dateinfo
 ~fahrenheit ~celsius ~kelvin
 ~KINDERGARTEN ~GRADE1_2 ~GRADE3_4 ~GRADE5_6
-~twitter_name ~hashtag_label ~email_url
+~twitter_name ~hashtag_label ~email_url ~filename
 ~capacronym
 )

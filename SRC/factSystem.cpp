@@ -257,10 +257,10 @@ void TraceFact(FACT* F,bool ignoreDead)
 {
 	char* limit;
 	char* word = InfiniteStack(limit,"TraceFact"); // short term
-	Log(STDTRACELOG,(char*)"%d: %s\r\n",Fact2Index(F),WriteFact(F,false,word,ignoreDead,false));
+	Log(STDTRACELOG,(char*)"%d: %s\r\n",Fact2Index(F),WriteFact(F,false,word,ignoreDead,false,true));
 	Log(STDTRACETABLOG,(char*)"");
 	ReleaseInfiniteStack();
-}
+} 
 
 void ClearUserFacts()
 {
@@ -706,6 +706,8 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 	currentFact = CreateFastFact(subject,verb,object,properties);
 	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  
 	{
+        if (trace & TRACE_FACT && trace & TRACE_JSON && !(trace & TRACE_OUTPUT)) 
+            TraceFact(currentFact, false); // precise trace for JSON
 		Log(STDTRACELOG,(char*)" Created %d\r\n", Fact2Index(currentFact));
 		Log(STDTRACETABLOG,(char*)"");
 	}
@@ -1170,7 +1172,7 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	{
 		char* limit;
 		char* buffer = InfiniteStack(limit,"CreateFastFact"); // fact might be big, cant use mere WORD_SIZE
-		buffer = WriteFact(currentFact,false,buffer,true,false);
+		buffer = WriteFact(currentFact,false,buffer,true,false,true);
 		Log(STDTRACELOG,(char*)"create %s",buffer);
 		ReleaseInfiniteStack();
 	}	
@@ -1193,14 +1195,14 @@ bool ReadBinaryFacts(FILE* in) //   read binary facts
 	return true;
 }
 
-static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead) // uses no additional memory
+static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bool displayonly) // uses no additional memory
 {
 	char* xxstart = buffer;
 	// a field is either a contiguous mass of non-blank tokens, or a user string "xxx" or an internal string `xxx`  (internal removes its ends, user doesnt)
     if (flags ) //   fact reference
     {
 		FACT* G = Index2Fact(T);
-		if (!*WriteFact(G,false,buffer,ignoreDead)) 
+		if (!*WriteFact(G,false,buffer,ignoreDead, false,displayonly))
 		{
 			*buffer = 0;
 			return buffer;
@@ -1235,19 +1237,19 @@ static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead) //
 		if (strchr(answer,'\\') || strchr(answer,'/')) safe = false;
 		
 		// json must protect: " \ /  nl cr tab  we are not currently protecting bs ff
-		if (embeddedbacktick || !safe) // uses our own marker and can escape data
+		if ((embeddedbacktick || !safe) && !displayonly) // uses our own marker and can escape data
 		{
 			if (embeddedbacktick) strcpy(buffer,(char*)"`*^"); 
 			else strcpy(buffer,(char*)"`"); // has blanks or paren or just starts with ", use internal string notation
 			buffer += strlen(buffer);
-			AddEscapes(buffer,D->word,false,currentOutputLimit - (buffer - currentOutputBase)); // facts are not normal
+			AddEscapes(buffer,D->word,displayonly,currentOutputLimit - (buffer - currentOutputBase)); // facts are not normal
 			buffer += strlen(buffer);
 			SuffixMeaning(T,buffer, true);
 			buffer += strlen(buffer);
 			if (embeddedbacktick) strcpy(buffer,(char*)"`*^"); // add closer marker
 			else strcpy(buffer,(char*)"`");
 		}
-		else if (embeddedspace)   // has blanks, use internal string notation
+		else if (embeddedspace )   // has blanks, use internal string notation
 		{
 			*buffer++ = '`';
 			WriteMeaning(T,true,buffer);
@@ -1263,7 +1265,7 @@ static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead) //
 	return buffer;
 }
 
-char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol) // uses no extra memory
+char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol,bool displayonly) // uses no extra memory
 { //   if fact is junk, return the null string
 	char* start = buffer;
 	*buffer = 0;
@@ -1285,14 +1287,14 @@ char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol) // u
 
 	//   do subject
 	char* base = buffer;
- 	buffer = WriteField(F->subject,F->flags & FACTSUBJECT,buffer,ignoreDead);
+ 	buffer = WriteField(F->subject,F->flags & FACTSUBJECT,buffer,ignoreDead,displayonly);
 	if (base == buffer ) 
 	{
 		*start = 0;
 		return start; //    word itself was removed from dictionary
 	}
 	base = buffer;
-	buffer = WriteField(F->verb,F->flags & FACTVERB,buffer,ignoreDead);
+	buffer = WriteField(F->verb,F->flags & FACTVERB,buffer,ignoreDead, displayonly);
 	if (base == buffer ) 
 	{
 		*start = 0;
@@ -1307,7 +1309,7 @@ char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol) // u
 		autoflag = FACTOBJECT;
 		X = atoi(Meaning2Word(F->object)->word);
 	}
-	buffer = WriteField(X,autoflag,buffer,ignoreDead);
+	buffer = WriteField(X,autoflag,buffer,ignoreDead, displayonly);
 	if (base == buffer ) 
 	{
 		*start = 0;

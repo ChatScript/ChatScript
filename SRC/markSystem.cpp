@@ -1188,10 +1188,14 @@ void MarkAllImpliedWords()
 		MarkRoles(i);
 #endif
 
+		// both twitter usernames and hashtags are alphanumberic or _
+		// https://help.twitter.com/en/managing-your-account/twitter-username-rules
+		// https://www.hashtags.org/featured/what-characters-can-a-hashtag-include/
 		if ((*wordStarts[i] == '@' || *wordStarts[i] == '#')  && strlen(wordStarts[i]) > 2)
 		{
 			char* ptr = wordStarts[i];
 			bool hasAlpha = false;
+			bool hasFirstAlpha = IsAlphaUTF8(*(ptr+1));
 			while (*++ptr)
 			{
 				if (!IsDigit(*ptr) && !IsAlphaUTF8(*ptr) && *ptr != '_') break;
@@ -1200,8 +1204,13 @@ void MarkAllImpliedWords()
 			if (!*ptr && hasAlpha) 
 			{
 				if (*wordStarts[i] == '@') MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord("~twitter_name")),i,i);
-				if (*wordStarts[i] == '#') MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord("~hashtag_label")),i,i);
+				if (*wordStarts[i] == '#' && hasFirstAlpha) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord("~hashtag_label")),i,i);
 			}
+		}
+
+		// detect a filename
+		if (IsFileName(wordStarts[i])) {
+			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~filename")), i, i, false);
 		}
 
 		// detect acronym

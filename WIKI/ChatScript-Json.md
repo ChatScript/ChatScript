@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/24/2019 cs9.2
+<br>Revision 5/27/2019 cs9.4
 
 
 # Real World JSON
@@ -234,6 +234,110 @@ json text string and outputs a strict one.
 
 ## Accessing JSON structures
 
+## Direct access via JSON variables `$myvar.field` and `$myvar[]
+
+If a variable holds a JSON object value, you can directly set and get from fields of that object
+using dotted notation. This can be a fixed static fieldname you give or a user variable value or a match variable value (quoted or unquoted):
+ `$myvar.$myfield` is legal, as is `$myvar._0` or `$myvar.'_0`.
+
+Dotted notation is cleaner and faster than `^jsonpath` and `jsonobjectinsert` and for get, has
+the advantage that it never fails, it only returns null if it can't find the field. 
+If the path does not contain a json object at a level below the top, one will automatically 
+be created if trying to do assignment, and have the same transient/permanent property as the immediately containing object.
+If the top level variable is not currently an object, assignment will fail. CS will 
+not create an object for you because it doesn't know if it should be transient or permanent.
+
+```
+$x = $$obj.name.value.data.side 
+$$obj.name.value.data.side = 7
+```
+
+Similarly you can access JSON arrays using array notation:
+```
+$x = $$array[5]
+$x = $$array[$_tmp]
+$$obj.name[4] += 3
+$$obj.$_kind[4] += 3
+$$obj._0[4] += 3
+$$obj.'_0[4] += 3
+```
+
+```
+$x.foo[] = Bruce
+```
+If foo is currently undefined, the system will create a JSON array for you,
+with permanency that matches the JSON object of $x. You cannot do $x[]  and have this 
+happen because at the top level the system does not know what permanency to use.
+Once there is a JSON array in $x.foo, assignments with `foo[]` will add
+elements to the array. You cannot designate the index, it will be the next index
+in succession.
+
+You can also do
+```
+    $_array1 +=  $_array2 -- copies contents of array2 into array1
+    $_array1 += value -- adds value into array1
+```
+
+Adding an element to an array using these notations will automatically
+select DUPLICATE entries being legal. If you want the insertion to be unique, use
+^jsonarrayinsert(UNIQUE xxx xxx) OR in your botmacro change the default by doing
+```
+   $cs_json_array_defaults = #JSON_ARRAY_UNIQUE 
+```
+
+The only restriction on arrays is that you cannot add a new array index value without using ^jsonarrayinsert
+as you are not allowed to create discontiguous indices.
+
+**NOTE** JSON is normally a non-recursive structure with no shared pointers. But ChatScript allows you to store 
+references to JSON structures in multiple places of other JSON structures. This has its hazards. It presents no
+problem when transcribing to text for a website using `^jsonwrite` . And when you have something like this:
+```
+$x = ^jsoncreate(object)
+$y = ^jsoncreate(object)
+$x.field = $y
+$x.field1 = $y
+$x.field = null
+```
+Assuming that a JSON structure is not available in multiple places, the assignment of null (or any other value)
+to a field that already has a JSON structure will normally cause the old value structure  to be fully deleted,
+since it's only reference is removed. And the system does check and delete the structure if it is not referred 
+to by some other JSON field.
+But there are limits. The system has no idea if you have a pointer to it in a variable. Or if it is part of a
+pathological indirection sequence like this:
+```
+$x = ^jsoncreate(object)
+$y = ^jsoncreate(object)
+$x.field = $y
+$y.field = $x
+$x.field = null
+```
+The two structures point to each other, each only once. So assigning null will kill off both structures.
+
+Assigning `null` will remove a JSON key entirely. Assigning `""` `^""` will set the field to the JSON literal
+`null`.
+
+#### Accessing opposite ends of JSON structures
+For an array, obviously $array[0] returns one end of the array, and you can get the index of The
+other end by doing 
+```
+    $_tmp = ^length($array)
+    $array[$_tmp]
+```
+But a convenient shortcut is
+```
+    $array[-1]
+``
+
+For objects, $object[0] returns the name of the most recent field added and 
+$object[-1] returns the name of the first field added.
+
+#### using a $word as a field name rather than as indirection 
+Just escape the $.   
+```
+$data.\$varname = hello 
+```
+
+
 ### `^jsonpath`( string id )
 
 * `string` is a description of how to walk JSON. 
@@ -278,6 +382,7 @@ if you add a 3rd argument "safe" to the call.
 ```
 
 ### `^jsonpath`
+Generally speaking the direct access methods are clearer than using this function.
 
 Can also return the actual factid of the match, instead of the object of the fact. This would
 allow you to see the index of a found array element, or the json object/array name involved. Or you
@@ -305,85 +410,6 @@ You may omit the leading . of a path and CS will by default assume it
 ```
 ^jsonpath("st. helen".data $tmp)
 ```
-
-## Direct access via JSON variables `$myvar.field` and `$myvar[]
-
-If a variable holds a JSON object value, you can directly set and get from fields of that object
-using dotted notation. This can be a fixed static fieldname you give or a user variable value or a match variable value (quoted or unquoted):
- `$myvar.$myfield` is legal, as is `$myvar._0` or `$myvar.'_0`.
-
-Dotted notation is cleaner and faster than `^jsonpath` and `jsonobjectinsert` and for get, has
-the advantage that it never fails, it only returns null if it can't find the field. 
-If the path does not contain a json object at a level below the top, one will automatically 
-be created on assignment, and have the same transient/permanent property as the immediately containing object.
-If the top level variable is not currently an object, assignment will fail. CS will 
-not create an object for you because it doesn't know if it should be transient or permanent.
-
-```
-$x = $$obj.name.value.data.side 
-$$obj.name.value.data.side = 7
-```
-
-Similarly you can access JSON arrays using array notation:
-```
-$x = $$array[5]
-$x = $$array[$_tmp]
-$$obj.name[4] += 3
-$$obj.$_kind[4] += 3
-$$obj._0[4] += 3
-$$obj.'_0[4] += 3
-```
-
-```
-$x.foo[] = Bruce
-```
-If foo is currently undefined, the system will create a JSON array for you,
-with permanency that matches the JSON object of $x. You cannot do $x[]  and have this 
-happen because at the top level the system does not know what permanency to use.
-Once there is a JSON array in $x.foo, assignments with `foo[]` will add
-elements to the array. You cannot designate the index, it will be the next index
-in succession.
-
-You can also do
-```
-    $_array1 +=  $_array2 -- copies contents of array2 into array1
-    $_array1 += value -- adds value into array1
-```
-
-Adding an element to an array using these notations will automatically
-select DUPLICATE entries being legal. If you want the insertion to be unique, use
-^jsonarrayinsert(UNIQUE xxx xxx).
-
-The only restriction on arrays is that you cannot add a new array index value without using ^jsonarrayinsert
-as you are not allowed to create discontiguous indices.
-
-**NOTE** JSON is normally a non-recursive structure with no shared pointers. But ChatScript allows you to store 
-references to JSON structures in multiple places of other JSON structures. This has its hazards. It presents no
-problem when transcribing to text for a website using `^jsonwrite` . And when you have something like this:
-```
-$x = ^jsoncreate(object)
-$y = ^jsoncreate(object)
-$x.field = $y
-$x.field1 = $y
-$x.field = null
-```
-Assuming that a JSON structure is not available in multiple places, the assignment of null (or any other value)
-to a field that already has a JSON structure will normally cause the old value structure  to be fully deleted,
-since it's only reference is removed. And the system does check and delete the structure if it is not referred 
-to by some other JSON field.
-But there are limits. The system has no idea if you have a pointer to it in a variable. Or if it is part of a
-pathological indirection sequence like this:
-```
-$x = ^jsoncreate(object)
-$y = ^jsoncreate(object)
-$x.field = $y
-$y.field = $x
-$x.field = null
-```
-The two structures point to each other, each only once. So assigning null will kill off both structures.
-
-Assigning `null` will remove a JSON key entirely. Assigning `""` `^""` will set the field to the JSON literal
-`null`.
 
 ### `^length`( jsonid )
 Returns the number of top-level members in a json array or object.
