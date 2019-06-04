@@ -4,6 +4,7 @@
 #include <mutex>
 static std::mutex mtx;
 #endif 
+char* crashpath = NULL;
 int loglimit = 0;
 int ide = 0;
 bool idestop = false;
@@ -215,11 +216,31 @@ void mystart(char* msg)
 		// print out all the frames to stderr
 		sprintf(word, (char*)"Fatal Error: signal code %d\n", signalcode);
 		Log(SERVERLOG, word);
-		FILE*fp = FopenUTF8WriteAppend(serverLogfileName);
+        Log(BUGLOG, word);
+
+        FILE*fp = FopenUTF8WriteAppend(serverLogfileName);
 		fseek(fp, 0, SEEK_END);
 		int fd = fileno(fp);
 		backtrace_symbols_fd(array, size, fd); //STDERR_FILENO);
 		fclose(fp);
+
+        if (crashpath) // a place outside the cs deploy, safe from redeployment
+        {
+            FILE*fp = FopenUTF8WriteAppend(crashpath);
+            if (fp)
+            {
+                fseek(fp, 0, SEEK_END);
+                int fd = fileno(fp);
+                backtrace_symbols_fd(array, size, fd); //STDERR_FILENO);
+                fclose(fp);
+                // less safe might crash
+                fp = FopenUTF8WriteAppend(crashpath);
+                fseek(fp, 0, SEEK_END);
+                BugBacktrace(fp);
+                fclose(fp);
+            }
+        }
+
 		// terminate program  
 		exit(signalcode);  
 	}
@@ -232,6 +253,7 @@ void mystart(char* msg)
 		// Handle relevant signals
 		if (sigaction(SIGSEGV, &sa, NULL) == -1) {
 			sprintf(word, (char*)"Error: cannot handle SIGSEGV");
+            Log(BUGLOG, word);
 			Log(SERVERLOG, word);
 		}
 		if (sigaction(SIGHUP, &sa, NULL) == -1) {
@@ -240,7 +262,8 @@ void mystart(char* msg)
 		}
 		if (sigaction(SIGINT, &sa, NULL) == -1) {
 			sprintf(word, (char*)"Error: cannot handle SIGINT");
-			Log(SERVERLOG, word);
+            Log(BUGLOG, word);
+            Log(SERVERLOG, word);
 		}
 		if (sigaction(SIGBUS, &sa, NULL) == -1) {
 			sprintf(word, (char*)"Error: cannot handle SIGBUS");
@@ -835,9 +858,12 @@ size_t EncryptableFileWrite(void* buffer,size_t size, size_t count, FILE* file,b
 	if (userFileSystem.userEncrypt && encrypt) 
 	{
 		size_t msgsize = userFileSystem.userEncrypt(buffer,size,count,file,filekind); // can revise buffer
-		return userFileSystem.userWrite(buffer,1,msgsize,file);
+        size = 1;
+        count = msgsize;
 	}
-	else return userFileSystem.userWrite(buffer,size,count,file);
+    size_t wrote = userFileSystem.userWrite(buffer,size,count,file);
+    if (wrote != count && dieonwritefail) myexit("UserTopic Write failed");
+    return wrote;
 }
 
 void CopyFile2File(const char* newname,const char* oldname, bool automaticNumber)

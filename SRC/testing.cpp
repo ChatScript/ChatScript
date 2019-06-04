@@ -4284,6 +4284,8 @@ static void C_Build(char* input)
 #ifndef DISCARDSCRIPTCOMPILER
 	int64 oldbotid = myBot;
 	echo = true;
+    bool olduserlog = userLog;
+    userLog = true;
 	myBot = 0;	// default
 	mystart(input);
 	kernelVariableThreadList = botVariableThreadList = 0;
@@ -4372,6 +4374,8 @@ static void C_Build(char* input)
 	strcpy(loginName,oldloginname);
 	trace &= -1 ^ TRACE_SCRIPT;
 	myBot = oldbotid;
+    userLog = olduserlog;
+
 #endif
 }  
 
@@ -8814,7 +8818,8 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 				{
 					if (!strnicmp(prior2,(char*)"^^if",4)) continue;	// ignore accelerator after iftest to skip to next test
 					if (!strnicmp(prior2,(char*)"^^loop",6)) continue;	// ignore accelerator at start of loop to skip
-					if (!strnicmp(prior2,(char*)"} ",2) && levelMark[level+1] == 'i') continue;	 // ignore jump after if branch to end of whole if
+                    if (!strnicmp(prior2, (char*)"^^jsonloop", 10)) continue;	// ignore accelerator at start of loop to skip
+                    if (!strnicmp(prior2,(char*)"} ",2) && levelMark[level+1] == 'i') continue;	 // ignore jump after if branch to end of whole if
                     if (!strnicmp(prior2, (char*)") ", 2) && levelMark[level + 1] == 'i') continue;	 // ignore jump after if branch to end of whole if
                 }
 				
@@ -8930,7 +8935,7 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 					end[1] = c;
 					output = end + 1;
 				}
-				else if ((!stricmp(word,(char*)"^^if") || !stricmp(word,(char*)"^^loop")) && *output == '(') 
+				else if ((!stricmp(word,(char*)"^^if") || !stricmp(word,(char*)"^^loop") || !stricmp(word, (char*)"^^jsonloop")) && *output == '(')
 				{
 					++hasBody;
 					bodyKind[hasBody] = word[2]; // i or l

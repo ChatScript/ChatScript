@@ -44,6 +44,7 @@ extern DEBUGAPI debugOutput; // CS output to windows
 extern DEBUGAPI debugEndTurn; // about to save user file marker
 extern DEBUGLOOPAPI debugCall;
 extern unsigned int idetrace;
+extern bool dieonwritefail;
 extern DEBUGVARAPI debugVar;
 extern DEBUGVARAPI debugMark;
 extern int outputlevel;
@@ -182,7 +183,7 @@ extern std::string interfaceKind;
 #endif
 
 // buffers
-extern char ourMainInputBuffer[INPUT_BUFFER_SIZE];
+extern char ourMainInputBuffer[INPUT_BUFFER_SIZE * 2];
 extern char* mainInputBuffer;
 extern char* ourMainOutputBuffer;
 extern char* mainOutputBuffer;

@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/27/2019 cs9.4
+<br>Revision 6/3/2019 cs9.41
 
 
 # Real World JSON
@@ -410,6 +410,41 @@ You may omit the leading . of a path and CS will by default assume it
 ```
 ^jsonpath("st. helen".data $tmp)
 ```
+
+### ^jsonloop($jsonstruct $var1 $var2)
+This is like ^loop, but explicitly for json data. It is faster and cleaner than writing a loop.
+A normal loop might look like:
+```
+    $_count = ^length($_jsonarray)
+    ^loop($_count)
+    {
+        $_count -= 1
+        $_value =  $_jsonarray[$_count]
+        ...
+    }
+```
+And similarly for a JSON object one might want:
+```
+    $_count = ^length($_jsonobject)
+    ^loop($_count)
+    {
+        $_count -= 1
+        $_jsonfield = $_jsonobject[$_count]
+        $_value =  $_jsonobject.$_jsonfield
+        ...
+    }
+```
+But for large numbers of elements (eg a thousand +) this is ineffient because it has to 
+search for each element each time. The efficient way is:
+```
+    ^jsonloop($_jsonobject $_field $_value)
+    {
+        ...
+    }
+```
+where the loop runs most recent entry to least recent, putting the field name in $_field and
+its value in $_value. Similarly for a jsonarray it does the index as $_field and $_value is its
+value.
 
 ### `^length`( jsonid )
 Returns the number of top-level members in a json array or object.

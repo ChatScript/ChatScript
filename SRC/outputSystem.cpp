@@ -263,56 +263,56 @@ void ReformatString(char starter, char* input,char*& output, FunctionResult& res
 		{
 			char* base = input; 
 			while (*++input && IsDigit(*input)){;} // find end of function variable name 
-			char* tmp = FNVAR(base+1);
+			char* tmp1 = FNVAR(base+1);
 			// if tmp turns out to be $var or _var %var, need to recurse to get it
-			if (*tmp == LCLVARDATA_PREFIX && tmp[1] == LCLVARDATA_PREFIX)
+			if (*tmp1== LCLVARDATA_PREFIX && tmp1[1] == LCLVARDATA_PREFIX)
 			{
-				strcpy(output,tmp+2);
+				strcpy(output,tmp1+2);
 				output = FixFormatOutput(output,controls); 	// is already evaled
 			}
-			else if (*tmp == USERVAR_PREFIX && !IsDigit(tmp[1])) // user variable (could be json object ref)
+			else if (*tmp1 == USERVAR_PREFIX && !IsDigit(tmp1[1])) // user variable (could be json object ref)
 			{
-				strcpy(output,GetUserVariable(tmp));
+				strcpy(output,GetUserVariable(tmp1));
 				output = FixFormatOutput(output,controls); 
 			}
-			else if (*tmp == '_' && IsDigit(tmp[1])) // canonical match variable
+			else if (*tmp1 == '_' && IsDigit(tmp1[1])) // canonical match variable
 			{
-				char* wildbase = tmp++;
-				if (IsDigit(*tmp)) ++tmp; // 2nd digit
+				char* wildbase = tmp1++;
+				if (IsDigit(*tmp)) ++tmp1; // 2nd digit
 				strcpy(output,GetwildcardText(GetWildcardID(wildbase),true));
 				output = FixFormatOutput(output,controls); 
 			}
-			else if (*tmp == '\'' && tmp[1] == '_' && IsDigit(tmp[2])) // quoted match variable
+			else if (*tmp1 == '\'' && tmp1[1] == '_' && IsDigit(tmp1[2])) // quoted match variable
 			{
-				char* wildbase = ++tmp;
-				++tmp;
-				if (IsDigit(*tmp)) ++tmp; // 2nd digit
+				char* wildbase = ++tmp1;
+				++tmp1;
+				if (IsDigit(*tmp)) ++tmp1; // 2nd digit
 				strcpy(output,GetwildcardText(GetWildcardID(wildbase),false));
 				output = FixFormatOutput(output,controls);
 			}
-			else if (*tmp == SYSVAR_PREFIX && IsAlphaUTF8(tmp[1])) // system variable
+			else if (*tmp1 == SYSVAR_PREFIX && IsAlphaUTF8(tmp1[1])) // system variable
 			{
-				char* value = SystemVariable(tmp,NULL);
+				char* value = SystemVariable(tmp1,NULL);
 				if (*value) 
 				{
 					strcpy(output,value);
 					output = FixFormatOutput(output,controls);
 				}
-				else if (!FindWord(tmp)) 
+				else if (!FindWord(tmp1)) 
 				{
-					strcpy(output,tmp);
+					strcpy(output,tmp1);
 					output = FixFormatOutput( output,controls); // not a system variable
 				}
 			}	
-			else if (*tmp == FUNCTIONSTRING && (tmp[1] == '"' || tmp[1] == '\''))
+			else if (*tmp1 == FUNCTIONSTRING && (tmp1[1] == '"' || tmp1[1] == '\''))
 			{
-				ReformatString(tmp[1],tmp+2,output,result,controls);
+				ReformatString(tmp1[1],tmp1+2,output,result,controls);
 				output += strlen(output);
 			}
-			else if (!stricmp(tmp,(char*)"null")) {;} // value is to be ignored
+			else if (!stricmp(tmp1,(char*)"null")) {;} // value is to be ignored
 			else 
 			{
-				strcpy(output,tmp);
+				strcpy(output,tmp1);
 				output = FixFormatOutput(output,controls); 
 			}
 		}
@@ -497,15 +497,15 @@ static char* ProcessChoice(char* ptr,char* buffer,FunctionResult &result,int con
 	{
 		int r = random(count);
 		if (outputchoice >= 0 && outputchoice < count) r = outputchoice; // forced by user
-		char* ptr = SkipWhitespace(choiceset[r]);
-		if (*ptr == ']') break; // choice does nothing by intention
+		char* ptr1 = SkipWhitespace(choiceset[r]);
+		if (*ptr1 == ']') break; // choice does nothing by intention
 		char level = 0;
-		if (IsAlphaUTF8(*ptr) && ptr[1] == ':' && IsWhiteSpace(ptr[2])) 
+		if (IsAlphaUTF8(*ptr1) && ptr1[1] == ':' && IsWhiteSpace(ptr1[2])) 
 		{
-			level = *ptr;
-			ptr += 3; // skip special rejoinder
+			level = *ptr1;
+			ptr1 += 3; // skip special rejoinder
 		}
-		Output(ptr,buffer,result,controls);
+		Output(ptr1,buffer,result,controls);
 		if (result & ENDCODES) break; // declared done
 		
 		// is choice a repeat of something already said... if so try again
@@ -670,8 +670,9 @@ static char* Output_Function(char* word, char* ptr,  char* space,char*& buffer, 
 		}
 	}
 	else if (!strcmp(word,(char*)"^if")) ptr = HandleIf(ptr,buffer,result);  
-	else if (!strcmp(word,(char*)"^loop")) ptr = HandleLoop(ptr,buffer,result); 
-	else if (word[1] == '^') // if and loop
+	else if (!strcmp(word,(char*)"^loop")) ptr = HandleLoop(ptr,buffer,result,false); 
+    else if (!strcmp(word, (char*)"^jsonloop")) ptr = HandleLoop(ptr, buffer, result,true);
+    else if (word[1] == '^') // if and loop
 	{
 		if (!once && IsAssignmentOperator(ptr))  
 			ptr = PerformAssignment(word,ptr,buffer,result); //   =  or *= kind of construction

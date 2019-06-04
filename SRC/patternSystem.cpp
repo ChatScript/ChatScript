@@ -1251,6 +1251,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
         {
             int endOfGap = matchStarted; // where we think we are now at current match
             memorizationStart = matchStarted = (wildcardSelector & 0x000000ff); // actual word we started at
+                    
             unsigned int ignore = matchStarted;
             int gapSize;
             if (!reverse)
@@ -1267,7 +1268,12 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
 
             int limit = (wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff;
             if (gapSize < 0) legalgap = false; // if searched _@10- *~4 > 
-            else if (gapSize <= limit) legalgap = true;   //   we know this was legal, so allow advancement test not to fail- matched gap is started...oldEnd-1
+            else if (gapSize <= limit)
+            {
+                legalgap = true;   //   we know this was legal, so allow advancement test not to fail- matched gap is started...oldEnd-1
+                // need to know (< *) pattern matcher 
+                if (!depth && *word == ')' && firstMatched < 0) firstMatched = memorizationStart;
+            }
             else
             {
                 matched = false;  // more words than limit
@@ -1307,8 +1313,9 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                     if (reverse)
                     {
                         // if starter was at beginning, there is no data to match
-                        if (positionStart == positionEnd || positionStart == 0) SetWildCardGivenValue((char*)"", (char*)"", positionStart, positionEnd , index); // empty gap
-                        else SetWildCardGiven(positionStart , positionEnd, true, index);  //   wildcard legal swallow between elements
+                        if (positionStart == 0) SetWildCardGivenValue((char*)"", (char*)"", positionStart, positionEnd , index); // empty gap
+                        else if (positionStart < positionEnd) SetWildCardGiven(positionStart, positionEnd, true, index);  //   wildcard legal swallow between elements
+                        else SetWildCardGiven(positionEnd, positionStart ,  true, index);  //   wildcard legal swallow between elements
                     }
                     else if ((positionStart - memorizationStart) == 0) SetWildCardGivenValue((char*)"", (char*)"", 0, oldEnd + 1, index); // empty gap
                     else
@@ -1546,7 +1553,11 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             returnstart = positionEnd;
         }
         else if (depth > 0 && *word == ')') returnstart = positionStart;		// where we began this level
-        else returnstart = (firstMatched > 0) ? firstMatched : positionStart; // if never matched a real token, report 0 as start
+        else
+        {
+            if (firstMatched == NORETRY) returnstart = 1; // non-rebindable < start of pattern
+            else returnstart = (firstMatched > 0) ? firstMatched : positionStart; // if never matched a real token, report 0 as start
+        }
     }
 
     //   if we leave this level w/o seeing the close, show it by elipsis 

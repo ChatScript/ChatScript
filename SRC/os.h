@@ -283,6 +283,7 @@ extern bool oob;
 extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
+extern char* crashpath;
 
 #define ReportBug(...) { Bug(); Log(BUGLOG, __VA_ARGS__);}
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)

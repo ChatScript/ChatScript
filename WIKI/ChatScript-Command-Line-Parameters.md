@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 2/12/2019 cs9.1
+<br>Revision 6/3/2019 cs9.41
 
 # Command Line Parameters
 
@@ -98,6 +98,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`userlog`      | Store a user-bot log in USERS directory (default)
 |`nouserlog`    | Don't store a user-bot log
 |`tmp=xxx`     | name relative or absolute path to where you want the TMP folder to be. Do not add trailing `/`
+|`crashpath=xxx`     | file to write about fatal Linux signals that will be outside of the cs folder `/`
 
 ## Execution options
 | option           | description

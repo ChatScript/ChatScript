@@ -1234,7 +1234,7 @@ static WORDP currentFunctionDefinition;			// current macro defining or executing
 
 static char verifyLines[100][MAX_WORD_SIZE];	// verification lines for a rule to dump after seeing a rule
 static unsigned int verifyIndex = 0;			// index of how many verify lines seen
-static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoinders);
+static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoinders,bool json);
 
 
 #ifdef INFORMATION
@@ -1566,8 +1566,8 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 	}
 	if (!stricmp(D->word,(char*)"^next"))
 	{	
-		if (stricmp(arg1,(char*)"RESPONDER") && stricmp(arg1,(char*)"LOOP") && stricmp(arg1,(char*)"REJOINDER") && stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"GAMBIT") && stricmp(arg1,(char*)"INPUT") && stricmp(arg1,(char*)"FACT")) 
-			BADSCRIPT((char*)"CALL- 62 1st argument to ^next must be FACT OR LOOP OR INPUT or RULE or GAMBIT or RESPONDER or REJOINDER - %s\r\n",arg1)
+		if (stricmp(arg1,(char*)"RESPONDER") && stricmp(arg1,(char*)"LOOP") && stricmp(arg1, (char*)"JSONLOOP") && stricmp(arg1,(char*)"REJOINDER") && stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"GAMBIT") && stricmp(arg1,(char*)"INPUT") && stricmp(arg1,(char*)"FACT"))
+			BADSCRIPT((char*)"CALL- 62 1st argument to ^next must be FACT or LOOP or JSONLOOP or INPUT or RULE or GAMBIT or RESPONDER or REJOINDER - %s\r\n",arg1)
 	}	
 	else if(!stricmp(D->word,(char*)"^jsonarraydelete"))
 	{
@@ -1647,18 +1647,18 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 	}
 	else if (!stricmp(D->word,(char*)"^end"))
 	{
-		if (stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"CALL") && stricmp(arg1,(char*)"LOOP") && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT")  && stricmp(arg1,(char*)"PLAN")) 
- 			BADSCRIPT((char*)"CALL- 15 1st argument to ^end must be RULE or LOOP or TOPIC or SENTENCE or INPUT or PLAN- %s\r\n",arg1)
+		if (stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"CALL") && stricmp(arg1,(char*)"LOOP") && stricmp(arg1, (char*)"JSONLOOP") && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT")  && stricmp(arg1,(char*)"PLAN"))
+ 			BADSCRIPT((char*)"CALL- 15 1st argument to ^end must be RULE or LOOP or JSONLOOP or TOPIC or SENTENCE or INPUT or PLAN- %s\r\n",arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^fail"))
 	{
-		if (stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"CALL") && stricmp(arg1,(char*)"LOOP")  && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT")) 
- 			BADSCRIPT((char*)"CALL- 16 1st argument to ^fail must be RULE or LOOP or TOPIC or SENTENCE or INPUT - %s\r\n",arg1)
+		if (stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"CALL") && stricmp(arg1,(char*)"LOOP") && stricmp(arg1, (char*)"JSONLOOP") && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT"))
+ 			BADSCRIPT((char*)"CALL- 16 1st argument to ^fail must be RULE or LOOP or JSONLOOP or TOPIC or SENTENCE or INPUT - %s\r\n",arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^nofail"))
 	{
-		if (stricmp(arg1,(char*)"RULE") &&  stricmp(arg1,(char*)"LOOP") && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT")) 
- 			BADSCRIPT((char*)"CALL- 16 1st argument to ^nofail must be RULE or LOOP or TOPIC or SENTENCE or INPUT - %s\r\n",arg1)
+		if (stricmp(arg1,(char*)"RULE") &&  stricmp(arg1,(char*)"LOOP") && stricmp(arg1, (char*)"JSONLOOP")  && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT"))
+ 			BADSCRIPT((char*)"CALL- 16 1st argument to ^nofail must be RULE or LOOP or JSONLOOP or TOPIC or SENTENCE or INPUT - %s\r\n",arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^compute"))
 	{
@@ -1910,9 +1910,13 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 					}
 					else if (!stricmp(word,"^loop")) 
 					{
-						ptr = ReadLoop(word,ptr,in,data,NULL);
+						ptr = ReadLoop(word,ptr,in,data,NULL,false);
 					}
-					else 
+                    else if (!stricmp(word, "^jsonloop"))
+                    {
+                        ptr = ReadLoop(word, ptr, in, data, NULL,true);
+                    }
+                    else
 					{
 						ptr = ReadCall(word,ptr,in,data,*nextToken == '(',false);
 						*data++ = ' ';
@@ -2292,7 +2296,7 @@ a-z,A-Z,|,_	normal token
 %			system variable 
 ~dat 		topic/set reference
 a: thru u:	responder codes
-if/loop/loopcount	constructs
+if/loop/jsonloop	constructs
 ^call  call	function/macro calls with or without ^
 ^fnvar		function variables
 ^$glblvar	global function variables
@@ -3282,15 +3286,24 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
 	return ptr; //   we return with no extra space after us, caller adds it
 }
 
-static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
+static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoinders,bool json)
 {
     priorLine = currentFileLine;
     char* original = data;
-	strcpy(data,(char*)"^loop ");
-	data += 6;
+    if (json)
+    {
+        strcpy(data, (char*)"^jsonloop ");
+        data += 10;
+    }
+    else
+    {
+        strcpy(data, (char*)"^loop ");
+        data += 6;
+    }
     if (mapFile && dataBase)
     {
-        fprintf(mapFile, (char*)"          loop %d %d  \r\n", currentFileLine, (int)(data - dataBase)); // readBuffer
+        if (json) fprintf(mapFile, (char*)"          jsonloop %d %d  \r\n", currentFileLine, (int)(data - dataBase)); // readBuffer
+        else fprintf(mapFile, (char*)"          loop %d %d  \r\n", currentFileLine, (int)(data - dataBase)); // readBuffer
     }
 
 	ptr = ReadNextSystemToken(in,ptr,word,false,false); //   (
@@ -3299,7 +3312,7 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
         AddMapOutput(priorLine);
         priorLine = currentFileLine;
     }
-      *data++ = '(';
+    *data++ = '(';
 	*data++ = ' ';
 	if (*word != '(') BADSCRIPT((char*)"LOOP-1 count must be ()  or (count) -%s\r\n",word)
 	ptr = ReadNextSystemToken(in,ptr,word,false,false); //   counter - 
@@ -3322,29 +3335,57 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
                 priorLine = currentFileLine;
             }
     }
-	else if (*word == ')')  strcpy(data,(char*)"-1"); //   omitted, use -1
-	else if (!stricmp(word,(char*)"-1")) // precompiled previously -1
+    else if (*word == ')')
+    {
+        if (!json) strcpy(data, (char*)"-1"); //   omitted, use -1
+        else BADSCRIPT("^JSONLOOP missing arguments")
+    }
+	else if (!stricmp(word,(char*)"-1") && !json) // precompiled previously -1
 	{
 		strcpy(data,word);
 		ptr = ReadNextSystemToken(in,ptr,word,false,false); // read closing paren
 		if (*word != ')') BADSCRIPT((char*)"Loop counter %s was not closed by )\r\n",word);
 	}
-	else if (!IsDigit(*word) && *word != USERVAR_PREFIX && *word != '_' && *word != SYSVAR_PREFIX  && *word != '^'  && *word != '@') 
+	else if (!json && !IsDigit(*word) && *word != USERVAR_PREFIX && *word != '_' && *word != SYSVAR_PREFIX  && *word != '^'  && *word != '@') 
 		BADSCRIPT((char*)"LOOP-2 counter must be $var, _#, %var, @factset or ^fnarg or function call -%s",word)
 	else 
 	{
 		strcpy(data,word);
-		ptr = ReadNextSystemToken(in,ptr,word,false,false);
+        ptr = ReadNextSystemToken(in,ptr,word,false, false);
         if (priorLine != currentFileLine)
         {
             AddMapOutput(priorLine);
             priorLine = currentFileLine;
         }
+        if (json) // 2 more args
+        {
+            data += strlen(data);
+            *data++ = ' ';
+            if (*word != '$' && *word != '_')  BADSCRIPT((char*)"LOOP-2 control must be $var or matchvar", word)
+
+            strcpy(data, word);
+            if (priorLine != currentFileLine)
+            {
+                AddMapOutput(priorLine);
+                priorLine = currentFileLine;
+            }
+            ptr = ReadNextSystemToken(in, ptr, word, false, false); //  
+            if (*word != '$' && *word != '_')  BADSCRIPT((char*)"LOOP-2 control must be $var or matchvar", word)
+            data += strlen(data);
+            *data++ = ' ';
+            strcpy(data, word);
+            if (priorLine != currentFileLine)
+            {
+                AddMapOutput(priorLine);
+                priorLine = currentFileLine;
+            }
+            ptr = ReadNextSystemToken(in, ptr, word, false, false);
+        }
     }
 	data += strlen(data);
 	*data++ = ' ';
 	if (*word != ')') 
-        BADSCRIPT((char*)"LOOP-3 counter must end with )  -%s\r\n",word)
+        BADSCRIPT((char*)"LOOP-3 control must end with )  -%s\r\n",word)
 	*data++ = ')';
 	*data++ = ' ';
 	char* loopstart = data;
@@ -3633,7 +3674,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		
 		if (*word == '^')
 		{
-			if (!stricmp(word,"^if") || !stricmp(word,"^loop")) {;}
+			if (!stricmp(word,"^if") || !stricmp(word,"^loop") || !stricmp(word, "^jsonloop")) {;}
 			else if (*nextToken != '(' && word[1] != '^'  && word[1] != '=' && word[1] != USERVAR_PREFIX && word[1] != '_' && word[1] != '"' && word[1] != '\'' && !IsDigit(word[1])) 
 				BADSCRIPT((char*)"%s either references a function w/o arguments or names a function variable that doesn't exist\r\n",word)
 		}
@@ -3665,10 +3706,15 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		}
 		else if (*nextToken == '{' && !stricmp(nakedWord,(char*)"loop"))  // loop missing () 
 		{
-			ptr = ReadLoop(word,ptr,in,dataChunk,rejoinders);
+			ptr = ReadLoop(word,ptr,in,dataChunk,rejoinders,false);
 			continue;
 		}
-		else if (*nextToken != '(') // doesnt look like a function
+        else if (*nextToken == '{' && !stricmp(nakedWord, (char*)"jsonloop"))  // loop missing () 
+        {
+            ptr = ReadLoop(word, ptr, in, dataChunk, rejoinders,true);
+            continue;
+        }
+        else if (*nextToken != '(') // doesnt look like a function
 		{
 		}
 		else if (!stricmp(nakedWord,(char*)"if"))  // strip IF of ^
@@ -3679,10 +3725,15 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		}
 		else if (!stricmp(nakedWord,(char*)"loop"))  // strip LOOP of ^
 		{
-			ptr = ReadLoop(word,ptr,in,dataChunk,rejoinders);
+			ptr = ReadLoop(word,ptr,in,dataChunk,rejoinders,false);
 			continue;
 		}
-		else if (*word != '^' && (!call || stricmp(call->word,(char*)"^createfact"))) //   looks like a call ... if its ALSO a normal word, presume it is not a call, like: I like (American) football
+        else if (!stricmp(nakedWord, (char*)"jsonloop"))  // strip LOOP of ^
+        {
+            ptr = ReadLoop(word, ptr, in, dataChunk, rejoinders,true);
+            continue;
+        }
+        else if (*word != '^' && (!call || stricmp(call->word,(char*)"^createfact"))) //   looks like a call ... if its ALSO a normal word, presume it is not a call, like: I like (American) football
 		{
 			// be wary.. respond(foo) might have been text...  
 			// How does he TELL us its text? interpret normal word SPACE ( as not a function call?
@@ -3856,7 +3907,7 @@ Then one of 3 kinds of character:
 					WORDP D = FindWord(name,0,LOWERCASE_LOOKUP);
 					if (D && D->internalBits & FUNCTION_NAME && (*kind == GAMBIT || *kind == RANDOM_GAMBIT)) 
 						WARNSCRIPT((char*)"label: %s is a potential macro in %s. Add ^ if you want it treated as such.\r\n",word,currentFilename)
-					else if (!stricmp(word,(char*)"if") || !stricmp(word,(char*)"loop")) WARNSCRIPT((char*)"label: %s is a potential flow control (if/loop) in %s. Add ^ if you want it treated as a control word.\r\n",word,currentFilename)
+					else if (!stricmp(word,(char*)"if") || !stricmp(word,(char*)"loop") || !stricmp(word, (char*)"jsonloop")) WARNSCRIPT((char*)"label: %s is a potential flow control (if/loop/jsonloop) in %s. Add ^ if you want it treated as a control word.\r\n",word,currentFilename)
 					sprintf(info,"        rule: %s.%d.%d-%s %s",currentTopicName,TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),name+1, kind);
 					AddMap(info,NULL); // rule
 	

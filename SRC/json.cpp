@@ -311,7 +311,6 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 		char* str = InfiniteStack(limit,"factsJsonHelper string");
 		strncpy(str,jsontext + curr.start,size);
 		str[size] = 0;
-        Log(STDUSERLOG, "jsmn %s ||  %s\r\n", jsontext,str);
 		if (ConvertUnicode(str)) size = strlen(str);
 		
 		*flags = JSON_STRING_VALUE; // string null
@@ -2031,6 +2030,16 @@ FunctionResult JSONVariableAssign(char* word,char* value)
         return FAILRULE_BIT;	// doesnt exist?
     }
     WORDP base = FindWord(word);
+
+    if (testExternOutput && base->word[1] != '$' && base->word[1] != '_') // track we changed this
+    { 
+        char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
+        ((unsigned int*)heapval)[0] = variableChangedThreadlist;
+        variableChangedThreadlist = Heap2Index((char*)heapval);
+        heapval[1] = (char*)base; // save name
+        heapval[2] = base->w.userValue; // save old value
+    }
+
 
 	// leftside is the left side of a . or [] operator
 	

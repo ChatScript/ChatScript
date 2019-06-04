@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/27/2019 cs9.4
+<br>Revision 6/3/2019 cs9.41
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -203,7 +203,6 @@ Additionally, there is
 | `~negativeinteger`     |
 | `~modelnumber`         | not a true number, but a word with both alpha and numeric
 | `~filename`         | looks like a filename with extension
-| `~fileext`         | .xxx  file extension
 
 
 To can be a preposition or it can be special. When used in the infinitive phrase To go, it is
@@ -275,6 +274,7 @@ setting them.
 | `%second`           | 0-59
 | `%volleytime`       | number of seconds of computation since volley input started 
 | `%time`             | hh:mm in military 24-hour time 
+| `%zulutime`         | 2016-07-27T11:38:35.253Z
 | `%week`             |1-5 (week of the month) 
 | `%year`             | e.g., 2011 
 | `%rand`             | get a random number from 1 to 100 inclusive

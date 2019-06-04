@@ -4311,7 +4311,6 @@ FunctionResult MatchesCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
-
 FunctionResult MatchCode(char* buffer)
 {
     char word[MAX_WORD_SIZE];
@@ -4430,7 +4429,8 @@ FunctionResult MatchCode(char* buffer)
     if (*base == ' ') ++base;		// skip opening space of a pattern
     char oldmark[MAX_SENTENCE_LENGTH];
     memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
-    bool match = Match(buffer, base, 0, 0, (char*)"(", 1, 0, first, last, uppercasem, matched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
+
+    bool match = Match(buffer, base, 0, 0,(char*)"(", 1, 0, first, last, uppercasem, matched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
     memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
     ShowMatchResult(!match ? FAILRULE_BIT : NOPROBLEM_BIT, base, NULL);
     FreeBuffer();
@@ -8354,9 +8354,9 @@ static FunctionResult MakeConcepts(MEANING array)
     return NOPROBLEM_BIT;
 }
 
-static void UnbindConcepts(MEANING array, FACT* oldfact)
+static void UnbindConcepts(MEANING array, FACT* newfact, FACT* oldfact)
 {
-    while (factFree > oldfact) FreeFact(factFree--);
+    while (newfact > oldfact) KillFact(newfact--,false,false);
 
     FACT* G = GetSubjectNondeadHead(array); // list of json objects representing concepts
     while (G) // walk list of concepts and bind new memberships
@@ -8405,6 +8405,7 @@ static bool TestPatternAgainstSentence(char* pattern, char* buffer)
         Output(base, buffer, result, 0);
         match = *buffer == '1';
     }
+   
     return match;
 }
 
@@ -8439,7 +8440,7 @@ static void HandleChangedVariables(MEANING resultobject)
     // variables set?
     MEANING globals = NULL;
     MEANING varresultobject = NULL;
-
+    NextInferMark();
     int list = variableChangedThreadlist; // global list of variables that changed
     while (list)
     {
@@ -8514,9 +8515,9 @@ static FunctionResult TestPatternCode(char* buffer)
         "varname": "$taskseen"      }    
     "concepts": [
     {    "name": "~stove",
-    "values": [   "oven",          "range",          "cooktop"        ]      },
+         "values": [   "oven",          "range",          "cooktop"        ]      },
     {     "name": "~leaky",
-    "values": [   "'leak",          "drip",          "spill"        ]      }    ],
+          "values": [   "'leak",          "drip",          "spill"        ]      }    ],
     "style": "first",    or last, or all
     "raw": true
     }
@@ -8566,6 +8567,7 @@ static FunctionResult TestPatternCode(char* buffer)
     // define concepts -  [  {name: [] } ]
     FACT* oldfact = factFree;
     if (conceptlist) result = MakeConcepts(conceptlist);
+    FACT* newfact = factFree; // end of concept zone
     if (result != NOPROBLEM_BIT)
     {
         if (trace) Log(STDTRACELOG, "Concept defn bad ");
@@ -8622,6 +8624,8 @@ static FunctionResult TestPatternCode(char* buffer)
     // process each sentence in turn against the patterns
     // first pattern to match ANY input sentence wins
     int winner = 100000;
+    int oldmore = moreToCome;
+    int oldmorequestion = moreToComeQuestion;
     while (*usermsg)
     {
         if (realpattern)
@@ -8631,6 +8635,10 @@ static FunctionResult TestPatternCode(char* buffer)
             strcpy(usermsg, buffer);
         }
         else *usermsg = 0; // once thru only
+        
+        usermsg = SkipWhitespace(usermsg);
+        moreToCome = (*usermsg) ? true : false;
+        moreToComeQuestion = strchr(usermsg, '?') ? true : false;
 
         count = max;
         int index = 0;
@@ -8649,7 +8657,11 @@ static FunctionResult TestPatternCode(char* buffer)
                     G = GetSubjectNondeadNext(G);
                 }
             }
-            if (!pattern) return FAILRULE_BIT;
+            if (!pattern)
+            {
+                result = FAILRULE_BIT;
+                break;
+            }
 
             if (winner != 100000 && !stricmp(style, "earliest") && index >= winner) { ; }
             else if (winner != 100000 && stricmp(style, "all") && stricmp(style, "latest") && index >= winner) { ; }
@@ -8660,17 +8672,10 @@ static FunctionResult TestPatternCode(char* buffer)
             }
             ++index;
         }
+        if (result != NOPROBLEM_BIT) break;
         if (winner != 100000 && !stricmp(style, "any")) break; // otherwise find best match across all inputs
     }
-
-    // cleanup
-    if (conceptlist) UnbindConcepts(conceptlist, oldfact);
-    
-    // variables set?
-    HandleChangedVariables(resultobject);
-    testExternOutput = false;
-    UnbindVariables(changedIncomingVariables);
-    variableChangedThreadlist = 0;
+    FreeBuffer();
 
     if (protectedKey)
     {
@@ -8690,8 +8695,13 @@ static FunctionResult TestPatternCode(char* buffer)
             F = GetSubjectNondeadNext(F);
         }
     }
+    if (conceptlist) UnbindConcepts(conceptlist, newfact, oldfact); // kill these facts
 
-    FreeBuffer();
+    // variables set?
+    HandleChangedVariables(resultobject);
+    UnbindVariables(changedIncomingVariables);
+    variableChangedThreadlist = 0;
+    testExternOutput = false;
 
     // store the result index
     unsigned int flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_PRIMITIVE_VALUE;
@@ -8707,8 +8717,11 @@ static FunctionResult TestPatternCode(char* buffer)
         CreateFact(resultobject, match, MakeMeaning(StoreWord("false", AS_IS)), flags);
     }
     currentFact = NULL; // dont pass up changes in facts
+    moreToCome = oldmore;
+    moreToComeQuestion = oldmorequestion;
     sprintf(buffer, "%s", Meaning2Word(resultobject)->word);
-    return NOPROBLEM_BIT;
+
+    return result;
 }
 
 static FunctionResult TestOutputCode(char* buffer)
@@ -10025,7 +10038,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^sleep",SleepCode,1,0,(char*)"wait n milliseconds"}, 
 	{ (char*)"^if",IfCode,STREAM_ARG,0,(char*)"the if statement"}, 
 	{ (char*)"^loop",LoopCode,STREAM_ARG,0,(char*)"the loop statement"}, 
-	{ (char*)"^environment",EnvironmentCode,1,0,(char*)"get os environment variable"}, 
+    { (char*)"^jsonloop",LoopCode,STREAM_ARG,0,(char*)"the jsonloop statement" },
+    { (char*)"^environment",EnvironmentCode,1,0,(char*)"get os environment variable"},
 	{ (char*)"^reboot",RebootCode,0,0,(char*)"viable only during ^cs_reboot, resets boot layer" },
 	{ (char*)"\r\n---- External Databases",0,0,0,(char*)""},
 #ifndef DISCARDPOSTGRES

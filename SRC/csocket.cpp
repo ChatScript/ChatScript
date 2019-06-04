@@ -1375,8 +1375,8 @@ static void* MainChatbotServer()
     chatbotExists = true;   //  if a client can get the chatlock now, he will be happy
     bool oldserverlog = serverLog;
     serverLog = true;
-    Log(SERVERLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d\r\n\r\n", serverLogfileName, oldserverlog, userLog);
-    (*printer)((char*)"Server ready - logfile:%s serverLog:%d userLog:%d\r\n\r\n", serverLogfileName, oldserverlog, userLog);
+    Log(SERVERLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath: %s\r\n\r\n", serverLogfileName, oldserverlog, userLog,crashpath);
+    (*printer)((char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath:%s\r\n\r\n", serverLogfileName, oldserverlog, userLog,crashpath);
     serverLog = oldserverlog;
     int returnValue = 0;
 
@@ -1409,17 +1409,19 @@ static void* MainChatbotServer()
             strcpy(bot,ptr);
             ptr += strlen(ptr) + 1; // ptr to message
             size_t test = strlen(ptr);
+
+            echo = false;
+            struct tm ptm;
+            char* dateLog = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
+            if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: %s (%s) size:%d %s %s\r\n", user, bot,test, ourMainInputBuffer, dateLog);
+
             if (test >= (INPUT_BUFFER_SIZE - 100))
             {
                 ReportBug("Too much input to server %d",test);
                 strcpy(ourMainInputBuffer,(char*)"too much data");
             }
             else strcpy(ourMainInputBuffer,ptr); // xfer user message to our incoming feed
-            echo = false;
-            struct tm ptm;
-            char* dateLog = GetTimeInfo(&ptm,true) + SKIPWEEKDAY;
-            if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: %s (%s) %s %s\r\n",user,bot,ourMainInputBuffer, dateLog);
-
+  
             returnValue = PerformChat(user,bot,ourMainInputBuffer,ip,ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
 
                                                                                             // special controls

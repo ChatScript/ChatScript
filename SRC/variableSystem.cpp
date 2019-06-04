@@ -458,8 +458,6 @@ void SetVariable(WORDP D, char* value)
     if (strchr(D->word, '.') || strchr(D->word, '['))
     {
         JSONVariableAssign(D->word, value);
-        // note we do not revert such assignments at end but the json header
-        // should have been transiently created and will autodisappear
     }
     else // normal var
     {

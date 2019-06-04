@@ -641,10 +641,11 @@ int evsrv_do_chat(Client_t *client)
 
 RESTART_RETRY:
 	strcpy(ourMainInputBuffer,client->message);
+    size_t test = strlen(ourMainInputBuffer);
 	struct tm ptm;
     char* dateLog = GetTimeInfo(&ptm,true)+SKIPWEEKDAY;
-	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"ServerPre: retry pid: %d %s (%s) %s %s\r\n",getpid(),client->user,client->bot,ourMainInputBuffer, dateLog);
- 	else if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: pid: %d %s (%s) %s %s\r\n",getpid(),client->user,client->bot,ourMainInputBuffer, dateLog);
+	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
+ 	else if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
 	int turn = PerformChat(
         client->user,
         client->bot,

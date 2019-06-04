@@ -72,8 +72,9 @@ static void WriteCache(unsigned int which,size_t size)
 
 		if (!out) 
 		{
-			ReportBug((char*)"cannot open user state file %s to write\r\n",ptr)
-			return;
+            ReportBug((char*)"cannot open user state file %s to write\r\n", ptr)
+            if (dieonwritefail) myexit("Failed to open user state file to write");
+            return;
 		}
 	}
 

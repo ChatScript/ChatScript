@@ -1,11 +1,12 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.4";
+char* version = "9.41";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
 char defaultbot[100];
 bool loadingUser = false;
+bool dieonwritefail = false;
 int inputLimit = 0;
 char traceuser[500];
 int traceUniversal;
@@ -69,7 +70,7 @@ char buildfiles[100];
 char* derivationSentence[MAX_SENTENCE_LENGTH];
 int derivationLength;
 char authorizations[200];	// for allowing debug commands
-char ourMainInputBuffer[INPUT_BUFFER_SIZE];				// user input buffer - ptr to primaryInputBuffer
+char ourMainInputBuffer[INPUT_BUFFER_SIZE * 2];				// user input buffer - ptr to primaryInputBuffer
 char* mainInputBuffer;								// user input buffer - ptr to primaryInputBuffer
 char* ourMainOutputBuffer;				// main user output buffer
 char* mainOutputBuffer;								//
@@ -566,6 +567,7 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg, (char*)"noboot")) noboot = true;
     else if (!stricmp(arg, (char*)"recordboot")) recordBoot = true;
 	else if (!stricmp(arg, (char*)"servertrace")) servertrace = true;
+    else if (!strnicmp(arg, (char*)"crashpath=",10)) crashpath = arg+10;
     else if (!strnicmp(arg, (char*)"repeatlimit=",12)) repeatLimit = atoi(arg+12);
     else if (!strnicmp(arg,(char*)"apikey=",7)) strcpy(apikey,arg+7);
 	else if (!strnicmp(arg,(char*)"logsize=",8)) logsize = atoi(arg+8); // bytes avail for log buffer
@@ -742,6 +744,7 @@ static void ProcessArgument(char* arg)
 #endif
 	else if (!stricmp(arg,(char*)"userlog")) userLog = true;
 	else if (!stricmp(arg,(char*)"nouserlog")) userLog = false;
+    else if (!stricmp(arg, (char*)"dieonwritefail")) dieonwritefail = true;
 	else if (!strnicmp(arg, (char*)"hidefromlog=", 12))
 	{
 		char* at = arg + 12;

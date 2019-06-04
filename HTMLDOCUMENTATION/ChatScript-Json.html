@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/27/2019 cs9.4</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/3/2019 cs9.41</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represents collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within <code>[]</code>, e.g.,</p>
 <pre><code>[ A 2 [ help life] [] ]</code></pre>
@@ -251,6 +251,35 @@ If you need to handle the full range of legal keys in json, you can use text str
 You may omit the leading . of a path and CS will by default assume it</code></pre>
 <p>^jsonpath(&quot;st. helen&quot;.data $tmp)</p>
 <pre><code>
+### ^jsonloop($jsonstruct $var1 $var2)
+This is like ^loop, but explicitly for json data. It is faster and cleaner than writing a loop.
+A normal loop might look like:</code></pre>
+<pre><code>$_count = ^length($_jsonarray)
+^loop($_count)
+{
+    $_count -= 1
+    $_value =  $_jsonarray[$_count]
+    ...
+}</code></pre>
+<pre><code>And similarly for a JSON object one might want:</code></pre>
+<pre><code>$_count = ^length($_jsonobject)
+^loop($_count)
+{
+    $_count -= 1
+    $_jsonfield = $_jsonobject[$_count]
+    $_value =  $_jsonobject.$_jsonfield
+    ...
+}</code></pre>
+<pre><code>But for large numbers of elements (eg a thousand +) this is ineffient because it has to 
+search for each element each time. The efficient way is:</code></pre>
+<pre><code>^jsonloop($_jsonobject $_field $_value)
+{
+    ...
+}</code></pre>
+<pre><code>where the loop runs most recent entry to least recent, putting the field name in $_field and
+its value in $_value. Similarly for a jsonarray it does the index as $_field and $_value is its
+value.
+
 ### `^length`( jsonid )
 Returns the number of top-level members in a json array or object.
 

@@ -1,3 +1,15 @@
+Version 9.41 - EMERGENCY RELEASE  6/4/2019
+
+9.4 has a bug wherein it inadvertently writes logging data to the user log file while processing
+json parse data. This can blow out disk space in a heavily used server.  This has been fixed.
+Other changes:
+1. ~filename - words with file suffixes
+2. crashpath= names where to write about fatal signal handers in linux... writing in the cs directory might be erased by an auto redeploy
+3 %zulutime adds elapsed time at end
+4. ^jsonloop($jsonstruct $var1 $var2)
+	similar to loop but runs thru json members and is the most
+	efficient and compact way to do so
+
 version - 9.4  5/27/2019
 1. You can treat a json object as an array of fields.
     $data = ^jsoncreate(transient object)
@@ -12,7 +24,7 @@ version - 9.4  5/27/2019
  4. to use a variable name AS a field name, escape it
     $data.\$varname = hello  uses $varname as field name and not indirecting via $varname
  5. full := assign in pattern
- 6. data format for testpattern simplified, now parterns is array of strings not array of objects
+ 6. data format for testpattern simplified, now patterns is array of strings not array of objects
  7. Rule-based spellchecking  added to spelling practicum
  8. ^changebot(botname botid) change identity on the fly, allowing this bot to see facts, functions,
  and topics of botname instead of itself.

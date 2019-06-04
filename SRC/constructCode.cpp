@@ -259,12 +259,39 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
     return ptr;
 } 
 
-char* HandleLoop(char* ptr, char* buffer, FunctionResult &result)
+char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 {
 	unsigned int oldIterator = currentIterator;
 	currentIterator = 0;
     ChangeDepth(1, "Loop()", false, ptr+2);
-    ptr = GetCommandArg(ptr+2,buffer,result,0)+2; //   get the loop counter value and skip closing ) space 
+    char word[MAX_WORD_SIZE];
+    WORDP var1 = NULL;
+    WORDP var2 = NULL;
+    int match1 = -1;
+    int match2 = -1;
+    FACT* F = NULL;
+    if (!json)
+    {
+        ptr = GetCommandArg(ptr + 2, buffer, result, 0) + 2; //   get the loop counter value and skip closing ) space 
+    }
+    else
+    {
+        ptr = GetCommandArg(ptr + 2, buffer, result, 0); //   get the json object 
+        WORDP jsonstruct = FindWord(buffer);
+        if (!jsonstruct)
+        {
+            result = FAILRULE_BIT;
+            return ptr; // we dont know it
+        }
+        F = GetSubjectNondeadHead(jsonstruct);
+        ptr = ReadCompiledWord(ptr, word);
+        if (*word == '$') var1 = StoreWord(word, AS_IS);
+        else match1 = atoi(word + 1);
+        ptr = ReadCompiledWord(ptr, word);
+        if (*word == '$')  var2 = StoreWord(word, AS_IS);
+        else match2 = atoi(word + 1);
+        ptr += 2; // past paren closer
+    }
 
 	char* endofloop = ptr + (size_t) Decode(ptr);
 	int counter;
@@ -278,6 +305,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result)
 		}
 		counter = FACTSET_COUNT(set);
 	}
+    else if (json) counter = 1000000;
 	else counter = atoi(buffer);
 	*buffer = 0;
 	if (result & ENDCODES) return endofloop;
@@ -299,7 +327,25 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result)
 	{
         frame->x.ownvalue = counter;
 		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"loop(%d)\r\n",counter+1);
-		FunctionResult result1;
+        if (json)
+        {
+            if (!F) break;
+            if (var1) var1->w.userValue = Meaning2Word(F->verb)->word;
+            else
+            {
+               strcpy(wildcardOriginalText[match1], Meaning2Word(F->verb)->word);  //   spot wild cards can be stored
+               strcpy(wildcardCanonicalText[match1], Meaning2Word(F->verb)->word);  //   spot wild cards can be stored
+            }
+            if (var2) var2->w.userValue = Meaning2Word(F->object)->word;
+            else
+            {
+                strcpy(wildcardOriginalText[match2], Meaning2Word(F->object)->word);  //   spot wild cards can be stored
+                strcpy(wildcardCanonicalText[match2], Meaning2Word(F->object)->word);  //   spot wild cards can be stored
+            }
+            F = GetSubjectNondeadNext(F);
+        }
+        
+        FunctionResult result1;
 		Output(ptr,buffer,result1,OUTPUT_LOOP);
 		buffer += strlen(buffer);
 		if (result1 & ENDCODES) 

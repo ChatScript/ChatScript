@@ -294,8 +294,9 @@ static char* Szulutime(char* value)
 	if (*hold != '.') return hold;
 	struct tm ptm;
     GetTimeInfo(&ptm,true,true);
-	sprintf(systemValue,(char*)"%d-%2.2d-%2.2dT%2.2d:%2.2d:%2.2d.0Z",ptm.tm_year+1900,ptm.tm_mon+1,ptm.tm_mday,
-		ptm.tm_hour,ptm.tm_min,ptm.tm_sec);
+    uint64 elapsedMS = ElapsedMilliseconds();
+	sprintf(systemValue,(char*)"%d-%2.2d-%2.2dT%2.2d:%2.2d:%2.2d.%3.3dZ",ptm.tm_year+1900,ptm.tm_mon+1,ptm.tm_mday,
+		ptm.tm_hour,ptm.tm_min,ptm.tm_sec, elapsedMS%1000);
     return systemValue;
 }
 
