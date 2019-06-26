@@ -339,7 +339,7 @@ u: ( < \[ * rate _*1 * \] ) The rate is _0
 ```
 
 You need `*` in front of your data when you can have multiple forms of data and you need
-`* \]` after your data to insure you don't match words from user input.
+`* \]` after your data to ensure you don't match words from user input.
 
 On output you need to do one of these
 ```
@@ -392,9 +392,9 @@ normal json naming space.
     outputmacro: ^CS_REBOOT()
 
 This function, if defined by you, will be executed on every volley prior to loading user data.
-It is executed as a user-level program which means when it has completed all newly created facts and Variables
+It is executed as a user-level program which means when it has completed all newly created facts and variables
 just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from
-a ^CSBOOT. Typically you would have the `^CS_REBOOT` function test some condition (results of a version stamp)
+a ^CSBOOT. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp)
 and if the version currently loaded in the boot layer is current, it simply returns having done 
 nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current
 boot data and treats the remainder of the script as refilling the boot layer with new facts and
@@ -565,7 +565,7 @@ line "some junk" are also not seen.
 
 ## Renaming Variables, Sets, and Integer Constants
 
-A top level declaration in a script rename a match variable
+A top level declaration in a script can rename a match variable
 
     rename: _bettername _12
 
@@ -892,8 +892,8 @@ value of a text string like _this is text_ is itself, and so _this is text_ show
 output stream. And the value of a concept set or topic name is itself.
 
 System function calls have specific unique evaluations which affect the data of the
-system and/or add content into the output stream. User-defined macros are just script that
-resides external to the script being evaluated, so they are evaluated. 
+system and/or add content into the output stream. User-defined macros are just scripts that
+reside external to the script being evaluated, so they are evaluated. 
 Script constructs like `IF`, `LOOP`, assignment, and relational comparison affect the flow of control 
 of the script but don't themselves put anything into the output stream when evaluated.
 
@@ -942,7 +942,7 @@ This is not done for built-ins because it's more likely you spaced it accidently
 
 ___How should I go about creating a responder?___
 
-First you have to decide the topic it is in and insure the topic has appropriate keywords if
+First you have to decide the topic it is in and ensure the topic has appropriate keywords if
 needed.
 
 Second, you need to create a sample sentence the rule is intended to match. You should

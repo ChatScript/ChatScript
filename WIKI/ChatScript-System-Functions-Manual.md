@@ -871,7 +871,7 @@ You can execute debugging commands through here. E.g.,
 
     ^command(:execute ^print("Hello") )
 
-Note that it is hard to turn on :trace this way, because the system resets It
+Note that it is hard to turn on :trace this way, because the system resets it
 internally at various points. The correct way to manipulate trace is 
 to do  $cs_trace = -1 in regular script, outside of ^command.
 
@@ -939,7 +939,7 @@ Normally CS takes all the data you have compiled as `:build 0` and `:build` what
 and loads them when CS starts up. They are then permanently resident. 
 However, you can also compile files named `filesxxx2.txt` which will NOT be loaded automatically. 
 
-You can write script that calls `^load`, naming the `xxx` part and they
+You can write a script that calls `^load`, naming the `xxx` part and they
 will be dynamically loaded, for that user only, and stay loaded for that user across all
 volleys until you call `^load` again. 
 Calling load again with a different name will load that new name. 

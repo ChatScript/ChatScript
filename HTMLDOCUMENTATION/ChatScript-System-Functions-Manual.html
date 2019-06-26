@@ -434,7 +434,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="command-args"><code>^command ( args )</code></h3>
 <p>Execute this stream of arguments through the <code>:</code> command processor. You can execute debugging commands through here. E.g.,</p>
 <pre><code>^command(:execute ^print(&quot;Hello&quot;) )</code></pre>
-<p>Note that it is hard to turn on :trace this way, because the system resets It internally at various points. The correct way to manipulate trace is to do $cs_trace = -1 in regular script, outside of ^command.</p>
+<p>Note that it is hard to turn on :trace this way, because the system resets it internally at various points. The correct way to manipulate trace is to do $cs_trace = -1 in regular script, outside of ^command.</p>
 <h3 id="end-code"><code>^end ( code )</code></h3>
 <p>Takes 1 argument and returns a code which will stop processing. Any data pending in the output stream will be shipped to the user. If <code>^end</code> is contained within the condition of an if, it merely stops it. An end rule inside a loop merely stops the loop. All other codes propagate past the loop. The codes are:</p>
 <table style="width:33%;">
@@ -527,7 +527,7 @@ $$val = eval($$tmp) # $$val = 1</code></pre>
 <p>Output that has been recorded via <code>^print</code>, <code>^preprint</code>, etc is never canceled. Only pending output.</p>
 <h3 id="load-name"><code>^load ( name )</code></h3>
 <p>Normally CS takes all the data you have compiled as <code>:build 0</code> and <code>:build</code> whatever as layers 0 and 1, and loads them when CS starts up. They are then permanently resident. However, you can also compile files named <code>filesxxx2.txt</code> which will NOT be loaded automatically.</p>
-<p>You can write script that calls <code>^load</code>, naming the <code>xxx</code> part and they will be dynamically loaded, for that user only, and stay loaded for that user across all volleys until you call <code>^load</code> again. Calling load again with a different name will load that new name. Calling <code>^load(null)</code> will merely unload the dynamic layer previously loaded.</p>
+<p>You can write a script that calls <code>^load</code>, naming the <code>xxx</code> part and they will be dynamically loaded, for that user only, and stay loaded for that user across all volleys until you call <code>^load</code> again. Calling load again with a different name will load that new name. Calling <code>^load(null)</code> will merely unload the dynamic layer previously loaded.</p>
 <p><strong>WARNING</strong></p>
 <p>It's erroneous (you get whatever happens to you), if you call <code>^load</code> from within topics you have loaded via <code>^load</code>.</p>
 <h3 id="clearmatch"><code>^clearmatch()</code></h3>

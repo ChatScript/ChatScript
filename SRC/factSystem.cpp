@@ -257,7 +257,7 @@ void TraceFact(FACT* F,bool ignoreDead)
 {
 	char* limit;
 	char* word = InfiniteStack(limit,"TraceFact"); // short term
-	Log(STDTRACELOG,(char*)"%d: %s\r\n",Fact2Index(F),WriteFact(F,false,word,ignoreDead,false,true));
+	Log(STDUSERLOG,(char*)"%d: %s\r\n",Fact2Index(F),WriteFact(F,false,word,ignoreDead,false,true));
 	Log(STDTRACETABLOG,(char*)"");
 	ReleaseInfiniteStack();
 } 
@@ -487,7 +487,7 @@ void KillFact(FACT* F,bool jsonrecurse, bool autoreviseArray)
 
 	if (trace & TRACE_FACT && CheckTopicTrace()) 
 	{
-		Log(STDTRACELOG,(char*)"Kill: ");
+		Log(STDUSERLOG,(char*)"Kill: ");
 		TraceFact(F);
 	}
 	if (F->flags & FACTAUTODELETE)
@@ -563,7 +563,7 @@ FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_M
 		G = GetSubjectNondeadHead(F);
 		while (G)
 		{
-			if (G->verb == verb &&  G->object == object && G->flags == properties  && G->botBits == myBot) return G;
+			if (G->verb == verb &&  G->object == object && G->flags == properties  && G->botBits == myBot && !(G->flags & FACTDEAD)) return G;
 			G  = GetSubjectNondeadNext(G);
 		}
 		return NULL;
@@ -574,7 +574,7 @@ FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_M
 		G = GetVerbNondeadHead(F);
 		while (G)
 		{
-			if (G->subject == subject && G->object == object &&  G->flags == properties  && G->botBits == myBot) return G;
+			if (G->subject == subject && G->object == object &&  G->flags == properties  && G->botBits == myBot && !(G->flags & FACTDEAD)) return G;
 			G  = GetVerbNondeadNext(G);
 		}
 		return NULL;
@@ -585,7 +585,7 @@ FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_M
 		G = GetObjectNondeadHead(F);
 		while (G)
 		{
-			if (G->subject == subject && G->verb == verb &&  G->flags == properties && G->botBits == myBot) return G;
+			if (G->subject == subject && G->verb == verb &&  G->flags == properties && G->botBits == myBot && !(G->flags & FACTDEAD)) return G;
 			G  = GetObjectNondeadNext(G);
 		}
 		return NULL;
@@ -594,7 +594,7 @@ FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_M
 	F = GetSubjectNondeadHead(Meaning2Word(subject));
     while (F)
     {
-		if ( F->subject == subject &&  F->verb ==  verb && F->object == object && properties == F->flags && F->botBits == myBot)  return F;
+		if ( F->subject == subject &&  F->verb ==  verb && F->object == object && properties == F->flags && F->botBits == myBot && !(F->flags & FACTDEAD))  return F;
 		F = GetSubjectNondeadNext(F);
     }
     return NULL;
@@ -700,7 +700,7 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 
 	//   insure fact is unique if requested
 	currentFact =  (properties & FACTDUPLICATE) ? NULL : FindFact(subject,verb,object,properties); 
-	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  Log(STDTRACELOG,(char*)" Found %d ", Fact2Index(currentFact));
+	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  Log(STDUSERLOG,(char*)" Found %d ", Fact2Index(currentFact));
 	if (currentFact) return currentFact;
 
 	currentFact = CreateFastFact(subject,verb,object,properties);
@@ -708,7 +708,7 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 	{
         if (trace & TRACE_FACT && trace & TRACE_JSON && !(trace & TRACE_OUTPUT)) 
             TraceFact(currentFact, false); // precise trace for JSON
-		Log(STDTRACELOG,(char*)" Created %d\r\n", Fact2Index(currentFact));
+		Log(STDUSERLOG,(char*)" Created %d\r\n", Fact2Index(currentFact));
 		Log(STDTRACETABLOG,(char*)"");
 	}
 
@@ -976,7 +976,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	}
 	else object =  MakeMeaning(StoreWord(word2,AS_IS),0);
 
-	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACELOG,(char*)"%s %s %s %x) = ",word,word1,word2,flags);
+	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG,(char*)"%s %s %s %x) = ",word,word1,word2,flags);
 
 	FACT* F = FindFact(subject,verb,object,flags);
 	if (!attribute || (F && object == F->object)) {;}  // not making an attribute or already made
@@ -992,7 +992,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 				{
 					char wordx[MAX_WORD_SIZE];
 					WriteFact(F,false,wordx,false,true);
-					Log(STDTRACELOG,(char*)"Fact created is not an attribute. There already exists %s",wordx); 
+					Log(STDUSERLOG,(char*)"Fact created is not an attribute. There already exists %s",wordx); 
 					(*printer)((char*)"Fact created is not an attribute. There already exists %s",wordx); 
 					currentFact = F;
 					return (*ptr) ? (ptr + 2) : ptr; 
@@ -1079,7 +1079,7 @@ bool ImportFacts(char* buffer,char* name, char* set, char* erase, char* transien
 	userRecordSourceBuffer = NULL;
 
 	if (!stricmp(erase,(char*)"erase") || !stricmp(transient,(char*)"erase")) remove(name); // erase file after reading
-	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACELOG,(char*)"[%d] => ",FACTSET_COUNT(store));
+	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG,(char*)"[%d] => ",FACTSET_COUNT(store));
 	currentFact = NULL; // we have used up the facts
 	return true;
 }
@@ -1173,7 +1173,7 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 		char* limit;
 		char* buffer = InfiniteStack(limit,"CreateFastFact"); // fact might be big, cant use mere WORD_SIZE
 		buffer = WriteFact(currentFact,false,buffer,true,false,true);
-		Log(STDTRACELOG,(char*)"create %s",buffer);
+		Log(STDUSERLOG,(char*)"create %s",buffer);
 		ReleaseInfiniteStack();
 	}	
 	return currentFact;
@@ -1713,7 +1713,7 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
     if (recordBoot)
     {
         bootwrite = FopenUTF8WriteAppend((char*)"bootfacts.txt"); // augmenting against system restart
-        buffer = AllocateBuffer();
+        buffer = AllocateBuffer("MigrateFactsToBoot");
     }
     // while facts ordering is safe to walk and overwrite, dictionary items are
     // unreliable in order and the strings must be protected. 
@@ -1775,7 +1775,7 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
 
     if (buffer)
     {
-        FreeBuffer();
+        FreeBuffer("MigrateFactsToBoot");
         fclose(bootwrite);
     }
     bootFacts = false;

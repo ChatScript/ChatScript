@@ -139,7 +139,7 @@ FunctionResult MongoClose(char* buffer)
 		if (mongoShutdown) return FAILRULE_BIT;
 		char* msg = "DB is not open\r\n";
 		SetUserVariable((char*)"$$mongo_error",msg);	// pass message along the error
-		Log(STDTRACELOG,msg);
+		Log(STDUSERLOG,msg);
 		return FAILRULE_BIT;
 	}
 
@@ -173,7 +173,7 @@ FunctionResult MongoInit(char* buffer)
 	{
 		char* msg = "DB is already opened\r\n";
 		SetUserVariable((char*)"$$mongo_error",msg);	// pass message along the error
-		Log(STDTRACELOG,msg);
+		Log(STDUSERLOG,msg);
  		return FAILRULE_BIT;
 	}
 
@@ -186,7 +186,7 @@ FunctionResult MongoInit(char* buffer)
     {	
 		char* msg = "DB opening error \r\n";
 		SetUserVariable((char*)"$$mongo_error",msg);	// pass message along the error
-        Log(STDTRACELOG, "Opening connection failed with error: %d",  eRetVal);
+        Log(STDUSERLOG, "Opening connection failed with error: %d",  eRetVal);
 		if ((buffer && g_pClient) || (!buffer && g_filesysClient)) MongoClose(buffer);
 		return FAILRULE_BIT;
 	}
@@ -209,7 +209,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
     {
         char* msg = "DB is not open\r\n";
         SetUserVariable((char*)"$$mongo_error",msg);
-        Log(STDTRACELOG,msg);
+        Log(STDUSERLOG,msg);
         return FAILRULE_BIT;
     }
     
@@ -277,7 +277,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
     {
         char* msg = "Error while looking for document \r\n";
         SetUserVariable((char*)"$$mongo_error",msg);	// pass along the error
-        Log(STDTRACELOG, "Find document failed with error: %d",  eRetVal);
+        Log(STDUSERLOG, "Find document failed with error: %d",  eRetVal);
         result = FAILRULE_BIT;
     }
     else if (mongoKeyValue) 
@@ -317,7 +317,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
     {
         char* msg = "DB is not open\r\n";
         SetUserVariable((char*)"$$mongo_error",msg);	// pass along the error
-        Log(STDTRACELOG,msg);
+        Log(STDUSERLOG,msg);
         return FAILRULE_BIT;
     }
     
@@ -368,7 +368,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
     {
         char* msg = "Error while insert document \r\n";
         SetUserVariable((char*)"$$mongo_error",msg);	// pass along the error
-        Log(STDTRACELOG, "Delete document failed with error: %d",  eRetVal);
+        Log(STDUSERLOG, "Delete document failed with error: %d",  eRetVal);
         return FAILRULE_BIT;
     }
     return NOPROBLEM_BIT;
@@ -385,7 +385,7 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     {
         char* msg = "DB is not open\r\n";
         SetUserVariable((char*)"$$mongo_error",msg);    // pass along the error
-        Log(STDTRACELOG,msg);
+        Log(STDUSERLOG,msg);
         return FAILRULE_BIT;
     }
     

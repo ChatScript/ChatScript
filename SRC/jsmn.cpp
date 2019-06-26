@@ -117,11 +117,7 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
 		if (c == '\\') {
 			parser->pos++;
 			switch (js[parser->pos]) {
-				/* Allowed escaped symbols */
-				case '\"': case '/' : case '\\' : case 'b' :
-				case 'f' : case 'r' : case 'n'  : case 't' :
-					break;
-				/* Allows escaped symbol \uXXXX */
+					/* Allows escaped symbol \uXXXX */
 				case 'u':
 				{
 					parser->pos++;
@@ -138,7 +134,11 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
 					parser->pos--;
 					break;
 				}
-				/* Unexpected symbol */
+                /* Allowed escaped symbols */
+                case '\"': case '/': case '\\': case 'b':
+                case 'f': case 'r': case 'n': case 't':
+                    break;
+                    /* Unexpected symbol */
 				default:
 					parser->pos = start;
 					return JSMN_ERROR_INVAL;

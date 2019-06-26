@@ -2366,7 +2366,7 @@ RESUME:
 
 	if (hasutf && BOM == BOMUTF8)  hasbadutf = AdjustUTF8(start, start - 1); // DO NOT ADJUST BINARY FILES
 	if (hasbadutf && showBadUTF && !server)  
-		Log(STDTRACELOG,(char*)"Bad UTF-8 %s at %d in %s\r\n",start,currentFileLine,currentFilename);
+		Log(STDUSERLOG,(char*)"Bad UTF-8 %s at %d in %s\r\n",start,currentFileLine,currentFilename);
     return (buffer - start);
 }
 
@@ -2504,6 +2504,42 @@ char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote,bool var)
 	return ptr;
 }
 
+char* ReadPatternToken(char* ptr, char* word)
+{
+    ptr = SkipWhitespace(ptr);
+    char* original = word;
+    bool quote = false;
+    bool fncall = false;
+    int nest = 0;
+    while (*ptr)
+    {
+        if (!quote && !fncall && (*ptr == ' ' || *ptr == '\t')) break; // end of token
+        if (*word == '"' && *(ptr-1) != '\\') quote = !quote; // unescaped quote
+        if (*ptr == '^' && !quote)
+        {
+            size_t len = 1;
+            char* check = ptr;
+            if (IsAlphaUTF8(check[1])) // ^x
+            {
+                while (*++check != ' ');
+                len = check - ptr;
+                WORDP D = FindWord(ptr, len);
+                if (D && (D->internalBits & FUNCTION_NAME)) fncall = true;
+            }
+        }
+        if (fncall && !quote && *ptr == '(') ++nest;
+        *word++ = *ptr;
+        if (fncall && !quote && *ptr == ')')
+        {
+            --nest;
+            if (!nest) break;   // ended call token
+        }
+        ptr++;
+    }
+    *word = 0;
+    return ptr;
+}
+
 char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit) 
 {//   a compiled word is either characters until a blank, or a ` quoted expression ending in blank or nul. or a double-quoted on both ends or a ^double quoted on both ends
 	*word = 0;
@@ -2558,9 +2594,24 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 		char priorchar = 0;
 		while ((c = *ptr++) && c != ENDUNIT) 
 		{
-			if (IsWhiteSpace(c)) break;
+			if (IsWhiteSpace(c) && !quote) break;
+            if (c == '"' && *(ptr - 2) != '\\')
+            {
+                if (!quote)
+                {
+                    if (*(ptr-2) == '^' && *(ptr-3) == '=') quote = !quote;
+                    else if (*(ptr - 2) == '=') quote = !quote;
+                }
+                else quote = !quote;
+            }
+
 			// PAY NO SPECIAL ATTENTION TO NON-STARTING QUOTEMARKS, ESP 69"
-			if (special) // try to end a variable if not utf8 char or such
+            // except when bound to pattern assignment  xxx:=^" or xxx:="
+            if (quote)
+            {
+
+            }
+			else if (special) // try to end a variable if not utf8 char or such
 			{
 				if (special == '$' && (c == '.' || c == '[') && (LegalVarChar(*ptr) || *ptr == '$' || (*ptr == '\\' && ptr[1] == '$') )) {;} // legal data following . or [
 				else if (special == '$' &&  c == ']' && bracket) {;} // allowed trailing array close
@@ -3528,11 +3579,11 @@ RETRY: // for sampling loopback
 	}
 
 	if (readAhead >= 6)
-		Log(STDTRACELOG,(char*)"Heavy long line? %s\r\n",documentBuffer);
-	if (autonumber) Log(ECHOSTDTRACELOG,(char*)"%d: %s\r\n",inputSentenceCount,inBuffer);
+		Log(STDUSERLOG,(char*)"Heavy long line? %s\r\n",documentBuffer);
+	if (autonumber) Log(ECHOSTDUSERLOG,(char*)"%d: %s\r\n",inputSentenceCount,inBuffer);
 	else if (docstats)
 	{
-		if ((++docSentenceCount % 1000) == 0)  Log(ECHOSTDTRACELOG,(char*)"%d: %s\r\n",docSentenceCount,inBuffer);
+		if ((++docSentenceCount % 1000) == 0)  Log(ECHOSTDUSERLOG,(char*)"%d: %s\r\n",docSentenceCount,inBuffer);
 	}
 	wasEmptyLine = false;
 	if (docOut) fprintf(docOut,(char*)"\r\n%s\r\n",inBuffer);

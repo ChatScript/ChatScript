@@ -58,7 +58,7 @@ u: ($$sentenceCount==1 < \[ * \]  )
 .... real processing for user input ...
 ```
 The responder tests two things. First it checks that this is the first sentence of the volley.
-If your application always sends OBB, then no user can provide input that would be confused as OOB.
+If your application always sends OOB, then no user can provide input that would be confused as OOB.
 If not, then maybe you should provide some data in OOB that users will never stumble onto themselves.
 Given that, you don't really need to track which sentence it is.
 Second, of course, the form of an OOB message is detected. I always make a topic to handle processing
@@ -166,7 +166,7 @@ Later you need to have a postprocessing topic like this:
 topic: ~POSTPROCESS system repeat ()
 t: ($$oob) 	^postprintbefore( \[ $$oob \]) 
 ```
-This will put out OBB data once, in front of all other outputs your bot may have generated.
+This will put out OOB data once, in front of all other outputs your bot may have generated.
 Note that postprocess topics use gambit rules, not responder rules, since the postprocess
 happens once after all sentences have been seen, so it has not responder context.
 

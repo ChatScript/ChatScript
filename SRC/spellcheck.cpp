@@ -356,6 +356,7 @@ bool SpellCheckSentence()
 	for (int i = startWord; i <= wordCount; ++i)
 	{
 		char* word = wordStarts[i];
+        if (strlen(word) > (MAX_WORD_SIZE - 100)) continue;
         char hyphenword[MAX_WORD_SIZE];
         if (i != wordCount) // merge 2 adj words w hyphen if can, even though one or both are legal words
         {
@@ -1509,14 +1510,14 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
 
     if (val <= min) // as good or better
     {
-       if (spellTrace) Log(STDTRACELOG, "    found: %s %d\r\n", D->word, val);
+       if (spellTrace) Log(STDUSERLOG, "    found: %s %d\r\n", D->word, val);
        if (val < min)
        {
-            if (trace == TRACE_SPELLING) Log(STDTRACELOG, (char*)"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
+            if (trace == TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
             index = 0;
             min = val;
         }
-        else if (val == min && trace == TRACE_SPELLING) Log(STDTRACELOG, (char*)"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
+        else if (val == min && trace == TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
 
         if (!(D->internalBits & BEEN_HERE))
         {
@@ -1528,7 +1529,7 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
 
 char* SpellFix(char* originalWord,int start,uint64 posflags)
 {
-	if (spellTrace) Log(STDTRACELOG,"Correcting: %s:\r\n", originalWord);
+	if (spellTrace) Log(STDUSERLOG,"Correcting: %s:\r\n", originalWord);
 	multichoice = false;
     char word[MAX_WORD_SIZE];
     MakeLowerCopy(word, originalWord);
@@ -1545,7 +1546,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	bool hasUnderscore = (strchr(originalWord,'_')) ? true : false;
 	bool isUpper = IsUpperCase(originalWord[0]);
 	if (IsUpperCase(originalWord[1])) isUpper = false;	// not if all caps
-	if (trace == TRACE_SPELLING) Log(STDTRACELOG,(char*)"Spell: %s\r\n",originalWord);
+	if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"Spell: %s\r\n",originalWord);
 
 	//   Priority is to a word that looks like what the user typed, because the user probably would have noticed if it didnt and changed it. So add/delete  has priority over tranform
     WORDP choices[4000];
@@ -1578,7 +1579,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	{
 		if (i >= 3) break;
 		MEANING offset = lengthLists[realWordData.charlen + range[i]];
-		if (trace == TRACE_SPELLING) Log(STDTRACELOG,(char*)"\r\n  Begin offset %d\r\n",i);
+		if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"\r\n  Begin offset %d\r\n",i);
 		while (offset)
 		{
 			D = Meaning2Word(offset);
@@ -1615,7 +1616,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	for (unsigned int j = 0; j < index; ++j) RemoveInternalFlag(choices[j],BEEN_HERE);
     if (index == 1) 
 	{
-		if (trace == TRACE_SPELLING) Log(STDTRACELOG,(char*)"    Single best spell: %s\r\n",choices[0]->word);
+		if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Single best spell: %s\r\n",choices[0]->word);
 		return choices[0]->word;	// pick the one
 	}
     for (unsigned int j = 0; j < index; ++j) 
@@ -1644,7 +1645,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	if (bestGuessindex) 
 	{
         if (bestGuessindex > 1) multichoice = true;
-		if (trace == TRACE_SPELLING) Log(STDTRACELOG,(char*)"    Pick spell: %s\r\n",bestGuess[0]->word);
+		if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Pick spell: %s\r\n",bestGuess[0]->word);
 		return bestGuess[0]->word; 
 	}
 	return NULL;

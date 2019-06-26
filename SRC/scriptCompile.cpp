@@ -123,7 +123,7 @@ void EndScriptCompiler()
 
 void ScriptError()
 {
-    #ifndef DISCARDSCRIPTCOMPILER
+#ifndef DISCARDSCRIPTCOMPILER
     callingSystem = 0;
     chunking = false;
     outputStart = NULL;
@@ -133,8 +133,8 @@ void ScriptError()
     {
         ++hasErrors;
         patternContext = false;
-        if (*scopeBotName) Log(STDTRACELOG, (char*)"*** Error- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn, currentFilename, scopeBotName);
-        else Log(STDTRACELOG, (char*)"*** Error- line %d column %d of %s: ", currentFileLine, currentLineColumn, currentFilename);
+        if (*scopeBotName) Log(STDUSERLOG, (char*)"*** Error- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+        else Log(STDUSERLOG, (char*)"*** Error- line %d column %d of %s: ", currentFileLine, currentLineColumn, currentFilename);
     }
 #endif
 }
@@ -148,10 +148,10 @@ void ScriptWarn()
 		++hasWarnings; 
 		if (*currentFilename)
 		{
-			if (*scopeBotName) Log(STDTRACELOG, (char*)"*** Warning- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn,currentFilename, scopeBotName);
-			else Log(STDTRACELOG, (char*)"*** Warning- line %d column %d of %s: ", currentFileLine, currentLineColumn,currentFilename);
+			if (*scopeBotName) Log(STDUSERLOG, (char*)"*** Warning- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn,currentFilename, scopeBotName);
+			else Log(STDUSERLOG, (char*)"*** Warning- line %d column %d of %s: ", currentFileLine, currentLineColumn,currentFilename);
 		}
-		else Log(STDTRACELOG, (char*)"*** Warning-  ");
+		else Log(STDUSERLOG, (char*)"*** Warning-  ");
 	}
 }
 
@@ -553,14 +553,16 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
         if (*ptr == ENDUNIT) break;
         if (patternContext && quote) {} // allow stuff in comparison quote
         else if (*ptr == ' ' || *ptr == '\t') break; // legal
-        if (patternContext && *ptr == '"') quote = !quote;
+        if (patternContext && *ptr == '"') 
+            quote = !quote;
 
         char c = *ptr++;
         *word++ = c;
         *word = 0;
         if ((word - start) > (MAX_WORD_SIZE - 2)) break; // avoid overflow
-                                                         // want to leave array json notation alone but react to [...] touching a variable - $var]
-        if (var && c == '[') // ANY variable should be separated by space from a [ if not json array
+        if (c == '\\')  *word++ = *ptr++; //escaped
+        // want to leave array json notation alone but react to [...] touching a variable - $var]
+        else if (var && c == '[') // ANY variable should be separated by space from a [ if not json array
         {
             ++brackets; // this MUST then be a json array and brackets will balance
             if (brackets > 1) BADSCRIPT("$var MUST be separated from [ unless you intend json array reference\r\n")
@@ -574,7 +576,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
                 break;
             }
         }
-        else if (GetNestingData(c)) // break off nesting attached to a started token unless its an escaped token
+        else if (GetNestingData(c) && !quote) // break off nesting attached to a started token unless its an escaped token
         {
             size_t len = word - start;
             if (len == 1) break;		// automatically token by itself
@@ -597,7 +599,8 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     if (patternContext && word[len - 1] == '"' && word[len - 2] != '\\')
     {
         char* quote = strchr(word, '"');
-        if (quote == word + len - 1) BADSCRIPT("Tailing quote without start: %s\r\n", word)
+        if (quote == word + len - 1) 
+            BADSCRIPT("Tailing quote without start: %s\r\n", word)
     }
     if (*word == '#' && !strstr(readBuffer,"rename:")) // is this a constant from dictionary.h? or user constant
     {
@@ -2168,7 +2171,7 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
 	if (grade && checkGrade && !stricmp(language,"English"))
 	{
 		if (canonical && !IsUpperCase(*input) && !(canonical->systemFlags & grade) && !strchr(word,'\'')) // all contractions are legal
-			Log(STDTRACELOG,(char*)"Grade Limit: %s\r\n",D->word);
+			Log(STDUSERLOG,(char*)"Grade Limit: %s\r\n",D->word);
 	}
 
 	// see if substitition will ruin this word
@@ -2341,6 +2344,12 @@ x:=y  (do assignment and do not fail)
 		backup = ptr;
 		ptr = ReadNextSystemToken(in,ptr,word);
 		if (!*word) break; //   end of file
+
+        if (!stricmp("brucetestcrash",word)) // test crash for linux
+        {
+            ptr = (char*)5;
+            ReadCompiledWord(ptr, word);
+        }
 
 		// we came from pattern IF and lack a (
 		if (ifstatement && *word != '(' && nestIndex == 0) nestKind[nestIndex++] = '(';
@@ -4041,14 +4050,14 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 			{
 				strcpy(macroName,(char*)"^tbl:");
 				strcat(macroName,word);
-				Log(STDTRACELOG,(char*)"Reading table %s\r\n",macroName);
+				Log(STDUSERLOG,(char*)"Reading table %s\r\n",macroName);
 			}
 			else
 			{
 				if (!IsLegalName(word)) BADSCRIPT((char*)"MACRO-2 Illegal characters in function name %s\r\n",word)
 				*macroName = '^';
 				strcpy(macroName+1,word);
-				Log(STDTRACELOG,(char*)"Reading %s %s\r\n",kind,macroName);
+				Log(STDUSERLOG,(char*)"Reading %s %s\r\n",kind,macroName);
 				AddMap((char*)"    macro:", macroName);
 			}
 			D = StoreWord(macroName);
@@ -4685,14 +4694,14 @@ static char* ReadBot(char* ptr)
 	while (scopeBotName[len-1] == ' ') scopeBotName[--len] = 0;
 	if (len == 0) 
 	{
-		Log(STDTRACELOG,(char*)"Reading bot restriction: %s\r\n",original);
+		Log(STDUSERLOG,(char*)"Reading bot restriction: %s\r\n",original);
 		return ""; // there is no header anymore
 	}
 
 	strcat(scopeBotName," "); // single trailing space
 	char* x;
 	while ((x = strchr(scopeBotName,','))) *x = ' ';	// change comma to space. all bot names have spaces on both sides
-	Log(STDTRACELOG,(char*)"Reading bot restriction: %s\r\n",original);
+	Log(STDUSERLOG,(char*)"Reading bot restriction: %s\r\n",original);
 	return "";
 }
 
@@ -4734,7 +4743,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 		{
 			if (*word != '~') BADSCRIPT((char*)"Topic name - %s must start with ~\r\n",word)
 			strcpy(currentTopicName,word);
-    		Log(STDTRACELOG,(char*)"Reading topic %s\r\n",currentTopicName);
+    		Log(STDUSERLOG,(char*)"Reading topic %s\r\n",currentTopicName);
 			topicName = FindWord(currentTopicName);
             if (!myBot && topicName && topicName->internalBits & CONCEPT && !(topicName->internalBits & TOPIC) && topicName->internalBits & (BUILD0 | BUILD1 | BUILD2))
                 WARNSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s\r\n", currentTopicName)
@@ -4948,7 +4957,7 @@ static char* ReadRename(char* ptr, FILE* in,unsigned int build)
 		D = StoreWord(word,n);
 		AddInternalFlag(D,(unsigned int)(RENAMED|build)); 
 		if (*word == '#' && *basic == '-') AddSystemFlag(D,CONSTANT_IS_NEGATIVE);
-		Log(STDTRACELOG,(char*)"Rename %s as %s\r\n",basic,word);
+		Log(STDUSERLOG,(char*)"Rename %s as %s\r\n",basic,word);
 	}	
 	renameInProgress = false;
 	return ptr;
@@ -4984,7 +4993,7 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 			*planName = '^';
 			strcpy(planName+1,word);
 			strcpy(baseName,planName);
-			Log(STDTRACELOG,(char*)"Reading plan %s\r\n",planName);
+			Log(STDUSERLOG,(char*)"Reading plan %s\r\n",planName);
 
 			// handle potential multiple plans of same name
 			plan = FindWord(planName);
@@ -5307,7 +5316,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			concept = MakeMeaning(D);
 			sys = type = 0;
 			parenLevel = 0;
-			Log(STDTRACELOG,(char*)"Reading concept %s\r\n",conceptName);
+			Log(STDUSERLOG,(char*)"Reading concept %s\r\n",conceptName);
 			AddMap((char*)"    concept:", conceptName);
 			// read the control flags of the concept
 			ptr = SkipWhitespace(ptr);
@@ -5447,7 +5456,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
     ReadNextSystemToken(NULL, NULL, word, false, false); // flush cache
     build &= -1 ^ FROM_FILE; // remove any flag indicating it came as a direct file, not from a directory listing
 
-	Log(STDTRACELOG,(char*)"\r\n----Reading file %s\r\n",currentFilename);
+	Log(STDUSERLOG,(char*)"\r\n----Reading file %s\r\n",currentFilename);
 	char map[MAX_WORD_SIZE];
 	char file[MAX_WORD_SIZE];
 	GetCurrentDir(file, MAX_WORD_SIZE);
@@ -5936,13 +5945,13 @@ static void ClearTopicConcept(WORDP D, uint64 build)
 
 static void DumpErrors()
 {
-	if (errorIndex) Log(ECHOSTDTRACELOG,(char*)"\r\n ERROR SUMMARY: \r\n");
-	for (unsigned int i = 0; i < errorIndex; ++i) Log(ECHOSTDTRACELOG,(char*)"  %s",errors[i]);
+	if (errorIndex) Log(ECHOSTDUSERLOG,(char*)"\r\n ERROR SUMMARY: \r\n");
+	for (unsigned int i = 0; i < errorIndex; ++i) Log(ECHOSTDUSERLOG,(char*)"  %s",errors[i]);
 }
 
 static void DumpWarnings()
 {
-	if (warnIndex) Log(ECHOSTDTRACELOG,(char*)"\r\nWARNING SUMMARY: \r\n");
+	if (warnIndex) Log(ECHOSTDUSERLOG,(char*)"\r\nWARNING SUMMARY: \r\n");
 	for (unsigned int i = 0; i < warnIndex; ++i) 
 	{
 		if (strstr(warnings[i],(char*)"is not a known word")) {}
@@ -5951,7 +5960,7 @@ static void DumpWarnings()
 		else if (strstr(warnings[i],(char*)"in opposite case")){}
 		else if (strstr(warnings[i],(char*)"a function call")){}
         else if (strstr(warnings[i], (char*)"multiple spellings")) {}
-        else Log(ECHOSTDTRACELOG,(char*)"  %s",warnings[i]);
+        else Log(ECHOSTDUSERLOG,(char*)"  %s",warnings[i]);
 	}
 }
 
@@ -6113,11 +6122,11 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 		char output[MAX_WORD_SIZE];
 		if (word[len-1] == '/') // directory request
 		{
-			Log(STDTRACELOG,(char*)"\r\n>>Reading folder %s\r\n",word);
+			Log(STDUSERLOG,(char*)"\r\n>>Reading folder %s\r\n",word);
             bool recurse = word[len - 2] == '/';
             if (recurse) word[len - 2] = 0;
             WalkDirectory(word,ReadTopicFile,build,recurse); // read all files in folder (top level)
-			Log(STDTRACELOG,(char*)"\r\n<<end folder %s\r\n",word);
+			Log(STDUSERLOG,(char*)"\r\n<<end folder %s\r\n",word);
 		}
 		else if (*word == ':' && word[1]) DoCommand(readBuffer,output); // testing command
 		else ReadTopicFile(word,build|FROM_FILE); // was explicitly named
@@ -6199,24 +6208,24 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	{
 		EraseTopicFiles(build,baseName);
 		DumpErrors();
-		if (missingFiles) Log(ECHOSTDTRACELOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(ECHOSTDTRACELOG,(char*)"\r\n%d errors - press Enter to quit. Then fix and try again.\r\n",hasErrors);
+		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
+		Log(ECHOSTDUSERLOG,(char*)"\r\n%d errors - press Enter to quit. Then fix and try again.\r\n",hasErrors);
 		if (!server && !commandLineCompile) ReadALine(readBuffer,stdin);
 		resultcode = 4; // error
 	}
 	else if (hasWarnings) 
 	{
 		DumpWarnings();
-		if (missingFiles) Log(ECHOSTDTRACELOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(ECHOSTDTRACELOG,(char*)"%d serious warnings, %d function warnings, %d spelling warnings, %d case warnings, %d substitution warnings\r\n    ",hasWarnings-badword-substitutes-cases,functionCall,badword,cases,substitutes);
+		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
+		Log(ECHOSTDUSERLOG,(char*)"%d serious warnings, %d function warnings, %d spelling warnings, %d case warnings, %d substitution warnings\r\n    ",hasWarnings-badword-substitutes-cases,functionCall,badword,cases,substitutes);
 	}
 	else 
 	{
-		if (missingFiles) Log(ECHOSTDTRACELOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(ECHOSTDTRACELOG,(char*)"No errors or warnings\r\n\r\n");
+		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
+		Log(ECHOSTDUSERLOG,(char*)"No errors or warnings\r\n\r\n");
 	}
 	ReturnDictionaryToWordNet();
-	Log(ECHOSTDTRACELOG,(char*)"\r\n\r\nFinished compile\r\n\r\n");
+	Log(ECHOSTDUSERLOG,(char*)"\r\n\r\nFinished compile\r\n\r\n");
 	return resultcode;
 }
 

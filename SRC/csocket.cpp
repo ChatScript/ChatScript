@@ -553,8 +553,16 @@ restart: // start with user
 
                 if (newstart)
                 {
-                    if (!*loc) sprintf(at, "[ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user, output);
-                    else sprintf(at, "[ category: %s specialty: %s id: %s location: %s  expect: \"%s\"]", cat, spec, user, loc, output);
+                    if (*output)
+                    {
+                        if (!*loc) sprintf(at, "[ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user, output);
+                        else sprintf(at, "[ category: %s specialty: %s id: %s location: %s  expect: \"%s\"]", cat, spec, user, loc, output);
+                    }
+                    else
+                    {
+                        if (!*loc) sprintf(at, "[ category: %s specialty: %s id: %s ]", cat, spec, user);
+                        else sprintf(at, "[ category: %s specialty: %s id: %s location: %s ]", cat, spec, user, loc);
+                    }
                     sock = new TCPSocket(serverIP, (unsigned short)port);
                     sock->send(sendbuffer, baselen + 1 + strlen(at));
                     ReadSocket(sock, response);
@@ -608,7 +616,7 @@ restart: // start with user
                 (*printer)((char*)"%s", (char*)"\r\n>    ");
             }
             else if (jastarts || raw) {}
-            else Log(STDTRACELOG, "%s %s %s\r\n", user, bot, response);
+            else Log(STDUSERLOG, "%s %s %s\r\n", user, bot, response);
             if (!converse && !jastarts && !jaconverse && !raw)
             {
                 if (!ReadALine(data, source, 100000 - 100)) break; // next thing we want to send
@@ -648,7 +656,7 @@ restart: // start with user
                     sock->send(data, strlen(data) + 1);
                     (*printer)((char*)":restart sent data to port %d\r\n", port);
                     ReadSocket(sock, response);
-                    Log(STDTRACELOG, (char*)"%s", response); 	// chatbot replies this
+                    Log(STDUSERLOG, (char*)"%s", response); 	// chatbot replies this
                     delete(sock);
 
                     (*printer)((char*)"%s", (char*)"\r\nEnter client user name: ");
@@ -1283,7 +1291,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
             output[2] = 0xfe; //ctrl markers
             output[3] = 0xff;
             output[4] = 0;
-            Log(STDTRACELOG, (char*)"Timeout waiting for service: %s  =>  %s\r\n", msg, output);
+            Log(STDUSERLOG, (char*)"Timeout waiting for service: %s  =>  %s\r\n", msg, output);
             return Done(sock, memory);
         }
 
@@ -1376,7 +1384,7 @@ static void* MainChatbotServer()
     bool oldserverlog = serverLog;
     serverLog = true;
     Log(SERVERLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath: %s\r\n\r\n", serverLogfileName, oldserverlog, userLog,crashpath);
-    (*printer)((char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath:%s\r\n\r\n", serverLogfileName, oldserverlog, userLog,crashpath);
+    (*printer)((char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath:%s\r\n\r\n", serverLogfileName, oldserverlog, userLog, crashpath);
     serverLog = oldserverlog;
     int returnValue = 0;
 
@@ -1409,7 +1417,11 @@ static void* MainChatbotServer()
             strcpy(bot,ptr);
             ptr += strlen(ptr) + 1; // ptr to message
             size_t test = strlen(ptr);
-
+            // remove harmful newline stuff
+            char* at = ptr;
+            while ((at = strchr(at, '\n'))) *at = ' ';
+            at = ptr;
+            while ((at = strchr(at, '\r'))) *at = ' ';
             echo = false;
             struct tm ptm;
             char* dateLog = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;

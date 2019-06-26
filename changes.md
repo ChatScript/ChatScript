@@ -1,3 +1,10 @@
+# Version 9.5  6/26/2019
+
+1. Testoutput now returns field error: true  if code execution failed.
+2. you can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.  Just prepend to your input ":tracepattern"
+3. unmark(@ _0) unmark everything starting there (but only at that 1 start spot, not range implied. This include sthe concepts and topics list and marks themslelf.s
+4. Serious bug fixed if you have topics in both level 0 and level 1.  CS shipping of level 0 does not have topics so almost no one noticed this bug til now.
+
 # Version 9.41 - EMERGENCY RELEASE  6/4/2019
 9.4 has a bug wherein it inadvertently writes logging data to the user log file while processing
 json parse data. This can blow out disk space in a heavily used server.  This has been fixed.

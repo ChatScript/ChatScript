@@ -7,7 +7,7 @@ copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
 
 ## Keyword Phrases
 
-You cannot make a concept out with a member whose string includes starting or trailing
+You cannot make a concept with a member whose string includes starting or trailing
 blanks, like " X ". Such a word could never match as a pattern, since spaces are skipped
 over. But you can make it respond to idiomatic phrases and multiple words. Just put them
 in quotes. E.g. 
@@ -45,9 +45,9 @@ _"TV show"_ matchs _TV shows_ as well as _TV show_.
 
 ## Implied concept Sets
 
-When you make a pattern using [] or {} and it only contains words, phrases, And
+When you make a pattern using [] or {} and it only contains words, phrases, and
 concept sets, the system will make an anonymous concept set out of them.
-This allows the system to find the soonest match of any of them. otherwise
+This allows the system to find the soonest match of any of them. Otherwise
 [] and {} take each element in turn and try to find a match, which may be later in 
 the sentence than a later element in the set would match.
 
@@ -272,7 +272,7 @@ But if it is merely in a variable, then the dictionary is unaware of
 the phrase and so `_1?` will not work for it.
 
 
-## Comparison with C++ #define in `dictionarysystem.h`
+## Comparison with C++ #define in `dictionarySystem.h`
 
 You can name a constant from that file as the right hand side of a comparison test by
 prefixing its name with `#`. E.g.,
@@ -435,10 +435,9 @@ If any are not, it can only literally match.
 
 The quote notation is typically used in several situations...
 
-* you are matching a recognized phrase so quoting it emphasizes that
-* what you are matching contains embedded punctuation and you don't want to think
-
-About how to tokenize it e.g., _"Mrs. Watson's"_ -- is the period part of Mrs, 
+* You are matching a recognized phrase so quoting it emphasizes that.
+* What you are matching contains embedded punctuation and you don't want to think
+about how to tokenize it e.g., _"Mrs. Watson's"_ -- is the period part of Mrs, 
 is the `'` part of _Watson_, etc. Easier just to use quotes and let the system handle it.
 
 * You want to use a phrase inside `[]` or `{}` choices. Like `[ like live "really enjoy" ]`
@@ -469,7 +468,7 @@ As a side note, the quoted expression is faster to match than the `( )` one. Tha
 the cost of matching is linear in the number of items to test. And a quoted expression (or
 the `_` equivalent) is a single item, whereas ( take charge) is 4 items. 
 
-So the first rule will below will match faster than the second rule:
+So the first rule below will match faster than the second rule:
 
     u: ( "I love you today when" )
 
@@ -488,7 +487,7 @@ what concepts it belongs to, picking a concept that most broadly expresses your 
 
 The system will show you both concepts and topics that encompass the word. Because
 topics are more unreliable (contain or may in the future contain words not appropriate to
-your generalization, topics are always shown a `T~` rather than the mere `~name`.
+your generalization, topics are always shown as `T~name` rather than the mere `~name`.
 
 
 ## The deep view of patterns
@@ -503,8 +502,8 @@ and topic names which have those words as keywords.
 And all parser determined pos-tag and parser roles of words.
 
 It gets interesting because marks can also cover a sequential range of locations. That's
-how the system detects phrases as keywords, idioms from the parser like I am a little bit
-crazy (where a little bit is an adverb covering 3 sentence locations) and contiguous
+how the system detects phrases as keywords, idioms from the parser like _I am a little bit
+crazy_ (where a little bit is an adverb covering 3 sentence locations) and contiguous
 phrasal verbs.
 
 And there are functions you can call to set or erase marks on your own (`^mark` and `^unmark`).
@@ -588,18 +587,18 @@ Then `[ ]` quits. So if you have a pattern like:
 
     u: ( the * [bear raccoon] ate )
 
-and an input like _the raccoon at the bear_, then matching would proceed as
+and an input like _the raccoon ate the bear_, then matching would proceed as
 
 * find the word the (position 1 in sentence)
 * try to find bear starting at position 2   found at position 5
 * try to find the word ate starting at position 6   fails
 
 The system is allowed to backtrack and see if the first match can be made later. So it will
-try to find the later than position one. It would succeed in relocating it to position 4. 
+try to find the match later than position one. It would succeed in relocating it to position 4. 
 
 It would then try to find the word bear afterwards, and succeed at position 5. It would then
 try to find the word ate after that and fail. It would retry trying to reset the pattern to
-find the after position 4 and fail. The match fails.
+find the match after position 4 and fail. The match fails.
 
 You can fix this ordering problem by making a concept set of the contents of the `[ ]`, and
 replacing the `[ ]` with the name of the concept set. 

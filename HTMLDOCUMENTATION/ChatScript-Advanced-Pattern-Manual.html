@@ -12,7 +12,7 @@
 <p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 5/27/2019 cs9.4</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
-<p>You cannot make a concept out with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes. E.g.</p>
+<p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes. E.g.</p>
 <pre><code>concept: ~remove ( &quot;take away&quot; remove )</code></pre>
 <p>Normally in patterns you can write</p>
 <pre><code>?: ( do you take away cheese )</code></pre>
@@ -26,7 +26,7 @@
 <pre><code>concept: ~viewing (&quot;TV show&quot;)` </code></pre>
 <p>the system can match that concept readily also. In fact, whenever you write the quoted keyword phrase, if all its words are canonical, you can match canonical and noncanonincal forms. <em>&quot;TV show&quot;</em> matchs <em>TV shows</em> as well as <em>TV show</em>.</p>
 <h2 id="implied-concept-sets">Implied concept Sets</h2>
-<p>When you make a pattern using [] or {} and it only contains words, phrases, And concept sets, the system will make an anonymous concept set out of them. This allows the system to find the soonest match of any of them. otherwise [] and {} take each element in turn and try to find a match, which may be later in the sentence than a later element in the set would match.</p>
+<p>When you make a pattern using [] or {} and it only contains words, phrases, and concept sets, the system will make an anonymous concept set out of them. This allows the system to find the soonest match of any of them. Otherwise [] and {} take each element in turn and try to find a match, which may be later in the sentence than a later element in the set would match.</p>
 <h2 id="dictionary-keyword-sets">Dictionary Keyword sets</h2>
 <p>In ChatScript, WordNet ontologies are invoked by naming the word, a <code>~</code>, and the index of the meaning you want.</p>
 <pre><code>concept: ~buildings [ shelter~1 living_accomodations~1 building~3 ]</code></pre>
@@ -113,7 +113,7 @@
 u: ( $bot? )</code></pre>
 <p>Note that when <code>_1</code> is a normal word, that is simple for CS to handle. If <code>_1</code> is a phrase, then generally CS cannot match it. This is because for phrases, CS needs to know in advance that a phrase can be matched.</p>
 <p>If you put <em>take a seat</em> as a keyword in a concept or topic or pattern, that phrase is stored in the dictionary and marked as a pattern phrase, meaning if the phrase is ever seen in a sentence, it should be noticed and marked so it can be matched in a pattern. But if it is merely in a variable, then the dictionary is unaware of the phrase and so <code>_1?</code> will not work for it.</p>
-<h2 id="comparison-with-c-define-in-dictionarysystem.h">Comparison with C++ #define in <code>dictionarysystem.h</code></h2>
+<h2 id="comparison-with-c-define-in-dictionarysystem.h">Comparison with C++ #define in <code>dictionarySystem.h</code></h2>
 <p>You can name a constant from that file as the right hand side of a comparison test by prefixing its name with <code>#</code>. E.g.,</p>
 <pre><code>s: ( _~number _0=#NOUN )</code></pre>
 <p>Such constants can be done anywhere, not just in a pattern.</p>
@@ -175,12 +175,9 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>If all words in the string are canonical, it can cover all forms. If any are not, it can only literally match.</p>
 <p>The quote notation is typically used in several situations...</p>
 <ul>
-<li>you are matching a recognized phrase so quoting it emphasizes that</li>
-<li>what you are matching contains embedded punctuation and you don't want to think</li>
-</ul>
-<p>About how to tokenize it e.g., <em>&quot;Mrs. Watson's&quot;</em> -- is the period part of Mrs, is the <code>'</code> part of <em>Watson</em>, etc. Easier just to use quotes and let the system handle it.</p>
-<ul>
-<li>You want to use a phrase inside <code>[]</code> or <code>{}</code> choices. Like <code>[ like live &quot;really enjoy&quot; ]</code></li>
+<li>You are matching a recognized phrase so quoting it emphasizes that.</li>
+<li><p>What you are matching contains embedded punctuation and you don't want to think about how to tokenize it e.g., <em>&quot;Mrs. Watson's&quot;</em> -- is the period part of Mrs, is the <code>'</code> part of <em>Watson</em>, etc. Easier just to use quotes and let the system handle it.</p></li>
+<li><p>You want to use a phrase inside <code>[]</code> or <code>{}</code> choices. Like <code>[ like live &quot;really enjoy&quot; ]</code></p></li>
 </ul>
 <p>In actuality, when you quote something, the system generates a correctly tokenized set of words and joins them with underscores into a single word. There is no real difference between <em>&quot;go back&quot;</em> and <em>go_back</em> in a pattern.</p>
 <p>But compared to just listing the words in sequence in your pattern, a quoted expression cannot handle optional choices of words. You can't write <code>go {really almost} back</code> where that can match <em>go back</em> or <em>go almost back</em>.</p>
@@ -189,18 +186,18 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>and that will be a more complex pattern. One almost never has a real use for that capability, but you use <code>( )</code> notation all the time, of course. In fact, all rules have an implied <code>&lt; *</code> in front of the <code>()</code>.</p>
 <p>That's what allows them to find a sequence of words starting anywhere in the input. But when you nest <code>( )</code> inside, unless you write <code>&lt; *</code> yourself, you are committed to remaining in the sequence set up.</p>
 <p>As a side note, the quoted expression is faster to match than the <code>( )</code> one. That's because the cost of matching is linear in the number of items to test. And a quoted expression (or the <code>_</code> equivalent) is a single item, whereas ( take charge) is 4 items.</p>
-<p>So the first rule will below will match faster than the second rule:</p>
+<p>So the first rule below will match faster than the second rule:</p>
 <pre><code>u: ( &quot;I love you today when&quot; )
 
 u: ( I love you today when )</code></pre>
 <p>But quoted expressions only work up to 5 words in the expression (one rarely has a need for more) whereas <code>()</code> notation takes any number. And using quotes when it isn't a common phrase is obscure and not worth doing.</p>
 <h2 id="generalizing-a-pattern-word">Generalizing a pattern word</h2>
 <p>When you want to generalize a word, a handy thing to do is type :concepts word and see what concepts it belongs to, picking a concept that most broadly expresses your meaning.</p>
-<p>The system will show you both concepts and topics that encompass the word. Because topics are more unreliable (contain or may in the future contain words not appropriate to your generalization, topics are always shown a <code>T~</code> rather than the mere <code>~name</code>.</p>
+<p>The system will show you both concepts and topics that encompass the word. Because topics are more unreliable (contain or may in the future contain words not appropriate to your generalization, topics are always shown as <code>T~name</code> rather than the mere <code>~name</code>.</p>
 <h2 id="the-deep-view-of-patterns">The deep view of patterns</h2>
 <p>You normally think of the pattern matcher as matching words from the sentence. It doesn't. It matches marks. A mark is an arbitrary text string that can be associated with a sentence location. The actual words (but not necessarily the actual case you use) are just marks placed on the actual locations in the sentence where the words exist.</p>
 <p>The canonical forms of those words are also such marks. As are the concept set names and topic names which have those words as keywords. And all parser determined pos-tag and parser roles of words.</p>
-<p>It gets interesting because marks can also cover a sequential range of locations. That's how the system detects phrases as keywords, idioms from the parser like I am a little bit crazy (where a little bit is an adverb covering 3 sentence locations) and contiguous phrasal verbs.</p>
+<p>It gets interesting because marks can also cover a sequential range of locations. That's how the system detects phrases as keywords, idioms from the parser like <em>I am a little bit crazy</em> (where a little bit is an adverb covering 3 sentence locations) and contiguous phrasal verbs.</p>
 <p>And there are functions you can call to set or erase marks on your own (<code>^mark</code> and <code>^unmark</code>).</p>
 <p>Pattern matching involves looking at tokens while having a current sentence location index. Unless you are using a wildcard, your tokens must occur in contiguous order to match. As they match, the current sentence location is updated. But not necessarily updated to the next adjacent location. It will depend on the length of the mark being matched.</p>
 <p>So your token might be <code>~adverb</code> but that may match a multiple-word sequence, so the location index will be updated to the end of that index.</p>
@@ -227,14 +224,14 @@ u: ( I love you today when )</code></pre>
 <h2 id="precautionary-note-about-and-pattern-matching-retries">Precautionary note about <code>[</code> <code>]</code> and pattern matching retries</h2>
 <p>When you list a collection of words or concepts within a <code>[ ]</code> in a pattern, the system does not try each in turn to find the earliest match. Instead it tries each in turn until it finds a match. Then <code>[ ]</code> quits. So if you have a pattern like:</p>
 <pre><code>u: ( the * [bear raccoon] ate )</code></pre>
-<p>and an input like <em>the raccoon at the bear</em>, then matching would proceed as</p>
+<p>and an input like <em>the raccoon ate the bear</em>, then matching would proceed as</p>
 <ul>
 <li>find the word the (position 1 in sentence)</li>
 <li>try to find bear starting at position 2 found at position 5</li>
 <li>try to find the word ate starting at position 6 fails</li>
 </ul>
-<p>The system is allowed to backtrack and see if the first match can be made later. So it will try to find the later than position one. It would succeed in relocating it to position 4.</p>
-<p>It would then try to find the word bear afterwards, and succeed at position 5. It would then try to find the word ate after that and fail. It would retry trying to reset the pattern to find the after position 4 and fail. The match fails.</p>
+<p>The system is allowed to backtrack and see if the first match can be made later. So it will try to find the match later than position one. It would succeed in relocating it to position 4.</p>
+<p>It would then try to find the word bear afterwards, and succeed at position 5. It would then try to find the word ate after that and fail. It would retry trying to reset the pattern to find the match after position 4 and fail. The match fails.</p>
 <p>You can fix this ordering problem by making a concept set of the contents of the <code>[ ]</code>, and replacing the <code>[ ]</code> with the name of the concept set.</p>
 <p>A concept set being matched in a pattern will always find the earliest matching word. The number of elements in a concept set is immaterial both to the order of finding things and to the speed of matching.</p>
 </body>

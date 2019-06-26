@@ -61,7 +61,7 @@ if ($_response == %response) {...}</code></pre>
 <p>Because you can intermix program script with ordinary output words, ChatScript normally autoformats output code. But programming languages allow you to control your output with format strings and ChatScript is no exception.</p>
 <p>In the case of ChatScript, the active string <code>^&quot;xxx&quot;</code> string is a format string. The system will remove the <code>^</code> and the quotes and put it out exactly as you have it, except, it will substitute variables (which you learn about shortly) with their values and it will accept <code>[ ]</code> <code>[ ]</code> choice blocks. And will allow function calls. You can't do assignment statements or loops or if statements.</p>
 <pre><code>t: ^&quot;I like you.&quot;</code></pre>
-<p>puts out I like you.</p>
+<p>puts out <em>I like you</em>.</p>
 <p>When you want special characters in the format string like <code>&quot;</code>, you need to backslash them, which the format string removes when it executes. For example:</p>
 <pre><code>u: () $tmp = [ hi ^&quot;there \&quot;john\&quot;&quot; ]</code></pre>
 <p>the quote inside the format string need protecting using <code>\&quot;</code>.</p>

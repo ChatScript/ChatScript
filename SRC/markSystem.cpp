@@ -36,7 +36,6 @@ Thereafter the system chases up the synset hierarchy fanning out to sets marked 
 
 #endif
 
-#define REF_ELEMENTS 6
 int maxRefSentence = (((MAX_XREF_SENTENCE  * REF_ELEMENTS) + 3) / 4) * 4; // start+end offsets for this many entries + alignment slop
 int uppercaseFind = -1; // unknown
 static bool failFired = false;
@@ -159,17 +158,17 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int index, int start, int en
 		if (markLength > MARK_LINE_LIMIT)
 		{
 			markLength = 0;
-            Log(STDTRACELOG, (char*)"\r\n");
+            Log(STDUSERLOG, (char*)"\r\n");
             Log(STDTRACETABLOG, (char*)"");
         }
-        while (depth-- >= 0) Log((showMark) ? ECHOSTDTRACELOG : STDTRACELOG, (char*)"  ");
+        while (depth-- >= 0) Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (char*)"  ");
         char which[20];
         *which = 0;
         which[1] = 0;
         if (exactWord && D->internalBits & UPPERCASE_HASH) which[0] = '^';
-        Log((showMark) ? ECHOSTDTRACELOG : STDTRACELOG, (D->internalBits & TOPIC) ? (char*)"+T%s%s " : (char*)" +%s%s", D->word, which);
-        if (start != end) Log((showMark) ? ECHOSTDTRACELOG : STDTRACELOG, (char*)"(%d-%d)", start, end);
-        Log((showMark) ? ECHOSTDTRACELOG : STDTRACELOG, (char*)"\r\n");
+        Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (D->internalBits & TOPIC) ? (char*)"+T%s%s " : (char*)" +%s%s", D->word, which);
+        if (start != end) Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (char*)"(%d-%d)", start, end);
+        Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (char*)"\r\n");
         markLength = 0;
     }
  
@@ -712,7 +711,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 	unsigned int usetrace = trace;
 	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) 
 	{
-		Log(STDTRACELOG,(char*)"\r\nSequences:\r\n");
+		Log(STDUSERLOG,(char*)"\r\nSequences:\r\n");
 		usetrace = (unsigned int) -1;
 		if (oldtrace && !(oldtrace & TRACE_ECHO)) usetrace ^= TRACE_ECHO;
 	}
@@ -813,7 +812,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 			HuntMatch(false,rawbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i+k,usetrace);
 			HuntMatch(true,canonbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i+k,usetrace);
 			HuntMatch(false,originalbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i+k,usetrace);
-			if (logCount != logbasecount && usetrace)  Log(STDTRACELOG,(char*)"\r\n"); // if we logged something, separate
+			if (logCount != logbasecount && usetrace)  Log(STDUSERLOG,(char*)"\r\n"); // if we logged something, separate
 			if (++index >= sequenceLimit) break; //   up thru 5 words in a phrase
 			logbasecount = logCount;
 		}
@@ -869,7 +868,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 			}
 		}
 	}
-	if (trace & TRACE_PATTERN || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"\r\n"); // if we logged something, separate
+	if (trace & TRACE_PATTERN || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"\r\n"); // if we logged something, separate
 
 	while (wordlist)
 	{
@@ -1047,7 +1046,7 @@ static void MarkFundamentalMeaning()
 {
     if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
     {
-        Log(STDTRACELOG, (char*)"Fundamental Meanings:\r\n");
+        Log(STDUSERLOG, (char*)"Fundamental Meanings:\r\n");
     }
     int subject = 0;
     int object = 0;
@@ -1122,6 +1121,7 @@ static void MarkFundamentalMeaning()
 void MarkAllImpliedWords()
 {
 	int i;
+    pendingConceptList = 0;
 	for (i = 1; i <= wordCount; ++i)  capState[i] = IsUpperCase(*wordStarts[i]); // note cap state
 	failFired = false;
 	TagIt(); // pos tag and maybe parse
@@ -1130,8 +1130,8 @@ void MarkAllImpliedWords()
 	{
 		return;
 	}
-    if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"\r\nConcepts: \r\n");
- 	if (showMark)  Log(ECHOSTDTRACELOG,(char*)"----------------\r\n");
+    if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"\r\nConcepts: \r\n");
+ 	if (showMark)  Log(ECHOSTDUSERLOG,(char*)"----------------\r\n");
 	markLength = 0;
 					 
 	//   now mark every word in all seen
@@ -1144,9 +1144,9 @@ void MarkAllImpliedWords()
 			continue;	// ignore this
 		if (!wordCanonical[i] || !*wordCanonical[i]) wordCanonical[i] = original; // in case failure below
 
-		if (showMark) Log(ECHOSTDTRACELOG,(char*)"\r\n");
+		if (showMark) Log(ECHOSTDUSERLOG,(char*)"\r\n");
 
- 		if (trace  & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"\r\n%d: %s (raw):\r\n",i,original);
+ 		if (trace  & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"\r\n%d: %s (raw):\r\n",i,original);
 		uint64 flags = posValues[i];
 		WORDP D = originalLower[i] ? originalLower[i] : originalUpper[i]; // one of them MUST have been set
 		if (!D) D = StoreWord(original); // just so we can't fail later
@@ -1264,7 +1264,7 @@ void MarkAllImpliedWords()
 			if (i < wordCount && *wordStarts[i+1] == '/' && wordStarts[i+1][1] == 0 && IsDigitWord(wordStarts[i+2], numberStyle) )
 			{
 				MarkMeaningAndImplications(0, 0,MakeMeaning(Dplacenumber),i,i);
-				if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"=%s/%s \r\n",wordStarts[i],wordStarts[i+2]);
+				if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"=%s/%s \r\n",wordStarts[i],wordStarts[i+2]);
 			}
 			else if (IsPlaceNumber(wordStarts[i],numberStyle)) // finalPosValues[i] & (NOUN_NUMBER | ADJECTIVE_NUMBER) 
 			{
@@ -1338,7 +1338,7 @@ void MarkAllImpliedWords()
 			StdMark(MakeTypedMeaning(OL,0,restriction), i, i,false);
 		}
 
-        if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)" // "); //   close original meanings lowercase
+        if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)" // "); //   close original meanings lowercase
 
 		markLength = 0;
 		if (IS_NEW_WORD(OU) && (OL || CL)) {;} // uppercase original was unknown and we have lower case forms, ignore upper.
@@ -1353,7 +1353,7 @@ void MarkAllImpliedWords()
 
 		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) 
 		{
-			Log(STDTRACELOG,(char*)"\r\n%d: %s (canonical): ", i,wordCanonical[i] ); //    original meanings lowercase
+			Log(STDUSERLOG,(char*)"\r\n%d: %s (canonical): ", i,wordCanonical[i] ); //    original meanings lowercase
 		}
 
 		//   canonical word
@@ -1373,12 +1373,12 @@ void MarkAllImpliedWords()
 		else StdMark(MakeTypedMeaning(CL,0, (unsigned int)(finalPosValues[i] & BASIC_POS)), i, i,true);
 
  		markLength = 0;
-	    if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)" // "); //   close canonical form lowercase
+	    if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)" // "); //   close canonical form lowercase
  		
 		// mark upper case canonical 
 		StdMark(MakeTypedMeaning(CU,0, NOUN), i, i,true);
 
-		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)" "); //   close canonical form uppercase
+		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)" "); //   close canonical form uppercase
 		markLength = 0;
 	
         //   peer into multiword expressions  (noncanonical), in case user is emphasizing something so we dont lose the basic match on words
@@ -1436,7 +1436,7 @@ void MarkAllImpliedWords()
 		if (D->internalBits & UTF8) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~utf8")),i,i);
 		if (D->internalBits & UPPERCASE_HASH && D->length > 1 && !stricmp(language,"english"))  MarkMeaningAndImplications(0, 0,MakeMeaning(Dpropername),i,i);  // historical - internal is uppercase
 
-        if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"\r\n");
+        if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"\r\n");
 
 		D = FindWord(wordStarts[i]);
 		if (*wordStarts[i] == 'I' && !wordStarts[i][1]) {;} // ignore "I"
@@ -1444,10 +1444,10 @@ void MarkAllImpliedWords()
 		{
 			char word[MAX_WORD_SIZE];
 			MakeLowerCopy(word,D->word);
-			if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"%d: %s (lower): ", i,word ); //    original meanings lowercase
+			if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"%d: %s (lower): ", i,word ); //    original meanings lowercase
 			D = StoreWord(word);
 			StdMark(MakeMeaning(D), i, i,true);
-			if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDTRACELOG,(char*)"\r\n");
+			if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG,(char*)"\r\n");
 		}
         ProcessPendingConcepts();
     }

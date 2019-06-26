@@ -30,7 +30,7 @@ u: ($$sentenceCount==1 &lt; \[ * \]  )
     ^end(SENTENCE)
 
 .... real processing for user input ...</code></pre>
-<p>The responder tests two things. First it checks that this is the first sentence of the volley. If your application always sends OBB, then no user can provide input that would be confused as OOB. If not, then maybe you should provide some data in OOB that users will never stumble onto themselves. Given that, you don't really need to track which sentence it is. Second, of course, the form of an OOB message is detected. I always make a topic to handle processing oob messages and then end the sentence because it should not be subject to responses from the bot.</p>
+<p>The responder tests two things. First it checks that this is the first sentence of the volley. If your application always sends OOB, then no user can provide input that would be confused as OOB. If not, then maybe you should provide some data in OOB that users will never stumble onto themselves. Given that, you don't really need to track which sentence it is. Second, of course, the form of an OOB message is detected. I always make a topic to handle processing oob messages and then end the sentence because it should not be subject to responses from the bot.</p>
 <p>There are two ways of putting data in an OOB message. One is to put whatever your script may detect. In my sample input I showed a keyword pairs approach of data that might have been detected about the user. One could process this OOB data like this inside the OOB topic:</p>
 <pre><code>u: ( emotion: _*1)   # do something with this emotion
 u: ( pose: _*1) # do something with this posture</code></pre>
@@ -82,7 +82,7 @@ outputmacro: ^emote($_emotion)
 <p>Later you need to have a postprocessing topic like this:</p>
 <pre><code>topic: ~POSTPROCESS system repeat ()
 t: ($$oob)  ^postprintbefore( \[ $$oob \]) </code></pre>
-<p>This will put out OBB data once, in front of all other outputs your bot may have generated. Note that postprocess topics use gambit rules, not responder rules, since the postprocess happens once after all sentences have been seen, so it has not responder context.</p>
+<p>This will put out OOB data once, in front of all other outputs your bot may have generated. Note that postprocess topics use gambit rules, not responder rules, since the postprocess happens once after all sentences have been seen, so it has not responder context.</p>
 <h1 id="output-user">Output user</h1>
 <p>Output to the user is whatever you want write. There are a couple of tricky situations to consider, however.</p>
 <h2 id="random-choices">Random choices</h2>

@@ -126,7 +126,7 @@ And will allow function calls. You can't do assignment statements or loops or if
 
     t: ^"I like you."
 
-puts out I like you.
+puts out _I like you_.
 
 When you want special characters in the format string like `"`, you need to
 backslash them, which the format string removes when it executes. For example:

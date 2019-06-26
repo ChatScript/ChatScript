@@ -201,7 +201,7 @@ char* GetTopicName(int topic,bool actual = true);
 char* GetTopicData(int topic);
 void SetTopicData(int topic,char* data);
 bool BlockedBotAccess(int topic);
-void TraceSample(int topic, int ruleID, unsigned int how = STDTRACELOG);
+void TraceSample(int topic, int ruleID, unsigned int how = STDUSERLOG);
 bool SetRuleDisableMark(int topic, int id);
 void ClearRuleDisableMark(int topic,int id);
 bool UsableRule(int topic,int n);

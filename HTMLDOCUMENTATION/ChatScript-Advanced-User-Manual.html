@@ -160,7 +160,7 @@
 <pre><code>u: ( &lt; \[ * speed _*1 * \] ) The speed is _0
 
 u: ( &lt; \[ * rate _*1 * \] ) The rate is _0</code></pre>
-<p>You need <code>*</code> in front of your data when you can have multiple forms of data and you need <code>* \]</code> after your data to insure you don't match words from user input.</p>
+<p>You need <code>*</code> in front of your data when you can have multiple forms of data and you need <code>* \]</code> after your data to ensure you don't match words from user input.</p>
 <p>On output you need to do one of these</p>
 <pre><code>u: () \[ oob data \] Here is user message
 
@@ -203,7 +203,7 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
 <h2 id="cs_reboot"><code>^CS_REBOOT()</code></h2>
 <pre><code>outputmacro: ^CS_REBOOT()</code></pre>
-<p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and Variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the <code>^CS_REBOOT</code> function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
+<p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
 <h2 id="csshutdown"><code>^CSSHUTDOWN()</code></h2>
 <pre><code>outputmacro: ^CSSHUTDOWN()</code></pre>
 <p>This function, if defined by you, will be executed on shutdown or restart of the ChatScript system.</p>
@@ -267,7 +267,7 @@ some junk
 ##&gt;&gt; more junk</code></pre>
 <p>Because any comment marker kills the rest of the line, the &quot;first junk&quot; will not be seen, nor will the &quot;more junk&quot;. But a comment block was established, so lines between them line &quot;some junk&quot; are also not seen.</p>
 <h2 id="renaming-variables-sets-and-integer-constants">Renaming Variables, Sets, and Integer Constants</h2>
-<p>A top level declaration in a script rename a match variable</p>
+<p>A top level declaration in a script can rename a match variable</p>
 <pre><code>rename: _bettername _12</code></pre>
 <p>before any uses of <code>_bettername</code>, which now mean <code>_12</code>. You can put multiple rename pairs in the same declaration.</p>
 <pre><code>rename: _bettername _12 _okname _14</code></pre>
@@ -462,7 +462,7 @@ DATA:
 <pre><code>u: ( test ) ^&quot;This $var is good.&quot; # if $var is kid the result is This kid is good.</code></pre>
 <p><strong><em>What really happens on the output side of a rule?</em></strong></p>
 <p>Well, really, the system &quot;evaluates&quot; every token. Simple English words and punctuation always evaluate to themselves, and the results go into the output stream. Similarly, the value of a text string like <em>this is text</em> is itself, and so <em>this is text</em> shows up in the output stream. And the value of a concept set or topic name is itself.</p>
-<p>System function calls have specific unique evaluations which affect the data of the system and/or add content into the output stream. User-defined macros are just script that resides external to the script being evaluated, so they are evaluated. Script constructs like <code>IF</code>, <code>LOOP</code>, assignment, and relational comparison affect the flow of control of the script but don't themselves put anything into the output stream when evaluated.</p>
+<p>System function calls have specific unique evaluations which affect the data of the system and/or add content into the output stream. User-defined macros are just scripts that reside external to the script being evaluated, so they are evaluated. Script constructs like <code>IF</code>, <code>LOOP</code>, assignment, and relational comparison affect the flow of control of the script but don't themselves put anything into the output stream when evaluated.</p>
 <p>Whenever a variable is evaluated, its contents are evaluated and their result is put into the output stream. Variables include user variables, function argument variables, system variables, match variables, and factset variables.</p>
 <p>For system variables, their values are always simple text, so that goes into the output stream. And match variables will usually have simple text, so they go into the output stream. But you can assign into match variables yourself, so really they can hold anything. So what results from this:</p>
 <pre><code>u: (x)
@@ -480,7 +480,7 @@ I like $var1</code></pre>
 <pre><code>t: I fail (sort of) at most things</code></pre>
 <p>When it is a user function, it looks to see if the ( of the argument list is contiguous to the function name or spaced apart. Contiguous is treated as a function call and apart is treated as English. This is not done for built-ins because it's more likely you spaced it accidently than that you intended it to be English.</p>
 <p><strong><em>How should I go about creating a responder?</em></strong></p>
-<p>First you have to decide the topic it is in and insure the topic has appropriate keywords if needed.</p>
+<p>First you have to decide the topic it is in and ensure the topic has appropriate keywords if needed.</p>
 <p>Second, you need to create a sample sentence the rule is intended to match. You should make a <code>#!</code> comment of it. Then, the best thing is to type <code>:prepare</code> followed by your sentence. This will tell you how the system will tokenize it and what concepts it will trigger. This will help you decide what the structure of the pattern should be and how general you can make important keywords.</p>
 <p><strong><em>What really happens with rule erasure?</em></strong></p>
 <p>The system's default behavior is to erase rules that put output into the output stream, so they won't repeat themselves later. You can explicitly make a rule erase with <code>^disable()</code> and not erase with <code>^keep()</code> and you can make the topic not allow responders to erase with keep as a topic flag.</p>

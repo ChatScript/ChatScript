@@ -175,6 +175,35 @@ void ClearWordMaps() // both static for whole dictionary and dynamic per volley
 	ClearVolleyWordMaps(); 
 }
 
+void ClearWhereAt(int where) // remove all concepts and markings here
+{
+    concepts[where] = 0; // drop memory list at this slot
+    topics[where] = 0; // drop memory list
+
+    // find all words indexed at this start and remove them.
+    map<WORDP, int>::iterator it1;
+    for (it1 = triedData.begin(); it1 != triedData.end(); ++it1)
+    {
+        WORDP D = it1->first;
+        int access = it1->second; // heap access
+        char* data = Index2Heap(access);
+        if (data == 0) continue;
+        unsigned char* triedData = (unsigned char*)(data + 8);	// skip over 64bit tried by meaning field
+        int i;
+        for (i = 0; i < maxRefSentence; i += REF_ELEMENTS)
+        {
+            unsigned char at = triedData[i];
+            if (at == where) // modify it
+            {
+                memmove(triedData + i, triedData + i + REF_ELEMENTS, maxRefSentence - i - REF_ELEMENTS);
+                i -= REF_ELEMENTS;
+                continue;    // check next one
+            }
+            else if (at > where) break;
+        }
+    }
+}
+
 void ClearWordWhere(WORDP D,int at)
 {
 	triedData.erase(D);
@@ -1175,10 +1204,10 @@ void ShowStats(bool reset)
 		unsigned int mspl = (inputSentenceCount) ? (diff/inputSentenceCount) : 0;
 		double fract = (double)(diff/1000.0); // part of seccond
 		double time = (double)(tokenCount/fract);
-		Log(ECHOSTDTRACELOG,(char*)"\r\nRead: %d sentences (%d tokens) in %d ms = %d ms/l or %f token/s\r\n",inputSentenceCount,tokenCount, diff,mspl,time);
+		Log(ECHOSTDUSERLOG,(char*)"\r\nRead: %d sentences (%d tokens) in %d ms = %d ms/l or %f token/s\r\n",inputSentenceCount,tokenCount, diff,mspl,time);
 
-		Log(ECHOSTDTRACELOG,(char*)"used: rules=%d dict=%d fact=%d text=%d mark=%d\r\n",ruleCount,dictUsed,factUsed,textUsed,xrefCount);
-		Log(ECHOSTDTRACELOG,(char*)"      maxrules=%d  maxdict=%d maxfact=%d  maxtext=%d\r\n",maxRules,maxDict,maxFact,maxText);
+		Log(ECHOSTDUSERLOG,(char*)"used: rules=%d dict=%d fact=%d text=%d mark=%d\r\n",ruleCount,dictUsed,factUsed,textUsed,xrefCount);
+		Log(ECHOSTDUSERLOG,(char*)"      maxrules=%d  maxdict=%d maxfact=%d  maxtext=%d\r\n",maxRules,maxDict,maxFact,maxText);
 		ruleCount = 0;
 		xrefCount = 0;
 	}		
@@ -1209,7 +1238,7 @@ void WriteDictDetailsBeforeLayer(int layer)
 	else 
 	{
 		(*printer)((char*)"%s",(char*)"Unable to open TMP prebuild file\r\n");
-		Log(STDTRACELOG,(char*)"Unable to open TMP prebuild file\r\n");
+		Log(STDUSERLOG,(char*)"Unable to open TMP prebuild file\r\n");
 	}
 }
 
@@ -2542,7 +2571,7 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 			{ // warn if multiple substitutes and we are different
 				WORDP S = D->w.substitutes;
 				if (S && stricmp(S->word,replacement)) 
-					Log(ECHOSTDTRACELOG, (char*)"Overriding substitute for %s which was %s and is now %s from file %s\r\n", original, S->word, replacement, name);
+					Log(ECHOSTDUSERLOG, (char*)"Overriding substitute for %s which was %s and is now %s from file %s\r\n", original, S->word, replacement, name);
 			}
 		}
 
@@ -3382,7 +3411,7 @@ void VerifyEntries(WORDP D,uint64 junk) // prove meanings have synset heads and 
 			}
 
 			if (!F && !(D->internalBits & UPPERCASE_HASH)) 
-				Log(STDTRACELOG,(char*)"Meaning %d of %s with master %s missing uplink IS\r\n",i,D->word,WriteMeaning(M));
+				Log(STDUSERLOG,(char*)"Meaning %d of %s with master %s missing uplink IS\r\n",i,D->word,WriteMeaning(M));
 		}
 	}
 }
@@ -3586,15 +3615,15 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
     if (D && IS_NEW_WORD(D) && (*D->word == '~' || *D->word == USERVAR_PREFIX || *D->word == '^')) D = 0;	// debugging may have forced this to store, its not in base system
     if (limit == 0) limit = 5; // default
     char* old = (D <= dictionaryPreBuild[LAYER_0]) ? (char*) "old" : (char*) "";
-    if (D) 	Log(STDTRACELOG, (char*)"\r\n%s (%d): %s\r\n  Properties: ", D->word, Word2Index(D), old);
-    else Log(STDTRACELOG, (char*)"\r\n%s (unknown word):\r\n  Properties: ", name);
+    if (D) 	Log(STDUSERLOG, (char*)"\r\n%s (%d): %s\r\n  Properties: ", D->word, Word2Index(D), old);
+    else Log(STDUSERLOG, (char*)"\r\n%s (unknown word):\r\n  Properties: ", name);
     uint64 properties = (D) ? D->properties : 0;
     uint64 sysflags = (D) ? D->systemFlags : 0;
     uint64 cansysflags = 0;
     uint64 bit = START_BIT;
     while (bit)
     {
-        if (properties & bit) Log(STDTRACELOG, (char*)"%s ", FindNameByValue(bit));
+        if (properties & bit) Log(STDUSERLOG, (char*)"%s ", FindNameByValue(bit));
         bit >>= 1;
     }
 
@@ -3613,8 +3642,8 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
     uint64 xflags = 0;
     WORDP revise;
     uint64 inferredProperties = (name[0] != '~' && name[0] != '^') ? GetPosData(-1, name, revise, entry, canonical, xflags, cansysflags) : 0;
-    if (D && D->internalBits & HAS_SUBSTITUTE) Log(STDTRACELOG, "SUBSTITUTION SOURCE\r\n");
-    if (entry && D != entry) Log(STDTRACELOG, (char*)"\r\n  Changed to %s\r\n", entry->word);
+    if (D && D->internalBits & HAS_SUBSTITUTE) Log(STDUSERLOG, "SUBSTITUTION SOURCE\r\n");
+    if (entry && D != entry) Log(STDUSERLOG, (char*)"\r\n  Changed to %s\r\n", entry->word);
     sysflags |= xflags;
     bit = START_BIT;
     bool extended = false;
@@ -3624,15 +3653,15 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
         {
             if (!(properties & bit)) // bits beyond what was directly known in dictionary before
             {
-                if (!extended) Log(STDTRACELOG, (char*)" Implied: ");
+                if (!extended) Log(STDUSERLOG, (char*)" Implied: ");
                 extended = true;
                 char* label = FindNameByValue(bit);
-                Log(STDTRACELOG, (char*)"%s ", label);
+                Log(STDUSERLOG, (char*)"%s ", label);
             }
         }
         bit >>= 1;
     }
-    Log(STDTRACELOG, (char*)"\r\n  SystemFlags: ");
+    Log(STDUSERLOG, (char*)"\r\n  SystemFlags: ");
 
     bit = START_BIT;
     while (bit)
@@ -3640,40 +3669,40 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
         if (sysflags & bit)
         {
             char xword[MAX_WORD_SIZE];
-            if (!(bit & ESSENTIAL_FLAGS)) Log(STDTRACELOG, (char*)"%s ", MakeLowerCopy(xword, FindSystemNameByValue(bit)));
+            if (!(bit & ESSENTIAL_FLAGS)) Log(STDUSERLOG, (char*)"%s ", MakeLowerCopy(xword, FindSystemNameByValue(bit)));
         }
         bit >>= 1;
     }
     if (sysflags & ESSENTIAL_FLAGS)
     {
-        Log(STDTRACELOG, (char*)" POS-tiebreak: ");
-        if (sysflags & NOUN) Log(STDTRACELOG, (char*)"NOUN ");
-        if (sysflags & VERB) Log(STDTRACELOG, (char*)"VERB ");
-        if (sysflags & ADJECTIVE) Log(STDTRACELOG, (char*)"ADJECTIVE ");
-        if (sysflags & ADVERB) Log(STDTRACELOG, (char*)"ADVERB ");
-        if (sysflags & PREPOSITION) Log(STDTRACELOG, (char*)"PREPOSITION ");
+        Log(STDUSERLOG, (char*)" POS-tiebreak: ");
+        if (sysflags & NOUN) Log(STDUSERLOG, (char*)"NOUN ");
+        if (sysflags & VERB) Log(STDUSERLOG, (char*)"VERB ");
+        if (sysflags & ADJECTIVE) Log(STDUSERLOG, (char*)"ADJECTIVE ");
+        if (sysflags & ADVERB) Log(STDUSERLOG, (char*)"ADVERB ");
+        if (sysflags & PREPOSITION) Log(STDUSERLOG, (char*)"PREPOSITION ");
     }
     if (!D)
     {
-        Log(STDTRACELOG, (char*)"\r\n");
+        Log(STDUSERLOG, (char*)"\r\n");
         return;
     }
 
-    if (D->systemFlags & CONDITIONAL_IDIOM)  Log(STDTRACELOG, (char*)"poscondition=%s\r\n", D->w.conditionalIdiom);
+    if (D->systemFlags & CONDITIONAL_IDIOM)  Log(STDUSERLOG, (char*)"poscondition=%s\r\n", D->w.conditionalIdiom);
 
-    Log(STDTRACELOG, (char*)"\r\n  ParseBits: ");
+    Log(STDUSERLOG, (char*)"\r\n  ParseBits: ");
     bit = START_BIT;
     while (bit)
     {
         if (D->parseBits & bit)
         {
             char xword[MAX_WORD_SIZE];
-            Log(STDTRACELOG, (char*)"%s ", MakeLowerCopy(xword, FindParseNameByValue(bit)));
+            Log(STDUSERLOG, (char*)"%s ", MakeLowerCopy(xword, FindParseNameByValue(bit)));
         }
         bit >>= 1;
     }
 
-    Log(STDTRACELOG, (char*)"  \r\n  InternalBits: 0x%x ", D->internalBits);
+    Log(STDUSERLOG, (char*)"  \r\n  InternalBits: 0x%x ", D->internalBits);
 #ifndef DISCARDTESTING
     unsigned int basestamp = inferMark;
 #endif
@@ -3683,36 +3712,36 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
     if (D->internalBits & CONCEPT && !(D->internalBits & TOPIC))
     {
         NextInferMark();
-        Log(STDTRACELOG, (char*)"concept (%d members) ", CountSet(D, basestamp));
+        Log(STDUSERLOG, (char*)"concept (%d members) ", CountSet(D, basestamp));
     }
 #endif
 
-    if (D->internalBits & QUERY_KIND) Log(STDTRACELOG, (char*)"query ");
-    if (D->internalBits & UTF8) Log(STDTRACELOG, (char*)"utf8 ");
-    if (D->internalBits & UPPERCASE_HASH) Log(STDTRACELOG, (char*)"uppercase ");
-    if (D->internalBits & FUNCTION_BITS  && D->internalBits & MACRO_TRACE) Log(STDTRACELOG, (char*)"being-traced ");
-    if (D->internalBits & FUNCTION_BITS  && D->internalBits & MACRO_TIME) Log(STDTRACELOG, (char*)"being-timed ");
-    if (D->internalBits & CONCEPT && !(D->internalBits & TOPIC)) Log(STDTRACELOG, (char*)"concept ");
-    if (D->internalBits & TOPIC) Log(STDTRACELOG, (char*)"topic ");
-    if (D->internalBits & BUILD0) Log(STDTRACELOG, (char*)"build0 ");
-    if (D->internalBits & BUILD1) Log(STDTRACELOG, (char*)"build1 ");
-    if (D->internalBits & HAS_EXCLUDE) Log(STDTRACELOG, (char*)"has_exclude ");
-    if (D->systemFlags & SUBSTITUTE_RECIPIENT) Log(STDTRACELOG, (char*)"substituteRecipient ");
+    if (D->internalBits & QUERY_KIND) Log(STDUSERLOG, (char*)"query ");
+    if (D->internalBits & UTF8) Log(STDUSERLOG, (char*)"utf8 ");
+    if (D->internalBits & UPPERCASE_HASH) Log(STDUSERLOG, (char*)"uppercase ");
+    if (D->internalBits & FUNCTION_BITS  && D->internalBits & MACRO_TRACE) Log(STDUSERLOG, (char*)"being-traced ");
+    if (D->internalBits & FUNCTION_BITS  && D->internalBits & MACRO_TIME) Log(STDUSERLOG, (char*)"being-timed ");
+    if (D->internalBits & CONCEPT && !(D->internalBits & TOPIC)) Log(STDUSERLOG, (char*)"concept ");
+    if (D->internalBits & TOPIC) Log(STDUSERLOG, (char*)"topic ");
+    if (D->internalBits & BUILD0) Log(STDUSERLOG, (char*)"build0 ");
+    if (D->internalBits & BUILD1) Log(STDUSERLOG, (char*)"build1 ");
+    if (D->internalBits & HAS_EXCLUDE) Log(STDUSERLOG, (char*)"has_exclude ");
+    if (D->systemFlags & SUBSTITUTE_RECIPIENT) Log(STDUSERLOG, (char*)"substituteRecipient ");
     if (D->internalBits & HAS_SUBSTITUTE)
     {
-        Log(STDTRACELOG, (char*)"substitute=");
-        if (GetSubstitute(D)) Log(STDTRACELOG, (char*)"%s ", GetSubstitute(D)->word);
-        else Log(STDTRACELOG, (char*)"  ");
+        Log(STDUSERLOG, (char*)"substitute=");
+        if (GetSubstitute(D)) Log(STDUSERLOG, (char*)"%s ", GetSubstitute(D)->word);
+        else Log(STDUSERLOG, (char*)"  ");
     }
-    if (D->internalBits & DO_ESSENTIALS)  Log(STDTRACELOG, (char*)"essentials ");
-    if (D->internalBits & DO_SUBSTITUTES)  Log(STDTRACELOG, (char*)"substitutes ");
-    if (D->internalBits & DO_CONTRACTIONS)  Log(STDTRACELOG, (char*)"contractions ");
-    if (D->internalBits & DO_INTERJECTIONS)  Log(STDTRACELOG, (char*)"interjections ");
-    if (D->internalBits & DO_BRITISH)  Log(STDTRACELOG, (char*)"british ");
-    if (D->internalBits & DO_SPELLING)  Log(STDTRACELOG, (char*)"spelling ");
-    if (D->internalBits & DO_TEXTING)  Log(STDTRACELOG, (char*)"texting ");
-    if (D->internalBits & DO_NOISE)  Log(STDTRACELOG, (char*)"noise ");
-    if (D->internalBits & DO_PRIVATE)  Log(STDTRACELOG, (char*)"private ");
+    if (D->internalBits & DO_ESSENTIALS)  Log(STDUSERLOG, (char*)"essentials ");
+    if (D->internalBits & DO_SUBSTITUTES)  Log(STDUSERLOG, (char*)"substitutes ");
+    if (D->internalBits & DO_CONTRACTIONS)  Log(STDUSERLOG, (char*)"contractions ");
+    if (D->internalBits & DO_INTERJECTIONS)  Log(STDUSERLOG, (char*)"interjections ");
+    if (D->internalBits & DO_BRITISH)  Log(STDUSERLOG, (char*)"british ");
+    if (D->internalBits & DO_SPELLING)  Log(STDUSERLOG, (char*)"spelling ");
+    if (D->internalBits & DO_TEXTING)  Log(STDUSERLOG, (char*)"texting ");
+    if (D->internalBits & DO_NOISE)  Log(STDUSERLOG, (char*)"noise ");
+    if (D->internalBits & DO_PRIVATE)  Log(STDUSERLOG, (char*)"private ");
     if (D->internalBits & FUNCTION_NAME)
     {
         char* kind = "";
@@ -3725,60 +3754,60 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
         else if ((D->internalBits & FUNCTION_BITS) == IS_TABLE_MACRO) kind = (char*) "table";
         else if ((D->internalBits & FUNCTION_BITS) == IS_PATTERN_MACRO) kind = (char*)"pattern";
         else if ((D->internalBits & FUNCTION_BITS) == (IS_PATTERN_MACRO | IS_OUTPUT_MACRO)) kind = (char*) "dual";
-        if (D->x.codeIndex && (D->internalBits & FUNCTION_BITS) != IS_PLAN_MACRO) Log(STDTRACELOG, (char*)"systemfunction %d (%d arguments) ", D->x.codeIndex, info->argumentCount);
-        else if (D->x.codeIndex && (D->internalBits & FUNCTION_BITS) == IS_PLAN_MACRO) Log(STDTRACELOG, (char*)"plan (%d arguments)", D->w.planArgCount);
-        else Log(STDTRACELOG, (char*)"user %s macro (%d arguments)\r\n  %s \r\n", kind, MACRO_ARGUMENT_COUNT(GetDefinition(D)), GetDefinition(D));
-        if (D->internalBits & VARIABLE_ARGS_TABLE) Log(STDTRACELOG, (char*)"variableArgs");
+        if (D->x.codeIndex && (D->internalBits & FUNCTION_BITS) != IS_PLAN_MACRO) Log(STDUSERLOG, (char*)"systemfunction %d (%d arguments) ", D->x.codeIndex, info->argumentCount);
+        else if (D->x.codeIndex && (D->internalBits & FUNCTION_BITS) == IS_PLAN_MACRO) Log(STDUSERLOG, (char*)"plan (%d arguments)", D->w.planArgCount);
+        else Log(STDUSERLOG, (char*)"user %s macro (%d arguments)\r\n  %s \r\n", kind, MACRO_ARGUMENT_COUNT(GetDefinition(D)), GetDefinition(D));
+        if (D->internalBits & VARIABLE_ARGS_TABLE) Log(STDUSERLOG, (char*)"variableArgs");
     }
 
 
-    Log(STDTRACELOG, (char*)"\r\n  Other:   ");
-    if (*D->word == SYSVAR_PREFIX) Log(STDTRACELOG, (char*)"systemvar ");
+    Log(STDUSERLOG, (char*)"\r\n  Other:   ");
+    if (*D->word == SYSVAR_PREFIX) Log(STDUSERLOG, (char*)"systemvar ");
     if (*D->word == USERVAR_PREFIX)
     {
         char* val = GetUserVariable(D->word);
-        Log(STDTRACELOG, (char*)"VariableValue= \"%s\" ", val);
+        Log(STDUSERLOG, (char*)"VariableValue= \"%s\" ", val);
     }
-    if (canonical && D) Log(STDTRACELOG, (char*)"  canonical: %s ", canonical->word);
-    Log(STDTRACELOG, (char*)"\r\n");
+    if (canonical && D) Log(STDUSERLOG, (char*)"  canonical: %s ", canonical->word);
+    Log(STDUSERLOG, (char*)"\r\n");
     tokenControl = oldtoken;
     if (GetTense(D))
     {
-        Log(STDTRACELOG, (char*)"  ConjugationLoop= ");
+        Log(STDUSERLOG, (char*)"  ConjugationLoop= ");
         WORDP E = GetTense(D);
         while (E && E != D)
         {
-            Log(STDTRACELOG, (char*)"-> %s ", E->word);
+            Log(STDUSERLOG, (char*)"-> %s ", E->word);
             E = GetTense(E);
         }
-        Log(STDTRACELOG, (char*)"\r\n");
+        Log(STDUSERLOG, (char*)"\r\n");
     }
     if (GetPlural(D))
     {
-        Log(STDTRACELOG, (char*)"  PluralLoop= ");
+        Log(STDUSERLOG, (char*)"  PluralLoop= ");
         WORDP E = GetPlural(D);
         while (E && E != D)
         {
-            Log(STDTRACELOG, (char*)"-> %s ", E->word);
+            Log(STDUSERLOG, (char*)"-> %s ", E->word);
             E = GetPlural(E);
         }
-        Log(STDTRACELOG, (char*)"\r\n");
+        Log(STDUSERLOG, (char*)"\r\n");
     }
     if (GetComparison(D))
     {
-        Log(STDTRACELOG, (char*)"  comparativeLoop= ");
+        Log(STDUSERLOG, (char*)"  comparativeLoop= ");
         WORDP E = GetComparison(D);
         while (E && E != D)
         {
-            Log(STDTRACELOG, (char*)"-> %s ", E->word);
+            Log(STDUSERLOG, (char*)"-> %s ", E->word);
             E = GetComparison(E);
         }
-        Log(STDTRACELOG, (char*)"\r\n");
+        Log(STDUSERLOG, (char*)"\r\n");
     }
 
     //   now dump the meanings
     unsigned int count = GetMeaningCount(D);
-    if (count) Log(STDTRACELOG, (char*)"  Meanings:");
+    if (count) Log(STDUSERLOG, (char*)"  Meanings:");
     uint64 kind = 0;
     for (int i = count; i >= 1; --i)
     {
@@ -3788,16 +3817,16 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
         if (kind != k1)
         {
             kind = k1;
-            if (GETTYPERESTRICTION(M) & NOUN) Log(STDTRACELOG, (char*)"\r\n    noun\r\n");
-            else if (GETTYPERESTRICTION(M) & VERB) Log(STDTRACELOG, (char*)"\r\n    verb\r\n");
-            else if (GETTYPERESTRICTION(M) & ADJECTIVE) Log(STDTRACELOG, (char*)"\r\n    adjective/adverb\r\n");
-            else Log(STDTRACELOG, (char*)"\r\n    misc\r\n");
+            if (GETTYPERESTRICTION(M) & NOUN) Log(STDUSERLOG, (char*)"\r\n    noun\r\n");
+            else if (GETTYPERESTRICTION(M) & VERB) Log(STDUSERLOG, (char*)"\r\n    verb\r\n");
+            else if (GETTYPERESTRICTION(M) & ADJECTIVE) Log(STDUSERLOG, (char*)"\r\n    adjective/adverb\r\n");
+            else Log(STDUSERLOG, (char*)"\r\n    misc\r\n");
         }
         char* gloss;
         MEANING master = GetMaster(M);
         gloss = GetGloss(Meaning2Word(master), Meaning2Index(master));
         if (!gloss) gloss = "";
-        Log(STDTRACELOG, (char*)"    %d: %s %s\r\n", i, WriteMeaning(master & STDMEANING, true), gloss);
+        Log(STDUSERLOG, (char*)"    %d: %s %s\r\n", i, WriteMeaning(master & STDMEANING, true), gloss);
 
         M = GetMeaning(D, i) & STDMEANING;
         bool did = false;
@@ -3808,43 +3837,43 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
             if (!did)
             {
                 did = true;
-                Log(STDTRACELOG, (char*)"      synonyms: ");
+                Log(STDUSERLOG, (char*)"      synonyms: ");
             }
-            if (next & SYNSET_MARKER) Log(STDTRACELOG, (char*)" *%s ", WriteMeaning(M));	// mark us as master for display
-            else Log(STDTRACELOG, (char*)" %s ", WriteMeaning(M));
+            if (next & SYNSET_MARKER) Log(STDUSERLOG, (char*)" *%s ", WriteMeaning(M));	// mark us as master for display
+            else Log(STDUSERLOG, (char*)" %s ", WriteMeaning(M));
             M = next & STDMEANING;
         }
         if (did) // need to display closure in for seeing MASTER marker, even though closure is us
         {
-            if (GetMeaning(D, i) & SYNSET_MARKER) Log(STDTRACELOG, (char*)" *%s ", WriteMeaning(M));
-            else Log(STDTRACELOG, (char*)" %s ", WriteMeaning(M));
-            Log(STDTRACELOG, (char*)"\r\n"); //   header for this list
+            if (GetMeaning(D, i) & SYNSET_MARKER) Log(STDUSERLOG, (char*)" *%s ", WriteMeaning(M));
+            else Log(STDUSERLOG, (char*)" %s ", WriteMeaning(M));
+            Log(STDUSERLOG, (char*)"\r\n"); //   header for this list
         }
     }
 
-    if (D->inferMark) Log(STDTRACELOG, (char*)"  Istamp- %d\r\n", D->inferMark);
-    if (GETMULTIWORDHEADER(D)) Log(STDTRACELOG, (char*)"  MultiWordHeader length: %d\r\n", GETMULTIWORDHEADER(D));
+    if (D->inferMark) Log(STDUSERLOG, (char*)"  Istamp- %d\r\n", D->inferMark);
+    if (GETMULTIWORDHEADER(D)) Log(STDUSERLOG, (char*)"  MultiWordHeader length: %d\r\n", GETMULTIWORDHEADER(D));
 
     // show concept/topic members
     FACT* F = GetSubjectNondeadHead(D);
-    Log(STDTRACELOG, (char*)"  Direct Sets: ");
+    Log(STDUSERLOG, (char*)"  Direct Sets: ");
     while (F)
     {
         if (index && Meaning2Index(F->subject) && Meaning2Index(F->subject) != index) { ; } // wrong path member
-        if (F->verb == Mmember) Log(STDTRACELOG, (char*)"%s ", Meaning2Word(F->object)->word);
+        if (F->verb == Mmember) Log(STDUSERLOG, (char*)"%s ", Meaning2Word(F->object)->word);
         F = GetSubjectNondeadNext(F);
     }
-    Log(STDTRACELOG, (char*)"\r\n");
+    Log(STDUSERLOG, (char*)"\r\n");
 
     char* limited;
     char* buffer = InfiniteStack(limited, "DumpDictionaryEntry");
-    Log(STDTRACELOG, (char*)"  Facts:\r\n");
+    Log(STDUSERLOG, (char*)"  Facts:\r\n");
 
     count = 0;
     F = GetSubjectNondeadHead(D);
     while (F)
     {
-        Log(STDTRACELOG, (char*)"    %s", WriteFact(F, false, buffer, false, true));
+        Log(STDUSERLOG, (char*)"    %s", WriteFact(F, false, buffer, false, true));
         if (++count >= limit) break;
         F = GetSubjectNondeadNext(F);
     }
@@ -3853,7 +3882,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
     count = limit;
     while (F)
     {
-        Log(STDTRACELOG, (char*)"    %s", WriteFact(F, false, buffer, false, true));
+        Log(STDUSERLOG, (char*)"    %s", WriteFact(F, false, buffer, false, true));
         if (++count >= limit) break;
         F = GetVerbNondeadNext(F);
     }
@@ -3862,11 +3891,11 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
     count = 0;
     while (F)
     {
-        Log(STDTRACELOG, (char*)"    %s", WriteFact(F, false, buffer, false, true));
+        Log(STDUSERLOG, (char*)"    %s", WriteFact(F, false, buffer, false, true));
         if (++count >= limit) break;
         F = GetObjectNondeadNext(F);
     }
-    Log(STDTRACELOG, (char*)"\r\n");
+    Log(STDUSERLOG, (char*)"\r\n");
     ReleaseInfiniteStack();
 }
 

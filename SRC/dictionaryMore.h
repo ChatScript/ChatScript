@@ -319,6 +319,7 @@ void WalkDictionary(DICTIONARY_FUNCTION func,uint64 data = 0);
 char* FindCanonical(char* word, int i, bool nonew = false);
 void VerifyEntries(WORDP D,uint64 junk);
 void NoteLanguage();
+void ClearWhereAt(int where);
 
 bool IsHelper(char* word);
 bool IsFutureHelper(char* word);

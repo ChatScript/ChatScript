@@ -92,13 +92,13 @@ resume:
 				if (*remap == '^') sprintf(label,"%s->%s",remap,word1);
 				if (!*found) 
 				{
-					if (invert) id = Log(STDTRACELOG,(char*)"!%s (null) ",label);
-					else id = Log(STDTRACELOG,(char*)"%s (null) ",label);
+					if (invert) id = Log(STDUSERLOG,(char*)"!%s (null) ",label);
+					else id = Log(STDUSERLOG,(char*)"%s (null) ",label);
 				}
 				else 
 				{
-					if (invert) id = Log(STDTRACELOG,(char*)"!%s (%s) ",label,found);
-					else id = Log(STDTRACELOG,(char*)"%s (%s) ",label,found);
+					if (invert) id = Log(STDUSERLOG,(char*)"!%s (%s) ",label,found);
+					else id = Log(STDUSERLOG,(char*)"%s (%s) ",label,found);
 				}
 				ReleaseStack(label);
 			}
@@ -110,9 +110,9 @@ resume:
 		{
 			if (trace & TRACE_OUTPUT && CheckTopicTrace()) 
 			{
-				if (result & ENDCODES) id = Log(STDTRACELOG,(char*)"%c%s ",(invert) ? '!' : ' ',word1);
-				else if (*word1 == '1' && word1[1] == 0) id = Log(STDTRACELOG,(char*)"else ");
-				else id = Log(STDTRACELOG,(char*)"%c%s ",(invert) ? '!' : ' ',word1);
+				if (result & ENDCODES) id = Log(STDUSERLOG,(char*)"%c%s ",(invert) ? '!' : ' ',word1);
+				else if (*word1 == '1' && word1[1] == 0) id = Log(STDUSERLOG,(char*)"else ");
+				else id = Log(STDUSERLOG,(char*)"%c%s ",(invert) ? '!' : ' ',word1);
 			}
 			ptr -= strlen(word1) + 3; //   back up to process the word and space
 			ptr = Output(ptr,buffer,result,OUTPUT_ONCE|OUTPUT_KEEPSET) + 2; //   returns on the closer and we skip to accel
@@ -124,25 +124,25 @@ resume:
 	{
 		if (!(result & ENDCODES)) 
 		{
-			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDTRACELOG,(char*)" AND ");
+			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDUSERLOG,(char*)" AND ");
 			goto resume;
 			//   If he fails (result is one of ENDCODES), we fail
 		}
 		else 
 		{
-			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDTRACELOG,(char*)" ... ");
+			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDUSERLOG,(char*)" ... ");
 		}
 	}
 	else if (*op == 'o') //  OR
 	{
 		if (!(result & ENDCODES)) 
 		{
-			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDTRACELOG,(char*)" ... ");
+			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDUSERLOG,(char*)" ... ");
 			result = NOPROBLEM_BIT;
 		}
 		else 
 		{
-			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDTRACELOG,(char*)" OR ");
+			if (trace & TRACE_OUTPUT && CheckTopicTrace()) id = Log(STDUSERLOG,(char*)" OR ");
 			
 			goto resume;
 		}
@@ -204,11 +204,11 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 						Log(STDTRACETABLOG,(char*)"  Wildcards: (");
 						for (int i = 0; i < wildcardIndex; ++i)
 						{
-							if (*wildcardOriginalText[i]) Log(STDTRACELOG,(char*)"_%d=%s / %s (%d-%d)   ",i,wildcardOriginalText[i],wildcardCanonicalText[i],wildcardPosition[i] & 0x0000ffff,wildcardPosition[i]>>16);
-							else Log(STDTRACELOG,(char*)"_%d=null (%d-%d) ",i,wildcardPosition[i] & 0x0000ffff,wildcardPosition[i]>>16);
+							if (*wildcardOriginalText[i]) Log(STDUSERLOG,(char*)"_%d=%s / %s (%d-%d)   ",i,wildcardOriginalText[i],wildcardCanonicalText[i],wildcardPosition[i] & 0x0000ffff,wildcardPosition[i]>>16);
+							else Log(STDUSERLOG,(char*)"_%d=null (%d-%d) ",i,wildcardPosition[i] & 0x0000ffff,wildcardPosition[i]>>16);
 						}
 					}
-					Log(STDTRACELOG,(char*)"\r\n");
+					Log(STDUSERLOG,(char*)"\r\n");
 				}
 			}
 			result = (failed) ? FAILRULE_BIT : NOPROBLEM_BIT;
@@ -220,8 +220,8 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 		}
 		if (trace & TRACE_OUTPUT  && CheckTopicTrace()) 
 		{
-			if (result & ENDCODES) Log(STDTRACELOG,(char*)"%s\r\n", "FAIL-if");
-			else Log(STDTRACELOG,(char*)"%s\r\n", "PASS-if");
+			if (result & ENDCODES) Log(STDUSERLOG,(char*)"%s\r\n", "FAIL-if");
+			else Log(STDUSERLOG,(char*)"%s\r\n", "PASS-if");
 		}
 
 		ptr = endptr; // now after pattern, pointing to the skip data to go past body.
@@ -270,6 +270,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     int match1 = -1;
     int match2 = -1;
     FACT* F = NULL;
+    result = NOPROBLEM_BIT;
     if (!json)
     {
         ptr = GetCommandArg(ptr + 2, buffer, result, 0) + 2; //   get the loop counter value and skip closing ) space 
@@ -281,6 +282,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         if (!jsonstruct)
         {
             result = FAILRULE_BIT;
+            ChangeDepth(-1, "Loop()", false, ptr + 2);
             return ptr; // we dont know it
         }
         F = GetSubjectNondeadHead(jsonstruct);
@@ -301,6 +303,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		if (set < 0) 
 		{
             result = FAILRULE_BIT; // illegal id
+            ChangeDepth(-1, "Loop()", false, ptr + 2);
 			return ptr;
 		}
 		counter = FACTSET_COUNT(set);
@@ -308,13 +311,18 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     else if (json) counter = 1000000;
 	else counter = atoi(buffer);
 	*buffer = 0;
-	if (result & ENDCODES) return endofloop;
+    if (result & ENDCODES)
+    {
+        ChangeDepth(-1, "Loop()", false, ptr + 2);
+        return endofloop;
+    }
     ptr += 5;	//   skip jump + space + { + space
     ++withinLoop; // used by planner
 
 	char* value = GetUserVariable((char*)"$cs_looplimit");
 	int limit = atoi(value);
-	if (limit == 0) limit = 1000;
+    if (json) limit = 1000000;
+	else if (limit == 0) limit = 1000;
 
 	bool infinite = false;
 	if (counter > limit || counter < 0) 
@@ -330,17 +338,27 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         if (json)
         {
             if (!F) break;
-            if (var1) var1->w.userValue = Meaning2Word(F->verb)->word;
+            if (var1)
+            {
+                var1->w.userValue = Meaning2Word(F->verb)->word;
+                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s", var1->word,var1->w.userValue);
+            }
             else
             {
                strcpy(wildcardOriginalText[match1], Meaning2Word(F->verb)->word);  //   spot wild cards can be stored
                strcpy(wildcardCanonicalText[match1], Meaning2Word(F->verb)->word);  //   spot wild cards can be stored
+               if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"_%d=%s", match1, wildcardOriginalText[match1]);
             }
-            if (var2) var2->w.userValue = Meaning2Word(F->object)->word;
+            if (var2)
+            {
+                var2->w.userValue = Meaning2Word(F->object)->word;
+                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s", var2->word, var2->w.userValue);
+            }
             else
             {
                 strcpy(wildcardOriginalText[match2], Meaning2Word(F->object)->word);  //   spot wild cards can be stored
                 strcpy(wildcardCanonicalText[match2], Meaning2Word(F->object)->word);  //   spot wild cards can be stored
+                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"_%d=%s", match2, wildcardOriginalText[match2]);
             }
             F = GetSubjectNondeadNext(F);
         }
@@ -600,21 +618,21 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		}
 		if (!stricmp(word1,val1)) 
 		{
-			if (*word1) Log(STDTRACELOG,(char*)"%s %s ",(*x) ? x : word1,op); // no need to show value
-			else Log(STDTRACELOG,(char*)"null %s ",op);
+			if (*word1) Log(STDUSERLOG,(char*)"%s %s ",(*x) ? x : word1,op); // no need to show value
+			else Log(STDUSERLOG,(char*)"null %s ",op);
 		}
-		else if (!*val1) Log(STDTRACELOG,(char*)"%s(null) %s ",word1,op);
-		else if (*op == '&')  Log(STDTRACELOG,(char*)"%s(%s) %s ",word1,x,op);
-		else Log(STDTRACELOG,(char*)"%s(%s) %s ",word1,val1,op);
+		else if (!*val1) Log(STDUSERLOG,(char*)"%s(null) %s ",word1,op);
+		else if (*op == '&')  Log(STDUSERLOG,(char*)"%s(%s) %s ",word1,x,op);
+		else Log(STDUSERLOG,(char*)"%s(%s) %s ",word1,val1,op);
 
 		if (word2  && !strcmp(word2,val2)) 
 		{
-			if (*val2) id = Log(STDTRACELOG,(char*)" %s ",(*y) ? y : word2); // no need to show value
-			else id = Log(STDTRACELOG,(char*)" null "); 
+			if (*val2) id = Log(STDUSERLOG,(char*)" %s ",(*y) ? y : word2); // no need to show value
+			else id = Log(STDUSERLOG,(char*)" null "); 
 		}
-		else if (!*val2)  id = Log(STDTRACELOG,(char*)" %s(null) ",word2);
-		else if (*op == '&') id = Log(STDTRACELOG,(char*)" %s(%s) ",word2,y);
-		else id = Log(STDTRACELOG,(char*)" %s(%s) ",word2,val2);
+		else if (!*val2)  id = Log(STDUSERLOG,(char*)" %s(null) ",word2);
+		else if (*op == '&') id = Log(STDUSERLOG,(char*)" %s(%s) ",word2,y);
+		else id = Log(STDUSERLOG,(char*)" %s(%s) ",word2,val2);
 	}
 	else if (trace & TRACE_PATTERN && !output && CheckTopicTrace()) 
 	{

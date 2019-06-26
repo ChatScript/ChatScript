@@ -69,14 +69,14 @@ void PopOutputBuffers()
 void AllocateOutputBuffer()
 {
 	PushOutputBuffers();
-	currentRuleOutputBase = currentOutputBase = AllocateBuffer(); // cant use stack- others may allocate on it from output and we cant free them
+	currentRuleOutputBase = currentOutputBase = AllocateBuffer("allocateoutputbuffer"); // cant use stack- others may allocate on it from output and we cant free them
 	currentOutputLimit = maxBufferSize;
 	*currentOutputBase = 0;
 }
 
 void FreeOutputBuffer()
 {
-	FreeBuffer(); // presumed the current buffer allocated via AllocateOutputBuffer
+	FreeBuffer("freeoutputbuffer"); // presumed the current buffer allocated via AllocateOutputBuffer
 	PopOutputBuffers();
 }
 
@@ -364,7 +364,7 @@ void ReformatString(char starter, char* input,char*& output, FunctionResult& res
 	}
 	original[len] = c;
 	*output = 0; // when failures, return the null string
-	if (trace & TRACE_OUTPUT) Log(STDTRACELOG,(char*)" %s",start);
+	if (trace & TRACE_OUTPUT) Log(STDUSERLOG,(char*)" %s",start);
 }
 
 void StdNumber(char* word,char*& buffer,int controls) // text numbers may have sign and decimal
@@ -511,7 +511,7 @@ static char* ProcessChoice(char* ptr,char* buffer,FunctionResult &result,int con
 		// is choice a repeat of something already said... if so try again
 		if (*buffer && HasAlreadySaid(buffer)) 
 		{
-			if (trace & TRACE_OUTPUT) Log(STDTRACELOG,(char*)"Choice %s already said\r\n",buffer);
+			if (trace & TRACE_OUTPUT) Log(STDUSERLOG,(char*)"Choice %s already said\r\n",buffer);
 			*buffer = 0;
 			choiceset[r] = choiceset[--count];
 		}

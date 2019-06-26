@@ -256,7 +256,7 @@ t: FRUIT() Do you like fruit?
 	a: (banana) I love bananas.
 ```
 
-It get the rule tag for where the rejoinder is, it walks the rules of rejoinder block
+It gets the rule tag for where the rejoinder is, it walks the rules of the rejoinder block
 and retrieves their pattern code. If the user input is yes, it sees if the block has a ~yes handler and if it does, performs
 the ^next and then tests the result against all the rejoinder choices. If there's a match it performs
 the output of that rule. All in script, never calling the system's ^rejoinder() code. 

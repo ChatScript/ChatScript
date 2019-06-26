@@ -644,6 +644,12 @@ RESTART_RETRY:
     size_t test = strlen(ourMainInputBuffer);
 	struct tm ptm;
     char* dateLog = GetTimeInfo(&ptm,true)+SKIPWEEKDAY;
+    // remove harmful newline stuff in log
+    char* at = ourMainInputBuffer;
+    while ((at = strchr(at, '\n'))) *at = ' ';
+    at = ourMainInputBuffer;
+    while ((at = strchr(at, '\r'))) *at = ' ';
+
 	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
  	else if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
 	int turn = PerformChat(

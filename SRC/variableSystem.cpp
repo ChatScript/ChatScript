@@ -97,7 +97,7 @@ void JoinMatch(int start, int end, int index, bool inpattern)
     if (D) strcpy(wildcardOriginalText[index], D->word); // but may not be found if original has plural or such or if uses _
     bbb = 0;
     uppercaseFind = -1; // use it up
-    if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(STDTRACELOG, (char*)"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
+    if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(STDUSERLOG, (char*)"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
 }
 
 void SetWildCard(int start, int end, bool inpattern)
@@ -392,10 +392,10 @@ ANSWER:
         strcpy(ans, "``");
         strcpy(ans + 2, answer);
         CompleteBindStack();
-        if (*path && trace & TRACE_VARIABLE && !fortrace) Log(STDTRACELOG, "(%s->%s)", path, ans);
+        if (*path && trace & TRACE_VARIABLE && !fortrace) Log(STDUSERLOG, "(%s->%s)", path, ans);
         return ans + 2;
     }
-    if (*path && trace & TRACE_VARIABLE && !fortrace) Log(STDTRACELOG, "(%s->%s)", path, answer);
+    if (*path && trace & TRACE_VARIABLE && !fortrace) Log(STDUSERLOG, "(%s->%s)", path, answer);
     return answer;
 
 NULLVALUE:
@@ -604,7 +604,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
         char pattern[110];
         char label[MAX_LABEL_SIZE];
         GetPattern(currentRule, label, pattern, true,100);  // go to output
-        Log(ECHOSTDTRACELOG, "%s -> %s at %s.%d.%d %s %s\r\n", D->word, word, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
+        Log(ECHOSTDUSERLOG, "%s -> %s at %s.%d.%d %s %s\r\n", D->word, word, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
     }
 }
 
@@ -644,7 +644,7 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
         }
         else newval += more;
         WriteFloat(result, newval);
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACELOG, (char*)" %s   ", result);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG, (char*)" %s   ", result);
     }
     else
     {
@@ -683,7 +683,7 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
             sprintf(tracex, "0x%016llx", newval);
-            Log(STDTRACELOG, (char*)" %s/%s   ", result, tracex);
+            Log(STDUSERLOG, (char*)" %s/%s   ", result, tracex);
         }
     }
     return NOPROBLEM_BIT;
@@ -897,7 +897,7 @@ static void ListVariables(char* header, unsigned int varthread)
         varthread = cell[0];
         WORDP D = Index2Word(cell[1]);
         value = D->w.userValue;
-        if (value && *value)  Log(STDTRACELOG, (char*)"  %s variable: %s = %s\r\n", header, D->word, value);
+        if (value && *value)  Log(STDUSERLOG, (char*)"  %s variable: %s = %s\r\n", header, D->word, value);
     }
 }
 
@@ -943,13 +943,13 @@ void DumpUserVariables()
         {
             if (!stricmp(D->word, "$cs_token"))
             {
-                Log(STDTRACELOG, "  variable: $cs_token decoded = ");
+                Log(STDUSERLOG, "  variable: $cs_token decoded = ");
                 int64 val;
                 ReadInt64(value, val);
                 DumpTokenControls(val);
-                Log(STDTRACELOG, "\r\n");
+                Log(STDUSERLOG, "\r\n");
             }
-            else Log(STDTRACELOG, "  variable: %s = %s\r\n", D->word, value);
+            else Log(STDUSERLOG, "  variable: %s = %s\r\n", D->word, value);
         }
     }
     ReleaseStack((char*)arySortVariablesHelper); // short term
@@ -1277,12 +1277,12 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
         if (!stricmp(buffer, word))
         {
             result = FAILRULE_BIT;
-            Log(STDTRACELOG, (char*)"variable assign %s has itself as a term\r\n", word);
+            Log(STDUSERLOG, (char*)"variable assign %s has itself as a term\r\n", word);
         }
         if (result & ENDCODES) goto exit; // failed next value
         if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"    %s(%s) %s %s(%s) =>", word, GetUserVariable(word), op, originalWord1, buffer);
         if (*buffer) result = Add2UserVariable(word, buffer, op, originalWord1);
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACELOG, (char*)"\r\n");
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG, (char*)"\r\n");
     }
 
     // debug

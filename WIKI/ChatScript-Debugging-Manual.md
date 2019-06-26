@@ -1,12 +1,12 @@
 # ChatScript Debugging Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/12/2018 cs8.4
+<br>Revision 6/26/2018 cs9.5
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
-recompile it. Debugging is mostly a matter of tracing what the system does testpaand
+recompile it. Debugging is mostly a matter of tracing what the system does and
 finding out where it doesn't do what you expected. 
 
-If you dont have Windows, then debugging mostly done by issuing
+If you don't have Windows, then debugging mostly done by issuing
 debug commands to the engine, as opposed to chatting. If you have
 windows, you can run your program under ChatScriptIDE to debug 
 it interactively. See the ChatScript-Debugger manual.

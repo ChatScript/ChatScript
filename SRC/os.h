@@ -98,6 +98,9 @@ typedef struct CALLFRAME
 
 }CALLFRAME;
 
+#define SAVESYSTEMSTATE()     int oldDepth = globalDepth; int oldBuffer = bufferIndex; char* oldStack = stackFree;
+#define RESTORESYSTEMSTATE()  infiniteStack = false; globalDepth = oldDepth; bufferIndex = oldBuffer; stackFree = oldStack;
+
 // EXCEPTION/ERROR
 // error recovery
 #define SERVER_RECOVERY 4
@@ -119,8 +122,11 @@ extern int ide;
 extern bool idestop;
 extern bool idekey;
 #define RECORD_SIZE 4000
+extern jmp_buf linuxCrash;
+extern bool linuxCrashSet;
 
 // MEMORY SYSTEM
+extern bool infiniteStack;
 extern CALLFRAME* releaseStackDepth[MAX_GLOBAL];
 extern unsigned int maxBufferLimit;
 extern unsigned int maxReleaseStackGap;
@@ -264,8 +270,8 @@ unsigned int GetFutureSeconds(unsigned int seconds);
 #define SERVERLOG 0
 #define STDUSERLOG 1
 #define STDDEBUGLOG 2
-#define ECHOSTDTRACELOG 3
-#define STDTRACELOG 4
+#define ECHOSTDUSERLOG 3
+// #define 4
 #define STDTIMELOG 5
 #define DBTIMELOG 6
 
@@ -283,7 +289,7 @@ extern bool oob;
 extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
-extern char* crashpath;
+extern char crashpath[MAX_WORD_SIZE];
 
 #define ReportBug(...) { Bug(); Log(BUGLOG, __VA_ARGS__);}
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)

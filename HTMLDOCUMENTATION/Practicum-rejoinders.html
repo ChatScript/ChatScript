@@ -139,7 +139,7 @@ a: (banana) I love bananas.</code></pre>
 <pre><code>t: FRUIT() Do you like fruit?
     a: (~yes)  What kind of fruit?
     a: (banana) I love bananas.</code></pre>
-<p>It get the rule tag for where the rejoinder is, it walks the rules of rejoinder block and retrieves their pattern code. If the user input is yes, it sees if the block has a ~yes handler and if it does, performs the ^next and then tests the result against all the rejoinder choices. If there's a match it performs the output of that rule. All in script, never calling the system's ^rejoinder() code. I leave it to your research to find the appropriate engine calls for this.</p>
+<p>It gets the rule tag for where the rejoinder is, it walks the rules of the rejoinder block and retrieves their pattern code. If the user input is yes, it sees if the block has a ~yes handler and if it does, performs the ^next and then tests the result against all the rejoinder choices. If there's a match it performs the output of that rule. All in script, never calling the system's ^rejoinder() code. I leave it to your research to find the appropriate engine calls for this.</p>
 <h1 id="summary">Summary</h1>
 <p>As a general rule, reducing rule count to improve speed is a waste of time (ChatScript is too fast). But moving rules into rejoinder areas attached to a rule pays off in debugging time (tracing and stepping) and often makes the code intent clearer.</p>
 <p>And there are all these other interesting uses that rejoinders can be put to.</p>

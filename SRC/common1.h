@@ -14,7 +14,6 @@ extern int fnVarbase;
 #define FNVAR(n) callArgumentList[fnVarbase+atoi(n)+1] // ^0 is index 1
 char* ReadCompiledWord(char* ptr, char* word,bool noquote = false,bool var = false,bool nolimit = false);
 char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote = false,bool var = false);
-
 #define INPUT_BUFFER_SIZE   80000
 #define MAX_BUFFER_SIZE		80000
 

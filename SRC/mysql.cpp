@@ -240,7 +240,7 @@ size_t mysqlUserWrite(const void* buf,size_t size, size_t count, FILE* file)
 		// if we fail, assume it is due to a primary key violation, and try to update
 		const char * error_msg = mysql_stmt_error(mystmt_userinsert);
 		unsigned int error_num = mysql_stmt_errno(mystmt_userinsert);
-		Log(STDTRACELOG, "SQL Error: %d %s", error_num, error_msg);
+		Log(STDUSERLOG, "SQL Error: %d %s", error_num, error_msg);
 	}
 	else
 	{
