@@ -1425,7 +1425,7 @@ static void* MainChatbotServer()
             echo = false;
             struct tm ptm;
             char* dateLog = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
-            if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: %s (%s) size:%d %s %s\r\n", user, bot,test, ourMainInputBuffer, dateLog);
+            if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: pid: x %s (%s) size:%d %s %s\r\n", user, bot,test, ourMainInputBuffer, dateLog);
 
             if (test >= (INPUT_BUFFER_SIZE - 100))
             {

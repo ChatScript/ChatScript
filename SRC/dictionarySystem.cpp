@@ -190,16 +190,31 @@ void ClearWhereAt(int where) // remove all concepts and markings here
         if (data == 0) continue;
         unsigned char* triedData = (unsigned char*)(data + 8);	// skip over 64bit tried by meaning field
         int i;
-        for (i = 0; i < maxRefSentence; i += REF_ELEMENTS)
+        int counter = 0;
+        for (i = 0; i < maxRefSentence; i += REF_ELEMENTS) // 6 bytes per entry x 300 entries
         {
-            unsigned char at = triedData[i];
-            if (at == where) // modify it
+            unsigned char start = triedData[i];
+            unsigned char end = triedData[i+1];
+            // [i]=start [i+1]=end [i+2..i+5]=exactword 270/6 = 45
+            if (start == where) // modify it
             {
-                memmove(triedData + i, triedData + i + REF_ELEMENTS, maxRefSentence - i - REF_ELEMENTS);
+                int remain = maxRefSentence - i - REF_ELEMENTS;
+                if (remain == 0) // just chop it off
+                {
+                    triedData[i] = 0xff;
+                    triedData[i + 1] = 0xff;
+                    break;
+                }
+                memmove(triedData + i, triedData + i + REF_ELEMENTS, remain); // remove element
+                // insert end marker at end
+                triedData[maxRefSentence - REF_ELEMENTS] = 0xff;
+                triedData[maxRefSentence - REF_ELEMENTS + 1] = 0xff;
+                if (++counter > 100) // precaution 
+                    break;
                 i -= REF_ELEMENTS;
                 continue;    // check next one
             }
-            else if (at > where) break;
+            else if (start > where) break;
         }
     }
 }

@@ -110,7 +110,6 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int index, int start, int en
  	unsigned char* data = GetWhereInSentence(D);
     if (!data)  data = (unsigned char*) AllocateWhereInSentence(D);
 	if (!data) return false;
-
 	bool added = false;
 	for (int i = 0; i < maxRefSentence; i += REF_ELEMENTS)
 	{
@@ -136,7 +135,7 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int index, int start, int en
 		}
 		else if (data[i] > start) 
 		{
-			memmove(data+i+ REF_ELEMENTS,data+i,maxRefSentence - i - REF_ELEMENTS);
+			memmove(data+i+ REF_ELEMENTS,data+i,maxRefSentence - i - REF_ELEMENTS); // create a hole for entry
 			data[i] = (unsigned char)start;
 			data[i+1] = (unsigned char)end;
 			data[i + 2] = (unsigned char)(exactWord >> 24);

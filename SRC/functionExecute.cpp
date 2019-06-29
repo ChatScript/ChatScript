@@ -8438,30 +8438,37 @@ static bool TestPatternAgainstSentence(char* pattern, char* buffer)
     return match;
 }
 
-static bool ProtectKeywords(char* pattern, bool protect)
+static HEAPLINK ProtectKeywords(char* pattern, HEAPLINK protectedList)
 {
-    bool protectedKey = false;
     char word[MAX_WORD_SIZE];
-    if (*pattern++ == '|') // keyword protection zone
+    if (pattern) // keyword protection zone requested
     {
-        while (*pattern != '|')
+        if (*pattern++ == '|') while (*pattern != '|')
         {
-            char* pstart = pattern;
             pattern = ReadCompiledWord(pattern, word);
-            if (protect)
+            pattern = SkipWhitespace(pattern);
+            WORDP D = StoreWord(word, AS_IS);
+            if (!(D->systemFlags & PATTERN_WORD))
             {
-                WORDP D = StoreWord(word,AS_IS);
-                if (D->systemFlags & PATTERN_WORD) *pstart = 1;    // we dont unprotect this // already has marker so dont erase on cleanup
-                else
-                {
-                    AddSystemFlag(D, PATTERN_WORD);
-                    protectedKey = true;
-                }
+                AddSystemFlag(D, PATTERN_WORD);
+
+                unsigned int** entry = (unsigned int**)AllocateHeap(NULL, 2, sizeof(WORDP), false);
+                entry[0] = (unsigned int*)protectedList;
+                entry[1] = (unsigned int*)D;
+                protectedList = Heap2Index((char*)entry);
             }
-            else if (*word != 1) RemoveSystemFlag(StoreWord(word,AS_IS), PATTERN_WORD); // unprotect new protections
         }
     }
-    return protectedKey;
+    else while (protectedList)
+    {
+        unsigned int** entry = (unsigned int**)Index2Heap(protectedList);
+        unsigned int* x = entry[0];
+        protectedList = (HEAPLINK)(unsigned long)x;
+        WORDP D = (WORDP)entry[1];
+        RemoveSystemFlag(D, PATTERN_WORD); // unprotect new protections
+    }
+
+    return protectedList;
 }
 
 static void HandleChangedVariables(MEANING resultobject)
@@ -8528,7 +8535,7 @@ static FunctionResult TestPatternCode(char* buffer)
     if (strnicmp(arg, "jo-", 3)) return FAILRULE_BIT;
     WORDP D = FindWord(arg);
     if (!D) return FAILRULE_BIT;
-    
+
     // patterns can have concept and variable references, no FUNCTION calls
     // { input: xxx, patterns: [ ], variables: {name: x, value: y }, style: best/first, concepts: {cname: x, values: [a,b]}}
     // how do we handle gleaning
@@ -8538,16 +8545,16 @@ static FunctionResult TestPatternCode(char* buffer)
     {
     "input": "This is my life. I have a leak.",
     "patterns": [  "( _~stove )" ,
-                   "( faucet ) "
+    "( faucet ) "
     ],
-    "variables": 
+    "variables":
     {   "varname": "$faucet",        "varvalue": 1 ,
-        "varname": "$taskseen"      }    
+    "varname": "$taskseen"      }
     "concepts": [
     {    "name": "~stove",
-         "values": [   "oven",          "range",          "cooktop"        ]      },
+    "values": [   "oven",          "range",          "cooktop"        ]      },
     {     "name": "~leaky",
-          "values": [   "'leak",          "drip",          "spill"        ]      }    ],
+    "values": [   "'leak",          "drip",          "spill"        ]      }    ],
     "style": "first",    or last, or all
     "raw": true
     }
@@ -8586,10 +8593,10 @@ static FunctionResult TestPatternCode(char* buffer)
     // meaningful user input
     char* usermsg = AllocateBuffer();
     strcpy(usermsg, SkipWhitespace(Meaning2Word(input)->word));
- 
+
     SAVESYSTEMSTATE()
 
-    char word[MAX_WORD_SIZE];
+        char word[MAX_WORD_SIZE];
     bool realpattern = false;
     char* ptr = usermsg;
     while (!realpattern && (ptr = ReadCompiledWord(ptr, word)))
@@ -8607,7 +8614,7 @@ static FunctionResult TestPatternCode(char* buffer)
     {
         if (trace) Log(STDUSERLOG, "Concept defn bad ");
         RESTORESYSTEMSTATE()
-        FreeBuffer();
+            FreeBuffer();
         if (conceptlist) UnbindConcepts(conceptlist, newfact, oldfact); // kill these facts
         return result;
     }
@@ -8628,7 +8635,7 @@ static FunctionResult TestPatternCode(char* buffer)
     variableChangedThreadlist = 0;
     testExternOutput = true; // will assign changes for new variables
 
-    // no style on call, use global. no global, default to first
+                             // no style on call, use global. no global, default to first
     bool styleoncall = (style) ? true : false;
     if (!style) style = (char*)"first";
 
@@ -8642,7 +8649,7 @@ static FunctionResult TestPatternCode(char* buffer)
     int count = 0;
     FACT* facts[10000];
     F = GetSubjectNondeadHead(patterns);
-    bool protectedKey = false;
+    HEAPLINK protectedKey = 0;
 
     while (F) // pattern objects in inverse order and protect patternwords
     {
@@ -8652,12 +8659,11 @@ static FunctionResult TestPatternCode(char* buffer)
         {
             if (trace) Log(STDUSERLOG, "Too many patterns, above 10000 ");
             RESTORESYSTEMSTATE()
-            FreeBuffer();
+                FreeBuffer();
             if (conceptlist) UnbindConcepts(conceptlist, newfact, oldfact); // kill these facts
             return FAILRULE_BIT; // too many
         }
         // meanwhile, protect keywords listed under pattern protection
-        protectedKey = false;
         char* pattern = Meaning2Word(F->object)->word; // may directly be pattern
         if (*pattern == 'j' && pattern[1] == 'o') // old notation
         {
@@ -8671,7 +8677,7 @@ static FunctionResult TestPatternCode(char* buffer)
                 G = GetSubjectNondeadNext(G);
             }
         }
-        protectedKey = ProtectKeywords(pattern, true);
+        protectedKey = ProtectKeywords(pattern, protectedKey); // does protection with pattern
         F = GetSubjectNondeadNext(F);
     }
     int max = count;
@@ -8692,7 +8698,7 @@ static FunctionResult TestPatternCode(char* buffer)
             strcpy(usermsg, buffer);
         }
         else *usermsg = 0; // once thru only
-        
+
         usermsg = SkipWhitespace(usermsg);
         moreToCome = (*usermsg) ? true : false;
         moreToComeQuestion = strchr(usermsg, '?') ? true : false;
@@ -8740,29 +8746,11 @@ static FunctionResult TestPatternCode(char* buffer)
     }
     FreeBuffer();
     RESTORESYSTEMSTATE()
-    FreeBuffer();
+        FreeBuffer();
 
-    if (protectedKey)
-    {
-        F = GetSubjectNondeadHead(patterns);
-        while (F) // unprotect patternwords we protected
-        {
-            FACT* G = GetSubjectNondeadHead(F->object);
-            while (G)
-            {
-                if (!stricmp(Meaning2Word(G->verb)->word, "pattern"))
-                {
-                    char* pattern1 = Meaning2Word(G->object)->word;
-                    ProtectKeywords(pattern1, false);
-                }
-                G = GetSubjectNondeadNext(G);
-            }
-            F = GetSubjectNondeadNext(F);
-        }
-    }
+    ProtectKeywords(NULL, protectedKey); // unprotects as need be
     if (conceptlist) UnbindConcepts(conceptlist, newfact, oldfact); // kill these facts
 
-    // variables set?
     HandleChangedVariables(resultobject);
     UnbindVariables(changedIncomingVariables);
     variableChangedThreadlist = 0;
@@ -8777,12 +8765,12 @@ static FunctionResult TestPatternCode(char* buffer)
         char word1[MAX_WORD_SIZE];
         sprintf(word1, "%d", winner);
         CreateFact(resultobject, match, MakeMeaning(StoreWord(word1, AS_IS)), flags);
-        if (trace) Log(STDUSERLOG, "testpattern result winner %d",winner);
+        if (trace) Log(STDUSERLOG, "testpattern result winner %d", winner);
     }
     else
     {
         CreateFact(resultobject, match, MakeMeaning(StoreWord("false", AS_IS)), flags);
-       // CreateFact(resultobject, testpattern, MakeMeaning(StoreWord(pattern, AS_IS)), JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
+        // CreateFact(resultobject, testpattern, MakeMeaning(StoreWord(pattern, AS_IS)), JSON_OBJECT_FACT | FACTTRANSIENT | JSON_STRING_VALUE);
         if (trace) Log(STDUSERLOG, "testpattern result no match");
     }
 
