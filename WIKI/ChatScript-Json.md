@@ -326,7 +326,7 @@ other end by doing
 But a convenient shortcut is
 ```
     $array[-1]
-``
+```
 
 For objects, $object[0] returns the name of the most recent field added and 
 $object[-1] returns the name of the first field added.
