@@ -10,7 +10,7 @@ copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
 You cannot make a concept with a member whose string includes starting or trailing
 blanks, like " X ". Such a word could never match as a pattern, since spaces are skipped
 over. But you can make it respond to idiomatic phrases and multiple words. Just put them
-in quotes. E.g. 
+in quotes, e.g. 
 
     concept: ~remove ( "take away" remove )
 
@@ -45,7 +45,7 @@ _"TV show"_ matchs _TV shows_ as well as _TV show_.
 
 ## Implied concept Sets
 
-When you make a pattern using [] or {} and it only contains words, phrases, and
+When you make a pattern using [] or {} and it contains words, phrases, and
 concept sets, the system will make an anonymous concept set out of them.
 This allows the system to find the soonest match of any of them. Otherwise
 [] and {} take each element in turn and try to find a match, which may be later in 
@@ -290,7 +290,7 @@ When you execute a rule, while the rule is obviously in a topic being tested,
 it is not necessarily a topic that was in use recently.
 
 You can ask if the system is currently in a topic (meaning was there last volley) via `~`. 
-if the topic is currently on the pending list, then the system will match the `~`. E.g.,
+If the topic is currently on the pending list, then the system will match the `~`, e.g.,
 
     u: ( chocolate ~ ) I love chocolate ice cream.
 
@@ -337,7 +337,7 @@ is not legal because it may not start with a period.
 Most patterns are easy to understand because what words they look at is usually staring
 you in the face. 
 
-With indirection, you can pass patterndata from other topics, at a cost of obscurity. 
+With indirection, you can pass pattern data from other topics, at a cost of obscurity. 
 Declaring a macro does this. 
 A `^` normally means a macro call (if what follows it is arguments in parens), or a macro argument. 
 The contents of the macro argument are used in the pattern in its place. 

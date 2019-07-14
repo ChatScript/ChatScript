@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/27/2019 cs9.4</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -142,10 +142,10 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="sleep-milliseconds"><code>^sleep ( milliseconds )</code></h3>
 <p>This stalls the engine for that many milliseconds. If this is a server, the server is unavailable until sleep is done. Use with care. A good use is when starting up a server instance and the boot process involves reading from an API. If your machine runs 30 instances of ChatScript launched at once (to use max CPU), then all of them hitting the same API at once may be bad for the API and forcing a randomized sleep based on processid is a good use.</p>
 <h1 id="marking-functions">Marking Functions</h1>
-<h3 id="mark-single-word-location"><code>^mark ({&quot;SINGLE&quot; word location )</code></h3>
+<h3 id="mark-word-location-one-all"><code>^mark ( word location {ONE ALL})</code></h3>
 <p>Marking and unmarking words and concepts is fundamental to the pattern matching mechanism, so the system provides both an automatic marking mechanism and manual override abilities. You can manually mark or unmark something. Automatic system marking marks all concepts implied by chasing up membership in other concepts, as does this call <code>^mark</code>. <code>word</code> can be any word, which also means you can mark something with a concept name whether or not the concept actually is defined anywhere.</p>
 <p>There are two mechanisms supported using <code>^mark</code> and <code>^unmark</code>: specific and generic.</p>
-<p>With <code>specific</code>, you name words or concepts to mark or unmark, either at a particular point in the sentence or throughout the sentence.</p>
+<p>With <code>specific</code>, you name words or concepts to mark or unmark, either at a particular point in the sentence or throughout the sentence. By default or using the optional third argument <code>ALL</code>, not only the what you name marked, but anything it in turn is a part of is marked. The optional third argument <code>ONE</code> will only mark that named word/concept and none of the hierarchy implied by its membership in yet some other concept.</p>
 <p>With <code>generic</code> you disable or reenable all existing marks on a word or words in the sentence. In fact, you go beyond that because during patttern matching words you disable are invisble entirely, and matching proceeds as if they do not exist.</p>
 <p><code>Specific</code>: effects are permanent for the volley and cross over to other rules. In documentation below, use of <code>_0</code> symbolizes use of any match variable.</p>
 <h3 id="mark-meat-_0"><code>^mark ( ~meat _0 )</code></h3>
@@ -169,13 +169,16 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <p><code>Generic:</code> effects are transient if done inside a pattern, last the volley if done in output. When you are trying to analyze pieces of a sentence, you may want to have a pattern that finds a kind of word, notes information, then hides that kind of word and reanalyzes the input again looking for another of that ilk.</p>
 <p>Being able to temporarily hide marks can be quite useful, and this means typically you use <code>^unmark</code> of some flavor to hide words, and then <code>^mark</code> later to reenable access to those hidden words.</p>
 <h3 id="unmark-_0"><code>^unmark ( * _0 )</code></h3>
-<p>Aays turn off ALL matches on this location temporarily. The word becomes invisible. It disables matching at any of the words spanned by the match variable. This unmark will also block subsequent specific marking using <code>^mark</code> at their locations.</p>
-<h3 id="mark-_0"><code>^mark ( * _0 )</code></h3>
-<p>To restore all marks to some location.</p>
-<h3 id="unmark"><code>^unmark ( * )</code></h3>
+<p>Turns off ALL matches on this location temporarily. The word becomes invisible and takes up no space in the sentence. It disables matching at any of the words spanned by the match variable. This unmark will also block subsequent specific marking using <code>^mark</code> at their locations.</p>
+<h3 id="unmark-_0-1"><code>^unmark ( @ _0 )</code></h3>
+<p>Turns off ALL matches on this location range but keep the word visible. It cannot be matched by anything but a wildcard and takes up its space in the sentence. Often this is used before something like `mark(~city _0) where you are taking something with ambiguous meanings, like &quot;nice&quot;, and removing all wrong meanings (and right ones) and putting back just right ones. This is a way for the rest of processing to only see the correct interpretation of a word.</p>
 <p>Turns off matching on all words of the sentence.</p>
+<h3 id="mark-_0"><code>^mark ( * _0 )</code></h3>
+<p>To restore all marks to some location after having used ^unmark(* _0)</p>
+<h3 id="unmark"><code>^unmark ( * )</code></h3>
+<p>Turn off all words of the sentence. Probably not that useful.</p>
 <h3 id="mark-1"><code>^mark ( * )</code></h3>
-<p>Restores all marks of the sentence.</p>
+<p>Restores all marks of the sentence, for words that had ^unmark(* _0) performed.</p>
 <p>Reminder: If you do a generic unmark from within a pattern, it is transient and will be turned off when the pattern match finishes (so you don't ruin later rules), whereas when you do it from output, then the change persists for the rest of the volley. Furthermore it is handy to flip specific collections of generic unmarks on an off.</p>
 <p><code>^mark()</code> memorizes the set of all * unmarks (generic unmarks) and then turns them off so normal matching will occur.</p>
 <p><code>^unmark()</code> will restore the set of generic unmarks that were flipped off using <code>^mark()</code>.</p>
@@ -429,6 +432,8 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <p>Looks backward in the callstack for the named outputmacro, and if found returns the nth argument passed to it. Failure will be reported for n out of range or <code>^fn</code> not in the call path.</p>
 <p>This is an alterative access to function variable arguments, useful in a loop instead of having to access by variable name.</p>
 <p>If <em>n</em> is <code>0</code>, the system merely tests whether the caller exists and fails if the caller is not in the path of this call.</p>
+<h3 id="bugmsg">`^Bug(msg)</h3>
+<p>Generates a run-time bug. If you are compiling script at the time, it generates a std script bug trap. If you are not, it forces an error message into the bug log.</p>
 <h3 id="callstack-n"><code>^callstack ( @n )</code></h3>
 <p>Generates a list of transient facts into the named factset. The facts represent the callstack and have as subject the critical value (the verb is <code>callstack</code> and the object is the rule tag responsible for this entry). Items include function calls (^xxxx) and topic calls (~xxxx) and internal calls (no prefix).</p>
 <h3 id="command-args"><code>^command ( args )</code></h3>
@@ -781,6 +786,7 @@ else { $$tcpopen_error }</code></pre>
     &quot;newglobals&quot;: { &quot;$stovetype&quot;: &quot;range&quot;, &quot;$leaktype&quot;: &quot;leak&quot; }  
 }</code></pre>
 <p>If nothing matched, the value of <code>match</code> is false. Otherwise it is the index of the matching pattern (0-based). If there are return values from matching one or more patterns, those will be listed in <code>newglobals</code>, which is omitted if there are none. Values of null are never returned.</p>
+<p>You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set. Just prepend to your input &quot;:tracepattern&quot;</p>
 <h2 id="cs-external-api--compileoutput">CS External API- ^CompileOutput</h2>
 <p>The external API functions allow execution of rule behaviors from outside of ChatScript. This function takes in an output string like</p>
 <pre><code>if ($test) {test me}
@@ -912,13 +918,15 @@ u: (%document)
 <h3 id="extract-source-start-end"><code>^extract ( source start end )</code></h3>
 <p>Return the substring with the designated offset range (exclusive of end location). Useful for data extraction using ^popen and ^tcpopen when combined with <code>^findtext</code>.</p>
 <p>In addition to absolute unsigned values, start and end can take on offsets or relative values. A signed end is a length to extract plus a direction or shift in start:</p>
-<pre><code>^extract($$source 5 +2) # to extract 2 characters beginning at position
+<pre><code>^extract($$source 5 +2) # to extract 2 characters beginning at position 5
 
 ^extract($$source 5 -2) # to extract 2 characters ending at position 5</code></pre>
 <p>A negative start is a backwards offset from end.</p>
 <pre><code>^extract($$source -1 +1) # from end, 1 character before and get 1 character
 
-^extract($$source -5 -1) # from end, 5 characters before and get 1 character before. i.e. the 6th char from end.</code></pre>
+^extract($$source -5 -1) # from end, 5 characters before and get 1 character before. i.e. the 6th char from end.
+
+^extract($$source -5 -1000) # all characters until 5 from end</code></pre>
 <p>Note start offset is 0-based indexing, but if you used ^findtext, it was 1-based index so you probably need to subtract 1.</p>
 <h3 id="findtext-source-substring-offset-insensitive"><code>^findtext ( source substring offset {insensitive} )</code></h3>
 <p>Find case sensitive substring within source+offset and return offset starting immediately after match. Useful for data extraction using <code>^popen</code> and <code>^tcpopen</code> when combined with <code>^extract</code>. <code>$$findtext_start</code> is bound to the actual start of the match. <code>$$findtext_word</code> is bound to the word index in which the match was found where one or more blanks separate words. Indexing starts at 1 (same as sentence positional notation).</p>

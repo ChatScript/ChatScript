@@ -34,7 +34,7 @@ $_response = %response
 if ($_response == %response) {...}</code></pre>
 <p><code>^flushoutput</code> will commit pending output.</p>
 <h2 id="output-cannot-have-rules-in-it">Output cannot have rules in it</h2>
-<p>Output script cannot emed another rule inside it. Output is executed during the current volley whereas rules (like rejoinder rules) may be executed in a different volley. Therefore this is illegal:</p>
+<p>An output script cannot embed another rule inside it. Output is executed during the current volley whereas rules (like rejoinder rules) may be executed in a different volley. Therefore this is illegal:</p>
 <pre><code>u: GREETING ( ~emohello )
    if ($username)
    {
@@ -128,7 +128,7 @@ else
 <li>A function call – if it doesn't fail and doesn't return the values 0 or false, it passes</li>
 <li>A relation – one of <code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>?</code> <code>!?</code></li>
 </ul>
-<p>For the purposes of numeric comparison <code>(&lt; &lt;= &gt; &gt;=)</code> a null value compared against a number will be considers as 0.</p>
+<p>For the purposes of numeric comparison <code>(&lt; &lt;= &gt; &gt;=)</code> a null value compared against a number will be considered as 0.</p>
 <p>You may have a series of test conditions separated by <code>AND</code> and <code>OR</code>. The failure of the test condition can be any end or fail code. It does not affect outside the condition; it merely controls which branch of the if gets taken.</p>
 <pre><code>if ($var) { } # if $var has a value
 

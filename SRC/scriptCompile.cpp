@@ -37,6 +37,7 @@ static unsigned int cases;
 static unsigned int badword;
 static unsigned int functionCall;
 static bool isDescribe = false;
+char* tableinput = NULL;
 
 char warnings[MAX_WARNINGS][MAX_WORD_SIZE];
 unsigned int warnIndex = 0;
@@ -198,8 +199,16 @@ static char* FindComparison(char* word)
     if (*word == '?' && word[1] == '$') return NULL;
     char* at = strchr(word + 1, '!');
     if (at && *word == '!') at = NULL;	 // ignore !!
-    if (!at) at = strchr(word + 1, '<');
-    if (!at) at = strchr(word + 1, '>');
+    if (!at)
+    {
+        at = strchr(word + 1, '<');
+        if (at && at[1] == '<') return NULL; // << is not a comparison
+    }
+    if (!at)
+    {
+        at = strchr(word + 1, '>');
+        if (at && at[1] == '>') return NULL; // >> is not a comparison
+    }
     if (!at)
     {
         at = strchr(word + 1, '&');
@@ -312,6 +321,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     if (!ptr)  return 0;
     char tmp[MAX_WORD_SIZE];
     char* start = word;
+    *start = 0;
     ptr = SkipWhitespace(ptr);
     FindDeprecated(ptr, (char*)"$bot", (char*)"Deprecated $bot needs to be $cs_bot");
     FindDeprecated(ptr, (char*)"$login", (char*)"Deprecated $login needs to be $cs_login");
@@ -552,13 +562,20 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     {
         if (*ptr == ENDUNIT) break;
         if (patternContext && quote) {} // allow stuff in comparison quote
-        else if (*ptr == ' ' || *ptr == '\t') break; // legal
+        else if (*ptr == ' ' || (*ptr == '\t' && convertTabs)) break; // legal
         if (patternContext && *ptr == '"') 
             quote = !quote;
 
         char c = *ptr++;
+        if (c == '\t' && !convertTabs && word != start)
+        {
+            --ptr;
+            break; // end word with tab
+        }
         *word++ = c;
         *word = 0;
+        if (*start == '\t' && !convertTabs ) 
+                break;    // return tab as unique word
         if ((word - start) > (MAX_WORD_SIZE - 2)) break; // avoid overflow
         if (c == '\\')  *word++ = *ptr++; //escaped
         // want to leave array json notation alone but react to [...] touching a variable - $var]
@@ -1061,7 +1078,7 @@ comes from the old buffer. Meanwhile the newbuffer continues to have content for
 		}
 		else // read new line into hypothetical buffer, not destroying old actual buffer yet
 		{
-			if (!in || ReadALine(newBuffer,in) < 0) return NULL; //   end of file
+			if (!in || ReadALine(newBuffer,in, maxBufferSize,false, convertTabs) < 0) return NULL; //   end of file
 			if (!strnicmp(newBuffer,(char*)"#ignore",7)) // hit an ignore zone
 			{
 				unsigned int ignoreCount = 1;
@@ -2344,6 +2361,7 @@ x:=y  (do assignment and do not fail)
 		backup = ptr;
 		ptr = ReadNextSystemToken(in,ptr,word);
 		if (!*word) break; //   end of file
+        if (!strcmp(word, "==") || !strcmp(word, "=")) WARNSCRIPT((char*)"== or = used standalone in pattern. Shouldn't it be attached to left and right tokens?\r\n")
 
         if (!stricmp("brucetestcrash",word)) // test crash for linux
         {
@@ -2381,7 +2399,7 @@ x:=y  (do assignment and do not fail)
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-1 Cannot have ' and ! in succession\r\n")
 				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-2 Cannot use _ before _\r\n")
 				if (notSeen) BADSCRIPT((char*)"PATTERN-3 Cannot have two ! in succession\r\n")
-				if (!word[1] && !livedata) 
+				if (!word[1]) 
 					BADSCRIPT((char*)"PATTERN-4 Must attach ! to next token. If you mean exclamation match, use escaped ! \r\n %s\r\n",ptr)
 				notSeen = true;
 				if (word[1] == '!') 
@@ -3393,8 +3411,14 @@ static char* ReadLoop(char* word, char* ptr, FILE* in, char* &data,char* rejoind
     }
 	data += strlen(data);
 	*data++ = ' ';
-	if (*word != ')') 
-        BADSCRIPT((char*)"LOOP-3 control must end with )  -%s\r\n",word)
+    if (*word != ')' && stricmp(word,"new") && stricmp(word,"old")) 
+        BADSCRIPT((char*)"LOOP-3 control must end with ) or NEW or OLD -%s\r\n", word)
+    if (!stricmp(word, "new") || !stricmp(word, "old"))
+    {
+        strcpy(data, word);
+        data += 3;
+        *data++ = ' ';
+    }
 	*data++ = ')';
 	*data++ = ' ';
 	char* loopstart = data;
@@ -3529,6 +3553,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		}
 		else ptr = ReadNextSystemToken(in,ptr,word,false); 
 		if (!*word)  break; //   end of file
+        if (!strcmp(word,"==")) WARNSCRIPT((char*)"== used in output. Did you want assignment = ?\r\n")
 
         if (currentFileLine != priorLine)
         {
@@ -4074,6 +4099,11 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 			D->internalBits |= VARIABLE_ARGS_TABLE;
 			continue;
 		}
+        if (parenLevel == 0 && !stricmp(word, (char*)"tab")) 
+        {
+            D->internalBits |= TABBED;
+            continue;
+        }
 
 		size_t len = strlen(word);
 		if (TopLevelUnit(word)) //   definition ends when another major unit starts
@@ -4092,10 +4122,43 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 				gettingArguments = false;
 				break;
 			case '$': // declaring local
+                restrict = strchr(word, '.');
+                if (restrict)
+                {
+                    if (!stricmp(restrict + 1, (char*)"KEEP_QUOTES") && (typeFlags == IS_TABLE_MACRO || typeFlags == IS_OUTPUT_MACRO))	macroFlags |= 1ull << functionArgumentCount; // a normal string where spaces are kept instead of _ (format string)
+                    else if (!stricmp(restrict + 1, (char*)"HANDLE_QUOTES"))
+                    {
+                        if (typeFlags != IS_OUTPUT_MACRO) BADSCRIPT((char*)"MACRO-? HANDLE_QUOTES only valid with OUTPUTMACRO or DUALMACRO - %s \r\n", word)
+                            if (functionArgumentCount > 15)
+                            {
+                                int64 flag = 1ull << (functionArgumentCount - 16); // outputmacros
+                                flag <<= 32;
+                                macroFlags |= flag;
+                            }
+                            else macroFlags |= 1ull << functionArgumentCount; // outputmacros
+                    }
+                    else if (!stricmp(restrict + 1, (char*)"COMPILE") && typeFlags == IS_TABLE_MACRO)
+                    {
+                        if (functionArgumentCount > 15)
+                        {
+                            int64 flag = (1ull << 16) << (functionArgumentCount - 16); // outputmacros
+                            flag <<= 32;
+                            macroFlags |= flag;
+                        }
+                        else macroFlags |= (1ull << 16) << functionArgumentCount; // a compile string " " becomes "^:"
+                    }
+                    else if (!stricmp(restrict + 1, (char*)"UNDERSCORE") && typeFlags == IS_TABLE_MACRO) { ; } // default for quoted strings is _ 
+                    else if (typeFlags != IS_TABLE_MACRO && typeFlags != IS_OUTPUT_MACRO) BADSCRIPT((char*)"Argument restrictions only available on Table Macros or OutputMacros  - %s \r\n", word)
+                    else  BADSCRIPT((char*)"MACRO-? Table/Tablemacro argument restriction must be KEEP_QUOTES OR COMPILE or UNDERSCORE - %s \r\n", word)
+                        *restrict = 0;
+                }
+
 				if (typeFlags & IS_PATTERN_MACRO) BADSCRIPT((char*)"MACRO-? May not use locals in a pattern/dual macro - %s\r\n",word)
 				if (word[1] != '_') BADSCRIPT((char*)"MACRO-? Variable name as argument must be local %s\r\n",word)
-				if (strchr(word,'.') || strchr(word,'[')) 
-                    BADSCRIPT((char*)"MACRO-? Variable name as argument must be simple, not json reference %s\r\n",word)
+				if (strchr(word, '.') || strchr(word, '['))
+				{
+                    BADSCRIPT((char*)"MACRO-? Variable name as argument must be simple, not json reference %s\r\n", word)
+                }
 				AddDisplay(word);
 				strcpy(functionArguments[functionArgumentCount++],word);
 				if (functionArgumentCount > MAX_ARG_LIMIT)  BADSCRIPT((char*)"MACRO-7 Too many callArgumentList to %s - max is %d\r\n",macroName,MAX_ARG_LIMIT)
@@ -4122,12 +4185,11 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 					{
 						if (functionArgumentCount > 15)
 						{
-							int64 flag = (1 << 16) << (functionArgumentCount - 16); // outputmacros
+							int64 flag = (1ull << 16) << (functionArgumentCount - 16); // outputmacros
 							flag <<= 32;
 							macroFlags |= flag;
-
 						}
-						else macroFlags |= (1 << 16) << functionArgumentCount; // a compile string " " becomes "^:"
+						else macroFlags |= (11ull << 16) << functionArgumentCount; // a compile string " " becomes "^:"
 					}
 					else if (!stricmp(restrict+1,(char*)"UNDERSCORE") && typeFlags == IS_TABLE_MACRO) {;} // default for quoted strings is _ 
 					else if (typeFlags != IS_TABLE_MACRO && typeFlags != IS_OUTPUT_MACRO) BADSCRIPT((char*)"Argument restrictions only available on Table Macros or OutputMacros  - %s \r\n",word)
@@ -4144,7 +4206,7 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 				if (functionArgumentCount > MAX_ARG_LIMIT)  BADSCRIPT((char*)"MACRO-7 Too many callArgumentList to %s - max is %d\r\n",macroName,MAX_ARG_LIMIT)
 				continue;
 			default:
-				BADSCRIPT((char*)"MACRO-7 Bad argument to macro definition %s\r\n",macroName)
+				BADSCRIPT((char*)"MACRO-7 Bad argument %s to macro definition %s\r\n",word,macroName)
 		}
 	}
     if (!D)
@@ -4330,8 +4392,9 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 	quoteProcessing = (short int) flags; // values of KEEP_QUOTES for each argument
 
 	// now we have the function definition and any shared arguments. We need to read the real arguments per table line now and execute.
-
+    convertTabs = (currentFunctionDefinition->internalBits & TABBED) ? false : true;
 	char* argumentList = AllocateBuffer();
+    tableinput = NULL;
 	++jumpIndex;
 	int holdDepth = globalDepth;
 	char* xxbase = ptr;  // debug hook
@@ -4342,7 +4405,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 			ptr = FlushToTopLevel(in,holdDepth,0);
 			break;
 		}
-		ptr = ReadNextSystemToken(in,ptr,word,false,false); 
+		ptr = ReadNextSystemToken(in,ptr,word,false,false); // real token read
 		char* original = ptr - strlen(word);
 		if (*word == '\\' && word[1] == 'n') continue; // newline means pretend new table entry
 
@@ -4388,6 +4451,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		char* choiceArg = NULL; //   the multiple interior
 		bool startup = true;
         trace = 0;
+        tableinput = AllocateStack(readBuffer);
         while (ALWAYS)
 		{
             if (!startup) ptr = ReadSystemToken(ptr,word);	//   next item to associate
@@ -4398,6 +4462,8 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 			}
             startup = false;
 			if (!*word) break;					//   end of LINE of items stuff
+            if (*word == '\t') 
+                *word = '*';     // tab forces fill with *
 
 			if (!stricmp(word,(char*)"...")) break;	// pad to end of arg count
 
@@ -4451,7 +4517,6 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 			++argCount;
 
 			//   handle synonyms as needed
-			ptr = SkipWhitespace(ptr); //   to align to see if (given 
 			MEANING base = MakeMeaning(baseWord);
 			if (*ptr == '(' && ++ptr) while (ALWAYS) // synonym listed, create a fact for it
 			{
@@ -4479,6 +4544,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		}
 
 		*systemArgumentList = 0;
+        *post = 0;
 		if (choiceArg) strcpy(post,pre); // save argumentList after the multiple choices
 
 		//   now we have one map of the argumentList row
@@ -4526,7 +4592,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 					char* at = pre + strlen(pre);
 					*at++ = ' ';
 					strcpy(at,post); //   add rest of argumentList
-					systemArgumentList = at + strlen(post);
+					systemArgumentList = at + strlen(at);
 				}
 				*systemArgumentList++ = ')';	//   end of call setup
 				*systemArgumentList = 0;
@@ -4541,7 +4607,9 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		}
 		if (fromtopic) break; // one entry only
 	}
-	FreeBuffer();
+    convertTabs = true;
+    ReleaseStack((char*)tableinput); // not required to happen if error happens
+	FreeBuffer(); // not required to happen if error happens
 
 	if (!tableMacro)  // delete dynamic function
 	{
@@ -4582,7 +4650,8 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 	switch(*word) 
 	{
 		case '!':	// excuded keyword
-			if (len == 1) BADSCRIPT((char*)"CONCEPT-5 Must attach ! to keyword in %s\r\n",Meaning2Word(concept)->word);
+			if (len == 1) 
+                BADSCRIPT((char*)"CONCEPT-5 Must attach ! to keyword in %s\r\n",Meaning2Word(concept)->word);
 			if (notted) BADSCRIPT((char*)"CONCEPT-5 Cannot use ! after ! in %s\r\n",Meaning2Word(concept)->word);
 			notted = true;
 			ptr -= len;
@@ -4895,7 +4964,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	}
 	bool hasUpperCharacters;
 	bool hasUTF8Characters;
-	unsigned int checksum = (unsigned int) (Hashit((unsigned char*) data, len,hasUpperCharacters,hasUTF8Characters) & 0x0ffffffff);
+	unsigned int checksum = ((unsigned int) Hashit((unsigned char*) data, len,hasUpperCharacters,hasUTF8Characters)) & 0x0fffffff;
 	
 	//   trailing blank after jump code
 	if (len >= (MAX_TOPIC_SIZE-100)) BADSCRIPT((char*)"TOPIC-7 Too much data in one topic\r\n")
@@ -5430,6 +5499,8 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 
 static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a topic file (.top or .tbl)
 {	
+    convertTabs = true;
+    tableinput = NULL;
 	callingSystem = 0;
 	chunking = false;
 	unsigned int build = (unsigned int) buildid;
@@ -5817,7 +5888,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		bool notPrior = false;
 		if (D < dictionaryPreBuild[layer]) // word preexisted this level, so see if it changed
 		{
-			unsigned int offset = D - dictionaryBase;
+			unsigned int offset = (unsigned int)(D - dictionaryBase);
 			unsigned int xoffset;
 			int result = fread(&xoffset,1,4,in);
 			if (result != 4) // ran out

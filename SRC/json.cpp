@@ -173,12 +173,12 @@ static bool ConvertUnicode(char* str) // convert \uxxxx to utf8  and escaped cha
 	bool converted = false;
 	while ((at = strchr(at, '\\')))
 	{
-		char* base = at++;
+		char* base = at++; // base is start of escaped string
         if (*at != 'u')
         {
             if (*at  == '"' || *at == '\\') // json escaped \" stuff is not escaped in CS
             {
-                memcpy(base, at, strlen(base)); // skip over the escaped char (in case its a \)
+                memmove(base, at, strlen(base)); // skip over the escaped char (in case its a \)
                 at = base + 1;
                 converted = true;
             }

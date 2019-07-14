@@ -267,33 +267,68 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     char word[MAX_WORD_SIZE];
     WORDP var1 = NULL;
     WORDP var2 = NULL;
-    int match1 = -1;
+    int match1 = -1; // json args can be match variables OR $ variables
     int match2 = -1;
     FACT* F = NULL;
     result = NOPROBLEM_BIT;
+
+    int limit = 0;
+
+    bool newest = false; // oldest members first
+    int indexsize = 0;
+    FACT** stack = NULL;
     if (!json)
     {
+        limit = atoi(GetUserVariable((char*)"$cs_looplimit"));
+        if (limit == 0) limit = 1000;
+
         ptr = GetCommandArg(ptr + 2, buffer, result, 0) + 2; //   get the loop counter value and skip closing ) space 
     }
     else
     {
+        limit = 1000000;
+
         ptr = GetCommandArg(ptr + 2, buffer, result, 0); //   get the json object 
         WORDP jsonstruct = FindWord(buffer);
-        if (!jsonstruct)
+        if (!jsonstruct) // no known object
         {
             result = FAILRULE_BIT;
             ChangeDepth(-1, "Loop()", false, ptr + 2);
             return ptr; // we dont know it
         }
         F = GetSubjectNondeadHead(jsonstruct);
-        ptr = ReadCompiledWord(ptr, word);
+        if (!F)// no members
+        {
+            result = NOPROBLEM_BIT;
+            ChangeDepth(-1, "Loop()", false, ptr + 2);
+            return ptr; // we dont know it
+        }
+  
+        // move onto stack so we can walk either way the elements
+        char* limited;
+        stack = (FACT**)InfiniteStack64(limited, "handleloop");
+        while (F) // stack object key data
+        {
+            stack[indexsize++] = F;
+            F = GetSubjectNondeadNext(F);
+        }
+        CompleteBindStack64(indexsize, (char*)stack);
+        // dont bother to release it at end. cutback will handle it
+
+        ptr = ReadCompiledWord(ptr, word); // 1st variable
         if (*word == '$') var1 = StoreWord(word, AS_IS);
         else match1 = atoi(word + 1);
-        ptr = ReadCompiledWord(ptr, word);
+        ptr = ReadCompiledWord(ptr, word); // 2nd variable
         if (*word == '$')  var2 = StoreWord(word, AS_IS);
         else match2 = atoi(word + 1);
+        char* at = ReadCompiledWord(ptr, word); // possible ordering modifier
+        if (*word != ')')
+        {
+            if (!stricmp(word, "old")) newest = false;
+            ptr = at;
+        }
         ptr += 2; // past paren closer
-    }
+    } // end json zone
 
 	char* endofloop = ptr + (size_t) Decode(ptr);
 	int counter;
@@ -319,11 +354,6 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     ptr += 5;	//   skip jump + space + { + space
     ++withinLoop; // used by planner
 
-	char* value = GetUserVariable((char*)"$cs_looplimit");
-	int limit = atoi(value);
-    if (json) limit = 1000000;
-	else if (limit == 0) limit = 1000;
-
 	bool infinite = false;
 	if (counter > limit || counter < 0) 
 	{
@@ -331,36 +361,39 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		infinite = true; // loop is bounded by defaults
 	}
     CALLFRAME* frame = ChangeDepth(0, "Loop{}", false, ptr);
+    int forward = 0;
 	while (counter-- > 0)
 	{
         frame->x.ownvalue = counter;
 		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"loop(%d)\r\n",counter+1);
         if (json)
         {
-            if (!F) break;
+            if (forward == indexsize || indexsize == 0) break; // end of members
+            F = (newest) ? stack[forward++] : stack[--indexsize];
+            char* arg1 = Meaning2Word(F->verb)->word;
             if (var1)
             {
-                var1->w.userValue = Meaning2Word(F->verb)->word;
-                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s", var1->word,var1->w.userValue);
+                var1->w.userValue = arg1;
+                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s", var1->word,arg1);
             }
-            else
+            else // match variable, not $ var
             {
-               strcpy(wildcardOriginalText[match1], Meaning2Word(F->verb)->word);  //   spot wild cards can be stored
-               strcpy(wildcardCanonicalText[match1], Meaning2Word(F->verb)->word);  //   spot wild cards can be stored
+               strcpy(wildcardOriginalText[match1], arg1);  //   spot wild cards can be stored
+               strcpy(wildcardCanonicalText[match1], arg1);  //   spot wild cards can be stored
                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"_%d=%s", match1, wildcardOriginalText[match1]);
             }
+            char* arg2 = Meaning2Word(F->object)->word;
             if (var2)
             {
-                var2->w.userValue = Meaning2Word(F->object)->word;
-                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s", var2->word, var2->w.userValue);
+                var2->w.userValue = arg2;
+                if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s", var2->word, arg2);
             }
             else
             {
-                strcpy(wildcardOriginalText[match2], Meaning2Word(F->object)->word);  //   spot wild cards can be stored
-                strcpy(wildcardCanonicalText[match2], Meaning2Word(F->object)->word);  //   spot wild cards can be stored
+                strcpy(wildcardOriginalText[match2], arg2);  //   spot wild cards can be stored
+                strcpy(wildcardCanonicalText[match2], arg2);  //   spot wild cards can be stored
                 if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"_%d=%s", match2, wildcardOriginalText[match2]);
             }
-            F = GetSubjectNondeadNext(F);
         }
         
         FunctionResult result1;

@@ -7117,7 +7117,8 @@ static void C_Retry(char* input)
 	}
 	char word[MAX_WORD_SIZE];
 	ResetToPreUser();
-	ResetSentence();
+    ResetFunctionSystem();
+    ResetSentence();
 	char which[20];
 	*which = 0;
 	*name = 0;

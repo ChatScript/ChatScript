@@ -1200,7 +1200,9 @@ char* Output(char* ptr,char* buffer,FunctionResult &result,int controls)
 			}
 		}
 
-		//   update location and check for overflow
+        buffer = FixFormatOutput(buffer, controls);
+
+        //   update location and check for overflow
 		buffer += strlen(buffer);
 		if (quoted && !startQuoted) startQuoted = buffer;
 		unsigned int size = (buffer - currentOutputBase);

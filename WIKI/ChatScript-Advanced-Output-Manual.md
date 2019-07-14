@@ -1,6 +1,6 @@
-ï»¿# ChatScript Advanced User's Manual
-Ã‚Â© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/27/2019 cs9.4
+# ChatScript Advanced User's Manual
+Â© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
+<br>Revision 7/14/2019 cs9.6
 
 
 
@@ -76,7 +76,7 @@ if ($_response == %response) {...}
 
 ## Output cannot have rules in it
 
-Output script cannot emed another rule inside it. 
+An output script cannot embed another rule inside it. 
 Output is executed during the current volley whereas rules 
 (like rejoinder rules) may be executed in a different volley. 
 Therefore this is illegal:
@@ -205,7 +205,7 @@ We will now learn functions that can be called that might fail or have interesti
 effects. And some control constructs.
 
 
-## Loop Construct â€“ loop or ^loop
+## Loop Construct – loop or ^loop and jsonloop
 
 Loop allows you to repeat script. It takes an optional argument within parens, which is
 how many times to loop. It executes the code within `{ }` until the loop count expires or
@@ -236,7 +236,10 @@ Loop can be given a count. This can be either a number,  function call that resu
 loop through each item of the factset via
 
    ^loop (@0)
+   
+## `^jsonloop`( $jsonvar $_val1 $_val2 )
 
+See ^jsonloop in Json manual for looping through a JSON object or array.
 
 ## If Construct - `if` or `^if`
 
@@ -261,13 +264,13 @@ You can omit the else if section, having just if and else, and you can omit the 
 having just if or if and else if. You may have any number of else if sections.
 The test condition can be:
 
-* A variable â€“ if it is defined, the test passes
-* `!` variable â€“ if it is not defined, the test passes (same as relation variable `==` null)
-* A function call â€“ if it doesn't fail and doesn't return the values 0 or false, it passes
-* A relation â€“ one of `==` `!=` `<` `<=` `>` `>=` `?` `!?`
+* A variable – if it is defined, the test passes
+* `!` variable – if it is not defined, the test passes (same as relation variable `==` null)
+* A function call – if it doesn't fail and doesn't return the values 0 or false, it passes
+* A relation – one of `==` `!=` `<` `<=` `>` `>=` `?` `!?`
 
 For the purposes of numeric comparison `(< <= > >=)` a null value compared against a
-number will be considers as 0.
+number will be considered as 0.
 
 You may have a series of test conditions separated by `AND` and `OR`. The failure of the
 test condition can be any end or fail code. It does not affect outside the condition; it

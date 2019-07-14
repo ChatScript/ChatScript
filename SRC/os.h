@@ -126,6 +126,7 @@ extern jmp_buf linuxCrash;
 extern bool linuxCrashSet;
 
 // MEMORY SYSTEM
+extern bool convertTabs;
 extern bool infiniteStack;
 extern CALLFRAME* releaseStackDepth[MAX_GLOBAL];
 extern unsigned int maxBufferLimit;

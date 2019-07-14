@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.5";
+char* version = "9.6";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -285,6 +285,7 @@ int CountWordsInBuckets(int& unused, unsigned int* depthcount,int limit)
 
 void CreateSystem()
 {
+    tableinput = NULL;
 	overrideAuthorization = false;	// always start safe
 	loading = true;
 	char* os;
@@ -1543,7 +1544,6 @@ void ResetToPreUser() // prepare for multiple sentences being processed - data l
 
 void ResetSentence() // read for next sentence to process from raw system level control only
 {
-	ResetFunctionSystem();
 	respondLevel = 0; 
 	currentRuleID = NO_REJOINDER;	//   current rule id
  	currentRule = 0;				//   current rule being procesed
@@ -1862,7 +1862,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	// now validate that token size MAX_WORD_SIZE is not invalidated and block all control chars to spaces
     char* at = mainInputBuffer;
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = SkipOOB(mainInputBuffer);
-	char* startx = at;
+	char* startx = at--;
     bool quote = false;
 	while (*++at)
 	{
@@ -2371,6 +2371,7 @@ retry:
 	char* start = nextInput; // where we read from
 	if (trace & TRACE_INPUT) Log(STDUSERLOG,(char*)"\r\n\r\nInput: %s\r\n",input);
  	if (trace && sentenceRetry) DumpUserVariables(); 
+    ResetFunctionSystem();
 	PrepareSentence(nextInput,true,true,false,true); // user input.. sets nextinput up to continue
 	nextInput = SkipWhitespace(nextInput);
 

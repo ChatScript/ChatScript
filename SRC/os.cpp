@@ -7,6 +7,7 @@ static std::mutex mtx;
 char crashpath[MAX_WORD_SIZE];
 int loglimit = 0;
 int ide = 0;
+bool convertTabs = true;
 bool idestop = false;
 bool idekey = false;
 bool inputAvailable = false;

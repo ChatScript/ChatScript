@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/26/2019 cs9.3
+<br>Revision 7/14/2019 cs9.6
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
 * [Advanced Facts](ChatScript-Fact-Manual.md#advanced-facts)
@@ -215,7 +215,7 @@ removing that fact from the set. The functions to do this are:
 
 Removing the fact is the default, but you can suppress it with the optional second argument `KEEP`, e.g.
 
-    _1 = ^last(@1all) 
+    _1 = ^last(@1all KEEP) 
 
 gets the last value but leaves it in the set.
 
@@ -245,7 +245,7 @@ If you actually want to destroy facts, you can query them into a fact-set and th
     ^delete(@1)
 
 all facts in `@1` will be deleted and the set erased.
-You can also delete an individual fact who's id is sitting on some variable
+You can also delete an individual fact whose id is sitting on some variable
 
     ^delete($$f)
 
@@ -470,6 +470,68 @@ datum: ^secondkeys(~accidents) repair
 Note that unlike tables that are allowed to run to many entries even on the same line
 sometimes, a datum will only be allowed to run the tablemacro once.
 
+## TAB Tables
+
+Normally each data line defines one entry of the table, filling in all columns. But sometimes
+it's easier to read a vertically oriented table. You can create them like this:
+```
+Location	Japan   Tokyo	
+Location	Japan   Yokohama
+```
+but that's crowded to read and excess typing.  Another thing you can do is:
+```
+Location	Japan   Tokyo	
+*	        *       Yokohama
+```
+Where * means use the last seen value from prior entries (you write your table to make that interpretation).
+Still it's tedious to put in the well mannered *. So there is one other thing you can do.
+You can make a tab table, where tab characters are automatically convered into space-separated * values instead of being
+ignored white space.
+table: ^mytable TAB ($_arg1 $_arg2 $_arg3 )
+...
+DATA:
+Location
+    Japan   
+        Tokyo   
+        Yokohama
+```
+is one such table. Looks a lot cleaner. Just be certain you are using tabs and not spaces.
+You can write self-checking code in your table to confirm users didn't screw up.
+The system variable %tableinput shows the actual line seen by the table function at each entry.
+
+Here is an example:
+```
+tablemacro: ^section variable TAB ($_sectionname $_entry $_rule $_junk $_junk1  $_junk2  )
+$_sectionname = ^pos(allupper $_sectionname)
+# $_junk is the tab
+if ($_entry != *)
+{
+  $$entry = $_entry # track this column's value
+  ^createfact($_entry section $_sectionname)
+}
+$_error = ^"Bad Table data in ^Section $_sectionname $_entry ($$entry) $_rule $_junk $_junk1 $_junk2 \n"
+if ($_entry != * AND $_rule != *) # not allowed both
+{
+    ^Bug($_error)
+}
+else if ($_entry == * AND $_rule == *) # not allowed neither
+{
+    ^Bug($_error)
+}
+else if ($_junk != * OR $_junk1 != * OR $_junk2 != * ) # excess data
+{
+    ^Bug($_error)
+}
+if (^extract(%tableinput 0 1) == " ") 
+{
+    ^Bug(^"spaces at start of table")
+}
+if ($_rule != *)
+{
+    ^createfact($_rule question $$entry)
+}
+DATA:
+```
 
 ## String processing in Tables
 
@@ -594,7 +656,7 @@ You can also retrieve a field via `$$f.subject` or `$$f.verb` or `$$f.object`.
 ### `^find`( setname itemname )
 
 given a concept set, find the ordered position of the 2nd
-argument within it. ^Output that index (0-based). Used, for example, to compare two poker hands.
+argument within it. Output that index (0-based). Used, for example, to compare two poker hands.
 
 
 ### `^first`( fact-set-annotated )

@@ -162,7 +162,7 @@ The above patterns looks for a meaning about wanting food. But it will accept
 u: (I want meat) I want food too.
 ```
 
-Correspondingly the above pattern is too specific and missing tons of reasonable
+Correspondingly the above pattern is too specific and misses tons of reasonable
 inputs. 
 
 Machine Learning is at an advantage in that it always memorize the exact

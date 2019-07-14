@@ -9,9 +9,10 @@
 </head>
 <body>
 <h1 id="chatscript-pattern-redux">ChatScript Pattern Redux</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/7/2017 cs7.42</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
+Revision 5/7/2017 cs7.42</p>
 <p>Pattern matching information was introduced in the Beginner manual and expanded in the <a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>. Since pattern matching is of such importance, this concise manual lists everything about patterns in one place, including patterns not listed in the Advanced manual.</p>
-<p>NOTE<br> despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
+<p>NOTE: despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
 <pre><code># rule 1 
 u: (![plastic] &lt;&lt; bag trick &gt;&gt;)
 
@@ -159,11 +160,7 @@ so which one is found first in the sentence is what sets the position. For an in
 <p>You can test relationships by conjoining a token with a relationship operator and another token, with no spaces. E.g.,</p>
 <pre><code>u: ( I am _~number &gt; _0&gt;18 ) You are of legal age.</code></pre>
 <p>The relationship operators are:</p>
-<table style="width:24%;">
-<colgroup>
-<col width="12%" />
-<col width="11%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th align="center">operator</th>
@@ -201,10 +198,11 @@ so which one is found first in the sentence is what sets the position. For an in
 </tr>
 <tr class="even">
 <td align="center"><code>?</code></td>
-<td>is member of 2nd arg concept or topic or JSON array.<br>if no argument occurs after, means is value found in sentence</td>
+<td>is member of 2nd arg concept or topic or JSON array.</td>
 </tr>
 </tbody>
 </table>
+<p>if no argument occurs after, means is value found in sentence</p>
 <p>Comparing two text strings (not numbers) will do it based on case-independent alpha sorting.</p>
 <p>The ? operator has two forms. <code>xxx?~yyy</code> will look for actual membership in the set whereas <code>_n?~yyy</code> will only see if the location of match detection of _n is the same as a corresponding match location for the concept. If the concept has not been marked, then obviously no match is found.</p>
 <p>Note: You can put <code>!</code> before the tokens instead of using <code>!=</code> and <code>!?</code>. E.g.,</p>
@@ -229,7 +227,8 @@ so which one is found first in the sentence is what sets the position. For an in
 <h3 id="function-call---xxx...">Function Call - <code>^xxx(...)</code></h3>
 <p>You can call a function from within a pattern. If the function returns a failure code of any kind, the match fails. If the function is a predefined system function, you are allowed relation operators on the result as well.</p>
 <pre><code>u: ( ^lastused(~ gambit)&gt;5 )</code></pre>
-<p>NOTE:<br> User defined functions (<code>patternmacros</code>) do not allow relational operators after them.</p>
+<p>NOTE:<br />
+User defined functions (<code>patternmacros</code>) do not allow relational operators after them.</p>
 <p>Patternmacros do not generate answers. They are treated as in-line additional pattern tokens.</p>
 <pre><code>Patternmacro: ^testuse(^value) _~noun _0==^value
 

@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/3/2019 cs9.41
+<br>Revision 7/14/2019 cs9.6
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -306,6 +306,7 @@ your server is in Virginia and you are in Colorado).
 | `%question`         |  Boolean was the user input a question – same as `?` in a pattern 
 | `%quotation`        |  Boolean is current input a quotation 
 | `%sentence`         |  Boolean does it seem like a sentence (subject/verb or command) 
+| `%tableinput`       |  current line being executed in a table expansion during script compilation 
 | `%tense`            |  past , present, or future simple tense (present perfect is a past tense) 
 | `%user`             |  user login name supplied 
 | `%userfirstline`    |  value of `%input` that is at the start of this conversation start 

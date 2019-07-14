@@ -241,7 +241,7 @@ unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result)
 	unsigned int link = (defn[0] << 24) + (defn[1] << 16) + (defn[2] << 8) + (defn[3]);
 	defn += 4; // skip jump 
 	defn = (unsigned char*)ReadInt64((char*)defn, botid);
-	if (botid == 0) allaccess = defn; // default access
+	if (botid == 0) allaccess = defn; // default access 
 	while (!(myBot & botid) && !compiling && link) // wrong bot, but have link to another bots can share code
 	{
 		if (!botid) allaccess = defn;
@@ -2582,6 +2582,12 @@ static FunctionResult MarkCode(char* buffer)
 	else if (*ptr) ptr = GetCommandArg(ptr,buffer,result,0); // evaluate the locator as a number presumably
 	if (*buffer == USERVAR_PREFIX) strcpy(buffer,GetUserVariable(buffer));
 
+    char flag[MAX_WORD_SIZE];
+    ReadCompiledWord(ptr, flag);
+    bool all = true;
+    if (!stricmp(flag, "ALL")) all = true;
+    else if (!stricmp(flag, "ONE")) all = false;
+
 	int startPosition;
 	int endPosition;
 	if (!*buffer || *buffer == ')') startPosition = endPosition = 1; // default mark  (ran out or hit end paren of call
@@ -2638,9 +2644,13 @@ static FunctionResult MarkCode(char* buffer)
 	MEANING M = MakeMeaning(D);
 	if (*D->word != '~') Add2ConceptTopicList(concepts, D,startPosition,endPosition,true); // add ordinary word to concept list directly as WordHit will not store anything but concepts
 	if (showMark || (trace & TRACE_PREPARE)) Log(ECHOSTDUSERLOG,(char*)"Mark %s: \r\n",D->word);
-	if (trace & TRACE_OUTPUT) Log(STDUSERLOG,(char*)"mark all @word %s %d-%d ",D->word, startPosition,endPosition);
-	MarkMeaningAndImplications(0, 0,M,startPosition,endPosition,false,false,single);
-	if (showMark) Log(ECHOSTDUSERLOG,(char*)"------\r\n");
+	if (trace & TRACE_OUTPUT) Log(STDUSERLOG,(char*)"mark  @word %s %d-%d ",D->word, startPosition,endPosition);
+	if (all) MarkMeaningAndImplications(0, 0,M,startPosition,endPosition,false,false,single);
+    else
+    {
+        MarkWordHit(0, false , D, 0 , startPosition, endPosition);
+    }
+    if (showMark) Log(ECHOSTDUSERLOG,(char*)"------\r\n");
 	*buffer = 0;
 #ifndef DISCARDTESTING
     if (debugMark)
@@ -3006,6 +3016,7 @@ static FunctionResult UnmarkCode(char* buffer)
 	// unmark(word 4)
 	// unmark(word _location)
 	// unmark(word all)
+    // unmakr(@ _0)
 
 	char* ptr = ARGUMENT(1);
 	char word[MAX_WORD_SIZE];
@@ -3092,9 +3103,13 @@ static FunctionResult UnmarkCode(char* buffer)
 	}
 	if (endPosition > wordCount) endPosition = wordCount;
 
-    if (*word == '@' && !word[1])
+    if (*word == '@' && !word[1]) // remove all references to match here
     {
-        ClearWhereAt(startPosition); // remove all refereneces this position only
+        for (int i = startPosition; i <= endPosition; ++i)
+        {
+            if (trace & TRACE_OUTPUT) Log(STDUSERLOG, (char*)"unmark @ %d(%s)\r\n", i, wordStarts[i]);
+            ClearWhereAt(i); 
+        }
     }
     else if (*word == '*' && !word[1]) // set unmark EVERYTHING in range 
 	{
@@ -4905,6 +4920,14 @@ FunctionResult AddContextCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+FunctionResult BugCode(char* buffer)
+{
+    char* arg1 = ARGUMENT(1);
+    if (compiling) BADSCRIPT(arg1)
+    else ReportBug(arg1);
+    return NOPROBLEM_BIT;
+}
+
 FunctionResult ChangeBotCode(char* buffer)
 {
     char* name = ARGUMENT(1);
@@ -6320,26 +6343,31 @@ static FunctionResult ExtractCode(char* buffer)
 	char* target = ARGUMENT(1);
 	if (!*target) return FAILRULE_BIT;
 	size_t len = UTFStrlen(target);
-	bool startFromEnd = false;
-	int offset = 0;
+	
+    bool startFromEnd = false;
 	char* arg2 = ARGUMENT(2);
 	if (*arg2 == '-') {
 		startFromEnd = true;
-		++arg2;
+		++arg2; // remove sign
 	}
+
 	char* arg3 = ARGUMENT(3);
-	if (*arg3 == '-') offset = -1;
+    int offset = 0;
+    if (*arg3 == '-') offset = -1;
 	else if (*arg3 == '+') offset = 1;
-	if (offset != 0) ++arg3;
+	if (offset != 0) ++arg3; // remove sign
+
 	if (!IsDigit(*arg2)) return FAILRULE_BIT;
 	if (!IsDigit(*arg3)) return FAILRULE_BIT;
-	unsigned int start = atoi(arg2);
-	unsigned int end = atoi(arg3);
+
+	int start = atoi(arg2);
+	int end = atoi(arg3);
 	if (startFromEnd) start = len - start;
-	if (offset > 0) end = start + end;
-	else if (offset < 0) {
-		start = start - end;
-		end = start + end;
+	if (offset > 0) end = start + end; // moving forwards
+	else if (offset < 0) { // moving backwards  -8 -5 means end 8 before end, run backwards 5 char toward start
+        end = len - start;  // stop here
+        start = end - start; // swallow this
+        if (start < 0) start = 0;
 	}
 	if (start >= len) return FAILRULE_BIT;
 	if (end > ( len +1)) end = len + 1;
@@ -8622,11 +8650,13 @@ static FunctionResult TestPatternCode(char* buffer)
     // allow tracing in authorized environments by request
     // process each sentence in turn against the patterns
     // first pattern to match ANY input sentence wins
-    if (!strnicmp(usermsg, ":tracepattern ", 14) && VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))
+    char* value = GetUserVariable("$tracetestPattern");
+    if ((!strnicmp(usermsg, ":tracepattern ", 14) || !strcmp(value,"1"))
+        && VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))
     {
         trace = -1;
         userLog = true;
-        usermsg += 14;
+        if (*usermsg == ':') usermsg += 14;
     }
 
     // do incoming variable assignments
@@ -8795,7 +8825,9 @@ static FunctionResult TestOutputCode(char* buffer)
     // output can have variable references
     // { output: "", variables: [ {name: x, value: y} }
     // returns output generated, possible return variables
-    
+    int oldtrace = trace;
+    bool olduserlog = userLog;
+
     /* This is the json object format
     {
     "output":  "compiled output string",
@@ -8831,6 +8863,17 @@ static FunctionResult TestOutputCode(char* buffer)
     variableChangedThreadlist = 0;
     testExternOutput = true; // will assign changes for new variables
 
+    // allow tracing in authorized environments by request
+    // process each sentence in turn against the patterns
+    // first pattern to match ANY input sentence wins
+    char* value = GetUserVariable("$tracetestOutput");
+    if (!stricmp(value, "1") && VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))
+    {
+        trace = -1;
+        userLog = true;
+    }
+
+
     // return JSON object with result: index and possible match values in the future
     // get the object
     MEANING resultobject = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);
@@ -8862,6 +8905,8 @@ static FunctionResult TestOutputCode(char* buffer)
         
         sprintf(buffer, "%s", Meaning2Word(resultobject)->word);
         currentFact = NULL; // dont pass up changes in facts
+        trace = oldtrace;
+        userLog = olduserlog;
         return NOPROBLEM_BIT;
     }
 
@@ -8874,6 +8919,8 @@ static FunctionResult TestOutputCode(char* buffer)
 
     RESTORESYSTEMSTATE()
     currentFact = NULL; // dont pass up changes in facts
+    trace = oldtrace;
+    userLog = olduserlog;
 
     return NOPROBLEM_BIT;
 }
@@ -10091,6 +10138,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"\r\n---- Control Flow",0,0,0,(char*)""},
 	{ (char*)"^authorized",AuthorizedCode,0,0,(char*)"is current user authorized"},
 	{ (char*)"^addcontext",AddContextCode,2,0,(char*)"set topic and label as a context"},
+    { (char*)"^bug",BugCode,1,0,(char*)"generate a script error during compilation of a table" },
     { (char*)"^changebot",ChangeBotCode,2,0,(char*)"become this bot" },
   
     { (char*)"^clearcontext",ClearContextCode,2,0,(char*)"clear all context"},

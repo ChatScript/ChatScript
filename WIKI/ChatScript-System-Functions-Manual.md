@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/27/2019 cs9.4
+<br>Revision 7/14/2019 cs9.6
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -352,7 +352,7 @@ hitting the same API at once may be bad for the API and forcing a randomized sle
 
 # Marking Functions
 
-### `^mark ({"SINGLE" word location )`
+### `^mark ( word location {ONE ALL})`
 
 Marking and unmarking words and concepts is fundamental to
 the pattern matching mechanism, so the system provides both an automatic marking
@@ -363,7 +363,10 @@ all concepts implied by chasing up membership in other concepts, as does this ca
 There are two mechanisms supported using `^mark` and `^unmark`: specific and generic.
 
 With `specific`, you name words or concepts to mark or unmark, either at a particular point
-in the sentence or throughout the sentence. 
+in the sentence or throughout the sentence. By default or using the optional third argument `ALL`,
+not only the what you name marked, but anything it in turn is a part of is marked.  The optional third
+argument `ONE` will only mark that named word/concept and none of the hierarchy implied by its membership
+in yet some other concept.
 
 With `generic` you disable or reenable all existing marks on a word or words in the sentence. 
 In fact, you go beyond that because during patttern matching words you disable are invisble entirely, 
@@ -376,7 +379,6 @@ In documentation below, use of `_0` symbolizes use of any match variable.
 ### `^mark ( ~meat _0 )`
 
 This marks `~meat` as though it has been seen at whereever sentence location `_0` is bound to (start and end)
-
 
 ### `^mark ( ~meat n )`
 
@@ -440,24 +442,32 @@ of some flavor to hide words, and then `^mark` later to reenable access to those
 
 ### `^unmark ( * _0 )`
 
-Aays turn off ALL matches on this location temporarily. The word becomes invisible. 
+Turns off ALL matches on this location temporarily. The word becomes invisible and takes up
+no space in the sentence. 
 It disables matching at any of the words spanned by the match variable.
 This unmark will also block subsequent specific marking using `^mark` at their locations.
 
+### `^unmark ( @ _0 )`
 
-### `^mark ( * _0 )`
-
-To restore all marks to some location.
-
-
-### `^unmark ( * )`
+Turns off ALL matches on this location range but keep the word visible. It cannot be matched by 
+anything but a wildcard and takes up its space in the sentence. Often this is used before something
+like `mark(~city _0) where you are taking something with ambiguous meanings, like "nice",
+and removing all wrong meanings (and right ones) and putting back just right ones. This is a way
+for the rest of processing to only see the correct interpretation of a word.
 
 Turns off matching on all words of the sentence.
 
+### `^mark ( * _0 )`
+
+To restore all marks to some location after having used ^unmark(* _0)
+
+### `^unmark ( * )`
+
+Turn off all words of the sentence. Probably not that useful.
 
 ### `^mark ( * )` 
 
-Restores all marks of the sentence.
+Restores all marks of the sentence, for words that had ^unmark(* _0) performed.
 
 Reminder: 
 If you do a generic unmark from within a pattern, it is transient and will be
@@ -858,6 +868,10 @@ useful in a loop instead of having to access by variable name.
 
 If _n_ is `0`, the system merely tests whether the caller exists and fails if the caller is not in the path of this call.
 
+### `^Bug(msg)
+
+Generates a run-time bug. If you are compiling script at the time, it generates a std script
+bug trap. If you are not, it forces an error message into the bug log.
 
 ### `^callstack ( @n )`
 
@@ -1413,6 +1427,8 @@ If nothing matched, the value of `match` is false. Otherwise it is the index of 
 pattern (0-based). If there are return values from matching one or more patterns, those will
 be listed in `newglobals`, which is omitted if there are none. Values of null are never returned.
 
+You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.  Just prepend to your input ":tracepattern"
+
 ## CS External API- ^CompileOutput
 The external API functions allow execution of rule behaviors from outside of ChatScript.
 This function takes in an output string like 
@@ -1766,7 +1782,7 @@ combined with `^findtext`.
 In addition to absolute unsigned values, start and end can take on offsets or relative values. 
 A signed end is a length to extract plus a direction or shift in start:
 
-    ^extract($$source 5 +2) # to extract 2 characters beginning at position
+    ^extract($$source 5 +2) # to extract 2 characters beginning at position 5
     
     ^extract($$source 5 -2) # to extract 2 characters ending at position 5
     
@@ -1775,6 +1791,8 @@ A negative start is a backwards offset from end.
     ^extract($$source -1 +1) # from end, 1 character before and get 1 character
 
     ^extract($$source -5 -1) # from end, 5 characters before and get 1 character before. i.e. the 6th char from end.
+    
+    ^extract($$source -5 -1000) # all characters until 5 from end
 
 Note start offset is 0-based indexing, but if you used ^findtext, it was
 1-based index so you probably need to subtract 1.

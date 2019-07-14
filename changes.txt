@@ -1,3 +1,14 @@
+Version 9.6 7/14/2019
+1. unmark(@ _0) changed to unmark the width of the match, not just the start position
+2. JSONLOOP (x y z OLD/NEW)
+	choose which way to walk a json object/array either newest first or oldest first
+3. TAB macro flag
+	Be able to treat table data using tabs to mean * for that tab
+4. ^bug()
+	be able to report a bug to system bug log (or script compiler) for runtime code (particularly in a table being compiled)
+5. %tableinput - current input line to table processing
+6. ^mark(word _0  ALL/ONE)  when marking, either propogate marks to all encompassing concept sets or just mark this one word
+
 Version 9.5  6/26/2019
 
 1. Testoutput now returns field error: true  if code execution failed.

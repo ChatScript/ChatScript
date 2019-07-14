@@ -181,7 +181,10 @@ static char* SpellCheck( int i)
     char* word = wordStarts[i];
 	if (!*word) return NULL;
 	if (!stricmp(word,loginID) || !stricmp(word,computerID)) return word; //   dont change his/our name ever
-
+    int start = derivationIndex[i] >> 8;
+    int end = derivationIndex[i] & 0x00ff;
+    if (start != end || wordStarts[i] != derivationSentence[start])
+        return word; // got here by a spellcheck so trust it.
 	size_t len = strlen(word);
 	if (len > 2 && word[len-2] == '\'') return word;	// dont do anything with ' words
 
@@ -204,11 +207,11 @@ static char* SpellCheck( int i)
 		strcpy(tmpword,word);
 		strcat(tmpword,wordStarts[i+1]);
 		breakAt = SplitWord(tmpword,i);
-		if (breakAt > 0) // replace words with the dual pair
+		if (breakAt > 0  && stricmp(tmpword+breakAt,wordStarts[i+1])) // replace words with the dual pair
 		{
 			WORDP D = FindWord(tmpword,breakAt,PRIMARY_CASE_ALLOWED);
 			tokens[1] = D->word;
-			tokens[2] = tmp+breakAt;
+			tokens[2] = tmpword +breakAt;
 			ReplaceWords("SplitWords",i,2,2,tokens);
 			fixedSpell = true;
 			return NULL;

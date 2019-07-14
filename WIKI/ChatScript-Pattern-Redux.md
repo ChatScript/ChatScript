@@ -1,6 +1,6 @@
 # ChatScript Pattern Redux
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/7/2017 cs7.42
+© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
+Revision 5/7/2017 cs7.42
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
@@ -8,7 +8,7 @@ Since pattern matching is of such importance,
 this concise manual lists everything about patterns in one place,
 including patterns not listed in the Advanced manual.
 
-NOTE<br>
+NOTE:
 despite the extraordinary range of weird matching abilities, 
 almost all of my normal code is based on one of three patterns:
 
@@ -369,7 +369,8 @@ The relationship operators are:
 | `>`      | greater than
 | `>=`     | greater than or equal to
 | `&`      | bit anded results in non-zero
-| `?`      | is member of 2nd arg concept or topic or JSON array.<br>if no argument occurs after, means is value found in sentence
+| `?`      | is member of 2nd arg concept or topic or JSON array.  
+if no argument occurs after, means is value found in sentence
 
 Comparing two text strings (not numbers) will do it based on case-independent alpha sorting.
 
@@ -437,7 +438,7 @@ you are allowed relation operators on the result as well.
 
     u: ( ^lastused(~ gambit)>5 )
 
-NOTE:<br>
+NOTE:  
 User defined functions (`patternmacros`) do not allow relational operators after them. 
 
 Patternmacros do not generate answers. 

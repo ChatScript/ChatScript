@@ -12,7 +12,7 @@
 <p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 5/27/2019 cs9.4</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
-<p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes. E.g.</p>
+<p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes, e.g.</p>
 <pre><code>concept: ~remove ( &quot;take away&quot; remove )</code></pre>
 <p>Normally in patterns you can write</p>
 <pre><code>?: ( do you take away cheese )</code></pre>
@@ -26,7 +26,7 @@
 <pre><code>concept: ~viewing (&quot;TV show&quot;)` </code></pre>
 <p>the system can match that concept readily also. In fact, whenever you write the quoted keyword phrase, if all its words are canonical, you can match canonical and noncanonincal forms. <em>&quot;TV show&quot;</em> matchs <em>TV shows</em> as well as <em>TV show</em>.</p>
 <h2 id="implied-concept-sets">Implied concept Sets</h2>
-<p>When you make a pattern using [] or {} and it only contains words, phrases, and concept sets, the system will make an anonymous concept set out of them. This allows the system to find the soonest match of any of them. Otherwise [] and {} take each element in turn and try to find a match, which may be later in the sentence than a later element in the set would match.</p>
+<p>When you make a pattern using [] or {} and it contains words, phrases, and concept sets, the system will make an anonymous concept set out of them. This allows the system to find the soonest match of any of them. Otherwise [] and {} take each element in turn and try to find a match, which may be later in the sentence than a later element in the set would match.</p>
 <h2 id="dictionary-keyword-sets">Dictionary Keyword sets</h2>
 <p>In ChatScript, WordNet ontologies are invoked by naming the word, a <code>~</code>, and the index of the meaning you want.</p>
 <pre><code>concept: ~buildings [ shelter~1 living_accomodations~1 building~3 ]</code></pre>
@@ -119,7 +119,7 @@ u: ( $bot? )</code></pre>
 <p>Such constants can be done anywhere, not just in a pattern.</p>
 <h2 id="current-topic">Current Topic <code>~</code></h2>
 <p>Whenever you successfully execute a rule in a topic, that topic becomes a pending topic (if the topic is not declared system or nostay). When you execute a rule, while the rule is obviously in a topic being tested, it is not necessarily a topic that was in use recently.</p>
-<p>You can ask if the system is currently in a topic (meaning was there last volley) via <code>~</code>. if the topic is currently on the pending list, then the system will match the <code>~</code>. E.g.,</p>
+<p>You can ask if the system is currently in a topic (meaning was there last volley) via <code>~</code>. If the topic is currently on the pending list, then the system will match the <code>~</code>, e.g.,</p>
 <pre><code>u: ( chocolate ~ ) I love chocolate ice cream.</code></pre>
 <p>The above does not match any use of chocolate, only one where we are already in this topic (like topic: <code>~ice_cream</code>) or we were recently in this topic and are reconsidering it now.</p>
 <p>A useful idiom is <code>[~topicname ~]</code>. This allows you to match if EITHER the user gave keywords of the topic OR you are already in the topic. So:</p>
@@ -139,7 +139,7 @@ u: ( *tor ) # this matches &quot;reactor&quot;.</code></pre>
 <p>is not legal because it may not start with a period.</p>
 <h2 id="indirect-pattern-elements">Indirect pattern elements</h2>
 <p>Most patterns are easy to understand because what words they look at is usually staring you in the face.</p>
-<p>With indirection, you can pass patterndata from other topics, at a cost of obscurity. Declaring a macro does this. A <code>^</code> normally means a macro call (if what follows it is arguments in parens), or a macro argument. The contents of the macro argument are used in the pattern in its place. Macro arguments only exist inside of macros. But macros don't let you write rules, only pieces of rules.</p>
+<p>With indirection, you can pass pattern data from other topics, at a cost of obscurity. Declaring a macro does this. A <code>^</code> normally means a macro call (if what follows it is arguments in parens), or a macro argument. The contents of the macro argument are used in the pattern in its place. Macro arguments only exist inside of macros. But macros don't let you write rules, only pieces of rules.</p>
 <p>Normally you use a variable directly. <code>$$tmp = nil</code> clears the <code>$$tmp</code> variable, for instance, while <code>u: ( ) $$tmp</code> goes home will output the value into the output stream. The functional user argument lets you pass pattern data from one topic to another.</p>
 <pre><code>s: ( are you a _^$var )</code></pre>
 <p>The contents of <code>$var</code> are used at that point in the pattern. Maybe it is a set being named. Maybe it's a word. You can also do whole expressions, but if you do you will be at risk because you won't have the script compiler protecting you and properly formatting your data. See also Advanced Variables.</p>

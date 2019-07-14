@@ -429,7 +429,7 @@ restart: // start with user
         int n = 0;
         while (ALWAYS)
         {
-            if ((++n % 1000) == 0)  (*printer)((char*)"On Line %d\r\n", n);
+            if ((++n % 100) == 0)  (*printer)((char*)"On Line %d\r\n", n);
             if (converse) // do a conversation of multiple lines each tagged with user until done, not JA style
             {
                 ptr = data;

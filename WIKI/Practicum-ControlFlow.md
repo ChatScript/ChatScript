@@ -18,10 +18,11 @@ arguments (the if conditions) afterwards. The basic syntax allows for (but does 
     if (...) {...}
     else if (...) {...} # optional
     else {} # optional
+```
 
 ## IF condition syntax
 
-There are two possible syntaxes for the conditions of an if. The original syntax allowed operators and operands, with multiple
+There are two possible syntaxes for the conditions of an `if`. The original syntax allowed operators and operands, with multiple
 tests separated by  `AND` or `OR` like this:
 ```
     if ( $foo < 5 AND $_x ? ~myset)
@@ -59,8 +60,11 @@ Simple loops execute code over and over again like this:
     {
         ....
     }
-But ChatScript doesn't want to risk an infinite loop, so in the absence of any explicit loop control, it defaults to a liit of 1000. You can change This
+```
+But ChatScript doesn't want to risk an infinite loop, so in the absence of any 
+explicit loop control, it defaults to a limit of 1000. You can change this
 default by setting a value on $cs_looplimit if you want to extend it.
+
 ```
     $cs_looplimit = 10000
     loop()
@@ -121,7 +125,7 @@ The first fact is created and cross referenced on a subject list of x, a verb li
 The next fact acts similarly, but adding to lists is the simple add to head of list. That means the subject list for x
 has the second fact first and the first fact second. ^query walks one of these lists (depending on the query) to get facts to consider.
 When you loop thru them, if you want them in order of creation, you
-next to use ^last to get the oldest fact. ^first and ^next will always get the most recent facts first.
+need to use ^last to get the oldest fact. ^first and ^next will always get the most recent facts first.
 
 Expecting a failure to terminate a loop DOES NOT WORK with JSON arrays, because JSON data accesses don't fail, they just return null when they run out.
 So below will execute the full loop limit as long as $_array is a JSON array, whether or not it has any values and whether or not those values are JSON

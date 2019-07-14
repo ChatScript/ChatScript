@@ -443,6 +443,14 @@ static char* Sdict(char* value)
     return systemValue;
 }
 
+static char* StableInput(char* value)
+{
+    static char hold[50] = ".";
+    if (value) return AssignValue(hold, value);
+    if (*hold != '.') return hold;
+    return (tableinput) ? tableinput : (char*)"";
+}
+
 static char* SfactExhaustion(char* value)
 {
     static char hold[50] = ".";
@@ -1066,8 +1074,10 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%pid",SPID,(char*)"Process id of this instance (linux)"}, 
 	{ (char*)"%restart",SRestart,(char*)"pass string back to a restart"}, 
 	{ (char*)"%timeout",STimeout,(char*)"did system time out happen" },
+
 	{ (char*)"\r\n---- Build variables",0,(char*)""},
-	{ (char*)"%dict",Sdict,(char*)"String - when dictionary was built"}, 
+    { (char*)"%tableinput",StableInput,(char*)"Current input line of table processing" },
+    { (char*)"%dict",Sdict,(char*)"String - when dictionary was built"},
 	{ (char*)"%engine",Sengine,(char*)"String - when engine was compiled (date/time)"}, 
 	{ (char*)"%os",Sos,(char*)"String - os involved: linux windows mac ios"}, 
 	{ (char*)"%script",Sscript,(char*)"String - when build1 and build0 were compiled)"}, 

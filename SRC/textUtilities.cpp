@@ -2676,7 +2676,11 @@ char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with (
 char* SkipWhitespace(char* ptr)
 {
     if (!ptr || !*ptr) return ptr;
-    while (IsWhiteSpace(*ptr)) ++ptr;
+    while (IsWhiteSpace(*ptr))
+    {
+        if (!convertTabs && *ptr == '\t') return ptr; // leave to be seen
+        ++ptr;
+    }
     return ptr; 
 }
 
