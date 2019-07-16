@@ -575,12 +575,12 @@ contents.
 | `$cs_abstract`       |  used with :abstract | 
 | `$cs_looplimit`      |  loop() defaults to 1000 iterations before stopping. You can change this default with this | 
 | `$cs_trace`          |  if this variable is defined, then whenever the user's volley is finished, the value of this variable is set to that of :trace and :trace is cleared to 0, but when the user is read back in, the :trace is set to this value. For a server, this means you can perform tracing on a user w/o making all user transactions dump trace data | 
-| `$cs_control_pre`    |  name of topic to run in gambit mode on pre-pass, set by author. Runs before any sentences of the input volley are analyzed. Good for setting up initial values | 
+| `$cs_control_pre`    |  name of topic (flag it SYSTEM) to run in gambit mode on pre-pass, set by author. Runs before any sentences of the input volley are analyzed. Good for setting up initial values | 
 | `$cs_usermessagelimit` | max number of message pairs (user input & bot output) saved in topic file | 
 | `$cs_externaltag`    |  name of a topic to use to replace existing internal English pos-parser. See bottom of ChatScript PosParser manual for details | 
-| `$cs_prepass`        |  name of a topic to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like _if you see me what will you think_ to _assume you see me. What will you think?_) | 
-| `$cs_control_main`   |  name of topic to run in responder mode on main volleys, set by author | 
-| `$cs_control_post`   |  name of topic to run in gambit mode on post-pass, set by author| 
+| `$cs_prepass`        |  name of a topic  (mark it SYSTEM) to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like _if you see me what will you think_ to _assume you see me. What will you think?_) | 
+| `$cs_control_main`   |  name of topic  (flag it SYSTEM) to run in responder mode on main volleys, set by author | 
+| `$cs_control_post`   |  name of topic  (flag it SYSTEM) to run in gambit mode on post-pass, set by author| 
 | `$botprompt`         |  message for console window to label bot output | 
 | `$userprompt`        |  message for console window to label user input line| 
 | `$cs_crashmsg`       |  message to use if a server crash occurs| 

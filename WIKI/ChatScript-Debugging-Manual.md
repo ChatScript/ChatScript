@@ -259,8 +259,8 @@ If given it indicates the `$cs_token` value to use for preparation. E.g
 
     :prepare $mytoken this is a sentence.
 
-The `$cs_prepass` variable contains optional script that will be executed before the main
-control script is executed. 
+The `$cs_prepass` variable contains optional topic script that will be executed before the main
+control script is executed. The topic should be flagged SYSTEM so it does not erase itself as it gets used.
 
 The advantage of `$cs_prepass` is that it is also executed by `:prepare`, 
 so you can see traces of it there. If you want to see preparation w/o this topic

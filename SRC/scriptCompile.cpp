@@ -2842,6 +2842,11 @@ x:=y  (do assignment and do not fail)
 				*word = '*';
 				strcpy(word+1,hold);
 			}
+            else if (IsPunctuation(*word) && !word[1]) // punctuation
+            {
+                WriteKey(word);
+                WritePatternWord(word); //   memorize it to know its important
+            }
 			else // ordinary word - break off possessives as needed
 			{
 				size_t lenx = strlen(word);

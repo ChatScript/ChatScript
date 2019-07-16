@@ -60,6 +60,8 @@ I use `$cs_control_post` to have the system analyze the chatbots own output for 
 like pronoun resolution and current mood, and to generate special out-of-band messages 
 to control an avatar.
 
+These topics should be flagged SYSTEM so they do not erase itself as they gets used.
+
 The `^addtopic(~introductions)` is needed if you expect the bot is going to have the first
 word. Typically the user "logs in" and the bot responds with a greeting message first, be
 it _Welcome to ChatScript_ or _Welcome back_ if this is not your first conversation.
