@@ -490,7 +490,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             SetWildCardNull(); // dummy match to reserve place
             if (trace & TRACE_PATTERN  && CheckTopicTrace() && bidirectional != 2) Log(STDUSERLOG, (char*)"_");
             continue;
-        case '@': // factset ref
+        case '@': // factset ref or @_2+
             if (word[1] == '_') // set positional reference  @_20+ or @_0-   or anchor @_20
             {
                 if (firstMatched < 0) firstMatched = NORETRY; // cannot retry this match locally

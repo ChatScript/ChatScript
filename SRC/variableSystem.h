@@ -23,6 +23,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define MAX_WILDCARDS 30  // _0 ... _30 inclusive
 #define WILDCARD_START(x) (x & 0x0000ffff)
 #define WILDCARD_END(x) ( x >> 16)
+#define WILDENDSHIFT(x) (x << 16)
 extern  unsigned int modifiedTraceVal;
 extern bool	modifiedTrace;
 extern unsigned int modifiedTimingVal;

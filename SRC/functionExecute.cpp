@@ -2739,7 +2739,7 @@ static FunctionResult SetPositionCode(char* buffer)
 
 		if (end <= 0) end = 0;
 		if (end >= (wordCount+1)) end = wordCount + 1;
-		wildcardPosition[n] = start | (end << 16);
+		wildcardPosition[n] = start | WILDENDSHIFT(end);
 	}
 	else return FAILRULE_BIT;// set GLOBAL position -- unused at present
 	return NOPROBLEM_BIT;
@@ -6365,8 +6365,18 @@ static FunctionResult ExtractCode(char* buffer)
 	if (startFromEnd) start = len - start;
 	if (offset > 0) end = start + end; // moving forwards
 	else if (offset < 0) { // moving backwards  -8 -5 means end 8 before end, run backwards 5 char toward start
-        end = len - start;  // stop here
-        start = end - start; // swallow this
+        if (startFromEnd) // move from start backwards for end length
+        {
+            int tmp = end;
+            end = start; // ending here
+            start = end - tmp; // starting here
+        }
+        else  // move backwards from end - start   for len
+        {
+            int tmp = end;
+            end = start; // 8 -10  means start at 8, move back 10
+            start = end - tmp;
+        }
         if (start < 0) start = 0;
 	}
 	if (start >= len) return FAILRULE_BIT;
@@ -6374,7 +6384,7 @@ static FunctionResult ExtractCode(char* buffer)
 	if (end < start) return FAILRULE_BIT;
 	unsigned int startPos = UTFPosition(target, start);
 	unsigned int endPos = UTFPosition(target, end);
-	unsigned int numChars = endPos - startPos;
+	unsigned int numChars = end - start;
 	strncpy(buffer,target+startPos,numChars);
 	buffer[numChars] = 0;
 	return NOPROBLEM_BIT;

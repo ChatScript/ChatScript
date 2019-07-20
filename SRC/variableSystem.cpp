@@ -110,7 +110,7 @@ void SetWildCard(int start, int end, bool inpattern)
     }
     while (unmarked[start]) ++start; // skip over unmarked words at start
     while (unmarked[end]) --end; // skip over unmarked words at end
-    wildcardPosition[wildcardIndex] = start | (end << 16);
+    wildcardPosition[wildcardIndex] = start | WILDENDSHIFT(end);
     *wildcardOriginalText[wildcardIndex] = 0;
     *wildcardCanonicalText[wildcardIndex] = 0;
     if (start == 0 || wordCount == 0 || (end == 0 && start != 1)) // null match, like _{ .. }
@@ -137,7 +137,7 @@ void SetWildCardGiven(int start, int end, bool inpattern, int index)
     *wildcardCanonicalText[index] = 0;
     while (unmarked[start]) ++start; // skip over unmarked words at start
     while (unmarked[end]) --end; // skip over unmarked words at end
-    wildcardPosition[index] = start | (end << 16);
+    wildcardPosition[index] = start | WILDENDSHIFT(end);
     if (start == 0 || wordCount == 0 || (end == 0 && start != 1)) // null match, like _{ .. }
     {
     }
@@ -161,7 +161,7 @@ void SetWildCardGivenValue(char* original, char* canonical, int start, int end, 
     }
     else JoinMatch(start, end, index, false); // did match
     if (start == 0) start = end = 1;
-    wildcardPosition[index] = start | (end << 16);
+    wildcardPosition[index] = start | WILDENDSHIFT(end);
 }
 
 void SetWildCardIndexStart(int index)
@@ -191,7 +191,7 @@ void SetWildCard(char* value, char* canonicalValue, const char* index, unsigned 
     if (index) wildcardIndex = GetWildcardID((char*)index);
     strcpy(wildcardOriginalText[wildcardIndex], value);
     strcpy(wildcardCanonicalText[wildcardIndex], (canonicalValue) ? canonicalValue : value);
-    wildcardPosition[wildcardIndex] = position | (position << 16);
+    wildcardPosition[wildcardIndex] = position | WILDENDSHIFT(position);
 
     CompleteWildcard();
 }

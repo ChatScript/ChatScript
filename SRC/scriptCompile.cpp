@@ -1,7 +1,7 @@
 #include "common.h"
 //------------------------
 // ALWAYS AVAILABLE
-//------------------------
+//------------------------readma
 static HEAPLINK undefinedCallThreadList = 0;
 static bool nospellcheck = false;
 static int complexity = 0;
@@ -4427,7 +4427,6 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 			ptr = original;  // safe
 			break;
 		}
-	
 		
 		//   process a data set from the line
 		char* systemArgumentList = argumentList;
@@ -4523,7 +4522,8 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 
 			//   handle synonyms as needed
 			MEANING base = MakeMeaning(baseWord);
-			if (*ptr == '(' && ++ptr) while (ALWAYS) // synonym listed, create a fact for it
+            if (convertTabs) ptr = SkipWhitespace(ptr);
+            if (*ptr == '(' && ++ptr) while (ALWAYS) // synonym listed, create a fact for it
 			{
 				ptr = ReadSystemToken(ptr,word);
 				if (!*word || *word == '[' || *word == ']')  BADSCRIPT((char*)"TABLE-8 Synomym in table %s lacks token\r\n",currentFunctionDefinition->word)

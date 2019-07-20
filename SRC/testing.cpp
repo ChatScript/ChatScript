@@ -621,8 +621,10 @@ static void MemorizeRegress(char* input)
 			int topicid;
 			int id;
 			char* verify = GetVerify(why,topicid,id);
+            if (!verify) continue;
 			char* rule = GetRule(topicid,id);		// the rule we want to test
-			char label[MAX_WORD_SIZE];
+            if (!rule) continue;
+            char label[MAX_WORD_SIZE];
 			char pattern[MAX_WORD_SIZE];
 			char outputdata[MAX_WORD_SIZE];
 			char* output1 = GetPattern(rule,label,pattern);
@@ -1201,7 +1203,7 @@ static void DoAssigns(char* ptr)  // find variable assignments
 			char* eq = strchr(posn,'='); // has an assignment
 			if (!eq) break; // no assignment
 			int pos = atoi(eq+1); 
-			wildcardPosition[matchvar] = pos;	// do the assignment
+			wildcardPosition[matchvar] = pos | WILDENDSHIFT(pos);	// do the assignment
 		}
 		++posn;
 	}
