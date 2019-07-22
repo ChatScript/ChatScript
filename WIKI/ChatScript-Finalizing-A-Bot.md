@@ -446,8 +446,9 @@ What is the date?
 and then has more questions and more :resets. Eventually it has a :quit before a bunch of
 stuff I'm not wanting tested at present.
 
-The alternative way is to start a fresh conversation as a user and assuming it makes no
-mistakes then stop.
+The alternative way is to start a fresh conversation as a new user and assuming it makes no
+mistakes then stop. You need to be a completely new user because CS will read your log file and
+things like `:reset` don't clear it. You want to have only the conversation you just did in that log.
 Now you can make a regression file by typing :regress init test (or whatever user name
 you used from either mechanism). CS reads your log file and converts it into `TMP/regress.txt` or you can do
 ```

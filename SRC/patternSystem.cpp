@@ -23,14 +23,21 @@
 #define FREEMODE_BIT			0X00020000
 #define QUOTE_BIT				0X00080000
 #define NOTNOT_BIT				0X00400000
+
+#define GAPSTART                0X000000FF
+#define GAPLIMIT                0X0000FF00
+#define GAPLIMITSHIFT 8
+#define GAP_SHIFT 16
+#define GAP_SLOT 0x0000ffff      // std wildcard gaps
+#define SPECIFIC_SLOT 0x1f000000 // words or bracketed items
+#define SPECIFIC_SHIFT 24
+
 #define WILDGAP					0X20000000  // start of gap is 0x000000ff, limit of gap is 0x0000ff00  
 #define WILDMEMORIZEGAP			0X40000000  // start of gap is 0x000000ff, limit of gap is 0x0000ff00  
 #define WILDMEMORIZESPECIFIC	0X80000000  //   while 0x1f0000 is wildcard index to use
-#define GAP_SHIFT 16
-#define GAP_SLOT 0x0000ffff
-#define SPECIFIC_SLOT 0x1f000000
-#define SPECIFIC_SHIFT 24
-#define GAPLIMITSHIFT 8
+// bottom 16 bits hold start and range of a gap (if there is one) and bits WILDGAP or MEMORIZEWILDGAP will be on
+// and slot to use is 5 bits below
+// BUT it we are memorizing specific, it must use separate slot index because _*~4 _() can exist
 int patternDepth = 0;
 bool matching = false;
 bool deeptrace = false;
@@ -380,7 +387,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
     patternDepth = depth;
     int wildgap = 0;
     if (wildcardSelector &  WILDGAP && *kind == '{')
-        wildgap = ((wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff) + 1;
+        wildgap = ((wildcardSelector & GAPLIMIT) >> GAPLIMITSHIFT) + 1;
     memset(&matchedBits[depth], 0, sizeof(uint64) * 4);  // nesting level zone of bit matches
     char word[MAX_WORD_SIZE];
     char* orig = ptr;
@@ -471,7 +478,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             else if ((positionEnd - positionStart) == 1 && reverse) positionStart = positionEnd; // If currently matched a phrase, move to end. 
 
                                                                                                  //  aba or ~dat or **ar*
-            if (ptr[0] != '*' || ptr[1] == '*') // wildcard word
+            if (ptr[0] != '*' || ptr[1] == '*') // wildcard word or () [] {}, not gap
             {
                 wildcardSelector &= -1 ^ SPECIFIC_SLOT;
                 wildcardSelector |= (WILDMEMORIZESPECIFIC + (wildcardIndex << SPECIFIC_SHIFT));
@@ -503,8 +510,8 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 if (*end && (wildcardSelector & WILDMEMORIZEGAP) && !reverse) // close to end of sentence 
                 {
                     positionStart = wordCount; // pretend to match at end of sentence
-                    int start = wildcardSelector & 0x000000ff;
-                    int limit = (wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff;
+                    int start = wildcardSelector & GAPSTART;
+                    int limit = (wildcardSelector & GAPLIMIT) >> GAPLIMITSHIFT ;
                     if ((positionStart + 1 - start) > limit) //   too long til end
                     {
                         matched = false;
@@ -523,8 +530,8 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 if (*end && (wildcardSelector & WILDMEMORIZEGAP) && reverse) // close to start of sentence 
                 {
                     positionEnd = 1; // pretend to match here (looking backwards)
-                    int start = wildcardSelector & 0x000000ff;
-                    int limit = (wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff;
+                    int start = wildcardSelector & GAPSTART;
+                    int limit = (wildcardSelector & GAPLIMIT) >> GAPLIMITSHIFT;
                     if ((start - positionEnd) > limit) //   too long til end
                     {
                         matched = false;
@@ -929,7 +936,10 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 int rEnd = positionEnd;
                 unsigned int oldselect = wildcardSelector;
                 int uppercasemat = 0;
-                // nest inherits gaps leading to it. memorization requests withheld til he returns
+                // nest inherits gaps leading to it. 
+                // memorization requests withheld til he returns.
+                // may have 2 memorizations, gap before and the () item
+                // Only know close of before gap upon return
                 int whenmatched = 0;
                 char* type = "[";
                 if (*word == '(') type = "(";
@@ -944,21 +954,21 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 }
                 int localRebindable = 0; // not allowed to try rebinding start again by default
                 if (positionStart == INFINITE_MATCH) localRebindable = 1; // we can move the start
-                if (oldselect & WILDGAP) localRebindable = 2; // allowed to gap in 
+                if (oldselect & (WILDMEMORIZEGAP | WILDGAP)) localRebindable = 2; // allowed to gap in 
                 int select = wildcardSelector;
-                if (select & WILDMEMORIZEGAP) // dont memorize within, do it out here.
+                if (select & WILDMEMORIZEGAP) // dont memorize within, do it out here but pass gap in
                 {
                     select ^= WILDMEMORIZEGAP;
                     select |= WILDGAP;
                 }
                 else if (select & WILDMEMORIZESPECIFIC) select ^= WILDMEMORIZESPECIFIC;
-
+                int bracketstart = positionEnd + 1; 
                 matched = Match(buffer, ptr, depth + 1, positionEnd, type, localRebindable, select, returnStart,
                     returnEnd, uppercasemat, whenmatched, positionStart, positionEnd, reverse); //   subsection ok - it is allowed to set position vars, if ! get used, they dont matter because we fail
                 wildcardSelector = oldselect; // restore outer environment
-                if (matched)
-                {
-                    // monitor which pattern in multiple matched
+               if (matched) // position and whenmatched may not have changed
+               {
+                   // monitor which pattern in multiple matched
                      // return positions are always returned forward looking
                     if (reverse && returnStart > returnEnd)
                     {
@@ -967,9 +977,21 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                         returnEnd = x;
                     }
 
-                    positionStart = returnStart;
+                    if (wildcardSelector & WILDMEMORIZEGAP) // the wildcard for a gap BEFORE us
+                    {
+                        int index = (wildcardSelector && GAP_SLOT ) >> GAP_SHIFT;
+                        wildcardSelector &= -1 ^ (WILDMEMORIZEGAP| WILDGAP); // remove the before marker
+                        int brackend = whenmatched; // gap starts here
+                        if (whenmatched > 0) returnStart = whenmatched;
+                        SetWildCardGiven(bracketstart, brackend - 1, true, index);  //   wildcard legal swallow between elements
+                    }
+                    else if (wildcardSelector & WILDGAP) // the wildcard for a gap BEFORE us
+                    {
+                        if (whenmatched > 0) returnStart = whenmatched;
+                    }
+                    if (returnStart > 0) positionStart = returnStart;
                     if (positionStart == INFINITE_MATCH && returnStart > 0 && returnStart != INFINITE_MATCH) positionStart = returnEnd;
-                    positionEnd = returnEnd;
+                    if (returnEnd > 0) positionEnd = returnEnd;
 
                     // copy back marking bits on match
                     if (!(statusBits & NOT_BIT)) // wanted match to happen
@@ -1250,7 +1272,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
         if ((wildcardSelector & WILDGAP) && matched) // test for legality of gap
         {
             int endOfGap = matchStarted; // where we think we are now at current match
-            memorizationStart = matchStarted = (wildcardSelector & 0x000000ff); // actual word we started at
+            memorizationStart = matchStarted = (wildcardSelector & GAPSTART); // actual word we started at
                     
             unsigned int ignore = matchStarted;
             int gapSize;
@@ -1266,7 +1288,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 while (ignore > endOfGap) {if (unmarked[ignore--]) --gapSize;}// no charge for ignored words in gap
             }
 
-            int limit = (wildcardSelector >> GAPLIMITSHIFT) & 0x000000ff;
+            int limit = (wildcardSelector & GAPLIMIT) >> GAPLIMITSHIFT;
             if (gapSize < 0) legalgap = false; // if searched _@10- *~4 > 
             else if (gapSize <= limit)
             {
@@ -1318,7 +1340,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                         else SetWildCardGiven(positionEnd, positionStart ,  true, index);  //   wildcard legal swallow between elements
                     }
                     else if ((positionStart - memorizationStart) == 0) SetWildCardGivenValue((char*)"", (char*)"", 0, oldEnd + 1, index); // empty gap
-                    else
+                    else // normal gap
                     {
                         SetWildCardGiven(memorizationStart, positionStart - 1, true, index);  //   wildcard legal swallow between elements
                         if (positionEnd < (positionStart - 1)) positionEnd = positionStart - 1;	// gap closes out 
@@ -1422,7 +1444,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 }
             }
         }
-        else if (!legalgap && rebindable != 2) // forward requirement must be tested (1 means we are allowed to rebind)
+        else if (!legalgap) //  && rebindable != 2  forward requirement must be tested (1 means we are allowed to rebind)
         {
             if (oldEnd < oldStart && positionStart <= (oldStart + 1)) { ; } // legal move ahead given matched WITHIN last time -- what does match within mean?
             else if (positionStart >(oldEnd + 1))  // failed to match position advance of one
@@ -1437,6 +1459,12 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                     positionEnd = oldEnd;
                 }
             }
+        }
+        else // simple advance failed, not rebindable
+        {
+            matched = false;
+            positionStart = oldStart;
+            positionEnd = oldEnd;
         }
 
         if (trace & TRACE_PATTERN  && CheckTopicTrace())
