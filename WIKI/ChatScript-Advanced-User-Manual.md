@@ -47,7 +47,7 @@ A rule's code can be a mixture of CS script to execute and words to say to the u
 Code can invoke other topics or directly request execution of a specific rule. 
 When the rule code completes, if user output has been generated, then by default no more rules are
 initiated anywhere in the system. Rules currently in progress complete their code. 
-If no output was generated, the topic continues onto the next rule, trying to match its pattern.
+If no output was generated, the topic continues on to the next rule, trying to match its pattern.
 When a topic completes without generating output, it merely returns to its caller code, 
 which continues executing normally.
 
@@ -122,6 +122,7 @@ User variables also come in permanent and transient forms.
 
 System variables begin with %. Normally these are simply read-only data,
 but it is legal to assign to them as well, with certain consequences.
+
 ```
 %response = 5
 ```
@@ -131,6 +132,7 @@ the system is stand-alone or a server.
 
 The other consequence is that usually the change is locked in permanently until you
 tell the system to release it by assigning a dot to it.
+
 ```
 %response = .  # release current override and use the normal value again
 ```
@@ -138,9 +140,11 @@ tell the system to release it by assigning a dot to it.
 Some assignments are not locking. %input is one of those.
 
 In addition to overriding system variables, if "regression" via
+
 ```
 %regression = 1
 ```
+
 is turned on, some variables return fixed values. Things like date and time have a constant
 value so as not to interfere with regression testing.
 
@@ -299,7 +303,7 @@ Of course, had you tried to do `^argument2 += 1` then that would be the illegal 
 The CS natural language workflow consists of taking the user's input text, splitting it into tokens
 and stopping each time at a perceived sentence boundary. It continues with the input after processing that
 "sentence". That leaves two tricky bits: what is a token and what is a sentence boundary.
-The $cs_token variable gives you some control over how these work.  The naive definition of a token is a 
+The `$cs_token~ variable gives you some control over how these work.  The naive definition of a token is a 
 sequence of letters terminating in a space or end of input. But there are
 exceptions to that like some kind of sentence punctuation (comma, period, colon, exclamation) is not part of a bigger token.
 The sentence punctuation notion has exceptions, like the period within a floating point number or as part of an abbrviation or webaddress.
@@ -332,6 +336,7 @@ could be processed by your script. Although the 2 data oob items are inconsisten
 shown, the protocol you use is entirely up to you within the `[]` area.
 
 Here is a sample pattern to catch oob data.
+
 ```
 u: ( < \[ * speed _*1 * \] ) The speed is _0
 
@@ -342,6 +347,7 @@ You need `*` in front of your data when you can have multiple forms of data and 
 `* \]` after your data to ensure you don't match words from user input.
 
 On output you need to do one of these
+
 ```
 u: () \[ oob data \] Here is user message
 
@@ -443,7 +449,7 @@ Windows Defender, Norton, and the like have a real-time monitoring system on fil
 
 ## Build warning messages
 
-Build will warn you of a number of situations which, not illegal, might be mistakes.
+Build will warn you of a number of situations which, while not illegal, might be mistakes.
 It has several messages about words it doesn't recognize being used as keywords in
 patterns and concepts. You can suppress those messages by augmenting the dictionary
 OR just telling the system not to tell you
@@ -585,12 +591,15 @@ Renames can also rename concept sets:
     rename: @myset @1
 
 so you can do:
+
 ```
 @myset += createfact( 1 2 3)
 $$tmp = first(@mysetsubject)
 ```
+
 You can also declare your own 32 or 64-bit integer constants. You must use ## when you define it and when you
 refer to it.
+
 ```
 rename: ##first 1
 $tmp = ##first
@@ -604,6 +613,7 @@ see [ChatScript Fact Manual](ChatScript-Fact-Manual.md).
 ## Documenting variables, functions, factsets, and match variables
 
 You can use `:define` to add a documentation string to many things. E.g.,
+
 ```
 describe: $myvar "used to store data"
  _10 "tracks pos tag"
@@ -625,11 +635,9 @@ This line is normally ignored because it is a comment line and not a named numer
 But if you put the `#german` as a tail parameter of the `:build` command, you enable it:
 
 You can also handle blocks of code analogous to the block comment convention by appending a label to the <<## :
-```
-<<##SPECIAL ...
-... >>##
-```
 
+    <<##german ...
+    ... >>##
 
     :build Harry #german
 
@@ -708,14 +716,17 @@ See Control over Input.
 ## Selecting Specific Cases `^refine`
 
 To be efficient in rule processing, I often catch a lot of things in a rule and then refine it.
+
 ```
 u: ( ~country ) ^refine() # gets any reference to a country
     a: (Turkey) I like Turkey
     a: (Sweden) I like Sweden
     a: (*) I've never been there.
 ```
+
 Equivalently one could invoke a subtopic, though that makes it less obvious what is
 happening, unless you plan to share that subtopic among multiple responders.
+
 ```
 u: ( ~country ) ^respond(~subcountry)
 
@@ -729,6 +740,7 @@ u: (*) ...
 The subtopic approach makes sense in the context of writing quibbling code. The outside
 topic would fork based on major quibble choices, leaving the subtopic to have potentially
 hundreds of specific quibbles.
+
 ```
 ?: (<what) ^respond(~quibblewhat)
 ?: (<when) ^respond(~quibblewhen)
@@ -768,6 +780,7 @@ So one can reuse that gambit's output any number of times.
 If you don't want that behavior you can either add a disable on the responder
 OR tell `^reuse` to skip used rules by giving it a second argument (anything). 
 So one way is:
+
 ```
 t: HOUSE () I live in a small house
 
@@ -775,6 +788,7 @@ u: SELF (where * you * live) ^disable(RULE SELF) ^reuse(HOUSE)
 ```
 
 and the other way is:
+
 ```
 t: HOUSE () I live in a small house
 
@@ -788,19 +802,24 @@ Now, suppose you want to notice that you already told the user about the house s
 asks again you can say something like: You forgot? I live in a small house. 
 How can you do that. 
 One way to do that is to set a user variable from HOUSE and test it from the responder.
+
 ```
 t: HOUSE () I live in a small house $house = 1
 
 u: ( where * you * live ) [$house You forgot?] ^reuse(HOUSE)
 ```
+
 If you wanted to do that a lot, you might make an outputmacro of it:
+
 ```
 outputmacro: ^heforgot(^test) [^test You forgot?]
     t: HOUSE () I live in a small house $house = 1
 
     u: ( where * you * live ) heforgot($house ) ^reuse(HOUSE)
 ```
+
 Or you could do it on the gambit itself in one neat package.
+
 ```
 outputmacro: ^heforgot(^test) [^test You forgot?] ^test = 1
     t: HOUSE () heforgot($house ) I live in a small house.
@@ -905,14 +924,16 @@ stream. And match variables will usually have simple text, so they go into the o
 stream. But you can assign into match variables yourself, so really they can hold
 anything.
 So what results from this:
+
 ```
 u: (x)
 $var2 = apples
 $var1= join($ var2)
 I like $var1
 ```
-$var2 is set to apples. It stores the name (not the content) of $var2 on $var1 and then I
-like is printed out and then the content of $var1 is then evaluated, so $var2 gets
+
+`$var2` is set to apples. It stores the name (not the content) of `$var2` on `$var1` and then I
+like is printed out and then the content of `$var1` is then evaluated, so `$var2` gets
 evaluated, and the system prints out apples.
 
 This evaluation during output is in contrast to the behavior on the pattern side where the
@@ -975,13 +996,16 @@ even if you put ^disable(RULE ~) on a rule.
 ___How can I get the original input when I have a pattern like `u: (~emogoodbye)` ?___
 
 To get the original input, you need to do the following:
+
 ```
 u: ( ~emogoodbye )
     $tmptoken = $cs_token
     $cs_token = 0
     ^retry(SENTENCE)
 ```
+
 and at the beginning of your main program you need a rule like this:
+
 ```
 u: ( $tmptoken _* )
     $cs_token = $tmptoken
@@ -1128,6 +1152,7 @@ You can prepare such a sentence just as the system does an ordinary line of inpu
 calling `^analyze(value)`. This tokenizes the content, performs the usual parse and mark of
 concepts and gets you all ready to begin pattern matching using some topic. Generally I
 do this during the post-process phase, when we are done with all user input. Therefore,
+
 ```
 t: ^query(direct_v ? chatoutput ? -1 ? @9 ) # get the sentences
 loop()
