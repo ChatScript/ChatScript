@@ -420,6 +420,9 @@ If the word was a phrase, then all words in that phrase have the mark removed. T
 But it is not symmetric to `^mark` because it does not remove all implied marks that mark
 may have set. 
 
+If you end up calling ^unmark with a 2nd argument of null, it will just return without failure.
+This can happen if you pass null to an outputmacro: ^myfn(^var) and then ^unmark(xxx ^var).
+
 ### `^unmark ( * n )`
 
 Assuming `n` is within `1` and sentence word limit, this unmarks all
