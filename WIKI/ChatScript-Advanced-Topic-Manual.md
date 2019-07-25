@@ -12,6 +12,7 @@ There are several things to know about advanced topics.
 When a topic is executing rules, it does not stop just because a rule matches. It will keep
 executing rules until some rule generates ouput for the user or something issues an
 appropriate `^end` or `^fail` call. So you can do things like this:
+
 ```
 u: ( I love ) $userloves = true
 
@@ -21,6 +22,7 @@ u: ( love ) Glad to hear it
 
 u: ( dog ) I hate dogs
 ```
+
 and given _I love dogs_, the system will set $userloves and $animal and output _glad to hear it_.
 
 
@@ -128,12 +130,13 @@ That is, a topic treated as a collection of subtopics for gambit purposes.
 This is `r:` The engine selects an `r:` gambit randomly, but any `t:` topic gambits that follow
 it up until the next random gambit are considered "attached" to it. They will be executed
 in sequence until they are used up, after which the next random gambit is selected.
+
 ```
 Topic: ~beach [beach sand ocean sand_castle]
 
 # subtopic about swimming
 r: Do you like the ocean?
-:bui
+
 t: I like swimming in the ocean.
 
 t: I often go to the beach to swim.

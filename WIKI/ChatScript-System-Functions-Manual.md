@@ -212,7 +212,7 @@ This rule will not erase but the responding rule might.
 If the first value fails to generate an answer, it tries the second, and so on. 
 You can supply an optional last argument `FAIL`, 
 in which case it will return `FAILRULE_BIT` if it didn't fail but it didn't generate any new output either.
-You could instead supply an optiona last argument `TEST`, in which case a topic is executed to see if a rule will 
+You could instead supply an optional last argument `TEST`, in which case a topic is executed to see if a rule will 
 match. If so, the tag is returned and no output is made from the topic (and no rule is used up). 
 
 If a value designates a labelled or tagged rule (e.g., `~mytopic.mylabel` or `~mytopic.1.0`) 
@@ -258,6 +258,7 @@ or not any output was generated.
 
 When it executes the output of the other rule, that rule is credited with matching and is
 disabled if it is allowed. If not allowed, the calling rule will be disabled if it can be.
+
 ```
 t: NAME () My name is Bob.
 
@@ -267,6 +268,7 @@ t: NAME () My name is Bob.
 ?: ( << what you girlfriend name >> ) 
     ^reuse(~SARAH.NAME)
 ```
+
 Normally reuse will use the output of a rule whether or not the rule has been disabled.
 But, if you supply a 2nd argument (whatever it is), then it will ignore disabled ones and
 try to find one with the same label that is not disabled. You can also supply a `FAIL`
@@ -363,8 +365,8 @@ all concepts implied by chasing up membership in other concepts, as does this ca
 There are two mechanisms supported using `^mark` and `^unmark`: specific and generic.
 
 With `specific`, you name words or concepts to mark or unmark, either at a particular point
-in the sentence or throughout the sentence. By default or using the optional third argument `ALL`,
-not only the what you name marked, but anything it in turn is a part of is marked.  The optional third
+in the sentence or throughout the sentence. By default, or using the optional third argument `ALL`,
+not only is what you name marked, but anything it in turn is a part of is marked.  The optional third
 argument `ONE` will only mark that named word/concept and none of the hierarchy implied by its membership
 in yet some other concept.
 
@@ -600,9 +602,11 @@ been separated.
 The argument is the name of a match variable.
 Whatever it has memorized will be used to locate the corresponding series of words 
 in the original raw input from the user that led to this match. That is, the value is prior to any spell correction done by ChatScript.
+
 ```
 u: (my _life) ^original(_0)
 ```
+
 For input "my lif" spell correction will change the input to "life", which matches here,
 but ^original will return "lif".
 
@@ -697,7 +701,19 @@ Starting by default at `_0`, if you assign it like this:
     _3 = ^timeinfofromseconds(%fulltime)
     
 it will start at `_3`. 
-The items you get are: seconds, minutes, hours, date in month, month name, year, day name of week, month index (jan==0), dayofweek index (sun==0).
+The items you get are: 
+
+| value | offset |
+| --- | --- |
+| seconds | 0 |
+| minutes | 1 |
+| hours | 2 |
+| date in month | 3 |
+| month name | 4 |
+| year | 5 |
+| day name of week | 6 |
+| month index (jan==0) | 7 |
+| dayofweek index (sun==0) | 8 |
 
 
 ### `^timetoseconds ( seconds minutes hours date-of-month month year )`
@@ -890,7 +906,7 @@ You can execute debugging commands through here. E.g.,
 
 Note that it is hard to turn on :trace this way, because the system resets it
 internally at various points. The correct way to manipulate trace is 
-to do  $cs_trace = -1 in regular script, outside of ^command.
+to do  `$cs_trace = -1` in regular script, outside of ^command.
 
 
 ### `^end ( code )`
@@ -975,7 +991,7 @@ This clears all match variables to empty.
 
 This does a pattern match using the contents of what (usually a variable reference). 
 It fails if the match against current input fails. It operates on the current
-analyzed sentence which is usually the current input, but since you can call ^next(input)
+analyzed sentence which is usually the current input, but since you can call `^next(input)`
 or `^analyze()` it is whatever the current analysis data is.
 
     if (%more AND ^match(^"(< ![~emocurse ~emothanks] ~interjections >)" ) )
@@ -1013,7 +1029,7 @@ and later
 
 You can also just say `^match(~someconcept)` and it will test the current input for that concept.
 
-'`$$csmatch_start` and `$$csmatch_end` are assigned to provide the range of words that `^match` used.
+`$$csmatch_start` and `$$csmatch_end` are assigned to provide the range of words that `^match` used.
 
 
 ### `^matches ()` 

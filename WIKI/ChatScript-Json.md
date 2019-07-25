@@ -8,17 +8,22 @@
 JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit
 data objects over the web. It is a common standard largely replacing XML which is too wordy and hard
 to read. JSON has two datatypes that represent collections of values, the array and the object.
-A JSON array is a list of JSON entities separated by commas and placed within `[]`, e.g.,
+A JSON array is a list of JSON entities separated by commas and placed within square brackets `[]`, e.g.,
 ```
 [ A, 2, [ help, life], [] ]
 ```
 Indices of an array start at 0, so the above has as values:
-[0] = A [1] = 2 [2] = an array of 2 values [3] = an empty array
+
+    [0] = A 
+	[1] = 2 
+	[2] = an array of 2 values 
+	[3] = an empty array
 
 Note that arrays can hold values of different types (since really everything internally is a text type). The JSON types are array, object, number, string
 (enclosed in doublequotes), and primitives (text without doublequotes that cannot contain any
 whitespace). Array values are ordered and always retain that order.
-A JSON object is a list of key-value pairs separated by commas and placed within {}, e.g.,
+A JSON object is a list of key-value pairs separated by commas and placed within curly braces `{}`, e.g.,
+
 ```json
 { 
     "key1": 1, 
@@ -28,6 +33,7 @@ A JSON object is a list of key-value pairs separated by commas and placed within
     "object12": {} 
 }
 ```
+
 Each key must be encased in quotes and joined to an ending colon. Whitespace separates the colon
 from the value. Again types can be mixed in the values. `{}` is the empty object. Key-value pairs have
 no guaranteed order and may shuffle around if you manipulate the structure.
@@ -38,7 +44,7 @@ You can nest arrays and objects inside each other.
 
 JSON is an excellent language to represent more complex ChatScript facts as well as interact with the
 web. ChatScript can convert back and forth between the JSON text string passed over the web and
-ChatScript facts that represent the structure internally. If you tried to create facts using ^CreateFact, you
+ChatScript facts that represent the structure internally. If you tried to create facts using ^createfact(), you
 would find making the data shown below extremely difficult and non-obvious. But as JSON, it is easy
 to create facts to represent the structure and to access pieces of it.
 
@@ -75,7 +81,7 @@ structure in CS, the facts will all be unique.
 ## Accessing the web with JSON
 
 You will learn how to create JSON structures below. The other key to a
-web-enabled CS is ^jsonopen. To see how easy it is to talk to the web,
+web-enabled CS is ^jsonopen(). To see how easy it is to talk to the web,
 just look at this code.
 
 ```
@@ -449,18 +455,20 @@ But for large numbers of elements (eg a thousand +) this is ineffient because it
 search for each element each time. The efficient way is:
 
 ```
-    jsonloop($_jsonobject $_field $_value)
+    ^jsonloop($_jsonobject $_field $_value)
     {
         ...
     }
+```
 
-where the loop runs defaults to most recent entry to least recent, putting the field name in $_field and
-its value in $_value. Similarly for a jsonarray it does the index as $_field and $_value is its
+where the loop runs most recent entry to least recent, putting the field name in `$_field` and
+its value in `$_value`. Similarly for a jsonarray it does the index as `$_field` and `$_value` is its
 value.
 
 You can choose (or annotate) which way the loop runs by adding an optional 3rd argument OLD or NEW.
-^jsonloop($_jsonarray $_index $_value OLD) will walk oldest first (i.e. index 0 and increasing).
-^jsonloop($_jsonarray $_index $_value NEW) will walk newest first (i.e. index max and decreasing).
+
+    ^jsonloop($_jsonarray $_index $_value OLD) will walk oldest first (i.e. index 0 and increasing).
+	^jsonloop($_jsonarray $_index $_value NEW) will walk newest first (i.e. index max and decreasing).
 
 
 ### `^length`( jsonid )
@@ -643,9 +651,11 @@ JSON objects are similarly named `jo-n`.
 
 Unlike JSON, which makes a distinction between primitives and strings, in ChatScript those things are all strings and are not quoted.
 So a JSON string like this:
+
 ```
 [ {"id": 1 "value": "hello"} {"id": 2 "value": "bye"} ]
 ```
+
 returns this value: `ja-1` and these facts. 
 The facts have flags on them which you can use in queries. 
 You may not have any need to use these flags, so maybe you will just ignore their existence.
@@ -685,6 +695,7 @@ that means doing this:
 ```
 sudo yum -y install libcurl libcurl-devel
 ```
+
 On some other machines that doesn't install library stuff and maybe you need
 
 ```
@@ -741,13 +752,17 @@ more sentences to CS as input).
 OOB data is then processed by your script in any way you want. So
 one clever thing you can do is pass in JSON data within the OOB to get temporary facts into your app
 during a volley. Input might look like this:
+
 ```
 [ [ a b { "bob": 1, "suzy": 2 } ] ] What is your name?
 ```
+
 You can pattern match the oob section of the input as follows:
+
 ```
 u: ( \[ _* ) $_tmp = ^jsonparse('_0)
 ```
+
 `_0` will contain an excess right bracket (the end of the oob message), but that won't bother `^jsonparse`.
 
 Representing JSON in CS facts is more than just a bunch of subject-verb-object facts linked together.
@@ -830,4 +845,3 @@ u: ( testcase4 )
       $_i += 1
     }
 ```
-        

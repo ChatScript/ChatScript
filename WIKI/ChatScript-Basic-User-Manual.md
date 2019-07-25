@@ -136,7 +136,7 @@ ChatScript is case insensitive for code script. Obviously case is important in l
 output. 
 
 And **words in patterns should be lower case** 
-unless they are proper names or the word "_I_". 
+unless they are proper names or the word "I". 
 
 NOTE: Don't make a lowercase word be upper case in a pattern merely because you
 think of it as starting a sentence.
@@ -159,7 +159,7 @@ There are special documentation comments that start with `#!` described elsewher
 
 ### Legal declaration names 
 
-A _topic_ or _function_ (defined later) must contain only alpha-numeric characters, underscores (`_`), hyphens (`-`), and periods (`.`). They must begin with `~` and then continue with a starting alphabetic character. 
+A _topic_ or _function_ (defined later) must contain only alpha-numeric characters, underscores (`_`), hyphens (`-`), and periods (`.`). They must begin with tilde (~`) and then continue with a starting alphabetic character. 
 
 _Variables_ must start with `$` or `$$` or `$_`, 
 then continue with a starting alphabetic character and then continue with alpha-numerics, underscores, or hyphens. 
@@ -261,7 +261,7 @@ concept set of words, a list of words that approximates the `~word`. E.g.,
 
 These are shareable shorthand for the `[` `]` notation. 
 Instead of having to write `[elephant tiger leopard alligator crocodile lion …]` 
-in lots of rules, with the appropriate concept defined one can merely say `~animals` 
+in lots of rules, with the appropriate concept defined one can merely say `~animals`.
 
 Rules are always bundled into topics, like the topic: `~childhood`. 
 Topics have a list of relevant keywords following the topic name. After that, rules come in any order. 
@@ -270,6 +270,7 @@ The gambits, `t:` lines, offer a story or expected conversation flow.
 If you ask for information in a conversation, you are expected to balance the scales by giving information. 
 For example if you ask what someone does for a hobby, 
 you are expected after their response to answer the question about yourself. As in:
+
 ```
 topic: school [school university learn]
 
@@ -280,11 +281,11 @@ t: I am studying finance.
 ```
 
 Of course one is often expected to respond to the user’s response. So if he answers
-where do you go to school by saying _the university of Rochester_, it helps if you can
+_where do you go to school_ by saying _the university of Rochester_, it helps if you can
 make some cogent rejoinder on that BEFORE you gambit say _I go to Harvard_.
 
 ```
-topic: school [school university learn]
+topic: ~school [school university learn]
 
 t: Where do you go to school?
     a: (Rochester) That's a great school.
@@ -354,7 +355,7 @@ what topic to execute at any moment. It, in turn, executes its rules.
 Here is an example of a simple topic declaration:
  
 ```
-topic: ~DEATH [dead corpse death die body]
+topic: ~death [dead corpse death die body]
 
 t: I don’t want to die
 ?: (When will you die) I don’t know. 
@@ -492,8 +493,7 @@ then the system just moves on to its normal behavior.
 Rejoinders can have rejoinders, as shown above. 
 Indenting like above is good style, making it visually obvious in your script. 
 
-Note
-<br>
+Note  
 technically the above uses of yes and no will not actually work as written. 
 They are considered special and treated as _interjections_ 
 (along with many other things that mean the same thing). 
@@ -509,7 +509,8 @@ debug abilities to test that rule and you can see that rule more easily in a tra
 get a kind of documentation telling you what your rule is about. 
 
 A label is a single word placed between the rule type and the pattern. 
-If the rule is a gambit, you must add a pattern, even if it is only empty parens. 
+If the rule is a gambit and you want to add a label, 
+you must add a pattern, even if it is only empty parens. 
 
 ```
 t: MY_EYES () My eyes are blue
@@ -525,7 +526,7 @@ not a declaration of a rule and a label.
 
 Also, while you can use any case you want in the rule label, internally ChatScript will convert
 it to full uppercase. Routines that deal with rule labels know this so you don't have to care.
-All uppercase rule labels stand out more easily in traces and in script source.
+All uppercase rule labels stand out more easily in traces and in script source and are considered good form.
 
 The `childhood.top` file has an example topic called `~childhood` of normal complexity
 (which can be understood after reading through advanced output).
@@ -636,7 +637,7 @@ it absorbs.
     ?: (when *1 you *1 home) I went home yesterday
 
 This matches _When did you go home?_ but won’t accept wide variances like _When Roger is
-with you_ nor will it accept _when you went home_ which hasn’t room for the first `*1`. 
+with you, will there be anyone at home?_ nor will it accept _when you went home_ which hasn’t room for the first `*1`. 
 
 
 ## Range-restricted Wildcards `*~n`
@@ -736,7 +737,7 @@ The pattern:
 
     ?: ( which * better * ~pokerhand * or * ~pokerhand ) … 
 
-detects questions like which is better, a full house or a royal flush and the system has
+detects questions like _which is better, a full house or a royal flush_ and the system has
 functions that can exploit the ordered concept to provide a correct answer.
 
 You can nest concepts within concepts, so this is fine: 
@@ -1110,7 +1111,7 @@ If you use match variables, they are allocated in the order of the pattern. E.g.
 
     s: ( _~fruit [_~animal _bear] _~like )
 
-In the above, `_0` is a fruit and `_2` is a like, and the `_~animal` or `_bear` is `_1`. 
+In the above, `_0` is a fruit and `_2` is a like, and `_1` is `_~animal` or `_bear`.
 
 If you had NOT put `_`in front of bear, you are at risk that the `~like` match may be `_1` or `_2`,
 depending on what happened inside `[]`. That's your headache if you use nested memorization.
@@ -1162,6 +1163,7 @@ to control operator precedence. E.g.,
 
 
 You can even assign sets of facts in various ways (see [ChatScript Fact Manual](ChatScript-Fact-Manual.md) for understanding facts) like:
+
 ```
 @2 = @3 # put all facts in 3 into 2
 @2 += @3 # augment 2 with facts of 3 (allows duplicates)
@@ -1170,12 +1172,10 @@ You can even assign sets of facts in various ways (see [ChatScript Fact Manual](
 @2 += $$factid # add fact id to 2
 @2 -= $$factid # remove factid from 2
 ```
-
-WARNING:
-<br>
+WARNING:  
 Be careful with extended arithmetic. Each operation applies to the result of the last.
 
-    $myvalue += 2 * 4 means ( $myvalue + 2) * 4.
+    $myvalue += 2 * 4 means ($myvalue + 2) * 4.
     $tmp = %hour + $tmp means (2 * %hour)
 
 Of course it would have been clearer to write this as:
@@ -1183,7 +1183,7 @@ Of course it would have been clearer to write this as:
     $myvalue = $foo + 20 * 5 / 59
 	This is normal output after the assignment. 
 
-You cannot use the name of the variable you are assigning to in the right hand side, as
+You should not use the name of the variable you are assigning to in the right hand side, as
 arithmetic is performed progressively across the terms, so the variable is overwritten on
 the first term. Similarly, you may be surprised by something like this:
 
@@ -1208,13 +1208,13 @@ such relation is `=`, also writeable as `==`.
 
     ?: ( $gender=male I like boys ) Oh, dear.
 
-Here, the rule will only start checking for input matches if $gender has the value male
+Here, the rule will only start checking for input matches if `$gender` has the value male
 (case insensitive). If it is not defined or has any other value, this rule fails immediately.
 A relational test requires the two sides of the relation and the relation symbol all be
 jammed together with no spaces. So the following rule is tantamount to seeing if `$gender`
-has ever been assigned to, followed by seeing if the user typed =male anywhere.
+has ever been assigned to, followed by seeing if the user typed _=male_ anywhere.
 
-   ?: ( $gender =male ) 
+    ?: ( $gender =male ) 
 
 Other relations are `<` and `>`, which will require the system convert the variable’s text
 value into numeric.
@@ -1242,7 +1242,7 @@ assignment is dual form and passes the position along.
 
 ## Clearing variables
 
-You can erase a user variable or match variable by setting it to null:
+You can erase a user variable or match variable by setting it to `null`:
 
     $myvar = null
     _3 = null
