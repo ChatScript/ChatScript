@@ -31,6 +31,7 @@ move it somewhere else.
 * Leave blank line before top level rule.
 
 Examples:
+
 ```
 t: How are you
     a: (~goodness) glad to hear it.
@@ -84,6 +85,7 @@ This allows others to refer to your rule and maybe find it in log files of custo
 * Give multiple samples for wildly different sentence constructions when you have multiple patterns in a rule.
 
 Examples:
+
 ```
 t: What year is it?
     #! 1993
@@ -224,7 +226,7 @@ it makes it easier to find the definition when you want to inspect it.
 
 ## Keyword Casing and Misspellings
 
-Use standard dictionary casing (or product owner ‘s casing in the case of new
+Use standard dictionary casing (or product owner's casing in the case of new
 non-words in the language) for keywords in concepts or patterns.
 
 Avoid putting misspellings in concepts or keywords. Use replace: in your
@@ -236,6 +238,7 @@ But use `:replace` only when the misspell has only one possible obvious value.
 For misspellings which are legal words, add them to concepts or keywords.
 
 Examples:
+
 ```
 concept: ~protocols (Blu-ray WiFi)
 replace: blue_ray Blu-ray # true always. Do this as the correct spelling

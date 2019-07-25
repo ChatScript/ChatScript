@@ -30,6 +30,7 @@ code in various ways. It is the "unit test" of a rule. If you've annotated your 
 way, you can issue :verify commands.
 
 Typically I start with proving the patterns work everywhere.
+
 ```
 :verify pattern
 ```
@@ -39,78 +40,97 @@ Then I confirm keywords to access topics are OK.
 ```
 :verify keyword
 ```
+
 Then I verify rules don't block each other in a topic.
 
 ```
 :verify blocking
 ```
+
 Thereafter I can just do :verify to cover all of those. 
 
 
 Then I do more exotic checks:
+
 ```
 :verify sampletopic
 ```
- or 
- ```
+
+or 
+
+
+```
  :verify sample
 ```
+
 will tell me if a sample would end up answered by some other topic. If I don't like the
 answer, then I need to fix that other topic's rule. Sampletopic just tells you if the rule was
 hijacked by a different topic. Sample tells you even if some other rule in the same topic
 hijacked you.
 
 And I might do
+
 ```
 :verify gambit
 ```
+
 to see if the bot can answer questions it poses the user in gambits.
 You can also verify individual topics in various ways. 
 
 Here are more samples:
+
 ```
 :verify 
 ```
+
 all topics, all ways but samples and gambits
 
 ```
 :verify ~topicname 
 ```
+
 named topic, all ways but samples and gambits
 
 ```
 :verify ~to*
 ```
+
 all topics whose names start with ~to
 
 ```
 :verify keyword
 ```
+
 all topics doing keyword verification
 
 ```
 :verify ~topic pattern
 ```
+
 named topic, doing pattern verification
 
 ```
 :verify blocking
 ```
+
 all topics doing blocking verification
 
 ```
 :verify sample
 ```
+
 all topics doing sample verification
 
 ```
 :verify gambit
 ```
+
 all topics doing gambit verification
 
 ```
 :verify all
 ```
+
 all topics doing all verifications
 
 Passing verification means that each topic is plausibly scripted. 
@@ -122,6 +142,7 @@ When I got around to verifying it, the results were: 57 keyword complaints, 92 p
 
 The `:verify` command takes the topic name first (and optional) and then a series of
 keywords about what to do.
+
 ```
 :verify keyword
 ```
@@ -130,10 +151,12 @@ For responders, does the sample input have any keywords from the topic. If not, 
 may be an issue. Maybe the sample input has some obvious topic-related word in it,
 which should be added to the keywords list. Maybe it's a responder you only want
 matching if the user is in the current topic. E.g.,
+
 ```
 #! Do you like swirl?
 ?: ( swirl) I love raspberry swirl
 ```
+
 can match inside an ice cream topic but you don't want it to react to Does her dress
 swirl?.
 
@@ -159,30 +182,36 @@ Either your sample is bad, your pattern is bad, or ChatScript is bad.
 
 Rules that need variables set certain ways can do variable assigns (`$` or `_` or) 
 at the end of the comment. You can also have more than one verification input line before a rule.
+
 ```
 #! I am male $gender = male
 #! I hate males $gender = male
 s: ($gender=male I * male) You are not my type
 ```
+
 For a pattern that starts with `@_3+`, you can set the position by an assignment naming the
 word to start at (0 … number of words in sentence).
+
 ```
-#! I am the leader @_0+=0
+#! I am the leader @_3+=0
 ```
 
 If you want to suppress testing, add `!P` to the comment.
+
 ```
 #!!P This doesn't get pattern testing.
 ```
 
 If the pattern absolutely SHOULD fail the test, use F. As in `#!F` or `#!!FB`.
 If you want to suppress pattern and keyword testing, just use `K` and `P` in either order:
+
 ```
 #!!KP this gets neither testing.
 ```
 
 You can also test that the input does not match the pattern by using `#!!R` instead of `#!`,
 though unless you were writing engine diagnostic tests this would be worthless to you.
+
 ```
 :verify blocking
 ```
@@ -192,6 +221,7 @@ earlier rule in the topic can match and take control instead. This is called blo
 normally tries to place more specific responders and rejoinders before more general ones.
 The below illustrates blocking for are your parents alive? The sentence will match the
 first rule before it ever reaches the second one.
+
 ```
 #! do you love your parents
 ?: ( << you parent >>) I love my parents *** this rule triggers by mistake
@@ -202,6 +232,7 @@ first rule before it ever reaches the second one.
 
 The above can be fixed by reordering, but sometimes the fix is to clarify the pattern of the
 earlier rule.
+
 ```
 #! do you love your parents
 ?: ( ![alive living dead] << you parent >>) I love my parents
@@ -212,6 +243,7 @@ earlier rule.
 
 Sometimes you intend blocking to happen and you just tell the system not to worry about
 it using `!B`. Or you can have the entire topic ignored by the topic control `TOPIC NOBLOCKING`.
+
 ```
 #! do you enjoy salmon?
 ?: ( << you ~like salmon >>) I love salmon
@@ -222,14 +254,16 @@ it using `!B`. Or you can have the entire topic ignored by the topic control `TO
 
 The blocking test presumes you are within the topic and says nothing about whether the
 rule could be reached if you were outside the topic. That's the job of the keyword test.
-And it only looks at you sample input. Interpreting your pattern can be way too difficult.
+And it only looks at your sample input. Interpreting your pattern can be way too difficult.
 
 If `:trace` has been set non-zero, then tracing will be turned off during verification, but any
 rules that fail pattern verification will be immediately be rerun with tracing on so you can
 see why it failed.
+
 ```
 :verify gambit
 ```
+
 One principle we follow in designing our bots is that if a user is asked a question 
 in a gambit, the bot had better be able to answer that same question if asked of it. 
 
@@ -265,6 +299,7 @@ Once that is cleaned up, `:verify sample` will include rules that fail to get ba
 correct rule of the topic. Usually, if you've fixed blocking, this won't be a problem.
 
 If you stick a rule into Harry's `~introductions` topic like:
+
 ```
 #! what are you
 u: (what are you) I am a robot
@@ -281,6 +316,7 @@ topic, because there is no natural keyword in the question and you could be aske
 question at any time from any topic.
 If, however, you actually want this rule in `~introductions`, you can tell CS NOT to do the
 sample input test on it via
+
 ```
 #!!S What are you
 ```
@@ -298,7 +334,7 @@ what tokenization to be using by naming a user variable first.
 
 ## Spelling
 
-To insure the outputs don't have spelling errors, I do a `:build` like this:
+To ensure the outputs don't have spelling errors, I do a `:build` like this:
 `:build Harry` outputspell and then fix any spelling complaints that should be fixed.
 
 
@@ -312,10 +348,10 @@ lines that are longer.
 
 This displays all sorts of information about a topic including its keywords, how they
 overlap with other topics, what rules exist and whether they are erased or not. You either
-name the topic or you can just you `~`, which means the current rejoinder topic (if there is
+name the topic or you can just use `~`, which means the current rejoinder topic (if there is
 one). You can also wildcard the name like `~co*` to see all topics that start with `~co`.
 
-If how is omitted, you get everything. 
+If 'how' is omitted, you get everything. 
 You can restrict things with a collection of how keywords. These include: 
 
 | how | meaning|
@@ -354,9 +390,11 @@ Often they are candidates for merging the topics.
 If you have used :describe to document all of your permanent variables (see advanced
 CS, `:build`), then `:list` can be used to show undocumented and potentially erroneously
 spelled permanent variables
+
 ```
 :list $ ^ ~ _ @
 ```
+
 will list the documented kinds of items (you name which ones you want, could be just $)
 and for variables it will list be documented and undocumented.
 
@@ -381,7 +419,7 @@ You can also provide a list of topics, like
 
 ### `:abstract censor ~mywords` 
 
-will note all output which contains any words in mywords.
+will note all output which contains any words in `~mywords`.
 Of course regular uses may also appear. The censor command looks for any words
 referred to by the concept given.
 
@@ -419,7 +457,7 @@ spelled) and reinitialized as appropriate.
 
 ## Regression
 
-Having built a functioning chatbot with lots of topics, I like to insure I don't damage old
+Having built a functioning chatbot with lots of topics, I like to ensure I don't damage old
 material in the future, so I create a regression test.
 
 There are two ways to make a regression test (and you can have multple tests). One is to
@@ -430,6 +468,7 @@ you can do :reset again, so additional inputs are immune from effects of the pri
 You can see an example of my std Rose regression file in `REGRESS/chatbotquestions/loebner.txt`
 
 It starts out like this:
+
 ```
 :user test
 :reset
@@ -443,26 +482,31 @@ What is the date?
 ...
 :reset
 ```
-and then has more questions and more :resets. Eventually it has a :quit before a bunch of
+
+and then has more questions and more :resets. Eventually it has a `:quit` before a bunch of
 stuff I'm not wanting tested at present.
 
 The alternative way is to start a fresh conversation as a new user and assuming it makes no
-mistakes then stop. You need to be a completely new user because CS will read your log file and
+mistakes then stop. You need to be a completely new user because CS will read your log file and 
 things like `:reset` don't clear it. You want to have only the conversation you just did in that log.
-Now you can make a regression file by typing :regress init test (or whatever user name
+Now you can make a regression file by typing `:regress init test` (or whatever user name
 you used from either mechanism). CS reads your log file and converts it into `TMP/regress.txt` or you can do
+
 ```
 :regress init user outputname
 ```
+
 to name where it goes.
 
 The user can be a full file name or just the name of a user whose log is in the USERS
 directory. The output name should be whereever you want to put the resulting regression
 file. If omitted it defaults to `TMP/regress.txt`.
 Thereafter, all you have to do (not from a server version) is
+
 ```
 :regress outputname
 ```
+
 And the system will retest your conversation. I usually tranfer the file over to a regression
 directory and rename it in there.
 
