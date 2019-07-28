@@ -40,6 +40,7 @@
 // BUT it we are memorizing specific, it must use separate slot index because _*~4 _() can exist
 int patternDepth = 0;
 bool matching = false;
+bool patternRetry = false;
 bool deeptrace = false;
 static char* returnPtr = NULL;
 char* patternchoice = NULL;
@@ -406,6 +407,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
     int beginmatch = -1; // for ( ) where did we actually start matching
     bool success = false;
     char* priorPiece = NULL;
+    if (!depth) patternRetry = false;
     int at;
     int slidingStart = startposition;
     firstMatched = -1; //   ()  should return spot it started (firstMatched) so caller has ability to bind any wild card before it
@@ -498,6 +500,12 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             if (trace & TRACE_PATTERN  && CheckTopicTrace() && bidirectional != 2) Log(STDUSERLOG, (char*)"_");
             continue;
         case '@': // factset ref or @_2+
+            if (!stricmp(word, "@retry")) // when done, retry if match worked
+            {
+                patternRetry = true;
+                matched = true; 
+                break;
+            }
             if (word[1] == '_') // set positional reference  @_20+ or @_0-   or anchor @_20
             {
                 if (firstMatched < 0) firstMatched = NORETRY; // cannot retry this match locally

@@ -1384,7 +1384,7 @@ FunctionResult FLR(char* buffer,char* which)
 }
 
 bool RuleTest(char* data) // see if pattern matches
-{
+{ 
 	char pattern[MAX_WORD_SIZE];
 	GetPattern(data,NULL,pattern);
 	wildcardIndex = 0;
@@ -2575,6 +2575,7 @@ static FunctionResult MarkCode(char* buffer)
 		if (!IsDigit(*buffer) &&  *buffer != '_') 
 		{
 			strcpy(word2,buffer);
+            if (!*word2) return NOPROBLEM_BIT;
 			GetCommandArg(word2,buffer,result,0); // should be small
 		}
 	}
@@ -3047,6 +3048,8 @@ static FunctionResult UnmarkCode(char* buffer)
 		if (!IsDigit(*buffer) && *buffer != '_')
 		{
 			strcpy(word2, buffer);
+            if (!*word2) 
+                return NOPROBLEM_BIT; // just decline no place w/o error
 			GetCommandArg(word2, buffer, result, 0); // should be small
 		}
 	}
@@ -4443,26 +4446,43 @@ FunctionResult MatchCode(char* buffer)
 #endif
     }
     if (!*base) { FreeBuffer();  RESTORESYSTEMSTATE() return FAILRULE_BIT; }	// NO DATA?
-    int uppercasem = 0;
-    int matched = 0;
-    wildcardIndex = 0;  //   reset wildcard allocation on top-level pattern match
-    int first = 0;
-    int last = 0;
     if (*base == '(') ++base;		// skip opening paren of a pattern
     if (*base == ' ') ++base;		// skip opening space of a pattern
+  
+    int start = 0;
+    int end = 0;
+    bool retried = false;
+retry:
+    int uppercasem = 0; // reconsider
+    int matched = 0;
+    wildcardIndex = 0;  //   reset wildcard allocation on top-level pattern match
     char oldmark[MAX_SENTENCE_LENGTH];
     memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
+    bool match = Match(buffer, base, 0, start,(char*)"(", 1, 0, start, end, uppercasem, matched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
+    if (match && patternRetry)
+    {
+        if (start > MAX_SENTENCE_LENGTH || start < 0)
+        {
+            start = 0; // never matched internal words - is at infinite start -- WHY allow this?
+        }
+        else
+        {
+            retried = true;
+            goto retry;
+        }
+    }
 
-    bool match = Match(buffer, base, 0, 0,(char*)"(", 1, 0, first, last, uppercasem, matched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
     memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
     ShowMatchResult(!match ? FAILRULE_BIT : NOPROBLEM_BIT, base, NULL);
     FreeBuffer();
     RESTORESYSTEMSTATE()
+    if (!match && patternRetry) return NOPROBLEM_BIT;
     if (!match) return FAILRULE_BIT;
+
     char data[10];
-    sprintf(data, "%d", first);
+    sprintf(data, "%d", start);
     SetUserVariable("$$csmatch_start", data);
-    sprintf(data, "%d", last);
+    sprintf(data, "%d", end);
     SetUserVariable("$$csmatch_end", data);
     return NOPROBLEM_BIT;
 }
@@ -8444,36 +8464,46 @@ static bool TestPatternAgainstSentence(char* pattern, char* buffer)
     char* base = pattern;
     if (*base == '^' && base[1] == '(') ++base; // skip over ^ marker of string compilation
     else if (*base == '|') base = strchr(base + 1, '|') + 1; // skip spellcheck protection
-    int uppercasem = 0;
-    int matched = 0;
+    int start = 0;
+    int end = 0;
+    bool retried = false;
+  RETRY:
     wildcardIndex = 0;  //   reset wildcard allocation on top-level pattern match
-    int first = 0;
-    int last = 0;
+    int uppercasem = 0; 
+    int whenmatched = 0;
     char oldmark[MAX_SENTENCE_LENGTH];
     memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
-    for (int i = 0; i <= MAX_WILDCARDS; ++i)
-    {
-        wildcardOriginalText[i][0] = 0;
-        wildcardCanonicalText[i][0] = 0;
-        wildcardPosition[i] = 0;
-    }
     if (trace) Log(STDUSERLOG, "testpatternagainstsentence\r\n");
     bool match = false;
+
     if (*base == '(')
     {
         base += 2;		// skip opening paren of a pattern and space
-        match = Match(buffer, base, 0, 0, (char*)"(", 1, 0, first, last, uppercasem, matched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
+        match = Match(buffer, base, 0, start, (char*)"(", 1, 0, start, end, uppercasem, whenmatched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
         if (trace) Log(STDUSERLOG, "patternmatch: %d from %s", match, base);
+        if (patternRetry)
+        {
+            if (end > start) start = end;	// continue from last match location
+            if (start > MAX_SENTENCE_LENGTH || start < 0)
+            {
+                start = 0; // never matched internal words - is at infinite start -- WHY allow this?
+            }
+            else
+            {
+                retried = true;
+                goto RETRY;
+            }
+        }
     }
     else // ^if
     {
         FunctionResult result;
         Output(base, buffer, result, 0);
         match = *buffer == '1';
-        if (trace) Log(STDUSERLOG, "ifmatch: %d from %s", match, base);
+        if (trace) Log(STDUSERLOG, "ifmatch: %d from %s", whenmatched, base);
     }
    
-    return match;
+    return match || retried;
 }
 
 static HEAPLINK ProtectKeywords(char* pattern, HEAPLINK protectedList)

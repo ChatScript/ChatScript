@@ -598,6 +598,14 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 	int from = GetSetID(fromset);
 	if (from == ILLEGAL_FACTSET) from = 0;
 	unsigned int baseFlags = 0;
+    char myset[10];
+    int baseOffset = 0; //   facts come from this side, and go out the verb or other side
+    char* choice;
+    choice = 0;
+    char* at;
+    int qMark = 0;
+    int mark = 0;
+    int whichset = 0;
 
 	if (!stricmp(fromset,(char*)"user")) baseFlags |= USERFACTS;
 	if (!stricmp(fromset,(char*)"system")) baseFlags |= SYSTEMFACTS;
@@ -633,15 +641,9 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 #			s/v/o/f	= use corresponding field of fact or entire fact
 #		the value to process will be marked AND may or may not get stored, depending on following flag being q or m
 #endif
+    unsigned int intersectMark = 0, propogateVerb = 0;
 
 	//   ZONE 1 - mark and queue setups
-	char myset[10];
-	int baseOffset = 0; //   facts come from this side, and go out the verb or other side
-	char* choice;
-	char* at;
-	int qMark = 0;
-	int mark = 0;
-	int whichset = 0;
 	fact = StoreWord((char*)"fact");// for foreign languages insure word is there
 
 	char maxmark = '0'; // deepest mark user has used
@@ -827,7 +829,8 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			// for non-factset values of choice
 			char buf[1000];
 			if (trace & TRACE_QUERY  && CheckTopicTrace()) sprintf(buf,(char*)"%s #%c(%d)",choice,saveMark-baseMark+'0',saveMark);
-			if (*control == 'q') 
+            if (*control == ' ') continue;
+            if (*control == 'q')
 			{
 				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
 				{
@@ -963,6 +966,27 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 
 	//   ZONE 3 - how to detect facts we can return as answers and where they go
 	//   set marks to compare on (test criteria for saving an answer)
+    /*
+    
+# third segment (match) tells how to detect facts that match. 
+# set tags to compare on (test criteria for saving an answer)
+#		q	= use this word label to tag items added to queue
+#       	! = next thing (svo) is ignore, not match
+#		s/v/o	=  test corresponding subject/verb/object field of fact 
+#			Next character gives label to use 0-9 for testing or the letter t means is it a topic name 
+#			t = check object to see if it is a topic name (for indexing things by topic). fact store is xxx member ~topicname - make sure VERB fails (like use the propogation verbs)
+#		i =	 set ignore tag (for any propogation)
+#		< >	= propogate outward from queued item - < means propogate up/left-to-right    > means propogate down/right-to-left (subject)
+#			This is followed by
+#			1st char is verb tag to follow out
+#		~	= stop on intersection 
+#			followed by char label to intersect
+#		f   = fact must have flag given by match variable
+#		>= range above (use propgate field)
+#		<= range below (use match field)
+#
+# Facts that match will either become result facts OR, if this is a riccochet search, will stimulate further processing.
+*/
 	bool sentences = false;
 	bool sentencev = false;
 	bool sentenceo = false;
@@ -972,7 +996,6 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	unsigned int marks = 0, markv = 0, marko = 0;
 	unsigned int markns = 0, marknv = 0, markno = 0;
 	unsigned int rmarks = 0, rmarkv = 0, rmarko = 0;
-	unsigned int intersectMark = 0, propogateVerb = 0;
 	unsigned int systemFlags = 0;
 	unsigned int ultimateSubjectMember = 0;
 	unsigned int ultimateVerbMember = 0;
@@ -1113,6 +1136,12 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	//   ZONE 4- how to migrate around the graph and save new queue entries
 	//   now examine riccochet OR other propogation controls (if any)
 	//   May say to match another field, and when it matches store X on queue
+/*
+# fourth segment( walk) how to take matching facts and migrate around the graph and save new queue entries using it instead of returning it as a result.
+#	s/o	 =  1st reference to one of these is which field of initial fact provides the riccochet value
+#   s/o  =  2nd reference to one of this is given riccochet value, should be it as subject or object of the fact. 
+#	S/V/O	= test riccochet fact for corresponding label immediately followed by id 0-9 of test value
+*/
 	if (*control) control = SkipWhitespace(control+1); // skip over the : and past any white space
 	if (!strncmp(control,(char*)"walk",4)) control = SkipWhitespace(control +4);
 	if (trace & TRACE_QUERY && *control && CheckTopicTrace()) 
@@ -1404,24 +1433,23 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				}
 				if (G->flags & MARKED_FACT) {;} // stored this fact, stop propogation
 				else if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0)) SetFactBack(OTHER,INCOMING);  // add object onto queue and provide traceback
-				G->flags |= MARKED_FACT;
 			}
-			else if (!match && propogateVerb && V->inferMark == propogateVerb) // this is not a fact to check, this is a fact to propogate on
-			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
-				{
-					Log(STDUSERLOG,(char*)"\r\n propogate ");
-					Log(STDTRACETABLOG,(char*)"");
-				}
-				if (G->flags & MARKED_FACT) {;} // stored this fact, stop propogation
-				else if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0)) SetFactBack(OTHER,INCOMING);  // add object onto queue and provide traceback
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
-				{
-					Log(STDUSERLOG,(char*)"\r\n");
-					Log(STDTRACETABLOG,(char*)"");
-				}
-			}
-			if (baseOffset == 3) break; // resume with next fact in q rather than any chaining
+
+            if (propogateVerb && V->inferMark == propogateVerb) // this is not a fact to check, this is a fact to propogate on
+            {
+                if (trace & TRACE_QUERY  && CheckTopicTrace())
+                {
+                    Log(STDUSERLOG, (char*)"\r\n propogate %s", Meaning2Word(OUTGOING)->word);
+                    Log(STDTRACETABLOG, (char*)"");
+                }
+                if (AddWord2Scan(QUEUE, OUTGOING, INCOMING, 0, 0)) SetFactBack(OTHER, INCOMING);  // add object onto queue and provide traceback
+                if (trace & TRACE_QUERY  && CheckTopicTrace())
+                {
+                    Log(STDUSERLOG, (char*)"\r\n");
+                    Log(STDTRACETABLOG, (char*)"");
+                }
+            }
+            if (baseOffset == 3) break; // resume with next fact in q rather than any chaining
 		} // end loop on facts
 	} // end loop on scan queue
 	

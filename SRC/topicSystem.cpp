@@ -1186,9 +1186,7 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 
 	// coverage counter
 	int coverage = (unsigned char) rule[2];
-	if (coverage == 31) {
-			int x = 0;} // hit limit
-	else if (coverage == 0xff) rule[2] = 1; // cross over
+	if (coverage == 0xff) rule[2] = 1; // cross over
 	else rule[2] = (char) ++coverage;
 
 	if (trace & TRACE_FLOW)
@@ -1364,7 +1362,7 @@ FunctionResult TestRule(int ruleID,char* rule,char* buffer,bool refine)
     currentRule = rule;
     currentRuleID = ruleID;
     currentRuleTopic = currentTopicID;
-
+    bool retried = false;
 retry:
 	result = NOPROBLEM_BIT;
 
@@ -1409,13 +1407,14 @@ retry:
 		if (sampleTopic && sampleTopic == currentTopicID && sampleRule == ruleID) // sample testing wants to find this rule got hit
 		{
 			result = FAILINPUT_BIT;
+            patternRetry = false;
 			sampleTopic = 0;
 		}
-		else 
+		else if (!patternRetry)
 		{
 			result = DoOutput(buffer,currentRule,currentRuleID,refine);
 		}
-		if (result & RETRYRULE_BIT || (result & RETRYTOPRULE_BIT && TopLevelRule(rule))) 
+		if (patternRetry || result & RETRYRULE_BIT || (result & RETRYTOPRULE_BIT && TopLevelRule(rule))) 
 		{
 			if (--limit == 0)
 			{
@@ -1445,7 +1444,7 @@ retry:
 					for (int i = 1; i <= wordCount; ++i) Log(STDUSERLOG,"%s ",wordStarts[i]);
 					Log(STDUSERLOG,"\r\n");
 				}
-
+                retried = true;
 				goto retry;
 			}
 		}
@@ -1465,7 +1464,7 @@ exit:
 	else if (modifiedTrace) trace = modifiedTraceVal;
 	if (timingChanged) timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 	else if (modifiedTiming) timing = modifiedTimingVal;
-	return result;
+    return (retried) ? NOPROBLEM_BIT : result;
 }
 
 static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,char* rule)

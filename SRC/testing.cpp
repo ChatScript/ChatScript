@@ -664,12 +664,25 @@ static void VerifyRegress(char* file)
 	char word[MAX_WORD_SIZE];
 	char* at = ReadCompiledWord(file,word);
 	bool silent = false;
-	if (!stricmp(word,(char*)"terse")) 
+    bool exitrequest = true;
+    if (!stricmp(word, (char*)"exit"))
+    {
+        file = at;
+        exitrequest = true;
+        at = ReadCompiledWord(file, word);
+    }
+    if (!stricmp(word,(char*)"terse"))
 	{
 		file = at;
 		silent = true;
+        at = ReadCompiledWord(file, word);
 	}
-	FILE* in = FopenReadNormal(file); // source
+    if (!stricmp(word, (char*)"exit"))
+    {
+        file = at;
+        exitrequest = true;
+    }
+    FILE* in = FopenReadNormal(file); // source
 	if (!in)
 	{
 		(*printer)((char*)"No regression data found for %s\r\n",file);
@@ -930,6 +943,8 @@ static void VerifyRegress(char* file)
 			
 	if (changed || modified || minorchange)
 	{
+        if (exitrequest) exit(1); // fail batch job
+
 		(*printer)((char*)"%s",(char*)"\nRegression has changed. Do you want to update regression to the current results? Only \"yes\" will do so: ");
 		ReadALine(readBuffer,stdin);
 		if (!stricmp(readBuffer,(char*)"yes"))
@@ -939,7 +954,11 @@ static void VerifyRegress(char* file)
 			MemorizeRegress(fdo);
 		}
 	}
-	else (*printer)((char*)"%s",(char*)"Regression passed.\r\n");
+    else
+    {
+        if (exitrequest) exit(0); // succes batch job
+        (*printer)((char*)"%s", (char*)"Regression passed.\r\n");
+    }
 }
 
 static void C_Regress(char* input)

@@ -1,7 +1,7 @@
 #include "common.h"
 //------------------------
 // ALWAYS AVAILABLE
-//------------------------readma
+//------------------------
 static HEAPLINK undefinedCallThreadList = 0;
 static bool nospellcheck = false;
 static int complexity = 0;
@@ -2472,6 +2472,7 @@ x:=y  (do assignment and do not fail)
 					}
 					variableGapSeen = false; // no longer after anything. we are changing direction
 				}
+                else if (!stricmp(word, "@retry")) {}
 				else if (GetSetID(word) < 0)
 					BADSCRIPT((char*)"PATTERN-20 %s is not a valid factset reference\r\n",word)  // factset reference
 				else if (!GetSetMod(word)) 
@@ -5222,7 +5223,8 @@ static char* ReadQuery(char* ptr, FILE* in, unsigned int build) // readquery: na
 		WORDP D = StoreWord(word);
 		AddInternalFlag(D, (unsigned int)(QUERY_KIND|build));
 		char* at = strchr(query+1,'"'); 
-		*at = 0;
+        if (!at) BADSCRIPT((char*)"query body %s must end in quotes\r\n", query);
+        *at = 0;
  	    D->w.userValue = AllocateHeap(query+1);    
 	}
 	return ptr;

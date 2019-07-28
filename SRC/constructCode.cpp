@@ -193,7 +193,7 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 			if (!Match(buffer,ptr+10,0,start,(char*)"(",1,0,start,end,uppercasem,whenmatched,0,0)) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
             memcpy(unmarked,oldmark, MAX_SENTENCE_LENGTH);
             ShowMatchResult((failed) ? FAILRULE_BIT : NOPROBLEM_BIT, ptr+10,NULL);
-
+            // cannot use @retry here
 			if (!failed) 
 			{
 				if (trace & (TRACE_PATTERN|TRACE_MATCH|TRACE_SAMPLE)  && CheckTopicTrace() ) //   display the entire matching responder and maybe wildcard bindings
