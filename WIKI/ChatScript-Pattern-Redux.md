@@ -1,6 +1,6 @@
 # ChatScript Pattern Redux
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
-Revision 5/7/2017 cs7.42
+<br>Revision 7/28/2019 cs9.61
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
@@ -531,6 +531,14 @@ and during the pattern must also match at that location now.
     u: ( _@0 is @_1 )
 
 The above pattern says that the word `is` must be precisely found between the locations referenced by `@0` and `@1`.
+
+
+### Retrying scan `@retry` 
+Normally one matches a pattern, performs the output code, and if you want to restart
+the pattern to find the next occurrence of a match, you use ^retry(RULE) or
+^retry(TOPRULE).  Well, if your pattern executes @retry as a token, it will retry on
+its own without needing to execute any output code. Useful in conjunction with
+^testpattern.
 
 
 ## Debugging

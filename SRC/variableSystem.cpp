@@ -627,8 +627,8 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
 
     if (floating)
     {
-        double newval = Convert2Float(oldValue);
-        double more = Convert2Float(moreValue);
+        double newval = Convert2Double(oldValue);
+        double more = Convert2Double(moreValue);
         if (op == '-') newval -= more;
         else if (op == '*') newval *= more;
         else if (op == '/') {

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/26/2019 cs9.3</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/28/2019 cs9.61</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -33,7 +33,7 @@
 <p>Within a topic each rule is considered in turn by matching its pattern component. Patterns can access global data and the user's input, can perform comparisons, and can memorize sections of input data.</p>
 <p>If the pattern fails, the next rule in the topic is considered. If a pattern succeeds, the rule's code section is then executed to completion (barring error conditions).</p>
 <p>A rule's code can be a mixture of CS script to execute and words to say to the user.</p>
-<p>Code can invoke other topics or directly request execution of a specific rule. When the rule code completes, if user output has been generated, then by default no more rules are initiated anywhere in the system. Rules currently in progress complete their code. If no output was generated, the topic continues onto the next rule, trying to match its pattern. When a topic completes without generating output, it merely returns to its caller code, which continues executing normally.</p>
+<p>Code can invoke other topics or directly request execution of a specific rule. When the rule code completes, if user output has been generated, then by default no more rules are initiated anywhere in the system. Rules currently in progress complete their code. If no output was generated, the topic continues on to the next rule, trying to match its pattern. When a topic completes without generating output, it merely returns to its caller code, which continues executing normally.</p>
 <h3 id="rejoinders">Rejoinders</h3>
 <p>So how is it that CS handles returning input from the user? A rule that generates user output may have rules called rejoinders that immediately follow the rule.</p>
 <p>Rejoinders are intended to analyze the specific next input from the user to see if certain expectations are met and decide what to do. If, for example, we output a yes or no question, one rejoinder rule might look for a yes answer, while another rejoinder hunts for a no answer.</p>
@@ -148,7 +148,7 @@
 <p>then the effect of <code>^argument1 += 1</code> is as though <code>$myvar += 1</code> were done and <code>$myvar</code> would now be one higher.</p>
 <p>Of course, had you tried to do <code>^argument2 += 1</code> then that would be the illegal <code>1 += 1</code> and the assignment would fail.</p>
 <h1 id="advanced-tokenization">ADVANCED TOKENIZATION</h1>
-<p>The CS natural language workflow consists of taking the user's input text, splitting it into tokens and stopping each time at a perceived sentence boundary. It continues with the input after processing that &quot;sentence&quot;. That leaves two tricky bits: what is a token and what is a sentence boundary. The $cs_token variable gives you some control over how these work. The naive definition of a token is a sequence of letters terminating in a space or end of input. But there are exceptions to that like some kind of sentence punctuation (comma, period, colon, exclamation) is not part of a bigger token. The sentence punctuation notion has exceptions, like the period within a floating point number or as part of an abbrviation or webaddress. And hyphens with more letters on the other side are generally not punctuation either. And normally we consider bracketing things like parens not part of a word (except in emoticons). So CS will normally break things apart as it believes they should be done. If you need to actually allow a token to have embedded punctuation in it, you can list the token in the LIVEDATA/SUBSTITUTES/abbreviations.txt file and the tokenizer will respect it.</p>
+<p>The CS natural language workflow consists of taking the user's input text, splitting it into tokens and stopping each time at a perceived sentence boundary. It continues with the input after processing that &quot;sentence&quot;. That leaves two tricky bits: what is a token and what is a sentence boundary. The `$cs_token~ variable gives you some control over how these work. The naive definition of a token is a sequence of letters terminating in a space or end of input. But there are exceptions to that like some kind of sentence punctuation (comma, period, colon, exclamation) is not part of a bigger token. The sentence punctuation notion has exceptions, like the period within a floating point number or as part of an abbrviation or webaddress. And hyphens with more letters on the other side are generally not punctuation either. And normally we consider bracketing things like parens not part of a word (except in emoticons). So CS will normally break things apart as it believes they should be done. If you need to actually allow a token to have embedded punctuation in it, you can list the token in the LIVEDATA/SUBSTITUTES/abbreviations.txt file and the tokenizer will respect it.</p>
 <h1 id="system-functions">System Functions</h1>
 <p>There are many system functions to perform specific tasks. These are enumerated in the <a href="ChatScript-System-Functions-Manual.html">ChatScript System Functions Manual</a> and the <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a>.</p>
 <h1 id="out-of-band-communication">Out of band Communication</h1>
@@ -201,6 +201,8 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <pre><code>outputmacro: ^CSBOOT()</code></pre>
 <p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users. And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
 <p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
+<h2 id="cs_boot"><code>^CS_BOOT()</code></h2>
+<p>This function, if defined by you, will be executed on system startup. Allows you to read external data to be incorporated as Facts into the basic server. You are allowed to define any number of these in a multibot environment without triggering a complaint about already defined functions.</p>
 <h2 id="cs_reboot"><code>^CS_REBOOT()</code></h2>
 <pre><code>outputmacro: ^CS_REBOOT()</code></pre>
 <p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
@@ -219,7 +221,7 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <h2 id="anti-virus-software-and-build">Anti-virus software and :build</h2>
 <p>Windows Defender, Norton, and the like have a real-time monitoring system on files. You can disable the ChatScript folder from being analyzed. On a Mac w/o this stuff, a compile of a bot might take 14 seconds, wherease with AV software interferring on Windows it takes 4 minutes. CS writes to its TOPIC folder and LOGS directories in lots of little pieces, that AV wants to monitor.</p>
 <h2 id="build-warning-messages">Build warning messages</h2>
-<p>Build will warn you of a number of situations which, not illegal, might be mistakes. It has several messages about words it doesn't recognize being used as keywords in patterns and concepts. You can suppress those messages by augmenting the dictionary OR just telling the system not to tell you</p>
+<p>Build will warn you of a number of situations which, while not illegal, might be mistakes. It has several messages about words it doesn't recognize being used as keywords in patterns and concepts. You can suppress those messages by augmenting the dictionary OR just telling the system not to tell you</p>
 <pre><code>:build 0 nospell</code></pre>
 <p>There is no problem with these words, presuming that you did in fact mean them and they do not represent a typo on your part.</p>
 <p>You can get extra spellchecking, on your output words, with this:</p>
@@ -294,9 +296,10 @@ $tmp = ##first</code></pre>
 <pre><code>#german u: (test) this is conditionally compiled</code></pre>
 <p>This line is normally ignored because it is a comment line and not a named numeric constant. But if you put the <code>#german</code> as a tail parameter of the <code>:build</code> command, you enable it:</p>
 <p>You can also handle blocks of code analogous to the block comment convention by appending a label to the &lt;&lt;## :</p>
-<pre><code>&lt;&lt;##SPECIAL ...
-... &gt;&gt;##</code></pre>
-<pre><code>:build Harry #german</code></pre>
+<pre><code>&lt;&lt;##german ...
+... &gt;&gt;##
+
+:build Harry #german</code></pre>
 <p>You may name up to 9 conditions on your build line. In fact, for language-related conditional lines, you don't have to declare anything on the <code>:build</code> command. The system will automatically accept lines that name the current language= command line parameter (English being the default).</p>
 <p>Conditional compilation applies to script files and the filesxxx.txt files and LIVEDATA files.</p>
 <h2 id="a-fresh-build">A Fresh Build</h2>
@@ -469,7 +472,7 @@ DATA:
 $var2 = apples
 $var1= join($ var2)
 I like $var1</code></pre>
-<p>$var2 is set to apples. It stores the name (not the content) of $var2 on $var1 and then I like is printed out and then the content of $var1 is then evaluated, so $var2 gets evaluated, and the system prints out apples.</p>
+<p><code>$var2</code> is set to apples. It stores the name (not the content) of <code>$var2</code> on <code>$var1</code> and then I like is printed out and then the content of <code>$var1</code> is then evaluated, so <code>$var2</code> gets evaluated, and the system prints out apples.</p>
 <p>This evaluation during output is in contrast to the behavior on the pattern side where the goal is presence, absence, and failure. Naming a word means finding it in the sentence.</p>
 <p>Naming a concept/topic means finding a word which inherits from that concept either directly or indirectly. Naming a variable means seeing if that variable has a non-null value.</p>
 <p>Calling a function discards any output stream generated and aside from other side effects means did the function fail (return a fail code) or not.</p>

@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/14/2019 cs9.6
+<br>Revision 7/28/2019 cs9.61
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -2076,16 +2076,13 @@ Is the given word starting with an uppercase letter? Match variable
 binds usually reflect how the user entered the word. This allows you to see what case they
 entered it in. Returns 1 if yes and 0 otherwise.
 
-### `^format( integer/float  formatstring value)`
+### `^format( formatstring value)`
 
-This is a thin wrapper over sprintf. The first argument tells ChatScript what
-kind of argument you are passing (since everything is a string to ChatScript).
-The second argument is a string which is the format string for sprintf.  The
-third argument is the number to convert. For floats, you will always be passing a double float
-so bear that in mind with your formatting. For integer, if you use a %d format, you will be using
+This is a thin wrapper over sprintf. 
+The first argument is a string which is the format string for sprintf.  The
+second argument is the number to convert. For integer, if you use a %d format, you will be using
 a 32-bit value. For ll formats you will be using 64-bit but it won't work well on Windows output because
 Windows uses their own sprintf notation.
-
 
 
 ### `^addproperty ( word flag1 … flagn )` 
@@ -2530,6 +2527,10 @@ If you give this a factset, it will convert any transient facts in that set into
 If you give this a factid, it will convert all transient facts created after that id into permanent. This
 might allow you, for example, to call `^jsonopen and get back a transient JSON structure and after inspection
 you could convert it to permanent if you wanted to. 
+
+### `^setFactOwner ( {set , factid} idbits )`
+In multibot deploys, allows you to change which bot owns this set of facts.
+Useful if you want to allow a bot to share facts owned by another bot.
 
 ### `^addproperty ( set flag )`
 

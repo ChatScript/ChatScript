@@ -1353,7 +1353,7 @@ s: (name is _*)
 </tr>
 <tr class="even">
 <td><code>$cs_control_pre</code></td>
-<td>name of topic to run in gambit mode on pre-pass, set by author. Runs before any sentences of the input volley are analyzed. Good for setting up initial values</td>
+<td>name of topic (flag it SYSTEM) to run in gambit mode on pre-pass, set by author. Runs before any sentences of the input volley are analyzed. Good for setting up initial values</td>
 </tr>
 <tr class="odd">
 <td><code>$cs_usermessagelimit</code></td>
@@ -1365,15 +1365,15 @@ s: (name is _*)
 </tr>
 <tr class="odd">
 <td><code>$cs_prepass</code></td>
-<td>name of a topic to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like <em>if you see me what will you think</em> to <em>assume you see me. What will you think?</em>)</td>
+<td>name of a topic (mark it SYSTEM) to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like <em>if you see me what will you think</em> to <em>assume you see me. What will you think?</em>)</td>
 </tr>
 <tr class="even">
 <td><code>$cs_control_main</code></td>
-<td>name of topic to run in responder mode on main volleys, set by author</td>
+<td>name of topic (flag it SYSTEM) to run in responder mode on main volleys, set by author</td>
 </tr>
 <tr class="odd">
 <td><code>$cs_control_post</code></td>
-<td>name of topic to run in gambit mode on post-pass, set by author</td>
+<td>name of topic (flag it SYSTEM) to run in gambit mode on post-pass, set by author</td>
 </tr>
 <tr class="even">
 <td><code>$botprompt</code></td>

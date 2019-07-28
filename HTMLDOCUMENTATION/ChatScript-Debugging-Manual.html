@@ -171,14 +171,14 @@
 <pre><code>:build xxx reset</code></pre>
 <p><strong>After it goes wrong during execution</strong></p>
 <p>The most common issue is that ChatScript will munge with your input in various ways so you don't submit what you think you are submitting. The substitutions files will change words or phrases.</p>
-<p>Spell correction will change words. Proper name and number merging will adjust words. And individual words of yours will be merged into single words if WordNet lists them as a multiple-word (like <em>TV_star</em>). So you really need to see what your actual input ended up being before you can tell if your pattern was correct or not. Thus the most common debug command is <code>:prepare</code>.</p>
+<p>Spell correction will change words. Proper name and number merging will adjust words. And individual words of yours will be merged into single words if WordNet lists them as a multiple-word (like <code>TV_star</code>). So you really need to see what your actual input ended up being before you can tell if your pattern was correct or not. Thus the most common debug command is <code>:prepare</code>.</p>
 <h2 id="most-useful-debug-commands">Most Useful Debug Commands</h2>
 <h3 id="prepare-this-is-my-sample-input"><code>:prepare this is my sample input</code></h3>
 <p>This shows you how the system will tokenize a sentence and what concepts it matches. It's what the system does to prepare to match topics against your input. From that you can deduce what patterns would match and what topics might be invoked.</p>
 <p>If you give no arguments to prepare, it just turns on a prepare trace for all future inputs which disables actually responding. Not usually what you want.</p>
 <p>There is an optional first argument to <code>:prepare</code>, which is a variable. If given it indicates the <code>$cs_token</code> value to use for preparation. E.g</p>
 <pre><code>:prepare $mytoken this is a sentence.</code></pre>
-<p>The <code>$cs_prepass</code> variable contains optional script that will be executed before the main control script is executed.</p>
+<p>The <code>$cs_prepass</code> variable contains optional topic script that will be executed before the main control script is executed. The topic should be flagged SYSTEM so it does not erase itself as it gets used.</p>
 <p>The advantage of <code>$cs_prepass</code> is that it is also executed by <code>:prepare</code>, so you can see traces of it there. If you want to see preparation w/o this topic (raw preparation by the engine) you can add the optional argument <code>NOPREPASS</code> or <code>PREPASS</code>. Eg.</p>
 <pre><code>:prepare NOPREPASS This is a sentence
 :prepare $newtoken NOPREPASS This is a sentence.</code></pre>
@@ -188,7 +188,7 @@
 <p>This specifies the rules that generated the actual output and what topics they came from. I can often see, looking at the rule, why I wouldn't want it to match and go fix that rule. That doesn't address why some rule I want to match failed, so for that I'll need typically need tracing.</p>
 <h2 id="trace">Trace</h2>
 <h3 id="trace-all-trace-always-trace-none"><code>:trace all</code> / <code>:trace always</code> / <code>:trace none</code></h3>
-<p>The ultimate debugging command dumps a trace of everything that happens during execution onto screen and into the log file. After entering this, you type in your chat and watch what happens (which also gets dumped into the current log file). Problem is, it's potentially a large trace. You really want to be more focused in your endeavor.</p>
+<p>The ultimate debugging command dumps a trace of everything that happens during execution to the screen and into the log file. After entering this, you type in your chat and watch what happens (which also gets dumped into the current log file). Problem is, it's potentially a large trace. You really want to be more focused in your endeavor.</p>
 <p>But ignoring that,</p>
 <pre><code>:trace all </code></pre>
 <p>turns on all tracing. It can be suppressed in areas of code executing within <code>^NOTRACE()</code>.</p>
@@ -209,7 +209,8 @@
 <p>which says to trace just the 4th top level rule in <code>~education</code>, rejoinder # 5. The above defaults to tracing everything while in that topic. You can specify what you want to trace by naming trace values and then the topic.</p>
 <h3 id="trace-prepare-basic-facts-education"><code>:trace prepare basic facts ~education</code></h3>
 <p>The above will turn on a bunch of trace values and then assign them to the topic, clearing the trace values.</p>
-<h3 id="trace-input-trace-prepare-can-generate-a-lot-of-data-about-concept-marking.-if-you-just-want-a-simple-check-on-what-the-adjusted-input-looks-like-you-can-dotrace-input"><code>:trace input :trace prepare can generate a lot of data about concept marking. If you  just want a simple check on what the adjusted input looks like, you can do</code>:trace input`</h3>
+<h3 id="trace-input"><code>:trace input</code></h3>
+<p>:trace prepare can generate a lot of data about concept marking. If you just want a simple check on what the adjusted input looks like, you can do <code>:trace input</code></p>
 <h3 id="trace-prepare-basic-facts-myfunc"><code>:trace prepare basic facts ^myfunc</code></h3>
 <p>The above will turn on a bunch of trace values and then assign them to the function, clearing the trace values.</p>
 <p>Note: If you want to set a regular trace value and a topic and/or function, the regular trace values must occur last, after all topic and function traces.</p>
@@ -378,7 +379,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>The system will set the limits, then upon hitting the topic name, swallow them to be used for that topic. This means you can do multiple topics and global limits in one command:</p>
 <pre><code>:trace pattern ~mytopic pos ~yourtopic varassign</code></pre>
 <p><code>~mytopic</code> gets the pattern limit, <code>~yourtopic</code> gets the pos limit, and globally you do varassign.</p>
-<p>Note: the correct way to turn on/off normal tracing from script is by changing the tracing variable, e.g., $cs_trace = -1.</p>
+<p>Note: the correct way to turn on/off normal tracing from script is by changing the tracing variable, e.g., <code>$cs_trace = -1</code>.</p>
 <h3 id="tracing-a-server">Tracing a server</h3>
 <p>Sometimes you do not control the user account, so you cannot do :trace from it. You can do <code>:trace universal</code> from any account to force the server to trace all users. Turn it off with <code>:trace none</code>. Obviously not a good thing to do on a highly active server as it slows everyone and generates large logs potentially.</p>
 <h3 id="understanding-a-pattern-trace">Understanding a pattern trace</h3>
@@ -498,7 +499,11 @@ RAWDATA/simpletopic.top # things we can chat about
 <h3 id="directories"><code>:directories</code></h3>
 <p>Lists the directories in use: the path to the exe file, the current working directory, and directory overrides used in embedded applications.</p>
 <h3 id="findwords-word"><code>:findwords word</code></h3>
-<p>Given a word pattern, find all words in the dictionary that match that pattern. The pattern starts with a normal word character, after which you can intermix the wildcard * with other normal characters. For example, * <code>slo*</code> finds <em>slothful</em>, <em>slower</em>, <em>sloshed</em>. * <code>s*p*y</code> finds <em>supposedly</em>, <em>spendy</em>, and <em>surprizingly</em>.</p>
+<p>Given a word pattern, find all words in the dictionary that match that pattern. The pattern starts with a normal word character, after which you can intermix the wildcard * with other normal characters. For example,</p>
+<ul>
+<li><code>slo*</code> finds <em>slothful</em>, <em>slower</em>, <em>sloshed</em>.</li>
+<li><code>s*p*y</code> finds <em>supposedly</em>, <em>spendy</em>, and <em>surprizingly</em>.</li>
+</ul>
 <h3 id="functions"><code>:functions</code></h3>
 <p>Show all <code>^functions</code> defined by the system.</p>
 <h3 id="macros"><code>:macros</code></h3>

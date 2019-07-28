@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-pattern-redux">ChatScript Pattern Redux</h1>
 <p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
-Revision 5/7/2017 cs7.42</p>
+<br>Revision 7/28/2019 cs9.61</p>
 <p>Pattern matching information was introduced in the Beginner manual and expanded in the <a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>. Since pattern matching is of such importance, this concise manual lists everything about patterns in one place, including patterns not listed in the Advanced manual.</p>
 <p>NOTE: despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
 <pre><code># rule 1 
@@ -29,7 +29,7 @@ t: What fruit do you like?
 <p>Rule 2 - requires an order when both first person and second person pronouns are involved, since order will matter.</p>
 <p>Rule 3 - uses simple keywords or concept sets in rejoinders, since the context of the gambit constrains the input so highly.</p>
 <h2 id="if-patterns">IF Patterns</h2>
-<p>Pattern matching can be done not just in a rule's pattern component but also in its output component, within an IF statement, e.g.:</p>
+<p>Pattern matching can be done not just in a rule's pattern component but also in its output component, within an <code>if</code> statement, e.g.:</p>
 <pre><code>if ( PATTERN _~number  ) { print( _0)  }</code></pre>
 <p>That is, if the first word in the test condition is the word <code>PATTERN</code>, the rest is treated as a standard pattern of a rule (not using <code>AND</code> <code>OR</code> etc). You can capture data here or do anything a normal pattern does.</p>
 <h2 id="pattern-position">Pattern Position</h2>
@@ -38,7 +38,7 @@ t: What fruit do you like?
 <pre><code>u: (apple)
 u: (~ten_thousand_names_of_fruits)</code></pre>
 <p>The system tracks current position in the sentence as it matches.</p>
-<p>The first token of a pattern is allowed to match anywhere in the sentence. After that normally tokens are matched in against words in consecutive order in the input. If a pattern starts to match and then fails, the system is allowed to retry matching later in the sentence once. It does this by freeing up the first matching word/concept token and letting it rebind later.</p>
+<p>The first token of a pattern is allowed to match anywhere in the sentence. After that normally tokens are matched against words in consecutive order in the input. If a pattern starts to match and then fails, the system is allowed to retry matching later in the sentence once. It does this by freeing up the first matching word/concept token and letting it rebind later.</p>
 <p>Given this rule:</p>
 <pre><code>u: ( I like apple )</code></pre>
 <p>The input <em>Do you know that I like oranges and I like apples</em> would match as follows.</p>
@@ -57,7 +57,8 @@ u: (~ten_thousand_names_of_fruits)</code></pre>
 <p>You can also ask if a user variable is defined just by naming it:</p>
 <pre><code>u: ( $myvar help )</code></pre>
 <p>this only matches if input has <em>help</em> and <code>$myvar</code> is not null.</p>
-<p>System variables one would not ask if they are defined (they almost always are) but would use in a relation instead.</p>
+<h4 id="system-variables">System variables</h4>
+<p>one would not ask if they are defined (they almost always are) but would use in a relation instead.</p>
 <p>Similarly, <code>_0</code> by itself in a pattern means is it defined, that is, not null.</p>
 <pre><code>u: ( _{apple orange} _0 )</code></pre>
 <p>matches only if apple or orange got matched. And <code>@0</code> by itself means does this fact-set have any facts stored in it.</p>
@@ -91,20 +92,20 @@ so which one is found first in the sentence is what sets the position. For an in
 <h4 id="braces-...">Braces <code>{</code> ... <code>}</code></h4>
 <p>Braces means match one of the contained tokens if you can, but don't fail if you don't.</p>
 <p>Using <code>{}</code> inside of angles is pointless (unless you put an underscore in front to memorize something) because it makes no difference to matching whether or not you had the <code>{}</code> content.</p>
-<p>It is not helping align position within the sentence. These are normally used to assist in positional alignment by swallowing words.</p>
+<p>Braces do not align position within a sentence. They are normally used to assist in positional alignment by swallowing words.</p>
 <pre><code>u: ( I go to {the} market )</code></pre>
 <p>matches both <em>I go to the market</em> and <em>I go to market</em>.</p>
-<p>If you use underscore before braces to memorize the answer found, then when no answer is found the match variable is set to null (no content) but it is set.</p>
+<p>If you use underscore before braces to memorize the answer found, then when no answer is found the match variable is set to <code>null</code> (no content) but it is set.</p>
 <h4 id="angles-...">Angles <code>&lt;&lt;</code> ... <code>&gt;&gt;</code></h4>
 <p>Angles mean match all of the contained tokens in any order.</p>
 <p>Putting <code>*</code> in this kind of pattern is illegal because it has no meaning.</p>
 <p>Position is not relevant anyway. Position is freely reset to the start following this sequence so if you had the pattern:</p>
 <pre><code>u: ( I * like &lt;&lt; really &gt;&gt; photos )</code></pre>
-<p>and input <em>photos I really like</em> then it would match because it found <em>I * like</em> then found anywhere really and then reset the position freely back to start and found photos anywhere in the sentence.</p>
+<p>and input <em>photos I really like</em> then it would match because it found <em>I * like</em> then found anywhere <code>really</code> and then reset the position freely back to start and found <code>photos</code> anywhere in the sentence.</p>
 <h3 id="wildcards-2-3--2-2b">Wildcards <code>*</code> <code>*~2</code> <code>*3</code> <code>*-2</code> <code>*~2b</code></h3>
-<p>Wildcards allow you to relax the positional requirements for matching. The classic wildcard “*” allows you to have zero or more words between other tokens in a pattern.</p>
+<p>Wildcards allow you to relax the positional requirements for matching. The classic wildcard <code>*</code>allows you to have zero or more words between other tokens in a pattern.</p>
 <pre><code>u: ( I * you )</code></pre>
-<p>matches _I love chicken and hate you- as well as <em>I you they</em>.</p>
+<p>matches <em>I love chicken and hate you</em> as well as <em>I you they</em>.</p>
 <p>You can limit the unlimited range by adding <code>~n</code> after it. So <code>*~1</code> means 0 or 1 words may intervene.</p>
 <p><code>*~2</code> is what I commonly use to restrict a range. This allows a determiner and an adjective to fit before a noun, for example, but not allow a pattern to match weirdly.</p>
 <pre><code>u: ( I like *~2 cat )</code></pre>
@@ -117,10 +118,10 @@ so which one is found first in the sentence is what sets the position. For an in
 <p>Generally done with an underscore in front to memorize the sequence.</p>
 <p><code>*-2</code> is like <code>*2</code>, only it matchs backwards instead of forwards. Valid thru <code>*-9</code>.</p>
 <h3 id="negation-and">Negation <code>!</code> and <code>!!</code></h3>
-<p><code>!x</code> means prove that x is not found anywhere in the sentence later than where we are:</p>
+<p><code>!x</code> means match only if x is not found anywhere in the sentence later than where we are:</p>
 <pre><code>u: ( !not I love you )</code></pre>
 <p>This pattern says the word not cannot occur anywhere in the sentence.</p>
-<p><code>!!x</code> means prove that x is not the next word.</p>
+<p><code>!!x</code> means match only if x is not the next word.</p>
 <h3 id="original-form">Original Form <code>'</code></h3>
 <p>While CS normally matches both original and canonical forms of words when you give a pattern word in canonical form, you can require it only match the original form by quoting it.</p>
 <pre><code>u: ( I * &#39;take it ) </code></pre>
@@ -160,7 +161,11 @@ so which one is found first in the sentence is what sets the position. For an in
 <p>You can test relationships by conjoining a token with a relationship operator and another token, with no spaces. E.g.,</p>
 <pre><code>u: ( I am _~number &gt; _0&gt;18 ) You are of legal age.</code></pre>
 <p>The relationship operators are:</p>
-<table>
+<table style="width:24%;">
+<colgroup>
+<col width="12%" />
+<col width="11%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center">operator</th>
@@ -198,13 +203,12 @@ so which one is found first in the sentence is what sets the position. For an in
 </tr>
 <tr class="even">
 <td align="center"><code>?</code></td>
-<td>is member of 2nd arg concept or topic or JSON array.</td>
+<td>is member of 2nd arg concept or topic or JSON array. If no argument occurs after, means is value found in sentence</td>
 </tr>
 </tbody>
 </table>
-<p>if no argument occurs after, means is value found in sentence</p>
-<p>Comparing two text strings (not numbers) will do it based on case-independent alpha sorting.</p>
-<p>The ? operator has two forms. <code>xxx?~yyy</code> will look for actual membership in the set whereas <code>_n?~yyy</code> will only see if the location of match detection of _n is the same as a corresponding match location for the concept. If the concept has not been marked, then obviously no match is found.</p>
+<p>Using a compare with two text strings (not numbers) will evaluate based on case-independent alpha sorting.</p>
+<p>The <code>?</code> operator has two forms. <code>xxx?~yyy</code> will look for actual membership in the set whereas <code>_n?~yyy</code> will only see if the location of match detection of <code>_n</code> is the same as a corresponding match location for the concept. If the concept has not been marked, then obviously no match is found.</p>
 <p>Note: You can put <code>!</code> before the tokens instead of using <code>!=</code> and <code>!?</code>. E.g.,</p>
 <pre><code>u: ( _~noun !_0?~fruit ) if the noun is not in fruit concept</code></pre>
 <h4 id="dynamic-matching">Dynamic matching</h4>
@@ -233,7 +237,7 @@ User defined functions (<code>patternmacros</code>) do not allow relational oper
 <pre><code>Patternmacro: ^testuse(^value) _~noun _0==^value
 
 u: ( ~noun ^testuse(apple)) # matches &quot;I like pear and apple&quot;</code></pre>
-<p>A powerful use of function calling is to call <code>^respond(~topicname)</code> from in a pattern. The topic can match something and set up a variable for further guidance. E.g.,</p>
+<p>A powerful use of function calling is to call <code>^respond(~topicname)</code> in a pattern. The topic can match something and set up a variable for further guidance. E.g.,</p>
 <pre><code>u: ( ^respond(~finddelay) $$delay ) Wait for $$delay.</code></pre>
 <p><code>~finddelay</code> can hunt for time referred to in seconds, minutes, hours, etc, or in words like next week or tomorrow or whatever complex matching you want to do.</p>
 <h3 id="partially-spelled-words-ing-bottle-8bott">Partially Spelled words: <code>*ing</code> <code>bottle*</code> <code>8bott*</code></h3>
@@ -254,7 +258,7 @@ u: ( ~noun ^testuse(apple)) # matches &quot;I like pear and apple&quot;</code></
 <p>When you put <code>&lt;</code> in your pattern, it doesn't actually match anything. It means &quot;reset position&quot; to the start of the sentence.</p>
 <pre><code>u: ( &lt; I love )</code></pre>
 <p>matches <em>I love</em> but not <em>do I love</em>.</p>
-<p>When you put <code>&gt;</code> in your pattern, it does not alter your position, but it tries to match to confirm you are on the last word of the sentence.</p>
+<p>When you put <code>&gt;</code> in your pattern, it does not alter your position, but it tries to confirm you are on the last word of the sentence.</p>
 <pre><code>u: ( I * &gt; )</code></pre>
 <p>in this pattern <code>&gt;</code> is redundant, since <code>*</code> would match to the end of the sentence anyway.</p>
 <p>You may also use <code>!&gt;</code> to ask that we NOT be at the end of the sentence.</p>
@@ -267,6 +271,8 @@ u: ( ~noun ^testuse(apple)) # matches &quot;I like pear and apple&quot;</code></
 <p>When you omit either + or -, you create a matchable anchor like <code>@_0</code>. It represents what was found at that position, and during the pattern must also match at that location now.</p>
 <pre><code>u: ( _@0 is @_1 )</code></pre>
 <p>The above pattern says that the word <code>is</code> must be precisely found between the locations referenced by <code>@0</code> and <code>@1</code>.</p>
+<h3 id="retrying-scan-retry">Retrying scan <code>@retry</code></h3>
+<p>Normally one matches a pattern, performs the output code, and if you want to restart the pattern to find the next occurrence of a match, you use ^retry(RULE) or ^retry(TOPRULE). Well, if your pattern executes <span class="citation">@retry</span> as a token, it will retry on its own without needing to execute any output code. Useful in conjunction with ^testpattern.</p>
 <h2 id="debugging">Debugging</h2>
 <h3 id="testpattern"><code>:testpattern</code></h3>
 <p>The system inputs the sentence and tests the pattern you provide against it. It tells you whether it matched or failed.</p>

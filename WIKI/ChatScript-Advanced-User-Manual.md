@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/26/2019 cs9.3
+<br>Revision 7/28/2019 cs9.61
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -391,6 +391,12 @@ value for each user.
 
 If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the 
 normal json naming space.
+
+## `^CS_BOOT()`
+This function, if defined by you, will be executed on 
+system startup. Allows you to read external data to be incorporated as Facts
+into the basic server.  You are allowed to define any number of these in a multibot environment without triggering
+a complaint about already defined functions.
 
 
 ## `^CS_REBOOT()`

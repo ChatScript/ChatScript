@@ -1,3 +1,16 @@
+# Version 9.61 7/28/2019
+1. @retry in pattern allows pattern to self retry without output execution of 
+    ^retry(rule)
+2. :regress exit
+    if your 1st argument to :regress is "exit", then CS will quit with return
+    code 0 when it passes or return code 1 when fail. Good for batch file autotesting.
+3. ^delete now allows 2nd argument BOOT to authorize killing system facts
+4 ^setFactOwner(fact idbits)
+    Changes ownership bits on a fact. 
+5 1st argument to ^format deprecated. No longer need to say INTEGER or FLOAT
+6 ^csboot allowed to be multiply defined without error message
+    because Multibot deploys
+
 # Version 9.6 7/14/2019
 1. unmark(@ _0) changed to unmark the width of the match, not just the start position
 2. JSONLOOP (x y z OLD/NEW)

@@ -87,6 +87,7 @@ extern unsigned int savedSentences;
 #define MAX_ARG_LIMIT 31 // max args to a call -- limit using 2 bit (COMPILE/KEEP_QUOTES) per arg for table mapping behavior
 extern unsigned int currentIterator;
 extern char* fnOutput;
+extern bool allowBootKill;
 
 extern char lastInputSubstitution[INPUT_BUFFER_SIZE];
 extern int globalDepth;

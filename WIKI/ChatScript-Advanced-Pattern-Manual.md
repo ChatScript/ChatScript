@@ -1,6 +1,6 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 5/27/2019 cs9.4
+<br>Revision 7/28/2019 cs9.61
 
 
 # ADVANCED PATTERNS
@@ -394,6 +394,14 @@ like a word would. But after it matches (example at word 2) then `is` must be wo
 and `@_4` must start at word 5 and after it completes then `life` must be the next word. Whereas
 `(< @_3 is)` implies that `@_3` is at position 1, since `<` says this is sentence start.
 
+
+### Retrying scan `@retry` 
+
+Normally one matches a pattern, performs the output code, and if you want to restart
+the pattern to find the next occurrence of a match, you use ^retry(RULE) or
+^retry(TOPRULE).  Well, if your pattern executes @retry as a token, it will retry on
+its own without needing to execute any output code. Useful in conjunction with
+^testpattern.
 
 ## Backward Wildcards
 

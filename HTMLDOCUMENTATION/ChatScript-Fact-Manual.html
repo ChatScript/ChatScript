@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/28/2019 cs9.61</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
@@ -223,6 +223,7 @@ $fact = ^createfact( Bob own dog)
 <p>which does not damage any facts. When you do</p>
 <pre><code>^delete(@0)</code></pre>
 <p>you delete all facts within that factset AND all facts which use those facts as part of themselves. Deleted facts are never saved at the end of a volley.</p>
+<p>Normally you will be blocked from deleting system facts (ones created by a :build and not by execution of your script). But ^delete(<span class="citation">@1</span> boot)` will allow you to do that. Deleted system facts cannot have their space reclaimed (other than by system restart).</p>
 <h3 id="length-fact-set"><code>^length</code>( fact-set )</h3>
 <p>If you want to know how many facts a fact-set has, you can do this:</p>
 <pre><code>^length(@1)</code></pre>

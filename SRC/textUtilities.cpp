@@ -631,7 +631,7 @@ char* AddEscapes(char* to, char* from, bool normal,int limit,bool addescapes) //
 	return to; // return where we ended
 }
 
-double Convert2Float(char* original, int useNumberStyle)
+double Convert2Double(char* original, int useNumberStyle)
 {
 	char decimalMark = decimalMarkData[useNumberStyle];
 	char digitGroup = digitGroupingData[useNumberStyle];

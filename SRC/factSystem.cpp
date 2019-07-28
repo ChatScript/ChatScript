@@ -26,6 +26,7 @@ static HEAPLINK jsonptrThreadList;
 HEAPLINK botFactThreadList = 0; // facts from lock layers whose value was changed in OBJ
 int worstFactFree = 1000000;
 char traceSubject[100];
+bool allowBootKill = false;
 char traceVerb[100];
 char traceObject[100];
 bool bootFacts = false;
@@ -480,7 +481,7 @@ void KillFact(FACT* F,bool jsonrecurse, bool autoreviseArray)
 {
 	if (!F || F->flags & FACTDEAD) return; // already dead
 	
-	if (F <= factsPreBuild[currentBeforeLayer])
+	if (F <= factsPreBuild[currentBeforeLayer] && !allowBootKill)
 		return;	 // may not kill off facts built into world
 
 	F->flags |= FACTDEAD;
@@ -1551,7 +1552,7 @@ void SortFacts(char* set, int alpha, int setpass) //   sort low to high ^sort(@1
 		else if (kind == 'v') word = Meaning2Word(F->verb)->word; 
 		else word = Meaning2Word(F->object)->word;
 		if (alpha == 1) wordValues[i] = word;
-		else if (alpha == 0) floatValues[i] = Convert2Float(word);
+		else if (alpha == 0) floatValues[i] = Convert2Double(word);
     }
 
 	// do bubble sort 

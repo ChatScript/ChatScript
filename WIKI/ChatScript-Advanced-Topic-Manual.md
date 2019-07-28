@@ -1,6 +1,6 @@
-﻿# ChatScript Advanced Topic Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/24/2019 cs9.2
+# ChatScript Advanced Topic Manual
+� Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
+<br>Revision 7/28/2019 cs9.61
 
 
 # ADVANCED TOPICS
