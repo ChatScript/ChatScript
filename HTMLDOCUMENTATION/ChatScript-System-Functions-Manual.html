@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
+<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/28/2019 cs9.61</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -91,7 +91,7 @@ t: () name(xxx) # explicitly add an empty pattern</code></pre>
 <p>You can give an optional tag or label to pretend the named rule had been the one to set a rejoinder and so therefore execute its rejoinders explicitly.</p>
 <h3 id="respond-value-value-..."><code>^respond ( value value ... )</code></h3>
 <p>Tests the sentence against the named value topic in responder mode to see if any rule matches (executes the rule when matched). It does not fail (though it may not generate any output), unless a rule forces it to fail or the topic requested does not exist or is disabled.</p>
-<p>This rule will not erase but the responding rule might. If the first value fails to generate an answer, it tries the second, and so on. You can supply an optional last argument <code>FAIL</code>, in which case it will return <code>FAILRULE_BIT</code> if it didn't fail but it didn't generate any new output either. You could instead supply an optiona last argument <code>TEST</code>, in which case a topic is executed to see if a rule will match. If so, the tag is returned and no output is made from the topic (and no rule is used up).</p>
+<p>This rule will not erase but the responding rule might. If the first value fails to generate an answer, it tries the second, and so on. You can supply an optional last argument <code>FAIL</code>, in which case it will return <code>FAILRULE_BIT</code> if it didn't fail but it didn't generate any new output either. You could instead supply an optional last argument <code>TEST</code>, in which case a topic is executed to see if a rule will match. If so, the tag is returned and no output is made from the topic (and no rule is used up).</p>
 <p>If a value designates a labelled or tagged rule (e.g., <code>~mytopic.mylabel</code> or <code>~mytopic.1.0</code>) then the system will skip over all rules until it reaches that rule, then begin linear scanning, even if the topic is designated random.</p>
 <p>The <em>value</em> may be <code>~</code>, which means use the current topic you are within.</p>
 <p>It can also be <code>PENDING</code>, which means pick a topic from the pending topics stack (they are all pending being returned to but not including the current topic). Or it can be any other word, which will be a keyword of some topic to pick.</p>
@@ -145,7 +145,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="mark-word-location-one-all"><code>^mark ( word location {ONE ALL})</code></h3>
 <p>Marking and unmarking words and concepts is fundamental to the pattern matching mechanism, so the system provides both an automatic marking mechanism and manual override abilities. You can manually mark or unmark something. Automatic system marking marks all concepts implied by chasing up membership in other concepts, as does this call <code>^mark</code>. <code>word</code> can be any word, which also means you can mark something with a concept name whether or not the concept actually is defined anywhere.</p>
 <p>There are two mechanisms supported using <code>^mark</code> and <code>^unmark</code>: specific and generic.</p>
-<p>With <code>specific</code>, you name words or concepts to mark or unmark, either at a particular point in the sentence or throughout the sentence. By default or using the optional third argument <code>ALL</code>, not only the what you name marked, but anything it in turn is a part of is marked. The optional third argument <code>ONE</code> will only mark that named word/concept and none of the hierarchy implied by its membership in yet some other concept.</p>
+<p>With <code>specific</code>, you name words or concepts to mark or unmark, either at a particular point in the sentence or throughout the sentence. By default, or using the optional third argument <code>ALL</code>, not only is what you name marked, but anything it in turn is a part of is marked. The optional third argument <code>ONE</code> will only mark that named word/concept and none of the hierarchy implied by its membership in yet some other concept.</p>
 <p>With <code>generic</code> you disable or reenable all existing marks on a word or words in the sentence. In fact, you go beyond that because during patttern matching words you disable are invisble entirely, and matching proceeds as if they do not exist.</p>
 <p><code>Specific</code>: effects are permanent for the volley and cross over to other rules. In documentation below, use of <code>_0</code> symbolizes use of any match variable.</p>
 <h3 id="mark-meat-_0"><code>^mark ( ~meat _0 )</code></h3>
@@ -162,6 +162,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <p>Clears all global unmarks. restore a global ^unmark(0) exactly as it was before the global unmark.</p>
 <h3 id="unmark-word-_0"><code>^unmark ( word _0 )</code></h3>
 <p>The inverse of specific <code>^mark</code>, this takes a matchvariable that was filled at the position in the sentence you want erased and removes the mark on the word or concept set or topic name given. Pattern matching for it in that position will now fail. If the word was a phrase, then all words in that phrase have the mark removed. Thus <code>South Georgia</code> which has <code>Georgia</code> embedded within it, and both might be ~geographic_area, will have both words unmarked if you unmark ~geographic_area. But it is not symmetric to <code>^mark</code> because it does not remove all implied marks that mark may have set.</p>
+<p>If you end up calling ^unmark with a 2nd argument of null, it will just return without failure. This can happen if you pass null to an outputmacro: <sup>myfn(</sup>var) and then ^unmark(xxx ^var).</p>
 <h3 id="unmark-n"><code>^unmark ( * n )</code></h3>
 <p>Assuming <code>n</code> is within <code>1</code> and sentence word limit, this unmarks all concepts at nth word location. If n was gotten from <code>^position</code> of a match variable, it is the range of that match variable.</p>
 <h3 id="unmark-word-all"><code>^unmark ( word all )</code></h3>
@@ -298,7 +299,53 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="timeinfofromseconds-seconds"><code>^timeinfofromseconds ( seconds )</code></h3>
 <p>This converts time in seconds (Unix epoch time) into its component bits, spread across 7 match variables. Starting by default at <code>_0</code>, if you assign it like this:</p>
 <pre><code>_3 = ^timeinfofromseconds(%fulltime)</code></pre>
-<p>it will start at <code>_3</code>. The items you get are: seconds, minutes, hours, date in month, month name, year, day name of week, month index (jan==0), dayofweek index (sun==0).</p>
+<p>it will start at <code>_3</code>. The items you get are:</p>
+<table>
+<thead>
+<tr class="header">
+<th>value</th>
+<th>offset</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>seconds</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>minutes</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>hours</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>date in month</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>month name</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>year</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>day name of week</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>month index (jan==0)</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>dayofweek index (sun==0)</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
 <h3 id="timetoseconds-seconds-minutes-hours-date-of-month-month-year"><code>^timetoseconds ( seconds minutes hours date-of-month month year )</code></h3>
 <p>This converts time data since 1970 (Unix epoch time). Analogous to <code>%fulltime</code>, which returns the current time in seconds. Month can be number 1-12 or name of month or abbreviation of month. Date-of-month must be 1 or more. Year must be on or 1970 and less than 2100. Optional 7th argument indicates whether time is within daylight savings or not , values can be 1 or 0, t or f, T or F. Default is false.</p>
 <h3 id="isnumber-value"><code>^isnumber ( value )</code></h3>
@@ -439,7 +486,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="command-args"><code>^command ( args )</code></h3>
 <p>Execute this stream of arguments through the <code>:</code> command processor. You can execute debugging commands through here. E.g.,</p>
 <pre><code>^command(:execute ^print(&quot;Hello&quot;) )</code></pre>
-<p>Note that it is hard to turn on :trace this way, because the system resets it internally at various points. The correct way to manipulate trace is to do $cs_trace = -1 in regular script, outside of ^command.</p>
+<p>Note that it is hard to turn on :trace this way, because the system resets it internally at various points. The correct way to manipulate trace is to do <code>$cs_trace = -1</code> in regular script, outside of ^command.</p>
 <h3 id="end-code"><code>^end ( code )</code></h3>
 <p>Takes 1 argument and returns a code which will stop processing. Any data pending in the output stream will be shipped to the user. If <code>^end</code> is contained within the condition of an if, it merely stops it. An end rule inside a loop merely stops the loop. All other codes propagate past the loop. The codes are:</p>
 <table style="width:33%;">
@@ -538,7 +585,7 @@ $$val = eval($$tmp) # $$val = 1</code></pre>
 <h3 id="clearmatch"><code>^clearmatch()</code></h3>
 <p>This clears all match variables to empty.</p>
 <h3 id="match-what"><code>^match ( what )</code></h3>
-<p>This does a pattern match using the contents of what (usually a variable reference). It fails if the match against current input fails. It operates on the current analyzed sentence which is usually the current input, but since you can call ^next(input) or <code>^analyze()</code> it is whatever the current analysis data is.</p>
+<p>This does a pattern match using the contents of what (usually a variable reference). It fails if the match against current input fails. It operates on the current analyzed sentence which is usually the current input, but since you can call <code>^next(input)</code> or <code>^analyze()</code> it is whatever the current analysis data is.</p>
 <pre><code>if (%more AND ^match(^&quot;(&lt; ![~emocurse ~emothanks] ~interjections &gt;)&quot; ) )
     {FAIL(SENTENCE)}</code></pre>
 <p>or</p>
@@ -555,7 +602,7 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p>and later</p>
 <pre><code>^match(~mytopic.test)</code></pre>
 <p>You can also just say <code>^match(~someconcept)</code> and it will test the current input for that concept.</p>
-<p>'<code>$$csmatch_start</code> and <code>$$csmatch_end</code> are assigned to provide the range of words that <code>^match</code> used.</p>
+<p><code>$$csmatch_start</code> and <code>$$csmatch_end</code> are assigned to provide the range of words that <code>^match</code> used.</p>
 <h3 id="matches"><code>^matches ()</code></h3>
 <p>Returns a string of indices of words that matched the most recent pattern match. The indices are in order, so you can know the range of the match or the specific word indices that were seen. Currently matches only include the words/concepts that were matched, not things like</p>
 <pre><code>(sag*) </code></pre>
@@ -1221,8 +1268,8 @@ u: what&#39;s your first name?
 <p>would return <em>she</em></p>
 <h3 id="uppercase-word"><code>^uppercase ( word )</code></h3>
 <p>Is the given word starting with an uppercase letter? Match variable binds usually reflect how the user entered the word. This allows you to see what case they entered it in. Returns 1 if yes and 0 otherwise.</p>
-<h3 id="format-integerfloat-formatstring-value"><code>^format( integer/float  formatstring value)</code></h3>
-<p>This is a thin wrapper over sprintf. The first argument tells ChatScript what kind of argument you are passing (since everything is a string to ChatScript). The second argument is a string which is the format string for sprintf. The third argument is the number to convert. For floats, you will always be passing a double float so bear that in mind with your formatting. For integer, if you use a %d format, you will be using a 32-bit value. For ll formats you will be using 64-bit but it won't work well on Windows output because Windows uses their own sprintf notation.</p>
+<h3 id="format-formatstring-value"><code>^format( formatstring value)</code></h3>
+<p>This is a thin wrapper over sprintf. The first argument is a string which is the format string for sprintf. The second argument is the number to convert. For integer, if you use a %d format, you will be using a 32-bit value. For ll formats you will be using 64-bit but it won't work well on Windows output because Windows uses their own sprintf notation.</p>
 <h3 id="addproperty-word-flag1-flagn"><code>^addproperty ( word flag1 … flagn )</code></h3>
 <p>given the word, the dictionary entry for it is marked with additional properties, the flags given which must match property flags or system flags in <em>dictionarySystem.h</em>. Typically used to mark up titles of books and things when building world data.</p>
 <p>In particular, however, if you are adding phrases or words not in the dictionary which will be used as patterns in match, you should mark them with <code>PATTERN_WORD</code>. To create a dynamic concept, mark the set name as CONCEPT.</p>
@@ -1426,6 +1473,8 @@ concept: ~canine (dog)</code></pre>
 ^save(@9 false) # turn off saving thereafter</code></pre>
 <h3 id="makereal-set-factid"><code>^makereal ( {set , factid} )</code></h3>
 <p>If you give this a factset, it will convert any transient facts in that set into permanent. If you give this a factid, it will convert all transient facts created after that id into permanent. This might allow you, for example, to call `^jsonopen and get back a transient JSON structure and after inspection you could convert it to permanent if you wanted to.</p>
+<h3 id="setfactowner-set-factid-idbits"><code>^setFactOwner ( {set , factid} idbits )</code></h3>
+<p>In multibot deploys, allows you to change which bot owns this set of facts. Useful if you want to allow a bot to share facts owned by another bot.</p>
 <h3 id="addproperty-set-flag"><code>^addproperty ( set flag )</code></h3>
 <p>Add this flag onto all facts in named set. Typically you would be adding private marker flags of yours. If set has a field marker (like <code>@2subject</code>) then the property is added to all values of that field of facts of that set.</p>
 <h3 id="conceptlist-kind-location"><code>^conceptlist ( kind location )</code></h3>

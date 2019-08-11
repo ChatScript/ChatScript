@@ -585,8 +585,8 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 			char* comma = 0; 
 			while ((comma = strchr(val1,',')))  memmove(comma,comma+1,strlen(comma)); // remove embedded commas
 			while ((comma = strchr(val2,',')))  memmove(comma,comma+1,strlen(comma)); // remove embedded commas
-			double v1f = Convert2Float(val1);
-			double v2f = Convert2Float(val2);
+			double v1f = Convert2Double(val1);
+			double v2f = Convert2Double(val2);
 			if (*op == '=') result = (v1f == v2f) ? NOPROBLEM_BIT : FAILRULE_BIT;
 			else if (*op == '<') 
 			{

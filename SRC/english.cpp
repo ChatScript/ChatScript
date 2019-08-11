@@ -477,7 +477,7 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
         if (!value) value = "0"; // eg 100$% faulty number
 
         int64 n = Convert2Integer(value, numberStyle);
-		double fn = Convert2Float(value, numberStyle);
+		double fn = Convert2Double(value, numberStyle);
 		if ((double)n == fn)
 		{
 #ifdef WIN32
@@ -517,7 +517,7 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 
 		if (strchr(original, numberPeriod) || exponent) // floating
 		{
-			double val = Convert2Float(original, numberStyle);
+			double val = Convert2Double(original, numberStyle);
 			if (percent) val /= 100;
 			WriteFloat(number,  val);
 		}

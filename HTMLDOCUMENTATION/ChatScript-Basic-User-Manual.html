@@ -83,7 +83,7 @@ I&#39;m a chatbot demo, from California (USA).</code></pre>
 <p>But, you do have to use whitespace to separate tokens.</p>
 <h3 id="case">Case</h3>
 <p>ChatScript is case insensitive for code script. Obviously case is important in literal output.</p>
-<p>And <strong>words in patterns should be lower case</strong> unless they are proper names or the word &quot;<em>I</em>&quot;.</p>
+<p>And <strong>words in patterns should be lower case</strong> unless they are proper names or the word &quot;I&quot;.</p>
 <p>NOTE: Don't make a lowercase word be upper case in a pattern merely because you think of it as starting a sentence.</p>
 <h3 id="comments">Comments</h3>
 <p>The comment character is the hash mark <code>#</code>.</p>
@@ -94,7 +94,7 @@ s: (I hate meat) So do I. # a comment at the end of an output statement</code></
 <pre><code>#! I hated meats 
 s: (I hate meat) really? </code></pre>
 <h3 id="legal-declaration-names">Legal declaration names</h3>
-<p>A <em>topic</em> or <em>function</em> (defined later) must contain only alpha-numeric characters, underscores (<code>_</code>), hyphens (<code>-</code>), and periods (<code>.</code>). They must begin with <code>~</code> and then continue with a starting alphabetic character.</p>
+<p>A <em>topic</em> or <em>function</em> (defined later) must contain only alpha-numeric characters, underscores (<code>_</code>), hyphens (<code>-</code>), and periods (<code>.</code>). They must begin with tilde (~`) and then continue with a starting alphabetic character.</p>
 <p><em>Variables</em> must start with <code>$</code> or <code>$$</code> or <code>$_</code>, then continue with a starting alphabetic character and then continue with alpha-numerics, underscores, or hyphens.</p>
 <h1 id="hello-word-demo">Hello Word Demo</h1>
 <p>Let’s turn to running the system in a simple demo.</p>
@@ -162,7 +162,7 @@ s: (I hate meat) really? </code></pre>
 <p>In the sample file you will see ordinary words and <code>~words</code>. Tilde words refer to a concept set of words, a list of words that approximates the <code>~word</code>. E.g.,</p>
 <p><code>~like</code> means any of a number of words that mean to like something.</p>
 <p><code>~animals</code> means any of a large list of names of animals.</p>
-<p>These are shareable shorthand for the <code>[</code> <code>]</code> notation. Instead of having to write <code>[elephant tiger leopard alligator crocodile lion …]</code> in lots of rules, with the appropriate concept defined one can merely say <code>~animals</code></p>
+<p>These are shareable shorthand for the <code>[</code> <code>]</code> notation. Instead of having to write <code>[elephant tiger leopard alligator crocodile lion …]</code> in lots of rules, with the appropriate concept defined one can merely say <code>~animals</code>.</p>
 <p>Rules are always bundled into topics, like the topic: <code>~childhood</code>. Topics have a list of relevant keywords following the topic name. After that, rules come in any order. The gambits, <code>t:</code> lines, offer a story or expected conversation flow.</p>
 <p>If you ask for information in a conversation, you are expected to balance the scales by giving information. For example if you ask what someone does for a hobby, you are expected after their response to answer the question about yourself. As in:</p>
 <pre><code>topic: school [school university learn]
@@ -171,8 +171,8 @@ t: Where do you go to school?
 t: I go to Harvard.
 t: What is your major?
 t: I am studying finance.</code></pre>
-<p>Of course one is often expected to respond to the user’s response. So if he answers where do you go to school by saying <em>the university of Rochester</em>, it helps if you can make some cogent rejoinder on that BEFORE you gambit say <em>I go to Harvard</em>.</p>
-<pre><code>topic: school [school university learn]
+<p>Of course one is often expected to respond to the user’s response. So if he answers <em>where do you go to school</em> by saying <em>the university of Rochester</em>, it helps if you can make some cogent rejoinder on that BEFORE you gambit say <em>I go to Harvard</em>.</p>
+<pre><code>topic: ~school [school university learn]
 
 t: Where do you go to school?
     a: (Rochester) That&#39;s a great school.
@@ -271,7 +271,7 @@ t: I am studying finance. </code></pre>
 <h1 id="simple-topics">SIMPLE TOPICS</h1>
 <p>The system does not execute all rules. Nor do you directly choose a rule to execute. Instead, you (the author) organize collections of rules into topics and the system chooses what topic to execute at any moment. It, in turn, executes its rules.</p>
 <p>Here is an example of a simple topic declaration:</p>
-<pre><code>topic: ~DEATH [dead corpse death die body]
+<pre><code>topic: ~death [dead corpse death die body]
 
 t: I don’t want to die
 ?: (When will you die) I don’t know. </code></pre>
@@ -319,17 +319,18 @@ You can have responders intermixed with gambits.</p>
 <p>Rejoinders use <code>a:</code> through <code>q:</code> to indicate nesting depth.</p>
 <p>All rejoinders at a level have the same letter and are alternatives that will be tested in order. So, after the chatbot asks <em>are you a fan...</em> it will test the next input for yes and then no. As soon as it finds a matching rejoinder, it will execute it and be done. If it finds none, then the system just moves on to its normal behavior.</p>
 <p>Rejoinders can have rejoinders, as shown above. Indenting like above is good style, making it visually obvious in your script.</p>
-<p>Note <br> technically the above uses of yes and no will not actually work as written. They are considered special and treated as <em>interjections</em> (along with many other things that mean the same thing). To make the above example actually work in the engine, you’d have to use ~yes and ~no. But you don’t learn about concepts and interjections until later.</p>
+<p>Note<br />
+technically the above uses of yes and no will not actually work as written. They are considered special and treated as <em>interjections</em> (along with many other things that mean the same thing). To make the above example actually work in the engine, you’d have to use ~yes and ~no. But you don’t learn about concepts and interjections until later.</p>
 <h2 id="rule-labels">Rule Labels</h2>
 <p>All rules (responders, gambits, rejoinders) can have labels on them. Labels have a variety of uses. Other rules can use functions that target a particular labeled rule. You can use the debug abilities to test that rule and you can see that rule more easily in a trace. And you get a kind of documentation telling you what your rule is about.</p>
-<p>A label is a single word placed between the rule type and the pattern. If the rule is a gambit, you must add a pattern, even if it is only empty parens.</p>
+<p>A label is a single word placed between the rule type and the pattern. If the rule is a gambit and you want to add a label, you must add a pattern, even if it is only empty parens.</p>
 <pre><code>t: MY_EYES () My eyes are blue
 ?: EYECOLOR (color * eyes) I have blue eyes
 u: GLASSES ([glasses contacts]) I don&#39;t wear glasses, but I do have contacts.
 ?: BLIND (you * blind) I am not blind.
 ?: COLORBLIND (you * [color-blind &quot;color blind&quot;]) I am not color blind. </code></pre>
 <p>Note, ChatScript is a token-oriented language (tokens generally being a collection of characters without spaces). You need to put one or more spaces after the <code>:</code> and before the label. <code>?:EYECOLOR</code> is a single token and not a declaration of a rule and a label.</p>
-<p>Also, while you can use any case you want in the rule label, internally ChatScript will convert it to full uppercase. Routines that deal with rule labels know this so you don't have to care. All uppercase rule labels stand out more easily in traces and in script source.</p>
+<p>Also, while you can use any case you want in the rule label, internally ChatScript will convert it to full uppercase. Routines that deal with rule labels know this so you don't have to care. All uppercase rule labels stand out more easily in traces and in script source and are considered good form.</p>
 <p>The <code>childhood.top</code> file has an example topic called <code>~childhood</code> of normal complexity (which can be understood after reading through advanced output).</p>
 <h1 id="simple-patterns">SIMPLE PATTERNS</h1>
 <p>As stated previously, a rule cannot fire unless its pattern matches, and a pattern in a rule is encased in parens (which means find the items within it in sequence).</p>
@@ -368,7 +369,7 @@ u: GLASSES ([glasses contacts]) I don&#39;t wear glasses, but I do have contacts
 <h2 id="precise-wildcards-n">Precise Wildcards <code>*n</code></h2>
 <p>As you may notice, indefinite wildcards can allow all sorts of mischief to creep into a match. An overprotective way to manage this is using wildcards that tell you exactly how many words can be swallowed up. The <code>*</code> followed by a number names how many words it absorbs.</p>
 <pre><code>?: (when *1 you *1 home) I went home yesterday</code></pre>
-<p>This matches <em>When did you go home?</em> but won’t accept wide variances like <em>When Roger is with you</em> nor will it accept <em>when you went home</em> which hasn’t room for the first <code>*1</code>.</p>
+<p>This matches <em>When did you go home?</em> but won’t accept wide variances like <em>When Roger is with you, will there be anyone at home?</em> nor will it accept <em>when you went home</em> which hasn’t room for the first <code>*1</code>.</p>
 <h2 id="range-restricted-wildcards-n">Range-restricted Wildcards <code>*~n</code></h2>
 <p>The usual way to manage the excesses of the previous wildcards is to use a range restricted wildcard. This is an <code>*</code> followed by a <code>~</code> and a number, like <code>*~3</code>. It means from 0 up through that number, or approximately that number.</p>
 <p>A common choice is <code>*~2</code>. This leaves room for some filler words (like a determiner and an adjective or perhaps some kind of adverb), without requiring them or letting the sentence stray.</p>
@@ -404,7 +405,7 @@ s: (~baseball) I’m not that into sports like baseball. </code></pre>
 <pre><code>concept: ~pokerhand [ &quot;royal flush&quot; &quot;straight flush&quot; &quot;4 of a kind&quot; &quot;full house&quot; ] </code></pre>
 <p>The pattern:</p>
 <pre><code>?: ( which * better * ~pokerhand * or * ~pokerhand ) … </code></pre>
-<p>detects questions like which is better, a full house or a royal flush and the system has functions that can exploit the ordered concept to provide a correct answer.</p>
+<p>detects questions like <em>which is better, a full house or a royal flush</em> and the system has functions that can exploit the ordered concept to provide a correct answer.</p>
 <p>You can nest concepts within concepts, so this is fine:</p>
 <pre><code>concept: ~food [ ~meat ~dessert lasagna ~vegetables ~fruit ] </code></pre>
 <p>Hierarchical inheritance is important in pattern generalization. Concepts can be used to create full ontologies of verbs, nouns, adjectives, and adverbs, allowing one to match general or idiomatic meanings.</p>
@@ -568,7 +569,7 @@ For temple:
 <p>If the input is <em>do you like eating green eggs or swimming on the beach</em>, the output would be <em>I don’t like eating green eggs so I guess that means I prefer swimming on the beach.</em> If you memorize an optional area, <em>{test me}</em>, then you get either the word that matched or the match variable is set to null if it fails to match. A <code>null</code> variable prints nothing on output.</p>
 <p>If you use match variables, they are allocated in the order of the pattern. E.g.,</p>
 <pre><code>s: ( _~fruit [_~animal _bear] _~like )</code></pre>
-<p>In the above, <code>_0</code> is a fruit and <code>_2</code> is a like, and the <code>_~animal</code> or <code>_bear</code> is <code>_1</code>.</p>
+<p>In the above, <code>_0</code> is a fruit and <code>_2</code> is a like, and <code>_1</code> is <code>_~animal</code> or <code>_bear</code>.</p>
 <p>If you had NOT put <code>_</code>in front of bear, you are at risk that the <code>~like</code> match may be <code>_1</code> or <code>_2</code>, depending on what happened inside <code>[]</code>. That's your headache if you use nested memorization.</p>
 <p>Be aware that this expression:</p>
 <pre><code>u: (_1)</code></pre>
@@ -595,13 +596,14 @@ For temple:
 @2 = $$factid # take a fact id and put it as the only content of 2
 @2 += $$factid # add fact id to 2
 @2 -= $$factid # remove factid from 2</code></pre>
-<p>WARNING: <br> Be careful with extended arithmetic. Each operation applies to the result of the last.</p>
-<pre><code>$myvalue += 2 * 4 means ( $myvalue + 2) * 4.
+<p>WARNING:<br />
+Be careful with extended arithmetic. Each operation applies to the result of the last.</p>
+<pre><code>$myvalue += 2 * 4 means ($myvalue + 2) * 4.
 $tmp = %hour + $tmp means (2 * %hour)</code></pre>
 <p>Of course it would have been clearer to write this as:</p>
 <pre><code>$myvalue = $foo + 20 * 5 / 59
 This is normal output after the assignment. </code></pre>
-<p>You cannot use the name of the variable you are assigning to in the right hand side, as arithmetic is performed progressively across the terms, so the variable is overwritten on the first term. Similarly, you may be surprised by something like this:</p>
+<p>You should not use the name of the variable you are assigning to in the right hand side, as arithmetic is performed progressively across the terms, so the variable is overwritten on the first term. Similarly, you may be surprised by something like this:</p>
 <pre><code>$myvar -= $articlesize * 10</code></pre>
 <p>because it first deducts <code>$articlesize</code> from <code>$myvar</code> and then multiplies that result by 10.</p>
 <p>You can test variables in patterns in a variety of ways. Some such tests do not affect the current position pointer of the match. Merely putting in the variable name will ask &quot;does it have a value&quot;?</p>
@@ -609,8 +611,8 @@ This is normal output after the assignment. </code></pre>
 <p>Like match variables, you can use user variables in the output. Here, if the input is what is my name and if <code>$firstname</code> has been previously assigned to, then the pattern matches. Otherwise it fails. You are free to refer to variables that don’t exist. The pattern will simply fail.</p>
 <p>You can also directly test a variable to see if it has a particular value using a relational test in the pattern. Relational tests use no whitespace, they are all one big token. One such relation is <code>=</code>, also writeable as <code>==</code>.</p>
 <pre><code>?: ( $gender=male I like boys ) Oh, dear.</code></pre>
-<p>Here, the rule will only start checking for input matches if <span class="math inline">$gender has the value male (case insensitive). If it is not defined or has any other value, this rule fails immediately. A relational test requires the two sides of the relation and the relation symbol all be jammed together with no spaces. So the following rule is tantamount to seeing if `$</span>gender` has ever been assigned to, followed by seeing if the user typed =male anywhere.</p>
-<p>?: ( $gender =male )</p>
+<p>Here, the rule will only start checking for input matches if <code>$gender</code> has the value male (case insensitive). If it is not defined or has any other value, this rule fails immediately. A relational test requires the two sides of the relation and the relation symbol all be jammed together with no spaces. So the following rule is tantamount to seeing if <code>$gender</code> has ever been assigned to, followed by seeing if the user typed <em>=male</em> anywhere.</p>
+<pre><code>?: ( $gender =male ) </code></pre>
 <p>Other relations are <code>&lt;</code> and <code>&gt;</code>, which will require the system convert the variable’s text value into numeric.</p>
 <pre><code>?: ( I am _~number years old _0&lt;10 ) You are a child.</code></pre>
 <p>You can invert a relation test using the <code>!</code> operator.</p>
@@ -622,7 +624,7 @@ This is normal output after the assignment. </code></pre>
 s: ( my _*1 ) _8 = _0</code></pre>
 <p>In the first example, <code>_8</code> gets the word hello for both canonical and original forms. It doesn’t process it. In the second example, since <code>_0</code> has dual form with position, the assignment is dual form and passes the position along.</p>
 <h2 id="clearing-variables">Clearing variables</h2>
-<p>You can erase a user variable or match variable by setting it to null:</p>
+<p>You can erase a user variable or match variable by setting it to <code>null</code>:</p>
 <pre><code>$myvar = null
 _3 = null</code></pre>
 <h2 id="long-term-variables">Long-term variables</h2>
