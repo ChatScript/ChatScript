@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 © Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/14/2019 cs9.6
+<br>Revision 7/28/2019 cs9.61
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
 * [Advanced Facts](ChatScript-Fact-Manual.md#advanced-facts)
@@ -259,6 +259,10 @@ which does not damage any facts. When you do
 
 you delete all facts within that factset AND all facts which use those facts as part of
 themselves. Deleted facts are never saved at the end of a volley.
+
+Normally you will be blocked from deleting system facts (ones created by a :build and not by execution of your script).
+But  ^delete(@1 boot)` will allow you to do that. Deleted system facts cannot have their space reclaimed (other than by system restart).
+
 
 
 ### `^length`( fact-set )

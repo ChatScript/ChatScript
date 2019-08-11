@@ -4096,7 +4096,8 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 			{
 				int64 bid;
 				ReadInt64((char*)GetDefinition(D),bid); 
-				if (bid == (int64)myBot)BADSCRIPT((char*)"MACRO-3 macro %s already defined\r\n",macroName)
+                // have to allow multiple instances of boot bot
+				if (bid == (int64)myBot && stricmp(D->word,"^csboot")) BADSCRIPT((char*)"MACRO-3 macro %s already defined\r\n",macroName)
 			}
 			continue;
 		}

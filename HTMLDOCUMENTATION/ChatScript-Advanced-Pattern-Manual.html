@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 5/27/2019 cs9.4</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 7/28/2019 cs9.61</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
 <p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes, e.g.</p>
@@ -17,14 +17,14 @@
 <p>Normally in patterns you can write</p>
 <pre><code>?: ( do you take away cheese )</code></pre>
 <p>and the system will match sentences with those words in order.</p>
-<p>In WordNet, some words are actually composite words like : <em>TV_show</em>. When you do <code>:prepare</code> on <em>what is your favorite TV show</em> you will discover that the engine has merged <em>TV_show</em> into one composite word. The system has no trouble matching inputs where the words are split apart</p>
+<p>In WordNet, some words are actually composite words like : <code>TV_show</code>. When you do <code>:prepare</code> on <em>what is your favorite TV show</em> you will discover that the engine has merged <code>TV_show</code> into one composite word. The system has no trouble matching inputs where the words are split apart</p>
 <pre><code>?: ( what is your favorite TV show )</code></pre>
 <p>But if you tried a word memorize like</p>
 <pre><code>?: ( what is your favorite *1 *1 )</code></pre>
-<p>that would fail because the first <code>*1</code> memorizes <em>TV_show</em> and there is therefore no second word to memorize.</p>
+<p>that would fail because the first <code>*1</code> memorizes <code>TV_show</code> and there is therefore no second word to memorize.</p>
 <p>Likewise when you write</p>
 <pre><code>concept: ~viewing (&quot;TV show&quot;)` </code></pre>
-<p>the system can match that concept readily also. In fact, whenever you write the quoted keyword phrase, if all its words are canonical, you can match canonical and noncanonincal forms. <em>&quot;TV show&quot;</em> matchs <em>TV shows</em> as well as <em>TV show</em>.</p>
+<p>the system can match that concept readily also. In fact, whenever you write the quoted keyword phrase, if all its words are canonical, you can match canonical and noncanonincal forms. <code>&quot;TV show&quot;</code> matchs <code>TV shows</code> as well as <code>TV show</code>.</p>
 <h2 id="implied-concept-sets">Implied concept Sets</h2>
 <p>When you make a pattern using [] or {} and it contains words, phrases, and concept sets, the system will make an anonymous concept set out of them. This allows the system to find the soonest match of any of them. Otherwise [] and {} take each element in turn and try to find a match, which may be later in the sentence than a later element in the set would match.</p>
 <h2 id="dictionary-keyword-sets">Dictionary Keyword sets</h2>
@@ -34,7 +34,7 @@
 <p>How would you be able to figure out creating this? This is described under <code>:up</code> in Word Commands later.</p>
 <p><code>Building~3</code> and <code>building~3n</code> are equivalent.</p>
 <p>The first is what you might say to refer to the 3rd meaning of building. Internally <code>building~3n</code> denotes the 3rd meaning and its a <em>noun</em> meaning.</p>
-<p>You may see that in printouts from Chatscript. If you write 3n yourself, the system will strip off the <code>n</code> marker as superfluous.</p>
+<p>You may see that in printouts from Chatscript. If you write <code>building~3n</code> yourself, the system will strip off the <code>n</code> marker as superfluous.</p>
 <p>Similarly you can invoke parts of speech classes on words. By default you get all of them. If you write:</p>
 <pre><code>concept: ~beings [snake mother]</code></pre>
 <p>then a sentence like <em>I like mothering my baby</em> would trigger this concept, as would <em>He snaked his way through the grass</em>. But the engine has a dictionary and a part-of-speech tagger, so it often knows what part of speech a word in the sentence is.</p>
@@ -67,24 +67,24 @@
 
 ?: ( ^ISHAIRCOLOR(I) ) How would I know your hair color?</code></pre>
 <p>The above patternmacro takes one argument (who we are talking about). After checking that the sentence is not in the negative, it uses a choice to consider alternative ways of asking what the hair color is.</p>
-<p>The first way matches are you a redhead. The second way matches what is my hair color. The call passes in the value <em>I</em> (which will also match my mine etc in the canonical form).</p>
+<p>The first way matches <code>are you a redhead</code>. The second way matches <code>what is my hair color</code>. The call passes in the value <code>I</code> (which will also match my mine etc in the canonical form).</p>
 <p>Every place in the macro code where <code>^who</code> exists, the actual value passed through will be used.</p>
 <p>You cannot omit the <code>^</code> prefix in the call. The system has no way to distinguish it otherwise.</p>
-<p>Whereas most programming language separate their arguments with commas because they are reserved tokens in their language, in ChatScript a comma is a normal word. So you separate arguments to functions just with spaces.</p>
+<p>Whereas most programming languages separate their arguments with commas because they are reserved tokens in their language, in ChatScript a comma is a normal word. So you separate arguments to functions just with spaces.</p>
 <pre><code>?: ( ^FiveArgFunction(1 3 my , word) )</code></pre>
 <p>When a patternmacro takes a single argument and you want to pass in several, you can wrap them in parens to make them a single argument. Or sometimes brackets. E.g.,</p>
 <pre><code>?: ( ^DoYouDoThis( (play * baseball) ) ) Yes I do
 
 ?: ( ^DoYouDoThis( [swim surf &quot;scuba dive&quot;] ) Yes I do</code></pre>
 <p>If you call a patternmacro with a string argument, like <em>&quot;scuba dive&quot;</em> above, the system will convert that to its internal single-token format just as it would have had it been part of a normal pattern. Quoted strings to output macros are treated differently and left in string form when passed.</p>
-<p>You can declare a patternmacro to accept a variable number of arguments. You define the macro with the maximum and then put &quot;variable&quot; before the argument list. All missing arguments will be set to null on the call.</p>
+<p>You can declare a patternmacro to accept a variable number of arguments. You define the macro with the maximum and then put &quot;variable&quot; before the argument list. All missing arguments will be set to <code>null</code> on the call.</p>
 <pre><code>patternmacro: ^myfn variable (^arg1 ^arg2 ^arg3 ^arg4)</code></pre>
 <h3 id="dual-macros">Dual macros</h3>
 <p>You can also declare something dualmacro: which means it can be used in both pattern and output contexts.</p>
-<p>Patternmacro cannot be passed a factset name. These are not legal calls:</p>
+<p>A patternmacro cannot be passed a factset name. These are not legal calls:</p>
 <pre><code>^mymacro(@0)
 ^mymacro(@0subject)</code></pre>
-<p>Do not write code in a pattern macro as though it is an output code. You can't do</p>
+<p>Do not write code in a patternmacro as though it is an output code. You can't do</p>
 <pre><code>if (...) {}</code></pre>
 <p>If you want to do that, use an outputmacro and call that from your pattern.</p>
 <h2 id="literal-next">Literal Next <code>\</code></h2>
@@ -118,7 +118,7 @@ u: ( $bot? )</code></pre>
 <pre><code>s: ( _~number _0=#NOUN )</code></pre>
 <p>Such constants can be done anywhere, not just in a pattern.</p>
 <h2 id="current-topic">Current Topic <code>~</code></h2>
-<p>Whenever you successfully execute a rule in a topic, that topic becomes a pending topic (if the topic is not declared system or nostay). When you execute a rule, while the rule is obviously in a topic being tested, it is not necessarily a topic that was in use recently.</p>
+<p>Whenever you successfully execute a rule in a topic, that topic becomes a pending topic (if the topic is not declared <code>system</code> or <code>nostay</code>). When you execute a rule, while the rule is obviously in a topic being tested, it is not necessarily a topic that was in use recently.</p>
 <p>You can ask if the system is currently in a topic (meaning was there last volley) via <code>~</code>. If the topic is currently on the pending list, then the system will match the <code>~</code>, e.g.,</p>
 <pre><code>u: ( chocolate ~ ) I love chocolate ice cream.</code></pre>
 <p>The above does not match any use of chocolate, only one where we are already in this topic (like topic: <code>~ice_cream</code>) or we were recently in this topic and are reconsidering it now.</p>
@@ -136,13 +136,13 @@ u: ( *tor ) # this matches &quot;reactor&quot;.</code></pre>
 <pre><code>u: ( p.t* )</code></pre>
 <p>can match pituitary or merely pit or pat. You cannot use a wildcard on the first letter of the pattern.</p>
 <pre><code>u: ( .p* )</code></pre>
-<p>is not legal because it may not start with a period.</p>
+<p>is not legal because a pattern may not start with a period.</p>
 <h2 id="indirect-pattern-elements">Indirect pattern elements</h2>
 <p>Most patterns are easy to understand because what words they look at is usually staring you in the face.</p>
 <p>With indirection, you can pass pattern data from other topics, at a cost of obscurity. Declaring a macro does this. A <code>^</code> normally means a macro call (if what follows it is arguments in parens), or a macro argument. The contents of the macro argument are used in the pattern in its place. Macro arguments only exist inside of macros. But macros don't let you write rules, only pieces of rules.</p>
-<p>Normally you use a variable directly. <code>$$tmp = nil</code> clears the <code>$$tmp</code> variable, for instance, while <code>u: ( ) $$tmp</code> goes home will output the value into the output stream. The functional user argument lets you pass pattern data from one topic to another.</p>
+<p>Normally you use a variable directly. <code>$$tmp = nil</code> clears the <code>$$tmp</code> variable, for instance, while <code>u: ( ) $$tmp</code> will output the value into the output stream. The functional user argument lets you pass pattern data from one topic to another.</p>
 <pre><code>s: ( are you a _^$var )</code></pre>
-<p>The contents of <code>$var</code> are used at that point in the pattern. Maybe it is a set being named. Maybe it's a word. You can also do whole expressions, but if you do you will be at risk because you won't have the script compiler protecting you and properly formatting your data. See also Advanced Variables.</p>
+<p>The contents of <code>$var</code> are used at that point in the pattern. Maybe it is a concept set being named. Maybe it's a word. You can also do whole expressions, but if you do you will be at risk because you won't have the script compiler protecting you and properly formatting your data. See also the ChatScript Advanced Variables manual.</p>
 <h2 id="setting-match-position---_3-_3--_3">Setting Match Position - <code>@_3+</code> <code>@_3-</code> <code>@_3</code></h2>
 <p>You can &quot;back up&quot; and continue matching from a prior match position using <code>@</code> followed by a match variable previously set. E.g.</p>
 <pre><code>u: ( _~pronoun * go @_0+ often )</code></pre>
@@ -155,14 +155,16 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p><code>@_3</code> is a special positional matching called an anchor. It not only makes the position that given and matching forward thereafter, but it also acts as an item that must itself be matched.</p>
 <p>E.g., for this pattern <code>( @_3 is my @_4 life)</code></p>
 <p>The position pointer moves to <code>@_3</code> because as the opening element it can match anywhere in a sentence, just like a word would. But after it matches (example at word 2) then <code>is</code> must be word 3 and <code>my</code> must be word 4 and <code>@_4</code> must start at word 5 and after it completes then <code>life</code> must be the next word. Whereas <code>(&lt; @_3 is)</code> implies that <code>@_3</code> is at position 1, since <code>&lt;</code> says this is sentence start.</p>
+<h3 id="retrying-scan-retry">Retrying scan <code>@retry</code></h3>
+<p>Normally one matches a pattern, performs the output code, and if you want to restart the pattern to find the next occurrence of a match, you use ^retry(RULE) or ^retry(TOPRULE). Well, if your pattern executes <span class="citation">@retry</span> as a token, it will retry on its own without needing to execute any output code. Useful in conjunction with ^testpattern.</p>
 <h2 id="backward-wildcards">Backward Wildcards</h2>
 <p>You can request n words before the current position using <code>*-n</code>. For example</p>
 <pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
 <h2 id="match-variable-assignment-in-a-pattern">Match Variable assignment in a pattern</h2>
-<p>Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value. You cannot do arithmetic or function calls for these assignments, but you can transfer data to and from match variables, regular variables, and system variables.</p>
+<p>Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value using <code>:=</code>. You cannot do arithmetic or function calls for these assignments, but you can transfer data to and from match variables, regular variables, and system variables.</p>
 <pre><code>    $value = 5
     ( _some_test  $value:=5 $value1:=_0 $value2:=&#39;_0 $value3:=%time )</code></pre>
-<p>This is not obviously useful normally, but is helpful in conjunction with ^testpattern to return data to a remote CS api user.</p>
+<p>This is not obviously useful normally, but is helpful in conjunction with <code>^testpattern</code> to return data to a remote CS api user.</p>
 <h2 id="gory-details-about-strings">Gory details about strings</h2>
 <p>'Strings in Output'</p>
 <p>A double quoted string in output retains its quotes.</p>
@@ -175,12 +177,12 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>If all words in the string are canonical, it can cover all forms. If any are not, it can only literally match.</p>
 <p>The quote notation is typically used in several situations...</p>
 <ul>
-<li>You are matching a recognized phrase so quoting it emphasizes that.</li>
+<li><p>You are matching a recognized phrase so quoting it emphasizes that.</p></li>
 <li><p>What you are matching contains embedded punctuation and you don't want to think about how to tokenize it e.g., <em>&quot;Mrs. Watson's&quot;</em> -- is the period part of Mrs, is the <code>'</code> part of <em>Watson</em>, etc. Easier just to use quotes and let the system handle it.</p></li>
 <li><p>You want to use a phrase inside <code>[]</code> or <code>{}</code> choices. Like <code>[ like live &quot;really enjoy&quot; ]</code></p></li>
 </ul>
-<p>In actuality, when you quote something, the system generates a correctly tokenized set of words and joins them with underscores into a single word. There is no real difference between <em>&quot;go back&quot;</em> and <em>go_back</em> in a pattern.</p>
-<p>But compared to just listing the words in sequence in your pattern, a quoted expression cannot handle optional choices of words. You can't write <code>go {really almost} back</code> where that can match <em>go back</em> or <em>go almost back</em>.</p>
+<p>In actuality, when you quote something, the system generates a correctly tokenized set of words and joins them with underscores into a single word. There is no real difference between <code>&quot;go back&quot;</code> and <code>go_back</code> in a pattern.</p>
+<p>But compared to just listing the words in sequence in your pattern, a quoted expression cannot handle optional choices of words. You can't write <code>&quot;go {really almost} back&quot;</code> where that can match <code>go back</code> or <code>go almost back</code>.</p>
 <p>So there is that limitation when using a string inside <code>[ ]</code> or <code>{ }</code>. But, one can write a pattern for that. While <code>[ ]</code> means a choice of words and <code>{ }</code> means a choice of optional words, <code>( )</code> means these things in sequence. So you could write:</p>
 <pre><code>u: ( [ next before (go {almost really} back) ] )</code></pre>
 <p>and that will be a more complex pattern. One almost never has a real use for that capability, but you use <code>( )</code> notation all the time, of course. In fact, all rules have an implied <code>&lt; *</code> in front of the <code>()</code>.</p>
@@ -197,7 +199,7 @@ u: ( I love you today when )</code></pre>
 <h2 id="the-deep-view-of-patterns">The deep view of patterns</h2>
 <p>You normally think of the pattern matcher as matching words from the sentence. It doesn't. It matches marks. A mark is an arbitrary text string that can be associated with a sentence location. The actual words (but not necessarily the actual case you use) are just marks placed on the actual locations in the sentence where the words exist.</p>
 <p>The canonical forms of those words are also such marks. As are the concept set names and topic names which have those words as keywords. And all parser determined pos-tag and parser roles of words.</p>
-<p>It gets interesting because marks can also cover a sequential range of locations. That's how the system detects phrases as keywords, idioms from the parser like <em>I am a little bit crazy</em> (where a little bit is an adverb covering 3 sentence locations) and contiguous phrasal verbs.</p>
+<p>It gets interesting because marks can also cover a sequential range of locations. That's how the system detects phrases as keywords, idioms from the parser like <em>I am a little bit crazy</em> (where <em>a little bit</em> is an adverb covering 3 sentence locations) and contiguous phrasal verbs.</p>
 <p>And there are functions you can call to set or erase marks on your own (<code>^mark</code> and <code>^unmark</code>).</p>
 <p>Pattern matching involves looking at tokens while having a current sentence location index. Unless you are using a wildcard, your tokens must occur in contiguous order to match. As they match, the current sentence location is updated. But not necessarily updated to the next adjacent location. It will depend on the length of the mark being matched.</p>
 <p>So your token might be <code>~adverb</code> but that may match a multiple-word sequence, so the location index will be updated to the end of that index.</p>
@@ -217,7 +219,7 @@ u: ( I love you today when )</code></pre>
 <p>This might be handy in a server context and is definitely handy in <code>:document</code> mode where user memory can be very transient. Of course remembering what <code>_10</code> means as a holding variable is harder, unlike the ones bound to matches from input. So you can use</p>
 <pre><code>rename: _bettername _12</code></pre>
 <p>in a script before any uses of <code>_bettername</code>, which now mean <code>_12</code>.</p>
-<p>Also, although whenever you start to execute a rule's pattern the match variables start memorizing at _0, you can change that. All you have to do is something like this:</p>
+<p>Also, although whenever you start to execute a rule's pattern the match variables start memorizing at <code>_0</code>, you can change that. All you have to do is something like this:</p>
 <pre><code>u: (^eval(_9 = null)  I love _~meat)</code></pre>
 <p>The act of setting _9 to a value automatically makes the system set the next variable, so future memorizations start at _10. Equivalently, there is <code>^setwildcardindex</code></p>
 <pre><code>u: (^setwildcardindex(_10 )  I love _~meat)</code></pre>
@@ -226,12 +228,12 @@ u: ( I love you today when )</code></pre>
 <pre><code>u: ( the * [bear raccoon] ate )</code></pre>
 <p>and an input like <em>the raccoon ate the bear</em>, then matching would proceed as</p>
 <ul>
-<li>find the word the (position 1 in sentence)</li>
-<li>try to find bear starting at position 2 found at position 5</li>
-<li>try to find the word ate starting at position 6 fails</li>
+<li>find the word <code>the</code> (position 1 in sentence)</li>
+<li>try to find <code>bear</code> starting at position 2 found at position 5</li>
+<li>try to find the word <code>ate</code> starting at position 6 fails</li>
 </ul>
-<p>The system is allowed to backtrack and see if the first match can be made later. So it will try to find the match later than position one. It would succeed in relocating it to position 4.</p>
-<p>It would then try to find the word bear afterwards, and succeed at position 5. It would then try to find the word ate after that and fail. It would retry trying to reset the pattern to find the match after position 4 and fail. The match fails.</p>
+<p>The system is allowed to backtrack and see if the first match, for <code>the</code> can be made later. So it will try to find the match later than position 1. It would succeed in relocating it to position 4.</p>
+<p>It would then try to find the word <code>bear</code> afterwards, and succeed at position 5. It would then try to find the word <code>ate</code> after that and fail. It would retry trying to reset the pattern to find the match for <code>the</code> after position 4 and fail. The match fails.</p>
 <p>You can fix this ordering problem by making a concept set of the contents of the <code>[ ]</code>, and replacing the <code>[ ]</code> with the name of the concept set.</p>
 <p>A concept set being matched in a pattern will always find the earliest matching word. The number of elements in a concept set is immaterial both to the order of finding things and to the speed of matching.</p>
 </body>

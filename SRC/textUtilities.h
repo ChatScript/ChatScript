@@ -113,7 +113,7 @@ extern uint64 docVolleyStartTime;
 #define IsComparison(c) (isComparatorData[(unsigned char)c])
 WORDP BUILDCONCEPT(char* word) ;
 void RemoveTilde(char* output);
-double Convert2Float(char* original,int useNumberStyle = AMERICAN_NUMBERS);
+double Convert2Double(char* original,int useNumberStyle = AMERICAN_NUMBERS);
 char* RemoveEscapesWeAdded(char* at);
 bool IsComparator(char* word);
 void ConvertNL(char* ptr);

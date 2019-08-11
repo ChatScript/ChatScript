@@ -3532,11 +3532,11 @@ char* FindCanonical(char* word, int i,bool notNew)
         if (strchr(word,'.') || strlen(word) > 9)  //   big numbers need float
         {
             double y;
-			if (*word == '$') y = Convert2Float(word+1);
-			else y = Convert2Float(word);
+			if (*word == '$') y = Convert2Double(word+1);
+			else y = Convert2Double(word);
             int x = (int)y;
             if (((double) x) == y) sprintf(word1,(char*)"%d",x); //   use int where you can
-            else WriteFloat(word1,Convert2Float(word));
+            else WriteFloat(word1,Convert2Double(word));
         }
 		else if (GetCurrency((unsigned char*) word,number)) sprintf(word1,(char*)"%d",atoi(number));
 #ifdef WIN32

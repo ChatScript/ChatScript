@@ -32,6 +32,7 @@
               #DO_CONDITIONAL_POSTAG | #DO_PARSE | #DO_SPELLCHECK</code></pre>
 <p>If you don't define <code>$cs_control_pre</code> or <code>$cs_control_post</code>, they just don't invoke anything. You need <code>$cs_control_main</code> to respond to an input.</p>
 <p>I use <code>$cs_control_pre</code> to initialize some variables before handling each sentence. I use <code>$cs_control_post</code> to have the system analyze the chatbots own output for things like pronoun resolution and current mood, and to generate special out-of-band messages to control an avatar.</p>
+<p>These topics should be flagged SYSTEM so they do not erase itself as they gets used.</p>
 <p>The <code>^addtopic(~introductions)</code> is needed if you expect the bot is going to have the first word. Typically the user &quot;logs in&quot; and the bot responds with a greeting message first, be it <em>Welcome to ChatScript</em> or <em>Welcome back</em> if this is not your first conversation. Since there is no user input on the login message, there are no keywords to initiate a topic. One could put the starting topic as part of the control script, but it's easy enough just to say “start here” using addtopic.</p>
 <p>The $cs_token assignment tells the system how to preprocess input (parsing, pos-tagging, spelling correction, etc).</p>
 <h1 id="basic-control-scripts">Basic Control Scripts</h1>

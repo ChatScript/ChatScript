@@ -3374,8 +3374,8 @@ static FunctionResult ComputeCode(char* buffer)
 	{
 	FLOAT_X:
 		double fvalue = (double) NOT_A_NUMBER;
-		double number1 = (strchr(arg1,'.')) ? Convert2Float(arg1) : (double)Convert2Integer(arg1);
-		double number2 = (strchr(arg2,'.')) ? Convert2Float(arg2) :  (double)Convert2Integer(arg2);
+		double number1 = (strchr(arg1,'.')) ? Convert2Double(arg1) : (double)Convert2Integer(arg1);
+		double number2 = (strchr(arg2,'.')) ? Convert2Double(arg2) :  (double)Convert2Integer(arg2);
 		//   we must test case insenstive because arg2 might be capitalized (like add and ADD for attention deficit disorder)
 		if (*op == '+' || !stricmp(op,(char*)"plus") || !stricmp(op,(char*)"add")|| !stricmp(op,(char*)"and")) fvalue = number1 + number2; 
 		else if (!stricmp(op,(char*)"minus") || !stricmp(op,(char*)"subtract")|| !stricmp(op,(char*)"deduct")|| !stricmp(op,(char*)"take away") || *op == '-' ) fvalue = number1 - number2;
@@ -3766,28 +3766,38 @@ static FunctionResult FormatCode(char* buffer)
 	double fvalue;
 	int64 ivalue;
 	int value;
-	if (!stricmp(arg1, "float") || !stricmp(arg1, "double"))
+	if (!stricmp(arg1, "float") || !stricmp(arg1, "double")) // input is float
 	{
-		fvalue = Convert2Float(arg3);
-		sprintf(buffer, arg2, fvalue);
+		fvalue = Convert2Double(arg3); 
+        if (strchr(arg2, 'd') || strchr(arg2, 'u') || strchr(arg2, 'i')
+            || strchr(arg2, 'x') || strchr(arg2, 'X'))
+        {
+            int64 x = (int64)fvalue;
+            sprintf(buffer, arg2, (int)x);
+        }
+        else if (strstr(arg2, "ull") || strstr(arg2, "ll"))
+        {
+            int64 x = (int64)fvalue;
+            sprintf(buffer, arg2, x);
+        }
+        else sprintf(buffer, arg2, fvalue); // sprintf doesnt not take float, it autoexpands to double
 	}
-    else if (!stricmp(arg1, "integer") || !stricmp(arg1, "int"))
+    else if (!stricmp(arg1, "integer") || !stricmp(arg1, "int")) // input is a flavor of int
     {
-        fvalue = Convert2Float(arg3);
+        int64 ivalue = atoi64(arg3); // if they lie about incoming type so what
         bool minus = false;
-        if (fvalue < 0)
+        if (ivalue < 0)
         {
             minus = true;
-            fvalue *= -1.0;
+            ivalue *= -1;
         }
-        ivalue = (int64)fvalue;
         value = (int)ivalue;
         if (minus)
         {
             ivalue *= -1;
             value *= -1;
         }
-        if (strstr(arg2, "ll")) sprintf(buffer, arg2, ivalue);
+        if (strstr(arg2, "ll") || strstr(arg2, "ull")) sprintf(buffer, arg2, ivalue);
         else sprintf(buffer, arg2, value);
     }
 	else return FAILRULE_BIT;
@@ -6235,7 +6245,7 @@ static FunctionResult POSCode(char* buffer)
 		char* period = strchr(arg2,'.');
 		if (period)
 		{
-			double val = Convert2Float(arg2);
+			double val = Convert2Double(arg2);
 			*period = 0;
 			int64 vali;
 			ReadInt64(arg2,vali);
@@ -9209,16 +9219,27 @@ static FunctionResult DeleteCode(char* buffer) //   delete all facts in collecti
 {
 	char* arg1 = ARGUMENT(1);
 	if (!*arg1) return NOPROBLEM_BIT;
-	else if (IsDigit(*arg1))
+
+    if (!stricmp(ARGUMENT(2), "BOOT")) allowBootKill = true;
+	if (IsDigit(*arg1))
 	{
 		FACT* F = Index2Fact(atoi(arg1));
 		if (F) KillFact(F);
 	}
-	else if (!strnicmp(arg1,"ja-",3) || !strnicmp(arg1,"jo-",3)) return JSONDeleteCode(buffer);
+    else if (!strnicmp(arg1, "ja-", 3) || !strnicmp(arg1, "jo-", 3))
+    {
+        FunctionResult result = JSONDeleteCode(buffer);
+        allowBootKill = false;
+        return result;
+    }
 	else if (*arg1 == '@') // factset
 	{
 		int store = GetSetID(arg1);
-		if (store == ILLEGAL_FACTSET) return FAILRULE_BIT;
+        if (store == ILLEGAL_FACTSET)
+        {
+            allowBootKill = false;
+            return FAILRULE_BIT;
+        }
 		unsigned int count = FACTSET_COUNT(store);
 		for (unsigned int i = 1; i <= count; ++i) 
 		{
@@ -9226,6 +9247,8 @@ static FunctionResult DeleteCode(char* buffer) //   delete all facts in collecti
 			KillFact(F);
 		}
 	}
+    allowBootKill = false;
+
 	return NOPROBLEM_BIT;
 }
 
@@ -9758,6 +9781,36 @@ static FunctionResult MakeRealCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static FunctionResult SetFactOwner(char* buffer)
+{
+    char* arg = ARGUMENT(1);
+    int64 botid = atoi64(ARGUMENT(2));
+    if (*arg == '@')
+    {
+        int set = GetSetID(arg);
+        if (set < 0) return FAILRULE_BIT;
+        unsigned int count = FACTSET_COUNT(set);
+        for (unsigned int i = 1; i <= count; ++i)
+        {
+            FACT* F = factSet[set][i];
+            F->botBits = botid;		// which bots can access this fact (up to 64)
+        }
+    }
+    else // all new facts past here
+    {
+        FACT* F = Index2Fact(atoi(arg));
+        if (!F) return FAILRULE_BIT;
+        FACT* at = factFree + 1;
+        while (--at > F) // user facts
+        {
+            F->botBits = botid;		// which bots can access this fact (up to 64)
+        }
+    }
+
+    return NOPROBLEM_BIT;
+}
+
+
 static FunctionResult FLRCodeL(char* buffer)
 {
 	return FLR(buffer,(char*)"l");
@@ -10278,7 +10331,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^conceptlist",ConceptListCode,STREAM_ARG,0,(char*)"create facts of the concepts or topics or both triggers by word at position or overall"}, 
 	{ (char*)"^createattribute",CreateAttributeCode,STREAM_ARG,0,(char*)"create a triple where the 3rd field is exclusive"}, 
 	{ (char*)"^createfact",CreateFactCode,STREAM_ARG,0,(char*)"create a triple"}, 
-	{ (char*)"^delete",DeleteCode,1,0,(char*)"delete all facts in factset or delete named fact or delete named json object or array"}, 
+	{ (char*)"^delete",DeleteCode,VARIABLE_ARG_COUNT,0,(char*)"delete all facts in factset or delete named fact or delete named json object or array, optionally allow in boot layer as well"}, 
 	{ (char*)"^deserialize", DeserializeCode, 1, 0, "transcribes a string into a factset" },
 	{ (char*)"^field",FieldCode,2,0,(char*)"get a field of a fact"}, 
 	{ (char*)"^find",FindCode,2,0,(char*)"Given set or factset, find ordinal position of item within it"},
@@ -10289,7 +10342,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^intersectfacts",IntersectFactsCode,STREAM_ARG,0,(char*)"find facts common to two factsets, based on fields"},
 	{ (char*)"^iterator",IteratorCode,3,0,(char*)"walk facts of some thing"},
 	{ (char*)"^makereal",MakeRealCode,1,0,(char*)"make all transient facts non-transient either in factset or starting with factid to end"},
-	{ (char*)"^nth",NthCode,STREAM_ARG,0,(char*)"from factset get nth element (kept) or from set get nth element"},
+    { (char*)"^setfactowner",SetFactOwner,2,0,(char*)"change ownership of all facts either in factset or starting with factid to end" },
+    { (char*)"^nth",NthCode,STREAM_ARG,0,(char*)"from factset get nth element (kept) or from set get nth element"},
 	{ (char*)"^revisefact",ReviseFactCode,4,0,(char*)"revise a triple"}, 
 	{ (char*)"^uniquefacts",UniqueFactsCode,STREAM_ARG,0,(char*)"find facts in first set not found in second"},
 	{ (char*)"^last",FLRCodeL,STREAM_ARG,0,(char*)"get last element of a factset and remove it"},

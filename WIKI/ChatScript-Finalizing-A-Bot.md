@@ -1,6 +1,6 @@
 # ChatScript Finalizing a Bot Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/8/2017 cs7.31
+<br>Revision 7/28/2019 cs9.61
 
 OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should
 polish it. There are a bunch of tools to do this.
@@ -527,7 +527,11 @@ will rewrite the regression file with the updated test results. Do this if it de
 differences so it can help stay on track in the future. Do this if the major differences are in fact OK. 
 Otherwise decline and go fix your code somewhere.
 
-
+```
+:regress exit outputname
+```
+Useful for batch applications, this form does not prompt you if stuff is found changed.
+Instead it causes ChatScript to exit (0) if regress passes, or exit(1) if it doesnt.
 ## Mobile size issues
 
 Mobile apps embedding CS probably do not want the entire dictionary. CS ships with a
