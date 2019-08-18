@@ -97,7 +97,7 @@ Young Lady’s Illustrated Primer’, a faux-human teaching
 machine with a personality. This device appeared in Neal
 Stephenson’s book “The Diamond Age”[7]. It could teach
 anything in a way appropriate to the age and experience of
-the student – a tailor made education.
+the student - a tailor made education.
 
 Danny is famous for many things including his work on
 Artificial Intelligence and as a Disney Imagineer. In his
@@ -369,7 +369,7 @@ would want to continue talking with her. This is beyond the
 usual banal conversations of many humans.
 
 To fit with the Blue Mars mythos Suzette started out being
-a replicant living on Mars. Then we moved her to Hawai’i –
+a replicant living on Mars. Then we moved her to Hawai’i -
 as a student with a French background who was unaware
 she was artificial. The French nationality came when we
 were messing about trying to make her type with fake
@@ -516,7 +516,7 @@ In fact the whole rudeness subject got us into designing an
 Data had. Depending upon how a chat session develops,
 Suzette may decide she likes or dislikes you. Most chat is
 brief, so she develops opinions rapidly. If you agree with
-her, complement her, stay on topic, write longer sentences –
+her, complement her, stay on topic, write longer sentences -
 these are all things that get her to like you. She’ll tell you
 how she is enjoying the conversation. Past a certain point
 she becomes neurotically insecure. She feels unworthy of
@@ -604,7 +604,7 @@ knowledge inferences, though it can get difficult when
 output starts depending upon the sum of all human
 knowledge.
 
-## SUMMER 2009–CASTING ABOUT
+## SUMMER 2009-CASTING ABOUT
 We had just moved to San Luis Obispo when Bruce heard
 from Avatar Reality that he was on indefinite hold with
 ChatBot development. This was a sensible decision. They
@@ -1041,7 +1041,7 @@ price as we were keen to demonstrate commercial uses for a
 ChatBot) the company asked if we would like to become
 part of them and receive founders stock. This sounded great
 until we realized it meant they were short of cash and
-wanted to pay us in stock – déjà vu time. But we are very
+wanted to pay us in stock - déjà vu time. But we are very
 strong believers in both their skills and our ChatBot so we
 agreed. If they make it big so do we and with the massive
 market for learning English worldwide we see ourselves as
@@ -1130,17 +1130,17 @@ how his engine technology worked.
 
 ## HOW TO BE A LOEBNER JUDGE
 
-Things to avoid – things that require no imagination:
+Things to avoid - things that require no imagination:
 
 1. Let the ChatBot pick the topic of discussion. It will know lots in its chosen area.
 2. Ask simple opinion questions or who/what fact questions. IBM’s Watson won the TV show Jeopardy against top humans, demonstrating uncanny fact abilities.
-3. Ask yes or no questions –a 50% chance of guessing right.
+3. Ask yes or no questions -a 50% chance of guessing right.
 
-Things to do – anything that stresses understanding.
+Things to do - anything that stresses understanding.
 
 1. Ask for interpretation of implied facts - _How are a horse and a Sherman tank similar? How are running and walking different?_
 2. Ask for actions- In your next reply, please put an x at the end of every word.
-3. Ask real world causality questions – _What happens if you pour a lot of water onto a flat table?_
+3. Ask real world causality questions - _What happens if you pour a lot of water onto a flat table?_
 
 Just don’t think you are safe forever. These questions, too,
 will eventually fail to discriminate between human and machine.
@@ -1179,13 +1179,13 @@ open source. What could you could do with it?
 1. Loebner Competition - www.loebner.net/Prizef/loebner-prize.html
 2. Brian Christian book- www.amazon.com/Brian-Christian/e/B004IZCXAI
 3. Avatar Reality Blue Mars - www.bluemarsonline.com/
-4. Cleverbot – cleverbot.com/
+4. Cleverbot - cleverbot.com/
 5. AIML - www.alicebot.org/aiml.html
 6. Applied Minds - www.appliedminds.com/
 7. http://www.amazon.com/Diamond-Age-Illustrated-Primer-Spectra/dp/0553380966/ref=sr_1_1?ie=UTF8&qid=1303179342&sr=8-1
 8. ChatScript Open Source project - sourceforge.net/projects/chatscript/
-9. Façade – www.interactivestory.net
-10. PersonalityForge –www.personalityforge.com
+9. Façade - www.interactivestory.net
+10. PersonalityForge -www.personalityforge.com
 11. www.gamasutra.com/view/feature/3761/beyond_aiml_chatbots_102.php?print=1Suzette - www.chatbots.org/chatbot/suzette/
 12. Suzette - www.chatbots.org/chatbot/suzette/
 13. Chatterbox Challenge - www.chatterboxchallenge.com/
@@ -1196,6 +1196,6 @@ open source. What could you could do with it?
 18. Personal Digital Archiving Conference - www.personalarchiving.com/
 19. www.personalarchiving.com/wp-content/uploads/2010/02/finalpresentation-Wilcox.pdf
 20. Stanford’s Buckminster Fuller archive - www-sul.stanford.edu/depts/spc/fuller/index.html
-21. Gordon Bell’s MyLifeBits project – research.microsoft.com/en-us/projects/mylifebits/
+21. Gordon Bell’s MyLifeBits project - research.microsoft.com/en-us/projects/mylifebits/
 22. www.gamasutra.com/view/feature/6305/beyond_fa%C3%A7ade_pattern_matching_.php
 23. Australia Powerhouse museum project - www.powerhousemuseum.com/

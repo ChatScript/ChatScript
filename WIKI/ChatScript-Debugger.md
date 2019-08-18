@@ -1,5 +1,5 @@
 # ChatScript Debugger Manual
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 2/18/2018 cs8.1  
 
 You can run an interactive debugger environment (IDE) if you have Windows.

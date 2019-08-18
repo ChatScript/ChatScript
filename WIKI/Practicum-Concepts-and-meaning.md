@@ -1,5 +1,5 @@
 # ChatScript Practicum: Concepts and Meaning
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 4/26/2019 cs9.3
 
 

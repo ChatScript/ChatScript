@@ -331,7 +331,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 #define USER_FLAGS			0x000F0000 
 #define START_ONLY          0x00008000  // interjection membership fact
-// FACTBOOT 0x00004000  // FACTBOOT - user created fact migrates to boot declared not visible to script
+#define FACTBOOT 0x00004000  // FACTBOOT - user created fact migrates to boot declared not visible to script
 #define JSON_OBJECT_FACT	0x00002000 // on subject side of triple
 #define JSON_ARRAY_FACT		0x00001000	// on subject side of triple
 

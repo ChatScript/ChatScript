@@ -190,7 +190,15 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 			bool failed = false;
             char oldmark[MAX_SENTENCE_LENGTH];
             memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
-			if (!Match(buffer,ptr+10,0,start,(char*)"(",1,0,start,end,uppercasem,whenmatched,0,0)) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
+            if (trace & (TRACE_PATTERN | TRACE_MATCH | TRACE_SAMPLE) && CheckTopicTrace()) //   display the entire matching responder and maybe wildcard bindings
+            {
+                char word[MAX_WORD_SIZE];
+                strncpy(word, ptr + 10, 40);
+                word[40] = 0;
+                Log(STDTRACETABLOG, (char*)"  IF Pattern %s\r\n",word);
+            }
+            
+            if (!Match(buffer,ptr+10,0,start,(char*)"(",1,0,start,end,uppercasem,whenmatched,0,0)) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
             memcpy(unmarked,oldmark, MAX_SENTENCE_LENGTH);
             ShowMatchResult((failed) ? FAILRULE_BIT : NOPROBLEM_BIT, ptr+10,NULL);
             // cannot use @retry here
@@ -271,6 +279,8 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     int match2 = -1;
     FACT* F = NULL;
     result = NOPROBLEM_BIT;
+    char* paren = strchr(ptr, ')') + 2;
+    char* endofloop = paren + (size_t)Decode(paren);
 
     int limit = 0;
 
@@ -287,9 +297,9 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     else
     {
         limit = 1000000;
-
-        ptr = GetCommandArg(ptr + 2, buffer, result, 0); //   get the json object 
-        WORDP jsonstruct = FindWord(buffer);
+        char data[MAX_WORD_SIZE];
+        ptr = GetCommandArg(ptr + 2, data, result, 0); //   get the json object 
+        WORDP jsonstruct = FindWord(data);
         if (!jsonstruct) // no known object
         {
             result = FAILRULE_BIT;
@@ -301,7 +311,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         {
             result = NOPROBLEM_BIT;
             ChangeDepth(-1, "Loop()", false, ptr + 2);
-            return ptr; // we dont know it
+            return endofloop; // we dont know it
         }
   
         // move onto stack so we can walk either way the elements
@@ -330,7 +340,6 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         ptr += 2; // past paren closer
     } // end json zone
 
-	char* endofloop = ptr + (size_t) Decode(ptr);
 	int counter;
 	if (*buffer == '@')
 	{
@@ -399,12 +408,14 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         FunctionResult result1;
 		Output(ptr,buffer,result1,OUTPUT_LOOP);
 		buffer += strlen(buffer);
-		if (result1 & ENDCODES) 
+		if (result1 & ENDCODES || result1 & RETRYCODES)
 		{
 			if (result1 == NEXTLOOP_BIT) continue;
-			result = (FunctionResult)( (result1 & (ENDRULE_BIT | FAILRULE_BIT)) ? NOPROBLEM_BIT : (result1 & ENDCODES) );  // rule level terminates only the loop
-			if (result == FAILLOOP_BIT) result = FAILRULE_BIT; // propagate failure outside of loop
-			if (result == ENDLOOP_BIT) result = NOPROBLEM_BIT; // propagate ok outside of loop
+            result = result1;
+            if (result1 == FAILLOOP_BIT) result = FAILRULE_BIT; // propagate failure outside of loop
+            else if (result1 == ENDLOOP_BIT) result = NOPROBLEM_BIT; // propagate ok outside of loop
+            else if (result1 & (ENDRULE_BIT | FAILRULE_BIT)) result = NOPROBLEM_BIT;
+            // rule level terminates only the loop
 			break;//   potential failure if didnt add anything to buffer
 		}
 	}

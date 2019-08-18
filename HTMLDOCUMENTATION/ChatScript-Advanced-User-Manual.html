@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/28/2019 cs9.61</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/18/2019 cs9.62</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -199,10 +199,11 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <h1 id="system-callback-functions">System callback functions</h1>
 <h2 id="csboot"><code>^CSBOOT()</code></h2>
 <pre><code>outputmacro: ^CSBOOT()</code></pre>
-<p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users. And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
+<p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users (the boot layer). And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
 <p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
-<h2 id="cs_boot"><code>^CS_BOOT()</code></h2>
-<p>This function, if defined by you, will be executed on system startup. Allows you to read external data to be incorporated as Facts into the basic server. You are allowed to define any number of these in a multibot environment without triggering a complaint about already defined functions.</p>
+<p>You can also add facts to the boot layer by creating facts from a user script using ^createFact(s v o #FACTBOOT)</p>
+<p>This function allows you to read external data to be incorporated as Facts into the basic server. You are allowed to define any number of these in a multibot environment without triggering a complaint about already defined functions.</p>
+<p>^purgeboot can be used to erase facts stored in the boot layer.</p>
 <h2 id="cs_reboot"><code>^CS_REBOOT()</code></h2>
 <pre><code>outputmacro: ^CS_REBOOT()</code></pre>
 <p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
@@ -220,6 +221,8 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 <h1 id="advanced-build">Advanced :build</h1>
 <h2 id="anti-virus-software-and-build">Anti-virus software and :build</h2>
 <p>Windows Defender, Norton, and the like have a real-time monitoring system on files. You can disable the ChatScript folder from being analyzed. On a Mac w/o this stuff, a compile of a bot might take 14 seconds, wherease with AV software interferring on Windows it takes 4 minutes. CS writes to its TOPIC folder and LOGS directories in lots of little pieces, that AV wants to monitor.</p>
+<h2 id="build-xxx-quiet">:build xxx quiet</h2>
+<p>Build normally echos out its log messages of what it is currently compiling And and any warning or error messages. If you say quiet, then it will only tell you it succcessfully completed or list the errors it detected.</p>
 <h2 id="build-warning-messages">Build warning messages</h2>
 <p>Build will warn you of a number of situations which, while not illegal, might be mistakes. It has several messages about words it doesn't recognize being used as keywords in patterns and concepts. You can suppress those messages by augmenting the dictionary OR just telling the system not to tell you</p>
 <pre><code>:build 0 nospell</code></pre>
@@ -251,10 +254,10 @@ subdirectory2//</code></pre>
 <p>The build system has two layers, 0 and 1. When you say :build 0, the system looks in the top level directory for a file <code>files0.txt</code>. Similarly when you say <code>:build 1</code> it looks for <code>files1.txt</code>. Whatever files are listed inside a <code>filesxxx.txt</code> are what gets built.</p>
 <p>And the last character of the file name (e.g., <code>files0</code>) is what is critical for deciding what level to build on. If the name ends in 0, it builds level 0. If it doesn't, it builds level 1. This means you can create a bunch of files to build things any way you want. You can imagine:</p>
 <ul>
-<li><code>:build common0</code> – shared data-source (level 0)</li>
-<li><code>:build george</code> – george bot-specific (level 1)</li>
-<li><code>:build henry</code> – henry bot-specific (level 1)</li>
-<li><code>:build all</code> – does george and henry and others (level 1)</li>
+<li><code>:build common0</code> - shared data-source (level 0)</li>
+<li><code>:build george</code> - george bot-specific (level 1)</li>
+<li><code>:build henry</code> - henry bot-specific (level 1)</li>
+<li><code>:build all</code> - does george and henry and others (level 1)</li>
 <li><code>:build system0</code> - does ALL files, there is no level 1.</li>
 </ul>
 <p>You can build layers in either order, and omit either.</p>
@@ -309,7 +312,7 @@ $tmp = ##first</code></pre>
 <li><p>Empty the contents of your USER folder, but don't erase the folder. This gets rid of old history in case you are having issues around things you've said before or used from the chatbot before.</p></li>
 <li><p>Empty the contents of your TOPIC folder, but don't erase the folder. This gets rid of any funny state of topic builds.</p></li>
 </ul>
-<p><code>:build 0</code> - rebuild the common layer <br><code>:build xxx</code> – whatever file you use for your personality layer</p>
+<p><code>:build 0</code> - rebuild the common layer <br><code>:build xxx</code> - whatever file you use for your personality layer</p>
 <p>Probably all is good now. If not quit chatscript. Start up and try it now.</p>
 <h1 id="editing-non-topic-files">Editing Non-topic Files</h1>
 <p>Non-topic files include the contents of <code>DICT</code> and <code>LIVEDATA</code>.</p>

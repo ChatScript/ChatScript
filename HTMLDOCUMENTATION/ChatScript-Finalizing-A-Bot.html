@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-finalizing-a-bot-manual">ChatScript Finalizing a Bot Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/28/2019 cs9.61</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/18/2019 cs9.62</p>
 <p>OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should polish it. There are a bunch of tools to do this.</p>
 <h2 id="verification-verify">Verification (<code>:verify</code>)</h2>
 <p>When I write a topic, before every rejoinder and every responder, I put a sample input comment. This has #! as a prefix. E.g.,</p>
@@ -125,98 +125,189 @@ u: (what are you) I am a robot</code></pre>
 <p>To ensure the outputs don't have spelling errors, I do a <code>:build</code> like this: <code>:build Harry</code> outputspell and then fix any spelling complaints that should be fixed.</p>
 <h2 id="sizing">Sizing</h2>
 <p>We generally adhere to a tweet limit (140 characters) and run <code>:abstract 140</code> to warn us of lines that are longer.</p>
-<h3 id="topicinfo-topic-how"><code>:topicinfo ~topic how</code></h3>
-<p>This displays all sorts of information about a topic including its keywords, how they overlap with other topics, what rules exist and whether they are erased or not. You either name the topic or you can just use <code>~</code>, which means the current rejoinder topic (if there is one). You can also wildcard the name like <code>~co*</code> to see all topics that start with <code>~co</code>.</p>
-<p>If 'how' is omitted, you get everything. You can restrict things with a collection of how keywords. These include:</p>
-<table style="width:21%;">
-<colgroup>
-<col width="8%" />
-<col width="12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>how</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>keys</code></td>
-<td>to display the keywords</td>
-</tr>
-<tr class="even">
-<td><code>overlap</code></td>
-<td>to display the overlap with other topics'</td>
-</tr>
-<tr class="odd">
-<td><code>keywords</code><br><code>gambits</code><br><code>rejoinders</code><br><code>responders</code><br><code>all</code></td>
-<td>to limit rules to some of those</td>
-</tr>
-<tr class="even">
-<td><code>used</code><br><code>available</code></td>
-<td>to see only those rules meeting that criteria.</td>
-</tr>
-</tbody>
-</table>
-<p>Of particular importance in finalization is the key overlap map. Keyword overlap is particularly interesting. As you assign keywords to topics, at times you will probably get excessive. Some topics will share keywords with other topics. For some things, this is reasonable. &quot;quark&quot; is a fine keyword for a topic on cheese and one on astronomy. But odds are &quot;family&quot; is not a great keyword for a topic on money.</p>
-<p>Often an extraneous keyword won't really matter, but if the system is looking for a topic to gambit based on &quot;family&quot;, you really don't want it distracted by a faulty reference to money. That is, you want to know what keywords are shared across topics and then you can decide if that's appropriate. Sometimes you are told a word but don't see it in the topic keywords. Use <code>:up</code> on that word to see how it intersects.</p>
-<p>I use <code>:topicinfo</code> keys to generate a map across all topics. I then read the first column list of keywords for each topic to see if they obviously should be in that topic or if they don't really strongly imply that topic. If not, I try to remove them from it.</p>
-<p>Sometimes when I look at the list of topics that a key overlaps with, I find multiple topics with similar ideas. Like a topc called <code>~cars</code> and one called <code>~automobiles</code>. Often they are candidates for merging the topics.</p>
-<h2 id="describe-and-list"><code>:describe</code> and <code>:list</code></h2>
-<p>If you have used :describe to document all of your permanent variables (see advanced CS, <code>:build</code>), then <code>:list</code> can be used to show undocumented and potentially erroneously spelled permanent variables</p>
-<pre><code>:list $ ^ ~ _ @</code></pre>
-<p>will list the documented kinds of items (you name which ones you want, could be just $) and for variables it will list be documented and undocumented.</p>
-<h2 id="abstract"><code>:abstract</code></h2>
-<p>There are several useful :abstract calls to do during finalization.</p>
-<h3 id="abstract-100"><code>:abstract 100</code></h3>
-<p>If you want to adjust output of yours that would be too long for something like a phone screen, you can ask :abstract to show you all rules whose output would likely exceed some limit (here 100). Without a topic name it does the entire system. With a topic name e.g.</p>
-<pre><code>:abstract 100 ~topicname</code></pre>
-<p>it is restricted to that topic. You can also use a wildcard like <code>~top*</code> to do all topics with <code>~top</code> at the start of the name. You can also provide a list of topics, like</p>
-<pre><code>:abstract ~topic1 ~topic2</code></pre>
-<h3 id="abstract-censor-mywords"><code>:abstract censor ~mywords</code></h3>
-<p>will note all output which contains any words in <code>~mywords</code>. Of course regular uses may also appear. The censor command looks for any words referred to by the concept given.</p>
-<h3 id="abstract-spell"><code>:abstract spell</code></h3>
-<p>will examine the outputs of all topics (or topic given) to find words whose spelling might be faulty. It's not a guarantee it is, but it can warn you about potential mistakes. And <code>:abstract</code> is handy just to print out a human-readable copy of your bot, without all the ChatScript scripting mess. As part of that, you can add header comments that will appear in the abstract. These are done as:</p>
-<pre><code>#!x whatever</code></pre>
-<p>I often subset gambits and responders in a topic by section, e.g.,</p>
-<pre><code>#!x*** FAMILY COMPOSITION
-...
-#!x*** FAMILY RELATIONSHIPS</code></pre>
-<h3 id="abstract-story"><code>:abstract story</code></h3>
-<p>will display just topics and their gambits (+ rejoinders of them).</p>
-<h3 id="abstract-responder"><code>:abstract responder</code></h3>
-<p>will display topics and their responders (+ rejoinders of them).</p>
-<h3 id="permanentvariables"><code>:permanentvariables</code></h3>
-<p>This gives you a list of all permanent variables found in your source. Not only is documenting them a good idea, but you might want to confirm they are all legit (correctly spelled) and reinitialized as appropriate.</p>
-<h2 id="regression">Regression</h2>
-<p>Having built a functioning chatbot with lots of topics, I like to ensure I don't damage old material in the future, so I create a regression test.</p>
-<p>There are two ways to make a regression test (and you can have multple tests). One is to create a source file with a bunch of questions. To be safe from most randomization effects, you should designate the user and :reset the bot. After doing a bunch of stuff you can do :reset again, so additional inputs are immune from effects of the prior stuff.</p>
-<p>You can see an example of my std Rose regression file in <code>REGRESS/chatbotquestions/loebner.txt</code></p>
-<p>It starts out like this:</p>
-<pre><code>:user test
-:reset
-# 2001 Chatterbox challenge
-How is it going?
-How old are you?
-Are you male or female?
-What is your favorite color?
-Are you a bot?
-What is the date?
-...
-:reset</code></pre>
-<p>and then has more questions and more :resets. Eventually it has a <code>:quit</code> before a bunch of stuff I'm not wanting tested at present.</p>
-<p>The alternative way is to start a fresh conversation as a new user and assuming it makes no mistakes then stop. You need to be a completely new user because CS will read your log file and things like <code>:reset</code> don't clear it. You want to have only the conversation you just did in that log. Now you can make a regression file by typing <code>:regress init test</code> (or whatever user name you used from either mechanism). CS reads your log file and converts it into <code>TMP/regress.txt</code> or you can do</p>
-<pre><code>:regress init user outputname</code></pre>
-<p>to name where it goes.</p>
-<p>The user can be a full file name or just the name of a user whose log is in the USERS directory. The output name should be whereever you want to put the resulting regression file. If omitted it defaults to <code>TMP/regress.txt</code>. Thereafter, all you have to do (not from a server version) is</p>
-<pre><code>:regress outputname</code></pre>
-<p>And the system will retest your conversation. I usually tranfer the file over to a regression directory and rename it in there.</p>
-<p>Regression will note any differences. Inconsequential differences it will merely tally at the end, more interesting differences which may or may not be correct show the alternative outputs and info, and differences CS thinks are major are flagged. If you use</p>
-<pre><code>:regress terse outputname</code></pre>
-<p>then the system will only note what it thinks are fatal differences. If there are differences, maybe they are correct (you edited your code). But CS can detect where you merely edited the output, or a pattern, or a label, or added or subtracted rules nearby. So it is likely to tell you what you need to know.</p>
-<p>The system will ask if you want to update your regression file, and if you answer &quot;yes&quot;, it will rewrite the regression file with the updated test results. Do this if it detects minor differences so it can help stay on track in the future. Do this if the major differences are in fact OK. Otherwise decline and go fix your code somewhere.</p>
-<pre><code>:regress exit outputname</code></pre>
-<p>Useful for batch applications, this form does not prompt you if stuff is found changed. Instead it causes ChatScript to exit (0) if regress passes, or exit(1) if it doesnt. ## Mobile size issues</p>
+<h3 id="listvariables">`:listvariables'</h3>
+<p>Because variables in CS have only 1 data type (text string), CS does not have any predeclarations of variables. You just use them on the fly. Of course if you make a typo, you use that on the fly as well and it may not be what you are expecting. Hence :listvariables.</p>
+<p>:listvariables analyzes your compiled code in the TOPIC folder and writes a file listing each instance of a variable you have. The file is TMP/variables.txt. By default it lists all sorts of variables but you can limit it by naming the kinds you want:</p>
+<pre><code>all - all variables
+local - $_ variables
+global - $ and $$ variables
+permanent - $ variables
+transient - $$ variables
+ ```
+Each line of the file names the variable and puts a + after it if it was an assignment.
+If you then sort this file (e.g. DOS sort command `sort TMP/variables.txt &gt; x.txt ) they 
+are made suitable to then from CS run :mergelines x.txt  which merges all lines having the same starting word  so 
+there is just 1 example of each line with a prefix count of how many instances of such lines were seen. 
+If you then sort that result (eg sort TMP/tmp.txt y.txt) you get a file that 
+gives you how many times a variable was used. Things used only once are highly suspect
+(set or used without the corresponding other side).
+Helps you see instances where maybe
+you typed the misspelled your variable. 
+
+### `:topicinfo ~topic how`
+
+This displays all sorts of information about a topic including its keywords, how they
+overlap with other topics, what rules exist and whether they are erased or not. You either
+name the topic or you can just use `~`, which means the current rejoinder topic (if there is
+one). You can also wildcard the name like `~co*` to see all topics that start with `~co`.
+
+If &#39;how&#39; is omitted, you get everything. 
+You can restrict things with a collection of how keywords. These include: 
+
+| how | meaning|
+|-----|--------|
+|`keys`| to display the keywords
+|`overlap`| to display the overlap with other topics&#39; 
+|`keywords`&lt;br&gt;`gambits`&lt;br&gt;`rejoinders`&lt;br&gt;`responders`&lt;br&gt;`all` | to limit rules to some of those 
+|`used`&lt;br&gt;`available`| to see only those rules meeting that criteria.
+
+Of particular importance in finalization is the key overlap map. Keyword overlap is
+particularly interesting. As you assign keywords to topics, at times you will probably get
+excessive. 
+Some topics will share keywords with other topics. For some things, this is
+reasonable. &quot;quark&quot; is a fine keyword for a topic on cheese and one on astronomy. But
+odds are &quot;family&quot; is not a great keyword for a topic on money. 
+
+Often an extraneous keyword won&#39;t really matter, 
+but if the system is looking for a topic to gambit based on &quot;family&quot;, 
+you really don&#39;t want it distracted by a faulty reference to money. 
+That is, you want to know what keywords are shared across topics and then you can decide if that&#39;s appropriate. 
+Sometimes you are told a word but don&#39;t see it in the topic keywords. 
+Use `:up` on that word to see how it intersects.
+
+I use `:topicinfo` keys to generate a map across all topics. I then read the first column list
+of keywords for each topic to see if they obviously should be in that topic or if they don&#39;t
+really strongly imply that topic. If not, I try to remove them from it. 
+
+Sometimes when I look at the list of topics that a key overlaps with, 
+I find multiple topics with similar ideas.
+Like a topc called `~cars` and one called `~automobiles`. 
+Often they are candidates for merging the topics.
+
+
+## `:describe` and `:list`
+
+If you have used :describe to document all of your permanent variables (see advanced
+CS, `:build`), then `:list` can be used to show undocumented and potentially erroneously
+spelled permanent variables
+</code></pre>
+<p>:list $ ^ ~ _ @</p>
+<pre><code>
+will list the documented kinds of items (you name which ones you want, could be just $)
+and for variables it will list be documented and undocumented.
+
+
+## `:abstract`
+
+There are several useful :abstract calls to do during finalization.
+
+### `:abstract 100` 
+
+If you want to adjust output of yours that would be too long for something
+like a phone screen, you can ask :abstract to show you all rules whose output would likely exceed some limit (here 100). 
+Without a topic name it does the entire system. With a topic name e.g.
+
+    :abstract 100 ~topicname
+
+it is restricted to that topic.  You can also use a wildcard like `~top*` to do all topics with `~top` at the start of the name. 
+You can also provide a list of topics, like 
+
+    :abstract ~topic1 ~topic2
+
+
+### `:abstract censor ~mywords` 
+
+will note all output which contains any words in `~mywords`.
+Of course regular uses may also appear. The censor command looks for any words
+referred to by the concept given.
+
+
+### `:abstract spell`
+
+will examine the outputs of all topics (or topic given) to find words whose spelling might be faulty. 
+It&#39;s not a guarantee it is, but it can warn you about potential mistakes.
+And `:abstract` is handy just to print out a human-readable copy of your bot, 
+without all the ChatScript scripting mess. As part of that, 
+you can add header comments that will appear in the abstract. These are done as:
+
+    #!x whatever
+    
+I often subset gambits and responders in a topic by section, e.g.,
+
+    #!x*** FAMILY COMPOSITION
+    ...
+    #!x*** FAMILY RELATIONSHIPS
+
+
+### `:abstract story`
+will display just topics and their gambits (+ rejoinders of them).
+
+### `:abstract responder` 
+will display topics and their responders (+ rejoinders of them).
+
+
+### `:permanentvariables`
+
+This gives you a list of all permanent variables found in your source. Not only is
+documenting them a good idea, but you might want to confirm they are all legit (correctly
+spelled) and reinitialized as appropriate.
+
+
+## Regression
+
+Having built a functioning chatbot with lots of topics, I like to ensure I don&#39;t damage old
+material in the future, so I create a regression test.
+
+There are two ways to make a regression test (and you can have multple tests). One is to
+create a source file with a bunch of questions. To be safe from most randomization
+effects, you should designate the user and :reset the bot. After doing a bunch of stuff
+you can do :reset again, so additional inputs are immune from effects of the prior stuff.
+
+You can see an example of my std Rose regression file in `REGRESS/chatbotquestions/loebner.txt`
+
+It starts out like this:
+</code></pre>
+<p>:user test :reset # 2001 Chatterbox challenge How is it going? How old are you? Are you male or female? What is your favorite color? Are you a bot? What is the date? ... :reset</p>
+<pre><code>
+and then has more questions and more :resets. Eventually it has a `:quit` before a bunch of
+stuff I&#39;m not wanting tested at present.
+
+The alternative way is to start a fresh conversation as a new user and assuming it makes no
+mistakes then stop. You need to be a completely new user because CS will read your log file and 
+things like `:reset` don&#39;t clear it. You want to have only the conversation you just did in that log.
+Now you can make a regression file by typing `:regress init test` (or whatever user name
+you used from either mechanism). CS reads your log file and converts it into `TMP/regress.txt` or you can do
+</code></pre>
+<p>:regress init user outputname</p>
+<pre><code>
+to name where it goes.
+
+The user can be a full file name or just the name of a user whose log is in the USERS
+directory. The output name should be whereever you want to put the resulting regression
+file. If omitted it defaults to `TMP/regress.txt`.
+Thereafter, all you have to do (not from a server version) is
+</code></pre>
+<p>:regress outputname</p>
+<pre><code>
+And the system will retest your conversation. I usually tranfer the file over to a regression
+directory and rename it in there.
+
+Regression will note any differences. Inconsequential differences it will merely tally at
+the end, more interesting differences which may or may not be correct show the
+alternative outputs and info, and differences CS thinks are major are flagged. If you use</code></pre>
+<p>:regress terse outputname</p>
+<pre><code>
+then the system will only note what it thinks are fatal differences.
+If there are differences, maybe they are correct (you edited your code). But CS can detect
+where you merely edited the output, or a pattern, or a label, or added or subtracted rules
+nearby. So it is likely to tell you what you need to know.
+
+The system will ask if you want to update your regression file, and if you answer &quot;yes&quot;, it
+will rewrite the regression file with the updated test results. Do this if it detects minor
+differences so it can help stay on track in the future. Do this if the major differences are in fact OK. 
+Otherwise decline and go fix your code somewhere.
+</code></pre>
+<p>:regress batch outputname ``` Useful for batch applications, this form does not prompt you if stuff is found changed. Instead it causes ChatScript to exit (0) if regress passes, or exit(1) if it doesnt. ## Mobile size issues</p>
 <p>Mobile apps embedding CS probably do not want the entire dictionary. CS ships with a much smaller dictionary supporting basic english (through grade 6) in the folder DICT/BASIC. For a mobile app, all you need is a DICT/ENGLISH folder with the dict.bin and fact.bin from the BASIC folder.</p>
 <p>CS will add things it finds in your TOPIC folder into the dictionary when it loads, so you can supplement words (spelling and parts of speech from those). They will not, however, provide correct pos tagging on conjugations of words not in the basic dictionary. And spelling correction may or may not work properly for words not in the dictionary. And the wordnet ontology will not propogate data through words not in the dictionary into higher level mappings. Eg Doberman may not know it is a more refined word of dog (though the concept sets will work). If you find you need a better dictionary, for a fee I can give you a basic dictionary where all the words of your script patterns and concepts are also correctly mapped.</p>
 <p>You can also reduce code size by declaring a bunch of DISCARDxxx defines (see start of SRC/common.h) to remove chunks of CS you don't need, like the ScriptCompiler or testing abilities.</p>

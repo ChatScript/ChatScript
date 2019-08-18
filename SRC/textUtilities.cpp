@@ -919,7 +919,7 @@ bool IsModelNumber(char* word)
 		if (IsAlphaUTF8(*word)) alphanumeric |= 1;
 		else if (IsDigit(*word)) alphanumeric |= 2;
 	}
-	return (alphanumeric == 3 && !IsDate(start));
+	return (alphanumeric == 3 && !IsDate(start) && !IsUrl(start,0));
 }
 
 uint64 FindSystemValueByName(char* name)

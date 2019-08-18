@@ -425,9 +425,9 @@ anywhere after where we are now.
 Matching sets of words, combined with restricted wildcards and using negative space, enables one to write
 precise patterns about a specific meaning.
 
-In case you are thinking – why not just parse the input – I do that too (another thing that chatbots don't tend to
+In case you are thinking - why not just parse the input - I do that too (another thing that chatbots don't tend to
 do- in part for performance reasons), and you can write patterns that depend on the parse. But chatbots cannot
-count on Wall Street Journal style sentences being passed in. Lots of input is not very parseable – such as bad
+count on Wall Street Journal style sentences being passed in. Lots of input is not very parseable - such as bad
 mangled English, texting, and short phrases. Just like some people type in all lower case and others in upper
 case.
 
@@ -574,7 +574,7 @@ the alphabet and how to manipulate it. Obviously since corrected.
 AIML has limited output capabilities, but some versions allow you to use JavaScript as well. ChatScript is a
 complete scripting language. You can write the output, as AIML allows, and you can do loops, arithmetic,
 assignment, if conditions, etc. You can declare and call functions. You can do graph queries and you can invoke
-topics. You can even submit input to the engine as AIML does, which is what happens for pronoun resolution –
+topics. You can even submit input to the engine as AIML does, which is what happens for pronoun resolution -
 Rosette rewrites the sentence replacing the pronoun, then cancels the current one and submits the new one.
 
 
@@ -641,15 +641,15 @@ princess in a castle. She wants to get married. You must achieve that for her. H
 
 1. _princess marry prince_. The system says- She will only marry a heroic prince.
 2. _prince kill dragon_ - Dragon arrives. They fight. The unarmed and unarmored prince dies.
-3. _prince take shield_ – a new prince arrives and grabs a shield.
-4. _prince take sword_ – he grabs a sword
-5. _prince kill dragon_ – They fight. This time the dragon dies
+3. _prince take shield_ - a new prince arrives and grabs a shield.
+4. _prince take sword_ - he grabs a sword
+5. _prince kill dragon_ - They fight. This time the dragon dies
 6. _prince marry princess_ - The system says- She will not marry someone evil. Turns out the new prince
 is not as good as the old one.
 7. _princess sanctify prince_ - The system says- You lack a crucifix.
 8. _princess take crucifix_ - The princess takes a crucifix
-9. _princess sanctify prince_ – The prince loses all his evil nature.
-10. _princess marry prince_ – You win.
+9. _princess sanctify prince_ - The prince loses all his evil nature.
+10. _princess marry prince_ - You win.
 
 The ongoing work on this project is Telltale proprietary, so I can't describe solutions. I do have permission to
 share the issues in understanding meaning that have arisen. My solution, of course, is to create another
@@ -672,7 +672,7 @@ How does one handle them? The meanings of take are idiomatically different depen
 using take to mean "get physical control over" would be acceptable. But I actually do try to use the idiomatic
 interpretation.
 
-_king take bat_ – is it a baseball bat or a flying bat?
+_king take bat_ - is it a baseball bat or a flying bat?
 
 The simple answer for multiple meanings is: it doesn't matter. Pick one.
 

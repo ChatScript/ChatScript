@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-practicum-gleaning">ChatScript Practicum: Gleaning</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/9/2018 cs8.3</p>
 <p>'''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.</p>
 <p>To glean is to extract information. If there is one thing that makes a chatbot seem intelligent it is the ability to grab information from what the user says and make use of it in subsequent volleys. The very first chatbot, Eliza, fooled humans merely by grabbing critical keywords from a user's input and spitting back precanned questions. If a user said &quot;my wife is like my mother&quot;, Eliza could focus on <code>like</code> and respond &quot;In what way?&quot; Or it could focus on the word mother and say &quot;Tell me more about your mother&quot;. It did not store information beyond the use for generating the reply. But our use of gleaning is to detect information and hold it around.</p>
 <p>The process of coding gleaning takes the following steps. First, decide what you want to glean. Second, generate sample sentences containing data to be gleaned. Typically 4 or 5. Third, write script to perform the gleaning. Fourth, decide how to store the results. Fifth, find a way to make use of the gleaned data. Sixth, read logs, find new sentences you don't handle and handle them.</p>
@@ -145,13 +145,13 @@ My cat Harold likes birds.</code></pre>
 <pre><code>u: (name is _~noun_proper_singular)</code></pre>
 <p>The above is simple, but will fail when the system doesnt know the name. Like for &quot;His name is pansy.&quot; So maybe we also need a context dependent rule.</p>
 <pre><code>u: NAMEIS(name _is) ^refine()
-    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = &#39;_0&#39;
+    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = &#39;_0
     a: CONTEXTNAME(@_0+  _*~3 [&gt; , ~conjunction])  $petname = &#39;_0</code></pre>
 <p>Note here we don't want the canonical of the name, we want the actual name, so we use quoted _0. The CONTEXTNAME pattern assumes names are usually 3 or fewer in length and are bounded by some typical delimiter like end of sentence, comma or <code>and</code>. It would fail for <code>Her name is Little Red Riding Hood</code>, unless the user is using capital letters meaningfully and proper name merging is on. We could increase the wildcard to <code>*~4</code>. But the wider we make that wildcard, the more room for mischief. &quot;My name is something my mother liked.&quot;</p>
 <p>And we can extend the rule to handle <code>called</code> like this:</p>
 <pre><code>u: NAMEIS(name _is) ^refine()
     #! his name is Peter
-    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = &#39;_0&#39;
+    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = &#39;_0
     #! his name is master of all.
     a: CONTEXTNAME(@_0+  _*~3 [&gt; , ~conjunction])  $petname = &#39;_0
 #! he is called Roger

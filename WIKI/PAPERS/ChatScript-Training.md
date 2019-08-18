@@ -6,17 +6,17 @@ by Bruce Wilcox
 
 # Agenda - What and Who of ChatScript
 
-* Section 0 – Introduction
+* Section 0 - Introduction
 
   __What and Who of ChatScript__
 
-* Section 1 – Fundamentals of Scripting
+* Section 1 - Fundamentals of Scripting
 
   - Overview of Meaning / ChatScript
   - Patterns in depth
   - Topics, Output, Data, Functions
   
-* Section 2 – How does the engine work
+* Section 2 - How does the engine work
 
 ---
 
@@ -72,7 +72,7 @@ by Bruce Wilcox
 
 # Agenda - Overview of Meaning / ChatScript
 
-* Section 0 – Introduction
+* Section 0 - Introduction
 
 * Section 1 Fundamentals of Scripting
   * __Overview of Meaning / ChatScript__
@@ -91,10 +91,10 @@ by Bruce Wilcox
 * Consists of:
   * Words, grammar, punctuation
   * Context
-  * topic of conversation – _the bat flew out of his hands_
+  * topic of conversation - _the bat flew out of his hands_
   * prior sentence in volley: _I like apples. Do you?_
-  * Prior sentence in prior volley – _Do you like apples? Yes._
-  * Words in nearby sentences – pronoun resolution
+  * Prior sentence in prior volley - _Do you like apples? Yes._
+  * Words in nearby sentences - pronoun resolution
   * Idioms/Phrases - :) _what do you do?_
 
 ---
@@ -117,10 +117,10 @@ by Bruce Wilcox
 * The basis for all meaning detection and action.
 * Fundamentally an IF/THEN statement.
 * 4 parts:
-  * _kind_ – what types of sentences does it reply to
-  * _label_ – way for other rules to refer to it
-  * _pattern_ – IF test for allowing output to execute
-  * _output_ – THEN part for taking action
+  * _kind_ - what types of sentences does it reply to
+  * _label_ - way for other rules to refer to it
+  * _pattern_ - IF test for allowing output to execute
+  * _output_ - THEN part for taking action
 ```  
 u: MYRULE ( I love meat) So do I.
 ```
@@ -129,17 +129,17 @@ u: MYRULE ( I love meat) So do I.
 
 # Kinds of rules
 
-* _Responders_ – react to user input
+* _Responders_ - react to user input
   * `?:` - responds to questions from user
   * `s:` - responds to statements from user
   * `u:` - responds to union of questions and statements
 
-* _Gambits_ – program says when it has sente
+* _Gambits_ - program says when it has sente
 ```
   t: Have you ever had a pet?
 ```
 
-* _Rejoinders_ – based on what we just said to user
+* _Rejoinders_ - based on what we just said to user
 ```
 a: (yes) What kind of pet?
   b: (dog) I like dogs.
@@ -187,7 +187,7 @@ a: (no) Pets are fun. You should try having one.
 * Text autoformats
   - Can be code and text intermix or code only
 ```  
-?: ( << what you age >>) I am ^compute(%year – 1989) years old.
+?: ( << what you age >>) I am ^compute(%year - 1989) years old.
 ```
 
 * Rule output is discarded if code fails in a rule
@@ -196,7 +196,7 @@ a: (no) Pets are fun. You should try having one.
 
 # Agenda - Patterns in depth
 
-* Section 0 – Introduction
+* Section 0 - Introduction
 
 * Section 1 Fundamentals of Scripting
   * Overview of Meaning / ChatScript
@@ -242,7 +242,7 @@ match: _i love pizza from pizza hut_, _I LOVE PIZZA FROM PIZZA HUT_, _i LOVE piz
 
 * Linear sequences not scalable.
 * AIML improved this by:
-  - eliminate case – all upper case (losing useful data)
+  - eliminate case - all upper case (losing useful data)
   - eliminate punctuation (losing useful data)
   - adding wildcard * to match 1 or more words
 ```
@@ -298,7 +298,7 @@ matches: _me love pizza_, _me loved pizzas_
 
 ---
 
-# Patterns – bags of words
+# Patterns - bags of words
 
 * `[` `]` - find one
 ```
@@ -319,7 +319,7 @@ Particularly important. Breaks the straight-jacket of sequence.
 
 ---
 
-# Patterns – composed bags
+# Patterns - composed bags
 ```
 u: ( << I [like love adore] [pizza bacon] >>) So do I.
 ```
@@ -340,7 +340,7 @@ matches: _I love meat_, _I love animal flesh_, _I love the flesh of an animal_
 ```
 u: ( I love * pizza) - matches "I love spicy pepperoni pizza"
 ```
-but matches _I love you and hate pizza_ – still a flaw with AIML
+but matches _I love you and hate pizza_ - still a flaw with AIML
 
 * `*1` - 1 word exactly `*2`, `*3` ..
 
@@ -442,7 +442,7 @@ u: (_~number _0&1)
 * Can test existence (not null)
 
 ```
-u: ( I love _{pepperoni} pizza _0) – but a pointless pattern here
+u: ( I love _{pepperoni} pizza _0) - but a pointless pattern here
 ```
 ---
 
@@ -476,7 +476,7 @@ u: ( my sign is Sagitt* )
 ```
 u: ( _coffee ~nutrient) ^unmark(~color _0)
 ```
-_I like coffee ice cream_ –> coffee is not a color
+_I like coffee ice cream_ -> coffee is not a color
 
 * Force alignment to start or end of sentence
 
@@ -624,7 +624,7 @@ So how are they different? They barely are.
 
 # Agenda - What is the NL pipeline
 
-* Section 0 – Introduction
+* Section 0 - Introduction
 * Section 1 Fundamentals of Scripting
 * Section 2 How does the engine work
   - __What is the NL pipeline__
@@ -664,7 +664,7 @@ Now ready to execute script.
 
 # Agenda - How does the engine work
 
-* Section 0 – Introduction
+* Section 0 - Introduction
 * Section 1 Fundamentals of Scripting
 * Section 2 How does the engine work
   * What is the NL pipeline
@@ -674,11 +674,11 @@ Now ready to execute script.
 
 # CS Design Goals
 
-* Low memory – runnable locally in cellphone
-* High speed – runnable on weak processors
-* Concise – rules take few characters
-* Precise – can represent specific meanings
-* General – beyond chat, general NL tool
+* Low memory - runnable locally in cellphone
+* High speed - runnable on weak processors
+* Concise - rules take few characters
+* Precise - can represent specific meanings
+* General - beyond chat, general NL tool
 * Commercial grade
   - scaleable
   - script testing and analytic support
@@ -747,10 +747,10 @@ Now ready to execute script.
 Bot definition assigns topics to variables.
 Only `$cs_controlmain` is required.
 
-* `$cs_controlpre` – once per volley at start
+* `$cs_controlpre` - once per volley at start
 * `$cs_prepass` - once per sentence
-* `$cs_controlmain` – once per sentence
-* `$cs_controlpost` – once per volley at end
+* `$cs_controlmain` - once per sentence
+* `$cs_controlpost` - once per volley at end
 
 ---
 

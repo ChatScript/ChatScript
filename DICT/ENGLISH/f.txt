@@ -12663,17 +12663,17 @@
  furculae ( NOUN NOUN_PLURAL COMMON1 ) plural=furcula 
  furfur ( NOUN NOUN_SINGULAR COMMON1 ) plural=furfures 
  furfures ( NOUN NOUN_PLURAL ) plural=furfur 
- Facebook ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) plural=NOUN 
+ Facebook ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     Facebook~1nz 
- flashdrive ( meanings=1 NOUN NOUN_SINGULAR ) plural=NOUN 
+ flashdrive ( meanings=1 NOUN NOUN_SINGULAR ) 
     flashdrive~1nz 
  filmmaking ( meanings=1 NOUN NOUN_SINGULAR ) 
     filmmaking~1nz 
- FireWire ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) plural=NOUN 
+ FireWire ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     FireWire~1nz 
- FitBit ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) plural=NOUN 
+ FitBit ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     FitBit~1nz 
- flatscreen ( meanings=1 NOUN NOUN_SINGULAR ) plural=NOUN 
+ flatscreen ( meanings=1 NOUN NOUN_SINGULAR ) 
     flatscreen~1nz 
  forest-product ( meanings=1 NOUN NOUN_SINGULAR ) 
     forest-product~1nz 
@@ -12735,8 +12735,6 @@
     free-ride~1nz 
  frito ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 
     frito~1nz 
- FaceBook ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
-    FaceBook~1nz 
  fifty-year-old ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     fifty-year-old~1nz 
  fajita ( meanings=1 NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER ) 

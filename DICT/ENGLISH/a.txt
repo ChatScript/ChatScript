@@ -20360,7 +20360,7 @@
  aurar ( NOUN NOUN_PLURAL COMMON1 ) plural=eyir 
  artal ( NOUN NOUN_PLURAL COMMON1 posdefault:NOUN ) plural=rotl 
  artel ( NOUN NOUN_PLURAL COMMON1 ) 
- airbag ( meanings=1 NOUN NOUN_SINGULAR ) plural=NOUN 
+ airbag ( meanings=1 NOUN NOUN_SINGULAR ) 
     airbag~1nz 
  a.m. ( meanings=2 glosses=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR COMMON2 COMMON1 KINDERGARTEN posdefault:ADVERB TIMEWORD ) 
     a.m.~1nz 

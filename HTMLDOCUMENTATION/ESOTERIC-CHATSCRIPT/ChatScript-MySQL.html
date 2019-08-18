@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-mysql">ChatScript MySQL</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/25/2017 cs7.51</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/25/2017 cs7.51</p>
 <h2 id="using-mysql-as-file-server">Using MySQL as file server</h2>
 <p>One can also use MySQL as a replacement for the local file system of the USERS directory. This allows you to scale CS horizontally by having multiple CS servers all connecting to a common MySQL machine so a user can be routed to any server. To do this, on the ChatScript command line provide the following command line params:</p>
 <pre><code>mysqlhost=127.0.0.1 mysqlport=3306 mysqldb=chatscript mysqluser=chatuser mysqlpasswd=password</code></pre>

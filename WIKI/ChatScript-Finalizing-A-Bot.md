@@ -1,6 +1,6 @@
 # ChatScript Finalizing a Bot Manual
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/28/2019 cs9.61
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+<br>Revision 8/18/2019 cs9.62
 
 OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should
 polish it. There are a bunch of tools to do this.
@@ -343,6 +343,31 @@ To ensure the outputs don't have spelling errors, I do a `:build` like this:
 We generally adhere to a tweet limit (140 characters) and run `:abstract 140` to warn us of
 lines that are longer.
 
+### `:listvariables'
+Because variables in CS have only 1 data type (text string), CS does not have any predeclarations of
+variables. You just use them on the fly. Of course if you make a typo, you use that on the fly as well and
+it may not be what you are expecting.  Hence :listvariables.
+
+:listvariables analyzes your compiled code in the TOPIC folder and writes a file listing each instance of a variable you have.
+The file is TMP/variables.txt. 
+By default it lists all sorts of variables but you can limit it by naming the kinds you want:
+
+```
+all - all variables
+local - $_ variables
+global - $ and $$ variables
+permanent - $ variables
+transient - $$ variables
+ ```
+Each line of the file names the variable and puts a + after it if it was an assignment.
+If you then sort this file (e.g. DOS sort command `sort TMP/variables.txt > x.txt ) they 
+are made suitable to then from CS run :mergelines x.txt  which merges all lines having the same starting word  so 
+there is just 1 example of each line with a prefix count of how many instances of such lines were seen. 
+If you then sort that result (eg sort TMP/tmp.txt y.txt) you get a file that 
+gives you how many times a variable was used. Things used only once are highly suspect
+(set or used without the corresponding other side).
+Helps you see instances where maybe
+you typed the misspelled your variable. 
 
 ### `:topicinfo ~topic how`
 
@@ -528,7 +553,7 @@ differences so it can help stay on track in the future. Do this if the major dif
 Otherwise decline and go fix your code somewhere.
 
 ```
-:regress exit outputname
+:regress batch outputname
 ```
 Useful for batch applications, this form does not prompt you if stuff is found changed.
 Instead it causes ChatScript to exit (0) if regress passes, or exit(1) if it doesnt.

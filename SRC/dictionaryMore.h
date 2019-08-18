@@ -113,8 +113,6 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define UPPERCASE_LOOKUP 8192
 
 
-#define FACTBOOT 0x00004000 // fact is to save with boot layer after creating during user 
-
 #define NO_EXTENDED_WRITE_FLAGS ( PATTERN_WORD  )
 
 // system flags revealed via concepts
@@ -254,6 +252,7 @@ char* UseDictionaryFile(char* name);
 void ClearWhereInSentence();
 void ClearTriedData();
 void ClearDictionaryFiles();
+int CopyWhereInSentence(int oldindex);
 inline unsigned int GlossIndex(MEANING M) { return M >> 24;}
 void ReadAbbreviations(char* file);
 void ReadLiveData();
@@ -299,6 +298,8 @@ void ReturnToAfterLayer(int layer,bool unlocked);
 void ReturnBeforeLayer(int layer, bool unlocked);
 void DeleteDictionaryEntry(WORDP D);
 void BuildDictionary(char* junk);
+unsigned int GetAccess(WORDP D);
+void SetTried(WORDP D, int value);
 
 // read and write dictionary or its entries
 void WriteDictionary(WORDP D, uint64 data);

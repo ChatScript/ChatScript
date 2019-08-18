@@ -8549,7 +8549,7 @@
     photocoagulator~1nz (^surgical_instrument~1) surgical instrument containing a laser for use in photocoagulation
  photocopier ( meanings=1 glosses=1 NOUN NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN ) 
     photocopier~1nz (^copier~1) a copier that uses photographic methods of making copies
- photocopy ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+ photocopy ( meanings=2 glosses=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON2 COMMON1 posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) plural=photocopies 
     photocopy~1nz (^copy~1) a photographic copy of written or printed or graphic work
     run_off~2vz reproduce by xerography
  photoelectric_cell ( meanings=1 NOUN NOUN_SINGULAR ) 
@@ -24007,6 +24007,7 @@
     prohibition~5nz (^period~3) the period from 1920 to 1933 when the sale of alcoholic beverages was prohibited in the United States by a constitutional amendment
  processing_time ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     processing_time~1nz (^interval~4) the time it takes to complete a prescribed procedure
+ photocopies ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN ) plural=photocopy 
  policemen ( NOUN NOUN_PLURAL COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:NOUN ) plural=policeman 
  postmen ( NOUN NOUN_PLURAL ) plural=postman 
  paddlefishes ( NOUN NOUN_PLURAL COMMON1 ) plural=paddlefish 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-pattern-redux">ChatScript Pattern Redux</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
 <br>Revision 7/28/2019 cs9.61</p>
 <p>Pattern matching information was introduced in the Beginner manual and expanded in the <a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>. Since pattern matching is of such importance, this concise manual lists everything about patterns in one place, including patterns not listed in the Advanced manual.</p>
 <p>NOTE: despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
@@ -263,11 +263,11 @@ u: ( ~noun ^testuse(apple)) # matches &quot;I like pear and apple&quot;</code></
 <p>in this pattern <code>&gt;</code> is redundant, since <code>*</code> would match to the end of the sentence anyway.</p>
 <p>You may also use <code>!&gt;</code> to ask that we NOT be at the end of the sentence.</p>
 <p><code>@_1+</code> says to set the position to where the given match variable (<code>_1</code>) matched. Positional sequencing will continue normally increasing thereafter.</p>
-<p>You can suffix the match variable with <code>–</code> instead, to tell CS to begin matching in reverse order in the sentence, i.e., matching backwards to the start of the sentence.</p>
+<p>You can suffix the match variable with <code>-</code> instead, to tell CS to begin matching in reverse order in the sentence, i.e., matching backwards to the start of the sentence.</p>
 <p>When you use <code>+</code>, the position starts at the end of the match. When you use <code>-</code>, the position starts at the start of the match.</p>
 <pre><code>u: ( _home is @_0- pretty )</code></pre>
 <p>matches <em>my pretty home is near here</em>.</p>
-<p>Note when you use <code>–</code> for reverse matching, the behavior of <code>&lt;</code> and <code>&gt;</code> changes. <code>&gt;</code> sets a position and <code>&lt;</code> confirms it instead of the way it is for <code>+</code>.</p>
+<p>Note when you use <code>-</code> for reverse matching, the behavior of <code>&lt;</code> and <code>&gt;</code> changes. <code>&gt;</code> sets a position and <code>&lt;</code> confirms it instead of the way it is for <code>+</code>.</p>
 <p>When you omit either + or -, you create a matchable anchor like <code>@_0</code>. It represents what was found at that position, and during the pattern must also match at that location now.</p>
 <pre><code>u: ( _@0 is @_1 )</code></pre>
 <p>The above pattern says that the word <code>is</code> must be precisely found between the locations referenced by <code>@0</code> and <code>@1</code>.</p>

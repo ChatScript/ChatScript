@@ -1,5 +1,5 @@
 # ChatScript Basic User Manual
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 6/26/2019 cs9.5
 
 * [Overview](ChatScript-Basic-User-Manual.md#overview)
@@ -199,7 +199,7 @@ The system will respond with message:
 
     Welcome to ChatScript
 
-Now enter: _What is your name?_ – you get _My name is Harry_ if you type this correctly. You can also ask _How was your childhood?_ and what are you afraid of and what is your history. 
+Now enter: _What is your name?_ - you get _My name is Harry_ if you type this correctly. You can also ask _How was your childhood?_ and what are you afraid of and what is your history. 
 
 Actually, you can say or ask anything and get an almost reasonable response because Harry has _quibbles_. 
 If he knows nothing specific on your topic (which is almost universally true), 
@@ -338,7 +338,7 @@ and talks with a different one (or the same one).
 | WIKI               | Documentation Files. This document and others can be found in WIKI. 
 | LOGS               | If ChatScript detects bugs during execution, it stores them in bugs.txt in this folder. A server will also store its log here.
 | Compilation Files  | The folders LINUX, MAC, and VS2010 are for rebuilding the executable engine. LOEBNERVS2010 builds a Loebner contest version.
-| Top Level Files    | Aside from the chatscript.exe, the following top level files exist:<br>  `authorizedIP.txt` – as a server, this allows some users to enter commands<br>  `changes.txt` – list of changes between releases<br>  `version.txt` – the current version<br>  `talk.vbs` – script to enable voice output in windows 
+| Top Level Files    | Aside from the chatscript.exe, the following top level files exist:<br>  `authorizedIP.txt` - as a server, this allows some users to enter commands<br>  `changes.txt` - list of changes between releases<br>  `version.txt` - the current version<br>  `talk.vbs` - script to enable voice output in windows 
 | REGRESS             | Files that can do regress tests of various kinds are here.
 | Server Batch Files  | files for windows that can run the engine as a local server or a local client.
 | Third Party Tools   | reference to some ChatScript third party tools.

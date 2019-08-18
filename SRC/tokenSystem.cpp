@@ -604,6 +604,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
     // ends in question or exclaim
     if (token[l - 1] == '!' || token[l - 1] == '?')
     {
+        if (!strcmp(token, ".?")) // some people type both
+        {
+            words[++count] = AllocateHeap("?"); // insert json object
+            return ptr + 2;
+        }
         if (l > 1) token[--l] = 0; // remove it from token
     }
     if (IsUrl(token, token + strlen(token)))

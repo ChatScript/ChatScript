@@ -1,5 +1,5 @@
 # ChatScript Analytics Manual
-© Bruce Wilcox, gowilcox@gmail.com
+Copyright Bruce Wilcox, gowilcox@gmail.com
 <br>Revision 1/31/2018 cs8.0
 <br>
 <br>

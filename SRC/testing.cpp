@@ -664,8 +664,8 @@ static void VerifyRegress(char* file)
 	char word[MAX_WORD_SIZE];
 	char* at = ReadCompiledWord(file,word);
 	bool silent = false;
-    bool exitrequest = true;
-    if (!stricmp(word, (char*)"exit"))
+    bool exitrequest = false;
+    if (!stricmp(word, (char*)"exit") || !stricmp(word, (char*)"batch"))
     {
         file = at;
         exitrequest = true;
@@ -4331,7 +4331,8 @@ static void C_Build(char* input)
 	{
 		input = ReadCompiledWord(input,control);
 		if (!stricmp(control,(char*)"nospell")) spell = NO_SPELL;
-		else if (!stricmp(control,(char*)"nosubstitution")) spell = NO_SUBSTITUTE_WARNING;
+        else if (!stricmp(control, (char*)"quiet")) echo = false;
+        else if (!stricmp(control,(char*)"nosubstitution")) spell = NO_SUBSTITUTE_WARNING;
 		else if (!stricmp(control,(char*)"outputspell")) spell = OUTPUT_SPELL;
 		else if (!stricmp(control,(char*)"gradek")) { grade = KINDERGARTEN; spell = OUTPUT_SPELL;}
 		else if (!stricmp(control,(char*)"grade2")) { grade = (KINDERGARTEN|GRADE1_2); spell = OUTPUT_SPELL;}
@@ -5210,7 +5211,6 @@ static void C_DualUpper(char* input)
 static void C_Word(char* input)
 {
 	char word[MAX_WORD_SIZE];
-	char junk[MAX_WORD_SIZE];
 	while(ALWAYS)
 	{
 		input = ReadCompiledWord(input,word);
@@ -5219,8 +5219,8 @@ static void C_Word(char* input)
 		int limit= 0;
 		if (IsDigit(*input))
 		{
-			input = ReadCompiledWord(input,word);
-			limit = atoi(junk);
+            limit = atoi(word);
+            input = ReadCompiledWord(input,word);
 		}
 		if (*word == '"')
 		{
@@ -6288,6 +6288,104 @@ static void C_Dedupe(char* input)
 	fclose(in);
 }
 
+#define VAR_GLBLPERMANENT 1
+#define VAR_GLBLTRANSIENT 2
+#define VAR_LOCAL 4
+char* FindVar(char* ptr, FILE* out, int use)
+{
+    char* begin = ptr;
+    char* var;
+    char name[MAX_WORD_SIZE];
+    if (use & (VAR_GLBLTRANSIENT| VAR_LOCAL| VAR_GLBLPERMANENT)) 
+        while ((var = strchr(ptr, '$')))
+    {
+        char* start = var;
+        ptr = start + 2; // start after any $_ or $$ for next var
+        if (IsDigit(start[1])) continue;    // $5  currency or accelerator?
+        if (start[1] == '$' || start[1] == '_') var += 2;
+        
+        if (start[1] == '_' && !(use & VAR_LOCAL)) continue;
+        if (start[1] == '$' && !(use & VAR_GLBLTRANSIENT)) continue;
+        if (start[1] != '$' && start[1] != '_' && !(use & VAR_GLBLPERMANENT)) continue;
+        char* end = start;
+        int brackets = 0;
+        while (IsLegalNameCharacter(*++end) || *end == '.' || *end == '$' || *end == '\\' || *end == '[' || (*end == ']' && brackets))
+        {
+            if (*end == '[') ++brackets;
+            else if (*end == ']') --brackets;
+        }
+        strncpy(name, start, end - start);
+        name[end - start] = 0;
+        ptr = end;
+        if (!name[1]) continue;
+        // $xxx:=y  or   $xxx_=_ or $xxx_+=
+        if (end[1] == '=')
+        {
+            if (*end == ':' || end[2] == ' ') fprintf(out, "%s +\r\n", name);
+        }
+        else if (end[1] != '=' && end[2] == '=') fprintf(out, "%s +\r\n", name);
+        else if (end[2] == '=' && end[1] != '=') fprintf(out, "%s +\r\n", name);
+        else fprintf(out, "%s\r\n", name);
+    }
+
+    return ptr + strlen(ptr);
+}
+
+static void C_ListVariables(char* input)
+{
+    char fname[200];
+    int use = 0;
+    if (strstr(input, "local")) use |= VAR_LOCAL;
+    if (strstr(input, "global")) use |= VAR_GLBLPERMANENT | VAR_GLBLTRANSIENT;
+    if (strstr(input, "permanent")) use |= VAR_GLBLPERMANENT ;
+    if (strstr(input, "transient")) use |= VAR_GLBLTRANSIENT;
+    if (strstr(input, "all")) use |=  VAR_GLBLPERMANENT | VAR_GLBLTRANSIENT;
+    if (use == 0) use = -1;
+
+    sprintf(fname, "%s/variables.txt", tmp);
+    FILE* out = FopenUTF8Write(fname);
+
+    for (int i = 1; i <= numberOfTopics; ++i)
+    {
+        char* ptr = GetTopicData(i);
+        while (ptr && *ptr) //   find all choices-- layout is like "t: xxx () yyy"  or   "u: () yyy"  or   "t: this is text" -- there is only 1 space before useful label or data
+        {
+            char* end = strchr(ptr, '`');
+            if (!end) break;
+            *end = 0;
+            ptr = strchr(ptr, ':') + 1; // after rule type
+            FindVar(ptr, out,use);
+            *end = '`';
+            ptr = end + 1;
+        }
+    }
+
+    FILE* in = FopenReadOnly("TOPIC/BUILD1/macros1.txt");
+    if (in)
+    {
+        while (ReadALine(readBuffer, in) >= 0) //   ^showfavorite O 2 _0 = ^0 _1 = ^1 ^reuse (~xfave FAVE ) 
+        {
+            char* ptr = strchr(readBuffer, ')' + 1);
+            while (ptr && *ptr ) ptr = FindVar(ptr, out,use);
+        }
+        fclose(in);
+    }
+   // ^pearl_31_14_bot o 0 0 A() $cs_token = 70368744177664 | 4096 | 255 | 2048 | 24576 | 256 $std_cstoken = $cs_token $cartoken = $cs_token $userprompt = ^"%user: >" $botprompt = ^"PEARL: " $homepage = 1 $cs_utcoffset = -7 ^ addtopic(~homepage) $cs_control_main = ~control $cs_prepass = ~xpreprocess $cs_control_post = ~xpostprocess $cs_userfactlimit = 1000 $cs_botid = 4 `
+    in = FopenReadOnly("TOPIC/BUILD1/macros0.txt");
+    if (in)
+    {
+        while (ReadALine(readBuffer, in) >= 0) //   ^showfavorite O 2 _0 = ^0 _1 = ^1 ^reuse (~xfave FAVE ) 
+        {
+            char* ptr = strchr(readBuffer, ')' + 1);
+            while (ptr && *ptr) ptr = FindVar(ptr, out,use);
+        }
+        fclose(in);
+    }
+
+
+    fclose(out);
+    printf("done\r\n");
+}
 
 static void C_TopicDump(char* input)
 {
@@ -7022,6 +7120,7 @@ static char* WriteFactFlags(FACT* F)
 	if (F->flags & USER_FLAG3) strcat(buffer,"USER_FLAG3 ");
 	if (F->flags & USER_FLAG2) strcat(buffer,"USER_FLAG2 ");
 	if (F->flags & USER_FLAG1) strcat(buffer,"USER_FLAG1 ");
+    if (F->flags & OVERRIDE_MEMBER_FACT) strcat(buffer, "OVERRIDE_MEMBER_FACT ");
 	// unused 0x00004000 0x00008000
 	if (F->flags & JSON_OBJECT_FACT) strcat(buffer,"JSON_OBJECT_FACT ");
 	if (F->flags & JSON_ARRAY_FACT) strcat(buffer,"JSON_ARRAY_FACT ");
@@ -9747,7 +9846,7 @@ static void C_MergeLines(char* file)
         }
         else if (stricmp(word, priorword)) // changing word
         {
-            fprintf(out, "%06d   %s\r\n", count,readBuffer);
+            fprintf(out, "%06d   %s\r\n", count, priorword);
             strcpy(priorword, word);
             count = 1;
         }
@@ -10379,7 +10478,8 @@ CommandInfo commandSet[] = // NEW
     { (char*)":ingestlog",C_Ingestlog,(char*)"execute a log file as source" },
     { (char*)":dedupe",C_Dedupe,(char*)"echo input file to TMP/tmp.txt without duplicate lines)" },
 	{ (char*)":topicdump",C_TopicDump,(char*)"Dump topic data suitable for inclusion as extra topics into TMP/tmp.txt (:extratopic or PerformChatGivenTopic)"},
-	{ (char*)":builddict",BuildDictionary,(char*)" basic, layer0, layer1, foreign, or wordnet are options instead of default full"}, 
+    { (char*)":listvariables",C_ListVariables,(char*)"List variables into tmp/variables.txt" },
+    { (char*)":builddict",BuildDictionary,(char*)" basic, layer0, layer1, foreign, or wordnet are options instead of default full"},
 	{ (char*)":buildforeign",BuildForeign,(char*)"regenerate foreign language dictionary given name of language"}, 
 	{ (char*)":clean",C_Clean,(char*)"Convert source files to NL instead of CR/LF for unix"},
     { (char*)":medtable",C_Medtable,(char*)"Read lines from file, add quotes around them, write to tmp/tmp.txt" },

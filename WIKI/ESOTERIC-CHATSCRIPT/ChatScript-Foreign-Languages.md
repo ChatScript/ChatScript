@@ -1,5 +1,5 @@
 # Foreign Language Support
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 11/04/2017 cs7.61
 
 # Foreign Language Overview

@@ -19033,7 +19033,7 @@
  gynoecea ( NOUN NOUN_PLURAL ) plural=gynoecium 
  gynoecia ( NOUN NOUN_PLURAL COMMON1 ) 
  gyri ( NOUN NOUN_PLURAL COMMON2 posdefault:NOUN ) plural=gyrus 
- goods ( meanings=1 NOUN NOUN_PLURAL COMMON4 COMMON1 posdefault:NOUN ) plural=NOUN 
+ goods ( meanings=1 NOUN NOUN_PLURAL COMMON4 COMMON1 posdefault:NOUN ) 
     goods~1nz 
  gamification ( meanings=1 NOUN NOUN_SINGULAR ) 
     gamification~1nz 

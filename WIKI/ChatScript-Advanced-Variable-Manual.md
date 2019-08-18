@@ -1,5 +1,5 @@
 ﻿# ChatScript Advanced Variable Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
 <br>Revision 3/24/2019 cs9.2
 
 

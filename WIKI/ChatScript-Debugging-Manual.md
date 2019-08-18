@@ -1,5 +1,5 @@
 # ChatScript Debugging Manual
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
 <br>Revision 6/26/2018 cs9.5
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -389,7 +389,7 @@ You can name tracing options by subtraction. E.g.,
 
 When I'm doing a thorough trace, I usually do 
     
-    :trace all –query
+    :trace all -query
 
 because I want to see fact searches but only need the answers and not all the processing the query did.
 
@@ -493,11 +493,11 @@ the rule it, it may put out the label if there is one (eg 7.0 DESCRIBE) and it p
 pattern it will try to match. 
 
 The next line begins matching data. Each pattern element will be marked at the end of it with a
-`+` if it matched, or a `–` if it didn't match. 
+`+` if it matched, or a `-` if it didn't match. 
 
 Whenever the system enters a paired token, i.e., `()`, `[]`, `{}`, `<<` `>>`, 
 it indents and moves to a new line.
-When it finishes a paired token, it will mark with a + or – whether the pair worked and it
+When it finishes a paired token, it will mark with a + or - whether the pair worked and it
 will resume the old indentation as it continues.
 
 When a relationship test is performed, the value of a piece of it will be given in parens.

@@ -12,7 +12,7 @@
 <br>gowilcox@gmail.com
 
 
-**Copyright**: © 2013 CSIC. This is an open-access article distributed under the terms of the Creative Commons Attribution-Non Commercial (by-nc) Spain 3.0 License.
+**Copyright**: Copyright 2013 CSIC. This is an open-access article distributed under the terms of the Creative Commons Attribution-Non Commercial (by-nc) Spain 3.0 License.
 
 **ABSTRACT:** For the last three years, our chatbots have come
 in 1st twice and 2nd once in the Loebner Prize Contest, with
@@ -34,7 +34,7 @@ Artificial Intelligence; Natural Language.
 
 ## INTRODUCTION
 
-The task of a chatbot is to create an illusion – the
+The task of a chatbot is to create an illusion - the
 illusion that you are talking with someone who understands and cares about what you are saying. It doesn't. However, for moments at a time it is possible
 to fake it. One of our jaded testers, who had to converse with our most recent chatbot, Angela, for hours at a time, wrote about the final version:
 
@@ -56,11 +56,11 @@ rule:
 
 The **type** specifies when the rule can be tried. The types are:
 
-* `t:` – a gambit
-* `s:` – a responder for user statements
-* `?:` – a responder for user questions
-* `u:` – a dual responder that can react to both questions and statements
-* `a:` `b:` `c:` ... – a rejoinder at a given level of nesting.
+* `t:` - a gambit
+* `s:` - a responder for user statements
+* `?:` - a responder for user questions
+* `u:` - a dual responder that can react to both questions and statements
+* `a:` `b:` `c:` ... - a rejoinder at a given level of nesting.
 
 _Gambits_ are available when the chatbot wants to
 volunteer output. 
@@ -420,7 +420,7 @@ and without any it can seem very two dimensional.
 
 Most people like to talk about how their friends
 are doing, what they've just done with them, what
-they are about to do with them – this was all ruled
+they are about to do with them - this was all ruled
 out. Eventually we dropped in a few more distant
 relationships with work people, grandparents, and
 former school friends while not naming any close
@@ -1005,7 +1005,7 @@ how to write a chatbot over time.
 
 Before our first chatbots, we wrote a life questionnaire because we planned to build chatbots to model individual users based on what they said about themselves. 
 We used that for Suzette. She had a minimal
-back-story – originally an atmospheric technician on
+back-story - originally an atmospheric technician on
 a terraformed martian colony who we later made be
 an art student in Hawai'i, who wasn't really that because those were just implanted memories in a clone. 
 Confusing. 
@@ -1149,7 +1149,7 @@ themes. This also works better for triggering them via
 keywords. The Art topic was carved up to spawn topics on Photography and Doodling. Gadgets spawned Phones. Burial customs spawned Immortality.
 
 Sometimes we find similar material in multiple to pics. They need to be gathered together to avoid what
-we call keyword muddiness – a state where the system
+we call keyword muddiness - a state where the system
 uses a keyword to go to a topic not primarily about
 that keyword. Burial had questions about whether
 your grandparents were still alive (causing them to be
@@ -1182,7 +1182,7 @@ immediately.
 
 The help screen for Angela includes names of some
 topics of general interest that the user could ask about
-– just to get them started. One issue was how to get the
+- just to get them started. One issue was how to get the
 user to discover our more esoteric and interesting topics. We had fun stuff like natural disasters, burial customs, lying, ecology, and science which wouldn't come
 up in the course of most chats. We changed the system
 to set priorities and make sure esoteric topics came up
@@ -1203,7 +1203,7 @@ Star Trek's android Commander Data had. Depending
 upon how a chat develops, Suzette may decide she
 likes or dislikes you. Most chat is brief, so she develops
 opinions rapidly. If you agree with her, complement
-her, stay on topic, write longer sentences – these are
+her, stay on topic, write longer sentences - these are
 all things that get her to like you. She'll tell you how
 she is enjoying the conversation. Past a certain point
 she becomes neurotically insecure. She feels unworthy of your interest and affection, and it shows in her speech. Likewise, if you disagree with her, insult her,

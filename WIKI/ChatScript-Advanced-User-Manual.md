@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 7/28/2019 cs9.61
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
+<br>Revision 8/18/2019 cs9.62
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -385,18 +385,20 @@ the following oob outputs:
 
 This function, if defined by you, will be executed on startup of the ChatScript system. It
 is a way to dynamically add facts and user variables into the base system common to all
-users. And returned output will go to the console and if a server, into the server log
+users (the boot layer). And returned output will go to the console and if a server, into the server log
 Note that when a user alters a system `$variable`, it will be refreshed back to its original
 value for each user.
 
 If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the 
 normal json naming space.
 
-## `^CS_BOOT()`
-This function, if defined by you, will be executed on 
-system startup. Allows you to read external data to be incorporated as Facts
+You can also add facts to the boot layer by creating facts from a user script using ^createFact(s v o #FACTBOOT)
+
+This function allows you to read external data to be incorporated as Facts
 into the basic server.  You are allowed to define any number of these in a multibot environment without triggering
 a complaint about already defined functions.
+
+^purgeboot can be used to erase facts stored in the boot layer.
 
 
 ## `^CS_REBOOT()`
@@ -452,6 +454,12 @@ to the `:source` command. This will be read after any `source=` command line par
 ## Anti-virus software and :build
 
 Windows Defender, Norton, and the like have a real-time monitoring system on files. You can disable the ChatScript folder from being analyzed. On a Mac w/o this stuff, a compile of a bot might take 14 seconds, wherease with AV software interferring on Windows it takes 4 minutes. CS writes to its TOPIC folder and LOGS directories in lots of little pieces, that AV wants to monitor.
+
+## :build xxx  quiet 
+
+Build normally echos out its log messages of what it is currently compiling And
+and any warning or error messages.  If you say quiet, then it will only tell you it succcessfully
+completed or list the errors it detected.
 
 ## Build warning messages
 
@@ -539,10 +547,10 @@ If the name ends in 0, it builds level 0. If it doesn't, it builds level 1.
 This means you can create a bunch of files to build things any way you want. 
 You can imagine:
 
-* `:build common0` – shared data-source (level 0)
-* `:build george` – george bot-specific (level 1)
-* `:build henry` – henry bot-specific (level 1)
-* `:build all` – does george and henry and others (level 1)
+* `:build common0` - shared data-source (level 0)
+* `:build george` - george bot-specific (level 1)
+* `:build henry` - henry bot-specific (level 1)
+* `:build all` - does george and henry and others (level 1)
 * `:build system0` - does ALL files, there is no level 1.
 
 You can build layers in either order, and omit either.
@@ -667,7 +675,7 @@ or used from the chatbot before.
 This gets rid of any funny state of topic builds.
 
 `:build 0` - rebuild the common layer
-<br>`:build xxx` – whatever file you use for your personality layer
+<br>`:build xxx` - whatever file you use for your personality layer
 
 Probably all is good now. If not quit chatscript. Start up and try it now.
 

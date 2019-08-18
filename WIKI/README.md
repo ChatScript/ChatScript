@@ -1,5 +1,5 @@
 # ChatScript Guide To Documentation (user guides, tutorials, papers)
-<br>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+<br>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision CS7.6
 
 ChatScript has a lot of documentation in various manuals, so knowing what to read may seem daunting.
@@ -30,14 +30,14 @@ concepts. A must starting place.
 <br>A brief overview of the simple Harry bot and how to make simple modifications.
 Potentially useful for a beginner read.
 
-* [Bot NLTK – NL analysis bot](PREDEFINED-BOTS/Bot-NLTK.md)
+* [Bot NLTK - NL analysis bot](PREDEFINED-BOTS/Bot-NLTK.md)
 <br>A brief description of how to run the NLTK bot. Not useful for most people, especially if
 NLTK means nothing to you.
 
-* [Bot Stockpile – planner bot](PREDEFINED-BOTS/Bot-Stockpile.md)
+* [Bot Stockpile - planner bot](PREDEFINED-BOTS/Bot-Stockpile.md)
 <br>A brief description of how to run the Stockpile bot. Not useful for most people. It's about planner capabilities of CS.
 
-* [Bot Postgres – postgres bot](PREDEFINED-BOTS/Bot-Postgres.md)
+* [Bot Postgres - postgres bot](PREDEFINED-BOTS/Bot-Postgres.md)
 <br>Illustration of using Postgres database.
 
 * [Bot German](PREDEFINED-BOTS/Bot-German.md)

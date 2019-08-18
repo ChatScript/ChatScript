@@ -1,6 +1,6 @@
 # ChatScript Javascript
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 > Revision 4/30/2016 cs6.4

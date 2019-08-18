@@ -1,7 +1,5 @@
 # User Memorization in Conversation
-
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
-
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 > Revision 8-5-2013 CS 3.52
 
 

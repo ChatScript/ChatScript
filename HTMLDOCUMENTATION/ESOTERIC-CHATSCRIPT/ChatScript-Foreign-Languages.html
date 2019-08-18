@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="foreign-language-support">Foreign Language Support</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/04/2017 cs7.61</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/04/2017 cs7.61</p>
 <h1 id="foreign-language-overview">Foreign Language Overview</h1>
 <p>ChatScript comes natively with full English support. If you want to use a different language you need a variety of things. * Pos-tagging support (optional if you don't use pos-based keywords) * Spell check support * Concepts in the language (that you use) * LIVEDATA substitutions appropriate to the language * Patterns in the language * Output in the language * Lemmas (comes with foreign pos-taggers or available from ^pos(canonical))</p>
 <p>ChatScript has a command line parameter <code>language=</code> that tells CS the language you intend. It defaults to <code>ENGLISH</code>. The effects of this parameter are several. * If not ENGLISH, internal pos-tagging (other than marking possible english tags and numbers and dates and such) and parsing are disabled. * If treetagger is licensed and has that language, it will pos tag. * The system will use DICT/<code>language</code>. * The system will use LIVEDATA/<code>language</code> * The script compiler will automatically compile lines marked to be conditionally compiled with the language (see language comments). * The system will store the user's topic file suffixed by language as well.</p>

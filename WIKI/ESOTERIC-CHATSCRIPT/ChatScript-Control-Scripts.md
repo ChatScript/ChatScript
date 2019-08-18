@@ -1,6 +1,6 @@
 # ChatScript Control Scripts
 
-> © Bruce Wilcox, gowilcox@gmail.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com
 
 
 <br>Revision 9/24/2017 cs7.55

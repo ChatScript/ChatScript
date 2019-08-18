@@ -1,6 +1,6 @@
 # ChatScript Document Reader
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 > Revision 3/4/2017 cs7.3
@@ -32,13 +32,13 @@ prior state. So you can't store stuff except external to ChatScript
 
 Optional arguments after the file/directory name are:
 
-`echo` – the lines after preparation (spell check etc) will be dumped to TMP/out.txt
+`echo` - the lines after preparation (spell check etc) will be dumped to TMP/out.txt
 so you can see what it read.
 
-`single` – read a single line at a time, even if it is not obviously a complete sentence. 
+`single` - read a single line at a time, even if it is not obviously a complete sentence. 
 Multiple sentences on a line are still separated.
 
-`stats` – at each document completion show memory and time used
+`stats` - at each document completion show memory and time used
 
 Prior to reading a document, the system will execute a preprocess topic `~document_pre`,
 if you define it. When it is done reading a document the system will execute a

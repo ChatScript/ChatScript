@@ -118,8 +118,8 @@ So she writes out a gambit, puts down a sample sentence or word along with what 
 She might write this:
 
     t: What do you dream about?
-     Flying – Traditionally this means you ...
-     Food – Do you feel deprived ...
+     Flying - Traditionally this means you ...
+     Food - Do you feel deprived ...
 
 and leaves it to me to convert flying into a proper rejoinder with all the possible related keywords like
 airplanes, flying, flight, wings, etc.
@@ -225,7 +225,7 @@ and Suzette will happily regale you with interesting material.
 But a better topic will actually interact with the user and share personal opinions and information.
 Interacting with the user will generally mean that we ask the user questions and volunteer our answers
 to those same questions. If you ask the user something personal like do you like apples, it is expected
-you will give your opinion on the subject as well – a sharing of intimacy.
+you will give your opinion on the subject as well - a sharing of intimacy.
 
 Whether you tell the user your view first and then solicit theirs or ask them and then volunteer yours is
 a matter of choice. Partly you want to vary your style, so you may change the order at times. 

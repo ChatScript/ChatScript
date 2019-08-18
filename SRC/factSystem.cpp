@@ -38,9 +38,9 @@ int* factThread = 0;
 bool factsExhausted = false;
 FACT* factBase = NULL;			// start of all facts
 FACT* factEnd = NULL;			// end of all facts
-FACT* factsPreBuild[NUMBER_OF_LAYERS+1];		// end of build0 facts, start of build1 facts
-FACT* factFree = NULL;			// currently next fact we can reuse for allocation
-FACT* currentFact = NULL;		// current fact
+FACT* factsPreBuild[NUMBER_OF_LAYERS+1];		// on last fact of build0 facts, start of build1 facts
+FACT* factFree = NULL;			// factFree is a fact in use (increment before use as a free fact)
+FACT* currentFact = NULL;		// current fact found or created
 
 //   values of verbs to compare against
 MEANING Mmember;				// represents concept sets
@@ -284,7 +284,7 @@ void InitFacts()
 		}
 	}
 	memset(factBase,0,sizeof(FACT) *  maxFacts); // not strictly necessary
-    factFree = factBase;
+    factFree = factBase; // 1st fact is always meaningless
 	factEnd = factBase + maxFacts;
 }
 
@@ -406,8 +406,9 @@ void RipFacts(FACT* F,WORDP dictBase)
 	factFree = base;
 }
 
-FACT* WeaveFact(FACT* current, unsigned int properties)
+FACT* WeaveFact(FACT* current)
 {
+    unsigned int properties = current->flags;
 	FACT* F;
 	WORDP s = (properties & FACTSUBJECT) ? NULL : Meaning2Word(current->subject);
 	WORDP v = (properties & FACTVERB) ? NULL : Meaning2Word(current->verb);
@@ -462,13 +463,35 @@ FACT* WeaveFact(FACT* current, unsigned int properties)
 	return current;
 }
 
+void UnweaveFactSubject(FACT* F)
+{
+    FACT* listHead = DeleteFromList(GetSubjectHead(F->subject), F, GetSubjectNext, SetSubjectNext);  // dont use nondead
+    SetSubjectHead(F->subject, listHead); // removed from dict element
+}
+
+void UnweaveFactVerb(FACT* F)
+{
+    FACT* listHead = DeleteFromList(GetVerbHead(F->verb), F, GetVerbNext, SetVerbNext);  // dont use nondead
+    SetVerbHead(F->verb, listHead); // removed from dict element
+}
+
+void UnweaveFactObject(FACT* F)
+{
+    FACT* listHead = DeleteFromList(GetObjectHead(F->object), F, GetObjectNext, SetObjectNext);  // dont use nondead
+    SetObjectHead(F->object, listHead); // removed from dict element
+}
+
+void UnweaveFact(FACT* F)
+{// decouple fact from dictionary links to it
+    UnweaveFactSubject(F);
+    UnweaveFactVerb(F);
+    UnweaveFactObject(F);
+}
+
 void WeaveFacts(FACT* F)
 {
-	while (F <= factFree)
-	{
-		WeaveFact(F,F->flags);
-		++F;
-	}
+    --F;
+	while (++F <= factFree) WeaveFact(F);
 }
 
 void AutoKillFact(MEANING M)
@@ -1105,7 +1128,7 @@ void WriteFacts(FILE* out,FACT* F, int flags) //   write out from here to end
 	ReleaseInfiniteStack();
 }
 
-void WriteBinaryFacts(FILE* out,FACT* F) //   write out from here to end
+void WriteBinaryFacts(FILE* out,FACT* F) //   write out from here to end (dictionary entries)
 { 
 	if (!out) return;
     while (++F <= factFree) 
@@ -1118,7 +1141,8 @@ void WriteBinaryFacts(FILE* out,FACT* F) //   write out from here to end
 		Write32(F->verb,out);
 		Write32(F->object,out);
 		Write32(F->flags,out);
-	}
+        // binary fact writing doesnt write botBits because are dict entries owned by id 0
+    }
     FClose(out);
 }
 
@@ -1160,7 +1184,7 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	currentFact->object = object;
 	currentFact->flags = properties;
 	currentFact->botBits = myBot; // this fact is visible to these bot ids (0 or -1 means all)
-	currentFact = WeaveFact(currentFact,properties);
+	currentFact = WeaveFact(currentFact);
 	if (!currentFact)
 	{
 		--factFree;
@@ -1704,8 +1728,14 @@ static char* GetBlob(char* base, WORDP& D)
     return (char*)align;
 }
 
-void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
-{
+void MigrateFactsToBoot(FACT* endUserFacts, FACT* endBootFacts)
+{ // transfer facts from user layer to boot layer
+
+    // if we purged stuff from boot, then we need to fix end of boot
+    FACT* G = factsPreBuild[LAYER_USER]; // last fact in boot
+    while (!G->subject) --G;
+    factFree = factsPreBuild[LAYER_USER] = G;
+
     if (!bootFacts && !factThread) return;
 
     UnlockLayer(LAYER_BOOT); // unlock it to add stuff
@@ -1718,14 +1748,14 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
     }
     // while facts ordering is safe to walk and overwrite, dictionary items are
     // unreliable in order and the strings must be protected. 
-    FACT* fbase = F;
-    uint64 base = (uint64)(stackFree + 7);
-    base &= 0xFFFFFFFFFFFFFFf8ULL;
-    char* blobs = (char*)base; // 64bit aligned for storing uints and name
+    FACT* F = endBootFacts;
+    char* limit;
+    char* blobs = InfiniteStack64(limit, "MigrateFactsToBoot");
     char* startblobs = blobs;
     // facts will be simple, but perhaps involve dictionary entries that need moving
     while (++F <= endUserFacts) // note dictionary name and data before we lose them to reuse
     {
+        // if fact is moving and involves dictionary entries past boot, we need to replicate those temporarily
         if (F->flags & FACTBOOT && !(F->flags & (FACTDEAD | FACTTRANSIENT)))
         {
             WORDP SD = Meaning2Word(F->subject);
@@ -1738,14 +1768,15 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
     }
     NoteBotFacts(); // store changes to system facts on stack as well
 
-    // now rebuild facts and dictionary items for real.
+    // now rebuild facts and dictionary items for real into boot layer
     blobs = startblobs;
-    F = fbase;
-    while (++F <= endUserFacts) // F = user facts from before
+    F = endBootFacts;
+    while (++F <= endUserFacts) 
     {
         // facts will be simple, but perhaps involve dictionary entries that need moving
         if (F->flags & FACTBOOT && !(F->flags & (FACTDEAD | FACTTRANSIENT)))
         {
+            // get all major data from this fact, dangling in user space
             unsigned int flags = F->flags;
             flags &= -1 ^ (MARKED_FACT | MARKED_FACT2 | FACTTRANSIENT | FACTBOOT);
             WORDP SD = Meaning2Word(F->subject);
@@ -1754,14 +1785,16 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
             if (VD > dictionaryFree) blobs = GetBlob(blobs, VD);
             WORDP OD = Meaning2Word(F->object);
             if (OD > dictionaryFree) blobs = GetBlob(blobs, OD);
+            uint64 botbits = F->botBits;
 
-            FACT* X = ++factFree;
+            FACT* X = ++factFree; // allocate new fact (may even be this fact!)
             memset(X, 0, sizeof(FACT)); // botbits = 0 (all can see)
+            X->botBits = botbits;
             X->flags = flags;
             X->subject = Word2Index(SD);
             X->verb = Word2Index(VD);
             X->object = Word2Index(OD);
-            WeaveFact(X, flags);
+            WeaveFact(X); // interlace to dictionary
 
             if (bootwrite)
             {
@@ -1771,6 +1804,7 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* F)
         }
     }
     RedoSystemFactFields();
+    ReleaseInfiniteStack();
 
     LockLayer(true);
 

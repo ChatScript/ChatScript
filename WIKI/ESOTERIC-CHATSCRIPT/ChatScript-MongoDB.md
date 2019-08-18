@@ -1,6 +1,6 @@
 # ChatScript MongoDB
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 > Revision 8/12/2017 CS7.53

@@ -9,9 +9,9 @@
 </head>
 <body>
 <h1 id="chatscript-postgresql">ChatScript PostgreSQL</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/25/2017 cs7.51</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/25/2017 cs7.51</p>
 <p>ChatScript ships with code and WINDOWS libraries for accessing PostgreSQL but you need a database somewhere and you need a postgres build of ChatScript.</p>
-<p>While standing in the SRC directory, you can do: <code>make server</code> – build ordinary CS server w/o PostgreSQL client <br><code>make pgserver</code> – build CS server w PostgreSQL client (you had to install postgress first)</p>
+<p>While standing in the SRC directory, you can do: <code>make server</code> - build ordinary CS server w/o PostgreSQL client <br><code>make pgserver</code> - build CS server w PostgreSQL client (you had to install postgress first)</p>
 <p>Usually postgres somes with amazon servers, but if not you may have to do something like</p>
 <pre><code>sudo apt-get install libpq-dev</code></pre>
 <p>to build successfully.</p>
@@ -64,8 +64,8 @@ pguserupdate=UPDATE randomusertable SET userdata = $1::bytea WHERE username = $2
 <h2 id="postgresql-commands">PostgreSQL Commands</h2>
 <p>The basic commands you most likely need are:</p>
 <h3 id="creating-data">Creating Data</h3>
-<pre><code>CREATE DATABASE name – to make a new database
-CREATE TABLE weather – to define a new table
+<pre><code>CREATE DATABASE name - to make a new database
+CREATE TABLE weather - to define a new table
 (
 city varchar(80),
 stateAbbr char[2],
@@ -113,7 +113,7 @@ initdb -D /var/lib/pgsql9/data/</code></pre>
 #2 launch the server via
 service postgresql start</code></pre>
 <p>or</p>
-<pre><code>su – postgres – log in as postgres user
+<pre><code>su - postgres - log in as postgres user
 pg_ctl start - starts server in background
 #3 make it auto restart on reboot
 chkconfig postgresql on</code></pre>

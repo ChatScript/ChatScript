@@ -14664,6 +14664,8 @@
  dwarfs ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN ) plural=dwarf 
  dwarves ( NOUN NOUN_PLURAL COMMON2 COMMON1 posdefault:NOUN ) 
  dybbukkim ( NOUN NOUN_PLURAL ) plural=dybbuk 
+ DVR ( meanings=1 NOUN NOUN_PROPER_SINGULAR COMMON2 COMMON1 ) 
+    DVR~1nz 
  dox ( meanings=2 VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR VERB_NOOBJECT ) 
     dox~1nz 
     dox~2vz 

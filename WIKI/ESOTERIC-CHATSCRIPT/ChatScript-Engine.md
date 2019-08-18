@@ -1,5 +1,5 @@
 # ChatScript Engine
-© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
+Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
 Revision 1/31/2018 cs8.0
 
 * [Data](ChatScript-Engine-md#data)

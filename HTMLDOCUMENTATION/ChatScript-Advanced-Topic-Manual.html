@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-topic-manual">ChatScript Advanced Topic Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/24/2019 cs9.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/18/2019 cs9.62</p>
 <h1 id="advanced-topics">ADVANCED TOPICS</h1>
 <p>There are several things to know about advanced topics.</p>
 <h2 id="topic-execution">Topic Execution</h2>
@@ -134,7 +134,8 @@ u: ( dog ) I hate dogs</code></pre>
 <li>1st- being within that topic executing rules now,</li>
 <li>2nd- the most recently added topic (or revived topic) is the most pending.</li>
 </ul>
-<p>You can get the name of the current most pending topic<code>(%topic)</code>, add pending topics yourself <code>(^addtopic())</code>, and remove a topic off the list <code>(^poptopic())</code>.</p>
+<p>You can get the name of the current most pending topic<code>(%topic)</code>, add pending topics yourself <code>(^addtopic())</code>, and remove a topic off the list <code>(^poptopic())</code>. Issuing ^poptopic(x) or ^fail(TOPIC x) will remove it from the pending list. Entering a topic already deep within the pending list will move it to the front.</p>
+<p>You can request ^gambit(pending) or ^respond(pending) to have CS scan that list for a response. The system does not automatically USE the pending topic list to control your flow. That is for you to manage. It merely tracks it for you.</p>
 <h2 id="random-gambit">Random Gambit</h2>
 <p>The third thing about topics is that they introduce another type, the random gambit, <code>r:</code>.</p>
 <p>The topic gambit <code>t:</code> executes in sequence forming in effect one big story for the duration of the topic. You can force them to be dished randomly by setting the random flag on the topic, but that will also randomize the responders. And sometimes what you want is semirandomness in gambits.</p>
@@ -143,7 +144,7 @@ u: ( dog ) I hate dogs</code></pre>
 
 # subtopic about swimming
 r: Do you like the ocean?
-:bui
+
 t: I like swimming in the ocean.
 
 t: I often go to the beach to swim.

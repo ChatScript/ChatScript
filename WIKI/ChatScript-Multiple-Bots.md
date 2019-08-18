@@ -1,5 +1,5 @@
 # ChatScript Multiple Bots Manual
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 5/27/2019 cs9.4
 
 

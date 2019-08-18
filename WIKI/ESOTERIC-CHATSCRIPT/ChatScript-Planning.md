@@ -1,6 +1,6 @@
 # Planning with ChatScript
 
-> © Bruce Wilcox, gowilcox@gmail.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com
 
 
 > Revision 7/3/2015 CS 5.5
@@ -10,7 +10,7 @@
 Want your chatbot to control a physical body in either a real or a virtual world. Want it to perform tasks
 on your command beyond the immediately simple? You need a planner. 
 ChatScript comes with a preexisting one you can try out called STOCKPILE. 
-See the Bot Stockpile – planner doc for details.
+See the Bot Stockpile - planner doc for details.
 
 Exploring alternatives is the domain of tree search, a mechanism which explicitly supports exploring
 hypothetical situations and backtracks when they fail. There are two kinds of tree search mechanisms.
@@ -279,12 +279,12 @@ trigger a backtrack into an earlier rule.
 To perform planning, the chatbot has to have a mental model of the world. This means creating facts. If
 you were building a Command and Conquer style game, you'd represent locations of resources like:
 ```
-(city1 silver 5) – city1 has 5 units of silver
+(city1 silver 5) - city1 has 5 units of silver
 (city1 gold 1)
 ```
 and costs of production like this:
 ```
-(jewelry gold 1) – jewelry costs 1 unit of gold
+(jewelry gold 1) - jewelry costs 1 unit of gold
 (jewelry silver 1)
 ```
 Your plan will be hunting for availability of resources and aiming to convert them into objects, such

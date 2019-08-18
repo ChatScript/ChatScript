@@ -1,5 +1,5 @@
 # ChatScript Practicum: Rejoinders 
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 2/18/2018 cs8.1  
 
 

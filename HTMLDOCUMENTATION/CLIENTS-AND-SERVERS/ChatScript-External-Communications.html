@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-external-communications">ChatScript External Communications</h1>
 <blockquote>
-<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
 </blockquote>
 <blockquote>
 <p>Revision 11/19/2017 cs7.7</p>
@@ -38,7 +38,7 @@
 <p>Name is the file to read from. Set is where to put the read facts.</p>
 <h2 id="embedding-chatscript-within-another-program">Embedding ChatScript within another program</h2>
 <p>Most users use the executable versions of ChatScript for LINUX or Windows that are provided with a ChatScript release. Sometimes users have to build their own executable for the Mac. These are all building a complete ChatScript engine that is the main program.</p>
-<p>Why would you want to embed ChatScript within another program – meaning that ChatScript is NOT the main program but some other code you write is? Typically it's to build a local application like a robot or a mobile chatting app.</p>
+<p>Why would you want to embed ChatScript within another program - meaning that ChatScript is NOT the main program but some other code you write is? Typically it's to build a local application like a robot or a mobile chatting app.</p>
 <p>In this context, the main program is controlling the app, and invoking ChatScript for conversation or control guidance. You add ChatScripts files to your project and compile it under a C++ compiler.</p>
 <p>ChatScript is C++; it allows variables to be declared not at start, etc. So it won't compile under a pure C compiler. If you are trying to something more esotheric (dynamic link library or invoking from some other language) you need to know how to compile and call C++ code from whatever you are doing.</p>
 <p>The extra considerations in a stand-alone-based app are three-fold: memory size, logging, and upgrading.</p>
@@ -52,7 +52,7 @@
 <pre><code>// #define DISCARDSERVER 1
 // #define DISCARDCLIENT 1
 // #define DISCARDSCRIPTCOMPILER 1
-// #define DISCARDTESTING 1 – if your script will execute test functions then you must keep</code></pre>
+// #define DISCARDTESTING 1 - if your script will execute test functions then you must keep</code></pre>
 <h3 id="embedding-step-2">Embedding Step #2</h3>
 <p>To embed CS within a client, you need to perform three calls. To call these routines, your code will need a predeclaration of these routines. The first is</p>
 <pre><code>InitSystem(int argc, char * argv[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles)</code></pre>
@@ -64,7 +64,7 @@
 <pre><code>int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output);</code></pre>
 <p>or</p>
 <pre><code>int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* output,char* topic);</code></pre>
-<p>PerformChat is told the user name, the bot name (usee), the incoming message, the ip address, and where to put the output. The user string is the user's id. Since this is an embedded app, there will likely be only one user ever, so this can be hardcoded to anything you want. It will show up in the log file, and if you upload logs for later analysis, you will prefer this be unique in some way – a phone id or whatever.</p>
+<p>PerformChat is told the user name, the bot name (usee), the incoming message, the ip address, and where to put the output. The user string is the user's id. Since this is an embedded app, there will likely be only one user ever, so this can be hardcoded to anything you want. It will show up in the log file, and if you upload logs for later analysis, you will prefer this be unique in some way - a phone id or whatever.</p>
 <p>IP is like the user string, a form of identification that appears in the log. It may be null or the null string, since the user id will probably be sufficient. The usee is the name of the chatbot to talk with. This usually can be defaulted to the null string if you only have one bot in the system. Incoming is the message from the user. The first time you start up a session, this should be a null string to inform the system a conversation is starting. Thereafter, you would just pass across the user input. Output is the buffer where ChatScript puts out the response.</p>
 <p>The GivenTopic form can be given an extra binary topic to add to the system, for dynamic topic generation (see below). Ip can be null. Usee can be the empty string “” which means use default bot. Incoming can be null string &quot;&quot; which means conversation is being initiated. Output is the buffer to put output into. Return value is the volleycount of this volley.</p>
 <p>PerformChatGivenTopic takes data in the form output by :topicdump into <code>TMP/tmp.txt</code>. That can be read in by :extratopic as a test, which merely reads in all lines, removing the cr/lf and concatenating the data together into one long text string. This is passed thereafter into PerformChatGivenTopic. The data output by :topicdump includes topic flags and keywords, and new topics brought in can use these just like normal topics. For</p>

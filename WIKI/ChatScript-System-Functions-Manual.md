@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/28/2019 cs9.61
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
+<br>Revision 8/18/2019 cs9.62
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -70,10 +70,10 @@ Empty the pending topics list.
 
 For the given topic, return how many rules match what. 
 
-What is `gambit`, `available`, `rules`, `used`. 
+What is `gambits`, `responders`,  `availablegambits`, `availableresponders`,`rules`, `used`. 
 
 That is, how many gambits exist, how many available gambits exist (not erased), 
-how many top level rules (gambits + responders) exist, and how many top level rules have been erased.
+how many responders exist, how many available responders exist (not erased), how many top level rules (gambits + responders) exist, and how many top level rules have been erased.
 
 
 ### `^gambit ( value value ... )`
@@ -146,7 +146,7 @@ find the next rule of that what. Fails if none is found.
 If _label_ is `~`, it will use the last call's answer as the starting point, 
 enabling you to walk rules in succession. 
 
-There is also `^next(FACT @xxx)` – see fact manual. 
+There is also `^next(FACT @xxx)` - see fact manual. 
 
 For `^next(INPUT)` the system will read the next sentence and prep the system with it. 
 This means that all patterns and code executing thereafter will be in the context of the next input sentence. 
@@ -681,7 +681,7 @@ The answer will be `?` if the operation makes no sense and infinity if you divid
 
 Basic operations can be done directly in assignment statements like:
 
-    $var = $x + 43 – 28
+    $var = $x + 43 - 28
 
 
 ### `^timefromseconds ( seconds {offset} )`
@@ -924,7 +924,7 @@ other codes propagate past the loop. The codes are:
 | `TOPIC`    | stops the current topic |
 | `SENTENCE` |  stops the current rule, topic, and sentence |
 | `INPUT`    | stops all the way through all sentences of the current input |
-| `PLAN`     | succeeds a plan – (only usable within a plan) |
+| `PLAN`     | succeeds a plan - (only usable within a plan) |
 
 
 ### `^eval ( flags stream )`
@@ -1129,6 +1129,7 @@ Erases all context data (see `^addcontext`).
 
 
 ### `^incontext ( label )`
+This function is only  used inside a pattern.
 
 _label_ can be a simple text label or a `topicname.textlabel`. 
 The system tracks rule labels that generated output to the user or rules starting with the label `CX_`
@@ -1534,7 +1535,11 @@ To close the file use
 
 By default, ^log acts like output to user, converting escaped nr, and t into their actual ascii characters.
 The flag RESPONSE_NOCONVERTSPECIAL passed in will block this.
-
+You pass various flags as:
+```
+^logcode( flag OPEN ...)  or  
+^logcode( (flag flag) OPEN ...)
+```
 
 ### `^memorymark ()`
 
@@ -1589,7 +1594,7 @@ JSON functions and JSON are described more fully in the ChatScript JSON manual.
 
 ### `^jsonarrayinsert ( arrayname value )`
 
-Given the name of a json array and a value, it addsthe value to the end of the array.
+Given the name of a json array and a value, it adds the value to the end of the array.
 `SAFE` protects any nested JSON data from being deleted. See JSON manual.
 
 ### `^jsonarraydelete ( [INDEX, VALUE] arrayname value {ALL} )` 
@@ -2443,7 +2448,7 @@ You can sort a fact set which has number values as a field.
 ### `^sort ( fact-set {more fact sets} )`
 
 The fact set is sorted from highest first. By default, the subject is treated as a float for sorting. 
-You can say something `like@2object` to sort on the object field.
+You can say something like `@2object` to sort on the object field.
 You can add additional factsets after the first, which will move their contents slaved to
 how the first one was rearranged. Eg.
 
@@ -2578,6 +2583,24 @@ If you add the optional 3rd argument, it will filter concepts to be only those t
     
 retrieves only concepts that start with `~bot-` .
 
+### ^purgeboot (what)
+If you created facts previously during user script executing (via CreateFact with a flags argument FACTBOOT) Or
+via fact creation in ^csboot,
+then they would reside there unchanged as part of a server until it goes down. Those facts
+are visible to all users and becaue they are system owned facts, cannot be modified by a user.
+However, you can use this function to remove them from the boot layer.
+
+```
+^purgeboot(@1)
+```
+All facts you may have queried into this factset which are facts from the boot layer
+will be removed.
+
+```
+^purgeboot(botid)
+```
+All facts with the given numeric bot id in the boot layer
+will be removed.
 
 ### `^wordinconcept ( word conceptname )`
 
@@ -2610,9 +2633,9 @@ values will become erroneous. The system will not stop you, but you cannot guara
 the results after that. BE CAREFUL you don't create facts where the verb and object are
 intended to be constant and the subject varies. It won't work correctly.
 
-`(car space 10)` – fine if 10 can vary
+`(car space 10)` - fine if 10 can vary
 
-`(10 space car)` – wrong if 10 can vary
+`(10 space car)` - wrong if 10 can vary
 
 See also `^revisefact` which is probably easier to use for most cases.
 
@@ -2733,7 +2756,7 @@ should already have tried that topic before coming to the more random thrashing 
 
 ### `^last ( fact-set-annotated )`
 
-Retrieve the last fact – see `^first` for a more complete explanation.
+Retrieve the last fact - see `^first` for a more complete explanation.
 
 
 ### `^length ( word )`

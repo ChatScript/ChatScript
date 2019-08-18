@@ -1,6 +1,6 @@
 # ChatScript Common Beginner Mistakes
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 <br>Revision 11/31/2017 cs7.61

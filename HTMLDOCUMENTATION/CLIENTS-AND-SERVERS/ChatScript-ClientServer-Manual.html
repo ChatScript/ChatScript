@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-clientserver-manual">ChatScript Client/Server Manual</h1>
 <blockquote>
-<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
 </blockquote>
 <blockquote>
 <p>Revision 8/27/2016 cs7.54</p>
@@ -128,11 +128,11 @@ The server app, on receiving the ChatScript output, may need to send it over to 
 <ol style="list-style-type: decimal">
 <li>prior things recently said by user and chatbot</li>
 <li>user facts</li>
-<li>state of every topic – which rules have been used up, changed topic flags</li>
+<li>state of every topic - which rules have been used up, changed topic flags</li>
 <li>current topic &amp; current interesting topic stack</li>
 <li>input rejoinder tag</li>
 <li>user variables &amp; turn number and random seed</li>
-<li>user context data – recently executed rule tags and on what volley</li>
+<li>user context data - recently executed rule tags and on what volley</li>
 </ol>
 <p>You can direct CS not to save ANY user data by turning on user caching, but setting the cache count to 0. Now you have a system that is RESTful, but can't keep any state. You can, however, send out state via out-of-band messages and read back in state the same way.</p>
 <p>Currently there is a limit of 20k for an output message and user topic files vary in size including up to 40K (and you can allow them to be bigger via command line option). So it is not really practical to transmit all user state back and forth as oob data. Here is what is reasonable to accomplish:</p>

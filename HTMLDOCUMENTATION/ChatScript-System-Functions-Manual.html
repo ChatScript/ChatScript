@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/28/2019 cs9.61</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/18/2019 cs9.62</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -45,8 +45,8 @@ t: () name(xxx) # explicitly add an empty pattern</code></pre>
 <p>Empty the pending topics list.</p>
 <h3 id="counttopic-topic-what"><code>^counttopic ( topic what )</code></h3>
 <p>For the given topic, return how many rules match what.</p>
-<p>What is <code>gambit</code>, <code>available</code>, <code>rules</code>, <code>used</code>.</p>
-<p>That is, how many gambits exist, how many available gambits exist (not erased), how many top level rules (gambits + responders) exist, and how many top level rules have been erased.</p>
+<p>What is <code>gambits</code>, <code>responders</code>, <code>availablegambits</code>, <code>availableresponders</code>,<code>rules</code>, <code>used</code>.</p>
+<p>That is, how many gambits exist, how many available gambits exist (not erased), how many responders exist, how many available responders exist (not erased), how many top level rules (gambits + responders) exist, and how many top level rules have been erased.</p>
 <h3 id="gambit-value-value-..."><code>^gambit ( value value ... )</code></h3>
 <p>If value is a topic name, runs the topic in gambit mode to see if any gambits arise. If none arise from the first value, it will try the second, and so on. It does not fail unless a rule forces it to fail or the named topic doesn’t exist or is disabled. You can supply an optional last argument <code>FAIL</code>, in which case it will return <code>FAILRULE_BIT</code> if it didn't fail but it didn't generate any new output either.</p>
 <p>The value may be <code>~</code>, which means use the current topic you are within. It can also be <code>PENDING</code>, which means pick a topic from the pending topics stack (they are all pending being returned to but not including the current topic). Or it can be any other word, which will be a keyword of some topic to pick. E.g.,</p>
@@ -70,7 +70,7 @@ t: () name(xxx) # explicitly add an empty pattern</code></pre>
 <p>Given what of <code>GAMBIT</code> or <code>RESPONDER</code> or <code>REJOINDER</code> or <code>RULE</code> and a rule label or tag, find the next rule of that what. Fails if none is found.</p>
 <p><code>REJOINDER</code> will fail if it reaches the next top level rule.</p>
 <p>If <em>label</em> is <code>~</code>, it will use the last call's answer as the starting point, enabling you to walk rules in succession.</p>
-<p>There is also <code>^next(FACT @xxx)</code> – see fact manual.</p>
+<p>There is also <code>^next(FACT @xxx)</code> - see fact manual.</p>
 <p>For <code>^next(INPUT)</code> the system will read the next sentence and prep the system with it. This means that all patterns and code executing thereafter will be in the context of the next input sentence. That sentence is now used up, and will not be seen next when the current revised sentence finishes.</p>
 <p>Sample code might be:</p>
 <pre><code>t: Do you have any pets
@@ -293,7 +293,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 </tbody>
 </table>
 <p>Basic operations can be done directly in assignment statements like:</p>
-<pre><code>$var = $x + 43 – 28</code></pre>
+<pre><code>$var = $x + 43 - 28</code></pre>
 <h3 id="timefromseconds-seconds-offset"><code>^timefromseconds ( seconds {offset} )</code></h3>
 <p>This converts time in seconds (Unix epoch time) from the given time in whatever timezone, to a string like <code>%time</code> returns. You can compute a difference in times by merely doing a subtraction of the two times. <code>%fulltime</code> will give you the current time that you could plug in here. The optional second argument will displace that time by the hours offset (can be plus or minus).</p>
 <h3 id="timeinfofromseconds-seconds"><code>^timeinfofromseconds ( seconds )</code></h3>
@@ -527,7 +527,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 </tr>
 <tr class="odd">
 <td><code>PLAN</code></td>
-<td>succeeds a plan – (only usable within a plan)</td>
+<td>succeeds a plan - (only usable within a plan)</td>
 </tr>
 </tbody>
 </table>
@@ -671,6 +671,7 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <h3 id="clearcontext"><code>^clearcontext ()</code></h3>
 <p>Erases all context data (see <code>^addcontext</code>).</p>
 <h3 id="incontext-label"><code>^incontext ( label )</code></h3>
+<p>This function is only used inside a pattern.</p>
 <p><em>label</em> can be a simple text label or a <code>topicname.textlabel</code>. The system tracks rule labels that generated output to the user or rules starting with the label <code>CX_</code> whether or not the rule generates output as long as it didn't fail during output.</p>
 <p><code>^inContext</code> will return how many volleys have happened since the referenced rule (normal return) if the label has output within the 5 prior volleys and will fail if not. It's like an extension of rejoinders. Rejoinders have a 1 volley context and must be placed immediately after a rule. This has a 5 volley context and are used in normal rule patterns.</p>
 <pre><code>u: (^incontext(PLAYTENNIS) why) because it was fun.</code></pre>
@@ -873,7 +874,9 @@ else { $$tcpopen_error }</code></pre>
 <pre><code>^log(OPEN TMP/mylog.txt This is my log output.)</code></pre>
 <p>which caches the file ptr. After which you can write with OPEN or FILE equivalently. To close the file use</p>
 <pre><code>^log(CLOSE TMP/mylog.txt)</code></pre>
-<p>By default, ^log acts like output to user, converting escaped nr, and t into their actual ascii characters. The flag RESPONSE_NOCONVERTSPECIAL passed in will block this.</p>
+<p>By default, ^log acts like output to user, converting escaped nr, and t into their actual ascii characters. The flag RESPONSE_NOCONVERTSPECIAL passed in will block this. You pass various flags as:</p>
+<pre><code>^logcode( flag OPEN ...)  or  
+^logcode( (flag flag) OPEN ...)</code></pre>
 <h3 id="memorymark"><code>^memorymark ()</code></h3>
 <p>Reading a document consists of performing a single volley of the entire document. This can tie up a lot of memory in keeping facts, dictionary entries, user variables, etc. If you are careful in what you do, you can make the memory burden go away. <code>^memoryMark()</code> notes where memory is currently at, and is best done within the document_pre topic. Then you can release memory after every sentence of the document, so it doesn't accumulate.</p>
 <h3 id="memoryfree"><code>^memoryfree ()</code></h3>
@@ -895,7 +898,7 @@ u: (%document)
 <h1 id="json-functions">JSON Functions</h1>
 <p>JSON functions and JSON are described more fully in the ChatScript JSON manual.</p>
 <h3 id="jsonarrayinsert-arrayname-value"><code>^jsonarrayinsert ( arrayname value )</code></h3>
-<p>Given the name of a json array and a value, it addsthe value to the end of the array. <code>SAFE</code> protects any nested JSON data from being deleted. See JSON manual.</p>
+<p>Given the name of a json array and a value, it adds the value to the end of the array. <code>SAFE</code> protects any nested JSON data from being deleted. See JSON manual.</p>
 <h3 id="jsonarraydelete-index-value-arrayname-value-all"><code>^jsonarraydelete ( [INDEX, VALUE] arrayname value {ALL} )</code></h3>
 <p>This deletes a single entry from a JSON array. It does not damage the thing deleted, just its member in the array. If the first argument is <code>INDEX</code>, then value is a number which is the array index (0 … n-1). If the first argument is <code>VALUE</code>, then value is the value to find and remove as the object of the json fact.</p>
 <p>You can delete every matching <code>VALUE</code> entry by adding the optional 4th argument <code>ALL</code>.</p>
@@ -1440,7 +1443,7 @@ concept: ~canine (dog)</code></pre>
 <h3 id="sort-alpha-alphabetic-age-0"><code>^sort ( {alpha alphabetic age} @0 … )</code></h3>
 <p>You can sort a fact set which has number values as a field.</p>
 <h3 id="sort-fact-set-more-fact-sets"><code>^sort ( fact-set {more fact sets} )</code></h3>
-<p>The fact set is sorted from highest first. By default, the subject is treated as a float for sorting. You can say something <code>like@2object</code> to sort on the object field. You can add additional factsets after the first, which will move their contents slaved to how the first one was rearranged. Eg.</p>
+<p>The fact set is sorted from highest first. By default, the subject is treated as a float for sorting. You can say something like <code>@2object</code> to sort on the object field. You can add additional factsets after the first, which will move their contents slaved to how the first one was rearranged. Eg.</p>
 <pre><code>^sort(@1subject @2 @3)</code></pre>
 <p>will perform the sort using the subject field of <code>@1</code>, and then rearrange <code>@2</code> and <code>@3</code> in the same way (assuming they have the same counts). Instead of sorting by numeric value, can do an alpha sort or an oldest fact first sort similar to the normal sort.</p>
 <h3 id="delete-factset-or-factid-or-jsonid"><code>^delete ( factset or factid or jsonid )</code></h3>
@@ -1490,6 +1493,12 @@ concept: ~canine (dog)</code></pre>
 <p>If you add the optional 3rd argument, it will filter concepts to be only those that start with the filter characters.</p>
 <pre><code>@0 = ^conceptlist(CONCEPT _0  ^&quot;~bot-&quot;)</code></pre>
 <p>retrieves only concepts that start with <code>~bot-</code> .</p>
+<h3 id="purgeboot-what">^purgeboot (what)</h3>
+<p>If you created facts previously during user script executing (via CreateFact with a flags argument FACTBOOT) Or via fact creation in ^csboot, then they would reside there unchanged as part of a server until it goes down. Those facts are visible to all users and becaue they are system owned facts, cannot be modified by a user. However, you can use this function to remove them from the boot layer.</p>
+<pre><code>^purgeboot(@1)</code></pre>
+<p>All facts you may have queried into this factset which are facts from the boot layer will be removed.</p>
+<pre><code>^purgeboot(botid)</code></pre>
+<p>All facts with the given numeric bot id in the boot layer will be removed.</p>
 <h3 id="wordinconcept-word-conceptname"><code>^wordinconcept ( word conceptname )</code></h3>
 <p>Takes any casing of a word and finds which casing in the dictionary is a member of the concept. When you memorize a word, you will get how the user spelled it. Eg., Ebay, when the dictionary actually has eBay. The correct spelling of the word can be found this way as a member of a concept. And composite words using either spaces or underscores can be found as well and returns the correct notation.</p>
 <h3 id="createattribute-subject-verb-object-flags"><code>^createattribute ( subject verb object flags )</code></h3>
@@ -1498,8 +1507,8 @@ concept: ~canine (dog)</code></pre>
 <pre><code>^createattribute(car1 cost $1000)</code></pre>
 <p>then after this the $1500 fact would no longer exist and only the new price fact would exist.</p>
 <p>Note<br> if you have facts that reference facts that would be killed off, the createattribute call will decline to create a new fact and fail instead. Also, don't have those old facts as values of variables or factsets because those values will become erroneous. The system will not stop you, but you cannot guarantee the results after that. BE CAREFUL you don't create facts where the verb and object are intended to be constant and the subject varies. It won't work correctly.</p>
-<p><code>(car space 10)</code> – fine if 10 can vary</p>
-<p><code>(10 space car)</code> – wrong if 10 can vary</p>
+<p><code>(car space 10)</code> - fine if 10 can vary</p>
+<p><code>(10 space car)</code> - wrong if 10 can vary</p>
 <p>See also <code>^revisefact</code> which is probably easier to use for most cases.</p>
 <h3 id="createfact-subject-verb-object-flags"><code>^createfact ( subject verb object flags )</code></h3>
 <p>The arguments are a stream, so <code>flags</code> is optional. Creates a fact of the listed data if it doesn't exist (unless flags allows duplicates). Or <code>^createfact($$tmp)</code> or some other variable that evaluates to a fact stream will also create/find a fact. <code>$$tmp</code> might have been written previously using WriteFact.</p>
@@ -1538,7 +1547,7 @@ concept: ~canine (dog)</code></pre>
 <p>Lists topics and priority values for matching keywords in input. An optional argument if <code>gambit</code>, will ignore topics without available gambits. The verb used is: <code>^keywordtopics</code>.</p>
 <p>Note: it does not attempt to match the topic you are currently in, as the normal control scripts should already have tried that topic before coming to the more random thrashing of ^keywordtopics.</p>
 <h3 id="last-fact-set-annotated"><code>^last ( fact-set-annotated )</code></h3>
-<p>Retrieve the last fact – see <code>^first</code> for a more complete explanation.</p>
+<p>Retrieve the last fact - see <code>^first</code> for a more complete explanation.</p>
 <h3 id="length-word"><code>^length ( word )</code></h3>
 <p>puts the length of the word into the output stream. If word is actually a fact set reference (e.g., <span class="citation">@2</span> ), it returns the count of facts in the set.</p>
 <h3 id="makereal"><code>^makereal ()</code></h3>

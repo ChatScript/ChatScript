@@ -9,14 +9,14 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/28/2019 cs9.61</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/28/2019 cs9.61</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#esoteric-facts">Esoteric Facts</a></li>
 </ul>
 <h1 id="simple-facts">SIMPLE FACTS</h1>
-<p>Facts are triples of <em>subject</em>, <em>verb</em>, <em>object</em> – though those are just the names of the fields and may or may not be their content. Facts look like this:</p>
+<p>Facts are triples of <em>subject</em>, <em>verb</em>, <em>object</em> - though those are just the names of the fields and may or may not be their content. Facts look like this:</p>
 <pre><code>(Bob eat fish )</code></pre>
 <p>The system has a number of facts it comes bundled with and others can be created and stored either from compiling scripts, or from interactions with the user.</p>
 <p>Facts can use words, numbers, or other facts as field values, representing anything.</p>
@@ -179,15 +179,15 @@ $fact = ^createfact( Bob own dog)
 </tr>
 <tr class="even">
 <td><code>@1fact</code></td>
-<td>means keep the fact intact (a reference to the fact) – required if assigning to another set.</td>
+<td>means keep the fact intact (a reference to the fact) - required if assigning to another set.</td>
 </tr>
 <tr class="odd">
 <td><code>@1+</code></td>
-<td>means spread the subject,verb,object onto successive match variables – only valid with match variables</td>
+<td>means spread the subject,verb,object onto successive match variables - only valid with match variables</td>
 </tr>
 <tr class="even">
 <td><code>@1-</code></td>
-<td>means spread the object,verb,subject onto successive match variables– only valid with match variables</td>
+<td>means spread the object,verb,subject onto successive match variables- only valid with match variables</td>
 </tr>
 <tr class="odd">
 <td><code>@1all</code></td>
@@ -202,7 +202,7 @@ $fact = ^createfact( Bob own dog)
 <pre><code>@2 = @1</code></pre>
 <p>You can transfer fields of a fact from a fact-set using assignment, while simultaneously removing that fact from the set. The functions to do this are:</p>
 <h3 id="first-fact-set-last-fact-set-pick-fact-set"><code>^first</code>( fact-set ), <code>^last</code>( fact-set ), <code>^pick</code>( fact-set )</h3>
-<p><code>^first</code> – retrieve the first fact, <code>^last</code> – retrieve the last fact, <code>^pick</code> – retrieve a random fact, e.g.</p>
+<p><code>^first</code> - retrieve the first fact, <code>^last</code> - retrieve the last fact, <code>^pick</code> - retrieve a random fact, e.g.</p>
 <pre><code>_1 = ^first(@1all)</code></pre>
 <p>Removing the fact is the default, but you can suppress it with the optional second argument <code>KEEP</code>, e.g.</p>
 <pre><code>_1 = ^last(@1all KEEP) </code></pre>
@@ -286,6 +286,7 @@ value4 value5 value6</code></pre>
 <p>These synonyms are represented using the member verb, sort of like making a concept set of the full name. The system detects this specially during inferencing, and if an argument to ^query were <em>Paris</em>, it could automatically transfer across and consider facts for *Paris,_France* as well.</p>
 <p>It would not go the other way, however, so if the argument were <em>Paris_France</em>, it would not move over to <em>Paris</em>.</p>
 <p>You should store your facts on the full name. The mechanism allows user input to use the short name.</p>
+<p>NOTE: Tables are executed (built) at compile time. And their resulting data and variables are saved in the TOPIC folder along with your compiled scripts and loaded when the server starts up. The data is &quot;owned&quot; by the server and not written out to user files. Also, normally you cannot alter table data on the fly from a user script interaction (true of all facts, not just table facts). In the event you are compiling multiple bots at once, the facts of the table are owned by whatever bot is considered to be compiling that chunk of code.</p>
 <h2 id="variable-argument-tables">Variable Argument Tables</h2>
 <p>While a line of table data must fill all fields of the table exactly (no more or less), you can tell the system to fill in the remaining arguments with <code>*</code> by putting <code>…</code> as your last value. Eg.</p>
 <pre><code>table: test(^item1 ^item2 ^item3 ^item4)
@@ -337,12 +338,6 @@ Yokohama</p>
 You can write self-checking code in your table to confirm users didn&#39;t screw up.
 The system variable %tableinput shows the actual line seen by the table function at each entry.
 
-Here is an example:</code></pre>
-<p>tablemacro: ^section variable TAB ($_sectionname $_entry $_rule $_junk $_junk1 $_junk2 ) $_sectionname = ^pos(allupper $_sectionname) # <span class="math inline"><em></em><sub><em>j</em></sub><em>u</em><em>n</em><em>k</em><em>i</em><em>s</em><em>t</em><em>h</em><em>e</em><em>t</em><em>a</em><em>b</em><em>i</em><em>f</em>(</span>_entry != *) { <br /><span class="math display">$$entry = $_entry # track this column's value
-  ^createfact($_entry section $_sectionname)
-}
-$_error = ^&quot;Bad Table data in ^Section $_sectionname $_entry ($$</span><br />entry) $_rule $_junk $_junk1 <span class="math inline">$_junk2 \n&quot; if ($</span>_entry != * AND <span class="math inline">$_rule != *) # not allowed both {  ^Bug($</span>_error) } else if ($_entry == * AND <span class="math inline">$_rule == *) # not allowed neither {  ^Bug($</span>_error) } else if ($_junk != * OR $_junk1 != * OR <span class="math inline">$_junk2 != * ) # excess data {  ^Bug($</span>_error) } if (^extract(%tableinput 0 1) == &quot; &quot;) { <sup>Bug(</sup>&quot;spaces at start of table&quot;) } if (<span class="math inline">$_rule != *) {  ^createfact($</span>_rule question $$entry) } DATA:</p>
-<pre><code>
 ## String processing in Tables
 
 It is common for a string to be a table argument. Any functional string `^&quot;xxx&quot;` stores itself
@@ -387,7 +382,7 @@ and fail if the result is no facts. Eg.
 
     if ( gambitTopics() ) { first(@0object)}
 
-
+    
 ### `^addproperty`( set flag )
 
 add this flag onto all facts in named set or onto words. 
@@ -483,7 +478,7 @@ what was actually there, which might have been plant~1).
 
 ### `^last`( fact-set-annotated )
 
-retrieve the last fact – see `^first` for a more complete explanation.
+retrieve the last fact - see `^first` for a more complete explanation.
 
 
 ### `^length`( word )
@@ -743,7 +738,7 @@ know exactly what you want.
 </table>
 <p>Each query has is composed of four segments. Each segment is separated using a colon. Each segment is a series of actions, which typically involve naming a tag, a field, and then the operation, and possibly special arguments to the operation.</p>
 <p>You can separate things in a segment with a period or an underscore, to assist in visual clarity. Those characters are ignored. I always separate actions by underscores. The period I use to mark the end of literal values (<code>~sets</code> and <code>'words</code>).</p>
-<h2 id="example-1-paris-as-subject">EXAMPLE 1 – PARIS as subject</h2>
+<h2 id="example-1---paris-as-subject">EXAMPLE 1 - PARIS as subject</h2>
 <p>Consider this example: we want to find facts about Paris. The system has these facts:</p>
 <pre><code>(Paris exemplar France)</code></pre>
 <p>and</p>
@@ -781,7 +776,7 @@ know exactly what you want.
 <p>Segment two says how to use the queue. The queue is a list of words or facts that will be used to find facts. In our example, having stored the word <em>Paris</em> onto the queue, we now get all facts in which <em>Paris</em> participates as the subject ( the s: segment )</p>
 <p>Segment three tells how to disqualify facts that are found (deciding not to return them). There is no code here, so all facts found will be acceptable.</p>
 <p>Segment four tells how to take disqualified facts as a source of further navigation around the fact space. There is nothing here either. Therefore the system returns the two facts with <em>Paris</em> as the subject</p>
-<h2 id="example-2-finding-facts-up-in-the-hierarchy">Example 2 – Finding facts up in the hierarchy</h2>
+<h2 id="example-2---finding-facts-up-in-the-hierarchy">Example 2 - Finding facts up in the hierarchy</h2>
 <p>Assume you have this fact <code>( 23 doyou ~like)</code> and what you actually have is a specific verb like which is a member of ~like. You want to find facts using doyou and like and find facts where doyou matches and some set that contains like matches.</p>
 <p>The query for this is <code>direct_v&lt;o</code>, which means you have a verb and you have an object but you want the object to match anywhere up in the hierarchy. <code>&lt;</code>, which means the start of the sentence in patterns, really means the left side of something. And in the case of facts and concepts, the left side is the more specific (lower in the hierarchy) and the right side is most general (higher in the higherarchy) when the verb is member.</p>
 </body>

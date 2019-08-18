@@ -22,7 +22,7 @@ artificial intelligence; chatbot; conversation; natural language; ChatScript
 
 ## 3 Introduction
 
-My wife and I craft chatbots. The task of a conversational chatbot is to create an illusion – the illusion
+My wife and I craft chatbots. The task of a conversational chatbot is to create an illusion - the illusion
 that you are talking with something that understands and cares about what you are saying. It doesn't.
 
 Our bots have been among the best conversational chatbots in the world for the past four years. While
@@ -144,12 +144,12 @@ Contextual information is how humans reduce the amount of words needed to convey
 really, there are two problems to address. First, is what the meaning is when the sentence is spelled out
 in full, and the other is what the meaning is when the sentence takes shortcuts.
 
-Pronoun resolution is a contextual shortcut – distinguishing _do you like it_ (referring to some previous
+Pronoun resolution is a contextual shortcut - distinguishing _do you like it_ (referring to some previous
 noun or statement) from _do you like it in the city_ (where it does not refer backwards but maps like an idiom meaning living). Or resolving there in do you live there vs the existential non-referential there is something about Mary.
 
 Context also supplies yet another set of patterns. _When?_ needs the context of an earlier sentence to be understood.
 
-Then there are contextual patterns of speech like the tag question – I love tomatoes, how about you?
+Then there are contextual patterns of speech like the tag question - I love tomatoes, how about you?
 which both offers information and then asks do you love tomatoes. Or the pending question pattern like
 this:
 
@@ -233,7 +233,7 @@ Meaning patterns can be as precise or as fuzzy as you want to make them. In Chat
 a list of words or phrases to be a concept.
 
     concept: ~like (adore approve "be big on" "attached to" "be keen on" "be partial to"
-like love need prefer prize relish venerate worship) – and many more words
+like love need prefer prize relish venerate worship) - and many more words
     concept: ~meat (bacon beef chicken ham hamburger lamb meat~2 pork sausage steak veal)
 
 `~like` is a concept of words meaning to like and `~meatv is a concept of many different kinds of meat
@@ -281,7 +281,7 @@ queries or runs inferences on facts, and in general acts as a normal C-like prog
 
 ### 8.1.5 Rule documentation and verification
 
-The `#!` above the rule is a sample input comment. It serves as documentation – you can read it and not
+The `#!` above the rule is a sample input comment. It serves as documentation - you can read it and not
 interpret the pattern and still know what this rule is trying to do. And it serves as unit-test verification
 because the system can run a bunch of diagnostics on your rule to confirm it will likely do what you
 intend.
@@ -360,7 +360,7 @@ For responders the typical structure is to enumerate essential keywords in any o
 and sometimes to qualify that with negatives to avoid wrong interpretations.
 
     #! do you like horses?
-    ?: ( ![~qwords ~ingest] << you ~like horse >>) – so not "I like to eat horses"
+    ?: ( ![~qwords ~ingest] << you ~like horse >>) - so not "I like to eat horses"
 
 Occasionally order is important for meaning, particular when you and I are both keywords.
 
@@ -612,7 +612,7 @@ reaction to various kinds of animals using a series of rules like:
 
 The interesting rejoinder of the original question is the one that reacts to a yes answer. Things that
 mean yes are all treated like interjections by the system (aka a dialog act) and always are split off into a
-separate sentence. So _Yes I love it_ and _Yes. I love it._ are equivalently the latter. If the input sentence is yes and there is a yes rejoinder with no second sentence, it will execute that rejoinder – 
+separate sentence. So _Yes I love it_ and _Yes. I love it._ are equivalently the latter. If the input sentence is yes and there is a yes rejoinder with no second sentence, it will execute that rejoinder - 
 _What do you have_. But if there is a followup sentence from the user, it merely notes where that rejoinder is, reads in
 the next sentence and then looks to see if it would match any rejoinder in the set. If it does, it ignores
 the yes and moves directly to the matching rejoinder. It is common for someone to say yes or no, and

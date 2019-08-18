@@ -1,6 +1,6 @@
 # ChatScript Client/Server Manual
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 > Revision 8/27/2016 cs7.54
@@ -395,11 +395,11 @@ The data kept in the user topic file is:
 
 1. prior things recently said by user and chatbot
 2. user facts
-3. state of every topic – which rules have been used up, changed topic flags
+3. state of every topic - which rules have been used up, changed topic flags
 4. current topic & current interesting topic stack
 5. input rejoinder tag
 6. user variables & turn number and random seed
-7. user context data – recently executed rule tags and on what volley
+7. user context data - recently executed rule tags and on what volley
 
 You can direct CS not to save ANY user data by turning on user caching, but setting the
 cache count to 0. Now you have a system that is RESTful, but can't keep any state. You

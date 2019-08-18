@@ -1,6 +1,6 @@
 # ChatScript Pos-Parser Manual
 
-> © Bruce Wilcox, gowilcox@gmail.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com
 
 
 > Revision 11/19/2016 cs7.7
@@ -179,7 +179,7 @@ The main sentence should parse to all was ask with an implied that she had to do
 And, strangely, the Stanford pos tagger likes to label _ago_ as IN (prepostion or subordinate conjunction), 
 which it never is, instead of adverb like in _they lived twenty years ago_. 
 I can't even imagine how that error exists in the system.
-Even the simple _Many are poor_ has _many_ considered a determiner – but there is no noun. And if you
+Even the simple _Many are poor_ has _many_ considered a determiner - but there is no noun. And if you
 say _many of them are poor_ it changes _many_ from a determiner to an adjective. Still no noun anywhere
 in sight.
 
@@ -204,7 +204,7 @@ teller_.
 
 ## Proper name merging
 
-This gets even messier given that ChatScript will attempt named entity extraction – it will decide some
+This gets even messier given that ChatScript will attempt named entity extraction - it will decide some
 sequences of words represent a single upper-case compound name.
 
 By default ChatScript attempts to detect named entities given as multiple words, and merge them into a
@@ -323,7 +323,7 @@ In general I care more about nouns and verbs.
 
 While ChatScript supports UTF8 for input and scripting, a lot of ChatScript's power comes from the
 concise pattern matching code. That, in turn, stems from the ability to define concepts, and to take
-advantage of ChatScript's dual input stream – original word and lemma (canonical form). So instead of
+advantage of ChatScript's dual input stream - original word and lemma (canonical form). So instead of
 having to write patterns naming all forms of a verb, you can just use the lemma form and mean all of
 them. Or the singular noun to catch plural as well. That ability depends on pos-tagging abilities.
 
@@ -351,10 +351,10 @@ In your tagging topic, you invoke your spellchecker, or tagger, or parser, eithe
 remotely using `^tcpopen` or `^jsonopen`. And then process the return data and use one or more of these
 functions to alter ChatScript's internal data.
 
-`^setcanon`(wordindex value) – changes the canonical value for this word
-<br>`^settag`(wordindex value) – changes the pos tag for the word
-<br>`^setoriginal`(wordindex value) – changes the original value for this word
-<br>`^setrole`(wordindex value) – changes the parse role for this word
+`^setcanon`(wordindex value) - changes the canonical value for this word
+<br>`^settag`(wordindex value) - changes the pos tag for the word
+<br>`^setoriginal`(wordindex value) - changes the original value for this word
+<br>`^setrole`(wordindex value) - changes the parse role for this word
 
 The first important one is ^setcanon, to allow the CS dual input processing to work in patterns.
 If you are doing spell checking, you may use `^setoriginal` to revise the original word.

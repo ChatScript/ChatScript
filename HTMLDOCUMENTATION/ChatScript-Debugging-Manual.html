@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/26/2018 cs9.5</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/26/2018 cs9.5</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -236,7 +236,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>Tracing is also good in conjunction with some other commands that give you a restricted view. You can name tracing options by subtraction. E.g.,</p>
 <pre><code>:trace all -infer -pattern</code></pre>
 <p>When I'm doing a thorough trace, I usually do</p>
-<pre><code>:trace all –query</code></pre>
+<pre><code>:trace all -query</code></pre>
 <p>because I want to see fact searches but only need the answers and not all the processing the query did.</p>
 <p>NOTE: if you want tracing to start at startup, when you don't have control, login with a botname of trace. E.g, at the login type:</p>
 <pre><code>john:trace</code></pre>
@@ -396,8 +396,8 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>When the system is trying responders and rejoinders, for each rule it says &quot;try&quot; and names which top-level rule it is, and perhaps what rejoinder.</p>
 <p>3.0 means the 4th top level rule.</p>
 <p>The .0 refers to the rejoinder underneath it, but 0 means the rule itself. Along with the rule it, it may put out the label if there is one (eg 7.0 DESCRIBE) and it puts out the pattern it will try to match.</p>
-<p>The next line begins matching data. Each pattern element will be marked at the end of it with a <code>+</code> if it matched, or a <code>–</code> if it didn't match.</p>
-<p>Whenever the system enters a paired token, i.e., <code>()</code>, <code>[]</code>, <code>{}</code>, <code>&lt;&lt;</code> <code>&gt;&gt;</code>, it indents and moves to a new line. When it finishes a paired token, it will mark with a + or – whether the pair worked and it will resume the old indentation as it continues.</p>
+<p>The next line begins matching data. Each pattern element will be marked at the end of it with a <code>+</code> if it matched, or a <code>-</code> if it didn't match.</p>
+<p>Whenever the system enters a paired token, i.e., <code>()</code>, <code>[]</code>, <code>{}</code>, <code>&lt;&lt;</code> <code>&gt;&gt;</code>, it indents and moves to a new line. When it finishes a paired token, it will mark with a + or - whether the pair worked and it will resume the old indentation as it continues.</p>
 <p>When a relationship test is performed, the value of a piece of it will be given in parens. Similarly when a concept is matched, the matching word will be shown in parens.</p>
 <p>When a pattern fails, the system will say &quot;remaining pattern&quot; and show what it has not tried to process. Occasionally when an initial word matches but the rest do not, the system will say ------ Try pattern matching again, after word 1 (where)</p>
 <h3 id="tracedfunctions"><code>:tracedfunctions</code></h3>

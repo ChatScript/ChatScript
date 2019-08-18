@@ -45,7 +45,7 @@ You can nest arrays and objects inside each other.
 JSON is an excellent language to represent more complex ChatScript facts as well as interact with the
 web. ChatScript can convert back and forth between the JSON text string passed over the web and
 ChatScript facts that represent the structure internally. If you tried to create facts using ^createfact(), you
-would find making the data shown below extremely difficult and non-obvious. But as JSON, it is easy
+would find making the data shown below extremely difficult and non-obvious. Though it can be done. But as JSON, it is easy
 to create facts to represent the structure and to access pieces of it.
 
 ```json
@@ -76,6 +76,40 @@ to create facts to represent the structure and to access pieces of it.
 
 Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact
 structure in CS, the facts will all be unique.
+
+JSON facts are triples where the subject is always the name of a JSON object or array.
+For objects, the verb of the fact is the name of a field and the object is its value.
+Such a structure might be composed of these facts:
+```
+(jo-3 name Robert)
+(jo-3 age 10)
+(jo-3 gender male)
+```
+This would correspond to a JSON string that looks like this:
+```
+{ "name": "Robert", "age": 10, "gender": "male"}
+```
+Actually, the "age 10" fact in ChatScript could represent either what was shown above or:
+```
+{ "name": "Robert", "age": "10", "gender": "male"}
+```
+
+Because JSON has distinct data types as values (primitives, text strings, etc) and CS represents
+everything as text strings, JSON facts have flag bits that describe how to treat the object value of the fact.
+This is automatically handled by CS and normally you have no reason to pay any attention to it.
+
+For arrays, the verb of the fact is the numeric index in the array and the object is the value.
+Such a structure might be composed of these facts:
+```
+(ja-5 0 Robert)
+(ja-5 1 Terry)
+(ja-5 2 Paula)
+```
+This would correspond to a JSON string that looks like this:
+[ "Robert", "Terry", "Paula"]
+```
+
+Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can.
 
 
 ## Accessing the web with JSON
@@ -188,7 +222,8 @@ where you wanted the value of `b` to be `"_0aba"`. Had you used an active string
 Also, you can use json dereference operators to take apart an existing json structure and use values of it
 in the current one. If $_y points to a json structure, then
 ```
-^jsonparse("{ a: $var, b: $_y.e[2] }")
+^jsonparse(" opensquiggle a: $var, b: $_y.e[2] closesquiggle ")
+(saying squiggles because Latex print complains if I use real ones)
 ```
 would find a json object reference on `$_y`, get the e field, and get the 3rd array value found there.
 
@@ -222,11 +257,12 @@ OOB input is not subject to human tokenization behavior, spellchecking, etc.
 
 Note: There is a limit to how much JSON you can pass as OOB data 
 nominally, because it is considered a single token. 
-You can bypass this limit by asking the tokenizer to directly process OOB data, returning the JSON structure name instead of all the content. Just enable `#JSON_DIRECT_FROM_OOB`  on the `$cs_token` value and if it finds OOB data that is entirely JSON, it will parse it and return something like `jo-t1` or `ja-t1` in its place. Eg.
+You can bypass this limit by asking the tokenizer to directly process OOB data, returning the JSON structure name instead of all the content. 
+Just enable `JSON_DIRECT_FROM_OOB`  on the `$cs_token` value and if it finds OOB data that is entirely JSON, it will parse it and return something like `jo-t1` or `ja-t1` in its place. Eg.
 `[ { "key": "value} ]` will return tokenized as `[jo-t1]`.
 
 ```
-u: GIVEN_JSON(< \[  _* \] ^JsonKind('_0)) $$json = '_0 # tokenizer returns transient JSON as object name
+u: GIVEN_JSON(< \[  _* \] ^JsonKind('_0)) $$json = '_0 
 ```
 then you can do $$json.field directly.
 

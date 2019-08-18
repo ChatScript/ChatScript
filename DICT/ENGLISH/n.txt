@@ -7222,7 +7222,6 @@
  numina ( NOUN NOUN_PLURAL COMMON1 ) plural=numen 
  nympha ( NOUN NOUN_SINGULAR COMMON1 posdefault:NOUN ) plural=nymphae 
  nymphae ( NOUN NOUN_PLURAL COMMON1 posdefault:NOUN ) plural=nympha 
- NOUN ( NOUN NOUN_PROPER_PLURAL ) plural=goods 
  nasi_lemak ( meanings=1 NOUN NOUN_SINGULAR ) 
     nasi_lemak~1nz 
  nigromancy ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 

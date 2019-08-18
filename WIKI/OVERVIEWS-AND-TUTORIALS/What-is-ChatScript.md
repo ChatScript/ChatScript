@@ -80,8 +80,8 @@ website, you'll know that even Google doesn't understand meaning. Most tools hav
 focusing on words without any meaning. Parser tools get closest, but only when they can successfully
 parse the sentence.
 
-While no software can understand the meaning of what people may unexpectedly say, ChatScript –
-better than any other software in the world – allows you to hunt in the input for a particular meaning,
+While no software can understand the meaning of what people may unexpectedly say, ChatScript -
+better than any other software in the world - allows you to hunt in the input for a particular meaning,
 whether the input is parseable or not . 
 For example, if you said _I love dogs except on days of the week starting with a letter_ ChatScript 
 would not understand that you don't like dogs (unless we had explicitly written script to hunt for that meaning). 

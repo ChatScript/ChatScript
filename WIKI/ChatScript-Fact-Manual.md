@@ -1,5 +1,5 @@
 # ChatScript Fact Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 7/28/2019 cs9.61
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
@@ -9,7 +9,7 @@
 
 # SIMPLE FACTS
 
-Facts are triples of _subject_, _verb_, _object_ – though those are just the names of the fields
+Facts are triples of _subject_, _verb_, _object_ - though those are just the names of the fields
 and may or may not be their content. Facts look like this:
 
     (Bob eat fish )
@@ -185,9 +185,9 @@ Therefore when you use a factset, you normally have to specify how you want it u
 | `@1subject` | means use the subject field |
 | `@1verb`    | means use the verb field |
 | `@1object`  | means use the object field |
-| `@1fact`    | means keep the fact intact (a reference to the fact) – required if assigning to another set. |
-| `@1+`       | means spread the subject,verb,object onto successive match variables – only valid with match variables |
-| `@1-`       | means spread the object,verb,subject onto successive match variables– only valid with match variables |
+| `@1fact`    | means keep the fact intact (a reference to the fact) - required if assigning to another set. |
+| `@1+`       | means spread the subject,verb,object onto successive match variables - only valid with match variables |
+| `@1-`       | means spread the object,verb,subject onto successive match variables- only valid with match variables |
 | `@1all`     | means the same as `@1+`, spread subject,verb,object,flags onto match variables.<br>`_6 = ^first(@1all)` - this puts subject in `_6`, verb in `_7`, object in `_8` |
 
 
@@ -209,7 +209,7 @@ removing that fact from the set. The functions to do this are:
 
 ### `^first`( fact-set ), `^last`( fact-set ), `^pick`( fact-set )
 
-`^first` – retrieve the first fact, `^last` – retrieve the last fact, `^pick` – retrieve a random fact, e.g.
+`^first` - retrieve the first fact, `^last` - retrieve the last fact, `^pick` - retrieve a random fact, e.g.
 
     _1 = ^first(@1all)
 
@@ -392,6 +392,13 @@ It would not go the other way, however, so if the argument were
 You should store your facts on the full name. 
 The mechanism allows user input to use the short name.
 
+NOTE:  Tables are executed (built) at compile time. And their
+resulting data and variables are saved in the TOPIC folder along with your
+compiled scripts and loaded when the server starts up. The data is "owned"
+by the server and not written out to user files. Also, normally you cannot
+alter table data on the fly from a user script interaction (true of all facts, not just
+table facts). In the event you are compiling multiple bots at once, the facts of the table are owned
+by whatever bot is considered to be compiling that chunk of code.
 
 ## Variable Argument Tables
 
@@ -503,40 +510,6 @@ is one such table. Looks a lot cleaner. Just be certain you are using tabs and n
 You can write self-checking code in your table to confirm users didn't screw up.
 The system variable %tableinput shows the actual line seen by the table function at each entry.
 
-Here is an example:
-```
-tablemacro: ^section variable TAB ($_sectionname $_entry $_rule $_junk $_junk1  $_junk2  )
-$_sectionname = ^pos(allupper $_sectionname)
-# $_junk is the tab
-if ($_entry != *)
-{
-  $$entry = $_entry # track this column's value
-  ^createfact($_entry section $_sectionname)
-}
-$_error = ^"Bad Table data in ^Section $_sectionname $_entry ($$entry) $_rule $_junk $_junk1 $_junk2 \n"
-if ($_entry != * AND $_rule != *) # not allowed both
-{
-    ^Bug($_error)
-}
-else if ($_entry == * AND $_rule == *) # not allowed neither
-{
-    ^Bug($_error)
-}
-else if ($_junk != * OR $_junk1 != * OR $_junk2 != * ) # excess data
-{
-    ^Bug($_error)
-}
-if (^extract(%tableinput 0 1) == " ") 
-{
-    ^Bug(^"spaces at start of table")
-}
-if ($_rule != *)
-{
-    ^createfact($_rule question $$entry)
-}
-DATA:
-```
-
 ## String processing in Tables
 
 It is common for a string to be a table argument. Any functional string `^"xxx"` stores itself
@@ -581,7 +554,7 @@ and fail if the result is no facts. Eg.
 
     if ( gambitTopics() ) { first(@0object)}
 
-
+    
 ### `^addproperty`( set flag )
 
 add this flag onto all facts in named set or onto words. 
@@ -677,7 +650,7 @@ what was actually there, which might have been plant~1).
 
 ### `^last`( fact-set-annotated )
 
-retrieve the last fact – see `^first` for a more complete explanation.
+retrieve the last fact - see `^first` for a more complete explanation.
 
 
 ### `^length`( word )
@@ -940,7 +913,7 @@ clarity. Those characters are ignored. I always separate actions by underscores.
 The period I use to mark the end of literal values (`~sets` and `'words`).
 
 
-## EXAMPLE 1 – PARIS as subject
+## EXAMPLE 1 - PARIS as subject
 
 Consider this example: we want to find facts about Paris. The system has these facts:
 
@@ -987,7 +960,7 @@ the fact space. There is nothing here either.
 Therefore the system returns the two facts with _Paris_ as the subject
 
 
-## Example 2 – Finding facts up in the hierarchy
+## Example 2 - Finding facts up in the hierarchy
 
 Assume you have this fact `( 23 doyou ~like)` and what you actually have is a specific
 verb like which is a member of ~like. You want to find facts using doyou and like and

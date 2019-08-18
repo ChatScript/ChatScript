@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-document-reader">ChatScript Document Reader</h1>
 <blockquote>
-<p>© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
 </blockquote>
 <blockquote>
 <p>Revision 3/4/2017 cs7.3</p>
@@ -27,9 +27,9 @@
 :document mydirectory/</code></pre>
 <p>The document will automatically be broken into sentences and fed to the system one at a time. The system will execute the prepass once at start (the prepass of the bot), and the postpass once at end (the postpass of the bot). All sentences of the document are treated as a single volley and when the document is completed, the system reloads the user's prior state. So you can't store stuff except external to ChatScript (e.g., a file using <code>^export</code> or <code>^log</code>).</p>
 <p>Optional arguments after the file/directory name are:</p>
-<p><code>echo</code> – the lines after preparation (spell check etc) will be dumped to TMP/out.txt so you can see what it read.</p>
-<p><code>single</code> – read a single line at a time, even if it is not obviously a complete sentence. Multiple sentences on a line are still separated.</p>
-<p><code>stats</code> – at each document completion show memory and time used</p>
+<p><code>echo</code> - the lines after preparation (spell check etc) will be dumped to TMP/out.txt so you can see what it read.</p>
+<p><code>single</code> - read a single line at a time, even if it is not obviously a complete sentence. Multiple sentences on a line are still separated.</p>
+<p><code>stats</code> - at each document completion show memory and time used</p>
 <p>Prior to reading a document, the system will execute a preprocess topic <code>~document_pre</code>, if you define it. When it is done reading a document the system will execute a postprocess topic <code>~document_post</code>, if you define it. Such topics are always invoked in gambit mode, so should consist of gambits and not responders.</p>
 <p><code>%document</code> is a system variable you can use to tell if you are in document mode or not, to make your main pass topic act conditionally on whether you are in document mode or not. And the current document path is stored on the variable <code>$$document</code>.</p>
 <p>You can analyze a document using standard ChatScript patterns, including those based on pos-tagging and parsing. The pos-tagger/parser is very much a work in progress and will continue to improve with future releases, but at least you can tell if it completely accounted for everything in its parse because %parsed will be true if it did.</p>

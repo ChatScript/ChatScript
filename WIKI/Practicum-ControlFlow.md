@@ -1,5 +1,5 @@
 # ChatScript Practicum: Control Flow
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 6/9/2018 cs8.3
 
 

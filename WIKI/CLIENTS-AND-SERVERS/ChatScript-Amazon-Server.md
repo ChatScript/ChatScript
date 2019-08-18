@@ -1,6 +1,6 @@
 # ChatScript - Setting up an Amazon EC2 Server
 
-> © Bruce Wilcox, gowilcox@gmail.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com
 
 
 <br>Revision 9/24/2017 cs7.55
@@ -78,9 +78,9 @@ a different package to get the std c library
 
 For Ubuntu linux:
 
-1. `sudo apt-get install make` – to get make installed
-2. `sudo apt-get update` – to get current versions of things
-3. `sudo apt-get install g++` – to get the compiler
+1. `sudo apt-get install make` - to get make installed
+2. `sudo apt-get update` - to get current versions of things
+3. `sudo apt-get install g++` - to get the compiler
 4. if you want postgres: `sudo apt-get install postgresql postgresql-contrib`
 5. if you want your web page to be here; `sudo apt-get install apache2`and `sudo apt-get install php5`
 6. `sudo apt-get install gdb` --- for debugger for C++ if you can use it (unlikely)

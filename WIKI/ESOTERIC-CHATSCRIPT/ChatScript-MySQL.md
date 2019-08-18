@@ -1,6 +1,6 @@
 # ChatScript MySQL
 
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 6/25/2017 cs7.51
 
 ## Using MySQL as file server

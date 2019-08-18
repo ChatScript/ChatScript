@@ -480,6 +480,8 @@ restart: // start with user
                 if (--skip > 0) continue;
                 if (--count < 0)
                     break;
+                char copy[10000];
+                strcpy(copy, ptr);
                 size_t l = strlen(ptr);
                 while (ptr[l - 1] == '\t' || ptr[l - 1] == '\n' || ptr[l - 1] == '\r') ptr[--l] = 0; // remove trailing tabs
                 strcpy(copy, ptr);
@@ -516,6 +518,7 @@ restart: // start with user
                 // get location
                 ptr = blank + 1; // loc
                 blank = strchr(ptr, '\t'); // end of loc
+                if (!blank) continue; 
                 *blank = 0;
                 strcpy(loc, ptr);
 

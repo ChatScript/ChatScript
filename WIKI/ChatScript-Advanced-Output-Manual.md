@@ -1,5 +1,5 @@
 # ChatScript Advanced User's Manual
-Â© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 7/14/2019 cs9.6
 
 
@@ -205,7 +205,7 @@ We will now learn functions that can be called that might fail or have interesti
 effects. And some control constructs.
 
 
-## Loop Construct – loop or ^loop and jsonloop
+## Loop Construct - loop or ^loop and jsonloop
 
 Loop allows you to repeat script. It takes an optional argument within parens, which is
 how many times to loop. It executes the code within `{ }` until the loop count expires or
@@ -264,10 +264,10 @@ You can omit the else if section, having just if and else, and you can omit the 
 having just if or if and else if. You may have any number of else if sections.
 The test condition can be:
 
-* A variable – if it is defined, the test passes
-* `!` variable – if it is not defined, the test passes (same as relation variable `==` null)
-* A function call – if it doesn't fail and doesn't return the values 0 or false, it passes
-* A relation – one of `==` `!=` `<` `<=` `>` `>=` `?` `!?`
+* A variable - if it is defined, the test passes
+* `!` variable - if it is not defined, the test passes (same as relation variable `==` null)
+* A function call - if it doesn't fail and doesn't return the values 0 or false, it passes
+* A relation - one of `==` `!=` `<` `<=` `>` `>=` `?` `!?`
 
 For the purposes of numeric comparison `(< <= > >=)` a null value compared against a
 number will be considered as 0.

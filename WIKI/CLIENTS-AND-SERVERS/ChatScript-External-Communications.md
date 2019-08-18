@@ -1,6 +1,6 @@
 # ChatScript External Communications
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 > Revision 11/19/2017 cs7.7
@@ -57,7 +57,7 @@ Most users use the executable versions of ChatScript for LINUX or Windows that a
 ChatScript release. Sometimes users have to build their own executable for the Mac. These are all
 building a complete ChatScript engine that is the main program.
 
-Why would you want to embed ChatScript within another program – meaning that ChatScript is NOT
+Why would you want to embed ChatScript within another program - meaning that ChatScript is NOT
 the main program but some other code you write is? Typically it's to build a local application like a
 robot or a mobile chatting app. 
 
@@ -106,7 +106,7 @@ disable a bunch of code you won't need by uncommenting:
 // #define DISCARDSERVER 1
 // #define DISCARDCLIENT 1
 // #define DISCARDSCRIPTCOMPILER 1
-// #define DISCARDTESTING 1 – if your script will execute test functions then you must keep
+// #define DISCARDTESTING 1 - if your script will execute test functions then you must keep
 ```
 
 ### Embedding Step #2
@@ -148,7 +148,7 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* 
 PerformChat is told the user name, the bot name (usee), the incoming message, the ip
 address, and where to put the output. The user string is the user's id. Since this is an embedded app,
 there will likely be only one user ever, so this can be hardcoded to anything you want. It will show up
-in the log file, and if you upload logs for later analysis, you will prefer this be unique in some way – a
+in the log file, and if you upload logs for later analysis, you will prefer this be unique in some way - a
 phone id or whatever. 
 
 IP is like the user string, a form of identification that appears in the log. It may be

@@ -2025,7 +2025,7 @@ FunctionResult JSONVariableAssign(char* word,char* value)
         if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail Array: %s->%s\r\n", word, val);
         return FAILRULE_BIT;	// not a json array
     }
-    bool bootfact = (val[3] == 'b');
+    bool bootfact = (val[3] == 'b'); // ja-b
     if (trace) strcpy(fullpath, val);
 
 	WORDP leftside = FindWord(val);
@@ -2044,7 +2044,6 @@ FunctionResult JSONVariableAssign(char* word,char* value)
         heapval[1] = (char*)base; // save name
         heapval[2] = base->w.userValue; // save old value
     }
-
 
 	// leftside is the left side of a . or [] operator
 	
@@ -2242,8 +2241,8 @@ LOOP: // now we look at $x.key or $x[0]
 				newObject = Meaning2Word(valx);
 				FACT* X = DeleteFromList(GetObjectHead(oldObject), F, GetObjectNext, SetObjectNext);  // dont use nondead
 				SetObjectHead(oldObject, X);
-				X = AddToList(GetObjectHead(newObject), F, GetObjectNext, SetObjectNext);  // dont use nondead
-				SetObjectHead(newObject, X);
+				
+                SetObjectHead(newObject, AddToList(GetObjectHead(newObject), F, GetObjectNext, SetObjectNext));
 				F->object = valx;
 				F->flags = flags;	// revised for possible new object type
                 ModBaseFact(F);
@@ -2392,7 +2391,8 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
     WORDP O = FindWord(arrayname);
     if (!O) return FAILRULE_BIT;
     char* val = ARGUMENT(index);
-    if (arrayname[3] == 'b') jsonPermanent = FACTBOOT;
+    jsonPermanent = (arrayname[3] == 't') ? FACTTRANSIENT : 0; // ja-t1
+    if (arrayname[3] == 'b') jsonPermanent = FACTBOOT; // ja-b1
     unsigned int flags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags;
     MEANING value = jsonValue(val, flags);
     
@@ -2447,12 +2447,9 @@ static void FixArrayFact(FACT* F, int index)
 {
 	char val[MAX_WORD_SIZE];
 	sprintf(val,"%d",index);
-	WORDP oldverb = Meaning2Word(F->verb);
 	WORDP newverb = StoreWord(val);
-	FACT* X = DeleteFromList(GetVerbHead(oldverb),F,GetVerbNext,SetVerbNext);  // dont use nondead
-	SetVerbHead(oldverb,X);
-	X = AddToList(GetVerbHead(newverb),F,GetVerbNext,SetVerbNext);  // dont use nondead
-	SetVerbHead(newverb,X);
+    UnweaveFactVerb(F);
+    SetVerbHead(newverb, AddToList(GetVerbHead(newverb),F,GetVerbNext,SetVerbNext));  // dont use nondead
 	F->verb = MakeMeaning(newverb);
     ModBaseFact(F); 
 }

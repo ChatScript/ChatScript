@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Â© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/27/2019 cs9.4</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
 <h1 id="advanced-output">ADVANCED OUTPUT</h1>
 <h2 id="committed-output">Committed Output</h2>
 <p>Simple output puts words into the output stream, a magical place that queues up each word you write in a rule output. What I didn't tell you before was that if the rule fails along the way, an incomplete stream is canceled and says nothing to the user. For example,</p>
@@ -91,7 +91,7 @@ if ($_response == %response) {...}</code></pre>
 <pre><code>^createfact( x y ^&quot; This is $var output&quot;)</code></pre>
 <p>the functional string does NOT evaluate itself before going to createfact. It gets stored as its original self.</p>
 <p>We will now learn functions that can be called that might fail or have interesting other effects. And some control constructs.</p>
-<h2 id="loop-construct-loop-or-loop">Loop Construct – loop or ^loop</h2>
+<h2 id="loop-construct---loop-or-loop-and-jsonloop">Loop Construct - loop or ^loop and jsonloop</h2>
 <p>Loop allows you to repeat script. It takes an optional argument within parens, which is how many times to loop. It executes the code within <code>{ }</code> until the loop count expires or until a <code>FAIL</code> or <code>END</code> code of some kind is issued.</p>
 <ul>
 <li><p><code>End(loop)</code> signals merely the end of the loop, not really the rule, and will not cancel any pending output in the output stream.</p></li>
@@ -106,6 +106,8 @@ t: ^loop () { This is forever, not. end(LOOP)}</code></pre>
 <h2 id="loop-n"><code>^loop</code>( n )</h2>
 <p>Loop can be given a count. This can be either a number, function call that results in a number, or you can use a factset id to loop through each item of the factset via</p>
 <p>^loop (<span class="citation">@0</span>)</p>
+<h2 id="jsonloop-jsonvar-_val1-_val2"><code>^jsonloop</code>( $jsonvar $_val1 $_val2 )</h2>
+<p>See ^jsonloop in Json manual for looping through a JSON object or array.</p>
 <h2 id="if-construct---if-or-if">If Construct - <code>if</code> or <code>^if</code></h2>
 <p>The if allows you to conditionally execute blocks of script. The full syntax is:</p>
 <pre><code>if ( test1 ) 
@@ -123,10 +125,10 @@ else
     }</code></pre>
 <p>You can omit the else if section, having just if and else, and you can omit the else section, having just if or if and else if. You may have any number of else if sections. The test condition can be:</p>
 <ul>
-<li>A variable – if it is defined, the test passes</li>
-<li><code>!</code> variable – if it is not defined, the test passes (same as relation variable <code>==</code> null)</li>
-<li>A function call – if it doesn't fail and doesn't return the values 0 or false, it passes</li>
-<li>A relation – one of <code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>?</code> <code>!?</code></li>
+<li>A variable - if it is defined, the test passes</li>
+<li><code>!</code> variable - if it is not defined, the test passes (same as relation variable <code>==</code> null)</li>
+<li>A function call - if it doesn't fail and doesn't return the values 0 or false, it passes</li>
+<li>A relation - one of <code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>?</code> <code>!?</code></li>
 </ul>
 <p>For the purposes of numeric comparison <code>(&lt; &lt;= &gt; &gt;=)</code> a null value compared against a number will be considered as 0.</p>
 <p>You may have a series of test conditions separated by <code>AND</code> and <code>OR</code>. The failure of the test condition can be any end or fail code. It does not affect outside the condition; it merely controls which branch of the if gets taken.</p>

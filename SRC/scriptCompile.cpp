@@ -6030,7 +6030,7 @@ static void DumpErrors()
 
 static void DumpWarnings()
 {
-	if (warnIndex) Log(ECHOSTDUSERLOG,(char*)"\r\nWARNING SUMMARY: \r\n");
+	if (warnIndex) Log(STDUSERLOG,(char*)"\r\nWARNING SUMMARY: \r\n");
 	for (unsigned int i = 0; i < warnIndex; ++i) 
 	{
 		if (strstr(warnings[i],(char*)"is not a known word")) {}
@@ -6039,7 +6039,7 @@ static void DumpWarnings()
 		else if (strstr(warnings[i],(char*)"in opposite case")){}
 		else if (strstr(warnings[i],(char*)"a function call")){}
         else if (strstr(warnings[i], (char*)"multiple spellings")) {}
-        else Log(ECHOSTDUSERLOG,(char*)"  %s",warnings[i]);
+        else Log(STDUSERLOG,(char*)"  %s",warnings[i]);
 	}
 }
 
@@ -6283,10 +6283,10 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	compiling = false;
 	jumpIndex = 0;
 	testOutput = output; // allow summary to go out the server
-	if (hasErrors) 
+    if (hasErrors) 
 	{
 		EraseTopicFiles(build,baseName);
-		DumpErrors();
+        DumpErrors();
 		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
 		Log(ECHOSTDUSERLOG,(char*)"\r\n%d errors - press Enter to quit. Then fix and try again.\r\n",hasErrors);
 		if (!server && !commandLineCompile) ReadALine(readBuffer,stdin);
@@ -6295,8 +6295,8 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	else if (hasWarnings) 
 	{
 		DumpWarnings();
-		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(ECHOSTDUSERLOG,(char*)"%d serious warnings, %d function warnings, %d spelling warnings, %d case warnings, %d substitution warnings\r\n    ",hasWarnings-badword-substitutes-cases,functionCall,badword,cases,substitutes);
+		if (missingFiles) Log(STDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
+		Log(STDUSERLOG,(char*)"%d serious warnings, %d function warnings, %d spelling warnings, %d case warnings, %d substitution warnings\r\n    ",hasWarnings-badword-substitutes-cases,functionCall,badword,cases,substitutes);
 	}
 	else 
 	{
@@ -6304,7 +6304,8 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 		Log(ECHOSTDUSERLOG,(char*)"No errors or warnings\r\n\r\n");
 	}
 	ReturnDictionaryToWordNet();
-	Log(ECHOSTDUSERLOG,(char*)"\r\n\r\nFinished compile\r\n\r\n");
+    echo = true;
+    Log(ECHOSTDUSERLOG,(char*)"\r\n\r\nFinished compile\r\n\r\n");
 	return resultcode;
 }
 

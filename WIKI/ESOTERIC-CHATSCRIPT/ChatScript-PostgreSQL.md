@@ -1,14 +1,14 @@
 # ChatScript PostgreSQL
 
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 6/25/2017 cs7.51
 
 ChatScript ships with code and WINDOWS libraries for accessing PostgreSQL but you need a database
 somewhere and you need a postgres build of ChatScript.
 
 While standing in the SRC directory, you can do:
-`make server` – build ordinary CS server w/o PostgreSQL client
-<br>`make pgserver` – build CS server w PostgreSQL client (you had to install postgress first)
+`make server` - build ordinary CS server w/o PostgreSQL client
+<br>`make pgserver` - build CS server w PostgreSQL client (you had to install postgress first)
 
 Usually postgres somes with amazon servers, but if not you may have to do something like
 ```
@@ -161,8 +161,8 @@ The basic commands you most likely need are:
 
 ### Creating Data
 ```
-CREATE DATABASE name – to make a new database
-CREATE TABLE weather – to define a new table
+CREATE DATABASE name - to make a new database
+CREATE TABLE weather - to define a new table
 (
 city varchar(80),
 stateAbbr char[2],
@@ -268,7 +268,7 @@ service postgresql start
 ```
 or
 ```
-su – postgres – log in as postgres user
+su - postgres - log in as postgres user
 pg_ctl start - starts server in background
 #3 make it auto restart on reboot
 chkconfig postgresql on

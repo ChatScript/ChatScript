@@ -1470,9 +1470,10 @@ static FunctionResult CountTopicCode(char* buffer)
 
 	char* name = ARGUMENT(2);
 	if (!strnicmp(name,(char*)"gambit",6)) sprintf(buffer,(char*)"%d", GAMBIT_MAX(block->topicMaxRule)); 
-	else if (!strnicmp(name,(char*)"rule",4)) sprintf(buffer,(char*)"%d", RULE_MAX(block->topicMaxRule)); 
+    else if (!strnicmp(name, (char*)"responder", 9)) sprintf(buffer, (char*)"%d", RULE_MAX(block->topicMaxRule) - GAMBIT_MAX(block->topicMaxRule));
+    else if (!strnicmp(name,(char*)"rule",4)) sprintf(buffer,(char*)"%d", RULE_MAX(block->topicMaxRule));
 	else if (!stricmp(name,(char*)"used")) sprintf(buffer,(char*)"%d",TopicUsedCount(topicid));
-	else if (!stricmp(name,(char*)"available"))
+	else if (!stricmp(name,(char*)"available") || !stricmp(name, (char*)"availablegambits"))
 	{
 		unsigned int count = 0;
 		unsigned int* map = block->gambitTag;	
@@ -1484,7 +1485,19 @@ static FunctionResult CountTopicCode(char* buffer)
 		}
 		sprintf(buffer,(char*)"%d",count); 
 	}
-	else return FAILRULE_BIT;
+    else if (!stricmp(name, (char*)"availableresponders"))
+    {
+        unsigned int count = 0;
+        unsigned int* map = block->responderTag;
+        unsigned int responderID = *map;
+        while (responderID != NOMORERULES)
+        {
+            if (UsableRule(topicid, responderID)) ++count;
+            responderID = *++map;
+        }
+        sprintf(buffer, (char*)"%d", count);
+    }
+    else return FAILRULE_BIT;
 	return NOPROBLEM_BIT;
 }
 
@@ -3111,7 +3124,7 @@ static FunctionResult UnmarkCode(char* buffer)
         for (int i = startPosition; i <= endPosition; ++i)
         {
             if (trace & TRACE_OUTPUT) Log(STDUSERLOG, (char*)"unmark @ %d(%s)\r\n", i, wordStarts[i]);
-            ClearWhereAt(i); 
+            ClearWhereAt(i);
         }
     }
     else if (*word == '*' && !word[1]) // set unmark EVERYTHING in range 
@@ -4601,13 +4614,14 @@ static FunctionResult SaveSentenceCode(char* buffer)
 	memmove(memory+n,derivationIndex,sizeof(short int) * 256); // why is this so big, could be half size?
 	n += 256/2;
 
+    // save tried data
 	unsigned int* counterLocation = memory + n++;
 	int counter = 0;
 	for (std::map<WORDP,int>::iterator it=triedData.begin(); it!=triedData.end(); ++it)
 	{
 		++counter;
 		memory[n++] = MakeMeaning(it->first); // key
-		memory[n++] = it->second;
+		memory[n++] = it->second; // data ptr
 	}
 	*counterLocation = counter; // backfill with number to do
 
@@ -4685,6 +4699,7 @@ static FunctionResult RestoreSentenceCode(char* buffer)
 	n += 256/2;
 
 	// fill in WHERE data on recorded words
+    ClearTriedData();
 	int counter = memory[n++];
 	for (int i = 0; i < counter; ++i)
 	{
@@ -8002,7 +8017,7 @@ FACT* DeleteFromList(FACT* oldlist,FACT* oldfact,GetNextFact getnext,SetNextFact
 		Log(STDUSERLOG,(char*)" old list head: ");
 		TraceFact(oldlist);
 	}
-	if (oldlist == oldfact) 
+	if (oldlist == oldfact) // fact to delete is list head
 	{
 		FACT* G = (*getnext)(oldlist);
 		if (trace & TRACE_FACT) 
@@ -8038,26 +8053,28 @@ FACT* DeleteFromList(FACT* oldlist,FACT* oldfact,GetNextFact getnext,SetNextFact
 	return start;
 }
 
-FACT* AddToList(FACT* newlist,FACT* oldfact,GetNextFact getnext,SetNextFact setnext)
-{
-	FACT* start = newlist;
-	if (trace & TRACE_FACT) TraceFact(oldfact);
-	if (trace & TRACE_FACT) TraceFact(newlist);
-	if (start < oldfact) // we will head the lise
+FACT* AddToList(FACT* list,FACT* F,GetNextFact getnext,SetNextFact setnext)
+{// insert dictionary xref at right place in dictionary list
+	FACT* start = list;
+    if (trace & TRACE_FACT)
+    {
+        TraceFact(F);
+        TraceFact(list);
+    }
+	if (start < F) // we will head the list, most recent fact first
 	{
-		if (trace & TRACE_FACT) TraceFact(oldfact);
-		(*setnext)(oldfact,newlist);
-		return oldfact;
+		(*setnext)(F, list); // but list store has not been updated yet
+		return F;
 	}
-	FACT* prior = newlist;
-	while (newlist)
+	FACT* prior = list;
+	while (list)
 	{
-		if (newlist < oldfact) break; // add fact into list by insert
-		prior = newlist;
-		newlist = (*getnext)(newlist);
+		if (list < F) break; // add fact into list by insert
+		prior = list;
+        list = (*getnext)(list);
 	}
-	(*setnext)(oldfact, newlist);
-	if (prior) (*setnext)(prior, oldfact);
+	(*setnext)(F, list);
+	if (prior) (*setnext)(prior, F);
 	return start;
 }
 
@@ -8086,10 +8103,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 			FACT* oldfact = Index2Fact(oldsubject);
 			if (index != oldsubject) 
 			{
-				FACT* X = DeleteFromList(GetSubjectHead(oldfact),F,GetSubjectNext,SetSubjectNext); // dont use nondead
-				SetSubjectHead(oldfact,X);
-				X = AddToList(GetSubjectHead(newfact),F,GetSubjectNext,SetSubjectNext);  // dont use nondead
-				SetSubjectHead(newfact,X);
+				SetSubjectHead(oldfact, DeleteFromList(GetSubjectHead(oldfact), F, GetSubjectNext, SetSubjectNext));
+				SetSubjectHead(newfact, AddToList(GetSubjectHead(newfact), F, GetSubjectNext, SetSubjectNext));
 				F->subject = newsubject;
                 ModBaseFact(F);
 			}
@@ -8100,10 +8115,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 			WORDP newsubject = StoreWord(subject,AS_IS);
 			if (oldsubject != newsubject) 
 			{
-				FACT* X = DeleteFromList(GetSubjectHead(oldsubject),F,GetSubjectNext,SetSubjectNext);  // dont use nondead
-				SetSubjectHead(oldsubject,X);
-				X = AddToList(GetSubjectHead(newsubject),F,GetSubjectNext,SetSubjectNext);  // dont use nondead
-				SetSubjectHead(newsubject,X);
+                UnweaveFactSubject(F);
+                SetSubjectHead(newsubject, AddToList(GetSubjectHead(newsubject),F,GetSubjectNext,SetSubjectNext));  // dont use nondead
 				F->subject = MakeMeaning(newsubject);
                 ModBaseFact(F);
             }
@@ -8123,8 +8136,7 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 			{
 				FACT* X = DeleteFromList(GetVerbHead(oldfact),F,GetVerbNext,SetVerbNext);  // dont use nondead
 				SetVerbHead(oldfact,X);
-				X = AddToList(GetVerbHead(newfact),F,GetVerbNext,SetVerbNext);  // dont use nondead
-				SetVerbHead(newfact,X);
+				SetVerbHead(newfact, AddToList(GetVerbHead(newfact), F, GetVerbNext, SetVerbNext));
 				F->verb = newverb;
                 ModBaseFact(F);
             }
@@ -8135,10 +8147,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 			WORDP newverb = StoreWord(verb,AS_IS);
 			if (oldverb != newverb) 
 			{
-				FACT* X = DeleteFromList(GetVerbHead(oldverb),F,GetVerbNext,SetVerbNext);  // dont use nondead
-				SetVerbHead(oldverb,X);
-				X = AddToList(GetVerbHead(newverb),F,GetVerbNext,SetVerbNext);  // dont use nondead
-				SetVerbHead(newverb,X);
+                UnweaveFactVerb(F);
+				SetVerbHead(newverb, AddToList(GetVerbHead(newverb), F, GetVerbNext, SetVerbNext));
 				F->verb = MakeMeaning(newverb);
                 ModBaseFact(F);
             }
@@ -8157,8 +8167,7 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 			{
 				FACT* X = DeleteFromList(GetObjectHead(oldfact),F,GetObjectNext,SetObjectNext);  // dont use nondead
 				SetObjectHead(oldfact,X);
-				X = AddToList(GetObjectHead(newfact),F,GetObjectNext,SetObjectNext);  // dont use nondead
-				SetObjectHead(newfact,X);
+				SetObjectHead(newfact, AddToList(GetObjectHead(newfact), F, GetObjectNext, SetObjectNext));
 				F->object = newobject;
                 ModBaseFact(F);
             }
@@ -8178,10 +8187,8 @@ FunctionResult ReviseFact1Code(char* buffer, bool arrayAllowed)
 
 			if (oldObject != newObject) 
 			{
-				FACT* X = DeleteFromList(GetObjectHead(oldObject),F,GetObjectNext,SetObjectNext);  // dont use nondead
-				SetObjectHead(oldObject,X);
-				X = AddToList(GetObjectHead(newObject),F,GetObjectNext,SetObjectNext);  // dont use nondead
-				SetObjectHead(newObject,X);
+                UnweaveFactObject(F);
+				SetObjectHead(newObject, AddToList(GetObjectHead(newObject), F, GetObjectNext, SetObjectNext));
 				F->object = value;
                 ModBaseFact(F);
             }
@@ -8388,6 +8395,7 @@ static int MakeVariables(MEANING array) // array of objects describing a variabl
     }
     return variableChangedThreadlist;
 }
+
 
 static FunctionResult MakeConcepts(MEANING array)
 {
@@ -8606,6 +8614,67 @@ static void HandleChangedVariables(MEANING resultobject)
     UnbindVariables(variableChangedThreadlist); // undo changes we made to globals (leaves transients though and pure locals)
 }
 
+static FunctionResult PurgeBootCode(char* buffer)
+{
+    uint64 id = 0;
+    char* arg1 = ARGUMENT(1);
+    if (*arg1 == '@') // factset
+    {
+        int setid = GetSetID(arg1);
+        int count = FACTSET_COUNT(setid);
+        id = -1; // sign to die
+        for (int i = 1; i <= count; ++i) 
+        {
+            FACT* F = factSet[setid][i];
+            if (F > factsPreBuild[LAYER_BOOT] && F <= factsPreBuild[LAYER_USER]) F->botBits = id; // mark with sign to die
+        }
+        SET_FACTSET_COUNT(setid, 0);
+    }
+    else if (IsDigit(*arg1)) id = atoi64(ARGUMENT(1)); //entire bot
+    if (!id) return FAILRULE_BIT;
+
+    FACT* F = factsPreBuild[LAYER_BOOT]; // end fact of layer_1
+    FACT* endBoot = factsPreBuild[LAYER_USER]; // end fact of boot layer
+    FACT* tailArea = endBoot + 1; // just outside of end of boot
+    while (++F <= endBoot) // walk all facts of boot
+    {
+        if (F->botBits != id) continue;  // wrong owner
+        UnweaveFact(F);
+        bool dead = true;
+        // at this point the dictionary knows nothing of the fact
+        // now repack other fact to fill in the hole IF WE CAN
+        // Find a valid fact in boot LATER than where we have this hole
+        // if we cant find one, then WE are at the end of the area
+        while (--tailArea > F) // find someone to move
+        {
+            if (tailArea->botBits == id) continue;  // dying owner
+            
+            UnweaveFact(tailArea); // cut from from dictioanry referencing
+            memcpy(F,tailArea, sizeof(FACT)); // replicate fact lower
+            WeaveFact(F); // rebind fact to dictionary
+            
+            // now pre-moved fact is dead
+            tailArea->subject = tailArea->verb = tailArea->object = 0;
+            tailArea->flags |= FACTDEAD;
+            // we assume no one has a factref to this fact (or the other)
+            // and we are not saved in factset or such
+            dead = false;
+            break;
+        }
+        // kill this completely in case we cant overwrite it with valid fact
+        if (dead)
+        {
+            F->subject = F->verb = F->object = 0;
+            F->flags |= FACTDEAD;
+        }
+    }
+
+    // this leaves us with potentially useless dictionary entries.
+    // separate problem.
+
+    return NOPROBLEM_BIT;
+}
+
 static FunctionResult TestPatternCode(char* buffer)
 {
     FunctionResult result = NOPROBLEM_BIT;
@@ -8674,7 +8743,7 @@ static FunctionResult TestPatternCode(char* buffer)
 
     SAVESYSTEMSTATE()
 
-        char word[MAX_WORD_SIZE];
+    char word[MAX_WORD_SIZE];
     bool realpattern = false;
     char* ptr = usermsg;
     while (!realpattern && (ptr = ReadCompiledWord(ptr, word)))
@@ -9976,6 +10045,11 @@ static FunctionResult SortCode(char* buffer) // sorts low to high  sort(@factset
 		FACT* F = factSet[startSet][i];
 		F->flags = factFlags[factIndex[i]];
 	}
+    if (trace & TRACE_QUERY && CheckTopicTrace())
+    {
+        char word[MAX_WORD_SIZE];
+        if (FACTSET_COUNT(startSet)) Log(STDTRACETABLOG, (char*)"  %d[1]: %s\r\n", startSet,WriteFact(factSet[startSet][1],false,word));
+    }
 
 	return NOPROBLEM_BIT;
 }
@@ -10332,7 +10406,8 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^createattribute",CreateAttributeCode,STREAM_ARG,0,(char*)"create a triple where the 3rd field is exclusive"}, 
 	{ (char*)"^createfact",CreateFactCode,STREAM_ARG,0,(char*)"create a triple"}, 
 	{ (char*)"^delete",DeleteCode,VARIABLE_ARG_COUNT,0,(char*)"delete all facts in factset or delete named fact or delete named json object or array, optionally allow in boot layer as well"}, 
-	{ (char*)"^deserialize", DeserializeCode, 1, 0, "transcribes a string into a factset" },
+    { (char*)"^purgeboot", PurgeBootCode, 1, 0, "erases data for a botid from boot layer" },
+    { (char*)"^deserialize", DeserializeCode, 1, 0, "transcribes a string into a factset" },
 	{ (char*)"^field",FieldCode,2,0,(char*)"get a field of a fact"}, 
 	{ (char*)"^find",FindCode,2,0,(char*)"Given set or factset, find ordinal position of item within it"},
     { (char*)"^findfact",FindFactCode,3,0,(char*)"given simple non-facts subject verb object, see if fact exists of it"},

@@ -1,6 +1,6 @@
 #Chatscript on a Mac
 
-> © Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 > Revision 1 - 7/16/2017 - todd@kuebler.org
 

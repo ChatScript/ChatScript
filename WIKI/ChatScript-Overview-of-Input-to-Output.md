@@ -1,6 +1,6 @@
 # ChatScript Overview of Input to Output
 
->© Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
 
 
 >Revision 7/18/2014 cs4.4e

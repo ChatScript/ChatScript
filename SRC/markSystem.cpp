@@ -51,15 +51,26 @@ static unsigned int markLength = 0; // prevent long lines in mark listing trace
 int upperCount, lowerCount;
 ExternalTaggerFunction externalPostagger = NULL;
 char unmarked[MAX_SENTENCE_LENGTH]; // can completely disable a word from mark recognition
+
 void RemoveMatchValue(WORDP D, int position)
 {
-	unsigned char* data = GetWhereInSentence(D);
-	if (!data) return;
+    int access = GetAccess(D);
+    if (!access) return;
+    unsigned char* data = (unsigned char*)  (Index2Heap(access) + 8);	// skip over 64bit tried by meaning field
+    unsigned char* tried;
+    bool changed = false;
 	for (int i = 0; i < maxRefSentence; i += REF_ELEMENTS)
 	{
 		if (data[i] == position) 
 		{
-			memmove(data+i,data+i+ REF_ELEMENTS,(maxRefSentence - i - REF_ELEMENTS));
+            if (!changed)// protect by moving data to new area so restoresentence is safe
+            {
+                int newaccess = CopyWhereInSentence(access);
+                tried = (unsigned char*)(Index2Heap(newaccess) + 8);
+                changed = true;
+                SetTried(D, newaccess);
+            }
+			memmove(tried +i, tried +i+ REF_ELEMENTS,(maxRefSentence - i - REF_ELEMENTS));
 			break;
 		}
 	}
@@ -166,8 +177,7 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int index, int start, int en
         which[1] = 0;
         if (exactWord && D->internalBits & UPPERCASE_HASH) which[0] = '^';
         Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (D->internalBits & TOPIC) ? (char*)"+T%s%s " : (char*)" +%s%s", D->word, which);
-        if (start != end) Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (char*)"(%d-%d)", start, end);
-        Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (char*)"\r\n");
+        Log((showMark) ? ECHOSTDUSERLOG : STDUSERLOG, (char*)"(%d-%d)\r\n", start, end);
         markLength = 0;
     }
  

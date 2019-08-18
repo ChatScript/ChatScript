@@ -1,6 +1,6 @@
 # ChatScript Advanced Topic Manual
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 7/28/2019 cs9.61
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
+<br>Revision 8/18/2019 cs9.62
 
 
 # ADVANCED TOPICS
@@ -115,7 +115,12 @@ The system has an ordered list of pending topics. The order is:
 
 You can get the name of the current most pending topic` (%topic)`, add pending
 topics yourself `(^addtopic())`, and remove a topic off the list `(^poptopic())`.
+Issuing ^poptopic(x) or ^fail(TOPIC x) will remove it from the pending list.
+Entering a topic already deep within the pending list will move it to the front.
 
+You can request ^gambit(pending) or ^respond(pending) to have CS scan that list
+for a response.  The system does not automatically USE the pending topic list to 
+control your flow. That is for you to manage. It merely tracks it for you.
 
 ## Random Gambit
 

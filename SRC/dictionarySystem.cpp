@@ -115,6 +115,11 @@ MEANING GetMeaning(WORDP D, int index)
 	else return MakeMeaning(D); // switch to generic non null meaning
 }
 
+void SetTried(WORDP D,int value)
+{
+    triedData[D] = value;
+}
+
 void RemoveConceptTopic(HEAPLINK list[256], WORDP D,int index)
 {
 	MEANING M = MakeMeaning(D);
@@ -175,19 +180,35 @@ void ClearWordMaps() // both static for whole dictionary and dynamic per volley
 	ClearVolleyWordMaps(); 
 }
 
-void ClearWhereAt(int where) // remove all concepts and markings here
+void ClearWhereAt(int where) // remove all concepts and markings at this slot in sentence
 {
+    WORDP D;
     concepts[where] = 0; // drop memory list at this slot
     topics[where] = 0; // drop memory list
+    WORDP holdlist[10000];
+    int holdint[10000];
+    int mark[10000];
+    memset(mark, 0, sizeof(mark));
+    unsigned int index = 0;
+    bool changed = false;
 
-    // find all words indexed at this start and remove them.
+    // copy because we will rewrite triedData.
     map<WORDP, int>::iterator it1;
     for (it1 = triedData.begin(); it1 != triedData.end(); ++it1)
     {
-        WORDP D = it1->first;
-        int access = it1->second; // heap access
+        D = it1->first;
+        int x = it1->second;
+        holdint[index] = x;
+        holdlist[index++] = D;
+    }
+
+    for (unsigned int item = 0; item < index; ++item)
+    {
+        D = holdlist[item];
+        int access = holdint[item]; // heap access
         char* data = Index2Heap(access);
         if (data == 0) continue;
+
         unsigned char* triedData = (unsigned char*)(data + 8);	// skip over 64bit tried by meaning field
         int i;
         int counter = 0;
@@ -198,6 +219,16 @@ void ClearWhereAt(int where) // remove all concepts and markings here
             // [i]=start [i+1]=end [i+2..i+5]=exactword 270/6 = 45
             if (start == where) // modify it
             {
+                if (!mark[item]) // change over to a copy (dont harm original)
+                {
+                    int newaccess = CopyWhereInSentence(access);
+                    holdint[item] = newaccess;
+                    mark[item] = 1;
+                    changed = true;
+                    data = Index2Heap(newaccess);
+                    triedData = (unsigned char*)(data + 8);	// skip over 64bit tried by meaning field
+                }
+
                 int remain = maxRefSentence - i - REF_ELEMENTS;
                 if (remain == 0) // just chop it off
                 {
@@ -215,6 +246,17 @@ void ClearWhereAt(int where) // remove all concepts and markings here
                 continue;    // check next one
             }
             else if (start > where) break;
+        }
+    }
+
+    if (changed)
+    {
+        for (unsigned int item = 0; item < index; ++item)
+        {
+            if (!mark[item]) continue;
+            WORDP D = holdlist[item];
+            int access = holdint[item]; // heap access
+            triedData[D] = access;   // replace now
         }
     }
 }
@@ -277,14 +319,36 @@ void ClearBacktracks()
 	backtracks.clear();
 }
 
+unsigned int GetAccess(WORDP D)
+{
+    std::map<WORDP, int>::iterator it;
+    it = triedData.find(D);
+    if (it == triedData.end()) return 0;
+    int access = it->second;
+    return access;
+}
+
 unsigned char* GetWhereInSentence(WORDP D) // [0] is the meanings bits,  the rest are start/end/case bytes for 8 locations
 {
-	std::map<WORDP,int>::iterator it;
-	it = triedData.find(D);
-	if (it == triedData.end()) return NULL;
-	char* data = Index2Heap(it->second);
-	if (data == 0) return NULL;
-	return (unsigned char*) (data + 8);	// skip over 64bit tried by meaning field
+    int access = GetAccess(D);
+    if (!access) return NULL;
+    return (unsigned char*)Index2Heap(access) + 8; // skip over 64bit tried by meaning field
+}
+
+int CopyWhereInSentence(int oldindex)
+{
+    unsigned int* olddata = (unsigned int*)Index2Heap(oldindex); // original location
+    if (!olddata) return 0;
+
+    size_t len = (sizeof(uint64) + maxRefSentence + 3) / 4;
+    //  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
+    unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
+    if (!data) return 0;
+
+    memcpy((char*)data, olddata, len * 4);
+    // store where in the temps data
+    int index = Heap2Index((char*)data); // original index!
+    return index;
 }
 
 unsigned int* AllocateWhereInSentence(WORDP D)
@@ -3801,8 +3865,10 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
     {
         Log(STDUSERLOG, (char*)"  PluralLoop= ");
         WORDP E = GetPlural(D);
+        int n = 0;
         while (E && E != D)
         {
+            if (++n > 100) break;
             Log(STDUSERLOG, (char*)"-> %s ", E->word);
             E = GetPlural(E);
         }
@@ -4435,7 +4501,11 @@ static void readData(char* file)
 	uint64 synsetCount;
 	int ptrCount;
 	FILE* in = FopenReadNormal(file);
-	if (!in) Log(STDUSERLOG, "** Missing file %s\r\n", file);
+    if (!in)
+    {
+        Log(STDUSERLOG, "** Missing file %s\r\n", file);
+        return;
+    }
 	currentFileLine = 0;
 	MEANING meanings[1000];
 	unsigned int meaningIndex;

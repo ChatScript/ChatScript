@@ -1,5 +1,5 @@
 # ChatScript Practicum: Gleaning
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 6/9/2018 cs8.3
 
 
@@ -262,7 +262,7 @@ u: (name is _~noun_proper_singular)
 The above is simple, but will fail when the system doesnt know the name. Like for "His name is pansy." So maybe we also need a context dependent rule.
 ```
 u: NAMEIS(name _is) ^refine()
-    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = '_0'
+    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = '_0
     a: CONTEXTNAME(@_0+  _*~3 [> , ~conjunction])  $petname = '_0
 ```
 Note here we don't want the canonical of the name, we want the actual name, so we use quoted _0.
@@ -274,7 +274,7 @@ And we can extend the rule to handle `called` like this:
 ```
 u: NAMEIS(name _is) ^refine()
     #! his name is Peter
-    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = '_0'
+    a: CONCEPTNAME(@_0+ _~noun_proper_singular) $petname = '_0
     #! his name is master of all.
     a: CONTEXTNAME(@_0+  _*~3 [> , ~conjunction])  $petname = '_0
 #! he is called Roger

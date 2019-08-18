@@ -10,13 +10,13 @@
 <body>
 <h1 id="planning-with-chatscript">Planning with ChatScript</h1>
 <blockquote>
-<p>© Bruce Wilcox, gowilcox@gmail.com</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com</p>
 </blockquote>
 <blockquote>
 <p>Revision 7/3/2015 CS 5.5</p>
 </blockquote>
 <h2 id="overview">Overview</h2>
-<p>Want your chatbot to control a physical body in either a real or a virtual world. Want it to perform tasks on your command beyond the immediately simple? You need a planner. ChatScript comes with a preexisting one you can try out called STOCKPILE. See the Bot Stockpile – planner doc for details.</p>
+<p>Want your chatbot to control a physical body in either a real or a virtual world. Want it to perform tasks on your command beyond the immediately simple? You need a planner. ChatScript comes with a preexisting one you can try out called STOCKPILE. See the Bot Stockpile - planner doc for details.</p>
 <p>Exploring alternatives is the domain of tree search, a mechanism which explicitly supports exploring hypothetical situations and backtracks when they fail. There are two kinds of tree search mechanisms.</p>
 <p>First, there is the &quot;alpha-beta&quot; tree search, like those used for chess. It assumes an adversary and you take turns with him modifying the world to play a game. Imagine planning to go buy food at the grocery store. You will go down to your car, drive to the store, pick up the food and drive home.</p>
 <p>But in a hostile world, you have to ask what happens if when you go to your car a criminal has broken into it and is about to drive off. That will be bad. But if you had a bat you could beat him and that would be OK. But if he had his gang with him you would be outnumbered and that would be bad. But if you had a cop with you that would be OK. But … Clearly that branch of the tree has a lot of issues and if you can't explore them all, maybe you should take a taxi.</p>
@@ -106,10 +106,10 @@ plan: ^pickitem ()
 <p>When a rule is done, any choices it might have remaining are ignored. No failure of a later rule will trigger a backtrack into an earlier rule.</p>
 <h2 id="how-to-think-about-planning">How to think about planning</h2>
 <p>To perform planning, the chatbot has to have a mental model of the world. This means creating facts. If you were building a Command and Conquer style game, you'd represent locations of resources like:</p>
-<pre><code>(city1 silver 5) – city1 has 5 units of silver
+<pre><code>(city1 silver 5) - city1 has 5 units of silver
 (city1 gold 1)</code></pre>
 <p>and costs of production like this:</p>
-<pre><code>(jewelry gold 1) – jewelry costs 1 unit of gold
+<pre><code>(jewelry gold 1) - jewelry costs 1 unit of gold
 (jewelry silver 1)</code></pre>
 <p>Your plan will be hunting for availability of resources and aiming to convert them into objects, such that when it completes its plan, it might have</p>
 <pre><code>(city1 jewelry 1)</code></pre>

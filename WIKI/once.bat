@@ -1,3 +1,3 @@
 
-pandoc Practicum-Concepts-and-meaning.md -s -o ../PDFDOCUMENTATION/Practicum-Concepts-and-meaning.pdf
+pandoc ChatScript-JSON.md -s -o ../PDFDOCUMENTATION/ChatScript-JSON.pdf
 pause

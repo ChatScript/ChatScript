@@ -1,5 +1,5 @@
 # ChatScript Pattern Redux
-© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
+Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
 <br>Revision 7/28/2019 cs9.61
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
@@ -510,7 +510,7 @@ You may also use `!>` to ask that we NOT be at the end of the sentence.
 `@_1+` says to set the position to where the given match variable (`_1`) matched. 
 Positional sequencing will continue normally increasing thereafter. 
 
-You can suffix the match variable with `–` instead, 
+You can suffix the match variable with `-` instead, 
 to tell CS to begin matching in reverse order in the sentence, i.e., 
 matching backwards to the start of the sentence. 
 
@@ -521,7 +521,7 @@ When you use `-`, the position starts at the start of the match.
 
 matches _my pretty home is near here_.
 
-Note when you use `–` for reverse matching, the behavior of `<` and `>` changes. 
+Note when you use `-` for reverse matching, the behavior of `<` and `>` changes. 
 `>` sets a position and `<` confirms it instead of the way it is for `+`.
 
 When you omit either + or -, you create a matchable anchor like `@_0`. 

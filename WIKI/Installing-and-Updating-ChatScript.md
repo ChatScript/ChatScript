@@ -1,5 +1,5 @@
 # Installing and Updating ChatScript
-© Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
+Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
 <br>Revision 2/09/2017 cs7.2
 <br>
 

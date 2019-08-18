@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.61";
+char* version = "9.62";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1864,10 +1864,20 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = SkipOOB(mainInputBuffer);
 	char* startx = at--;
     bool quote = false;
-	while (*++at)
+    incoming = SkipWhitespace(incoming);
+    while (*++at)
 	{
 		if (*at < 31) *at = ' ';
-		if (*at == '"' && *(at-1) != '\\') quote = !quote;
+        if (*at == '"' && *(at - 1) != '\\')
+        {
+            if (at[1] == '"') at[1] = ' ';// dont allow doubled quotes
+            quote = !quote;
+            if ((!at[1] || !at[2]) && *incoming == '"') // no global quotes, (may have space at end)
+            {
+                *at = ' ';
+                *incoming = ' ';
+            }
+        }
 		if (*at == ' ' && !quote) // proper token separator
 		{
 			if ((at-startx) > (MAX_WORD_SIZE-1)) break; // trouble
@@ -1875,8 +1885,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		}
 	}
 	if ((at-startx) > (MAX_WORD_SIZE-1)) startx[MAX_WORD_SIZE-5] = 0; // trouble - cut him off at the knees
-
-	char* first = SkipWhitespace(incoming);
+    
+	char* first = incoming;
 #ifndef DISCARDTESTING
 	if (!server && !(*first == ':' && IsAlphaUTF8(first[1]))) strcpy(revertBuffer,first); // for a possible revert
 #endif

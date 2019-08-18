@@ -36,7 +36,7 @@ This paper will make the following general points:
 
 # AIML (1995)
 
-Unrestricted NL input has existed for decades – chatbots
+Unrestricted NL input has existed for decades - chatbots
 like Eliza and A.L.I.C.E. (left). But the output is barely
 useful. It takes a lot of data to make any plausible
 approximation to natural language understanding. This
@@ -451,7 +451,7 @@ concept: ~buildings ( shelter~1 living_accomodations~1 building~3 )
 ```
 
 The concept `~buildings` represents 760 general and specific building words found in the WordNet
-dictionary – any word which is a child of: definition 1 of shelter, definition 1 of
+dictionary - any word which is a child of: definition 1 of shelter, definition 1 of
 accommodations, or definition 3 of building in WordNet’s ontology.
 
 ### Pattern Operators
@@ -606,7 +606,7 @@ information like parts of speech and form of the word (tense, comparative status
 and connects it to related words (e.g., all conjugations of an irregular verb are linked into a ring.)
 This information is essential for canonization. Other information about the word like gender,
 whether it refers to a human, a location, or a time is also kept here. Words also hold WordNet
-synsets – lists of words that could be synonyms in some context.
+synsets - lists of words that could be synonyms in some context.
 
 Word entries can be marked with various “been here” bits for doing inference and hold a list of
 where in the current sentence the word occurs. This means when you encounter a word in a

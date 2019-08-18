@@ -18,21 +18,18 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 typedef struct FACT 
 {  
-	unsigned int flags;		
-
+    uint64 botBits;		// which bots can access this fact (up to 64)
+    unsigned int flags;
+    MEANING subject;
+    MEANING verb;
+    MEANING object;
+    // xref lists for querying
  	FACTOID_OR_MEANING subjectHead;	
 	FACTOID_OR_MEANING verbHead;		
 	FACTOID_OR_MEANING objectHead;		
-
     FACTOID_OR_MEANING subjectNext;	
  	FACTOID_OR_MEANING verbNext;		
     FACTOID_OR_MEANING objectNext;  	
-
-	MEANING subject;		
-	MEANING verb;			
-    MEANING object;	
-
-	uint64 botBits;		// which bots can access this fact (up to 64)
 } FACT;
 extern int worstFactFree;
 extern FACT* factBase;		//   start of fact space
@@ -61,7 +58,11 @@ inline FACTOID currentFactIndex() { return (currentFact) ? (FACTOID)((currentFac
 FACT* FactTextIndex2Fact(char* word);
 void RipFacts(FACT* F,WORDP dictbase);
 void WeaveFacts(FACT* F);
-FACT* WeaveFact(FACT* currentFact, unsigned int properties);
+FACT* WeaveFact(FACT* F);
+void UnweaveFact(FACT* F);
+void UnweaveFactSubject(FACT* F);
+void UnweaveFactVerb(FACT* F);
+void UnweaveFactObject(FACT* F);
 
 // fact system startup and shutdown
 void InitFacts();

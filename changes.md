@@ -1,3 +1,15 @@
+# Version 9.62 8/18/2019
+1. :listvariables
+    reports all references (set and get) of variables - see finalizing a bot manual
+2. :build xxx quiet -- says nothing if compile works except done.
+        does not issue warning. If compile doesnt work, summarized the fails.
+3. ^counttopics - new choices "responders" "availableresponders", renamed argument
+    "available" to "availablegambits" but system still accepts "available" to mean that
+4. ^purgeboot(what) - what is either a factset id or a bot id.
+    All facts stored in the boot layer from that factset or owned by that botid are
+    erased from the boot layer. This enables one to revise facts in the boot layer by
+    removing old ones and making new ones with flag FACTBOOT
+
 # Version 9.61 7/28/2019
 1. @retry in pattern allows pattern to self retry without output execution of 
     ^retry(rule)
