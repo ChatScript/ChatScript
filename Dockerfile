@@ -23,6 +23,9 @@ echo '/opt/ChatScript/BINARIES/LinuxChatScript64 $@'; \
 } > /entrypoint-chatscript.sh \
 && chmod +x /entrypoint-chatscript.sh
 
+# Declare volumes for mount point directories
+VOLUME ["/opt/ChatScript/USERS/", "/opt/ChatScript/LOGS/"]
+
 # Set runtime properties
 ENV LANG C.UTF-8
 EXPOSE 1024
