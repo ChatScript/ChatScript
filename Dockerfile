@@ -1,10 +1,9 @@
 FROM ubuntu:18.04
 
 # Install system packages/dependencies
-RUN apt-get --yes update && apt-get --no-install-recommends --yes install libcurl3
-
-# Purge apt cache to to reduce image size
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get --yes update \
+ && apt-get --no-install-recommends --yes install libcurl3 \
+ && rm -rf /var/lib/apt/lists/*
 
 # Copy minimal set of ChatScript files
 COPY ./BINARIES/LinuxChatScript64 /opt/ChatScript/BINARIES/
