@@ -955,7 +955,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (W && (W->properties & PART_OF_SPEECH || W->systemFlags & PATTERN_WORD))  return stopper; // recognize word at more splits
 	}
 	int lsize = strlen(token);
-	while (IsPunctuation(token[lsize-1])) token[--lsize] = 0; // remove trailing punctuation
+	while (lsize && IsPunctuation(token[lsize-1])) token[--lsize] = 0; // remove trailing punctuation
 	char* after = start + lsize;
 	// see if we have 25,2015
 	size_t tokenlen = strlen(token);
