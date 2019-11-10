@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/31/2019 cs9.7</p>
 <h1 id="advanced-output">ADVANCED OUTPUT</h1>
 <h2 id="committed-output">Committed Output</h2>
 <p>Simple output puts words into the output stream, a magical place that queues up each word you write in a rule output. What I didn't tell you before was that if the rule fails along the way, an incomplete stream is canceled and says nothing to the user. For example,</p>
@@ -78,6 +78,9 @@ if ($_response == %response) {...}</code></pre>
 <pre><code>^&quot;T$$time_computed_hrs:$$time_computed_mins:$$time_computed_secsZ&quot;</code></pre>
 <p>The Z at the end of the <code>$$time_computed_secs</code> will make that variable hard to detect, since it will look like the variable is <code>$$time_computed_secsZ</code>.</p>
 <p>You can fix that by escaping the next character not part of the name. <code>$$time_computed_secs\Z</code>.</p>
+<p>While you can have function calls inside an active string, the system will strip a single space in front of the call. E.g., if ^mycall returns <code>test</code></p>
+<pre><code>    $_var = ^&quot;this is ^mycall(x)&quot;</code></pre>
+<p>then the above sets $_var to <code>this istest</code> and you need to add an extra space in front of the call if you want a space. This is because you cannot do without the space in front of the function call merely to recognize the call (lest it join as part of the prior token). And you may want to merge the result together. Hence extra space if you want one.</p>
 <h2 id="json-active-strings">Json Active Strings</h2>
 <p><code>^' xxxxxx '</code> is another kind of active string. It is intended for writing easy JSON, because you don't have to escape doublequotes unless json would need to.</p>
 <p>It will converting <code>\n</code>,<code>\t</code>, <code>\r</code> into their control characters, convert <code>\\</code> into just <code>\</code>, and leave all other characters alone. Eg</p>

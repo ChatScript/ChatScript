@@ -615,7 +615,7 @@ bool KnownUsefulWord(WORDP entry)
 		FACT* F = GetSubjectNondeadHead(entry);
 		while (F)
 		{
-			if (F->verb == Mmember)
+			if (ValidMemberFact(F))
 			{
 				known = true;
 				break;
@@ -1453,7 +1453,8 @@ void SetSentenceTense(int start, int end)
 		if ((trace & TRACE_POS || prepareMode == POS_MODE) && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Not a sentence\r\n");
 		if (tokenFlags & (QUESTIONMARK|EXCLAMATIONMARK)) {;}
 		else if (posValues[startSentence] & AUX_VERB
-            && !(posValues[startSentence+1] & TO_INFINITIVE)) tokenFlags |= QUESTIONMARK;// its a question because AUX starts
+            && !(posValues[startSentence+1] & TO_INFINITIVE)) 
+            tokenFlags |= QUESTIONMARK;// its a question because AUX starts
 		else if (allOriginalWordBits[startSentence]  & QWORD)
 		{
             int i = startSentence;
@@ -1463,7 +1464,8 @@ void SetSentenceTense(int start, int end)
             if (posValues[i+1] & (VERB_BITS | AUX_VERB))
                 tokenFlags |= QUESTIONMARK;
 		}
-		else if (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD) tokenFlags |= QUESTIONMARK;
+		else if (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD) 
+            tokenFlags |= QUESTIONMARK;
 	}
 	else if (!(tokenFlags & (QUESTIONMARK|EXCLAMATIONMARK))) // see if question or statement if we dont know
 	{
@@ -1476,13 +1478,18 @@ void SetSentenceTense(int start, int end)
 				break;
 			}
 		}
-		if (subjectStack[MAINLEVEL] && subjectStack[MAINLEVEL] > verbStack[MAINLEVEL] && (allOriginalWordBits[startSentence] & QWORD || (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD)))  tokenFlags |= QUESTIONMARK; // qword + flipped order must be question (vs emphasis?)
+		if (subjectStack[MAINLEVEL] && subjectStack[MAINLEVEL] > verbStack[MAINLEVEL] && (allOriginalWordBits[startSentence] & QWORD || (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD)))  
+            tokenFlags |= QUESTIONMARK; // qword + flipped order must be question (vs emphasis?)
 	
 		bool foundVerb = false;
+        bool foundsubject2 = false;
+        bool foundverb2 = false;
 		for (i = startSentence; i <= endSentence; ++i) 
 		{
 			if (ignoreWord[i]) continue;
-			if (roles[i] & MAINVERB) foundVerb = true;
+            if (roles[i] & SUBJECT2) foundsubject2 = true;
+            if (roles[i] & VERB2) foundverb2 = true;
+            if (roles[i] & MAINVERB) foundVerb = true;
 			if (roles[i] & MAINSUBJECT) 
 			{
 				if (i == startSentence && originalLower[startSentence] && originalLower[startSentence]->properties & QWORD && posValues[startSentence+1] & (VERB_BITS & AUX_VERB_TENSES)) 
@@ -1497,6 +1504,7 @@ void SetSentenceTense(int start, int end)
 				bool normalAux = true;
 				if (len > 3 && !stricmp(wordStarts[i]+len-3,"ing")) normalAux = false; // not Getting or gets in present tense
 				if (!normalAux){;}
+                if (foundsubject2 && foundverb2) { break; } // a clause, dont trust we understand
 				else if (i == startSentence) // its a question because AUX or VERB comes before MAINSUBJECT
 				{
 					tokenFlags |= QUESTIONMARK;
@@ -1529,7 +1537,8 @@ void SetSentenceTense(int start, int end)
 		tokenFlags |= QUESTIONMARK; 
 		if (posValues[start+1] & VERB_INFINITIVE || posValues[start+2] & VERB_INFINITIVE) tokenFlags |= IMPLIED_YOU;
 	}
-	else if (!stricmp(wordStarts[start],(char*)"how") && !stricmp(wordStarts[start+1],(char*)"many")) tokenFlags |= QUESTIONMARK; 
+	else if (!stricmp(wordStarts[start],(char*)"how") && !stricmp(wordStarts[start+1],(char*)"many")) 
+        tokenFlags |= QUESTIONMARK; 
 	else if (posValues[start] & AUX_VERB && (!(posValues[start] & AUX_DO) || !(allOriginalWordBits[start] & AUX_VERB_PRESENT))){;} // not "didn't leave today." ommited subject
 	else if (roles[start] & MAINVERB && !stricmp(wordStarts[start],(char*)"assume")) tokenFlags |= COMMANDMARK|IMPLIED_YOU; // treat as sentence command
     // dont want "ate a cherry" to be a question so commented out rule

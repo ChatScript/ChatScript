@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-concept-manual">ChatScript Advanced Concept Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/24/2019 cs9.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br></p>
 <h1 id="advanced-concepts">ADVANCED CONCEPTS</h1>
 <h2 id="concept-exclusion">Concept Exclusion</h2>
 <p>In basic chatscript we learned you can build concepts by augmentation (out of concepts), like</p>
@@ -30,6 +30,13 @@ topic: ~crimesentences (|~crimeverbs|)</code></pre>
 <p>For command sentences, the implied subject is always &quot;you&quot;, so you can write:</p>
 <pre><code>concept: ~me_told_go (you|~movement_verbs|)</code></pre>
 <p>Note: these keywords can only be recognized if the system's parser can manage to parse out the main subject, main verb, and main object of the input sentence. This works well for relatively simple sentences.</p>
+<h2 id="patterns-as-keywords">Patterns as Keywords</h2>
+<p>Instead of just words and phrases, you can also write a pattern in quotes as a member.</p>
+<pre><code>concept: ~leaving( sayonara &quot;(going home now)&quot; exiting)
+u: (I *~2 ~leaving)</code></pre>
+<p>You are allowed to use any of the pattern elements excepting RETRY but including &quot;(<span class="math inline"><em>t</em><em>e</em><em>s</em><em>t</em><em>i</em><em>n</em><em>g</em>!</span>testval)&quot;.</p>
+<p>Where the pattern is considered marked will depend on the pattern. If the pattern has match variable memorization, it will mark where the first such memorization happened. If the pattern consists of no words (like the variable testing pattern above), then the concept will be marked at word 1 of the sentence. Otherwise, if the pattern is has a normal collection of words, the mark will cover the range of the first thru last word element that matched. For our leaving example above, if the input is &quot;I am going home now, see you tomorrow&quot;, then ~leaving marks words 3-5 of the sentence.</p>
+<p>The function ^pick, which can grab a random member of a concept, will skip over all patterns and just return a word or phrase.</p>
 <h2 id="additional-data-on-concepts">Additional data on concepts</h2>
 <p>Concepts can have part of speech information attached to them (using <code>dictionarysystem.h</code> values). Eg.</p>
 <pre><code>concept: ~mynouns NOUN NOUN_SINGULAR (boxdead foxtrot)
@@ -71,5 +78,11 @@ concept: ~active_verbs ONLY_NONE (sleep)</code></pre>
 <p>A third way does not actually create members of a concept and does not require mere words and phrases. You can use any pattern whatsoever. And you cannot list it like you would normal members of a concept. You meremly execute a rule early on in your script that marks places in a sentence.</p>
 <pre><code>u: FAKEIT ( _(find * way)) ^mark(~myconcept _0)</code></pre>
 <p>The above detects a pattern, records the location start and end of it so that you can then mark where in the sentence ~myconcept will now be detected by any future patterns of yours.</p>
+<h2 id="performance">Performance</h2>
+<p>Using concepts in patterns is &quot;free&quot;, as is</p>
+<pre><code>    if (_0 ? ~concept)</code></pre>
+<p>but</p>
+<pre><code>    if ($word ? ~concept)</code></pre>
+<p>runs linear with number of concept members, so it should be avoided for large concepts. Pattern matching with concepts/match_variables has all its overhead cost paid for during marking so there is no real cost later. And that marking overhead is trivial.</p>
 </body>
 </html>

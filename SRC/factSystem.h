@@ -42,8 +42,8 @@ extern FACT* factFree;		//   end of facts - most recent fact allocated (ready fo
 extern MEANING Mmember;
 extern MEANING Mexclude;
 extern MEANING Mis;
-extern HEAPLINK botVariableThreadList;
-extern int* factThread;
+extern HEAPREF botVariableThreadList;
+extern HEAPREF factThread;
 
 extern bool factsExhausted;
 extern size_t maxFacts;		// allocation limit of facts
@@ -70,6 +70,7 @@ void CloseFacts();
 void ResetFactSystem(FACT* locked);
 void InitFactWords();
 void AutoKillFact(MEANING M);
+bool ValidMemberFact(FACT* F);
 
 // fact creation and destruction
 FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties = 0);

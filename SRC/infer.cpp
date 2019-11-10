@@ -61,7 +61,7 @@ FACT* IsConceptMember(WORDP D)
 	FACT* F = GetSubjectNondeadHead(D);
 	while (F)
 	{
-		if (F->verb == Mmember) return F;	// is a concept member so it is ok
+		if (ValidMemberFact(F))  return F;	// is a concept member so it is ok
 		F = GetSubjectNondeadNext(F);
 	}
 	return NULL;
@@ -69,11 +69,14 @@ FACT* IsConceptMember(WORDP D)
 
 static bool IsExcluded(WORDP set,WORDP item)
 {
-	if (!(set->internalBits & HAS_EXCLUDE)) return false;
 	FACT* F = GetObjectNondeadHead(set);
 	while (F)
 	{
-		if (F->verb == Mexclude && Meaning2Word(F->subject) == item) break;
+		if (F->verb == Mmember) break; // exclusions come first, so none found
+		if (F->verb == Mexclude)
+		{
+			if (Meaning2Word(F->subject) == item) break;
+		}
 		F = GetObjectNondeadNext(F);
 	}
 	return (F) ? true : false;
@@ -101,19 +104,20 @@ static bool SetContains1(MEANING set,MEANING M, unsigned int depth)
 	while (F && --counter)
 	{
 		if (index != 0 && F->subject != M); // fact doesnt apply
-		else if (F->verb == Mmember) 
+		else if (ValidMemberFact(F))
 		{
 			// if this topic or concept has exclusions, check to see if this is a marked exclusion
 			bool blocked = false;
 			WORDP object = Meaning2Word(F->object);
-			if (object->internalBits & HAS_EXCLUDE) 
+			FACT* G = GetObjectNondeadHead(object);
+			while (G && !blocked)
 			{
-				FACT* G = GetObjectNondeadHead(object);
-				while (G && !blocked)
+				if (G->verb == Mexclude)
 				{
-					if (G->verb == Mexclude && Meaning2Word(G->subject)->inferMark == inferMark) blocked = true;
-					else G = GetObjectNondeadNext(G);
+					if (Meaning2Word(G->subject)->inferMark == inferMark) blocked = true;
 				}
+				else if (G->verb == Mmember) break;
+				G = GetObjectNondeadNext(G);
 			}
 
 			// since this is not a marked exclusion, we can say it is a member
@@ -224,8 +228,8 @@ static void QueryFacts(WORDP original, WORDP D,unsigned int index,unsigned int s
         else if (index ) continue;  //   not following this path
         else if (flags & ORIGINALWORD) continue; //   you must match exactly- generic not allowed to match specific wordnet meaning- hierarchy BELOW only
 
-		if (F->verb == Mmember  && !AllowedMember(F,0,restriction,0)) continue; // POS doesn't match
-        if (F->verb == Mmember && !(flags & ORIGINALWORD))
+		if (ValidMemberFact(F) && !AllowedMember(F,0,restriction,0)) continue; // POS doesn't match
+        if (ValidMemberFact(F) && !(flags & ORIGINALWORD))
         {
             WORDP object = Meaning2Word(F->object);
             if (object->inferMark != inferMark) 
@@ -273,14 +277,15 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 	}
 
 	// concept set has exclusions, so if excluded is already marked, do not allow this topic to be marked
-	if (D->internalBits & HAS_EXCLUDE)
+	FACT* G = GetObjectNondeadHead(D);
+	while (G)
 	{
-		FACT* G = GetObjectNondeadHead(D);
-		while (G)
+		if (G->verb == Mexclude)
 		{
-			if (G->verb == Mexclude && Meaning2Word(G->subject)->inferMark == saveMark) return false;
-			G = GetObjectNondeadNext(G);
+			if (Meaning2Word(G->subject)->inferMark == saveMark) return false;
 		}
+		if (G->verb == Mmember) break;
+		G = GetObjectNondeadNext(G);
 	}
 
 	D->inferMark = saveMark; 
@@ -307,7 +312,7 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
     FACT* F = GetSubjectNondeadHead(D);
     while (F)
     {
-        if (F->verb == Mmember) // can be member of an ordinary word (like USA member United_States_of_America), creates equivalence
+		if (ValidMemberFact(F))  // can be member of an ordinary word (like USA member United_States_of_America), creates equivalence
 		{
 			WORDP D = Meaning2Word(F->object);
 			if (*D->word != '~') AddWord2Scan(flags,F->object,F->subject,depth+1,type); // member is not to a set, but to a word. So it's an equivalence
@@ -370,7 +375,7 @@ static void AddSet2Scan(unsigned int how,WORDP D,int depth)
 	FACT* F = GetObjectNondeadHead(D);
 	while (F)
 	{
-		if (F->verb == Mmember) AddWordOrSet2Scan(how | (F->flags & ORIGINALWORD),Meaning2Word(F->subject)->word,depth);
+		if (ValidMemberFact(F))  AddWordOrSet2Scan(how | (F->flags & ORIGINALWORD),Meaning2Word(F->subject)->word,depth);
 		F = GetObjectNondeadNext(F);
 	}
 }
@@ -507,7 +512,7 @@ static bool ConceptPropogateTest(MEANING M,unsigned int mark,unsigned int depth)
 	FACT* F = GetSubjectNondeadHead(M);
 	while (F)
 	{
-		if (F->verb == Mmember && F->subject == M)
+		if (ValidMemberFact(F) && F->subject == M)
 		{
 			MEANING O = F->object;
 			WORDP D = Meaning2Word(O);
@@ -1094,12 +1099,12 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			{
 				if (*control == '<')
 				{
-					rangelow = atof(propogate);
+					rangelow = (float)atof(propogate);
 					field = control[2];
 				}
 				else
 				{
-					rangehigh = atof(match);
+					rangehigh = (float)atof(match);
 					field = control[2];
 				}
 				control += 2;
@@ -1314,7 +1319,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				else if (field == 'o') word = O->word;
 				if (word && IsDigit(word[0]))
 				{
-					val = atof(word);
+					val = (float)atof(word);
 					if (val < rangelow) match = false;
 				}
 			}
@@ -1327,7 +1332,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				else if (field == 'o') word = O->word;
 				if (word && IsDigit(word[0]))
 				{
-					val = atof(word);
+					val = (float)atof(word);
 					if (val > rangehigh) match = false;
 				}
 			}

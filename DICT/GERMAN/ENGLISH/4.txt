@@ -1,0 +1,25 @@
+﻿ 4-hitter ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    four-hitter~1n 
+ 4WD ( meanings=2 NOUN NOUN_PROPER_SINGULAR ) 
+    four-wheel_drive~1n 
+    four-wheel_drive~2n 
+ 4to ( meanings=1 NOUN NOUN_SINGULAR ) 
+    quarto~1n 
+ 401-k_plan ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
+    401-k~1nz (^retirement_savings_account~1) a retirement savings plan that is funded by employee contributions and matching contributions from the employer
+ 401-k ( meanings=1 NOUN NOUN_SINGULAR ) 
+    401-k_plan~1n 
+ 440_yards ( meanings=1 NOUN NOUN_PLURAL ) 
+    quarter_mile~1n 
+ 411 ( meanings=1 NOUN NOUN_NUMBER ) 
+    411~1nz 
+ 4G ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
+    4G~1nz 
+ 4G_coverage ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
+    4G_coverage~1nz 
+ 4-dimensional ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
+    four-dimensional~1a 
+ 4-membered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    four-membered~1a 
+ 4-star ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    4-star~1az 

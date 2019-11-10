@@ -22,8 +22,6 @@ Layer0 : facts resulting from topic system build0
     This is ReturnToDictionaryFreeze for unpeeling 3 / 4 and ReturnDictionaryToWordNet for unpeeling layer 2.
 
 #endif
-static HEAPLINK jsonptrThreadList;
-HEAPLINK botFactThreadList = 0; // facts from lock layers whose value was changed in OBJ
 int worstFactFree = 1000000;
 char traceSubject[100];
 bool allowBootKill = false;
@@ -34,7 +32,8 @@ bool recordBoot = false;
 uint64 allowedBots = 0xffffffffffffffffULL; // default fact visibility restriction is all bots
 uint64 myBot = 0;							// default fact creation restriction
 size_t maxFacts = MAX_FACT_NODES;	// how many facts we can create at max
-int* factThread = 0;
+HEAPREF factThread = NULL;
+static STACKREF stackFactThread = NULL;
 bool factsExhausted = false;
 FACT* factBase = NULL;			// start of all facts
 FACT* factEnd = NULL;			// end of all facts
@@ -68,13 +67,17 @@ static bool UnacceptableFact(FACT* F,bool jsonavoid)
 {
 	if (!F || F->flags & FACTDEAD) return true;
 	// if ownership flags exist (layer0 or layer1) and we have different ownership.
-	if (!seeAllFacts &&  F->botBits && !(F->botBits & myBot)) return true;
-	return false;
+	return (F->botBits && !(F->botBits & myBot) && !seeAllFacts) ? true : false;
 }
 
 FACT* GetSubjectNext(FACT* F) { return Index2Fact(F->subjectNext);}
 FACT* GetVerbNext(FACT* F) {return Index2Fact(F->verbNext);}
 FACT* GetObjectNext(FACT* F) {return Index2Fact(F->objectNext);}
+
+bool ValidMemberFact(FACT* F)
+{
+	return (F->verb == Mmember && (!myBot || !F->botBits || F->botBits & myBot)); 
+}
 
 FACT* GetSubjectNondeadNext(FACT* F,bool jsonaccept) 
 { 
@@ -1112,12 +1115,12 @@ void WriteFacts(FILE* out,FACT* F, int flags) //   write out from here to end
 { 
 	if (!out) return;
 
-	char* limit;
-	char* word = InfiniteStack(limit,"WriteFacts"); // WriteFact uses no extra inversespace
+    char* word = AllocateBuffer();
     while (++F <= factFree) 
 	{
 		if (!(F->flags & (FACTTRANSIENT|FACTDEAD))) 
 		{
+            if (UnacceptableFact(F, true)) continue;
 			F->flags |= flags; // used to pass along build2 flag
 			char* f = WriteFact(F, true, word, false, true);
 			fprintf(out,(char*)"%s",f);
@@ -1125,7 +1128,7 @@ void WriteFacts(FILE* out,FACT* F, int flags) //   write out from here to end
 		}
 	}
     FClose(out);
-	ReleaseInfiniteStack();
+    FreeBuffer();
 }
 
 void WriteBinaryFacts(FILE* out,FACT* F) //   write out from here to end (dictionary entries)
@@ -1368,7 +1371,7 @@ char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol,bool 
 
 char* ReadField(char* ptr,char* &field,char fieldkind, unsigned int& flags)
 {
-	field = AllocateStack(NULL,MAX_BUFFER_SIZE); // released above
+	field = AllocateStack(NULL, maxBufferSize); // released above
 	if (*ptr == '(')
 	{
 		FACT* G = ReadFact(ptr,(flags & FACTBUILD2) ? BUILD2 : 0);
@@ -1607,7 +1610,7 @@ void SortFacts(char* set, int alpha, int setpass) //   sort low to high ^sort(@1
 
 // Handle changes to system facts done by user
 
-static int* WriteDEntry(uint64* data, WORDP D)
+static uint64* WriteDEntry(uint64* data, WORDP D)
 {
     *data++ = D->properties;
     *data++ = D->systemFlags;
@@ -1617,10 +1620,10 @@ static int* WriteDEntry(uint64* data, WORDP D)
     name += len + 7; // align
     uint64 base = (uint64)name;
     base &= 0xFFFFFFFFFFFFFFF8ULL;  // 8 byte align
-    return (int*)base;
+    return (uint64*)base;
 }
 
-static int* ReadFactField(uint64* data, FACT* F, int changed)
+static uint64* ReadFactField(uint64* data, FACT* F, int changed)
 {
     uint64 properties = *data++;
     uint64 sysflags = *data++;
@@ -1632,25 +1635,26 @@ static int* ReadFactField(uint64* data, FACT* F, int changed)
     if (changed == 4) F->object = MakeMeaning(D);
     else if (changed == 2) F->verb = MakeMeaning(D);
     else  F->subject = MakeMeaning(D);
-    return (int*)base;
+    return (uint64*)base;
 }
 
 void NoteBotFacts() // see RedoSystemFactFields for inverse
 {
     // system facts may have had their fields repointed to user dictionary entry
     // Those need to be relocated into boot space
-    int* newThread = NULL; // will be in stack instead of heap
+    STACKREF newThread = NULL; // will be in stack instead of heap
     while (factThread) // heap list
     {
-        FACT* F = Index2Fact(factThread[1]);
-        factThread = (int*)Index2Heap(*factThread);
+        uint64 val;
+        factThread = UnpackHeapval(factThread, val,discard,discard);
+        FACT* F = (FACT*)val;
         if (!F) continue; // illegal fact reference
         if (F->flags & MARKED_FACT) continue; // only do this once per resulting fact modification
 
-                                              // is there still something pointing to user space? Maybe was set back again
-        int changed = 0;
-        int size = 4 * sizeof(int); // list thread, fact index, fields bits, align to uint64
-                                    // write out names and prop and sysflags per word changed
+        // is there still something pointing to user space? Maybe was set back again
+        int changed = 0; // which fields changed
+        int size =0; 
+       // write out names and prop and sysflags per word changed
         WORDP D;
         if (Meaning2Word(F->subject) > dictionaryFree)
         {
@@ -1673,33 +1677,29 @@ void NoteBotFacts() // see RedoSystemFactFields for inverse
         else continue; // nothing from user space here any more
 
         F->flags |= MARKED_FACT;
-
-        int* data = (int*)AllocateStack(NULL, size, false, 8);
-        *data = Heap2Index((char*)newThread);
-        newThread = data;
-        data[1] = Fact2Index(F);
-        data[2] = changed;
-        data += 4; // data[3] = junk
-        if (changed & 1) data = WriteDEntry((uint64*)data, Meaning2Word(F->subject));
-        if (changed & 2) data = WriteDEntry((uint64*)data, Meaning2Word(F->verb));
-        if (changed & 4) data = WriteDEntry((uint64*)data, Meaning2Word(F->object));
+        uint64* data = (uint64*)AllocateStack(NULL, size, false, 8);
+        newThread = AllocateStackval(newThread, (uint64)F,(uint64)changed,(uint64) data);
+        if (changed & 1) data = WriteDEntry(data, Meaning2Word(F->subject));
+        if (changed & 2) data = WriteDEntry(data, Meaning2Word(F->verb));
+        if (changed & 4) data = WriteDEntry(data, Meaning2Word(F->object));
     }
-    factThread = newThread; // now have stack-based copy of needed data
+    stackFactThread = newThread; // now have stack-based copy of needed data
 }
 
 void RedoSystemFactFields() // see NoteBotFacts for inverse
 {
-    while (factThread) // stack based data
+    while (stackFactThread) 
     {
-        FACT* F = Index2Fact(factThread[1]);
+        uint64 Fx;
+        uint64 changed;
+        uint64 datax;
+        stackFactThread = UnpackStackval(stackFactThread, Fx, changed, datax);
+        FACT* F = (FACT*)Fx;
+        uint64* data = (uint64*)datax;
         F->flags ^= MARKED_FACT;
-        int changed = factThread[2];
-        // junk = factThread[3];
-        int* data = factThread + 4;
-        factThread = (int*)Index2Stack(*factThread);
-        if (changed & 1) data = ReadFactField((uint64*)data, F, 1);
-        if (changed & 2) data = ReadFactField((uint64*)data, F, 2);
-        if (changed & 4) data = ReadFactField((uint64*)data, F, 4);
+        if (changed & 1) data = ReadFactField(data, F, 1);
+        if (changed & 2) data = ReadFactField(data, F, 2);
+        if (changed & 4) data = ReadFactField(data, F, 4);
     }
 }
 
@@ -1824,10 +1824,7 @@ void ModBaseFact(FACT* F) // anyone changing fields of facts calls this
     else if (Meaning2Word(F->verb) > userdictstart) {}
     else if (Meaning2Word(F->object) > userdictstart) {}
     else return; // nothing from user space here 
-    int* data = (int*)AllocateHeap(NULL, 8, 4, false, false);
-    *data = Heap2Index((char*)factThread);
-    data[1] = Fact2Index(F);
-    factThread = data;
+    factThread = AllocateHeapval(factThread, (uint64)F, NULL);
 }
 
 

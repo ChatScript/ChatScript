@@ -2,8 +2,14 @@
 //------------------------
 // ALWAYS AVAILABLE
 //------------------------
-static HEAPLINK undefinedCallThreadList = 0;
+#define PATTERNDEPTH 1000
+
+static HEAPREF undefinedCallThreadList = NULL;
 static bool nospellcheck = false;
+bool disablePatternOptimization = true;
+static bool noPatternOptimization = true;
+static unsigned int conceptID = 0; // name of concept set
+
 static int complexity = 0;
 static bool livecall = false;
 static unsigned int priorLine = 0;
@@ -16,7 +22,7 @@ static char* dataChunk = NULL;
 static char* outputStart = NULL;
 static char* lineStart = NULL;
 static bool globalBotScope = false;
-static HEAPLINK beenHereThreadList = 0;
+static HEAPREF beenHereThreadList = NULL;
 char* newBuffer = NULL;
 char* oldBuffer = NULL;
 static char display[MAX_DISPLAY][100];
@@ -78,12 +84,16 @@ void InitScriptSystem()
 {
 	mapFile = NULL;
 	outputStart = NULL;
-}
+ }
 
 void AddWarning(char* buffer)
 {
+    char c = buffer[MAX_WORD_SIZE - 300];
+    if (strlen(buffer) > (MAX_WORD_SIZE - 300)) buffer[MAX_WORD_SIZE - 300] = 0;
 	sprintf(warnings[warnIndex++],(char*)"line %d of %s: %s",currentFileLine,currentFilename,buffer);
-	if (strstr(warnings[warnIndex-1],(char*)"is not a known word")) {++badword;}
+    buffer[MAX_WORD_SIZE - 300] = c;
+    
+    if (strstr(warnings[warnIndex-1],(char*)"is not a known word")) {++badword;}
 	else if (strstr(warnings[warnIndex-1],(char*)" changes ")) {++substitutes;}
 	else if (strstr(warnings[warnIndex-1],(char*)"is unknown as a word")) {++badword;}
 	else if (strstr(warnings[warnIndex-1],(char*)"in opposite case")){++cases;}
@@ -98,13 +108,16 @@ bool StartScriptCompiler(bool normal, bool live)
 #ifndef DISCARDSCRIPTCOMPILER
     if (nextToken && normal) return false;
     if (oldBuffer) return false; // already running one
+    disablePatternOptimization = live; // IF Pattern and match cannot safely optimize
+    conceptID = 0;
     patternFile = NULL;
-    beenHereThreadList = 0;
+    beenHereThreadList = NULL;
     livecall = live;
     oldBuffer = newBuffer;
     warnIndex = errorIndex = 0;
-    newBuffer = AllocateStack(NULL, MAX_BUFFER_SIZE);
-    nextToken = AllocateStack(NULL, MAX_BUFFER_SIZE); // able to swallow big
+    newBuffer = AllocateStack(NULL, maxBufferSize);
+    nextToken = AllocateStack(NULL, maxBufferSize); // able to swallow big
+    
 #endif
     return true;
 }
@@ -159,19 +172,17 @@ void ScriptWarn()
 static void AddBeenHere(WORDP D)
 {
     D->internalBits |= BEEN_HERE;
-    char** heapval = (char**)AllocateHeap(NULL, 2, sizeof(char*), false);
-    heapval[0] = (char*)beenHereThreadList;
-    beenHereThreadList = Heap2Index((char*)heapval);
-    heapval[1] = (char*)D; // save name
+    beenHereThreadList = AllocateHeapval(beenHereThreadList,
+        (uint64)D, NULL, NULL);// save name
 }
 
 void UnbindBeenHere()
 {
     while (beenHereThreadList)
     {
-        char* data = Index2Heap(beenHereThreadList);
-        WORDP D = Index2Word(((unsigned int*)data)[1]);
-        beenHereThreadList = ((unsigned int*)data)[0];
+        uint64 D;
+        beenHereThreadList = UnpackHeapval(beenHereThreadList, D,discard);
+        ((WORDP)D)->internalBits &=  -1 ^ BEEN_HERE;
     }
 }
 
@@ -183,8 +194,11 @@ void AddError(char* buffer)
     if (*buffer == '\r') ++buffer;
     if (*buffer == '\n') ++buffer;
     size_t len = strlen(buffer);
+    char c = buffer[MAX_WORD_SIZE - 300];
     while (buffer[len - 1] == '\n' || buffer[len - 1] == '\r') buffer[--len] = 0;
+    if (strlen(buffer) > (MAX_WORD_SIZE - 300)) buffer[MAX_WORD_SIZE - 300] = 0;
     sprintf(message, "%s - line %d column %d of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+    buffer[MAX_WORD_SIZE - 300] = c;
     sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
     if (errorIndex >= MAX_ERRORS) --errorIndex;
 }
@@ -558,12 +572,20 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     char* xxorig = ptr;
     bool var = (*ptr == '$');
     int brackets = 0;
+    char quotechar = '"';
+    bool activestring = false;
     while (*ptr)
     {
         if (*ptr == ENDUNIT) break;
         if (patternContext && quote) {} // allow stuff in comparison quote
         else if (*ptr == ' ' || (*ptr == '\t' && convertTabs)) break; // legal
-        if (patternContext && *ptr == '"') 
+        if (patternContext && activestring == false && *ptr == '^' && (ptr[1] == '"' || ptr[1] == '\''))
+        {
+            quotechar = ptr[1];
+            activestring = true;
+        }
+
+        if (patternContext && *ptr == quotechar) 
             quote = !quote;
 
         char c = *ptr++;
@@ -1368,7 +1390,7 @@ static void DoubleCheckSetOrTopic()
     {
 		char word[MAX_WORD_SIZE];
 		ReadCompiledWord(readBuffer,word);
-		if (!IsSet(word) && !IsTopic(word)) 
+		if (!IsSet(word) && !IsTopic(word) && !IsDigit(word[1])) 
 			WARNSCRIPT((char*)"Undefined set or topic %s\r\n",readBuffer)
 	}
 	FClose(in);
@@ -1457,7 +1479,7 @@ static void DownHierarchy(MEANING T, FILE* out, int depth)
 		FACT* F = GetObjectNondeadHead(D);
 		while (F)
 		{
-			if (F->verb == Mmember) DownHierarchy(F->subject,out,depth+1);
+			if (ValidMemberFact(F))  DownHierarchy(F->subject,out,depth+1);
 			F = GetObjectNondeadNext(F);
 		}
 		fprintf(out,(char*)". depth=%d\r\n",depth); 
@@ -1528,10 +1550,8 @@ static void WritePatternWord(char* word)
     if (patternFile) fprintf(patternFile,(char*)"%s\r\n",word);
     else if (livecall) // has to be livecall if we dont have patternfile from build
     {
-        char** heapval = (char**)AllocateHeap(NULL, 2, sizeof(char*), false);
-        heapval[0] = (char*)patternwordthread;
-        patternwordthread = Heap2Index((char*)heapval);
-        heapval[1] = (char*)D; // save name
+        patternwordthread = AllocateHeapval(patternwordthread,
+            (uint64)D, NULL, NULL);// save name
     }
 }
 
@@ -2044,12 +2064,8 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 		*nameData = argumentCount;
 		strcpy(nameData + 1, name);
 		char* filename = AllocateHeap(currentFilename, 0, 1);
-		int* data = (int*)AllocateHeap(NULL, 4, sizeof(int));
-		data[0] = undefinedCallThreadList;
-		data[1] = Heap2Index(nameData);
-		data[2] = Heap2Index(filename);
-		data[3] = currentFileLine;
-		undefinedCallThreadList = Heap2Index((char*)data);
+        undefinedCallThreadList = AllocateHeapval(undefinedCallThreadList,
+            (uint64)nameData,(uint64) filename, (uint64)currentFileLine);
 	}
 	else // std macro (input, output table)
 	{
@@ -2256,8 +2272,8 @@ static char* ReadDescribe(char* ptr, FILE* in,unsigned int build)
 	return ptr;
 }
 
-static void OverCover(char* laterword, STACKREF keywordList[1000],
-    char nestKind[1000], int nestIndex)
+static void OverCover(char* laterword, STACKREF keywordList[PATTERNDEPTH],
+    char nestKind[PATTERNDEPTH], int nestIndex)
 { //  [ your  "your own"] has your blocking detection of your_own and we want the longer match
     if (nestKind[nestIndex - 1] != '[' && nestKind[nestIndex - 1] != '{') return;
     char word1[MAX_WORD_SIZE];
@@ -2269,21 +2285,17 @@ static void OverCover(char* laterword, STACKREF keywordList[1000],
         STACKREF item = keywordList[nestIndex - 1];
         while (item)
         {
-            char* data = Index2Stack(item);
-            char* priorword = data + sizeof(STACKREF); // eg your
-            if (!strcmp(priorword, word1)) BADSCRIPT((char*)"Keyword phrase %s occluded by %s. Switch their order.", laterword, priorword)
-                item = *((STACKREF*)data);
+            uint64 priorword;
+            item = UnpackStackval(item, priorword);
+            if (!strcmp((char*)priorword, word1)) BADSCRIPT((char*)"Keyword phrase %s occluded by %s. Switch their order.", laterword, priorword)
         }
         *underscore = '_';
     }
 
     // add to list
-    size_t len = strlen(laterword) + sizeof(STACKREF) + 1;
-    char* data = AllocateStack(NULL, len,false, sizeof(STACKREF));
-    * ((STACKREF*)data) = keywordList[nestIndex - 1];
-    keywordList[nestIndex - 1] = Stack2Index(data);
-    strcpy(data+sizeof(STACKREF), laterword); // the name
-}
+    char* word = AllocateStack(laterword);
+    keywordList[nestIndex - 1] = AllocateStackval(keywordList[nestIndex - 1], (uint64)word);
+} // never freed during compile
 
 char* ReadPattern(char* ptr, FILE* in, char* &data,bool macro, bool ifstatement)
 { //   called from topic or patternmacro
@@ -2329,13 +2341,20 @@ name of topic or concept
 x:=y  (do assignment and do not fail)
 
 #endif
-
 	char word[MAX_WORD_SIZE];
-	char nestKind[1000];
-    STACKREF keywordList[1000];
-    int nestLine[1000];
+	char nestKind[PATTERNDEPTH];
+    STACKREF keywordList[PATTERNDEPTH];
+    int nestLine[PATTERNDEPTH];
 	int nestIndex = 0;
 	patternContext = true;
+
+    unsigned int conceptIndex = 0; // id of concept set
+    char* conceptBufferLevelStart[PATTERNDEPTH]; //start of currentConceptBuffer
+    char* currentConceptBuffer = NULL; // movable ptr
+   static char* conceptbase = NULL; // start of xfer buffer
+    char* currentConceptXfer = NULL; // movable ptr
+    char conceptStarted[PATTERNDEPTH]; // have we inited this level yet?
+
     char* stackbase = AllocateStack(NULL, 4);
 	char* start = ptr;
 
@@ -2356,18 +2375,19 @@ x:=y  (do assignment and do not fail)
 	char* startPattern = data;
 	char* startOrig = ptr;
 	char* backup;
+
+    // these buffer allocations must be last to balance Freebuffers in endScriptCompiler
+    currentConceptBuffer = conceptBufferLevelStart[0] = AllocateBuffer();
+    conceptIndex = 0;
+    conceptStarted[0] = 0;
+    currentConceptXfer = conceptbase = AllocateBuffer();
+
 	while (ALWAYS) //   read as many tokens as needed to complete the definition
 	{
 		backup = ptr;
 		ptr = ReadNextSystemToken(in,ptr,word);
 		if (!*word) break; //   end of file
         if (!strcmp(word, "==") || !strcmp(word, "=")) WARNSCRIPT((char*)"== or = used standalone in pattern. Shouldn't it be attached to left and right tokens?\r\n")
-
-        if (!stricmp("brucetestcrash",word)) // test crash for linux
-        {
-            ptr = (char*)5;
-            ReadCompiledWord(ptr, word);
-        }
 
 		// we came from pattern IF and lack a (
 		if (ifstatement && *word != '(' && nestIndex == 0) nestKind[nestIndex++] = '(';
@@ -2449,6 +2469,26 @@ x:=y  (do assignment and do not fail)
 					if (memorizeSeen) BADSCRIPT((char*)"PATTERN-14 Cannot use _ before << \r\n")
 					if (nestKind[nestIndex-1] == '<') BADSCRIPT((char*)"PATTERN-15 << already in progress\r\n")
 					if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before <<\r\n")
+                        // close [ or { for a moment
+                        if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
+                        {
+                            currentConceptBuffer = conceptBufferLevelStart[conceptIndex]; // resume here
+                            strcpy(currentConceptXfer, currentConceptBuffer);
+                            currentConceptXfer += strlen(currentConceptXfer);
+                            if (!livecall && *currentConceptBuffer) // we had some member
+                            {
+                                sprintf(currentConceptXfer, "%s", ")\r\n");
+                                currentConceptXfer += 3;
+                            }
+                            *currentConceptBuffer = 0;
+                            *currentConceptXfer = 0;
+
+                            conceptBufferLevelStart[conceptIndex] = currentConceptBuffer;
+                            conceptStarted[conceptIndex] = 0;
+                        }
+
+                        
+                        
                     nestLine[nestIndex] = currentFileLine;
                     nestKind[nestIndex++] = '<';
 				}
@@ -2492,6 +2532,24 @@ x:=y  (do assignment and do not fail)
 				variableGapSeen = false;
 				break; //   sentence end align
 			case '(':	//   sequential pattern unit begin
+                        // close [ or { for a moment
+                if (nestKind[nestIndex-1] == '[' || nestKind[nestIndex-1] == '{')
+                {
+                    currentConceptBuffer = conceptBufferLevelStart[conceptIndex]; // resume here
+                    strcpy(currentConceptXfer, currentConceptBuffer);
+                    currentConceptXfer += strlen(currentConceptXfer);
+                    if (!livecall && *currentConceptBuffer) // we had some member
+                    {
+                        sprintf(currentConceptXfer, "%s", ")\r\n");
+                        currentConceptXfer += 3;
+                    }
+                    *currentConceptBuffer = 0;
+                    *currentConceptXfer = 0;
+
+                    conceptBufferLevelStart[conceptIndex] = currentConceptBuffer;
+                    conceptStarted[conceptIndex] = 0;
+                }
+
                 if (bidirectionalSeen)
                     BADSCRIPT((char*)"PATTERN-34 ] Cant use ( after bidirectional gap- scanning backwards is bad\r\n")
                 if (quoteSeen) BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n");
@@ -2508,23 +2566,71 @@ x:=y  (do assignment and do not fail)
 				break;
 			case '[':	//   list of pattern choices begin
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-30 Quoting [ is meaningless.\r\n");
+                if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
+                {
+                    currentConceptBuffer = conceptBufferLevelStart[conceptIndex]; // resume here
+                    strcpy(currentConceptXfer, currentConceptBuffer);
+                    currentConceptXfer += strlen(currentConceptXfer);
+                    if (!livecall && *currentConceptBuffer) // we had some member
+                    {
+                        sprintf(currentConceptXfer, "%s", ")\r\n");
+                        currentConceptXfer += 3;
+                    }
+                    *currentConceptBuffer = 0;
+                    *currentConceptXfer = 0;
+
+                    conceptBufferLevelStart[conceptIndex] = currentConceptBuffer;
+                    conceptStarted[conceptIndex] = 0;
+                }
+                
                 nestLine[nestIndex] = currentFileLine;
                 keywordList[nestIndex] = 0;
                 nestKind[nestIndex++] = '[';
+
+                conceptBufferLevelStart[++conceptIndex] = currentConceptBuffer;
+                conceptStarted[conceptIndex] = 0;
 				break;
 			case ']':	//   list of pattern choices end
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-31 Quoting ] is meaningless.\r\n");
-				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-32 Cannot use _ before  ]\r\n")
-				if (variableGapSeen) BADSCRIPT((char*)"PATTERN-33 Cannot have wildcard followed by ]\r\n")
-				if (nestKind[--nestIndex] != '[')
-					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
-				break;
+                if (memorizeSeen) BADSCRIPT((char*)"PATTERN-32 Cannot use _ before  ]\r\n")
+                if (variableGapSeen) BADSCRIPT((char*)"PATTERN-33 Cannot have wildcard followed by ]\r\n")
+                if (nestKind[--nestIndex] != '[') BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+                
+                currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
+                strcpy(currentConceptXfer, currentConceptBuffer);
+                currentConceptXfer += strlen(currentConceptXfer);
+                if (!livecall && *currentConceptBuffer) // we had some member
+                {   
+                    sprintf(currentConceptXfer,"%s",")\r\n");
+                    currentConceptXfer += 3;
+                }
+                *currentConceptBuffer = 0;
+                *currentConceptXfer = 0;
+                break;
 			case '{':	//   list of optional choices begins
                 if (nestKind[nestIndex-1] == '[') BADSCRIPT((char*)"PATTERN-15 {} within [] is pointless because it always matches\r\n")
                 if (nestKind[nestIndex - 1] == '<' && !memorizeSeen) 
                     WARNSCRIPT((char*)"PATTERN-15 {} within << >> is pointless unless you memorize or use ^matches because it always matches\r\n")
                 if (bidirectionalSeen)
                     BADSCRIPT((char*)"PATTERN-34 ] Cant use { after bidirectional gap - will always match scanning backwards\r\n")
+                    // close [ or { for a moment
+                if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
+                    {
+                        currentConceptBuffer = conceptBufferLevelStart[conceptIndex]; // resume here
+                        strcpy(currentConceptXfer, currentConceptBuffer);
+                        currentConceptXfer += strlen(currentConceptXfer);
+                        if (!livecall && *currentConceptBuffer) // we had some member
+                        {
+                            sprintf(currentConceptXfer, "%s", ")\r\n");
+                            currentConceptXfer += 3;
+                        }
+                        *currentConceptBuffer = 0;
+                        *currentConceptXfer = 0;
+
+                        conceptBufferLevelStart[conceptIndex] = currentConceptBuffer;
+                        conceptStarted[conceptIndex] = 0;
+                    }
+                
                 if (variableGapSeen)
 				{
 					// if we can see end of } and it has a gap after it... thats a problem - two gaps in succession is the equivalent
@@ -2541,13 +2647,26 @@ x:=y  (do assignment and do not fail)
                 keywordList[nestIndex] = 0;
                 nestLine[nestIndex] = currentFileLine;
                 nestKind[nestIndex++] = '{';
-				break;
+
+                conceptBufferLevelStart[++conceptIndex] = currentConceptBuffer;
+                conceptStarted[conceptIndex] = 0;
+                break;
 			case '}':	//   list of optional choices ends
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-38 Quoting } is meaningless.\r\n");
-				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-39 Cannot use _ before  }\r\n")
-				if (variableGapSeen) BADSCRIPT((char*)"PATTERN-40 Cannot have wildcard followed by }\r\n")
-				if (nestKind[--nestIndex] != '{') BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
-				break;
+                if (memorizeSeen) BADSCRIPT((char*)"PATTERN-39 Cannot use _ before  }\r\n")
+                if (variableGapSeen) BADSCRIPT((char*)"PATTERN-40 Cannot have wildcard followed by }\r\n")
+                if (nestKind[--nestIndex] != '{') BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+               
+                currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
+                strcpy(currentConceptXfer, currentConceptBuffer);
+                currentConceptXfer += strlen(currentConceptXfer);
+                if (!livecall && *currentConceptBuffer) // we had some member
+                {
+                    sprintf(currentConceptXfer, "%s", ")\r\n");
+                    currentConceptXfer += 3;
+                }
+                *currentConceptBuffer = 0;
+                *currentConceptXfer = 0;                 break;
 			case '\\': //   literal next character
 				if (quoteSeen) BADSCRIPT((char*)"PATTERN-42 Quoting an escape is meaningless.\r\n");
 				if (!word[1]) BADSCRIPT((char*)"PATTERN-43 Backslash must be joined to something to escape\r\n")
@@ -2621,7 +2740,7 @@ x:=y  (do assignment and do not fail)
 					}
 					if (n >= SEQUENCE_LIMIT) WARNSCRIPT((char*)"PATTERN-? Too many  words in string %s, may never match\r\n",word)
 				}
-				break;
+				goto DEFLT;
 			case SYSVAR_PREFIX: //   system data
 				// you can quote system variables because %topic returns a topic name which can be quoted to query
 				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-60 Cannot use _ before system variable - %s\r\n",word)
@@ -2636,9 +2755,9 @@ x:=y  (do assignment and do not fail)
 				startSeen = true;
 				WriteKey(word);
 				CheckSetOrTopic(word); // set or topic
-				break;
+				goto DEFLT;
 			default: //   normal token ( and anon function call)
-
+                DEFLT: 
 				//    MERGE user pattern words into one? , e.g. drinking age == drinking_age in dictionary
 				//   only in () sequence mode. Dont merge [old age] or {old age} or << old age >>
 				if (nestKind[nestIndex-1] == '(') //   BUG- do we need to see what triples etc wordnet has
@@ -2658,7 +2777,50 @@ x:=y  (do assignment and do not fail)
 							*nextToken = 0;
 						}
 					}
-				}
+				} 
+                // some token in optional or choice
+                if (noPatternOptimization || disablePatternOptimization || assignment || comparison || *word == '^' || *word == '_' || *word == '@' || *word == '$' || *word == '%') {;}
+                else if (strchr(word, '*') || strchr(word, '?')) { ; } // wildcard word patterns
+                else if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
+                {
+                    char controls[100];
+                    *controls = 0;
+                    if (notSeen) strcat(controls, "!");
+                    if (*controls && memorizeSeen) BADSCRIPT((char*)"PATTERN-67 Cannot have ! and _ together\r\n")
+                    if (quoteSeen) strcat(controls, "'");
+                    notSeen = quoteSeen = false;
+
+                    char name[MAX_WORD_SIZE];
+                    if (!conceptStarted[conceptIndex ]) // not yet started
+                    {
+                        int layer = 1;
+                        if (buildId == BUILD0) layer = 0;
+                        else if (buildId == BUILD0) layer = 1;
+						if (myBot && !livecall)
+						{
+#ifdef WIN32
+							sprintf(name, (char*)"~%d%05d`%I64d", layer, ++conceptID, myBot);
+#else
+							sprintf(name, (char*)"~%d%05d`%lld", layer, ++conceptID, myBot);
+#endif
+						}
+                        else sprintf(name, "~%d%05d", layer,++conceptID);
+						conceptStarted[conceptIndex ] = 1;
+                        if (!livecall) sprintf(currentConceptBuffer, "%s ( ", name);
+                        else sprintf(currentConceptBuffer, "%s ", name);
+                        currentConceptBuffer += strlen(currentConceptBuffer);
+                        sprintf(currentConceptBuffer, "%s%s ", controls,word);
+                        currentConceptBuffer += strlen(currentConceptBuffer);
+						sprintf(word, "~%d%05d", layer, conceptID); // no bot id attached
+					}
+                    else
+                    {
+                        sprintf(currentConceptBuffer, "%s%s ", controls,word);
+                        currentConceptBuffer += strlen(currentConceptBuffer);
+                        *word = 0; // dont use it
+                    }
+                }
+
 				variableGapSeen = false;
 				startSeen = true;
 				break;
@@ -2893,8 +3055,11 @@ x:=y  (do assignment and do not fail)
 		}
 
 		strcpy(data,word);
-		data += strlen(data);
-		*data++ = ' ';	
+        if (*word)
+        {
+            data += strlen(data);
+            *data++ = ' ';
+        }
         bidirectionalSeen = false;
 		if (nestIndex == 0) break; //   we completed this level
         if (*word == '*' && word[1] == '~' && word[3] && word[3] == 'b') bidirectionalSeen = true;
@@ -2909,6 +3074,28 @@ x:=y  (do assignment and do not fail)
 
 	patternContext = false;
     ReleaseStack(stackbase);
+    if (!*conceptbase) {;} // no optimization happened
+    else if (!livecall) // not from compilepattern or dynamic testpattern
+    {
+        char filename[SMALL_WORD_SIZE];
+        int layer = 1;
+        if (buildId == BUILD0) layer = 0;
+        else if (buildId == BUILD0) layer = 1;
+        sprintf(filename, (char*)"%s/BUILD%d/keywords%d.txt", topic, layer, layer);
+        FILE* out = FopenUTF8WriteAppend(filename);
+        fprintf(out, "%s", conceptbase);
+        fclose(out);
+    }
+    else // ^compilepattern optimzation
+    {
+        char* revised = AllocateBuffer();
+        strcpy(revised, startPattern);
+        strcpy(startPattern, conceptbase);
+        strcat(startPattern, revised);
+        FreeBuffer();
+     }
+    FreeBuffer(); // conceptBufferLevelStart
+    FreeBuffer(); // conceptbase
 	return ptr;
 }
 
@@ -3151,7 +3338,7 @@ spot yy is offset to end of entire if and xx if offset to next branch of if befo
 
 char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
 {
-	char* bodyends[1000];				//   places to patch for jumps
+	char* bodyends[PATTERNDEPTH];				//   places to patch for jumps
 	unsigned int bodyendIndex = 0;
 	char* original = data;
 	strcpy(data,(char*)"^if ");
@@ -4059,8 +4246,9 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 	*macroName = 0;
     macroid = 0;
 	functionArgumentCount = 0;
-	char data[MAX_BUFFER_SIZE];
-	*data = 0;
+	char* data = AllocateBuffer();
+    char* d = AllocateBuffer();
+    char* revised = AllocateBuffer();
 	char* pack = data;
 	int64 macroFlags = 0;
 	int parenLevel = 0;
@@ -4228,7 +4416,6 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 	
 	bool optionalBrace = false;
 	currentFunctionDefinition = D;
-	char d[MAX_BUFFER_SIZE];
     dataBase = NULL;
 	if ( (typeFlags & FUNCTION_BITS) == IS_PATTERN_MACRO)  
 	{
@@ -4275,7 +4462,6 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 	}
 	*pack++ = '`'; // add closing marker to script
 	*pack = 0;
-
 	//   record that it is a macro, with appropriate validation information
 	char botid[MAX_WORD_SIZE];
 #ifdef WIN32
@@ -4283,8 +4469,7 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 #else
 	sprintf(botid, (char*)"%llu", (int64)myBot);
 #endif
-	char* revised = AllocateBuffer();
-	revised[0] = revised[1] = revised[2] = revised[3] = 0;
+    revised[0] = revised[1] = revised[2] = revised[3] = 0;
 	revised += 4;
 #ifdef WIN32
 	sprintf(revised, (char*)"%s %I64d ", botid, macroFlags);
@@ -4304,7 +4489,6 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 	}
 
 	D->w.fndefinition = (unsigned char*)AllocateHeap(revised - 4, strlen(revised) + 4);
-	FreeBuffer();
 
 	if (!table) // tables are not real macros, they are temporary
 	{
@@ -4334,7 +4518,10 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 	}
     *macroName = 0;
     dataBase = NULL;
-	return ptr;
+    FreeBuffer();
+    FreeBuffer();
+    FreeBuffer();
+    return ptr;
 }
 
 static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
@@ -4405,7 +4592,8 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 	++jumpIndex;
 	int holdDepth = globalDepth;
 	char* xxbase = ptr;  // debug hook
-	while (ALWAYS) 
+	tableinput = AllocateBuffer();
+	while (ALWAYS)
 	{
 		if (setjmp(scriptJump[jumpIndex])) // flush on error
 		{
@@ -4457,7 +4645,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		char* choiceArg = NULL; //   the multiple interior
 		bool startup = true;
         trace = 0;
-        tableinput = AllocateStack(readBuffer);
+		strcpy(tableinput, readBuffer);
         while (ALWAYS)
 		{
             if (!startup) ptr = ReadSystemToken(ptr,word);	//   next item to associate
@@ -4615,7 +4803,8 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		if (fromtopic) break; // one entry only
 	}
     convertTabs = true;
-    ReleaseStack((char*)tableinput); // not required to happen if error happens
+	FreeBuffer();
+	tableinput = NULL;
 	FreeBuffer(); // not required to happen if error happens
 
 	if (!tableMacro)  // delete dynamic function
@@ -4653,6 +4842,7 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 	char* at;
 	MEANING M;
 	WORDP D;
+
 	size_t len = strlen(word);
 	switch(*word) 
 	{
@@ -4674,7 +4864,26 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 		default:
 			if (*word == USERVAR_PREFIX || (*word == '_' && IsDigit(word[1])) || *word == SYSVAR_PREFIX) BADSCRIPT((char*)"CONCEPT-? Cannot use $var or _var or %var as a keyword in %s\r\n",Meaning2Word(concept)->word);
 			if (*word == '~') MakeLowerCase(word); //   sets are always lower case
-			if ((at = strchr(word+1,'~'))) //   wordnet meaning request, confirm definition exists
+            if (*word == '"' && word[1] == '(')// pattern word
+            {
+                unsigned int flags = 0;
+                if (build & BUILD1) flags |= FACTBUILD1; // concept facts from build 1
+                else if (build & BUILD2) flags |= FACTBUILD2; // concept facts from build 1
+                MEANING conceptPattern = MakeMeaning(StoreWord("conceptPattern", AS_IS));
+                size_t len = strlen(word);
+                if (word[len-1] != '"') BADSCRIPT("ConceptPattern not closing with quote")
+                if (word[len - 2] != ')') BADSCRIPT("ConceptPattern not closing with )")
+                word[len - 1] = 0;
+                char* data = AllocateBuffer() ;
+                char* startData = data++;
+                *startData = '^'; // compiled pattern marker
+                ReadPattern(word+1, NULL, data, false, false); //   back up and pass in the paren for pattern
+                FreeBuffer();
+                M = MakeMeaning(StoreWord(startData, AS_IS));
+                FACT* F = CreateFact(M, conceptPattern, concept, flags);
+                return ptr;
+            }
+            else if ((at = strchr(word+1,'~'))) //   wordnet meaning request, confirm definition exists
 			{
 				char level[MAX_WORD_SIZE];
 				strcpy(level,at);
@@ -4741,11 +4950,11 @@ bool HasBotMember(WORDP concept, uint64 id)
     FACT* F = GetObjectHead(concept);
     while (F)
     {
-        if (F->verb == Mmember)
+        if (F->verb == Mmember) // manual ValidMemberFact(F) because bot id is passed in
         {
             // limited to a specific bot
             // We ARE allowed to add to general in existing layer
-            if (id && F->botBits & id) return true;
+            if (id && F->botBits & id) return true; // not allow generic fact?
             // we are general and it has general already
             if (!id) return true;
         }
@@ -4805,8 +5014,10 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	currentRuleID = 0;	// reset rule notation
 	verifyIndex = 0;	
 	bool stayRequested = false;
+    int buffercount = bufferIndex;
 	if (setjmp(scriptJump[++jumpIndex])) 
 	{
+        bufferIndex = buffercount;
 		ptr = FlushToTopLevel(in,holdDepth,data); //   if error occurs lower down, flush to here
 	}
 	while (ALWAYS) //   read as many tokens as needed to complete the definition
@@ -5126,10 +5337,11 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 
 	int holdDepth = globalDepth;
 	unsigned int toplevelrules = 0; // does not include rejoinders
-
+    int buffercount = bufferIndex;
 	if (setjmp(scriptJump[++jumpIndex])) 
 	{
-		ptr = FlushToTopLevel(in,holdDepth,data); //   if error occurs lower down, flush to here
+        bufferIndex = buffercount;
+        ptr = FlushToTopLevel(in,holdDepth,data); //   if error occurs lower down, flush to here
 	}
 	while (ALWAYS) //   read as many tokens as needed to complete the definition
 	{
@@ -5548,9 +5760,11 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 	int holdDepth = globalDepth;
 	patternContext = false;
 	char* ptr = "";
+    int buffercount = bufferIndex;
 	if (setjmp(scriptJump[++jumpIndex])) 
 	{
-		ptr = FlushToTopLevel(in,holdDepth,0);
+        bufferIndex = buffercount;
+        ptr = FlushToTopLevel(in,holdDepth,0);
 	}
 	while (ALWAYS) 
 	{
@@ -5598,16 +5812,21 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 
 static void DoubleCheckFunctionDefinition()
 {
-    HEAPLINK list = undefinedCallThreadList;
+    HEAPREF list = undefinedCallThreadList;
 	while (list)
 	{
-		unsigned int* data = (unsigned int*) Index2Heap(list);
-		char* functionName = Index2Heap(data[1]);
-		int args = *functionName++ ;
-		WORDP D = FindWord(functionName);
-		strcpy(currentFilename,Index2Heap(data[2]));
-		currentFileLine = data[3];
-		if (D && D->internalBits & FUNCTION_BITS)
+        uint64 functionNamex;
+        uint64 filenamex;
+        uint64 linex;
+        list = UnpackHeapval(list, functionNamex, filenamex,linex);
+        char* functionName = (char*)functionNamex;
+        char* filename = (char*)filenamex;
+        char* line = (char*) linex;
+        int args = *functionName++ ;
+		strcpy(currentFilename, filename);
+		currentFileLine = (int)(uint64)line;
+        WORDP D = FindWord(functionName);
+        if (D && D->internalBits & FUNCTION_BITS)
 		{
 			unsigned char* defn = GetDefinition(D);
 			int want = MACRO_ARGUMENT_COUNT(defn);
@@ -5622,9 +5841,7 @@ static void DoubleCheckFunctionDefinition()
 			Log(BADSCRIPTLOG, (char*)"*** Error- Undefined function %s \r\n", functionName);
 			++hasErrors;
 		}
-		list = ((unsigned int*) Index2Heap(list))[0];
 	}
-
 }
 
 static void DoubleCheckReuse()
@@ -5725,7 +5942,7 @@ static void WriteConcepts(WORDP D, uint64 build)
 	if (D->internalBits & FAKE_NOCONCEPTLIST) fprintf(out,(char*)"%s",(char*)"NOCONCEPTLIST ");
 	if (D->internalBits & UPPERCASE_MATCH) fprintf(out,(char*)"%s",(char*)"UPPERCASE_MATCH ");
     int n = 10;
-    FACT* E = GetObjectHead(D);
+    FACT* E = GetObjectNondeadHead(D);
     while (E)
     {
         if (E->verb == Mmember && E->flags & START_ONLY)
@@ -5747,15 +5964,15 @@ static void WriteConcepts(WORDP D, uint64 build)
 	NextInferMark();
 
     // write out set members here, dont write out excludes here 
-    char* word = AllocateStack(NULL, MAX_BUFFER_SIZE);
+    char* word = AllocateStack(NULL, maxBufferSize);
     FACT* F = GetObjectNondeadHead(D);
 	if (F)
 	{
 		while (F) 
 		{
-			if (build == BUILD1 && !(F->flags & FACTBUILD1)) {;} // defined by earlier level
+            if (build == BUILD1 && !(F->flags & FACTBUILD1)) {;} // defined by earlier level
 			else if (build == BUILD2 && !(F->flags & FACTBUILD2)) {;} // defined by earlier level
-            else if (F->verb == Mmember)
+            else if (F->verb == Mmember) // dont use ValidMemberFact, we want from all bots
 			{
 				WORDP EX = Meaning2Word(F->subject);
 				AddBeenHere(EX);
@@ -5811,6 +6028,7 @@ static void WriteConcepts(WORDP D, uint64 build)
         }
     }
     // now write out simple excludes only
+    MEANING MconceptPattern = MakeMeaning(FindWord("conceptpattern")); // does not have to be found
     F = GetObjectNondeadHead(D);
     if (F)
     {
@@ -5819,6 +6037,7 @@ static void WriteConcepts(WORDP D, uint64 build)
             WORDP E = Meaning2Word(F->subject);
             if (build == BUILD1 && !(F->flags & FACTBUILD1)) { ; } // defined by earlier level
             else if (build == BUILD2 && !(F->flags & FACTBUILD2)) { ; } // defined by earlier level
+            else if (F->verb == MconceptPattern) { ; }
             else if (F->verb == Mexclude && *E->word != '~') // the only relevant facts
             {
                 AddBeenHere(E);
@@ -5829,8 +6048,8 @@ static void WriteConcepts(WORDP D, uint64 build)
                     word[len - 1] = ' ';			// remove trailing quote
                     ForceUnderscores(word);
                 }
-                else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"'%s ", WriteMeaning(F->subject, true));
-                else sprintf(word, (char*)"%s ", WriteMeaning(F->subject, true));
+                else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"!'%s ", WriteMeaning(F->subject, true));
+                else sprintf(word, (char*)"!%s ", WriteMeaning(F->subject, true));
 
                 char* dict = strchr(word + 1, '~'); // has a wordnet attribute on it
                 if (dict) //  full wordnet word reference
@@ -5854,6 +6073,7 @@ static void WriteConcepts(WORDP D, uint64 build)
                 KillFact(F);
             }
             else KillFact(F);
+
             F = GetObjectNondeadNext(F);
         }
     }
@@ -6009,7 +6229,8 @@ static void WriteExtendedFacts(FILE* factout,FILE* dictout,unsigned int build)
 	FreeBuffer();
 
 	WriteDictionaryChange(dictout,build);
-	if (build == BUILD0) WriteFacts(factout,factsPreBuild[LAYER_0]);
+    seeAllFacts = true;
+    if (build == BUILD0) WriteFacts(factout,factsPreBuild[LAYER_0]);
 	else if (build == BUILD1) WriteFacts(factout,factsPreBuild[LAYER_1]);
 	//else if (build == BUILD2) WriteFacts(factout,factsPreBuild[LAYER_BOOT],FACTBUILD2);
 	// factout closed by Writefacts
@@ -6131,7 +6352,8 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	if (build == BUILD2) ReturnToAfterLayer(2, false); // layer 2 is boot layer before a user 2 layer. rip dictionary back to start of build (but props and systemflags can be wrong)
 	else if (build == BUILD1) ReturnToAfterLayer(0,true); // rip dictionary back to start of build (but props and systemflags can be wrong)
 	else  ReturnDictionaryToWordNet();
-	WalkDictionary(ClearTopicConcept,build);				// remove concept/topic flags from prior defined by this build
+	
+    WalkDictionary(ClearTopicConcept,build);				// remove concept/topic flags from prior defined by this build
 	EraseTopicFiles(build,baseName);
 	char file[SMALL_WORD_SIZE];
 	sprintf(file,(char*)"%s/missingLabel.txt",topic);

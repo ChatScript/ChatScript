@@ -132,16 +132,6 @@ structure dies at the end of the volley. &#39;b&#39; means boot and the data mov
 later at the end of the volley. Anything else (e.g. an immediate digit) means the structure
 is permanent and is stored in the user&#39;s topic file.
 
-Any facts moved to the boot layer will be lost if the server restarts, unless you have a 
-command line parameter `recordboot`, in which case the json facts with boot 
-media will be written to a top-level file `bootfacts.txt` at the same time they are copied to boot layer.
-You will probably then also want to write a boot function that uses ^importfact to read 
-back these facts on server startup.
-
-Changing the content of boot json facts (e.g. `$data.value += 1`) may create
-abandoned data in the boot layer (the old value of $data.value) and do 
-this often enough and you may run out of memory since there is no way to reclaim it.
-
 You can also add a flag `safe` (described later) to `^jsonparse`, `^jsonobjectinsert`, `^jsonarraydelete`. 
 You can also add a flag `unique` to `^jsonarrayinsert`.
 You can also add `duplicate` to ^jsonobjectinsert.

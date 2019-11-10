@@ -22,10 +22,9 @@ struct FACT;
 typedef unsigned int FACTOID; //   a fact index
 typedef unsigned int FACTOID_OR_MEANING;	// a fact or a meaning (same representation)
 
-typedef unsigned int STACKREF; // stack offset reference
-typedef unsigned int HEAPREF; // heap offset reference
-typedef unsigned int HEAPLINK; //   a threaded list in the heap
-typedef unsigned int STACKLINK; //   a threaded list in the stack
+typedef char* STACKREF; 
+typedef char* HEAPREF;
+typedef unsigned int HEAPINDEX; 
 
 struct WORDENTRY;
 typedef WORDENTRY* WORDP;
@@ -146,10 +145,8 @@ extern char* stackStart;
 extern char* heapEnd;
 extern unsigned long minHeapAvailable;
 extern int loglimit;
-char* Index2Heap(HEAPREF offset);
-inline HEAPREF Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapBase - str);}
-inline STACKREF Stack2Index(char* str) { return (!str) ? 0 : (unsigned int)(str - stackStart); }
-inline char* Index2Stack(STACKREF ptr) { return (!ptr) ? 0 : (stackStart + ptr); }
+HEAPREF Index2Heap(HEAPINDEX offset);
+inline HEAPINDEX Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapBase - str);}
 
 // MEMORY SYSTEM
 void ResetBuffers();
@@ -167,7 +164,12 @@ bool AllocateStackSlot(char* variable);
 char** RestoreStackSlot(char* variable,char** slot);
 char* AllocateHeap(char* word,size_t len = 0,int bytes= 1,bool clear = false,bool purelocal = false);
 bool PreallocateHeap(size_t len);
+extern uint64 discard;
 void ProtectNL(char* buffer);
+HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3 = NULL);
+HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64& val3 = discard);
+STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2 = NULL, uint64 val3 = NULL);
+STACKREF UnpackStackval(STACKREF linkval, uint64& val1, uint64& val2 = discard, uint64& val3 = discard);
 void InitStackHeap();
 void FreeStackHeap();
 bool KeyReady();
@@ -281,6 +283,7 @@ unsigned int GetFutureSeconds(unsigned int seconds);
 #define STDTRACETABLOG 101
 #define STDTRACEATTNLOG 201
 #define STDTIMETABLOG 301
+#define FORCETABLOG 401
 
 extern bool userEncrypt;
 extern bool ltmEncrypt;

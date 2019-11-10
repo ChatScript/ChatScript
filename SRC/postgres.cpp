@@ -200,7 +200,7 @@ size_t pguserRead(void* buf,size_t size, size_t count, FILE* file)
 	const char * readsql = 0;
 	if (pguserread != 0) readsql = pguserread;
 	else readsql = pgdefault_userread; // // use default sql one table per user
-	if (trace) Log(STDUSERLOG,buffer);
+	if (trace & TRACE_FLOW) Log(STDUSERLOG,buffer);
 
 	const char* paramValues[1] = {(char*)pguserFilename};
 	PGresult   *res = PQexecParams(usersconn,
@@ -446,7 +446,7 @@ FunctionResult DBExecuteCode(char* buffer)
         PQclear(res);
 		return FAILRULE_BIT;
      }
-	char* psBuffer = AllocateStack(NULL,MAX_BUFFER_SIZE);
+	char* psBuffer = AllocateStack(NULL, maxBufferSize);
 	if (*function && status == PGRES_TUPLES_OK) // do something with the answers
 	{
 		psBuffer[0] = '(';

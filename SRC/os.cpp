@@ -22,6 +22,7 @@ char* stackFree;
 char* infiniteCaller = "";
 char* stackStart;
 char* heapEnd;
+uint64 discard;
 bool infiniteStack = false;
 bool userEncrypt = false;
 bool ltmEncrypt = false;
@@ -31,8 +32,8 @@ char serverLogfileName[200];				// file to log server to
 char dbTimeLogfileName[200];				// file to log db time to
 char logFilename[MAX_WORD_SIZE];			// file to user log to
 bool logUpdated = false;					// has logging happened
-int logsize = MAX_BUFFER_SIZE;
-int outputsize = MAX_BUFFER_SIZE;
+int logsize = MAX_BUFFER_SIZE;              // default
+int outputsize = MAX_BUFFER_SIZE;           // default
 char* logmainbuffer = NULL;					// where we build a log line
 static bool pendingWarning = false;			// log entry we are building is a warning message
 static bool pendingError = false;			// log entry we are building is an error message
@@ -58,7 +59,7 @@ unsigned int maxReleaseStack = 0;
 unsigned int maxReleaseStackGap = 0xffffffff;
 
 unsigned int maxBufferLimit = MAX_BUFFER_COUNT;		// default number of system buffers for AllocateBuffer
-unsigned int maxBufferSize = MAX_BUFFER_SIZE;		// how big std system buffers from AllocateBuffer should be
+unsigned int maxBufferSize = MAX_BUFFER_SIZE;		// default how big std system buffers from AllocateBuffer should be
 unsigned int maxBufferUsed = 0;						// worst case buffer use - displayed with :variables
 unsigned int bufferIndex = 0;				//   current allocated index into buffers[]  
 unsigned baseBufferIndex = 0;				// preallocated buffers at start
@@ -343,7 +344,7 @@ char* AllocateBuffer(char* name)
 }
 
 void FreeBuffer(char* name)
-{
+{ // if longjump happens this may not be called. manually restore counts in setjump code
 	if (showmem) Log(STDUSERLOG,(char*)"Buffer free %d %s %s\r\n",bufferIndex,name, releaseStackDepth[globalDepth]);
 	if (overflowIndex) --overflowIndex; // keep the dynamically allocated memory for now.
 	else if (bufferIndex)  --bufferIndex; 
@@ -378,6 +379,9 @@ void FreeStackHeap()
 
 char* AllocateStack(char* word, size_t len,bool localvar,int align) // call with (0,len) to get a buffer
 {
+	if (!stackFree) 
+		return NULL; // shouldnt happen
+
 	if (infiniteStack) 
 		ReportBug("Allocating stack while InfiniteStack in progress from %s\r\n",infiniteCaller);
 	if (len == 0)
@@ -496,6 +500,44 @@ void ReleaseInfiniteStack()
 	infiniteCaller = "";
 }
 
+HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
+{
+    uint64* heapval = (uint64*)AllocateHeap(NULL, 5, sizeof(uint64), false);
+    heapval[0] = (uint64)linkval;
+    heapval[1] = val1;
+    heapval[2] = val2;
+    heapval[3] = val3;
+    return (HEAPREF)heapval;
+}
+
+HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64 & val3)
+{
+    uint64* data = (uint64*)linkval;
+    val1 = data[1];
+    val2 = data[2];
+    val3 = data[3];
+    return (HEAPREF)data[0];
+}
+
+STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2, uint64 val3)
+{
+    uint64* stackval = (uint64*)AllocateStack(NULL, 5 * sizeof(uint64), false,8);
+    stackval[0] = (uint64)linkval;
+    stackval[1] = val1;
+    stackval[2] =  val2;
+    stackval[3] =  val3;
+    return (STACKREF)stackval;
+}
+
+STACKREF UnpackStackval(STACKREF linkval, uint64& val1, uint64& val2, uint64& val3)
+{ // factthread requires all 5, writes on its own
+    uint64* data = (uint64*) linkval;
+    val1 = data[1];
+    val2 = data[2];
+    val3 = data[3];
+    return (STACKREF)data[0];
+}
+
 void CompleteBindStack64(int n,char* base)
 {
 	stackFree =  base + ((n+1) * sizeof(FACT*)); // convert infinite allocation to fixed one given element count
@@ -512,11 +554,11 @@ void CompleteBindStack()
 	infiniteStack = false;
 }
 
-char* Index2Heap(HEAPREF offset)
+HEAPREF Index2Heap(HEAPINDEX offset)
 { 
 	if (!offset) return NULL;
-	char* ptr = heapBase - offset;
-	if (ptr < heapFree)  
+    char* ptr = heapBase - offset;
+    if (ptr < heapFree)
 	{
 		ReportBug((char*)"String offset into free space\r\n")
 		return NULL;
@@ -1843,7 +1885,16 @@ char* myprinter(const char* ptr, char* at, va_list ap)
             else if (*ptr == 's') // string
             {
                 s = va_arg(ap, char*);
-                if (s) sprintf(at, (char*)"%s", s);
+                if (s)
+                {
+                    size_t len = strlen(s);
+                    if ((at - base + len) > (logsize - SAFE_BUFFER_MARGIN))
+                    {
+                        sprintf(at, (char*)" ... ");
+                        break;
+                    }
+                    sprintf(at, (char*)"%s", s);
+                }
             }
             else if (*ptr == 'x') sprintf(at, (char*)"%x", (unsigned int)va_arg(ap, unsigned int)); // hex 
             else if (IsDigit(*ptr)) // int %2d or %08x
@@ -1884,7 +1935,11 @@ char* myprinter(const char* ptr, char* at, va_list ap)
 
 int myprintf(const char * fmt, ...)
 {
-    if (!logmainbuffer) logmainbuffer = (char*)malloc(logsize);
+    if (!logmainbuffer)
+    {
+        if (logsize < maxBufferSize) logsize = maxBufferSize; // log needs to be able to hold for replays of it
+        logmainbuffer = (char*)malloc(logsize);
+    }
     char* at = logmainbuffer;
     *at = 0;
     va_list ap;
@@ -1952,14 +2007,21 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 		localecho = true;
 		channel = STDUSERLOG;
 	}
-	if (channel == STDTIMELOG) {
+	if (channel == STDTIMELOG) 
+    {
 		noecho = true;
 		channel = STDUSERLOG;
 	}
-	if (channel == STDTIMETABLOG) {
+	if (channel == STDTIMETABLOG) 
+    {
 		noecho = true;
 		channel = STDTRACETABLOG;
 	}
+    if (channel == FORCETABLOG)
+    {
+        channel = FORCETABLOG;
+        logLastCharacter = 0;
+    }
 	// allow user logging if trace is on.
     if (!fmt)  return id; // no format or no buffer to use
 	if ((channel == SERVERLOG) && server && !serverLog)  return id; // not logging server data
@@ -1967,7 +2029,11 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 	static int priordepth = 0;
 
 	// start writing normal data here
-    if (!logmainbuffer) logmainbuffer = (char*)malloc(logsize);
+    if (!logmainbuffer)
+    {
+        if (logsize < maxBufferSize) logsize = maxBufferSize; // log needs to be able to hold for replays of it
+        logmainbuffer = (char*)malloc(logsize);
+    }
     char* at = logmainbuffer;
     *at = 0;
 
@@ -2001,7 +2067,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 		}
 		else 
 		{
-			if (logLastCharacter != '\n') // log legal
+			if (!LogEndedCleanly()) // log legal
 			{
 				*at++ = '\r'; //   close out this prior thing
 				*at++ = '\n'; // log legal
@@ -2024,6 +2090,14 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 	channel %= 100;
     at = myprinter(ptr,at, ap);
     va_end(ap); 
+
+    if (traceTestPattern)
+    {
+        UpdateTrace(logmainbuffer);
+        *logmainbuffer = 0;
+        inLog = false;
+        return ++id;
+    }
 
 	// implement unlogged data
 	if (hide)
@@ -2189,15 +2263,17 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
     if (logFilename[0] != 0 && channel != SERVERLOG && channel != BUGLOG && channel != DBTIMELOG)  
 	{
 		strcpy(fname, logFilename);
-		char defaultlogFilename[MAX_BUFFER_SIZE];
+		char* defaultlogFilename = AllocateBuffer();
 		sprintf(defaultlogFilename,"%s/log%u.txt",logs,port); // DEFAULT LOG
 		if (strcmp(fname, defaultlogFilename) == 0){ // of log is default log i.t log<port>.txt
-			char holdBuffer[MAX_BUFFER_SIZE];
+			char* holdBuffer = AllocateBuffer();
 			struct tm ptm;
 			sprintf(holdBuffer,"%s - %s", GetTimeInfo(&ptm),logmainbuffer);
 			strcpy(logmainbuffer, holdBuffer);
+            FreeBuffer();
 		}
 		out =  rotateLogOnLimit(fname,users);
+        FreeBuffer();
 	}
 	else if(channel == DBTIMELOG) // do db log 
 	{

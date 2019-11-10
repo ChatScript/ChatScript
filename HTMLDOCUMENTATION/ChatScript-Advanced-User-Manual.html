@@ -197,16 +197,7 @@ u: () ^&quot;[oob data] Here is user message</code></pre>
 </tbody>
 </table>
 <h1 id="system-callback-functions">System callback functions</h1>
-<h2 id="csboot"><code>^CSBOOT()</code></h2>
-<pre><code>outputmacro: ^CSBOOT()</code></pre>
-<p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users (the boot layer). And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
-<p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
-<p>You can also add facts to the boot layer by creating facts from a user script using ^createFact(s v o #FACTBOOT)</p>
-<p>This function allows you to read external data to be incorporated as Facts into the basic server. You are allowed to define any number of these in a multibot environment without triggering a complaint about already defined functions.</p>
-<p>^purgeboot can be used to erase facts stored in the boot layer.</p>
-<h2 id="cs_reboot"><code>^CS_REBOOT()</code></h2>
-<pre><code>outputmacro: ^CS_REBOOT()</code></pre>
-<p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and variables just disappear. It is used in conjunction with a call to the system function ^reboot() to replace data from a ^CSBOOT. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
+<h2 id="csboot-and-csreboot-see-advanced-layers-manual.">`^CSBOOT() and ^CSREBOOT() see Advanced Layers manual.</h2>
 <h2 id="csshutdown"><code>^CSSHUTDOWN()</code></h2>
 <pre><code>outputmacro: ^CSSHUTDOWN()</code></pre>
 <p>This function, if defined by you, will be executed on shutdown or restart of the ChatScript system.</p>

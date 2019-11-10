@@ -94,7 +94,7 @@ extern bool build0Requested;
 extern bool build1Requested;
 extern char traceuser[500];
 extern bool callback;
-extern char inputCopy[INPUT_BUFFER_SIZE]; 
+extern char* inputCopy; 
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern char language[40];
@@ -134,7 +134,7 @@ extern int inputCounter,totalCounter;
 extern int inputSentenceCount;  
 extern char* extraTopicData;
 extern char postProcessing;
-extern char rawSentenceCopy[INPUT_BUFFER_SIZE];
+extern char* rawSentenceCopy;
 extern char authorizations[200];
 extern FILE* userInitFile;
 extern uint64 tokenControl;
@@ -183,14 +183,15 @@ extern std::string interfaceKind;
 #endif
 
 // buffers
-extern char ourMainInputBuffer[INPUT_BUFFER_SIZE * 2];
+extern char* ourMainInputBuffer;
 extern char* mainInputBuffer;
 extern char* ourMainOutputBuffer;
 extern char* mainOutputBuffer;
-extern char currentInput[INPUT_BUFFER_SIZE];
-extern char revertBuffer[INPUT_BUFFER_SIZE];
+extern char* currentInput;
+extern char* revertBuffer;
 extern char* readBuffer;
 extern char* nextInput;
+extern char* copyInput;
 
 extern char activeTopic[200];
 

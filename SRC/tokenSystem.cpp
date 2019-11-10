@@ -531,7 +531,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
             }
 			else // see if merely highlighting a word
 			{
-				char* word = AllocateStack(NULL,INPUT_BUFFER_SIZE,false,0);
+				char* word = AllocateStack(NULL,maxBufferSize,false,0);
 				char* tail = ReadCompiledWord(ptr, word);
 				char* close = strchr(word + 1, '"');
 				ReleaseStack(word);
@@ -582,7 +582,10 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	size_t xx = strlen(token);
 	if (X && !IsDigit(*token) && token[xx - 1] != '?' && token[xx - 1] != '!' && token[xx - 1] != ',' && token[xx - 1] != ';' && token[xx - 1] != ':') // we know the word and it cant be a number
     {
-        return ptr + xx;
+        if (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD)) // if we just created it and not to protect testpattern
+        {
+            return ptr + xx;
+        }
     }
     char* slash = strchr(token, '/');
     if (slash) // dont break up word like km/h

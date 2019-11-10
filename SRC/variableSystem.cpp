@@ -10,23 +10,24 @@ There are 5 kinds of variables.
 4. Function variables beginning with ^
 5. System variables beginning with %
 #endif
-HEAPLINK userVariableThreadList = 0;
+HEAPREF userVariableThreadList = NULL;
+STACKREF stackedUserVariableThreadList = NULL;
 int impliedSet = ALREADY_HANDLED;	// what fact set is involved in operation
 int impliedWild = ALREADY_HANDLED;	// what wildcard is involved in operation
 char impliedOp = 0;					// for impliedSet, what op is in effect += = 
-HEAPLINK variableChangedThreadlist = 0;
+HEAPREF variableChangedThreadlist = NULL;
 
 int wildcardIndex = 0;
-char wildcardOriginalText[MAX_WILDCARDS + 1][MAX_USERVAR_SIZE + 1];  // spot wild cards can be stored
-char wildcardCanonicalText[MAX_WILDCARDS + 1][MAX_USERVAR_SIZE + 1];  // spot wild cards can be stored
+char wildcardOriginalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot wild cards can be stored
+char wildcardCanonicalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot wild cards can be stored
 unsigned int wildcardPosition[MAX_WILDCARDS + 1]; // spot it started and ended in sentence
 char wildcardSeparator[2];
 
 //   list of active variables needing saving
 
 WORDP tracedFunctionsList[MAX_TRACED_FUNCTIONS];
-HEAPLINK kernelVariableThreadList = 0;
-HEAPLINK botVariableThreadList = 0;
+HEAPREF kernelVariableThreadList = NULL;
+HEAPREF botVariableThreadList = NULL;
 unsigned int tracedFunctionsIndex;
 unsigned int modifiedTraceVal = 0;
 bool modifiedTrace = false;
@@ -174,14 +175,14 @@ void SetWildCard(char* value, char* canonicalValue, const char* index, unsigned 
     // adjust values to assign
     if (!value) value = "";
     if (!canonicalValue) canonicalValue = "";
-    if (strlen(value) > MAX_USERVAR_SIZE)
+    if (strlen(value) > MAX_MATCHVAR_SIZE)
     {
-        value[MAX_USERVAR_SIZE] = 0;
+        value[MAX_MATCHVAR_SIZE] = 0;
         ReportBug((char*)"Too long matchvariable original value %s", value)
     }
-    if (strlen(canonicalValue) > MAX_USERVAR_SIZE)
+    if (strlen(canonicalValue) > MAX_MATCHVAR_SIZE)
     {
-        canonicalValue[MAX_USERVAR_SIZE] = 0;
+        canonicalValue[MAX_MATCHVAR_SIZE] = 0;
         ReportBug((char*)"Too long matchvariable canonical value %s", value)
     }
     while (value[0] == ' ') ++value;
@@ -409,25 +410,23 @@ NULLVALUE:
 
 void ClearUserVariableSetFlags()
 {
-    HEAPLINK varthread = userVariableThreadList;
+    HEAPREF varthread = userVariableThreadList;
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
-        RemoveInternalFlag(D, VAR_CHANGED);
+        uint64 D;
+        varthread = UnpackHeapval(varthread, D, discard, discard);
+        RemoveInternalFlag((WORDP)D, VAR_CHANGED);
     }
 }
 
 void ShowChangedVariables()
 {
-    HEAPLINK varthread = userVariableThreadList;
+    HEAPREF varthread = userVariableThreadList;
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
-
+        uint64 Dx;
+        varthread = UnpackHeapval(varthread, Dx, discard, discard);
+        WORDP D = (WORDP)Dx;
         char* value = D->w.userValue;
         if (value && *value) Log(1, (char*)"%s = %s\r\n", D->word, value);
         else Log(1, (char*)"%s = null\r\n", D->word);
@@ -442,11 +441,8 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
     }
     else if (!(D->internalBits & VAR_CHANGED))	// not changed already this volley
     {
-        char* data = AllocateHeap(NULL, 2, 4); // word  aligned
-        ((unsigned int*)data)[0] = userVariableThreadList;
-        ((unsigned int*)data)[1] = Word2Index(D);
-        userVariableThreadList = Heap2Index(data);
-
+        userVariableThreadList = AllocateHeapval(userVariableThreadList,
+            (uint64)D, NULL, NULL);
         if (init) D->w.userValue = NULL;
         D->internalBits |= VAR_CHANGED; // bypasses even locked preexisting variables
     }
@@ -465,11 +461,8 @@ void SetVariable(WORDP D, char* value)
 
         if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue, value))) // only permanent variables get tracked
         {
-            char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
-            ((unsigned int*)heapval)[0] = variableChangedThreadlist;
-            variableChangedThreadlist = Heap2Index((char*)heapval);
-            heapval[1] = (char*)D; // save name
-            heapval[2] = D->w.userValue; // save old value
+            variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,
+                (uint64)D, (uint64)D->w.userValue, NULL);// save name
         }
         D->w.userValue = value;
     }
@@ -772,14 +765,14 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
     return NOPROBLEM_BIT;
 }
 
-static void SetBotVars(unsigned int varthread)
+static void SetBotVars(HEAPREF varthread)
 {
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
-        D->w.userValue = Index2Heap(cell[2]);
+        uint64 D;
+        uint64 value;
+        varthread = UnpackHeapval(varthread, D, value, discard);
+        ((WORDP)D)->w.userValue = (char*) value;
     }
 }
 
@@ -791,93 +784,72 @@ void ReestablishBotVariables() // refresh bot variables in case user overwrote t
 
 void ClearBotVariables()
 {
-    kernelVariableThreadList = 0;
-    botVariableThreadList = 0;
+    kernelVariableThreadList = NULL;
+    botVariableThreadList = NULL;
 }
 
 void NoteBotVariables() // system defined variables
 {
-    HEAPLINK varthread = userVariableThreadList;
-    while (varthread)
+    while (userVariableThreadList)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
+        uint64 Dx;
+        userVariableThreadList = UnpackHeapval(userVariableThreadList, Dx, discard, discard);
+        WORDP D = (WORDP)Dx;
         if (D->word[1] != LOCALVAR_PREFIX && D->word[1] != TRANSIENTVAR_PREFIX) // not a transient var
         {
             if (!strnicmp(D->word, "$cs_", 4)) continue; // dont force these, they are for user
-            int* data = (int*)AllocateHeap(NULL, 3, 4);
-            data[0] = botVariableThreadList;
-            data[1] = Word2Index(D);
-            data[2] = Heap2Index(D->w.userValue);
-            botVariableThreadList = Heap2Index((char*)data);
+            botVariableThreadList = AllocateHeapval(botVariableThreadList, (uint64)D,
+                (uint64)D->w.userValue, NULL);
         }
         RemoveInternalFlag(D, VAR_CHANGED);
     }
-    userVariableThreadList = 0;
 }
 
 void MigrateUserVariables()
 {
-    HEAPLINK varthread = userVariableThreadList; // does not include $_ locals
-    userVariableThreadList = 0;
-    while (varthread)
+    while (userVariableThreadList)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-
-        WORDP D = Index2Word(cell[1]);
+        uint64 Dx;
+        userVariableThreadList = UnpackHeapval(userVariableThreadList, Dx, discard, discard);
+        WORDP D = (WORDP)Dx;
         D->w.userValue = AllocateStack(D->w.userValue, 0);
         D->word = AllocateStack(D->word, 0); // reallocate name
-
-                                             // recreate thread list
-        unsigned int* data = (unsigned int*)AllocateStack(NULL, 8, false, 4); // allocate list
-        data[0] = userVariableThreadList;
-        data[1] = cell[1];
-        userVariableThreadList = Stack2Index((char*)data);
+        stackedUserVariableThreadList = AllocateStackval(stackedUserVariableThreadList, (uint64)D);
     }
 }
 
 void RecoverUserVariables()
-{
-    HEAPLINK varthread = userVariableThreadList;
-    userVariableThreadList = 0;
-    while (varthread)
+{// transfer stack variables to heap variables
+    while (stackedUserVariableThreadList)
     {
-        STACKLINK* cell = (unsigned int*)Index2Stack(varthread);
-        varthread = cell[0];
-
-        WORDP D = Index2Word(cell[1]); // 0 based
+        uint64 Dx;
+        stackedUserVariableThreadList = UnpackStackval(stackedUserVariableThreadList, Dx);
+        WORDP D = (WORDP)Dx;
         D->w.userValue = AllocateHeap(D->w.userValue, 0);
         D->word = AllocateHeap(D->word, 0);
-
-        unsigned int* data = (unsigned int*)AllocateHeap(NULL, 2, 4); // allocate list
-        data[0] = userVariableThreadList;
-        data[1] = cell[1];
-        userVariableThreadList = (HEAPLINK)Heap2Index((char*)data);
+        userVariableThreadList = AllocateHeapval(userVariableThreadList,
+            (uint64)D, NULL, NULL);
     }
 }
 
 void ClearUserVariables(char* above)
 {
-    HEAPLINK varthread = userVariableThreadList;
+    HEAPREF varthread = userVariableThreadList;
     unsigned int* prevcell = 0;
-    while (varthread)
+    while (varthread) // variable may be below mark but has value above
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
+        uint64 Dx;
+        varthread = UnpackHeapval(varthread, Dx,discard);
+        WORDP D = (WORDP)Dx;
         if (!above) // removing ALL variables
         {
             D->w.userValue = NULL;
             RemoveInternalFlag(D, VAR_CHANGED);
         }
-        else  if (D->w.userValue < above) // heap spaces runs DOWN, so this passes more recent entries into here
+        else  if (D->w.userValue < above) // heap is down, so this is recent and must be lost.
         {
-            if (prevcell) prevcell[0] = varthread;  // previous needs to point to next
-            else userVariableThreadList = varthread;  // potential new start of list
+            D->w.userValue = NULL; // lose value in new area
         }
-        else prevcell = cell;  // keeping this one, so remember it
     }
     if (!above) userVariableThreadList = 0;
 }
@@ -888,32 +860,32 @@ static int compareVariables(const void *var1, const void *var2)
     return strcmp((*(WORDP *)var1)->word, (*(WORDP *)var2)->word);
 }
 
-static void ListVariables(char* header, unsigned int varthread)
+static void ListVariables(char* header, HEAPREF varthread)
 {
     char* value;
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
+        uint64 Dx;
+        varthread = UnpackHeapval(varthread, Dx, discard, discard);
+        WORDP D = (WORDP)Dx;
         value = D->w.userValue;
         if (value && *value)  Log(STDUSERLOG, (char*)"  %s variable: %s = %s\r\n", header, D->word, value);
     }
 }
 
-void DumpUserVariables()
+void DumpUserVariables(bool doall)
 {
     char* value;
     ListVariables("preboot", kernelVariableThreadList);
     ListVariables("boot", botVariableThreadList);
+    if (!doall) return;
 
     // count entries
     int counter = 0;
-    HEAPLINK varthread = userVariableThreadList;
+    HEAPREF varthread = userVariableThreadList;
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
+        varthread = UnpackHeapval(varthread, discard, discard, discard);
         ++counter;
     }
 
@@ -925,10 +897,9 @@ void DumpUserVariables()
     int i = 0;
     while (varthread)
     {
-        unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-        varthread = cell[0];
-        WORDP D = Index2Word(cell[1]);
-        arySortVariablesHelper[i++] = D;
+        uint64 D;
+        varthread = UnpackHeapval(varthread, D, discard, discard);
+        arySortVariablesHelper[i++] = (WORDP)D;
     }
 
     // Sort it.

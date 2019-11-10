@@ -1,0 +1,11 @@
+﻿ 5-hitter ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
+    five-hitter~1n 
+ 5-hydroxy-3-methylglutaryl-coenzyme_A_reductase ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
+    HMG-CoA_reductase~1nz (^reductase~1) a liver enzyme that is responsible for producing cholesterol
+ 5-hydroxytryptamine ( meanings=1 glosses=1 NOUN NOUN_SINGULAR posdefault:NOUN ) 
+    serotonin~1nz (^monoamine_neurotransmitter~1) a neurotransmitter involved in e.g. sleep and depression and memory
+ 5-membered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    five-membered~1a 
+ 5-star ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    5-star~1az 
+ 5/8 ( NOUN NOUN_NUMBER KINDERGARTEN ) 

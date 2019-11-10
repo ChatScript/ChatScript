@@ -1,4 +1,6 @@
 pandoc ../README.md -s -o ../README.pdf
+
+pandoc ChatScript-Advanced-Layers-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Layers-Manual.pdf
 pandoc ChatScript-Advanced-User-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-User-Manual.pdf
 pandoc ChatScript-Advanced-Topic-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Topic-Manual.pdf
 pandoc ChatScript-Advanced-Concept-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Advanced-Concept-Manual.pdf

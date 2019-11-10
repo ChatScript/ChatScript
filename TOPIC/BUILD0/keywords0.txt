@@ -2171,7 +2171,7 @@
 ~insults ( ~insult_psychology_adjectives ~hatewords ~bad_words )
 ~insurance ( term_life renter_'s_insurance property_insurance life_insurance insurance house_insurance homeowner_'s_insurance home_insurance fire_insurance disability_insurance car_insurance automobile_insurance auto_insurance )
 ~insurance_agent ( insurance_agent ~insurance )
-~mythical_intelligent_being PROBABLE_NOUN ( zombie wraith wizard witch werewolf warlock villain vampire_hunter vampire troll Tooth_Fairy superman superhero succubus Siren Satan Santa_Claus Santa robot ogre necromancersuperhero necromancer merman mermaid Martian leprechaun kobold imp hag God gnome giant ghoul ghost_hunter ghost Frost_Giant fairy_godmother elf dwarf Death Cupid banshee Anubis angel alien )
+~mythical_intelligent_being PROBABLE_NOUN ( zombie wraith wizard witch werewolf warlock villain vampire_hunter vampire troll Tooth_Fairy superman superhero succubus Siren Satan Santa_Claus Santa robot ogre necromancer merman mermaid Martian leprechaun kobold imp hag God gnome giant ghoul ghost_hunter ghost Frost_Giant fairy_godmother elf dwarf Death Cupid banshee Anubis angel alien )
 ~yesno ( ~no ~yes )
 ~interjections ( ~yes ~no ~emothanks ~emosurprise ~emoskeptic ~emosad ~emoprotest ~emopain ~emomutual ~emomisunderstand ~emomaybe ~emolaugh ~emoignorance ~emohowzit ~emohello ~emohappy ~emogoodbye ~emodisgust ~emocurse ~emobored ~emobeg ~emoapology )
 ~internet_cafe ( search Internet_cafe Internet game )
@@ -2582,19 +2582,19 @@
 ~timelater ( subsequently subsequent since post next later hence from follow ere afterward after )
 ~timenopreposition ( this next last every any all )
 ~tool ( skin integumentary white_blood_cell immune excretory endocrine stomach digestion digestive circulatory cardiovascular coal mana wool yarn cotton acetominephin codeine tylenol aspirin iodine conditioner shampoo toothpaste detergent soap concrete duvet bedspread blanket pillowcase sheet bandage band-aid dressing armor helmet handkerchief barrette apron pajamas kimono negligee tuxedo belt cape cloak sunglasses goggles hijab ski_mask mask tie scarf earmuff clothes mackintosh raincoat topcoat Burberry 
-    anorak overcoat jacket coat beanie hood cap hat moccasin boot bobbysocks galoshes socks high_heel sandal shoe mitt mitten glove panties underwear underpants pantie briefs miniskirt frock skirt dress shorts slacks pants jeans bikini swimsuit bathing_suit tutu kilt trunks trousers tank_top vest turtleneck sweatshirt pullover sweater halter_top shirt blouse swimming_trunks T-shirt mother father parent prostitute gigolo lover girlfriend concubine husband wife mate chaplain rabbi priest shaman healer 
-    physician nurse doctor police patrolman beat_cop policewoman policeman cop blow_dryer iron coffee_maker humidifier Cuisinart food_processor blender mixer beater electric_mixer colander dredger whisk homogenizer trash_compactor compactor refrigerator freezer dryer washing_machine washer garbage_disposal dishwasher heater air_conditioner fan waffle_iron barbeque gas_grill grill burner cooktop microwave stove oven toaster sculpture wall_hanging picture rug keyboard player_piano piano television TV wireless_set 
-    radio stereo gramophone CD_player phonograph hammock sleeping_bag bed cot monitor nightstand end_table folding_table coffee_table table desk tv_stand tuffet settee recliner ottoman love_seat chaise_lounge bench bean_bag stool armchair chair rocking_chair seat couch sofa shelf cupboard hutch credenza sideboard cabinet armoire dresser chest bookcase ~alarm ~musical_instruments_woodwind ~musical_instruments_brass ~musical_instruments_percussion ~musical_instruments_string vibrator dildo thesaurus dictionary 
-    encyclopedia photograph medicine blinder headphone gyroscope ballast parachute wings jetpack flipper surfboard diving_helmet scuba divingsuit regulator diving_bell air_tank scubagear rebreather oxygen_mask gas_mask snorkeler snorkel crutch step_ladder ladder hearing_aid stethoscope amplifier desk_lamp table_lamp pole_lamp fluorescent_light light candle light_bulb penlight lantern flashlight lamp slide_projector projector overhead_projector glasses contacts night_vision_goggle mirror periscope microscope 
-    magnifying_glass binocular telescope microphone electromagnet generator diesel_fuel gasoline gas~n fire_extinguisher match~n lighter~n ~tradegoods whip disruptor ray_gun raygun blaster phaser missile bullet blowgun arrow submarine bomber fighter_jet tank~n half-track bomb~n landmine cannon revolver pistol rifle gun gatling_gun machine_gun shotgun spear bow~n wheelchair sleigh sled tobaggan ski~n snowshoe fire_engine fire_truck space_shuttle rocket_ship rocket jet airplane blimp aircraft ~vehicles_air 
-    destroyer aircraft_carrier paddleboat tug rowboat canoe ship sailboat boat ~vehicles_sea ~vehicles_land bicycle roller_skates skateboard donkey tricycle camel burro mule horse pickup truck~n wagon rolling_pin sandpaper sharpener sanding_block sander rasp grinder file mould buckle~n tent_peg stake~n peg clothespin thread~n strap rope twine string paperclip staple~n rivot nail~n screw~n chain~n adhesive scotch_tape tape~n paste~n glue~n safety_pin button~n pin~n riveter welder can_opener corkscrew~n 
-    hoe~n digger auger spade shovel~n pickaxe pickax pneumatic_drill mattock jig gouge gimlet driver drill~n chisel brace awl adze reamer punch~n press~n point~n churchkey corkscrew opener shreader wire_stripper tile_cutter razor electric_razor shaver edge~n trimmer tree_saw pruner loper shear~n glass_cutter pipe_cutter bolt_cutter tin_snip snip~n slicer shredded peeler mincer mandoline grater needle corer cleaver cutter chopper baller crosscut_saw machete hatchet axe ax~n cookie_cutter sickle scythe 
-    broadsword sword pocketknife penknife paperknife drawknife rawknife switchblade jackknife blade knife~n hacksaw hack_saw coping_saw circular_saw chain_saw router saber_saw saw~n table_saw bandsaw band_saw back_saw scissors lighthouse buoy memorial landmark monument chalk_line spectroscope square level plumb_bob rule~n gauge caliper thermometer watch~n clock~n egg_timer timer tape_measure Google computer telephone phone cellphone pencil chalk pen~n harness handcuff~n key~n switch~n lid cover~n suspender 
-    braces handbrake brake~n footbridge bridge~n vise holdfast clamp~n level~n hair_brush comb~n compass ruler straight_edge mouse scrub_brush mop~n broom bathtub tub bidet shower brush~n rag hand_towel napkin dish_towel paper_towel face_cloth washcloth towel rake~n dental_floss toothbrush floss journal notebook diary electroencephalograph EEG ECG electrocardiograph EKG seismograph Dictaphone typewriter answering_machine CD_burner tape_recorder DVD_burner movie_camera camcorder digital_camera SLR tv_camera 
-    camera stamp postage_stamp suction_pump pump~n elevator dustpan plunger socket_wrench pipe_wrench open-end_wrench needle-nosed_pliers monkey_wrench flat-nosed_pliers crescent_wrench box_wrench sifter spatula ladle~n silverware utensil cooking_spoon spoon~n skewer~n tong fork~n chopstick fan~n screwdriver pliers mallet hammer lever wrecking_bar crowbar pry_bar pry~n parachute~n entranceway entrance opening door path highway expressway roadway avenue street road blacktop driveway electrical_plug socket 
-    outlet wall_outlet wall_socket cord extension_cord straw railroad_track track~n aqueduct pipe~n videotape video~n toilet_paper umbrella tray plate pillow book~n saucer photo_album whiteboard chalkboard paper~n trap~n prison_cell cell building fire_station cage~n terrarium birdcage bird_cage kennel doghouse aquarium ~building airport landing_strip runway parking_garage garage parking_space condo apartment home house~n synagogue mosque church armory envelope battery Leyden_jar jail prison tissue Kleenex 
-    syringe diaper feeder sand_box lunch_box shaker mailbox closet drawer bookstore library saucepan baking_pan casserole_dish pan pot seat_belt bobbin spool money_belt wallet purse money_bag jar~n bottle~n can~n basket pocket shoulder_bag sack pouch carton container box bag stapler staple_gun vase bucket barrel wash_basin sink toilet trash_can garbage_can wastebasket waste_basket bin glue_gun wineglass glass cup~n keg jug watering_can nose_ring earring bracelet ring jewelry decoration ornament Christmas_tree_ball 
-    Christmas_tree_light popcorn_string tinsel nail_polish eyeshadow eyeliner gloss glitter mascara lipstick wallpaper plaster varnish~n crayon~n dye~n paint~n replicator photocopier copier ~forces ~toy ~scenery ~herbspice ~beverage ~beings ~food tool~2 )
+    anorak overcoat jacket coat beanie hood cap hat moccasin boot bobbysocks galoshes socks high_heel sandal shoe mitt mitten glove panties underwear underpants pantie briefs miniskirt frock skirt dress shorts slacks pants jeans bikini swimsuit bathing_suit tutu kilt trunks trousers tank_top vest turtleneck sweatshirt pullover sweater halter_top shirt blouse swimming_trunks T-shirt blow_dryer iron coffee_maker humidifier Cuisinart food_processor blender mixer beater electric_mixer colander dredger whisk 
+    homogenizer trash_compactor compactor refrigerator freezer dryer washing_machine washer garbage_disposal dishwasher heater air_conditioner fan waffle_iron barbeque gas_grill grill burner cooktop microwave stove oven toaster sculpture wall_hanging picture rug keyboard player_piano piano television TV wireless_set radio stereo gramophone CD_player phonograph hammock sleeping_bag bed cot monitor nightstand end_table folding_table coffee_table table desk tv_stand tuffet settee recliner ottoman love_seat 
+    chaise_lounge bench bean_bag stool armchair chair rocking_chair seat couch sofa shelf cupboard hutch credenza sideboard cabinet armoire dresser chest bookcase ~alarm ~musical_instruments_woodwind ~musical_instruments_brass ~musical_instruments_percussion ~musical_instruments_string vibrator dildo thesaurus dictionary encyclopedia photograph medicine blinder headphone gyroscope ballast parachute wings jetpack flipper surfboard diving_helmet scuba divingsuit regulator diving_bell air_tank scubagear 
+    rebreather oxygen_mask gas_mask snorkeler snorkel crutch step_ladder ladder hearing_aid stethoscope amplifier desk_lamp table_lamp pole_lamp fluorescent_light light candle light_bulb penlight lantern flashlight lamp slide_projector projector overhead_projector glasses contacts night_vision_goggle mirror periscope microscope magnifying_glass binocular telescope microphone electromagnet generator diesel_fuel gasoline gas~n fire_extinguisher match~n lighter~n ~tradegoods whip disruptor ray_gun raygun 
+    blaster phaser missile bullet blowgun arrow submarine bomber fighter_jet tank~n half-track bomb~n landmine cannon revolver pistol rifle gun gatling_gun machine_gun shotgun spear bow~n wheelchair sleigh sled tobaggan ski~n snowshoe fire_engine fire_truck space_shuttle rocket_ship rocket jet airplane blimp aircraft ~vehicles_air destroyer aircraft_carrier paddleboat tug rowboat canoe ship sailboat boat ~vehicles_sea ~vehicles_land bicycle roller_skates skateboard donkey tricycle camel burro mule horse 
+    pickup truck~n wagon rolling_pin sandpaper sharpener sanding_block sander rasp grinder file mould buckle~n tent_peg stake~n peg clothespin thread~n strap rope twine string paperclip staple~n rivot nail~n screw~n chain~n adhesive scotch_tape tape~n paste~n glue~n safety_pin button~n pin~n riveter welder can_opener corkscrew~n hoe~n digger auger spade shovel~n pickaxe pickax pneumatic_drill mattock jig gouge gimlet driver drill~n chisel brace awl adze reamer punch~n press~n point~n churchkey corkscrew 
+    opener shreader wire_stripper tile_cutter razor electric_razor shaver edge~n trimmer tree_saw pruner loper shear~n glass_cutter pipe_cutter bolt_cutter tin_snip snip~n slicer shredded peeler mincer mandoline grater needle corer cleaver cutter chopper baller crosscut_saw machete hatchet axe ax~n cookie_cutter sickle scythe broadsword sword pocketknife penknife paperknife drawknife rawknife switchblade jackknife blade knife~n hacksaw hack_saw coping_saw circular_saw chain_saw router saber_saw saw~n 
+    table_saw bandsaw band_saw back_saw scissors lighthouse buoy memorial landmark monument chalk_line spectroscope square level plumb_bob rule~n gauge caliper thermometer watch~n clock~n egg_timer timer tape_measure Google computer telephone phone cellphone pencil chalk pen~n harness handcuff~n key~n switch~n lid cover~n suspender braces handbrake brake~n footbridge bridge~n vise holdfast clamp~n level~n hair_brush comb~n compass ruler straight_edge mouse scrub_brush mop~n broom bathtub tub bidet shower 
+    brush~n rag hand_towel napkin dish_towel paper_towel face_cloth washcloth towel rake~n dental_floss toothbrush floss journal notebook diary electroencephalograph EEG ECG electrocardiograph EKG seismograph Dictaphone typewriter answering_machine CD_burner tape_recorder DVD_burner movie_camera camcorder digital_camera SLR tv_camera camera stamp postage_stamp suction_pump pump~n elevator dustpan plunger socket_wrench pipe_wrench open-end_wrench needle-nosed_pliers monkey_wrench flat-nosed_pliers crescent_wrench 
+    box_wrench sifter spatula ladle~n silverware utensil cooking_spoon spoon~n skewer~n tong fork~n chopstick fan~n screwdriver pliers mallet hammer lever wrecking_bar crowbar pry_bar pry~n parachute~n entranceway entrance opening door path highway expressway roadway avenue street road blacktop driveway electrical_plug socket outlet wall_outlet wall_socket cord extension_cord straw railroad_track track~n aqueduct pipe~n videotape video~n toilet_paper umbrella tray plate pillow book~n saucer photo_album 
+    whiteboard chalkboard paper~n trap~n prison_cell cell building fire_station cage~n terrarium birdcage bird_cage kennel doghouse aquarium ~building airport landing_strip runway parking_garage garage parking_space condo apartment home house~n synagogue mosque church armory envelope battery Leyden_jar jail prison tissue Kleenex syringe diaper feeder sand_box lunch_box shaker mailbox closet drawer bookstore library saucepan baking_pan casserole_dish pan pot seat_belt bobbin spool money_belt wallet purse 
+    money_bag jar~n bottle~n can~n basket pocket shoulder_bag sack pouch carton container box bag stapler staple_gun vase bucket barrel wash_basin sink toilet trash_can garbage_can wastebasket waste_basket bin glue_gun wineglass glass cup~n keg jug watering_can nose_ring earring bracelet ring jewelry decoration ornament Christmas_tree_ball Christmas_tree_light popcorn_string tinsel nail_polish eyeshadow eyeliner gloss glitter mascara lipstick wallpaper plaster varnish~n crayon~n dye~n paint~n replicator 
+    photocopier copier ~forces ~toy ~scenery ~herbspice ~beverage ~food tool~2 )
 ~tow_service ( tow_service tow road_service )
 ~toy_store ( tricycle toy_store teddy_bear stuffed_animal rubber_ball paint_set model_train model_airplane electric_train doll computer_game board_game bicycle balloon ~toy ~game )
 ~transport_vehicles ( wheeled_vehicle~1 vehicle~1 tramway tramline public_transport~1 )
@@ -2701,12 +2701,12 @@
 ~qwords ( whatever whichever which what whoever whomever whose who whom how why when where )
 ~verbof_exceptions ( tire give dream come think tell talk )
 ~static_verbs ( ~eternal_truths ~measurement_states ~own ~mental_states ~sensory_states ~states_of_being )
-~states_of_being ( get becomes looks_like resemble look appear seem be )
-~sensory_states ( taste sound smell see look hear feel appear )
-~mental_states ( wish want understand think surprise suppose seem remember recognize promise prefer possess own need mind mean matter like know impress imagine have forget feel exist doubt dislike desire depend believe agree )
+~states_of_being ( get~v becomes~v looks_like resemble~v look~v appear~v seem~v be~v )
+~sensory_states ( taste~v sound~v smell~v see~v look~v hear~v feel~v appear~v )
+~mental_states ( wish~v want~v understand~v think~v surprise~v suppose~v seem~v remember~v recognize~v promise~v prefer~v possess~v own~v need~v mind~v mean~v matter~v like~v know~v impress~v imagine~v have~v forget~v feel~v exist~v doubt~v dislike~v desire~v depend~v believe~v agree~v )
 ~measurement_states ( weigh contain include owe cost make measure reach add_up_to equal )
 ~eternal_truths ( share move involve include fit consist concern )
-~abort ( void quash nullify invalidate fail cancel annul )
+~abort ( void~v quash~v nullify~v invalidate~v fail~v cancel~v annul~v )
 ~absorb ( insert inject absorb )
 ~accept_obey ( yield succumb submit obey give_in comply )
 ~achieve ( win succeed satisfy fulfill earn complete attain accomplish )
@@ -2725,7 +2725,7 @@
 ~health_verbs ( ~illhealth_verbs ~flourish ~enhance_verbs ~degrade ~damage_verbs )
 ~possession_verbs ( ~purchaseinterest ~promise ~price ~own ~lose_verbs ~help ~gain_verbs ~exchange ~employ )
 ~special_activities_verbs ( ~play_sport ~play_instrument ~photographing ~mine ~live ~golfing ~gamble ~farm ~exercise_verbs ~drive ~cooking_verbs )
-~add_magnetism ( magnetize magnetise )
+~add_magnetism ( magnetize~v magnetise~v )
 ~add_smell ( odourise odorize aromatize aromatise )
 ~alter ( update change recast reconstruct reshape revamp modify revise renovate amend alter adjust )
 ~alter_age ( mature age )
@@ -2779,7 +2779,7 @@
 ~alter_esthetics_worse ( vandalise unwrap uglify nigrify discolour discolourise discolor discolorize discolorise decolour decolourize decolourise decolor decolorize decolorise blacken )
 ~disable ( terminate turn_off switch switch_off stop nullify inactivate halt disable deactivate cease end )
 ~enable ( turn_on toggle switch_on start reactivate enable activate )
-~start ( ship release invent create build birth assemble trigger start resume restart provoke proceed initiate initialize inaugurate continue cause begin )
+~start ( ship~v release~v invent~v create~v build~v birth~v assemble~v trigger~v start~v resume~v restart~v provoke~v proceed~v initiate~v initialize~v inaugurate~v continue~v cause~v begin~v )
 ~stop_verbs ( ~kill ~pause ~halt ~complete ~abort )
 ~alter_higher ( raise lift jack_up hoist heft elevate boost )
 ~alter_horizontal ( turn spin )
@@ -2805,7 +2805,7 @@
 ~loosen ( loosen )
 ~tighten ( tighten )
 ~animalsounds ( yowl yip yelp yell yap woof whistle whinny whimper warble wail twitter tweet trill stridulate squeal squeak snuffle snort snarl snap sing screech scream roar quack purr pipe peep oink neigh moo mew mewl meow low howl hoot honk hiss hee-haw grunt growl gobble drone cuckoo crow croak coo cluck chitter chirrup chirp cheep chatter caw caterwaul call cackle buzz bray bleat bellow bay bark baa )
-~arrive ( visit return reach go_to get_to arrive )
+~arrive ( visit~v return~v reach~v go_to~v get_to~v arrive~v )
 ~moving_air ( slip pilot fly fall drop descend )
 ~moving_beyond ( pass pass_by )
 ~moving_escape ( withdraw vanish vamoose vacate slip_away skedaddle retreat leave flee exit evade escape disembark disappear depart bolt )
@@ -2830,9 +2830,9 @@
 ~join ( zip yoke wire unite unify truss trammel tie thumbtack thread tether tape tack strap stitch stick staple splice solder skewer shackle screw rope rivet plaster pin peg padlock overlap nail muzzle moor mix match manacle loop link leash latch lasso lassoo lash lace knot join integrate incorporate hook homogenize hitch hinge harness handcuff glue fetter fasten fasten_down epoxy entwine entangle couple connect conjoin compose combine coalesce cinch chain cement button buckle bracket bond bolt blend bind 
     belt band attach associate assemble anchor amalgamate affix adsorb admix adhere )
 ~unjoin ( unzip unwire untwine untie untangle unstick unscrew unravel unknot unknit unhook unhinge unglue unfasten uncouple unbutton unbraid sever separate remove release purge lose fall_off extract drop_off dissociate dismantle disjoin disentangle disengage detach decouple decompose cut_off come_off amputate )
-~auxverblist ( would will were was should shall ought must might may is have has had going_to do does did dare dares dared could can be being been are am )
-~avoid ( sidestep shun forgo evade eschew elude duck dodge circumvent boycott avoid )
-~awareof ( who_be what_do_you_know_about show_up sense perceive materialize intuit have_you_run_across have_you_heard_of experience do_you_know discover discern detect be_you_familiar_with be_you_aware_of appear )
+~auxverblist ( would~v will~v were~v was~v should~v shall~v ought~v must~v might~v may~v is~v have~v has~v had~v going_to~v do~v does~v did~v dare~v dares~v dared~v could~v can~v be~v being~v been~v are~v am~v )
+~avoid ( sidestep~v shun~v forgo~v evade~v eschew~v elude~v duck~v dodge~v circumvent~v boycott~v avoid~v )
+~awareof ( who_be what_do_you_know_about show_up sense~v perceive~v materialize~v intuit~v have_you_run_across have_you_heard_of experience~v do_you_know discover~v discern~v detect~v be_you_familiar_with be_you_aware_of appear~v )
 ~balance ( dizzy balance )
 ~banish ( unfrock terminate sack ostracize ostracise ignore fire expel exile excommunicate evict evacuate disfranchise disenfranchise discharge disbar deport banish )
 ~be_verbs ( ~tobe ~endure )
@@ -2999,7 +2999,7 @@
 ~legal_harm ( sentence extradite enforce court-martial convict charge blame arrest arraign accuse )
 ~legal_help ( reprieve pardon commute appeal )
 ~legal_lawmaking ( rescind repeal petition overrule countermand amend )
-~linkingverb ( were was turn taste stay sound smell seem run remain prove look lie keep is grow go get feel be being been become are appear am )
+~linkingverb ( were~v was~v turn~v taste~v stay~v sound~v smell~v seem~v run~v remain~v prove~v look~v lie~v keep~v is~v grow~v go~v get~v feel~v be~v being~v been~v become~v are~v appear~v am~v )
 ~live ( stay shelter reside rent occupy nest lodge live live_with inhabit infest frequent exist dwell domicile board abide )
 ~lose_verbs ( tax place leech ~deacquiring_verbs )
 ~marry ( wive wed rewed remarry partner mismarry mate marry intermarry inmarry espouse conjoin bond betroth )
@@ -3050,7 +3050,7 @@
 ~time_event_verbs ( ensue ~time_passage ~time_delay ~event_verbs )
 ~time_passage ( lapse elapse bite_the_dust )
 ~verbal_agree ( stipulate rubberstamp consent compromise approve agree affirm acknowledge )
-~verbal_disagree ( vie veto squabble reject refute rebut quibble quarrel object nitpick dissent dispute disagree differ counter controvert contradict contest contend confute bicker argue )
+~verbal_disagree ( vie~v veto~v squabble~v reject~v refute~v rebut~v quibble~v quarrel~v object~v nitpick~v dissent~v dispute~v disagree~v differ~v counter~v controvert~v contradict~v contest~v contend~v confute~v bicker~v argue~v )
 ~verblist PROBABLE_VERB ( ~weather_verbs ~time_event_verbs ~inanimate_verbs ~animate_verbs )
 ~vision_verbs ( zoom riffle review reveal recognize note investigate expose explore descry canvass audit assess ~watch ~read ~disappear ~become_visible )
 ~wind ( roar howl gust blow )

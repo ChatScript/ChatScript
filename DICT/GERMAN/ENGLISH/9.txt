@@ -1,0 +1,6 @@
+﻿ 9-11 ( meanings=1 NOUN NOUN_SINGULAR ) 
+    Sept_._11~1n 
+ 911 ( meanings=1 NOUN NOUN_NUMBER ) 
+    911~1nz 
+ 9-membered ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    nine-membered~1a 

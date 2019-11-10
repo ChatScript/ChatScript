@@ -67,13 +67,14 @@ enum TestMode {
 //   argument data for system calls
 extern TestMode wasCommand;
 
-extern HEAPLINK patternwordthread;
+extern HEAPREF patternwordthread;
+extern HEAPREF memoryMarkThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
 extern int rulesExecuted;
 extern  bool testExternOutput;
-
+extern char* traceTestPattern;
 extern char* realCode;
 extern unsigned int callIndex;
 extern WORDP callStack[MAX_CALL_DEPTH];
@@ -82,14 +83,14 @@ extern unsigned int callArgumentIndex;
 extern int maxGlobalSeen;
 extern long http_response;
 extern char* currentFunctionName;
-extern unsigned int savedSentences;
+extern HEAPREF savedSentencesThreadList;
 
 #define MAX_ARG_LIMIT 31 // max args to a call -- limit using 2 bit (COMPILE/KEEP_QUOTES) per arg for table mapping behavior
 extern unsigned int currentIterator;
 extern char* fnOutput;
 extern bool allowBootKill;
 
-extern char lastInputSubstitution[INPUT_BUFFER_SIZE];
+extern char* lastInputSubstitution;
 extern int globalDepth;
 #ifdef WIN32
 FunctionResult InitWinsock();
@@ -120,10 +121,10 @@ unsigned int Callback(WORDP D,char* arguments,bool boot,bool mainoutput = false)
 void ResetFunctionSystem();
 void SaveMark(char* buffer,unsigned int iterator);
 FunctionResult RegularReuse(int topic, int id, char* rule,char* buffer,char* arg3,bool crosstopic);
+void UpdateTrace(char* value);
 
 FunctionResult KeywordTopicsCode(char* buffer);
 void SetBaseMemory();
-void ResetBaseMemory();
 
 // utilities
 FACT* AddToList(FACT* newlist,FACT* oldfact,GetNextFact getnext,SetNextFact setnext);

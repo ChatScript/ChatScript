@@ -1,6 +1,7 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/3/2019 cs9.41
+<br>Revision 11/10/2018 cs9.8
+
 
 # Command Line Parameters
 
@@ -111,7 +112,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`build1=filename` | runs `:build` on the filename as level1 and exits with 0 on success or 4 on failure.<br>Eg. ChatScript `build0=files0.txt` will rebuild the usual level 0 |
 |`debug=:xxx`      | xxx runs the given debug command and then exits. Useful for `:trim`, for example or more specific `:build` commands
 |`param=xxxxx`     | data to be passed to your private code
-|`bootcmd=xxx`     | runs this command string before CSBOOT is run; use it to trace the boot process
+|`bootcmd=xxx`     | (see Advanced Layers manual) 
 |`trace`           | turn on all tracing.
 |`redo`            | see documentation for :redo in [ChatScript Debugging Manual](ChatScript-Debugging-Manual.md) manual
 |`noboot`          | Do not run any boot script on engine startup
@@ -217,7 +218,7 @@ Either Mac/LINUX or Windows versions accept the following command line args:
 |-----------------------|-----------------------------------------------------------------------------
 | `port=xxx`            | This tells the system to be a server and to use the given numeric port. You must do this to tell Windows to run as a server. The standard port is 1024 but you can use any port.
 | `local`               | The opposite of the port command, this says run the program as a stand-alone system, not as a server.
-| `interface=127.0.0.1` | By default the value is `0.0.0.0` and the system directly uses a port that may be open to the internet. You can set the interface to a different value and it will set the local port of the TCP connection to what you designate.
+| `interface=127.0.0.1` | By default the value is `0.0.0.0` and the system directly uses a port that may be open to the internet. You can set the interface to a different value and it will set the local port of the TCP connection to what you designate. 127 is the classic TCP port.
 
 # User Data
 
@@ -294,8 +295,11 @@ Don't store a user-bot log. Server default if unspecified.
 ```
 Serverlog
 ```
-Write a server log. Server default if unspecified. The server log will be put into the LOGS
-directory under serverlogxxx.txt where xxx is the port.
+Write a server log and a bugs log. 
+
+The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port. 
+
+The bugs log is in the same directory under bugs.txt (all ports).
 
 ```
 Noserverprelog
@@ -322,7 +326,7 @@ connection wasn't broken somewhere and await more input forever.
 ```
 Noserverlog
 ```
-Don't write a server log.
+Don't write a server log or a bugs log.
 
 ```
 Fork=n

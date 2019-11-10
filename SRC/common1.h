@@ -14,10 +14,9 @@ extern int fnVarbase;
 #define FNVAR(n) callArgumentList[fnVarbase+atoi(n)+1] // ^0 is index 1
 char* ReadCompiledWord(char* ptr, char* word,bool noquote = false,bool var = false,bool nolimit = false);
 char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote = false,bool var = false);
-#define INPUT_BUFFER_SIZE   80000
-#define MAX_BUFFER_SIZE		80000
+#define MAX_BUFFER_SIZE		80000 // default
 
-#define NUMBER_OF_LAYERS 4
+#define NUMBER_OF_LAYERS 4 // 0,1,boot,user
 
 #define MAX_CONFIG_LINES 200
 
@@ -30,7 +29,7 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 #define MAX_MEANING			63
 #define MEANING_BASE		0x001fffff	//   the index of the dictionary item 
 #define SYNSET_MARKER		0x00200000  // this meaning is a synset head - on keyword import, its quote flag for binary read
-#define INDEX_BITS          0x0fC00000  //   6 bits of ontology meaning indexing ability  63 possible meanings allowed
+#define INDEX_BITS          0x0fC00000  //   6 bits of ontology meaning indexing ability  63 possible meanings allowed, generic uses value 0
 #define INDEX_MINUS			0x00400000  // what to decrement to decrement the meaning index
 #define INDEX_OFFSET        22          //   shift for ontoindex  (rang 0..63)  
 #define TYPE_RESTRICTION	0xf0000000  // corresponds to noun,verb,adj,adv  (cannot merge adj/adv or breaks wordnet dictionary data) 
@@ -46,6 +45,7 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 #define FACTSET_PREFIX '@'
 #define FUNCTIONVAR_PREFIX '^'
 #define TOPICCONCEPT_PREFIX '~'
+#define INDIRECT_PREFIX '^'
 
 #define BIG_WORD_SIZE   10000
 #define MAX_WORD_SIZE   3000   

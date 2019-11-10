@@ -254,7 +254,6 @@ shoggoth
 wurm
 xenomorph
 kobold
-necromancersuperhero
 bhrempti
 bogan
 boxhead

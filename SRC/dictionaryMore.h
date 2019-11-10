@@ -167,11 +167,12 @@ WORDP RawCanonical(WORDP D);
 void SetCanonical(WORDP D,MEANING M);
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
-void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
-void Add2ConceptTopicList(HEAPLINK list[256], WORDP D,int start,int end,bool unique);
+void SetTriedMeaningWithData(WORDP D, uint64 bits, unsigned int* data);
+HEAPREF ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
+void Add2ConceptTopicList(HEAPREF list[256], WORDP D,int start,int end,bool unique);
 void SuffixMeaning(MEANING T,char* at, bool withPos);
 int UTFCharSize(char* utf);
-
+HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list);
 // memory data
 extern WORDP dictionaryBase;
 extern uint64 maxDictEntries;
@@ -188,8 +189,8 @@ extern uint64 adverbFormat;
 extern MEANING posMeanings[64];
 extern MEANING sysMeanings[64];
 extern bool xbuildDictionary;
-extern HEAPLINK propertyRedefines;	// property changes on locked dictionary entries
-extern HEAPLINK flagsRedefines;		// systemflags changes on locked dictionary entries
+extern HEAPREF propertyRedefines;	// property changes on locked dictionary entries
+extern HEAPREF flagsRedefines;		// systemflags changes on locked dictionary entries
 
 extern FACT* factLocked;
 extern char* stringLocked;
@@ -229,6 +230,7 @@ extern MEANING MadjectiveNoun;
 extern MEANING Mnumber;
 extern bool dictionaryBitsChanged;
 WORDP StoreWord(int);
+void ClearHeapThreads();
 void ClearWordMaps();
 bool TraceHierarchyTest(int x);
 void WriteDictDetailsBeforeLayer(int layer);
@@ -247,7 +249,7 @@ int GetWords(char* word, WORDP* set,bool strict);
 bool StricmpUTF(char* w1, char* w2, int len);
 void ReadQueryLabels(char* file);
 void ClearWordWhere(WORDP D,int at);
-void RemoveConceptTopic(HEAPLINK list[256],WORDP D, int at);
+void RemoveConceptTopic(HEAPREF list[256],WORDP D, int at);
 char* UseDictionaryFile(char* name);
 void ClearWhereInSentence();
 void ClearTriedData();
@@ -261,6 +263,7 @@ WORDP GetSubstitute(WORDP D);
 void ShowStats(bool reset);
 MEANING FindChild(MEANING who,int n);
 void ReadCanonicals(const char* file,const char* layer);
+void UndoSubstitutes(HEAPREF list);
 
 // adjust data on a dictionary entry
 void AddProperty(WORDP D, uint64 flag);

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chatscript", "chatscript.vcxproj", "{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}"
 EndProject
@@ -48,8 +48,8 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.ActiveCfg = Release|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.Build.0 = Release|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|x64.ActiveCfg = Release|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.ActiveCfg = Debug|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.Build.0 = Debug|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.ActiveCfg = releaseTreetagger|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.Build.0 = releaseTreetagger|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|x64.ActiveCfg = releaseTreetagger|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Mongo|Win32.ActiveCfg = Debug|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.Debug Mongo|Win32.Build.0 = Debug|Win32
@@ -86,5 +86,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F540468B-48FD-406E-8E29-6CCBE0ACCB90}
 	EndGlobalSection
 EndGlobal

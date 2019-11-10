@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/18/2019 cs9.62</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/10/2018 cs9.8</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -148,6 +148,8 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <p>With <code>specific</code>, you name words or concepts to mark or unmark, either at a particular point in the sentence or throughout the sentence. By default, or using the optional third argument <code>ALL</code>, not only is what you name marked, but anything it in turn is a part of is marked. The optional third argument <code>ONE</code> will only mark that named word/concept and none of the hierarchy implied by its membership in yet some other concept.</p>
 <p>With <code>generic</code> you disable or reenable all existing marks on a word or words in the sentence. In fact, you go beyond that because during patttern matching words you disable are invisble entirely, and matching proceeds as if they do not exist.</p>
 <p><code>Specific</code>: effects are permanent for the volley and cross over to other rules. In documentation below, use of <code>_0</code> symbolizes use of any match variable.</p>
+<p>^mark and ^unmark can mark/unmark a single thing, or the hierarchy of things.<br />
+Mark takes a possible 3rd argument ONE or ALL (defaulted) which makes it mark either just the thing you gave or traverse the hierarchy and mark all of it.</p>
 <h3 id="mark-meat-_0"><code>^mark ( ~meat _0 )</code></h3>
 <p>This marks <code>~meat</code> as though it has been seen at whereever sentence location <code>_0</code> is bound to (start and end)</p>
 <h3 id="mark-meat-n"><code>^mark ( ~meat n )</code></h3>
@@ -163,6 +165,9 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <h3 id="unmark-word-_0"><code>^unmark ( word _0 )</code></h3>
 <p>The inverse of specific <code>^mark</code>, this takes a matchvariable that was filled at the position in the sentence you want erased and removes the mark on the word or concept set or topic name given. Pattern matching for it in that position will now fail. If the word was a phrase, then all words in that phrase have the mark removed. Thus <code>South Georgia</code> which has <code>Georgia</code> embedded within it, and both might be ~geographic_area, will have both words unmarked if you unmark ~geographic_area. But it is not symmetric to <code>^mark</code> because it does not remove all implied marks that mark may have set.</p>
 <p>If you end up calling ^unmark with a 2nd argument of null, it will just return without failure. This can happen if you pass null to an outputmacro: <sup>myfn(</sup>var) and then ^unmark(xxx ^var).</p>
+<p>^Unmark can remove either the single thing, or ^unmark(* _0) removes ALL marks and makes the word completely invisible (not seen in a wildcard match), whereas ^unmark(@ _0) removes all marks but leaves the word occupying space in the sentence and will be seen in a wildcard match.</p>
+<p>When you call unmark, the analysis of the sentence HAS ALREADY HAPPENED.<br />
+If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~noun mark, it has NO impact on other marks made.</p>
 <h3 id="unmark-n"><code>^unmark ( * n )</code></h3>
 <p>Assuming <code>n</code> is within <code>1</code> and sentence word limit, this unmarks all concepts at nth word location. If n was gotten from <code>^position</code> of a match variable, it is the range of that match variable.</p>
 <h3 id="unmark-word-all"><code>^unmark ( word all )</code></h3>
@@ -651,6 +656,8 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p>Prevents this rule from assigning a rejoinder.</p>
 <h3 id="notrace-..."><code>^notrace ( ... )</code></h3>
 <p>Suppresses normal tracing if if :trace all is on, for the duration of evaluation of the contents of the parens. It does not block explicit traces of functions or topics.</p>
+<h3 id="trace-..."><code>^trace (...)</code></h3>
+<p>Enables trace for the following, even if exterior is controlled by a ^notrace directive.</p>
 <h3 id="return-..."><code>^return ( ... )</code></h3>
 <p>Evaluates it data and returns any output from the most recent calling outputmacro. It is nominally equivalent to:</p>
 <pre><code>here is some outputting
@@ -814,9 +821,11 @@ else { $$tcpopen_error }</code></pre>
     string-returned-from-compilepattern, 
     ], 
 &quot;style&quot;: &quot;earliest&quot;, -- optional
+&quot;trace&quot;: &quot;1&quot;, -- optional
 &quot;variables&quot;: { -- optional
     &quot;$faucet&quot;: &quot;testing&quot;, 
     &quot;$x&quot;: 1 }, 
+&quot;trace&quot;: 1,     -- optional, returns a field &quot;trace&quot; which is CS trace pattern of the patterns for remote debugging
 &quot;concepts&quot;: [  -- optional
     { &quot;name&quot;: &quot;~stove&quot;, 
     &quot;values&quot;: [ &quot;oven&quot;, &quot;range&quot;, &quot;cooktop&quot; ] 
@@ -826,8 +835,9 @@ else { $$tcpopen_error }</code></pre>
 }</code></pre>
 <p>Input is the user input (one or more sentences) to be matched against.</p>
 <p>Patterns is an array of pattern strings as returned by CompilePattern. They can use memorization and they can assign values. If they use memorization, you can assign those onto normal variables, which if permanent variables will be returned as &quot;newglobals&quot;. You can perform an assignment inside the pattern using something like $answer:=_0 (see Match variable assignment in Advanced patterns). The &quot;newglobals will be omitted if there are no changes.</p>
-<p>The variables and concepts fields are optional and provide context.</p>
+<p>The variables and concepts fields are optional and provide context. A concept named &quot;<sub>replace</sub>&quot; is treated not as a concept but as a list of paired words analogous to &quot;replace:&quot;, but is only a transient replace series for this call.</p>
 <p>Style is also optional and defaults to <code>first</code>. Other choices are all, best, and last. First means stop running patterns and sentences as soon as you get a match. The makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Last is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
+<p>The optional <code>trace</code> field if set, will have the patterns involved traced (:trace pattern) and the results returned in a field named <code>trace</code> as a text string with crlf.</p>
 <p>Result is ordinary user output JSON object:</p>
 <pre><code>{ 
     &quot;match&quot;: 1,  -- index of matching pattern
@@ -874,13 +884,14 @@ else { $$tcpopen_error }</code></pre>
 <pre><code>^log(OPEN TMP/mylog.txt This is my log output.)</code></pre>
 <p>which caches the file ptr. After which you can write with OPEN or FILE equivalently. To close the file use</p>
 <pre><code>^log(CLOSE TMP/mylog.txt)</code></pre>
-<p>By default, ^log acts like output to user, converting escaped nr, and t into their actual ascii characters. The flag RESPONSE_NOCONVERTSPECIAL passed in will block this. You pass various flags as:</p>
+<p>By default, ^log acts like output to user, converting escaped n, r, and t into their actual ascii characters. The flag RESPONSE_NOCONVERTSPECIAL passed in will block this. You pass various flags as:</p>
 <pre><code>^logcode( flag OPEN ...)  or  
 ^logcode( (flag flag) OPEN ...)</code></pre>
 <h3 id="memorymark"><code>^memorymark ()</code></h3>
 <p>Reading a document consists of performing a single volley of the entire document. This can tie up a lot of memory in keeping facts, dictionary entries, user variables, etc. If you are careful in what you do, you can make the memory burden go away. <code>^memoryMark()</code> notes where memory is currently at, and is best done within the document_pre topic. Then you can release memory after every sentence of the document, so it doesn't accumulate.</p>
-<h3 id="memoryfree"><code>^memoryfree ()</code></h3>
-<p>This releases memory back to the last <code>^memorymark()</code>. It is best done after your main control of the document bot has finished processing a sentence. Partly because the analysis of the sentence is lost and so no later rules can pattern match to it (though you can call ^analyze to reacquire your sentence). E.g.,</p>
+<p>Multiple calls to memory mark stack up the data, so each call to ^memoryfree will undo one mark.</p>
+<h3 id="memoryfree-data"><code>^memoryfree ( {$data})</code></h3>
+<p>This releases memory back to the most recent ^memorymark()`. It is best done after your main control of the document bot has finished processing a sentence. Partly because the analysis of the sentence is lost and so no later rules can pattern match to it (though you can call ^analyze to reacquire your sentence). E.g.,</p>
 <pre><code>topic: ~document_pre system repeat()
 
 t: ^memorymark() # note start
@@ -892,7 +903,7 @@ u: (%document)
   respond(~filter)
   ^memoryfree()</code></pre>
 <p>The caveats and warnings about how this works. Whenenver you free memory, the system will clear all fact sets. It will clear all user variables set after the memory mark (leaving the ones before alone). It will then release facts, text, and dictionary nodes created after the mark.</p>
-<p>The only data you can pass out from a <sup>memoryMark/</sup>memoryfree zone is data stored on match variables (which have size limitations) or on the count field of a dictionary word of a preexisting word.</p>
+<p>The only data you can pass out from a <sup>memoryMark/</sup>memoryfree zone is data stored on match variables (which have size limitations) or on the count field of a dictionary word of a preexisting word or in the argument (if supplied) of $data (hence a nice JSON structure you can pass).</p>
 <h3 id="memorygc"><code>^memorygc ()</code></h3>
 <p>This can function in either document mode or chat mode. It does what it can to release unused memory. It has restrictions in it does not work if you have facts with facts as fields or are in planning mode. It also discards saved sentence data, and all of your analysis data for the current sentence. It also discards all data in factsets.</p>
 <h1 id="json-functions">JSON Functions</h1>
@@ -1301,8 +1312,7 @@ u: what&#39;s your first name?
 <p>Remove this property bit from this word.</p>
 <p>This effect lasts until the system is reloaded. Value should be all upper case. Value is normally a system flag value or a property value from <code>dictionarysystem.h</code> which does not need a hash in front of it (system will look up the name).</p>
 <p><em>word</em> can be in doublequotes. And there are two internal bits that are also allowed to be removed: <code>CONCEPT</code> and <code>HAS_SUBSITUTE</code>.</p>
-<p>You can use <code>HAS_SUBSTITUTE</code> to disable some standard substitution in LIVEDATA, but you can't apply this at build time because the system won't remember. Instead call it from <code>^csboot</code> during startup.</p>
-<p>Instead call it from <code>^csboot</code> during startup. For example, in LIVEDATA interjections file, there is an entry:</p>
+<p>You can use <code>HAS_SUBSTITUTE</code> to disable some standard substitution in LIVEDATA, but you can't apply this at build time because the system won't remember. Instead call it from <code>^csboot</code> during startup. For example, in LIVEDATA interjections file, there is an entry:</p>
 <pre><code> &lt;surprise ~emosurprise</code></pre>
 <p>But if you didn't want surpise at the start of a sentence declared the interjection <code>~emosurprise</code>, you could do</p>
 <pre><code> ^removeproperty(&quot;&lt;surprise&quot; HAS_SUBSTITUTE)</code></pre>
@@ -1493,12 +1503,7 @@ concept: ~canine (dog)</code></pre>
 <p>If you add the optional 3rd argument, it will filter concepts to be only those that start with the filter characters.</p>
 <pre><code>@0 = ^conceptlist(CONCEPT _0  ^&quot;~bot-&quot;)</code></pre>
 <p>retrieves only concepts that start with <code>~bot-</code> .</p>
-<h3 id="purgeboot-what">^purgeboot (what)</h3>
-<p>If you created facts previously during user script executing (via CreateFact with a flags argument FACTBOOT) Or via fact creation in ^csboot, then they would reside there unchanged as part of a server until it goes down. Those facts are visible to all users and becaue they are system owned facts, cannot be modified by a user. However, you can use this function to remove them from the boot layer.</p>
-<pre><code>^purgeboot(@1)</code></pre>
-<p>All facts you may have queried into this factset which are facts from the boot layer will be removed.</p>
-<pre><code>^purgeboot(botid)</code></pre>
-<p>All facts with the given numeric bot id in the boot layer will be removed.</p>
+<h3 id="purgeboot-what-see-advanced-layers-manual">^purgeboot (what) (see Advanced Layers manual)</h3>
 <h3 id="wordinconcept-word-conceptname"><code>^wordinconcept ( word conceptname )</code></h3>
 <p>Takes any casing of a word and finds which casing in the dictionary is a member of the concept. When you memorize a word, you will get how the user spelled it. Eg., Ebay, when the dictionary actually has eBay. The correct spelling of the word can be found this way as a member of a concept. And composite words using either spaces or underscores can be found as well and returns the correct notation.</p>
 <h3 id="createattribute-subject-verb-object-flags"><code>^createattribute ( subject verb object flags )</code></h3>

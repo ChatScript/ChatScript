@@ -3798,7 +3798,8 @@ static void SetRole( int i, uint64 role,bool revise, int currentVerb)
 	// set new reference
 	if ((role & needRoles[roleIndex]) || revise) // store role xref when we were looking for it - we might see objects added when we have one already
 	{ // dont store if already there (conjunction multiple form for example)
-		if (role & (MAINSUBJECT|SUBJECT2) && subjectStack[roleIndex] != i) subjectStack[roleIndex] = (unsigned char)i;
+		if (role & (MAINSUBJECT|SUBJECT2) && subjectStack[roleIndex] != i) 
+			subjectStack[roleIndex] = (unsigned char)i;
 		else if (role & (VERB2|MAINVERB) && verbStack[roleIndex] != i) verbStack[roleIndex] = (unsigned char)i;
 		else if (role & (MAININDIRECTOBJECT|INDIRECTOBJECT2)) indirectObjectRef[currentVerb] = (unsigned char)i; // implicit at 0 cache if no verb yet
 		else if (role & MAINOBJECT)  objectStack[roleIndex] = objectRef[currentVerb] = (unsigned char)i; // implicit at 0 cache if no verb yet
@@ -4164,11 +4165,18 @@ static void MigrateObjects(int start, int end)
 
 static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int end)
 {
+	// back up to earlier verb
+	while (verbStack[MAINLEVEL] > end && crossReference[verbStack[MAINLEVEL]])
+		verbStack[MAINLEVEL] = crossReference[verbStack[MAINLEVEL]];
 	if (verbStack[MAINLEVEL] > end)
 	{
 		ReportBug((char*)"mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
 		return true;
 	}
+
+	// back up to earlier subject
+	while (subjectStack[MAINLEVEL] > end && crossReference[subjectStack[MAINLEVEL]]) 
+		subjectStack[MAINLEVEL] = crossReference[subjectStack[MAINLEVEL]];
 	if (subjectStack[MAINLEVEL] > end)
 	{
 		ReportBug((char*)"mainSubject out of range", subjectStack[MAINLEVEL], end);
@@ -4914,7 +4922,7 @@ static int FindCoordinate(int i) // i is on comma
 static void DoCoord( int i,  int before,  int after, uint64 type)
 {
 	SetRole(i,type);	
-	if (type != CONJUNCT_SENTENCE) SetRole(after,roles[before]); // pass along any earlier role
+	if (type != CONJUNCT_SENTENCE) SetRole(after,roles[before]); // pass along any earlier role - but when we decide its coord sentence, it will be wrong
 	crossReference[after] = crossReference[before];
 	if ((type == CONJUNCT_NOUN || type == CONJUNCT_VERB))
 	{
@@ -9540,105 +9548,106 @@ restart:
 					if ( j != 2000) 
 					{
 						SetRole(i,SUBJECT_COMPLEMENT);
-						needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
-					}
-				}
-				// we can be an adj complement IF expected and not in front of some other continuing thing like "I like *gooey ice cream"
-				if (!roles[i] && needRoles[roleIndex] & OBJECT_COMPLEMENT && !(posValues[NextPos(i)] & (ADJECTIVE_BITS|NOUN_BITS)))
-				{
-					SetRole(i, OBJECT_COMPLEMENT);
-					continue;  
-				}
-				// we follow subor conjuct and end at end of sentence or with comma, omitted subject/verb clause "if *dead, awaken"
-				int prior = i;
-				while (--prior > startSentence && posValues[prior] == ADVERB) {;}
-				if (posValues[prior] == CONJUNCTION_SUBORDINATE && roles[prior] != OMITTED_SUBJECT_VERB)
-				{
-					if (posValues[i+1] == COMMA || (i+1) == endSentence) // if dead, awaken
-					{
-						SetRole(prior,OMITTED_SUBJECT_VERB);
-						SetRole(i, SUBJECT_COMPLEMENT);
-					}
-				}
-			}
-			break;
+needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
+                    }
+                }
+                // we can be an adj complement IF expected and not in front of some other continuing thing like "I like *gooey ice cream"
+                if (!roles[i] && needRoles[roleIndex] & OBJECT_COMPLEMENT && !(posValues[NextPos(i)] & (ADJECTIVE_BITS | NOUN_BITS)))
+                {
+                    SetRole(i, OBJECT_COMPLEMENT);
+                    continue;
+                }
+                // we follow subor conjuct and end at end of sentence or with comma, omitted subject/verb clause "if *dead, awaken"
+                int prior = i;
+                while (--prior > startSentence && posValues[prior] == ADVERB) { ; }
+                if (posValues[prior] == CONJUNCTION_SUBORDINATE && roles[prior] != OMITTED_SUBJECT_VERB)
+                {
+                    if (posValues[i + 1] == COMMA || (i + 1) == endSentence) // if dead, awaken
+                    {
+                        SetRole(prior, OMITTED_SUBJECT_VERB);
+                        SetRole(i, SUBJECT_COMPLEMENT);
+                    }
+                }
+            }
+            break;
 			case AMBIGUOUS_PRONOUN: // (PRONOUN_SUBJECT | PRONOUN_OBJECT )
-				// drop thru to pronouns
-			case NOUN_SINGULAR: case NOUN_PLURAL: case NOUN_PROPER_SINGULAR: case NOUN_PROPER_PLURAL: case NOUN_GERUND: case NOUN_NUMBER: case NOUN_INFINITIVE: case NOUN_ADJECTIVE: //NOUN_BITS
-			case PRONOUN_SUBJECT: case PRONOUN_OBJECT:
-			{
-				// cancels direct object if adverb after verb before noun - EXCEPT "there are always cookies tomorrow 
-				//if (posValues[i-1] & ADVERB && posValues[i-2] & VERB_BITS && needRoles[roleIndex] & (OBJECT2|MAINOBJECT) && tokenControl & TOKEN_AS_IS) 
-				//{
-					//needRoles[roleIndex] &= -1 ^ (OBJECT2|MAINOBJECT|MAININDIRECTOBJECT|INDIRECTOBJECT2);
-				//}
-	
-				// forced role on reflexives so wont be  or some kind of compelement "I prefer basketball *myself" but not "I cut *myself"
-				if (originalLower[i] && originalLower[i]->systemFlags & PRONOUN_REFLEXIVE && !(needRoles[roleIndex] & (MAINOBJECT|OBJECT2)))
-				{
-					SetRole(i,REFLEXIVE);
-					break;
-				}
-				if (roles[i] & ADDRESS) break;	// we already know we are an address role, dont rethink it
-				
-				// we thought prior was a complete noun, but now we know it wasnt - change it over 
-				if (posValues[i-1] == NOUN_SINGULAR && posValues[i] & (NOUN_SINGULAR|NOUN_PLURAL) && roles[i-1] && !(parseFlags[verbStack[roleIndex]] & FACTITIVE_NOUN_VERB))
-				{
-					uint64 role = roles[i-1];
-					SetRole(i-1,0);
-					SetRole(i,role,true); // move role over to here
-					LimitValues(i-1,ADJECTIVE_NOUN,(char*)"revising prior nounsingular to adjectivenoun",changed);
-					if (phrases[i-1]) phrases[i] = phrases[i-1];	// keep phrase going to here
-					break;
-				}
+                // drop thru to pronouns
+            case NOUN_SINGULAR: case NOUN_PLURAL: case NOUN_PROPER_SINGULAR: case NOUN_PROPER_PLURAL: case NOUN_GERUND: case NOUN_NUMBER: case NOUN_INFINITIVE: case NOUN_ADJECTIVE: //NOUN_BITS
+            case PRONOUN_SUBJECT: case PRONOUN_OBJECT:
+            {
+                // cancels direct object if adverb after verb before noun - EXCEPT "there are always cookies tomorrow 
+                //if (posValues[i-1] & ADVERB && posValues[i-2] & VERB_BITS && needRoles[roleIndex] & (OBJECT2|MAINOBJECT) && tokenControl & TOKEN_AS_IS) 
+                //{
+                    //needRoles[roleIndex] &= -1 ^ (OBJECT2|MAINOBJECT|MAININDIRECTOBJECT|INDIRECTOBJECT2);
+                //}
 
-				if (!IsFinalNoun(i) && posValues[i] & NORMAL_NOUN_BITS && posValues[i] & ADJECTIVE_BITS)  // not really at end of noun sequence, not the REAL noun - dont touch "*Mindy 's"
-				{
-					LimitValues(i,ADJECTIVE_BITS,(char*)"forcing adjective since not final",changed);
-					SetRole(i,0);
-					continue;
-				}
-				
-				if (!IsFinalNoun(i) && posValues[i] & NORMAL_NOUN_BITS)  // not really at end of noun sequence, not the REAL noun - dont touch "*Mindy 's"
-				{
-					LimitValues(i,ADJECTIVE_NOUN,(char*)"forcing adj noun since not final",changed);
-					SetRole(i,0);
-					continue;
-				}
+                // forced role on reflexives so wont be  or some kind of compelement "I prefer basketball *myself" but not "I cut *myself"
+                if (originalLower[i] && originalLower[i]->systemFlags & PRONOUN_REFLEXIVE && !(needRoles[roleIndex] & (MAINOBJECT | OBJECT2)))
+                {
+                    SetRole(i, REFLEXIVE);
+                    break;
+                }
+                if (roles[i] & ADDRESS) break;	// we already know we are an address role, dont rethink it
 
-				// if we thought a leading verbal was the subject and we have a superfluous noun here in next zone, revise...
-				if (roleIndex == MAINLEVEL && needRoles[MAINLEVEL] & MAINVERB && !(needRoles[MAINLEVEL] & MAINSUBJECT) &&
-					currentZone == 1 && subjectStack[MAINLEVEL] && posValues[subjectStack[MAINLEVEL]] & NOUN_GERUND)
-				{
-					if (firstnoun == subjectStack[MAINLEVEL]) firstnoun = 0;
-					LimitValues(subjectStack[MAINLEVEL],ADJECTIVE_PARTICIPLE,(char*)"revising old mainsubject on finding new one",changed);
-					SetRole(subjectStack[MAINLEVEL], 0);	// remove role
-					needRoles[MAINLEVEL] |= MAINSUBJECT;	// add it back
-				}
+                // we thought prior was a complete noun, but now we know it wasnt - change it over 
+                if (posValues[i - 1] == NOUN_SINGULAR && posValues[i] & (NOUN_SINGULAR | NOUN_PLURAL) && roles[i - 1] && !(parseFlags[verbStack[roleIndex]] & FACTITIVE_NOUN_VERB))
+                {
+                    uint64 role = roles[i - 1];
+                    SetRole(i - 1, 0);
+                    SetRole(i, role, true); // move role over to here
+                    LimitValues(i - 1, ADJECTIVE_NOUN, (char*)"revising prior nounsingular to adjectivenoun", changed);
+                    if (phrases[i - 1]) phrases[i] = phrases[i - 1];	// keep phrase going to here
+                    break;
+                }
 
-				// noun of address? - "here, *Ned, catch the ball"
-				if (posValues[i] & NOUN_PROPER_SINGULAR && posValues[i-1] & COMMA && posValues[NextPos(i)] & COMMA && roleIndex == MAINLEVEL && needRoles[roleIndex] & MAINSUBJECT && posValues[Next2Pos(i)] & VERB_INFINITIVE)
-				{
-					SetRole(i,ADDRESS);
-					LimitValues(i+2,VERB_INFINITIVE,(char*)"command infinitive after address noun",changed);
-					break;
-				}
+                if (!IsFinalNoun(i) && posValues[i] & NORMAL_NOUN_BITS && posValues[i] & ADJECTIVE_BITS)  // not really at end of noun sequence, not the REAL noun - dont touch "*Mindy 's"
+                {
+                    LimitValues(i, ADJECTIVE_BITS, (char*)"forcing adjective since not final", changed);
+                    SetRole(i, 0);
+                    continue;
+                }
 
-				// distance noun?
-				if (parseFlags[i] & DISTANCE_NOUN && parseFlags[i+1] & DISTANCE_ADVERB)
-				{
-					SetRole(i,DISTANCE_NOUN_MODIFY_ADVERB);
-					break;
-				}
-				if (parseFlags[i] & DISTANCE_NOUN && parseFlags[i+1] & DISTANCE_ADJECTIVE)
-				{
-					SetRole(i,DISTANCE_NOUN_MODIFY_ADJECTIVE);
-					break;
-				}
-				// time noun?
-				if (parseFlags[i] & TIME_NOUN && parseFlags[i+1] & TIME_ADVERB)
-				{
-					SetRole(i,TIME_NOUN_MODIFY_ADVERB);
+                if (!IsFinalNoun(i) && posValues[i] & NORMAL_NOUN_BITS)  // not really at end of noun sequence, not the REAL noun - dont touch "*Mindy 's"
+                {
+                    LimitValues(i, ADJECTIVE_NOUN, (char*)"forcing adj noun since not final", changed);
+                    SetRole(i, 0);
+                    continue;
+                }
+
+                // if we thought a leading verbal was the subject and we have a superfluous noun here in next zone, revise...
+                if (roleIndex == MAINLEVEL && needRoles[MAINLEVEL] & MAINVERB && !(needRoles[MAINLEVEL] & MAINSUBJECT) &&
+                    currentZone == 1 && subjectStack[MAINLEVEL] && posValues[subjectStack[MAINLEVEL]] & NOUN_GERUND)
+                {
+                    if (firstnoun == subjectStack[MAINLEVEL]) firstnoun = 0;
+                    LimitValues(subjectStack[MAINLEVEL], ADJECTIVE_PARTICIPLE, (char*)"revising old mainsubject on finding new one", changed);
+                    SetRole(subjectStack[MAINLEVEL], 0);	// remove role
+                    needRoles[MAINLEVEL] |= MAINSUBJECT;	// add it back
+                }
+
+                // noun of address? - "here, *Ned, catch the ball"
+                if (posValues[i] & NOUN_PROPER_SINGULAR && posValues[i - 1] & COMMA && posValues[NextPos(i)] & COMMA && roleIndex == MAINLEVEL && needRoles[roleIndex] & MAINSUBJECT && posValues[Next2Pos(i)] & VERB_INFINITIVE)
+                {
+                    SetRole(i, ADDRESS);
+                    LimitValues(i + 2, VERB_INFINITIVE, (char*)"command infinitive after address noun", changed);
+                    break;
+                }
+
+                // distance noun?
+                if (parseFlags[i] & DISTANCE_NOUN && parseFlags[i + 1] & DISTANCE_ADVERB)
+                {
+                    SetRole(i, DISTANCE_NOUN_MODIFY_ADVERB);
+                    break;
+                }
+                if (parseFlags[i] & DISTANCE_NOUN && parseFlags[i + 1] & DISTANCE_ADJECTIVE)
+                {
+                    SetRole(i, DISTANCE_NOUN_MODIFY_ADJECTIVE);
+                    break;
+                }
+                // time noun?
+                if (parseFlags[i] & TIME_NOUN && parseFlags[i + 1] & TIME_ADVERB)
+                {
+                    if (phrases[i]) SetRole(i , OBJECT2);
+                    SetRole(i+1, TIME_NOUN_MODIFY_ADVERB);
 					break;
 				}
 				// time noun?
@@ -9942,6 +9951,8 @@ restart:
 				break;
 			case COMMA: // close needs for indirect objects, ends clauses e.g.   after being reprimanded, she went home
 			{
+				// may even end sentences:  My 21 month old , is pooping after every meal, its been 6 days exActly, its not running poo , its mushy and healthy looking, but even if its a boiled egg or any small food, he will poop after
+
 				++currentZone;
 	
 				// MAY NOT close needs for indirect objects, ends clauses because adjectives separated by commas) - hugging the cliff, Nathan follows the narrow, undulating road.

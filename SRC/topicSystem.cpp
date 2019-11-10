@@ -3,7 +3,6 @@
 #define MAX_NO_ERASE 300
 #define MAX_REPEATABLE 300
 #define TOPIC_LIMIT 10000			
-#define PATTERN_UNWIND 1
 
 bool hypotheticalMatch = false;
 int currentBeforeLayer = 0;
@@ -18,7 +17,7 @@ int numberOfTopics = 0;
 int numberOfTopicsInLayer[NUMBER_OF_LAYERS+1];
 topicBlock* topicBlockPtrs[NUMBER_OF_LAYERS+1];
 bool norejoinder = false;
-char* unwindUserLayer = NULL;
+HEAPREF unwindUserLayer = NULL;
 
 // current operating data
 bool shared = false;
@@ -2381,11 +2380,8 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		// if old was not previously pattern word and it is now, we will have to unwind on unload. If new word, word gets unwound automatically
 		if (old)
 		{
-			int* protect = (int*) AllocateHeap(NULL,3,4); // link + entry to refresh back to NOT pattern word
-			protect[0] = Heap2Index(unwindUserLayer);
-			protect[1] = Word2Index(old);
-			protect[2] = PATTERN_UNWIND;
-			unwindUserLayer = (char*) protect;
+            unwindUserLayer = AllocateHeapval(unwindUserLayer,
+                (uint64)old, NULL, NULL);
 		}
     }
     FClose(in);
@@ -2393,17 +2389,13 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 
 void UnwindUserLayerProtect()
 {
-	int* protect = (int*)unwindUserLayer;
-	while (protect)
-	{
-		if (protect[2] == PATTERN_UNWIND)
-		{
-			WORDP D = Index2Word(protect[2]);			// old dict entry from earlier layer
-			D->systemFlags &= -1L ^ PATTERN_WORD;		// layer2 added this flag, take it away
-			protect = (int*) Index2Heap(protect[0]);
-		}
+    uint64 D;
+    while (unwindUserLayer)
+    {
+        unwindUserLayer = UnpackHeapval(unwindUserLayer,
+            D, discard);
+		((WORDP)D)->systemFlags &= -1L ^ PATTERN_WORD;		// layer2 added this flag, take it away
 	}
-	unwindUserLayer = NULL;
 }
 
 static void AddRecursiveProperty(WORDP D,uint64 type,bool dictionaryBuild,unsigned int build)
@@ -2557,6 +2549,12 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			ptr = ReadCompiledWord(ptr,word); //   leaves ptr on next good word
 			if (*word == 'T') memmove(word,word+1,strlen(word)); // remove T
 			strcpy(name,word);
+			if (*(ptr-1) == '`' || *(ptr-2) == '`') // internal concept tied to a bot likely
+			{
+				myBot = (uint64) atoi64(ptr);
+				ptr = ReadCompiledWord(ptr, word);
+			}
+
 			T = ReadMeaning(name,true,true);
 			set = Meaning2Word(T);
 			AddInternalFlag(set,(unsigned int) (CONCEPT|build));// sets and concepts are both sets. Topics get extra labelled on script load
@@ -3014,7 +3012,7 @@ static void IndirectMembers(WORDP D, uint64 buildx)
 		FACT* F = GetObjectNondeadHead(D);
 		while (F)
 		{
-			if (F->verb == Mmember) AddRecursiveMember(Meaning2Word(F->subject),D,build);
+			if (ValidMemberFact(F))  AddRecursiveMember(Meaning2Word(F->subject),D,build);
 			F = GetObjectNondeadNext(F);
 		}
 	}

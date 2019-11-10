@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 7/28/2019 cs9.61</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 8/31/2019 cs9.7</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
 <p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes, e.g.</p>
@@ -161,10 +161,13 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>You can request n words before the current position using <code>*-n</code>. For example</p>
 <pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
 <h2 id="match-variable-assignment-in-a-pattern">Match Variable assignment in a pattern</h2>
-<p>Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value using <code>:=</code>. You cannot do arithmetic or function calls for these assignments, but you can transfer data to and from match variables, regular variables, and system variables.</p>
+<p>Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value using <code>:=</code>. You cannot do arithmetic for these assignments, but you can transfer data to and from match variables, regular variables, and system variables.</p>
 <pre><code>    $value = 5
     ( _some_test  $value:=5 $value1:=_0 $value2:=&#39;_0 $value3:=%time )</code></pre>
 <p>This is not obviously useful normally, but is helpful in conjunction with <code>^testpattern</code> to return data to a remote CS api user.</p>
+<p>If you want to do function call assignment, you can do this:</p>
+<pre><code>    $value:=^&quot;^function(foo d)&quot;</code></pre>
+<p>The reason you have to do an active string here, is because normally spaces break apart tokens, and a pattern token involving a function needs to have all arguments part of the same token. Hence assigning from an active string, where the double quotes around it prevents the token from breaking apart.</p>
 <h2 id="gory-details-about-strings">Gory details about strings</h2>
 <p>'Strings in Output'</p>
 <p>A double quoted string in output retains its quotes.</p>

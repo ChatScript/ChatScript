@@ -4020,7 +4020,7 @@
 + under_the_heel_of 
 + with_the_exception_of 
 + looks_like 
-+ becomes VERB_PRESENT_3PS VERB KINDERGARTEN 
++ becomes 
 + go_to 
 + be_you_aware_of 
 + be_you_familiar_with 
@@ -45548,19 +45548,6 @@
 + improve_personal_appearance 
 + smooth_clothes 
 + dry_hair 
-+ criminals 
-+ protect_society 
-+ catch_criminals 
-+ make_people_well 
-+ heal_sick 
-+ domesticate_people 
-+ channel_god 
-+ have_children 
-+ provide_reproduction 
-+ supply_sex 
-+ provide_sex 
-+ raise_a_child 
-+ provide_protection 
 + keep_upper_torso_warm 
 + cover_chest 
 + legs 

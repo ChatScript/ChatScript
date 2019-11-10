@@ -1,3 +1,19 @@
+# Version 9.8 11/10/2019
+
+1. ^MemoryFree($data) - now takes optional argument whose data is to be available after freeing up everything. Can be string or can be JSON object (in which case a new transient json structure will be created to hold it).
+2. :variables takes more arguments 
+3. You can call ^memorymark multiple times and free one by one
+4. ^testpattern accepts trace field and ~replace~ concept to be equivalent to replace: in script
+5. :clearlog to erase current user log file
+6. ^trace() turns on all trace for the duration of this call, even if within ^notrace code
+
+# Version 9.7 8-31-2019
+
+1. New manual Advanced Layers explains layering in cs and the boot layer.
+2. Patterns are now allowed as concept members. 
+	concept: ~leaving( sayonara "(going *~2 now)" exiting)
+
+
 # Version 9.62 8/18/2019
 1. :listvariables
     reports all references (set and get) of variables - see finalizing a bot manual

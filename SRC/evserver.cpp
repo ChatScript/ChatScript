@@ -294,7 +294,7 @@ int fork_child(ev_child *child_watcher = 0)
 
         ev_child_init(child_watcher, evsrv_child_died, pid, 0);
         ev_child_start(l_g, child_watcher);
-
+        currentBeforeLayer = LAYER_BOOT;
         return 0;
     }
 
@@ -438,7 +438,8 @@ int evsrv_init(const string &interfaceKind, int port, char* arg) {
     
 	if (::bind(srv_socket_g, (sockaddr *) &localAddr, sizeof(sockaddr_in)) < 0) 
 	{
- 		return -1; // typical when server is already running and cron tries to start
+        (*printer)("ERROR: Bind socket attempt failed: port(%d). CS server already running? \r\n", port_g); // : %d\r\n",getpid())
+        return -1; // typical when server is already running and cron tries to start
 	}
 
 #ifdef EVSERVER_FORK
@@ -621,8 +622,7 @@ int evsrv_do_chat(Client_t *client)
  	uint64 starttime = ElapsedMilliseconds(); 
     client->prepare_for_chat();
 	size_t len = strlen(client->message);
-	if (len >= INPUT_BUFFER_SIZE - 300) client->message[INPUT_BUFFER_SIZE-300] = 0; // limit user input
-    if (inputLimit && inputLimit <= len) client->message[inputLimit] = 0;
+	if (len >= maxBufferSize - 300) client->message[maxBufferSize -300] = 0; // limit user input
     echo = false;
 	bool restarted = false;
 #ifndef DISCARDPOSTGRES

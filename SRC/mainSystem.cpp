@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.62";
+char* version = "9.8";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -45,7 +45,7 @@ DEBUGAPI debugMessage = NULL;
 DEBUGAPI debugAction = NULL;
 #define MAX_RETRIES 20
 uint64 startTimeInfo;							// start time of current volley
-char revertBuffer[INPUT_BUFFER_SIZE];			// copy of user input so can :revert if desired
+char* revertBuffer;			// copy of user input so can :revert if desired
 int argc;
 char ** argv;
 char postProcessing = 0;						// copy of output generated during MAIN control. Postprocessing can prepend to it
@@ -70,7 +70,7 @@ char buildfiles[100];
 char* derivationSentence[MAX_SENTENCE_LENGTH];
 int derivationLength;
 char authorizations[200];	// for allowing debug commands
-char ourMainInputBuffer[INPUT_BUFFER_SIZE * 2];				// user input buffer - ptr to primaryInputBuffer
+char* ourMainInputBuffer = NULL;				// user input buffer - ptr to primaryInputBuffer
 char* mainInputBuffer;								// user input buffer - ptr to primaryInputBuffer
 char* ourMainOutputBuffer;				// main user output buffer
 char* mainOutputBuffer;								//
@@ -80,7 +80,7 @@ bool redo = false; // retry backwards any amount
 bool oobExists = false;
 bool docstats = false;
 unsigned int docSentenceCount = 0;
-char rawSentenceCopy[INPUT_BUFFER_SIZE]; // current raw sentence
+char* rawSentenceCopy; // current raw sentence
 char *evsrv_arg = NULL;
 
 unsigned short int derivationIndex[256];
@@ -137,9 +137,10 @@ bool moreToComeQuestion = false;				// is there a ? in later sentences
 bool moreToCome = false;						// are there more sentences pending
 uint64 tokenControl = 0;						// results from tokenization and prepare processing
 unsigned int responseControl = ALL_RESPONSES;					// std output behaviors
-char* nextInput;								// ptr to rest of users input after current sentence
-static char oldInputBuffer[INPUT_BUFFER_SIZE];			//  copy of the sentence we are processing
-char currentInput[INPUT_BUFFER_SIZE];			// the sentence we are processing  BUG why both
+char* nextInput;
+char* copyInput; // ptr to rest of users input after current sentence
+static char* oldInputBuffer = NULL;			//  copy of the sentence we are processing
+char* currentInput;			// the sentence we are processing  BUG why both
 
 // general display and flow controls
 bool quitting = false;							// intending to exit chatbot
@@ -177,7 +178,7 @@ char botPrefix[MAX_WORD_SIZE];			// label prefix for bot output
 
 bool unusedRejoinder = true;							// inputRejoinder has been executed, blocking further calls to ^Rejoinder
 	
-char inputCopy[INPUT_BUFFER_SIZE]; // the original input we were given, we will work on this
+char* inputCopy; // the original input we were given, we will work on this
 
 // outputs generated
 RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
@@ -218,7 +219,8 @@ static void SetBotVariable(char* word)
 
 static void HandleBoot(WORDP boot, bool reboot)
 {
-	if (reboot) rebooting = true;
+    currentBeforeLayer = LAYER_1;
+	if (reboot) rebooting = true; // csboot vs csreboot
 	if (boot && !noboot) // run script on startup of system. data it generates will also be layer 1 data
 	{
 		int oldtrace = trace;
@@ -238,19 +240,52 @@ static void HandleBoot(WORDP boot, bool reboot)
 		Callback(boot, (char*)"()", true, true); // do before world is locked
 		*ourMainOutputBuffer = 0; // remove any boot message
 		myBot = 0;	// restore fact owner to generic all
-		if (!rebooting)
+        // cs_reboot may call boot to reload layer, this flag
+        // rebooting might be wrong...
+		if (!rebooting) 
 		{	
+            // move dead/transient facts to end
+            FACT* tailArea = factFree + 1; // last fact
 			while (++F <= factFree)
 			{
-				if (F->flags & FACTTRANSIENT) F->flags |= FACTDEAD;
-				else F->flags |= FACTBUILD1; // convert these to level 1
-			}
+                if (!(F->flags & (FACTTRANSIENT|FACTDEAD)))
+                {
+                    F->flags |= FACTBUILD1;
+                    continue;
+                }
+                else if (!F->subject) continue;  // already moved this one
+                UnweaveFact(F);
+                bool dead = true;
+
+                while (--tailArea > F) // find someone to move
+                {
+                    if (tailArea->flags & (FACTTRANSIENT | FACTDEAD)) continue;  // dying fact
+                    UnweaveFact(tailArea); // cut from from dictionary referencing
+                    memcpy(F, tailArea, sizeof(FACT)); // replicate fact lower
+                    WeaveFact(F); // rebind fact to dictionary
+
+                    // now pre-moved fact is dead
+                    tailArea->subject = tailArea->verb = tailArea->object = 0;
+                    tailArea->flags |= FACTDEAD;
+                    dead = false;
+                    break;
+                }
+                // kill this completely in case we cant overwrite it with valid fact
+                if (dead)
+                {
+                    F->subject = F->verb = F->object = 0;
+                    F->flags |= FACTDEAD;
+                }
+            }
+            while (!factFree->subject) --factFree; // reclaim
+
 			NoteBotVariables(); // convert user variables read into bot variables in boot layer
 			LockLayer(false); // rewrite level 2 start data with augmented from script data
 		}
+        
 		else
 		{
-			ReturnToAfterLayer(2, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
+			ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
 		}
 		trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 		timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
@@ -386,10 +421,11 @@ void CreateSystem()
 	}
 
 	kernelVariableThreadList = botVariableThreadList;
-	botVariableThreadList = 0;
+	botVariableThreadList = NULL;
 	UnlockLayer(LAYER_BOOT); // unlock it to add stuff
 	HandleBoot(FindWord((char*)"^csboot"),false);// run script on startup of system. data it generates will also be layer 1 data
 	LockLayer(true);
+    currentBeforeLayer = LAYER_BOOT;
 	InitSpellCheck(); // after boot vocabulary added
 
 	unsigned int factUsedMemKB = ( factFree-factBase) * sizeof(FACT) / 1000;
@@ -557,6 +593,17 @@ static void ProcessArgument(char* arg)
 		strcpy(language,arg+9);
 		MakeUpperCase(language);
 	}
+    else if (!strnicmp(arg, (char*)"buffer=", 7))  // number of large buffers available  8x80000
+    {
+        maxBufferLimit = atoi(arg + 7);
+        char* size = strchr(arg + 7, 'x');
+        if (size) maxBufferSize = atoi(size + 1) * 1000;
+        if (maxBufferSize < OUTPUT_BUFFER_SIZE)
+        {
+            (*printer)((char*)"Buffer cannot be less than OUTPUT_BUFFER_SIZE of %d\r\n", OUTPUT_BUFFER_SIZE);
+            myexit((char*)"buffer size less than output buffer size");
+        }
+    }
     else if (!stricmp(arg, (char*)"trustpos")) trustpos = true;
     else if (!strnicmp(arg, (char*)"inputlimit=", 11)) inputLimit = atoi(arg+11);
     else if (!strnicmp(arg, (char*)"debug=",6)) strcpy(arg+6,debugEntry);
@@ -573,8 +620,8 @@ static void ProcessArgument(char* arg)
     else if (!strnicmp(arg,(char*)"apikey=",7)) strcpy(apikey,arg+7);
 	else if (!strnicmp(arg,(char*)"logsize=",8)) logsize = atoi(arg+8); // bytes avail for log buffer
 	else if (!strnicmp(arg, (char*)"loglimit=", 9)) loglimit = atoi(arg + 9); // max mb of log file before change files
-	else if (!strnicmp(arg,(char*)"outputsize=",11)) outputsize = atoi(arg+11); // bytes avail for log buffer
-	else if (!stricmp(arg, (char*)"time")) timing = (unsigned int)-1 ^ TIME_ALWAYS;
+	else if (!strnicmp(arg,(char*)"outputsize=",11)) outputsize = atoi(arg+11); // bytes avail for output buffer
+    else if (!stricmp(arg, (char*)"time")) timing = (unsigned int)-1 ^ TIME_ALWAYS;
 	else if (!strnicmp(arg,(char*)"bootcmd=",8)) strcpy(bootcmd,arg+8); 
     else if (!strnicmp(arg, (char*)"authorize", 9)) overrideAuthorization = true;
 	else if (!strnicmp(arg,(char*)"dir=",4))
@@ -944,17 +991,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	for (int i = 1; i < argc; ++i) // essentials
 	{
 		char* configHeader;
-		if (!strnicmp(argv[i],(char*)"buffer=",7))  // number of large buffers available  8x80000
-		{
-			maxBufferLimit = atoi(argv[i]+7); 
-			char* size = strchr(argv[i]+7,'x');
-			if (size) maxBufferSize = atoi(size+1) *1000;
-			if (maxBufferSize < OUTPUT_BUFFER_SIZE)
-			{
-                (*printer)((char*)"Buffer cannot be less than OUTPUT_BUFFER_SIZE of %d\r\n",OUTPUT_BUFFER_SIZE);
-				myexit((char*)"buffer size less than output buffer size");
-			}
-		}
 		if (!strnicmp(argv[i],(char*)"config=",7)) configFile = argv[i]+7;
 		if (!strnicmp(argv[i],(char*)"configUrl=",10)) configUrl = argv[i]+10;
 		if (!strnicmp(argv[i],(char*)"configHeader=",13)) {
@@ -964,6 +1000,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 			configHeaders[headerCount++][strlen(configHeader)] = '\0';
 		}
 	}
+    ReadConfig();
 
 	currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = (char*)malloc(outputsize);
 	currentOutputLimit = outputsize; 
@@ -981,11 +1018,20 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	bufferIndex = 0;
 	readBuffer = AllocateBuffer();
 	baseBufferIndex = bufferIndex;
+
+    oldInputBuffer = (char*)malloc(maxBufferSize);
+    lastInputSubstitution = (char*)malloc(maxBufferSize);
+    inputCopy = (char*)malloc(maxBufferSize);
+    rawSentenceCopy = (char*)malloc(maxBufferSize);
+    currentInput = (char*)malloc(maxBufferSize);
+    revertBuffer = (char*)malloc(maxBufferSize);
+    ourMainInputBuffer = (char*)malloc(maxBufferSize * 2);  // precaution for overlow
+    copyInput = (char*)malloc(maxBufferSize);
+
 	quitting = false;
 	echo = true;	
 	if (configUrl != NULL)
 		LoadconfigFromUrl(configUrl, configHeaders, headerCount);
-	ReadConfig();
 	ProcessArguments(argc,argv);
 	MakeDirectory(tmp);
 	if (argumentsSeen) (*printer)("\r\n");
@@ -1172,6 +1218,23 @@ void CloseSystem()
 	logmainbuffer = NULL;
 	free(ourMainOutputBuffer);
 	ourMainOutputBuffer = NULL;
+
+    free(oldInputBuffer);
+    oldInputBuffer = NULL;
+    free(lastInputSubstitution);
+    lastInputSubstitution = NULL;
+    free(inputCopy);
+    inputCopy = NULL;
+    free(rawSentenceCopy);
+    rawSentenceCopy = NULL;
+    free(currentInput);
+    currentInput = NULL;
+    free(revertBuffer);
+    revertBuffer = NULL;
+    free(ourMainInputBuffer);
+    ourMainInputBuffer = NULL;
+    free(copyInput);
+    copyInput = NULL;
 }
 
 ////////////////////////////////////////////////////////
@@ -1386,10 +1449,10 @@ bool GetInput()
         if (sourceFile == stdin) // user-based input
         {
             if (ide) return true; // only are here because input is entered
-            else if (ReadALine(ourMainInputBuffer + 1, sourceFile, INPUT_BUFFER_SIZE - 100) < 0) return true; // end of input
+            else if (ReadALine(ourMainInputBuffer + 1, sourceFile, maxBufferSize - 100) < 0) return true; // end of input
         }
         // file based input
-        else if (ReadALine(ourMainInputBuffer + 1, sourceFile, INPUT_BUFFER_SIZE - 100) < 0) return true; // end of input
+        else if (ReadALine(ourMainInputBuffer + 1, sourceFile, maxBufferSize - 100) < 0) return true; // end of input
     }
     if (ourMainInputBuffer[1] && !*ourMainInputBuffer) ourMainInputBuffer[0] = ' ';
 
@@ -1519,21 +1582,23 @@ void MainLoop() //   local machine loop
 
 void ResetToPreUser() // prepare for multiple sentences being processed - data lingers over multiple sentences
 {
-	// limitation on how many sentences we can internally resupply
+    ReestablishBotVariables(); // any changes user made to a variable will be reset
+    ClearVolleyWordMaps();
+    ResetUserChat();
+    ClearUserVariables();
+    ClearUserFacts();
+    ResetTopicSystem(true);
+    ResetSentence();
+    // limitation on how many sentences we can internally resupply
 	inputCounter = 0;
 	totalCounter = 0;
 	itAssigned = theyAssigned = 0;
 	ResetTokenSystem();
 	fullfloat = false;
+    ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
+    ClearHeapThreads(); // volley start
 
-	//  Revert to pre user-loaded state, fresh for a new user
-    FACT* F = factLocked; // start of user-space facts
-    FACT* oldFactFree = factFree; // end of user fact space
-	ReturnToAfterLayer(LAYER_BOOT,false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
-    MigrateFactsToBoot(oldFactFree, F); // move relevant user facts or changes to bot facts to boot layer
-
-    ReestablishBotVariables(); // any changes user made to a variable will be reset
-	ResetTopicSystem(false);
+    ResetTopicSystem(false);
 	ResetUserChat();
 	ResetFunctionSystem();
 	ResetTopicReply();
@@ -1743,8 +1808,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
         {
             char time15[MAX_WORD_SIZE];
             unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
-            *time15 = 0;
-            sprintf(time15, (char*)" F:%d ", lapsedMilliseconds);
+            sprintf(time15, (char*)" F:%dms ", lapsedMilliseconds);
 
             char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
             char* poutput = Purify(output);
@@ -1787,7 +1851,6 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
         if (!stopUserWrite) WriteUserData(curr, false);
         else stopUserWrite = false;
 
-        ClearVolleyWordMaps();
         ShowStats(false);
         ResetToPreUser(); // back to empty state before any user
     }
@@ -1811,16 +1874,47 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* 
 	return answer;
 }
 
+static void LimitInput(char* incoming)
+{
+    // limit sans oob
+    if (incoming[0] == '[' || incoming[1] == '[' || incoming[2] == '[')
+    {
+        char* at = incoming - 1;
+        int bracket = 0;
+        bool quote = false;
+        while (*++at) // input limit applies to user text, not oob
+        {
+            if (*at == '"' && *(at - 1) != '\\') quote = !quote;
+            if (!quote && *at == '[' && *(at - 1) != '\\') ++bracket;
+            else if (!quote && *at == ']' && *(at - 1) != '\\')
+            {
+                --bracket;
+                if (!bracket) // closes oob
+                {
+                    at[inputLimit - 1] = 0;
+                    return;
+                }
+            }
+        }
+    }
+    incoming[inputLimit - 1] = 0; // none or mangled oob 
+}
+
 // WE DO NOT ALLOW USERS TO ENTER CONTROL CHARACTERS.
 // INTERNAL STRINGS AND STUFF never have control characters either (/r /t /n converted only on output to user)
 // WE internally use /r/n in file stuff for the user topic file.
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
-    
     stackFree = stackStart; // begin fresh
-    variableChangedThreadlist = 0;
-
+    ResetToPreUser();
+	bool resetuser = false;
+	if (!strnicmp(incoming, ":reset:", 7))
+	{
+		resetuser = true;
+		incoming += 7;
+	}
+   
     // protective level 0 callframe
     globalDepth = -1;
     ChangeDepth(1, ""); // never enter debugger on this
@@ -1857,9 +1951,12 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	mainInputBuffer = incoming;
 	mainOutputBuffer = output;
 	size_t len = strlen(incoming);
-    if (inputLimit && inputLimit <= len) incoming[inputLimit] = 0;
-	if (len >= INPUT_BUFFER_SIZE) incoming[INPUT_BUFFER_SIZE-1] = 0; // chop to legal safe limit
-	// now validate that token size MAX_WORD_SIZE is not invalidated and block all control chars to spaces
+
+    // absolute limit
+    if (len >= maxBufferSize) incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
+    // relative limit on user
+    if (inputLimit && inputLimit <= len) LimitInput(incoming);
+    
     char* at = mainInputBuffer;
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = SkipOOB(mainInputBuffer);
 	char* startx = at--;
@@ -1941,7 +2038,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 	if (systemReset) // drop old user
 	{
-		if (systemReset == 2) 
+		if (systemReset == 2 || resetuser)
 		{
 			KillShare();
 			ReadNewUser(); 
@@ -2008,7 +2105,6 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	}
 
 	// change out special or illegal characters
-	static char copy[INPUT_BUFFER_SIZE];
 	char* p = incoming;
 	while ((p = strchr(p,ENDUNIT))) *p = '\''; // remove special character
 	p = incoming;
@@ -2035,10 +2131,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		}
 		++p;
 	}
-	strcpy(copy,incoming); // so input trace not contaminated by input revisions -- mainInputBuffer is "incoming"
-
-	ok = ProcessInput(copy);
-
+	strcpy(copyInput,incoming); // so input trace not contaminated by input revisions -- mainInputBuffer is "incoming"
+	ok = ProcessInput(copyInput);
 	if (ok <= 0) return ok; // command processed
 	
 	if (!server) // refresh prompts from a loaded bot since mainloop happens before user is loaded
@@ -2146,7 +2240,7 @@ int ProcessInput(char* input)
 	strcpy(inputCopy,input);
 	char* buffer = inputCopy;
 	size_t len = strlen(input);
-	if (len >= INPUT_BUFFER_SIZE) buffer[INPUT_BUFFER_SIZE-1] = 0; 
+	if (len >= maxBufferSize) buffer[maxBufferSize -1] = 0;
 
 #ifndef DISCARDTESTING
 	char* at = SkipWhitespace(buffer);
@@ -2359,9 +2453,9 @@ void MoreToCome()
 
 FunctionResult DoSentence(char* prepassTopic, bool atlimit)
 {
-	char input[INPUT_BUFFER_SIZE];  // complete input we received
+	char* input = AllocateBuffer();  // complete input we received
 	int len = strlen(nextInput);
-	if (len >= (INPUT_BUFFER_SIZE)-100) nextInput[INPUT_BUFFER_SIZE-100] = 0;
+	if (len >= (maxBufferSize)-100) nextInput[maxBufferSize-100] = 0;
 	strcpy(input,nextInput);
 	ambiguousWords = 0;
 
@@ -2380,7 +2474,7 @@ FunctionResult DoSentence(char* prepassTopic, bool atlimit)
 retry:  
 	char* start = nextInput; // where we read from
 	if (trace & TRACE_INPUT) Log(STDUSERLOG,(char*)"\r\n\r\nInput: %s\r\n",input);
- 	if (trace && sentenceRetry) DumpUserVariables(); 
+ 	if (trace && sentenceRetry) DumpUserVariables(true); 
     ResetFunctionSystem();
 	PrepareSentence(nextInput,true,true,false,true); // user input.. sets nextinput up to continue
 	nextInput = SkipWhitespace(nextInput);
@@ -2393,12 +2487,24 @@ retry:
 	if (next && next->properties & QWORD) moreToComeQuestion = true; // assume it will be a question (misses later ones in same input)
 	if (changedEcho) echo = oldecho;
 	
-	if (PrepassSentence(prepassTopic)) return NOPROBLEM_BIT; // user input revise and resubmit?  -- COULD generate output and set rejoinders
-	if (prepareMode == PREPARE_MODE || prepareMode == POS_MODE || tmpPrepareMode == POS_MODE) return NOPROBLEM_BIT; // just do prep work, no actual reply
-	tokenCount += wordCount;
+    if (PrepassSentence(prepassTopic))
+    {
+        FreeBuffer();
+        return NOPROBLEM_BIT; // user input revise and resubmit?  -- COULD generate output and set rejoinders
+    }
+    if (prepareMode == PREPARE_MODE || prepareMode == POS_MODE || tmpPrepareMode == POS_MODE)
+    {
+        FreeBuffer();
+        return NOPROBLEM_BIT; // just do prep work, no actual reply
+    }
+    tokenCount += wordCount;
 	sentenceRetry = false;
-    if (!wordCount && responseIndex != 0) return NOPROBLEM_BIT; // nothing here and have an answer already. ignore this
 
+    if (!wordCount && responseIndex != 0)
+    {
+        FreeBuffer();
+        return NOPROBLEM_BIT; // nothing here and have an answer already. ignore this
+    }
 	if (showTopics)
 	{
 		changedEcho = echo = true;
@@ -2432,7 +2538,11 @@ retry:
 		if (changedEcho) echo = oldecho;
 	}
 
-	if (noReact) return NOPROBLEM_BIT;
+    if (noReact)
+    {
+        FreeBuffer();
+        return NOPROBLEM_BIT;
+    }
 	FunctionResult result =  Reply();
 	if (result & RETRYSENTENCE_BIT && retried < MAX_RETRIES) 
 	{
@@ -2441,7 +2551,7 @@ retry:
 
 		++retried;	 // allow  retry -- issues with this
 		--inputSentenceCount;
-		char* buf = AllocateStack(NULL,INPUT_BUFFER_SIZE);
+		char* buf = AllocateStack(NULL,maxBufferSize);
 		strcpy(buf,nextInput);	// protect future input
 		strcpy(start,oldInputBuffer); // copy back current input
 		strcat(start,(char*)" "); 
@@ -2453,7 +2563,8 @@ retry:
 	}
 	if (result & FAILSENTENCE_BIT)  --inputSentenceCount;
 	if (result == ENDINPUT_BIT) nextInput = ""; // end future input
-	return result;
+    FreeBuffer();
+    return result;
 }
 
 void OnceCode(const char* var,char* function) //   run before doing any of his input
@@ -2604,47 +2715,50 @@ static void SaveResponse(char* msg)
 
 char* SkipOOB(char* buffer)
 {
-		// skip oob data 
-	char* noOob = SkipWhitespace(buffer);
-	if (*noOob == '[')
-	{
-		int count = 1;
-		bool quote = false;
-		while (*++noOob)
-		{
-			if (*noOob == '"' && *(noOob-1) != '\\') quote = !quote; // ignore within quotes
-			if (quote) continue;
-			if (*noOob == '[' && *(noOob-1) != '\\') ++count;
-			if (*noOob == ']' && *(noOob-1) != '\\') 
-			{
-				--count;
-				if (count == 0) 
-				{	
-					noOob = SkipWhitespace(noOob+1);	// after the oob end
-					break;
-				}
-			}
-		}
-	}
-	return noOob;
+    // skip oob data 
+    char* noOob = SkipWhitespace(buffer);
+    if (*noOob == '[' || *noOob == '{') // TEMPORARY
+    {
+        int count = 1;
+        bool quote = false;
+        while (*++noOob)
+        {
+            if (*noOob == '"' && *(noOob - 1) != '\\') quote = !quote; // ignore within quotes
+            if (quote) continue;
+            if ((*noOob == '[' || *noOob == '{') && *(noOob - 1) != '\\') ++count;
+            if ((*noOob == ']' || *noOob == '}') && *(noOob - 1) != '\\')
+            {
+                --count;
+                if (count == 0)
+                {
+                    noOob = SkipWhitespace(noOob + 1);	// after the oob end
+                    break;
+                }
+            }
+        }
+    }
+    return noOob;
 }
 
 bool AddResponse(char* msg, unsigned int control)
 {
 	if (!msg ) return true;
-	if (*msg == '`') msg = strrchr(msg,'`'); // skip any previously outputed msg
+    if (*msg == '`') msg = strrchr(msg, '`') + 1; // this part was already committed
 	if (!*msg) return true;
+    size_t len = strlen(msg);
 
 	char* limit;
 	char* buffer = InfiniteStack(limit,"AddResponse"); // localized infinite allocation
- 	if ((buffer + strlen(msg)) > limit)
+ 	if ((buffer + len) > limit)
 	{
 		strncpy(buffer,msg,1000); // 5000 is safestringlimit
 		strcpy(buffer+1000,(char*)" ... "); //   prevent trouble
 		ReportBug((char*)"response too big %s...",buffer)
 	}
     else strcpy(buffer,msg);
-	 
+    if (buffer[len - 1] == ' ') buffer[len-1] = 0; // no trailing blank from output autospacing
+    if (!timerLimit || timerCheckInstance != TIMEOUT_INSTANCE) memset(msg, '`', len); //mark message as sent
+
 	// Do not change any oob data or test for repeat
 	char* at = SkipOOB(buffer);
 	if (!(control & RESPONSE_NOCONVERTSPECIAL)) ConvertNL(at);
@@ -2673,8 +2787,7 @@ bool AddResponse(char* msg, unsigned int control)
 			else ptr = 0;
 		}
 	}
-    if (!timerLimit || timerCheckInstance != TIMEOUT_INSTANCE) memset(msg,'`',strlen(msg)); //mark message as sent
-
+ 
 	if (!*at){} // we only have oob?
     else if (all || HasAlreadySaid(at) ) // dont really do this, either because it is a repeat or because we want to see all possible answers
     {
@@ -2698,7 +2811,7 @@ void NLPipeline(int mytrace)
 	char* original[MAX_SENTENCE_LENGTH];
 	if (mytrace & TRACE_INPUT  || prepareMode) memcpy(original + 1, wordStarts + 1, wordCount * sizeof(char*));	// replicate for test
 	int originalCount = wordCount;
-	if (tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE) && !oobExists)
+	if (tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE) )
 	{
 		// test for punctuation not done by substitutes (eg "?\")
 		char c = (wordCount) ? *wordStarts[wordCount] : 0;
@@ -2750,7 +2863,7 @@ void NLPipeline(int mytrace)
 		tokenFlags &= -1 ^ QUESTIONMARK;
 
 	// special lowercasing of 1st word if it COULD be AUXVERB and is followed by pronoun - avoid DO and Will and other confusions
-	if (wordCount > 1 && IsUpperCase(*wordStarts[1]) && !oobExists)
+	if (wordCount > 1 && IsUpperCase(*wordStarts[1]) )
 	{
 		WORDP X = FindWord(wordStarts[1], 0, LOWERCASE_LOOKUP);
 		if (X && X->properties & AUX_VERB)
@@ -2780,7 +2893,7 @@ void NLPipeline(int mytrace)
 	}
 
 	// spell check unless 1st word is already a known interjection. Will become standalone sentence
-	if (tokenControl & DO_SPELLCHECK && wordCount && *wordStarts[1] != '~' && !oobExists)
+	if (tokenControl & DO_SPELLCHECK && wordCount && *wordStarts[1] != '~' )
 	{
 		if (SpellCheckSentence()) tokenFlags |= DO_SPELLCHECK;
 		if (spellTrace) {}
@@ -2820,10 +2933,10 @@ void NLPipeline(int mytrace)
 			}
 		}
 	}
-	if (tokenControl & DO_PROPERNAME_MERGE && wordCount && !oobExists)  ProperNameMerge();
-	if (tokenControl & DO_DATE_MERGE && wordCount && !oobExists)  ProcessCompositeDate();
-	if (tokenControl & DO_NUMBER_MERGE && wordCount && !oobExists)  ProcessCompositeNumber(); //   numbers AFTER titles, so they dont change a title
-	if (tokenControl & DO_SPLIT_UNDERSCORE && !oobExists)  ProcessSplitUnderscores();
+	if (tokenControl & DO_PROPERNAME_MERGE && wordCount )  ProperNameMerge();
+	if (tokenControl & DO_DATE_MERGE && wordCount)  ProcessCompositeDate();
+	if (tokenControl & DO_NUMBER_MERGE && wordCount )  ProcessCompositeNumber(); //   numbers AFTER titles, so they dont change a title
+	if (tokenControl & DO_SPLIT_UNDERSCORE)  ProcessSplitUnderscores();
 }
 
 void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart,bool atlimit) // set currentInput and nextInput
@@ -2901,55 +3014,58 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	// check for all uppercase (capslock)
 	for (int i = 1; i <= wordCount; ++i)  originalCapState[i] = IsUpperCase(*wordStarts[i]); // note cap state
 	bool lowercase = false;
-	for (int i = 1; i <= wordCount; ++i) 
-	{
-		char* word = wordStarts[i];
-		size_t len = strlen(word);
-		for (int j = 0; j < (int)len; ++j)
-		{
-			if (IsLowerCase(word[j])) // lower case letter detected?
-			{
-				lowercase = true;
-				i = j = len + 1000; // len might be BIG (oob data) so make sure beyond it)
-			}
-		}
-	}
-
-	if (!lowercase && wordCount > 2) // must have multiple words all in uppercase
+	if (!oobExists)
 	{
 		for (int i = 1; i <= wordCount; ++i)
 		{
 			char* word = wordStarts[i];
-			char myword[MAX_WORD_SIZE];
-			MakeLowerCopy(myword, word);
-			WORDP D = StoreWord(myword);
-			wordStarts[i] = D->word;
-			originalCapState[i] = false;
-		}
-	}
-
-	// force Lower case on plural start word which has singular meaning (but for substitutes
-	if (wordCount  && !oobExists)
-	{
-		char word[MAX_WORD_SIZE];
-		MakeLowerCopy(word,wordStarts[1]);
-		size_t len = strlen(word);
-		if (strcmp(word,wordStarts[1]) && word[1] && word[len-1] == 's') // is a different case and seemingly plural
-		{
-			WORDP O = FindWord(word,len,UPPERCASE_LOOKUP);
-			WORDP D = FindWord(word,len,LOWERCASE_LOOKUP);
-			if (D && D->properties & PRONOUN_BITS) {;} // dont consider hers and his as plurals of some noun
-			else if (O && O->properties & NOUN) {;}// we know this noun (like name James)
-			else
+			size_t len = strlen(word);
+			for (int j = 0; j < (int)len; ++j)
 			{
-				char* singular = GetSingularNoun(word,true,false);
-				D = FindWord(singular);
-				if (D && stricmp(singular,word)) // singular exists different from plural, use lower case form
+				if (IsLowerCase(word[j])) // lower case letter detected?
 				{
-					D = StoreWord(word); // lower case plural form
-					if (D->internalBits & UPPERCASE_HASH) AddProperty(D,NOUN_PROPER_PLURAL|NOUN);
-					else AddProperty(D,NOUN_PLURAL|NOUN);
-					wordStarts[1] = D->word;
+					lowercase = true;
+					i = j = len + 1000; // len might be BIG (oob data) so make sure beyond it)
+				}
+			}
+		}
+
+		if (!lowercase && wordCount > 2) // must have multiple words all in uppercase
+		{
+			for (int i = 1; i <= wordCount; ++i)
+			{
+				char* word = wordStarts[i];
+				char myword[MAX_WORD_SIZE];
+				MakeLowerCopy(myword, word);
+				WORDP D = StoreWord(myword);
+				wordStarts[i] = D->word;
+				originalCapState[i] = false;
+			}
+		}
+
+		// force Lower case on plural start word which has singular meaning (but for substitutes
+		if (wordCount)
+		{
+			char word[MAX_WORD_SIZE];
+			MakeLowerCopy(word, wordStarts[1]);
+			size_t len = strlen(word);
+			if (strcmp(word, wordStarts[1]) && word[1] && word[len - 1] == 's') // is a different case and seemingly plural
+			{
+				WORDP O = FindWord(word, len, UPPERCASE_LOOKUP);
+				WORDP D = FindWord(word, len, LOWERCASE_LOOKUP);
+				if (D && D->properties & PRONOUN_BITS) { ; } // dont consider hers and his as plurals of some noun
+				else if (O && O->properties & NOUN) { ; }// we know this noun (like name James)
+				else
+				{
+					char* singular = GetSingularNoun(word, true, false);
+					D = FindWord(singular);
+					if (D && stricmp(singular, word)) // singular exists different from plural, use lower case form
+					{
+						D = StoreWord(word); // lower case plural form
+						if (D->internalBits & UPPERCASE_HASH) AddProperty(D, NOUN_PROPER_PLURAL | NOUN);
+						else AddProperty(D, NOUN_PLURAL | NOUN);
+						wordStarts[1] = D->word;
+					}
 				}
 			}
 		}
@@ -2966,10 +3082,18 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 		Log(STDUSERLOG,(char*)"\r\n");
 	}
 	
-	NLPipeline(mytrace);
+	if (!oobExists) NLPipeline(mytrace);
+    else
+    {
+        for (int i = 1; i <= wordCount; ++i)
+        {
+            wordCanonical[i] = wordStarts[i];
+            MarkWordHit(0, false, StoreWord(wordStarts[i], AS_IS), 0, i, i);
+        }
+    }
 	if (!analyze) nextInput = ptr;	//   allow system to overwrite input here
 	int i, j;
-	if (tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
+	if (!oobExists && tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
 	{
 		// formulate an input insertion
 		char* buffer = AllocateBuffer(); // needs to be able to hold all input queued
@@ -2998,7 +3122,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 		{
 			size_t len = strlen(nextInput);
 			size_t len1 = strlen(buffer);
-			if ((len + len1 + 10) < MAX_BUFFER_SIZE) // safe to swallow
+			if ((len + len1 + 10) < maxBufferSize) // safe to swallow
 			{
 				strcpy(end, nextInput); // a copy of rest of input
 				strcpy(nextInput, buffer); // unprocessed user input is here
@@ -3066,7 +3190,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 
 	wordStarts[0] = wordStarts[wordCount+1] = AllocateHeap((char*)""); // visible end of data in debug display
 	wordStarts[wordCount+2] = 0;
-    if (mark && wordCount) MarkAllImpliedWords();
+    if (!oobExists && mark && wordCount) MarkAllImpliedWords();
 
 	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE || trace & TRACE_POS || prepareMode == POS_MODE || (prepareMode == PENN_MODE && trace & TRACE_POS)) DumpTokenFlags((char*)"After parse");
 	if (timing & TIME_PREPARE) {
@@ -3092,6 +3216,7 @@ int main(int argc, char * argv[])
 	}
 
 	if (InitSystem(argc,argv)) myexit((char*)"failed to load memory\r\n");
+    ResetToPreUser();
     if (!server) 
 	{
 		quitting = false; // allow local bots to continue regardless

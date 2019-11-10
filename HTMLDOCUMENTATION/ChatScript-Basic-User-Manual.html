@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-basic-user-manual">ChatScript Basic User Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/26/2019 cs9.5</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/10/2018 cs9.8</p>
 <ul>
 <li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
 <li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple Topics</a></li>
@@ -106,13 +106,13 @@ s: (I hate meat) really? </code></pre>
 <pre><code>BINARIES/MacChatScript local </code></pre>
 <p>The system prints out a bunch of statistics as it loads data. After which is says:</p>
 <pre><code>Enter user name:</code></pre>
-<p>Select a user name. It’s arbitrary, but it’s how the system knows you are you when you start up again later. The system will respond with message:</p>
+<p>Select a user name. It’s arbitrary, but it’s how the system knows you are you when you start up again later. The system will respond with the message:</p>
 <pre><code>Welcome to ChatScript</code></pre>
 <p>Now enter: <em>What is your name?</em> - you get <em>My name is Harry</em> if you type this correctly. You can also ask <em>How was your childhood?</em> and what are you afraid of and what is your history.</p>
 <p>Actually, you can say or ask anything and get an almost reasonable response because Harry has <em>quibbles</em>. If he knows nothing specific on your topic (which is almost universally true), he can stall and quibble instead. So you can have a conversation about anything.</p>
 <p>OK. Now you’ve run what comes pre-installed.</p>
 <p>If you want to learn about the simple Harry bot and try changing it, read the BOTHARRY document. Same if you want to build your own bot (starting by cloning Harry). Let’s quickly survey what comes built in.</p>
-<h1 id="fast-overview-of-topic-files-.top">Fast Overview of topic files (<code>.top</code>)</h1>
+<h1 id="fast-overview-of-topic-files-sample-rawdataharrychildhood.top">Fast Overview of topic files (sample: <code>RAWDATA/HARRY/childhood.top</code>)</h1>
 <p>Chatscript is so easy, a child could master it in seconds. And if you believe that, I have several bridges available for sale to you on special. But some people will try to dive right in, without reading the material, so here is a quick guide to what you see in this simple topic file.</p>
 <p>Rules start with <code>t:</code> or <code>?:</code> or <code>u:</code> or <code>s:</code></p>
 <ul>
@@ -189,7 +189,6 @@ t: I am studying finance. </code></pre>
 <p>Special comments <code>#!</code> give sample input from a user that the immediately following rule is expected to match and handle. This both documents what input is expected to match the rule below AND allows the engine to automatically test it.</p>
 <p>The special comment gives only one example of matching input, not all possible inputs that can match. It helps you understand what a responder or rejoinder is supposed to react to. It has no impact whatsoever on a user in chat.</p>
 <h1 id="what-files-are-where">What Files are Where</h1>
-<p>The ChatScript engine can run multiple bots at once <a href="ChatScript-Multiple-Bots.html">ChatScript Multiple Bots manual</a>, each with a unique <em>persona</em>. So one user can connect and talk with a specific personality while another user connects and talks with a different one (or the same one).</p>
 <table style="width:100%;">
 <colgroup>
 <col width="26%" />
@@ -302,15 +301,16 @@ You can have responders intermixed with gambits.</p>
 <p>For responders, rules are usually ordered most specific to least specific, possibly bunched by a theme. So a responder trying to catch <em>what color is your hair</em> would be before one that simply would react to any reference to your hair.</p>
 <p>By default, the system avoids repeating itself, marking as used-up rules that it matches that generate output. This is how a topic story gets told. It outputs the first gambit, marks it used, and then next time it will output the second gambit and mark it used, and so on.</p>
 <p>Similarly, a responder that reacts to an input will give its message and then erase itself. If the user repeats his input, that rule cannot respond again, and some other rule will have to answer.</p>
-<p>If you filled in some of these topics with rules and hooked the file into <code>RAWDATA/filesHarry.txt</code> and rebuilt the data, you’d have a chatbot.</p>
+<p>If you created .top files for various topics with rules and dropped your file into the HARRY folder<br />
+and rebuilt the bot (:rebuild Harry), you’d have a chatbot.</p>
 <h2 id="rejoinders">Rejoinders</h2>
 <p>If you expect the user might respond in a particular manner to the chatbot’s last output, you can script rules to examine his next input and see if it matches. When it works, it makes your chatbot seem like it understands the user. These are called rejoinders and all rules can have them.</p>
 <pre><code>s: ( I like spinach ) Are you a fan of the Popeye cartoons?
     
-    a: ( yes ) I used to watch him as a child. Did you lust after Olive Oyl?
+    a: ( yes ) I used to watch him as a child. Did you want to date Olive Oyl?
         
-        b: ( no ) Me neither. She was too skinny.
-        b: ( yes ) You probably like skinny models.
+        b: ( no ) Me neither. 
+        b: ( yes ) She was tall for a woman.
     
     a: ( no ) What cartoons do you watch?
         
@@ -319,8 +319,6 @@ You can have responders intermixed with gambits.</p>
 <p>Rejoinders use <code>a:</code> through <code>q:</code> to indicate nesting depth.</p>
 <p>All rejoinders at a level have the same letter and are alternatives that will be tested in order. So, after the chatbot asks <em>are you a fan...</em> it will test the next input for yes and then no. As soon as it finds a matching rejoinder, it will execute it and be done. If it finds none, then the system just moves on to its normal behavior.</p>
 <p>Rejoinders can have rejoinders, as shown above. Indenting like above is good style, making it visually obvious in your script.</p>
-<p>Note<br />
-technically the above uses of yes and no will not actually work as written. They are considered special and treated as <em>interjections</em> (along with many other things that mean the same thing). To make the above example actually work in the engine, you’d have to use ~yes and ~no. But you don’t learn about concepts and interjections until later.</p>
 <h2 id="rule-labels">Rule Labels</h2>
 <p>All rules (responders, gambits, rejoinders) can have labels on them. Labels have a variety of uses. Other rules can use functions that target a particular labeled rule. You can use the debug abilities to test that rule and you can see that rule more easily in a trace. And you get a kind of documentation telling you what your rule is about.</p>
 <p>A label is a single word placed between the rule type and the pattern. If the rule is a gambit and you want to add a label, you must add a pattern, even if it is only empty parens.</p>
@@ -393,7 +391,6 @@ u: GLASSES ([glasses contacts]) I don&#39;t wear glasses, but I do have contacts
 <h2 id="concepts"><code>~</code>Concepts</h2>
 <p>Choices are handy for synonyms, but you have to repeat them over and over in different rules. At such point being able to declare a list of choices in one place and use them everywhere else becomes convenient. This is the concept set. It is hugely important in writing patterns that match meaning.</p>
 <pre><code>concept: ~eat [eat ingest &quot;binge and purge&quot;]</code></pre>
-<p>Unlike choices, a concept cannot use paren notation to hold a sequence of words, though it can use quoted expressions.</p>
 <p>A concept is a top-level declaration consisting of a name starting with <code>~</code> and consisting of only alpha-numeric characters and underscores. A concept has a list of words it defines. You can use the set name in any pattern or topic keyword list in place of a word.</p>
 <pre><code>s: (I ~eat meat) Do you really? I am a vegan. </code></pre>
 <p>Think of the <code>~</code> as meaning approximately. Topic names are also concept names, with the keywords of the topic being the choices.</p>
@@ -408,8 +405,8 @@ s: (~baseball) I’m not that into sports like baseball. </code></pre>
 <p>detects questions like <em>which is better, a full house or a royal flush</em> and the system has functions that can exploit the ordered concept to provide a correct answer.</p>
 <p>You can nest concepts within concepts, so this is fine:</p>
 <pre><code>concept: ~food [ ~meat ~dessert lasagna ~vegetables ~fruit ] </code></pre>
-<p>Hierarchical inheritance is important in pattern generalization. Concepts can be used to create full ontologies of verbs, nouns, adjectives, and adverbs, allowing one to match general or idiomatic meanings.</p>
-<p>The system comes with such already defined, you just have to activate it. If you give the command <code>:build 0</code> to the chatbot, you will build the underlying ontology and world knowledge of the system. Then you can explore the existing sets.</p>
+<p>Hierarchical inheritance is important in pattern generalization. Concepts can be used to create full ontologies (hieararchical groupings) of verbs, nouns, adjectives, and adverbs, allowing one to match general or idiomatic meanings.</p>
+<p>The system comes with lots of concepts already defined and compiled in Harry. If you give the command <code>:build 0</code> to the chatbot, you will rebuild the underlying ontology and world knowledge of the system.</p>
 <p>In addition to fixed sets (over 1600 of them), the system automatically defines a bunch of dictionary-based sets. These include parts-of-speech like <code>~noun</code> as well as general open concepts like <code>~number</code>.</p>
 <p>For a full list, see the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
 <h2 id="capitalization">Capitalization</h2>
@@ -428,14 +425,14 @@ u: ( &quot;The Beatles&quot; )</code></pre>
 <h2 id="interjections-discourse-acts-and-concept-sets">Interjections, &quot;discourse acts&quot;, and concept sets</h2>
 <p>Some words and phrases have interpretations based on whether they are at sentence start or not. E.g., <em>good day, mate</em> and <em>It is a good day</em> are different for <em>good day</em>. Likewise <em>sure</em> and <em>I am sure</em> are different.</p>
 <p>Words that have a different meaning at the start of a sentence are commonly called interjections.</p>
-<p>In ChatScript these are defined by the <code>interjections.txt</code> file (for English language, see <a href="../LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt">interjections.txt</a>). Also there are some in the <code>texting.txt</code> file.</p>
+<p>In ChatScript these are defined by the <code>LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt</code> file Also there are some in the <code>texting.txt</code> file.</p>
 <p>In addition, the file augments this concept with <em>discourse acts</em>, phrases that are like an interjection. All interjections and discourse acts map to concept sets, which either come through as the user input instead of what they wrote or will merely be marked as interjections, leaving the words unchanged (see interjections in <code>Practicum - Spelling and Interjections</code>).</p>
 <p>For example <em>yes</em> and <em>sure</em> and <em>of course</em> are all treated as meaning the discourse act of agreement in the interjections file. If you don't suppress interjection word remapping, you don’t see <em>yes, I will go</em> coming out of the engine. The interjections file will remap that to the sentence <code>~yes</code>, breaking off that into its own sentence, followed by <em>I will go</em> as a new sentence.</p>
 <p>These generic interjections (which are open to author control via <code>interjections.txt</code>) are listed in the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
-<p>If interjections at the start of a sentence are broken off into their own sentence (as they are by default -- you can block this), this kind of pattern does not work:</p>
+<p>If interjections at the start of a sentence are broken off into their own sentence (as they used to be by default but are no longer), this kind of pattern does not work:</p>
 <pre><code>u: ( ~yes _* )</code></pre>
-<p>You cannot capture the rest of the sentence here, because it will be part of the next sentence instead. This means interjections act somewhat differently from other concepts. If you use a word in a pattern which may get remapped on input, the script compiler will issue a warning. Likely you should use the remapped name instead.</p>
-<p>But you can turn off this behavior and then the above pattern works perfectly well.</p>
+<p>You cannot capture the rest of the sentence here, because it will be part of the next sentence instead. This means interjections can act somewhat differently from other concepts. If you use a word in a pattern which may get remapped on input, the script compiler will issue a warning. Likely you should use the remapped name instead.</p>
+<p>But you can turn off this behavior and then the above pattern works perfectly well. By default it is off.</p>
 <h2 id="canonization">Canonization</h2>
 <p>The system actually assists you in generalizing your patterns. It simultaneously matches both the original word and a canonical form of it if your pattern word is in the canonical form. And it checks both lowercase and uppercase forms of your words. For nouns, the canonical form is the singular. So if your pattern is:</p>
 <pre><code>?: (dog) I have a cat </code></pre>
@@ -466,7 +463,7 @@ s: ( I was ) This matches I was and Me was but not I am</code></pre>
 <p>The absence of words is represented using <code>!</code> and means it must not be found anywhere after the current match location. When placed at the start of the pattern, it means not anywhere in the sentence at all:</p>
 <pre><code>u: ( ![ not never rarely ] I * ~ingest * ~meat ) You eat meat.
 u: ( !~negativeWords I * ~like * ~meat ) You like meat. </code></pre>
-<p>While <code>!</code> Checks for the entire rest of the sentence, <code>!!</code> checks just the next word from where you are. So</p>
+<p>While <code>!</code> checks for the entire rest of the sentence, <code>!!</code> checks just the next word from where you are. So</p>
 <pre><code>u: ( test !!this)  I win</code></pre>
 <p>Will match input <em>test that this works</em> and not match <em>test this works</em>.</p>
 <h2 id="optional-words">Optional Words <code>{</code> <code>}</code></h2>
@@ -610,7 +607,7 @@ This is normal output after the assignment. </code></pre>
 <pre><code>?: ( what is my name $firstname ) Your name is $firstname.</code></pre>
 <p>Like match variables, you can use user variables in the output. Here, if the input is what is my name and if <code>$firstname</code> has been previously assigned to, then the pattern matches. Otherwise it fails. You are free to refer to variables that don’t exist. The pattern will simply fail.</p>
 <p>You can also directly test a variable to see if it has a particular value using a relational test in the pattern. Relational tests use no whitespace, they are all one big token. One such relation is <code>=</code>, also writeable as <code>==</code>.</p>
-<pre><code>?: ( $gender=male I like boys ) Oh, dear.</code></pre>
+<pre><code>?: ( $gender=male I like boys ) That&#39;s less controversial these days.</code></pre>
 <p>Here, the rule will only start checking for input matches if <code>$gender</code> has the value male (case insensitive). If it is not defined or has any other value, this rule fails immediately. A relational test requires the two sides of the relation and the relation symbol all be jammed together with no spaces. So the following rule is tantamount to seeing if <code>$gender</code> has ever been assigned to, followed by seeing if the user typed <em>=male</em> anywhere.</p>
 <pre><code>?: ( $gender =male ) </code></pre>
 <p>Other relations are <code>&lt;</code> and <code>&gt;</code>, which will require the system convert the variable’s text value into numeric.</p>

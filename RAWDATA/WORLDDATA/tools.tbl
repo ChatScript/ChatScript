@@ -26,7 +26,7 @@ if (^why_to != *) {^createfact(^why_to why ^what)}
 DATA:
 
 # function NUTRIENT - food and drink
-[~food ~beings ] nutrient nourish "living beings" * * * * "help avoid starvation"
+[~food ] nutrient nourish "living beings" * * * * "help avoid starvation"
 [~beverage] nutrient nourish "living beings" * * * * "help avoid dehydration"
 [~herbspice] nutrient improve taste * * * * "spice food"
 
@@ -364,13 +364,12 @@ iron		appliance smooth clothes *					* * laundry "improve personal appearance"
 blow_dryer	appliance dry hair	*						* * bathroom "improve personal appearance"
 
 # ROLE 
-[cop policeman policewoman beat_cop patrolman police] role catch criminals *		governing * police_station "protect society"
-[doctor nurse physician healer] role heal sick *									healing * hospital "make people well"
-[shaman priest rabbi chaplain ] role channel god *	religion * church "domesticate people"
-[mate wife husband] role provide reproduction * * * * "have children"
-[concubine girlfriend lover gigolo prostitute] role provide sex * * * * "supply sex"
-[parent father mother] role provide protection * * * * "raise a child"
-
+# [cop policeman policewoman beat_cop patrolman police] role catch criminals *		governing * police_station "protect society"
+# [doctor nurse physician healer] role heal sick *									healing * hospital "make people well"
+# [shaman priest rabbi chaplain ] role channel god *	religion * church "domesticate people"
+# [mate wife husband] role provide reproduction * * * * "have children"
+# [concubine girlfriend lover gigolo prostitute] role provide sex * * * * "supply sex"
+# [parent father mother] role provide protection * * * * "raise a child"
 
 # function CLOTHES
 [T-shirt "swimming trunks" blouse shirt halter_top sweater blouse pullover sweater sweatshirt turtleneck vest tank_top] clothes cover chest *						dressing * * "keep upper torso warm"

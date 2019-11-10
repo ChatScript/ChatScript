@@ -35,6 +35,8 @@ bool echoServer = false;
 
 char serverIP[100];
 
+static int pass = 0;
+static int fail = 0;
 
 void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output)
 {
@@ -280,9 +282,226 @@ static void ReadSocket(TCPSocket* sock, char* response)
     *base = 0;
 }
 
+static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* data, size_t baselen, FILE* sourcefile, FILE* out, int& pass, int& fail)
+{
+    int line = 1;
+    char* at = sendbuffer + baselen;
+    char* ptr;
+    TCPSocket *sock;
+    char* oobmessage = AllocateBuffer();
+    while (1) // each line of regression file
+    {
+        ++line;
+        ptr = data;
+        if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
+
+        char copy[10000];
+        strcpy(copy, ptr);
+        size_t l = strlen(ptr);
+        char* tab = ptr;
+        bool quote = false;
+        while (*++tab) // change comma delimits
+        {
+            if (*tab == '"') quote = !quote;
+            if (quote) continue;
+            if (*tab == ',') *tab = '`';
+        }
+        // Yes, sanity, Line 3, TRY_BAD_BLUETOOTH, computer, all, australia,SEM, jmeter,OOB, Welcome!What's going on with your computer?,Bluetooth headphones won't connect, So what? , , , , , ,
+
+        while (ptr[l - 1] == '\t' || ptr[l - 1] == '\n' || ptr[l - 1] == '\r') ptr[--l] = 0; // remove trailing tabs
+        strcpy(copy, ptr);
+        if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+        if (strnicmp(ptr, "yes", 3)) continue; // not running                                                                                                                                               //RunTest, Suite, Comment, Name, Category, Specialty, Location, ChatType, Source, OOB for the first message, WelcomeMessage, 1st Message, 1st Response, 2nd Message, 2nd Response, 3rd Message, 3rd Response, 4th Message, 5th Response,
+        char category[MAX_WORD_SIZE];
+        char specialty[MAX_WORD_SIZE];
+        char location[MAX_WORD_SIZE];
+        ptr = strstr(ptr, "`"); // start of suite
+        if (!ptr) continue;
+        ptr = strstr(ptr + 1, "`"); // start of comment
+        if (!ptr) continue;
+        ptr = strstr(ptr + 1, "`"); // start of name
+        if (!ptr) continue;
+        char* cat = strstr(ptr + 1, "`"); // start of category
+        if (!cat) continue;
+        cat += 1;
+        char* spec = strstr(cat, "`") + 1; // start of specialty
+        char* loc = strstr(spec, "`") + 1; // start of location
+        char* next = strstr(loc, "`") + 1; // end location
+        *(spec - 1) = 0; // end cat
+        ReadCompiledWord(cat, category);
+        *(loc - 1) = 0; // end specialty
+        ReadCompiledWord(spec, specialty);
+        if (!stricmp(specialty, "all")) *specialty = 0; // none
+        *(next - 1) = 0; // end specialty
+        ReadCompiledWord(loc, location);
+        if (!*category) continue;
+        char chattype[MAX_WORD_SIZE];
+        char* src = strchr(next, '`')+1;
+        ReadCompiledWord(next, chattype);
+        char source[MAX_WORD_SIZE];
+        ReadCompiledWord(src, source);
+        char* oobstart = strchr(src+1,'`') + 1;
+        ptr = strchr(oobstart, '`'); //  oob field for 1st message
+        *ptr = 0;
+        if (*oobstart)  strcpy(oobmessage, oobstart + 1); // skip opening quote
+        else *oobmessage = 0;
+        size_t x = strlen(oobmessage);
+        if (x) oobmessage[x - 1] = 0; // remove closing quote
+        oobstart = oobmessage;
+        while (oobstart = strstr(oobstart, "\"\""))
+            memmove(oobstart + 1, oobstart + 2, strlen(oobstart));
+
+        char* expect = ++ptr;
+        expect = SkipWhitespace(expect);
+        if (*expect == '[') expect = strrchr(expect, ']') + 1; // skip oob
+        expect = SkipWhitespace(expect);
+        char* end = strchr(ptr + 1, '`');
+        *end = 0; // welcome complete
+
+        ptr = end + 1; // set up for 1st real input
+
+                       // set up base message
+
+        char init[MAX_WORD_SIZE];
+        char specialtydata[MAX_WORD_SIZE];
+        if (*specialty) sprintf(specialtydata, " specialty: %s ", specialty);
+        else  *specialtydata = 0;
+        char locationdata[MAX_WORD_SIZE];
+        if (*location) sprintf(locationdata, " location: %s ", location);
+        else *locationdata = 0;
+        char chattypedata[MAX_WORD_SIZE];
+        if (*chattype) sprintf(chattypedata, " type: %s ", chattype);
+        else *chattypedata = 0;
+        char sourcedata[MAX_WORD_SIZE];
+        if (*source) sprintf(sourcedata, " source: %s ", source);
+        else *sourcedata = 0;
+
+        sprintf(init, ":reset: [ category: %s %s %s %s %s id: user1]", category, specialtydata, locationdata,sourcedata, chattypedata);
+        char* input = init;
+        if (!*specialty) strcpy(specialty, "all");
+
+        // now execute conversation
+        while (*input)
+        {
+            strcpy(at, input);
+            sock = new TCPSocket(serverIP, (unsigned short)port);
+            sock->send(sendbuffer, baselen + 1 + strlen(at));
+            ReadSocket(sock, response);
+            delete(sock);
+            char* endoob = strrchr(response, ']');
+            if (!endoob)
+                break;
+            char* actual = SkipWhitespace(endoob + 1);
+            size_t len = strlen(actual);
+            while (actual[len - 1] == ' ') actual[--len] = 0;
+            expect = TrimSpaces(expect);
+            char* dq = expect;
+            while ((dq = strstr(dq, "\"\"")))
+            { // never expect doubled quotes, thats csv thing
+                memmove(dq + 1, dq + 2, strlen(dq + 1));
+            }
+
+            char* multi = strchr(expect, '|');
+            while (multi)
+            {
+                *multi = 0;
+                if (!stricmp(actual, expect)) break; // matches
+                expect = multi + 1;
+                expect = TrimSpaces(expect);
+                multi = strchr(expect, '|');
+            }
+            if (strcmp(actual, expect))
+            {
+                ++fail;
+                fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, pass, fail, category, specialty, chattype,source,at);
+                fprintf(out, "want: %s\r\n", expect);
+                fprintf(out, "gotx:  %s\r\n\r\n", actual);
+            }
+            else
+            {
+                ++pass;
+                fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, pass, fail, category, specialty, at, actual);
+            }
+            if (((pass + fail) % 100) == 0) printf("at %d\r\n", pass + fail);
+
+            char* endi = strchr(ptr, '`'); // end next message to user
+            if (!endi) break;
+            *endi = 0;
+            if (*oobmessage && input != oobmessage)
+            {
+                strcat(oobmessage, " ");
+                strcat(oobmessage, ptr);
+                input = oobmessage;
+            }
+            else
+            {
+                input = ptr; // start of 2nd or later message to user
+                *oobmessage = 0;
+            }
+            expect = endi + 1;
+            if (*expect == '`') break; // have no expections anymore
+            if (*expect == '"') ++expect;
+            ptr = strchr(expect + 1, '`'); // end next message from user
+            if (!ptr) break;
+            *ptr-- = 0;
+            if (*ptr == '"') *ptr = 0;
+            ptr += 2;
+        } // completes one regression line
+    }
+    FreeBuffer();
+}
+
+static void ReadNextJmeter(char* name, uint64 value)
+{
+    FILE* out = (FILE*)value;
+    printf("At: %s\r\n", name);
+    fprintf(out, "At: %s\r\n", name);
+
+    FILE* in = FopenReadNormal(name); // source
+    if (in) sourceFile = in;
+    else
+    {
+        Log(STDUSERLOG, (char*)"No such document file: %s\r\n", name);
+        return;
+    }
+    char bot[100];
+    char* data = AllocateBuffer(); // read from user or file
+    char* response = AllocateBuffer(); // returned from chatbot
+    char* sendbuffer = AllocateBuffer(); // staged message to chatbot
+
+                                         //   RunTest, Suite, Comment, Name, Category, Specialty, Location, ChatType, Source, OOB for the first message, WelcomeMessage, 1st Message, 1st Response, 2nd Message, 2nd Response, 3rd Message, 3rd Response, 4th Message, 4th Response
+    fgets(data, 100000 - 100, sourceFile); // skip header
+
+    strcpy(sendbuffer, "user1"); // same user here always
+    size_t userlen = strlen(sendbuffer);
+    *bot = 0;
+    char* start = strchr(name, '/');
+    if (start) ++start; // folder of bot folders
+    else start = name; // simple filename
+    char* end = strchr(start, '/');
+    if (end)
+    {
+        *end = 0; // hide file name
+        strcpy(bot, start);
+    }
+    size_t botlen = strlen(bot);
+    sendbuffer[userlen + 1] = 0;
+    strcpy(sendbuffer + userlen + 1, bot);
+    sendbuffer[userlen + 1 + botlen + 1] = 0;
+    size_t baselen = userlen + botlen + 2;
+    char* at = sendbuffer + baselen; // where messages now go
+
+    Jmetertestfile(bot, sendbuffer, response, data, baselen, sourceFile, out, pass, fail);
+
+    FreeBuffer();
+    FreeBuffer();
+    FreeBuffer();
+}
+
 void Client(char* login)// test client for a server
 {
 #ifndef DISCARDSERVER
+    sourceFile = stdin;
     char word[MAX_WORD_SIZE];
     if (!trace) echo = false;
     (*printer)((char*)"%s", (char*)"\r\n\r\n** Client launched\r\n");
@@ -294,7 +513,6 @@ void Client(char* login)// test client for a server
     char* data = AllocateBuffer(); // read from user or file
     char* response = AllocateBuffer(); // returned from chatbot
     char* sendbuffer = AllocateBuffer(); // staged message to chatbot
-    FILE* source = stdin;
     char user[500];
     size_t userlen;
     size_t botlen;
@@ -314,7 +532,7 @@ void Client(char* login)// test client for a server
     {
         ++from;
         (*printer)((char*)"%s", (char*)"\r\ninput:    ");
-        ReadALine(data, source); // actual user input
+        ReadALine(data, sourceFile); // actual user input
         msg = data;
     }
     else msg = "";
@@ -348,8 +566,8 @@ restart: // start with user
     bool jaconverse = false;
     bool jastarts = false;
     bool raw = false;
+	bool botturn = false;
     bool converse = false;
-    FILE* sourcefile = NULL;
     try
     {
 
@@ -358,22 +576,39 @@ restart: // start with user
         {
             char file[SMALL_WORD_SIZE];
             ReadCompiledWord(ptr + 8, file);
-            sourcefile = fopen(file, (char*)"rb");
-            ReadALine(ptr, sourcefile, 100000 - 100);
+            sourceFile = fopen(file, (char*)"rb");
+            ReadALine(ptr, sourceFile, 100000 - 100);
         }
         else if (!strnicmp(ptr, (char*)":converse ", 9))
         {
             char file[SMALL_WORD_SIZE];
             ReadCompiledWord(ptr + 8, file);
-            sourcefile = fopen(file, (char*)"rb");
+            sourceFile = fopen(file, (char*)"rb");
             converse = true;
+        }
+        else if (!strnicmp(ptr, (char*)":jajmeter ", 9))
+        {
+            char file[SMALL_WORD_SIZE];
+            ptr = ReadCompiledWord(ptr + 9, file);
+            size_t len = strlen(file);
+            pass = fail = 0;
+            FILE* out = FopenBinaryWrite("tmp/jmeter.txt");
+            if (file[len - 1] == '/' || file[len - 1] == '\\') // directory
+            {
+                WalkDirectory(file, ReadNextJmeter, (uint64)out, true);
+            }
+            else ReadNextJmeter(file, (uint64)out);
+
+            printf("%d passed and %d failed\r\n", pass, fail);
+            fprintf(out, "%d passed and %d failed\r\n", pass, fail);
+            fclose(out);
         }
         else if (!strnicmp(ptr, (char*)":jastarts ", 9))
         {
             char file[SMALL_WORD_SIZE];
             ptr = ReadCompiledWord(ptr + 9, file);
-            source = fopen(file, (char*)"rb");
-            if (!source)
+            sourceFile = fopen(file, (char*)"rb");
+            if (!sourceFile)
             {
                 printf("%s not found\r\n", file);
                 myexit("not found");
@@ -392,14 +627,15 @@ restart: // start with user
         {
             char file[SMALL_WORD_SIZE];
             ptr = ReadCompiledWord(ptr + 11, file);
-            source = fopen(file, (char*)"rb");
-            if (!source)
+            sourceFile = fopen(file, (char*)"rb");
+            if (!sourceFile)
             {
                 printf("%s not found\r\n", file);
                 myexit("not found");
             }
             jastarts = true;
             jaconverse = true;
+			botturn = true;
             ptr = SkipWhitespace(ptr);
             char num[100];
             ptr = ReadCompiledWord(ptr, num);
@@ -413,7 +649,7 @@ restart: // start with user
         {
             char file[SMALL_WORD_SIZE];
             ptr = ReadCompiledWord(ptr + 5, file);
-            source = fopen(file, (char*)"rb");
+            sourceFile = fopen(file, (char*)"rb");
             raw = true;
             ptr = SkipWhitespace(ptr);
             char num[100];
@@ -427,13 +663,15 @@ restart: // start with user
         char* sep = NULL;
         TCPSocket *sock;
         int n = 0;
+		char output[MAX_WORD_SIZE * 10];
+		*output = 0;
         while (ALWAYS)
         {
             if ((++n % 100) == 0)  (*printer)((char*)"On Line %d\r\n", n);
             if (converse) // do a conversation of multiple lines each tagged with user until done, not JA style
             {
                 ptr = data;
-                if (fgets(ptr, 100000 - 100, sourcefile) == NULL) break;
+                if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
                 if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
                                                                                                                                                                // (*printer)((char*)"Read %s\r\n",  data);
                 strcpy(copy, ptr);
@@ -475,8 +713,8 @@ restart: // start with user
             else if (jastarts) // includes single lines and continuous conversations
             {
                 ptr = data;
-                if (fgets(ptr, 100000 - 100, source) == NULL)
-                    break;
+                if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
+
                 if (--skip > 0) continue;
                 if (--count < 0)
                     break;
@@ -489,7 +727,6 @@ restart: // start with user
                 char cat[MAX_WORD_SIZE];
                 char spec[MAX_WORD_SIZE];
                 char loc[MAX_WORD_SIZE];
-                char output[MAX_WORD_SIZE * 10];
                 // userid, cat, spec, loc, message, {output}
                 // userid can be blank, we overwrite with user1 name
                 // if userid is 1, these are conversations which end when cat/spec changes
@@ -506,6 +743,9 @@ restart: // start with user
                 if (!blank) continue;
                 *blank = 0;
                 strcpy(cat, ptr);
+				char* space = strchr(cat, ' ');
+				if (space) 
+					*space = '_';
 
                 // get specialty
                 ptr = blank + 1; // spec
@@ -513,12 +753,16 @@ restart: // start with user
                 if (!blank) continue;
                 *blank = 0;
                 strcpy(spec, ptr);
+				space = strchr(spec, ' ');
+				if (space) 
+					*space = '_';
+
                 if (!stricmp(spec, "none") || !stricmp(spec, "null") || *spec == 0) strcpy(spec, "general");
 
                 // get location
                 ptr = blank + 1; // loc
                 blank = strchr(ptr, '\t'); // end of loc
-                if (!blank) continue; 
+                if (!blank) continue;
                 *blank = 0;
                 strcpy(loc, ptr);
 
@@ -534,16 +778,22 @@ restart: // start with user
 
                 bool newstart = false;
                 // do we send the start message (new user, category, or specialty)
-                if (stricmp(user, prioruser) || stricmp(cat, priorcat) || stricmp(spec, priorspec)) // changing cat/spec
-                    newstart = true;
+				if (stricmp(user, prioruser) || stricmp(cat, priorcat) || stricmp(spec, priorspec)) // changing cat/spec
+				{
+					newstart = true;
+					botturn = true;
+				}
+
+				if (jaconverse) botturn = !botturn;  // flip viewpoint
+				if (jaconverse && !botturn && !newstart) continue; // ignore this as swallowed
 
                 strcpy(priorcat, cat);
                 strcpy(priorspec, spec);
                 strcpy(prioruser, user);
+				if (!stricmp(cat, "general")) continue; // sip rerouter, we have no idea where it went
 
                 // construct std start message  user,bot,0
-                // if (!jaconverse) 
-                strcpy(sendbuffer, "user1"); // same user here always
+                strcpy(sendbuffer, "user1"); // same user here always -- fails to clear some globals w/o :reset:
                                              // else strcpy(sendbuffer, user);
                 userlen = strlen(sendbuffer);
                 *bot = 0;
@@ -558,24 +808,25 @@ restart: // start with user
                 {
                     if (*output)
                     {
-                        if (!*loc) sprintf(at, "[ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user, output);
-                        else sprintf(at, "[ category: %s specialty: %s id: %s location: %s  expect: \"%s\"]", cat, spec, user, loc, output);
+                        if (!*loc) sprintf(at, ":reset: [ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user, output);
+                        else sprintf(at, ":reset: [ category: %s specialty: %s id: %s location: %s  expect: \"%s\"]", cat, spec, user, loc, output);
                     }
                     else
                     {
-                        if (!*loc) sprintf(at, "[ category: %s specialty: %s id: %s ]", cat, spec, user);
-                        else sprintf(at, "[ category: %s specialty: %s id: %s location: %s ]", cat, spec, user, loc);
+                        if (!*loc) sprintf(at, ":reset: [ category: %s specialty: %s id: %s ]", cat, spec, user);
+                        else sprintf(at, ":reset: [ category: %s specialty: %s id: %s location: %s ]", cat, spec, user, loc);
                     }
                     sock = new TCPSocket(serverIP, (unsigned short)port);
                     sock->send(sendbuffer, baselen + 1 + strlen(at));
                     ReadSocket(sock, response);
                     delete(sock);
                 }
+				if (jaconverse && !botturn) continue; // ignore this now that converse is started 
             }
             else if (raw)
             {
                 ptr = data;
-                if (fgets(ptr, 100000 - 100, source) == NULL)
+                if (fgets(ptr, 100000 - 100, sourceFile) == NULL)
                     break;
                 if (--skip > 0) continue;
                 if (--count < 0)
@@ -600,9 +851,15 @@ restart: // start with user
             }
             // send our normal message now
             msglen = strlen(ptr);
-            strncpy(sendbuffer + baselen, ptr, msglen + 1);
+			char* at = sendbuffer + baselen;
+			if (*output)
+			{
+				sprintf(at, "[expect: %s] ", output);
+				at += strlen(at);
+			}
+            strncpy(at, ptr, msglen + 1);
 
-            size_t len = baselen + msglen + 1;
+            size_t len = baselen + strlen(sendbuffer+baselen) + 1;
             sock = new TCPSocket(serverIP, (unsigned short)port);
             sock->send(sendbuffer, len);
             if (!converse && !jastarts && !raw) (*printer)((char*)"Sent %d bytes of data to port %d - %s|%s\r\n", (int)len, port, sendbuffer, msg);
@@ -622,7 +879,7 @@ restart: // start with user
             else Log(STDUSERLOG, "%s %s %s\r\n", user, bot, response);
             if (!converse && !jastarts && !jaconverse && !raw)
             {
-                if (!ReadALine(data, source, 100000 - 100)) break; // next thing we want to send
+                if (ReadALine(data, sourceFile, 100000 - 100) < 0) break; // next thing we want to send
                 strcat(data, (char*)" "); // never send empty line
                 msg = data;
                 ptr = data;
@@ -630,6 +887,11 @@ restart: // start with user
                 if (!strnicmp(SkipWhitespace(data), (char*)":quit", 5)) break;
                 else if (!strnicmp(SkipWhitespace(data), (char*)":source", 7)) goto SOURCE;
                 else if (!strnicmp(SkipWhitespace(data), (char*)":jastarts", 7))
+                {
+                    ptr = data;
+                    goto SOURCE;
+                }
+                else if (!strnicmp(SkipWhitespace(data), (char*)":jajmeter", 9))
                 {
                     ptr = data;
                     goto SOURCE;
@@ -648,7 +910,7 @@ restart: // start with user
                 {
                     char file[SMALL_WORD_SIZE];
                     ReadCompiledWord(data + 9, file);
-                    sourcefile = fopen(file, (char*)"rb");
+                    sourceFile = fopen(file, (char*)"rb");
                     converse = true;
                     continue;
                 }
@@ -663,7 +925,7 @@ restart: // start with user
                     delete(sock);
 
                     (*printer)((char*)"%s", (char*)"\r\nEnter client user name: ");
-                    ReadALine(word, source);
+                    ReadALine(word, sourceFile);
                     (*printer)((char*)"%s", (char*)"\r\n");
                     from = word;
                     goto restart;
@@ -683,7 +945,7 @@ restart: // start with user
 #ifndef DISCARDSERVER
 
 
-#define SERVERTRANSERSIZE (4 + 100 + INPUT_BUFFER_SIZE)  // offset to output buffer
+#define SERVERTRANSERSIZE (4 + 100 + maxBufferSize)  // offset to output buffer
 #ifdef WIN32
 #pragma warning(push,1)
 #pragma warning(disable: 4290) 
@@ -760,7 +1022,7 @@ void* RegressLoad(void* junk)// test load for a server
     int avgTime = 0;
 
     // message to server is 3 strings-   username, botname, null (start conversation) or message
-    echo = 1;
+    echo = true;
     char* ptr = data;
     strcpy(ptr, from);
     ptr += strlen(ptr) + 1;
@@ -770,8 +1032,8 @@ void* RegressLoad(void* junk)// test load for a server
     int counter = 0;
     while (1)
     {
-        if (ReadALine(revertBuffer + 1, in, INPUT_BUFFER_SIZE - 100) < 0) break; // end of input
-                                                                                 // when reading from file, see if line is empty or comment
+        if (ReadALine(revertBuffer + 1, in, maxBufferSize - 100) < 0) break; // end of input
+                                                                             // when reading from file, see if line is empty or comment
         char word[MAX_WORD_SIZE];
         ReadCompiledWord(revertBuffer + 1, word);
         if (!*word || *word == '#' || *word == ':') continue;
@@ -1191,7 +1453,7 @@ static void* Done(TCPSocket * sock, char* memory)
 static void* HandleTCPClient(void *sock1)  // individual client, data on STACK... might overflow... // WINDOWS + LINUX
 {
     uint64 starttime = ElapsedMilliseconds();
-    char* memory = (char*)malloc(4 + 100 + INPUT_BUFFER_SIZE + outputsize + 8); // our data in 1st chunk, his reply info in 2nd - 80k limit
+    char* memory = (char*)malloc(4 + 100 + maxBufferSize + outputsize + 8); // our data in 1st chunk, his reply info in 2nd - 80k limit
     if (!memory) return NULL; // ignore him if we run out of memory
     char* output = memory + SERVERTRANSERSIZE;
     *output = 0;
@@ -1357,7 +1619,7 @@ void GrabPort() // enable server port if you can... if not, we cannot run.
         }
     }
     catch (SocketException &e) { exit(1); } // dont use myexit. dont want log entries for failed port used by cron to try to restart server which may be running ok.
-    echo = 1;
+    echo = true;
 
 #ifdef WIN32
     hChatLockMutex = CreateMutex(NULL, FALSE, NULL);
@@ -1369,8 +1631,10 @@ static void* MainChatbotServer()
     ServerStartup(); //   get initial control over the mutex so we can start. - on linux if thread dies, we must reacquire here 
                      // we now own the chatlock
     uint64 lastTime = ElapsedMilliseconds();
+    int buffercount = bufferIndex;
     if (setjmp(scriptJump[SERVER_RECOVERY])) // crashes come back to here
     {
+        bufferIndex = buffercount;
         (*printer)((char*)"%s", (char*)"***Server exception0\r\n");
         ReportBug((char*)"***Server exception0\r\n")
 #ifdef WIN32
@@ -1379,14 +1643,13 @@ static void* MainChatbotServer()
         else strcpy(ourMainOutputBuffer, (char*)"Hey, sorry. I forgot what I was thinking about.");
         ServerTransferDataToClient();
 #endif
-        factThread = NULL;
-        userVariableThreadList = NULL;
+        ClearHeapThreads(); // crash recover
         ResetBuffers(); //   in the event of a trapped bug, return here, we will still own the chatlock
     }
     chatbotExists = true;   //  if a client can get the chatlock now, he will be happy
     bool oldserverlog = serverLog;
     serverLog = true;
-    Log(SERVERLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath: %s\r\n\r\n", serverLogfileName, oldserverlog, userLog,crashpath);
+    Log(SERVERLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath: %s\r\n\r\n", serverLogfileName, oldserverlog, userLog, crashpath);
     (*printer)((char*)"Server ready - logfile:%s serverLog:%d userLog:%d crashpath:%s\r\n\r\n", serverLogfileName, oldserverlog, userLog, crashpath);
     serverLog = oldserverlog;
     int returnValue = 0;
@@ -1428,17 +1691,16 @@ static void* MainChatbotServer()
             echo = false;
             struct tm ptm;
             char* dateLog = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
-            if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: pid: x %s (%s) size:%d %s %s\r\n", user, bot,test, ourMainInputBuffer, dateLog);
 
-            if (test >= (INPUT_BUFFER_SIZE - 100))
+            if (test >= (maxBufferSize - 100))
             {
                 ReportBug("Too much input to server %d",test);
                 strcpy(ourMainInputBuffer,(char*)"too much data");
             }
             else strcpy(ourMainInputBuffer,ptr); // xfer user message to our incoming feed
-  
-            returnValue = PerformChat(user,bot,ourMainInputBuffer,ip,ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
+            if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: pid: x %s (%s) size:%d %s %s\r\n", user, bot, test, ourMainInputBuffer, dateLog);
 
+            returnValue = PerformChat(user,bot,ourMainInputBuffer,ip,ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
                                                                                             // special controls
             if (returnValue == PENDING_RESTART) // special messages
             {

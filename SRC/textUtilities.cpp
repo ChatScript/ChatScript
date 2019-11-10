@@ -570,7 +570,7 @@ void ChangeSpecial(char* buffer)
 {
 	char* limit;
 	char* buf = InfiniteStack(limit,"ChangeSpecial");
-	AddEscapes(buf,buffer,true,MAX_BUFFER_SIZE);
+	AddEscapes(buf,buffer,true, maxBufferSize);
 	strcpy(buffer,buf);
 	ReleaseInfiniteStack();
 }
@@ -599,25 +599,25 @@ char* AddEscapes(char* to, char* from, bool normal,int limit,bool addescapes) //
 			*to++ = '\\'; 
 			*to++ = 't'; // legal
 		}
-		else if (*at == '"' || (*at == '\\' && !addescapes)) { // we  need to preserve that it was escaped, though we always escape it in json anyway, because writeuservars needs to know
+        // detect it is already escaped
+        else if (*at == '\\')
+        {
+            char* at1 = at + 1;
+            if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == '"' || *at1 == 'u' || *at1 == '\\'))  // just pass it along
+            {
+                *to++ = *at;
+                *to++ = *++at;
+            }
+            else {
+                if (!normal) *to++ = ESCAPE_FLAG;
+                *to++ = '\\';
+                *to++ = '\\';
+            }
+        }
+        else if (*at == '"' || (*at == '\\' && !addescapes)) { // we  need to preserve that it was escaped, though we always escape it in json anyway, because writeuservars needs to know
 			if (!normal) *to++ = ESCAPE_FLAG; 
 			*to++ = '\\'; 
 			*to++ = *at;
-		}
-		// detect it is already escaped
-		else if (*at == '\\')
-		{
-			char* at1 = at + 1;
-			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == '"' || *at1 == 'u' || *at1 == '\\'))  // just pass it along
-			{
-				*to++ = *at;
-				*to++ = *++at;
-			}
-			else { 
-				if (!normal) *to++ = ESCAPE_FLAG; 
-				*to++ = '\\'; 
-				*to++ = '\\'; 
-			}
 		}
 		// no escape needed
 		else *to++ = *at;
@@ -1516,7 +1516,7 @@ char IsFloat(char* word, char* end, int useNumberStyle)
 {
 	if (*(end - 1) == '.') return false;	 // float does not end with ., that is sentence end
 	if (*word == '-' || *word == '+') ++word; // ignore sign
-	if (!IsDigit(*word)) return false;
+	if (!IsDigit(*word) && *word != '.') return false;
 	char decimalMark = decimalMarkData[useNumberStyle];
 	char digitGroup = digitGroupingData[useNumberStyle];
 	int period = 0;
@@ -2554,7 +2554,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	else if ((*ptr == SYSVAR_PREFIX && IsAlphaUTF8(ptr[1]))  || (*ptr == '@' && IsDigit(ptr[1])) || (*ptr == USERVAR_PREFIX && (ptr[1] == LOCALVAR_PREFIX || IsAlphaUTF8(ptr[1]) || ptr[1] == TRANSIENTVAR_PREFIX)) || (*ptr == '_' && IsDigit(ptr[1]))) special = *ptr; // break off punctuation after variable
 	bool jsonactivestring = false;
 	if (*ptr == FUNCTIONSTRING && ptr[1] == '\'') jsonactivestring = true;
-	if (!noquote && (*ptr == ENDUNIT || *ptr == '"' || (*ptr == FUNCTIONSTRING && ptr[1] == '"') || jsonactivestring )) //   ends in blank or nul,  might be quoted, doublequoted, or ^"xxx" functional string or ^'xxx' jsonactivestring
+    if (!noquote && (*ptr == ENDUNIT || *ptr == '"' || (*ptr == FUNCTIONSTRING && ptr[1] == '"') || jsonactivestring )) //   ends in blank or nul,  might be quoted, doublequoted, or ^"xxx" functional string or ^'xxx' jsonactivestring
 	{
 		if (*ptr == '^') *word++ = *ptr++;	// move to the actual quote
 		*word++ = *ptr; // keep opener  --- a worst case is "`( \"grow up" ) " from a fact
@@ -2590,12 +2590,19 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	else 
 	{
 		bool quote = false;
+        char quotechar = '"';
+        bool activestring = false;
 		bool bracket = false;
 		char priorchar = 0;
 		while ((c = *ptr++) && c != ENDUNIT) 
 		{
 			if (IsWhiteSpace(c) && !quote) break;
-            if (c == '"' && *(ptr - 2) != '\\')
+            if (c == '^' && (*ptr == '"' || *ptr == '\'') && !activestring)
+            {
+                quotechar = *ptr;
+                activestring = true;
+            }
+            if (c == quotechar && *(ptr - 2) != '\\')
             {
                 if (!quote)
                 {
@@ -2666,11 +2673,12 @@ char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with (
 
 		if (value && (paren += value) == 0) 
 		{
-			ptr += (ptr[1] && ptr[2]) ? 2 : 1; //   return on next token (skip paren + space) or  out of data (typically argument substitution)
+            if (ptr[1] == ' ') ptr += 2;
+            else ++ptr;  //   return on next token (skip paren + space) or  out of data (typically argument substitution)
 			break;
 		}
     }
-    return ptr; //   return on end of data
+    return ptr; //   return past end of data
 }
 
 char* SkipWhitespace(char* ptr)

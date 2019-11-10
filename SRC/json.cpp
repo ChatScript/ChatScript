@@ -727,7 +727,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		char* oldOutputBase = currentOutputBase;
 		currentOutputLimit = 500000;
 		currentOutputBase = AllocateStack(NULL, currentOutputLimit);
-		jwrite(currentOutputBase, D, true);
+		jwrite(currentOutputBase, D, 1); // it is subject field
 		arg = currentOutputBase;
 		currentOutputLimit = oldlimit;
 		currentOutputBase = oldOutputBase;
@@ -1032,7 +1032,7 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail)
 	*buffer = 0;
 	if (trace & TRACE_JSON) 
 	{
-		if (size < (MAX_BUFFER_SIZE - 100)) Log(STDTRACETABLOG, "JsonParse Call: %s", message);
+		if (size < (maxBufferSize - 100)) Log(STDTRACETABLOG, "JsonParse Call: %s", message);
 		else 
 		{
 			char msg[MAX_WORD_SIZE];
@@ -1469,8 +1469,8 @@ void jkillfact(WORDP D)
 	}
 }
 
-char* jwrite(char* buffer, WORDP D, int subject )
-{
+char* jwrite(char* buffer, WORDP D, int subject ) 
+{// subject is 1 (starting json object) or flags (internal json indicating type and subject/object)
 	char* xxoriginal = buffer;
 	unsigned int size = (buffer - currentOutputBase + 200); // 200 slop to protect us
 	if (size >= currentOutputLimit) return buffer; // too much output
@@ -1485,7 +1485,8 @@ char* jwrite(char* buffer, WORDP D, int subject )
 			return buffer + strlen(buffer);
 		}
 		if (subject & JSON_STRING_VALUE) strcpy(buffer++,(char*)"\"");
-		if (subject & JSON_STRING_VALUE) AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase),false);
+		if (subject & JSON_STRING_VALUE) 
+            AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase),false);
 		else strcpy(buffer,D->word);
 		buffer += strlen(buffer);
 		if (subject & JSON_STRING_VALUE) strcpy(buffer++,(char*)"\"");
@@ -1501,8 +1502,8 @@ char* jwrite(char* buffer, WORDP D, int subject )
 	D->inferMark = inferMark;
 
 	if (D->word[1] == 'a')  strcpy(buffer,(char*)"[");
-	else strcpy(buffer,(char*)"{ ");
-	buffer += strlen(buffer);
+	else strcpy(buffer,(char*)"{");
+	buffer++;
 	bool invert = false;
 	int indexsize = 0;
 	FACT* F = GetSubjectNondeadHead(D);
@@ -1575,7 +1576,7 @@ FunctionResult JSONWriteCode(char* buffer) // FACT to text
 	}
 	uint64 start_time = ElapsedMilliseconds();
 	NextInferMark();
-	jwrite(buffer,D,true);
+	jwrite(buffer,D,1); // json structure
 
 	if (timing & TIME_JSON) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
@@ -1727,7 +1728,7 @@ FunctionResult JSONParseFileCode(char* buffer)
 	}
 	in = FopenReadOnly(file);
 	if (!in) return FAILRULE_BIT;
-	char* start = AllocateStack(NULL,INPUT_BUFFER_SIZE);
+	char* start = AllocateStack(NULL, maxBufferSize);
 	char* data = start;
 	*data++ = ' '; // insure buffer starts with space
 	bool quote = false;
@@ -1742,7 +1743,7 @@ FunctionResult JSONParseFileCode(char* buffer)
 				if (at != readBuffer && *(at-1) == ' ') continue; // already have one
 			}
 			*data++ = *at;
-			if ((data-start) >= INPUT_BUFFER_SIZE) 
+			if ((data-start) >= maxBufferSize) 
 			{
 				start = 0; // signal failure
 				break;
@@ -2018,31 +2019,31 @@ FunctionResult JSONVariableAssign(char* word,char* value)
 	if (c == '.' && strnicmp(val,"jo-",3))
     { 
         if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail Object: %s->%s\r\n", word, val);
-		return FAILRULE_BIT;	// not a json object
+        *separator = c;
+        return FAILRULE_BIT;	// not a json object
     }
     else if (c == '[' && strnicmp(val, "ja-", 3))
     {
         if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail Array: %s->%s\r\n", word, val);
+        *separator = c;
         return FAILRULE_BIT;	// not a json array
     }
     bool bootfact = (val[3] == 'b'); // ja-b
-    if (trace) strcpy(fullpath, val);
+    if (trace & TRACE_JSON) strcpy(fullpath, val);
 
 	WORDP leftside = FindWord(val);
     if (!leftside)
     {
         if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail key: %s\r\n", word);
+        *separator = c;
         return FAILRULE_BIT;	// doesnt exist?
     }
     WORDP base = FindWord(word);
 
     if (testExternOutput && base->word[1] != '$' && base->word[1] != '_') // track we changed this
     { 
-        char** heapval = (char**)AllocateHeap(NULL, 3, sizeof(char*), false);
-        ((unsigned int*)heapval)[0] = variableChangedThreadlist;
-        variableChangedThreadlist = Heap2Index((char*)heapval);
-        heapval[1] = (char*)base; // save name
-        heapval[2] = base->w.userValue; // save old value
+        variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,
+            (uint64)base, (uint64)base->w.userValue, NULL);
     }
 
 	// leftside is the left side of a . or [] operator
@@ -2055,15 +2056,15 @@ LOOP: // now we look at $x.key or $x[0]
 	*separator = c; // are we about to do .key or [array]
 
 	// is there a followon after this or is it final
-	char* follonOnSeparator = strchr(separator+1,'.');
+	char* followOnSeparator = strchr(separator+1,'.');
 	char* bracket1 = strchr(separator+1,'[');
-	if (follonOnSeparator && bracket1 && bracket1 < follonOnSeparator) follonOnSeparator = bracket1;
-	else if (!follonOnSeparator && bracket1) follonOnSeparator = bracket1;
-	if (follonOnSeparator) // the current level is not the end, there will be more
+	if (followOnSeparator && bracket1 && bracket1 < followOnSeparator) followOnSeparator = bracket1;
+	else if (!followOnSeparator && bracket1) followOnSeparator = bracket1;
+	if (followOnSeparator) // the current level is not the end, there will be more
 	{
-		if (*(follonOnSeparator -1) == ']') --follonOnSeparator;	// true end of key token if we have $x[5][$t]
-		c = *follonOnSeparator;
-		*follonOnSeparator = 0; // end of current key name
+		if (*(followOnSeparator -1) == ']') --followOnSeparator;	// true end of key token if we have $x[5][$t]
+		c = *followOnSeparator;
+		*followOnSeparator = 0; // end of current key name
 	}
 
 	// what is the key or [index]?
@@ -2092,7 +2093,7 @@ LOOP: // now we look at $x.key or $x[0]
 	// keyname is the Word of the key
 
 	// show the path for tracing
-	if (trace)
+	if (trace & TRACE_JSON)
 	{
 		if (*separator == '.') strcat(fullpath, ".");
 		else strcat(fullpath, ".[");
@@ -2100,9 +2101,9 @@ LOOP: // now we look at $x.key or $x[0]
 		if (*separator == '[') strcat(fullpath, "]");
 	}
 
-	if (follonOnSeparator) // goto next piece
+	if (followOnSeparator) // goto next piece
 	{
-		*follonOnSeparator = c; // restore normal values
+		*followOnSeparator = c; // restore normal values
 
 		// we must find this and keep going if there is something later
 		FACT* F = GetSubjectNondeadHead(leftside);
@@ -2179,7 +2180,7 @@ LOOP: // now we look at $x.key or $x[0]
         }
 		else leftside = Meaning2Word(F->object);
 
-		separator = follonOnSeparator;
+		separator = followOnSeparator;
 		if (*separator == ']') ++separator;
 		c = *separator;
 		goto LOOP;

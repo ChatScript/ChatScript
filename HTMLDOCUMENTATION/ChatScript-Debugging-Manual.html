@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/26/2018 cs9.5</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/10/2018 cs9.8</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -186,6 +186,8 @@
 <h3 id="why"><code>:why</code></h3>
 <p>When I test my bots (assuming they pass verification), I chat with them until I get an answer I don't like. I then ask it why it generated the answer it did.</p>
 <p>This specifies the rules that generated the actual output and what topics they came from. I can often see, looking at the rule, why I wouldn't want it to match and go fix that rule. That doesn't address why some rule I want to match failed, so for that I'll need typically need tracing.</p>
+<h3 id="clearlog"><code>:clearlog</code></h3>
+<p>Erases current user's log file.</p>
 <h2 id="trace">Trace</h2>
 <h3 id="trace-all-trace-always-trace-none"><code>:trace all</code> / <code>:trace always</code> / <code>:trace none</code></h3>
 <p>The ultimate debugging command dumps a trace of everything that happens during execution to the screen and into the log file. After entering this, you type in your chat and watch what happens (which also gets dumped into the current log file). Problem is, it's potentially a large trace. You really want to be more focused in your endeavor.</p>
@@ -196,6 +198,7 @@
 <p>ignores ^notrace protection and traces everything.</p>
 <pre><code>:trace ignorenotrace</code></pre>
 <p>allows you to use the limited traces below, and still ignore <code>NOTRACE</code> covered calls.</p>
+<p>If you want to jump to where the user output was created and then see where you are, search for &quot;message:&quot;.</p>
 <h3 id="trace-myfunction"><code>:trace ^myfunction</code></h3>
 <p>this enables tracing for the function. Call it again to restore to normal.</p>
 <h3 id="trace-var"><code>:trace $var</code></h3>
@@ -513,7 +516,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <h3 id="queries"><code>:queries</code></h3>
 <p>Show all defined queries.</p>
 <h3 id="variables-kind"><code>:variables {kind}</code></h3>
-<p>Rarely will the issue be that some variable of yours isn't correct. But you can show the values of all user <code>$variables</code> and all system <code>%variables</code> and all match variables. If you provide an argument, &quot;system&quot; restricts it to system variables and &quot;user&quot; restricts it to user variables, and &quot;match&quot; restricts it to all match variables.</p>
+<p>Rarely will the issue be that some variable of yours isn't correct. If you provide an argument, &quot;system&quot; restricts it to system variables and &quot;user&quot; restricts it to user variables, and &quot;match&quot; restricts it to all match variables and &quot;bot&quot; restricts it to bot variables.</p>
 <h3 id="who"><code>:who</code></h3>
 <p>Show name of current user and current bot.</p>
 <h3 id="nonset-type-set"><code>:nonset type set</code></h3>

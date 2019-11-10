@@ -15,8 +15,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #endif
 
 #define ALREADY_HANDLED -1
-#define MAX_USER_VARS 15000
-#define MAX_USERVAR_SIZE 20000
+#define MAX_MATCHVAR_SIZE 20000
 
 #define ILLEGAL_MATCHVARIABLE -1
 
@@ -28,11 +27,11 @@ extern  unsigned int modifiedTraceVal;
 extern bool	modifiedTrace;
 extern unsigned int modifiedTimingVal;
 extern bool modifiedTiming;
-extern HEAPLINK variableChangedThreadlist;
+extern HEAPREF variableChangedThreadlist;
 
 extern  int wildcardIndex;
-extern char wildcardOriginalText[MAX_WILDCARDS+1][MAX_USERVAR_SIZE+1];  //   spot wild cards can be stored
-extern char wildcardCanonicalText[MAX_WILDCARDS+1][MAX_USERVAR_SIZE+1];  //   spot wild cards can be stored
+extern char wildcardOriginalText[MAX_WILDCARDS+1][MAX_MATCHVAR_SIZE+1];  //   spot wild cards can be stored
+extern char wildcardCanonicalText[MAX_WILDCARDS+1][MAX_MATCHVAR_SIZE+1];  //   spot wild cards can be stored
 extern unsigned int wildcardPosition[MAX_WILDCARDS+1]; //   spot it started and ended in sentence (16bit end 16bit start)
 extern int impliedSet;
 extern int impliedWild;
@@ -40,10 +39,9 @@ extern char impliedOp;
 extern unsigned int tracedFunctionsIndex;
 extern WORDP tracedFunctionsList[MAX_TRACED_FUNCTIONS];
 extern char wildcardSeparator[2];
-extern HEAPLINK userVariableThreadList;
+extern HEAPREF userVariableThreadList;
 
-extern HEAPLINK botFactThreadList;
-extern HEAPLINK kernelVariableThreadList;
+extern HEAPREF kernelVariableThreadList;
 // wildcard accessors
 char* GetwildcardText(unsigned int i, bool canon);
 void SetWildCard(char* value,char* canonicalVale,const char* index,unsigned int position);
@@ -62,7 +60,7 @@ void SetWildCardGivenValue(char* original, char* canonical,int start, int end, i
 
 // debug data
 void ShowChangedVariables();
-void DumpUserVariables();
+void DumpUserVariables(bool all);
 void SetWildCardNull();
 void PrepareVariableChange(WORDP D,char* word,bool init);
 

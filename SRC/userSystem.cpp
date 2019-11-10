@@ -319,8 +319,8 @@ static char* WriteRecentMessages(char* ptr,bool sharefile,int messageCount)
 
 static bool ReadRecentMessages() 
 {
-	char* buffer = AllocateStack(NULL,MAX_BUFFER_SIZE); // messages are limited in size so are safe
-	char* recover = AllocateStack(NULL,MAX_BUFFER_SIZE); // messages are limited in size so are safe
+	char* buffer = AllocateStack(NULL,maxBufferSize); // messages are limited in size so are safe
+	char* recover = AllocateStack(NULL, maxBufferSize); // messages are limited in size so are safe
 	char* original = buffer;
 	*buffer = 0;
 	buffer[1] = 0;
@@ -418,7 +418,9 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 {
 	if (!ptr) return NULL;
 
-    HEAPLINK varthread = userVariableThreadList;
+    WORDP D;
+    WORDP E;
+    HEAPREF varthread = userVariableThreadList;
 	bool traceseen = false;
 	bool timingseen = false;
 	char word[MAX_WORD_SIZE];
@@ -427,10 +429,10 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 	if (modifiedTiming) timing = modifiedTimingVal; // script set the value
 	while (varthread)
 	{
-		unsigned int* cell = (unsigned int*)Index2Heap(varthread);
-		WORDP D = Index2Word(cell[1]);
-		varthread = cell[0];
-		if (shared && !sharefile && !strnicmp(D->word,(char*)"$share_",7)) continue;
+        uint64 Dx;
+        varthread = UnpackHeapval(varthread, Dx, discard, discard);
+        WORDP D = (WORDP)Dx;
+        if (shared && !sharefile && !strnicmp(D->word,(char*)"$share_",7)) continue;
   		else if (shared && sharefile && strnicmp(D->word,(char*)"$share_",7)) continue;
 		else if ( D->word[1] !=  TRANSIENTVAR_PREFIX && D->word[1] != LOCALVAR_PREFIX && (D->w.userValue || (D->internalBits & MACRO_TRACE))) // transients not dumped, nor are NULL values
 		{
@@ -439,23 +441,21 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 			if (val && val[0] == 'j' && (val[1] == 'o' || val[1] == 'a') && val[2] == '-' && val[3] != 't' && saveJSON) SaveJSON(FindWord(val));
 
 			// if var is actually system var, and value is unchanged (may have edited and restored), dont save it
-			HEAPLINK varthread1 =  botVariableThreadList;
+			HEAPREF varthread1 =  botVariableThreadList;
 			while (varthread1)
 			{
-				cell = (unsigned int*)Index2Heap(varthread1);
-				varthread1 = cell[0];
-				WORDP E = Index2Word(cell[1]);
-				if (D == E) break; // changed back to normal
+                uint64 E;
+                varthread1 = UnpackHeapval(varthread1, E, discard, discard);
+				if ((uint64)D == E) break; // changed back to normal
 			}
 			if (varthread1) continue; // not really changed
 
 			varthread1 = kernelVariableThreadList;
 			while (varthread1)
 			{
-				cell = (unsigned int*)Index2Heap(varthread1);
-				varthread1 = cell[0];
-				WORDP E = Index2Word(cell[1]);
-				if (D == E) break;// changed back to normal
+                uint64 E;
+                varthread1 = UnpackHeapval(varthread1, E, discard, discard);
+				if ((uint64)D == E) break;// changed back to normal
 			}
 			if (varthread1) continue; // not really changed
 
@@ -504,7 +504,7 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 	unsigned int index = tracedFunctionsIndex;
 	while (index)
     {
-        WORDP D = tracedFunctionsList[--index];
+        D = tracedFunctionsList[--index];
 		if (D->inferMark && D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC | FN_TIME_BITS))
 		{
 			sprintf(ptr,(char*)"%s=%d %d\r\n",D->word,D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC| FN_TIME_BITS),D->inferMark);
@@ -698,13 +698,19 @@ void WriteUserData(time_t curr, bool nobackup)
 		ptr = GatherUserData(userDataBase+strlen(filename),curr,true);
 		if (ptr) Cache(userDataBase,ptr-userDataBase);
 	}
-	userVariableThreadList = 0; // flush all modified variables
+	userVariableThreadList = NULL; // flush all modified variables
 	tracedFunctionsIndex = 0;
 
 	if (timing & TIME_USER) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Write user data time: %d ms\r\n", diff);
 	}
+
+    //  Revert to pre user-loaded state, fresh for a new user
+    FACT* F = factLocked; // start of user-space facts
+    FACT* oldFactFree = factFree; // end of user fact space
+    ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
+    MigrateFactsToBoot(oldFactFree, F); // move relevant user facts or changes to bot facts to boot layer
 }
 
 static  bool ReadFileData(char* bot) // passed  buffer with file content (where feasible)
@@ -807,7 +813,6 @@ void ReadUserData() // passed  buffer with file content (where feasible)
 	numberComma = ',';
 	numberPeriod = '.';
 
-	ResetUserChat();
 	if (!ReadFileData(computerID))// read user file, if any, or get it from cache
 	{
 		(*printer)((char*)"%s",(char*)"User data file inconsistent\r\n");
@@ -837,10 +842,6 @@ void ReadNewUser()
 {
 	if (server) trace = 0;
 	if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"New User\r\n");
-	ResetUserChat();
-	ClearUserVariables();
-	ClearUserFacts();
-	ResetTopicSystem(true);
 
 	userFirstLine = 1;
 	volleyCount = 0;

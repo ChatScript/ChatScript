@@ -11,7 +11,7 @@ static void TestIf(char* ptr,FunctionResult& result,char* buffer)
 	//   if ($var) example of existence
 	//   if ('_3 == 5)  quoted matchvar
 	//   if (1) what an else does
-	char* word1 = AllocateStack(NULL,MAX_BUFFER_SIZE); // not expecting big value in test condition. 
+	char* word1 = AllocateStack(NULL, maxBufferSize); // not expecting big value in test condition. 
 	char op[MAX_WORD_SIZE];
 	int id;
 	impliedIf = 1;
@@ -65,9 +65,9 @@ resume:
 	{
 		if (*word1 == SYSVAR_PREFIX || *word1 == '_' || *word1 == USERVAR_PREFIX || *word1 == '@' || *word1 == '?' || *word1 == '^')
 		{
-			char* remap = AllocateStack(NULL, MAX_BUFFER_SIZE);
+			char* remap = AllocateStack(NULL, maxBufferSize);
 			strcpy(remap,word1); // for tracing
-			if (*word1 == '^' && IsDigit(word1[1])) strcpy(word1,FNVAR(word1+1));  // simple function var, remap it
+			if (*word1 == INDIRECT_PREFIX && IsDigit(word1[1])) strcpy(word1,FNVAR(word1+1));  // simple function var, remap it
 			char* found;
 			if (word1[0] == LCLVARDATA_PREFIX && word1[1] == LCLVARDATA_PREFIX) 
 				found = word1 + 2;	// preevaled function variable
@@ -80,14 +80,14 @@ resume:
 				found = GetUserVariable(word1+1);
 				found = GetUserVariable(found,true);
 			}
-			else if (*word1 == '^' && word1[1] == '^' && IsDigit(word1[2])) found = ""; // indirect function var 
+			else if (*word1 == INDIRECT_PREFIX && word1[1] == '^' && IsDigit(word1[2])) found = ""; // indirect function var 
 			else if (*word1 == '^' && word1[1] == '_') found = ""; // indirect var
 			else if (*word1 == '^' && word1[1] == '\'' && word1[2] == '_') found = ""; // indirect var
 			else if (*word1 == '@') found =  FACTSET_COUNT(GetSetID(word1)) ? (char*) "1" : (char*) "";
 			else found = word1;
 			if (trace & TRACE_OUTPUT && CheckTopicTrace()) 
 			{
-				char* label = AllocateStack(NULL, MAX_BUFFER_SIZE);
+				char* label = AllocateStack(NULL, maxBufferSize);
 				strcpy(label,word1);
 				if (*remap == '^') sprintf(label,"%s->%s",remap,word1);
 				if (!*found) 
@@ -476,8 +476,8 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 { //   word1 and word2 are RAW, ready to be evaluated.
 	*word1val = 0;
 	*word2val = 0;
-	char* val1 = AllocateStack(NULL,MAX_BUFFER_SIZE); 
-	char* val2 = AllocateStack(NULL,MAX_BUFFER_SIZE); 
+	char* val1 = AllocateStack(NULL, maxBufferSize);
+	char* val2 = AllocateStack(NULL, maxBufferSize);
 	WORDP D;
 	WORDP D1;
 	WORDP D2;
