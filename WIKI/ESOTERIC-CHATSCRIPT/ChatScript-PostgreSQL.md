@@ -279,6 +279,7 @@ psql
 ```
 which is a tool to log into the server. You may have to be logged in as postgres.
 There's a bunch more about setting up login passwords, etc. RTFM.
+<<<<<<< HEAD
 
 # WARNINGS about characters from a user:
 Be careful about allowing the special characters / and \ .
@@ -289,3 +290,5 @@ The Postgres CS database schema definition for your user data field value is byt
 You will need to modify the Postgres cs code and database definition.
 I would stay away from using any reference of / and \ in anything that might make it to your user files. 
 Actually, I would scan all of your code and get rid of anything that uses these characters.
+=======
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144

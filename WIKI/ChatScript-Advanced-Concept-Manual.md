@@ -179,6 +179,7 @@ The above detects a pattern, records the location start and end of it so
 that you can then mark where in the sentence ~myconcept will now be detected
 by any future patterns of yours.
 
+<<<<<<< HEAD
 
 ## Performance
 
@@ -194,3 +195,5 @@ runs linear with number of concept members, so it should be avoided for large
 concepts. Pattern matching with concepts/match_variables has all its overhead
 cost paid for during marking so there is no real cost later. And that marking overhead is
 trivial.
+=======
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144

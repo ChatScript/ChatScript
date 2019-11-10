@@ -731,12 +731,12 @@ You can nest concepts within concepts, so this is fine:
     concept: ~food [ ~meat ~dessert lasagna ~vegetables ~fruit ] 
 
 Hierarchical inheritance is important in pattern generalization. Concepts can be used to
-create full ontologies (hieararchical groupings) of verbs, nouns, adjectives, and adverbs, allowing one to match
+create full ontologies of verbs, nouns, adjectives, and adverbs, allowing one to match
 general or idiomatic meanings. 
 
-The system comes with lots of concepts already defined and compiled in Harry.
-If you give the command `:build 0` to the chatbot, you will rebuild the
-underlying ontology and world knowledge of the system. 
+The system comes with such already defined, you just have to activate it. If 
+you give the command `:build 0` to the chatbot, you will build the
+underlying ontology and world knowledge of the system. Then you can explore the existing sets. 
 
 In addition to fixed sets (over 1600 of them), the system automatically defines a bunch of
 dictionary-based sets. These include parts-of-speech like `~noun` as well as general open
@@ -785,7 +785,11 @@ _sure_ and _I am sure_ are different.
 
 Words that have a different meaning at the start of a sentence are commonly called interjections. 
 
+<<<<<<< HEAD
 In ChatScript these are defined by the `LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt` file 
+=======
+In ChatScript these are defined by the `interjections.txt` file (for English language, see [interjections.txt](../LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt)). 
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 Also there are some in the `texting.txt` file.
 
 In addition, the file augments this concept with _discourse acts_, phrases that are like an interjection. 
@@ -800,17 +804,29 @@ sentence, followed by _I will go_ as a new sentence.
 These generic interjections (which are open to author control via `interjections.txt`) are listed
 in the [ChatScript System Variables and Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md) manual. 
 
+<<<<<<< HEAD
 If  interjections at the start of a sentence are broken off into their own sentence (as they used to be by default but are no longer),
+=======
+If  interjections at the start of a sentence are broken off into their own sentence (as they are by default -- you can block this),
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 this kind of pattern does not work:
 
     u: ( ~yes _* )
 
 You cannot capture the rest of the sentence here, because it will be part of the next
+<<<<<<< HEAD
 sentence instead. This means interjections can act somewhat differently from other concepts.
 If you use a word in a pattern which may get remapped on input, the script compiler will
 issue a warning. Likely you should use the remapped name instead. 
 
 But you can turn off this behavior and then the above pattern works perfectly well. By default it is off.
+=======
+sentence instead. This means interjections act somewhat differently from other concepts.
+If you use a word in a pattern which may get remapped on input, the script compiler will
+issue a warning. Likely you should use the remapped name instead. 
+
+But you can turn off this behavior and then the above pattern works perfectly well.
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 
 ## Canonization
 
@@ -871,7 +887,11 @@ anywhere in the sentence at all:
     u: ( !~negativeWords I * ~like * ~meat ) You like meat. 
 
 
+<<<<<<< HEAD
 While `!` checks for the entire rest of the sentence, `!!` checks just the next word from where you are. So
+=======
+While `!` Checks for the entire rest of the sentence, `!!` checks just the next word from where you are. So
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 
     u: ( test !!this)  I win
 
@@ -1192,7 +1212,11 @@ You can also directly test a variable to see if it has a particular value using 
 test in the pattern. Relational tests use no whitespace, they are all one big token. One
 such relation is `=`, also writeable as `==`.
 
+<<<<<<< HEAD
     ?: ( $gender=male I like boys ) That's less controversial these days.
+=======
+    ?: ( $gender=male I like boys ) Oh, dear.
+>>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 
 Here, the rule will only start checking for input matches if `$gender` has the value male
 (case insensitive). If it is not defined or has any other value, this rule fails immediately.

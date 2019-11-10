@@ -431,8 +431,6 @@ The reason you have to do an active string here, is because normally spaces brea
 and a pattern token involving a function needs to have all arguments part of the same token.
 Hence assigning from an active string, where the double quotes around it prevents the token from breaking apart.
 
-
-
 ## Gory details about strings
 
 'Strings in Output'
