@@ -106,6 +106,7 @@ Such a structure might be composed of these facts:
 (ja-5 2 Paula)
 ```
 This would correspond to a JSON string that looks like this:
+```
 [ "Robert", "Terry", "Paula"]
 ```
 
