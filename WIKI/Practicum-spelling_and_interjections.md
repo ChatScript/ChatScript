@@ -1,6 +1,6 @@
 # ChatScript Practicum: Spelling and Interjections
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/27/2019 cs9.4
+<br>Revision 1/26/2020 cs10.0
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.
 
@@ -64,7 +64,7 @@ correct it to one of your misspellings.
 
 ## Partial matching: `*ing` `bottle*` `8bott*`
 
-You can request a match against a partial spelling of a word in various ways.
+You can request a match against a partial spelling of an original word (not its canonical form) in various ways.
 If you use `*` somewhere after an alpha, it matches any number of characters.
 If you use `*` followed by an alpha, you get anything as a prefix followed by what you request.
 Put a number in front, it means the word must be exactly that many characters long, 

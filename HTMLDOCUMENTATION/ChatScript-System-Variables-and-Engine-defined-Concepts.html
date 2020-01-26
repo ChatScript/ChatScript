@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/26/2020 cs10.0</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1484,23 +1484,36 @@ s: (name is _*)
 <td>if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30)</td>
 </tr>
 <tr class="odd">
+<td><code>$cs_userhistorylimit</code></td>
+<td>if not null, indicates how many volleys back are tracked as what was said by both parties</td>
+</tr>
+<tr class="even">
 <td><code>$cs_saveusedJson</code></td>
 <td>if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_proxycredentials</code></td>
 <td>See ^JSONOPEN in JSON manual</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_proxyserver</code></td>
 <td>See ^JSONOPEN in JSON manual</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_proxymethod</code></td>
 <td>See ^JSONOPEN in JSON manual</td>
+</tr>
+<tr class="even">
+<td><code>$cs_addresponse</code></td>
+<td>provides a function name hook onto the output q to the user. See below.</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_tracepattern</code></td>
+<td>Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
 </tr>
 </tbody>
 </table>
 <p><code>$cs_saveusedJson</code> exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some other non-JSON fact.</p>
+<p><code>$cs_addresponse</code> names a function of 2 arguments that will be called when CS wants put text into the output queue of the user. The first argument will be what CS wants to output. The second is the rule tag that generated this output. If the function returns a failure code, the message will be aborted and not put into the queue. If the function returns a text value (not null) then that message will replace what was intended to go to the user.</p>
 </body>
 </html>

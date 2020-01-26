@@ -1,6 +1,6 @@
 # ChatScript Pattern Redux
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
-<br>Revision 7/28/2019 cs9.61
+<br>Revision 1/26/2020 cs10.0
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
@@ -461,7 +461,7 @@ or in words like next week or tomorrow or whatever complex matching you want to 
 
 ### Partially Spelled words: `*ing` `bottle*` `8bott*`
 
-You can request a match against a partial spelling of a word in various ways.
+You can request a match against a partial spelling of an original word (not its canonical alternative) in various ways.
 
 If you use `*` somewhere after an alpha, it matches any number of characters.
 

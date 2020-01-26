@@ -843,6 +843,10 @@ void ReadNewUser()
 	if (server) trace = 0;
 	if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"New User\r\n");
 
+	ClearUserVariables();
+	ClearUserFacts();
+	ResetTopicSystem(true);
+
 	userFirstLine = 1;
 	volleyCount = 0;
 	// std defaults

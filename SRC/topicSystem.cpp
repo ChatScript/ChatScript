@@ -7,6 +7,8 @@
 bool hypotheticalMatch = false;
 int currentBeforeLayer = 0;
 int hasFundamentalMeanings = 0;
+bool noteRulesMatching = false;
+HEAPREF rulematches = NULL;
 
 // functions that manage topic execution (hence displays) are: PerformTopic (gambit, responder), 
 // Reusecode, RefineCode, Rejoinder, Plan
@@ -1411,6 +1413,7 @@ retry:
 		}
 		else if (!patternRetry)
 		{
+			if (noteRulesMatching) rulematches = AllocateHeapval(rulematches, (uint64) GetTopicName(currentTopicID), TOPLEVELID(ruleID), REJOINDERID(ruleID));
 			result = DoOutput(buffer,currentRule,currentRuleID,refine);
 		}
 		if (patternRetry || result & RETRYRULE_BIT || (result & RETRYTOPRULE_BIT && TopLevelRule(rule))) 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/10/2018 cs9.8</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/26/2020 cs10.0</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -467,7 +467,7 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <h3 id="responsequestion-id"><code>^responsequestion ( id )</code></h3>
 <p>Boolean 1 if response ended in <code>?</code>, null otherwise.</p>
 <h3 id="responseruleid-id"><code>^responseruleid ( id )</code></h3>
-<p>The rule tag generating this response from which you can get the topic. May be joined pair of rule tags if rule was relayed (reuse) from a different rule). The final rule will be first and the relay second, eg <code>~keywordless.30.0.~control.3.4</code>.</p>
+<p>The rule tag generating this response from which you can get the topic. May be joined pair of rule tags if rule was relayed (reuse) from a different rule. The final rule will be first and the relay second, eg <code>~keywordless.30.0.~control.3.4</code>.</p>
 <p>If the <em>id</em> is <code>-1</code>, then all output generated will be included, analogous to what happens in the log file for <code>why</code> in the entries.</p>
 <h3 id="responsepatternresponseid"><code>^responsepattern(responseid)</code></h3>
 <p>Returns the pattern that matched inside [] of rule generating output (if it is matched that way) For a rule like: u: ([ (pattern 1) (pattern 2) ([try 3])]) It will tell you which piece of the pattern matched. Handy for debugging why a pattern matches incorrectly w/o having to read a trace log and analyzing each + and -.</p>
@@ -836,8 +836,8 @@ else { $$tcpopen_error }</code></pre>
 <p>Input is the user input (one or more sentences) to be matched against.</p>
 <p>Patterns is an array of pattern strings as returned by CompilePattern. They can use memorization and they can assign values. If they use memorization, you can assign those onto normal variables, which if permanent variables will be returned as &quot;newglobals&quot;. You can perform an assignment inside the pattern using something like $answer:=_0 (see Match variable assignment in Advanced patterns). The &quot;newglobals will be omitted if there are no changes.</p>
 <p>The variables and concepts fields are optional and provide context. A concept named &quot;<sub>replace</sub>&quot; is treated not as a concept but as a list of paired words analogous to &quot;replace:&quot;, but is only a transient replace series for this call.</p>
-<p>Style is also optional and defaults to <code>first</code>. Other choices are all, best, and last. First means stop running patterns and sentences as soon as you get a match. The makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Last is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
-<p>The optional <code>trace</code> field if set, will have the patterns involved traced (:trace pattern) and the results returned in a field named <code>trace</code> as a text string with crlf.</p>
+<p>Style is also optional and defaults to <code>earliest</code>. Other choices are all, best, and latest. Earliest means stop running patterns and sentences as soon as you get a match. The makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
+<p>The optional <code>trace</code> field if set, will have the patterns involved traced (:trace pattern) and the results returned in a field named <code>trace</code> as a text string with crlf. Or a pattern can set the variable <code>$$cs_testpattern_style</code> to be a value and the system will enable trace until it is set off or the call completes.</p>
 <p>Result is ordinary user output JSON object:</p>
 <pre><code>{ 
     &quot;match&quot;: 1,  -- index of matching pattern

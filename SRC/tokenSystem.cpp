@@ -470,12 +470,10 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				{
 					if (tokenControl & JSON_DIRECT_FROM_OOB) // allow full json no tokenlimit
 					{
-						ARGUMENT(1) = "TRANSIENT SAFE";
-						ARGUMENT(2) = jsonStart;
 						char word[MAX_WORD_SIZE];
                         uint64 oldbot = myBot;
                         myBot = 0; // universal access to this transient json
-						FunctionResult result = JSONParseCode(word);
+						FunctionResult result = InternalCall("^JSONParseCode", JSONParseCode, (char*)"TRANSIENT SAFE", jsonStart, NULL, word);
                         myBot = oldbot;
 						++count;
 						if (result == NOPROBLEM_BIT) words[count] = AllocateHeap(word); // insert json object
@@ -502,6 +500,14 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			break;
 		}
 		return ptr;
+	}
+
+	// large repeat punctuation
+	if (*ptr == ptr[1] && ptr[1] == ptr[2] && ptr[2] == ptr[3] && IsPunctuation(*ptr))
+	{
+		char c = *ptr;
+		char* at = ptr + 3;
+		while (*++at == c) *at = ' '; // eradicate junk
 	}
 
     // special break on token
@@ -571,6 +577,25 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
     char token[MAX_WORD_SIZE];
     ReadCompiledWord(ptr, token);
+
+	// serial no.
+	if (!stricmp(token, "no.") && !stricmp(priorToken, "serial"))
+	{
+		words[++count] = AllocateHeap("number"); 
+		return ptr + 3;
+	}
+
+	// embedded punctuation
+	char* embed = strchr(token, '?');
+	if (embed && embed != token && embed[1]) *embed = 0; // break off love?i 
+
+	embed = strchr(token, ')');
+	if (embed && embed != token ) *embed = 0; // break off 61.3) 
+	if (embed && embed == token && embed[1]) embed[1] = 0; // break off )box.
+	//embed = strchr(token, '.');
+	//if (embed && embed != token && IsAlphaUTF8(embed[1])) embed[1] = 0; // break off )box.  BUT U.S. Cellular should not be broken.
+
+	if (*token == '.' && IsAlphaUTF8(token[1])) token[1] = 0; // break off .he
 
 	// if this was 93302-42345 then we need to keep - separate, not as minus
 	if (*token == '-' && IsInteger(token + 1, false, numberStyle) && IsInteger(priorToken, false, numberStyle))

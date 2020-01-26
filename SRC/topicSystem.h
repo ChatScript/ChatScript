@@ -2,7 +2,7 @@
 #define _TOPICSYSTEMH
 
 #ifdef INFORMATION
-Copyright (C)2011-2019 by Bruce Wilcox
+Copyright (C)2011-2020 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -75,7 +75,7 @@ extern char buildStamp[NUMBER_OF_LAYERS][150];
 extern char* howTopic;
 extern bool ruleErased;
 extern bool hypotheticalMatch;
-
+extern bool noteRulesMatching;
 extern unsigned int duplicateCount;
 extern unsigned int xrefCount;
 extern bool norejoinder;
@@ -93,6 +93,7 @@ extern int inputRejoinderRuleID;
 extern int inputRejoinderTopic;
 extern int sampleTopic;
 extern int sampleRule;
+extern HEAPREF rulematches;
 
 typedef struct topicBlock
 {

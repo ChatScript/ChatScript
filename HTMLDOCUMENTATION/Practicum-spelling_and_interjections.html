@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-practicum-spelling-and-interjections">ChatScript Practicum: Spelling and Interjections</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/27/2019 cs9.4</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/26/2020 cs10.0</p>
 <p>'''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.</p>
 <h1 id="spell-checking">Spell checking</h1>
 <p>Many natural language tools are designed to work with Wall Street Journal sentences - perfectly punctuated and perfectly spelled. That's not the real world of chat. ChatScript deals with the real world by providing a number of mechanisms to correct badly written sentences.</p>
@@ -34,7 +34,7 @@ u: CANIHAVE (Can I have *~3 ~apple) I don&#39;t have any.</code></pre>
 <p>If the user says &quot;do you like aplle&quot;, you don't really want your bot to reply &quot;I love aplle&quot;. The user may have been sloppy in their input but your bot either looks like a complete idiot, or else it is pointing out the user's mistake and being impolite.</p>
 <p>And a final problem is that every keyword you write in a pattern or concept set is added to the dictionary and is considered a legitmate word by CS. Since CS actually has built-in spell-checking, The system may take some other mispelled word and correct it to one of your misspellings.</p>
 <h2 id="partial-matching-ing-bottle-8bott">Partial matching: <code>*ing</code> <code>bottle*</code> <code>8bott*</code></h2>
-<p>You can request a match against a partial spelling of a word in various ways. If you use <code>*</code> somewhere after an alpha, it matches any number of characters. If you use <code>*</code> followed by an alpha, you get anything as a prefix followed by what you request. Put a number in front, it means the word must be exactly that many characters long, matching your pattern. When using an <code>*</code> word, you can use <code>.</code> to indicate exactly one character of any value.</p>
+<p>You can request a match against a partial spelling of an original word (not its canonical form) in various ways. If you use <code>*</code> somewhere after an alpha, it matches any number of characters. If you use <code>*</code> followed by an alpha, you get anything as a prefix followed by what you request. Put a number in front, it means the word must be exactly that many characters long, matching your pattern. When using an <code>*</code> word, you can use <code>.</code> to indicate exactly one character of any value.</p>
 <pre><code>u: ( sag*us )   matches many misspellings of _Sagittarius_.
 u: ( *tha )     matches _Martha_.
 u: ( 6sit* )    matches _sitter_.

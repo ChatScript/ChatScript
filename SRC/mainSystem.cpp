@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "9.8";
+char* version = "10.0";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1310,28 +1310,40 @@ void ProcessOOB(char* output)
 			}
 		}
 
-		char* end = (*at == ']') ? at : NULL;
+		char* end = (*at == ']') ? at : NULL; // old school top level style
 		if (end)
 		{
 			uint64 milli = ElapsedMilliseconds();
 			char* atptr = strstr(ptr,(char*)"loopback="); // loopback is reset after every user output
+			if (!atptr) atptr = strstr(ptr, (char*)"loopback\":");
 			if (atptr)
 			{
-                atptr = SkipWhitespace(atptr +9);
+				atptr += 8;
+				if (*atptr == '=') ++atptr; // old style
+				else if (*atptr == '"') atptr += 2; // loopback": json style
+				atptr = SkipWhitespace(atptr);
 				loopBackDelay = atoi(atptr);
 				loopBackTime = milli + loopBackDelay;
 			}
             atptr = strstr(ptr,(char*)"callback="); // call back is canceled if user gets there first
+			if (!atptr) atptr = strstr(ptr, (char*)"callback\":");
 			if (atptr)
 			{
-                atptr = SkipWhitespace(atptr +9);
+				atptr += 8;
+				if (*atptr == '=') ++atptr; // old style
+				else if (*atptr == '"') atptr += 2; // loopback": json style
+				atptr = SkipWhitespace(atptr);
 				callBackDelay = atoi(atptr);
 				callBackTime = milli + callBackDelay;
 			}
             atptr = strstr(ptr,(char*)"alarm="); // alarm stays pending until it launches
+			if (!atptr) atptr = strstr(ptr, (char*)"alarm\":");
 			if (atptr)
 			{
-				atptr = SkipWhitespace(atptr +6);
+				atptr += 5;
+				if (*atptr == '=') ++atptr; // old style
+				else if (*atptr == '"') atptr += 2; // loopback": json style
+				atptr = SkipWhitespace(atptr);
 				alarmDelay = atoi(atptr);
 				alarmTime = milli + alarmDelay;
 			}
@@ -1478,6 +1490,7 @@ bool GetInput()
         if ((!*word && !documentMode) || *word == '#') return false;
         if (echoSource == SOURCE_ECHO_USER) (*printer)((char*)"< %s\r\n", ourMainInputBuffer);
     }
+
     return true;
 }
 
@@ -1582,6 +1595,7 @@ void MainLoop() //   local machine loop
 
 void ResetToPreUser() // prepare for multiple sentences being processed - data lingers over multiple sentences
 {
+	rulematches = NULL;
     ReestablishBotVariables(); // any changes user made to a variable will be reset
     ClearVolleyWordMaps();
     ResetUserChat();
@@ -1877,6 +1891,7 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* 
 static void LimitInput(char* incoming)
 {
     // limit sans oob
+	incoming = SkipWhitespace(incoming);
     if (incoming[0] == '[' || incoming[1] == '[' || incoming[2] == '[')
     {
         char* at = incoming - 1;
@@ -1906,6 +1921,9 @@ static void LimitInput(char* incoming)
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
+
+	if (server) AdjustUTF8(incoming, incoming - 1); // not needed coming locally
+
     stackFree = stackStart; // begin fresh
     ResetToPreUser();
 	bool resetuser = false;
@@ -2057,7 +2075,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		char oldc;
 		int oldCurrentLine;	
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // copy out prior file access and reinit user file access
-		ReadUserData();		//   now bring in user state
+		ReadUserData();		//   now bring in user state, uses readbuffer
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // restore old BOM values
 	}
 	// else documentMode
@@ -2130,7 +2148,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 			memmove(p+1,p+3,strlen(p+2));
 		}
 		++p;
-	}
+	}	
 	strcpy(copyInput,incoming); // so input trace not contaminated by input revisions -- mainInputBuffer is "incoming"
 	ok = ProcessInput(copyInput);
 	if (ok <= 0) return ok; // command processed
@@ -2220,8 +2238,8 @@ void Restart()
 		echo = false;
 		char* initialInput = AllocateBuffer();
 		*initialInput = 0;
-		PerformChat(us,computerID,initialInput,callerIP,mainOutputBuffer);
-        FreeBuffer();
+		PerformChat(us,computerID,initialInput,callerIP,mainOutputBuffer); // this autofrees buffer
+       // FreeBuffer();
     }
 	else 
 	{
@@ -2646,6 +2664,8 @@ void AddBotUsed(const char* reply,unsigned int len)
 	if (chatbotSaidIndex >= MAX_USED) chatbotSaidIndex = 0; // overflow is unlikely but if he could  input >10 sentences at once
 	unsigned int i = chatbotSaidIndex++;
     *chatbotSaid[i] = ' ';
+	reply = SkipOOB((char*)reply);
+	len = strlen(reply);
 	if (len >= SAID_LIMIT) // too long to save fully in user file
 	{
 		strncpy(chatbotSaid[i]+1,reply,SAID_LIMIT); 
@@ -2740,32 +2760,26 @@ char* SkipOOB(char* buffer)
     return noOob;
 }
 
-bool AddResponse(char* msg, unsigned int control)
+char* DoOutputAdjustments(char* msg, unsigned int control,char* &buffer,char* limit)
 {
-	if (!msg ) return true;
-    if (*msg == '`') msg = strrchr(msg, '`') + 1; // this part was already committed
-	if (!*msg) return true;
-    size_t len = strlen(msg);
-
-	char* limit;
-	char* buffer = InfiniteStack(limit,"AddResponse"); // localized infinite allocation
- 	if ((buffer + len) > limit)
+	size_t len = strlen(msg);
+	if ((buffer + len) > limit)
 	{
-		strncpy(buffer,msg,1000); // 5000 is safestringlimit
-		strcpy(buffer+1000,(char*)" ... "); //   prevent trouble
-		ReportBug((char*)"response too big %s...",buffer)
+		strncpy(buffer, msg, 1000); // 5000 is safestringlimit
+		strcpy(buffer + 1000, (char*)" ... "); //   prevent trouble
+		ReportBug((char*)"response too big %s...", buffer)
 	}
-    else strcpy(buffer,msg);
-    if (buffer[len - 1] == ' ') buffer[len-1] = 0; // no trailing blank from output autospacing
-    if (!timerLimit || timerCheckInstance != TIMEOUT_INSTANCE) memset(msg, '`', len); //mark message as sent
+	else strcpy(buffer, msg);
+	if (buffer[len - 1] == ' ') buffer[len - 1] = 0; // no trailing blank from output autospacing
+	if (!timerLimit || timerCheckInstance != TIMEOUT_INSTANCE) memset(msg, '`', len); //mark message as sent
 
-	// Do not change any oob data or test for repeat
+																					  // Do not change any oob data or test for repeat
 	char* at = SkipOOB(buffer);
 	if (!(control & RESPONSE_NOCONVERTSPECIAL)) ConvertNL(at);
 	if (control & RESPONSE_REMOVETILDE) RemoveTilde(at);
 	if (control & RESPONSE_ALTERUNDERSCORES)
 	{
-		Convert2Underscores(at); 
+		Convert2Underscores(at);
 		Convert2Blanks(at);
 	}
 	if (control & RESPONSE_CURLYQUOTES) ConvertQuotes(at);
@@ -2777,17 +2791,48 @@ bool AddResponse(char* msg, unsigned int control)
 		char* ptr = at;
 		while (ptr && *ptr)
 		{
-			char* comma = strchr(ptr,',');
-			if (comma && comma != buffer )
+			char* comma = strchr(ptr, ',');
+			if (comma && comma != buffer)
 			{
-				if (*--comma == ' ') memmove(comma,comma+1,strlen(comma));
-				ptr = comma+2;
+				if (*--comma == ' ') memmove(comma, comma + 1, strlen(comma));
+				ptr = comma + 2;
 			}
-			else if (comma) ptr = comma+1;
+			else if (comma) ptr = comma + 1;
 			else ptr = 0;
 		}
 	}
- 
+	return at;
+}
+
+bool AddResponse(char* msg, unsigned int control)
+{
+	if (!msg ) return true;
+    if (*msg == '`') msg = strrchr(msg, '`') + 1; // this part was already committed
+	if (!*msg) return true;
+	if (*msg == ' ' && !msg[1]) return true;	// we had concatenated stuff, got erased, but leaves a blank, ignore it
+	
+	WORDP tapfunction = FindWord("$cs_addresponse");
+	if (tapfunction && tapfunction->w.fndefinition)
+	{
+		char why[MAX_WORD_SIZE];
+		sprintf(why, (char*)"%s.%d.%d", GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID)); // what rule wrote this
+		if (currentReuseID != -1) // if rule was referral reuse (local) , add in who did that
+		{
+			sprintf(why + strlen(why), (char*)".%s.%d.%d", GetTopicName(currentReuseTopic), TOPLEVELID(currentReuseID), REJOINDERID(currentReuseID));
+		}
+		char* buf = msg + strlen(msg) + 1;
+		FunctionResult result = InternalCall(tapfunction->w.userValue, NULL, msg, why, NULL, buf);
+		if (result != NOPROBLEM_BIT) // rejected
+		{
+			*msg = 0;
+			return false;
+		}
+		memmove(msg, buf, strlen(buf) + 1); // revised response
+	}
+
+	char* limit;
+	char* buffer = InfiniteStack(limit, "AddResponse"); // localized infinite allocation
+	char* at = DoOutputAdjustments(msg, control,buffer,limit);
 	if (!*at){} // we only have oob?
     else if (all || HasAlreadySaid(at) ) // dont really do this, either because it is a repeat or because we want to see all possible answers
     {
@@ -3085,7 +3130,8 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	if (!oobExists) NLPipeline(mytrace);
     else
     {
-        for (int i = 1; i <= wordCount; ++i)
+		marklimit = 0;
+		for (int i = 1; i <= wordCount; ++i)
         {
             wordCanonical[i] = wordStarts[i];
             MarkWordHit(0, false, StoreWord(wordStarts[i], AS_IS), 0, i, i);

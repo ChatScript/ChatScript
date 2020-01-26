@@ -1232,7 +1232,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		bool once = false;
 		while (F)
 		{
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) TraceFact(F,true);
+			if (trace & TRACE_QUERY  && CheckTopicTrace()) TraceFact(F, true);
 
 			//   prepare for next fact to walk
 			FACT* G = F;
@@ -1291,7 +1291,11 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			
 			bool match = true;
-
+			if (trace & TRACE_QUERY  && CheckTopicTrace())
+			{
+				Log(STDUSERLOG, (char*)"(%d %d %d) => (%d %d %d)\r\n", marks, markv, marko, S->inferMark, V->inferMark, O->inferMark);
+				Log(STDTRACETABLOG, (char*)"");
+			}
 			// follow dictionary path?
 			if (baseFlags & UPDICTIONARY && G->verb == Mis && !once)
 			{
@@ -1391,6 +1395,8 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					}
 					SET_FACTSET_COUNT(set1,count);
 				}
+
+				continue; // saved fact cannot be used to scan farther out. ineffient and q save tramples infermark
 			}
 
 			//   if propogation is enabled, queue appropriate choices

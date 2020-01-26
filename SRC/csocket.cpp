@@ -294,18 +294,9 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
         ++line;
         ptr = data;
         if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
-
         char copy[10000];
         strcpy(copy, ptr);
         size_t l = strlen(ptr);
-        char* tab = ptr;
-        bool quote = false;
-        while (*++tab) // change comma delimits
-        {
-            if (*tab == '"') quote = !quote;
-            if (quote) continue;
-            if (*tab == ',') *tab = '`';
-        }
         // Yes, sanity, Line 3, TRY_BAD_BLUETOOTH, computer, all, australia,SEM, jmeter,OOB, Welcome!What's going on with your computer?,Bluetooth headphones won't connect, So what? , , , , , ,
 
         while (ptr[l - 1] == '\t' || ptr[l - 1] == '\n' || ptr[l - 1] == '\r') ptr[--l] = 0; // remove trailing tabs
@@ -315,33 +306,33 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
         char category[MAX_WORD_SIZE];
         char specialty[MAX_WORD_SIZE];
         char location[MAX_WORD_SIZE];
-        ptr = strstr(ptr, "`"); // start of suite
+        ptr = strstr(ptr, "\t"); // start of suite
         if (!ptr) continue;
-        ptr = strstr(ptr + 1, "`"); // start of comment
+        ptr = strstr(ptr + 1, "\t"); // start of comment
         if (!ptr) continue;
-        ptr = strstr(ptr + 1, "`"); // start of name
+        ptr = strstr(ptr + 1, "\t"); // start of name
         if (!ptr) continue;
-        char* cat = strstr(ptr + 1, "`"); // start of category
-        if (!cat) continue;
-        cat += 1;
-        char* spec = strstr(cat, "`") + 1; // start of specialty
-        char* loc = strstr(spec, "`") + 1; // start of location
-        char* next = strstr(loc, "`") + 1; // end location
+        char* cat = strstr(ptr + 1, "\t"); // start of category
+        if (!cat++) continue;
+        char* spec = strstr(cat, "\t") + 1; // start of specialty
+        char* loc = strstr(spec, "\t") + 1; // start of location
+        char* next = strstr(loc, "\t") + 1; // end location
         *(spec - 1) = 0; // end cat
         ReadCompiledWord(cat, category);
+		MakeLowerCase(cat); // there are no upper case cats
         *(loc - 1) = 0; // end specialty
         ReadCompiledWord(spec, specialty);
-        if (!stricmp(specialty, "all")) *specialty = 0; // none
+        if (!stricmp(specialty, "all") || !stricmp(specialty, "general") || !stricmp(specialty, "none")) *specialty = 0; // none
         *(next - 1) = 0; // end specialty
         ReadCompiledWord(loc, location);
         if (!*category) continue;
         char chattype[MAX_WORD_SIZE];
-        char* src = strchr(next, '`')+1;
+        char* src = strchr(next, '\t')+1;
         ReadCompiledWord(next, chattype);
         char source[MAX_WORD_SIZE];
         ReadCompiledWord(src, source);
-        char* oobstart = strchr(src+1,'`') + 1;
-        ptr = strchr(oobstart, '`'); //  oob field for 1st message
+        char* oobstart = strchr(src+1,'\t') + 1;
+        ptr = strchr(oobstart, '\t'); //  oob field for 1st message
         *ptr = 0;
         if (*oobstart)  strcpy(oobmessage, oobstart + 1); // skip opening quote
         else *oobmessage = 0;
@@ -355,8 +346,10 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
         expect = SkipWhitespace(expect);
         if (*expect == '[') expect = strrchr(expect, ']') + 1; // skip oob
         expect = SkipWhitespace(expect);
-        char* end = strchr(ptr + 1, '`');
+        char* end = strchr(ptr + 1, '\t');
         *end = 0; // welcome complete
+		if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote
+		if (*expect == '"') ++expect;
 
         ptr = end + 1; // set up for 1st real input
 
@@ -391,7 +384,9 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
             char* endoob = strrchr(response, ']');
             if (!endoob)
                 break;
-            char* actual = SkipWhitespace(endoob + 1);
+			char* actual = strstr(response, "output\":") + 10; // skip open quote
+			char* end = strstr(actual, "\",");
+			*end = 0;
             size_t len = strlen(actual);
             while (actual[len - 1] == ' ') actual[--len] = 0;
             expect = TrimSpaces(expect);
@@ -423,8 +418,8 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
                 fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, pass, fail, category, specialty, at, actual);
             }
             if (((pass + fail) % 100) == 0) printf("at %d\r\n", pass + fail);
-
-            char* endi = strchr(ptr, '`'); // end next message to user
+			if (!ptr) break; // end of messages
+            char* endi = strchr(ptr, '\t'); // end next message to user
             if (!endi) break;
             *endi = 0;
             if (*oobmessage && input != oobmessage)
@@ -439,13 +434,15 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
                 *oobmessage = 0;
             }
             expect = endi + 1;
-            if (*expect == '`') break; // have no expections anymore
+            if (*expect == '\t') break; // have no expections anymore
             if (*expect == '"') ++expect;
-            ptr = strchr(expect + 1, '`'); // end next message from user
-            if (!ptr) break;
-            *ptr-- = 0;
-            if (*ptr == '"') *ptr = 0;
-            ptr += 2;
+            ptr = strchr(expect + 1, '\t'); // end next message from user
+			if (ptr)
+			{
+				*ptr-- = 0;
+				if (*ptr == '"') *ptr = 0;
+				ptr += 2;
+			}
         } // completes one regression line
     }
     FreeBuffer();
@@ -498,6 +495,14 @@ static void ReadNextJmeter(char* name, uint64 value)
     FreeBuffer();
 }
 
+char* NoBlankStart(char* ptr)
+{
+	while (*ptr == ' ') ++ptr;
+	size_t len = strlen(ptr);
+	while (ptr[len - 1] == ' ') ptr[--len] = 0;
+	return ptr;
+}
+
 void Client(char* login)// test client for a server
 {
 #ifndef DISCARDSERVER
@@ -511,7 +516,9 @@ void Client(char* login)// test client for a server
     char prioruser[MAX_WORD_SIZE];
     char priorspec[MAX_WORD_SIZE];
     char* data = AllocateBuffer(); // read from user or file
-    char* response = AllocateBuffer(); // returned from chatbot
+	char* preview = AllocateBuffer();
+	char* totalConvo = AllocateBuffer();
+	char* response = AllocateBuffer(); // returned from chatbot
     char* sendbuffer = AllocateBuffer(); // staged message to chatbot
     char user[500];
     size_t userlen;
@@ -568,6 +575,7 @@ restart: // start with user
     bool raw = false;
 	bool botturn = false;
     bool converse = false;
+	bool endConvo = false;
     try
     {
 
@@ -662,6 +670,7 @@ restart: // start with user
         }
         char* sep = NULL;
         TCPSocket *sock;
+		bool failonce = false;
         int n = 0;
 		char output[MAX_WORD_SIZE * 10];
 		*output = 0;
@@ -710,14 +719,36 @@ restart: // start with user
                 msg = sep + 1;
                 ptr = msg;
             }
-            else if (jastarts) // includes single lines and continuous conversations
-            {
-                ptr = data;
-                if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
+			else if (jastarts) // includes single lines and continuous conversations
+			{
+				if (*preview) strcpy(data, preview); // become primary
+				else *data = 0;
+				if (fgets(preview, 100000 - 100, sourceFile) == NULL)
+				{
+					if (failonce) break; // really over
+					failonce = true; // now only have preview copy left
+				}
+				if (!*data) continue; // starting out, priming preview buffer
 
-                if (--skip > 0) continue;
-                if (--count < 0)
-                    break;
+				if (--skip > 0) continue;
+				if (--count < 0) break;
+
+				char newuser[1000];
+				char* blank = strchr(preview, '\t');
+				*blank = 0;
+				strcpy(newuser, NoBlankStart(preview));
+				*blank = '\t';
+
+				ptr = data; // process current data
+
+				// Get User name
+				blank = strchr(ptr, '\t');
+				if (!blank) continue;
+				*blank = 0;  // user string now there
+				strcpy(user, NoBlankStart(data));
+				*blank = '\t';  // user string now there
+	
+				endConvo = failonce || strcmp(newuser, user) || strstr(preview,"a secure page"); // changing user or last line of data
                 char copy[10000];
                 strcpy(copy, ptr);
                 size_t l = strlen(ptr);
@@ -731,31 +762,23 @@ restart: // start with user
                 // userid can be blank, we overwrite with user1 name
                 // if userid is 1, these are conversations which end when cat/spec changes
 
-                // Get User name
-                char* blank = strchr(ptr, '\t');
-                if (!blank) continue;
-                *blank = 0;  // user string now there
-                strcpy(user, data);
-
                 // get category
                 ptr = blank + 1; // cat star
                 blank = strchr(ptr, '\t');
                 if (!blank) continue;
                 *blank = 0;
-                strcpy(cat, ptr);
+                strcpy(cat, NoBlankStart(ptr));
 				char* space = strchr(cat, ' ');
-				if (space) 
-					*space = '_';
+				if (space && IsAlphaUTF8(space[1]) && space[1] != ' ') *space = '_';
 
                 // get specialty
                 ptr = blank + 1; // spec
                 blank = strchr(ptr, '\t');
                 if (!blank) continue;
                 *blank = 0;
-                strcpy(spec, ptr);
+                strcpy(spec, NoBlankStart(ptr));
 				space = strchr(spec, ' ');
-				if (space) 
-					*space = '_';
+				if (space && IsAlphaUTF8(space[1]) && space[1] != ' ') *space = '_';
 
                 if (!stricmp(spec, "none") || !stricmp(spec, "null") || *spec == 0) strcpy(spec, "general");
 
@@ -764,7 +787,8 @@ restart: // start with user
                 blank = strchr(ptr, '\t'); // end of loc
                 if (!blank) continue;
                 *blank = 0;
-                strcpy(loc, ptr);
+				if (*ptr == ' ') ++ptr;
+                strcpy(loc, NoBlankStart(ptr));
 
                 // Get Input & check output
                 ptr = blank + 1; // start of message
@@ -806,6 +830,7 @@ restart: // start with user
 
                 if (newstart)
                 {
+					*totalConvo = 0;
                     if (*output)
                     {
                         if (!*loc) sprintf(at, ":reset: [ category: %s specialty: %s id: %s expect: \"%s\"]", cat, spec, user, output);
@@ -821,7 +846,12 @@ restart: // start with user
                     ReadSocket(sock, response);
                     delete(sock);
                 }
-				if (jaconverse && !botturn) continue; // ignore this now that converse is started 
+				if (jaconverse && !botturn) continue; // ignore this now that converse is started
+				else
+				{
+					strcat(totalConvo, " | ");
+					strcat(totalConvo, ptr);
+				}
             }
             else if (raw)
             {
@@ -852,9 +882,11 @@ restart: // start with user
             // send our normal message now
             msglen = strlen(ptr);
 			char* at = sendbuffer + baselen;
-			if (*output)
+			if (*output || endConvo)
 			{
-				sprintf(at, "[expect: %s] ", output);
+				if (*output && endConvo) sprintf(at, "[expect: %s end: \"%s\"] ", output,totalConvo);
+				else if (*output) sprintf(at, "[expect: %s] ", output);
+				else sprintf(at, "[end: \"totalConvo\"] ");
 				at += strlen(at);
 			}
             strncpy(at, ptr, msglen + 1);

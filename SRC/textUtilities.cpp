@@ -2123,6 +2123,7 @@ RESUME:
 			if (!c) 
 				break;	// end of buffer
 		}
+		
 		if (c == '\t' && convertTabs) c = ' ';
 		if (c & 0x80 ) // high order utf?
 		{
@@ -2364,7 +2365,8 @@ RESUME:
 	buffer[1] = 0;
 	buffer[2] = 1; //   clear ahead to make it obvious we are at end when debugging
 
-	if (hasutf && BOM == BOMUTF8)  hasbadutf = AdjustUTF8(start, start - 1); // DO NOT ADJUST BINARY FILES
+	if (hasutf && (BOM == NOBOM || BOM == BOMUTF8))  
+		hasbadutf = AdjustUTF8(start, start - 1); // DO NOT ADJUST BINARY FILES
 	if (hasbadutf && showBadUTF && !server)  
 		Log(STDUSERLOG,(char*)"Bad UTF-8 %s at %d in %s\r\n",start,currentFileLine,currentFilename);
     return (buffer - start);

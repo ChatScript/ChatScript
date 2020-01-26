@@ -15,7 +15,7 @@ bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
 	if ( *authorizations == '1') // command line does not authorize
 	{
 		if (in) FClose(in);
-		return false;
+		return false; 
 	}
 
 	//  check command line params
@@ -6179,7 +6179,8 @@ Start: user:37224444 bot:Pearl ip:184.106.28.86 (~introductions) 0 ==> [alarm=0|
 ServerPre: pid: 18682 37224444 (Pearl) [reset type: FunnelQuestion category: consumer_electronics partner: 1 source: sip DeviceCategory: desktop] May 02 18:24:25 2018
 Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert) 0 [reset type: FunnelQuestion category: consumer_electronics partner: 1 source: sip DeviceCategory: desktop]  ==> [assistanttitle=Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
 */
-    while (ReadALine(readBuffer, in) >= 0)
+	int oldIndex = bufferIndex;
+	while (ReadALine(readBuffer, in) >= 0)
     {
         if (!*readBuffer) continue;
         char* ptr;
@@ -6210,14 +6211,19 @@ Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert)
         else continue;
         printf("%d\r\n", n++);
         uint64 starttime = ElapsedMilliseconds();
-        PerformChat(user, bot, message, "x", ourMainOutputBuffer);
-        LogChat(starttime, user, bot, "x", volleyCount, message, ourMainOutputBuffer);
-    }
+		char* buffer = AllocateBuffer();
+		strcpy(buffer, message);
+        PerformChat(user, bot, buffer, "x", ourMainOutputBuffer); // this autofrees our buffer
+        LogChat(starttime, user, bot, "x", volleyCount, buffer, ourMainOutputBuffer);
+		FreeBuffer();
+	}
     fclose(in);
+	bufferIndex  = oldIndex; //because performchat clears buffers down to raw base
+
     uint64 endtime = ElapsedMilliseconds();
     long diff = (long) ( endtime - starttime);
     long msPerMessage = diff / n; 
-    diff -= 1000;
+    diff %= 1000;
     printf("Did %d messages in %ld seconds or %d ms per message", n,diff, msPerMessage);
 }
 

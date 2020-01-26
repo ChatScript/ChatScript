@@ -183,7 +183,7 @@ static char* SpellCheck( int i)
 	if (!stricmp(word,loginID) || !stricmp(word,computerID)) return word; //   dont change his/our name ever
     int start = derivationIndex[i] >> 8;
     int end = derivationIndex[i] & 0x00ff;
-    if (start != end || wordStarts[i] != derivationSentence[start])
+    if (start != end || stricmp(wordStarts[i],derivationSentence[start])) // changing capitalization doesnt count as a change
         return word; // got here by a spellcheck so trust it.
 	size_t len = strlen(word);
 	if (len > 2 && word[len-2] == '\'') return word;	// dont do anything with ' words
@@ -417,8 +417,43 @@ bool SpellCheckSentence()
                 continue;
             }
 		}
+		
+		// he gave upper case, try easy lower case
+		WORDP LD = FindWord(word, 0, LOWERCASE_LOOKUP);
+		if (LD && !IS_NEW_WORD(LD) && IsUpperCase(*wordStarts[i]))
+		{
+			bool good = false;
+			if (LD->properties & TAG_TEST || *LD->word == '~' || LD->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
+			else if (LD <= dictionaryPreBuild[LAYER_0]) good = true; // in dictionary - if a substitute would have happend by now
+			else if (stricmp(language, "English")) good = true; // foreign word we know
+			else if (IsConceptMember(LD)) good = true;
+			if (good)
+			{
+				tokens[1] = LD->word;
+				ReplaceWords("' lowercase", i, 1, 1, tokens);
+				fixedSpell = true;
+				continue;
+			}
+		}
+
 		if (IsDate(word)) continue; // allow 1970/10/5 or similar
-        if (IsUrl(word,word+strlen(word))) continue;
+		
+		size_t l = strlen(word);
+		if (IsUrl(word, word + l)) continue;
+
+		// appended &quot?
+		if (*word != '&' && !stricmp(word + l - 5, "&quot"))
+		{
+			word[l - 5] = 0;
+			WORDP X = StoreWord(word);
+			tokens[1] = X->word;
+			tokens[2] = "\"";
+			ReplaceWords("split &quot", i, 1, 2, tokens);
+			fixedSpell = true;
+			--i; // retry spellcheck
+			continue;
+		}
+
 
         if (*word == '\'')
         {

@@ -1,7 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/10/2018 cs9.8
-
+<br>Revision 1/26/2020 cs10.0
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -847,7 +846,7 @@ Boolean 1 if response ended in `?`, null otherwise.
 ### `^responseruleid ( id )`
 
 The rule tag generating this response from which you can get the topic. 
-May be joined pair of rule tags if rule was relayed (reuse) from a different rule).
+May be joined pair of rule tags if rule was relayed (reuse) from a different rule.
 The final rule will be first and the relay second, eg `~keywordless.30.0.~control.3.4`.
 
 If the _id_ is `-1`, then all output generated will be included, analogous to what happens in
@@ -1446,17 +1445,18 @@ The variables and concepts fields are optional and provide context. A concept na
 but as a list of paired words analogous to "replace:", but is only a transient replace series for this call.
 
 Style is also optional
-and defaults to `first`. Other choices are all, best, and last. First means stop running
+and defaults to `earliest`. Other choices are all, best, and latest. Earliest means stop running
 patterns and sentences as soon as you get a match. The makes the call faster and if your 
 patterns are ordered best first, there is no incentive to try lower priority patterns or more
-sentences. Last is the opposite, presumes that the patterns are ordered worst first. In addition,
+sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition,
 last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result).
 All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns
 are ordered best first, but once a match has been found it will move on to additional sentences
 to see if a better match can be found. 
 
 The optional `trace` field if set, will have the patterns involved traced (:trace pattern) and the results
-returned in a field named `trace` as a text string with crlf.
+returned in a field named `trace` as a text string with crlf. Or a pattern can set the variable `$$cs_testpattern_style`
+to be a value and the system will enable trace until it is set off or the call completes.
 
 Result is ordinary user output JSON object: 
 ```

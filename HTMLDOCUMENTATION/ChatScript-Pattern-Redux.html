@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-pattern-redux">ChatScript Pattern Redux</h1>
 <p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
-<br>Revision 7/28/2019 cs9.61</p>
+<br>Revision 1/26/2020 cs10.0</p>
 <p>Pattern matching information was introduced in the Beginner manual and expanded in the <a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>. Since pattern matching is of such importance, this concise manual lists everything about patterns in one place, including patterns not listed in the Advanced manual.</p>
 <p>NOTE: despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
 <pre><code># rule 1 
@@ -241,7 +241,7 @@ u: ( ~noun ^testuse(apple)) # matches &quot;I like pear and apple&quot;</code></
 <pre><code>u: ( ^respond(~finddelay) $$delay ) Wait for $$delay.</code></pre>
 <p><code>~finddelay</code> can hunt for time referred to in seconds, minutes, hours, etc, or in words like next week or tomorrow or whatever complex matching you want to do.</p>
 <h3 id="partially-spelled-words-ing-bottle-8bott">Partially Spelled words: <code>*ing</code> <code>bottle*</code> <code>8bott*</code></h3>
-<p>You can request a match against a partial spelling of a word in various ways.</p>
+<p>You can request a match against a partial spelling of an original word (not its canonical alternative) in various ways.</p>
 <p>If you use <code>*</code> somewhere after an alpha, it matches any number of characters.</p>
 <pre><code>u: ( sag*us ) </code></pre>
 <p>matches many misspellings of <em>sagittarius</em>.</p>

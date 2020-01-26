@@ -216,7 +216,8 @@ static bool FindPartialInSentenceTest(char* test, int start, int originalstart, 
             MakeLowerCopy(word, wordStarts[i]);
             if (unmarked[i] || !MatchesPattern(word, test)) continue;	// if universally unmarked, skip it. Or if they dont match
                                                                         // we have a match of a word
-            actualStart = i;
+			if (!HasMarks(i)) continue; // used ^unmark(@ _x) , making this invisible to mark system
+			actualStart = i;
             actualEnd = i;
             ReleaseStack(word);
             return true;
@@ -229,7 +230,8 @@ static bool FindPartialInSentenceTest(char* test, int start, int originalstart, 
             if (!wordStarts[i]) continue;
             MakeLowerCopy(word, wordStarts[i]);
             if (unmarked[i] || !MatchesPattern(word, test)) continue;	// if universally unmarked, skip it. Or if they dont match
-                                                                        // we have a match of a word
+					                                                   // we have a match of a word
+			if (!HasMarks(i)) continue; // used ^unmark(@ _x) , making this invisible to mark system
             actualStart = i;
             actualEnd = i;
             ReleaseStack(word);

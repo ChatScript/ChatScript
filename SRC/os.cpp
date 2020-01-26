@@ -2091,7 +2091,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
     at = myprinter(ptr,at, ap);
     va_end(ap); 
 
-    if (traceTestPattern)
+    if (traceTestPatternBuffer)
     {
         UpdateTrace(logmainbuffer);
         *logmainbuffer = 0;
@@ -2188,7 +2188,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 #endif
 #endif	
 
-	if (channel == BADSCRIPTLOG || channel == BUGLOG) 
+	if ((channel == BADSCRIPTLOG || channel == BUGLOG) && !nobug) 
 	{
 		if (!strnicmp(logmainbuffer,"FATAL",5)){;} // log fatalities anyway
 		else if (channel == BUGLOG && server && !serverLog)  return id; // not logging server data
@@ -2225,7 +2225,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 		{
 			struct tm ptm;
 			if (*currentFilename) fprintf(stdout,(char*)"\r\n   in %s at %d: %s\r\n    ",currentFilename,currentFileLine,readBuffer);
-			else if (*currentInput) fprintf(stdout,(char*)"\r\n%d %s in sentence: %s \r\n    ",volleyCount,GetTimeInfo(&ptm,true),currentInput);
+			else if (!compiling && *currentInput) fprintf(stdout,(char*)"\r\n%d %s in sentence: %s \r\n    ",volleyCount,GetTimeInfo(&ptm,true),currentInput);
 		}
 		strcat(logmainbuffer,(char*)"\r\n");	//   end it
 

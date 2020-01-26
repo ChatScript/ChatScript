@@ -108,6 +108,16 @@ static int WhereWordHit(WORDP D, int start)
 	return 0;
 }
 
+bool HasMarks(int start)
+{
+	WORDP D = FindWord(wordStarts[start]); // nominal word there
+	if (!D) return false;
+	unsigned char* data = GetWhereInSentence(D); // has 2 hidden int fields before this point
+	if (!data)  return false;
+	int whereHitEnd = WhereWordHitWithData(D, start, data); // word in sentence index
+	return whereHitEnd != 0;
+}
+
 bool MarkWordHit(int depth, int exactWord, WORDP D, int meaningIndex, int start, int end)
 {	//   keep closest to start at bottom, when run out, drop later ones 
     if (!D || !D->word) return false;

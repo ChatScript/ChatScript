@@ -499,99 +499,115 @@ void SetUserVariable(const char* var, char* word, bool assignment)
     }
     if (testExternOutput)  SetVariable(D, word);
     else D->w.userValue = word;
-    if (!stricmp(var, (char*)"$cs_json_array_defaults"))
-    {
-        int64 val = 0;
-        if (word && *word) ReadInt64(word, val);
-        jsonDefaults = (int)val;
-    }
 
-    // tokencontrol changes are noticed by the engine
-    if (!stricmp(var, (char*)"$cs_token"))
-    {
-        int64 val = 0;
-        if (word && *word) ReadInt64(word, val);
-        else
-        {
-            val = (DO_INTERJECTION_SPLITTING | DO_SUBSTITUTE_SYSTEM | DO_NUMBER_MERGE | DO_PROPERNAME_MERGE | DO_SPELLCHECK);
-            if (!stricmp(language, "english")) val |= DO_PARSE;
-        }
-        tokenControl = val;
-    }
-    // cs_float changes are noticed by the engine
-    if (!stricmp(var, (char*)"$cs_fullfloat"))
-        fullfloat = (word && *word) ? true : false;
-    // cs_numbers changes are noticed by the engine (india, french, other)
-    else if (!stricmp(var, (char*)"$cs_numbers"))
-    {
-        if (!word) numberStyle = AMERICAN_NUMBERS;
-        else if (!stricmp(word, "indian")) numberStyle = INDIAN_NUMBERS;
-        else if (!stricmp(word, "french")) numberStyle = FRENCH_NUMBERS;
-        else numberStyle = AMERICAN_NUMBERS;
+	// monitored engine variables
 
-        if (numberStyle == FRENCH_NUMBERS)
-        {
-            numberComma = '.';
-            numberPeriod = ',';
-        }
-        else
-        {
-            numberComma = ',';
-            numberPeriod = '.';
-        }
-    }
-    // trace
-    else if (!stricmp(var, (char*)"$cs_trace"))
-    {
-        int64 val = 0;
-        if (word && *word) ReadInt64(word, val);
-        trace = (unsigned int)val;
-        if (assignment) // remember script changed it
-        {
-            modifiedTraceVal = trace;
-            modifiedTrace = true;
-        }
-    }
-    // time
-    else if (!stricmp(var, (char*)"$cs_time"))
-    {
-        int64 val = 0;
-        if (word && *word) ReadInt64(word, val);
-        timing = (unsigned int)val;
-        if (assignment) // remember script changed it
-        {
-            modifiedTimingVal = timing;
-            modifiedTiming = true;
-        }
-    }
-    // output random choice selection
-    else if (!stricmp(var, (char*)"$cs_outputchoice"))
-    {
-        int64 val = -1;
-        if (word && *word) ReadInt64(word, val);
-        outputchoice = (unsigned int)val;
-    }
-    // responsecontrol changes are noticed by the engine
-    else if (!stricmp(var, (char*)"$cs_response"))
-    {
-        int64 val = 0;
-        if (word && *word) ReadInt64(word, val);
-        else val = ALL_RESPONSES;
-        responseControl = (unsigned int)val;
-    }
-    // cs_botid changes are noticed by the engine
-    else if (!stricmp(var, (char*)"$cs_botid"))
-    {
-        int64 val = 0;
-        if (word && *word) ReadInt64(word, val);
-        myBot = (uint64)val;
-    }
-    // wildcardseparator changes are noticed by the engine
-    else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
-    {
-        if (*word == '\\') *wildcardSeparator = word[2];
-        else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
-    }
+	// testpattern tracing
+	if (!stricmp(var, (char*)"$$cs_tracepattern"))
+	{
+		if (word && *word) trace = TRACE_PATTERN; // turn on tracing
+		else trace = 0; // turn off pattern trace
+	}
+	else if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
+	{
+
+		if (!stricmp(var, (char*)"$cs_json_array_defaults"))
+		{
+			int64 val = 0;
+			if (word && *word) ReadInt64(word, val);
+			jsonDefaults = (int)val;
+		}
+
+		// tokencontrol changes are noticed by the engine
+		else if (!stricmp(var, (char*)"$cs_token"))
+		{
+			int64 val = 0;
+			if (word && *word) ReadInt64(word, val);
+			else
+			{
+				val = (DO_INTERJECTION_SPLITTING | DO_SUBSTITUTE_SYSTEM | DO_NUMBER_MERGE | DO_PROPERNAME_MERGE | DO_SPELLCHECK);
+				if (!stricmp(language, "english")) val |= DO_PARSE;
+			}
+			tokenControl = val;
+		}
+
+		// cs_float changes are noticed by the engine
+		else if (!stricmp(var, (char*)"$cs_fullfloat"))
+			fullfloat = (word && *word) ? true : false;
+		
+		// cs_numbers changes are noticed by the engine (india, french, other)
+		else if (!stricmp(var, (char*)"$cs_numbers"))
+		{
+			if (!word) numberStyle = AMERICAN_NUMBERS;
+			else if (!stricmp(word, "indian")) numberStyle = INDIAN_NUMBERS;
+			else if (!stricmp(word, "french")) numberStyle = FRENCH_NUMBERS;
+			else numberStyle = AMERICAN_NUMBERS;
+
+			if (numberStyle == FRENCH_NUMBERS)
+			{
+				numberComma = '.';
+				numberPeriod = ',';
+			}
+			else
+			{
+				numberComma = ',';
+				numberPeriod = '.';
+			}
+		}
+		// trace
+		else if (!stricmp(var, (char*)"$cs_trace"))
+		{
+			int64 val = 0;
+			if (word && *word) ReadInt64(word, val);
+			trace = (unsigned int)val;
+			if (assignment) // remember script changed it
+			{
+				modifiedTraceVal = trace;
+				modifiedTrace = true;
+			}
+		}
+		// time
+		else if (!stricmp(var, (char*)"$cs_time"))
+		{
+			int64 val = 0;
+			if (word && *word) ReadInt64(word, val);
+			timing = (unsigned int)val;
+			if (assignment) // remember script changed it
+			{
+				modifiedTimingVal = timing;
+				modifiedTiming = true;
+			}
+		}
+		// output random choice selection
+		else if (!stricmp(var, (char*)"$cs_outputchoice"))
+		{
+			int64 val = -1;
+			if (word && *word) ReadInt64(word, val);
+			outputchoice = (unsigned int)val;
+		}
+		// responsecontrol changes are noticed by the engine
+		else if (!stricmp(var, (char*)"$cs_response"))
+		{
+			int64 val = 0;
+			if (word && *word) ReadInt64(word, val);
+			else val = ALL_RESPONSES;
+			responseControl = (unsigned int)val;
+		}
+		// cs_botid changes are noticed by the engine
+		else if (!stricmp(var, (char*)"$cs_botid"))
+		{
+			int64 val = 0;
+			if (word && *word) ReadInt64(word, val);
+			myBot = (uint64)val;
+		}
+		// wildcardseparator changes are noticed by the engine
+		else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
+		{
+			if (*word == '\\') *wildcardSeparator = word[2];
+			else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
+		}
+	}
+
     if (trace && D->internalBits & MACRO_TRACE)
     {
         char pattern[110];

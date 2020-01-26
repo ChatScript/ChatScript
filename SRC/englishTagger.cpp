@@ -1551,8 +1551,10 @@ static bool NounFollows( int i,bool thruComma)
 	}
 	return false;
 }
+
 static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 {
+
 	bool notflag = false;
 	static bool endwrap = false;	// allow endwrap ONLY immediately after successful end test going forward
 	if (control & NOTCONTROL) notflag = true;
@@ -1639,7 +1641,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
         {
             if (i > 1 && posValues[i] & NOUN_BITS)
             {
-                char word[MAX_WORD_SIZE];
+                char word[MAX_WORD_SIZE * 3]; // each word might be max_word size
                 strcpy(word, wordStarts[i-1]);
                 strcat(word, "_");
                 strcat(word, wordStarts[i]);
@@ -1650,7 +1652,8 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
                     break;
                 }
             }
-        }
+			break;
+		}
 		case PLURAL:	 // pronoun or noun
 			if (posValues[i] & (PRONOUN_SUBJECT|PRONOUN_OBJECT)) answer = (lcSysFlags[i] & PRONOUN_PLURAL) ? true : false;
 			else if (posValues[i] & (NOUN_PLURAL|NOUN_PROPER_PLURAL)) answer = true;
@@ -1666,7 +1669,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			if (posValues[i+1] == PARTICLE) //known particle
 			{
 				char* verb = GetInfinitive(wordStarts[i], true);
-				char word[MAX_WORD_SIZE*2];
+				char word[MAX_WORD_SIZE*3];
 				if (verb)
 				{
 					sprintf(word,(char*)"%s_%s",verb,wordStarts[i+1]);

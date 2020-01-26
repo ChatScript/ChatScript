@@ -3,7 +3,7 @@
 
 
 #ifdef INFORMATION
-Copyright (C)2011-2019 by Bruce Wilcox
+Copyright (C)2011-2020 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -66,12 +66,14 @@ enum TestMode {
 
 //   argument data for system calls
 extern TestMode wasCommand;
-
+extern char* traceTestPatternBuffer;
+extern bool nobug;
 extern HEAPREF patternwordthread;
 extern HEAPREF memoryMarkThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
+extern char* style;
 extern int rulesExecuted;
 extern  bool testExternOutput;
 extern char* traceTestPattern;
@@ -122,6 +124,7 @@ void ResetFunctionSystem();
 void SaveMark(char* buffer,unsigned int iterator);
 FunctionResult RegularReuse(int topic, int id, char* rule,char* buffer,char* arg3,bool crosstopic);
 void UpdateTrace(char* value);
+FunctionResult InternalCall(char* name, EXECUTEPTR fn, char* arg1, char* arg2, char* arg3, char* buffer);
 
 FunctionResult KeywordTopicsCode(char* buffer);
 void SetBaseMemory();

@@ -1,6 +1,7 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/14/2019 cs9.6
+<br>Revision 1/26/2020 cs10.0
+
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -608,13 +609,21 @@ contents.
 | `$cs_topicretrylimit` | if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30) |
 | `$$topic_retry_limit_exceeded` | set if topic retry limit is encountered |
 | `$cs_topicretrylimit` | if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30) |
+| `$cs_userhistorylimit` | if not null, indicates how many volleys back are tracked as what was said by both parties |
 | `$cs_saveusedJson` | if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below) |
 | `$cs_proxycredentials`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxyserver`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
+| `$cs_addresponse`    | provides a function name hook onto the output q to the user. See below.| 
+ `$cs_tracepattern`    | Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON
 fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect 
 all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some
 other non-JSON fact.
+
+`$cs_addresponse` names a function of 2 arguments that will be called when CS wants put text into the output queue of the user.
+The first argument will be what CS wants to output. The second is the rule tag that generated this output.
+If the function returns a failure code, the message will be aborted and not put into the queue.
+If the function returns a text value (not null) then that message will replace what was intended to go to the user.

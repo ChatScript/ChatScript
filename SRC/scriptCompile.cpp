@@ -4556,7 +4556,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		if (fromtopic) BADSCRIPT((char*)"datum: from topic must use predefined table %s",name)
 		ptr = ReadMacro(ptr,in,(char*)"table:",build); //   defines the name,argumentList, and script
 		ptr = ReadNextSystemToken(in,ptr,word,false,false); //   the DATA: separator
-		if (stricmp(word,(char*)"DATA:")) 	BADSCRIPT((char*)"TABLE-1 missing DATA: separator for table - %s\r\n",word)
+		if (stricmp(word,(char*)"DATA:")) 	BADSCRIPT((char*)"TABLE-1 missing DATA separator for table or corresponding tablemacro not yet defined- %s\r\n",word)
 		sharedArgs = 0;
 	}
 	else // this is an existing table macro being executed
@@ -4603,7 +4603,11 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		ptr = ReadNextSystemToken(in,ptr,word,false,false); // real token read
 		char* original = ptr - strlen(word);
 		if (*word == '\\' && word[1] == 'n') continue; // newline means pretend new table entry
-
+		if (!stricmp(word, (char*)":debug"))
+		{
+			DebugCode(word);
+			continue;
+		}
 		if (*word == ':' && word[1]) // debug command
 		{
 			ptr = original;  // safe
@@ -4644,6 +4648,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 		// now fill in args of table data from a single line
 		char* choiceArg = NULL; //   the multiple interior
 		bool startup = true;
+		int holdtrace = trace;
         trace = 0;
 		strcpy(tableinput, readBuffer);
         while (ALWAYS)
@@ -4795,7 +4800,9 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 				currentRule = NULL;
 				FunctionResult result;
 				AllocateOutputBuffer();
-				DoFunction(currentFunctionDefinition->word,argumentList,currentOutputBase,result);
+				trace = holdtrace;
+				DoFunction(currentFunctionDefinition->word, argumentList, currentOutputBase, result);
+				trace = 0;
 				FreeOutputBuffer();
 				if (!choiceArg) break;
 			}

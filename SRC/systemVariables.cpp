@@ -735,11 +735,23 @@ static char* SmoreQuestion(char* value)
     return moreToComeQuestion ? (char*)"1" : (char*)"";
 }   
 
-static char* SoriginalInput(char* value)
+static char* sentencehold = NULL;
+
+char* SoriginalInput(char* value)
 {
 	static char hold[50] = ".";
-	if (value) return AssignValue(hold,value);
-	if (*hold != '.') return hold;
+	if (value)
+	{
+		if (*value == '.' && !value[1]) sentencehold = NULL; // end use by testpattern
+		else if (strlen(value) > 45)
+		{
+			sentencehold = value; // from testpattern
+			return value;
+		}
+		return AssignValue(hold, value);
+	}
+	if (*hold != '.') return hold; // simple override
+	if (sentencehold) return sentencehold;// testpattern override for long inputs
 	char* at = SkipWhitespace(mainInputBuffer); 
 	if (at && *at == '[') // skip oob data
 	{
@@ -764,9 +776,19 @@ static char* SoriginalInput(char* value)
 static char* SoriginalSentence(char* value)
 {
 	static char hold[50] = ".";
-	if (value) return AssignValue(hold,value);
-	if (*hold != '.') return hold;
-    return rawSentenceCopy;
+	if (value)
+	{
+		if (*value == '.' && !value[1]) sentencehold = NULL; // end use by testpattern
+		else if (strlen(value) > 45) 
+		{
+			sentencehold = value; // from testpattern
+			return value;
+		}
+		return AssignValue(hold, value);
+	}
+	if (*hold != '.') return hold; // simple override
+	if (sentencehold) return sentencehold;// testpattern override for long inputs
+    return rawSentenceCopy; // normal actual initial input
 }   
 static char* Sparsed(char* value) 
 {

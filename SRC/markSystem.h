@@ -1,7 +1,7 @@
 #ifndef _MARKSYSTEMH_
 #define _MARKSYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2019 by Bruce Wilcox
+Copyright (C)2011-2020 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -18,6 +18,7 @@ typedef void (*ExternalTaggerFunction)();
 #define MAX_XREF_SENTENCE 50	// number of places a word can hit to in sentence
 #define REF_ELEMENTS 6 // bytes per reference
 
+extern int marklimit;
 extern int maxRefSentence;
 extern ExternalTaggerFunction externalPostagger;
 extern char respondLevel;
@@ -34,5 +35,6 @@ void MarkMeaningAndImplications(int depth,int ucase,MEANING M,int start,int end,
 bool RemoveMatchValue(WORDP D, int position);
 unsigned int IsMarkedItem(WORDP D, int start, int end);
 void MarkAllImpliedWords();
+bool HasMarks(int start);
 char* DumpAnalysis(int start, int end, uint64 posValues[MAX_SENTENCE_LENGTH],const char* label,bool original,bool roles);
 #endif

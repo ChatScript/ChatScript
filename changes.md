@@ -1,3 +1,9 @@
+# Version 10.0 
+1. $$cs_tracepattern for returning trace from ^testpattern in addition to results.
+2. $cs_addresponse holds name of ^fn(message ruletag) to tap CS user output queue
+	usage: 1. multiple reacts for different speech to text interpretations
+	       2. detect already given answer and tell user: I already told you.
+
 # Version 9.8 11/10/2019
 
 1. ^MemoryFree($data) - now takes optional argument whose data is to be available after freeing up everything. Can be string or can be JSON object (in which case a new transient json structure will be created to hold it).

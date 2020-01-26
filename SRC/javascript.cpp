@@ -1,4 +1,5 @@
 #include "common.h"
+// Copyright(C) 2011 - 2020 by Bruce Wilcox
 #ifndef DISCARDJAVASCRIPT
 #include "duktape/duktape.h"
 //#include "duktape/duktape.cpp"

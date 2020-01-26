@@ -2762,6 +2762,7 @@ HEAPREF ReadSubstitutes(const char* name,unsigned int build,const char* layer, u
 	}
 	// just ignore wasted heapref memory (compiling doesnt matter, data is small enough to ignore in private)
     FClose(in);
+	return list;
 }
 
 void ReadWordsOf(char* name,uint64 mark)
@@ -5256,7 +5257,6 @@ static void AdjustAdjectiveAdverb(WORDP D, uint64 junk) // fix comparitives that
 			if (D->properties & ADJECTIVE) AddProperty(D, MORE_FORM);
 			if (D->properties & ADVERB) AddProperty(D, MORE_FORM);
 		}
-
 	}
 	else if (len > 5 && !strcmp(D->word + len - 3, "est"))
 	{

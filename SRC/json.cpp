@@ -2121,22 +2121,12 @@ LOOP: // now we look at $x.key or $x[0]
 			if (c == '.')
 			{
 				char loc[100];
-
-				// perform internal call to function
-				unsigned int oldArgumentBase = callArgumentBase;
-				unsigned int oldArgumentIndex = callArgumentIndex;
-				callArgumentBase = callArgumentIndex;
-				callArgumentBases[callIndex++] = callArgumentIndex - 1; // call stack
-                if (bootfact) ARGUMENT(1) = (char*)"boot";
-                else if (priorLeftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
-                else if (priorLeftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
-                else ARGUMENT(1) = (char*)"permanent unique";
-				ARGUMENT(2) = "object";
-				callArgumentIndex += 2;
-				JSONCreateCode(loc); // get new object name
-				--callIndex;
-				callArgumentIndex = oldArgumentIndex;
-				callArgumentBase = oldArgumentBase;
+				char* arg1;
+                if (bootfact) arg1 = (char*)"boot";
+                else if (priorLeftside->word[3] == 't') arg1 = (char*)"transient";
+                else if (priorLeftside->word[3] == 'b') arg1 = (char*)"boot";
+                else arg1 = (char*)"permanent unique";
+				InternalCall("^JSONCreateCode", JSONCreateCode, arg1, (char*)"object", NULL, loc);
 
 				leftside = FindWord(loc);
 				unsigned int flags = JSON_OBJECT_FACT;
@@ -2149,20 +2139,14 @@ LOOP: // now we look at $x.key or $x[0]
 			else if (!arrayfact)
 			{
 				char loc[100];
+				char* arg1;
+                if (bootfact) arg1 = (char*) "boot";
+                else if (priorLeftside->word[3] == 't') arg1 = (char*)"transient";
+                else if (priorLeftside->word[3] == 'b') arg1 = (char*)"boot";
+                else arg1 = (char*)"permanent";
+				// get new array name
+				InternalCall("^JSONCreateCode", JSONCreateCode, arg1, (char*)"array", NULL, loc);
 
-				// perform internal call to function
-				unsigned int oldArgumentBase = callArgumentBase;
-				unsigned int oldArgumentIndex = callArgumentIndex;
-				callArgumentBase = callArgumentIndex;
-				callArgumentBases[callIndex++] = callArgumentIndex - 1; // call stack
-                if (bootfact) ARGUMENT(1) = (char*) "boot";
-                else if (priorLeftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
-                else if (priorLeftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
-                else ARGUMENT(1) = (char*)"permanent";
-                ARGUMENT(2) = "array";
-				callArgumentIndex += 2;
-				JSONCreateCode(loc); // get new array name
-		
 				leftside = FindWord(loc);
 				unsigned int flags = (priorLeftside->word[1] == 'o') ? JSON_OBJECT_FACT : JSON_ARRAY_FACT;
                 if (bootfact) flags |= FACTBOOT;
@@ -2170,10 +2154,6 @@ LOOP: // now we look at $x.key or $x[0]
                 else if (loc[3] == 'b') flags |= FACTBOOT;
                 MEANING valx = jsonValue(leftside->word, flags);
 				F = CreateFact(MakeMeaning(priorLeftside), MakeMeaning(keyname), valx, flags);
-				
-				--callIndex;
-				callArgumentIndex = oldArgumentIndex;
-				callArgumentBase = oldArgumentBase;
 			}
 			// array index not found when looked up
 			else return FAILRULE_BIT;
@@ -2253,23 +2233,15 @@ LOOP: // now we look at $x.key or $x[0]
 	}
 	else if (!key) // was [] notation to insert to array
 	{		
-		// perform internal call to function
-		unsigned int oldArgumentBase = callArgumentBase;
-		unsigned int oldArgumentIndex = callArgumentIndex;
-		callArgumentBase = callArgumentIndex;
-		callArgumentBases[callIndex++] = callArgumentIndex - 1; // call stack
-        if (bootfact) ARGUMENT(1) = (char*)"boot";
-        else if (leftside->word[3] == 't') ARGUMENT(1) = (char*)"transient";
-        else if (leftside->word[3] == 'b') ARGUMENT(1) = (char*)"boot";
-        else ARGUMENT(1) = (char*)"permanent";
-		ARGUMENT(2) = leftside->word;
-		ARGUMENT(3) = value;
-		callArgumentIndex += 3;
+		char* arg1;
+        if (bootfact) arg1 = (char*)"boot";
+        else if (leftside->word[3] == 't') arg1 = (char*)"transient";
+        else if (leftside->word[3] == 'b') arg1 = (char*)"boot";
+        else arg1 = (char*)"permanent";
+		// get new object name
 		char loc[100];
-		JSONArrayInsertCode(loc); // get new object name
-		--callIndex;
-		callArgumentIndex = oldArgumentIndex;
-		callArgumentBase = oldArgumentBase;
+		InternalCall("^JSONArrayInsertCode", JSONArrayInsertCode, arg1, leftside->word, value, loc);
+		
 	}
 
 	if (trace & TRACE_VARIABLESET) Log(STDUSERLOG,(char*)"JsonVar: %s -> %s\r\n", fullpath,value);

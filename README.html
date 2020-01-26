@@ -159,6 +159,26 @@ But you also need a client (to test client-server communication). You can run a 
 <h2 id="how-to-compile-the-engine.">How to compile the engine.</h2>
 <p>On windows if you have Visual Studio installed, launch <code>VS2010/chatscript.sln</code> or <code>VS2015/chatscript.sln</code> and do a build. The result will go in the <code>BINARIES</code> directory.</p>
 <p>On Linux, go stand in the SRC directory and type <code>make server</code> (assuming you have make and g++ installed). This creates BINARIES/ChatScript, which can run as a server or locally. There are other make choices for installing PostGres or Mongo.</p>
+<h2 id="docker-image">Docker image</h2>
+<h3 id="building-the-base-docker-image">Building the base Docker image</h3>
+<p>The <code>Dockerfile</code> in this repository provides a ChatScript server with no bots. To build and run it, run the following commands:</p>
+<pre><code>docker build -t chatscript .
+docker run -it -p 1024:1024 chatscript</code></pre>
+<p>Note: You will probably want to replace the image tag <code>chatscript</code> with a more meaningful one for your purposes.</p>
+<h3 id="building-a-docker-image-containing-bot-data">Building a Docker image containing bot data</h3>
+<p>Adding bot data to the base image above is as simple as writing a <code>Dockerfile</code> like the following one, which builds the <code>Harry</code> bot:</p>
+<pre><code>FROM chatscript
+
+# Copy raw data needed for Harry
+COPY ./RAWDATA/filesHarry.txt
+COPY ./RAWDATA/HARRY /opt/ChatScript/RAWDATA/HARRY
+COPY ./RAWDATA/QUIBBLE /opt/ChatScript/RAWDATA/QUIBBLE
+
+# Build Harry
+RUN /opt/ChatScript/BINARIES/LinuxChatScript64 local build1=filesHarry.txt</code></pre>
+<p>This <code>Dockerfile</code> can then be built and run in the same manner as the base <code>chatscript</code> image:</p>
+<pre><code>docker build -t chatscript-harry .
+docker run -it chatscript-harry local</code></pre>
 <h1 id="full-documentation">Full Documentation</h1>
 <p><a href="/WIKI/README.md">ChatScript Wiki (user guides, tutorials, papers)</a></p>
 <h1 id="contributing">Contributing</h1>
