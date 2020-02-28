@@ -1671,7 +1671,7 @@ different naming for user json created later and code can determine the source o
 
 `^readfile ( TAB filepath )` reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array.
 The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted.
-`^readfile ( TAB filepath 'function)` reads tsv and spreads fields onto arguments of 'function, which it calls onceper line
+`^readfile ( TAB filepath 'function)` reads tsv and spreads fields onto arguments of 'function, which it calls once per line
 `^readfile ( LINE filepath 'function)` reads any file and passes each line untouched as the sole argument to the function.
 
 Fomerly called ^jsonreadcsv.
