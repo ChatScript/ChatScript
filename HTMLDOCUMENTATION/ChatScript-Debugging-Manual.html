@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/10/2018 cs9.8</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/29/2020 cs10.1</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -136,7 +136,8 @@
 :verifyspell       - Regress spell checker against file
 :verifysubstitutes - Regress test substitutes of all kinds
 :worddump          - show words via hardcoded test
-:verifySentence    - verification data</code></pre>
+:verifySentence    - verification data
+:labelremap     - for a topic builds an xref of internal tags to their labels (if they have one)  into TMP/labels.txt</code></pre>
 <p>All commands can be written in full, or most can be abbreviated using <code>:firstletterlastletter</code>, eg</p>
 <pre><code>:build</code></pre>
 <p>can be</p>

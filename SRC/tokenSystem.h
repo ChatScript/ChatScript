@@ -42,6 +42,8 @@ void ProcessCompositeNumber();
 void ProcessCompositeDate();
 void ProperNameMerge();
 bool DateZone(int i, int& start, int& end);
+bool ParseTime(char* ptr, char** minute, char** meridiem);
+char* FindTimeMeridiem(char* ptr, int len = 0);
 unsigned int TransformCount(char* dictword, unsigned int inputLen, char* inputSet, uint64 min);
 void ResetTokenSystem();
 void DumpTokenControls(uint64 val);

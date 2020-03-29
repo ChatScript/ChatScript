@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/10/2018 cs9.8
+<br>Revision 3/29/2020 cs10.1
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does and
@@ -144,6 +144,7 @@ the above : statement show the list:
 :verifysubstitutes - Regress test substitutes of all kinds
 :worddump          - show words via hardcoded test
 :verifySentence    - verification data
+:labelremap		- for a topic builds an xref of internal tags to their labels (if they have one)  into TMP/labels.txt
 ```
 
 All commands can be written in full, or most can be abbreviated using `:firstletterlastletter`, eg 

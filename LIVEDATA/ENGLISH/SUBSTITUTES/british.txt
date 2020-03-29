@@ -393,6 +393,10 @@
  depersonalised depersonalized
  depersonalises depersonalizes
  depersonalising depersonalizing
+ despatch dispatch
+ despatches dispatches
+ despatching dispatching
+ despatched dispatched
  deputise deputize
  deputised deputized
  deputises deputizes

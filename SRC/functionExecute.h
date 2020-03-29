@@ -84,6 +84,7 @@ extern int callArgumentBases[MAX_CALL_DEPTH];    // arguments to functions
 extern unsigned int callArgumentIndex;
 extern int maxGlobalSeen;
 extern long http_response;
+extern char lastcurltime[100];
 extern char* currentFunctionName;
 extern HEAPREF savedSentencesThreadList;
 

@@ -27,7 +27,7 @@
 #			Next char is tag label. 0 means no ignoretag
 #		s/v/o/p/m/~set/'word  = use a specific argument field: subject/verb/object/progogate/match/factset,named ~set,named word 
 #		S/V/O choice is a fact id
-#			The above is automatically tagged using the current tag and is followed by 
+#			The above is automatically taged using the current tag and is followed by 
 #				q  = queue items (sets will follow to all members recursively and wordnet will look at synonyms)
 #				Q  = queue this exact item only
 #				t  = tag(no queue) items
@@ -258,7 +258,7 @@ QUERY: direct_ootherv	"1oq 2ve: queue o: match !v2"
 # Find the fact that leads to object which is a concept - propogate upwards from subject until you get to a fact that leads to the object concept
 # given: (soap member ~hygiene_items) and (~hygiene_item member ~personal_items) and (~personal_items member ~drugstore) and (~drugstore member ~storetypes)
 # find (~drugstore member ~storetypes) given  ^query(up2set soap ? '~store_type 10 )   - ie, what kind of store sells soap
-QUERY: up2set	"1sq_2'member.t 3ot: queue s: match v2 o3 <2" 
+QUERY: up2set	"1sq_2'member.t 2'is.t 3ot: queue s: match v2 o3 <2" 
 # 1. tag the subject with a 1 and q it 
 # 2. tag member and is with 2 
 # 3. tag top goal object (presumed concept which needed to be quoted) with 3
@@ -270,7 +270,7 @@ QUERY: up2set	"1sq_2'member.t 3ot: queue s: match v2 o3 <2"
 
 # Similar to up2set but you name a single verb instead of assuming member or is 
 # given: (sneaker up ~boys_shoes) and (~boys_shoes up ~shoes) and (~shoes up ~clothes) and (~clothes up ~all_items)
-# find: (~clothes up ~all_items) given  ^query(up2seta sneaker up '~all_items 10 ) 
+# find: (~clothes up ~all_items) given  ^query(up2seta shoes up '~all_items 10 ) 
 QUERY: up2seta	"1sq 2vt 3ot: queue s: match v2 o3 <2"	
 
 # Find the fact that leads to object which is a marked NOCONCEPTMARK concept - propogate upwards from subject until you get to a fact that leads to the object concept

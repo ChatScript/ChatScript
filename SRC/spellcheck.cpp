@@ -113,7 +113,7 @@ static int SplitWord(char* word,int i)
 	{
 		if (!IsUpperCase(word[j])) break;
 	}
-	if (j == len1) // looks like acrynum but is any neighbor non caps
+	if (j == len1) // looks like acronym but is any neighbor non caps
 	{
 		if (wordStarts[i - 1] && IsUpperCase(wordStarts[i - 1][0])) j = 0;
 		if (wordStarts[i + 1] && IsUpperCase(wordStarts[i + 1][0])) j = 0;
@@ -147,12 +147,14 @@ static int SplitWord(char* word,int i)
 	// dont split acronyms
 
 	//  try all combinations of breaking the word into two known words
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
+    bool isFrench = (!stricmp(language, "french") ? true : false);
 	breakAt = 0;
 	size_t len = strlen(word);
     for (unsigned int k = 1; k < len-1; ++k)
     {
-        if (!stricmp(language,"english") && k == 1 && *word != 'a' && *word != 'A' && *word != 'i' && *word != 'I') continue; //   only a and i are allowed single-letter words
-        else if (!stricmp(language,"french") && k == 1 && *word != 'y' && *word != 'a' && *word != 'A' && !SameUTF(word,"à") && !SameUTF(word, "À") && !SameUTF(word, "ô") && !SameUTF(word,"Ô")) continue; //   in french only y, a and ô are allowed single-letter words
+        if (isEnglish && k == 1 && *word != 'a' && *word != 'A' && *word != 'i' && *word != 'I') continue; //   only a and i are allowed single-letter words
+        else if (isFrench && k == 1 && *word != 'y' && *word != 'a' && *word != 'A' && !SameUTF(word,"à") && !SameUTF(word, "À") && !SameUTF(word, "ô") && !SameUTF(word,"Ô")) continue; //   in french only y, a and ô are allowed single-letter words
 		WORDP D1 = FindWord(word,k,PRIMARY_CASE_ALLOWED);
         if (!D1) continue;
 		good = (D1->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D1->internalBits & HAS_SUBSTITUTE) != 0; 
@@ -348,6 +350,14 @@ char* ProbableKnownWord(char* word)
 	return NULL;
 }
 
+static bool UsefulKnownWord(WORDP D)
+{
+	if (IS_NEW_WORD(D)) return false;
+	if (D->properties & TAG_TEST) return true;
+	if (D->systemFlags & PATTERN_WORD) return true;
+	return false;
+}
+
 bool SpellCheckSentence()
 {
 	WORDP E;
@@ -355,31 +365,36 @@ bool SpellCheckSentence()
 	fixedSpell = false;
     int badcount = 0;
     int goodcount = 0;
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
+    bool isGerman = (!stricmp(language, "german") ? true : false);
 	int startWord = FindOOBEnd(1);
-	for (int i = startWord; i <= wordCount; ++i)
+	int i;
+	for (i = startWord; i <= wordCount; ++i)
 	{
 		char* word = wordStarts[i];
-        if (strlen(word) > (MAX_WORD_SIZE - 100)) continue;
-        char hyphenword[MAX_WORD_SIZE];
-        if (i != wordCount) // merge 2 adj words w hyphen if can, even though one or both are legal words
-        {
-            WORDP X = FindWord(word);
-            WORDP Y = FindWord(wordStarts[i + 1]);
-            if (X && Y) { ; } // dont merge 2 known words
-            else
-            {
-                strcpy(hyphenword, word);
-                size_t len = strlen(hyphenword);
-                strcpy(hyphenword + len++, "-");
-                strcpy(hyphenword + len, wordStarts[i + 1]);
-                WORDP XX = FindWord(hyphenword);
-                if (XX && !IS_NEW_WORD(XX))
-                {
-                    tokens[1] = XX->word;
-                    ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
-                }
-            }
-        }
+		size_t n = strlen(word);
+        if (n > (MAX_WORD_SIZE - 100)) continue;
+        char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
+		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one or both are legal words
+		{
+			WORDP X = FindWord(word);
+			WORDP Y = FindWord(wordStarts[i + 1]);
+			if (!(X && Y && UsefulKnownWord(X) && UsefulKnownWord(Y))) // has-been is a word we dont want merge,but model numbers we do.
+			{
+				strcpy(bigword, word);
+				size_t len = strlen(bigword);
+				strcpy(bigword + len++, "-");
+				strcpy(bigword + len, wordStarts[i + 1]);
+				WORDP XX = FindWord(bigword);
+				if (XX && UsefulKnownWord(XX))
+				{
+					tokens[1] = XX->word;
+					ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
+					fixedSpell = true;
+					continue;
+				}
+			}
+		}
 		if (spellTrace)
 		{
 			strcpy(spellCheckWord, word);
@@ -409,7 +424,7 @@ bool SpellCheckSentence()
             bool good = false;
 			if (D->properties & TAG_TEST|| *D->word == '~' || D->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
 			else if (D <= dictionaryPreBuild[LAYER_0]) good = true; // in dictionary - if a substitute would have happend by now
-            else if (stricmp(language, "English")) good = true; // foreign word we know
+            else if (!isEnglish) good = true; // foreign word we know
             else if (IsConceptMember(D)) good = true;
             if (good)
             {
@@ -417,7 +432,49 @@ bool SpellCheckSentence()
                 continue;
             }
 		}
-		
+		// handle lower case forms of upper case nouns
+		if (!stricmp(language, "german") && !D)
+		{
+			WORDP E = FindWord(word, 0, SECONDARY_CASE_ALLOWED);
+			if (E && E->internalBits & UPPERCASE_HASH && E->properties & NOUN_SINGULAR) // we had lower case, we find upper case
+			{
+				tokens[1] = E->word;
+				ReplaceWords("' German lowercased noun", i, 1, 1, tokens);
+				fixedSpell = true;
+				continue;
+			}
+		}
+
+		WORDP revise, entry, canonical;
+		uint64 xflags = 0;
+		uint64 cansysflags = 0;
+		uint64 inferredProperties = GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags);
+		if (entry && entry->internalBits & HAS_SUBSTITUTE) entry = canonical = NULL;
+		if (canonical && !stricmp(canonical->word, "unknown-word")) canonical = NULL;
+		if (canonical && !(canonical->internalBits & UPPERCASE_HASH) && (canonical != entry) || (inferredProperties & (NOUN_NUMBER | ADJECTIVE_NUMBER)))
+		{
+			if (entry && strcmp(entry->word, word)) // probably case changed
+			{
+				tokens[1] = entry->word;
+				ReplaceWords("' getposdata", i, 1, 1, tokens);
+				fixedSpell = true;
+			}
+			if (entry && (entry->internalBits & UPPERCASE_HASH)) // switch to canonical lowercase
+			{
+				tokens[1] = canonical->word;
+				ReplaceWords("' getposdata", i, 1, 1, tokens);
+				fixedSpell = true;
+			}
+			continue; // we know it is some conjugated form
+		}
+		if (entry && strcmp(entry->word, word)) // changed (maybe case)
+		{
+			tokens[1] = entry->word;
+			ReplaceWords("' posresult", i, 1, 1, tokens);
+			fixedSpell = true;
+			continue;
+		}
+
 		// he gave upper case, try easy lower case
 		WORDP LD = FindWord(word, 0, LOWERCASE_LOOKUP);
 		if (LD && !IS_NEW_WORD(LD) && IsUpperCase(*wordStarts[i]))
@@ -425,7 +482,7 @@ bool SpellCheckSentence()
 			bool good = false;
 			if (LD->properties & TAG_TEST || *LD->word == '~' || LD->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
 			else if (LD <= dictionaryPreBuild[LAYER_0]) good = true; // in dictionary - if a substitute would have happend by now
-			else if (stricmp(language, "English")) good = true; // foreign word we know
+			else if (!isEnglish) good = true; // foreign word we know
 			else if (IsConceptMember(LD)) good = true;
 			if (good)
 			{
@@ -472,16 +529,16 @@ bool SpellCheckSentence()
         if (badcount > 30 ) break;
 
 		// degrees
-		if (*word == 0xc2 && word[1] == 0xb0 && !word[3]) continue; // leave degreeC,F,K, etc alone
+		if ((unsigned char)*word == 0xc2 && (unsigned char)word[1] == 0xb0 && !word[3]) continue; // leave degreeC,F,K, etc alone
 		
-		if (*word == '\'' && !word[1] && i != startWord && IsDigit(*wordStarts[i - 1]) && !stricmp(language, "english")) // fails if not digit bug
+		if (isEnglish && *word == '\'' && !word[1] && i != startWord && IsDigit(*wordStarts[i - 1])) // fails if not digit bug
 		{
 			tokens[1] = (char*)"foot";
 			ReplaceWords("' as feet", i, 1, 1, tokens);
 			fixedSpell = true;
 			continue;
 		}
-		if (*word == '"' && !word[1] && i != startWord && IsDigit(*wordStarts[i - 1]) && !stricmp(language, "english")) // fails if not digit bug
+		if (isEnglish && *word == '"' && !word[1] && i != startWord && IsDigit(*wordStarts[i - 1])) // fails if not digit bug
 		{
 			tokens[1] = (char*)"inch";
 			ReplaceWords("' as feet", i, 1, 1, tokens);
@@ -590,8 +647,8 @@ bool SpellCheckSentence()
 		char* number;
 		if (GetCurrency((unsigned char*)word, number)) continue; // currency
 
-		if (!stricmp(word, (char*)"am") && i != startWord && 
-			(IsDigit(*wordStarts[i-1]) || IsNumber(wordStarts[i-1], numberStyle) ==REAL_NUMBER) && !stricmp(language,"english")) // fails if not digit bug
+		if (isEnglish && !stricmp(word, (char*)"am") && i != startWord &&
+			(IsDigit(*wordStarts[i-1]) || IsNumber(wordStarts[i-1], numberStyle) == REAL_NUMBER)) // fails if not digit bug
 		{
 			tokens[1] = (char*)"a.m.";
 			ReplaceWords("am as time", i, 1, 1, tokens);
@@ -702,18 +759,17 @@ bool SpellCheckSentence()
 		// merge with next token?
 		if (i != wordCount && *wordStarts[i + 1] != '"')
 		{
-			char join[MAX_WORD_SIZE * 3];
 			// direct merge as a single word
-			strcpy(join, word);
-			strcat(join, wordStarts[i + 1]);
-			D = FindWord(join, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
+			strcpy(bigword, word);
+			strcat(bigword, wordStarts[i + 1]);
+			D = FindWord(bigword, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
 			if (D && D->properties & PART_OF_SPEECH && !(D->properties & AUX_VERB)) {} // merge these two, except "going to" or wordnet composites of normal words
 			else // merge with underscore?  shia tsu
 			{
-				strcpy(join, word);
-				strcat(join, "_");
-				strcat(join, wordStarts[i + 1]);
-				D = FindWord(join, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
+				strcpy(bigword, word);
+				strcat(bigword, "_");
+				strcat(bigword, wordStarts[i + 1]);
+				D = FindWord(bigword, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
 				if (D && D->properties & PART_OF_SPEECH && !(D->properties & AUX_VERB)) // allow these two, except "going to" or wordnet composites of normal words
 				{
 					++i;
@@ -737,11 +793,10 @@ bool SpellCheckSentence()
         // merge with prior token?
         if (i != 1 && *wordStarts[i - 1] != '"') // allow piece to stand, sequences code will find it
         {
-            char join[MAX_WORD_SIZE * 3];
-            strcpy(join, wordStarts[i - 1]);
-            strcat(join, "_");
-            strcat(join, word);
-            D = FindWord(join, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
+            strcpy(bigword, wordStarts[i - 1]);
+            strcat(bigword, "_");
+            strcat(bigword, word);
+            D = FindWord(bigword, 0, (tokenControl & ONLY_LOWERCASE) ? PRIMARY_CASE_ALLOWED : STANDARD_LOOKUP);
             if (D && D->properties & PART_OF_SPEECH && !(D->properties & AUX_VERB)) 
             {
                 ++i;
@@ -754,8 +809,8 @@ bool SpellCheckSentence()
             }
         }
 
-		// sloppy omitted g in lookin
-		if (word[len - 1] == 'n' && word[len - 2] == 'i')
+		// sloppy omitted g in lookin but not for kevin
+		if (isEnglish && word[len - 1] == 'n' && word[len - 2] == 'i')
 		{
 			D = FindWord(word, len - 2);
 			if (D && D->properties & BASIC_POS)
@@ -763,10 +818,15 @@ bool SpellCheckSentence()
 				char test[MAX_WORD_SIZE];
 				strcpy(test, word);
 				strcat(test, "g");
-				tokens[1] = test;
-				ReplaceWords("omitg", i, 1, 1, tokens);
-				fixedSpell = true;
-				continue;
+				WORDP E = FindWord(word, 0, SECONDARY_CASE_ALLOWED);
+				WORDP F = FindWord(test);
+				if (!E || F) {
+					char* tokens[2];
+					tokens[1] = test;
+					ReplaceWords("omitg", i, 1, 1, tokens);
+					fixedSpell = true;
+					continue;
+				}
 			}
 		}
 
@@ -789,7 +849,7 @@ bool SpellCheckSentence()
 			else // is uppercase a concept member? then revise upwards
 			{
 				WORDP X = FindWord(known,0,UPPERCASE_LOOKUP);
-				if (IsConceptMember(X) || stricmp(language,"english")) // all german nouns are uppercase
+				if (IsConceptMember(X) || isGerman) // all german nouns are uppercase
 				{
 					tokens[1] = X->word;
 					ReplaceWords("KnownUpper",i,1,1,tokens);
@@ -835,13 +895,14 @@ bool SpellCheckSentence()
 		if (!(tokenControl & (ONLY_LOWERCASE|STRICT_CASING)) || (i == startSentence && !(tokenControl & ONLY_LOWERCASE)))
 		{
 			E = FindWord(word,0,SECONDARY_CASE_ALLOWED);
+			if (IS_NEW_WORD(E)) E = NULL; // must preexist in dictionary
 			bool useAlternateCase = false;
 			if (E && E->systemFlags & PATTERN_WORD) useAlternateCase = true;
 			if (E && E->properties & (PART_OF_SPEECH|FOREIGN_WORD))
 			{
 				// if the word we find is UPPER case, and this might be a lower case noun plural, don't change case.
-				len = size;
-				if (word[len-1] == 's' ) 
+				size_t len = size;
+				if (isEnglish && word[len-1] == 's' )
 				{
 					WORDP F = FindWord(word,len-1);
 					if (!F || !(F->properties & (PART_OF_SPEECH|FOREIGN_WORD))) useAlternateCase = true;
@@ -894,7 +955,7 @@ bool SpellCheckSentence()
 		}
 
 		// see if hypenated word should be separate or joined (ignore obvious adjective suffix)
-		if (hyphen &&  !stricmp(hyphen,(char*)"-like"))
+		if (hyphen && isEnglish && !stricmp(hyphen,(char*)"-like"))
 		{
 			StoreWord(word,ADJECTIVE_NORMAL|ADJECTIVE); // accept it as a word
 			continue;
@@ -916,6 +977,7 @@ bool SpellCheckSentence()
 			{
 				wordStarts[i] = AllocateHeap(wordStarts[i] + 1); // -pieces  want to lose the leading hypen  (2-pieces)
 				fixedSpell = true;
+				continue;
 			}
 			else if (D && E) //   1st word gets replaced, we added another word after
 			{
@@ -925,6 +987,7 @@ bool SpellCheckSentence()
 				ReplaceWords("Pair",i,1,2,tokens);
 				fixedSpell = true;
 				--i;
+				continue;
 			}
 			else if (!stricmp(test,(char*)"old") || !stricmp(test,(char*)"olds")) //   break apart 5-year-old
 			{
@@ -936,6 +999,7 @@ bool SpellCheckSentence()
 				ReplaceWords("Break old",i,1,2,tokens);
 				fixedSpell = true;
 				--i;
+				continue;
 			}
 			else // remove hyphen entirely?
 			{
@@ -1125,6 +1189,9 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
     char* resumeDict1;
 	char baseCharReal;
 	char baseCharDict;
+    bool isFrench = (!stricmp(language, "french") ? true : false);
+    bool isGerman = (!stricmp(language, "german") ? true : false);
+    bool isSpanish = (!stricmp(language, "spanish") ? true : false);
     while (ALWAYS)
     {
         if (val > min) return 1000; // no good
@@ -1168,15 +1235,15 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
 			continue;
 		}
         // treat german double s and ss equivalent
-        if (!stricmp(language, "german"))
+        if (isGerman)
         {
-            if (*currentCharReal == 0xc3 && currentCharReal[1] == 0x9f && *currentCharDict == 's' && *nextCharDict == 's')
+            if ((unsigned char)*currentCharReal == 0xc3 && (unsigned char)currentCharReal[1] == 0x9f && *currentCharDict == 's' && *nextCharDict == 's')
             {
                 dictinfo = resumeDict1;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharDict == 0xc3 && currentCharDict[1] == 0x9f && *currentCharReal == 's'  && *nextCharReal == 's')
+            if ((unsigned char)*currentCharDict == 0xc3 && (unsigned char)currentCharDict[1] == 0x9f && *currentCharReal == 's'  && *nextCharReal == 's')
             {
                 dictinfo = resumeDict;
                 realinfo = resumeReal1;
@@ -1184,7 +1251,7 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
             }
         }
         // spanish alternative spellings
-        if (!stricmp(language, "spanish")) // ch-x | qu-k | c-k | do-o | b-v | bue-w | vue-w | z-s | s-c | h- | y-i | y-ll | m-n  1st is valid
+        if (isSpanish) // ch-x | qu-k | c-k | do-o | b-v | bue-w | vue-w | z-s | s-c | h- | y-i | y-ll | m-n  1st is valid
         {
             if (*currentCharReal == 'c' && *currentCharDict == 'k')
             {
@@ -1283,44 +1350,44 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
             }
         }
         // french common bad spellings
-        if (!stricmp(language, "french"))
+        if (isFrench)
         {
-            if (*currentCharReal == 'a' && SameUTF(currentCharDict,"â"))
+            if (*currentCharReal == 'a' && SameUTF(currentCharDict, (char *)"â"))
             {
             		val += 1;
                 dictinfo = resumeDict;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 'e' && SameUTF(currentCharDict,"ê"))
+            if (*currentCharReal == 'e' && SameUTF(currentCharDict, (char *)"ê"))
             {
 				val += 10;
                 dictinfo = resumeDict;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 0xc3 && currentCharReal[1] == 0xa8 && SameUTF(currentCharDict,"ê"))
+            if ((unsigned char)*currentCharReal == 0xc3 && (unsigned char)currentCharReal[1] == 0xa8 && SameUTF(currentCharDict, (char *)"ê"))
             {
             	val += 5;
                 dictinfo = resumeDict;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 'i' && SameUTF(currentCharDict,"î"))
+            if (*currentCharReal == 'i' && SameUTF(currentCharDict, (char *) "î"))
             {
 				val += 1;
                 dictinfo = resumeDict;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 'o' && SameUTF(currentCharDict, "ô"))
+            if (*currentCharReal == 'o' && SameUTF(currentCharDict, (char *)"ô"))
             {
 					val += 1;
                 dictinfo = resumeDict;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 'u' && SameUTF(currentCharDict, "û"))
+            if (*currentCharReal == 'u' && SameUTF(currentCharDict, (char *)"û"))
             {
 			 	val += 5;
                 dictinfo = resumeDict;
@@ -1355,14 +1422,14 @@ static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 's' && SameUTF(currentCharDict, "ç"))
+            if (*currentCharReal == 's' && SameUTF(currentCharDict, (char *)"ç"))
             {
             		val += 5;
                 dictinfo = resumeDict;
                 realinfo = resumeReal;
                 continue;
             }
-            if (*currentCharReal == 'c' && SameUTF(currentCharDict, "ç"))
+            if (*currentCharReal == 'c' && SameUTF(currentCharDict, (char *)"ç"))
             {
 				val += 5;
                 dictinfo = resumeDict;
@@ -1431,19 +1498,22 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
     strcpy(word1,word);
     size_t len = strlen(word);
 
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
+    bool isFrench = (!stricmp(language, "french") ? true : false);
+
 	char* ending = NULL;
     char* best = NULL;
     
 	//   suffixes
 	if (len < 5){;} // too small to have a suffix we care about (suffix == 2 at min)
-    else if (!strnicmp(word+len-3,(char*)"ing",3))
+    else if (isEnglish && !strnicmp(word+len-3,(char*)"ing",3))
     {
         word1[len-3] = 0;
         best = SpellFix(word1,0,VERB); 
         base = VERB;
         if (best && FindWord(best,0,LOWERCASE_LOOKUP)) return GetPresentParticiple(best);
 	}
-    else if (!strnicmp(word + len - 3, (char*)"ies", 3))
+    else if (isEnglish && !strnicmp(word + len - 3, (char*)"ies", 3))
     {
         word1[len - 3] = 'y';
         word1[len - 2] = 0;
@@ -1455,7 +1525,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
             return (plu) ? plu : NULL;
         }
     }
-    else if (!strnicmp(word+len-2,(char*)"ed",2))
+    else if (isEnglish && !strnicmp(word+len-2,(char*)"ed",2))
     {
         word1[len-2] = 0;
         best = SpellFix(word1,0,VERB); 
@@ -1470,7 +1540,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
 	{
 		unsigned int i = 0;
 		char* suffix;
-		if (!stricmp(language, "english")) 
+		if (isEnglish)
 		{
 			while ((suffix = stems[i].word))
 			{
@@ -1489,7 +1559,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
 				}
 			}
 		}
-		else if (!stricmp(language, "french")) 
+		else if (isFrench)
 		{
 			while ((suffix = stems_french[i].word))
 			{
@@ -1509,7 +1579,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
 			}
 		}
 	}
-	if (!ending && word[len-1] == 's')
+	if (isEnglish && !ending && word[len-1] == 's')
     {
         word1[len-1] = 0;
         best = SpellFix(word1,0,VERB|NOUN); 
@@ -1541,12 +1611,11 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
     int val = EditDistance(dictWordData, realWordData, min);
 
     // adjustments
-    size_t l = strlen(originalWord) - 1;
     if (*D->word != *originalWord) ++val;  // starts not same
-    if (D->word[l] != originalWord[l]) ++val; // doesnt end the same
+    if (D->word[strlen(D->word) - 1] != originalWord[strlen(originalWord) - 1]) ++val; // doesnt end the same
     if (D->internalBits & UPPERCASE_HASH) ++val; // lower case should win any tie against proper name
 
-    if (val <= min) // as good or better
+    if (val <= min && !(D->internalBits & HAS_SUBSTITUTE)) // as good or better
     {
        if (spellTrace) Log(STDUSERLOG, "    found: %s %d\r\n", D->word, val);
        if (val < min)
@@ -1567,6 +1636,7 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
 
 char* SpellFix(char* originalWord,int start,uint64 posflags)
 {
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
 	if (spellTrace) Log(STDUSERLOG,"Correcting: %s:\r\n", originalWord);
 	multichoice = false;
     char word[MAX_WORD_SIZE];
@@ -1603,7 +1673,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 		if (!(flags & (PREPOSITION | VERB | CONJUNCTION | ADVERB)) && flags & DETERMINER) pos &= -1 ^ (DETERMINER | ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER); //   determiner cannot be preceeded by noun determiner adjective
 		if (!(flags & (PREPOSITION | VERB | CONJUNCTION | DETERMINER | ADVERB)) && flags & ADJECTIVE) pos &= -1 ^ (NOUN);
 		if (!(flags & (PREPOSITION | NOUN | CONJUNCTION | DETERMINER | ADVERB | ADJECTIVE)) && flags & VERB) pos &= -1 ^ (VERB); //   we know all helper verbs we might be
-		if (D && *D->word == '\'' && D->word[1] == 's' ) pos &= NOUN;    //   we can only be a noun if possessive - contracted 's should already be removed by now
+		if (isEnglish && D && *D->word == '\'' && D->word[1] == 's' ) pos &= NOUN;    //   we can only be a noun if possessive - contracted 's should already be removed by now
     }
     if (posflags == PART_OF_SPEECH && start > 1)
     {
@@ -1634,7 +1704,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 		}
 	}
 	// try endings ing, s, etc
-	if (start && !index && !stricmp(language,"english")) // no stem spell if COMING from a stem spell attempt (start == 0) or we have a good guess already
+	if (start && !index) // no stem spell if COMING from a stem spell attempt (start == 0) or we have a good guess already
 	{
         uint64 flags = 0;
 		char* stem = StemSpell(word,start,flags);

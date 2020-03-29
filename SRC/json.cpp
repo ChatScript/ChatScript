@@ -167,7 +167,7 @@ static char* IsJsonNumber(char* str)
 	return NULL;
 }
 
-static bool ConvertUnicode(char* str) // convert \uxxxx to utf8  and escaped characters to normal
+static bool ConvertUnicode(char* str) // convert \uxxxx to utf8  and escaped characters to normal, leaving utf8 alone
 {
 	char* at = str;
 	bool converted = false;
@@ -975,6 +975,20 @@ FunctionResult JSONOpenCode(char* buffer)
 			else { ReportBug((char*)"\r\nOther curl return code %d %s",(int)res,word); }
 		}
 	}
+	if (CURLE_OK == res) {
+		double namelookuptime;
+		double proxyconnecttime;
+		double appconnecttime;
+		double pretransfertime;
+		double totaltransfertime;
+		curl_easy_getinfo(curl, CURLINFO_NAMELOOKUP_TIME, &namelookuptime);
+		curl_easy_getinfo(curl, CURLINFO_CONNECT_TIME, &proxyconnecttime);
+		curl_easy_getinfo(curl, CURLINFO_APPCONNECT_TIME, &appconnecttime);
+		curl_easy_getinfo(curl, CURLINFO_PRETRANSFER_TIME, &pretransfertime);
+		curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &totaltransfertime);
+		//sprintf(lastcurltime,"Time Analysis:\nName Look up:%.6f\nHost/proxy connect:%.6f\nApp(SSL) connect:%.6f\nPretransfer:%.6f\nTotal Transfer:%.6f\nEND\n", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
+		sprintf(lastcurltime, "%.6fs %.6fs %.6fs %.6fs %.6fs", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
+	}
 	if (timing & TIME_JSON) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Json open time: %d ms for %s %s\r\n", diff,raw_kind, fixedUrl);
@@ -999,7 +1013,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		jsonOpenSize = output.size;
 	}
 	else
-	{
+	{ // NOTE that data from websites gets some adjustments (not using AdjustUTF8 code)
 		result = ParseJson(buffer, output.buffer,output.size,false);
 		char x[MAX_WORD_SIZE];
 		if (result == NOPROBLEM_BIT)
@@ -2207,7 +2221,7 @@ LOOP: // now we look at $x.key or $x[0]
 		F = GetSubjectNondeadNext(F);
 	}
 
-	if (key && stricmp(value, "null"))
+	if (key && (stricmp(value, "null") || flags & JSON_PRIMITIVE_VALUE))
 	{
 		if (!F || F->object != valx)
 		{

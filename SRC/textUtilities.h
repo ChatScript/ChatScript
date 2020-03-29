@@ -152,8 +152,10 @@ bool IsArithmeticOperator(char* word);
 bool IsArithmeticOp(char* word);
 unsigned IsNumber(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool placeAllowed = true); // returns kind of number
 bool IsPlaceNumber(char* word, int useNumberStyle = AMERICAN_NUMBERS);
+bool IsFractionNumber(char* word);
 bool IsDigitWord(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool comma = false);
 bool IsDigitWithNumberSuffix(char* number,int useNumberStyle = AMERICAN_NUMBERS);
+bool IsMail(char* word);
 bool IsUrl(char* word, char* end);
 bool IsFileExtension(char* word);
 bool IsFileName(char* word);
@@ -176,6 +178,7 @@ void MakeLowerCase(char* ptr);
 void MakeUpperCase(char* ptr);
 char* MakeLowerCopy(char* to,char* from);
 char* MakeUpperCopy(char* to,char* from);
+char* PartialLowerCopy(char* to,char* from,int begin,int end);
 void UpcaseStarters(char* ptr);
 void Convert2Underscores(char* buffer);
 void Convert2Blanks(char* output);

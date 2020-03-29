@@ -220,6 +220,9 @@ u: (test) ^"I   $verb , meat."
 ```
 This active string will keep the spaces you see here when delivered to the user.
 
+`#OUTPUT_NODEBUG` blocks the system from trying to interpret words starting with : as being debug
+commands.
+
 ## Accents
 
 Suppose you want your bot to talk with a French accent. Or use texting. You could, of course,

@@ -4376,9 +4376,9 @@ static void C_Build(char* input)
 		else if  (file[len-1] == '2') buildId = BUILD2;
 		else buildId = BUILD1; // global so SaveCanon can work
 		char file[200];
-		sprintf(file,"%s/missingSets.txt",topic);
+		sprintf(file,"%s/missingSets.txt", topicname);
 		remove(file); // precautionary
-		sprintf(file,"%s/missingLabel.txt",topic);
+		sprintf(file,"%s/missingLabel.txt", topicname);
 		remove(file);
 		MakeDirectory((char*)"TOPIC");
 		if (buildId == BUILD0) MakeDirectory((char*)"TOPIC/BUILD0");
@@ -5465,8 +5465,10 @@ static void C_CountCat1(char* input) // mark count of cats involved
         int count = atoi(word); // how many times this word in cat 
         ptr = ReadCompiledWord(ptr, word); // the word
         WORDP D = StoreWord(word);
+#ifndef DISCARDCOUNTER
         if (count >= 1) D->counter += 1; // how many files have it significantly
 //        if (count > D->counter1) D->counter1 = count; // max
+#endif
     }
     fclose(in);
 }
@@ -5502,18 +5504,22 @@ static void C_CountCat2(char* input)
         if (D->internalBits & UPPERCASE_HASH) weak = true;
         if (!(D->properties & (VERB|NOUN))) weak = true;
 
-        if (weak || D->counter >= 10 || *word == '~' || IsDigitWord(word)) // not enough discrimination
+        unsigned int wc = 0;
+#ifndef DISCARDCOUNTER
+        wc = D->counter;
+#endif
+        if (weak || wc >= 10 || *word == '~' || IsDigitWord(word)) // not enough discrimination
         {
             ++reject;
-            fprintf(outbad, "%d %6.6d %s\r\n", D->counter,count, word);
+            fprintf(outbad, "%d %6.6d %s\r\n", wc,count, word);
         }
         else
         {
             ++accept;
-            fprintf(outgood, "%d %6.6d %s\r\n", D->counter, count, word);
-            if (D->counter == 1)
+            fprintf(outgood, "%d %6.6d %s\r\n", wc, count, word);
+            if (wc == 1)
             {
-                fprintf(outunique, "%d %6.6d %s\r\n", D->counter, count, word);
+                fprintf(outunique, "%d %6.6d %s\r\n", wc, count, word);
                 ++unique;
             }
         }
@@ -5871,7 +5877,9 @@ void C_MemStats(char* input)
 
 	char buf[MAX_WORD_SIZE];
 	strcpy(buf,StdIntOutput(factFree-factBase));
-	Log(STDUSERLOG,(char*)"Used: words %s (%dkb) facts %s (%dkb) heap %dkb buffers %d overflowBuffers %d max Output used %d\r\n",
+	int who = STDUSERLOG;
+	if (!stricmp(input, "*server")) who = SERVERLOG;
+	Log(who,(char*)"Used: words %s (%dkb) facts %s (%dkb) heap %dkb buffers %d overflowBuffers %d max Output used %d\r\n",
 		StdIntOutput(dictionaryFree-dictionaryBase), 
 		dictUsedMemKB,
 		buf,
@@ -5881,8 +5889,8 @@ void C_MemStats(char* input)
 
 	unsigned int factFreeMemKB = ( factEnd-factFree) * sizeof(FACT) / 1000;
 	unsigned int textFreeMemKB = ( heapFree- heapEnd) / 1000;
-	Log(STDUSERLOG,(char*)"Free:  fact %dKb stack/heap %dKB\r\n",factFreeMemKB,textFreeMemKB);
-	Log(STDUSERLOG,(char*)"MinReleaseStackGap %dMB minHeapAvailable %dMB maxBuffers used %d of %d  maxglobaldepth %d\r\n\r\n",maxReleaseStackGap/1000000,minHeapAvailable/1000000,maxBufferUsed,maxBufferLimit,maxGlobalSeen);
+	Log(who,(char*)"Free:  fact %dKb stack/heap %dKB\r\n",factFreeMemKB,textFreeMemKB);
+	Log(who,(char*)"MinReleaseStackGap %dMB minHeapAvailable %dMB maxBuffers used %d of %d  maxglobaldepth %d\r\n\r\n",maxReleaseStackGap/1000000,minHeapAvailable/1000000,maxBufferUsed,maxBufferLimit,maxGlobalSeen);
 }
 
 static void C_Who(char*input)
@@ -5939,7 +5947,6 @@ TestMode Command(char* input,char* output,bool scripted)
 	{
 		size_t len = strlen(routine->word);
 		if (!strnicmp(routine->word,input,len) && !IsLegalNameCharacter(input[len])) break;
-		if (input[1] == routine->word[1] && input[2] == routine->word[len-1] && !IsAlphaUTF8(input[3])) break; // 2 char abbrev, not unique
 	}
 	if (routine->word) 
 	{
@@ -6179,52 +6186,85 @@ Start: user:37224444 bot:Pearl ip:184.106.28.86 (~introductions) 0 ==> [alarm=0|
 ServerPre: pid: 18682 37224444 (Pearl) [reset type: FunnelQuestion category: consumer_electronics partner: 1 source: sip DeviceCategory: desktop] May 02 18:24:25 2018
 Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert) 0 [reset type: FunnelQuestion category: consumer_electronics partner: 1 source: sip DeviceCategory: desktop]  ==> [assistanttitle=Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
 */
+	char* buffer = (char*)malloc(maxBufferSize);
+	char* incopy = (char*)malloc(maxBufferSize);
 	int oldIndex = bufferIndex;
+	bool servermode = false;
+	C_MemStats(input); // before
 	while (ReadALine(readBuffer, in) >= 0)
     {
         if (!*readBuffer) continue;
         char* ptr;
+		//ServerPre: pid: 158542 csc(Pearl) size = 899[{"dse": {"testpattern": {"concepts": [], "input" : "", "patterns" : [{"pattern": "^( ( [ ( [ =c$specialty==financial_software =i$category_preurl==financial_software ] :c$specialty:=financial_software :m$shortexpertsingular:=Financial_Software_Technician ) ( [ =c$specialty==Social_Security =i$category_preurl==Social_Security =i$category_preurl==social_security ] :c$specialty:=Social_Security :m$shortexpertsingular:=Accountant ) ( [ =c$specialty==finance =i$category_preurl==finance ] :c$specialty:=finance :m$shortexpertsingular:=Accountant ) ( [ =c$specialty==capitals_gains_and_losses =i$category_preurl==capitals_gains_and_losses ] :c$specialty:=capitals_gains_and_losses :m$shortexpertsingular:=Accountant ) ( [ =i$category_preurl==tax ( ) ] :b$category:=tax :m$shortexpertsingular:=Accountant ) ] ) ) "}], "style" : "all", "variables" : {"$category": "tax", "$specialty" : "Social_Security"}}}}] Mar 06 12 : 03 : 25 2020
+		//Respond: user : csc bot : Pearl ip : 192.168.53.32 () 91110[{"dse": {"testpattern": {"concepts": [], "input" : "", "patterns" : [{"pattern": "^( ( [ ( [ =c$specialty==financial_software =i$category_preurl==financial_software ] :c$specialty:=financial_software :m$shortexpertsingular:=Financial_Software_Technician ) ( [ =c$specialty==Social_Security =i$category_preurl==Social_Security =i$category_preurl==social_security ] :c$specialty:=Social_Security :m$shortexpertsingular:=Accountant ) ( [ =c$specialty==finance =i$category_preurl==finance ] :c$specialty:=finance :m$shortexpertsingular:=Accountant ) ( [ =c$specialty==capitals_gains_and_losses =i$category_preurl==capitals_gains_and_losses ] :c$specialty:=capitals_gains_and_losses :m$shortexpertsingular:=Accountant ) ( [ =i$category_preurl==tax ( ) ] :b$category:=tax :m$shortexpertsingular:=Accountant ) ] ) ) "}], "style" : "all", "variables" : {"$category": "tax", "$specialty" : "Social_Security"}}}}] == >[{"why": "~handle_oob.2.0", "v" : 39.0, "output" : {"newglobals": {"$shortexpertsingular": "Accountant", "$specialty" : "Social_Security"}, "match" : 0} }]  When:Mar06 12 : 03 : 25 20ms Why : ~xpostprocess.10.0 = OOBRESULT.~control.10.0 = GENERAL_ML
+		char user[MAX_WORD_SIZE];
         char* userp = strstr(readBuffer, "user:");
-        if (!userp) continue;
-        ReadCompiledWord(userp + 5, user);
-        char* botp = strstr(readBuffer, "bot:");
-        if (!botp) continue;
-        if (botp[4] == ' ') // default bot
-        {
-            *bot = 0;
-        }
-        else ReadCompiledWord(botp + 4, bot);
+		if (!strnicmp(readBuffer, "serverpre:", 10))
+		{
+			char* ptr = ReadCompiledWord(readBuffer + 11, user);
+			ptr = ReadCompiledWord(ptr, user);
+			ptr = ReadCompiledWord(ptr, user); // username
+			ptr = ReadCompiledWord(ptr + 1, bot); // bot name
+			char* paren = strchr(bot, ')');
+			*paren = 0;
+			servermode = true;
+		}
+		else if (!userp) continue;
+		else // will be respond: line
+		{
+			ReadCompiledWord(userp + 5, user);
+			char* botp = strstr(readBuffer, "bot:");
+			if (!botp) continue;
+			if (botp[4] == ' ') // default bot
+			{
+				*bot = 0;
+			}
+			else ReadCompiledWord(botp + 4, bot);
+		}
+
         char* oob = strchr(readBuffer, '[');
         char* when = strstr(readBuffer, "When:");
-        char* output = strstr(readBuffer, "==>");
+		char* output = strstr(readBuffer, "==>");
+		if (!when && oob)
+		{ //Mar 06 12:03:25 2020
+			output = readBuffer + strlen(readBuffer) - 20;
+		}
         ptr = ReadCompiledWord(readBuffer, word);
 
         if (!stricmp(word, "start:"))
         {
             message = "";
         }
-        else if (!stricmp(word, "respond:"))
+		else if (!servermode && !stricmp(word, "respond:"))
         {
             message = oob;
             *output = 0;
         }
+		else if (!stricmp(word, "serverpre:"))
+		{
+			message = oob;
+			*output = 0;
+		}
         else continue;
         printf("%d\r\n", n++);
         uint64 starttime = ElapsedMilliseconds();
-		char* buffer = AllocateBuffer();
-		strcpy(buffer, message);
-        PerformChat(user, bot, buffer, "x", ourMainOutputBuffer); // this autofrees our buffer
-        LogChat(starttime, user, bot, "x", volleyCount, buffer, ourMainOutputBuffer);
-		FreeBuffer();
+		strcpy(buffer, message); // this gets trashed
+		strcpy(incopy, message);
+		PerformChat(user, bot, buffer, "x", ourMainOutputBuffer); // this autofrees our buffer
+        LogChat(starttime, user, bot, "x", volleyCount, incopy, ourMainOutputBuffer);
 	}
     fclose(in);
+	free(buffer);
+	free(incopy);
 	bufferIndex  = oldIndex; //because performchat clears buffers down to raw base
 
     uint64 endtime = ElapsedMilliseconds();
     long diff = (long) ( endtime - starttime);
     long msPerMessage = diff / n; 
     diff %= 1000;
-    printf("Did %d messages in %ld seconds or %d ms per message", n,diff, msPerMessage);
+	Log(STDUSERLOG,"Did %d messages in %ld seconds or %d ms per message", n, diff, msPerMessage);
+	C_MemStats(input); // before
+	printf("Did %d messages in %ld seconds or %d ms per message", n,diff, msPerMessage);
 }
 
 static void C_AllMembers(char* input)
@@ -6799,6 +6839,51 @@ static void C_TopicInfo(char* input)
 	}
 }
 
+static void C_LabelRemap(char* input)
+{
+	char word[MAX_WORD_SIZE];
+	char* ptr = ReadCompiledWord(input, word);
+	if (*word == '~' && word[1] == 0)
+	{
+		if (inputRejoinderTopic == NO_REJOINDER) return;
+		strcpy(word, GetTopicName(inputRejoinderTopic));
+		input = ptr;
+	}
+	else if (*word == '~')  input = ptr;
+
+	size_t len = 0;
+	char* x = strchr(word, '*');
+	if (x) len = x - word;
+	else if (*word == '~') len = strlen(word);
+
+	for (int topicid = 1; topicid <= numberOfTopics; ++topicid)
+	{
+		char* tname = GetTopicName(topicid);
+		if (!*tname) continue;
+		if (len && strnicmp(tname, word, len)) continue;
+		topicBlock* block = TI(topicid);
+		if (!strstr(block->topicRestriction, computerIDwSpace)) continue;
+
+		Log(STDUSERLOG, (char*)"Topic: %s %s\r\n ", tname, computerIDwSpace);
+		int rejoinderOffset = -1;
+		if ((int)topicid == inputRejoinderTopic) rejoinderOffset = inputRejoinderRuleID;
+		int id = 0;
+		char name1[MAX_WORD_SIZE];
+		strcpy(name1, GetTopicName(topicid));
+		char* tilde = strchr(name1 + 1, '~');
+		if (tilde) *tilde = 0;
+		bool access = true;
+		char* data = GetTopicData(topicid);
+		while (data && *data) // walk data
+		{
+			char label[MAX_WORD_SIZE];
+			GetLabel(data, label);
+			Log(STDUSERLOG, (char*)" %s.%d.%d   %s\r\n", name1,TOPLEVELID(id),REJOINDERID(id), label);
+			data = FindNextRule(NEXTRULE, data, id);
+		}
+	}
+}
+
 static void LoadDescriptions (char* file)
 {
 	FILE* in = FopenReadWritten(file);
@@ -6938,9 +7023,9 @@ static void C_List(char* input)
 		if (sorted) SortFacts((char*)"@4subject",true);
 	}
 	char file[200];
-	sprintf(file,"%s/BUILD0/describe0.txt",topic);
+	sprintf(file,"%s/BUILD0/describe0.txt", topicname);
 	LoadDescriptions(file);
-	sprintf(file,"%s/BUILD1/describe1.txt",topic);
+	sprintf(file,"%s/BUILD1/describe1.txt", topicname);
 	LoadDescriptions(file);
 	if (all || strchr(input,USERVAR_PREFIX))
 	{
@@ -10084,10 +10169,10 @@ static void Stats(char* bot,char* why)
         dot = strchr(tag, '.'); // split of primary topic from rest of tag
         int topicidx = 0;
         *dot = 0;
-        strcpy(topic, tag); // get the primary topic of the tag
+        strcpy(topicname, tag); // get the primary topic of the tag
         *dot = '.';
         char label[MAX_WORD_SIZE];
-        sprintf(label, (char*)"T-%s-%s",bot,topic);
+        sprintf(label, (char*)"T-%s-%s",bot, topicname);
         WORDP D = StoreWord(label, AS_IS);
         statistics[D->word] = statistics[D->word] + 1; // tally hits on topic itself
         dot = strchr(dot + 1, '.'); // 2nd dot
@@ -10510,7 +10595,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":gambits",C_Gambits,(char*)"Show gambit sequence of topic"}, 
 	{ (char*)":pending",C_Pending,(char*)"Show current pending topics list"}, 
 	{ (char*)":topicstats",C_TopicStats,(char*)"Show stats on all topics or named topic or NORMAL for non-system topics"},
-	{ (char*)":topicinfo",C_TopicInfo,(char*)"Show information on a topic"}, 
+	{ (char*)":topicinfo",C_TopicInfo,(char*)"Show information on a topic" },
+	{ (char*)":labelremap",C_LabelRemap,(char*)"for a topic, internal to label into TMP/labels.txt"},
 	{ (char*)":topics",C_Topics,(char*)"Show topics that given input resonates with"}, 
 	{ (char*)":where",C_Where,(char*)"What file is the given topic in"}, 
 	

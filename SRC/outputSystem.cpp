@@ -91,8 +91,8 @@ char* GetCommandArg(char* ptr, char* buffer, FunctionResult& result, unsigned in
 {
     int oldImpliedSet = impliedSet; // so @0object will decode
     if (!(control & ASSIGNMENT)) impliedSet = ALREADY_HANDLED;
-    if (control == 0) control |= OUTPUT_KEEPSET | OUTPUT_ONCE | OUTPUT_NOCOMMANUMBER;
-    else control |= OUTPUT_ONCE | OUTPUT_NOCOMMANUMBER;
+    if (control == 0) control |= OUTPUT_KEEPSET | OUTPUT_ONCE | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG;
+    else control |= OUTPUT_ONCE | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG;
 
     unsigned int size = MAX_BUFFER_SIZE - (buffer - currentOutputBase); // how much used
     if (size > MAX_BUFFER_SIZE) size = MAX_WORD_SIZE * 4; // arbitrary assumption
@@ -167,6 +167,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
     --len;
     char c = input[len];
     char* original = input;
+	char* origoutput = output;
     input[len] = 0;	// remove closing "
     if (*input == ':') // has been compiled by script compiler. safe to execute fully. actual string is "^:xxxxx" 
     {
@@ -622,8 +623,14 @@ static char* Output_Function(char* word, char* ptr, char* space, char*& buffer, 
     char* start = buffer;
     if (IsDigit(word[1]))  //   function variable
     {
-        if (!once && IsAssignmentOperator(ptr)) ptr = PerformAssignment(word, ptr, buffer, result);
-        else
+		if (!once && IsAssignmentOperator(ptr)) ptr = PerformAssignment(word, ptr, buffer, result);
+		
+		else if ((word[2] && !IsDigit(word[2])) || (word[2] && word[3]) || atoi(word + 1) >= MAX_ARG_LIMIT) // values start at 0
+		{
+			strcpy(buffer, word); // a non function and nonfunction variable
+			return ptr;
+		}
+		else
         {
             char* value = FNVAR(word + 1);
             size_t len = strlen(value);
@@ -1081,7 +1088,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
             }
         }
          len = strlen(word);
-        if (len > 2 && word[len - 2] == '\\') // escaped tail, separate it.
+        if (len > 2 && word[len - 2] == '\\' && word[len-3] != '\\') // escaped tail, separate it.
         {
             ptr = startptr - 2;
             if (*ptr != '\\') --ptr;
@@ -1157,30 +1164,33 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         case ':': // a debug command?
         {
 #ifndef DISCARDTESTING
-            unsigned int oldtopicid = currentTopicID;
-            char* oldrule = currentRule;
-            int oldruleid = currentRuleID;
-            int oldruletopic = currentRuleTopic;
-            char* c = ptr - strlen(word);
-            while (*c != ':') { --c; }
-            TestMode answer = Command(c, NULL, true);
-            if (answer == RESTART) result = RESTART_BIT;	// end it all now
-            currentTopicID = oldtopicid;
-            currentRule = oldrule;
-            currentRuleID = oldruleid;
-            currentRuleTopic = oldruletopic;
-            if (quitting == true)
-            {
-                result = FAILINPUT_BIT;
-                FreeBuffer("output1");
-                --outputlevel;
-                return NULL;
-            }
-            if (FAILCOMMAND != answer)
-            {
-                ptr = NULL;
-                break; // just abort flow after this since we did a command
-            }
+			if (!(controls & OUTPUT_NODEBUG))
+			{
+				unsigned int oldtopicid = currentTopicID;
+				char* oldrule = currentRule;
+				int oldruleid = currentRuleID;
+				int oldruletopic = currentRuleTopic;
+				char* c = ptr - strlen(word);
+				while (*c != ':') { --c; }
+				TestMode answer = Command(c, NULL, true);
+				if (answer == RESTART) result = RESTART_BIT;	// end it all now
+				currentTopicID = oldtopicid;
+				currentRule = oldrule;
+				currentRuleID = oldruleid;
+				currentRuleTopic = oldruletopic;
+				if (quitting == true)
+				{
+					result = FAILINPUT_BIT;
+					FreeBuffer("output1");
+					--outputlevel;
+					return NULL;
+				}
+				if (FAILCOMMAND != answer)
+				{
+					ptr = NULL;
+					break; // just abort flow after this since we did a command
+				}
+			}
 #endif
             // ordinary :
             // Handles spacing after a number:  2 .  

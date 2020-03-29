@@ -166,9 +166,9 @@ char* AllocateHeap(char* word,size_t len = 0,int bytes= 1,bool clear = false,boo
 bool PreallocateHeap(size_t len);
 extern uint64 discard;
 void ProtectNL(char* buffer);
-HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3 = NULL);
+HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3 = 0);
 HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64& val3 = discard);
-STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2 = NULL, uint64 val3 = NULL);
+STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2 = 0, uint64 val3 = 0);
 STACKREF UnpackStackval(STACKREF linkval, uint64& val1, uint64& val2 = discard, uint64& val3 = discard);
 void InitStackHeap();
 void FreeStackHeap();
@@ -306,6 +306,7 @@ extern char serverLogfileName[200];
 extern char dbTimeLogfileName[200];
 extern int userLog;
 extern int serverLog;
+extern int bugLog;
 extern bool serverPreLog;
 extern bool serverctrlz;
 

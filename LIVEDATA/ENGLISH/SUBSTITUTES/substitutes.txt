@@ -16,7 +16,7 @@
  # we use + because we dont want the resulting phrase recognized by the idiom processor and thus cause the processor to delete the phrase
  # xxx> means sentence then end stop
  # if you want to have the result NOT tokenized, put it in quotes
- replace: ?_" inches
+?_" inches
 ?_' feet
 ?_yr years
 ?_mo months
@@ -26,12 +26,12 @@
 ?_km kilometer
  ?_kph kilometer+per+hour
  ?_mph miles+per+hour
- ?_°C degree+Celcius
+ ?_°C degree+Celsius
  ?_°F degree+Fahrenheit
  ?_°K degree+Kelvin
  ?_° degree
- °C degree+Celcius
-°F degree+Fahrenheit
+ °C degree+Celsius
+ °F degree+Fahrenheit
  °K degree+Kelvin
 
 a.i. artificial+intelligence
@@ -101,7 +101,7 @@ a.i. artificial+intelligence
  i.e. for+example
  Inc Incorporated
  Inc. Incorporated
- Jan January 
+ Jan January
  Jan. January
  Jul. July
  Jun June
@@ -456,7 +456,7 @@ prof. professor
  archeologists archaeologists
  archeology archaeology
  arent are+not
- armed_assault_and_holdup holdup 
+ armed_assault_and_holdup holdup
  as_black_as_pitch black
  as_blind_as_a_bat blind
  as_busy_as_a_beaver busy
@@ -721,7 +721,7 @@ prof. professor
  farther_then farther+than
  faster_then faster+than
  father_in_law father-in-law
- fathers_in_law fathers-in-law 
+ fathers_in_law fathers-in-law
  fav favorite
  fave favorite
  favourite favorite
@@ -781,7 +781,7 @@ prof. professor
  got_shutout got+shut+out
  gotcha I+understand
  gotta have+to
- grand_total total 
+ grand_total total
  grateful_thanks thanks
  growing_greater growing
  habeus_corpus habeas+corpus
@@ -819,7 +819,7 @@ prof. professor
  hai yes
  hand_the_reigns hand+the+reins
  handwritten_manuscript manuscript
- harbour harbor 
+ harbour harbor
  harbours harbors
  harry Harry
  has_ran has+run
@@ -1008,8 +1008,8 @@ prof. professor
  might_of_been might+have+been
  might_of_had might+have+had
  mightnt might+not
- milage mileage 
- minuscule miniscule 
+ milage mileage
+ minuscule miniscule
  missing_gaps gaps
  mix_together blend
  more_easier easier
@@ -1017,8 +1017,8 @@ prof. professor
  more_that more+than
  more_then more+than
  moreso more+so
- mother_in_law mother-in-law 
- mothers_in_law mothers-in-law 
+ mother_in_law mother-in-law
+ mothers_in_law mothers-in-law
  must_of must+have
  must_of_been must+have+been
  must_of_had must+have+had
@@ -1215,8 +1215,8 @@ prof. professor
  shuddup shut+up
  side_affect side+effect
  sink_down sink
- sister_in_law sister-in-law 
- sisters_in_law sisters-in-law 
+ sister_in_law sister-in-law
+ sisters_in_law sisters-in-law
  small_in_size small
  small_speck speck
  smaller_then smaller+than
@@ -1420,6 +1420,7 @@ prof. professor
  where_is_u where+is+your
  where_the_heck where
  where_the_hell where
+ wheres where+is
  which_comprised_of which+consisted+of
  whichones which+ones
  whicht_he which+the
@@ -1436,6 +1437,7 @@ prof. professor
  whom_do_you_believe whom
  whom_do_you_think whom
  whos_your who+is+your
+ whos who+is
  why_do_you_believe_it_is why+is+it
  why_do_you_believe_it_will why+will+it
  why_do_you_think_he_is why+is+he

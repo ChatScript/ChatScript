@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/26/2020 cs10.0
+<br>Revision 3/29/2020 cs10.1
 
 
 
@@ -348,7 +348,7 @@ your server is in Virginia and you are in Colorado).
 | `%pid`              |  Linux process id or 0 for other systems 
 | `%restart`          |  You can set and retrieve a value here across a system restart. 
 | `%timeout`          |  Boolean tells if a timeout has happened, based on the timelimit command line parameter
-
+| `%lastcurltime`		| Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer: | 
 
 
 ## Build data

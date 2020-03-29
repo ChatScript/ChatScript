@@ -240,8 +240,8 @@ static void QueryFacts(WORDP original, WORDP D,unsigned int index,unsigned int s
 
 					if (object->internalBits & TOPIC)
 					{
-						int topic = FindTopicIDByName(object->word);
-						if (topic && !(GetTopicFlags(topic) & TOPIC_SYSTEM) && HasGambits(topic)) AddFact(store,CreateFact(MakeMeaning(original,0),A,MakeMeaning(object,0),FACTTRANSIENT));
+						int topicid = FindTopicIDByName(object->word);
+						if (topicid && !(GetTopicFlags(topicid) & TOPIC_SYSTEM) && HasGambits(topicid)) AddFact(store,CreateFact(MakeMeaning(original,0),A,MakeMeaning(object,0),FACTTRANSIENT));
 					}
                 }
                 QueryFacts(original,object,0,store,kind,A);

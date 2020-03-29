@@ -650,8 +650,20 @@ RESTART_RETRY:
     at = ourMainInputBuffer;
     while ((at = strchr(at, '\r'))) *at = ' ';
 
+    char* userInput = NULL;
+    char endInput = 0;
+    if (strstr(hide,"usermessage")){
+        // allow tracing of OOB but thats all
+        userInput = BalanceParen(ourMainInputBuffer, false, false);
+        if (userInput) {
+            endInput = *userInput;
+            *userInput = 0;
+        }
+    }
 	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
  	else if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
+    if (userInput) *userInput = endInput;
+
 	int turn = PerformChat(
         client->user,
         client->bot,

@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/14/2019 cs9.6
+<br>Revision 3/29/2020 cs10.1
 
 
 # Real World JSON
@@ -74,9 +74,6 @@ to create facts to represent the structure and to access pieces of it.
 }
 ```
 
-Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact
-structure in CS, the facts will all be unique.
-
 JSON facts are triples where the subject is always the name of a JSON object or array.
 For objects, the verb of the fact is the name of a field and the object is its value.
 Such a structure might be composed of these facts:
@@ -110,8 +107,24 @@ This would correspond to a JSON string that looks like this:
 ```
 
 Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can.
+Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly
+querying on some field name.
 
+Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact
+structure in CS, the facts will all be unique. You do this like this:
+```
+	$_tmp = ^createfact($$jsonobject newfield $$jsondata (FACTTRANSIENT JSON_OBJECT_FACT JSON_OBJECT_VALUE) )
+```
+If $$jsonobject is a json object name, you add a field called newfield whose value is a
+JSON object, thus joining the trees. If you serialize (write into text) these two JSON objects
+they will become completely separate structures when read back in (JSON doesn't share).
 
+Also note that while CS can read in JSON whose value has an empty string like:
+```
+	{ "input":""}
+```
+CS cannot represent that itself, since empty strings are treated as null values. So CS
+cannot export such a structure directly.
 ## Accessing the web with JSON
 
 You will learn how to create JSON structures below. The other key to a

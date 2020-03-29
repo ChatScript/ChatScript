@@ -98,6 +98,7 @@ t: ($$oob)  ^postprintbefore( \[ $$oob \]) </code></pre>
 <p>But when you really want precision control in layout, then you use active strings.</p>
 <pre><code>u: (test) ^&quot;I   $verb , meat.&quot;</code></pre>
 <p>This active string will keep the spaces you see here when delivered to the user.</p>
+<p><code>#OUTPUT_NODEBUG</code> blocks the system from trying to interpret words starting with : as being debug commands.</p>
 <h2 id="accents">Accents</h2>
 <p>Suppose you want your bot to talk with a French accent. Or use texting. You could, of course, author your output text directly to do this. But then you can't readily switch to a different accent. And it may be a pain to remember to do this on all your outputs. Another way to do an accent is to write code that rewrites your outputs according to the appropriate accent. This is something you can do in postprocessing. You can have it read your outputs and rewrite them.</p>
 <pre><code>topic: POSTPROCESSING system repeat ()

@@ -2194,11 +2194,11 @@ void CreateFakeTopics(char* data) // ExtraTopic can be used to test this, naming
 static void LoadTopicData(const char* fname,const char* layerid,unsigned int build,int layer,bool plan)
 {
 	char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s",topic,fname);
+	sprintf(word,"%s/%s", topicname,fname);
 	FILE* in = FopenReadOnly(word); // TOPIC folder
 	if (!in && layerid) 
 	{
-		sprintf(word,"%s/BUILD%s/%s",topic,layerid,fname);
+		sprintf(word,"%s/BUILD%s/%s", topicname,layerid,fname);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2252,9 +2252,9 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 			}
 
 			char file[SMALL_WORD_SIZE];
-			sprintf(file,(char*)"%s/missingLabel.txt",topic);
+			sprintf(file,(char*)"%s/missingLabel.txt", topicname);
 			remove(file);
-			sprintf(file,(char*)"%s/missingSets.txt",topic);
+			sprintf(file,(char*)"%s/missingSets.txt", topicname);
 			remove(file);
 			return;
 		}
@@ -2358,11 +2358,11 @@ void CheckFundamentalMeaning(char* name)
 static void ReadPatternData(const char* fname,const char* layer,unsigned int build)
 {
     char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s",topic,fname);
+	sprintf(word,"%s/%s", topicname,fname);
     FILE* in = FopenReadOnly(fname); // TOPIC folder
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s",topic,layer,fname);
+		sprintf(word,"%s/BUILD%s/%s", topicname,layer,fname);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2506,11 +2506,11 @@ static void InsureSafeSpellcheck(char* word)
 void InitKeywords(const char* fname,const char* layer,unsigned int build,bool dictionaryBuild,bool concept)
 { 
 	char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s",topic,fname);
+	sprintf(word,"%s/%s", topicname,fname);
 	FILE* in = FopenReadOnly(word); //  TOPICS keywords files
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s",topic,layer,fname);
+		sprintf(word,"%s/BUILD%s/%s", topicname,layer,fname);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2686,8 +2686,10 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 }
             }
             // dont protect upper case that has lowercase. spell check will leave it anyway (Children as starter of a title)
-            else if (IsAlphaUTF8(p1[0]) && !FindWord(p1, 0, LOWERCASE_LOOKUP)) AddSystemFlag(D, PATTERN_WORD); // blocks spell checking to something else
-
+			else if (IsAlphaUTF8(p1[0]) && !FindWord(p1, 0, LOWERCASE_LOOKUP))
+			{ // but dont force lower to upper for this  Songs could be plural lower
+				AddSystemFlag(D, PATTERN_WORD); // blocks spell checking to something else
+			}
             unsigned int index = Meaning2Index(U);
             if (index) U = GetMaster(U); // if not currently the master, switch to master
 
@@ -2816,11 +2818,11 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 static void InitMacros(const char* name,const char* layer,unsigned int build)
 {
  	char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s",topic,name);
+	sprintf(word,"%s/%s", topicname,name);
 	FILE* in = FopenReadOnly(word); // TOPICS macros
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s",topic,layer,name);
+		sprintf(word,"%s/BUILD%s/%s", topicname,layer,name);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2946,11 +2948,11 @@ static void InitLayerMemory(const char* name, int layer)
 	int total;
 	int counter = 0;
 	char filename[SMALL_WORD_SIZE];
-	sprintf(filename,(char*)"%s/script%s.txt",topic,name);
+	sprintf(filename,(char*)"%s/script%s.txt", topicname,name);
 	FILE* in = FopenReadOnly(filename); // TOPICS
 	if (!in) 
 	{
-		sprintf(filename,(char*)"%s/BUILD%s/script%s.txt",topic,name,name);
+		sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicname,name,name);
 		in = FopenReadOnly(filename);
 	}
 	if (in)
@@ -2960,11 +2962,11 @@ static void InitLayerMemory(const char* name, int layer)
 		FClose(in);
 		counter += total;
 	}
-	sprintf(filename,(char*)"%s/plans%s.txt",topic,name);
+	sprintf(filename,(char*)"%s/plans%s.txt", topicname,name);
 	in = FopenReadOnly(filename); 
 	if (!in)
 	{
-		sprintf(filename,(char*)"%s/BUILD%s/plans%s.txt",topic,name,name);
+		sprintf(filename,(char*)"%s/BUILD%s/plans%s.txt", topicname,name,name);
 		in = FopenReadOnly(filename); 	
 	}
 	if (in)

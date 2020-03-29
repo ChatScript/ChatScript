@@ -1,6 +1,6 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 8/31/2019 cs9.7
+<br>Revision 3/29/2020 cs10.1
 
 
 # ADVANCED PATTERNS
@@ -408,6 +408,30 @@ its own without needing to execute any output code. Useful in conjunction with
 You can request n words before the current position using `*-n`. For example
 
     u: ( I love * > _*-1 ) capture last word of sentence
+
+## Concept intersection keywords
+If you join a word (or a concept) and one or more concepts, that represents the intersection of them.
+e.g., (~animals~tasty) will reference all animals considered tasty. 
+
+Note, you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.
+
+This particular ability has general utiility, but specific utility to German.
+German doesn't have the same strict word order but
+because there is case marking on nouns then the position of the subject and object (nominative and accusative case) can move around.
+The simple << >> grouping is not useful unless one can limit the nouns to the right case, e.g.,
+```
+<< Mann~noun_nominative Hund~noun_accusative >>
+```
+
+Concept intersection is sort of analogous to 	(_~animals _0?~tasty) but if this pattern detects a non-tasty animal first,
+it fails. And this is more cumbersome.
+```
+u: (_~animals) 
+	if (_0 !? ~tasty) { ^retry(RULE)}
+```
+Also this only works if the focal memorization if the first thing found in the pattern. Otherwise
+retry wont be restarting with the right thing to consider.
+
 
 ## Match Variable assignment in a pattern
 

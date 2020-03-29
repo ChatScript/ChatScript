@@ -425,6 +425,7 @@ static WORDP UnitSubstitution(char* buffer)
 {
 	char value[MAX_WORD_SIZE];
 	char* at = buffer - 1;
+	if (*(at + 1) == '-') ++at; // negative units
 	while (IsDigit(*++at) || *at == '.' || *at == ','); // skip past number
 	strcpy(value, "?`");
 	strcat(value + 2, at); // presume word after number is not big
@@ -455,9 +456,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		char* jsonStart = ptr;
 		--ptr;
 		bool quote = false;
+		char* why = strstr(ptr, "why");
 		while (*++ptr)
 		{
-			if (*ptr == '"' && *(ptr - 1) != '\\') quote = !quote;
+			if (*ptr == '"' && *(ptr - 1) != '\\') 
+				quote = !quote;
 			if (quote) {} // ignore content for level counting
 			else if (*ptr == '{' || *ptr == '[')
 			{
@@ -483,6 +486,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				}
 			}
 		}
+		if (level > 2 && tokenControl & JSON_DIRECT_FROM_OOB) ReportBug("Possible failure detecting JSON oob");
 
 		return ptr;
 	}
@@ -602,6 +606,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	{
 		return ptr + 1;
 	}
+
+    // could be in the middle of splitting two times, 2pm-3 or 2:30-3:30
+    if (*token == '-' && ParseTime(priorToken, NULL, NULL)) return ptr + 1;
 
 	WORDP X = FindWord(token);
 	size_t xx = strlen(token);
@@ -770,7 +777,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         while (--at1 != token && IsDigit(*at1)) { ; }
         if (at1 == token && *at == 0) return ptr + (hyp - token);
     }
-    if (hyp && !strchr(hyp + 1, '-')) // - used as measure separator 
+    if (hyp && (!strchr(hyp+1,'-') || ParseTime(hyp+1, NULL, NULL))) // - used as measure or time separator
     {
         if ((hyp[1] == 'x' || hyp[1] == 'X') && hyp[1] == '-') // measure like 2ft-x-5ft
         {
@@ -787,8 +794,38 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
                 return ptr + (hyp - token);	//   treat as space
             }
         }
-        else if (hyp[1] == '-') return ptr + (hyp - token); // the anyways-- break 
+		else if (hyp[1] == '-' && (hyp - token))
+		{
+			return ptr + (hyp - token); // the anyways-- break 
+		}
+        else if (IsDigit(hyp[1])) { // possible time range: 2-3pm
+            *hyp = 0;
+            char* mn1 = 0;
+            char* mn2 = 0;
+            char* tm1 = 0;
+            char* tm2 = 0;
+            if (ParseTime(token, &mn1, &tm1) && ParseTime(hyp+1, &mn2, &tm2)) {
+                // two real times if have a meridiem indicator or minutes somewhere
+                if (tm1 || tm2 || mn1 || mn2) {
+                    *hyp = '-';
+                    return ptr + (tm1 ? (tm1 == token ? (hyp - token) : (tm1 - token)) : (hyp == token ? 1 : (hyp - token)));
+                }
+            }
+            *hyp = '-';
+        }
     }
+
+	// split apart French pronouns attached to a verb
+    if (hyp && !stricmp(language, "french") && (!strchr(token,'\'') || strchr(token,'\'') > hyp)) {
+        char* hyp2 = hyp + 1;
+        if (strlen(hyp) > 2 && hyp[1] == 't' && hyp[2] == '-') {
+            hyp2 += 2;
+        }
+		WORDP Z = FindWord(hyp2);
+		if (Z && Z->properties&PRONOUN_SUBJECT) {
+			return ptr + (hyp - token);
+		}
+	}
 
 	// find current token which has comma after it and separate it, like myba,atat,joha
 	char* comma = strchr(token + 1, ',');
@@ -876,7 +913,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	char* fullstopper = NULL;
 	if (*ptr != ':' && *ptr != ';') while (*++end && !IsWhiteSpace(*end) && *end != '!' && *end != '?')
 	{
-		if (*end == numberComma) 
+		if (*end == ',') 
 		{
 			if (!IsDigit(end[1]) || !IsDigit(* (end-1))) // not comma within a number
 			{
@@ -980,7 +1017,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (W && (W->properties & PART_OF_SPEECH || W->systemFlags & PATTERN_WORD))  return stopper; // recognize word at more splits
 	}
 	int lsize = strlen(token);
-	while (IsPunctuation(token[lsize-1])) token[--lsize] = 0; // remove trailing punctuation
+	while (lsize > 0 && IsPunctuation(token[lsize-1])) token[--lsize] = 0; // remove trailing punctuation
 	char* after = start + lsize;
 	// see if we have 25,2015
 	size_t tokenlen = strlen(token);
@@ -1006,13 +1043,16 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         if (c == '|') break;
 		kind = IsPunctuation(c);
 		next = ptr[1];
-		if (c == numberComma) 
+		if (c == ',') 
 		{
 			if (!IsDigit(ptr[1]) || !IsDigit(*(ptr-1))) break; // comma obviously not in a number
-			// must have 3 digits after comma
-			if (!IsDigit(ptr[2]) || !IsDigit(ptr[3])) break;
 		}
-		if (c == '\'' && next == '\'') break;	// '' marker or ''' or ''''
+		else if (c == numberComma)
+		{
+			// must have 3 digits after digit and comma
+			if (IsDigit(*(ptr - 1)) && (!IsDigit(ptr[1]) || !IsDigit(ptr[2]) || !IsDigit(ptr[3]))) break;
+		}
+		else if (c == '\'' && next == '\'') break;	// '' marker or ''' or ''''
 		else if (c == '=' && next == '=') break; // swallow headers == ==== ===== etc
 		next2 = (next) ? *SkipWhitespace(ptr+2) : 0; // start of next token
 		if (c == '-' && next == '-') break; // -- in middle is a break regardless
@@ -1047,14 +1087,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			}
 			else if (ptr != start && c == ':' && IsDigit(next) && IsDigit(*(ptr-1)) && len > 1) //   time 10:30 or odds 1:3
 			{
-				if (!strnicmp(end-2,(char*)"am",2)) return end-2;
-				else if (!strnicmp(end-2,(char*)"pm",2)) return end-2;
-				else if (len > 2 && !strnicmp(end-3,(char*)"a.m",3)) return end-3;
-				else if (len > 2 && !strnicmp(end-3,(char*)"p.m",3)) return end-3;
-				else if (len > 3 && !strnicmp(end-4,(char*)"a.m.",4)) return end-4;
-				else if (len > 3 && !strnicmp(end-4,(char*)"p.m.",4)) return end-4;
-				else if (ptr[2] == ' ' || !ptr[2]) return ptr+2;
-				else if ((ptr[3] == ' ' || !ptr[3]) && IsDigit(ptr[2])) return ptr+3;
+				char* at1;
+				at1 = FindTimeMeridiem(end-len, len);
+				if (at1 > ptr) return at1;
+				else if (!ptr[2] || ptr[2] == ' ') return ptr+2;
+				else if ((!ptr[3] || ptr[3] == ' ') && IsDigit(ptr[2])) return ptr+3;
 			} 
 			
 			// number before things? 8months but not 24%  And dont split 1.23 or time words 10:30 and 30:20:20. dont break 6E
@@ -1136,12 +1173,17 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 	}
 
 	// convert html data
-	while ((html = strstr(html,(char*)"&#")) != 0) // &#32;
+	while ((html = strstr(html, (char*)"&#")) != 0)
 	{
-		if (IsDigit(html[2]) && IsDigit(html[3]) && html[4] == ';')
+		if (IsDigit(html[2]) && IsDigit(html[3]) && html[4] == ';') // &#32;
 		{
-			*html = (char)atoi(html+2);
-			memmove(html+1,html+5,strlen(html+4));
+			*html = (char)atoi(html + 2); // normal ascii value
+			memmove(html + 1, html + 5, strlen(html + 4));
+		}
+		else if (IsDigit(html[2]) && IsDigit(html[3]) && IsDigit(html[4]) && html[5] == ';')
+		{ // &#163;
+			*html = ' '; //eradicate indigestable html for now
+			memmove(html + 1, html + 6, strlen(html + 5));
 		}
 		else ++html;
 	}
@@ -1160,7 +1202,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 		++html;
 	}
     *priorToken = 0;
-    while (ptr) // find tokens til end of sentence or end of tokens
+    while (ptr && *ptr) // find tokens til end of sentence or end of tokens
 	{
 		ptr = SkipWhitespace(ptr);
 		//test input added markers
@@ -1203,6 +1245,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
         else if (end == ptr) // didnt change, we must have erased a quote pair
         {
             ptr = SkipWhitespace(end);
+			if (ptr == end) ++ptr; // FORCE emergency skip
             continue;
         }
         else if ((end - ptr) > (MAX_WORD_SIZE - 3)) // too big to handle, suppress it.
@@ -1571,6 +1614,65 @@ bool DateZone(int i, int& start, int& end)
 		}
 	}
 	return (start != end); // there is something there
+}
+
+bool ParseTime(char* ptr, char** minute, char** meridiem)
+{
+	if (!*ptr) return false;
+
+	int hr = 0, mn = 0, sc = 0, sep = 0;
+	char* at = ptr - 1;
+	char* min = 0;
+
+	while (*++at && (IsDigit(*at) || *at == ':')) {
+		if (*at == ':') {
+			++sep;
+			if (sep > 2) return false;
+		}
+		else {
+			if (sep == 0) ++hr;
+			if (sep == 1) {
+				if (mn == 0) {
+					min = at;
+				}
+				++mn;
+			}
+			if (sep == 2) ++sc;
+
+			if (hr > 2 || mn > 2 || sc > 2) return false;
+		}
+	}
+
+	char* at1 = FindTimeMeridiem(ptr);
+	if (hr == 0 && !at1) return false;
+
+	if (at1 && meridiem) *meridiem = at1;
+	if (min && minute) *minute = min;
+
+	return true;
+}
+
+// return the start of a time meridiem indicator given the end point of a string
+char* FindTimeMeridiem(char* ptr, int len)
+{
+    if (stricmp(language, "english")) return 0;
+
+	int len1 = (len == 0 ? strlen(ptr) : len);
+	char* at = ptr + len1;
+
+	if      (len1 >= 4 && !strnicmp(at - 4, (char*)"a.m.", 4)) at -= 4;
+	else if (len1 >= 4 && !strnicmp(at - 4, (char*)"p.m.", 4)) at -= 4;
+	else if (len1 >= 3 && !strnicmp(at - 3, (char*)"a.m", 3)) at -= 3;
+	else if (len1 >= 3 && !strnicmp(at - 3, (char*)"p.m", 3)) at -= 3;
+	else if (len1 >= 3 && !strnicmp(at - 3, (char*)"am.", 3)) at -= 3;
+	else if (len1 >= 3 && !strnicmp(at - 3, (char*)"pm.", 3)) at -= 3;
+	else if (len1 >= 2 && !strnicmp(at - 2, (char*)"am", 2)) at -= 2;
+	else if (len1 >= 2 && !strnicmp(at - 2, (char*)"pm", 2)) at -= 2;
+	else if (len1 >= 1 && !strnicmp(at - 1, (char*)"a", 1)) at -= 1;
+	else if (len1 >= 1 && !strnicmp(at - 1, (char*)"p", 1)) at -= 1;
+	else return 0;
+
+	return at;
 }
 
 void ProcessCompositeDate()
@@ -2149,6 +2251,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		char* tokens[50];
 		char words[50][1000];
 		char* at = wordStarts[i];
+		if (*at == '-') ++at;
 		while (IsDigit(*++at) || *at == '.');
 		char c = *at;
 		*at = 0;	// closes out units
@@ -2387,7 +2490,7 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 			idiomMatch = n; 
 		}
 
-		if (!found && i == j && IsDigit(buffer[1])) found = UnitSubstitution(buffer + 1);// generic digits + unit
+		if (!found && i == j && (IsDigit(buffer[1]) || (buffer[1] == '-' && IsDigit(buffer[2])))) found = UnitSubstitution(buffer + 1);// generic digits + unit
 
         if (found == localfound && j == wordCount)  //   sentence ender
 		{
@@ -2517,7 +2620,7 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 			*ptr = 0;	// remove tail
 		}
 
-		if (!count && IsDigit(*wordStarts[i])) count = 1; // numeric units
+		if (!count && (IsDigit(*wordStarts[i]) || (*wordStarts[i] == '-' && IsDigit(*(wordStarts[i]+1))))) count = 1; // numeric units
         
 		//   use max count
         if (count && ProcessMyIdiom(i,count-1,buffer,ptr)) 

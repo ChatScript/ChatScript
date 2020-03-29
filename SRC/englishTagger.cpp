@@ -453,7 +453,7 @@ static void TreeTagger()
 		int oldreuseid = currentReuseID;
 		int oldreusetopic = currentReuseTopic;
 		int topicid = FindTopicIDByName(taggingTopic);
-		if (topic && !(GetTopicFlags(topicid) & TOPIC_BLOCKED))
+		if (topicid && !(GetTopicFlags(topicid) & TOPIC_BLOCKED))
 		{
             CALLFRAME* frame = ChangeDepth(1, (char*)"$cs_externaltag");
             int pushed = PushTopic(topicid);
@@ -739,7 +739,21 @@ static void SetCanonicalValue(int start,int end)
 		{
 			canon = NULL;
 			canonicalLower[i] = originalLower[i];
+			continue;
 		}
+		else if (!original[1] && !IsAlphaUTF8(*original)) // symbols, punctuation, etc
+		{
+			canon = NULL;
+			canonicalLower[i] = originalLower[i];
+			continue;
+		}
+		else if (allOriginalWordBits[i] & CONJUNCTION )
+		{
+			canon = NULL;
+			canonicalLower[i] = originalLower[i]; 
+			continue;
+		}
+
 		// a word like "won" has noun, verb, adjective meanings. We prefer a canonical that's different from the original
 		if (canon && IsUpperCase(*canon)) canonicalUpper[i] = FindWord(canon);
 		else if (canon) canonicalLower[i] = FindWord(canon);
@@ -762,10 +776,6 @@ static void SetCanonicalValue(int start,int end)
 				if (verb) canonicalLower[i] = FindWord(verb);
 			}
 		}
-		else if (pos & CONJUNCTION)
-		{
-			canonicalLower[i] = originalLower[i]; // "his *fixed view should be adjective and not participle given it is an adjective- arbitrary
-		}
 		else if (pos & (NOUN_BITS - NOUN_GERUND - NOUN_ADJECTIVE)  || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))) 
 		{
 			if (pos & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL) && canonicalUpper[i] && canonicalUpper[i]->properties & NOUN) // can it be upper case interpretation?
@@ -785,6 +795,10 @@ static void SetCanonicalValue(int start,int end)
 			{
 				char* noun = GetSingularNoun(original,false,true);
 				if (noun) canonicalLower[i] = FindWord(noun);
+			}
+			else if (D && D->internalBits & UPPERCASE_HASH && FindWord(original, 0,LOWERCASE_LOOKUP))
+			{
+				canonicalLower[i] = FindWord(original,0, LOWERCASE_LOOKUP);
 			}
 		}
 		else if (pos & (ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NOUN) || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))) 
@@ -3260,6 +3274,21 @@ void MarkTags(unsigned int i)
 		else if (age == GRADE1_2)  MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~grade1_2")),start,stop);
 		else if (age == GRADE3_4)  MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~grade3_4")),start,stop);
 		else if (age == GRADE5_6)  MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~grade5_6")),start,stop);
+	} 
+	else if (originalUpper[i]) {
+		// checking for originalUpper also as for web_url the canonical is saved here instead of originalLower
+		bit = START_BIT;
+		for (int j = 63; j >= 0; --j)
+		{
+			if (!(originalUpper[i]->systemFlags & bit)) {;}
+			else if (bit & WEB_URL && strchr(originalUpper[i]->word+1,'@'))
+			{
+				char* x = strchr(originalUpper[i]->word+1,'@');
+				if (x && IsAlphaUTF8OrDigit(x[1])) MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord((char*)"~email_url")),start,stop);
+			}
+			else if (bit & MARK_FLAGS)  MarkMeaningAndImplications(0, 0,sysMeanings[j],start,stop);
+			bit >>= 1;
+		}
 	}
 	if (bits & AUX_VERB ) finalPosValues[i] |= VERB;	// lest it report "can" as untyped, and thus become a noun -- but not ~verb from system view
 

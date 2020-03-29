@@ -30,6 +30,7 @@ extern char* oldBuffer;
 extern bool compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
+extern bool compilePatternCall;
 extern uint64 grade;
 extern char* lastDeprecation;
 extern unsigned int buildId;

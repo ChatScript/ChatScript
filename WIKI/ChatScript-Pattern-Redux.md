@@ -1,6 +1,6 @@
 # ChatScript Pattern Redux
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
-<br>Revision 1/26/2020 cs10.0
+<br>Revision 3/29/2020 cs10.1
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
@@ -429,6 +429,11 @@ means user did something like _I love you!_.
 You may use either `?` or `\?` when asking if the sentence has a question in it. 
 You would generally only do this in a rejoinder.
 
+## Concept intersection keywords
+If you join a word (or a concept) and one or more concepts, that represents the intersection of them.
+e.g., (~animals~tasty) will reference all animals considered tasty. 
+
+Note, you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.
 
 ### Function Call - `^xxx(...)`
 

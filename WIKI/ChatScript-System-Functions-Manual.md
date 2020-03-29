@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/26/2020 cs10.0
+<br>Revision 3/29/2020 cs10.1
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -499,8 +499,16 @@ so normal matching will occur.
 ### `^replaceword(word _0)`
 
 You can change the word itself at the location just by providing the word you want used 
-and the location in the sentence (as a match variable).  Replacing a word does 
+and the location in the sentence (as a match variable or position index).  Replacing a word does 
 not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).
+
+### `^addwordAfter(word _0)`
+
+Inserts word into sentence after the position of given match variable.
+The second argument designates a position, and can be a match variable name or something that evaluates into a
+word index. Does not alter pos-tagging or parsing and does not mark itself. You can use ^mark
+to cause marking to happen.
+
 
 ### `^position ( how matchvariable )`
 
@@ -608,7 +616,7 @@ appropriately in %originalInput. Also it is tokenized on entry, so things like c
 been separated.
 
 
-### `^original ( _n )`
+### `^original ( _n )   or  ^original(rawuser)`
 
 The argument is the name of a match variable.
 Whatever it has memorized will be used to locate the corresponding series of words 
@@ -620,6 +628,9 @@ u: (my _life) ^original(_0)
 
 For input "my lif" spell correction will change the input to "life", which matches here,
 but ^original will return "lif".
+
+`^original(rawuser)` returns exactly what user sent in, before any adjustments are made to it.
+(Some adjustments are made even before spellcheck).
 
 ### `^position ( which _var )`
 
@@ -1958,7 +1969,7 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `canonical`          | word         | see notes
 | `integer`            | floatnumber  | generate integer if float is exact integer
 | `preexists`            | word  | return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.
-
+| `xref`            | wordindex  | Kind | See below.
 
 Example:
 
@@ -1979,6 +1990,12 @@ which says there are two forms of canonical, one for ADJA (adjective) and one fo
 you get the first one (ADJA). If you specify `~ADJA` you get the first and if you specify `~NN`  you get the second.
 
 If your third argumernt is `all` then the list of all canonical forms is returned with | separating the entries.
+
+#### xref
+Parsing links things like prepositional phrases to nouns they describe, indirect objects to verb, etc.
+The xref returns the index of the word in sentence cross-referenced by some parser data found
+at the designated in wordindex. Kind includes: crossreference, indirectobject, object,
+	complement, phrase, verbal, clause. Returns 0 if no xref found.
 
 ### `^decodeInputtoken ( number )`
 
@@ -2758,6 +2775,14 @@ The verb used is: `^keywordtopics`.
 
 Note: it does not attempt to match the topic you are currently in, as the normal control scripts
 should already have tried that topic before coming to the more random thrashing of ^keywordtopics.
+
+In a multiple-bot build with bots with variations of the same code, a topic name in one bot
+may be ~xxx and in another its ~xxx~2 (2nd copy). Things work fine unless you explicitly test
+the name like `if ($_topic == ~introductions)` because the $_topic name may have a suffix.
+You should eliminate the suffix for the comparison. Or do something like:
+```
+    if (^substitute(character $_topic  ~introductions x FAIL)) {...}
+```
 
 ### `^last ( fact-set-annotated )`
 

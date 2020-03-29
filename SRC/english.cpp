@@ -448,6 +448,10 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 		*br = 0;
 		int64 val1 = Convert2Integer(original, numberStyle);
 		int64 val2 = Convert2Integer(br + 1, numberStyle);
+		if (val1 == NOT_A_NUMBER || val2 == NOT_A_NUMBER) {
+			*br = c;
+			return 0; // not a number after all
+		}
 		double val;
 		if (IsNumber(original, numberStyle) == FRACTION_NUMBER) // half-dozen
 		{
@@ -477,6 +481,7 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
         if (!value) value = "0"; // eg 100$% faulty number
 
         int64 n = Convert2Integer(value, numberStyle);
+        if (n == NOT_A_NUMBER) return 0; // not a number after all
 		double fn = Convert2Double(value, numberStyle);
 		if ((double)n == fn)
 		{
@@ -501,6 +506,7 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 	else if (kind == FRACTION_NUMBER)
 	{
 		int64 val = Convert2Integer(original, numberStyle);
+		if (val == NOT_A_NUMBER) return 0; // not a number after all
 		double val1 = (double)1.0 / (double)val;
 		sprintf(number, (char*)"%f", val1);
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER | (baseflags & (PREDETERMINER | DETERMINER));
@@ -524,6 +530,7 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 		else if (percent)
 		{
 			int64 val = Convert2Integer(original, numberStyle);
+			if (val == NOT_A_NUMBER) return 0; // not a number after all
 			double val1 = ((double)val) / 100.0;
 			WriteFloat(number,val1);
 		}
@@ -626,12 +633,66 @@ bool KnownUsefulWord(WORDP entry)
 	return known;
 }
 
+WORDP FindGermanPlural(WORDP singular)
+{
+	char word[MAX_WORD_SIZE];
+	strcpy(word, singular->word);
+	strcat(word, "e"); // eg Tag->Tage
+	WORDP D = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (D && GetCanonical(D) == singular) return D;
+
+	strcpy(word, singular->word);
+	strcat(word, "en"); // eg Frau->Frauen
+	D = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (D && GetCanonical(D) == singular) return D;
+
+	strcpy(word, singular->word);
+	strcat(word, "n"); // eg Junge->Jungen
+	D = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (D && GetCanonical(D) == singular) return D;
+
+	strcpy(word, singular->word);
+	strcat(word, "r"); // 
+	D = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (D && GetCanonical(D) == singular) return D;
+
+	strcpy(word, singular->word);
+	strcat(word, "er"); // eg Geist->Geister
+	D = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (D && GetCanonical(D) == singular) return D;
+
+	strcpy(word, singular->word);
+	strcat(word, "s"); // eg Foto->Fotos
+	D = FindWord(word, 0, UPPERCASE_LOOKUP);
+	if (D && GetCanonical(D) == singular) return D;
+
+	//Sometimes adding an - e and converting a vocal to an Umlaut
+	//Ball->Bälle
+	//Korb->Körbe
+	//Kuh->Kühe
+
+	//	Sometimes plural is the same
+	//	Computer->Computer
+	//	Löffel->Löffel
+
+	//	Sometimes the same but converting a vocal to an Umlaut
+	//	Apfel->Äpfel
+	//	Vogel->Vögel
+	//	Garten->Gärten
+
+	//		Adding an - er and converting a vocal to an Umlaut
+	//	Buch->Bücher
+	//	Mann->Männer
+
+	return NULL;
+}
 
 uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &canonical,uint64& sysflags,uint64 &cansysflags,bool firstTry,bool nogenerate, int start) // case sensitive, may add word to dictionary, will not augment flags of existing words
 { // this is not allowed to write properties/systemflags/internalbits if the word is preexisting
 	uint64 properties = 0;
 	sysflags = cansysflags = 0;
 	canonical = 0;
+	entry = 0;
 	if (start == 0) start = 1;
 	if (revise) revise = NULL;
 	if (*original == 0) // null string
@@ -667,18 +728,35 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	if (firstTry && (kind != NOT_A_NUMBER || IsDate(original )))
 		properties = ProcessNumber(at, original, revise, entry, canonical, sysflags, cansysflags, firstTry, nogenerate, start,kind); // case sensitive, may add word to dictionary, will not augment flags of existing wordskind);
 	if (canonical && (IsDigit(*canonical->word) || IsNonDigitNumberStarter(*canonical->word))) return properties;
-	entry = FindWord(original, 0, PRIMARY_CASE_ALLOWED);
-    size_t x = strlen(original);
-    // if uppercase, see if lowercase singular exists
-    if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && !entry->properties & properties & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_HUMAN | PRONOUN_SUBJECT | PRONOUN_OBJECT) && original[x - 1] == 's') // possible plural
-    {
-        WORDP singular = FindWord(original, x-1, LOWERCASE_LOOKUP);
-        if (singular) entry = singular;
-        else if (original[x-2] == 'e') singular = FindWord(original, x - 2, LOWERCASE_LOOKUP);
-        if (singular) entry = singular;
-    }
+	size_t x = strlen(original);
+	entry = FindWord(original, x, PRIMARY_CASE_ALLOWED);
+	if (entry)
+	{
+		if (entry->systemFlags & PATTERN_WORD) {}
+		else if (IS_NEW_WORD(entry) || !(entry->properties & TAG_TEST)) entry = NULL;
+	}
+	if (!entry) entry = FindWord(original, x, SECONDARY_CASE_ALLOWED);
+	if (entry)
+	{
+		if (entry->systemFlags & PATTERN_WORD) {}
+		else if (IS_NEW_WORD(entry) || !(entry->properties & TAG_TEST)) entry = NULL;
+	}
+	if (entry && x > 1 && original[x - 1] == 's' && entry->internalBits & UPPERCASE_HASH) // aim to being plural of singular noun
+	{
+		WORDP S = FindWord(original, x - 1, LOWERCASE_LOOKUP);
+		if (S) entry = NULL; // let it go thru normal
+	}
+	if (entry) original = entry->word;
+	// if uppercase, see if lowercase singular exists
+	if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && !entry->properties & properties & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_HUMAN | PRONOUN_SUBJECT | PRONOUN_OBJECT) && original[x - 1] == 's') // possible plural
+	{
+		WORDP singular = FindWord(original, x - 1, LOWERCASE_LOOKUP);
+		if (singular) entry = singular;
+		else if (original[x - 2] == 'e') singular = FindWord(original, x - 2, LOWERCASE_LOOKUP);
+		if (singular) entry = singular;
+	}
 
-	if (!csEnglish)
+	if (!csEnglish || isGerman)
 	{
 		if (!entry) entry = FindWord(original, 0, SECONDARY_CASE_ALLOWED); // Try harder to find the foreign word, e.g. German wochentag -> Wochentag
 		if (entry && !properties) canonical = GetCanonical(entry);
@@ -745,12 +823,28 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	{
 		properties = NOUN|NOUN_SINGULAR;
 		char word[MAX_WORD_SIZE];
-		MakeLowerCopy(word,original);
+		if (IsMail(original))
+		{
+			// for mail domain is lower and local-part is case sensitive so preserve it to canonical ( RFC5321 )
+			char* wordStart = original;
+			char* domainStart = strchr(original, '@');
+			int endUserName = domainStart - wordStart;
+			PartialLowerCopy(word,original,0,endUserName);
+		}
+		else
+		{
+			// for url domain is lower and the path/query/hash is case sensitive so preserve it to canonical ( RFC3986 6.2.2.1 (and reinforced in proposal RFC7230 2.7.3) )
+			char* firstPeriod = strchr(original, '.');
+			char* domainEnd = strchr(firstPeriod, '/');
+			int startOfTail;
+			if(!domainEnd) startOfTail = strlen(original) - 1;
+			else startOfTail = domainEnd - original;
+			PartialLowerCopy(word,original,startOfTail,strlen(original) - 1);
+		}
 		entry = canonical = StoreWord(word,properties,WEB_URL); 
 		cansysflags = sysflags = WEB_URL;
 		return properties;
 	}
-
 
 	///////// WORD REWRITES particularly from pennbank tokenization
 
@@ -873,6 +967,22 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		WORDP canon = GetCanonical(entry);
 		if (canon) canonical = canon;
 		if (canonical) cansysflags = canonical->systemFlags;
+
+		// german postag data marks all nouns without separating singular from plural
+		if (isGerman && (properties & (NOUN_SINGULAR | NOUN_PLURAL))
+			== (NOUN_SINGULAR | NOUN_PLURAL))
+		{
+			if (entry != canonical && canonical) // if we know canonical is different from us, we are plural
+			{
+				cansysflags ^= NOUN_PLURAL; // canonical is singular
+				properties ^= NOUN_SINGULAR; // main word noun is plural
+			}
+			else
+			{
+				WORDP D = FindGermanPlural(entry);
+				if (D) properties ^= NOUN_PLURAL;
+			}
+		}
 
 		// possessive pronoun-determiner like my is always a determiner, not a pronoun. 
 		if (entry->properties & (COMMA | PUNCTUATION | PAREN | QUOTE | POSSESSIVE | PUNCTUATION)) return properties;
@@ -1101,7 +1211,8 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		// adjective made from counted singular noun:  6-month
 		if (X && Y && IsNumber(X->word,numberStyle,false) != NOT_A_NUMBER)
 		{
-			if (Y->properties & NOUN && !stricmp(Y->word,GetSingularNoun(Y->word, false, true))) // number with singular noun cant be anything but adjective
+			char* singnoun = GetSingularNoun(Y->word, false, true);
+			if (Y->properties & NOUN && singnoun && !stricmp(Y->word, singnoun)) // number with singular noun cant be anything but adjective
 			{
 				properties |= ADJECTIVE_NORMAL;
 				canonical = entry = StoreWord(original,ADJECTIVE_NORMAL);
@@ -1311,7 +1422,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 			WORDP D1,D2;
 			WORDP xrevise;
 			uint64 flags1 = GetPosData(at,alternate,xrevise,D1,D2,sysflags,cansysflags,false,nogenerate,start);
-			if (revise) 
+			if (revise)
 			{
 				wordStarts[at] = xrevise->word;
 				original = xrevise->word;
@@ -2146,7 +2257,7 @@ char* GetInfinitive(char* word, bool nonew)
     size_t len = strlen(word);
     if (len == 0) return NULL;
     WORDP D = FindWord(word,len,controls);
-    if (D && D->properties & VERB_INFINITIVE) 
+	if (D && !IS_NEW_WORD(D) && D->properties & VERB_INFINITIVE)
 	{
 		verbFormat = VERB_INFINITIVE;  // fall  (fell) conflict
 		return D->word; //    infinitive value
@@ -2572,6 +2683,7 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
 	nounFormat = 0;
     size_t len = strlen(word);
     WORDP D = FindWord(word,0,controls);
+	if (IS_NEW_WORD(D)) D = NULL;
 	nounFormat = NOUN_SINGULAR;
 	if (D && D->properties & NOUN_PROPER_SINGULAR) //   is already singular
 	{
@@ -2820,6 +2932,7 @@ char* GetAdverbBase(char* word, bool nonew)
     char priorc = (len > 2) ? word[len-2] : 0; 
     char prior2c = (len > 3) ? word[len-3] : 0; 
     WORDP D = FindWord(word,0,controls);
+	if (IS_NEW_WORD(D)) D = NULL;
 	adverbFormat = 0;
     if (D && D->properties &  QWORD) return D->word; //   we know it as is
 	if (D && D->properties & ADVERB && !(D->properties & (MORE_FORM|MOST_FORM) )) return D->word; //   we know it as is
@@ -3127,7 +3240,8 @@ char* GetAdjectiveBase(char* word, bool nonew)
 	adjectiveFormat = 0;
     size_t len = strlen(word);
     WORDP D = FindWord(word,0,controls);
-	char lastc = word[len-1];  
+	if (IS_NEW_WORD(D)) D = NULL;
+	char lastc = word[len-1];
     char priorc = (len > 2) ? word[len-2] : 0;  //   Xs
     char priorc1 = (len > 3) ? word[len-3] : 0; //   Xes
     char priorc2 = (len > 4) ? word[len-4] : 0; //   Xhes

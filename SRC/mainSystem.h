@@ -51,6 +51,7 @@ extern int outputlevel;
 extern DEBUGAPI debugAction;
 extern int forkcount;
 extern char* outputCode[MAX_GLOBAL];
+extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
 #define INPUTMARKER '`'	// used to start and end ^input data
 
@@ -95,6 +96,7 @@ extern bool build1Requested;
 extern char traceuser[500];
 extern bool callback;
 extern char* inputCopy; 
+extern char* realinput;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern char language[40];
@@ -164,7 +166,7 @@ extern bool showTopics;
 extern bool shortPos;
 extern char users[100];
 extern char logs[100];
-extern char topic[100];
+extern char topicname[100];
 extern char tmp[100];
 extern char buildfiles[100];
 

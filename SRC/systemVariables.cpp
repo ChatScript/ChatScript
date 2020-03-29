@@ -518,6 +518,19 @@ static char* ShttpResponse(char* value)
     return systemValue;
 }
 
+static char* Slastcurltime(char* value)
+{
+	static char hold[100] = ".";
+	if (value) 
+	{
+		if (*value != '.') regression = *value != '0';
+		return strcpy(hold,value);
+	}
+	if (*hold != '.') return hold;
+	sprintf(systemValue,(char*)"%s",lastcurltime);
+    return systemValue;
+}
+
 static char* SmaxMatchVariables(char* value)
 {
 	static char hold[50] = ".";
@@ -1086,6 +1099,7 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%regression",Sregression,(char*)"Boolean - is regression flag on"}, 
 	{ (char*)"%host",Shost,(char*)"machine ip if a server, else local"}, 
 	{ (char*)"%httpresponse",ShttpResponse,(char*)"http response code from last call to JsonOpen"}, 
+	{ (char*)"%lastcurltime",Slastcurltime,(char*)"http time taken for last call to JsonOpen"}, 
 	{ (char*)"%maxmatchvariables",SmaxMatchVariables,(char*)"highest number of legal _match variables"}, 
 	{ (char*)"%maxfactsets",SmaxFactSets,(char*)"highest number of legal @factsets"}, 
 	{ (char*)"%rule",Srule,(char*)"Get a tag to current executing rule or null"}, 

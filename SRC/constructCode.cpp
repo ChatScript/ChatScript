@@ -161,7 +161,6 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 	// after { }  chosen branch is offset to jump to end of if
 	bool executed = false;
 	*buffer = 0;
-    CALLFRAME* oldframe = GetCallFrame(globalDepth);
     CALLFRAME* frame = ChangeDepth(1, "If()", false);
     frame->code = ptr;
 
@@ -484,9 +483,9 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 	int64 v1 = 0;
 	int64 v2 = 0;
 	FunctionResult result,val1Result;
-	FreshOutput(word1,val1,result,OUTPUT_ONCE|OUTPUT_KEEPSET|OUTPUT_NOCOMMANUMBER); // 1st arg
+	FreshOutput(word1,val1,result,OUTPUT_ONCE|OUTPUT_KEEPSET|OUTPUT_NOCOMMANUMBER| OUTPUT_NODEBUG); // 1st arg
 	val1Result = result;
-	if (word2 && *word2) FreshOutput(word2,val2,result,OUTPUT_ONCE|OUTPUT_KEEPSET|OUTPUT_NOCOMMANUMBER); // 2nd arg
+	if (word2 && *word2) FreshOutput(word2,val2,result,OUTPUT_ONCE|OUTPUT_KEEPSET|OUTPUT_NOCOMMANUMBER| OUTPUT_NODEBUG); // 2nd arg
 	result = FAILRULE_BIT;
 	if (!stricmp(val1,(char*)"null") ) *val1 = 0;
 	if (!stricmp(val2,(char*)"null") ) *val2 = 0;

@@ -434,6 +434,7 @@ bool IsDate(char* original)
 		else if (!separator) separator = *original;
 		else if (*original != separator && separatorcount == 2 && !alpha) return true; //when there is already a date but still have different seperators.(eg: 18-02-2019.)
 		else if (*original != separator) return false; // cannot be
+		if (separator && separator != '/'  && separator != '-' && separator != '.') return false;  // 10:30:00-05:00 is not a date
 
 		if (*original == separator) // start a new block
 		{
@@ -451,7 +452,7 @@ bool IsDate(char* original)
 			if (++separatorcount > 2) return false; // only 2 separators (3 components) allowed
 		}
 	}
-	if (separator != '/'  && separator != '-' && separator != '.') return false;
+	if (!separator) return false;
 	if (!alpha)
 	{
 		return (separatorcount == 2);
@@ -463,7 +464,7 @@ bool IsDate(char* original)
 	int* name = monthnames;
 	for (int i = 0; i < 1000; ++i)
 	{
-		if (!*name) return false;
+		if (!name || !*name) return false;
 		char* w = Index2Heap(*name);
 		name++;
 		if (*w != toUppercaseData[*alpha]) continue;
@@ -1345,6 +1346,7 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 		D = FindWord(word, ptr - word);			// 1st part
 		WORDP W = FindWord(ptr + 1);		// 2nd part of word
 		if (D && W && D->properties & NUMBER_BITS && W->properties & NUMBER_BITS && IsPlaceNumber(W->word)) return FRACTION_NUMBER;
+		if (D && W && D->properties & NUMBER_BITS && W->properties & NUMBER_BITS && IsFractionNumber(D->word)) return FRACTION_NUMBER;
 		if (D && W && D->properties & NUMBER_BITS && W->properties & NUMBER_BITS) return WORD_NUMBER;
 	}
 
@@ -1447,6 +1449,26 @@ bool IsPlaceNumber(char* word, int useNumberStyle) // place number and fraction 
 	char num[MAX_WORD_SIZE];
 	strcpy(num,word);
 	return (IsNumber(num,useNumberStyle,false) == PLACETYPE_NUMBER) ? true : false; // show it is correctly a number - pass false to avoid recursion from IsNumber
+}
+
+
+bool IsFractionNumber(char* word) // fraction numbers
+{
+	size_t len = strlen(word);
+	if (numberValues) for (unsigned int i = 0; i < 1000; ++i)
+	{
+		int index = numberValues[i].word;
+		if (!index) break;
+        if (numberValues[i].realNumber == FRACTION_NUMBER)
+        {
+		    char* w = Index2Heap(index);
+		    if (len == numberValues[i].length && !strnicmp(word, w, len))
+		    {
+			    return true;
+		    }
+        }
+	}
+	return false;
 }
 
 void WriteInteger(char* word, char* buffer, int useNumberStyle)
@@ -1574,6 +1596,19 @@ bool IsNumericDate(char* word,char* end) // 01.02.2009 or 1.02.2009 or 1.2.2009
 	return true;
 }
 
+bool IsMail(char* word)
+{
+	if (*word == '@') return false;
+	if (strchr(word, ' ') || !strchr(word, '.')) return false; // cannot have space, must have dot dot
+	char* at = strchr(word, '@');	// check for email
+	if (at)
+	{
+		char* dot = strchr(at + 2, '.'); // must have character or digit after @ and before . (RFC1123 section 2.1)
+		if (dot && IsAlphaUTF8OrDigit(dot[1])) return true;
+	}
+	return false;
+}
+
 bool IsUrl(char* word, char* end)
 {
     if (*word == '@') return false;
@@ -1598,12 +1633,7 @@ bool IsUrl(char* word, char* end)
     tmp[end-word] = 0;
     char* ptr = tmp;
 	
-	char* at = strchr(tmp,'@');	// check for email
-	if (at) 
-	{
-		char* dot = strchr(at+2,'.'); // must have character or digit after @ and before . (RFC1123 section 2.1)
-		if (dot && IsAlphaUTF8OrDigit(dot[1])) return true;
-	}
+	if (IsMail(tmp)) return true;
 
 	//	check domain suffix is somewhat known as a TLD
 	//	fireze.it OR www.amazon.co.uk OR amazon.com OR kore.ai
@@ -1967,10 +1997,41 @@ static bool ConditionalReadRejected(char* start,char*& buffer,bool revise)
 
 bool AdjustUTF8(char* start,char* buffer)
 {
+	bool withinquote = false;
 	bool hasbadutf = false;
 	while (*++buffer)  // check every utf character
 	{
-		if (*buffer & 0x80) // is utf in theory
+		// if we have things we change to quotes that are within quotes, we have to escape them
+		if (*buffer == '"' && *(buffer - 1) != '\\') 
+			withinquote = !withinquote;
+
+		// utf16 \u encode
+		if (*buffer == '\\' && (buffer[1] == 'u' || buffer[1] == 'U') && IsDigit(buffer[2]))
+		{
+			int n = atoi(buffer + 2);
+			char c = buffer[5];
+			if (n == 2019 || n == 2018) // left and right curly ' to normal '
+			{
+				*buffer = '\''; 
+				memmove(buffer + 1, buffer + 6, strlen(buffer + 5));
+			}
+			else if (n == 201 && (c == 'c' || c == 'd' || c == 'C' || c == 'D')) // left and right curly dq to normal dq
+			{
+				// if withinquote need backslash for json
+				if (withinquote) // presuming we will see corresponding other dq
+				{ 
+					buffer[1] = '"';
+					memmove(buffer + 2, buffer + 6, strlen(buffer + 5));
+					++buffer;
+				}
+				else  
+				{
+					*buffer = '"';
+					memmove(buffer + 1, buffer + 6, strlen(buffer + 5));
+				}
+			}
+		}
+		else if (*buffer & 0x80) // is utf8 in theory
 		{
 			char prior = (start == buffer) ? 0 : *(buffer - 1);
 			char utfcharacter[10];
@@ -2022,8 +2083,17 @@ bool AdjustUTF8(char* start,char* buffer)
 				}
 				else if (buffer[0] == 0xe2 && buffer[1] == 0x80 && buffer[2] == 0x9c)  // open double quote
 				{
-					*buffer = '\'';
-					memmove(buffer + 1, x, strlen(x) + 1);
+					if (withinquote)
+					{
+						*buffer = '\\';
+						buffer[1] = '"';
+						memmove(buffer + 2, x, strlen(x) + 1);
+					}
+					else
+					{
+						*buffer = '\'';
+						memmove(buffer + 1, x, strlen(x) + 1);
+					}
 					if (compiling) WARNSCRIPT("UTF8 opening double quote revised to Ascii %s | %s", start, buffer);
 				}
 				else if (buffer[0] == 0xef && buffer[1] == 0xbc &&  buffer[2] == 0x88)  // open curly paren 
@@ -2040,8 +2110,17 @@ bool AdjustUTF8(char* start,char* buffer)
 				}
 				else if (buffer[0] == 0xe2 && buffer[1] == 0x80 && buffer[2] == 0x9d)  // closing double quote
 				{
-					*buffer = '"';
-					memmove(buffer + 1, x, strlen(x) + 1);
+					if (withinquote)
+					{
+						*buffer = '\\';
+						buffer[1] = '"';
+						memmove(buffer + 2, x, strlen(x) + 1);
+					}
+					else
+					{
+						*buffer = '"';
+						memmove(buffer + 1, x, strlen(x) + 1);
+					}
 					if (compiling) WARNSCRIPT("UTF8 closing double quote revised to Ascii %s | %s", start, buffer)
 				}
 				else if (buffer[0] == 0xe2 && buffer[1] == 0x80 && buffer[2] == 0x94 && !(tokenControl & NO_FIX_UTF) )  // mdash
@@ -2106,6 +2185,7 @@ int ReadALine(char* buffer,FILE* in,unsigned int limit,bool returnEmptyLines,boo
 	bool runningOut = false;
 	bool endingBlockComment = false;
 RESUME:
+	char* utf16 = NULL;
 	while (ALWAYS)
 	{
 		if (in) 
@@ -2125,6 +2205,7 @@ RESUME:
 		}
 		
 		if (c == '\t' && convertTabs) c = ' ';
+
 		if (c & 0x80 ) // high order utf?
 		{
 			unsigned char convert = 0;
@@ -2147,7 +2228,21 @@ RESUME:
 			if (!convert) hasutf = true;
 			else hasHighChar = true; // we change extended ansi to normal (not utf8)
 		}
-		
+		else if (utf16) // possible \unnnn unicode character
+		{
+			int size = (buffer - utf16);
+			if (size == 1 && c != 'u' && c != 'U') utf16 = NULL;
+			else if (size == 2 && !IsDigit(c)) utf16 = NULL; // digit 1
+			else if (size == 3 && !IsDigit(c)) utf16 = NULL; // digit 2
+			else if (size == 4 && IsDigit(c)) // digit 3  - digit 4 may be hex
+			{
+				hasutf = true;
+				utf16 = NULL;
+			}
+			else if (size >= 4) utf16 = NULL;
+		}
+		else if (c == '\\') utf16 = buffer;
+
 		// format string stuff
 		if (formatString)
 		{
@@ -2264,8 +2359,28 @@ RESUME:
 
 			break;	
 		}
-		*buffer++ = c; 
+		if (c == '\\') 
+			utf16 = buffer;
+		else if (utf16 && (buffer - utf16) == 1 && c != 'u') 
+			utf16 = NULL; // not a utf16 code
+		*buffer++ = c;
 		*buffer = 0;
+
+		if (utf16 && (buffer - utf16) == 6)
+		{
+			int n = atoi(utf16 + 2);
+			if (n == 2019 || n == 2018) // left and right curly ' to normal '
+			{
+				buffer = utf16;
+				*buffer++ = '\'';
+			}
+			if (n == 201 && (c == 'c' || c == 'd' || c == 'C' || c == 'D')) // left and right curly dq to normal dq
+			{
+				buffer = utf16;
+				*buffer++ = '"';
+			}
+			utf16 = NULL;
+		}
 	
 		// strip UTF8 BOM marker if any and just keep reading
 		if (hasutf && currentFileLine == 0 && (buffer-start) == 3) // only from file system 
@@ -2412,6 +2527,7 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash,bool noblank,int limit)
 			*buffer++ = *++ptr;
 		}
         else *buffer++ = c; 
+		if (c == '\\') *buffer++ = *++ptr; // handle any escaped character
 		if ((buffer - original) > limit)  // overflowing
 		{
 			c = 0;
@@ -2542,43 +2658,95 @@ char* ReadPatternToken(char* ptr, char* word)
     return ptr;
 }
 
+char* EatString(char* ptr, char* word, char ender, char jsonactivestring)
+{
+	char c;
+	char* original = word;
+	char* function = NULL;
+	int call_level = 0;
+	while ((c = *ptr)) // run til nul or matching closing  -- may have INTERNAL string as well, as well as strings inside function calls
+	{
+		++ptr;
+		if ((word - original) > (MAX_WORD_SIZE - 3)) break;
+		if (c == '^' && jsonactivestring) // detecting function call?
+		{
+			if (IsAlphaUTF8(ptr[1])) // fn call
+			{
+				char* at = ptr + 1;
+				while (IsAlphaUTF8(*++at)); // find end of name
+				if ((*at == ' ' && at[1] == '(') || *at == '(')
+				{
+					function = ptr; // swallow call as well
+					call_level = 0;
+				}
+			}
+		}
+		if (function && c == '(') ++call_level;
+		else if (function && c == ')')
+		{
+			--call_level;
+			if (call_level == 0) function = NULL; // end of call
+		}
+		if (c == '\\') // escaped something, copy both
+		{
+			*word++ = c;
+			*word++ = *ptr++;
+			continue;
+		}
+		else if (!function && c == ender && (IsWhiteSpace(*ptr) || nestingData[(unsigned char)*ptr] == -1 || *ptr == 0 || *ptr == '`') ) // a terminator followed by white space or closing bracket or end of data terminated
+		{
+			*word++ = c; // put in the close tring
+			if (IsWhiteSpace(*ptr)) ++ptr; // move to next item start
+			break; //  found the end of string
+		}
+		*word++ = c;
+	}
+	*word = 0; // be sure from caller to do word += strlen(word) if you need to
+	return ptr;
+}
+
 char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit) 
 {//   a compiled word is either characters until a blank, or a ` quoted expression ending in blank or nul. or a double-quoted on both ends or a ^double quoted on both ends
 	*word = 0;
 	if (!ptr) return NULL;
-
+	
 	char c = 0;
 	char* original = word;
 	ptr = SkipWhitespace(ptr);
 	char* start = ptr;
 	char special = 0;
+	char priorchar = 0;
 	if (!var) {;}
-	else if ((*ptr == SYSVAR_PREFIX && IsAlphaUTF8(ptr[1]))  || (*ptr == '@' && IsDigit(ptr[1])) || (*ptr == USERVAR_PREFIX && (ptr[1] == LOCALVAR_PREFIX || IsAlphaUTF8(ptr[1]) || ptr[1] == TRANSIENTVAR_PREFIX)) || (*ptr == '_' && IsDigit(ptr[1]))) special = *ptr; // break off punctuation after variable
-	bool jsonactivestring = false;
-	if (*ptr == FUNCTIONSTRING && ptr[1] == '\'') jsonactivestring = true;
-    if (!noquote && (*ptr == ENDUNIT || *ptr == '"' || (*ptr == FUNCTIONSTRING && ptr[1] == '"') || jsonactivestring )) //   ends in blank or nul,  might be quoted, doublequoted, or ^"xxx" functional string or ^'xxx' jsonactivestring
+	else if ((*ptr == SYSVAR_PREFIX && IsAlphaUTF8(ptr[1]))  || (*ptr == '@' && IsDigit(ptr[1])) || (*ptr == USERVAR_PREFIX && (ptr[1] == LOCALVAR_PREFIX || IsAlphaUTF8(ptr[1]) || ptr[1] == TRANSIENTVAR_PREFIX)) || (*ptr == '_' && IsDigit(ptr[1])))  special = *ptr; // break off punctuation after variable
+	char jsonactivestring = 0;
+	char* function = NULL;
+	char ender = 0;
+	if ((*ptr == FUNCTIONSTRING && (ptr[1] == '\'' || ptr[1] == '"')) ||
+			(*ptr == '"' && ptr[1] == FUNCTIONSTRING) || (*ptr == '\'' && ptr[1] == FUNCTIONSTRING)) // compiled or uncompiled active string
 	{
-		if (*ptr == '^') *word++ = *ptr++;	// move to the actual quote
-		*word++ = *ptr; // keep opener  --- a worst case is "`( \"grow up" ) " from a fact
-		char end = *ptr++; //   skip the starter, noting what we need for conclusion
-		while ((c = *ptr++)) // run til nul or matching `  -- may have INTERNAL string as well
-		{
-			if ((word-original) > (MAX_WORD_SIZE - 3)) break;
-			if ( c == '\\' && *ptr == end) // escaped quote, copy both
-			{
-				*word++ = c;
-				*word++ = *ptr++;
-				continue;
-			}
-			else if (c == end && (IsWhiteSpace(*ptr) || nestingData[(unsigned char)*ptr] == -1 || *ptr == 0)) // a terminator followed by white space or closing bracket or end of data terminated
-			{
-				if (IsWhiteSpace(*ptr)) ++ptr;
-				break; // blank or nul after closer
-			}
-			*word++ = c;
-		}
-		if (c) *word++ = end; // add back closer
-		else // didnt find close, it was spurious... treat as normal
+		char c;
+		if (*ptr == FUNCTIONSTRING) c = ptr[1];
+		else c = *ptr;
+		*word++ = *ptr++;  // transfer ^ active string starter
+		*word++ = *ptr++;
+		*word = 0;
+		priorchar = 0;
+		ender = jsonactivestring = c; // this is the opener marker
+	}
+	else if (*ptr == '"') // simple string
+	{
+		*word++ = *ptr++;  // transfer " string starter
+		*word = 0;
+		ender = '"';
+	}
+
+	// this is a kind of string (regular or active). run til it ends properly
+	if (!noquote && (*ptr == ENDUNIT || ender)) //   ends in blank or nul,  might be quoted, doublequoted, or ^"xxx" functional string or ^'xxx' jsonactivestring
+	{ // active string has to be careful about ending prematurely on fake quotes
+		char c = 0;
+		ptr = EatString(ptr, word, ender, jsonactivestring);
+		word += strlen(word);
+		if (!*(ptr-1)) // didnt find close, it was spurious... treat as normal
 		{
 			ptr = start;
 			word = original;
@@ -2589,63 +2757,58 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 			}
 		}
 	}
-	else 
+	else // normal token, not some kind of string (but if pattern assign it could become)
 	{
-		bool quote = false;
-        char quotechar = '"';
-        bool activestring = false;
 		bool bracket = false;
-		char priorchar = 0;
-		while ((c = *ptr++) && c != ENDUNIT) 
-		{
-			if (IsWhiteSpace(c) && !quote) break;
-            if (c == '^' && (*ptr == '"' || *ptr == '\'') && !activestring)
-            {
-                quotechar = *ptr;
-                activestring = true;
-            }
-            if (c == quotechar && *(ptr - 2) != '\\')
-            {
-                if (!quote)
-                {
-                    if (*(ptr-2) == '^' && *(ptr-3) == '=') quote = !quote;
-                    else if (*(ptr - 2) == '=') quote = !quote;
-                }
-                else quote = !quote;
-            }
-
-			// PAY NO SPECIAL ATTENTION TO NON-STARTING QUOTEMARKS, ESP 69"
-            // except when bound to pattern assignment  xxx:=^" or xxx:="
-            if (quote)
-            {
-
-            }
-			else if (special) // try to end a variable if not utf8 char or such
+		char c = 0;
+		while ((c = *ptr) && c != ENDUNIT) 
+		{ // worst case is in pattern $x:=^"^join(...)" where spaces are in fn call args inside of active string
+		  // may have quotes inside it, so have to clear the call before can find quote end of active string.
+		  // BUG if args themselves are active strings.
+		  // white space in active string or quoted string does not end token
+			++ptr;
+			if (IsWhiteSpace(c)) break;
+			if (special) // try to end a variable if not utf8 char or such
 			{
 				if (special == '$' && (c == '.' || c == '[') && (LegalVarChar(*ptr) || *ptr == '$' || (*ptr == '\\' && ptr[1] == '$') )) {;} // legal data following . or [
 				else if (special == '$' &&  c == ']' && bracket) {;} // allowed trailing array close
 				else if (special == '$' && c == '$' && (priorchar == '.' || priorchar == '[' || priorchar == '$' || priorchar == 0 || priorchar == '\\')){;} // legal start of interval variable or transient var continued
 				else if ((special == '%' || special == '_' || special == '@') && priorchar == 0) {;}
-				else if (!LegalVarChar(c) && c != '\\') 
+				else if (!LegalVarChar(c) && c != '\\')
+				{
+					--ptr;
 					break;
+				}
 				if (c == '[' && !bracket) bracket = true;
 				else if (c == ']' && bracket) bracket = false;
 			}
-
+			if (*ptr == ':' && ptr[1] == '=' && ptr[2] == '^' && (ptr[3] == '"' || ptr[3] == '\'')) // extend for variable assignment
+			{
+				*word++ = c; //   run til nul or blank or end of rule 
+				*word++ = *ptr++;
+				*word++ = *ptr++;
+				*word++ = *ptr++;
+				char ender = *ptr++;
+				*word++ = ender;
+				*word = 0;
+				ptr = EatString(ptr, word, ender, ender);
+				word += strlen(word);
+				break;
+			}
 			if (!nolimit && (word-original) > (MAX_WORD_SIZE - 3)) break;
 			*word++ = c; //   run til nul or blank or end of rule 
 			priorchar = c;
 		}
 	}
 	*word = 0; //   null terminate word
-	if (!c || special) --ptr; //   shouldnt move on to valid next start (preknown to have space before it, but user string uncompiled might not)
 	return ptr;	
 }
 
 char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with ((unless within is true), find the closing ) and point to next item after
 {
+	char* start = ptr;
 	int paren = 0;
-	if (within) paren = 1;
+	if (within) paren = 1; // function call or pattern (
 	--ptr;
 	bool quoting = false;
     while (*++ptr && *ptr != ENDUNIT) // jump to END of command to resume here, may have multiple parens within
@@ -2665,14 +2828,20 @@ char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with (
 		{
 			SetWildCardNull();
 		}
-		int value = nestingData[(unsigned char)*ptr];
-		if (*ptr == '<' && ptr[1] == '<' && ptr[2] != '<') value = 1;
-		if (*ptr == '>' && ptr[1] == '>' && ptr[2] != '>') 
+		int value = nestingData[(unsigned char)*ptr]; // () {} []
+		// parens dominate when we have them, we dont bother to care about other kinds of levels within if we have them
+		// the << >> pair arenot in table, account for them
+		if (*ptr == '<' && ptr[1] == '<' && ptr[2] != '<')
+		{
+			value = 1;
+			++ptr;
+		}
+		if (*ptr == '>' && ptr[1] == '>' && ptr[2] != '>')
 		{
 			value = -1;
 			++ptr; // ignore 1st one
 		}
-
+	
 		if (value && (paren += value) == 0) 
 		{
             if (ptr[1] == ' ') ptr += 2;
@@ -2865,7 +3034,7 @@ void ConvertNL(char* ptr)
 		{
 			if (ptr[1] == 'n') 
 			{
-				if (*(ptr-1) != '\r') // auto add \r before it
+				if (ptr > start && *(ptr - 1) != '\r') // auto add \r before it
 				{
 					*ptr = '\r'; // legal
 					*++ptr = '\n'; // legal
@@ -3343,6 +3512,36 @@ void MakeUpperCase(char* ptr)
 		else if (utfcharacter[1]) ptr = x - 1;
         else  *ptr = GetUppercaseData(*ptr);
 	}
+}
+
+char* PartialLowerCopy(char* to, char* from, int begin, int end)  	//excludes the part from start to end from being converted to lower case
+{
+	char* start = to;
+	char tempCopy[MAX_WORD_SIZE], tempCopyFirst[MAX_WORD_SIZE], tempCopyLast[MAX_WORD_SIZE], tempLowerFirst[MAX_WORD_SIZE], tempLowerLast[MAX_WORD_SIZE];
+	strncpy(tempCopyFirst, from, begin);
+	strncpy(tempCopy, from + begin, end);
+	strncpy(tempCopyLast, from + end, strlen(from) - 1);
+	tempCopyFirst[begin] = '\0';
+	tempCopy[end - begin + 1] = '\0';
+	tempCopyLast[strlen(from) - end] = '\0';
+	MakeLowerCopy(tempLowerFirst, tempCopyFirst);
+	MakeLowerCopy(tempLowerLast, tempCopyLast);
+	int index = 0;
+	while (index <= strlen(from))
+	{
+		if (index < begin) *(to + index) = *(tempLowerFirst + index);
+		else if (index >= begin && index < end) *(to + index) = *(tempCopy + (index - begin));
+		else *(to + index) = *(tempLowerLast + (index - end));
+		index += 1;
+	}
+	*(to + index) = '\0';
+	while (index > 1)
+	{
+		*to++;
+		index--;
+	}
+	*to = 0;
+	return start;
 }
 
 char*  MakeLowerCopy(char* to, char* from)

@@ -1488,12 +1488,12 @@ FACT* ReadFact(char* &ptr, unsigned int build)
 void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) //   a facts file may have dictionary augmentations and variable also
 {
   	char word[MAX_WORD_SIZE];
-	if (layer) sprintf(word,"%s/%s",topic,name);
+	if (layer) sprintf(word,"%s/%s",topicname,name);
 	else strcpy(word,name);
     FILE* in = (user) ? FopenReadWritten(word) : FopenReadOnly(word); //  TOPIC fact/DICT files
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s",topic,layer,name);
+		sprintf(word,"%s/BUILD%s/%s", topicname,layer,name);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -1824,7 +1824,7 @@ void ModBaseFact(FACT* F) // anyone changing fields of facts calls this
     else if (Meaning2Word(F->verb) > userdictstart) {}
     else if (Meaning2Word(F->object) > userdictstart) {}
     else return; // nothing from user space here 
-    factThread = AllocateHeapval(factThread, (uint64)F, NULL);
+    factThread = AllocateHeapval(factThread, (uint64)F, 0);
 }
 
 

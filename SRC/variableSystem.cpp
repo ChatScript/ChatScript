@@ -80,15 +80,17 @@ void JoinMatch(int start, int end, int index, bool inpattern)
             strcat(wildcardCanonicalText[index], wildcardSeparator);
         }
         else started = true;
-        if (IsUpperCase(*wildcardOriginalText[index])) proper = true;
+        if (IsUpperCase(*wildcardOriginalText[index])) proper = true; // may be proper name
         strcat(wildcardOriginalText[index], word);
-        if (wordCanonical[i]) strcat(wildcardCanonicalText[index], wordCanonical[i]);
+		if (wordCanonical[i]) strcat(wildcardCanonicalText[index], wordCanonical[i]);
         else strcat(wildcardCanonicalText[index], word);
     }
-    // proper names canonical is same 
-    if (!proper && strstr(wildcardCanonicalText[index], "unknown-word")) strcpy(wildcardCanonicalText[index], "unknown-word"); // if any are unknown, the composite is unknown
-    else if (proper && start != end) strcpy(wildcardCanonicalText[index], wildcardOriginalText[index]);
-    bbb = 1;
+ 	// if not a proper name any are unknown, the composite is unknown unless it is an entire sentence grab, then preserve pieces
+	if (start == end) {}
+	else if (!proper && strstr(wildcardCanonicalText[index], "unknown-word") && (start != 1 || end != wordCount))
+		strcpy(wildcardCanonicalText[index], "unknown-word"); 
+	// proper names canonical is same, but merely having 1 uppercase is not proper if multiword "I live here" _*
+	// else if (proper && start != end) strcpy(wildcardCanonicalText[index], wildcardOriginalText[index]);
     WORDP D;
     if (uppercaseFind > 0 && uppercaseFind != 0x01000000) D = Index2Word((uppercaseFind & 0x00ffffff));
     else D = FindWord(wildcardCanonicalText[index], 0, STANDARD_LOOKUP);
@@ -96,7 +98,6 @@ void JoinMatch(int start, int end, int index, bool inpattern)
     if (uppercaseFind > 0 && uppercaseFind != 0x01000000) D = Index2Word((uppercaseFind & 0x00ffffff));
     else D = FindWord(wildcardOriginalText[index], 0, STANDARD_LOOKUP);
     if (D) strcpy(wildcardOriginalText[index], D->word); // but may not be found if original has plural or such or if uses _
-    bbb = 0;
     uppercaseFind = -1; // use it up
     if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(STDUSERLOG, (char*)"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
 }
@@ -1223,11 +1224,11 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             }
             else SetWildCard(buffer, buffer, word, 0);
         }
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s(%s)\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
     }
     else if (*word == USERVAR_PREFIX)
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s(%s)\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
         char* dot = strchr(word, '.');
         if (!dot) dot = strstr(word, "[]"); // array assign?
         if (!dot || nojson) SetUserVariable(word, buffer, true);
@@ -1235,12 +1236,12 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     }
     else if (*word == '\'' && word[1] == USERVAR_PREFIX)
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s(%s)\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
         SetUserVariable(word + 1, buffer, true); // '$xx = value  -- like passed thru as argument
     }
     else if (*word == SYSVAR_PREFIX && !strchr(buffer, ' '))
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s(%s)\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
         SystemVariable(word, buffer); // assignment onto system var
     }
     else if (*word == '^') // overwrite function arg

@@ -43,6 +43,8 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 #define TRANSIENTVAR_PREFIX '$'
 #define LOCALVAR_PREFIX '_'
 #define FACTSET_PREFIX '@'
+#define INDIRECTION_PREFIX '^'
+#define FUNCTION_PREFIX '^'
 #define FUNCTIONVAR_PREFIX '^'
 #define TOPICCONCEPT_PREFIX '~'
 #define INDIRECT_PREFIX '^'

@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-pattern-redux">ChatScript Pattern Redux</h1>
 <p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
-<br>Revision 1/26/2020 cs10.0</p>
+<br>Revision 3/29/2020 cs10.1</p>
 <p>Pattern matching information was introduced in the Beginner manual and expanded in the <a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>. Since pattern matching is of such importance, this concise manual lists everything about patterns in one place, including patterns not listed in the Advanced manual.</p>
 <p>NOTE: despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
 <pre><code># rule 1 
@@ -228,6 +228,9 @@ so which one is found first in the sentence is what sets the position. For an in
 <pre><code>s: ( \! )</code></pre>
 <p>means user did something like <em>I love you!</em>.</p>
 <p>You may use either <code>?</code> or <code>\?</code> when asking if the sentence has a question in it. You would generally only do this in a rejoinder.</p>
+<h2 id="concept-intersection-keywords">Concept intersection keywords</h2>
+<p>If you join a word (or a concept) and one or more concepts, that represents the intersection of them. e.g., (<sub>animals</sub>tasty) will reference all animals considered tasty.</p>
+<p>Note, you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.</p>
 <h3 id="function-call---xxx...">Function Call - <code>^xxx(...)</code></h3>
 <p>You can call a function from within a pattern. If the function returns a failure code of any kind, the match fails. If the function is a predefined system function, you are allowed relation operators on the result as well.</p>
 <pre><code>u: ( ^lastused(~ gambit)&gt;5 )</code></pre>

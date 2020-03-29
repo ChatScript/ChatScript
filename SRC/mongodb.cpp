@@ -88,7 +88,7 @@ eReturnValue EstablishConnection(	const char* pStrSeverUri, // eg "mongodb://loc
 	if( myclient == NULL ) return eReturnValue_DATABASE_OPEN_CLIENT_CONNECTION_FAILED;
 	
 	char* enableSSL = GetUserVariable("$mongo_enable_ssl");
-#ifdef JUNK
+#ifdef MONGOSSLOPTS
 	if(enableSSL != NULL && (stricmp(enableSSL,(char*)"true") == 0)) {
 		
 		char* validateSSL = GetUserVariable("$mongovalidatessl");
@@ -244,7 +244,8 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
             eRetVal = eReturnValue_DATABASE_QUERY_FAILED;
             break;
         }
-        
+        size_t retrievedDataSize = 0;
+    	uint64 cursorReadStart = ElapsedMilliseconds();
         while( mongoc_cursor_next (psCursor, (const bson_t **)&pDoc) )
         {
             if (pDoc != NULL)
@@ -255,19 +256,21 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
     				value = bson_iter_value (&iter);
     				if ( value->value_type == BSON_TYPE_UTF8){
     					mongoKeyValue = value->value.v_utf8.str;
+                        retrievedDataSize = strlen(mongoKeyValue);
     				}
             	}
             }
         }
 		uint64 endtime = ElapsedMilliseconds();
 		unsigned int diff = (unsigned int)(endtime - starttime);
+		unsigned int crdiff = (unsigned int)(endtime - cursorReadStart);
 		unsigned int limit = 100;
 		char* val = GetUserVariable("$db_timelimit");
 		if (*val) limit = unsigned(atoi(val));
 		if (diff >= limit){
 			char dbmsg[512];
 			struct tm ptm;
-			sprintf(dbmsg,"%s Mongo Find took longer than expected for %s, time taken = %ums\r\n", GetTimeInfo(&ptm),key, diff);
+			sprintf(dbmsg,"%s Mongo Find took longer than expected for %s, with total retrieved data size in bytes = %zu, cursor read time = %ums And time taken = %ums\r\n", GetTimeInfo(&ptm),key, retrievedDataSize, crdiff, diff);
 			Log(DBTIMELOG, dbmsg);
 		}
     }while(false);
@@ -398,8 +401,8 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     bson_t *query = NULL;
     bson_oid_init (&oid, NULL);
     query = BCON_NEW ("KeyName", BCON_UTF8 (keyname));
-    update = BCON_NEW ("$set", "{", "KeyName", BCON_UTF8 (keyname), "KeyValue", BCON_UTF8 (value),"}");
     uint64 starttime = ElapsedMilliseconds();
+    update = BCON_NEW ("$set", "{", "KeyName", BCON_UTF8 (keyname), "KeyValue", BCON_UTF8 (value),"lmodified",BCON_DATE_TIME(starttime),"}");
     if (mongoc_collection_update (collection, MONGOC_UPDATE_UPSERT, query, update, NULL, &error)) result = NOPROBLEM_BIT;
     if (doc) bson_destroy (doc);
     if (query) bson_destroy (query);

@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/10/2018 cs9.8
+<br>Revision 3/29/2020 cs10.1
 
 
 # Command Line Parameters
@@ -327,6 +327,22 @@ connection wasn't broken somewhere and await more input forever.
 Noserverlog
 ```
 Don't write a server log or a bugs log.
+
+```
+Nobuglog
+```
+Don't write a server bugs log. 
+
+```
+Buglog
+```
+Write a server bugs log. Use after `Noserverlog` when you want to turn off server logs but retain bug logging.
+
+
+```
+DebugLevel=n
+```
+Sets debug level of server logging. 0 will remove logging all the startup variables and their values.
 
 ```
 Fork=n

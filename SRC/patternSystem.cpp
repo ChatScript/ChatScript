@@ -247,7 +247,7 @@ static bool MatchTest(bool reverse, WORDP D, int start, char* op, char* compare,
 {
     if (start == INFINITE_MATCH) start = (reverse) ? (wordCount + 1) : 0;
     uppercaseFind = 0;
-    if (deeptrace) Log(STDUSERLOG, (char*)" matchtesting:%s ", D->word);
+    if (deeptrace && D) Log(STDUSERLOG, (char*)" matchtesting:%s ", D->word);
     while (GetNextSpot(D, start, actualStart, actualEnd, reverse, legalgap)) // find a spot later where token is in sentence
     {
         if (deeptrace) Log(STDUSERLOG, (char*)" matchtest:%s %d-%d ", D->word, actualStart, actualEnd);
@@ -287,7 +287,7 @@ static bool MatchTest(bool reverse, WORDP D, int start, char* op, char* compare,
             if (!stricmp(D->word, word)) return true;
         }
     }
-    if (deeptrace) Log(STDUSERLOG, (char*)" matchtest:%s failed ", D->word);
+    if (deeptrace && D) Log(STDUSERLOG, (char*)" matchtest:%s failed ", D->word);
     return false;
 }
 

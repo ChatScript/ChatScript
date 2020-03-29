@@ -1,9 +1,7 @@
 # ChatScript Client/Server Manual
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
-
-
-> Revision 8/27/2016 cs7.54
+<br>Revision 3/29/2020 cs10.1
 
 * [Running the server](ChatScript-ClientServer-Manual.md#running-the-server)
 * [Unique User Names](ChatScript-ClientServer-Manual.md#unique-user-names)
@@ -450,4 +448,84 @@ Where %s goes depends on the api you call.
 
 To roll your own, you have to define routines in private code that encrypt and decrypt (see examples in os.cpp) and on private initialization override the default variables controlling userFileSystem.encrypt and userFileSystem.decrypt.
 
+# Client debug commands
 
+When running a CS client talking to a cs server, there are some debugging commands that can prove
+useful. It is similar to local mode in that you have to log in with some arbitrary name.
+By default the bot goes first in the conversation, but if you want the human to go first,
+just put an * in front of your user name. If you want to name the bot you want to talk to 
+(in multibot servers), put a :botname after your login, e.g. `bruce:bot1`.
+
+## :source
+This is the same :source command that you can use on a standalone server, sending the lines of the
+the file from client to server.
+
+## :restart
+Tell server to restart (reload) itself.
+
+## :converse
+A conversation is a series of tab-delimited lines, where the first column is user name,
+the second is botname, and the third is user message. When user name changes, you have a new
+conversation.
+
+## JA internal commands
+These commands read lines from a file (the first argument). If given, the second argument says how
+many lines to read before quitting. And the third argument, if given, tells how many lines to skip
+before really starting. The file is presumed to be at the top level of the ChatScript directory
+(if you dont give full path).
+
+Typical data (except for :jmeter and :jaraw files) consists of tab or comma separated columns. 
+First column is the user id.
+Second column is the category of the conversation. 
+Third column is the specialty involved.
+Fourth column is the location, or some data to be passed back out unchanged. Sometimes this is
+converted status, or human labeled response or whatever.  Fourth column is user input.
+Fifth column, if given, is the output expected from the bot, which is just echoed out.
+```
+45543099	Computer	Email	usa	Welcome! What's wrong with your email?
+45543099	Computer	Email	usa	Could only receive
+45543099	Computer	Email	usa	Are emails stuck in your outbox?
+45543099	Computer	Email	usa	I have lost everything 
+45543100	Consumer_Electronics	TV	usa	Welcome! What's wrong with your TV?
+45543100	Consumer_Electronics	TV	usa	White fuzzy
+45543100	Consumer_Electronics	TV	usa	What's the brand and model number of your TV? How old is it?
+45543100	Consumer_Electronics	TV	usa	2 years old
+```
+A full conversation starts with the bot remarks and alternates bot lines with user lines. Bot lines
+are there for completeness and are not passed to the server.
+
+### :jastarts filename {count {skip}}
+Each line is an independent conversation of 1 line done by user. E.g.,
+```
+45543099	Computer	Email	usa	Could only receive
+45543100	Consumer_Electronics	TV	usa	White fuzzy
+```
+
+Each conversation is started by sending a conversation initiation message of
+```
+[category: xxx specialty: yyy location: zzz id: iii expect: "..." ]
+```
+where the location and expect fields only exists if the corresponding column was nonblank.
+Thereafter the lines sent to the server are just the user inputs.
+
+### :jaconverse file {count {skip}}
+A conversation is a series of lines until a new user or category is detected. It starts with 
+the opening message from the bot, and the lines alternate what the bot says (which are ignored and
+not passed to the server) and what the user says. E.g.,
+
+### :jamonologue file {count {skip}}
+A conversation is a series of lines until a new user or category is detected. It consists ONLY 
+of what the user says.
+
+### :jajmeter file {count {skip}}
+In addition to file, if your file ends with /, that means use that as a directory and do all 
+files within it (recursive).
+
+A line is an entire conversation (a la JMETER std format), with what is expected from the bot and what the user says in 
+return. An output file of TMP/jmeter.txt is generated which labels inputs with they passed 
+(the output from bot matched expectation) or FAILED (and what oob data was shipped is shown along
+with what was expected and what was received).
+
+## :jaraw file 
+Send the message under a [category: legal] header and the file only consists of input lines from
+user with no other data.

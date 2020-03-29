@@ -39,6 +39,7 @@ static bool pendingWarning = false;			// log entry we are building is a warning 
 static bool pendingError = false;			// log entry we are building is an error message
 int userLog = LOGGING_NOT_SET;				// do we log user
 int serverLog = LOGGING_NOT_SET;			// do we log server
+int bugLog = LOGGING_NOT_SET;				// do we log bugs
 char hide[4000];							// dont log this json field 
 bool serverPreLog = true;					// show what server got BEFORE it works on it
 bool serverctrlz = false;					// close communication with \0 and ctrlz
@@ -462,10 +463,6 @@ char** RestoreStackSlot(char* variable,char** slot)
 	WORDP D = FindWord(variable);
 	if (!D) return slot; // should never happen, we allocate dict entry on save
     memcpy(&D->w.userValue,slot,sizeof(char*));
-    if (!stricmp(variable, "$_specialty"))
-    {
-        int xx = 0;
-    }
 
 #ifndef DISCARDTESTING
     if (debugVar) (*debugVar)(variable, D->w.userValue);
@@ -1979,17 +1976,31 @@ static FILE* rotateLogOnLimit(char *fname,char* directory) {
         time_t curr = time(0);
         char* when = GetMyTime(curr); // now
         char newname[MAX_WORD_SIZE];
-        strcpy(newname, fname);
-        char* at = strrchr(newname, '.');
+#ifdef WIN32
+		char* old = strrchr(fname, '/');
+		strcpy(newname, old + 1); // just the name, no directory path
+#else
+		strcpy(newname, fname);
+#endif
+		char* at = strrchr(newname, '.');
         sprintf(at, "-%s.txt", when);
         at = strchr(newname, ':');
         *at = '-';
         at = strchr(newname, ':');
         *at = '-';
 
-        int result = rename(fname, newname);
-        if (result != 0) perror("Error renaming file");
-        out = FopenUTF8WriteAppend(fname);
+		int result = 0;
+#ifdef WIN32
+		SetCurrentDirectory(directory);
+		result = rename(old + 1, newname); // some renames cant handle directory spec
+#else
+		result = rename(fname, newname);
+#endif
+		if (result != 0) perror("Error renaming file");
+#ifdef WIN32
+		SetCurrentDirectory((char*)"..");
+#endif
+		out = FopenUTF8WriteAppend(fname);
     }
     return out;
 }
@@ -2162,7 +2173,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 	logUpdated = true; // in case someone wants to see if intervening output happened
 	size_t bufLen = at - logmainbuffer;
 	inLog = true;
-	bool bugLog = false;
+	bool dobugLog = false;
 	
 	if (pendingWarning)
 	{
@@ -2188,12 +2199,12 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 #endif
 #endif	
 
-	if ((channel == BADSCRIPTLOG || channel == BUGLOG) && !nobug) 
+	if ((channel == BADSCRIPTLOG || channel == BUGLOG) && !nobug && bugLog)
 	{
 		if (!strnicmp(logmainbuffer,"FATAL",5)){;} // log fatalities anyway
-		else if (channel == BUGLOG && server && !serverLog)  return id; // not logging server data
+		else if (channel == BUGLOG && !bugLog)  return id; // not logging server data
 	
-		bugLog = true;
+		dobugLog = true;
 		char name[MAX_WORD_SIZE];
 		sprintf(name,(char*)"%s/bugs.txt",logs); 
 		FILE* bug = rotateLogOnLimit(name,logs);
@@ -2292,7 +2303,7 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
 		{
 			fwrite(logmainbuffer,1,bufLen,out);
 			struct tm ptm;
-			if (!bugLog);
+			if (!dobugLog);
  			else if (*currentFilename) fprintf(out,(char*)"   in %s at %d: %s\r\n    ",currentFilename,currentFileLine,readBuffer);
 			else if (*currentInput) fprintf(out,(char*)"%d %s in sentence: %s \r\n    ",volleyCount,GetTimeInfo(&ptm,true),currentInput);
 		}

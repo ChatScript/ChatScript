@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/14/2019 cs9.6</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/29/2020 cs10.1</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -89,7 +89,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="dt">&quot;children&quot;</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span>
     <span class="dt">&quot;spouse&quot;</span><span class="fu">:</span> <span class="kw">null</span>
 <span class="fu">}</span></code></pre></div>
-<p>Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact structure in CS, the facts will all be unique.</p>
 <p>JSON facts are triples where the subject is always the name of a JSON object or array. For objects, the verb of the fact is the name of a field and the object is its value. Such a structure might be composed of these facts:</p>
 <pre><code>(jo-3 name Robert)
 (jo-3 age 10)
@@ -106,8 +105,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>This would correspond to a JSON string that looks like this: [ &quot;Robert&quot;, &quot;Terry&quot;, &quot;Paula&quot;]</p>
 <pre><code>
 Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can.
+Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly
+querying on some field name.
 
+Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact
+structure in CS, the facts will all be unique. You do this like this:</code></pre>
+<pre><code>$_tmp = ^createfact($$jsonobject newfield $$jsondata (FACTTRANSIENT JSON_OBJECT_FACT JSON_OBJECT_VALUE) )</code></pre>
+<pre><code>If $$jsonobject is a json object name, you add a field called newfield whose value is a
+JSON object, thus joining the trees. If you serialize (write into text) these two JSON objects
+they will become completely separate structures when read back in (JSON doesn&#39;t share).
 
+Also note that while CS can read in JSON whose value has an empty string like:</code></pre>
+<pre><code>{ &quot;input&quot;:&quot;&quot;}</code></pre>
+<pre><code>CS cannot represent that itself, since empty strings are treated as null values. So CS
+cannot export such a structure directly.
 ## Accessing the web with JSON
 
 You will learn how to create JSON structures below. The other key to a

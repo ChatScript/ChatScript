@@ -1,15 +1,17 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.0";
+char* version = "10.1";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
 char defaultbot[100];
+bool sentenceOverflow = false;
 bool loadingUser = false;
 bool dieonwritefail = false;
 int inputLimit = 0;
 char traceuser[500];
 int traceUniversal;
+int debugLevel = 0;
 PRINTER printer = printf;
 unsigned int idetrace = (unsigned int) -1;
 int outputlevel = 0;
@@ -64,7 +66,7 @@ char hostname[100];
 bool nosuchbotrestart = false; // restart if no such bot
 char users[100];
 char logs[100];
-char topic[100];
+char topicname[100];
 char tmp[100];
 char buildfiles[100];
 char* derivationSentence[MAX_SENTENCE_LENGTH];
@@ -210,8 +212,8 @@ static void SetBotVariable(char* word)
         ReturnToAfterLayer(currentBeforeLayer-1, true);
         *word = USERVAR_PREFIX;
         SetUserVariable(word, eq + 1);
-        if (server) Log(SERVERLOG, (char*)"botvariable: %s = %s\r\n", word, eq + 1);
-        else (*printer)((char*)"botvariable: %s = %s\r\n", word, eq + 1);
+        if (server && debugLevel > 0) Log(SERVERLOG, (char*)"botvariable: %s = %s\r\n", word, eq + 1);
+        else if(debugLevel > 0) (*printer )((char*)"botvariable: %s = %s\r\n", word, eq + 1);
         NoteBotVariables(); // these go into level 1
         LockLayer(false);
     }
@@ -586,7 +588,9 @@ static void ProcessArgument(char* arg)
         (*printer)("CommandLine: %s\r\n",path);
 		argumentsSeen = true;
 	}
+#ifndef NOARGTRACE
     (*printer)("    %s\r\n",arg);
+#endif
 	if (!stricmp(arg,(char*)"trace")) trace = (unsigned int) -1; 
 	else if (!strnicmp(arg,(char*)"language=",9)) 
 	{
@@ -663,6 +667,7 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg,(char*)"dict=",5)) maxDictEntries = atoi(arg+5); // how many dict words allowed
 	else if (!strnicmp(arg,(char*)"fact=",5)) maxFacts = atoi(arg+5);  // fact entries
 	else if (!strnicmp(arg,(char*)"text=",5)) maxHeapBytes = atoi(arg+5) * 1000; // stack and heap bytes in pages
+	else if (!strnicmp(arg,(char*)"debuglevel=",11)) debugLevel = atoi(arg+11);  // log level entries
 	else if (!strnicmp(arg,(char*)"cache=",6)) // value of 10x0 means never save user data
 	{
 		userCacheSize = atoi(arg+6) * 1000;
@@ -675,7 +680,7 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg,(char*)"nodebug")) *authorizations = '1'; 
 	else if (!strnicmp(arg,(char*)"users=",6 )) strcpy(users,arg+6);
 	else if (!strnicmp(arg,(char*)"logs=",5 )) strcpy(logs,arg+5);
-	else if (!strnicmp(arg,(char*)"topic=",6 )) strcpy(topic,arg+6);
+	else if (!strnicmp(arg,(char*)"topic=",6 )) strcpy(topicname,arg+6);
 	else if (!strnicmp(arg,(char*)"tmp=",4 )) strcpy(tmp,arg+4);
     else if (!strnicmp(arg, (char*)"buildfiles=", 11)) strcpy(buildfiles, arg + 11);
     else if (!strnicmp(arg,(char*)"private=",8)) privateParams = arg+8;
@@ -804,9 +809,11 @@ static void ProcessArgument(char* arg)
 #ifndef DISCARDSERVER
 	else if (!stricmp(arg,(char*)"serverretry")) serverRetryOK = true;
 	else if (!stricmp(arg,(char*)"local")) server = false; // local standalone
-	else if (!stricmp(arg,(char*)"noserverlog")) serverLog = false;
-	else if (!stricmp(arg,(char*)"serverlog")) serverLog = true;
-	else if (!stricmp(arg,(char*)"noserverprelog")) serverPreLog = false;
+	else if (!stricmp(arg, (char*)"noserverlog")) serverLog = false;
+	else if (!stricmp(arg, (char*)"nobuglog")) bugLog = false;
+	else if (!stricmp(arg, (char*)"buglog")) bugLog = true;
+	else if (!stricmp(arg, (char*)"serverlog")) bugLog = serverLog = true;
+	else if (!stricmp(arg, (char*)"noserverprelog")) serverPreLog = false;
 	else if (!stricmp(arg,(char*)"serverctrlz")) serverctrlz = 1;
 	else if (!strnicmp(arg,(char*)"port=",5))  // be a server
 	{
@@ -979,7 +986,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	}
 	strcpy(users,(char*)"USERS");
 	strcpy(logs,(char*)"LOGS");
-	strcpy(topic,(char*)"TOPIC");
+	strcpy(topicname,(char*)"TOPIC");
 	strcpy(tmp,(char*)"TMP");
 
 	strcpy(language,(char*)"ENGLISH");
@@ -1022,7 +1029,8 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
     oldInputBuffer = (char*)malloc(maxBufferSize);
     lastInputSubstitution = (char*)malloc(maxBufferSize);
     inputCopy = (char*)malloc(maxBufferSize);
-    rawSentenceCopy = (char*)malloc(maxBufferSize);
+	realinput = (char*)malloc(maxBufferSize);
+	rawSentenceCopy = (char*)malloc(maxBufferSize);
     currentInput = (char*)malloc(maxBufferSize);
     revertBuffer = (char*)malloc(maxBufferSize);
     ourMainInputBuffer = (char*)malloc(maxBufferSize * 2);  // precaution for overlow
@@ -1826,6 +1834,29 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
 
             char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
             char* poutput = Purify(output);
+            char* userInput = NULL;
+            char endInput = 0;
+            char* userOutput = NULL;
+            char endOutput = 0;
+            if (strstr(hide,"botmessage")){
+                // allow tracing of OOB but thats all
+                userOutput = BalanceParen(poutput, false, false);
+                if (userOutput) {
+                    endOutput = *userOutput;
+                    *userOutput = 0;
+                }
+            }
+            if (*incoming) {
+                if (strstr(hide,"usermessage")){
+                    // allow tracing of OOB but thats all
+                    userInput = BalanceParen(incoming, false, false);
+                    if (userInput) {
+                        endInput = *userInput;
+                        *userInput = 0;
+                    }
+                }
+            }
+            
             if (*incoming && regression == NORMAL_REGRESSION) Log(STDUSERLOG, (char*)"%s(%s) %s ==> %s %s\r\n", nl, activeTopic, TrimSpaces(incoming), poutput, origbuff+2); // simpler format for diff
             else if (!*incoming)
             {
@@ -1835,6 +1866,8 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
             {
                 Log(STDUSERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  %s ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, incoming, poutput, when, origbuff+2, time15);  // normal volley
             }
+            if (userInput) *userInput = endInput;
+            if (userOutput) *userOutput = endOutput;
             if (shortPos)
             {
                 Log(STDUSERLOG, (char*)"%s", DumpAnalysis(1, wordCount, posValues, (char*)"Tagged POS", false, true));
@@ -1842,7 +1875,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
             }
         }
 
-        // now convert output separators between rule outputs to space from ' for user display result (log has ', user sees nothing extra) 
+        // now convert output separators between rule outputs to space from ' for user display result (log has ', user sees nothing extra)
         if (prepareMode != REGRESS_MODE)
         {
             char* sep = output + 1;
@@ -1918,15 +1951,17 @@ static void LimitInput(char* incoming)
 // WE DO NOT ALLOW USERS TO ENTER CONTROL CHARACTERS.
 // INTERNAL STRINGS AND STUFF never have control characters either (/r /t /n converted only on output to user)
 // WE internally use /r/n in file stuff for the user topic file.
+char* realinput = NULL;
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
 
-	if (server) AdjustUTF8(incoming, incoming - 1); // not needed coming locally
-
     stackFree = stackStart; // begin fresh
     ResetToPreUser();
-	bool resetuser = false;
+ 	bool resetuser = false;
+	if ((unsigned char)incoming[0] == 0xEF && (unsigned char)incoming[1] == 0xBB && (unsigned char)incoming[2] == 0xBF) // UTF8 BOM
+		incoming += 3; // ignore BOM if coming from a file
+	
 	if (!strnicmp(incoming, ":reset:", 7))
 	{
 		resetuser = true;
@@ -1957,6 +1992,9 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		HandleBoot(FindWord("^cs_reboot"), true);
 	}
 
+	strcpy(realinput, incoming);
+	if (server) AdjustUTF8(incoming, incoming - 1); // not needed coming locally
+
 	bool eraseUser = false;
 
 	// accept a user topic file erase command
@@ -1973,7 +2011,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     // absolute limit
     if (len >= maxBufferSize) incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
     // relative limit on user
-    if (inputLimit && inputLimit <= len) LimitInput(incoming);
+    if (inputLimit && inputLimit <= (int)len) LimitInput(incoming);
     
     char* at = mainInputBuffer;
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = SkipOOB(mainInputBuffer);
@@ -1982,17 +2020,16 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     incoming = SkipWhitespace(incoming);
     while (*++at)
 	{
-		if (*at < 31) *at = ' ';
-        if (*at == '"' && *(at - 1) != '\\')
-        {
-            if (at[1] == '"') at[1] = ' ';// dont allow doubled quotes
-            quote = !quote;
-            if ((!at[1] || !at[2]) && *incoming == '"') // no global quotes, (may have space at end)
-            {
-                *at = ' ';
-                *incoming = ' ';
-            }
-        }
+        if (*at > 0 && *at < 32) *at = ' ';
+		if (*at == '"' && *(at - 1) != '\\')
+		{
+			quote = !quote;
+			if ((!at[1] || !at[2]) && *incoming == '"') // no global quotes, (may have space at end)
+			{
+				*at = ' ';
+				*incoming = ' ';
+			}
+		}
 		if (*at == ' ' && !quote) // proper token separator
 		{
 			if ((at-startx) > (MAX_WORD_SIZE-1)) break; // trouble
@@ -2079,7 +2116,10 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // restore old BOM values
 	}
 	// else documentMode
-	if (fakeContinue) return volleyCount;
+	if (fakeContinue)
+	{
+		return volleyCount;
+	}
 	if (!*computerID && *incoming != ':')  // a  command will be allowed to execute independent of bot- ":build" works to create a bot
 	{
 		strcpy(output,(char*)"No such bot.\r\n");
@@ -2151,7 +2191,11 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	}	
 	strcpy(copyInput,incoming); // so input trace not contaminated by input revisions -- mainInputBuffer is "incoming"
 	ok = ProcessInput(copyInput);
-	if (ok <= 0) return ok; // command processed
+	if (ok <= 0)
+	{
+		strcpy(incoming, realinput); // guaranteed never touched by cs input
+		return ok; // command processed
+	}
 	
 	if (!server) // refresh prompts from a loaded bot since mainloop happens before user is loaded
 	{
@@ -2166,6 +2210,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 #ifndef DISCARDJAVASCRIPT
 	DeleteTransientJavaScript(); // unload context if there
 #endif
+
+	strcpy(incoming,realinput); // guaranteed never touched by cs input
 	return volleyCount;
 }
 
@@ -2326,7 +2372,8 @@ int ProcessInput(char* input)
 			ResetToPreUser(); // back to empty state before any user
 			return false; 
 		}
-		else if (commanded == OUTPUTASGIVEN) return true; 
+		else if (commanded == OUTPUTASGIVEN) 
+			return true; 
 		else if (commanded == TRACECMD) 
 		{
 			WriteUserData(time(0),true); // writes out data in case of tracing variables
@@ -2363,6 +2410,7 @@ loopback:
  	int loopcount = 0;
 	while (((nextInput && *nextInput) || startConversation) && loopcount < SENTENCE_LIMIT) // loop on user input sentences
 	{
+		sentenceOverflow = (loopcount + 1) >= SENTENCE_LIMIT; // is this the last one we will do
 		nextInput = SkipWhitespace(nextInput);
 		if (nextInput[0] == INPUTMARKER) // submitted by ^input `` is start,  ` is end
 		{
@@ -2459,6 +2507,8 @@ void MoreToCome()
 {
 	// set %more and %morequestion
 	moreToCome = moreToComeQuestion = false;
+	if (sentenceOverflow) return; // internal limit will stop him
+
 	char* at = nextInput - 1;
 	while (*++at)
 	{
@@ -2472,7 +2522,7 @@ void MoreToCome()
 FunctionResult DoSentence(char* prepassTopic, bool atlimit)
 {
 	char* input = AllocateBuffer();  // complete input we received
-	int len = strlen(nextInput);
+	unsigned int len = strlen(nextInput);
 	if (len >= (maxBufferSize)-100) nextInput[maxBufferSize-100] = 0;
 	strcpy(input,nextInput);
 	ambiguousWords = 0;
@@ -2735,29 +2785,38 @@ static void SaveResponse(char* msg)
 
 char* SkipOOB(char* buffer)
 {
-    // skip oob data 
-    char* noOob = SkipWhitespace(buffer);
-    if (*noOob == '[' || *noOob == '{') // TEMPORARY
-    {
-        int count = 1;
-        bool quote = false;
-        while (*++noOob)
-        {
-            if (*noOob == '"' && *(noOob - 1) != '\\') quote = !quote; // ignore within quotes
-            if (quote) continue;
-            if ((*noOob == '[' || *noOob == '{') && *(noOob - 1) != '\\') ++count;
-            if ((*noOob == ']' || *noOob == '}') && *(noOob - 1) != '\\')
-            {
-                --count;
-                if (count == 0)
-                {
-                    noOob = SkipWhitespace(noOob + 1);	// after the oob end
-                    break;
-                }
-            }
-        }
-    }
-    return noOob;
+	// skip oob data 
+	char* noOob = SkipWhitespace(buffer);
+	char* start = noOob;
+
+	if (*noOob == '[' || *noOob == '{') // TEMPORARY
+	{
+		int count = 1;
+		bool quote = false;
+		char c;
+		while ((c = *++noOob))
+		{
+			if (c == '\\') // protected char
+			{
+				++noOob;
+				continue;
+			}
+			if (c == '"')
+				quote = !quote; // ignore within quotes
+			if (quote) continue;
+			if ((c == '[' || c == '{')) ++count;
+			if ((c == ']' || c == '}'))
+			{
+				--count;
+				if (count == 0)
+				{
+					noOob = SkipWhitespace(noOob + 1);	// after the oob end
+					return noOob;
+				}
+			}
+		}
+	}
+	return start; // didnt validate incoming oob
 }
 
 char* DoOutputAdjustments(char* msg, unsigned int control,char* &buffer,char* limit)
@@ -2993,8 +3052,19 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	ResetTokenSystem();
     ClearWhereInSentence();
     ClearTriedData();
-
+	
 	char* ptr = input;
+
+	// protection from null input bug to testpattern
+	char* in = strstr(input, "\"input\": \", \"pattern");
+	if (in)
+	{
+		in += 10;
+		memmove(in + 1, in, strlen(in) + 1); // make room to patch
+		*in = '"';
+		ReportBug("Missing dq in API input field")
+	}
+
 	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark
     ptr = Tokenize(ptr,wordCount,wordStarts,false,oobstart); 
 	upperCount = 0;
@@ -3137,7 +3207,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
             MarkWordHit(0, false, StoreWord(wordStarts[i], AS_IS), 0, i, i);
         }
     }
-	if (!analyze) nextInput = ptr;	//   allow system to overwrite input here
+	nextInput = ptr;	//   allow system to overwrite input here (even for analyze) but this may blow nextinputs outside of analyze
 	int i, j;
 	if (!oobExists && tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
 	{
@@ -3203,7 +3273,8 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	
 	if (mytrace & TRACE_INPUT  || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 	{
-		Log(STDUSERLOG,(char*)"Actual used input: ");
+		if (analyze) Log(STDUSERLOG, (char*)"Actual used analyze input: ");
+		else Log(STDUSERLOG,(char*)"Actual used input: ");
 		for (i = 1; i <= wordCount; ++i) 
 		{
 			Log(STDUSERLOG,(char*)"%s",wordStarts[i]);

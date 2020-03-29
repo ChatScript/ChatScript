@@ -1,4 +1,31 @@
-Version 10.0 
+Version 10.1 3/29/2020
+1. ^original(rawuser)
+2. #! comment #! inside a pattern sent to compilepattern function
+is %crosstalk documented?
+3. ^addwordafter
+4. ChatScript-ClientServer-Manual at end documents client commands.
+5. CS Spellcheck can accept german nouns in lower case (singular or plural) and make them
+	upper case. Common pluralizations are handled that involve suffixes, but not yet ones that
+	change accent marks on vowels.
+6. factset limit raised from 20 to 30, so @29 is legal.
+7. ^addwordAfter(word _0) - inserts word into sentence after the position of given match variable.
+	_0 designates a position, and can be a match variable name or something that evaluates into a
+	word index. Does not alter pos-tagging or parsing and does not mark itself.
+8: ^original(rawuser) returns exactly what user sent in, before any adjustments are made to it.
+9. ^pos(xref wordindex kind)
+	This returns the index of the word in sentence cross-referenced by some parser data found
+	at the designated in wordindex. Kind includes: crossreference, indirectobject, object,
+	complement, phrase, verbal, clause. Returns 0 if no xref found.
+10. Commandline paramenter  debuglevel=n to enhance or reduce server log with more data.
+11. Commandline paramenter  buglog and nobuglog to enable or disable bug logging. Order dependent
+	with serverlog and noserverlog
+12. %lastcurltime shows statistics on the last call to jsonopen
+13. :labelremap for a topic builds an xref of internal tags to their labels (if they have one)  into TMP/labels.txt
+14. keyword concept intersection supported in patterns. E.g.
+	~animals~tasty will reference all animals considered tasty. 
+
+
+Version 10.0  1/26/2020
 1. $$cs_tracepattern for returning trace from ^testpattern in addition to results.
 2. $cs_addresponse holds name of ^fn(message ruletag) to tap CS user output queue
 	usage: 1. multiple reacts for different speech to text interpretations
