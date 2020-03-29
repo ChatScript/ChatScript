@@ -499,8 +499,8 @@ Where * means use the last seen value from prior entries (you write your table t
 Still it's tedious to put in the well mannered *. So there is one other thing you can do.
 You can make a tab table, where tab characters are automatically convered into space-separated * values instead of being
 ignored white space.
+```
 table: ^mytable TAB ($_arg1 $_arg2 $_arg3 )
-...
 DATA:
 Location
     Japan   

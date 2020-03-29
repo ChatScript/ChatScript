@@ -613,7 +613,6 @@ _four_score_and_seven_years_ago_ which is marked as a number and whose canonical
 Dialog acts can be split into separate sentences so that _Yes I love you_ and _Yes, I love you_ and _Yes. I love
 you_ all become the same input of two sentences - the dialog act `~yes` and _I love you_. 
 
-<<<<<<< HEAD
 Run together words may be split if the composite is not known and the pieces are.
 
 ## Pos-parsing
@@ -703,8 +702,6 @@ You must enable the `PRIVATE_CODE` define.
 
 Inside it you place files:
 
-=======
->>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 `privatesrc.cpp`: code you want to add to functionexecute.cpp (your own cs engine functions)
 classic definitions compatible with invocation from script look like this:
 ```
@@ -740,16 +737,11 @@ Debug table entries like this:
 # Code Zones
 ![ChatScript architecture](arch.png)
 
-<<<<<<< HEAD
 The system is divided into the code zones shown below. All code is in SRC.
-=======
-The system is divided into the code zones shown above. All code is in SRC.
->>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 
 ## Core Engine
 * `dictionary` is `dictionary`
 * `facts/JSON queries` is `factSystem`, `json`, `jsmn`, and * * * `infer`
-<<<<<<< HEAD
 * `long term user memory` is `userCache`, `userSystem`
 * `topics` and loading the results of compilation is `topicSystem`
 * `functions` is `functionExecute`
@@ -757,17 +749,7 @@ The system is divided into the code zones shown above. All code is in SRC.
 * `JavaScript` is `javascript`
 * `memory allocation` and other things like file system access is in `os`
 * `output eval` is `outputSystem`
-=======
-* `long term memory` is `userCache`, `userSystem`
-* `topics` is `topicSystem`
-* `functions` is `functionExecute`
-* `variables` is `variableSystem` and `systemVariables`
-* `JavaScript` is `javascript`
-* `memory allocation` is `os`
-* `output eval` is `outputSystem`
 * `os access` is `os`
->>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
-
 * folders inside SRC are external systems included in CS, including:
 ```
 * curl (web api handling)
@@ -783,15 +765,6 @@ The system is divided into the code zones shown above. All code is in SRC.
 
 ## External Access
 * `OOB` is partly in `tokenSystem` and mostly in `mainSystem`
-<<<<<<< HEAD
-* `Mongo` is `mongodb`
-* `Postgres` is `postgres`
-* All of the system's `^functions` are in `functionExecute`
-* Servers are `evserver`, `cs_ev` and `csocket`
-
-## World Model
-* Natural language abilities are in `english`, `englishTagger`, `markSystem`, `patternSystem`, `spellcheck`, `tagger` and LIVEDATA and DICT
-=======
 * `Mongo` is `mongodb.cpp`
 * `Postgres` is `postgres`
 * All of the `^functions` are in `functionExecute`
@@ -799,7 +772,6 @@ The system is divided into the code zones shown above. All code is in SRC.
 
 ## World Model
 * Natural language abilities are in `english.cpp`, `englishTagger`, `markSystem`, `patternSystem`, `spellcheck`, `tagger` and LIVEDATA and DICT
->>>>>>> 64d7d51a5e09623a04d749a68f2b39584e181144
 * RAWDATA/ONTOLOGY contains ontology data
 * RAWDATA/WORLDDATA contains world data
 
