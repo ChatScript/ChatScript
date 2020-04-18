@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-practicum-spelling-and-interjections">ChatScript Practicum: Spelling and Interjections</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/26/2020 cs10.0</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2020 cs10.2</p>
 <p>'''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.</p>
 <h1 id="spell-checking">Spell checking</h1>
 <p>Many natural language tools are designed to work with Wall Street Journal sentences - perfectly punctuated and perfectly spelled. That's not the real world of chat. ChatScript deals with the real world by providing a number of mechanisms to correct badly written sentences.</p>
@@ -201,5 +201,14 @@ u: ( _~emocurse _*)  do something, then
     $_sentence = ^substitute(character $_sentence _ &quot; &quot;)
     ^analyze($_sentence)
     ^retry(TOPRULE)</code></pre>
+<h1 id="alternate-meanings-without-rules">Alternate meanings without rules</h1>
+<p>For some texting, we replace words with their equivalents, like 'cu' becomes 'see you'. But this spell check change directly impacts words you see and match in the input. It's not necessarily always appropriate. For example 'b' means 'be' in texting, yet we may not want to lose the meaing for the letter, as in &quot;Vitamin B&quot;. In such cases you can make the letter mark the word using a rule, as mentioned earlier, like:</p>
+<pre><code>u: (_b) ^mark(be _0) ^retry(RULE)</code></pre>
+<p>This works, but has some small execution time cost. You can make this happen automatically without the rule, if you arrange to make a member fact out of it. That is, we can pretend &quot;be&quot; is a concept.</p>
+<pre><code>table: ^texting($_letter $_meaning)
+    ^createfact($_letter member $_meaning)
+data:
+b be</code></pre>
+<p>This means inputs with the letter b, will see and mark meanings of the letter, including marking 'be' and everything that 'be' is a member of. It will not, however, mark parts of speech of 'be' or have it show up in parse data since parsing and pos-tagging was done on the letter, not the word.</p>
 </body>
 </html>

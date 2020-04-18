@@ -326,6 +326,17 @@ uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & ha
 
 #endif
 
+#ifdef FNVHASH
+    // FNV1a hash - seems to have fewer collisions with UTF-8 emoji characters
+    #define FNV_PRIME 0x00000100000001b3
+    #define HASHSEED  0xcbf29ce484222325
+    #define HASHFN(crc, c) ((crc ^ c) * FNV_PRIME)
+#else
+    // DJB2 hash
+    #define HASHSEED 5381
+    #define HASHFN(crc, c) (((crc << 5) + crc) + c)
+#endif
+
 
 #ifdef LINUX
 	void setSignalHandlers ();

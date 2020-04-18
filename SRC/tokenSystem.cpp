@@ -447,6 +447,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	unsigned char kind = IsPunctuation(c);
 	char* end = NULL;
 	static bool quotepending = false;
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
+    bool isFrench = (!stricmp(language, "french") ? true : false);
 
 	// OOB which has { or [ inside starter, must swallow all as one string lest reading JSON blow token limit on sentence. And we can do jsonparse.
 	if (oobStart && oobJson) // support JSON parsing
@@ -459,7 +461,12 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		char* why = strstr(ptr, "why");
 		while (*++ptr)
 		{
-			if (*ptr == '"' && *(ptr - 1) != '\\') 
+			if (*ptr == '\\') // escaped character, skip over
+			{
+				ptr += 1;
+				continue;
+			}
+			if (*ptr == '"') 
 				quote = !quote;
 			if (quote) {} // ignore content for level counting
 			else if (*ptr == '{' || *ptr == '[')
@@ -468,17 +475,22 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			}
 			else if (*ptr == '}' || *ptr == ']')
 			{
-				if (*(ptr - 1) != '\\') --level;
+				--level;
 				if (level == 0)
 				{
 					if (tokenControl & JSON_DIRECT_FROM_OOB) // allow full json no tokenlimit
 					{
+                        // don't let parser be confused by user utterance, e.g. if ends in a quote
+                        char* closer = ptr + 1;
+                        char close = *closer;
+                        *closer = 0;
 						char word[MAX_WORD_SIZE];
                         uint64 oldbot = myBot;
                         myBot = 0; // universal access to this transient json
 						FunctionResult result = InternalCall("^JSONParseCode", JSONParseCode, (char*)"TRANSIENT SAFE", jsonStart, NULL, word);
                         myBot = oldbot;
 						++count;
+                        *closer = close;
 						if (result == NOPROBLEM_BIT) words[count] = AllocateHeap(word); // insert json object
 						else words[count] = AllocateHeap((char*)"bad json");
 					}
@@ -486,7 +498,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				}
 			}
 		}
-		if (level > 2 && tokenControl & JSON_DIRECT_FROM_OOB) ReportBug("Possible failure detecting JSON oob");
+		if (level > 2 && tokenControl & JSON_DIRECT_FROM_OOB) 
+			ReportBug("Possible failure detecting JSON oob");
 
 		return ptr;
 	}
@@ -699,19 +712,20 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         return ptr + (apost - token);
     }
 
+    // see if there is a known currency symbol in the token
+    char* currencynumber = token;
+    char* currency = (char*)GetCurrency((unsigned char*)token, currencynumber);
+
 	// check for float
 	if (strchr(token, numberPeriod) || strchr(token, 'e') || strchr(token, 'E'))
 	{
-		char* at = token;
-
-		// check for a currency symbol
-		char* number = token;
-		char* currency = 0;
-		if ((currency = (char*)GetCurrency((unsigned char*)at, number))) at = number; // if currency, find number start of it
+        // use currency if found
+        char* number = currencynumber;
+        char* at = number;
 
 		bool seenExponent = false;
 		bool seenPeriod = false;
-		while (*++at && (IsDigit(*at) || *at == ',' || *at == '.' || (!seenExponent && (*at == 'e' || *at == 'E')) || *at == '-' || *at == '+'))
+		while (*++at && (IsDigit(*at) || *at == ',' || *at == '.' || (!seenExponent && (*at == 'e' || *at == 'E')) || IsSign(*at)))
 		{
 			if (currency && at == currency) break; // seen enough if reached a currency suffix
 			if (*at == 'e' || *at == 'E') seenExponent = true; // exponent can only appear once, 10e4euros
@@ -737,9 +751,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
 
 	// check for negative number
-	if (*token == '-' && IsDigit(token[1]))
+	if (*currencynumber == '-' && IsDigit(currencynumber[1]))
 	{
-		char* at = token;
+		char* at = currencynumber;
 		while (*++at && (IsDigit(*at) || *at == '.' || *at == ',')) { ; }
 		if (!*at) {
 			// might be at the year part of a date 10-1-1992
@@ -749,7 +763,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
 
 	// check for ordinary integers whose commas may be confusing
-	if ((IsDigit(token[0])|| IsDigit(token[1])) && IsDigitWord(token, numberStyle, true)) return ptr + strlen(token);
+	if ((IsDigit(currencynumber[0])|| IsDigit(currencynumber[1])) && IsDigitWord(token, numberStyle, true)) return ptr + strlen(token);
 
 	// check for date
 	if (IsDate(token)) {
@@ -831,6 +845,40 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	char* comma = strchr(token + 1, ',');
 	if (comma)
 	{
+        // date,word
+        *comma = 0; // break apart token
+        if (IsDate(token))
+        {
+            *comma = ',';
+            return ptr + (comma - token);
+        }
+        
+        *comma = ','; // restore token for now
+        if (comma > token && comma < (token + strlen(token)) && IsDigit(*(comma-1)) && IsDigit(comma[1]))
+        {
+            // joined number word like 1,234.99dollars
+            char *cur = token - 1;
+            while (IsDigit(*++cur) || *cur == '.' || *cur == ',');
+            if (IsDigit(*token))
+            {
+                char first[MAX_WORD_SIZE];
+                strncpy(first, token, (cur - token));
+                first[cur - token] = 0;
+                if (IsDigitWord(first, numberStyle, true))
+                {
+                    return ptr+strlen(first);
+                }
+            }
+            
+            // joined word number like dollars1,234.99
+            cur = token + strlen(token);
+            while (cur >= token && (IsDigit(*--cur) || *cur == '.' || *cur == ','));
+            if (IsDigit(*++cur) && IsDigitWord(cur, numberStyle, true))
+            {
+                return ptr+(cur-token);
+            }
+        }
+
 		*comma = 0; // break apart token
 		comma = ptr + (comma - token);
 	}
@@ -932,9 +980,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 
 	if (end == ptr) ++end;	// must shift at least 1
 	
-	// possessive ending? swallow whole token like "K-9's"
-	if (*(end - 1) == 's' && (end - ptr) > 2 && *(end - 2) == '\'') return end - 2;
-
 	X = FindWord(ptr,end-ptr,PRIMARY_CASE_ALLOWED);
 	// avoid punctuation so we can detect emoticons
 	if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & PATTERN_WORD || X->internalBits & HAS_SUBSTITUTE)) // we know this word (with exceptions)
@@ -1003,6 +1048,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		return ptr + strlen(token);
 	}
 
+	// possessive ending? swallow whole token like "K-9's"
+	if (isEnglish && *(end-1) == 's' && (end-ptr) > 2 && *(end-2) == '\'') return end - 2;
+
 	//  e-mail, needs to not see - as a stopper.
 	WORDP W = (fullstopper) ? FindWord(ptr,fullstopper-ptr) : NULL;
 	if (*end && IsDigit(end[1]) && IsDigit(*(end-1))) W = NULL; // if , separating digits, DONT break at it  4,000 even though we recognize subpiece
@@ -1017,6 +1065,10 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (W && (W->properties & PART_OF_SPEECH || W->systemFlags & PATTERN_WORD))  return stopper; // recognize word at more splits
 	}
 	int lsize = strlen(token);
+    
+    // could be an emoji shortcode
+    if (IsEmojiShortCode(token)) return ptr+lsize;
+    
 	while (lsize > 0 && IsPunctuation(token[lsize-1])) token[--lsize] = 0; // remove trailing punctuation
 	char* after = start + lsize;
 	// see if we have 25,2015
@@ -1031,8 +1083,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 															   // check for place number
 	char* place = ptr;
 	while (IsDigit(*place)) ++place;
-	if (!stricmp(language, "english") && (!stricmp(place,"st") || !stricmp(place,"nd") || !stricmp(place,"rd"))) return end;
-	else if (!stricmp(language, "french") && (!stricmp(place, "er") || !stricmp(place, "ere") || !stricmp(place, "ère") || !stricmp(place, "nd") || !stricmp(place, "nde") || !stricmp(place, "eme") || !stricmp(place, "ème"))) return end;
+	if (isEnglish && (!stricmp(place,"st") || !stricmp(place,"nd") || !stricmp(place,"rd"))) return end;
+	else if (isFrench && (!stricmp(place, "er") || !stricmp(place, "ere") || !stricmp(place, "ère") || !stricmp(place, "nd") || !stricmp(place, "nde") || !stricmp(place, "eme") || !stricmp(place, "ème"))) return end;
 	int len = end - ptr;
 	char next2;
 	if (*ptr == '/') return ptr+1; // split of things separated
@@ -2015,8 +2067,8 @@ void ProcessSplitUnderscores()
 		char* under = strchr(original,'_');
 		if (!under) continue;
 
-		// dont split if email or url or hashtag
-		if (strchr(original, '@') || strchr(original, '.') || original[0] == '#') continue;
+		// dont split if email or url or hashtag or an emoji shortcode
+		if (strchr(original, '@') || strchr(original, '.') || original[0] == '#' || IsEmojiShortCode(original)) continue;
 
 		int index = 1;
 		while (under)
@@ -2433,6 +2485,7 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
     WORDP word;
     WORDP found = NULL;
     unsigned int idiomMatch = 0;
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
 
 	unsigned int n = 0;
     for ( int j = i; j <= wordCount; ++j)
@@ -2504,7 +2557,7 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 			}
 			*ptr= 0; //   back to normal
         }
-		if (found == localfound && *(ptr-1) == 's' && j != i) // try singularlizing a noun
+		if (isEnglish && found == localfound && *(ptr-1) == 's' && j != i) // try singularlizing a noun
 		{
 			size_t len = strlen(buffer+1);
 			word = FindWord(buffer+1,len-1); // remove s
@@ -2563,6 +2616,7 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 {
     char buffer[MAX_WORD_SIZE];
     *buffer = '<';	// sentence start marker
+    bool isEnglish = (!stricmp(language, "english") ? true : false);
 
     unsigned int cycles = 0;
     for (int i = FindOOBEnd(1); i <= wordCount; ++i)
@@ -2581,7 +2635,7 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
         unsigned int count = 0;
 		WORDP D = FindWord(buffer+1,0,PRIMARY_CASE_ALLOWED); // main word a header?
   		if (D) count = GETMULTIWORDHEADER(D);
-        if (!count && wordStarts[i][len-1] == 's') // consider singular?
+        if (!count && isEnglish && wordStarts[i][len-1] == 's') // consider singular?
 		{
 			D = FindWord(wordStarts[i], len-1, PRIMARY_CASE_ALLOWED);
 			if (D) count = GETMULTIWORDHEADER(D);

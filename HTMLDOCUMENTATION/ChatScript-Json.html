@@ -102,105 +102,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>(ja-5 0 Robert)
 (ja-5 1 Terry)
 (ja-5 2 Paula)</code></pre>
-<p>This would correspond to a JSON string that looks like this: [ &quot;Robert&quot;, &quot;Terry&quot;, &quot;Paula&quot;]</p>
-<pre><code>
-Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can.
-Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly
-querying on some field name.
+<p>This would correspond to a JSON string that looks like this:</p>
+<pre><code>[ &quot;Robert&quot;, &quot;Terry&quot;, &quot;Paula&quot;]</code></pre>
+<p>Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can. Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly querying on some field name.</p>
+<p>Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact structure in CS, the facts will all be unique. You do this like this:</p>
+<pre><code>    $_tmp = ^createfact($$jsonobject newfield $$jsondata (FACTTRANSIENT JSON_OBJECT_FACT JSON_OBJECT_VALUE) )</code></pre>
+<p>If $$jsonobject is a json object name, you add a field called newfield whose value is a JSON object, thus joining the trees. If you serialize (write into text) these two JSON objects they will become completely separate structures when read back in (JSON doesn't share).</p>
+<p>Also note that while CS can read in JSON whose value has an empty string like:</p>
+<pre><code>    { &quot;input&quot;:&quot;&quot;}</code></pre>
+<p>CS cannot represent that itself, since empty strings are treated as null values. So CS cannot export such a structure directly. ## Accessing the web with JSON</p>
+<p>You will learn how to create JSON structures below. The other key to a web-enabled CS is ^jsonopen(). To see how easy it is to talk to the web, just look at this code.</p>
+<pre><code># The cleanest way to build json data
+$_var = ^jsoncreate(transient object)
+$_var.fieldname = $myvar 
 
-Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact
-structure in CS, the facts will all be unique. You do this like this:</code></pre>
-<pre><code>$_tmp = ^createfact($$jsonobject newfield $$jsondata (FACTTRANSIENT JSON_OBJECT_FACT JSON_OBJECT_VALUE) )</code></pre>
-<pre><code>If $$jsonobject is a json object name, you add a field called newfield whose value is a
-JSON object, thus joining the trees. If you serialize (write into text) these two JSON objects
-they will become completely separate structures when read back in (JSON doesn&#39;t share).
+An alternative limited to max output buffer size (~80K):
+$_var = ^jsonparse(^&quot;{ fieldname: $myvar }&quot;) 
 
-Also note that while CS can read in JSON whose value has an empty string like:</code></pre>
-<pre><code>{ &quot;input&quot;:&quot;&quot;}</code></pre>
-<pre><code>CS cannot represent that itself, since empty strings are treated as null values. So CS
-cannot export such a structure directly.
-## Accessing the web with JSON
-
-You will learn how to create JSON structures below. The other key to a
-web-enabled CS is ^jsonopen(). To see how easy it is to talk to the web,
-just look at this code.
-</code></pre>
-<h1 id="the-cleanest-way-to-build-json-data">The cleanest way to build json data</h1>
-<p>$_var = ^jsoncreate(transient object) $_var.fieldname = $myvar</p>
-<p>An alternative limited to max output buffer size (~80K): $_var = <sup>jsonparse(</sup>&quot;{ fieldname: $myvar }&quot;)</p>
-<p>And now to send data upstream: $_url = ^&quot;http://myHost:myIP&quot; $_userAgent = ^&quot;User-Agent: %bot, ChatScript” $_header = ^&quot; ~Accept: application/json $_userAgent ~Content-Type: application/json &quot; $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent)</p>
-<pre><code>
-## JSONFLAGS - Optional 1st arg to some JSON routines
-
-Routines that will create facts for JSON will by default create them as transients (they die at end of
-volley unless you work to save them). You can override this default by saying
-`permanent` or `transient` or `boot`. This applies to `^jsonopen`, `^jsonparse`, `^jsoncreate`,
-`^jsonobjectinsert`, `^jsonarrayinsert`, `^jsoncopy`.
-
-Json arrays all start with the name &#39;ja-&#39; and json objects all start with the name 
-&#39;jo-&#39;.  The next letter indicates the storage media. &#39;t&#39; means transient and the
-structure dies at the end of the volley. &#39;b&#39; means boot and the data moves to the boot
-later at the end of the volley. Anything else (e.g. an immediate digit) means the structure
-is permanent and is stored in the user&#39;s topic file.
-
-You can also add a flag `safe` (described later) to `^jsonparse`, `^jsonobjectinsert`, `^jsonarraydelete`. 
-You can also add a flag `unique` to `^jsonarrayinsert`.
-You can also add `duplicate` to ^jsonobjectinsert.
-
-When multiple flags are desired, put them into a simple string, `&quot;DUPLICATE PERMANENT&quot;`. Case doesn&#39;t matter.
-
-When you want to add a reference to a normal factid (as is returned by ^createfact) you can add the flag `AUTODELETE`
-
-You can also assign user flags by listing `USER_FLAG1`, through `USER_FLAG4` as a flag as well. 
-The JSON fact will have that flag on it, which you can use in conjunction with `^query` to limit what matches can be found.
-
-
-### `^jsonparse`( {JSONFLAGS} string )
-
-`string` is a JSON text string (as might be returned from a website) and this parses into facts. 
-It returns the name of the root node JSON composite. This name will look like this:
-
-* `ja-0` – a json array numbered `0`.
-* `jo-0` – a json object numbered `0`.
-
-Note that the above names are true only for PERMANENT JSON objects. Transient ones will be named like `ja-t0` and `jo-t0`.
-
-As new JSON composites are created during a volley, the numbers increase to keep them all distinct.
-JSON composites are all created as transient facts and will die at the end of the volley unless you do
-something to explictly keep them (typically `^jsongather` into some factset and then saving that OR
-using that to remove all their transient flags OR using `^delete()` to destroy the facts in the set). 
-
-If you are keeping JSON across volleys, you should use the optional Json flags argument to make sure
-numbering never collides (normally the numbers start back at 0 for each new volley).
-
-Real world JSON has stricter requirements on its format than CS does. 
-
-While CS will output strict JSON, you can input slack JSON. 
-You do not need to put commas between elements of an array or object. 
-And you do not need to put quotes around a key name. So the following is legal text form:</code></pre>
-<p>[a b {bob: 1 sue: 2}]</p>
-<pre><code>Formally JSON has specific primitives named true, false, and null, that systems may care about, but to
-CS they are nothing special. Numbers in JSON can be integer or have a decimal point and an exponent.
-CS does not currently support exponent notation, so you can only do:  `1325` or `566.23`.
-
-JSON originally required a JSON string be a composite of some kind. Now it allows any JSON type to
-be a JSON document. CS sticks to the original requirement, because passing around a single value as
-JSON is pretty useless.
-
-Once you have a JSON fact structure, you can go the opposite direction and convert it back into a string
-or display it visually.
-
-CS accepts extended JSON syntax for parsing into a json fact structure. Any place you have an object
-value, you can refer to a ChatScript user or match variable and that value will be substituted in. E.g.,</code></pre>
-<p>^jsonparse(&quot;{ a: $var, b: _0 }&quot;)</p>
-<pre><code>Note you should use a regular quoted string and not a function string like `^&quot;{ a: $var, b: _0 }&quot;`. If you use a function string, substitution will happen before calling ^jsonparse. Which might be a problem if
-you had something like this:</code></pre>
-<p>^jsonparse(&quot;{ a: $var, b: _0aba }&quot;).</p>
-<pre><code>where you wanted the value of `b` to be `&quot;_0aba&quot;`. Had you used an active string, the _0 would have been replaced with its contents.
-
-Also, you can use json dereference operators to take apart an existing json structure and use values of it
-in the current one. If $_y points to a json structure, then</code></pre>
-<p>^jsonparse(&quot; opensquiggle a: $var, b: <span class="math inline">$_y.e[2] closesquiggle &quot;) (saying squiggles because Latex print complains if I use real ones) ``` would find a json object reference on `$</span>_y`, get the e field, and get the 3rd array value found there.</p>
+And now to send data upstream:
+$_url = ^&quot;http://myHost:myIP&quot;
+$_userAgent = ^&quot;User-Agent: %bot, ChatScript”
+$_header = ^&quot; ~Accept: application/json 
+                  $_userAgent
+                  ~Content-Type: application/json &quot;
+$_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent) </code></pre>
+<h2 id="jsonflags---optional-1st-arg-to-some-json-routines">JSONFLAGS - Optional 1st arg to some JSON routines</h2>
+<p>Routines that will create facts for JSON will by default create them as transients (they die at end of volley unless you work to save them). You can override this default by saying <code>permanent</code> or <code>transient</code> or <code>boot</code>. This applies to <code>^jsonopen</code>, <code>^jsonparse</code>, <code>^jsoncreate</code>, <code>^jsonobjectinsert</code>, <code>^jsonarrayinsert</code>, <code>^jsoncopy</code>.</p>
+<p>Json arrays all start with the name 'ja-' and json objects all start with the name 'jo-'. The next letter indicates the storage media. 't' means transient and the structure dies at the end of the volley. 'b' means boot and the data moves to the boot later at the end of the volley. Anything else (e.g. an immediate digit) means the structure is permanent and is stored in the user's topic file.</p>
+<p>You can also add a flag <code>safe</code> (described later) to <code>^jsonparse</code>, <code>^jsonobjectinsert</code>, <code>^jsonarraydelete</code>. You can also add a flag <code>unique</code> to <code>^jsonarrayinsert</code>. You can also add <code>duplicate</code> to ^jsonobjectinsert.</p>
+<p>When multiple flags are desired, put them into a simple string, <code>&quot;DUPLICATE PERMANENT&quot;</code>. Case doesn't matter.</p>
+<p>When you want to add a reference to a normal factid (as is returned by ^createfact) you can add the flag <code>AUTODELETE</code></p>
+<p>You can also assign user flags by listing <code>USER_FLAG1</code>, through <code>USER_FLAG4</code> as a flag as well. The JSON fact will have that flag on it, which you can use in conjunction with <code>^query</code> to limit what matches can be found.</p>
+<h3 id="jsonparse-jsonflags-string"><code>^jsonparse</code>( {JSONFLAGS} string )</h3>
+<p><code>string</code> is a JSON text string (as might be returned from a website) and this parses into facts. It returns the name of the root node JSON composite. This name will look like this:</p>
+<ul>
+<li><code>ja-0</code> – a json array numbered <code>0</code>.</li>
+<li><code>jo-0</code> – a json object numbered <code>0</code>.</li>
+</ul>
+<p>Note that the above names are true only for PERMANENT JSON objects. Transient ones will be named like <code>ja-t0</code> and <code>jo-t0</code>.</p>
+<p>As new JSON composites are created during a volley, the numbers increase to keep them all distinct. JSON composites are all created as transient facts and will die at the end of the volley unless you do something to explictly keep them (typically <code>^jsongather</code> into some factset and then saving that OR using that to remove all their transient flags OR using <code>^delete()</code> to destroy the facts in the set).</p>
+<p>If you are keeping JSON across volleys, you should use the optional Json flags argument to make sure numbering never collides (normally the numbers start back at 0 for each new volley).</p>
+<p>Real world JSON has stricter requirements on its format than CS does.</p>
+<p>While CS will output strict JSON, you can input slack JSON. You do not need to put commas between elements of an array or object. And you do not need to put quotes around a key name. So the following is legal text form:</p>
+<pre><code>[a b {bob: 1 sue: 2}]</code></pre>
+<p>Formally JSON has specific primitives named true, false, and null, that systems may care about, but to CS they are nothing special. Numbers in JSON can be integer or have a decimal point and an exponent. CS does not currently support exponent notation, so you can only do: <code>1325</code> or <code>566.23</code>.</p>
+<p>JSON originally required a JSON string be a composite of some kind. Now it allows any JSON type to be a JSON document. CS sticks to the original requirement, because passing around a single value as JSON is pretty useless.</p>
+<p>Once you have a JSON fact structure, you can go the opposite direction and convert it back into a string or display it visually.</p>
+<p>CS accepts extended JSON syntax for parsing into a json fact structure. Any place you have an object value, you can refer to a ChatScript user or match variable and that value will be substituted in. E.g.,</p>
+<pre><code>^jsonparse(&quot;{ a: $var, b: _0 }&quot;)</code></pre>
+<p>Note you should use a regular quoted string and not a function string like <code>^&quot;{ a: $var, b: _0 }&quot;</code>. If you use a function string, substitution will happen before calling ^jsonparse. Which might be a problem if you had something like this:</p>
+<pre><code>^jsonparse(&quot;{ a: $var, b: _0aba }&quot;).</code></pre>
+<p>where you wanted the value of <code>b</code> to be <code>&quot;_0aba&quot;</code>. Had you used an active string, the _0 would have been replaced with its contents.</p>
+<p>Also, you can use json dereference operators to take apart an existing json structure and use values of it in the current one. If $_y points to a json structure, then</p>
+<pre><code>^jsonparse(&quot; opensquiggle a: $var, b: $_y.e[2] closesquiggle &quot;)
+(saying squiggles because Latex print complains if I use real ones)</code></pre>
+<p>would find a json object reference on <code>$_y</code>, get the e field, and get the 3rd array value found there.</p>
 <p>An initial argument of <code>safe</code> will locate the correct end of the data for json parsing, allowing you to pass excess data. This is important for passing in json data in OOB information. OOB information comes in <code>[]</code> and Json itself uses <code>[]</code> at times, so it would be impossible to find the correct end of pattern with normal pattern matching. Instead just do:</p>
 <pre><code>u: ( \[ _* ) and call ^jsonparse(safe _0)</code></pre>
 <p>This will figure out where the OOB marker actually is and only parse within it. You can add NOFAIL before the string argument, to tell it to return null but not fail if a dereference path fails cannot be found.</p>

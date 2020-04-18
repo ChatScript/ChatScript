@@ -39,7 +39,8 @@ extern unsigned int errorIndex;
 extern char warnings[MAX_WARNINGS][MAX_WORD_SIZE];
 extern unsigned int warnIndex;
 extern char* tableinput;
-
+extern char* patternStarter;
+extern char* patternEnder;
 void ScriptError();
 void EraseTopicFiles(unsigned int build,char* name);
 void InitScriptSystem();

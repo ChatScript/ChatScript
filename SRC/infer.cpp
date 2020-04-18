@@ -782,7 +782,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else if (choice[0] == USERVAR_PREFIX && choice[1]) choice = GetUserVariable(choice);
 			else if (choice[0] == SYSVAR_PREFIX && choice[1]) choice = SystemVariable(choice,NULL);
-			else if (choice[0] == '@' )
+			else if (choice[0] == '@' && GetSetID(choice) != ILLEGAL_FACTSET )
 			{
 				if (trace & TRACE_QUERY  && CheckTopicTrace())  
 				{
@@ -806,7 +806,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					else if (*control == 'o') M = F->object; 
 					else 
 					{
-						ReportBug((char*)"bad control for query %s(%s) %s",C->word,C->w.userValue,control)
+						ReportBug((char*)"bad control for choice[0] == '@' query %s(%s) %s",C->word,C->w.userValue,control)
 						return 0;
 					}
 					if (trace & TRACE_QUERY  && CheckTopicTrace())  Log(STDUSERLOG,(char*)" %s ",WriteMeaning(M));

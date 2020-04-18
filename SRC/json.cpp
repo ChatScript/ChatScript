@@ -156,7 +156,7 @@ static char* IsJsonNumber(char* str)
 			if (*at == '.' && !periodseen && !exponentseen) periodseen = true;
 			else if ((*at == 'e' || *at == 'E')  && !exponentseen) 
 			{
-				if (at[1] == '+' || at[1] == '-') ++at;
+				if (IsSign(at[1])) ++at;
 				exponentseen = true;
 			}
 			else if (*at == ' ' || *at == ',' || *at == '}' || *at == ']') return at;
@@ -910,10 +910,10 @@ FunctionResult JSONOpenCode(char* buffer)
 		if (gzip == 0) gzip = 2;
 		if (deflate == 0) deflate = 2;
 	}
-	if (gzip == 2) strcat(coding,(char*)"gzip,(char*)");
-	if (deflate == 2) strcat(coding,(char*)"deflate,(char*)");
-	if (identity == 2) strcat(coding,(char*)"identity,(char*)");
-	if (!*coding) strcpy(coding,(char*)"Accept-Encoding: identity");
+	if (gzip == 2) strcat(coding,(char*)"gzip,");
+	if (deflate == 2) strcat(coding,(char*)"deflate,");
+	if (identity == 2) strcat(coding,(char*)"identity,");
+	if (!*coding) strcpy(coding,(char*)"identity,");
 	size_t len1 = strlen(coding);
 	coding[len1-1] = 0; // remove terminal comma
 #if LIBCURL_VERSION_NUM >= 0x071506
@@ -2190,6 +2190,7 @@ LOOP: // now we look at $x.key or $x[0]
 	MEANING key = MakeMeaning(keyname);
     int index = (keyname) ? atoi(keyname->word) : 0;
 	MEANING valx = 0;
+	if (!*value) value = "null";
 	if (key && stricmp(value, "null")) valx = jsonValue(value, flags);// not deleting using json literal   ^"" or "" would be the literal null in json
 
 	// remove old value if it exists and is different, do not allow multiple values
@@ -2523,6 +2524,7 @@ FunctionResult JSONReadCSVCode(char* buffer)
     char var[100];
 
 	char* fnname = ARGUMENT(index);
+    if (fnname && strlen(fnname) == 0) fnname = 0;
 	if (fnname && *fnname == '\'') ++fnname;
 	if (fnname && *fnname != '^') return FAILRULE_BIT; // optional function
     if (wholeLine && (!fnname || !*fnname)) return FAILRULE_BIT; // cannot build json, must call

@@ -406,7 +406,9 @@ void StdNumber(char* word, char*& buffer, int controls) // text numbers may have
     }
 
     int useNumberStyle = numberStyle;
-    if (controls & OUTPUT_NOCOMMANUMBER || len < 5) useNumberStyle = NOSTYLE_NUMBERS;
+    if (controls & OUTPUT_NOCOMMANUMBER) useNumberStyle = NOSTYLE_NUMBERS;
+    else if (IsSign(*word) && len < 6) useNumberStyle = NOSTYLE_NUMBERS;
+    else if (len < 5) useNumberStyle = NOSTYLE_NUMBERS;
 
     if (c == 1)
     {

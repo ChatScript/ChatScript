@@ -1,6 +1,6 @@
-# ChatScript Spelling Marking Manual
+﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/25/2017 cs7.51
+<br>Revision 4/18/2020 cs10.2
 
 
 # Spelling
@@ -65,5 +65,17 @@ And even after the sentence is transformed, you can use `^mark` and `^unmark` to
 u: (_~emogoodbye) if (^original(_0) == good_day) { ^unmark(~emogoodbye _0)}
 ```
 
-
+# Emoji
+Emojis are a form of spelling correction. You can replace appropriate utf8 emoji words
+with spelling replacements that start and end in a colon. These will be considered
+emoji and marked as ~emoji.  E.g., in script you can write
+```
+	replace: 🤲 :palms_up_together:
+	replace: 😄 :grinning_face_with_smiling_eyes:
+```
+or you can add these paired words into one of the LIVEDATA substitution files.
+Then you can write patterns like:
+```
+u: (:palms_up_together:) Peace be unto you.
+u: (~emoji) I don't speak emoji.
 

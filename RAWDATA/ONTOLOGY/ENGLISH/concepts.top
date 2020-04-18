@@ -999,7 +999,7 @@
 ##<<ENGLISH concept: ~lethality_words (benign dangerous deadly destructive edible fatal harmless hazardous healing invulnerable killer murderous nonpoisonous nontoxic poisonous radioactive safe 
           toxic virulent ) ##>>
 ##<<ENGLISH concept: ~lettercount ADJECTIVE ADJECTIVE_NORMAL (1-letter 2-letter 3-letter 4-letter 5-letter 6-letter 7-letter 8-letter 9-letter ) ##>>
-##<<ENGLISH concept: ~letters ('a B c C d D E F G H 'I J k K l L m M N O P Q R S T u U v V w W x X Y Z ) ##>>
+##<<ENGLISH concept: ~letters ('a 'A b B c C d D e E f F g G h H 'I j J k K l L m M n N o O p P q Q r R s S t T u U v V w W x X y Y z Z ) ##>>
 ##<<ENGLISH concept: ~library (~book library ) ##>>
 ##<<ENGLISH concept: ~life_science (agriculture anatomy biochemistry bioengineering biology botany cytology ecology entomology forensics forestry genetics microbiology oceanography ornithology 
           physiology zoology ) ##>>

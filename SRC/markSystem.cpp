@@ -242,35 +242,58 @@ unsigned int GetNextSpot(WORDP D, int start, int &startPosition, int& endPositio
     char* ptr = D->word;
 	char* at = strchr(ptr + 1, '~'); // joined?
 	// dont do word~1~concept or word~n~concept
-    if (!data && at && at[2]) // word with ~casemarking data added, has no data on its own, not trial~n or trial~1
+	if (!data && at && at[2]) // word with ~casemarking data added, has no data on its own, not trial~n or trial~1
 	{
 		WORDP first = FindWord(ptr, (at - ptr)); // the first piece
 		data = GetWhereInSentence(first);
 		if (!data) return 0;
-		WORDP second = FindWord(at); // the 2nd piece
+
+		size_t len = strlen(at);
+		char* at1 = strchr(at + 1, '~'); // and a 3rd piece
+		if (at1) len = at1 - at;
+		WORDP second = FindWord(at, len); // the 2nd piece
 		unsigned char* seconddata = GetWhereInSentence(second);
 		if (!seconddata) return 0; // word not found so conjoin cant either
-		
+
+		unsigned char* thirddata = NULL;
+		if (at1)
+		{
+			WORDP third = FindWord(at1);
+			thirddata = GetWhereInSentence(third);
+			if (!thirddata) return 0; // not there
+		}
+
 		unsigned char* commonData = (unsigned char*)AllocateWhereInSentence(D);
 		if (!commonData) return 0; // allocate failure
 		memcpy(commonData, data, (sizeof(uint64) + maxRefSentence + 3) / 4); // starts with the base
 
-        // keep common positions of this second word with existing first
+		// keep common positions of this second word (and optionally third) with existing first
 		for (int i = 0; i < maxRefSentence; i += REF_ELEMENTS) // walk commondata
-        {
+		{
 			if (commonData[i] == 0xff) break; // no more data in base
-			bool found = false;
-            for (int j = 0; j < maxRefSentence; j += REF_ELEMENTS)
-            {
-                if (seconddata[j] == 0xff) break; // end of this piece
-                if (seconddata[j] == commonData[i]) // found here
-                {
-                    found = true;
-                    break;
-                }
-            }
+			bool found1 = false;
+			bool found2 = false;
+			for (int j = 0; j < maxRefSentence; j += REF_ELEMENTS)
+			{
+				if (seconddata[j] == 0xff) break; // end of this piece
+				if (seconddata[j] == commonData[i]) // found here
+				{
+					found1 = true;
+					break;
+				}
+			}
+			if (thirddata) for (int j = 0; j < maxRefSentence; j += REF_ELEMENTS)
+			{
+				if (thirddata[j] == 0xff) break; // end of this piece
+				if (thirddata[j] == commonData[i]) // found here
+				{
+					found2 = true;
+					break;
+				}
+			}
+			else found2 = true; // dont need a third
 
-            if (!found) // our common data is not common
+			if (!found1 || !found2) // our common data is not common to all
 			{
 				memmove(commonData + i, commonData + i + REF_ELEMENTS, (maxRefSentence - i - REF_ELEMENTS));
                 i -= REF_ELEMENTS; 
@@ -1298,9 +1321,17 @@ void MarkAllImpliedWords()
 		}
 
 		// detect a filename
-		if (IsFileName(wordStarts[i])) {
+		if (IsFileName(wordStarts[i]))
+        {
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~filename")), i, i, false);
 		}
+        
+        // detect an emoji shortcode
+        if (IsEmojiShortCode(wordStarts[i]))
+        {
+            MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord("~emoji")),i,i);
+        }
+
 
 		// detect acronym
 		char* ptrx = wordStarts[i];

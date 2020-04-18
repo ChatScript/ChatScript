@@ -1135,7 +1135,7 @@ char* IsSymbolCurrency(char* ptr)
 unsigned char* GetCurrency(unsigned char* ptr,char* &number) // does this point to a currency token, return currency and point to number (NOT PROVEN its a number)
 {
 	unsigned char* at = ptr;
-	if (*at == '+' || *at == '-') ++at; //   skip sign indicator, -$1,234.56
+	if (IsSign(*at)) ++at; //   skip sign indicator, -$1,234.56
 
 	char* prefixEnd = IsSymbolCurrency((char*)at); // is it at start
 	if (prefixEnd)
@@ -1481,19 +1481,27 @@ void WriteInteger(char* word, char* buffer, int useNumberStyle)
 	char reverseFill[MAX_WORD_SIZE];
 	char* end = word + strlen(word);
 	char* at = reverseFill + 500;
+    char* wordstart = word;
+    char sign = 0;
+    if (IsSign(*word))
+    {
+        wordstart++;
+        sign = *word;
+    }
 	*at = 0;
 	int counter = 0;
 	int limit = 3;
-	while (end != word)
+	while (end != wordstart)
 	{
 		*--at = *--end;
-		if (IsDigit(*at) && ++counter == limit && end != word)
+		if (IsDigit(*at) && ++counter == limit && end != wordstart)
 		{
 			*--at = (useNumberStyle == FRENCH_NUMBERS) ? '.' : ',';
 			counter = 0;
 			limit = (useNumberStyle == INDIAN_NUMBERS) ? 2 : 3;
 		}
 	}
+    if (sign) *--at = sign;
 	strcpy(buffer, at);
 }
 
@@ -1537,7 +1545,7 @@ char* WriteFloat(char* buffer, double value, int useNumberStyle)
 char IsFloat(char* word, char* end, int useNumberStyle)
 {
 	if (*(end - 1) == '.') return false;	 // float does not end with ., that is sentence end
-	if (*word == '-' || *word == '+') ++word; // ignore sign
+	if (IsSign(*word)) ++word; // ignore sign
 	if (!IsDigit(*word) && *word != '.') return false;
 	char decimalMark = decimalMarkData[useNumberStyle];
 	char digitGroup = digitGroupingData[useNumberStyle];
@@ -1552,7 +1560,7 @@ char IsFloat(char* word, char* end, int useNumberStyle)
 			if ((*word == 'e' || *word == 'E') && !exponent)
 			{
 				exponent = true;
-				if (word[1] == '-' || word[1] == '+') ++word; // ignore exponent sign
+				if (IsSign(word[1])) ++word; // ignore exponent sign
 				if (!IsDigit(word[1])) return false; // need a number after the exponent, 10euros is not a float
 			}
 			else return false; // non digit is fatal
@@ -1673,7 +1681,7 @@ bool IsFileExtension(char* word)
 		return (!strnicmp(word, (char*)"7z", 2) || !strnicmp(word, (char*)"ai", 2) || !strnicmp(word, (char*)"cs", 2) || !strnicmp(word, (char*)"db", 2) || !strnicmp(word, (char*)"gz", 2) || !strnicmp(word, (char*)"js", 2) || !strnicmp(word, (char*)"pl", 2) || !strnicmp(word, (char*)"ps", 2) || !strnicmp(word, (char*)"py", 2) || !strnicmp(word, (char*)"rm", 2) || !strnicmp(word, (char*)"sh", 2) || !strnicmp(word, (char*)"vb", 2));
 	}
 	else if (len == 4) {
-		return (!strnicmp(word, (char*)"aspx", 4) || !strnicmp(word, (char*)"docx", 4) || !strnicmp(word, (char*)"h264", 4) || !strnicmp(word, (char*)"heic", 4) || !strnicmp(word, (char*)"html", 4) || !strnicmp(word, (char*)"icns", 4) || !strnicmp(word, (char*)"indd", 4) || !strnicmp(word, (char*)"java", 4) || !strnicmp(word, (char*)"jpeg", 4) || !strnicmp(word, (char*)"mpeg", 4) || !strnicmp(word, (char*)"midi", 4) || !strnicmp(word, (char*)"pptx", 4) || !strnicmp(word, (char*)"sitx", 4) || !strnicmp(word, (char*)"tiff", 4) || !strnicmp(word, (char*)"xlsx", 4) || !strnicmp(word, (char*)"zipx", 4));
+		return (!strnicmp(word, (char*)"aspx", 4) || !strnicmp(word, (char*)"docx", 4) || !strnicmp(word, (char*)"h264", 4) || !strnicmp(word, (char*)"heic", 4) || !strnicmp(word, (char*)"html", 4) || !strnicmp(word, (char*)"icns", 4) || !strnicmp(word, (char*)"indd", 4) || !strnicmp(word, (char*)"java", 4) || !strnicmp(word, (char*)"jpeg", 4) || !strnicmp(word, (char*)"json", 4) || !strnicmp(word, (char*)"mpeg", 4) || !strnicmp(word, (char*)"midi", 4) || !strnicmp(word, (char*)"pptx", 4) || !strnicmp(word, (char*)"sitx", 4) || !strnicmp(word, (char*)"tiff", 4) || !strnicmp(word, (char*)"xlsx", 4) || !strnicmp(word, (char*)"zipx", 4));
 	}
 	else {
 		return (!strnicmp(word, (char*)"class", 5) || !strnicmp(word, (char*)"gadget", 6) || !strnicmp(word, (char*)"swift", 5) || !strnicmp(word, (char*)"tar.gz", 6) || !strnicmp(word, (char*)"toast", 5) || !strnicmp(word, (char*)"xhtml", 5));
@@ -1713,6 +1721,13 @@ bool IsFileName(char* word)
 
 	if (first) *last = first;
 	return valid;
+}
+
+bool IsEmojiShortCode(char* word)
+{
+    size_t len = strlen(word);
+    if (len > 2 && word[0] == ':' && word[len-1] == ':') return true;
+    return false;
 }
 
 unsigned int IsMadeOfInitials(char * word,char* end) 
@@ -3146,7 +3161,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	
 	//  grab sign if any
 	char sign = *number;
-	if (sign == '-' || sign == '+') ++number;
+	if (IsSign(sign)) ++number;
 	else if (sign == '$')
 	{
 		sign = 0;
@@ -3235,7 +3250,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 		while (*++ptr)
 		{
 			if (ptr != word && *ptr == '-') {;}
-			else if (*ptr == '-' || *ptr == '+') return NOT_A_NUMBER;
+			else if (IsSign(*ptr)) return NOT_A_NUMBER;
 			else if (!IsDigit(*ptr)) return NOT_A_NUMBER;	// not good
 		}
 		if (!*ptr && !hyp) 

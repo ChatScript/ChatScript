@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 3/29/2020 cs10.1</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 4/18/2020 cs10.2</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
 <p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes, e.g.</p>
@@ -161,9 +161,11 @@ s: ( @_1+ going ) # this completes the match of is mother going</code></pre>
 <p>You can request n words before the current position using <code>*-n</code>. For example</p>
 <pre><code>u: ( I love * &gt; _*-1 ) capture last word of sentence</code></pre>
 <h2 id="concept-intersection-keywords">Concept intersection keywords</h2>
-<p>If you join a word (or a concept) and one or more concepts, that represents the intersection of them. e.g., (<sub>animals</sub>tasty) will reference all animals considered tasty.</p>
-<p>Note, you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.</p>
-<p>This particular ability has general utiility, but specific utility to German. German doesn't have the same strict word order but because there is case marking on nouns then the position of the subject and object (nominative and accusative case) can move around. The simple &lt;&lt; &gt;&gt; grouping is not useful unless one can limit the nouns to the right case, e.g.,</p>
+<p>If you join a word (or a concept) and one or more concepts, that represents the intersection of them. e.g., (<sub>animals</sub>tasty) will reference all animals considered tasty. You may stack no more than 3 together.</p>
+<pre><code>u: (~animals~tasty~mythical) I didn&#39;t know you considered dragons tasty.</code></pre>
+<p>You can do this in a pattern or as keyword of a concept.</p>
+<p>Note: you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.</p>
+<p>Note: This particular ability has general utiility, but specific utility to German. German doesn't have the same strict word order but because there is case marking on nouns then the position of the subject and object (nominative and accusative case) can move around. The simple &lt;&lt; &gt;&gt; grouping is not useful unless one can limit the nouns to the right case, e.g.,</p>
 <pre><code>&lt;&lt; Mann~noun_nominative Hund~noun_accusative &gt;&gt;</code></pre>
 <p>Concept intersection is sort of analogous to (_~animals _0?~tasty) but if this pattern detects a non-tasty animal first, it fails. And this is more cumbersome.</p>
 <pre><code>u: (_~animals) 

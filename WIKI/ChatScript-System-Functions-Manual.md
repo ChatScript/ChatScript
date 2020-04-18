@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 4/18/2020 cs10.2
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1941,6 +1941,7 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `ismixed case`      | word | return 1 if it has both upper and lowercase letters, fails otherwise
 | `type`               | word         | returns concept, number, word, or unknown
 | `common`             | word         | returns level of commonness of the word
+| `grade`             | word         | returns grade level word learned - 0=kindergarten 2=1-2 4=3-4 6=5-6 8=beyond 6
 | `verb`               | verb         | given verb in any form, return requested form
 | `present_participle` | verb         |
 | `past_participle`    | verb         |

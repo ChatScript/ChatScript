@@ -1,6 +1,6 @@
 # ChatScript Practicum: Spelling and Interjections
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/26/2020 cs10.0
+<br>Revision 4/18/2020 cs10.2
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.
 
@@ -428,3 +428,24 @@ u: (_*1 _10:=_0) # check for Epson566
     ^retry(TOPRULE)
 ```
 
+# Alternate meanings without rules
+
+For some texting, we replace words with their equivalents, like 'cu' becomes 'see you'. But 
+this spell check change directly impacts words you see and match in the input. It's not 
+necessarily always appropriate. For example 'b' means 'be' in texting, yet we may not want to lose
+the meaing for the letter, as in "Vitamin B". In such cases you can make the letter mark the word
+using a rule, as mentioned earlier, like:
+```
+u: (_b) ^mark(be _0) ^retry(RULE)
+```
+This works, but has some small execution time cost. You can make this happen automatically without
+the rule, if you arrange to make a member fact out of it. That is, we can pretend "be" is a concept.
+```
+table: ^texting($_letter $_meaning)
+	^createfact($_letter member $_meaning)
+data:
+b be
+```
+This means inputs with the letter b, will see and mark meanings of the letter, including marking 'be' 
+and everything that 'be' is a member of. It will not, however, mark parts of speech of 'be' or have it
+show up in parse data since parsing and pos-tagging was done on the letter, not the word.

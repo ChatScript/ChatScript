@@ -62,7 +62,7 @@
 #define FUNCTION_NAME			0x01000000 	//   name of a ^function  (has non-zero ->x.codeIndex if system, else is user but can be patternmacro,outputmacro, or plan) only applicable to ^ words
 #define CONCEPT					0x02000000	// topic or concept has been read via a definition
 #define TOPIC					0x04000000	//  this is a ~xxxx topic name in the system - only applicable to ~ words
-#define VARIABLE_ARGS_TABLE		0x08000000		// only for table macros
+#define VARIABLE_ARGS_TABLE		0x08000000		// only for table macros and output macros
 #define UPPERCASE_MATCH			VARIABLE_ARGS_TABLE	// match on this concept should store canonical as upper case
 #define DEFINES					0x10000000		// word is a define, starts with `, uses ->properties and ->infermark as back and forth links
 

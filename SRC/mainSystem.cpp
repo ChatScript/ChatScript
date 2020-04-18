@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.1";
+char* version = "10.2";
 char sourceInput[200];
 FILE* userInitFile;
 int externalTagger = 0;
@@ -1992,6 +1992,14 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		HandleBoot(FindWord("^cs_reboot"), true);
 	}
 
+	// absolute limit
+	size_t len = strlen(incoming);
+	if (len >= (maxBufferSize - 10))
+	{
+		incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
+		ReportBug("Trimmed input too large %d > %d", len, maxBufferSize)
+	}
+
 	strcpy(realinput, incoming);
 	if (server) AdjustUTF8(incoming, incoming - 1); // not needed coming locally
 
@@ -2006,11 +2014,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	}
 	mainInputBuffer = incoming;
 	mainOutputBuffer = output;
-	size_t len = strlen(incoming);
 
-    // absolute limit
-    if (len >= maxBufferSize) incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
-    // relative limit on user
+     // relative limit on user
     if (inputLimit && inputLimit <= (int)len) LimitInput(incoming);
     
     char* at = mainInputBuffer;
@@ -3230,7 +3235,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 		char* end = buffer + strlen(buffer);
 		char* tail = end - 1;
 		while (tail > buffer && *tail == ' ') --tail; 
-		if (tokenFlags & QUESTIONMARK && *tail != '?') strcat(tail,(char*)"? (char*)");
+		if (tokenFlags & QUESTIONMARK && *tail != '?') strcat(tail,(char*)"? ");
 		else if (tokenFlags & EXCLAMATIONMARK && *tail != '!' ) strcat(tail,(char*)"! ");
 		else if (*tail != '.') strcat(tail,(char*)". ");
 

@@ -32,12 +32,11 @@ concept: ~internal_concepts(
 ~adultword ~childword ~femalename ~humanname ~malename ~propername
 ~phrase ~clause ~verbal ~absolutephrase ~timephrase
 ~timeword ~unknownword
-
 ~repeatme ~repeatinput1 ~repeatinput2 ~repeatinput3 ~repeatinput4 ~repeatinput5 ~repeatinput6
 ~uppercase ~utf8 ~sentenceend
 ~pos ~sys ~grammar_role ~daynumber ~yearnumber ~dateinfo
 ~fahrenheit ~celsius ~kelvin
-~KINDERGARTEN ~GRADE1_2 ~GRADE3_4 ~GRADE5_6
+~kindergarten ~grade1_2 ~grade3_4 ~grade5_6
 ~twitter_name ~hashtag_label ~email_url ~filename
-~capacronym
+~capacronym ~emoji
 )

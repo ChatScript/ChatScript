@@ -6217,7 +6217,7 @@ static void ShowZone(unsigned int zone)
 		else Log(STDUSERLOG,(char*)"NounPhrase zone, "); // might be subject or object with appositive or something else after it
 	}
 	else if (zoneData[zone] == ZONE_PCV) Log(STDUSERLOG,(char*)"Phrases zone, ");
-	else Log(STDUSERLOG,(char*)"??? zone,(char*)");
+	else Log(STDUSERLOG,(char*)"??? zone,");
 }
 
 #ifdef INFORMATION

@@ -3188,7 +3188,7 @@ static void C_PennNoun(char* file)
 				if (!strnicmp(tags[i+1],(char*)"NN",2)) continue;	 // noun follows us. he must be determined instead
 				for (unsigned int x = i-1; x >= 1; --x)
 				{
-					if (!stricmp(tokens[x],(char*)",(char*)")) break;	 // immediately after comma may be appositive "Bob, dog of my dreams
+					if (!stricmp(tokens[x],(char*)",")) break;	 // immediately after comma may be appositive "Bob, dog of my dreams
 					if (!stricmp(tokens[x],(char*)"of")) break;	 // can say of xxx always as in type of dog
 					if (!stricmp(tags[x],(char*)"CC")) break;	// assume guy before is determeined
 					if (!stricmp(tags[x],(char*)"DT")) break;	// it is determined

@@ -515,7 +515,7 @@ not passed to the server) and what the user says. E.g.,
 
 ### :jamonologue file {count {skip}}
 A conversation is a series of lines until a new user or category is detected. It consists ONLY 
-of what the user says.
+of what the user says. 
 
 ### :jajmeter file {count {skip}}
 In addition to file, if your file ends with /, that means use that as a directory and do all 

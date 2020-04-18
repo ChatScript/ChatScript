@@ -1,3 +1,20 @@
+# Version 10.2 4/19/2020
+1. concept intersect now allows 3 in a row instead of just 2.
+2. Practicum on spelling and interjections has additional writeup at end about handling marking
+	without changing a word permanently or dedicating a rule to performing marking.
+3. Builtin support for emojis provided, words starting and ending in : will be in the concept
+	~emoji and are easy to pattern match, eg: in script have:  
+	replace: 🤲 :palms_up_together:
+	replace: 😄 :grinning_face_with_smiling_eyes:
+ 	or add just the pairs to the implied replace: files in the substitution files in LIVEDATA 
+	Thanks to Andy Heydon of Kore.AI for this.
+4. BINARIES has a Mac compiled executable for 10.1+ version and NON-WINDOWS Non-C has
+	updated XCODE project (thanks Andy)
+5. ^pos(grade $_word) shows the system's knowledge of grade word is learned in:
+	0 = kindergarten   2 = grades 1-2   4 = grades 3-4   6 = grades 5-6  8 = beyond grade 6
+6. engine compile flag FNVHASH, when used, replaces hash algorithm DJB2 with FNV1a, which seems to have
+	fewer collisions with utf8 emoji characters (if you have a lot of them)
+
 # Version 10.1 3/29/2020
 1. ^original(rawuser)
 2. #! comment #! inside a pattern sent to compilepattern function

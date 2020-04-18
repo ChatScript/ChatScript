@@ -78,12 +78,11 @@ concept: ~active_verbs ONLY_NONE (sleep)</code></pre>
 <p>A third way does not actually create members of a concept and does not require mere words and phrases. You can use any pattern whatsoever. And you cannot list it like you would normal members of a concept. You meremly execute a rule early on in your script that marks places in a sentence.</p>
 <pre><code>u: FAKEIT ( _(find * way)) ^mark(~myconcept _0)</code></pre>
 <p>The above detects a pattern, records the location start and end of it so that you can then mark where in the sentence ~myconcept will now be detected by any future patterns of yours.</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <h2 id="performance">Performance</h2>
 <p>Using concepts in patterns is &quot;free&quot;, as is</p>
 <pre><code>    if (_0 ? ~concept)</code></pre>
 <p>but</p>
 <pre><code>    if ($word ? ~concept)</code></pre>
-<p>runs linear with number of concept members, so it should be avoided for large concepts. Pattern matching with concepts/match_variables has all its overhead cost paid for during marking so there is no real cost later. And that marking overhead is trivial. ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; 64d7d51a5e09623a04d749a68f2b39584e181144</p>
+<p>runs linear with number of concept members, so it should be avoided for large concepts. Pattern matching with concepts/match_variables has all its overhead cost paid for during marking so there is no real cost later. And that marking overhead is trivial.</p>
 </body>
 </html>

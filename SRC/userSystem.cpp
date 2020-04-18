@@ -117,7 +117,7 @@ void ResetUserChat()
 static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* saveJSON)
 {
 	if (!ptr) return NULL;
-	
+
     //   write out fact sets first, before destroying any transient facts
 	sprintf(ptr,(char*)"%x #set flags\r\n",(unsigned int) setControl);
 	ptr += strlen(ptr);
@@ -156,7 +156,11 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 				if (F > factLocked) F->flags |= MARKED_FACT;	 // since we wrote this out here, DONT write out in general writeouts..
 			}
 			ptr += strlen(ptr);
-			if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) return NULL;
+			if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN))
+			{
+				ReportBug("WriteFacts overflow");
+				return NULL;
+			}
 		}
 		sprintf(ptr,(char*)"%s",(char*)"#end set\n"); 
 		ptr += strlen(ptr);

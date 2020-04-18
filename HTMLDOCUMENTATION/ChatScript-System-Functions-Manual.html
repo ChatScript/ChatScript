@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/29/2020 cs10.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2020 cs10.2</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -930,7 +930,7 @@ u: (%document)
 <p>Assigns a text sequence to add to <code>jo-</code> and <code>ja-</code> items created thereafter. E.g. <code>^jsonlabel(x)</code> generates <code>jo-x1</code> and <code>ja-x1</code>. You can turn it back off again with <code>^jsonlabel(&quot;&quot;)</code></p>
 <p>This allows you to create json namespaces which will not conflict. Eg, you may load a bunch of json during a system bootup (<code>^csboot</code>) under one naming and then use a different naming for user json created later and code can determine the source of the data.</p>
 <h3 id="readfile-tab-filepath"><code>^readfile ( TAB filepath )</code></h3>
-<p><code>^readfile ( TAB filepath )</code> reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array. The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted. <code>^readfile ( TAB filepath 'function)</code> reads tsv and spreads fields onto arguments of 'function, which it calls onceper line <code>^readfile ( LINE filepath 'function)</code> reads any file and passes each line untouched as the sole argument to the function.</p>
+<p><code>^readfile ( TAB filepath )</code> reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array. The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted. <code>^readfile ( TAB filepath 'function)</code> reads tsv and spreads fields onto arguments of 'function, which it calls once per line <code>^readfile ( LINE filepath 'function)</code> reads any file and passes each line untouched as the sole argument to the function.</p>
 <p>Fomerly called ^jsonreadcsv.</p>
 <h3 id="jsonundecodestring-string"><code>^jsonundecodestring ( string )</code></h3>
 <p>Removes all json escape markers back to normal for possible printout to a user. This translates <code>\n</code> to newline, <code>\r</code> to carriage return, <code>\t</code> to tab, and <code>\&quot;</code> to a simple quote.</p>
@@ -1091,146 +1091,151 @@ u: (%document)
 <td>returns level of commonness of the word</td>
 </tr>
 <tr class="even">
+<td><code>grade</code></td>
+<td>word</td>
+<td>returns grade level word learned - 0=kindergarten 2=1-2 4=3-4 6=5-6 8=beyond 6</td>
+</tr>
+<tr class="odd">
 <td><code>verb</code></td>
 <td>verb</td>
 <td>given verb in any form, return requested form</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>present_participle</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>past_participle</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>infinitive</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>past</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>present3ps</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>present</code></td>
 <td>verb</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>verb</code></td>
 <td><code>match</code> noun</td>
 <td>returns noun form matching verb (sing./plural).<br>e.g. (<em>walk match dog</em>) -&gt; <em>walks</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>aux</code></td>
 <td>auxverb <code>pronoun</code></td>
 <td>returns verb form matching pronoun supplied.<br>for <em>do</em>,<em>have</em>, <em>be</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>pronoun</code></td>
 <td>word <code>flip</code></td>
 <td>changes person form for 1st and 2nd person</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>adjective</code></td>
 <td>word <code>more</code></td>
 <td>writes the adjective in its comparative form: <em>fast</em> -&gt; <em>faster</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>most</code></td>
 <td>word</td>
 <td>the superlative form. <em>beautiful</em> -&gt; <em>most beautiful</em></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>adverb</code></td>
 <td>word <code>more</code></td>
 <td>writes comparative form: <em>strong</em> -&gt; <em>strongly</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>noun</code></td>
 <td>word <code>proper</code></td>
 <td>return word as a proper noun (appropriately cased)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>lowercaseexist</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>uppercaseexist</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>singular</code></td>
 <td>word or a number</td>
 <td>== 1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>plural</code></td>
 <td>word or a number</td>
 <td>&gt; 1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>irregular</code></td>
 <td>word</td>
 <td>return value only for irregular nouns</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>determiner</code></td>
 <td>word <code>noun</code></td>
 <td>add a determiner &quot;a/an&quot; if it needs one</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>place</code></td>
 <td>integer</td>
 <td>return place number of integer</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>capitalize</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>uppercase</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>lowercase</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>allupper</code></td>
 <td>word</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>canonical</code></td>
 <td>word</td>
 <td>see notes</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>integer</code></td>
 <td>floatnumber</td>
 <td>generate integer if float is exact integer</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>preexists</code></td>
 <td>word</td>
 <td>return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>xref</code></td>
 <td>wordindex</td>
 <td>Kind</td>

@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 4/18/2020 cs10.2
 
 
 
@@ -249,6 +249,7 @@ include:
 
 and special concepts:
 | `~capacronym`           | word is in all caps (and &) and is likely an acronym
+| `~emoji`				| word starts and end with : and represents an emoji
 
 # System Variables
 

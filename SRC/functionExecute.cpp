@@ -1205,29 +1205,72 @@ static unsigned int ComputeSyllables(char* word)
 	char copy[MAX_WORD_SIZE];
 	MakeLowerCopy(copy,word);
 	size_t len = strlen(copy);
-	if (len <= 3) return 1;
+	if (len <= 2) return 1;
 
 	char* ptr = copy-1;
 	unsigned int vowels = 0;
 	int series = 0;
+	// count number of vowels
+	// subtract 1 for each diphthong or triphthong in word
+	// Does the word end with "le" or "les?" Add 1 only if the letter before the "le" is a consonant.
 	while (*++ptr)
 	{
-		if (!IsVowel(*ptr)) 
+		if (IsVowel(*ptr)) 
 		{
-			if (series >= 4) --vowels; 
-			series = 0;
-		}
-		else 
-		{
-			++vowels;
-			++series;
+			if (ptr == copy)
+			{
+				if (IsVowel(*ptr)) ++vowels;
+				continue;
+			}
+			if (!IsVowel(*(ptr - 1)))
+			{
+				if (len > 2 && *ptr == 'e' && !ptr[1] && !IsVowel(*(ptr - 1)) && IsVowel(*(ptr-2))) {}// silent e
+				else ++vowels; // presume vowels in sequence are one sound
+			}
+			if (*ptr == 'y' && IsVowel(ptr[1])) ++vowels; // dont merge vowel y in player
+			if (*(ptr - 1) == 'e' && *ptr == 'o') ++vowels; // preinvolve reoccupy
+			// ia and io not dipthongs  
+			if (*(ptr - 1) == 'i')
+			{
+				if (*ptr == 'a' && ptr[1] == 'n' && !ptr[2]) {} // australian
+				else if (*ptr == 'a') ++vowels; // hiatus
+				else if (*ptr == 'o' && ptr[1] != 'n') ++vowels; // not placation but curious
+			}
+			if (len > 2 && *(ptr - 2) == 'i' && *(ptr - 1) == 'o' && *ptr == 'u' && ptr[2] == 's') ++vowels; // ficticious
+			if (*(ptr - 1) == 'i' && *ptr == 'e' && ptr[1] == 'r') ++vowels; // flier
+			if (ptr[1] == 'r')
+			{
+				if (*ptr == 'u' && *(ptr - 1) == 'o') ++vowels; // hour
+				else if (*ptr == 'i' && ptr[2] == 'e' ) ++vowels; // ireland  fire
+				else if (*(ptr - 1) == 'o' && *ptr == 'i'  ) ++vowels; // choir
+			}
+			char c = *(ptr - 1);
+			if (!IsVowel(c) && *ptr == 'e' && ptr[1] == 'd' && !ptr[2])  // ed ending
+			{
+				// dont sound the ed dending unless D, T, or ((consonant other than R) + R) or (consonant + L).
+				if (c == 'd' || c == 't') {}
+				else if (len > 2 && c == 'r' && *(ptr - 2) != 'r') {}
+				else if (len > 2 && c == 'l' && !IsVowel(*(ptr - 2))) {}
+				else --vowels; // walked (dont count ed)
+			}
+			if (!IsVowel(c) && *ptr == 'e' && ptr[1] == 's' && !ptr[2]) // es ending
+			{
+				// dont sound the es  unless ...
+				if (c == 'c' || c == 'g' || c == 'x' || c == 's' || c == 'z') {}
+				else if (len > 2 && c == 'l' && !IsVowel(*(ptr - 2))) {}
+				else --vowels; // walked (dont count ed)
+			}
 		}
 	}
-	// silent e
-	if (copy[len-1] == 'e' && !IsVowel(copy[len-2]) && IsVowel(copy[len-3])) --vowels;	// silent e
-	
-	// silent es or ed
-	if ((copy[len-1] == 'd' || copy[len-1] == 's') && copy[len-2] == 'e' && !IsVowel(copy[len-3]) && IsVowel(copy[len-4])) --vowels;	// silent e
+	// trailing le and les, only count the e if consonant before
+	if (len > 3 && !stricmp(copy + len - 3, "les"))
+	{
+		if (IsVowel(copy[len-4])) --vowels;
+	}
+	if (len > 2 && !stricmp(copy + len - 2, "le"))
+	{
+		if (IsVowel(copy[len - 3])) --vowels;
+	}
 
 	return vowels;
 }
@@ -5319,10 +5362,10 @@ FunctionResult ArgumentCode(char* buffer)
 {
 	char* arg1 = ARGUMENT(1);
 	char* arg2 = ARGUMENT(2);
-	if (!IsDigit(*arg1) || !callIndex) return FAILRULE_BIT;	// must be number index within some call
+	if (!IsDigit(*arg1) || !callIndex ) return FAILRULE_BIT;	// must be number index within some call
 	if (*arg2 == '\'') ++arg2;
     int depth = globalDepth + 1;
-    CALLFRAME* frame = NULL;
+    CALLFRAME* frame = GetCallFrame(depth-1);
     while (--depth > 0 && *arg2)
     {
         frame = GetCallFrame(depth);
@@ -5458,9 +5501,9 @@ static FunctionResult BurstCode(char* buffer) //   take value and break into fac
         char digits[MAX_WORD_SIZE];
         char* atdigit = digits;
         char letters[MAX_WORD_SIZE];
-        if (IsDigit(*arg1) || (*arg1 == '+' || *arg1 == '-') && IsDigit(arg1[1])) // number first
+        if (IsDigit(*arg1) || (IsSign(*arg1) && IsDigit(arg1[1]))) // number first
         {
-            if (*arg1 == '+' || *arg1 == '-') *atdigit++ = *arg1++;
+            if (IsSign(*arg1)) *atdigit++ = *arg1++;
             while (IsDigit(*arg1) || *arg1 == '.' || *arg1 == ',') *atdigit++ = *arg1++;
             *atdigit = 0;
             strcpy(letters, arg1);
@@ -5469,7 +5512,7 @@ static FunctionResult BurstCode(char* buffer) //   take value and break into fac
         {
             size_t len = strlen(arg1);
             while (IsDigit(arg1[--len]) || arg1[len] == '.' || arg1[len] == ',');
-            if (arg1[len] == '+' || arg1[len] == '-') --len;
+            if (IsSign(arg1[len])) --len;
             strcpy(digits, arg1 + len + 1);
             arg1[len + 1] = 0;
             strcpy(letters, arg1);
@@ -6166,6 +6209,19 @@ static FunctionResult POSCode(char* buffer)
 		uint64 level = (D->systemFlags & COMMON7);
 		level >>= (64-14);
 		sprintf(buffer,(char*)"%d",(int)level);
+		return NOPROBLEM_BIT;
+	}
+	if (!stricmp(arg1, (char*)"grade"))
+	{
+		if (!arg2) return FAILRULE_BIT;
+		WORDP D = FindWord(arg2, 0, PRIMARY_CASE_ALLOWED);
+		if (!D) return NOPROBLEM_BIT;
+		uint64 age = (D->systemFlags & AGE_LEARNED);
+		if (age == KINDERGARTEN) strcpy(buffer, (char*)"0");
+		else if (age == GRADE1_2) strcpy(buffer, (char*)"2");
+		else if (age == GRADE3_4) strcpy(buffer, (char*)"4");
+		else if (age == GRADE5_6) strcpy(buffer, (char*)"6");
+		else strcpy(buffer, (char*)"8");
 		return NOPROBLEM_BIT;
 	}
 	if (!stricmp(arg1,(char*)"verb"))
@@ -9623,7 +9679,11 @@ static FunctionResult CompilePatternCode(char* buffer)
 		char index[MAX_WORD_SIZE];
 		sprintf(index, "%d", 1);
 		field = StoreWord(index, AS_IS);
-		char* errmsg = "Pattern missing opening paren";
+		char errmsg[MAX_WORD_SIZE];
+		char mydata[100];
+		strncpy(mydata, arg, 90);
+		mydata[90] = 0;
+		sprintf(errmsg, "Pattern missing opening paren --> %s", mydata);
 		size_t len = strlen(errmsg);
 		WORDP err = StoreWord(errmsg, AS_IS);
 		CreateFact(M1, MakeMeaning(field), MakeMeaning(err), flags);
@@ -9670,7 +9730,7 @@ static FunctionResult CompilePatternCode(char* buffer)
 #ifndef DISCARDSCRIPTCOMPILER
         if (*readBuffer == '(') // pattern test
         {
-            strcpy(currentFilename, "^CompilePattern");
+			*currentFilename = 0;
             //disablePatternOptimization = false;
 			compilePatternCall = true;
 			ReadPattern(readBuffer, NULL, data, false, false); // swallows the pattern

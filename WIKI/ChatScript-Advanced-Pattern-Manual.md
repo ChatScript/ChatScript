@@ -1,6 +1,6 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 4/18/2020 cs10.2
 
 
 # ADVANCED PATTERNS
@@ -410,19 +410,23 @@ You can request n words before the current position using `*-n`. For example
     u: ( I love * > _*-1 ) capture last word of sentence
 
 ## Concept intersection keywords
+
 If you join a word (or a concept) and one or more concepts, that represents the intersection of them.
-e.g., (~animals~tasty) will reference all animals considered tasty. 
+e.g., (~animals~tasty) will reference all animals considered tasty. You may stack no more than 3 together.
+```
+u: (~animals~tasty~mythical) I didn't know you considered dragons tasty.
+```
+You can do this in a pattern or as keyword of a concept.
 
-Note, you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.
+Note: you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.
 
-This particular ability has general utiility, but specific utility to German.
+Note: This particular ability has general utiility, but specific utility to German.
 German doesn't have the same strict word order but
 because there is case marking on nouns then the position of the subject and object (nominative and accusative case) can move around.
 The simple << >> grouping is not useful unless one can limit the nouns to the right case, e.g.,
 ```
 << Mann~noun_nominative Hund~noun_accusative >>
 ```
-
 Concept intersection is sort of analogous to 	(_~animals _0?~tasty) but if this pattern detects a non-tasty animal first,
 it fails. And this is more cumbersome.
 ```

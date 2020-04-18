@@ -703,14 +703,19 @@ restart: // start with user
 		else if (!strnicmp(ptr, (char*)":jaconverse", 11) || !strnicmp(ptr, (char*)":jamonologue", 12))
 		{
 			char file[SMALL_WORD_SIZE];
-			ptr = ReadCompiledWord(ptr + 11, file);
+			int diff =  11;
+			if (!strnicmp(ptr, (char*)":jamonologue", 12))
+			{
+				jamonologue = true;
+				diff += 1;
+			}
+			ptr = ReadCompiledWord(ptr + diff, file);
 			sourceFile = fopen(file, (char*)"rb");
 			if (!sourceFile)
 			{
 				printf("%s not found\r\n", file);
 				myexit("not found");
 			}
-			if (!strnicmp(ptr, (char*)":jamonologue", 12)) jamonologue = true;
 			jastarts = true;
 			jaconverse = true;
 			botturn = true;
@@ -1006,7 +1011,7 @@ restart: // start with user
 					ptr = data;
 					goto SOURCE;
 				}
-				else if (!strnicmp(SkipWhitespace(data), (char*)":jaconverse", 11))
+				else if (!strnicmp(SkipWhitespace(data), (char*)":jaconverse", 11) || !strnicmp(SkipWhitespace(data), (char*)":jamonologue", 12))
 				{
 					ptr = data;
 					goto SOURCE;

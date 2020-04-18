@@ -2841,6 +2841,8 @@ static void InitMacros(const char* name,const char* layer,unsigned int build)
 		if (*tmpWord == 't') AddInternalFlag(D,IS_TABLE_MACRO);  // table macro
 		else if (*tmpWord == 'o') AddInternalFlag(D,IS_OUTPUT_MACRO); 
 		else if (*tmpWord == 'p') AddInternalFlag(D,IS_PATTERN_MACRO); 
+		else if (*tmpWord == 'O') AddInternalFlag(D, IS_OUTPUT_MACRO| VARIABLE_ARGS_TABLE);
+		else if (*tmpWord == 'P') AddInternalFlag(D, IS_PATTERN_MACRO| VARIABLE_ARGS_TABLE);
 		else if (*tmpWord == 'd') AddInternalFlag(D,IS_PATTERN_MACRO|IS_OUTPUT_MACRO);
 		else
 		{

@@ -201,7 +201,7 @@ put tokens into a transient output stream. If at any time we &quot;fail&quot;, t
 <p>Number merging, in particular, converts things like <em>four score and seven years ago</em> into a single token <em>four_score_and_seven_years_ago</em> which is marked as a number and whose canonical value is <em>87</em>.</p>
 <h3 id="splitting">Splitting</h3>
 <p>Dialog acts can be split into separate sentences so that <em>Yes I love you</em> and <em>Yes, I love you</em> and <em>Yes. I love you</em> all become the same input of two sentences - the dialog act <code>~yes</code> and <em>I love you</em>.</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD Run together words may be split if the composite is not known and the pieces are.</p>
+<p>Run together words may be split if the composite is not known and the pieces are.</p>
 <h2 id="pos-parsing">Pos-parsing</h2>
 <p>Pos-Parsing performs classic part-of-speech tagging of the tokens. This means that <em>He flies</em> where <em>flies</em> is a verb in present 3rd person is distinguished from <em>He eats flies</em> where <em>flies</em> is a plural noun.</p>
 <p>The system also attempts to parse the sentence to determine things like what is the main subject, main verb, main object, object of a clause or phrase, etc.</p>
@@ -231,7 +231,7 @@ put tokens into a transient output stream. If at any time we &quot;fail&quot;, t
 <h1 id="private-code">Private Code</h1>
 <p>You can add code to the engine without modifying its source files directly. To do this, you create a directory called privatecode at the top level of ChatScript. You must enable the <code>PRIVATE_CODE</code> define.</p>
 <p>Inside it you place files:</p>
-<p>======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; 64d7d51a5e09623a04d749a68f2b39584e181144 <code>privatesrc.cpp</code>: code you want to add to functionexecute.cpp (your own cs engine functions) classic definitions compatible with invocation from script look like this:</p>
+<p><code>privatesrc.cpp</code>: code you want to add to functionexecute.cpp (your own cs engine functions) classic definitions compatible with invocation from script look like this:</p>
 <pre><code>static FunctionResult Yourfunction(char* buffer)</code></pre>
 <p>where ARGUMENT(1) is a first argument passed in. answers are returned as text in buffer, and success/failure codes as FunctionResult.</p>
 <p><code>privatetable.cpp</code>: listing of the functions made visible to CS table entries to connect your functions to script:</p>
@@ -250,26 +250,19 @@ privatetestingtable.cpp  listing of :debug functions made visible to CS</code></
 <img src="arch.png" alt="ChatScript architecture" />
 <p class="caption">ChatScript architecture</p>
 </div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD The system is divided into the code zones shown below. All code is in SRC. ======= The system is divided into the code zones shown above. All code is in SRC. &gt;&gt;&gt;&gt;&gt;&gt;&gt; 64d7d51a5e09623a04d749a68f2b39584e181144</p>
+<p>The system is divided into the code zones shown below. All code is in SRC.</p>
 <h2 id="core-engine">Core Engine</h2>
 <ul>
 <li><code>dictionary</code> is <code>dictionary</code></li>
-<li><code>facts/JSON queries</code> is <code>factSystem</code>, <code>json</code>, <code>jsmn</code>, and * * * <code>infer</code> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</li>
+<li><code>facts/JSON queries</code> is <code>factSystem</code>, <code>json</code>, <code>jsmn</code>, and * * * <code>infer</code></li>
 <li><code>long term user memory</code> is <code>userCache</code>, <code>userSystem</code></li>
 <li><code>topics</code> and loading the results of compilation is <code>topicSystem</code></li>
 <li><code>functions</code> is <code>functionExecute</code></li>
 <li><code>variables</code> is <code>variableSystem</code> and <code>systemVariables</code></li>
 <li><code>JavaScript</code> is <code>javascript</code></li>
 <li><code>memory allocation</code> and other things like file system access is in <code>os</code></li>
-<li><h1 id="output-eval-is-outputsystem"><code>output eval</code> is <code>outputSystem</code></h1></li>
-<li><code>long term memory</code> is <code>userCache</code>, <code>userSystem</code></li>
-<li><code>topics</code> is <code>topicSystem</code></li>
-<li><code>functions</code> is <code>functionExecute</code></li>
-<li><code>variables</code> is <code>variableSystem</code> and <code>systemVariables</code></li>
-<li><code>JavaScript</code> is <code>javascript</code></li>
-<li><code>memory allocation</code> is <code>os</code></li>
 <li><code>output eval</code> is <code>outputSystem</code></li>
-<li><p><code>os access</code> is <code>os</code> &gt;&gt;&gt;&gt;&gt;&gt;&gt; 64d7d51a5e09623a04d749a68f2b39584e181144</p></li>
+<li><code>os access</code> is <code>os</code></li>
 <li>folders inside SRC are external systems included in CS, including: ```</li>
 <li>curl (web api handling)</li>
 <li>duktape (javascript evalutation)</li>
@@ -281,23 +274,15 @@ privatetestingtable.cpp  listing of :debug functions made visible to CS</code></
 </ul>
 <h2 id="external-access">External Access</h2>
 <ul>
-<li><code>OOB</code> is partly in <code>tokenSystem</code> and mostly in <code>mainSystem</code> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</li>
-<li><code>Mongo</code> is <code>mongodb</code></li>
-<li><code>Postgres</code> is <code>postgres</code></li>
-<li>All of the system's <code>^functions</code> are in <code>functionExecute</code></li>
-<li>Servers are <code>evserver</code>, <code>cs_ev</code> and <code>csocket</code></li>
-</ul>
-<h2 id="world-model">World Model</h2>
-<ul>
-<li><h1 id="natural-language-abilities-are-in-english-englishtagger-marksystem-patternsystem-spellcheck-tagger-and-livedata-and-dict">Natural language abilities are in <code>english</code>, <code>englishTagger</code>, <code>markSystem</code>, <code>patternSystem</code>, <code>spellcheck</code>, <code>tagger</code> and LIVEDATA and DICT</h1></li>
+<li><code>OOB</code> is partly in <code>tokenSystem</code> and mostly in <code>mainSystem</code></li>
 <li><code>Mongo</code> is <code>mongodb.cpp</code></li>
 <li><code>Postgres</code> is <code>postgres</code></li>
 <li>All of the <code>^functions</code> are in <code>functionExecute</code></li>
 <li>Servers are <code>evserver</code>, <code>cs_ev</code> and <code>cssocket</code></li>
 </ul>
-<h2 id="world-model-1">World Model</h2>
+<h2 id="world-model">World Model</h2>
 <ul>
-<li>Natural language abilities are in <code>english.cpp</code>, <code>englishTagger</code>, <code>markSystem</code>, <code>patternSystem</code>, <code>spellcheck</code>, <code>tagger</code> and LIVEDATA and DICT &gt;&gt;&gt;&gt;&gt;&gt;&gt; 64d7d51a5e09623a04d749a68f2b39584e181144</li>
+<li>Natural language abilities are in <code>english.cpp</code>, <code>englishTagger</code>, <code>markSystem</code>, <code>patternSystem</code>, <code>spellcheck</code>, <code>tagger</code> and LIVEDATA and DICT</li>
 <li>RAWDATA/ONTOLOGY contains ontology data</li>
 <li>RAWDATA/WORLDDATA contains world data</li>
 </ul>

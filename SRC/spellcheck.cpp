@@ -580,8 +580,55 @@ bool SpellCheckSentence()
 		char* dot = strchr(word, '.');
 		if (dot && FindWord(word, 0)) continue;
         
+        // joined number words like 100dollars
+        char* at = word - 1;
+        while (IsDigit(*++at) || *at == '.' || *at == ',');
+        if (IsDigit(*word) && strlen(at) > 3 && ProbableKnownWord(at))
+        {
+            char first[MAX_WORD_SIZE];
+            strncpy(first, word, (at - word));
+            first[at - word] = 0;
+            if (IsDigitWord(first, numberStyle, true))
+            {
+                char* tokens[3];
+                tokens[1] = first;
+                tokens[2] = at;
+                ReplaceWords("joined number word", i, 1, 2, tokens);
+                continue;
+            }
+        }
+        
+        // joined number words like dollars100
+        at = end;
+        while (at >= word && (IsDigit(*--at) ||  *at == '.' || *at == ','));
+        if (IsDigit(*++at) && (at - word) > 3 && IsDigitWord(at, numberStyle, true))
+        {
+            char first[MAX_WORD_SIZE];
+            strncpy(first, word, (at - word));
+            first[at - word] = 0;
+            if (ProbableKnownWord(first))
+            {
+                char* tokens[3];
+                tokens[1] = first;
+                tokens[2] = at;
+                ReplaceWords("joined word number", i, 1, 2, tokens);
+                continue;
+            }
+        }
+
         // dont spellcheck model numbers
-        if (IsModelNumber(word)) continue;
+        if (IsModelNumber(word))
+        {
+            WORDP X = FindWord(word, 0, UPPERCASE_LOOKUP);
+            if (IsConceptMember(X) && !strcmp(word,X->word))
+            {
+                char* tokens[2];
+                tokens[1] = X->word;
+                ReplaceWords("KnownUpperModelNumber", i, 1, 1, tokens);
+                fixedSpell = true;
+            }
+            continue;
+        }
 
 		// split conjoined sentetence Missouri.Fix  or Missouri..Fix
 		// but dont split float values like 0.5%
@@ -616,33 +663,6 @@ bool SpellCheckSentence()
 
 		// nor fractions
 		if (IsFraction(word))  continue; // fraction?
-
-		// joined number words  like 100dollars
-		char* at = word - 1;
-		while (IsDigit(*++at) || *at == numberPeriod);
-		if (IsDigit(*word) && strlen(at) > 3 && ProbableKnownWord(at))
-		{
-			char first[MAX_WORD_SIZE];
-			strncpy(first, word, (at - word));
-			first[at - word] = 0;
-			tokens[1] = first;
-			tokens[2] = at;
-			ReplaceWords("joined number word", i, 1, 2, tokens);
-			continue;
-		}
-
-		// nor model numbers
-		if (IsModelNumber(word))
-		{
-			WORDP X = FindWord(word, 0, UPPERCASE_LOOKUP);
-			if (IsConceptMember(X) && !strcmp(word,X->word))
-			{
-				tokens[1] = X->word;
-				ReplaceWords("KnownUpperModelNumber", i, 1, 1, tokens);
-				fixedSpell = true;
-			}
-			continue;
-		}
 
 		char* number;
 		if (GetCurrency((unsigned char*)word, number)) continue; // currency
@@ -979,14 +999,14 @@ bool SpellCheckSentence()
 				fixedSpell = true;
 				continue;
 			}
-			else if (D && E) //   1st word gets replaced, we added another word after
+			else if (D && E && UsefulKnownWord(D) && UsefulKnownWord(E)) //   1st word gets replaced, we added another word after
 			{
 				if ((wordCount + 1 ) >= REAL_SENTENCE_LIMIT) continue;	// no room
 				tokens[1] = D->word;
 				tokens[2] = E->word;
 				ReplaceWords("Pair",i,1,2,tokens);
 				fixedSpell = true;
-				--i;
+				++i; // skip testing next word
 				continue;
 			}
 			else if (!stricmp(test,(char*)"old") || !stricmp(test,(char*)"olds")) //   break apart 5-year-old

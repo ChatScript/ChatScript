@@ -111,6 +111,7 @@ extern uint64 docVolleyStartTime;
 #define IsNonDigitNumberStarter(c) (isAlphabeticDigitData[(unsigned char)c] == VALIDNONDIGIT)
 #define IsNumberStarter(c) (isAlphabeticDigitData[(unsigned char)c] && isAlphabeticDigitData[(unsigned char)c] <= VALIDDIGIT)
 #define IsComparison(c) (isComparatorData[(unsigned char)c])
+#define IsSign(c) (c == '-' || c == '+')
 WORDP BUILDCONCEPT(char* word) ;
 void RemoveTilde(char* output);
 double Convert2Double(char* original,int useNumberStyle = AMERICAN_NUMBERS);
@@ -159,6 +160,7 @@ bool IsMail(char* word);
 bool IsUrl(char* word, char* end);
 bool IsFileExtension(char* word);
 bool IsFileName(char* word);
+bool IsEmojiShortCode(char* word);
 unsigned int IsMadeOfInitials(char * word,char* end);
 bool IsNumericDate(char* word,char* end);
 char IsFloat(char* word, char* end, int useNumberStyle = AMERICAN_NUMBERS);

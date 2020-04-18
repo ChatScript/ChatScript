@@ -544,7 +544,7 @@ static char* predefinedSets[] = //  some internally mapped concepts not includin
     (char*)"~passive_verb",
     (char*)"~time_noun_modify_adverb",
 	(char*)"~time_noun_modify_adjective",
-	(char*)"~capacronym",
+	(char*)"~capacronym",(char*)"~emoji",
     NULL
 };
 
@@ -2610,8 +2610,14 @@ HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, ch
 		original[len - 1] = 0;
 		memmove(original, original + 1, len);
 		char* at = original;
-		while ((at = strchr(at, ' '))) *at = '_';	// change spaces to blanks
+		while ((at = strchr(at, ' '))) *at = '_';	// change spaces to underscores
 	}
+	char* at = original;
+	while ((at = strchr(at, '+'))) *at = '_';	// change pluses to underscores
+
+	at = original;
+	while ((at = strchr(at, '_'))) *at++ = '`';// make safe form so we can have _ in output
+
 	if (*replacement == '"')
 	{
 		size_t len = strlen(replacement);
@@ -2620,10 +2626,6 @@ HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, ch
 		char* at = replacement;
 		while ((at = strchr(at, ' '))) *at = '+';	// change spaces to plus
 	}
-
-	char* at = original;
-	while ((at = strchr(at, '_'))) *at++ = '`';// make safe form so we can have _ in output
-	
 	
 	WORDP D = FindWord(original, 0, LOWERCASE_LOOKUP);	//   do we know original already? 
 	bool fromExists = false;

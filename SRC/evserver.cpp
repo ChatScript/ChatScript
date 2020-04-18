@@ -622,6 +622,15 @@ int evsrv_do_chat(Client_t *client)
  	uint64 starttime = ElapsedMilliseconds(); 
     client->prepare_for_chat();
 	size_t len = strlen(client->message);
+
+// completely literal incoming data
+//	FILE* bugout = FopenUTF8WriteAppend("evdata.txt");
+//	if (bugout)
+//	{
+//		fprintf(bugout, "%d |%s|\r\n", len, client->message);
+//		fclose(bugout);
+//	}
+
 	if (len >= maxBufferSize - 300) client->message[maxBufferSize -300] = 0; // limit user input
     echo = false;
 	bool restarted = false;
@@ -663,7 +672,7 @@ RESTART_RETRY:
 	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
  	else if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
     if (userInput) *userInput = endInput;
-
+	
 	int turn = PerformChat(
         client->user,
         client->bot,

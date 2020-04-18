@@ -331,353 +331,223 @@ Location    Japan   Yokohama</code></pre>
 <p>but that's crowded to read and excess typing. Another thing you can do is:</p>
 <pre><code>Location    Japan   Tokyo   
 *           *       Yokohama</code></pre>
-<p>Where * means use the last seen value from prior entries (you write your table to make that interpretation). Still it's tedious to put in the well mannered <em>. So there is one other thing you can do. You can make a tab table, where tab characters are automatically convered into space-separated </em> values instead of being ignored white space. table: ^mytable TAB ($_arg1 $_arg2 $_arg3 ) ... DATA: Location Japan<br />
-Tokyo<br />
-Yokohama</p>
-<pre><code>is one such table. Looks a lot cleaner. Just be certain you are using tabs and not spaces.
-You can write self-checking code in your table to confirm users didn&#39;t screw up.
-The system variable %tableinput shows the actual line seen by the table function at each entry.
-
-## String processing in Tables
-
-It is common for a string to be a table argument. Any functional string `^&quot;xxx&quot;` stores itself
-in an appropriate manner. 
-
-They are like regular output - they are literally output script.
-Formatting is automatic and you get to make them do any kind of executable thing, as
-though you were staring at actual output script. 
-
-There is no user context when compiling a table. 
-As a consequence, if you have table code that looks like this:
-
-    ^createfact( x y ^&quot; This is $var output&quot;)
-
-the functional string does NOT evaluate itself before going to createfact. 
-It gets stored as its original self.
-
-Regular strings, by default, remove their quotes and substitute underscores for spaces.
-This is good when the intention is as a composite word, but if the string is to be used as
-direct output, you may prefer to retain the quotes and spaces. 
-You can do this by declaring the argument name with `.KEEP_QUOTES`. E.g.
-
-    table: ^test( ^my1 ^my2.KEEP_QUOTES)
-
-It is particularly important to use the quoted form when the contents includes a concept or
-topic name that has underscores because the system cannot tell a spacing underscore from
-a significant one.
-
-
-## Simple Fact Functions (more in system functions manual)
-
-Various functions create, destroy and aggregate facts, as well as mark and unmark them.
-For those routines that aggregate facts, the result is stored into a fact set. 
-Usually this is done by assignment, e.g.
-
-    @2 = gambitTopics()
-
-Such assignments never fail, they just may assign a zero length to the result. Often,
-however, you can use the function to simultaneously store and test. 
-If not in an assignment context, the function will store results into `@0` 
-and fail if the result is no facts. Eg.
-
-    if ( gambitTopics() ) { first(@0object)}
-
-    
-### `^addproperty`( set flag )
-
-Add this flag onto all facts in named set or onto words. 
-If you just say
-
-    ^addproperty(@9 USER_FLAG3) 
-
-then all facts get that flag on them. 
-The predefined but meaningless to the system fact flags are 
-`User_flag4`, `User_flag3`, `User_flag2`, `User_flag1`.
-
-If set has a field marker (like `@2subject`) then the property is added to all values of that
-field of facts of that set, that is, a dictionary word. 
-The flags must come from `dictionarysystem.h` and the set of property flags or system flags.
-
-
-### `^conceptlist`( kind location ) 
-
-Generates a list of transient facts for the designated word
-position in the sentence of the concepts (or topics or both) referenced by that word, based
-on _kind_ being `CONCEPT` or `TOPIC` or `BOTH`. Facts are `(~concept ^conceptlist location)`
-where location is the location in the sentence.
-
-    ^conceptlist( CONCEPT 3 ) # absolute sentence word index
-    ^conceptlist( TOPIC _3 ) # whereever _3 is bound
-
-Otherwise, if you don&#39;t use an assignment, 
-it stores into set 0 and fails if no facts are found. 
-Any set already marked `^Addproperty(~setname NOCONCEPTLIST)` will not be returned from `^conceptlist`. 
-Special preexisting lists you might use the members of to exclude include: 
-`~pos` (all bits of word properties) `~sys` (all bits of system proerties) and `~role` (all role bits from pos-tagging).
-
-If you omit the 2nd argument (_location_), then it generates the set of all such in the
-sentence, iterating over every one but only doing the first found reference of some kind.
-
-If you use `^mark` to mark a position, both the word and all triggered concepts will be
-reported via `^conceptlist`. But if the mark is a non-canonical word, mark does not do
-anything about the canonical form, and so there may be no triggered concepts as well.
-(Best to use a canonical word as mark).
-
-
-### `^createfact`( subject verb object flags )
-
-the arguments are a stream, so _flags_ is optional. 
-Creates a fact of the listed data if it doesn&#39;t exist (unless flags allows duplicates).
-See system functions manual for a bit more on how createfact can process data.
-
-
-### `^delete`( set )
-
-erase all facts in this set. This is the same as `^addfactproperty(set FACTDEAD)`.
-
-
-### `^field`(fact fieldname)
-given a reference to a fact, pull out a named field. 
-If the fieldname is in lower case and the field is a fact reference, you get that number. 
-If the fieldname starts uppercase, the system gives you the printout of that fact. 
-Eg for a fact:
-
-    $$f = createfact (I eat (he eats beer))
-    ^field( $$f object) # returns a number (the fact index)
-
-and 
-
-    ^field($$f object) # returns (he eats beer)`
-
-_fieldname_ include: `subject`, `verb`, `object`, `flags`, `all` (spread onto 3 match variables, 
-`raw` (spread onto 3 match variables).
-
-`all` just displays a human normal dictionary word, so if the value were actually `plants~1` 
-you&#39;d get just plants whereas raw would return what was actually there `plants~1`.
-
-You can also retrieve a field via `$$f.subject` or `$$f.verb` or `$$f.object`.
-
-
-### `^find`( setname itemname )
-
-given a concept set, find the ordered position of the 2nd
-argument within it. Output that index (0-based). Used, for example, to compare two poker hands.
-
-
-### `^first`( fact-set-annotated )
-
-retrieve the first fact. You must qualify with what you want from it. 
-Retrieve means the fact is removed from the set.
-`^first(@0subject)` retrieves the subject field of the first fact. 
-
-Other obvious qualifications are `verb`, `object`, `fact` (return the index of the fact itself), 
-`all` (spread all 3 fields onto a match variable triple, 
-`raw` (like all but all displays just a normal human-readable word like plant whereas raw displays 
-what was actually there, which might have been plant~1).
-
-
-### `^last`( fact-set-annotated )
-
-retrieve the last fact - see `^first` for a more complete explanation.
-
-
-### `^length`( word )
-
-puts the length of the word into the output stream. 
-If word is actually a fact set reference (e.g., `@2` ), 
-it returns the count of facts in the set.
-
-
-### `^next`( FACT fact-set-annotated )
-
-Allows you to walk a set w/o erasing anything. 
-See `^first` for more complete description of annotation, 
-the distinction between next and `^first` is that next does NOT remove the fact from the set, 
-but moves on to each fact in turn. You can reset a set with
-
-    ^reset(@1)
-
-then loop thru it looking at the subject field with
-
-    loop() { _0 = next(FACT @1subject) }
-
-
-### `^pick`( `~concept` )
-
-Retrieve a random member of the concept. Pick is also used with factsets to pick a random fact 
-(analogous to `^first` with its more complete description).
-
-
-### `^reset`( fact-set )
-Reset a fact set for browsing using `^next`.
-
-### `^query`( kind subject verb object )
-See writeup earlier.
-
-### `^sort`( set )
-sort the set.
-
-### `^unduplicate`( set )
-Remove duplicate facts from this set. The destination set will be named in an assignment statement like:
-
-    @1 = ^unduplicate(@0)
-
-
-# Facts vs Variables
-
-How are facts and variables different? Which should you use?
-
-Facts are persistent. 
-
-If you don&#39;t create them explicitly as transient, they stay with the user forever. 
-
-Variables that don&#39;t begin with `$$` are also persistent and stay with the user forever. 
-
-There are no limits on the number of variables you can have (none that you need
-be aware of) and variable names can be up to 999 characters long. 
-
-The limits on user facts that can be saved are defined as a parameter when CS is started up (default 100).
-You can create more facts, but it will only save the most recent limit.
-
-Facts are indexed by subject, verb, object, so you can query to find one. 
-
-Variables you have to know the name of it (but it can be composed on the fly). 
-Facts use up more memory, but can be exported to arbitrary files (and imported).
-
-Facts can represent an array of values, with a field as index. 
-But so can variables with omposited naming. 
-
-So mostly it depends on whether you want to find information by
-querying. You have implicit associations of facts by the values of the subject, verb, and
-object fields. But you could create a variable name of two of the fields of the fact, if the
-third field was really the fact&#39;s &quot;value&quot;.
-
-**WARNING**
-&lt;br&gt;
-When you get a reference to a fact, like:
-
-    $$tmp = ^first(@1fact)
-
-that value is a numeric index into fact space. It is ONLY valid during the current volley.
-You cannot insure that it will remain valid across volleys.
-The valid ways to access facts across volleys are:
-
-1. rerun `^query(...)` to get a set of factsubject
-2. get your fact reference into an @factset and have the set marked to save across volleys via `^enable(write @4)`
-3. save the fact as text to a permanet variable, e.g.,
-
-        $fact = ^WriteFact(^first(@1fact)
-    
-
-You can later reaccess (or recreate) this fact via `^createfact($fact)`.
-
-
-# ADVANCED FACTS
-
-
-## Facts of Facts
-
-Suppose you do something like 
-
-    ^createfact( john eat (wet food peanuts))
-    
-What happens when you retrieve it into a fact set and then do 
-
-     _1 = ^last(@1+)
-     
-and get the fact disassembled onto `_1`, `_2`, `_3`, and `_4`? 
-
-What you get for `_3` is a reference to a fact, that is, a number. 
-
-You can decode that by using `^field( _3 subject)` or `^field(_3 verb)` or `^fact(_3 object)` 
-to get wet or food or peanuts. The first argument to `^field` is a fact number.
-
-You get a fact number if you do `_3 = createfact(...)` and can decode `_3` the same way.
-Naturally this function fails if you give it something that cannot be a fact reference.
-
-
-## Flags
-
-Facts may have flags on them. You can create them with flags (see `^createfact`) and you
-can get them using ^field or when you spread out a fact onto a collection of match variables.
-
-System-defined flags (which should not be set or erased by user scripts) are:
-
-| flag          | description
-|---------------|---------------------------------
-|`FACTSUBJECT`&lt;br&gt;`FACTVERB`&lt;br&gt;`FACTOBJECT`| describe that a field is a fact
-|`FACTDEAD`     | indicates the fact has been killed and will go away at the end of volley
-
-Flags you can use to define facts that have system meaning but may or may not stay on them are:
-
-| flag          | description
-|---------------|---------------------------------
-|`FACTDUPLICATE`| allow multiple versions of the same fact
-|`FACTTRANSIENT`| the fact should die at the end of the volley if not in a fact set
-|`ORIGINAL_ONLY`| a &quot;member&quot; fact defining a concept only uses the raw word
-
-Flags you can set for yourself include:
-
-| flag          | description
-|---------------|---------------------------------
-|`USER_FLAG1`&lt;br&gt;`USER_FLAG2`&lt;br&gt;`USER_FLAG3`&lt;br&gt;`USER_FLAG4` | user defined
-
-Facts created by JSON code have user markings also, renamed as
-
-| flag          | description
-|---------------|---------------------------------
-|`JSON_PRIMITIVE_VALUE`&lt;br&gt;`JSON_STRING_VALUE`&lt;br&gt;`JSON_ARRAY_VALUE`&lt;br&gt;`JSON_OBJECT_VALUE` | which indicate what kind of value the object of the fact is.
-|`JSON_ARRAY_FACT`&lt;br&gt;`JSON_OBJECT_FACT`| which indicate what kind of value the subect of the fact is.
-
-
-## JSON
-
-Json is a great representation for creating and accessing complex fact structures. 
-See the [ChatScript JSON manual](ChatScript-Json.html) for more details.
-
-
-# ESOTERIC FACTS
-
-## Compiled Script Table Arguments
-
-You can specify that a table argument string is to be compiled as output script. 
-Normally it&#39;s standard word processing like all English phrases. 
-To compile it, you prefix the doublequoted string with the function designator `^`. E.g.,
-
-    DATA:
-    ~books &quot;this is normal&quot; ^&quot;[script a][script b] ^fail(TOPIC)&quot;
-
-This acts like a typical string. You pass it around, store it as value of variables or as a
-field of a fact. Like all other strings, it remains itself whenever it is put into the output
-stream, EXCEPT if you pass it into the `^eval` function. Then it will actual get executed So. 
-
-To use that argument effectively, you would get it out of the fact you built and store it
-onto some variable (like `_5` or `$value`) , and then `^eval(_5)` or `^eval($value)`.
-
-
-## FactSet Remaps
-
-Factset names like `@1` are not mnemonic. You can &quot;rename&quot; them as follows:
-
-    rename: @bettername @12
-
-in a script before any uses of `@bettername`, which now mean `@12`. Then you can do:
-
-    $$tmp = @betternamesubject
-
-## Predefined  queries
-
-`exact_`  - use the given arguments without expanding beyond them. Most efficient when you
-know exactly what you want.
-
-`exact_svrange` - find facts given subject and verb, where object is a number and must be in range (&gt;= propogate &lt;= match)
-`exact_vrange`  find facts given verb, where object must be number in range (&gt;= propogate &lt;= match)</code></pre>
-<p>e.g. <span class="citation">@0</span> = ^query(exact_vrange ? myverb ? -1 ? ? $_lowvalue $_highvalue)</p>
-<pre><code>
-`direct_` and `direct_flag`
-
-`up2set` -  propogate upwards from subject to find the fact that leads to object of which is a given concept </code></pre>
-<p>given: (soap member ~hygiene_items) and (~hygiene_item member ~personal_items) and (~personal_items member ~drugstore) and (~drugstore member ~storetypes) given ^query(up2set soap ? '~store_type 10 ) - ie, what kind of store sells soap yields (~drugstore member ~storetypes) ```</p>
+<p>Where * means use the last seen value from prior entries (you write your table to make that interpretation). Still it's tedious to put in the well mannered <em>. So there is one other thing you can do. You can make a tab table, where tab characters are automatically convered into space-separated </em> values instead of being ignored white space.</p>
+<pre><code>table: ^mytable TAB ($_arg1 $_arg2 $_arg3 )
+DATA:
+Location
+    Japan   
+        Tokyo   
+        Yokohama</code></pre>
+<p>is one such table. Looks a lot cleaner. Just be certain you are using tabs and not spaces. You can write self-checking code in your table to confirm users didn't screw up. The system variable %tableinput shows the actual line seen by the table function at each entry.</p>
+<h2 id="string-processing-in-tables">String processing in Tables</h2>
+<p>It is common for a string to be a table argument. Any functional string <code>^&quot;xxx&quot;</code> stores itself in an appropriate manner.</p>
+<p>They are like regular output - they are literally output script. Formatting is automatic and you get to make them do any kind of executable thing, as though you were staring at actual output script.</p>
+<p>There is no user context when compiling a table. As a consequence, if you have table code that looks like this:</p>
+<pre><code>^createfact( x y ^&quot; This is $var output&quot;)</code></pre>
+<p>the functional string does NOT evaluate itself before going to createfact. It gets stored as its original self.</p>
+<p>Regular strings, by default, remove their quotes and substitute underscores for spaces. This is good when the intention is as a composite word, but if the string is to be used as direct output, you may prefer to retain the quotes and spaces. You can do this by declaring the argument name with <code>.KEEP_QUOTES</code>. E.g.</p>
+<pre><code>table: ^test( ^my1 ^my2.KEEP_QUOTES)</code></pre>
+<p>It is particularly important to use the quoted form when the contents includes a concept or topic name that has underscores because the system cannot tell a spacing underscore from a significant one.</p>
+<h2 id="simple-fact-functions-more-in-system-functions-manual">Simple Fact Functions (more in system functions manual)</h2>
+<p>Various functions create, destroy and aggregate facts, as well as mark and unmark them. For those routines that aggregate facts, the result is stored into a fact set. Usually this is done by assignment, e.g.</p>
+<pre><code>@2 = gambitTopics()</code></pre>
+<p>Such assignments never fail, they just may assign a zero length to the result. Often, however, you can use the function to simultaneously store and test. If not in an assignment context, the function will store results into <code>@0</code> and fail if the result is no facts. Eg.</p>
+<pre><code>if ( gambitTopics() ) { first(@0object)}</code></pre>
+<h3 id="addproperty-set-flag"><code>^addproperty</code>( set flag )</h3>
+<p>Add this flag onto all facts in named set or onto words. If you just say</p>
+<pre><code>^addproperty(@9 USER_FLAG3) </code></pre>
+<p>then all facts get that flag on them. The predefined but meaningless to the system fact flags are <code>User_flag4</code>, <code>User_flag3</code>, <code>User_flag2</code>, <code>User_flag1</code>.</p>
+<p>If set has a field marker (like <code>@2subject</code>) then the property is added to all values of that field of facts of that set, that is, a dictionary word. The flags must come from <code>dictionarysystem.h</code> and the set of property flags or system flags.</p>
+<h3 id="conceptlist-kind-location"><code>^conceptlist</code>( kind location )</h3>
+<p>Generates a list of transient facts for the designated word position in the sentence of the concepts (or topics or both) referenced by that word, based on <em>kind</em> being <code>CONCEPT</code> or <code>TOPIC</code> or <code>BOTH</code>. Facts are <code>(~concept ^conceptlist location)</code> where location is the location in the sentence.</p>
+<pre><code>^conceptlist( CONCEPT 3 ) # absolute sentence word index
+^conceptlist( TOPIC _3 ) # whereever _3 is bound</code></pre>
+<p>Otherwise, if you don't use an assignment, it stores into set 0 and fails if no facts are found. Any set already marked <code>^Addproperty(~setname NOCONCEPTLIST)</code> will not be returned from <code>^conceptlist</code>. Special preexisting lists you might use the members of to exclude include: <code>~pos</code> (all bits of word properties) <code>~sys</code> (all bits of system proerties) and <code>~role</code> (all role bits from pos-tagging).</p>
+<p>If you omit the 2nd argument (<em>location</em>), then it generates the set of all such in the sentence, iterating over every one but only doing the first found reference of some kind.</p>
+<p>If you use <code>^mark</code> to mark a position, both the word and all triggered concepts will be reported via <code>^conceptlist</code>. But if the mark is a non-canonical word, mark does not do anything about the canonical form, and so there may be no triggered concepts as well. (Best to use a canonical word as mark).</p>
+<h3 id="createfact-subject-verb-object-flags"><code>^createfact</code>( subject verb object flags )</h3>
+<p>the arguments are a stream, so <em>flags</em> is optional. Creates a fact of the listed data if it doesn't exist (unless flags allows duplicates). See system functions manual for a bit more on how createfact can process data.</p>
+<h3 id="delete-set"><code>^delete</code>( set )</h3>
+<p>erase all facts in this set. This is the same as <code>^addfactproperty(set FACTDEAD)</code>.</p>
+<h3 id="fieldfact-fieldname"><code>^field</code>(fact fieldname)</h3>
+<p>given a reference to a fact, pull out a named field. If the fieldname is in lower case and the field is a fact reference, you get that number. If the fieldname starts uppercase, the system gives you the printout of that fact. Eg for a fact:</p>
+<pre><code>$$f = createfact (I eat (he eats beer))
+^field( $$f object) # returns a number (the fact index)</code></pre>
+<p>and</p>
+<pre><code>^field($$f object) # returns (he eats beer)`</code></pre>
+<p><em>fieldname</em> include: <code>subject</code>, <code>verb</code>, <code>object</code>, <code>flags</code>, <code>all</code> (spread onto 3 match variables, <code>raw</code> (spread onto 3 match variables).</p>
+<p><code>all</code> just displays a human normal dictionary word, so if the value were actually <code>plants~1</code> you'd get just plants whereas raw would return what was actually there <code>plants~1</code>.</p>
+<p>You can also retrieve a field via <code>$$f.subject</code> or <code>$$f.verb</code> or <code>$$f.object</code>.</p>
+<h3 id="find-setname-itemname"><code>^find</code>( setname itemname )</h3>
+<p>given a concept set, find the ordered position of the 2nd argument within it. Output that index (0-based). Used, for example, to compare two poker hands.</p>
+<h3 id="first-fact-set-annotated"><code>^first</code>( fact-set-annotated )</h3>
+<p>retrieve the first fact. You must qualify with what you want from it. Retrieve means the fact is removed from the set. <code>^first(@0subject)</code> retrieves the subject field of the first fact.</p>
+<p>Other obvious qualifications are <code>verb</code>, <code>object</code>, <code>fact</code> (return the index of the fact itself), <code>all</code> (spread all 3 fields onto a match variable triple, <code>raw</code> (like all but all displays just a normal human-readable word like plant whereas raw displays what was actually there, which might have been plant~1).</p>
+<h3 id="last-fact-set-annotated"><code>^last</code>( fact-set-annotated )</h3>
+<p>retrieve the last fact - see <code>^first</code> for a more complete explanation.</p>
+<h3 id="length-word"><code>^length</code>( word )</h3>
+<p>puts the length of the word into the output stream. If word is actually a fact set reference (e.g., <code>@2</code> ), it returns the count of facts in the set.</p>
+<h3 id="next-fact-fact-set-annotated"><code>^next</code>( FACT fact-set-annotated )</h3>
+<p>Allows you to walk a set w/o erasing anything. See <code>^first</code> for more complete description of annotation, the distinction between next and <code>^first</code> is that next does NOT remove the fact from the set, but moves on to each fact in turn. You can reset a set with</p>
+<pre><code>^reset(@1)</code></pre>
+<p>then loop thru it looking at the subject field with</p>
+<pre><code>loop() { _0 = next(FACT @1subject) }</code></pre>
+<h3 id="pick-concept"><code>^pick</code>( <code>~concept</code> )</h3>
+<p>Retrieve a random member of the concept. Pick is also used with factsets to pick a random fact (analogous to <code>^first</code> with its more complete description).</p>
+<h3 id="reset-fact-set"><code>^reset</code>( fact-set )</h3>
+<p>Reset a fact set for browsing using <code>^next</code>.</p>
+<h3 id="query-kind-subject-verb-object-1"><code>^query</code>( kind subject verb object )</h3>
+<p>See writeup earlier.</p>
+<h3 id="sort-set"><code>^sort</code>( set )</h3>
+<p>sort the set.</p>
+<h3 id="unduplicate-set"><code>^unduplicate</code>( set )</h3>
+<p>Remove duplicate facts from this set. The destination set will be named in an assignment statement like:</p>
+<pre><code>@1 = ^unduplicate(@0)</code></pre>
+<h1 id="facts-vs-variables">Facts vs Variables</h1>
+<p>How are facts and variables different? Which should you use?</p>
+<p>Facts are persistent.</p>
+<p>If you don't create them explicitly as transient, they stay with the user forever.</p>
+<p>Variables that don't begin with <code>$$</code> are also persistent and stay with the user forever.</p>
+<p>There are no limits on the number of variables you can have (none that you need be aware of) and variable names can be up to 999 characters long.</p>
+<p>The limits on user facts that can be saved are defined as a parameter when CS is started up (default 100). You can create more facts, but it will only save the most recent limit.</p>
+<p>Facts are indexed by subject, verb, object, so you can query to find one.</p>
+<p>Variables you have to know the name of it (but it can be composed on the fly). Facts use up more memory, but can be exported to arbitrary files (and imported).</p>
+<p>Facts can represent an array of values, with a field as index. But so can variables with omposited naming.</p>
+<p>So mostly it depends on whether you want to find information by querying. You have implicit associations of facts by the values of the subject, verb, and object fields. But you could create a variable name of two of the fields of the fact, if the third field was really the fact's &quot;value&quot;.</p>
+<p><strong>WARNING</strong> <br> When you get a reference to a fact, like:</p>
+<pre><code>$$tmp = ^first(@1fact)</code></pre>
+<p>that value is a numeric index into fact space. It is ONLY valid during the current volley. You cannot insure that it will remain valid across volleys. The valid ways to access facts across volleys are:</p>
+<ol style="list-style-type: decimal">
+<li>rerun <code>^query(...)</code> to get a set of factsubject</li>
+<li>get your fact reference into an <span class="citation">@factset</span> and have the set marked to save across volleys via <code>^enable(write @4)</code></li>
+<li><p>save the fact as text to a permanet variable, e.g.,</p>
+<pre><code>$fact = ^WriteFact(^first(@1fact)</code></pre></li>
+</ol>
+<p>You can later reaccess (or recreate) this fact via <code>^createfact($fact)</code>.</p>
+<h1 id="advanced-facts">ADVANCED FACTS</h1>
+<h2 id="facts-of-facts">Facts of Facts</h2>
+<p>Suppose you do something like</p>
+<pre><code>^createfact( john eat (wet food peanuts))</code></pre>
+<p>What happens when you retrieve it into a fact set and then do</p>
+<pre><code> _1 = ^last(@1+)
+ </code></pre>
+<p>and get the fact disassembled onto <code>_1</code>, <code>_2</code>, <code>_3</code>, and <code>_4</code>?</p>
+<p>What you get for <code>_3</code> is a reference to a fact, that is, a number.</p>
+<p>You can decode that by using <code>^field( _3 subject)</code> or <code>^field(_3 verb)</code> or <code>^fact(_3 object)</code> to get wet or food or peanuts. The first argument to <code>^field</code> is a fact number.</p>
+<p>You get a fact number if you do <code>_3 = createfact(...)</code> and can decode <code>_3</code> the same way. Naturally this function fails if you give it something that cannot be a fact reference.</p>
+<h2 id="flags">Flags</h2>
+<p>Facts may have flags on them. You can create them with flags (see <code>^createfact</code>) and you can get them using ^field or when you spread out a fact onto a collection of match variables.</p>
+<p>System-defined flags (which should not be set or erased by user scripts) are:</p>
+<table style="width:69%;">
+<colgroup>
+<col width="22%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>FACTSUBJECT</code><br><code>FACTVERB</code><br><code>FACTOBJECT</code></td>
+<td>describe that a field is a fact</td>
+</tr>
+<tr class="even">
+<td><code>FACTDEAD</code></td>
+<td>indicates the fact has been killed and will go away at the end of volley</td>
+</tr>
+</tbody>
+</table>
+<p>Flags you can use to define facts that have system meaning but may or may not stay on them are:</p>
+<table style="width:69%;">
+<colgroup>
+<col width="22%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>FACTDUPLICATE</code></td>
+<td>allow multiple versions of the same fact</td>
+</tr>
+<tr class="even">
+<td><code>FACTTRANSIENT</code></td>
+<td>the fact should die at the end of the volley if not in a fact set</td>
+</tr>
+<tr class="odd">
+<td><code>ORIGINAL_ONLY</code></td>
+<td>a &quot;member&quot; fact defining a concept only uses the raw word</td>
+</tr>
+</tbody>
+</table>
+<p>Flags you can set for yourself include:</p>
+<table>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>USER_FLAG1</code><br><code>USER_FLAG2</code><br><code>USER_FLAG3</code><br><code>USER_FLAG4</code></td>
+<td>user defined</td>
+</tr>
+</tbody>
+</table>
+<p>Facts created by JSON code have user markings also, renamed as</p>
+<table style="width:69%;">
+<colgroup>
+<col width="22%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>JSON_PRIMITIVE_VALUE</code><br><code>JSON_STRING_VALUE</code><br><code>JSON_ARRAY_VALUE</code><br><code>JSON_OBJECT_VALUE</code></td>
+<td>which indicate what kind of value the object of the fact is.</td>
+</tr>
+<tr class="even">
+<td><code>JSON_ARRAY_FACT</code><br><code>JSON_OBJECT_FACT</code></td>
+<td>which indicate what kind of value the subect of the fact is.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="json">JSON</h2>
+<p>Json is a great representation for creating and accessing complex fact structures. See the <a href="ChatScript-Json.html">ChatScript JSON manual</a> for more details.</p>
+<h1 id="esoteric-facts">ESOTERIC FACTS</h1>
+<h2 id="compiled-script-table-arguments">Compiled Script Table Arguments</h2>
+<p>You can specify that a table argument string is to be compiled as output script. Normally it's standard word processing like all English phrases. To compile it, you prefix the doublequoted string with the function designator <code>^</code>. E.g.,</p>
+<pre><code>DATA:
+~books &quot;this is normal&quot; ^&quot;[script a][script b] ^fail(TOPIC)&quot;</code></pre>
+<p>This acts like a typical string. You pass it around, store it as value of variables or as a field of a fact. Like all other strings, it remains itself whenever it is put into the output stream, EXCEPT if you pass it into the <code>^eval</code> function. Then it will actual get executed So.</p>
+<p>To use that argument effectively, you would get it out of the fact you built and store it onto some variable (like <code>_5</code> or <code>$value</code>) , and then <code>^eval(_5)</code> or <code>^eval($value)</code>.</p>
+<h2 id="factset-remaps">FactSet Remaps</h2>
+<p>Factset names like <code>@1</code> are not mnemonic. You can &quot;rename&quot; them as follows:</p>
+<pre><code>rename: @bettername @12</code></pre>
+<p>in a script before any uses of <code>@bettername</code>, which now mean <code>@12</code>. Then you can do:</p>
+<pre><code>$$tmp = @betternamesubject</code></pre>
+<h2 id="predefined-queries">Predefined queries</h2>
+<p><code>exact_</code> - use the given arguments without expanding beyond them. Most efficient when you know exactly what you want.</p>
+<p><code>exact_svrange</code> - find facts given subject and verb, where object is a number and must be in range (&gt;= propogate &lt;= match) <code>exact_vrange</code> find facts given verb, where object must be number in range (&gt;= propogate &lt;= match)</p>
+<pre><code>e.g. @0 = ^query(exact_vrange ? myverb ? -1 ? ? $_lowvalue $_highvalue)</code></pre>
+<p><code>direct_</code> and <code>direct_flag</code></p>
+<p><code>up2set</code> - propogate upwards from subject to find the fact that leads to object of which is a given concept</p>
+<pre><code>given: (soap member ~hygiene_items) and (~hygiene_item member ~personal_items) and (~personal_items member ~drugstore) and (~drugstore member ~storetypes)
+given  ^query(up2set soap ? &#39;~store_type 10 )   - ie, what kind of store sells soap
+yields (~drugstore member ~storetypes) </code></pre>
 <p><code>up2seta</code> - similar to up2set but you name the verb instead of assuming member/is</p>
 <h2 id="defining-your-own-queries">Defining your own queries</h2>
 <p>The query code wanders around facts to find those you want. But since facts can represent anything, you may need to custom tailor the query system, which itself is a mini-programming language. The full query function is takes nine arguments and any arguments at the end you omit default themselves.</p>

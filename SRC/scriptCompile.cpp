@@ -9,6 +9,8 @@ static bool nospellcheck = false;
 bool disablePatternOptimization = true;
 static bool noPatternOptimization = true;
 static unsigned int conceptID = 0; // name of concept set
+char* patternStarter = NULL;
+char* patternEnder = NULL;
 
 static int complexity = 0;
 static bool livecall = false;
@@ -191,6 +193,26 @@ void UnbindBeenHere()
 
 void AddError(char* buffer)
 {
+	char seen[MAX_WORD_SIZE];
+	*seen = 0;
+	char* at = seen;
+	if (patternStarter && patternEnder)
+	{
+		strcpy(at, "--> ");
+		at += 4;
+		size_t len = patternEnder - patternStarter;
+		*patternEnder = 0;
+		if (len < 100) strcpy(at, patternStarter);
+		else
+		{
+			strncpy(at, patternStarter,50);
+			at += 50;
+			sprintf(at, " ... ");
+			sprintf(at + 5, patternEnder - 50);
+		}
+		strcat(at, " <--");
+	}
+
     char message[MAX_WORD_SIZE];
     if (*buffer == '\r') ++buffer;
     if (*buffer == '\n') ++buffer;
@@ -198,9 +220,14 @@ void AddError(char* buffer)
     char c = buffer[MAX_WORD_SIZE - 300];
     while (buffer[len - 1] == '\n' || buffer[len - 1] == '\r') buffer[--len] = 0;
     if (strlen(buffer) > (MAX_WORD_SIZE - 300)) buffer[MAX_WORD_SIZE - 300] = 0;
-    sprintf(message, "%s - line %d column %d of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+	if (!*currentFilename) // dse compilepattern
+	{
+		sprintf(message, "%s %s (line %d col %d ", buffer, seen, currentFileLine, currentLineColumn);
+		strcat(message, "\r\n");
+	}
+	else sprintf(message, "%s - line %d column %d of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
     buffer[MAX_WORD_SIZE - 300] = c;
-    sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
+ 	sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
     if (errorIndex >= MAX_ERRORS) --errorIndex;
 }
 
@@ -1346,7 +1373,7 @@ bool TopLevelUnit(char* word) // major headers (not kinds of rules)
 {
 	return (!stricmp(word,(char*)":quit") || !stricmp(word,(char*)"canon:")  || !stricmp(word,(char*)"replace:") || !stricmp(word, (char*)"ignorespell:") || !stricmp(word, (char*)"prefer:") || !stricmp(word,(char*)"query:")  || !stricmp(word,(char*)"concept:") || !stricmp(word,(char*)"data:") || !stricmp(word,(char*)"plan:")
 		|| !stricmp(word,(char*)"outputMacro:") || !stricmp(word,(char*)"patternMacro:") || !stricmp(word,(char*)"dualMacro:")  || !stricmp(word,(char*)"table:") || !stricmp(word,(char*)"tableMacro:") || !stricmp(word,(char*)"rename:") || 
-		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word,(char*)"topic:") || (*word == ':' && IsAlphaUTF8(word[1])) );	// :xxx is a debug command
+		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word,(char*)"topic:") || (*word == ':' && IsAlphaUTF8(word[1]) && !IsEmojiShortCode(word)) );	// :xxx is a debug command
 }
 
 static char* FlushToTopLevel(FILE* in,unsigned int depth,char* data)
@@ -1678,8 +1705,9 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 		if (stricmp(arg1, (char*)"conjugate") && stricmp(arg1, (char*)"preexists") && stricmp(arg1, (char*)"raw") && stricmp(arg1, (char*)"allupper") && stricmp(arg1, (char*)"syllable") && stricmp(arg1, (char*)"ADJECTIVE") && stricmp(arg1, (char*)"ADVERB") && stricmp(arg1, (char*)"VERB") && stricmp(arg1, (char*)"AUX") && stricmp(arg1, (char*)"PRONOUN") && stricmp(arg1, (char*)"TYPE") && stricmp(arg1, (char*)"HEX32") && stricmp(arg1, (char*)"HEX64")
 			&& stricmp(arg1, (char*)"NOUN") && stricmp(arg1, (char*)"DETERMINER") && stricmp(arg1, (char*)"PLACE") && stricmp(arg1, (char*)"common")
 			&& stricmp(arg1, (char*)"capitalize") && stricmp(arg1, (char*)"uppercase") && stricmp(arg1, (char*)"lowercase")
-			&& stricmp(arg1, (char*)"canonical") && stricmp(arg1, (char*)"integer") && stricmp(arg1, (char*)"IsModelNumber") && stricmp(arg1, (char*)"IsInteger") && stricmp(arg1, (char*)"IsUppercase") && stricmp(arg1, (char*)"IsAllUppercase") && stricmp(arg1, (char*)"IsFloat") && stricmp(arg1, (char*)"IsMixedCase") && stricmp(arg1, (char*)"Xref"))
-			BADSCRIPT((char*)"CALL- 12 1st argument to ^pos must be SYLLABLE or ALLUPPER or VERB or AUX or PRONOUN or NOUN or ADJECTIVE or ADVERB or DETERMINER or PLACE or COMMON or CAPITALIZE or UPPERCASE or LOWERCASE or CANONICAL or INTEGER or HEX32 or HEX64 or ISMODELNUMBER or ISINTEGER or ISUPPERCASE or ISALLUPPERCASE or ISFLOAT or ISMIXEDCASE or XREF - %s\r\n", arg1)
+			&& stricmp(arg1, (char*)"canonical") && stricmp(arg1, (char*)"grade") 
+			&& stricmp(arg1, (char*)"integer") && stricmp(arg1, (char*)"IsModelNumber") && stricmp(arg1, (char*)"IsInteger") && stricmp(arg1, (char*)"IsUppercase") && stricmp(arg1, (char*)"IsAllUppercase") && stricmp(arg1, (char*)"IsFloat") && stricmp(arg1, (char*)"IsMixedCase") && stricmp(arg1, (char*)"Xref"))
+			BADSCRIPT((char*)"CALL- 12 1st argument to ^pos must be SYLLABLE or ALLUPPER or VERB or AUX or GRADE or PRONOUN or NOUN or ADJECTIVE or ADVERB or DETERMINER or PLACE or COMMON or CAPITALIZE or UPPERCASE or LOWERCASE or CANONICAL or INTEGER or HEX32 or HEX64 or ISMODELNUMBER or ISINTEGER or ISUPPERCASE or ISALLUPPERCASE or ISFLOAT or ISMIXEDCASE or XREF - %s\r\n", arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^getrule"))
 	{
@@ -2349,11 +2377,15 @@ labels on responders
 responder types s: u: t: r: 
 name of topic or concept
 
-x:=y  (do assignment and do not fail)
+x : = y(do assignment and do not fail)
 
 #endif
+
+	patternStarter = data; // for bug messages
+
 	char word[MAX_WORD_SIZE];
 	char nestKind[PATTERNDEPTH];
+	char* nestData[PATTERNDEPTH];
     STACKREF keywordList[PATTERNDEPTH];
     int nestLine[PATTERNDEPTH];
 	int nestIndex = 0;
@@ -2371,7 +2403,11 @@ x:=y  (do assignment and do not fail)
 
 	//   if macro call, there is no opening ( or closing )
 	//   We claim an opening and termination comes from finding a toplevel token
-	if (macro) nestKind[nestIndex++] = '(';
+	if (macro)
+	{
+		nestData[nestIndex] = data;
+		nestKind[nestIndex++] = '(';
+	}
 
 	bool variableGapSeen = false; // wildcard pending
 
@@ -2401,7 +2437,11 @@ x:=y  (do assignment and do not fail)
         if (!strcmp(word, "==") || !strcmp(word, "=")) WARNSCRIPT((char*)"== or = used standalone in pattern. Shouldn't it be attached to left and right tokens?\r\n")
 
 		// we came from pattern IF and lack a (
-		if (ifstatement && *word != '(' && nestIndex == 0) nestKind[nestIndex++] = '(';
+			if (ifstatement && *word != '(' && nestIndex == 0)
+			{
+				nestData[nestIndex] = data;
+				nestKind[nestIndex++] = '(';
+			}
 
 		MakeLowerCopy(lowercaseForm,word);
 		if (TopLevelUnit(lowercaseForm) || TopLevelRule(lowercaseForm)) // end of pattern
@@ -2441,15 +2481,31 @@ x:=y  (do assignment and do not fail)
 				if (*ptr == '!') ++ptr;	// possible !! allowed
 				continue;
 			case '_':	//   memorize OR var reference
-				if (quoteSeen && !IsDigit(word[1])) BADSCRIPT((char*)"PATTERN-1 Cannot have ' and _ in succession except when quoting a match variable. Need to reverse them\r\n")
-				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-6 Cannot have two _ in succession\r\n")
+				if (quoteSeen && !IsDigit(word[1]))
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-1 Cannot have ' and _ in succession except when quoting a match variable. Need to reverse them\r\n")
+				}
+				if (memorizeSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-6 Cannot have two _ in succession\r\n")
+				}
 				if (!word[1]) // allow separation which will be implied as needed
 				{
-					if (!ifstatement) BADSCRIPT((char*)"PATTERN-7 Must attach _ to next token. If you mean _ match, use escaped _. %s\r\n",ptr)
+					if (!ifstatement)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-7 Must attach _ to next token. If you mean _ match, use escaped _. %s\r\n", ptr)
+					}
 				}
 				if (IsDigit(word[1])) // match variable
 				{
-					if (GetWildcardID(word) < 0) BADSCRIPT((char*)"PATTERN-8 _%d is max match reference - %s\r\n",MAX_WILDCARDS-1,word)
+					if (GetWildcardID(word) < 0)
+					{
+						BADSCRIPT((char*)"PATTERN-8 _%d is max match reference - %s\r\n", MAX_WILDCARDS - 1, word)
+						patternEnder = data;
+					}
 					break;
 				}
 
@@ -2462,8 +2518,16 @@ x:=y  (do assignment and do not fail)
 				strncpy(ptr,word+1, len); // this allows a function parameter (originally ^word but now ^0) to properly reset
 				continue;
 			case '\'': //   original (non-canonical) token - possessive must be \'s or \'
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-10 Cannot have two ' in succession\r\n")
-				if (!word[1]) BADSCRIPT((char*)"PATTERN-11 Must attach ' to next token. If you mean ' match, use \' \r\n %s\r\n",ptr)
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-10 Cannot have two ' in succession\r\n")
+				}
+				if (!word[1])
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-11 Must attach ' to next token. If you mean ' match, use \' \r\n %s\r\n", ptr)
+				}
 				quoteSeen = true;
 				variableGapSeen = false;
 				if (comparison) *comparison = c;
@@ -2473,13 +2537,33 @@ x:=y  (do assignment and do not fail)
 				strncpy(ptr,word+1, len); // this allows a function parameter (originally ^word but now ^0) to properly reset
 				continue;
 			case '<':	//   sentence start <  or  unordered start <<
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-12 Cannot use ' before < or <<\r\n")
-				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-13 Cannot use _ before < or <<\r\n")
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-12 Cannot use ' before < or <<\r\n")
+				}
+				if (memorizeSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-13 Cannot use _ before < or <<\r\n")
+				}
 				if (word[1] == '<')  //   <<  unordered start
 				{
-					if (memorizeSeen) BADSCRIPT((char*)"PATTERN-14 Cannot use _ before << \r\n")
-					if (nestKind[nestIndex-1] == '<') BADSCRIPT((char*)"PATTERN-15 << already in progress\r\n")
-					if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before <<\r\n")
+					if (memorizeSeen)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-14 Cannot use _ before << \r\n")
+					}
+					if (nestKind[nestIndex - 1] == '<')
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-15 << already in progress\r\n")
+					}
+					if (variableGapSeen)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-16 Cannot use * before <<\r\n")
+					}
                         // close [ or { for a moment
                         if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
                         {
@@ -2501,44 +2585,90 @@ x:=y  (do assignment and do not fail)
                         
                         
                     nestLine[nestIndex] = currentFileLine;
+					nestData[nestIndex] = data;
                     nestKind[nestIndex++] = '<';
 				}
-				else if (word[1])  BADSCRIPT((char*)"PATTERN-17 %s cannot start with <\r\n",word)
+				else if (word[1])
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-17 %s cannot start with <\r\n", word)
+				}
 				variableGapSeen = false;
 				break; 
 			case '@': 
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-18 Quoting @ is meaningless.\r\n");
-				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-19 Cannot use _ before  @\r\n")
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-18 Quoting @ is meaningless.\r\n");
+				}
+				if (memorizeSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-19 Cannot use _ before  @\r\n")
+				}
 				if (word[1] == '_') // set match position  @_5
 				{
-					if (GetWildcardID(word+1) >= MAX_WILDCARDS) 
-						BADSCRIPT((char*)"PATTERN-? %s is not a valid positional reference - must be < %d\r\n",word,MAX_WILDCARDS) 
-					char* end = word + 3; 
+					if (GetWildcardID(word + 1) >= MAX_WILDCARDS)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-? %s is not a valid positional reference - must be < %d\r\n", word, MAX_WILDCARDS)
+					}
+					char* end = word + 3;
 					while (IsDigit(*end)) ++end;
 					if (*end)
 					{
 						if (*end == '+' && (!end[1] || end[1] == 'i')) {;}
 						else if (*end == '-' &&  (!end[1] || end[1] == 'i')) {;}
-						else  BADSCRIPT((char*)"PATTERN-? %s is not a valid positional reference - @_2+ or @_2- or @_2 would be\r\n",word)  
+						else
+						{
+							patternEnder = data;
+							BADSCRIPT((char*)"PATTERN-? %s is not a valid positional reference - @_2+ or @_2- or @_2 would be\r\n", word)
+						}
 					}
 					variableGapSeen = false; // no longer after anything. we are changing direction
 				}
                 else if (!stricmp(word, "@retry")) {}
 				else if (GetSetID(word) < 0)
-					BADSCRIPT((char*)"PATTERN-20 %s is not a valid factset reference\r\n",word)  // factset reference
-				else if (!GetSetMod(word)) 
-					BADSCRIPT((char*)"PATTERN-20 %s is not a valid factset reference\r\n",word)  // factset reference
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-20 %s is not a valid factset reference\r\n", word)  // factset reference
+				}
+				else if (!GetSetMod(word))
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-20 %s is not a valid factset reference\r\n", word)  // factset reference
+				}
 				break;
 			case '>':	//   sentence end > or unordered end >>
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-21 Cannot use ' before > or >>\r\n")
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-21 Cannot use ' before > or >>\r\n")
+				}
 				if (word[1] == '>') //   >>
 				{
                     
-					if (memorizeSeen) BADSCRIPT((char*)"PATTERN-22 Cannot use _ before  >> \r\n")
-					if (nestKind[nestIndex - 1] != '<') BADSCRIPT((char*)"PATTERN-23 Have no << in progress\r\n");
-					if (variableGapSeen) BADSCRIPT((char*)"PATTERN-24 Cannot use wildcard inside >>\r\n")
-                    if (nestKind[--nestIndex] != '<') BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d\r\n", nestKind[nestIndex],nestLine[nestIndex])
-
+					if (memorizeSeen)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-22 Cannot use _ before  >> \r\n")
+					}
+					if (nestKind[nestIndex - 1] != '<')
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-23 Have no << in progress\r\n")
+					}
+					if (variableGapSeen)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-24 Cannot use wildcard inside >>\r\n")
+					}
+					if (nestKind[--nestIndex] != '<')
+					{
+						patternStarter = nestData[nestIndex];
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+					}
 				}
 				variableGapSeen = false;
 				break; //   sentence end align
@@ -2561,23 +2691,50 @@ x:=y  (do assignment and do not fail)
                     conceptStarted[conceptIndex] = 0;
                 }
 
-                if (bidirectionalSeen)
-                    BADSCRIPT((char*)"PATTERN-34 ] Cant use ( after bidirectional gap- scanning backwards is bad\r\n")
-                if (quoteSeen) BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n");
+				if (bidirectionalSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-34 ] Cant use ( after bidirectional gap- scanning backwards is bad\r\n")
+				}
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n")
+				}
                 nestLine[nestIndex] = currentFileLine;
-                nestKind[nestIndex++] = '(';
+				nestData[nestIndex] = data;
+				nestKind[nestIndex++] = '(';
 				break;
 			case ')':	//   sequential pattern unit end
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-26 Quoting ) is meaningless.\r\n");
-				if (memorizeSeen && !ifstatement) BADSCRIPT((char*)"PATTERN-27 Cannot use _ before  )\r\n")
-				if (variableGapSeen && nestIndex > 1) 
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-26 Quoting ) is meaningless.\r\n")
+				}
+				if (memorizeSeen && !ifstatement)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-27 Cannot use _ before  )\r\n")
+				}
+				if (variableGapSeen && nestIndex > 1)
+				{
+					patternEnder = data;
 					BADSCRIPT((char*)"PATTERN-26 Cannot have wildcard followed by )\r\n")
-				if (nestKind[--nestIndex] != '(') 
+				}
+				if (nestKind[--nestIndex] != '(')
+				{
+					patternEnder = data;
+					patternStarter = nestData[nestIndex];
 					BADSCRIPT((char*)"PATTERN-9 ) should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+				}
 				break;
 			case '[':	//   list of pattern choices begin
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-30 Quoting [ is meaningless.\r\n");
-                if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-30 Quoting [ is meaningless.\r\n");
+				}
+				if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
                 {
                     currentConceptBuffer = conceptBufferLevelStart[conceptIndex]; // resume here
                     strcpy(currentConceptXfer, currentConceptBuffer);
@@ -2596,17 +2753,34 @@ x:=y  (do assignment and do not fail)
                 
                 nestLine[nestIndex] = currentFileLine;
                 keywordList[nestIndex] = 0;
-                nestKind[nestIndex++] = '[';
+				nestData[nestIndex] = data;
+				nestKind[nestIndex++] = '[';
 
                 conceptBufferLevelStart[++conceptIndex] = currentConceptBuffer;
                 conceptStarted[conceptIndex] = 0;
 				break;
 			case ']':	//   list of pattern choices end
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-31 Quoting ] is meaningless.\r\n");
-                if (memorizeSeen) BADSCRIPT((char*)"PATTERN-32 Cannot use _ before  ]\r\n")
-                if (variableGapSeen) BADSCRIPT((char*)"PATTERN-33 Cannot have wildcard followed by ]\r\n")
-                if (nestKind[--nestIndex] != '[') BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
-                
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-31 Quoting ] is meaningless.\r\n")
+				}
+				if (memorizeSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-32 Cannot use _ before  ]\r\n")
+				}
+				if (variableGapSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-33 Cannot have wildcard followed by ]\r\n")
+				}
+				if (nestKind[--nestIndex] != '[')
+				{
+					patternEnder = data;
+					patternStarter = nestData[nestIndex];
+					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+				}
                 currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
                 strcpy(currentConceptXfer, currentConceptBuffer);
                 currentConceptXfer += strlen(currentConceptXfer);
@@ -2619,14 +2793,21 @@ x:=y  (do assignment and do not fail)
                 *currentConceptXfer = 0;
                 break;
 			case '{':	//   list of optional choices begins
-                if (nestKind[nestIndex-1] == '[') BADSCRIPT((char*)"PATTERN-15 {} within [] is pointless because it always matches\r\n")
-                if (nestKind[nestIndex - 1] == '<' && !memorizeSeen) 
+				if (nestKind[nestIndex - 1] == '[')
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-15 {} within [] is pointless because it always matches\r\n")
+				}
+				if (nestKind[nestIndex - 1] == '<' && !memorizeSeen)
                     WARNSCRIPT((char*)"PATTERN-15 {} within << >> is pointless unless you memorize or use ^matches because it always matches\r\n")
-                if (bidirectionalSeen)
-                    BADSCRIPT((char*)"PATTERN-34 ] Cant use { after bidirectional gap - will always match scanning backwards\r\n")
-                    // close [ or { for a moment
+					if (bidirectionalSeen)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-34 ] Cant use { after bidirectional gap - will always match scanning backwards\r\n")
+					}
+				// close [ or { for a moment
                 if (nestKind[nestIndex - 1] == '[' || nestKind[nestIndex - 1] == '{')
-                    {
+                {
                         currentConceptBuffer = conceptBufferLevelStart[conceptIndex]; // resume here
                         strcpy(currentConceptXfer, currentConceptBuffer);
                         currentConceptXfer += strlen(currentConceptXfer);
@@ -2652,22 +2833,47 @@ x:=y  (do assignment and do not fail)
 						if (*end == '*') WARNSCRIPT((char*)"Wildcard before and after optional will probably not work since wildcards wont know where to end if optional fails. Use some other formulation\r\n")
 					}
 				}
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-35 Quoting { is meaningless.\r\n");
-				if (notSeen)  BADSCRIPT((char*)"PATTERN-36 !{ is pointless since { can fail or not anyway\r\n")
-				if (nestIndex && nestKind[nestIndex-1] == '{') BADSCRIPT((char*)"PATTERN-37 {{ is illegal\r\n")
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-35 Quoting { is meaningless.\r\n");
+				}
+				if (notSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-36 !{ is pointless since { can fail or not anyway\r\n")
+				}
+				if (nestIndex && nestKind[nestIndex - 1] == '{') BADSCRIPT((char*)"PATTERN-37 {{ is illegal\r\n")
                 keywordList[nestIndex] = 0;
                 nestLine[nestIndex] = currentFileLine;
-                nestKind[nestIndex++] = '{';
+				nestData[nestIndex] = data;
+				nestKind[nestIndex++] = '{';
 
                 conceptBufferLevelStart[++conceptIndex] = currentConceptBuffer;
                 conceptStarted[conceptIndex] = 0;
                 break;
 			case '}':	//   list of optional choices ends
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-38 Quoting } is meaningless.\r\n");
-                if (memorizeSeen) BADSCRIPT((char*)"PATTERN-39 Cannot use _ before  }\r\n")
-                if (variableGapSeen) BADSCRIPT((char*)"PATTERN-40 Cannot have wildcard followed by }\r\n")
-                if (nestKind[--nestIndex] != '{') BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
-               
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-38 Quoting } is meaningless.\r\n");
+				}
+				if (memorizeSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-39 Cannot use _ before  }\r\n")
+				}
+				if (variableGapSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-40 Cannot have wildcard followed by }\r\n")
+				}
+				if (nestKind[--nestIndex] != '{')
+				{
+					patternEnder = data;
+					patternStarter = nestData[nestIndex];
+					BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+				}
                 currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
                 strcpy(currentConceptXfer, currentConceptBuffer);
                 currentConceptXfer += strlen(currentConceptXfer);
@@ -2677,62 +2883,144 @@ x:=y  (do assignment and do not fail)
                     currentConceptXfer += 3;
                 }
                 *currentConceptBuffer = 0;
-                *currentConceptXfer = 0;                 break;
+                *currentConceptXfer = 0;                 
+				break;
 			case '\\': //   literal next character
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-42 Quoting an escape is meaningless.\r\n");
-				if (!word[1]) BADSCRIPT((char*)"PATTERN-43 Backslash must be joined to something to escape\r\n")
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-42 Quoting an escape is meaningless.\r\n");
+				}
+				if (!word[1])
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-43 Backslash must be joined to something to escape\r\n")
+				}
 				variableGapSeen = false;
 				if (word[1] && IsAlphaUTF8(word[1] )) memmove(word,word+1,strlen(word)); // escaping a real word, just use it
 				break;
 			case '*': //   gap: * *1 *~2 	(infinite, exactly 1 word, 0-2 words, 0-2 words, 1 word before) and *alpha*x* is form match
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-44 Quoting a wildcard\r\n");
-                if (nestKind[nestIndex - 1] == '<') BADSCRIPT((char*)"PATTERN-45 Can not have wildcard %s inside << >>\r\n", word)
-                if (nestKind[nestIndex-1] != '(' && (word[1] == '~' || !word[1])) BADSCRIPT((char*)"PATTERN-45 Can only have variable wildcard %s inside ( )\r\n",word)
-				if (variableGapSeen) 
-					BADSCRIPT((char*)"PATTERN-46 Cannot have wildcard followed by %s\r\n",word)
-				if (IsAlphaUTF8(word[1]) )
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-44 Quoting a wildcard\r\n");
+				}
+				if (nestKind[nestIndex - 1] == '<')
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-45 Can not have wildcard %s inside << >>\r\n", word)
+				}
+				if (nestKind[nestIndex - 1] != '(' && (word[1] == '~' || !word[1]))
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-45 Can only have variable wildcard %s inside ( )\r\n", word)
+				}
+				if (variableGapSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-46 Cannot have wildcard followed by %s\r\n", word)
+				}
+				if (IsAlphaUTF8(word[1]))
 					break; // find this word as fragmented spelling like sch*ding* since it will have * as a prefix
 				
 				// gaps of various flavors
-				if (notSeen)  BADSCRIPT((char*)"PATTERN-47 cannot have ! before gap - %s\r\n",word)
+				if (notSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-47 cannot have ! before gap - %s\r\n", word)
+				}
 				if (IsDigit(word[1])) //   enumerated gap size
 				{
 					int n = word[1] - '0';
-					if (n == 0) BADSCRIPT((char*)"PATTERN-48 *0 is meaningless\r\n")	 
-					if (word[2]) BADSCRIPT((char*)"PATTERN-49 *9 is the largest gap allowed or bad stuff is stuck to your token- %s\r\n",word)
+					if (n == 0)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-48 *0 is meaningless\r\n")
+					}
+					if (word[2])
+					{
+						BADSCRIPT((char*)"PATTERN-49 *9 is the largest gap allowed or bad stuff is stuck to your token- %s\r\n", word)
+					}
 				}
 				else if (word[1] == '-') // backwards
 				{
 					int n = word[2] - '0';
-					if (n == 0) BADSCRIPT((char*)"PATTERN-50 *-1 is the smallest backward wildcard allowed - %s\r\n",word)
-					if (word[3]) BADSCRIPT((char*)"PATTERN-51 *-9 is the largest backward wildcard or bad stuff is stuck to your token- %s\r\n",word)
+					if (n == 0)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-50 *-1 is the smallest backward wildcard allowed - %s\r\n", word)
+					}
+					if (word[3])
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-51 *-9 is the largest backward wildcard or bad stuff is stuck to your token- %s\r\n", word)
+					}
 				}
 				else if (word[1] == '~') // close-range gap
 				{
-					if (nestKind[nestIndex-1] == '{' || nestKind[nestIndex-1] == '[')
-						BADSCRIPT((char*)"PATTERN-5? cannot stick %s wildcard inside {} or []\r\n",word)
+					if (nestKind[nestIndex - 1] == '{' || nestKind[nestIndex - 1] == '[')
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-5? cannot stick %s wildcard inside {} or []\r\n", word)
+					}
 					variableGapSeen = true;
 					int n = word[2] - '0';
-                    if (!word[2]) BADSCRIPT((char*)"PATTERN-52 *~ is not legal, you need a digit after it\r\n")
-                    else if (n == 0 && word[2] != '0') BADSCRIPT((char*)"PATTERN-53 *~1 is the smallest close-range gap - %s\r\n", word)
-                    else if (word[3] && word[3] != 'b') BADSCRIPT((char*)"PATTERN-54 *~9 is the largest close-range gap or bad stuff is stuck to your token- %s\r\n", word)
-                }
-				else if (word[1]) BADSCRIPT((char*)"PATTERN-55 * jammed against some other token- %s\r\n",word)
-				else 
+					if (!word[2])
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-52 *~ is not legal, you need a digit after it\r\n")
+					}
+
+					else if (n == 0 && word[2] != '0')
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-53 *~1 is the smallest close-range gap - %s\r\n", word)
+					}
+					else if (word[3] && word[3] != 'b')
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-54 *~9 is the largest close-range gap or bad stuff is stuck to your token- %s\r\n", word)
+					}
+				}
+				else if (word[1])
 				{
-					if (nestKind[nestIndex-1] == '{' || nestKind[nestIndex-1] == '[')
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-55 * jammed against some other token- %s\r\n", word)
+				}
+				else
+				{
+					if (nestKind[nestIndex - 1] == '{' || nestKind[nestIndex - 1] == '[')
+					{
+						patternEnder = data;
 						BADSCRIPT((char*)"PATTERN-5? cannot stick * wildcard inside {} or []\r\n")
+					}
 					variableGapSeen = true; // std * unlimited wildcard
 				}
 				startSeen = true;
 				break;
 			case '?': //   question input ?   
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-56 Quoting a ? is meaningless.\r\n");
-				if (memorizeSeen && word[1] != '$') BADSCRIPT((char*)"PATTERN-57 Cannot use _ before ?\r\n")
-				if (variableGapSeen) BADSCRIPT((char*)"PATTERN-58 Cannot have wildcards before ?\r\n")
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-56 Quoting a ? is meaningless.\r\n");
+				}
+				if (memorizeSeen && word[1] != '$')
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-57 Cannot use _ before ?\r\n")
+				}
+				if (variableGapSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-58 Cannot have wildcards before ?\r\n")
+				}
 				break;
 			case USERVAR_PREFIX:	//   user var
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-59 Quoting a $ variable is meaningless - %s\r\n",word);
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-59 Quoting a $ variable is meaningless - %s\r\n", word);
+				}
 				variableGapSeen = false;
 				break;
 			case '"': //   string
@@ -2754,15 +3042,27 @@ x:=y  (do assignment and do not fail)
 				goto DEFLT;
 			case SYSVAR_PREFIX: //   system data
 				// you can quote system variables because %topic returns a topic name which can be quoted to query
-				if (memorizeSeen) BADSCRIPT((char*)"PATTERN-60 Cannot use _ before system variable - %s\r\n",word)
+				if (memorizeSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-60 Cannot use _ before system variable - %s\r\n", word)
+				}
 				if (!word[1]); //   simple %
-				else if (!FindWord(word)) BADSCRIPT((char*)"PATTERN-61 %s is not a system variable\r\n",word)
+				else if (!FindWord(word))
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-61 %s is not a system variable\r\n", word)
+				}
 				if (comparison) *comparison = c;
 				variableGapSeen = false;
 				break;
 			case '~':
 				variableGapSeen = false;
-				if (quoteSeen) BADSCRIPT((char*)"PATTERN-61 cannot quote set %s because it can't be determined if set comes from original or canonical form\r\n",word)
+				if (quoteSeen)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-61 cannot quote set %s because it can't be determined if set comes from original or canonical form\r\n", word)
+				}
 				startSeen = true;
 				WriteKey(word);
 				CheckSetOrTopic(word); // set or topic
@@ -2797,7 +3097,11 @@ x:=y  (do assignment and do not fail)
                     char controls[100];
                     *controls = 0;
                     if (notSeen) strcat(controls, "!");
-                    if (*controls && memorizeSeen) BADSCRIPT((char*)"PATTERN-67 Cannot have ! and _ together\r\n")
+					if (*controls && memorizeSeen)
+					{
+						patternEnder = data;
+						BADSCRIPT((char*)"PATTERN-67 Cannot have ! and _ together\r\n")
+					}
                     if (quoteSeen) strcat(controls, "'");
                     notSeen = quoteSeen = false;
 
@@ -2840,24 +3144,38 @@ x:=y  (do assignment and do not fail)
         if (assignment)
         {
             *assignment = c;
-            if (memorizeSeen && assignment[1])
-                BADSCRIPT((char*)"PATTERN-57 Cannot use _ before an assignment\r\n")
-            if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before assignment since memorization will be incomplete\r\n")
+			if (memorizeSeen && assignment[1])
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-57 Cannot use _ before an assignment\r\n")
+			}
+			if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before assignment since memorization will be incomplete\r\n")
             //   rebuild token
             char tmp[MAX_WORD_SIZE];
             *tmp = ':';		//   assignment header
             int len = (assignment - word) + 2; //   include the : and jump code in length
-            if (len > 70) BADSCRIPT((char*)"PATTERN-65 Left side of assignment must not exceed 70 characters - %s\r\n", word)
-            char* x = tmp + 1;
+			if (len > 70)
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-65 Left side of assignment must not exceed 70 characters - %s\r\n", word)
+			}
+			char* x = tmp + 1;
             Encode(len, x, 1);
             strcpy(tmp + 2, word); //   copy left side over
             strcpy(word, tmp);	//   replace original token
         }
 		else if (comparison) //   is a comparison of some kind
 		{
-			if (memorizeSeen && comparison[1]) 
-				 BADSCRIPT((char*)"PATTERN-57 Cannot use _ before a comparison\r\n")
-			if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before comparison since memorization will be incomplete\r\n")
+			if (memorizeSeen && comparison[1])
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-57 Cannot use _ before a comparison\r\n")
+			}
+			if (variableGapSeen)
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-16 Cannot use * before comparison since memorization will be incomplete\r\n")
+			}
 			if (*word == USERVAR_PREFIX && word[1] == LOCALVAR_PREFIX)
 			{
 				char* dot = strchr(word,'.');
@@ -2884,7 +3202,11 @@ x:=y  (do assignment and do not fail)
 
 			char* rhs = comparison+1;
 			if (*rhs == '=' || *rhs == '?') ++rhs;
-			if (*rhs == '^' && IsAlphaUTF8(rhs[1])) BADSCRIPT((char*)"%s is not a current function variable\r\n",rhs);
+			if (*rhs == '^' && IsAlphaUTF8(rhs[1]))
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"%s is not a current function variable\r\n", rhs)
+			}
 			if (!*rhs && *word == USERVAR_PREFIX) {} // allowed member in sentence
 			else if (!*rhs && *word == '_' && IsDigit(word[1])); // allowed member in sentence
 			else if (*rhs == '#') // names a constant #define to replace with number value
@@ -2893,7 +3215,11 @@ x:=y  (do assignment and do not fail)
 				if (!n) n = FindSystemValueByName(rhs+1);
 				if (!n) n = FindParseValueByName(rhs+1);
 				if (!n) n = FindMiscValueByName(rhs+1);
-				if (!n) BADSCRIPT((char*)"PATTERN-63 No #constant recognized - %s\r\n",rhs+1)
+				if (!n)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-63 No #constant recognized - %s\r\n", rhs + 1)
+				}
 #ifdef WIN32
 			sprintf(rhs,(char*)"%I64d",(long long int) n); 
 #else
@@ -2928,14 +3254,22 @@ x:=y  (do assignment and do not fail)
 			else if (*rhs == '\'' && (rhs[1] == USERVAR_PREFIX || rhs[1]== '_')); //   unevaled user variable or raw match variable
 			else if (!comparison[2] && *word == USERVAR_PREFIX); // find in sentence
 			else if (*rhs == '"' && rhs[strlen(rhs)-1] == '"'){;} // quoted string
-			else BADSCRIPT((char*)"PATTERN-64 Illegal comparison %s or failed to close prior rule starting at %s\r\n",word, GetRuleElipsis(start))
+			else
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-64 Illegal comparison %s or failed to close prior rule starting at %s\r\n", word, GetRuleElipsis(start))
+			}
 			int len = (comparison - word) + 2; //   include the = and jump code in length
 
 			//   rebuild token
 			char tmp[MAX_WORD_SIZE];
 			*tmp = '=';		//   comparison header
-			if (len > 70) BADSCRIPT((char*)"PATTERN-65 Left side of comparison must not exceed 70 characters - %s\r\n",word)
-			char* x = tmp+1;
+			if (len > 70)
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-65 Left side of comparison must not exceed 70 characters - %s\r\n", word)
+			}
+			char* x = tmp + 1;
 			Encode(len,x,1);
 			strcpy(tmp+2,word); //   copy left side over
 			strcpy(word,tmp);	//   replace original token
@@ -2954,8 +3288,12 @@ x:=y  (do assignment and do not fail)
 		}
 		if (*word == '^')   //   function call or function var ref or indirect function variable assign ref like ^$$tmp = null
 		{
-			if (quoteSeen) BADSCRIPT((char*)"PATTERN-? Cannot use quote before ^ function call or variable\r\n")
-			if (notSeen) 
+			if (quoteSeen)
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-? Cannot use quote before ^ function call or variable\r\n")
+			}
+			if (notSeen)
 			{
 				*data++ = '!';
 				if (doubleNotSeen) *data++ = '!';
@@ -2963,7 +3301,11 @@ x:=y  (do assignment and do not fail)
 			}
 			if (memorizeSeen) 
 			{
-				if (!IsDigit(word[1]) && word[1] != USERVAR_PREFIX) BADSCRIPT((char*)"PATTERN-66 Cannot use _ before ^ function call\r\n")
+				if (!IsDigit(word[1]) && word[1] != USERVAR_PREFIX)
+				{
+					patternEnder = data;
+					BADSCRIPT((char*)"PATTERN-66 Cannot use _ before ^ function call\r\n")
+				}
 				*data++ = '_';
 				memorizeSeen = false;
 			}
@@ -2989,7 +3331,11 @@ x:=y  (do assignment and do not fail)
 		//   put out the next token and space 
 		if (notSeen) 
 		{
-			if (memorizeSeen) BADSCRIPT((char*)"PATTERN-67 Cannot have ! and _ together\r\n")
+			if (memorizeSeen)
+			{
+				patternEnder = data;
+				BADSCRIPT((char*)"PATTERN-67 Cannot have ! and _ together\r\n")
+			}
 			*data++ = '!';
 			if (doubleNotSeen) *data++ = '!';
 			doubleNotSeen = notSeen = false;
@@ -3078,11 +3424,17 @@ x:=y  (do assignment and do not fail)
 	*data = 0;
 
 	//   leftovers?
-	if (macro && nestIndex != 1) 
-		BADSCRIPT((char*)"PATTERN-68 Failed to balance ( or [ or { properly in macro for %s\r\n",startPattern)
-	else if (!macro && nestIndex != 0) 
-		BADSCRIPT((char*)"PATTERN-69 Failed to close %c started at line %d : %s\r\n",nestKind[nestIndex-1],nestLine[nestIndex-1],startPattern);
-
+	if (macro && nestIndex != 1)
+	{
+		patternEnder = data;
+		BADSCRIPT((char*)"PATTERN-68 Failed to balance ( or [ or { properly in macro for %s\r\n", startPattern)
+	}
+	else if (!macro && nestIndex != 0)
+	{
+		patternEnder = data;
+		patternStarter = nestData[nestIndex-1];
+		BADSCRIPT((char*)"PATTERN-69 Failed to close %c started at line %d : %s\r\n", nestKind[nestIndex - 1], nestLine[nestIndex - 1], startPattern);
+	}
 	patternContext = false;
     ReleaseStack(stackbase);
     if (!*conceptbase) {;} // no optimization happened
@@ -3107,6 +3459,9 @@ x:=y  (do assignment and do not fail)
      }
     FreeBuffer(); // conceptBufferLevelStart
     FreeBuffer(); // conceptbase
+
+	patternStarter = NULL;
+	patternEnder = NULL;
 	return ptr;
 }
 
@@ -4510,7 +4865,12 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 
 		if ((D->internalBits & FUNCTION_BITS) ==  IS_TABLE_MACRO) fprintf(out,(char*)"%s t %s\r\n",macroName,GetDefinition(D));
 		else if ((D->internalBits & FUNCTION_BITS) == (IS_OUTPUT_MACRO|IS_PATTERN_MACRO))  fprintf(out,(char*)"%s d %s\r\n",macroName,GetDefinition(D));
-		else fprintf(out,(char*)"%s %c %s\r\n",macroName,((D->internalBits & FUNCTION_BITS) == IS_OUTPUT_MACRO) ? 'o' : 'p',GetDefinition(D));
+		else
+		{
+			if (D->internalBits & VARIABLE_ARGS_TABLE)
+				fprintf(out, (char*)"%s %c %s\r\n", macroName, ((D->internalBits & FUNCTION_BITS) == IS_OUTPUT_MACRO) ? 'O' : 'P', GetDefinition(D));
+			else fprintf(out, (char*)"%s %c %s\r\n", macroName, ((D->internalBits & FUNCTION_BITS) == IS_OUTPUT_MACRO) ? 'o' : 'p', GetDefinition(D));
+		}
 		fclose(out); // dont use Fclose
 
 		char complex[MAX_WORD_SIZE];
@@ -6096,7 +6456,7 @@ static void WriteConcepts(WORDP D, uint64 build)
         }
     }
     ReleaseStack(word);
-    fprintf(out,(char*)"%s",(char*)")\r\n");
+    fprintf(out,(char*)"%s",")\r\n");
 	fclose(out); // dont use Fclose
     seeAllFacts = false;
 }
