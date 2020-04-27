@@ -519,6 +519,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		return ptr;
 	}
 
+	if (!stricmp(language, "ideographic")) return ptr + 1;
+
 	// large repeat punctuation
 	if (*ptr == ptr[1] && ptr[1] == ptr[2] && ptr[2] == ptr[3] && IsPunctuation(*ptr))
 	{

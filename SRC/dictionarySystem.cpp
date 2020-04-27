@@ -2812,6 +2812,11 @@ void ReadCanonicals(const char* file,const char* layer)
 		WORDP D = StoreWord(original);
 		WORDP R = StoreWord(replacement);
 		SetCanonical(D,MakeMeaning(R));
+
+		char form[MAX_WORD_SIZE];
+		ReadCompiledWord(ptr, form);   
+		if (!stricmp(form, "MORE_FORM")) AddProperty(D, MORE_FORM);
+		else if (!stricmp(form, "MOST_FORM")) AddProperty(D, MOST_FORM);
 	}
     FClose(in);
 }

@@ -360,6 +360,8 @@ static bool UsefulKnownWord(WORDP D)
 
 bool SpellCheckSentence()
 {
+	if (!stricmp(language, "ideographic")) return false; // no spell check on them
+
 	WORDP E;
     char* tokens[6];
 	fixedSpell = false;

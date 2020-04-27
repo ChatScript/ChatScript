@@ -103,7 +103,7 @@ typedef struct CALLFRAME
 // EXCEPTION/ERROR
 // error recovery
 #define SERVER_RECOVERY 4
-extern jmp_buf scriptJump[5];
+extern jmp_buf scriptJump[10];
 extern int jumpIndex;
 void ShowMemory(char* label);
 void JumpBack();

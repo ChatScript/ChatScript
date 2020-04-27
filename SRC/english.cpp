@@ -667,22 +667,22 @@ WORDP FindGermanPlural(WORDP singular)
 	if (D && GetCanonical(D) == singular) return D;
 
 	//Sometimes adding an - e and converting a vocal to an Umlaut
-	//Ball->Bälle
-	//Korb->Körbe
-	//Kuh->Kühe
+	//Ball->BÃ¤lle
+	//Korb->KÃ¶rbe
+	//Kuh->KÃ¼he
 
 	//	Sometimes plural is the same
 	//	Computer->Computer
-	//	Löffel->Löffel
+	//	LÃ¶ffel->LÃ¶ffel
 
 	//	Sometimes the same but converting a vocal to an Umlaut
-	//	Apfel->Äpfel
-	//	Vogel->Vögel
-	//	Garten->Gärten
+	//	Apfel->Ã„pfel
+	//	Vogel->VÃ¶gel
+	//	Garten->GÃ¤rten
 
 	//		Adding an - er and converting a vocal to an Umlaut
-	//	Buch->Bücher
-	//	Mann->Männer
+	//	Buch->BÃ¼cher
+	//	Mann->MÃ¤nner
 
 	return NULL;
 }
@@ -732,7 +732,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	entry = FindWord(original, x, PRIMARY_CASE_ALLOWED);
 	if (entry)
 	{
-		if (entry->systemFlags & PATTERN_WORD || !entry->word[2]) {} // english letters have no pos tag at present
+		if (entry->systemFlags & PATTERN_WORD || !entry->word[1]) {} // english letters have no pos tag at present
 		else if (IS_NEW_WORD(entry) || !(entry->properties & TAG_TEST)) entry = NULL;
 	}
 	if (!entry) entry = FindWord(original, x, SECONDARY_CASE_ALLOWED);
@@ -1445,6 +1445,44 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		}
 #endif
 	}
+
+	// german comparative and superlative adjectives
+	if (isGerman && entry && canonical && entry->properties & ADJECTIVE &&
+		!(entry->properties & (MORE_FORM | MOST_FORM)))
+	{
+		size_t entrylen = strlen(entry->word);
+		// for superlative, add sten // billig -> billigsten
+		if (len > 5 && entry->word[entrylen - 4] == 's'  && entry->word[entrylen - 3] == 's' && entry->word[entrylen - 2] == 'e'
+		&& entry->word[entrylen - 1] == 'n')
+		{
+			entry->properties |= MOST_FORM;
+			properties |= MOST_FORM;
+		}	
+		else
+		{
+			entry->properties |= MORE_FORM;
+			properties |= MORE_FORM;
+		}
+	}
+	// german comparative and superlative adverbs
+	if (isGerman && entry && canonical && entry->properties & ADVERB &&
+		!(entry->properties & (MORE_FORM | MOST_FORM)))
+	{
+		size_t entrylen = strlen(entry->word);
+		// for superlative, add sten 
+		if (entrylen > 5 && entry->word[entrylen - 4] == 's'  && entry->word[entrylen - 3] == 's' && entry->word[entrylen - 2] == 'e'
+		&& entry->word[entrylen - 1] == 'n')
+		{
+			entry->properties |= MOST_FORM;
+			properties |= MOST_FORM;
+		}
+		else
+		{
+			entry->properties |= MORE_FORM;
+			properties |= MORE_FORM;
+		}
+	}
+
 
 	// we still dont know this word, go generic if its lower and upper not known
 	char word[MAX_WORD_SIZE];

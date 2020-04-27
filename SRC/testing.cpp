@@ -1291,7 +1291,7 @@ static void C_TestPattern(char* input)
         return;
     }
 
-    char data[MAX_WORD_SIZE];
+    char data[MAX_WORD_SIZE * 3];
     char* pack = data;
     strcpy(readBuffer, input);
 
@@ -1322,8 +1322,10 @@ static void C_TestPattern(char* input)
     else
     {
         int buffercount = bufferIndex;
-        if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
+		int frameindex = globalDepth;
+		if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
         {
+			globalDepth = frameindex;
             bufferIndex = buffercount;
             --jumpIndex;
             return;
@@ -1332,7 +1334,8 @@ static void C_TestPattern(char* input)
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
         ptr = ReadPattern(readBuffer, NULL, pack, false, false); // swallows the pattern
         if (inited) EndScriptCompiler();
-    }
+		--jumpIndex;
+	}
 
     //   var assign?
     DoAssigns(ptr);
@@ -6251,7 +6254,7 @@ Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert)
 		strcpy(buffer, message); // this gets trashed
 		strcpy(incopy, message);
 		PerformChat(user, bot, buffer, "x", ourMainOutputBuffer); // this autofrees our buffer
-        LogChat(starttime, user, bot, "x", volleyCount, incopy, ourMainOutputBuffer);
+        LogChat(starttime, user, bot, "x", volleyCount, incopy, ourMainOutputBuffer,0);
 	}
     fclose(in);
 	free(buffer);
@@ -8204,6 +8207,22 @@ static void C_Time(char* input)
 	wasCommand = TRACECMD; // save results to user file
     modifiedTimingVal = timing;
     modifiedTiming = true;
+}
+
+void C_ServerLog(char* buffer)
+{
+	if (*buffer && *buffer != '0')
+	{
+		FILE* out = FopenBinaryWrite("serverlogging.txt");
+		fprintf(out, "log\r\n");
+		fclose(out);
+		sprintf(buffer, "server log override on\r\n");
+	}
+	else
+	{
+		unlink("serverlogging.txt");
+		sprintf(buffer, "server log override off\r\n");
+	}
 }
 
 void C_Authorize(char* buffer)
@@ -10585,6 +10604,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":trace",C_Trace,(char*)"Set trace variable (all none basic prepare match output pattern infer query substitute hierarchy fact control topic pos)"},
 	{ (char*)":why",C_Why,(char*)"Show rules causing most recent output"}, 
 	{ (char*)":authorize",C_Authorize,(char*)"Flip authorization for all debug commands"},
+	{ (char*)":serverlog",C_ServerLog,(char*)"Flip authorization for server logging default" },
 
 	{ (char*)"\r\n---- Fact info",0,(char*)""}, 
 	{ (char*)":allfacts",C_AllFacts,(char*)"Write all facts to TMP/facts.tmp"}, 

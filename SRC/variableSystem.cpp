@@ -487,10 +487,16 @@ void SetUserVariable(const char* var, char* word, bool assignment)
         {
             bool purelocal = (D->word[1] == LOCALVAR_PREFIX);
             if (purelocal) word = AllocateStack(word, 0, true); // trying to save on permanent space
-            else word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
-            if (!word) return;
+			else
+			{
+				if (D->w.userValue && !strcmp(word, D->w.userValue))
+					return; // no change is happening in heap
+				word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
+			}
+			if (!word) return;
         }
     }
+	else if (!D->w.userValue)  return; // clear to null already
 
     PrepareVariableChange(D, word, true);
     if (planning && !documentMode) // handle undoable assignment (cannot use text sharing as done in document mode)

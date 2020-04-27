@@ -110,6 +110,7 @@ struct Client_t
     char* user;
     char* data = NULL;
     Buffer_t incomming;
+	uint64 starttime;
 
     Client_t(int fd, struct ev_loop *l_p) : fd(fd), l(l_p), requestValid(false)
     {
@@ -206,7 +207,7 @@ struct Client_t
         return 1;
     }
 
-    int prepare_for_chat()
+    void prepare_for_chat()
     {
         if (this->data) *this->data = 0;
         this->ip = this->get_foreign_address();
@@ -216,8 +217,6 @@ struct Client_t
 			(*printer)("evserver: prepare_for_chat() could not get ip for client: %d\r\n", this->fd);
 			return -1;
         }
-
-        return 1;
     }
 
     int received_request() {
@@ -238,7 +237,7 @@ struct Client_t
 
         // since we received complete request, we will stop reading from client socket until we process it
         ev_io_stop(this->l, &this->ev_r);
-        
+		this->starttime = ElapsedMilliseconds(); // when we got the full request
         return 1;
     }
 };
@@ -588,15 +587,11 @@ static void client_read(EV_P_ ev_io *w, int revents)
 		client->data = NULL;
 	}
 
-    if (r < 0) {
-        Log(SERVERLOG, "evserver: could not sent data to client: %d\r\n", client->fd);
-        delete client;
-        return;
-    }
-
-    if (r == 1)  delete client; // client handling finished
-
-    // if r = 0, it means there is still some data to be sent, which will be done next time this watcher is woken-up by ev_loop
+	if (r == 0) return; // it means there is still some data to be sent, which will be done next time this watcher is woken - up by ev_loop
+	
+	if (r < 0) Log(SERVERLOG, "evserver: could not sent data to client: %d\r\n", client->fd);
+	// else if (r == 1)  // client handling finished
+	delete client;
 }
 
 static void client_write(EV_P_ ev_io *w, int revents)
@@ -615,7 +610,7 @@ static void client_write(EV_P_ ev_io *w, int revents)
     // if r = 0, it means there is still some data to be sent, which will be done next time this watcher is woken-up by ev_loop
 }
 
-void LogChat(uint64 starttime,char* user,char* bot,char* IP, int turn,char* input,char* output);
+void LogChat(uint64 starttime,char* user,char* bot,char* IP, int turn,char* input,char* output,uint64 qtime);
 
 int evsrv_do_chat(Client_t *client)
 {
@@ -707,7 +702,7 @@ RESTART_RETRY:
 			postgresInited = false;
 		}
 #endif
-	if (serverLog) LogChat(starttime,client->user,client->bot,(char*)client->ip.c_str(),turn,ourMainInputBuffer,client->data);
+	if (serverLog) LogChat(starttime,client->user,client->bot,(char*)client->ip.c_str(),turn,ourMainInputBuffer,client->data,client->starttime);
     return 1;
 }
 

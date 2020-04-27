@@ -44,7 +44,7 @@ extern char* patternEnder;
 void ScriptError();
 void EraseTopicFiles(unsigned int build,char* name);
 void InitScriptSystem();
-void SaveCanon(char* word, char* canon);
+void SaveCanon(char* word, char* canon,char* form = NULL);
 
 char* ReadDisplayOutput(char* ptr,char* buffer);
 void EndScriptCompiler();

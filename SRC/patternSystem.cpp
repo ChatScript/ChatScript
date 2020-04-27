@@ -1765,8 +1765,10 @@ void ExecuteConceptPatterns()
             bool linuxcrashed = false;
             linuxCrashSet = true;
             int buffercount = bufferIndex;
+			int frameindex = globalDepth;
             if (setjmp(linuxCrash)) // we took fatal linux error?
             {
+				globalDepth = frameindex;
                 bufferIndex = buffercount;
                 data = startData; // say nothing happened
                 *data = 0;
@@ -1776,7 +1778,8 @@ void ExecuteConceptPatterns()
             if (linuxcrashed) {}
             else if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
             {
-                bufferIndex = buffercount;
+				globalDepth = frameindex;
+				bufferIndex = buffercount;
                 --jumpIndex;
                 *buffer = 0;
             }

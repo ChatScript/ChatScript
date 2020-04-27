@@ -11,7 +11,6 @@ static bool noPatternOptimization = true;
 static unsigned int conceptID = 0; // name of concept set
 char* patternStarter = NULL;
 char* patternEnder = NULL;
-
 static int complexity = 0;
 static bool livecall = false;
 static unsigned int priorLine = 0;
@@ -1175,6 +1174,7 @@ comes from the old buffer. Meanwhile the newbuffer continues to have content for
 		*newBuffer = 0;
 	}
     if (result == (char*)1 ) { currentLineColumn = 0; }
+	else if (compileOutputCall | compilePatternCall) currentLineColumn = (result - linestartpoint);
     else currentLineColumn = (result - readBuffer);
 	return result; // ptr into READBUFFER or 1 if from peek zone
 }
@@ -5385,7 +5385,6 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	bool quoted = false;
 	bool notted = false;
 	MEANING topicValue = 0;
-	int holdDepth = globalDepth;
 	WORDP topicName = NULL;
 	unsigned int gambits = 0;
 	unsigned int toplevelrules = 0; // does not include rejoinders
@@ -5393,10 +5392,11 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	verifyIndex = 0;	
 	bool stayRequested = false;
     int buffercount = bufferIndex;
-	if (setjmp(scriptJump[++jumpIndex])) 
+	int frameindex = globalDepth;
+	if (setjmp(scriptJump[++jumpIndex]))
 	{
         bufferIndex = buffercount;
-		ptr = FlushToTopLevel(in,holdDepth,data); //   if error occurs lower down, flush to here
+		ptr = FlushToTopLevel(in, frameindex,data); //   if error occurs lower down, flush to here
 	}
 	while (ALWAYS) //   read as many tokens as needed to complete the definition
 	{
@@ -5713,13 +5713,14 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 	*data = 0;
 	char* pack = data;
 
-	int holdDepth = globalDepth;
 	unsigned int toplevelrules = 0; // does not include rejoinders
     int buffercount = bufferIndex;
-	if (setjmp(scriptJump[++jumpIndex])) 
+	int frameindex = globalDepth;
+	if (setjmp(scriptJump[++jumpIndex]))
 	{
+		globalDepth = frameindex;
         bufferIndex = buffercount;
-        ptr = FlushToTopLevel(in,holdDepth,data); //   if error occurs lower down, flush to here
+        ptr = FlushToTopLevel(in, frameindex,data); //   if error occurs lower down, flush to here
 	}
 	while (ALWAYS) //   read as many tokens as needed to complete the definition
 	{
@@ -5907,12 +5908,13 @@ static char* ReadPrefer(char* ptr, FILE* in, unsigned int build)
 	return ptr;
 }
 
-void SaveCanon(char* word, char* canon)
+void SaveCanon(char* word, char* canon,char* form)
 {
 	char filename[SMALL_WORD_SIZE];
 	sprintf(filename,(char*)"%s/BUILD%s/canon%s.txt", topicname,baseName,baseName);
 	FILE* out = FopenUTF8WriteAppend(filename);
-	fprintf(out,(char*)" %s %s\r\n",word,canon);
+	if (!form) form = "";
+	fprintf(out,(char*)" %s %s %s\r\n",word,canon,form);
 	fclose(out); // dont use FClose
 	WritePatternWord(word);		// must recognize this word for spell check
 	WritePatternWord(canon);	// must recognize this word for spell check
@@ -5934,7 +5936,15 @@ static char* ReadCanon(char* ptr, FILE* in, unsigned int build)
 			break; 
 		}
 		ptr = ReadNextSystemToken(in,ptr,canon,false);
-		SaveCanon(word,canon);
+		char form[MAX_WORD_SIZE];
+		*form = 0;
+		if (*ptr) ReadNextSystemToken(in, ptr, form, true);
+		if (!stricmp(form, "MORE_FORM") || !stricmp(form, "MOST_FORM"))
+		{
+			ptr = ReadNextSystemToken(in, ptr, form, false);
+		}
+		else *form = 0;
+		SaveCanon(word,canon,form);
 	}
 	return ptr;
 }
@@ -6135,14 +6145,14 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 	AddMap((char*)"file:", map);
 
 	//   if error occurs lower down, flush to here
-	int holdDepth = globalDepth;
 	patternContext = false;
 	char* ptr = "";
     int buffercount = bufferIndex;
-	if (setjmp(scriptJump[++jumpIndex])) 
+	int frameindex = globalDepth;
+	if (setjmp(scriptJump[++jumpIndex]))
 	{
-        bufferIndex = buffercount;
-        ptr = FlushToTopLevel(in,holdDepth,0);
+		bufferIndex = buffercount;
+        ptr = FlushToTopLevel(in, frameindex,0);
 	}
 	while (ALWAYS) 
 	{

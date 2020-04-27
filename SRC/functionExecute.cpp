@@ -4732,6 +4732,7 @@ FunctionResult MatchCode(char* buffer)
 #ifndef DISCARDSCRIPTCOMPILER 
         else if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
         {
+			//globalDepth = oldDepth;
             bufferIndex = buffercount;
             if (inited) EndScriptCompiler();
             --jumpIndex;
@@ -6911,22 +6912,23 @@ static unsigned int  Spell(char* match, unsigned int set)
 static FunctionResult SpellCode(char* buffer) //- locates up to 100 words in dictionary matching pattern and stores them as facts in @0
 {
 #ifdef INFORMATION
-Fails if no words are found. Words must begin with a letter and be marked as a part of speech
-(noun,verb,adjective,adverb,determiner,pronoun,conjunction,prepostion).
+	Fails if no words are found.Words must begin with a letter and be marked as a part of speech
+	(noun, verb, adjective, adverb, determiner, pronoun, conjunction, prepostion).
 
-Not all words are found in the dictionary. The system only stores singular nouns and base
-forms of verbs, adverbs, and adjectives unless it is irregular.
+		Not all words are found in the dictionary.The system only stores singular nouns and base
+		forms of verbs, adverbs, and adjectives unless it is irregular.
 
-Pattern is a sequence of characters, with * matching 0 or more characters and . matching
-exactly one. Pattern must cover the entire string. Pattern may be prefixed with a number, which
-indicates how long the word must be. E.g.
+		Pattern is a sequence of characters, with * matching 0 or more characters and.matching
+		exactly one.Pattern must cover the entire string.Pattern may be prefixed with a number, which
+		indicates how long the word must be.E.g.
 
-^spell((char*)"4*")	# retrieves 100 4-letter words
-^spell((char*)"3a*")  # retrieves 3-letter words beginning with "a"
-^spell((char*)"*ing") # retrieves words ending in "ing" 
+		^spell((char*)"4*")	# retrieves 100 4 - letter words
+		^spell((char*)"3a*")  # retrieves 3 - letter words beginning with "a"
+		^spell((char*)"*ing") # retrieves words ending in "ing"
 #endif
-
-	return (Spell(ARGUMENT(1),0)) ? NOPROBLEM_BIT : FAILRULE_BIT;
+	int factset = GetSetID(ARGUMENT(2));
+	if (factset == ILLEGAL_FACTSET) factset = 0;
+	return (Spell(ARGUMENT(1),factset)) ? NOPROBLEM_BIT : FAILRULE_BIT;
 }
 
 static FunctionResult SexedCode(char* buffer)
@@ -8750,7 +8752,8 @@ static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
     */
     bool dynamic = false;
     char* value = GetUserVariable("$dseconceptpattern");
-    if (*value) dynamic = true;
+	if (!*value) value = GetUserVariable("$cs_dseconceptpattern");
+	if (*value) dynamic = true;
     FACT* G = GetSubjectNondeadHead(array); // list of json objects representing concepts
     while (G) // walk list of concepts and bind new memberships
     {
@@ -9314,6 +9317,9 @@ static FunctionResult TestPatternCode(char* buffer)
 	int oldindex = indentBasis;
 	char* var = GetUserVariable("$indentlevel");
 	if (var) indentBasis = (var) ? atoi(var) : 1;  // default 1 level if no variable controls
+	var = GetUserVariable("$cs_indentlevel");
+	if (var) indentBasis = (var) ? atoi(var) : 1;  // default 1 level if no variable controls
+
 	if (!strnicmp(usermsg, ":tracepatternlevel ", 19) && AuthorizedCode(NULL) == NOPROBLEM_BIT)
 	{
 		char depth[100];
@@ -9505,6 +9511,7 @@ static FunctionResult TestOutputCode(char* buffer)
 							 // process each sentence in turn against the patterns
 							 // first pattern to match ANY input sentence wins
 	char* value = GetUserVariable("$tracetestOutput");
+	if (!value) value = GetUserVariable("$cs_tracetestOutput");
 	if (!stricmp(value, "1") && AuthorizedCode(NULL) == NOPROBLEM_BIT)
 	{
 		trace = -1;
@@ -9704,8 +9711,10 @@ static FunctionResult CompilePatternCode(char* buffer)
     bool linuxcrashed = false;
     linuxCrashSet = true;
     int buffercount = bufferIndex;
-    if (setjmp(linuxCrash)) // we took fatal linux error?
+	int frameindex = globalDepth;
+	if (setjmp(linuxCrash)) // we took fatal linux error?
     {
+		globalDepth = frameindex;
         bufferIndex = buffercount;
         data = startData; // say nothing happened
         linuxcrashed = true;
@@ -9715,7 +9724,6 @@ static FunctionResult CompilePatternCode(char* buffer)
     else if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
     {
         bufferIndex = buffercount;
-        --jumpIndex;
         *buffer = 0;
     }
     else
@@ -9746,7 +9754,8 @@ static FunctionResult CompilePatternCode(char* buffer)
         }
 #endif
     }
-    compiling = false;
+	--jumpIndex;
+	compiling = false;
 	compilePatternCall = false;
 	RESTORESYSTEMSTATE()
     if (inited) EndScriptCompiler();
@@ -9795,8 +9804,10 @@ static FunctionResult CompileOutputCode(char* buffer)
     // try to recover from fatality
     linuxCrashSet = true;
     bool linuxcrashed = false;
-    if (setjmp(linuxCrash)) // we took fatal linux error?
+	int frameindex = globalDepth;
+	if (setjmp(linuxCrash)) // we took fatal linux error?
     {
+		globalDepth = frameindex;
         bufferIndex = buffercount;
         data = startData; // say nothing happened
         linuxcrashed = true;
@@ -9805,8 +9816,8 @@ static FunctionResult CompileOutputCode(char* buffer)
     if (linuxcrashed) { }
     else if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
     {
-        bufferIndex = buffercount;
-        --jumpIndex;
+		globalDepth = frameindex;
+		bufferIndex = buffercount;
         *buffer = 0;
     }
     else
@@ -9826,7 +9837,8 @@ static FunctionResult CompileOutputCode(char* buffer)
         ReadOutput(false, false, readBuffer, NULL, data, rejoinders, NULL, NULL, false);
 #endif
     }
-    RESTORESYSTEMSTATE()
+	--jumpIndex;
+	RESTORESYSTEMSTATE()
     compiling = false;
     if (inited) EndScriptCompiler();
 	// get the object
@@ -10941,7 +10953,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^removeproperty",RemovePropertyCode,STREAM_ARG,0,(char*)"remove value to dictionary entry properies or systemFlags or facts of factset properties"},
 	{ (char*)"^rhyme",RhymeCode,1,0,(char*)"find a rhyming word"}, 
 	{ (char*)"^substitute",SubstituteCode,VARIABLE_ARG_COUNT,0,(char*)"alter a string by substitution"}, 
-	{ (char*)"^spell",SpellCode,1,0,(char*)"find words matching pattern and store as facts"}, 
+	{ (char*)"^spell",SpellCode,VARIABLE_ARG_COUNT,0,(char*)"find words matching pattern and store as facts"},
     { (char*)"^spellcheck",SpellCheckCode,2,0,(char*)"Given tokenized sentence and JSON array of words, return adjusted sentence" },
     { (char*)"^sexed",SexedCode,4,0,(char*)"pick a word based on sex of given word"},
 	{ (char*)"^tally",TallyCode,VARIABLE_ARG_COUNT,0,(char*)"get or set a word value"},

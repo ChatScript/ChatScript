@@ -18,6 +18,7 @@ int outputlevel = 0;
 char* outputCode[MAX_GLOBAL];
 static bool argumentsSeen = false;
 char* configFile = "cs_init.txt";	// can set config params
+char* configFile2 = "cs_initmore.txt";	// can set config params
 char* configLines[MAX_WORD_SIZE];	// can set config params
 int configLinesLength;	// can set config params
 char language[40];							// indicate current language used
@@ -320,6 +321,22 @@ int CountWordsInBuckets(int& unused, unsigned int* depthcount,int limit)
 	return words;
 }
 
+static void ReadBotVariable(char* configFile)
+{
+	char buffer[5000];
+	char word[MAX_WORD_SIZE];
+	FILE* in = FopenReadOnly(configFile);
+	if (in)
+	{
+		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
+		{
+			ReadCompiledWord(buffer, word);
+			if (*word == 'V') SetBotVariable(word); // these are level 1 values
+		}
+		fclose(in);
+	}
+}
+
 void CreateSystem()
 {
     tableinput = NULL;
@@ -394,17 +411,8 @@ void CreateSystem()
 	*botPrefix = *userPrefix = 0;
 
 	char word[MAX_WORD_SIZE];
-    char buffer[MAX_WORD_SIZE];
-    FILE* in = FopenReadOnly(configFile);
-    if (in)
-    {
-        while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
-        {
-            ReadCompiledWord(buffer, word);
-            if (*word == 'V') SetBotVariable(word); // these are level 1 values
-        }
-        fclose(in);
-    }
+	ReadBotVariable(configFile);
+	ReadBotVariable(configFile2);
 	for (int i = 1; i < argc; ++i)
 	{
 		strcpy(word,argv[i]);
@@ -809,10 +817,10 @@ static void ProcessArgument(char* arg)
 #ifndef DISCARDSERVER
 	else if (!stricmp(arg,(char*)"serverretry")) serverRetryOK = true;
 	else if (!stricmp(arg,(char*)"local")) server = false; // local standalone
-	else if (!stricmp(arg, (char*)"noserverlog")) serverLog = false;
+	else if (!stricmp(arg, (char*)"noserverlog")) serverLogDefault = serverLog = false;
 	else if (!stricmp(arg, (char*)"nobuglog")) bugLog = false;
 	else if (!stricmp(arg, (char*)"buglog")) bugLog = true;
-	else if (!stricmp(arg, (char*)"serverlog")) bugLog = serverLog = true;
+	else if (!stricmp(arg, (char*)"serverlog")) serverLogDefault = bugLog = serverLog = true;
 	else if (!stricmp(arg, (char*)"noserverprelog")) serverPreLog = false;
 	else if (!stricmp(arg,(char*)"serverctrlz")) serverctrlz = 1;
 	else if (!strnicmp(arg,(char*)"port=",5))  // be a server
@@ -927,11 +935,31 @@ static void ReadConfig()
 {
 	char buffer[MAX_WORD_SIZE];
 	FILE* in = FopenReadOnly(configFile);
-	if (!in) return;
-	while (ReadALine(buffer,in,MAX_WORD_SIZE) >= 0){
-		ProcessArgument(TrimSpaces(buffer,true));
+	if (in)
+	{
+		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
+			ProcessArgument(TrimSpaces(buffer, true));
+		fclose(in);
 	}
-	fclose(in);
+	in = FopenReadOnly(configFile2);
+	if (in)
+	{
+		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
+		{
+			ProcessArgument(TrimSpaces(buffer, true));
+		}
+		fclose(in);
+	}
+	sprintf(buffer, "cs_init%s", language);
+	in = FopenReadOnly(buffer);
+	if (in)
+	{
+		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
+		{
+			ProcessArgument(TrimSpaces(buffer, true));
+		}
+		fclose(in);
+	}
 }
 
 unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
@@ -999,6 +1027,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	{
 		char* configHeader;
 		if (!strnicmp(argv[i],(char*)"config=",7)) configFile = argv[i]+7;
+		if (!strnicmp(argv[i], (char*)"config2=", 7)) configFile2 = argv[i] + 8;
 		if (!strnicmp(argv[i],(char*)"configUrl=",10)) configUrl = argv[i]+10;
 		if (!strnicmp(argv[i],(char*)"configHeader=",13)) {
 			configHeader = argv[i]+13;
@@ -1921,33 +1950,6 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* 
 	return answer;
 }
 
-static void LimitInput(char* incoming)
-{
-    // limit sans oob
-	incoming = SkipWhitespace(incoming);
-    if (incoming[0] == '[' || incoming[1] == '[' || incoming[2] == '[')
-    {
-        char* at = incoming - 1;
-        int bracket = 0;
-        bool quote = false;
-        while (*++at) // input limit applies to user text, not oob
-        {
-            if (*at == '"' && *(at - 1) != '\\') quote = !quote;
-            if (!quote && *at == '[' && *(at - 1) != '\\') ++bracket;
-            else if (!quote && *at == ']' && *(at - 1) != '\\')
-            {
-                --bracket;
-                if (!bracket) // closes oob
-                {
-                    at[inputLimit - 1] = 0;
-                    return;
-                }
-            }
-        }
-    }
-    incoming[inputLimit - 1] = 0; // none or mangled oob 
-}
-
 // WE DO NOT ALLOW USERS TO ENTER CONTROL CHARACTERS.
 // INTERNAL STRINGS AND STUFF never have control characters either (/r /t /n converted only on output to user)
 // WE internally use /r/n in file stuff for the user topic file.
@@ -1956,6 +1958,24 @@ char* realinput = NULL;
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
 
+	// absolute limit
+	size_t len = strlen(incoming);
+	if (len >= (maxBufferSize - 10))
+	{
+		incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
+		ReportBug("Trimmed input too large %d > %d", len, maxBufferSize)
+	}
+
+	if (server) // transient enable server logging?
+	{
+		serverLog = serverLogDefault;
+		FILE* in = FopenReadOnly("serverlogging.txt");
+		if (in)
+		{
+			serverLog = true;
+			fclose(in);
+		}
+	}
     stackFree = stackStart; // begin fresh
     ResetToPreUser();
  	bool resetuser = false;
@@ -1992,14 +2012,6 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		HandleBoot(FindWord("^cs_reboot"), true);
 	}
 
-	// absolute limit
-	size_t len = strlen(incoming);
-	if (len >= (maxBufferSize - 10))
-	{
-		incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
-		ReportBug("Trimmed input too large %d > %d", len, maxBufferSize)
-	}
-
 	strcpy(realinput, incoming);
 	if (server) AdjustUTF8(incoming, incoming - 1); // not needed coming locally
 
@@ -2015,18 +2027,24 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	mainInputBuffer = incoming;
 	mainOutputBuffer = output;
 
-     // relative limit on user
-    if (inputLimit && inputLimit <= (int)len) LimitInput(incoming);
-    
     char* at = mainInputBuffer;
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = SkipOOB(mainInputBuffer);
+	size_t len1 = strlen(at);
+	if (inputLimit && inputLimit <= (int)len1) at[inputLimit] = 0; // relative limit on user component
+
+	// correct inputs and insure no large tokensize other than strings
 	char* startx = at--;
     bool quote = false;
     incoming = SkipWhitespace(incoming);
     while (*++at)
 	{
+		if (*at == '\\') // absorb
+		{
+			++at;
+			continue;
+		}
         if (*at > 0 && *at < 32) *at = ' ';
-		if (*at == '"' && *(at - 1) != '\\')
+		if (*at == '"')
 		{
 			quote = !quote;
 			if ((!at[1] || !at[2]) && *incoming == '"') // no global quotes, (may have space at end)
@@ -2041,7 +2059,11 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 			startx = at + 1;
 		}
 	}
-	if ((at-startx) > (MAX_WORD_SIZE-1)) startx[MAX_WORD_SIZE-5] = 0; // trouble - cut him off at the knees
+	if ((at - startx) > (MAX_WORD_SIZE - 1))
+	{
+		ReportBug("Input token size too big %d vs %d",(at-startx), MAX_WORD_SIZE)
+		startx[MAX_WORD_SIZE - 5] = 0; // trouble - cut him off at the knees
+	}
     
 	char* first = incoming;
 #ifndef DISCARDTESTING
@@ -2791,32 +2813,34 @@ static void SaveResponse(char* msg)
 char* SkipOOB(char* buffer)
 {
 	// skip oob data 
-	char* noOob = SkipWhitespace(buffer);
-	char* start = noOob;
+	char* at = SkipWhitespace(buffer);
+	char* start = at;
 
-	if (*noOob == '[' || *noOob == '{') // TEMPORARY
+	if (*at == '[') 
 	{
 		int count = 1;
 		bool quote = false;
 		char c;
-		while ((c = *++noOob))
+		while ((c = *++at))
 		{
 			if (c == '\\') // protected char
 			{
-				++noOob;
+				++at;
 				continue;
 			}
+
 			if (c == '"')
 				quote = !quote; // ignore within quotes
 			if (quote) continue;
-			if ((c == '[' || c == '{')) ++count;
-			if ((c == ']' || c == '}'))
+
+			if (c == '[') ++count;
+			else if (c == ']')
 			{
 				--count;
 				if (count == 0)
 				{
-					noOob = SkipWhitespace(noOob + 1);	// after the oob end
-					return noOob;
+					at = SkipWhitespace(at + 1);	// after the oob end
+					return at;
 				}
 			}
 		}

@@ -39,6 +39,7 @@ static bool pendingWarning = false;			// log entry we are building is a warning 
 static bool pendingError = false;			// log entry we are building is an error message
 int userLog = LOGGING_NOT_SET;				// do we log user
 int serverLog = LOGGING_NOT_SET;			// do we log server
+int serverLogDefault = LOGGING_NOT_SET;		
 int bugLog = LOGGING_NOT_SET;				// do we log bugs
 char hide[4000];							// dont log this json field 
 bool serverPreLog = true;					// show what server got BEFORE it works on it
@@ -81,11 +82,10 @@ unsigned int currentFileLine = 0;				// line number in file being read
 unsigned int currentLineColumn = 0;				// column number in file being read
 unsigned int maxFileLine = 0;				// line number in file being read
 unsigned int peekLine = 0;
-unsigned int currentFileColumn = 0;
 char currentFilename[MAX_WORD_SIZE];	// name of file being read
 
 // error recover 
-jmp_buf scriptJump[5];
+jmp_buf scriptJump[10];
 int jumpIndex = -1;
 jmp_buf linuxCrash;
 bool linuxCrashSet = false;
@@ -1701,6 +1701,7 @@ CALLFRAME* ChangeDepth(int value,char* name,bool nostackCutback, char* code)
 	{
         bool abort = false;
         CALLFRAME* frame = releaseStackDepth[globalDepth];
+		releaseStackDepth[globalDepth] = NULL;
 
 #ifndef DISCARDTESTING
         if (globalDepth && *name && debugCall)
@@ -1751,7 +1752,6 @@ CALLFRAME* ChangeDepth(int value,char* name,bool nostackCutback, char* code)
         globalDepth += value;
         if (showDepth) Log(STDUSERLOG, (char*)"+depth %d %s bufferindex %d heapused: %d stackused:%d gap:%d\r\n", globalDepth, name, bufferIndex, (int)(heapBase - heapFree), (int)(stackFree - stackStart), (int)(heapFree - stackFree));
         releaseStackDepth[globalDepth] = frame; // define argument start space - release back to here on exit
-
 #ifndef DISCARDTESTING
 		if (globalDepth && *name != '*' && debugCall) (*debugCall)(name, true); 
 #endif

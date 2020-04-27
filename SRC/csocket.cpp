@@ -38,7 +38,7 @@ char serverIP[100];
 static int pass = 0;
 static int fail = 0;
 
-void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output)
+void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output,uint64 qtime)
 {
 	struct tm ptm;
 	char* date = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
@@ -63,6 +63,10 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 			*userOutput = 0;
 		}
 	}
+	if (qtime)
+	{
+		qtime = starttime - qtime; // delay waiting in q
+	}
 	if (*input) {
 		char* userInput = NULL;
 		char endInput = 0;
@@ -74,10 +78,10 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 				*userInput = 0;
 			}
 		}
-		Log(SERVERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %s\r\n", nl, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime), why);
+		Log(SERVERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %d %s\r\n", nl, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime),(int)qtime, why);
 		if (userInput) *userInput = endInput;
 	}
-	else Log(SERVERLOG, (char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms Version:%s Build0:%s Build1:%s %s\r\n", nl, user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), version, timeStamp[0], timeStamp[1], why);
+	else Log(SERVERLOG, (char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
 	if (userOutput) *userOutput = endOutput;
 }
 #ifndef DISCARDSERVER
@@ -1713,7 +1717,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 
 	delete sock;
 
-	if (serverLog && msg)  LogChat(starttime, user, bot, IP, *((int*)memory), msg, output);
+	if (serverLog && msg)  LogChat(starttime, user, bot, IP, *((int*)memory), msg, output,0);
 
 	// do not delete memory til after server would have given up
 	free(memory);
@@ -1747,8 +1751,10 @@ static void* MainChatbotServer()
 					 // we now own the chatlock
 	uint64 lastTime = ElapsedMilliseconds();
 	int buffercount = bufferIndex;
-	if (setjmp(scriptJump[SERVER_RECOVERY])) // crashes come back to here
+	int frameindex = globalDepth;
+ 	if (setjmp(scriptJump[SERVER_RECOVERY])) // crashes come back to here
 	{
+		globalDepth = frameindex;
 		bufferIndex = buffercount;
 		(*printer)((char*)"%s", (char*)"***Server exception0\r\n");
 		ReportBug((char*)"***Server exception0\r\n")

@@ -110,6 +110,7 @@ extern bool documentMode;
 extern bool assignedLogin;
 extern bool servertrace;
 extern int inputLimit;
+extern int serverLogDefault;
 extern int outputchoice;
 extern int traceUniversal;
 extern char apikey[100];
