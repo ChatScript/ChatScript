@@ -61,7 +61,7 @@ s: &quot;Knock&quot; =&gt; Who&#39;s there? </code></pre>
 <pre><code>:abstract nocode </code></pre>
 <p>will not display rules that only have code output You can do all topics in a file by naming the file name instead of the topicname. Don't use the full path, just the actual name of the file.</p>
 <h1 id="time-view-over-log-file---timelog">Time View over Log file - <code>:timelog</code></h1>
-<p>Given a log file (usually a server log), it will compute the average, min, and max response times of the volleys.</p>
+<p>Given a log file (usually a server log), it will compute the average, min, and max NLU engine response times of the volleys. And for LINUX, how long it took from first detection of incoming connection to get to the engine (including reading incoming data).</p>
 <h1 id="views-over-user-logs---trim">Views over User Logs - <code>:trim</code></h1>
 <p>If you get a lot of user logs (say thousands), reading through them becomes a chore. The logs have a bunch of excess information and are in a bunch of different files. This is where <code>:trim</code> comes in, making it easier to see things. <code>:trim</code> assumes all files in the LOGS directory are user logs and will process them in some manner. It will normally put its output in <code>TMP/tmp.txt</code>.</p>
 <p>If you give a quoted string as first argument and it has &quot;keepname&quot; in it, then instead of dumping everything into tmp.txt, it will create files named after the user logs it discovers (username.txt)</p>

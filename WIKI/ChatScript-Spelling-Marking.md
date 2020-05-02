@@ -1,6 +1,6 @@
 ﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2020 cs10.2
+<br>Revision 5/2/2020 cs10.3
 
 
 # Spelling
@@ -70,10 +70,12 @@ Emojis are a form of spelling correction. You can replace appropriate utf8 emoji
 with spelling replacements that start and end in a colon. These will be considered
 emoji and marked as ~emoji.  E.g., in script you can write
 ```
-	replace: 🤲 :palms_up_together:
-	replace: 😄 :grinning_face_with_smiling_eyes:
+	replace: xx :palms_up_together:
+	replace: yy :grinning_face_with_smiling_eyes:
 ```
-or you can add these paired words into one of the LIVEDATA substitution files.
+where xx and yy are actual utf8 emoji characters.
+
+Or you can add these paired words into one of the LIVEDATA substitution files.
 Then you can write patterns like:
 ```
 u: (:palms_up_together:) Peace be unto you.

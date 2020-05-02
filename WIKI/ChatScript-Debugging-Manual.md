@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 5/2/2020 cs10.3
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does and
@@ -121,7 +121,7 @@ the above : statement show the list:
 :showcoverage - Display execution coverage of ChatScript rules
 :diff         - match 2 files and report lines that differ
 :trim         - Strip excess off chatlog file to make simple file TMP/tmp.txt
-:timelog      - read a log file (like system log) and compute average, min and max times of responses
+:timelog      - read a log file (like system log) and compute average, min and max times of NLU engine and server q 
 
 ---- internal support -
 :spellit		  - given sentence provide explanation for spelling corrections
@@ -474,6 +474,10 @@ Sometimes you do not control the user account, so you cannot do :trace from it.
 You can do `:trace universal` from any account to force the server to trace all users.
 Turn it off with `:trace none`. Obviously not a good thing to do on a highly active server
 as it slows everyone and generates large logs potentially.
+
+Also you can do :serverlog 1 to turn on server logging  and :serverlog 0 to turn off serverlogging.
+You can even force server logging without restarting a server by merely adding the file "serverlogging.txt" with
+arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.
 
 ### Understanding a pattern trace
 

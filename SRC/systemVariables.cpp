@@ -569,6 +569,17 @@ static char* ScrossTalk(char* value)
 	return (*hold != '.') ? hold :  (char*)"";
 }
 
+static char* ScrossTalk1(char* value)
+{
+	static char hold[4000];
+	if (value)
+	{
+		size_t len = strlen(value);
+		if (len >= 4000) value[len - 1] = 0;
+		strcpy(hold, value);
+	}
+	return (*hold != '.') ? hold : (char*)"";
+}
 static char* Sdocument(char* value)
 {
 	static char hold[50] = ".";
@@ -1091,7 +1102,8 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"\r\n---- System variables",0,(char*)""},
 	{ (char*)"%all",Sall,(char*)"Boolean - is all flag on"}, 
 	{ (char*)"%crosstalk",ScrossTalk,(char*)"cross bot/cross document variable storage"}, 
-	{ (char*)"%document",Sdocument,(char*)"Boolean - is :document flag on"}, 
+	{ (char*)"%crosstalk1",ScrossTalk1,(char*)"additional cross bot/cross document variable storage" },
+	{ (char*)"%document",Sdocument,(char*)"Boolean - is :document flag on"},
 	{ (char*)"%fact",Sfact,(char*)"Most recent fact id"}, 
 	{ (char*)"%freetext",SfreeText,(char*)"Kbytes of available text space"}, 
 	{ (char*)"%freeword",SfreeWord,(char*)"number of available unused words"}, 

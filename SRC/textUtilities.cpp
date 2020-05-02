@@ -2321,8 +2321,7 @@ RESUME:
 			if (c != '\n' && c != '\r') holdc = c; // failed to find lf... hold this character for later but ignoring 2 cr in a row
 			if (c == '\n') // legal
 			{
-				++currentFileLine;	// for debugging error messages
-				maxFileLine = currentFileLine;
+				maxFileLine =  ++currentFileLine;	// for debugging error messages
 			}
 			if (blockComment) 
 			{
@@ -2870,8 +2869,16 @@ char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with (
 char* SkipWhitespace(char* ptr)
 {
     if (!ptr || !*ptr) return ptr;
-    while (IsWhiteSpace(*ptr))
-    {
+    while (*ptr)
+	{
+		if ((compilePatternCall || compileOutputCall) && *ptr == '\\' && ptr[1] == 'n'){}
+		else if (!IsWhiteSpace(*ptr)) break;
+		if (*ptr == '\\') // api passes newlines across. but user doing manual tabs, those are not whitespace but tokens
+		{
+			maxFileLine = ++currentFileLine;
+			currentLineColumn = 0;
+			linestartpoint = ++ptr + 1; // skip past soft tab
+		}
         if (!convertTabs && *ptr == '\t') return ptr; // leave to be seen
         ++ptr;
     }

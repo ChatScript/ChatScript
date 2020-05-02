@@ -1699,6 +1699,7 @@ bool ParseTime(char* ptr, char** minute, char** meridiem)
 
 	char* at1 = FindTimeMeridiem(ptr);
 	if (hr == 0 && !at1) return false;
+    if (at1 > ptr && hr == 0 && mn == 0 && sc == 0) return false;
 
 	if (at1 && meridiem) *meridiem = at1;
 	if (min && minute) *minute = min;

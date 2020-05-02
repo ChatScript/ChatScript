@@ -11,6 +11,8 @@ static bool noPatternOptimization = true;
 static unsigned int conceptID = 0; // name of concept set
 char* patternStarter = NULL;
 char* patternEnder = NULL;
+char* linestartpoint = NULL;
+
 static int complexity = 0;
 static bool livecall = false;
 static unsigned int priorLine = 0;
@@ -36,6 +38,7 @@ uint64 grade = 0;						// vocabulary warning
 char* lastDeprecation = 0;
 bool compiling = false;			// script compiler in progress
 bool compilePatternCall = false;
+bool compileOutputCall = false;
 bool patternContext = false;	// current compiling a pattern
 unsigned int buildId; // current build
 static int callingSystem = 0;
@@ -149,8 +152,8 @@ void ScriptError()
     {
         ++hasErrors;
         patternContext = false;
-        if (*scopeBotName) Log(STDUSERLOG, (char*)"*** Error- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn, currentFilename, scopeBotName);
-        else Log(STDUSERLOG, (char*)"*** Error- line %d column %d of %s: ", currentFileLine, currentLineColumn, currentFilename);
+        if (*scopeBotName) Log(STDUSERLOG, (char*)"*** Error- line %d col %d of %s bot:%s : ", currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+        else Log(STDUSERLOG, (char*)"*** Error- line %d col %d of %s: ", currentFileLine, currentLineColumn, currentFilename);
     }
 #endif
 }
@@ -164,8 +167,8 @@ void ScriptWarn()
 		++hasWarnings; 
 		if (*currentFilename)
 		{
-			if (*scopeBotName) Log(STDUSERLOG, (char*)"*** Warning- line %d column %d of %s bot:%s : ", currentFileLine, currentLineColumn,currentFilename, scopeBotName);
-			else Log(STDUSERLOG, (char*)"*** Warning- line %d column %d of %s: ", currentFileLine, currentLineColumn,currentFilename);
+			if (*scopeBotName) Log(STDUSERLOG, (char*)"*** Warning- line %d col %d of %s bot:%s : ", currentFileLine, currentLineColumn,currentFilename, scopeBotName);
+			else Log(STDUSERLOG, (char*)"*** Warning- line %d col %d of %s: ", currentFileLine, currentLineColumn,currentFilename);
 		}
 		else Log(STDUSERLOG, (char*)"*** Warning-  ");
 	}
@@ -195,7 +198,7 @@ void AddError(char* buffer)
 	char seen[MAX_WORD_SIZE];
 	*seen = 0;
 	char* at = seen;
-	if (patternStarter && patternEnder)
+	if (patternStarter && patternEnder && !(compileOutputCall | compilePatternCall))
 	{
 		strcpy(at, "--> ");
 		at += 4;
@@ -212,22 +215,22 @@ void AddError(char* buffer)
 		strcat(at, " <--");
 	}
 
-    char message[MAX_WORD_SIZE];
-    if (*buffer == '\r') ++buffer;
-    if (*buffer == '\n') ++buffer;
-    size_t len = strlen(buffer);
-    char c = buffer[MAX_WORD_SIZE - 300];
-    while (buffer[len - 1] == '\n' || buffer[len - 1] == '\r') buffer[--len] = 0;
-    if (strlen(buffer) > (MAX_WORD_SIZE - 300)) buffer[MAX_WORD_SIZE - 300] = 0;
+	char message[MAX_WORD_SIZE];
+	if (*buffer == '\r') ++buffer;
+	if (*buffer == '\n') ++buffer;
+	size_t len = strlen(buffer);
+	char c = buffer[MAX_WORD_SIZE - 300];
+	while (buffer[len - 1] == '\n' || buffer[len - 1] == '\r') buffer[--len] = 0;
+	if (strlen(buffer) > (MAX_WORD_SIZE - 300)) buffer[MAX_WORD_SIZE - 300] = 0;
 	if (!*currentFilename) // dse compilepattern
 	{
-		sprintf(message, "%s %s (line %d col %d ", buffer, seen, currentFileLine, currentLineColumn);
+		sprintf(message, "%s %s - line %d col %d ", buffer, seen, currentFileLine, currentLineColumn);
 		strcat(message, "\r\n");
 	}
-	else sprintf(message, "%s - line %d column %d of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
-    buffer[MAX_WORD_SIZE - 300] = c;
- 	sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
-    if (errorIndex >= MAX_ERRORS) --errorIndex;
+	else sprintf(message, "%s - line %d col %d of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+	buffer[MAX_WORD_SIZE - 300] = c;
+	sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
+	if (errorIndex >= MAX_ERRORS) --errorIndex;
 }
 
 static char* FindComparison(char* word)
@@ -621,6 +624,12 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
             --ptr;
             break; // end word with tab
         }
+		// not for output, but for patterns, track line numbers
+		if (compilePatternCall && c == '\\' && (*ptr == 'n' || *ptr == '\t' || *ptr == '\r')) // break off manual new line
+		{
+			--ptr;
+			break;
+		}
         *word++ = c;
         *word = 0;
         if (*start == '\t' && !convertTabs ) 
@@ -1066,22 +1075,23 @@ static void AddMapOutput(int line)
 char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscore, bool peek)
 { 
 #ifdef INFORMATION
-The outside can ask for the next real token or merely peek ahead one token. And sometimes the outside
-after peeking, decides it wants to back up a real token (passing it to some other processor).
+	The outside can ask for the next real token or merely peek ahead one token.And sometimes the outside
+		after peeking, decides it wants to back up a real token(passing it to some other processor).
 
-To support backing up a real token, the system must keep the current readBuffer filled with the data that
-led to that token (to allow a ptr - strlen(word) backup).
+		To support backing up a real token, the system must keep the current readBuffer filled with the data that
+		led to that token(to allow a ptr - strlen(word) backup).
 
-To support peeking, the system may have to read a bunch of lines in to find a token. It is going to need to
-track that buffer separately, so when it needs a real token which was the peek, it can both get the peek value
-and be using contents of the new buffer thereafter. 
+		To support peeking, the system may have to read a bunch of lines in to find a token.It is going to need to
+		track that buffer separately, so when it needs a real token which was the peek, it can both get the peek value
+		and be using contents of the new buffer thereafter.
 
-So peeks must never touch the real readBuffer. And real reads must know whether the last token was peeked 
-and from which buffer it was peeked.
+		So peeks must never touch the real readBuffer.And real reads must know whether the last token was peeked
+		and from which buffer it was peeked.
 
-And, if someone wants to back up to allow the old token to be reread, they have to CANCEL any peek data, so the token
-comes from the old buffer. Meanwhile the newbuffer continues to have content for when the old buffer runs out.
+		And, if someone wants to back up to allow the old token to be reread, they have to CANCEL any peek data, so the token
+		comes from the old buffer.Meanwhile the newbuffer continues to have content for when the old buffer runs out.
 #endif
+	if (!peek) currentFileLine = maxFileLine; // return to context real
 	int line = currentFileLine;
 
 	//   clear peek cache
@@ -1115,7 +1125,8 @@ comes from the old buffer. Meanwhile the newbuffer continues to have content for
 			result = (char*)1;	// NO ONE SHOULD KEEP A PEEKed PTR
 		}
         if (result == (char*)1) { currentLineColumn = 0; }
-        else currentLineColumn = (result - readBuffer);
+		else if (compileOutputCall || compilePatternCall) currentLineColumn = (result - linestartpoint);
+		else currentLineColumn = (result - readBuffer);
 		return result;
 	}
 
@@ -1174,8 +1185,8 @@ comes from the old buffer. Meanwhile the newbuffer continues to have content for
 		*newBuffer = 0;
 	}
     if (result == (char*)1 ) { currentLineColumn = 0; }
-	else if (compileOutputCall | compilePatternCall) currentLineColumn = (result - linestartpoint);
-    else currentLineColumn = (result - readBuffer);
+	else if (compileOutputCall || compilePatternCall) currentLineColumn = (result - linestartpoint);
+	else currentLineColumn = (result - readBuffer);
 	return result; // ptr into READBUFFER or 1 if from peek zone
 }
 char* ReadDisplayOutput(char* ptr,char* buffer) // locate next output fragment to display (that will be executed)
@@ -2584,7 +2595,7 @@ x : = y(do assignment and do not fail)
 
                         
                         
-                    nestLine[nestIndex] = currentFileLine;
+                    nestLine[nestIndex] = (currentFileLine << 16) | currentLineColumn;
 					nestData[nestIndex] = data;
                     nestKind[nestIndex++] = '<';
 				}
@@ -2667,7 +2678,7 @@ x : = y(do assignment and do not fail)
 					{
 						patternStarter = nestData[nestIndex];
 						patternEnder = data;
-						BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+						BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
 					}
 				}
 				variableGapSeen = false;
@@ -2701,7 +2712,7 @@ x : = y(do assignment and do not fail)
 					patternEnder = data;
 					BADSCRIPT((char*)"PATTERN-25 Quoting ( is meaningless.\r\n")
 				}
-                nestLine[nestIndex] = currentFileLine;
+                nestLine[nestIndex] = (currentFileLine << 16) | currentLineColumn;
 				nestData[nestIndex] = data;
 				nestKind[nestIndex++] = '(';
 				break;
@@ -2725,7 +2736,7 @@ x : = y(do assignment and do not fail)
 				{
 					patternEnder = data;
 					patternStarter = nestData[nestIndex];
-					BADSCRIPT((char*)"PATTERN-9 ) should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+					BADSCRIPT((char*)"PATTERN-9 ) should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
 				}
 				break;
 			case '[':	//   list of pattern choices begin
@@ -2751,7 +2762,7 @@ x : = y(do assignment and do not fail)
                     conceptStarted[conceptIndex] = 0;
                 }
                 
-                nestLine[nestIndex] = currentFileLine;
+                nestLine[nestIndex] = (currentFileLine << 16) | currentLineColumn;
                 keywordList[nestIndex] = 0;
 				nestData[nestIndex] = data;
 				nestKind[nestIndex++] = '[';
@@ -2779,7 +2790,7 @@ x : = y(do assignment and do not fail)
 				{
 					patternEnder = data;
 					patternStarter = nestData[nestIndex];
-					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
 				}
                 currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
                 strcpy(currentConceptXfer, currentConceptBuffer);
@@ -2845,7 +2856,7 @@ x : = y(do assignment and do not fail)
 				}
 				if (nestIndex && nestKind[nestIndex - 1] == '{') BADSCRIPT((char*)"PATTERN-37 {{ is illegal\r\n")
                 keywordList[nestIndex] = 0;
-                nestLine[nestIndex] = currentFileLine;
+                nestLine[nestIndex] = (currentFileLine << 16) | currentLineColumn;
 				nestData[nestIndex] = data;
 				nestKind[nestIndex++] = '{';
 
@@ -2872,7 +2883,7 @@ x : = y(do assignment and do not fail)
 				{
 					patternEnder = data;
 					patternStarter = nestData[nestIndex];
-					BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d\r\n", nestKind[nestIndex], nestLine[nestIndex])
+					BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
 				}
                 currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
                 strcpy(currentConceptXfer, currentConceptBuffer);
@@ -3433,7 +3444,7 @@ x : = y(do assignment and do not fail)
 	{
 		patternEnder = data;
 		patternStarter = nestData[nestIndex-1];
-		BADSCRIPT((char*)"PATTERN-69 Failed to close %c started at line %d : %s\r\n", nestKind[nestIndex - 1], nestLine[nestIndex - 1], startPattern);
+		BADSCRIPT((char*)"PATTERN-69 Failed to close %c started at line %d col %d : %s\r\n", nestKind[nestIndex - 1], nestLine[nestIndex-1] >> 16, nestLine[nestIndex-1] & 0x00ffff, startPattern);
 	}
 	patternContext = false;
     ReleaseStack(stackbase);

@@ -74,6 +74,9 @@ To run in a language, use the command line parameter `language=`. For any CS ins
 
 The user's topic file is named by username-botname-language (which english just omitting the -language component). This means that a user chatting with a german CS server is having an independent conversation to any conversation he had with the english server.  If you use LTM files to store long-term data about the user, you can choose whether such data is unique per language or shared, since the name of the file is written in script.
 
+If `language=ideographic` is used, then spell check is disabled and tokenization will make each character be a token.
+This is useful for languages like Korean and Chinese.
+
 # Translating concepts
 
 There is built-in code to translate concepts using Google Translate. It requires you have an api key for Google Translate (but you can sign up for free and get $300 worth of credit good for 3 months which is enough to do all your translation work probably). You tell CS this as a command line parameter: 

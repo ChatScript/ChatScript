@@ -1,3 +1,23 @@
+# Version 10.3 5/2/2020
+1. :timelog now reports both engine NLU time and separately q wait time to get to engine (Linux)
+2.  canon: x y now supports 3rd argument MORE_FORM or MOST_FORM for marking adjectives and adverbs
+3. German adverb/adjective MORE and MOST form flags now done by engine (when in german language mode)
+4. ^spell now actually pays attention to its 2nd argument (factset id)
+5. $cs_indentlevel controls indenting when tracing in ^testpattern. 
+6. $cs_tracetestoutput - set to 1 to force tracing in ^testoutput
+7. updated to Duktape 2.5 Javascript embedded engine
+8. cs_initmore.txt config file (if present) will load additional params and override cs_init.txt
+	and corresponding run time parameter  config2=  filename
+9. cs_initenglish.txt (based on the current language being english - or can be any other language)
+	useful because foreign languages tend to require higher dictionary entry counts - reads AFTER cs_initmore
+10. if language is set to "ideographic" then spellcheck is disabled and tokenization will be each character
+	is its own token (japanese, korean, chinese, etc)
+11  %crosstalk1 - second communicator variable across users in engine
+12. you can force a server to begin server logging w/o restarting it by creating top level file
+	serverlogging.txt with arbitrary content. remove file to restore prior state of server logging.
+	This is also done by :serverlog 1  and :serverlog 0  to force logging by script
+13. documentation in Esoteric Chatscript - ChatScript Engine  expanded
+
 # Version 10.2 4/19/2020
 1. concept intersect now allows 3 in a row instead of just 2.
 2. Practicum on spelling and interjections has additional writeup at end about handling marking

@@ -42,6 +42,11 @@ In that case, you don't have a variable but you need to create one dynamically.<
 <pre><code>$$tmp1 = ^$$tmp
 ^gambit($$tmp1)</code></pre>
 <p>Equivalently <code>^gambit(^$$tmp1)</code> is legal.</p>
+<p>Similarly, ^eval evaluates its argument, but if its argument is a variable whose value is the name of a variable, you just get back that name. If you want the value of that, you need to indirect again:</p>
+<pre><code>$nox = 1
+$$tmp = join($ no x)
+$$val = eval($$tmp) # returns $nox the name, not the value  1 
+$$val = eval(^$$tmp) # returns the value of the name content in $$tmp, i.e. 1</code></pre>
 <p>See also Indirect Pattern Elements in <a href="ChatScript-Pattern-Redux.html">ChatScript Pattern Redux</a> manual.</p>
 <h2 id="bot-variables">Bot variables</h2>
 <p>You can also define variables that are &quot;owned&quot; by the bot. Any variables you create as part of layer 0 or layer 1 are always resident. As are any variables you define on the command line starting ChatScript. You can see them and even change them during a volley, but they will always refresh back to their original values at the start of the next volley.</p>

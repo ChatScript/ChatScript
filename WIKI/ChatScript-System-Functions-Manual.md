@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2020 cs10.2
+<br>Revision 5/2/2020 cs10.3
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -2525,7 +2525,7 @@ Or how many characters in a word. A Null value for the argument is legal, and is
 Note: if you do length of a name that starts with `~` and is not a defined
 concept set, the function fails rather than return 0.
 
-### `^nth ( factset count )`
+### `^nth ({factset,concept,jsonstruct} count )`
 
 If you want to retrieve a particular set fact w/o erasing it, you can use
 

@@ -2,7 +2,6 @@
 // Copyright(C) 2011 - 2020 by Bruce Wilcox
 #ifndef DISCARDJAVASCRIPT
 #include "duktape/duktape.h"
-//#include "duktape/duktape.cpp"
 
 duk_context *ctxPermanent = NULL;
 duk_context *ctxTransient = NULL;

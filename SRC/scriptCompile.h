@@ -31,8 +31,10 @@ extern bool compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
 extern bool compilePatternCall;
+extern bool compileOutputCall;
 extern uint64 grade;
 extern char* lastDeprecation;
+extern char* linestartpoint;
 extern unsigned int buildId;
 extern char errors[MAX_ERRORS][MAX_WORD_SIZE];
 extern unsigned int errorIndex;

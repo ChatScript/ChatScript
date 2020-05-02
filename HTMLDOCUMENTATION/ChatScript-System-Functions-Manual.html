@@ -1481,7 +1481,7 @@ concept: ~canine (dog)</code></pre>
 <p><code>^length(@1)</code> - outputs the count of facts</p>
 <p>Likewise how many top level members of a concept (not recursive). Or how many fields in a json object or elements in a json array. Or how many characters in a word. A Null value for the argument is legal, and is of length 0.</p>
 <p>Note: if you do length of a name that starts with <code>~</code> and is not a defined concept set, the function fails rather than return 0.</p>
-<h3 id="nth-factset-count"><code>^nth ( factset count )</code></h3>
+<h3 id="nth-factsetconceptjsonstruct-count"><code>^nth ({factset,concept,jsonstruct} count )</code></h3>
 <p>If you want to retrieve a particular set fact w/o erasing it, you can use</p>
 <pre><code>^nth(@1 5)</code></pre>
 <p>where the first argument is like <code>^first</code> because you also specify how to interpret the answer and the second is the index you want to retrieve, eg.,</p>

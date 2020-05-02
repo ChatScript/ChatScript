@@ -1,4 +1,4 @@
 ﻿$cs_trace=0
 $cs_time=0
 #`end variables
-( harry defaultbot defaultbot x100000 )
+( test defaultbot defaultbot x100000 )

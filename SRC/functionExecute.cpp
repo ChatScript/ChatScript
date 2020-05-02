@@ -4376,7 +4376,13 @@ static FunctionResult AnalyzeCode(char* buffer)
 	}
     if (trace & (TRACE_OUTPUT|TRACE_PREPARE)) Log(STDUSERLOG, "Analyze: %s ",buffer);
 	PrepareSentence(buffer,true,false,true,false); 
-	*buffer = 0; // only wanted effect of script
+	char* hold = AllocateBuffer();
+	if (more && *nextInput) // set up for possible continuation (set by preparesentence)
+	{
+		strcpy(hold, nextInput); // avoids a memcpy error on shared buffer
+	}
+	strcpy(buffer, hold); // only wanted effect of script, now put remainder here
+	FreeBuffer();
 
 	if (trace & TRACE_PATTERN || tracepatterndata) // either locally or globally controlled
 	{
@@ -4395,10 +4401,6 @@ static FunctionResult AnalyzeCode(char* buffer)
         FreeBuffer();
     }
 
-    if (more && *nextInput) // set up for possible continuation
-    {
-        strcpy(buffer, nextInput);
-    }
 	RESTOREOLDCONTEXT()
     nextInput =  oldnext;
 	return NOPROBLEM_BIT;
@@ -8752,7 +8754,7 @@ static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
     */
     bool dynamic = false;
     char* value = GetUserVariable("$dseconceptpattern");
-	if (!*value) value = GetUserVariable("$cs_dseconceptpattern");
+	if (!value || !*value) value = GetUserVariable("$cs_dseconceptpattern");
 	if (*value) dynamic = true;
     FACT* G = GetSubjectNondeadHead(array); // list of json objects representing concepts
     while (G) // walk list of concepts and bind new memberships
@@ -9732,8 +9734,9 @@ static FunctionResult CompilePatternCode(char* buffer)
         inited = StartScriptCompiler(false, true);
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
         strcpy(readBuffer, arg);
+		linestartpoint = readBuffer;
         compiling = true;
-        currentFileLine = 0;
+		maxFileLine = currentFileLine = 0;
         currentLineColumn = 0;
 #ifndef DISCARDSCRIPTCOMPILER
         if (*readBuffer == '(') // pattern test
@@ -9827,12 +9830,14 @@ static FunctionResult CompileOutputCode(char* buffer)
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
         *data = 0;
         strcpy(readBuffer, arg);
-        compiling = true;
+		linestartpoint = readBuffer;
+		compiling = true;
         strcpy(currentFilename, "^CompileOutput");
-        currentFileLine = 0;
+		maxFileLine = currentFileLine = 0;
         currentLineColumn = 0;
 #ifndef DISCARDSCRIPTCOMPILER
-        char rejoinders[256];	//   legal levels a: thru q:
+		compileOutputCall = true;
+		char rejoinders[256];	//   legal levels a: thru q:
         memset(rejoinders, 0, sizeof(rejoinders));
         ReadOutput(false, false, readBuffer, NULL, data, rejoinders, NULL, NULL, false);
 #endif
@@ -9840,7 +9845,8 @@ static FunctionResult CompileOutputCode(char* buffer)
 	--jumpIndex;
 	RESTORESYSTEMSTATE()
     compiling = false;
-    if (inited) EndScriptCompiler();
+	compileOutputCall = false;
+	if (inited) EndScriptCompiler();
 	// get the object
 	nobug = false;
 	MEANING M = GetUniqueJsonComposite((char*)"jo-", FACTTRANSIENT);

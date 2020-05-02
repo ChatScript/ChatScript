@@ -86,6 +86,15 @@ then you need to evaluate it another time.
 
 Equivalently `^gambit(^$$tmp1)` is legal.
 
+Similarly, ^eval evaluates its argument, but if its argument is a variable whose value is the name of a
+variable, you just get back that name. If you want the value of that, you need to indirect again:
+```
+$nox = 1
+$$tmp = join($ no x)
+$$val = eval($$tmp) # returns $nox the name, not the value  1 
+$$val = eval(^$$tmp) # returns the value of the name content in $$tmp, i.e. 1
+```
+
 See also Indirect Pattern Elements in [ChatScript Pattern Redux](ChatScript-Pattern-Redux.md) manual.
 
 

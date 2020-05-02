@@ -4671,18 +4671,21 @@ static void DumpConceptPath(MEANING T) // once you are IN a set, the path can be
 		if (!parent)  break;
 
 		WORDP D = Meaning2Word(parent);	// topic or concept
-		FACT* F = GetObjectNondeadHead(D);
-		while (F)
+		if (D->internalBits & HAS_EXCLUDE) // prove no violation
 		{
-			if (F->verb == Mexclude)
+			FACT* F = GetObjectNondeadHead(D);
+			while (F)
 			{
-				WORDP E = Meaning2Word(F->subject);
-				if (E->inferMark == inferMark) break;
+				if (F->verb == Mexclude)
+				{
+					WORDP E = Meaning2Word(F->subject);
+					if (E->inferMark == inferMark) break;
+				}
+				F = GetObjectNondeadNext(F);
 			}
-			else if (F->verb == Mmember) break;
-			F = GetObjectNondeadNext(F);
+			if (F) continue;	// exclusion in effect
 		}
-		if (F) continue;	// exclusion in effect
+
 		WORDP E = Meaning2Word(parent);
 		if (E->inferMark != inferMark) 
 		{
@@ -5297,10 +5300,17 @@ static void C_TimeLog(char* input)
     int time[64];
     int min[64];
     int max[64];
+	int count1[64];
+	int time1[64];
+	int min1[64];
+	int max1[64];
 	memset(count, 0, sizeof(count));
 	memset(time, 0, sizeof(time));
 	memset(max, 0, sizeof(max));
-	for (int i = 0; i < 64; ++i) min[i] = 100000;
+	memset(count1, 0, sizeof(count));
+	memset(time1, 0, sizeof(time));
+	memset(max1, 0, sizeof(max));
+	for (int i = 0; i < 64; ++i) min1[i]  = min[i] = 100000;
 	char bot[64][100];
 	memset(bot, 0, sizeof(bot));
 
@@ -5328,15 +5338,31 @@ static void C_TimeLog(char* input)
 				}
 			}
 		}
-        char* timeinfo = strstr(readBuffer, "ms Why");
+		// When:May02 08:51:09 8ms 0 Why:~xpostprocess.7.0=OOBRESULT 
+        char* timeinfo = strstr(readBuffer, "When:");
         if (timeinfo)
         {
-            ++count[botbit];
-            while (IsDigit(*--timeinfo)); 
-            int decode = atoi(timeinfo + 1);
+			timeinfo += 19;
+			if (*timeinfo != ' ' || !IsDigit(timeinfo[1]))
+			{
+				printf("error: %s\r\n", readBuffer);
+				continue;
+			}
+			++count[botbit];
+            int decode = atoi(++timeinfo);
             if (decode > max[botbit]) max[botbit] = decode;
             if (decode < min[botbit]) min[botbit] = decode;
             time[botbit] += decode;
+
+			timeinfo = strstr(timeinfo, "ms ") + 3;
+			if (IsDigit(*timeinfo))
+			{
+				int decode = atoi(++timeinfo);
+				if (decode > max1[botbit]) max1[botbit] = decode;
+				if (decode < min1[botbit]) min1[botbit] = decode;
+				time1[botbit] += decode;
+
+			}
         }
     }
     fclose(in);
@@ -5344,7 +5370,8 @@ static void C_TimeLog(char* input)
 	{
 		if (!bot[i][0]) break; 
 		int avg = time[i] / count[i];
-		Log(STDUSERLOG, "%s Lines %d min %d  max %d avg %d\r\n",bot[i], count[i], min[i], max[i], avg);
+		int avg1 = time1[i] / count[i];
+		Log(STDUSERLOG, "%s Lines %d   minMs %d  maxMs %d avgMs %d  Stall minMs %d maxMs %d avgMs %d\r\n",bot[i], count[i], min[i], max[i], avg, min1[i], max1[i], avg1);
 	}
 }
 

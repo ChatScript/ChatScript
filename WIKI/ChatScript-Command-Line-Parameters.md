@@ -1,13 +1,18 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 5/2/2020 cs10.3
 
 
 # Command Line Parameters
 
 You can give parameters on the run command or in a config file or via a http request. 
 The default config file is `cs_init.txt` at the top
-level of CS (if the file exists). Or you can name where the file is on a command line parameter `config=xxx`.
+level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt
+And then third level named after the current language chosen can override those two cs_initenglish.txt being the default.
+The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular)
+since foreign languages require more entries than English.
+
+Or you can name where the file is on a command line parameter `config=xxx`. And `config2=xxx` for the initmore file.
 If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. 
 Use the command line parameter configurl=http://xxx to specify the address of the data. 
 Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. 

@@ -42,8 +42,9 @@ $cs_token -= #DO_SPELLCHECK     # disable spellcheck</code></pre>
 <pre><code>u: (_~emogoodbye) if (^original(_0) == good_day) { ^unmark(~emogoodbye _0)}</code></pre>
 <h1 id="emoji">Emoji</h1>
 <p>Emojis are a form of spelling correction. You can replace appropriate utf8 emoji words with spelling replacements that start and end in a colon. These will be considered emoji and marked as ~emoji. E.g., in script you can write</p>
-<pre><code>    replace: 🤲 :palms_up_together:
-    replace: 😄 :grinning_face_with_smiling_eyes:</code></pre>
-<p>or you can add these paired words into one of the LIVEDATA substitution files. Then you can write patterns like: ``` u: (:palms_up_together:) Peace be unto you. u: (~emoji) I don't speak emoji.</p>
+<pre><code>    replace: xx :palms_up_together:
+    replace: yy :grinning_face_with_smiling_eyes:</code></pre>
+<p>where xx and yy are actual utf8 emoji characters.</p>
+<p>Or you can add these paired words into one of the LIVEDATA substitution files. Then you can write patterns like: ``` u: (:palms_up_together:) Peace be unto you. u: (~emoji) I don't speak emoji.</p>
 </body>
 </html>

@@ -114,7 +114,7 @@
 :showcoverage - Display execution coverage of ChatScript rules
 :diff         - match 2 files and report lines that differ
 :trim         - Strip excess off chatlog file to make simple file TMP/tmp.txt
-:timelog      - read a log file (like system log) and compute average, min and max times of responses
+:timelog      - read a log file (like system log) and compute average, min and max times of NLU engine and server q 
 
 ---- internal support -
 :spellit          - given sentence provide explanation for spelling corrections
@@ -386,6 +386,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>Note: the correct way to turn on/off normal tracing from script is by changing the tracing variable, e.g., <code>$cs_trace = -1</code>.</p>
 <h3 id="tracing-a-server">Tracing a server</h3>
 <p>Sometimes you do not control the user account, so you cannot do :trace from it. You can do <code>:trace universal</code> from any account to force the server to trace all users. Turn it off with <code>:trace none</code>. Obviously not a good thing to do on a highly active server as it slows everyone and generates large logs potentially.</p>
+<p>Also you can do :serverlog 1 to turn on server logging and :serverlog 0 to turn off serverlogging. You can even force server logging without restarting a server by merely adding the file &quot;serverlogging.txt&quot; with arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.</p>
 <h3 id="understanding-a-pattern-trace">Understanding a pattern trace</h3>
 <pre><code>    try 3.0: ( ! %response=0 !%lastquestion !%outputrejoinder )   
             ( !%response(0)=0- Remaining pattern: !%lastquestion ! %outputrejoinder )

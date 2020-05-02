@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2020 cs10.2
+<br>Revision 5/2/2020 cs10.3
 
 
 
@@ -350,6 +350,8 @@ your server is in Virginia and you are in Colorado).
 | `%restart`          |  You can set and retrieve a value here across a system restart. 
 | `%timeout`          |  Boolean tells if a timeout has happened, based on the timelimit command line parameter
 | `%lastcurltime`		| Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer: | 
+| `%crosstalk`		| 4k buffer in server visible between users to pass data back and forth | 
+| `%crosstalk1`		| 4k buffer in server visible between users to pass data back and forth | 
 
 
 ## Build data
@@ -524,10 +526,14 @@ Similarly while canonical values of words can be defined in `LIVEDATA/SYSTEM/can
 you can define private canonical values for your bots by using the scripting language. 
 You can say:
 
-    canon: oh 0 faster fast
+    canon: oh 0 
+	canon: faster fast
 
 which defines new canonical values for things and creates a file `canon0.txt` or `canon1.txt`
 in your TOPIC folder.
+
+You can optionally add MORE_FORM or MOST_FORM as a 3rd argument, to set those flags for adjectives
+and adverbs.
 
 If you want to set a canonical pair from a table during compilation,
 you can use a function to do the same thing (but only 1 pair at a time).
@@ -616,7 +622,9 @@ contents.
 | `$cs_proxyserver`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
 | `$cs_addresponse`    | provides a function name hook onto the output q to the user. See below.| 
- `$cs_tracepattern`    | Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
+| `$cs_tracepattern`    | Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
+| `$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
+| `$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput|
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON

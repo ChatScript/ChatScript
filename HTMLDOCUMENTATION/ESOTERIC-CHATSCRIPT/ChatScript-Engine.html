@@ -9,8 +9,9 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> Revision 1/31/2018 cs8.0</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> Revision 5/1/2020 cs10.2</p>
 <ul>
+<li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
 <li><a href="ChatScript-Engine-md#memory-management">Memory Management</a></li>
 <li><a href="ChatScript-Engine-md#function-run-time-model">Function Run-time Model</a></li>
@@ -22,104 +23,226 @@
 <li><a href="ChatScript-Engine-md#topic-and-rule-representation">Topic and rule representation</a></li>
 <li><a href="ChatScript-Engine-md#natural-language-pipeline">Natural Language Pipeline</a></li>
 <li><a href="ChatScript-Engine-md#messaging">Messaging</a></li>
+<li><a href="ChatScript-Engine-md#multiple-bots">Multiple Bots</a></li>
 <li><a href="ChatScript-Engine-md#private-code">Private Code</a></li>
-<li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#documentation">Documentation</a></li>
 </ul>
 <p>This does not cover ChatScript the scripting language. It covers how the internals of the engine work and how to extend it with private code.</p>
+<h1 id="code-zones">Code Zones</h1>
+<div class="figure">
+<img src="arch.png" alt="ChatScript architecture" />
+<p class="caption">ChatScript architecture</p>
+</div>
+<p>The system is divided into the code zones shown below. All code is in SRC.</p>
+<h2 id="core-engine">Core Engine</h2>
+<ul>
+<li><code>startup and overall control</code> is <code>mainSystem</code></li>
+<li><code>dictionary</code> is <code>dictionarySystem</code></li>
+<li><code>facts/JSON queries</code> is <code>factSystem</code>, <code>json</code>, <code>jsmn</code>, and <code>infer</code></li>
+<li><code>topics</code> and loading the results of compilation is <code>topicSystem</code></li>
+<li><code>functions</code> is <code>functionExecute</code></li>
+<li><code>variables</code> is <code>variableSystem</code> and <code>systemVariables</code></li>
+<li><code>memory allocation</code> and other things like file system access is in <code>os</code></li>
+<li><code>output eval</code> is <code>outputSystem</code></li>
+<li><code>system variable access</code> is <code>systemVariables</code></li>
+<li><code>user variable access</code> is <code>variableSystem</code></li>
+<li><code>pattern matching</code> is <code>patternSystem</code></li>
+<li><code>text functions</code> is <code>textUtilities</code></li>
+<li><code>concept marking</code> is <code>markSystem</code></li>
+<li><code>if and loop</code> are in <code>constructCode</code></li>
+</ul>
+<h2 id="natural-language-stuff">Natural Language stuff</h2>
+<ul>
+<li><code>tokenization</code> is <code>spellcheck</code> and <code>tokenSystem</code></li>
+<li><code>English pos-tagging and parsing</code> is <code>english</code> and <code>englishtagger</code> and <code>tagger</code></li>
+</ul>
+<h2 id="statefulness">Statefulness</h2>
+<ul>
+<li><code>long term user memory</code> is <code>userCache</code>, <code>userSystem</code></li>
+</ul>
+<h2 id="servers">Servers</h2>
+<ul>
+<li><code>server</code> abilities are in <code>csocket</code> (Windows) and <code>evserver</code>/<code>cs_ev</code> (Linux)</li>
+</ul>
+<h2 id="javascript">JavaScript</h2>
+<ul>
+<li><code>JavaScript</code> is in <code>javascript</code></li>
+</ul>
+<h2 id="databases">Databases</h2>
+<ul>
+<li><code>Mongo access</code> is <code>mongodb</code></li>
+<li><code>Postgres access</code> is <code>postgres</code></li>
+</ul>
+<h2 id="ancillary">Ancillary</h2>
+<ul>
+<li>Test and Debug is in <code>testing</code></li>
+<li>Script compiler is in <code>scriptCompile</code></li>
+</ul>
+<h2 id="folders-inside-src-are-external-systems-included-in-cs-including">Folders inside SRC are external systems included in CS, including:</h2>
+<ul>
+<li><code>curl</code> (web api handling/protocols for ^JSONOpen)</li>
+<li><code>duktape</code> (JavaScript evaluation)</li>
+<li><code>evserver</code> (LINUX fast server)</li>
+<li><code>mongo</code> (mongodb access)</li>
+<li><code>postgres</code> (postgres access)</li>
+</ul>
 <h1 id="user-data">User Data</h1>
-<p>First you need to understand the basic data available to the user and CS and how it is represented and allocated. <img src="alloc.png" alt="ChatScript data allocations" /></p>
+<p>First you need to understand the basic data available to the user and CS and how it is represented and allocated.</p>
+<div class="figure">
+<img src="alloc.png" alt="ChatScript data allocations" />
+<p class="caption">ChatScript data allocations</p>
+</div>
 <h2 id="text-strings">Text Strings</h2>
-<p>The first fundamental datatype is the text string. This is a standard null-terminated C string represented in UTF8. Text strings represent words, phrases, things to say. They represent numbers (converted on the fly when needed to float and int64 values for computation). They represent the names of functions and concepts and topics and user variables. Strings are allocated out of either the stack (transiently for $_ transient variables) or the heap (for normal user variables).</p>
+<p>The first fundamental datatype is the text string. This is a standard null-terminated C string represented in UTF8. Text strings represent words, phrases, things to say. They represent numbers (converted on the fly when needed to float and int64 values for computation). They represent the names of functions, concepts, topics, user variables, even CS script. Strings are allocated out of either the stack (transiently for $_ transient variables) or the heap (for normal user variables and dictionary word names).</p>
 <h2 id="dictionary-entries">Dictionary Entries</h2>
 <p>The second fundamental datatype is the dictionary entry (typedef WORDENTRY). A dictionary entry points to a string in the heap and has other data attached. For example, function names in the dictionary tell you how many arguments they require, where to go to execute their code. User variable names in the dictionary store a pointer to their value string (in the heap). Topic names track which bots are allowed to use them. Ordinary English words have bits describing their part-of-speech information and how to use them in parsing.</p>
+<pre><code>typedef struct WORDENTRY //   a dictionary entry
+{
+    char*     word;     
+    union {
+        char* userValue; 
+    }w;
+    MEANING  meanings;</code></pre>
 <p>In fact, ordinary words have multiple meanings which can vary in their part of speech and their ontology, so the list of possible meanings and descriptions is part of the dictionary entry. When working directly with a dictionary entry, the code uses <code>WORDP</code> as its datatype (pointer to a WORDENTRY). Code working indirectly with a dictionary entry uses <code>MEANING</code> as its datatype.</p>
 <p>A <code>MEANING</code> is an index into dictionary space along with description bits that can say which meaning of the word is referred to (index into the meanings array of the dictionary entry) or which part of speech form (like noun vs verb) is being referred to. As a text string, a meaning can be either just the word (break) which represents all meanings. Or it can be a word with meaning index (break~33) which means the 33rd meaning of break. Or it can be a word with POS-tag (break~n) which means all noun meanings of &quot;break&quot;. These meanings can be used in concepts and keywords in patterns.</p>
 <h2 id="facts">Facts</h2>
 <p>The third fundamental datatype is the fact (typedef FACT), a triple of MEANINGs. The fields are called subject, verb, and object but that is just a naming convention and offers no restriction on their use.</p>
-<p>Each field of a fact is either a <code>MEANING</code> (which in turn references a dictionary entry which points to a text string) or a direct index reference to another fact. As a direct reference, it is not text. It is literally an offset into fact space. But facts have description bits on them, and one such bit can say that a field is not a normal MEANING but is instead a binary number fact reference.</p>
-<p>While fact references in a fact field are binary numbers, when stored in variables, a fact reference is a text number string like 250066. It's still an index into fact space. When stored in external files (like user long-term memory or <code>^export</code>) facts are stored as full text describing the fact, e.g.,</p>
-<pre><code>( bob like (apples and oranges) 0x01000000)</code></pre>
-<p>which in this case is a fact with a fact &quot;(apples and oranges)&quot; as object. Externally facts are stored this way because user facts get relocated every volley and cannot safely be referred to directly by a fact reference number. The binary number at the end is any flags that are describing this fact (in this case FACTTRANSIENT MEANING the fact dies at the end of the volley). And there may even be another number which tells what bots are allowed to know of this fact.</p>
+<p>A externally written fact looks like this:</p>
+<pre><code>    ( Symantec_Norton_Security kindof software x500000 8192 )</code></pre>
+<p>where the fact is contained within (). 3 main fields are shown, followed by a bit mask describing how to interpret the fields, and then a bot id identifying what bots are allowed to know this fact (this field is omitted if all bots can see it). Likewise if there the bit mask is 0, it too can be omitted.</p>
+<p>Each field of a fact is either a <code>MEANING</code> (which in turn references a dictionary entry which points to a text string as name) or a direct index reference to another fact. As a direct reference, it is not text. It is literally an offset into fact space. But facts have description bits on them, and one such bit can say that a field is not a normal MEANING but is instead a binary number fact reference.</p>
+<p>While fact references in a fact field are binary numbers, when stored in variables a fact reference is a text number string like 250066. It's still an index into fact space. When stored in external files (like user long-term memory or <code>^export</code>) facts are stored as full text as above. Externally facts are stored as pure text way because user facts get relocated every volley and cannot safely be referred to directly by a fact reference number.</p>
+<h3 id="json-facts">JSON Facts</h3>
+<p>CS directly supports JSON and you can manipulate JSON arrays and objects as you might expect. Internally, however, JSON is represented merely by facts with special bits that indicate how to interpret the object field of the fact. JSON distinguishes primitive values (true, false, numbers, null) from strings, whereas CS uses strings for all of them and tracks how JSON writes them using bits on the fact. Here</p>
+<pre><code>    ( jo-225 bluetoothdevice iPhone x2200 32 )
+    ( ja-2 0 DUMPDATA x1200 32 ). </code></pre>
+<p>The flags on these facts indicate that there are JSON facts (one a JSON object fact and one a JSON array fact). And that both have as their object value a JSON string. Unlike JSON which requires double quotes around all strings, CS requires no marker unless the string has internal blanks or double quotes. In which case, the field is written with backticks like:</p>
+<pre><code>    ( jo-225 bluetoothdevice `iPhone is good` x2200 32 )</code></pre>
+<p>so that we don't have to store fancy escape markers on various internal characters. The backtick is the character solely reserved for CS to use in a variety of ways, and any user input containing such will have theirs automatically convered to a regular quote mark. It applies to any fact field, JSON or not.</p>
+<p>JSON objects and arrays are represented as synthesized dictionary entries with names like like <code>jo-5</code> or <code>ja-1025</code> for permanent JSON object or array and <code>ja-t7</code> for a transient array. The data for that array or object always has it's name as the first fact field. The numbers are generated uniquely on the fly when the JSON composite is created.</p>
+<p>Each key-value pair of an object is a fact like <code>(jo-5 location Seattle x2200 )</code>. Each array element pair is a fact like <code>(ja-5 1 dog x1200)</code>. Array facts start with 0 as the verb and are always contigiously sequential (no missing numbers). Should you delete an element from the middle, all later elements automatically renumber to return to a contiguous sequence.</p>
+<p>Variables holding JSON structures always just have the name of JSON composite, like <code>jo-5</code> or <code>ja-t2</code>. That name, when you retrieve its corresponding dictionary entry, will have the JSON Facts bound to its cross-reference lists. Walking the structure will mean walking the lists of facts of that entry and subsequent JSON headers.</p>
 <h2 id="user-variables">User Variables</h2>
-<p>User variables are names that can be found in the dictionary and have data (not their name) pointing to text string values. <code>$</code> and <code>$$</code> variables point to strings in the heap. <code>$_</code> variables point to strings in the stack.</p>
+<p>User variables are names beginning with $ that can be found in the dictionary and have data (not their name) pointing to text string values. Their prefix describes who can see their content.</p>
+<pre><code>    $varname - globally visible permanent variable in heap
+    $$varname - globally visible volley transient variable in heap
+    $_varname - locally visible transient variable on stack</code></pre>
+<p>Permanent variables are saved across volleys in the user's topic file. Local variables are only visible within the scope of locality (the current call to the topic or function).</p>
 <h2 id="function-variables">Function Variables</h2>
-<p>Function variables like ^myvalue are defined in the arguments list of a function (outputmacro/patternmacro) and managed by the system outside of the dictionary. They handle pass-by-reference data for the duration of execution of a function. They are only visible within the code of that function.</p>
+<pre><code>    outputmacro: ^myfunc(^var1) </code></pre>
+<p>Function variables like ^var1 are defined in the arguments list of a function (outputmacro/patternmacro) and managed by the system outside of the dictionary. They are like $_varnames (local transient) but should be rare and handle pass-by-reference data for the duration of execution of a function. They are only visible within the code of that function but they enable write-back onto the caller's variable passed in.</p>
 <h2 id="match-variables">Match Variables</h2>
 <p>Match variables (<code>_0</code>) hold text strings directly. They use prereserved spaces and thus have limited sizes of strings they can hold (MAX_MATCHVAR_SIZE / 20000 bytes). They are expecting to hold parts of a sentence that have been matched and sentences are limited to 254 words (and words are typically small). Any larger data is truncated upon storage.</p>
 <p>A match variable is more complex than a user variable because a match variable holds extra data from an input sentence. It holds the original text seen in the sentence, the canonical form of that value, and the position reference for where in the sentence the data came from.</p>
 <p>Match variables pass all that information along when assigned to other match variables, but lose all but one of them when assigned to a user variable or stored as the field of a fact.</p>
 <h2 id="factset">Factset</h2>
 <p>Querying for relevant facts results in facts stored in an array called a factset, labeled <span class="citation">@0</span>, <span class="citation">@1</span>, etc. You treat these as arrays to retrieve a fact, normally specifying at the same time what part of the fact you want. But you can't directly specify the array index to retrieve from. You specify first, last, or next.</p>
-<h2 id="json-facts">JSON Facts</h2>
-<p>CS directly supports JSON and you can manipulate JSON arrays and objects as you might expect. Internally, however, JSON is represented merely by facts with special bits that indicate how to use that JSON fact. JSON objects and arrays are represented as synthesized dictionary entries with names like like <code>jo-5</code> or <code>ja-1025</code> for permanent JSON and <code>ja-t5</code> for a transient one.</p>
-<p>Each key-value pair of the object is a fact like <code>(jo-5 location Seattle)</code>. Each array element pair is a fact like <code>(ja-5 1 dog)</code>.</p>
-<p>Array facts start with 0 as the verb and are always contigiously sequential (no missing numbers). Should you delete an element from the middle, all later elements automatically renumber to return to a contiguous sequence.</p>
-<p>Variables holding JSON structures always just have the name of starting JSON name, like <code>jo-5</code> or <code>ja-t2</code>. That value, when you retrieve its corresponding dictionary entry, will have the JSON Facts bound to its cross-reference lists. Walking the structure will mean walking the lists of facts of that entry and subsequent JSON headers.</p>
+<p>Typically you assign into a factset via a query like:</p>
+<pre><code>    @2 = ^query(direct_sv my animal ?)</code></pre>
+<h2 id="buffers">Buffers</h2>
+<p>Input and output from CS involves potentially large text and so these have been preallocated from the heap as buffers. One allocates a buffer with AllocateBuffer() and one frees the most recent buffer with Freebuffer(). You don't have to pass a pointer to the buffer, you may only free them in the reverse order they were allocated. This follows the general memory management strategy of &quot;onion layers&quot;.</p>
+<h1 id="internal-lists">Internal lists</h1>
+<p>The system needs to track lists of things, like global permanent variables whose values changed this volley (to write them out to user file). These lists are usually kept on the heap, though sometimes they reside on the stack. The list pushing routines are</p>
+<pre><code>HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3 = 0);
+STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2 = 0, uint64 val3 = 0);</code></pre>
+<p>And the corresponding pop functions:</p>
+<pre><code>HEAPREF UnpackHeapval(HEAPREF linkval, uint64 &amp; val1, uint64 &amp; val2, uint64&amp; val3 = discard);
+STACKREF UnpackStackval(STACKREF linkval, uint64&amp; val1, uint64&amp; val2 = discard, uint64&amp; val3 = discard);</code></pre>
 <h1 id="memory-management">Memory Management</h1>
-<p>Many programs use malloc and free extensively upon demand. These functions are not particularly fast. And they lead to memory fragmentation, whereupon one might fail a malloc even though overall the space exists. ChatScript follows video game design principles and manages its own memory (except for 3rd party extensions like duktape and curl). It allocates everything in advance and then (with rare exception) it never dynamically allocates memory again, so it should not fail by calling the OS for memory. You have control over the allocations upon startup via command line parameters.</p>
-<p>This does not mean CS has a perfect memory management system. Merely that it is extremely fast. It is based on mark/release, so it allocates space rapidly, and at the end of the volley, it releases all the space it used back into its own pool. In the diagram below under Memory Allocation you have a list of all the areas of memory that are preallocated.</p>
+<p>Many programs use malloc and free extensively upon demand. These are not particularly fast. And they lead to memory fragmentation, whereupon one might fail a malloc even though overall the space exists. ChatScript follows video game design principles and manages its own memory (except for 3rd party extensions like duktape and curl). It allocates everything in advance and then (with rare exception) it never dynamically allocates memory again, so it should not fail by calling the OS for memory. You have control over the allocations upon startup via command line parameters.</p>
+<p>This does not mean CS has a perfect memory management system. Merely that it is extremely fast. It is based on mark/release (a kind of onion layer), so it allocates space rapidly, and at the end of the volley, it releases all the space it used back into its own pool. In the diagram below under Memory Allocation you have a list of all the areas of memory that are preallocated.</p>
 <p>You might run out of memory allocated to dictionary items while still having memory available for facts. This means you need to rebalance your allocations. But most people never run into these problems unless they are on mobile versions of CS.</p>
 <p>Stack and Heap memory are allocated out of a single chunk. Stack is at the low end of memory and grows upwards while Heap is at the high end and grows downward. If they meet, you are out of space.</p>
 <p>Stack memory is tied to calls to <code>ChangeDepth</code> which typically represent function or topic invocation. Once that invocation is complete, all stack space allocated is cut back to its starting position. Stack space is typically allocated by <code>AllocateStack</code> and explicitly released via <code>ReleaseStack</code>. If you need an allocation but won't know how much is needed until after you have filled the space, you can use InfiniteStack and then when finished, use <code>CompleteBindStack</code> if you need to keep the allocation or <code>ReleaseInfiniteStack</code> if you don't. While <code>InfiniteStack</code> is in progress, you cannot safely make any more <code>AllocateStack</code> or <code>InfiniteStack</code> calls.</p>
 <p>Heap memory allocated by <code>AllocateHeap</code> lasts for the duration of the volley and is not explicitly deallocated. So conceivably some heap memory is free but hasn't been freed until the end of the volley.</p>
-<p>Fact memory is consumed by <code>CreateFact</code> and lasts for the duration of the volley.</p>
+<p>Fact memory is consumed by <code>CreateFact</code> or various JSON assignment statements and lasts for the duration of the volley.</p>
 <p>But CS supports planning, which means backtracking, which means memory is really not free along the way because the system might revert things back to some earlier state. This problem of free memory mostly shows up in document mode, where reading long paragraphs of text are all considered a single volley and therefore one might run out of memory. CS provides <code>^memorymark</code> and <code>^memoryfree</code> so you can explicitly control this while reading a document. And more recently provides <code>memorygc</code> which copies data from heap to stack, and then copies back only the currently used data.</p>
 <p>Buffers are allocated and deallocated via <code>AllocateBuffer</code> and <code>FreeBuffer</code>. Typically they are used within a small block of short-lasting code, when you don't want to waste heap space and cannot make use of stack space. While there are a small amount of them preallocated, in an emergency if the system runs out of them it can malloc a few more.</p>
 <p>TCP buffers are dynamically allocated (violating the principle of not using malloc/free) via accept threads of a server.</p>
 <p>Output buffers refer to either the main user output buffer or the log buffer. The output buffer needs to be particularly big to hold potentially large amounts of OOB (out-of-band) data being shipped externally.</p>
 <p>Also most temporary computations from functions and rules are dumped into the output buffer temporarily, so the buffer holds both output in progress as well as temporary computation. So if your output were to actually be close to the real size of the buffer, you would probably need to make the buffer bigger to allow room for transient computation. The log buffer typically is the same size so one can record exactly what the server said. Otherwise it can be much smaller if you don't care.</p>
 <p>Cache space is where the system reads and writes the user's long term memory. There is at least 1, to hold the current user, but you can optimize read/write calls by caching multiple users at a time, subject to the risk that the server crashes and recent transactions are lost. A cache entry needs to be large enough to hold all the data on a user you may want saved.</p>
-<h2 id="layers">Layers</h2>
-<p>When ChatScript starts up, it loads data in layers. First is all the permanent data associated with the system, which is printed out as <code>WordNet:</code> and loads dictionary entries and facts. It generates some concepts and loads LIVEDATA information.</p>
-<p>Then the system loads data the TOPIC folder. <code>Build0:</code> and then <code>Build1:</code>. These contain facts, more dictionary data, concept sets, variables with values, and scripted function definitions.</p>
+<h2 id="onion-layers">Onion Layers</h2>
+<p>When ChatScript starts up, it loads data in layers. You can free a layer at a time, but only the outermost one (hence the peeling the onion metaphor).</p>
+<p>First layer is all the permanent data associated with the system, which is printed out as <code>WordNet:</code> and loads dictionary entries and facts. It generates some concepts and loads LIVEDATA information.</p>
+<p>Then the system loads data from the TOPIC folder. <code>Build0:</code> layer and then <code>Build1:</code> layer. These contain facts, more dictionary data, concept sets, variables with values, and scripted function definitions.</p>
 <p>Then if there is a boot function, it executes and additional data can be brought into the boot layer.</p>
-<p>The system is now ready for user inputs. User folder data has a topic file to represent a user talking to a specific bot. That data is read into the user layer. The input volley alters content of the layer and outputs messages to the user. Changes in facts and user variables as well as execution state of topics are stored back into the user's topic file. Then the user layer is removed and the system is ready for another user.</p>
-<p>All layers are &quot;unwindable&quot;, like peeling an onion. And all layers are protected from harm by later layers. However, it is possible to create facts (and hence dictionary entries) in the user layer and migrate some of them into the boot layer when the user volley is finished. This means that data will be globally visible in the future to all users.</p>
-<p>When you create a new fact, the corresponding dictionary entry for each field either already exists or is newly created. The entry has lists for each field it participates in and the fact is added to the head of that list. This coupling needs to be unwound when we want to remove a layer. When we want to unwind, we walk facts from most recently created to start of the layer. By going to the dictionary entry of a field, that fact will be the current first entry of the list, so we merely pop it from the list and that decouples fact and dictionary entry. Once decoupled, all newly created dictionary entries are no longer needed so the free entry pointer can be reset to the start of the layer. And all user layer facts have been written out to a file, so we can reset the free fact pointer as well. Similarly all factsets that need saving were written out, so they can all be reset empty. User Variables will also have been written out, so they too can have their values cleared so they are no longer pointing into the heap. Nothing from the volley will now be occupying any heap memory and so its pointer can be reset back to start of layer also.</p>
-<h2 id="garbage-collection">Garbage collection</h2>
-<p>Using the layer model, normally user conversation causes heap allocations and dictionary allocations that can be rapidly released when the user layer is unwound. And plenty of space should exist to manage without any garbage collection occurring within the volley. But particularly if you are in document-reading mode, processing all sentences of a book happen within a single volley. CS does not have the memory for that without some form of garbage collection. There are two such mechanisms built into the engine.</p>
-<p>The simplest gc is a user-controllable mark-release. You find a safe place in script to use mark, you process a sentence, and then you use release to restored dictionary and heap values back to the mark. This is fine if your results are going to An external place (like writing to a file with ^log). But it is hard to keep any results around past the release call. In fact, the only resident way to do that is to write something onto a match variable. Match variables have their own memory and last until changed. They are a way to pass information between different user volleys or, in this case, past a mark-release barrier.</p>
+<p>The system is now ready for user inputs. User folder data has a topic file to represent a user talking to a specific bot. That data is read into the user layer. The input volley alters content of the layer and outputs messages to the user. Changes in facts and user variables as well as execution state of topics are stored back into the user's topic file. Then the user layer is peeled off and the system is ready for another user.</p>
+<p>All layers are &quot;peelable&quot;. And all layers are protected from harm by later layers. However, it is possible to create facts (and hence dictionary entries) in the user layer and migrate some of them into the boot layer when the user volley is finished. This means that data will be globally visible in the future to all users.</p>
+<p>When you create a new fact, the corresponding dictionary entry for each field either already exists or is newly created. The entry has lists for each field it participates in and the fact is added to the head of that list. This coupling needs to be unwound when we want to remove a layer.</p>
+<p>When we want to peel a layer, we walk facts from most recently created to start of the layer. By going to the dictionary entry of a field, that fact will be the current first entry of the list, so we merely pop it from the list and that decouples fact and dictionary entry. Once decoupled, all newly created dictionary entries are no longer needed so the free entry pointer can be reset to the start of the layer. And all user layer facts have been written out to a file, so we can reset the free fact pointer as well.</p>
+<p>Similarly all factsets that need saving were written out, so they can all be reset empty. User variables will also have been written out, so they too can have their values cleared so they are no longer pointing into the heap. Nothing from the volley will now be occupying any heap memory and so its pointer can be reset back to start of layer.</p>
+<h3 id="garbage-collection">Garbage collection</h3>
+<p>Using the layer model, normally user conversation causes heap allocations and dictionary allocations that can be rapidly and automatically released when the user layer is peeled. And plenty of space should exist to manage without any garbage collection occurring within the volley.</p>
+<p>But if garbage collection is needed, scripts can invoke them. Particularly if you are in document-reading mode, processing all sentences of a book happen within a single volley. CS does not have the memory for that without some form of garbage collection. There are two such script mechanisms built into the engine.</p>
+<p>The simplest gc is a user-controllable mark-release. You find a safe place in script to use mark, you process a sentence, and then you use release to restored dictionary and heap values back to the mark.</p>
+<p>Nominally this means all facts and user variables you worked on after the mark will be lost. This is fine if your results are going to an external place (like writing to a file with ^log). Failing that, there are a couple of mechanisms for passing data back across a ^MemoryFree. You can write something onto a match variable. Match variables have their own memory and last until changed. Or when you call ^MemoryFree, you may pass either a single variable or a JSON structure on the call. Its value will be protected. The value is copied into stack space, the release occurs, and then the value is reallocated from the current full heap (now without the mark location). .</p>
 <p>The complex gc is an actual gc, where data is moved around and space gets recompacted after discarding trash. Normally facts consist of MEANINGS, and those dictionary entries know what facts refer to them. So things can be shuffled around. EXCEPT...</p>
-<p>Facts don't know what factsets they may be listed in, and facts that later facts directly refer to by index are unaware of it. And JSONLOOP is maintaining facts it is using and will be unaware if they are relocated. And if you request a fact id from some query result, that id is really only good for the duration of the volley, and not safe across a gc because it will be stored on a variable which has no cross-reference from the fact. So care is required to use the gc mechanism.</p>
+<p>Facts don't know what factsets they may be listed in, and facts that later facts directly refer to by index are unaware of it. And JSONLOOP is maintaining facts it is using and will be unaware if they are relocated. And if you request a fact id from some query result, that id is really only good for the duration of the volley, and not safe across a gc because it will be stored on a variable which has no cross-reference from the fact. So care is required to use the complex gc mechanism.</p>
 <h2 id="finer-details-about-words">Finer details about words</h2>
 <p>Words are the fundamental unit of information in CS. The original words came from WordNet, and then were either reduced or expanded. Word are reduced when some or all meanings of them are removed because they are too difficult to manage. <code>I</code>, for example, has a Wordnet meaning of the chemical iodine, and because that is so rare in usage and causes major headaches for ChatScript (noun instead of pronoun), that definition has been expunged along with some 500 other meanings of words.</p>
 <p>Additional words have been added, including things that Wordnet doesn't cover like pronouns, prepositions, determiners, and conjunctions. And more recent words like <code>animatronic</code> and <code>beatbox</code>. Every word in a pattern has a value in the dictionary. Even things that are not words, including phrases, can reside in the dictionary and have properties, even if the property is merely that this is a keyword of some pattern or concept somewhere.</p>
-<p>Words have zillions of bits representing language properties of the word (well, maybe not zillions, but 3x64 bytes worth of bits). Many are permanent core properties like it can be a noun, a singular noun, it refers to a unit of time (like <code>month</code>), it refers to an animate being, it's a word learning typically in first grade.</p>
+<p>Words have zillions of bits representing language properties of the word (well, maybe not zillions, but 3x64 bytes worth of bits). Many are permanent core properties like it can be a noun, a singular noun, it refers to a unit of time (like <code>month</code>), it refers to an animate being, or it's a word learned typically in first grade. Eg.,</p>
+<pre><code>typedef struct WORDENTRY //   a dictionary entry
+{
+    uint64  properties;      
+    uint64  systemFlags;    
+    unsigned int internalBits;
+    unsigned int parseBits;         </code></pre>
 <p>Other properties result from compiling your script (this word is found in a pattern somewhere in your script). All of these properties could have been represented as facts, but it would have been inefficient in either cpu time or memory to have done so.</p>
-<p>Some dictionary items are <code>permanent</code>, meaning they are loaded when the system starts up, either from the dictionary or from data in layer 0 and layer 1. Other dictionary items are <code>transient</code>. They come into existence as a result of user input or script execution and will disappear when that volley is complete. They may live on in text as data stored in the user's topic file and will reappear again during the next volley when the user data is reloaded. Words like dogs are not in the permanent dictionary but will get created as transient entries if they show up in the user's input.</p>
+<p>Some dictionary items are <code>permanent</code>, meaning they are loaded when the system starts up, either from the dictionary or from data in layer 0 and layer 1 and layer 2 (boot layer). Other dictionary items are <code>transient</code>. They come into existence as a result of user input or script execution and will disappear when that volley is complete. They may live on in text as data stored in the user's topic file and will reappear again during the next volley when the user data is reloaded. Words like dogs are not in the permanent dictionary but will get created as transient entries if they show up in the user's input.</p>
 <p>The dictionary consists of <code>WORDENTRY</code>s, stored in hash buckets when the system starts up. The hash code is the same for lower and upper case words, but upper case adds 1 to the bucket it stores in. This makes it easy to perform lookups where we are uncertain of the proper casing (which is common because casing in user input is unreliable). The system can store multiple ways of upper-casing a word.</p>
-<p>Facts are simply triples of words that represent relationships between words. The ontology structure of CS is represented as facts (which allows them to be queried). Words are hierarchically linked (WordNet's ontology) using facts (using the <code>is</code> verb). Words are conceptually linked (defined in a <code>~concept</code> or as keywords of a <code>topic</code>) using facts with the verb <code>member</code>.</p>
-<p>Word entries have lists of facts that use them as either subject or verb or object so that when you do a query like</p>
-<pre><code>^query(direct_ss dog love ?)</code></pre>
-<p>CS will retrieve the list of facts that have dog as a subject and consider those. And all those values of fields of a fact are words in the dictionary so that they will be able to be queried.</p>
+<p>The ontology structure of CS is represented as facts (which allows them to be queried). Words are hierarchically linked (WordNet's ontology) using facts (using the <code>is</code> verb). Words are conceptually linked (defined in a <code>~concept</code> or as keywords of a <code>topic</code>) using facts with the verb <code>member</code>.</p>
+<p>Word entries have lists of facts that use them as either subject or verb or object. So do facts.</p>
+<pre><code>typedef struct WORDENTRY //   a dictionary entry
+{
+    FACTOID subjectHead;
+    FACTOID verbHead;
+    FACTOID objectHead;
+
+typedef struct FACT 
+{  
+    FACTOID_OR_MEANING subjectHead; 
+    FACTOID_OR_MEANING verbHead;        
+    FACTOID_OR_MEANING objectHead;      
+    FACTOID_OR_MEANING subjectNext; 
+    FACTOID_OR_MEANING verbNext;        
+    FACTOID_OR_MEANING objectNext;      </code></pre>
+<p>So when you do a query like</p>
+<pre><code>^query(direct_sv dog love ?)</code></pre>
+<p>CS will retrieve the list of facts that have <code>dog</code> as a subject and consider those whose verb is <code>love</code>. And all those values of fields of a fact are words in the dictionary so that they will be able to be queried.</p>
 <p>Queries like</p>
 <pre><code>^query(direct_v ? walk ?)</code></pre>
-<p>function by having a byte code scripting language stored on the query name <code>direct_v</code>. This byte code is defined in <code>LIVEDATA</code> (so you can define new queries) and is executed to perform the query. Effectively facts create graphs and queries are a language for walking the edges of the graph.</p>
+<p>work by having a byte code scripting language stored on the query name <code>direct_v</code>. This byte code is defined in <code>LIVEDATA</code> (so you can define new queries) and is executed to perform the query. Effectively facts create graphs and queries are a language for walking the edges of the graph.</p>
 <p>ChatScript supports user variables, for considerations of efficiency and ease of reference by scripters. Variables could have been represented as facts, but it would have increased processing speed, local memory, and user file sizes, not to mention made scripts harder to read.</p>
 <h1 id="function-run-time-model">Function Run-time Model</h1>
 <p>The fundamental units of computation in ChatScript are functions (system functions and user outputmacros) and rules of topics. Rules and outputmacros can be considered somewhat interchangeable as both can have code and be invoked (rules by calling <code>^reuse</code>). And both can use pattern matching on the input.</p>
 <p>Function names are stored in the dictionary and either point to script to execute or engine code to call, as well as the number of arguments and names of arguments.</p>
 <p>System functions are predefined C code to perform some activity most of which take arguments that are evaluated in advance (but use <code>STREAMARG</code> and the function waits until it gets them to decide whether to evaluate or not). System functions can either designate exactly how many arguments they expect, or use <code>VARIABLE_ARGUMENT_COUNT</code> to allow unfixed amounts.</p>
-<p>Outputmacros are scripter-written stuff that CS dynamically processes at execution time to treat as a mixture of script statements and user output words. They can have arguments passed to them as either call by value or call by reference. The scripter functions are loaded from <code>macros0.txt</code> and <code>macros1.txt</code> In the TOPIC folder. Functions are stored 1 per line, as compilation goes along, so more than one line may define the same function.</p>
+<p>Outputmacros are scripter-written stuff that CS dynamically processes at execution time to treat as a mixture of script statements and user output words. They can have arguments passed to them as either call by value ($_var) or call by reference (^var). The scripter functions are loaded from <code>macros0.txt</code> and <code>macros1.txt</code> In the TOPIC folder. Functions are stored 1 per line, as compilation goes along. Functions are potentially &quot;owned&quot; by a bot, so more than one line may define the same function.</p>
 <pre><code>^car_reference o 2048 0 A( ) ...compiled script... </code></pre>
-<p>The name (^car_reference) is followed by the kind of function (outputmacro, tablemacro, patternmacro, dualmacro), followed by the bot bits allowed to use this function (2048 bot), followed by flags on the function (0), followed by the number of arguments. It expects (0). Argument count is 'A' + count when count &lt;= 15 and 'a' + count - 15 when greater.</p>
+<p>The name (^car_reference) is followed by the kind of function (outputmacro, tablemacro, patternmacro, dualmacro), followed by the bot bits allowed to use this function (2048 bot), followed by flags on the function (0), followed by the number of arguments. It expects (0). Argument count is 'A' + count when count &lt;= 15 and 'a' + count - 15 when greater. If the letter is uppercase, it means function supports variable argument count.</p>
 <p>The value of the dictionary entry of the function name is a pointer to the function data allocated in the heap. Multiple definitions of the name are chained together, and the system will hunt that list for the first entry whose bot bits allow use.</p>
 <p>Patternmacros are scripter-written patterns that allow some existing pattern to transfer over to them and back again when used up. They have the same format as outputmacros, but their code data is simply the pattern to execute. The pattern code merely switches over to this extension code until it runs out, and resumes its normal code. You can't nest patternmacro calls at present.</p>
 <h2 id="argument-passing">Argument Passing</h2>
 <p>There are actually two styles of passing arguments. Arguments are stored in a global argument array, referenced by ARGUMENT(n) when viewed from system routines. The call sets the current global index and then stores arguments relative to that. Outputmacros use that same mechanism for call-by-reference arguments. Call by reference arguments start with <code>^</code> like <code>^myarg</code> and the script compiler compiles the names into number references starting with <code>^0</code> and increasing <code>^1</code> ... <code>^myarg</code> style allows a routine to assign indirectly to the callers variable.</p>
 <p>But outputmacros also support call by value arguments which start with <code>$_</code> like <code>$_myarg</code>. No one outside the routine is allowed to change these or use these to access the above caller's data. Hence call by value. These are normal albeit transient variables so the corresponding value from the argument stack is also stored as the value of the local variable. That happens after the function call code first saves away the old values of all locals of a routine (or topic) and then initializes all locals to NULL. Once the call is finished, the saved values are restored.</p>
 <p>When passing data as call by value, the value stored always has a backtick-backtick prefix in front of it. In fact, all assignments onto local variables have that prefix prepended (hidden). This allows the system to detect that the value comes from a local variable or an active string and has already been evaluated. Normally, if the output processor sees <code>$xxx</code> in the output stream, it would attempt to evaluate it. But if it looks and sees there is a hidden back-tick back-tick before it, it knows that <code>$xxx</code> is the final value and is not to be evaluated further.</p>
-<p>Back-tick (`) is a strongly reserved character of the engine and is prevented from occurring in normal data from a user. It is used to mark data coming preevaluated. It is used to mark ends of rules in scripts. It is used to quote values of variables and fact fields when writing out to the user's topic file. It is used to create specific dictionary entries that cannot collide with normal words.</p>
+<p>Back-tick (`) is a strongly reserved character of the engine and is prevented from occurring in normal data from a user.</p>
+<pre><code>* marks variable data coming preevaluated. 
+* marks ends of rules in scripts. 
+* quote values of variables and fact fields when writing out to the user&#39;s topic file.
+* creates specific internal dictionary entries that cannot collide with normal words.</code></pre>
 <h1 id="script-execution">Script Execution</h1>
+<p>Execution, be it pattern matching or output processing, proceeds token by token. There is not really much of building up tokens on a stack and then popping them as needed (like calculator functionality). This means you cannot write parenthesized numeric expressions nor use function calls as arguments to other function calls.</p>
 <p>The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script. The script compiler normally forces separate of things into separate tokens to allow fast uniform handling. E.g., <code>^call(bob hello)</code> becomes <code>^call ( bob hello )</code>.</p>
-<p>This predictability allows the system to avoid all the logic involved in knowing where some tokens end and others begin. The other trick the script compiler uses is to put in characters indicating how far something extends. This jump value is used for things like if statements to skip over failing segments of the if. Actual script execution, be it output processing or pattern processing jumps via switch statements on the initial character of a token.</p>
+<p>This predictability allows the system to avoid all the logic involved in knowing where some tokens end and others begin. The other trick the script compiler uses is to put in characters indicating how far something extends. This jump value is used for things like if statements to skip over failing segments of the if. It is used for knowing where a pattern label ends and even for skipping over entire rules.</p>
 <h1 id="rule-tags">Rule Tags</h1>
 <p>CS executes rules. While scripters can add their own label to a rule, all rules are automatically labelled internally by their position in a topic. The topic has a list of rules, numbered from 0 ... for top level rules. Top level rules can have rejoinders, which are numbered from 1 ... The system creates a text rule tag like: ~books.12.0 which means in the topic books, the 13th top level rule, and at the top level (not a rejoinder). ~books.12.3 is the third rejoinder under top-level rule 12. Internally a rule id has the bottom 16 bits for top level id and the next 16 for the rejoinder id.</p>
 <p>Engine function arguments involving rules can accept either user labels or rule tags. While rule tags are completely unique, nothing prevents a user from labelling multiple rules in a topic with the same label, which is sometimes useful (eg in ^reuse for finding a rule not yet disabled or in ^incontext).</p>
 <h1 id="concept-representation">Concept representation</h1>
-<p>A concept is a word beginning with ~. Ideally it has a bit on it that tells us that it is an officially compiled concept or topic (topics are also concepts via their keywords list). Members of the concept are facts whose verb is Member and whose object is the concept name. Since these facts are stored as references from the concept name in object field position, all members can be found (including ones merely defined by <code>^createfact(myname member ~someconcept))</code>.</p>
-<p>In the TOPIC folder the files <code>keywords0.txt</code> and <code>keywords1.txt</code>. Since concepts are represented as facts, the data needed is the name of the concept/topic, the list of keywords to create into facts upon loading is provided, along with the bot bits that identify which bots can see that fact. Below's first entry is a topic (T~) and the second is a concept. The third is a concept with concept flags and because it comes from a multi-bot environment so each word is joined to the botbits that can see that keyword.</p>
+<p>A concept is a word beginning with ~. Ideally it has a bit on it that tells us that it is an officially compiled concept or topic (topics are also concepts via their keywords list). Members of the concept are facts whose verb is <code>member</code> and whose object is the concept name. Since these facts are stored as references from the concept name in object field position, all members can be found (including ones merely defined by <code>^createfact(myname member ~someconcept))</code>. One can even generate a fake sort of concept set, by doing <code>^createfact(dog member pet))</code>. This causes references to <code>dog</code> to automatically mark <code>pet</code> and propogate along any concepts of including that.</p>
+<p>In the TOPIC folder are the files <code>keywords0.txt</code> and <code>keywords1.txt</code>. Since concepts are represented as facts, the data needed is the name of the concept/topic, the list of keywords to create into facts upon loading is provided, along with the bot bits that identify which bots can see that fact. Below's first entry is a topic (T~) and the second is a concept. The third is a concept with concept flags and because it comes from a multi-bot environment so each word is joined to the botbits that can see that keyword.</p>
 <pre><code>T~introductions ( here name ~emohowzit ~emohello ~emogoodbye )
 ~introductions ( here &#39;name ~emohowzit ~emohello ~emogoodbye )
 ~black PROBABLE_ADJECTIVE ( dead`16 dark`16 blank`16 )</code></pre>
@@ -127,7 +250,7 @@
 <p>Concepts also allow patterns as members, but they are not saved as MEMBER facts. They are saved as conceptpattern facts, where the subject is the pattern and the object is the concept name. They are executed after the normal NL pipeline is complete. The pattern can be compiled or uncompiled. Coming from compiling script they are compiled. Coming from a function like ^testpattern they may or may not be compiled. If uncompiled, the system will compile them first, every volley.</p>
 <p>Concepts can contain other concepts as members. When you build a concept by including another concept, you can also elect to exclude specific subconcepts or words. In the representation for this, all normal concept facts are last in the list and exclusions are first. So a word that wants to trigger a concept must first pass against the exclusions list. Set exclusions are in the middle, while the start of the members are the single words that must be excluded. Therefore in the marking phase, when we have a word and we are chasing up what concepts its a member of, if the word is in the simple excludes list, we dont continue marking That set with it. If the exclusions are sets, we have to defer decision making until other paths have been chased up, to see if the set has been marked.</p>
 <h1 id="supplemental-dictionary-data">Supplemental dictionary data</h1>
-<p>The TOPIC files <code>canon0.txt</code> and <code>canon1.txt</code> hold results of compiling the canon: declaration. Each line is a pair of words, the original and what it's canonical should be. Similarly <code>private0.txt</code> and <code>private1.txt</code> files hold pairs spell-check replacements, though they can handle multiple word in and multiple word out.</p>
+<p>The TOPIC files <code>canon0.txt</code> and <code>canon1.txt</code> hold results of compiling the <code>canon:</code> declaration. Each line is a pair of words, the original and what it's canonical should be. Similarly <code>private0.txt</code> and <code>private1.txt</code> files hold pairs spell-check replacements, though they can handle multiple word in and multiple word out.</p>
 <p>The files <code>dict0.txt</code> and <code>dict1.txt</code> handle words whose property bits have been created or changed by compilation.</p>
 <pre><code>+ Expedition_Limo. NOUN NOUN_PROPER_SINGULAR </code></pre>
 <p>In the example above the word underwent positive change with addition of NOUN and NOUN_PROPER_SINGULAR property bits.</p>
@@ -138,14 +261,12 @@
 <p>Rules start with a jump index to the next rule(012), have their rule type(?:), pattern, and output. A rule ends with the backtick mark.</p>
 <p>If there are multiple copies of the topic (due to multiple bots), they are just another line pair show botname list will be different.</p>
 <h1 id="evaluation-contexts">Evaluation Contexts</h1>
-<p>The evaluation contexts are</p>
-<pre><code>outputSystem.cpp output function
-performAssignment left side
-if testing
-activeString ReformatString
-all STREAM argument engine functions
-DoFunction function call argument evaluation</code></pre>
-<p>Many things evaluate the same way. Match variables (<code>_0</code>) evaluate to their content. User variables evaluate to their content, unless they are dotted or subscripted, in which case they evaluate to their content and then perform a JSON object lookup.</p>
+<p>Evaluation (transforming some data into something else) happens in various places. Evaluation happens when processing arguments to functions, assignments, if testing, and active strings. Many things evaluate the same way.</p>
+<p>Numbers and words just evaluate to themselves. As do factset references like <span class="citation">@4</span> and concept set names like ~animals.</p>
+<p>User variables ($, $$, $_) evaluate to their value, unless they are dotted or subscripted, in which case they evaluate to their content and then perform a JSON object lookup.</p>
+<p>System variables (%) evaluate to their value.</p>
+<p>Match variables (<code>_0</code>) evaluate to their content, original or canonical depending on whether the reference is quoted or not.</p>
+<p>Function calls evaluate to their returned result. Be advised you cannot usually use a function call as an argument to another function. You'll need to assign the first call to a variable, and then use the variable as argument to the second function.</p>
 <h1 id="messaging">Messaging</h1>
 <p>CS user messaging design involves several features: directness, cancelability, and accountability.</p>
 <p>Directness:</p>
@@ -158,7 +279,7 @@ DoFunction function call argument evaluation</code></pre>
 put tokens into a transient output stream. If at any time we &quot;fail&quot;, then we simply discard the stream. If, however, we succeed, then the stream is transferred into a message unit to be shipped to the user later when we are done.</p>
 <p>Accountability:</p>
 <p>Each message unit saves the message (typically one or more sentences) and the rule that generated it. In order to have this accountability, no message unit can cross multiple rules (though a rule may choose to generate multiple message units). Because we have the name of the rule involved, we can later know why the message arose (with good rule naming) and even decide to revise or delete the message entirely.</p>
-<p>To achieve this, whenver a rule completes, it transfers any output from the transient output stream into being a message unit. Furthermore, if a rule would transfer control to another rule, it transfers what it has so far into a message unit. It may generate more transient output after it returns from whatever rule it invoked. Rule transfers happen with: ^gambit, ^respond, ^refine, ^sequence, ^reuse. ^retry, while not triggering a new rule, re-triggers this rule and causes this behavior, as does ^print which is an explicit request to generate a message unit. Also ^postprintbefore and ^postprintafter.</p>
+<p>To achieve this, whenver a rule completes, it transfers any output from the transient output stream into being a message unit. Furthermore, if a rule would transfer control to another rule, it transfers what it has so far into a message unit. It may generate more transient output after it returns from whatever rule it invoked. Rule transfers happen with: ^gambit, ^respond, ^refine, ^sequence, ^reuse. ^retry, while not triggering a new rule, re-triggers this rule and causes this behavior, as does ^print which is an explicit request to generate a message unit. Also ^postprintbefore and ^postprintafter. And ^flushoutput.</p>
 <p>While there may be many message units to show to the user, the result is merely to concatenate them with space separators. So from the user's view there is no visibility over &quot;message units&quot;, there is just the resulting message.</p>
 <h1 id="natural-language-pipeline">Natural Language Pipeline</h1>
 <p>CS pre-processes user input to make it easy to find meaning within it. These are both classic and unusual NL processing steps. All steps in the pipeline use data representations that work together. Much of the work aims toward normalization, that is making different ways of typing in the same thing look the same to scripts, so they don't have to account for variations (making script writing and maintenance easier). Other than tokenization, all other pipeline steps are under control the script (<code>$cs_token</code>), which can choose to use any combination of them at any time.</p>
@@ -228,6 +349,21 @@ put tokens into a transient output stream. If at any time we &quot;fail&quot;, t
 <h2 id="script-compiler">Script Compiler</h2>
 <p>In large measure what the compiler does is verify the legality of your script and smooth out the tokens so there is a clean single space between each token. In addition, it inserts <code>jump</code> data that allows it to quickly move from one rule to another, and from an <code>if</code> test to the start of each branch so if the test fails, it doesn't have to read all the code involved in the failing branch.</p>
 <p>It also sometimes inserts a character at the start of a patttern element to identify what kind of element it is. E.g., an equal sign before a comparison token or an asterisk before a word that has wildcard spelling.</p>
+<h1 id="multiple-bots">Multiple Bots</h1>
+<p>ChatScript can run multiple bots in one build. Each bot can own (or share with specific other bots) topics, facts, and functions. This means multiple instances of these things may exist, owned by different bots. A bot in a multi-bot environment has a unique name and unique id. The botmacro defines the name and within it the bot id is declared by assignment to $cs_botid. You define in the filesxxx.txt file what bot name and id is compiling some particular piece of script.</p>
+<pre><code>outputmacro: mybot()
+$cs_botid = 1</code></pre>
+<p>Bot id's are powers of 2 and you are limited to 64 unique bots.</p>
+<p>You define who owns a topic using a topic flag or in a bot zone of your filesx.txt. This field is saved with the topic data, with spaces around the bot name so one can do a <code>strstr</code> on that field to see if current bot name is found.</p>
+<p>You define who owns a fact normally in the bot zone of your filesx.txt. A fact field has a bot id mask saying which bots may view it. A mask of 0 means all bots can see it. Code that accesses facts uses functions like GetNondeadHead and GetNondeadNext, which walk a fact list ignoring all facts marked as killed or not visible to the current bot (myBot).</p>
+<p>You define who owns a function just like a fact and the function data includes the mask. The only caveat is that any botmacro functions must have a 0 value (must be globally visible) in order to allow new users to be launched. Code is stored in TOPIC/BUILDn/macros1.txt (if defined in BUILD1). A sample definition:</p>
+<pre><code>^oob o 1 0 B( $_what $_x $_y) $_x = 1 $_y = $_x `</code></pre>
+<p>The function name is ^oob.</p>
+<p>The <code>o</code> says this is an output macro. <code>t</code> is a tablemacro. <code>d</code> is a dual macro and <code>p</code> is a pattern macro. 'O' and 'P' mean that the function allows variable numbers of arguments up to its actual limit count. Arguments not supplied will be defaulted to null.</p>
+<p><code>1</code> is the bot id owning this function.</p>
+<p><code>0</code> are any flags on the arguments that specify special processing of incoming values.</p>
+<p><code>B</code> is the argument count as the number added to 'A' (i.e. 1 argument). If arguments exceed 15, the base will be 'a' instead with 15 deducted from the index.</p>
+<p>The list in parens are the function arguments and any local variables that need to be saved and restored across the call. Following that is the actual compiled script code, ending with a backtick which completes this definition.</p>
 <h1 id="private-code">Private Code</h1>
 <p>You can add code to the engine without modifying its source files directly. To do this, you create a directory called privatecode at the top level of ChatScript. You must enable the <code>PRIVATE_CODE</code> define.</p>
 <p>Inside it you place files:</p>
@@ -245,61 +381,6 @@ void PrivateShutdown();   called when CS is exiting.
 privatetestingtable.cpp  listing of :debug functions made visible to CS</code></pre>
 <p>Debug table entries like this:</p>
 <pre><code>{(char*) &quot;:endinfo&quot;, EndInfo,(char*)&quot;Display all end information&quot;},</code></pre>
-<h1 id="code-zones">Code Zones</h1>
-<div class="figure">
-<img src="arch.png" alt="ChatScript architecture" />
-<p class="caption">ChatScript architecture</p>
-</div>
-<p>The system is divided into the code zones shown below. All code is in SRC.</p>
-<h2 id="core-engine">Core Engine</h2>
-<ul>
-<li><code>dictionary</code> is <code>dictionary</code></li>
-<li><code>facts/JSON queries</code> is <code>factSystem</code>, <code>json</code>, <code>jsmn</code>, and * * * <code>infer</code></li>
-<li><code>long term user memory</code> is <code>userCache</code>, <code>userSystem</code></li>
-<li><code>topics</code> and loading the results of compilation is <code>topicSystem</code></li>
-<li><code>functions</code> is <code>functionExecute</code></li>
-<li><code>variables</code> is <code>variableSystem</code> and <code>systemVariables</code></li>
-<li><code>JavaScript</code> is <code>javascript</code></li>
-<li><code>memory allocation</code> and other things like file system access is in <code>os</code></li>
-<li><code>output eval</code> is <code>outputSystem</code></li>
-<li><code>os access</code> is <code>os</code></li>
-<li>folders inside SRC are external systems included in CS, including: ```</li>
-<li>curl (web api handling)</li>
-<li>duktape (javascript evalutation)</li>
-<li>mongo (mongodb access)</li>
-<li>postgres (postgres access)</li>
-<li><p>evserver (LINUX fast server) ```</p></li>
-<li>Code to handle if and loop are in <code>constructCode</code></li>
-<li><p>Miscellaneous text processing abilities are in <code>textUtilities</code>.</p></li>
-</ul>
-<h2 id="external-access">External Access</h2>
-<ul>
-<li><code>OOB</code> is partly in <code>tokenSystem</code> and mostly in <code>mainSystem</code></li>
-<li><code>Mongo</code> is <code>mongodb.cpp</code></li>
-<li><code>Postgres</code> is <code>postgres</code></li>
-<li>All of the <code>^functions</code> are in <code>functionExecute</code></li>
-<li>Servers are <code>evserver</code>, <code>cs_ev</code> and <code>cssocket</code></li>
-</ul>
-<h2 id="world-model">World Model</h2>
-<ul>
-<li>Natural language abilities are in <code>english.cpp</code>, <code>englishTagger</code>, <code>markSystem</code>, <code>patternSystem</code>, <code>spellcheck</code>, <code>tagger</code> and LIVEDATA and DICT</li>
-<li>RAWDATA/ONTOLOGY contains ontology data</li>
-<li>RAWDATA/WORLDDATA contains world data</li>
-</ul>
-<h2 id="rd-party-libraries">3rd Party Libraries</h2>
-<ul>
-<li>curl manages web protocols for ^JSONOpen</li>
-<li>duktape is a JavaScript interpreter</li>
-<li>LINUX evserver allows multiple copies of CS tied to port</li>
-<li>Mongo connects to a remote MongoDB</li>
-<li>Postgres connects to a remote Postgres db</li>
-<li>jsmn is direct source that parses JSON</li>
-</ul>
-<h2 id="ancillary">Ancillary</h2>
-<ul>
-<li>Test and Debug is in <code>testing</code></li>
-<li>Script compiler is in <code>scriptCompile</code></li>
-</ul>
 <h1 id="documentation">Documentation</h1>
 <p>Master documentation is in the <code>WIKI</code> folder, with <code>PDFDOCUMENTATION</code> and <code>HTMLDOCUMENTATION</code> generated from that using scripts in <code>WIKI</code>.</p>
 </body>

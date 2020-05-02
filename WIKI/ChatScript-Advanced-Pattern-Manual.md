@@ -416,7 +416,8 @@ e.g., (~animals~tasty) will reference all animals considered tasty. You may stac
 ```
 u: (~animals~tasty~mythical) I didn't know you considered dragons tasty.
 ```
-You can do this in a pattern or as keyword of a concept.
+You can do this in a pattern but not as a keyword of a concept. It only works dynamically during 
+pattern matching.
 
 Note: you cannot use word~1 (meaning specification) or word~n (pos-tag specification) on your first word.
 

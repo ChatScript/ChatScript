@@ -1030,6 +1030,14 @@
 <td><code>%lastcurltime</code></td>
 <td>Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer:</td>
 </tr>
+<tr class="odd">
+<td><code>%crosstalk</code></td>
+<td>4k buffer in server visible between users to pass data back and forth</td>
+</tr>
+<tr class="even">
+<td><code>%crosstalk1</code></td>
+<td>4k buffer in server visible between users to pass data back and forth</td>
+</tr>
 </tbody>
 </table>
 <h2 id="build-data">Build data</h2>
@@ -1297,8 +1305,10 @@ s: (name is _*)
 <p>The left side of the substitution pair is case insensitive (matches either case on input) and can be placed in double-quotes (which converts spaces to underscores internally).</p>
 <p>The right side of the substitution pair is case sensitive and can be placed in double-quotes (which converts spaces to plus signs internally).</p>
 <p>Similarly while canonical values of words can be defined in <code>LIVEDATA/SYSTEM/canonical.txt</code>, you can define private canonical values for your bots by using the scripting language. You can say:</p>
-<pre><code>canon: oh 0 faster fast</code></pre>
+<pre><code>canon: oh 0 
+canon: faster fast</code></pre>
 <p>which defines new canonical values for things and creates a file <code>canon0.txt</code> or <code>canon1.txt</code> in your TOPIC folder.</p>
+<p>You can optionally add MORE_FORM or MOST_FORM as a 3rd argument, to set those flags for adjectives and adverbs.</p>
 <p>If you want to set a canonical pair from a table during compilation, you can use a function to do the same thing (but only 1 pair at a time).</p>
 <pre><code>^canon(word canonicalform)</code></pre>
 <h2 id="numeric-substitutions">Numeric Substitutions</h2>
@@ -1514,6 +1524,14 @@ s: (name is _*)
 <tr class="odd">
 <td><code>$cs_tracepattern</code></td>
 <td>Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
+</tr>
+<tr class="even">
+<td><code>$cs_indentlevel</code></td>
+<td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
+</tr>
+<tr class="odd">
+<td>`$cs_tracetestoutput</td>
+<td>set to 1 to force tracing in ^testoutput</td>
 </tr>
 </tbody>
 </table>

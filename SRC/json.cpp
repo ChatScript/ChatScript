@@ -940,7 +940,7 @@ FunctionResult JSONOpenCode(char* buffer)
 	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_URL, fixedUrl);
 	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, my_trace);
 	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, timelimit); // 300 second timeout to connect (once connected no effect)
-	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_TIMEOUT, timelimit);
+	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_TIMEOUT, timelimit * 2);
 	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1); // dont generate signals in unix
 
 	/* the DEBUGFUNCTION has no effect until we enable VERBOSE */
@@ -1918,8 +1918,10 @@ MEANING jsonValue(char* value, unsigned int& flags)
 	// and numbers cannot start with an exponent or a decimal
 	if (*at == '0' && *(at+1) && !(*(at+1) == 'e' || *(at+1) == 'E' || *(at+1) == '.')) number = false;
 	else if (*at == 'e' || *at == 'E' || *at == '.') number = false;
+	bool digit = false;
 	while (*at && number) 
 	{  
+		if (*at <= '9' && *at >= '0') digit = true;
 		if (*at == 'e' || *at == 'E')
 		{
 			if (IsDigit(*(at-1))) ++exponent;
@@ -1929,7 +1931,7 @@ MEANING jsonValue(char* value, unsigned int& flags)
 		else if (!IsDigit(*at)) break; // end of a number maybe
 		++at;
 	}
-	if (*at  || decimal > 1 || exponent > 1) number = false;
+	if (*at  || decimal > 1 || exponent > 1 || !digit ) number = false;
 	if (!*value || (*value == '"' && value[1] == '"' && strlen(value) == 2)) // treat empty strings as null
 	{
 		flags |= JSON_PRIMITIVE_VALUE;

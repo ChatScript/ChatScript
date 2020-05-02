@@ -101,7 +101,8 @@ path, just the actual name of the file.
 # Time View over  Log file - `:timelog`
 
 Given a log file (usually a server log), it will compute the
-average, min, and max response times of the volleys.
+average, min, and max NLU engine response times of the volleys. And for LINUX, how long it took from 
+first detection of incoming connection to get to the engine (including reading incoming data).
 
 # Views over User Logs - `:trim`
 

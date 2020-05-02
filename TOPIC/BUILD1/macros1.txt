@@ -1,1 +1,3 @@
-﻿^harry o 0 0 A( ) $cs_token = 4096 | 255 | 512 | 131072 | 1024 | 2048 | 24576 $cs_token += 67108864 | 65536 | 8388608 $cs_token -= 8 ^addtopic ( ~introductions ) $cs_control_main = ~control $userprompt = ^"%user: >" $botprompt = ^"HARRY: " $singleresponse = 1 $shutup = 1 `
+﻿^setvar O 0 0 B( $_arg1 ) $_arg1 `
+^test o 0 0 A( ) $cs_token = 70368744177664 | 4096 | 255 | 2048 $cs_token |= 1048576 | 2097152 | 4194304 | 67108864 | 24576 $cs_token -= 128 $cs_token -= 8 $cs_token |= 256 ^addtopic ( ~introductions ) $cs_control_main = ~control $cs_control_post = ~xpostprocess $userprompt = ^"%user: >" $botprompt = ^"TEST: " $singleresponse = 1 $cs_userfactlimit = * $cs_botid = 1 $cs_wildcardseparator = " " $cs_response = 65011712 $cs_response -= 33554432 `
+^oob o 0 0 B( $_what ) ^if 00d( $$oob ) 00z{ $$oob = ^"$$oob|$_what" } 00G else ( 1 ) 00q { $$oob = $_what } 004 `
