@@ -29,10 +29,14 @@
  ?_°C degree+Celsius
  ?_°F degree+Fahrenheit
  ?_°K degree+Kelvin
- ?_° degree
  °C degree+Celsius
  °F degree+Fahrenheit
  °K degree+Kelvin
+ degree_C degree+Celsius
+ degree_F degree+Fahrenheit
+ degree_K degree+Kelvin
+ ?_° degree
+ ° degree
 
 a.i. artificial+intelligence
  touring_test Turing+test

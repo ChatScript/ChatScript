@@ -1466,6 +1466,7 @@ exit:
 	else if (modifiedTrace) trace = modifiedTraceVal;
 	if (timingChanged) timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 	else if (modifiedTiming) timing = modifiedTimingVal;
+    if (result & ENDCODES) return result;
     return (retried) ? NOPROBLEM_BIT : result;
 }
 
@@ -1991,6 +1992,7 @@ void ResetTopicSystem(bool safe)
 		block->topicLastGambitted = 0; 
 		block->topicLastRespondered = 0; 
 		block->topicLastRejoindered = 0; 
+		block->topicFlags &= -1 ^ ACCESS_FLAGS;
 	}
 	if (!safe) currentTopicID = 0;
 	unusedRejoinder = true; 
@@ -2356,7 +2358,7 @@ void CheckFundamentalMeaning(char* name)
 }
 
 static void ReadPatternData(const char* fname,const char* layer,unsigned int build)
-{
+{ 
     char word[MAX_WORD_SIZE];
 	sprintf(word,"%s/%s", topicname,fname);
     FILE* in = FopenReadOnly(fname); // TOPIC folder
@@ -2381,11 +2383,7 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		StoreWord(name,0,PATTERN_WORD|build);
         CheckFundamentalMeaning(name);
 		// if old was not previously pattern word and it is now, we will have to unwind on unload. If new word, word gets unwound automatically
-		if (old)
-		{
-            unwindUserLayer = AllocateHeapval(unwindUserLayer,
-                (uint64)old, NULL, NULL);
-		}
+		if (old) unwindUserLayer = AllocateHeapval(unwindUserLayer,(uint64)old, NULL, NULL);
     }
     FClose(in);
 }
@@ -2397,7 +2395,7 @@ void UnwindUserLayerProtect()
     {
         unwindUserLayer = UnpackHeapval(unwindUserLayer,
             D, discard);
-		((WORDP)D)->systemFlags &= -1L ^ PATTERN_WORD;		// layer2 added this flag, take it away
+		((WORDP)D)->systemFlags &= -1L ^ PATTERN_WORD;		// boot layer added this flag, take it away
 	}
 }
 
@@ -2918,7 +2916,6 @@ char* WriteUserContext(char* ptr,bool sharefile )
 		if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) return NULL;
 	}
 	strcpy(ptr,(char*)"\r\n");
-	ResetContext();
 	return ptr + strlen(ptr);
 }
 

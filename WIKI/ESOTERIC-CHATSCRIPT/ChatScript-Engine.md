@@ -1,19 +1,20 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 5/2/2020 cs10.3
+<br>Revision 5/30/2020 cs10.4
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
 * [Data](ChatScript-Engine-md#data)
 * [Memory Management](ChatScript-Engine-md#memory-management)
 * [Function Run-time Model](ChatScript-Engine-md#function-run-time-model)
 * [Script Execution](ChatScript-Engine-md#script-execution)
-* [Evaluation Contexts](ChatScript-Engine-md#evaluation-contexts)
 * [Rule Tags](ChatScript-Engine-md#rule-tags)
 * [Concept Representation](ChatScript-Engine-md#concept-representation)
+* [Pattern Matching] (ChatScript-Engine-md#pattern-matching)
 * [Supplemental dictionary data](ChatScript-Engine-md#supplemental-dictionary-data)
 * [Topic and rule representation](ChatScript-Engine-md#topic-and-rule-representation)
 * [Natural Language Pipeline](ChatScript-Engine-md#natural-language-pipeline)
 * [Messaging](ChatScript-Engine-md#messaging)
+* [Error Handling](ChatScript-Engine-md#error-handling)
 * [Multiple Bots](ChatScript-Engine-md#multiple-bots)
 * [Private Code](ChatScript-Engine-md#private-code)
 * [Documentation](ChatScript-Engine-md#documentation)
@@ -461,7 +462,7 @@ Variables could have been represented as facts, but it would have increased proc
 # Function Run-time Model
 
 The fundamental units of computation in ChatScript are functions (system functions and user
- outputmacros) and rules of topics. Rules and outputmacros can be considered somewhat
+outputmacros) and rules of topics. Rules and outputmacros can be considered somewhat
 interchangeable as both can have code and be invoked (rules by calling `^reuse`). And both can use
 pattern matching on the input.
 
@@ -494,6 +495,9 @@ Patternmacros are scripter-written patterns that allow some existing pattern to 
 and back again when used up. They have the same format as outputmacros, but their code data is 
 simply the pattern to execute. The pattern code merely switches over to this extension code until it runs out, and resumes
 its normal code. You can't nest patternmacro calls at present.
+
+All system functions return both a text buffer answer and an error code. For error codes see the section on 
+error handling.
 
 ## Argument Passing
 
@@ -531,14 +535,109 @@ much of building up tokens on a stack and then popping them as needed (like calc
 This means you cannot write parenthesized numeric expressions nor use function calls as arguments
 to other function calls. 
 
-The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script.
-The script compiler normally forces separate of things into separate tokens to allow fast uniform
-handling. E.g., `^call(bob hello)` becomes `^call ( bob hello )`. 
+## Evaluation 
 
-This predictability allows the system to avoid all the logic involved in knowing where some tokens end and others begin. 
-The other trick the script compiler uses is to put in characters indicating how far something extends. 
+Script execution involves one-by-one evalutation of tokens. It happens in patterns and if tests. It happens in the
+output side of a rule. It happens in function execution and it happens in interpreting the arguments to a function.
+It happens in active strings. 
+
+Numbers and words just evaluate to themselves. As do factset references like @4 and concept set names
+like ~animals.
+
+User variables ($, $$, $_)  evaluate to their value, unless they are dotted or subscripted, in which case they evaluate to their
+content and then perform a JSON object lookup. Or if the token immediately after it is an assignment
+operator of some kind (e.g. =  +=  -=  etc).
+
+System variables (%) evaluate to their value. Not generally advised but for some system variables it 
+may make sense to use them of the left hand of assignment statements.
+
+Match variables (`_0`) evaluate to their content, original or canonical depending on whether 
+the reference is quoted or not.
+
+Function calls evaluate to their returned result and absorb tokens from ( to ) . Be advised you cannot usually use a function call
+as an argument to another function. You'll need to assign the first call to a variable, and then
+use the variable as argument to the second function.
+
+Active strings ^"xxx"  and ^'xxx' process their content in the moment of use.
+
+## Spacing
+
+The script compiler normally forces separate of things into separate tokens to allow fast uniform
+handling. E.g., `^call(bob hello)` becomes `^call ( bob hello )`. This allows the `ReadCompiledWord`
+function to grab tokens more easily.
+
+## Prefix characters
+
+The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script.
+The pattern prefixes are:
+```
+=   to designate a comparison operator
+!	to invert a Test
+?	a unary existence operator (prefixing a variable)
+@_1+ to indicate jumping in a pattern to a location and altering direction (+ or -)
+```
+Prefixes also used in patterns and output code are:
+```
+$	to indicate user variables
+%	to indicate system variables
+_1	to indicate a specific match variable
+^	to indicate function calls, function in-out variables
+~	to indicate a concept set (but this has no impact on execution of tokens)
+@1	to indiate a specific numbered factset 
+'   to indicate to use the original value of a match variable or word 
+#	to indicate a system defined numeric constant (or to indicate comment to end of line)
+^^	to indicate indirection assignment thru an in-out function variable
+```
+
+## Skip codes
+
+The script compiler puts in characters indicating how far something extends to allow faster execution.
 This jump value is used for things like if statements to skip over failing segments of the if. It is used for knowing
 where a pattern label ends and even for skipping over entire rules. 
+
+Skip codes (1 or 3 characters that represent a number) allow the system to 
+move rapidly in the code stream. 
+
+### Rule and Label skips
+
+Every rule starts with a skip code that tells the offset needed to skip past this rule
+and move to the next rule. The system view of a rule is normally starting with the kind (u:) but it can back up 4 characters to read
+the skip code if it needs it. There is also a 1 character skip code in front of any rule label, that tells the width of the label
+to get to the opening paren of the rule's pattern.
+```
+00J u: <RULE_LABEL ( test ) This is a rule. 
+```
+
+### Comparison skip
+
+Comparison conditions in patterns use a 1 character skip at the start of a comparison token to index to the start of the 
+operator (i.e., to know where the end of the variable name is). The leading `=` is the prefix code that says this
+token is a comparison token.
+```
+u: ( =6$foo==5 )
+```
+
+### IF and LOOP skips
+
+`if` and `loop` are actually functions. And they use 3 character skip codes to move around the pieces.
+```
+u:  (test) if ($val) {do this} else if ($val1) {do that} else {anyway} .
+u: ( test ) ^if 00c( $val ) 00j{ do this } 00? else 00d( $val1 ) 00j{ do that } 00y else ( 1 ) 00i { anyway } 004 .
+```
+The second line shows the compiled form of a complex `if`. `if` is compiled into the ^prefixed form (since 
+it is not something to echo as a word to the user). The 00c skip code before the first test is the offset
+to get the other end of the first test, where another skip code lies. Whether the test succeeds or fails,
+this will get us past the test immediately. The next skip code (00j) can take us past the code to for this branch of
+the if. If the test fails, you would use that skip to bypass the "do this" and point to the next `else`. 
+The skip code after the end of the "do this" process tells how to skip to the end of the entire if, so normal
+execution can resume.
+
+Loops uses a skip code, to allow it to jump to the end of the loop when the loop condition fails.
+
+```
+u:  (test) 	loop(1) { do this }
+u: ( test ) ^loop ( 1 ) 00g { do this } 
+```
 
 # Rule Tags
 
@@ -588,6 +687,60 @@ up what concepts its a member of, if the word is in the simple excludes list, we
 set with it. If the exclusions are sets, we have to defer decision making until other paths have been
 chased up, to see if the set has been marked.
 
+# Pattern matching
+
+Patterns can exist at the start of any rule type. And they can exist inside of `IF (PATTERN ...)` statements.
+
+## Token processing 
+
+Pattern matching executes the pattern stream token by token. A token might be a word, or a wildcard,
+or an entire assignment statment with active string like `$tmp:=^"This ^compute(a sub b)". 
+The script compiler will force spaces between tokens, particular ones with special priority like < or [ or (.
+```
+u: (<[a b c])  -- sample script
+u: ( < [ a b c ] ) -- compiled notation
+```
+
+The exception to the token by token
+rule is function calls, where when the function name token is detected, it gets control over the pattern stream to manage
+the `(` and arguments and `)` .  
+
+## Legal gaps
+
+A top-level pattern `( a )`  implicitly means `( < * a )` except that since we dont actually use the `<`, backtracking
+will work. When a substantive (non-wildcard) match happens, the system moves the current marker of where we are
+in the sentence to that position. However, the movement from the prior position to this new one must be legal. 
+When wildcards are involved as the predecessor token, they define how much gap is allowed. when
+non-wildcard tokens are involved, there is no gap and the new match must immediately follow OR be coincident within
+the current position.  
+
+## Backtracking
+
+Unlike regex or prolog, CS pattern matching does not do full backtracking on failure (as that would be expensive). Instead
+if the system tracks the first real word it matches, and if the pattern fails, it can retry the entire
+pattern starting after that first match. Anything that forces a location in the pattern will inhibit this, e.g.,
+```
+u: (< test)
+u: (@_0+ try)
+```
+The above patterns, when reexecuted, would force the start of matching again, so backtracking is not feasible.
+
+Because backtracking is limited, one should prefer using concept sets to using `[ xxx yyy zzz]` because
+concept sets find the closest match to your current position whereas the [ ] try to match in order, and thus
+may find matches much later in the sentence. Additionally one should strive to try to find the most significant
+words first, ones less likely to be found in the sentence. E.g.,
+```
+u: ( I want * the adjustment )  -- can find the anywhere and never backtrack to adjustment
+u: ( I want * _adjustment @_0- the)  -- finds the rare word adjustment and then confirms the
+```
+
+## Pattern macros
+
+Pattern macros are merely patterns encased by a function call. In execution, when a pattern macro is
+encounterd, the system temporarily changes its pattern stream pointer to use the definition of the macro
+and then on failure or match, restores the old stream to continue. This only works for 1 call; you cannot
+nest a call to a pattern macro from within a pattern macro.
+
 # Supplemental dictionary data
 
 The TOPIC files `canon0.txt` and `canon1.txt` hold results of compiling the `canon:` declaration.
@@ -616,25 +769,23 @@ Rules start with a jump index to the next rule(012), have their rule type(?:), p
 
 If there are multiple copies of the topic (due to multiple bots), they are just another line pair show botname list will be different.
 
-# Evaluation Contexts
+# Error handling
 
-Evaluation (transforming some data into something else) happens in various places. Evaluation happens
-when processing arguments to functions, assignments, if testing, and active strings. Many things evaluate the same way. 
+There are two kinds of error handling, rule-based and engine based. 
 
-Numbers and words just evaluate to themselves. As do factset references like @4 and concept set names
-like ~animals.
+All script-callable engine Functions
+are declared `FunctionResult` and return NOPROBLEM_BIT when things are fine. Other codes indicate
+whether to terminate a rule, topic, sentence, or input as OK or an error. In script you can suppress
+errors from below by kind, e.g., `^nofail(TOPIC ...)`. Or you can trap all errors and examine what 
+termination happened via `^result( ... )`.
 
-User variables ($, $$, $_)  evaluate to their value, unless they are dotted or subscripted, in which case they evaluate to their
-content and then perform a JSON object lookup.
-
-System variables (%) evaluate to their value.
-
-Match variables (`_0`) evaluate to their content, original or canonical depending on whether 
-the reference is quoted or not.
-
-Function calls evaluate to their returned result. Be advised you cannot usually use a function call
-as an argument to another function. You'll need to assign the first call to a variable, and then
-use the variable as argument to the second function.
+The engine tries to detect and recover from various error conditions. It uses `ReportBug` to add
+an entry into LOGS/bugs.txt (and the server log if a server). Any error message starting with `FATAL` means that the call will not return; CS will end execution instead.
+Fatal errors are not trapped by a try/catch or setjmp/longjump 
+mechanism because it is too risky. Bits in the dictionary may have been changed or some kind of memory
+overwrite may have happened. This would leave the server damaged for all future volleys. Instead,
+the server exists. External processes restart the server (and may retry the volley) and the
+fully reloaded server will be clean and ready to continue. 
 
 # Messaging
 

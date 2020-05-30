@@ -21,7 +21,7 @@ typedef struct WORDINFO
     int charlen; // characters in word
     int bytelen; // bytes in word
 } WORDINFO;
-
+extern int badspellcount;
 extern bool multichoice;
 extern bool spellTrace;
 extern int spellTraceIndex;

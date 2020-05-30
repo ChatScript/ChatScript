@@ -349,12 +349,8 @@ int CopyWhereInSentence(int oldindex)
     size_t len = (sizeof(uint64) + maxRefSentence + 3) / 4;
     //  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
     unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
-    if (!data) return 0;
-
-    memcpy((char*)data, olddata, len * 4);
-    // store where in the temps data
-    int index = Heap2Index((char*)data); // original index!
-    return index;
+    if (data) memcpy((char*)data, olddata, len * 4);
+	return Heap2Index((char*)data); 
 }
 
 unsigned int* AllocateWhereInSentence(WORDP D)
@@ -368,6 +364,7 @@ unsigned int* AllocateWhereInSentence(WORDP D)
 	//  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
 	unsigned int* data = (unsigned int*) AllocateHeap(NULL,len,4,false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
 	if (!data) return NULL;
+
 	memset((char*)data,0xff,len*4); // clears sentence xref start/end bits and casing byte
 	data[0] = 0; // clears the tried meanings list
 	data[1] = 0;
@@ -720,6 +717,8 @@ void BuildDictionary(char* label)
         setMaxHashBuckets = true;
     }
 	UseDictionaryFile(NULL); 
+
+	PartiallyCloseSystem();
 
 	InitStackHeap();
 	InitDictionary();
@@ -1399,13 +1398,7 @@ void LockLayer(bool boot)
 
 void ReturnToAfterLayer(int layer, bool unlocked) 
 {
-	if (layer == LAYER_BOOT) // 2 is boot layer, 3 is user layer
-	{
-		ClearUserVariables();
-
-		// unwind any user layer protection
-		UnwindUserLayerProtect();
-	}
+	if (layer == LAYER_BOOT) UnwindUserLayerProtect(); // unwind any user layer protection (dynamic loading of layer past user layer- not used )
 	while (factFree > factsPreBuild[layer+1]) FreeFact(factFree--); //   restore back to facts alone
 	DictionaryRelease(dictionaryPreBuild[layer+1],stringsPreBuild[layer+1]);
 
@@ -2019,7 +2012,7 @@ void WriteDictionary(WORDP D,uint64 data)
 	char c = *word; 
 	char name[40];
 	if (IsDigit(c)) sprintf(name,(char*)"%c.txt",c); //   main real dictionary
-    else if (!IsLowerCase(c) || c > 127) sprintf(name,(char*)"%s",(char*)"other.txt"); //   main real dictionary
+    else if (!IsLowerCase(c) || (unsigned char) c > 127) sprintf(name,(char*)"%s",(char*)"other.txt"); //   main real dictionary
     else sprintf(name,(char*)"%c.txt",c);//   main real dictionary
     FILE* out = FopenUTF8WriteAppend(UseDictionaryFile(name));
 	if (!out) 
@@ -2601,18 +2594,26 @@ void UndoSubstitutes(HEAPREF list)
 	}
 }
 
-HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag,HEAPREF list)
+HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* originalx, char* replacementx, unsigned int build, unsigned int fileFlag,HEAPREF list)
 {
+	char originaly[MAX_WORD_SIZE];
+	strcpy(originaly, originalx);
+	char* original = originaly;
+
+	char replacementy[MAX_WORD_SIZE];
+	strcpy(replacementy, replacementx);
+	char* replacement = replacementy;
+
 	// convert quoted expression spaces to underscores
 	if (*original == '"')
 	{
-		size_t len = strlen(original);
-		original[len - 1] = 0;
-		memmove(original, original + 1, len);
-		char* at = original;
-		while ((at = strchr(at, ' '))) *at = '_';	// change spaces to underscores
+		size_t len = strlen(original) - 1;
+		if (original[len] == '"') original[len] = 0;
+		++original;
 	}
 	char* at = original;
+	while ((at = strchr(at, ' '))) *at = '_';	// change spaces to underscores (its what we do with quoted strings elsewhere)
+	at = original;
 	while ((at = strchr(at, '+'))) *at = '_';	// change pluses to underscores
 
 	at = original;
@@ -2620,13 +2621,14 @@ HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, ch
 
 	if (*replacement == '"')
 	{
-		size_t len = strlen(replacement);
-		replacement[len - 1] = 0;
-		memmove(replacement, replacement + 1, len);
-		char* at = replacement;
-		while ((at = strchr(at, ' '))) *at = '+';	// change spaces to plus
+		size_t len = strlen(replacement) - 1;
+		if (replacement[len] == '"') replacement[len] = 0;
+		++replacement;
+
 	}
-	
+	at = replacement;
+	if (*at != '\'') while ((at = strchr(at, ' '))) *at = '+';	// change spaces to plus - leave _ to be single token
+
 	WORDP D = FindWord(original, 0, LOWERCASE_LOOKUP);	//   do we know original already? 
 	bool fromExists = false;
 	if (D && D->internalBits & HAS_SUBSTITUTE) // user allowed to override base but will get warning on load
@@ -2653,10 +2655,6 @@ HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, ch
 
 	// from is no longer a real word
 	D->w.substitutes = NULL;
-	//D->w.glosses = NULL;
-	//if (GetPlural(D))  SetPlural(D, 0); 
-	//if (GetComparison(D))  SetComparison(D, 0);
-	//if (GetTense(D)) SetTense(D, 0);
 
 	// set up multiword header matching for Substitutes processing
 	char copy[MAX_WORD_SIZE];
@@ -2727,11 +2725,7 @@ HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, ch
 		AddInternalFlag(D, fileFlag | HAS_SUBSTITUTE);
 
 		// alternate is no longer a word either
-		//D->w.glosses = NULL;
 		D->w.substitutes = S;
-		//if (GetPlural(D)) SetPlural(D, 0);
-		//if (GetComparison(D)) SetComparison(D, 0);
-		//if (GetTense(D)) SetTense(D, 0);
 	}
 	return list;
 }

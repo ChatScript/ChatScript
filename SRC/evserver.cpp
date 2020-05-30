@@ -631,12 +631,12 @@ int evsrv_do_chat(Client_t *client)
 #ifndef DISCARDPOSTGRES
 	if (*postgresparams && !postgresInited)  
 	{
-		PGUserFilesCode(); //Forked must hook uniquely AFTER forking
+		PGInitUserFilesCode(postgresparams); //Forked must hook uniquely AFTER forking
 		postgresInited = true;
 	}
 #endif
 #ifndef DISCARDMYSQL
-	if (mysqlconf) MySQLUserFilesCode(); //Forked must hook uniquely AFTER forking
+	if (*mysqlparams) MySQLUserFilesCode(mysqlparams); //Forked must hook uniquely AFTER forking
 #endif
 
 	if (!client->data) 	client->data = (char*) malloc(outputsize+8);
@@ -696,7 +696,7 @@ RESTART_RETRY:
 #ifndef DISCARDPOSTGRES
 		if (false && *postgresparams && postgresInited)  // try to keep going per child
 		{
-			PostgresShutDown(); // any script connection
+			PostgresScriptShutDown(); // any script connection
 			PGUserFilesCloseCode();	// filesystem
 			postgresInited = false;
 		}

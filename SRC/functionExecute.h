@@ -68,11 +68,13 @@ enum TestMode {
 extern TestMode wasCommand;
 extern char* traceTestPatternBuffer;
 extern bool nobug;
+extern int tracepatterndata;
 extern HEAPREF patternwordthread;
 extern HEAPREF memoryMarkThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
+extern bool csapicall;
 extern char* style;
 extern int rulesExecuted;
 extern  bool testExternOutput;
@@ -102,8 +104,9 @@ FunctionResult RunJavaScript(char* definition, char* buffer,unsigned int args);
 void DeletePermanentJavaScript();
 void DeleteTransientJavaScript();
 unsigned int MACRO_ARGUMENT_COUNT(unsigned char* defn);
-void DebugConcepts(int list, int wordindex);
+void DebugConcepts(HEAPREF list, int wordindex);
 FunctionResult FindRuleCode1(char* buffer, char* word);
+int GetFnArgCount(char* func,int& flags);
 //   argument data for user calls
 char* InitDisplay(char* list);
 void RestoreDisplay(char** base, char* list);

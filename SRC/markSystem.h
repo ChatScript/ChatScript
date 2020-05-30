@@ -34,7 +34,7 @@ bool MarkWordHit(int depth,int ucase,WORDP D, int index, int start,int end);
 void MarkMeaningAndImplications(int depth,int ucase,MEANING M,int start,int end,bool canonical = false, bool sequence = false, bool once = false);
 bool RemoveMatchValue(WORDP D, int position);
 unsigned int IsMarkedItem(WORDP D, int start, int end);
-void MarkAllImpliedWords();
+void MarkAllImpliedWords(bool limitnlp);
 bool HasMarks(int start);
 char* DumpAnalysis(int start, int end, uint64 posValues[MAX_SENTENCE_LENGTH],const char* label,bool original,bool roles);
 #endif

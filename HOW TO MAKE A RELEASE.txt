@@ -1,0 +1,33 @@
+DOCUMENTATION
+
+1. Quickly summarize notable changes in changes.txt. Add version/date at top
+2. Copy changes.txt to changes.md and add # in front of version/date line
+3. Update the appropriate Wiki manuals. In manuals you change, revised the date/version line
+   to the current date and version
+4. update version.txt file to correct date and version
+5. in Wiki folder run ConvertMD2pdf and ConvertMD2html
+6. global edit HTMLDOCUMENTATION to change .md to .html
+
+SOURCE/BINARIES
+1. update top of mainsystem.cpp to correct version number.
+2. opening 2015 VS sln, highlite chatscript project and rebuild each of Release, ReleaseDLL
+	ReleaseMongo, ReleasePostgres
+3. copy src files to a linux system, stand in SRC directory, remove *.o, perform "make server".
+4. copy out the BINARIES/ChatScript file, rename to LinuxChatScript64 and put in BINARIES folder.
+5. remove build objects from VS2015 folder and db objects AND PDBS
+
+RELEASE SOURCESAFE
+1. Make appropriate folder to hold new version
+2. Copy all top level folders in ALL CAPS from CS into it
+3. Run CS and :build Harry
+4. Remove junk in TMP and USERS
+5. Trim BINARIES to remove db's, ilks, treetagger stuff (not for public release)
+6. copy the std solitary files (like readme's, version, changes, authorized, license)
+7. Zip up this folder and release to ss along with PDF versions of docs that changed and
+   changes.txt and version.txt
+
+RELEASE GITHUB
+1. carefully add BINARIES files to release, avoiding treetagger stuff and junk like ilk's.
+2. add changes in SRC and documentation and rawdata and livedata etc
+3. commit
+

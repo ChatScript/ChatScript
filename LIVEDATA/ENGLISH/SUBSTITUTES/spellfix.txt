@@ -2225,7 +2225,6 @@ lable label
 labled labeled
 labourious laborious
 labrynth labyrinth
-lackluster lacklustre 
 laf laugh 
 laguages languages 
 laise liaise 
@@ -2443,7 +2442,6 @@ myu my
 Napoleonian Napoleonic
 narled gnarled
 nastershum nasturtium
-native_american Native+American
 nawshus nauseous
 naybor neighbor
 Nazereth Nazareth

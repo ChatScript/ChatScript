@@ -162,20 +162,31 @@ void JumpBack()
 	longjmp(scriptJump[jumpIndex], 1);
 }
 
+void CloseDatabases(bool restart)
+{
+#ifndef DISCARDPOSTGRES
+	if (*postgresparams)
+	{
+		PostgresScriptShutDown(); // any script connection
+		PGUserFilesCloseCode();	// filesystem
+	}
+#endif
+#ifndef DISCARDMONGO
+	if (!restart) MongoSystemShutdown();
+	else MongoUserFilesClose(); // actually just closes files
+#endif
+#ifndef DISCARDMYSQL
+	MySQLFullCloseCode(restart);	// filesystem and/or script
+#endif
+}
+
 void myexit(char* msg, int code)
 {	
 
 #ifndef DISCARDTESTING
 	// CheckAbort(msg);
 #endif
-
-#ifndef DISCARDPOSTGRES
-	if (*postgresparams)  
-	{
-		PostgresShutDown(); // any script connection
-		PGUserFilesCloseCode();	// filesystem
-	}
-#endif
+	CloseDatabases();
 	char name[MAX_WORD_SIZE];
 	sprintf(name,(char*)"%s/exitlog.txt",logs);
 	FILE* in = FopenUTF8WriteAppend(name);
@@ -309,6 +320,8 @@ void CloseBuffers()
 
 char* AllocateBuffer(char* name)
 {// CANNOT USE LOG INSIDE HERE, AS LOG ALLOCATES A BUFFER
+	if (!buffers) return NULL; // IDE before start
+
 	char* buffer = buffers + (maxBufferSize * bufferIndex); 
 	if (++bufferIndex >= maxBufferLimit ) // want more than nominally allowed
 	{
@@ -354,18 +367,18 @@ void FreeBuffer(char* name)
 
 void InitStackHeap()
 {
-	size_t size = maxHeapBytes / 64;
-	size = (size * 64) + 64; // 64 bit align both ends
-	heapEnd = ((char*) malloc(size));	// point to end
-	if (!heapEnd)
-	{
-		(*printer)((char*)"Out of  memory space for text space %d\r\n",(int)size);
-		ReportBug((char*)"FATAL: Cannot allocate memory space for text %d\r\n",(int)size)
-	}
-	heapFree = heapBase = heapEnd + size; // allocate backwards
-	stackFree = heapEnd;
-	minHeapAvailable = maxHeapBytes;
-	stackStart = stackFree;
+		size_t size = maxHeapBytes / 64;
+		size = (size * 64) + 64; // 64 bit align both ends
+		heapEnd = ((char*)malloc(size));	// point to end
+		if (!heapEnd)
+		{
+			(*printer)((char*)"Out of  memory space for text space %d\r\n", (int)size);
+			ReportBug((char*)"FATAL: Cannot allocate memory space for text %d\r\n", (int)size)
+		}
+		heapFree = heapBase = heapEnd + size; // allocate backwards
+		stackFree = heapEnd;
+		minHeapAvailable = maxHeapBytes;
+		stackStart = stackFree;
 	ClearNumbers();
 }
 
@@ -1976,22 +1989,26 @@ unsigned int Log(unsigned int channel,const char * fmt, ...)
     }
     char* at = logmainbuffer;
     *at = 0;
-
-    va_list ap; 
-    va_start(ap,fmt);
-	++logCount;
-    const char *ptr = fmt - 1;
-
+    
 	//   when this channel matches the ID of the prior output of log,
 	//   we dont force new line on it.
 	if (channel == id) //   join result code onto intial description
 	{
-		channel = 1;
+		channel = STDUSERLOG;
 		strcpy(at,(char*)"    ");
 		at += 4;
 	}
 	//   any channel above 1000 is same as 101
 	else if (channel > 1000) channel = STDUSERLOG; //   force result code to indent new line
+
+	if ((channel == STDUSERLOG || channel == STDTRACETABLOG 
+		|| channel == FORCETABLOG || channel == STDTRACEATTNLOG || channel == STDTIMETABLOG) && 
+		!userLog  && !debugcommand && !csapicall) return id;
+	
+	va_list ap;
+	va_start(ap, fmt);
+	++logCount;
+	const char *ptr = fmt - 1;
 
 	//   channels above 100 will indent when prior line not ended
 	if (channel != BUGLOG && channel >= STDTIMELOG && logLastCharacter != '\\') //   indented by call level and not merged

@@ -403,7 +403,8 @@ static int64 ProcessNumber(int at, char* original, WORDP& revise, WORDP &entry, 
 	// cannot be a text number if upper case not at start
 	// unless the word only exists as upper case, e.g. Million in German
 	// penn numbers as words do not go to change their entry value -- DO NOT TREAT "once" as a number, though canonical can be 1
-	if (kind != ROMAN_NUMBER) {
+	if (kind != ROMAN_NUMBER) 
+	{
 		WORDP X = FindWord(original, 0, UPPERCASE_LOOKUP);
 		if (!X || FindWord(original, 0, LOWERCASE_LOOKUP) || IS_NEW_WORD(X))
 		{
@@ -748,7 +749,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	}
 	if (entry) original = entry->word;
 	// if uppercase, see if lowercase singular exists
-	if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && !entry->properties & properties & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_HUMAN | PRONOUN_SUBJECT | PRONOUN_OBJECT) && original[x - 1] == 's') // possible plural
+	if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && !(entry->properties & properties & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_HUMAN | PRONOUN_SUBJECT | PRONOUN_OBJECT)) && original[x - 1] == 's') // possible plural
 	{
 		WORDP singular = FindWord(original, x - 1, LOWERCASE_LOOKUP);
 		if (singular) entry = singular;

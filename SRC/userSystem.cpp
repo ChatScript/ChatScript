@@ -6,8 +6,8 @@
 unsigned int userFactCount = USERFACTS;			// how many facts user may save in topic file
 bool serverRetryOK = false;
 bool stopUserWrite = false;
-static bool verifyUserFacts = true;
 static char* backupMessages = NULL;
+FACT* migratetop = NULL;
 
 #define MAX_USER_MESSAGES MAX_USED
 
@@ -111,7 +111,6 @@ void ResetUserChat()
 {
  	chatbotSaidIndex = humanSaidIndex = 0;
 	setControl = 0;
-	for (unsigned int i = 0; i <= MAX_FIND_SETS; ++i) SET_FACTSET_COUNT(i,0);
 }
 
 static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* saveJSON)
@@ -204,17 +203,11 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 			}
 		}
 	}
-	//ClearUserFacts();
 	sprintf(ptr,(char*)"#`end user facts %d\r\n",counter);
 	ptr += strlen(ptr);
 
 	return ptr;
 }
-
-static void CheckUserFacts()
-{
-}
-
 
 static bool ReadUserFacts()
 {	
@@ -422,8 +415,6 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 {
 	if (!ptr) return NULL;
 
-    WORDP D;
-    WORDP E;
     HEAPREF varthread = userVariableThreadList;
 	bool traceseen = false;
 	bool timingseen = false;
@@ -444,25 +435,6 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 			// track json structures referred to
 			if (val && val[0] == 'j' && (val[1] == 'o' || val[1] == 'a') && val[2] == '-' && val[3] != 't' && saveJSON) SaveJSON(FindWord(val));
 
-			// if var is actually system var, and value is unchanged (may have edited and restored), dont save it
-			HEAPREF varthread1 =  botVariableThreadList;
-			while (varthread1)
-			{
-                uint64 E;
-                varthread1 = UnpackHeapval(varthread1, E, discard, discard);
-				if ((uint64)D == E) break; // changed back to normal
-			}
-			if (varthread1) continue; // not really changed
-
-			varthread1 = kernelVariableThreadList;
-			while (varthread1)
-			{
-                uint64 E;
-                varthread1 = UnpackHeapval(varthread1, E, discard, discard);
-				if ((uint64)D == E) break;// changed back to normal
-			}
-			if (varthread1) continue; // not really changed
-
 			if (!stricmp(D->word,"$cs_trace")) 
 			{
 				if (traceUniversal) continue; // dont touch this
@@ -477,11 +449,7 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 				val = word;
 			}
 			if (!val) val = ""; // for null variables being marked as traced
-			if (D->internalBits & MACRO_TRACE) 
-			{
-				RemoveInternalFlag(D,MACRO_TRACE);
-				sprintf(ptr,(char*)"%s=`%s\r\n",D->word,SafeLine(val));
-			}
+			if (D->internalBits & MACRO_TRACE) sprintf(ptr,(char*)"%s=`%s\r\n",D->word,SafeLine(val));
 			else sprintf(ptr,(char*)"%s=%s\r\n",D->word,SafeLine(val));
 			
 			ptr += strlen(ptr);
@@ -490,8 +458,6 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 				if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) return NULL;
 			}
 		}
-        D->w.userValue = NULL;
-		RemoveInternalFlag(D,VAR_CHANGED);
     }
 	if (!traceseen && !traceUniversal)
 	{
@@ -508,14 +474,12 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 	unsigned int index = tracedFunctionsIndex;
 	while (index)
     {
-        D = tracedFunctionsList[--index];
+		WORDP D = tracedFunctionsList[--index];
 		if (D->inferMark && D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC | FN_TIME_BITS))
 		{
 			sprintf(ptr,(char*)"%s=%d %d\r\n",D->word,D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC| FN_TIME_BITS),D->inferMark);
 			ptr += strlen(ptr);
-			D->inferMark = 0;	// turn off tracing now
 		}
-		D->internalBits &= -1 ^ (FN_TRACE_BITS | NOTRACE_TOPIC | FN_TIME_BITS);
 	 }
 
 	strcpy(ptr,(char*)"#`end variables\r\n");
@@ -604,7 +568,7 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 	char* saveJSON = GetUserVariable("$cs_saveusedJson");
 	if (!*saveJSON) saveJSON = NULL;
 
-	ptr = WriteUserVariables(ptr,sharefile,false, saveJSON);  // json safe
+	ptr = WriteUserVariables(ptr,sharefile,false, saveJSON);  // json safe - does not write kernel or boot bot variables
 	if (!ptr)
 	{
 		ReportBug("User file variable data too big %s",loginID)
@@ -612,7 +576,6 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 	}
 
 	echo = false;
-	if (verifyUserFacts) CheckUserFacts();	// verify they are good for now
 	ptr = WriteUserFacts(ptr,sharefile,count, saveJSON);  // json safe
 	if (!ptr)
 	{
@@ -635,10 +598,10 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 }
 
 void WriteUserData(time_t curr, bool nobackup)
-{ 
+{ // does not modify any data, just transcribes to file
 	if (!numberOfTopics)  return; //   no topics ever loaded or we are not responding
 	if (!userCacheCount) return;	// never save users - no history
-	
+
 	uint64 start_time = ElapsedMilliseconds();
 
 	if (globalDepth == 0) currentRule = NULL;
@@ -646,75 +609,69 @@ void WriteUserData(time_t curr, bool nobackup)
 	char name[MAX_WORD_SIZE];
 	char filename[SMALL_WORD_SIZE];
 	// NOTE mongo does not allow . in a filename
-	sprintf(name,(char*)"%s/%stopic_%s_%s.txt",users,GetUserPath(loginID),loginID,computerID);
-	if (stricmp(language,"english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, computerID,language);
-	strcpy(filename,name);
-	strcat(filename,"\r\n");
+	sprintf(name, (char*)"%s/%stopic_%s_%s.txt", users, GetUserPath(loginID), loginID, computerID);
+	if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, computerID, language);
+	strcpy(filename, name);
+	strcat(filename, "\r\n");
 	userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
 	if (!userDataBase)
 	{
-		userDataBase = GetCacheBuffer(-1); 
+		userDataBase = GetCacheBuffer(-1);
 		if (!userDataBase) return;		// not saving anything
-		strcpy(userDataBase,filename);
+		strcpy(userDataBase, filename);
 	}
 
 #ifndef DISCARDTESTING
-	if (filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)  
+	if (filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)
 	{
 		char fname[MAX_WORD_SIZE];
-		sprintf(fname,(char*)"%s/backup-%s_%s.txt",tmp,loginID,computerID);
-		if (!nobackup) CopyFile2File(fname, name,false);	// backup for debugging BUT NOT if callback of some kind...
+		sprintf(fname, (char*)"%s/backup-%s_%s.txt", tmp, loginID, computerID);
+		if (!nobackup) CopyFile2File(fname, name, false);	// backup for debugging BUT NOT if callback of some kind...
 		if (redo) // multilevel backup enabled
 		{
-			sprintf(fname,(char*)"%s/backup%d-%s_%s.txt",tmp,volleyCount,loginID,computerID);
-			if (!nobackup) CopyFile2File(fname,userDataBase,false);	// backup for debugging BUT NOT if callback of some kind...
+			sprintf(fname, (char*)"%s/backup%d-%s_%s.txt", tmp, volleyCount, loginID, computerID);
+			if (!nobackup) CopyFile2File(fname, userDataBase, false);	// backup for debugging BUT NOT if callback of some kind...
 		}
 	}
 #endif
 
-	char* ptr = GatherUserData(userDataBase+strlen(filename),curr,false);
-	if (ptr) Cache(userDataBase,ptr-userDataBase);
+	char* ptr = GatherUserData(userDataBase + strlen(filename), curr, false);
+	if (ptr) Cache(userDataBase, ptr - userDataBase);
 	if (ptr && shared)
 	{
-		sprintf(name,(char*)"%s/%stopic_%s_%s.txt",users,GetUserPath(loginID),loginID,(char*)"share");
-		if (stricmp(language,"english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, language,(char*)"share");
-		strcpy(filename,name);
-		strcat(filename,"\r\n");
+		sprintf(name, (char*)"%s/%stopic_%s_%s.txt", users, GetUserPath(loginID), loginID, (char*)"share");
+		if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, language, (char*)"share");
+		strcpy(filename, name);
+		strcat(filename, "\r\n");
 		userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
 		if (!userDataBase)
 		{
 			userDataBase = GetCacheBuffer(-1); // cannot fail if we got to here
-			strcpy(userDataBase,filename);
+			strcpy(userDataBase, filename);
 		}
 
 #ifndef DISCARDTESTING
-		if (filesystemOverride == NORMALFILES &&  (!server || serverRetryOK)  && !documentMode  && !callback)  
+		if (filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)
 		{
-			sprintf(name,(char*)"%s/backup-share-%s_%s.txt",tmp,loginID,computerID);
-			if (!nobackup) CopyFile2File(name,userDataBase,false);	// backup for debugging
+			sprintf(name, (char*)"%s/backup-share-%s_%s.txt", tmp, loginID, computerID);
+			if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging
 			if (redo)
 			{
-				sprintf(name,(char*)"%s/backup%d-share-%s_%s.txt",tmp,volleyCount,loginID,computerID);
-				if (!nobackup) CopyFile2File(name,userDataBase,false);	// backup for debugging BUT NOT if callback of some kind...
+				sprintf(name, (char*)"%s/backup%d-share-%s_%s.txt", tmp, volleyCount, loginID, computerID);
+				if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging BUT NOT if callback of some kind...
 			}
 		}
 #endif
-		ptr = GatherUserData(userDataBase+strlen(filename),curr,true);
-		if (ptr) Cache(userDataBase,ptr-userDataBase);
+		ptr = GatherUserData(userDataBase + strlen(filename), curr, true);
+		if (ptr) Cache(userDataBase, ptr - userDataBase);
 	}
-	userVariableThreadList = NULL; // flush all modified variables
-	tracedFunctionsIndex = 0;
 
 	if (timing & TIME_USER) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Write user data time: %d ms\r\n", diff);
 	}
 
-    //  Revert to pre user-loaded state, fresh for a new user
-    FACT* F = factLocked; // start of user-space facts
-    FACT* oldFactFree = factFree; // end of user fact space
-    ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
-    MigrateFactsToBoot(oldFactFree, F); // move relevant user facts or changes to bot facts to boot layer
+	migratetop = factFree;
 }
 
 static  bool ReadFileData(char* bot) // passed  buffer with file content (where feasible)
@@ -847,6 +804,8 @@ void ReadNewUser()
 	if (server) trace = 0;
 	if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"New User\r\n");
 
+	// if coming from script reset, these need to be cleared. 
+	// They were already cleared at start of volley
 	ClearUserVariables();
 	ClearUserFacts();
 	ResetTopicSystem(true);

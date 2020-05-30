@@ -58,6 +58,7 @@
 #define BUILD1					0x00200000		// comes from build1 data
 #define HAS_EXCLUDE				0x00400000		// concept/topic has keywords to exclude
 #define TABBED                  HAS_EXCLUDE     // table macro is tabbed
+#define BOTVAR					HAS_EXCLUDE		// variable is a bot var (not real user var)
 #define BUILD2					0x00800000		// comes from dynamic build layer data
 #define FUNCTION_NAME			0x01000000 	//   name of a ^function  (has non-zero ->x.codeIndex if system, else is user but can be patternmacro,outputmacro, or plan) only applicable to ^ words
 #define CONCEPT					0x02000000	// topic or concept has been read via a definition

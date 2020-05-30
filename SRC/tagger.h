@@ -73,8 +73,6 @@ extern uint64* dataBuf;
 extern char** commentsData;
 
 extern  char** comments;
-extern int itAssigned;
-extern int theyAssigned;
 extern WORDP originalLower[MAX_SENTENCE_LENGTH];
 extern WORDP originalUpper[MAX_SENTENCE_LENGTH];
 extern  WORDP canonicalLower[MAX_SENTENCE_LENGTH];

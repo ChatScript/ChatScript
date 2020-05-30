@@ -112,6 +112,35 @@ char* ReadShortCommandArg(char* ptr, char* buffer, FunctionResult& result, unsig
     return answer;
 }
 
+char* ReadFunctionCommandArg(char* ptr, char* buffer, FunctionResult& result, bool optional)
+{
+    char* at = ptr;
+    // pass over the ' in the parsing because it stops the text from being interpreted as an active string
+    if (*at == '\'') ++at;
+
+    char* answer = ReadShortCommandArg(at, buffer, result, OUTPUT_NOQUOTES);
+    if (result != NOPROBLEM_BIT) return answer;
+    
+    if (!stricmp(buffer, (char*)"null") && optional)
+    {
+        *buffer = 0;
+    }
+    else if (strlen(buffer) > 0)
+    {
+        WORDP D = FindWord(buffer, 0, LOWERCASE_LOOKUP);
+        if (!D || !(D->internalBits & FUNCTION_NAME))
+        {
+            result = FAILRULE_BIT;
+        }
+    }
+    else if (!optional)
+    {
+        result = FAILRULE_BIT;
+    }
+    
+    return answer;
+}
+
 static char* FixFormatOutput(char* output, unsigned int controls) // revises output in place
 {
     size_t len = strlen(output);

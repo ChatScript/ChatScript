@@ -37,6 +37,8 @@ Global
 		ReleaseMySQL|x64 = ReleaseMySQL|x64
 		ReleasePostgres|Win32 = ReleasePostgres|Win32
 		ReleasePostgres|x64 = ReleasePostgres|x64
+		releasetreemysql|Win32 = releasetreemysql|Win32
+		releasetreemysql|x64 = releasetreemysql|x64
 		releaseTreetagger|Win32 = releaseTreetagger|Win32
 		releaseTreetagger|x64 = releaseTreetagger|x64
 	EndGlobalSection
@@ -67,7 +69,7 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.minimal system|x64.ActiveCfg = minimal system|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.ActiveCfg = Release1|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|Win32.Build.0 = Release1|Win32
-		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|x64.ActiveCfg = Release1|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.Release|x64.ActiveCfg = Debug|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|Win32.ActiveCfg = ReleaseDLL|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|Win32.Build.0 = ReleaseDLL|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleaseDLL|x64.ActiveCfg = ReleaseDLL|Win32
@@ -80,6 +82,8 @@ Global
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|Win32.ActiveCfg = ReleasePostgres|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|Win32.Build.0 = ReleasePostgres|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.ReleasePostgres|x64.ActiveCfg = ReleasePostgres|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releasetreemysql|Win32.ActiveCfg = releasetreemysql|Win32
+		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releasetreemysql|x64.ActiveCfg = releasetreemysql|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.ActiveCfg = releaseTreetagger|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|Win32.Build.0 = releaseTreetagger|Win32
 		{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}.releaseTreetagger|x64.ActiveCfg = releaseTreetagger|Win32
@@ -131,6 +135,10 @@ Global
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.ReleasePostgres|Win32.Build.0 = releaseTreetagger|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.ReleasePostgres|x64.ActiveCfg = releaseTreetagger|x64
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.ReleasePostgres|x64.Build.0 = releaseTreetagger|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releasetreemysql|Win32.ActiveCfg = releasetreemysql|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releasetreemysql|Win32.Build.0 = releasetreemysql|Win32
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releasetreemysql|x64.ActiveCfg = releasetreemysql|x64
+		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releasetreemysql|x64.Build.0 = releasetreemysql|x64
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|Win32.ActiveCfg = releaseTreetagger|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|Win32.Build.0 = releaseTreetagger|Win32
 		{3D813E77-7B1A-4344-8F8C-C4E142C8D572}.releaseTreetagger|x64.ActiveCfg = releaseTreetagger|x64
@@ -183,6 +191,10 @@ Global
 		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.ReleasePostgres|Win32.Build.0 = Release|Win32
 		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.ReleasePostgres|x64.ActiveCfg = Release|x64
 		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.ReleasePostgres|x64.Build.0 = Release|x64
+		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releasetreemysql|Win32.ActiveCfg = releasetreemysql|Win32
+		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releasetreemysql|Win32.Build.0 = releasetreemysql|Win32
+		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releasetreemysql|x64.ActiveCfg = releasetreemysql|x64
+		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releasetreemysql|x64.Build.0 = releasetreemysql|x64
 		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releaseTreetagger|Win32.ActiveCfg = Release|Win32
 		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releaseTreetagger|Win32.Build.0 = Release|Win32
 		{716BDB2D-4DAF-4653-979E-DAD7493DE703}.releaseTreetagger|x64.ActiveCfg = Release|x64

@@ -400,6 +400,10 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
 #endif
 
         // strings
+		if (*ptr == '\'' && ptr[1] == '"')
+		{
+			*word++ = *ptr++;
+		}
         if (*ptr == '"' || (*ptr == '^' && ptr[1] == '"') || (*ptr == '^' && ptr[1] == '\'') || (*ptr == '\\' && ptr[1] == '"')) //   doublequote maybe with functional heading
         {
             // simple \"
@@ -3121,7 +3125,7 @@ x : = y(do assignment and do not fail)
                     {
                         int layer = 1;
                         if (buildId == BUILD0) layer = 0;
-                        else if (buildId == BUILD0) layer = 1;
+                        else if (buildId == BUILD1) layer = 1;
 						if (myBot && !livecall)
 						{
 #ifdef WIN32
@@ -3454,7 +3458,7 @@ x : = y(do assignment and do not fail)
         char filename[SMALL_WORD_SIZE];
         int layer = 1;
         if (buildId == BUILD0) layer = 0;
-        else if (buildId == BUILD0) layer = 1;
+        else if (buildId == BUILD1) layer = 1;
         sprintf(filename, (char*)"%s/BUILD%d/keywords%d.txt", topicname, layer, layer);
         FILE* out = FopenUTF8WriteAppend(filename);
         fprintf(out, "%s", conceptbase);
@@ -6748,8 +6752,8 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 
 	//   erase facts and dictionary to appropriate level
 	ClearUserVariables();
-	if (build == BUILD2) ReturnToAfterLayer(2, false); // layer 2 is boot layer before a user 2 layer. rip dictionary back to start of build (but props and systemflags can be wrong)
-	else if (build == BUILD1) ReturnToAfterLayer(0,true); // rip dictionary back to start of build (but props and systemflags can be wrong)
+	if (build == BUILD2) ReturnToAfterLayer(LAYER_BOOT, false); // layer 2 is boot layer before a user 2 layer. rip dictionary back to start of build (but props and systemflags can be wrong)
+	else if (build == BUILD1) ReturnToAfterLayer(LAYER_0,true); // rip dictionary back to start of build (but props and systemflags can be wrong)
 	else  ReturnDictionaryToWordNet();
 	
     WalkDictionary(ClearTopicConcept,build);				// remove concept/topic flags from prior defined by this build

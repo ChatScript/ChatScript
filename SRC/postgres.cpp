@@ -33,7 +33,7 @@ char const * pgdefault_userupdate = "UPDATE userfiles SET file = $1::bytea WHERE
 #pragma comment(lib, "../SRC/postgres/libpq.lib")
 #endif
 
-void PostgresShutDown() // script opened file
+void PostgresScriptShutDown() // script opened file
 {
 	if (conn)  PQfinish(conn);
 	conn = NULL;
@@ -53,7 +53,7 @@ FunctionResult DBCloseCode(char* buffer)
 		Log(STDUSERLOG,msg);
 		return FAILRULE_BIT;
 	}
-	PostgresShutDown();
+	PostgresScriptShutDown();
 	return (buffer == NULL) ? FAILRULE_BIT : NOPROBLEM_BIT; // special call requesting error return (not done in script)
 }
 
@@ -302,7 +302,7 @@ size_t pguserWrite(const void* buf,size_t size, size_t count, FILE* file)
 	return size * count;
 }
 
-void PGUserFilesCode()
+void PGInitUserFilesCode(char* postgresparams)
 {
 #ifdef WIN32
 	if (InitWinsock() == FAILRULE_BIT) ReportBug((char*)"FATAL: WSAStartup failed\r\n");
@@ -419,18 +419,8 @@ FunctionResult DBExecuteCode(char* buffer)
 	// adjust function reference name
 	char* function = fn;
 	if (*function == '\'') ++function; // skip over the ' 
-
-	unsigned int argflags = 0;
-	WORDP FN = (*function) ? FindWord(function) : NULL;
-	if (FN)
-	{
-		unsigned char* defn = GetDefinition(FN);
-		char junk[MAX_WORD_SIZE];
-		defn = (unsigned char*) ReadCompiledWord((char*)defn, junk); // skip over botid
-		int flags;
-		ReadInt((char*)defn, flags);
-		argflags = flags;
-	}
+	int argflags;
+	GetFnArgCount(function,argflags);
 
 	if (trace & TRACE_SQL && CheckTopicTrace()) Log(STDUSERLOG, "DBExecute command %s\r\n", query);
     res = PQexec(conn, query);
@@ -506,9 +496,9 @@ FunctionResult DBExecuteCode(char* buffer)
 			strcpy(at,(char*)")"); //  ending paren
 			if (trace & TRACE_SQL && CheckTopicTrace()) Log(STDUSERLOG, "DBExecute results %s\r\n", psBuffer);
 	
- 			if (stricmp(function,(char*)"null")) DoFunction(function,psBuffer,buffer,result); 
+ 			if (*function == '^') DoFunction(function,psBuffer,buffer,result); 
 			buffer += strlen(buffer);
-			if (result != 0) 
+			if (result != NOPROBLEM_BIT) 
 			{
 				if (result == UNDEFINED_FUNCTION) result = FAILRULE_BIT;
 				char msg[MAX_WORD_SIZE];

@@ -512,20 +512,26 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		}
 		else if (!strnicmp(val2, "ja-", 3)) // is it in array?
 		{
+            result = FAILRULE_BIT;
 			D = FindWord(val1);
-			if (!D) return FAILRULE_BIT;
-			MEANING M = MakeMeaning(D);
-
-			D = FindWord(val2);
-			if (!D) return FAILRULE_BIT;
-			
-			FACT* F = GetSubjectNondeadHead(D);
-			while (F)
-			{
-				if (F->object == M) return NOPROBLEM_BIT;
-				F = GetSubjectNondeadNext(F);
-			}
-			return FAILRULE_BIT;
+			if (D)
+            {
+                MEANING M = MakeMeaning(D);
+                D = FindWord(val2);
+                if (D)
+                {
+                    FACT* F = GetSubjectNondeadHead(D);
+                    while (F)
+                    {
+                        if (F->object == M)
+                        {
+                            result = NOPROBLEM_BIT;
+                            break;
+                        }
+                        F = GetSubjectNondeadNext(F);
+                    }
+                }
+            }
 		}
 		else // laborious.
 		{

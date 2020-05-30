@@ -46,9 +46,6 @@ unsigned char indirectObjectRef[MAX_SENTENCE_LENGTH];  // link from verb to any 
 unsigned char complementRef[MAX_SENTENCE_LENGTH ];  // link from verb to any 2ndary complement
 // also posValues
 
-int itAssigned = 0;
-int theyAssigned = 0;
-
 char* GetNounPhrase(int i,const char* avoid)
 {
 	static char buffer[MAX_WORD_SIZE];

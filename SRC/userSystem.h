@@ -29,6 +29,7 @@ extern int userFirstLine;
 extern bool stopUserWrite;
 extern uint64 setControl;
 extern unsigned int userFactCount;
+extern FACT* migratetop;
 
 // login data
 extern char computerID[ID_SIZE];

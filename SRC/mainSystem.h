@@ -26,10 +26,10 @@ typedef struct RESPONSE
 	char id[24];											// .100.30
 } RESPONSE;
 
-#define SENTENCE_LIMIT 50 // how many sentence from user do we accept
+#define SENTENCES_LIMIT 50 // how many sentence from user do we accept
 #define MAX_RESPONSE_SENTENCES 20
 #define MAX_SENTENCE_LENGTH 256 // room for +4 after content (keep a power of 4 for savesentence code)
-#define REAL_SENTENCE_LIMIT 252 // stay under char size boundary and leave excess room
+#define REAL_SENTENCE_WORD_LIMIT 252 // stay under char size boundary and leave excess room
 #define TIMEOUT_INSTANCE 1000000
 
 #define PENDING_RESTART -1	// perform chat returns this flag on turn
@@ -50,6 +50,7 @@ extern DEBUGVARAPI debugMark;
 extern int outputlevel;
 extern DEBUGAPI debugAction;
 extern int forkcount;
+extern bool debugcommand;
 extern char* outputCode[MAX_GLOBAL];
 extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
@@ -96,6 +97,7 @@ extern bool build1Requested;
 extern char traceuser[500];
 extern bool callback;
 extern char* inputCopy; 
+extern int sentenceLimit;
 extern char* realinput;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];

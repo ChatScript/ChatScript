@@ -18,8 +18,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 extern char mongodbparams[300];
 
 void MongoSystemInit(char* params);
-void MongoSystemRestart();
 void MongoShutdown();
+void MongoUserFilesClose();
 
 FunctionResult MongoInit(char* buffer);
 FunctionResult MongoClose(char* buffer);

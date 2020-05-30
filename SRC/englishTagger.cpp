@@ -1036,7 +1036,10 @@ static void PerformPosTag(int start, int end)
 	if (contigLower > maxContigLower) maxContigLower = contigLower;
 	// DO NOT FORCE STRICT CASING WHEN uppercase given
 
-	if (oobExists) noPosTagging = true; // no out-of-band parsetagging
+	char* bad = GetUserVariable("$$cs_badspell");
+	if (*bad) noPosTagging = true; // spelling says this user is a mess
+	else if (oobExists) noPosTagging = true; // no out-of-band parsetagging
+	else if (actualTokenCount == REAL_SENTENCE_WORD_LIMIT) noPosTagging = true; // presume truncation across boundary
 	else if (prepareMode == POS_MODE || tmpPrepareMode == POS_MODE || prepareMode == POSVERIFY_MODE){;} // told to try regardless
 	else if (tokenControl & DO_PARSE ) {;} // pos tag at a minimum
 	else noPosTagging = true; 
@@ -1287,6 +1290,19 @@ static void InitRoleSentence(int start, int end)
 
 void TagInit()
 {
+#ifndef DISCARDPARSER
+		roleIndex = 0;
+		prepBit = clauseBit = verbalBit = 1;
+		memset(tried, 0, sizeof(char) * (wordCount + 2));
+		memset(phrases, 0, sizeof(int) *(wordCount + 4));
+		memset(verbals, 0, sizeof(int) *(wordCount + 4));
+		memset(clauses, 0, sizeof(int) *(wordCount + 4));
+		memset(roles, 0, (wordCount + 4) * sizeof(uint64));
+		memset(parseFlags, 0, (wordCount + 2) * sizeof(int));
+		memset(indirectObjectRef, 0, sizeof(char) *(wordCount + 4)); // verb to indirect object
+		memset(objectRef, 0, sizeof(char) *(wordCount + 4)); // verb to object
+		memset(complementRef, 0, sizeof(char) *(wordCount + 4)); // verb to object complement
+#endif
 	// dynamic data
 	memset(bitCounts,0,sizeof(unsigned char)*(wordCount+2));
 	memset(posValues,0,sizeof(uint64)*(wordCount+2));
@@ -1311,22 +1327,9 @@ void TagInit()
     InitRoleSentence(1,wordCount);
 }
 
+
 void TagIt() // get the set of all possible tags. Parse if one can to reduce this set and determine word roles
 {
-#ifndef DISCARDPARSER
-	roleIndex = 0; 
-	prepBit = clauseBit = verbalBit = 1;
-	memset(tried,0,sizeof(char) * (wordCount + 2));
-	memset(phrases,0,sizeof(int) *(wordCount+4));
-	memset(verbals,0,sizeof(int) *(wordCount+4));
-	memset(clauses,0,sizeof(int) *(wordCount+4));
-	memset(roles,0,(wordCount+4) * sizeof(uint64));
-	memset(parseFlags,0,(wordCount+2) * sizeof(int));
-	memset(indirectObjectRef,0,sizeof(char) *(wordCount+4)); // verb to indirect object
-	memset(objectRef,0,sizeof(char) *(wordCount+4)); // verb to object
-	memset(complementRef,0,sizeof(char) *(wordCount+4)); // verb to object complement
-#endif
-
 	// AssignRoles manages:  posValues+bitCounts, roles+needRoles+rolelevel, crossreference  (can we remove coordinates or complementref or objectref or indorectobjecref?), phrasal_verb?
 	TagInit();
 	memset(ignoreWord,0,sizeof(unsigned char) * (wordCount+4));
@@ -8840,8 +8843,8 @@ static void StartImpliedClause( int i,bool & changed)
 			while (at < endSentence)
 			{
 				if (posValues[at] & (PRONOUN_SUBJECT|NORMAL_NOUN_BITS))
-				{ // BUG
-					if (posValues[at] & (PRONOUN_SUBJECT|NORMAL_NOUN_BITS)) break; // not "do you know what *game harry likes"
+				{ 
+					if (posValues[at] & (PRONOUN_SUBJECT|NORMAL_NOUN_BITS)) break; // BUG // not "do you know what *game harry likes"
 					if (allOriginalWordBits[at+1] & (QWORD|CONJUNCTION_SUBORDINATE)) break;
 					if (allOriginalWordBits[at+2] & (QWORD|CONJUNCTION_SUBORDINATE)) break;
 					if (allOriginalWordBits[at+3] & (QWORD|CONJUNCTION_SUBORDINATE)) break;

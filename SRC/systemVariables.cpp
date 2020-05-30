@@ -967,6 +967,17 @@ static char* Svoice(char* value)
 	return (tokenFlags & PASSIVE) ? (char*)"passive" : (char*)"active";
 }
 
+static char* SbadSpell(char* value)
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold, value);
+	if (*hold != '.') return hold;
+	int bad = badspellcount >> 16;
+	int size = badspellcount & 0x00ff;
+	sprintf(systemValue, (char*)"%d-%d", bad,size);
+	return systemValue;
+}
+
 ////////////////////////////////////////////////////
 /// OUTPUT VARIABLES
 ////////////////////////////////////////////////////
@@ -1083,7 +1094,7 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%day",SdayOfWeek,(char*)"Named day of the week"}, 
 	{ (char*)"%daynumber",SdayNumberOfWeek,(char*)"Numeric day of week (0=sunday)"},  
 	{ (char*)"%fulltime",SFullTime,(char*)"Numeric full time/date in seconds"}, 
-    { (char*)"%fullmstime",SFullTimeMS,(char*)"Numeric full time/date in milliseconds" },
+	{ (char*)"%fullmstime",SFullTimeMS,(char*)"Numeric full time/date in milliseconds" },
     { (char*)"%hour",Shour,(char*)"Numeric 2-digit current hour of day (00..23)"},
 	{ (char*)"%leapyear",SleapYear,(char*)"Boolean - is it a leap year"}, 
 	{ (char*)"%minute",Sminute,(char*)"Numeric 2-digit current minute"}, 
@@ -1161,6 +1172,7 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%userinput",SuserInput,(char*)"Boolean - is input coming from user"}, 
 	{ (char*)"%revisedInput",SrevisedInput,(char*)"Boolean - is input coming from ^input"}, 
 	{ (char*)"%voice",Svoice,(char*)"Voice of current input (active,passive)"}, 
+	{ (char*)"%badspell",SbadSpell,(char*)"How many bad spellings were handled" },
 
 	{ (char*)"\r\n---- Output variables",0,(char*)""},
 	{ (char*)"%inputrejoinder",SinputRejoinder,(char*)"if pending input rejoinder, this is the tag of it else null"},

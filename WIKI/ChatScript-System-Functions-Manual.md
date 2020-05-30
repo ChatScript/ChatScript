@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/2/2020 cs10.3
+<br>Revision 5/30/2020 cs10.4
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -13,6 +13,7 @@ Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
 * [Word Manipulation Functions](ChatScript-System-Functions-Manual.md#word-manipulation-functions)
 * [Multipurpose Functions](ChatScript-System-Functions-Manual.md#multipurpose-functions)
 * [Facts Functions](ChatScript-System-Functions-Manual.md#fact-functions)
+* [Misc Functions](ChatScript-System-Functions-Manual.md#Misc-functions)
 
 System functions are predefined and can be intermixed with direct output. Generally
 they are used from the output side of a rule, but in many cases nothing prevents you from
@@ -746,7 +747,6 @@ month. Date-of-month must be 1 or more. Year must be on or  1970 and less than 2
 Optional 7th argument indicates whether time is within daylight savings or not , values can 
 be 1 or 0, t or f, T or F. Default is false.
 	
-
 
 ### `^isnumber ( value )`
 
@@ -1913,9 +1913,9 @@ normally pattern match on), this returns the range of where the words came from 
 return is a range whose start is shifted 8 bits left and ORed with the end position.
 
 
-### `^properties ( word )`
+### `^properties ( word {NOT_NEW})`
 
-Returns the 64bit properties of a word or fail-rule if the word is not
+Returns the 64bit properties of a word. An optional NOT_NEW 2nd argument will fail-rule if the word is not
 already in the dictionary.
 
 
@@ -2269,7 +2269,6 @@ as either the original word  or as a  canonical word (as a match variable sees i
 
 `^wordAtIndex ( original "_0")` gathers a range from that which _0 represents (but uses the
 original data so it is not like merely saying _0, which may not have real data if you did an arbitrary assignment to it setting its position). 
-
 
 
 # Multipurpose Functions
@@ -2898,3 +2897,8 @@ statement like:
 ^changebot(botname botid) allows a bot to pretend to be another bot and access its data,
 functions, and topics.  Variables are not affected by this. The user topic file will remain
 as the user came into the server.
+
+# MISC FUNCTIONS
+
+## ^ReportBug(message)
+This dumps the message into the LOGS/bugs.txt file.

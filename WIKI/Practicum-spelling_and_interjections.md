@@ -1,6 +1,6 @@
 # ChatScript Practicum: Spelling and Interjections
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2020 cs10.2
+<br>Revision 5/30/2020 cs10.4
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.
 
@@ -125,7 +125,7 @@ like_what> for+example -- convert only at end of sentence
 <you_have_to you+must -- convert only at start of sentence
 ```
 
-### Script substitutions
+### Script substitutions  replace:
 Substitutions can be done from script as well, just by putting them after a
 `replace:` top level script item.
 I do this a lot to smooth out inputs. I look up a standard way a word

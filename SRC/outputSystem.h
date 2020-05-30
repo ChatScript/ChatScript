@@ -44,6 +44,7 @@ void StdNumber(char* word,char*& output,int controls);
 bool SafeCopy(char* output, char* word, bool space = false);
 char* GetCommandArg(char* ptr, char* buffer,FunctionResult& result,unsigned int control);
 char* ReadShortCommandArg(char* ptr, char* buffer,FunctionResult& result,unsigned int control = 0);
+char* ReadFunctionCommandArg(char* ptr, char* buffer, FunctionResult& result, bool optional = false);
 char* Output(char* ptr,char* buffer,FunctionResult &result,int controls = 0);
 char* FreshOutput(char* ptr,char* buffer,FunctionResult &result,int controls = 0,unsigned limit = maxBufferSize);
 

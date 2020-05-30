@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2020 cs10.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/30/2020 cs10.4</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1530,8 +1530,12 @@ canon: faster fast</code></pre>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
 </tr>
 <tr class="odd">
-<td>`$cs_tracetestoutput</td>
-<td>set to 1 to force tracing in ^testoutput</td>
+<td><code>$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput| |</code>$cs_sentences_limit</td>
+<td>after this many sentences in volley, cs ignores the rest (default 50)</td>
+</tr>
+<tr class="even">
+<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime`</td>
+<td>After volley prints to terminal milliseconds of time used</td>
 </tr>
 </tbody>
 </table>

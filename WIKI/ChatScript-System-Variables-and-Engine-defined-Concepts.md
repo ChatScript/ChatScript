@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/2/2020 cs10.3
+<br>Revision 5/30/2020 cs10.4
 
 
 
@@ -625,6 +625,11 @@ contents.
 | `$cs_tracepattern`    | Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
 | `$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
 | `$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput|
+| `$cs_sentences_limit  | after this many sentences in volley, cs ignores the rest (default 50) |
+| `$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt |
+| `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
+| `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
+
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON

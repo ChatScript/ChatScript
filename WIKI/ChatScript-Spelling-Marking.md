@@ -1,6 +1,6 @@
 ﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/2/2020 cs10.3
+<br>Revision 5/30/2020 cs10.4
 
 
 # Spelling
@@ -58,12 +58,60 @@ Yet another form of input is ontology marking. Every word will have associated w
 ChatScript is never going to make perfect spelling decisions all the time, nor will it be able to perfectly distinguish ontology markings. If someone writes "u" should that mean "you" or is that just a letter. Should it be changed or left alone? Or
 the phrase "lie to me" might refer to a TV show or might just be ordinary words. It requires context to make that decision, context that the CS engine doesnt have but that your scripts can.
 
-So ChatScript provides you with mechanisms to guide or fix decisions the engine makes. The first fixes are just lists of adjustments to automatically make (data from LIVEDATA/ENGLISH/SUBSTITUTES. Each line has what to see on the left, and what to convert it to on the right. You can put in common spelling errors and their correction, british words and their american spelling, etc. There are lots there already. You enable their use by the value of $CS_TOKEN, which by default has #DO_SUBSTITUTE_SYSTEM (do all files) but which can be broken down to enable and disable specific files.  Furthermore in your scripts you can define new substitutions using `replace:` (but you have to enable #DO_PRIVATE in $CS_TOKEN).
+So ChatScript provides you with mechanisms to guide or fix decisions the engine makes. 
+The first fixes are just lists of adjustments to automatically make (data from LIVEDATA/ENGLISH/SUBSTITUTES. Each line has what to see on the left, and what to convert it to on the right. You can put in common spelling errors and their correction, british words and their american spelling, etc. There are lots there already. You enable their use by the value of $CS_TOKEN, which by default has #DO_SUBSTITUTE_SYSTEM (do all files) but which can be broken down to enable and disable specific files.  
+Furthermore in your scripts you can define new substitutions using `replace:` (but you have to enable #DO_PRIVATE in $CS_TOKEN).
+
+## replace:
+
+Just like the LIVEDATA substitutions files, `replace:` takes a pair of things, the first is what you expect to find in user input and
+the second is what to replace it with.  In that first thing, you can detect multiple words (a phrase) in any of 3 ways:
+```
+replace: "my little pony" xx
+replace: my+little+pony xx
+replace: my_little_pony xx
+```
+Internally, all three represent like the third (using underscores). The advantage of using double quotes is
+a) documentation clarity to show it's a standard recognizable phrase and not just 3 words and b) when your stuff
+has internal punctuation. You don't know how the tokenizer is going to represent that (usually by separating punctuation 
+into separate tokens with underscores). If use use doublequotes, CS will figure out out correctly for you.
+
+In the second token, if you use double quotes or +, they list separate words.
+```
+replace: box my+boy
+replace: box "my boy"
+```
+The above replaces 1 word with 2.  If you use underscores, they remain a single word so That
+```
+replace: box my_boy
+```
+replaces 1 word with 1.  If you want to replace literally 1 for 1 with some complex 2nd value (like one that needs + or space in it)
+when quote a double quoted string.
+```
+replace: box `"this+box is fun"
+```
 
 And even after the sentence is transformed, you can use `^mark` and `^unmark` to mark concepts and words or to turn off marking on them, so you can use context to decide if "lie to me" is a tv show or not, or if you hate 'good_day' being considered ~emogoodbye you can do something like this:
 ```
 u: (_~emogoodbye) if (^original(_0) == good_day) { ^unmark(~emogoodbye _0)}
 ```
+### Numeric Substitutions   replace:  ?_xxx xxxx
+
+?_ on the left takes numbers that have
+been conjoined with words, and separates them. Input like
+"I weigh 5kg." is hard to handle via substitition since there are infinite
+number of numbers. But it's common to see stuff like that from users.
+```
+replace: ?_g gram        -- this merely separates 
+replace: ?_kg kilogram -- this separates into full unit name
+replace: ?_kg kilo gram -- this separates into multiword replacement
+```
+When using full unit name subsitution, you need to be careful that your bot
+has only 1 expected meaning. "about 1g" -- is that 1 gram or 1 gravity? Also it's a 
+good idea to expand to singular forms as that, being canonical, will match more of your patterns.
+
+The ?_xxx notation also works when the unit measure is not attached to the number.
+Using the first replace above, the input "7 g" will be transformed to "7 gram".
 
 # Emoji
 Emojis are a form of spelling correction. You can replace appropriate utf8 emoji words

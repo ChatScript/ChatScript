@@ -1,3 +1,26 @@
+# Version 10.4 5/30/2020
+1. MySQL now supported both as filesystem and for script access.  BINARIES now has ChatscriptMysql.exe
+	See Esoteric-ChatScript/ChatScript-mysql manual.
+	 ^mysqlinit, ^mysqlclose, ^mysqlquery   and command line parameter mysql= 
+2. !-word !!-word  supported for backwords not
+3. $$cs_badspell is set if NLP partially shut down after too many spelling mistakes (if you set $cs_badspellLimit )
+4. ~replace_spelling instead of ~replace~ in ^testpattern call.
+5. $cs_showtime if set will print to terminal time taken for volley
+6: $cs_summary - shows ms spend in preparation vs rule process vs cleanup in current volley (to terminal)
+7. %badspell - how many severe bad spellings happened in what size current sentence   "15-40" means 15 in 40 word sentence.
+8. :timelog shows size of largest message as well
+9. replace: ?_da  now also changes units even when no separation is needed because word follows number
+	e.g. replace: ?_km kilometer   will change  both 50km and 50 km to 50 kilometer
+10. ^reportbug(text) puts text into LOGS/bugs.txt (std bug log) thus allowing scripts to message bugs
+	in addition to the engine's messaging.
+11. $cs_outputlimit if set will generate a bug message if cs wants to output messaging larger than that
+	When recording cs output into a db, a field might be limited to 4K bytes and fail if message is bigger.
+	This will record the attempt as a bug so you can find out why your script did that.
+12. $cs_sentences_limit, if set, will cause CS to not process remaining sentences above that limit in
+	a volley. Internal default was 50. Presumed that any user saying that much will not be well 
+	handled by bot and not worth investment of further time by bot.
+13. upgrades to engine manual documentation 
+
 # Version 10.3 5/2/2020
 1. :timelog now reports both engine NLU time and separately q wait time to get to engine (Linux)
 2.  canon: x y now supports 3rd argument MORE_FORM or MOST_FORM for marking adjectives and adverbs

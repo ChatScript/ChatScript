@@ -206,15 +206,21 @@ FunctionResult RunJavaScript(char* definition, char* buffer, unsigned int args)
 void DeletePermanentJavaScript()
 {
 #ifndef DISCARDJAVASCRIPT
-	duk_destroy_heap(ctxPermanent);
-	ctxPermanent = NULL;
+	if (ctxPermanent)
+	{
+		duk_destroy_heap(ctxPermanent);
+		ctxPermanent = NULL;
+	}
 #endif
 }
 
 void DeleteTransientJavaScript()
 {
 #ifndef DISCARDJAVASCRIPT
-	duk_destroy_heap(ctxTransient);
-	ctxTransient = NULL;
+	if (ctxTransient)
+	{
+		duk_destroy_heap(ctxTransient);
+		ctxTransient = NULL;
+	}
 #endif
 }

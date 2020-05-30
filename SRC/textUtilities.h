@@ -154,7 +154,7 @@ bool IsArithmeticOp(char* word);
 unsigned IsNumber(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool placeAllowed = true); // returns kind of number
 bool IsPlaceNumber(char* word, int useNumberStyle = AMERICAN_NUMBERS);
 bool IsFractionNumber(char* word);
-bool IsDigitWord(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool comma = false);
+bool IsDigitWord(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool comma = false, bool checkAll = false);
 bool IsDigitWithNumberSuffix(char* number,int useNumberStyle = AMERICAN_NUMBERS);
 bool IsMail(char* word);
 bool IsUrl(char* word, char* end);

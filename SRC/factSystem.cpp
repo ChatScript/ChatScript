@@ -268,6 +268,7 @@ void TraceFact(FACT* F,bool ignoreDead)
 
 void ClearUserFacts()
 {
+	for (int i = 0; i <= MAX_FIND_SETS; ++i) SET_FACTSET_COUNT(i, 0);
 	while (factFree > factLocked)  FreeFact(factFree--); //   erase new facts
 }
 

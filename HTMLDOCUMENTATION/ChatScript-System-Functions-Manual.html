@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2020 cs10.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/30/2020 cs10.4</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -22,6 +22,7 @@
 <li><a href="ChatScript-System-Functions-Manual.html#word-manipulation-functions">Word Manipulation Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#multipurpose-functions">Multipurpose Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#fact-functions">Facts Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#Misc-functions">Misc Functions</a></li>
 </ul>
 <p>System functions are predefined and can be intermixed with direct output. Generally they are used from the output side of a rule, but in many cases nothing prevents you from invoking them from inside a pattern. When used in a pattern, they do not write out any text output to the user. But their output will be tested the same as it would from an <code>if</code> statement, meaning 0 and false are failures.</p>
 <p>You can write them with or without a <code>^</code> in front of their name in output. With is clearer, but you don’t have to. The only times you must is if the first thing you want to do in a gambit is call a function (unlikely) or you are in a pattern.</p>
@@ -1007,8 +1008,8 @@ u: (%document)
 <p>Given the starting and ending word positions of an original input (what CS had after tokenization but before adjustments), this returns the range of where the words arose in the actual input. The return is a range whose start is shifted 8 bits left and ORed with the end position.</p>
 <h3 id="originalinputrange-start-end"><code>^originalinputrange ( start end )</code></h3>
 <p>Given the starting and ending word positions of an actual input (what CS sees after adjustments and what you normally pattern match on), this returns the range of where the words came from in the original input. The return is a range whose start is shifted 8 bits left and ORed with the end position.</p>
-<h3 id="properties-word"><code>^properties ( word )</code></h3>
-<p>Returns the 64bit properties of a word or fail-rule if the word is not already in the dictionary.</p>
+<h3 id="properties-word-not_new"><code>^properties ( word {NOT_NEW})</code></h3>
+<p>Returns the 64bit properties of a word. An optional NOT_NEW 2nd argument will fail-rule if the word is not already in the dictionary.</p>
 <h3 id="pos-part-of-speech-word-supplemental-data"><code>^pos( part-of-speech word supplemental-data )</code></h3>
 <p>Generates a particular form of a word in any form and puts it in the output stream. If it cannot generate the request, it issues a RULE failure. Most combinations of arguments are obvious. Here are the 1st &amp; 3rd choices. For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to use.</p>
 <table>
@@ -1609,5 +1610,8 @@ concept: ~canine (dog)</code></pre>
 <pre><code>@1 = ^unpackfactref(@0)</code></pre>
 <h3 id="changebotbotname-botid">^changebot(botname botid)</h3>
 <p>^changebot(botname botid) allows a bot to pretend to be another bot and access its data, functions, and topics. Variables are not affected by this. The user topic file will remain as the user came into the server.</p>
+<h1 id="misc-functions">MISC FUNCTIONS</h1>
+<h2 id="reportbugmessage">^ReportBug(message)</h2>
+<p>This dumps the message into the LOGS/bugs.txt file.</p>
 </body>
 </html>

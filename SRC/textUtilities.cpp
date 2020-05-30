@@ -1117,7 +1117,7 @@ char* IsSymbolCurrency(char* ptr)
 {
 	if (!*ptr) return NULL;
 	char* end = ptr;
-	while (*++end && !IsDigit(*end)); // locate nominal end of text
+	while (*++end && !IsDigit(*end) && !IsSign(*end)); // locate nominal end of text
 
 	if (*ptr == 0xe2 && ptr[1] == 0x82 && ptr[2] == 0xac) return end;// euro is prefix
 	else if (*ptr == 0xC2 && ptr[1] == 0xA2) return end; // cent sign
@@ -1207,7 +1207,7 @@ bool IsInteger(char* ptr, bool comma, int useNumberStyle)
 	return foundDigit;
 }
 
-bool IsDigitWord(char* ptr,int useNumberStyle,bool comma) // digitized number
+bool IsDigitWord(char* ptr,int useNumberStyle,bool comma, bool checkAll) // digitized number
 {
 	if (!*ptr) return false;
 	char* end = ptr + strlen(ptr);
@@ -1233,6 +1233,7 @@ bool IsDigitWord(char* ptr,int useNumberStyle,bool comma) // digitized number
 		else return false;		//   1800s is done by substitute, so fail this
 		++ptr;
     }
+    if (checkAll && ptr != end) return false;
     return foundDigit;
 }  
 
@@ -2038,11 +2039,13 @@ bool AdjustUTF8(char* start,char* buffer)
 					buffer[1] = '"';
 					memmove(buffer + 2, buffer + 6, strlen(buffer + 5));
 					++buffer;
+					withinquote = false;
 				}
 				else  
 				{
 					*buffer = '"';
 					memmove(buffer + 1, buffer + 6, strlen(buffer + 5));
+					withinquote = true;
 				}
 			}
 		}
@@ -2106,7 +2109,7 @@ bool AdjustUTF8(char* start,char* buffer)
 					}
 					else
 					{
-						*buffer = '\'';
+						*buffer = '"';
 						memmove(buffer + 1, x, strlen(x) + 1);
 					}
 					if (compiling) WARNSCRIPT("UTF8 opening double quote revised to Ascii %s | %s", start, buffer);
@@ -2141,7 +2144,7 @@ bool AdjustUTF8(char* start,char* buffer)
 				else if (buffer[0] == 0xe2 && buffer[1] == 0x80 && buffer[2] == 0x94 && !(tokenControl & NO_FIX_UTF) )  // mdash
 				{
 					if (!compiling) *buffer = '-';
-					if (compiling) WARNSCRIPT("UTF8 mdash seen  %s | %s", start, buffer);
+					else WARNSCRIPT("UTF8 mdash seen  %s | %s", start, buffer);
 				}
 				else if (buffer[0] == 0xe2 && buffer[1] == 0x80 && (buffer[2] == 0x94 || buffer[2] == 0x93) && !(tokenControl & NO_FIX_UTF) )  // mdash
 				{
@@ -2150,7 +2153,7 @@ bool AdjustUTF8(char* start,char* buffer)
 						*buffer = '-';
 						memmove(buffer + 1, x, strlen(x) + 1);
 					}
-					if (compiling) WARNSCRIPT("UTF8 mdash seen  %s | %s", start, buffer);
+					else WARNSCRIPT("UTF8 mdash seen  %s | %s", start, buffer);
 				}
 				buffer = x - 1; // valid utf8
 			}
@@ -2535,13 +2538,12 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash,bool noblank,int limit)
 
 	while ((c = *++ptr) && c != ender && --n) 
     {
-		if (c == '\\' && ptr[1] == ender) // if c is \", means internal quoted expression.
+		if (c == '\\') // handle any escaped character
 		{
 			*buffer++ = '\\';	// preserver internal marking - must stay with string til last possible moment.
 			*buffer++ = *++ptr;
 		}
         else *buffer++ = c; 
-		if (c == '\\') *buffer++ = *++ptr; // handle any escaped character
 		if ((buffer - original) > limit)  // overflowing
 		{
 			c = 0;
@@ -2746,6 +2748,13 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 		*word = 0;
 		priorchar = 0;
 		ender = jsonactivestring = c; // this is the opener marker
+	}
+	else if (*ptr == '\'' && ptr[1] == '"') // quoted simple string
+	{
+		*word++ = *ptr++;  // transfer '  starter
+		*word++ = *ptr++;  // transfer " string starter
+		*word = 0;
+		ender = '"';
 	}
 	else if (*ptr == '"') // simple string
 	{

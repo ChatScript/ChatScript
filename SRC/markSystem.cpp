@@ -1216,7 +1216,7 @@ static void MarkFundamentalMeaning()
     }
 }
 
-void MarkAllImpliedWords()
+void MarkAllImpliedWords(bool limitnlp)
 {
 	int i;
 	pendingConceptList = NULL;
@@ -1228,7 +1228,12 @@ void MarkAllImpliedWords()
 	{
 		return;
 	}
-	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(STDUSERLOG, (char*)"\r\nConcepts: \r\n");
+	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
+	{
+		char* bad = GetUserVariable("$$cs_badspell"); // spelling says this user is a mess
+		if (*bad) Log(STDUSERLOG, (char*)"\r\nNLP Suppressed by spellcheck.\r\n");
+		else Log(STDUSERLOG, (char*)"\r\nConcepts: \r\n");
+	}
 	if (showMark)  Log(ECHOSTDUSERLOG, (char*)"----------------\r\n");
 	markLength = 0;
 
@@ -1616,10 +1621,10 @@ void MarkAllImpliedWords()
 
 	//   handle phrases now
 	markLength = 0;
-	SetSequenceStamp(); //   sequences of words
+	if (!limitnlp) SetSequenceStamp(); //   sequences of words
 	ProcessPendingConcepts();
 
-	if (hasFundamentalMeanings) MarkFundamentalMeaning();
+	if (hasFundamentalMeanings && !limitnlp) MarkFundamentalMeaning();
 
 	ExecuteConceptPatterns(); // now use concept patterns
 }

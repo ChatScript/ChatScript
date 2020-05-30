@@ -263,7 +263,7 @@ static void C_AutoReply(char* input)
 {
 	regression = 1;
 	strcpy(oktest,input);
-	if (!*oktest)  regression =  false;
+	if (!*oktest)  regression =  0;
 	if (*oktest) Log(STDUSERLOG,(char*)"Auto input set to %s\r\n",oktest);
 }  
 
@@ -4317,8 +4317,8 @@ static void C_Build(char* input)
 #ifndef DISCARDSCRIPTCOMPILER
 	int64 oldbotid = myBot;
 	echo = true;
-    bool olduserlog = userLog;
-    userLog = true;
+    int olduserlog = userLog;
+    userLog = LOGGING_SET;
 	myBot = 0;	// default
 	mystart(input);
     kernelVariableThreadList = botVariableThreadList = NULL;
@@ -5295,7 +5295,7 @@ static void C_TimeLog(char* input)
         (*printer)("no such file");
         return;
     }
-
+	int msgsize[64];
     int count[64];
     int time[64];
     int min[64];
@@ -5304,10 +5304,11 @@ static void C_TimeLog(char* input)
 	int time1[64];
 	int min1[64];
 	int max1[64];
+	memset(msgsize, 0, sizeof(msgsize));
 	memset(count, 0, sizeof(count));
 	memset(time, 0, sizeof(time));
 	memset(max, 0, sizeof(max));
-	memset(count1, 0, sizeof(count));
+	memset(count1, 0, sizeof(count1));
 	memset(time1, 0, sizeof(time));
 	memset(max1, 0, sizeof(max));
 	for (int i = 0; i < 64; ++i) min1[i]  = min[i] = 100000;
@@ -5316,12 +5317,23 @@ static void C_TimeLog(char* input)
 
     while (ReadALine(readBuffer, in) >= 0)
     {
+		if (!strnicmp(readBuffer, "Start:", 6)) continue;
 		char botname[1000];
 		char* botptr = strstr(readBuffer, "bot:");
 		int botbit = 0;
+
+		char* sizeinfo = strstr(readBuffer, "size=");
+		if (sizeinfo) // bot name in server pre
+		{
+			char* bn = strchr(readBuffer, '(');
+			char* end = strchr(bn, ')');
+			*end = 0;
+			botptr = bn + 1 - 4;
+		}
 		if (botptr)
 		{
 			ReadCompiledWord(botptr + 4, botname);
+			if (strstr(botname,"[ping]")) continue;  
 			int i;
 			for (i = 0; i < 64; ++i)
 			{
@@ -5338,6 +5350,12 @@ static void C_TimeLog(char* input)
 				}
 			}
 		}
+		if (sizeinfo)
+		{
+			int size = atoi(sizeinfo + 5);
+			if (size > msgsize[botbit]) msgsize[botbit] = size;
+		}
+
 		// When:May02 08:51:09 8ms 0 Why:~xpostprocess.7.0=OOBRESULT 
         char* timeinfo = strstr(readBuffer, "When:");
         if (timeinfo)
@@ -5366,13 +5384,19 @@ static void C_TimeLog(char* input)
         }
     }
     fclose(in);
+
+	int totallines = 0;
+	int maxtime = 0;
 	for (int i = 0; i < 64; ++i)
 	{
 		if (!bot[i][0]) break; 
 		int avg = time[i] / count[i];
 		int avg1 = time1[i] / count[i];
-		Log(STDUSERLOG, "%s Lines %d   minMs %d  maxMs %d avgMs %d  Stall minMs %d maxMs %d avgMs %d\r\n",bot[i], count[i], min[i], max[i], avg, min1[i], max1[i], avg1);
+		totallines += count[i];
+		if (max[i] > maxtime) maxtime = max[i];
+		Log(STDUSERLOG, "%s MaxMsgBytes %d  Lines %d   minMs %d  maxMs %d avgMs %d  Stall minMs %d maxMs %d avgMs %d\r\n", bot[i], msgsize[i], count[i], min[i], max[i], avg, min1[i], max1[i], avg1);
 	}
+	Log(STDUSERLOG, "Total lines: %d   Maxms: %d\r\n", totallines, maxtime);
 }
 
 static void C_VerifySentence(char* input)
@@ -5980,6 +6004,7 @@ TestMode Command(char* input,char* output,bool scripted)
 	}
 	if (routine->word) 
 	{
+		debugcommand = true;
 		CommandInfo* info;
 		info = &commandSet[i];
 		input = SkipWhitespace(input+strlen(info->word));
@@ -6202,7 +6227,6 @@ static void C_Ingestlog(char* input)
     FILE* in = FopenReadOnly(input);
     int n = 0;
     char word[MAX_WORD_SIZE];
-    char user[MAX_WORD_SIZE];
     char bot[MAX_WORD_SIZE]; 
     char* message;
     uint64 starttime = ElapsedMilliseconds();
@@ -6270,7 +6294,7 @@ Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert)
             message = oob;
             *output = 0;
         }
-		else if (!stricmp(word, "serverpre:"))
+		else if (!stricmp(word, "serverpre:") && oob)
 		{
 			message = oob;
 			*output = 0;
@@ -6288,13 +6312,12 @@ Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert)
 	free(incopy);
 	bufferIndex  = oldIndex; //because performchat clears buffers down to raw base
 
-    uint64 endtime = ElapsedMilliseconds();
-    long diff = (long) ( endtime - starttime);
-    long msPerMessage = diff / n; 
-    diff %= 1000;
-	Log(STDUSERLOG,"Did %d messages in %ld seconds or %d ms per message", n, diff, msPerMessage);
-	C_MemStats(input); // before
-	printf("Did %d messages in %ld seconds or %d ms per message", n,diff, msPerMessage);
+	uint64 endtime = ElapsedMilliseconds();
+	int diff = (int)(endtime - starttime);
+	int msPerMessage = diff / n;
+	Log(STDUSERLOG, "Did %d messages in %d mseconds or %d ms per message", n, diff, msPerMessage);
+	C_MemStats(input); // after
+	printf("Did %d messages in %d mseconds or %d ms per message", n, diff, msPerMessage);
 }
 
 static void C_AllMembers(char* input)
@@ -6405,11 +6428,10 @@ char* FindVar(char* ptr, FILE* out, int use)
         if (end[1] == '=')
         {
             if (*end == ':' || *end == '=' || *end == '<' || *end == '>' || *end == '&' ||
-                *end == '&' || *end == '*' || *end == '+' || *end == '-' || *end == '/' ||
+                *end == '*' || *end == '+' || *end == '-' || *end == '/' ||
                 *end == ' ' || end[2] == ' ') fprintf(out, "%s +\r\n", name);
         }
-        else if (end[1] != '=' && end[2] == '=') fprintf(out, "%s +\r\n", name);
-        else if (end[2] == '=' && end[1] != '=') fprintf(out, "%s +\r\n", name);
+        else if (end[2] == '=') fprintf(out, "%s +\r\n", name);
         else fprintf(out, "%s\r\n", name);
     }
 
@@ -7479,8 +7501,8 @@ static void C_Show(char* input)
 	input = ReadCompiledWord(input,word);
 	char value[MAX_WORD_SIZE];
 	*value = 0;
-	bool set = atoi(value) ? true : false;
 	if (*input) ReadCompiledWord(input,value);
+    bool set = atoi(value) ? true : false;
 	if (!stricmp(word,(char*)"all"))
 	{
 		if (*value) all = set;
@@ -7596,9 +7618,9 @@ static void TimingTopicFunction(WORDP D, uint64 data)
 
 static void ShowTrace(unsigned int bits, bool original)
 {
-	unsigned int general = (TRACE_VARIABLE|TRACE_MATCH|TRACE_FLOW|TRACE_ECHO);
-	unsigned int mild = (TRACE_OUTPUT| TRACE_INPUT | TRACE_PREPARE|TRACE_PATTERN);
-	unsigned int deep = (TRACE_ALWAYS|TRACE_JSON|TRACE_TOPIC|TRACE_FACT|TRACE_SAMPLE|TRACE_INFER|TRACE_HIERARCHY|TRACE_SUBSTITUTE|TRACE_VARIABLESET|TRACE_QUERY|TRACE_USER|TRACE_USERFACT| TRACE_TREETAGGER | TRACE_POS| TRACE_TCP|TRACE_USERFN|TRACE_USERCACHE|TRACE_SQL|TRACE_LABEL);
+	unsigned int general = (TRACE_VARIABLE | TRACE_MATCH | TRACE_FLOW | TRACE_ECHO);
+	unsigned int mild = (TRACE_OUTPUT | TRACE_INPUT | TRACE_PREPARE | TRACE_PATTERN);
+	unsigned int deep = (TRACE_SPELLING|TRACE_ALWAYS | TRACE_JSON | TRACE_TOPIC | TRACE_FACT | TRACE_SAMPLE | TRACE_INFER | TRACE_HIERARCHY | TRACE_SUBSTITUTE | TRACE_VARIABLESET | TRACE_QUERY | TRACE_USER | TRACE_USERFACT | TRACE_TREETAGGER | TRACE_POS | TRACE_TCP | TRACE_USERFN | TRACE_USERCACHE | TRACE_SQL | TRACE_LABEL);
 
 	// general
 	if (bits & general) 
@@ -7641,6 +7663,7 @@ static void ShowTrace(unsigned int bits, bool original)
 		if (bits & TRACE_SQL) Log(ECHOSTDUSERLOG,(char*)"sql ");
 		if (bits & TRACE_SUBSTITUTE) Log(ECHOSTDUSERLOG,(char*)"substitute ");
 		if (bits & TRACE_TCP) Log(ECHOSTDUSERLOG,(char*)"tcp ");
+		if (bits & TRACE_SPELLING) Log(ECHOSTDUSERLOG, (char*)"spell ");
 		if (bits & TRACE_TOPIC) Log(ECHOSTDUSERLOG,(char*)"topic ");
 		if (bits & TRACE_USER) Log(ECHOSTDUSERLOG,(char*)"user ");
 		if (bits & TRACE_USERFACT) Log(ECHOSTDUSERLOG,(char*)"userfact ");
@@ -7707,7 +7730,7 @@ static void ShowTiming(unsigned int bits, bool original)
 {
 	unsigned int general = TRACE_FLOW;
 	unsigned int mild = (TRACE_INPUT|TRACE_PREPARE | TRACE_PATTERN);
-	unsigned int deep = (TRACE_ALWAYS | TRACE_JSON | TRACE_TOPIC | TRACE_QUERY | TRACE_USER | TRACE_USERFACT| TRACE_TREETAGGER | TRACE_TCP | TRACE_USERFN | TRACE_USERCACHE | TRACE_SQL);
+	unsigned int deep = (TRACE_ALWAYS | TRACE_JSON | TRACE_TOPIC | TRACE_QUERY | TRACE_USER | TRACE_USERFACT| TRACE_TREETAGGER | TRACE_TCP | TRACE_USERFN | TRACE_USERCACHE | TRACE_SQL | TRACE_SPELLING);
 
 	// general
 	if (bits & general)
@@ -7739,6 +7762,7 @@ static void ShowTiming(unsigned int bits, bool original)
 		if (bits & TRACE_QUERY) Log(ECHOSTDUSERLOG, (char*)"query ");
 		if (bits & TRACE_SQL) Log(ECHOSTDUSERLOG, (char*)"sql ");
 		if (bits & TRACE_TCP) Log(ECHOSTDUSERLOG, (char*)"tcp ");
+		if (bits & TRACE_SPELLING) Log(ECHOSTDUSERLOG, (char*)"spell ");
 		if (bits & TRACE_TOPIC) Log(ECHOSTDUSERLOG, (char*)"topic ");
 		if (bits & TRACE_USER) Log(ECHOSTDUSERLOG, (char*)"user ");
 		if (bits & TRACE_USERFACT) Log(ECHOSTDUSERLOG, (char*)"userfact ");
@@ -7778,6 +7802,7 @@ static void ShowTiming(unsigned int bits, bool original)
 		if (!(bits & TRACE_QUERY)) Log(ECHOSTDUSERLOG, (char*)"query ");
 		if (!(bits & TRACE_SQL)) Log(ECHOSTDUSERLOG, (char*)"sql ");
 		if (!(bits & TRACE_TCP)) Log(ECHOSTDUSERLOG, (char*)"tcp ");
+		if (!(bits & TRACE_SPELLING)) Log(ECHOSTDUSERLOG, (char*)"spell ");
 		if (!(bits & TRACE_TOPIC)) Log(ECHOSTDUSERLOG, (char*)"topic ");
 		if (!(bits & TRACE_USER)) Log(ECHOSTDUSERLOG, (char*)"user ");
 		if (!(bits & TRACE_USERFACT)) Log(ECHOSTDUSERLOG, (char*)"userfact ");
@@ -7897,7 +7922,6 @@ static void C_Trace(char* input)
 				flags &= -1 ^ TRACE_ECHO;
 				noecho = true;
 			}
-			else if (!stricmp(word, (char*)"input")) flags &= -1 ^ TRACE_INPUT;
 			else if (!stricmp(word,(char*)"prepare")) flags &= -1 ^ (TRACE_PREPARE|TRACE_INPUT);
 			else if (!stricmp(word,(char*)"output")) flags &= -1 ^ TRACE_OUTPUT;
 			else if (!stricmp(word,(char*)"pattern")) flags &= -1 ^ TRACE_PATTERN;
@@ -7920,8 +7944,9 @@ static void C_Trace(char* input)
 			else if (!stricmp(word,(char*)"usercache")) flags &= -1 ^  TRACE_USERCACHE;
 			else if (!stricmp(word,(char*)"sql")) flags &= -1 ^  TRACE_SQL;
 			else if (!stricmp(word,(char*)"label")) flags &= -1 ^  TRACE_LABEL;
+			else if (!stricmp(word, (char*)"spell")) flags &= -1 ^ TRACE_SPELLING;
 			else if (!stricmp(word,(char*)"topic")) flags &= -1 ^  TRACE_TOPIC;
-			else if (!stricmp(word,(char*)"deep")) flags &= -1 ^ (TRACE_JSON|TRACE_TOPIC|TRACE_FLOW|TRACE_INPUT|TRACE_USERFN|TRACE_SAMPLE|TRACE_INFER|TRACE_SUBSTITUTE|TRACE_HIERARCHY| TRACE_FACT| TRACE_VARIABLESET| TRACE_QUERY| TRACE_USER|TRACE_USERFACT|TRACE_TREETAGGER|TRACE_POS|TRACE_TCP|TRACE_USERCACHE|TRACE_SQL|TRACE_LABEL); 
+			else if (!stricmp(word,(char*)"deep")) flags &= -1 ^ (TRACE_SPELLING|TRACE_JSON|TRACE_TOPIC|TRACE_FLOW|TRACE_INPUT|TRACE_USERFN|TRACE_SAMPLE|TRACE_INFER|TRACE_SUBSTITUTE|TRACE_HIERARCHY| TRACE_FACT| TRACE_VARIABLESET| TRACE_QUERY| TRACE_USER|TRACE_USERFACT|TRACE_TREETAGGER|TRACE_POS|TRACE_TCP|TRACE_USERCACHE|TRACE_SQL|TRACE_LABEL); 
 			else if (!stricmp(word,(char*)"always")) flags &= -1 ^  TRACE_ALWAYS;
 		}
 		else if (IsNumberStarter(*word)  && !IsAlphaUTF8(word[1]))
@@ -7937,7 +7962,6 @@ static void C_Trace(char* input)
 		else if (!stricmp(word,(char*)"ruleflow")) flags |= TRACE_FLOW;
 		else if (!stricmp(word,(char*)"echo")) flags |= TRACE_ECHO;
 
-		else if (!stricmp(word, (char*)"input")) flags |= TRACE_INPUT;
 		else if (!stricmp(word,(char*)"prepare")) flags |= TRACE_INPUT|TRACE_PREPARE;
 		else if (!stricmp(word,(char*)"output")) flags |= TRACE_OUTPUT;
 		else if (!stricmp(word,(char*)"pattern")) flags |= TRACE_PATTERN;
@@ -7961,7 +7985,7 @@ static void C_Trace(char* input)
 		else if (!stricmp(word,(char*)"sql")) flags |= TRACE_SQL;
 		else if (!stricmp(word,(char*)"label")) flags |= TRACE_LABEL;
 		else if (!stricmp(word,(char*)"topic")) flags |= TRACE_TOPIC;
-		else if (!stricmp(word,(char*)"deep")) flags |= (TRACE_JSON|TRACE_TOPIC|TRACE_FLOW|TRACE_INPUT|TRACE_USERFN|TRACE_SAMPLE|TRACE_INFER|TRACE_SUBSTITUTE|TRACE_HIERARCHY| TRACE_FACT| TRACE_VARIABLESET| TRACE_QUERY| TRACE_USER|TRACE_USERFACT|TRACE_TREETAGGER|TRACE_POS|TRACE_TCP|TRACE_USERCACHE|TRACE_SQL|TRACE_LABEL); 
+		else if (!stricmp(word,(char*)"deep")) flags |= (TRACE_SPELLING|TRACE_JSON|TRACE_TOPIC|TRACE_FLOW|TRACE_INPUT|TRACE_USERFN|TRACE_SAMPLE|TRACE_INFER|TRACE_SUBSTITUTE|TRACE_HIERARCHY| TRACE_FACT| TRACE_VARIABLESET| TRACE_QUERY| TRACE_USER|TRACE_USERFACT|TRACE_TREETAGGER|TRACE_POS|TRACE_TCP|TRACE_USERCACHE|TRACE_SQL|TRACE_LABEL); 
 		else if (!stricmp(word,(char*)"notthis")) flags |=  TRACE_NOT_THIS_TOPIC;
 		else if (!stricmp(word,(char*)"always")) flags |= TRACE_ALWAYS;
 
@@ -8747,7 +8771,7 @@ static void DoHeader(int count,char* basic,FILE* in,int id,unsigned int spelling
             char label[MAX_WORD_SIZE];
             sprintf(label, (char*)"R-%s-%s.%d.%d", computerID, GetTopicName(topicID), ruleid, rejoinderid);
             WORDP D = FindWord(label, AS_IS);
-            if (D) Log(STDUSERLOG, (char*)"(%d) ", statistics[D->word] = statistics[D->word]);
+            if (D) Log(STDUSERLOG, (char*)"(%d) ", statistics[D->word]);
             Log(STDUSERLOG, (char*)"%s", basic);
 		}
 		return;
@@ -8803,7 +8827,7 @@ retry:
         char label[MAX_WORD_SIZE];
         sprintf(label, (char*)"R-%s-%s.%d.%d", computerID, GetTopicName(topicID),ruleid,rejoinderid);
         WORDP D = FindWord(label, AS_IS);
-        if (D) Log(STDUSERLOG, (char*)"(%d) ", statistics[D->word] = statistics[D->word]);
+        if (D) Log(STDUSERLOG, (char*)"(%d) ", statistics[D->word] );
 		Log(STDUSERLOG,(char*)"%s",basic); 
 	}
 
@@ -8923,7 +8947,7 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 			rule = FindNextRule(NEXTRULE,rule,id);
             if (TopLevelRule(rule))
             {
-                ++ruleid = 0;
+                ++ruleid;
                 rejoinderid = 0;
             }
             else ++rejoinderid;
@@ -9863,12 +9887,12 @@ static void C_RewriteConverse(char* file) // single line test inputs
         char* cat = strchr(chaid + 1, '\t');
         cat = chaid + 1;
         char* spec = strchr(cat + 1, '\t');
-        *spec++ = 0;
-        char* loc = strchr(spec, '\t');
-        *loc++ = 0;
-        char* input = strchr(loc, '\t');
-        *input++ = 0;
-        char* endinput = strchr(input + 1, '\r');
+        *spec = 0;
+        char* loc = strchr(++spec, '\t');
+        *loc = 0;
+        char* input = strchr(++loc, '\t');
+        *input = 0;
+        char* endinput = strchr(++input + 1, '\r');
         *endinput = 0;
 
         if (stricmp(user, readBuffer)) // change of user

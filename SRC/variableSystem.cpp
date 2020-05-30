@@ -38,7 +38,7 @@ void InitVariableSystem()
 {
     *wildcardSeparator = ' ';
     wildcardSeparator[1] = 0;
-    kernelVariableThreadList = botVariableThreadList = userVariableThreadList = 0;
+    kernelVariableThreadList = botVariableThreadList = userVariableThreadList = NULL;
     tracedFunctionsIndex = 0;
 }
 
@@ -148,7 +148,7 @@ void SetWildCardGiven(int start, int end, bool inpattern, int index)
 
 void SetWildCardNull()
 {
-    SetWildCardGivenValue((char*)"", (char*)"", 0, 0, wildcardIndex);
+    SetWildCardGivenValue((char*)"", (char*)"", -1, -1, wildcardIndex);
     CompleteWildcard();
 }
 
@@ -158,11 +158,12 @@ void SetWildCardGivenValue(char* original, char* canonical, int start, int end, 
     if (end > wordCount && start != end) end = wordCount; // for start==end we allow being off end, eg _>
     *wildcardOriginalText[index] = 0;
     *wildcardCanonicalText[index] = 0;
-    if (start == 0 || wordCount == 0 || (end == 0 && start != 1)) // null match, like _{ .. }
+    if (start <= 0 || wordCount == 0 || (end <= 0 && start != 1)) // null match, like _{ .. }
     {
     }
     else JoinMatch(start, end, index, false); // did match
     if (start == 0) start = end = 1;
+    if (start == -1) start = end = 0;
     wildcardPosition[index] = start | WILDENDSHIFT(end);
 }
 
@@ -440,13 +441,13 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
     {
         if (init) D->w.userValue = NULL;
     }
+	else if (D->internalBits & BOTVAR) {}  // system vars have already been inited
     else if (!(D->internalBits & VAR_CHANGED))	// not changed already this volley
     {
-        userVariableThreadList = AllocateHeapval(userVariableThreadList,
-            (uint64)D, NULL, NULL);
-        if (init) D->w.userValue = NULL;
-        D->internalBits |= VAR_CHANGED; // bypasses even locked preexisting variables
-    }
+		userVariableThreadList = AllocateHeapval(userVariableThreadList, (uint64)D, NULL, NULL);
+		D->internalBits |= VAR_CHANGED; // bypasses even locked preexisting variables
+ 		if (init) D->w.userValue = NULL;
+	}
 }
 
 void SetVariable(WORDP D, char* value)
@@ -821,6 +822,7 @@ void NoteBotVariables() // system defined variables
         if (D->word[1] != LOCALVAR_PREFIX && D->word[1] != TRANSIENTVAR_PREFIX) // not a transient var
         {
             if (!strnicmp(D->word, "$cs_", 4)) continue; // dont force these, they are for user
+			D->internalBits |= (unsigned int)BOTVAR; // mark it
             botVariableThreadList = AllocateHeapval(botVariableThreadList, (uint64)D,
                 (uint64)D->w.userValue, NULL);
         }
@@ -850,8 +852,7 @@ void RecoverUserVariables()
         WORDP D = (WORDP)Dx;
         D->w.userValue = AllocateHeap(D->w.userValue, 0);
         D->word = AllocateHeap(D->word, 0);
-        userVariableThreadList = AllocateHeapval(userVariableThreadList,
-            (uint64)D, NULL, NULL);
+        userVariableThreadList = AllocateHeapval(userVariableThreadList,(uint64)D, NULL, NULL);
     }
 }
 
@@ -864,9 +865,11 @@ void ClearUserVariables(char* above)
         uint64 Dx;
         varthread = UnpackHeapval(varthread, Dx,discard);
         WORDP D = (WORDP)Dx;
-        if (!above) // removing ALL variables
+		RemoveInternalFlag(D, MACRO_TRACE);
+
+		if (!above) // removing ALL variables
         {
-            D->w.userValue = NULL;
+			D->w.userValue = NULL;
             RemoveInternalFlag(D, VAR_CHANGED);
         }
         else  if (D->w.userValue < above) // heap is down, so this is recent and must be lost.

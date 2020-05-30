@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-practicum-spelling-and-interjections">ChatScript Practicum: Spelling and Interjections</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2020 cs10.2</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/30/2020 cs10.4</p>
 <p>'''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.</p>
 <h1 id="spell-checking">Spell checking</h1>
 <p>Many natural language tools are designed to work with Wall Street Journal sentences - perfectly punctuated and perfectly spelled. That's not the real world of chat. ChatScript deals with the real world by providing a number of mechanisms to correct badly written sentences.</p>
@@ -62,7 +62,7 @@ $cs_token -= #DO_TEXTING</code></pre>
 eluded_to alluded+to   -- fixes false phrase
 like_what&gt; for+example -- convert only at end of sentence
 &lt;you_have_to you+must -- convert only at start of sentence</code></pre>
-<h3 id="script-substitutions">Script substitutions</h3>
+<h3 id="script-substitutions-replace">Script substitutions replace:</h3>
 <p>Substitutions can be done from script as well, just by putting them after a <code>replace:</code> top level script item. I do this a lot to smooth out inputs. I look up a standard way a word is spelled (eg in dictionary or Wikipedia) and make that the true word.</p>
 <pre><code>replace: ps_2 PlayStation+2
 replace: &quot;ps 2&quot; PlayStation+2   -- alternate way to say same thing

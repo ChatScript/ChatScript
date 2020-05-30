@@ -9,20 +9,21 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> Revision 5/1/2020 cs10.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 5/30/2020 cs10.4</p>
 <ul>
 <li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
 <li><a href="ChatScript-Engine-md#memory-management">Memory Management</a></li>
 <li><a href="ChatScript-Engine-md#function-run-time-model">Function Run-time Model</a></li>
 <li><a href="ChatScript-Engine-md#script-execution">Script Execution</a></li>
-<li><a href="ChatScript-Engine-md#evaluation-contexts">Evaluation Contexts</a></li>
 <li><a href="ChatScript-Engine-md#rule-tags">Rule Tags</a></li>
 <li><a href="ChatScript-Engine-md#concept-representation">Concept Representation</a></li>
+<li><a href="#pattern-matching">Pattern Matching</a> (ChatScript-Engine-md#pattern-matching)</li>
 <li><a href="ChatScript-Engine-md#supplemental-dictionary-data">Supplemental dictionary data</a></li>
 <li><a href="ChatScript-Engine-md#topic-and-rule-representation">Topic and rule representation</a></li>
 <li><a href="ChatScript-Engine-md#natural-language-pipeline">Natural Language Pipeline</a></li>
 <li><a href="ChatScript-Engine-md#messaging">Messaging</a></li>
+<li><a href="ChatScript-Engine-md#error-handling">Error Handling</a></li>
 <li><a href="ChatScript-Engine-md#multiple-bots">Multiple Bots</a></li>
 <li><a href="ChatScript-Engine-md#private-code">Private Code</a></li>
 <li><a href="ChatScript-Engine-md#documentation">Documentation</a></li>
@@ -224,6 +225,7 @@ typedef struct FACT
 <p>The name (^car_reference) is followed by the kind of function (outputmacro, tablemacro, patternmacro, dualmacro), followed by the bot bits allowed to use this function (2048 bot), followed by flags on the function (0), followed by the number of arguments. It expects (0). Argument count is 'A' + count when count &lt;= 15 and 'a' + count - 15 when greater. If the letter is uppercase, it means function supports variable argument count.</p>
 <p>The value of the dictionary entry of the function name is a pointer to the function data allocated in the heap. Multiple definitions of the name are chained together, and the system will hunt that list for the first entry whose bot bits allow use.</p>
 <p>Patternmacros are scripter-written patterns that allow some existing pattern to transfer over to them and back again when used up. They have the same format as outputmacros, but their code data is simply the pattern to execute. The pattern code merely switches over to this extension code until it runs out, and resumes its normal code. You can't nest patternmacro calls at present.</p>
+<p>All system functions return both a text buffer answer and an error code. For error codes see the section on error handling.</p>
 <h2 id="argument-passing">Argument Passing</h2>
 <p>There are actually two styles of passing arguments. Arguments are stored in a global argument array, referenced by ARGUMENT(n) when viewed from system routines. The call sets the current global index and then stores arguments relative to that. Outputmacros use that same mechanism for call-by-reference arguments. Call by reference arguments start with <code>^</code> like <code>^myarg</code> and the script compiler compiles the names into number references starting with <code>^0</code> and increasing <code>^1</code> ... <code>^myarg</code> style allows a routine to assign indirectly to the callers variable.</p>
 <p>But outputmacros also support call by value arguments which start with <code>$_</code> like <code>$_myarg</code>. No one outside the routine is allowed to change these or use these to access the above caller's data. Hence call by value. These are normal albeit transient variables so the corresponding value from the argument stack is also stored as the value of the local variable. That happens after the function call code first saves away the old values of all locals of a routine (or topic) and then initializes all locals to NULL. Once the call is finished, the saved values are restored.</p>
@@ -235,8 +237,49 @@ typedef struct FACT
 * creates specific internal dictionary entries that cannot collide with normal words.</code></pre>
 <h1 id="script-execution">Script Execution</h1>
 <p>Execution, be it pattern matching or output processing, proceeds token by token. There is not really much of building up tokens on a stack and then popping them as needed (like calculator functionality). This means you cannot write parenthesized numeric expressions nor use function calls as arguments to other function calls.</p>
-<p>The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script. The script compiler normally forces separate of things into separate tokens to allow fast uniform handling. E.g., <code>^call(bob hello)</code> becomes <code>^call ( bob hello )</code>.</p>
-<p>This predictability allows the system to avoid all the logic involved in knowing where some tokens end and others begin. The other trick the script compiler uses is to put in characters indicating how far something extends. This jump value is used for things like if statements to skip over failing segments of the if. It is used for knowing where a pattern label ends and even for skipping over entire rules.</p>
+<h2 id="evaluation">Evaluation</h2>
+<p>Script execution involves one-by-one evalutation of tokens. It happens in patterns and if tests. It happens in the output side of a rule. It happens in function execution and it happens in interpreting the arguments to a function. It happens in active strings.</p>
+<p>Numbers and words just evaluate to themselves. As do factset references like <span class="citation">@4</span> and concept set names like ~animals.</p>
+<p>User variables ($, $$, $_) evaluate to their value, unless they are dotted or subscripted, in which case they evaluate to their content and then perform a JSON object lookup. Or if the token immediately after it is an assignment operator of some kind (e.g. = += -= etc).</p>
+<p>System variables (%) evaluate to their value. Not generally advised but for some system variables it may make sense to use them of the left hand of assignment statements.</p>
+<p>Match variables (<code>_0</code>) evaluate to their content, original or canonical depending on whether the reference is quoted or not.</p>
+<p>Function calls evaluate to their returned result and absorb tokens from ( to ) . Be advised you cannot usually use a function call as an argument to another function. You'll need to assign the first call to a variable, and then use the variable as argument to the second function.</p>
+<p>Active strings ^&quot;xxx&quot; and ^'xxx' process their content in the moment of use.</p>
+<h2 id="spacing">Spacing</h2>
+<p>The script compiler normally forces separate of things into separate tokens to allow fast uniform handling. E.g., <code>^call(bob hello)</code> becomes <code>^call ( bob hello )</code>. This allows the <code>ReadCompiledWord</code> function to grab tokens more easily.</p>
+<h2 id="prefix-characters">Prefix characters</h2>
+<p>The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script. The pattern prefixes are:</p>
+<pre><code>=   to designate a comparison operator
+!   to invert a Test
+?   a unary existence operator (prefixing a variable)
+@_1+ to indicate jumping in a pattern to a location and altering direction (+ or -)</code></pre>
+<p>Prefixes also used in patterns and output code are:</p>
+<pre><code>$   to indicate user variables
+%   to indicate system variables
+_1  to indicate a specific match variable
+^   to indicate function calls, function in-out variables
+~   to indicate a concept set (but this has no impact on execution of tokens)
+@1  to indiate a specific numbered factset 
+&#39;   to indicate to use the original value of a match variable or word 
+#   to indicate a system defined numeric constant (or to indicate comment to end of line)
+^^  to indicate indirection assignment thru an in-out function variable</code></pre>
+<h2 id="skip-codes">Skip codes</h2>
+<p>The script compiler puts in characters indicating how far something extends to allow faster execution. This jump value is used for things like if statements to skip over failing segments of the if. It is used for knowing where a pattern label ends and even for skipping over entire rules.</p>
+<p>Skip codes (1 or 3 characters that represent a number) allow the system to move rapidly in the code stream.</p>
+<h3 id="rule-and-label-skips">Rule and Label skips</h3>
+<p>Every rule starts with a skip code that tells the offset needed to skip past this rule and move to the next rule. The system view of a rule is normally starting with the kind (u:) but it can back up 4 characters to read the skip code if it needs it. There is also a 1 character skip code in front of any rule label, that tells the width of the label to get to the opening paren of the rule's pattern.</p>
+<pre><code>00J u: &lt;RULE_LABEL ( test ) This is a rule. </code></pre>
+<h3 id="comparison-skip">Comparison skip</h3>
+<p>Comparison conditions in patterns use a 1 character skip at the start of a comparison token to index to the start of the operator (i.e., to know where the end of the variable name is). The leading <code>=</code> is the prefix code that says this token is a comparison token.</p>
+<pre><code>u: ( =6$foo==5 )</code></pre>
+<h3 id="if-and-loop-skips">IF and LOOP skips</h3>
+<p><code>if</code> and <code>loop</code> are actually functions. And they use 3 character skip codes to move around the pieces.</p>
+<pre><code>u:  (test) if ($val) {do this} else if ($val1) {do that} else {anyway} .
+u: ( test ) ^if 00c( $val ) 00j{ do this } 00? else 00d( $val1 ) 00j{ do that } 00y else ( 1 ) 00i { anyway } 004 .</code></pre>
+<p>The second line shows the compiled form of a complex <code>if</code>. <code>if</code> is compiled into the ^prefixed form (since it is not something to echo as a word to the user). The 00c skip code before the first test is the offset to get the other end of the first test, where another skip code lies. Whether the test succeeds or fails, this will get us past the test immediately. The next skip code (00j) can take us past the code to for this branch of the if. If the test fails, you would use that skip to bypass the &quot;do this&quot; and point to the next <code>else</code>. The skip code after the end of the &quot;do this&quot; process tells how to skip to the end of the entire if, so normal execution can resume.</p>
+<p>Loops uses a skip code, to allow it to jump to the end of the loop when the loop condition fails.</p>
+<pre><code>u:  (test)  loop(1) { do this }
+u: ( test ) ^loop ( 1 ) 00g { do this } </code></pre>
 <h1 id="rule-tags">Rule Tags</h1>
 <p>CS executes rules. While scripters can add their own label to a rule, all rules are automatically labelled internally by their position in a topic. The topic has a list of rules, numbered from 0 ... for top level rules. Top level rules can have rejoinders, which are numbered from 1 ... The system creates a text rule tag like: ~books.12.0 which means in the topic books, the 13th top level rule, and at the top level (not a rejoinder). ~books.12.3 is the third rejoinder under top-level rule 12. Internally a rule id has the bottom 16 bits for top level id and the next 16 for the rejoinder id.</p>
 <p>Engine function arguments involving rules can accept either user labels or rule tags. While rule tags are completely unique, nothing prevents a user from labelling multiple rules in a topic with the same label, which is sometimes useful (eg in ^reuse for finding a rule not yet disabled or in ^incontext).</p>
@@ -249,6 +292,25 @@ typedef struct FACT
 <p>An apostrophe in front of the word means only that word and not any conjugations of it.</p>
 <p>Concepts also allow patterns as members, but they are not saved as MEMBER facts. They are saved as conceptpattern facts, where the subject is the pattern and the object is the concept name. They are executed after the normal NL pipeline is complete. The pattern can be compiled or uncompiled. Coming from compiling script they are compiled. Coming from a function like ^testpattern they may or may not be compiled. If uncompiled, the system will compile them first, every volley.</p>
 <p>Concepts can contain other concepts as members. When you build a concept by including another concept, you can also elect to exclude specific subconcepts or words. In the representation for this, all normal concept facts are last in the list and exclusions are first. So a word that wants to trigger a concept must first pass against the exclusions list. Set exclusions are in the middle, while the start of the members are the single words that must be excluded. Therefore in the marking phase, when we have a word and we are chasing up what concepts its a member of, if the word is in the simple excludes list, we dont continue marking That set with it. If the exclusions are sets, we have to defer decision making until other paths have been chased up, to see if the set has been marked.</p>
+<h1 id="pattern-matching">Pattern matching</h1>
+<p>Patterns can exist at the start of any rule type. And they can exist inside of <code>IF (PATTERN ...)</code> statements.</p>
+<h2 id="token-processing">Token processing</h2>
+<p>Pattern matching executes the pattern stream token by token. A token might be a word, or a wildcard, or an entire assignment statment with active string like `$tmp:=^&quot;This ^compute(a sub b)&quot;. The script compiler will force spaces between tokens, particular ones with special priority like &lt; or [ or (.</p>
+<pre><code>u: (&lt;[a b c])  -- sample script
+u: ( &lt; [ a b c ] ) -- compiled notation</code></pre>
+<p>The exception to the token by token rule is function calls, where when the function name token is detected, it gets control over the pattern stream to manage the <code>(</code> and arguments and <code>)</code> .</p>
+<h2 id="legal-gaps">Legal gaps</h2>
+<p>A top-level pattern <code>( a )</code> implicitly means <code>( &lt; * a )</code> except that since we dont actually use the <code>&lt;</code>, backtracking will work. When a substantive (non-wildcard) match happens, the system moves the current marker of where we are in the sentence to that position. However, the movement from the prior position to this new one must be legal. When wildcards are involved as the predecessor token, they define how much gap is allowed. when non-wildcard tokens are involved, there is no gap and the new match must immediately follow OR be coincident within the current position.</p>
+<h2 id="backtracking">Backtracking</h2>
+<p>Unlike regex or prolog, CS pattern matching does not do full backtracking on failure (as that would be expensive). Instead if the system tracks the first real word it matches, and if the pattern fails, it can retry the entire pattern starting after that first match. Anything that forces a location in the pattern will inhibit this, e.g.,</p>
+<pre><code>u: (&lt; test)
+u: (@_0+ try)</code></pre>
+<p>The above patterns, when reexecuted, would force the start of matching again, so backtracking is not feasible.</p>
+<p>Because backtracking is limited, one should prefer using concept sets to using <code>[ xxx yyy zzz]</code> because concept sets find the closest match to your current position whereas the [ ] try to match in order, and thus may find matches much later in the sentence. Additionally one should strive to try to find the most significant words first, ones less likely to be found in the sentence. E.g.,</p>
+<pre><code>u: ( I want * the adjustment )  -- can find the anywhere and never backtrack to adjustment
+u: ( I want * _adjustment @_0- the)  -- finds the rare word adjustment and then confirms the</code></pre>
+<h2 id="pattern-macros">Pattern macros</h2>
+<p>Pattern macros are merely patterns encased by a function call. In execution, when a pattern macro is encounterd, the system temporarily changes its pattern stream pointer to use the definition of the macro and then on failure or match, restores the old stream to continue. This only works for 1 call; you cannot nest a call to a pattern macro from within a pattern macro.</p>
 <h1 id="supplemental-dictionary-data">Supplemental dictionary data</h1>
 <p>The TOPIC files <code>canon0.txt</code> and <code>canon1.txt</code> hold results of compiling the <code>canon:</code> declaration. Each line is a pair of words, the original and what it's canonical should be. Similarly <code>private0.txt</code> and <code>private1.txt</code> files hold pairs spell-check replacements, though they can handle multiple word in and multiple word out.</p>
 <p>The files <code>dict0.txt</code> and <code>dict1.txt</code> handle words whose property bits have been created or changed by compilation.</p>
@@ -260,13 +322,10 @@ typedef struct FACT
 &quot;  mybot  &quot; 012 ?: ( do * you * ~like * robot ) Robots are cool. `</code></pre>
 <p>Rules start with a jump index to the next rule(012), have their rule type(?:), pattern, and output. A rule ends with the backtick mark.</p>
 <p>If there are multiple copies of the topic (due to multiple bots), they are just another line pair show botname list will be different.</p>
-<h1 id="evaluation-contexts">Evaluation Contexts</h1>
-<p>Evaluation (transforming some data into something else) happens in various places. Evaluation happens when processing arguments to functions, assignments, if testing, and active strings. Many things evaluate the same way.</p>
-<p>Numbers and words just evaluate to themselves. As do factset references like <span class="citation">@4</span> and concept set names like ~animals.</p>
-<p>User variables ($, $$, $_) evaluate to their value, unless they are dotted or subscripted, in which case they evaluate to their content and then perform a JSON object lookup.</p>
-<p>System variables (%) evaluate to their value.</p>
-<p>Match variables (<code>_0</code>) evaluate to their content, original or canonical depending on whether the reference is quoted or not.</p>
-<p>Function calls evaluate to their returned result. Be advised you cannot usually use a function call as an argument to another function. You'll need to assign the first call to a variable, and then use the variable as argument to the second function.</p>
+<h1 id="error-handling">Error handling</h1>
+<p>There are two kinds of error handling, rule-based and engine based.</p>
+<p>All script-callable engine Functions are declared <code>FunctionResult</code> and return NOPROBLEM_BIT when things are fine. Other codes indicate whether to terminate a rule, topic, sentence, or input as OK or an error. In script you can suppress errors from below by kind, e.g., <code>^nofail(TOPIC ...)</code>. Or you can trap all errors and examine what termination happened via <code>^result( ... )</code>.</p>
+<p>The engine tries to detect and recover from various error conditions. It uses <code>ReportBug</code> to add an entry into LOGS/bugs.txt (and the server log if a server). Any error message starting with <code>FATAL</code> means that the call will not return; CS will end execution instead. Fatal errors are not trapped by a try/catch or setjmp/longjump mechanism because it is too risky. Bits in the dictionary may have been changed or some kind of memory overwrite may have happened. This would leave the server damaged for all future volleys. Instead, the server exists. External processes restart the server (and may retry the volley) and the fully reloaded server will be clean and ready to continue.</p>
 <h1 id="messaging">Messaging</h1>
 <p>CS user messaging design involves several features: directness, cancelability, and accountability.</p>
 <p>Directness:</p>

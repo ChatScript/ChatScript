@@ -1035,6 +1035,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		Log(STDTRACETABLOG,(char*)"");
 	}
 	if (curlBufferBase) ReleaseStack(curlBufferBase);
+
 	return result;
 }
 
@@ -2525,10 +2526,12 @@ FunctionResult JSONReadCSVCode(char* buffer)
 	if (!in) return FAILRULE_BIT;
     char var[100];
 
-	char* fnname = ARGUMENT(index);
+    char fn[MAX_WORD_SIZE];
+    FunctionResult fnresult;
+    char* fnname = fn;
+    char* ptr = ReadFunctionCommandArg(ARGUMENT(index), fnname, fnresult, true);
+    if (fnresult != NOPROBLEM_BIT) return fnresult;
     if (fnname && strlen(fnname) == 0) fnname = 0;
-	if (fnname && *fnname == '\'') ++fnname;
-	if (fnname && *fnname != '^') return FAILRULE_BIT; // optional function
     if (wholeLine && (!fnname || !*fnname)) return FAILRULE_BIT; // cannot build json, must call
    
 	unsigned int arrayflags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags | JSON_OBJECT_VALUE;

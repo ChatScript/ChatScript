@@ -307,7 +307,8 @@ static void ReadSocket(TCPSocket* sock, char* response)
 		totalBytesReceived += bytesReceived;
 		base += bytesReceived;
 		if (trace) (*printer)((char*)"Received %d bytes\r\n", bytesReceived);
-		if (totalBytesReceived > 2 && response[totalBytesReceived - 3] == 0 && response[totalBytesReceived - 2] == 0xfe && response[totalBytesReceived - 1] == 0xff) break; // positive confirmation was enabled
+		if (totalBytesReceived > 2 && response[totalBytesReceived - 3] == 0 
+			&& (unsigned char)response[totalBytesReceived - 2] == (unsigned char)0xfe && (unsigned char)response[totalBytesReceived - 1] == (unsigned char)0xff) break; // positive confirmation was enabled
 	}
 	*base = 0;
 }
@@ -337,7 +338,6 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 		ptr = data;
 		if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
 		char copy[10000];
-		strcpy(copy, ptr);
 		char hold[MAX_WORD_SIZE];
 		size_t l = strlen(ptr);
 		// Yes, sanity, Line 3, TRY_BAD_BLUETOOTH, computer, all, australia,SEM, jmeter,OOB, Welcome!What's going on with your computer?,Bluetooth headphones won't connect, So what? , , , , , ,
@@ -368,21 +368,23 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 		char* next = FindJMSeparator(loc, separator) + 1; // end location
 		*(spec - 1) = 0; // end cat
 		ReadCompiledWord(cat, category);
+		if (!*category) continue;
 		MakeLowerCase(cat); // there are no upper case cats
 		*(loc - 1) = 0; // end specialty
 		ReadCompiledWord(spec, specialty);
 		if (!stricmp(specialty, "all") || !stricmp(specialty, "general") || !stricmp(specialty, "none")) *specialty = 0; // none
 		*(next - 1) = 0; // end specialty
 		ReadCompiledWord(loc, location);
-		if (!*category) continue;
 		char chattype[MAX_WORD_SIZE];
-		char* src = strchr(next, '\t') + 1;
+		char* srcstart = FindJMSeparator(next, separator) + 1; //  oob field for 1st message
+		char* oobstart = FindJMSeparator(srcstart, separator) + 1;
 		ReadCompiledWord(next, chattype);
+//no,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for the first message,WelcomeMessage,1st Message,1st Response,2nd Message,2nd Response,3rd Message,3rd Response,4th Message,5th Response,PROBLEM PATTERN,
 		char source[MAX_WORD_SIZE];
-		ReadCompiledWord(src, source);
-		char* oobstart = FindJMSeparator(src + 1, separator) + 1;
-		ptr = FindJMSeparator(oobstart, separator); //  oob field for 1st message
-		*ptr = 0;
+		if (*srcstart == '\t') *source = 0; // omitted src
+		else ReadCompiledWord(srcstart, source);
+		ptr = FindJMSeparator(oobstart, separator); //  end of oob field for 1st message
+		if (ptr) *ptr = 0;
 		if (*oobstart)
 		{
 			strcpy(oobmessage, oobstart + 1); // skip opening quote
@@ -399,15 +401,19 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 
 		char* expect = ++ptr;
 		expect = SkipWhitespace(expect);
-		if (*expect == '[') expect = strrchr(expect, ']') + 1; // skip oob
+		char* startexpect = expect;
+		if (*expect == '[') expect = strrchr(expect, ']') + 1; // skip oob, aim into last expect msg
 		expect = SkipWhitespace(expect);
-		char* end = FindJMSeparator(ptr + 1, separator);
-		*end = 0; // welcome complete
-		if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote
+		char* end = FindJMSeparator(ptr + 1, separator); // find end of expected message if there
+		if (end)
+		{
+			*end = 0; // welcome complete
+			if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote
+		}
 		if (*expect == '"') ++expect;
 
-		ptr = end + 1; // set up for 1st real input
-
+		if (end) ptr = end + 1; // set up for 1st real input
+		else ptr = NULL;
 					   // set up base message
 
 		char init[MAX_WORD_SIZE];
@@ -439,19 +445,24 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 			char* endoob = strrchr(response, ']');
 			if (!endoob)
 				break;
-			char* actual = strstr(response, "output\":") + 10; // skip open quote
-			char* end = strstr(actual, "\",");
-			if (!end) end = strstr(actual, "\"}");
-			*end = 0;
-			size_t len = strlen(actual);
-			while (actual[len - 1] == ' ') actual[--len] = 0;
-			char* at1 = actual - 1;
-			while (*++at1)
+			char* actual = strstr(response, "output\":"); // skip open quote
+			if (actual)
 			{
-				if (*at1 == '\\') memmove(at1,at1+1,strlen(at1));
+				actual += 10;
+				char* end = strstr(actual, "\",");
+				if (!end) end = strstr(actual, "\"}");
+				*end = 0;
+				size_t len = strlen(actual);
+				while (actual[len - 1] == ' ') actual[--len] = 0;
+				char* at1 = actual - 1;
+				while (*++at1)
+				{
+					if (*at1 == '\\') memmove(at1, at1 + 1, strlen(at1));
+				}
 			}
-
-			expect = TrimSpaces(expect);
+			else actual = "";
+	
+			expect = startexpect;
 			int z = strlen(expect);
 			if (expect[z - 1] == '"') expect[--z] = 0; // closing quote?
 			char* dq = expect;
@@ -459,29 +470,34 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 			{ // never expect doubled quotes, thats csv thing
 				memmove(dq + 1, dq + 2, strlen(dq + 1));
 			}
-
+			if (*expect == '[') expect = strchr(expect, ']') + 1; // skip initial oob
 			char* multi = strchr(expect, '|');
 			while (multi)
 			{
+				if (*expect == '[') expect = strrchr(expect, ']') + 1; // skip oob
+				expect = TrimSpaces(expect);
+				multi = strchr(expect, '|'); 
+				if (!multi) break;
 				*multi = 0;
 				if (!stricmp(actual, expect)) break; // matches
 				expect = multi + 1;
 				expect = TrimSpaces(expect);
 				multi = strchr(expect, '|');
 			}
+			expect = TrimSpaces(expect);
 			if (strcmp(actual, expect))
 			{
 				++fail;
 				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, pass, fail, category, specialty, chattype, source, at);
 				fprintf(out, "want: %s\r\n", expect);
-				fprintf(out, "gotx:  %s        %s\r\n\r\n", actual, response);
+				fprintf(out, "gotx: %s|        %s\r\n\r\n", actual, response);
 			}
 			else
 			{
 				++pass;
 				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, pass, fail, category, specialty, at, actual);
 			}
-			if (((pass + fail) % 100) == 0) printf("at %d\r\n", pass + fail);
+			if (((pass + fail) % 100) == 0) printf("at %d  pass:%d fail:%d\r\n", pass + fail,pass,fail);
 			if (!ptr) break; // end of messages
 			char* endi = strchr(ptr, '\t'); // end next message to user
 			if (!endi) break;
@@ -500,6 +516,7 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 			expect = endi + 1;
 			if (*expect == '\t') break; // have no expections anymore
 			if (*expect == '"') ++expect;
+			startexpect = expect;
 			// doubled quote from csv fix it
 			char* at = expect - 1;
 			while (*++at)
@@ -522,6 +539,7 @@ static void Jmetertestfile(char* bot, char* sendbuffer, char* response, char* da
 
 static void ReadNextJmeter(char* name, uint64 value)
 {
+	if (strstr(name, "/API/")) return; // need api connection for this
 	FILE* out = (FILE*)value;
 	printf("At: %s\r\n", name);
 	fprintf(out, "At: %s\r\n", name);
@@ -821,6 +839,7 @@ restart: // start with user
 				*blank = '\t';
 
 				ptr = data; // process current data
+				if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
 
 							// Get User name
 				blank = strchr(ptr, '\t');
@@ -834,7 +853,6 @@ restart: // start with user
 				size_t l = strlen(ptr);
 				while (ptr[l - 1] == '\t' || ptr[l - 1] == '\n' || ptr[l - 1] == '\r') ptr[--l] = 0; // remove trailing tabs
 				strcpy(copy, ptr);
-				if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
 				char cat[MAX_WORD_SIZE];
 				char spec[MAX_WORD_SIZE];
 				char loc[MAX_WORD_SIZE];

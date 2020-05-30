@@ -175,6 +175,7 @@ void FreeStackHeap();
 bool KeyReady();
 bool InHeap(char* ptr);
 bool InStack(char* ptr);
+void CloseDatabases(bool restart = false);
 
 // FILE SYSTEM
 int MakeDirectory(char* directory);
@@ -295,7 +296,7 @@ extern uint64 logCount;
 extern char* testOutput;
 extern char crashpath[MAX_WORD_SIZE];
 
-#define ReportBug(...) { Bug(); Log(BUGLOG, __VA_ARGS__);}
+#define ReportBug(...) { Bug(); Log(BUGLOG, __VA_ARGS__); if (server) Log(SERVERLOG, __VA_ARGS__); }
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;

@@ -12,7 +12,7 @@ CONVERTERS	  & `
 #endif
 
 int inputNest = 0;
-
+int actualTokenCount = 0;
 #define MAX_BURST 400
 static char burstWords[MAX_BURST][MAX_WORD_SIZE];	// each token burst from a text string
 static unsigned int burstLimit = 0;					// index of burst  words
@@ -421,14 +421,21 @@ WORDP ApostropheBreak(char* aword)
     return NULL;
 }
 
-static WORDP UnitSubstitution(char* buffer)
+static WORDP UnitSubstitution(char* buffer,int i)
 {
 	char value[MAX_WORD_SIZE];
 	char* at = buffer - 1;
-	if (*(at + 1) == '-') ++at; // negative units
+	if (IsSign(*(at + 1)) ) ++at; // negative units
 	while (IsDigit(*++at) || *at == '.' || *at == ','); // skip past number
+
 	strcpy(value, "?`");
-	strcat(value + 2, at); // presume word after number is not big
+
+	// also consider next word not conjoined
+	if (!*at && i < wordCount)
+	{
+		strcat(value + 2, wordStarts[i + 1]); // presume word after number is not big
+	}
+	else strcat(value + 2, at); // presume word after number is not big
 	while ((at = strchr(value, '.'))) memmove(at, at + 1, strlen(at)); // remove abbreviation periods
 	WORDP D = FindWord(value, 0, STANDARD_LOOKUP);
 	if (!D)
@@ -437,7 +444,8 @@ static WORDP UnitSubstitution(char* buffer)
 		if (value[len-1] == 's')  D = FindWord(value, len-1, STANDARD_LOOKUP);
 	}
 	uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
-	return (D && allowed & D->internalBits) ? D : NULL; // allowed transform
+	if (D && allowed & D->internalBits) return D ; // allowed transform
+	return NULL;
 }
 
 static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, bool oobStart, bool oobJson)
@@ -740,7 +748,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		}
 
 		// may be units or currency attached, so dont split that apart
-		if (IsFloat(number, at, numberStyle) && !UnitSubstitution(at)) // $50. is not a float, its end of sentene
+		if (IsFloat(number, at, numberStyle) && !UnitSubstitution(at,0)) // $50. is not a float, its end of sentene
 		{
 			if (currency && at == currency) at += strlen(currency);
 			if (*at == '%') ++at;
@@ -976,7 +984,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		if (*end == '-' && !(tokenControl & TOKEN_AS_IS) && !stopper) stopper = end; // alternate possible end  (e.g. 8.4-ounce)
 		if (*end == ';' && !fullstopper) fullstopper = end; // alternate possible end  (e.g. 8.4-ounce)
 		if (*end == '.' && end[1] == '.' && end[2] == '.') break; // ...
-        if (*end == '.' && !IsDigit(end[1]) && !IsFileExtension(end+1)) break; // ...
+
+        // if (*end == '.' && !IsDigit(end[1]) && !IsFileExtension(end+1)) break; do not break andy.heydon
     }
 	if (comma && end > comma && (!IsDigit(comma[1]) ||!IsDigit(comma[-1]))) end = comma;
 
@@ -1333,9 +1342,9 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 
 		char startc = *priorToken;
 		//   reserve next word, unless we have too many
-		if (++count > REAL_SENTENCE_LIMIT ) 
+		if (++count > REAL_SENTENCE_WORD_LIMIT ) 
 		{
-			mycount = REAL_SENTENCE_LIMIT;
+			mycount = REAL_SENTENCE_WORD_LIMIT;
 			goto SAFETY;
 		}
 
@@ -2084,8 +2093,8 @@ void ProcessSplitUnderscores()
 			if (index > 9) return;	// give up, bad data
 		}
 		tokens[index] = StoreWord(at)->word;
-		ReplaceWords("Split underscore",i,1,index,tokens);
-		i += index - 1; // skip over what we did
+		if (ReplaceWords("Split underscore",i,1,index,tokens))
+			i += index - 1; // skip over what we did
 	}
 }
 
@@ -2194,9 +2203,9 @@ void ProcessCompositeNumber()
     }
 }
 
-void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens) 
+bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens) 
 {
-	if ((wordCount + (newlength-oldlength)) > 251) return; // sentence limitation
+	if ((wordCount + (newlength-oldlength)) > REAL_SENTENCE_WORD_LIMIT) return false; // sentence limitation
 
 	// protect old values after our patch area
 	int afterCount = wordCount - i - oldlength + 1;
@@ -2206,7 +2215,7 @@ void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 	memcpy(backupDerivations,derivationIndex + i + oldlength,sizeof(short int) * afterCount); // save old derivations
 
 	// move in new tokens which are insured to be in dictionary.
-	for (int j = 1; j <= newlength; ++j) wordStarts[i + j - 1] = StoreWord(tokens[j])->word;
+	for (int j = 1; j <= newlength; ++j) wordStarts[i + j - 1] = StoreWord(tokens[j],AS_IS)->word;
 
 	// the derivations of each new token is from the range of derviations of the old
 	unsigned int start = derivationIndex[i] >> 8;
@@ -2220,7 +2229,7 @@ void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 	memcpy(derivationIndex+i+newlength,backupDerivations,sizeof(short int) * afterCount);
 
 	wordCount += newlength - oldlength;
-	wordStarts[wordCount+1] = NULL;
+	wordStarts[wordCount+1] = NULL; // do we want "" ?
 	if (trace & TRACE_INPUT || spellTrace)
 	{
 		char* limit;
@@ -2237,11 +2246,14 @@ void ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 
 		ReleaseInfiniteStack();
 	}
+	return true;
 }
 
 static bool Substitute(WORDP found, char* sub, int i, int erasing)
 { //   erasing is 1 less than the number of words involved
-	if (sub && !strchr(sub, '+') && erasing == 0 && !strcmp(sub, wordStarts[i])) return false; // changing single word case to what it already is?
+	if (sub && !strchr(sub, '+') && erasing == 0 && !strcmp(sub, wordStarts[i]))
+		return 0; // changing single word case to what it already is?
+	if (*wordStarts[i] == '?' && found->word[0] == '?' && found->word[1] && found->word[1] != '>') return 0; // avoid unitmeasure ?`something input detect. only allow punctuation deteciton
 
 	char wordlist[MAX_WORD_SIZE];
 	*wordlist = 0;
@@ -2277,7 +2289,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			else
 			{
 				ReportBug((char*)"bad substitute %s", sub)
-					return false;
+				return 0;
 			}
 		}
 		else
@@ -2295,11 +2307,12 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 				}
 				else if (i < wordCount && !stricmp(wordStarts[i + 1], word)) match = true;
 			}
-			if (match) return false;	// not to do
+			if (match) return 0;	// not to do
 			sub = ptr1;	// here is the thing to sub
 			if (!*sub) sub = 0;
 		}
 	}
+	// avoid ?'  becoming feet from unit substitution which was not detected
 	else if (*found->word == '?' && found->word[1] == '`') // unit substitution
 	{
 		while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
@@ -2311,6 +2324,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		char c = *at;
 		*at = 0;	// closes out units
 		strcpy(words[1], wordStarts[i]); // the word after the erase zone
+		*at = c;
 		tokens[1] = words[1];
 		int count = 1;
 		ptr = wordlist;
@@ -2319,9 +2333,20 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			ptr = ReadCompiledWord(ptr, words[++count]);
 			tokens[count] = words[count];
 		}
-		ReplaceWords("Number units", i, 1, count, tokens); // remove 1, add count
-		*at = c;
-		return true;
+
+		// ?_psi matching 30 psi as separated words
+		int basis = 1;
+		if (IsNumber(wordStarts[i], numberStyle)) // separated number match
+		{
+			if (i == wordCount) return 0; // shouldnt happen
+			char* token = wordStarts[i + 1];
+			size_t len = strlen(token) - 1;
+			if (!strcmp(tokens[2], token)) return 0; // dont make null change
+			++basis;
+		}
+	
+		bool result = ReplaceWords("Number units", i, basis, count, tokens); // remove basis, add count
+		return (result) ? i : 0; 
 	}
 
 	int erase = 1 + erasing;
@@ -2329,10 +2354,10 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 	{
 		if (tokenControl & TOKEN_AS_IS && *found->word != '.' &&  *found->word != '?' && *found->word != '!') // cannot tamper with word count (pennbank pretokenied stuff) except trail punctuation
 		{
-			return false;
+			return 0;
 		}
 
-		if (sub && *sub == '%')
+		if (sub && *sub == '%') // terminal punctuation like %periodmark
 		{
 			if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDUSERLOG, (char*)"substitute flag:  %s\r\n", sub + 1);
 			tokenFlags |= (int)FindMiscValueByName(sub + 1);
@@ -2348,44 +2373,45 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		int extra = (tokens[1] && *tokens[1]) ? 1 : 0;
 
 		int newWordCount = wordCount - (erasing + 1);
-		if (newWordCount == 0) return false;	// dont erase sentence completely
-
-		if (i != wordCount)	ReplaceWords("Deleting", i, erasing + 1 + extra, extra, tokens); // remove the removals + the one after if there is one. replace with just the one
-		else 	ReplaceWords("Deleting", i, erasing + 1, erasing, tokens); // remove 1, add 0
-		return true;
+		if (newWordCount == 0) return 0;	// dont erase sentence completely
+		bool result;
+		if (i != wordCount)	result = ReplaceWords("Deleting", i, erasing + 1 + extra, extra, tokens); // remove the removals + the one after if there is one. replace with just the one
+		else 	result = ReplaceWords("Deleting", i, erasing + 1, erasing, tokens); // remove 1, add 0
+		return (result) ? i : 0;
 	}
 
-	while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
+	// quoted allows '"Black+Decker"
+	if (*ptr != '\'') while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
 
 	char* tokens[MAX_SENTENCE_LENGTH];			// the new tokens we will substitute
 	memset(tokens, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
 	int count;
+	if (*sub == '\'') ++sub;
 	if (*sub == '"') // use the content internally literally - like "a_lot"  meaning want it as a single word
 	{
 		count = 1;
-		size_t len = strlen(wordlist);
-		tokens[1] = AllocateHeap(wordlist + 1, len - 2); // remove quotes from it now
+		size_t len = strlen(sub);
+		tokens[1] = AllocateHeap(sub + 1, len - 2); // remove quotes from it now
 		if (!tokens[1]) tokens[1] = AllocateHeap((char*)"a");
 	}
 	else Tokenize(wordlist, count, tokens); // get the tokenization of the substitution
-
-	if (count == 1 && !erasing) //   simple replacement
+	if (count == 1 && !erasing) //   simple replacement and avoid unit substitution
 	{
 		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDUSERLOG, (char*)"  substitute simple replace: \"%s\" with %s\r\n", wordStarts[i], tokens[1]);
-		ReplaceWords("Replacement", i, 1, 1, tokens);
+		if (!ReplaceWords("Replacement", i, 1, 1, tokens)) return 0;
 	}
 	else // multi replacement
 	{
 		if (tokenControl & TOKEN_AS_IS && !(tokenControl & DO_SUBSTITUTES) && (DO_CONTRACTIONS & (uint64)found->internalBits) && count != erase) // cannot tamper with word count (pennbank pretokenied stuff)
 		{
-			return false;
+			return 0;
 		}
-		if ((wordCount + (count - erase)) >= REAL_SENTENCE_LIMIT) return false;	// cant fit
+		if ((wordCount + (count - erase)) >= REAL_SENTENCE_WORD_LIMIT) return 0;	// cant fit
 
 		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) Log(STDUSERLOG, (char*)"  substitute replace: \"%s\" with \"%s\"\r\n", found->word, wordlist);
-		ReplaceWords("Multireplace", i, erase, count, tokens);
+		if (!ReplaceWords("Multireplace", i, erase, count, tokens)) return 0;
 	}
-	return true;
+	return i;
 }
 
 static WORDP Viability(WORDP word, int i, unsigned int n)
@@ -2395,26 +2421,34 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
 	if (word->systemFlags & CONDITIONAL_IDIOM) //  dare not unless there are no conditions
     {
         char* script = word->w.conditionalIdiom;
-        if (script[1] != '=') return 0; // no conditions listed
-		if (tokenControl & NO_CONDITIONAL_IDIOM) return 0;
+        if (script[1] != '=') return NULL; // no conditions listed
+		if (tokenControl & NO_CONDITIONAL_IDIOM) return NULL;
 	}
     if (word->internalBits & HAS_SUBSTITUTE)
     {
         WORDP X = GetSubstitute(word); //uh - but we would, uh, , buy, .. lollipops
-		if (X && !strcmp(X->word, word->word)) return NULL; // avoid infinite substitute
-        uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
-        return (allowed & word->internalBits) ? word : 0; // allowed transform
+		if (X)
+		{
+			if (!strcmp(X->word, word->word)) return NULL; // avoid infinite substitute
+			char copy[MAX_WORD_SIZE];
+			strcpy(copy, X->word);
+			char* at = copy;
+			while ((at = strchr(at, '+'))) *at = '`';
+			if (!strcmp(copy, word->word)) return NULL; // + and ` are synonymous
+		}
+		uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
+        return (allowed & word->internalBits) ? word : NULL; // allowed transform
     }
-    if (!(tokenControl & DO_SUBSTITUTES)) return 0; // no dictionary word merge
+    if (!(tokenControl & DO_SUBSTITUTES)) return NULL; // no dictionary word merge
 
-    if (word->properties & NOUN_TITLE_OF_WORK) return 0;
+    if (word->properties & NOUN_TITLE_OF_WORK) return NULL;
 
     //   dont swallow - before a number
     if (i < wordCount && IsDigit(*wordStarts[i + 1]))
     {
         char* name = word->word;
         if (*name == '-' && name[1] == 0) return 0;
-        if (*name == '<' && name[1] == '-' && name[2] == 0) return 0;
+        if (*name == '<' && name[1] == '-' && name[2] == 0) return NULL;
     }
 
     if (word->properties & (PUNCTUATION | COMMA | PREPOSITION | AUX_VERB) && n) return word; //   multiword prep is legal as is "used_to" helper
@@ -2423,15 +2457,15 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
     if (!stricmp(word->word, (char*)"going_to") && i < wordCount)
     {
         WORDP D = FindWord(wordStarts[i + 2]); // +1 will be "to"
-        return (D && !(D->properties & VERB_INFINITIVE)) ? word : 0;
+        return (D && !(D->properties & VERB_INFINITIVE)) ? word : NULL;
     }
     if (!n) return 0;
 
     // how to handle proper nouns for merging here
-	if (word->systemFlags & NO_PROPER_MERGE) return 0;
+	if (word->systemFlags & NO_PROPER_MERGE) return NULL;
 	if (n && word->systemFlags & ALWAYS_PROPER_NAME_MERGE) return word;
 	if (!(word->internalBits & UPPERCASE_HASH)) { ; }
-    else if (!(tokenControl & DO_PROPERNAME_MERGE)) return 0; // do not merge any proper name
+    else if (!(tokenControl & DO_PROPERNAME_MERGE)) return NULL; // do not merge any proper name
     else if (n  && word->properties & PART_OF_SPEECH && !IS_NEW_WORD(word))
         return word;// Merge dictionary names.  We  merge other proper names later.  words declared ONLY as interjections wont convert in other slots
     else if (n  && word->properties & word->systemFlags & PATTERN_WORD) return word;//  Merge any proper name which is a keyword. 
@@ -2450,14 +2484,14 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
             {
                 WORDP D1 = FindWord(noun);
                 if (D1->systemFlags & PATTERN_WORD) { ; }
-                else return 0; // we dont merge non-pattern words?
+                else return NULL; // we dont merge non-pattern words?
             }
-            else return 0;
+            else return NULL;
         }
     }
 
     if (word->properties & (NOUN | ADJECTIVE | ADVERB | CONJUNCTION_SUBORDINATE) && !IS_NEW_WORD(word)) return word; // merge dictionary found normal word but not if we created it as a sequence ourselves
-    return 0;
+    return NULL;
 }
 
 static WORDP ViableIdiom(char* text,int i,unsigned int n)
@@ -2483,7 +2517,7 @@ static WORDP ViableIdiom(char* text,int i,unsigned int n)
 	return NULL;
 }
 
-static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
+static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 {//   buffer is 1st word, ptr is end of it
     WORDP word;
     WORDP found = NULL;
@@ -2499,7 +2533,7 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 			*ptr++ = '`'; // separator between words
 			++n; // appended word count
 			size_t len = strlen(wordStarts[j]);
-			if ( ((ptr - buffer) + len) >= (MAX_WORD_SIZE-40)) return false; // avoid buffer overflow
+			if ( ((ptr - buffer) + len) >= (MAX_WORD_SIZE-40)) return NULL; // avoid buffer overflow
 			strcpy(ptr,wordStarts[j]);
 			ptr += strlen(ptr);
 		}
@@ -2546,7 +2580,8 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 			idiomMatch = n; 
 		}
 
-		if (!found && i == j && (IsDigit(buffer[1]) || (buffer[1] == '-' && IsDigit(buffer[2])))) found = UnitSubstitution(buffer + 1);// generic digits + unit
+		if (!found && i == j && (IsDigit(buffer[1]) || (IsSign(buffer[1]) && IsDigit(buffer[2])))) 
+			found = UnitSubstitution(buffer + 1,i);// generic digits + unit
 
         if (found == localfound && j == wordCount)  //   sentence ender
 		{
@@ -2583,18 +2618,21 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
         if (n == max) break; //   peeked ahead to max length so we are done
 	} //   end J loop
 
-	if (!found) return false;
+	if (!found) return NULL;
 
 	WORDP D = GetSubstitute(found);
-    if (D == found)  return false;
+    if (D == found)  return NULL;
 
-	bool result = false;
+	WORDP result = NULL;
 	
 	//   dictionary match to multiple word entry
 	if (found->internalBits & HAS_SUBSTITUTE) // a special substitution
 	{
-		result = Substitute(found,D ? D->word : NULL,i,idiomMatch);//   do substitution
-		if (result) tokenFlags |= found->internalBits & (DO_SUBSTITUTE_SYSTEM|DO_PRIVATE); // we did this kind of substitution
+		if (Substitute(found, D ? D->word : NULL, i, idiomMatch))
+		{
+			tokenFlags |= found->internalBits & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE); // we did this kind of substitution
+			result = found;
+		}
 	}
 	else if (found->systemFlags & CONDITIONAL_IDIOM)  // must be a composite word, not a substitute
 	{
@@ -2608,7 +2646,7 @@ static bool ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 		char* tokens[2];
 		tokens[1] = found->word;
 		ReplaceWords("Idiom",i,idiomMatch + 1,1,tokens);
-		result =  true;
+		result =  found;
 		tokenFlags |= NO_CONDITIONAL_IDIOM;
 	}
 
@@ -2680,16 +2718,21 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 		if (!count && (IsDigit(*wordStarts[i]) || (*wordStarts[i] == '-' && IsDigit(*(wordStarts[i]+1))))) count = 1; // numeric units
         
 		//   use max count
-        if (count && ProcessMyIdiom(i,count-1,buffer,ptr)) 
+        if (count ) 
 		{
-			if (cycles > 20) // something is probably wrong
+			WORDP x = ProcessMyIdiom(i, count - 1, buffer, ptr);
+			if (x)
 			{
-				Log(STDUSERLOG,(char*)"Substitute cycle overflow %s\r\n",buffer);
-				break;
-			}
+				if (cycles > 60) // something is probably wrong
+				{
+					ReportBug((char*)"Substitute cycle overflow %s in %s\r\n", x->word,buffer);
+					break;
+				}
 
-			i = 0;  //   restart since we modified sentence
-			++cycles;
+				i -= 5;  //   restart earlier since we modified sentence
+				if (i < 0) i = 0;
+				++cycles;
+			}
 		}
 	}
 }

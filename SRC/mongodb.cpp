@@ -545,11 +545,6 @@ void MongoSystemInit(char* params) // required
 	}
 }
 
-void MongoSystemRestart()
-{
-	MongoUserFilesClose();
-}
-
 void MongoSystemShutdown() // required
 {
 	char buffer[10];

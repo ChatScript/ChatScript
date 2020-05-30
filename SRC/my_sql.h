@@ -15,29 +15,16 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #endif
 
 #ifndef DISCARDMYSQL
-
-extern bool mysqlconf;
-extern char mysqlhost[300];
-extern unsigned int mysqlport;
-extern char mysqldb[300];
-extern char mysqluser[300];
-extern char mysqlpasswd[300];
-
-extern char *mysql_userread;
-extern char *mysql_userinsert;
-extern char *mysql_userupdate;
-extern char my_userread_sql[300];
-extern char my_userinsert_sql[300];
-extern char my_userupdate_sql[300];
-
-void MySQLUserFilesCode();
-void MySQLShutDown();
-void MySQLserFilesCloseCode();
+extern char mysqlparams[300];
+void MySQLUserFilesCode(char* params); // file system init
+void MySQLFullCloseCode(bool restart = false);
 extern char* mySQLparams;
 
+// script commands
 FunctionResult MySQLInitCode(char* buffer);
+FunctionResult MySQLQueryCode(char* buffer);
 FunctionResult MySQLCloseCode(char* buffer);
-FunctionResult MySQLExecuteCode(char* buffer);
+
 #endif
 
 #endif

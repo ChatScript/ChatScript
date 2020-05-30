@@ -1,0 +1,13 @@
+outputmacro: ^myfunc VARIABLE ($_arg1 $_arg2 $_arg3 $_arg4 $_arg5 $_arg6)
+calling: $_arg1 $_arg2 $_arg3 $_arg4 $_arg5 $_arg6 \n
+
+topic: ~introductions keep  repeat()
+t:  ^keep() welcome
+u:  (init) 	^mysqlinit("host=localhost port=3306 user=root password=admin db=chatscript")
+			db inited
+u: (show)  ^mysqlquery("SHOW TABLES" )
+u: (describe)  ^mysqlquery("describe extra" '^myfunc) queried
+u: (close) ^mysqlclose() closed
+u: (create _*1)  ^mysqlquery(^" CREATE TABLE '_0 (name varchar(100) PRIMARY KEY, stuff MEDIUMBLOB)" ) created.
+u: (drop _*1)  ^mysqlquery(^" DROP TABLE '_0" ) dropped
+u: ($$db_error) $$db_error
