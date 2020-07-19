@@ -1250,7 +1250,7 @@ bool ReadBinaryFacts(FILE* in,bool dictionary) //   read binary facts
 { 
 	if (!in) return false;
 	FACT* base = lastFactUsed;
-	size_t elementCount = fread((void*)(lastFactUsed + 1), 1, 100000000 , in);
+	size_t elementCount = fread((void*)(lastFactUsed + 1), 1, 10000000 , in);
 	FClose(in);
 	if (elementCount != 0) 
 	{
