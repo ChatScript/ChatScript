@@ -336,8 +336,8 @@ static void evsrv_child_died(EV_P_ ev_child *w, int revents) {
 		Log(SERVERLOG, "  %s - evserver child: re-spawned [pid: %d]\r\n", timestamp, getpid());
 		(*printer)("  %s - evserver child: re-spawned [pid: %d]\r\n", timestamp, getpid());
 		if (forkcount > 1){ 
-            sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logs, port_g, getpid());
-            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logs, port_g, getpid());
+            sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port_g, getpid());
+            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port_g, getpid());
         }
 	}
 }
@@ -466,12 +466,7 @@ int evsrv_init(const string &interfaceKind, int port, char* arg) {
     }
 #endif
 
-    if (parent_after_fork == 1 && cur_children_g > 0){
-        setSignalHandlers();
-        return 1; // parent of child does not accept/handle connections
-    }else{
-        setSignalHandlers();
-    }
+	if (parent_after_fork == 1 && cur_children_g > 0) return 1; // parent of child does not accept/handle connections
 
     if (listen(srv_socket_g, listen_queue_length_g) < 0) {
         Log(SERVERLOG, "evserver: listen() failed, errno: %s\r\n", strerror(errno));
@@ -490,8 +485,8 @@ int evsrv_init(const string &interfaceKind, int port, char* arg) {
 	Log(SERVERLOG, "  evserver: running pid: %d\r\n",getpid());
     (*printer)("  evserver: running pid: %d\r\n", getpid());
     if (forkcount > 1) {
-        sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logs, port, getpid());
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logs, port_g, getpid());
+        sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port, getpid());
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port_g, getpid());
     }
     return 1;
 }
@@ -501,7 +496,7 @@ int evsrv_run()
 {
     if (!l_g) 
 	{
-        ReportBug((char*)"evsrv_run() called with no ev loop initialized\r\n")
+        ReportBug((char*)"evsrv_run() called with no ev loop initialized")
         (*printer)((char*)"no ev loop initialized, nothing to do\r\n");
         return -1;
     }

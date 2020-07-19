@@ -11,7 +11,7 @@ static char systemValue[MAX_WORD_SIZE]; // common answer place
 /// OVERVIEW CODE 
 ////////////////////////////////////////////////////
 
-void DefineSystemVariables()
+void InitSystemVariables()
 {
 	unsigned int i = 0;
 	while (sysvars[++i].name)
@@ -270,7 +270,7 @@ static char* Svolleytime(char* value)
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
 	if (regression) return "12";
-	uint64 diff = ElapsedMilliseconds() - startTimeInfo;
+	uint64 diff = ElapsedMilliseconds() - volleyStartTime;
     sprintf(systemValue,(char*)"%u",(unsigned int)diff);
     return systemValue;
 }
@@ -477,7 +477,7 @@ static char* Sfact(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	sprintf(systemValue,(char*)"%d",Fact2Index(factFree));
+	sprintf(systemValue,(char*)"%d",Fact2Index(lastFactUsed));
     return systemValue;
 }
 
@@ -609,7 +609,7 @@ static char* SfreeFact(char* value)
 {
 	static char hold[50] = ".";
 	if (value) return strcpy(hold,value); // may not legally set on one's own
-	sprintf(hold,(char*)"%ld",factEnd-factFree);
+	sprintf(hold,(char*)"%ld",factEnd-lastFactUsed);
 	return hold;
 }
 
@@ -882,6 +882,18 @@ static char* Simpliedyou(char* value)
     else return tokenFlags & IMPLIED_YOU ? (char*)"1" : (char*)"";
 }  
 
+static char* SimpliedSubject(char* value)
+{
+	static char hold[50] = ".";
+	if (value)
+	{
+		if (*value == '.') strcpy(hold, value);
+		else if (!stricmp(value, (char*)"1")) tokenFlags |= IMPLIED_SUBJECT;
+		else if (!stricmp(value, (char*)"0")) tokenFlags &= -1 ^ IMPLIED_SUBJECT;
+	}
+	if (*hold != '.') return hold;
+	else return tokenFlags & IMPLIED_SUBJECT ? (char*)"1" : (char*)"";
+}
 static char* Stense(char* value) 
 {
 	static char hold[50] = ".";
@@ -1063,7 +1075,7 @@ static char* Sserverlogfolder(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	strcpy(systemValue, logs);
+	strcpy(systemValue, logsfolder);
     return systemValue;
 }
 
@@ -1072,7 +1084,7 @@ static char* Suserlogfolder(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	strcpy(systemValue, users);
+	strcpy(systemValue, usersfolder);
     return systemValue;
 }
 
@@ -1081,7 +1093,7 @@ static char* Stmpfolder(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	strcpy(systemValue, tmp);
+	strcpy(systemValue, tmpfolder);
     return systemValue;
 }
 
@@ -1151,7 +1163,8 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%command",Scommand,(char*)"Boolean - is the current input a command"},
 	{ (char*)"%foreign",Sforeign,(char*)"Boolean - is the bulk of current input foreign words"},
 	{ (char*)"%impliedyou",Simpliedyou,(char*)"Boolean - is the current input have you as an implied subject"},
-	{ (char*)"%input",Sinput,(char*)"Numeric volley id of the current input"}, 
+	{ (char*)"%impliedsubject",SimpliedSubject,(char*)"Boolean - is the current input have I or most recent subject as an implied subject" },
+	{ (char*)"%input",Sinput,(char*)"Numeric volley id of the current input"},
 	{ (char*)"%ip",Sip,(char*)"String - ip address supplied"}, 
 	{ (char*)"%language",Slanguage,(char*)"what language is enabled"},
 	{ (char*)"%length",Slength,(char*)"Numeric count of words of current input"}, 

@@ -623,9 +623,10 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define SPLIT_QUOTE				0x0000000004000000ULL  // separate expressions in single quotes
 #define LEAVE_QUOTE				0x0000000008000000ULL  // do not remove quotes around single words
 // tokencontrol not reflected into tokenflags
-#define UNTOUCHED_INPUT			0x0000000010000000ULL 
+#define UNTOUCHED_INPUT			0x0000000010000000ULL  // shared with IMPLIED_I
 
 //   values of tokenFlags (seen processing input not eched into tokencontrol) 
+#define IMPLIED_SUBJECT			0x0000000010000000ULL // shared with UNTOUCHED_INPUT
 #define QUESTIONMARK			0x0000000020000000ULL  
 #define EXCLAMATIONMARK			0x0000000040000000ULL   
 #define PERIODMARK				0x0000000080000000ULL   
@@ -652,7 +653,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // end of tokenflags
 
 // these change from parsing
-#define SENTENCE_TOKENFLAGS  ( QUOTATION | COMMANDMARK | IMPLIED_YOU | FOREIGN_TOKENS | FAULTY_PARSE  | NOT_SENTENCE | PRESENT | PAST | FUTURE | PRESENT_PERFECT | CONTINUOUS | PERFECT | PASSIVE )
+#define SENTENCE_TOKENFLAGS  ( QUOTATION | COMMANDMARK | IMPLIED_SUBJECT | IMPLIED_YOU | FOREIGN_TOKENS | FAULTY_PARSE  | NOT_SENTENCE | PRESENT | PAST | FUTURE | PRESENT_PERFECT | CONTINUOUS | PERFECT | PASSIVE )
 
 // flags to control output processing
 #define    OUTPUT_ONCE			0x00000001 

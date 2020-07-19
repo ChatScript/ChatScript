@@ -2,6 +2,7 @@
 #define MAX_SYNLOOP	60
 
 #define MAX_HASH_BUCKETS 215127 
+#define UNIQUEENTRY '`'				// leads words that wont clash with other dictionary entries
 
 #define ALLOCATESTRING_SIZE_PREFIX 3
 #define ALLOCATESTRING_SIZE_SAFEMARKER 2
@@ -14,6 +15,8 @@
 #define IS_NEW_WORD(x) (!x || x >= dictionaryPreBuild[2]) // created by user volley
 
 #define ALL_OBJECTS ( MAINOBJECT | MAININDIRECTOBJECT | OBJECT2 | INDIRECTOBJECT2 )
+
+#define CHECKSTAMP 7
 
 // system internal bits on dictionary entries internalBits
 
@@ -48,6 +51,7 @@
 #define NOTRACE_FN				VAR_CHANGED		// dont trace this function (on functions only)
 #define WORDNET_ID				0x00008000		// a wordnet synset header node (MASTER w gloss ) only used when building a dictionary -- or transient flag for unduplicate
 #define MACRO_TRACE				WORDNET_ID		// turn on tracing for this function or variable (only used when live running)
+#define BIT_CHANGED				WORDNET_ID	// changing properties, systemflags, etc during loading
 #define INTERNAL_MARK			0x00010000		// transient marker for Intersect coding and Country testing in :trim
 #define FROM_FILE				INTERNAL_MARK	//  for scriptcompiler to tell stuff comes from FILE not DIRECTORY
 #define MACRO_TIME				INTERNAL_MARK	// turn on timing for this function (only used when live running)
@@ -114,7 +118,7 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define UPPERCASE_LOOKUP 8192
 
 
-#define NO_EXTENDED_WRITE_FLAGS ( PATTERN_WORD  )
+#define NO_EXTENDED_WRITE_FLAGS ( PATTERN_WORD | MARKED_WORD )
 
 // system flags revealed via concepts
 #define MARK_FLAGS (  TIMEWORD | ACTUAL_TIME | WEB_URL | LOCATIONWORD | PRONOUN_REFLEXIVE | NOUN_NODETERMINER | VERB_CONJUGATE3 | VERB_CONJUGATE2 | VERB_CONJUGATE1 | INSEPARABLE_PHRASAL_VERB  | MUST_BE_SEPARATE_PHRASAL_VERB  | SEPARABLE_PHRASAL_VERB	|  PHRASAL_VERB  ) // system bits we display as concepts
@@ -169,11 +173,11 @@ void SetCanonical(WORDP D,MEANING M);
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
 void SetTriedMeaningWithData(WORDP D, uint64 bits, unsigned int* data);
-HEAPREF ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
+void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
 void Add2ConceptTopicList(HEAPREF list[256], WORDP D,int start,int end,bool unique);
 void SuffixMeaning(MEANING T,char* at, bool withPos);
 int UTFCharSize(char* utf);
-HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list);
+HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list,bool dynamic = false);
 // memory data
 extern WORDP dictionaryBase;
 extern uint64 maxDictEntries;
@@ -197,7 +201,7 @@ extern FACT* factLocked;
 extern char* stringLocked;
 
 extern WORDP dictionaryPreBuild[NUMBER_OF_LAYERS+1];
-extern char* stringsPreBuild[NUMBER_OF_LAYERS+1];
+extern char* heapPreBuild[NUMBER_OF_LAYERS+1];
 extern WORDP dictionaryFree;
 extern char dictionaryTimeStamp[20];
 extern bool primaryLookupSucceeded;
@@ -265,6 +269,7 @@ void ShowStats(bool reset);
 MEANING FindChild(MEANING who,int n);
 void ReadCanonicals(const char* file,const char* layer);
 void UndoSubstitutes(HEAPREF list);
+WORDP AllocateEntry();
 
 // adjust data on a dictionary entry
 void AddProperty(WORDP D, uint64 flag);
@@ -293,7 +298,6 @@ WORDP BUILDCONCEPT(char* word);
 // startup and shutdown routines
 void InitDictionary();
 void CloseDictionary();
-void LoadDictionary();
 void ExtendDictionary();
 void WordnetLockDictionary();
 void ReturnDictionaryToWordNet();
@@ -336,9 +340,7 @@ bool IsPastHelper(char* word);
 MEANING MakeTypedMeaning(WORDP x, unsigned int y, unsigned int flags);
 MEANING MakeMeaning(WORDP x, unsigned int y = 0);
 WORDP Meaning2Word(MEANING x);
-WORDP Meaning2SmallerWord(MEANING x);
 MEANING AddMeaning(WORDP D,MEANING M);
-MEANING AddTypedMeaning(WORDP D,unsigned int type);
 void AddGloss(WORDP D,char* gloss,unsigned int index);
 void RemoveMeaning(MEANING M, MEANING M1);
 MEANING ReadMeaning(char* word,bool create=true,bool precreated = false);

@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 5/2/2020 cs10.3
+<br>Revision 7/18/2020 cs10.5
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does and
@@ -46,9 +46,12 @@ the above : statement show the list:
 :authorize - Flip authorization for all debug commands
 
 ---- Fact info -
-:allfacts  - Write all facts to TMP/facts.tmp
+:allfacts  - Write all facts to TMP/facts.tmp for current bot.  :allfacts all does all bots.
 :facts     - Display all facts with given word or meaning or fact set
 :userfacts - Display current user facts
+
+---- Dict info -
+:alldict - Lists all words in dictionary, and if called with :alldict fact, lists the facts for which word is subject.
 
 ---- Topic info -
 :gambits    - Show gambit sequence of topic

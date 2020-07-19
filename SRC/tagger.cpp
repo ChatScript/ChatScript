@@ -364,7 +364,8 @@ void DumpSentence(int start,int end)
 	
 	if (subject) DescribeUnit(subject,buffer, "Subj:",0,0);
 	else if (tokenFlags& IMPLIED_YOU) 	strcat(buffer,(char*)"YOU   ");
-	
+	else if (tokenFlags& IMPLIED_SUBJECT) 	strcat(buffer, (char*)"IMPLIED_SUBJECT   ");
+
 	if (verb) 
 	{
 		object = objectRef[verb];

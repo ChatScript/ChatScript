@@ -1,7 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 5/2/2020 cs10.3
-
+<br>Revision 7/18/2020 cs10.5
 
 # Command Line Parameters
 
@@ -107,6 +106,8 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`nouserlog`    | Don't store a user-bot log
 |`tmp=xxx`     | name relative or absolute path to where you want the TMP folder to be. Do not add trailing `/`
 |`crashpath=xxx`     | file to write about fatal Linux signals that will be outside of the cs folder `/`
+|`windowsbuglog=xxx` | names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area
+|`linuxsbuglog=xxx` | names a LINUX directory to replicate the BUGS.txt log file outside of the CS directory area
 
 ## Execution options
 | option           | description
@@ -125,6 +126,8 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`defaultbot=name`   | overrides defaultbot table for what bot to default to
 |`inputlimit=n`     | truncate user input line to this size
 |`trustpos`     | obey word~n and other pos restrictions in keywords
+|`autoreload`	| in event of cs engine crash, output a dummy message and reload on next input (see $cs_crashmsg and $cs_crash)
+|`nofastload` | If you suspect fast loading is faulty, you can set this to see if things work without it
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
@@ -191,6 +194,7 @@ to happen, you can enable this restart using `nosuchbotrestart=true`. Default is
 |------------------|-----------------------------------------------------------------------------
 | `Timer=15000`    | if a volley lasts more than 15 seconds, abort it and return a timeout message.
 | `Timer=18000x10` |same as above, but more roughly, higher number after the x reduces how frequently it samples time, reducing the cost of sampling
+| `Timelog=5000`    | if a volley lasts more than 5000 milliseconds, record it in LOGS/time.txt and for LINUX in /tmp/cstime.txt .
 
 ## `:TranslateConcept` Google API Key
 | option           | description

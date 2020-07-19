@@ -32,7 +32,7 @@ extern int actualTokenCount;
 bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens);
 int BurstWord(char* word, int contractionStyle = 0);
 char* GetBurstWord(unsigned int n);
-char* JoinWords(unsigned int n,bool output = false);
+char* JoinWords(unsigned int n,bool output = false,char* buffer = NULL);
 void ProcessSplitUnderscores();
 WORDP ApostropheBreak(char* aword);
 char* Tokenize(char* input,int& count,char** words,bool all = false,bool oobstart = false);

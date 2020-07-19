@@ -287,6 +287,7 @@ void InitTextUtilities()
 		if (c) c -= 128;	// remove top bit
 		utf82extendedascii[c] = (unsigned char)i;
 	}
+	InitTextUtilities1();
 }
 
 bool IsComparator(char* word)
@@ -310,8 +311,10 @@ char* ReadTokenMass(char* ptr, char* word)
 
 void InitTextUtilities1()
 {
+	ClearNumbers();
+
 	char file[SMALL_WORD_SIZE];
-	sprintf(file, (char*)"%s/%s/numbers.txt", livedata, language);
+	sprintf(file, (char*)"%s/%s/numbers.txt", livedataFolder, language);
 	FILE* in = FopenStaticReadOnly(file); // LIVEDATA substitutes or from script TOPIC world
 	if (!in) return;
 	char word[MAX_WORD_SIZE];
@@ -351,7 +354,7 @@ void InitTextUtilities1()
 	ReleaseInfiniteStack();
 	fclose(in);
 
-	sprintf(file, (char*)"%s/%s/currencies.txt", livedata, language);
+	sprintf(file, (char*)"%s/%s/currencies.txt", livedataFolder, language);
 	in = FopenStaticReadOnly(file); 
 	if (!in) return;
 	stack = InfiniteStack64(limit, "initcurrency");
@@ -379,7 +382,7 @@ void InitTextUtilities1()
 	ReleaseInfiniteStack();
 	fclose(in);
 
-	sprintf(file, (char*)"%s/%s/months.txt", livedata, language);
+	sprintf(file, (char*)"%s/%s/months.txt", livedataFolder, language);
 	in = FopenStaticReadOnly(file); 
 	if (!in) return;
 	stack = InfiniteStack64(limit, "initmonths");
@@ -676,7 +679,7 @@ void AcquireDefines(char* fileName)
 	bool timesop = false;
 	bool excludeop = false;
 	int offset = 1;
-	word[0] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
 	bool endsystem = false;
 	while (ReadALine(readBuffer, in) >= 0)
 	{
@@ -684,7 +687,7 @@ void AcquireDefines(char* fileName)
         int64 value;
 		if (!strnicmp(readBuffer,(char*)"// system flags",15))  // end of property flags seen
 		{
-			word[1] = ENDUNIT; // system flag words have `` in front
+			word[1] = UNIQUEENTRY; // system flag words have `` in front
 			offset = 2;
 		}
 		else if (!strnicmp(readBuffer,(char*)"// end system flags",19))  // end of system flags seen
@@ -693,15 +696,15 @@ void AcquireDefines(char* fileName)
 		}
 		else if (!strnicmp(readBuffer,(char*)"// parse flags",14))  // start of parse flags seen
 		{
-			word[1] = ENDUNIT; // parse flag words have ``` in front
-			word[2] = ENDUNIT; // parse flag words have ``` in front
+			word[1] = UNIQUEENTRY; // parse flag words have ``` in front
+			word[2] = UNIQUEENTRY; // parse flag words have ``` in front
 			offset = 3;
 		}
 		else if (!strnicmp(readBuffer,(char*)"// end parse flags",18))  // end of parse flags seen
 		{
-			word[1] = ENDUNIT; // misc flag words have ```` in front and do not xref from number to word
-			word[2] = ENDUNIT; // misc flag words have ```` in front
-			word[3] = ENDUNIT; // misc flag words have ```` in front
+			word[1] = UNIQUEENTRY; // misc flag words have ```` in front and do not xref from number to word
+			word[2] = UNIQUEENTRY; // misc flag words have ```` in front
+			word[3] = UNIQUEENTRY; // misc flag words have ```` in front
 			offset = 4;
 			endsystem = true;
 		}
@@ -777,7 +780,7 @@ void AcquireDefines(char* fileName)
 		{
 			WORDP E = StoreWord(word);
 			AddInternalFlag(E,DEFINES);
-			if (!E->inferMark) E->inferMark = MakeMeaning(D); // if number value NOT already defined, use this definition
+			if (!E->parseBits) E->parseBits = MakeMeaning(D); // if number value NOT already defined, use this definition
 		}
 	}
 	FClose(in);
@@ -898,7 +901,7 @@ uint64 FindValueByName(char* name)
 char* FindNameByValue(uint64 val) // works for invertable pos bits only
 {
 	char word[MAX_WORD_SIZE];
-	word[0] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
 #ifdef WIN32
 	sprintf(word+1,(char*)"%I64d",val);
 #else
@@ -906,7 +909,7 @@ char* FindNameByValue(uint64 val) // works for invertable pos bits only
 #endif
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
-	D = Meaning2Word(D->inferMark); 
+	D = Meaning2Word(D->parseBits);
 	return D->word+1;
 }
 
@@ -927,8 +930,8 @@ uint64 FindSystemValueByName(char* name)
 {
 	if (!*name || *name == '?') return 0; // ? is the default argument to call
 	char word[MAX_WORD_SIZE * 4];
-	word[0] = ENDUNIT;
-	word[1] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
+	word[1] = UNIQUEENTRY;
 	MakeUpperCopy(word+2,name);
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) 
@@ -943,8 +946,8 @@ uint64 FindSystemValueByName(char* name)
 char* FindSystemNameByValue(uint64 val) // works for invertable system bits only
 {
 	char word[MAX_WORD_SIZE];
-	word[0] = ENDUNIT;
-	word[1] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
+	word[1] = UNIQUEENTRY;
 #ifdef WIN32
 	sprintf(word+2,(char*)"%I64d",val);
 #else
@@ -952,15 +955,15 @@ char* FindSystemNameByValue(uint64 val) // works for invertable system bits only
 #endif
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
-	return Meaning2Word(D->inferMark)->word+2;
+	return Meaning2Word(D->parseBits)->word+2;
 }
 
 char* FindParseNameByValue(uint64 val)
 {
 	char word[MAX_WORD_SIZE];
-	word[0] = ENDUNIT;
-	word[1] = ENDUNIT;
-	word[2] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
+	word[1] = UNIQUEENTRY;
+	word[2] = UNIQUEENTRY;
 #ifdef WIN32
 	sprintf(word+3,(char*)"%I64d",val);
 #else
@@ -968,16 +971,16 @@ char* FindParseNameByValue(uint64 val)
 #endif
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
-	return Meaning2Word(D->inferMark)->word+3;
+	return Meaning2Word(D->parseBits)->word+3;
 }
 
 uint64 FindParseValueByName(char* name)
 {
 	if (!*name || *name == '?') return 0; // ? is the default argument to call
 	char word[MAX_WORD_SIZE];
-	word[0] = ENDUNIT;
-	word[1] = ENDUNIT;
-	word[2] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
+	word[1] = UNIQUEENTRY;
+	word[2] = UNIQUEENTRY;
 	MakeUpperCopy(word+3,name);
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) 
@@ -992,10 +995,10 @@ uint64 FindMiscValueByName(char* name)
 {
 	if (!*name || *name == '?') return 0; // ? is the default argument to call
 	char word[MAX_WORD_SIZE];
-	word[0] = ENDUNIT;
-	word[1] = ENDUNIT;
-	word[2] = ENDUNIT;
-	word[3] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
+	word[1] = UNIQUEENTRY;
+	word[2] = UNIQUEENTRY;
+	word[3] = UNIQUEENTRY;
 	MakeUpperCopy(word+4,name);
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) 
@@ -1612,6 +1615,14 @@ bool IsMail(char* word)
 	char* at = strchr(word, '@');	// check for email
 	if (at)
 	{
+        // check local part, before @, for possible previous word end
+        // see reasonable write up at https://www.jochentopf.com/email/chars.html
+        char* ptr = word - 1;
+        while (++ptr < at)
+        {
+            if (IsInvalidEmailCharacter(*ptr)) return false;
+        }
+        
 		char* dot = strchr(at + 2, '.'); // must have character or digit after @ and before . (RFC1123 section 2.1)
 		if (dot && IsAlphaUTF8OrDigit(dot[1])) return true;
 	}
@@ -1640,7 +1651,6 @@ bool IsUrl(char* word, char* end)
 	MakeLowerCopy(tmp,word);
     if (!end) end = word + len; 
     tmp[end-word] = 0;
-    char* ptr = tmp;
 	
 	if (IsMail(tmp)) return true;
 
@@ -1648,6 +1658,11 @@ bool IsUrl(char* word, char* end)
 	//	fireze.it OR www.amazon.co.uk OR amazon.com OR kore.ai
 	char* firstPeriod = strchr(tmp, '.');
 	if (!firstPeriod || firstPeriod[1] == '.') return false; // not a possible url
+    char* ptr = tmp - 1;
+    while (++ptr < firstPeriod)
+    {
+        if (IsInvalidEmailCharacter(*ptr)) return false; // looks like a word before the url
+    }
 	char* domainEnd = strchr(firstPeriod, '/');
 	if (domainEnd) *domainEnd = 0;
 	ptr = strrchr(tmp, '.'); // last period - KNOWN to exist
@@ -2417,7 +2432,7 @@ RESUME:
 			if ( c == '<') 
 			{
 				blockComment = true; 
-				if (!fread(&c,1,1,in)) // see if attached language
+				if (in && !fread(&c,1,1,in)) // see if attached language
 				{
 					++currentFileLine;	// for debugging error messages
 					maxFileLine = currentFileLine;
@@ -3568,7 +3583,7 @@ char* PartialLowerCopy(char* to, char* from, int begin, int end)  	//excludes th
 	*(to + index) = '\0';
 	while (index > 1)
 	{
-		*to++;
+		to++;
 		index--;
 	}
 	*to = 0;

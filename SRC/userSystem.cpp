@@ -47,7 +47,7 @@ void PartialLogin(char* caller,char* ip)
 	}
 	*id = 0;
 
-	sprintf(logFilename,(char*)"%s/%slog-%s.txt",users,GetUserPath(loginID),loginID); // user log goes here
+	sprintf(logFilename,(char*)"%s/%slog-%s.txt",usersfolder,GetUserPath(loginID),loginID); // user log goes here
 
 	if (ip) strcpy(callerIP,ip);
 	else *callerIP = 0;
@@ -120,8 +120,8 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
     //   write out fact sets first, before destroying any transient facts
 	sprintf(ptr,(char*)"%x #set flags\r\n",(unsigned int) setControl);
 	ptr += strlen(ptr);
-	unsigned int i;
-    unsigned int count;
+	int i;
+    int count;
 	if (!shared || sharefile)  for (i = 0; i <= MAX_FIND_SETS; ++i)
     {
 		if (!(setControl & (uint64) ((uint64)1 << i))) continue; // purely transient stuff
@@ -129,7 +129,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 		//   remove dead references 
 		FACT** set = factSet[i];
         count = FACTSET_COUNT(i);
-		unsigned int j;
+		int j;
         for (j = 1; j <= count; ++j)
 		{
 			FACT* F = set[j];
@@ -168,7 +168,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 	ptr += strlen(ptr);
 
 	// most recent facts, in order, but not those written out already as part of fact set (in case FACTDUPLICATE is on, dont want to recreate and not build2 layer facts)
-	FACT* F = factFree+1; // point to 1st unused fact
+	FACT* F = lastFactUsed+1; // point to 1st unused fact
 	while (--F > factLocked && limit) // backwards down to base system facts
 	{
 		if (shared && !sharefile)  continue;
@@ -178,7 +178,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 	// ends on factlocked, which is not to be written out
 	int counter = 0;
 	char* xxstart = ptr;
- 	while (++F <= factFree)  // factfree is a valid fact
+ 	while (++F <= lastFactUsed)  // lastFactUsed is a valid fact
 	{
 		if (shared && !sharefile)  continue;
 		if (saveJSON && !(F->flags & MARKED_FACT2) && F->flags & (JSON_OBJECT_FACT | JSON_ARRAY_FACT)) continue; // dont write this out
@@ -609,8 +609,8 @@ void WriteUserData(time_t curr, bool nobackup)
 	char name[MAX_WORD_SIZE];
 	char filename[SMALL_WORD_SIZE];
 	// NOTE mongo does not allow . in a filename
-	sprintf(name, (char*)"%s/%stopic_%s_%s.txt", users, GetUserPath(loginID), loginID, computerID);
-	if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, computerID, language);
+	sprintf(name, (char*)"%s/%stopic_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID);
+	if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID, language);
 	strcpy(filename, name);
 	strcat(filename, "\r\n");
 	userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
@@ -625,11 +625,11 @@ void WriteUserData(time_t curr, bool nobackup)
 	if (filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)
 	{
 		char fname[MAX_WORD_SIZE];
-		sprintf(fname, (char*)"%s/backup-%s_%s.txt", tmp, loginID, computerID);
+		sprintf(fname, (char*)"%s/backup-%s_%s.txt", tmpfolder, loginID, computerID);
 		if (!nobackup) CopyFile2File(fname, name, false);	// backup for debugging BUT NOT if callback of some kind...
 		if (redo) // multilevel backup enabled
 		{
-			sprintf(fname, (char*)"%s/backup%d-%s_%s.txt", tmp, volleyCount, loginID, computerID);
+			sprintf(fname, (char*)"%s/backup%d-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
 			if (!nobackup) CopyFile2File(fname, userDataBase, false);	// backup for debugging BUT NOT if callback of some kind...
 		}
 	}
@@ -639,8 +639,8 @@ void WriteUserData(time_t curr, bool nobackup)
 	if (ptr) Cache(userDataBase, ptr - userDataBase);
 	if (ptr && shared)
 	{
-		sprintf(name, (char*)"%s/%stopic_%s_%s.txt", users, GetUserPath(loginID), loginID, (char*)"share");
-		if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, language, (char*)"share");
+		sprintf(name, (char*)"%s/%stopic_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, (char*)"share");
+		if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, language, (char*)"share");
 		strcpy(filename, name);
 		strcat(filename, "\r\n");
 		userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
@@ -653,11 +653,11 @@ void WriteUserData(time_t curr, bool nobackup)
 #ifndef DISCARDTESTING
 		if (filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)
 		{
-			sprintf(name, (char*)"%s/backup-share-%s_%s.txt", tmp, loginID, computerID);
+			sprintf(name, (char*)"%s/backup-share-%s_%s.txt", tmpfolder, loginID, computerID);
 			if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging
 			if (redo)
 			{
-				sprintf(name, (char*)"%s/backup%d-share-%s_%s.txt", tmp, volleyCount, loginID, computerID);
+				sprintf(name, (char*)"%s/backup%d-share-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
 				if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging BUT NOT if callback of some kind...
 			}
 		}
@@ -671,7 +671,7 @@ void WriteUserData(time_t curr, bool nobackup)
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Write user data time: %d ms\r\n", diff);
 	}
 
-	migratetop = factFree;
+	migratetop = lastFactUsed;
 }
 
 static  bool ReadFileData(char* bot) // passed  buffer with file content (where feasible)
@@ -793,8 +793,8 @@ void KillShare()
 	if (shared) 
 	{
 		char buffer[MAX_WORD_SIZE];
-		sprintf(buffer,(char*)"%s/%stopic_%s_%s.txt",users,GetUserPath(loginID),loginID,(char*)"share");
-		if (stricmp(language,"english")) sprintf(buffer, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), loginID, language,(char*)"share");
+		sprintf(buffer,(char*)"%s/%stopic_%s_%s.txt",usersfolder,GetUserPath(loginID),loginID,(char*)"share");
+		if (stricmp(language,"english")) sprintf(buffer, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, language,(char*)"share");
 		unlink(buffer); // remove all shared data of this user
 	}
 }

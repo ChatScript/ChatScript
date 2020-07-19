@@ -316,7 +316,7 @@ void MarkChunk()
 
 	WORDP type = NULL;
 	int start = 0;
-	unsigned int i;
+	int i;
 	char word[MAX_WORD_SIZE];
 	*word = '~';
 	for (i = 0; i < wordCount; ++i)
@@ -378,7 +378,7 @@ static void TreeTagger()
 	tag_sentence(0, &ts);
 	if (trace & (TRACE_PREPARE | TRACE_POS | TRACE_TREETAGGER)) Log(STDUSERLOG, "External Tagging:\r\n");
 
-	bool chunk = strstr(treetaggerParams, "chunk");
+	bool chunk = strstr(treetaggerParams, "chunk") ? true : false;
 	if (chunk) // do chunking here but marking later
 	{
 		for (i = 0; i < wordCount; ++i)
@@ -479,7 +479,6 @@ static void TreeTagger()
 		WORDP canonical0 = FindWord(wordCanonical[i]);
 
 		// Might have adjusted TT's initial tag via SetTag() in the $cs_externaltag topic
-		char newtag[MAX_WORD_SIZE];
 		strcpy(newtag, wordTag[i]->word);
 		*newtag = '_';
 		WORDP X = FindWord(newtag);
@@ -1264,18 +1263,12 @@ static void InitRoleSentence(int start, int end)
     firstAux = NULL;
     firstnoun = firstNounClause = 0;
 
-    verbStack[0] = 0;
-    subjectStack[0] = 0;
-    objectStack[0] = 0;
-    auxVerbStack[0] = 0;
-    startStack[0] = 0;
-
-    verbStack[MAINLEVEL] = 0;
-    subjectStack[MAINLEVEL] = 0;
-    objectStack[MAINLEVEL] = 0;
-    auxVerbStack[MAINLEVEL] = 0;
-    needRoles[MAINLEVEL] = 0;
-    startStack[MAINLEVEL] = 0;
+	memset(verbStack, 0, sizeof(verbStack));
+	memset(subjectStack, 0, sizeof(subjectStack));
+	memset(objectStack, 0, sizeof(objectStack));
+	memset(auxVerbStack, 0, sizeof(auxVerbStack));
+	memset(startStack, 0, sizeof(startStack));
+	memset(needRoles, 0, sizeof(needRoles));
 
     startStack[0] = (unsigned char)startSentence;
     objectRef[0] = objectRef[MAX_SENTENCE_LENGTH - 1] = 0;
@@ -1291,17 +1284,17 @@ static void InitRoleSentence(int start, int end)
 void TagInit()
 {
 #ifndef DISCARDPARSER
-		roleIndex = 0;
-		prepBit = clauseBit = verbalBit = 1;
-		memset(tried, 0, sizeof(char) * (wordCount + 2));
-		memset(phrases, 0, sizeof(int) *(wordCount + 4));
-		memset(verbals, 0, sizeof(int) *(wordCount + 4));
-		memset(clauses, 0, sizeof(int) *(wordCount + 4));
-		memset(roles, 0, (wordCount + 4) * sizeof(uint64));
-		memset(parseFlags, 0, (wordCount + 2) * sizeof(int));
-		memset(indirectObjectRef, 0, sizeof(char) *(wordCount + 4)); // verb to indirect object
-		memset(objectRef, 0, sizeof(char) *(wordCount + 4)); // verb to object
-		memset(complementRef, 0, sizeof(char) *(wordCount + 4)); // verb to object complement
+	roleIndex = 0;
+	prepBit = clauseBit = verbalBit = 1;
+	memset(tried, 0, sizeof(char) * (wordCount + 2));
+	memset(phrases, 0, sizeof(int) *(wordCount + 4));
+	memset(verbals, 0, sizeof(int) *(wordCount + 4));
+	memset(clauses, 0, sizeof(int) *(wordCount + 4));
+	memset(roles, 0, (wordCount + 4) * sizeof(uint64));
+	memset(parseFlags, 0, (wordCount + 2) * sizeof(int));
+	memset(indirectObjectRef, 0, sizeof(char) *(wordCount + 4)); // verb to indirect object
+	memset(objectRef, 0, sizeof(char) *(wordCount + 4)); // verb to object
+	memset(complementRef, 0, sizeof(char) *(wordCount + 4)); // verb to object complement
 #endif
 	// dynamic data
 	memset(bitCounts,0,sizeof(unsigned char)*(wordCount+2));
@@ -1373,8 +1366,8 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 
 #ifdef TREETAGGER
 	ts.number_of_words = 0; // declare no data in english known to merge into our postagging code
-    bool oob = (*wordStarts[startSentence] == '[' && *wordStarts[endSentence] == ']');
-    if (externalPostagger && !oob) (*externalPostagger)();
+    bool oobx = (*wordStarts[startSentence] == '[' && *wordStarts[endSentence] == ']');
+    if (externalPostagger && !oobx) (*externalPostagger)();
 #endif
 	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag"))
 	{
@@ -2207,7 +2200,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 
 		// reasons this rule doesnt apply
 		if (basic & PART2_BIT) continue; // skip 2nd part
-		unsigned int resultOffset = (basic >> RESULT_SHIFT) & 0x0007; 
+		int resultOffset = (basic >> RESULT_SHIFT) & 0x0007; 
 		uint64 resultBits = data[resultOffset] & PATTERN_BITS;	// we will want to change THIS FIELD
 		if (!(posValues[j] & resultBits) || !(posValues[j] & (-1LL ^ resultBits)) ) continue;		// cannot help  this- no bits in common or all bits would be kept or erased
 
@@ -2216,13 +2209,13 @@ static bool ApplyRulesToWord( int j,bool & changed)
 		if (tracex) 
 			Log(STDUSERLOG,(char*)"   => Trace rule:%d   %s (%d) %s \r\n",i,word,j,comment);
 		
-		unsigned int limit = (data[3] & PART1_BIT) ? (MAX_TAG_FIELDS * 2) : MAX_TAG_FIELDS;
+		int limit = (data[3] & PART1_BIT) ? (MAX_TAG_FIELDS * 2) : MAX_TAG_FIELDS;
 		offset = ((data[1] >> OFFSET_SHIFT) & 0x00000007) - 3; // where to start pattern match relative to current field (3 bits)
 		keep =  (data[1] & KEEP_BIT) != 0;
 		direction =  (data[2] & REVERSE_BIT) ? -1 : 1;
 		offset *= direction;	
 		start = j + offset - direction;
-		unsigned int k;
+		int k;
 		int result;
 		for (k = 0; k < limit; ++k) // test rule fields
 		{
@@ -2735,9 +2728,9 @@ static void WordIdioms(bool &changed)
 		{
 			if (trace & TRACE_POS)  
 			{
-				char tags[MAX_WORD_SIZE];
-				*tags = 0;
-				char* ptr = tags;
+				char tagslist[MAX_WORD_SIZE];
+				*tagslist = 0;
+				char* ptr = tagslist;
 				int at = i;
 				while (at < (i + tagged)) 
 				{
@@ -2745,7 +2738,7 @@ static void WordIdioms(bool &changed)
 					strcat(ptr,(char*)" ");
 					ptr += strlen(ptr);
 				}
-				Log(STDUSERLOG,(char*)"Word Idiom %d:%s (%s)\r\n",tagged,word,tags);
+				Log(STDUSERLOG,(char*)"Word Idiom %d:%s (%s)\r\n",tagged,word, tagslist);
 			}
 			i += tagged - 1;	// skip over matched zone
 //			if (posValues[i] == PARTICLE) --i;	// rescan for another idiom like "I live *on my own" - "live on" and "on my own"
@@ -3122,10 +3115,10 @@ static void Tags(char* buffer, int i)
 char* DumpAnalysis(int start, int end,uint64 flags[MAX_SENTENCE_LENGTH],const char* label,bool original,bool roleDisplay)
 {
 	char* buffer = AllocateBuffer();
-	char* ambiguous = "";
+	char* ambiguousx = "";
 	char* faultyparse = "";
 	if (!original && tokenFlags & FAULTY_PARSE) faultyparse = "badparse "; // only one of ambiguous (worse) and faultyparse will be true
-	sprintf(buffer,(char*)"%s%s%s %d words: ",ambiguous,faultyparse,label,end-start+1);
+	sprintf(buffer,(char*)"%s%s%s %d words: ",ambiguousx,faultyparse,label,end-start+1);
 	unsigned int lenpre;
 	firstAux = NULL;
 
@@ -3510,10 +3503,10 @@ static void ErasePhrase(int i)
 	}
 }
 
-static void AddRoleLevel(unsigned int roles,int i)
+static void AddRoleLevel(unsigned int rolebits,int i)
 {
 	if (roleIndex >= (MAX_CLAUSES-1)) return;	 // overflow
-	needRoles[++roleIndex] = roles; 
+	needRoles[++roleIndex] = rolebits;
 	subjectStack[roleIndex] = 0;
 	verbStack[roleIndex] = 0;
 	objectStack[roleIndex] = 0;
@@ -4227,7 +4220,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	///////////////////////////////////////////////////////////////////////////
 	// CLOSE OUT NEEDS
 	///////////////////////////////////////////////////////////////////////////
-	int subj = subjectStack[MAINLEVEL];
+	int subjectz = subjectStack[MAINLEVEL];
 
 	// we still need a main verb--- might this have been command - "talk about stuff"
 	if (needRoles[MAINLEVEL] & MAINVERB)
@@ -4268,33 +4261,33 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 		}
 
 		// maybe we made a noun instead of verb-- "the good *die young" OR used adjective which could have been noun-ized "the six year old swims"
-		if (subj)
+		if (subjectz)
 		{
-			int start = subj;
-			while (posValues[start - 1] & ADJECTIVE_NOUN) --start; // back to start of nouns...
-			if (allOriginalWordBits[start] & VERB_BITS && posValues[start - 1] & ADJECTIVE_NORMAL && posValues[start - 2] & DETERMINER)
+			int startx = subjectz;
+			while (posValues[startx - 1] & ADJECTIVE_NOUN) --startx; // back to startx of nouns...
+			if (allOriginalWordBits[startx] & VERB_BITS && posValues[startx - 1] & ADJECTIVE_NORMAL && posValues[startx - 2] & DETERMINER)
 			{
-				SetRole(subj, 0, true);
-				LimitValues(start, VERB_BITS - VERB_INFINITIVE, (char*)"missing verb recovered from bad noun1", changed);
-				if (posValues[start - 1] & ADJECTIVE_NOUN) {
-					posValues[start - 1] ^= ADJECTIVE_NOUN;
-					posValues[start - 1] |= allOriginalWordBits[start - 1] & (NOUN_SINGULAR | NOUN_PLURAL | NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL);
+				SetRole(subjectz, 0, true);
+				LimitValues(startx, VERB_BITS - VERB_INFINITIVE, (char*)"missing verb recovered from bad noun1", changed);
+				if (posValues[startx - 1] & ADJECTIVE_NOUN) {
+					posValues[startx - 1] ^= ADJECTIVE_NOUN;
+					posValues[startx - 1] |= allOriginalWordBits[startx - 1] & (NOUN_SINGULAR | NOUN_PLURAL | NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL);
 				}
-				while (++start <= subj)
+				while (++startx <= subjectz)
 				{
-					if (ignoreWord[start]) continue;
-					LimitValues(start, 0, (char*)"retrying all bits after verb flipover", changed);
+					if (ignoreWord[startx]) continue;
+					LimitValues(startx, 0, (char*)"retrying all bits after verb flipover", changed);
 				}
 				resolved = false;
 				return false;
 			}
-			else if (allOriginalWordBits[subj] & VERB_BITS && allOriginalWordBits[subj - 1] & NOUN_BITS) // the six year old *swims
+			else if (allOriginalWordBits[subjectz] & VERB_BITS && allOriginalWordBits[subjectz - 1] & NOUN_BITS) // the six year old *swims
 			{
-				SetRole(subj, 0, true);
-				LimitValues(subj, VERB_BITS - VERB_INFINITIVE, (char*)"missing verb recovered from bad noun2", changed);
-				if (posValues[subj - 1] & ADJECTIVE_NOUN) {
-					posValues[subj - 1] ^= ADJECTIVE_NOUN;
-					posValues[subj - 1] |= allOriginalWordBits[subj - 1] & (NOUN_SINGULAR | NOUN_PLURAL | NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL);
+				SetRole(subjectz, 0, true);
+				LimitValues(subjectz, VERB_BITS - VERB_INFINITIVE, (char*)"missing verb recovered from bad noun2", changed);
+				if (posValues[subjectz - 1] & ADJECTIVE_NOUN) {
+					posValues[subjectz - 1] ^= ADJECTIVE_NOUN;
+					posValues[subjectz - 1] |= allOriginalWordBits[subjectz - 1] & (NOUN_SINGULAR | NOUN_PLURAL | NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL);
 				}
 				resolved = false;
 				return false;
@@ -4306,7 +4299,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 
 	// need a subject, can thing before verb be it "the *old swims"
 	int verb = verbStack[roleIndex];
-	if (verb && !subj)
+	if (verb && !subjectz)
 	{
 		if (ImpliedNounObjectPeople(verb - 1, (roleIndex == MAINLEVEL) ? MAINSUBJECT : SUBJECT2, changed)) return false;
 	}
@@ -4448,19 +4441,8 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 			else LimitValues(i,-1 ^ ADJECTIVE_BITS,(char*)"adj/adv pending resolved by rejecting adjective",changed);
 		}
 
-		// BUG  when something was participle VERB but had no object and could have been subject complement of "be" verb, alter it...
-		if (false && roles[i] & MAINVERB && posValues[i] & (VERB_PRESENT_PARTICIPLE|VERB_PAST_PARTICIPLE) && allOriginalWordBits[i] & ADJECTIVE_NORMAL && !objectRef[i] && posValues[i-1] & AUX_BE)
-		{
-			LimitValues(i,ADJECTIVE_NORMAL,(char*)"verb tense with no object and could have been subject complement adjective, downgrade to normal adjective",changed);
-			SetRole(i,SUBJECT_COMPLEMENT,true,i-1);
-
-			uint64 tense = allOriginalWordBits[i-1] & VERB_BITS;
-			if (tense & VERB_PRESENT) LimitValues(i-1,VERB_PRESENT,(char*)"convert aux to present",changed);
-			else if (tense & VERB_PRESENT_3PS) LimitValues(i-1,VERB_PRESENT_3PS,(char*)"convert aux to present 3ps",changed);
-			else if (tense & VERB_PAST) LimitValues(i-1,VERB_PAST,(char*)"convert aux to past",changed);
-			else if (tense & VERB_PAST_PARTICIPLE) LimitValues(i-1,VERB_PAST_PARTICIPLE,(char*)"convert aux to past particple",changed);
-			SetRole(i-1,MAINVERB,true,i-1);
-		}
+		// BUG (code removed)  when something was participle VERB but had no object and could have been subject complement of "be" verb, alter it...
+		
 		if (posValues[i] == COMMA) ++commas;
 		if (!(roles[i] & MAINVERB) && posValues[i] & VERB_BITS && !mainVerb  && !clauses[i] && !phrases[i] && !verbals[i]) mainVerb = i;  // 1st actual main verb if role not given yet
 	
@@ -4636,23 +4618,24 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 		//  WHAT (what did john eat == john did eat what) 
 		// but not when WHO (who hit the ball != the ball hit who)
 		bool flip = true;
-		int subj = subjectStack[MAINLEVEL];
+		int subject = subjectStack[MAINLEVEL];
 		// NEVER flip particple verbs:   who is hitting the ball. What is hitting the ball.  what squashed the ball
 		if (posValues[verbStack[MAINLEVEL]] & (VERB_PRESENT_PARTICIPLE|VERB_PAST_PARTICIPLE)) flip = false;
-		else if (objectRef[verbStack[MAINLEVEL]] < subj) flip = false; // already flipped
-		else if (!(allOriginalWordBits[subj] & QWORD)) 
+		else if (objectRef[verbStack[MAINLEVEL]] < subject) flip = false; // already flipped
+		else if (!(allOriginalWordBits[subject] & QWORD))
 		{
 			if (posValues[startSentence] & DETERMINER && allOriginalWordBits[startSentence] & QWORD) flip = true;	// which cat did you hit
 			else flip = false; // "why did *john hit the ball"
 		}
-		else if ((!stricmp(wordStarts[subj],(char*)"who") || !stricmp(wordStarts[subj],(char*)"which") || !stricmp(wordStarts[subj],(char*)"whoever") || !stricmp(wordStarts[subj],(char*)"whichever") || !stricmp(wordStarts[subj],(char*)"whatever") || !stricmp(wordStarts[subj],(char*)"what")|| !stricmp(wordStarts[subj],(char*)"how")) && !(parseFlags[verbStack[MAINLEVEL]] & VERB_TAKES_ADJECTIVE)) flip = false; // "*who will go" but not "who is president"
+		else if ((!stricmp(wordStarts[subject],(char*)"who") || !stricmp(wordStarts[subject],(char*)"which") || 
+			      !stricmp(wordStarts[subject],(char*)"whoever") || !stricmp(wordStarts[subject],(char*)"whichever") || !stricmp(wordStarts[subject],(char*)"whatever") || !stricmp(wordStarts[subject],(char*)"what")|| !stricmp(wordStarts[subject],(char*)"how")) && !(parseFlags[verbStack[MAINLEVEL]] & VERB_TAKES_ADJECTIVE)) flip = false; // "*who will go" but not "who is president"
 		// "which will bell the cat" does not flip but "which is the cat" will
 		else flip = true;
 
 		if (flip)
 		{
 			currentMainVerb = verbStack[MAINLEVEL];
-			 int newsubject = objectRef[currentMainVerb];
+			int newsubject = objectRef[currentMainVerb];
 			int newobject = subjectStack[MAINLEVEL];
 			SetRole(newobject, MAINOBJECT,true,currentMainVerb);
 			if (posValues[newobject] == PRONOUN_SUBJECT) posValues[newobject] = PRONOUN_OBJECT;
@@ -5206,7 +5189,7 @@ static int ConjoinNoun( int i, bool &changed)
 	// known noun after w/o following verb or adverb, hunt for before
 	if (posValues[after] & NOUN_BITS && bitCounts[after] == 1 && !(posValues[after+1] & (ADVERB|AUX_VERB|VERB_BITS)))
 	{
-		int deepBefore = i;
+		deepBefore = i;
 		while (--deepBefore) 
 		{
 			if (posValues[deepBefore] & NOUN_BITS && bitCounts[deepBefore] == 1 && !ignoreWord[deepBefore])
@@ -5295,9 +5278,9 @@ static int ConjoinVerb( int i, bool &changed)
 	
 	if (posValues[before] & PARTICLE)  // he stood up and quickly ran  down the street
 	{
-		 int deepBefore = before;
+		deepBefore = before;
 		while (--deepBefore > 2) if ( posValues[deepBefore] & (VERB_BITS|NOUN_INFINITIVE)) break;
-		 int deepAfter = after -1;
+		int deepAfter = after -1;
 		while (++deepAfter <= endSentence)
 		{
 			if ( posValues[deepAfter] & (VERB_BITS|NOUN_INFINITIVE|NORMAL_NOUN_BITS|DETERMINER) && !ignoreWord[deepAfter]) break;
@@ -5964,7 +5947,17 @@ retry:
 			else
 			{
 				if (roles[i] & (OBJECT2|MAINOBJECT) && clauses[i]) AddRole(i,subject); // clause fulfilling mainobject role or object2 role
-				else SetRole(i,subject);
+				else
+				{
+					// eats nothing but or would eaten nothing but  is object, not subject
+					if (posValues[i + 1] & CONJUNCTION && posValues[i-1] & (AUX_VERB|VERB))
+					{
+						if (!directObject) SetRole(i, MAINOBJECT); // "does nothing"
+						else SetRole(i, directObject);
+					}
+					else SetRole(i, subject);
+				}
+				
 				if (posValues[i] & PRONOUN_OBJECT) LimitValues(i,PRONOUN_SUBJECT,(char*)"being subject pronoun changes",changed);
 
 			}
@@ -5989,9 +5982,9 @@ retry:
 		bool allowedIndirect = false;
 		// can be indirect ONLY if next thing is known a noun indicator (including gerund)
 		// except for causal verbs expecting To Infinitive
-		unsigned int currentVerb = verbStack[roleIndex];
-		while (coordinates[currentVerb] && coordinates[currentVerb] < i && coordinates[currentVerb] > currentVerb) currentVerb = coordinates[currentVerb]; // find most recent verb if conjoined
-		if (AcceptsInfinitiveObject(currentVerb) )
+		unsigned int currentVerbx = verbStack[roleIndex];
+		while (coordinates[currentVerbx] && coordinates[currentVerbx] < i && coordinates[currentVerbx] > currentVerbx) currentVerbx = coordinates[currentVerbx]; // find most recent verb if conjoined
+		if (AcceptsInfinitiveObject(currentVerbx) )
 		{
 			allowedIndirect = true; // causal verb can be in any tense--- "he painted his jalopy black"
 		}
@@ -6292,7 +6285,7 @@ static bool ValidateSentence(bool &resolved)
 	// prove subject/verb match
 	if (!subject)
 	{
-		if (resolved && posValues[verb] != VERB_INFINITIVE)
+		if (resolved && posValues[verb] != VERB_INFINITIVE && posValues[verb] != VERB_PAST) // implied You or Subject
 		{
 			resolved = false; // some unfinished business
 			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb lacks subject and is not infinitive\r\n");
@@ -6462,9 +6455,9 @@ static bool ValidateSentence(bool &resolved)
 				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: verb with no known role\r\n");
 				break;	// we dont know what it is doing
 			}
-			if (roles[i] & MAINVERB && !subjectStack[MAINLEVEL] && posValues[i] != VERB_INFINITIVE)// imperative failure
+			if (roles[i] & MAINVERB && !subjectStack[MAINLEVEL] && posValues[i] != VERB_INFINITIVE && (i != 1 || posValues[i] != VERB_PAST))// imperative failure and not implied subject
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: non-imperative main verb %s has no subject \r\n,wordStarts[i]");
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb %s has no subject \r\n,wordStarts[i]");
 				break;
 			}
 		}
@@ -6994,13 +6987,13 @@ static unsigned int GuessAmbiguousVerb(int i, bool &changed)
 		if (i == startSentence && !(posValues[i] & PREPOSITION)) 
 		{
 			// prove there is no other verb in sight
-			int at;
-			for (at = i+1; at < endSentence; ++at)
+			int atx;
+			for (atx = i+1; atx < endSentence; ++atx)
 			{
-				if (posValues[at] == CONJUNCTION_COORDINATE || posValues[at] == CONJUNCTION_SUBORDINATE) at = endSentence; // abort
-				else if (posValues[at] & (AUX_VERB|VERB_BITS)) break; // potential verb, maybe we are noun
+				if (posValues[atx] == CONJUNCTION_COORDINATE || posValues[atx] == CONJUNCTION_SUBORDINATE) atx = endSentence; // abort
+				else if (posValues[atx] & (AUX_VERB|VERB_BITS)) break; // potential verb, maybe we are noun
 			}
-			if (at >= endSentence) 
+			if (atx >= endSentence) 
 			{
 				if (LimitValues(i,VERB_INFINITIVE,(char*)"Potential command at start has object after it",changed)) return GUESS_RETRY; // "let him go"
 			}
@@ -7100,13 +7093,13 @@ static unsigned int GuessAmbiguousVerb(int i, bool &changed)
 	// infinitive verb after subject ONLY if aux question
 	if (posValues[i] & VERB_INFINITIVE && roles[i-1] & (SUBJECT2|MAINSUBJECT)) 
 	{
-		int at = i-1;
-		while (--at && !(posValues[at] & AUX_VERB))
+		int atx = i-1;
+		while (--atx && !(posValues[atx] & AUX_VERB))
 		{
-			if (ignoreWord[at]) continue;
-			if (posValues[at] & (CONJUNCTION|COMMA|PUNCTUATION|NOUN_BITS|PRONOUN_BITS|PREPOSITION|TO_INFINITIVE)) break;
+			if (ignoreWord[atx]) continue;
+			if (posValues[atx] & (CONJUNCTION|COMMA|PUNCTUATION|NOUN_BITS|PRONOUN_BITS|PREPOSITION|TO_INFINITIVE)) break;
 		}
-		if  (posValues[at] & AUX_VERB){;}
+		if  (posValues[atx] & AUX_VERB){;}
 		else if (LimitValues(i, -1 ^ VERB_INFINITIVE,(char*)"cannot have infinitive verb after subject w/o aux",changed)) return GUESS_RETRY; 
 	}
 
@@ -7126,8 +7119,8 @@ static unsigned int GuessAmbiguousVerb(int i, bool &changed)
 	// potential verb infinitive following a noun and verb before does not take causal verb to infinitve
 	if (posValues[i] & VERB_INFINITIVE && posValues[i-1] == NOUN_SINGULAR)
 	{
-		int at = FindPriorVerb(i);
-		if (posValues[at] & VERB_BITS && !(canSysFlags[at] & VERB_TAKES_INDIRECT_THEN_TOINFINITIVE) )
+		int atx = FindPriorVerb(i);
+		if (posValues[atx] & VERB_BITS && !(canSysFlags[atx] & VERB_TAKES_INDIRECT_THEN_TOINFINITIVE) )
 		{
 			if (LimitValues(i,-1 ^ VERB_INFINITIVE,(char*)"infinitive follows noun but not causal verb infinitive, discard",changed)) return GUESS_RETRY; // "He took the day *off"
 		}
@@ -8987,10 +8980,10 @@ static void StartImpliedClause( int i,bool & changed)
 		if (needRoles[MAINLEVEL] & MAINVERB)
 		{
 			unsigned int count = 0;
-			int at = i;
-			while (++at <= endSentence)
+			int atx = i;
+			while (++atx <= endSentence)
 			{
-				if (posValues[at] & VERB_BITS && !ignoreWord[at]) ++count;
+				if (posValues[atx] & VERB_BITS && !ignoreWord[atx]) ++count;
 			}
 			if (count < 2) return;	// cannot be clause along with main sentence
 		}
@@ -9141,10 +9134,10 @@ restart:
 			strcpy(flags,(char*)"Flags: ");
 			ParseFlags(flags,i);
 			if (!flags[7]) *flags = 0;	// remove header if none there
-			char tags[MAX_WORD_SIZE];
-			*tags = 0;
-			Tags(tags,i);
-			strcat(tags,flags);
+			char taglist[MAX_WORD_SIZE];
+			*taglist = 0;
+			Tags(taglist,i);
+			strcat(taglist,flags);
 			WORDP X =  canonicalLower[i];
 			if (!X) X = canonicalUpper[i];
 			if (!X) X = StoreWord("Missing canonical");
@@ -9154,7 +9147,7 @@ restart:
 				WORDP verb = GetPhrasalVerb(i);
 				if (verb) Log(STDUSERLOG,(char*)" %s ",verb->word);
 			}
-			Log(STDUSERLOG,(char*)" (%s)\r\n",tags);
+			Log(STDUSERLOG,(char*)" (%s)\r\n", taglist);
 			for (unsigned int x = roleIndex; x >= 1; --x)
 			{
 				DecodeneedRoles(x,goals);
@@ -9737,11 +9730,11 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
                 else if (IsLegalAppositive(i - 1, i))
                 {
                     // try for dual noun
-                    char word[MAX_WORD_SIZE];
-                    strcpy(word, wordStarts[i - 1]);
-                    strcat(word, "_");
-                    strcat(word, wordStarts[i]);
-                    WORDP Z = FindWord(word);
+                    char wordx[MAX_WORD_SIZE];
+                    strcpy(wordx, wordStarts[i - 1]);
+                    strcat(wordx, "_");
+                    strcat(wordx, wordStarts[i]);
+                    WORDP Z = FindWord(wordx);
                     if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
                     {
                         SetRole(i, roles[i - 1]);
@@ -9962,19 +9955,20 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
 					if (!(quotationCounter & 1)) // closing quote
 					{
 						quotationRoleIndex = 0;
-						unsigned int i;
+						unsigned int ix;
 						int found = 0;
-						for (  i = 1; i <= roleIndex; ++i)
+						for (  ix = 1; ix <= roleIndex; ++ix)
 						{
-							if (needRoles[i] & QUOTATION_UTTERANCE) found = i;
-							if (found) quotationRoles[++quotationRoleIndex] = needRoles[i];	// replicate for possible restoration
+							if (needRoles[ix] & QUOTATION_UTTERANCE) found = ix;
+							if (found) quotationRoles[++quotationRoleIndex] = needRoles[ix];	// replicate for possible restoration
 						}
 						if (found) roleIndex = found - 1; // drop quotation data for now
 
 					}
 					else if (quotationRoleIndex) // re-opening quote
 					{
-						for (unsigned int i = 1; i <= quotationRoleIndex; ++i) needRoles[++roleIndex] = quotationRoles[i];
+						for (unsigned int ix = 1; ix <= quotationRoleIndex; ++ix) 
+							needRoles[++roleIndex] = quotationRoles[ix];
 						quotationRoleIndex = 0;
 					}
 					else // pure opening quote

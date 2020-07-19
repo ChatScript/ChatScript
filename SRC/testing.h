@@ -29,7 +29,6 @@ typedef struct CommandInfo
 
 extern CommandInfo commandSet[];
 extern int breakIndex;
-void InitCommandSystem();
 TestMode Command(char* input,char* output,bool fromScript);
 int CountSet(WORDP D,unsigned int baseStamp);
 

@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/30/2020 cs10.4
+<br>Revision 7/18/2020 cs10.5
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -503,12 +503,12 @@ You can change the word itself at the location just by providing the word you wa
 and the location in the sentence (as a match variable or position index).  Replacing a word does 
 not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).
 
-### `^addwordAfter(word _0)`
+### `^addwordAt(word canonical _0)`
 
-Inserts word into sentence after the position of given match variable.
-The second argument designates a position, and can be a match variable name or something that evaluates into a
+Inserts word into sentence at the position of given match variable, moving what was there one farther over.
+The second argument designates the canonical to use and the third is a a position, and can be a match variable name or something that evaluates into a
 word index. Does not alter pos-tagging or parsing and does not mark itself. You can use ^mark
-to cause marking to happen.
+to cause marking to happen. Fails if sentence is already full to brim with words.
 
 
 ### `^position ( how matchvariable )`

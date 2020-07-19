@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/30/2020 cs10.4
+<br>Revision 7/18/2020 cs10.5
 
 
 
@@ -296,6 +296,7 @@ your server is in Virginia and you are in Colorado).
 | `%command`          |  Boolean was the user input a command 
 | `%foreign`          |  Boolean is bulk of the sentence composed of foreign words 
 | `%impliedyou`       |  Boolean was the user input having you as implied subject 
+| `%impliedsubject`   |  Boolean was the user input having an implied subject (not you, usually I)
 | `%input`            |  the count of the number of volleys this user has made ever 
 | `%ip`               |  ip address supplied 
 | `%language`         |  current dictionary language 
@@ -495,6 +496,44 @@ If you were worried about that, it would be possible for the script to save wher
 it is using `^getrule(tag)` and modify your control script to return immediate control 
 to here after input processing if you had changed `$cs_token`.
 
+## %tokenflags
+These are the values that %tokenflags may have after analysis of a sentence...
+#define PRESENT					0x0000000000002000ULL	 
+#define PAST					0x0000000000004000ULL    // basic tense- both present perfect and past perfect map to it
+#define FUTURE					0x0000000000008000ULL   
+#define PRESENT_PERFECT			0x0000000000010000ULL   // distinguish PAST PERFECT from PAST PRESENT_PERFECT
+#define CONTINUOUS				0x0000000000020000ULL    
+#define PERFECT					0x0000000000040000ULL    
+#define PASSIVE					0x0000000000080000ULL
+
+#define IMPLIED_SUBJECT			 
+#define QUESTIONMARK			  
+#define EXCLAMATIONMARK			   
+#define PERIODMARK				   
+#define USERINPUT				  
+#define COMMANDMARK 			
+#define IMPLIED_YOU 			 
+#FOREIGN_TOKENS			
+#FAULTY_PARSE			   
+#QUOTATION				
+#NOT_SENTENCE			   
+
+One or more of these will be set if input was changed do to use of these files
+```
+#DO_ESSENTIALS			 
+#DO_SUBSTITUTES			
+#DO_CONTRACTIONS			
+#DO_INTERJECTIONS		
+#DO_BRITISH				 
+#DO_SPELLING				 
+#DO_TEXTING				 
+#DO_NOISE					
+#DO_PRIVATE					
+#DO_NUMBER_MERGE				
+#DO_PROPERNAME_MERGE			
+#DO_SPELLCHECK					
+#DO_INTERJECTION_SPLITTING	  
+```
 
 ## Private Substitutions
 
@@ -591,7 +630,8 @@ contents.
 | `$cs_control_post`   |  name of topic  (flag it SYSTEM) to run in gambit mode on post-pass, set by author| 
 | `$botprompt`         |  message for console window to label bot output | 
 | `$userprompt`        |  message for console window to label user input line| 
-| `$cs_crashmsg`       |  message to use if a server crash occurs| 
+| `$cs_crashmsg`       |  message to use if a crash occurs. see also $cs_crash| 
+| `$cs_crash`       |  topic to execute in gambit mode if a crash occurs. see also $cs_crashmsg| 
 | `$cs_language`       |  if spanish, will adjust spell checking for spanish colloquial| 
 | `$cs_token`          |  bits controlling how the tokenizer works. By default when null, you get all bits assumed on. The possible values are in src/dictionarySystem.h (hunt for $token) and you put a # in front of them to generate that named numeric constant | 
 | `$cs_abstract`       |  topic used by :abstract to display facts if you want them displayed | 
@@ -629,13 +669,25 @@ contents.
 | `$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt |
 | `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
 | `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
-
+| `$cs_inputlimit` | Restrict user input size (excluding oob) |
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON
 fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect 
 all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some
 other non-JSON fact.
+
+`$cs_inputlimit=x:y`  for excessively long user input (excluding oob portion), the input will be truncated
+by keeping the first x characters and the last y characters. 
+
+`$cs_crash` - This topic can generate an appropriate dummy output and CS completes 
+that volley but does not save an updated user file. The NEXT volley coming in will force cs to completely
+reload itself before processing. Making a dummy output hopefully means the same fatal input will not be
+sent back into CS to crash it again (due to external retry when no answer is received from CS). E.g.,
+```
+topic: ~crashtopic system ()
+	t: Huh?
+```
 
 `$cs_addresponse` names a function of 2 arguments that will be called when CS wants put text into the output queue of the user.
 The first argument will be what CS wants to output. The second is the rule tag that generated this output.

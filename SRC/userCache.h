@@ -41,7 +41,7 @@ void FlushCache();
 void FreeAllUserCaches();
 char* FindUserCache(char* word);
 char* GetCacheBuffer(int cacheID);
-void InitCache();
+void InitUserCache();
 void CloseCache();
 char* GetUserFileBuffer();
 #endif

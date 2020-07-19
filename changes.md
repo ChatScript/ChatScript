@@ -1,3 +1,33 @@
+# Version 10.5  7/18/2020
+1. Implied_Subject tokenflag and %impliedsubject system variable is 1 if sentence has implied subject, 0 otherwise
+	This is analogous to command sentences having implied YOU as subject.
+	An implied subject is either "I" or the prior subject, as in the sentences "I went to the market. Walked home. Ate dinner."
+3. timelog= param
+	Will log in LOGS/time.txt volleys that exceed the given millisecond limit. Useful for analysis of slow behavior.
+4. autoreload param
+	In event of crash of CS, and in conjunction with  $cs_crash= set in bot macro... CS will execute the topic
+	named by $cs_crash in gambit mode. This topic can generate an appropriate dummy output and CS completes 
+	that volley but does not save an updated user file. The NEXT volley coming in will force cs to completely
+	reload itself before processing. Making a dummy output hopefully means the same fatal input will not be
+	sent back into CS to crash it again (due to external retry when no answer is received from CS). E.g.,
+	topic: ~crashtopic system ()
+		t: Huh?
+5. windowsbuglog= names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area
+6. linuxbuglog= names a LINUX directory to replicate the BUGS.txt log file outside of the cs directory area
+	A full redeploy of chatscript might destroy the existing directory and its bug log. This allows one to 
+	keep a replicated copy safe from deploys.
+7. $cs_inputlimit (x:y) - for excessively long user input (excluding oob portion), the input will be truncated
+	by keeping the first x characters and the last y characters. 
+8: :alldict (fact)
+	Lists all words in dictionary, and if called with :alldict fact, lists the facts for which word is subject.
+9. nofastload param
+	A full reload of ChatScript has been sped up. But if you suspect a bug in that code, a param of nofastload
+		will disable it to allow you to confirm
+10: ^addword renamed ^addwordat
+11: :allfacts all  writes all facts, not just current bot facts
+12. $cs_crashmsg  - if set and system crashs and you dont have a crash topic, will display this message as output
+
+
 # Version 10.4 5/30/2020
 1. MySQL now supported both as filesystem and for script access.  BINARIES now has ChatscriptMysql.exe
 	See Esoteric-ChatScript/ChatScript-mysql manual.

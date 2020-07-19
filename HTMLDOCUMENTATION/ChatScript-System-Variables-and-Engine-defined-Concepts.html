@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/30/2020 cs10.4</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2020 cs10.5</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -829,74 +829,78 @@
 <td>Boolean was the user input having you as implied subject</td>
 </tr>
 <tr class="even">
+<td><code>%impliedsubject</code></td>
+<td>Boolean was the user input having an implied subject (not you, usually I)</td>
+</tr>
+<tr class="odd">
 <td><code>%input</code></td>
 <td>the count of the number of volleys this user has made ever</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%ip</code></td>
 <td>ip address supplied</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%language</code></td>
 <td>current dictionary language</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%length</code></td>
 <td>the length in tokens of the current sentence</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%more</code></td>
 <td>Boolean is there another sentence after this</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%morequestion</code></td>
 <td>Boolean is there a <code>?</code> or question word in the pending sentences</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%originalinput</code></td>
 <td>all sentences user passed into volley, before adjusted in any way except OOB data is stripped off</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%originalsentence</code></td>
 <td>the current sentence after tokenization but before any adjustments</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%parsed</code></td>
 <td>Boolean was current input parsed successfully</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%question</code></td>
 <td>Boolean was the user input a question - same as <code>?</code> in a pattern</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%quotation</code></td>
 <td>Boolean is current input a quotation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%sentence</code></td>
 <td>Boolean does it seem like a sentence (subject/verb or command)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%tableinput</code></td>
 <td>current line being executed in a table expansion during script compilation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%tense</code></td>
 <td>past , present, or future simple tense (present perfect is a past tense)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%user</code></td>
 <td>user login name supplied</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%userfirstline</code></td>
 <td>value of <code>%input</code> that is at the start of this conversation start</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%userinput</code></td>
 <td>Boolean is the current input from the user (vs the chatbot)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%voice</code></td>
 <td>active or passive on current input</td>
 </tr>
@@ -1290,6 +1294,37 @@ s: (name is _*)
     $cs_token = $stdtoken</code></pre>
 <p>If you type <em>my name is Rogr</em> into a topic with this, the original input is spell-corrected to <em>my name is Roger</em>, but this will change the <code>$cs_token</code> over to one without spell correction and redo the sentence, which will now come back with <em>my name is Rogr</em> and be echoed correctly, and <code>$cs_token reset</code>.</p>
 <p>That's assuming nothing else would run differently and trap the response elsewhere. If you were worried about that, it would be possible for the script to save where it is using <code>^getrule(tag)</code> and modify your control script to return immediate control to here after input processing if you had changed <code>$cs_token</code>.</p>
+<h2 id="tokenflags">%tokenflags</h2>
+<p>These are the values that %tokenflags may have after analysis of a sentence... #define PRESENT 0x0000000000002000ULL<br />
+#define PAST 0x0000000000004000ULL // basic tense- both present perfect and past perfect map to it #define FUTURE 0x0000000000008000ULL<br />
+#define PRESENT_PERFECT 0x0000000000010000ULL // distinguish PAST PERFECT from PAST PRESENT_PERFECT #define CONTINUOUS 0x0000000000020000ULL<br />
+#define PERFECT 0x0000000000040000ULL<br />
+#define PASSIVE 0x0000000000080000ULL</p>
+<h1 id="define-implied_subject">define IMPLIED_SUBJECT</h1>
+<h1 id="define-questionmark">define QUESTIONMARK</h1>
+<h1 id="define-exclamationmark">define EXCLAMATIONMARK</h1>
+<h1 id="define-periodmark">define PERIODMARK</h1>
+<h1 id="define-userinput">define USERINPUT</h1>
+<h1 id="define-commandmark">define COMMANDMARK</h1>
+<h1 id="define-implied_you">define IMPLIED_YOU</h1>
+<h1 id="foreign_tokens">FOREIGN_TOKENS</h1>
+<h1 id="faulty_parse">FAULTY_PARSE</h1>
+<h1 id="quotation">QUOTATION</h1>
+<h1 id="not_sentence">NOT_SENTENCE</h1>
+<p>One or more of these will be set if input was changed do to use of these files</p>
+<pre><code>#DO_ESSENTIALS           
+#DO_SUBSTITUTES         
+#DO_CONTRACTIONS            
+#DO_INTERJECTIONS       
+#DO_BRITISH              
+#DO_SPELLING                 
+#DO_TEXTING              
+#DO_NOISE                   
+#DO_PRIVATE                 
+#DO_NUMBER_MERGE                
+#DO_PROPERNAME_MERGE            
+#DO_SPELLCHECK                  
+#DO_INTERJECTION_SPLITTING    </code></pre>
 <h2 id="private-substitutions">Private Substitutions</h2>
 <p>While in general, substitutions are defined in the LIVEDATA folder, you can define private substititions for your specific bot using the scripting language. You can say</p>
 <pre><code>replace: xxx yyyyy</code></pre>
@@ -1399,147 +1434,155 @@ canon: faster fast</code></pre>
 </tr>
 <tr class="even">
 <td><code>$cs_crashmsg</code></td>
-<td>message to use if a server crash occurs</td>
+<td>message to use if a crash occurs. see also $cs_crash</td>
 </tr>
 <tr class="odd">
+<td><code>$cs_crash</code></td>
+<td>topic to execute in gambit mode if a crash occurs. see also $cs_crashmsg</td>
+</tr>
+<tr class="even">
 <td><code>$cs_language</code></td>
 <td>if spanish, will adjust spell checking for spanish colloquial</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_token</code></td>
 <td>bits controlling how the tokenizer works. By default when null, you get all bits assumed on. The possible values are in src/dictionarySystem.h (hunt for $token) and you put a # in front of them to generate that named numeric constant</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_abstract</code></td>
 <td>topic used by :abstract to display facts if you want them displayed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_prepass</code></td>
 <td>topic used between parsing and running user control script. Useful to supplement parsing, setting the question value, and revising input idioms</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_wildcardseparator</code></td>
 <td>when a match variable covers multiple words, what should separate them- by default it's a space, but underscore is handy too. Initial system character is space, creating fidelity with what was typed. Useful if _ can be recognized in input (web addresses). Changing to _ is consistent with multi-word representation and keyword recognition for concepts. CS automatically converts _ to space on output, so internal use of _ is normal</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_userfactlimit</code></td>
 <td>how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100. * means all.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_outputchoice</code></td>
 <td>for regression: forces specific one of a [] [] output choice block - base 0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_response</code></td>
 <td>controls some characteristics of how responses are formatted</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_randIndex</code></td>
 <td>the random seed for this volley</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_utcoffset</code></td>
 <td>if defined, then %time returns current utc time + timezone offset. The offset is usually a simple number, meaning hours, and can have + or - in front of it. It can also be a normal time reference like 02:30 which means plus 2 hours and 30 minutes beyond utc, or -01:30:20 which means 1 hour, 30 minutes, and 20 seconds before utc (as if anyone would use that). The following variables are generated by the system on behalf of scripts</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$$db_error</code></td>
 <td>error message from a postgres failure $$findtext_start - ^findtext return the end normally, this is where it puts the start</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$$tcpopen_error</code></td>
 <td>error message from a tcpopen error</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$$document</code></td>
 <td>name of the document being read in document mode</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_randindex</code></td>
 <td>current value of the random generator value</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_bot</code></td>
 <td>name of the bot currently in use</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_login</code></td>
 <td>login name of the user</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$$csmatch_start</code></td>
 <td>start of found words from ^match</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$$csmatch_end</code></td>
 <td>end of found words from ^match</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_fullfloat</code></td>
 <td>if defined, causes the system to generate full float 64-bit precision on outputs, otherwise you get 2 digit precision by default</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_botid</code></td>
 <td>when non-zero creates facts and functions restricted by this bitmask so facts and functions created by other masks cannot be seen. allows you to separate facts and functions per bot in a multi-bot environment. During compilation if this is set by a bot: command, then functions created and facts created by tables will be restricted to that owner.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_numbers</code></td>
 <td>if defined, causes the system to output numbers in a different language style: french, indian. All other values are english.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_topicretrylimit</code></td>
 <td>if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$$topic_retry_limit_exceeded</code></td>
 <td>set if topic retry limit is encountered</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_topicretrylimit</code></td>
 <td>if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_userhistorylimit</code></td>
 <td>if not null, indicates how many volleys back are tracked as what was said by both parties</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_saveusedJson</code></td>
 <td>if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_proxycredentials</code></td>
 <td>See ^JSONOPEN in JSON manual</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_proxyserver</code></td>
 <td>See ^JSONOPEN in JSON manual</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_proxymethod</code></td>
 <td>See ^JSONOPEN in JSON manual</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_addresponse</code></td>
 <td>provides a function name hook onto the output q to the user. See below.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_tracepattern</code></td>
 <td>Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_indentlevel</code></td>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput| |</code>$cs_sentences_limit</td>
 <td>after this many sentences in volley, cs ignores the rest (default 50)</td>
 </tr>
-<tr class="even">
-<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime`</td>
-<td>After volley prints to terminal milliseconds of time used</td>
+<tr class="odd">
+<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code>$cs_inputlimit`</td>
+<td>Restrict user input size (excluding oob)</td>
 </tr>
 </tbody>
 </table>
 <p><code>$cs_saveusedJson</code> exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some other non-JSON fact.</p>
+<p><code>$cs_inputlimit=x:y</code> for excessively long user input (excluding oob portion), the input will be truncated by keeping the first x characters and the last y characters.</p>
+<p><code>$cs_crash</code> - This topic can generate an appropriate dummy output and CS completes that volley but does not save an updated user file. The NEXT volley coming in will force cs to completely reload itself before processing. Making a dummy output hopefully means the same fatal input will not be sent back into CS to crash it again (due to external retry when no answer is received from CS). E.g.,</p>
+<pre><code>topic: ~crashtopic system ()
+    t: Huh?</code></pre>
 <p><code>$cs_addresponse</code> names a function of 2 arguments that will be called when CS wants put text into the output queue of the user. The first argument will be what CS wants to output. The second is the rule tag that generated this output. If the function returns a failure code, the message will be aborted and not put into the queue. If the function returns a text value (not null) then that message will replace what was intended to go to the user.</p>
 </body>
 </html>

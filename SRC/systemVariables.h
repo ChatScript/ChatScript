@@ -25,7 +25,7 @@ typedef struct SYSTEMVARIABLE
 } SYSTEMVARIABLE;
 extern SYSTEMVARIABLE sysvars[];
 char* SFullTime(char* value);
-void DefineSystemVariables();
+void InitSystemVariables();
 char* SoriginalInput(char* value);
 void DumpSystemVariables();
 char* SystemVariable(char* word,char* value);

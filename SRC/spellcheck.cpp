@@ -86,12 +86,13 @@ void InitSpellCheck()
 {
 	memset(lengthLists,0,sizeof(MEANING) * 100);
 	WORDP D = dictionaryBase;
-	while (++D <= dictionaryFree)
+	while (++D < dictionaryFree)
 	{
-		if (!D->word || !IsAlphaUTF8(*D->word) || D->length >= 100 || strchr(D->word,'~') || strchr(D->word,USERVAR_PREFIX) || strchr(D->word,'^') || strchr(D->word,' ')  || strchr(D->word,'_')) continue; 
 		if (D->properties & PART_OF_SPEECH || D->systemFlags & PATTERN_WORD)
 		{
-            WORDINFO wordData;
+			if (!IsAlphaUTF8(*D->word) || D->length >= 50   || strchr(D->word, ' ') || strchr(D->word, '_')) continue;
+			
+			WORDINFO wordData;
             ComputeWordData(D->word, &wordData);
 			D->spellNode = lengthLists[wordData.charlen];
 			lengthLists[wordData.charlen] = MakeMeaning(D);
@@ -384,6 +385,7 @@ bool SpellCheckSentence()
 	}
 	bool delayedspell = false;
 	int spellbad = 0;
+	int safetylimit = 400;
 	for (i = startWord; i <= wordCount; ++i)
 	{
 		if (retry[i-1]) // prior was a problem needing full spellcheck
@@ -401,6 +403,7 @@ bool SpellCheckSentence()
 				}
 			}
 		}
+		if (--safetylimit <= 0) break; // in case of infinite loop
 
 		char* word = wordStarts[i];
 		int size = strlen(word);
@@ -439,7 +442,12 @@ bool SpellCheckSentence()
 		char* at = newword;
 		while ((at = strchr(at, '\\')))
 		{
-			*at = '/';
+			if (at[1] == 'n') // newline
+			{
+				*at = ' ';
+				at[1] = ' ';
+			}
+			else *at = '/';
 			altered = true;
 		}
 		if (altered) word = wordStarts[i] = StoreWord(newword, AS_IS)->word;
@@ -489,7 +497,7 @@ bool SpellCheckSentence()
 		char* end = word + l;
 		if (IsFloat(word, end, numberStyle)) continue;
 		if (IsFractionNumber(word)) continue;
-		if (IsDigitWord(word)) continue;
+		if (IsDigitWord(word, numberStyle, false, true)) continue;
 
 		if (IsUrl(word, word + l)) continue;
 
@@ -574,14 +582,33 @@ bool SpellCheckSentence()
 			}
 		}
 
-		// mistaken " for 1 in don"t?
+		// embedded double quotes
 		char* quo = strchr(word, '"');
-		if (quo && quo[1] == 't' && !quo[2])
+		if (quo)
 		{
-			*quo = '\'';
-			tokens[1] = word;
-			fixedSpell = ReplaceWords("q for dq", i, 1, 1, tokens);
-			continue;
+			// mistaken " for 1 in don"t?
+			if (quo[1] == 't' && !quo[2])
+			{
+				*quo = '\'';
+				tokens[1] = word;
+				fixedSpell = ReplaceWords("q for dq", i, 1, 1, tokens);
+				continue;
+			}
+			// number-inch-object  76"element tv
+			if (IsAlphaUTF8(quo[1]) && IsDigit(*word))
+			{
+				char* at = word;
+				while (IsDigit(*++at) || *at == '.'); // scan number
+				if (at == quo)
+				{
+					*quo = 0;
+					tokens[1] = word;
+					tokens[2] = "inch";
+					tokens[3] = quo+1;
+					fixedSpell = ReplaceWords("joined word number", i, 1, 3, tokens);
+					continue;
+				}
+			}
 		}
 
 		// allow data1 and its friends for regression tests
@@ -850,8 +877,6 @@ bool SpellCheckSentence()
 
 		if (GetTemperatureLetter(word)) continue;	// bad ignore utf word or llegal length - also no composite words
 
-		char* hyphen = strrchr(word, '-');// note is hyphenated - use trailing
-
 		// see if we know the other case
 		if (!(tokenControl & (ONLY_LOWERCASE | STRICT_CASING)) || (i == startSentence && !(tokenControl & ONLY_LOWERCASE)))
 		{
@@ -913,6 +938,7 @@ bool SpellCheckSentence()
 		}
 
 		// see if hypenated word should be separate or joined (ignore obvious adjective suffix)
+		char* hyphen = strrchr(word, '-');// note is hyphenated - use trailing
 		if (hyphen && isEnglish && !stricmp(hyphen, (char*)"-like"))
 		{
 			StoreWord(word, ADJECTIVE_NORMAL | ADJECTIVE); // accept it as a word
@@ -1024,7 +1050,7 @@ bool SpellCheckSentence()
 		WORDP revise, entry, canonical;
 		uint64 xflags = 0;
 		uint64 cansysflags = 0;
-		uint64 inferredProperties = GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags);
+		uint64 inferredProperties = GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags, false, true);
 		if (entry && entry->internalBits & HAS_SUBSTITUTE) entry = canonical = NULL;
 		if (canonical && !stricmp(canonical->word, "unknown-word")) canonical = NULL;
 		if (canonical && !(canonical->internalBits & UPPERCASE_HASH) && (canonical != entry) || (inferredProperties & (NOUN_NUMBER | ADJECTIVE_NUMBER)))

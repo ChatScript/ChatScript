@@ -171,7 +171,7 @@ uniquely on the fly when the JSON composite is created.
 
 Each key-value pair of an object is a fact like `(jo-5 location Seattle x2200 )`. 
 Each array element pair is a fact like `(ja-5 1 dog x1200)`. 
-Array facts start with 0 as the verb and are always contigiously sequential (no missing
+Array facts start with 0 as the verb and are always contiguously sequential (no missing
 numbers). Should you delete an element from the middle, all later elements automatically renumber to
 return to a contiguous sequence. 
 
@@ -278,12 +278,13 @@ you can use InfiniteStack and then when finished, use `CompleteBindStack` if you
 or `ReleaseInfiniteStack` if you don't. 
 While `InfiniteStack` is in progress, you cannot safely make any more `AllocateStack` or `InfiniteStack` calls.
 
-Heap memory allocated by `AllocateHeap` lasts for the duration of the volley and is not explicitly deallocated. 
-So conceivably some heap memory is free but hasn't been freed until the end of the volley. 
+Heap memory allocated by `AllocateHeap` lasts for the duration of the volley and is not explicitly deallocated. It will be implicitly
+deallocated at the end of the volley. But during the volley one could imagine that some heap memory is no longer in use but hasn't been freed until the end of the volley. 
+(This is something that garbage collectors handle but CS has only a manual garbage collection).
 
 Fact memory is consumed by `CreateFact` or various JSON assignment statements and lasts for the duration of the volley.
 
-But CS supports planning, which means backtracking, which means memory is really not free along the way 
+But CS supports planning, which means backtracking, which means allocated heap memory which is nominally not pointed to anymore along the way is not "free"
 because the system might revert things back to some earlier state. 
 This problem of free memory mostly shows up in document mode, where reading long paragraphs of text 
 are all considered a single volley and therefore one might run out of memory. 
@@ -457,7 +458,7 @@ This byte code is defined in `LIVEDATA`
 Effectively facts create graphs and queries are a language for walking the edges of the graph.
 
 ChatScript supports user variables, for considerations of efficiency and ease of reference by scripters. 
-Variables could have been represented as facts, but it would have increased processing speed, local memory, and user file sizes, not to mention made scripts harder to read.
+Variables could have been represented as facts, but it would have increased processing time, local memory usage, and user file sizes, not to mention made scripts harder to read.
 
 # Function Run-time Model
 
@@ -562,7 +563,7 @@ Active strings ^"xxx"  and ^'xxx' process their content in the moment of use.
 
 ## Spacing
 
-The script compiler normally forces separate of things into separate tokens to allow fast uniform
+The script compiler normally forces separate things into separate tokens to allow fast uniform
 handling. E.g., `^call(bob hello)` becomes `^call ( bob hello )`. This allows the `ReadCompiledWord`
 function to grab tokens more easily.
 
@@ -838,13 +839,13 @@ All steps in the pipeline use data representations that work together.
 Much of the work aims toward normalization, that is making different ways of typing in the 
 same thing look the same to scripts, so they don't have to account for variations 
 (making script writing and maintenance easier). Other than tokenization, all other pipeline steps 
-are under control the script (`$cs_token`), which can choose to use any combination of them at any time.
+are under control of the script (`$cs_token`), which can choose to use any combination of them at any time.
 
 ![ChatScript NLP pipeline](NLPipeline.png)
 
 ## Tokenization
 
-Tokenization is the process of taking a stream of input characters and breaking it sentences 
+Tokenization is the process of taking a stream of input characters and breaking it into sentences 
 consisting of words and punctuation (tokens).  
 
 ChatScript can process any number of sentences as a single input, 
@@ -980,7 +981,7 @@ A classic concept set is a synonym of a word.
 
 Another kind of concept set is a property of things like `~burnable` which lists substances and items that burn readily. 
 
-A third concept set kind defines affiliated words, like `~baseball` has _umpire_, _batv_, _ball_, _glove_, _field_, etc.
+A third concept set kind defines affiliated words, like `~baseball` has _umpire_, _bat_, _ball_, _glove_, _field_, etc.
 And yet another concept set can define similar objects that are not synonyms, like `~role` which is the set of all known human occupations. 
 
 ChatScript comes with 2000 such sets, and it is easy for developers to create new ones at any time.
@@ -995,7 +996,7 @@ Marking means taking the words of the sentence in order (where they may have pos
 and noting on each word where they occur in the sentence (they may occur more than once). 
 
 From specific words the system follows the member links to concepts they are members of, and marks those
-concepts as occuring at that location in the sentence. It also follows is links of the dictionary to
+concepts as occuring at that location in the sentence. It also follows `is` links of the dictionary to
 determine other words and concepts to mark. And concepts may be members of other concepts, and so
 on up the hierarchy. There exist system functions that allow you, from script, to also mark and unmark
 words. This allows you to correct or augment meanings.

@@ -26,8 +26,8 @@ static char* outputStart = NULL;
 static char* lineStart = NULL;
 static bool globalBotScope = false;
 static HEAPREF beenHereThreadList = NULL;
-char* newBuffer = NULL;
-char* oldBuffer = NULL;
+char* newScriptBuffer = NULL;
+char* oldScriptBuffer = NULL;
 static char display[MAX_DISPLAY][100];
 static int displayIndex = 0;
 static char* incomingPtrSys = 0;			// cache AFTER token find ptr when peeking.
@@ -69,6 +69,8 @@ static char* topicFiles[] = //   files created by a topic refresh from scratch
 {
 	(char*)"describe",		//   document variables functions concepts topics etc
 	(char*)"facts",			//   hold facts	
+	(char*)"allfacts",		//   hold all binary fast facts	
+	(char*)"allwords",		//   hold all binary fast words	
 	(char*)"keywords",		//   holds topic and concepts keywords
 	(char*)"macros",			//   holds macro definitions
 	(char*)"map",			//   where things are defined
@@ -84,9 +86,24 @@ static void WriteKey(char* word);
 static FILE* mapFile = NULL;					// for IDE
 static FILE* patternFile = NULL; // where to store pattern words
 
+void EraseTopicBin(unsigned int build, char* name)
+{
+	int i = -1;
+	while (topicFiles[++i])
+	{
+		char file[SMALL_WORD_SIZE];
+		sprintf(file, (char*)"%s/BUILD%s/%s%s.bin", topicfolder, name, topicFiles[i], name); // new style
+		remove(file);
+	}
+}
 
 void InitScriptSystem()
 {
+	compiling = false;
+	compileOutputCall = false;
+	compilePatternCall = false;
+	oldScriptBuffer = NULL;
+	newScriptBuffer = NULL;
 	mapFile = NULL;
 	outputStart = NULL;
  }
@@ -107,21 +124,20 @@ void AddWarning(char* buffer)
 	if (warnIndex >= MAX_WARNINGS) --warnIndex;
 }
 
-
-bool StartScriptCompiler(bool normal, bool live)
+bool StartScriptCompiler(bool normal)
 {
 #ifndef DISCARDSCRIPTCOMPILER
-    if (nextToken && normal) return false;
-    if (oldBuffer) return false; // already running one
-    disablePatternOptimization = live; // IF Pattern and match cannot safely optimize
+    if (nextToken && normal) return false; // we are already in a build
+    if (oldScriptBuffer) return false; // already running one
+    disablePatternOptimization = !normal; // IF Pattern and match cannot safely optimize
     conceptID = 0;
     patternFile = NULL;
     beenHereThreadList = NULL;
-    livecall = live;
-    oldBuffer = newBuffer;
+    livecall = !normal;
+    oldScriptBuffer = newScriptBuffer; // so we can nest calls to script compiler
     warnIndex = errorIndex = 0;
-    newBuffer = AllocateStack(NULL, maxBufferSize);
-    nextToken = AllocateStack(NULL, maxBufferSize); // able to swallow big
+    newScriptBuffer = AllocateStack(NULL, maxBufferSize);
+    nextToken = AllocateStack(NULL, maxBufferSize); // able to swallow big token
     
 #endif
     return true;
@@ -130,11 +146,11 @@ bool StartScriptCompiler(bool normal, bool live)
 void EndScriptCompiler()
 {
 #ifndef DISCARDSCRIPTCOMPILER
-    if (newBuffer)
+    if (newScriptBuffer)
     {
-        ReleaseStack(newBuffer);
-        newBuffer = oldBuffer;
-        oldBuffer = NULL;
+        ReleaseStack(newScriptBuffer);
+        newScriptBuffer = oldScriptBuffer;
+        oldScriptBuffer = NULL;
         nextToken = NULL;
     }
 #endif
@@ -1008,12 +1024,10 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
 
 	if (compilePatternCall && !stricmp(word, "#!")) // compilepattern api comment
 	{
-		while (ptr && *ptr)
-		{
-			ptr = ReadCompiledWord(ptr, word);
-			if (!stricmp(word, "!#")) break;
-		}
-		if (ptr && *ptr) ptr = ReadSystemToken(ptr, word, separateUnderscore); 
+		ptr = strstr(ptr, "!#");
+		if (!ptr) return ptr; // failed somehow
+		ptr += 2;
+		if (*ptr) ptr = ReadSystemToken(ptr, word, separateUnderscore); 
 	}
     return ptr;
 }
@@ -1024,11 +1038,12 @@ void EraseTopicFiles(unsigned int build, char* name)
     while (topicFiles[++i])
     {
         char file[SMALL_WORD_SIZE];
-        sprintf(file, (char*)"%s/%s%s.txt", topicname, topicFiles[i], name);
+        sprintf(file, (char*)"%s/%s%s.txt", topicfolder, topicFiles[i], name); // old style
         remove(file);
-        sprintf(file, (char*)"%s/BUILD%s/%s%s.txt", topicname, name, topicFiles[i], name);
+        sprintf(file, (char*)"%s/BUILD%s/%s%s.txt", topicfolder, name, topicFiles[i], name); // new style
         remove(file);
-    }
+	}
+	EraseTopicBin(build, name);
 }
 
 #ifndef DISCARDSCRIPTCOMPILER
@@ -1114,11 +1129,11 @@ char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscor
 		{
 			currentFileLine = maxFileLine;	 // revert to highest read
 			// he wants reality now...
-			if (newBuffer && *newBuffer) // prior peek was from this buffer, make it real data in real buffer
+			if (newScriptBuffer && *newScriptBuffer) // prior peek was from this buffer, make it real data in real buffer
 			{
-				strcpy(readBuffer,newBuffer);
-				result = (result - newBuffer) + readBuffer; // adjust pointer to current buffer
-				*newBuffer = 0;
+				strcpy(readBuffer,newScriptBuffer);
+				result = (result - newScriptBuffer) + readBuffer; // adjust pointer to current buffer
+				*newScriptBuffer = 0;
 			}
 			strcpy(word,lookaheadSys);
 			incomingPtrSys = 0;
@@ -1143,50 +1158,50 @@ char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscor
 	bool newln = false;
 	while (!*word) // found no token left in existing buffer - we have to juggle buffers now unless running overwrite 
 	{
-		if (!newln && newBuffer && *newBuffer) // use pre-read buffer per normal, it will have a token
+		if (!newln && newScriptBuffer && *newScriptBuffer) // use pre-read buffer per normal, it will have a token
 		{
-			strcpy(readBuffer,newBuffer);
-			*newBuffer = 0;
+			strcpy(readBuffer,newScriptBuffer);
+			*newScriptBuffer = 0;
 			result = ReadSystemToken(readBuffer,word,separateUnderscore);
 			break;
 		}
 		else // read new line into hypothetical buffer, not destroying old actual buffer yet
 		{
-			if (!in || ReadALine(newBuffer,in, maxBufferSize,false, convertTabs) < 0) return NULL; //   end of file
-			if (!strnicmp(newBuffer,(char*)"#ignore",7)) // hit an ignore zone
+			if (!in || ReadALine(newScriptBuffer,in, maxBufferSize,false, convertTabs) < 0) return NULL; //   end of file
+			if (!strnicmp(newScriptBuffer,(char*)"#ignore",7)) // hit an ignore zone
 			{
 				unsigned int ignoreCount = 1;
-				while (ReadALine(newBuffer,in) >= 0)
+				while (ReadALine(newScriptBuffer,in) >= 0)
 				{
-					if (!strnicmp(newBuffer,(char*)"#ignore",7)) ++ignoreCount;
-					else if (!strnicmp(newBuffer,(char*)"#endignore",10))
+					if (!strnicmp(newScriptBuffer,(char*)"#ignore",7)) ++ignoreCount;
+					else if (!strnicmp(newScriptBuffer,(char*)"#endignore",10))
 					{
 						if (--ignoreCount == 0)
 						{
-							if (ReadALine(newBuffer,in) < 0) return NULL;	// EOF
+							if (ReadALine(newScriptBuffer,in) < 0) return NULL;	// EOF
 							break;
 						}
 					}
 				}
 				if (ignoreCount) return NULL;	//EOF before finding closure
 			}
-			result = ReadSystemToken(newBuffer,word,separateUnderscore); // result is ptr into NEWBUFFER
+			result = ReadSystemToken(newScriptBuffer,word,separateUnderscore); // result is ptr into NEWBUFFER
 			newln = true;
 		}
 	}
 
-	if (peek) //   save request - newBuffer has implied newln if any
+	if (peek) //   save request - newScriptBuffer has implied newln if any
 	{
 		incomingPtrSys = result;  // next location in whatever buffer
 		strcpy(lookaheadSys,word); // save next token peeked
 		result = (char*)1;	// NO ONE SHOULD KEEP A PEEKed PTR
 		currentFileLine = line; // claim old value
 	}
-	else if (newln && newBuffer) // live token from new buffer, adjust pointers and buffers to be fully up to date
+	else if (newln && newScriptBuffer) // live token from new buffer, adjust pointers and buffers to be fully up to date
 	{
-		strcpy(readBuffer,newBuffer);
-		result = (result - newBuffer) + readBuffer; // ptr into current readBuffer now
-		*newBuffer = 0;
+		strcpy(readBuffer,newScriptBuffer);
+		result = (result - newScriptBuffer) + readBuffer; // ptr into current readBuffer now
+		*newScriptBuffer = 0;
 	}
     if (result == (char*)1 ) { currentLineColumn = 0; }
 	else if (compileOutputCall || compilePatternCall) currentLineColumn = (result - linestartpoint);
@@ -1398,7 +1413,7 @@ static char* FlushToTopLevel(FILE* in,unsigned int depth,char* data)
 	char word[MAX_WORD_SIZE];
 	int oldindex = jumpIndex;
 	jumpIndex = -1; // prevent ReadNextSystemToken from possibly crashing.
-	if (newBuffer) *newBuffer = 0;
+	if (newScriptBuffer) *newScriptBuffer = 0;
 	ReadNextSystemToken(NULL,NULL,word,false);	// clear out anything ahead
 	char* ptr = readBuffer + strlen(readBuffer) - 1;
 	while (ALWAYS)
@@ -1435,7 +1450,7 @@ static bool IsTopic(char* word)
 static void DoubleCheckSetOrTopic()
 {
 	char file[200];
-	sprintf(file,"%s/missingsets.txt", topicname);
+	sprintf(file,"%s/missingsets.txt", topicfolder);
 	FILE* in = FopenReadWritten(file);
 	if (!in) return;
 	*currentFilename = 0; // dont tell the name of the file
@@ -1465,7 +1480,7 @@ static void CheckSetOrTopic(char* name) // we want to prove all references to se
 	if (D->internalBits & BEEN_HERE) return; // already added to check file
     AddBeenHere(D);
 	char file[200];
-	sprintf(file,"%s/missingsets.txt", topicname);
+	sprintf(file,"%s/missingsets.txt", topicfolder);
 	FILE* out = FopenUTF8WriteAppend(file);
 	fprintf(out,(char*)"%s line %d column %d in %s\r\n",word,currentFileLine,currentLineColumn, currentFilename);
 	fclose(out); // dont use FClose
@@ -1548,7 +1563,7 @@ static void WriteKey(char* word)
         return;
     }
     char file[SMALL_WORD_SIZE];
-    sprintf(file,(char*)"%s/keys.txt",tmp);
+    sprintf(file,(char*)"%s/keys.txt", tmpfolder);
 	FILE* out = FopenUTF8WriteAppend(file);
 	if (out)
 	{
@@ -1636,7 +1651,7 @@ static void NoteUse(char* label,char* topicName)
 	if (!D || !(D->internalBits & LABEL)) // bug doesnt look for generic if bots exists
 	{
 		char file[200];
-		sprintf(file,"%s/missingLabel.txt", topicname);
+		sprintf(file,"%s/missingLabel.txt", topicfolder);
 		FILE* out = FopenUTF8WriteAppend(file);
 		if (out)
 		{
@@ -1721,8 +1736,8 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 			&& stricmp(arg1, (char*)"NOUN") && stricmp(arg1, (char*)"DETERMINER") && stricmp(arg1, (char*)"PLACE") && stricmp(arg1, (char*)"common")
 			&& stricmp(arg1, (char*)"capitalize") && stricmp(arg1, (char*)"uppercase") && stricmp(arg1, (char*)"lowercase")
 			&& stricmp(arg1, (char*)"canonical") && stricmp(arg1, (char*)"grade") 
-			&& stricmp(arg1, (char*)"integer") && stricmp(arg1, (char*)"IsModelNumber") && stricmp(arg1, (char*)"IsInteger") && stricmp(arg1, (char*)"IsUppercase") && stricmp(arg1, (char*)"IsAllUppercase") && stricmp(arg1, (char*)"IsFloat") && stricmp(arg1, (char*)"IsMixedCase") && stricmp(arg1, (char*)"Xref"))
-			BADSCRIPT((char*)"CALL- 12 1st argument to ^pos must be SYLLABLE or ALLUPPER or VERB or AUX or GRADE or PRONOUN or NOUN or ADJECTIVE or ADVERB or DETERMINER or PLACE or COMMON or CAPITALIZE or UPPERCASE or LOWERCASE or CANONICAL or INTEGER or HEX32 or HEX64 or ISMODELNUMBER or ISINTEGER or ISUPPERCASE or ISALLUPPERCASE or ISFLOAT or ISMIXEDCASE or XREF - %s\r\n", arg1)
+			&& stricmp(arg1, (char*)"isword")  && stricmp(arg1, (char*)"integer") && stricmp(arg1, (char*)"IsModelNumber") && stricmp(arg1, (char*)"IsInteger") && stricmp(arg1, (char*)"IsUppercase") && stricmp(arg1, (char*)"IsAllUppercase") && stricmp(arg1, (char*)"IsFloat") && stricmp(arg1, (char*)"IsMixedCase") && stricmp(arg1, (char*)"Xref"))
+			BADSCRIPT((char*)"CALL- 12 1st argument to ^pos must be ISWORD or SYLLABLE or ALLUPPER or VERB or AUX or GRADE or PRONOUN or NOUN or ADJECTIVE or ADVERB or DETERMINER or PLACE or COMMON or CAPITALIZE or UPPERCASE or LOWERCASE or CANONICAL or INTEGER or HEX32 or HEX64 or ISMODELNUMBER or ISINTEGER or ISUPPERCASE or ISALLUPPERCASE or ISFLOAT or ISMIXEDCASE or XREF - %s\r\n", arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^getrule"))
 	{
@@ -2318,7 +2333,7 @@ static char* ReadDescribe(char* ptr, FILE* in,unsigned int build)
 		ptr = ReadNextSystemToken(in,ptr,description,false);
 		isDescribe = false;
 		char file[SMALL_WORD_SIZE];
-		sprintf(file,(char*)"%s/BUILD%s/describe%s.txt", topicname,baseName,baseName);
+		sprintf(file,(char*)"%s/BUILD%s/describe%s.txt", topicfolder,baseName,baseName);
 		FILE* out = FopenUTF8WriteAppend(file);
 		fprintf(out,(char*)" %s %s\r\n",word,description);
 		fclose(out); // dont use Fclose
@@ -3437,7 +3452,10 @@ x : = y(do assignment and do not fail)
         if (*word == '*' && word[1] == '~' && word[3] && word[3] == 'b') bidirectionalSeen = true;
     }   
 	*data = 0;
-
+	if (compilePatternCall && ptr && *ptr)
+	{
+		BADSCRIPT((char*)"PATTERN-78 Excess data after pattern closed \r\n")
+	}
 	//   leftovers?
 	if (macro && nestIndex != 1)
 	{
@@ -3453,17 +3471,17 @@ x : = y(do assignment and do not fail)
 	patternContext = false;
     ReleaseStack(stackbase);
     if (!*conceptbase) {;} // no optimization happened
-    else if (!livecall) // not from compilepattern or dynamic testpattern
+    else if (!livecall) // not from compilepattern or dynamic testpattern -- empty files to start
     {
         char filename[SMALL_WORD_SIZE];
         int layer = 1;
         if (buildId == BUILD0) layer = 0;
         else if (buildId == BUILD1) layer = 1;
-        sprintf(filename, (char*)"%s/BUILD%d/keywords%d.txt", topicname, layer, layer);
+        sprintf(filename, (char*)"%s/BUILD%d/keywords%d.txt", topicfolder, layer, layer);
         FILE* out = FopenUTF8WriteAppend(filename);
         fprintf(out, "%s", conceptbase);
         fclose(out);
-    }
+	}
     else // ^compilepattern optimzation
     {
         char* revised = AllocateBuffer();
@@ -3752,7 +3770,8 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
 
 		if (!strnicmp(ptr,(char*)"pattern ",7))
 		{
-            if (livecall) BADSCRIPT((char*)"Cannot use Pattern If during live compilation\r\n")
+            if (livecall) 
+				BADSCRIPT((char*)"Cannot use Pattern If during live compilation\r\n")
 
 			ptr = ReadNextSystemToken(in,ptr,word,false); //   pattern
             if (priorLine != currentFileLine)
@@ -4874,7 +4893,7 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 	if (!table) // tables are not real macros, they are temporary
 	{
 		char filename[SMALL_WORD_SIZE];
-		sprintf(filename,(char*)"%s/BUILD%s/macros%s.txt", topicname,baseName,baseName);
+		sprintf(filename,(char*)"%s/BUILD%s/macros%s.txt", topicfolder,baseName,baseName);
 		//   write out definition -- this is the real save of the data
 		FILE* out = FopenUTF8WriteAppend(filename);
 
@@ -5580,7 +5599,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	//   trailing blank after jump code
 	if (len >= (MAX_TOPIC_SIZE-100)) BADSCRIPT((char*)"TOPIC-7 Too much data in one topic\r\n")
 	char filename[SMALL_WORD_SIZE];
-	sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicfolder,baseName,baseName);
 	FILE* out = FopenUTF8WriteAppend(filename);
 	if (out)
 	{
@@ -5786,8 +5805,8 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 	*pack = 0;
 		
 	char file[200];
-	if (build == BUILD0) sprintf(file,"%s/BUILD0/plans0.txt", topicname);
-	else sprintf(file,"%s/BUILD0/plans1.txt", topicname);
+	if (build == BUILD0) sprintf(file,"%s/BUILD0/plans0.txt", topicfolder);
+	else sprintf(file,"%s/BUILD0/plans1.txt", topicfolder);
 		
 	//   write how many plans were found (for when we preload during normal startups)
 	if (hasPlans == 0)
@@ -5852,6 +5871,17 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
 			break; 
 		}
 		ptr = ReadNextSystemToken(in,ptr,replace,false);
+		if (!stricmp(replace, "![")) // reacquire ![xxx xxx]value
+		{
+			char* end = strchr(ptr, ']');
+			*end = 0;
+			strcat(replace, ptr);
+			strcat(replace, "]");
+			*end = ']';
+			char extra[MAX_WORD_SIZE];
+			ptr = ReadNextSystemToken(in, end+1, extra, false);
+			strcat(replace, extra);
+		}
 		if (TopLevelUnit(replace)) //   definition ends when another major unit starts
 		{
 			ptr -= strlen(replace); //   let someone else see this starter 
@@ -5863,7 +5893,7 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
             *word = '*';
         }
 		char filename[SMALL_WORD_SIZE];
-		sprintf(filename,(char*)"%s/BUILD%s/private%s.txt", topicname,baseName,baseName);
+		sprintf(filename,(char*)"%s/BUILD%s/private%s.txt", topicfolder,baseName,baseName);
 		FILE* out = FopenUTF8WriteAppend(filename);
 		fprintf(out,(char*)" %s %s\r\n",word,replace);
 		fclose(out); // dont use FClose
@@ -5926,7 +5956,7 @@ static char* ReadPrefer(char* ptr, FILE* in, unsigned int build)
 void SaveCanon(char* word, char* canon,char* form)
 {
 	char filename[SMALL_WORD_SIZE];
-	sprintf(filename,(char*)"%s/BUILD%s/canon%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/canon%s.txt", topicfolder,baseName,baseName);
 	FILE* out = FopenUTF8WriteAppend(filename);
 	if (!form) form = "";
 	fprintf(out,(char*)" %s %s %s\r\n",word,canon,form);
@@ -6150,7 +6180,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
     ReadNextSystemToken(NULL, NULL, word, false, false); // flush cache
     build &= -1 ^ FROM_FILE; // remove any flag indicating it came as a direct file, not from a directory listing
 
-	Log(STDUSERLOG,(char*)"\r\n----Reading file %s\r\n",currentFilename);
+	Log(STDUSERLOG,(char*)"\r\n----Reading file %s   %s\r\n",currentFilename, scopeBotName);
 	char map[MAX_WORD_SIZE];
 	char file[MAX_WORD_SIZE];
 	GetCurrentDir(file, MAX_WORD_SIZE);
@@ -6250,7 +6280,7 @@ static void DoubleCheckFunctionDefinition()
 static void DoubleCheckReuse()
 {
 	char file[200];
-	sprintf(file,"%s/missingLabel.txt", topicname);
+	sprintf(file,"%s/missingLabel.txt", topicfolder);
 	FILE* in = FopenReadWritten(file);
 	if (!in) return;
 
@@ -6305,7 +6335,7 @@ static void WriteCMore(FACT* F, char*&word,FILE* out,size_t& lineSize)
     *word = 0;
 }
 
-static void WriteConcepts(WORDP D, uint64 build)
+static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words max already named for *.bin form
 {
     seeAllFacts = true; // do for all bots at once
     char* name = D->word;
@@ -6314,9 +6344,10 @@ static void WriteConcepts(WORDP D, uint64 build)
 	// write out keywords 
 	FILE* out = NULL;
 	char filename[SMALL_WORD_SIZE];
-	sprintf(filename,(char*)"%s/BUILD%s/keywords%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/keywords%s.txt", topicfolder,baseName,baseName);
 	out = FopenUTF8WriteAppend(filename);
 	fprintf(out,(D->internalBits & TOPIC) ? (char*)"T%s " : (char*)"%s ", D->word);
+
 	uint64 properties = D->properties;	
 	uint64 bit = START_BIT;
 	while (properties && bit)
@@ -6329,12 +6360,12 @@ static void WriteConcepts(WORDP D, uint64 build)
 		bit >>= 1;
 	}
 
-	properties = D->systemFlags;	
+	properties = D->systemFlags;
 	bit = START_BIT;
 	while (properties && bit)
 	{
-		// dont write this out in keywords see FAKE_NOCONCEPTLIST - these go in DICTn file
-		if (properties & bit && !(bit & (PATTERN_WORD|NOCONCEPTLIST)))
+		// dont write this out in keywords see FAKE_NOCONCEPTLIST - some of these go in DICTn file
+		if (properties & bit && !(bit & (PATTERN_WORD|NOCONCEPTLIST|MARKED_WORD)))
 		{
 			char* name = FindSystemNameByValue(bit);
 			properties ^= bit;
@@ -6483,25 +6514,24 @@ static void WriteConcepts(WORDP D, uint64 build)
     ReleaseStack(word);
     fprintf(out,(char*)"%s",")\r\n");
 	fclose(out); // dont use Fclose
-    seeAllFacts = false;
+	seeAllFacts = false;
 }
 
 static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 {
-
 	// Note that topic labels (topic.name) and pattern words  will not get written
 	FILE* in = NULL;
     char file[SMALL_WORD_SIZE];
 	int layer = 0;
 	if ( build == BUILD0) 
 	{
-		sprintf(file,(char*)"%s/prebuild0.bin",tmp);
+		sprintf(file,(char*)"%s/prebuild0.bin", tmpfolder);
 		in = FopenReadWritten(file);
 		layer = 0;
 	}
 	else if ( build == BUILD1) 
 	{
-		sprintf(file,(char*)"%s/prebuild1.bin",tmp);
+		sprintf(file,(char*)"%s/prebuild1.bin", tmpfolder);
 		in = FopenReadWritten(file);
 		layer = 1;
 	}
@@ -6692,20 +6722,20 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 		char* dot = strchr(baseName,'.');
 		*--dot = 0; // remove the 2 at the end
 		char dir[SMALL_WORD_SIZE];
-		sprintf(dir,"%s/BUILD%s", topicname,baseName);
+		sprintf(dir,"%s/BUILD%s", topicfolder,baseName);
 		MakeDirectory(dir);
 	}
 	else if (build == BUILD1) 
 	{
 		strcpy(baseName,(char*)"1");
 		char dir[200];
-		sprintf(dir,"%s/BUILD1", topicname);
+		sprintf(dir,"%s/BUILD1", topicfolder);
 		MakeDirectory(dir);
 	}
 	else 
 	{
 		char dir[200];
-		sprintf(dir,"%s/BUILD0", topicname);
+		sprintf(dir,"%s/BUILD0", topicfolder);
 		MakeDirectory(dir);
 		strcpy(baseName,(char*)"0");
 	}
@@ -6759,9 +6789,9 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
     WalkDictionary(ClearTopicConcept,build);				// remove concept/topic flags from prior defined by this build
 	EraseTopicFiles(build,baseName);
 	char file[SMALL_WORD_SIZE];
-	sprintf(file,(char*)"%s/missingLabel.txt", topicname);
+	sprintf(file,(char*)"%s/missingLabel.txt", topicfolder);
 	remove(file);
-	sprintf(file,(char*)"%s/missingSets.txt", topicname);
+	sprintf(file,(char*)"%s/missingSets.txt", topicfolder);
 	remove(file);
 
 	WalkDirectory((char*)"VERIFY",EmptyVerify,0,false); // clear verification of this level
@@ -6770,7 +6800,7 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	errorIndex = warnIndex = hasWarnings = hasErrors =  0;
 	substitutes = cases = functionCall = badword = 0;
 
-	sprintf(filename,(char*)"%s/BUILD%s/map%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/map%s.txt", topicfolder,baseName,baseName);
 	mapFile = FopenUTF8Write(filename);
     fprintf(mapFile, "\r\n"); // so bytemark not with data
     fprintf(mapFile, "# file: 0 full_path_to_file optional_botid\r\n"); // so bytemark not with data
@@ -6786,7 +6816,7 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
     AllocateOutputBuffer();
 
 	// init the script output file
-	sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicfolder,baseName,baseName);
 	FILE* out = FopenUTF8Write(filename);
 	if (strlen(name) > 100) name[99] = 0;
 	if (!strnicmp(name,(char*)"files",5)) name += 5; // dont need the prefix
@@ -6798,10 +6828,10 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	uint64 oldtokenControl = tokenControl;
 	tokenControl = 0;
 	topicCount = 0;
-	StartScriptCompiler();
+	StartScriptCompiler(true); // read topic files?
 
     //   store known pattern words in pattern file that we want to recognize (not spellcorrect on input)
-    sprintf(filename, (char*)"%s/BUILD%s/patternWords%s.txt", topicname, baseName, baseName);
+    sprintf(filename, (char*)"%s/BUILD%s/patternWords%s.txt", topicfolder, baseName, baseName);
     patternFile = FopenUTF8Write(filename);
     if (!patternFile)
     {
@@ -6856,7 +6886,7 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	// write out compiled data
 
 	//   write how many topics were found (for when we preload during normal startups)
-	sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicfolder,baseName,baseName);
 	out = FopenUTF8WriteAppend(filename,(char*)"rb+");
 	if (out)
 	{
@@ -6873,7 +6903,7 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 
 	if (hasPlans)
 	{
-		sprintf(filename,(char*)"%s/BUILD%s/plans%s.txt", topicname,baseName,baseName);
+		sprintf(filename,(char*)"%s/BUILD%s/plans%s.txt", topicfolder,baseName,baseName);
 		out = FopenUTF8WriteAppend(filename,(char*)"rb+");
 		if (out)
 		{
@@ -6886,13 +6916,13 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	}
 
 	// we delay writing out keywords til now, allowing multiple accumulation across tables and concepts
-	WalkDictionary(WriteConcepts,build);
-	WalkDictionary(ClearBeenHere,0);
+	WalkDictionary(WriteConcepts, build);
+	WalkDictionary(ClearBeenHere, 0);
 
 	// dump variables, dictionary changes, topic facts
-	sprintf(filename,(char*)"%s/BUILD%s/facts%s.txt", topicname,baseName,baseName);
+	sprintf(filename,(char*)"%s/BUILD%s/facts%s.txt", topicfolder,baseName,baseName);
 	char filename1[MAX_WORD_SIZE];
-	sprintf(filename1,(char*)"%s/BUILD%s/dict%s.txt", topicname,baseName,baseName);
+	sprintf(filename1,(char*)"%s/BUILD%s/dict%s.txt", topicfolder,baseName,baseName);
 	FILE* dictout = FopenUTF8Write(filename1);
 	FILE* factout = FopenUTF8Write(filename);
 	WriteExtendedFacts(factout,dictout,  build); 

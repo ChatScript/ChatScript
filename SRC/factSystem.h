@@ -19,11 +19,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 typedef struct FACT 
 {  
     uint64 botBits;		// which bots can access this fact (up to 64)
-    unsigned int flags;
     MEANING subject;
     MEANING verb;
     MEANING object;
-    // xref lists for querying
+	unsigned int flags;
+	// xref lists for querying
  	FACTOID_OR_MEANING subjectHead;	
 	FACTOID_OR_MEANING verbHead;		
 	FACTOID_OR_MEANING objectHead;		
@@ -31,12 +31,12 @@ typedef struct FACT
  	FACTOID_OR_MEANING verbNext;		
     FACTOID_OR_MEANING objectNext;  	
 } FACT;
-extern int worstFactFree;
+extern int worstlastFactUsed;
 extern FACT* factBase;		//   start of fact space
 extern FACT* factEnd;		//   end of fact space
 extern FACT* currentFact;	//   most recent fact found or created
 extern FACT* factsPreBuild[NUMBER_OF_LAYERS+1];	//   end of build0 facts (start of build1 facts)
-extern FACT* factFree;		//   end of facts - most recent fact allocated (ready for next allocation)
+extern FACT* lastFactUsed;		//   end of facts - most recent fact allocated (ready for next allocation)
 
 // pre-reserved verb types
 extern MEANING Mmember;
@@ -71,6 +71,8 @@ void ResetFactSystem(FACT* locked);
 void InitFactWords();
 void AutoKillFact(MEANING M);
 bool ValidMemberFact(FACT* F);
+void VerifyFacts();
+bool UnacceptableFact(FACT* F, bool jsonavoid);
 
 // fact creation and destruction
 FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties = 0);
@@ -82,13 +84,13 @@ void FreeFact(FACT* F);
 char* GetSetEnd(char* x);
 
 // fact reading and writing
-char* ReadField(char* ptr,char* &field,char fieldkind,unsigned int& flags);
+char* ReadField(char* ptr,char* field,char fieldkind,unsigned int& flags);
 char* EatFact(char* ptr,char* buffer,unsigned int flags = 0,bool attribute = false);
 FACT* ReadFact(char* &ptr,unsigned int build);
 void ReadFacts(const char* name,const char* layer,unsigned int build,bool user = false);
 char* WriteFact(FACT* F,bool comments,char* buffer,bool ignoreDead = false,bool eol = false,bool displayonly = false);
 void WriteFacts(FILE* out,FACT* from,int flags = 0);
-bool ReadBinaryFacts(FILE* in);
+bool ReadBinaryFacts(FILE* in,bool dictionary);
 void WriteBinaryFacts(FILE* out,FACT* F);
 void ClearUserFacts();
 extern char traceSubject[100];
@@ -163,5 +165,5 @@ inline void SetObjectHead(MEANING M, FACT* value) {SetObjectHead(Meaning2Word(M)
 void ModBaseFact(FACT* F);
 void RedoSystemFactFields();
 void NoteBotFacts();
-void MigrateFactsToBoot(FACT* oldFactFree, FACT* F);
+void MigrateFactsToBoot(FACT* oldlastFactUsed, FACT* F);
 #endif

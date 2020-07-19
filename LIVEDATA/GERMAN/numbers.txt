@@ -16,8 +16,6 @@ halb 2 FRACTION_NUMBER
 drei 3  REAL_NUMBER 
 dritte 3 REAL_NUMBER 
 verdreifachen 3  WORD_NUMBER 
-mehrere 3  WORD_NUMBER 
-einige 3  WORD_NUMBER 
 vier 4  REAL_NUMBER 
 Vierling 4  WORD_NUMBER 
 Quartal 4  FRACTION_NUMBER 

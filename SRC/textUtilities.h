@@ -112,6 +112,7 @@ extern uint64 docVolleyStartTime;
 #define IsNumberStarter(c) (isAlphabeticDigitData[(unsigned char)c] && isAlphabeticDigitData[(unsigned char)c] <= VALIDDIGIT)
 #define IsComparison(c) (isComparatorData[(unsigned char)c])
 #define IsSign(c) (c == '-' || c == '+')
+#define IsInvalidEmailCharacter(c) (punctuation[(unsigned char)c] == PUNCTUATIONS || punctuation[(unsigned char)c] == BRACKETS || punctuation[(unsigned char)c] == ENDERS) // arithmetic enders are OK
 WORDP BUILDCONCEPT(char* word) ;
 void RemoveTilde(char* output);
 double Convert2Double(char* original,int useNumberStyle = AMERICAN_NUMBERS);

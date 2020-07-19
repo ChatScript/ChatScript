@@ -3,12 +3,16 @@
 #define MAX_NO_ERASE 300
 #define MAX_REPEATABLE 300
 #define TOPIC_LIMIT 10000			
+#define NEW_KEY 0x80000000
 
 bool hypotheticalMatch = false;
 int currentBeforeLayer = 0;
 int hasFundamentalMeanings = 0;
 bool noteRulesMatching = false;
 HEAPREF rulematches = NULL;
+WORDP keywordBase = NULL;
+WORDP* preexistingwords = NULL;
+bool monitorChange = false;
 
 // functions that manage topic execution (hence displays) are: PerformTopic (gambit, responder), 
 // Reusecode, RefineCode, Rejoinder, Plan
@@ -404,7 +408,7 @@ char* GetVerify(char* tag,int &topicid, int &id) //  ~topic.#.#=LABEL<~topic.#.#
 	WORDP D = FindWord(topicname);
 	if (!D) return "";
 
-	sprintf(file,(char*)"VERIFY/%s-b%c.txt",topicname+1, (D->internalBits & BUILD0) ? '0' : '1'); 
+	sprintf(file,(char*)"VERIFY/%s-b%c.txt", topicfolder+1, (D->internalBits & BUILD0) ? '0' : '1');
 	topicid = FindTopicIDByName(topicname,true);
 	
 	*dot = '.';
@@ -849,7 +853,7 @@ char* FindNextLabel(int topicid,char* label, char* ptr, int &id,bool alwaysAllow
 		bool topLevel = !Rejoinder(ptr);
 		if (topLevel) available = (alwaysAllowed) ? true : UsableRule(topicid,id);
 		// rule is available if a top level available rule OR if it comes under the current rule
-		if ((available || TOPLEVELID(id) == (unsigned int) currentRuleID) )
+		if ((available || TOPLEVELID(id) == currentRuleID) )
 		{
 			char ruleLabel[MAX_WORD_SIZE];
 			GetLabel(ptr,ruleLabel);
@@ -1705,7 +1709,7 @@ FunctionResult PerformTopic(int active,char* buffer,char* rule, unsigned int id)
 	WORDP D = FindWord((char*)"^cs_topic_enter");
 	if (D && !cstopicsystem)  
 	{
-		sprintf(value,(char*)"( %s %c )",topicName,active);
+		sprintf(value,(char*)"( %s %c )", topicfolder,active);
 		cstopicsystem = true;
 		Callback(D,value,false); 
 		cstopicsystem = false;
@@ -1713,7 +1717,7 @@ FunctionResult PerformTopic(int active,char* buffer,char* rule, unsigned int id)
 
 	uint64 start_time = ElapsedMilliseconds();
 	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE|TRACE_TOPIC) && CheckTopicTrace()) 
-		Log(STDTRACETABLOG,(char*)"Enter Topic: %s\r\n",topicName);
+		Log(STDTRACETABLOG,(char*)"Enter Topic: %s\r\n", topicfolder);
 
 	while (result == RETRYTOPIC_BIT && --limit > 0)
 	{
@@ -1737,13 +1741,13 @@ FunctionResult PerformTopic(int active,char* buffer,char* rule, unsigned int id)
 	if (updateDisplay) RestoreDisplay(frame->display,locals);
 	if (timing & TIME_TOPIC && CheckTopicTime()) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Topic %s time: %d ms\r\n", topicName,diff);
+		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Topic %s time: %d ms\r\n", topicfolder,diff);
 	}
 
 	WORDP E = FindWord((char*)"^cs_topic_exit");
 	if (E && !cstopicsystem) 
 	{
-		sprintf(value,(char*)"( %s %s )",topicName, ResultCode(result));
+		sprintf(value,(char*)"( %s %s )",topicfolder, ResultCode(result));
 		cstopicsystem = true;
 		Callback(E,value,false); 
 		cstopicsystem = false;
@@ -1980,7 +1984,6 @@ bool ReadUserTopics()
 void ResetTopicSystem(bool safe)
 {
     ResetTopics();
-	ResetContext();
 	if (!safe) topicIndex = 0;
 	disableIndex = 0;
 	if (!safe) pendingTopicIndex = 0;
@@ -2148,6 +2151,7 @@ void CreateFakeTopics(char* data) // ExtraTopic can be used to test this, naming
 		/// bot + 4 thru to end is bot description
 		char restriction[MAX_WORD_SIZE];
 		char* keywords = strstr(bot,(char*)"Keywords:");
+		if (!keywords) myexit("no Keywords");
 		*keywords = 0;
 		data = bot + 4;
 		strcpy(restriction,data);
@@ -2196,11 +2200,11 @@ void CreateFakeTopics(char* data) // ExtraTopic can be used to test this, naming
 static void LoadTopicData(const char* fname,const char* layerid,unsigned int build,int layer,bool plan)
 {
 	char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s", topicname,fname);
+	sprintf(word,"%s/%s", topicfolder,fname);
 	FILE* in = FopenReadOnly(word); // TOPIC folder
 	if (!in && layerid) 
 	{
-		sprintf(word,"%s/BUILD%s/%s", topicname,layerid,fname);
+		sprintf(word,"%s/BUILD%s/%s", topicfolder,layerid,fname);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2254,9 +2258,9 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 			}
 
 			char file[SMALL_WORD_SIZE];
-			sprintf(file,(char*)"%s/missingLabel.txt", topicname);
+			sprintf(file,(char*)"%s/missingLabel.txt", topicfolder);
 			remove(file);
-			sprintf(file,(char*)"%s/missingSets.txt", topicname);
+			sprintf(file,(char*)"%s/missingSets.txt", topicfolder);
 			remove(file);
 			return;
 		}
@@ -2274,7 +2278,7 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
             EraseTopicFiles(build, (build == BUILD1) ? (char*)"1" : (char*) "0");
             Log(ECHOSTDUSERLOG, (char*)"\r\nIncompletely compiled unit - press Enter to quit. Then fix and try again.\r\n");
             if (!server && !commandLineCompile) ReadALine(readBuffer, stdin);
-            myexit("bad compile",4); // error
+            myexit("FATAL: bad compile",4); // error
         }
 		int topLevelRules = 0;
 		int gambitCount = 0;
@@ -2330,24 +2334,40 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 	FClose(in);
 }
 
-void CheckFundamentalMeaning(char* name)
+void AddWordItem(WORDP D, bool dictionaryBuild)
+{
+	if (dictionaryBuild) return;
+	if (D <= keywordBase) // preexisted, save it to handle.  new ones we deal with by walking from keywordBase
+	{
+		if (D->systemFlags & MARKED_WORD) return; // already in our list
+		*preexistingwords++ = D;
+		AddSystemFlag(D, MARKED_WORD);
+	}
+}
+
+static void CheckFundamentalMeaning(char* name)
 {
     char* begin = strchr(name, '|');
-    char* end = (begin) ? strchr(begin + 1, '|') : NULL;
+	if (!begin) return;
+    char* end = strchr(begin + 1, '|');
     if (begin && end)
     {
+		if (strchr(end + 1, '|')) return; // not a mere dual |
         char word1[MAX_WORD_SIZE];
         hasFundamentalMeanings = FUNDAMENTAL_VERB;
         strncpy(word1, begin, end - begin + 1);
         word1[end - begin + 1] = 0;
-        StoreWord(word1); // make VERB findable because we care about it
+        WORDP Y = StoreWord(word1,AS_IS); // make VERB findable because we care about it
+		AddWordItem(Y, false);
+
         if (begin != name)
         {
             hasFundamentalMeanings |= FUNDAMENTAL_SUBJECT;
             char c = end[1];
             end[1] = 0;
-            StoreWord(name); // make subject findable because we care about it
-            end[1] = c;
+            WORDP Z = StoreWord(name,AS_IS); // make subject findable because we care about it
+			AddWordItem(Z, false);
+			end[1] = c;
         }
         if (end && end[1])
         {
@@ -2360,11 +2380,11 @@ void CheckFundamentalMeaning(char* name)
 static void ReadPatternData(const char* fname,const char* layer,unsigned int build)
 { 
     char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s", topicname,fname);
+	sprintf(word,"%s/%s", topicfolder,fname);
     FILE* in = FopenReadOnly(fname); // TOPIC folder
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s", topicname,layer,fname);
+		sprintf(word,"%s/BUILD%s/%s", topicfolder,layer,fname);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2374,17 +2394,20 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		ReadCompiledWord(readBuffer,word); //   skip over double quote or QUOTE
 		if (!*word) continue;
 		char* name;
-        if (*word == '"') name = JoinWords(BurstWord(word),false); 
+		char* buffer = AllocateBuffer();
+        if (*word == '"') name = JoinWords(BurstWord(word),false,buffer); 
 		else if (*word == '\'')  name = word+1;
         else name = word;
 		WORDP old = FindWord(name);
 		if (old && (old->systemFlags & PATTERN_WORD)) old = NULL;	// old is not changing value at all
 		else if (build != BUILD2) old = NULL; // only protect from a layer 2 load
-		StoreWord(name,0,PATTERN_WORD|build);
-        CheckFundamentalMeaning(name);
+		WORDP D = StoreWord(name,0,PATTERN_WORD|build);
+		AddWordItem(D, false);
+ //       CheckFundamentalMeaning(name); // make no notations
 		// if old was not previously pattern word and it is now, we will have to unwind on unload. If new word, word gets unwound automatically
 		if (old) unwindUserLayer = AllocateHeapval(unwindUserLayer,(uint64)old, NULL, NULL);
-    }
+		FreeBuffer();
+	}
     FClose(in);
 }
 
@@ -2401,9 +2424,13 @@ void UnwindUserLayerProtect()
 
 static void AddRecursiveProperty(WORDP D,uint64 type,bool dictionaryBuild,unsigned int build)
 {
-	if (D->internalBits & DELETED_MARK  && !(D->internalBits & TOPIC)) RemoveInternalFlag(D,DELETED_MARK);
-	AddProperty(D,type);
-	if (dictionaryBuild) AddSystemFlag(D,MARKED_WORD);
+	if (dictionaryBuild)
+	{
+		AddSystemFlag(D, MARKED_WORD);
+		if (D->internalBits & DELETED_MARK && !(D->internalBits & TOPIC)) RemoveInternalFlag(D, DELETED_MARK);
+	}
+	AddWordItem(D, dictionaryBuild);
+	AddProperty(D, type);
 	if (*D->word != '~')
 	{
 		if (type & NOUN && !(D->properties & (NOUN_PROPER_SINGULAR|NOUN_SINGULAR|NOUN_PLURAL|NOUN_PROPER_PLURAL))) // infer case 
@@ -2455,6 +2482,7 @@ static void AddRecursiveRequired(WORDP D,WORDP set,uint64 type,bool dictionaryBu
 
 static void AddRecursiveFlag(WORDP D,uint64 type,bool dictionaryBuild,unsigned int build)
 {
+	AddWordItem(D, dictionaryBuild);
 	AddSystemFlag(D,type);
 	if (dictionaryBuild) AddSystemFlag(D,MARKED_WORD);
 	if (*D->word != '~') return;
@@ -2470,6 +2498,7 @@ static void AddRecursiveFlag(WORDP D,uint64 type,bool dictionaryBuild,unsigned i
 
 static void AddRecursiveInternal(WORDP D,unsigned int intbits,bool dictionaryBuild,unsigned int build)
 {
+	AddWordItem(D, dictionaryBuild);
 	AddInternalFlag(D,intbits);
 	if (dictionaryBuild) AddSystemFlag(D,MARKED_WORD);
 	if (*D->word != '~') return;
@@ -2483,7 +2512,7 @@ static void AddRecursiveInternal(WORDP D,unsigned int intbits,bool dictionaryBui
 	}
 }
 
-static void InsureSafeSpellcheck(char* word)
+static void InsureSafeSpellcheck(char* word,bool dictionaryBuild)
 {
     if (!word || !*word) return;
     // Spellcheck should not harm keywords or components of keywords. Insure some mark exists.
@@ -2496,26 +2525,196 @@ static void InsureSafeSpellcheck(char* word)
     MakeLowerCopy(data, word);
     WORDP Z;
     size_t len = strlen(data);
-    if (data[len-1] == 's') Z = StoreWord(data); // dont force uppercase on plurals like Cousins
-    else Z = StoreWord(word);
-    if (Z) AddSystemFlag(Z, PATTERN_WORD);
+    if (data[len-1] == 's') Z = StoreWord(data,AS_IS); // dont force uppercase on plurals like Cousins
+    else Z = StoreWord(word,AS_IS);
+	if (Z)
+	{
+		AddSystemFlag(Z, PATTERN_WORD);
+		AddWordItem(Z, dictionaryBuild);
+	}
 }
 
-void InitKeywords(const char* fname,const char* layer,unsigned int build,bool dictionaryBuild,bool concept)
+#define NEW_BIT   0x8000000000000000	
+
+
+void AddBinWord(WORDP D, bool isnew, FILE* out)
+{
+	D->systemFlags &= ((uint64)-1) ^ MARKED_WORD;
+	if (!isnew && !(D->internalBits & BIT_CHANGED) && !(D->internalBits &  QUERY_KIND) && *D->word != '$'
+	&& !D->subjectHead && !D->verbHead && !D->objectHead) 
+	{
+		return; // just referred to but already exists
+	}
+ // [0] 1byte: 1 new bit, 7 nheader, skip byte,2byte namesizebyte), 4byte Meaning dictionary offset, 
+ // [1] internalflags, parsebits, 
+ // [2] properties, 
+ // [3] systemflags,
+ // [4] subject head + verbhead
+ // [5] object head
+ // {6} hash, 
+ // {7} name/0,  
+	D->internalBits &= -1 ^ (BIT_CHANGED | VAR_CHANGED | BEEN_HERE);
+	uint64 bindata[50];
+	bindata[0] = ((uint64)(D->length & 0x00ffff)) << 32;
+	bindata[0] |= Word2Index(D);
+	bindata[1] = (((uint64)D->internalBits) << 32) | (uint64)D->parseBits;
+	bindata[2] = D->properties;
+	bindata[3] = D->systemFlags;
+	bindata[4] = (((uint64)D->subjectHead) << 32) | (uint64)D->verbHead;
+	bindata[5] = (uint64)D->objectHead;
+	uint64 sizing = Word2Index(D);
+	int skip = 6; // size when not new
+	if (isnew) // created the word
+	{
+		bindata[0] |= NEW_BIT;
+		bindata[6] = D->hash;
+		++skip;
+		char* name = (char*)&bindata[7];
+		strcpy(name, D->word);
+		int offset = D->length + 1; // name info
+		bindata[0] |= ((uint64)GETMULTIWORDHEADER(D)) << 56; // 0x7f max allowed
+		skip += (offset + 7) / 8;  // how many 8byte (64 bit)  of name
+	}
+	unsigned int valsize = 0;
+	if (D->internalBits &  QUERY_KIND || *D->word == '$') // save value
+	{
+		char* val = D->w.userValue;
+		size_t len = (val) ? strlen(val) : 0;
+		char* value = (char*) &bindata[skip];
+		value[0] = (unsigned char) (len >> 16);
+		value[1] = (unsigned char)(len >> 8);
+		value[2] = (unsigned char) (len & 0x00ff);
+		if (val) strcpy(value + 3, val);
+		valsize = (len + 4 + 7) / 8; // reserve space for it, null, rounding
+	}
+	bindata[0] |= ((uint64)skip) << 48;
+	fwrite(bindata, 1, sizeof(uint64) * (skip + valsize), out);
+}
+
+static uint64* UnpackBin(uint64* data64)
+{
+	// [0] 1byte: 1 new bit, 7 nheader, skip byte,2byte namesizebyte), 4byte Meaning dictionary offset, 
+	// [1] internalflags, parsebits, 
+	// [2] properties, 
+	// [3] systemflags,
+	// [4] subject head + verbhead
+	// [5] object head
+	// {6} hash, 
+	// {7} name/0,  
+	uint64 val0 = *data64;  // [0]
+	unsigned int controls = val0 >> 32;
+	bool newword = (controls & NEW_KEY) ? true : false;
+	unsigned int namesize = controls & 0x0000ffff; // 64K max
+	int nheader = (controls >> 24) & 0x0000007f;
+	int skip64 = (controls >> 16) & 0x000000ff;
+	MEANING M = (MEANING)(val0 & 0x00000000ffffffff);
+	uint64 val1 = data64[1];
+	unsigned int internalbits = (val1 >> 32) & 0x00000000ffffffff;
+	unsigned int parseflags = val1 & 0x00000000ffffffff;
+	uint64 properties = data64[2];
+	uint64 systemFlags = data64[3];
+	WORDP D;
+	unsigned int flags = 0;
+	if (newword)
+	{
+		D = AllocateEntry();
+		WORDP E = Meaning2Word(M);
+		if (D != E)
+		{
+			EraseTopicBin(BUILD0, (char*) "0"); // dont trust the cache, force a rebuild
+			EraseTopicBin(BUILD1, (char*) "1");
+			printf("initwordsbinary allocation misaligned\r\n");
+			return 0;
+		}
+		D->hash = data64[6];
+		D->word = AllocateHeap((char*)&data64[7], namesize); // 255 character name limit
+		D->length = namesize;
+		unsigned int hash = (D->hash % maxHashBuckets); //   mod the size of the table (saving 0 to mean no pointer and reserving an end upper case bucket)
+		if (internalbits & UPPERCASE_HASH) ++hash;
+		D->nextNode = hashbuckets[hash];
+		SETMULTIWORDHEADER(D, nheader);
+		hashbuckets[hash] = Word2Index(D);
+	}
+	else // preexisting word
+	{
+		D = Meaning2Word(M);
+		if (namesize != (D->length & 0x00ff))
+		{
+			EraseTopicBin(BUILD0, (char*) "0"); // dont trust the cache, force a rebuild
+			EraseTopicBin(BUILD1, (char*) "1");
+			printf("length misalign\r\n");
+			return 0;
+		}
+	}
+	D->properties |= properties; // presumes we are never eraseing properties
+	D->systemFlags |= systemFlags;
+	D->internalBits |= internalbits;
+	D->parseBits |= parseflags;
+	D->subjectHead = data64[4] >> 32;
+	D->verbHead = data64[4] & 0x0ffffffff;
+	D->objectHead = data64[5] & 0x0ffffffff;
+	if (D->internalBits &  QUERY_KIND || *D->word == '$') // save value
+	{
+		char* value = (char*) &data64[skip64];
+		size_t len = (value[0] << 16) | (value[1] << 8) | value[2];
+		if (len) D->w.userValue = AllocateHeap(value+3);
+		skip64 += (len + 7 + 4) / 8; 
+	}
+	return data64 + skip64; // to next entry
+}
+
+static void WriteFastDictionary(const char* layer,const char* fname,WORDP keywordStart, WORDP* basewords,FACT* factStart)
+{
+	// for fastloading binary format
+	FILE* out = NULL;
+	char filename[MAX_WORD_SIZE];
+	char word[MAX_WORD_SIZE];
+	strcpy(filename, fname);
+	sprintf(word, "%s/BUILD%s/%s", topicfolder, layer, filename);
+	out = FopenBinaryWrite(word);
+	if (!out) return;
+	
+	unsigned int check = CHECKSTAMP;
+	fwrite(&check, 1, 4, out);
+	check = Word2Index(keywordStart);
+	fwrite(&check, 1, 4, out);
+	check = Fact2Index(factStart);
+	fwrite(&check, 1, 4, out);
+	fwrite(&check, 1, 4, out); // unused dummy, keep 64bit align
+
+	while (++keywordStart < dictionaryFree)// save the newly added words
+	{
+		AddBinWord(keywordStart, true, out);
+	}
+	while (++basewords < preexistingwords) // list of changed preexisting words
+	{
+		AddBinWord(*basewords, false, out);
+	}
+
+	// save 0 boundary marker
+	uint64 zero = 0;
+	fwrite(&zero, 1, sizeof(uint64), out);
+	zero = (uint64)hasFundamentalMeanings;
+	fwrite(&zero, 1, sizeof(uint64), out);
+	fclose(out);
+	myBot = 0;
+}
+
+void InitKeywords(const char* fname,const char* layer,unsigned int build,bool dictionaryBuild)
 { 
 	char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s", topicname,fname);
+	sprintf(word,"%s/%s", topicfolder,fname);
 	FILE* in = FopenReadOnly(word); //  TOPICS keywords files
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s", topicname,layer,fname);
+		sprintf(word,"%s/BUILD%s/%s", topicfolder,layer,fname);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
+
 	WORDP holdset[10000];
 	uint64 holdprop[10000];
 	uint64 holdsys[10000];
-	unsigned int holdparse[10000];
 	unsigned int holdrequired[10000];
 	unsigned int holdindex = 0;
 	uint64 type = 0;
@@ -2531,7 +2730,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	WORDP set = NULL;
 	while (ReadALine(readBuffer, in)>= 0) //~hate (~dislikeverb )
 	{// T~tax_expert~2  is a multibot reference  vx'801 is a bot referenced member on basic concept
-		char word[MAX_WORD_SIZE];
 		*word = 0;
 		char name[MAX_WORD_SIZE];
 		char* ptr = readBuffer;
@@ -2558,10 +2756,15 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 
 			T = ReadMeaning(name,true,true);
 			set = Meaning2Word(T);
+			AddWordItem(set, dictionaryBuild);
+
 			AddInternalFlag(set,(unsigned int) (CONCEPT|build));// sets and concepts are both sets. Topics get extra labelled on script load
-			if (dictionaryBuild) AddSystemFlag(set,MARKED_WORD);
-			if (set->internalBits & DELETED_MARK && !(set->internalBits & TOPIC)) RemoveInternalFlag(set,DELETED_MARK); // restore concepts but not topics
-			
+			if (dictionaryBuild)
+			{
+				AddSystemFlag(set, MARKED_WORD);
+				if (set->internalBits & DELETED_MARK && !(set->internalBits & TOPIC)) RemoveInternalFlag(set, DELETED_MARK); // restore concepts but not topics
+			}
+
 			// read any properties to mark on the members
 			while (*ptr != '(' && *ptr != '"')
 			{
@@ -2637,7 +2840,8 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             if (*keyword == ')' || !*keyword) break; // til end of keywords or end of line
             MEANING U;
             myBot = 0;
-            char* botflag = strchr(keyword, '`');
+
+			char* botflag = strchr(keyword, '`');
             if (botflag)
             {
                 *botflag = 0;
@@ -2659,11 +2863,19 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             U = ReadMeaning(p1, true, true);
             if (!U) continue; // bug fix for "Buchon Fris " ending in space incorrectly
             if (Meaning2Index(U)) U = GetMaster(U); // use master if given specific meaning
-            if (strchr(keyword + 1, '~')) StoreWord(keyword, AS_IS); // make sure pos-marked words enter dictionary for markhit later
-            WORDP D = Meaning2Word(U);
-            if (D->internalBits & DELETED_MARK && !(D->internalBits & TOPIC)) RemoveInternalFlag(D, DELETED_MARK);
-            if (dictionaryBuild) AddSystemFlag(D, MARKED_WORD);
-            if (type && !strchr(p1 + 1, '~')) // not dictionary entry
+			if (strchr(keyword + 1, '~'))
+			{
+				WORDP Y = StoreWord(keyword, AS_IS); // make sure pos-marked words enter dictionary for markhit later
+				AddWordItem(Y, dictionaryBuild);
+			}
+			WORDP D = Meaning2Word(U);
+			if (dictionaryBuild)
+			{
+				AddSystemFlag(D, MARKED_WORD);
+				if (D->internalBits & DELETED_MARK && !(D->internalBits & TOPIC)) RemoveInternalFlag(D, DELETED_MARK);
+			}
+			AddWordItem(D, dictionaryBuild);
+			if (type && !strchr(p1 + 1, '~')) // not dictionary entry
             {
                 AddSystemFlag(D, sys);
                 AddParseBits(D, parse);
@@ -2671,7 +2883,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 if (D->internalBits & UPPERCASE_HASH && type & NOUN_SINGULAR)
                 {
                     type1 ^= NOUN_SINGULAR;
-                    type1 = NOUN_PROPER_SINGULAR;
+                    type1 |= NOUN_PROPER_SINGULAR;
                 }
 
                 AddProperty(D, type1); // require type doesnt set the type, merely requires it be that
@@ -2693,7 +2905,8 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 
              // recursively do all members of an included set. When we see the set here and its defined, we will scan it
             // if we are DEFINING it now, we scan and mark. Eventually it will propogate
-            if (*D->word != '~') // do simple word properties
+			AddParseBits(D, parse);
+			if (*D->word != '~') // do simple word properties
             {
                 uint64 type1 = type;
                 if (type & NOUN_SINGULAR && D->internalBits & UPPERCASE_HASH)
@@ -2703,7 +2916,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 }
                 AddProperty(D, type1);
                 AddSystemFlag(D, sys);
-                AddParseBits(D, parse);
                 AddInternalFlag(D, intbits);
                 U |= (type | required)  & (NOUN | VERB | ADJECTIVE | ADVERB); // add any pos restriction as well
 
@@ -2715,13 +2927,14 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                     if (underscore)
                     {
                         unsigned int n = 1;
-                        char* at = underscore - 1;
+                        at = underscore - 1;
                         while ((at = strchr(at + 1, '_'))) ++n;
                         if (n > 1 && n > GETMULTIWORDHEADER(D))
                         {
                             *underscore = 0;
-                            WORDP E = StoreWord(D->word);
-                            *underscore = '_';
+                            WORDP E = StoreWord(D->word,AS_IS);
+							AddWordItem(E, dictionaryBuild);
+							*underscore = '_';
                             if (n > GETMULTIWORDHEADER(E)) SETMULTIWORDHEADER(E, n);	//   mark it can go this far for an idiom
                         }
                     }
@@ -2729,7 +2942,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 // insure whole word safe from spell check
                 char* space = strchr(D->word, ' ');
                 char* underscore = strchr(D->word, '_');
-                if (!space && !underscore) InsureSafeSpellcheck(D->word); // rrotect whole word
+                if (!space && !underscore) InsureSafeSpellcheck(D->word,dictionaryBuild); // rrotect whole word
                                                                           // insure pieces safe from spellcheck
                 char sep = 0;
                 if (space && underscore) { ; }
@@ -2739,27 +2952,26 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 {
                     char wordcopy[MAX_WORD_SIZE];
                     strcpy(wordcopy, D->word);
-                    char* at = wordcopy;
+                    at = wordcopy;
                     char* old = wordcopy;
                     while ((at = strchr(at, sep))) // break apart into pieces.
                     {
                         *at++ = 0;
                         size_t len = strlen(old);
                         if (IsAlphaUTF8DigitNumeric(old[len - 1])) // no ending punctuation
-                            InsureSafeSpellcheck(old);
+                            InsureSafeSpellcheck(old,dictionaryBuild);
                         old = at;
                     }
-                    if (*old) InsureSafeSpellcheck(old);
+                    if (*old) InsureSafeSpellcheck(old,dictionaryBuild);
                 }
             }
             else // recurse on concept
             {
-                if (type || sys || parse || required)
+				if (type || sys || required) // delay these
                 {
                     holdset[holdindex] = D;
                     holdprop[holdindex] = type;
                     holdsys[holdindex] = sys;
-                    holdparse[holdindex] = parse;
                     holdrequired[holdindex] = required;
                     ++holdindex;
                     if (holdindex >= 10000) ReportBug((char*)"FATAL: Too much concept recursion in keywordinit");
@@ -2772,7 +2984,10 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             if (endOnly) flags |= END_ONLY;
             if (build == BUILD2) flags |= FACTBUILD2;
             CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
-            CheckFundamentalMeaning(Meaning2Word(U)->word);
+			Meaning2Word(U)->internalBits |= BIT_CHANGED; // we modified the weave
+			Meaning2Word(verb)->internalBits |= BIT_CHANGED; // we modified the weave
+			Meaning2Word(T)->internalBits |= BIT_CHANGED; // we modified the weave
+			CheckFundamentalMeaning(Meaning2Word(U)->word);
         }
 		if (*keyword == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line
 	}
@@ -2781,7 +2996,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 		WORDP D = holdset[holdindex];
 		type = holdprop[holdindex];
 		sys = holdsys[holdindex];
-		parse = holdparse[holdindex];
 		required = holdrequired[holdindex];
 		if (type) 
 		{
@@ -2798,11 +3012,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			NextInferMark();
 			AddRecursiveInternal(D,intbits, dictionaryBuild,build);
 		}
-		if (parse) 
-		{
-			NextInferMark();
-			AddParseBits(D,parse);
-		}
 		if (required)
 		{
 			NextInferMark();
@@ -2813,14 +3022,55 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	myBot = 0;
 }
 
+static int ReadFastDictionary(char* name, const char* layer, unsigned int build)
+{
+	char word[MAX_WORD_SIZE];
+	sprintf(word, "%s/%s", topicfolder, name);
+	FILE* in = FopenReadOnly(word); // TOPIC folder
+	if (!in && layer)
+	{
+		sprintf(word, "%s/BUILD%s/%s", topicfolder, layer, name);
+		in = FopenReadOnly(word);
+	}
+	if (!in) return 0;
+	fseek(in, 0, SEEK_END);
+	unsigned long size = ftell(in);
+	fseek(in, 0, SEEK_SET);
+	char* limit;
+	char* buffer = InfiniteStack64(limit, "Readfastdictionary");
+	unsigned long read = fread(buffer, 1, size, in);
+	fclose(in);
+	ReleaseInfiniteStack(); // we can keep using that space since we dont use stack more
+	if (size != read)
+	{
+		ReportBug("Unable to load binary keywords %d != %d", size, read)
+		return 0;
+	}
+
+	unsigned int* verify = (unsigned int*)buffer;
+	if (*verify != CHECKSTAMP) return 0; // invalid binary format
+	if (*++verify != Word2Index(dictionaryFree - 1)) return 0; // dictionary before is different
+	if (*++verify != Fact2Index(lastFactUsed)) return 0; // facts before is different
+	++verify; // unused
+
+	uint64* data64 = (uint64*)++verify;
+	while (*data64) // data ends with 0 offset of dictionary
+	{
+		data64 = UnpackBin(data64);
+		if (!data64) return 1; // BAD! may have damaged basic dictionary  error happened
+	}
+	hasFundamentalMeanings |= (unsigned int)data64[1]; // after the 0 closer
+	return 2; // good
+}
+
 static void InitMacros(const char* name,const char* layer,unsigned int build)
 {
  	char word[MAX_WORD_SIZE];
-	sprintf(word,"%s/%s", topicname,name);
+	sprintf(word,"%s/%s", topicfolder,name);
 	FILE* in = FopenReadOnly(word); // TOPICS macros
 	if (!in && layer) 
 	{
-		sprintf(word,"%s/BUILD%s/%s", topicname,layer,name);
+		sprintf(word,"%s/BUILD%s/%s", topicfolder,layer,name);
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
@@ -2947,11 +3197,11 @@ static void InitLayerMemory(const char* name, int layer)
 	int total;
 	int counter = 0;
 	char filename[SMALL_WORD_SIZE];
-	sprintf(filename,(char*)"%s/script%s.txt", topicname,name);
+	sprintf(filename,(char*)"%s/script%s.txt", topicfolder,name);
 	FILE* in = FopenReadOnly(filename); // TOPICS
 	if (!in) 
 	{
-		sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicname,name,name);
+		sprintf(filename,(char*)"%s/BUILD%s/script%s.txt", topicfolder,name,name);
 		in = FopenReadOnly(filename);
 	}
 	if (in)
@@ -2961,11 +3211,11 @@ static void InitLayerMemory(const char* name, int layer)
 		FClose(in);
 		counter += total;
 	}
-	sprintf(filename,(char*)"%s/plans%s.txt", topicname,name);
+	sprintf(filename,(char*)"%s/plans%s.txt", topicfolder,name);
 	in = FopenReadOnly(filename); 
 	if (!in)
 	{
-		sprintf(filename,(char*)"%s/BUILD%s/plans%s.txt", topicname,name,name);
+		sprintf(filename,(char*)"%s/BUILD%s/plans%s.txt", topicfolder,name,name);
 		in = FopenReadOnly(filename); 	
 	}
 	if (in)
@@ -3030,44 +3280,109 @@ topicBlock* TI(int topicid)
 	if (topicid <= numberOfTopicsInLayer[LAYER_USER]) return topicBlockPtrs[LAYER_USER] + topicid;
 	return NULL;
 }
-	
+
 FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 {
 	UnlockLayer(layer);
+
 	int originalTopicCount = numberOfTopics;
 	char filename[SMALL_WORD_SIZE];
 	InitLayerMemory(name,layer);
 	numberOfTopics = originalTopicCount;
-	sprintf(filename,(char*)"patternWords%s.txt",name );
-	ReadPatternData(filename,name,build); // sets the PATTERN_WORD flag on a dictionary entry
-	sprintf(filename,(char*)"keywords%s.txt",name);
-	InitKeywords(filename,name,build);
-	sprintf(filename,(char*)"macros%s.txt",name);
-	InitMacros(filename,name,build);
-	sprintf(filename,(char*)"dict%s.txt",name);
-	ReadFacts(filename,name,build);
-	sprintf(filename,(char*)"facts%s.txt",name );
-	ReadFacts(filename,name,build);
-	NoteBotVariables(); 
+	uint64 starttime = ElapsedMilliseconds();
+
+	sprintf(filename, (char*)"macros%s.txt", name);
+	InitMacros(filename, name, build);
+	sprintf(filename, (char*)"private%s.txt", name);
+	ReadSubstitutes(filename, build, name, DO_PRIVATE, true);
+	sprintf(filename, (char*)"canon%s.txt", name);
+	ReadCanonicals(filename, name);
+
+	sprintf(filename, (char*)"allwords%s.bin", name);
+	int binaryFormat = (fastload) ? ReadFastDictionary(filename, name, build) : false; // reads dictn.bin
+	FACT* baseFacts = lastFactUsed;// for tracking changes to facts
+	if (binaryFormat == 2)
+	{
+		sprintf(filename, "%s/BUILD%s/allfacts%s.bin", topicfolder,  name, name);
+		if (!ReadBinaryFacts(FopenStaticReadOnly(filename), false)) binaryFormat = 1; // facts didnt load right even though dict did
+	}
+
+	bool dumpfact = false;
+	if (dumpfact && binaryFormat == 2)
+	{
+		FACT* F = baseFacts;
+		while (++F <= lastFactUsed)
+		{
+			char word[MAX_WORD_SIZE];
+			WriteFact(F, false,word, false);
+			Log(STDUSERLOG, "%s\r\n", word);
+		}
+	}
+    
+    keywordBase = dictionaryFree - 1; // 1 before next available  for tracking new words
+    FACT* factStart = lastFactUsed;
+
+	if (binaryFormat != 2)
+	{
+		// binaryformat== 0 means failed, but didnt damage anything.  == 1 means did damage potentially
+		sprintf(filename, "%s/BUILD%s/allwords%s.bin", topicfolder, name, name);
+		remove(filename);
+		sprintf(filename, "%s/BUILD%s/allfacts%s.bin", topicfolder, name, name);
+		remove(filename);
+		if (*name == '0') // if we regenerate layer 0, we have to redo layer 1 later
+		{
+			sprintf(filename, "%s/BUILD1/allwords1.bin", topicfolder);
+			remove(filename);
+			sprintf(filename, "%s/BUILD1/allfacts1.bin", topicfolder);
+			remove(filename);
+		}
+		if (binaryFormat == 1) myexit("obsolete topic dictionary, restart");
+
+		printf("TOPIC %s raw format read\r\n",name );
+		monitorChange = true;
+		char* limit;
+		WORDP* basewords = (WORDP*)InfiniteStack64(limit, "initkeywords"); // for tracking changes to old words
+		preexistingwords = basewords--; //decrement basewords for later loop
+		sprintf(filename, (char*)"patternWords%s.txt", name);
+		ReadPatternData(filename, name, build); // sets the PATTERN_WORD flag on a dictionary entry
+		sprintf(filename, (char*)"keywords%s.txt", name);
+		InitKeywords(filename, name, build);
+		WalkDictionary(IndirectMembers, build); // having read in all concepts, handled delayed word marks
+		sprintf(filename, (char*)"dict%s.txt", name);
+		ReadFacts(filename, name, build, false);
+		sprintf(filename, (char*)"facts%s.txt", name);
+		ReadFacts(filename, name, build, false);
+		FACT* newfacts = baseFacts;
+		while (++newfacts <= lastFactUsed) CheckFundamentalMeaning(Meaning2Word(newfacts->subject)->word);
+		sprintf(filename, (char*)"allwords%s.bin", name);
+		monitorChange = false;
+		WriteFastDictionary(name, filename, keywordBase, basewords, factStart);
+		ReleaseInfiniteStack();
+	}
+
 	sprintf(filename,(char*)"script%s.txt",name);
 	LoadTopicData(filename,name,build,layer,false);
 	sprintf(filename,(char*)"plans%s.txt",name );
 	LoadTopicData(filename,name,build,layer,true);
 
-	sprintf(filename,(char*)"private%s.txt",name);
-	ReadSubstitutes(filename,build,name,DO_PRIVATE,true);
-	sprintf(filename,(char*)"canon%s.txt",name );
-	ReadCanonicals(filename,name);
-	WalkDictionary(IndirectMembers,build); // having read in all concepts, handled delayed word marks
-    worstDictAvail = (int)(maxDictEntries - Word2Index(dictionaryFree));
-    worstFactFree = factEnd - factFree;
+	// create fast facts format
+	if (binaryFormat != 2)
+	{
+		sprintf(filename, (char*)"%s/BUILD%s/allfacts%s.bin", topicfolder, name, name);
+		WriteBinaryFacts(FopenBinaryWrite(filename), baseFacts);
+	}
+
+	NoteBotVariables();
+
+	worstDictAvail = (int)(maxDictEntries - Word2Index(dictionaryFree));
+    worstlastFactUsed = factEnd - lastFactUsed;
     if (layer != LAYER_BOOT)
 	{
 		char data[MAX_WORD_SIZE];
 		sprintf(data,(char*)"Build%s:  dict=%ld  fact=%ld  heap=%ld Compiled:%s by version %s \"%s\"\r\n",name,
 			(long int)(dictionaryFree-dictionaryPreBuild[layer]),
-			(long int)(factFree-factsPreBuild[layer]),
-			(long int)(stringsPreBuild[layer]-heapFree),
+			(long int)(lastFactUsed-factsPreBuild[layer]),
+			(long int)(heapPreBuild[layer]-heapFree),
 			timeStamp[layer],compileVersion[layer],buildStamp[layer]);
 		if (server)  Log(SERVERLOG, "%s",data);
 		(*printer)((char*)"%s",data);
@@ -3083,25 +3398,25 @@ void ResetContext()
 	contextIndex = 0;
 }
 
-void LoadTopicSystem() // reload all topic data
+void InitTopicSystem() // reload all topic data
 {
 	//   purge any prior topic system - except any patternword marks made on basic dictionary will remain (doesnt matter if we have too many marked)
-	ReturnDictionaryToWordNet(); // return dictionary and heap space to pretopic conditions
 	*timeStamp[0] = *timeStamp[1] = *timeStamp[2] = 0;
-	ResetContext(); // the history
 	topicStack[0] = 0;
+	numberOfTopics = 0;
 	currentTopicID = 0;
-	ClearBotVariables();
-
-	(*printer)((char*)"WordNet: dict=%ld  fact=%ld  heap=%ld %s\r\n", (long int)(dictionaryFree - dictionaryBase - 1), (long int)(factFree - factBase), (long int)(heapBase - heapFree), dictionaryTimeStamp);
-
+	ClearPendingTopics();
+	ResetContext();
+	memset(numberOfTopicsInLayer,0,sizeof(numberOfTopicsInLayer));
+	(*printer)((char*)"WordNet: dict=%ld  fact=%ld  heap=%ld %s\r\n", (long int)(dictionaryFree - dictionaryBase - 1), (long int)(lastFactUsed - factBase), (long int)(heapBase - heapFree), dictionaryTimeStamp);
 	if (!build0Requested) LoadLayer(LAYER_0, (char*)"0", BUILD0); // we will rebuild so dont bother loading
 
 	if (!build0Requested && !build1Requested) // no point in loading layer1 if we are autobuilding layer0 or layer1
 	{
-		UnlockLayer(LAYER_1);
+		UnlockLayer(LAYER_0);
 		ReadLivePosData(); // any needed concepts must have been defined by now in level 0 (assumed). Not done in level1
 		LockLayer(false); // rewrite prebuild file because we augmented level 0
+
 		LoadLayer(LAYER_1, (char*)"1", BUILD1);
 	}
 }

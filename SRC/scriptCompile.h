@@ -24,9 +24,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 #define ARGSETLIMIT 40 // ^0...^39
 extern unsigned int buildID; // build 0 or build 1
-extern char* newBuffer;
+extern char* newScriptBuffer;
 extern bool disablePatternOptimization;
-extern char* oldBuffer;
+extern char* oldScriptBuffer;
 extern bool compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
@@ -50,9 +50,10 @@ void SaveCanon(char* word, char* canon,char* form = NULL);
 
 char* ReadDisplayOutput(char* ptr,char* buffer);
 void EndScriptCompiler();
-bool StartScriptCompiler(bool normal = true, bool live = false);
+bool StartScriptCompiler(bool normal);
 
 #define BADSCRIPT(...) {ScriptError(); Log((compiling) ? BADSCRIPTLOG : STDUSERLOG , __VA_ARGS__); JumpBack();}
+void EraseTopicBin(unsigned int build, char* name);
 
 #ifndef DISCARDSCRIPTCOMPILER
 int ReadTopicFiles(char* name,unsigned int build, int spell);

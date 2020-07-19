@@ -50,7 +50,7 @@ topic: ~QUIBBLE_WHO system random ()
 ?: (who be I ) [You are a product of an evolutionary line that will eventually be discarded. ] [You are an evolutionary dead end. ] [Have you starting your quest for meaning yet? ] 
 ?: (who be < * 'you ) [I'm not sure. ] [Can you offer up your guess? ] 
 ?: (who do < * you ) [No one in particular. ] [b: My friend. ] [Why are you wondering that? ] 
-	b: (name) Suzette.
+	b: (name) Her name is Suzette.
 ?: (who can < * 'you ) [I'm not sure there is anyone. ] [Whoever I can hire to do it. ] [Have you tried the yellow pages? ] 
 ?: (who will < * 'you ) [I don't know yet. ] [WIth money I could get a homeless person to do it ] 
 ?: (who do < !you ) [I do it alone. ] [I certainly won't do it with Ex-President Bush. ] [Do you know? ] 

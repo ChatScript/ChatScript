@@ -387,7 +387,7 @@ file: 0  D:/ChatScript/RAWDATA/QUIBBLE/eliza_can.top
           line: 18 0  # If you come over here, I can s
           Complexity of rule ~quibble_can.7.1- b: 1
         rule: 19  ~quibble_can.7.2 c: 
-          line: 19 0  # To Kailua, Hawai'i. 
+          line: 19 0  # Right. As if I am going to all
           Complexity of rule ~quibble_can.7.2- c: 1
         rule: 20  ~quibble_can.8.0 ?: 
           line: 20 0  # I'm game if you are. 
@@ -5620,7 +5620,7 @@ file: 0  D:/ChatScript/RAWDATA/QUIBBLE/eliza_who.top
           line: 52 0  # [ No one in particular. ] [ b:
           Complexity of rule ~quibble_who.49.0- ?: 1
         rule: 53  ~quibble_who.49.1 b: 
-          line: 53 0  # Suzette. 
+          line: 53 0  # Her name is Suzette. 
           Complexity of rule ~quibble_who.49.1- b: 1
         rule: 54  ~quibble_who.50.0 ?: 
           line: 54 0  # [ I'm not sure there is anyone

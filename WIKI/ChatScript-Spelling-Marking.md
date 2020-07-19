@@ -1,6 +1,6 @@
 ﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/30/2020 cs10.4
+<br>Revision 7/18/2020 cs10.5
 
 
 # Spelling
@@ -95,6 +95,16 @@ And even after the sentence is transformed, you can use `^mark` and `^unmark` to
 ```
 u: (_~emogoodbye) if (^original(_0) == good_day) { ^unmark(~emogoodbye _0)}
 ```
+
+### Conditional substitution
+If you want to replace something only if some specific word does not follow the match, you can use
+this format:
+```
+replace: jack_rusell ![terrier]Jack+Russell+terrier
+```
+This says to replace jack_russell with Jack+Russel+terrior ONLY if the word immediately following the match
+is not terrier (case insensitive).
+
 ### Numeric Substitutions   replace:  ?_xxx xxxx
 
 ?_ on the left takes numbers that have

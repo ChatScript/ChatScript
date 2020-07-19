@@ -1,13 +1,16 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.4";
+char* version = "10.5";
 char sourceInput[200];
 FILE* userInitFile;
+bool fastload = true;
 int externalTagger = 0;
 char defaultbot[100];
 uint64 chatstarted = 0;
 uint64 preparationtime = 0;
 uint64 replytime = 0;
+unsigned int timeLog = 2147483647;
+bool autoreload = true;
 bool sentenceOverflow = false;
 int sentenceLimit = SENTENCES_LIMIT;
 bool loadingUser = false;
@@ -20,18 +23,36 @@ int debugLevel = 0;
 PRINTER printer = printf;
 unsigned int idetrace = (unsigned int) -1;
 int outputlevel = 0;
-char* outputCode[MAX_GLOBAL];
 static bool argumentsSeen = false;
+
+// parameters
+int argc;
+char ** argv;
 char* configFile = "cs_init.txt";	// can set config params
 char* configFile2 = "cs_initmore.txt";	// can set config params
 char* configLines[MAX_WORD_SIZE];	// can set config params
-int configLinesLength;	// can set config params
 char language[40];							// indicate current language used
-char livedata[500];		// where is the livedata folder
+char livedataFolder[500];		// where is the livedata folder
 char languageFolder[500];		// where is the livedata language folder
 char systemFolder[500];		// where is the livedata system folder
-bool noboot = false;
+char usersfolder[100];
+char logsfolder[100];
+char topicfolder[100];
+static char* privateParams = NULL;
+char treetaggerParams[200];
+static char encryptParams[300];
+static char decryptParams[300];
+char buildfiles[100];
+char apikey[100];
+int forkcount = 1;
 static char* erasename = "csuser_erase";
+bool noboot = false;
+char tmpfolder[100];
+static char* configUrl = NULL;
+static char* configHeaders[20];
+static int headerCount = 0;
+
+int configLinesLength;	// can set config params
 bool build0Requested = false;
 bool build1Requested = false;
 bool servertrace = false;
@@ -39,10 +60,7 @@ static int repeatLimit = 0;
 bool pendingRestart = false;
 bool pendingUserReset = false;
 bool rebooting = false;
-bool assignedLogin = false;
-int forkcount = 1;
 int outputchoice = -1;
-char apikey[100];
 DEBUGAPI debugInput = NULL;
 DEBUGAPI debugOutput = NULL;
 DEBUGAPI debugEndTurn = NULL;
@@ -52,10 +70,7 @@ DEBUGVARAPI debugMark = NULL;
 DEBUGAPI debugMessage = NULL;
 DEBUGAPI debugAction = NULL;
 #define MAX_RETRIES 20
-uint64 startTimeInfo;							// start time of current volley
 char* revertBuffer;			// copy of user input so can :revert if desired
-int argc;
-char ** argv;
 char postProcessing = 0;						// copy of output generated during MAIN control. Postprocessing can prepend to it
 unsigned int tokenCount;						// for document performc
 bool callback = false;						// when input is callback,alarm,loopback, dont want to enable :retry for that...
@@ -64,17 +79,8 @@ int timerCheckRate = 0;					// how often to check calls for time
 uint64 volleyStartTime = 0;
 char forkCount[10];
 int timerCheckInstance = 0;
-static char* privateParams = NULL;
-char treetaggerParams[200];
-static char encryptParams[300];
-static char decryptParams[300];
 char hostname[100];
 bool nosuchbotrestart = false; // restart if no such bot
-char users[100];
-char logs[100];
-char topicname[100];
-char tmp[100];
-char buildfiles[100];
 char* derivationSentence[MAX_SENTENCE_LENGTH];
 int derivationLength;
 char authorizations[200];	// for allowing debug commands
@@ -200,6 +206,58 @@ static void HandleBoot(WORDP boot,bool reboot);
 /// SYSTEM STARTUP AND SHUTDOWN
 ///////////////////////////////////////////////
 
+static void HandlePermanentBuffers(bool init)
+{
+	if (init)
+	{
+		readBuffer = (char*)malloc(maxBufferSize);
+		*readBuffer = 0;
+		oldInputBuffer = (char*)malloc(maxBufferSize);
+		lastInputSubstitution = (char*)malloc(maxBufferSize);
+		inputCopy = (char*)malloc(maxBufferSize);
+		realinput = (char*)malloc(maxBufferSize);
+		rawSentenceCopy = (char*)malloc(maxBufferSize);
+		currentInput = (char*)malloc(maxBufferSize);
+		*currentInput = 0;
+		revertBuffer = (char*)malloc(maxBufferSize);
+		ourMainInputBuffer = (char*)malloc(maxBufferSize * 2);  // precaution for overflow
+		copyInput = (char*)malloc(maxBufferSize);
+
+		currentOutputLimit = outputsize;
+		currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = (char*)malloc(outputsize);
+
+		// need allocatable buffers for things that run ahead like servers and such.
+		maxBufferSize = (maxBufferSize + 63);
+		maxBufferSize &= 0xffffffc0; // force 64 bit align on size  
+		unsigned int total = maxBufferLimit * maxBufferSize;
+		buffers = (char*)malloc(total); // have it around already for messages
+		if (!buffers)
+		{
+			(*printer)((char*)"%s", (char*)"cannot allocate buffer space");
+			exit(1);
+		}
+		bufferIndex = 0;
+		baseBufferIndex = bufferIndex;
+	}
+	else
+	{
+		free(readBuffer);
+		free(logmainbuffer);
+		free(oldInputBuffer);
+		free(lastInputSubstitution);
+		free(inputCopy);
+		free(realinput);
+		free(rawSentenceCopy);
+		free(currentInput);
+		free(revertBuffer);
+		free(ourMainInputBuffer);
+		free(copyInput);
+
+		free(ourMainOutputBuffer);
+		// free(buffers);  see CloseBuffers()
+	}
+}
+
 void InitStandalone()
 {
 	startSystem =  clock()  / CLOCKS_PER_SEC;
@@ -244,7 +302,7 @@ static void HandleBoot(WORDP boot, bool reboot)
 			DoCommand(at, NULL, false);
 		}
 		if (!reboot) UnlockLayer(LAYER_BOOT); // unlock it to add stuff
-		FACT* F = factFree;
+		FACT* F = lastFactUsed;
 		Callback(boot, (char*)"()", true, true); // do before world is locked
 		*ourMainOutputBuffer = 0; // remove any boot message
 		myBot = 0;	// restore fact owner to generic all
@@ -253,9 +311,9 @@ static void HandleBoot(WORDP boot, bool reboot)
 		if (!rebooting) 
 		{	
             // move dead/transient facts to end
-            FACT* tailArea = factFree + 1; // last fact
+            FACT* tailArea = lastFactUsed + 1; // last fact
             FACT* G = NULL;
-			while (++F <= factFree)
+			while (++F <= lastFactUsed)
 			{
                 if (!(F->flags & (FACTTRANSIENT|FACTDEAD)))
                 {
@@ -287,7 +345,7 @@ static void HandleBoot(WORDP boot, bool reboot)
                     F->flags |= FACTDEAD;
                 }
              }
-            while (!factFree->subject) --factFree; // reclaim
+            while (!lastFactUsed->subject) --lastFactUsed; // reclaim
 
 			NoteBotVariables(); // convert user variables read into bot variables in boot layer
 			LockLayer(false); // rewrite level 2 start data with augmented from script data
@@ -306,7 +364,7 @@ static void HandleBoot(WORDP boot, bool reboot)
 
 int CountWordsInBuckets(int& unused, unsigned int* depthcount,int limit)
 {
-	memset(depthcount, 0, sizeof(int)*1000);
+	memset(depthcount, 0, sizeof(int)*limit);
 	unused = 0;
 	int words = 0;
 	for (unsigned long i = 0; i <= maxHashBuckets; ++i)
@@ -322,17 +380,18 @@ int CountWordsInBuckets(int& unused, unsigned int* depthcount,int limit)
 				D = Index2Word(GETNEXTNODE(D));
 			}
 		}
-		words += n;
-		if (n < limit) depthcount[n]++;
+		words += n;  // n is number of words in this bucket
+		if (n && n < limit) 
+			depthcount[n] += n; // this many words have a bucket access of n
 	}
 	return words;
 }
 
-static void ReadBotVariable(char* configFile)
+static void ReadBotVariable(char* file)
 {
 	char buffer[5000];
 	char word[MAX_WORD_SIZE];
-	FILE* in = FopenReadOnly(configFile);
+	FILE* in = FopenReadOnly(file);
 	if (in)
 	{
 		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
@@ -346,6 +405,8 @@ static void ReadBotVariable(char* configFile)
 
 void CreateSystem()
 {
+	uint64 starttime = ElapsedMilliseconds();
+
     tableinput = NULL;
 	overrideAuthorization = false;	// always start safe
 	loading = true;
@@ -375,7 +436,6 @@ void CreateSystem()
 			exit(1);
 		}
 		bufferIndex = 0;
-		readBuffer = AllocateBuffer(); // technically if variables are huge, readuserdata would overflow this
 		baseBufferIndex = bufferIndex;
 	}
 	char data[MAX_WORD_SIZE];
@@ -407,19 +467,20 @@ void CreateSystem()
 		outputsize,logsize);
 	if (server) Log(SERVERLOG,(char*)"%s",data);
 	else (*printer)((char*)"%s",data);
-	InitScriptSystem();
-	InitVariableSystem();
-	ReloadSystem();			// builds base facts and dictionary (from wordnet)
-	LoadTopicSystem();		// dictionary reverts to wordnet zone
+
+	// in case
+	MakeDirectory(topicfolder);
+	char name[MAX_WORD_SIZE];
+	sprintf(name, "%s/BUILD0", topicfolder);
+	MakeDirectory(name);
+	sprintf(name, "%s/BUILD1", topicfolder);
+	MakeDirectory(name);
+
+	LoadSystem();			// builds base facts and dictionary (from wordnet)
 	*currentFilename = 0;
     *debugEntry = 0;
-	computerID[0] = 0;
-	if (!assignedLogin) loginName[0] = loginID[0] = 0;
-	*botPrefix = *userPrefix = 0;
 
 	char word[MAX_WORD_SIZE];
-	ReadBotVariable(configFile);
-	ReadBotVariable(configFile2);
 	for (int i = 1; i < argc; ++i)
 	{
 		strcpy(word,argv[i]);
@@ -445,8 +506,8 @@ void CreateSystem()
     currentBeforeLayer = LAYER_BOOT;
 	InitSpellCheck(); // after boot vocabulary added
 
-	unsigned int factUsedMemKB = ( factFree-factBase) * sizeof(FACT) / 1000;
-	unsigned int factFreeMemKB = ( factEnd-factFree) * sizeof(FACT) / 1000;
+	unsigned int factUsedMemKB = ( lastFactUsed-factBase) * sizeof(FACT) / 1000;
+	unsigned int lastFactUsedMemKB = ( factEnd-lastFactUsed) * sizeof(FACT) / 1000;
 	unsigned int dictUsedMemKB = ( dictionaryFree-dictionaryBase) * sizeof(WORDENTRY) / 1000;
 	// dictfree shares text space
 	unsigned int textUsedMemKB = ( heapBase-heapFree)  / 1000;
@@ -456,7 +517,7 @@ void CreateSystem()
 	
 	unsigned int used =  factUsedMemKB + dictUsedMemKB + textUsedMemKB + bufferMemKB;
 	used +=  (userTopicStoreSize + userTableSize) /1000;
-	unsigned int free = factFreeMemKB + textFreeMemKB;
+	unsigned int free = lastFactUsedMemKB + textFreeMemKB;
 	char route[MAX_WORD_SIZE];
 
 	unsigned int bytes = (tagRuleCount * MAX_TAG_FIELDS * sizeof(uint64)) / 1000;
@@ -464,18 +525,18 @@ void CreateSystem()
 	char buf2[MAX_WORD_SIZE];
 	char buf1[MAX_WORD_SIZE];
 	char buf[MAX_WORD_SIZE];
-	strcpy(buf,StdIntOutput(factFree-factBase));
+	strcpy(buf,StdIntOutput(lastFactUsed-factBase));
 	strcpy(buf2,StdIntOutput(textFreeMemKB));
-	unsigned int depthcount[1000];
+	unsigned int depthcount[100];
 	int unused;
-	int words = CountWordsInBuckets(unused, depthcount,1000);
+	int words = CountWordsInBuckets(unused, depthcount,100);
 
 	char depthmsg[1000];
-	int x = 1000;
-	while (!depthcount[--x]); // find first used slot
+	int x = 100;
+	while (!depthcount[--x]); // find last used slot
 	char* at = depthmsg;
 	*at = 0;
-	for (int i = 0; i <= x; ++i)
+	for (int i = 1; i <= x; ++i)
 	{
 		sprintf(at, "%d.", depthcount[i]);
 		at += strlen(at);
@@ -497,7 +558,7 @@ void CreateSystem()
 	if(server) Log(SERVERLOG,(char*)"%s",data);
 	else (*printer)((char*)"%s",data);
 
-	strcpy(buf,StdIntOutput(factEnd-factFree)); // unused facts
+	strcpy(buf,StdIntOutput(factEnd-lastFactUsed)); // unused facts
 	strcpy(buf1,StdIntOutput(textFreeMemKB)); // unused text
 	strcpy(buf2,StdIntOutput(free/1000));
 
@@ -519,7 +580,6 @@ void CreateSystem()
 	else (*printer)((char*)"    Testing disabled.\r\n");
 #else
 	*callerIP = 0;
-	if (!assignedLogin) *loginID = 0;
 	if (server && VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt"))) // authorizedIP
 	{
 		Log(SERVERLOG,(char*)"    *** Server WIDE OPEN to :command use.\r\n");
@@ -555,46 +615,33 @@ void CreateSystem()
 #endif
     (*printer)((char*)"%s",(char*)"\r\n");
 	loading = false;
+	printf("System created in %d ms\r\n", (unsigned int)(ElapsedMilliseconds() - starttime));
 }
 
-void ReloadSystem()
-{//   reset the basic system through wordnet but before topics
+void LoadSystem()
+{//   reset the basic system 
     myBot = 0; // facts loaded here are universal
 	InitFacts(); // malloc space
 	InitStackHeap(); // malloc space
+	InitUserCache(); // malloc space
 	InitDictionary(); // malloc space
-	InitCache(); // malloc space
-	// make sets for the part of speech data
-	LoadDictionary();
-	InitFunctionSystem();
-#ifndef DISCARDTESTING
-	InitCommandSystem();
-#endif
-	ExtendDictionary(); // store labels of concepts onto variables.
-	DefineSystemVariables();
-	ClearUserVariables();
-	AcquirePosMeanings(false); // do not build pos facts (will be in binary) but make vocab available
-	if (!ReadBinaryFacts(FopenStaticReadOnly(UseDictionaryFile((char*)"facts.bin"))))  // DICT
-	{
-		AcquirePosMeanings(true);
-		WORDP safeDict = dictionaryFree;
-		ReadFacts(UseDictionaryFile((char*)"facts.txt"),NULL,0);
-		if ( safeDict != dictionaryFree) myexit((char*)"dict changed on read of facts");
-		WriteBinaryFacts(FopenBinaryWrite(UseDictionaryFile((char*)"facts.bin")),factBase);
-	}
-	char name[MAX_WORD_SIZE];
-	sprintf(name,(char*)"%s/%s/systemfacts.txt",livedata,language);
-	ReadFacts(name,NULL,0); // part of wordnet, not level 0 build 
-	ReadLiveData();  // considered part of basic system before a build
-	InitTextUtilities1(); // also part of basic system before a build
-
+	InitFunctionSystem(); // modify dictionary entries
+	InitTextUtilities(); // also part of basic system before a build
+	InitScriptSystem();
+	InitVariableSystem();
+	InitSystemVariables();
+	ReadLiveData();
 #ifdef TREETAGGER
 	 // We will be reserving some working space for treetagger on the heap
 	 // so make sure it is tucked away where it cannot be touched
-		InitTreeTagger(treetaggerParams);
+	// NOT IN DEBUGGER WILL FORCE reloads of layers
+	InitTreeTagger(treetaggerParams);
 #endif
-
 	WordnetLockDictionary();
+
+	InitTopicSystem();		// dictionary reverts to wordnet zone
+	ReadBotVariable(configFile);
+	ReadBotVariable(configFile2);
 }
 
 static void ProcessArgument(char* arg)
@@ -610,7 +657,11 @@ static void ProcessArgument(char* arg)
 #ifndef NOARGTRACE
     (*printer)("    %s\r\n",arg);
 #endif
-	if (!stricmp(arg,(char*)"trace")) trace = (unsigned int) -1; 
+	if (!strnicmp(arg, (char*)"trace", 5))
+	{
+		if (arg[5] == '=') trace = atoi(arg + 6);
+		else trace = (unsigned int)-1;
+	}
 	else if (!strnicmp(arg,(char*)"language=",9)) 
 	{
 		strcpy(language,arg+9);
@@ -627,6 +678,16 @@ static void ProcessArgument(char* arg)
             myexit((char*)"buffer size less than output buffer size");
         }
     }
+	else if (!strnicmp(arg, (char*)"timer=", 6))
+	{
+		char* x = strchr(arg+ 6, 'x'); // 15000x10
+		if (x)
+		{
+			*x = 0;
+			timerCheckRate = atoi(x + 1);
+		}
+		timerLimit = atoi(arg + 6);
+	}
     else if (!stricmp(arg, (char*)"trustpos")) trustpos = true;
     else if (!strnicmp(arg, (char*)"inputlimit=", 11)) inputLimit = atoi(arg+11);
     else if (!strnicmp(arg, (char*)"debug=",6)) strcpy(arg+6,debugEntry);
@@ -636,9 +697,10 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg, "defaultbot=", 11)) strcpy(defaultbot, arg + 11);
 	else if (!strnicmp(arg, "traceuser=", 10)) strcpy(traceuser, arg + 10);
 	else if (!stricmp(arg, (char*)"noboot")) noboot = true;
+	else if (!stricmp(arg, (char*)"trace")) trace = (unsigned int)-1; // make trace work on login
+	else if (!stricmp(arg, (char*)"time")) timing = (unsigned int)-1 ^ TIME_ALWAYS; // make timing work on login
     else if (!stricmp(arg, (char*)"recordboot")) recordBoot = true;
 	else if (!stricmp(arg, (char*)"servertrace")) servertrace = true;
-    else if (!strnicmp(arg, (char*)"crashpath=",10)) strcpy(crashpath,arg+10);
     else if (!strnicmp(arg, (char*)"repeatlimit=",12)) repeatLimit = atoi(arg+12);
     else if (!strnicmp(arg,(char*)"apikey=",7)) strcpy(apikey,arg+7);
 	else if (!strnicmp(arg,(char*)"logsize=",8)) logsize = atoi(arg+8); // bytes avail for log buffer
@@ -646,7 +708,13 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg,(char*)"outputsize=",11)) outputsize = atoi(arg+11); // bytes avail for output buffer
     else if (!stricmp(arg, (char*)"time")) timing = (unsigned int)-1 ^ TIME_ALWAYS;
 	else if (!strnicmp(arg,(char*)"bootcmd=",8)) strcpy(bootcmd,arg+8); 
-    else if (!strnicmp(arg, (char*)"authorize", 9)) overrideAuthorization = true;
+#ifdef WIN32 
+	else if (!strnicmp(arg, (char*)"windowsbuglog=", 14)) strcpy(externalBugLog, arg + 14);
+#else
+	else if (!strnicmp(arg, (char*)"linuxbuglog=", 12)) strcpy(externalBugLog, arg + 12);
+#endif
+
+
 	else if (!strnicmp(arg,(char*)"dir=",4))
 	{
 #ifdef WIN32
@@ -667,7 +735,6 @@ static void ProcessArgument(char* arg)
 	}
 	else if (!strnicmp(arg,(char*)"login=",6)) 
 	{
-		assignedLogin = true;
 		strcpy(loginID,arg+6);
 	}
 	else if (!strnicmp(arg,(char*)"output=",7)) outputLength = atoi(arg+7);
@@ -693,14 +760,15 @@ static void ProcessArgument(char* arg)
 		char* number = strchr(arg+6,'x');
 		if (number) userCacheCount = atoi(number+1);
 	}
+	else if (!strnicmp(arg, (char*)"nofastload", 10)) fastload = false; // how many user facts allowed
 	else if (!strnicmp(arg,(char*)"userfacts=",10)) userFactCount = atoi(arg+10); // how many user facts allowed
 	else if (!stricmp(arg,(char*)"redo")) redo = true; // enable redo
 	else if (!strnicmp(arg,(char*)"authorize=",10)) strcpy(authorizations,arg+10); // whitelist debug commands
 	else if (!stricmp(arg,(char*)"nodebug")) *authorizations = '1'; 
-	else if (!strnicmp(arg,(char*)"users=",6 )) strcpy(users,arg+6);
-	else if (!strnicmp(arg,(char*)"logs=",5 )) strcpy(logs,arg+5);
-	else if (!strnicmp(arg,(char*)"topic=",6 )) strcpy(topicname,arg+6);
-	else if (!strnicmp(arg,(char*)"tmp=",4 )) strcpy(tmp,arg+4);
+	else if (!strnicmp(arg,(char*)"users=",6 )) strcpy(usersfolder,arg+6);
+	else if (!strnicmp(arg,(char*)"logs=",5 )) strcpy(logsfolder,arg+5);
+	else if (!strnicmp(arg,(char*)"topic=",6 )) strcpy(topicfolder,arg+6);
+	else if (!strnicmp(arg,(char*)"tmp=",4 )) strcpy(tmpfolder,arg+4);
     else if (!strnicmp(arg, (char*)"buildfiles=", 11)) strcpy(buildfiles, arg + 11);
     else if (!strnicmp(arg,(char*)"private=",8)) privateParams = arg+8;
 	else if (!strnicmp(arg, (char*)"treetagger", 10))
@@ -710,9 +778,10 @@ static void ProcessArgument(char* arg)
 	}
 	else if (!strnicmp(arg,(char*)"encrypt=",8)) strcpy(encryptParams,arg+8);
 	else if (!strnicmp(arg,(char*)"decrypt=",8)) strcpy(decryptParams,arg+8);
+	else if (!stricmp(arg, (char*)"noautoreload")) autoreload = false;
 	else if (!strnicmp(arg,(char*)"livedata=",9) ) 
 	{
-		strcpy(livedata,arg+9);
+		strcpy(livedataFolder,arg+9);
 		sprintf(systemFolder,(char*)"%s/SYSTEM",arg+9);
 		sprintf(languageFolder,(char*)"%s/%s",arg+9,language);
 	}
@@ -790,6 +859,7 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg, (char*)"noserverlog")) serverLogDefault = serverLog = false;
 	else if (!stricmp(arg, (char*)"nobuglog")) bugLog = false;
 	else if (!stricmp(arg, (char*)"buglog")) bugLog = true;
+	else if (!strnicmp(arg, (char*)"timelog=",8)) timeLog = atoi(arg+8);
 	else if (!stricmp(arg, (char*)"serverlog")) serverLogDefault = bugLog = serverLog = true;
 	else if (!stricmp(arg, (char*)"noserverprelog")) serverPreLog = false;
 	else if (!stricmp(arg,(char*)"serverctrlz")) serverctrlz = 1;
@@ -799,16 +869,16 @@ static void ProcessArgument(char* arg)
 		server = true;
 #ifdef LINUX
 		if (forkcount > 1) {
-			sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logs, port,getpid());
-            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logs, port, getpid());
+			sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port,getpid());
+            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port, getpid());
 		}
 		else {
-			sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logs, port); 
-            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logs, port);
+			sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logsfolder, port); 
+            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 		}
 #else
-		sprintf(serverLogfileName,(char*)"%s/serverlog%d.txt",logs,port); // DEFAULT LOG
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logs, port);
+		sprintf(serverLogfileName,(char*)"%s/serverlog%d.txt", logsfolder,port); // DEFAULT LOG
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 #endif
 	}
 #ifdef EVSERVER
@@ -819,16 +889,16 @@ static void ProcessArgument(char* arg)
 		evsrv_arg = forkCount;
 #ifdef LINUX
 		if (forkcount > 1) {
-			sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logs, port, getpid());
-            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logs, port, getpid());
+			sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port, getpid());
+            sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port, getpid());
 		}
 		else {
-			sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logs, port);
-        	sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logs, port);
+			sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logsfolder, port);
+        	sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 		}
 #else
-		sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logs, port); // DEFAULT LOG
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logs, port);
+		sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logsfolder, port); // DEFAULT LOG
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 #endif
 	}
 #endif
@@ -903,6 +973,22 @@ static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int header
 
 static void ReadConfig()
 {
+	// various locations of config data
+	for (int i = 1; i < argc; ++i) // essentials
+	{
+		char* configHeader;
+		if (!strnicmp(argv[i], (char*)"config=", 7)) configFile = argv[i] + 7;
+		if (!strnicmp(argv[i], (char*)"config2=", 7)) configFile2 = argv[i] + 8;
+		if (!strnicmp(argv[i], (char*)"configUrl=", 10)) configUrl = argv[i] + 10;
+		if (!strnicmp(argv[i], (char*)"configHeader=", 13))
+		{
+			configHeader = argv[i] + 13;
+			configHeaders[headerCount] = (char*)malloc(sizeof(char)*strlen(configHeader) + 1);
+			strcpy(configHeaders[headerCount], configHeader);
+			configHeaders[headerCount++][strlen(configHeader)] = '\0';
+		}
+	}
+
 	char buffer[MAX_WORD_SIZE];
 	FILE* in = FopenReadOnly(configFile);
 	if (in)
@@ -932,33 +1018,22 @@ static void ReadConfig()
 	}
 }
 
-unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
-{ // this work mostly only happens on first startup, not on a restart
-    for (int i = 0; i <= MAX_WILDCARDS; ++i)
-    {
-        wildcardOriginalText[i][0] = 0;
-        wildcardCanonicalText[i][0] = 0;
-        wildcardPosition[i] = 0;
-    }
-    
-    *traceuser = 0;
+static void ClearGlobals()
+{
+	for (unsigned int i = 0; i <= MAX_WILDCARDS; ++i)
+	{
+		*wildcardOriginalText[i] = *wildcardCanonicalText[i] = 0;
+		wildcardPosition[i] = 0;
+	}
+	computerID[0] = 0;
+	loginName[0] = loginID[0] = 0;
+	*botPrefix = *userPrefix = 0;
+	*traceuser = 0;
 	*hide = 0;
 	*scopeBotName = 0;
-	FILE* in = FopenStaticReadOnly((char*)"SRC/dictionarySystem.h"); // SRC/dictionarySystem.h
-	if (!in) // if we are not at top level, try going up a level
-	{
-#ifdef WIN32
-		if (!SetCurrentDirectory((char*)"..")) // move from BINARIES to top level
-			myexit((char*)"unable to change up\r\n");
-#else
-		chdir((char*)"..");
-#endif
-	}
-	else FClose(in);
 	*defaultbot = 0;
-	strcpy(hostname,(char*)"local");
 	*sourceInput = 0;
-    *buildfiles = 0;
+	*buildfiles = 0;
 	*apikey = 0;
 	*bootcmd = 0;
 #ifndef DISCARDMONGO
@@ -974,97 +1049,72 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	*treetaggerParams = 0;
 #endif
 	*authorizations = 0;
+	*loginID = 0;
+}
+
+static void SetDefaultLogsAndFolders()
+{
+	strcpy(usersfolder, (char*)"USERS");
+	strcpy(logsfolder, (char*)"LOGS");
+	strcpy(topicfolder, (char*)"TOPIC");
+	strcpy(tmpfolder, (char*)"TMP");
+	strcpy(language, (char*)"ENGLISH");
+
+	strcpy(livedataFolder, (char*)"LIVEDATA"); // default directory for dynamic stuff
+	strcpy(systemFolder, (char*)"LIVEDATA/SYSTEM"); // default directory for dynamic stuff
+}
+
+unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
+{ // this work mostly only happens on first startup, not on a restart
+	ClearGlobals();
+	SetDefaultLogsAndFolders();
+
+	FILE* in = FopenStaticReadOnly((char*)"SRC/dictionarySystem.h"); // SRC/dictionarySystem.h
+	if (!in) // if we are not at top level, try going up a level
+	{
+#ifdef WIN32
+		if (!SetCurrentDirectory((char*)"..")) // move from BINARIES to top level
+			myexit((char*)"unable to change up");
+#else
+		chdir((char*)"..");
+#endif
+	}
+	else FClose(in);
+
+	strcpy(hostname, (char*)"local");
 	debugInput = infn;
 	debugOutput = outfn;
 	argc = argcx;
 	argv = argvx;
 	InitFileSystem(unchangedPath,readablePath,writeablePath);
 	if (userfiles) memcpy((void*)&userFileSystem,userfiles,sizeof(userFileSystem));
-	for (unsigned int i = 0; i <= MAX_WILDCARDS; ++i)
-	{
-		*wildcardOriginalText[i] =  *wildcardCanonicalText[i]  = 0; 
-		wildcardPosition[i] = 0;
-	}
-	strcpy(users,(char*)"USERS");
-	strcpy(logs,(char*)"LOGS");
-	strcpy(topicname,(char*)"TOPIC");
-	strcpy(tmp,(char*)"TMP");
 
-	strcpy(language,(char*)"ENGLISH");
-
-	*loginID = 0;
-	char*configUrl = NULL;
-	char*configHeaders[20];
-	int headerCount = 0;
-	for (int i = 1; i < argc; ++i) // essentials
-	{
-		char* configHeader;
-		if (!strnicmp(argv[i],(char*)"config=",7)) configFile = argv[i]+7;
-		if (!strnicmp(argv[i], (char*)"config2=", 7)) configFile2 = argv[i] + 8;
-		if (!strnicmp(argv[i],(char*)"configUrl=",10)) configUrl = argv[i]+10;
-		if (!strnicmp(argv[i],(char*)"configHeader=",13)) {
-			configHeader = argv[i]+13;
-			configHeaders[headerCount] = (char*)malloc(sizeof(char)*strlen(configHeader)+1);
-			strcpy(configHeaders[headerCount],configHeader);
-			configHeaders[headerCount++][strlen(configHeader)] = '\0';
-		}
-	}
     ReadConfig();
 
-	currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = (char*)malloc(outputsize);
-	currentOutputLimit = outputsize; 
-
-	// need buffers for things that run ahead like servers and such.
-	maxBufferSize = (maxBufferSize + 63);
-	maxBufferSize &= 0xffffffc0; // force 64 bit align on size  
-	unsigned int total = maxBufferLimit * maxBufferSize;
-	buffers = (char*) malloc(total); // have it around already for messages
-	if (!buffers)
-	{
-        (*printer)((char*)"%s",(char*)"cannot allocate buffer space");
-		return 1;
-	}
-	bufferIndex = 0;
-	readBuffer = AllocateBuffer();
-	baseBufferIndex = bufferIndex;
-
-    oldInputBuffer = (char*)malloc(maxBufferSize);
-    lastInputSubstitution = (char*)malloc(maxBufferSize);
-    inputCopy = (char*)malloc(maxBufferSize);
-	realinput = (char*)malloc(maxBufferSize);
-	rawSentenceCopy = (char*)malloc(maxBufferSize);
-    currentInput = (char*)malloc(maxBufferSize);
-    revertBuffer = (char*)malloc(maxBufferSize);
-    ourMainInputBuffer = (char*)malloc(maxBufferSize * 2);  // precaution for overlow
-    copyInput = (char*)malloc(maxBufferSize);
+	HandlePermanentBuffers(true);
 
 	quitting = false;
 	echo = true;	
-	if (configUrl != NULL)
-		LoadconfigFromUrl(configUrl, configHeaders, headerCount);
+	if (configUrl != NULL) LoadconfigFromUrl(configUrl, configHeaders, headerCount);
 	ProcessArguments(argc,argv);
-	MakeDirectory(tmp);
+	MakeDirectory(tmpfolder);
 	if (argumentsSeen) (*printer)("\r\n");
 	argumentsSeen = false;
 
-	InitTextUtilities();
-    sprintf(logFilename,(char*)"%s/log%d.txt",logs,port); // DEFAULT LOG
+    sprintf(logFilename,(char*)"%s/log%d.txt",logsfolder,port); // DEFAULT LOG
 #ifdef LINUX
 	if (forkcount > 1) {
-		sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logs, port,getpid());
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logs, port, getpid());
+		sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port,getpid());
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port, getpid());
 	}
 	else {
-		sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logs, port);
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logs, port);
+		sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logsfolder, port);
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 	}
 #else
-    sprintf(serverLogfileName,(char*)"%s/serverlog%d.txt",logs,port); // DEFAULT LOG
-    sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logs, port);
+    sprintf(serverLogfileName,(char*)"%s/serverlog%d.txt",logsfolder,port); // DEFAULT LOG
+    sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 #endif
-	
-	strcpy(livedata,(char*)"LIVEDATA"); // default directory for dynamic stuff
-	strcpy(systemFolder,(char*)"LIVEDATA/SYSTEM"); // default directory for dynamic stuff
 	sprintf(languageFolder,"LIVEDATA/%s",language); // default directory for dynamic stuff
 
 	if (redo) autonumber = true;
@@ -1075,6 +1125,10 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	
 	int oldserverlog = serverLog;
 	serverLog = true;
+
+#ifdef LINUX
+	setSignalHandlers();
+#endif
 
 #ifndef DISCARDSERVER
 	if (server)
@@ -1092,19 +1146,23 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 #endif
 
 	if (volleyLimit == -1) volleyLimit = DEFAULT_VOLLEY_LIMIT;
-	for (int i = 1; i < argc; ++i)
+
+	for (int i = 1; i < argc; ++i) // before createsystem to avoid loading unneeded layers
 	{
 		if (!strnicmp(argv[i], (char*)"build0=", 7)) build0Requested = true;
 		if (!strnicmp(argv[i], (char*)"build1=", 7)) build1Requested = true;
 	}
 
 	CreateSystem();
-	for (int i = 1; i < argc; ++i)
+
+	// system is ready.
+
+	for (int i = 1; i < argc; ++i) // now for immediate action arguments
 	{
 #ifndef DISCARDSCRIPTCOMPILER
 		if (!strnicmp(argv[i],(char*)"build0=",7))
 		{
-			sprintf(logFilename,(char*)"%s/build0_log.txt",users);
+			sprintf(logFilename,(char*)"%s/build0_log.txt",usersfolder);
 			in = FopenUTF8Write(logFilename);
 			FClose(in);
 			commandLineCompile = true;
@@ -1113,7 +1171,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 		}  
 		if (!strnicmp(argv[i],(char*)"build1=",7))
 		{
-			sprintf(logFilename,(char*)"%s/build1_log.txt",users);
+			sprintf(logFilename,(char*)"%s/build1_log.txt",usersfolder);
 			in = FopenUTF8Write(logFilename);
 			FClose(in);
 			commandLineCompile = true;
@@ -1121,16 +1179,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
  			myexit((char*)"build1 complete",result);
 		}  
 #endif
-		if (!strnicmp(argv[i],(char*)"timer=",6))
-		{
-			char* x = strchr(argv[i]+6,'x'); // 15000x10
-			if (x)
-			{
-				*x = 0;
-				timerCheckRate = atoi(x+1);
-			}
-			timerLimit = atoi(argv[i]+6);
-		}
 #ifndef DISCARDTESTING
 		if (!strnicmp(argv[i],(char*)"debug=",6))
 		{
@@ -1140,8 +1188,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
  			myexit((char*)"test complete");
 		}  
 #endif
-		if (!stricmp(argv[i],(char*)"trace")) trace = (unsigned int) -1; // make trace work on login
-		if (!stricmp(argv[i], (char*)"time")) timing = (unsigned int)-1 ^ TIME_ALWAYS; // make timing work on login
 	}
 
 	if (server)
@@ -1181,19 +1227,22 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	return 0;
 }
 
-void PartiallyCloseSystem() // server data (queues etc) remain available
+void PartiallyCloseSystem(bool keepalien) // server data (queues, databases, etc) remain available
 {
-	WORDP shutdown = FindWord((char*)"^csshutdown");
-	if (shutdown)  Callback(shutdown,(char*)"()",false,true); 
+	if (!keepalien)
+	{
+		WORDP shutdown = FindWord((char*)"^csshutdown");
+		if (shutdown)  Callback(shutdown, (char*)"()", false, true);
 #ifndef DISCARDJAVASCRIPT
-	DeleteTransientJavaScript(); // unload context if there
-	DeletePermanentJavaScript(); // javascript permanent system
+		DeleteTransientJavaScript(); // unload context if there
+		DeletePermanentJavaScript(); // javascript permanent system
 #endif
-	FreeAllUserCaches(); // user system
-    CloseDictionary();	// dictionary system
-    CloseFacts();		// fact system
-	CloseBuffers();		// memory system
-	CloseDatabases(true);
+		FreeAllUserCaches(); // user system
+		CloseDictionary();	// dictionary system
+		CloseFacts();		// fact system
+		CloseBuffers();		// memory system
+		CloseDatabases(true);
+	}
 }
 
 void CloseSystem()
@@ -1210,27 +1259,7 @@ void CloseSystem()
 #ifndef DISCARDJSONOPEN
 	CurlShutdown();
 #endif
-	free(logmainbuffer);
-	logmainbuffer = NULL;
-	free(ourMainOutputBuffer);
-	ourMainOutputBuffer = NULL;
-
-    free(oldInputBuffer);
-    oldInputBuffer = NULL;
-    free(lastInputSubstitution);
-    lastInputSubstitution = NULL;
-    free(inputCopy);
-    inputCopy = NULL;
-    free(rawSentenceCopy);
-    rawSentenceCopy = NULL;
-    free(currentInput);
-    currentInput = NULL;
-    free(revertBuffer);
-    revertBuffer = NULL;
-    free(ourMainInputBuffer);
-    ourMainInputBuffer = NULL;
-    free(copyInput);
-    copyInput = NULL;
+	HandlePermanentBuffers(false);
 }
 
 ////////////////////////////////////////////////////////
@@ -1608,11 +1637,12 @@ void ResetToPreUser() // prepare for multiple sentences being processed - data l
     ReestablishBotVariables(); // any changes user made to kernel or boot variables will be reset
     ClearUserVariables();
 	ResetUserChat();
-
+	*currentInput = 0;
 	FACT* F = factLocked; // start of user-space facts
 	ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
-	if (migratetop) MigrateFactsToBoot(migratetop, F); // move relevant user facts or changes to bot facts to boot layer
+	if (migratetop && bootFacts) MigrateFactsToBoot(migratetop, F); // move relevant user facts or changes to bot facts to boot layer
 	migratetop = NULL;
+	bootFacts = false;
 	for (int i = 0; i <= MAX_FIND_SETS; ++i) SET_FACTSET_COUNT(i, 0);
 
 	ResetSentence();
@@ -1818,7 +1848,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
 		if (*val && !csapicall)
 		{
 			int lim = atoi(val);
-			size_t size = strlen(at);
+			int size = strlen(at);
 			if (size > lim) ReportBug("OutputSize exceeded %d > %d for %s of %s\n", size, lim,at, realinput);
 		}
         time_t curr = time(0);
@@ -1836,12 +1866,14 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
         *buff = 0;
         if (responseIndex && regression != NORMAL_REGRESSION) ComputeWhy(buff, -1);
 
+		unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
+		if (lapsedMilliseconds > timeLog) 
+			Log(TIMELOG,"%d", lapsedMilliseconds);
+
         if (userLog && prepareMode != POS_MODE && prepareMode != PREPARE_MODE  && prepareMode != TOKENIZE_MODE)
         {
             char time15[MAX_WORD_SIZE];
-            unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
             sprintf(time15, (char*)" F:%dms ", lapsedMilliseconds);
-
             char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
             char* poutput = Purify(output);
             char* userInput = NULL;
@@ -1935,16 +1967,102 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* 
 	return answer;
 }
 
+void EmergencyResetUser()
+{
+	globalDepth = 0;
+	responseIndex = 0;
+	callArgumentIndex = 0;
+	ResetBuffers(); 
+	ClearUserVariables();
+	ClearHeapThreads();
+	InitScriptSystem();
+	ReleaseInfiniteStack();
+	while (lastFactUsed > factsPreBuild[LAYER_USER]) FreeFact(lastFactUsed--); 
+	DictionaryRelease(dictionaryPreBuild[LAYER_USER], heapPreBuild[LAYER_USER]);
+	stackFree = stackStart; 
+}
+
 // WE DO NOT ALLOW USERS TO ENTER CONTROL CHARACTERS.
 // INTERNAL STRINGS AND STUFF never have control characters either (/r /t /n converted only on output to user)
 // WE internally use /r/n in file stuff for the user topic file.
+
 char* realinput = NULL;
+bool crashBack = false; // are we rejoining from a crash?
+bool crashset = false;
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
+	volleyStartTime = ElapsedMilliseconds(); // time limit control
+	if (!*user) *loginID = 0; // make sure he doesnt get to reuse other's id
 
-	startTimeInfo = ElapsedMilliseconds(); // for volley time system var
+	// dont let user with bad input crash us. Crash next one after so his input wont reenter system
+	crashset = true;
+	bool reloading = false;
+	if (crashBack) // this is now the volley after we crashed a moment ago
+	{
+		if (!autoreload) myexit((char*)"delayed crash exit");
+		
+		// attempt autoreload of system and continue
+		ReportBug("Autoreload");
+		reloading = true;
+		PartiallyCloseSystem(true);
+		CreateSystem();
+		crashBack = false;
+	}
+#ifdef LINUX
+	if (sigsetjmp(crashJump,1)) // if crashes come back to here
+#else
+	if (setjmp(crashJump)) // if crashes come back to here
+#endif
+	{
+		if (crashBack) myexit((char*)"continued crash exit"); // if calling crashfunction crashes
+		crashBack = true;
+		if (reloading) myexit((char*)"crash on reloading"); // user input crashed us immediately again. give up
+		char* topicName = GetUserVariable("$cs_crash");
+		char* varmsg = GetUserVariable("$cs_crashmsg");
+		if (*topicName == '~')
+		{
+			EmergencyResetUser(); // insure we can run this function
+			FunctionResult result;
+			*output = 0;
+			howTopic = (char*)  "statement";
+			int pushed = PushTopic(FindTopicIDByName(topicName));
+			if (pushed > 0) 
+			{
+				currentRuleOutputBase = currentOutputBase = output; 
+				currentOutputLimit = maxBufferSize;
+				*currentOutputBase = 0;
+
+				CALLFRAME* frame = ChangeDepth(1, topicName);
+				postProcessing = 1;
+				result = PerformTopic(GAMBIT, currentOutputBase); //   allow control to vary
+				PopTopic();
+				ChangeDepth(-1, topicName);
+				if (responseIndex)
+				{
+					stopUserWrite = true;
+					FinishVolley(mainInputBuffer, currentOutputBase, NULL, outputsize);
+					return volleyCount;
+				}
+			}
+		}
+		else if (*varmsg)
+		{
+			strcpy(output, varmsg);
+			return volleyCount;
+		}
+
+		myexit((char*)"crash exit");
+	}
+
+#ifdef WIN32
+	__try{ // catch crashes in windows
+#else
+	try {
+#endif
+
 	chatstarted = ElapsedMilliseconds(); // for timing stats
+	postProcessing = 0;
 	preparationtime = 0;
 	replytime = 0;
 	csapicall = false;
@@ -1986,7 +2104,6 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     rulesExecuted = 0;
     factsExhausted = false;
     pendingUserReset = false;
-	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	timerCheckInstance = 0;
 	modifiedTraceVal = 0;
 	modifiedTrace = false;
@@ -2024,7 +2141,23 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
     char* at = mainInputBuffer;
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = oobSkipped;
-	size_t len1 = strlen(at);
+	unsigned int len1 = strlen(at);
+	char* sizing = GetUserVariable("$cs_inputlimit");
+	if (*sizing && len1) // truncate input based on x:y data - prefer this to the inputLimit truncation
+	{
+		char* separator = strchr(sizing, ':');
+		unsigned int prelimit = atoi(sizing);
+		int postlimit = 0;
+		if (separator) postlimit = atoi(separator + 1);
+		unsigned int total = prelimit + postlimit;
+		if (len1 > total) // truncate by sliding or truncation
+		{
+			if (total == prelimit) at[total] = 0; // truncate after start
+			else memmove(at + prelimit, at + len1 - postlimit, postlimit + 1); // merge from end
+			len1 = total;
+		}
+	}
+
 	if (inputLimit && inputLimit <= (int)len1) at[inputLimit] = 0; // relative limit on user component
 
 	// correct user inputs and insure no large tokensize other than strings
@@ -2247,6 +2380,26 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		chatstarted = ElapsedMilliseconds() - chatstarted;
 		printf("Summary-  Prepare: %d  Reply: %d  Finish: %d\r\n", (int)preparationtime, (int)replytime, (int)chatstarted);
 	}
+
+// end of try
+}
+#ifdef WIN32
+__except(true)
+#else
+catch (...)
+#endif
+{
+	char word[MAX_WORD_SIZE];
+	sprintf(word, (char*)"Try/catch");
+	Log(SERVERLOG, word);
+	ReportBug("%s", word);
+#ifdef LINUX
+	siglongjmp(crashJump, 1);
+#else
+	longjmp(crashJump, 1);
+#endif
+}
+
 	return volleyCount;
 }
 
@@ -2583,7 +2736,7 @@ retry:
 	char* start = nextInput; // where we read from
 	if (trace & TRACE_INPUT) Log(STDUSERLOG,(char*)"\r\n\r\nInput: %s\r\n",input);
  	if (trace && sentenceRetry) DumpUserVariables(true); 
-    ResetFunctionSystem();
+    //ResetFunctionSystem();
 	PrepareSentence(nextInput,true,true,false,true); // user input.. sets nextinput up to continue
 	nextInput = SkipWhitespace(nextInput);
 	if (atlimit) sentenceOverflow = true;
@@ -2857,7 +3010,8 @@ char* SkipOOB(char* buffer)
 				quote = !quote; // ignore within quotes
 			if (quote) continue;
 
-			if (c == '[') ++count;
+			if (c == '[') 
+				++count;
 			else if (c == ']')
 			{
 				--count;
@@ -3382,7 +3536,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 #ifndef NOMAIN
 int main(int argc, char * argv[]) 
 {
-    *crashpath = 0;
+	*externalBugLog = 0;
 	for (int i = 1; i < argc; ++i)
 	{
 		if (!strnicmp(argv[i],"root=",5)) 
@@ -3395,7 +3549,7 @@ int main(int argc, char * argv[])
 		}
 	}
 
-	if (InitSystem(argc,argv)) myexit((char*)"failed to load memory\r\n");
+	if (InitSystem(argc,argv)) myexit((char*)"failed to load memory");
     ResetToPreUser();
     if (!server) 
 	{

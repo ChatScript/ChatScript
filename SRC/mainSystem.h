@@ -47,11 +47,13 @@ extern unsigned int idetrace;
 extern bool dieonwritefail;
 extern DEBUGVARAPI debugVar;
 extern DEBUGVARAPI debugMark;
+extern unsigned int timeLog;
 extern int outputlevel;
+extern bool crashset;
+extern bool crashBack;
 extern DEBUGAPI debugAction;
 extern int forkcount;
 extern bool debugcommand;
-extern char* outputCode[MAX_GLOBAL];
 extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
 #define INPUTMARKER '`'	// used to start and end ^input data
@@ -87,7 +89,6 @@ extern int derivationLength;
 extern char* derivationSentence[MAX_SENTENCE_LENGTH];
 extern bool docstats;
 extern unsigned int docSentenceCount;
-extern uint64 startTimeInfo;
 extern unsigned int outputLength;
 extern bool readingDocument;
 extern int inputRetryRejoinderTopic;
@@ -102,14 +103,14 @@ extern char* realinput;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern char language[40];
-extern char livedata[500];
+extern char livedataFolder[500];
 extern char languageFolder[500];
 extern char systemFolder[500];
 extern bool rebooting;
+extern bool fastload;
 extern int responseIndex;
 extern bool trustpos;
 extern bool documentMode;
-extern bool assignedLogin;
 extern bool servertrace;
 extern int inputLimit;
 extern int serverLogDefault;
@@ -167,10 +168,10 @@ extern bool showInput;
 extern bool showReject;
 extern bool showTopics;
 extern bool shortPos;
-extern char users[100];
-extern char logs[100];
-extern char topicname[100];
-extern char tmp[100];
+extern char usersfolder[100];
+extern char logsfolder[100];
+extern char topicfolder[100];
+extern char tmpfolder[100];
 extern char buildfiles[100];
 
 // pending control
@@ -225,15 +226,16 @@ unsigned int InitSystem(int argc, char * argv[],char* unchangedPath = NULL,char*
 int FindOOBEnd(int start);
 void InitStandalone();
 void CreateSystem();
-void ReloadSystem();
+void LoadSystem();
 #ifdef DLL
 extern "C" __declspec(dllexport) void CloseSystem();
 #else
 void CloseSystem();
 #endif
 void NLPipeline(int trace);
+void EmergencyResetUser();
 char* DoOutputAdjustments(char* msg, unsigned int control,char* &buffer,char* limit);
-void PartiallyCloseSystem();
+void PartiallyCloseSystem(bool alien = false);
 int main(int argc, char * argv[]);
 char* ReviseOutput(char* out, char* prefix);
 void ProcessOOB(char* buffer);

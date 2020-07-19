@@ -1096,12 +1096,13 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
             matched = (*kind == '(' || *kind == '<'); //   [] and {} must be failures if we are here while ( ) and << >> are success
             if (wildcardSelector & WILDGAP) //   pending gap  -  [ foo fum * ] and { foo fot * } are  illegal but [*3 *2] is not 
             {
-                if (depth != 0) //  don't end with a gap, illegal
+				if (*word == ']' || *word == '}') { ; }
+                else if (depth != 0) //  don't end () with a gap, illegal
                 {
                     wildcardSelector = 0;
                     matched = false; //   force match failure
                 }
-                else if (reverse)
+                else if (reverse) // depth 0 main sentence
                 {
                     positionEnd = 1; // nominally matched to here
                     positionStart -= 1; // began here
@@ -1349,6 +1350,10 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 // need to know (< *) pattern matcher 
                 if (!depth && *word == ')' && firstMatched < 0) firstMatched = memorizationStart;
             }
+			else if (depth == 0 && *word == ')')
+			{
+				legalgap = true; // variable gap to end of top level ) can match, just cant match *~2 > )
+			}
             else
             {
                 matched = false;  // more words than limit
@@ -1772,7 +1777,6 @@ void ExecuteConceptPatterns()
     *data = 0;
     SAVESYSTEMSTATE()
 
-
     char* buffer = AllocateBuffer();
     FACT* F = GetVerbNondeadHead(D);
     WORDP lastMatchedConcept = NULL;
@@ -1790,31 +1794,19 @@ void ExecuteConceptPatterns()
             data = startData;
 
             // try to recover from fatality
-            bool linuxcrashed = false;
-            linuxCrashSet = true;
             int buffercount = bufferIndex;
 			int frameindex = globalDepth;
-            if (setjmp(linuxCrash)) // we took fatal linux error?
-            {
-				globalDepth = frameindex;
-                bufferIndex = buffercount;
-                data = startData; // say nothing happened
-                *data = 0;
-                linuxcrashed = true;
-                *buffer = 0;
-            }
-            if (linuxcrashed) {}
-            else if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
+            if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
             {
 				globalDepth = frameindex;
 				bufferIndex = buffercount;
                 --jumpIndex;
                 *buffer = 0;
-            }
+			}
             else
             {
                 patternwordthread = NULL;
-                StartScriptCompiler(false, true);
+                StartScriptCompiler(false);
                 ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
                 *data = 0;
                 strcpy(readBuffer, pattern);
@@ -1825,12 +1817,12 @@ void ExecuteConceptPatterns()
                 strcpy(currentFilename, "ConceptPattern");
                 ReadPattern(readBuffer, NULL, data, false, false); // swallows the pattern
 #endif
-                compiling = false;
-                RESTORESYSTEMSTATE()
-                EndScriptCompiler();
-                pattern = startData;
-            }
-        }
+	            pattern = startData;
+				--jumpIndex;
+			}
+			compiling = false;
+			EndScriptCompiler();
+		}
         else ++pattern;
 
         if (!*pattern) continue;     // fails if no pattern compiled

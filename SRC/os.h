@@ -31,22 +31,23 @@ typedef WORDENTRY* WORDP;
 
 typedef struct WORDENTRY //   a dictionary entry  - starred items are written to the dictionary
 {
-    uint64  properties;				//   main language description of this node 
+    uint64  properties;				//   main language description of this node OR numeric value of DEFINE
     uint64	hash;
-    uint64  systemFlags;			//   additional dictionary and non-dictionary properties
+    uint64  systemFlags;			//   additional dictionary and non-dictionary properties 
     char*     word;					//   entry name
     unsigned int internalBits;
     unsigned int parseBits;			// only for words, not for function names or concept names
                                     // functions/topics use this for offset into the map file where it is defined (debugger)
+									// OR offset of primary entry for which this is number value
 
-                                    //   if you edit this, you may need to change ReadBinaryEntry and WriteBinaryEntry
+                                    // if you edit this, you may need to change ReadBinaryEntry and WriteBinaryEntry
     union {
-        char* topicBots;				//   for topic name (start with ~) or planname (start with ^) - bot topic applies to  - only used by script compiler
-        unsigned int planArgCount;	// number of arguments in a plan
-        unsigned char* fndefinition; //   for nonplan macro name (start with ^) - if FUNCTION_NAME is on and not system function, is user script - 1st byte is argument count
-        char* userValue;			//   if a $uservar (start with $) OR if a search label uservar 
-        WORDP substitutes;			//   words (with internalBits HAS_SUBSTITUTE) that should be adjusted to during tokenization
-        MEANING*  glosses;			//   for ordinary words: list of glosses for synset head meanings - is offset to allocstring and id index of meaning involved.
+        char* topicBots;			//  for topic name (start with ~) or planname (start with ^) - bot topic applies to  - only used by script compiler
+        unsigned int planArgCount;	//  number of arguments in a plan
+        unsigned char* fndefinition;//  for nonplan macro name (start with ^) - if FUNCTION_NAME is on and not system function, is user script - 1st byte is argument count
+        char* userValue;			//  if a $uservar (start with $) OR if a query label is query string
+        WORDP substitutes;			//  words (with internalBits HAS_SUBSTITUTE) that should be adjusted to during tokenization
+        MEANING*  glosses;			//  for ordinary words: list of glosses for synset head meanings - is offset to allocstring and id index of meaning involved.
         char* conditionalIdiom;		//  test code headed by ` for accepting word as an idiom instead of its individual word components
     }w;
 
@@ -97,13 +98,13 @@ typedef struct CALLFRAME
 
 }CALLFRAME;
 
-#define SAVESYSTEMSTATE()     int oldDepth = globalDepth; int oldBuffer = bufferIndex; char* oldStack = stackFree;
-#define RESTORESYSTEMSTATE()  infiniteStack = false; globalDepth = oldDepth; bufferIndex = oldBuffer; stackFree = oldStack;
+#define SAVESYSTEMSTATE()     int oldDepth = globalDepth; int oldScriptBufferIndex = bufferIndex; char* oldStack = stackFree;
+#define RESTORESYSTEMSTATE()  infiniteStack = false; globalDepth = oldDepth; bufferIndex = oldScriptBufferIndex; stackFree = oldStack;
 
 // EXCEPTION/ERROR
 // error recovery
-#define SERVER_RECOVERY 4
 extern jmp_buf scriptJump[10];
+extern jmp_buf crashJump;
 extern int jumpIndex;
 void ShowMemory(char* label);
 void JumpBack();
@@ -121,8 +122,7 @@ extern int ide;
 extern bool idestop;
 extern bool idekey;
 #define RECORD_SIZE 4000
-extern jmp_buf linuxCrash;
-extern bool linuxCrashSet;
+extern char externalBugLog[100];
 
 // MEMORY SYSTEM
 extern bool convertTabs;
@@ -281,6 +281,7 @@ unsigned int GetFutureSeconds(unsigned int seconds);
 
 #define BADSCRIPTLOG 9
 #define BUGLOG 10
+#define TIMELOG 11
 #define STDTRACETABLOG 101
 #define STDTRACEATTNLOG 201
 #define STDTIMETABLOG 301
@@ -294,15 +295,13 @@ extern bool oob;
 extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
-extern char crashpath[MAX_WORD_SIZE];
-
 #define ReportBug(...) { Bug(); Log(BUGLOG, __VA_ARGS__); if (server) Log(SERVERLOG, __VA_ARGS__); }
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;
 extern char* logmainbuffer; 
-extern int logsize;
-extern int outputsize;
+extern unsigned int logsize;
+extern unsigned int outputsize;
 extern char serverLogfileName[200];
 extern char dbTimeLogfileName[200];
 extern int userLog;

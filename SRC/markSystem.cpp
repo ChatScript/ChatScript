@@ -13,30 +13,31 @@ Adjectives occur before nouns EXCEPT:
 
 In a pattern, an author can request:
 	1. a simple word like bottle
-	2. a form of a simple word non-canonicalized like bottled or apostrophe bottle
-	3. a WordNet concept like bottle~1 
-	4. a set like ~dead or :dead
+		2. a form of a simple word non - canonicalized like bottled or apostrophe bottle
+		3. a WordNet concept like bottle~1
+		4. a set like ~dead or : dead
 
-For #1 "bottle", the system should chase all upward all sets of the word itself, and all
-WordNet parents of the synset it belongs to and all sets those are in. 
+		For #1 "bottle", the system should chase all upward all sets of the word itself, and all
+		WordNet parents of the synset it belongs to and all sets those are in.
 
-Marking should be done for the original and canonical forms of the word.
+		Marking should be done for the original and canonical forms of the word.
 
-For #2 "bottled", the system should only chase the original form.
+		For #2 "bottled", the system should only chase the original form.
 
-For #3 "bottle~1", this means all words BELOW this in the wordnet hierarchy not including the word
-"bottle" itself. This, in turn, means all words below the particular synset head it corresponds to
-and so instead becomes a reference to the synset head: (char*)"0173335n" or some such.
+		For #3 "bottle~1", this means all words BELOW this in the wordnet hierarchy not including the word
+		"bottle" itself.This, in turn, means all words below the particular synset head it corresponds to
+		and so instead becomes a reference to the synset head : (char*)"0173335n" or some such.
 
-For #4 "~dead", this means all words encompassed by the set ~dead, not including the word ~dead.
+		For #4 "~dead", this means all words encompassed by the set ~dead, not including the word ~dead.
 
-So each word in an input sentence is scanned for marking. 
-the actual word gets to see what sets it is in directly. 
-Thereafter the system chases up the synset hierarchy fanning out to sets marked from synset nodes.
+		So each word in an input sentence is scanned for marking.
+		the actual word gets to see what sets it is in directly.
+		Thereafter the system chases up the synset hierarchy fanning out to sets marked from synset nodes.
 
 #endif
 
 #define GENERIC_MEANING 0  // not a specific meaning of the word
+int verbwordx = -1;
 
 int maxRefSentence = (((MAX_XREF_SENTENCE  * REF_ELEMENTS) + 3) / 4) * 4; // start+end offsets for this many entries + alignment slop
 int uppercaseFind = -1; // unknown
@@ -127,6 +128,8 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int meaningIndex, int start,
 		return false;
 	}
 	if (end > wordCount) end = wordCount;
+	if (start == verbwordx && !stricmp(wordStarts[start], "verify")) 
+		return false;
 
 	// been here before?
 	unsigned char* data = GetWhereInSentence(D); // has 2 hidden int fields before this point
@@ -418,7 +421,7 @@ static void ProcessPendingConcepts()
 
             // before we can trigger this set membership
             concept = Meaning2Word(F->object);
-            if (ProcessPendingFact(F, start, end)) // failed 
+            if (ProcessPendingFact(F, (int)start, (int)end)) // failed 
             {
                 currentEntry[1] = 0; // kill fact use
                 changed = true;
@@ -430,9 +433,9 @@ static void ProcessPendingConcepts()
         if (F && F->verb != Mexclude)
         {
             TraceHierarchy(F,"resume");
-            if (MarkWordHit(4, false, concept, 0, start, end)) // new ref added
+            if (MarkWordHit(4, false, concept, 0, (int)start, (int)end)) // new ref added
             {
-                if (MarkSetPath(4 + 1, false, F->object, start, end, 4 + 1, false) != -1) changed = true; // someone marked
+                if (MarkSetPath(4 + 1, false, F->object, (int)start, (int)end, 4 + 1, false) != -1) changed = true; // someone marked
             }
         }
     }
@@ -452,9 +455,9 @@ static void ProcessPendingConcepts()
         WORDP E = (F) ? Meaning2Word(F->object) : NULL;
         // mark all members of the link
         TraceHierarchy(F,"defaulting");
-        if (MarkWordHit(4, false, E, 0, start, end)) // new ref added
+        if (MarkWordHit(4, false, E, 0, (int)start, (int)end)) // new ref added
         {
-           MarkSetPath(4 + 1, false, F->object, start, end, 4 + 1, false); 
+           MarkSetPath(4 + 1, false, F->object, (int)start, (int)end, 4 + 1, false);
         }
     }
 }
@@ -464,7 +467,7 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
     unsigned int flags = GETTYPERESTRICTION(M);
 	if (!flags) flags = BASIC_POS; // what POS we allow from Meaning
 	WORDP D = Meaning2Word(M);
-	unsigned int index = Meaning2Index(M); // always 0 for a synset or set
+	int index = Meaning2Index(M); // always 0 for a synset or set
 	// check for any repeated accesses of this synset or set or word
 	uint64 offset = 1ull << index;
 	int result = NOPROBLEM_BIT;
@@ -507,9 +510,9 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 		}
 
 		int mindex = Meaning2Index(F->subject);
-            //   index meaning restriction (0 means all)
-            if (!block && index == mindex) // match generic or exact subject 
-			{
+        //   index meaning restriction (0 means all)
+        if (!block && index == mindex) // match generic or exact subject 
+		{
 				bool mark = true;
 				// test for word not included in set
 				if (index)
@@ -572,8 +575,8 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 			}
 			else if (!index && mindex) // we are all meanings (limited by pos use) and he is a specific meaning
 			{
-				WORDP H = Meaning2Word(F->subject);
-				MEANING M1 = GetMeaning(H, mindex);
+				WORDP J = Meaning2Word(F->subject);
+				MEANING M1 = GetMeaning(J, mindex);
 				unsigned int pos = GETTYPERESTRICTION(M1);
 				if (flags & pos) //  && start == end   wont work if spanning multiple words revised due to "to fish" noun infinitive
 				{
@@ -583,19 +586,6 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 					}
 				}
 			}
-            else if (false && index && !mindex) // he accepts  all meanings and we are a specific meaning
-            {
-                    WORDP H = Meaning2Word(F->subject);
-                    MEANING M1 = GetMeaning(H, index);
-                    unsigned int pos = GETTYPERESTRICTION(M1);
-                    if (flags & pos) //  && start == end   wont work if spanning multiple words revised due to "to fish" noun infinitive
-                    {
-                            if (MarkWordHit(depth, exactWord, Meaning2Word(F->object), Meaning2Index(F->object), start, end)) // new ref added
-                            {
-                                 if (MarkSetPath(depth + 1, exactWord, F->object, start, end, level + 1, canonical) != -1) result = 1; // someone marked
-                             }
-                  }
-            }
 	}
 	return result;
 }
@@ -803,7 +793,7 @@ static void HuntMatch(int canonical, char* word,bool strict,int start, int end, 
         if (canonical == 2) canonical = 0;
 		trace = (D->subjectHead || D->systemFlags & PATTERN_WORD || D->properties & PART_OF_SPEECH)  ? usetrace : 0; // being a subject head means belongs to some set. being a marked word means used as a keyword
 		if ((*D->word == 'I' || *D->word == 'i'  ) && !D->word[1]){;} // dont follow out this I or i word
-		else  MarkMeaningAndImplications(0, 0,MakeMeaning(D),start,end, (bool)canonical,true);
+		else  MarkMeaningAndImplications(0, 0,MakeMeaning(D),start,end, canonical ? true : false,true);
 	}
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 }
@@ -1097,10 +1087,10 @@ static void ProcessWordLoop(STACKREF verblist, int verb, STACKREF subjectlist, i
                         uint64 objectword;
                         objectlist = UnpackStackval(objectlist, objectword);
                         sprintf(format, "%s|%s|%s",(char*) subjectword,(char*)verbword, (char*)objectword);
-                        WORDP D = FindWord(format, 0);
-                        if (D && MarkWordHit(4, false, D, 0, verb, verb)) // new ref added
+                        WORDP E = FindWord(format, 0);
+                        if (E && MarkWordHit(4, false, E, 0, verb, verb)) // new ref added
                         {
-                            MarkSetPath(4 + 1, false, MakeMeaning(D), verb, verb, 4 + 1, false);
+                            MarkSetPath(4 + 1, false, MakeMeaning(E), verb, verb, 4 + 1, false);
                         }
                     }
                 }
@@ -1114,12 +1104,12 @@ static void ProcessWordLoop(STACKREF verblist, int verb, STACKREF subjectlist, i
                    uint64 objectword;
                     objectlist = UnpackStackval(objectlist, objectword);
                     sprintf(format, "|%s|%s", (char*)verbword, (char*)objectword);
-                    WORDP D = FindWord(format, 0);
-                    if (!D) continue;   // no one cares
+                    WORDP E = FindWord(format, 0);
+                    if (!E) continue;   // no one cares
 
-                    if (MarkWordHit(4, false, D, 0, verb, verb)) // new ref added
+                    if (MarkWordHit(4, false, E, 0, verb, verb)) // new ref added
                     {
-                        MarkSetPath(4 + 1, false, MakeMeaning(D), verb, verb, 4 + 1, false);
+                        MarkSetPath(4 + 1, false, MakeMeaning(E), verb, verb, 4 + 1, false);
                     }
                 }
             }

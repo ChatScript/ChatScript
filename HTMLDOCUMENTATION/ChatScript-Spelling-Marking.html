@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-spelling-marking-manual">ChatScript Spelling Marking Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/30/2020 cs10.4</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2020 cs10.5</p>
 <h1 id="spelling">Spelling</h1>
 <p>One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is commpletely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.</p>
 <p>OK. So it does the best it can with unknown words. It is enabled by default but your scripts can disable it. All you have to do is assign a different value to $cs_token, one which does not include #DO_SPELLCHECK. E.g.</p>
@@ -54,6 +54,10 @@ replace: box &quot;my boy&quot;</code></pre>
 <pre><code>replace: box `&quot;this+box is fun&quot;</code></pre>
 <p>And even after the sentence is transformed, you can use <code>^mark</code> and <code>^unmark</code> to mark concepts and words or to turn off marking on them, so you can use context to decide if &quot;lie to me&quot; is a tv show or not, or if you hate 'good_day' being considered ~emogoodbye you can do something like this:</p>
 <pre><code>u: (_~emogoodbye) if (^original(_0) == good_day) { ^unmark(~emogoodbye _0)}</code></pre>
+<h3 id="conditional-substitution">Conditional substitution</h3>
+<p>If you want to replace something only if some specific word does not follow the match, you can use this format:</p>
+<pre><code>replace: jack_rusell ![terrier]Jack+Russell+terrier</code></pre>
+<p>This says to replace jack_russell with Jack+Russel+terrior ONLY if the word immediately following the match is not terrier (case insensitive).</p>
 <h3 id="numeric-substitutions-replace-_xxx-xxxx">Numeric Substitutions replace: ?_xxx xxxx</h3>
 <p>?_ on the left takes numbers that have been conjoined with words, and separates them. Input like &quot;I weigh 5kg.&quot; is hard to handle via substitition since there are infinite number of numbers. But it's common to see stuff like that from users.</p>
 <pre><code>replace: ?_g gram        -- this merely separates 

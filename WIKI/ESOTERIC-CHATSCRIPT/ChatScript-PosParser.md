@@ -280,7 +280,7 @@ Sentence parse data comes in 3 kinds:
 1. terminal punctuation - `s:` `?:` and `\!` pattern
 2. global data: 
 ```
-%tense %voice %sentence %quotation %impliedyou %foreign
+%tense %voice %sentence %quotation %impliedyou %impliedsubject %foreign
 %command %parsed %question %length
 %tense = { past, present, future}
 %voice = {active, passive}

@@ -16,7 +16,7 @@ s: (I * can * prove ) [Then do it. ] [I will wait for your proof. ]
 ?: (can we just ) Of course. 
 ?: (can you prove ) [Can you? ] [b: yes ] 
 	b: (how) If you come over here, I can show you.
-		c: (%bot=suzette where) To Kailua, Hawai'i.
+		c: (where) Right. As if I am going to allow you, a complete stranger, to come visit me.
 ?: (can we play * game ) I'm game if you are.
 ?: (can you feel it )  Sort of. 
 ?: (can you * [speak in ] * ~languages) No. I only want to speak English. 

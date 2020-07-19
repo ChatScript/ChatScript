@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/30/2020 cs10.4</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2020 cs10.5</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -191,8 +191,8 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <p><code>^unmark()</code> will restore the set of generic unmarks that were flipped off using <code>^mark()</code>.</p>
 <h3 id="replacewordword-_0"><code>^replaceword(word _0)</code></h3>
 <p>You can change the word itself at the location just by providing the word you want used and the location in the sentence (as a match variable or position index). Replacing a word does not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).</p>
-<h3 id="addwordafterword-_0"><code>^addwordAfter(word _0)</code></h3>
-<p>Inserts word into sentence after the position of given match variable. The second argument designates a position, and can be a match variable name or something that evaluates into a word index. Does not alter pos-tagging or parsing and does not mark itself. You can use ^mark to cause marking to happen.</p>
+<h3 id="addwordatword-canonical-_0"><code>^addwordAt(word canonical _0)</code></h3>
+<p>Inserts word into sentence at the position of given match variable, moving what was there one farther over. The second argument designates the canonical to use and the third is a a position, and can be a match variable name or something that evaluates into a word index. Does not alter pos-tagging or parsing and does not mark itself. You can use ^mark to cause marking to happen. Fails if sentence is already full to brim with words.</p>
 <h3 id="position-how-matchvariable"><code>^position ( how matchvariable )</code></h3>
 <p>This returns the integer representing where the named match variable is located.</p>
 <p><em>how</em> can be <code>START</code>, <code>END</code>, or <code>BOTH</code>. Both means an encoding of where the start and end of the the match was. See <code>@_n</code> in pattern matching to set a position or the <code>^setposition</code> function.</p>

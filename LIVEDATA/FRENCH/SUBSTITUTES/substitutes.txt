@@ -194,13 +194,14 @@ Bretagne Grande+Bretagne
 Britain Grande+Bretagne
 déc décembre
 déc. décembre
+est-ce est+ce
 FB Facebook
 févr février
 févr. février
 hr heure
 hr. heure
 hrs heures
-i.a. intelligence artificielle
+i.a. intelligence+artificielle
 Inc Incorporé
 Inc. Incorporé
 janv janvier
@@ -216,8 +217,8 @@ lbs livres
 lbs. livres
 Ltd Limité
 Ltd. Limité
-MàJ mise à jour
-màj mise à jour
+MàJ mise+à+jour
+màj mise+à+jour
 min minutes
 min. minutes
 mins minutes
@@ -231,6 +232,7 @@ ovni OVNI
 oz once
 oz. once
 p.m p.m.
+puis-je peux+je
 re_tweet retweet
 sec seconde
 sec. seconde
@@ -241,3 +243,21 @@ u_s_a États-Unis
 U.K. Royaume-Uni
 UK Royaume-Uni
 USA États-Unis
+-je je
+-tu tu
+-t-il il
+-il il
+-t-elle elle
+-elle elle
+-nous nous
+-vous vous
+-t-ils ils
+-ils ils
+-t-elles elles
+-elles elles
+-moi moi
+-toi toi
+-lui lui
+-t-eux eux
+-eux eux
+-leur leur

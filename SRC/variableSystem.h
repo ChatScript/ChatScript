@@ -52,7 +52,6 @@ int GetWildcardID(char* x);
 void SetVariable(WORDP D, char* value);
 
 // Variables loaded from bot (topic system)
-void ClearBotVariables();
 void ReestablishBotVariables();
 void NoteBotVariables();
 void InitVariableSystem();

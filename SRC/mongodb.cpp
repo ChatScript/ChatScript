@@ -517,7 +517,7 @@ void MongoSystemInit(char* params) // required
 	if (!params) return;
 	char arg1[MAX_WORD_SIZE]; // url
 	char arg2[MAX_WORD_SIZE]; // dbname
-	char arg3[MAX_WORD_SIZE]; // topic , logs, ltm
+	char arg3[MAX_WORD_SIZE]; // topic , logsfolder, ltm
 	params = ReadCompiledWord(params,arg1);
 	params = ReadCompiledWord(params,arg2);
 	ARGUMENT(1) = arg1;

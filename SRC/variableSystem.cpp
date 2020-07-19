@@ -611,7 +611,8 @@ void SetUserVariable(const char* var, char* word, bool assignment)
 		// wildcardseparator changes are noticed by the engine
 		else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
 		{
-			if (*word == '\\') *wildcardSeparator = word[2];
+			if (!word) *wildcardSeparator = 0;
+			else if (*word == '\\') *wildcardSeparator = word[2];
 			else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
 		}
 	}
@@ -806,12 +807,6 @@ void ReestablishBotVariables() // refresh bot variables in case user overwrote t
     SetBotVars(kernelVariableThreadList);
 }
 
-void ClearBotVariables()
-{
-    kernelVariableThreadList = NULL;
-    botVariableThreadList = NULL;
-}
-
 void NoteBotVariables() // system defined variables
 {
     while (userVariableThreadList)
@@ -827,6 +822,8 @@ void NoteBotVariables() // system defined variables
                 (uint64)D->w.userValue, NULL);
         }
         RemoveInternalFlag(D, VAR_CHANGED);
+		if (!stricmp(D->word, "$verb")) 
+			verbwordx = atoi(D->w.userValue);
     }
 }
 

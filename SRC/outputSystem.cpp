@@ -7,6 +7,7 @@ char* currentRuleOutputBase = NULL;	// the partial buffer within outputbase star
 static char* oldOutputBase[MAX_OUTPUT_NEST];
 static char* oldOutputRuleBase[MAX_OUTPUT_NEST];
 static unsigned int oldOutputLimit[MAX_OUTPUT_NEST];
+static char* outputCode[MAX_GLOBAL];
 int oldOutputIndex = 0;
 unsigned int outputNest = 0;
 static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int controls);
@@ -308,7 +309,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
             else if (*tmp1 == '_' && IsDigit(tmp1[1])) // canonical match variable
             {
                 char* wildbase = tmp1++;
-                if (IsDigit(*tmp)) ++tmp1; // 2nd digit
+                if (IsDigit(*tmp1)) ++tmp1; // 2nd digit
                 strcpy(output, GetwildcardText(GetWildcardID(wildbase), true));
                 output = FixFormatOutput(output, controls);
             }
@@ -316,7 +317,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
             {
                 char* wildbase = ++tmp1;
                 ++tmp1;
-                if (IsDigit(*tmp)) ++tmp1; // 2nd digit
+                if (IsDigit(*tmp1)) ++tmp1; // 2nd digit
                 strcpy(output, GetwildcardText(GetWildcardID(wildbase), false));
                 output = FixFormatOutput(output, controls);
             }

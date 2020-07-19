@@ -49,7 +49,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define RESTOREOLDCONTEXT() currentRuleID = oldRuleID; currentTopicID = oldTopic; currentRule = oldRule; currentRuleTopic = oldRuleTopic;
 
 // decompose a currentRuleID into its pieces
-#define TOPLEVELID(x) ((unsigned int) (x & 0x0000ffff))
+#define TOPLEVELID(x) ((int) (x & 0x0000ffff))
 #define REJOINDERID(x) ( ((unsigned int)x) >> 16)
 #define MAKE_REJOINDERID(x) (x << 16)
 
@@ -85,7 +85,10 @@ extern int currentRuleID;
 extern int currentReuseID;
 extern int currentReuseTopic;
 extern int currentRuleTopic;
+extern bool monitorChange;
 extern bool shared;
+extern WORDP keywordBase;
+extern WORDP* preexistingwords;
 extern bool loading;
 extern int outputRejoinderRuleID;
 extern int outputRejoinderTopic;
@@ -136,6 +139,7 @@ extern int pendingTopicList[MAX_TOPIC_STACK+1];
 extern int originalPendingTopicList[MAX_TOPIC_STACK+1];
 void SetSampleFile(int topic);
 void ResetContext();
+void InitTopicSystem();
 FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer, bool refine = false);
 FunctionResult TestRule(int responderID,char* ptr,char* buffer,bool refine=false);
 FunctionResult PerformTopic(int active,char* buffer,char* rule = NULL,unsigned int id = 0);
@@ -145,6 +149,9 @@ void CleanOutput(char* word);
 bool DifferentTopicContext(int depthadjust, int topicid);
 FunctionResult LoadLayer(int layer, const char* name,unsigned int build);
 void ResetTopicReply();
+void AddBinWord(WORDP D, bool isnew, FILE* out);
+void AddBinFact(FACT* F, FILE* out);
+void AddWordItem(WORDP D, bool dictionaryBuild);
 void SetRejoinder(char* rule);
 void SetErase(bool force = false);
 void UndoErase(char* ptr,int topic,int id);
@@ -161,7 +168,8 @@ unsigned int EstablishTopicTiming();
 char* GetRuleIDFromText(char* ptr, int & id);
 char* GetVerify(char* tag,int & topicid, int &id);//  ~topic.#.#=LABEL<~topic.#.#  is a maximally complete why
 void UnwindUserLayerProtect();
-void InitKeywords(const char* name,const char* layer,unsigned int build,bool mark=false,bool concept=true);
+void InitKeywords(const char* name,const char* layer,unsigned int build,bool dictionaryBuild=false);
+bool InitKeywordsBinary(const char* fname, const char* layer, unsigned int build);
 bool AreDebugMarksSet();
 bool AreTimingMarksSet();
 
@@ -228,7 +236,6 @@ char* WriteUserTopics(char* ptr,bool sharefile);
 bool ReadUserTopics();
 
 // general topic system control
-void LoadTopicSystem();
 void ResetTopicSystem(bool safe);
 void ResetTopics();
 void ResetTopic(int id);

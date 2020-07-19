@@ -767,6 +767,10 @@ FunctionResult JSONOpenCode(char* buffer)
 	output.size = 0;
 	// Get curl ready -- do this ONCE only during run of CS
 	if (InitCurl() != NOPROBLEM_BIT) return FAILRULE_BIT;
+    if (trace & TRACE_JSON)
+    {
+        Log(STDUSERLOG, (char*)"Curl version: %s \r\n", curl_version());
+    }
 	CURL * curl = curl_easy_init();
 	if (!curl)
 	{
@@ -893,7 +897,7 @@ FunctionResult JSONOpenCode(char* buffer)
 			Log(STDTRACETABLOG, (char*)"JSON header: %s\r\n", list->data);
 			list = list->next;
 		}
-		Log(STDTRACETABLOG, (char*)"");
+		Log(STDUSERLOG, (char*)"\r\n");
 	}
 
 	char coding[MAX_WORD_SIZE];
@@ -1064,7 +1068,7 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail)
 	// First run it once to count the tokens
 	jsmn_init(&parser);
 	jsmnerr_t jtokenCount = jsmn_parse(&parser, message, size, NULL, 0);
-	FACT* start = factFree;
+	FACT* start = lastFactUsed;
 	if (jtokenCount > 0) 
 	{
 		// Now run it with the right number of tokens
@@ -1086,7 +1090,7 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail)
 		}
 		else // failed, delete any facts created along the way
 		{
-			while (factFree > start) FreeFact(factFree--); //   restore back to facts alone
+			while (lastFactUsed > start) FreeFact(lastFactUsed--); //   restore back to facts alone
 		}
 	}
 	return (nofail)  ? NOPROBLEM_BIT : FAILRULE_BIT;	
@@ -1516,7 +1520,8 @@ char* jwrite(char* buffer, WORDP D, int subject )
 	}
 	D->inferMark = inferMark;
 
-	if (D->word[1] == 'a')  strcpy(buffer,(char*)"[");
+	if (D->word[1] == 'a')  
+		strcpy(buffer,(char*)"[");
 	else strcpy(buffer,(char*)"{");
 	buffer++;
 	bool invert = false;
@@ -1552,6 +1557,13 @@ char* jwrite(char* buffer, WORDP D, int subject )
 		{
 			strcpy(buffer++,(char*)"\""); // put out key in quotes
 			WriteMeaning(F->verb,NULL,buffer);
+			char* at = buffer;
+			while ((at = strchr(at, '"'))) // json protect quote inside field name
+			{
+				memmove(at+1, at, strlen(at) + 1);
+				*at = '\\';
+				at += 2;
+			}
 			buffer += strlen(buffer);
 			strcpy(buffer,(char*)"\": ");
 			buffer += 3;

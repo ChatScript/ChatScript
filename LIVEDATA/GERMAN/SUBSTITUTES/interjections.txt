@@ -185,6 +185,7 @@
  <gute_Trauer ~emosad
  <guten_Abend ~emohello
  <guten_Morgan ~emohello
+ <guten_Morgen ~emohello
  <guten_Nachmittag ~emohello
  <guten_Tag ~emohello
  <guter_Herr ~emosurprise
@@ -516,6 +517,7 @@
  <wie_geht_es_dir ~emohowzit
  <wie_geht_es_dir> ~emohowzit
  <wie_geht_es_Heute ~emohowzit
+ <wie_geht_es_Ihnen ~emohowzit
  <wie_gehts ~emohowzit
  <wie_ist_alles ~emohowzit
  <wie_ist_das_Leben ~emohowzit

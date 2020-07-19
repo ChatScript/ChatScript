@@ -3,19 +3,23 @@
 #define NO_CACHEID -1
 
 static unsigned int cacheHead = 0;		// our marker for last allocated cache, used to find next free one
-static unsigned int* cacheIndex = 0;	// data ring of the caches + timestamp/volley info
-char* cacheBase = 0;					// start of contiguous cache block of caches
+static unsigned int* cacheIndex = NULL;	// data ring of the caches + timestamp/volley info
+char* cacheBase = NULL;					// start of contiguous cache block of caches
 static int currentCache = NO_CACHEID;	// the current user file buffer
 unsigned int userCacheCount = 1;		// holds 1 user by default
 unsigned int userCacheSize = DEFAULT_USER_CACHE; // size of user file buffer (our largest buffers)
 int volleyLimit =  -1;					// default save user records to file every n volley (use default 0 if this value is unchanged by user)
 char* userDataBase = NULL;				// current write user record base
-unsigned int userTopicStoreSize,userTableSize; // memory used which we will display
+unsigned int userTopicStoreSize = 0;
+unsigned int userTableSize = 0; // memory used which we will display
 
-void InitCache()
+void InitUserCache()
 {
-	if (cacheBase != 0) return;	// no need to reallocate on reload
-	
+	if (cacheBase) return;	// no need to reallocate on reload
+	userTopicStoreSize = userCacheCount * (userCacheSize + 2); //  minimum file cache spot
+	userTopicStoreSize /= 64;
+	userTopicStoreSize = (userTopicStoreSize * 64) + 64;
+
 	userTableSize = userCacheCount * 3 * sizeof(unsigned int);
 	userTableSize /= 64;
 	userTableSize = (userTableSize * 64) + 64; // 64 bit align both ends
@@ -37,7 +41,6 @@ void InitCache()
 	}
 	cacheIndex[PRIOR(0)] = userCacheCount-1; // last one as prior
 	cacheIndex[NEXT(userCacheCount-1)] = 0;	// start as next one (circular list)
-	ClearNumbers();
 }
 
 void CloseCache()
@@ -66,7 +69,7 @@ static void WriteCache(unsigned int which,size_t size)
 	if (!out) // see if we can create the directory (assuming its missing)
 	{
 		char call[MAX_WORD_SIZE];
-		sprintf(call,(char*)"mkdir %s",users);
+		sprintf(call,(char*)"mkdir %s",usersfolder);
 		system(call);
 		out = userFileSystem.userCreate(filename);
 
@@ -204,8 +207,8 @@ char* FindUserCache(char* word)
 void CopyUserTopicFile(char* newname)
 {
 	char file[SMALL_WORD_SIZE];
-	sprintf(file,(char*)"%s/topic_%s_%s.txt",users,loginID,computerID);
-	if (stricmp(language, "english")) sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", users, loginID, computerID,language);
+	sprintf(file,(char*)"%s/topic_%s_%s.txt",usersfolder,loginID,computerID);
+	if (stricmp(language, "english")) sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, computerID,language);
 	char newfile[MAX_WORD_SIZE];
 	sprintf(newfile,(char*)"LOGS/%s-topic_%s_%s.txt",newname,loginID,computerID);
 	if (stricmp(language, "english")) sprintf(newfile, (char*)"LOGS/%s-topic_%s_%s_%s.txt", newname, loginID, computerID, language);
@@ -215,8 +218,8 @@ void CopyUserTopicFile(char* newname)
 char* GetFileRead(char* user,char* computer)
 {
 	char word[MAX_WORD_SIZE];
-	sprintf(word,(char*)"%s/%stopic_%s_%s.txt",users,GetUserPath(loginID),user,computer);
-	if (stricmp(language,"english")) sprintf(word, (char*)"%s/%stopic_%s_%s_%s.txt", users, GetUserPath(loginID), user, computer,language);
+	sprintf(word,(char*)"%s/%stopic_%s_%s.txt",usersfolder,GetUserPath(loginID),user,computer);
+	if (stricmp(language,"english")) sprintf(word, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), user, computer,language);
 	char* buffer;
 	if ( filesystemOverride == NORMALFILES) // local files
 	{

@@ -16,6 +16,8 @@ int actualTokenCount = 0;
 #define MAX_BURST 400
 static char burstWords[MAX_BURST][MAX_WORD_SIZE];	// each token burst from a text string
 static unsigned int burstLimit = 0;					// index of burst  words
+static WORDP lastMatch = NULL;
+static int lastMatchLocation = 0;
 
 uint64 tokenFlags;										// what tokenization saw
 char* wordStarts[MAX_SENTENCE_LENGTH];				// current sentence tokenization (always points to D->word values or allocated values)
@@ -121,6 +123,7 @@ void DumpTokenFlags(char* msg)
 	if (tokenFlags & QUESTIONMARK) Log(STDUSERLOG,(char*)"QUESTIONMARK ");
 	if (tokenFlags & EXCLAMATIONMARK) Log(STDUSERLOG,(char*)"EXCLAMATIONMARK ");
 	if (tokenFlags & PERIODMARK) Log(STDUSERLOG,(char*)"PERIODMARK ");
+	if (tokenFlags & IMPLIED_SUBJECT) Log(STDUSERLOG, (char*)"IMPLIED_SUBJECT ");
 	if (tokenFlags & USERINPUT) Log(STDUSERLOG,(char*)"USERINPUT ");
 	if (tokenFlags & FAULTY_PARSE) Log(STDUSERLOG,(char*)"FAULTY_PARSE ");
 	if (tokenFlags & COMMANDMARK) Log(STDUSERLOG,(char*)"COMMANDMARK ");
@@ -292,7 +295,7 @@ int BurstWord(char* word, int contractionStyle)
 	// now handle end of last piece
     if (start && *start && *start != ' ' && *start != '_') strcpy(burstWords[base++],start); // a trailing 's or '  won't have any followup word left
 	if (!base && underscoreSeen) strcpy(burstWords[base++],(char*)"_");
-	else if (!base) strcpy(burstWords[base++],start);
+	else if (!base && start) strcpy(burstWords[base++],start);
 	FreeBuffer("burst");
 	burstLimit = base;	// note legality of burst word accessor GetBurstWord
     return base;
@@ -308,10 +311,11 @@ char* GetBurstWord(unsigned int n) //   0-based
 	return burstWords[n];
 }
 
-char* JoinWords(unsigned int n,bool output) // 
+char* JoinWords(unsigned int n,bool output,char* joinBuffer) // 
 {
 	char* limit;
-	char* joinBuffer = InfiniteStack(limit,"JoinWords"); // transient
+	bool given = (joinBuffer) ? true : false;
+	if (!joinBuffer) joinBuffer = InfiniteStack(limit,"JoinWords"); // transient maybe
     *joinBuffer = 0;
 	char* at = joinBuffer;
     for (unsigned int i = 0; i < n; ++i)
@@ -333,7 +337,7 @@ char* JoinWords(unsigned int n,bool output) //
 		ReportBug("Joinwords was too big %d %s",strlen(joinBuffer),joinBuffer);
 		joinBuffer[MAX_WORD_SIZE-1] = 0; // safety truncation
 	}
-	CompleteBindStack(); //  we'd like to leave this infinite but string copy by caller may be into infinite as well
+	if (!given) CompleteBindStack(); //  we'd like to leave this infinite but string copy by caller may be into infinite as well
     return joinBuffer;
 }
 
@@ -403,6 +407,103 @@ static char* HandleQuoter(char* ptr,char** words, int& count)
 	return  end + 1;
 }
 
+char* FixHtmlTags(char* html)
+{
+	char* start = html;
+	// convert html data
+	char* at = --html;
+	while ((at = strstr(++at, (char*)"&#")) != 0)
+	{
+		if (IsDigit(at[2]) && IsDigit(at[3]) && at[4] == ';') // &#32;
+		{
+			*at = (char)atoi(at + 2); // normal ascii value
+			memmove(at + 1, at + 5, strlen(at + 4));
+		}
+		else if (IsDigit(at[2]) && IsDigit(at[3]) && IsDigit(at[4]) && at[5] == ';')
+		{ // &#163;
+			*at = ' '; //eradicate indigestable html for now
+			memmove(at + 1, at + 6, strlen(at + 5));
+		}
+	}
+
+	while ((html = strchr(++html, '&')))
+	{
+		if (!strnicmp(html, (char*)"&lt;", 4))
+		{
+			memmove(html + 1, html + 4, strlen(html + 3)); // all moves include closing nul
+			*html = '<';
+		}
+		else if (!strnicmp(html, (char*)"&gt;", 4))
+		{
+			memmove(html + 1, html + 4, strlen(html + 3));
+			*html = '>';
+		}
+		else if (!strnicmp(html, (char*)"&lsquot;", 8))
+		{
+			memmove(html + 1, html + 8, strlen(html + 7));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&rsquot;", 8))
+		{
+			memmove(html + 1, html + 8, strlen(html + 7));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&quot;", 6))
+		{
+			memmove(html + 1, html + 6, strlen(html + 5));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&ldquo;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&rdquo;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&laquo;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&raquo;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '"';
+		}
+		else if (!strnicmp(html, (char*)"&amp;ndash;", 11)) // buggy from some websites
+		{
+			memmove(html + 3, html + 11, strlen(html + 10));
+			*html = ' ';
+			html[1] = '-';
+			html[2] = ' ';
+		}
+		else if (!strnicmp(html, (char*)"&ndash;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '-';
+		}
+		else if (!strnicmp(html, (char*)"&mdash;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '-';
+		}
+		else if (!strnicmp(html, (char*)"&amp;", 5))
+		{
+			memmove(html + 1, html + 5, strlen(html + 4));
+			*html = '&';
+		}
+		else if (!strnicmp(html, (char*)"&nbsp;", 6))
+		{
+			memmove(html + 1, html + 6, strlen(html + 5));
+			*html = ' ';
+		}
+	}
+	return start;
+}
+
 WORDP ApostropheBreak(char* aword)
 {
     char word[MAX_WORD_SIZE];
@@ -469,22 +570,18 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		char* why = strstr(ptr, "why");
 		while (*++ptr)
 		{
-			if (*ptr == '\\') // escaped character, skip over
+			if (*ptr == '\\') // escaped character, skip over (protect against escaped dquote)
 			{
 				ptr += 1;
 				continue;
 			}
-			if (*ptr == '"') 
-				quote = !quote;
-			if (quote) {} // ignore content for level counting
-			else if (*ptr == '{' || *ptr == '[')
-			{
-				if (*(ptr - 1) != '\\') ++level;
-			}
+			if (*ptr == '"') quote = !quote;
+			if (quote) continue; // ignore content for level counting
+
+			if (*ptr == '{' || *ptr == '[') ++level;
 			else if (*ptr == '}' || *ptr == ']')
 			{
-				--level;
-				if (level == 0)
+				if (--level == 0)
 				{
 					if (tokenControl & JSON_DIRECT_FROM_OOB) // allow full json no tokenlimit
 					{
@@ -500,7 +597,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 						++count;
                         *closer = close;
 						if (result == NOPROBLEM_BIT) words[count] = AllocateHeap(word); // insert json object
-						else words[count] = AllocateHeap((char*)"bad json");
+						else words[count] = AllocateHeap((char*)"bad-json");
 					}
 					return ptr + 1;
 				}
@@ -669,6 +766,26 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         }
         if (l > 1) token[--l] = 0; // remove it from token
     }
+    
+    // check if url or email address
+    if (IsMail(token))
+    {
+        char* atsign = strchr(token,'@');
+        char* period = strchr(atsign+1,'.');
+        char* emailEnd = atsign;
+        while (*++emailEnd && !IsInvalidEmailCharacter(*emailEnd)); // fred,andy@kore.com
+
+        if (period && period < emailEnd && IsAlphaUTF8(ptr[emailEnd-ptr-1]) &&  IsAlphaUTF8(ptr[emailEnd-ptr-2])) // top level domain is alpha
+        {
+            // find end of email domain, can be letters or numbers or hyphen
+            // there maybe be several parts to the domain
+            while (*++period && period < emailEnd)
+            {
+                if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return period;
+            }
+            return ptr + (emailEnd - token);
+        }
+    }
     if (IsUrl(token, token + strlen(token)))
         return ptr + strlen(token);
 
@@ -782,10 +899,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		int separatorCount = 0;
 		int dateLength = 0;
 		int tokenLength = strlen(token);
-		while(dateLength != tokenLength) {
-			if(*tokenPosition == '/' || *tokenPosition == '-' || *tokenPosition == '.' || *tokenPosition == ',' || *tokenPosition == ';' || *tokenPosition == '|') separatorCount += 1;
-			if(separatorCount == 3) return ptr + dateLength;
-			*tokenPosition++;
+		while (dateLength != tokenLength) 
+		{
+			if (*tokenPosition == '/' || *tokenPosition == '-' || *tokenPosition == '.' || *tokenPosition == ',' || *tokenPosition == ';' || *tokenPosition == '|') separatorCount += 1;
+			if (separatorCount == 3) return ptr + dateLength;
+			tokenPosition++;
 			dateLength++;
 		}
 		return ptr + strlen(token);
@@ -840,7 +958,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
     }
 
 	// split apart French pronouns attached to a verb
-    if (hyp && !stricmp(language, "french") && (!strchr(token,'\'') || strchr(token,'\'') > hyp)) {
+    if (hyp && isFrench && (!strchr(token,'\'') || strchr(token,'\'') > hyp)) {
         char* hyp2 = hyp + 1;
         if (strlen(hyp) > 2 && hyp[1] == 't' && hyp[2] == '-') {
             hyp2 += 2;
@@ -1034,26 +1152,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		}
 	}
 
-	// could it be email or web address?
-	char* atsign = strchr(ptr,'@'); // possible email?
-	if (atsign && atsign < end)
-	{
-		char* period = strchr(atsign+1,'.');
-		char* emailEnd = end;
-		if (IsPunctuation(ptr[end - ptr - 1])) emailEnd = end - 1;
-
-		if (period && period < end && IsAlphaUTF8(ptr[emailEnd-ptr-1]) &&  IsAlphaUTF8(ptr[emailEnd-ptr-2])) // top level domain is alpha
-		{
-			// find end of email domain, can be letters or numbers or hyphen
-			// there maybe be several parts to the domain
-			while (*++period && period < emailEnd)
-			{
-				if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return period;
-			}
-			return emailEnd;
-		}
-	}
-
 	// could be a file name
 	if (IsFileName(token)) {
 		return ptr + strlen(token);
@@ -1202,15 +1300,14 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
 {	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
     char* ptr = SkipWhitespace(input);
+	input = ptr;
+	char* html = ptr;
 	int count = 0;
-    char* html = input;
     bool oobJson = false;
     unsigned int quoteCount = 0;
     char priorToken[MAX_WORD_SIZE] = {0};
     int nest = 0;
     unsigned int paren = 0;
-    
-	//AdjustUTF8(ptr, ptr - 1);
 
 	if (tokenControl == UNTOUCHED_INPUT)
 	{
@@ -1235,31 +1332,11 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 		goto SAFETY;
 	}
 
-	// convert html data
-	while ((html = strstr(html, (char*)"&#")) != 0)
-	{
-		if (IsDigit(html[2]) && IsDigit(html[3]) && html[4] == ';') // &#32;
-		{
-			*html = (char)atoi(html + 2); // normal ascii value
-			memmove(html + 1, html + 5, strlen(html + 4));
-		}
-		else if (IsDigit(html[2]) && IsDigit(html[3]) && IsDigit(html[4]) && html[5] == ';')
-		{ // &#163;
-			*html = ' '; //eradicate indigestable html for now
-			memmove(html + 1, html + 6, strlen(html + 5));
-		}
-		else ++html;
-	}
-
+	
+	if (*ptr != '[') input = FixHtmlTags(input);
     // json oob may have \", users wont
-	html = input;
-	while (!oobStart && (html = strstr(html,(char*)"&quot;")) != 0) // &quot;
-	{
-		*html = '"';
-		memmove(html+1,html+6,strlen(html+5));
-	}
-	html = input;
-	while (!oobStart && (html = strchr(html,'\\')) != 0) // \"  remove this -- but not for json input!
+	html = input-1;
+	while (!oobStart && (html = strchr(++html,'\\')) != 0) // \"  remove this -- but not for json input!
 	{
 		if (html[1] == '"')	memmove(html, html + 1, strlen(html));
 		++html;
@@ -1669,11 +1746,11 @@ bool DateZone(int i, int& start, int& end)
 	if (end < (int)wordCount)
 	{
 		char* next = wordStarts[end+1];
-		if (IsDigit(*next++) && IsDigit(*next++) &&IsDigit(*next++) && IsDigit(*next++) && !*next) ++end;	// swallow year
-		else if (*wordStarts[end+1] == ',')
+		if (IsDigit(*next++) && IsDigit(*next++) && IsDigit(*next++) && IsDigit(*next++) && !*next) ++end;	// swallow year
+		else if (*next == ',')
 		{
 			char* nextx = wordStarts[end+2];
-			if (IsDigit(*next++) && IsDigit(*nextx++) &&IsDigit(*nextx++) && IsDigit(*nextx++) && !*nextx) end += 2;	// swallow comma year
+			if (nextx && IsDigit(*next++) && IsDigit(*nextx++) && IsDigit(*nextx++) && IsDigit(*nextx++) && !*nextx) end += 2;	// swallow comma year
 		}
 	}
 	return (start != end); // there is something there
@@ -1969,7 +2046,7 @@ void ProperNameMerge()
 			if (!stricmp(word,"of") && wordStarts[i+1])
 			{
 				WORDP X = FindWord(wordStarts[i+1]);
-				if (X && D->parseBits & OF_PROPER) continue; // allow Bank of America
+				if (X && D && D->parseBits & OF_PROPER) continue; // allow Bank of America
 			}
 
 			// dont merge comma and lowercase names. Do those via script or recognition
@@ -2259,11 +2336,14 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 	*wordlist = 0;
 	if (sub) strcpy(wordlist, sub);
 	char* ptr = wordlist;
+	int basis = 1;
+	char *at = found->word;
+	while ((at = strchr(at + 1, '`'))) ++basis; // how many words we matched to substitute
 
 	// see if we have test condition to process (starts with !) and has [ ] with list of words to NOT match after
 	if (sub && *sub == '!')
 	{
-		if (*++sub != '[') // not a list, a bug
+		if (*++sub != '[') // not a list, may be !tense or may be bug
 		{
 			if (!stricmp(sub, (char*)"tense")) // 'd depends on tense
 			{
@@ -2286,29 +2366,30 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 					sub = "had";
 				}
 			}
-			else
+			else 
 			{
 				ReportBug((char*)"bad substitute %s", sub)
 				return 0;
 			}
 		}
-		else
+		else// is ![xxx]value
 		{
 			char word[MAX_WORD_SIZE];
 			bool match = false;
 			char* ptr1 = sub + 1;
-			while (ALWAYS)
+			while (!match)
 			{
 				ptr1 = ReadSystemToken(ptr1, word);
-				if (*word == ']') break;
+				if (*word == ']') break; // end of list
 				if (*word == '>')
 				{
 					if (i == wordCount) match = true;
 				}
-				else if (i < wordCount && !stricmp(wordStarts[i + 1], word)) match = true;
+				else if (i < wordCount && !stricmp(wordStarts[i + erasing + 1], word)) match = true;
 			}
-			if (match) return 0;	// not to do
+			if (match) return 0;	// not to do because we failed the !
 			sub = ptr1;	// here is the thing to sub
+			strcpy(wordlist, sub);
 			if (!*sub) sub = 0;
 		}
 	}
@@ -2336,7 +2417,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 
 		// ?_psi matching 30 psi as separated words
 		int basis = 1;
-		if (IsNumber(wordStarts[i], numberStyle)) // separated number match
+		if (IsDigitWord(wordStarts[i], numberStyle,true,true)) // separated number match
 		{
 			if (i == wordCount) return 0; // shouldnt happen
 			char* token = wordStarts[i + 1];
@@ -2498,23 +2579,24 @@ static WORDP ViableIdiom(char* text,int i,unsigned int n)
 { // n is words merged into "word"
 
 	WORDP word = FindWord(text,0, STANDARD_LOOKUP);
-    WORDP X = Viability(word, i, n);
+	bool again = primaryLookupSucceeded;
+	WORDP X = Viability(word, i, n);
 	if (!word || (!X && word->word[2] && word->word[3])) //avoid is -> I
 	{
 		size_t len = strlen(text);  // watch out for <his  
-		if (text[len-1] == 's' && text[0] != '<') word = FindWord(text, len-1, STANDARD_LOOKUP);
+		if (text[len - 1] == 's' && text[0] != '<') // plural nouns try simple singular
+		{
+			word = FindWord(text, len - 1, STANDARD_LOOKUP);
+			again = primaryLookupSucceeded;
+			X = Viability(word, i, n);
+		}
 		if (!word) return 0;
 	}
-    bool again = primaryLookupSucceeded;
-    X = Viability(word, i, n);
-    if (X || !again) return X;
+    if (X || !again) return X; // we have answer or we havent tried secondary case yet
     
 	// allowed to try other case
     word = FindWord(text, 0, SECONDARY_CASE_ALLOWED);
-	X = Viability(word, i, n);
-	if (X) return X;
-
-	return NULL;
+	return Viability(word, i, n);
 }
 
 static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
@@ -2618,7 +2700,8 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
         if (n == max) break; //   peeked ahead to max length so we are done
 	} //   end J loop
 
-	if (!found) return NULL;
+	// handle repeat substitute jack_russell->jack+russell+terrier  (cycles)
+	if (!found || (lastMatch == found && lastMatchLocation == i) ) return NULL;
 
 	WORDP D = GetSubstitute(found);
     if (D == found)  return NULL;
@@ -2632,6 +2715,9 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 		{
 			tokenFlags |= found->internalBits & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE); // we did this kind of substitution
 			result = found;
+
+			lastMatch = found;
+			lastMatchLocation = i;
 		}
 	}
 	else if (found->systemFlags & CONDITIONAL_IDIOM)  // must be a composite word, not a substitute
@@ -2658,7 +2744,8 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
     char buffer[MAX_WORD_SIZE];
     *buffer = '<';	// sentence start marker
     bool isEnglish = (!stricmp(language, "english") ? true : false);
-
+	lastMatch = NULL;
+	lastMatchLocation = 0;
     unsigned int cycles = 0;
     for (int i = FindOOBEnd(1); i <= wordCount; ++i)
     {

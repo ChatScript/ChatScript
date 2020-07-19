@@ -34,6 +34,7 @@
  hbu how+about+you
  hv have
  ik I+know
+ imma I+am+going+to
  luv love
  me_2 me+too
  plz please

@@ -314,8 +314,8 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
     {
 		if (ValidMemberFact(F))  // can be member of an ordinary word (like USA member United_States_of_America), creates equivalence
 		{
-			WORDP D = Meaning2Word(F->object);
-			if (*D->word != '~') AddWord2Scan(flags,F->object,F->subject,depth+1,type); // member is not to a set, but to a word. So it's an equivalence
+			WORDP E = Meaning2Word(F->object);
+			if (*E->word != '~') AddWord2Scan(flags,F->object,F->subject,depth+1,type); // member is not to a set, but to a word. So it's an equivalence
 		}
         F = GetSubjectNondeadNext(F);
     }
@@ -818,7 +818,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			{
 				if (!IsDigit(*choice)) return 0; // illegal fact reference
 				unsigned int f = atoi(choice);
-				if (atoi(choice) > (int) Fact2Index(factFree)) return 0;	// beyond legal range
+				if (atoi(choice) > (int) Fact2Index(lastFactUsed)) return 0;	// beyond legal range
 				// we can q it but we dont mark it....
 				queue[queueIndex++] = f;
 				baseFlags |= FACTTYPE; 
@@ -914,10 +914,10 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		}
 		else if (baseFlags & USERFACTS) // transfer over user flags
 		{
-			unsigned int total = factFree - factLocked;
+			unsigned int total = lastFactUsed - factLocked;
 			if (total >= MAX_QUEUE) total = MAX_QUEUE - 1;
-			FACT* F = factFree - total;
-			while (++F <= factFree) queue[queueIndex++] = Fact2Index(F);
+			FACT* F = lastFactUsed - total;
+			while (++F <= lastFactUsed) queue[queueIndex++] = Fact2Index(F);
 			baseFlags |= FACTTYPE; 
 		}
 	}
