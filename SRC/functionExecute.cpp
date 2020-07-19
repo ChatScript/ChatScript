@@ -6352,7 +6352,7 @@ static FunctionResult POSCode(char* buffer)
    
 		if (!strcmp(arg2,(char*)"do")) //   present tense
 		{
-			if (strcmp(arg3,(char*)"I") && strcmp(arg3,(char*)"you")) result = "does"; 
+			if (strcmp(arg3,(char*)"I") && strcmp(arg3,(char*)"you") && strcmp(arg3, (char*)"we") && strcmp(arg3, (char*)"they")) result = "does";
 			else result = "do";
 		}
 		else if (!strcmp(arg2,(char*)"have")) 
