@@ -1249,8 +1249,11 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 bool ReadBinaryFacts(FILE* in,bool dictionary) //   read binary facts
 { 
 	if (!in) return false;
+	fseek(in, 0, SEEK_END);
+	unsigned long size = ftell(in);
+	fseek(in, 0, SEEK_SET);
 	FACT* base = lastFactUsed;
-	size_t elementCount = fread((void*)(lastFactUsed + 1), 1, 10000000 , in);
+	size_t elementCount = fread((void*)(lastFactUsed + 1), 1, size , in);
 	FClose(in);
 	if (elementCount != 0) 
 	{
@@ -1258,7 +1261,8 @@ bool ReadBinaryFacts(FILE* in,bool dictionary) //   read binary facts
 		
 		// verify collection
 		FACT* verify = (FACT*)(lastFactUsed + count);
-		if (verify->subjectHead != CHECKSTAMP)	return false; // old format
+		if (verify->subjectHead != CHECKSTAMP)	
+			return false; // old format
 		if (verify->subject != Word2Index(dictionaryFree)) return false; // dictionary size wrong
 		if (verify->verb != (dictionaryFree - 1)->length) return false; // last entry differs in length of name
 		if (verify->object != Fact2Index(base)) return false; // start of fact append is wrong
