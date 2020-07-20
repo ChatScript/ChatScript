@@ -2172,6 +2172,10 @@ bool AdjustUTF8(char* start,char* buffer)
 				}
 				buffer = x - 1; // valid utf8
 			}
+			else if (*buffer == 0x92) // windows smart quote not real unicode
+			{
+				*buffer = '\''; 
+			}
 			else // invalid utf8
 			{
 				hasbadutf = true;

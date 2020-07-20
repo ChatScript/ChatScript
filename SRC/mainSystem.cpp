@@ -7,6 +7,7 @@ bool fastload = true;
 int externalTagger = 0;
 char defaultbot[100];
 uint64 chatstarted = 0;
+bool client = false;
 uint64 preparationtime = 0;
 uint64 replytime = 0;
 unsigned int timeLog = 2147483647;
@@ -821,6 +822,7 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg,(char*)"client=",7)) // client=1.2.3.4:1024  or  client=localhost:1024
 	{
 		server = false;
+		client = true;
 		char buffer[MAX_WORD_SIZE];
 		strcpy(serverIP,arg+7);
 		
@@ -2123,12 +2125,12 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 	mainInputBuffer = SkipWhitespace(incoming);
 	mainOutputBuffer = output;
-	strcpy(realinput, mainInputBuffer);
 	char* oobSkipped = SkipOOB(mainInputBuffer);
 	if (server)
 	{
 		AdjustUTF8(oobSkipped, oobSkipped - 1); // not needed coming locally - handle user stuff
 	}
+	strcpy(realinput, mainInputBuffer);
 	bool eraseUser = false;
 
 	// accept a user topic file erase command

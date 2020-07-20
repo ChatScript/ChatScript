@@ -469,7 +469,7 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 		// now execute conversation
 		while (*input)
 		{
-			strcpy(sendbuffer + baselen + 1, input);
+			strcpy(sendbuffer + baselen, input);
 			sock = new TCPSocket(serverIP, (unsigned short)port);
 			sock->send(sendbuffer, baselen + 1 + strlen(input));
 			ReadSocket(sock, response);
@@ -525,14 +525,14 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 			if (strcmp(actual, expect))
 			{
 				++failcnt;
-				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, passcnt, failcnt, category, specialty, chattype, source, at);
+				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, passcnt, failcnt, category, specialty, chattype, source, input);
 				fprintf(out, "want: %s\r\n", expect);
 				fprintf(out, "gotx: %s|        %s\r\n\r\n", actual, response);
 			}
 			else
 			{
 				++passcnt;
-				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, passcnt, failcnt, category, specialty, at, actual);
+				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, passcnt, failcnt, category, specialty, input, actual);
 			}
 			if (((passcnt + failcnt) % 100) == 0) printf("at %d  pass:%d fail:%d\r\n", passcnt + failcnt, passcnt, failcnt);
 			if (!ptr) break; // end of messages

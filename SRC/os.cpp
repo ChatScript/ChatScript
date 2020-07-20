@@ -213,7 +213,7 @@ void myexit(char* msg, int code)
 	if (code == 0) fprintf(in, (char*)"CS exited at %s\r\n", GetTimeInfo(&ptm, true));
 	else fprintf(in, (char*)"CS terminated at %s\r\n", GetTimeInfo(&ptm, true));
 	FClose(in);
-	CloseSystem();
+	if (!client) CloseSystem();
 	exit((code == 0) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
 

@@ -86,6 +86,7 @@ extern bool sentenceOverflow;
 extern char treetaggerParams[200];
 extern unsigned short int derivationIndex[256];
 extern int derivationLength;
+extern bool client;
 extern char* derivationSentence[MAX_SENTENCE_LENGTH];
 extern bool docstats;
 extern unsigned int docSentenceCount;
