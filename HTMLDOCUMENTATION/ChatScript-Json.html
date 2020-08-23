@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/29/2020 cs10.1</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/23/2020 cs10.6</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -421,6 +421,8 @@ $$user_agent = ^&quot;User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT
 <p>Note that the facts created are all transient and disappear at the end of the volley unless you have forced them to stay via <code>permanent</code>. Forcing them to stay is generally a bad idea because it will congest your user topic data file, slowing it down or exceeding its capacity, and because those facts may then collide with new facts created by a new <code>^jsonopen</code> on a new volley. The array and object ids are cleared at each volley, so you will be reusing the same names on new unrelated facts.</p>
 <p>Using the flag values, it is entirely possible to reconstruct the original JSON from the facts (if the root is an array or object because otherwise there are no facts involved), but I can't think of use cases at present where you might want to. You cannot compile CS on LINUX unless you have installed the CURL library. For Amazon machines that means doing this:</p>
 <pre><code>sudo yum -y install libcurl libcurl-devel</code></pre>
+<p>Or more completely, for evserver and curl, you might do:</p>
+<pre><code>sudo yum -y install -y libc -devel gcc libc6 -compat libcurl libcurl-devel libstdc++ libgcc glibc make gcc-c++</code></pre>
 <p>On some other machines that doesn't install library stuff and maybe you need</p>
 <pre><code>sudo apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev</code></pre>
 <p>System variables <code>%httpresponse</code> will hold the most recent http return code from calling <code>^jsonopen</code>.</p>

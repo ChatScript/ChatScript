@@ -1301,7 +1301,7 @@ static void C_TestPattern(char* input)
     char data[MAX_WORD_SIZE * 3];
     char* pack = data;
     strcpy(readBuffer, input);
-
+	patternwordthread = NULL;
     char label[MAX_WORD_SIZE];
     char* ptr = ReadCompiledWord(readBuffer, label);
     int topic = currentTopicID;
@@ -1339,14 +1339,24 @@ static void C_TestPattern(char* input)
         }
         StartScriptCompiler(false);
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
+		compiling = true;
         ptr = ReadPattern(readBuffer, NULL, pack, false, false); // swallows the pattern
-        EndScriptCompiler();
+		compiling = false;
+		EndScriptCompiler();
 		--jumpIndex;
 	}
 
     //   var assign?
-    DoAssigns(ptr);
-    if (!*ptr) return; //   forget example sentence
+	if (!*ptr) return; //   forget example sentence
+	DoAssigns(ptr); // BUG - what undoes these assignments? 
+
+	HEAPREF list = patternwordthread;
+	while (list)
+	{
+		uint64 D;
+		list = UnpackHeapval(list, D, discard, discard);
+		((WORDP)(D))->systemFlags |= PATTERN_WORD;
+	}
 
     char prepassTopic[MAX_WORD_SIZE];
     strcpy(prepassTopic, GetUserVariable((char*)"$cs_prepass"));
@@ -1365,8 +1375,18 @@ static void C_TestPattern(char* input)
     char* buffer = AllocateBuffer();
     char oldmark[MAX_SENTENCE_LENGTH];
     memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
-    bool result = Match(buffer, data + 2, 0, 0, (char*)"(", 1, 0, junk1, junk1, uppercasem, whenmatched, 0, 0);
-    memcpy(unmarked, oldmark,  MAX_SENTENCE_LENGTH);
+  
+	bool result = Match(buffer, data + 2, 0, 0, (char*)"(", 1, 0, junk1, junk1, uppercasem, whenmatched, 0, 0);
+
+	while (patternwordthread)
+	{
+		uint64 D;
+		patternwordthread = UnpackHeapval(patternwordthread, D, discard, discard);
+		((WORDP)(D))->systemFlags &= -1 ^ PATTERN_WORD;
+		((WORDP)(D))->internalBits &= -1 ^ BEEN_HERE;
+	}
+
+	memcpy(unmarked, oldmark,  MAX_SENTENCE_LENGTH);
     FreeBuffer();
 
     SetContext(false);
@@ -2196,6 +2216,87 @@ static void C_TrimDown(char* file)
 	}
 	fclose(out);
 	fclose(in);
+	(*printer)("done\r\n");
+}
+
+static void C_JAHuman(char* file)
+{
+	FILE* out = FopenUTF8Write("TMP/tmp.txt");
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		printf((char*)"No such file %s\r\n", file);
+		return;
+	}
+	char word[MAX_WORD_SIZE];
+	char id[MAX_WORD_SIZE];
+	char human[MAX_WORD_SIZE];
+	char cat[MAX_WORD_SIZE];
+	char spec[MAX_WORD_SIZE];
+	char* buffer = AllocateBuffer();
+	char* input = AllocateBuffer();
+	char* themes = AllocateBuffer();
+	uint64 lastnum = 0;
+	fgets(readBuffer, MAX_BUFFER_SIZE, in); // remove header
+	while (fgets(readBuffer, MAX_BUFFER_SIZE,in) != NULL)
+	{
+		char* at = readBuffer; // JAID	volley	origCat	origSpec	CS3.1Theme	HumanTheme	MLTheme	mlspecialty	mlproblem	Cat	Spec	Nproblems	problems	nSpecialties	specialties	nTHemes	themes	nBrands	brands	nModels	models	OriginalInput	CleanedInput	CanonInput	ConcatInput	ConcatClean	ConcatCanonInput	CS==ML
+		if (!*at) continue;
+		at = ReadTabField(at, id); // JAID  1,045,556,997
+			uint64 num = atoll(id);
+			num = num % 1000000000;  // remainder  2,147,483,647
+			if (num != lastnum && *input) // change user
+			{
+				fprintf(out, "%d\t%s\t%s\t%s\t%s\r\n",(int) num,cat,spec,themes,input);
+				*input = 0;
+				*themes = 0;
+			}
+			lastnum = num;
+			at = ReadTabField(at, word); // volley
+			if (atoi(word) != 1) continue; // ignore extended conversations
+			at = ReadTabField(at, cat); // origcat
+			at = ReadTabField(at, spec); // origcat
+			at = ReadTabField(at, word); // cstheme
+			at = ReadTabField(at, human); // humantheme
+			at = ReadTabField(at, word); // mltheme
+			at = ReadTabField(at, word); // mlspecialty
+			at = ReadTabField(at, word); // mlproblem
+			at = ReadTabField(at, word); // cat
+			at = ReadTabField(at, word); // spec
+			at = ReadTabField(at, word); // nproblems
+			at = ReadTabField(at, word); // problems
+			at = ReadTabField(at, word); // nspecialties
+			at = ReadTabField(at, word); // specialties
+			at = ReadTabField(at, word); // nthemes
+			at = ReadTabField(at, word); // themes
+			at = ReadTabField(at, word); // nbrands
+			at = ReadTabField(at, word); // brands
+			at = ReadTabField(at, word); // nmodels
+			at = ReadTabField(at, word); // models
+			at = ReadTabField(at, buffer); // originalinput
+			if (!at || !*human) continue;
+			MakeUpperCase(human);
+			if (strstr(human, "OTHER")) 
+				continue; // ignore other spec
+			if (strstr(human, "GENERAL")) 
+				continue; // ignore other spec
+
+			if (!*themes) // only 1 entry please
+			{
+				strcat(input, " ");
+				strcat(input, buffer);
+			}
+			if (!strstr(themes, human))
+			{
+				strcat(themes, "/");
+				strcat(themes, human);
+			}
+	}
+	fclose(out);
+	fclose(in);
+	FreeBuffer();
+	FreeBuffer();
+	FreeBuffer();
 	(*printer)("done\r\n");
 }
 
@@ -6055,11 +6156,18 @@ static void C_TopicStats(char* input)
 	unsigned int conceptCount = 0;
     functionCounter = 0;
 	bool normal = false;
+	bool labelsOnly = false;
 	if (!stricmp(input,(char*)"normal")) // show only normal topics
 	{
 		normal = true;
 		*input = 0;
 	}
+	if (!strnicmp(input, (char*)"labels", 6))
+	{
+		labelsOnly = true; // show only rule labels
+		input = SkipWhitespace(input + 6);
+	}
+
 	WalkDictionary(CountConcept,(uint64) &conceptCount); // also counts functions
 	int topicCount = 0;
 
@@ -6067,10 +6175,13 @@ static void C_TopicStats(char* input)
 	char* x = strchr(input,'*');
 	if (x) len = x - input;
 	else if (*input == '~') len = strlen(input);
+	int topicid = 0;
+	if (*input) topicid = FindTopicIDByName(input);
 
 	for (int i = 1; i <= numberOfTopics; ++i) 
 	{
 		if (len && strnicmp(GetTopicName(i),input,len)) continue;
+		if (*input && i != topicid) continue;
 		char* name = GetTopicName(i);
 		char* data = GetTopicData(i);
 		unsigned int flags = GetTopicFlags(i);
@@ -6081,11 +6192,27 @@ static void C_TopicStats(char* input)
 		unsigned int rejoinders = 0;
 		unsigned int empties = 0;
 		int id = 0;
+		bool namegiven = false;
 		while (data && *data)
 		{
 			char label[MAX_WORD_SIZE];
 			char pattern[MAX_WORD_SIZE];
 			char* output = SkipWhitespace(GetPattern(data,label,pattern));
+			if (labelsOnly)
+			{
+				if (*label)
+				{
+					if (!namegiven) 	Log(STDUSERLOG, (char*)" %s\r\n", name);
+					namegiven = true;
+					int level = 0;
+					if (*data == 'u' || *data == 's' || *data == '?') level = 0;
+					else level = *data - 'a' + 1;
+					while (level-- >= 0)  Log(STDUSERLOG, (char*)"  ");
+					Log(STDUSERLOG, (char*)"    %s\r\n", label);
+				}
+				data = FindNextRule(NEXTRULE, data, id);
+				continue;
+			}
 			bool norule = EmptyReuse(output,i);
 			if (!*output || *output == ENDUNIT || norule) 
 			{
@@ -6107,10 +6234,10 @@ static void C_TopicStats(char* input)
 		totalresponders += responders;
 		totalrejoinders += rejoinders;
 		totalempties += empties;
-		Log(STDUSERLOG,(char*)"    %s     gambits %d responders %d rejoinders %d empties %d\r\n", name,gambits,responders,rejoinders,empties);
+		if (!labelsOnly) Log(STDUSERLOG,(char*)"    %s     gambits %d responders %d rejoinders %d empties %d\r\n", name,gambits,responders,rejoinders,empties);
 	}
 	unsigned int totalrules = totalgambits + totalresponders + totalrejoinders;
-	Log(STDUSERLOG,(char*)"Concepts %d Topics %d Functions %d rules %d empties %d\r\n  gambits %d  responders %d (?: %d s: %d  u: %d) rejoinders %d  \r\n",conceptCount,topicCount,functionCounter,totalrules,totalempties,totalgambits,totalresponders,totalquestions,totalstatements,totaldual,totalrejoinders);
+	if (!labelsOnly) Log(STDUSERLOG,(char*)"Concepts %d Topics %d Functions %d rules %d empties %d\r\n  gambits %d  responders %d (?: %d s: %d  u: %d) rejoinders %d  \r\n",conceptCount,topicCount,functionCounter,totalrules,totalempties,totalgambits,totalresponders,totalquestions,totalstatements,totaldual,totalrejoinders);
 }
 
 static void MarkExcludeIt(WORDP D) // mark all members to exclude
@@ -7317,7 +7444,25 @@ static void C_AllFacts(char* input)
 {
 	char fname[200];
 	sprintf(fname, "%s/facts.txt", tmpfolder);
-	WriteFacts(FopenUTF8Write(fname),factBase);
+	FILE* out = FopenUTF8Write(fname);
+	if (!out) return;
+	FACT* F = factBase;
+	if (!strstr(input, "all")) WriteFacts(out, factBase);
+	else
+	{
+		char* word = AllocateBuffer();
+		while (++F <= lastFactUsed)
+		{
+			if (!(F->flags & (FACTTRANSIENT | FACTDEAD)))
+			{
+				char* f = WriteFact(F, true, word, false, true);
+				fprintf(out, (char*)"%s", f);
+			}
+		}
+		FClose(out);
+		FreeBuffer();
+	}
+	printf("%d facts \r\n", lastFactUsed - factBase);
 }
 
 static void C_AllDict(char* input)
@@ -8005,6 +8150,7 @@ static void NoTraceTime(char* input, unsigned int topicflag, unsigned int macrof
 		else
 		{
 			unsigned int flag;
+			MakeLowerCase(word);
 			WORDP D = StoreWord(word);
 
 			if (D->word[0] == '~') flag = topicflag;
@@ -10907,7 +11053,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":showcoverage",C_ShowCoverage,(char*)"Display execution coverage of ChatScript rules"}, 
 	{ (char*)":diff",C_Diff,(char*)"match 2 files and report lines that differ"}, 
 	{ (char*)":trim",C_Trim,(char*)"Strip excess off chatlog file to make simple file TMP/tmp.txt"}, 
-	
+	{ (char*)":jahuman",C_JAHuman,(char*)"reformat simple file TMP/tmp.txt" },
+
     { (char*)":removecrlf",C_RemoveCRLF,(char*)"echo file  to TMP/tmp.txt with no crlf " },
     { (char*)":ja2source",C_JA2Source,(char*)"JA echo csv  to TMP/tmp.txt reformatting to source " },
     { (char*)":ja2starts",C_JA2Starts,(char*)"JA echo file to TMP/tmp.txt minus short line in column" },

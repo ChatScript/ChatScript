@@ -748,8 +748,11 @@ static void SetCanonicalValue(int start,int end)
 		}
 		else if (allOriginalWordBits[i] & CONJUNCTION )
 		{
-			canon = NULL;
-			canonicalLower[i] = originalLower[i]; 
+			if (!stricmp(wordStarts[i], "times")) // a conjunction looking like plural that in singular is a normal word
+			{
+				canonicalLower[i] = FindWord("time", 0);
+			}
+			else canonicalLower[i] = originalLower[i];
 			continue;
 		}
 
@@ -4095,6 +4098,7 @@ static void AddClause(int i,char* msg)
 		{					
 			WORDP D = FindWord(wordStarts[i]);
 			if (D && D->systemFlags & CONJUNCT_SUBORD_NOUN) firstNounClause = i; 
+			else if (!stricmp(wordStarts[i],"what")) firstNounClause = i;
 		}
 		lastClause = i;		// where last clause was, if any
 	}
@@ -4198,7 +4202,9 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 		verbStack[MAINLEVEL] = crossReference[verbStack[MAINLEVEL]];
 	if (verbStack[MAINLEVEL] > end)
 	{
-		ReportBug((char*)"mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
+		static int checkv = 0; // cheap hack to lower bug reports
+		if (wordCount != checkv) ReportBug((char*)"mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
+		checkv = end;
 		return true;
 	}
 
@@ -4207,7 +4213,9 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 		subjectStack[MAINLEVEL] = crossReference[subjectStack[MAINLEVEL]];
 	if (subjectStack[MAINLEVEL] > end)
 	{
-		ReportBug((char*)"mainSubject out of range", subjectStack[MAINLEVEL], end);
+		static int checks = 0; // cheap hack to lower bug reports
+		if (wordCount != checks) ReportBug((char*)"mainSubject out of range", subjectStack[MAINLEVEL], end);
+		checks = end;
 		return true;
 	}
 	if (ImpliedNounObjectPeople(end, needRoles[roleIndex] & (MAINOBJECT | OBJECT2), changed)) return false;
@@ -5692,7 +5700,10 @@ static void SeekObjects( int i) // this is a verb, what objects does it want
 		return;
 	}
 
-	if (canSysFlags[i] & VERB_DIRECTOBJECT) // change to wanting object(s)
+	if (canSysFlags[i] & VERB_NOOBJECT) 
+	{
+	} 
+	else if (canSysFlags[i] & VERB_DIRECTOBJECT) // change to wanting object(s)
 	{
 		// if a question, maybe object already filled in "what dog do you like"
 		if (roleIndex == MAINLEVEL && ( !objectRef[currentMainVerb] || coordinates[i])) 
@@ -5711,21 +5722,33 @@ static void SeekObjects( int i) // this is a verb, what objects does it want
 	}
 
 	// various infinitives in object positions
-	if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_TOINFINITIVE)  // "I allowed John *to run"
+	if (canSysFlags[i] & VERB_NOOBJECT)
+	{
+	}
+	else if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_TOINFINITIVE)  // "I allowed John *to run"
 	{
 		if ( !(posValues[NextPos(i)] & (DETERMINER | PREDETERMINER | ADJECTIVE | ADVERB | PRONOUN_OBJECT  | PRONOUN_POSSESSIVE | NOUN_BITS))); // must come immediately
 		else needRoles[roleIndex] |= TO_INFINITIVE_OBJECT | ((roleIndex == MAINLEVEL) ? MAININDIRECTOBJECT : INDIRECTOBJECT2);
 	}
-	if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE) // "he made John *run"
+	if (canSysFlags[i] & VERB_NOOBJECT)
+	{
+	}
+	else if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE) // "he made John *run"
 	{
 		if ( !(posValues[NextPos(i)] & (DETERMINER | PREDETERMINER | ADJECTIVE | ADVERB | PRONOUN_OBJECT  | PRONOUN_POSSESSIVE | NOUN_BITS))); // must come immediately
 		else needRoles[roleIndex] |= VERB_INFINITIVE_OBJECT | ((roleIndex == MAINLEVEL) ? MAININDIRECTOBJECT : INDIRECTOBJECT2);
 	}
-	if (canSysFlags[i] & VERB_TAKES_TOINFINITIVE) // proto 28 "Somebody ----s to INFINITIVE"   "we agreed to plan"
+	if (canSysFlags[i] & VERB_NOOBJECT)
+	{
+	}
+	else if (canSysFlags[i] & VERB_TAKES_TOINFINITIVE) // proto 28 "Somebody ----s to INFINITIVE"   "we agreed to plan"
 	{
 		needRoles[roleIndex] |= TO_INFINITIVE_OBJECT;
 	}
-	if (canSysFlags[i] & VERB_TAKES_VERBINFINITIVE) // proto 32, 35 "Somebody ----s INFINITIVE"   "Something ----s INFINITIVE"
+	if (canSysFlags[i] & VERB_NOOBJECT)
+	{
+	}
+	else if (canSysFlags[i] & VERB_TAKES_VERBINFINITIVE) // proto 32, 35 "Somebody ----s INFINITIVE"   "Something ----s INFINITIVE"
 	{
 		needRoles[roleIndex] |= VERB_INFINITIVE_OBJECT; 
 	}
@@ -8907,8 +8930,20 @@ static void StartImpliedClause( int i,bool & changed)
 	// The book whose author won a Pulitzer has become a bestseller.
 	// clause starter CANNOT be used as adjective... can be pronoun or can be possessive determiner (like whose)
 	// USE originalLower because "that" becomes "a" when canonical
-	if (i == startSentence && posValues[i] != CONJUNCTION_SUBORDINATE) {;} // these things may all be a normal question, not a clause
-	else if (posValues[i] == DETERMINER) {;} // that, used as a determiner so not a clause starter
+	if (posValues[i] == DETERMINER)  // that, used as a determiner so not a clause starter
+	{
+		if (i == startSentence && !stricmp(wordStarts[startSentence], "what")) // clause? "what government does *is"
+		{
+			int at = startSentence;
+			while (!(posValues[++at] & (NOUN_BITS | PRONOUN_SUBJECT)) && at < wordCount); 
+			if (++at < wordCount && posValues[at] & VERB_BITS && allOriginalWordBits[at + 1] & AUX_BE)
+			{
+				AddClause(i, (char*)"clause - what starter\r\n");
+				return;
+			}
+		}
+	}
+	else if (i == startSentence && posValues[i] != CONJUNCTION_SUBORDINATE) { ; } // these things may all be a normal question, not a clause
 	else if (originalLower[i] && (parseFlags[i] & POTENTIAL_CLAUSE_STARTER || posValues[i] & CONJUNCTION_SUBORDINATE)) // who whom whoever which whichever  what whatever whatsoever where wherever when whenever how however why that whether  whose?
 	{
 		if (posValues[NextPos(i)] & AUX_VERB && !(needRoles[roleIndex] & (MAINOBJECT|OBJECT2))) return;	// more a real sentence, UNLESS we were looking for an object "I ate what was given"
@@ -9171,6 +9206,11 @@ restart:
 		}
 		StartImpliedPhrase(i,changed);
 		StartImpliedClause(i,changed); // for things NOT known to be conjunction_subordinate
+
+		// close "that xxxx be" clause
+		if (allOriginalWordBits[i] & (AUX_BE|AUX_DO) && posValues[i - 1] & VERB_BITS && clauses[i - 1] &&
+			roleIndex != MAINLEVEL) 
+			CloseLevel(i - 1);
 
 		switch(posValues[i]) // mostly only handles exact match values
 		{

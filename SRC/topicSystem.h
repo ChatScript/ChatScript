@@ -160,7 +160,7 @@ int TopicInUse(int topic);
 int PushTopic(int topic);
 void PopTopic();
 void WalkTopics(char* function, char* buffer);
-bool CheckTopicTrace();
+bool CheckTopicTrace(char* name = NULL);
 bool CheckTopicTime();
 FunctionResult DoOutput(char* buffer,char* rule, unsigned int id, bool refine = false);
 unsigned int EstablishTopicTrace();

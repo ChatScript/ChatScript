@@ -1,6 +1,7 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 7/18/2020 cs10.5
+<br>Revision 8/23/2020 cs10.6
+
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does and
@@ -31,8 +32,8 @@ the above : statement show the list:
 :silent    - toggle silent - dont show outputs
 :log       - dump message into log file
 :noreact   - Disable replying to input
-:notime    - Toggle notiming during this topic
-:notrace   - Toggle notracing during this topic
+:notime    - Toggle notiming during this topic or function
+:notrace   - Toggle notracing during this topic or function
 :redo      - Back up to turn n and try replacement user input
 :retry     - Back up and try replacement user input or just redo last sentence
 :say       - Make chatbot say this line
@@ -401,7 +402,8 @@ When I'm doing a thorough trace, I usually do
     
     :trace all -query
 
-because I want to see fact searches but only need the answers and not all the processing the query did.
+because I want to see fact searches but only need the answers and not all the processing the query did. If you want to see the arguments and answer to a query,
+you can leave :tracel all, but then do :notrace ^query. This will shut down all the internal guts of the ^query function.
 
 NOTE: if you want tracing to start at startup, when you don't have control, login with a botname of trace. 
 E.g, at the login type: 
@@ -414,7 +416,7 @@ This will turn on all tracing.
 
     :notrace {ON,OFF} ~topic1 ~topic2 {ON,OFF} ~topic3
 
-Regardless of the use of `:trace`, `:notrace` marks some topics to not trace.
+Regardless of the use of `:trace`, `:notrace` marks some topics to not trace. Particularly useful to do :notrace ^Query which omits most of the guts of query calls, which can often be extensive.
 
 By default, the flag is set `ON` on listed topics but you can change the value on the fly to
 enable trace blocking on some topics or turn it off on ones previously turned on.
@@ -705,6 +707,9 @@ You can also name an existing rule, rather than supply a pattern.
 This walks all topics and computes how many rules of various kinds you have
 (e.g., how big is your system). You can also just name a topic or use a wildcard like `~do*`
 to see all topics starting with `~do`.
+
+If you do :topicstats labels  you just get the name of the topic and then 1 line for each rule label (indented to show rule hierarchy relationship).
+Simiarly :topicstats labels ~mytopic for just a single topic.
 
 ### `:skip n`
 The system will disable the next n gambits of the current topic, and tell you where you

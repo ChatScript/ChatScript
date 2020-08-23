@@ -26,6 +26,15 @@
 
 # more likely verb than noun day (Noun_singular)  goes/go (Noun_plural +Verb_present_3ps)  by (Particle Adverb)
 
+# noun What noun clause starter following later with "be" - "what* government offers is"
+# REVERSE 0	ISCANONICAL be
+#	HAS VERB_BITS
+# 	INCLUDE * NOUN_BITS
+#	SKIP !HAS NOUN_BITS PRONOUN_BITS VERB_BITS # junk before a noun
+#	ISORIGINAL what
+#	STAY START
+# KEEP
+
 # command followed by noun "*Buy shoes"
 0	INCLUDE * NOUN_INFINITIVE # though may be noun, lacks determiner
 	STAY START
@@ -36,6 +45,11 @@ DISCARD
 	STAY HAS ADVERB
 	IS ADJECTIVE_BITS
 	IS NOUN_BITS
+DISCARD
+
+# noun plural cannot follow noun singular (prior would be adjective_noun) - "what government *offers is love"
+-1  CANONLYBE NOUN_SINGULAR NOUN_PLURAL
+	INCLUDE * NOUN_SINGULAR NOUN_PLURAL
 DISCARD
 
 # for multiple nouns in a row, some proper, use singular - the/a (Determiner)  Thai (+Noun_proper_singular +Noun_proper_plural)  cabinet (Noun_singular)

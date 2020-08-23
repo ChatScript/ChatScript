@@ -1921,6 +1921,7 @@ FunctionResult JSONFormatCode(char* buffer)
 
 MEANING jsonValue(char* value, unsigned int& flags) 
 {
+	char* val = value;
 	bool number = true;
 	int decimal = 0;
 	char* at = value;
@@ -1945,21 +1946,22 @@ MEANING jsonValue(char* value, unsigned int& flags)
 		++at;
 	}
 	if (*at  || decimal > 1 || exponent > 1 || !digit ) number = false;
-	if (!*value || (*value == '"' && value[1] == '"' && strlen(value) == 2)) // treat empty strings as null
+
+	if (!*value || (*value == '"' && value[1] == '"' && !value[2]) ) // treat empty strings as null
 	{
 		flags |= JSON_PRIMITIVE_VALUE;
-		strcpy(value,"null");
+		val = "null";
 	}
 	else if (*value == '"') // explicit string or just a quote
 	{
 		flags |= JSON_STRING_VALUE;
 		// strip off quotes for CS, replace later in jsonwrite for output
 		// special characters are also escaped later on serialization
-		size_t len = strlen(value);
-		if (len > 2 && value[len-1] == '"') // dont touch " or "" 
+		size_t len = strlen(val);
+		if (len > 2 && val[len-1] == '"') // dont touch " or "" 
 		{
-			value[--len] = 0;
-			++value; 
+			val[--len] = 0;
+			++val;
 		}
 	}
 	else if (!strnicmp(value,(char*)"jo-",3)) flags |= JSON_OBJECT_VALUE;
@@ -1967,16 +1969,10 @@ MEANING jsonValue(char* value, unsigned int& flags)
 	else if (!strcmp(value,(char*)"true"))  flags |= JSON_PRIMITIVE_VALUE;
 	else if (!strcmp(value,(char*)"false"))  flags |= JSON_PRIMITIVE_VALUE;
 	else if (!strcmp(value,(char*)"null"))  flags |= JSON_PRIMITIVE_VALUE;
-	else if (!*value)  // empty string treat as null
-	{
-		flags |= JSON_PRIMITIVE_VALUE;
-		value = "null";
-	}
 	else if (number) flags |= JSON_PRIMITIVE_VALUE;
 	else flags |= JSON_STRING_VALUE; // all others are also strings but without quotes
 
-	WORDP V = StoreWord(value,AS_IS); // new value
-	return MakeMeaning(V);
+	return MakeMeaning(StoreWord(val, AS_IS)); // adjusted value
 }
 
 FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objectvalue  
@@ -1990,7 +1986,9 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 	if (!D) return FAILRULE_BIT;
 
 	char* keyname = ARGUMENT(index++);
-	if (*keyname == '"') 
+	if (!*keyname) return FAILRULE_BIT;
+
+	if (*keyname == '"')  // remove dq on keyname
 	{
 		size_t len = strlen(keyname);
 		if (keyname[len-1] == '"') keyname[--len] = 0;

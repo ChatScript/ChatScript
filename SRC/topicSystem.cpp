@@ -1643,16 +1643,17 @@ static FunctionResult FindTypedResponse(char type,char* buffer,unsigned int& id,
     return result;
 }
 
-bool CheckTopicTrace() // have not disabled this topic for tracing
+bool CheckTopicTrace(char* name) // have not disabled this topic or function for tracing
 {
-	WORDP D = FindWord(GetTopicName(currentTopicID));
-	return !D || !(D->internalBits & NOTRACE_TOPIC);
+	if (!name) name = GetTopicName(currentTopicID);
+	WORDP D = FindWord(name);
+	return !D || !(D->internalBits & (NOTRACE_TOPIC| NOTRACE_FN));
 }
 
 bool CheckTopicTime() // have not disabled this topic for timing
 {
 	WORDP D = FindWord(GetTopicName(currentTopicID));
-	return !D || !(D->internalBits & NOTIME_TOPIC);
+	return !D || !(D->internalBits & ( NOTIME_TOPIC| NOTIME_FN));
 }
 
 unsigned int EstablishTopicTrace()
@@ -3385,7 +3386,7 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 			(long int)(heapPreBuild[layer]-heapFree),
 			timeStamp[layer],compileVersion[layer],buildStamp[layer]);
 		if (server)  Log(SERVERLOG, "%s",data);
-		(*printer)((char*)"%s",data);
+		if (!stdlogging) (*printer)((char*)"%s",data);
 	}
 	
 	LockLayer(false);

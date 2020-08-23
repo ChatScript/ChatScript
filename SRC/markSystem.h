@@ -17,6 +17,10 @@ typedef void (*ExternalTaggerFunction)();
 #define SEQUENCE_LIMIT 5		// max number of words in a row to hit on as an entry
 #define MAX_XREF_SENTENCE 50	// number of places a word can hit to in sentence
 #define REF_ELEMENTS 6 // bytes per reference
+
+#define DONTUSEEXACT 0x01000000
+#define EXACTNOTSET 0
+#define EXACTUSEDUP -1
 extern int verbwordx;
 extern int marklimit;
 extern int maxRefSentence;

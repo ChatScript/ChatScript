@@ -3,6 +3,14 @@
 
 # its the ONLY possible verb "Carlos smiled."  -- DONT DO that as a phase 1 rule
 
+# verb What noun clause starter following later with "be" - "what* government offers is"
+REVERSE -1 ISCANONICAL be
+	INCLUDE * VERB_BITS
+	HAS NOUN_BITS
+	SKIP !HAS NOUN_BITS PRONOUN_BITS VERB_BITS # junk before a noun
+	ISORIGINAL what
+	STAY START
+KEEP
 
 # I *made him talk - noun infinitive w/o to  - but not I made him cake
 # TRACE 0  INCLUDE * VERB_BITS 
@@ -38,11 +46,11 @@ DISCARD
 DISCARD
 
  # verb (skip adverb) followed by aux/verb cant happen funds/fund (Noun_plural Verb_present_3ps)  recently (Adverb)  have (Aux_have_present)
-0	INCLUDE * VERB_BITS
-	SKIP IS ADVERB
-	CANONLYBE VERB_BITS AUX_VERB
-	STAY !PRIORPOS CONJUNCTION_SUBORDINATE # why fear when all you need *is love
-DISCARD
+# 0	INCLUDE * VERB_BITS
+#	SKIP IS ADVERB
+#	CANONLYBE VERB_BITS AUX_VERB_TENSES  AUX_HAVE  AUX_DO # but aux be is possible in "what government *offers is love"
+#	STAY !PRIORPOS CONJUNCTION_SUBORDINATE # why fear when all you need *is love
+# DISCARD
 
 # wont be plural verb after singular noun (assuming no conjunction joining) - U.S. (Noun_proper_singular)  chip (+Noun_singular +Verb_present) 
 -1 IS NOUN_PROPER_SINGULAR NOUN_SINGULAR
@@ -179,13 +187,12 @@ REVERSE 0	INCLUDE * VERB_PAST
 KEEP
 
 
-
 # near start we cant be verb if next is - scientists/scientist (Noun_plural)  still (Verb_present +Adverb)  have (+Verb_infinitive +Verb_present)  
--1	IS NOUN_BITS PRONOUN_SUBJECT
-	STAY !PRIORPOS VERB_BITS AUX_VERB
-	INCLUDE * VERB_BITS
-	CANONLYBE VERB_BITS AUX_VERB
-DISCARD
+# -1	IS NOUN_BITS PRONOUN_SUBJECT
+#	STAY !PRIORPOS VERB_BITS AUX_VERB  # but aux be is possible "what government offers is/does love"  
+#	INCLUDE * VERB_BITS
+#	CANONLYBE VERB_BITS AUX_VERB
+# DISCARD
 
 # we know we have a particle but word before cant be it, so its no longer potential verb "she had but one *shoe on"  
 0	INCLUDE * VERB_BITS

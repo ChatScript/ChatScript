@@ -10,9 +10,8 @@
 <body>
 <h1 id="chatscript---setting-up-an-amazon-ec2-server">ChatScript - Setting up an Amazon EC2 Server</h1>
 <blockquote>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com <br>Revision 8/23/2020 cs10.6</p>
 </blockquote>
-<p><br>Revision 9/24/2017 cs7.55</p>
 <p>If you want to make your chatbot visible on the web, you need a server. As it turns out, for low traffic, Amazon will let you have a server machine for free for a year and a low fee thereafter. Here is an overview of how to create a ChatScript server on Amazon's cloud services.</p>
 <p>First, you need an Amazon AWS account. Go to http://aws.amazon.com/account/ and sign up for one if you don't have one.</p>
 <p>Second, you need to acquire a server machine. You get one by going to the AWS console: https://console.aws.amazon.com/console/home and clicking on the EC2 (virtual servers in the cloud) link.</p>
@@ -37,6 +36,8 @@
 <li>I needed php to run my webpage, so I did yum install php`</li>
 <li>If you want to be able to debug using gdb the engine itself, and compiling with make and g++ you want to do yum groupinstall &quot;Development Tools&quot;. You may have to do this anyway or use a different package to get the std c library</li>
 </ol>
+<p>In fact, for some machines like CentOS, to get json stuff and evserver stuff, and you want to compile the source, you may need</p>
+<pre><code>sudo yum -y install -y libc -devel gcc libc6 -compat libcurl libcurl-devel libstdc++ libgcc glibc make gcc-c++</code></pre>
 <p>For Ubuntu linux:</p>
 <ol style="list-style-type: decimal">
 <li><code>sudo apt-get install make</code> - to get make installed</li>

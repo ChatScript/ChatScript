@@ -1,9 +1,8 @@
 # ChatScript - Setting up an Amazon EC2 Server
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com
+<br>Revision 8/23/2020 cs10.6
 
-
-<br>Revision 9/24/2017 cs7.55
 
 If you want to make your chatbot visible on the web, you need a server. As it turns out, for low traffic,
 Amazon will let you have a server machine for free for a year and a low fee thereafter. Here is an
@@ -75,6 +74,10 @@ should tell you there is nothing to do.
 you want to do yum groupinstall "Development Tools". You may have to do this anyway or use
 a different package to get the std c library
 
+In fact, for some machines like CentOS, to get json stuff and evserver stuff, and you want to compile the source, you may need
+```
+sudo yum -y install -y libc -devel gcc libc6 -compat libcurl libcurl-devel libstdc++ libgcc glibc make gcc-c++
+```
 
 For Ubuntu linux:
 

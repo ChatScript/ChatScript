@@ -192,12 +192,14 @@ void myexit(char* msg, int code)
 	ReportBug("myexit called with %s", msg);
 	char name[MAX_WORD_SIZE];
 	sprintf(name, (char*)"%s/exitlog.txt", logsfolder);
-	FILE* in = FopenUTF8WriteAppend(name);
+	FILE* in;
+	if (stdlogging) in = stderr;
+	else in = FopenUTF8WriteAppend(name);
 	struct tm ptm;
 	if (in)
 	{
 		fprintf(in, (char*)"%s %d - called myexit at %s\r\n", msg, code, GetTimeInfo(&ptm, true));
-		FClose(in);
+		if (!stdlogging) FClose(in);
 	}
 
 	if (code != 0 && crashset && !crashBack)
@@ -208,26 +210,26 @@ void myexit(char* msg, int code)
 		longjmp(crashJump, 1);
 #endif
 	}
-
-	in = FopenUTF8WriteAppend(name);
+	if (!stdlogging) in = FopenUTF8WriteAppend(name);
 	if (code == 0) fprintf(in, (char*)"CS exited at %s\r\n", GetTimeInfo(&ptm, true));
 	else fprintf(in, (char*)"CS terminated at %s\r\n", GetTimeInfo(&ptm, true));
-	FClose(in);
+	if (!stdlogging) FClose(in);
 	if (!client) CloseSystem();
 	exit((code == 0) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
-
 
 void mystart(char* msg)
 {
 	char name[MAX_WORD_SIZE];
     MakeDirectory(logsfolder);
 	sprintf(name, (char*)"%s/startlog.txt", logsfolder);
-	FILE* in = FopenUTF8WriteAppend(name);
+	FILE* in;
+	if (stdlogging) in = stdout;
+	else in = FopenUTF8WriteAppend(name);
 	char word[MAX_WORD_SIZE];
 	struct tm ptm;
 	sprintf(word, (char*)"System startup %s %s\r\n", msg, GetTimeInfo(&ptm, true));
-	if (in)
+	if (in && !stdlogging)
 	{
 		fprintf(in, (char*)"%s", word);
 		FClose(in);
@@ -317,7 +319,7 @@ void CloseBuffers()
 }
 
 char* AllocateBuffer(char* name)
-{// CANNOT USE LOG INSIDE HERE, AS LOG ALLOCATES A BUFFER
+{
 	if (!buffers) return NULL; // IDE before start
 
 	char* buffer = buffers + (maxBufferSize * bufferIndex); 
@@ -435,8 +437,8 @@ char* AllocateStack(char* word, size_t len,bool localvar,int align) // call with
 		answer[1] = '`';
 		answer += 2;
 	}
-	if (word) strncpy(answer,word,len);
-	else *answer = 0;
+	*answer = 0;
+	if (word && *word) strncpy(answer, word, len); // dont copy if word is actually an empty string allowed with a nonzero length
 	answer[len++] = 0;
 	answer[len++] = 0;
 	if (localvar) len += 2;
@@ -1373,6 +1375,15 @@ char* GetTimeInfo(struct tm* ptm, bool nouser,bool utc) //   Www Mmm dd hh:mm:ss
     time_t curr = time(0); // local machine time
     if (regression) curr = 44444444; 
 	mylocaltime (&curr,ptm);
+	static bool reported = false;
+
+	int testyear = ptm->tm_year + 1900;
+	if (testyear < 2020 && !reported)
+	{
+		reported = true;
+		ReportBug("TIME_ERROR %d", testyear)
+	}
+
 	char* utcoffset = (nouser) ? (char*)"" : GetUserVariable((char*)"$cs_utcoffset");
 	if (utc) utcoffset = (char*)"+0";
 	if (*utcoffset) // report UTC relative time - so if time is 1PM and offset is -1:00, time reported to user is 12 PM.  
@@ -1496,6 +1507,13 @@ char* GetTimeInfo(struct tm* ptm, bool nouser,bool utc) //   Www Mmm dd hh:mm:ss
 			ptm->tm_year += 1; // on to next year
 		}
 	}
+
+	if ((ptm->tm_year + 1900) < 2020 && !reported)
+	{
+		reported = true;
+		ReportBug("TIME_ERROR_1 %d", ptm->tm_year + 1900)
+	}
+
 	SafeLock();
 	char *mytime = asctime (ptm); // not thread safe
 	SafeUnlock();
@@ -1950,12 +1968,18 @@ static FILE* rotateLogOnLimit(char *fname,char* directory) {
 
 unsigned int Log(unsigned int channel, const char * fmt, ...)
 {
-	if (channel == STDUSERLOG) channel = STDUSERLOG;
 	static unsigned int id = 1000;
 	if (quitting) return id;
-	logged = true;
 	bool localecho = false;
 	bool noecho = false;
+
+	if (channel == STDUSERLOG) channel = STDUSERLOG;
+	if (channel == SERVERECHOLOG)
+	{
+		channel = SERVERLOG;
+		localecho = true;
+	}
+	logged = true;
 	if (channel == ECHOSTDUSERLOG)
 	{
 		localecho = true;
@@ -1978,6 +2002,12 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	}
 	// allow user logging if trace is on.
 	if (!fmt)  return id; // no format or no buffer to use
+
+	if (stdlogging)
+	{
+		localecho = false;
+		noecho = true;
+	}
 	if ((channel == SERVERLOG) && server && !serverLog)  return id; // not logging server data
 
 	static int priordepth = 0;
@@ -2018,10 +2048,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		if (logLastCharacter == 1 && globalDepth == priordepth) {} // we indented already
 		else if (logLastCharacter == 1 && globalDepth > priordepth) // we need to indent a bit more
 		{
-			for (int i = priordepth; i < globalDepth; i++)
-			{
-				*at++ = (i == 4 || i == 9) ? ',' : '.';
-			}
+			for (int i = priordepth; i < globalDepth; i++)  *at++ = '.';
 			priordepth = globalDepth;
 		}
 		else
@@ -2040,8 +2067,15 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 			if (n < 0) n = 0; //   just in case
 			for (int i = 0; i < n; i++)
 			{
+				if (i == 0)
+				{
+					sprintf(at, "%2d", n);
+					at += 2;
+					i += 2;
+				}
+				else
 				if (channel == STDTRACEATTNLOG) *at++ = (i == 1) ? '*' : ' ';
-				else *at++ = (i == 4 || i == 9) ? ',' : '.';
+				else *at++ =  '.';
 			}
 			priordepth = globalDepth;
 		}
@@ -2143,27 +2177,32 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 
 #ifndef DISCARDSERVER
 #ifndef EVSERVER
-	if (server) GetLogLock();
+	if (server && !stdlogging) GetLogLock();
 #endif
 #endif	
 	if (channel == TIMELOG)
 	{
 		char name[MAX_WORD_SIZE];
 		sprintf(name, (char*)"%s/time.txt", logsfolder);
-		FILE* timefile = rotateLogOnLimit(name, logsfolder);
+		FILE* timefile;
+		if (stdlogging) timefile = stderr;
+		else timefile = rotateLogOnLimit(name, logsfolder);
 		if (timefile)
 		{
 			fprintf(timefile, (char*)"Time Excess %s in sentence: %s \r\n\r\n", logmainbuffer, currentInput);
-			fclose(timefile);
+			if (!stdlogging) fclose(timefile);
 		}
 #ifndef WIN32 
-		sprintf(name, (char*)"/tmp/cstime.txt");
-		timefile = rotateLogOnLimit(name, logsfolder);
-		if (timefile)
+		if (!stdlogging)
 		{
-			fprintf(timefile, (char*)"Time Excess %s in sentence: %s \r\n\r\n", logmainbuffer, currentInput);
-			fclose(timefile);
+			sprintf(name, (char*)"/tmp/cstime.txt");
+			timefile = rotateLogOnLimit(name, logsfolder);
+			if (timefile)
+			{
+				fprintf(timefile, (char*)"Time Excess %s in sentence: %s \r\n\r\n", logmainbuffer, currentInput);
+				fclose(timefile);
 		}
+	}	
 #endif
 		return 0;
 	}
@@ -2173,9 +2212,11 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		dobugLog = true;
 		char name[MAX_WORD_SIZE];
 		sprintf(name, (char*)"%s/bugs.txt", logsfolder);
-		FILE* bug = rotateLogOnLimit(name, logsfolder);
+		FILE* bug;
+		if (stdlogging) bug = stderr;
+		else bug = rotateLogOnLimit(name, logsfolder);
 		FILE* externalBug = NULL;
-		if (*externalBugLog)
+		if (*externalBugLog && !stdlogging)
 		{
 			char directory[100];
 			strcpy(directory, externalBugLog);
@@ -2191,19 +2232,21 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		{
 			if (!compiling && !loading && channel == BUGLOG)
 			{
-				char* buffer = AllocateBuffer("bugwrite"); // transient - cannot insure not called from context of InfiniteStack
 				struct tm ptm;
-				char data[1000];
+				char data[10000];
 				*data = 0;
 				if (*currentFilename) sprintf(data, (char*)" in %s at %d: %s ", currentFilename, currentFileLine, readBuffer);
-				if (buffer)
+				fprintf(bug, (char*)"\r\nBUG: %s: %s volley:%d ", GetTimeInfo(&ptm, true), data, volleyCount);
+				fprintf(bug, "%s", logmainbuffer);
+				fprintf(bug, "caller:%s callee:%s at %s in sentence: ", loginID, loginID, located);
+				fprintf(bug, "%s\r\n", currentInput);
+				if (externalBug)
 				{
-					sprintf(buffer, (char*)"\r\nBUG: %s: %s volley:%d %s caller:%s callee:%s at %s in sentence: %s\r\n", GetTimeInfo(&ptm, true), data, volleyCount, logmainbuffer, loginID, computerID, located, currentInput);
-					fprintf(bug, "%s", buffer);
-					if (externalBug) fprintf(externalBug, "%s", buffer);
-					FreeBuffer("bugwrite");
+					fprintf(externalBug, (char*)"\r\nBUG: %s: %s volley:%d ", GetTimeInfo(&ptm, true), data, volleyCount);
+					fprintf(externalBug, "%s", logmainbuffer);
+					fprintf(externalBug, "caller:%s callee:%s at %s in sentence: ", loginID, loginID, located);
+					fprintf(externalBug, "%s\r\n", currentInput);
 				}
-				else fprintf(bug, (char*)"\r\nBUG: %s: %s input:%d %s caller:%s callee:%s at %s\r\n", GetTimeInfo(&ptm, true), data, volleyCount, logmainbuffer, loginID, computerID, located);
 			}
 			else if (*currentFilename)
 			{
@@ -2220,7 +2263,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 					BugBacktrace(externalBug);
 				}
 			}
-			fclose(bug); // dont use FClose
+			if (!stdlogging) fclose(bug); // dont use FClose
 			if (externalBug) fclose(externalBug);
 		}
 		if ((echo || localecho) && !silent && !server)
@@ -2237,13 +2280,15 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 			{
 				char fname[100];
 				sprintf(fname, (char*)"%s/exitlog.txt", logsfolder);
-				FILE* out = FopenUTF8WriteAppend(fname);
+				FILE* out;
+				if (stdlogging) out = stderr;
+				else out = FopenUTF8WriteAppend(fname);
 				if (out)
 				{
 					struct tm ptm;
 					fprintf(out, (char*)"\r\n%s: input:%s caller:%s callee:%s\r\n", GetTimeInfo(&ptm, true), currentInput, loginID, computerID);
 					BugBacktrace(bug);
-					fclose(out);
+					if (!stdlogging) fclose(out);
 				}
 			}
 			myexit(logmainbuffer); // log fatalities anyway
@@ -2261,22 +2306,21 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	FILE* out = NULL;
 	if (server && trace && !userLog) channel = SERVERLOG;	// force traced server to go to server log since no user log
 	char fname[MAX_WORD_SIZE];
-	if (logFilename[0] != 0 && channel != SERVERLOG && channel != BUGLOG && channel != DBTIMELOG)
+	if ( logFilename[0] != 0 && channel != SERVERLOG && channel != BUGLOG && channel != DBTIMELOG)
 	{
 		strcpy(fname, logFilename);
-		char* defaultlogFilename = AllocateBuffer();
+		char defaultlogFilename[1000];
 		sprintf(defaultlogFilename, "%s/log%u.txt", logsfolder, port); // DEFAULT LOG
-		if (!strcmp(fname, defaultlogFilename) ) { // of log is default log i.t log<port>.txt
-			char* holdBuffer = AllocateBuffer();
+		if (!strcmp(fname, defaultlogFilename) ) // of log is default log i.t log<port>.txt
+		{
 			struct tm ptm;
-			sprintf(holdBuffer, "%s - %s", GetTimeInfo(&ptm), logmainbuffer);
-			strcpy(logmainbuffer, holdBuffer);
-			FreeBuffer();
+			sprintf(defaultlogFilename, "%s - ", GetTimeInfo(&ptm));
+			memmove(logmainbuffer + strlen(defaultlogFilename) , logmainbuffer, strlen(logmainbuffer)+1);
 		}
-		out = rotateLogOnLimit(fname, usersfolder);
-		FreeBuffer();
+		if (stdlogging) out = stdout;
+		else out = rotateLogOnLimit(fname, usersfolder);
 	}
-	else if (channel == DBTIMELOG) // do db log 
+	else if (!stdlogging && channel == DBTIMELOG) // do db log 
 	{
 		strcpy(fname, dbTimeLogfileName); // one might speed up forked servers by having mutex per pid instead of one common one
 		out = rotateLogOnLimit(fname, logsfolder);
@@ -2284,7 +2328,8 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	else if (channel != BUGLOG)// do server log 
 	{
 		strcpy(fname, serverLogfileName); // one might speed up forked servers by having mutex per pid instead of one common one
-		out = rotateLogOnLimit(fname, logsfolder);
+		if (stdlogging) out = stdout;
+		else out = rotateLogOnLimit(fname, logsfolder);
 	}
 
 	if (out)
@@ -2301,7 +2346,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		{
 			fwrite(logmainbuffer, 1, bufLen, out);
 		}
-		fclose(out); // dont use FClose
+		if (!stdlogging) fclose(out); // dont use FClose
 		if (channel == SERVERLOG && echoServer)  (*printer)((char*)"%s", logmainbuffer);
 	}
 
@@ -2313,7 +2358,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	}
 
 #ifndef EVSERVER
-	if (server) ReleaseLogLock();
+	if (server && !stdlogging) ReleaseLogLock();
 #endif
 #endif
 

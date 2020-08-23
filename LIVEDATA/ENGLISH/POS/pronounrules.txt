@@ -1,3 +1,12 @@
+################# WHAT CLAUSES
+
+# what at start of sentence followed by noun will NOT be pronoun "*what games does he play"
+0	START
+	STAY ISORIGINAL what
+	STAY INCLUDE * PRONOUN_BITS
+	IS NOUN_BITS
+DISCARD
+
 # no pronoun at start before determiner or known adjective "*so the next time you do, I will die"
 0	INCLUDE * PRONOUN_BITS
 	STAY START  # but not "what the heck are you doing"
@@ -219,12 +228,6 @@ KEEP
 	STAY CANONLYBE NORMAL_NOUN_BITS VERB_BITS  # to be a verb, we need a clause ended and normal sentence continues-   tom of whom I say I love him rots hit teeth
 KEEP
 
-# what at start of sentence followed by noun will NOT be pronoun "*what games does he play"
-0	START
-	STAY ISORIGINAL what
-	STAY INCLUDE * PRONOUN_BITS
-	IS NOUN_BITS
-DISCARD
 
 # in verb conflict if no prior verb and followed by to_inf, we will be verb "my dog *loves to chew"
 -1	IS NORMAL_NOUN_BITS

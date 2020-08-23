@@ -53,6 +53,7 @@ extern bool crashset;
 extern bool crashBack;
 extern DEBUGAPI debugAction;
 extern int forkcount;
+extern int sentenceloopcount;
 extern bool debugcommand;
 extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
@@ -105,6 +106,7 @@ extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern char language[40];
 extern char livedataFolder[500];
+extern bool  stdlogging;
 extern char languageFolder[500];
 extern char systemFolder[500];
 extern bool rebooting;

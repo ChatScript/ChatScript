@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2020 cs10.5</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/23/2020 cs10.6</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -1306,6 +1306,15 @@ u: what&#39;s your first name?
 <p>You can also add fact properties to all members of a set of facts via</p>
 <pre><code>^addproperty(@4 flag1 … flagn).</code></pre>
 <p>These flags are also predefined in dictionarysystem.h and you can use some of the predefined but meaningless ones to do what you want. These are <code>User_flag4</code>, <code>User_flag3</code>, <code>User_flag2</code>, <code>User_flag1</code>.</p>
+<p>See also ^recordDictionaryChanges.</p>
+<h3 id="recorddictionarychanges0-or-1"><code>^recordDictionaryChanges(0 or 1)</code></h3>
+<p>WIth 1, starts tracking changes to properties and systemflags on words being modified. This will allow you to undo those changes on the fly using ^revertDictionaryChanges. With 0, saving changes is suspended until you turn it on again. The function will return a number that represents this list of changes, so that you can choose to revert them or restore them in the future (on this volley only). Normally when you start recording changes, it starts a new list. You can tell it to resume accumulating on an old list by passing its number as an optional second argument. That will will have been returned when you last turned off recording.</p>
+<p>Note that you don't have to use recordDictionaryChanges to protract against changes you make to words already in the dictionary prior to the volley because the engine will automatically restore them to their prior state when the volley ends. But if ^recordDictionaryChanges is on, it will also record those changes.</p>
+<h3 id="revertdictionarychanges"><code>^revertDictionaryChanges</code></h3>
+<p>This undoes those changes(turning recording off). Even if you never revert changes yourself, at the end of the volley all new words disappear from the dictionary and any changes to old words are automatically reverted without your tracking them. If you give it no arguments, it reverts the current accumlation of changes from the latest ^recordDictionaryChanges. But you can give it a number returned from a previous ^recordDictionaryChanges(0) to replace that collection of changes that had been accumulated.</p>
+<p>This function returns a number representing the list it just reverted, which can be used with ^recordDictionaryChanges or ^replayDictionaryChanges</p>
+<h3 id="replaydictionarychanges"><code>^replayDictionaryChanges</code></h3>
+<p>Restores changes done by a record and later reverted (allowing you to insert changes not recorded). It takes a number argument as returned by ^recordDictionaryChanges when you turn off changes.</p>
 <h3 id="define-word"><code>^define( word )</code></h3>
 <p>Output the definition of the word. An optional second argument is the part of speech: noun verb adjective adverb, which will limit the definition to just that part of speech. Never fails but may return null.</p>
 <p>The second argument can also be <code>all</code> which means list all definitions per part of speech, not just the first. And it can be the third optional argument so you can get all meanings of a word as a noun, for example.</p>

@@ -275,7 +275,7 @@ unsigned int GetFutureSeconds(unsigned int seconds);
 #define STDUSERLOG 1
 #define STDDEBUGLOG 2
 #define ECHOSTDUSERLOG 3
-// #define 4
+#define SERVERECHOLOG 4
 #define STDTIMELOG 5
 #define DBTIMELOG 6
 

@@ -66,6 +66,8 @@ int worstDictAvail = 1000000;
 bool dictionaryBitsChanged = false;
 HEAPREF propertyRedefines = NULL;	// property changes on locked dictionary entries
 HEAPREF flagsRedefines = NULL;		// systemflags changes on locked dictionary entries
+HEAPREF ongoingDictChanges = NULL;  // ability to revert dynamic changes
+bool monitorDictChanges = false;
 static int freeTriedList = 0;
 bool xbuildDictionary = false;				// indicate when building a dictionary
 char dictionaryTimeStamp[20];		// indicate when dictionary was built
@@ -567,6 +569,7 @@ void DictionaryRelease(WORDP until,char* stringUsed)
         flagsRedefines = UnpackHeapval(flagsRedefines, D, properties, discard);
         ((WORDP)D)->systemFlags =properties;
 	}
+	ongoingDictChanges = NULL; // discard user tracked changes since we have our own essential tracking
 	if (until) while (dictionaryFree > until) DeleteDictionaryEntry(--dictionaryFree); //   remove entry from buckets
     heapFree = stringUsed; 
 }
@@ -830,7 +833,8 @@ void AddSystemFlag(WORDP D, uint64 flag)
 	if (flag & NOCONCEPTLIST && *D->word != '~') flag ^= NOCONCEPTLIST; // not allowed to mark anything but concepts with this
 	if (flag && flag != (D->systemFlags & flag)) // prove there is a change - dont use & because if some bits are set is not enough
 	{
-		if (D < dictionaryLocked) PreserveSystemFlags(D);
+		if (D < dictionaryLocked) PreserveSystemFlags(D); // autoprotect old dictionary
+		if (monitorDictChanges) ongoingDictChanges = AllocateHeapval(ongoingDictChanges, (uint64)D,D->properties, D->systemFlags);
 		D->systemFlags |= flag;
 		if (monitorChange && flag != MARKED_WORD) D->internalBits |= BIT_CHANGED;
 	}
@@ -861,11 +865,24 @@ static void PreserveProperty(WORDP D)
     propertyRedefines = AllocateHeapval(propertyRedefines, (uint64)D, D->properties);
 }
 
+void ReverseDictionaryChanges(HEAPREF start)
+{
+	uint64 val1, val2, val3;
+	while (start)
+	{
+		start = UnpackHeapval(start, val1, val2, val3);
+		WORDP D = (WORDP)val1;
+		D->properties = val2;
+		D->systemFlags = val3;
+	}
+}
+
 void AddProperty(WORDP D, uint64 flag)
 {
 	if (flag && flag != (D->properties & flag))
 	{
 		if (D < dictionaryLocked) PreserveProperty(D);
+		if (monitorDictChanges) ongoingDictChanges = AllocateHeapval(ongoingDictChanges, (uint64)D, D->properties,D->systemFlags);
 		if (!(D->properties & (PART_OF_SPEECH)) && flag & PART_OF_SPEECH && *D->word != '~'  && *D->word != '^' && *D->word != USERVAR_PREFIX && flag != CURRENCY)  // not topic,concept,function
 		{
 			//   internal use, do not allow idioms on words from #defines or user variables or  sets.. but allow substitutes to do it?
@@ -2762,7 +2779,7 @@ HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* originalx, c
 		S = StoreWord(replacement, AS_IS);
 		D->w.substitutes = S;  //   the valid word
 		AddSystemFlag(S, SUBSTITUTE_RECIPIENT);
-		// for the emotions (like ~emoyes) we want to be able to reverse access, so make them a member of the set
+		// for the emotions (like ~emoyes) we want to be able to reverse access, so make them a member of the set also
 		if (*S->word == '~')
 		{
 			int flags = fromTestPattern ? FACTTRANSIENT : 0;

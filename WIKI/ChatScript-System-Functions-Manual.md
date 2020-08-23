@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2020 cs10.5
+<br>Revision 8/23/2020 cs10.6
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -2149,6 +2149,29 @@ You can also add fact properties to all members of a set of facts via
 These flags are also predefined in dictionarysystem.h and you can use some of the
 predefined but meaningless ones to do what you want. These are `User_flag4`, `User_flag3`,
 `User_flag2`, `User_flag1`.
+
+See also ^recordDictionaryChanges.
+
+### `^recordDictionaryChanges(0 or 1)`
+WIth 1, starts tracking changes to properties and systemflags on words being modified. This will allow you to undo those changes on the fly using ^revertDictionaryChanges.
+With 0, saving changes is suspended until you turn it on again. The function will return a number that represents this list of changes, so that you can choose to revert them or restore them
+in the future (on this volley only). Normally when you start recording changes, it starts a new list. You can tell it to resume accumulating on an old list by passing its number as an optional second argument. That will will have
+been returned when you last turned off recording.
+
+
+Note that you don't have to use recordDictionaryChanges to protract against changes you make to words already in the dictionary prior to the volley because the engine will automatically restore them to their prior state when the 
+volley ends. But if ^recordDictionaryChanges is on, it will also record those changes.
+
+
+### `^revertDictionaryChanges`
+This undoes those changes(turning recording off). Even if you never revert changes yourself, at the end of the volley all new words disappear from the dictionary and any changes to old words
+are automatically reverted without your tracking them. If you give it no arguments, it reverts the current accumlation of changes from the latest ^recordDictionaryChanges.  But you can
+give it a number returned from a previous ^recordDictionaryChanges(0) to replace that collection of changes that had been accumulated.
+
+This function returns a number representing the list it just reverted, which can be used with ^recordDictionaryChanges or ^replayDictionaryChanges
+
+### `^replayDictionaryChanges`
+Restores changes done by a record and later reverted (allowing you to insert changes not recorded). It takes a number argument as returned by ^recordDictionaryChanges when you turn off changes.
 
 
 ### `^define( word )`

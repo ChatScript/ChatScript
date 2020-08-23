@@ -1,9 +1,8 @@
 # ChatScript Document Reader
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+<br>Revision 8/23/2020 cs10.6
 
-
-> Revision 3/4/2017 cs7.3
 
 * [Reading Documents](ChatScript-Document-Reader.md#reading-documents)
 * [Memory management with documents](ChatScript-Document-Reader.md#memory-management-with-documents)
@@ -122,7 +121,7 @@ topic: ~filter system repeat ()
 u: (%length=0) FAIL(TOPIC)
 
 #! [ out of band info ]
-u: ( < \[ _* \] %more ) $$kind = _0 ^nextinput() ^refine()
+u: ( < \[ _* \] %more ) $$kind = _0 ^next(input) ^refine()
 
     # input is a wiki title designator
     a: ( $$kind=title: _* ) $$title = '_0 LOG(FILE tmp/is.txt \n ***title: '_0 \n )

@@ -56,11 +56,18 @@ void PartialLogin(char* caller,char* ip)
 void Login(char* caller,char* usee,char* ip) //   select the participants
 {
 	strcpy(ipAddress,(ip) ? ip : (char*)"");
-	if (!stricmp(usee,(char*)"trace")) // enable tracing during login
+	char* traceit = strstr(usee, "trace");
+	if (usee == traceit) // enable tracing during login, given as bot name
 	{
 		trace = (unsigned int) -1;
 		echo = true;
 		*usee = 0;
+	}
+	if (traceit && *(traceit-1) == '/') // appended to bot name
+	{
+		trace = (unsigned int)-1;
+		echo = true;
+		*(traceit-1) = 0;
 	}
 	if (!stricmp(usee, (char*)"time")) // enable timing during login
 	{

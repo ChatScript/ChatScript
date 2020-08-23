@@ -767,10 +767,6 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 	if (currentFact) return currentFact;
 
 	currentFact = CreateFastFact(subject,verb,object,properties);
-	if (Fact2Index(currentFact) == 34504)
-	{
-		int xx = 0;
-	}
 	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  
 	{
         if (trace & TRACE_FACT && trace & TRACE_JSON && !(trace & TRACE_OUTPUT)) 
@@ -915,7 +911,8 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	if (!*buffer) 
 	{
 		if (!ptr) return NULL;
-		if (compiling) BADSCRIPT((char*)"FACT-1 Missing subject for fact create")
+		if (compiling)
+			BADSCRIPT((char*)"FACT-1 Missing subject for fact create")
 		char* end = strchr(ptr,')');
 		return (end) ? (end + 2) : ptr; 
 	}
@@ -1438,7 +1435,7 @@ char* ReadField(char* ptr,char* field,char fieldkind, unsigned int& flags)
 	{
 		char* end;
 		char* start;
-		if (ptr[1] == '*' && ptr[2] == '^') // they use our ` in their field - we use `*^%s`*^
+		if (ptr[1] == '*' && ptr[2] == '^') // they use our ` in their field - we use `*^%s`*^ --- BUG ?? Do we even believe we allow them access to ` any more?
 		{
 			start = end = ptr+3;
 			while ((end = strchr(end,'^')))
@@ -1448,10 +1445,18 @@ char* ReadField(char* ptr,char* field,char fieldkind, unsigned int& flags)
 			}
 			if (!end)
 			{
-				ReportBug("No end found");
-				return NULL;
+				end = strchr(ptr+3,ENDUNIT);
+				if(!*end){
+					ReportBug("No end found");
+					return NULL;
+				}
+				*end = 0;
+				start = ptr + 1;
 			}
-			*(end-2) = 0; // terminate string with null
+			else
+			{
+				*(end-2) = 0; // terminate string with null
+			}
 		}
 		else
 		{
@@ -1464,7 +1469,7 @@ char* ReadField(char* ptr,char* field,char fieldkind, unsigned int& flags)
 			}
 			*end = 0;
 		}
-		
+
 		CopyRemoveEscapes(field,start,90000);	// we only remove ones we added
 		return end+2; // point AFTER the space after the closer
 	}
@@ -1565,12 +1570,13 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 			}
 
 			char wordx[MAX_WORD_SIZE];
+            bool newWord = false;
 			char* at = ReadCompiledWord(readBuffer+2,wordx); //   start at valid token past space
 			WORDP D = FindWord(wordx,0,PRIMARY_CASE_ALLOWED);
 			if (!D || strcmp(D->word,wordx)) // alternate capitalization?
 			{
 				D = StoreWord(wordx);
-				if (monitorChange) AddWordItem(D, false);
+                newWord = true;
 				AddInternalFlag(D,(unsigned int)build);
 			}
 			bool sign = false;
@@ -1588,6 +1594,7 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 				if (sign) AddSystemFlag(D,CONSTANT_IS_NEGATIVE);
 			}
 			else ReadDictionaryFlags(D,at);
+            if (monitorChange && D && (newWord || D->internalBits & BIT_CHANGED)) AddWordItem(D, false);
 		}
 		else if (*word == USERVAR_PREFIX) // variable
 		{

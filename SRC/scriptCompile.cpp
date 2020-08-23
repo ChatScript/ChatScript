@@ -1574,8 +1574,7 @@ static void WriteKey(char* word)
 
 static void WritePatternWord(char* word)
 {
-     if (*word == '~' || *word == USERVAR_PREFIX || *word == '^') return; // not normal words
-  
+    if (*word == '~' || *word == USERVAR_PREFIX || *word == '^') return; // not normal words
 
 	if (IsDigit(*word)) // any non-number stuff
 	{
@@ -2060,6 +2059,20 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 			WriteKey(word);
 		}
 
+		if (D && !stricmp(D->word, (char*)"^reuse") )
+		{
+			MakeUpperCase(word); // topic names are lower case  & labels must be upper case
+			char* dot = strchr(word, '.');
+			if (dot)
+			{
+				*dot = 0;
+				MakeLowerCase(word);
+				*dot = '.';
+			}
+			
+			argset[1] = AllocateStack(word);
+		}
+
 		//   add simple item into data
 		strcpy(data,word);
 		data += strlen(data);
@@ -2088,7 +2101,14 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 	
 	if (D && !stricmp(D->word,(char*)"^reuse") && (IsAlphaUTF8(*arg1) || *arg1 == '~')) 
 	{
-		MakeUpperCopy(reuseTarget1,arg1); // topic names & labels must be upper case
+		MakeUpperCopy(reuseTarget1,arg1); // topic names are lower case  & labels must be upper case
+		char* dot = strchr(reuseTarget1, '.');
+		if (dot)
+		{
+			*dot = 0;
+			MakeLowerCase(reuseTarget1);
+			*dot = '.';
+		}
 	}
 	else if (D && !stricmp(D->word,(char*)"^enable") && IsAlphaUTF8(*arg1))
 	{
@@ -2115,6 +2135,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
         BADSCRIPT((char*)"CALL-59 Failed to properly close (or [ in call to %s\r\n", value)
     }
 
+	FunctionResult result;
 	if (isStream){;}  // no cares
 	else if (info) // system function
 	{
@@ -2126,12 +2147,16 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 		if (argumentCount != (int)D->w.planArgCount)
 			BADSCRIPT((char*)"CALL-60 Incorrect argument count to plan %s- given %d instead of required %d\r\n",name,argumentCount,D->w.planArgCount)
 	}
-	else if (!D)
+	else if (!D || !FindAppropriateDefinition(D, result, true))
 	{
 		// generate crosscheck data
-		char* nameData = AllocateHeap(NULL, strlen(name) + 2, 1);
-		*nameData = argumentCount;
-		strcpy(nameData + 1, name);
+		int l = (strlen(name) + 2 + 8 + strlen(scopeBotName) + 1 + 7) / 8;
+		char* nameData = AllocateHeap(NULL, l, 8);
+		*(uint64*)nameData = myBot;
+		nameData[8] = argumentCount;
+		strcpy(nameData + 9, name);
+		char* more = nameData + 10 + strlen(nameData + 9);
+		strcpy(more, scopeBotName);
 		char* filename = AllocateHeap(currentFilename, 0, 1);
         undefinedCallThreadList = AllocateHeapval(undefinedCallThreadList,
             (uint64)nameData,(uint64) filename, (uint64)currentFileLine);
@@ -2697,7 +2722,10 @@ x : = y(do assignment and do not fail)
 					{
 						patternStarter = nestData[nestIndex];
 						patternEnder = data;
-						BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
+						char d[100];
+						strncpy(d, patternStarter, 60);
+						d[59] = 0;
+						BADSCRIPT((char*)"PATTERN-24 >> should be closing %c started at line %d col %d  %s\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff,d)
 					}
 				}
 				variableGapSeen = false;
@@ -2755,7 +2783,10 @@ x : = y(do assignment and do not fail)
 				{
 					patternEnder = data;
 					patternStarter = nestData[nestIndex];
-					BADSCRIPT((char*)"PATTERN-9 ) should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
+					char d[100];
+					strncpy(d, patternStarter, 60);
+					d[59] = 0;
+					BADSCRIPT((char*)"PATTERN-9 ) should be closing %c started at line %d col %d  %s\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff,d)
 				}
 				break;
 			case '[':	//   list of pattern choices begin
@@ -2809,7 +2840,10 @@ x : = y(do assignment and do not fail)
 				{
 					patternEnder = data;
 					patternStarter = nestData[nestIndex];
-					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
+					char d[100];
+					strncpy(d, patternStarter, 60);
+					d[59] = 0;
+					BADSCRIPT((char*)"PATTERN-34 ] should be closing %c started at line %d col %d  %s\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff,d)
 				}
                 currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
                 strcpy(currentConceptXfer, currentConceptBuffer);
@@ -2902,7 +2936,10 @@ x : = y(do assignment and do not fail)
 				{
 					patternEnder = data;
 					patternStarter = nestData[nestIndex];
-					BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d col %d\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff)
+					char d[100];
+					strncpy(d, patternStarter, 60);
+					d[59] = 0;
+					BADSCRIPT((char*)"PATTERN-41 } should be closing %c started at line %d col %d  %s\r\n", nestKind[nestIndex], nestLine[nestIndex] >> 16, nestLine[nestIndex] & 0x00ffff,d)
 				}
                 currentConceptBuffer = conceptBufferLevelStart[conceptIndex--]; // resume here
                 strcpy(currentConceptXfer, currentConceptBuffer);
@@ -4531,13 +4568,15 @@ Then one of 3 kinds of character:
 					char name[MAX_WORD_SIZE];
 					*name = '^';
 					strcpy(name+1,word);
-					WORDP D = FindWord(name,0,LOWERCASE_LOOKUP);
+					WORDP D = FindWord(name,0,LOWERCASE_LOOKUP); // all functions are lower case - all labels are uppercase)
 					if (D && D->internalBits & FUNCTION_NAME && (*kind == GAMBIT || *kind == RANDOM_GAMBIT)) 
 						WARNSCRIPT((char*)"label: %s is a potential macro in %s. Add ^ if you want it treated as such.\r\n",word,currentFilename)
 					else if (!stricmp(word,(char*)"if") || !stricmp(word,(char*)"loop") || !stricmp(word, (char*)"jsonloop")) WARNSCRIPT((char*)"label: %s is a potential flow control (if/loop/jsonloop) in %s. Add ^ if you want it treated as a control word.\r\n",word,currentFilename)
 					sprintf(info,"        rule: %s.%d.%d-%s %s",currentTopicName,TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),name+1, kind);
 					AddMap(info,NULL); // rule
-	
+
+					MakeUpperCase(word); // labels are uppercase (topics and functions are lower case)
+
                     char* bots = topicName->w.topicBots;
                     if (!bots || !*bots)
                     {
@@ -4554,7 +4593,6 @@ Then one of 3 kinds of character:
                         AddInternalFlag(E, LABEL);
                     }
 
-					MakeUpperCase(word); 
 					strcpy(labelName,word);
 					if (strchr(word,'.')) BADSCRIPT((char*)"RULE-2 Label %s must not contain a period\r\n",word)
 					if (len > 160) BADSCRIPT((char*)"RULE-2 Label %s must be less than 160 characters\r\n",word)
@@ -4630,6 +4668,33 @@ Then one of 3 kinds of character:
 
 	*data = 0;
     dataBase = NULL;
+}
+
+static void ErasePendingFunction(WORDP D,int functionArgumentCount)
+{
+	HEAPREF list = undefinedCallThreadList;
+	while (list)
+	{
+		uint64 functionNamex;
+		uint64 filenamex;
+		uint64 linex;
+		HEAPREF oldlist = list;
+		list = UnpackHeapval(list, functionNamex, filenamex, linex);
+		if (!functionNamex) 
+			continue; // reference deleted previously
+
+		char* functionData = (char*)functionNamex;
+		uint64 bot = *(uint64*)functionData;
+		if (bot != myBot || strcmp(D->word, functionData + 9)) continue;
+		
+		if (functionData[8] != functionArgumentCount && !(D->internalBits & VARIABLE_ARGS_TABLE))
+		{
+			Log(BADSCRIPTLOG, (char*)"*** Error- Function %s wrong argument count %d expected %d given for bot %s \r\n", D->word, functionData[8], functionArgumentCount, scopeBotName);
+			++hasErrors;
+		}
+		uint64* data = (uint64*)oldlist;
+		data[1] = 0; // kill reference
+	}
 }
 
 static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
@@ -4887,8 +4952,8 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 		revised[2] = (heapIndex >> 8) & 0xff;
 		revised[3] = heapIndex & 0xff;
 	}
-
 	D->w.fndefinition = (unsigned char*)AllocateHeap(revised - 4, strlen(revised) + 4);
+	ErasePendingFunction(D,functionArgumentCount);
 
 	if (!table) // tables are not real macros, they are temporary
 	{
@@ -6245,6 +6310,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 
 static void DoubleCheckFunctionDefinition()
 {
+	uint64 oldbot = myBot;
     HEAPREF list = undefinedCallThreadList;
 	while (list)
 	{
@@ -6252,29 +6318,31 @@ static void DoubleCheckFunctionDefinition()
         uint64 filenamex;
         uint64 linex;
         list = UnpackHeapval(list, functionNamex, filenamex,linex);
-        char* functionName = (char*)functionNamex;
+		if (!functionNamex) 
+			continue; // reference check canceled
+
+        char* functionData = (char*)functionNamex;
+		myBot = *(uint64*)functionData;
         char* filename = (char*)filenamex;
         char* line = (char*) linex;
-        int args = *functionName++ ;
+        int args = functionData[8] ;
 		strcpy(currentFilename, filename);
 		currentFileLine = (int)(uint64)line;
-        WORDP D = FindWord(functionName);
-        if (D && D->internalBits & FUNCTION_BITS)
+		char* fn = functionData + 9;
+		char* botname = functionData + 10 + strlen(fn);
+        WORDP D = FindWord(fn);
+        if (D && D->internalBits & FUNCTION_BITS) // must be some other bots function
 		{
-			unsigned char* defn = GetDefinition(D);
-			int want = MACRO_ARGUMENT_COUNT(defn);
-			if (args != want && !(D->internalBits & VARIABLE_ARGS_TABLE))
-			{
-				Log(BADSCRIPTLOG, (char*)"*** Error- Function %s wrong argument count %d expected %d given \r\n", functionName,want,args);
-				++hasErrors;
-			}
+			Log(BADSCRIPTLOG, (char*)"*** Error- Undefined function %s in bot %s\r\n", fn, botname);
+			++hasErrors;
 		}
-		else if (functionName[1] != USERVAR_PREFIX) // allow function calls indirect off variables
+		else if (fn[1] != USERVAR_PREFIX) // allow function calls indirect off variables
 		{
-			Log(BADSCRIPTLOG, (char*)"*** Error- Undefined function %s \r\n", functionName);
+			Log(BADSCRIPTLOG, (char*)"*** Error- Undefined function %s for bot %s \r\n", fn, botname);
 			++hasErrors;
 		}
 	}
+	myBot = oldbot;
 }
 
 static void DoubleCheckReuse()
@@ -6289,7 +6357,13 @@ static void DoubleCheckReuse()
     while (ReadALine(readBuffer,in) >= 0)
 	{
 		char *ptr = ReadCompiledWord(readBuffer, label);		// topic + label
-        ptr = ReadCompiledWord(ptr, bothead);				// from file
+		if (*label == '~')
+		{
+			MakeLowerCase(label);
+			char* dot = strchr(label, '.');
+			if (dot) MakeUpperCase(dot + 1);
+		}
+		ptr = ReadCompiledWord(ptr, bothead);				// from file
         MakeUpperCase(bothead);
         ptr = ReadCompiledWord(ptr,tmpWord);				// from file
 		int line;

@@ -245,7 +245,7 @@ char* SaveBacktrack(int id)
 	return backtrackPoint = mark;
 }
 
-unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result)
+unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result,bool findright)
 {
 	int64 botid;
 	unsigned char* defn = D->w.fndefinition; // raw definition w link
@@ -256,7 +256,7 @@ unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result)
 	defn += 4; // skip jump 
 	defn = (unsigned char*)ReadInt64((char*)defn, botid);
 	if (botid == 0) allaccess = defn; // default access 
-	while (!(myBot & botid) && !compiling && link) // wrong bot, but have link to another bots can share code
+	while (!(myBot & botid) && (findright || !compiling) && link) // wrong bot, but have link to another bots can share code
 	{
 		if (!botid) allaccess = defn;
 		defn = (unsigned char*)Index2Heap(link); // next defn
@@ -265,11 +265,9 @@ unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result)
 		defn = (unsigned char*)ReadInt64((char*)defn, botid);
 	}
 	if (!botid && !myBot) {;	} // matches
-	else if (compiling) {;} // during compilation most recent always matches
+	else if (compiling && !findright) {;} // during compilation most recent always matches
 	else if (!(myBot & botid)) defn = allaccess;
 	result = (!defn) ? FAILRULE_BIT : NOPROBLEM_BIT;
-	if (!defn) 
-        ReportBug((char*) "Function %s not found for bot %s",D->word,computerID)
 	return defn; // point at (
 }
 
@@ -590,12 +588,13 @@ static char* SystemCall(char* buffer,char* ptr, CALLFRAME* frame,FunctionResult 
 	}
     frame->arguments = callArgumentIndex - frame->varBaseIndex - 1;
 
-	callArgumentList[callArgumentIndex] = (char*) ""; 
-	callArgumentList[callArgumentIndex+1] = (char*) ""; // optional arguments excess
-	callArgumentList[callArgumentIndex+2] = (char*) ""; // optional arguments excess
-	callArgumentList[callArgumentIndex+3] = (char*) ""; 
-	callArgumentList[callArgumentIndex+4] = (char*) ""; // optional arguments excess
-	callArgumentList[callArgumentIndex+5] = (char*) ""; // optional arguments excess
+	// default up to 6 optional arguments and make them plausibly writable (but still would have bug if someone writes large data to them)
+	callArgumentList[callArgumentIndex] = AllocateStack("", MAX_WORD_SIZE);
+	callArgumentList[callArgumentIndex+1] = AllocateStack("", MAX_WORD_SIZE);
+	callArgumentList[callArgumentIndex+2] = AllocateStack("", MAX_WORD_SIZE); 
+	callArgumentList[callArgumentIndex+3] = AllocateStack("", MAX_WORD_SIZE);
+	callArgumentList[callArgumentIndex+4] = AllocateStack("", MAX_WORD_SIZE); 
+	callArgumentList[callArgumentIndex+5] = AllocateStack("", MAX_WORD_SIZE); 
 	if ((trace & (TRACE_OUTPUT|TRACE_USERFN) || D->internalBits & MACRO_TRACE) && !(D->internalBits & NOTRACE_FN) && CheckTopicTrace()) 
 	{
 		--globalDepth; // patch depth because call data should be outside of depth
@@ -832,7 +831,7 @@ static char* UserCall(char* buffer,char* ptr, CALLFRAME* frame,FunctionResult &r
 	}
 	else 
 	{
-        frame->definition = (char*)FindAppropriateDefinition(D, result);
+        frame->definition = (char*)FindAppropriateDefinition(D, result,true);
         
 		if (frame->definition)
 		{
@@ -982,7 +981,7 @@ FunctionResult InternalCall(char* name, EXECUTEPTR fn, char* arg1, char* arg2, c
 		callStack[callIndex++] = D;
 
 		*buffer = 0;
-		frame->definition = (char*)FindAppropriateDefinition(D, result);
+		frame->definition = (char*)FindAppropriateDefinition(D, result,true);
 		if (frame->definition)
 		{
 			int flags;
@@ -3529,6 +3528,8 @@ static FunctionResult InputCode(char* buffer)
 		return FAILRULE_BIT;// limit per sentence reply
 	if (totalCounter++ > 15) 
 		return FAILRULE_BIT; // limit per input from user
+	if ((sentenceloopcount + 1) >= sentenceLimit)
+		return FAILRULE_BIT; // supplying new input will exceed limit, so decline
 
 	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG,(char*)"\r\n");
 	FunctionResult result;
@@ -3546,8 +3547,11 @@ static FunctionResult InputCode(char* buffer)
 		++at;
 	}
 
-	if (!strcmp(lastInputSubstitution,buffer) && *buffer) return FAILRULE_BIT; // same result as before, apparently looping
-
+	if (!strcmp(lastInputSubstitution, buffer) && *buffer)
+	{
+		*buffer = 0;
+		return FAILRULE_BIT; // same result as before, apparently looping
+	}
 	if (showInput) Log(ECHOSTDUSERLOG,(char*)"^input: %s\r\n",buffer);
 	else if (trace & TRACE_FLOW) Log(STDUSERLOG,(char*)"^input given: %s\r\n",buffer);
     if (!AddInput(buffer))
@@ -4327,6 +4331,7 @@ static FunctionResult TokenizeCode(char* buffer)
 		int count;
 		char* starts[MAX_SENTENCE_LENGTH];
 		memset(starts,0,sizeof(char*)*MAX_SENTENCE_LENGTH);
+		ptr = SkipWhitespace(ptr);
 		ptr = Tokenize(ptr,count,(char**) starts,false);   //   only used to locate end of sentence but can also affect tokenFlags (no longer care)
 		if (!raw)
 		{
@@ -4396,7 +4401,7 @@ static FunctionResult AnalyzeCode(char* buffer)
 			*buffer = ' ';
 		}
 	}
-    if (trace & (TRACE_OUTPUT|TRACE_PREPARE)) Log(STDUSERLOG, "Analyze: %s ",buffer);
+    if (trace & (TRACE_OUTPUT|TRACE_PREPARE)) Log(STDUSERLOG, "Analyze: %s \r\n",buffer);
 	PrepareSentence(buffer,true,false,true,false); 
 	char* hold = AllocateBuffer();
 	if (more && *nextInput) // set up for possible continuation (set by preparesentence)
@@ -4425,6 +4430,7 @@ static FunctionResult AnalyzeCode(char* buffer)
 
 	RESTOREOLDCONTEXT()
     nextInput =  oldnext;
+	MoreToCome();
 	return NOPROBLEM_BIT;
 }
 
@@ -6357,13 +6363,14 @@ static FunctionResult POSCode(char* buffer)
 		}
 		else if (!strcmp(arg2,(char*)"have")) 
 		{
-			if (strcmp(arg3,(char*)"I") && strcmp(arg3,(char*)"you")) result = "has"; 
+			if (strcmp(arg3, (char*)"I") && strcmp(arg3, (char*)"you") && strcmp(arg3, (char*)"we") && strcmp(arg3, (char*)"they")) result = "has";
 			else result = "have";
 		}
 		else if (!strcmp(arg2,(char*)"be")) 
 		{
 			if (!strcmp(arg3,(char*)"I") ) result = "am";
 			else if (!strcmp(arg3,(char*)"you")) result = "are"; 
+			else if  (!strcmp(arg3, (char*)"we") || !strcmp(arg3, (char*)"they"))  result = "are";
 			else result = "is";
 		}
 		else if (!strcmp(arg2,(char*)"was") || !strcmp(arg2,(char*)"were")) //   past tense
@@ -6715,6 +6722,53 @@ static FunctionResult RhymeCode(char* buffer)
 	return FAILRULE_BIT;
 }
 
+static FunctionResult  RecordDictionaryChangesCode(char* buffer)
+{
+	monitorDictChanges = atoi(ARGUMENT(1)) != 0;
+	unsigned int index = atoi(ARGUMENT(2));
+	if (monitorDictChanges)  ongoingDictChanges = (index) ? Index2Heap(index) : NULL;	 // resume old list or start again
+	else sprintf(buffer,"%d", Heap2Index(ongoingDictChanges));
+	return NOPROBLEM_BIT;
+}
+
+static FunctionResult RevertDictionaryChangesCode(char* buffer)
+{
+	monitorDictChanges = false;
+	HEAPREF start = ongoingDictChanges;
+	unsigned int index = atoi(ARGUMENT(1));
+	if (index) start = Index2Heap(index);
+	if (!start) return FAILRULE_BIT;
+	ReverseDictionaryChanges(start);
+	sprintf(buffer, "%d", Heap2Index(start)); // give him this list
+	return NOPROBLEM_BIT;
+}
+
+static FunctionResult  ReplayDictionaryChangesCode(char* buffer)
+{
+	monitorDictChanges = false;
+	unsigned int index = atoi(ARGUMENT(1));
+	if (!index) return FAILRULE_BIT;
+	HEAPREF start = Index2Heap(index);
+
+	// reverse order
+
+	STACKREF reverse = NULL;
+	uint64 val1, val2, val3;
+	while (start)
+	{
+		start = UnpackHeapval(start, val1, val2, val3);
+		reverse = AllocateStackval(reverse, val1, val2, val3);
+	}
+
+	while (reverse)
+	{
+		reverse = UnpackStackval(reverse, val1, val2, val3);
+		WORDP D = (WORDP)val1;
+		D->properties = val2;
+		D->systemFlags = val3;
+	}
+	return NOPROBLEM_BIT;
+}
 static FunctionResult FindTextCode(char* buffer) 
 { 
 	// what to search in
@@ -9198,11 +9252,11 @@ static FunctionResult TestPatternCode(char* buffer)
 		return FAILRULE_BIT;    // must have input and patterns
 	}
 
-
 	// meaningful user input
 	char* usermsg = AllocateBuffer();
 	WORDP X = Meaning2Word(input);
 	if (stricmp(X->word,"null"))  strcpy(usermsg, SkipWhitespace(X->word)); // json null string
+	AdjustUTF8(usermsg,usermsg-1);
 
 	SAVESYSTEMSTATE()
 
@@ -11002,7 +11056,12 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^pos",POSCode,VARIABLE_ARG_COUNT,0,(char*)"compute some part of speech value"},
 	{ (char*)"^removeinternalflag",RemoveInternalFlagCode,2,0,(char*)"Remove internal flag from word- currently only HAS_SUBSTITUTE"}, 
 	{ (char*)"^removeproperty",RemovePropertyCode,STREAM_ARG,0,(char*)"remove value to dictionary entry properies or systemFlags or facts of factset properties"},
-	{ (char*)"^rhyme",RhymeCode,1,0,(char*)"find a rhyming word"}, 
+
+	{ (char*)"^recordDictionaryChanges",RecordDictionaryChangesCode,VARIABLE_ARG_COUNT,0,(char*)"starts tracking changes to property and systemflags on words being modified" },
+	{ (char*)"^revertDictionaryChanges",RevertDictionaryChangesCode,1,0,(char*)"undoes those changes(turning recording off and if omitted, happens automatically at end of volley" },
+	{ (char*)"^replayDictionaryChanges",ReplayDictionaryChangesCode,1,0,(char*)" restores changes done by a record and later reverted(allowing you to insert changes not recorded)" },
+
+	{ (char*)"^rhyme",RhymeCode,1,0,(char*)"find a rhyming word"},
 	{ (char*)"^substitute",SubstituteCode,VARIABLE_ARG_COUNT,0,(char*)"alter a string by substitution"}, 
 	{ (char*)"^spell",SpellCode,VARIABLE_ARG_COUNT,0,(char*)"find words matching pattern and store as facts"},
     { (char*)"^spellcheck",SpellCheckCode,2,0,(char*)"Given tokenized sentence and JSON array of words, return adjusted sentence" },

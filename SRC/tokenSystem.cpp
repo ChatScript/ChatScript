@@ -712,6 +712,16 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// embedded punctuation
 	char* embed = strchr(token, '?');
 	if (embed && embed != token && embed[1]) *embed = 0; // break off love?i 
+	 embed = strchr(token, '.');
+	 if (embed && embed != token && embed[1]) // joined two words at end of sentence (dont accept 1 character words)?
+	 {
+		 if (embed[2] && FindWord(embed + 1))
+		 {
+			 *embed = 0; // lowly.go
+			 if (!token[1] || !FindWord(token)) *embed = '.';
+			 else return ptr + strlen(token);
+		 }
+	 }
 
 	embed = strchr(token, ')');
 	if (embed && embed != token ) *embed = 0; // break off 61.3) 
@@ -775,13 +785,13 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         char* emailEnd = atsign;
         while (*++emailEnd && !IsInvalidEmailCharacter(*emailEnd)); // fred,andy@kore.com
 
-        if (period && period < emailEnd && IsAlphaUTF8(ptr[emailEnd-ptr-1]) &&  IsAlphaUTF8(ptr[emailEnd-ptr-2])) // top level domain is alpha
+        if (period && period < emailEnd && IsAlphaUTF8(ptr[emailEnd-token-1]) &&  IsAlphaUTF8(ptr[emailEnd-token-2])) // top level domain is alpha
         {
             // find end of email domain, can be letters or numbers or hyphen
             // there maybe be several parts to the domain
             while (*++period && period < emailEnd)
             {
-                if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return period;
+                if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return ptr + (period - token);
             }
             return ptr + (emailEnd - token);
         }
@@ -1299,8 +1309,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 
 char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
 {	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
-    char* ptr = SkipWhitespace(input);
-	input = ptr;
+    char* ptr = input;
 	char* html = ptr;
 	int count = 0;
     bool oobJson = false;
@@ -1388,7 +1397,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 			if (ptr == end) ++ptr; // FORCE emergency skip
             continue;
         }
-        else if ((end - ptr) > (MAX_WORD_SIZE - 3)) // too big to handle, suppress it.
+        else if ((unsigned int)(end - ptr) > (MAX_WORD_SIZE - 3)) // too big to handle, suppress it.
 		{
 			char word[MAX_WORD_SIZE];
 			strncpy(word, ptr, MAX_WORD_SIZE - 25);
@@ -2605,7 +2614,6 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
     WORDP found = NULL;
     unsigned int idiomMatch = 0;
     bool isEnglish = (!stricmp(language, "english") ? true : false);
-
 	unsigned int n = 0;
     for ( int j = i; j <= wordCount; ++j)
     {
@@ -2747,6 +2755,11 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 	lastMatch = NULL;
 	lastMatchLocation = 0;
     unsigned int cycles = 0;
+	WORDP done[3];
+	int doneat[3];
+	int doneindex = 0;
+	doneat[0] = doneat[1] = doneat[2] = 0;
+
     for (int i = FindOOBEnd(1); i <= wordCount; ++i)
     {
 		if (!stricmp(loginID,wordStarts[i])) continue; // dont match user's name
@@ -2810,6 +2823,15 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 			WORDP x = ProcessMyIdiom(i, count - 1, buffer, ptr);
 			if (x)
 			{
+				// block small loops
+				if ((i == doneat[0] && x == done[0]) || 
+					(i == doneat[1] && x == done[1]) || 
+					(i == doneat[2] && x == done[2]))
+					continue;	// dont retry here
+				doneindex = (doneindex + 1) % 3;
+				done[doneindex] = x;
+				doneat[doneindex] = i;
+
 				if (cycles > 60) // something is probably wrong
 				{
 					ReportBug((char*)"Substitute cycle overflow %s in %s\r\n", x->word,buffer);

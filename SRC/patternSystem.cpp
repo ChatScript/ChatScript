@@ -28,8 +28,8 @@
 #define GAPLIMIT                0X0000FF00
 #define GAPLIMITSHIFT 8
 #define GAP_SHIFT 16
-#define GAP_SLOT 0x0000ffff      // std wildcard gaps
-#define SPECIFIC_SLOT 0x1f000000 // words or bracketed items
+#define GAP_SLOT                0x001F0000 // std wildcard index
+#define SPECIFIC_SLOT           0x1F000000 // words or bracketed items
 #define SPECIFIC_SHIFT 24
 
 #define WILDGAP					0X20000000  // start of gap is 0x000000ff, limit of gap is 0x0000ff00  
@@ -597,30 +597,47 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 if (*end == '-')
                 {
                     reverse = true;
-                    positionEnd = positionStart = WILDCARD_START(wild);
+					positionEnd = positionStart = WILDCARD_START(wild);
                     // These are where the "old" match was
                 }
                 else // + and nothing both move forward. 
                 {
+                    int oldstart = positionStart;
                     int oldend = positionEnd; // will be 0 if we are starting out with no required match
                     positionStart = WILDCARD_START(wild);
                     positionEnd = WILDCARD_END(wild);
-                    if (positionStart < oldend && !reverse) // we are trying to jump backwards
+                    if (oldend && *end != '+' && positionStart != INFINITE_MATCH) // this is an anchor that might not match
                     {
-                        matched = false;
-                        break;
-                    }
-                    else if (positionStart > oldend && reverse)
-                    {
-                        matched = false;
-                        break;
+                        if (wildcardSelector)
+                        {
+                            int start = wildcardSelector & GAPSTART;
+                            int limit = (wildcardSelector & GAPLIMIT) >> GAPLIMITSHIFT;
+                            if (!reverse && (positionStart < (oldend + 1) || positionStart > (start + limit)))
+                            {
+                                matched = false;
+                                break;
+                            }
+                            else if (reverse && (positionEnd > (oldstart - 1) || positionEnd < (start - limit)))
+                            {
+                                matched = false;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (!reverse && positionStart != (oldend + 1))
+                            {
+                                matched = false;
+                                break;
+                            }
+                            else if (reverse && positionEnd != (oldstart - 1))
+                            {
+                                matched = false;
+                                break;
+                            }
+                        }
                     }
                     reverse = false;
-                    if (!wildcardSelector && oldend && *end != '+' && positionStart != (oldend + 1) && positionStart != INFINITE_MATCH) // this is an anchor that does not match
-                    {
-                        matched = false;
-                        break;
-                    }
                 }
                 if (!positionEnd && positionStart)
                 {
@@ -924,7 +941,7 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
                 if ((trace & TRACE_PATTERN || D->internalBits & MACRO_TRACE) && CheckTopicTrace()) Log(STDUSERLOG, (char*)")\r\n");
                 callArgumentBase = fnVarbase = argStack[functionNest] - 1;
                 ptrStack[functionNest++] = ptr + 2; // skip closing paren and space
-                ptr = (char*)FindAppropriateDefinition(D, result);
+                ptr = (char*)FindAppropriateDefinition(D, result,true);
                 if (ptr)
                 {
                     char* word = AllocateStack(NULL, MAX_WORD_SIZE);
@@ -1032,11 +1049,12 @@ Some operations like < or @_0+ force a specific position, and if no firstMatch h
 
                     if (wildcardSelector & WILDMEMORIZEGAP) // the wildcard for a gap BEFORE us
                     {
-                        int index = (wildcardSelector & GAP_SLOT ) >> GAP_SHIFT;
+                        int index = (wildcardSelector >> GAP_SHIFT) & 0x0000001f;
                         wildcardSelector &= -1 ^ (WILDMEMORIZEGAP| WILDGAP); // remove the before marker
                         int brackend = whenmatched; // gap starts here
                         if (whenmatched > 0) returnStart = whenmatched;
-                        SetWildCardGiven(bracketstart, brackend - 1, true, index);  //   wildcard legal swallow between elements
+                        if ((brackend - bracketstart) == 0) SetWildCardGivenValue((char*)"", (char*)"", 0, oldEnd + 1, index); // empty gap
+                        else SetWildCardGiven(bracketstart, brackend - 1, true, index);  //   wildcard legal swallow between elements
                     }
                     else if (wildcardSelector & WILDGAP) // the wildcard for a gap BEFORE us
                     {

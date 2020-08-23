@@ -1,6 +1,7 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 7/18/2020 cs10.5
+<br>Revision 8/23/2020 cs10.6
+
 
 # Command Line Parameters
 
@@ -103,6 +104,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`users=xxx`    | name relative or absolute path to where you want the USERS folder to be. Do not add trailing `/`
 |`logs=xxx`     | name relative or absolute path to where you want the LOGS folder to be. Do not add trailing `/`
 |`userlog`      | Store a user-bot log in USERS directory (default)
+|`userlog=1`      | alternate form of request, you can use 0 for off and 1 for on
 |`nouserlog`    | Don't store a user-bot log
 |`tmp=xxx`     | name relative or absolute path to where you want the TMP folder to be. Do not add trailing `/`
 |`crashpath=xxx`     | file to write about fatal Linux signals that will be outside of the cs folder `/`
@@ -295,16 +297,19 @@ logging things, you may have no use whatsoever for ChatScript's logging.
 Userlog
 ```
 Store a user-bot log in USERS directory. Stand-alone default if unspecified.
+Alternatively you can do  userlog=1   to enable.
 
 ```
 Nouserlog
 ```
 Don't store a user-bot log. Server default if unspecified.
+Alternatively you can do  userlog=0   to disable.
 
 ```
 Serverlog
 ```
 Write a server log and a bugs log. 
+Alternatively you can do  serverlog=1   to enable.
 
 The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port. 
 
@@ -336,6 +341,7 @@ connection wasn't broken somewhere and await more input forever.
 Noserverlog
 ```
 Don't write a server log or a bugs log.
+Alternatively you can do  serverlog=0   to disable.
 
 ```
 Nobuglog
@@ -347,6 +353,10 @@ Buglog
 ```
 Write a server bugs log. Use after `Noserverlog` when you want to turn off server logs but retain bug logging.
 
+```
+stdlogging=1
+```
+Route normal server logs to stdout and bugs logs to stderr.  Useful with Docker. Use stdlogging=0 to turn off (the default).
 
 ```
 DebugLevel=n

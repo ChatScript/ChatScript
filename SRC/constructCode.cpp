@@ -298,12 +298,29 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         limit = 1000000;
         char data[MAX_WORD_SIZE];
         ptr = GetCommandArg(ptr + 2, data, result, 0); //   get the json object 
-        WORDP jsonstruct = FindWord(data);
+		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"jsonloop(%s)\r\n", data);
+
+		if (!*data)
+		{
+			result = NOPROBLEM_BIT;
+			ChangeDepth(-1, "Loop()", false, ptr + 2);
+			return endofloop; // null value
+		}
+
+		// must be JSON
+		if (strnicmp(data, "jo-", 3) && strnicmp(data, "ja-", 3))
+		{
+			result = FAILRULE_BIT;
+			ChangeDepth(-1, "Loop()", false, ptr + 2);
+			return endofloop; // we dont know it
+		}
+
+		WORDP jsonstruct = FindWord(data);
         if (!jsonstruct) // no known object
         {
             result = FAILRULE_BIT;
             ChangeDepth(-1, "Loop()", false, ptr + 2);
-            return ptr; // we dont know it
+            return endofloop; // we dont know it
         }
         F = GetSubjectNondeadHead(jsonstruct);
         if (!F)// no members
@@ -420,7 +437,8 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 	}
 	ChangeDepth(-1,"Loop{}",true); // allows step out to cover a loop 
 	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"end of loop\r\n");
-	if (counter < 0 && infinite) ReportBug("Loop ran to limit %d\r\n",limit);
+	if (counter < 0 && infinite) 
+		ReportBug("Loop ran to limit %d\r\n",limit);
 	--withinLoop;
 	currentIterator = oldIterator;
 	return endofloop;

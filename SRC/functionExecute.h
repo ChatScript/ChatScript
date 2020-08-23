@@ -117,7 +117,7 @@ CALLFRAME* GetCallFrame(int depth);
 FunctionResult MemoryMarkCode(char* buffer);
 char* GetArgOfMacro(int i, char* buffer, int limit);
 FunctionResult MemoryFreeCode(char* buffer);
-unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result);
+unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result,bool finddefn = false);
 void ResetReuseSafety();
 unsigned char* GetDefinition(WORDP D);
 void InitFunctionSystem(); 

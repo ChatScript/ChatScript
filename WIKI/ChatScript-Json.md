@@ -1,6 +1,7 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 8/23/2020 cs10.6
+
 
 
 # Real World JSON
@@ -734,6 +735,11 @@ that means doing this:
 
 ```
 sudo yum -y install libcurl libcurl-devel
+```
+
+Or more completely, for evserver and curl, you might do:
+```
+sudo yum -y install -y libc -devel gcc libc6 -compat libcurl libcurl-devel libstdc++ libgcc glibc make gcc-c++
 ```
 
 On some other machines that doesn't install library stuff and maybe you need

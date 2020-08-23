@@ -136,7 +136,7 @@ uint64 FindMiscValueByName(char* name); // misc data
 void CloseTextUtilities();
 bool IsModelNumber(char* word);
 char* ReadPatternToken(char* ptr, char* word);
-
+char* ReadTabField(char* buffer, char* storage);
 bool IsInteger(char* ptr, bool comma, int useNumberStyle = AMERICAN_NUMBERS);
 char* IsUTF8(char* buffer,char* character);
 char* Purify(char* msg);

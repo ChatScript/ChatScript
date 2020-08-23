@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/18/2020 cs10.5</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/23/2020 cs10.6</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -24,8 +24,8 @@
 :silent    - toggle silent - dont show outputs
 :log       - dump message into log file
 :noreact   - Disable replying to input
-:notime    - Toggle notiming during this topic
-:notrace   - Toggle notracing during this topic
+:notime    - Toggle notiming during this topic or function
+:notrace   - Toggle notracing during this topic or function
 :redo      - Back up to turn n and try replacement user input
 :retry     - Back up and try replacement user input or just redo last sentence
 :say       - Make chatbot say this line
@@ -244,13 +244,13 @@ RAWDATA/simpletopic.top # things we can chat about
 <pre><code>:trace all -infer -pattern</code></pre>
 <p>When I'm doing a thorough trace, I usually do</p>
 <pre><code>:trace all -query</code></pre>
-<p>because I want to see fact searches but only need the answers and not all the processing the query did.</p>
+<p>because I want to see fact searches but only need the answers and not all the processing the query did. If you want to see the arguments and answer to a query, you can leave :tracel all, but then do :notrace ^query. This will shut down all the internal guts of the ^query function.</p>
 <p>NOTE: if you want tracing to start at startup, when you don't have control, login with a botname of trace. E.g, at the login type:</p>
 <pre><code>john:trace</code></pre>
 <p>This will turn on all tracing.</p>
 <p><code>:trace</code> also has individual collections and items it can trace. If you just say :trace you get a listing of things.</p>
 <pre><code>:notrace {ON,OFF} ~topic1 ~topic2 {ON,OFF} ~topic3</code></pre>
-<p>Regardless of the use of <code>:trace</code>, <code>:notrace</code> marks some topics to not trace.</p>
+<p>Regardless of the use of <code>:trace</code>, <code>:notrace</code> marks some topics to not trace. Particularly useful to do :notrace ^Query which omits most of the guts of query calls, which can often be extensive.</p>
 <p>By default, the flag is set <code>ON</code> on listed topics but you can change the value on the fly to enable trace blocking on some topics or turn it off on ones previously turned on.</p>
 <p>You can also trace specific kinds of data. If you just say <code>:trace</code>, it will list the status of what is and is not being traced. Calls to <code>:trace</code> can be additive, you can name some and add more in another call. Here are things you can trace:</p>
 <table style="width:35%;">
@@ -488,6 +488,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <pre><code>:testpattern ~aliens.ufo do you believe in aliens?</code></pre>
 <h3 id="topicstats"><code>:topicstats</code></h3>
 <p>This walks all topics and computes how many rules of various kinds you have (e.g., how big is your system). You can also just name a topic or use a wildcard like <code>~do*</code> to see all topics starting with <code>~do</code>.</p>
+<p>If you do :topicstats labels you just get the name of the topic and then 1 line for each rule label (indented to show rule hierarchy relationship). Simiarly :topicstats labels ~mytopic for just a single topic.</p>
 <h3 id="skip-n"><code>:skip n</code></h3>
 <p>The system will disable the next n gambits of the current topic, and tell you where you will end up next. Thereafter your next simple input like <em>ok</em> will execute that gambit, and the n previous will already have been used up.</p>
 <h2 id="data-display-commands">Data Display Commands</h2>

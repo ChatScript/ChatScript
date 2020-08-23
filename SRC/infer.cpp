@@ -98,7 +98,7 @@ static bool SetContains1(MEANING set,MEANING M, unsigned int depth)
 	if (depth == 0) 
 	{
 		SetFactBack(D,0); 
-		if (trace & TRACE_INFER && CheckTopicTrace()) Log(STDUSERLOG,(char*)" %s ? %s ",D->word,D1->word);
+		if (trace & TRACE_INFER && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" %s ? %s ",D->word,D1->word);
 	}
 	unsigned int counter = 20000;
 	while (F && --counter)
@@ -123,7 +123,7 @@ static bool SetContains1(MEANING set,MEANING M, unsigned int depth)
 			// since this is not a marked exclusion, we can say it is a member
 			if (F->object == set && !blocked) 
 			{
-				if (trace & TRACE_INFER && CheckTopicTrace()) // show the path from set back to word
+				if (trace & TRACE_INFER && CheckTopicTrace("^query")) // show the path from set back to word
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)"within: %s ",D1->word);
@@ -158,7 +158,7 @@ static bool SetContains1(MEANING set,MEANING M, unsigned int depth)
 		}
 		F = GetSubjectNondeadNext(F);
 	}
-	if (trace & TRACE_INFER && depth == 0 && CheckTopicTrace())
+	if (trace & TRACE_INFER && depth == 0 && CheckTopicTrace("^query"))
 	{
 		Log(STDUSERLOG,(char*)" not within ");
 	}
@@ -174,7 +174,7 @@ bool SetContains(MEANING set,MEANING M)
 
 static bool AllowedMember(FACT* F, unsigned int i,unsigned int is,unsigned int index)
 {
-	if (trace & TRACE_INFER && CheckTopicTrace())  TraceFact(F);
+	if (trace & TRACE_INFER && CheckTopicTrace("^query"))  TraceFact(F);
     unsigned int localIndex = Meaning2Index(F->subject);
 	unsigned int pos = GetMeaningType(F->subject);
 	bool bad = false;
@@ -215,7 +215,7 @@ static void QueryFacts(WORDP original, WORDP D,unsigned int index,unsigned int s
     {
         F = G;
         G = GetSubjectNondeadNext(G);
-        if (trace & TRACE_INFER  && CheckTopicTrace()) TraceFact(F);
+        if (trace & TRACE_INFER  && CheckTopicTrace("^query")) TraceFact(F);
 
         if (!--count) 
 		{
@@ -256,7 +256,7 @@ FunctionResult QueryTopicsOf(char* word,unsigned int store,char* kind) // find t
     NextInferMark(); 
     WORDP D = FindWord(word,0);
     QueryFacts(D,D,0,store,kind,MakeMeaning(FindWord((char*)"a")));
-    if (trace & TRACE_INFER && CheckTopicTrace()) Log(STDUSERLOG,(char*)"QueryTopics: %s %d ",word,FACTSET_COUNT(store));
+    if (trace & TRACE_INFER) Log(STDUSERLOG,(char*)"QueryTopics: %s %d ",word,FACTSET_COUNT(store));
 	impliedSet = ALREADY_HANDLED;
 	return  NOPROBLEM_BIT;
 }
@@ -291,7 +291,7 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 	D->inferMark = saveMark; 
 	if (flags & QUEUE) queue[queueIndex++] = M;
 
-	if (trace & TRACE_QUERY && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY && CheckTopicTrace("^query"))
 	{
 		static char last[1000];
 		if (from)
@@ -340,7 +340,7 @@ static bool AddWordOnly(int flags,char* word,unsigned int type) // mark (and may
 	D->inferMark = saveMark; 
 	if (flags & QUEUE) queue[queueIndex++] = MakeMeaning(D);
 
-	if (trace & TRACE_QUERY && CheckTopicTrace())  Log(STDUSERLOG,(flags & QUEUE) ? (char*)" %s+" : (char*)" %s. ",D->word);
+	if (trace & TRACE_QUERY && CheckTopicTrace("^query"))  Log(STDUSERLOG,(flags & QUEUE) ? (char*)" %s+" : (char*)" %s. ",D->word);
 
 	return true;
 }
@@ -384,7 +384,7 @@ static void AddSet2Scan(unsigned int how,WORDP D,int depth)
 static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,unsigned int flag, unsigned int type)
 {
 	if (!T) return;
-	if (trace & TRACE_QUERY && CheckTopicTrace()) Log(STDUSERLOG,(char*)"\r\nHierarchy: (%s=>) ",WriteMeaning(T));
+	if (trace & TRACE_QUERY && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"\r\nHierarchy: (%s=>) ",WriteMeaning(T));
 	if (!AddWord2Scan(flag,T,0,0,type)) return;
 
 	parentIndex = parentWalk  = 0;
@@ -431,7 +431,7 @@ static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,u
 		{
 			WORDP verb = Meaning2Word(F->verb); 
 			FACT* G = F;
-			if (trace & TRACE_QUERY && CheckTopicTrace()) TraceFact(F);
+			if (trace & TRACE_QUERY && CheckTopicTrace("^query")) TraceFact(F);
 			F = GetSubjectNondeadNext(F);
 			if (verb->inferMark !=  flowmark) continue;
 
@@ -446,7 +446,7 @@ static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,u
 		}
 	}
 
-	if (trace & TRACE_QUERY && CheckTopicTrace()) Log(STDUSERLOG,(char*)"\r\n");
+	if (trace & TRACE_QUERY && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"\r\n");
 }
 
 static bool Riccochet(unsigned int baseFlags, FACT* G,int set,unsigned int limit,unsigned int rmarks,unsigned int rmarkv, unsigned int rmarko)
@@ -463,7 +463,7 @@ static bool Riccochet(unsigned int baseFlags, FACT* G,int set,unsigned int limit
 		D1 = (baseFlags & USE_ORIGINAL_SUBJECT) ? Meaning2Word(G->subject) : Meaning2Word(G->object);
 		F  = (baseFlags & RICCOCHET_USING_SUBJECT) ? GetSubjectNondeadHead(D1) : GetObjectNondeadHead(D1);
 	}
-	if (trace & TRACE_QUERY && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY && CheckTopicTrace("^query"))
 	{
 		WORDP S = (G->flags & FACTSUBJECT) ? fact : Meaning2Word(G->subject);
 		WORDP V = (G->flags & FACTVERB) ? fact : Meaning2Word(G->verb);
@@ -476,7 +476,7 @@ static bool Riccochet(unsigned int baseFlags, FACT* G,int set,unsigned int limit
 	// walk all facts at node testnig for riccochet
 	while (F)	 // walk_of_S3
 	{
-		if (trace & TRACE_QUERY && CheckTopicTrace()) TraceFact(F);
+		if (trace & TRACE_QUERY && CheckTopicTrace("^query")) TraceFact(F);
 		FACT* I = F; 
 		if (D1 == fact) F = NULL; // only the 1 main fact
 		else F = (baseFlags & RICCOCHET_USING_SUBJECT)  ? GetSubjectNondeadNext(F) : GetObjectNondeadNext(F);
@@ -491,7 +491,7 @@ static bool Riccochet(unsigned int baseFlags, FACT* G,int set,unsigned int limit
 
 		I->flags |= MARKED_FACT;
 		AddFact(set,I); 
-		if (trace & TRACE_QUERY && CheckTopicTrace()) 
+		if (trace & TRACE_QUERY && CheckTopicTrace("^query"))
 		{
 			Log(STDUSERLOG,(char*)"    Found:");
 			TraceFact(I);
@@ -506,7 +506,7 @@ static bool ConceptPropogateTest(MEANING M,unsigned int mark,unsigned int depth)
 	if (!depth) 
 	{
 		NextInferMark();
-		if (trace & TRACE_QUERY && CheckTopicTrace())  Log(STDUSERLOG,(char*)"\r\n ~propogate: ");
+		if (trace & TRACE_QUERY && CheckTopicTrace("^query"))  Log(STDUSERLOG,(char*)"\r\n ~propogate: ");
 	}
 	
 	FACT* F = GetSubjectNondeadHead(M);
@@ -516,7 +516,7 @@ static bool ConceptPropogateTest(MEANING M,unsigned int mark,unsigned int depth)
 		{
 			MEANING O = F->object;
 			WORDP D = Meaning2Word(O);
-			if (trace & TRACE_QUERY && CheckTopicTrace())  Log(STDUSERLOG,(char*)" %d->%s ",depth,D->word);
+			if (trace & TRACE_QUERY && CheckTopicTrace("^query"))  Log(STDUSERLOG,(char*)" %d->%s ",depth,D->word);
  
 			if (D->inferMark == mark) return true; // this is what we seek
 			if (D->inferMark != inferMark)// not already visited this pass or is marked for current query for other use
@@ -534,7 +534,6 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 {
 	int store = GetSetID(toset);
 	if (store == ILLEGAL_FACTSET) store = 0;
-	if (trace & TRACE_QUERY && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"QUERY: @%d %s ",store,kind);
 	WORDP C = FindWord(kind,0);
 	if (!C || !(C->internalBits & QUERY_KIND)) 
 	{
@@ -582,9 +581,9 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 		n = BurstWord(propogate);
 		if (n > 1) strcpy(propogate,JoinWords(n,false));
 	}
-	if (trace & TRACE_QUERY && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY ) 
 	{
-		Log(STDTRACETABLOG,(char*)" control: %s  s/v/o:[%s %s %s] count:%d ",control,subjectword,verbword,objectword,count);   
+		Log(STDTRACETABLOG,(char*)"^QUERY: @%d %s %s  s/v/o:[%s %s %s] count:%d ", store, kind,control,subjectword,verbword,objectword,count);
 		if (*fromset != '?') Log(STDUSERLOG,(char*)"fromset:%s ",fromset);   
 		if (*toset != '?') Log(STDUSERLOG,(char*)"toset:%s ",toset);   
 		if (*propogate != '?') Log(STDUSERLOG,(char*)"propogate:%s ",propogate);   
@@ -652,7 +651,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	fact = StoreWord((char*)"fact");// for foreign languages insure word is there
 
 	char maxmark = '0'; // deepest mark user has used
-	if (trace & TRACE_QUERY && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY && CheckTopicTrace("^query")) 
 	{
 		// convert all _ and periods to spaces for easier viewing
 		char* underscore;
@@ -681,7 +680,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				if (*control > maxmark) maxmark = *control;
 				continue;
 			case 'n':  // ignore all member facts involving topic as object
-				if (trace & TRACE_QUERY && CheckTopicTrace()) Log(STDUSERLOG,(char*)" ignore all member facts w topics as objects ");
+				if (trace & TRACE_QUERY && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" ignore all member facts w topics as objects ");
 				++control; 
 				baseFlags |= NOTOPIC;
 				continue;
@@ -700,7 +699,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				break;
 			case 'i': 
 				++control;
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" ignore #%c results ", *control);
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" ignore #%c results ", *control);
 				ignoremark = (*control == '0') ? 0 : (baseMark + (*control - '0'));
 				break;
 			case 's': 
@@ -784,7 +783,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			else if (choice[0] == SYSVAR_PREFIX && choice[1]) choice = SystemVariable(choice,NULL);
 			else if (choice[0] == '@' && GetSetID(choice) != ILLEGAL_FACTSET )
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace())  
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)"FactField: %c(%d) ",saveMark-baseMark+'0',saveMark);
@@ -809,7 +808,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 						ReportBug((char*)"bad control for choice[0] == '@' query %s(%s) %s",C->word,C->w.userValue,control)
 						return 0;
 					}
-					if (trace & TRACE_QUERY  && CheckTopicTrace())  Log(STDUSERLOG,(char*)" %s ",WriteMeaning(M));
+					if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))  Log(STDUSERLOG,(char*)" %s ",WriteMeaning(M));
 					AddWord2Scan((control[1] == 'q') ? (QUEUE|flags) : flags,M,0,0,0);
 				}
 				continue;
@@ -827,17 +826,17 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			if (choice[0] == '\\')  // accept this unchanged
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" raw ");
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" raw ");
 				++choice;
 			}
 
 			// for non-factset values of choice
 			char buf[1000];
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) sprintf(buf,(char*)"%s #%c(%d)",choice,saveMark-baseMark+'0',saveMark);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) sprintf(buf,(char*)"%s #%c(%d)",choice,saveMark-baseMark+'0',saveMark);
             if (*control == ' ') continue;
             if (*control == 'q')
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)"Tag+Queue: %s ",buf);
@@ -847,7 +846,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else if (*control == 'Q') 
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)"Tag+QueueWord: %s ",buf);
@@ -857,7 +856,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else  if (*control == 't') 
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)"Tag: %s ",buf);
@@ -869,7 +868,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else  if (*control == 'T') // tag and dont follow
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)"Tag: %s ",buf);
@@ -880,7 +879,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else  if (*control == 'e') 
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n");
 					Log(STDTRACETABLOG,(char*)" ExpandTag: %s ",buf);
@@ -892,7 +891,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				char kind = *control; //< or > 
 				int flows = baseMark + *++control - '0'; // mark for flow
 				unsigned int flag = (*++control == 'q') ? QUEUE : 0;
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					if (flag) Log(STDUSERLOG,(char*)" Tag+Queue Propogate %c ",kind);
 					else Log(STDUSERLOG,(char*)" Tag Propogate %c ",kind);
@@ -906,7 +905,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				ReportBug((char*)"bad follow argument %s",control)
 				return 0;
 			}
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 			{
 				Log(STDUSERLOG,(char*)"\r\n");
 				Log(STDTRACETABLOG,(char*)"");
@@ -929,7 +928,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	//   given items in queue, what field from a queued entry to use facts from 
 	if (*control) control = SkipWhitespace(control+1); // skip over the : and past any white space
 	if (!strncmp(control,(char*)"queue",5))  control = SkipWhitespace(control+5);  // just a label defining the field
-	if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 	{
 		char* colon = strchr(control+1,':');
 		if (colon) *colon = 0;
@@ -1009,7 +1008,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	saveMark = qMark;	//   default q value is what we used before
 	if (*control) control = SkipWhitespace(control+1); // skip over the : and past any white space
 	if (!strncmp(control,(char*)"match",5)) control = SkipWhitespace(control + 5);  // just a comment label defining what the field does
-	if (trace & TRACE_QUERY && *control && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY && *control && CheckTopicTrace("^query"))
 	{
 		char* colon = strchr(control+1,':');
 		if (colon) *colon = 0;
@@ -1031,22 +1030,22 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			++control;
 			if (*control == 's')  
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" don't match subjects #%c ",*control);
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" don't match subjects #%c ",*control);
 				markns = baseMark + (*++control - '0');
 			}
 			if (*control == 'v')  
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" don't match verbs #%c ",*control);
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" don't match verbs #%c ",*control);
 				marknv = baseMark + (*++control - '0');
 			}
 			if (*control == 'o')  
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" don't match objects #%c ",*control);
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" don't match objects #%c ",*control);
 				markno = baseMark + (*++control - '0');
 			}
 			if (*control == 'n')
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" don't match concepts with noconceptlist marking ");
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" don't match concepts with noconceptlist marking ");
 				noSystemFlag = true;
 				systemFlags = NOCONCEPTLIST;
 			}
@@ -1061,21 +1060,21 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			//   normal tests of fact fields
 		case 's': 
 			marks = baseMark + (*++control - '0'); 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" subject must be #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" subject must be #%c ",*control);
 			break;
 		case 'v': 
 			markv = baseMark + (*++control - '0'); 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" verb must be #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" verb must be #%c ",*control);
 			break;
 		case 'o': 
 			marko = baseMark + (*++control - '0'); 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" object must be #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" object must be #%c ",*control);
 			break;
 			
 		//   dont pay attention to this value during search (opposite the baseOffset)
 		case 'i': 
 			++control;
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" ignore results with #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" ignore results with #%c ",*control);
 			ignoremark = (*control == '0') ? 0 : (baseMark + (*control - '0'));
 			break;
 		//   future queuing uses this mark (hopefully same as original queued)
@@ -1112,11 +1111,11 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 
 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" propogate on verb #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" propogate on verb #%c ",*control);
 			propogateVerb = baseMark + (*++control - '0'); //   label of verbs to propogate on
 			break;
 		case '@': //   where to put answers (default is store)
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" store facts in @%c",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" store facts in @%c",*control);
 			whichset = *++control - '0';
 			break;
 		case '^':
@@ -1130,7 +1129,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			if (*control == 'o') ultimateObjectMember = baseMark + (*++control - '0'); 
 			else if (*control == 'v') ultimateVerbMember = baseMark + (*++control - '0'); 
 			else if (*control == 's') ultimateSubjectMember = baseMark + (*++control - '0'); 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)" object must ultimately be member of set marked #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)" object must ultimately be member of set marked #%c ",*control);
 			break;
 		default: 
 			ReportBug((char*)"Bad control code for Zone 3 test %s(%s) %s",C->word,C->w.userValue,control)
@@ -1149,7 +1148,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 */
 	if (*control) control = SkipWhitespace(control+1); // skip over the : and past any white space
 	if (!strncmp(control,(char*)"walk",4)) control = SkipWhitespace(control +4);
-	if (trace & TRACE_QUERY && *control && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY && *control && CheckTopicTrace("^query"))
 	{
 		char* colon = strchr(control+1,':');
 		if (colon) *colon = 0;
@@ -1168,15 +1167,15 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			continue;
 		//   tests on riccochet fields
 		case 'S': 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Riccochet on Subject #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"Riccochet on Subject #%c ",*control);
 			rmarks = baseMark + (*++control - '0'); 
 			break;
 		case 'V': 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Riccochet on Verb #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"Riccochet on Verb #%c ",*control);
 			rmarkv = baseMark + (*++control - '0'); 
 			break;
 		case 'O': 
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Riccochet on Object #%c ",*control);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"Riccochet on Object #%c ",*control);
 			rmarko = baseMark + (*++control - '0'); 
 			break;
 
@@ -1195,7 +1194,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			return 0;
 		}
 	}
-	if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+	if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 	{
 		Log(STDUSERLOG,(char*)"Start processing loop\r\n");
 		Log(STDTRACETABLOG,(char*)"");
@@ -1232,7 +1231,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		bool once = false;
 		while (F)
 		{
-			if (trace & TRACE_QUERY  && CheckTopicTrace()) TraceFact(F, true);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) TraceFact(F, true);
 
 			//   prepare for next fact to walk
 			FACT* G = F;
@@ -1280,18 +1279,18 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			//   if this is part of ignore set, ignore it (not good if came via verb BUG)
 			if (ignoremark && OTHER->inferMark == ignoremark ) 
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)"ignore ");
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"ignore ");
 				continue;
 			}
 			// pay no attention to topic facts
 			if (baseFlags & NOTOPIC && O->internalBits & TOPIC)
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) Log(STDUSERLOG,(char*)"notopic ");
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(STDUSERLOG,(char*)"notopic ");
 				continue;
 			}
 			
 			bool match = true;
-			if (trace & TRACE_QUERY  && CheckTopicTrace())
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 			{
 				Log(STDUSERLOG, (char*)"(%d %d %d) => (%d %d %d)\r\n", marks, markv, marko, S->inferMark, V->inferMark, O->inferMark);
 				Log(STDTRACETABLOG, (char*)"");
@@ -1369,7 +1368,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			{
 				G->flags |= MARKED_FACT;
 				AddFact(whichset,G);
-				if (trace & TRACE_QUERY && CheckTopicTrace() ) 
+				if (trace & TRACE_QUERY && CheckTopicTrace("^query") )
 				{
 					Log(STDUSERLOG,(char*)"    Found:");
 					TraceFact(G);
@@ -1402,13 +1401,13 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			//   if propogation is enabled, queue appropriate choices
 			if (match && baseFlags & FINDTOPIC && OTHER->internalBits & TOPIC) // supposed to find a topic
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n propogate ");
 					Log(STDTRACETABLOG,(char*)"");
 				}
 				AddFact(whichset,G); 
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"    Found:");
 					TraceFact(G);
@@ -1425,13 +1424,13 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else if (match && baseFlags & FINDCONCEPT && OTHER->internalBits & CONCEPT && !(OTHER->internalBits & TOPIC)) // supposed to find a concept
 			{
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"\r\n propogate ");
 					Log(STDTRACETABLOG,(char*)"");
 				}
 				AddFact(whichset,G); 
-				if (trace & TRACE_QUERY  && CheckTopicTrace()) 
+				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
 					Log(STDUSERLOG,(char*)"    Found:");
 					TraceFact(G);
@@ -1448,13 +1447,13 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 
             if (propogateVerb && V->inferMark == propogateVerb) // this is not a fact to check, this is a fact to propogate on
             {
-                if (trace & TRACE_QUERY  && CheckTopicTrace())
+                if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
                 {
                     Log(STDUSERLOG, (char*)"\r\n propogate %s", Meaning2Word(OUTGOING)->word);
                     Log(STDTRACETABLOG, (char*)"");
                 }
                 if (AddWord2Scan(QUEUE, OUTGOING, INCOMING, 0, 0)) SetFactBack(OTHER, INCOMING);  // add object onto queue and provide traceback
-                if (trace & TRACE_QUERY  && CheckTopicTrace())
+                if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
                 {
                     Log(STDUSERLOG, (char*)"\r\n");
                     Log(STDTRACETABLOG, (char*)"");
@@ -1468,7 +1467,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	unsigned int counter = FACTSET_COUNT(whichset);
 	for (unsigned int i = 1; i <= counter; ++i) factSet[whichset][i]->flags &= -1 ^ MARKED_FACT;
 	factSetNext[store] = 0;
-    if (trace & TRACE_QUERY && CheckTopicTrace()) 
+    if (trace & TRACE_QUERY) 
 	{
 		char word[MAX_WORD_SIZE];
 		if (counter) Log(STDTRACETABLOG,(char*)" result: @%d[%d] e.g. %s\r\n",whichset,counter,WriteFact(factSet[whichset][1],false,word));

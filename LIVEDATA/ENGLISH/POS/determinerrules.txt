@@ -1,4 +1,14 @@
 
+# What as determiner noun clause starter following later with "be" - "what* government offers is"
+0	START
+	STAY ISORIGINAL what
+	STAY INCLUDE * DETERMINER
+	SKIP !HAS NOUN_BITS PRONOUN_BITS VERB_BITS # junk before a noun
+	HAS NOUN_BITS
+	HAS VERB_BITS
+	ISCANONICAL be
+KEEP
+
 #  "that" following noun (normal) wont be determiner - trend (Noun_singular)  that/a (Pronoun_subject Conjunction_subordinate Determiner) 
  -1 IS NOUN_BITS - NOUN_INFINITIVE - NOUN_GERUND
 	INCLUDE * DETERMINER

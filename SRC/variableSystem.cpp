@@ -91,14 +91,54 @@ void JoinMatch(int start, int end, int index, bool inpattern)
 		strcpy(wildcardCanonicalText[index], "unknown-word"); 
 	// proper names canonical is same, but merely having 1 uppercase is not proper if multiword "I live here" _*
 	// else if (proper && start != end) strcpy(wildcardCanonicalText[index], wildcardOriginalText[index]);
-    WORDP D;
-    if (uppercaseFind > 0 && uppercaseFind != 0x01000000) D = Index2Word((uppercaseFind & 0x00ffffff));
+    
+	WORDP D;
+	if (uppercaseFind > 0 && uppercaseFind != DONTUSEEXACT) // which upper case form is this
+	{
+		D = Index2Word((uppercaseFind & 0x00ffffff)); // was capitalized this way
+		int len = strlen(D->word);
+		if (*wildcardSeparator == ' ' && strchr(D->word, '_')) // need to change notation
+		{
+			char* word = AllocateBuffer();
+			strcpy(word, D->word);
+			char* at = word;
+			while ((at = strchr(at, '_'))) *at = ' ';
+			D = StoreWord(word,AS_IS);
+			FreeBuffer();
+		}
+		else if (*wildcardSeparator == '_' && strchr(D->word, ' ')) // need to change notation
+		{
+			char* word = AllocateBuffer();
+			strcpy(word, D->word);
+			char* at = word;
+			while ((at = strchr(at, ' '))) *at = '_';
+			D = StoreWord(word, AS_IS);
+			FreeBuffer();
+		}
+		if (len == strlen(wildcardOriginalText[index]) &&  StricmpUTF(D->word, wildcardCanonicalText[index], len)) uppercaseFind = DONTUSEEXACT;  // was not a possible variant capitalization of the word. probably matched via ^mark(xxx) on a location
+		else if (start > 0)
+		{
+			char* words = AllocateBuffer();
+			start = derivationIndex[start] >> 8; // from here
+			end = derivationIndex[end] & 0x00ff;  // to here but not including here  The end may be beyond wordCount if words have been deducted by now
+			for (int i = start; i <= end; ++i)
+			{
+				strcat(words, derivationSentence[i]);
+				if (i != end) strcat(words, wildcardSeparator);
+			}
+			if (StricmpUTF(words, wildcardOriginalText[index], len)) uppercaseFind = DONTUSEEXACT;
+			FreeBuffer();
+		}
+	}
+	if (uppercaseFind > 0 && uppercaseFind != DONTUSEEXACT)  D = Index2Word((uppercaseFind & 0x00ffffff)); // was capitalized this way
     else D = FindWord(wildcardCanonicalText[index], 0, STANDARD_LOOKUP);
     if (D) strcpy(wildcardCanonicalText[index], D->word); // but may not be found if original has plural or such or if uses _
-    if (uppercaseFind > 0 && uppercaseFind != 0x01000000) D = Index2Word((uppercaseFind & 0x00ffffff));
+   
+    if (uppercaseFind > 0 && uppercaseFind != DONTUSEEXACT) D = Index2Word((uppercaseFind & 0x00ffffff));
     else D = FindWord(wildcardOriginalText[index], 0, STANDARD_LOOKUP);
     if (D) strcpy(wildcardOriginalText[index], D->word); // but may not be found if original has plural or such or if uses _
     uppercaseFind = -1; // use it up
+
     if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(STDUSERLOG, (char*)"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
 }
 
@@ -164,6 +204,7 @@ void SetWildCardGivenValue(char* original, char* canonical, int start, int end, 
     else JoinMatch(start, end, index, false); // did match
     if (start == 0) start = end = 1;
     if (start == -1) start = end = 0;
+	if (!*original) end = start = 0; // no match found, indicate no position
     wildcardPosition[index] = start | WILDENDSHIFT(end);
 }
 
@@ -207,7 +248,8 @@ char* GetwildcardText(unsigned int i, bool canon)
 
 char* GetUserVariable(const char* word, bool nojson, bool fortrace)
 {
-    int len = 0;
+	if (!dictionaryLocked && !compiling) return "";
+	int len = 0;
     const char* separator = (nojson) ? (const char*)NULL : strchr(word, '.');
     const char* bracket = (nojson) ? (const char*)NULL : strchr(word, '[');
     if (!separator && bracket) separator = bracket;

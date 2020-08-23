@@ -674,7 +674,7 @@ void Client(char* login)// test client for a server
 	else msg = "";
 
 restart: // start with user
-	char* separator = strchr(from, ':'); // login is username  or  username:botname
+	char* separator = strchr(from, ':'); // login is username  or  username:botname or username:botname/trace or username:trace
 	if (separator)
 	{
 		*separator = 0;
@@ -695,7 +695,7 @@ restart: // start with user
 	ptr += strlen(user);
 	*ptr++ = 0;
 	strcpy(ptr, botp);
-	ptr += strlen(ptr); // botname
+	ptr += strlen(ptr); // botname (and may have optional flags on it)
 	*ptr++ = 0;
 	*ptr = 0;
 	size_t baselen = ptr - sendbuffer; // length of  message user/bot header not including message
@@ -1761,8 +1761,7 @@ static void* MainChatbotServer()
 	chatbotExists = true;   //  if a client can get the chatlock now, he will be happy
 	bool oldserverlog = serverLog;
 	serverLog = true;
-	Log(SERVERLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
-	(*printer)((char*)"Server ready - logfile:%s serverLog:%d userLog:%d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
+	Log(SERVERECHOLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
 	serverLog = oldserverlog;
 	int returnValue = 0;
 

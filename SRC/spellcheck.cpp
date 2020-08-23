@@ -427,6 +427,40 @@ bool SpellCheckSentence()
 					fixedSpell = ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
 					continue;
 				}
+
+				// try underscore word
+				bigword[--len] = 0;
+				strcpy(bigword + len++, "_");
+				strcpy(bigword + len, wordStarts[i + 1]);
+				XX = FindWord(bigword);
+				if (XX && UsefulKnownWord(XX))
+				{
+					WORDP Z = StoreWord(XX->word + len);
+					bigword[len - 1] = 0;
+					WORDP Y = StoreWord(bigword);
+					if (strcmp(wordStarts[i],Y->word) && strcmp(wordStarts[i+1], Z->word))
+					{ 
+						tokens[1] = Y->word;
+						tokens[2] = Z->word;
+						fixedSpell = ReplaceWords("merge to underscore word", i, 2, 2, tokens);
+					}
+					else if (strcmp(wordStarts[i], Y->word) )
+					{
+						tokens[1] = Y->word;
+						fixedSpell = ReplaceWords("merge to underscore word1", i, 1,1, tokens);
+						++i;
+					}
+					else if (strcmp(wordStarts[i + 1], Z->word))
+					{
+						tokens[1] = Z->word;
+						++i;
+						fixedSpell = ReplaceWords("merge to underscore word2", i, 1, 1, tokens);
+					}
+					else ++i; // accept both as given, we will detect them later
+					continue;
+				}
+
+
 			}
 		}
 		if (spellTrace)
@@ -461,7 +495,15 @@ bool SpellCheckSentence()
 			else if (D <= dictionaryPreBuild[LAYER_0]) good = true; // in dictionary - if a substitute would have happend by now
 			else if (!isEnglish) good = true; // foreign word we know
 			else if (IsConceptMember(D)) good = true;
-			if (good) continue;
+			if (good)
+			{
+				if (strcmp(D->word, word)) // different capitalization
+				{
+					tokens[1] = D->word;
+					fixedSpell = ReplaceWords("' alternate capitalization", i, 1, 1, tokens);
+				}
+				continue;
+			}
 		}
 		// handle lower case forms of upper case nouns
 		if (isGerman && !D)

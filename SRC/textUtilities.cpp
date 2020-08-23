@@ -1455,6 +1455,18 @@ bool IsPlaceNumber(char* word, int useNumberStyle) // place number and fraction 
 	return (IsNumber(num,useNumberStyle,false) == PLACETYPE_NUMBER) ? true : false; // show it is correctly a number - pass false to avoid recursion from IsNumber
 }
 
+char* ReadTabField(char* buffer, char* storage)
+{
+	if (!buffer) return NULL;
+
+	char* end = strchr(buffer, '\t');
+	if (!end) return NULL;
+	*end = 0;
+	strcpy(storage, SkipWhitespace(buffer));
+	int len = strlen(storage);
+	while (storage[len - 1] == ' ') storage[--len] = 0;
+	return end + 1;
+}
 
 bool IsFractionNumber(char* word) // fraction numbers
 {

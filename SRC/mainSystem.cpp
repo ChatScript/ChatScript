@@ -1,13 +1,15 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.5";
+char* version = "10.6";
 char sourceInput[200];
 FILE* userInitFile;
 bool fastload = true;
 int externalTagger = 0;
 char defaultbot[100];
 uint64 chatstarted = 0;
+int sentenceloopcount = 0;
 bool client = false;
+bool stdlogging = false;
 uint64 preparationtime = 0;
 uint64 replytime = 0;
 unsigned int timeLog = 2147483647;
@@ -844,7 +846,11 @@ static void ProcessArgument(char* arg)
 		myexit((char*)"client ended");
 	}  
 #endif
-	else if (!stricmp(arg,(char*)"userlog")) userLog = LOGGING_SET;
+	else if (!strnicmp(arg, (char*)"userlog",7))
+	{
+		userLog = LOGGING_SET;
+		if (arg[7] == '=') userLog = (atoi(arg + 8) != 0) ? LOGGING_SET : 0;
+	}
 	else if (!stricmp(arg,(char*)"nouserlog")) userLog = 0;
     else if (!stricmp(arg, (char*)"dieonwritefail")) dieonwritefail = true;
 	else if (!strnicmp(arg, (char*)"hidefromlog=", 12))
@@ -859,12 +865,19 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg,(char*)"serverretry")) serverRetryOK = true;
 	else if (!stricmp(arg,(char*)"local")) server = false; // local standalone
 	else if (!stricmp(arg, (char*)"noserverlog")) serverLogDefault = serverLog = false;
+	else if (!strnicmp(arg, (char*)"serverlog", 9))
+	{
+		serverLog = true;
+		if (arg[9] == '=') serverLog = (atoi(arg + 10) != 0) ? true : false;
+		serverLogDefault = bugLog = serverLog;
+	}
 	else if (!stricmp(arg, (char*)"nobuglog")) bugLog = false;
 	else if (!stricmp(arg, (char*)"buglog")) bugLog = true;
 	else if (!strnicmp(arg, (char*)"timelog=",8)) timeLog = atoi(arg+8);
-	else if (!stricmp(arg, (char*)"serverlog")) serverLogDefault = bugLog = serverLog = true;
 	else if (!stricmp(arg, (char*)"noserverprelog")) serverPreLog = false;
 	else if (!stricmp(arg,(char*)"serverctrlz")) serverctrlz = 1;
+	else if (!strnicmp(arg, (char*)"stdlogging=", 11)) 
+		stdlogging = (atoi(arg+11) != 0) ? true : false ;
 	else if (!strnicmp(arg,(char*)"port=",5))  // be a server
 	{
         port = atoi(arg+5); // accept a port=
@@ -1131,6 +1144,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 #ifdef LINUX
 	setSignalHandlers();
 #endif
+	if (!server) stdlogging = false; // even if requested, dont use stdin and stdout when not a server (stdout is for cs normal output)
 
 #ifndef DISCARDSERVER
 	if (server)
@@ -1196,11 +1210,9 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	{
 		struct tm ptm;
 #ifndef EVSERVER
-		Log(SERVERLOG, "\r\n\r\n======== Began server %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",version,compileDate,hostname,port,GetTimeInfo(&ptm,true),oldserverlog,userLog);
-        (*printer)((char*)"\r\n\r\n======== Began server %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",version,compileDate,hostname,port,GetTimeInfo(&ptm,true),oldserverlog,userLog);
+		Log(SERVERECHOLOG, "\r\n\r\n======== Began server %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",version,compileDate,hostname,port,GetTimeInfo(&ptm,true),oldserverlog,userLog);
 #else
-		Log(SERVERLOG, "\r\n\r\n======== Began EV server pid %d %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",getpid(),version,compileDate,hostname,port,GetTimeInfo(&ptm,true),oldserverlog,userLog);
-        (*printer)((char*)"\r\n\r\n======== Began EV server pid %d  %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",getpid(),version,compileDate,hostname,port,GetTimeInfo(&ptm,true),oldserverlog,userLog);
+		Log(SERVERECHOLOG, "\r\n\r\n======== Began EV server pid %d %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",getpid(),version,compileDate,hostname,port,GetTimeInfo(&ptm,true),oldserverlog,userLog);
 #endif
 	}
 	serverLog = oldserverlog;
@@ -1242,7 +1254,6 @@ void PartiallyCloseSystem(bool keepalien) // server data (queues, databases, etc
 		FreeAllUserCaches(); // user system
 		CloseDictionary();	// dictionary system
 		CloseFacts();		// fact system
-		CloseBuffers();		// memory system
 		CloseDatabases(true);
 	}
 }
@@ -2167,14 +2178,14 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	char* starttoken = at;
 	--at;
     char* quote = NULL;
-    while (*++at) // scan user input (skipped oob data)
+    while (*++at) // scan user input (skipped oob data) for unreasonably long tokenization
 	{
 		if (*at == '\\') // absorb backslash on user input? is this safe to do?
 		{
 			++at;
 			continue;
 		}
-        if (*at > 0 && *at < 32) *at = ' ';
+        if (*at > 0 && *at < 32) *at = ' '; // convert control stuff to spaces
 		if (*at == '"')
 		{
 			if (quote) quote = NULL;
@@ -2187,8 +2198,12 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		}
 		if (*at == ' ' && !quote) // proper token separator
 		{
-			if ((at- starttoken) > (MAX_WORD_SIZE-1)) 
-				break; // trouble - token will be too big
+			if ((at - starttoken) > (MAX_WORD_SIZE - 1)) // trouble - token will be too big, drop excess
+			{
+				ReportBug("User input token size too big %d vs %d for ==> %s <== in %s", (at - starttoken), MAX_WORD_SIZE, starttoken, realinput)
+				memmove(starttoken + MAX_WORD_SIZE - 10, at, strlen(at) + 1);
+				at = starttoken + MAX_WORD_SIZE - 10;
+			}
 			starttoken = at + 1;
 		}
 		else if (quote && (at - starttoken) > (MAX_WORD_SIZE - 1)) // quote not closed soon enough
@@ -2198,12 +2213,12 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 			quote = NULL;
 		}
 	}
-	if ((at - starttoken) > (MAX_WORD_SIZE - 1))
+	if ((at - starttoken) > (MAX_WORD_SIZE - 1)) // token will be too big at end, drop excess
 	{
-		starttoken[MAX_WORD_SIZE - 5] = 0; // trouble - cut him off at the knees losing all input after that
-		ReportBug("User input token size too big %d vs %d for ==> %s <== in %s" ,(at- starttoken), MAX_WORD_SIZE, starttoken, realinput)
+		ReportBug("User input token size too big %d vs %d for ==> %s <== in %s", (at - starttoken), MAX_WORD_SIZE, starttoken, realinput)
+		starttoken[MAX_WORD_SIZE - 10] = 0;
 	}
-    
+
 	char* first = incoming;
 #ifndef DISCARDTESTING
 	if (!server && !(*first == ':' && IsAlphaUTF8(first[1]))) strcpy(revertBuffer,first); // for a possible revert
@@ -2602,10 +2617,10 @@ loopback:
 	strcpy(prepassTopic,GetUserVariable((char*)"$cs_prepass"));
 	nextInput = buffer;
 	if (!documentMode)  AddHumanUsed(buffer);
- 	int loopcount = 0;
-	while (((nextInput && *nextInput) || startConversation) && loopcount < sentenceLimit) // loop on user input sentences
+ 	sentenceloopcount = 0;
+	while (((nextInput && *nextInput) || startConversation) && sentenceloopcount < sentenceLimit) // loop on user input sentences
 	{
-		sentenceOverflow = (loopcount + 1) >= sentenceLimit; // is this the last one we will do
+		sentenceOverflow = (sentenceloopcount + 1) >= sentenceLimit; // is this the last one we will do
 		nextInput = SkipWhitespace(nextInput);
 		if (nextInput[0] == INPUTMARKER) // submitted by ^input `` is start,  ` is end
 		{
@@ -2615,7 +2630,7 @@ loopback:
 			continue;
 		}
 		topicIndex = currentTopicID = 0; // precaution
-		FunctionResult result = DoSentence(prepassTopic,loopcount >= (sentenceLimit - 1)); // sets nextInput to next piece
+		FunctionResult result = DoSentence(prepassTopic, sentenceloopcount >= (sentenceLimit - 1)); // sets nextInput to next piece
 		if (result == RESTART_BIT)
 		{
 			pendingRestart = true;
@@ -2654,7 +2669,7 @@ loopback:
 			++sourceLines;
 		}
 		startConversation = false;
-		++loopcount;
+		++sentenceloopcount;
 	}
 
 	return true;
@@ -2742,7 +2757,6 @@ retry:
 	PrepareSentence(nextInput,true,true,false,true); // user input.. sets nextinput up to continue
 	nextInput = SkipWhitespace(nextInput);
 	if (atlimit) sentenceOverflow = true;
-	MoreToCome();
 
 	char nextWord[MAX_WORD_SIZE];
 	ReadCompiledWord(nextInput,nextWord);
@@ -3204,7 +3218,8 @@ void NLPipeline(int mytrace)
 			memcpy(original + 1, wordStarts + 1, wordCount * sizeof(char*));	// replicate for test
 			originalCount = wordCount;
 		}
-	}
+	}	
+
 
 	// spell check unless 1st word is already a known interjection. Will become standalone sentence
 	if (tokenControl & DO_SPELLCHECK && wordCount && *wordStarts[1] != '~' )
@@ -3230,10 +3245,11 @@ void NLPipeline(int mytrace)
 				for (i = 1; i <= wordCount; ++i) Log(STDUSERLOG, (char*)"%s  ", wordStarts[i]);
 				Log(STDUSERLOG, (char*)"\r\n");
 			}
-			// resubstitute after spellcheck did something
-			if (tokenFlags & DO_SPELLCHECK && tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE))  ProcessSubstitutes();
-			originalCount = wordCount;
 		}
+        originalCount = wordCount;
+
+        // resubstitute after spellcheck did something
+        if (tokenFlags & DO_SPELLCHECK && tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE))  ProcessSubstitutes();
 
 		if (spellTrace) {}
 		else if (mytrace & TRACE_INPUT  || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
@@ -3278,7 +3294,16 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	}
 
 	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark
+	ptr = SkipWhitespace(ptr);
+	char startc = *ptr;
     ptr = Tokenize(ptr,wordCount,wordStarts,false,oobstart); 
+	if (!wordCount && startc) // insure we return something always
+	{
+		char x[10];
+		x[0] = startc;
+		x[1] = 0;
+		wordStarts[++wordCount] = AllocateHeap(x);	
+	}
 	actualTokenCount = wordCount;
 	upperCount = 0;
 	lowerCount = 0;
@@ -3398,7 +3423,9 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 			}
 		}
 	}
- 	if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
+	nextInput = ptr;	//   allow system to overwrite input here (even for analyze) but this may blow nextinputs outside of analyze
+	MoreToCome();
+	if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 	{
 		Log(STDUSERLOG,(char*)"TokenControl: ");
 		DumpTokenControls(tokenControl);
@@ -3426,7 +3453,6 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
             MarkWordHit(0, false, StoreWord(wordStarts[i], AS_IS), 0, i, i);
         }
     }
-	nextInput = ptr;	//   allow system to overwrite input here (even for analyze) but this may blow nextinputs outside of analyze
 	int i, j;
 	if (!oobExists && tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
 	{
@@ -3462,6 +3488,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 				strcpy(end, nextInput); // a copy of rest of input
 				strcpy(nextInput, buffer); // unprocessed user input is here
 				ptr = nextInput;
+				MoreToCome(); // split interjection must fix more flag
 			}
 		}
 		FreeBuffer();
@@ -3514,7 +3541,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 			}
 			Log(STDUSERLOG,(char*)" ");
 		}
-		Log(STDUSERLOG,(char*)"\r\n\r\n");
+		Log(STDUSERLOG,(char*)"    more=%d\r\n\r\n", moreToCome);
 	}
 
 	if (echoSource == SOURCE_ECHO_LOG) 

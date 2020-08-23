@@ -500,7 +500,7 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 		{
 			if (F->flags & START_ONLY && start != 1) { block = true; }  // must begin the sentence
 			else if (F->flags & END_ONLY && end != wordCount && !(F->flags & START_ONLY)) { block = true; }  // must begin the sentence
-			else if (F->flags & (START_ONLY | END_ONLY) && start == 1)
+			else if ((F->flags & (START_ONLY | END_ONLY)) == (START_ONLY | END_ONLY) && start == 1)
 			{
 				if (end == wordCount) { ; }
 				else if (*wordStarts[end + 1] == ',') { ; }
@@ -646,8 +646,8 @@ void MarkMeaningAndImplications(int depth, int exactWord,MEANING M,int start, in
 	if (!exactWord)
 	{
 		if (D->internalBits & UPPERCASE_HASH) MarkAllMeaningAndImplications(depth,  M, start, end, canonical, sequence, once);
-		else if (*D->word == '~') exactWord = (canonical) ? 0x01000000 : 0; // dont use this word as the match
-		else exactWord = (canonical) ? 0x01000000 : 0;
+		else if (*D->word == '~') exactWord = (canonical) ? DONTUSEEXACT : 0; // dont use concept word as the match
+		else exactWord = (canonical) ? DONTUSEEXACT : 0;
 	}
 																 // We mark words/phrases  and concepts and words/concepts implied by them.
 	// We mark words by meaning (63) + generic. They always have a fixed size match.
