@@ -589,12 +589,12 @@ static char* SystemCall(char* buffer,char* ptr, CALLFRAME* frame,FunctionResult 
     frame->arguments = callArgumentIndex - frame->varBaseIndex - 1;
 
 	// default up to 6 optional arguments and make them plausibly writable (but still would have bug if someone writes large data to them)
-	callArgumentList[callArgumentIndex] = AllocateStack("", MAX_WORD_SIZE);
-	callArgumentList[callArgumentIndex+1] = AllocateStack("", MAX_WORD_SIZE);
-	callArgumentList[callArgumentIndex+2] = AllocateStack("", MAX_WORD_SIZE); 
-	callArgumentList[callArgumentIndex+3] = AllocateStack("", MAX_WORD_SIZE);
-	callArgumentList[callArgumentIndex+4] = AllocateStack("", MAX_WORD_SIZE); 
-	callArgumentList[callArgumentIndex+5] = AllocateStack("", MAX_WORD_SIZE); 
+	callArgumentList[callArgumentIndex] = (char*) "";
+	callArgumentList[callArgumentIndex+1] = (char*) "";
+	callArgumentList[callArgumentIndex+2] = (char*) "";
+	callArgumentList[callArgumentIndex+3] = (char*) "";
+	callArgumentList[callArgumentIndex+4] = (char*) "";
+	callArgumentList[callArgumentIndex+5] = (char*) "";
 	if ((trace & (TRACE_OUTPUT|TRACE_USERFN) || D->internalBits & MACRO_TRACE) && !(D->internalBits & NOTRACE_FN) && CheckTopicTrace()) 
 	{
 		--globalDepth; // patch depth because call data should be outside of depth

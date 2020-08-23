@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.6";
+char* version = "10.61";
 char sourceInput[200];
 FILE* userInitFile;
 bool fastload = true;

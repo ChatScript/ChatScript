@@ -420,12 +420,12 @@ char* AllocateStack(char* word, size_t len,bool localvar,int align) // call with
         x &= 0xfffffffffffffff8;
         stackFree = (char*)x;
     }
-
-	if ((stackFree + len + 1) >= heapFree - 30000000) // dont get close
+	unsigned int avail = heapFree - (stackFree + len + 1);
+	if (avail < 3000000) // dont get close
 	{
 		int xx = 0;
 	}
-	if ((stackFree + len + 1) >= heapFree - 5000) // dont get close
+	if (avail < 5000) // dont get close
     {
 		ReportBug((char*)"Out of stack space stringSpace:%d ReleaseStackspace:%d \r\n",heapBase-heapFree,stackFree - stackStart);
 		return NULL;
