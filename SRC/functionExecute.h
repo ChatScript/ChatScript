@@ -143,6 +143,7 @@ char* ResultCode(FunctionResult result);
 FunctionResult FLR(char* buffer,char* which);
 void ResetUser(char* input);
 bool RuleTest(char* rule);
+extern int debugValue;
 FunctionResult DebugCode(char* buffer);
 FunctionResult IdentifyCode(char* buffer);
 FunctionResult MatchCode(char* buffer);

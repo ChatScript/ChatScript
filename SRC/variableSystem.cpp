@@ -115,7 +115,7 @@ void JoinMatch(int start, int end, int index, bool inpattern)
 			D = StoreWord(word, AS_IS);
 			FreeBuffer();
 		}
-		if (len == strlen(wildcardOriginalText[index]) &&  StricmpUTF(D->word, wildcardCanonicalText[index], len)) uppercaseFind = DONTUSEEXACT;  // was not a possible variant capitalization of the word. probably matched via ^mark(xxx) on a location
+		if (len == (int)strlen(wildcardOriginalText[index]) &&  StricmpUTF(D->word, wildcardCanonicalText[index], len)) uppercaseFind = DONTUSEEXACT;  // was not a possible variant capitalization of the word. probably matched via ^mark(xxx) on a location
 		else if (start > 0)
 		{
 			char* words = AllocateBuffer();
@@ -248,7 +248,7 @@ char* GetwildcardText(unsigned int i, bool canon)
 
 char* GetUserVariable(const char* word, bool nojson, bool fortrace)
 {
-	if (!dictionaryLocked && !compiling) return "";
+	if (!dictionaryLocked && !compiling && !rebooting && currentBeforeLayer != LAYER_BOOT) return "";
 	int len = 0;
     const char* separator = (nojson) ? (const char*)NULL : strchr(word, '.');
     const char* bracket = (nojson) ? (const char*)NULL : strchr(word, '[');
@@ -307,7 +307,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
             if (*(separator1 - 1) == ']') --len;	// prior close of array ref
         }
         else len = 0;
-        WORDP key;
+        WORDP key = NULL;
         if (factvalue)
         {
             if (separator[1] == 's' || separator[1] == 'S') label = "subject";
@@ -358,7 +358,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
                 val[len] = 0;
                 label = GetUserVariable(val); // key is a variable name or index, go get it to use real key
                 if (IsDigit(*label)) key = FindWord(label);
-                if (!IsDigit(*label))  goto NULLVALUE;
+                else if (!IsDigit(*label))  goto NULLVALUE;
             }
             else if ((*label == '_' && IsDigit(label[1])) || (*label == '\'' && label[1] == '_' && IsDigit(label[2]))) // indirection key match variable
             {
@@ -486,7 +486,7 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
 	else if (D->internalBits & BOTVAR) {}  // system vars have already been inited
     else if (!(D->internalBits & VAR_CHANGED))	// not changed already this volley
     {
-		userVariableThreadList = AllocateHeapval(userVariableThreadList, (uint64)D, NULL, NULL);
+		userVariableThreadList = AllocateHeapval(userVariableThreadList, (uint64)D, (uint64)0, (uint64)0);
 		D->internalBits |= VAR_CHANGED; // bypasses even locked preexisting variables
  		if (init) D->w.userValue = NULL;
 	}
@@ -506,7 +506,7 @@ void SetVariable(WORDP D, char* value)
         if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue, value))) // only permanent variables get tracked
         {
             variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,
-                (uint64)D, (uint64)D->w.userValue, NULL);// save name
+                (uint64)D, (uint64)D->w.userValue, (uint64)0);// save name
         }
         D->w.userValue = value;
     }
@@ -765,13 +765,13 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
     else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
 
     // try json array set op?
-    if (!strnicmp(oldValue, "ja-", 3))
+    if (IsValidJSONName(oldValue, 'a'))
     {
         if (*op != '+') return FAILRULE_BIT;
         FunctionResult result = NOPROBLEM_BIT;
         WORDP old = FindWord(oldValue);
         char junk[10];
-        if (!strnicmp(moreValue, "ja-", 3))
+        if (IsValidJSONName(moreValue, 'a'))
         {
             char* limit;
             FACT* F = GetSubjectNondeadHead(FindWord(moreValue));
@@ -861,7 +861,7 @@ void NoteBotVariables() // system defined variables
             if (!strnicmp(D->word, "$cs_", 4)) continue; // dont force these, they are for user
 			D->internalBits |= (unsigned int)BOTVAR; // mark it
             botVariableThreadList = AllocateHeapval(botVariableThreadList, (uint64)D,
-                (uint64)D->w.userValue, NULL);
+                (uint64)D->w.userValue, (uint64)0);
         }
         RemoveInternalFlag(D, VAR_CHANGED);
 		if (!stricmp(D->word, "$verb")) 
@@ -891,7 +891,7 @@ void RecoverUserVariables()
         WORDP D = (WORDP)Dx;
         D->w.userValue = AllocateHeap(D->w.userValue, 0);
         D->word = AllocateHeap(D->word, 0);
-        userVariableThreadList = AllocateHeapval(userVariableThreadList,(uint64)D, NULL, NULL);
+        userVariableThreadList = AllocateHeapval(userVariableThreadList,(uint64)D, (uint64)0, (uint64)0);
     }
 }
 
@@ -1272,15 +1272,17 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             }
             else SetWildCard(buffer, buffer, word, 0);
         }
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s =>`%s`\r\n", word, originalWord1, buffer);
     }
     else if (*word == USERVAR_PREFIX)
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
+        // assume that if a variable explicitly has quotes that they are important and therefore don't need to strip them 
+        bool stripQuotes = (*originalWord1 == USERVAR_PREFIX) ? false : true;
         char* dot = strchr(word, '.');
         if (!dot) dot = strstr(word, "[]"); // array assign?
         if (!dot || nojson) SetUserVariable(word, buffer, true);
-         else result = JSONVariableAssign(word, buffer);// json object insert
+        else result = JSONVariableAssign(word, buffer, stripQuotes);// json object insert
     }
     else if (*word == '\'' && word[1] == USERVAR_PREFIX)
     {

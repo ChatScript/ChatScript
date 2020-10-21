@@ -206,19 +206,18 @@ static size_t mysqlUserWrite(const void* buf, size_t size, size_t count, FILE* f
 // initialize the user system
 void MySQLUserFilesCode(char* params)
 {
+	if (mysqlInited) return;
+
 	if (usersconn)
 	{
 		ReportBug((char*)"Duplicate Connection MySql\r\n");
 		return;
 	}
-	if (!mysqlInited)
-	{
 #ifdef WIN32
-		if (InitWinsock() == FAILRULE_BIT) ReportBug((char*)"FATAL: WSAStartup failed\r\n");
+	if (InitWinsock() == FAILRULE_BIT) ReportBug((char*)"FATAL: WSAStartup failed\r\n");
 #endif
-		mysql_library_init(0, NULL, NULL);
-		mysqlInited = true;
-	}
+	mysql_library_init(0, NULL, NULL);
+	mysqlInited = true;
 
 	usersconn = mysql_init(NULL);
 	if (usersconn == NULL)

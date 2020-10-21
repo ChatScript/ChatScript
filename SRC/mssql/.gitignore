@@ -1,0 +1,12 @@
+CMakeFiles/
+imp/Debug/
+proto/
+
+*.dSYM
+*.o
+imp_test
+*~
+CMakeCache.txt
+it
+imp/timed_data.csv
+*.png

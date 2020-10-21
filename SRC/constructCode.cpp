@@ -205,10 +205,10 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 			{
 				if (trace & (TRACE_PATTERN|TRACE_MATCH|TRACE_SAMPLE)  && CheckTopicTrace() ) //   display the entire matching responder and maybe wildcard bindings
 				{
-					Log(STDTRACETABLOG,(char*)"  **  Match: ");
+					Log(STDTRACETABLOG,(char*)"**  Match: ");
 					if (wildcardIndex)
 					{
-						Log(STDTRACETABLOG,(char*)"  Wildcards: (");
+						Log(STDTRACETABLOG,(char*)" Wildcards: (");
 						for (int i = 0; i < wildcardIndex; ++i)
 						{
 							if (*wildcardOriginalText[i]) Log(STDUSERLOG,(char*)"_%d=%s / %s (%d-%d)   ",i,wildcardOriginalText[i],wildcardCanonicalText[i],wildcardPosition[i] & 0x0000ffff,wildcardPosition[i]>>16);
@@ -297,6 +297,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     {
         limit = 1000000;
         char data[MAX_WORD_SIZE];
+		*data = 0;
         ptr = GetCommandArg(ptr + 2, data, result, 0); //   get the json object 
 		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"jsonloop(%s)\r\n", data);
 
@@ -308,7 +309,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		}
 
 		// must be JSON
-		if (strnicmp(data, "jo-", 3) && strnicmp(data, "ja-", 3))
+		if (!IsValidJSONName((char*)data))
 		{
 			result = FAILRULE_BIT;
 			ChangeDepth(-1, "Loop()", false, ptr + 2);
@@ -342,10 +343,28 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         // dont bother to release it at end. cutback will handle it
 
         ptr = ReadCompiledWord(ptr, word); // 1st variable
-        if (*word == '$') var1 = StoreWord(word, AS_IS);
+		if (*word == '$')
+		{
+			if (word[1] != '_')
+			{
+				result = FAILRULE_BIT;
+				ChangeDepth(-1, "Loop()", false, ptr + 2);
+				return endofloop; // we dont know it
+			}
+			var1 = StoreWord(word, AS_IS);
+		}
         else match1 = atoi(word + 1);
         ptr = ReadCompiledWord(ptr, word); // 2nd variable
-        if (*word == '$')  var2 = StoreWord(word, AS_IS);
+		if (*word == '$')
+		{
+			if (word[1] != '_')
+			{
+				result = FAILRULE_BIT;
+				ChangeDepth(-1, "Loop()", false, ptr + 2);
+				return endofloop; // we dont know it
+			}
+			var2 = StoreWord(word, AS_IS);
+		}
         else match2 = atoi(word + 1);
         char* at = ReadCompiledWord(ptr, word); // possible ordering modifier
         if (*word != ')')
@@ -528,7 +547,7 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 			}
 			if (*op == '!') result = (result != NOPROBLEM_BIT) ? NOPROBLEM_BIT : FAILRULE_BIT;
 		}
-		else if (!strnicmp(val2, "ja-", 3)) // is it in array?
+		else if (IsValidJSONName(val2, 'a')) // is it in array?
 		{
             result = FAILRULE_BIT;
 			D = FindWord(val1);
@@ -614,7 +633,7 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 			else result = FAILRULE_BIT;
 		}
 		//   handle double ops
-		else if (IsFloat(val1, end1, numberStyle) || IsFloat(val2, end2, numberStyle)) // at least one arg is float
+		else if (IsFloat(val1, end1) || IsFloat(val2, end2)) // at least one arg is float
 		{
 			char* comma = 0; 
 			while ((comma = strchr(val1,',')))  memmove(comma,comma+1,strlen(comma)); // remove embedded commas

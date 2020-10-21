@@ -568,6 +568,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		--ptr;
 		bool quote = false;
 		char* why = strstr(ptr, "why");
+
 		while (*++ptr)
 		{
 			if (*ptr == '\\') // escaped character, skip over (protect against escaped dquote)
@@ -629,7 +630,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// large repeat punctuation
 	if (*ptr == ptr[1] && ptr[1] == ptr[2] && ptr[2] == ptr[3] && IsPunctuation(*ptr))
 	{
-		char c = *ptr;
+		c = *ptr;
 		char* at = ptr + 3;
 		while (*++at == c) *at = ' '; // eradicate junk
 	}
@@ -662,7 +663,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			else // see if merely highlighting a word
 			{
 				char* word = AllocateStack(NULL,maxBufferSize,false,0);
-				char* tail = ReadCompiledWord(ptr, word);
+				ReadCompiledWord(ptr, word);
 				char* close = strchr(word + 1, '"');
 				ReleaseStack(word);
 				if (close && !strchr(word, ' ')) // we dont need quotes
@@ -712,16 +713,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// embedded punctuation
 	char* embed = strchr(token, '?');
 	if (embed && embed != token && embed[1]) *embed = 0; // break off love?i 
-	 embed = strchr(token, '.');
-	 if (embed && embed != token && embed[1]) // joined two words at end of sentence (dont accept 1 character words)?
-	 {
-		 if (embed[2] && FindWord(embed + 1))
-		 {
-			 *embed = 0; // lowly.go
-			 if (!token[1] || !FindWord(token)) *embed = '.';
-			 else return ptr + strlen(token);
-		 }
-	 }
 
 	embed = strchr(token, ')');
 	if (embed && embed != token ) *embed = 0; // break off 61.3) 
@@ -796,8 +787,14 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
             return ptr + (emailEnd - token);
         }
     }
-    if (IsUrl(token, token + strlen(token)))
-        return ptr + strlen(token);
+	size_t urlLen = strlen(token);
+    if (IsUrl(token, token + urlLen))
+    {
+        char* urlEnd = ptr + urlLen - 1;
+        // stop at trailing character that is likely to be the next token
+        if (*urlEnd == ',' || *urlEnd == ';' || *urlEnd == '|' || *urlEnd == '<' || *urlEnd == '>' || *urlEnd == '{' || *urlEnd == '(' || *urlEnd == '[') --urlLen;
+        return ptr + urlLen;
+    }
 
 	if (*ptr == '?') return ptr + 1; // we dont have anything that should join after ?    but  ) might start emoticon
 	if (*ptr == 0xc2 && ptr[1] == 0xbf) return ptr + 2; // inverted spanish ?
@@ -900,7 +897,22 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	}
 
 	// check for ordinary integers whose commas may be confusing
-	if ((IsDigit(currencynumber[0])|| IsDigit(currencynumber[1])) && IsDigitWord(token, numberStyle, true)) return ptr + strlen(token);
+	if (IsDigit(currencynumber[0]) || IsDigit(currencynumber[1]))
+    {
+        l = strlen(token);
+        if (IsDigitWord(token, numberStyle, true)) return ptr + l;
+        char* at = token + l - 1;
+        // could be at the sentence end - $2,000. 
+        if (*at == '.' )
+        {
+            *at = 0;
+            if (IsDigitWord(token, numberStyle, true))
+            {
+                *at = '.';
+                return ptr + l - 1;
+            }
+        }
+    }
 
 	// check for date
 	if (IsDate(token)) {
@@ -973,11 +985,22 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
         if (strlen(hyp) > 2 && hyp[1] == 't' && hyp[2] == '-') {
             hyp2 += 2;
         }
-		WORDP Z = FindWord(hyp2);
+		Z = FindWord(hyp2);
 		if (Z && Z->properties&PRONOUN_SUBJECT) {
 			return ptr + (hyp - token);
 		}
 	}
+
+    embed = strchr(token, '.');
+    if (embed && embed != token && embed[1]) // joined two words at end of sentence (dont accept 1 character words)?
+    {
+        if (embed[2] && FindWord(embed + 1))
+        {
+            *embed = 0; // lowly.go
+            if (!token[1] || !FindWord(token)) *embed = '.';
+            else return ptr + strlen(token);
+        }
+    }
 
 	// find current token which has comma after it and separate it, like myba,atat,joha
 	char* comma = strchr(token + 1, ',');
@@ -1422,7 +1445,6 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
             len = 4;
         }
 		
-		char lastc = *(end-1);
 		if (*priorToken == '(') ++paren;
 		else if (*priorToken && paren) --paren;
 
@@ -1870,10 +1892,23 @@ void ProperNameMerge()
 	bool upperStart = false;
 	wordStarts[wordCount+1] = "";
 	wordStarts[wordCount+2] = "";
+	bool isGerman = !stricmp(language, "german");
 
     for (int i = FindOOBEnd(1); i <= wordCount; ++i) 
     {
 		char* word = wordStarts[i];
+		if (isGerman)
+		{
+			if (!stricmp(word, "dir") ||  !stricmp(word, "du") || !stricmp(word, "dich") || !stricmp(word, "dein") || !stricmp(word, "deine")
+				|| !stricmp(word, "euch") || !stricmp(word, "euer") || !stricmp(word, "eure")  || !stricmp(word, "er")
+				|| !stricmp(word, "ihn") || !stricmp(word, "ihm") || !stricmp(word, "ihr") || !stricmp(word, "ihre") || !stricmp(word, "ihnen")
+				|| !stricmp(word, "sich") || !stricmp(word, "sein") || !stricmp(word, "seine") || !stricmp(word, "sie")  
+				)
+			{
+				if (start != UNINIT)  i = FinishName(start, end, upperStart, kind, NULL); // we have a name started, finish it off
+				continue;
+			}
+		}
 		if (*word == '"' || (strchr(word,'_') && !IsUpperCase(word[0])) || strchr(word,':')) // we never join composite words onto proper names unless the composite is proper already
 		{
 			if (start != UNINIT)  i = FinishName(start,end,upperStart,kind,NULL); // we have a name started, finish it off
@@ -2408,7 +2443,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		while ((ptr = strchr(ptr, '+'))) *ptr = ' '; // change + separators to spaces but leave _ alone
 		char* tokens[50];
 		char words[50][1000];
-		char* at = wordStarts[i];
+		at = wordStarts[i];
 		if (*at == '-') ++at;
 		while (IsDigit(*++at) || *at == '.');
 		char c = *at;
@@ -2425,17 +2460,20 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		}
 
 		// ?_psi matching 30 psi as separated words
-		int basis = 1;
+		basis = 1;
+        int start = i;
 		if (IsDigitWord(wordStarts[i], numberStyle,true,true)) // separated number match
 		{
 			if (i == wordCount) return 0; // shouldnt happen
 			char* token = wordStarts[i + 1];
-			size_t len = strlen(token) - 1;
 			if (!strcmp(tokens[2], token)) return 0; // dont make null change
-			++basis;
+            // don't need to replace number or modify where the number is derived from
+            --count;
+            ++start;
+            for (int j = 1; j <= count; ++j) tokens[j] = tokens[j+1];
 		}
 	
-		bool result = ReplaceWords("Number units", i, basis, count, tokens); // remove basis, add count
+		bool result = ReplaceWords("Number units", start, basis, count, tokens); // remove basis, add count
 		return (result) ? i : 0; 
 	}
 

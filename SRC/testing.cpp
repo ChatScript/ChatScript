@@ -6,6 +6,7 @@ static bool down_is = true;
 static int downcount = 0;
 static int volleyCounter = 0;
 static int relevantVolleyCounter = 0;
+static int itemcount = 0;
 
 bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
 {
@@ -65,7 +66,6 @@ static int inLine = 0;
 static int inDepth = 0;
 static unsigned int filesSeen; 
 static 	char directory[MAX_WORD_SIZE];
-static int itemcount = 0;
 static char* abstractBuffer;
 static int longLines;
 static uint64 verifyToken;
@@ -76,11 +76,8 @@ static FACT* factUsedG;
 static char* textUsedG;
 static int trials;
 static int nextRule = 0;
-static bool stepMatch = false;
 static bool keepname = false;
 
-static short int stepOver[MAX_GLOBAL];
-static char stepOut[MAX_GLOBAL];
 static void TrimIt(char* name, uint64 flag);
 
 #define ABSTRACT_SPELL 1
@@ -288,7 +285,7 @@ static void C_Common(char* input)
 {
 	char word[MAX_WORD_SIZE];
 	char word1[MAX_WORD_SIZE];
-	WORDP D;
+	WORDP D = NULL;
 	char* ptr = ReadCompiledWord(input,word);
 	ptr = ReadCompiledWord(ptr,word1);
 	if (!*word1) 
@@ -567,7 +564,7 @@ static void MemorizeRegress(char* input)
 			char kind[MAX_WORD_SIZE];
 			ReadCompiledWord(readBuffer,kind);
 
-			if (strcmp(kind,(char*)"Respond:") && strcmp(kind,(char*)"Start:") ) continue; // abnormal line? like a ^log entry.
+			if (!strstr(kind,(char*)"Respond:") && !strstr(kind,(char*)"Start:") ) continue; // abnormal line? like a ^log entry.
 
 			// normal volley
 			char user[MAX_WORD_SIZE];
@@ -860,9 +857,10 @@ static void VerifyRegress(char* file)
 		bool samepattern = false;;
 		bool sameoutput = false;; // used same rule
 		char tag[MAX_WORD_SIZE];
-		int id;
-		int topicid;
+		int id = 0;
+		int topicid = 0;
 		char label[MAX_WORD_SIZE];
+		*label = 0;
 		char pattern[MAX_WORD_SIZE];
 		char outputdata[MAX_WORD_SIZE];
 		for (int i = 0; i < responseIndex; ++i) // use last said as topicid (we usually prefix emotions and other things)
@@ -1339,9 +1337,9 @@ static void C_TestPattern(char* input)
         }
         StartScriptCompiler(false);
         ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
-		compiling = true;
+		compiling = PIECE_COMPILE;
         ptr = ReadPattern(readBuffer, NULL, pack, false, false); // swallows the pattern
-		compiling = false;
+		compiling = NOT_COMPILING;
 		EndScriptCompiler();
 		--jumpIndex;
 	}
@@ -1483,6 +1481,192 @@ static void GambitTestTopic(char* topic)
 	}
 	FreeBuffer();
 	regression = oldRegression;
+}
+
+static void SaveReference(char* original, char* context,char* endargs)
+{
+	char word[MAX_WORD_SIZE];
+	char* ptr = original - 1;
+
+	while (++ptr)
+	{
+		ptr = strchr(ptr, '$');
+		if (!ptr) break;
+
+			char* start = ptr;
+			bool save = false;
+			ptr = start; // to debug retry
+			size_t len;
+			if (ptr[1] == '_') // local var
+			{
+				while (LegalVarChar(*++ptr)); // find end
+				len = ptr - start;
+				strncpy(word, start, len);
+				sprintf(word + len, "-%s", context); // local variable context
+
+				char* before = start - 100;
+				if (before < original) before = original;
+				if (before > original)
+				{
+					char* x = strstr(before, "^jsonloop");
+					if (x)
+					{
+						x = SkipWhitespace(strchr(x, '(') + 1); // start of 1st arg (a use)
+						char* y = strchr(x, ')');
+						if (y && start < y && start != x) save = true; // var of loop, auto assigned
+					}
+				}
+
+				WORDP D = StoreWord(word, AS_IS);
+				
+				if (endargs && start < endargs)
+					save = true; // $_ arg to function
+				else if (*ptr == ' ' && ptr[1] == '=' && ptr[2] == ' ')
+					save = true; // normal assign
+				else if (*ptr == ':' && ptr[1] == '=')
+					save = true; // pattern assign
+				else if (*ptr == ' ' && ptr[2] == '=' && ptr[1] != '=')
+					save = true; // += etc assign
+				if (save) D->counter += 0x00010000; // increment save
+				else D->counter += 1; // increment use
+
+				continue; // local var
+			}
+			while (LegalVarChar(*++ptr)); // find end
+			if ((ptr - start) == 1) continue;
+		
+			if (*ptr == '.') // dot notation  $holder.seen.$_brand 
+			{
+				// THE MAIN VAR
+				len = ptr - start;
+				strncpy(word, start, len);
+				word[len] = 0;
+				WORDP D = StoreWord(word, AS_IS);
+				D->counter += 1; // increment use - cant be assignment to it
+
+				if (ptr[1] != '$') while (LegalVarChar(*++ptr)); // find end of next piece  is $data.field
+				else // dynamic indirect  is $data.$specialty
+				{
+					char* start1 = ++ptr ;
+					if (start1[1] == '_') continue; // localvar
+					while (LegalVarChar(*++ptr));
+					len = ptr - start1;
+					strncpy(word, start1, len);
+					word[len] = 0;
+					WORDP D = StoreWord(word, AS_IS);
+					D->counter += 1; // increment use - not assignment as not a standalone variable
+
+					continue;
+				}
+				if (*ptr == '.' && ptr[1] != '$')
+				{
+					len = ptr - start;
+					strncpy(word, start, len);
+					word[len] = 0;
+					WORDP D = StoreWord(word, AS_IS);
+					D->counter += 0x00010000; // indirect . use creates assign of piece before
+
+					while (LegalVarChar(*++ptr)); // find end of next piece $data.field.field1
+				}
+				else if (*ptr == '[')
+				{
+					char* close = strchr(ptr, ']');
+					if ((close[2] == '=' && close[3] != '=') || close[3] == '=') // assign
+					{
+						save = true;
+					}
+				}
+			}
+			else if (*ptr == '[') // array notation
+			{
+				// THE MAIN VAR
+				len = ptr - start;
+				strncpy(word, start, len);
+				word[len] = 0;
+				WORDP D = StoreWord(word, AS_IS);
+				D->counter += 1; // increment use
+				continue;
+			}
+			len = ptr - start;
+			if (len < 2) continue;
+
+			strncpy(word, start, len);
+			word[len] = 0;
+
+			if (IsTextCurrency(word, NULL)) continue;
+
+			WORDP D = StoreWord(word, AS_IS);
+
+			if (*ptr == ' ' && ptr[1] == '=' && ptr[2] == ' ')
+				save = true; // normal assign
+			else if (*ptr == ':' && ptr[1] == '=')
+				save = true; // pattern assign
+			else if (*ptr == ' ' && ptr[2] == '='  && ptr[1] != '=')
+				save = true; // += etc assign
+			if (save) D->counter += 0x00010000; // increment save
+			else D->counter += 1; // increment use
+	}
+}
+
+static void C_VariableReference(char* input)
+{
+	bool full = false;
+	char word[MAX_WORD_SIZE];
+	ReadCompiledWord(input, word);
+	if (!stricmp(word, "full")) full = true;
+
+	// walk all topics patterns and outputs and all functions
+	for (int i = 1; i <= numberOfTopics; ++i)
+	{
+		char* data = GetTopicData(i);
+		topicBlock* block = TI(i);
+		if (block->topicRestriction && !strstr(block->topicRestriction, computerIDwSpace)) continue; // illegal to this bot
+		SaveReference(data,GetTopicName(i,false),NULL);
+	}
+	// need to do functions as well
+	for (WORDP D = dictionaryBase + 1; D < dictionaryFree; ++D)
+	{
+		if (D->word && *D->word == '^'  && D->internalBits & FUNCTION_NAME )
+		{
+			FunctionResult result;
+			char* definition = (char*)FindAppropriateDefinition(D, result, true);
+			if (!definition) continue;
+
+			char* endparen = strchr(definition, ')');
+
+			char* end = strchr(definition, '`'); // end of this definition
+			*end = 0;
+			SaveReference(definition,D->word,endparen);
+			*end =  '`' ;
+		}
+	}
+	// report results
+	echo = false;
+	FILE* out = FopenBinaryWrite("TMP/reference.txt");
+	for (WORDP D = dictionaryBase + 1; D < dictionaryFree; ++D)
+	{
+		if (D->word && *D->word == '$'   && D->counter)
+		{
+			if (!strnicmp(D->word, "$cs_ ", 4)) D->counter += 0x00010001;  // engine consumption, list but not unset or unused
+			else if (!stricmp(D->word, "$botprompt")) D->counter += 0x00010001;  // engine consumption, list but not unset or unused
+			else if (!stricmp(D->word, "$userprompt")) D->counter += 0x00010001;  // engine consumption, list but not unset or unused
+
+			if (!full && D->counter & 0xffff0000 && D->counter & 0x0000ffff) continue;
+
+			if (!(D->counter & 0xffff0000)) Log(STDUSERLOG, "    ");
+			else if ( !(D->counter & 0x0000ffff))  Log(STDUSERLOG, "    ");
+
+			fprintf(out,"%s set: %d used: %d", D->word, D->counter >> 16, D->counter & 0x0000ffff); // show it whether used or whatever, to compare typos
+			
+			if (!(D->counter & 0xffff0000)) fprintf(out, "  nouse?\r\n");
+			else if ( !(D->counter & 0x0000ffff))  fprintf(out,  "                                                  UNSET?\r\n");
+			else fprintf(out, "\r\n");
+
+			D->counter = 0;
+		}
+	}
+	fclose(out);
+	printf("Done\r\n");
 }
 
 static void C_TestTopic(char* input)
@@ -5336,27 +5520,25 @@ static void C_TimeLog(char* input)
     }
 	int msgsize[64];
     int count[64];
-    int time[64];
-    int min[64];
-    int max[64];
-	int count1[64];
-	int time1[64];
-	int min1[64];
-	int max1[64];
+    int timenl[64];
+    int minnl[64];
+    int maxnl[64];
+	int timeq[64];
+	int minq[64];
+	int maxq[64];
 	memset(msgsize, 0, sizeof(msgsize));
 	memset(count, 0, sizeof(count));
-	memset(time, 0, sizeof(time));
-	memset(max, 0, sizeof(max));
-	memset(count1, 0, sizeof(count1));
-	memset(time1, 0, sizeof(time));
-	memset(max1, 0, sizeof(max));
-	for (int i = 0; i < 64; ++i) min1[i]  = min[i] = 100000;
+	memset(timenl, 0, sizeof(timenl));
+	memset(maxnl, 0, sizeof(maxnl));
+	memset(timeq, 0, sizeof(timeq));
+	memset(maxq, 0, sizeof(maxq));
+	for (int i = 0; i < 64; ++i) minnl[i]  = minq[i] = 100000;
 	char bot[64][100];
 	memset(bot, 0, sizeof(bot));
 
     while (ReadALine(readBuffer, in) >= 0)
     {
-		if (!strnicmp(readBuffer, "Start:", 6)) continue;
+		if (strstr(readBuffer, "Start:")) continue;
 		char botname[1000];
 		char* botptr = strstr(readBuffer, "bot:");
 		int botbit = 0;
@@ -5399,43 +5581,40 @@ static void C_TimeLog(char* input)
         char* timeinfo = strstr(readBuffer, "When:");
         if (timeinfo)
         {
-			timeinfo += 19;
-			if (*timeinfo != ' ' || !IsDigit(timeinfo[1]))
-			{
-				printf("error: %s\r\n", readBuffer);
-				continue;
-			}
+			char* ms = strstr(timeinfo, "ms");
+			int wait = atoi(ms + 3);
+			while (*--ms != ' ');
+			int nl = atoi(ms + 1);
 			++count[botbit];
-            int decode = atoi(++timeinfo);
-            if (decode > max[botbit]) max[botbit] = decode;
-            if (decode < min[botbit]) min[botbit] = decode;
-            time[botbit] += decode;
+            if (nl > maxnl[botbit]) maxnl[botbit] = nl;
+            if (nl < minnl[botbit]) minnl[botbit] = nl;
+            timenl[botbit] += nl;
 
 			timeinfo = strstr(timeinfo, "ms ") + 3;
 			if (IsDigit(*timeinfo))
 			{
-				int decode = atoi(++timeinfo);
-				if (decode > max1[botbit]) max1[botbit] = decode;
-				if (decode < min1[botbit]) min1[botbit] = decode;
-				time1[botbit] += decode;
-
+				if (wait > maxq[botbit]) maxq[botbit] = wait;
+				if (wait < minq[botbit]) minq[botbit] = wait;
+				timeq[botbit] += wait;
 			}
         }
     }
     fclose(in);
 
 	int totallines = 0;
-	int maxtime = 0;
+	int maxnltime = 0;
+	int maxqtime = 0;
 	for (int i = 0; i < 64; ++i)
 	{
 		if (!bot[i][0]) break; 
-		int avg = time[i] / count[i];
-		int avg1 = time1[i] / count[i];
+		int avgnl = timenl[i] / count[i];
+		int avgq = timeq[i] / count[i];
 		totallines += count[i];
-		if (max[i] > maxtime) maxtime = max[i];
-		Log(STDUSERLOG, "%s MaxMsgBytes %d  Lines %d   minMs %d  maxMs %d avgMs %d  Stall minMs %d maxMs %d avgMs %d\r\n", bot[i], msgsize[i], count[i], min[i], max[i], avg, min1[i], max1[i], avg1);
+		if (maxnl[i] > maxnltime) maxnltime = maxnl[i];
+		if (maxq[i] > maxqtime) maxqtime = maxq[i];
+		Log(STDUSERLOG, "%s MaxMsgBytes %d  Lines %d       minNLMs %d  maxNLMs %d avgNLMs %d      minQMs %d maxQMs %d avgQMs %d\r\n", bot[i], msgsize[i], count[i], minnl[i], maxnl[i], avgnl, minq[i], maxq[i], avgq);
 	}
-	Log(STDUSERLOG, "Total lines: %d   Maxms: %d\r\n", totallines, maxtime);
+	Log(STDUSERLOG, "Total lines: %d   MaxNLms: %d MaxQms: %d\r\n", totallines, maxnltime,maxqtime);
 }
 
 static void C_VerifySentence(char* input)
@@ -5924,7 +6103,7 @@ static void C_TracedTopics(char* input)
 	WalkDictionary(TracedTopic,0);
 }
 
-static void TimedTopic(WORDP D, uint64 style)
+static void TimedTopic(WORDP D, uint64 timestyle)
 {
 	if (D->internalBits & TOPIC)
 	{
@@ -5933,14 +6112,15 @@ static void TimedTopic(WORDP D, uint64 style)
 		if (block->topicTiming)
 		{
 			Log(ECHOSTDUSERLOG, (char*)"%s:", D->word);
-			if (style == 0) Log(ECHOSTDUSERLOG, (char*)"  0x%x", block->topicTiming);
+			if (timestyle == 0) Log(ECHOSTDUSERLOG, (char*)"  0x%x", block->topicTiming);
 			Log(ECHOSTDUSERLOG, (char*)"\r\n");
-			if (style == 1) ShowTiming(block->topicTiming, false);
+			if (timestyle == 1) ShowTiming(block->topicTiming, false);
 			isTiming = true;
 		}
-		if (D->internalBits & NOTIME_TOPIC) {
+		if (D->internalBits & NOTIME_TOPIC) 
+		{
 			Log(ECHOSTDUSERLOG, (char*)"%s:", D->word);
-			if (style == 1) Log(ECHOSTDUSERLOG, (char*)"\r\n");
+			if (timestyle == 1) Log(ECHOSTDUSERLOG, (char*)"\r\n");
 			Log(ECHOSTDUSERLOG, (char*)"  Not timing\r\n");
 		}
 	}
@@ -6186,6 +6366,10 @@ static void C_TopicStats(char* input)
 		char* data = GetTopicData(i);
 		unsigned int flags = GetTopicFlags(i);
 		if (flags & TOPIC_SYSTEM && normal) continue;
+		topicBlock* block = TI(i);
+		if (block->topicRestriction && !strstr(block->topicRestriction, computerIDwSpace)) continue; // illegal to this bot
+
+
 		++topicCount;
 		unsigned int gambits = 0;
 		unsigned int responders = 0;
@@ -6318,9 +6502,10 @@ Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert)
 		//Respond: user : csc bot : Pearl ip : 192.168.53.32 () 91110[{"dse": {"testpattern": {"concepts": [], "input" : "", "patterns" : [{"pattern": "^( ( [ ( [ =c$specialty==financial_software =i$category_preurl==financial_software ] :c$specialty:=financial_software :m$shortexpertsingular:=Financial_Software_Technician ) ( [ =c$specialty==Social_Security =i$category_preurl==Social_Security =i$category_preurl==social_security ] :c$specialty:=Social_Security :m$shortexpertsingular:=Accountant ) ( [ =c$specialty==finance =i$category_preurl==finance ] :c$specialty:=finance :m$shortexpertsingular:=Accountant ) ( [ =c$specialty==capitals_gains_and_losses =i$category_preurl==capitals_gains_and_losses ] :c$specialty:=capitals_gains_and_losses :m$shortexpertsingular:=Accountant ) ( [ =i$category_preurl==tax ( ) ] :b$category:=tax :m$shortexpertsingular:=Accountant ) ] ) ) "}], "style" : "all", "variables" : {"$category": "tax", "$specialty" : "Social_Security"}}}}] == >[{"why": "~handle_oob.2.0", "v" : 39.0, "output" : {"newglobals": {"$shortexpertsingular": "Accountant", "$specialty" : "Social_Security"}, "match" : 0} }]  When:Mar06 12 : 03 : 25 20ms Why : ~xpostprocess.10.0 = OOBRESULT.~control.10.0 = GENERAL_ML
 		char user[MAX_WORD_SIZE];
         char* userp = strstr(readBuffer, "user:");
-		if (!strnicmp(readBuffer, "serverpre:", 10))
+		char* pre = strstr(readBuffer, "serverpre:");
+		if (pre)
 		{
-			char* ptr = ReadCompiledWord(readBuffer + 11, user);
+			char* ptr = ReadCompiledWord(pre + 11, user);
 			ptr = ReadCompiledWord(ptr, user);
 			ptr = ReadCompiledWord(ptr, user); // username
 			ptr = ReadCompiledWord(ptr + 1, bot); // bot name
@@ -6341,36 +6526,36 @@ Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert)
 			else ReadCompiledWord(botp + 4, bot);
 		}
 
-        char* oob = strchr(readBuffer, '[');
+        char* myoob = strchr(readBuffer, '[');
         char* when = strstr(readBuffer, "When:");
 		char* output = strstr(readBuffer, "==>");
-		if (!when && oob)
+		if (!when && myoob)
 		{ //Mar 06 12:03:25 2020
 			output = readBuffer + strlen(readBuffer) - 20;
 		}
         ptr = ReadCompiledWord(readBuffer, word);
 
-        if (!stricmp(word, "start:"))
+        if (!strstr(readBuffer, "start:"))
         {
             message = "";
         }
-		else if (!servermode && !stricmp(word, "respond:"))
+		else if (!servermode && strstr(readBuffer, "Respond:"))
         {
-            message = oob;
+            message = myoob;
             *output = 0;
         }
-		else if (!stricmp(word, "serverpre:") && oob)
+		else if (strstr(readBuffer, "serverpre:") && myoob)
 		{
-			message = oob;
+			message = myoob;
 			*output = 0;
 		}
         else continue;
         printf("%d\r\n", n++);
-        uint64 starttime = ElapsedMilliseconds();
+        uint64 starttimex = ElapsedMilliseconds();
 		strcpy(buffer, message); // this gets trashed
 		strcpy(incopy, message);
 		PerformChat(user, bot, buffer, "x", ourMainOutputBuffer); // this autofrees our buffer
-        LogChat(starttime, user, bot, "x", volleyCount, incopy, ourMainOutputBuffer,0);
+        LogChat(starttimex, user, bot, "x", volleyCount, incopy, ourMainOutputBuffer,0);
 	}
     fclose(in);
 	free(buffer);
@@ -7029,8 +7214,8 @@ static void C_TopicInfo(char* input)
 		bool responder = false;
 		bool keys = false;
 		bool overlap = false;
-		bool all = false;
-		if (!*input) all = keys = overlap = gambit = responder = rejoinder = true; // show it all
+		bool showall = false;
+		if (!*input) showall = keys = overlap = gambit = responder = rejoinder = true; // show it all
 		ptr = input;
 		while (*ptr)
 		{
@@ -7048,7 +7233,7 @@ static void C_TopicInfo(char* input)
 			else if (!stricmp(word,(char*)"overlap")) overlap = true;
 		}
 		if (!gambit && !responder && !rejoinder) used = available = false;
-		if (all) 
+		if (showall)
 		{
 			Log(STDUSERLOG,(char*)"%s",DisplayTopicFlags(topicid));
 			Log(STDUSERLOG,(char*)"Bot: %s\r\n",block->topicRestriction ? block->topicRestriction : (char*)"all");
@@ -7153,7 +7338,7 @@ static void C_TopicInfo(char* input)
 			}
 			data = FindNextRule(NEXTRULE,data,id);
 		}
-		if (all) Log(STDUSERLOG,(char*)"  gambits: %d  responders: %d (?:%d s:%d u:%d)  rejoinders: %d\r\n", gambits,statements+questions+dual,statements, questions, dual,rejoinders);
+		if (showall) Log(STDUSERLOG,(char*)"  gambits: %d  responders: %d (?:%d s:%d u:%d)  rejoinders: %d\r\n", gambits,statements+questions+dual,statements, questions, dual,rejoinders);
 	}
 }
 
@@ -7308,7 +7493,6 @@ static void C_List(char* input)
 		count = 0;
 		for (unsigned int i = 0; i <= MAX_FIND_SETS; ++i)
 		{
-			char word[MAX_WORD_SIZE];
 			sprintf(word,(char*)"@%d",i);
 			factSet[1][++count] = CreateFact(MakeMeaning(StoreWord(word)),verb,verb,FACTTRANSIENT|FACTDUPLICATE);
 		}
@@ -7320,7 +7504,6 @@ static void C_List(char* input)
 		count = 0;
 		for (unsigned int i = 0; i <= MAX_WILDCARDS; ++i)
 		{
-			char word[MAX_WORD_SIZE];
 			sprintf(word,(char*)"_%d",i);
 			factSet[2][++count] = CreateFact(MakeMeaning(StoreWord(word)),verb,verb,FACTTRANSIENT|FACTDUPLICATE);
 		}
@@ -7462,7 +7645,7 @@ static void C_AllFacts(char* input)
 		FClose(out);
 		FreeBuffer();
 	}
-	printf("%d facts \r\n", lastFactUsed - factBase);
+	printf("%d facts \r\n", (int)(lastFactUsed - factBase));
 }
 
 static void C_AllDict(char* input)
@@ -7735,12 +7918,12 @@ static void C_Retry(char* input)
 
 	// get main user file name
 	sprintf(file, (char*)"%s/topic_%s_%s.txt", usersfolder, loginID, computerID);
-	if (stricmp(language, "english")) sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, computerID, language);
+	sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, computerID, language);
 
 	if (!*name) // if not overridden, use default backup data
 	{
 		sprintf(name, (char*)"%s/backup%s-%s_%s.txt", tmpfolder, which, loginID, computerID);
-		if (stricmp(language, "english")) sprintf(name, (char*)"%s/backup%s-%s_%s_%s.txt", tmpfolder, which, loginID, computerID, language);
+		sprintf(name, (char*)"%s/backup%s-%s_%s_%s.txt", tmpfolder, which, loginID, computerID, language);
 	}
 	CopyFile2File(file, name, false);
 	char* buffer = FindUserCache(file); //  (does not trigger a read, assumes it has it in core)
@@ -7750,10 +7933,10 @@ static void C_Retry(char* input)
 	if (shared)
 	{
 		sprintf(file, (char*)"%s/topic_%s_%s.txt", usersfolder, loginID, (char*)"share");
-		if (stricmp(language, "english")) sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, language, (char*)"share");
+		sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, language, (char*)"share");
 
 		sprintf(name, (char*)"%s/backup%s-share-%s_%s.txt", tmpfolder, which, loginID, computerID);
-		if (stricmp(language, "english")) sprintf(name, (char*)"%s/backup%s-share-%s_%s_%s.txt", tmpfolder, which, loginID, computerID, language);
+		sprintf(name, (char*)"%s/backup%s-share-%s_%s_%s.txt", tmpfolder, which, loginID, computerID, language);
 		CopyFile2File(file, name, false);
 		buffer = FindUserCache(file); //  (does not trigger a read, assumes it has it in core)
 		if (buffer) FreeUserCache(); // erase cache of user so it reads revised disk file
@@ -8193,6 +8376,11 @@ static void C_Trace(char* input)
 		WalkDictionary(ClearTracedFunction,0);
 		WalkDictionary(ClearTracedTopic,0);
 		traceUniversal = 0;
+		if (userlogFile) // stop caching the file
+		{
+			fclose(userlogFile);
+			userlogFile = NULL;
+		}
 	}
 	
 	if (!strnicmp(input,"factcreate",10)) // tracing on 
@@ -8696,12 +8884,12 @@ static void SortConcept(WORDP D,uint64 junk)
 		Sortit(D->word,(int)junk); // 1 will be for 1line, otherwise take multiline as needed
 }
 
-static void Translate(char* msg,char* to, char* apikey)
+static void Translate(char* msg,char* to, char* apkey)
 {
 	char url[MAX_WORD_SIZE];
 	char* trandata = AllocateBuffer();
 	sprintf(url,"https://translation.googleapis.com/language/translate/v2?target=%s&format=html&source=en&key=%s",
-		to,apikey );
+		to,apkey );
 	sprintf(trandata, "{\"q\":\"%s\"}", msg);
 	char* header = "";
 	ARGUMENT(1) = "transient direct";
@@ -8726,7 +8914,7 @@ static void Translate(char* msg,char* to, char* apikey)
 	int numwords = 0;
 	bool notphrase = false;
 	*phrase = 0;
-	while (at = ReadCompiledWord(at, word1))
+	while ((at = ReadCompiledWord(at, word1)))
 	{
 		if (!*word1) break;
 		char *ptr = strstr(word1,"\\u003cbr/\\u003e"); // every word/phrase will have a trailing separator, note < and > are in utf-8
@@ -8785,56 +8973,56 @@ static void Translate(char* msg,char* to, char* apikey)
 	*msg = 0;
 }
 
-static void C_TranslateConcept(char* input) // give the language & filename to write
+static void C_TranslateConcept(char* input) // give the lang & filename to write
 {
 #ifdef INFORMATION
 	1. first use :sortconcept to get data into concepts.top 
 	2. use the apikey command line parameter to name a google translate account
-	3. :translateconcept german filename  (or some other supported language)
+	3. :translateconcept german filename  (or some other supported lang)
 #endif
-	char language[100];
-	input = ReadCompiledWord(input,language);
+	char lang[100];
+	input = ReadCompiledWord(input,lang);
 	char* source = "concepts.top";
-	if (*language == '~') // single concept named
+	if (*lang == '~') // single concept named
 	{
-		WORDP X = FindWord(language);
+		WORDP X = FindWord(lang);
 		if (!X)
 		{
-			(*printer)("No such concept %s\r\n", language);
+			(*printer)("No such concept %s\r\n", lang);
 			return;
 		}
 		FClose(FopenUTF8Write((char*)"cset.txt"));
 		Sortit(X->word, 1); /// 1 will be for 1line, otherwise take multiline as needed
-		input = ReadCompiledWord(input, language);
+		input = ReadCompiledWord(input, lang);
 		source = "cset.txt";
-		if (!*language) return; // just sort it. no translate
+		if (!*lang) return; // just sort it. no translate
 	}
 
-	MakeUpperCase(language);
+	MakeUpperCase(lang);
 	char* into = NULL;
-	if (!stricmp(language,"ARABIC")) into = "ar";
-	else if (!stricmp(language,"BENGALI")) into = "bn";
-	else if (!stricmp(language,"CHINESE")) into = "zh";
-	else if (!stricmp(language,"CZECH")) into = "cs";
-	else if (!stricmp(language,"DUTCH")) into = "nl";
-	else if (!stricmp(language,"FINNISH")) into = "fi";
-	else if (!stricmp(language,"FRENCH")) into = "fr";
-	else if (!stricmp(language,"GERMAN")) into = "de";
-	else if (!stricmp(language,"GREEK")) into = "el";
-	else if (!stricmp(language,"HINDI")) into = "hi";
-	else if (!stricmp(language,"HUNGARIAN")) into = "hu";
-	else if (!stricmp(language,"ITALIAN")) into = "it";
-	else if (!stricmp(language,"JAPANESE")) into = "ja";
-	else if (!stricmp(language,"KOREAN")) into = "ko";
-	else if (!stricmp(language,"MALAY")) into = "ms";
-	else if (!stricmp(language,"NORWEGIAN")) into = "no";
-	else if (!stricmp(language,"PUNJABI")) into = "pa";
-	else if (!stricmp(language,"POLISH")) into = "pl";
-	else if (!stricmp(language,"PORTUGUESE")) into = "pt";
-	else if (!stricmp(language,"RUSSIAN")) into = "ru";
-	else if (!stricmp(language,"SPANISH")) into = "es";
-	else if (!stricmp(language,"SWEDISH")) into = "sv";
-	else if (!stricmp(language,"TELUGU")) into = "te";
+	if (!stricmp(lang,"ARABIC")) into = "ar";
+	else if (!stricmp(lang,"BENGALI")) into = "bn";
+	else if (!stricmp(lang,"CHINESE")) into = "zh";
+	else if (!stricmp(lang,"CZECH")) into = "cs";
+	else if (!stricmp(lang,"DUTCH")) into = "nl";
+	else if (!stricmp(lang,"FINNISH")) into = "fi";
+	else if (!stricmp(lang,"FRENCH")) into = "fr";
+	else if (!stricmp(lang,"GERMAN")) into = "de";
+	else if (!stricmp(lang,"GREEK")) into = "el";
+	else if (!stricmp(lang,"HINDI")) into = "hi";
+	else if (!stricmp(lang,"HUNGARIAN")) into = "hu";
+	else if (!stricmp(lang,"ITALIAN")) into = "it";
+	else if (!stricmp(lang,"JAPANESE")) into = "ja";
+	else if (!stricmp(lang,"KOREAN")) into = "ko";
+	else if (!stricmp(lang,"MALAY")) into = "ms";
+	else if (!stricmp(lang,"NORWEGIAN")) into = "no";
+	else if (!stricmp(lang,"PUNJABI")) into = "pa";
+	else if (!stricmp(lang,"POLISH")) into = "pl";
+	else if (!stricmp(lang,"PORTUGUESE")) into = "pt";
+	else if (!stricmp(lang,"RUSSIAN")) into = "ru";
+	else if (!stricmp(lang,"SPANISH")) into = "es";
+	else if (!stricmp(lang,"SWEDISH")) into = "sv";
+	else if (!stricmp(lang,"TELUGU")) into = "te";
 
 	FILE* in = FopenReadOnly(source);
 	if (!in)
@@ -8850,9 +9038,9 @@ static void C_TranslateConcept(char* input) // give the language & filename to w
 	*filex = 0;
 	ReadCompiledWord(input,filex);
 	if (*filex) sprintf(name,"%s",filex); 
-	else sprintf(name,"%s_concepts.top",language); 
+	else sprintf(name,"%s_concepts.top",lang); 
 	FILE* out = FopenUTF8Write(name);
-	sprintf(name,"rawdict/%s_extravocabulary.txt",language);
+	sprintf(name,"rawdict/%s_extravocabulary.txt",lang);
 	FILE* vocab = FopenUTF8WriteAppend(name);
 	char conceptname[MAX_WORD_SIZE];
 	while (ReadALine(readBuffer,in) >= 0)
@@ -8920,7 +9108,6 @@ static void C_TranslateConcept(char* input) // give the language & filename to w
 			if ((at = strchr(name + 1, '~'))) *at = 0;
 
 			// need to treat each word/phrase distinctly as translation might be to a number of words
-			char* at;
 			while ((at = strchr(name, '_'))) 
 			{ 
 				if (*(at+1) == '\'') // collapse possessive 
@@ -8966,7 +9153,7 @@ static void C_TranslateConcept(char* input) // give the language & filename to w
 				while (++at1)
 				{
 					if ((at1-start) > 3500) break; // accept last hole
-					else if (!strncmp(at1,"<br/>",5)) lasthole = at + 1;
+					else if (!strncmp(at1,"<br/>",5)) lasthole = at1 + 1;
 				}
 				strncpy(translation,start,lasthole-start);
 				translation[lasthole-start] = 0;
@@ -8989,7 +9176,7 @@ static void C_TranslateConcept(char* input) // give the language & filename to w
 		if (strlen(output) >= maxBufferSize) ReportBug("translate too big");
 		if (strnicmp(output,"~a_dummy",8))
 		{
-			fprintf(out,"#%s concept: %s )\r\n",language,output);
+			fprintf(out,"#%s concept: %s )\r\n",lang,output);
 			(*printer)("%s\r\n",output);
 
 			// augmented vocab
@@ -9084,7 +9271,7 @@ static void DoHeader(int count,char* basic,FILE* in,int id,unsigned int spelling
 			TabInset(count,false);
             char label[MAX_WORD_SIZE];
             sprintf(label, (char*)"R-%s-%s.%d.%d", computerID, GetTopicName(topicID), ruleid, rejoinderid);
-            WORDP D = FindWord(label, AS_IS);
+            WORDP D = StoreWord(label, AS_IS);
             if (D) Log(STDUSERLOG, (char*)"(%d) ", statistics[D->word]);
             Log(STDUSERLOG, (char*)"%s", basic);
 		}
@@ -9140,7 +9327,7 @@ retry:
 
         char label[MAX_WORD_SIZE];
         sprintf(label, (char*)"R-%s-%s.%d.%d", computerID, GetTopicName(topicID),ruleid,rejoinderid);
-        WORDP D = FindWord(label, AS_IS);
+        WORDP D = StoreWord(label, AS_IS);
         if (D) Log(STDUSERLOG, (char*)"(%d) ", statistics[D->word] );
 		Log(STDUSERLOG,(char*)"%s",basic); 
 	}
@@ -9159,7 +9346,7 @@ static void TopicHeader(int spelling, int topicID)
         int count = 0;
         char label[MAX_WORD_SIZE];
         sprintf(label, (char*)"T-%s-%s", computerID, GetTopicName(topicID));
-        WORDP E = FindWord(label, AS_IS);
+        WORDP E = StoreWord(label, AS_IS);
         if (E) count = statistics[E->word];
 
         unsigned int lineSize = 0;
@@ -9212,7 +9399,7 @@ static void TopicHeader(int spelling, int topicID)
 
         char label[MAX_WORD_SIZE];
         sprintf(label, (char*)"T-%s-%s", computerID, GetTopicName(topicID));
-        WORDP D = FindWord(label, AS_IS);
+        WORDP D = StoreWord(label, AS_IS);
         if (D && statistics[D->word]) // from spelling == 10 coverage
         {
             Log(STDUSERLOG, (char*)" (%d) ", statistics[D->word]);
@@ -9300,13 +9487,7 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 		if (spelling & ABSTRACT_PRETTY) // revise pattern for cannonical
 		{
 			*tmpBuffer = 0;
-			char word[MAX_WORD_SIZE];
 			char* pbase = pattern;
-			//if (*label) 
-			//{
-				//strcat(tmpBuffer,label);
-				//strcat(tmpBuffer,(char*)" ");
-			//}
 			while (pbase && *pbase)
 			{
 				pbase = ReadCompiledWord(pbase,word);
@@ -9531,7 +9712,7 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 				else if (!stricmp(word,(char*)"^reuse") || !stricmp(word,(char*)"^gambit") || !stricmp(word,(char*)"^respond")|| !stricmp(word,(char*)"^refine"))
 				{
 					output -= strlen(word) + 1;
-					char* end = strchr(output,')');
+					end = strchr(output,')');
 					char c = end[1];
 					end[1] = 0;
 					strncpy(outputPtr,output,strlen(output));
@@ -9612,7 +9793,6 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 						{
 							if (!D || !(D->internalBits & HAS_SUBSTITUTE)) // not known, try for sentence head one
 							{
-								char word[MAX_WORD_SIZE];
 								sprintf(word,(char*)"<%s",copy);
 								D = FindWord(word);
 							}
@@ -9645,13 +9825,13 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 		{
 			char* esc;
 			char* at = buffer;
+			char wordx[MAX_WORD_SIZE];
 			while ((esc = strchr(at,'\\')))
 			{
 				if (esc[1] != 'n') at = esc+2;
 				else
 				{
 					len = at - esc - 1;
-					char wordx[MAX_WORD_SIZE];
 					ReadCompiledWord(at,wordx);
 					size_t wsize = strlen(wordx);
 					if (wordx[wsize-1] == ':') len -= wsize + 1;		// remove speaker flag
@@ -9661,10 +9841,9 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 			}
 			len = strlen(at);
 			if (choiceCharacters) len -= choiceCharacters - 1; // dont zero out len
-			char word[MAX_WORD_SIZE];
-			ReadCompiledWord(at,word);
-			size_t wsize = strlen(word);
-			if (word[wsize-1] == ':') len -= wsize + 1;		// remove speaker flag
+			ReadCompiledWord(at,wordx);
+			size_t wsize = strlen(wordx);
+			if (wordx[wsize-1] == ':') len -= wsize + 1;		// remove speaker flag
 			if ((int)len > lineLimit) 
 			{
 				headit = true;
@@ -9688,7 +9867,6 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 					{
 						*esc = 0;
 						len = strlen(start);
-						char word[MAX_WORD_SIZE];
 						ReadCompiledWord(at,word);
 						size_t wsize = strlen(word);
 						if (word[wsize-1] == ':') 
@@ -9902,7 +10080,6 @@ static void C_Abstract(char* input)
 	// get topic if given
 	if (*input == '~' && !x)
 	{
-		char word[MAX_WORD_SIZE];
 		while (input && *input)
 		{
 			input = ReadCompiledWord(input,word);
@@ -9931,12 +10108,9 @@ static void C_Abstract(char* input)
             char label[MAX_WORD_SIZE];
             if (spelling & ABSTRACT_COVERAGE)
             {
-                if (true || block->topicRestriction)
-                {
-                    sprintf(label, (char*)"T-%s-%s", computerID, GetTopicName(i));
-                    WORDP D = FindWord(label);
-                    if (!D) continue; // not used in coverage
-                }
+                 sprintf(label, (char*)"T-%s-%s", computerID, GetTopicName(i));
+                WORDP D = FindWord(label);
+                 if (!D) continue; // not used in coverage
                 if (block->topicRestriction && !strstr(block->topicRestriction, computerIDwSpace)) continue;
             }
 
@@ -10089,10 +10263,10 @@ static void IndentDisplay(char* one, char* two,char* display)
 static void C_StripLog(char* file)
 {
 	char name[MAX_WORD_SIZE];
-	bool all = true;
+	bool allusers = true;
 	if (!strnicmp(file, "oneuser",7))
 	{
-		all = false;
+		allusers = false;
 		file = ReadCompiledWord(file, name);
 	}
 	sprintf(name, "%s/tmp.txt", tmpfolder);
@@ -10120,7 +10294,7 @@ static void C_StripLog(char* file)
 		size_t len = strlen(end + 2) - 21; // skip ) and space and account for space and date
 		*end = 0; // terminate botname
 		end[len+2] = 0; // trim off space and date
-		if (!all) fprintf(out, "%s\r\n", end + 2);
+		if (!allusers) fprintf(out, "%s\r\n", end + 2);
 		else if (len) fprintf(out, "%s %s %s\r\n", user, at+1, end+2);
 		else fprintf(out, "%s %s\r\n", user, at + 1);
 	}
@@ -10639,7 +10813,7 @@ static void TrimIt(char* name,uint64 flag)
 		// fields in regress file are: Start: user:test bot:rose rand:3089 (resulting topic), volleyid,  input:  output: Good morning. 
 		// Respond: user:test bot:rose (resulting topic), volleyid input output 
 
-		if (strncmp(readBuffer,(char*)"Respond:",8) && strncmp(readBuffer,(char*)"Start:",6)) continue; // not a normal line?
+		if (!strstr(readBuffer,(char*)"Respond:") && !strstr(readBuffer,(char*)"Start:")) continue; // not a normal line?
 
 		// normal volley
 
@@ -10707,11 +10881,10 @@ static void TrimIt(char* name,uint64 flag)
 		if (nooob & 1) input = SkipOOB(input);
 		if (nooob & 2) output = SkipOOB(output);
 
-        if (!strncmp(readBuffer, (char*)"Start:", 6))
+        if (strstr(readBuffer, (char*)"Start:"))
         {
             if (flag == 9)
             {
-                char file[SMALL_WORD_SIZE];
                 sprintf(file, (char*)"%s/log-%s.txt", usersfolder, user);
                 FILE* out1 = FopenUTF8WriteAppend(file);
                 fprintf(out1, (char*)"%s\r\n", copy);
@@ -10799,9 +10972,8 @@ static void TrimIt(char* name,uint64 flag)
 		else if ( flag == 8) sprintf(display,(char*)"%s\r\n\t(%s) %s\r\n",input,topic,output); // 2liner, indented computer   + topic
 		else if ( flag == 9) // build user logs
 		{
-			char file1[SMALL_WORD_SIZE];
-			sprintf(file1,(char*)"%s/log-%s.txt",usersfolder,user);
-			FILE* out1 = FopenUTF8WriteAppend(file1);
+			sprintf(file,(char*)"%s/log-%s.txt",usersfolder,user);
+			FILE* out1 = FopenUTF8WriteAppend(file);
 			fprintf(out1,(char*)"%s\r\n",copy);
 			FClose(out1);
 			continue;
@@ -11040,7 +11212,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":regress",C_Regress,(char*)"create or test a regression file"}, 
 	{ (char*)":source",C_Source,(char*)"Switch input to named file"}, 
 	{ (char*)":testpattern",C_TestPattern,(char*)"See if a pattern works with an input."}, 
-	{ (char*)":testtopic",C_TestTopic,(char*)"Try named topic responders on input"}, 
+	{ (char*)":variablereference",C_VariableReference,(char*)"List variables set or retrieved and how often" },
+	{ (char*)":testtopic",C_TestTopic,(char*)"Try named topic responders on input"},
 	{ (char*)":verify",C_Verify,(char*)"Given test type & topic, test that rules are accessible. Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all."},  
 
 	{ (char*)"\r\n---- Document Processing",0,(char*)""},  

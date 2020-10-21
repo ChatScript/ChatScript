@@ -121,7 +121,6 @@ static bool globalAbort = false;
 #define ID_EDITCHILD 100 // output
 #define ID_EDITCHILD1 101 //  input
 HWND hParent = NULL;
-HWND  ioWindow = NULL;
 static void RemoveBreak(char* name);
 HWND hGoButton, hStopButton, hClearButton,hNextButton, hInButton, hOutButton;
 HWND hGlobalsButton,hBackButton,hBreakMessageButton;
@@ -225,7 +224,7 @@ static MAPDATA* FindLine(int line)
     return NULL;
 }
 
-static void ReadWindow(HWND window,FILE* in)
+static void ReadWindow(WINDOWSTRUCT windowdata,FILE* in)
 {
     char buffer[500];
     ReadALine(buffer,in);
@@ -240,39 +239,51 @@ static void ReadWindow(HWND window,FILE* in)
     int z = atoi(word);
     data = ReadCompiledWord(data, word);
     int q = atoi(word);
-    MoveWindow(window, x, y, z, q, true);
+    MoveWindow(windowdata.window, x, y, z, q, true);
+	UpdateWindowMetrics(windowdata, true);
+}
+
+static void ReadButton(HWND window, FILE* in)
+{
+	char buffer[500];
+	ReadALine(buffer, in);
+	char* data = buffer;
+	char word[MAX_WORD_SIZE];
+	data = ReadCompiledWord(data, word);
+	data = ReadCompiledWord(data, word);
+	int x = atoi(word);
+	data = ReadCompiledWord(data, word);
+	int y = atoi(word);
+	data = ReadCompiledWord(data, word);
+	int z = atoi(word);
+	data = ReadCompiledWord(data, word);
+	int q = atoi(word);
+	MoveWindow(window, x, y, z, q, true);
 }
 
 static void RestoreWindows()
 {
     FILE* in = FopenReadOnly("idesettings.txt");
     if (!in) return;
-    ReadWindow(scriptData.window, in);
-    UpdateWindowMetrics(scriptData, true);
+    ReadWindow(scriptData, in);
+    ReadWindow(inputData, in);
+	ReadWindow(outputData, in);
+    ReadWindow(statData, in);
+	ReadWindow(varData, in);
+    ReadWindow(stackData, in);
+	ReadWindow(sentenceData, in);
 
-    ReadWindow(inputData.window, in);
-    ReadWindow(outputData.window, in);
-    UpdateWindowMetrics(outputData, true);
-    ReadWindow(statData.window, in);
-    UpdateWindowMetrics(statData, true);
-
-    ReadWindow(varData.window, in);
-    UpdateWindowMetrics(varData, true);
-    
-    ReadWindow(stackData.window, in);
-    UpdateWindowMetrics(stackData, true);
-
-    ReadWindow(hGoButton, in);
-    ReadWindow(hInButton, in);
-    ReadWindow(hOutButton, in);
-    ReadWindow(hNextButton, in);
-    ReadWindow(hStopButton, in);
-    ReadWindow(hBreakMessageButton, in);
-    ReadWindow(hClearButton, in);
-    ReadWindow(hGlobalsButton, in);
-    ReadWindow(hBackButton, in);
-    ReadWindow(hFontButton, in);
-    ReadWindow(hFailButton, in);
+	ReadButton(hGoButton, in);
+	ReadButton(hInButton, in);
+	ReadButton(hOutButton, in);
+	ReadButton(hNextButton, in);
+	ReadButton(hStopButton, in);
+	ReadButton(hBreakMessageButton, in);
+	ReadButton(hClearButton, in);
+	ReadButton(hGlobalsButton, in);
+	ReadButton(hBackButton, in);
+	ReadButton(hFontButton, in);
+	ReadButton(hFailButton, in);
     char buffer[100];
     ReadALine(buffer, in);
     fontsize = atoi(buffer + 10);
@@ -298,10 +309,12 @@ static void SaveWindows()
     SaveWindow(scriptData.window, "script",out);
     SaveWindow(inputData.window, "input", out);
     SaveWindow(outputData.window, "output", out);
-    SaveWindow(statData.window, "statistics", out);
+    SaveWindow(statData.window, "stats", out);
     SaveWindow(varData.window, "variables", out);
     SaveWindow(stackData.window, "stack", out);
-    SaveWindow(hGoButton, "go", out);
+	SaveWindow(sentenceData.window, "sentence", out);
+	
+	SaveWindow(hGoButton, "go", out);
     SaveWindow(hInButton, "in", out);
     SaveWindow(hOutButton, "out", out);
     SaveWindow(hNextButton, "next", out);
@@ -337,7 +350,7 @@ static MAPDATA* FindMap(char* name,char* filename)
         if (at->filename != oldname)
         {
             oldname = at->filename;
-            Log(STDTRACELOG, "%s\r\n", oldname);
+            Log(STDUSERLOG, "%s\r\n", oldname);
         }
         char* entry = at->name; // map has link, file, line, name
         if (filename && stricmp(at->filename, filename)) { ; }
@@ -547,7 +560,7 @@ static void ShowStack()
         {
             CALLFRAME* frame = GetCallFrame(i);
             size_t len = strlen(frame->label);
-            if (len > maxchar) maxchar = len;
+            if ((int)len > maxchar) maxchar = len;
         }
         stackData.maxChars = maxchar;
         stackData.maxLines = globalDepth;
@@ -1083,7 +1096,7 @@ static void FakeMapEntry(char* name, char* comment, int & maxlines, int& maxchar
     *buffer = 0;
     if (*name) sprintf(buffer, "%s : %s", name, comment);
     size_t len = strlen(buffer);
-    if (len > maxchar) maxchar = len;
+    if ((int)len > maxchar) maxchar = len;
     ++maxlines;
     
     line = (LINEDATA*)malloc(sizeof(LINEDATA) + len + 1);
@@ -1391,7 +1404,7 @@ static void FindClickWord(int mouseCharacter, int mouseLine)
         {
             char* msg = GetStartCharacter(at);
             size_t len = strlen(msg);
-            if (mouseCharacter <= (scriptData.xposition + len))
+            if (mouseCharacter <= (int)(scriptData.xposition + len))
             {
                 int n = mouseCharacter;
                 while (IsLegalNameCharacter(msg[n]) || msg[n] == '$' || msg[n] == '@' || msg[n] == '%' || msg[n] == '~' || msg[n] == '^') --n;
@@ -1471,11 +1484,14 @@ static void ReadMap(char* name)
     while (fgets(buffer, 20000, in))
     {
         int64 botid = 0;
-        size_t len = strlen(buffer);
-        if (buffer[len - 2] == '\r') buffer[len - 2] = 0;
+		char* ptr = buffer;
+        size_t len = strlen(ptr);
+        if (ptr[len - 2] == '\r') ptr[len - 2] = 0;
         char kind[MAX_WORD_SIZE];
         char line[MAX_WORD_SIZE];
-        char* at = ReadCompiledWord(buffer, kind);
+		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) // UTF8 BOM
+			ptr += 3; // ignore BOM if coming from a file
+        char* at = ReadCompiledWord(ptr, kind);
         if (!*kind || *kind == '#') continue;
         at = ReadCompiledWord(at, line); // line number
         char title[MAX_WORD_SIZE];
@@ -1520,8 +1536,6 @@ static void ReadMap(char* name)
             sprintf(x, "%s:%s", kind,title);
             MapAllocate(0, file, x, line); // ignoring type of rule for now
         }
-
-
     }
     fclose(in);
 }
@@ -1533,7 +1547,7 @@ static void StatData()
     char word[MAX_WORD_SIZE];
     int heapfree = (heapFree - stackFree) / 1000;
     int index = Word2Index(dictionaryFree);
-    int factfree = factEnd - factFree;
+    int factfree = factEnd - lastFactUsed;
     int gap = maxReleaseStackGap / 1000;
     int dictfree = (int)(maxDictEntries - index);
     sprintf(word, "%d", worstDictAvail);
@@ -1541,7 +1555,7 @@ static void StatData()
         heapfree, gap,
         maxBufferLimit - bufferIndex, maxBufferLimit - maxBufferUsed,
         dictfree, worstDictAvail,
-        factfree, worstFactFree, rulesInMap, rulesExecuted);
+        factfree, worstlastFactUsed, rulesInMap, rulesExecuted);
 
     SendMessage(statData.window, EM_SETSEL, 0, -1); // append to output
     SendMessage(statData.window, EM_REPLACESEL, false, (LPARAM)word);
@@ -1558,6 +1572,7 @@ static char* DebugOutput(char* output) // add to output
 {
     if (!outputData.window) return NULL;
     char* answer = AllocateBuffer();
+	if (!answer) return NULL;
     changingEdit = true;
     SendMessage(outputData.window, EM_SETSEL, -1, -1); // append to output
     SendMessage(outputData.window, EM_REPLACESEL, false, (LPARAM)output);
@@ -1584,7 +1599,7 @@ static char* DebugOutput(char* output) // add to output
     {
         *at = 0;
         size_t n = strlen(start);
-        if (n > maxchars) maxchars = n;
+        if ((int)n > maxchars) maxchars = n;
         *at = '\r';
         ++lines;
         at += 2;
@@ -1713,8 +1728,12 @@ bool StopIntended()
          {
              (*printer)((char*)"%s", (char*)"\r\nEnter user name: ");
          }
-     }
-     if (inputData.window) SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
+		 if (inputData.window)
+		 {
+			 SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
+			 SetFocus(inputData.window);
+		 }
+	 }
      changingEdit = false;
      csThread = 0;
      fnlevel = -1;
@@ -2155,6 +2174,7 @@ char* DebugCall(char* name,bool in)
     while (--depth) // see if system function inside of some other arg processing
     {
         frame = GetCallFrame(depth);
+		if (!frame) return NULL; // problem
         if (strchr(frame->label, '('))
         {
             return NULL; // not stop in arg processing
@@ -2484,29 +2504,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    filenames[1] = 0;
    *varnames = 0;
    hParent = CreateWindow(szWindowClass, szTitle,  WS_VISIBLE | WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_SIZEBOX,
-       0, 0, 0, 0, nullptr, nullptr, hInstance, nullptr);
+	   200, 50, CW_USEDEFAULT, CW_USEDEFAULT, nullptr, nullptr, hInstance, nullptr);
    if (!hParent) return FALSE;
-
-   ioWindow = CreateWindow(szWindowClass, szTitle, WS_VISIBLE  |
-     WS_HSCROLL |
-        WS_CAPTION | ES_AUTOVSCROLL | ES_AUTOHSCROLL,
-      WS_BORDER | WS_SIZEBOX  
-       | ES_MULTILINE | WS_VSCROLL   | WS_BORDER
-       | ES_LEFT, WS_MAXIMIZE | WS_SIZEBOX
-       ,0, 0, 0, 0, nullptr, nullptr, nullptr, nullptr);
-   if (!ioWindow) return FALSE;
- 
    int xlimit = GetSystemMetrics(SM_CXMAXIMIZED);
    int ylimit = GetSystemMetrics(SM_CYMAXIMIZED);
    xlimit -= 30; // scroll
    ylimit -= 30; // scroll
    parentData.window = hParent;
-   parentData.rect.left = 20;
-   parentData.rect.right = xlimit;
-   parentData.rect.top = 20;
-   parentData.rect.bottom = ylimit;
-   MoveWindow(hParent, parentData.rect.left, parentData.rect.top, parentData.rect.right, parentData.rect.bottom, true);
-   
+   UpdateWindowMetrics(parentData);
+
    hPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 0));
    hBrush = CreateSolidBrush(RGB(0, 0, 0));
    hBrushBlue = CreateSolidBrush(RGB(0, 0, 255)); //https://yuilibrary.com/yui/docs/color/rgb-slider.html
@@ -2539,46 +2545,31 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hGlobalsButton = MakeButton("Global", zone3x, 10, butwidth, butheight);
    hBackButton = MakeButton("Back", zone3x + butwidth ,10, butwidth, butheight);
    hFontButton = MakeButton("-Font+", zone3x + butwidth * 2, 10,butwidth, butheight);
-   int sentenceY = butheight + 10 + 10;
-   statData.rect.bottom = ylimit - 120;
-   statData.rect.top = statData.rect.bottom - butheight * 2;
       
    ide = true; // we have ide attached to cs
    idestop = false;
    
    // source text fits in this rect of scriptwindow
-   scriptData.rect.left = 10;
-   scriptData.rect.right = (xlimit * 2) / 3;
-   scriptData.rect.top = sentenceY + 3 * butheight + 10;
-   scriptData.rect.bottom = statData.rect.top - 30;
    scriptData.window = CreateWindow(szWindowClass, (LPCSTR) "script",
-       WS_VISIBLE | WS_CHILDWINDOW| WS_HSCROLL | WS_VSCROLL 
+       WS_VISIBLE | WS_HSCROLL | WS_VSCROLL 
        | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
-      0, 0, 0, 0, hParent, nullptr, hInstance, nullptr);
+      0, 0, 0, 0, nullptr, nullptr, hInstance, nullptr);
    if (!scriptData.window) return FALSE;
-
-   int subwindowheight = scriptData.rect.bottom - scriptData.rect.top;
-   subwindowheight -= 3 * butheight;    // input window
-   subwindowheight -= 30; // 10 sep between windows
-   subwindowheight /= 3; 
-
-   scriptData.window = scriptData.window;
-   MoveWindow(scriptData.window, scriptData.rect.left, scriptData.rect.top, scriptData.rect.right-scriptData.rect.left, scriptData.rect.bottom - scriptData.rect.top,true);
-   ShowWindow(scriptData.window, SW_SHOW);
-   UpdateWindow(scriptData.window);
-   UpdateWindowMetrics(scriptData);
-
-   UpdateWindowMetrics(parentData);
-
-   inputData.rect.top = 0; // scriptData.rect.top;
-   inputData.rect.bottom = 100; // inputData.rect.top + 2 * butheight;
-   inputData.rect.left = 0; // scriptData.rect.right + 40;
-   inputData.rect.right = 400; //  xlimit - 40;
-   inputData.window = ioWindow;
-   /* CreateWindow(
+   if (scriptData.window)
+   {
+	   scriptData.window = scriptData.window;
+	   MoveWindow(scriptData.window, 10, 10, 979, 830,true);
+	   GetWindowRect(scriptData.window, &scriptData.rect);
+	   UpdateWindowMetrics(scriptData);
+	   ShowWindow(scriptData.window, SW_SHOW);
+	   UpdateWindow(scriptData.window);
+   }
+   
+   inputData.window = 
+    CreateWindow(
        "EDIT",
-       (LPCSTR) "cs input",
-       WS_BORDER | WS_SIZEBOX  // | WS_CAPTION -- with this we lose edit dataentry 
+       (LPCSTR) "input",
+       WS_BORDER | WS_SIZEBOX   | WS_CAPTION // -- with this we lose edit dataentry 
        | ES_MULTILINE | WS_VSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER |
        ES_WANTRETURN | ES_LEFT,  // | WS_CAPTION
        0, 0, 0, 0,
@@ -2586,27 +2577,24 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
        (HMENU)ID_EDITCHILD1,   // edit control ID 
        (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
        NULL);        // pointer not needed 
-       */
-   MoveWindow(inputData.window,
-       inputData.rect.left, inputData.rect.top, // starting x- and y-coordinates 
-       inputData.rect.right - inputData.rect.left,  // width of client area 
-       inputData.rect.bottom - inputData.rect.top,   // height of client area 
-       TRUE);
-   SetFocus(inputData.window); // key input goes here
-   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
-   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
-   SendMessage(inputData.window, EM_SETSEL, -1, -1);
-   ShowWindow(inputData.window, SW_SHOW);
-   UpdateWindow(inputData.window);
-   UpdateWindowMetrics(inputData);
+   if (inputData.window)
+   {
+	   MoveWindow(inputData.window, 1312, 122, 489, 200,TRUE);
+	   GetWindowRect(inputData.window, &inputData.rect);
+	   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
+	   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
+	   SetFocus(inputData.window); // key input goes here
+	   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
+	   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
+	   SendMessage(inputData.window, EM_SETSEL, -1, -1);
+	   ShowWindow(inputData.window, SW_SHOW);
+	   UpdateWindow(inputData.window);
+	   UpdateWindowMetrics(inputData);
+   }
 
    // output from cs
-   outputData.rect.top = inputData.rect.top;
-   outputData.rect.left = inputData.rect.left;
-   outputData.rect.right = inputData.rect.right;
-   outputData.rect.bottom = inputData.rect.bottom;
-   outputData.window = ioWindow;
-     /* CreateWindow(
+   outputData.window = 
+      CreateWindow(
        "EDIT",
        (LPCSTR) "output",
        ES_READONLY | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_HSCROLL |
@@ -2615,44 +2603,58 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
        (HMENU)ID_EDITCHILD,
        (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
        NULL);        // pointer not needed 
-   */
-   SendMessage(outputData.window, WM_SETTEXT, 0, (LPARAM)"");
-   SendMessage(outputData.window, WM_SETFONT, (WPARAM)hFont, false);
-   SendMessage(outputData.window, EM_SETSEL, -1, -1);
-  /* MoveWindow(outputData.window,
-       outputData.rect.left, outputData.rect.top, // starting x- and y-coordinates 
-       outputData.rect.right - outputData.rect.left,  // width of client area 
-       outputData.rect.bottom - outputData.rect.top,   // height of client area 
-       TRUE); */
-   //ShowWindow(outputData.window, SW_SHOW);
-   //UpdateWindow(outputData.window);
-   UpdateWindowMetrics(outputData);
+   if (outputData.window)
+   {
+	   SendMessage(outputData.window, WM_SETTEXT, 0, (LPARAM)"");
+	   SendMessage(outputData.window, WM_SETFONT, (WPARAM)hFont, false);
+	   SendMessage(outputData.window, EM_SETSEL, -1, -1);
+	   MoveWindow(outputData.window, 1308, 346, 483, 100,TRUE); 
+	   GetWindowRect(outputData.window, &outputData.rect);
+	   ShowWindow(outputData.window, SW_SHOW);
+	   UpdateWindow(outputData.window);
+	   UpdateWindowMetrics(outputData);
+   }
 
    // stats from cs
-   statData.rect.left = scriptData.rect.left;
-   statData.rect.right = outputData.rect.right;
+   statData.rect.left = 10;
+   statData.rect.right = 200;
    statData.window = CreateWindow(
        "EDIT",
        (LPCSTR) "stats",
-       ES_READONLY | WS_CHILD | WS_VISIBLE  | WS_HSCROLL |
+       ES_READONLY | WS_CHILDWINDOW | WS_VISIBLE  | WS_HSCROLL | WS_VSCROLL |
+	   WS_CAPTION | WS_BORDER |
        WS_SIZEBOX | ES_LEFT | ES_AUTOHSCROLL,
        0, 0, 0, 0, hParent,
        (HMENU)ID_EDITCHILD,
        (HINSTANCE)GetWindowLong(statData.window, GWL_HINSTANCE),
        NULL);        // pointer not needed 
-   SendMessage(statData.window, WM_SETTEXT, 0, (LPARAM)"");
-   SendMessage(statData.window, WM_SETFONT, (WPARAM)hFont, false);
-   SendMessage(statData.window, EM_SETSEL, -1, -1);
-   MoveWindow(statData.window,
-       statData.rect.left, statData.rect.top, // starting x- and y-coordinates 
-       statData.rect.right - statData.rect.left,  // width of client area 
-       statData.rect.bottom - statData.rect.top,   // height of client area 
-       TRUE);
-   ShowWindow(statData.window, SW_SHOW);
-   UpdateWindow(statData.window);
-   UpdateWindowMetrics(statData);
+   if (statData.window)
+   {
+	   SendMessage(statData.window, WM_SETTEXT, 0, (LPARAM)"");
+	   SendMessage(statData.window, WM_SETFONT, (WPARAM)hFont, false);
+	   SendMessage(statData.window, EM_SETSEL, -1, -1);
+	   MoveWindow(statData.window, 1277, 866, 598, 100, TRUE);
+	   GetWindowRect(statData.window, &statData.rect);
+	   ShowWindow(statData.window, SW_SHOW);
+	   UpdateWindow(statData.window);
+	   UpdateWindowMetrics(statData);
+   }
 
-   sentenceData.window = MakeButton("sentence", 10, sentenceY, outputData.rect.right - scriptData.rect.left, 3 * butheight, WS_HSCROLL);
+   sentenceData.window = CreateWindow(
+	   szWindowClass, (LPCSTR) "sentence",
+	   WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
+	   | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
+	   0, 0, 0, 0, hParent, 0,
+	   (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
+	   NULL);        // pointer not needed 
+   if (sentenceData.window)
+   {
+	   MoveWindow(sentenceData.window, 1316, 11, 517, 100,  TRUE);
+	   GetWindowRect(sentenceData.window, &sentenceData.rect);
+	   ShowWindow(sentenceData.window, SW_SHOW);
+	   UpdateWindow(sentenceData.window);
+	   UpdateWindowMetrics(sentenceData);
+   }
 
     varData.window = CreateWindow(
         szWindowClass,(LPCSTR) "global variables",
@@ -2662,17 +2664,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
         0,
         (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
         NULL);        // pointer not needed 
-    varData.rect = outputData.rect;
-    varData.rect.top = outputData.rect.bottom + 10;
-    varData.rect.bottom = varData.rect.top + subwindowheight;
-    MoveWindow(varData.window,
-        varData.rect.left, varData.rect.top, // starting x- and y-coordinates 
-        varData.rect.right - varData.rect.left,  // width of client area 
-        varData.rect.bottom - varData.rect.top,   // height of client area 
-        TRUE);
-    ShowWindow(varData.window, SW_SHOW);
-    UpdateWindow(varData.window);
-    UpdateWindowMetrics(varData);
+	if (varData.window)
+	{
+		MoveWindow(varData.window, 6, 377, 136, 100, TRUE);
+		GetWindowRect(varData.window, &varData.rect);
+		ShowWindow(varData.window, SW_SHOW);
+		UpdateWindow(varData.window);
+		UpdateWindowMetrics(varData);
+	}
 
     stackData.window = CreateWindow(
         szWindowClass, (LPCSTR) "callstack",
@@ -2681,16 +2680,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
         0, 0, 0, 0,  hParent, 0,
         (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
         NULL);        // pointer not needed 
-    stackData.rect = varData.rect;
-    stackData.rect.top = varData.rect.bottom + 10;
-    stackData.rect.bottom = scriptData.rect.bottom;
-    MoveWindow(stackData.window, stackData.rect.left, stackData.rect.top, stackData.rect.right - stackData.rect.left, stackData.rect.bottom - stackData.rect.top, true);
+	if (stackData.window)
+	{
+		MoveWindow(stackData.window, 7, 524, 136, 126, true);
+		GetWindowRect(stackData.window, &stackData.rect);
+		ShowWindow(stackData.window, SW_SHOW);
+		UpdateWindow(stackData.window);
+		UpdateWindowMetrics(stackData);
+	}
 
-    ShowWindow(stackData.window, SW_SHOW);
-    UpdateWindow(stackData.window);
-    UpdateWindowMetrics(stackData);
-
-    UpdateWindowMetrics(sentenceData,true);
     RestoreWindows();
 
     // rects have been set up now, get local coords
@@ -2996,7 +2994,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         GetWindowText(hWnd, word, MAX_WORD_SIZE);
         int xPos = GET_X_LPARAM(lParam);
 		int yPos = GET_Y_LPARAM(lParam);
-        if (hWnd == scriptData.window)
+		if (hWnd == inputData.window)
+		{
+			SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
+			SetFocus(inputData.window);
+		}
+		else if (hWnd == scriptData.window)
         {
             if (xPos >= scriptData.rect.left && xPos <= scriptData.rect.right &&
                 yPos >= scriptData.rect.top && yPos <= scriptData.rect.bottom)
@@ -3111,7 +3114,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             InvalidateRgn(varData.window, NULL, true);
             InvalidateRgn(stackData.window, NULL, true);
         }
-        else if (hWnd == hGoButton)
+		else if (hWnd == inputData.window)
+		{
+			SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
+			SetFocus(inputData.window);
+		}
+		else if (hWnd == stackData.window)
+		{
+			SetFocus(stackData.window);
+		}
+		else if (hWnd == varData.window)
+		{
+			SetFocus(varData.window);
+		}
+		else if (hWnd == hGoButton)
         {
             outdepth = outlevel = -1;
             nextdepth = nextlevel = -1;
@@ -3354,7 +3370,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // system call
             if (frame && frame->name && *frame->name->word == '^' && !frame->code)
             {
-                for (unsigned int i = 0; i < frame->arguments; ++i)
+                for ( int i = 0; i < frame->arguments; ++i)
                 {
                     char data[MAX_WORD_SIZE];
                     char* msg = callArgumentList[frame->argumentStartIndex + i];

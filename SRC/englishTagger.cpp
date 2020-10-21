@@ -4203,7 +4203,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	if (verbStack[MAINLEVEL] > end)
 	{
 		static int checkv = 0; // cheap hack to lower bug reports
-		if (wordCount != checkv) ReportBug((char*)"mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
+		if (wordCount != checkv && false) ReportBug((char*)"mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
 		checkv = end;
 		return true;
 	}
@@ -4214,7 +4214,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	if (subjectStack[MAINLEVEL] > end)
 	{
 		static int checks = 0; // cheap hack to lower bug reports
-		if (wordCount != checks) ReportBug((char*)"mainSubject out of range", subjectStack[MAINLEVEL], end);
+		if (wordCount != checks && false) ReportBug((char*)"mainSubject out of range", subjectStack[MAINLEVEL], end);
 		checks = end;
 		return true;
 	}

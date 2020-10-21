@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/23/2020 cs10.6</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/18/2020 cs10.7</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -625,5 +625,7 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <p>will take the all built concept and write them out to <code>concepts.top</code> as a single line, with members sorted alphabetically and concept declarations sorted alphabetically. You can use this output to replace your original scripted concepts.</p>
 <pre><code>:sortconcept 0</code></pre>
 <p>will take the all built concept and write them out to <code>concepts.top</code> as a multiple line, with members sorted alphabetically. If you want the concept declarations sorted alphabetically, first do <code>:sortconcept 1</code>, then take <code>concepts.top</code> and replace your original script concepts from it. Then do this and then replace your original script concepts from this.</p>
+<h1 id="variablereference">:variablereference</h1>
+<p>List all user variable assignments in a bot and uses into TMP/reference.txt . See documentation in Finalize a bot</p>
 </body>
 </html>

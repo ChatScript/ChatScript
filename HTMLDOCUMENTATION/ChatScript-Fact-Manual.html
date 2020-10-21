@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/10/2018 cs9.8</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
@@ -78,7 +78,7 @@ $fact = ^createfact( Bob own dog)
 <p>The simplest fact find involves knowing all the components (meanings) and asking if the fact already exists. If it does, it returns the index of the fact. If it doesn't it returns <code>FAILRULE_BIT</code>.</p>
 <h3 id="query-kind-subject-verb-object"><code>^query</code>( kind subject verb object )</h3>
 <p>The simplest query names the kind of query and gives some or all of the field values that you want to find. Any field value can be replaced with <code>?</code> which means either you don't care or you don't know and want to find it.</p>
-<p>The kinds of queries are programmable and are defined in <code>LIVEDATA/queries.txt</code> (but you need to be really advanced to add to it). The simplest query kinds are:</p>
+<p>The kinds of queries are programmable and are defined in <code>LIVEDATA/SYSTEM/queries.txt</code> (but you need to be really advanced to add to it). The simplest query kinds are:</p>
 <table>
 <thead>
 <tr class="header">

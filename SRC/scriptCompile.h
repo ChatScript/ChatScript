@@ -27,7 +27,7 @@ extern unsigned int buildID; // build 0 or build 1
 extern char* newScriptBuffer;
 extern bool disablePatternOptimization;
 extern char* oldScriptBuffer;
-extern bool compiling;
+extern CompileStatus compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
 extern bool compilePatternCall;

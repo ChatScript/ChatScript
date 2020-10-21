@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.61";
+char* version = "10.7";
 char sourceInput[200];
 FILE* userInitFile;
 bool fastload = true;
@@ -8,7 +8,10 @@ int externalTagger = 0;
 char defaultbot[100];
 uint64 chatstarted = 0;
 int sentenceloopcount = 0;
+int db = 0;
+int gzip = 0;
 bool client = false;
+bool newuser = false;
 bool stdlogging = false;
 uint64 preparationtime = 0;
 uint64 replytime = 0;
@@ -19,7 +22,9 @@ int sentenceLimit = SENTENCES_LIMIT;
 bool loadingUser = false;
 bool dieonwritefail = false;
 int inputLimit = 0;
+int fullInputLimit = 0;
 char traceuser[500];
+char* originalUserInput;
 bool debugcommand = false;
 int traceUniversal;
 int debugLevel = 0;
@@ -213,18 +218,20 @@ static void HandlePermanentBuffers(bool init)
 {
 	if (init)
 	{
+		if (fullInputLimit == 0) fullInputLimit = maxBufferSize * 2;
 		readBuffer = (char*)malloc(maxBufferSize);
 		*readBuffer = 0;
 		oldInputBuffer = (char*)malloc(maxBufferSize);
 		lastInputSubstitution = (char*)malloc(maxBufferSize);
-		inputCopy = (char*)malloc(maxBufferSize);
 		realinput = (char*)malloc(maxBufferSize);
 		rawSentenceCopy = (char*)malloc(maxBufferSize);
 		currentInput = (char*)malloc(maxBufferSize);
 		*currentInput = 0;
 		revertBuffer = (char*)malloc(maxBufferSize);
-		ourMainInputBuffer = (char*)malloc(maxBufferSize * 2);  // precaution for overflow
-		copyInput = (char*)malloc(maxBufferSize);
+
+		inputCopy = (char*)malloc(fullInputLimit);
+		ourMainInputBuffer = (char*)malloc(fullInputLimit);  // precaution for overflow
+		copyInput = (char*)malloc(fullInputLimit);
 
 		currentOutputLimit = outputsize;
 		currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = (char*)malloc(outputsize);
@@ -521,7 +528,6 @@ void CreateSystem()
 	unsigned int used =  factUsedMemKB + dictUsedMemKB + textUsedMemKB + bufferMemKB;
 	used +=  (userTopicStoreSize + userTableSize) /1000;
 	unsigned int free = lastFactUsedMemKB + textFreeMemKB;
-	char route[MAX_WORD_SIZE];
 
 	unsigned int bytes = (tagRuleCount * MAX_TAG_FIELDS * sizeof(uint64)) / 1000;
 	used += bytes;
@@ -588,6 +594,7 @@ void CreateSystem()
 		Log(SERVERLOG,(char*)"    *** Server WIDE OPEN to :command use.\r\n");
 	}
 #endif
+	char route[100];
 #ifdef DISCARDJSONOPEN
 	sprintf(route, (char*)"%s", (char*)"    JSONOpen access disabled.\r\n");
 	if (server) Log(SERVERLOG, route);
@@ -595,24 +602,6 @@ void CreateSystem()
 #endif
 #ifdef TREETAGGER
 	sprintf(route, (char*)"    TreeTagger access enabled: %s\r\n",language);
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
-#endif
-#ifndef DISCARDMONGO
-	if (*mongodbparams) sprintf(route,"    Mongo enabled. FileSystem routed to MongoDB\r\n");
-	else sprintf(route,"    Mongo enabled.\r\n"); 
-	if (server) Log(SERVERLOG,route);
-	else (*printer)(route);
-#endif
-#ifndef DISCARDMYSQL
-	if (*mysqlparams) sprintf(route, "    MySql enabled. FileSystem routed MySql\r\n");
-	else sprintf(route, "    MySql enabled.\r\n");
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
-#endif
-#ifndef DISCARDPOSTGRES
-	if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
-	else sprintf(route, "    Postgres enabled.\r\n");
 	if (server) Log(SERVERLOG, route);
 	else (*printer)(route);
 #endif
@@ -693,7 +682,8 @@ static void ProcessArgument(char* arg)
 	}
     else if (!stricmp(arg, (char*)"trustpos")) trustpos = true;
     else if (!strnicmp(arg, (char*)"inputlimit=", 11)) inputLimit = atoi(arg+11);
-    else if (!strnicmp(arg, (char*)"debug=",6)) strcpy(arg+6,debugEntry);
+	else if (!strnicmp(arg, (char*)"fullInputlimit=", 15)) fullInputLimit = atoi(arg + 15);
+	else if (!strnicmp(arg, (char*)"debug=",6)) strcpy(arg+6,debugEntry);
     else if (!strnicmp(arg, "erasename=", 10)) erasename = arg + 10;
 	else if (!stricmp(arg,"userencrypt")) userEncrypt = true;
 	else if (!stricmp(arg,"ltmencrypt")) ltmEncrypt = true;
@@ -795,8 +785,13 @@ static void ProcessArgument(char* arg)
 	}
 	else if (!strnicmp(arg,(char*)"system=",7) )  strcpy(systemFolder,arg+7);
 	else if (!strnicmp(arg,(char*)"english=",8) )  strcpy(languageFolder,arg+8);
+	else if (!strnicmp(arg, (char*)"db=", 3))  db = atoi(arg + 3);
+	else if (!strnicmp(arg, (char*)"gzip=", 4))  gzip = atoi(arg + 4);
 #ifndef DISCARDMYSQL
 	else if (!strnicmp(arg, (char*)"mysql=", 6))  strcpy(mysqlparams, arg + 6);
+#endif
+#ifndef DISCARDMICROSOFTSQL
+	else if (!strnicmp(arg, (char*)"mssql=", 6))  strcpy(mssqlparams, arg + 6);
 #endif
 #ifndef DISCARDPOSTGRES
 	else if (!strnicmp(arg,(char*)"pguser=",7) )  strcpy(postgresparams, arg+7);
@@ -1057,6 +1052,9 @@ static void ClearGlobals()
 #ifndef DISCARDMYSQL
 	*mysqlparams = 0;
 #endif
+#ifndef DISCARDMICROSOFTSQL
+	*mssqlparams = 0;
+#endif
 #ifndef DISCARDPOSTGRES
 	*postgresparams = 0;
 #endif
@@ -1083,6 +1081,9 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 { // this work mostly only happens on first startup, not on a restart
 	ClearGlobals();
 	SetDefaultLogsAndFolders();
+	memset(&userFileSystem, 0, sizeof(userFileSystem));
+	InitFileSystem(unchangedPath, readablePath, writeablePath);
+	if (userfiles) memcpy((void*)&userFileSystem, userfiles, sizeof(userFileSystem));
 
 	FILE* in = FopenStaticReadOnly((char*)"SRC/dictionarySystem.h"); // SRC/dictionarySystem.h
 	if (!in) // if we are not at top level, try going up a level
@@ -1101,8 +1102,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	debugOutput = outfn;
 	argc = argcx;
 	argv = argvx;
-	InitFileSystem(unchangedPath,readablePath,writeablePath);
-	if (userfiles) memcpy((void*)&userFileSystem,userfiles,sizeof(userFileSystem));
 
     ReadConfig();
 
@@ -1144,7 +1143,8 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 #ifdef LINUX
 	setSignalHandlers();
 #endif
-	if (!server) stdlogging = false; // even if requested, dont use stdin and stdout when not a server (stdout is for cs normal output)
+	if (!server) stdlogging = false; // even if requested, dont use stdin and stdout when not a server (stdout is for cs normal output
+
 
 #ifndef DISCARDSERVER
 	if (server)
@@ -1153,6 +1153,8 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 		GrabPort(); 
 #else
         (*printer)("evcalled pid: %d\r\n",getpid());
+
+		// each fork in evserver will execute the rest from this
 		if (evsrv_init(interfaceKind, port, evsrv_arg) < 0)  exit(4); // additional params will apply to each child and they will load data each
 #endif
 #ifdef WIN32
@@ -1170,6 +1172,61 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	}
 
 	CreateSystem();
+
+	bool nosql = (db == 0 || (db == 1 && !server));
+	#ifndef DISCARDMYSQL
+	if (nosql) *mysqlparams = 0;
+#endif
+#ifndef DISCARDMICROSOFTSQL
+	if (nosql) *mssqlparams = 0;
+#endif
+#ifndef DISCARDPOSTGRES
+	if (nosql) *postgresparams = 0;
+#endif
+#ifndef DISCARDMONGO
+	if (nosql) *mongodbparams = 0;
+#endif
+	if (forkcount == 1) // dont need 1 per thread. use 1 global
+	{
+#ifndef DISCARDMYSQL
+		if (*mysqlparams) MySQLUserFilesCode(mysqlparams);
+#endif
+#ifndef DISCARDMICROSOFTSQL
+		if (*mssqlparams) MsSqlUserFilesCode(mssqlparams);
+#endif
+#ifndef DISCARDPOSTGRES
+		if (*postgresparams)  PGInitUserFilesCode(postgresparams);
+#endif
+#ifndef DISCARDMONGO
+		if (*mongodbparams)  MongoSystemInit(mongodbparams);
+#endif
+	}
+
+	char route[100];
+#ifndef DISCARDMONGO
+	if (*mongodbparams) sprintf(route, "    Mongo enabled. FileSystem routed to MongoDB\r\n");
+	else sprintf(route, "    Mongo enabled.\r\n");
+	if (server) Log(SERVERLOG, route);
+	else (*printer)(route);
+#endif
+#ifndef DISCARDMICROSOFTSQL
+	if (*mssqlparams) sprintf(route, "    MicrosoftSql enabled. FileSystem routed MicrosoftSql\r\n");
+	else sprintf(route, "    MicrosoftSql enabled.\r\n");
+	if (server) Log(SERVERLOG, route);
+	else (*printer)(route);
+#endif
+#ifndef DISCARDMYSQL
+	if (*mysqlparams) sprintf(route, "    MySql enabled. FileSystem routed MySql\r\n");
+	else sprintf(route, "    MySql enabled.\r\n");
+	if (server) Log(SERVERLOG, route);
+	else (*printer)(route);
+#endif
+#ifndef DISCARDPOSTGRES
+	if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
+	else sprintf(route, "    Postgres enabled.\r\n");
+	if (server) Log(SERVERLOG, route);
+	else (*printer)(route);
+#endif
 
 	// system is ready.
 
@@ -1223,18 +1280,6 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 #ifdef PRIVATE_CODE
     PrivateInit(privateParams);
 #endif
-#ifndef DISCARDMYSQL
-	if (*mysqlparams) MySQLUserFilesCode(mysqlparams); //Forked must hook uniquely AFTER forking
-#endif
-#ifndef DISCARDPOSTGRES
-#ifndef EVSERVER
-	if (*postgresparams)  PGInitUserFilesCode(postgresparams); // unforked process can hook directly. Forked must hook AFTER forking
-#endif
-#endif
-#ifndef DISCARDMONGO
-	if (*mongodbparams)  MongoSystemInit(mongodbparams);
-#endif
-
 	EncryptInit(encryptParams);
 	DecryptInit(decryptParams);
 	ResetEncryptTags();
@@ -1254,7 +1299,7 @@ void PartiallyCloseSystem(bool keepalien) // server data (queues, databases, etc
 		FreeAllUserCaches(); // user system
 		CloseDictionary();	// dictionary system
 		CloseFacts();		// fact system
-		CloseDatabases(true);
+		if (forkcount == 1) CloseDatabases(true);
 	}
 }
 
@@ -1265,7 +1310,7 @@ void CloseSystem()
 #ifndef DISCARDSERVER
 	CloseServer();
 #endif
-	CloseDatabases();
+	if (forkcount == 1) CloseDatabases();
 #ifdef PRIVATE_CODE
 	PrivateShutdown();  // must come last after any mongo/postgress 
 #endif
@@ -1499,10 +1544,10 @@ bool GetInput()
         if (sourceFile == stdin) // user-based input
         {
             if (ide) return true; // only are here because input is entered
-            else if (ReadALine(ourMainInputBuffer + 1, sourceFile, maxBufferSize - 100) < 0) return true; // end of input
+            else if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100) < 0) return true; // end of input
         }
         // file based input
-        else if (ReadALine(ourMainInputBuffer + 1, sourceFile, maxBufferSize - 100) < 0) return true; // end of input
+        else if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100) < 0) return true; // end of input
     }
     if (ourMainInputBuffer[1] && !*ourMainInputBuffer) ourMainInputBuffer[0] = ' ';
 
@@ -1879,13 +1924,10 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
         *buff = 0;
         if (responseIndex && regression != NORMAL_REGRESSION) ComputeWhy(buff, -1);
 
-		unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
-		if (lapsedMilliseconds > timeLog) 
-			Log(TIMELOG,"%d", lapsedMilliseconds);
-
-        if (userLog && prepareMode != POS_MODE && prepareMode != PREPARE_MODE  && prepareMode != TOKENIZE_MODE)
+		if (userLog && prepareMode != POS_MODE && prepareMode != PREPARE_MODE  && prepareMode != TOKENIZE_MODE)
         {
-            char time15[MAX_WORD_SIZE];
+			unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
+			char time15[MAX_WORD_SIZE];
             sprintf(time15, (char*)" F:%dms ", lapsedMilliseconds);
             char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
             char* poutput = Purify(output);
@@ -1919,7 +1961,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
             }
             else
             {
-                Log(STDUSERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  %s ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, incoming, poutput, when, origbuff+2, time15);  // normal volley
+                Log(STDUSERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d  `*` ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, poutput, when, origbuff+2, time15);  // normal volley
             }
 
 			if (*GetUserVariable("$cs_showtime"))
@@ -2005,6 +2047,9 @@ bool crashset = false;
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
+	
+	originalUserInput = incoming;
+
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	if (!*user) *loginID = 0; // make sure he doesnt get to reuse other's id
 
@@ -2016,7 +2061,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		if (!autoreload) myexit((char*)"delayed crash exit");
 		
 		// attempt autoreload of system and continue
-		ReportBug("Autoreload");
+		ReportBug("Autoreload for %s",incoming);
 		reloading = true;
 		PartiallyCloseSystem(true);
 		CreateSystem();
@@ -2082,11 +2127,11 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	debugcommand = false;
 
 	// absolute limit
-	size_t len = strlen(incoming);
-	if (len >= (maxBufferSize - 10))
+	int len = (int)strlen(incoming);
+	if (len >= (fullInputLimit - 10))
 	{
-		incoming[maxBufferSize - 1] = 0; // chop to legal safe limit
-		ReportBug("Trimmed input too large %d > %d", len, maxBufferSize)
+		ReportBug("Trimmed input too large %d > %d  %s \r\n", len, fullInputLimit,incoming)
+		incoming[fullInputLimit - 1] = 0; // chop to legal safe limit
 	}
 
 	if (server) // transient enable server logging?
@@ -2135,13 +2180,10 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	}
 
 	mainInputBuffer = SkipWhitespace(incoming);
+	strcpy(realinput, mainInputBuffer);
 	mainOutputBuffer = output;
 	char* oobSkipped = SkipOOB(mainInputBuffer);
-	if (server)
-	{
-		AdjustUTF8(oobSkipped, oobSkipped - 1); // not needed coming locally - handle user stuff
-	}
-	strcpy(realinput, mainInputBuffer);
+	if (server) AdjustUTF8(oobSkipped, oobSkipped - 1); // not needed coming locally - handle user stuff
 	bool eraseUser = false;
 
 	// accept a user topic file erase command
@@ -2292,6 +2334,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		char oldc;
 		int oldCurrentLine;	
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // copy out prior file access and reinit user file access
+		char* suppressUser = GetUserVariable("$cs_new_user");
+		if (*suppressUser && strstr(originalUserInput, suppressUser)) newuser = true;
 		ReadUserData();		//   now bring in user state, uses readbuffer
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // restore old BOM values
 	}
@@ -2374,6 +2418,11 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	if (ok <= 0)
 	{
 		strcpy(mainInputBuffer, realinput); // guaranteed never touched by cs input
+		if (userlogFile)
+		{
+			fclose(userlogFile);
+			userlogFile = NULL;
+		}
 		return ok; // command processed
 	}
 
@@ -2417,6 +2466,11 @@ catch (...)
 #endif
 }
 
+if (userlogFile)
+{
+	fclose(userlogFile);
+	userlogFile = NULL;
+}
 	return volleyCount;
 }
 
@@ -2483,6 +2537,9 @@ void Restart()
 #ifndef DISCARDMONGO
 	if (*mongodbparams)  MongoSystemInit(mongodbparams);
 #endif
+#ifndef DISCARDMICROSOFTSQL
+	if (*mssqlparams) MsSqlUserFilesCode(mssqlparams); //Forked must hook uniquely AFTER forking
+#endif
 #ifdef PRIVATE_CODE
 	PrivateInit(privateParams); 
 #endif
@@ -2513,8 +2570,8 @@ int ProcessInput(char* input)
 	//   precautionary adjustments
 	strcpy(inputCopy,input);
 	char* buffer = inputCopy;
-	size_t len = strlen(input);
-	if (len >= maxBufferSize) buffer[maxBufferSize -1] = 0;
+	int len = (int)strlen(input);
+	if (len >= fullInputLimit) buffer[fullInputLimit -1] = 0;
 
 #ifndef DISCARDTESTING
 	char* at = SkipWhitespace(buffer);
@@ -2732,8 +2789,8 @@ void MoreToCome()
 FunctionResult DoSentence(char* prepassTopic, bool atlimit)
 {
 	char* input = AllocateBuffer();  // complete input we received
-	unsigned int len = strlen(nextInput);
-	if (len >= (maxBufferSize)-100) nextInput[maxBufferSize-100] = 0;
+	int len = strlen(nextInput);
+	if (len >= (fullInputLimit)-100) nextInput[fullInputLimit -100] = 0;
 	strcpy(input,nextInput);
 	ambiguousWords = 0;
 
@@ -3038,7 +3095,8 @@ char* SkipOOB(char* buffer)
 				}
 			}
 		}
-		ReportBug("SkipOOB failed %s\r\n", start);
+		size_t len = strlen(realinput);
+		ReportBug("SkipOOB failed %d %s\r\n", len,realinput);
 	}
 	return start; // didnt validate incoming oob
 }
@@ -3282,6 +3340,8 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
     ClearTriedData();
 
 	char* ptr = input;
+	size_t len = strlen(ptr);
+	char* nearend = ptr + len - 50;
 
 	// protection from null input bug to testpattern
 	char* in = strstr(input, "\"input\": \", \"pattern");

@@ -72,9 +72,7 @@ int srv_socket_g = -1;
 struct ev_loop *l_g = 0;
 ev_io ev_accept_r_g;
 ev_timer tt_g;
-
-bool postgresInited = false;
-	   
+  
 #ifdef EVSERVER_FORK
 // child monitors
 #define MAX_CHILDREN_D 50
@@ -124,6 +122,7 @@ struct Client_t
 
     ~Client_t() // if child dies, this destructor is not called
     {
+		if (forkcount > 1) CloseDatabases(true); // shut off   per thread connections
 		if (this->data) free(this->data); 
 		this->data = NULL;
         if (ev_is_active(&this->ev_r))  ev_io_stop(this->l, &this->ev_r);
@@ -610,35 +609,47 @@ int evsrv_do_chat(Client_t *client)
 {
  	uint64 starttime = ElapsedMilliseconds(); 
     client->prepare_for_chat();
-	size_t len = strlen(client->message);
+	int len = (int)strlen(client->message);
+	originalUserInput = client->message;
+	if (len >= fullInputLimit - 300)
+	{
+		// completely literal incoming data
+		FILE* bugout = FopenUTF8WriteAppend("LOGS/evBugdata.txt");
+		if (bugout)
+		{
+			fprintf(bugout, "%d %s\r\n", len, client->message);
+			fclose(bugout);
+		}
 
-// completely literal incoming data
-//	FILE* bugout = FopenUTF8WriteAppend("evdata.txt");
-//	if (bugout)
-//	{
-//		fprintf(bugout, "%d |%s|\r\n", len, client->message);
-//		fclose(bugout);
-//	}
-
-	if (len >= maxBufferSize - 300) client->message[maxBufferSize -300] = 0; // limit user input
+		client->message[fullInputLimit - 300] = 0; // limit user input
+	}
     echo = false;
 	bool restarted = false;
-#ifndef DISCARDPOSTGRES
-	if (*postgresparams && !postgresInited)  
+	
+	if (forkcount != 1) //  need 1 db connection per thread
 	{
-		PGInitUserFilesCode(postgresparams); //Forked must hook uniquely AFTER forking
-		postgresInited = true;
-	}
-#endif
 #ifndef DISCARDMYSQL
-	if (*mysqlparams) MySQLUserFilesCode(mysqlparams); //Forked must hook uniquely AFTER forking
+			if (*mysqlparams) MySQLUserFilesCode(mysqlparams);
 #endif
-
+#ifndef DISCARDMICROSOFTSQL
+			if (*mssqlparams) MsSqlUserFilesCode(mssqlparams);
+#endif
+#ifndef DISCARDPOSTGRES
+			if (*postgresparams)  PGInitUserFilesCode(postgresparams);
+#endif
+#ifndef DISCARDMONGO
+			if (*mongodbparams)  MongoSystemInit(mongodbparams);
+#endif
+		}	
+	
 	if (!client->data) 	client->data = (char*) malloc(outputsize+8);
 	if (!client->data) (*printer)("Malloc failed for child data\r\n");
 
 RESTART_RETRY:
 	strcpy(ourMainInputBuffer,client->message);
+
+	originalUserInput = client->message;
+
     size_t test = strlen(ourMainInputBuffer);
 	struct tm ptm;
     char* dateLog = GetTimeInfo(&ptm,true)+SKIPWEEKDAY;
@@ -658,8 +669,8 @@ RESTART_RETRY:
             *userInput = 0;
         }
     }
-	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
- 	else if (serverPreLog)  Log(SERVERLOG,(char*)"ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",getpid(),client->user,client->bot,test,ourMainInputBuffer, dateLog);
+	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"%s ServerPre: retry pid: %d %s (%s) size:%d `*` %s\r\n",dateLog,getpid(),client->user,client->bot,test, dateLog);
+ 	else if (serverPreLog)  Log(SERVERLOG,(char*)"%s ServerPre: pid: %d %s (%s) size=%d `*` %s\r\n",dateLog,getpid(),client->user,client->bot,test, dateLog);
     if (userInput) *userInput = endInput;
 	
 	int turn = PerformChat(
@@ -688,15 +699,7 @@ RESTART_RETRY:
 		client->data[4] = 0;	// null terminate hidden why data after room for positive ctrlz
 	}
 	
-#ifndef DISCARDPOSTGRES
-		if (false && *postgresparams && postgresInited)  // try to keep going per child
-		{
-			PostgresScriptShutDown(); // any script connection
-			PGUserFilesCloseCode();	// filesystem
-			postgresInited = false;
-		}
-#endif
-	if (serverLog) LogChat(starttime,client->user,client->bot,(char*)client->ip.c_str(),turn,ourMainInputBuffer,client->data,client->starttime);
+	if (serverLog) LogChat(starttime,client->user,client->bot,(char*)client->ip.c_str(),turn,client->message,client->data,client->starttime);
     return 1;
 }
 

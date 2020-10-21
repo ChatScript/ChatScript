@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2020 cs10.5</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1573,8 +1573,8 @@ canon: faster fast</code></pre>
 <td>after this many sentences in volley, cs ignores the rest (default 50)</td>
 </tr>
 <tr class="odd">
-<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code>$cs_inputlimit`</td>
-<td>Restrict user input size (excluding oob)</td>
+<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code><span class="math inline">$cs_inputlimit` | Restrict user input size (excluding oob) | | `$</span>cs_new_user`</td>
+<td>set to 1, treat user as always new (don't try to read topic file)</td>
 </tr>
 </tbody>
 </table>

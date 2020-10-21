@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 5/30/2020 cs10.4
+<br>Revision 10/18/2020 cs10.7
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
 * [Data](ChatScript-Engine-md#data)
@@ -672,11 +672,14 @@ T~introductions ( here name ~emohowzit ~emohello ~emogoodbye )
 ```
 An apostrophe in front of the word means only that word and not any conjugations of it.
 
-Concepts also allow patterns as members, but they are not saved as MEMBER facts.
+Concepts also allow patterns as members, but they are not saved as member facts.
 They are saved as conceptpattern facts, where the subject is the pattern and the object is the concept name.
 They are executed after the normal NL pipeline is complete. The pattern can be compiled or uncompiled.
 Coming from compiling script they are compiled. Coming from a function like ^testpattern they may or may not be compiled.
-If uncompiled, the system will compile them first, every volley.
+If uncompiled, the system will compile them first, every volley. A concept pattern looks like below- i.e. a double-quoted pattern as you would find it in any rule.
+```
+concept: ~romance( "(boy finds girl)" "( [boy girl] meet [boy girl]) " romance )
+```
 
 Concepts can contain other concepts as members. When you build a concept by
 including another concept, you can also elect to exclude specific subconcepts or words.

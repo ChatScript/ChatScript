@@ -142,6 +142,38 @@ MEANING GetUniqueJsonComposite(char* prefix,unsigned int permanent)
 	return MakeMeaning(StoreWord(namebuff,AS_IS));
 }
 
+bool IsValidJSONName(char* word, char type)
+{
+	size_t n = strlen(word);
+    if (n < 4) return false;
+    
+    // must at least start with the right prefix
+    if (word[0] != 'j' || word[2] != '-') return false;
+	if (type)
+	{
+		if (word[1] != type) return false;
+	}
+	else if (word[1] != 'a' && word[1] != 'o') return false;
+
+    // the label cannot contain certain characters
+    if (strchr(word,' ') ||
+        strchr(word,'\\') || strchr(word,'"') || strchr(word,'\'') || strchr(word,0x7f) || strchr(word,'\n') // refuse illegal content
+        || strchr(word,'\r') || strchr(word,'\t')) return false;    // must be legal unescaped json content and safe CS content
+
+    // jo-anne.van.der.ende@signify.com is not a valid JSON name
+    // last part must be numbers
+    char* end = word + n - 1;
+    char* at = end;
+    while(IsDigit(*at)) --at;
+    if (at == end) return false;
+    
+    long len = at - word - 3;
+    if (word[3] == 't' || word[3] == 'b') --len;
+    if (len > MAX_JSON_LABEL) return false;
+    
+    return true;
+}
+
 static char* IsJsonNumber(char* str)
 {
 	if (IsDigit(*str) || (*str == '-' && IsDigit(str[1]))) // +number is illegal in json
@@ -244,6 +276,15 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 		strncpy(str,jsontext + curr.start,size);
 		str[size] = 0;
 
+		// see if its string using single quotes instead of double quotes. 
+		if (*str == '\'' && str[size - 1] == '\'')
+		{
+			*flags = JSON_STRING_VALUE; // string null
+			str[size - 1] = 0;
+			*retMeaning = MakeMeaning(StoreWord(str+1, AS_IS));
+			break;
+		}
+
 		if (!strnicmp(str,"ja-",3)) *flags = JSON_ARRAY_VALUE; 
 		else if (!strnicmp(str,"jo-",3)) *flags = JSON_OBJECT_VALUE;
 		else *flags = JSON_PRIMITIVE_VALUE; // json primitive type
@@ -273,7 +314,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 				result = JSONpath(word, mainpath, str,true,nofail); // raw mode
 				if (result != NOPROBLEM_BIT) 
 				{
-					if (!nofail) ReportBug((char*)"Bad Json path building facts from templace %s%s data: %s", str,mainpath,jsontext); // if we are not expecting it to fail
+					if (!nofail) ReportBug((char*)"Bad Json path building facts from templace %s%s data: %s  in input", str,mainpath,jsontext,realinput); // if we are not expecting it to fail
 					return 0;
 				}
 				else strcpy(str,word);
@@ -718,7 +759,7 @@ FunctionResult JSONOpenCode(char* buffer)
 	if (!stricmp(arg, (char*)"null")) *arg = 0; // empty string replaces null
 
 	// convert json ref to text
-	if (!strnicmp(arg, "jo-", 3) || !strnicmp(arg, "ja-", 3))
+	if (IsValidJSONName(arg))
 	{
 		WORDP D = FindWord(arg);
 		if (!D) return FAILRULE_BIT;
@@ -1274,12 +1315,12 @@ FunctionResult JSONTreeCode(char* buffer)
 	WORDP D = FindWord(arg1);
 	if (!D) 
 	{
-		if (!strnicmp(arg1,"ja-",3)) // empty array
+		if (IsValidJSONName(arg1, 'a')) // empty array
 		{
 			strcpy(buffer,"[ ]");
 			return NOPROBLEM_BIT;
 		}
-		else if (!strnicmp(arg1,"jo-",3)) // empty object
+		else if (IsValidJSONName(arg1, 'o')) // empty object
 		{
 			strcpy(buffer,"{ }");
 			return NOPROBLEM_BIT;
@@ -1307,6 +1348,7 @@ FunctionResult JSONTreeCode(char* buffer)
 FunctionResult JSONKindCode(char* buffer)
 {
 	char* arg = ARGUMENT(1);
+    if (!IsValidJSONName(arg)) return FAILRULE_BIT;
 	if (!strnicmp(arg,"jo-",3)) strcpy(buffer,(char*)"object");
 	else if (!strnicmp(arg,"ja-",3)) strcpy(buffer,(char*)"array");
 	else return FAILRULE_BIT; // otherwise fails
@@ -1589,12 +1631,12 @@ FunctionResult JSONWriteCode(char* buffer) // FACT to text
 	WORDP D = FindWord(arg1);
 	if (!D) 
 	{
-		if (!strnicmp(arg1,"ja-",3)) // empty array
+		if (IsValidJSONName(arg1, 'a')) // empty array
 		{
 			strcpy(buffer,"[ ]");
 			return NOPROBLEM_BIT;
 		}
-		else if (!strnicmp(arg1,"jo-",3)) // empty object
+		else if (IsValidJSONName(arg1, 'o')) // empty object
 		{
 			strcpy(buffer,"{ }");
 			return NOPROBLEM_BIT;
@@ -1670,7 +1712,7 @@ FunctionResult JSONGatherCode(char* buffer) // jason FACT cluster by name to fac
 	
 	WORDP D = FindWord(ARGUMENT(index++));
 	if (!D) return FAILRULE_BIT;
-	if (strnicmp(D->word,"jo-",3) && strnicmp(D->word,"ja-",3)) return FAILRULE_BIT;
+	if (!IsValidJSONName(D->word)) return FAILRULE_BIT;
 	char* depth = ARGUMENT(index);
 	int level = atoi(depth);	// 0 is infinite, 1 is top level
 	if (!jsonGather(D,level,0)) return FAILRULE_BIT;
@@ -1770,7 +1812,7 @@ FunctionResult JSONParseFileCode(char* buffer)
 				if (at != readBuffer && *(at-1) == ' ') continue; // already have one
 			}
 			*data++ = *at;
-			if ((data-start) >= maxBufferSize) 
+			if ((data-start) >= (int) maxBufferSize) 
 			{
 				start = 0; // signal failure
 				break;
@@ -1919,7 +1961,7 @@ FunctionResult JSONFormatCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
-MEANING jsonValue(char* value, unsigned int& flags) 
+MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 {
 	char* val = value;
 	bool number = true;
@@ -1952,7 +1994,7 @@ MEANING jsonValue(char* value, unsigned int& flags)
 		flags |= JSON_PRIMITIVE_VALUE;
 		val = "null";
 	}
-	else if (*value == '"') // explicit string or just a quote
+	else if (*value == '"' && stripQuotes) // explicit string or just a quote
 	{
 		flags |= JSON_STRING_VALUE;
 		// strip off quotes for CS, replace later in jsonwrite for output
@@ -1979,7 +2021,7 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 {
 	int index = JSONArgs();
   	char* objectname = ARGUMENT(index++);
-	if (strnicmp(objectname,(char*)"jo-",3)) return FAILRULE_BIT;
+	if (!IsValidJSONName(objectname, 'o')) return FAILRULE_BIT;
     if (objectname[3] == 'b') jsonPermanent = FACTBOOT;
     unsigned int flags = JSON_OBJECT_FACT | jsonPermanent | jsonCreateFlags;
     WORDP D = FindWord(objectname);
@@ -2027,7 +2069,7 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 	return NOPROBLEM_BIT;
 }
 
-FunctionResult JSONVariableAssign(char* word,char* value)
+FunctionResult JSONVariableAssign(char* word,char* value, bool stripQuotes)
 {
     char basicname[MAX_WORD_SIZE];
     strcpy(basicname, word);
@@ -2055,7 +2097,7 @@ FunctionResult JSONVariableAssign(char* word,char* value)
         *separator = c;
         return FAILRULE_BIT;	// not a json array
     }
-    bool bootfact = (val[3] == 'b'); // ja-b
+    bool bootfact = (val[0] == 'j' && val[2] == '-' && val[3] == 'b'); // ja-b
     if (trace & TRACE_JSON) strcpy(fullpath, val);
 
 	WORDP leftside = FindWord(val);
@@ -2197,14 +2239,14 @@ LOOP: // now we look at $x.key or $x[0]
 	unsigned int flags = JSON_OBJECT_FACT;
     if (bootfact) flags |= FACTBOOT;
 	else if (leftside->word[3] == 't') flags |= FACTTRANSIENT; // like jo-t34
-    else if (leftside->word[3] == 'b') flags |= FACTBOOT; // like jo-b34
+    else if (leftside->word[3] == 'b' && leftside->word[0] == 'j' && leftside->word[2] == '-') flags |= FACTBOOT; // like jo-b34
 
 	MEANING object = MakeMeaning(leftside);
 	MEANING key = MakeMeaning(keyname);
     int index = (keyname) ? atoi(keyname->word) : 0;
 	MEANING valx = 0;
 	if (!*value) value = "null";
-	if (key && stricmp(value, "null")) valx = jsonValue(value, flags);// not deleting using json literal   ^"" or "" would be the literal null in json
+	if (key && stricmp(value, "null")) valx = jsonValue(value, flags, stripQuotes);// not deleting using json literal   ^"" or "" would be the literal null in json
 
 	// remove old value if it exists and is different, do not allow multiple values
 	FACT* oldfact = NULL;
@@ -2318,7 +2360,7 @@ FunctionResult JSONArrayDeleteCode(char* buffer) //  array, index
 
 	// get array and prove it legal
 	strcpy(arrayname,ARGUMENT(2));
-	if (strnicmp(arrayname,(char*)"ja-",3)) return FAILRULE_BIT;
+	if (!IsValidJSONName(arrayname, 'a')) return FAILRULE_BIT;
 	WORDP O = FindWord(arrayname);
 	if (!O) return FAILRULE_BIT;
 	FACT* F = GetSubjectNondeadHead(O); 
@@ -2388,7 +2430,7 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
 {
     int index = JSONArgs();
     char* arrayname = ARGUMENT(index++);
-    if (strnicmp(arrayname, (char*)"ja-", 3)) return FAILRULE_BIT;
+    if (!IsValidJSONName(arrayname, 'a')) return FAILRULE_BIT;
     WORDP O = FindWord(arrayname);
     if (!O) return FAILRULE_BIT;
     char* val = ARGUMENT(index);
@@ -2419,7 +2461,7 @@ FunctionResult JSONCopyCode(char* buffer)
 	int index = JSONArgs();
 	char* arg = ARGUMENT(index++);
 	WORDP D = FindWord(arg);
-	if (!D || (strncmp(D->word,(char*)"ja-",3) && strncmp(D->word,(char*)"jo-",3))) 
+	if (!D || !IsValidJSONName(D->word))
 	{
 		strcpy(buffer,arg);
 		return NOPROBLEM_BIT;

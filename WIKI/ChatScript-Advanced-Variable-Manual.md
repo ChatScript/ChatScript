@@ -1,6 +1,6 @@
 ﻿# ChatScript Advanced Variable Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/24/2019 cs9.2
+<br>Revision 10/18/2020 cs10.7
 
 
 # Advanced Variables
@@ -98,11 +98,11 @@ $$val = eval(^$$tmp) # returns the value of the name content in $$tmp, i.e. 1
 See also Indirect Pattern Elements in [ChatScript Pattern Redux](ChatScript-Pattern-Redux.md) manual.
 
 
-## Bot variables
+## Bot variables (aka Server variables)
 
-You can also define variables that are "owned" by the bot. Any variables you create as
+You can also define variables that are "owned" by the server. Any variables you create as
 part of layer 0 or layer 1 are always resident. As are any variables you define on the
-command line starting ChatScript. 
+command line starting ChatScript or in cs_init.txt or cs_initmore.txt
 You can see them and even change them during a volley, 
 but they will always refresh back to their original values at the start of the next volley. 
 

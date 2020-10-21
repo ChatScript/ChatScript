@@ -55,6 +55,12 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 
 #undef WORDP //   remove windows version (unsigned short) for ours
 
+enum CompileStatus {
+	 NOT_COMPILING = 0,
+	FULL_COMPILE = 1,
+	PIECE_COMPILE = 2
+};
+
 //   DoFunction results
  enum FunctionResult {
 	NOPROBLEM_BIT = 0,

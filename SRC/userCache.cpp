@@ -158,7 +158,8 @@ void FreeUserCache()
 
 void FreeAllUserCaches()
 {
-	FlushCache();
+	if (!cacheBase) return; // never inited
+	// FlushCache(); do not write out an active cache, since we may not be ready and we are transitioning system and will never be ready
 	unsigned int start = cacheHead;
 	while (userCacheCount) // kill all active caches
 	{

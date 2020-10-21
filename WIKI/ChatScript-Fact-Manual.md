@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/10/2018 cs9.8
+<br>Revision 10/18/2020 cs10.7
 
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
@@ -74,7 +74,7 @@ If it does, it returns the index of the fact. If it doesn't it returns `FAILRULE
 The simplest query names the kind of query and gives some or all of the field values that you want to find. 
 Any field value can be replaced with `?` which means either you don't care or you don't know and want to find it. 
 
-The kinds of queries are programmable and are defined in `LIVEDATA/queries.txt` 
+The kinds of queries are programmable and are defined in `LIVEDATA/SYSTEM/queries.txt` 
 (but you need to be really advanced to add to it). The simplest query kinds are:
 
 | query flag   | description 

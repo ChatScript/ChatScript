@@ -543,7 +543,7 @@ Convert on use into simple text Is not autoformatted
       (you age 23)
       ("The Wind and the Willows" author "Kenneth Grahame")
 
-* Represents internals using MEMBER and IS
+* Represents internals using member and is
 
       (black member ~colors) - CS representation of a concept
       (Laborador~1 is dog~2) - Wordnet relationship of word meanings
@@ -720,7 +720,7 @@ Now ready to execute script.
 * Marking takes original/canonical word
 * Fills in location in sentence
 * Propagates from facts in which word is subject
-* using MEMBER & IS to object of fact and marks that
+* using member & is to object of fact and marks that
 * Propagate restricted by POS or Wordnet meaning
 * Pattern test can then look up word for status
 

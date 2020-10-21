@@ -10,6 +10,7 @@ static char pguserFilename[MAX_WORD_SIZE];
 static  PGconn     *usersconn; // shared db open stuff used instead of files for userwrites
 static char* pgfilesbuffer = 0;
 char postgresparams[300]; // init string for pguser
+static bool postgresInited = false;
 
 // allow override of sql for user read and write
 char postgresuserread[300];
@@ -147,6 +148,7 @@ void PGUserFilesCloseCode()
 	usersconn = NULL;
 	FreeBuffer();
 	pgfilesbuffer = 0;
+	postgresInited = false;
 }
 
 FILE* pguserCreate(const char* name)
@@ -304,6 +306,7 @@ size_t pguserWrite(const void* buf,size_t size, size_t count, FILE* file)
 
 void PGInitUserFilesCode(char* postgresparams)
 {
+	if (postgresInited) return;
 #ifdef WIN32
 	if (InitWinsock() == FAILRULE_BIT) ReportBug((char*)"FATAL: WSAStartup failed\r\n");
 #endif
@@ -380,6 +383,8 @@ void PGInitUserFilesCode(char* postgresparams)
 		if (status == PGRES_BAD_RESPONSE ||  status == PGRES_FATAL_ERROR || status == PGRES_NONFATAL_ERROR)  msg = PQerrorMessage(usersconn);
 		msg = NULL;
 	}
+
+	postgresInited = true;
 }
 
 FunctionResult DBExecuteCode(char* buffer)

@@ -7,7 +7,7 @@ char* currentRuleOutputBase = NULL;	// the partial buffer within outputbase star
 static char* oldOutputBase[MAX_OUTPUT_NEST];
 static char* oldOutputRuleBase[MAX_OUTPUT_NEST];
 static unsigned int oldOutputLimit[MAX_OUTPUT_NEST];
-static char* outputCode[MAX_GLOBAL];
+char* outputCode[MAX_GLOBAL];
 int oldOutputIndex = 0;
 unsigned int outputNest = 0;
 static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int controls);
@@ -395,7 +395,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
     }
     original[len] = c;
     *output = 0; // when failures, return the null string
-    if (trace & TRACE_OUTPUT) Log(STDUSERLOG, (char*)" %s", start);
+    // if (trace & TRACE_OUTPUT) Log(STDTRACETABLOG, (char*)" %s", start);
 }
 
 void StdNumber(char* word, char*& buffer, int controls) // text numbers may have sign and decimal
@@ -955,7 +955,8 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
             while (*at1 == '_' || *at1 == '$') ++at1;
             while (*++at1)
             {
-                if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']' || *at1 == '$'); // find real end of var allowing json references
+				if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']' || *at1 == '$'); // find real end of var allowing json references
+				else if (*at1 == '\\'); // escaped variable so not considered variable, its actually the name 
                 else if ((*at1 == '$') && (*(at1 - 1) == '[' || *(at1 - 1) == '.')) { ; } // allowed variable json ref
                 else break;
             }

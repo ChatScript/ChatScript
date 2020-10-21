@@ -228,8 +228,6 @@ void ClearWhereAt(int where) // remove all concepts and markings at this slot in
         for (i = 0; i < maxRefSentence; i += REF_ELEMENTS) // 6 bytes per entry x 300 entries
         {
             unsigned char start = lcltriedData[i];
-            unsigned char end = lcltriedData[i+1];
-            // [i]=start [i+1]=end [i+2..i+5]=exactword 270/6 = 45
             if (start == where) // modify it
             {
                 if (!mark[item]) // change over to a copy (dont harm original)
@@ -671,7 +669,7 @@ static void EraseFile(char* file)
 void ClearDictionaryFiles()
 {
 	char buffer[MAX_WORD_SIZE];
-	int ans = remove(UseDictionaryFile((char*)"dict.bin"));
+	 remove(UseDictionaryFile((char*)"dict.bin"));
 	remove(UseDictionaryFile((char*)"facts.bin"));
 	EraseFile((char*)"dict.bin"); //   create but empty file
 	EraseFile((char*)"facts.bin"); //   create but empty file
@@ -871,9 +869,11 @@ void ReverseDictionaryChanges(HEAPREF start)
 	while (start)
 	{
 		start = UnpackHeapval(start, val1, val2, val3);
-		WORDP D = (WORDP)val1;
-		D->properties = val2;
-		D->systemFlags = val3;
+        if (val1) {
+            WORDP D = (WORDP)val1;
+            D->properties = val2;
+            D->systemFlags = val3;
+        }
 	}
 }
 
@@ -1076,7 +1076,7 @@ WORDP LocateWord(const char* word, unsigned int len, unsigned int& hash,uint64 c
 
 WORDP FindWord(const char* word, unsigned int len,uint64 caseAllowed) 
 {
-	if (word == NULL || *word == 0) return NULL;
+	if (word == NULL || *word == 0 || dictionaryBase == NULL) return NULL;
 	if (len == 0) len = strlen(word);
 	bool hasUpperCharacters;
 	bool hasUTF8Characters;
@@ -1181,6 +1181,7 @@ WORDP StoreWord(char* word, uint64 properties, uint64 flags)
 
 WORDP StoreWord(char* word, uint64 properties)
 {
+	if (!dictionaryBase) return NULL;
 	if (!*word) // servers dont want long lists of bugs from strange inputs //   we require something 
 	{
 		if (!server) ReportBug((char*)"entering null word to dictionary in sentence")
@@ -2529,12 +2530,12 @@ bool ReadDictionary(char* file)
 
 MEANING MakeTypedMeaning(WORDP x, unsigned int y, unsigned int flags)
 {
-	return (!x) ? 0 : (((MEANING)(Word2Index(x) + (y << INDEX_OFFSET))) | (flags << TYPE_RESTRICTION_SHIFT));
+	return (!x) ? 0 : (((MEANING)(Word2Index(x) + (unsigned int) (((uint64)y) << INDEX_OFFSET))) | (flags << TYPE_RESTRICTION_SHIFT));
 }
 
 MEANING MakeMeaning(WORDP x, unsigned int y) //   compose a meaning
 {
-    return (!x) ? 0 : (((MEANING)(Word2Index(x) + (y << INDEX_OFFSET))));
+    return (!x) ? 0 : (((MEANING)(Word2Index(x) + (unsigned int)(((uint64)y) << INDEX_OFFSET))));
 }
 
 WORDP Meaning2Word(MEANING x) //   convert meaning to its dictionary entry
@@ -4808,7 +4809,6 @@ static void readData(char* file)
 			flags = oldflags;
 
 			bool upcase = false;
-			bool downcase = false;
 			ptr = ReadCompiledWord(ptr, word); //   the id
 
 			strcpy(word, JoinWords(BurstWord(word, CONTRACTIONS)));
@@ -4832,7 +4832,6 @@ static void readData(char* file)
 			for (unsigned int k = 0; k < len; ++k) //   check casing of word
 			{
 				if (IsUpperCase(word[k])) upcase = true;
-				if (IsLowerCase(word[k])) downcase = true;
 			}
 			ptr = ReadWord(ptr, junk); //   skip lexid
 									   //   adjust wordnet composite word entries that dont match our tokenization, like cat's_eye should be cat_'s_eye
@@ -4847,7 +4846,6 @@ static void readData(char* file)
 			{ //Not enough to start with upper. van_Eyck is proper, for instance.
 				char* start = original;
 				char* xptr = original;
-				bool good = true;
 				while (ALWAYS)
 				{
 					if (*++xptr == 0 || *xptr == '_') //   end of a chunk
@@ -4855,11 +4853,7 @@ static void readData(char* file)
 						WORDP W = FindWord(start, xptr - start, PRIMARY_CASE_ALLOWED);
 						if (W && !(W->properties & (DETERMINER | PREPOSITION | CONJUNCTION))) //   word needs to be capped if title
 						{
-							if (IsLowerCase(*start)) //   lower case word makes this an unlikely proper name
-							{
-								good = false;
-								break;
-							}
+							if (IsLowerCase(*start))  break;//   lower case word makes this an unlikely proper name
 						}
 
 						if (*xptr == 0) break;
@@ -5332,7 +5326,7 @@ static void AdjNotPredicate(char* file)
     char* input_string = AllocateBuffer();
     while (fget_input_string(false, false, input_string, in) != 0)
 	{
-		if (input_string[0] == '#' || input_string[0] == 0) continue;
+		if (*input_string == '#' || *input_string == 0) continue;
 		char* ptr = input_string;
 		while (ptr)
 		{

@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2020 cs10.5
+<br>Revision 10/18/2020 cs10.7
 
 
 
@@ -670,6 +670,7 @@ contents.
 | `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
 | `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
 | `$cs_inputlimit` | Restrict user input size (excluding oob) |
+| `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON

@@ -1230,14 +1230,15 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	}
 
 	if (planning) currentFact->flags |= FACTTRANSIENT;
-	if (currentFact->flags & FACTBOOT) bootFacts = true;
+	if (currentFact->flags & FACTBOOT) 
+		bootFacts = true;
 
 	if (trace & TRACE_FACT && CheckTopicTrace())
 	{
 		char* limit;
 		char* buffer = InfiniteStack(limit,"CreateFastFact"); // fact might be big, cant use mere WORD_SIZE
 		buffer = WriteFact(currentFact,false,buffer,true,false,true);
-		Log(STDUSERLOG,(char*)"create %s",buffer);
+		Log( (globalDepth > 1) ? STDTRACETABLOG : STDUSERLOG,(char*)"create %s",buffer);
 		ReleaseInfiniteStack();
 	}	
 	return currentFact;
@@ -1270,7 +1271,7 @@ bool ReadBinaryFacts(FILE* in,bool dictionary) //   read binary facts
 	else return false; // not in new format (old fact.bin in dictionary)
 }
 
-static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bool displayonly) // uses no additional memory
+static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bool displayonly, bool jsonString) // uses no additional memory
 {
 	char* xxstart = buffer;
 	// a field is either a contiguous mass of non-blank tokens, or a user string "xxx" or an internal string `xxx`  (internal removes its ends, user doesnt)
@@ -1310,14 +1311,16 @@ static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bo
 		bool embeddedspace = !quoted && (strchr(answer,' ')  || strchr(answer,'(') || strchr(answer, '"')  || strchr(answer,')')); // does this need protection? blanks or function call maybe
 		bool safe = true; 
 		if (strchr(answer,'\\') || strchr(answer,'/')) safe = false;
-		
+        if (quoted && jsonString) safe = false;
+        
 		// json must protect: " \ /  nl cr tab  we are not currently protecting bs ff
 		if ((embeddedbacktick || !safe) && !displayonly) // uses our own marker and can escape data
 		{
-			if (embeddedbacktick) strcpy(buffer,(char*)"`*^"); 
+			if (embeddedbacktick) strcpy(buffer,(char*)"`*^");
 			else strcpy(buffer,(char*)"`"); // has blanks or paren or just starts with ", use internal string notation
 			buffer += strlen(buffer);
-			AddEscapes(buffer,D->word,displayonly,currentOutputLimit - (buffer - currentOutputBase)); // facts are not normal
+            bool normal = quoted && jsonString ? true : displayonly;
+			AddEscapes(buffer,D->word,normal,currentOutputLimit - (buffer - currentOutputBase)); // facts are not normal
 			buffer += strlen(buffer);
 			SuffixMeaning(T,buffer, true);
 			buffer += strlen(buffer);
@@ -1333,7 +1336,7 @@ static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bo
 			*buffer = 0;
 		}
 		else WriteMeaning(T,true,buffer); // use normal notation
-		buffer += strlen(buffer);
+        buffer += strlen(buffer);
 	}
 	*buffer++ = ' ';
 	*buffer = 0;
@@ -1362,14 +1365,14 @@ char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol,bool 
 
 	//   do subject
 	char* base = buffer;
- 	buffer = WriteField(F->subject,F->flags & FACTSUBJECT,buffer,ignoreDead,displayonly);
+ 	buffer = WriteField(F->subject,F->flags & FACTSUBJECT,buffer,ignoreDead,displayonly,false);
 	if (base == buffer ) 
 	{
 		*start = 0;
 		return start; //    word itself was removed from dictionary
 	}
 	base = buffer;
-	buffer = WriteField(F->verb,F->flags & FACTVERB,buffer,ignoreDead, displayonly);
+	buffer = WriteField(F->verb,F->flags & FACTVERB,buffer,ignoreDead, displayonly,false);
 	if (base == buffer ) 
 	{
 		*start = 0;
@@ -1378,13 +1381,14 @@ char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol,bool 
 
 	base = buffer;
 	int autoflag = F->flags & FACTOBJECT;
+    bool jsonString = F->flags && JSON_STRING_VALUE ? true : false;
 	MEANING X = F->object;
 	if (F->flags & FACTAUTODELETE && F->flags & (JSON_OBJECT_FACT| JSON_ARRAY_FACT)) 
 	{
 		autoflag = FACTOBJECT;
 		X = atoi(Meaning2Word(F->object)->word);
 	}
-	buffer = WriteField(X,autoflag,buffer,ignoreDead, displayonly);
+	buffer = WriteField(X,autoflag,buffer,ignoreDead, displayonly, jsonString);
 	if (base == buffer ) 
 	{
 		*start = 0;

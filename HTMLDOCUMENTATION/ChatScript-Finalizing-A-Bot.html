@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-finalizing-a-bot-manual">ChatScript Finalizing a Bot Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/18/2019 cs9.62</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
 <p>OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should polish it. There are a bunch of tools to do this.</p>
 <h2 id="verification-verify">Verification (<code>:verify</code>)</h2>
 <p>When I write a topic, before every rejoinder and every responder, I put a sample input comment. This has #! as a prefix. E.g.,</p>
@@ -121,6 +121,9 @@ u: (what are you) I am a robot</code></pre>
 <h2 id="changing-tokenization">Changing tokenization</h2>
 <p><code>:verify</code> normally works on the current <code>$cs_token</code> value. But in my bots, I might process inputs using two different values, one initially and one later. You can optionally specify what tokenization to be using by naming a user variable first.</p>
 <pre><code>:verify $mytokencontrol ~mytopic pattern</code></pre>
+<h2 id="verify-variables-are-assigned-and-used">Verify variables are assigned and used</h2>
+<p>`:verify variablereference' will list all user variable assignments and uses in a bot into TMP/reference.txt . If you sort that file, you may detect places where you misspelled a variable, assigned but didnt use, or used but didnt assign. Normally it only shows mismatches but &quot;:variablereference full&quot; will list all variables.</p>
+<p>It may miss some assignments when those are done indirectly, e.g.,<code>$data.$_category.brand = Amana</code> means it may not list an assignment for <code>$data.appliance.brand</code>.</p>
 <h2 id="spelling">Spelling</h2>
 <p>To ensure the outputs don't have spelling errors, I do a <code>:build</code> like this: <code>:build Harry</code> outputspell and then fix any spelling complaints that should be fixed.</p>
 <h2 id="sizing">Sizing</h2>

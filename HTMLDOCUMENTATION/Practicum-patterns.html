@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="chatscript-practicum-patterns">ChatScript Practicum: Patterns</h1>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 2/18/2018 cs8.1</p>
+<p>'''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.</p>
+<h1 id="section"></h1>
+<h1 id="theory---philosophy-and-goals">THEORY - philosophy and goals</h1>
+<h1 id="section-1"></h1>
+<p>Bots that require the user learn an English command set to function are only slightly better than a GUI. Humans want computers to talk in human language, not visa versa. So our job is to understand as many of the ways a user can say things as possible. This is done using patterns.</p>
+<p>Patterns are the lifeblood of ChatScript. The rest of ChatScript may be considered just programming, but patterns blend into art and linguistic skillsets. Pattern syntax is described in the beginners and advanced ChatScript manuals and reprised in the Pattern Redux manual. This manual is not going to cover all of them. It is here to help you make practical decisions about which pattern element to use when.</p>
+<h1 id="patterns-optimization-and-the-engine">Patterns, optimization, and the engine</h1>
+<p>Generally speaking, there is rarely any value in making a pattern choice based on speed or memory considerations. The engine is already highly optimzed for executing rules. My chatbot Rose has around 9,000 responders of 13,500 rules. So she is, in a sense, largely an FAQ bot able to answer questions like &quot;how old is your mother&quot;, &quot;where do you live&quot;, and &quot;what is your favorite fruit.&quot; She averages executing 1500-2000 rules per volley, which takes her around 13 milliseconds. And half or more of that time is spent in the NLP pipeline preparing the input. So optimizing patterns rarely makes sense.</p>
+<h2 id="compilation">Compilation</h2>
+<p>The script compiler reads your script, confirms it is legal, and subtley adjusts it for faster execution. Your patterns consist of elements. These include ordinary words (<code>brain</code>), concepts (<code>~animals</code>), user variables ('$'), match variables ('_'), factsets ('@'), comparisons (<code>_0&gt;5</code>), and various special characters like '{', '&lt;&lt;', ')', '!' and others). The engine expects each token to be uniformly spaced by a separating blank, so however you space your code, the compiler adjusts it appropriately for execution. Because the engine uses the lead character of an element to branch to code handling it, it sometimes adds a prefix code to what you wrote. If you ever look at a trace, you will see them, as well as accelerators.</p>
+<pre><code>u: MYLABEL ( $test&lt;5) ok. ==&gt; 00y u: 9MYLABEL ( =7$test&lt;5 ) ok. </code></pre>
+<p>The 00y tells CS how many characters to jump ahead to reach the end of the entire rule. The 9 in front of MYLABEL tells how many characters to skip over to reach the actual pattern. Inside the pattern, because we did a comparison, that is prefixed with <code>=</code> and the 7 tells CS how many characters to skip over to find the comparison operator to use.</p>
+<p>The time it takes to execute a pattern is roughly a constant times how many pattern elements it has to execute to succeed or fail. There is no difference in time between matching a word (<code>brain</code>), matching a phrase of 4 words (<code>&quot;life is a bowl&quot;</code>), and matching against a thousand members of a concept (<code>~animals</code>). Executing things like <code>!</code> and <code>&lt;</code> and <code>{</code> are only slightly faster because they don't need to do a dictionary lookup.</p>
+<h2 id="marking">Marking</h2>
+<p>The NLP pipeline takes an incoming sentence from the user and adjusts it in various ways. It will try to fix spelling and capitalization. So if you really want to see what your patterns are trying to match, you should use <code>:tokenize</code> to tell you what CS did to the input.</p>
+<p>Additionally, CS will mark memberships of words in various concepts, only some of which are shown below.</p>
+<pre><code> My                     dog             eats            steak.
+~pronoun_possessive     ~main_subject   ~main_verb      ~main_object
+                        ~noun_singular  ~verb_present   ~noun_singular
+                        ~pets           ~kindergarten   ~food</code></pre>
+<p>We have parts of speech, role in sentence, classifcations, age learned, etc. You can match ANY of these in a pattern. Or use them like this:</p>
+<pre><code>u: (_~main_subject _0?~pets) Do you have a &#39;_0?</code></pre>
+<p>which finds the main subject and determines if it is a pet animal.</p>
+<p>Compared to patterns, marking is slow, consisting of half or more of the entire cpu time. But it means that you can execute lots of patterns very rapidly.</p>
+<h2 id="matching-algorithm">Matching algorithm</h2>
+<p>What actually happens during pattern matching is that the matcher has two things to look at. It walks your pattern, element by element. Each element is processed in turn, without looking ahead to what the next element is. It either succeeds or fails (or sometimes caches holding data). It also has the sentence, which it walks, keeping track of where it is in the sentence (the position pointer).</p>
+<p>It processes the pattern element using the current position and direction in the sentence (while normally it walks forward it can also walk backward). So when it sees a <code>word</code>, it looks from the current position and direction to see if it can find your word. If it can't, it fails. If it can, it sees if it meets current constraints on how far from where we are it can be. For a simple <code>u: (I like worms)</code> when we process <code>I</code> we find it at the earliest moment in the sentence. The pattern is as though it were <code>u: (&lt; * I like worms)</code>. Having found <code>I</code>, it looks for <code>like</code>. If the input were <code>I really like worms</code> then it would find <code>like</code> at word 3, which is a gap of 2 from the original <code>I</code>. The allowed gap is only 1 (words in sequence), so the match fails. Had the pattern been <code>u: (I *~2 like worms)</code>, then the legal gap is 2 and the match would succeed. The new position pointer in the sentence is 3 (<code>like</code>), moving forwards, and the next pattern element would hunt for <code>worms</code>. It would find <code>worms</code> at position 4, which is a legal change, so the pattern matches.</p>
+<p>While looking at the pattern is always moving forwards through it, the direction of movement through the sentence, which defaults to forwards, can go backwards if <code>@_n-</code> is used. Thereafter it moves backwards until changed by <code>@_n+</code>.</p>
+<p>If the pattern element being processed specifies a wildcard, like <code>*~2</code>, the system stores the legal gap and moves on to the next token. It is not legal for that to also be a gap (else the system could not decide how to map the words to the two tokens). Similarly, if your pattern is <code>u: ( a *~2 {small} *~2 gap)</code> that would also not be legal (though not detected by the compiler at present), because if <code>{small}</code> is not matched, your pattern becomes <code>u: (a *~2 *~2 gap)</code>.</p>
+<p>Whenever the first real element is found, the system remembers where. If the pattern later fails, it is allowed to unhook that match and try to rematch it later in the sentence. This is the cheap equivalent of exploring all possible match paths, which for efficiency the system does not do. Therefore given an input of <code>I want snakes and I want cookies</code> and a pattern of:</p>
+<pre><code>u: ( I want ~food)</code></pre>
+<p>the system finds <code>I</code> at word 1 and sets the position pointer and the start pointer to 1. Then hunts for <code>want</code>, finding it at word 2 legally. And hunts for a <code>food</code> concept and finds it at position 7 and that is an illegal gap. It is allowed to restart the pattern 1 word later than the initial match. So is &quot;unbinds&quot; the starting <code>I</code>, and hunts for another, finding it at word 5. Finds <code>want</code> at word 6 and a ~food at word 7 and therefore matches.</p>
+<p>It CANNOT match input of <code>I want snakes and want cookies</code> because it finds word 1 (<code>I</code>) and word 2 (<code>want</code>) fails <code>~food</code> because the gap is wrong. It DOES NOT change to retrying <code>want</code> which would actually be found at word 5 and succeed with ~food for word 6. That is a full recovery mechanism like you would find in Prolog but is too expense here. It merely fails instead, because it only uproots the starting match.</p>
+<p>Some initial tokens can preclude moving the start of matching for another round. Tokens like <code>&lt;</code> and <code>@_3+</code> if first in the pattern will mandate the pattern starts in a specific position in the sentence.</p>
+<p>Whenever the system sees a wildcard, it can save the gap for 1 round to see what happens. If the next token is a start token (paren, bracket, squiggle), this can be saved across that recursive call to the pattern matcher. Otherwise it must be resolved on the next pattern element.</p>
+<h1 id="patterns-meaning">Patterns == meaning</h1>
+<p>For all bots, there are two things they have to do. They &quot;understand meaning&quot; and they carry out action. The action part is usually easy. The hard part is understanding meaning. Since bots are not truly intelligent, understanding all meaning is not possible. Instead, bots &quot;hunt&quot; for specific meanings they expect. They do this with patterns.</p>
+<h2 id="overly-tight-vs-overly-general">Overly tight vs overly general</h2>
+<p>Since bots do not &quot;understand&quot; meaning, it is inevitable you will either underspecify or overspecify their patterns. If you underspecify, the bot is subject to false positives. It thinks something means something but it doesn't.</p>
+<pre><code>u: (want ~food) I want food too.</code></pre>
+<p>The above patterns looks for a meaning about wanting food. But it will accept <code>I dont want meat</code> as matching. It is too general.</p>
+<pre><code>u: (I want meat) I want food too.</code></pre>
+<p>Correspondingly the above pattern is too specific and misses tons of reasonable inputs.</p>
+<p>Machine Learning (ML) is at an advantage in that it will always memorize the exact specific training input and may generalize from that. I say may, because it may not. ML trained on <code>I have a '97 Audi</code> may completely not recognize <code>I have a 1997 Audi</code>.</p>
+<p>So your task in ChatScript is to strike the appropriate balance between too general and too specific. There will always be sentences the bot screws up as a consequence.</p>
+<h2 id="account-for-nlp-pipeline-in-your-patterns.">Account for NLP pipeline in your patterns.</h2>
+<p>Patterns should be written in the correct case. Proper names should be in uppercase, normal words in lower case. Do not try to handle capitalization for the start of a sentence. Likewise when you define a concept, capitalize correctly. This allows CS to echo back the capitalization specified in the concept set when memorizing a use of it, rather than what the user typed. The compiler will warn you at times if it thinks your capitalization is wrong.</p>
+<pre><code>concept: ~carmakes (ford dodge)
+#! I have a ford.
+u: (_~carmakes) You have a _0. ==&gt;  You have a ford.</code></pre>
+<p>CS will spit back the wrong casing above. But if you change the contents of the concept set to uppercase names, then it will spit back the correct casing regardless of what the user typed.</p>
+<p>The other thing to avoid is writing contractions in your patterns.</p>
+<pre><code>u: (what&#39;s the weather ) </code></pre>
+<p>THIS IS AWFUL! First, because CS normally takes that input and converts it into <code>what is the weather</code>, the pattern cannot match. Worse, it adds <code>what's</code> into the dictionary as a legal word (foolishly it trusts you). So when the NLP pipeline sees the word <code>what's</code>, it leaves it alone as legal, instead of fixing it to the expanded form <code>what is</code>. Your pattern will work, but this will break a lot of patterns that were correctly written. You won't believe how many chat sentences begin with <code>What is...</code></p>
+<h1 id="kinds-of-bots">Kinds of bots</h1>
+<p>We can distinuish 3 kinds of bots: FAQ, command and control, and conversational. The patterns needed for these bots can vary a lot.</p>
+<h2 id="command-and-control-bot">Command and control bot</h2>
+<p>The command and control bot maps a user's request for an action to be taken into actually performing that action. It is similar to an FAQ bot in not initiating a conversation, except that often it needs <code>entities</code> (critical pieces of information) to carry out the request. E.g., <code>What is the weather in Seattle</code> is a request for weather report (intent) with the entity of location (Seattle). If the user merely said <code>what is the weather</code>, the bot might reply with <code>where?</code>. But that's the limit of its initiative in the conversation. Once the request is processed, it returns to idle just like the FAQ bot.</p>
+<p>A good starting point for building patterns for these bots is to use <code>Fundamental Meaning</code>. This is done by taking a sample input and discarding all the words you can that will still allow an average high schooler to understand what is being requested. It's a form of pidgin English. E.g.</p>
+<pre><code>Please tell me what the weather will be in Seattle tomorrow.</code></pre>
+<p>You can discard a lot of words. <code>Please</code> is merely politeness. <code>tell me</code> reduces to just <code>tell</code> because the user is talking to the bot so directing the bots output back to the user is not necessary, it is assumed. <code>tell John</code> would be different. And if you boil out everything else you can you get</p>
+<pre><code>tell weather seattle tomorrow</code></pre>
+<p>If a human pretends they are a weather bot, then that pidgin English should be sufficent to be understood.</p>
+<p>Once you have distilled the input to its fundamental meaning, you can then broaden it with synonyms.</p>
+<pre><code>tell + describe explain discourse speak 
+weather + rain snow hot cold temperature icy 
+seattle + (probably has no synonyms)
+tomorrow + in/after 1 day, specific date, day of week</code></pre>
+<p>And other than the imperative verb, you can probably shuffle the order of the rest of the words.</p>
+<pre><code>tell tomorrow  seattle weather</code></pre>
+<p>These steps will help you generate patterns that detect a lot of inputs quickly.</p>
+<p>ChatScript has an advantage over ML in that it has a dictionary and pre-existing concepts. This is analogous to having hundreds or thousands of training sentences available which don't have to be specified.</p>
+<h2 id="faq-bot">FAQ bot</h2>
+<p>The FAQ bot maps a user's request for information to an answer. Usually the answer is precanned text. The bot sits idle until the request; it answers the question; and then returns to idle.</p>
+<p>An FAQ bot needs to determine the intent and usually doesn't care about trying to figure out any entities. With a limited repetoire of questions it can answer, it may be enough to merely detect relevant keywords. For example, if the FAQ has a question about <code>what hours are you open</code>, then a pattern that just listed keywords around that might be sufficient. E.g.,</p>
+<pre><code>u: ([ hour open available close &quot;what time&quot; lock unlock when ]) 
+    We&#39;re open 9-5, 7 days a week.</code></pre>
+<p>The above covers a lot of ground without being very picky. Of course it might match inappropriately as well. <code>Are you open to suggestions?</code>. But people talking to an FAQ bot are generally looking for information, and not as likely to wander sideways.</p>
+<h2 id="conversational-bot">Conversational bot</h2>
+<p>A conversational bot is part FAQ bot and part initiator of conversation. If the user asks it a personal question (or any other question), the bot is expected to have an answer (even if it is silly or a quibble) and then the bot should turn around and ask the user something and engage in conversation. If the user is silent for a while, the bot might initiate a gambit to get the conversation flowing again.</p>
+<p>Patterns of a conversational bot vary from an FAQ pattern to answer <code>how old is your mother</code> to simple keywords to initiate a conversational topic.</p>
+<pre><code>topic: ~astronomy (sun moon astronomy astronomer star galaxy)
+t: We love astronomy. Do you?</code></pre>
+<p>And off we go into a conversation.</p>
+<h1 id="multiple-patterns-for-a-single-intent">Multiple patterns for a single intent</h1>
+<p>Since there are multiple ways for a user to express an intent, it follows that you will have to write multiple patterns. One way to do this is in multiple rules.</p>
+<pre><code>u: TELLNAME (what be you name) My name is Rose.
+u: WHATCALL (what be you call) ^reuse(TELLNAME)</code></pre>
+<p>In this simple example, I use ^reuse in the second rule. This insures that if I change the answer in TELLNAME, it automatically changes for all other rules that ^reuse it. Of course, in this example one could combine the rules into:</p>
+<pre><code>u: TELLNAME (what be you [name call]) My name is Rose.</code></pre>
+<p>but that will never hold up to all patterns. For example:</p>
+<pre><code>u: (who be you) ^reuse(TELLNAME)</code></pre>
+<p>won't instantly combine. But in fact, I recommend combining them as follows:</p>
+<pre><code>u: TELLNAME ([
+                (what be you [name call])
+                (who be you)
+            ]) 
+            My name is Rose.</code></pre>
+<p>This has the advantage of faster execution, smaller code, clear immediate visualization of the patterns and response, least wait in stepping thru code in the debugger. And I recommend each pattern is on a separate line as shown above. I even prefer the response on a separate line from the pattern. It means if you use the debugger to &quot;step in&quot;, you see it move to a new line. Clearer.</p>
+<h1 id="clarity-in-pattterns">Clarity in pattterns</h1>
+<p>A primary rule of thumb for patterns is that they really should be easy to read. For an experienced CS programmer, it should be obvious what you are trying to do. Patterns with nested values of <code>[]</code> and <code>()</code> and <code>{}</code> can be very hard to read. Rather than doing that, it is better to split them into separate patterns. The following is NOT clear.</p>
+<pre><code>u: ( you *~2 [ ([fine hot foxy sexy] look) (look [fine hot foxy sexy]) ] ) 
+</code></pre>
+<p>and would be clearer if split into two patterns nested inside a pattern:</p>
+<pre><code>u:  ([
+    ( you *~2 [fine hot foxy sexy ] look )  
+    ( you *~2 look [fine hot foxy sexy ] ) 
+    ])</code></pre>
+<p>So let's assume that generally you will write your patterns as collections of patterns, and not as ^reuse() calls.</p>
+<p>Additionally, you should avoid wrapping pattern sections onto new lines.</p>
+<pre><code>u:  ([
+    ( you *~2 [fine hot  
+        foxy sexy ] 
+        look )  
+    ( you *~2 look [fine hot  
+        foxy sexy ] ) 
+    ])</code></pre>
+<p>The above are harder to read/understand when run onto multiple lines.</p>
+<p>Furthermore, for every pattern line, you should supply a sample input intended for it. This makes it clearer to a human reader what you are trying to do AND the CS <code>:verify</code> command to test your patterns to see if they work. A form of unit test.</p>
+<pre><code>#! You have a foxy look.
+#! You look sexy.
+u:   ([
+    ( you *~2 [fine hot foxy sexy ] look )  
+    ( you *~2 look [fine hot foxy sexy ] ) 
+    ])</code></pre>
+<h1 id="section-2"></h1>
+<h1 id="practice---specific-pattern-elements">PRACTICE - Specific pattern elements</h1>
+<h1 id="section-3"></h1>
+<h2 id="vs-n"><code>*</code> vs <code>*~n</code></h2>
+<p>Most patterns will work when the user provides only a small amount of input. When they type in paragraph-long sentences, using the unrestricted wildcard <code>*</code> has a much higher false detection rate.</p>
+<pre><code>u: ( I * ~like * you) I like you too.</code></pre>
+<p>The above rule works fine on input like <code>I like you</code>, but is silly if the input is <code>I like meat but I really loathe you</code>. The problem can be alleviated by using shorter range wildcards. My favorites are <code>*~2</code> and <code>*~3</code>. <code>*~2</code> is good for skipping noun descriptors. It allows for a determiner and an adjective or an adverb and an adjective.</p>
+<pre><code>u: (I * ~like *~2 ~noun)</code></pre>
+<p>And <code>*~3</code> is good for close control of word use:</p>
+<pre><code>u: (I *~3 ~like *~3 you)</code></pre>
+<p>You don't expect many words to arise between the subject <code>I</code> and the verb <code>~like</code>. Nor between the verb and its object.</p>
+<h2 id="vs-nb"><code>&lt;&lt; &gt;&gt;</code> vs <code>*~nb</code></h2>
+<p>Just as there are problems with the unrestricted wildcard <code>*</code>, the any-order construct <code>&lt;&lt; xxx yyy zzz &gt;&gt;</code> has similar issues. Of course it does, because it acts like this <code>xxx &lt; * yyy &lt; * zzz</code>. One solution is to use the restricted range bidirectional wildcard. This is effective when searching around a particular word, looking for something close before or close after. It avoids having to write two patterns to do the job.</p>
+<pre><code>u: ( bank *~3b off-shore)   # safe
+u: ( &lt;&lt; bank off-shore &gt;&gt;)  # unsafe</code></pre>
+<p>Both can match <code>I have an off-shore bank account</code> as well as <code>my bank account is off-shore</code>. But the unsafe one matches <code>We launched our kayak from the banks of the ocean and ended up far off-shore</code>.</p>
+<h2 id="concepts-vs-xxx-yyy">Concepts vs <code>[ xxx yyy]</code></h2>
+<p>A concept is a list of words or phrases. So is <code>[ ]</code> in the middle of a pattern. Does it matter which you use? Absolutely. On a single use basis, the concept takes more memory (irrelevant) but is faster to match. A <code>[ ]</code> walks the list, trying to match each word in order. A concept matches all at once as a single operation. It doesn't matter if the concept consists of thousands of members, it matches as fast as a single word. Furthermore, the concept will match the earliest occurence of any word. <code>[]</code> will match in the order of words found in the list. So if an earlier word is found late in the sentence, too bad. Given input: <code>I like your soul next to my shoe</code>, this pattern:</p>
+<pre><code>u: (I * [ my your])</code></pre>
+<p>will match to <code>my</code>, even though your is earlier in the sentence. This works out if the pattern is:</p>
+<pre><code>u: (I *~2 [ my your])</code></pre>
+<p>because the limitation of *~2 will cause <code>my</code> to be found too late, so it will be rejected and the next choice <code>your</code> will work.</p>
+<p>But it's easy to become confused about what matches when you use <code>[]</code>. So concepts are nominally better, clearer. And when used more than once, you only have to edit the concept, not multiple rules. Odds are when you change <code>[]</code> in a rule, you will forget to edit other places using the same words.</p>
+<p>The problem with using concepts is a) you move the code non-local to the rule so it is no longer obvious what the matching criteria is and 2) you have to create names for your concepts. So while concepts are &quot;better&quot;, they can be more tedious to use.</p>
+<p>This behavior of <code>[]</code> is an efficiency measure. The engine does not do a full search of all possible paths (like Prolog would do) because that is too expensive and rarely pays off. It at best only looks ahead to the next token in the pattern. This allows it to suspend a wildcard for a brief moment.</p>
+<p>There are lots of consequences of looking for words in <code>[ ]</code> in order. One is that you should put your rarest, most significant words first. Another is that if you really want to find the earliest occurence of the collection, make a concept out of them and search for the concept instead. That is guaranteed to find the earliest occurence.</p>
+<h2 id="xxx-yyy-vs-xxx-yyy"><code>&quot;xxx yyy&quot;</code> vs <code>(xxx yyy)</code></h2>
+<p>Both forms mean a contiguous sequence of words must match. But there are differences. For the quoted form, it matches all words in a single element. So it is faster than all elements within a (). At the top level, separate words are clearer than a quoted phrase.</p>
+<pre><code>u: (I like you)     # clearer
+u: (&quot;I like you&quot;)   # slightly less clear</code></pre>
+<p>Whenever you add a nesting level, patterns are harder to understand. So at nested levels, quoted forms are easier to read than ones in ().</p>
+<pre><code>u: ([ &quot;I like you&quot; testing])    # clearer
+u: ([ ( I like you) testing]    # less clear</code></pre>
+<p>Things that mitigate against using quoted phrase are the following. 1) You are limited to 5 words in a quoted phrase. 2) A quoted phrase can only match the literal user input or the entirely canonical form.</p>
+<p>If the user input is &quot;I loved toys&quot;, you can write a quoted phrase for &quot;I love toy&quot; (all canonical) or &quot;I loved toys&quot; (exactly given). You cannot write a pattern like this:</p>
+<pre><code>u: (&quot;I love toy&quot;)       # matchable
+u: (&quot;I loved toys&quot;)     # matchable
+u: (&quot;I love toys&quot;)      # unmatchable</code></pre>
+<p>because the system only detects the original user input OR the canonical form of the input. It does NOT detect a mixture of original and canonical.</p>
+<p>When you use individual words, you can select for each whether to be canonical or not because you can put <code>'</code> in front of each.</p>
+<p>When your phrase incorporates only canonical forms of its words, it can match any form of all of those words. When your phrase has some non-canonical words or it is quoted with <code>'</code>, it can only match what the user actually typed (original input).</p>
+<h2 id="using">Using <code>!</code></h2>
+<p>Put all ! in front of your pattern, because you avoid wasted effort on the rest</p>
+<pre><code>#! do you like Vienna
+#! do you hate Earth
+u: (
+    ! [travel movement]
+    [
+        (you like [Earth Vienna])
+        (you hate [Earth Vienna])
+    ])</code></pre>
+<h2 id="using-1">Using <code>&lt;&lt; &gt;&gt;</code></h2>
+<p>Similarly, for &lt;&lt; &gt;&gt; put the rare stuff first, so if match fails it ends pattern soonest.</p>
+<h1 id="xxx-yyy-and-or"><code>{xxx yyy}</code> and <code>[ ]</code> or <code>&lt;&lt; &gt;&gt;</code></h1>
+<p>{} means optionally find one of these words. It is handy when you are trying to align your pattern to the position pointer in a sentence. It is, however, completely meaningless if nested inside <code>[ ]</code> or <code>&lt;&lt; &gt;&gt;</code>.</p>
+<pre><code>u: ANYORDER(  &lt;&lt; find {testing available} green)
+u: ANYONE(  [ find {testing available} green ])</code></pre>
+<p>In ANYORDER, since finding words in <code>{}</code> is optional, it matters not whether they are found or not. So why include them?</p>
+<p>In ANYONE, you are already trying to find one of the words in <code>[ ]</code>. So saying that you can use the words in <code>{}</code> adds nothing over merely writing</p>
+<pre><code>u: ANYONE(  [ find testing available green ])</code></pre>
+<h2 id="vs"><code>&lt;&lt; &gt;&gt;</code> vs <code>&lt; *</code></h2>
+<p>Some patterns depend on finding multiple things in any order. The usual pattern for this is <code>&lt;&lt; xxx yyy zzz &gt;&gt;</code>. But sometimes CS imperfectly cannot handle certain patterns this way. For example CS 8.0 does not allow !&lt;&lt; xxx yyy &gt;&gt;, even though it should. But there is a workaround. You can do <code>( xxx &lt; * yyy &lt; * zzz)</code> to achieve the same effect. That is, find an element anywhere, go to start, find another element anywhere, go to start, find another element anywhere.</p>
+<h2 id="n-and-_n--for-local-context"><code>@_n+</code> and <code>@_n-</code> for local context</h2>
+<p>A lot of times when I find a basic match, I want to subject it to various constraints. It is faster and clearer to find the basic essential keyword, and then look around it for context. Using <span class="citation">@_n</span>+ and <span class="citation">@_</span>- allows you to jump to where the primary match occured, and then check the local context either testing forwards or testing backwards.</p>
+<pre><code>u: (_baby) ^refine()
+    a: (@_0+ [carriage formula]) # not about a baby, ignore
+    a: (@_0- maybe) # title of a movie, ignore
+    a: () # We have detected a real baby</code></pre>
+<h2 id="setindex-vs-_10-_0"><code>^setindex()</code> vs <code>_10 = _0</code></h2>
+<p>When you match something and check the local context around it using ^refine(), a problem arises when you want to match another piece of data during refinement. Each rule starts memorizing at _0, and you risk clobbering what you have already memorized.</p>
+<pre><code>u: (_~food) ^refine()
+    a: (@_0- _~number) </code></pre>
+<p>If you are looking for a count before the matched food, you destroy your food as you memorize the number. Two solutions exist. One is to copy the original _0 to a different variable.</p>
+<pre><code>u: (_~food) _10 = _0 ^refine()
+    a: (@_0- _~number) </code></pre>
+<p>The other is to alter the starting memorization index in your pattern.</p>
+<pre><code>u: (_~food) ^refine()
+    a: (^setwildcardindex(_1) @_0- _~number) </code></pre>
+<p>Of the two choices, I generally prefer the <code>_10 = _0</code> approach, because I do it at the outermost level rule, so dont have to repeat it on multiple rejoinder rules, it takes less typing, and I consider <code>_0</code> to be a highly volatile variable that any function I call might destroy also.</p>
+<h2 id="adding-markings---mark">Adding markings - <code>^mark()</code></h2>
+<p>The normal engine preparation on your sentence is to mark all words (and their canonical forms) with what concepts they belong in.</p>
+<p>You can supplement these marks any time you want. For example:</p>
+<pre><code>u: (_you) if (^original(_0) == u) {^mark(u _0)} ^retry(RULE)</code></pre>
+<p>The <code>texting</code> substitutions file will change <code>u</code> in input into <code>you</code>. But suppose you want to detect the actual <code>u</code>. The above is such a way. It matches the changed form, checks to see if the original was actually a <code>u</code> and marks it in that location. Thereafter the following rule will match.</p>
+<pre><code>u: (u) Found the letter u.</code></pre>
+<p>But marking does not make the marked value appear at that position in the sentence.</p>
+<pre><code>u: (_you) if (^original(_0) == u) {^mark(beer _0)} ^retry(RULE)</code></pre>
+<p>Had we done the above, we cannot expect this to grab the word <code>beer</code>.</p>
+<pre><code>u: (_beer) I found _0.</code></pre>
+<p>The pattern will match, but the output will be <code>I found you</code>.</p>
+<p>You can mark using any word, fake word, concept, or fake concept. There is no restriction.</p>
+<h2 id="unmarking-words---unmark">Unmarking words - <code>^unmark()</code></h2>
+<p>Not only can you add markings but you can also remove them. This is handy when trying to glean data that is context sensitive.</p>
+<p>If we want to detect blood as a body part and it is in the concept <code>~bodypart</code> we might use a rule like this:</p>
+<pre><code>u: (_~bodypart) Found _0.</code></pre>
+<p>But maybe not all occurences of <code>blood</code> are valid. If the following rule occurs earlier, it prevents faulty gleaning.</p>
+<pre><code>u: (_blood pressure) ^unmark(~bodypart _0) ^retry(RULE)</code></pre>
+<p>There are actually 2 ways you can unmark. You can unmark a specific word or concept, or you can unmark the entire word. Unmarking the entire word using <code>*</code> means CS acts as though it is not in the sentence at all. Given input <code>I have low blood pressure</code>, the following is what happens:</p>
+<pre><code>u: (_blood pressure) ^unmark(* _0) ^retry(RULE)
+u: (_*) &#39;_0   -- this prints out `I have low pressure.`</code></pre>
+<p>Removing the entire word is perhaps a bit drastic, and you may want to reinstate it later. The simplest way to do that is this sequence:</p>
+<pre><code>u: (_*) _10 = _0   -- memorize the entire sentence location
+
+u: (_blood pressure) ^unmark(* _0) ^retry(RULE)
+
+u: () ^mark(* _10)  -- refresh all hidden words</code></pre>
+<h2 id="replacing-words---replacewordword-_n">Replacing words - <code>^replaceword(word _n)</code></h2>
+<p>You can already mark and unmark words, which is what is used for pattern matching. But the word itself in the sentence is what is retrieved when memorizing a word. You can change the word itself just by providing the word you want used and the location in the sentence (as a match variable). Replacing a word does not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).</p>
+<p>This is handy, for example, for making it easy to see what was used to create an interjection. If the mark on a word in ~emogoodbye, Then</p>
+<pre><code>u: (_~emogoodbye) 
+   $_tmp = ^original(_0)
+   ^replaceword($_tmp _0)</code></pre>
+<p>will make it so when you do this in later patterns:</p>
+<pre><code>u: (_~emogoodbye) _0 is now the original text</code></pre>
+<h2 id="fixing-cs-substitutions">Fixing CS substitutions</h2>
+<p>^unmark and ^mark can be used to &quot;correct&quot; the behavior of standard CS substitutions that you may not want but are unwilling to remove from CS release files. Just detect the substitution result, check the original, and mark and unmark accordingly. For example, &quot;have a nice day&quot; is substituted into <code>~emogoodbye</code>. So you can't normally see it in a pattern as <code>(have a nice day)</code>. But ... you can find it anyway.</p>
+<pre><code>u:  (_~emogoodbye) 
+    $_tmp = ^original(_0)
+    $_tmp1 = ^&quot;have a nice day&quot;
+    if ($_tmp == $_tmp1) {}</code></pre>
+<p>And when CS interjection splitting is on (by default), you sometimes get words split over sentence boundaries, where pattern matching can't see them. You can compensate by setting variables in the earlier sentence. So <code>no, thanks, I hate it</code> which is really the same as 'thanks, no, I hate it' or 'no, i hate it, thanks' might look like this in code:</p>
+<pre><code>u: (~no) $$no = 1
+u: ([~emothanks thanks]) $$thanks = 1
+u: ($$no $$thanks hate it) Hate it if you want. I don&#39;t care.</code></pre>
+<h2 id="gleaning-sentence-chunks">Gleaning sentence chunks</h2>
+<p>^Unmark() is also useful for gleaning data from paired chunks a sentence. In English one might say <code>if xxx then yyy</code> or <code>begins xxxx ends xxx</code>. You can mask off sentence fragments to perform special gleaning like this:</p>
+<pre><code>u: (_* from _* to _*) _10 = _0 _11 = _1  _12 = _2 
+    ^unmark(* _0)  # hide prior to from   
+    ^unmark(* _2)  # hide after to
+    ^respond(~gleantopic) # go find data in remainder
+    $data1 = $$tmpdata    # save what we learned
+    
+    ^mark(* _2)           # restore to data
+    ^unmark(* _1)         # hide from data
+    ^respond(~gleantopic) # go find data in remainder
+    $data2 = $$tmpdata    # save what we learned
+    
+    ^mark(* _0)  # restore prior to from   
+    ^mark(* _1)  # restore from data</code></pre>
+<h1 id="patterns-in-if-statements">Patterns in IF statements</h1>
+<p>While all rules can have patterns, you can even use pattern matching inside outputmacros or rule output. You tell the <code>IF</code> statement you want to use pattern syntax like this:</p>
+<pre><code>    if (PATTERN  $x&lt;5 _~mainsubject)  {}</code></pre>
+<p>The reality is that outputmacros (functions) can act like rules and rules can act like functions (but you have to pass arguments as globals).</p>
+<h2 id="placeholder-rules">Placeholder rules</h2>
+<p>It is sometimes handy to have a common rule used for rejoinders from multiple places, or to hold a common output. This can be done using a pattern that cannot match. The most obvious is:</p>
+<pre><code>s: MYCOMMON (?) Here is common output.
+    a: REJOINDER1(how) I dont know how
+    a: REJOINDER2(when) I dont know when
+...
+u: (some pattern) ^reuse(MYCOMMON) # say what MYCOMMON says
+u: (some other pattern) ^setrejoinder(OUTPUT MYCOMMON)
+    I have this output, and my rejoinder will be handled by a common place.</code></pre>
+<h1 id="section-4"></h1>
+<h1 id="quiz---whats-wrong-with-each-of-these-patterns">QUIZ - What's wrong with each of these patterns?</h1>
+<h1 id="section-5"></h1>
+<pre><code>#! Where do i live
+u: Q1( where do i live ?) On the moon?
+
+#! I think bottle deposits are good for the earth.
+u: Q2( [bottle can] (deposits are good)) I recycle.
+
+#! Among the fruit that I like are apples.
+u: Q3( &lt;&lt; [bananas apples] are fruit  &gt;&gt; ) Fruit are tasty.
+
+#! How much does the apple cost?
+#! What is the price of a banana?
+u: Q4([
+        (how much *~5 cost)
+        (what be *~5 price)
+        !(price of liberty)
+      ])</code></pre>
+<h1 id="answers">ANSWERS</h1>
+<p>Q1 uses <code>I</code> in lower case. And the rule is overly specific. And why use <code>?</code> in the pattern when you could change the rule to <code>?:</code>.</p>
+<p>Q2 has useless interior <code>( )</code> so it is not the clearest. If you thought <code>( deposits are good)</code> should have been changed to <code>&quot; deposits are good&quot;</code>, you missed the clearest answer. You don't need to use <code>&quot; &quot;</code> at the top level of a pattern.</p>
+<p>Q3 detects <code>bananas are fruit</code> and <code>examples of fruit are bananas and pineapple</code> but not <code>the banana is a fruit</code>. To do that you need to make banana singular in the pattern (along with <code>apple</code>) and change <code>are</code> to the more canonical <code>be</code>. Of course limiting us to bananas and apples is ridiculous given that CS has the in-built concept <code>~fruit</code>. You should type in your sample word like this: <code>:prepare banana</code> and see what existing concepts cover it.</p>
+<p>Q4 has a negative inside the <code>[ ]</code> alternatives so it will match for almost all inputs. It should be moved first, before the <code>[</code>. And probably you could combine the other elements into a single pattern while generalizing further and still being clear.</p>
+<pre><code>u: Q4 (!(price of liberty)
+       [&quot;how much&quot; &quot;what be&quot;] *~5 [cost price fee]
+      )</code></pre>
+<h1 id="summary">Summary</h1>
+<p>Fluency in pattern construction requires a limber mind, able to imagine how to broaden a match while not accepting wrong inputs. But it will enable your bots to seem amazingly human!</p>
+</body>
+</html>

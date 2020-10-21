@@ -20,7 +20,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 void ExecuteConceptPatterns();
 bool MatchesPattern(char* word, char* pattern);
 void GetPatternData(char* buffer);
-bool Match(char* buffer,char* ptr, unsigned int depth, int startposition,char* kind,int rebindable,unsigned int wildcardSelector, 
+bool Match(char* buffer,char* ptr, int depth, int startposition,char* kind,int rebindable,unsigned int wildcardSelector, 
 	int &returnStart,int& returnEnd,int& uppercasem , int& firstmatched,int positionStart,int positionEnd,
 	bool reverse = false);
 extern bool matching;

@@ -1,4 +1,28 @@
-Version 10.6 8/23/2020
+Version 10.7 10/20/2020
+1. ^testpattern api now accepts concepts where entries are pairs, separated by |.  The left side is stored
+as the concept member and a fact is created ( left-side  api-remap   right-side)  which allows you to write
+scripts that remap found entries on output to the right side value. testoutput accepts concepts so that the remap ability can be instantiated (see #1)
+2. ^testpattern api accepts both pattern strings "(...)" and direct patterns (...) which will be tested
+and mark the concepts (normal cs accepts concept patterns and api does too).
+3. Microsoft SQL db supported as networked file system (like mysql, postresql, mongo). Not currently supported
+   for script use. Param  mssql="xxxxx" sets server etc (see )
+4. Separate documents in Esoteric ChatScript documentation replaced with ChatScript-Database_Access which covers
+	Postgres, Mongo, MySQL and the new Microsoft SQL connectors.
+5. parameter "fullinputlimit=n"  sets size of input buffer separately from buffer size parameter
+6. new  cs variable $cs_new_user=1 when set as bot variable (from compilation of script or from init file) forces cs to always create
+	user. This means if using a db as file system and making api calls like ^testpattern/^testoutput/
+	^compilepattern/^compileoutput which do not need to save context, no read call will be performed
+	on the db
+7. pattern assignment operator :=  now allows the numeric assignments  :+= :-= :*= :\= etc that normal
+	assignment does
+8. :variablereference will list all user variable assignments and uses into TMP/reference.txt . If you sort that file, you 
+   may detect places where you misspelled a variable, assigned but didnt use, or used but didnt assign. Normally it only shows mismatches but ":variablereference full"
+   will list all variables. See documentation in Finalize a bot
+9. new livedata systemfolder file topleveldomains.txt read to help recognize web addressing.
+10. CS ProperNameMerge function no longer mistakenly merges German uppercase pronouns.
+11. VS2015 has been deleted. All Windows compiles now use VS2019 (free version)
+
+Version 10.61 8/23/2020
 1. :notrace ^query  will disable most query tracing then :trace query is on, leaving you
 	with just startup and results. Saves seeing trace on finding lots of values
 2. additional param formats

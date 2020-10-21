@@ -33,25 +33,25 @@ typedef struct RESPONSE
 #define TIMEOUT_INSTANCE 1000000
 
 #define PENDING_RESTART -1	// perform chat returns this flag on turn
+extern bool loadingUser;
 
 typedef char* (*DEBUGAPI)(char* buffer);
 typedef char* (*DEBUGLOOPAPI)(char* buffer,bool in);
 typedef char* (*DEBUGVARAPI)(char* var, char* value);
 extern DEBUGAPI debugMessage;
-extern bool loadingUser;
 extern DEBUGAPI debugInput; // user input from windows to CS
 extern DEBUGAPI debugOutput; // CS output to windows
 extern DEBUGAPI debugEndTurn; // about to save user file marker
 extern DEBUGLOOPAPI debugCall;
-extern unsigned int idetrace;
-extern bool dieonwritefail;
 extern DEBUGVARAPI debugVar;
 extern DEBUGVARAPI debugMark;
+extern DEBUGAPI debugAction;
+extern unsigned int idetrace;
+extern bool dieonwritefail;
 extern unsigned int timeLog;
 extern int outputlevel;
 extern bool crashset;
 extern bool crashBack;
-extern DEBUGAPI debugAction;
 extern int forkcount;
 extern int sentenceloopcount;
 extern bool debugcommand;
@@ -59,6 +59,7 @@ extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
 #define INPUTMARKER '`'	// used to start and end ^input data
 
+extern char* originalUserInput;
 // values of prepareMode
  enum PrepareMode { // how to treat input
 	NO_MODE = 0,				// std processing of user inputs
@@ -94,6 +95,7 @@ extern unsigned int docSentenceCount;
 extern unsigned int outputLength;
 extern bool readingDocument;
 extern int inputRetryRejoinderTopic;
+extern bool newuser;
 extern int inputRetryRejoinderRuleID;
 extern bool build0Requested;
 extern bool build1Requested;
@@ -116,6 +118,7 @@ extern bool trustpos;
 extern bool documentMode;
 extern bool servertrace;
 extern int inputLimit;
+extern int fullInputLimit;
 extern int serverLogDefault;
 extern int outputchoice;
 extern int traceUniversal;
@@ -203,7 +206,8 @@ extern char* nextInput;
 extern char* copyInput;
 
 extern char activeTopic[200];
-
+extern int db;
+extern int gzip;
 extern int always; 
 extern uint64 callBackTime;
 extern uint64 callBackDelay;
@@ -222,19 +226,30 @@ void EmitOutput();
 
 // startup
 #ifdef DLL
-extern "C" __declspec(dllexport) unsigned int InitSystem(int argc, char * argv[],char* unchangedPath = NULL,char* readonlyPath = NULL, char* writablePath = NULL, USERFILESYSTEM* userfiles = NULL,DEBUGAPI in = NULL, DEBUGAPI out = NULL);
+#ifdef __linux__
+extern "C" unsigned int InitSystem(int argc, char* argv[], char* unchangedPath = NULL, char* readonlyPath = NULL, char* writablePath = NULL, USERFILESYSTEM* userfiles = NULL, DEBUGAPI in = NULL, DEBUGAPI out = NULL);
 #else
-unsigned int InitSystem(int argc, char * argv[],char* unchangedPath = NULL,char* readonlyPath = NULL, char* writablePath = NULL, USERFILESYSTEM* userfiles = NULL,DEBUGAPI in = NULL, DEBUGAPI out = NULL);
+extern "C" __declspec(dllexport) unsigned int InitSystem(int argc, char* argv[], char* unchangedPath = NULL, char* readonlyPath = NULL, char* writablePath = NULL, USERFILESYSTEM* userfiles = NULL, DEBUGAPI in = NULL, DEBUGAPI out = NULL);
 #endif
+#else
+unsigned int InitSystem(int argc, char* argv[], char* unchangedPath = NULL, char* readonlyPath = NULL, char* writablePath = NULL, USERFILESYSTEM* userfiles = NULL, DEBUGAPI in = NULL, DEBUGAPI out = NULL);
+#endif
+
 int FindOOBEnd(int start);
 void InitStandalone();
 void CreateSystem();
 void LoadSystem();
+
 #ifdef DLL
+#ifdef __linux__
+extern "C" void CloseSystem();
+#else
 extern "C" __declspec(dllexport) void CloseSystem();
+#endif
 #else
 void CloseSystem();
 #endif
+
 void NLPipeline(int trace);
 void EmergencyResetUser();
 char* DoOutputAdjustments(char* msg, unsigned int control,char* &buffer,char* limit);
@@ -253,11 +268,16 @@ int ProcessInput(char* input);
 FunctionResult DoSentence(char* prepassTopic,bool atlimit);
 
 #ifdef DLL
-extern "C" __declspec(dllexport) int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output);
-extern "C" __declspec(dllexport) int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* output,char* topic);
+#ifdef __linux__
+extern "C" int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output);
+extern "C" int PerformChatGivenTopic(char* user, char* usee, char* incoming, char* ip, char* output, char* topic);
 #else
-int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output);
-int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* output,char* topic);
+extern "C" __declspec(dllexport) int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output);
+extern "C" __declspec(dllexport) int PerformChatGivenTopic(char* user, char* usee, char* incoming, char* ip, char* output, char* topic);
+#endif
+#else
+int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output);
+int PerformChatGivenTopic(char* user, char* usee, char* incoming, char* ip, char* output, char* topic);
 #endif
 
 void ResetSentence();

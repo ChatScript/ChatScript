@@ -158,6 +158,7 @@ bool IsFractionNumber(char* word);
 bool IsDigitWord(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool comma = false, bool checkAll = false);
 bool IsDigitWithNumberSuffix(char* number,int useNumberStyle = AMERICAN_NUMBERS);
 bool IsMail(char* word);
+bool IsTLD(char* word);
 bool IsUrl(char* word, char* end);
 bool IsFileExtension(char* word);
 bool IsFileName(char* word);

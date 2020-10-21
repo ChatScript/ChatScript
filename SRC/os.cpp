@@ -5,8 +5,10 @@
 static std::mutex mtx;
 #endif 
 int loglimit = 0;
+FILE* userlogFile = NULL;
 int ide = 0;
 bool convertTabs = true;
+bool pendingTab = false;
 bool idestop = false;
 bool idekey = false;
 bool inputAvailable = false;
@@ -104,6 +106,11 @@ unsigned int oldRandIndex = 0;
 void Bug()
 {
 	int xx = 0; // a hook to debug bug reports
+	if (compiling == FULL_COMPILE)
+	{
+		jumpIndex = 0; // top level of scripting abort
+		BADSCRIPT("Execution error (see LOGS/bugs.txt) - try again.");
+	}
 }
 
 /////////////////////////////////////////////////////////
@@ -177,11 +184,14 @@ void CloseDatabases(bool restart)
 #ifndef DISCARDMYSQL
 	MySQLFullCloseCode(restart);	// filesystem and/or script
 #endif
+#ifndef  DISCARDMICROSOFTSQL
+	MsSqlFullCloseCode(restart);	// filesystem and/or script
+#endif
 }
 
 void myexit(char* msg, int code)
 {	
-	compiling = false;
+	compiling = NOT_COMPILING;
 	loading = false;
 	traceTestPatternBuffer = NULL;
 	pendingError = false;
@@ -1378,11 +1388,6 @@ char* GetTimeInfo(struct tm* ptm, bool nouser,bool utc) //   Www Mmm dd hh:mm:ss
 	static bool reported = false;
 
 	int testyear = ptm->tm_year + 1900;
-	if (testyear < 2020 && !reported)
-	{
-		reported = true;
-		ReportBug("TIME_ERROR %d", testyear)
-	}
 
 	char* utcoffset = (nouser) ? (char*)"" : GetUserVariable((char*)"$cs_utcoffset");
 	if (utc) utcoffset = (char*)"+0";
@@ -1506,12 +1511,6 @@ char* GetTimeInfo(struct tm* ptm, bool nouser,bool utc) //   Www Mmm dd hh:mm:ss
 			ptm->tm_mon -= 12; //  january
 			ptm->tm_year += 1; // on to next year
 		}
-	}
-
-	if ((ptm->tm_year + 1900) < 2020 && !reported)
-	{
-		reported = true;
-		ReportBug("TIME_ERROR_1 %d", ptm->tm_year + 1900)
 	}
 
 	SafeLock();
@@ -1783,7 +1782,8 @@ CALLFRAME* ChangeDepth(int value,char* name,bool nostackCutback, char* code)
         frame->heapDepth = heapBase - heapFree;
         globalDepth += value;
         if (showDepth) Log(STDUSERLOG, (char*)"+depth %d %s bufferindex %d heapused: %d stackused:%d gap:%d\r\n", globalDepth, name, bufferIndex, (int)(heapBase - heapFree), (int)(stackFree - stackStart), (int)(heapFree - stackFree));
-        releaseStackDepth[globalDepth] = frame; // define argument start space - release back to here on exit
+		frame->depth = globalDepth;
+		releaseStackDepth[globalDepth] = frame; // define argument start space - release back to here on exit
 #ifndef DISCARDTESTING
 		if (globalDepth && *name != '*' && debugCall) (*debugCall)(name, true); 
 #endif
@@ -2002,6 +2002,11 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	}
 	// allow user logging if trace is on.
 	if (!fmt)  return id; // no format or no buffer to use
+	if (pendingTab)
+	{
+		if (channel == STDUSERLOG) channel = STDTRACETABLOG;
+		pendingTab = false;
+	}
 
 	if (stdlogging)
 	{
@@ -2048,7 +2053,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		if (logLastCharacter == 1 && globalDepth == priordepth) {} // we indented already
 		else if (logLastCharacter == 1 && globalDepth > priordepth) // we need to indent a bit more
 		{
-			for (int i = priordepth; i < globalDepth; i++)  *at++ = '.';
+			for (int i = priordepth; i < globalDepth; i++)  *at++ = ' ';
 			priordepth = globalDepth;
 		}
 		else
@@ -2058,10 +2063,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 				*at++ = '\r'; //   close out this prior thing
 				*at++ = '\n'; // log legal
 			}
-			while (ptr[1] == '\n' || ptr[1] == '\r') // we point BEFORE the format
-			{
-				*at++ = *++ptr;
-			}
+			while (ptr[1] == '\n' || ptr[1] == '\r') *at++ = *++ptr; // we point BEFORE the format
 
 			int n = globalDepth + patternDepth;
 			if (n < 0) n = 0; //   just in case
@@ -2069,13 +2071,11 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 			{
 				if (i == 0)
 				{
-					sprintf(at, "%2d", n);
-					at += 2;
-					i += 2;
+					sprintf(at, "%2d  ", n);
+					at += 4;
 				}
-				else
-				if (channel == STDTRACEATTNLOG) *at++ = (i == 1) ? '*' : ' ';
-				else *at++ =  '.';
+				else if (channel == STDTRACEATTNLOG) *at++ = (i == 1) ? '*' : ' ';
+				else *at++ = ' ';
 			}
 			priordepth = globalDepth;
 		}
@@ -2083,7 +2083,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	channel %= 100;
 	at = myprinter(ptr, at, ap);
 	va_end(ap);
-
+	
 	if (traceTestPatternBuffer)
 	{
 		UpdateTrace(logmainbuffer);
@@ -2183,13 +2183,14 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	if (channel == TIMELOG)
 	{
 		char name[MAX_WORD_SIZE];
+		struct tm ptm;
 		sprintf(name, (char*)"%s/time.txt", logsfolder);
 		FILE* timefile;
 		if (stdlogging) timefile = stderr;
 		else timefile = rotateLogOnLimit(name, logsfolder);
 		if (timefile)
 		{
-			fprintf(timefile, (char*)"Time Excess %s in sentence: %s \r\n\r\n", logmainbuffer, currentInput);
+			fprintf(timefile, (char*)"Time Excess %s  %s in sentence: %s \r\n\r\n", GetTimeInfo(&ptm, true),logmainbuffer, originalUserInput);
 			if (!stdlogging) fclose(timefile);
 		}
 #ifndef WIN32 
@@ -2199,7 +2200,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 			timefile = rotateLogOnLimit(name, logsfolder);
 			if (timefile)
 			{
-				fprintf(timefile, (char*)"Time Excess %s in sentence: %s \r\n\r\n", logmainbuffer, currentInput);
+				fprintf(timefile, (char*)"Time Excess %s %s in sentence: %s \r\n\r\n", GetTimeInfo(&ptm, true),logmainbuffer, originalUserInput);
 				fclose(timefile);
 		}
 	}	
@@ -2318,7 +2319,12 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 			memmove(logmainbuffer + strlen(defaultlogFilename) , logmainbuffer, strlen(logmainbuffer)+1);
 		}
 		if (stdlogging) out = stdout;
-		else out = rotateLogOnLimit(fname, usersfolder);
+		else if (userlogFile) out = userlogFile;
+		else
+		{
+			out = rotateLogOnLimit(fname, usersfolder);
+			if ((trace || compiling) && !server)  userlogFile = out;
+		}
 	}
 	else if (!stdlogging && channel == DBTIMELOG) // do db log 
 	{
@@ -2344,10 +2350,18 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		}
 		else
 		{
-			fwrite(logmainbuffer, 1, bufLen, out);
+			char* input = strstr(logmainbuffer, "`*`");
+			if (input)
+			{
+				*input = 0;
+				fwrite(logmainbuffer, 1, strlen(logmainbuffer), out);
+				fwrite(originalUserInput, 1, strlen(originalUserInput), out); // separate write in case bigger than logbuffer
+				fwrite(input + 3, 1, strlen(input + 3), out);
+			}
+			else fwrite(logmainbuffer, 1, bufLen, out);
 		}
-		if (!stdlogging) fclose(out); // dont use FClose
-		if (channel == SERVERLOG && echoServer)  (*printer)((char*)"%s", logmainbuffer);
+		if (!stdlogging && out != userlogFile) fclose(out); // dont use FClose
+		if (channel == SERVERLOG && (localecho || echoServer))  (*printer)((char*)"%s", logmainbuffer);
 	}
 
 #ifndef DISCARDSERVER

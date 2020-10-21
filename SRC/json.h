@@ -21,7 +21,7 @@ FunctionResult JSONPathCode(char* buffer);
 FunctionResult JSONFormatCode(char* buffer);
 FunctionResult JSONParseFileCode(char* buffer);
 FunctionResult JSONObjectInsertCode(char* buffer) ;
-FunctionResult JSONVariableAssign(char* word,char* value);
+FunctionResult JSONVariableAssign(char* word,char* value, bool stripQuotes = true);
 FunctionResult JSONArrayInsertCode(char* buffer) ;
 FunctionResult JSONLabelCode(char* buffer) ;
 FunctionResult JSONUndecodeStringCode(char* buffer) ;
@@ -39,11 +39,12 @@ FunctionResult JSONCreateCode(char* buffer);
 FunctionResult JSONReadCSVCode(char* buffer);
 FunctionResult InitCurl();
 MEANING GetUniqueJsonComposite(char* prefix, unsigned int permenent = 0);
-MEANING jsonValue(char* value, unsigned int& flags);
+MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes = true);
 void JsonRenumber(FACT* F);
 void jkillfact(WORDP D);
 void InitJSONNames();
 char* jwrite(char* buffer, WORDP D, int subject);
+bool IsValidJSONName(char* word, char type = 0);
 
 #ifndef DISCARDJSONOPEN
 char* UrlEncodePiece(char* input);

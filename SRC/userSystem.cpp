@@ -683,13 +683,22 @@ void WriteUserData(time_t curr, bool nobackup)
 
 static  bool ReadFileData(char* bot) // passed  buffer with file content (where feasible)
 {	
+	strcpy(timePrior, (char*)"0");
+	strcpy(timeturn15, (char*)"0");
+	strcpy(timeturn0, (char*)"0");
+	
+	if (newuser)
+	{
+		newuser = false; // only good for this volley
+		ReadNewUser();
+		strcpy(timeturn0, GetMyTime(time(0))); // startup time
+		return true;
+	}
+
     loadingUser = true;
 	char* buffer = GetFileRead(loginID,bot);
 	char junk[MAX_WORD_SIZE];
 	*junk = 0;
-	strcpy(timePrior,(char*)"0");
-	strcpy(timeturn15,(char*)"0");
-	strcpy(timeturn0,(char*)"0");
 
 	// set bom
 	if (buffer && *buffer != 0) // readable data
@@ -706,7 +715,7 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 		ReadCompiledWord(x,timeturn15); // the timeturn id if there
 		if (stricmp(junk,saveVersion)) *buffer = 0;// obsolete format
 	}
-    if (!buffer || !*buffer) 
+    if (!buffer || !*buffer  ) 
 	{
 		// if shared file exists, we dont have to kill it. If one does exist, we merely want to use it to add to existing bots
 		ReadNewUser();

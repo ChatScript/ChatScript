@@ -147,11 +147,12 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define PLURALFIELD 3
 
 #define Index2Word(n) (dictionaryBase + (size_t)n)
-#define Word2Index(D) ((uint64) (D-dictionaryBase))
+#define Word2Index(D) ((unsigned int) (D-dictionaryBase))
 #define GetMeanings(D) ((MEANING*) Index2Heap(D->meanings))
 MEANING GetMeaning(WORDP D, int index);
 #define GetMeaningsFromMeaning(T) (GetMeanings(Meaning2Word(T)))
 #define Meaning2Index(x) ((int)((x & INDEX_BITS) >> (int)INDEX_OFFSET)) //   which dict entry meaning
+#define CommonLevel(x) ((int)((x & COMMONNESS) >> (uint64)(64-14)))
 
 unsigned char* GetWhereInSentence(WORDP D); // always skips the linking field at front
 extern unsigned int* hashbuckets;

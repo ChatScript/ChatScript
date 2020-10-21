@@ -88,6 +88,7 @@ typedef struct CALLFRAME
     int oldRuleID;
     int oldTopic;
     int oldRuleTopic;
+	int depth;
     unsigned int memindex;
     char* oldRule;
     int heapDepth;
@@ -115,6 +116,7 @@ extern char hide[4000];
 #define MONGOFILES 1
 #define POSTGRESFILES 2
 #define MYSQLFILES 3
+#define MICROSOFTSQLFILES 4
 extern bool logged;
 extern int filesystemOverride;
 #define MAX_GLOBAL 600
@@ -123,6 +125,7 @@ extern bool idestop;
 extern bool idekey;
 #define RECORD_SIZE 4000
 extern char externalBugLog[100];
+extern FILE* userlogFile;
 
 // MEMORY SYSTEM
 extern bool convertTabs;
@@ -150,8 +153,8 @@ inline HEAPINDEX Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapB
 
 // MEMORY SYSTEM
 void ResetBuffers();
-char* AllocateBuffer(char*name = "");
-void FreeBuffer(char*name = "");
+char* AllocateBuffer(char*name = (char*) "");
+void FreeBuffer(char*name = (char*) "");
 void CloseBuffers();
 char* AllocateStack(char* word, size_t len = 0, bool localvar = false, int align = 0);
 void ReleaseInfiniteStack();
@@ -286,7 +289,7 @@ unsigned int GetFutureSeconds(unsigned int seconds);
 #define STDTRACEATTNLOG 201
 #define STDTIMETABLOG 301
 #define FORCETABLOG 401
-
+extern bool pendingTab;
 extern bool userEncrypt;
 extern bool ltmEncrypt;
 extern bool echo;
@@ -295,7 +298,7 @@ extern bool oob;
 extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
-#define ReportBug(...) { Bug(); Log(BUGLOG, __VA_ARGS__); if (server) Log(SERVERLOG, __VA_ARGS__); }
+#define ReportBug(...) { Log(BUGLOG, __VA_ARGS__); if (server) Log(SERVERLOG, __VA_ARGS__); Bug();  }
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;

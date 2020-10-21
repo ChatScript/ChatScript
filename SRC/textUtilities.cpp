@@ -49,6 +49,7 @@ typedef struct CURRENCYDECODE
 
 static CURRENCYDECODE* currencies;
 static int* monthnames;
+static int* topleveldomains;
 
 char toHex[16] = {
 	'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
@@ -313,94 +314,127 @@ void InitTextUtilities1()
 {
 	ClearNumbers();
 
+    char word[MAX_WORD_SIZE];
+    char value[MAX_WORD_SIZE];
+    char kind[MAX_WORD_SIZE];
+    char* limit;
+    char* stack;
+    int* data;
+    size_t size;
 	char file[SMALL_WORD_SIZE];
-	sprintf(file, (char*)"%s/%s/numbers.txt", livedataFolder, language);
-	FILE* in = FopenStaticReadOnly(file); // LIVEDATA substitutes or from script TOPIC world
-	if (!in) return;
-	char word[MAX_WORD_SIZE];
-	char value[MAX_WORD_SIZE];
-	char kind[MAX_WORD_SIZE];
-	char* limit;
-	char* stack = InfiniteStack64(limit,"initnumbers");
-	int* data = (int*)stack;
 
-	while (ReadALine(readBuffer, in) >= 0) // once 1 REALNUMBER
-	{
-		if (*readBuffer == '#' || *readBuffer == 0) continue;
-		char* ptr = ReadCompiledWord(readBuffer, word); 
-		ptr = ReadCompiledWord(ptr, value);
-		ptr = ReadCompiledWord(ptr, kind);
-		int64 val;
-		ReadInt64(value, val);
-		int kindval = 0;
-		if (!stricmp(kind, "DIGIT_NUMBER")) kindval = DIGIT_NUMBER;
-		else if (!stricmp(kind, "FRACTION_NUMBER")) kindval = FRACTION_NUMBER;
-		else if (!stricmp(kind, "WORD_NUMBER")) kindval = WORD_NUMBER;
-		else if (!stricmp(kind, "REAL_NUMBER")) kindval = WORD_NUMBER;
-		else myexit("Bad number table");
-		char* w = StoreWord(word,AS_IS| ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER)->word;
-		int index = Heap2Index(w);
-		*data++ = index;
-		*data++ = strlen(word);
-		*(int64*)data = val; // int64 value 
-		data += 2;
-		*data++ = kindval;
-		*data++ = 0; // alignment to keep block at int64 style
-	}
-	*data++ = 0;	 // terminal value for end detection
-	size_t size = (char*)data - stack;
-	size /= 8;	 // 64bit chunks
-	numberValues = (NUMBERDECODE*)AllocateHeap(stack, size+1,8);
-	ReleaseInfiniteStack();
-	fclose(in);
+    sprintf(file, (char*)"%s/%s/numbers.txt", livedataFolder, language);
+	FILE* in = FopenStaticReadOnly(file); // LIVEDATA substitutes or from script TOPIC world
+	if (in)
+    {
+        stack = InfiniteStack64(limit,"initnumbers");
+        data = (int*)stack;
+
+        while (ReadALine(readBuffer, in) >= 0) // once 1 REALNUMBER
+        {
+            if (*readBuffer == '#' || *readBuffer == 0) continue;
+            char* ptr = ReadCompiledWord(readBuffer, word);
+            ptr = ReadCompiledWord(ptr, value);
+            ptr = ReadCompiledWord(ptr, kind);
+            int64 val;
+            ReadInt64(value, val);
+            int kindval = 0;
+            if (!stricmp(kind, "DIGIT_NUMBER")) kindval = DIGIT_NUMBER;
+            else if (!stricmp(kind, "FRACTION_NUMBER")) kindval = FRACTION_NUMBER;
+            else if (!stricmp(kind, "WORD_NUMBER")) kindval = WORD_NUMBER;
+            else if (!stricmp(kind, "REAL_NUMBER")) kindval = WORD_NUMBER;
+            else myexit("Bad number table");
+            char* w = StoreWord(word,AS_IS| ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER)->word;
+            int index = Heap2Index(w);
+            *data++ = index;
+            *data++ = strlen(word);
+            *(int64*)data = val; // int64 value
+            data += 2;
+            *data++ = kindval;
+            *data++ = 0; // alignment to keep block at int64 style
+        }
+        *data++ = 0;	 // terminal value for end detection
+        size = (char*)data - stack;
+        size /= 8;	 // 64bit chunks
+        numberValues = (NUMBERDECODE*)AllocateHeap(stack, size+1,8);
+        ReleaseInfiniteStack();
+        fclose(in);
+    }
 
 	sprintf(file, (char*)"%s/%s/currencies.txt", livedataFolder, language);
 	in = FopenStaticReadOnly(file); 
-	if (!in) return;
-	stack = InfiniteStack64(limit, "initcurrency");
-	data = (int*)stack;
-
-	while (ReadALine(readBuffer, in) >= 0) // $ ~dollar
-	{
-		if (*readBuffer == '#' || *readBuffer == 0) continue;
-		char* ptr = ReadCompiledWord(readBuffer, word);
-		MakeLowerCase(word);
-		ptr = ReadCompiledWord(ptr, kind);
-		MakeLowerCase(kind);
-		if (*kind != '~') myexit("Bad currency table");
-		char* w = StoreWord(word, AS_IS | CURRENCY)->word; // currency name
-		int index = Heap2Index(w);
-		*data++ = index;
-		w = StoreWord(kind, AS_IS)->word; // currency name
-		index = Heap2Index(w);
-		*data++ = index;
-	}
-	*data++ = 0;	 // terminal value for end detection
-	size = (char*)data - stack;
-	size /= 8;	 // 64bit chunks
-	currencies = (CURRENCYDECODE*)AllocateHeap(stack, size + 1, 8);
-	ReleaseInfiniteStack();
-	fclose(in);
+	if (in)
+    {
+        stack = InfiniteStack64(limit, "initcurrency");
+        data = (int*)stack;
+        
+        while (ReadALine(readBuffer, in) >= 0) // $ ~dollar
+        {
+            if (*readBuffer == '#' || *readBuffer == 0) continue;
+            char* ptr = ReadCompiledWord(readBuffer, word);
+            MakeLowerCase(word);
+            ptr = ReadCompiledWord(ptr, kind);
+            MakeLowerCase(kind);
+            if (*kind != '~') myexit("Bad currency table");
+            char* w = StoreWord(word, AS_IS | CURRENCY)->word; // currency name
+            int index = Heap2Index(w);
+            *data++ = index;
+            w = StoreWord(kind, AS_IS)->word; // currency name
+            index = Heap2Index(w);
+            *data++ = index;
+        }
+        *data++ = 0;	 // terminal value for end detection
+        size = (char*)data - stack;
+        size /= 8;	 // 64bit chunks
+        currencies = (CURRENCYDECODE*)AllocateHeap(stack, size + 1, 8);
+        ReleaseInfiniteStack();
+        fclose(in);
+    }
 
 	sprintf(file, (char*)"%s/%s/months.txt", livedataFolder, language);
 	in = FopenStaticReadOnly(file); 
-	if (!in) return;
-	stack = InfiniteStack64(limit, "initmonths");
-	data = (int*)stack;
-	while (ReadALine(readBuffer, in) >= 0) // month name or abbrev
-	{
-		if (*readBuffer == '#' || *readBuffer == 0) continue;
-		char* ptr = ReadCompiledWord(readBuffer, word);
-		char* w = StoreWord(word, AS_IS)->word; // month name
-		int index = Heap2Index(w);
-		*data++ = index;
-	}
-	*data++ = 0;	 // terminal value for end detection
-	size = (char*)data - stack;
-	size /= 8;	 // 64bit chunks
-	monthnames = (int*)AllocateHeap(stack, size + 1, 8);
-	ReleaseInfiniteStack();
-	fclose(in);
+	if (in)
+    {
+        stack = InfiniteStack64(limit, "initmonths");
+        data = (int*)stack;
+        
+        while (ReadALine(readBuffer, in) >= 0) // month name or abbrev
+        {
+            if (*readBuffer == '#' || *readBuffer == 0) continue;
+            ReadCompiledWord(readBuffer, word);
+            char* w = StoreWord(word, AS_IS)->word; // month name
+            int index = Heap2Index(w);
+            *data++ = index;
+        }
+        *data++ = 0;	 // terminal value for end detection
+        size = (char*)data - stack;
+        size /= 8;	 // 64bit chunks
+        monthnames = (int*)AllocateHeap(stack, size + 1, 8);
+        ReleaseInfiniteStack();
+        fclose(in);
+    }
+
+    // most up to date list of all TLDs at http://data.iana.org/TLD/tlds-alpha-by-domain.txt
+    sprintf(file, (char*)"%s/topleveldomains.txt", systemFolder);
+    in = FopenStaticReadOnly(file);
+    if (in)
+    {
+        stack = InfiniteStack64(limit, "inittlds");
+        data = (int*)stack;
+        
+        while (ReadALine(readBuffer, in) >= 0) // top level domain
+        {
+            if (*readBuffer == '#' || *readBuffer == 0) continue;
+            ReadCompiledWord(readBuffer, word);
+            *data++ = Heap2Index(AllocateHeap(word, 0));
+        }
+        *data++ = 0;     // terminal value for end detection
+        size = (char*)data - stack;
+        size /= 8;     // 64bit chunks
+        topleveldomains = (int*)AllocateHeap(stack, size + 1, 8);
+        ReleaseInfiniteStack();
+        fclose(in);
+    }
 }
 
 bool IsDate(char* original)
@@ -1629,7 +1663,9 @@ bool IsMail(char* word)
 	{
         // check local part, before @, for possible previous word end
         // see reasonable write up at https://www.jochentopf.com/email/chars.html
+        // also skip over any mailto: protocol prefix
         char* ptr = word - 1;
+        if (!strnicmp((ptr+1), (char*)"mailto:", 7)) ptr += 7;
         while (++ptr < at)
         {
             if (IsInvalidEmailCharacter(*ptr)) return false;
@@ -1639,6 +1675,48 @@ bool IsMail(char* word)
 		if (dot && IsAlphaUTF8OrDigit(dot[1])) return true;
 	}
 	return false;
+}
+
+bool IsTLD(char* word)
+{
+    char* ptr = word;
+    if (strlen(ptr) < 2) return false;
+    if (*ptr == '.') ++ptr;
+    
+    // check for a known top level domain
+    int* tld = topleveldomains;
+    size_t n = strlen(ptr);
+    for (unsigned int i = 0; i < 10000; ++i)
+    {
+        if (!tld || !*tld) break;
+        char* w = Index2Heap(*tld);
+        tld++;
+        if (!stricmp(w, ptr) && w[n] == ptr[n]) return true;
+    }
+    
+    // just in case there is no top level domains file
+    // common two character TLD
+    if (n == 2)
+        return (!stricmp(ptr,(char*)"ai") || !stricmp(ptr,(char*)"au") || !stricmp(ptr,(char*)"be") ||
+                !stricmp(ptr,(char*)"ca") || !stricmp(ptr,(char*)"ch") || !stricmp(ptr,(char*)"cn") ||
+                !stricmp(ptr,(char*)"co") || !stricmp(ptr,(char*)"de") || !stricmp(ptr,(char*)"es") ||
+                !stricmp(ptr,(char*)"eu") || !stricmp(ptr,(char*)"fr") || !stricmp(ptr,(char*)"gl") ||
+                !stricmp(ptr,(char*)"in") || !stricmp(ptr,(char*)"io") || !stricmp(ptr,(char*)"it") ||
+                !stricmp(ptr,(char*)"jp") || !stricmp(ptr,(char*)"ly") || !stricmp(ptr,(char*)"me") ||
+                !stricmp(ptr,(char*)"nl") || !stricmp(ptr,(char*)"pl") || !stricmp(ptr,(char*)"ru") ||
+                !stricmp(ptr,(char*)"tv") || !stricmp(ptr,(char*)"uk") || !stricmp(ptr,(char*)"us"));
+
+    // common 3 and 4 character domains
+    // check for common suffices - https://w3techs.com/technologies/overview/top_level_domain/all
+    else if (n == 3)
+        return (!stricmp(ptr,(char*)"com") || !stricmp(ptr,(char*)"net") || !stricmp(ptr,(char*)"org") ||
+                !stricmp(ptr,(char*)"edu") || !stricmp(ptr,(char*)"biz") || !stricmp(ptr,(char*)"gov") ||
+                !stricmp(ptr,(char*)"mil"));
+
+    else if (n == 4)
+        return (!stricmp(ptr, (char*)"info"));
+
+    return false;
 }
 
 bool IsUrl(char* word, char* end)
@@ -1680,11 +1758,7 @@ bool IsUrl(char* word, char* end)
 	ptr = strrchr(tmp, '.'); // last period - KNOWN to exist
 	if (!ptr) return false;	// stops compiler warning
 
-	if (IsAlphaUTF8(ptr[1]) && IsAlphaUTF8(ptr[2]) && !ptr[3]) return true;	 // two character TLD
-	++ptr;
-	// check for common suffices - https://w3techs.com/technologies/overview/top_level_domain/all
-	// most up to date list of all TLDs at http://data.iana.org/TLD/tlds-alpha-by-domain.txt
-	return (!strnicmp(ptr,(char*)"com",3) || !strnicmp(ptr,(char*)"net",3) || !strnicmp(ptr,(char*)"org",3) || !strnicmp(ptr,(char*)"edu",3) || !strnicmp(ptr,(char*)"biz",3) || !strnicmp(ptr,(char*)"gov",3) || !strnicmp(ptr,(char*)"mil",3) || !strnicmp(ptr, (char*)"info", 4));
+    return IsTLD(ptr);
 }
 
 bool IsFileExtension(char* word)
@@ -2771,7 +2845,6 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	if ((*ptr == FUNCTIONSTRING && (ptr[1] == '\'' || ptr[1] == '"')) ||
 			(*ptr == '"' && ptr[1] == FUNCTIONSTRING) || (*ptr == '\'' && ptr[1] == FUNCTIONSTRING)) // compiled or uncompiled active string
 	{
-		char c;
 		if (*ptr == FUNCTIONSTRING) c = ptr[1];
 		else c = *ptr;
 		*word++ = *ptr++;  // transfer ^ active string starter
@@ -2814,7 +2887,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	else // normal token, not some kind of string (but if pattern assign it could become)
 	{
 		bool bracket = false;
-		char c = 0;
+		c = 0;
 		while ((c = *ptr) && c != ENDUNIT) 
 		{ // worst case is in pattern $x:=^"^join(...)" where spaces are in fn call args inside of active string
 		  // may have quotes inside it, so have to clear the call before can find quote end of active string.
@@ -2963,7 +3036,6 @@ size_t OutputLimit(unsigned char* data) // insert eols where limitations exist
     char* zzwhy = mydata + len;
     size_t len1 = strlen(zzwhy) + 1; 
     char* active = zzwhy + len1 + 1;
-    size_t len2 = strlen(active) + 1;
 	memcpy(extra, zzwhy,HIDDEN_OVERLAP); // preserve any hidden data on why and serverctrlz
 
 	unsigned char* original = data;
@@ -3589,7 +3661,7 @@ char* PartialLowerCopy(char* to, char* from, int begin, int end)  	//excludes th
 	MakeLowerCopy(tempLowerFirst, tempCopyFirst);
 	MakeLowerCopy(tempLowerLast, tempCopyLast);
 	int index = 0;
-	while (index <= strlen(from))
+	while (index <= (int)strlen(from))
 	{
 		if (index < begin) *(to + index) = *(tempLowerFirst + index);
 		else if (index >= begin && index < end) *(to + index) = *(tempCopy + (index - begin));
@@ -3707,7 +3779,7 @@ void UpcaseStarters(char* ptr) //   take a multiword phrase with _ and try to ca
 	
 char* documentBuffer = 0;
 
-bool ReadDocument(char* inBuffer,FILE* sourceFile)
+bool ReadDocument(char* inBuffer,FILE* source)
 {
 	static bool wasEmptyLine = false;
 RETRY: // for sampling loopback
@@ -3716,7 +3788,7 @@ RETRY: // for sampling loopback
 	{
 		while (ALWAYS)
 		{
-			if (ReadALine(documentBuffer,sourceFile) < 0)  
+			if (ReadALine(documentBuffer,source) < 0)  
 			{
 				wasEmptyLine = false;
 				return false;	// end of input
@@ -3814,7 +3886,7 @@ RETRY: // for sampling loopback
 		}
 		else // has no end yet
 		{
-			char* at = SkipWhitespace(documentBuffer);
+			at = SkipWhitespace(documentBuffer);
 			if (*at == OOB_START)  // starts with OOB, add no more lines onto it.
 			{
 				strcpy(mainInputBuffer,at);
@@ -3836,7 +3908,7 @@ RETRY: // for sampling loopback
 
 			size_t len = strlen(documentBuffer);
 			documentBuffer[len] = ' '; // append 1 blanks
-			ReadALine(documentBuffer + len + 1,sourceFile,maxBufferSize - 4 - len);	//	 ahead input and merge onto current
+			ReadALine(documentBuffer + len + 1,source,maxBufferSize - 4 - len);	//	 ahead input and merge onto current
 			if (!documentBuffer[len+1]) // logical end of file
 			{
 				strcpy(inBuffer,SkipWhitespace(documentBuffer));

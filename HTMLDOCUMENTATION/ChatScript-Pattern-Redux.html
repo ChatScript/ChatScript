@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-pattern-redux">ChatScript Pattern Redux</h1>
 <p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br />
-<br>Revision 3/29/2020 cs10.1</p>
+<br>Revision 10/18/2020 cs10.7</p>
 <p>Pattern matching information was introduced in the Beginner manual and expanded in the <a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>. Since pattern matching is of such importance, this concise manual lists everything about patterns in one place, including patterns not listed in the Advanced manual.</p>
 <p>NOTE: despite the extraordinary range of weird matching abilities, almost all of my normal code is based on one of three patterns:</p>
 <pre><code># rule 1 
@@ -221,6 +221,14 @@ so which one is found first in the sentence is what sets the position. For an in
 <p>If you put <em>take a seat</em> as a keyword in a concept or topic or pattern, that phrase is stored in the dictionary and marked as a pattern phrase, meaning if the phrase is ever seen in a sentence, it should be noticed and marked so it can be matched in a pattern.</p>
 <p>But if it is merely in a variable, then the dictionary is unaware of the phrase and so <code>$var?</code> will not work for it.</p>
 <p>There is also a <code>?$var</code> form, which means see if the value of the variable is findable. The value can be either a word or a concept name.</p>
+<h3 id="assignment-in-a-pattern">Assignment in a pattern</h3>
+<p>You can directly assign to any variable from any other value using <code>:=</code>. You can even do arithmetic for these assignments (:+= :-= &quot;*= :/= :&amp;= and any of the other numeric assignment operators) .</p>
+<pre><code>    $value = 5
+    ( _some_test  $value:=5 $value1:=_0 $value2:=&#39;_0 $value3:=%time )
+    ( _some_test  $value:+=5 $value1:-=_0 )</code></pre>
+<p>If you want to do function call assignment, you can do this:</p>
+<pre><code>    $value:=^&quot;^function(foo d)&quot;</code></pre>
+<p>The reason you have to do an active string here, is because normally spaces break apart tokens, and a pattern token involving a function needs to have all arguments part of the same token. Hence assigning from an active string, where the double quotes around it prevents the token from breaking apart.</p>
 <h3 id="escape">Escape <code>\</code></h3>
 <p>If you want to match a reserved punctuation symbol like <code>[</code> or <code>(</code>, you must escape it by putting a backslash in front. This is commonly done in matching out-of-band information.</p>
 <pre><code>u: ( &lt; \[ * \] ) ^respond(~determine_oob)</code></pre>

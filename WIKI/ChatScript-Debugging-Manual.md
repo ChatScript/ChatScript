@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/23/2020 cs10.6
+<br>Revision 10/18/2020 cs10.7
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -1000,3 +1000,6 @@ will take the all built concept and write them out to `concepts.top` as a single
     :sortconcept 0
 
 will take the all built concept and write them out to `concepts.top` as a multiple line, with members sorted alphabetically. If you want the concept declarations sorted alphabetically, first do `:sortconcept 1`, then take `concepts.top` and replace your original script concepts from it. Then do this and then replace your original script concepts from this.
+
+# :variablereference 
+List all user variable assignments in a bot and uses into TMP/reference.txt .  See documentation in Finalize a bot

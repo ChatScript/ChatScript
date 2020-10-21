@@ -1,4 +1,4 @@
-.PHONY = clean binary server debugserver standalone pgserver debugpgserver mysqlserver debugmysqlserver mongoserver debugmongoserver foreignserver mongotreetaggerserver 
+clean = .PHONY binary server debugserver standalone pgserver debugpgserver mysqlserver mssqlserver debugmysqlserver debugmssqlserver debugmssqlserver mongoserver debugmongoserver foreignserver mongotreetaggerserver 
 
 # WARNING: optimization level -O3 is potentially hazardous
 # I think I have seen code fail because of it.
@@ -16,31 +16,57 @@
 
 # store executable names in make variables so that cleanall target works
 executable.server=../BINARIES/ChatScript
-server: DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 
+server: DEFINES+=   -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1
 server: PGLOAD= -pthread
 server: INCLUDEDIRS=-Ievserver
 server: binary
 server: EXECUTABLE=$(executable.server)
-server: CFLAGS=-c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
+server: CFLAGS= -c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -o2 -rdynamic
 
 executable.debugserver=../BINARIES/ChatScriptDebug
-debugserver: DEFINES+= -DLOCKUSERFILE=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDEBUG 
+debugserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1  -DDEBUG 
 debugserver: PGLOAD= -pthread
 debugserver: INCLUDEDIRS=-Ievserver
 debugserver: binary
 debugserver: EXECUTABLE=$(executable.debugserver)
-debugserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
+debugserver: CFLAGS= -c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g 
 
 executable.standalone=../BINARIES/ChatScript
-standalone: DEFINES+=  -DDISCARDSERVER=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DEVSERVER=1 -DEVSERVER_FORK=1
+standalone: DEFINES+=  -DDISCARDSERVER=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1 
 standalone: PGLOAD= -pthread
 standalone: INCLUDEDIRS=-Ievserver
 standalone: binary
 standalone: EXECUTABLE=$(executable.standalone)
 standalone: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
 
+executable.sharedobject=../BINARIES/ChatScript.so
+sharedobject: DEFINES+=  -DDLL=1 -DDISCARDSERVER=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1   -DDISCARDMICROSOFTSQL=1
+sharedobject: PGLOAD= -pthread
+sharedobject: INCLUDEDIRS=-Ievserver
+sharedobject: binary
+sharedobject: EXECUTABLE=$(executable.sharedobject)
+sharedobject: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -fPIC -g
+sharedobject: LDFLAGS+= -shared -lcurl
+
+executable.mongoserver=../BINARIES/ChatScriptMongo
+mongoserver: DEFINES+=  -DDISCARDPOSTGRES=1 -DDISCARDMYSQL=1  -DDISCARDMICROSOFTSQL=1
+mongoserver: PGLOAD= -pthread
+mongoserver: binary
+mongoserver: EXECUTABLE=$(executable.mongoserver)
+mongoserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0 -I/include/mongo/bison  -I/include/mongo/mongoc 
+mongoserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O1
+
+executable.debugmongoserver=../BINARIES/ChatScriptMongoDebug
+debugmongoserver: DEFINES+= -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1
+debugmongoserver: PGLOAD= -pthread -lmongoc-1.0 -lbson-1.0
+mongoserver: LDFLAGS+= -lcrypt -lsasl2 -L/usr/local/lib -lmongoc-1.0 -lbson-1.0   -lodbc -lmsodbcsql.17 -Wno-write-strings -fpermissive --std=c++11 -lz
+debugmongoserver: binary
+debugmongoserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
+debugmongoserver: EXECUTABLE=$(executable.debugmongoserver)
+debugmongoserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
+
 executable.pgserver=../BINARIES/ChatScriptpg
-pgserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1
+pgserver: DEFINES+= -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDISCARDMICROSOFTSQL=1
 pgserver: PGLOAD= -lpq -pthread
 pgserver: binary
 pgserver: EXECUTABLE=$(executable.pgserver)
@@ -48,68 +74,36 @@ pgserver: INCLUDEDIRS=-Ievserver -Ipostgres
 pgserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
 
 executable.debugpgserver=../BINARIES/ChatScriptpgDebug
-debugpgserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDMONGO=1 -DDISCARDMYSQL=1
+debugpgserver: DEFINES+=   -DDISCARDMONGO=1 -DDISCARDMYSQL=1  -DDISCARDMICROSOFTSQL=1
 debugpgserver: PGLOAD= -lpq -pthread
-debugpgserver: INCLUDEDIRS=-Ievserver -Ipostgres 
 debugpgserver: binary
 debugpgserver: EXECUTABLE=$(executable.debugpgserver)
+debugpgserver: INCLUDEDIRS=-Ievserver -Ipostgres 
 debugpgserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
 
 executable.mysqlserver=../BINARIES/ChatScriptMysql
-mysqlserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1
-mysqlserver: PGLOAD= -lmysqlclient -pthread
+mysqlserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMICROSOFTSQL=1
+mysqlserver: PGLOAD= -pthread -lmysqlclient 
 mysqlserver: binary
 mysqlserver: EXECUTABLE=$(executable.mysqlserver)
 mysqlserver: INCLUDEDIRS=-Ievserver 
-mysqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing 
+mysqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O1
 
 executable.debugmysqlserver=../BINARIES/ChatScriptMysqlDebug
-debugmysqlserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1  
-debugmysqlserver: PGLOAD= -lmysqlclient -pthread 
-debugmysqlserver: INCLUDEDIRS=-Ievserver
+debugmysqlserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1   -DDISCARDMICROSOFTSQL=1
+debugmysqlserver: PGLOAD= -pthread -lmysqlclient 
 debugmysqlserver: binary
 debugmysqlserver: EXECUTABLE=$(executable.debugmysqlserver)
+debugmysqlserver: INCLUDEDIRS=-Ievserver
 debugmysqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
 
-executable.mongoserver=../BINARIES/ChatScriptMongo
-mongoserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMYSQL=1
-mongoserver: PGLOAD= -pthread -lmongoc-1.0 -lbson-1.0
-mongoserver: binary
-mongoserver: EXECUTABLE=$(executable.mongoserver)
-mongoserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
-mongoserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
-
-executable.treetaggerserver=../BINARIES/ChatScriptTT
-treetaggerserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMYSQL=1  -DDISCARDMONGO=1  -DTREETAGGER=1
-treetaggerserver: PGLOAD= -pthread -L../BINARIES -ltreetagger
-treetaggerserver: binary
-treetaggerserver: EXECUTABLE=$(executable.treetaggerserver)
-treetaggerserver: INCLUDEDIRS=-Iinclude 
-treetaggerserver: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
-
-executable.debugmongoserver=../BINARIES/ChatScriptMongoDebug
-debugmongoserver: DEFINES+= -DLOCKUSERFILE=1  -DDEBUG -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1
-debugmongoserver: PGLOAD= -lpq -pthread
-debugmongoserver: binary
-debugmongoserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
-debugmongoserver: EXECUTABLE=$(executable.debugmongoserver)
-debugmongoserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
-
-executable.foreignserver=../BINARIES/ChatScriptForeign
-foreignserver: DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DTREETAGGER=1
-foreignserver: PGLOAD= -pthread -L../treetagger -L../BINARIES -ltreetagger
-foreignserver: INCLUDEDIRS=-Ievserver
-foreignserver: binary
-foreignserver: EXECUTABLE=$(executable.foreignserver)
-foreignserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -g -rdynamic
-
-executable.mongotreetaggerserver=../BINARIES/ChatScriptMongoForeign
-mongotreetaggerserver: DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DDISCARDPOSTGRES=1  -DDISCARDMYSQL=1 -DTREETAGGER=1
-mongotreetaggerserver: PGLOAD= -pthread  -L../BINARIES -ltreetagger
-mongotreetaggerserver: INCLUDEDIRS=-Iinclude -I/usr/local/include/libbson-1.0 -I/usr/local/include/libmongoc-1.0
-mongotreetaggerserver: binary
-mongotreetaggerserver: EXECUTABLE=$(executable.mongotreetaggerserver)
-mongotreetaggerserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
+executable.mssqlserver=../BINARIES/ChatScriptMssql
+mssqlserver: DEFINES+=  -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 
+mssqlserver: PGLOAD= -pthread $(ODBCLIB) -ldl
+mssqlserver: binary
+mssqlserver: EXECUTABLE=$(executable.mssqlserver)
+mssqlserver: INCLUDEDIRS=-Ievserver 
+mssqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O1 $(ODBCLIB) -lz 
 
 UNAME := $(shell uname)
 
@@ -117,30 +111,47 @@ CC=g++
 
 ifeq ($(UNAME), Linux)
 $(info ************ LINUX VERSION ************)
-LDFLAGS= -L/usr/lib64 -lrt -lcurl  --verbose $(PGLOAD)
-mongoserver: LDFLAGS+= -lcrypt -lsasl2 -L/usr/local/lib -lmongoc-1.0 -lbson-1.0 
-debugmongoserver: LDFLAGS+= -lcrypt -lsasl2 -L/usr/local/lib -lmongoc-1.0 -lbson-1.0 
-mongotreetaggerserver: LDFLAGS+= -lcrypt -lsasl2 -L/usr/local/lib -lmongoc-1.0 -lbson-1.0 
+
+DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1 
+# To add treetagger, comment above and uncomment below
+# DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DTREETAGGER=1 
+
+LDFLAGS= -L/usr/lib64 -lrt -lcurl   -L../BINARIES  -L/usr/local/lib  --verbose $(PGLOAD) -Wno-write-strings -fpermissive
+# To add treetagger, comment above and uncomment below
+# LDFLAGS= -L/usr/lib64 -lrt -lcurl   -L../BINARIES  -L/usr/local/lib  --verbose $(PGLOAD) -Wno-write-strings -fpermissive -ltreetagger
+
 endif
 
 ifeq ($(UNAME), Darwin)
 OSXRELEASE := $(shell defaults read loginwindow SystemVersionStampAsString)
 $(info ************ MAC VERSION $OSXRELEASE detected ************)
-LDFLAGS=-mmacosx-version-min=$(OSXRELEASE) -lcurl -L/usr/local/lib $(PGLOAD)  
-CFLAGS=-mmacosx-version-min=$(OSXRELEASE) -c  -Wall  -funsigned-char -Wno-write-strings -Wno-char-subscripts 
+
+DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  
+# To add treetagger, comment above and uncomment below
+# DEFINES+= -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  -DTREETAGGER=1
+
+LDFLAGS=-mmacosx-version-min=$(OSXRELEASE) -lcurl  -L../BINARIES -L/usr/local/lib $(PGLOAD)    -lodbc -lmsodbcsql.17 -Wno-write-strings -fpermissive --std=c++11 -lz  
+# To add treetagger, comment above and uncomment below
+# LDFLAGS=-mmacosx-version-min=$(OSXRELEASE) -lcurl  -L../BINARIES -L/usr/local/lib $(PGLOAD)    -lodbc -lmsodbcsql.17 -Wno-write-strings -fpermissive --std=c++11 -lz   -ltreetagger
+
+CFLAGS=-mmacosx-version-min=$(OSXRELEASE) -c  -Wall  -funsigned-char -Wno-write-strings -Wno-char-subscripts  -Wunused-variable
 endif
 
 ifeq ($(UNAME), FreeBSD)
 $(info ************ FREEBSD VERSION ************)
-DEFINES+= -DFREEBSD=1
+
+DEFINES+= -DFREEBSD=1 -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1  
+# To add treetagger, comment above and uncomment below
+# DEFINES+= -DFREEBSD=1 -DLOCKUSERFILE=1  -DEVSERVER=1 -DEVSERVER_FORK=1    -DTREETAGGER=1
+
+LDFLAGS= -L/usr/local/lib -lrt -lcurl -lev   -L../BINARIES --verbose $(PGLOAD)  
+# To add treetagger, comment above and uncomment below
+# LDFLAGS= -L/usr/local/lib -lrt -lcurl -lev   -L../BINARIES --verbose $(PGLOAD)    -ltreetagger
+
 INCLUDEDIRS+= -I/usr/local/include
-LDFLAGS= -L/usr/local/lib -lrt -lcurl -lev  --verbose $(PGLOAD)
-mongoserver: LDFLAGS+= -lgcrypt -lsasl2 -lmongoc-1.0 -lbson-1.0 
-debugmongoserver: LDFLAGS+= -lgcrypt -lsasl2 -lmongoc-1.0 -lbson-1.0 
-mongotreetaggerserver: LDFLAGS+= -lgcrypt -lsasl2 -lmongoc-1.0 -lbson-1.0 
 endif
 
-SOURCES=constructCode.cpp duktape/duktape.cpp evserver.cpp csocket.cpp cs_ev.c dictionarySystem.cpp englishTagger.cpp factSystem.cpp json.cpp functionExecute.cpp english.cpp infer.cpp javascript.cpp jsmn.cpp markSystem.cpp mysql.cpp mongodb.cpp os.cpp outputSystem.cpp patternSystem.cpp postgres.cpp privatesrc.cpp scriptCompile.cpp spellcheck.cpp secure.cpp systemVariables.cpp tagger.cpp testing.cpp textUtilities.cpp tokenSystem.cpp topicSystem.cpp userCache.cpp userSystem.cpp variableSystem.cpp mainSystem.cpp 
+SOURCES=constructCode.cpp duktape/duktape.cpp evserver.cpp csocket.cpp cs_ev.c dictionarySystem.cpp englishTagger.cpp factSystem.cpp json.cpp functionExecute.cpp english.cpp infer.cpp javascript.cpp jsmn.cpp markSystem.cpp  mssql.cpp mysql.cpp mongodb.cpp os.cpp outputSystem.cpp patternSystem.cpp postgres.cpp privatesrc.cpp scriptCompile.cpp spellcheck.cpp secure.cpp systemVariables.cpp tagger.cpp testing.cpp textUtilities.cpp tokenSystem.cpp topicSystem.cpp userCache.cpp userSystem.cpp variableSystem.cpp mainSystem.cpp 
 OBJECTS=$(SOURCES:.cpp=.o)
 
 default: server
@@ -152,15 +163,19 @@ cleanall: clean
 	-rm -f $(executable.server)
 	-rm -f $(executable.debugserver)
 	-rm -f $(executable.standalone)
+	-rm -f $(executable.sharedobject)
+
 	-rm -f $(executable.pgserver)
 	-rm -f $(executable.debugpgserver)
+
 	-rm -f $(executable.mysqlserver)
 	-rm -f $(executable.debugmysqlserver)
+
+	-rm -f $(executable.mssqlserver)
+	-rm -f $(executable.debugmysqlserver)
+
 	-rm -f $(executable.mongoserver)
 	-rm -f $(executable.debugmongoserver)
-	-rm -f $(executable.foreignserver)
-	-rm -f $(executable.mongotreetaggerserver)
-	-rm -f $(executable.treetaggerserver)
 
 binary: $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) $(DEFINES) $(INCLUDEDIRS) -o $(EXECUTABLE)

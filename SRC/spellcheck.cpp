@@ -1,6 +1,6 @@
 #include "common.h"
 
-static MEANING lengthLists[100];		// lists of valid words by length
+MEANING lengthLists[100];		// lists of valid words by length
 bool fixedSpell = false;
 bool spellTrace = false;
 char spellCheckWord[MAX_WORD_SIZE];
@@ -488,7 +488,7 @@ bool SpellCheckSentence()
 
 		// do we know the word meaningfully as is?
 		WORDP D = FindWord(word, 0, PRIMARY_CASE_ALLOWED);
-		if (D && !IS_NEW_WORD(D))
+		if (D && (!IS_NEW_WORD(D) || D->systemFlags & PATTERN_WORD))
 		{
 			bool good = false;
 			if (D->properties & TAG_TEST || *D->word == '~' || D->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
@@ -598,7 +598,7 @@ bool SpellCheckSentence()
 		}
 
 		// dont spell check names of json objects or arrays
-		if (!strnicmp(word, "ja-", 3) || !strnicmp(word, "jo-", 3)) continue;
+        if (IsValidJSONName(word)) continue;
 
 		// dont spell check web addresses
 		if (!strnicmp(word, "http", 4) || !strnicmp(word, "www", 3)) continue;
@@ -785,7 +785,10 @@ bool SpellCheckSentence()
 		// split arithmetic  1+2
 		if (IsDigit(*word) && IsDigit(word[size - 1]))
 		{
-			at = word;
+            char first[MAX_WORD_SIZE];
+            strncpy(first, word, size);
+            first[size] = 0;
+			at = first;
 			while (IsDigit(*++at) || *at == '.' || *at == ',') { ; }
 			char* op = at;
 			if (*at == '+' || *at == '-' || *at == '*' || *at == '/')
@@ -798,7 +801,7 @@ bool SpellCheckSentence()
 					*oper = *op;
 					oper[1] = 0;
 					*op = 0;
-					tokens[1] = word;
+					tokens[1] = first;
 					tokens[3] = op + 1;
 					fixedSpell = ReplaceWords("smooshed 1+2", i, 1, 3, tokens);
 					continue;
@@ -1234,7 +1237,7 @@ static char UnaccentedChar(char* str)
 	return 0;
 }
 
-static int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
+int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
 {//   dictword has no underscores, inputSet is already lower case
     char dictw[MAX_WORD_SIZE];
     MakeLowerCopy(dictw, dictWordData.word);
@@ -1693,11 +1696,11 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
        if (spellTrace) Log(STDUSERLOG, "    found: %s %d\r\n", D->word, val);
        if (val < min)
        {
-            if (trace == TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
+            if (trace & TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
             index = 0;
             min = val;
         }
-        else if (val == min && trace == TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
+        else if (val == min && trace & TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
 
         if (!(D->internalBits & BEEN_HERE))
         {
@@ -1727,7 +1730,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	bool hasUnderscore = (strchr(originalWord,'_')) ? true : false;
 	bool isUpper = IsUpperCase(originalWord[0]);
 	if (IsUpperCase(originalWord[1])) isUpper = false;	// not if all caps
-	if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"Spell: %s\r\n",originalWord);
+	if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"Spell: %s\r\n",originalWord);
 
 	//   Priority is to a word that looks like what the user typed, because the user probably would have noticed if it didnt and changed it. So add/delete  has priority over tranform
     WORDP choices[4000];
@@ -1755,12 +1758,14 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
         if (flags & DETERMINER) pos &= -1 ^ (VERB|CONJUNCTION|PREPOSITION|DETERMINER);  
     }
     posflags &= pos; //   if pos types are known and restricted and dont match
-	static int range[] = {0,-1,1,-2,2};
+    static int range[] = {0,-1,1,-2,2};
 	for (unsigned int i = 0; i < 5; ++i)
 	{
 		if (i >= 3) break;
-		MEANING offset = lengthLists[realWordData.charlen + range[i]];
-		if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"\r\n  Begin offset %d\r\n",i);
+        int offsetLen = realWordData.charlen + range[i];
+        if (offsetLen <= 0) continue;
+		MEANING offset = lengthLists[offsetLen];
+		if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"\r\n  Begin offset %d\r\n",range[i]);
 		while (offset)
 		{
 			D = Meaning2Word(offset);
@@ -1771,7 +1776,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 			// SPELLING lists have no underscore or space words in them
 			if (hasUnderscore && !under) continue;	 // require keep any underscore
 			if (!hasUnderscore && under) continue;	 // require not have any underscore
-            
+
             CheckWord(originalWord, realWordData, D, choices, index, min);
 			if (index > 3997) break; 
 		}
@@ -1797,7 +1802,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	for (unsigned int j = 0; j < index; ++j) RemoveInternalFlag(choices[j],BEEN_HERE);
     if (index == 1) 
 	{
-		if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Single best spell: %s\r\n",choices[0]->word);
+		if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Single best spell: %s\r\n",choices[0]->word);
 		return choices[0]->word;	// pick the one
 	}
     for (unsigned int j = 0; j < index; ++j) 
@@ -1826,7 +1831,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	if (bestGuessindex) 
 	{
         if (bestGuessindex > 1) multichoice = true;
-		if (trace == TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Pick spell: %s\r\n",bestGuess[0]->word);
+		if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Pick spell: %s\r\n",bestGuess[0]->word);
 		return bestGuess[0]->word; 
 	}
 	return NULL;

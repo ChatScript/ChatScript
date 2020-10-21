@@ -42,8 +42,6 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 {
 	struct tm ptm;
 	char* date = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
-	date[15] = 0;	// suppress year
-	memmove(date + 3, date + 4, 13); // compress out space
 	size_t len = strlen(output);
 	char* why = output + len + HIDDEN_OFFSET; //skip terminator + 2 ctrl z end marker
 	size_t len1 = strlen(why);
@@ -78,10 +76,13 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 				*userInput = 0;
 			}
 		}
-		Log(SERVERLOG, (char*)"%sRespond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %d %s\r\n", nl, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime),(int)qtime, why);
+		Log(SERVERLOG, (char*)"%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime),(int)qtime, why);
 		if (userInput) *userInput = endInput;
+
+		if ((unsigned int)(endtime - starttime + qtime)  > timeLog)
+			Log(TIMELOG, "nltime:%d qtime:%d ", (int)(endtime - starttime),qtime);
 	}
-	else Log(SERVERLOG, (char*)"%sStart: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
+	else Log(SERVERLOG, (char*)"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
 	if (userOutput) *userOutput = endOutput;
 }
 #ifndef DISCARDSERVER
@@ -866,7 +867,6 @@ restart: // start with user
 					if (failonce) break; // really over
 					failonce = true; // now only have preview copy left
 				}
-				size_t xlen = strlen(preview);
 				if (!*data) continue; // starting out, priming preview buffer
 
 				if (--skip > 0) continue;
@@ -1504,17 +1504,6 @@ void PrepareServer()
 	InitializeCriticalSection(&TestCriticalSection);
 }
 
-void handle_message(const std::string & message)
-{
-	char* buffer = (char*)message.c_str();
-	(*printer)("received %s\r\n", buffer);
-	char* ascii1 = buffer;
-	while ((ascii1 = strchr(ascii1, 1))) *ascii1 = 0; // allow ascii 1 instead of 0 as separator for JavaScript conventions.
-	char* user = buffer;
-	char* bot = buffer + strlen(user) + 1;
-	char* input = buffer + strlen(bot) + 1;
-	int returnValue = PerformChat(user, bot, ourMainInputBuffer, "122.22.22.22", ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
-}
 
 void InternetServer()
 {
@@ -1736,12 +1725,8 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 void GrabPort() // enable server port if you can... if not, we cannot run. 
 {
 	try {
-		if (interfaceKind.length() == 0) {
-			serverSocket = new TCPServerSocket(port);
-		}
-		else {
-			serverSocket = new TCPServerSocket(interfaceKind, port);
-		}
+		if (interfaceKind.length() == 0) serverSocket = new TCPServerSocket(port);
+		else serverSocket = new TCPServerSocket(interfaceKind, port);
 	}
 	catch (SocketException &e) { exit(1); } // dont use myexit. dont want log entries for failed port used by cron to try to restart server which may be running ok.
 	echo = true;
@@ -1761,7 +1746,7 @@ static void* MainChatbotServer()
 	chatbotExists = true;   //  if a client can get the chatlock now, he will be happy
 	bool oldserverlog = serverLog;
 	serverLog = true;
-	Log(SERVERECHOLOG, (char*)"Server ready - logfile:%s serverLog:%d userLog:%d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
+	Log(SERVERECHOLOG, (char*)"Server ready - logfile: %s serverLog: %d userLog: %d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
 	serverLog = oldserverlog;
 	int returnValue = 0;
 

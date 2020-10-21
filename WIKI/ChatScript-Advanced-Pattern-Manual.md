@@ -1,6 +1,6 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 4/18/2020 cs10.2
+<br>Revision 10/18/2020 cs10.7
 
 
 # ADVANCED PATTERNS
@@ -335,7 +335,17 @@ the pattern.
     
 is not legal because a pattern may not start with a period.
 
+## Concept Patterns
 
+Concepts also allow patterns as members, but they are not saved as member facts.
+They are saved as conceptpattern facts, where the subject is the pattern and the object is the concept name (the verb is conceptpattern).
+They are executed after the normal NL pipeline is complete. The pattern can be compiled or uncompiled.
+Coming from compiling script they are compiled. Coming from a function like ^testpattern they may or may not be compiled.
+If uncompiled, the system will compile them first, every volley. A concept pattern looks like below- i.e. a double-quoted pattern as you would find it in any rule.
+```
+concept: ~romance( "(boy finds girl)" "( [boy girl] meet [boy girl]) " romance )
+```
+The above has a concept with 2 concept patterns and a normal word.
 
 ## Indirect pattern elements
 
@@ -438,19 +448,18 @@ Also this only works if the focal memorization if the first thing found in the p
 retry wont be restarting with the right thing to consider.
 
 
-## Match Variable assignment in a pattern
+## Assignment in a pattern
 
 Aside from the use of _ to memorize a match, you can directly assign to any variable from any other value using `:=`.
-You cannot do arithmetic for these assignments, but you can transfer data to and
-from match variables, regular variables, and system variables.
+You can even do arithmetic for these assignments (:+= :-= "*= :/= :&= and any of the other numeric assignment operators) .
 
 ``` 
     $value = 5
     ( _some_test  $value:=5 $value1:=_0 $value2:='_0 $value3:=%time )
+    ( _some_test  $value:+=5 $value1:-=_0 )
 ```
 
-This is not obviously useful
-normally, but is helpful in conjunction with `^testpattern` to return data to a remote CS api user.
+This is not obviously useful normally, but is helpful in conjunction with `^testpattern` to return data to a remote CS api user.
 
 If you want to do function call assignment, you can do this:
 ```

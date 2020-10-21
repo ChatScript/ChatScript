@@ -13,6 +13,7 @@ pandoc Practicum-rejoinders.md -s -o ../PDFDOCUMENTATION/Practicum-rejoinders.pd
 pandoc Practicum-messaging.md -s -o ../PDFDOCUMENTATION/Practicum-messaging.pdf
 pandoc Practicum-patterns.md -s -o ../PDFDOCUMENTATION/Practicum-patterns.pdf
 pandoc Practicum-Gleaning.md -s -o ../PDFDOCUMENTATION/Practicum-Gleaning.pdf
+pandoc Practicum-patterns.md -s -o ../PDFDOCUMENTATION/Practicum-patterns.pdf
 pandoc Practicum-Concepts-and-meaning.md -s -o ../PDFDOCUMENTATION/Practicum-Concepts-and-meaning.pdf
 pandoc Practicum-spelling_and_interjections.md -s -o ../PDFDOCUMENTATION/Practicum-spelling_and_interjections.pdf
 pandoc ChatScript-Debugging-Manual.md -s -o ../PDFDOCUMENTATION/ChatScript-Debugging-Manual.pdf
@@ -43,11 +44,9 @@ pandoc ESOTERIC-CHATSCRIPT/ChatScript-Control-Scripts.md -s -o ../PDFDOCUMENTATI
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Document-Reader.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Document-Reader.pdf
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Exotica-Examples.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Exotica-Examples.pdf
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Javascript.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Javascript.pdf
-pandoc ESOTERIC-CHATSCRIPT/ChatScript-MongoDB.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-MongoDB.pdf
+pandoc ESOTERIC-CHATSCRIPT/ChatScript-Database_Access.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Database_Access.pdf
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Planning.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Planning.pdf
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-PosParser.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-PosParser.pdf
-pandoc ESOTERIC-CHATSCRIPT/ChatScript-PostgreSQL.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-PostgreSQL.pdf
-pandoc ESOTERIC-CHATSCRIPT/ChatScript-MySQL.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-MySQL.pdf
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Engine.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Engine.pdf
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Foreign-Languages.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Foreign-Languages.pdf
 

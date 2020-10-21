@@ -1477,7 +1477,7 @@ exit:
 static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,char* rule)
 {
 	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE)  && CheckTopicTrace()) 
-		id = Log(STDTRACETABLOG,(char*)"\r\n\r\nTopic: %s linear %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
+	id = Log(STDTRACETABLOG,(char*)"Topic: %s linear %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
 	char* base = GetTopicData(currentTopicID);  
 	int ruleID = 0;
 	topicBlock* block = TI(currentTopicID);
@@ -2265,9 +2265,9 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 			remove(file);
 			return;
 		}
-		compiling = true;
+		compiling = PIECE_COMPILE;
 		int topicid = FindTopicIDByName(name,true); // may preexist (particularly if this is layer 2)
-		compiling = false;
+		compiling = NOT_COMPILING;
 		if (!topicid || build == BUILD2) topicid = ++numberOfTopics;
 		else if (plan) ReportBug((char*)"FATAL: duplicate plan name");
 		
@@ -2406,7 +2406,7 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		AddWordItem(D, false);
  //       CheckFundamentalMeaning(name); // make no notations
 		// if old was not previously pattern word and it is now, we will have to unwind on unload. If new word, word gets unwound automatically
-		if (old) unwindUserLayer = AllocateHeapval(unwindUserLayer,(uint64)old, NULL, NULL);
+		if (old) unwindUserLayer = AllocateHeapval(unwindUserLayer,(uint64)old,(uint64) 0,(uint64) 0);
 		FreeBuffer();
 	}
     FClose(in);
@@ -2704,6 +2704,7 @@ static void WriteFastDictionary(const char* layer,const char* fname,WORDP keywor
 void InitKeywords(const char* fname,const char* layer,unsigned int build,bool dictionaryBuild)
 { 
 	char word[MAX_WORD_SIZE];
+
 	sprintf(word,"%s/%s", topicfolder,fname);
 	FILE* in = FopenReadOnly(word); //  TOPICS keywords files
 	if (!in && layer) 
@@ -2825,6 +2826,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 		
         // now read the keywords
         char keyword[MAX_WORD_SIZE];
+		*keyword = 0;
         while (ALWAYS)
         {
             // may have ` after it so simulate ReadCompiledWord which wont tolerate it
@@ -3290,7 +3292,6 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 	char filename[SMALL_WORD_SIZE];
 	InitLayerMemory(name,layer);
 	numberOfTopics = originalTopicCount;
-	uint64 starttime = ElapsedMilliseconds();
 
 	sprintf(filename, (char*)"macros%s.txt", name);
 	InitMacros(filename, name, build);

@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/23/2020 cs10.6
+<br>Revision 10/18/2020 cs10.7
 
 
 # Command Line Parameters
@@ -41,6 +41,7 @@ those allocations. Done typically in a memory poor environment like a cellphone.
 |--------------|-----------------------------------------------------------------------
 |`buffer=50`   | how many buffers to allocate for general use (80 is default)
 |`buffer=15x80`| allocate 15 buffers of 80k bytes each (default buffer size is 80k)
+|`fullinputlimit=150000`| allocate input buffer(default buffer size is 80k)
 
 Most chat doesn't require huge output and buffers around 20k each will be more than
 enough. 20 buffers is often enough too (depends on recursive issues in your scripts).
@@ -164,7 +165,7 @@ BINARIES/LinuxChatScript64 local build1=filesMybot.txt &&  BINARIES/LinuxChatScr
 ```
 
 
-## Bot variables
+## Bot variables (aka Server variables)
 
 You can create predefined bot variables by simply naming permanent variables on the
 command line, using V to replace $ (since Linux shell scripts don't like $). Eg.

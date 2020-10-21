@@ -301,7 +301,8 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 			{
 				Log(STDUSERLOG,(char*)"\r\n");
 				Log(STDTRACETABLOG,(char*)"(%s=>) ",mean);
-				if (strlen(mean) > 999) ReportBug("Scan insert > 1000")
+				if (strlen(mean) > 999) 
+					ReportBug("Scan insert > 1000")
 				else strcpy(last,mean);
 			}
 		}
@@ -902,7 +903,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else 
 			{
-				ReportBug((char*)"bad follow argument %s",control)
+				ReportBug((char*)"bad follow argument of %s  %s",kind,control)
 				return 0;
 			}
 			if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))

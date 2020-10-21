@@ -1,6 +1,6 @@
 # ChatScript Finalizing a Bot Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 8/18/2019 cs9.62
+<br>Revision 10/18/2020 cs10.7
 
 OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should
 polish it. There are a bunch of tools to do this.
@@ -330,6 +330,13 @@ what tokenization to be using by naming a user variable first.
 ```
 :verify $mytokencontrol ~mytopic pattern
 ```
+
+## Verify variables are assigned and used
+`:verify variablereference' will list all user variable assignments and uses in a bot into TMP/reference.txt . If you sort that file, you 
+   may detect places where you misspelled a variable, assigned but didnt use, or used but didnt assign. Normally it only shows mismatches but ":variablereference full"
+   will list all variables.
+
+   It may miss some assignments when those are done indirectly, e.g.,` $data.$_category.brand = Amana` means it may not list an assignment for `$data.appliance.brand`.
 
 
 ## Spelling

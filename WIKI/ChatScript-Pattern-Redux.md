@@ -1,6 +1,6 @@
 # ChatScript Pattern Redux
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
-<br>Revision 3/29/2020 cs10.1
+<br>Revision 10/18/2020 cs10.7
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
@@ -411,6 +411,25 @@ then the dictionary is unaware of the phrase and so `$var?` will not work for it
 There is also a `?$var` form, which means see if the value of the variable is findable. 
 The value can be either a word or a concept name.
 
+
+### Assignment in a pattern
+
+You can directly assign to any variable from any other value using `:=`.
+You can even do arithmetic for these assignments (:+= :-= "*= :/= :&= and any of the other numeric assignment operators) .
+
+``` 
+    $value = 5
+    ( _some_test  $value:=5 $value1:=_0 $value2:='_0 $value3:=%time )
+    ( _some_test  $value:+=5 $value1:-=_0 )
+```
+
+If you want to do function call assignment, you can do this:
+```
+    $value:=^"^function(foo d)"
+```
+The reason you have to do an active string here, is because normally spaces break apart tokens,
+and a pattern token involving a function needs to have all arguments part of the same token.
+Hence assigning from an active string, where the double quotes around it prevents the token from breaking apart.
 
 ### Escape `\`
 

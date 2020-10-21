@@ -12,6 +12,7 @@ static unsigned int conceptID = 0; // name of concept set
 char* patternStarter = NULL;
 char* patternEnder = NULL;
 char* linestartpoint = NULL;
+static WORDP currentFunctionDefinition;			// current macro defining or executing
 
 static int complexity = 0;
 static bool livecall = false;
@@ -36,7 +37,7 @@ static unsigned int hasWarnings;			// number of warnings generated
 unsigned int hasErrors;
 uint64 grade = 0;						// vocabulary warning
 char* lastDeprecation = 0;
-bool compiling = false;			// script compiler in progress
+CompileStatus compiling = NOT_COMPILING;			// script compiler in progress
 bool compilePatternCall = false;
 bool compileOutputCall = false;
 bool patternContext = false;	// current compiling a pattern
@@ -99,7 +100,7 @@ void EraseTopicBin(unsigned int build, char* name)
 
 void InitScriptSystem()
 {
-	compiling = false;
+	compiling = NOT_COMPILING;
 	compileOutputCall = false;
 	compilePatternCall = false;
 	oldScriptBuffer = NULL;
@@ -1071,7 +1072,7 @@ static char* WriteDisplay(char* pack)
 static char* FindAssignment(char* word)
 {
     char* assign = strchr(word + 1, ':');
-    if (!assign || assign[1] != '=') return NULL;
+    if (!assign || (assign[1] != '=' && assign[2] != '=')) return NULL;
     return assign;
 }
 
@@ -1146,6 +1147,14 @@ char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscor
         if (result == (char*)1) { currentLineColumn = 0; }
 		else if (compileOutputCall || compilePatternCall) currentLineColumn = (result - linestartpoint);
 		else currentLineColumn = (result - readBuffer);
+
+		if (currentFunctionDefinition && (currentFunctionDefinition->internalBits  & FUNCTION_BITS) == IS_PATTERN_MACRO)
+		{
+			char* bad = strstr(word, "$_");
+			if (bad)
+				BADSCRIPT("Not allowed to use local variables %s in a pattern macro %s", word, currentFunctionDefinition->word)
+		}
+
 		return result;
 	}
 
@@ -1206,6 +1215,14 @@ char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscor
     if (result == (char*)1 ) { currentLineColumn = 0; }
 	else if (compileOutputCall || compilePatternCall) currentLineColumn = (result - linestartpoint);
 	else currentLineColumn = (result - readBuffer);
+
+	if (currentFunctionDefinition && (currentFunctionDefinition->internalBits  & FUNCTION_BITS) == IS_PATTERN_MACRO)
+	{
+		char* bad = strstr(word, "$_");
+		if (bad)
+			BADSCRIPT("Not allowed to use local variables %s in a pattern macro %s", word, currentFunctionDefinition->word)
+	}
+
 	return result; // ptr into READBUFFER or 1 if from peek zone
 }
 char* ReadDisplayOutput(char* ptr,char* buffer) // locate next output fragment to display (that will be executed)
@@ -1340,7 +1357,6 @@ static char duplicateTopicName[MAX_WORD_SIZE];	// potential topic name repeated
 static char assignKind[MAX_WORD_SIZE];	// what we are assigning from in an assignment call
 static char currentTopicName[MAX_WORD_SIZE];	// current topic being read
 static char lowercaseForm[MAX_WORD_SIZE];		// a place to put a lower case copy of a token
-static WORDP currentFunctionDefinition;			// current macro defining or executing
 
 static char verifyLines[100][MAX_WORD_SIZE];	// verification lines for a rule to dump after seeing a rule
 static unsigned int verifyIndex = 0;			// index of how many verify lines seen
@@ -2055,8 +2071,8 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 	
 		if (oldContext && IsAlphaUTF8(*word) && stricmp(name,(char*)"^incontext") && stricmp(name,(char*)"^reuse") )  
         {
-			WritePatternWord(word);
-			WriteKey(word);
+			//WritePatternWord(word); // we dont consider function datat to be keywords 
+			// WriteKey(word);
 		}
 
 		if (D && !stricmp(D->word, (char*)"^reuse") )
@@ -2489,8 +2505,8 @@ x : = y(do assignment and do not fail)
 		backup = ptr;
 		ptr = ReadNextSystemToken(in,ptr,word);
 		if (!*word) break; //   end of file
-        if (!strcmp(word, "==") || !strcmp(word, "=")) WARNSCRIPT((char*)"== or = used standalone in pattern. Shouldn't it be attached to left and right tokens?\r\n")
 
+			if (!strcmp(word, "==") || !strcmp(word, "=")) WARNSCRIPT((char*)"== or = used standalone in pattern. Shouldn't it be attached to left and right tokens?\r\n")
 		// we came from pattern IF and lack a (
 			if (ifstatement && *word != '(' && nestIndex == 0)
 			{
@@ -3491,7 +3507,14 @@ x : = y(do assignment and do not fail)
 	*data = 0;
 	if (compilePatternCall && ptr && *ptr)
 	{
-		BADSCRIPT((char*)"PATTERN-78 Excess data after pattern closed \r\n")
+		ptr = TrimSpaces(ptr);
+		if (*ptr)
+		{
+			char msg[MAX_WORD_SIZE];
+			strncpy(msg, ptr, 20);
+			msg[20] = 0;
+			BADSCRIPT((char*)"PATTERN-78 Excess data after pattern closed - `%s` \r\n", msg)
+		}
 	}
 	//   leftovers?
 	if (macro && nestIndex != 1)
@@ -3804,7 +3827,7 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
 		if (*word != '(') BADSCRIPT((char*)"IF-2 Missing (for IF test - %s\r\n",word)
 		*data++ = '(';
 		*data++ = ' ';
-
+		ptr = SkipWhitespace(ptr);
 		if (!strnicmp(ptr,(char*)"pattern ",7))
 		{
             if (livecall) 
@@ -5454,16 +5477,16 @@ static char* ReadBot(char* ptr)
 	MakeLowerCopy(scopeBotName+1,ptr); // presumes til end of line
 	size_t len = strlen(scopeBotName);
 	while (scopeBotName[len-1] == ' ') scopeBotName[--len] = 0;
-	if (len == 0) 
+	bool oldecho = echo;
+	echo = true;
+	if (len != 0)
 	{
-		Log(STDUSERLOG,(char*)"Reading bot restriction: %s\r\n",original);
-		return ""; // there is no header anymore
+		strcat(scopeBotName, " "); // single trailing space
+		char* x;
+		while ((x = strchr(scopeBotName, ','))) *x = ' ';	// change comma to space. all bot names have spaces on both sides
 	}
-
-	strcat(scopeBotName," "); // single trailing space
-	char* x;
-	while ((x = strchr(scopeBotName,','))) *x = ' ';	// change comma to space. all bot names have spaces on both sides
-	Log(STDUSERLOG,(char*)"Reading bot restriction: %s\r\n",original);
+	Log(STDUSERLOG, (char*)"Reading bot restriction: %s\r\n", original);
+	echo = oldecho;
 	return "";
 }
 
@@ -6048,7 +6071,7 @@ static char* ReadCanon(char* ptr, FILE* in, unsigned int build)
 		ptr = ReadNextSystemToken(in,ptr,canon,false);
 		char form[MAX_WORD_SIZE];
 		*form = 0;
-		if (*ptr) ReadNextSystemToken(in, ptr, form, true);
+		if (*ptr) ReadNextSystemToken(in, ptr, form, false,true);
 		if (!stricmp(form, "MORE_FORM") || !stricmp(form, "MOST_FORM"))
 		{
 			ptr = ReadNextSystemToken(in, ptr, form, false);
@@ -6064,7 +6087,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 	char conceptName[MAX_WORD_SIZE];
 	*conceptName = 0;
 	MEANING concept = 0;
-	WORDP D;
+	WORDP D = NULL;
 	bool ignoreSpell = false;
 	
 	patternContext = false;
@@ -6580,7 +6603,7 @@ static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words
                 WriteCMore(F, word, out, lineSize);
                 KillFact(F);
             }
-            else KillFact(F);
+            else if (F->verb == Mmember) KillFact(F);
 
             F = GetObjectNondeadNext(F);
         }
@@ -6644,7 +6667,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		else notPrior = true;
 
 		if (!D->word || *D->word == USERVAR_PREFIX) continue;		// dont variables
-		if (!strnicmp(D->word, "jo-", 3) || !strnicmp(D->word, "ja-", 3)) continue; // no need to note json composites
+		if (IsValidJSONName(D->word)) continue; // no need to note json composites
 		if (*D->word == '~' && !( D->systemFlags & NOCONCEPTLIST) ) continue;		// dont write topic names or concept names, let keywords do that and  no variables
 		if (D->internalBits & FUNCTION_BITS) continue;	 // functions written out in macros file.
 
@@ -6779,11 +6802,53 @@ static void EmptyVerify(char* name, uint64 junk)
 	if (x[2] == c) unlink(name);
 }
 
+static int CompileCleanup(char* output,uint64 oldtokenControl, unsigned int  build)
+{
+	EndScriptCompiler();
+
+	buildID = 0;
+	int resultcode = 0;
+	numberOfTopics = 0;
+	tokenControl = oldtokenControl;
+	currentRuleOutputBase = currentOutputBase = mainOutputBuffer;
+	compiling = NOT_COMPILING;
+	jumpIndex = -1;
+	testOutput = output; // allow summary to go out the server
+	if (hasErrors)
+	{
+		EraseTopicFiles(build, baseName);
+		DumpErrors();
+		if (missingFiles) Log(ECHOSTDUSERLOG, (char*)"%d topic files were missing.\r\n", missingFiles);
+		Log(ECHOSTDUSERLOG, (char*)"\r\n%d errors - press Enter to quit. Then fix and try again.\r\n", hasErrors);
+		if (!server && !commandLineCompile) ReadALine(readBuffer, stdin);
+		resultcode = 4; // error
+	}
+	else if (hasWarnings)
+	{
+		DumpWarnings();
+		if (missingFiles) Log(STDUSERLOG, (char*)"%d topic files were missing.\r\n", missingFiles);
+		Log(STDUSERLOG, (char*)"%d serious warnings, %d function warnings, %d spelling warnings, %d case warnings, %d substitution warnings\r\n    ", hasWarnings - badword - substitutes - cases, functionCall, badword, cases, substitutes);
+	}
+	else
+	{
+		if (missingFiles) Log(ECHOSTDUSERLOG, (char*)"%d topic files were missing.\r\n", missingFiles);
+		Log(ECHOSTDUSERLOG, (char*)"No errors or warnings\r\n\r\n");
+	}
+	ReturnDictionaryToWordNet();
+	echo = true;
+	if (userlogFile)
+	{
+		fclose(userlogFile);
+		userlogFile = NULL;
+	}
+	Log(ECHOSTDUSERLOG, (char*)"\r\n\r\nFinished compile\r\n\r\n");
+	return resultcode;
+}
+
 int ReadTopicFiles(char* name,unsigned int build,int spell)
 {
     char filename[SMALL_WORD_SIZE];
 
-	int resultcode = 0;
     nospellcheck = false;
 	undefinedCallThreadList = 0;
 	isDescribe = false;
@@ -6870,7 +6935,7 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 
 	WalkDirectory((char*)"VERIFY",EmptyVerify,0,false); // clear verification of this level
 
-	compiling = true;
+	compiling = FULL_COMPILE;
 	errorIndex = warnIndex = hasWarnings = hasErrors =  0;
 	substitutes = cases = functionCall = badword = 0;
 
@@ -6903,6 +6968,11 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	tokenControl = 0;
 	topicCount = 0;
 	StartScriptCompiler(true); // read topic files?
+	jumpIndex = -1;
+	if (setjmp(scriptJump[++jumpIndex]))  // base of a compile is 0
+	{
+		return CompileCleanup(output,oldtokenControl, build);
+	}
 
     //   store known pattern words in pattern file that we want to recognize (not spellcorrect on input)
     sprintf(filename, (char*)"%s/BUILD%s/patternWords%s.txt", topicfolder, baseName, baseName);
@@ -6946,7 +7016,6 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
         patternFile = NULL;
     }
 	fclose(mapFile); 
-	EndScriptCompiler();
 	StartFile((char*)"Post compilation Verification");
     nospellcheck = false;
 
@@ -7002,40 +7071,9 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	WriteExtendedFacts(factout,dictout,  build); 
     fclose(dictout); // dont use FClose
 	// FClose(factout); closed from within writeextendedfacts
-	
-	// cleanup
-	buildID = 0;
-	numberOfTopics = 0;
-	tokenControl  = oldtokenControl;
-	currentRuleOutputBase = currentOutputBase = NULL;
 	FreeOutputBuffer();
-	compiling = false;
-	jumpIndex = 0;
-	testOutput = output; // allow summary to go out the server
-    if (hasErrors) 
-	{
-		EraseTopicFiles(build,baseName);
-        DumpErrors();
-		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(ECHOSTDUSERLOG,(char*)"\r\n%d errors - press Enter to quit. Then fix and try again.\r\n",hasErrors);
-		if (!server && !commandLineCompile) ReadALine(readBuffer,stdin);
-		resultcode = 4; // error
-	}
-	else if (hasWarnings) 
-	{
-		DumpWarnings();
-		if (missingFiles) Log(STDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(STDUSERLOG,(char*)"%d serious warnings, %d function warnings, %d spelling warnings, %d case warnings, %d substitution warnings\r\n    ",hasWarnings-badword-substitutes-cases,functionCall,badword,cases,substitutes);
-	}
-	else 
-	{
-		if (missingFiles) Log(ECHOSTDUSERLOG,(char*)"%d topic files were missing.\r\n",missingFiles);
-		Log(ECHOSTDUSERLOG,(char*)"No errors or warnings\r\n\r\n");
-	}
-	ReturnDictionaryToWordNet();
-    echo = true;
-    Log(ECHOSTDUSERLOG,(char*)"\r\n\r\nFinished compile\r\n\r\n");
-	return resultcode;
+
+	return CompileCleanup(output,oldtokenControl, build);
 }
 
 char* CompileString(char* ptr) // incoming is:  ^"xxx" or ^'xxxx'

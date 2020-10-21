@@ -4,7 +4,7 @@
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com
 
-<br>Revision 4/26/2019 cs9.3
+<br>Revision 10/18/2020 cs10.7
 
 ChatScript has a lot of documentation in various manuals, so knowing what to read may seem daunting.
 Here is an overview.
@@ -62,7 +62,7 @@ NLTK means nothing to you.
 * [ChatScript Advanced User Manual](ChatScript-Advanced-Topic-Manual.md)
 <br>Once you've master basic CS, this is the place to go next for more advanced Topics.
 
-* [ChatScript Advanced User Manual](ChatScript-Advanced-Variables-Manual.md)
+* [ChatScript Advanced User Manual](ChatScript-Advanced-Variable-Manual.md)
 <br>Once you've master basic CS, this is the place to go next for more information about variables.
 
 * [ChatScript Advanced User Manual](ChatScript-Advanced-User-Manual.md)
@@ -123,7 +123,7 @@ Practicums discuss alternate ways of implementing something and how to pick amon
 * [Practicum Rejoinders](Practicum-rejoinders.md)
 <br> Issues in using rejoinders.
 
-* [Practicum Spelling and Interjections](Practicum-spelling-and-interjections.md)
+* [Practicum Spelling and Interjections](Practicum-spelling_and_interjections.md)
 <br> Issues in spell checking and handling interjections.
 
 ## Specialized ChatScript
@@ -154,17 +154,14 @@ Practicums discuss alternate ways of implementing something and how to pick amon
  * [ChatScript Javascript](ESOTERIC-CHATSCRIPT/ChatScript-Javascript.md)
 <br>How to write outputmacros in Javascript and call them.
 
- * [ChatScript Mongo](ESOTERIC-CHATSCRIPT/ChatScript-MongoDB.md)
-<br>How to use the Mongo db directly from CS
+ * [ChatScript Database Access](ESOTERIC-CHATSCRIPT/ChatScript-Database_Access.md)
+<br>How to use the Mongo, Postgres, MySQL or Microsoft SQL db directly from CS
 
  * [ChatScript Planning](ESOTERIC-CHATSCRIPT/ChatScript-Planning.md)
 <br>How to use CS as an HTN (hierarchical task network) planner.
 
  * [ChatScript PosParser](ESOTERIC-CHATSCRIPT/ChatScript-PosParser.md)
 <br>How to use grammar/parsing in CS patterns.
-
- * [ChatScript PostgreSQL](ESOTERIC-CHATSCRIPT/ChatScript-PostgreSQL.md)
-<br>How to use the Postgres database directly from CS.
 
  * [ChatScript Exotica](ESOTERIC-CHATSCRIPT/ChatScript-Exotica-Examples.md)
 <br>Brief old interesting scripting tips

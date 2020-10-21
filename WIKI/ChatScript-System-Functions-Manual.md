@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 8/23/2020 cs10.6
+<br>Revision 10/18/2020 cs10.7
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1440,7 +1440,7 @@ The argument is a JSON object as follows
     "values": [ "oven", "range", "cooktop" ] 
     }, 
     { "name": "~leaky", 
-    "values": [ "'leak", "drip", "spill" ] } ] 
+    "values": [ 'leak", "drip", "spill" ] } ] 
 }
 ```
 Input is the user input (one or more sentences) to be matched against.
@@ -1449,11 +1449,15 @@ Patterns is an array of pattern strings as returned by CompilePattern. They can 
 and they can assign values. If they use memorization,
 you can assign those onto normal variables, which if permanent variables will
 be returned as "newglobals". You can perform an assignment inside the pattern using something
-like $answer:=_0  (see Match variable assignment in Advanced patterns). 
+like $answer:=_0  (see Variable assignment in Advanced patterns). 
 The "newglobals will  be omitted if there are no changes.
 
 The variables and concepts fields are optional and provide context. A concept named "~replace~" is treated not as a concept
-but as a list of paired words analogous to "replace:", but is only a transient replace series for this call.
+but as a list of paired words analogous to "replace:", but is only a transient replace series for this call.  A concept can contain values that look like:
+`"(...)"` or `(xxx)` which are CS patterns. These patterns can match user input just like an ordinary concept word can.  A concept can contain  entries that are pairs, separated by |.  
+The left side is stored
+as the concept member and a fact is created ( left-side  api-remap   right-side)  which allows you to write
+scripts that remap found entries on output to the right side value. ^testoutput accepts concepts so that the remap ability can be instantiated by script.
 
 Style is also optional
 and defaults to `earliest`. Other choices are all, best, and latest. Earliest means stop running
@@ -1515,6 +1519,11 @@ The argument is a JSON object as follows
     "$faucet": "testing", 
     "$x": 1 }, 
 }
+"concepts": [  -- optional
+    { "name": "~illness", 
+    "values": [ "red spots|redness", " ] 
+    } ]
+}
 ```
 
 If a variable value above looks like a JSON arry or object, will be transformed into the corresponding
@@ -1532,6 +1541,18 @@ Newglobals will be present if the code changes permanent global variables. Chang
 and local variables  $_ will not be returned. If nothing is returned, the field is omitted.
 If a permanent variable is set to a JSON structure, the entire JSON string will BE
 send (and not the JSON name).
+
+Concepts, if supplied, are only useful for remapping concept value to a different value for output. If you add the following function to your scripts:
+```
+outputmacro: ^remap VARIABLE ($_word )
+	$_remap = ^query(direct_sv $_word api-remap ? 1 ? @0object)
+	if (!$_remap) {$_remap = $_word}
+	^return($_remap)
+```
+then you could accept an input like "I have red spots" and write an output message like "how long have you had this redness?"
+```
+	if (PATTERN _~illness) { How long have you had this ^remap('_0) ?}
+```
 
 ## Debugging Function `^debug ()`
 
