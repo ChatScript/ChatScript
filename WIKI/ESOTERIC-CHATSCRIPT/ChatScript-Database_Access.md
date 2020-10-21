@@ -11,7 +11,7 @@ server as a hot backup and transfer users to it while redeploying the primary se
 The solution to this (and the ability to scale CS with an arbitrary number of servers) is to have some kind of networked file server.
 
 CS directly supports use of Mongo, Postgres, MySQL,and MsSQL databases as file servers. 
-Instead of writing the users’s state record to the local file system, 
+Instead of writing the users's state record to the local file system, 
 it writes it as a record in the database. 
 That record will be overwritten each volley with the changed state. 
 There is no accumulation of prior state data. Nor are user logs ever written there. 
@@ -37,10 +37,10 @@ use chatscript;
 CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, file MEDIUMBLOB, when DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
 ```
 
-The table name “userfiles” and the field names are fixed. ChatScript assumes them.
-userid  - a limit of 64 is more than enough
-file: – in our world we are going to have less than 500K bytes of data
-when – CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.
+The table name "userfiles" and the field names are fixed. ChatScript assumes them.
+userid:   a limit of 64 is more than enough
+file:  in our world we are going to have less than 500K bytes of data
+when: CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.
 
 An optional key is `appendport` which takes no value. It means to add the current CS port as a
 suffix onto the db name. So
@@ -109,10 +109,10 @@ use chatscript;
 CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, [file] VARBINARY(max), stored DATETIME DEFAULT CURRENT_TIMESTAMP)
 ```
 
-The table name “userfiles” and the field names are fixed. ChatScript assumes them.
-userid  - a limit of 64 is more than enough
-file: – in our world we are going to have less than 500K bytes of data
-stored – CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.
+The table name "userfiles" and the field names are fixed. ChatScript assumes them.
+userid:  a limit of 64 is more than enough
+file:  in our world we are going to have less than 500K bytes of data
+stored:  CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.
 
 ### MsSQL Termination: 
 If at any time a call to utilize MsSQL fails, the CS server will abort itself. If you have an 
