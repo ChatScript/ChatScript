@@ -1,17 +1,19 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "10.7";
+char* version = "10.8";
 char sourceInput[200];
 FILE* userInitFile;
 bool fastload = true;
 int externalTagger = 0;
 char defaultbot[100];
+char serverlogauthcode[30] ;
 uint64 chatstarted = 0;
 int sentenceloopcount = 0;
 int db = 0;
 int gzip = 0;
 bool client = false;
 bool newuser = false;
+char myip[100];
 bool stdlogging = false;
 uint64 preparationtime = 0;
 uint64 replytime = 0;
@@ -54,6 +56,7 @@ char buildfiles[100];
 char apikey[100];
 int forkcount = 1;
 static char* erasename = "csuser_erase";
+char buildflags[100];
 bool noboot = false;
 char tmpfolder[100];
 static char* configUrl = NULL;
@@ -221,11 +224,11 @@ static void HandlePermanentBuffers(bool init)
 		if (fullInputLimit == 0) fullInputLimit = maxBufferSize * 2;
 		readBuffer = (char*)malloc(maxBufferSize);
 		*readBuffer = 0;
-		oldInputBuffer = (char*)malloc(maxBufferSize);
+		oldInputBuffer = (char*)malloc(fullInputLimit);
 		lastInputSubstitution = (char*)malloc(maxBufferSize);
-		realinput = (char*)malloc(maxBufferSize);
+		realinput = (char*)malloc(fullInputLimit);
 		rawSentenceCopy = (char*)malloc(maxBufferSize);
-		currentInput = (char*)malloc(maxBufferSize);
+		currentInput = (char*)malloc(fullInputLimit);
 		*currentInput = 0;
 		revertBuffer = (char*)malloc(maxBufferSize);
 
@@ -295,8 +298,7 @@ static void SetBotVariable(char* word)
 
 static void HandleBoot(WORDP boot, bool reboot)
 {
-    currentBeforeLayer = LAYER_1;
-	if (reboot) rebooting = true; // csboot vs csreboot
+	if (reboot) rebooting = true; // ^csboot vs ^cs_reboot
 	if (boot && !noboot) // run script on startup of system. data it generates will also be layer 1 data
 	{
 		int oldtrace = trace;
@@ -312,6 +314,7 @@ static void HandleBoot(WORDP boot, bool reboot)
 			DoCommand(at, NULL, false);
 		}
 		if (!reboot) UnlockLayer(LAYER_BOOT); // unlock it to add stuff
+		else 	currentBeforeLayer = LAYER_BOOT; // be in user layer (before is boot layer)
 		FACT* F = lastFactUsed;
 		Callback(boot, (char*)"()", true, true); // do before world is locked
 		*ourMainOutputBuffer = 0; // remove any boot message
@@ -360,7 +363,6 @@ static void HandleBoot(WORDP boot, bool reboot)
 			NoteBotVariables(); // convert user variables read into bot variables in boot layer
 			LockLayer(false); // rewrite level 2 start data with augmented from script data
 		}
-        
 		else
 		{
 			ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
@@ -605,6 +607,14 @@ void CreateSystem()
 	if (server) Log(SERVERLOG, route);
 	else (*printer)(route);
 #endif
+#ifndef DISCARDMICROSOFTSQL
+	if (gzip)
+	{
+		sprintf(route, (char*)"    Text Compression enabled\r\n");
+		if (server) Log(SERVERLOG, route);
+		else (*printer)(route);
+	}
+#endif
     (*printer)((char*)"%s",(char*)"\r\n");
 	loading = false;
 	printf("System created in %d ms\r\n", (unsigned int)(ElapsedMilliseconds() - starttime));
@@ -659,6 +669,7 @@ static void ProcessArgument(char* arg)
 		strcpy(language,arg+9);
 		MakeUpperCase(language);
 	}
+	else if (!strnicmp(arg, (char*)"buildflags=", 11)) 		strcpy(buildflags, arg + 11);
     else if (!strnicmp(arg, (char*)"buffer=", 7))  // number of large buffers available  8x80000
     {
         maxBufferLimit = atoi(arg + 7);
@@ -786,7 +797,8 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg,(char*)"system=",7) )  strcpy(systemFolder,arg+7);
 	else if (!strnicmp(arg,(char*)"english=",8) )  strcpy(languageFolder,arg+8);
 	else if (!strnicmp(arg, (char*)"db=", 3))  db = atoi(arg + 3);
-	else if (!strnicmp(arg, (char*)"gzip=", 4))  gzip = atoi(arg + 4);
+	else if (!strnicmp(arg, (char*)"gzip=", 5))  gzip = atoi(arg + 5);
+	else if (!strnicmp(arg, (char*)"syslogstr=", 10)) strcpy(syslogstr, arg + 10);
 #ifndef DISCARDMYSQL
 	else if (!strnicmp(arg, (char*)"mysql=", 6))  strcpy(mysqlparams, arg + 6);
 #endif
@@ -847,7 +859,7 @@ static void ProcessArgument(char* arg)
 		if (arg[7] == '=') userLog = (atoi(arg + 8) != 0) ? LOGGING_SET : 0;
 	}
 	else if (!stricmp(arg,(char*)"nouserlog")) userLog = 0;
-    else if (!stricmp(arg, (char*)"dieonwritefail")) dieonwritefail = true;
+	else if (!stricmp(arg, (char*)"dieonwritefail")) dieonwritefail = true;
 	else if (!strnicmp(arg, (char*)"hidefromlog=", 12))
 	{
 		char* at = arg + 12;
@@ -860,10 +872,11 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg,(char*)"serverretry")) serverRetryOK = true;
 	else if (!stricmp(arg,(char*)"local")) server = false; // local standalone
 	else if (!stricmp(arg, (char*)"noserverlog")) serverLogDefault = serverLog = false;
+	else if (!strnicmp(arg, (char*)"serverlogauthcode=", 18))  strcpy(serverlogauthcode,arg + 18);
 	else if (!strnicmp(arg, (char*)"serverlog", 9))
 	{
-		serverLog = true;
-		if (arg[9] == '=') serverLog = (atoi(arg + 10) != 0) ? true : false;
+		serverLog = 1;
+		if (arg[9] == '=') serverLog = (atoi(arg + 10) != 0) ? 1 : 0;
 		serverLogDefault = bugLog = serverLog;
 	}
 	else if (!stricmp(arg, (char*)"nobuglog")) bugLog = false;
@@ -1138,7 +1151,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	if (serverLog == LOGGING_NOT_SET) serverLog = 1; // default ON for server if unspecified
 	
 	int oldserverlog = serverLog;
-	serverLog = true;
+	serverLog = 1;
 
 #ifdef LINUX
 	setSignalHandlers();
@@ -2043,6 +2056,7 @@ void EmergencyResetUser()
 
 char* realinput = NULL;
 bool crashBack = false; // are we rejoining from a crash?
+bool restartBack = false;
 bool crashset = false;
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
@@ -2056,16 +2070,16 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	// dont let user with bad input crash us. Crash next one after so his input wont reenter system
 	crashset = true;
 	bool reloading = false;
-	if (crashBack) // this is now the volley after we crashed a moment ago
+	if (crashBack || restartBack) // this is now the volley after we crashed or requested restart a moment ago
 	{
-		if (!autoreload) myexit((char*)"delayed crash exit");
+		if (!autoreload && !restartBack) myexit((char*)"delayed crash exit");
 		
 		// attempt autoreload of system and continue
-		ReportBug("Autoreload for %s",incoming);
+		if (!restartBack) ReportBug("Autoreload for %s",incoming);
 		reloading = true;
 		PartiallyCloseSystem(true);
 		CreateSystem();
-		crashBack = false;
+		restartBack = crashBack = false;
 	}
 #ifdef LINUX
 	if (sigsetjmp(crashJump,1)) // if crashes come back to here
@@ -2130,7 +2144,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	int len = (int)strlen(incoming);
 	if (len >= (fullInputLimit - 10))
 	{
-		ReportBug("Trimmed input too large %d > %d  %s \r\n", len, fullInputLimit,incoming)
+		ReportBug("Trimmed input too large %d > %d  %s \r\n", len, fullInputLimit,originalUserInput)
 		incoming[fullInputLimit - 1] = 0; // chop to legal safe limit
 	}
 
@@ -2140,7 +2154,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		FILE* in = fopen("serverlogging.txt", (char*)"rb");
 		if (in)
 		{
-			serverLog = true;
+			serverLog = 1;
 			fclose(in);
 		}
 	}
@@ -3625,7 +3639,10 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 #ifndef NOMAIN
 int main(int argc, char * argv[]) 
 {
+	GetPrimaryIP(myip);
 	*externalBugLog = 0;
+	*serverlogauthcode = 0;
+	*buildflags = 0;
 	for (int i = 1; i < argc; ++i)
 	{
 		if (!strnicmp(argv[i],"root=",5)) 

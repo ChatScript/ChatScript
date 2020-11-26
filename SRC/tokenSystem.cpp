@@ -549,7 +549,7 @@ static WORDP UnitSubstitution(char* buffer,int i)
 	return NULL;
 }
 
-static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, bool oobStart, bool oobJson)
+static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, bool& oobStart, bool& oobJson)
 {
 	char* start = ptr;
 	char c = *ptr;
@@ -560,9 +560,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
     bool isFrench = (!stricmp(language, "french") ? true : false);
 
 	// OOB which has { or [ inside starter, must swallow all as one string lest reading JSON blow token limit on sentence. And we can do jsonparse.
-	if (oobStart && oobJson) // support JSON parsing
+	if ( oobJson) // support JSON parsing
 	{
-		if (count == 0 && (*ptr == '[' || *ptr == '{')) return ptr + 1;	// start of oob
+		if (count == 0 && (*ptr == '[' || *ptr == '{')) return ptr + 1;	// start of oob [ token
 		int level = 0;
 		char* jsonStart = ptr;
 		--ptr;
@@ -584,7 +584,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 			{
 				if (--level == 0)
 				{
-					if (tokenControl & JSON_DIRECT_FROM_OOB) // allow full json no tokenlimit
+					if (tokenControl & JSON_DIRECT_FROM_OOB) // allow full json
 					{
                         // don't let parser be confused by user utterance, e.g. if ends in a quote
                         char* closer = ptr + 1;
@@ -600,13 +600,16 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 						if (result == NOPROBLEM_BIT) words[count] = AllocateHeap(word); // insert json object
 						else words[count] = AllocateHeap((char*)"bad-json");
 					}
+					oobJson = false; 
 					return ptr + 1;
 				}
 			}
 		}
-		if (level > 2 && tokenControl & JSON_DIRECT_FROM_OOB) 
+		if (level > 2 && tokenControl & JSON_DIRECT_FROM_OOB)
+		{
 			ReportBug("Possible failure detecting JSON oob");
-
+		}
+		oobJson = false; // give up
 		return ptr;
 	}
 	// OOB only separates ( [ { ) ] }   - the rest remain joined as given
@@ -712,7 +715,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 
 	// embedded punctuation
 	char* embed = strchr(token, '?');
-	if (embed && embed != token && embed[1]) *embed = 0; // break off love?i 
+	if (embed && embed != token && embed[1] && !IsUrl(token, embed)) *embed = 0; // break off love?i, but not ? to introduce the query string in an URL
 
 	embed = strchr(token, ')');
 	if (embed && embed != token ) *embed = 0; // break off 61.3) 
@@ -1392,7 +1395,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
                 *ptr != '"' && *ptr != ')' && *ptr != '{' && *ptr != '}')
                 ++ptr; // ignore repeated non-alpha non-digit characters -   - but NOT -- and not ...
         }
-        if (count == 0)
+        if (count == 0) // json embedded in OOB?
 		{
 			if (*ptr != '[' ) oobStart = false;
 			else // is this oob json?
@@ -1401,7 +1404,6 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 				if (*at == '[' || *at == '{') oobJson = true;
 			}
 		}
-		else if (oobStart && *ptr == ']') oobJson = false; // end of oob
 		if (*ptr == '"' && !strchr(ptr+1,'"') && !(tokenControl & TOKEN_AS_IS) && ptr[1] && !quoteCount && !(tokenControl & SPLIT_QUOTE))  ptr = SkipWhitespace(++ptr); // ignore single starting quote?  "hi   -- but if it next sentence line was part like POS tagging, would be a problem  and beware of 5' 11"
 
 		// find end of word 
@@ -1425,7 +1427,7 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 			char word[MAX_WORD_SIZE];
 			strncpy(word, ptr, MAX_WORD_SIZE - 25);
 			word[MAX_WORD_SIZE - 25] = 0;
-			ReportBug("Token too big: %s size %d limited to %d\r\n", word, (end - ptr), MAX_WORD_SIZE - 25);
+			ReportBug("Token too big: size %d limited to %d  %s \r\n" , (end - ptr), MAX_WORD_SIZE - 25,word);
 			end = ptr + MAX_WORD_SIZE - 25; // abort, too much jammed together. no token to reach MAX_WORD_SIZE
 		}
 		if (*ptr == ' ')	// FindWordEnd removed stage direction start
@@ -1474,6 +1476,9 @@ char* Tokenize(char* input,int &mycount,char** words,bool all1,bool oobStart) //
 
 		//   set up for next token or ending tokenization
 		ptr = SkipWhitespace(end);
+
+		if (!stricmp(priorToken, "json") && (*ptr == '{' || *ptr == '['))  oobJson = true; // embedded json in user input
+		else if (oobStart && *ptr == ']') oobStart = false; // end of oob (if it had been json, that is already swallowed)
 
 		if (*token == '"' && !(tokenControl & SPLIT_QUOTE) && (count == 1 || !IsDigit(*words[count-1] ))) ++quoteCount;
 		if (*token == '"' && !(tokenControl & SPLIT_QUOTE) && count > 1 && quoteCount && !(quoteCount & 1)) // does end of this quote end the sentence?
@@ -2456,6 +2461,15 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		while (ptr && *ptr)
 		{
 			ptr = ReadCompiledWord(ptr, words[++count]);
+			if (!ptr || !*ptr) // end of substituion list
+			{
+				if (*words[1] == '1' && !words[2]) {} // singular, leave alond
+				else // plural
+				{
+					WORDP D = FindWord(words[count]);
+					strcpy(words[count], GetPluralNoun(D));
+				}
+			}
 			tokens[count] = words[count];
 		}
 

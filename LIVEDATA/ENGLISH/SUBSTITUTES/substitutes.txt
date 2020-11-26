@@ -16,13 +16,13 @@
  # we use + because we dont want the resulting phrase recognized by the idiom processor and thus cause the processor to delete the phrase
  # xxx> means sentence then end stop
  # if you want to have the result NOT tokenized, put it in quotes
-?_" inches
-?_' feet
-?_yr years
-?_mo months
-?_mg milligrams
-?_kg kilograms
- ?_ml milliliters
+?_" inch
+?_' foot
+?_yr year
+?_mo month
+?_mg milligram
+?_kg kilogram
+ ?_ml milliliter
 ?_km kilometer
  ?_kph kilometer+per+hour
  ?_mph miles+per+hour
@@ -37,8 +37,9 @@
  degree_K degree+Kelvin
  ?_° degree
  ° degree
-
-a.i. artificial+intelligence
+ womxn woman
+ wimmin women
+ a.i. artificial+intelligence
  touring_test Turing+test
  meds medications
  real_estate real_estate
@@ -73,7 +74,6 @@ a.i. artificial+intelligence
  hr hour
  hr. hour
  min. minute
- min minute
  hrs hours
  secs seconds
  mins minutes
@@ -1179,7 +1179,6 @@ prof. professor
  return_again return
  return_back return
  revert_back revert
- right_now currently
  rite right
  roll_player role+player
  root_cause cause
@@ -1227,7 +1226,7 @@ prof. professor
  smarter_then smarter+than
  sneak_peak sneak+peek
  sneaking_suspicion suspicion
- so_do_I I+do+also
+ so_do_I> I+do+also
  somekinda some+kind+of
  son_in_law son-in-law
  sons_in_law sons-in-law

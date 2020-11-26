@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 11/26/2020 cs10.8
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -914,10 +914,19 @@ thing.
 ### `:verifypos`
 This tests pos regression data in REGRESS to see if it does the expected thing.
 
+:fuse filename   
+This will read in the file named, replace new lines with spaces, and write to TMP/tmp.txt.
+This makes a multiple line file into a single file. This is handy if you are trying to create a large json structure
+to be passed as user input, which is easy to read in multiple lines, but then must be reformatted to single line
+for input.
+
+### `:fuse filename`
+
 ### `:restart`
 This will force the system to reload all its data files from disk (dictionary, topic data, live
 data) and then ask for your login. It's like starting the system from scratch, but it never
-stops execution. Good for revising a live server.
+stops execution. Good for revising a live server.  But it does not return a message to the user, it restarts immediately.
+If you want to complete the current volley, say ":restart completevolley"
 
 You may also say `:restart erase` to force the existing user to start with a new topic file
 (restarting a system might load new incompatible data if you've changed something).

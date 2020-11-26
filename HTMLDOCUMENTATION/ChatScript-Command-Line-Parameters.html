@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/26/2020 cs10.8</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
 <p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt And then third level named after the current language chosen can override those two cs_initenglish.txt being the default. The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular) since foreign languages require more entries than English.</p>
 <p>Or you can name where the file is on a command line parameter <code>config=xxx</code>. And <code>config2=xxx</code> for the initmore file. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
@@ -250,6 +250,14 @@ port=20</code></pre>
 <tr class="even">
 <td><code>nofastload</code></td>
 <td>If you suspect fast loading is faulty, you can set this to see if things work without it</td>
+</tr>
+<tr class="odd">
+<td><code>syslogstr=xxx</code></td>
+<td>In linux will output this as part of Microsoft sql trace data to the syslog</td>
+</tr>
+<tr class="even">
+<td><code>buildflags=xxx</code></td>
+<td>this data will be used to control :build (quiet and nomixedcase are xxx values)</td>
 </tr>
 </tbody>
 </table>

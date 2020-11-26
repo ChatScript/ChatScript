@@ -1,5 +1,19 @@
 #####################
 
+# verb participical as intensifier "you are *fucking amazing"
+ -1 ISCANONICAL be 
+	INCLUDE *   ADVERB
+	STAY HAS VERB_PRESENT_PARTICIPLE  VERB_PAST_PARTICIPLE
+	HAS ADJECTIVE_BITS
+	KEEP
+
+# verb participical as intensifier "you are fucking *amazing"
+ -2 ISCANONICAL be 
+	IS   ADVERB
+	INCLUDE *   ADJECTIVE_PARTICIPLE
+	STAY HAS VERB_PRESENT_PARTICIPLE
+	KEEP
+
 # Composite clause: after (Adjective_more Adverb_more +Preposition Conjunction_subordinate)  her/she (Pronoun_object Pronoun_possessive)  eggs/egg (Noun_plural Verb_present_3ps)  hatch (+Noun_singular Verb_infinitive Verb_present)  , (Comma)
 0	INCLUDE * CONJUNCTION_SUBORDINATE
 	STAY START

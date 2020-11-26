@@ -94,6 +94,8 @@ int jumpIndex = -1;
 unsigned int randIndex = 0;
 unsigned int oldRandIndex = 0;
 
+char syslogstr[300] = "chatscript"; // header for syslog messages
+
 #ifdef WIN32
 #include <conio.h>
 #include <direct.h>
@@ -101,6 +103,10 @@ unsigned int oldRandIndex = 0;
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <Winbase.h>
+#endif
+
+#ifdef LINUX
+#include <syslog.h>
 #endif
 
 void Bug()
@@ -185,7 +191,7 @@ void CloseDatabases(bool restart)
 	MySQLFullCloseCode(restart);	// filesystem and/or script
 #endif
 #ifndef  DISCARDMICROSOFTSQL
-	MsSqlFullCloseCode(restart);	// filesystem and/or script
+	if ((db == 1 && server) || db == 2) MsSqlFullCloseCode(restart);	// filesystem and/or script
 #endif
 }
 
@@ -199,6 +205,13 @@ void myexit(char* msg, int code)
 #ifndef DISCARDTESTING
 	// CheckAbort(msg);
 #endif
+#ifdef LINUX
+	char* fatal_str = strstr(msg, "FATAL:");
+	if (fatal_str != NULL) {
+		syslog(LOG_ERR, "%s user: %s bot: %s msg: %s ",
+			syslogstr, loginID, computerID, msg);
+	}
+#endif 
 	ReportBug("myexit called with %s", msg);
 	char name[MAX_WORD_SIZE];
 	sprintf(name, (char*)"%s/exitlog.txt", logsfolder);
@@ -569,9 +582,10 @@ void CompleteBindStack64(int n,char* base)
 	infiniteStack = false;
 }
 
-void CompleteBindStack()
+void CompleteBindStack(int used)
 {
-	stackFree += strlen(stackFree) + 1; // convert infinite allocation to fixed one
+	if (!used) 	stackFree += strlen(stackFree) + 1; // convert infinite allocation to fixed one
+	else stackFree += used;
 	size_t len = heapFree - stackFree;
 	if (len < maxReleaseStackGap) maxReleaseStackGap = len;
 	infiniteStack = false;
@@ -2038,9 +2052,11 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	//   any channel above 1000 is same as 101
 	else if (channel > 1000) channel = STDUSERLOG; //   force result code to indent new line
 
-	if ((channel == STDUSERLOG || channel == STDTRACETABLOG
-		|| channel == FORCETABLOG || channel == STDTRACEATTNLOG || channel == STDTIMETABLOG) &&
-		!userLog && !debugcommand && !csapicall) return id;
+	if (channel != SERVERLOG && channel != BUGLOG && channel != TIMELOG &&  !userLog)
+	{
+		if (!debugcommand && !csapicall) return id;
+		if (server) return id;
+	}
 
 	va_list ap;
 	va_start(ap, fmt);
@@ -2083,7 +2099,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	channel %= 100;
 	at = myprinter(ptr, at, ap);
 	va_end(ap);
-	
+
 	if (traceTestPatternBuffer)
 	{
 		UpdateTrace(logmainbuffer);
@@ -2175,11 +2191,6 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	if (!userLog && (channel == STDUSERLOG || channel > 1000 || channel == id) && !testOutput && !trace) return id;
 	// trace on for no user log will go to server log
 
-#ifndef DISCARDSERVER
-#ifndef EVSERVER
-	if (server && !stdlogging) GetLogLock();
-#endif
-#endif	
 	if (channel == TIMELOG)
 	{
 		char name[MAX_WORD_SIZE];
@@ -2371,9 +2382,6 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		if ((len + bufLen) < (maxBufferSize - SAFE_BUFFER_MARGIN)) strcat(testOutput, logmainbuffer);
 	}
 
-#ifndef EVSERVER
-	if (server && !stdlogging) ReleaseLogLock();
-#endif
 #endif
 
 	inLog = false;

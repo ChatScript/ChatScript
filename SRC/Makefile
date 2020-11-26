@@ -24,7 +24,7 @@ server: EXECUTABLE=$(executable.server)
 server: CFLAGS= -c  -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -o2 -rdynamic
 
 executable.debugserver=../BINARIES/ChatScriptDebug
-debugserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1  -DDEBUG 
+debugserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1  -DDEBUG   -DEVSERVER=1 -DEVSERVER_FORK=1 
 debugserver: PGLOAD= -pthread
 debugserver: INCLUDEDIRS=-Ievserver
 debugserver: binary
@@ -40,13 +40,13 @@ standalone: EXECUTABLE=$(executable.standalone)
 standalone: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g -rdynamic
 
 executable.sharedobject=../BINARIES/ChatScript.so
-sharedobject: DEFINES+=  -DDLL=1 -DDISCARDSERVER=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1   -DDISCARDMICROSOFTSQL=1
+sharedobject: DEFINES+=  -DDLL=1 -DDISCARDSERVER=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1 -DEVSERVER=1 -DEVSERVER_FORK=1
 sharedobject: PGLOAD= -pthread
 sharedobject: INCLUDEDIRS=-Ievserver
 sharedobject: binary
 sharedobject: EXECUTABLE=$(executable.sharedobject)
 sharedobject: CFLAGS=-c -std=c++11  -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -fPIC -g
-sharedobject: LDFLAGS+= -shared -lcurl
+sharedobject: LDFLAGS=-shared -lcurl
 
 executable.mongoserver=../BINARIES/ChatScriptMongo
 mongoserver: DEFINES+=  -DDISCARDPOSTGRES=1 -DDISCARDMYSQL=1  -DDISCARDMICROSOFTSQL=1
@@ -97,13 +97,30 @@ debugmysqlserver: EXECUTABLE=$(executable.debugmysqlserver)
 debugmysqlserver: INCLUDEDIRS=-Ievserver
 debugmysqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	ODBCLIB := -lodbc -lmsodbcsql-17
+else
+	ODBCLIB := -lodbc -lmsodbcsql.17
+endif
+
 executable.mssqlserver=../BINARIES/ChatScriptMssql
-mssqlserver: DEFINES+=  -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 
+mssqlserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 
 mssqlserver: PGLOAD= -pthread $(ODBCLIB) -ldl
 mssqlserver: binary
 mssqlserver: EXECUTABLE=$(executable.mssqlserver)
 mssqlserver: INCLUDEDIRS=-Ievserver 
-mssqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O1 $(ODBCLIB) -lz 
+mssqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -O1
+mssqlserver: LDFLAGS+=$(ODBCLIB) -lz
+
+executable.debugmssqlserver=../BINARIES/ChatScriptMssqlDebug
+debugmssqlserver: DEFINES+= -DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1
+debugmssqlserver: PGLOAD= -pthread $(ODBCLIB) -ldl
+debugmssqlserver: binary
+debugmssqlserver: EXECUTABLE=$(executable.debugmssqlserver)
+debugmssqlserver: INCLUDEDIRS=-Ievserver
+debugmssqlserver: CFLAGS=-c -std=c++11 -Wall  -funsigned-char  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing -g
+debugmssqlserver: LDFLAGS=$(ODBCLIB) -lz -lcurl -g
 
 UNAME := $(shell uname)
 
@@ -171,11 +188,12 @@ cleanall: clean
 	-rm -f $(executable.mysqlserver)
 	-rm -f $(executable.debugmysqlserver)
 
-	-rm -f $(executable.mssqlserver)
-	-rm -f $(executable.debugmysqlserver)
-
 	-rm -f $(executable.mongoserver)
 	-rm -f $(executable.debugmongoserver)
+
+	-rm -f $(executable.mssqlserver)
+	-rm -f $(executable.debugmssqlserver)
+
 
 binary: $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) $(DEFINES) $(INCLUDEDIRS) -o $(EXECUTABLE)

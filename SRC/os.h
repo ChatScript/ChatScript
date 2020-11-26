@@ -162,7 +162,7 @@ void ReleaseStack(char* word);
 char* InfiniteStack(char*& limit,char* caller);
 char* InfiniteStack64(char*& limit,char* caller);
 void CompleteBindStack64(int n,char* base);
-void CompleteBindStack();
+void CompleteBindStack(int used = 0);
 bool AllocateStackSlot(char* variable);
 char** RestoreStackSlot(char* variable,char** slot);
 char* AllocateHeap(char* word,size_t len = 0,int bytes= 1,bool clear = false,bool purelocal = false);
@@ -312,6 +312,7 @@ extern int serverLog;
 extern int bugLog;
 extern bool serverPreLog;
 extern bool serverctrlz;
+extern char syslogstr[];
 
 unsigned int Log(unsigned int spot,const char * fmt, ...);
 CALLFRAME* ChangeDepth(int value,char* where,bool nostackCutboack = false,char* code = NULL);

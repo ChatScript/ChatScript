@@ -43,7 +43,7 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes = true);
 void JsonRenumber(FACT* F);
 void jkillfact(WORDP D);
 void InitJSONNames();
-char* jwrite(char* buffer, WORDP D, int subject);
+char* jwrite(char* buffer, WORDP D, int subject,bool plain = false);
 bool IsValidJSONName(char* word, char type = 0);
 
 #ifndef DISCARDJSONOPEN

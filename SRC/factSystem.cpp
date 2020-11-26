@@ -83,7 +83,7 @@ static void VerifyField(FACT* F, MEANING field, unsigned int offset)
 static void VerifyFact(FACT* F)
 {
 	// prove dict entries can find this fact and that is has no loops
-	if (!(F->flags & FACTSUBJECT)) (F, F->subject,0);
+	if (!(F->flags & FACTSUBJECT)) VerifyField(F, F->subject,0);
 	if (!(F->flags & FACTVERB)) VerifyField(F, F->verb,1);
 	if (!(F->flags & FACTOBJECT)) VerifyField(F, F->object,2);
 }
@@ -445,7 +445,7 @@ void RipFacts(FACT* F,WORDP dictBase)
 
 FACT* WeaveFact(FACT* current)
 {
-	if (current->subject == NULL) return current; // dummy fact
+	if (current->subject == 0) return current; // dummy fact
 
     unsigned int properties = current->flags;
 	FACT* F;

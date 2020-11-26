@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 8/31/2019 cs9.7
+<br>Revision 11/26/2020 cs10.8
 
 
 # ADVANCED OUTPUT
@@ -134,9 +134,10 @@ backslash them, which the format string removes when it executes. For example:
 
 the quote inside the format string need protecting using `\"`. 
 
-You can write `\n`, `\r`, `\t` and those will be translated into newline, carriage return, and tab.
+You can write `\n`, `\r`, `\t` and those will be translated into newline, newline, and tab.
 However, you should avoid `\r` because on LINUX it is not needed and in Windows the system will change
-`\n` to carriage-return and newline.
+`\n` to carriage-return and newline. The use is for API function ^testoutput where you want to emit a newline but the incoming
+system will be sending newlines itself to allow errors to be reported by line number.
 
 Format strings evaluate themselves as soon as they can. If you write:
 

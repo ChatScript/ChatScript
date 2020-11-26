@@ -352,6 +352,7 @@ char* ProbableKnownWord(char* word)
 
 static bool UsefulKnownWord(WORDP D)
 {
+	if (!D) return false;
 	if (IS_NEW_WORD(D)) return false;
 	if (D->properties & TAG_TEST) return true;
 	if (D->systemFlags & PATTERN_WORD) return true;
@@ -408,18 +409,25 @@ bool SpellCheckSentence()
 		char* word = wordStarts[i];
 		int size = strlen(word);
 		if (size > (MAX_WORD_SIZE - 100)) continue;
+		if (size == 4 && !stricmp(word,"json") ) continue; // may not be in dictionary yet
 
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
-		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one or both are legal words
+		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
 		{
-			WORDP X = FindWord(word);
-			WORDP Y = FindWord(wordStarts[i + 1]);
-			if (!(X && Y && UsefulKnownWord(X) && UsefulKnownWord(Y))) // has-been is a word we dont want merge,but model numbers we do.
+			WORDP X = FindWord(word,0, LOWERCASE_LOOKUP);
+			if (!X || IS_NEW_WORD(X)) X = FindWord(word, 0, UPPERCASE_LOOKUP);
+			WORDP Y = FindWord(wordStarts[i + 1],0,LOWERCASE_LOOKUP);
+			if (!Y || IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, UPPERCASE_LOOKUP);
+			bool useful1 = UsefulKnownWord(X);
+			bool useful2= UsefulKnownWord(Y);
+			if (!(X && Y && useful1 && useful2)) // has-been is a word we dont want merge,but model numbers we do.
 			{
-				strcpy(bigword, word);
+				if (X) strcpy(bigword, X->word);
+				else strcpy(bigword, word);
 				size_t len = strlen(bigword);
 				strcpy(bigword + len++, "-");
-				strcpy(bigword + len, wordStarts[i + 1]);
+				if (Y) strcpy(bigword + len, Y->word);
+				else strcpy(bigword + len, wordStarts[i + 1]);
 				WORDP XX = FindWord(bigword);
 				if (XX && UsefulKnownWord(XX))
 				{
@@ -435,9 +443,9 @@ bool SpellCheckSentence()
 				XX = FindWord(bigword);
 				if (XX && UsefulKnownWord(XX))
 				{
-					WORDP Z = StoreWord(XX->word + len);
+					WORDP Z = StoreWord(XX->word+len,AS_IS);
 					bigword[len - 1] = 0;
-					WORDP Y = StoreWord(bigword);
+					Y = StoreWord(bigword);
 					if (strcmp(wordStarts[i],Y->word) && strcmp(wordStarts[i+1], Z->word))
 					{ 
 						tokens[1] = Y->word;

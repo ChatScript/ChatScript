@@ -1,3 +1,35 @@
+# Version 10.8 11/26/2020
+1. CURRENTLY you can enable/disable using data in various LIVEDATA substition files. In particular you can enable and disable
+   the private substitutions you have in your scripts. And interjections dont actually replace their words, but merely
+   mark them. If your private substitutions contain interjection remapping, NOW those interjections also merely mark them
+   instead of replacing them AND will claim to come from the interjections file, so disabling your private remaps will not
+   disable your interjections.
+2.^JSONWRITE now takes optional first argument plain, which makes it write out less noisy JSON that CS already accepts,
+	ie field names and string values dont need double quotes around them unless they have certain characters in them (like
+ 	spaces and semi-colons). This makes data output from CS and intended to be read back into CS  easier to read. So
+	{"value":"color"}  becomes  {value:color}
+3. ^delete can now delete a file if given its name
+4. in ^testpattern api, if pattern contains $cs_tracepattern, tracing will be turned on until the end of the call
+5. new commandline param   buildflags=xxx can set flags for future builds.  buildflags=quiet is the same as :build harry quiet.
+   New choice buildflags=nomixedcase will suppress all warnings about words spelled in various cases, but leave all other
+   warnings intact. nomixedcase can be specified on the local build command as well. :build harry nomixedcase
+6. new commandline param syslogstr=  for microsoft sql use to store trace data in syslog in linux. default value is "chatscript"
+7. CS detected fatal error conditions now log message in syslog (linux) before exiting.
+8. \r is now automatically converted to \n when seen for output
+9. user input normally is limited to 254 tokens AFTER oob is seen. To be able to pass complex JSON data as part of the user 
+	message (because the oob is often controlled by host system so not available per user message), you can now put
+	in user input the word  JSON and follow that with a JSON structure of arbitrary size. That structure will be completely converted to
+	the corresponding JSON internal fact structures and the simple JSON structure name returned. So
+	"my input value is JSON {x:y,b:z} here"  will become "my input value is JSON jo-3"
+10. %myip system variable returns the ip address of the CS server talking to you
+11. :restart normally immediately forces a system restart, never completing the current volley. Using the optional argument
+	:restart completevolley   will make the system finish out the response to the user and then restart at the start of
+  	the next input.
+12. debug command :fuse filename   will read in the file, replace new lines with spaces, and write to TMP/tmp.txt.
+	this makes a multiple line file into a single file. This is handy if you are trying to create a large json structure
+	to be passed as user input, which is easy to read in multiple lines, but then must be reformatted to single line
+	for input.
+
 # Version 10.7 10/20/2020
 1. ^testpattern api now accepts concepts where entries are pairs, separated by |.  The left side is stored
 as the concept member and a fact is created ( left-side  api-remap   right-side)  which allows you to write

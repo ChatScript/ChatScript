@@ -384,6 +384,13 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     char* start = word;
     *start = 0;
     ptr = SkipWhitespace(ptr);
+	while (compiling == PIECE_COMPILE && *ptr == '\\' && ptr[1] == 'n') // api calls
+	{
+		ptr = SkipWhitespace(ptr + 2); 
+		currentFileLine += 1;
+		currentLineColumn = 0;
+	}
+
     FindDeprecated(ptr, (char*)"$bot", (char*)"Deprecated $bot needs to be $cs_bot");
     FindDeprecated(ptr, (char*)"$login", (char*)"Deprecated $login needs to be $cs_login");
     FindDeprecated(ptr, (char*)"$userfactlimit", (char*)"Deprecated $userfactlimit needs to be $cs_userfactlimit");
@@ -446,9 +453,9 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
                 ++ptr;
             }
             char* end = ReadQuote(ptr,word,backslash,noblank,MAX_WORD_SIZE);	//   swallow ending marker and points past
-            if (!callingSystem && !isDescribe && !chunking && !functionString && *word == '"' && word[1] != '^' && strstr(word,"$_"))
+            if (false && !callingSystem && !isDescribe && !chunking && !functionString && *word == '"' && word[1] != '^' && strstr(word,"$_"))
                 WARNSCRIPT((char*)"%s has potential local var $_ in it. This cannot be passed as argument to user macros. Is it intended to be?\r\n",word)
-                if (end)
+            if (end)
                 {
                     if (*word == '"' && word[1] != FUNCTIONSTRING && !functionString) return end; // all legal within
                                                                                                   // NOW WE SEE A FUNCTION STRING
@@ -537,10 +544,14 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
                         }
                         else if (!renameInProgress)  // can do anything safely in a simple quoted string
                         {
-                            char c = *at;
-                            *at = 0;
+                            char c = NULL;
+                            if (at && *at)
+                            {
+                                c = *at;
+                                *at = 0;
+                            }
                             WARNSCRIPT((char*)"%s is not a recognized @rename. Is it intended to be?\r\n",hat)
-                                *at = c;
+                            if (c) *at = c;
                         }
                     }
                     hat = word - 1;
@@ -628,8 +639,8 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     while (*ptr)
     {
         if (*ptr == ENDUNIT) break;
-        if (patternContext && quote) {} // allow stuff in comparison quote
-        else if (*ptr == ' ' || (*ptr == '\t' && convertTabs)) break; // legal
+        if (patternContext && quote) {} // allow stuff in comparison quote  zzz
+        else if (*ptr == ' ' || (*ptr == '\t' && convertTabs) || (*ptr == '\\' && ptr[1] == 'n' && compiling == PIECE_COMPILE)) break; // legal
         if (patternContext && activestring == false && *ptr == '^' && (ptr[1] == '"' || ptr[1] == '\''))
         {
             quotechar = ptr[1];
@@ -1606,7 +1617,15 @@ static void WritePatternWord(char* word)
 	// do we want to note this word
 	WORDP D = StoreWord(word);
 	// if word is not resident, maybe its properties are transient so we must save pattern marker
-	if (!livecall && !(D->properties & NORMAL_WORD)) AddSystemFlag(D,PATTERN_WORD);
+	if (!(D->properties & NORMAL_WORD) && !(D->systemFlags & PATTERN_WORD))
+	{
+		AddSystemFlag(D, PATTERN_WORD);
+		if (compiling == CONCEPTSTRING_COMPILE)
+		{
+			heapPatternThread = AllocateHeapval(heapPatternThread, (uint64)D, 0);
+			return;
+		}
+	}
 
     // case sensitivity?
 	char tmp[MAX_WORD_SIZE];
@@ -1619,19 +1638,19 @@ static void WritePatternWord(char* word)
     else if (nospellcheck) {;}
     else if (lower && lower->internalBits & DO_NOISE && !(lower->internalBits & HAS_SUBSTITUTE)) {} // told not to check
     else if (upper && (GetMeaningCount(upper) > 0 || upper->properties & NORMAL_WORD )){;} // clearly known as upper case
-	else if (!livecall && !(spellCheck & NO_SPELL) && lower && lower->properties & NORMAL_WORD && !(lower->properties & (DETERMINER|AUX_VERB)))
+	else if ( !nomixedcase && !livecall && !(spellCheck & NO_SPELL) && lower && lower->properties & NORMAL_WORD && !(lower->properties & (DETERMINER|AUX_VERB)))
 		WARNSCRIPT((char*)"Keyword %s should not be uppercase - did prior rule fail to close\r\n",word)
-	else if (!livecall && !(spellCheck & NO_SPELL) && spellCheck && lower && lower->properties & VERB && !(lower->properties & NOUN))
+	else if (!nomixedcase && !livecall && !(spellCheck & NO_SPELL) && spellCheck && lower && lower->properties & VERB && !(lower->properties & NOUN))
 		WARNSCRIPT((char*)"Uppercase keyword %s is usually a verb.  Did prior rule fail to close\r\n",word)
 	
     char* pos;
 	if ( (pos = strchr(word,'\'')) && (pos[1] != 's' && !pos[1]))  WARNSCRIPT((char*)"Contractions are always expanded - %s won't be recognized\r\n",word)
 	if (D->properties & NORMAL_WORD) return;	// already a known word
 	if (D->internalBits & BEEN_HERE) return;	//   already written to pattern file or doublecheck topic ref file
-    AddBeenHere(D);
+    if (compiling != CONCEPTSTRING_COMPILE) AddBeenHere(D);
 
     if (patternFile) fprintf(patternFile,(char*)"%s\r\n",word);
-    else if (livecall) // has to be livecall if we dont have patternfile from build
+    else if (livecall ) // has to be livecall if we dont have patternfile from build
     {
         patternwordthread = AllocateHeapval(patternwordthread,
             (uint64)D, NULL, NULL);// save name
@@ -2180,7 +2199,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 	else // std macro (input, output table)
 	{
 		unsigned char* defn = GetDefinition(D);
-		if (defn && argumentCount != MACRO_ARGUMENT_COUNT(defn) && !(D->internalBits & VARIABLE_ARGS_TABLE)) 
+		if (defn && argumentCount != (int)MACRO_ARGUMENT_COUNT(defn) && !(D->internalBits & VARIABLE_ARGS_TABLE)) 
 			BADSCRIPT((char*)"CALL-60 Incorrect argument count to macro %s- given %d instead of required %d\r\n",name,argumentCount,MACRO_ARGUMENT_COUNT(GetDefinition(D)))
 	}
 
@@ -2282,7 +2301,7 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
             ++nn;
         }
     }
-    if (nn > 1)
+    if (nn > 1 && !nomixedcase)
     {
         WARNSCRIPT((char*)"Word \"%s\" known in multiple spellings %s\r\n", word, text)
         return;
@@ -2304,7 +2323,7 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
 		if (!flags) // try upper case
 		{
 			WORDP E = FindWord(word,0,SECONDARY_CASE_ALLOWED); // uppercase
-			if (E && E != D && E->word[2]) 
+			if (E && E != D && E->word[2] && !nomixedcase) 
                 WARNSCRIPT((char*)"Word %s only known in upper case\r\n",word)   
 			else if (E && !(E->internalBits & UPPERCASE_HASH) && !D ) WARNSCRIPT((char*)"%s is not a known word. Is it misspelled?\r\n",word)
 			canonical = E; // the base word
@@ -3262,9 +3281,9 @@ x : = y(do assignment and do not fail)
 			if (*word == USERVAR_PREFIX && word[1] == LOCALVAR_PREFIX)
 			{
 				char* dot = strchr(word,'.');
-				if (dot) *word = 0;
+				if (dot) *dot = 0;
 				AddDisplay(word);
-				if (dot) *word = '.';
+				if (dot) *dot = '.';
 			}
 	 		*comparison = c;
 			if (c == '!') // move not operator out in front of token
@@ -3342,7 +3361,7 @@ x : = y(do assignment and do not fail)
 				patternEnder = data;
 				BADSCRIPT((char*)"PATTERN-64 Illegal comparison %s or failed to close prior rule starting at %s\r\n", word, GetRuleElipsis(start))
 			}
-			int len = (comparison - word) + 2; //   include the = and jump code in length
+			 len = (comparison - word) + 2; //   include the = and jump code in length
 
 			//   rebuild token
 			char tmp[MAX_WORD_SIZE];
@@ -3360,15 +3379,6 @@ x : = y(do assignment and do not fail)
 		else if (*word == '~')  CheckSetOrTopic(word); 
 		ReadNextSystemToken(in,ptr,nextToken,true,true);
 		
-		//   see if we have an implied call (he omitted the ^)
-		if (false &&  *word != '^' && *nextToken == '(') //   looks like a call, reformat it if it is - NO, require ^ in a pattern so dont collide on words with name like function
-		{
-			char rename[MAX_WORD_SIZE];
-			*rename = '^';
-			strcpy(rename+1,word);	//   in case user omitted the ^
-			WORDP D = FindWord(rename,0,LOWERCASE_LOOKUP);
-			if (D && D->internalBits & FUNCTION_NAME) strcpy(word,D->word); //   a recognized call
-		}
 		if (*word == '^')   //   function call or function var ref or indirect function variable assign ref like ^$$tmp = null
 		{
 			if (quoteSeen)
@@ -5402,7 +5412,7 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 			{
 				char end = word[strlen(word)-1];
                 if (nospellcheck) {}
-				else if (!IsAlphaUTF8OrDigit(end) && end != '"' && strlen(word) != 1)
+				else if (!IsAlphaUTF8OrDigit(end) && end != '"' && strlen(word) != 1 && !nomixedcase)
 				{
 					if (end != '.' || strlen(word) > 6) WARNSCRIPT((char*)"last character of keyword %s is punctuation. Is this intended?\r\n", word)
 				}
@@ -6295,7 +6305,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 		currentFunctionDefinition = NULL; //   can be set by ReadTable or ReadMacro
 		if (!stricmp(word,(char*)":quit")) break;
 				
-		if (*word == ':' && word[1])		// testing command
+		if (*word == ':' && word[1] && !strstr(readBuffer,"^eval"))		// testing command not near an eval
 		{
 			char output[MAX_WORD_SIZE];
 			DoCommand(readBuffer,output);

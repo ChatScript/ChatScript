@@ -42,9 +42,10 @@ Changing the content of boot json facts (e.g. `$data.value += 1`) may create
 abandoned data in the boot layer (the old value of $data.value) and do 
 this often enough and you may run out of memory since there is no way to reclaim it.
 
-
 All permanent facts created during the boot process will reside in this layer while the server remains operational.
 If you restart the server, whatever was stored here is gone, presumably recreated by a new call to ^CSBOOT.
+
+Note: In a multi-bot system, you need to define this function ONCE in a common area (like a botmacro file) which is visible to all bots.
 
 HOW DOES GC WORK HERE if you create transient facts?
 

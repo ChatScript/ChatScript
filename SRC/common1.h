@@ -58,7 +58,8 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 enum CompileStatus {
 	 NOT_COMPILING = 0,
 	FULL_COMPILE = 1,
-	PIECE_COMPILE = 2
+	PIECE_COMPILE = 2,
+	CONCEPTSTRING_COMPILE = 3
 };
 
 //   DoFunction results

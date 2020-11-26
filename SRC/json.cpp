@@ -258,7 +258,7 @@ static bool ConvertUnicode(char* str) // convert \uxxxx to utf8  and escaped cha
 	return converted;
 }
 
-int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizelimit,int currToken, MEANING *retMeaning, int* flags, bool key, bool nofail) {
+int factsJsonHelper(char *jsontext, jsmntok_t *tokens,int currToken, MEANING *retMeaning, int* flags, bool key, bool nofail) {
 	// Always build with duplicate on. create a fresh copy of whatever
 	jsmntok_t curr = tokens[currToken];
 	char namebuff[256];
@@ -327,17 +327,11 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 			else if (!strcmp(str,(char*)"true") || !strcmp(str,(char*)"false")) 
 			{
 			}
-			else if (!strncmp(str,(char*)"ja-",3)) 
+			else if (!strncmp(str,(char*)"ja-",3) || !strncmp(str, (char*)"jo-", 3))
 			{
-				*flags = JSON_ARRAY_VALUE;
-				MEANING M = jcopy(StoreWord(str));
-				WORDP D = Meaning2Word(M);
-				strcpy(str,D->word);
-			}
-			else if (!strncmp(str,(char*)"jo-",3)) 
-			{
-				*flags = JSON_OBJECT_VALUE;
-				MEANING M = jcopy(StoreWord(str,AS_IS)); // json never shares ptrs
+				if (str[1] == 'a' ) *flags = JSON_ARRAY_VALUE;
+				else *flags = JSON_OBJECT_VALUE;
+				MEANING M = jcopy(StoreWord(str,AS_IS));
 				WORDP D = Meaning2Word(M);
 				strcpy(str,D->word);
 			}
@@ -356,7 +350,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 		
 		*flags = JSON_STRING_VALUE; // string null
 		CompleteBindStack();
-		if (!PreallocateHeap(size)) return FAILRULE_BIT;
+		if (!PreallocateHeap(size)) return 0;
 		if (size == 0)  *retMeaning = MakeMeaning(StoreWord((char*)"null",AS_IS));
 		else  *retMeaning = MakeMeaning(StoreWord(str,AS_IS));
 		ReleaseStack(str);
@@ -369,10 +363,10 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 		for (int i = 0; i < curr.size / 2; i++) { // each entry takes an id and a value
 			MEANING keyMeaning = 0;
 			int jflags = 0;
-			retToken = factsJsonHelper(jsontext, tokens, tokenlimit, sizelimit,retToken, &keyMeaning, &jflags,true,nofail);
+			retToken = factsJsonHelper(jsontext, tokens,retToken, &keyMeaning, &jflags,true,nofail);
 			if (retToken == 0) return 0;
 			MEANING valueMeaning = 0;
-			retToken = factsJsonHelper(jsontext, tokens, tokenlimit, sizelimit,retToken, &valueMeaning, &jflags,false,nofail);
+			retToken = factsJsonHelper(jsontext, tokens,retToken, &valueMeaning, &jflags,false,nofail);
 			if (retToken == 0) return 0;
 			CreateFact(objectName, keyMeaning, valueMeaning, jsonCreateFlags|jsonPermanent|jflags|JSON_OBJECT_FACT); // only the last value of flags matters. 5 means object fact in subject
 		}
@@ -389,7 +383,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 			MEANING index = MakeMeaning(StoreWord(namebuff,AS_IS));
 			MEANING arrayMeaning = 0;
 			int jflags = 0;
-			retToken = factsJsonHelper(jsontext, tokens, tokenlimit, sizelimit,retToken, &arrayMeaning, &jflags,false,nofail);
+			retToken = factsJsonHelper(jsontext, tokens,retToken, &arrayMeaning, &jflags,false,nofail);
 			if (retToken == 0) return 0;
 			CreateFact(arrayName, index, arrayMeaning, jsonCreateFlags|jsonPermanent|jflags|JSON_ARRAY_FACT); // flag6 means subject is arrayfact
 		}
@@ -405,15 +399,6 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens, int tokenlimit, int sizel
 	} 
 	currentFact = NULL;
 	return retToken;
-}
-
-MEANING factsPreBuildFromJson(char *jsontext, jsmntok_t *tokens,int limit,int size,bool nofail) {
-	MEANING retMeaning = 0;
-	int flags = 0;
-	int X = factsJsonHelper(jsontext, tokens,limit,size, 0, &retMeaning, &flags,false,nofail);
-	currentFact = NULL;	 // used up by putting into json
-	if (!X) return 0;
-	return retMeaning;
 }
 
 // Define our struct for accepting LCs output
@@ -768,7 +753,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		char* oldOutputBase = currentOutputBase;
 		currentOutputLimit = 500000;
 		currentOutputBase = AllocateStack(NULL, currentOutputLimit);
-		jwrite(currentOutputBase, D, 1); // it is subject field
+		jwrite(currentOutputBase, D, 1,false); // it is subject field
 		arg = currentOutputBase;
 		currentOutputLimit = oldlimit;
 		currentOutputBase = oldOutputBase;
@@ -1105,36 +1090,42 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail)
 
 	uint64 start_time = ElapsedMilliseconds();
 
-	jsmn_parser parser;
-	// First run it once to count the tokens
-	jsmn_init(&parser);
-	jsmnerr_t jtokenCount = jsmn_parse(&parser, message, size, NULL, 0);
 	FACT* start = lastFactUsed;
-	if (jtokenCount > 0) 
-	{
-		// Now run it with the right number of tokens
-		jsmntok_t *tokens = (jsmntok_t *)AllocateStack(NULL,sizeof(jsmntok_t) * jtokenCount);
-		if (!tokens) return FAILRULE_BIT;
-		jsmn_init(&parser);
-		jsmn_parse(&parser, message, size, tokens, jtokenCount);
-		MEANING id = factsPreBuildFromJson(message, tokens,jtokenCount,size,nofail);
-		if (timing & TIME_JSON) {
+	char* limit;
+	char* oldstack = stackFree;
+	jsmntok_t *tokens = (jsmntok_t *)		InfiniteStack(limit, "JSONPARSE");
+	jsmn_parser parser;
+	jsmn_init(&parser);
+	jsmnerr_t  jtokenCount = jsmn_parse(&parser, message, size, tokens);
+	int used = (jtokenCount > 0) ? (sizeof(jsmntok_t) * jtokenCount) : 0;
+	CompleteBindStack(used);
+
+		MEANING id = 0;
+		if (jtokenCount < 1) id = 0; // error
+		else
+		{
+			MEANING retMeaning = 0;
+			int flags = 0;
+			int X = factsJsonHelper(message, tokens, 0, &retMeaning, &flags, false, nofail);
+			id = (X) ? retMeaning : 0;
+			currentFact = NULL;	 // used up by putting into json
+		}
+		if (timing & TIME_JSON) 
+		{
 			int diff = (int)(ElapsedMilliseconds() - start_time);
 			if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Json parse time: %d ms\r\n", diff);
 		}
-		ReleaseStack((char*)tokens); // short term
-		if (id != 0) // worked
+		if (id != 0) // worked, this is name of json structure
 		{
-			WORDP D = Meaning2Word(id);
-			strcpy(buffer,D->word);
-			return NOPROBLEM_BIT;
+			strcpy(buffer, Meaning2Word(id)->word);
+			nofail = true;
 		}
 		else // failed, delete any facts created along the way
 		{
 			while (lastFactUsed > start) FreeFact(lastFactUsed--); //   restore back to facts alone
 		}
-	}
-	return (nofail)  ? NOPROBLEM_BIT : FAILRULE_BIT;	
+	stackFree = oldstack;
+	return (nofail)  ? NOPROBLEM_BIT : FAILRULE_BIT;
 }
 
 static char* jtab(int depth, char* buffer)
@@ -1530,7 +1521,17 @@ void jkillfact(WORDP D)
 	}
 }
 
-char* jwrite(char* buffer, WORDP D, int subject ) 
+static bool NotPlain(char* word)
+{
+	--word;
+	while (*++word)
+	{
+		if (IsWhiteSpace(*word) || *word == ':' || *word == '\\') return true;
+	}
+	return false;
+}
+
+char* jwrite(char* buffer, WORDP D, int subject,bool plain ) 
 {// subject is 1 (starting json object) or flags (internal json indicating type and subject/object)
 	char* xxoriginal = buffer;
 	unsigned int size = (buffer - currentOutputBase + 200); // 200 slop to protect us
@@ -1545,12 +1546,19 @@ char* jwrite(char* buffer, WORDP D, int subject )
 			else strcpy(buffer, D->word); // primitive
 			return buffer + strlen(buffer);
 		}
-		if (subject & JSON_STRING_VALUE) strcpy(buffer++,(char*)"\"");
-		if (subject & JSON_STRING_VALUE) 
-            AddEscapes(buffer,D->word,true,currentOutputLimit - (buffer - currentOutputBase),false);
-		else strcpy(buffer,D->word);
-		buffer += strlen(buffer);
-		if (subject & JSON_STRING_VALUE) strcpy(buffer++,(char*)"\"");
+		if (subject & JSON_STRING_VALUE)
+		{
+			bool usequote = !plain || !NotPlain(D->word);
+			if (usequote) strcpy(buffer++, (char*)"\"");
+			AddEscapes(buffer, D->word, true, currentOutputLimit - (buffer - currentOutputBase), false);
+			buffer += strlen(buffer);
+			if (usequote) strcpy(buffer++, (char*)"\"");
+		}
+		else
+		{
+			strcpy(buffer, D->word);
+			buffer += strlen(buffer);
+		}
 		return buffer;
 	}
 
@@ -1597,21 +1605,22 @@ char* jwrite(char* buffer, WORDP D, int subject )
 		else if (F->flags & JSON_ARRAY_FACT) {;} // write out its elements
 		else if (F->flags & JSON_OBJECT_FACT) 
 		{
-			strcpy(buffer++,(char*)"\""); // put out key in quotes
+			bool usequote = !plain || !NotPlain(Meaning2Word(F->verb)->word);
+			if (usequote) strcpy(buffer++,(char*)"\""); // put out key in quotes
 			WriteMeaning(F->verb,NULL,buffer);
-			char* at = buffer;
-			while ((at = strchr(at, '"'))) // json protect quote inside field name
+			if (usequote)
 			{
-				memmove(at+1, at, strlen(at) + 1);
-				*at = '\\';
-				at += 2;
+				strcpy(buffer, (char*)"\": ");
+				buffer += 3;
 			}
-			buffer += strlen(buffer);
-			strcpy(buffer,(char*)"\": ");
-			buffer += 3;
+			else
+			{
+				strcpy(buffer, (char*)": ");
+				buffer += 2;
+			}
 		}
 		else continue;	 // not a json fact, an accident of something else that matched
- 		buffer = jwrite(buffer, Meaning2Word(F->object),F->flags & JSON_FLAGS);
+ 		buffer = jwrite(buffer, Meaning2Word(F->object),F->flags & JSON_FLAGS,plain);
 		if (i < (indexsize-1)) 
 		{
 			strcpy(buffer,(char*)", ");
@@ -1628,6 +1637,12 @@ char* jwrite(char* buffer, WORDP D, int subject )
 FunctionResult JSONWriteCode(char* buffer) // FACT to text
 {
 	char* arg1 = ARGUMENT(1); // names a fact label
+	bool plain = false;
+	if (!stricmp(arg1, "plain"))
+	{
+		arg1 = ARGUMENT(2);
+		plain = true;
+	}
 	WORDP D = FindWord(arg1);
 	if (!D) 
 	{
@@ -1645,7 +1660,7 @@ FunctionResult JSONWriteCode(char* buffer) // FACT to text
 	}
 	uint64 start_time = ElapsedMilliseconds();
 	NextInferMark();
-	jwrite(buffer,D,1); // json structure
+	jwrite(buffer,D,1,plain); // json structure
 
 	if (timing & TIME_JSON) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
@@ -1983,7 +1998,7 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 			if (IsDigit(*(at-1))) ++exponent;
 			else break;
 		}
-		if (*at == '.') ++decimal;
+		if (*at == '.' && *(at+1) >= '0' && *(at+1) <= '9') ++decimal;
 		else if (!IsDigit(*at)) break; // end of a number maybe
 		++at;
 	}
@@ -2006,8 +2021,8 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 			++val;
 		}
 	}
-	else if (!strnicmp(value,(char*)"jo-",3)) flags |= JSON_OBJECT_VALUE;
-	else if (!strnicmp(value,(char*)"ja-",3))  flags |= JSON_ARRAY_VALUE;
+	else if (IsValidJSONName(value, 'o')) flags |= JSON_OBJECT_VALUE;
+	else if (IsValidJSONName(value, 'a'))  flags |= JSON_ARRAY_VALUE;
 	else if (!strcmp(value,(char*)"true"))  flags |= JSON_PRIMITIVE_VALUE;
 	else if (!strcmp(value,(char*)"false"))  flags |= JSON_PRIMITIVE_VALUE;
 	else if (!strcmp(value,(char*)"null"))  flags |= JSON_PRIMITIVE_VALUE;
@@ -2606,14 +2621,16 @@ FunctionResult JSONReadCSVCode(char* buffer)
         if (!wholeLine)
         {
             if (ReadALine(readBuffer, in, maxBufferSize, false, false) < 0) break;
- 		    MEANING object = NULL;
+			char* ptr = readBuffer;
+			if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) ptr += 3;// UTF8 BOM
+
+ 		    MEANING object = 0;
 		    if (!fnname) // not passing to a routine, building json structure
 		    {
 			    object = GetUniqueJsonComposite((char*)"jo-");
 			    WORDP E = Meaning2Word(object);
 			    CreateFact(arrayName,MakeMeaning(StoreWord(arrayIndex++)),object,arrayflags); // WATCH OUT FOR EMPTY SET!!!
 		    }
-		    char* ptr = readBuffer;
 		    strcpy(ptr+strlen(ptr),"\t"); // trailing tab forces recog of all fields
 		    char* tab;
 		    while ((tab = strchr(ptr,'\t'))) // for each field ending in a tab
@@ -2660,12 +2677,15 @@ FunctionResult JSONReadCSVCode(char* buffer)
             *readBuffer = 0;
             fgets(readBuffer, maxBufferSize, in);
             if (!*readBuffer) break;
+			char* ptr = readBuffer;
+			if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) ptr += 3 ;// UTF8 BOM
+
             sprintf(var, "$__%d", field++); // internal variable cannot be entered in script
             WORDP V = StoreWord(var);
-            size_t len = strlen(readBuffer);
-            if (readBuffer[len - 1] == '\n') --len; // remove trailing line data
-            if (readBuffer[len - 1] == '\r') --len;
-            V->w.userValue = SetArgument(readBuffer, len); 
+            size_t len = strlen(ptr);
+            if (ptr[len - 1] == '\n') --len; // remove trailing line data
+            if (ptr[len - 1] == '\r') --len;
+            V->w.userValue = SetArgument(ptr, len);
             strcat(call, var);
             strcat(call, " ");
         }

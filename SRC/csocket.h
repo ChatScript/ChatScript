@@ -14,6 +14,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define HIDDEN_OFFSET 3 // past 2 ctrl z's
 #define HIDDEN_OVERLAP 103	// hidden ctrlz and why data
 extern bool echoServer;
+void GetPrimaryIP(char* buffer);
+
 #ifdef WIN32
   #pragma warning(push,1)
   #pragma warning(disable: 4290) 
@@ -299,8 +301,6 @@ void CloseServer();
 #ifndef EVSERVER
 void GrabPort();	// gets port a server wants to control
 void InternetServer();
-void GetLogLock();
-void ReleaseLogLock();
 void StallTest(bool startTest,char* label);
 
 #ifdef WIN32

@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 11/26/2020 cs10.8
 
 
 
@@ -299,6 +299,7 @@ your server is in Virginia and you are in Colorado).
 | `%impliedsubject`   |  Boolean was the user input having an implied subject (not you, usually I)
 | `%input`            |  the count of the number of volleys this user has made ever 
 | `%ip`               |  ip address supplied 
+| `%myip`               |  ip address of cs server responding 
 | `%language`         |  current dictionary language 
 | `%length`           |  the length in tokens of the current sentence 
 | `%more`             |  Boolean is there another sentence after this 
@@ -560,6 +561,11 @@ and can be placed in double-quotes (which converts spaces to underscores interna
 
 The right side of the substitution pair is case sensitive
 and can be placed in double-quotes (which converts spaces to plus signs internally).
+
+Note: if you privately define a substitution that leads to a known interjection, it will be treated as an interjection, marked as 
+DO_INTERJECTIONS rather than DO_PRIVATE. Interjections do not perform an actual substitution, does not replace the words on the left
+with the interjection concept name on the right. Instead interjections merely mark the phrase as being a member of that concept,
+leaving the actual words unchanged.
 
 Similarly while canonical values of words can be defined in `LIVEDATA/SYSTEM/canonical.txt`, 
 you can define private canonical values for your bots by using the scripting language. 

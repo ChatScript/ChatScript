@@ -1,6 +1,11 @@
 ##<<ENGLISH concept: ~determinerlist (a an the ) ##>>
 ##<<ENGLISH concept: ~qwords (where when why how whom who whose whomever whoever what which whichever whatever ) ##>>
 
+canon: spat spit
+
+# common particple adjectives
+##<<ENGLISH concept: ~adjective_participles (pissed alarmed alarming aggravated aggravating amazed amazing amused amusing annoyed annoying astonished astonishing astounded astounding bewildered bewildering bored boring captivated captivating challenged challenging charmed charming comforted comforting concerned concerning confused confusing convinced convincing depressed depressing devastated devastating disappointed disappointing discouraged discouraging disgusted disgusting distressed distressing disturbed disturbing embarrassed embarrassing enchanted enchanting encouraged encouraging energise energising entertained entertaining exasperated exasperating excited exciting exhausted exhausting fascinated fascinating flattered flattering frightened frightening frustrated frustrating fucking fulfilled fulfilling gratified gratifying horrified horrifying humiliated humiliating inspired inspiring insulted insulting  interested interesting intrigued intriguing irritated irritating mystified mystifying moved moving overwhelmed overwhelming perplexed perplexing perturbed perturbing pleased pleasing puzzled puzzling relaxed relaxing satisfied satisfying shocked shocking sickened sickening soothed soothing surprised surprising tempted tempting terrified terrifying threatened threatening thrilled thrilling tired tiring touched touching troubled troubling unnerved unnerving unsettled unsettling upset upsetting worried worrying) ##>> 
+
 # exceptions to "of" following a noun (these are not going to be nouns)
 ##<<ENGLISH concept: ~verbof_exceptions (talk tell think come dream give tire) ##>> 
 ##<<ENGLISH concept: ~static_verbs ( ~states_of_being ~sensory_states ~mental_states ~own ~measurement_states ~eternal_truths) ##>>

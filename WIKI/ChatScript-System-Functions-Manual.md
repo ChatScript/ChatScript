@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 11/26/2020 cs10.8
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1484,7 +1484,9 @@ If nothing matched, the value of `match` is false. Otherwise it is the index of 
 pattern (0-based). If there are return values from matching one or more patterns, those will
 be listed in `newglobals`, which is omitted if there are none. Values of null are never returned.
 
-You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.  Just prepend to your input ":tracepattern"
+You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.  
+Just prepend to your input ":tracepattern 1". Or in a pattern use $cs_tracepattern and that reference will turn on tracing for that call
+to CS.
 
 ## CS External API- ^CompileOutput
 The external API functions allow execution of rule behaviors from outside of ChatScript.

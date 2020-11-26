@@ -26,6 +26,7 @@ bool Match(char* buffer,char* ptr, int depth, int startposition,char* kind,int r
 extern bool matching;
 extern int indentBasis;
 extern char* patternchoice;
+extern HEAPREF heapPatternThread;
 extern bool patternRetry;
 extern bool deeptrace;
 extern int patternDepth;

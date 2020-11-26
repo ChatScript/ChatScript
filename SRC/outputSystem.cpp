@@ -170,8 +170,12 @@ static char* ReadUserVariable(char* input, char* var)
     {
         if (*input == '.' || *input == '[' || *input == ']')
         {
-            if (!LegalVarChar(input[1]) && input[1] != '$' && input[1] != '[') break; // not a var dot, just an ordinary one 
-        }
+			if (!LegalVarChar(input[1]) && input[1] != '$' && input[1] != '[')
+			{
+				if (*input == ']') ++input;  // add to var this closing
+				break; // not a var dot, just an ordinary one 
+			}
+		}
     }
     strncpy(var, at, input - at);
     var[input - at] = 0;
@@ -606,16 +610,11 @@ static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, u
 
 static char* Output_Backslash(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
 {
-    // handles newline:  \n
+    // handles newline:  \n and equivalent \r
     // handles backslashed strings: \"testing"  means dump the rest of the token out
     // handles backslashed standalone double quote - \"  - means treat as even/odd pair and on 2nd one (closing) do not space before it
     // handles any other backslashed item:  \help  means just put out the item without the backslash
-    if (word[1] == 'r' && !word[2])
-    {
-        strcpy(buffer, (char*)"\\r");
-        return ptr;
-    }
-    if (word[1] == 'n')  //   \n
+    if (word[1] == 'n' || word[1] == 'r')  //   \n
     {
         if (space) --buffer;	// remove space before newline
 #ifdef WIN32

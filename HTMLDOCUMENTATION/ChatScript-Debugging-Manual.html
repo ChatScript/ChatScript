@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/26/2020 cs10.8</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -592,8 +592,11 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <p>This tests each spelling in the <code>LIVEDATA/spellfix</code> file to see if it does the expected thing.</p>
 <h3 id="verifypos"><code>:verifypos</code></h3>
 <p>This tests pos regression data in REGRESS to see if it does the expected thing.</p>
+<p>:fuse filename<br />
+This will read in the file named, replace new lines with spaces, and write to TMP/tmp.txt. This makes a multiple line file into a single file. This is handy if you are trying to create a large json structure to be passed as user input, which is easy to read in multiple lines, but then must be reformatted to single line for input.</p>
+<h3 id="fuse-filename"><code>:fuse filename</code></h3>
 <h3 id="restart"><code>:restart</code></h3>
-<p>This will force the system to reload all its data files from disk (dictionary, topic data, live data) and then ask for your login. It's like starting the system from scratch, but it never stops execution. Good for revising a live server.</p>
+<p>This will force the system to reload all its data files from disk (dictionary, topic data, live data) and then ask for your login. It's like starting the system from scratch, but it never stops execution. Good for revising a live server. But it does not return a message to the user, it restarts immediately. If you want to complete the current volley, say &quot;:restart completevolley&quot;</p>
 <p>You may also say <code>:restart erase</code> to force the existing user to start with a new topic file (restarting a system might load new incompatible data if you've changed something).</p>
 <p>You may also give up to 4 parameters exactly as you would on the command line to alter startup behavior. E.g., from script:</p>
 <pre><code>^eval(:restart erase Vserver=app.john.com/api/1.1 )</code></pre>

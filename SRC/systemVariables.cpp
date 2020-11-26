@@ -634,6 +634,14 @@ static char* Sserver(char* value)
 	return systemValue;
 }
 
+static char* SmyIP(char* value)
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold, value);
+	if (*hold != '.') return hold;
+	return myip;
+}
+
 static char* Stopic(char* value) 
 {
 	static char hold[50] = ".";
@@ -1139,7 +1147,8 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%maxfactsets",SmaxFactSets,(char*)"highest number of legal @factsets"}, 
 	{ (char*)"%rule",Srule,(char*)"Get a tag to current executing rule or null"}, 
 	{ (char*)"%server",Sserver,(char*)"Port id of server or null if not server"}, 
-	{ (char*)"%actualtopic",SactualTopic,(char*)"Current  topic executing (including system or nostay)"}, 
+	{ (char*)"%myip",SmyIP,(char*)"get ip of this server" },
+	{ (char*)"%actualtopic",SactualTopic,(char*)"Current  topic executing (including system or nostay)"},
 	{ (char*)"%topic",Stopic,(char*)"Current interesting topic executing (not system or nostay)"}, 
 	{ (char*)"%trace",STrace,(char*)"Numeric value of trace flag"}, 
 	{ (char*)"%pid",SPID,(char*)"Process id of this instance (linux)"}, 

@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 11/26/2020 cs10.8
 
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
@@ -604,9 +604,11 @@ Creates a fact of the listed data if it doesn't exist (unless flags allows dupli
 See system functions manual for a bit more on how createfact can process data.
 
 
-### `^delete`( set )
+### `^delete`( { set, filename} )
 
 erase all facts in this set. This is the same as `^addfactproperty(set FACTDEAD)`.
+
+^delete(filename) will delete that file.
 
 
 ### `^field`(fact fieldname)

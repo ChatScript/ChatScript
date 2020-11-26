@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/18/2019 cs9.62
+<br>Revision 11/26/2020 cs10.8
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -425,7 +425,12 @@ Windows Defender, Norton, and the like have a real-time monitoring system on fil
 
 Build normally echos out its log messages of what it is currently compiling And
 and any warning or error messages.  If you say quiet, then it will only tell you it succcessfully
-completed or list the errors it detected.
+completed or list the errors it detected.  One can set this in a cs init file as  buildflags=quiet .
+
+## :build xxx nomixedcase
+will suppress all warnings about words spelled in various cases, but leave all other
+warnings intact. nomixedcase can be specified on the local build command as well.
+One can set this in a cs init file as  buildflags=nomixedcase .
 
 ## Build warning messages
 

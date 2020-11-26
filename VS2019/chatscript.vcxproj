@@ -105,6 +105,7 @@
     <ClInclude Include="..\SRC\userCache.h" />
     <ClInclude Include="..\SRC\userSystem.h" />
     <ClInclude Include="..\SRC\variableSystem.h" />
+    <ClInclude Include="..\SRC\zif.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\SRC\constructCode.cpp" />
@@ -143,6 +144,7 @@
     <ClCompile Include="..\SRC\userCache.cpp" />
     <ClCompile Include="..\SRC\userSystem.cpp" />
     <ClCompile Include="..\SRC\variableSystem.cpp" />
+    <ClCompile Include="..\SRC\zif.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}</ProjectGuid>
@@ -485,7 +487,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARDMONGO;DISCARDPOSTGRES;DISCARDMICROSOFTSQL;DISCARDMYSQL;SAFETIME;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMICROSOFTSQL;DISCARDMYSQL;SAFETIME;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -516,7 +518,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -608,7 +610,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>NOMAIN;DLL;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMAIN;DLL;DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -690,7 +692,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARDMYSQL;DISCARDMICROSOFTSQL;DISCARDPOSTGRES;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMYSQL;DISCARDMICROSOFTSQL;DISCARDPOSTGRES;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -743,7 +745,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARDMONGO;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>

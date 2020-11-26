@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 8/23/2020 cs10.6
+<br>Revision 11/26/2020 cs10.8
 
 
 
@@ -273,6 +273,19 @@ then you can do $$json.field directly.
 
 Note: `^jsonparse` autoconverts backslash-unnnn into corresponding the utf8 characters.
 
+Similarly, you could pass JSON data directly as part of user input. But user input normally is limited to 254 tokens AFTER oob is seen. 
+To be able to pass complex JSON data as part of the user 
+	message (because the oob is often controlled by host system so not available per user message), you can now put
+	in user input the word  JSON and follow that with a JSON structure of arbitrary size. That structure will be completely converted to
+	the corresponding JSON internal fact structures and the simple JSON structure name returned. So
+```
+my input value is JSON {x:y,b:z} here  
+```
+will become 
+```
+my input value is JSON jo-3 here
+```
+and jo-3 will have the json structure.
 
 ## `jsonformat`(string)
 
@@ -518,9 +531,15 @@ Returns the number of top-level members in a json array or object.
 
 ## Printing JSON structures
 
-### `^jsonwrite`( name )
+### `^jsonwrite`( {plain}  name )
 name is the name from a json fact set (either by `^jsonpart`, `^jsonopen`, or some query into such structures). 
 The result is the corresponding JSON string (as a website might emit), without any linefeeds.
+`plain` is an optional first argument that makes it write out less noisy JSON that CS already accepts,
+	ie field names and string values dont need double quotes around them unless they have certain characters in them (like
+ 	spaces and semi-colons and escape characters). This makes data output from CS and intended to be read back into CS  easier to read. So
+```
+	jo-5 which is {"value":"color"}  prints as  {value:color}
+```
 
 ### `^jsontree`( name {depth} )
 name is the value returned by `^jsonparse` or `^jsonopen` or some query into such structures. 

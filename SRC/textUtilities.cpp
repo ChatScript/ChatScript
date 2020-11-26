@@ -554,7 +554,7 @@ char* RemoveEscapesWeAdded(char* at)
 	return startScan;
 }
 
-char* CopyRemoveEscapes(char* to, char* at,int limit,bool all) // all includes ones we didnt add as well
+char* CopyRemoveEscapes(char* to, char* at,int limit,bool allitems) // all includes ones we didnt add as well
 {
 	*to = 0;
 	char* start = to;
@@ -577,7 +577,7 @@ char* CopyRemoveEscapes(char* to, char* at,int limit,bool all) // all includes o
 			else if (*at == 'r') *to++ = '\r';  // legal 
 			else *to++ = *at; // remove our escape pair and pass the item
 		}
-		else if (*at == '\\' && all) // remove ALL other escapes in addition to ones we put there
+		else if (*at == '\\' && allitems) // remove ALL other escapes in addition to ones we put there
 		{
 			++at; // move to escaped item
 			if (*at  == 't') *to++ = '\t';
@@ -1407,7 +1407,7 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 	bool percent = false;
 	if (IsDigit(*word)) // see if all digits now.
 	{
-		char* ptr = word;
+		ptr = word;
 		while (*++ptr)
 		{
 			if (*ptr == '/' && !slash) slash = true;
@@ -2272,7 +2272,7 @@ bool AdjustUTF8(char* start,char* buffer)
 	return hasbadutf;
 }
 
-int ReadALine(char* buffer,FILE* in,unsigned int limit,bool returnEmptyLines,bool convertTabs) 
+int ReadALine(char* buffer,FILE* in,unsigned int limit,bool returnEmptyLines,bool changeTabs) 
 { //  reads text line stripping of cr/nl
 	currentFileLine = maxFileLine; // revert to best seen
 	if (currentFileLine == 0)
@@ -2327,7 +2327,7 @@ RESUME:
 				break;	// end of buffer
 		}
 		
-		if (c == '\t' && convertTabs) c = ' ';
+		if (c == '\t' && changeTabs) c = ' ';
 
 		if (c & 0x80 ) // high order utf?
 		{
@@ -2502,6 +2502,18 @@ RESUME:
 				*buffer++ = '"';
 			}
 			utf16 = NULL;
+		}
+
+		// we consider utf16 files unacceptable
+		if (hasutf && currentFileLine == 0 && (buffer - start) == 2) // only from file system 
+		{
+			if ((unsigned char)start[0] == 0xFE && (unsigned char)start[1] == 0xFF ) // UTF16 BOM
+			{
+				buffer -= 2;
+				*start = 0;
+				hasutf = false;
+				ReportBug("File is utf16. We want UTF8")
+			}
 		}
 	
 		// strip UTF8 BOM marker if any and just keep reading
@@ -2843,7 +2855,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	char* function = NULL;
 	char ender = 0;
 	if ((*ptr == FUNCTIONSTRING && (ptr[1] == '\'' || ptr[1] == '"')) ||
-			(*ptr == '"' && ptr[1] == FUNCTIONSTRING) || (*ptr == '\'' && ptr[1] == FUNCTIONSTRING)) // compiled or uncompiled active string
+			(*ptr == '"' && ptr[1] == FUNCTIONSTRING) || (*ptr == '\'' && ptr[1] == FUNCTIONSTRING && !IsDigit(ptr[2]))) // compiled or uncompiled active string, but not raw version of argument
 	{
 		if (*ptr == FUNCTIONSTRING) c = ptr[1];
 		else c = *ptr;
@@ -2868,9 +2880,9 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	}
 
 	// this is a kind of string (regular or active). run til it ends properly
+	c = 0;
 	if (!noquote && (*ptr == ENDUNIT || ender)) //   ends in blank or nul,  might be quoted, doublequoted, or ^"xxx" functional string or ^'xxx' jsonactivestring
 	{ // active string has to be careful about ending prematurely on fake quotes
-		char c = 0;
 		ptr = EatString(ptr, word, ender, jsonactivestring);
 		word += strlen(word);
 		if (!*(ptr-1)) // didnt find close, it was spurious... treat as normal
@@ -2887,7 +2899,6 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 	else // normal token, not some kind of string (but if pattern assign it could become)
 	{
 		bool bracket = false;
-		c = 0;
 		while ((c = *ptr) && c != ENDUNIT) 
 		{ // worst case is in pattern $x:=^"^join(...)" where spaces are in fn call args inside of active string
 		  // may have quotes inside it, so have to clear the call before can find quote end of active string.
@@ -2915,7 +2926,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 				*word++ = *ptr++;
 				*word++ = *ptr++;
 				*word++ = *ptr++;
-				char ender = *ptr++;
+				ender = *ptr++;
 				*word++ = ender;
 				*word = 0;
 				ptr = EatString(ptr, word, ender, ender);
@@ -3557,7 +3568,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 		char* hyphen2 = word;
 		while ((hyphen2 = strchr(hyphen2, '-')))
 		{
-			char c = *hyphen2;
+			c = *hyphen2;
 			*hyphen2 = 0;
 			int64 val2 = Convert2Integer(word, useNumberStyle); // convert lead piece to see if its a number
 			*hyphen2 = c;
@@ -3826,12 +3837,12 @@ RETRY: // for sampling loopback
 		// pick earliest punctuation that can terminate a sentence
 		char* period = NULL;
 		char* at = documentBuffer;
-		char* oob = strchr(documentBuffer,OOB_START); // oob marker
-		if (oob && (oob - documentBuffer) < 5) oob = strchr(oob+3,OOB_START); // find a next one // seen at start doesnt count.
-		if (!oob) oob = documentBuffer + 300000;	 // way past anything
+		char* oobfound = strchr(documentBuffer,OOB_START); // oobfound marker
+		if (oobfound && (oobfound - documentBuffer) < 5) oobfound = strchr(oobfound+3, OOB_START); // find a next one // seen at start doesnt count.
+		if (!oobfound) oobfound = documentBuffer + 300000;	 // way past anything
 		while (!period && (period = strchr(at,'.')))	// normal input end here?
 		{
-			if (period > oob) break; 
+			if (period > oobfound) break; 
 			if (period[1] && !IsWhiteSpace(period[1])) 
 			{
 				if (period[1] == '"' || period[1] == '\'') // period shifted inside the quote
@@ -3861,9 +3872,9 @@ RETRY: // for sampling loopback
 			period = NULL;
 		}
 		char* question = strchr(documentBuffer,'?');
-		if (question && (question[1] == '"' || question[1] == '\'') && question < oob) ++question;	// extend from inside a quote
+		if (question && (question[1] == '"' || question[1] == '\'') && question < oobfound) ++question;	// extend from inside a quote
 		char* exclaim = strchr(documentBuffer,'!');
-		if (exclaim && (exclaim[1] == '"' || exclaim[1] == '\'') && exclaim < oob) ++exclaim;	// extend from inside a quote
+		if (exclaim && (exclaim[1] == '"' || exclaim[1] == '\'') && exclaim < oobfound) ++exclaim;	// extend from inside a quote
 		if (!period && question) period = question;
 		else if (!period && exclaim) period = exclaim;
 		if (exclaim && exclaim < period) period = exclaim;
@@ -3894,14 +3905,14 @@ RETRY: // for sampling loopback
 				break;
 			}
 
-			if (oob < (documentBuffer + 300000)) // we see oob data
+			if (oobfound < (documentBuffer + 300000)) // we see oob data
 			{
-				if (at != oob) // stuff before is auto terminated by oob data
+				if (at != oobfound) // stuff before is auto terminated by oob data
 				{
-					*oob = 0;
+					*oobfound = 0;
 					strcpy(inBuffer,at);
-					*oob = OOB_START;
-					memmove(documentBuffer,oob,strlen(oob)+1);
+					*oobfound = OOB_START;
+					memmove(documentBuffer, oobfound,strlen(oobfound)+1);
 					break;
 				}
 			}

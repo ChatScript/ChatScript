@@ -1,3 +1,6 @@
+ 
+  it'd_be it+would+be
+  it'd_been it+had+been
   sha_n't shall+not
   ai_n't am+not
   ca_n't can+not

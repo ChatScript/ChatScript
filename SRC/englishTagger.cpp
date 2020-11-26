@@ -1160,16 +1160,28 @@ static void PerformPosTag(int start, int end)
 	{
 		if (!(tokenControl & STRICT_CASING)  && posValues[i+1] & POSSESSIVE && posValues[i] & PRONOUN_SUBJECT && *wordStarts[i] != 'i') posValues[i] = PRONOUN_POSSESSIVE; // his became he '  
 		allOriginalWordBits[i] = posValues[i];	// for words to know what was possible
-		posValues[i] &= TAG_TEST;  // only the bits we care about for pos tagging
-		// generator's going down... rewrite here
-		if (posValues[i] & POSSESSIVE && wordStarts[i][1] && posValues[i-1] & NOUN_SINGULAR && posValues[i+1] & VERB_PRESENT_PARTICIPLE && bitCounts[i+1] == 1)
+
+        // my card's expiring
+		if (posValues[i] & POSSESSIVE && wordStarts[i][1] && posValues[i - 1] & NOUN_SINGULAR && posValues[i + 1] & (VERB_PRESENT_PARTICIPLE | VERB_PAST_PARTICIPLE))
 		{
-			wordStarts[i] = AllocateHeap((char*)"is");
+            if (posValues[i + 1] & VERB_PRESENT_PARTICIPLE)
+            {
+                wordStarts[i] = AllocateHeap((char*)"is");
+                posValues[i] = AUX_VERB_PRESENT | AUX_BE;
+                canonicalLower[i] = FindWord((char*)"be");
+            }
+            else if (posValues[i + 1] & VERB_PAST_PARTICIPLE)
+            {
+                wordStarts[i] = AllocateHeap((char*)"has");
+                posValues[i] = AUX_VERB_PAST | AUX_HAVE;
+                canonicalLower[i] = FindWord((char*)"have");
+            }
 			originalLower[i] = FindWord(wordStarts[i]);
-			posValues[i] = AUX_VERB_PRESENT;
-			canonicalLower[i] = FindWord((char*)"be");
 		}
-	}
+
+        posValues[i] &= TAG_TEST;  // only the bits we care about for pos tagging
+
+    }
 
 	if (tokenControl & NO_IMPERATIVE && posValues[start] & VERB_BITS && posValues[start+1] & NOUN_BITS)
 	{
@@ -1193,7 +1205,7 @@ static void PerformPosTag(int start, int end)
 		bitCounts[i] = BitCount(posValues[i]);
 		if (bitCounts[i] != 1) ++ambiguousWords; // used only by testing in :pennmatch
 	}
-
+	
 	// "After hitting Sue, who is  the one person that I love among all the people I know who can walk, the ball struck a tree."
 	subjectStack[MAINLEVEL] = verbStack[MAINLEVEL] = auxVerbStack[MAINLEVEL] = 0;
 

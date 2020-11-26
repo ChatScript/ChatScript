@@ -116,6 +116,7 @@ ours we
 ourselves we 
 p P
 pass pass	# not as plural of pas
+policies policy		# helps correct uppercase Policies
 q Q
 r be
 s S

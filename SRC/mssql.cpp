@@ -1,31 +1,24 @@
-/** Interface routines for ODBC server, nominally MS SQL Server
- */ 
+/** Interface routines for ODBC server, nominally MS SQL Server */ 
 
 #include <stddef.h>
 #include <stdio.h>
 #include <time.h>
 
-#ifdef __GNUC__ // ignore warnings from common.h
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated"
-#pragma GCC diagnostic ignored "-Wconversion-null"
 #include "common.h"
-#pragma GCC diagnostic pop
 
-#else  // not __GNUC__ means Visual Studio
-#include "common.h"
-#endif // __GNUC__
-
-#ifndef DISCARDMICROSOFTSQL      
+#ifndef DISCARDMICROSOFTSQL
 #include "mssql_imp.h"
 #include "ms_sql.h"
+#include "zif.h"
 
 #undef TRACE_ON // sqlext.h redefines TRACE_ON as 1
 
 #include <sql.h>
 #include <sqlext.h>
 
-#ifndef DISCARD_MSSQL_INTERFACE_FOR_TEST
+#ifdef LINUX
+#include <syslog.h>
+#endif
 
 static int conn_id = -1;               // identify connection
 char mssqlUserFilename[MAX_WORD_SIZE]; // current topic file name for user
@@ -39,20 +32,24 @@ static const char* log_filename = "mssql_init_log.txt";
 
 // library init
 static bool mssqlInited = false;
+static const size_t mssql_header_size = 4;
+static bool already_entered_close = false;
 
 // useful mssql commands (to use from sqlcmd). Always follow with newline, and GO
 // SELECT * FROM INFORMATION_SCHEMA.TABLES;
-// -- lists all tables defined in db(looking to see if userfiles is defined yet)
+// -- lists all tables defined in db(looking to see if userState is defined yet)
 
 // create database chatscript; -- create the database
 // USE chatscript;      --make this the current database
-// CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, [file] VARBINARY(max), stored DATETIME DEFAULT CURRENT_TIMESTAMP)
-// select * from information_schema.columns where table_name='userfiles'; -- lists names of fields and types.
-// SELECT * from userfiles  to show entries
+// CREATE TABLE userState (userid varchar(100) PRIMARY KEY, ustate VARBINARY(max), lastUpdateDate DATETIME DEFAULT CURRENT_TIMESTAMP)
+// select * from information_schema.columns where table_name='userState'; -- lists names of fields and types.
+// SELECT * from userState  to show entries
 
-// DELETE  FROM userfiles WHERE DATE(stored) < DATE(NOW() - INTERVAL 1 DAY)
+// DELETE  FROM userState WHERE DATE(lastUpdateDate) < DATE(NOW() - INTERVAL 1 DAY)
 // Above deletes records 2 days or earlier. A user might converse just before midnight and then continue shortly thereafter, so we do not merely want a single day separator.
-// DROP TABLE userfiles;        --destroy the entire collection of saved entries. Then recreate it.
+// DROP TABLE userState;        --destroy the entire collection of saved entries. Then recreate it.
+
+#ifndef DISCARD_MSSQL_INTERFACE_FOR_TEST
 
 static void GetMsSqlParams(char* params)
 {
@@ -82,6 +79,9 @@ static FILE* GetUserFilenameFromName(const char* name)
 // Declaration to prevent forward reference
 static void SetUserFileSystemBlock(void);
 
+static char *z_buffer = nullptr; // for compress and uncomress operations
+static int z_buffer_size = 0;
+
 ////////////////////////////////////
 // FILE SYSTEM REPLACEMENT FUNCTIONS
 ////////////////////////////////////
@@ -101,60 +101,61 @@ int mssqlUserClose(FILE*)
         return 0;
 }
 
-size_t mssqlUserRead(void* buf,size_t size, size_t count, FILE* key)
+static size_t mssqlUserRead(void* buf,size_t size, size_t count, FILE* key)
 { // read topic file record of user
-
     if (!mssqlInited) {
-        ReportBug( "mssql not initialized yet" );
+        ReportBug( "FATAL: mssql not initialized yet" );
         return 0;
     }
 
-    size_t buf_size = size * count;
-    int rv = mssql_file_read(conn_id, buf, &buf_size, (const char*) key);
+    size_t z_size = z_buffer_size;
+    int rv = mssql_file_read(conn_id, z_buffer, &z_size, (const char*) key);
     if (rv) {
         ReportBug( mssql_error() );
         return 0;
     }
-    
-	return buf_size;
+
+    size_t buf_size = size * count;
+    int rv_u = mssql_maybe_uncompress(z_buffer, z_size, (char*)buf, &buf_size);
+    if (rv_u) {
+        printf( mssql_error() );
+        ReportBug( mssql_error() );
+        return 0;
+    }
+
+    return buf_size;
 }
 
 static size_t mssqlUserWrite(const void* buf, size_t size, size_t count, FILE* key)
 {
     if (!mssqlInited) {
-        ReportBug( "mssql not initialized yet" );
+        ReportBug( "FATAL: mssql not initialized yet" );
         return 0;
     }
+
     size_t buf_size = size * count;
-    int rv = mssql_file_write(conn_id, buf, buf_size, (const char*) key);
-    if (rv) {
+    size_t z_size = z_buffer_size;
+    int rv_c = mssql_maybe_compress(z_buffer, &z_size, (const char*)buf, buf_size);
+    if (rv_c) {
         ReportBug( mssql_error() );
         return 0;
     }
 
-    return buf_size; 
+    int rv_w = mssql_file_write(conn_id, z_buffer, z_size, (const char*) key);
+    if (rv_w) {
+        ReportBug( mssql_error() );
+        return 0;
+    }
+
+    return buf_size;
 }
 
-static bool save_string_to_mssql_log_file(const char* s)
+static void save_info_string_to_mssql_syslog(const char* s)
 {
-    const bool store_to_file = true;
-    if (store_to_file) {
-        FILE* f = fopen(log_filename, "a");
-        if (f != NULL) {
-            time_t rawtime;
-            struct tm* timeinfo;
-
-            time(&rawtime);
-            timeinfo = localtime(&rawtime);
-
-            fprintf(f, "%s at %s\n", s, asctime(timeinfo));
-            fclose(f);
-        }
-        else {
-            return false;
-        }
-    }
-    return true;
+#ifdef LINUX
+    syslog(LOG_INFO, "%s user: %s bot: %s msg %s",
+           syslogstr, loginID, computerID, s);
+#endif
 }
 
 // initialize the user system
@@ -162,44 +163,48 @@ void MsSqlUserFilesCode(char* params)
 {
     if (mssqlInited)   return;
 
-    conn_id = mssql_get_id();
+    conn_id = mssql_get_new_id();
     if (conn_id < 0)  ReportBug((char*) mssql_error());
 
-    GetMsSqlParams(params); 
+    GetMsSqlParams(params);
 
     int rv = mssql_init(conn_id, mssqlhost, mssqlport,
                         mssqluser, mssqlpasswd, mssqldatabase);
     if (rv) {
-        ReportBug((char*)"FATAL: Failed to connect to MSSQL: %s %s",
+        ReportBug((char*)"FATAL: mssql: Failed to connect to MSSQL: %s %s",
                   params, mssql_error());
         return;
     }
 
     SetUserFileSystemBlock();
 
-    rv = save_string_to_mssql_log_file("init mssql");
-    if (!rv) {
-        ReportBug((char*)"FATAL: Unable to save mssql log file: %s",
+    save_info_string_to_mssql_syslog("init mssql");
+
+    z_buffer = get_mssql_staging_buffer(conn_id, &z_buffer_size);
+    if (z_buffer == nullptr) {
+        ReportBug((char*)"FATAL: mssql: Unable to get staging buffer",
                   log_filename);
         return;
     }
 
+    already_entered_close = false;
     mssqlInited = true;
 }
 
 void MsSqlFullCloseCode(bool restart)
 {
+    if (already_entered_close) return; // prevent infinite loop because of ReportBug
+    already_entered_close = true;
+        
     if (!mssqlInited) {
-        ReportBug((char*) "Closing uninitialized block %s", mssql_error());
+        ReportBug((char*) "mssql: Closing uninitialized block %s", mssql_error());
         return; // closing maybe when failed to init and reported bug then
     }
 
-    int rv = save_string_to_mssql_log_file("close mssql");
-    if (rv) {
-        ReportBug((char*)"FATAL: Unable to save mssql log file: %s",
-                  log_filename);
-        return;
-    }
+    save_info_string_to_mssql_syslog("close mssql");
+
+    z_buffer = nullptr;
+    z_buffer_size = 0;
 
     if (conn_id != -1) mssql_close(conn_id);
     conn_id = -1;
@@ -242,7 +247,7 @@ FunctionResult MsSqlQueryCode(char* buffer)
 /** Low level functions for interfacing to ODBC */
 
 struct DbInterface_t {
-    int used; 
+    int used;
     SQLHENV henv;      // Environment handle
     SQLHDBC hdbc;      // Connection handle
     SQLHSTMT hstmt_w;  // Write statement handle
@@ -303,7 +308,7 @@ static void extract_error(const char *fn, SQLHANDLE handle, SQLSMALLINT type)
     SQLRETURN ret;
 
     snprintf(error_buf, sizeof(error_buf),
-             "\nThe driver reported the following error %s\n", fn);
+             "\nFATAL: mssql: The driver reported the following error %s\n", fn);
     do
     {
         ret = SQLGetDiagRec(type,         // SQLSMALLINT HandleType,
@@ -316,7 +321,7 @@ static void extract_error(const char *fn, SQLHANDLE handle, SQLSMALLINT type)
                             &TextLength); // SQLSMALLINT * TextLengthPtr
         if (SQL_SUCCEEDED(ret)) {
             snprintf(error_buf + strlen(error_buf), sizeof(error_buf),
-                     "%s:%ld:%ld:%s\n", 
+                     "%s:%ld:%ld:%s\n",
                      SQLState, (long)i, (long)NativeError, MessageText);
         }
     } while (ret == SQL_SUCCESS);
@@ -344,38 +349,38 @@ static void releaseHeap(void* ptr) {
     free(ptr);
 }
 
-static bool init_db(DbInterface_t* db)
+static bool init_db(DbInterface_t* dbp)
 {
-    db->verbose = false;
+    dbp->verbose = false;
 
-    db->file_buf_size = (userCacheSize + OVERFLOW_SAFETY_MARGIN);
-    db->file_buf = nullptr;
+    dbp->file_buf_size =((SQLLEN)userCacheSize + OVERFLOW_SAFETY_MARGIN);
+    dbp->file_buf = nullptr;
 
-    db->key_buf_size = 100;
-    db->key_buf = nullptr;
+    dbp->key_buf_size = 100;
+    dbp->key_buf = nullptr;
 
-    db->henv = SQL_NULL_HENV;   // Environment handle
-    db->hdbc = SQL_NULL_HDBC;   // Connection handle
-    db->hstmt_w = SQL_NULL_HSTMT;  // Write statement handle
-    db->hstmt_r = SQL_NULL_HSTMT;  // Write statement handle
-    db->write_prepared = false;
-    db->write_parameters_bound = false;
-    db->read_prepared = false;
-    db->read_parameters_bound = false;
-    db->use_stored_procedures = true;
-    db->use_tracing = false;
-    db->used = 1;
+    dbp->henv = SQL_NULL_HENV;   // Environment handle
+    dbp->hdbc = SQL_NULL_HDBC;   // Connection handle
+    dbp->hstmt_w = SQL_NULL_HSTMT;  // Write statement handle
+    dbp->hstmt_r = SQL_NULL_HSTMT;  // Write statement handle
+    dbp->write_prepared = false;
+    dbp->write_parameters_bound = false;
+    dbp->read_prepared = false;
+    dbp->read_parameters_bound = false;
+    dbp->use_stored_procedures = true;
+    dbp->use_tracing = false;
+    dbp->used = 1;
 
     return true;
 }
 
-int mssql_get_id(void)
+int mssql_get_new_id(void)
 {
     size_t i;
     for (i = 0; i < sizeof(db_list) / sizeof(db_list[0]); ++i) {
-        struct DbInterface_t* db = &db_list[i];
-        if (db->used == 0) {
-            bool ok = init_db(db);
+        struct DbInterface_t* dbp = &db_list[i];
+        if (dbp->used == 0) {
+            bool ok = init_db(dbp);
             if (ok)  return i;
         }
     }
@@ -387,15 +392,15 @@ static DbInterface_t* get_db(int id)
     int array_size = sizeof(db_list)/sizeof(db_list[0]);
     if ((id < 0) || (array_size <= id))  return nullptr;
 
-    DbInterface_t* db = &db_list[id];
-    return db;
+    DbInterface_t* dbp = &db_list[id];
+    return dbp;
 }
 
 int mssql_set_verbose(int id, bool flag)
 {
-    DbInterface_t* db = get_db(id);
-    if (db != nullptr) {
-        db->verbose = flag;
+    DbInterface_t* dbp = get_db(id);
+    if (dbp != nullptr) {
+        dbp->verbose = flag;
         return 0;
     }
     return -1;
@@ -403,199 +408,199 @@ int mssql_set_verbose(int id, bool flag)
 
 int mssql_use_stored_procedures(int id, bool flag)
 {
-    DbInterface_t* db = get_db(id);
-    if (db != nullptr) {
-        db->use_stored_procedures = flag;
+    DbInterface_t* dbp = get_db(id);
+    if (dbp != nullptr) {
+        dbp->use_stored_procedures = flag;
         return 0;
     }
     return -1;
 }
 
-static bool free_statement_handle(DbInterface_t* db)
+static bool free_statement_handle(DbInterface_t* dbp)
 {
     SQLRETURN rv;
-    if (db->hstmt_w != SQL_NULL_HSTMT) {
-        rv = SQLFreeHandle(SQL_HANDLE_STMT, db->hstmt_w);
-        if (is_error(rv, "SQLFreeHandle", db->hstmt_w, SQL_HANDLE_STMT)) {
+    if (dbp->hstmt_w != SQL_NULL_HSTMT) {
+        rv = SQLFreeHandle(SQL_HANDLE_STMT, dbp->hstmt_w);
+        if (is_error(rv, "SQLFreeHandle", dbp->hstmt_w, SQL_HANDLE_STMT)) {
             return false;
         }
-        db->hstmt_w = nullptr;
+        dbp->hstmt_w = nullptr;
     }
-    if (db->hstmt_r != SQL_NULL_HSTMT) {
-        rv = SQLFreeHandle(SQL_HANDLE_STMT, db->hstmt_r);
-        if (is_error(rv, "SQLFreeHandle", db->hstmt_r, SQL_HANDLE_STMT)) {
+    if (dbp->hstmt_r != SQL_NULL_HSTMT) {
+        rv = SQLFreeHandle(SQL_HANDLE_STMT, dbp->hstmt_r);
+        if (is_error(rv, "SQLFreeHandle", dbp->hstmt_r, SQL_HANDLE_STMT)) {
             return false;
         }
-        db->hstmt_r = nullptr;
+        dbp->hstmt_r = nullptr;
     }
     return true;
 }
 
-static bool free_connection_handle(DbInterface_t* db)
+static bool free_connection_handle(DbInterface_t* dbp)
 {
     SQLRETURN rv;
-    if (db->hdbc != SQL_NULL_HDBC) {
-        rv = SQLDisconnect(db->hdbc);
-        if (is_error(rv, "SQLDisconnect", db->hdbc, SQL_HANDLE_DBC)) {
+    if (dbp->hdbc != SQL_NULL_HDBC) {
+        rv = SQLDisconnect(dbp->hdbc);
+        if (is_error(rv, "SQLDisconnect", dbp->hdbc, SQL_HANDLE_DBC)) {
             return false;
         }
-        rv = SQLFreeHandle(SQL_HANDLE_DBC, db->hdbc);
-        if (is_error(rv, "SQLFreeHandle", db->hdbc, SQL_HANDLE_DBC)) {
+        rv = SQLFreeHandle(SQL_HANDLE_DBC, dbp->hdbc);
+        if (is_error(rv, "SQLFreeHandle", dbp->hdbc, SQL_HANDLE_DBC)) {
             return false;
         }
-        db->hdbc = nullptr;
+        dbp->hdbc = nullptr;
     }
     return true;
 }
 
-static bool free_environment_handle(DbInterface_t* db)
+static bool free_environment_handle(DbInterface_t* dbp)
 {
     SQLRETURN rv;
-    if (db->henv != SQL_NULL_HENV) {
-        rv = SQLFreeHandle(SQL_HANDLE_ENV, db->henv);
-        if (is_error(rv, "SQLFreeHandle", db->henv, SQL_HANDLE_ENV)) {
+    if (dbp->henv != SQL_NULL_HENV) {
+        rv = SQLFreeHandle(SQL_HANDLE_ENV, dbp->henv);
+        if (is_error(rv, "SQLFreeHandle", dbp->henv, SQL_HANDLE_ENV)) {
             return false;
         }
-        db->henv = nullptr;
+        dbp->henv = nullptr;
     }
     return true;
 
 }
 
-static bool deinit_database_interface_struct(DbInterface_t* db)
+static bool deinit_database_interface_struct(DbInterface_t* dbp)
 {
-    releaseHeap(db->file_buf);
-    db->file_buf = nullptr;
-    db->file_buf_size = 0;
+    releaseHeap(dbp->file_buf);
+    dbp->file_buf = nullptr;
+    dbp->file_buf_size = 0;
 
-    releaseHeap(db->key_buf);
-    db->key_buf = nullptr;
-    db->key_buf_size = 0;
+    releaseHeap(dbp->key_buf);
+    dbp->key_buf = nullptr;
+    dbp->key_buf_size = 0;
 
-    db->write_prepared = false;
-    db->write_parameters_bound = false;
-    db->read_prepared = false;
+    dbp->write_prepared = false;
+    dbp->write_parameters_bound = false;
+    dbp->read_prepared = false;
 
-    db->used = 0;
+    dbp->used = 0;
 
     return true;
 }
 
 int mssql_close(int id)
 {
-    DbInterface_t* db = get_db(id);
-    bool ok = (db != nullptr);
+    DbInterface_t* dbp = get_db(id);
+    bool ok = (dbp != nullptr);
 
-    ok = ok & free_statement_handle(db);
-    ok = ok & free_connection_handle(db);
-    ok = ok & free_environment_handle(db);
-    ok = ok & deinit_database_interface_struct(db);
+    ok = ok & free_statement_handle(dbp);
+    ok = ok & free_connection_handle(dbp);
+    ok = ok & free_environment_handle(dbp);
+    ok = ok & deinit_database_interface_struct(dbp);
 
     int rv = (ok ? 0 : -1);
 
     return rv;
 }
 
-static bool alloc_buffers(DbInterface_t* db)
+static bool alloc_buffers(DbInterface_t* dbp)
 {
-    db->file_buf = getHeap(db->file_buf_size);
-    if (db->file_buf == nullptr) {
+    dbp->file_buf = getHeap(dbp->file_buf_size);
+    if (dbp->file_buf == nullptr) {
         snprintf(error_buf, sizeof(error_buf),
-                 "Unable to allocate %ld bytes for file buffer",
-                 db->file_buf_size);
+                 "FATAL: mssql: Unable to allocate %ld bytes for file buffer",
+                 (long) dbp->file_buf_size);
         return false;
     }
 
-    db->key_buf = getHeap(db->key_buf_size);
-    if (db->key_buf == nullptr) {
+    dbp->key_buf = getHeap(dbp->key_buf_size);
+    if (dbp->key_buf == nullptr) {
         snprintf(error_buf, sizeof(error_buf),
-                 "Unable to allocate %ld bytes for key buffer",
-                 db->file_buf_size);
+                 "FATAL: mssql: Unable to allocate %ld bytes for key buffer",
+                 (long) dbp->file_buf_size);
         return false;
     }
     return true;
 }
-static bool alloc_environment_handle(DbInterface_t* db)
+static bool alloc_environment_handle(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
-    retcode = SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &db->henv);
+    retcode = SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &dbp->henv);
     if (is_error(retcode, "SQLAllocHandle(SQL_HANDLE_ENV)",
-                 db->henv, SQL_HANDLE_ENV)) {
+                 dbp->henv, SQL_HANDLE_ENV)) {
         return false;
     }
     return true;
 }
 
-static bool set_ODBC_version(DbInterface_t* db)
+static bool set_ODBC_version(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
-    retcode = SQLSetEnvAttr(db->henv, SQL_ATTR_ODBC_VERSION,
+    retcode = SQLSetEnvAttr(dbp->henv, SQL_ATTR_ODBC_VERSION,
                             (SQLPOINTER*)SQL_OV_ODBC3, 0);
     if (is_error(retcode, "SQLSetEnvAttr(SQL_ATTR_ODBC_VERSION)",
-                 db->henv, SQL_HANDLE_ENV)) {
+                 dbp->henv, SQL_HANDLE_ENV)) {
         return false;
     }
     return true;
 }
 
-static bool alloc_connection_handle(DbInterface_t* db)
+static bool alloc_connection_handle(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
-    retcode = SQLAllocHandle(SQL_HANDLE_DBC, db->henv, &db->hdbc);
+    retcode = SQLAllocHandle(SQL_HANDLE_DBC, dbp->henv, &dbp->hdbc);
     if (is_error(retcode, "SQLAllocHandle(SQL_HANDLE_DBC)",
-                 db->hdbc, SQL_HANDLE_DBC)) {
+                 dbp->hdbc, SQL_HANDLE_DBC)) {
         return false;
     }
 
     return true;
 }
 
-static bool set_login_timeout(DbInterface_t* db)
+static bool set_login_timeout(DbInterface_t* dbp)
 {
     // I know the below does not make sense because
     // a number is being used as a pointer,
     // but it comes directly from this MS page:
     // https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlconnect-function?view=sql-server-ver15
     SQLRETURN retcode;
-    retcode = SQLSetConnectAttr(db->hdbc,
+    retcode = SQLSetConnectAttr(dbp->hdbc,
                                 SQL_LOGIN_TIMEOUT,
                                 (SQLPOINTER)5, // login time in s
                                 0);
     if (is_error(retcode, "SQLSetConnectAttr(SQL_LOGIN_TIMEOUT)",
-                 db->hdbc, SQL_HANDLE_DBC)) {
+                 dbp->hdbc, SQL_HANDLE_DBC)) {
         return false;
     }
     return true;
 }
 
-static bool set_tracing(DbInterface_t* db) {
+static bool set_tracing(DbInterface_t* dbp) {
     SQLRETURN retcode;
-    if (db->use_tracing) {
-        retcode = SQLSetConnectAttr(db->hdbc,
+    if (dbp->use_tracing) {
+        retcode = SQLSetConnectAttr(dbp->hdbc,
                                     SQL_ATTR_TRACEFILE,
                                     tracing_filename,
                                     SQL_NTS);
         if (is_error(retcode, "SQLSetConnectAttr - SQL_ATTR_TRACEFILE",
-                     db->hdbc, SQL_HANDLE_DBC)) {
+                     dbp->hdbc, SQL_HANDLE_DBC)) {
             return false;
         }
 
-        retcode = SQLSetConnectAttr(db->hdbc,
+        retcode = SQLSetConnectAttr(dbp->hdbc,
                                     SQL_ATTR_TRACE,
                                     (void*)SQL_OPT_TRACE_ON,
-                                    SQL_NTS);    
+                                    SQL_NTS);
         if (is_error(retcode, "SQLSetConnectAttr - SQL_ATTR_TRACE",
-                     db->hdbc, SQL_HANDLE_DBC)) {
+                     dbp->hdbc, SQL_HANDLE_DBC)) {
             return false;
         }
     }
     else {
-        retcode = SQLSetConnectAttr(db->hdbc,
+        retcode = SQLSetConnectAttr(dbp->hdbc,
                                     SQL_ATTR_TRACE,
                                     (void*)SQL_OPT_TRACE_OFF,
                                     SQL_NTS);
         if (is_error(retcode, "SQLSetConnectAttr - SQL_ATTR_TRACE",
-                     db->hdbc, SQL_HANDLE_DBC)) {
+                     dbp->hdbc, SQL_HANDLE_DBC)) {
             return false;
         }
     }
@@ -603,7 +608,7 @@ static bool set_tracing(DbInterface_t* db) {
     return true;
 }
 
-static bool connect(DbInterface_t* db,
+static bool connect(DbInterface_t* dbp,
                     const char* host,
                     const char* host_port,
                     const char* user,
@@ -616,13 +621,13 @@ static bool connect(DbInterface_t* db,
     snprintf(in_conn_str, sizeof(in_conn_str),
              "DRIVER=%s; SERVER=%s,%s; DATABASE=%s; UID=%s; PWD=%s",
              driver, host, host_port, database, user, pwd);
-    if (db->verbose) {
+    if (dbp->verbose) {
         printf("in_conn_str %s\n", in_conn_str);
     }
     HWND dhandle = nullptr;
     SQLSMALLINT in_len = (SQLSMALLINT) strlen(in_conn_str);
     outstrlen = sizeof(out_conn_str);
-    retcode = SQLDriverConnect(db->hdbc, // SQLHDBC ConnectionHandle
+    retcode = SQLDriverConnect(dbp->hdbc, // SQLHDBC ConnectionHandle
                                dhandle,  // SQLHWND WindowHandle
                                (SQLCHAR*)in_conn_str, // SQLCHAR * InConnectionString
                                in_len, // SQLSMALLINT StringLength1
@@ -630,42 +635,42 @@ static bool connect(DbInterface_t* db,
                                outstrlen, // SQLSMALLINT BufferLength
                                &outstrlen, // SQLSMALLINT * StringLength2Ptr
                                SQL_DRIVER_COMPLETE); // SQLUSMALLINT DriverCompletion
-    if (db->verbose) {
+    if (dbp->verbose) {
         printf("connect outstrlen %d\n", outstrlen);
         if (0 < outstrlen) {
             printf("outstr: %s\n", out_conn_str);
         }
     }
     if (retcode == SQL_SUCCESS) {
-        if (db->verbose) {
+        if (dbp->verbose) {
             printf("Connect: SQL_SUCCESS\n");
         }
         return true;
     }
     else if (retcode == SQL_SUCCESS_WITH_INFO) {
-        if (db->verbose) {
-            extract_error("SQLDriverConnect", db->hdbc, SQL_HANDLE_DBC);
+        if (dbp->verbose) {
+            extract_error("SQLDriverConnect", dbp->hdbc, SQL_HANDLE_DBC);
             printf("Got SQL_SUCCESS_WITH_INFO %s\n", error_buf);
         }
         return true;
     }
 
-    is_error(retcode, "SQLDriverConnect", db->hdbc, SQL_HANDLE_DBC);
+    is_error(retcode, "SQLDriverConnect", dbp->hdbc, SQL_HANDLE_DBC);
 
     return false;
 }
 
-static bool alloc_statement_handles(DbInterface_t* db)
+static bool alloc_statement_handles(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
-    retcode = SQLAllocHandle(SQL_HANDLE_STMT, db->hdbc, &db->hstmt_w);
+    retcode = SQLAllocHandle(SQL_HANDLE_STMT, dbp->hdbc, &dbp->hstmt_w);
     if (is_error(retcode, "SQLAllocHandle(SQL_HANDLE_STMT)",
-                 db->hstmt_w, SQL_HANDLE_STMT)) {
+                 dbp->hstmt_w, SQL_HANDLE_STMT)) {
         return false;
     }
-    retcode = SQLAllocHandle(SQL_HANDLE_STMT, db->hdbc, &db->hstmt_r);
+    retcode = SQLAllocHandle(SQL_HANDLE_STMT, dbp->hdbc, &dbp->hstmt_r);
     if (is_error(retcode, "SQLAllocHandle(SQL_HANDLE_STMT)",
-                 db->hstmt_r, SQL_HANDLE_STMT)) {
+                 dbp->hstmt_r, SQL_HANDLE_STMT)) {
         return false;
     }
     return true;
@@ -678,16 +683,16 @@ int mssql_init(int id,
                const char* pwd,
                const char* database)
 {
-    DbInterface_t* db = get_db(id);
-    bool ok = (db != nullptr);
-    ok = ok && alloc_buffers(db);
-    ok = ok && alloc_environment_handle(db);
-    ok = ok && set_ODBC_version(db);
-    ok = ok && alloc_connection_handle(db);
-    ok = ok && set_login_timeout(db);
-    ok = ok && set_tracing(db);
-    ok = ok && connect(db, host, host_port, user, pwd, database);
-    ok = ok && alloc_statement_handles(db);
+    DbInterface_t* dbp = get_db(id);
+    bool ok = (dbp != nullptr);
+    ok = ok && alloc_buffers(dbp);
+    ok = ok && alloc_environment_handle(dbp);
+    ok = ok && set_ODBC_version(dbp);
+    ok = ok && alloc_connection_handle(dbp);
+    ok = ok && set_login_timeout(dbp);
+    ok = ok && set_tracing(dbp);
+    ok = ok && connect(dbp, host, host_port, user, pwd, database);
+    ok = ok && alloc_statement_handles(dbp);
     return (ok ? 0 : -1);
 }
 
@@ -699,190 +704,125 @@ static bool empty_result_set(SQLHSTMT hstmt)
     return true;
 }
 
-static bool file_direct_write(DbInterface_t* db,
-                              const void* buf,
-                              size_t buf_size,
-                              const char* key)
-{
-    SQLRETURN retcode;
-
-    SQLULEN p1_column_size = 100;
-    SQLSMALLINT p1_digits = 0;
-    static SQLLEN lenP1 = 0;
-    lenP1 = strlen(key);
-    retcode = SQLBindParameter(db->hstmt_w,      // StatementHandle
-                               1,                // ParameterNumber
-                               SQL_PARAM_INPUT,  // InputOutputType
-                               SQL_C_CHAR,       // ValueType
-                               SQL_VARCHAR,      // ParameterType
-                               p1_column_size,   // ColumnSize
-                               p1_digits,        // DecimalDigits
-                               (SQLPOINTER) key, // ParameterValuePtr
-                               lenP1,            // BufferLength
-                               &lenP1);          // StrLen_or_IndPtr
-    if (is_error(retcode, "SQLBindParameter", db->hstmt_w, SQL_HANDLE_STMT)) {
-        printf("%s\n", error_buf);
-        return false;
-    }
-
-    memcpy(db->file_buf, buf, buf_size);
-    db->file_buf_len = buf_size;
-
-    SQLULEN p2_column_size = db->file_buf_len;
-    SQLSMALLINT p2_digits = 0;
-    static SQLLEN lenP2 = 0;
-    lenP2 = db->file_buf_len;
-    SQLPOINTER src_buf = (SQLPOINTER) db->file_buf;
-    retcode = SQLBindParameter(db->hstmt_w,      // StatementHandle
-                               2,                // ParameterNumber
-                               SQL_PARAM_INPUT,  // InputOutputType
-                               SQL_C_BINARY,     // ValueType
-                               SQL_VARBINARY,    // ParameterType
-                               p2_column_size,   // ColumnSize
-                               p2_digits,        // DecimalDigits
-                               src_buf,          // ParameterValuePtr
-                               lenP2,            // BufferLength
-                               &lenP2);          // StrLen_or_IndPtr
-    if (is_error(retcode, "SQLBindParameter", db->hstmt_w, SQL_HANDLE_STMT)) {
-        printf("%s\n", error_buf);
-        return false;
-    }
-
-    const char* query2 = ""
-        "{ CALL uspSetUserData( ?, ? ) }";
-
-    retcode = SQLExecDirect(db->hstmt_w, (SQLCHAR*)query2, SQL_NTS);
-    if (is_error(retcode, "SQLExecDirect", db->hstmt_w, SQL_HANDLE_STMT)) {
-        printf("%s\n", error_buf);
-        return false;
-    }
-
-    SQLLEN row_count = 0;
-    retcode = SQLRowCount(db->hstmt_w, &row_count);
-    if (is_error(retcode, "SQLRowCount", db->hstmt_w, SQL_HANDLE_STMT)) {
-        printf("%s\n", error_buf);
-        return false;
-    }
-
-    return true;
-}
-
-static bool file_write_preformat_data(DbInterface_t* db, const void* buf, size_t buf_size)
+static bool file_write_preformat_data(DbInterface_t* dbp, const void* buf, size_t buf_size)
 {
     size_t cushion = 20;
-    if (db->file_buf_size < (SQLLEN)(buf_size + cushion)) {
-        sprintf(error_buf, "file too big. file size %zu", buf_size);
+    if (dbp->file_buf_size < (SQLLEN)(buf_size + cushion)) {
+        sprintf(error_buf, "FATAL: mssql: file too big. file size %zu", buf_size);
         return false;
     }
 
-    memcpy(db->file_buf, buf, buf_size);
-    db->file_buf_len = buf_size;
-    if (db->verbose) {
-        printf("write size %ld\n", db->file_buf_len);
+    if (buf != dbp->file_buf) { // only copy if buffers are not the same
+        memcpy(dbp->file_buf, buf, buf_size);
     }
-    
+    dbp->file_buf_len = buf_size;
+    if (dbp->verbose) {
+        printf("write size %ld\n", (long) dbp->file_buf_len);
+    }
+
     return true;
 }
 
-static bool file_write_bind_params(DbInterface_t* db)
+static bool file_write_bind_params(DbInterface_t* dbp)
 {
-    if (!db->write_parameters_bound) { // only bind once
+    if (!dbp->write_parameters_bound) { // only bind once
         SQLRETURN retcode;
 
         SQLULEN p1_column_size = 100;
         SQLSMALLINT p1_digits = 0;
-        db->key_buf_len = db->key_buf_size;
-        retcode = SQLBindParameter(db->hstmt_w,      // StatementHandle
+        dbp->key_buf_len = dbp->key_buf_size;
+        retcode = SQLBindParameter(dbp->hstmt_w,      // StatementHandle
                                    1,                // ParameterNumber
                                    SQL_PARAM_INPUT,  // InputOutputType
                                    SQL_C_CHAR,       // ValueType
                                    SQL_VARCHAR,      // ParameterType
                                    p1_column_size,   // ColumnSize
                                    p1_digits,        // DecimalDigits
-                                   (SQLPOINTER) db->key_buf, // ParameterValuePtr
-                                   db->key_buf_size,            // BufferLength
-                                   &db->key_buf_len);          // StrLen_or_IndPtr
-        if (is_error(retcode, "SQLBindParameter", db->hstmt_w, SQL_HANDLE_STMT)) {
+                                   (SQLPOINTER) dbp->key_buf, // ParameterValuePtr
+                                   dbp->key_buf_size,            // BufferLength
+                                   &dbp->key_buf_len);          // StrLen_or_IndPtr
+        if (is_error(retcode, "SQLBindParameter", dbp->hstmt_w, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
 
-        SQLULEN p2_column_size = db->file_buf_size;
+        SQLULEN p2_column_size = dbp->file_buf_size;
         SQLSMALLINT p2_digits = 0;
-        retcode = SQLBindParameter(db->hstmt_w,      // StatementHandle
+        retcode = SQLBindParameter(dbp->hstmt_w,      // StatementHandle
                                    2,                // ParameterNumber
                                    SQL_PARAM_INPUT,  // InputOutputType
                                    SQL_C_BINARY,     // ValueType
                                    SQL_LONGVARBINARY, // ParameterType
                                    p2_column_size,   // ColumnSize
                                    p2_digits,        // DecimalDigits
-                                   db->file_buf,     // ParameterValuePtr
-                                   db->file_buf_len, // BufferLength, ignored for writes
-                                   &db->file_buf_len); // StrLen_or_IndPtr
-        if (is_error(retcode, "SQLBindParameter", db->hstmt_w, SQL_HANDLE_STMT)) {
+                                   dbp->file_buf,     // ParameterValuePtr
+                                   dbp->file_buf_len, // BufferLength, ignored for writes
+                                   &dbp->file_buf_len); // StrLen_or_IndPtr
+        if (is_error(retcode, "SQLBindParameter", dbp->hstmt_w, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
-        db->write_parameters_bound = true;
+        dbp->write_parameters_bound = true;
     }
 
     return true;
 }
 
-static bool file_write_copy_key(DbInterface_t* db, const char* key)
+static bool file_write_copy_key(DbInterface_t* dbp, const char* key)
 {
-    memcpy(db->key_buf, key, db->key_buf_len);
-    db->key_buf_len = strlen(key);
+    memcpy(dbp->key_buf, key, dbp->key_buf_len);
+    dbp->key_buf_len = strlen(key);
     return true;
 }
 
 
-static bool file_write_prepare(DbInterface_t* db)
+static bool file_write_prepare(DbInterface_t* dbp)
 {
-    if (!db->write_prepared) {  // only prepare once
+    if (!dbp->write_prepared) {  // only prepare once
         const char* upsert_sp = ""
-            "MERGE INTO userfiles AS t "
+            "MERGE INTO userState AS t "
             "  USING  "
             "    (SELECT pk=?, f1= ?) AS s "
             "  ON t.userid = s.pk "
             "  WHEN MATCHED THEN "
-            "    UPDATE SET userid=s.pk, [file]=s.f1 "
+            "    UPDATE SET userid=s.pk, ustate=s.f1 "
             "  WHEN NOT MATCHED THEN "
-            "    INSERT (userid, [file]) "
+            "    INSERT (userid, ustate) "
             "    VALUES (s.pk, s.f1); "
             "";
 
         const char* upsert_sql = ""
-            "{ CALL uspSetUserData( ?, ? ) }";
+            "{ CALL spChatScript_UpsertByUserId( ?, ? ) }";
+            // "{ CALL uspSetUserData( ?, ? ) }";
 
-        const char* upsert = (db->use_stored_procedures ? upsert_sp : upsert_sql);
+        const char* upsert = (dbp->use_stored_procedures ? upsert_sp : upsert_sql);
         SQLRETURN retcode;
-    
-        retcode = SQLPrepare(db->hstmt_w, (SQLCHAR*)upsert, SQL_NTS);
-        if (is_error(retcode, "SQLPrepare", db->hstmt_w, SQL_HANDLE_STMT)) {
+
+        retcode = SQLPrepare(dbp->hstmt_w, (SQLCHAR*)upsert, SQL_NTS);
+        if (is_error(retcode, "SQLPrepare", dbp->hstmt_w, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
 
         SQLSMALLINT num_params;
-        SQLNumParams(db->hstmt_w, &num_params);
+        SQLNumParams(dbp->hstmt_w, &num_params);
 
         int expected_num_params = 2;
         if (num_params != expected_num_params) {
             return false;
         }
-        db->write_prepared = true;
+        dbp->write_prepared = true;
     }
-    
+
     return true;
 }
 
-static bool file_write_execute(DbInterface_t* db)
+static bool file_write_execute(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
 
-    retcode = SQLExecute(db->hstmt_w);
-    if (is_error(retcode, "SQLExecute", db->hstmt_w, SQL_HANDLE_STMT)) {
+    retcode = SQLExecute(dbp->hstmt_w);
+    if (is_error(retcode, "SQLExecute", dbp->hstmt_w, SQL_HANDLE_STMT)) {
         printf("%s\n", error_buf);
         return false;
     }
@@ -891,195 +831,86 @@ static bool file_write_execute(DbInterface_t* db)
 
 int mssql_file_write(int id, const void* buf, size_t buf_size, const char* key)
 {
-    DbInterface_t* db = get_db(id);
-    bool ok = (db != nullptr);
+    DbInterface_t* dbp = get_db(id);
+    bool ok = (dbp != nullptr);
 
-    bool use_direct = false;
-    if (use_direct) {
-        ok = ok && file_direct_write(db, buf, buf_size, key);
-        ok = ok && empty_result_set(db->hstmt_w);
-    }
-    else {
-        ok = ok && file_write_preformat_data(db, buf, buf_size);
-        ok = ok && file_write_prepare(db);
-        ok = ok && file_write_bind_params(db);
-        ok = ok && file_write_copy_key(db, key);
-        ok = ok && file_write_execute(db);
-        ok = ok && empty_result_set(db->hstmt_w);
-    }
+    ok = ok && file_write_preformat_data(dbp, buf, buf_size);
+    ok = ok && file_write_prepare(dbp);
+    ok = ok && file_write_bind_params(dbp);
+    ok = ok && file_write_copy_key(dbp, key);
+    ok = ok && file_write_execute(dbp);
+    ok = ok && empty_result_set(dbp->hstmt_w);
 
     int ret_val = (ok ? 0 : -1);
     return ret_val;
 }
 
-static bool file_direct_read(DbInterface_t* db, void* buf, size_t* buf_size_p, const char* key)
+static bool file_read_init(DbInterface_t* dbp, const char* key)
 {
-    SQLRETURN retcode;
+    dbp->is_empty = false;
 
-    db->key_buf_len = strlen(key);
-    memcpy(db->key_buf, key, db->key_buf_len);
-    db->file_buf_len = db->file_buf_size;
+    dbp->key_buf_len = strlen(key);
+    memcpy(dbp->key_buf, key, dbp->key_buf_len);
 
-    SQLULEN p1_column_size = 100;
-    SQLSMALLINT p1_digits = 0;
-    retcode = SQLBindParameter(db->hstmt_r,      // StatementHandle
-                               1,                // ParameterNumber
-                               SQL_PARAM_INPUT,  // InputOutputType
-                               SQL_C_CHAR,       // ValueType
-                               SQL_VARCHAR,      // ParameterType
-                               p1_column_size,   // ColumnSize
-                               p1_digits,        // DecimalDigits
-                               (SQLPOINTER) db->key_buf, // ParameterValuePtr
-                               db->key_buf_len,  // BufferLength
-                               &db->key_buf_len); // StrLen_or_IndPtr
-    if (is_error(retcode, "SQLBindParameter", db->hstmt_r, SQL_HANDLE_STMT)) {
-        printf("%s\n", error_buf);
-        return false;
-    }
-
-    const char* query_sql = "SELECT [file] from userfiles WHERE userid = ? ";
-    const char* query_sp = "{ CALL uspGetUserData( ? ) }";
-    const char* query = (db->use_stored_procedures ? query_sp : query_sql);
-
-    retcode = SQLExecDirect(db->hstmt_r, (SQLCHAR*)query, SQL_NTS);
-    if (is_error(retcode, "SQLExecDirect", db->hstmt_r, SQL_HANDLE_STMT)) {
-        printf("%s\n", error_buf);
-        return false;
-    }
-
-    if (retcode == SQL_SUCCESS_WITH_INFO) {
-        printf("sql success with info %s\n", error_buf);
-
-        SQLSMALLINT i = 0;
-        SQLINTEGER NativeError;
-        SQLCHAR SQLState[7];
-        SQLCHAR MessageText[256];
-        SQLSMALLINT TextLength;
-        SQLRETURN ret;
-        do {
-            ret = SQLGetDiagRec(SQL_HANDLE_STMT, // SQLSMALLINT HandleType,
-                                db->hstmt_r,     // SQLHANDLE Handle
-                                ++i,      // SQLSMALLINT RecNumber
-                                SQLState, // SQLCHAR * SQLState
-                                &NativeError, // SQLINTEGER * NativeErrorPtr
-                                MessageText,  // SQLCHAR * MessageText
-                                sizeof(MessageText), // SQLSMALLINT BufferLength
-                                &TextLength); // SQLSMALLINT * TextLengthPtr
-            if (SQL_SUCCEEDED(ret)) {
-                printf("%s:%ld:%ld:%s\n", 
-                       SQLState, (long)i, (long)NativeError, MessageText);
-            }
-            else {
-                printf("huh?\n");
-            }
-        } while (ret == SQL_SUCCESS);
-    }
-
-    bool in_result_set = true;
-    db->is_empty = true;
-    while (in_result_set) {
-        retcode = SQLFetch(db->hstmt_r);
-        if (retcode == SQL_NO_DATA) {
-            in_result_set = false;
-            continue;
-        }
-        else if (is_error(retcode, "SQLFetch", db->hstmt_r, SQL_HANDLE_STMT)) {
-            printf("%s\n", error_buf);
-            return false;
-        }
-    
-        retcode = SQLGetData(db->hstmt_r,  // Statement handle
-                             1,            // Column number
-                             SQL_C_BINARY, // TargetType, the C type
-                             (SQLPOINTER) db->file_buf, // TargetValudPtr
-                             (SQLLEN) db->file_buf_size, // BufferLength
-                             (SQLLEN*) &db->file_buf_len  // strlen_or_ind
-                             );
-        if (is_error(retcode, "SQLGetData", db->hstmt_r, SQL_HANDLE_STMT)) {
-            printf("%s\n", error_buf);
-            return false;
-        }
-
-        db->is_empty = false;
-    }
-
-    if (db->is_empty) {
-        *buf_size_p = 0;
-        ((char*)buf)[0] = '\0';
-    }
-    else {
-        *buf_size_p = db->file_buf_len;
-        memcpy(buf, db->file_buf, db->file_buf_len);
-    }
+    dbp->file_buf_len = dbp->file_buf_size;
 
     return true;
 }
 
-static bool file_read_init(DbInterface_t* db, const char* key)
+static bool file_read_bind(DbInterface_t* dbp, const char* key)
 {
-    db->is_empty = false;
-
-    db->key_buf_len = strlen(key);
-    memcpy(db->key_buf, key, db->key_buf_len);
-
-    db->file_buf_len = db->file_buf_size;
-
-    return true;
-}
-
-static bool file_read_bind(DbInterface_t* db, const char* key)
-{
-    if (!db->read_parameters_bound) {
+    if (!dbp->read_parameters_bound) {
         SQLRETURN retcode;
         SQLULEN p1_column_size = 100;
         SQLSMALLINT p1_digits = 0;
-        retcode = SQLBindParameter(db->hstmt_r,      // StatementHandle
+        retcode = SQLBindParameter(dbp->hstmt_r,      // StatementHandle
                                    1,                // ParameterNumber
                                    SQL_PARAM_INPUT,  // InputOutputType
                                    SQL_C_CHAR,       // ValueType
                                    SQL_VARCHAR,      // ParameterType
                                    p1_column_size,   // ColumnSize
                                    p1_digits,        // DecimalDigits
-                                   (SQLPOINTER) db->key_buf, // ParameterValuePtr
-                                   db->key_buf_len,  // BufferLength
-                                   &db->key_buf_len); // StrLen_or_IndPtr
-        if (is_error(retcode, "SQLBindParameter", db->hstmt_r, SQL_HANDLE_STMT)) {
+                                   (SQLPOINTER) dbp->key_buf, // ParameterValuePtr
+                                   dbp->key_buf_len,  // BufferLength
+                                   &dbp->key_buf_len); // StrLen_or_IndPtr
+        if (is_error(retcode, "SQLBindParameter", dbp->hstmt_r, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
     }
-    
+
     return true;
 }
 
-static bool file_read_prepare(DbInterface_t* db)
+static bool file_read_prepare(DbInterface_t* dbp)
 {
-    if (!db->read_prepared) {
-        const char* query_sql = "" 
-            "SELECT [file] from userfiles \n"
+    if (!dbp->read_prepared) {
+        const char* query_sql = ""
+            "SELECT ustate from userState \n"
             "WHERE userid = ? ";
         const char* query_sp = ""
-            "{ CALL uspGetUserData( ? ) } ";
-        const char *query = (db->use_stored_procedures ? query_sp : query_sql);
+            "{ CALL spChatScript_GetByUserId( ? ) } ";
+            // "{ CALL uspGetUserData( ? ) } ";
+        const char *query = (dbp->use_stored_procedures ? query_sp : query_sql);
 
         SQLRETURN retcode;
-        retcode = SQLPrepare(db->hstmt_r, (SQLCHAR*)query, SQL_NTS);
-        if (is_error(retcode, "SQLPrepare", db->hstmt_r, SQL_HANDLE_STMT)) {
+        retcode = SQLPrepare(dbp->hstmt_r, (SQLCHAR*)query, SQL_NTS);
+        if (is_error(retcode, "SQLPrepare", dbp->hstmt_r, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
 
-        db->read_prepared = true;
+        dbp->read_prepared = true;
     }
-    
+
     return true;
 }
 
-static bool file_read_execute(DbInterface_t* db)
+static bool file_read_execute(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
-    retcode = SQLExecute(db->hstmt_r);
-    if (is_error(retcode, "SQLExecute", db->hstmt_r, SQL_HANDLE_STMT)) {
+    retcode = SQLExecute(dbp->hstmt_r);
+    if (is_error(retcode, "SQLExecute", dbp->hstmt_r, SQL_HANDLE_STMT)) {
         printf("%s\n", error_buf);
         return false;
     }
@@ -1096,7 +927,7 @@ static bool file_read_execute(DbInterface_t* db)
 
         do {
             ret = SQLGetDiagRec(SQL_HANDLE_STMT, // SQLSMALLINT HandleType,
-                                db->hstmt_r,// SQLHANDLE Handle
+                                dbp->hstmt_r,// SQLHANDLE Handle
                                 ++i,        // SQLSMALLINT RecNumber
                                 SQLState,   // SQLCHAR * SQLState
                                 &NativeError, // SQLINTEGER * NativeErrorPtr
@@ -1104,7 +935,7 @@ static bool file_read_execute(DbInterface_t* db)
                                 sizeof(MessageText), // SQLSMALLINT BufferLength
                                 &TextLength); // SQLSMALLINT * TextLengthPtr
             if (SQL_SUCCEEDED(ret)) {
-                printf("%s:%ld:%ld:%s\n", 
+                printf("%s:%ld:%ld:%s\n",
                        SQLState, (long)i, (long)NativeError, MessageText);
             }
             else {
@@ -1117,97 +948,93 @@ static bool file_read_execute(DbInterface_t* db)
     return true;
 }
 
-static bool file_read_fetch_and_get_data(DbInterface_t* db, size_t* buf_size_p)
+static bool file_read_fetch_and_get_data(DbInterface_t* dbp, size_t* buf_size_p)
 {
-    db->is_empty = true;
-    
+    dbp->is_empty = true;
+
     SQLRETURN retcode;
     int cycle_count = 0;
     const int max_cycle_count = 5;
     while (cycle_count < max_cycle_count) { // handles multiple result sets
         cycle_count++;
-        retcode = SQLFetch(db->hstmt_r);
+        retcode = SQLFetch(dbp->hstmt_r);
         if (retcode == SQL_NO_DATA) {
             cycle_count = max_cycle_count;
             continue;
         }
-    
-        if (is_error(retcode, "SQLFetch", db->hstmt_r, SQL_HANDLE_STMT)) {
+
+        if (is_error(retcode, "SQLFetch", dbp->hstmt_r, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
 
-        retcode = SQLGetData(db->hstmt_r,  // Statement handle
+        retcode = SQLGetData(dbp->hstmt_r,  // Statement handle
                              1,            // Column number
                              SQL_C_BINARY, // TargetType, the C type
-                             (SQLPOINTER) db->file_buf, // TargetValudPtr
-                             (SQLLEN) db->file_buf_size, // BufferLength
-                             (SQLLEN*) &db->file_buf_len  // strlen_or_ind
+                             (SQLPOINTER) dbp->file_buf, // TargetValudPtr
+                             (SQLLEN) dbp->file_buf_size, // BufferLength
+                             (SQLLEN*) &dbp->file_buf_len  // strlen_or_ind
                              );
-        if (is_error(retcode, "SQLGetData", db->hstmt_r, SQL_HANDLE_STMT)) {
+        if (is_error(retcode, "SQLGetData", dbp->hstmt_r, SQL_HANDLE_STMT)) {
             printf("%s\n", error_buf);
             return false;
         }
-        if (0 < db->file_buf_len) {
-            db->is_empty = false;
+        if (0 < dbp->file_buf_len) {
+            dbp->is_empty = false;
         }
     }
     return true;
 }
 
-static bool file_read_postformat_data(DbInterface_t* db, void* read_buf, size_t* read_len_p)
+static bool file_read_postformat_data(DbInterface_t* dbp, void* read_buf, size_t* read_len_p)
 {
-    if (!db->is_empty) {
+    if (!dbp->is_empty) {
         int cushion = 20;               // extra chars for bad compression
-        if ((SQLLEN)(*read_len_p + cushion) < db->file_buf_len) {
-            sprintf(error_buf, "Buffer too small for read: %zu vs %ld",
-                    *read_len_p, db->file_buf_len);
+        if ((SQLLEN)(*read_len_p + cushion) < dbp->file_buf_len) {
+            sprintf(error_buf, "FATAL: mssql: Buffer too small for read: %zu vs %ld",
+                    *read_len_p, (long) dbp->file_buf_len);
             return false;
         }
 
-        memcpy(read_buf, db->file_buf, db->file_buf_len);
-        *read_len_p = db->file_buf_len;
-        if (db->verbose) {
-            printf("read size %ld\n", db->file_buf_len);
+        if (read_buf != dbp->file_buf) { // only copy if buffers are not the same
+            memcpy(read_buf, dbp->file_buf, dbp->file_buf_len);
+        }
+        *read_len_p = dbp->file_buf_len;
+        if (dbp->verbose) {
+            printf("read size %ld\n", (long) dbp->file_buf_len);
         }
     }
     else {
         *read_len_p = 0;
     }
-        
+
     ((char*)read_buf)[*read_len_p] = '\0'; // null terminal string
     return true;
 }
 
-static bool file_read_with_prepare_and_execute(DbInterface_t* db,
+static bool file_read_with_prepare_and_execute(DbInterface_t* dbp,
                                                void* read_buf,
                                                size_t* read_len_p,
                                                const char* key)
 {
     bool ok = true;
-    ok = ok && file_read_init(db, key);
-    ok = ok && file_read_bind(db, key);
-    ok = ok && file_read_prepare(db);
-    ok = ok && file_read_execute(db);
-    ok = ok && file_read_fetch_and_get_data(db, read_len_p);
-    ok = ok && file_read_postformat_data(db, read_buf, read_len_p);
-    ok = ok && empty_result_set(db->hstmt_r);
+    ok = ok && file_read_init(dbp, key);
+    ok = ok && file_read_bind(dbp, key);
+    ok = ok && file_read_prepare(dbp);
+    ok = ok && file_read_execute(dbp);
+    ok = ok && file_read_fetch_and_get_data(dbp, read_len_p);
+    ok = ok && file_read_postformat_data(dbp, read_buf, read_len_p);
+    ok = ok && empty_result_set(dbp->hstmt_r);
 
     return ok;
 }
 
 int mssql_file_read(int id, void* read_buf, size_t* read_len_p, const char* key)
 {
-    DbInterface_t* db = get_db(id);
-    bool ok = (db != nullptr);
+    DbInterface_t* dbp = get_db(id);
+    bool ok = (dbp != nullptr);
 
-    bool use_direct = false;
-    if (use_direct) {
-        ok = ok && file_direct_read(db, read_buf, read_len_p, key);
-        empty_result_set(db->hstmt_r);
-    }
-    else   ok = ok && file_read_with_prepare_and_execute(db, read_buf, read_len_p, key);
-   
+    ok = ok && file_read_with_prepare_and_execute(dbp, read_buf, read_len_p, key);
 
     int ret_val = (ok ? 0 : -1);
     return ret_val;
@@ -1215,18 +1042,18 @@ int mssql_file_read(int id, void* read_buf, size_t* read_len_p, const char* key)
 
 int mssql_set_tracing(int id, bool flag, const char* filename)
 {
-    DbInterface_t* db = get_db(id);
-    if (db == nullptr) {
-        sprintf(error_buf, "id not acceptable\n");
+    DbInterface_t* dbp = get_db(id);
+    if (dbp == nullptr) {
+        sprintf(error_buf, "FATAL: mssql: id not acceptable\n");
         return -1;
     }
-        
-    db->use_tracing = flag;
+
+    dbp->use_tracing = flag;
     if (flag) {
         if (filename != nullptr) {
             strcpy(tracing_filename, filename);
-            if (db->hdbc != SQL_NULL_HDBC) {
-                bool ok = set_tracing(db);
+            if (dbp->hdbc != SQL_NULL_HDBC) {
+                bool ok = set_tracing(dbp);
                 if (!ok) {
                     return -1;
                 }
@@ -1234,11 +1061,97 @@ int mssql_set_tracing(int id, bool flag, const char* filename)
         }
         else {
             memset(tracing_filename, '\0', sizeof(tracing_filename));
-            sprintf(error_buf, "bad filename\n");
+            sprintf(error_buf, "FATAL: mssql: bad filename\n");
             return -1;
         }
     }
     return 0;
+}
+
+int mssql_maybe_compress(char* c_buf, size_t* c_size, const char* p_buf, size_t p_size)
+{
+    if (p_size == 0 || p_buf == nullptr) {
+        strcpy(error_buf, "FATAL: empty buffer in maybe_compress");
+        return -1;
+    }
+
+    int use_zlib = gzip;
+#ifdef DISCARD_TEXT_COMPRESSION
+    use_zlib = 0;
+#endif
+
+    if (use_zlib) {
+        strcpy(c_buf, "gzip");
+        struct zif_t zc;
+        zc.uncompressed_buf = (char*) p_buf;
+        zc.uncompressed_buf_len = p_size;
+        zc.compressed_buf = c_buf + mssql_header_size;
+        zc.compressed_buf_len = *c_size - mssql_header_size;;
+        int rv_c = 0;
+#ifndef DISCARD_TEXT_COMPRESSION
+        zif_compress(&zc);
+#endif
+        *c_size = zc.compressed_buf_len + mssql_header_size;
+        return rv_c;
+    }
+    else {
+        strcpy(c_buf, "norm");
+        memcpy(c_buf + mssql_header_size, p_buf, p_size);
+        *c_size = p_size + mssql_header_size;
+        return 0;
+    }
+}
+
+int mssql_maybe_uncompress(const char* c_buf, size_t c_size, char* p_buf, size_t* p_size)
+{
+    if (c_size == 0) {
+        *p_size = 0;
+        return 0;
+    }
+    if (c_buf == nullptr) {
+        strcpy(error_buf, "FATAL: empty buffer in maybe_uncompress");
+        return -1;
+    }
+
+    int use_zlib = gzip;
+#ifdef DISCARD_TEXT_COMPRESSION
+    use_zlib = 0;
+#endif
+
+    if (use_zlib) {
+        if (strstr(c_buf, "gzip") == c_buf) {
+            struct zif_t zc;
+            zc.uncompressed_buf = p_buf;
+            zc.uncompressed_buf_len = *p_size;
+            zc.compressed_buf = (char*)c_buf + mssql_header_size;
+            zc.compressed_buf_len = c_size - mssql_header_size;
+            int rv_uc = 0;
+#ifndef DISCARD_TEXT_COMPRESSION
+            rv_uc = zif_uncompress(&zc);
+#endif
+            *p_size = zc.uncompressed_buf_len;
+            return rv_uc;
+        }
+        else if (strstr(c_buf, "norm") == c_buf) {
+            *p_size = 0; // ignore wrong flavor of compression
+            return 0;
+        }
+    }
+    else {
+        if (strstr(c_buf, "norm") == c_buf) {
+            *p_size = c_size - mssql_header_size;
+            memcpy(p_buf, c_buf + mssql_header_size, *p_size);
+            return 0;
+        }
+        else if (strstr(c_buf, "gzip") == c_buf) {
+            *p_size = 0; // ignore wrong flavor of compression
+            return 0;
+        }
+    }
+
+    strcpy(error_buf, "FATAL: bad header in maybe_uncompress. "
+           "Check database for bad data.");
+    return -2;
 }
 
 int mssql_exec(int id, const char* statement)
@@ -1276,5 +1189,14 @@ int mssql_fetch_lengths(int id)
     return -1;
 }
 
-#endif // DISCARDMICROSOFTSQL from common.h
+char* get_mssql_staging_buffer(int id, int* staging_buffer_size) {
+    DbInterface_t* dbp = get_db(id);
+    if (dbp != nullptr) {
+        *staging_buffer_size = (int)(dbp->file_buf_size);
+        return (char*) dbp->file_buf;
+    }
+    sprintf(error_buf, "FATAL: mssql: file buffer uninitialized");
+    return nullptr;
+}
 
+#endif // DISCARDMICROSOFTSQL from common.h

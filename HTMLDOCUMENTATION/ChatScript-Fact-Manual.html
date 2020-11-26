@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
@@ -367,8 +367,9 @@ Location
 <p>If you use <code>^mark</code> to mark a position, both the word and all triggered concepts will be reported via <code>^conceptlist</code>. But if the mark is a non-canonical word, mark does not do anything about the canonical form, and so there may be no triggered concepts as well. (Best to use a canonical word as mark).</p>
 <h3 id="createfact-subject-verb-object-flags"><code>^createfact</code>( subject verb object flags )</h3>
 <p>the arguments are a stream, so <em>flags</em> is optional. Creates a fact of the listed data if it doesn't exist (unless flags allows duplicates). See system functions manual for a bit more on how createfact can process data.</p>
-<h3 id="delete-set"><code>^delete</code>( set )</h3>
+<h3 id="delete-set-filename"><code>^delete</code>( { set, filename} )</h3>
 <p>erase all facts in this set. This is the same as <code>^addfactproperty(set FACTDEAD)</code>.</p>
+<p>^delete(filename) will delete that file.</p>
 <h3 id="fieldfact-fieldname"><code>^field</code>(fact fieldname)</h3>
 <p>given a reference to a fact, pull out a named field. If the fieldname is in lower case and the field is a fact reference, you get that number. If the fieldname starts uppercase, the system gives you the printout of that fact. Eg for a fact:</p>
 <pre><code>$$f = createfact (I eat (he eats beer))

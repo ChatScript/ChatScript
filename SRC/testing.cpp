@@ -7,6 +7,7 @@ static int downcount = 0;
 static int volleyCounter = 0;
 static int relevantVolleyCounter = 0;
 static int itemcount = 0;
+bool nomixedcase = false;
 
 bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
 {
@@ -376,6 +377,13 @@ static void C_NoReact(char* input)
 	noReact = !noReact;
 	Log(STDUSERLOG,(char*)"Noreact = %d\r\n",noReact);
 } 
+
+static void C_Plural(char* input)
+{
+	char* plural = GetPluralNoun(StoreWord(input, AS_IS));
+	if (plural) printf("%s\r\n", plural);
+	else printf("unknown\r\n");
+}
 
 static void C_POS(char* input)
 {
@@ -848,7 +856,7 @@ static void VerifyRegress(char* file)
 		len = strlen(voldoutputcode);
 		while (voldoutputcode[len-1] == ' ') --len;
 		voldoutputcode[len] = 0;
-		char* at = strchr(voldoutputcode,'`');
+		at = strchr(voldoutputcode,'`');
 		if (at) *at = 0;
 
 		bool sametag = false;
@@ -872,7 +880,7 @@ static void VerifyRegress(char* file)
 			GetVerify(tag,topicid,id);
 			char* rule = GetRule(topicid,id);		// the rule we want to test
 			char* newoutputcode = GetPattern(rule,label,pattern);
-			size_t len = strlen(newoutputcode);
+			len = strlen(newoutputcode);
 			if (len > 50) len = 50;
 			strncpy(outputdata,newoutputcode,len);
 			while (outputdata[len-1] == ' ') --len;
@@ -2100,8 +2108,8 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
                 {
                     GetRuleIDFromText(after + 1, reuseid);
                 }
-                if (id == verifyRuleID || (reuseid >= 0 && TOPLEVELID(reuseid) == (unsigned int)verifyRuleID)) { ; } // we match
-                else if (TOPLEVELID(id) == (unsigned int)verifyRuleID && !strstr(topLevelOutput, (char*)"refine")) { ; } // we matched top level and are not looking for refinement
+                if (id == verifyRuleID || (reuseid >= 0 && TOPLEVELID(reuseid) == verifyRuleID)) { ; } // we match
+                else if (TOPLEVELID(id) == verifyRuleID && !strstr(topLevelOutput, (char*)"refine")) { ; } // we matched top level and are not looking for refinement
                 else
                 {
                     char* gotrule = GetRule(topicID, id);
@@ -4551,15 +4559,19 @@ static void C_Build(char* input)
 	input = ReadCompiledWord(input,file);
 	input = SkipWhitespace(input);
 	int spell = PATTERN_SPELL;
+	nomixedcase = false;
 	bool reset = false;
 	trace = 0;
 	grade = 0;
+	if (strstr(buildflags, "quiet")) echo = false;
+	if (strstr(buildflags, "nomixedcase")) nomixedcase = true;
 	while (*input) 
 	{
 		input = ReadCompiledWord(input,control);
 		if (!stricmp(control,(char*)"nospell")) spell = NO_SPELL;
         else if (!stricmp(control, (char*)"quiet")) echo = false;
-        else if (!stricmp(control,(char*)"nosubstitution")) spell = NO_SUBSTITUTE_WARNING;
+		else if (!stricmp(control, (char*)"nomixedcase")) nomixedcase = true;
+		else if (!stricmp(control,(char*)"nosubstitution")) spell = NO_SUBSTITUTE_WARNING;
 		else if (!stricmp(control,(char*)"outputspell")) spell = OUTPUT_SPELL;
 		else if (!stricmp(control,(char*)"gradek")) { grade = KINDERGARTEN; spell = OUTPUT_SPELL;}
 		else if (!stricmp(control,(char*)"grade2")) { grade = (KINDERGARTEN|GRADE1_2); spell = OUTPUT_SPELL;}
@@ -4656,6 +4668,13 @@ static void C_Restart(char* input)
 		input = hold;
 		pendingUserReset = true;
 	}
+
+	if (strstr(input, "completevolley")) // finish volley normally, restart on next volley
+	{
+		restartBack = true;
+		return;
+	}
+
 	if (*input) // change params
 	{
 		argv = arglist;
@@ -4665,7 +4684,7 @@ static void C_Restart(char* input)
 			input = ReadCompiledWord(input,arglist[argc++]);
 		}
 	}
-
+	RestorePropAndSystem(NULL);
 	wasCommand = RESTART;
 }
 
@@ -6238,6 +6257,7 @@ TestMode Command(char* input,char* output,bool scripted)
 		if (stricmp(routine->word,":build")) FreeBuffer(); // build does a full restart
 		if (strcmp(info->word,(char*)":echo") && prepareMode == NO_MODE && !(trace & TRACE_TREETAGGER)) echo = oldecho;
 		if (scripted && strcmp(info->word,(char*)":echo")) echo = oldecho;
+		debugcommand = false;
 		return wasCommand;
 	}
 	echo = oldecho;
@@ -7951,7 +7971,7 @@ static void C_Retry(char* input)
 	BOMAccess(BOMvalue, oldc, oldCurrentLine);
 	if (traceit) 
 	{
-		trace = -1; 
+		trace = (unsigned int)-1; 
 		echo = true;
 	}
 }
@@ -10610,6 +10630,32 @@ static void C_MergeLines(char* file)
     (*printer)("done\r\n");
 }
 
+static void C_Fuse(char* file)
+{
+	char name[MAX_WORD_SIZE];
+	sprintf(name, "%s/tmp.txt", tmpfolder);
+	FILE* in = fopen(file, "rb");
+	if (!in)
+	{
+		(*printer)("file not found");
+		return;
+	}
+	FILE* out = FopenUTF8Write(name);
+	char word[MAX_WORD_SIZE * 4];
+	char* concat = word;
+	while (ReadALine(readBuffer, in) >= 0)
+	{
+		strcpy(concat, readBuffer);
+		concat += strlen(concat);
+		*concat++ = ' ';
+	}
+	*concat = 0;
+	fprintf(out, "%s\r\n", word);
+	fclose(in);
+	fclose(out);
+	(*printer)("done\r\n");
+}
+
 static void C_QuoteLines(char* file)
 {
 	char name[MAX_WORD_SIZE];
@@ -11247,7 +11293,8 @@ CommandInfo commandSet[] = // NEW
     { (char*)":medtable",C_Medtable,(char*)"Read lines from file, add quotes around them, write to TMP/tmp.txt" },
     { (char*)":rewriteconverse",C_RewriteConverse,(char*)"Read lines from file, reformat as conversation,  write to TMP/tmp.txt" },
     { (char*)":rewrite2tsv",C_RewriteToTsv,(char*)"Read lines from file, reformat as tsv,  write to same file with tsv sufficx" },
-    { (char*)":quotelines",C_QuoteLines,(char*)"Read lines from file, add quotes around them, write to TMP/tmp.txt" },
+	{ (char*)":fuse",C_Fuse,(char*)"Read lines from file, merge to 1 line and write to TMP/tmp.txt" },
+	{ (char*)":quotelines",C_QuoteLines,(char*)"Read lines from file, add quotes around them, write to TMP/tmp.txt" },
 	{ (char*)":newdiff",C_NewDiff,(char*)"Read lines from paired file, note diff lines into tmp/match.txt and tmp/unmatch.txt" },
 	{ (char*)":mergelines",C_MergeLines,(char*)"Read lines from sorted file, rewrite only 1 instence of 1st words to TMP/tmp.txt" },
     { (char*)":striplog",C_StripLog,(char*)"Read lines from a server log file, reducing them to normal inputs for :source, write to TMP/tmp.txt" },
@@ -11260,7 +11307,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":pennmatch",C_PennMatch,(char*)"FILE {raw ambig} compare penn file against internal result"},
 	{ (char*)":pennnoun",C_PennNoun,(char*)"locate mass nouns in pennbank"}, 
 	{ (char*)":pos",C_POS,(char*)"Show results of tokenization and tagging"},  
-	{ (char*)":sortconcept",C_SortConcept,(char*)"Prepare concept file alphabetically"}, 
+	{ (char*)":plural",C_Plural,(char*)"Show plural of word" },
+	{ (char*)":sortconcept",C_SortConcept,(char*)"Prepare concept file alphabetically"},
 	{ (char*)":translateconcept",C_TranslateConcept,(char*)"take"}, 
 	{ (char*)":timepos",C_TimePos,(char*)"compute wps average to prepare inputs"},
 	{ (char*)":verifypos",C_VerifyPos,(char*)"Regress pos-tagging using default REGRESS/postest.txt file or named file"},

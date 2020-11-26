@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 11/26/2020 cs10.8
 
 
 # Command Line Parameters
@@ -131,6 +131,9 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`trustpos`     | obey word~n and other pos restrictions in keywords
 |`autoreload`	| in event of cs engine crash, output a dummy message and reload on next input (see $cs_crashmsg and $cs_crash)
 |`nofastload` | If you suspect fast loading is faulty, you can set this to see if things work without it
+|`syslogstr=xxx` | In linux will output this as part of Microsoft sql trace data to the syslog
+|`buildflags=xxx` | this data will be used to control :build  (quiet and nomixedcase are xxx values)
+
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of

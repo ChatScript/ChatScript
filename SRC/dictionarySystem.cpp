@@ -550,23 +550,28 @@ static char* predefinedSets[] = //  some internally mapped concepts not includin
     NULL
 };
 
-void DictionaryRelease(WORDP until,char* stringUsed) 
+void RestorePropAndSystem( char* stringUsed)
 {
 	uint64 D;
 	while (propertyRedefines) // must release these
 	{
-        uint64 properties;
-        if (propertyRedefines >= stringUsed) break;	// not part of this freeing
-        propertyRedefines = UnpackHeapval(propertyRedefines,D, properties, discard);
-        ((WORDP)D)->properties = properties;
+		uint64 properties;
+		if (stringUsed && propertyRedefines >= stringUsed) break;	// not part of this freeing
+		propertyRedefines = UnpackHeapval(propertyRedefines, D, properties, discard);
+		((WORDP)D)->properties = properties;
 	}
 	while (flagsRedefines) // must release these
 	{
-        uint64 properties;
-        if (flagsRedefines >= stringUsed) break;	// not part of this freeing
-        flagsRedefines = UnpackHeapval(flagsRedefines, D, properties, discard);
-        ((WORDP)D)->systemFlags =properties;
+		uint64 properties;
+		if (stringUsed && flagsRedefines >= stringUsed) break;	// not part of this freeing
+		flagsRedefines = UnpackHeapval(flagsRedefines, D, properties, discard);
+		((WORDP)D)->systemFlags = properties;
 	}
+}
+
+void DictionaryRelease(WORDP until,char* stringUsed) 
+{
+	RestorePropAndSystem(stringUsed);
 	ongoingDictChanges = NULL; // discard user tracked changes since we have our own essential tracking
 	if (until) while (dictionaryFree > until) DeleteDictionaryEntry(--dictionaryFree); //   remove entry from buckets
     heapFree = stringUsed; 
@@ -2850,17 +2855,43 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer, unsi
 		in = FopenReadOnly(word);
 	}
 	if (!in) return;
+
+	WORDP D;
+	WORDP interjections = StoreWord("~interjections", AS_IS);
+	FACT* F = GetObjectNondeadHead(interjections); // mark all concepts listed as interjects
+	while (F)
+	{
+		D = Meaning2Word(F->subject);
+		if (F->verb == Mmember && *D->word == '~')     D->internalBits |= BEEN_HERE;
+		F = GetObjectNondeadNext(F);
+	}
+
+	MEANING member = MakeMeaning(StoreWord("member", AS_IS));
     while (ReadALine(readBuffer,in)  >= 0) 
     {
         if (*readBuffer == '#' || *readBuffer == 0) continue;
         char* ptr = ReadCompiledWord(readBuffer,original); //   original phrase
 		if (original[0] == 0 || original[0] == '#') continue;
 		ptr = ReadCompiledWord(ptr, replacement);    //   replacement phrase
+		unsigned int flag = fileFlag;
+		if (fileFlag == DO_PRIVATE && *replacement == '~')// private interjections will list as interjections file, instead of private file so you can disable privates or interjectsions appropriately
+		{
+			D = StoreWord(replacement, AS_IS);
+			if (D->internalBits & BEEN_HERE) flag = DO_INTERJECTIONS;
+		}
 
-		SetSubstitute(false,name, original, replacement, build, fileFlag,list,false);
+		SetSubstitute(false,name, original, replacement, build, flag,list,false);
 	}
 	// just ignore wasted heapref memory (compiling doesnt matter, data is small enough to ignore in private)
     FClose(in);
+	
+	F = GetObjectNondeadHead(interjections); // unmark all interjections
+	while (F)
+	{
+		D = Meaning2Word(F->subject);
+		D->internalBits &= -1 ^ BEEN_HERE;
+		F = GetObjectNondeadNext(F);
+	}
 }
 
 void ReadWordsOf(char* name,uint64 mark)

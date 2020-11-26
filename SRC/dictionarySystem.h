@@ -155,7 +155,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // english word attribues 
 #define ANIMATE_BEING 				0x0000000000000001ULL 
-#define	HOWWORD 				    0x0000000000000002ULL
+#define 	HOWWORD 				    0x0000000000000002ULL
 #define TIMEWORD 					0x0000000000000004ULL
 #define LOCATIONWORD				0x0000000000000008ULL	// prepositions will be ~placepreposition, not this - concepts have to mark this for place named nouns
 

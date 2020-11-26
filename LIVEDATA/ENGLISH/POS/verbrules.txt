@@ -1,6 +1,19 @@
 # PROBLEMATIC "here comes the band"  allows subject after verb as a statement.
 
 
+# not adverb or adjective particple because has direct object after, so will be verb participle
+0 	INCLUDE * ADVERB ADJECTIVE_PARTICIPLE
+	STAY ISORIGINALMEMBER  ~adjective_participles
+	HAS NOUN_BITS DETERMINER ADJECTIVE_BITS
+DISCARD
+  
+ #  adjective participle likely  "you are *fucking beautiful"
+0 	INCLUDE * VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE
+	STAY HAS ADVERB 
+	STAY ISORIGINALMEMBER  ~adjective_participles
+	!HAS NOUN_BITS DETERMINER ADJECTIVE_BITS
+DISCARD
+
 # its the ONLY possible verb "Carlos smiled."  -- DONT DO that as a phase 1 rule
 
 # verb What noun clause starter following later with "be" - "what* government offers is"

@@ -454,8 +454,8 @@ int evsrv_init(const string &interfaceKind, int port, char* arg) {
                 break;
             } else if (forked == 1) {
                 parent_after_fork = 0;
-				bool oldserverlog = serverLog;
-				serverLog = true;
+				int oldserverlog = serverLog;
+				serverLog = 1;
                 Log(SERVERLOG, "  evserver: child %d alive\r\n", getpid());
 				serverLog = oldserverlog;
                 break;
@@ -613,15 +613,43 @@ int evsrv_do_chat(Client_t *client)
 	originalUserInput = client->message;
 	if (len >= fullInputLimit - 300)
 	{
+		struct tm ptm;
+
 		// completely literal incoming data
 		FILE* bugout = FopenUTF8WriteAppend("LOGS/evBugdata.txt");
 		if (bugout)
 		{
-			fprintf(bugout, "%d %s\r\n", len, client->message);
+			fprintf(bugout, "%s %d of %d %s\r\n", GetTimeInfo(&ptm, true),len, fullInputLimit - 300,client->message);
+			fclose(bugout);
+		}
+		bugout = FopenUTF8WriteAppend("/tmp/csevBugdata.txt");
+		if (bugout)
+		{
+			fprintf(bugout, "%s %d of %d %s\r\n", GetTimeInfo(&ptm, true),len, fullInputLimit - 300,client->message);
 			fclose(bugout);
 		}
 
-		client->message[fullInputLimit - 300] = 0; // limit user input
+		char* start = strstr(client->message,"\"input\":"); // embedded input oob?
+		if (start) // limit input in middle     100chars "input":"300msg 800more  actual 1200  limit 1100
+		{ 
+			char* end = strstr(start, "\", \"");
+			if (end)
+			{
+				*end = 0;
+				size_t userlen = strlen(start);  // 300
+				*end = '"';
+				size_t otherlen = len - userlen;  // 900
+				int available = fullInputLimit - 300 - otherlen; // how much room for user input  200
+				int choplen = userlen - available - 20; // we need to discard this much  
+				if (choplen > 0)
+				{
+					char* chopat = end - choplen;
+					while (*(chopat - 1) == '\\')  --chopat; // dont break up 
+					memmove(chopat, end, strlen(end) + 1);
+				}
+			}
+		}
+		client->message[fullInputLimit - 300] = 0; // limit user input at end
 	}
     echo = false;
 	bool restarted = false;
@@ -646,11 +674,12 @@ int evsrv_do_chat(Client_t *client)
 	if (!client->data) (*printer)("Malloc failed for child data\r\n");
 
 RESTART_RETRY:
+	size_t test = strlen(client->message);
+	while (client->message[test - 1] == '\n' || client->message[test - 1] == '\r')  client->message[--test] = 0;
 	strcpy(ourMainInputBuffer,client->message);
 
 	originalUserInput = client->message;
 
-    size_t test = strlen(ourMainInputBuffer);
 	struct tm ptm;
     char* dateLog = GetTimeInfo(&ptm,true)+SKIPWEEKDAY;
     // remove harmful newline stuff in log
@@ -669,10 +698,24 @@ RESTART_RETRY:
             *userInput = 0;
         }
     }
-	if (serverPreLog && restarted)  Log(SERVERLOG,(char*)"%s ServerPre: retry pid: %d %s (%s) size:%d `*` %s\r\n",dateLog,getpid(),client->user,client->bot,test, dateLog);
- 	else if (serverPreLog)  Log(SERVERLOG,(char*)"%s ServerPre: pid: %d %s (%s) size=%d `*` %s\r\n",dateLog,getpid(),client->user,client->bot,test, dateLog);
+
+	bool overrideServerLog = false;
+	int oldserverlog = serverLog;
+	FILE* in = fopen("serverlogging.txt", (char*)"rb"); // per external file created, enable server log
+	if (in)
+	{
+		serverLog = 1;
+		fclose(in);
+	}
+	if (*serverlogauthcode && strstr(ourMainInputBuffer, serverlogauthcode)) // per specific volley user input, enable server log
+	{
+		overrideServerLog = true;
+		serverLog = 1;
+	}
+
+	if ((serverPreLog || overrideServerLog) && restarted)  Log(SERVERLOG,(char*)"%s ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
+ 	else if ((serverPreLog || overrideServerLog))  Log(SERVERLOG,(char*)"%s ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
     if (userInput) *userInput = endInput;
-	
 	int turn = PerformChat(
         client->user,
         client->bot,
@@ -699,8 +742,10 @@ RESTART_RETRY:
 		client->data[4] = 0;	// null terminate hidden why data after room for positive ctrlz
 	}
 	
+	if (overrideServerLog) serverLog = 1;
 	if (serverLog) LogChat(starttime,client->user,client->bot,(char*)client->ip.c_str(),turn,client->message,client->data,client->starttime);
-    return 1;
+	serverLog = oldserverlog;
+	return 1;
 }
 
 #endif /* EVSERVER */

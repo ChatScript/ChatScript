@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/23/2020 cs10.6</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON entities separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -170,6 +170,11 @@ $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent) </code><
 <pre><code>u: GIVEN_JSON(&lt; \[  _* \] ^JsonKind(&#39;_0)) $$json = &#39;_0 </code></pre>
 <p>then you can do $$json.field directly.</p>
 <p>Note: <code>^jsonparse</code> autoconverts backslash-unnnn into corresponding the utf8 characters.</p>
+<p>Similarly, you could pass JSON data directly as part of user input. But user input normally is limited to 254 tokens AFTER oob is seen. To be able to pass complex JSON data as part of the user message (because the oob is often controlled by host system so not available per user message), you can now put in user input the word JSON and follow that with a JSON structure of arbitrary size. That structure will be completely converted to the corresponding JSON internal fact structures and the simple JSON structure name returned. So</p>
+<pre><code>my input value is JSON {x:y,b:z} here  </code></pre>
+<p>will become</p>
+<pre><code>my input value is JSON jo-3 here</code></pre>
+<p>and jo-3 will have the json structure.</p>
 <h2 id="jsonformatstring"><code>jsonformat</code>(string)</h2>
 <p>Because technically JSON requires you put quotes around field names (though various places ignore that requirement) and because CS doesn't, the function takes in a slack json text string and outputs a strict one.</p>
 <h2 id="accessing-json-structures">Accessing JSON structures</h2>
@@ -279,8 +284,9 @@ $x.field = null</code></pre>
 <h3 id="length-jsonid"><code>^length</code>( jsonid )</h3>
 <p>Returns the number of top-level members in a json array or object.</p>
 <h2 id="printing-json-structures">Printing JSON structures</h2>
-<h3 id="jsonwrite-name"><code>^jsonwrite</code>( name )</h3>
-<p>name is the name from a json fact set (either by <code>^jsonpart</code>, <code>^jsonopen</code>, or some query into such structures). The result is the corresponding JSON string (as a website might emit), without any linefeeds.</p>
+<h3 id="jsonwrite-plain-name"><code>^jsonwrite</code>( {plain} name )</h3>
+<p>name is the name from a json fact set (either by <code>^jsonpart</code>, <code>^jsonopen</code>, or some query into such structures). The result is the corresponding JSON string (as a website might emit), without any linefeeds. <code>plain</code> is an optional first argument that makes it write out less noisy JSON that CS already accepts, ie field names and string values dont need double quotes around them unless they have certain characters in them (like spaces and semi-colons and escape characters). This makes data output from CS and intended to be read back into CS easier to read. So</p>
+<pre><code>    jo-5 which is {&quot;value&quot;:&quot;color&quot;}  prints as  {value:color}</code></pre>
 <h3 id="jsontree-name-depth"><code>^jsontree</code>( name {depth} )</h3>
 <p>name is the value returned by <code>^jsonparse</code> or <code>^jsonopen</code> or some query into such structures. It displays a tree of elements, one per line, where depth is represented as more deeply indented. Objects are marked with <code>{}</code> as they are in JSON. Arrays are marked with <code>[]</code>.</p>
 <p>The internal name of the composite is shown immediately next to its opening punctuation. Optional depth number restricts how deep it displays. 0 (default) means all. 1 means just top level.</p>

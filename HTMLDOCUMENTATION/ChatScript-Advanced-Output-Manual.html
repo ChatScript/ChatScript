@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 8/31/2019 cs9.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
 <h1 id="advanced-output">ADVANCED OUTPUT</h1>
 <h2 id="committed-output">Committed Output</h2>
 <p>Simple output puts words into the output stream, a magical place that queues up each word you write in a rule output. What I didn't tell you before was that if the rule fails along the way, an incomplete stream is canceled and says nothing to the user. For example,</p>
@@ -65,7 +65,7 @@ if ($_response == %response) {...}</code></pre>
 <p>When you want special characters in the format string like <code>&quot;</code>, you need to backslash them, which the format string removes when it executes. For example:</p>
 <pre><code>u: () $tmp = [ hi ^&quot;there \&quot;john\&quot;&quot; ]</code></pre>
 <p>the quote inside the format string need protecting using <code>\&quot;</code>.</p>
-<p>You can write <code>\n</code>, <code>\r</code>, <code>\t</code> and those will be translated into newline, carriage return, and tab. However, you should avoid <code>\r</code> because on LINUX it is not needed and in Windows the system will change <code>\n</code> to carriage-return and newline.</p>
+<p>You can write <code>\n</code>, <code>\r</code>, <code>\t</code> and those will be translated into newline, newline, and tab. However, you should avoid <code>\r</code> because on LINUX it is not needed and in Windows the system will change <code>\n</code> to carriage-return and newline. The use is for API function ^testoutput where you want to emit a newline but the incoming system will be sending newlines itself to allow errors to be reported by line number.</p>
 <p>Format strings evaluate themselves as soon as they can. If you write:</p>
 <pre><code>u: () $tmp = ^&quot; This is $var output&quot;</code></pre>
 <p>then <code>$tmp</code> will be set to the result of evaluating the format string. Similarly, if you write:</p>

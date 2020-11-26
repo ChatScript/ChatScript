@@ -85,6 +85,38 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 	else Log(SERVERLOG, (char*)"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
 	if (userOutput) *userOutput = endOutput;
 }
+
+void GetPrimaryIP(char* buffer)
+{
+#ifdef WIN32
+	InitWinsock();
+	int sock = socket(AF_INET, SOCK_DGRAM, 0);
+	if (sock == -1 ) printf("Error at socket(): %ld\n", WSAGetLastError());
+	const char* kGoogleDnsIp = "8.8.8.8";
+	uint16_t kDnsPort = 53;
+	struct sockaddr_in serv;
+	memset(&serv, 0, sizeof(serv));
+	serv.sin_family = AF_INET;
+	serv.sin_addr.s_addr = inet_addr(kGoogleDnsIp);
+	serv.sin_port = htons(kDnsPort);
+	WSADATA wsaData;
+	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	int err = connect(sock, (const sockaddr*)&serv, sizeof(serv));
+
+	sockaddr_in name;
+	socklen_t namelen = sizeof(name);
+	err = getsockname(sock, (sockaddr*)&name, &namelen);
+
+	const char* p = inet_ntop(AF_INET, &name.sin_addr, buffer, MAX_WORD_SIZE);
+
+	closesocket(sock);
+	if (!server) WSACleanup();
+#else
+	FILE   *pPipe  = popen("hostname -i", (char*)"r");
+	fgets(buffer, MAX_WORD_SIZE - 5, pPipe);
+#endif
+}
+
 #ifndef DISCARDSERVER
 
 #ifdef EVSERVER
@@ -333,6 +365,8 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 	char* ptr;
 	TCPSocket *sock;
 	char* oobmessage = AllocateBuffer();
+	char* expect = AllocateBuffer();
+	char* userinput = AllocateBuffer();
 	while (1) // each line of regression file
 	{
 		++line;
@@ -351,110 +385,64 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 		strcpy(ptr, copy); // for debug loopback
 		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
 		char run[MAX_WORD_SIZE];
-		ptr = ReadCompiledWord(ptr, run);
+		ptr = ReadTabField(ptr,  run);
 		if (stricmp(run, "yes")) continue; // not running                                                                                                                                               //RunTest, Suite, Comment, Name, Category, Specialty, Location, ChatType, Source, OOB for the first message, WelcomeMessage, 1st Message, 1st Response, 2nd Message, 2nd Response, 3rd Message, 3rd Response, 4th Message, 5th Response,
 		//API:RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		char* suite = ptr;
-		char* comment;
-		if (*suite == '\t') comment = suite + 1; // suite type is missing
-		else comment = FindJMSeparator(suite, separator) + 1; // start of comment field
+		char suite[100];
+		ptr = ReadTabField(ptr, suite);
+		char comment[MAX_WORD_SIZE];
+		ptr = ReadTabField(ptr, comment);
+		char name[100];
+		ptr = ReadTabField(ptr, name);
 		//TCP:RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		char category[MAX_WORD_SIZE];
-		char specialty[MAX_WORD_SIZE];
-		char location[MAX_WORD_SIZE];
-		char* name;
-		if (*comment == '\t') name = comment + 1;
-		else name = FindJMSeparator(comment, separator) + 1; // start of name
-		char* cat;
-		if (*name == '\t') cat = name + 1;
-		else cat = FindJMSeparator(name, separator) + 1; // start of category
-		char* spec;
-		if (*cat == '\t') spec = cat + 1;
-		else spec = FindJMSeparator(cat, separator) + 1; // start of category
-		*(spec - 1) = 0; // end cat
-		ReadCompiledWord(cat, category);
-		if (!*category) continue;
+		char cat[MAX_WORD_SIZE];
+		ptr = ReadTabField(ptr, cat);
 		MakeLowerCase(cat); // there are no upper case cats
-		
-		char* loc;
-		if (*spec == '\t')
-		{
-			*specialty = 0;
-			loc = spec + 1;
-		}
-		else
-		{
-			ReadCompiledWord(spec, specialty);
-			if (!stricmp(specialty, "all") || !stricmp(specialty, "general") || !stricmp(specialty, "none")) *specialty = 0; // none
-			loc = FindJMSeparator(spec, separator) + 1; // start of location
-		}
-
-		char* typestart;
-		if (*loc == '\t')
-		{
-			*location = 0;
-			typestart = loc + 1;
-		}
-		else
-		{
-			ReadCompiledWord(loc, location);
-			typestart = FindJMSeparator(loc, separator) + 1; // start of chattype (maybe sippivot)
-		}
-		if (api)
-		{
-			if (*typestart == '\t') typestart += 1;
-			else typestart = FindJMSeparator(typestart, separator) + 1; // skip sippivot
-		}
+		char spec[MAX_WORD_SIZE];
+		ptr = ReadTabField(ptr, spec);
+		if (!stricmp(spec, "all") || !stricmp(spec, "general") || !stricmp(spec, "none")) *spec = 0; // none
+		char loc[MAX_WORD_SIZE];
+		ptr = ReadTabField(ptr, loc);
+// name = FindJMSeparator(comment, separator) + 1; // start of name
+		if (!*cat) continue;
+		char sippivot[100];
+		if (api) ptr = ReadTabField(ptr, sippivot);
 		char chattype[MAX_WORD_SIZE];
-		ReadCompiledWord(typestart, chattype);
-		//API:RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		//TCP:RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		//no,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for the first message,WelcomeMessage,1st Message,1st Response,2nd Message,2nd Response,3rd Message,3rd Response,4th Message,5th Response,PROBLEM PATTERN,
-		char* srcstart = FindJMSeparator(typestart, separator) + 1; //  oob field for 1st message
-		char* oobstart = FindJMSeparator(srcstart, separator) + 1;
+		ptr = ReadTabField(ptr, chattype);
 		char source[MAX_WORD_SIZE];
-		if (*srcstart == '\t') *source = 0; // omitted src
-		else ReadCompiledWord(srcstart, source);
-		ptr = FindJMSeparator(oobstart, separator); //  end of oob field for 1st message
-		if (ptr) *ptr = 0;
-		if (*oobstart)
+		ptr = ReadTabField(ptr, source);
+		ptr = ReadTabField(ptr, oobmessage);
+		
+			//API:RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
+		   //TCP:RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
+		//no,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for the first message,WelcomeMessage,1st Message,1st Response,2nd Message,2nd Response,3rd Message,3rd Response,4th Message,5th Response,PROBLEM PATTERN,
+		if (*oobmessage == '"') memmove(oobmessage,oobmessage+1,strlen(oobmessage));
+		at = oobmessage - 1;
+		while (*++at)
 		{
-			if (*oobstart == '"') ++oobstart;
-			strcpy(oobmessage, oobstart); // skip opening quote
-			at = oobmessage - 1;
-			while (*++at)
-			{
-				if (*at == '"' && at[1] == '"') 
-					memmove(at, at + 1, strlen(at)); // doubled from dq of csv
-			}
+			if (*at == '"' && at[1] == '"') memmove(at, at + 1, strlen(at)); // doubled from dq of csv
 		}
-		else *oobmessage = 0;
 		size_t x = strlen(oobmessage);
 		if (x && oobmessage[x-1] == '"') oobmessage[x - 1] = 0; // remove closing quote
 
-		char* expect = ++ptr;
-		expect = SkipWhitespace(expect);
-		char* startexpect = expect;
-		if (*expect == '[') expect = strrchr(expect, ']') + 1; // skip oob, aim into last expect msg
-		expect = SkipWhitespace(expect);
-		char* end = FindJMSeparator(ptr , separator); // find end of expected message if there
-		if (*expect == '"') startexpect = ++expect; // skip quoted (balanced when we called findJMseparator
-		if (end)
+		ptr = ReadTabField(ptr, expect);
+		if (*expect == '[')
 		{
-			*end = 0; // welcome complete
+			char* end = strrchr(expect, ']') + 1; // skip oob, aim into last expect msg
+			end = SkipWhitespace(end);
+			if (*end == '"') ++end; // skip quoted 
+			memmove(expect, end, strlen(end) + 1);
+			end += strlen(end);
 			if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote removed
 		}
-
-		if (end) ptr = end + 1; // set up for 1st real input
-		else ptr = NULL;
 					   // set up base message
 
 		char init[MAX_WORD_SIZE];
 		char specialtydata[MAX_WORD_SIZE];
-		if (*specialty) sprintf(specialtydata, " specialty: %s ", specialty);
+		if (*spec) sprintf(specialtydata, " specialty: %s ", spec);
 		else  *specialtydata = 0;
 		char locationdata[MAX_WORD_SIZE];
-		if (*location) sprintf(locationdata, " location: %s ", location);
+		if (*loc) sprintf(locationdata, " location: %s ", loc);
 		else *locationdata = 0;
 		char chattypedata[MAX_WORD_SIZE];
 		if (*chattype) sprintf(chattypedata, " type: %s ", chattype);
@@ -463,9 +451,9 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 		if (*source) sprintf(sourcedata, " source: %s ", source);
 		else *sourcedata = 0;
 
-		sprintf(init, ":reset: [ category: %s %s %s %s %s id: %s]", category, specialtydata, locationdata, sourcedata, chattypedata,loginID);
+		sprintf(init, ":reset: [ category: %s %s %s %s %s id: %s]", cat, specialtydata, locationdata, sourcedata, chattypedata,loginID);
 		char* input = init;
-		if (!*specialty) strcpy(specialty, "all");
+		if (!*spec) strcpy(spec, "all");
 
 		// now execute conversation
 		while (*input)
@@ -495,9 +483,6 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 			}
 			else actual = "";
 	
-			expect = startexpect;
-			int z = strlen(expect);
-			if (expect[z - 1] == '"') expect[--z] = 0; // closing quote?
 			char* dq = expect;
 			while ((dq = strstr(dq, "\"\"")))
 			{ // never expect doubled quotes, thats csv thing
@@ -526,35 +511,34 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 			if (strcmp(actual, expect))
 			{
 				++failcnt;
-				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, passcnt, failcnt, category, specialty, chattype, source, input);
+				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, passcnt, failcnt, cat, specialtydata, chattype, source, input);
 				fprintf(out, "want: %s\r\n", expect);
 				fprintf(out, "gotx: %s|        %s\r\n\r\n", actual, response);
 			}
 			else
 			{
 				++passcnt;
-				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, passcnt, failcnt, category, specialty, input, actual);
+				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, passcnt, failcnt, cat, specialtydata, input, actual);
 			}
 			if (((passcnt + failcnt) % 100) == 0) printf("at %d  pass:%d fail:%d\r\n", passcnt + failcnt, passcnt, failcnt);
 			if (!ptr) break; // end of messages
-			char* endi = strchr(ptr, '\t'); // end next message to user
-			if (!endi) break;
-			*endi = 0;
-			if (*oobmessage && input != oobmessage)
+			ptr = ReadTabField(ptr, userinput);
+			input = userinput;
+			ptr = ReadTabField(ptr, expect);
+			if (!*expect) break;
+	
+			if (*oobmessage)
 			{
 				strcat(oobmessage, " ");
-				strcat(oobmessage, ptr);
-				input = oobmessage;
-			}
-			else
-			{
-				input = ptr; // start of 2nd or later message to user
+				strcat(oobmessage, userinput);
+				strcpy(userinput, oobmessage);
 				*oobmessage = 0;
 			}
-			expect = endi + 1;
-			if (*expect == '\t') break; // have no expections anymore
-			if (*expect == '"') ++expect;
-			startexpect = expect;
+
+			size_t l = strlen(expect);
+			if (expect[l - 1] == '"') expect[--l] = 0; // trim trailing quote
+			if (*expect == '"') memmove(expect, expect + 1, l);
+			char* startexpect = expect;
 			// doubled quote from csv fix it
 			at = expect - 1;
 			while (*++at)
@@ -562,16 +546,11 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 				if (*at == '"' && at[1] == '"')
 					memmove(at, at + 1, strlen(at)); // doubled from dq of csv
 			}
-
-			ptr = strchr(expect + 1, '\t'); // end next message from user
-			if (ptr)
-			{
-				*ptr-- = 0;
-				if (*ptr == '"') *ptr = 0;
-				ptr += 2;
-			}
 		} // completes one regression line
+		int xx = 0;
 	}
+	FreeBuffer();
+	FreeBuffer();
 	FreeBuffer();
 }
 
@@ -579,7 +558,8 @@ static void ReadNextJmeter(char* name, uint64 value)
 {
 	bool api = false;
 	if (strstr(name, "/API/")) {
-		api = true; return;
+		api = true;
+		return; // we cant access api from local
 	}// need api connection for this
 
 	FILE* out = (FILE*)value;
@@ -1158,7 +1138,6 @@ uint64 startServerTime;
 #include <signal.h> 
 pthread_t chatThread;
 static pthread_mutex_t chatLock = PTHREAD_MUTEX_INITIALIZER;	//   access lock to shared chatbot processor 
-static pthread_mutex_t logLock = PTHREAD_MUTEX_INITIALIZER;		//   right to use log file output
 static pthread_mutex_t testLock = PTHREAD_MUTEX_INITIALIZER;	//   right to use test memory
 static pthread_cond_t  server_var = PTHREAD_COND_INITIALIZER; // client ready for server to proceed
 static pthread_cond_t  server_done_var = PTHREAD_COND_INITIALIZER;	// server ready for clint to take data
@@ -1166,7 +1145,6 @@ static pthread_cond_t  server_done_var = PTHREAD_COND_INITIALIZER;	// server rea
 #else // for WINDOWS
 #include <winsock2.h>    
 HANDLE  hChatLockMutex;
-CRITICAL_SECTION LogCriticalSection;
 CRITICAL_SECTION TestCriticalSection;
 #endif
 
@@ -1291,16 +1269,6 @@ int pthread_mutex_timedlock(pthread_mutex_t *mutex, const struct timespec *abs_t
 // LINUX/MAC SERVER
 #ifndef WIN32
 
-void GetLogLock()  //LINUX
-{
-	pthread_mutex_lock(&logLock);
-}
-
-void ReleaseLogLock()  //LINUX
-{
-	pthread_mutex_unlock(&logLock);
-}
-
 void GetTestLock() //LINUX
 {
 	pthread_mutex_lock(&testLock);
@@ -1402,16 +1370,6 @@ void InternetServer()  //LINUX
 
 #ifdef WIN32
 
-void GetLogLock()
-{
-	if (!quitting) EnterCriticalSection(&LogCriticalSection);
-}
-
-void ReleaseLogLock()
-{
-	if (!quitting) LeaveCriticalSection(&LogCriticalSection);
-}
-
 void GetTestLock()
 {
 	if (!quitting) EnterCriticalSection(&TestCriticalSection);
@@ -1500,7 +1458,6 @@ static void ServerGetChatLock() // WINDOWS
 
 void PrepareServer()
 {
-	InitializeCriticalSection(&LogCriticalSection);
 	InitializeCriticalSection(&TestCriticalSection);
 }
 
@@ -1511,7 +1468,6 @@ void InternetServer()
 	MainChatbotServer();  // run the server from the main thread
 	CloseHandle(hChatLockMutex);
 	DeleteCriticalSection(&TestCriticalSection);
-	DeleteCriticalSection(&LogCriticalSection);
 }
 #endif
 
@@ -1712,8 +1668,6 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 
 	delete sock;
 
-	if (serverLog && msg)  LogChat(starttime, user, bot, IP, *((int*)memory), msg, output,0);
-
 	// do not delete memory til after server would have given up
 	free(memory);
 #ifndef WIN32
@@ -1743,15 +1697,19 @@ static void* MainChatbotServer()
 	uint64 lastTime = ElapsedMilliseconds();
 	int buffercount = bufferIndex;
 	int frameindex = globalDepth;
+	char user[MAX_WORD_SIZE];
+	char bot[MAX_WORD_SIZE];
+	char* ip; 
+
 	chatbotExists = true;   //  if a client can get the chatlock now, he will be happy
-	bool oldserverlog = serverLog;
-	serverLog = true;
+	int oldserverlog = serverLog;
+	serverLog = 1;
 	Log(SERVERECHOLOG, (char*)"Server ready - logfile: %s serverLog: %d userLog: %d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
-	serverLog = oldserverlog;
 	int returnValue = 0;
 
 	while (1)
 	{
+		serverLog = oldserverlog;
 #ifdef WIN32
 		__try{ // catch crashes in windows
 #else
@@ -1767,9 +1725,7 @@ static void* MainChatbotServer()
 			// we own the chatLock again from here on so no new client can try to pass in data. 
 			// CLIENT has passed server in globals:  clientBuffer (ip,user,bot,message)
 			// We will send back his answer in clientBuffer, overwriting it.
-			char user[MAX_WORD_SIZE];
-			char bot[MAX_WORD_SIZE];
-			char* ip = clientBuffer + 4; // skip fileread data buffer id(not used)
+			ip = clientBuffer + 4; // skip fileread data buffer id(not used)
 			char* returnData = clientBuffer + SERVERTRANSERSIZE;
 			char* ptr = ip;
 			// incoming is 4 strings together:  ip, username, botname, message
@@ -1794,6 +1750,9 @@ static void* MainChatbotServer()
 				strcpy(ourMainInputBuffer,(char*)"too much data");
 			}
 			else strcpy(ourMainInputBuffer,ptr); // xfer user message to our incoming feed
+			
+			int oldserverlog = serverLog;
+			if (*serverlogauthcode && strstr(ourMainInputBuffer, serverlogauthcode))  serverLog = 1;
 			if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: pid: x %s (%s) size:%d %s %s\r\n", user, bot, test, ourMainInputBuffer, dateLog);
 
 			returnValue = PerformChat(user,bot,ourMainInputBuffer,ip,ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
@@ -1819,6 +1778,7 @@ static void* MainChatbotServer()
 			sprintf(word, (char*)"Try/catch");
 			Log(SERVERLOG, word);
 			ReportBug("%s", word);
+			serverLog = oldserverlog;
 			longjmp(crashJump, 1);
 		}
 
@@ -1827,6 +1787,10 @@ static void* MainChatbotServer()
 #else
 		try {
 #endif
+
+			if (serverLog && *ourMainInputBuffer)  LogChat(startServerTime, user, bot, ip, *((int*)clientBuffer),ourMainInputBuffer, ourMainOutputBuffer, 0);
+			serverLog = oldserverlog;
+
 			ServerTransferDataToClient();
 		}
 #ifdef WIN32

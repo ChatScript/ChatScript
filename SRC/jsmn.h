@@ -9,7 +9,6 @@
 		http://zserge.com/jsmn.html
 
 */
-#define JSMN_PARENT_LINKS 1 // speeds up processing at a cost in memory
 
 #ifdef __cplusplus
 extern "C" {
@@ -49,9 +48,7 @@ typedef struct {
 	int start;
 	int end;
 	int size;
-#ifdef JSMN_PARENT_LINKS
 	int parent;
-#endif
 } jsmntok_t;
 
 /**
@@ -73,8 +70,7 @@ void jsmn_init(jsmn_parser *parser);
  * Run JSON parser. It parses a JSON data string into and array of tokens, each describing
  * a single JSON object.
  */
-jsmnerr_t jsmn_parse(jsmn_parser *parser, const char *js, size_t len,
-		jsmntok_t *tokens, unsigned int num_tokens);
+jsmnerr_t jsmn_parse(jsmn_parser *parser, const char *js, size_t len, jsmntok_t *tokens);
 
 #ifdef __cplusplus
 }

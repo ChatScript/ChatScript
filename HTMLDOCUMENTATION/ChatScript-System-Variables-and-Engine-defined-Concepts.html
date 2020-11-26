@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -841,66 +841,70 @@
 <td>ip address supplied</td>
 </tr>
 <tr class="odd">
+<td><code>%myip</code></td>
+<td>ip address of cs server responding</td>
+</tr>
+<tr class="even">
 <td><code>%language</code></td>
 <td>current dictionary language</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%length</code></td>
 <td>the length in tokens of the current sentence</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%more</code></td>
 <td>Boolean is there another sentence after this</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%morequestion</code></td>
 <td>Boolean is there a <code>?</code> or question word in the pending sentences</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%originalinput</code></td>
 <td>all sentences user passed into volley, before adjusted in any way except OOB data is stripped off</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%originalsentence</code></td>
 <td>the current sentence after tokenization but before any adjustments</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%parsed</code></td>
 <td>Boolean was current input parsed successfully</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%question</code></td>
 <td>Boolean was the user input a question - same as <code>?</code> in a pattern</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%quotation</code></td>
 <td>Boolean is current input a quotation</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%sentence</code></td>
 <td>Boolean does it seem like a sentence (subject/verb or command)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%tableinput</code></td>
 <td>current line being executed in a table expansion during script compilation</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%tense</code></td>
 <td>past , present, or future simple tense (present perfect is a past tense)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%user</code></td>
 <td>user login name supplied</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%userfirstline</code></td>
 <td>value of <code>%input</code> that is at the start of this conversation start</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%userinput</code></td>
 <td>Boolean is the current input from the user (vs the chatbot)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%voice</code></td>
 <td>active or passive on current input</td>
 </tr>
@@ -1339,6 +1343,7 @@ s: (name is _*)
             #DO_PRIVATE</code></pre>
 <p>The left side of the substitution pair is case insensitive (matches either case on input) and can be placed in double-quotes (which converts spaces to underscores internally).</p>
 <p>The right side of the substitution pair is case sensitive and can be placed in double-quotes (which converts spaces to plus signs internally).</p>
+<p>Note: if you privately define a substitution that leads to a known interjection, it will be treated as an interjection, marked as DO_INTERJECTIONS rather than DO_PRIVATE. Interjections do not perform an actual substitution, does not replace the words on the left with the interjection concept name on the right. Instead interjections merely mark the phrase as being a member of that concept, leaving the actual words unchanged.</p>
 <p>Similarly while canonical values of words can be defined in <code>LIVEDATA/SYSTEM/canonical.txt</code>, you can define private canonical values for your bots by using the scripting language. You can say:</p>
 <pre><code>canon: oh 0 
 canon: faster fast</code></pre>

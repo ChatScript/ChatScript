@@ -31,6 +31,7 @@ extern CommandInfo commandSet[];
 extern int breakIndex;
 TestMode Command(char* input,char* output,bool fromScript);
 int CountSet(WORDP D,unsigned int baseStamp);
+extern bool nomixedcase;
 
 void Sortit(char* name,int oneline);
 void SortTopic(WORDP D,uint64 junk);

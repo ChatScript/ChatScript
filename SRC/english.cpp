@@ -298,7 +298,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 	char* hyphen = strchr(original, '-');
 	if (hyphen && !hyphen[1]) hyphen = NULL; // not real
 	int64 properties = 0;
-	if ((IsDigit(*original) || IsDigit(original[1]) || *original == '\'') && (kind || hyphen))
+	if ((IsDigit(*original) || IsDigit(original[1]) || *original == '\'') && (kind || hyphen || strchr(original,':')))
 	{
 		// DATE IN 2 DIGIT OR 4 DIGIT NOTATION
 		char word[MAX_WORD_SIZE];
@@ -521,6 +521,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		if (!exponent) exponent = strchr(original, 'E');
 		if (exponent && !IsDigit(exponent[-1]) && exponent[-1] != '.') exponent = NULL; // no digit or period before
 		if (exponent && !IsDigit(exponent[1]) && exponent[1] != '+' && exponent[1] != '-') exponent = NULL; // no digit or period before
+		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER | (baseflags & (PREDETERMINER | DETERMINER));
 
 		if (strchr(original, numberPeriod) || exponent) // floating
 		{
@@ -538,9 +539,13 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		else
 		{
 			int64 val = Convert2Integer(original, numberStyle);
-			if (val == NOT_A_NUMBER && IsNumber(original, numberStyle, false))
+			if (val == NOT_A_NUMBER)
 			{
-				strcpy(number, original);
+				if (IsNumber(original, numberStyle, false)) strcpy(number, original);
+				else
+				{
+					strcpy(number, original); // we have no other use 
+				}
 			}
 			else
 			{
@@ -551,7 +556,6 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 #endif
 			}
 		}
-		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER | (baseflags & (PREDETERMINER | DETERMINER));
 		if (percent) original[len - 1] = '%';
 	}
 	canonical = StoreWord(number, properties, sysflags);
@@ -1016,7 +1020,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	{
 		MakeLowerCopy(lower,original);
 		WORDP X = FindWord(original,0,LOWERCASE_LOOKUP);
-		if (X && strcmp(original,X->word)) // upper case noun we know in lower case -- "Proceeds"
+		if (X && strcmp(original,X->word) && (X->properties || X->systemFlags & PATTERN_WORD)) // upper case noun we know in lower case -- "Proceeds"
 		{
 			properties |= X->properties & NOUN_BITS;
 			if (!entry) entry = canonical = X;

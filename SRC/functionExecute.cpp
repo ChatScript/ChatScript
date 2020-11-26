@@ -3834,7 +3834,7 @@ static FunctionResult StatsCode(char* buffer)
 {
     if (!stricmp(ARGUMENT(1), "facts"))
     {
-        sprintf(buffer, "%d", factEnd - lastFactUsed);
+        sprintf(buffer, "%d", (int)( factEnd - lastFactUsed));
         return NOPROBLEM_BIT;
     }
     if (!stricmp(ARGUMENT(1), "text"))
@@ -5167,7 +5167,7 @@ FunctionResult MemoryFreeCode(char* buffer)
         if (!D) return FAILRULE_BIT;
         char* limit;
         copy = InfiniteStack(limit, "MemoryFree");
-        jwrite(copy, D, 1); // it is subject field
+        jwrite(copy, D, 1,false); // it is subject field
         CompleteBindStack();
         json = true;
     }
@@ -5220,7 +5220,7 @@ static STACKREF MoveListToStack(HEAPREF list)
         uint64 val2;
         list = UnpackHeapval(list, val1, val2, discard);
 
-        tmplist = AllocateStackval(tmplist, val1, val2, NULL);
+        tmplist = AllocateStackval(tmplist, val1, val2, 0);
 	}
 	return tmplist;
 }
@@ -6898,7 +6898,7 @@ static FunctionResult ExtractCode(char* buffer)
 	if (end < start) return FAILRULE_BIT;
 	unsigned int startPos = UTFPosition(target, start);
 	unsigned int endPos = UTFPosition(target, end);
-	unsigned int numChars = end - start;
+	unsigned int numChars = endPos - startPos;
 	strncpy(buffer,target+startPos,numChars);
 	buffer[numChars] = 0;
 	return NOPROBLEM_BIT;
@@ -8814,6 +8814,55 @@ static HEAPREF MakeVariables(MEANING array) // array of objects describing a var
     return variableChangedThreadlist;
 }
 
+static FunctionResult MakeConceptPattern(char* pattern,MEANING concept,MEANING conceptPattern)
+{
+	FunctionResult result = NOPROBLEM_BIT;
+	char* data = AllocateBuffer();
+	char* startData = data;
+	*data++ = '^'; // mark as compiled
+	*data = 0;
+	SAVESYSTEMSTATE()
+	char* buffer = AllocateBuffer();
+
+		// try to recover from fatality
+		int buffercount = bufferIndex;
+		int frameindex = globalDepth;
+		if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
+		{
+			globalDepth = frameindex;
+			bufferIndex = buffercount;
+			--jumpIndex;
+			*buffer = 0;
+			result = FAILRULE_BIT;
+		}
+		else
+		{
+			patternwordthread = NULL;
+			StartScriptCompiler(false);
+			ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
+			*data = 0;
+			strcpy(readBuffer, pattern);
+			compilePatternCall = true;
+			compiling = CONCEPTSTRING_COMPILE;
+			currentFileLine = 0;
+			currentLineColumn = 0;
+#ifndef DISCARDSCRIPTCOMPILER
+			strcpy(currentFilename, "ConceptPattern");
+			ReadPattern(readBuffer, NULL, data, false, false); // swallows the pattern
+#endif
+			--jumpIndex;
+		}
+		compiling = NOT_COMPILING;
+		compilePatternCall = false;
+
+		EndScriptCompiler();
+	
+	WORDP D = StoreWord(startData, AS_IS);
+	CreateFact(MakeMeaning(D), conceptPattern, concept, FACTTRANSIENT);
+	RESTORESYSTEMSTATE()
+	FreeBuffer();
+	return result;
+}
 
 static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
 {
@@ -8865,7 +8914,8 @@ static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
 
                 // member is word, phrase, or pattern
                 WORDP MEMBER = Meaning2Word(m);
-
+				char* safestart = SkipWhitespace(MEMBER->word);
+				if (*safestart == '"') safestart = SkipWhitespace(MEMBER->word+1);
 				char* remap = strchr(MEMBER->word, '|');
 				if (remap) // word|word is remap ability
 				{
@@ -8874,6 +8924,54 @@ static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
 					WORDP D = StoreWord(MEMBER->word, AS_IS);
 					WORDP E = StoreWord(remap + 1, AS_IS);
 					CreateFastFact(MakeMeaning(D), remapfact,MakeMeaning( E), FACTTRANSIENT);
+
+					// use both _ and space
+					if (strchr(MEMBER->word, ' ')) // did space, do _
+					{
+						char word[MAX_WORD_SIZE];
+						strcpy(word, MEMBER->word);
+						char* at = word;
+						while ((at = strchr(at, ' '))) *at = '_';
+						WORDP D = StoreWord(word, AS_IS);
+						CreateFastFact(MakeMeaning(D), remapfact, MakeMeaning(E), FACTTRANSIENT);
+						
+						// duplicate concept member
+						char hold[MAX_WORD_SIZE];
+						strcpy(hold, JoinWords(BurstWord(MEMBER->word, CONTRACTIONS)));
+						at = hold;
+						while ((at = strchr(at, ' '))) *at = '_';
+						WORDP P = StoreWord(hold, AS_IS);
+						MEANING m = MakeMeaning(P);
+						if (*P->word == '\'')
+						{
+							flags |= ORIGINAL_ONLY;
+							m = MakeMeaning(StoreWord(P->word + 1));
+						}
+						CreateFastFact(m, Mmember, concept, flags);
+					}
+					else if (strchr(MEMBER->word, '_')) // did underscore, do space
+					{
+						char word[MAX_WORD_SIZE];
+						strcpy(word, MEMBER->word);
+						char* at = word;
+						while ((at = strchr(at, '_'))) *at = ' ';
+						WORDP D = StoreWord(word, AS_IS);
+						CreateFastFact(MakeMeaning(D), remapfact, MakeMeaning(E), FACTTRANSIENT);
+						
+						// duplicate concept member
+						char hold[MAX_WORD_SIZE];
+						strcpy(hold, JoinWords(BurstWord(MEMBER->word, CONTRACTIONS)));
+						at = hold;
+						while ((at = strchr(at, '_'))) *at = ' ';
+						WORDP P = StoreWord(hold, AS_IS);
+						MEANING m = MakeMeaning(P);
+						if (*P->word == '\'')
+						{
+							flags |= ORIGINAL_ONLY;
+							m = MakeMeaning(StoreWord(P->word + 1));
+						}
+						CreateFastFact(m, Mmember, concept, flags);
+					}
 				}
 
 				if (spellfix) // pairs of words, inverse order
@@ -8883,20 +8981,21 @@ static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
 					MEANING original = members->object;
 					list = SetSubstitute(true, "", Meaning2Word(original)->word, Meaning2Word(m)->word, 0, DO_PRIVATE, list,true);
 				}
-                else if (*MEMBER->word == '"' && (MEMBER->word[1] == '(' || MEMBER->word[2] == '(') ) // pattern in "(   )"
+                else if (*MEMBER->word == '"' && (*safestart == '(' ||  safestart[1] == '(') ) // pattern in "(   )" w possible leading whitespace
                 {
-                        char* start = MEMBER->word + 1;
-                        if (*start == '^') ++start;
-                        size_t len = strlen(start);
-                        start[len - 1] = 0;
-                        WORDP D = StoreWord(start, AS_IS); 
-                        start[len - 1] = '"';
-                        CreateFact(MakeMeaning(D), conceptPattern, concept, FACTTRANSIENT);
+                        if (*safestart == '^') ++safestart;
+                        size_t len = strlen(safestart);
+						safestart[len - 1] = 0;
+						if (MakeConceptPattern(safestart,concept,conceptPattern) == FAILRULE_BIT) return FAILRULE_BIT;
+						safestart[len - 1] = '"';
                 }
-				else if (*MEMBER->word == '(' && strchr(MEMBER->word,'(')) // pattern in  () 
+				else if (*safestart == '(' && strchr(MEMBER->word,')')) // pattern in  ()  -- skip over leading whitespace
 				{
-						WORDP D = StoreWord(MEMBER->word, AS_IS);
-						CreateFact(MakeMeaning(D), conceptPattern, concept, FACTTRANSIENT);
+					if (MakeConceptPattern(safestart, concept, conceptPattern) == FAILRULE_BIT) return FAILRULE_BIT;
+				}
+				else if (*MEMBER->word == '^' && MEMBER->word[1] == '(') // compiled pattern
+				{
+					CreateFact(MakeMeaning(MEMBER), conceptPattern, concept, FACTTRANSIENT);
 				}
 				else
                 {
@@ -8943,6 +9042,16 @@ static void UnbindConcepts(MEANING array, FACT* newfact, FACT* oldfact, HEAPREF 
         G = GetSubjectNondeadNext(G);
     }
     while (newfact > oldfact) KillFact(newfact--, false, false);
+
+	while (heapPatternThread)
+	{
+		uint64 val1;
+		uint64 val2;
+		uint64 val3;
+		heapPatternThread = UnpackHeapval(heapPatternThread, val1, val2, val3);
+		WORDP D = (WORDP)val1;
+		D->systemFlags &= -1 ^ PATTERN_WORD;
+	}
 }
 
 static bool TestPatternAgainstSentence(char* pattern, char* buffer)
@@ -8968,7 +9077,7 @@ static bool TestPatternAgainstSentence(char* pattern, char* buffer)
             sprintf(buf, "%s ", wordStarts[i]);
             buf += strlen(buf);
         }
-        Log(STDUSERLOG, "testpatternagainstsentence %s\r\n", startptr);
+        Log(STDUSERLOG, "  testpatternagainstsentence %s\r\n", startptr);
         FreeBuffer();
     }
     bool match = false;
@@ -9064,7 +9173,7 @@ static void HandleChangedVariables(MEANING resultobject)
             {
                 AllocateOutputBuffer();
                 NextInferMark();
-                jwrite(currentOutputBase, FindWord(text), 1); // it is subject field
+                jwrite(currentOutputBase, FindWord(text), 1,false); // it is subject field
                 value = MakeMeaning(StoreWord(currentOutputBase, AS_IS));
                 FreeOutputBuffer();
             }
@@ -9259,10 +9368,10 @@ static FunctionResult TestPatternCode(char* buffer)
 	++pcounter;
 
 	internalConceptIndex = 0;
-	MEANING input = NULL;
-	MEANING patterns = NULL;
-	MEANING variables = NULL;
-	MEANING conceptlist = NULL;
+	MEANING input = 0;
+	MEANING patterns = 0;
+	MEANING variables = 0;
+	MEANING conceptlist = 0;
 	FACT* F = GetSubjectNondeadHead(D);
 	while (F)
 	{
@@ -9310,6 +9419,7 @@ static FunctionResult TestPatternCode(char* buffer)
 		RESTORESYSTEMSTATE()
 		FreeBuffer(); //usermsg
 		if (conceptlist) UnbindConcepts(conceptlist, newfact, oldfact, substitutes); // kill these facts
+		patternwordthread = NULL;
 		return result;
 	}
 
@@ -9374,7 +9484,7 @@ static FunctionResult TestPatternCode(char* buffer)
 				G = GetSubjectNondeadNext(G);
 			}
 		}
-		if (strstr(pattern, "$$cs_tracepattern")) tracepatterndata |= 2; // script will control pattern tracing manually
+		if (strstr(pattern, "$cs_tracepattern")) tracepatterndata |= 2; // script will control pattern tracing manually
 		protectedKey = ProtectKeywords(pattern, protectedKey); // does protection with pattern
 		CreatePatternInternalConcepts(pattern); // does protection with pattern
 		F = GetSubjectNondeadNext(F);
@@ -9542,6 +9652,8 @@ static FunctionResult TestOutputCode(char* buffer)
 	if (!IsValidJSONName(arg, 'o')) return FAILRULE_BIT;
 	WORDP D = FindWord(arg);
 	if (!D) return FAILRULE_BIT;
+	heapPatternThread = NULL;
+
 	csapicall = true;
 	// output can have variable references
 	// { output: "", variables: [ {name: x, value: y} }
@@ -9662,6 +9774,30 @@ static FunctionResult TestOutputCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static void StoreCompileErrors(MEANING M)
+{
+	if (errorIndex)
+	{
+		MEANING M1 = GetUniqueJsonComposite((char*)"ja-", FACTTRANSIENT);
+		WORDP field = StoreWord("errors", AS_IS);
+		unsigned int flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_ARRAY_VALUE;
+		CreateFact(M, MakeMeaning(field), M1, flags);
+		flags = JSON_ARRAY_FACT | FACTTRANSIENT | JSON_STRING_VALUE;
+		for (unsigned int i = 0; i < errorIndex; ++i)
+		{
+			char index[MAX_WORD_SIZE];
+			sprintf(index, "%d", i);
+			field = StoreWord(index, AS_IS);
+			char* errmsg = errors[i];
+			while (*errmsg == '.' || *errmsg == ',') ++errmsg; // skip tabbing data
+			size_t len = strlen(errmsg);
+			while (errmsg[len - 1] == '\n' || errmsg[len - 1] == '\r') errmsg[--len] = 0;
+			WORDP err = StoreWord(errmsg, AS_IS);
+			CreateFact(M1, MakeMeaning(field), MakeMeaning(err), flags);
+		}
+	}
+}
+
 static void DSEReturnCode(char* startData, char* data, MEANING M,bool pattern)
 {
     // store the compiled code
@@ -9702,26 +9838,8 @@ static void DSEReturnCode(char* startData, char* data, MEANING M,bool pattern)
         FreeBuffer();
     }
     // store any errors
-    if (errorIndex)
-    {
-        MEANING M1 = GetUniqueJsonComposite((char*)"ja-", FACTTRANSIENT);
-        field = StoreWord("errors", AS_IS);
-        flags = JSON_OBJECT_FACT | FACTTRANSIENT | JSON_ARRAY_VALUE;
-        CreateFact(M, MakeMeaning(field), M1, flags);
-        flags = JSON_ARRAY_FACT | FACTTRANSIENT | JSON_STRING_VALUE;
-        for (unsigned int i = 0; i < errorIndex; ++i)
-        {
-            char index[MAX_WORD_SIZE];
-            sprintf(index, "%d", i);
-            field = StoreWord(index, AS_IS);
-            char* errmsg = errors[i];
-            while (*errmsg == '.' || *errmsg == ',') ++errmsg; // skip tabbing data
-            size_t len = strlen(errmsg);
-            while (errmsg[len - 1] == '\n' || errmsg[len - 1] == '\r') errmsg[--len] = 0;
-            WORDP err = StoreWord(errmsg, AS_IS);
-            CreateFact(M1, MakeMeaning(field), MakeMeaning(err), flags);
-        }
-    }
+	StoreCompileErrors(M);
+
     // store any errors
     if (warnIndex)
     {
@@ -9750,6 +9868,7 @@ static FunctionResult CompilePatternCode(char* buffer)
 	char* data = AllocateBuffer();
 	*data = 0;
 	csapicall = true;
+	heapPatternThread = NULL;
     SAVESYSTEMSTATE()
 
     FunctionResult result = NOPROBLEM_BIT;
@@ -9855,7 +9974,7 @@ static FunctionResult CompilePatternCode(char* buffer)
 			*currentFilename = 0;
             //disablePatternOptimization = false;
 			if (strstr(readBuffer, "brucecrash")) myexit("compile pattern crash");
-			compilePatternCall = true;
+			compilePatternCall = true; 
 			ReadPattern(readBuffer, NULL, data, false, false); // swallows the pattern
 		}
         else // if test
@@ -9871,7 +9990,7 @@ static FunctionResult CompilePatternCode(char* buffer)
     }
 	--jumpIndex;
 	compiling = NOT_COMPILING;
-	compilePatternCall = false;
+	compilePatternCall = false; 
 	RESTORESYSTEMSTATE()
     EndScriptCompiler();
     // get the object
@@ -9903,6 +10022,8 @@ static FunctionResult CompileOutputCode(char* buffer)
     char* data = AllocateBuffer();
     *data = 0;
 	csapicall = true;
+	heapPatternThread = NULL;
+
 	SAVESYSTEMSTATE()
 
     FunctionResult result = NOPROBLEM_BIT;
@@ -9938,12 +10059,12 @@ static FunctionResult CompileOutputCode(char* buffer)
         strcpy(readBuffer, arg);
 
 		// protect against \n code
-		char* at = readBuffer - 1;
-		while ((at = strstr(++at, "\\n")))
-		{
-			*at = ' ';
-			at[1] = ' ';
-		}
+		//char* at = readBuffer - 1;
+		//while ((at = strstr(++at, "\\n")))
+		//{
+		//	*at = ' ';
+		//	at[1] = ' ';
+		//}
 
 		linestartpoint = readBuffer;
 		compiling = PIECE_COMPILE;
@@ -10016,6 +10137,13 @@ static FunctionResult DeleteCode(char* buffer) //   delete all facts in collecti
 			FACT* F = factSet[store][i];
 			KillFact(F);
 		}
+	}
+	else // deletefile
+	{
+			char word[MAX_WORD_SIZE];
+			ReadCompiledWord(arg1, word);
+			int fail = unlink(word);
+			return (fail) ? FAILRULE_BIT : NOPROBLEM_BIT;
 	}
     allowBootKill = false;
 
@@ -11143,7 +11271,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^conceptlist",ConceptListCode,STREAM_ARG,0,(char*)"create facts of the concepts or topics or both triggers by word at position or overall"}, 
 	{ (char*)"^createattribute",CreateAttributeCode,STREAM_ARG,0,(char*)"create a triple where the 3rd field is exclusive"}, 
 	{ (char*)"^createfact",CreateFactCode,STREAM_ARG,0,(char*)"create a triple"}, 
-	{ (char*)"^delete",DeleteCode,VARIABLE_ARG_COUNT,0,(char*)"delete all facts in factset or delete named fact or delete named json object or array, optionally allow in boot layer as well"}, 
+	{ (char*)"^delete",DeleteCode,VARIABLE_ARG_COUNT,0,(char*)"delete all facts in factset or delete named fact or delete  file or delete named json object or array, optionally allow in boot layer as well"}, 
     { (char*)"^purgeboot", PurgeBootCode, 1, 0, "erases data for a botid from boot layer" },
     { (char*)"^deserialize", DeserializeCode, 1, 0, "transcribes a string into a factset" },
 	{ (char*)"^field",FieldCode,2,0,(char*)"get a field of a fact"}, 
@@ -11191,7 +11319,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ "^jsonformat", JSONFormatCode, 1, 0, "given a json text string, makes all field names use doublequotes and proper escaping" },
 	{ "^jsonpath", JSONPathCode, VARIABLE_ARG_COUNT, 0, "retrieves the json value corresponding to a path and a given fact presumed to be array or object" },
 	{ "^jsontree", JSONTreeCode, VARIABLE_ARG_COUNT, 0, "prints the hierarchy represented by the json node to depth if requested" },
-	{ "^jsonwrite", JSONWriteCode, VARIABLE_ARG_COUNT, 0, "prints out json string corresponding to the facts of the root name given" },
+	{ "^jsonwrite", JSONWriteCode, VARIABLE_ARG_COUNT, 0, "prints out json string corresponding to the facts of the root name given, optional 1st arg PLAIN" },
 	{ "^jsonlabel", JSONLabelCode, 1, 0, "use label when creating json arrays and objects" },
 	{ "^jsonundecodestring", JSONUndecodeStringCode, 1, 0, "remove escapes from json data" },
 #ifndef DISCARDJSONOPEN

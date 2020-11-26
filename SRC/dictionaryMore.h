@@ -264,6 +264,7 @@ void ClearWhereInSentence();
 void ClearTriedData();
 void ClearDictionaryFiles();
 int CopyWhereInSentence(int oldindex);
+void RestorePropAndSystem(char* stringUsed);
 inline unsigned int GlossIndex(MEANING M) { return M >> 24;}
 void ReadAbbreviations(char* file);
 void ReadLiveData();

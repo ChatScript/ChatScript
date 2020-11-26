@@ -96,15 +96,15 @@ FunctionResult RunJavaScript(char* definition, char* buffer, unsigned int args)
 			while ((code = ReadCompiledWord(code,file)) != NULL && !stricmp(file,"file"))
 			{
 				code = ReadCompiledWord(code,file);  // name
-				char* name = file;
+				char* filename = file;
 				if (file[0] == '"')
 				{
 					size_t len = strlen(file);
 					file[len-1] = 0;
-					++name;
+					++filename;
 				}
-				if (!compile) duk_eval_file(ctx, name);
-				else duk_compile_file(ctx, 0, name);
+				if (!compile) duk_eval_file(ctx, filename);
+				else duk_compile_file(ctx, 0, filename);
 				duk_pop(ctx);
 			}
 		}

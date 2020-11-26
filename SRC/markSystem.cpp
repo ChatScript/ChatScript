@@ -462,6 +462,35 @@ static void ProcessPendingConcepts()
     }
 }
 
+static bool IsValidStart(int start)
+{
+    if (start == 1) return true;
+    
+    if (!(tokenControl & DO_INTERJECTION_SPLITTING))
+    {
+        // if not splitting interjections into their own sentence, then could be a valid start
+        // if all previous words are an interjection
+        WORDP D = FindWord("~interjections");
+        if (!D) return false;
+        
+        int i = 0;
+        while (++i<start)
+        {
+            if (*wordStarts[i] == ',') { ; }
+            else if (*wordStarts[i] == '-') { ; }
+            else
+            {
+                int end = WhereWordHit(D,i);
+                if (end == 0 || end >= start) return false;
+                i = end;
+            }
+        }
+        return true;
+    }
+        
+    return false;
+}
+
 static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, unsigned int level, bool canonical) //   walks set hierarchy
 {//   travels up concept/class sets only, though might start out on a synset node or a regular word
     unsigned int flags = GETTYPERESTRICTION(M);
@@ -498,9 +527,9 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 		else if (restrict && !(restrict & flags)) { block = true; } // type restriction in effect for this concept member
 		else if (F->flags & (START_ONLY | END_ONLY))
 		{
-			if (F->flags & START_ONLY && start != 1) { block = true; }  // must begin the sentence
+			if (F->flags & START_ONLY && !IsValidStart(start)) { block = true; }  // must begin the sentence
 			else if (F->flags & END_ONLY && end != wordCount && !(F->flags & START_ONLY)) { block = true; }  // must begin the sentence
-			else if ((F->flags & (START_ONLY | END_ONLY)) == (START_ONLY | END_ONLY) && start == 1)
+			else if ((F->flags & (START_ONLY | END_ONLY)) == (START_ONLY | END_ONLY) && IsValidStart(start))
 			{
 				if (end == wordCount) { ; }
 				else if (*wordStarts[end + 1] == ',') { ; }

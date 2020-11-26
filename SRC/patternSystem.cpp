@@ -40,6 +40,7 @@
 // bottom 16 bits hold start and range of a gap (if there is one) and bits WILDGAP or MEMORIZEWILDGAP will be on
 // and slot to use is 5 bits below
 // BUT it we are memorizing specific, it must use separate slot index because _*~4 _() can exist
+HEAPREF heapPatternThread = NULL;
 int patternDepth = 0;
 int indentBasis = 1;
 bool matching = false;
@@ -1839,9 +1840,6 @@ void ExecuteConceptPatterns()
     WORDP D = FindWord("conceptPattern");
     if (!D) return; // none
 
-    char* data = AllocateBuffer();
-    char* startData = data;
-    *data = 0;
     SAVESYSTEMSTATE()
 
     char* buffer = AllocateBuffer();
@@ -1855,42 +1853,8 @@ void ExecuteConceptPatterns()
         F = GetVerbNondeadNext(F);
         if (concept == lastMatchedConcept) continue; // one match per
 
-        // if pattern has ^ in front, it has been compiled
-        if (*pattern == '(')
-        { 
-            data = startData;
-
-            // try to recover from fatality
-            int buffercount = bufferIndex;
-			int frameindex = globalDepth;
-            if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
-            {
-				globalDepth = frameindex;
-				bufferIndex = buffercount;
-                --jumpIndex;
-                *buffer = 0;
-			}
-            else
-            {
-                patternwordthread = NULL;
-                StartScriptCompiler(false);
-                ReadNextSystemToken(NULL, NULL, data, false, false); // flush cache
-                *data = 0;
-                strcpy(readBuffer, pattern);
-                compiling = PIECE_COMPILE;
-                currentFileLine = 0;
-                currentLineColumn = 0;
-#ifndef DISCARDSCRIPTCOMPILER
-                strcpy(currentFilename, "ConceptPattern");
-                ReadPattern(readBuffer, NULL, data, false, false); // swallows the pattern
-#endif
-	            pattern = startData;
-				--jumpIndex;
-			}
-			compiling = NOT_COMPILING;
-			EndScriptCompiler();
-		}
-        else ++pattern;
+        // all patterns here have been compiled, skip compilation mark
+        ++pattern;
 
         if (!*pattern) continue;     // fails if no pattern compiled
 
@@ -1918,7 +1882,5 @@ void ExecuteConceptPatterns()
             MarkMeaningAndImplications(0, 0, conceptMeaning, start, end, false, false, false);
         }
     }
-
     RESTORESYSTEMSTATE()
-    FreeBuffer();
 }

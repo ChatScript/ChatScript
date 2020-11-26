@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -849,7 +849,8 @@ The left side is stored as the concept member and a fact is created ( left-side 
     &quot;newglobals&quot;: { &quot;$stovetype&quot;: &quot;range&quot;, &quot;$leaktype&quot;: &quot;leak&quot; }  
 }</code></pre>
 <p>If nothing matched, the value of <code>match</code> is false. Otherwise it is the index of the matching pattern (0-based). If there are return values from matching one or more patterns, those will be listed in <code>newglobals</code>, which is omitted if there are none. Values of null are never returned.</p>
-<p>You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set. Just prepend to your input &quot;:tracepattern&quot;</p>
+<p>You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.<br />
+Just prepend to your input &quot;:tracepattern 1&quot;. Or in a pattern use $cs_tracepattern and that reference will turn on tracing for that call to CS.</p>
 <h2 id="cs-external-api--compileoutput">CS External API- ^CompileOutput</h2>
 <p>The external API functions allow execution of rule behaviors from outside of ChatScript. This function takes in an output string like</p>
 <pre><code>if ($test) {test me}

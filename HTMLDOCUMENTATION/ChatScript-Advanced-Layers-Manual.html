@@ -24,6 +24,7 @@
 <p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
 <p>Changing the content of boot json facts (e.g. <code>$data.value += 1</code>) may create abandoned data in the boot layer (the old value of $data.value) and do this often enough and you may run out of memory since there is no way to reclaim it.</p>
 <p>All permanent facts created during the boot process will reside in this layer while the server remains operational. If you restart the server, whatever was stored here is gone, presumably recreated by a new call to ^CSBOOT.</p>
+<p>Note: In a multi-bot system, you need to define this function ONCE in a common area (like a botmacro file) which is visible to all bots.</p>
 <p>HOW DOES GC WORK HERE if you create transient facts?</p>
 <p>You can also add facts to the boot layer from execution of user scripts. Just create facts from a user script using ^createFact(s v o #FACTBOOT) and when layer 1 is being removed at the end of the volley, these facts will migrate to the boot layer.</p>
 <p>You may define any number of ^CSBOOT functions. This allows both multibot and standalone environments to compile without triggering a complaint about already defined functions, though only the first will ever execute.</p>

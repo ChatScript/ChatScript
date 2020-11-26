@@ -3,7 +3,7 @@
 #ifndef MSSQLIMPH_
 #define MSSQLIMPH_
 
-int mssql_get_id(void);
+int mssql_get_new_id(void);
 
 // All return 0 on success.
 
@@ -31,5 +31,9 @@ int mssql_use_stored_procedures(int id, bool flag);
 int mssql_set_tracing(int id, bool flag, const char* filename);
 const char* get_mssql_in_conn_str(void);
 const char* get_mssql_out_conn_str(void);
+char* get_mssql_staging_buffer(int id, int* staging_buffer_size);
+
+int mssql_maybe_compress(char* c_buf, size_t* c_size, const char* p_buf, size_t p_size);
+int mssql_maybe_uncompress(const char* c_buf, size_t c_size, char* p_buf, size_t* p_size);
 
 #endif /* MSSQLIMPH_ */
