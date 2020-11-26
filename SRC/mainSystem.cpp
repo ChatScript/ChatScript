@@ -1117,12 +1117,12 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	argv = argvx;
 
     ReadConfig();
+    if (configUrl != NULL) LoadconfigFromUrl(configUrl, configHeaders, headerCount);
 
 	HandlePermanentBuffers(true);
 
 	quitting = false;
 	echo = true;	
-	if (configUrl != NULL) LoadconfigFromUrl(configUrl, configHeaders, headerCount);
 	ProcessArguments(argc,argv);
 	MakeDirectory(tmpfolder);
 	if (argumentsSeen) (*printer)("\r\n");

@@ -1608,6 +1608,7 @@ char* jwrite(char* buffer, WORDP D, int subject,bool plain )
 			bool usequote = !plain || !NotPlain(Meaning2Word(F->verb)->word);
 			if (usequote) strcpy(buffer++,(char*)"\""); // put out key in quotes
 			WriteMeaning(F->verb,NULL,buffer);
+			buffer += strlen(buffer);
 			if (usequote)
 			{
 				strcpy(buffer, (char*)"\": ");
