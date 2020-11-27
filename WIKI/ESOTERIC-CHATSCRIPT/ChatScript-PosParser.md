@@ -342,7 +342,7 @@ http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/
 The German bot assumes you have installed TreeTagger and the german data per instructions provided
 on his website. I have only tried the Windows installation. 
 
-To use a foreign tagger, you set the `$cs_externaltag` variable in your bot definition to a topic that will
+To use a foreign tagger, you set the `$cs_externaltag` variable in your bot definition to a topic (called in Gambit mode) that will
 perform the work. And you need to disable ChatScript from performing the work. Make your bot
 definition `$cs_token` NOT use the following: `#DO_SPELLCHECK`, `#DO_PARSE`,
 `#DO_SUBSTITUTE_SYSTEM` (since that is english substitutions and punctuation processing). 

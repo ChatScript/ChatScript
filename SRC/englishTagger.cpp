@@ -720,6 +720,7 @@ static void SetCanonicalValue(int start,int end)
 		else ++lower;
 	}
 	bool caseSignificant = (lower > 3 && lower > upper);
+	bool csEnglish = !stricmp(language, "english");
 
 	// now set canonical lowercase forms
 	for (int i = start; i <= end; ++i)
@@ -734,7 +735,8 @@ static void SetCanonicalValue(int start,int end)
 		WORDP D = FindWord(original);
 		WORDP canon1 = (D) ? GetCanonical(D) : NULL;
 		char* canon =  (canon1) ? canon1->word : NULL;
-		if (posValues[i] & (DETERMINER| IDIOM) && original[1] == 0)  // treat "a" as not a letter A
+
+		if (csEnglish && posValues[i] & (DETERMINER| IDIOM) && original[1] == 0)  // treat "a" as not a letter A
 		{
 			canon = NULL;
 			canonicalLower[i] = originalLower[i];
@@ -746,7 +748,7 @@ static void SetCanonicalValue(int start,int end)
 			canonicalLower[i] = originalLower[i];
 			continue;
 		}
-		else if (allOriginalWordBits[i] & CONJUNCTION )
+		else if (csEnglish && allOriginalWordBits[i] & CONJUNCTION )
 		{
 			if (!stricmp(wordStarts[i], "times")) // a conjunction looking like plural that in singular is a normal word
 			{
@@ -757,19 +759,19 @@ static void SetCanonicalValue(int start,int end)
 		}
 
 		// a word like "won" has noun, verb, adjective meanings. We prefer a canonical that's different from the original
-		if (canon && IsUpperCase(*canon)) canonicalUpper[i] = FindWord(canon);
-		else if (canon) canonicalLower[i] = FindWord(canon);
+		if (csEnglish && canon && IsUpperCase(*canon)) canonicalUpper[i] = FindWord(canon);
+		else if (csEnglish && canon) canonicalLower[i] = FindWord(canon);
 		else if (pos & NUMBER_BITS); // must occur before verbs and nouns, since "second" is a verb and a noun
 		else if (canonicalLower[i] && canonicalLower[i]->properties & (NOUN_NUMBER|ADJECTIVE_NUMBER)); // dont change canonical numbers like December second
-		else if (allOriginalWordBits[i] & NOUN_GERUND) // because singing is a dict word, we might prefer noun over gerund. We shouldned
+		else if (csEnglish && allOriginalWordBits[i] & NOUN_GERUND) // because singing is a dict word, we might prefer noun over gerund. We shouldned
 		{
 			canonicalLower[i] = FindWord(GetInfinitive(original,false));
 		}
-		else if (pos & (VERB_BITS | NOUN_GERUND | NOUN_INFINITIVE|ADJECTIVE_PARTICIPLE) ) 
+		else if (csEnglish && pos & (VERB_BITS | NOUN_GERUND | NOUN_INFINITIVE|ADJECTIVE_PARTICIPLE) )
 		{
 			canonicalLower[i] = FindWord(GetInfinitive(original,false));
 		}
-		else if (pos & ADJECTIVE_NORMAL && !(D && D->properties & (MORE_FORM|MOST_FORM)))
+		else if (csEnglish && pos & ADJECTIVE_NORMAL && !(D && D->properties & (MORE_FORM|MOST_FORM)))
 		{
 			canonicalLower[i] = originalLower[i]; // "his *fixed view should be adjective and not participle given it is an adjective- arbitrary
 			if (allOriginalWordBits[i] & ADJECTIVE_PARTICIPLE) 
@@ -778,7 +780,7 @@ static void SetCanonicalValue(int start,int end)
 				if (verb) canonicalLower[i] = FindWord(verb);
 			}
 		}
-		else if (pos & (NOUN_BITS - NOUN_GERUND - NOUN_ADJECTIVE)  || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))) 
+		else if (csEnglish && pos & (NOUN_BITS - NOUN_GERUND - NOUN_ADJECTIVE)  || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original)))
 		{
 			if (pos & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL) && canonicalUpper[i] && canonicalUpper[i]->properties & NOUN) // can it be upper case interpretation?
 			{
@@ -793,17 +795,17 @@ static void SetCanonicalValue(int start,int end)
 			}
 			if (canonicalLower[i] && canonicalLower[i]->properties & (DETERMINER|NUMBER_BITS));
 			else if (IsAlphaUTF8(*original) &&  canonicalLower[i] && !strcmp(canonicalLower[i]->word,(char*)"unknown-word"));	// keep unknown-ness
- 			else if (pos & NOUN_BITS && !canonicalUpper[i]) 
+ 			else if (csEnglish && pos & NOUN_BITS && !canonicalUpper[i])
 			{
 				char* noun = GetSingularNoun(original,false,true);
 				if (noun) canonicalLower[i] = FindWord(noun);
 			}
-			else if (D && D->internalBits & UPPERCASE_HASH && FindWord(original, 0,LOWERCASE_LOOKUP))
+			else if (csEnglish && D && D->internalBits & UPPERCASE_HASH && FindWord(original, 0,LOWERCASE_LOOKUP))
 			{
 				canonicalLower[i] = FindWord(original,0, LOWERCASE_LOOKUP);
 			}
 		}
-		else if (pos & (ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NOUN) || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))) 
+		else if (csEnglish && pos & (ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NOUN) || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original)))
 		{
 			if (canonicalLower[i] && canonicalLower[i]->properties & NUMBER_BITS);
 			else 
@@ -813,13 +815,13 @@ static void SetCanonicalValue(int start,int end)
 			}
 
 			// for adjectives that are verbs, like married, go canonical to the verb if adjective is unchanged
-			if (canonicalLower[i] && !strcmp(canonicalLower[i]->word,original))
+			if (csEnglish && canonicalLower[i] && !strcmp(canonicalLower[i]->word,original))
 			{
 				char* infinitive = GetInfinitive(original,false);
 				if (infinitive) canonicalLower[i] = FindWord(infinitive);
 			}
 		}
-		else if (pos & ADJECTIVE_NOUN) 
+		else if (csEnglish && pos & ADJECTIVE_NOUN)
 		{
 			if (canonicalLower[i] && canonicalLower[i]->properties & NUMBER_BITS);
 			else if (IsUpperCase(*wordStarts[i]) && caseSignificant) {;}  //  upper case is intentional
@@ -829,7 +831,7 @@ static void SetCanonicalValue(int start,int end)
 				if (adj) canonicalLower[i] = FindWord(adj);
 			}
 		}
-		else if (pos & ADVERB || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))) 
+		else if (csEnglish && pos & ADVERB || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original)))
 		{
 			if (canonicalLower[i] && canonicalLower[i]->properties & NUMBER_BITS);
 			else canonicalLower[i] = FindWord(GetAdverbBase(original,false));
@@ -844,14 +846,14 @@ static void SetCanonicalValue(int start,int end)
 		else if (*original == '~') canonicalLower[i] = FindWord(original);
 		else if (!IsAlphaUTF8(*original)) canonicalLower[i] = FindWord(original);
 
-		if (pos & PRONOUN_BITS && !stricmp(original,(char*)"one")) // make it a number
+		if (csEnglish && pos & PRONOUN_BITS && !stricmp(original,(char*)"one")) // make it a number
 		{
 			canonicalLower[i] = StoreWord((char*)"1",NOUN|NOUN_NUMBER);
 		}
 
 		// handle composite verb canonical for single hypen case
 		char* hyphen = strchr(original,'-');
-		if (hyphen && pos & (VERB_BITS|NOUN_GERUND|ADJECTIVE_PARTICIPLE|NOUN_INFINITIVE)) // find the verb root.
+		if (csEnglish && hyphen && pos & (VERB_BITS|NOUN_GERUND|ADJECTIVE_PARTICIPLE|NOUN_INFINITIVE)) // find the verb root.
 		{
 			char word[MAX_WORD_SIZE];
 			strcpy(word,original);
@@ -881,7 +883,7 @@ static void SetCanonicalValue(int start,int end)
 			else canonicalLower[i] = can;
 		}
 		if (canonicalLower[i] && IsDigit(*canonicalLower[i]->word)) wordCanonical[i] = canonicalLower[i]->word; // leave numbers alone
-		else if (canonicalLower[i] && originalLower[i]) 
+		else if (csEnglish && canonicalLower[i] && originalLower[i])
 		{
 			if (!GetCanonical(originalLower[i]) && posValues[i] & NOUN_SINGULAR && !(allOriginalWordBits[i] & NOUN_GERUND) && stricmp(canonicalLower[i]->word,(char*)"unknown-word")) // saw does not become see, it stays original - but singing should still be sing and "what do you think of dafatgat" should remain
 			{
@@ -893,7 +895,7 @@ static void SetCanonicalValue(int start,int end)
 		else if (canonicalUpper[i]) wordCanonical[i] = canonicalUpper[i]->word;
 		else wordCanonical[i] = wordStarts[i];
 	}
-	SetSentenceTense(start,end);
+	if (csEnglish) SetSentenceTense(start,end);
 }
 
 static char* PosBits(uint64 bits, char* buff)
@@ -1387,7 +1389,6 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag"))
 	{
 		// not treetagger, just a named topic
-		externalTagger = 1;
 		OnceCode((char*)"$cs_externaltag");
 	}
 

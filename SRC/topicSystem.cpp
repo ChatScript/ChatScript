@@ -2292,7 +2292,7 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 		}
 		else
 		{
-			ptr = ReadInt(ptr,block->topicFlags);
+			ptr = ReadInt(ptr,block->topicFlags); //0x19 111423313 1 0 65 simpletopic.top
 			if (block->topicFlags & TOPIC_SHARE) shared = true; // need more data written into USER zone
 			ptr = ReadInt(ptr,block->topicChecksum);
  			ptr = ReadInt(ptr,topLevelRules);

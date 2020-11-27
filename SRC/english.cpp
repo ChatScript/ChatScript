@@ -696,7 +696,10 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 { // this is not allowed to write properties/systemflags/internalbits if the word is preexisting
 	uint64 properties = 0;
 	sysflags = cansysflags = 0;
-	canonical = 0;
+	canonical = 0;  
+	if (at < 1) { ; } // not from sentence
+	else if (canonicalLower[at]) canonical = canonicalLower[at];  // note canonicalLower may already be set by external postagging
+	else if (canonicalUpper[at]) canonical = canonicalUpper[at];  // note canonicalUpper may already be set by external postagging
 	entry = 0;
 	if (start == 0) start = 1;
 	if (revise) revise = NULL;
@@ -970,7 +973,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 			if (participle && !strcmp(participle,original)) properties |= NOUN_ADJECTIVE;
 		}
 		WORDP canon = GetCanonical(entry);
-		if (canon) canonical = canon;
+		if (canon && !canonical) canonical = canon;
 		if (canonical) cansysflags = canonical->systemFlags;
 
 		// german postag data marks all nouns without separating singular from plural

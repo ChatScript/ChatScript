@@ -2967,7 +2967,7 @@ void OnceCode(const char* var,char* function) //   run before doing any of his i
 	if (BlockedBotAccess(topicid) || GAMBIT_MAX(block->topicMaxRule) == 0)
 	{
 		char word[MAX_WORD_SIZE];
-		sprintf(word,"There are no gambits in topic %s for %s.",GetTopicName(topicid),var);
+		sprintf(word,"There are no gambits in topic %s for %s or topic is blocked for this bot.",GetTopicName(topicid),var);
 		AddResponse(word,0);
 		ChangeDepth(-1,name);
         return;

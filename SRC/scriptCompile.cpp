@@ -4248,8 +4248,8 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		}
 		if (*word == 'a' && word[2] == 0 && (word[1] == ';' || word[1] == '"' || word[1] == '\'' ) ) 
 			WARNSCRIPT((char*)"Is %s supposed to be a rejoinder marker?\r\n",word,currentFilename);
-
-		if ((*word == '}' && level == 0) || TopLevelUnit(word) || TopLevelRule(lowercaseForm) || Rejoinder(lowercaseForm) || !stricmp(word,(char*)"datum:")) //   responder definition ends when another major unit or top level responder starts
+		if (*word == '}' && level == 0 && !optionalBrace) BADSCRIPT("extra } closing nothing")
+		if ((*word == '}' && level == 0 && optionalBrace) ||  TopLevelUnit(word) || TopLevelRule(lowercaseForm) || Rejoinder(lowercaseForm) || !stricmp(word,(char*)"datum:")) //   responder definition ends when another major unit or top level responder starts
 		{
 			if (*word != ':') // allow commands here 
 			{
@@ -4690,7 +4690,7 @@ Then one of 3 kinds of character:
 			//  word is a rejoinder type
 			strcpy(kind,lowercaseForm);
 		}
-		else ReportBug((char*)"unexpected word in ReadTopLevelRule - %s",word)
+		else ReportBug((char*)"Prior script not complete- unexpected top level word %s after seeing %s", lowercaseForm, data - 20)
 	}
 
 	//   did he forget to fill in any [] jumps

@@ -3132,7 +3132,7 @@ static FunctionResult SetCanonCode(char* buffer)
 	int n = atoi(arg1);
 	if (n < 1 || n > wordCount) return FAILRULE_BIT;
 	char* arg2 = ARGUMENT(2);
-	WORDP D = StoreWord(arg2);
+	WORDP D = StoreWord(arg2,AS_IS);
 	wordCanonical[n] = D->word;
 	if (!IsUpperCase(*wordCanonical[n]))
 	{
