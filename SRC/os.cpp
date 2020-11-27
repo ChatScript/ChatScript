@@ -1298,7 +1298,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 		{
 			sprintf(name,(char*)"%s/%s",directory,file);
 			(*function)(name,flags); // fails if directory
-            if (recursive && isDirectory(xname)) seendirs = true;
+            if (recursive && isDirectory(name)) seendirs = true;
 		}
      }
 
