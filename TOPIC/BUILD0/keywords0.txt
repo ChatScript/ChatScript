@@ -1699,8 +1699,8 @@
     Frost_Monster Frost_Giant Frankenstein_'s_monster Flatwoods_Monster firedrake Fenrir Father_Christmas Fafnir extraterrestrial_being extraterrestrial Eurydice Euryale ettin Enkidu Electra Easter_bunny dragon Dracula doppelganger Death Dardanus Daedalus Daedal Cyclops cyclops Cthulhu Creon cockatrice Clytemnestra Chupecabra Chiron chimera Chimera Chimaera character Cerberus Cepheus centaur Cecealia Cassiopeia Cadmus bugbear bugaboo Brynhild Brunnhilde Brunhild boogeyman booger bogeyman Blob Bigfoot 
     Big_Foot Bellerophon Behemoth basilisk Augeas Atreus Arjuna Argus Antigone Andromeda amphisbaena Amazon alien Alcyone Alcides Ajax Agamemnon Aeneas Aegisthus Achilles abominable_snowman )
 ~role PROBABLE_NOUN ( ~role_worship ~role_romantic ~role_politics ~role_misc ~role_member ~role_medical ~role_knowledge ~role_heroic ~role_family ~role_enemy ~role_economic ~role_criminal ~role_ally ~role_accomodation ~occupation )
-~beverage ( water milkshake milk drink cream ~water_drinks ~softdrinks ~milk_drinks ~juice_drinks ~caffinated_drinks ~alcoholic_beverage )
-~caffinated_drinks ( tea Red_Bull Pepsi_Cola iced_tea energy_drink Dr._Pepper Coca_Cola chai ~coffees )
+~beverage ( water milkshake milk drink cream ~water_drinks ~softdrinks ~milk_drinks ~juice_drinks ~caffeinated_drinks ~alcoholic_beverage )
+~caffeinated_drinks ( tea Red_Bull Pepsi_Cola iced_tea energy_drink Dr._Pepper Coca_Cola chai ~coffees )
 ~juice_drinks ( pineapple_juice orange_juice lemonade juice~2 cider apple_juice )
 ~milk_drinks ( yogurt~1 milk~2 milk_shake half-and-half~1 cream~2 ~milk )
 ~softdrinks ( Sprite softdrink soft_drink soda_pop soda rootbeer root_beer pop Pepsi Mountain_Dew ice_cream_soda cola Coca_Cola )

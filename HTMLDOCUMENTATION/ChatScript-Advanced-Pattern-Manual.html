@@ -9,8 +9,17 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 10/18/2020 cs10.7</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 1/1/2021 cs11.0</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
+<h2 id="unlimited-wildcards">UNLIMITED WILDCARDS</h2>
+<p>When you use <code>*</code> you want everything matching until the next significant token, eg</p>
+<pre><code>u: (I love *  tomorrow) matches all words between love and tomorrow. 
+u: (I love * ) matches all words after love and up to the implied &gt; (end of sentence)</code></pre>
+<p>and similarly *~5 wants to match up to 5 words betwen here and the next pattern word. But this breaks down if the next token after the wildcard is not a word or the end. CS must resolve the gap involved on the next pattern token. For example you can't do this:</p>
+<pre><code>u: ( I love _* $var:=_0 )</code></pre>
+<p>For capturing the rest of sentence you can do this:</p>
+<pre><code>u: ( I love _* &gt; $var:=_0 )</code></pre>
+<p>But you can't intrude pattern assignments or function calls or whatever between actual words and concepts, a wildcard, and then more words and concepts.</p>
 <h2 id="keyword-phrases">Keyword Phrases</h2>
 <p>You cannot make a concept with a member whose string includes starting or trailing blanks, like &quot; X &quot;. Such a word could never match as a pattern, since spaces are skipped over. But you can make it respond to idiomatic phrases and multiple words. Just put them in quotes, e.g.</p>
 <pre><code>concept: ~remove ( &quot;take away&quot; remove )</code></pre>
@@ -32,7 +41,7 @@
 <pre><code>concept: ~buildings [ shelter~1 living_accomodations~1 building~3 ]</code></pre>
 <p>The concept <code>~buildings</code> represents 760 general and specific building words found in the WordNet dictionary any word which is a child of: definition 1 of shelter, definition 1 of accommodations, or definition 3 of building in WordNet's ontology.</p>
 <p>How would you be able to figure out creating this? This is described under <code>:up</code> in Word Commands later.</p>
-<p><code>Building~3</code> and <code>building~3n</code> are equivalent.</p>
+<p><code>Building~3</code> and <code>building~3n</code> are equivalent. Note, however, that CS does not compile your named meaning into the script as is. You are naming a meaning, so CS will find the corresponding master meaning and use that instead (if different). This is because the inheritance hierarchy from below will only come thru the master meaning. For example: if you write prison-break~1, the system will compile break~1 because that is the master, and covers all other specific word meanings that are equivalent including breakout~1.</p>
 <p>The first is what you might say to refer to the 3rd meaning of building. Internally <code>building~3n</code> denotes the 3rd meaning and its a <em>noun</em> meaning.</p>
 <p>You may see that in printouts from Chatscript. If you write <code>building~3n</code> yourself, the system will strip off the <code>n</code> marker as superfluous.</p>
 <p>Similarly you can invoke parts of speech classes on words. By default you get all of them. If you write:</p>
@@ -79,6 +88,7 @@
 <p>If you call a patternmacro with a string argument, like <em>&quot;scuba dive&quot;</em> above, the system will convert that to its internal single-token format just as it would have had it been part of a normal pattern. Quoted strings to output macros are treated differently and left in string form when passed.</p>
 <p>You can declare a patternmacro to accept a variable number of arguments. You define the macro with the maximum and then put &quot;variable&quot; before the argument list. All missing arguments will be set to <code>null</code> on the call.</p>
 <pre><code>patternmacro: ^myfn variable (^arg1 ^arg2 ^arg3 ^arg4)</code></pre>
+<p>Patterns process a token at a time. A token is characters with no white space (generally). But the system recognizes direct function calls from patterns and the arguments and parens surrounding them may have spaces. But you cannot do assignment statements from a function call. I.e., <br /><span class="math display"><em>t</em><em>m</em><em>p</em>:=<sup><em>f</em></sup><em>o</em><em>o</em>(<em>a</em>)<em>i</em><em>s</em><em>n</em><em>o</em><em>t</em><em>l</em><em>e</em><em>g</em><em>a</em><em>l</em>.<em>Y</em><em>o</em><em>u</em><em>c</em><em>a</em><em>n</em><em>g</em><em>e</em><em>t</em><em>t</em><em>h</em><em>e</em><em>e</em><em>f</em><em>f</em><em>e</em><em>c</em><em>t</em><em>y</em><em>o</em><em>u</em><em>w</em><em>a</em><em>n</em><em>t</em><em>w</em><em>i</em><em>t</em><em>h</em></span><br />tmp:=^&quot; ^foo(a) &quot; because the active string protects the function call.</p>
 <h3 id="dual-macros">Dual macros</h3>
 <p>You can also declare something dualmacro: which means it can be used in both pattern and output contexts.</p>
 <p>A patternmacro cannot be passed a factset name. These are not legal calls:</p>

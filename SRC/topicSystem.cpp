@@ -594,7 +594,7 @@ unsigned int FindTopicIDByName(char* name,bool exact)
 
 void UndoErase(char* ptr,int topicid,int id)
 {
-    if (trace & TRACE_TOPIC && CheckTopicTrace())  Log(STDUSERLOG,(char*)"Undoing erase %s\r\n",ShowRule(ptr));
+    if (trace & TRACE_TOPIC && CheckTopicTrace())  Log(USERLOG,"Undoing erase %s\r\n",ShowRule(ptr));
 	ClearRuleDisableMark(topicid,id);
 }
 
@@ -907,7 +907,7 @@ static bool HasDebugRuleMark(int topicid)
 		if (block->topicDebugRule[i]) 
 		{
 			tracing = true;
-			Log(STDUSERLOG,(char*)" Some rule(s) being traced in %s\r\n",GetTopicName(topicid));
+			Log(USERLOG," Some rule(s) being traced in %s\r\n",GetTopicName(topicid));
 
 		}
 	}
@@ -960,7 +960,7 @@ static bool HasTimingRuleMark(int topicid)
 		if (block->topicTimingRule[i])
 		{
 			doTiming = true;
-			Log(STDUSERLOG, (char*)" Some rule(s) being timed in %s\r\n", GetTopicName(topicid));
+			Log(USERLOG," Some rule(s) being timed in %s\r\n", GetTopicName(topicid));
 
 		}
 	}
@@ -1118,7 +1118,7 @@ void SetErase(bool force)
  	if (SetRuleDisableMark(currentTopicID,currentRuleID))
 	{
 		ruleErased = true;
-		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"**erasing %s  %s\r\n",GetTopicName(currentTopicID),ShowRule(currentRule));
+		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"**erasing %s  %s\r\n",GetTopicName(currentTopicID),ShowRule(currentRule));
 	}
 }
 
@@ -1157,7 +1157,7 @@ void SetRejoinder(char* rule)
 
     if (ptr && *ptr == level) //   will be on the level we want
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"  **set rejoinder at %s\r\n",ShowRule(ptr));
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"  **set rejoinder at %s\r\n",ShowRule(ptr));
         outputRejoinderRuleID = rejoinderID; 
  	    outputRejoinderTopic = currentTopicID;
     }
@@ -1204,8 +1204,8 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 		else strncpy(output,output1,50);
 		output[50] = 0;
 		pattern[30] = 0;
-		if (*label) Log(STDTRACETABLOG, "%s rule %c:%d.%d %s %s %s\r\n",GetTopicName(currentTopicID),*rule,TOPLEVELID(id),REJOINDERID(id),label,pattern,output); //  \\  blocks linefeed on next Log call
-		else  Log(STDTRACETABLOG, "%s rule %c:%d.%d %s %s\r\n",GetTopicName(currentTopicID),*rule,TOPLEVELID(id),REJOINDERID(id),pattern,output); //  \\  blocks linefeed on next Log call
+		if (*label) Log(USERLOG, "%s rule %c:%d.%d %s %s %s\r\n",GetTopicName(currentTopicID),*rule,TOPLEVELID(id),REJOINDERID(id),label,pattern,output); //  \\  blocks linefeed on next Log call
+		else  Log(USERLOG, "%s rule %c:%d.%d %s %s\r\n",GetTopicName(currentTopicID),*rule,TOPLEVELID(id),REJOINDERID(id),pattern,output); //  \\  blocks linefeed on next Log call
 		ReleaseInfiniteStack();
 	}
 
@@ -1303,8 +1303,8 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id,char* buffer,bool r
 
 	if (timing & TIME_FLOW) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (*label && (timing & TIME_ALWAYS || diff > 0)) Log(STDTIMETABLOG, "%s rule %c:%d.%d %s %s time: %d ms\r\n", GetTopicName(currentTopicID), *rule, TOPLEVELID(id), REJOINDERID(id), label, pattern, diff);
-		else if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, "%s rule %c:%d.%d %s time: %d ms\r\n", GetTopicName(currentTopicID), *rule, TOPLEVELID(id), REJOINDERID(id), pattern, diff);
+		if (*label && (timing & TIME_ALWAYS || diff > 0)) Log(STDTIMELOG, "%s rule %c:%d.%d %s %s time: %d ms\r\n", GetTopicName(currentTopicID), *rule, TOPLEVELID(id), REJOINDERID(id), label, pattern, diff);
+		else if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, "%s rule %c:%d.%d %s time: %d ms\r\n", GetTopicName(currentTopicID), *rule, TOPLEVELID(id), REJOINDERID(id), pattern, diff);
 	}
 
 	if (traceChanged) 
@@ -1373,8 +1373,8 @@ retry:
 
 	if (trace & (TRACE_PATTERN | TRACE_SAMPLE )  && CheckTopicTrace())
 	{
-		if (*label) Log(STDTRACETABLOG, "try %c:%d.%d %s @%d: \\",*rule,TOPLEVELID(ruleID),REJOINDERID(ruleID),label,start); //  \\  blocks linefeed on next Log call
-		else  Log(STDTRACETABLOG, "try %c:%d.%d @%d: \\",*rule,TOPLEVELID(ruleID),REJOINDERID(ruleID),start); //  \\  blocks linefeed on next Log call
+		if (*label) Log(USERLOG, "try %c:%d.%d %s @%d: \\",*rule,TOPLEVELID(ruleID),REJOINDERID(ruleID),label,start); //  \\  blocks linefeed on next Log call
+		else  Log(USERLOG, "try %c:%d.%d @%d: \\",*rule,TOPLEVELID(ruleID),REJOINDERID(ruleID),start); //  \\  blocks linefeed on next Log call
 		if (trace & TRACE_SAMPLE && *ptr == '(') TraceSample(currentTopicID,ruleID);// show the sample as well as the pattern
 		if (*ptr == '(')
 		{
@@ -1382,10 +1382,10 @@ retry:
 			char* pattern = InfiniteStack(limitstack,"TestRule"); // transient
 			GetPattern(rule,NULL,pattern,true);
 			CleanOutput(pattern);
-			Log(STDUSERLOG,(char*)"       pattern: %s",pattern);
+			Log(USERLOG,"       pattern: %s",pattern);
 			ReleaseInfiniteStack();
 		}
-		Log(STDUSERLOG,(char*)"\r\n");
+		Log(USERLOG,"\r\n");
 	}
 	int whenmatched = 0;
     if (*ptr == '(') // pattern requirement
@@ -1427,7 +1427,7 @@ retry:
 				char word[MAX_WORD_SIZE];
 				strncpy(word,rule,40);
 				word[40] = 0;
-				ReportBug((char*)"Exceeeded retry rule limit on rule %s", word);
+				ReportBug((char*)"INFO: Exceeeded retry rule limit on rule %s", word);
 				result = FAILRULE_BIT;
 				goto exit;
 			}
@@ -1446,9 +1446,9 @@ retry:
 			{
 				if (trace & (TRACE_PATTERN|TRACE_MATCH|TRACE_SAMPLE)  && CheckTopicTrace() )
 				{
-					Log(STDTRACETABLOG,"RetryRule on sentence at word %d: ",start+1);
-					for (int i = 1; i <= wordCount; ++i) Log(STDUSERLOG,"%s ",wordStarts[i]);
-					Log(STDUSERLOG,"\r\n");
+					Log(USERLOG,"RetryRule on sentence at word %d: ",start+1);
+					for (int i = 1; i <= wordCount; ++i) Log(USERLOG,"%s ",wordStarts[i]);
+					Log(USERLOG,"\r\n");
 				}
                 retried = true;
 				goto retry;
@@ -1477,7 +1477,7 @@ exit:
 static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,char* rule)
 {
 	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE)  && CheckTopicTrace()) 
-	id = Log(STDTRACETABLOG,(char*)"Topic: %s linear %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
+	id = Log(USERLOG,"Topic: %s linear %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
 	char* base = GetTopicData(currentTopicID);  
 	int ruleID = 0;
 	topicBlock* block = TI(currentTopicID);
@@ -1496,9 +1496,9 @@ static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,c
 		{
 			if (trace & (TRACE_PATTERN|TRACE_SAMPLE) && CheckTopicTrace()) 
 			{
-				Log(STDTRACETABLOG,(char*)"try %c%d.%d: linear used up  ",*ptr,TOPLEVELID(ruleID),REJOINDERID(ruleID));
+				Log(USERLOG,"try %c%d.%d: linear used up  ",*ptr,TOPLEVELID(ruleID),REJOINDERID(ruleID));
 				if (trace & TRACE_SAMPLE && !TopLevelGambit(ptr) && CheckTopicTrace()) TraceSample(currentTopicID,ruleID);// show the sample as well as the pattern
-				Log(STDUSERLOG,(char*)"\r\n");
+				Log(USERLOG,"\r\n");
 			}
 		}
 		else if (rule && ptr < rule) {;} // ignore rule until zone hit
@@ -1529,7 +1529,7 @@ static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,c
 
 static FunctionResult FindRandomRule(char type, char* buffer, unsigned int& id)
 {
-	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE) && CheckTopicTrace()) id = Log(STDTRACETABLOG,(char*)"\r\n\r\nTopic: %s random %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
+	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE) && CheckTopicTrace()) id = Log(USERLOG,"\r\n\r\nTopic: %s random %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
 	char* base = GetTopicData(currentTopicID);  
 	topicBlock* block = TI(currentTopicID);
 	unsigned int ruleID = 0;
@@ -1547,9 +1547,9 @@ static FunctionResult FindRandomRule(char type, char* buffer, unsigned int& id)
 		{
 			if (trace & (TRACE_PATTERN|TRACE_SAMPLE)  && CheckTopicTrace()) 
 			{
-				Log(STDTRACETABLOG,(char*)"try %c%d.%d: random used up   ",*ptr,TOPLEVELID(ruleID),REJOINDERID(ruleID));
+				Log(USERLOG,"try %c%d.%d: random used up   ",*ptr,TOPLEVELID(ruleID),REJOINDERID(ruleID));
 				if (trace & TRACE_SAMPLE && !TopLevelGambit(ptr) && CheckTopicTrace()) TraceSample(currentTopicID,ruleID);// show the sample as well as the pattern
-				Log(STDUSERLOG,(char*)"\r\n");
+				Log(USERLOG,"\r\n");
 			}
 		}
 		else if (type == GAMBIT || (*ptr == type || *ptr == STATEMENT_QUESTION))
@@ -1585,7 +1585,7 @@ static FunctionResult FindRandomRule(char type, char* buffer, unsigned int& id)
 
 static FunctionResult FindRandomGambitContinuation(char type, char* buffer, unsigned int& id)
 {
-	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE) && CheckTopicTrace()) id = Log(STDTRACETABLOG,(char*)"\r\n\r\nTopic: %s random %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
+	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE) && CheckTopicTrace()) id = Log(USERLOG,"\r\n\r\nTopic: %s random %s: \r\n",GetTopicName(currentTopicID),RuleTypeName(type));
 	char* base = GetTopicData(currentTopicID);  
 	topicBlock* block = TI(currentTopicID);
 	unsigned  int* rulemap = block->gambitTag;	// looking for gambits
@@ -1600,7 +1600,7 @@ static FunctionResult FindRandomGambitContinuation(char type, char* buffer, unsi
 		char* ptr = base + block->ruleOffset[gambitID];
 		if (!UsableRule(currentTopicID,gambitID))
 		{
-			if (trace & (TRACE_PATTERN|TRACE_SAMPLE)  && CheckTopicTrace()) Log(STDTRACETABLOG,(char*)"try %c%d.%d: randomcontinuation used up\r\n",*ptr,TOPLEVELID(gambitID),REJOINDERID(gambitID));
+			if (trace & (TRACE_PATTERN|TRACE_SAMPLE)  && CheckTopicTrace()) Log(USERLOG,"try %c%d.%d: randomcontinuation used up\r\n",*ptr,TOPLEVELID(gambitID),REJOINDERID(gambitID));
 			if (*ptr == RANDOM_GAMBIT) available = true; //   we are allowed to use gambits part of this subtopic
 		}
 		else if (*ptr == GAMBIT) 
@@ -1717,9 +1717,6 @@ FunctionResult PerformTopic(int active,char* buffer,char* rule, unsigned int id)
 	}
 
 	uint64 start_time = ElapsedMilliseconds();
-	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE|TRACE_TOPIC) && CheckTopicTrace()) 
-		Log(STDTRACETABLOG,(char*)"Enter Topic: %s\r\n", topicfolder);
-
 	while (result == RETRYTOPIC_BIT && --limit > 0)
 	{
 		if (BlockedBotAccess(currentTopicID)) result = FAILTOPIC_BIT;	//   not allowed this bot
@@ -1737,12 +1734,12 @@ FunctionResult PerformTopic(int active,char* buffer,char* rule, unsigned int id)
 	result = (FunctionResult)(result & (-1 ^ ENDTOPIC_BIT)); // dont propogate 
 	if (result & FAILTOPIC_BIT) result = FAILRULE_BIT; // downgrade
 	if (trace & (TRACE_MATCH|TRACE_PATTERN|TRACE_SAMPLE|TRACE_TOPIC) && CheckTopicTrace()) 
-		id = Log(STDTRACETABLOG,(char*)"Result: %s Topic: %s \r\n",ResultCode(result),topicName);
+		id = Log(USERLOG,"Result: %s Topic: %s \r\n",ResultCode(result),topicName);
 
 	if (updateDisplay) RestoreDisplay(frame->display,locals);
 	if (timing & TIME_TOPIC && CheckTopicTime()) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Topic %s time: %d ms\r\n", topicfolder,diff);
+		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Topic %s time: %d ms\r\n", topicfolder,diff);
 	}
 
 	WORDP E = FindWord((char*)"^cs_topic_exit");
@@ -1879,8 +1876,8 @@ bool ReadUserTopics()
 	}
 	if (trace & TRACE_USER)
 	{
-		if (inputRejoinderTopic == NO_REJOINDER) Log(STDUSERLOG, (char*)"No rejoinder pending\r\n");
-		else Log(STDUSERLOG, (char*)"\r\nPending Rejoinder %s.%d.%d\r\n", word, TOPLEVELID(inputRejoinderRuleID), REJOINDERID(inputRejoinderRuleID));
+		if (inputRejoinderTopic == NO_REJOINDER) Log(USERLOG,"No rejoinder pending\r\n");
+		else Log(USERLOG,"\r\nPending Rejoinder %s.%d.%d\r\n", word, TOPLEVELID(inputRejoinderRuleID), REJOINDERID(inputRejoinderRuleID));
 	}
 
 	bool badLayer1 = false;
@@ -2277,7 +2274,7 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
             fclose(in);
             (*printer)("FATAL: Incompletely compiled unit %s\r\n", name);
             EraseTopicFiles(build, (build == BUILD1) ? (char*)"1" : (char*) "0");
-            Log(ECHOSTDUSERLOG, (char*)"\r\nIncompletely compiled unit - press Enter to quit. Then fix and try again.\r\n");
+            Log(ECHOUSERLOG, (char*)"\r\nIncompletely compiled unit - press Enter to quit. Then fix and try again.\r\n");
             if (!server && !commandLineCompile) ReadALine(readBuffer, stdin);
             myexit("FATAL: bad compile",4); // error
         }
@@ -2555,7 +2552,7 @@ void AddBinWord(WORDP D, bool isnew, FILE* out)
  // {6} hash, 
  // {7} name/0,  
 	D->internalBits &= -1 ^ (BIT_CHANGED | VAR_CHANGED | BEEN_HERE);
-	uint64 bindata[50];
+	uint64* bindata = (uint64*)AllocateBuffer();
 	bindata[0] = ((uint64)(D->length & 0x00ffff)) << 32;
 	bindata[0] |= Word2Index(D);
 	bindata[1] = (((uint64)D->internalBits) << 32) | (uint64)D->parseBits;
@@ -2590,6 +2587,7 @@ void AddBinWord(WORDP D, bool isnew, FILE* out)
 	}
 	bindata[0] |= ((uint64)skip) << 48;
 	fwrite(bindata, 1, sizeof(uint64) * (skip + valsize), out);
+	FreeBuffer();
 }
 
 static uint64* UnpackBin(uint64* data64)
@@ -3100,7 +3098,7 @@ static void InitMacros(const char* name,const char* layer,unsigned int build)
 			fclose(in);
 			(*printer)("FATAL: Old style function compile of %s. Recompile your script", name);
 			EraseTopicFiles(build, (build == BUILD1) ? (char*)"1" : (char*) "0");
-			Log(ECHOSTDUSERLOG, (char*)"\r\nOld style function compile of %s. Recompile your script", name);
+			Log(ECHOUSERLOG, (char*)"\r\nOld style function compile of %s. Recompile your script", name);
 			if (!server && !commandLineCompile) ReadALine(readBuffer, stdin);
 			myexit("bad compile", 4); // error
 		}
@@ -3317,7 +3315,7 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 		{
 			char word[MAX_WORD_SIZE];
 			WriteFact(F, false,word, false);
-			Log(STDUSERLOG, "%s\r\n", word);
+			Log(USERLOG, "%s\r\n", word);
 		}
 	}
     
@@ -3488,7 +3486,7 @@ void AddPendingTopic(int topicid)
 	bool removed = RemovePendingTopic(topicid);	//   remove any old reference
 	pendingTopicList[pendingTopicIndex++] = topicid;
 	if (pendingTopicIndex >= MAX_TOPIC_STACK) memmove(&pendingTopicList[0],&pendingTopicList[1],sizeof(int) * --pendingTopicIndex);
-	if (trace & TRACE_OUTPUT && !removed && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Adding pending topic %s\r\n",GetTopicName(topicid));
+	if (trace & TRACE_OUTPUT && !removed && CheckTopicTrace()) Log(USERLOG,"Adding pending topic %s\r\n",GetTopicName(topicid));
 }
 
 void PendingTopics(int set)
@@ -3553,7 +3551,7 @@ int PushTopic(int topicid) // -1 = failed  0 = unneeded  1 = pushed
 {
 	if (topicid == currentTopicID)
 	{
-		if (trace & TRACE_TOPIC && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Topic %s is already current\r\n",GetTopicName(topicid));
+		if (trace & TRACE_TOPIC && CheckTopicTrace()) Log(USERLOG,"Topic %s is already current\r\n",GetTopicName(topicid));
 		return 0;  // current topic
 	}
 	else if (!topicid)
@@ -3565,7 +3563,7 @@ int PushTopic(int topicid) // -1 = failed  0 = unneeded  1 = pushed
 	//  topic  already in progress? allow repeats since this is control flow
 	if (TopicInUse(topicid) == -1)
 	{
-		if (trace & TRACE_TOPIC && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Topic %s is already pending, changed to current\r\n",GetTopicName(topicid));
+		if (trace & TRACE_TOPIC && CheckTopicTrace()) Log(USERLOG,"Topic %s is already pending, changed to current\r\n",GetTopicName(topicid));
 	}
     topicStack[++topicIndex] = currentTopicID; // [1] will be 0 
     if (topicIndex >= MAX_TOPIC_STACK) 
@@ -3575,7 +3573,7 @@ int PushTopic(int topicid) // -1 = failed  0 = unneeded  1 = pushed
         return -1;
     }
 	currentTopicID = topicid;
-  	if (trace & TRACE_TOPIC) Log(STDTRACETABLOG,(char*)"Pushing Topic %s\r\n",GetTopicName(topicid));
+  	if (trace & TRACE_TOPIC) Log(USERLOG,"Push Topic %s\r\n",GetTopicName(topicid));
 	return 1;
 }
 
@@ -3583,7 +3581,7 @@ void PopTopic()
 {
 	if (topicIndex) 
 	{
- 		if (trace & TRACE_TOPIC) Log(STDTRACETABLOG,(char*)"Popping Topic %s\r\n",GetTopicName(currentTopicID));
+ 		if (trace & TRACE_TOPIC) Log(USERLOG,"Pop Topic %s\r\n",GetTopicName(currentTopicID));
 		currentTopicID = topicStack[topicIndex--];
 	}
 	else currentTopicID = 0;	// no topic now

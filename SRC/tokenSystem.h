@@ -3,7 +3,7 @@
 #include "common.h"
 
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -24,21 +24,22 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 extern uint64 tokenFlags;  
 extern char* wordStarts[MAX_SENTENCE_LENGTH];
 extern bool capState[MAX_SENTENCE_LENGTH];	
-extern bool originalCapState[MAX_SENTENCE_LENGTH];	
-extern int wordCount;	
+extern bool originalCapState[MAX_SENTENCE_LENGTH];
+extern int wordCount;
 extern int inputNest;
 extern int hasFundamentalMeanings;
 extern int actualTokenCount;
 bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens);
-int BurstWord(char* word, int contractionStyle = 0);
+int BurstWord(const char* word, int contractionStyle = 0);
 char* GetBurstWord(unsigned int n);
 char* JoinWords(unsigned int n,bool output = false,char* buffer = NULL);
 void ProcessSplitUnderscores();
 WORDP ApostropheBreak(char* aword);
-char* Tokenize(char* input,int& count,char** words,bool all = false,bool oobstart = false);
+char* Tokenize(char* input,int& count,char** words, char* separators, bool all = false,bool oobstart = false);
 int ValidPeriodToken(char* start, char* end, char next,char next2);
 char* ReadTokenMass(char* ptr, char* word);
 void ProcessSubstitutes();
+FunctionResult GetDerivationText(int start, int end, char* buffer);
 void ProcessCompositeNumber();
 void ProcessCompositeDate();
 void ProperNameMerge();

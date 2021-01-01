@@ -89,7 +89,7 @@ bbfn ~emogoodbye
  <alas ~emosad
  <all_right ~yes
  <aloha ~emohello
- <alright ~yes
+ <all_right ~yes
  <always> ~yes
  whoa ~emosurprise
  Holy_smokes ~emosurprise
@@ -443,7 +443,7 @@ bbfn ~emogoodbye
  <indeed ~yes
  <indefinitely ~yes
  <indubitably> ~yes
- <is_everything_alright ~emohowzit
+ <is_everything_all_right ~emohowzit
  <is_everything_OK ~emohowzit
  <it_is_highly_likely> ~yes
  <it_is_not_possible> ~no
@@ -548,7 +548,7 @@ bbfn ~emogoodbye
  <nuts_to_you ~no
  <of_course ~yes
  <of_course_not ~no
- <oh_alright ~yes
+ <oh_all_right ~yes
  <oh_come_on ~no
  <oh_dear ~emosad
  <oh_dear_oh_dear ~emosad
@@ -651,7 +651,7 @@ bbfn ~emogoodbye
  <thanks_to_you_all ~emothanks
  <thanks_very_much ~emothanks
  <that_bums_me_out ~emosad
- <that_is_alright ~yes
+ <that_is_all_right ~yes
  <that_is_correct ~yes
  <that_is_disgusting ~emodisgust
  <that_is_good ~yes

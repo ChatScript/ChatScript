@@ -412,7 +412,8 @@ allong along
 allopone allophone
 allopones allophones
 allowence allowance
-allright all 
+ alright all+right
+allright all+right
 allthough although
 alltime all-time
 allwasy always

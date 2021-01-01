@@ -314,7 +314,7 @@ FunctionResult MySQLInitCode(char* buffer)
 		if (InitWinsock() == FAILRULE_BIT)
 		{
 			SetUserVariable((char*)"$$db_error", "Mysql cannot init Winsock");	// pass along the error
-			Log(STDUSERLOG, "Mysql cannot init Winsock");
+			Log(USERLOG, "Mysql cannot init Winsock");
 			return FAILRULE_BIT;
 		}
 #endif
@@ -328,7 +328,7 @@ FunctionResult MySQLInitCode(char* buffer)
 		char error[MAX_WORD_SIZE];
 		sprintf(error, "unable to connect to mysql");
 		SetUserVariable((char*)"$$db_error", error);	// pass along the error
-		Log(STDUSERLOG, error);
+		Log(USERLOG, error);
 		return FAILRULE_BIT;
 	}
 	return NOPROBLEM_BIT;
@@ -354,7 +354,7 @@ FunctionResult MySQLQueryCode(char* buffer)
 	{
 		sprintf(error, "%s is not a function", func);
 		SetUserVariable((char*)"$$db_error", error);	// pass along the error
-		Log(STDUSERLOG, error);
+		Log(USERLOG, error);
 		return FAILRULE_BIT;
 	}
 
@@ -371,7 +371,7 @@ FunctionResult MySQLQueryCode(char* buffer)
 	{
 		sprintf(error, "Failed  %s - %s", arg1, mysql_error(scriptconn));
 		SetUserVariable((char*)"$$db_error", error);	// pass along the error
-		Log(STDUSERLOG, error);
+		Log(USERLOG, error);
 		return FAILRULE_BIT;
 	}
 	FunctionResult csresult = NOPROBLEM_BIT;
@@ -386,7 +386,7 @@ FunctionResult MySQLQueryCode(char* buffer)
 		{
 			sprintf(error, "%d data columns but only %d arguments allowed to function %s", num_fields,args,func);
 			SetUserVariable((char*)"$$db_error", error);	// pass along the error
-			Log(STDUSERLOG, error);
+			Log(USERLOG, error);
 			mysql_free_result(result);
 			return FAILRULE_BIT;
 		}
@@ -447,7 +447,7 @@ FunctionResult MySQLQueryCode(char* buffer)
 		{
 			sprintf(error, "%s", mysql_error(scriptconn));
 			SetUserVariable((char*)"$$db_error", error);	// pass along the error
-			Log(STDUSERLOG, error);
+			Log(USERLOG, error);
 			csresult = FAILRULE_BIT;
 		}
 		// else query does not return data (it was not a SELECT)

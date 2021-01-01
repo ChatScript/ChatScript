@@ -200,7 +200,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
             {
                 char data[MAX_WORD_SIZE];
                 WriteFact(F, true, data, false, true,true);
-                Log(STDUSERLOG, (char*)"Fact Saved %s", data);
+                Log(USERLOG,"Fact Saved %s", data);
             }
 			ptr += strlen(ptr);
 			if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) 
@@ -230,7 +230,7 @@ static bool ReadUserFacts()
         int setid;
         ptr = ReadInt(ptr,setid); 
 		SET_FACTSET_COUNT(setid,0);
-		if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"Facts[%d]\r\n",setid);
+		if (trace & TRACE_USER) Log(USERLOG,"Facts[%d]\r\n",setid);
 	    while (ReadALine(readBuffer, 0)>= 0) 
 		{
 			if (*readBuffer == '#') break;
@@ -533,7 +533,7 @@ static bool ReadUserVariables()
 			PrepareVariableChange(D,"",false); // keep it alive as long as it is traced
 			AddInternalFlag(D,MACRO_TRACE);
 		}
-		if (trace & TRACE_VARIABLE) Log(STDUSERLOG,(char*)"uservar: %s=%s\r\n",readBuffer,ptr+1);
+		if (trace & TRACE_VARIABLE) Log(USERLOG,"uservar: %s=%s\r\n",readBuffer,ptr+1);
     }
 
 	if (strcmp(readBuffer,(char*)"#`end variables")) 
@@ -723,7 +723,7 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 	}
 	else
 	{
-		if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"\r\nLoading user %s bot %s\r\n",loginID, bot);
+		if (trace & TRACE_USER) Log(USERLOG,"\r\nLoading user %s bot %s\r\n",loginID, bot);
 		if (!ReadUserTopics()) 
 		{
 			ReportBug((char*)"User data file TOPICS inconsistent\r\n");
@@ -754,7 +754,7 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
             loadingUser = false;
             return false;
 		}
-		if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"user load completed normally\r\n");
+		if (trace & TRACE_USER) Log(USERLOG,"user load completed normally\r\n");
 		oldRandIndex = randIndex = atoi(GetUserVariable((char*)"$cs_randindex")) + (volleyCount % MAXRAND);	// rand base assigned to user
 	}
 	userRecordSourceBuffer = NULL;
@@ -785,19 +785,19 @@ void ReadUserData() // passed  buffer with file content (where feasible)
 	if (!stricmp(language,"english")) tokenControl |= DO_PARSE;
 	responseControl = ALL_RESPONSES;
 	*wildcardSeparator = ' ';
-	
+	wildcardSeparatorGiven = false;
 	numberStyle = AMERICAN_NUMBERS;
 	numberComma = ',';
 	numberPeriod = '.';
 
 	if (!ReadFileData(computerID))// read user file, if any, or get it from cache
 	{
-		(*printer)((char*)"%s",(char*)"User data file inconsistent\r\n");
-		ReportBug((char*)"User data file inconsistent\r\n");
+		(*printer)((char*)"%s",(char*)"User file inconsistent\r\n");
 	}
 	if (shared) ReadFileData((char*)"share");  // read shared file, if any, or get it from cache
 
-	if (timing & TIME_USER) {
+	if (timing & TIME_USER) 
+	{
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Read user data time: %d ms\r\n", diff);
 	}
@@ -818,7 +818,7 @@ void KillShare()
 void ReadNewUser()
 {
 	if (server) trace = 0;
-	if (trace & TRACE_USER) Log(STDUSERLOG,(char*)"New User\r\n");
+	if (trace & TRACE_USER) Log(USERLOG,"New User\r\n");
 
 	// if coming from script reset, these need to be cleared. 
 	// They were already cleared at start of volley
@@ -832,6 +832,7 @@ void ReadNewUser()
 	tokenControl = (DO_SUBSTITUTE_SYSTEM | DO_INTERJECTION_SPLITTING | DO_PROPERNAME_MERGE | DO_NUMBER_MERGE | DO_SPELLCHECK | DO_PARSE );
 	responseControl = ALL_RESPONSES;
 	*wildcardSeparator = ' ';
+	wildcardSeparatorGiven = false;
 
 	//   set his random seed
 	bool hasUpperCharacters;

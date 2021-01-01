@@ -516,7 +516,7 @@ void DumpSentence(int start,int end)
 		if (roles[i] & TAGQUESTION) strcat(buffer,(char*)" TAGQUESTION ");
 	}
 
-	Log(STDUSERLOG,(char*)"%s\r\n",buffer);
+	Log(USERLOG,"%s\r\n",buffer);
 
 	FreeBuffer();
 	if (to < end) DumpSentence(to+1,end); // show next piece

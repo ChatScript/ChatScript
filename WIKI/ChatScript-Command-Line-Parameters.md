@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 1/1/2021 cs11.0
 
 
 # Command Line Parameters
@@ -105,7 +105,8 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`users=xxx`    | name relative or absolute path to where you want the USERS folder to be. Do not add trailing `/`
 |`logs=xxx`     | name relative or absolute path to where you want the LOGS folder to be. Do not add trailing `/`
 |`userlog`      | Store a user-bot log in USERS directory (default)
-|`userlog=1`      | alternate form of request, you can use 0 for off and 1 for on
+|`userlog=1`      | alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout   4 means stderr - you may combine
+|`userlogging=file`      | alternate form of request, you can use none for off and file, stdout, stderr.  - you may combine userlogging=file,stdout
 |`nouserlog`    | Don't store a user-bot log
 |`tmp=xxx`     | name relative or absolute path to where you want the TMP folder to be. Do not add trailing `/`
 |`crashpath=xxx`     | file to write about fatal Linux signals that will be outside of the cs folder `/`
@@ -308,12 +309,15 @@ Nouserlog
 ```
 Don't store a user-bot log. Server default if unspecified.
 Alternatively you can do  userlog=0   to disable.
+Alternatively you can do userlogging=none.
 
 ```
 Serverlog
 ```
 Write a server log and a bugs log. 
-Alternatively you can do  serverlog=1   to enable.
+Alternatively you can do  serverlog=1   to enable to file,  2 to use stdout, 4 to use stderr. You can combine like serverlog=5
+Alternate form of request, you can use serverlogging=none for off and file, stdout, stderr.  - you may combine serverlogging=file,stdout
+Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.
 
 The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port. 
 
@@ -325,6 +329,12 @@ Noserverprelog
 Normally CS writes of a copy of input before server begins work on it to server log.
 Helps see what crashed the server (since if it crashes you get no log entry). This turns it
 off to improve performance.
+
+```
+serverlogauthcode=xxxxx
+```
+In addition to permanently turning on server logging, you can provide a cheat code in your
+input that, if it matches the serverlogauthcode, will enable server logging for that input.
 
 ```
 hidefromlog="label label2 label3"
@@ -350,12 +360,15 @@ Alternatively you can do  serverlog=0   to disable.
 ```
 Nobuglog
 ```
-Don't write a server bugs log. 
+Don't write a  bugs log. Same as Buglog=0 or Buglog=none
 
 ```
 Buglog
+Buglog=n
+Buglogging=none,file,stdout,stderr
 ```
-Write a server bugs log. Use after `Noserverlog` when you want to turn off server logs but retain bug logging.
+Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. 
+Alternate form of request, you can use buglogging=none for off and file, stdout, stderr.  - you may combine buglogging=file,stderr
 
 ```
 stdlogging=1

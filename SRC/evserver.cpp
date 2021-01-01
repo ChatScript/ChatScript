@@ -109,6 +109,7 @@ struct Client_t
     char* data = NULL;
     Buffer_t incomming;
 	uint64 starttime = ElapsedMilliseconds(); 
+    uint64 endtime;
 
     Client_t(int fd, struct ev_loop *l_p) : fd(fd), l(l_p), requestValid(false)
     {
@@ -201,6 +202,13 @@ struct Client_t
         }
 
         // sent all data
+
+        uint64 sendtime = ElapsedMilliseconds() - endtime;
+        if (sendtime >= 1000)
+        {
+            ReportBug("INFO: Excess Send Time %d %s", (int)(sendtime), message);
+        }
+
         this->prepare_for_next_request();
 
         return 1;
@@ -346,7 +354,7 @@ static void evsrv_child_died(EV_P_ ev_child *w, int revents) {
 int evsrv_init(const string &interfaceKind, int port, char* arg) {
     if (srv_socket_g != -1) 
 	{
-        ReportBug((char*)"evserver: server already initialized\r\n")
+        ReportBug((char*)"INFO: evserver: server already initialized\r\n")
         return -1;
     }
     if (arg) {
@@ -455,7 +463,7 @@ int evsrv_init(const string &interfaceKind, int port, char* arg) {
             } else if (forked == 1) {
                 parent_after_fork = 0;
 				int oldserverlog = serverLog;
-				serverLog = 1;
+				serverLog = FILE_LOG;
                 Log(SERVERLOG, "  evserver: child %d alive\r\n", getpid());
 				serverLog = oldserverlog;
                 break;
@@ -704,17 +712,19 @@ RESTART_RETRY:
 	FILE* in = fopen("serverlogging.txt", (char*)"rb"); // per external file created, enable server log
 	if (in)
 	{
-		serverLog = 1;
+		serverLog = FILE_LOG;
 		fclose(in);
 	}
+	serverLogTemporary = false;
 	if (*serverlogauthcode && strstr(ourMainInputBuffer, serverlogauthcode)) // per specific volley user input, enable server log
 	{
 		overrideServerLog = true;
-		serverLog = 1;
+		serverLog = FILE_LOG;
+		serverLogTemporary = true;
 	}
 
-	if ((serverPreLog || overrideServerLog) && restarted)  Log(SERVERLOG,(char*)"%s ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
- 	else if ((serverPreLog || overrideServerLog))  Log(SERVERLOG,(char*)"%s ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
+	if ((serverPreLog || overrideServerLog) && restarted)  Log(SERVERLOG,"%s ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
+ 	else if ((serverPreLog || overrideServerLog))  Log(SERVERLOG,"%s ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
     if (userInput) *userInput = endInput;
 	int turn = PerformChat(
         client->user,
@@ -725,7 +735,7 @@ RESTART_RETRY:
 	if (turn == PENDING_RESTART) // do user over again in a moment
 	{
 		restarted = true;
-		Log(SERVERLOG,(char*)"Restart Request: pid: %d %s \r\n",getpid(),client->user);
+		Log(SERVERLOG,"Restart Request: pid: %d %s \r\n",getpid(),client->user);
 		Restart();
 		*client->data = 0;
 		char* at = SkipWhitespace(ourMainInputBuffer);
@@ -742,9 +752,25 @@ RESTART_RETRY:
 		client->data[4] = 0;	// null terminate hidden why data after room for positive ctrlz
 	}
 	
-	if (overrideServerLog) serverLog = 1;
-	if (serverLog) LogChat(starttime,client->user,client->bot,(char*)client->ip.c_str(),turn,client->message,client->data,client->starttime);
-	serverLog = oldserverlog;
+	if (overrideServerLog) serverLog = FILE_LOG;
+    uint64 endtime;
+	if (serverLog)
+    {
+        LogChat(starttime, client->user, client->bot, (char*)client->ip.c_str(), turn, client->message, client->data, client->starttime);
+        endtime = ElapsedMilliseconds();
+    }
+    else
+    {
+        endtime = ElapsedMilliseconds();
+        int qtime = (int)(starttime - client->starttime); // delay waiting in q
+        if ((unsigned int)(endtime - starttime + qtime) > timeLog)
+        {
+            const char* restarted = (restartfromdeath) ? "rebooted" : "";
+            ReportBug("INFO: Excess Time nltime:%d qtime:%d %s %s", (int)(endtime - starttime), qtime, restarted, client->message);
+        }
+    }
+    client->endtime = endtime; // nl + logging finished, this is start for when we ship it back.
+    serverLog = oldserverlog;
 	return 1;
 }
 

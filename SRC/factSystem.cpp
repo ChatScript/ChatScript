@@ -294,8 +294,8 @@ char* GetSetEnd(char* x)
 void TraceFact(FACT* F,bool ignoreDead)
 {
 	char* word = AllocateBuffer(); 
-	Log(STDUSERLOG,(char*)"%d: %s\r\n",Fact2Index(F),WriteFact(F,false,word,ignoreDead,false,true));
-	Log(STDTRACETABLOG,(char*)"");
+	Log(USERLOG,"%d: %s\r\n",Fact2Index(F),WriteFact(F,false,word,ignoreDead,false,true));
+	Log(USERLOG,"");
 	FreeBuffer();
 } 
 
@@ -317,7 +317,7 @@ void InitFacts()
 		if ( factBase == 0)
 		{
 			(*printer)((char*)"%s",(char*)"failed to allocate fact space\r\n");
-			myexit((char*)"failed to get fact space");
+			myexit((char*)"FATAL failed to get fact space");
 		}
 	}
 	memset(factBase,0,sizeof(FACT) *  maxFacts); // not strictly necessary
@@ -385,7 +385,7 @@ FACT* SpecialFact(FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object,unsigned in
 	{
 		--lastFactUsed;
         if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(lastFactUsed))
-        ReportBug((char*)"out of fact space at %d",Fact2Index(lastFactUsed))
+        ReportBug((char*)"FATAL: out of fact space at %d",Fact2Index(lastFactUsed))
 		(*printer)((char*)"%s",(char*)"out of fact space");
 		return lastFactUsed; // dont return null because we dont want to crash anywhere
 	}
@@ -550,7 +550,7 @@ void KillFact(FACT* F,bool jsonrecurse, bool autoreviseArray)
 
 	if (trace & TRACE_FACT && CheckTopicTrace()) 
 	{
-		Log(STDUSERLOG,(char*)"Kill: ");
+		Log(USERLOG,"Kill: ");
 		TraceFact(F);
 	}
 	if (F->flags & FACTAUTODELETE)
@@ -763,16 +763,15 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 
 	//   insure fact is unique if requested
 	currentFact =  (properties & FACTDUPLICATE) ? NULL : FindFact(subject,verb,object,properties); 
-	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  Log(STDUSERLOG,(char*)" Found %d ", Fact2Index(currentFact));
+	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  Log(USERLOG," Found %d ", Fact2Index(currentFact));
 	if (currentFact) return currentFact;
 
 	currentFact = CreateFastFact(subject,verb,object,properties);
 	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  
 	{
-        if (trace & TRACE_FACT && trace & TRACE_JSON && !(trace & TRACE_OUTPUT)) 
+        if (trace & TRACE_JSON && !(trace & TRACE_OUTPUT)) 
             TraceFact(currentFact, false); // precise trace for JSON
-		Log(STDUSERLOG,(char*)" Created %d\r\n", Fact2Index(currentFact));
-		Log(STDTRACETABLOG,(char*)"");
+		Log(FORCESTAYUSERLOG,(char*)" Fact# %d\r\n", Fact2Index(currentFact));
 	}
 
 	return  currentFact;
@@ -910,7 +909,6 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	if (result & ENDCODES) return ptr;
 	if (!*buffer) 
 	{
-		if (!ptr) return NULL;
 		if (compiling)
 			BADSCRIPT((char*)"FACT-1 Missing subject for fact create")
 		char* end = strchr(ptr,')');
@@ -1040,7 +1038,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	}
 	else object =  MakeMeaning(StoreWord(word2,AS_IS),0);
 
-	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG,(char*)"%s %s %s %x) = ",word,word1,word2,flags);
+	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s %s %s %x) = ",word,word1,word2,flags);
 
 	FACT* F = FindFact(subject,verb,object,flags);
 	if (!attribute || (F && object == F->object)) {;}  // not making an attribute or already made
@@ -1056,7 +1054,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 				{
 					char wordx[MAX_WORD_SIZE];
 					WriteFact(F,false,wordx,false,true);
-					Log(STDUSERLOG,(char*)"Fact created is not an attribute. There already exists %s",wordx); 
+					Log(USERLOG,"Fact created is not an attribute. There already exists %s",wordx); 
 					(*printer)((char*)"Fact created is not an attribute. There already exists %s",wordx); 
 					currentFact = F;
 					return (*ptr) ? (ptr + 2) : ptr; 
@@ -1143,7 +1141,7 @@ bool ImportFacts(char* buffer,char* name, char* set, char* erase, char* transien
 	userRecordSourceBuffer = NULL;
 
 	if (!stricmp(erase,(char*)"erase") || !stricmp(transient,(char*)"erase")) remove(name); // erase file after reading
-	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG,(char*)"[%d] => ",FACTSET_COUNT(store));
+	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"[%d] => ",FACTSET_COUNT(store));
 	currentFact = NULL; // we have used up the facts
 	return true;
 }
@@ -1187,19 +1185,8 @@ void WriteBinaryFacts(FILE* out,FACT* F) //   write out from after here to thru 
 FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties)
 {
 	//   get correct field values
-	WORDP s = (properties & FACTSUBJECT) ? NULL : Meaning2Word(subject);
-	WORDP v = (properties & FACTVERB) ? NULL : Meaning2Word(verb);
-	WORDP o = (properties & FACTOBJECT) ? NULL : Meaning2Word(object);
 	// DICTIONARY should never be build with any but simple meanings and Mis
 	// No fact meaning should ever have a synset marker on it. And member facts may have type restrictions on them
-	if (s && ((subject & (-1 ^ SIMPLEMEANING) && verb == Mis) || subject&SYNSET_MARKER))
-	{
-		int xx = 0;
-	}
-	if (o && ((object & (-1 ^ SIMPLEMEANING) && verb == Mis)|| subject&SYNSET_MARKER))
-	{
-		int xx = 0;
-	}
 
 	//   allocate a fact
     int n = factEnd - lastFactUsed;
@@ -1238,7 +1225,7 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 		char* limit;
 		char* buffer = InfiniteStack(limit,"CreateFastFact"); // fact might be big, cant use mere WORD_SIZE
 		buffer = WriteFact(currentFact,false,buffer,true,false,true);
-		Log( (globalDepth > 1) ? STDTRACETABLOG : STDUSERLOG,(char*)"create %s",buffer);
+		Log( (globalDepth > 1) ? USERLOG : USERLOG,(char*)"create %s",buffer);
 		ReleaseInfiniteStack();
 	}	
 	return currentFact;
@@ -1626,11 +1613,6 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 				if (!(F->flags & FACTSUBJECT))
 				{
 					X = Meaning2Word(F->subject);
-
-					if (!stricmp(X->word, "Cuisinart"))
-					{
-						int xx = 0;
-					}
 					AddWordItem(X, false);
 					X->internalBits |= BIT_CHANGED;
 				}
@@ -1805,7 +1787,7 @@ static char* PutBlob(WORDP D, char* base)
     strcpy(base, D->word);
     uint64 align = (uint64)(base + strlen(base) + 8);
     align &= 0xFFFFFFFFFFFFFFf8ULL;
-    if ((char*)align >= (heapFree - 50)) myexit((char*)"Out of stack space in Putblob");
+    if ((char*)align >= (heapFree - 50)) myexit((char*)"FATAL Out of stack space in Putblob");
     return (char*)align;
 }
 

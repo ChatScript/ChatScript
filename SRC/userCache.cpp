@@ -108,7 +108,7 @@ static void WriteCache(unsigned int which,size_t size)
 #endif
 	EncryptableFileWrite(ptr,1,size,out,userEncrypt,"USER"); // user topic file write
 	userFileSystem.userClose(out);
-	if (trace & TRACE_USERCACHE) Log((server) ? SERVERLOG : STDUSERLOG,(char*)"write out cache (%d)\r\n",which);
+	if (trace & TRACE_USERCACHE) Log((server) ? SERVERLOG : USERLOG,(char*)"write out cache (%d)\r\n",which);
 	if (timing & TIME_USERCACHE) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log((server) ? SERVERLOG : STDTIMELOG, (char*)"Write user cache %d in file %s time: %d ms\r\n", which, filename, diff);
@@ -270,7 +270,7 @@ char* GetFileRead(char* user,char* computer)
 		buffer[readit] = 0;
 		buffer[readit+1] = 0; // insure nothing can overrun
 		userFileSystem.userClose(in);
-		if (trace & TRACE_USERCACHE) Log((server) ? SERVERLOG : STDUSERLOG,(char*)"read in %s cache (%d)\r\n",word,currentCache);
+		if (trace & TRACE_USERCACHE) Log((server) ? SERVERLOG : USERLOG,(char*)"read in %s cache (%d)\r\n",word,currentCache);
 		if (timing & TIME_USERCACHE) {
 			int diff = (int)(ElapsedMilliseconds() - start_time);
 			if (timing & TIME_ALWAYS || diff > 0) Log((server) ? SERVERLOG : STDTIMELOG, (char*)"Read user cache %d in file %s time: %d ms\r\n", currentCache, word, diff);

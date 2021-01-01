@@ -399,7 +399,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
     }
     original[len] = c;
     *output = 0; // when failures, return the null string
-    // if (trace & TRACE_OUTPUT) Log(STDTRACETABLOG, (char*)" %s", start);
+    // if (trace & TRACE_OUTPUT) Log(USERLOG," %s", start);
 }
 
 void StdNumber(char* word, char*& buffer, int controls) // text numbers may have sign and decimal
@@ -548,7 +548,7 @@ static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int 
                                       // is choice a repeat of something already said... if so try again
         if (*buffer && HasAlreadySaid(buffer))
         {
-            if (trace & TRACE_OUTPUT) Log(STDUSERLOG, (char*)"Choice %s already said\r\n", buffer);
+            if (trace & TRACE_OUTPUT) Log(USERLOG,"Choice %s already said\r\n", buffer);
             *buffer = 0;
             choiceset[r] = choiceset[--count];
         }
@@ -1034,18 +1034,6 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         char* priorPtr = ptr;
         ptr = ReadCompiledWord(ptr, word, false, true);  // stop when $var %var _var @nvar end normally- insure no ) ] } lingers on word in case it wasnt compiled
         size_t len = strlen(word);
-        // tokenization would separate these, but coming in from testpattern API an input sentence is not tokenized yet
-        if (false && len > 1 && *word == '(') // jammed leading ), separate it for now
-        {
-            word[1] = 0;
-            while (*--ptr != '('); // back up
-            ++ptr; // for next token
-        }
-        else if (false && len > 1 && word[len - 1] == ')') // jammed trailing ), separate it for now
-        {
-            word[len - 1] = 0;
-            while (*--ptr != ')'); // back up for the next token 
-        }
  
         if (*word == '$' && *ptr == '[' && ptr[1] == ']') // merge $word[]
         {

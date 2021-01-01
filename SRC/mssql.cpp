@@ -779,7 +779,7 @@ static bool file_write_copy_key(DbInterface_t* dbp, const char* key)
 static bool file_write_prepare(DbInterface_t* dbp)
 {
     if (!dbp->write_prepared) {  // only prepare once
-        const char* upsert_sp = ""
+        const char* upsert_sql = ""
             "MERGE INTO userState AS t "
             "  USING  "
             "    (SELECT pk=?, f1= ?) AS s "
@@ -791,7 +791,7 @@ static bool file_write_prepare(DbInterface_t* dbp)
             "    VALUES (s.pk, s.f1); "
             "";
 
-        const char* upsert_sql = ""
+        const char* upsert_sp= ""
             "{ CALL spChatScript_UpsertByUserId( ?, ? ) }";
             // "{ CALL uspSetUserData( ?, ? ) }";
 

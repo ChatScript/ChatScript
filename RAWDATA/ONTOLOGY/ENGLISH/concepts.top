@@ -166,7 +166,7 @@
 ##<<ENGLISH concept: ~beer (a_coldie beer Coors Foster_'s Guinness lager Lion_Nathan Miller_Lite stout West_End ) ##>>
 ##<<ENGLISH concept: ~being_conduit (border door entrance entranceway exit opening passage path ) ##>>
 ##<<ENGLISH concept: ~beings PROBABLE_NOUN (~animals ~fairytale_characters ~fishes ~groups ~insects ~intelligent_being ~mammals ~mythical_creatures ~noun_human ~reptiles ~role ) ##>>
-##<<ENGLISH concept: ~beverage (~alcoholic_beverage ~caffinated_drinks ~juice_drinks ~milk_drinks ~softdrinks ~water_drinks cream drink milk milkshake water ) ##>>
+##<<ENGLISH concept: ~beverage (~alcoholic_beverage ~caffeinated_drinks ~juice_drinks ~milk_drinks ~softdrinks ~water_drinks cream drink milk milkshake water ) ##>>
 ##<<ENGLISH concept: ~bioarmor (biohazard_suit hazmat_suit spacesuit ) ##>>
 ##<<ENGLISH concept: ~biome (biome~1 ) ##>>
 ##<<ENGLISH concept: ~bird   PROBABLE_NOUN ANIMATE_BEING (bird_family~1 bird~1 blue_jay bluebird chicken~1 crow~1 duck~1 eagle~1 finch game_bird~1 goose~1 hawk~1 ostrich~1 owl 
@@ -222,7 +222,7 @@
 ##<<ENGLISH concept: ~butt NOUN (ahole anal anus arse arsehole ass assclown asscracker asses assface asshole asslicker assmuncher asswad asswipe bum butt butthole fuckbut fuckhead gayass recktum 
           rectum shitspitter ) ##>>
 ##<<ENGLISH concept: ~cafe (breakfast cafe dinner food lunch ) ##>>
-##<<ENGLISH concept: ~caffinated_drinks (~coffees chai Coca_Cola Dr._Pepper energy_drink iced_tea Pepsi_Cola Red_Bull tea ) ##>>
+##<<ENGLISH concept: ~caffeinated_drinks (~coffees chai Coca_Cola Dr._Pepper energy_drink iced_tea Pepsi_Cola Red_Bull tea ) ##>>
 ##<<ENGLISH concept: ~candy   (candy~1 ) ##>>
 ##<<ENGLISH concept: ~car (auto automobile car limo limousine SUV truck vehicle ) ##>>
 ##<<ENGLISH concept: ~car_brands (Acura Alfa_Romeo American_Motors Aston_Martin Audi Bentley BMW Bugatti Buick Cadillac Chevrolet Chevy Chrysler Citroen Daewoo Daihatsu Dodge Ferrari Fiat Ford 

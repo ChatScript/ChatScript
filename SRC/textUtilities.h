@@ -2,7 +2,7 @@
 #define _TEXTUTILITIESH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -122,8 +122,8 @@ void ConvertNL(char* ptr);
 char* IsSymbolCurrency(char* ptr);
 void ComputeWordData(char* word, WORDINFO* info);
 char* CopyRemoveEscapes(char* to, char* at,int limit,bool all = false);
-char* AddEscapes(char* to, char* from,bool normal,int limit,bool addescape=true);
-void AcquireDefines(char* fileName);
+char* AddEscapes(char* to, const char* from,bool normal,int limit,bool addescape=true);
+void AcquireDefines(const char* fileName);
 void AcquirePosMeanings(bool facts);
 char* FindNameByValue(uint64 val); // properties
 uint64 FindValueByName(char* name);
@@ -168,7 +168,7 @@ bool IsNumericDate(char* word,char* end);
 char IsFloat(char* word, char* end, int useNumberStyle = AMERICAN_NUMBERS);
 char GetTemperatureLetter (char* ptr);
 char* IsTextCurrency(char* ptr, char* end);
-bool IsLegalName(char* name,bool label = false);
+bool IsLegalName(const char* name,bool label = false);
 unsigned char* GetCurrency(unsigned char* ptr,char* &number);
 bool IsCommaNumberSegment(char* start,char* end);
 bool IsRomanNumeral(char* word, uint64& val);
@@ -180,9 +180,9 @@ unsigned int UTFOffset(char* ptr, char* c);
 // conversion reoutines
 void MakeLowerCase(char* ptr);
 void MakeUpperCase(char* ptr);
-char* MakeLowerCopy(char* to,char* from);
-char* MakeUpperCopy(char* to,char* from);
-char* PartialLowerCopy(char* to,char* from,int begin,int end);
+char* MakeLowerCopy(char* to,const char* from);
+char* MakeUpperCopy(char* to, const char* from);
+char* PartialLowerCopy(char* to, const char* from,int begin,int end);
 void UpcaseStarters(char* ptr);
 void Convert2Underscores(char* buffer);
 void Convert2Blanks(char* output);
@@ -208,7 +208,7 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash = false, bool noblank = t
 char* ReadArgument(char* ptr, char* buffer, FunctionResult &result);
 
 int ReadALine(char* buf,FILE* file,unsigned int limit = maxBufferSize,bool returnEmptyLines = false,bool convertTabs = true);
-char* SkipWhitespace(char* ptr);
+char* SkipWhitespace(const char* ptr);
 char* BalanceParen(char* ptr,bool within=true,bool wildcards=false);
 int64 NumberPower(char* number,int useNumberStyle = AMERICAN_NUMBERS);
 int64 Convert2Integer(char* word,int useNumberStyle = AMERICAN_NUMBERS);

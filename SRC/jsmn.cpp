@@ -13,14 +13,12 @@ Revised by Bruce Wilcox
 /**
  * Allocates a fresh unused token from the token pull.
  */
-static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser,  jsmntok_t *tokens,  int len) {
+static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser,  jsmntok_t *tokens) {
 	jsmntok_t *tok;
 	tok = &tokens[parser->toknext++];
 	tok->start = tok->end = -1;
 	tok->size = 0;
-#ifdef JSMN_PARENT_LINKS
 	tok->parent = -1;
-#endif
 	return tok;
 }
 
@@ -64,7 +62,7 @@ static jsmnerr_t jsmn_parse_primitive(jsmn_parser *parser, const char *js, size_
 	}
 
 found:
-	token = jsmn_alloc_token(parser, tokens,len);
+	token = jsmn_alloc_token(parser, tokens);
 	jsmn_fill_token(token, JSMN_PRIMITIVE, start, parser->pos);
 	token->parent = parser->toksuper;
 	parser->pos--;
@@ -87,7 +85,7 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
 
 		/* Quote: end of string */
 		if (c == '\"') {
-			token = jsmn_alloc_token(parser, tokens,len);
+			token = jsmn_alloc_token(parser, tokens);
 			jsmn_fill_token(token, JSMN_STRING, start+1, parser->pos);
 			token->parent = parser->toksuper;
 			return (jsmnerr_t) 0;
@@ -144,7 +142,7 @@ jsmnerr_t jsmn_parse(jsmn_parser *parser, const char *js, size_t len, jsmntok_t 
 		switch (c) {
 			case '{': case '[':
 				count++;
-				token = jsmn_alloc_token(parser, tokens,len);
+				token = jsmn_alloc_token(parser, tokens);
 				if (parser->toksuper != -1) {
 					tokens[parser->toksuper].size++;
 					token->parent = parser->toksuper;

@@ -2,7 +2,7 @@
 #define _OSH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -99,6 +99,14 @@ typedef struct CALLFRAME
 
 }CALLFRAME;
 
+enum APICall {
+	NO_API_CALL = 0,
+	COMPILE_PATTERN = 1,
+	COMPILE_OUTPUT = 2,
+	TEST_PATTERN = 3,
+	TEST_OUTPUT = 4
+};
+
 #define SAVESYSTEMSTATE()     int oldDepth = globalDepth; int oldScriptBufferIndex = bufferIndex; char* oldStack = stackFree;
 #define RESTORESYSTEMSTATE()  infiniteStack = false; globalDepth = oldDepth; bufferIndex = oldScriptBufferIndex; stackFree = oldStack;
 
@@ -109,7 +117,7 @@ extern jmp_buf crashJump;
 extern int jumpIndex;
 void ShowMemory(char* label);
 void JumpBack();
-void myexit(char* msg, int code = 4);
+void myexit(const char* msg, int code = 4);
 void mystart(char* msg);
 extern char hide[4000];
 #define NORMALFILES 0
@@ -117,6 +125,7 @@ extern char hide[4000];
 #define POSTGRESFILES 2
 #define MYSQLFILES 3
 #define MICROSOFTSQLFILES 4
+extern bool serverLogTemporary;
 extern bool logged;
 extern int filesystemOverride;
 #define MAX_GLOBAL 600
@@ -156,16 +165,17 @@ void ResetBuffers();
 char* AllocateBuffer(char*name = (char*) "");
 void FreeBuffer(char*name = (char*) "");
 void CloseBuffers();
-char* AllocateStack(char* word, size_t len = 0, bool localvar = false, int align = 0);
+char* AllocateStack(const char* word, size_t len = 0, bool localvar = false, int align = 0);
 void ReleaseInfiniteStack();
 void ReleaseStack(char* word);
-char* InfiniteStack(char*& limit,char* caller);
-char* InfiniteStack64(char*& limit,char* caller);
+char* InfiniteStack(char*& limit,const char* caller);
+char* InfiniteStack64(char*& limit,const char* caller);
 void CompleteBindStack64(int n,char* base);
 void CompleteBindStack(int used = 0);
 bool AllocateStackSlot(char* variable);
 char** RestoreStackSlot(char* variable,char** slot);
-char* AllocateHeap(char* word,size_t len = 0,int bytes= 1,bool clear = false,bool purelocal = false);
+char* AllocateHeap(const char* word,size_t len = 0,int bytes= 1,bool clear = false,bool purelocal = false);
+char* AllocateConstHeap(char* word, size_t len = 0, int bytes = 1, bool clear = false, bool purelocal = false);
 bool PreallocateHeap(size_t len);
 extern uint64 discard;
 void ProtectNL(char* buffer);
@@ -181,7 +191,7 @@ bool InStack(char* ptr);
 void CloseDatabases(bool restart = false);
 
 // FILE SYSTEM
-int MakeDirectory(char* directory);
+int MakeDirectory(const char* directory);
 void EncryptInit(char* params);
 void DecryptInit(char* params);
 void EncryptRestart();
@@ -198,7 +208,7 @@ int FileSize(FILE* in,char* buffer,size_t allowedSize);
 void FileDelete(const char* filename);
 FILE* FopenStaticReadOnly(const char* name);
 FILE* FopenReadOnly(const char* name);
-FILE* FopenReadNormal(char* name);
+FILE* FopenReadNormal(const char* name);
 FILE* FopenReadWritten(const char* name);
 FILE* FopenBinaryWrite(const char* name); // only for binary data files
 FILE* FopenUTF8Write(const char* filename);
@@ -270,36 +280,37 @@ uint64 ElapsedMilliseconds();
 unsigned int GetFutureSeconds(unsigned int seconds);
 #endif
 
-// LOGGING
-#define LOGGING_SET 1
-#define LOGGING_NOT_SET 2
+// LOGGING WHERE
+#define NO_LOG 0
+#define FILE_LOG 1
+#define STDOUT_LOG 2
+#define STDERR_LOG 4
+// LOGGING WHICH
+#define SERVERLOG 0 // top-level 
+#define USERLOG 1 // top-level 
+#define ECHOUSERLOG 3 // remaps to USERLOG + local echo
+#define ECHOSERVERLOG 4 // remaps to SERVERLOG + local echo
+#define STDTIMELOG 5  // remaps to USERLOG + noecho
+#define DBTIMELOG 6 // top-level mongo db operation took longer than expected
 
-#define SERVERLOG 0
-#define STDUSERLOG 1
-#define STDDEBUGLOG 2
-#define ECHOSTDUSERLOG 3
-#define SERVERECHOLOG 4
-#define STDTIMELOG 5
-#define DBTIMELOG 6
+#define WARNSCRIPTLOG 8 // only during script compilation
+#define BADSCRIPTLOG 9  // only during script compilation
+#define BUGLOG 10 // top-level for bugs
+#define FORCESTAYUSERLOG 401 // remaps to USERLOG after insuring no indent
+#define FORCETABUSERLOG 501 // remaps to USERLOG after setting lastchar to 0 
+#define STDDEBUGLOG 500 // top level IDE data
+#define ECHOSTAYOUSERLOG 601 // remaps to USERLOG + local echo + after setting lastchar to \n (must end mod 100 to 1)
 
-#define BADSCRIPTLOG 9
-#define BUGLOG 10
-#define TIMELOG 11
-#define STDTRACETABLOG 101
-#define STDTRACEATTNLOG 201
-#define STDTIMETABLOG 301
-#define FORCETABLOG 401
-extern bool pendingTab;
 extern bool userEncrypt;
 extern bool ltmEncrypt;
 extern bool echo;
 extern bool showDepth;
 extern bool oob;
+extern bool detailpattern;
 extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
 #define ReportBug(...) { Log(BUGLOG, __VA_ARGS__); if (server) Log(SERVERLOG, __VA_ARGS__); Bug();  }
-#define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;
 extern char* logmainbuffer; 
@@ -315,7 +326,7 @@ extern bool serverctrlz;
 extern char syslogstr[];
 
 unsigned int Log(unsigned int spot,const char * fmt, ...);
-CALLFRAME* ChangeDepth(int value,char* where,bool nostackCutboack = false,char* code = NULL);
+CALLFRAME* ChangeDepth(int value,const char* where,bool nostackCutboack = false,char* code = NULL);
 void BugBacktrace(FILE* out);
 void Bug();
 

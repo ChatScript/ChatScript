@@ -22,6 +22,7 @@ char wildcardOriginalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot wi
 char wildcardCanonicalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot wild cards can be stored
 unsigned int wildcardPosition[MAX_WILDCARDS + 1]; // spot it started and ended in sentence
 char wildcardSeparator[2];
+bool wildcardSeparatorGiven = false;
 
 //   list of active variables needing saving
 
@@ -36,6 +37,7 @@ bool modifiedTiming = false;
 
 void InitVariableSystem()
 {
+	wildcardSeparatorGiven = false;
     *wildcardSeparator = ' ';
     wildcardSeparator[1] = 0;
     kernelVariableThreadList = botVariableThreadList = userVariableThreadList = NULL;
@@ -63,15 +65,28 @@ static void CompleteWildcard()
     if (wildcardIndex > MAX_WILDCARDS) wildcardIndex = 0;
 }
 
+static void FlipSeparator(char* word, char* buffer)
+{
+	char oppositeSeparator = 0;
+	if (*wildcardSeparator == ' ') oppositeSeparator = '_';
+	else if (*wildcardSeparator == '_') oppositeSeparator = ' ';
+	if (strchr(word, *wildcardSeparator)) // need to change wanted notation to what we are supposed to return
+	{
+		strcpy(buffer, word);
+		char* at = buffer;
+		while ((at = strchr(at, *wildcardSeparator))) *at = oppositeSeparator;
+	}
+}
+
 void JoinMatch(int start, int end, int index, bool inpattern)
 {
     // concatenate the match value
     bool started = false;
     bool proper = false;
+	// generate the std expected memorizations
     for (int i = start; i <= end; ++i)
     {
-        if (i < 1 || i > wordCount) continue;	// ignore off end
-        if (unmarked[i]) continue; // ignore words masked
+        if (unmarked[i] || i < 1 || i > wordCount) continue;	// ignore words masked or off end
         char* word = wordStarts[i];
         if (!word) continue;
         if (started)
@@ -80,66 +95,72 @@ void JoinMatch(int start, int end, int index, bool inpattern)
             strcat(wildcardCanonicalText[index], wildcardSeparator);
         }
         else started = true;
-        if (IsUpperCase(*wildcardOriginalText[index])) proper = true; // may be proper name
+        if (IsUpperCase(*word) && word[1]) proper = true; // may be proper name
         strcat(wildcardOriginalText[index], word);
-		if (wordCanonical[i]) strcat(wildcardCanonicalText[index], wordCanonical[i]);
-        else strcat(wildcardCanonicalText[index], word);
+		strcat(wildcardCanonicalText[index], wordCanonical[i] ? wordCanonical[i] : word);
     }
- 	// if not a proper name any are unknown, the composite is unknown unless it is an entire sentence grab, then preserve pieces
-	if (start == end) {}
-	else if (!proper && strstr(wildcardCanonicalText[index], "unknown-word") && (start != 1 || end != wordCount))
-		strcpy(wildcardCanonicalText[index], "unknown-word"); 
+	// we have found phrases using appropriate wildcard separator to be used
+
+	if (start == end || proper) {} // single word or proper name
+	// if not a proper name and any are unknown, the composite is unknown unless it is an entire sentence grab, then preserve pieces
+	else if (strstr(wildcardCanonicalText[index], "unknown-word") && (start != 1 || end != wordCount))
+		strcpy(wildcardCanonicalText[index], "unknown-word");  
 	// proper names canonical is same, but merely having 1 uppercase is not proper if multiword "I live here" _*
-	// else if (proper && start != end) strcpy(wildcardCanonicalText[index], wildcardOriginalText[index]);
     
-	WORDP D;
-	if (uppercaseFind > 0 && uppercaseFind != DONTUSEEXACT) // which upper case form is this
+	WORDP D = NULL;
+	WORDP upperfoundword = NULL;
+	if  (uppercaseFind > EXACTNOTSET) upperfoundword = Index2Word((uppercaseFind & 0x00ffffff));
+	// specific uppercase form requested, but we will not use it if it was not from user input but merely ^mark value
+	int len = strlen(wildcardOriginalText[index]);
+	int lenc = strlen(wildcardCanonicalText[index]);
+	char* word = AllocateBuffer();
+
+	if (upperfoundword) 
 	{
-		D = Index2Word((uppercaseFind & 0x00ffffff)); // was capitalized this way
-		int len = strlen(D->word);
-		if (*wildcardSeparator == ' ' && strchr(D->word, '_')) // need to change notation
-		{
-			char* word = AllocateBuffer();
-			strcpy(word, D->word);
-			char* at = word;
-			while ((at = strchr(at, '_'))) *at = ' ';
-			D = StoreWord(word,AS_IS);
-			FreeBuffer();
+		if (!stricmp(upperfoundword->word, wildcardCanonicalText[index]) || !stricmp(upperfoundword->word, wildcardOriginalText[index]))
+		{ // we have a match for what we want in the way we want it
+				D = upperfoundword; // match was to be capitalized this way
 		}
-		else if (*wildcardSeparator == '_' && strchr(D->word, ' ')) // need to change notation
+		else
 		{
-			char* word = AllocateBuffer();
-			strcpy(word, D->word);
-			char* at = word;
-			while ((at = strchr(at, ' '))) *at = '_';
-			D = StoreWord(word, AS_IS);
-			FreeBuffer();
-		}
-		if (len == (int)strlen(wildcardOriginalText[index]) &&  StricmpUTF(D->word, wildcardCanonicalText[index], len)) uppercaseFind = DONTUSEEXACT;  // was not a possible variant capitalization of the word. probably matched via ^mark(xxx) on a location
-		else if (start > 0)
-		{
-			char* words = AllocateBuffer();
-			start = derivationIndex[start] >> 8; // from here
-			end = derivationIndex[end] & 0x00ff;  // to here but not including here  The end may be beyond wordCount if words have been deducted by now
-			for (int i = start; i <= end; ++i)
+			FlipSeparator(wildcardOriginalText[index], word);
+			if (!stricmp(word, upperfoundword->word)) D = upperfoundword; // alternate form matches
+			else
 			{
-				strcat(words, derivationSentence[i]);
-				if (i != end) strcat(words, wildcardSeparator);
+				FlipSeparator(wildcardCanonicalText[index], word);
+				if (!stricmp(word, upperfoundword->word)) D = upperfoundword;// alternate form matches
 			}
-			if (StricmpUTF(words, wildcardOriginalText[index], len)) uppercaseFind = DONTUSEEXACT;
-			FreeBuffer();
 		}
 	}
-	if (uppercaseFind > 0 && uppercaseFind != DONTUSEEXACT)  D = Index2Word((uppercaseFind & 0x00ffffff)); // was capitalized this way
-    else D = FindWord(wildcardCanonicalText[index], 0, STANDARD_LOOKUP);
-    if (D) strcpy(wildcardCanonicalText[index], D->word); // but may not be found if original has plural or such or if uses _
-   
-    if (uppercaseFind > 0 && uppercaseFind != DONTUSEEXACT) D = Index2Word((uppercaseFind & 0x00ffffff));
-    else D = FindWord(wildcardOriginalText[index], 0, STANDARD_LOOKUP);
-    if (D) strcpy(wildcardOriginalText[index], D->word); // but may not be found if original has plural or such or if uses _
-    uppercaseFind = -1; // use it up
 
-    if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(STDUSERLOG, (char*)"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
+	if (D) // we match an uppercase request, it becomes original and canonical (we ignore original being plural)
+	{
+		strcpy(wildcardOriginalText[index], upperfoundword->word);
+		strcpy(wildcardCanonicalText[index], upperfoundword->word);
+	}
+	else  // we do what we can with the match
+	{
+		D = FindWord(wildcardOriginalText[index], len);
+		if (D) strcpy(wildcardOriginalText[index], D->word); // use capitalization from dictionary
+		else if (start != end) // consider if alternate is in dictionary (we used a separator)
+		{
+				FlipSeparator(wildcardOriginalText[index], word);
+				D = FindWord(word, len);
+				if (D) strcpy(wildcardOriginalText[index], D->word);
+		}
+		D = FindWord(wildcardCanonicalText[index], lenc);
+		if (D) strcpy(wildcardCanonicalText[index], D->word); // use capitalization from dictionary
+		else if (start != end) // consider if alternate is in dictionary (we used a separator)
+		{
+			FlipSeparator(wildcardCanonicalText[index], word);
+			D = FindWord(word, len);
+			if (D) strcpy(wildcardCanonicalText[index], D->word);
+		}
+	}
+	FreeBuffer();
+   uppercaseFind = EXACTUSEDUP; // use it up if set
+
+    if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(USERLOG,"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
 }
 
 void SetWildCard(int start, int end, bool inpattern)
@@ -437,10 +458,10 @@ ANSWER:
         strcpy(ans, "``");
         strcpy(ans + 2, answer);
         CompleteBindStack();
-        if (*path && trace & TRACE_VARIABLE && !fortrace) Log(STDUSERLOG, "(%s->%s)", path, ans);
+        if (*path && trace & TRACE_VARIABLE && !fortrace) Log(USERLOG, "(%s->%s)", path, ans);
         return ans + 2;
     }
-    if (*path && trace & TRACE_VARIABLE && !fortrace) Log(STDUSERLOG, "(%s->%s)", path, answer);
+    if (*path && trace & TRACE_VARIABLE && !fortrace) Log(USERLOG, "(%s->%s)", path, answer);
     return answer;
 
 NULLVALUE:
@@ -541,13 +562,13 @@ void SetUserVariable(const char* var, char* word, bool assignment)
     }
 	else if (!D->w.userValue)  return; // clear to null already
 
-    PrepareVariableChange(D, word, true);
+    PrepareVariableChange(D, word, !(csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT));
     if (planning && !documentMode) // handle undoable assignment (cannot use text sharing as done in document mode)
     {
         if (D->w.userValue == NULL) SpecialFact(MakeMeaning(D), (MEANING)1, 0);
         else SpecialFact(MakeMeaning(D), (MEANING)(D->w.userValue - heapBase), 0);
     }
-    if (testExternOutput)  SetVariable(D, word);
+    if (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT)  SetVariable(D, word);
     else D->w.userValue = word;
 
 	// monitored engine variables
@@ -653,6 +674,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
 		// wildcardseparator changes are noticed by the engine
 		else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
 		{
+			wildcardSeparatorGiven = true;
 			if (!word) *wildcardSeparator = 0;
 			else if (*word == '\\') *wildcardSeparator = word[2];
 			else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
@@ -664,7 +686,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
         char pattern[110];
         char label[MAX_LABEL_SIZE];
         GetPattern(currentRule, label, pattern, true,100);  // go to output
-        Log(ECHOSTDUSERLOG, "%s -> %s at %s.%d.%d %s %s\r\n", D->word, word, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
+        Log(ECHOUSERLOG, "%s -> %s at %s.%d.%d %s %s\r\n", D->word, word, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
     }
 }
 
@@ -704,7 +726,7 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
         }
         else newval += more;
         WriteFloat(result, newval);
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG, (char*)" %s   ", result);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG," %s   ", result);
     }
     else
     {
@@ -743,7 +765,7 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
             sprintf(tracex, "0x%016llx", newval);
-            Log(STDUSERLOG, (char*)" %s/%s   ", result, tracex);
+            Log(USERLOG," %s/%s   ", result, tracex);
         }
     }
     return NOPROBLEM_BIT;
@@ -818,7 +840,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
         if (!dot) SetUserVariable(var, result, true);
         else
         {
-            if (testExternOutput)
+            if (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT)
             {
                 *dot = 0;
                 WORDP D = StoreWord(var);
@@ -860,8 +882,7 @@ void NoteBotVariables() // system defined variables
         {
             if (!strnicmp(D->word, "$cs_", 4)) continue; // dont force these, they are for user
 			D->internalBits |= (unsigned int)BOTVAR; // mark it
-            botVariableThreadList = AllocateHeapval(botVariableThreadList, (uint64)D,
-                (uint64)D->w.userValue, (uint64)0);
+            botVariableThreadList = AllocateHeapval(botVariableThreadList, (uint64)D, (uint64)D->w.userValue, (uint64)0);
         }
         RemoveInternalFlag(D, VAR_CHANGED);
 		if (!stricmp(D->word, "$verb")) 
@@ -934,7 +955,7 @@ static void ListVariables(char* header, HEAPREF varthread)
         varthread = UnpackHeapval(varthread, Dx, discard, discard);
         WORDP D = (WORDP)Dx;
         value = D->w.userValue;
-        if (value && *value)  Log(STDUSERLOG, (char*)"  %s variable: %s = %s\r\n", header, D->word, value);
+        if (value && *value)  Log(USERLOG,"  %s variable: %s = %s\r\n", header, D->word, value);
     }
 }
 
@@ -979,13 +1000,13 @@ void DumpUserVariables(bool doall)
         {
             if (!stricmp(D->word, "$cs_token"))
             {
-                Log(STDUSERLOG, "  variable: $cs_token decoded = ");
+                Log(USERLOG, "  variable: $cs_token decoded = ");
                 int64 val;
                 ReadInt64(value, val);
                 DumpTokenControls(val);
-                Log(STDUSERLOG, "\r\n");
+                Log(USERLOG, "\r\n");
             }
-            else Log(STDUSERLOG, "  variable: %s = %s\r\n", D->word, value);
+            else Log(USERLOG, "  variable: %s = %s\r\n", D->word, value);
         }
     }
     ReleaseStack((char*)arySortVariablesHelper); // short term
@@ -1123,7 +1144,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             ptr = ReadCompiledWord(ptr, buffer); // assigning from wild to wild. Just copy across
             strcpy(buffer, value);
             wildwild = true;
-            if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s => %s ", word, value );
+            if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s => %s ", word, value );
         }
     }
     if (*word == '_' && *ptr == '\'' && ptr[1] == '_' && IsDigit(ptr[2]))
@@ -1173,7 +1194,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     //   now sort out who we are assigning into and if its arithmetic or simple assign
     if (*word == '@')
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s(%s) %s %s => ", word, GetUserVariable(word), op, originalWord1);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s(%s) %s %s => ", word, GetUserVariable(word), op, originalWord1);
         if (impliedSet == ALREADY_HANDLED) { ; }
         else if (!*buffer && *op == '=') // null assign to set as a whole
         {
@@ -1220,8 +1241,8 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             FACT* F = Index2Fact(index);
             unsigned int impliedCount = FACTSET_COUNT(impliedSet);
             if (*op == '+' && op[1] == '=' && !stricmp(originalWord1, (char*)"^query")) { ; } // add to set done directly @2 += ^query()
-            else if (*op == '+') AddFact(impliedSet, F); // add to set
-            else if (*op == '-') // remove from set
+            else if (*op == '+' && F) AddFact(impliedSet, F); // add to set
+            else if (*op == '-' ) // remove from set (can even remove null facts in a set)
             {
                 if (F) F->flags |= MARKED_FACT;
                 for (unsigned int i = 1; i <= impliedCount; ++i) // erase from the left side
@@ -1235,9 +1256,9 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
                     }
                 }
                 SET_FACTSET_COUNT(impliedSet, impliedCount);
-                F->flags ^= MARKED_FACT;
+                if (F) F->flags ^= MARKED_FACT;
             }
-            else if (*op == '=') // assign to set (cant do this with null because it erases the set)
+            else if (*op == '=' && F) // assign to set (cant do this with null because it erases the set)
             {
                 SET_FACTSET_COUNT(impliedSet, 0);
                 AddFact(impliedSet, F);
@@ -1254,8 +1275,8 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
-            if (*op == '=') Log(STDTRACETABLOG, (char*)"%s %s %s(%s) => ", word, op, originalWord1, GetUserVariable(originalWord1));
-            else Log(STDTRACETABLOG, (char*)"%s(%s) %s %s(%s) => ", word, GetUserVariable(word), op, originalWord1, GetUserVariable(originalWord1));
+            if (*op == '=') Log(USERLOG,"%s %s %s(%s) => ", word, op, originalWord1, GetUserVariable(originalWord1));
+            else Log(USERLOG,"%s(%s) %s %s(%s) => ", word, GetUserVariable(word), op, originalWord1, GetUserVariable(originalWord1));
         }
         if (*word == '^') result = FAILRULE_BIT;	// not allowed to increment locally at present OR json array ref...
         else if (*buffer) result = Add2UserVariable(word, buffer, op, originalWord1);
@@ -1272,11 +1293,11 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             }
             else SetWildCard(buffer, buffer, word, 0);
         }
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s=%s =>`%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s=%s =>`%s`\r\n", word, originalWord1, buffer);
     }
     else if (*word == USERVAR_PREFIX)
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s = %s `%s`\r\n", word, originalWord1, buffer);
         // assume that if a variable explicitly has quotes that they are important and therefore don't need to strip them 
         bool stripQuotes = (*originalWord1 == USERVAR_PREFIX) ? false : true;
         char* dot = strchr(word, '.');
@@ -1286,22 +1307,22 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     }
     else if (*word == '\'' && word[1] == USERVAR_PREFIX)
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s = %s `%s`\r\n", word, originalWord1, buffer);
         SetUserVariable(word + 1, buffer, true); // '$xx = value  -- like passed thru as argument
     }
     else if (*word == SYSVAR_PREFIX && !strchr(buffer, ' '))
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s `%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s = %s `%s`\r\n", word, originalWord1, buffer);
         SystemVariable(word, buffer); // assignment onto system var
     }
     else if (*word == '^') // overwrite function arg
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"%s = %s\r\n", word, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s = %s\r\n", word, buffer);
         FNVAR(word + 1) = AllocateStack(buffer);
     }
     else // cannot touch a  word, or number
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"illegal assignment to %s\r\n", word);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"illegal assignment to %s\r\n", word);
         result = FAILRULE_BIT;
         goto exit;
     }
@@ -1315,12 +1336,12 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
         if (!stricmp(buffer, word))
         {
             result = FAILRULE_BIT;
-            Log(STDUSERLOG, (char*)"variable assign %s has itself as a term\r\n", word);
+            Log(USERLOG,"variable assign %s has itself as a term\r\n", word);
         }
         if (result & ENDCODES) goto exit; // failed next value
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDTRACETABLOG, (char*)"    %s(%s) %s %s(%s) =>", word, GetUserVariable(word), op, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"    %s(%s) %s %s(%s) =>", word, GetUserVariable(word), op, originalWord1, buffer);
         if (*buffer) result = Add2UserVariable(word, buffer, op, originalWord1);
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(STDUSERLOG, (char*)"\r\n");
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"\r\n");
     }
 
     // debug
@@ -1335,7 +1356,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             unsigned int id = Fact2Index(F);
             char fact[MAX_WORD_SIZE];
             WriteFact(F, false, fact, false, false,true);
-            Log(STDUSERLOG, (char*)"last value @%d[%d] is %d %s", set, count, id, fact); // show last item in set
+            Log(USERLOG,"last value @%d[%d] is %d %s", set, count, id, fact); // show last item in set
         }
     }
 

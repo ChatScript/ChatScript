@@ -125,7 +125,7 @@ eReturnValue EstablishConnection(	const char* pStrSeverUri, // eg "mongodb://loc
 	*mycollect  = mongoc_client_get_collection(myclient, pStrDBName, pStrCollName);
 	if( *mycollect == NULL ) 
 	{
-		if (mycollect != &g_pCollection) ReportBug("Failed to open mongo filesys");
+		if (mycollect != &g_pCollection) ReportBug("INFO: Failed to open mongo filesys");
 		return eReturnValue_DATABASE_GET_COLLECTION_FAILED;
 	}
 	return eReturnValue_SUCCESS;
@@ -139,7 +139,7 @@ FunctionResult MongoClose(char* buffer)
 		if (mongoShutdown) return FAILRULE_BIT;
 		char* msg = "DB is not open\r\n";
 		SetUserVariable((char*)"$$mongo_error",msg);	// pass message along the error
-		Log(STDUSERLOG,msg);
+		Log(USERLOG,msg);
 		return FAILRULE_BIT;
 	}
 
@@ -173,7 +173,7 @@ FunctionResult MongoInit(char* buffer)
 	{
 		char* msg = "DB is already opened\r\n";
 		SetUserVariable((char*)"$$mongo_error",msg);	// pass message along the error
-		Log(STDUSERLOG,msg);
+		Log(USERLOG,msg);
  		return FAILRULE_BIT;
 	}
 
@@ -186,7 +186,7 @@ FunctionResult MongoInit(char* buffer)
     {	
 		char* msg = "DB opening error \r\n";
 		SetUserVariable((char*)"$$mongo_error",msg);	// pass message along the error
-        Log(STDUSERLOG, "Opening connection failed with error: %d",  eRetVal);
+        Log(USERLOG, "Opening connection failed with error: %d",  eRetVal);
 		if ((buffer && g_pClient) || (!buffer && g_filesysClient)) MongoClose(buffer);
 		return FAILRULE_BIT;
 	}
@@ -209,7 +209,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
     {
         char* msg = "DB is not open\r\n";
         SetUserVariable((char*)"$$mongo_error",msg);
-        Log(STDUSERLOG,msg);
+        Log(USERLOG,msg);
         return FAILRULE_BIT;
     }
     
@@ -280,7 +280,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
     {
         char* msg = "Error while looking for document \r\n";
         SetUserVariable((char*)"$$mongo_error",msg);	// pass along the error
-        Log(STDUSERLOG, "Find document failed with error: %d",  eRetVal);
+        Log(USERLOG, "Find document failed with error: %d",  eRetVal);
         result = FAILRULE_BIT;
     }
     else if (mongoKeyValue) 
@@ -320,7 +320,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
     {
         char* msg = "DB is not open\r\n";
         SetUserVariable((char*)"$$mongo_error",msg);	// pass along the error
-        Log(STDUSERLOG,msg);
+        Log(USERLOG,msg);
         return FAILRULE_BIT;
     }
     
@@ -371,7 +371,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
     {
         char* msg = "Error while insert document \r\n";
         SetUserVariable((char*)"$$mongo_error",msg);	// pass along the error
-        Log(STDUSERLOG, "Delete document failed with error: %d",  eRetVal);
+        Log(USERLOG, "Delete document failed with error: %d",  eRetVal);
         return FAILRULE_BIT;
     }
     return NOPROBLEM_BIT;
@@ -388,7 +388,7 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     {
         char* msg = "DB is not open\r\n";
         SetUserVariable((char*)"$$mongo_error",msg);    // pass along the error
-        Log(STDUSERLOG,msg);
+        Log(USERLOG,msg);
         return FAILRULE_BIT;
     }
     
@@ -485,7 +485,7 @@ size_t mongouserWrite(const void* buffer,size_t size, size_t count, FILE* file)
 	if (dot) *dot ='.';	 
 	if (result != NOPROBLEM_BIT) 
 	{
-		ReportBug("Mongo filessys write failed for %s",keyname);
+		ReportBug("INFO: Mongo filessys write failed for %s",keyname);
 		return 0; // failed
 	}
 	return size * count; // is len a match
@@ -506,7 +506,7 @@ void MonogoUserFilesInit() // start mongo as fileserver
 	}
 	else 
 	{
-		ReportBug("Unable to open mongo fileserver");
+		ReportBug("INFO: Unable to open mongo fileserver");
 		Log(SERVERLOG,"Unable to open mongo fileserver");
 		(*printer)("Unable to open mongo fileserver");
 	}

@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 1/1/2021 cs11.0
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -971,6 +971,10 @@ which caches the file ptr. After which you can write with OPEN or FILE equivalen
 To close the file use
 
     ^log(CLOSE TMP/mylog.txt)
+
+You can log into the existing serverlog with ^log(SERVERLOG ...). You can log into the
+existing userlog with ^log(USERLOG ...). Actually getting stuff put into those files will
+depending on whether logging into those files is enabled.
 
 
 ## Login after crash

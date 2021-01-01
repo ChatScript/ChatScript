@@ -1,7 +1,7 @@
 #ifndef _MARKSYSTEMH_
 #define _MARKSYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -17,13 +17,14 @@ typedef void (*ExternalTaggerFunction)();
 #define SEQUENCE_LIMIT 5		// max number of words in a row to hit on as an entry
 #define MAX_XREF_SENTENCE 50	// number of places a word can hit to in sentence
 #define REF_ELEMENTS 6 // bytes per reference
+#define  MAXREFSENTENCE ((((MAX_XREF_SENTENCE * REF_ELEMENTS) + 3) / 4) * 4) // start+end offsets for this many entries + alignment slop
 
-#define DONTUSEEXACT 0x01000000
+
 #define EXACTNOTSET 0
 #define EXACTUSEDUP -1
+#define DONTUSEEXACT -2
 extern int verbwordx;
 extern int marklimit;
-extern int maxRefSentence;
 extern ExternalTaggerFunction externalPostagger;
 extern char respondLevel;
 extern char unmarked[MAX_SENTENCE_LENGTH];

@@ -1,6 +1,6 @@
 ﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2020 cs10.5
+<br>Revision 1/1/2021 cs11.0
 
 
 # Spelling
@@ -116,12 +116,20 @@ replace: ?_g gram        -- this merely separates
 replace: ?_kg kilogram -- this separates into full unit name
 replace: ?_kg kilo gram -- this separates into multiword replacement
 ```
+You should use the singular form of the word. CS can then do singular or plural as needed.
+
 When using full unit name subsitution, you need to be careful that your bot
 has only 1 expected meaning. "about 1g" -- is that 1 gram or 1 gravity? Also it's a 
 good idea to expand to singular forms as that, being canonical, will match more of your patterns.
 
 The ?_xxx notation also works when the unit measure is not attached to the number.
 Using the first replace above, the input "7 g" will be transformed to "7 gram".
+
+Note that is the number value is 1, you get the singular word. Otherwise you get the plural word.
+If CS does not know how to make the plural, you can add the pair to LIVEDATA/ENGLISH/plurals.txt
+
+In multiple word substitutions, normally cs pluralizes the last word only. But if the substitution is multiple word
+'x per y', CS will pluralize the first word. 
 
 # Emoji
 Emojis are a form of spelling correction. You can replace appropriate utf8 emoji words

@@ -396,7 +396,7 @@ bool SpellCheckSentence()
 				float ratio = (float)spellbad / (i + 1 - startWord); // we never hit last word
 				if (ratio >= badspellratio)
 				{
-					if (trace & TRACE_SPELLING) Log(STDUSERLOG, (char*)"BadSpell abort NL\r\n");
+					if (trace & TRACE_SPELLING) Log(USERLOG,"BadSpell abort NL\r\n");
 					char junk[100];
 					sprintf(junk, "%d-%d", spellbad, (i + 1 - startWord));
 					SetUserVariable("$$cs_badspell", junk);
@@ -410,6 +410,8 @@ bool SpellCheckSentence()
 		int size = strlen(word);
 		if (size > (MAX_WORD_SIZE - 100)) continue;
 		if (size == 4 && !stricmp(word,"json") ) continue; // may not be in dictionary yet
+		if (IsValidJSONName(word)) continue;
+		if (!stricmp(serverlogauthcode,word)) continue;
 
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
 		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
@@ -542,6 +544,40 @@ bool SpellCheckSentence()
 		}
 
 		if (IsDate(word)) continue; // allow 1970/10/5 or similar
+
+		// o for 0 in number
+		char xtra[MAX_WORD_SIZE];
+		strcpy(xtra, word);
+		char* p = xtra;
+		if (IsSign(*p)) ++p; //   skip sign indicator, -$1,234.56
+		char* prefixEnd = IsSymbolCurrency((char*)p); // is it at start
+		if (prefixEnd) p = prefixEnd;
+		int period = 0;
+		bool notnum = false;
+		if (IsDigit(*p))
+		{
+			while (p && *++p)
+			{
+				if (*p == '.')
+				{
+					if (++period > 1)  p = NULL;
+				}
+				else if (*p == 'o' || *p == 'O') *p = '0';
+				else if (!IsDigit(*p))
+				{
+					p = NULL;
+					notnum = true;
+				}
+			}
+			if (period <= 1 && !notnum)
+			{
+				WORDP X = StoreWord(xtra);
+				tokens[1] = X->word;
+				fixedSpell = ReplaceWords("o for 0 number", i, 1, 1, tokens);
+				continue;
+			}
+		}
+		
 		// dont spell check  numbers
 		size_t l = strlen(word);
 		char* end = word + l;
@@ -588,7 +624,7 @@ bool SpellCheckSentence()
 			fixedSpell = ReplaceWords("' as feet", i, 1, 1, tokens);
 			continue;
 		}
-		if (!word || !word[1] || *word == '"') continue; // illegal or single char or quoted thingy 
+		if (!word[1] || *word == '"') continue; //  single char or quoted thingy 
 
 		//  dont spell check email or other things with @ or . in them
 		if (strchr(word, '@') || strchr(word, '&') || strchr(word, '$')) continue;
@@ -1106,7 +1142,7 @@ bool SpellCheckSentence()
 		uint64 inferredProperties = GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags, false, true);
 		if (entry && entry->internalBits & HAS_SUBSTITUTE) entry = canonical = NULL;
 		if (canonical && !stricmp(canonical->word, "unknown-word")) canonical = NULL;
-		if (canonical && !(canonical->internalBits & UPPERCASE_HASH) && (canonical != entry) || (inferredProperties & (NOUN_NUMBER | ADJECTIVE_NUMBER)))
+		if (canonical && ((!(canonical->internalBits & UPPERCASE_HASH) && canonical != entry) || (inferredProperties & (NOUN_NUMBER | ADJECTIVE_NUMBER))))
 		{
 			if (entry && strcmp(entry->word, word)) // probably case changed
 			{
@@ -1701,14 +1737,14 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
 
     if (val <= min && !(D->internalBits & HAS_SUBSTITUTE)) // as good or better
     {
-       if (spellTrace) Log(STDUSERLOG, "    found: %s %d\r\n", D->word, val);
+       if (spellTrace) Log(USERLOG, "    found: %s %d\r\n", D->word, val);
        if (val < min)
        {
-            if (trace & TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
+            if (trace & TRACE_SPELLING) Log(USERLOG,"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
             index = 0;
             min = val;
         }
-        else if (val == min && trace & TRACE_SPELLING) Log(STDUSERLOG, (char*)"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
+        else if (val == min && trace & TRACE_SPELLING) Log(USERLOG,"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
 
         if (!(D->internalBits & BEEN_HERE))
         {
@@ -1721,7 +1757,7 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
 char* SpellFix(char* originalWord,int start,uint64 posflags)
 {
     bool isEnglish = (!stricmp(language, "english") ? true : false);
-	if (spellTrace) Log(STDUSERLOG,"Correcting: %s:\r\n", originalWord);
+	if (spellTrace) Log(USERLOG,"Correcting: %s:\r\n", originalWord);
 	multichoice = false;
     char word[MAX_WORD_SIZE];
     MakeLowerCopy(word, originalWord);
@@ -1738,7 +1774,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	bool hasUnderscore = (strchr(originalWord,'_')) ? true : false;
 	bool isUpper = IsUpperCase(originalWord[0]);
 	if (IsUpperCase(originalWord[1])) isUpper = false;	// not if all caps
-	if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"Spell: %s\r\n",originalWord);
+	if (trace & TRACE_SPELLING) Log(USERLOG,"Spell: %s\r\n",originalWord);
 
 	//   Priority is to a word that looks like what the user typed, because the user probably would have noticed if it didnt and changed it. So add/delete  has priority over tranform
     WORDP choices[4000];
@@ -1773,7 +1809,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
         int offsetLen = realWordData.charlen + range[i];
         if (offsetLen <= 0) continue;
 		MEANING offset = lengthLists[offsetLen];
-		if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"\r\n  Begin offset %d\r\n",range[i]);
+		if (trace & TRACE_SPELLING) Log(USERLOG,"\r\n  Begin offset %d\r\n",range[i]);
 		while (offset)
 		{
 			D = Meaning2Word(offset);
@@ -1810,7 +1846,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	for (unsigned int j = 0; j < index; ++j) RemoveInternalFlag(choices[j],BEEN_HERE);
     if (index == 1) 
 	{
-		if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Single best spell: %s\r\n",choices[0]->word);
+		if (trace & TRACE_SPELLING) Log(USERLOG,"    Single best spell: %s\r\n",choices[0]->word);
 		return choices[0]->word;	// pick the one
 	}
     for (unsigned int j = 0; j < index; ++j) 
@@ -1839,7 +1875,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 	if (bestGuessindex) 
 	{
         if (bestGuessindex > 1) multichoice = true;
-		if (trace & TRACE_SPELLING) Log(STDUSERLOG,(char*)"    Pick spell: %s\r\n",bestGuess[0]->word);
+		if (trace & TRACE_SPELLING) Log(USERLOG,"    Pick spell: %s\r\n",bestGuess[0]->word);
 		return bestGuess[0]->word; 
 	}
 	return NULL;

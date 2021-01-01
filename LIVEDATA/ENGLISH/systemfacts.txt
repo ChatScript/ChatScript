@@ -1,4 +1,4 @@
-+ ~LOCATIONWORD CONCEPT
++ ~locationword CONCEPT
 + ~emoapology CONCEPT
 + ~emoangry CONCEPT
 + ~emobeg CONCEPT

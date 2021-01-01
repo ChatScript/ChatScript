@@ -1421,16 +1421,18 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		else if (firstTry && *original /*&& IsAlphaUTF8(*original) */) // auto try for opposite case if we dont recognize the word, and not concept or other non-words
 		{
 			char alternate[MAX_WORD_SIZE];
+            bool notGenerateAlt = nogenerate;
 			if (IsUpperCase(*original)) MakeLowerCopy(alternate,original);
 			else
 			{
 				strcpy(alternate,original);
 				alternate[0] = toUppercaseData[alternate[0]];
+                notGenerateAlt = true;  // don't want to create a speculative uppercase form if it doesn't already exist
 			}
 			WORDP D1,D2;
 			WORDP xrevise;
-			uint64 flags1 = GetPosData(at,alternate,xrevise,D1,D2,sysflags,cansysflags,false,nogenerate,start);
-			if (revise)
+			uint64 flags1 = GetPosData(at,alternate,xrevise,D1,D2,sysflags,cansysflags,false,notGenerateAlt,start);
+			if (xrevise)
 			{
 				wordStarts[at] = xrevise->word;
 				original = xrevise->word;
@@ -1438,7 +1440,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 			if (flags1) 
 			{
 				original = D1->word;
-				if (revise) wordStarts[at] = xrevise->word;
+				if (xrevise) wordStarts[at] = xrevise->word;
 				entry = D1;
 				canonical = D2;
 				return flags1;
@@ -1563,13 +1565,14 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		// treat all hypenated words as adjectives "bone-headed"
 		if (!canonical) canonical = DunknownWord;
 	}
-	if (!entry) 
+    if (IsModelNumber(original))  properties |= MODEL_NUMBER;
+	if (!entry)
 	{
-		entry = StoreWord(original,properties);	 // nothing found (not allowed alternative)
+        if (!properties && !firstTry && nogenerate) {;}  // don't store word unless have something
+		else entry = StoreWord(original,properties);	 // nothing found (not allowed alternative)
 		if (!canonical) canonical = DunknownWord;
 	}
 	if (!canonical) canonical = entry;
-	if (IsModelNumber(original))  properties |= MODEL_NUMBER;
  
 	AddProperty(entry,properties);
 	// interpolate singular normal nouns to adjective_noun EXCEPT qword nouns like "why"
@@ -1583,9 +1586,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		properties |= ADJECTIVE_PARTICIPLE|ADJECTIVE;
 	}
 	if (properties & VERB_PRESENT_PARTICIPLE) properties |= NOUN_GERUND|NOUN;
-	if (*entry->word == '~' || *entry->word == '^' || *entry->word == USERVAR_PREFIX) canonical = entry;	// not unknown, is self
+	if (entry && (*entry->word == '~' || *entry->word == '^' || *entry->word == USERVAR_PREFIX)) canonical = entry;	// not unknown, is self
 	cansysflags |= canonical->systemFlags;
-	sysflags |= entry->systemFlags;
+	if (entry) sysflags |= entry->systemFlags;
 	return properties;
 }
 
@@ -1601,13 +1604,13 @@ void SetSentenceTense(int start, int end)
 	bool subjectFound = false;
 	if ((trace & TRACE_POS || prepareMode == POS_MODE) && CheckTopicTrace()) 
 	{
-		if (  tmpPrepareMode == POS_MODE || prepareMode == POSVERIFY_MODE  || prepareMode == POSTIME_MODE ) Log(STDUSERLOG,(char*)"Not doing a parse.\r\n");
+		if (  tmpPrepareMode == POS_MODE || prepareMode == POSVERIFY_MODE  || prepareMode == POSTIME_MODE ) Log(USERLOG,"Not doing a parse.\r\n");
 	}
 
 	// assign sentence type
 	if (!verbStack[MAINLEVEL] || !(roles[verbStack[MAINLEVEL]] &  MAINVERB)) // FOUND no verb, not a sentence
 	{
-		if ((trace & TRACE_POS || prepareMode == POS_MODE) && CheckTopicTrace()) Log(STDUSERLOG,(char*)"Not a sentence\r\n");
+		if ((trace & TRACE_POS || prepareMode == POS_MODE) && CheckTopicTrace()) Log(USERLOG,"Not a sentence\r\n");
 		if (tokenFlags & (QUESTIONMARK|EXCLAMATIONMARK)) {;}
 		else if (posValues[startSentence] & AUX_VERB
 			&& !(posValues[startSentence + 1] & TO_INFINITIVE))
@@ -2115,7 +2118,7 @@ char* GetPresentParticiple(char* word)
                 }
                 G = GetTense(G); //   known irregular
             }
-            if (!n) ReportBug((char*)"verb loop") //   complain ONLY if we didnt find a past tense
+            if (!n) ReportBug((char*)"INFO: verb loop") //   complain ONLY if we didnt find a past tense
         }
 
         char lets[2];

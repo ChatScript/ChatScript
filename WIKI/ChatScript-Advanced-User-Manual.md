@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 1/1/2021 cs11.0
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -311,6 +311,9 @@ And hyphens with more letters on the other side are generally not punctuation ei
 like parens not part of a word (except in emoticons). So CS will normally break things apart as it believes they should be done.
 If you need to actually allow a token to have embedded punctuation in it, you can list the token in the LIVEDATA/SUBSTITUTES/abbreviations.txt
 file and the tokenizer will respect it.
+
+# Continuation lines
+File or live user input ending in ^ will erase the ^ and join with the next read line.
 
 # System Functions
 
@@ -667,8 +670,10 @@ or alter the type data of a word. The type information is all in `dictionarySyst
 
 
 ## LIVEDATA files
+These files are dynamically read per language.
 
-The substitutions files consistof pairs of data per line. The first is what to match.
+### SUBSTITUTIONS
+The SUBSTITUTES folder files consist of pairs of data per line. The first is what to match.
 Individual words are separated by underscores, and you can request sentence boundaries `<` and `>` . 
 
 The output can be missing (delete the found phrase) or words separated by plus
@@ -695,6 +700,18 @@ to mean that this is NOT at the end of the sentence. The files include:
 Processing done by various of these files can be suppressed by setting `$cs_token` differently. 
 See Control over Input.
 
+### Dictionary Augmentation Files
+| `plurals.txt`     | is a list of word pairs, singular and plural form
+| `canonicals.txt`     | is a list of word pairs, original and canonical form, that override what CS might have decided.
+| `currencies.txt`     | map currency words to currency concepts it defines
+| `months.txt`     | lines of month names and abbreviations
+| `numbers.txt`     | lines of words that have numeric value (see below)
+| `systemfacts.txt`     | lines of  system concepts, declaring them as concepts
+
+Numbers.txt entries will list the word, give its value, and define how to interpret its type.
+REAL_NUMBER is a word that directly represents a number, like two.
+WORD_NUMBER is a word that implies a number value, like dozen.
+FRACTION_NUMBER is a word that implies a faction value like half.
 
 # Common Script Idioms
 

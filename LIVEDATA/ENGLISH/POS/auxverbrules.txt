@@ -40,6 +40,39 @@
 
 # passive voice: http://www.english-zone.com/verbs/pssvchrt.html
 
+
+# "be" followed by adverb and then adjective (or just adjective) is NOT aux  "he *is much too inexperienced."
+0	INCLUDE  * AUX_BE 	
+	SKIP IS ADVERB  
+	IS ADJECTIVE_BITS
+DISCARD 
+
+# normal be followed  common participle adjective with  object
+0	INCLUDE * AUX_BE
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP HAS ADVERB
+	HAS  VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE
+	STAY ISORIGINALMEMBER  ~adjective_participles
+	HAS DETERMINER ADJECTIVE_BITS  NOUN_BITS PRONOUN_BITS
+KEEP
+
+# normal be followed by common participle adjective with no  object
+0	INCLUDE * AUX_BE
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP HAS ADVERB
+	HAS  VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE
+	STAY ISORIGINALMEMBER  ~adjective_participles
+	!HAS DETERMINER ADJECTIVE_BITS  NOUN_BITS PRONOUN_BITS
+DISCARD
+
+# normal be followed by participle and not common participle "he was gone"  "he is painting
+0	INCLUDE * AUX_BE
+	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
+	SKIP HAS ADVERB
+	HAS  VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE
+	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
+KEEP
+
 # noun verb/aux noun will be verb - Vinken (Noun_proper_singular)  is/be (Aux_be_present_3ps +Verb_present_3ps)  chairman (Noun_singular)
  -1 CANONLYBE NOUN_BITS PRONOUN_SUBJECT  # but "how many arms *does a person have"
 	INCLUDE * AUX_VERB
@@ -288,19 +321,6 @@ DISCARD
 	!HAS AUX_BE AUX_VERB_FUTURE VERB_PRESENT_PARTICIPLE VERB_PAST_PARTICIPLE
 DISCARD
 
-# "be" followed by adverb and then adjective (or just adjective) is NOT aux  "he *is much too inexperienced."
-0	INCLUDE  * AUX_BE 	
-	SKIP IS ADVERB  
-	IS ADJECTIVE_BITS
-DISCARD 
-
-# normal be followed by participle and not common participle "he was gone"  "he is painting
-0	INCLUDE * AUX_BE
-	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were
-	SKIP HAS ADVERB
-	HAS  VERB_PAST_PARTICIPLE VERB_PRESENT_PARTICIPLE
-	STAY !HASPROPERTY COMMON_PARTICIPLE_VERB
-KEEP
 
 # normal be followed by going_to is aux
 0	INCLUDE * AUX_BE

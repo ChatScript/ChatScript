@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 1/1/2021 cs11.0
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -673,10 +673,10 @@ This is only useful inside some pattern where you are trying to protect data fro
 the call to `^setwildcardindex` forces it to use `_1` instead, so both `_0` and `_1` have values.
 
 
-### `^isnormalword (value)`
+### `^isnormalword ({letteronly} value)`
 
 Fails if value has a character that is not alphabetic, numberic, a hyphen, an underscore, or an apostrophe.
-
+If the optional letteronly is given, then only alphabetic is allowed.
 
 # Number Functions
 
@@ -1445,17 +1445,22 @@ The argument is a JSON object as follows
 ```
 Input is the user input (one or more sentences) to be matched against.
 
-Patterns is an array of pattern strings as returned by CompilePattern. They can use memorization
+Patterns is an array of pattern strings as returned by CompilePattern. Alternatively, patterns is an
+array of json pattern objects, which has a field called `pattern` and optionally a field called `label`
+that will be displayed when tracing execution.
+
+Patterns can use memorization
 and they can assign values. If they use memorization,
 you can assign those onto normal variables, which if permanent variables will
 be returned as "newglobals". You can perform an assignment inside the pattern using something
 like $answer:=_0  (see Variable assignment in Advanced patterns). 
 The "newglobals will  be omitted if there are no changes.
 
-The variables and concepts fields are optional and provide context. A concept named "~replace~" is treated not as a concept
+### ~replace_spelling
+The variables and concepts fields are optional and provide context. A concept named "~replace_spelling" is treated not as a concept
 but as a list of paired words analogous to "replace:", but is only a transient replace series for this call.  A concept can contain values that look like:
-`"(...)"` or `(xxx)` which are CS patterns. These patterns can match user input just like an ordinary concept word can.  A concept can contain  entries that are pairs, separated by |.  
-The left side is stored
+`"(...)"` or `(xxx)` which are CS patterns. These patterns can match user input just like an ordinary concept word can.  
+A concept can contain  entries that are pairs, separated by |.  This is preferred over supplying separate pairs of words. The left side is stored
 as the concept member and a fact is created ( left-side  api-remap   right-side)  which allows you to write
 scripts that remap found entries on output to the right side value. ^testoutput accepts concepts so that the remap ability can be instantiated by script.
 
@@ -2205,6 +2210,25 @@ part of speech. Never fails but may return null.
 
 The second argument can also be `all` which means list all definitions per part of speech, not just the first. 
 And it can be the third optional argument so you can get all meanings of a word as a noun, for example.
+
+If you name a meaning, like (dog~1) then the definition will be for that specific meaning.
+
+### `^synset`
+Words in the Wordnet dictionary have multiple meanings and each meaning is
+linked together as 'synsets' with meanings of other words. To name a meaning is to give the word with an
+index after it. For example, the word dog has
+7 meanings. Six are nouns and 1 is a verb. Of the nouns, one meaning is dog is dog~1, your classic
+canine dog. Its synset includes Canis_familiaris~1 and domestic_dog~1.
+
+
+In addition words have a parent,
+wherein the word is a refinement of the parent. CS considers some meaning to be the 'master' 
+of the synset, and only that is hooked to its parent.
+
+    ^synset(word~n)    - return a list of facts naming synonyms of the meaning 
+^synset(synsetmaster word~n) - returns the synset master of word
+   ^synset(synsetup word~n) - if word is a master, returns the word it is a refinement of
+	^synset(word)    - return a list of facts naming all the meanings this word has.
 
 
 ### `^hasanyproperty ( word value )`

@@ -186,7 +186,9 @@ unsigned char quotationInProgress = 0;
 // Buying a license will get the the library you need to load with this code
 // http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/
 
+#ifdef WIN32
 #pragma comment(lib, "../BINARIES/treetagger.lib") // where windows library is
+#endif
 
 typedef struct {
 	int  number_of_words;  /* number of words to be tagged */
@@ -376,7 +378,7 @@ static void TreeTagger()
 	}
 	ts.number_of_words = wordCount;
 	tag_sentence(0, &ts);
-	if (trace & (TRACE_PREPARE | TRACE_POS | TRACE_TREETAGGER)) Log(STDUSERLOG, "External Tagging:\r\n");
+	if (trace & (TRACE_PREPARE | TRACE_POS | TRACE_TREETAGGER)) Log(USERLOG, "External Tagging:\r\n");
 
 	bool chunk = strstr(treetaggerParams, "chunk") ? true : false;
 	if (chunk) // do chunking here but marking later
@@ -397,7 +399,7 @@ static void TreeTagger()
 			if (status == 'I') continue; // continue a chunk
 			if (starter >= 0) // just ended a chunk
 			{
-				if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(STDUSERLOG, (char*)"(%s) %s..%s \r\n", type, wordStarts[starter + 1], wordStarts[i]);
+				if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG,"(%s) %s..%s \r\n", type, wordStarts[starter + 1], wordStarts[i]);
 				MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(type)), starter + 1, i);
 				starter = 0;
 			}
@@ -409,7 +411,7 @@ static void TreeTagger()
 		}
 		if (starter >= 0) // just ended a chunk
 		{
-			if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(STDUSERLOG, (char*)"(%s) %s..%s\r\n", type, wordStarts[starter + 1], wordStarts[wordCount]);
+			if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG,"(%s) %s..%s\r\n", type, wordStarts[starter + 1], wordStarts[wordCount]);
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(type)), starter + 1, wordCount);
 		}
 	}
@@ -534,11 +536,11 @@ static void TreeTagger()
 			if (chunk)
 			{
 				char* tag1 = (char*)tschunk.resulttag[i - 1];
-				Log(STDUSERLOG, "%s(%s %s) ", wordStarts[i], tag1, ts.lemma[i - 1]);
+				Log(USERLOG, "%s(%s %s) ", wordStarts[i], tag1, ts.lemma[i - 1]);
 			}
-			else Log(STDUSERLOG, "%s(%s %s) ", wordStarts[i], tag, ts.lemma[i - 1]);
+			else Log(USERLOG, "%s(%s %s) ", wordStarts[i], tag, ts.lemma[i - 1]);
 		}
-		Log(STDUSERLOG, "\r\n");
+		Log(USERLOG, "\r\n\r\n");
 	}
 }
 
@@ -579,65 +581,65 @@ static void BlendWithTreetagger(bool &changed)
 			if (trace & TRACE_TREETAGGER)
 			{
 				++modified;
-				Log(STDUSERLOG, (char*)"Treetagger adjusted %d: \"%s\" given %s, removing: ", i, wordStarts[i], ts.resulttag[i - 1]);
+				Log(USERLOG,"Treetagger adjusted %d: \"%s\" given %s, removing: ", i, wordStarts[i], ts.resulttag[i - 1]);
 				uint64 lost = possiblebits ^ allowable; // these bits disappeared
 				uint64 bit = START_BIT;
 				while (bit)
 				{
-					if (lost & bit) Log(STDUSERLOG, (char*)"%s ", FindNameByValue(bit));
+					if (lost & bit) Log(USERLOG,"%s ", FindNameByValue(bit));
 					bit >>= 1;
 				}
-				Log(STDUSERLOG, (char*)" CS Remain: ");
+				Log(USERLOG," CS Remain: ");
 				bit = START_BIT;
 				while (bit)
 				{
 					if (allowable & bit)
-						Log(STDUSERLOG, (char*)"%s ", FindNameByValue(bit));
+						Log(USERLOG,"%s ", FindNameByValue(bit));
 					bit >>= 1;
 				}
-				Log(STDUSERLOG, (char*)"\r\n");
+				Log(USERLOG,"\r\n");
 			}
 			break;	// as soon as changed. return
 		}
 		else if (!allowable && trace & (TRACE_PREPARE | TRACE_TREETAGGER))
 		{
-			Log(STDUSERLOG, (char*)"Treetagger could not adjust %d: \"%s\" given %s, leaves CS as: ", i, wordStarts[i], ts.resulttag[i - 1]);
+			Log(USERLOG,"Treetagger could not adjust %d: \"%s\" given %s, leaves CS as: ", i, wordStarts[i], ts.resulttag[i - 1]);
 			uint64 bit = START_BIT;
 			++blocked;
 			while (bit)
 			{
-				if (possiblebits & bit) Log(STDUSERLOG, (char*)"%s ", FindNameByValue(bit));
+				if (possiblebits & bit) Log(USERLOG,"%s ", FindNameByValue(bit));
 				bit >>= 1;
 			}
 
-			Log(STDUSERLOG, (char*)"instead of changing to:");
+			Log(USERLOG,"instead of changing to:");
 			uint64 lost = bits & (-1 ^ possiblebits); // these bits disappeared from treetagger
 			bit = START_BIT;
 			while (bit)
 			{
-				if (lost & bit) Log(STDUSERLOG, (char*)"%s ", FindNameByValue(bit));
+				if (lost & bit) Log(USERLOG,"%s ", FindNameByValue(bit));
 				bit >>= 1;
 			}
-			Log(STDUSERLOG, (char*)"\r\n");
+			Log(USERLOG,"\r\n");
 		}
 		else if (trace & (TRACE_PREPARE | TRACE_TREETAGGER))
 		{
-			Log(STDUSERLOG, (char*)"Treetagger matches %d: \"%s\" TT: %s CS: ", i, wordStarts[i], ts.resulttag[i - 1]);
+			Log(USERLOG,"Treetagger matches %d: \"%s\" TT: %s CS: ", i, wordStarts[i], ts.resulttag[i - 1]);
 			uint64 bit = START_BIT;
 			while (bit)
 			{
 				if (allowable & bit)
-					Log(STDUSERLOG, (char*)"%s ", FindNameByValue(bit));
+					Log(USERLOG,"%s ", FindNameByValue(bit));
 				bit >>= 1;
 			}
-			Log(STDUSERLOG, (char*)"\r\n");
+			Log(USERLOG,"\r\n");
 		}
 	}
-	if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(STDUSERLOG, (char*)"\r\n");
+	if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG,"\r\n");
 	ttLastChanged = i;  // or it ran out
 	if (i > wordCount)
 	{
-		if (trace & (TRACE_PREPARE | TRACE_TREETAGGER))	Log(STDUSERLOG, (char*)"TT Adjustments: %d  Refusals: %d  Words %d\r\n\r\n", modified, blocked,wordCount);
+		if (trace & (TRACE_PREPARE | TRACE_TREETAGGER))	Log(USERLOG,"TT Adjustments: %d  Refusals: %d  Words %d\r\n\r\n", modified, blocked,wordCount);
 		modified = 0;
 	}
 }
@@ -658,12 +660,12 @@ void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 	sprintf(langfile, "treetagger/%s.par", language);
 	MakeLowerCase(langfile);
 	//write_treetagger();
-	bool result = init_treetagger(langfile, AllocateHeap, GetWord); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
+	bool result = init_treetagger(langfile, AllocateConstHeap, GetWord); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
 	if (strstr(params, "chunk") && result)
 	{
 		sprintf(langfile, "treetagger/%s_chunker.par", language);
 		MakeLowerCase(langfile);
-		result = init_treetagger(langfile, AllocateHeap, GetWord); //  NULL, NULL);  /*  Initialization of the tagger with the chunker parameter file */
+		result = init_treetagger(langfile, AllocateConstHeap, GetWord); //  NULL, NULL);  /*  Initialization of the tagger with the chunker parameter file */
 		if (!result) strcpy(params, "1"); // give up chunking
 	}
 	if (result) externalPostagger = TreeTagger;
@@ -687,26 +689,26 @@ void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 
 static void DumpCrossReference(int start, int end)
 {
-	Log(STDUSERLOG,(char*)"Xref: ");
+	Log(USERLOG,"Xref: ");
 	for (int i = start; i <= end; ++i)
 	{
-		Log(STDUSERLOG,(char*)"%d:%s",i,wordStarts[i]);
-		if (crossReference[i]) Log(STDUSERLOG,(char*)" >%d",crossReference[i]);
-		if (indirectObjectRef[i]) Log(STDUSERLOG,(char*)" i%d",indirectObjectRef[i]);
-		if (objectRef[i]) Log(STDUSERLOG,(char*)" o%d",objectRef[i]);
-		if (complementRef[i]) Log(STDUSERLOG,(char*)" c%d",complementRef[i]);
-		Log(STDUSERLOG,(char*)"   ");
+		Log(USERLOG,"%d:%s",i,wordStarts[i]);
+		if (crossReference[i]) Log(USERLOG," >%d",crossReference[i]);
+		if (indirectObjectRef[i]) Log(USERLOG," i%d",indirectObjectRef[i]);
+		if (objectRef[i]) Log(USERLOG," o%d",objectRef[i]);
+		if (complementRef[i]) Log(USERLOG," c%d",complementRef[i]);
+		Log(USERLOG,"   ");
 	}
-	Log(STDUSERLOG,(char*)"\r\n");
+	Log(USERLOG,"\r\n");
 	for (int i = start; i <= end; ++i)
 	{
-		Log(STDUSERLOG,(char*)"%d:%s",i,wordStarts[i]);
-		if (phrases[i]) Log(STDUSERLOG,(char*)" p%x",phrases[i]);
-		if (verbals[i]) Log(STDUSERLOG,(char*)" v%x",verbals[i]);
-		if (clauses[i]) Log(STDUSERLOG,(char*)" c%x",clauses[i]);
-		Log(STDUSERLOG,(char*)"   ");
+		Log(USERLOG,"%d:%s",i,wordStarts[i]);
+		if (phrases[i]) Log(USERLOG," p%x",phrases[i]);
+		if (verbals[i]) Log(USERLOG," v%x",verbals[i]);
+		if (clauses[i]) Log(USERLOG," c%x",clauses[i]);
+		Log(USERLOG,"   ");
 	}
-	Log(STDUSERLOG,(char*)"\r\n");
+	Log(USERLOG,"\r\n");
 }
 
 static void SetCanonicalValue(int start,int end)
@@ -780,7 +782,7 @@ static void SetCanonicalValue(int start,int end)
 				if (verb) canonicalLower[i] = FindWord(verb);
 			}
 		}
-		else if (csEnglish && pos & (NOUN_BITS - NOUN_GERUND - NOUN_ADJECTIVE)  || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original)))
+		else if (csEnglish && ((pos & (NOUN_BITS - NOUN_GERUND - NOUN_ADJECTIVE))  || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))))
 		{
 			if (pos & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL) && canonicalUpper[i] && canonicalUpper[i]->properties & NOUN) // can it be upper case interpretation?
 			{
@@ -805,7 +807,7 @@ static void SetCanonicalValue(int start,int end)
 				canonicalLower[i] = FindWord(original,0, LOWERCASE_LOOKUP);
 			}
 		}
-		else if (csEnglish && pos & (ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NOUN) || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original)))
+		else if (csEnglish && ((pos & (ADJECTIVE_BITS - ADJECTIVE_PARTICIPLE - ADJECTIVE_NOUN)) || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))))
 		{
 			if (canonicalLower[i] && canonicalLower[i]->properties & NUMBER_BITS);
 			else 
@@ -828,10 +830,10 @@ static void SetCanonicalValue(int start,int end)
 			else
 			{
 				char* adj = GetAdjectiveBase(original,false);
-				if (adj) canonicalLower[i] = FindWord(adj);
+				// if (adj) canonicalLower[i] = FindWord(adj); // noun is not an adjective
 			}
 		}
-		else if (csEnglish && pos & ADVERB || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original)))
+		else if (csEnglish && ((pos & ADVERB) || (canonicalLower[i] && !stricmp(canonicalLower[i]->word,original))))
 		{
 			if (canonicalLower[i] && canonicalLower[i]->properties & NUMBER_BITS);
 			else canonicalLower[i] = FindWord(GetAdverbBase(original,false));
@@ -962,7 +964,7 @@ static bool LimitValues(int i, uint64 bits,char* msg,bool& changed)
 			{
 				*buff = 0;
 				PosBits(posValues[i],buff);
-				Log(STDUSERLOG,(char*)"    Limit recovery  \"%s\"(%d) %s -> %s\r\n",wordStarts[i],i,msg,buff);
+				Log(USERLOG,"    Limit recovery  \"%s\"(%d) %s -> %s\r\n",wordStarts[i],i,msg,buff);
 			}
 		}
 		bitCounts[i] = BitCount(posValues[i]);
@@ -971,7 +973,7 @@ static bool LimitValues(int i, uint64 bits,char* msg,bool& changed)
 		else if (bitCounts[i] > 1 && oldcount == 1) ++ambiguous;
 		else if (bitCounts[i] == 0) // couldnt return to old??? 
 		{
-			if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"    Limit recovery  error %s %d \r\n",wordStarts[i],i);
+			if (trace & TRACE_POS) Log(USERLOG,"    Limit recovery  error %s %d \r\n",wordStarts[i],i);
 			ambiguous = 1000; // cannot be fixed
 			return false;
 		}
@@ -980,7 +982,7 @@ static bool LimitValues(int i, uint64 bits,char* msg,bool& changed)
 		{
 			*buff = 0;
 			PosBits(posValues[i],buff);
-			Log(STDUSERLOG,(char*)"    Limit \"%s\"(%d) %s -> %s\r\n",wordStarts[i],i,msg,buff);
+			Log(USERLOG,"    Limit \"%s\"(%d) %s -> %s\r\n",wordStarts[i],i,msg,buff);
 		}
 		return true;
 	}
@@ -1254,7 +1256,7 @@ static void PerformPosTag(int start, int end)
 	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE || prepareMode == POS_MODE) 
 	{
 		if (prepareMode != POS_MODE) DumpCrossReference(start,end);
-		Log(STDUSERLOG,(char*)"%s",DumpAnalysis(start,end,posValues,(char*)"Tagged POS",false,true));
+		Log(USERLOG,"%s",DumpAnalysis(start,end,posValues,(char*)"Tagged POS",false,true));
 		DumpSentence(start,end);
 	}
 }
@@ -1295,7 +1297,7 @@ static void InitRoleSentence(int start, int end)
         SetRole(start, MAINOBJECT, true);
     }
 #endif
-    if (trace & TRACE_POS) Log(STDUSERLOG, (char*)"  *** Sentence start: %s (%d) to %s (%d)\r\n", wordStarts[start], start, wordStarts[end], end);
+    if (trace & TRACE_POS) Log(USERLOG,"  *** Sentence: %s (%d) to %s (%d)\r\n", wordStarts[start], start, wordStarts[end], end);
 }
 
 void TagInit()
@@ -1429,7 +1431,7 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 
 		// bug - make a noun out of 1st quote if part of sentence...
 		tokenFlags &= -1 ^ SENTENCE_TOKENFLAGS; // reset results bits
-        if (trace & TRACE_POS) Log(STDUSERLOG, "tag from %d to %d\r\n", i, end);
+        if (trace & TRACE_POS) Log(USERLOG, "Internal tagging from %d to %d\r\n", i, end);
 		PerformPosTag(i,end); // do this zone
 		i = end;
 	}
@@ -1539,7 +1541,7 @@ static unsigned int PriorPhrasalVerb(int particle,WORDP & D)
 	// never has both separable and non-separable on it at same time
 	if ( (D->systemFlags & (SEPARABLE_PHRASAL_VERB | INSEPARABLE_PHRASAL_VERB)) == ( SEPARABLE_PHRASAL_VERB |  INSEPARABLE_PHRASAL_VERB))
 	{
-		ReportBug((char*)"%s has both separable and nonseparable\r\n",D->word);
+		ReportBug((char*)"INFO: %s has both separable and nonseparable\r\n",D->word);
 	}
 
 	if (D->systemFlags & INSEPARABLE_PHRASAL_VERB) return 0; // must not be separated EVER but we are only doing separated
@@ -1716,7 +1718,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			if (!X) { Bug(); break; }
 			answer = !stricmp(wordStarts[i], X->word);
 			if (posValues[i - 1] == IDIOM) answer = false;	// doesnt match eg  "I scamper *out *of her way
-			if (tracex) Log(STDUSERLOG, (char*)" vs %s ", X->word);
+			if (tracex) Log(USERLOG," vs %s ", X->word);
 		}
 			break;
 		case ISQWORD:
@@ -1728,7 +1730,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 				if (!X) { Bug(); break; }
 				answer = canonicalLower[i] == X;
 				if (posValues[i - 1] == IDIOM) answer = false;	// doesnt match
-				if (tracex) Log(STDUSERLOG, (char*)" vs %s ", X->word);
+				if (tracex) Log(USERLOG," vs %s ", X->word);
 			}
 			break;
 		case HAS2VERBS: // GLOBAL    subord conjunct will require it
@@ -1749,7 +1751,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			{
 				WORDP D = Meaning2Word((int)bits);
 				if (!D) { Bug(); break; }
-				if (tracex) Log(STDUSERLOG,(char*)" vs %s ",D->word);
+				if (tracex) Log(USERLOG," vs %s ",D->word);
 				int x = i;
 				while (--x >= startSentence)
 				{
@@ -1766,7 +1768,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			{
 				WORDP D = Meaning2Word((int)bits);
 				if (!D) { Bug(); break; }
-				if (tracex) Log(STDUSERLOG,(char*)" vs %s ",D->word);
+				if (tracex) Log(USERLOG," vs %s ",D->word);
 				int x = i;
 				while (--x >= startSentence)
 				{
@@ -1783,7 +1785,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			{
 				WORDP D = Meaning2Word((int)bits);
 				if (!D) { Bug(); break; }
-				if (tracex) Log(STDUSERLOG,(char*)" vs %s ",D->word);
+				if (tracex) Log(USERLOG," vs %s ",D->word);
 				int x = i;
 				while (++x <= endSentence)
 				{
@@ -2058,7 +2060,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 			{
 				WORDP D = Meaning2Word((int)bits);
 				if (!D) { Bug(); break; }
-				if (tracex) Log(STDUSERLOG,(char*)" vs %s ",D->word);
+				if (tracex) Log(USERLOG," vs %s ",D->word);
 				FACT* F = GetObjectNondeadHead(D);
 				MEANING M = (control == ISMEMBER) ? MakeMeaning(canonicalLower[i]) : MakeMeaning(originalLower[i]);
 				while (F)
@@ -2129,7 +2131,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
 				for (at = i-1; at >= startSentence; --at)
 				{
 					if (posValues[at] & (COMMA | CONJUNCTION_COORDINATE)) baseseen = true;
-					if (at > 0 &&  *wordStarts[at] == ';' || *wordStarts[at] == ':')  baseseen = true;
+					if (at > 0 &&  (*wordStarts[at] == ';' || *wordStarts[at] == ':'))  baseseen = true;
 					if (posValues[at] & (VERB_INFINITIVE|NOUN_INFINITIVE) && baseseen) 
 					{
 						answer = true;
@@ -2223,7 +2225,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 		char* comment = (comments) ? comments[i] : NULL;
 		tracex = (data[3] & TRACE_BIT) && (trace & TRACE_POS); 
 		if (tracex) 
-			Log(STDUSERLOG,(char*)"   => Trace rule:%d   %s (%d) %s \r\n",i,word,j,comment);
+			Log(USERLOG,"   => Trace rule:%d   %s (%d) %s \r\n",i,word,j,comment);
 		
 		int limit = (data[3] & PART1_BIT) ? (MAX_TAG_FIELDS * 2) : MAX_TAG_FIELDS;
 		offset = ((data[1] >> OFFSET_SHIFT) & 0x00000007) - 3; // where to start pattern match relative to current field (3 bits)
@@ -2248,7 +2250,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 				if (control & SKIP) // check for any number of matches until fails.
 				{
 					result = TestTag(start,control,field & PATTERN_BITS,direction,tracex); // might change start to end or start of PREPOSITIONAL_PHRASE if skipping
-					if (tracex) Log(STDUSERLOG,(char*)"    =%d  SKIP %s(%d) op:%s result:%d\r\n",k,wordStarts[start],start, OpDecode(field),result);
+					if (tracex) Log(USERLOG,"    =%d  SKIP %s(%d) op:%s result:%d\r\n",k,wordStarts[start],start, OpDecode(field),result);
 					if ( result == UNKNOWN_CONSTRAINT)
 					{
 						ReportBug((char*)"unknown control %d) %s Rule #%d %s\r\n",j,word,i,comment)
@@ -2260,7 +2262,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 						while (posValues[start] == IDIOM) start += direction; // move off the idiom
 						result = TestTag(start,control,field & PATTERN_BITS,direction,tracex);
 						if (tracex ) 
-							Log(STDUSERLOG,(char*)"    =%d  SKIP %s(%d)  result:%d @%s(%d)\r\n",k,wordStarts[start],start,result,wordStarts[start],start);
+							Log(USERLOG,"    =%d  SKIP %s(%d)  result:%d @%s(%d)\r\n",k,wordStarts[start],start,result,wordStarts[start],start);
 					}
 					start -= direction; // ends on non-skip, back up so will see again
 					while (posValues[start] == IDIOM) start -= direction; // move off the idiom
@@ -2269,13 +2271,13 @@ static bool ApplyRulesToWord( int j,bool & changed)
 				{
 					if (field & PATTERN_BITS) direction = - direction; // flip scan direction
 					start = j; // be back on the word as field
-					if (tracex) Log(STDUSERLOG,(char*)"    =%d  RESETLOCATION %d\r\n",k,direction);
+					if (tracex) Log(USERLOG,"    =%d  RESETLOCATION %d\r\n",k,direction);
 				}
 				else
 				{
 					result = TestTag(start,control,field & PATTERN_BITS,direction,tracex); // might change start to end or start of PREPOSITIONAL_PHRASE if skipping
 					if (tracex && k && k <= wordCount)
-						Log(STDUSERLOG,(char*)"    =%d  %s(%d) op:%s result:%d\r\n",k,wordStarts[start],start,OpDecode(field),result);
+						Log(USERLOG,"    =%d  %s(%d) op:%s result:%d\r\n",k,wordStarts[start],start,OpDecode(field),result);
 					if (result == UNKNOWN_CONSTRAINT)
 					{
 						ReportBug((char*)"unknown control1 %d) %s Rule #%d %s\r\n",j,word,i,comment)
@@ -2290,7 +2292,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 		// pattern matched, apply change if we can
 		if (k >= limit) 
 		{
-			if (tracex) Log(STDUSERLOG,(char*)"   <= matched\r\n");
+			if (tracex) Log(USERLOG,"   <= matched\r\n");
 			uint64 old = posValues[j] & ((keep) ? resultBits : ( -1LL ^ resultBits));
 			if (data[3] & USED_BIT && usedTrace) 
 			{
@@ -2318,11 +2320,11 @@ static bool ApplyRulesToWord( int j,bool & changed)
 					
 				char* name = FindNameByValue(resultBits);
 				if (!name) name = BitLabels(properties);
-				Log(STDUSERLOG,(char*)" %d) %s: %s %s Rule #%d %s\r\n",j,word,which,name,i,comment+1);
+				Log(USERLOG," %d) %s: %s %s Rule #%d %s\r\n",j,word,which,name,i,comment+1);
 				char buff[MAX_WORD_SIZE];
 				*buff = 0;
 				PosBits(old,buff);
-				Log(STDUSERLOG,(char*)"   now %s\r\n",buff);
+				Log(USERLOG,"   now %s\r\n",buff);
 			}
 
 			// make the change
@@ -2335,7 +2337,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 				return true;	// we now know
 			}
 		} // end result change k > limit
-		else if (tracex) Log(STDUSERLOG,(char*)"   <= unmatched\r\n"); // pattern failed to match
+		else if (tracex) Log(USERLOG,"   <= unmatched\r\n"); // pattern failed to match
 	} // end loop on rules 
 	return false;
 }
@@ -2754,7 +2756,7 @@ static void WordIdioms(bool &changed)
 					strcat(ptr,(char*)" ");
 					ptr += strlen(ptr);
 				}
-				Log(STDUSERLOG,(char*)"Word Idiom %d:%s (%s)\r\n",tagged,word, tagslist);
+				Log(USERLOG,"Word Idiom %d:%s (%s)\r\n",tagged,word, tagslist);
 			}
 			i += tagged - 1;	// skip over matched zone
 //			if (posValues[i] == PARTICLE) --i;	// rescan for another idiom like "I live *on my own" - "live on" and "on my own"
@@ -2779,7 +2781,7 @@ static void WordIdioms(bool &changed)
 			}
 			else 
 			{
-				if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"%s ",D->word);
+				if (trace & TRACE_POS) Log(USERLOG,"%s ",D->word);
 				phrasalVerb[priorPhrasalVerb] = (unsigned char)i;
 				if (longTail)
 				{
@@ -2829,7 +2831,7 @@ static void GuessOnProbability(bool &changed)
 static bool ApplyRules() // get the set of all possible tags.
 {
 	if (!tags) return true;
-	if (trace & TRACE_POS && prepareMode != PREPARE_MODE) Log(STDUSERLOG,(char*)"%s",DumpAnalysis(startSentence,endSentence,posValues,(char*)"\r\nOriginal POS:",true,true));
+	if (trace & TRACE_POS && prepareMode != PREPARE_MODE) Log(USERLOG,"%s",DumpAnalysis(startSentence,endSentence,posValues,(char*)"\r\nOriginal POS:",true,true));
 	unsigned int pass = 0;
 	unsigned int limit = 50;
 retry:
@@ -2847,11 +2849,11 @@ retry:
 		changed = false;
 		if (--limit == 0) 
 		{
-			if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"ApplyRules overran\r\n");
+			if (trace & TRACE_POS) Log(USERLOG,"ApplyRules overran\r\n");
 			return false;
 		}
 		if (trace & TRACE_POS) 
-			Log(STDUSERLOG,(char*)"\r\n------------- POS rules pass %d: \r\n",pass);
+			Log(USERLOG,"\r\n------------- POS rules pass %d: \r\n",pass);
 
 		// test all items in the sentence
 		for (int wordIndex =  startSentence; wordIndex <= endSentence; ++wordIndex)
@@ -2868,7 +2870,7 @@ retry:
 			}
 		} // end loop on words
 		
-		if (ambiguous && trace & TRACE_POS && changed) Log(STDUSERLOG,(char*)"\r\n%s",DumpAnalysis(startSentence,endSentence,posValues,(char*)"POS",false,false));
+		if (ambiguous && trace & TRACE_POS && changed) Log(USERLOG,"\r\n%s",DumpAnalysis(startSentence,endSentence,posValues,(char*)"POS",false,false));
 #ifdef TREETAGGER
 		if (!changed && ts.number_of_words  && ttLastChanged <= endSentence) BlendWithTreetagger(changed); // can override us even when we know
 		if (changed) continue;
@@ -3820,7 +3822,7 @@ static void AddRole( int i, uint64 role)
 		return;
 	}
 	roles[i] |= role; // assign secondary role characteristic
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
+	if (trace & TRACE_POS) Log(USERLOG,"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
 }
 
 static void SetRole( int i, uint64 role,bool revise, int currentVerb)
@@ -3837,7 +3839,7 @@ static void SetRole( int i, uint64 role,bool revise, int currentVerb)
 	if (roles[i] & (SUBJECT_COMPLEMENT|OBJECT_COMPLEMENT) && complementRef[currentVerb] == i) complementRef[currentVerb] = 0;
 	
 	roles[i] = role;
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
+	if (trace & TRACE_POS) Log(USERLOG,"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
 
 	// set new reference
 	if ((role & needRoles[roleIndex]) || revise) // store role xref when we were looking for it - we might see objects added when we have one already
@@ -3909,7 +3911,7 @@ static bool ProcessSplitNoun(unsigned int verb1,bool &changed)
 			if (posValues[before] & (NOUN_BITS - NOUN_GERUND - NOUN_NUMBER + PRONOUN_SUBJECT + PRONOUN_OBJECT) &&
 				posValues[before-1] & (NOUN_BITS - NOUN_GERUND - NOUN_NUMBER  + PRONOUN_SUBJECT + PRONOUN_OBJECT))
 			{ // misses, the shawl the people wear
-				if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"split noun @ %s(%d) to %s(%d)\r\n",wordStarts[before],before,wordStarts[verb1],verb1);
+				if (trace & TRACE_POS) Log(USERLOG,"split noun @ %s(%d) to %s(%d)\r\n",wordStarts[before],before,wordStarts[verb1],verb1);
 
 				if (posValues[before] & (PRONOUN_BITS)) // pronoun will already be split, but might be a clause starter
 				{
@@ -3967,7 +3969,7 @@ static bool ProcessImpliedClause(unsigned int verb1,bool &changed)
 
 	if (roles[subject] & MAINOBJECT) // implied clause as direct object  "I hope (Bob will go)"
 	{
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"implied direct object clause @ %s(%d)\r\n",wordStarts[subject],subject);
+		if (trace & TRACE_POS) Log(USERLOG,"implied direct object clause @ %s(%d)\r\n",wordStarts[subject],subject);
 		SetRole(subject,SUBJECT2|MAINOBJECT,true);
 		SetRole(verb1,VERB2,true);
 		while (subject <= verb1) clauses[subject++] |= clauseBit;
@@ -3981,7 +3983,7 @@ static bool ProcessImpliedClause(unsigned int verb1,bool &changed)
 static bool ProcessCommaClause(unsigned int verb1,bool &changed)
 {
 	if (!clauses[verb1]) return false; 
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Comma clause\r\n");
+	if (trace & TRACE_POS) Log(USERLOG,"Comma clause\r\n");
 	needRoles[roleIndex] &= -1 ^ CLAUSE;
 	unsigned int subject = verb1;
 	while (--subject && posValues[subject] != COMMA);
@@ -3998,7 +4000,7 @@ static unsigned int ForceValues(int i, uint64 bits,char* msg,bool& changed)
 	{
 		changed = true;
 		bitCounts[i] = BitCount(posValues[i]);
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Force \"%s\"(%d) %s\r\n",wordStarts[i],i,msg);
+		if (trace & TRACE_POS) Log(USERLOG,"Force \"%s\"(%d) %s\r\n",wordStarts[i],i,msg);
 	}
 	return bitCounts[i];
 }
@@ -4090,12 +4092,12 @@ static void AddClause(int i,char* msg)
 		SetRole(i,needRoles[roleIndex] & (OBJECT2|MAINOBJECT));
 		needRoles[roleIndex] &= -1 ^ OBJECT_COMPLEMENT; // in addition remove this
 	}
-	if (trace & TRACE_POS) Log(STDUSERLOG,msg,wordStarts[i]);
+	if (trace & TRACE_POS) Log(USERLOG,msg,wordStarts[i]);
 	if (!clauses[i])
 	{
 		clauses[i] |= clauseBit;
 		clauseBit <<= 1;
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"    Clause added at %s(%d)\r\n",wordStarts[i],i);
+		if (trace & TRACE_POS) Log(USERLOG,"    Clause added at %s(%d)\r\n",wordStarts[i],i);
 	}
 
 	if (clauses[i] && clauses[i] != clauses[i-1]) // a new clause runs thru here
@@ -4216,7 +4218,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	if (verbStack[MAINLEVEL] > end)
 	{
 		static int checkv = 0; // cheap hack to lower bug reports
-		if (wordCount != checkv && false) ReportBug((char*)"mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
+		if (wordCount != checkv && false) ReportBug((char*)"INFO: mainverb out of range in sentence %d>%d", verbStack[MAINLEVEL], end);
 		checkv = end;
 		return true;
 	}
@@ -4227,7 +4229,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	if (subjectStack[MAINLEVEL] > end)
 	{
 		static int checks = 0; // cheap hack to lower bug reports
-		if (wordCount != checks && false) ReportBug((char*)"mainSubject out of range", subjectStack[MAINLEVEL], end);
+		if (wordCount != checks && false) ReportBug((char*)"INFO: mainSubject out of range", subjectStack[MAINLEVEL], end);
 		checks = end;
 		return true;
 	}
@@ -4489,7 +4491,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	else if (mainVerb)
 	{
 		SetRole(mainVerb,MAINVERB,true,mainVerb); 
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Forcing found verb into main verb \"%s\"(%d)\r\n",wordStarts[mainVerb],mainVerb);
+		if (trace & TRACE_POS) Log(USERLOG,"Forcing found verb into main verb \"%s\"(%d)\r\n",wordStarts[mainVerb],mainVerb);
 		if (objectRef[mainVerb] ) SetRole(objectRef[mainVerb],MAINOBJECT,true,mainVerb);
 	}
 	// found no main verb? resurrect a clause into main verb - prefer removal of clause modifying prep object
@@ -4503,7 +4505,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 				SetRole(i,MAINVERB,false,i); 
 				if ( objectRef[i] ) SetRole(objectRef[i],MAINOBJECT,false,i);
 				clauses[i] = 0;
-				if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Lacking main verb, resurrect clause into main verb \"%s\"(%d)\r\n",wordStarts[i],i);
+				if (trace & TRACE_POS) Log(USERLOG,"Lacking main verb, resurrect clause into main verb \"%s\"(%d)\r\n",wordStarts[i],i);
 				break;
 			}
 		}
@@ -4597,7 +4599,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	// "Hector, address the class"  is command, not subject, verb also "here, Ned, catch this"
 	if (assignedMainSubject && assignedMainVerb && ( zoneVerb - zoneSubject) == 1 && allOriginalWordBits[assignedMainVerb] & VERB_INFINITIVE && (zoneBoundary[zoneVerb] + 1) == assignedMainVerb)
 	{
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Forcing subject in leading comma zone to be address \"%s\"(%d)\r\n",wordStarts[startSentence],1);
+		if (trace & TRACE_POS) Log(USERLOG,"Forcing subject in leading comma zone to be address \"%s\"(%d)\r\n",wordStarts[startSentence],1);
 		SetRole(assignedMainSubject,ADDRESS,true,0);
 		LimitValues(assignedMainVerb,VERB_INFINITIVE,(char*)"Force verb to be infinitive on command",changed);
 		assignedMainSubject = 0;
@@ -4662,7 +4664,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 			if (posValues[newobject] == PRONOUN_SUBJECT) posValues[newobject] = PRONOUN_OBJECT;
 			SetRole(newsubject,MAINSUBJECT,true,currentMainVerb);
 			if (posValues[newsubject] == PRONOUN_OBJECT) posValues[newsubject] = PRONOUN_SUBJECT;
-			if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Flipping subject and object due to qword start \"%s\"(%d)\r\n",wordStarts[newobject],newobject);
+			if (trace & TRACE_POS) Log(USERLOG,"Flipping subject and object due to qword start \"%s\"(%d)\r\n",wordStarts[newobject],newobject);
 		}
 	}
 
@@ -4671,7 +4673,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	{
 		SetRole(startSentence,OBJECT2,false,verbStack[MAINLEVEL]);
 		if (allOriginalWordBits[startSentence] & PRONOUN_OBJECT) posValues[startSentence] = PRONOUN_OBJECT;
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Pronoun wrap to start, coercing start to object2 and maybe pronoun object \"%s\"(%d)\r\n",wordStarts[startSentence],startSentence);
+		if (trace & TRACE_POS) Log(USERLOG,"Pronoun wrap to start, coercing start to object2 and maybe pronoun object \"%s\"(%d)\r\n",wordStarts[startSentence],startSentence);
 	}
 
 	// sentence starting with here or there as subject
@@ -4679,7 +4681,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 	{
 		int subject = subjectStack[MAINLEVEL];
 		int object = objectRef[verbStack[MAINLEVEL]];
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Here/There cannot be subject, revise object\"%s\"(%d)\r\n",wordStarts[object],object);
+		if (trace & TRACE_POS) Log(USERLOG,"Here/There cannot be subject, revise object\"%s\"(%d)\r\n",wordStarts[object],object);
 		SetRole(subject,0,false,0); 
 		if (!stricmp(wordStarts[subject],(char*)"here"))  LimitValues(subject,ADVERB,(char*)"Here as subject is adverb",changed);
 		else if (posValues[subject] == THERE_EXISTENTIAL) {;}
@@ -4903,7 +4905,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 						crossReference[i] = (unsigned char) j;
 						AddRole(i,ADJECTIVAL);
 					}
-					// else ReportBug((char*)"participle verbal must be adjective");
+					// else ReportBug((char*)"INFO: participle verbal must be adjective");
 				}
 			}
 			else
@@ -4981,7 +4983,7 @@ static void DoCoord( int i,  int before,  int after, uint64 type)
 	coordinates[before] = (unsigned char)i;
 	coordinates[i] = (unsigned char)after;
 	if (phrases[before]) ExtendChunk(before,after,phrases); // expand dual object in prep phrase
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Conjunct %s(%d) joins %s(%d) with %s(%d) hooked at %d\r\n",wordStarts[i],i,wordStarts[before],before,wordStarts[after],after,hook);
+	if (trace & TRACE_POS) Log(USERLOG,"Conjunct %s(%d) joins %s(%d) with %s(%d) hooked at %d\r\n",wordStarts[i],i,wordStarts[before],before,wordStarts[after],after,hook);
 
 	// if what we conjoin is a chunk, extend the chunk to cover us also
 	if (phrases[before] && type == CONJUNCT_NOUN) ExtendChunk(before,after,phrases);  // multiple objects in phrase
@@ -5040,7 +5042,7 @@ static int ConjoinPhrase(int i, bool &changed)
 			SetRole(i, CONJUNCT_PHRASE);
 			coordinates[i] = (unsigned char)r;
 		}
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"DuplicatePhrase");
+		if (trace & TRACE_POS) Log(USERLOG,"DuplicatePhrase");
 		return 0;
 	}
 
@@ -5337,7 +5339,7 @@ static int ConjoinVerb( int i, bool &changed)
 		{
 			needRoles[MAINLEVEL] |= MAINOBJECT;
 			if ( canonicalLower[i]->properties & VERB_INDIRECTOBJECT) needRoles[MAINLEVEL] |= MAININDIRECTOBJECT;
-			if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"DuplicateVerb");
+			if (trace & TRACE_POS) Log(USERLOG,"DuplicateVerb");
 		}
 	}
 
@@ -5584,13 +5586,13 @@ static unsigned int HandleCoordConjunct( int i,bool &changed) // determine kind 
 		}
 	}
 	// we dont know what it binds to yet--- might be mainsubject, might be to a current verbal
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"bind Conjunct=%s(%d)\r\n",wordStarts[i],i);
+	if (trace & TRACE_POS) Log(USERLOG,"bind Conjunct=%s(%d)\r\n",wordStarts[i],i);
 	return 0;
 }
 
 static void DropLevel()
 {
-	if (trace &  TRACE_POS) Log(STDUSERLOG,(char*)"    Dropped Level %d\r\n",roleIndex);
+	if (trace &  TRACE_POS) Log(USERLOG,"    Dropped Level %d\r\n",roleIndex);
 	if (roleIndex) --roleIndex;
 }
 
@@ -5925,7 +5927,8 @@ static void HandleComplement( int i,bool & changed)
 			if (posValues[at-1] & ADJECTIVE_NORMAL && parseFlags[at-1] & ADJECTIVE_TAKING_NOUN_INFINITIVE)  SetRole(i,ADJECTIVE_COMPLEMENT);
 			else if (posValues[at-1] & (NOUN_SINGULAR)) SetRole(at,POSTNOMINAL_ADJECTIVE); // postnominal adjective
 			// trailing or embedded appositive -- "his wish, to eat, was fulfilled"
-			else if (posValues[at-1] == COMMA && roles[at-2] & (OBJECT2|MAINOBJECT|SUBJECT2|MAINSUBJECT) ) SetRole(i,APPOSITIVE);
+			else if (posValues[at-1] == COMMA && roles[at-2] & (OBJECT2|MAINOBJECT|SUBJECT2|MAINSUBJECT) ) 
+				SetRole(i,APPOSITIVE);
 		}
 		return;
 	}
@@ -5949,7 +5952,7 @@ static void HandleComplement( int i,bool & changed)
 		else if (i > 1 && IsUpperCase(*wordStarts[i])){;} // anything uppercase not 1st word is good
 		else 
 		{
-			if (trace & TRACE_POS && (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"    Abandoning indirect object at %s nonanimate\r\n",wordStarts[i]);
+			if (trace & TRACE_POS && (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"    Abandoning indirect object at %s nonanimate\r\n",wordStarts[i]);
 			needRoles[roleIndex] &= -1 ^ (MAININDIRECTOBJECT|INDIRECTOBJECT2); 
 			indirectObject = 0;
 		}
@@ -6169,7 +6172,8 @@ retry:
 		}
 		else if (needRoles[roleIndex] & SUBJECT2) SetRole(i,SUBJECT2);
 		else if (needRoles[roleIndex] & OBJECT_COMPLEMENT && verbStack[roleIndex] && objectRef[currentVerb]) SetRole(i,OBJECT_COMPLEMENT);
-		else if (base == objectRef[currentVerb] && !(posValues[i] & (NOUN_GERUND|NOUN_INFINITIVE))) SetRole(i,APPOSITIVE); // or form of address
+		else if (base == objectRef[currentVerb] && !(posValues[i] & (NOUN_GERUND|NOUN_INFINITIVE))) 
+			SetRole(i,APPOSITIVE); // or form of address
 		else  SetRole(i,OBJECT2); // unknown
 	}
 	else if (subjectStack[roleIndex] && subjectStack[roleIndex] < i) // subject happens earlier 
@@ -6223,7 +6227,7 @@ retry:
 			{
 				roles[i-1] = 0;
 				LimitValues(i-1,ADJECTIVE_NOUN,(char*)"Forcing prior noun appositive to be adjective noun",changed); 
-				if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Forcing prior noun appositive to be adjective noun %s\r\n",wordStarts[i-1]);
+				if (trace & TRACE_POS) Log(USERLOG,"Forcing prior noun appositive to be adjective noun %s\r\n",wordStarts[i-1]);
 			}
 			SetRole(i,APPOSITIVE); 
 		}
@@ -6235,21 +6239,21 @@ retry:
 
 static void ShowZone(unsigned int zone)
 {
-	if (zoneData[zone] & ZONE_AMBIGUOUS) Log(STDUSERLOG,(char*)"Ambiguous zone, ");
-	else if (zoneData[zone] & ZONE_ABSOLUTE) Log(STDUSERLOG,(char*)"Absolute zone, ");
+	if (zoneData[zone] & ZONE_AMBIGUOUS) Log(USERLOG,"Ambiguous zone, ");
+	else if (zoneData[zone] & ZONE_ABSOLUTE) Log(USERLOG,"Absolute zone, ");
 	else if ((zoneData[zone] & (ZONE_SUBJECT|ZONE_VERB)) == (ZONE_SUBJECT|ZONE_VERB)) 
 	{
-		if (zoneData[zone] & ZONE_FULLVERB) Log(STDUSERLOG,(char*)"subject/verb zone, ");
-		else Log(STDUSERLOG,(char*)"Appositive zone, ");
+		if (zoneData[zone] & ZONE_FULLVERB) Log(USERLOG,"subject/verb zone, ");
+		else Log(USERLOG,"Appositive zone, ");
 	}
-	else if ((zoneData[zone] & ZONE_VERB)) Log(STDUSERLOG,(char*)"Predicate zone, ");
+	else if ((zoneData[zone] & ZONE_VERB)) Log(USERLOG,"Predicate zone, ");
 	else if (zoneData[zone] & ZONE_SUBJECT && !(zoneData[zone] & ZONE_VERB)) 
 	{
-		if (zoneData[zone] & ZONE_ADDRESS) Log(STDUSERLOG,(char*)"Address zone, ");
-		else Log(STDUSERLOG,(char*)"NounPhrase zone, "); // might be subject or object with appositive or something else after it
+		if (zoneData[zone] & ZONE_ADDRESS) Log(USERLOG,"Address zone, ");
+		else Log(USERLOG,"NounPhrase zone, "); // might be subject or object with appositive or something else after it
 	}
-	else if (zoneData[zone] == ZONE_PCV) Log(STDUSERLOG,(char*)"Phrases zone, ");
-	else Log(STDUSERLOG,(char*)"??? zone,");
+	else if (zoneData[zone] == ZONE_PCV) Log(USERLOG,"Phrases zone, ");
+	else Log(USERLOG,"??? zone,");
 }
 
 #ifdef INFORMATION
@@ -6290,20 +6294,20 @@ static bool ValidateSentence(bool &resolved)
 	if (roleIndex > MAINLEVEL) 
 	{
 		resolved = false; 
-		if (trace & TRACE_POS && (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: roleIndex > main level\r\n");
+		if (trace & TRACE_POS && (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: roleIndex > main level\r\n");
 	}
 	// check main verb  vs aux
 	else if (!verb) // main verb doesnt exist
 	{
 		resolved = false; // some unfinished business
-		if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: no main verb\r\n");
+		if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: no main verb\r\n");
 	}
 	if (auxVerbStack[MAINLEVEL] && resolved) // aux exists, prove main verb matches
 	{ // legal: "have you had your breakfast"  -- but so is "you are having your breakfast"
 		if (posValues[verb] & (VERB_PRESENT|VERB_PRESENT_3PS))
 		{
 			resolved = false; // some unfinished business
-			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb %s has aux but not aux tense\r\n",wordStarts[verb]);
+			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: main verb %s has aux but not aux tense\r\n",wordStarts[verb]);
 		}
 	}
 	else if (resolved)// no aux exists, prove main verb matches
@@ -6315,7 +6319,7 @@ static bool ValidateSentence(bool &resolved)
 		else
 		{
 			resolved = false; // some unfinished business
-			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb %s has aux tense but no aux\r\n",wordStarts[verb]);
+			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: main verb %s has aux tense but no aux\r\n",wordStarts[verb]);
 		}
 	}
 	// prove subject/verb match
@@ -6324,24 +6328,24 @@ static bool ValidateSentence(bool &resolved)
 		if (resolved && posValues[verb] != VERB_INFINITIVE && posValues[verb] != VERB_PAST) // implied You or Subject
 		{
 			resolved = false; // some unfinished business
-			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb lacks subject and is not infinitive\r\n");
+			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: main verb lacks subject and is not infinitive\r\n");
 		}
 		else if (resolved && posValues[verb] == VERB_PRESENT  && posValues[subject] & (NOUN_SINGULAR|NOUN_PROPER_SINGULAR))
 		{
 			resolved = false; // some unfinished business
-			if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb is plural and subject is singulare\r\n");
+			if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: main verb is plural and subject is singulare\r\n");
 		}
 		else if (resolved && posValues[verb] == VERB_PRESENT_3PS && posValues[subject] & (NOUN_PLURAL|NOUN_PROPER_PLURAL) )
 		{
 			resolved = false; // some unfinished business
-			if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb is singular and subject is plural\r\n");
+			if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: main verb is singular and subject is plural\r\n");
 		}
 	}
 	// prove subject is not in zone immediately before verb zone (except coordinate zone is fine since conjoined subject will span multiple zones
 	if (resolved && subject && verb && (zoneMember[verb] - zoneMember[subject]) == 1 && !clauses[subject] && !coordinates[subject])  
 	{
 		// resolved = false; // some unfinished business
-		// if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: subject in zone immediately before verb\r\n"); // dumb 1st grade has "the dog with the black spot on his tail, is with Tom"
+		// if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: subject in zone immediately before verb\r\n"); // dumb 1st grade has "the dog with the black spot on his tail, is with Tom"
 	}
 
 	int adjective = 0;
@@ -6367,20 +6371,20 @@ static bool ValidateSentence(bool &resolved)
 			if (resolved && object && verb && (zoneMember[object] - zoneMember[verb]) == 1 && !coordinates[object]) // verb can be in earlier zone if conjoined objects
 			{
 				resolved = false; // some unfinished business
-				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: object in zone immediately after verb\r\n");
+				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: object in zone immediately after verb\r\n");
 			}
 		}
 
 		if (roles[i] & (MAINVERB|VERB2) && indirectObjectRef[i] && !objectRef[i])
 		{
 				resolved = false; // some unfinished business
-				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: freestanding indirect object\r\n");
+				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: freestanding indirect object\r\n");
 		}
 	
 		else if (roles[i] & MAINVERB && !isQuestion && objectRef[i] && objectRef[i] < verb && objectRef[i] != startSentence)
 		{
 			resolved = false; // some unfinished business
-			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: object preceeds verb and not start or question r\n");
+			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: object preceeds verb and not start or question r\n");
 		}
 		
 		// check for tag questions
@@ -6399,7 +6403,7 @@ static bool ValidateSentence(bool &resolved)
 			}
 			else
 			{
-				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: %s OBJECT2 not in clause/verbal/phrase\r\n",wordStarts[i]);
+				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: %s OBJECT2 not in clause/verbal/phrase\r\n",wordStarts[i]);
 				break;	// free floating noun?
 			}
 		}
@@ -6408,7 +6412,7 @@ static bool ValidateSentence(bool &resolved)
 		{
 			if ((i-1) == lastSubjectComplement) 
 			{
-				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: Two subject complements in a row: %s %s\r\n",wordStarts[i-1],wordStarts[i]);
+				if (trace & TRACE_POS  &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: Two subject complements in a row: %s %s\r\n",wordStarts[i-1],wordStarts[i]);
 				break;	// free floating noun?
 			}
 			lastSubjectComplement = i;
@@ -6419,7 +6423,7 @@ static bool ValidateSentence(bool &resolved)
 			// we are allowed to omit a clause subject - but can we omit the verb
 			if (clauseVerb && roles[currentClause] != OMITTED_SUBJECT_VERB) 
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: ending a clause not fulfilled\r\n");
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: ending a clause not fulfilled\r\n");
 				break;	// didnt fulfill these
 			}
 			currentClause = 0;
@@ -6433,7 +6437,7 @@ static bool ValidateSentence(bool &resolved)
 		{
 			if (currentClause && clauseVerb)// we are allowed to omit a clause subject but not verb
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: changing from a clause not fulfilled\r\n");
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: changing from a clause not fulfilled\r\n");
 				break; // failed to complete earlier clause
 			}
 			clauseSubject = clauseVerb = true; 
@@ -6462,13 +6466,13 @@ static bool ValidateSentence(bool &resolved)
 		{
 			if (adjective && !(roles[adjective] & POSTNOMINAL_ADJECTIVE)) 
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: adj %s (%d) not fulfilled on seeing prep %s\r\n",wordStarts[adjective],adjective,wordStarts[i]);
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: adj %s (%d) not fulfilled on seeing prep %s\r\n",wordStarts[adjective],adjective,wordStarts[i]);
 				preposition = adjective = 0;
 				break;
 			}
 			if (preposition && stricmp(wordStarts[preposition],(char*)"from")) // "from under the bed" is legal" - from is an unusual prep 
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: prep not fulfilled on seeing prep %s\r\n",wordStarts[preposition],preposition,wordStarts[i]);
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: prep not fulfilled on seeing prep %s\r\n",wordStarts[preposition],preposition,wordStarts[i]);
 				preposition = adjective = 0;
 				break;
 			}
@@ -6481,19 +6485,19 @@ static bool ValidateSentence(bool &resolved)
 			{
 				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) 
 				{
-					if (adjective) Log(STDUSERLOG,(char*)"badparse: adj %s not fulfilled on seeing verb %s\r\n",wordStarts[adjective],wordStarts[i]);
-					else  Log(STDUSERLOG,(char*)"badparse: prep %s not fulfilled on seeing verb %s\r\n",wordStarts[preposition],wordStarts[i]);
+					if (adjective) Log(USERLOG,"badparse: adj %s not fulfilled on seeing verb %s\r\n",wordStarts[adjective],wordStarts[i]);
+					else  Log(USERLOG,"badparse: prep %s not fulfilled on seeing verb %s\r\n",wordStarts[preposition],wordStarts[i]);
 				}
 				break;
 			}
 			if (!roles[i] && !verbals[i]) // if verbal, might be adverb verbal
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: verb with no known role\r\n");
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: verb with no known role\r\n");
 				break;	// we dont know what it is doing
 			}
 			if (roles[i] & MAINVERB && !subjectStack[MAINLEVEL] && posValues[i] != VERB_INFINITIVE && (i != 1 || posValues[i] != VERB_PAST))// imperative failure and not implied subject
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: main verb %s has no subject \r\n,wordStarts[i]");
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: main verb %s has no subject \r\n,wordStarts[i]");
 				break;
 			}
 		}
@@ -6501,7 +6505,7 @@ static bool ValidateSentence(bool &resolved)
 		{
 			if (preposition && stricmp(wordStarts[preposition],(char*)"from") && !(posValues[NextPos(i)] & (ADVERB|ADJECTIVE_BITS|DETERMINER_BITS|NOUN_BITS|PRONOUN_BITS))) // "from under the bed" is legal" - from is an unusual prep 
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: prep not fulfilled on seeing adverb %s\r\n",wordStarts[preposition],preposition,wordStarts[i]);
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: prep not fulfilled on seeing adverb %s\r\n",wordStarts[preposition],preposition,wordStarts[i]);
 				preposition = adjective = 0;
 				break;
 			}
@@ -6510,7 +6514,7 @@ static bool ValidateSentence(bool &resolved)
 		{
 			if (adjective) // cannot describe a noun infinitive
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: unfinished adjective %s at noun infinitive %s\r\n",wordStarts[adjective],wordStarts[i]);
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: unfinished adjective %s at noun infinitive %s\r\n",wordStarts[adjective],wordStarts[i]);
 				break;
 			}
 			// its marked on to infinitve
@@ -6526,7 +6530,7 @@ static bool ValidateSentence(bool &resolved)
 			adjective = false;
 			if (!roles[i]) 	// we dont know what it is doing
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: unknown role for noun %s\r\n",wordStarts[i]);
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: unknown role for noun %s\r\n",wordStarts[i]);
 				break;
 			}
 		}
@@ -6535,7 +6539,7 @@ static bool ValidateSentence(bool &resolved)
 			adjective = false; // if we had adjectives before "the blue one" or the "blue you", this closes it
 			if (!roles[i]) 	// we dont know what it is doing
 			{
-				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse: unknown role for pronoun %s\r\n",wordStarts[i]);
+				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse: unknown role for pronoun %s\r\n",wordStarts[i]);
 				break;
 			}
 		}
@@ -6545,8 +6549,8 @@ static bool ValidateSentence(bool &resolved)
 			{
 				if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) 
 				{
-					if (adjective) Log(STDUSERLOG,(char*)"badparse: adj %s not fulfilled on seeing verb %s\r\n",wordStarts[adjective],wordStarts[i]);
-					else  Log(STDUSERLOG,(char*)"badparse: prep %s not fulfilled on seeing verb %s\r\n",wordStarts[preposition],wordStarts[i]);
+					if (adjective) Log(USERLOG,"badparse: adj %s not fulfilled on seeing verb %s\r\n",wordStarts[adjective],wordStarts[i]);
+					else  Log(USERLOG,"badparse: prep %s not fulfilled on seeing verb %s\r\n",wordStarts[preposition],wordStarts[i]);
 				}
 				break;
 			}
@@ -6559,7 +6563,7 @@ static bool ValidateSentence(bool &resolved)
 				if (posValues[endSentence] == PREPOSITION && roles[startSentence] & OBJECT2){;} // wrapped prep to start as question
 				else
 				{
-					if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse:  unfinished prep or clause at end of sentence\r\n");
+					if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse:  unfinished prep or clause at end of sentence\r\n");
 					break; 
 				}
 			}
@@ -6567,7 +6571,7 @@ static bool ValidateSentence(bool &resolved)
 			{
 				if (canonicalLower[verbStack[MAINLEVEL]] && !(canSysFlags[verbStack[MAINLEVEL]] & VERB_TAKES_ADJECTIVE) && !(roles[adjective-1] & MAINOBJECT))
 				{
-					if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(STDUSERLOG,(char*)"badparse:  unfinished adjective %s at end of sentence\r\n",wordStarts[adjective]);
+					if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) Log(USERLOG,"badparse:  unfinished adjective %s at end of sentence\r\n",wordStarts[adjective]);
 					break; // not a be sentence -- bug need to do seem as well
 				}
 			}		
@@ -6576,7 +6580,7 @@ static bool ValidateSentence(bool &resolved)
 		{
 			if (trace & TRACE_POS &&  (prepareMode != NO_MODE && prepareMode != POSVERIFY_MODE)) 
 			{
-				Log(STDUSERLOG,(char*)"badparse:  Subject2 %s not in clause\r\n",wordStarts[i]);
+				Log(USERLOG,"badparse:  Subject2 %s not in clause\r\n",wordStarts[i]);
 				break; 
 			}
 		}
@@ -6593,7 +6597,7 @@ static bool ValidateSentence(bool &resolved)
 
 static void AssignZones() // zones are comma areas
 {
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"     Zones: ");
+	if (trace & TRACE_POS) Log(USERLOG,"     Zones: ");
 	memset(zoneData,0,sizeof(unsigned int) * ZONE_LIMIT); 
 	memset(zoneMember,0,sizeof(unsigned char) * MAX_SENTENCE_LENGTH); 
 	currentZone = 0;
@@ -6636,7 +6640,7 @@ static void AssignZones() // zones are comma areas
 	if (trace & TRACE_POS) 
 	{
 		for (unsigned int i = 0; i <= zoneIndex; ++i) ShowZone(i);
-		Log(STDUSERLOG,(char*)"\r\n");
+		Log(USERLOG,"\r\n");
 	}
 	if (zoneIndex == (ZONE_LIMIT-1)) return;
 	zoneBoundary[++zoneIndex] = (unsigned char)(endSentence + 1);	// end of last current zone
@@ -7620,7 +7624,7 @@ static unsigned int GuessAmbiguousAdjective(int i, bool &changed)
 		// we need a noun, go for that, unless it is followed by a noun, in which case we be adjective particile
 		if (needRoles[roleIndex] & (MAINOBJECT|OBJECT2|MAINSUBJECT|SUBJECT2))
 		{
-			if (posValues[NextPos(i)] & (ADJECTIVE_BITS|NOUN_BITS) && !(posValues[NextPos(i)] & (-1 ^ (ADJECTIVE_BITS|NOUN_BITS))) ) {;} 
+			if (posValues[NextPos(i)] & (ADJECTIVE_BITS|NOUN_BITS) && !(posValues[NextPos(i)] & (-1 ^ (ADJECTIVE_BITS|NOUN_BITS))) ) 
 			{
 				if (LimitValues(i,ADJECTIVE_PARTICIPLE,(char*)"expect we describe following noun",changed)) return GUESS_RETRY;  // can only be a noun
 			}
@@ -8764,7 +8768,7 @@ static void AddPhrase( int i)
 	}
 	AddRoleLevel(PHRASE|OBJECT2,i);
 	lastPhrase = i;		// where last verbal was, if any
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"    Phrase added at %s(%d)\r\n",wordStarts[i],i);
+	if (trace & TRACE_POS) Log(USERLOG,"    Phrase added at %s(%d)\r\n",wordStarts[i],i);
 }
 
 static void AddVerbal( int i)
@@ -8778,7 +8782,7 @@ static void AddVerbal( int i)
 	AddRoleLevel(VERBAL|VERB2,i);
 	if (posValues[i] == AMBIGUOUS_VERBAL) determineVerbal = i; // If we don't know if this is a GERUND or PARTICIPLE, we need to find out.
 	lastVerbal = i;		// where last verbal was, if any
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"    Verbal added at %s(%d)\r\n",wordStarts[i],i);
+	if (trace & TRACE_POS) Log(USERLOG,"    Verbal added at %s(%d)\r\n",wordStarts[i],i);
 }
 
 static void StartImpliedPhrase(int i,bool &changed)
@@ -8791,7 +8795,7 @@ static void StartImpliedPhrase(int i,bool &changed)
 	}
 
 	// absolute phrase is like implied prep phrase "with" in "legs quivering, we ran"  requires comma seaparation and no aux verbs
-	if (!phrases[i] && !auxVerbStack[roleIndex] && posValues[i] & ADJECTIVE_PARTICIPLE && (currentZone == 0|| currentZone == (int)(zoneIndex-1)) && zoneIndex > 1)
+	if (!phrases[i] && !auxVerbStack[roleIndex] && posValues[i] & ADJECTIVE_PARTICIPLE && (currentZone == 0|| currentZone == (zoneIndex-1)) && zoneIndex > 1)
 	{
 		int at = i;
 		while (--at > 1 && !phrases[at] && !verbals[at] && !clauses[at] && (!(posValues[at] & (COMMA|CONJUNCTION_SUBORDINATE)) || ignoreWord[at]) && !(roles[at] & ( SUBJECT2 | MAINSUBJECT | OBJECT2) )) {;}
@@ -8919,7 +8923,7 @@ static void StartImpliedClause( int i,bool & changed)
 			needRoles[roleIndex] = 0;	// we are fulfilled. Do not take an object complement as well.
 			AddClause(i-1,(char*)"omitted that clause as main object ");
 			roles[i-1] |= SUBJECT2; // assign secondary role characteristic
-			if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
+			if (trace & TRACE_POS) Log(USERLOG,"   +%s->%s\r\n",wordStarts[i],GetRole(roles[i]));
 			return;
 		}
 	}
@@ -9121,7 +9125,7 @@ static bool AssignRoles(bool &changed)
 	unsigned int oldStart = startSentence; // in case we revise due to conjunction
 	// Roles and Phrases are cumulative from call to call
 	
-	if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"\r\n---- Assign roles\r\n");
+	if (trace & TRACE_POS) Log(USERLOG,"\r\n---- Assign roles\r\n");
 	char goals[MAX_WORD_SIZE];
 	
 	// preanalyze comma zones, to see what MIGHT be done within a zone..
@@ -9189,18 +9193,18 @@ restart:
 			WORDP X =  canonicalLower[i];
 			if (!X) X = canonicalUpper[i];
 			if (!X) X = StoreWord("Missing canonical");
-			Log(STDUSERLOG,(char*)"%d) \"raw: %s canonical: %s\"",i,word,X->word);
+			Log(USERLOG,"%d) \"raw: %s canonical: %s\"",i,word,X->word);
 			if (phrasalVerb[i] && phrasalVerb[i] > i && posValues[i] & (VERB_BITS|NOUN_INFINITIVE|NOUN_GERUND|ADJECTIVE_PARTICIPLE))
 			{
 				WORDP verb = GetPhrasalVerb(i);
-				if (verb) Log(STDUSERLOG,(char*)" %s ",verb->word);
+				if (verb) Log(USERLOG," %s ",verb->word);
 			}
-			Log(STDUSERLOG,(char*)" (%s)\r\n", taglist);
+			Log(USERLOG," (%s)\r\n", taglist);
 			for (unsigned int x = roleIndex; x >= 1; --x)
 			{
 				DecodeneedRoles(x,goals);
-				if (x == MAINLEVEL) Log(STDUSERLOG, "    need %d %s - s:%d aux:%d v:%d io:%d o:%d\r\n",x,goals,subjectStack[x],auxVerbStack[x],verbStack[x],indirectObjectRef[currentMainVerb],objectRef[currentMainVerb]);
-				else Log(STDUSERLOG, "    need %d %s - s:%d aux:%d v:%d io:%d o:%d\r\n",x,goals,subjectStack[x],auxVerbStack[x],verbStack[x],indirectObjectRef[currentVerb2],objectRef[currentVerb2]);
+				if (x == MAINLEVEL) Log(USERLOG, "    need %d %s - s:%d aux:%d v:%d io:%d o:%d\r\n",x,goals,subjectStack[x],auxVerbStack[x],verbStack[x],indirectObjectRef[currentMainVerb],objectRef[currentMainVerb]);
+				else Log(USERLOG, "    need %d %s - s:%d aux:%d v:%d io:%d o:%d\r\n",x,goals,subjectStack[x],auxVerbStack[x],verbStack[x],indirectObjectRef[currentVerb2],objectRef[currentVerb2]);
 			}
 		}
 
@@ -9387,7 +9391,7 @@ restart:
 						if ( bitCounts[lastVerbal] != 1 && posValues[lastVerbal] & (NOUN_GERUND|NOUN_INFINITIVE))
 						{
 							LimitValues(lastVerbal,NOUN_GERUND|NOUN_INFINITIVE,(char*)"pending verbal assigned as subject, be gerund or infinitive",changed);
-							if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"Resolve AMBIGUOUS_VERBAL as NOUN_GERUND or NOUN_INFINITIVE\r\n");
+							if (trace & TRACE_POS) Log(USERLOG,"Resolve AMBIGUOUS_VERBAL as NOUN_GERUND or NOUN_INFINITIVE\r\n");
 						}
 					}
 
@@ -9489,7 +9493,7 @@ restart:
 			case ADJECTIVE_NORMAL: case ADJECTIVE_PARTICIPLE: case ADJECTIVE_NUMBER: // ADJECTIVE_BITS
 			{
 				// absolute phrase is like implied prep phrase "with" in "legs quivering, we ran".  requires comma seaparation and no aux verbs
-				if (!phrases[i] && !auxVerbStack[roleIndex] && (posValues[i] & ADJECTIVE_PARTICIPLE) && (currentZone == 0|| currentZone == (int)(zoneIndex-1)) && zoneIndex > 1)
+				if (!phrases[i] && !auxVerbStack[roleIndex] && (posValues[i] & ADJECTIVE_PARTICIPLE) && (currentZone == 0|| currentZone == (zoneIndex-1)) && zoneIndex > 1)
 				{
 					int at = i;
 					while (--at && !phrases[at] && !verbals[at] && !clauses[at] && (!(posValues[at] & (COMMA|CONJUNCTION_SUBORDINATE)) || ignoreWord[at]) && !(roles[at] & ( SUBJECT2 | MAINSUBJECT | OBJECT2) )) {;}
@@ -9795,11 +9799,18 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
                         posValues[i - 1] = ADJECTIVE_NOUN;
                         posValues[i] &= NOUN_BITS;
                     }
-                    else
+                    else if (IsUpperCase(*wordStarts[i])) // my friend Bill
                     {
                         SetRole(i, APPOSITIVE);
                         crossReference[i] = (unsigned char)(i - 1);
                     }
+					else
+					{
+						SetRole(i, roles[i - 1]);
+						roles[i - 1] = 0;
+						posValues[i - 1] = ADJECTIVE_NOUN;
+						posValues[i] &= NOUN_BITS;
+					}
                 }
 		
 				else if (posValues[i] == NOUN_GERUND && needRoles[roleIndex] & CLAUSE && needRoles[roleIndex] & SUBJECT2) {;} // omitted subject "John ran while *walking"
@@ -10202,11 +10213,11 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
 		for (unsigned int x = roleIndex; x >= 1; --x)
 		{
 			DecodeneedRoles(x,goals);
-			Log(STDUSERLOG,(char*)"      - leftover want %d: %s\r\n",x,goals);
+			Log(USERLOG,"      - leftover want %d: %s\r\n",x,goals);
 		}
 
-		Log(STDUSERLOG,(char*)"        ->  subject:%s  verb:%s  indirectobject:%s  object:%s  lastclause@:%s  lastverbal@:%s\r\n",wordStarts[subjectStack[MAINLEVEL]],wordStarts[verbStack[MAINLEVEL]],wordStarts[indirectObjectRef[currentMainVerb]],wordStarts[objectRef[currentMainVerb]],wordStarts[lastClause],wordStarts[lastVerbal]);
-		Log(STDUSERLOG,(char*)"PreFinishSentence: ");
+		Log(USERLOG,"        ->  subject:%s  verb:%s  indirectobject:%s  object:%s  lastclause@:%s  lastverbal@:%s\r\n",wordStarts[subjectStack[MAINLEVEL]],wordStarts[verbStack[MAINLEVEL]],wordStarts[indirectObjectRef[currentMainVerb]],wordStarts[objectRef[currentMainVerb]],wordStarts[lastClause],wordStarts[lastVerbal]);
+		Log(USERLOG,"PreFinishSentence: ");
 		for ( int i = startSentence; i <= endSentence; ++i)
 		{
 			if (ignoreWord[i]) continue;	// ignore these
@@ -10222,11 +10233,11 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
 					role = word;
 				}
 			}
-			Log(STDUSERLOG,(char*)"%s (%s) ",wordStarts[i],role);
+			Log(USERLOG,"%s (%s) ",wordStarts[i],role);
 		}
-		Log(STDUSERLOG,(char*)"\r\nZones: ");
+		Log(USERLOG,"\r\nZones: ");
 		for (unsigned int i = 0; i < zoneIndex; ++i) ShowZone(i);
-		Log(STDUSERLOG,(char*)"\r\n");
+		Log(USERLOG,"\r\n");
 	}
 
 	bool resolved = true;
@@ -10253,7 +10264,7 @@ void ParseSentence(bool &resolved,bool &changed)
 	}
 	if ((tokenControl & DO_PARSE) == DO_PARSE)
 	{
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"\r\n%s",DumpAnalysis(startSentence,endSentence,posValues,(char*)"POS",false,false));
+		if (trace & TRACE_POS) Log(USERLOG,"\r\n%s",DumpAnalysis(startSentence,endSentence,posValues,(char*)"POS",false,false));
 		unsigned int start = startSentence;
 		unsigned int end = endSentence;
 		resolved =  AssignRoles(changed); 
@@ -10262,7 +10273,7 @@ void ParseSentence(bool &resolved,bool &changed)
 	}
 	else
 	{
-		if (trace & TRACE_POS) Log(STDUSERLOG,(char*)"\r\nNot trying to parse\r\n");
+		if (trace & TRACE_POS) Log(USERLOG,"\r\nNot trying to parse\r\n");
 	}
 }
 #endif

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-spelling-marking-manual">ChatScript Spelling Marking Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2020 cs10.5</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/1/2021 cs11.0</p>
 <h1 id="spelling">Spelling</h1>
 <p>One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is commpletely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.</p>
 <p>OK. So it does the best it can with unknown words. It is enabled by default but your scripts can disable it. All you have to do is assign a different value to $cs_token, one which does not include #DO_SPELLCHECK. E.g.</p>
@@ -63,8 +63,11 @@ replace: box &quot;my boy&quot;</code></pre>
 <pre><code>replace: ?_g gram        -- this merely separates 
 replace: ?_kg kilogram -- this separates into full unit name
 replace: ?_kg kilo gram -- this separates into multiword replacement</code></pre>
+<p>You should use the singular form of the word. CS can then do singular or plural as needed.</p>
 <p>When using full unit name subsitution, you need to be careful that your bot has only 1 expected meaning. &quot;about 1g&quot; -- is that 1 gram or 1 gravity? Also it's a good idea to expand to singular forms as that, being canonical, will match more of your patterns.</p>
 <p>The ?_xxx notation also works when the unit measure is not attached to the number. Using the first replace above, the input &quot;7 g&quot; will be transformed to &quot;7 gram&quot;.</p>
+<p>Note that is the number value is 1, you get the singular word. Otherwise you get the plural word. If CS does not know how to make the plural, you can add the pair to LIVEDATA/ENGLISH/plurals.txt</p>
+<p>In multiple word substitutions, normally cs pluralizes the last word only. But if the substitution is multiple word 'x per y', CS will pluralize the first word.</p>
 <h1 id="emoji">Emoji</h1>
 <p>Emojis are a form of spelling correction. You can replace appropriate utf8 emoji words with spelling replacements that start and end in a colon. These will be considered emoji and marked as ~emoji. E.g., in script you can write</p>
 <pre><code>    replace: xx :palms_up_together:

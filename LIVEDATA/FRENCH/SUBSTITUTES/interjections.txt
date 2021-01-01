@@ -557,6 +557,7 @@ ahah ~emolaugh
 ahaha ~emolaugh
 ahahah ~emolaugh
 alright ~yes
+all_right ~yes
 appelez-le_une_nuit ~emogoodbye
 au_revoir ~emogoodbye
 avec_vous_pour_le_instant ~emogoodbye

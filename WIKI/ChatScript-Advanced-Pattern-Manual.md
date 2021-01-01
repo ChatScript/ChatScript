@@ -1,9 +1,28 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 1/1/2021 cs11.0
 
 
 # ADVANCED PATTERNS
+
+## UNLIMITED WILDCARDS
+
+When you use `*` you want everything matching until the next significant token, eg
+```
+u: (I love *  tomorrow) matches all words between love and tomorrow. 
+u: (I love * ) matches all words after love and up to the implied > (end of sentence)
+```
+and similarly *~5 wants to match up to 5 words betwen here and the next pattern word.
+But this breaks down if the next token after the wildcard is not a word or the end. CS must resolve the gap involved on the next pattern token.
+For example you can't do this:
+```
+u: ( I love _* $var:=_0 )
+```
+For capturing the rest of sentence you can do this:
+```
+u: ( I love _* > $var:=_0 )
+```
+But you can't intrude pattern assignments or function calls or whatever between actual words and concepts, a wildcard, and then more words and concepts.
 
 ## Keyword Phrases
 
@@ -65,7 +84,12 @@ accommodations, or definition 3 of building in WordNet's ontology.
 How would you be able to figure out creating this? 
 This is described under `:up` in Word Commands later.
 
-`Building~3` and `building~3n` are equivalent. 
+`Building~3` and `building~3n` are equivalent.  Note, however, that CS does not compile your named meaning into the script as is.
+You are naming a meaning, so CS will find the corresponding master meaning and use that instead (if different).
+This is because the inheritance hierarchy
+from below will only come thru the master meaning. 
+For example:  if you write prison-break~1, the system will compile break~1 because
+that is the master, and covers all other specific word meanings that are equivalent including breakout~1. 
 
 The first is what you might say to refer to the 3rd meaning of building. 
 Internally `building~3n` denotes the 3rd meaning and its a _noun_ meaning. 
@@ -191,6 +215,11 @@ macro with the maximum and then put "variable" before the argument list. All mis
 arguments will be set to `null` on the call.
 
     patternmacro: ^myfn variable (^arg1 ^arg2 ^arg3 ^arg4)
+
+Patterns process a token at a time. A token is characters with no white space (generally). But the system recognizes direct function calls from patterns
+and the arguments and parens surrounding them may have spaces. But you cannot  do assignment statements from a function call. I.e.,
+$$tmp:=^foo(a)  is not legal. You can get the effect you want with
+$$tmp:=^" ^foo(a) " because the active string protects the function call.
 
 ### Dual macros
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/26/2020 cs10.8</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 1/1/2021 cs11.0</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
 <p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt And then third level named after the current language chosen can override those two cs_initenglish.txt being the default. The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular) since foreign languages require more entries than English.</p>
 <p>Or you can name where the file is on a command line parameter <code>config=xxx</code>. And <code>config2=xxx</code> for the initmore file. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
@@ -150,25 +150,29 @@ port=20</code></pre>
 </tr>
 <tr class="odd">
 <td><code>userlog=1</code></td>
-<td>alternate form of request, you can use 0 for off and 1 for on</td>
+<td>alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout 4 means stderr - you may combine</td>
 </tr>
 <tr class="even">
+<td><code>userlogging=file</code></td>
+<td>alternate form of request, you can use none for off and file, stdout, stderr. - you may combine userlogging=file,stdout</td>
+</tr>
+<tr class="odd">
 <td><code>nouserlog</code></td>
 <td>Don't store a user-bot log</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>tmp=xxx</code></td>
 <td>name relative or absolute path to where you want the TMP folder to be. Do not add trailing <code>/</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>crashpath=xxx</code></td>
 <td>file to write about fatal Linux signals that will be outside of the cs folder <code>/</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>windowsbuglog=xxx</code></td>
 <td>names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>linuxsbuglog=xxx</code></td>
 <td>names a LINUX directory to replicate the BUGS.txt log file outside of the CS directory area</td>
 </tr>
@@ -408,13 +412,15 @@ cache=20x1</code></pre>
 <pre><code>Userlog</code></pre>
 <p>Store a user-bot log in USERS directory. Stand-alone default if unspecified. Alternatively you can do userlog=1 to enable.</p>
 <pre><code>Nouserlog</code></pre>
-<p>Don't store a user-bot log. Server default if unspecified. Alternatively you can do userlog=0 to disable.</p>
+<p>Don't store a user-bot log. Server default if unspecified. Alternatively you can do userlog=0 to disable. Alternatively you can do userlogging=none.</p>
 <pre><code>Serverlog</code></pre>
-<p>Write a server log and a bugs log. Alternatively you can do serverlog=1 to enable.</p>
+<p>Write a server log and a bugs log. Alternatively you can do serverlog=1 to enable to file, 2 to use stdout, 4 to use stderr. You can combine like serverlog=5 Alternate form of request, you can use serverlogging=none for off and file, stdout, stderr. - you may combine serverlogging=file,stdout Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.</p>
 <p>The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port.</p>
 <p>The bugs log is in the same directory under bugs.txt (all ports).</p>
 <pre><code>Noserverprelog</code></pre>
 <p>Normally CS writes of a copy of input before server begins work on it to server log. Helps see what crashed the server (since if it crashes you get no log entry). This turns it off to improve performance.</p>
+<pre><code>serverlogauthcode=xxxxx</code></pre>
+<p>In addition to permanently turning on server logging, you can provide a cheat code in your input that, if it matches the serverlogauthcode, will enable server logging for that input.</p>
 <pre><code>hidefromlog=&quot;label label2 label3&quot;</code></pre>
 <p>If there is data you don't want reflected into either server or user log files, this is the parameter. Maybe you don't want an authorization code recorded, or whatever. This presumes the data is part of some JSON object. You name one or more labels and when those are found in data outbound to a log file, the label and its value will be omitted.</p>
 <pre><code>Serverctrlz</code></pre>
@@ -422,9 +428,11 @@ cache=20x1</code></pre>
 <pre><code>Noserverlog</code></pre>
 <p>Don't write a server log or a bugs log. Alternatively you can do serverlog=0 to disable.</p>
 <pre><code>Nobuglog</code></pre>
-<p>Don't write a server bugs log.</p>
-<pre><code>Buglog</code></pre>
-<p>Write a server bugs log. Use after <code>Noserverlog</code> when you want to turn off server logs but retain bug logging.</p>
+<p>Don't write a bugs log. Same as Buglog=0 or Buglog=none</p>
+<pre><code>Buglog
+Buglog=n
+Buglogging=none,file,stdout,stderr</code></pre>
+<p>Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. Alternate form of request, you can use buglogging=none for off and file, stdout, stderr. - you may combine buglogging=file,stderr</p>
 <pre><code>stdlogging=1</code></pre>
 <p>Route normal server logs to stdout and bugs logs to stderr. Useful with Docker. Use stdlogging=0 to turn off (the default).</p>
 <pre><code>DebugLevel=n</code></pre>

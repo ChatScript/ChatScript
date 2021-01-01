@@ -51,7 +51,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 	char* tmpOutput = Purify(output);
 	char* userOutput = NULL;
 	char endOutput = 0;
-	if (strstr(hide, "botmessage"))
+	if (*hide && strstr(hide, "botmessage"))
 	{
 		// allow tracing of OOB but thats all
 		userOutput = BalanceParen(tmpOutput, false, false);
@@ -61,10 +61,8 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 			*userOutput = 0;
 		}
 	}
-	if (qtime)
-	{
-		qtime = starttime - qtime; // delay waiting in q
-	}
+	if (qtime) qtime = starttime - qtime; // delay waiting in q
+
 	if (*input) {
 		char* userInput = NULL;
 		char endInput = 0;
@@ -76,13 +74,16 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 				*userInput = 0;
 			}
 		}
-		Log(SERVERLOG, (char*)"%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime),(int)qtime, why);
+		Log(SERVERLOG,"%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime),(int)qtime, why);
 		if (userInput) *userInput = endInput;
 
-		if ((unsigned int)(endtime - starttime + qtime)  > timeLog)
-			Log(TIMELOG, "nltime:%d qtime:%d ", (int)(endtime - starttime),qtime);
+		if ((unsigned int)(endtime - starttime + qtime) > timeLog)
+		{
+			const char* restarted = (restartfromdeath) ? "rebooted" : "";
+			ReportBug("INFO: Excess Time nltime:%d qtime:%d %s %s", (int)(endtime - starttime), qtime, restarted, input);
+		}
 	}
-	else Log(SERVERLOG, (char*)"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
+	else Log(SERVERLOG,"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
 	if (userOutput) *userOutput = endOutput;
 }
 
@@ -91,7 +92,7 @@ void GetPrimaryIP(char* buffer)
 #ifdef WIN32
 	InitWinsock();
 	int sock = socket(AF_INET, SOCK_DGRAM, 0);
-	if (sock == -1 ) printf("Error at socket(): %ld\n", WSAGetLastError());
+	if (sock == -1 ) printf("Error at socket(): %d\n", WSAGetLastError());
 	const char* kGoogleDnsIp = "8.8.8.8";
 	uint16_t kDnsPort = 53;
 	struct sockaddr_in serv;
@@ -100,7 +101,7 @@ void GetPrimaryIP(char* buffer)
 	serv.sin_addr.s_addr = inet_addr(kGoogleDnsIp);
 	serv.sin_port = htons(kDnsPort);
 	WSADATA wsaData;
-	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	WSAStartup(MAKEWORD(2, 2), &wsaData);
 	int err = connect(sock, (const sockaddr*)&serv, sizeof(serv));
 
 	sockaddr_in name;
@@ -379,7 +380,6 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 		
 		char* flip = ptr;
 		while ((flip = FindJMSeparator(flip, ','))) *flip = '\t';
-		char separator = '\t';
 
 		strcpy(copy, ptr);
 		strcpy(ptr, copy); // for debug loopback
@@ -403,7 +403,6 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 		if (!stricmp(spec, "all") || !stricmp(spec, "general") || !stricmp(spec, "none")) *spec = 0; // none
 		char loc[MAX_WORD_SIZE];
 		ptr = ReadTabField(ptr, loc);
-// name = FindJMSeparator(comment, separator) + 1; // start of name
 		if (!*cat) continue;
 		char sippivot[100];
 		if (api) ptr = ReadTabField(ptr, sippivot);
@@ -538,7 +537,6 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 			size_t l = strlen(expect);
 			if (expect[l - 1] == '"') expect[--l] = 0; // trim trailing quote
 			if (*expect == '"') memmove(expect, expect + 1, l);
-			char* startexpect = expect;
 			// doubled quote from csv fix it
 			at = expect - 1;
 			while (*++at)
@@ -547,7 +545,6 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 					memmove(at, at + 1, strlen(at)); // doubled from dq of csv
 			}
 		} // completes one regression line
-		int xx = 0;
 	}
 	FreeBuffer();
 	FreeBuffer();
@@ -570,7 +567,7 @@ static void ReadNextJmeter(char* name, uint64 value)
 	if (in) sourceFile = in;
 	else
 	{
-		Log(STDUSERLOG, (char*)"No such document file: %s\r\n", name);
+		Log(USERLOG,"No such document file: %s\r\n", name);
 		return;
 	}
 	char bot[100];
@@ -1034,7 +1031,7 @@ restart: // start with user
 				(*printer)((char*)"%s", (char*)"\r\n>    ");
 			}
 			else if (jastarts || raw) {}
-			else Log(STDUSERLOG, "%s %s %s\r\n", user, bot, response);
+			else Log(USERLOG, "%s %s %s\r\n", user, bot, response);
 			if (!converse && !jastarts && !jaconverse && !raw)
 			{
 				if (ReadALine(data, sourceFile, 100000 - 100) < 0) break; // next thing we want to send
@@ -1079,7 +1076,7 @@ restart: // start with user
 					sock->send(data, strlen(data) + 1);
 					(*printer)((char*)":restart sent data to port %d\r\n", port);
 					ReadSocket(sock, response);
-					Log(STDUSERLOG, (char*)"%s", response); 	// chatbot replies this
+					Log(USERLOG,"%s", response); 	// chatbot replies this
 					delete(sock);
 
 					(*printer)((char*)"%s", (char*)"\r\nEnter client user name: ");
@@ -1124,11 +1121,14 @@ static bool chatWanted = false;		//  client is still expecting answer (has not t
 static bool chatbotExists = false;	//	has chatbot engine been set up and ready to go?
 static int pendingClients = 0;          // number of clients waiting for server to handle them
 
+#ifndef EVSERVER
 static void* MainChatbotServer();
-static void* HandleTCPClient(void *sock1);
+static void* HandleTCPClient(void* sock1);
 static void* AcceptSockets(void*);
 static unsigned int errorCount = 0;
 static time_t lastCrash = 0;
+#endif
+
 static int loadid = 0;
 
 uint64 startServerTime;
@@ -1165,7 +1165,7 @@ void* RegressLoad(void* junk)// test load for a server
 	char data[MAX_WORD_SIZE];
 	char from[100];
 	sprintf(from, (char*)"%d", loadid);
-	char* bot = "";
+	 const char* bot = "";
 	sprintf(logFilename, (char*)"log-%s.txt", from);
 	unsigned int msg = 0;
 	unsigned int volleys = 0;
@@ -1362,7 +1362,7 @@ void InternetServer()  //LINUX
 		void* status;
 		pthread_join(chatThread, &status);
 		if (!status) break; //   chatbot thread exit (0= requested exit - other means it crashed
-		Log(SERVERLOG, (char*)"Spawning new chatserver\r\n");
+		Log(SERVERLOG,"Spawning new chatserver\r\n");
 	}
 	myexit((char*)"end of internet server");
 }
@@ -1401,7 +1401,7 @@ static bool ClientGetChatLock()
 
 static bool ClientWaitForServer(char* data, char* msg, uint64& timeout) // windows
 {
-	bool result;
+	bool result = false;
 	uint64 startTime = ElapsedMilliseconds();
 	timeout = startTime + (120 * 1000);
 	serverFinishedBy = timeout - 1000;
@@ -1493,7 +1493,6 @@ static void* AcceptSockets(void*) // accepts incoming connections from users
 		while (1)
 		{
 			struct tm ptm;
-			char* time = GetTimeInfo(&ptm, true) + SKIPWEEKDAY;
 			TCPSocket *sock = serverSocket->accept();
 			LaunchClient((void*)sock);
 		}
@@ -1560,22 +1559,22 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 			int len1 = sock->recv(p, SERVERTRANSERSIZE - 50); // leave ip address in front alone
 			len += len1; // total read in so far
 
-			if (len1 <= 0 || len >= (SERVERTRANSERSIZE - 100))  // error or too big a transfer. we dont want it
+			if (len1 <= 0 || len >= (int)(SERVERTRANSERSIZE - 100))  // error or too big a transfer. we dont want it
 			{
 				if (len1 < 0)
 				{
 					ReportBug((char*)"TCP recv from %s returned error: %d\r\n", sock->getForeignAddress().c_str(), errno);
-					Log(SERVERLOG, (char*)"TCP recv from %s returned error: %d\r\n", sock->getForeignAddress().c_str(), errno);
+					Log(SERVERLOG,"TCP recv from %s returned error: %d\r\n", sock->getForeignAddress().c_str(), errno);
 				}
-				else if (len >= (SERVERTRANSERSIZE - 100))
+				else if (len >= (int)(SERVERTRANSERSIZE - 100))
 				{
 					ReportBug((char*)"Refusing overly long input from %s\r\n", sock->getForeignAddress().c_str());
-					Log(SERVERLOG, (char*)"Refusing overly long input from %s\r\n", sock->getForeignAddress().c_str());
+					Log(SERVERLOG,"Refusing overly long input from %s\r\n", sock->getForeignAddress().c_str());
 				}
 				else
 				{
 					ReportBug((char*)"TCP %s closed connection prematurely\r\n", sock->getForeignAddress().c_str());
-					Log(SERVERLOG, (char*)"TCP %s closed connection prematurely\r\n", sock->getForeignAddress().c_str());
+					Log(SERVERLOG,"TCP %s closed connection prematurely\r\n", sock->getForeignAddress().c_str());
 				}
 				delete sock;
 				free(memory);
@@ -1626,7 +1625,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 			output[2] = 0xfe; //ctrl markers
 			output[3] = 0xff;
 			output[4] = 0;
-			Log(STDUSERLOG, (char*)"Timeout waiting for service: %s  =>  %s\r\n", msg, output);
+			Log(USERLOG,"Timeout waiting for service: %s  =>  %s\r\n", msg, output);
 			return Done(sock, memory);
 		}
 
@@ -1695,16 +1694,14 @@ static void* MainChatbotServer()
 	ServerStartup(); //   get initial control over the mutex so we can start. - on linux if thread dies, we must reacquire here 
 					 // we now own the chatlock
 	uint64 lastTime = ElapsedMilliseconds();
-	int buffercount = bufferIndex;
-	int frameindex = globalDepth;
 	char user[MAX_WORD_SIZE];
 	char bot[MAX_WORD_SIZE];
 	char* ip; 
 
 	chatbotExists = true;   //  if a client can get the chatlock now, he will be happy
 	int oldserverlog = serverLog;
-	serverLog = 1;
-	Log(SERVERECHOLOG, (char*)"Server ready - logfile: %s serverLog: %d userLog: %d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
+	serverLog = FILE_LOG;
+	Log(ECHOSERVERLOG, (char*)"Server ready - logfile: %s serverLog: %d userLog: %d \r\n\r\n", serverLogfileName, oldserverlog, userLog);
 	int returnValue = 0;
 
 	while (1)
@@ -1726,7 +1723,6 @@ static void* MainChatbotServer()
 			// CLIENT has passed server in globals:  clientBuffer (ip,user,bot,message)
 			// We will send back his answer in clientBuffer, overwriting it.
 			ip = clientBuffer + 4; // skip fileread data buffer id(not used)
-			char* returnData = clientBuffer + SERVERTRANSERSIZE;
 			char* ptr = ip;
 			// incoming is 4 strings together:  ip, username, botname, message
 			ptr += strlen(ip) + 1;	// ptr to username
@@ -1752,15 +1748,20 @@ static void* MainChatbotServer()
 			else strcpy(ourMainInputBuffer,ptr); // xfer user message to our incoming feed
 			
 			int oldserverlog = serverLog;
-			if (*serverlogauthcode && strstr(ourMainInputBuffer, serverlogauthcode))  serverLog = 1;
-			if (serverPreLog)  Log(SERVERLOG, (char*)"ServerPre: pid: x %s (%s) size:%d %s %s\r\n", user, bot, test, ourMainInputBuffer, dateLog);
+			serverLogTemporary = false;
+			if (*serverlogauthcode && strstr(ourMainInputBuffer, serverlogauthcode))
+			{
+				serverLog = FILE_LOG;
+				serverLogTemporary = true;
+			}
+			if (serverPreLog)  Log(SERVERLOG,"ServerPre: pid: x %s (%s) size:%d %s %s\r\n", user, bot, test, ourMainInputBuffer, dateLog);
 
 			returnValue = PerformChat(user,bot,ourMainInputBuffer,ip,ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
 																							// special controls
 			if (returnValue == PENDING_RESTART) // special messages
 			{
 				Restart();
-				Log(SERVERLOG,(char*)"Server ready - logfile:%s serverLog:%d userLog:%d\r\n\r\n",serverLogfileName,oldserverlog,userLog);
+				Log(SERVERLOG,"Server ready - logfile:%s serverLog:%d userLog:%d\r\n\r\n",serverLogfileName,oldserverlog,userLog);
 				(*printer)((char*)"Server restarted - logfile:%s serverLog:%d userLog:%d\r\n\r\n",serverLogfileName,oldserverlog,userLog);
 				char* at = SkipWhitespace(ourMainInputBuffer);
 				if (*at != ':')	goto RESTART_RETRY;

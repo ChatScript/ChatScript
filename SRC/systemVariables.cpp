@@ -46,8 +46,8 @@ void DumpSystemVariables()
 			else if (strstr(sysvars[i].comment,(char*)"Numeric")) result = "0";
 			else result = "null";
 		}
-		if (sysvars[i].address) Log(STDUSERLOG,(char*)"%s = %s - %s\r\n",sysvars[i].name, result,sysvars[i].comment);  // actual variable
-		else Log(STDUSERLOG,(char*)"%s\r\n",sysvars[i].name);  // header
+		if (sysvars[i].address) Log(USERLOG,"%s = %s - %s\r\n",sysvars[i].name, result,sysvars[i].comment);  // actual variable
+		else Log(USERLOG,"%s\r\n",sysvars[i].name);  // header
 	}
 }
 

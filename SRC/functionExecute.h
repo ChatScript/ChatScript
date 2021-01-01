@@ -3,7 +3,7 @@
 
 
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -67,17 +67,15 @@ enum TestMode {
 //   argument data for system calls
 extern TestMode wasCommand;
 extern char* traceTestPatternBuffer;
-extern bool nobug;
 extern int tracepatterndata;
 extern HEAPREF patternwordthread;
 extern HEAPREF memoryMarkThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
-extern bool csapicall;
+extern APICall csapicall;
 extern char* style;
 extern int rulesExecuted;
-extern  bool testExternOutput;
 extern char* traceTestPattern;
 extern char* realCode;
 extern unsigned int callIndex;

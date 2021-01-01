@@ -737,58 +737,62 @@
 <td>seconds representing the current time and date (Unix epoch time)</td>
 </tr>
 <tr class="odd">
+<td><code>%fullmstime</code></td>
+<td>Numeric full time/date in milliseconds (Unix epoch time)</td>
+</tr>
+<tr class="even">
 <td><code>%hour</code></td>
 <td>0-23</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%timenumbers</code></td>
 <td>completely consistent full time info in numbers that you can do <br><code>_0 = ^burst(%timenumbers)</code>to get <code>_0</code> =seconds (2digit) <br><code>_1</code>=minutes (2digit) <br><code>_2</code>=hours (2digit) <br><code>_3</code>=dayinweek(0-6 Sunday=0) <br><code>_4</code>=dateinmonth (1-31) <br><code>_5</code>=month(0-11 January=0) <br><code>_6</code>=year.<br>You need to get it simultaneously if you want to do accurate things with current time, since retrieving %hour %minute separately allows time to change between calls</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%leapyear</code></td>
 <td>boolean if current year is a leap year</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%daylightsavings</code></td>
 <td>boolean if current within daylight savings</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%minute</code></td>
 <td>0-59</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%month</code></td>
 <td>1-12 (January = 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%monthname</code></td>
 <td>January, etc</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%second</code></td>
 <td>0-59</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%volleytime</code></td>
 <td>number of seconds of computation since volley input started</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%time</code></td>
 <td>hh:mm in military 24-hour time</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%zulutime</code></td>
 <td>2016-07-27T11:38:35.253Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%week</code></td>
 <td>1-5 (week of the month)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%year</code></td>
 <td>e.g., 2011</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%rand</code></td>
 <td>get a random number from 1 to 100 inclusive</td>
 </tr>

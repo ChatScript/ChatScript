@@ -151,7 +151,7 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define GetMeanings(D) ((MEANING*) Index2Heap(D->meanings))
 MEANING GetMeaning(WORDP D, int index);
 #define GetMeaningsFromMeaning(T) (GetMeanings(Meaning2Word(T)))
-#define Meaning2Index(x) ((int)((x & INDEX_BITS) >> (int)INDEX_OFFSET)) //   which dict entry meaning
+#define Meaning2Index(x) ( (((unsigned int)x) & INDEX_BITS)  >> INDEX_OFFSET) //   which dict entry meaning
 #define CommonLevel(x) ((int)((x & COMMONNESS) >> (uint64)(64-14)))
 
 unsigned char* GetWhereInSentence(WORDP D); // always skips the linking field at front
@@ -174,7 +174,7 @@ void SetCanonical(WORDP D,MEANING M);
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
 void ReverseDictionaryChanges(HEAPREF start);
-void SetTriedMeaningWithData(WORDP D, uint64 bits, unsigned int* data);
+void SetTriedMeaningWithData(uint64 bits, unsigned int* data);
 void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
 void Add2ConceptTopicList(HEAPREF list[256], WORDP D,int start,int end,bool unique);
 void SuffixMeaning(MEANING T,char* at, bool withPos);
@@ -243,23 +243,22 @@ void ClearHeapThreads();
 void ClearWordMaps();
 bool TraceHierarchyTest(int x);
 void WriteDictDetailsBeforeLayer(int layer);
-WORDP StoreWord(char* word, uint64 properties = 0);
-WORDP StoreWord(char* word, uint64 properties, uint64 flags);
+WORDP StoreWord(const char* word, uint64 properties = 0);
+WORDP StoreWord(const char* word, uint64 properties, uint64 flags);
 WORDP FindWord(const char* word, unsigned int len = 0,uint64 caseAllowed = STANDARD_LOOKUP);
-WORDP FullStore(char* word, uint64 properties, uint64 flags);
 unsigned char BitCount(uint64 n);
 void ClearVolleyWordMaps();
 void ClearBacktracks();
 unsigned int* AllocateWhereInSentence(WORDP D);
 MEANING GetFactBack(WORDP D);
 void SetFactBack(WORDP D, MEANING M);
-bool ReadForeignPosTags(char* fname);
+bool ReadForeignPosTags(const char* fname);
 int GetWords(char* word, WORDP* set,bool strict);
 bool StricmpUTF(char* w1, char* w2, int len);
 void ReadQueryLabels(char* file);
 void ClearWordWhere(WORDP D,int at);
 void RemoveConceptTopic(HEAPREF list[256],WORDP D, int at);
-char* UseDictionaryFile(char* name);
+char* UseDictionaryFile(const char* name);
 void ClearWhereInSentence();
 void ClearTriedData();
 void ClearDictionaryFiles();

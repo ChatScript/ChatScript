@@ -1,7 +1,7 @@
 #ifndef _SCRIPTCOMPILEH_
 #define _SCRIPTCOMPILEH_
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -30,11 +30,9 @@ extern char* oldScriptBuffer;
 extern CompileStatus compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
-extern bool compilePatternCall;
-extern bool compileOutputCall;
 extern uint64 grade;
 extern char* lastDeprecation;
-extern char* linestartpoint;
+extern const char* linestartpoint;
 extern unsigned int buildId;
 extern char errors[MAX_ERRORS][MAX_WORD_SIZE];
 extern unsigned int errorIndex;
@@ -52,7 +50,7 @@ char* ReadDisplayOutput(char* ptr,char* buffer);
 void EndScriptCompiler();
 bool StartScriptCompiler(bool normal);
 
-#define BADSCRIPT(...) {ScriptError(); Log((compiling) ? BADSCRIPTLOG : STDUSERLOG , __VA_ARGS__); JumpBack();}
+#define BADSCRIPT(...) {ScriptError(); Log((compiling) ? BADSCRIPTLOG : USERLOG , __VA_ARGS__); JumpBack();}
 void EraseTopicBin(unsigned int build, char* name);
 
 #ifndef DISCARDSCRIPTCOMPILER
@@ -62,9 +60,9 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data, char* rejoinders);
 char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &data,char* rejoinders,char* existingRead = NULL,WORDP call = NULL, bool choice = false);
 char* CompileString(char* ptr);
 void ScriptWarn();
-#define WARNSCRIPT(...) {if (compiling) {ScriptWarn(); Log(STDUSERLOG, __VA_ARGS__);} } // readpattern calls from functions should not issue warnings
+#define WARNSCRIPT(...) {if (compiling) {ScriptWarn(); Log(WARNSCRIPTLOG, __VA_ARGS__);} } // readpattern calls from functions should not issue warnings
 #else
-#define WARNSCRIPT(...) {Log(STDUSERLOG, __VA_ARGS__); } // readpattern calls from functions should not issue warnings
+#define WARNSCRIPT(...) {Log(USERLOG, __VA_ARGS__); } // readpattern calls from functions should not issue warnings
 #endif
 
 // ALWAYS AVAILABLE

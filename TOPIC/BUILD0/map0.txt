@@ -315,7 +315,7 @@ file: 0  D:/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/concepts.top
     concept: 220  ~butchery
     concept: 222  ~butt
     concept: 223  ~cafe
-    concept: 224  ~caffinated_drinks
+    concept: 224  ~caffeinated_drinks
     concept: 225  ~candy
     concept: 226  ~car
     concept: 228  ~car_brands

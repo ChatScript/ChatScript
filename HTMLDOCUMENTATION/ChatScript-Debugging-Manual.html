@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/26/2020 cs10.8</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 1/1/2021 cs11.0</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -613,6 +613,7 @@ This will read in the file named, replace new lines with spaces, and write to TM
 <pre><code>^log(OPEN TMP/mylog.txt This is my log output.)</code></pre>
 <p>which caches the file ptr. After which you can write with OPEN or FILE equivalently. To close the file use</p>
 <pre><code>^log(CLOSE TMP/mylog.txt)</code></pre>
+<p>You can log into the existing serverlog with ^log(SERVERLOG ...). You can log into the existing userlog with ^log(USERLOG ...). Actually getting stuff put into those files will depending on whether logging into those files is enabled.</p>
 <h2 id="login-after-crash">Login after crash</h2>
 <p>If you want to repeat a crash and not go thru all the trouble to recreate the situation you can do the login differently. The old status of the system is still in the user's folder. Normally when you login, it picks that up, but begins a new conversation.</p>
 <p>To resume the old conversation as though you had never left, login with <code>loginname:&amp;</code>. If before you were user bruce, login as <code>bruce:&amp;</code>. Now if you say what you said before, it should crash just the same. Not that that will do most of you any good, but it's handy if you can debug src code.</p>

@@ -1,3 +1,30 @@
+# Prognostication
+I'm thinking of writing some CS script modules for sale (maybe $5k each). These include:
+a.  Pronoun Resolution
+b. Sentiment analyzer
+If either of these would be of interest to you, drop me a line. I would be available for 
+paid consultation or domain personalization as well.
+Anything else you want scripted as a module?
+
+# Version 11.0 1/1/2021
+1. `%fullmstime`        overlooked variable documented - Numeric full time/date in milliseconds (Unix epoch time) 
+2. private.mk in makefile  - standard cs makefile allows you to include your own additional make files and settings
+3. serverlogauthcode - dynamically turns on server log for the current volley that contains this code
+4. plurals.txt - supplemental livedata file that defines the plural form of singular words not known in dictionary
+	Additionally other livedata files not previously described are described under Dictionary Augmentation Files
+5. api ~replacespelling format addition - ## CS External API- ^TestPattern ### ~replace_spelling
+6. ^log (SERVERLOG/USERLOG) - ^log function can, instead of routing to a named file, route to the existing log files
+7. ^synset(synsetmaster word~n) - returns the synset master of word
+   ^synset(synsetup word~n) - if word is a master, returns the word it is a refinement of
+    ^synset(word~n)    - return a list of facts naming synonyms of the meaning 
+	^synset(word)    - return a list of facts naming all the meanings this word has.
+8. :word now also shows synset parents (generalization) of a meaning and the children (refinements) of that meaning
+9. ^define (word~3)
+0. ^isnormalword (word)  ^isnormalword(letteronly word)
+11- userlog, buglog, serverlog accepts:  none, file, stdout, stderr  (or numbers matching - 0, 1, 2, 4 or or'ed combinations)
+12. continuation lines '^' - file or user input ending in ^ will be joined to the next line
+13 ?_word   in singular will do singular or plural as appropriate (note plurals.txt)   
+
 # Version 10.8 11/26/2020
 1. CURRENTLY you can enable/disable using data in various LIVEDATA substition files. In particular you can enable and disable
    the private substitutions you have in your scripts. And interjections dont actually replace their words, but merely

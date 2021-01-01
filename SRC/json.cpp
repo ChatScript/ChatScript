@@ -314,7 +314,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens,int currToken, MEANING *re
 				result = JSONpath(word, mainpath, str,true,nofail); // raw mode
 				if (result != NOPROBLEM_BIT) 
 				{
-					if (!nofail) ReportBug((char*)"Bad Json path building facts from templace %s%s data: %s  in input", str,mainpath,jsontext,realinput); // if we are not expecting it to fail
+					if (!nofail) ReportBug((char*)"INFO: Bad Json path building facts from templace %s%s data: %s  in input", str,mainpath,jsontext,realinput); // if we are not expecting it to fail
 					return 0;
 				}
 				else strcpy(str,word);
@@ -578,7 +578,7 @@ FunctionResult InitCurl()
 #ifdef WIN32
 		if (InitWinsock() == FAILRULE_BIT) // only init winsock one per any use- we might have done this from TCPOPEN or PGCode
 		{
-			ReportBug((char*)"Winsock init failed");
+			ReportBug((char*)"INFO: Winsock init failed");
 			return FAILRULE_BIT;
 		}
 #endif
@@ -594,7 +594,7 @@ char* UrlEncodePiece(char* input)
 	CURL * curl = curl_easy_init();
 	if (!curl)
 	{
-		if (trace & TRACE_JSON) Log(STDUSERLOG,(char*)"Curl easy init failed");
+		if (trace & TRACE_JSON) Log(USERLOG,"Curl easy init failed");
 		return NULL;
 	}
 	char* fixed = curl_easy_escape(curl,input,0);
@@ -795,12 +795,12 @@ FunctionResult JSONOpenCode(char* buffer)
 	if (InitCurl() != NOPROBLEM_BIT) return FAILRULE_BIT;
     if (trace & TRACE_JSON)
     {
-        Log(STDUSERLOG, (char*)"Curl version: %s \r\n", curl_version());
+        Log(USERLOG,"Curl version: %s \r\n", curl_version());
     }
 	CURL * curl = curl_easy_init();
 	if (!curl)
 	{
-		if (trace & TRACE_JSON) Log(STDUSERLOG, (char*)"Curl easy init failed");
+		if (trace & TRACE_JSON) Log(USERLOG,"Curl easy init failed");
 		return FAILRULE_BIT;
 	}
 
@@ -810,15 +810,15 @@ FunctionResult JSONOpenCode(char* buffer)
 
 	if (trace & TRACE_JSON)
 	{
-		Log(STDUSERLOG, (char*)"\r\n");
-		Log(STDTRACETABLOG, (char*)"Json method/url: %s %s\r\n", raw_kind, fixedUrl);
+		Log(USERLOG,"\r\n");
+		Log(USERLOG,"Json method/url: %s %s\r\n", raw_kind, fixedUrl);
 		if (kind == 'P' || kind == 'U')
 		{
-			Log(STDUSERLOG, (char*)"\r\n");
+			Log(USERLOG,"\r\n");
 			len = strlen(arg);
-			if (len < (size_t)(logsize - SAFE_BUFFER_MARGIN)) Log(STDTRACETABLOG, (char*)"Json  data %d bytes: %s\r\n ", len, arg);
-			else Log(STDTRACETABLOG, (char*)"Json  data %d bytes\r\n ", len);
-			Log(STDTRACETABLOG, (char*)"");
+			if (len < (size_t)(logsize - SAFE_BUFFER_MARGIN)) Log(USERLOG,"Json  data %d bytes: %s\r\n ", len, arg);
+			else Log(USERLOG,"Json  data %d bytes\r\n ", len);
+			Log(USERLOG,"");
 		}
 	}
 	// Add the necessary headers for the request.
@@ -916,14 +916,14 @@ FunctionResult JSONOpenCode(char* buffer)
 
 	if (trace & TRACE_JSON)
 	{
-		Log(STDUSERLOG, (char*)"\r\n");
+		Log(USERLOG,"\r\n");
 		curl_slist* list = header;
 		while (list)
 		{
-			Log(STDTRACETABLOG, (char*)"JSON header: %s\r\n", list->data);
+			Log(USERLOG,"JSON header: %s\r\n", list->data);
 			list = list->next;
 		}
-		Log(STDUSERLOG, (char*)"\r\n");
+		Log(USERLOG,"\r\n");
 	}
 
 	char coding[MAX_WORD_SIZE];
@@ -994,15 +994,15 @@ FunctionResult JSONOpenCode(char* buffer)
 			if (kind == 'P' || kind == 'U')  sprintf(at,"Json  data: %s\r\n ",arg);
 		}
 
-		if (res == CURLE_URL_MALFORMAT) { ReportBug((char*)"\r\nJson url malformed %s",word); }
-		else if (res == CURLE_GOT_NOTHING) { ReportBug((char*)"\r\nCurl got nothing %s",word); }
-		else if (res == CURLE_UNSUPPORTED_PROTOCOL) { ReportBug((char*)"\r\nCurl unsupported protocol %s",word); }
-		else if (res == CURLE_COULDNT_CONNECT || res == CURLE_COULDNT_RESOLVE_HOST || res ==  CURLE_COULDNT_RESOLVE_PROXY) Log(STDUSERLOG,(char*)"\r\nJson connect failed ");
-		else if (res == CURLE_OPERATION_TIMEDOUT) { ReportBug((char*)"\r\nCurl timeout ") }
+		if (res == CURLE_URL_MALFORMAT) { ReportBug((char*)"\r\nINFO: Json url malformed %s",word); }
+		else if (res == CURLE_GOT_NOTHING) { ReportBug((char*)"\r\nINFO: Curl got nothing %s",word); }
+		else if (res == CURLE_UNSUPPORTED_PROTOCOL) { ReportBug((char*)"\r\nINFO: Curl unsupported protocol %s",word); }
+		else if (res == CURLE_COULDNT_CONNECT || res == CURLE_COULDNT_RESOLVE_HOST || res ==  CURLE_COULDNT_RESOLVE_PROXY) Log(USERLOG,"\r\nJson connect failed ");
+		else if (res == CURLE_OPERATION_TIMEDOUT) { ReportBug((char*)"\r\nINFO: Curl timeout ") }
 		else
 		{ 
-			if (output.buffer && output.size) { ReportBug((char*)"\r\nOther curl return code %d %s  - %s ",(int)res,word,output.buffer);}
-			else { ReportBug((char*)"\r\nOther curl return code %d %s",(int)res,word); }
+			if (output.buffer && output.size) { ReportBug((char*)"\r\nINFO: Other curl return code %d %s  - %s ",(int)res,word,output.buffer);}
+			else { ReportBug((char*)"\r\nINFO: Other curl return code %d %s",(int)res,word); }
 		}
 	}
 	if (CURLE_OK == res) {
@@ -1021,7 +1021,7 @@ FunctionResult JSONOpenCode(char* buffer)
 	}
 	if (timing & TIME_JSON) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Json open time: %d ms for %s %s\r\n", diff,raw_kind, fixedUrl);
+		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Json open time: %d ms for %s %s\r\n", diff,raw_kind, fixedUrl);
 	}
 
 	// cleanup
@@ -1059,10 +1059,10 @@ FunctionResult JSONOpenCode(char* buffer)
 	}
 	if (trace & TRACE_JSON)
 	{
-		Log(STDUSERLOG,(char*)"\r\n");
-		Log(STDTRACETABLOG,(char*)"\r\nJSON response: %d size: %d - ",http_response,output.size);
-		if (output.size < (size_t)(logsize - SAFE_BUFFER_MARGIN)) Log(STDUSERLOG,(char*)"%s\r\n",output.buffer);
-		Log(STDTRACETABLOG,(char*)"");
+		Log(USERLOG,"\r\n");
+		Log(USERLOG,"\r\nJSON response: %d size: %d - ",http_response,output.size);
+		if (output.size < (size_t)(logsize - SAFE_BUFFER_MARGIN)) Log(USERLOG,"%s\r\n",output.buffer);
+		Log(USERLOG,"");
 	}
 	if (curlBufferBase) ReleaseStack(curlBufferBase);
 
@@ -1077,13 +1077,13 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail)
 	*buffer = 0;
 	if (trace & TRACE_JSON) 
 	{
-		if (size < (maxBufferSize - 100)) Log(STDTRACETABLOG, "JsonParse Call: %s", message);
+		if (size < (maxBufferSize - 100)) Log(USERLOG, "JsonParse Call: %s", message);
 		else 
 		{
 			char msg[MAX_WORD_SIZE];
 			strncpy(msg,message,MAX_WORD_SIZE-100);
 			msg[MAX_WORD_SIZE-100] = 0;
-			Log(STDTRACETABLOG, "JsonParse Call: %d-byte message too big to show all %s\r\n",size,msg);
+			Log(USERLOG, "JsonParse Call: %d-byte message too big to show all %s\r\n",size,msg);
 		}
 	}
 	if (size < 1) return NOPROBLEM_BIT; // nothing to parse
@@ -1113,7 +1113,7 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail)
 		if (timing & TIME_JSON) 
 		{
 			int diff = (int)(ElapsedMilliseconds() - start_time);
-			if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Json parse time: %d ms\r\n", diff);
+			if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Json parse time: %d ms\r\n", diff);
 		}
 		if (id != 0) // worked, this is name of json structure
 		{
@@ -1174,7 +1174,7 @@ static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer,
 	unsigned int size = (buffer - currentOutputBase + 200); // 200 slop to protect us
 	if (size >= currentOutputLimit) 
 	{
-		ReportBug((char*)"Too much json hierarchy");
+		ReportBug((char*)"INFO: Too much json hierarchy");
 		return buffer; // too much output
 	}
 
@@ -1224,7 +1224,7 @@ static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer,
 	buffer += strlen(buffer);
 	if (log)
 	{
-		Log(STDTRACETABLOG, "%s", basis);
+		Log(USERLOG, "%s", basis);
 		basis = buffer;
 	}
 
@@ -1258,7 +1258,7 @@ static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer,
 		size = (buffer - currentOutputBase + 400); // 400 slop to protect us
 		if (size >= currentOutputLimit) 
 		{
-			ReportBug((char*)"JsonWrite too much output %d items size %d", indexsize,size);
+			ReportBug((char*)"INFO: JsonWrite too much output %d items size %d", indexsize,size);
 			ReleaseStack((char*)stack);
 			return buffer; // too much output
 		}
@@ -1287,7 +1287,7 @@ static char* jwritehierarchy(bool log,bool defaultZero, int depth, char* buffer,
 		{
 			char* nl = strchr(buffer, '\n');
 			if (nl) basis = nl + 1;
-			Log(STDTRACETABLOG, "%s", basis);
+			Log(USERLOG, "%s", basis);
 			basis = buffer;
 		}
 		if (defaultZero) break;
@@ -1332,7 +1332,6 @@ FunctionResult JSONTreeCode(char* buffer)
 	buffer += strlen(buffer);
 	buffer = jwritehierarchy(log,defaultZero,2,buffer,D,(arg1[1] == 'o') ? JSON_OBJECT_VALUE : JSON_ARRAY_VALUE,nest > 0 ? nest : 20000); // nest of 0 (unspecified) is infinitiy
 	strcpy(buffer,(char*)"\r\n<=JSON \r\n");
-	buffer += strlen(buffer);
 	return NOPROBLEM_BIT;
 }
 
@@ -1364,8 +1363,8 @@ static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bo
 	MEANING M;
 	if (trace & TRACE_JSON) 
 	{
-		Log(STDUSERLOG,(char*)"\r\n");
-		Log(STDTRACETABLOG,(char*)"");
+		Log(USERLOG,"\r\n");
+		Log(USERLOG,"");
 	}
 
 	while(1)
@@ -1665,7 +1664,7 @@ FunctionResult JSONWriteCode(char* buffer) // FACT to text
 
 	if (timing & TIME_JSON) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMETABLOG, (char*)"Json write time: %d ms\r\n", diff);
+		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Json write time: %d ms\r\n", diff);
 	}
 	return NOPROBLEM_BIT;
 }
@@ -1850,7 +1849,7 @@ FunctionResult JSONParseFileCode(char* buffer)
 #define OBJECTJ 1
 #define ARRAYJ 2
 #define DIDONE 3
-#define MAXKIND 4000
+#define MAXKIND 8000
 
 FunctionResult JSONFormatCode(char* buffer)
 {
@@ -1860,7 +1859,7 @@ FunctionResult JSONFormatCode(char* buffer)
 	int field = 0;
 	char* numberEnd = NULL;
 	--arg;
-	char kind[MAXKIND]; // just assume it wont overflow
+	char kind[MAXKIND]; // just assume it wont overflow (json not deep, however wide it may go)
 	int level = 0;
 	*kind = 0;
 	while (*++arg) 
@@ -1871,14 +1870,14 @@ FunctionResult JSONFormatCode(char* buffer)
 		{
 			*buffer++ = *arg;
 			field = 1; // expecting element
-			kind[++level] = OBJECTJ;
 			if (level >= MAXKIND) break;
+			kind[++level] = OBJECTJ;
 		}
 		else if (*arg == '[') // json array open
 		{
 			*buffer++ = *arg;
-			kind[++level] = ARRAYJ;
 			if (level >= MAXKIND) break;
+			kind[++level] = ARRAYJ;
 		}
 		else if (*arg == '}' || *arg == ']') // object/array close
 		{
@@ -2103,13 +2102,13 @@ FunctionResult JSONVariableAssign(char* word,char* value, bool stripQuotes)
 	char* val = GetUserVariable(word); // gets the initial variable (must be a variable)
 	if (c == '.' && strnicmp(val,"jo-",3))
     { 
-        if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail Object: %s->%s\r\n", word, val);
+        if (trace & TRACE_VARIABLESET) Log(USERLOG, "AssignFail Object: %s->%s\r\n", word, val);
         *separator = c;
         return FAILRULE_BIT;	// not a json object
     }
     else if (c == '[' && strnicmp(val, "ja-", 3))
     {
-        if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail Array: %s->%s\r\n", word, val);
+        if (trace & TRACE_VARIABLESET) Log(USERLOG, "AssignFail Array: %s->%s\r\n", word, val);
         *separator = c;
         return FAILRULE_BIT;	// not a json array
     }
@@ -2119,16 +2118,16 @@ FunctionResult JSONVariableAssign(char* word,char* value, bool stripQuotes)
 	WORDP leftside = FindWord(val);
     if (!leftside)
     {
-        if (trace & TRACE_VARIABLESET) Log(STDUSERLOG, "AssignFail key: %s\r\n", word);
+        if (trace & TRACE_VARIABLESET) Log(USERLOG, "AssignFail key: %s\r\n", word);
         *separator = c;
         return FAILRULE_BIT;	// doesnt exist?
     }
     WORDP base = FindWord(word);
 
-    if (testExternOutput && base->word[1] != '$' && base->word[1] != '_') // track we changed this
+    if ((csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT) && base->word[1] != '$' && base->word[1] != '_') // track we changed this
     { 
         variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,
-            (uint64)base, (uint64)base->w.userValue, NULL);
+            (uint64)base, (uint64)base->w.userValue, 0);
     }
 
 	// leftside is the left side of a . or [] operator
@@ -2284,7 +2283,7 @@ LOOP: // now we look at $x.key or $x[0]
 			if (trace & TRACE_VARIABLESET) 
 			{
 				char* recurse = (jsonkill) ? (char*)"recurse" : (char*)"once";
-				Log(STDTRACETABLOG,(char*)"JsonVar kill: %s %s ", fullpath,recurse);
+				Log(USERLOG,"JsonVar kill: %s %s ", fullpath,recurse);
 				TraceFact(F,true);
 			}
 			KillFact(F,jsonkill); // wont do it in boot or earlier
@@ -2330,14 +2329,14 @@ LOOP: // now we look at $x.key or $x[0]
 		
 	}
 
-	if (trace & TRACE_VARIABLESET) Log(STDUSERLOG,(char*)"JsonVar: %s -> %s\r\n", fullpath,value);
+	if (trace & TRACE_VARIABLESET) Log(USERLOG,"JsonVar: %s -> %s\r\n", fullpath,value);
 	
 	if (base->internalBits & MACRO_TRACE) 
 	{
 		char pattern[MAX_WORD_SIZE];
 		char label[MAX_LABEL_SIZE];
 		GetPattern(currentRule,label,pattern,true,100);  // go to output
-		Log(ECHOSTDUSERLOG,"%s -> %s at %s.%d.%d %s %s\r\n",word,value, GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),label,pattern);
+		Log(ECHOUSERLOG,"%s -> %s at %s.%d.%d %s %s\r\n",word,value, GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),label,pattern);
 	}
 
 	currentFact = NULL;	 // used up by putting into json
@@ -2599,12 +2598,12 @@ FunctionResult JSONReadCSVCode(char* buffer)
     char* fnname = fn;
     char* ptr = ReadFunctionCommandArg(ARGUMENT(index), fnname, fnresult, true);
     if (fnresult != NOPROBLEM_BIT) return fnresult;
-    if (fnname && strlen(fnname) == 0) fnname = 0;
+    if (strlen(fnname) == 0) fnname = 0;
     if (wholeLine && (!fnname || !*fnname)) return FAILRULE_BIT; // cannot build json, must call
    
 	unsigned int arrayflags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags | JSON_OBJECT_VALUE;
 	unsigned int flags = JSON_OBJECT_FACT | jsonPermanent | jsonCreateFlags;
-	MEANING arrayName = NULL;
+	MEANING arrayName = 0;
 	int arrayIndex = 0;
 	if (!fnname) //  building json structure, set header that we will return
 	{

@@ -1,7 +1,7 @@
 #ifndef MAINSYSTEMH
 #define MAINSYSTEMH
 #ifdef INFORMATION
-Copyright (C)2011-2020 by Bruce Wilcox
+Copyright (C)2011-2021 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -57,6 +57,7 @@ extern bool restartBack;
 extern int forkcount;
 extern int sentenceloopcount;
 extern bool debugcommand;
+extern bool restartfromdeath;
 extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
 #define INPUTMARKER '`'	// used to start and end ^input data
@@ -92,6 +93,7 @@ extern unsigned short int derivationIndex[256];
 extern int derivationLength;
 extern bool client;
 extern char* derivationSentence[MAX_SENTENCE_LENGTH];
+extern char derivationSeparator[MAX_SENTENCE_LENGTH];
 extern bool docstats;
 extern unsigned int docSentenceCount;
 extern unsigned int outputLength;
@@ -110,7 +112,7 @@ extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern char language[40];
 extern char livedataFolder[500];
-extern bool  stdlogging;
+extern int  stdlogging;
 extern char languageFolder[500];
 extern char systemFolder[500];
 extern bool rebooting;
@@ -121,7 +123,6 @@ extern bool documentMode;
 extern bool servertrace;
 extern int inputLimit;
 extern int fullInputLimit;
-extern int serverLogDefault;
 extern char serverlogauthcode[30];
 extern int outputchoice;
 extern int traceUniversal;
@@ -166,7 +167,7 @@ extern PrepareMode prepareMode;
 extern PrepareMode tmpPrepareMode;
 extern clock_t startSystem;
 extern char oktest[MAX_WORD_SIZE];
-extern int timerLimit;
+extern uint64 timerLimit;
 extern int timerCheckRate;
 extern int timerCheckInstance;
 extern uint64 volleyStartTime;

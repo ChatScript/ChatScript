@@ -25,7 +25,7 @@
  ?_ml milliliter
 ?_km kilometer
  ?_kph kilometer+per+hour
- ?_mph miles+per+hour
+ ?_mph mile+per+hour
  ?_°C degree+Celsius
  ?_°F degree+Fahrenheit
  ?_°K degree+Kelvin
@@ -161,7 +161,7 @@ prof. professor
  gon_na going+to
  qt quart
 
- ,_alright_? %QUESTIONMARK
+ ,_all_right_? %QUESTIONMARK
  ,_ok_? %QUESTIONMARK
  ,_okay_? %QUESTIONMARK
  ,_yes_? %QUESTIONMARK

@@ -26,11 +26,6 @@ REVERSE -1 ISCANONICAL be
 KEEP
 
 # I *made him talk - noun infinitive w/o to  - but not I made him cake
-# TRACE 0  INCLUDE * VERB_BITS 
- #    STAY POSSIBLETOLESSVERB
- #    HAS PRONOUN_SUBJECT PRONOUN_OBJECT NOUN_BITS
- #    HAS NOUN_INFINITIVE
-# KEEP
 
 # I made him *talk - noun infinitive w/o to
 #  -2  IS VERB_BITS 

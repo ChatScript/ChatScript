@@ -613,11 +613,11 @@ void ChangeSpecial(char* buffer)
 	ReleaseInfiniteStack();
 }
 
-char* AddEscapes(char* to, char* from, bool normal,int limit,bool addescapes) // normal true means dont flag with extra markers
+char* AddEscapes(char* to, const char* from, bool normal,int limit,bool addescapes) // normal true means dont flag with extra markers
 {
 	limit -= 200; // dont get close to limit
 	char* start = to;
-	char* at = from - 1;
+	const char* at = from - 1;
 	// if we NEED to add an escape, we have to mark it as such so  we know to remove them later.
 	while (*++at)
 	{
@@ -640,7 +640,7 @@ char* AddEscapes(char* to, char* from, bool normal,int limit,bool addescapes) //
         // detect it is already escaped
         else if (*at == '\\')
         {
-            char* at1 = at + 1;
+            const char* at1 = at + 1;
             if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == '"' || *at1 == 'u' || *at1 == '\\'))  // just pass it along
             {
                 *to++ = *at;
@@ -696,7 +696,7 @@ double Convert2Double(char* original, int useNumberStyle)
 	return val;
 }
 
-void AcquireDefines(char* fileName)
+void AcquireDefines(const char* fileName)
 { // dictionary entries:  `xxxx (property names)  ``xxxx  (systemflag names)  ``` (parse flags values)  -- and flipped:  `nxxxx and ``nnxxxx and ```nnnxxx with infermrak being ptr to original name
 	FILE* in = FopenStaticReadOnly(fileName); // SRC/dictionarySystem.h
 	if (!in) 
@@ -1154,18 +1154,20 @@ char* IsSymbolCurrency(char* ptr)
 {
 	if (!*ptr) return NULL;
 	char* end = ptr;
+	unsigned char* p = (unsigned char*) ptr;
 	while (*++end && !IsDigit(*end) && !IsSign(*end)); // locate nominal end of text
 
-	if (*ptr == 0xe2 && ptr[1] == 0x82 && ptr[2] == 0xac) return end;// euro is prefix
-	else if (*ptr == 0xC2 && ptr[1] == 0xA2) return end; // cent sign
-	else if (*ptr == 0xc2) // yen is prefix
+	if (*p == 0xe2 && p[1] == 0x82 && p[2] == 0xac) return end;// euro is prefix
+	else if (*p == 0xC2 && p[1] == 0xA2) return end; // cent sign
+	else if (*p == 0xc2) // yen is prefix
 	{
-		char c = ptr[1];
+		char c = p[1];
 		if (c == 0xa2 || c == 0xa3 || c == 0xa4 || c == 0xa5) return end;
 	}
-	else if (*ptr == 0xc3 && ptr[1] == 0xb1) return end; // british pound
-	else if (*ptr == 0xe2 && ptr[1] == 0x82 && ptr[2] == 0xb9) return end; // rupee
-	else if (IsTextCurrency(ptr,end) != NULL) return end;
+	else if (*p == 0xc3 && p[1] == 0xb1) return end; // british pound
+	else if (*p == 0xc3 && p[1] == 0xa3) return end; // british pound extended ascii
+	else if (*p == 0xe2 && p[1] == 0x82 && p[2] == 0xb9) return end; // rupee
+	else if (IsTextCurrency((char*)p,end) != NULL) return end;
 	return NULL;
 }
    
@@ -1201,7 +1203,7 @@ unsigned char* GetCurrency(unsigned char* ptr,char* &number) // does this point 
 	return 0;
 }
 
-bool IsLegalName(char* name, bool label) // start alpha (or ~) and be alpha _ digit (concepts and topics can use . or - also)
+bool IsLegalName(const char* name, bool label) // start alpha (or ~) and be alpha _ digit (concepts and topics can use . or - also)
 {
 	char start = *name;
 	if (*name == '~' || *name == SYSVAR_PREFIX) ++name;
@@ -2297,7 +2299,7 @@ int ReadALine(char* buffer,FILE* in,unsigned int limit,bool returnEmptyLines,boo
 	char ender = 0;
 	char* start = buffer;
 	char c = 0;
-
+	char priorc = 0;
 	if (holdc)					//   if we had a leftover character from prior line lacking newline, put it in now
 	{
 		*buffer++ = holdc; 
@@ -2401,6 +2403,11 @@ RESUME:
 
 		if (c == '\r')  // part of cr lf or just a cr?
 		{
+			if (priorc == '^') // explicit continuation line
+			{
+				continue; // ignore \r
+			}
+
 			if (formatString) // unclosed format string continues onto next line
 			{
 				while (*--buffer == ' '){;}
@@ -2450,6 +2457,13 @@ RESUME:
 		{
 			++currentFileLine;	// for debugging error messages
 			maxFileLine = currentFileLine;
+
+			if (priorc == '^') // explicit continuation line
+			{
+				--buffer;
+				*buffer = 0;  // remove continuation line marker
+				continue; // ignore \n
+			}
 			if (formatString)
 			{
 				formatString = IN_FORMAT_CONTINUATIONLINE;
@@ -2487,6 +2501,7 @@ RESUME:
 			utf16 = NULL; // not a utf16 code
 		*buffer++ = c;
 		*buffer = 0;
+		priorc = c;
 
 		if (utf16 && (buffer - utf16) == 6)
 		{
@@ -2617,7 +2632,7 @@ RESUME:
 	if (hasutf && (BOM == NOBOM || BOM == BOMUTF8))  
 		hasbadutf = AdjustUTF8(start, start - 1); // DO NOT ADJUST BINARY FILES
 	if (hasbadutf && showBadUTF && !server)  
-		Log(STDUSERLOG,(char*)"Bad UTF-8 %s at %d in %s\r\n",start,currentFileLine,currentFilename);
+		Log(USERLOG,"Bad UTF-8 %s at %d in %s\r\n",start,currentFileLine,currentFilename);
     return (buffer - start);
 }
 
@@ -2644,6 +2659,9 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash,bool noblank,int limit)
 			return end + 3; // RETURN PAST space, aiming on the )
 		}
 	}
+	int quoteline = currentFileLine;
+	int quotecolumn = currentLineColumn;
+	char* quoteptr = ptr;
 
 	*buffer++ = *ptr;  // copy over the 1st char
 	char ender = *ptr; 
@@ -2679,7 +2697,11 @@ char* ReadQuote(char* ptr, char* buffer,bool backslash,bool noblank,int limit)
 			return ptr;
 		}
 		*buffer = 0; 
-        WARNSCRIPT((char*)"bad double-quoting?  %s %d %s\r\n", start, currentFileLine, currentFilename);
+		patternStarter = quoteptr;
+		patternEnder = ptr;
+		currentLineColumn = quotecolumn + ptr - quoteptr;
+        if (compiling) BADSCRIPT((char*)"Missing close double quotes  %s started line %d col %d %s\r\n", start, quoteline, quotecolumn,currentFilename);
+
 		return NULL;	// no closing quote... refuse
 	}
 
@@ -2791,11 +2813,11 @@ char* ReadPatternToken(char* ptr, char* word)
     return ptr;
 }
 
-char* EatString(char* ptr, char* word, char ender, char jsonactivestring)
+static char* EatString(const char* ptr, char* word, char ender, char jsonactivestring)
 {
 	char c;
 	char* original = word;
-	char* function = NULL;
+	const char* function = NULL;
 	int call_level = 0;
 	while ((c = *ptr)) // run til nul or matching closing  -- may have INTERNAL string as well, as well as strings inside function calls
 	{
@@ -2805,7 +2827,7 @@ char* EatString(char* ptr, char* word, char ender, char jsonactivestring)
 		{
 			if (IsAlphaUTF8(ptr[1])) // fn call
 			{
-				char* at = ptr + 1;
+				const char* at = ptr + 1;
 				while (IsAlphaUTF8(*++at)); // find end of name
 				if ((*at == ' ' && at[1] == '(') || *at == '(')
 				{
@@ -2835,18 +2857,18 @@ char* EatString(char* ptr, char* word, char ender, char jsonactivestring)
 		*word++ = c;
 	}
 	*word = 0; // be sure from caller to do word += strlen(word) if you need to
-	return ptr;
+	return (char*)ptr;
 }
 
-char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit) 
+char* ReadCompiledWord(const char* ptr, char* word,bool noquote,bool var,bool nolimit) 
 {//   a compiled word is either characters until a blank, or a ` quoted expression ending in blank or nul. or a double-quoted on both ends or a ^double quoted on both ends
 	*word = 0;
 	if (!ptr) return NULL;
 	
 	char c = 0;
 	char* original = word;
-	ptr = SkipWhitespace(ptr);
-	char* start = ptr;
+	ptr = SkipWhitespace((char*)ptr);
+	char* start = (char*)ptr;
 	char special = 0;
 	char priorchar = 0;
 	if (!var) {;}
@@ -2939,7 +2961,7 @@ char* ReadCompiledWord(char* ptr, char* word,bool noquote,bool var,bool nolimit)
 		}
 	}
 	*word = 0; //   null terminate word
-	return ptr;	
+	return (char*)ptr;	
 }
 
 char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with ((unless within is true), find the closing ) and point to next item after
@@ -2990,23 +3012,26 @@ char* BalanceParen(char* ptr,bool within,bool wildcards) // text starting with (
     return ptr; //   return past end of data
 }
 
-char* SkipWhitespace(char* ptr)
+char* SkipWhitespace(const char* ptr)
 {
-    if (!ptr || !*ptr) return ptr;
+    if (!ptr || !*ptr) return (char*)ptr;
     while (*ptr)
 	{
-		if ((compilePatternCall || compileOutputCall) && *ptr == '\\' && ptr[1] == 'n'){}
+		if ((csapicall == COMPILE_PATTERN || csapicall == COMPILE_OUTPUT) && *ptr == '\\' && ptr[1] == 'n'){}
 		else if (!IsWhiteSpace(*ptr)) break;
-		if (*ptr == '\\') // api passes newlines across. but user doing manual tabs, those are not whitespace but tokens
+
+		if (*ptr == '\\' && ptr[1] == 'n') // api passes newlines across. but user doing manual tabs or return, those are not whitespace but tokens
 		{
 			maxFileLine = ++currentFileLine;
 			currentLineColumn = 0;
-			linestartpoint = ++ptr + 1; // skip past soft tab
+			ptr += 2;
+			linestartpoint = ptr; 
+			continue;
 		}
-        if (!convertTabs && *ptr == '\t') return ptr; // leave to be seen
-        ++ptr;
-    }
-    return ptr; 
+		if (!convertTabs && *ptr == '\t') return (char*)ptr; // leave to be seen
+		++ptr;
+	}
+    return (char*)ptr; 
 }
 
 ///////////////////////////////////////////////////////////////
@@ -3451,7 +3476,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 		num += val1;
 		oldhyphen = xpiece + 1;
 	}
-	if (hyphen && num != -1) // do last piece
+	if (num != -1) // do last piece
 	{
 		if ((num % 10) > 0) num *= 10; // don't multiply if twenty-three
 		val1 = Convert2Integer(oldhyphen, useNumberStyle);
@@ -3659,7 +3684,7 @@ void MakeUpperCase(char* ptr)
 	}
 }
 
-char* PartialLowerCopy(char* to, char* from, int begin, int end)  	//excludes the part from start to end from being converted to lower case
+char* PartialLowerCopy(char* to, const char* from, int begin, int end)  	//excludes the part from start to end from being converted to lower case
 {
 	char* start = to;
 	char tempCopy[MAX_WORD_SIZE], tempCopyFirst[MAX_WORD_SIZE], tempCopyLast[MAX_WORD_SIZE], tempLowerFirst[MAX_WORD_SIZE], tempLowerLast[MAX_WORD_SIZE];
@@ -3689,13 +3714,13 @@ char* PartialLowerCopy(char* to, char* from, int begin, int end)  	//excludes th
 	return start;
 }
 
-char*  MakeLowerCopy(char* to, char* from)
+char*  MakeLowerCopy(char* to, const char* from)
 {
 	char* start = to;
 	while (*from)
 	{
 		char utfcharacter[10];
-		char* x = IsUTF8(from, utfcharacter); // return after this character if it is valid.
+		char* x = IsUTF8((char*)from, utfcharacter); // return after this character if it is valid.
 		if (utfcharacter[1] && *from == 0xc3 && from[1] >= 0x80 && from[1] <= 0x9e)
 		{
 			*to++ = *from;
@@ -3726,13 +3751,13 @@ char*  MakeLowerCopy(char* to, char* from)
 	return start;
 }
 
-char* MakeUpperCopy(char* to, char* from)
+char* MakeUpperCopy(char* to, const char* from)
 {
 	char* start = to;
 	while (*from)
 	{
 		char utfcharacter[10];
-		char* x = IsUTF8(from, utfcharacter); // return after this character if it is valid.
+		char* x = IsUTF8((char*)from, utfcharacter); // return after this character if it is valid.
 		if (utfcharacter[1] && *from == 0xc3 && from[1] >= 0x9f && from[1] <= 0xbf)
 		{
 			*to++ = *from;
@@ -3937,11 +3962,11 @@ RETRY: // for sampling loopback
 	}
 
 	if (readAhead >= 6)
-		Log(STDUSERLOG,(char*)"Heavy long line? %s\r\n",documentBuffer);
-	if (autonumber) Log(ECHOSTDUSERLOG,(char*)"%d: %s\r\n",inputSentenceCount,inBuffer);
+		Log(USERLOG,"Heavy long line? %s\r\n",documentBuffer);
+	if (autonumber) Log(ECHOUSERLOG,(char*)"%d: %s\r\n",inputSentenceCount,inBuffer);
 	else if (docstats)
 	{
-		if ((++docSentenceCount % 1000) == 0)  Log(ECHOSTDUSERLOG,(char*)"%d: %s\r\n",docSentenceCount,inBuffer);
+		if ((++docSentenceCount % 1000) == 0)  Log(ECHOUSERLOG,(char*)"%d: %s\r\n",docSentenceCount,inBuffer);
 	}
 	wasEmptyLine = false;
 	if (docOut) fprintf(docOut,(char*)"\r\n%s\r\n",inBuffer);
