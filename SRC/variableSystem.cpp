@@ -269,8 +269,8 @@ char* GetwildcardText(unsigned int i, bool canon)
 
 char* GetUserVariable(const char* word, bool nojson, bool fortrace)
 {
-	if (!dictionaryLocked && !compiling && !rebooting && currentBeforeLayer != LAYER_BOOT) return "";
-	int len = 0;
+    if (!dictionaryLocked && !compiling && !rebooting && currentBeforeLayer != LAYER_BOOT) return "";
+    int len = 0;
     const char* separator = (nojson) ? (const char*)NULL : strchr(word, '.');
     const char* bracket = (nojson) ? (const char*)NULL : strchr(word, '[');
     if (!separator && bracket) separator = bracket;
@@ -279,11 +279,13 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
     bool localvar = strstr(word, "$_") != NULL; // local var anywhere in the chain?
     char* item = NULL;
     char* answer;
+    bool   showpath = (trace & TRACE_VARIABLE && !fortrace);
     char path[MAX_WORD_SIZE];
-    *path = 0;
+     *path = 0;
+    if (showpath) strcpy(path, word);
 
-    WORDP D = FindWord((char*)word, len, LOWERCASE_LOOKUP);
-    if (!D) { goto NULLVALUE; }	//   no such variable
+    WORDP D = FindWord(word, len, LOWERCASE_LOOKUP);
+    if (!D)  goto NULLVALUE; 	//   no such variable
 
     item = D->w.userValue;
     if (localvar) // is $_local variable whose value we get
@@ -298,8 +300,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
 
     if (separator) // json object or array follows this
     {
-        if (fortrace) localvar = false;	// dont allocate memory
-        strcpy(path, item);
+        if (showpath) sprintf(path, "%s'%s", word,D->word);
     LOOPDEEPER:
         FACT* factvalue = NULL;
         if (IsDigitWord(item, AMERICAN_NUMBERS) && (!strnicmp(separator, ".subject", 8) || !strnicmp(separator, ".verb", 5) || !strnicmp(separator, ".object", 7))) // fact id?
@@ -310,6 +311,12 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         }
         else D = FindWord(item); // the basic item
         if (!D) goto NULLVALUE;
+        if (showpath)
+        {
+            strcat(path, "=");
+            strcat(path,D->word);
+        }
+
         if (*separator == '.' && strncmp(item, "jo-", 3) && !factvalue) goto NULLVALUE; // cannot be dotted
         //else if (*separator == '[' && strncmp(item, "ja-", 3)) goto NULLVALUE; // cannot be indexed
 
@@ -320,7 +327,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         if (bracket1 && !separator1) separator1 = bracket1;
         if (bracket1 && bracket1 < separator1) separator1 = bracket1;
 
-        // get the label for this current separator
+        // get the label after this current separator
         char* label = (char*)separator + 1;
         if (separator1)
         {
@@ -329,30 +336,35 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
         }
         else len = 0;
         WORDP key = NULL;
+        char originalkeyname[SMALL_WORD_SIZE];
         if (factvalue)
         {
             if (separator[1] == 's' || separator[1] == 'S') label = "subject";
             else if (separator[1] == 'v' || separator[1] == 'V') label = "verb";
             else label = "object";
+            strcpy(originalkeyname, label);
         }
-        else if (*separator == '.') // it is a key
+        else if (*separator == '.') // it is a field
         {
             if ((*label != '_' && *label != '\'') || (separator[1] == '_' && !IsDigit(separator[2])) || (separator[1] == '\'' && separator[2] == '_' && !IsDigit(separator[3]))) // any variable ref will be in dictionary as will field name
             {
                 if (*label == '\\') ++label; // escaped $, not indirection
                 key = FindWord(label, len, PRIMARY_CASE_ALLOWED); // case sensitive find
                 if (!key) goto NULLVALUE; // dont recognize such a name
-                label = key->word;
+                label = key->word; // actual key name was given
+                strcpy(originalkeyname, label);
             }
             if (separator[1] == '$') // indirection
             {
-                label = GetUserVariable(key->word); // key is a variable name , go get it to use real key
+                label = GetUserVariable(key->word, false, true); // key is a variable name , go get it to use real key
+                strcpy(originalkeyname, key->word);
                 key = FindWord(label);
                 if (!key) goto NULLVALUE;	// cannot find
             }
             else if ((separator[1] == '_' && IsDigit(separator[2])) || (separator[1] == '\'' && separator[2] == '_' && IsDigit(separator[3]))) // indirection key match variable
             {
                 int index = (separator[1] == '_') ? atoi(separator + 2) : atoi(separator + 3);
+                sprintf(originalkeyname, "_%d", index);
                 if (separator[1] == '_') strcpy(label, wildcardCanonicalText[index]);
                 else strcpy(label, wildcardOriginalText[index]);
                 key = FindWord(label);
@@ -371,19 +383,22 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
                     key = StoreWord("-1", 0, AS_IS);
                 }
                 label = key->word;
+                sprintf(originalkeyname, "%s", label);
             }
             else if (*label == '$') // indirect via user variable
             {
                 char val[MAX_WORD_SIZE];
                 strncpy(val, label, len);
                 val[len] = 0;
-                label = GetUserVariable(val); // key is a variable name or index, go get it to use real key
+                label = GetUserVariable(val, false, true); // key is a variable name or index, go get it to use real key
                 if (IsDigit(*label)) key = FindWord(label);
                 else if (!IsDigit(*label))  goto NULLVALUE;
+                sprintf(originalkeyname, "%s", val);
             }
             else if ((*label == '_' && IsDigit(label[1])) || (*label == '\'' && label[1] == '_' && IsDigit(label[2]))) // indirection key match variable
             {
                 int index = (*label == '_') ? atoi(label + 1) : atoi(label + 2);
+                sprintf(originalkeyname, "_%d", index);
                 if (separator[1] == '_') strcpy(label, wildcardCanonicalText[index]);
                 else strcpy(label, wildcardOriginalText[index]);
                 if (IsDigit(*label)) key = FindWord(label);
@@ -391,10 +406,18 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
             }
             else  goto NULLVALUE; // not a number or indirect
         }
-        if (*separator == '.') strcat(path, ".");
-        else strcat(path, "[");
-        strcat(path, label);
-        if (*separator != '.') strcat(path, "]");
+        if (showpath)
+        {
+            if (*separator == '.') strcat(path, ".");
+            else strcat(path, "[");
+            if (strcmp(originalkeyname, key->word))
+            {
+                strcat(path, originalkeyname);
+                strcat(path, "=");
+            }
+            strcat(path, key->word);
+            if (*separator != '.') strcat(path, "]");
+        }
         if (factvalue) // $x.subject
         {
             if (separator[1] == 's' || separator[1] == 'S') answer = Meaning2Word(factvalue->subject)->word;
@@ -458,13 +481,15 @@ ANSWER:
         strcpy(ans, "``");
         strcpy(ans + 2, answer);
         CompleteBindStack();
-        if (*path && trace & TRACE_VARIABLE && !fortrace) Log(USERLOG, "(%s->%s)", path, ans);
+        if (*path && showpath) Log(USERLOG, "`%s->%s`", path, ans);
         return ans + 2;
     }
-    if (*path && trace & TRACE_VARIABLE && !fortrace) Log(USERLOG, "(%s->%s)", path, answer);
+    if (*path && showpath) Log(USERLOG, "`%s->%s`", path, answer);
     return answer;
 
 NULLVALUE:
+    if (*path && showpath) Log(USERLOG, "`%s->null`", path);
+
     if (localvar)
     {
         item = "``";
@@ -511,6 +536,17 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
 		D->internalBits |= VAR_CHANGED; // bypasses even locked preexisting variables
  		if (init) D->w.userValue = NULL;
 	}
+    else if (memoryMarkThreadList)
+    {
+        // There has been a memory mark, track changes to existing variables
+        uint64 memory;
+        UnpackHeapval(memoryMarkThreadList, memory, discard);
+        if ((uint64)D->w.userValue >= memory)
+        {
+            memoryVariableChangesThreadList = AllocateHeapval(memoryVariableChangesThreadList,
+                (uint64)D, (uint64)D->w.userValue, (uint64)0);// save name
+        }
+    }
 }
 
 void SetVariable(WORDP D, char* value)
@@ -573,13 +609,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
 
 	// monitored engine variables
 
-	// testpattern tracing
-	if (!stricmp(var, (char*)"$$cs_tracepattern"))
-	{
-		if (word && *word) trace = TRACE_PATTERN; // turn on tracing
-		else trace = 0; // turn off pattern trace
-	}
-	else if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
+	if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
 	{
 
 		if (!stricmp(var, (char*)"$cs_json_array_defaults"))
@@ -694,12 +724,12 @@ void SetUserVariable(const char* var, char* word, bool assignment)
 static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char op, char* fullop)
 {
     if (*oldValue == '_') oldValue = GetwildcardText(GetWildcardID(oldValue), true); // onto a wildcard
-    else if (*oldValue == USERVAR_PREFIX) oldValue = GetUserVariable(oldValue); // onto user variable
+    else if (*oldValue == USERVAR_PREFIX) oldValue = GetUserVariable(oldValue,false,true); // onto user variable
     else if (*oldValue == '^') oldValue = FNVAR(oldValue + 1); // onto function argument
     else if (*oldValue && !IsNumberStarter(*oldValue)) return FAILRULE_BIT; // illegal
 
     if (*moreValue == '_') moreValue = GetwildcardText(GetWildcardID(moreValue), true);
-    else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue);
+    else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue, false, true);
     else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
     else if (*oldValue && !IsNumberStarter(*moreValue)) return FAILRULE_BIT; // illegal
 
@@ -777,13 +807,13 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
     char  minusflag = *op;
     char* oldValue;
     if (*var == '_') oldValue = GetwildcardText(GetWildcardID(var), true); // onto a wildcard
-    else if (*var == USERVAR_PREFIX) oldValue = GetUserVariable(var); // onto user variable
+    else if (*var == USERVAR_PREFIX) oldValue = GetUserVariable(var, false, true); // onto user variable
     else if (*var == '^') oldValue = FNVAR(var + 1); // onto function argument
     else return FAILRULE_BIT; // illegal
 
                               // get augment value
     if (*moreValue == '_') moreValue = GetwildcardText(GetWildcardID(moreValue), true);
-    else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue);
+    else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue, false, true);
     else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
 
     // try json array set op?
@@ -932,7 +962,7 @@ void ClearUserVariables(char* above)
 			D->w.userValue = NULL;
             RemoveInternalFlag(D, VAR_CHANGED);
         }
-        else  if (D->w.userValue < above) // heap is down, so this is recent and must be lost.
+        else  if (D->w.userValue && D->w.userValue < above) // heap is down, so this is recent and must be lost.
         {
             D->w.userValue = NULL; // lose value in new area
         }
@@ -1165,7 +1195,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
         ptr = GetCommandArg(ptr, buffer, result, OUTPUT_NOCOMMANUMBER | ASSIGNMENT); // need to see null assigned -- store raw numbers, not with commas, lest relations break
         if (*buffer == '#' && !strchr(buffer,' ')) // substitute a constant? user type-in :set command for example
         {
-            uint64 n = FindValueByName(buffer + 1);
+            uint64 n = FindPropertyValueByName(buffer + 1);
             if (!n) n = FindSystemValueByName(buffer + 1);
             if (n)
             {
@@ -1186,7 +1216,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
         // if he original requested to assign to and the assignment has been done, then we dont need to do anything
         if ((setToImply != impliedSet && setToImply != ALREADY_HANDLED) || (setToWild != impliedWild  && setToWild != ALREADY_HANDLED)) currentFact = NULL; // used up
                                                                                                                                                             // A fact was created but not used up by retrieving some field of it. Convert to a reference to fact. -- eg $$f = createfact()
-        else if (currentFact && setToImply == impliedSet && setToWild == impliedWild && (setToWild != ALREADY_HANDLED || setToImply != ALREADY_HANDLED || otherassign)) sprintf(buffer, (char*)"%d", currentFactIndex());
+        else if (currentFact && setToImply == impliedSet && setToWild == impliedWild && (setToWild != ALREADY_HANDLED || setToImply != ALREADY_HANDLED || otherassign)) sprintf(buffer, (char*)"%u", currentFactIndex());
     }
     // normally null is empty string, but for assignment allow the word, which means null as in removal
     if (!stricmp(buffer, (char*)"null") && (*word != USERVAR_PREFIX || !strchr(word, '.'))) *buffer = 0;
@@ -1194,7 +1224,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     //   now sort out who we are assigning into and if its arithmetic or simple assign
     if (*word == '@')
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s(%s) %s %s => ", word, GetUserVariable(word), op, originalWord1);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s(%s) %s %s => ", word, GetUserVariable(word, false, true), op, originalWord1);
         if (impliedSet == ALREADY_HANDLED) { ; }
         else if (!*buffer && *op == '=') // null assign to set as a whole
         {
@@ -1275,8 +1305,8 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
-            if (*op == '=') Log(USERLOG,"%s %s %s(%s) => ", word, op, originalWord1, GetUserVariable(originalWord1));
-            else Log(USERLOG,"%s(%s) %s %s(%s) => ", word, GetUserVariable(word), op, originalWord1, GetUserVariable(originalWord1));
+            if (*op == '=') Log(USERLOG,"%s %s %s(%s) => ", word, op, originalWord1, GetUserVariable(originalWord1, false, true));
+            else Log(USERLOG,"%s(%s) %s %s(%s) => ", word, GetUserVariable(word, false, true), op, originalWord1, GetUserVariable(originalWord1, false, true));
         }
         if (*word == '^') result = FAILRULE_BIT;	// not allowed to increment locally at present OR json array ref...
         else if (*buffer) result = Add2UserVariable(word, buffer, op, originalWord1);
@@ -1293,11 +1323,21 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             }
             else SetWildCard(buffer, buffer, word, 0);
         }
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s=%s =>`%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace())
+        {
+            if (!*buffer && !stricmp(originalWord1,"null")) Log(USERLOG, "%s=%s", word, originalWord1);
+            else Log(USERLOG, "%s=%s`%s`", word, originalWord1, buffer);
+        }
     }
     else if (*word == USERVAR_PREFIX)
     {
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s = %s `%s`\r\n", word, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace())
+        {
+            if (!*buffer && !stricmp(originalWord1, "null")) Log(USERLOG, "%s=%s", word, originalWord1);
+            else if (!stricmp(originalWord1,buffer)) Log(USERLOG, "%s = %s", word, originalWord1);
+            else if (*originalWord1 == '^') Log(USERLOG, "%s = %s(...) `%s`", word, originalWord1, buffer);
+            else Log(USERLOG, "%s = %s `%s`", word, originalWord1, buffer);
+        }
         // assume that if a variable explicitly has quotes that they are important and therefore don't need to strip them 
         bool stripQuotes = (*originalWord1 == USERVAR_PREFIX) ? false : true;
         char* dot = strchr(word, '.');
@@ -1339,9 +1379,8 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             Log(USERLOG,"variable assign %s has itself as a term\r\n", word);
         }
         if (result & ENDCODES) goto exit; // failed next value
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"    %s(%s) %s %s(%s) =>", word, GetUserVariable(word), op, originalWord1, buffer);
+        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"    %s(%s) %s %s(%s) =>", word, GetUserVariable(word, false, true), op, originalWord1, buffer);
         if (*buffer) result = Add2UserVariable(word, buffer, op, originalWord1);
-        if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"\r\n");
     }
 
     // debug
@@ -1366,5 +1405,7 @@ exit:
     impliedSet = oldImpliedSet;
     impliedWild = oldImpliedWild;
     impliedOp = 0;
+    if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "\r\n");
+
     return ptr;
 }

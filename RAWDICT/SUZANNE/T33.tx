@@ -1,0 +1,2909 @@
+T33_0003	=====	074601	m
+T33_0006	-----	Robyn122
+T33_0009	.....	00009
+T33_0012	0007268	*	PPY	you	[S[Ny:s.Ny:s]
+T33_0015	0007278	|	VBR	+'re	[Vau.
+T33_0018	0007289	|	VVGv	pretending	.Vau]
+T33_0021	0007307	|	PPH1	it	[Fn:o[Ni:s.Ni:s]
+T33_0024	0007316	|	VBZ	+'s	[Vzb.Vzb]
+T33_0027	0007326	|	NPD1	Friday	[Nns:e.Nns:e]Fn:o]
+T33_0030	0007340	|	VBR	are	[Iq[S?[Vabx.Vabx]
+T33_0033	0007352	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T33_0036	.....	00010
+T33_0039	0007382	*	UY	yes	.
+T33_0042	0007393	|	PPIS2	we	[S[Nap:s101.Nap:s101]
+T33_0045	0007402	|	VBR	+'re	[Vaeut.
+T33_0048	0007413	|	XX	not	.
+T33_0051	0007424	|	VVGK	gon	.Vaeut]
+T33_0054	0007434	|	TO	+na	[Ti:z[Vi.
+T33_0057	0007444	|	VV0v	forget	.Vi]
+T33_0060	0000000	y	YG	-	[Ti:o[s101.s101]
+T33_0063	0007458	|	TO	to	[Vi.
+T33_0066	0007469	|	VV0v	sing	.Vi]
+T33_0069	0007481	|	JJ	happy	[Nns:o[Ot[Ns.
+T33_0072	0007494	|	NN1c	birthday	.Ns]Ot]Nns:o]
+T33_0075	0007510	|	RTt	today	[R:t.R:t]
+T33_0078	0007523	|	VBR	are	[Iq[S?[Vabx.Vabx]
+T33_0081	0007534	?	PPY	you	[Ny:s.Ny:s]S?]Iq]
+T33_0084	.....	00012
+T33_0087	0007631	&*	CSn	when	[Fa:t[Rq:t.Rq:t]
+T33_0090	0007647	|	PPHS1m	he	[Nas:s.Nas:s]
+T33_0093	0007657	|	VV0i	come	[V.V]
+T33_0096	0007669	|	RP	in	[R:q.R:q]Fa:t]
+T33_0099	0007679	|	CC	and	[Ti+.
+T33_0102	0000000	y	YG	-	[s101.s101]
+T33_0105	0007690	|	VV0v	give	[V.V]
+T33_0108	0007702	|	PPHO1m	him	[Nos:i.Nos:i]
+T33_0111	0007714	|	AT1	a	[Ns:o.
+T33_0114	0007723	|	JJ	big	.
+T33_0117	0007734	.	NN1c	kiss	.Ns:o]Ti+]Ti:o]Ti:z]S]
+T33_0120	.....	00013
+T33_0123	0007765	*	VMo	can	[S?[Voc.Voc]
+T33_0126	0007776	|	PN1	somebody	[Ns:s.Ns:s]
+T33_0129	0007792	|	UP	please	.
+T33_0132	0007806	|	VV0i	go	[Vr.Vr]
+T33_0135	0007816	|	CC	and	[S+.
+T33_0138	0007827	|	VV0v	watch	[V.V]
+T33_0141	0007841	|	NP1f	Chloe	[Nns:o.Nns:o]
+T33_0144	0007854	|	AT1	a	[Ns:t.
+T33_0147	0007863	?	NNT1c	minute	.Ns:t]S+]S?]
+T33_0150	.....	00014
+T33_0153	0007896	*?	UL	what	.
+T33_0156	.....	00015
+T33_0159	0007927	*	YMV	er	.
+T33_0162	0007937	|	CSi	if	[S[Fa:c.
+T33_0165	0007947	|	PPY	you	[Ny:s103.Ny:s103]
+T33_0168	0007958	|	VD0	do	[Ve.
+T33_0171	0007967	|	XX	+n't	.
+T33_0174	0007978	|	VV0v	stop	.Ve]
+T33_0177	0000000	y	YG	-	[Tg:o[s103.s103]
+T33_0180	0007990	|	VVGv	eating	[Vg.Vg]
+T33_0183	0008005	|	DD2a	those	[Np:o.
+T33_0186	0008018	|	NN2	biscuits	.Np:o]Tg:o]Fa:c]
+T33_0189	0008034	|	EX	there	.
+T33_0192	0008046	|	VMo	+'ll	[Vcb.
+T33_0195	0008057	|	VB0	be	.Vcb]
+T33_0198	0008067	.	NN1n	trouble	[Ns:s.Ns:s]S]
+T33_0201	.....	00016
+T33_0204	0008101	*	VV0i	go	[S*[V.V]
+T33_0207	0008111	.	RP	on	[R:q.R:q]
+T33_0210	.....	00017
+T33_0213	0008140	*	VV0i	go	[S*@[V.V]
+T33_0216	0008150	|	CC	and	[S*+.
+T33_0219	0008161	|	VV0v	see	[V.V]
+T33_0222	0008172	.	NP1f	Chloe	[Nns:o.Nns:o]S*+]S*@]S*]
+T33_0225	.....	00018
+T33_0228	0008203	c	YP	{pause}	.
+T33_0231	0008211	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_0234	0008223	|	PPY	you	[Ny:s.Ny:s]
+T33_0237	0008234	|	VVGv	drawing	[Vg.Vg]S?]
+T33_0240	0008249	?	NP1f	Kylie	[Nns".Nns"]
+T33_0243	-----	Robin123
+T33_0246	.....	00011
+T33_0249	0007583	*.	UN	no	.
+T33_0252	-----	Kylie124
+T33_0255	.....	00019
+T33_0258	0008300	*	UN	no	.
+T33_0261	0008310	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_0264	0008318	|	VBM	+'m	[Vmu.
+T33_0267	0008328	|	VVGv	writing	.Vmu]
+T33_0270	0008343	|	AT	the	[Ns:o.
+T33_0273	0008354	.	NN1c	date	.Ns:o]S]
+T33_0276	-----	Robyn122
+T33_0279	.....	00020
+T33_0282	0008404	*	PPY	you	[S[Ny:s.Ny:s]
+T33_0285	0008414	|	VBR	+'re	[Vau.
+T33_0288	0008425	|	VVGv	writing	.Vau]
+T33_0291	0008440	|	AT	the	[Ns:o.
+T33_0294	0008451	.	NN1c	date	.Ns:o]S]
+T33_0297	.....	00021
+T33_0300	0008482	*	VBR	are	[S?[Voab.Voab]
+T33_0303	0008493	|	PPY	you	[Ny:s.Ny:s]
+T33_0306	0008504	|	VVGv	writing	[Vru.Vru]
+T33_0309	0008519	|	NPD1	Friday	[Nn:o.
+T33_0312	0000000	y	YG	-	[105.105]Nn:o]
+T33_0315	0008533	|	RTn	then	[Rsw:c.Rsw:c]
+T33_0318	0008545	|	CCr	or	[Nns+:G105.
+T33_0321	0008556	?	NPD1	Thursday	.Nns+:G105]S?]
+T33_0324	-----	Kylie124
+T33_0327	.....	00022
+T33_0330	0008610	*	ATn	no	[L[Ns:e[D.
+T33_0333	0008620	|	DAR	more	.D]
+T33_0336	0008632	|	NN1n	cake	.Ns:e]
+T33_0339	0008644	.	NPD1	Friday	[Nns:t.Nns:t]L]
+T33_0342	-----	Robyn122
+T33_0345	.....	00023
+T33_0348	0008696	*	ATn	no	[Ns[D.
+T33_0351	0008706	|	DAR	more	.D]
+T33_0354	0008718	|	NN1n	cake	.Ns]
+T33_0357	0008730	.	NP1m	Scott	[Nns".Nns"]
+T33_0360	.....	00024
+T33_0363	0008766	*	APPGy	your	[S[Ns:s.
+T33_0366	0008778	|	NNS1c	dad	.Ns:s]
+T33_0369	0008789	|	VMo	will	[Vc.Vc]
+T33_0372	0008801	ic	YY	{unclear}	[Y.Y]S]
+T33_0375	-----	Scott125
+T33_0378	.....	00025
+T33_0381	0008841	*	ATn	no	[Ns[D.
+T33_0384	0008851	|	DAR	more	.D]
+T33_0387	0008863	|	ATn	no	.
+T33_0390	0008873	.	NN1n	cake	.Ns]
+T33_0393	-----	Kylie124
+T33_0396	.....	00026
+T33_0399	0008923	*	ATn	no	[Ns.
+T33_0402	0008933	.	NN1n	cake	.Ns]
+T33_0405	-----	Robin123
+T33_0408	.....	00027
+T33_0411	0008983	*	UN	no	.
+T33_0414	0008993	.	UN	no	.
+T33_0417	-----	Robyn122
+T33_0420	.....	00028
+T33_0423	0009041	*	UR	oh	.
+T33_0426	0009051	|	UN	no	.
+T33_0429	0009061	|	UN	no	.
+T33_0432	0009071	.	UN	no	.
+T33_0435	-----	Robin123
+T33_0438	.....	00029
+T33_0441	0009119	*	ATn	no	[Ns[ATn#.
+T33_0444	0000000	y	YR	#	.
+T33_0447	0009129	|	ATn	no	.
+T33_0450	0000000	y	YR	#	.
+T33_0453	0009139	|	ATn	no	.ATn#]
+T33_0456	0009149	.	NN1n	cake	.Ns]
+T33_0459	-----	Robyn122
+T33_0462	.....	00030
+T33_0465	0009199	*	JJ	dear	[Neo!.
+T33_0468	0009211	.	PPIO1	me	.Neo!]
+T33_0471	-----	Robin123
+T33_0474	.....	00031
+T33_0477	0009259	|	NPM1	January	[Nns.Nns]
+T33_0480	0009274	ic	YY	{unclear}	[Y.Y]
+T33_0483	0009284	c	YP	{pause}	.
+T33_0486	0009292	c	-	{event06}	.
+T33_0489	-----	Robyn122
+T33_0492	.....	00032
+T33_0495	0009355	*	DDQ	what	[S?[Dq:G107.Dq:G107]
+T33_0498	0009367	|	PPY	you	[Ny:s.Ny:s]
+T33_0501	0009378	|	VVGv	shouting	[Vg.Vg]
+T33_0504	0009394	|	II	at	[P:q.
+T33_0507	0000000	y	YG	-	[107.107]P:q]S?]
+T33_0510	0009404	?	NP1m	Scott	[Nns".Nns"]
+T33_0513	.....	00033
+T33_0516	0009436	*	RRQq	where	[S?[Rq:p.Rq:p]
+T33_0519	0009448	|	VBR	+'re	[Vab.Vab]
+T33_0522	0009459	|	AT	the	[Np:s.
+T33_0525	0009470	|	NN2	matches	.
+T33_0528	0009485	|	IF	for	[P.
+T33_0531	0009496	|	AT	the	[Ns.
+T33_0534	0009508	|	NN1c	birthday	.
+T33_0537	0009524	?	NN1n	cake	.Ns]P]Np:s]S?]
+T33_0540	.....	00034
+T33_0543	0009554	c	YP	{pause}	.
+T33_0546	0009562	|	NP1f	Kylie	[Nns".Nns"]
+T33_0549	0009575	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_0552	0000000	y	YG	-	[m109.m109]
+T33_0555	0009583	|	VBM	+'m	[Vmut.
+T33_0558	0009593	|	RR	just	[R:G109.R:G109]
+T33_0561	0009605	|	VVGK	going	.Vmut]
+T33_0564	0009618	|	TO	to	[Ti:z[Vi.
+T33_0567	0009628	|	VV0v	put	.Vi]
+T33_0570	0009640	|	DD1i	this	[Ds:o.Ds:o]
+T33_0573	0009652	|	II	in	[P:q.
+T33_0576	0009662	|	AT	the	[Ns.
+T33_0579	0009673	.	NN1c	bin	.Ns]P:q]Ti:z]S]
+T33_0582	.....	00035
+T33_0585	0009703	*	VV0v	watch	[S*[V.V]
+T33_0588	0009716	|	CST	that	[Fn:o.
+T33_0591	0009728	|	NP1m	Scott	[Nns:s.Nns:s]
+T33_0594	0009741	|	VDZ	does	[Vze.
+T33_0597	0009752	|	XX	+n't	.
+T33_0600	0009763	|	VV0v	touch	.Vze]
+T33_0603	0009777	|	PN1	anything	[Ns:o.
+T33_0606	0009793	|	II	on	[P.
+T33_0609	0009803	|	AT	the	[Ns.
+T33_0612	0009814	.	NN1c	table	.Ns]P]Ns:o]Fn:o]S*]
+T33_0615	-----	Kylie124
+T33_0618	.....	00036
+T33_0621	0009865	*.	UR	right	.
+T33_0624	0009886	c	YP	{pause}	.
+T33_0627	-----	Robin123
+T33_0630	.....	00037
+T33_0633	0009924	*	EX	there	[S.
+T33_0636	0009936	|	VBZ	+'s	[Vzb.Vzb]
+T33_0639	0009946	|	APPGm	his	[Np:s.
+T33_0642	0009957	.	NN2	eyes	.Np:s]S]
+T33_0645	-----	Robyn122
+T33_0648	.....	00038
+T33_0651	0010007	*	DDQGq	whose	[Npq.
+T33_0654	0010020	?	NN2	eyes	.Npq]
+T33_0657	-----	Robin123
+T33_0660	.....	00039
+T33_0663	0010070	|	NP1m	Jack	[Nns.
+T33_0666	0010082	.	NP1s	Sprat	.Nns]
+T33_0669	-----	Robyn122
+T33_0672	.....	00040
+T33_0675	0010134	*.	UR	ooh	.
+T33_0678	0010153	c	YP	{pause}	.
+T33_0681	-----	Kylie124
+T33_0684	.....	00041
+T33_0687	0010191	*	DDi	some	[S[N:s.
+T33_0690	0010203	|	NNc	people	.N:s]
+T33_0693	0010217	|	VH0	have	[Vf.
+T33_0696	0010229	|	VVNH	got	.Vf]
+T33_0699	0010240	|	NN1n	work	[Ns:111.
+T33_0702	0010256	|	TO	to	[Ti[Vi.
+T33_0705	0010267	.	VD0	do	.Vi]
+T33_0708	0000000	y	YG	-	[o111.o111]Ti]Ns:111]S]
+T33_0711	-----	Robyn122
+T33_0714	.....	00042
+T33_0717	0010315	*	UR	right	.
+T33_0720	0010328	|	PNQSq	who	[S?[Nq:s.Nq:s]
+T33_0723	0010338	|	VBZ	+'s	[Vzut.
+T33_0726	0010348	|	VVGK	gon	.Vzut]
+T33_0729	0010358	|	TO	+na	[Ti:z[Vi.
+T33_0732	0010368	|	VV0v	help	.Vi]
+T33_0735	0010380	|	VV0v	set	[Tb:o[V.V]
+T33_0738	0010391	|	AT	the	[Ns:o.
+T33_0741	0010403	|	NN1c	table	.Ns:o]
+T33_0744	0010416	|	IF	for	[P:k.
+T33_0747	0010427	.	NNS1c	daddy	[Nns.Nns]P:k]Tb:o]Ti:z]S?]
+T33_0750	.....	00043
+T33_0753	0010459	*	VV0i	come	[S*[V.V]
+T33_0756	0010471	|	RP	on	[R:q.R:q]
+T33_0759	0010481	.	RTn	then	[Rsw:c.Rsw:c]S*]
+T33_0762	.....	00044
+T33_0765	0010512	*	NN2	knives	[Np[NN2&.
+T33_0768	0010526	|	CC	and	[NN2+.
+T33_0771	0010537	.	NN2	forks	.NN2+]NN2&]Np]
+T33_0774	-----	Robin123
+T33_0777	.....	00045
+T33_0780	0010588	*	VDN	done	[S[Vn.Vn]
+T33_0783	0010600	|	DD1i	this	[Ds:o.Ds:o]
+T33_0786	0010612	|	MDt	last	[Ns:t.
+T33_0789	0010624	.	NNT1c	time	.Ns:t]S]
+T33_0792	-----	Robyn122
+T33_0795	.....	00046
+T33_0798	0010674	.	UR	OK	.
+T33_0801	.....	00047
+T33_0804	0010704	c	YP	{pause}	.
+T33_0807	0010712	|	NP1m	Scott	[Nns".Nns"]
+T33_0810	0010729	|	VV0i	come	[S*[V.V]
+T33_0813	0010741	|	II21	out	[P:q[II=.
+T33_0816	0010741	|	II22	of	.II=]
+T33_0819	0010755	|	AT	the	[Ns.
+T33_0822	0010767	.	NN1c	window	.Ns]P:q]S*]
+T33_0825	-----	Robin123
+T33_0828	.....	00048
+T33_0831	0010819	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_0834	0010828	|	VDD	did	[Vde.
+T33_0837	0010838	|	XX	+n't	.
+T33_0840	0010849	|	VV0v	know	.Vde]
+T33_0843	0010861	|	DDQ	what	[Fn?:o[Dq:e.Dq:e]
+T33_0846	0010873	|	PPH1	it	[Ni:s.Ni:s]
+T33_0849	0010883	.	VBDZ	was	[Vsb.Vsb]Fn?:o]S]
+T33_0852	-----	Robyn122
+T33_0855	.....	00049
+T33_0858	0010932	*?	DDQ	what	[Dq.Dq]
+T33_0861	-----	Robin123
+T33_0864	.....	00050
+T33_0867	0010982	*	VVGv	making	[Tg[Vg.Vg]
+T33_0870	0010996	|	DD1a	that	[Ns:o.
+T33_0873	0011008	|	JJ	funny	.
+T33_0876	0011021	.	NN1n	noise	.Ns:o]Tg]
+T33_0879	-----	Robyn122
+T33_0882	.....	00051
+T33_0885	0011072	*	CC	and	[S?+.
+T33_0888	0011083	|	DDQ	what	[Dq:e.Dq:e]
+T33_0891	0011095	|	VBDZ	was	[Vsb.Vsb]
+T33_0894	0011106	?	PPH1	it	[Ni:s.Ni:s]S?+]
+T33_0897	-----	Robin123
+T33_0900	.....	00052
+T33_0903	0011154	*	PPH1	it	[S[Ni:s.Ni:s]
+T33_0906	0011163	|	VBZ	+'s	[Vzb.Vzb]
+T33_0909	0011173	|	RRQq	when	[Ff:e[Rq:t.Rq:t]
+T33_0912	0011189	|	PN1	somebody	[Ns:s.Ns:s]
+T33_0915	0011205	|	VVZi	comes	[Vz.Vz]
+T33_0918	0011218	|	RP	in	[R:q.R:q]Ff:e]S]
+T33_0921	0011228	|	YMN	mm	.
+T33_0924	0011238	c	YP	{pause}	.
+T33_0927	-----	Robyn122
+T33_0930	.....	00053
+T33_0933	0011276	*	UW	well	[L.
+T33_0936	0011288	.	RTn	then	[Rsw:c.Rsw:c]L]
+T33_0939	-----	Kylie124
+T33_0942	.....	00054
+T33_0945	0011338	*	PPIS2	we	[S[Nap:s.Nap:s]
+T33_0948	0000000	y	YG	-	[h113.h113]
+T33_0951	0011347	|	VBR	+'re	[Vaut.
+T33_0954	0011358	|	RR	all	[R:G113.R:G113]
+T33_0957	0011369	|	VVGK	going	.Vaut]
+T33_0960	0011382	|	TO	to	[Ti:z[Vi.
+T33_0963	0011392	|	VV0v	sing	.Vi]
+T33_0966	0011404	ic	YY	{unclear}	[Y.Y]Ti:z]S]
+T33_0969	-----	Robyn122
+T33_0972	.....	00055
+T33_0975	0011444	*	PPY	you	[S?[Ny:s.Ny:s]
+T33_0978	0011454	|	VBR	+'re	[Vaut.
+T33_0981	0011465	|	VVGK	gon	.Vaut]
+T33_0984	0011475	|	TO	+na	[Ti:z[Vi.
+T33_0987	0011485	|	VV0v	sing	.Vi]
+T33_0990	0011497	?	DDQ	what	[Dq:o.Dq:o]Ti:z]S?]
+T33_0993	-----	Kylie124
+T33_0996	.....	-----
+T33_0999	0011522	ic	YY	{unclear}	[Y.Y]
+T33_1002	-----	Robyn122
+T33_1005	.....	00056
+T33_1008	0011567	*.	RR	steady	[R.R]
+T33_1011	-----	Kylie124
+T33_1014	.....	00057
+T33_1017	0011623	*	VV0v	wait	[S*[V.V]
+T33_1020	0011635	|	ICSt	till	[Fa:t.
+T33_1023	0011647	|	PPIS1	I	[Nea:s.Nea:s]
+T33_1026	0011656	ic	YY	{unclear}	[Y.Y]Fa:t]S*]
+T33_1029	-----	Robyn122
+T33_1032	.....	00058
+T33_1035	0011696	*	UR	right	.
+T33_1038	0011709	|	UW	well	.
+T33_1041	0011721	|	PPY	you	[S[Ny:s.Ny:s]
+T33_1044	0011732	|	VV0v	sing	[V.V]
+T33_1047	0011744	|	PPH1	it	[Ni:o.Ni:o]
+T33_1050	0011754	.	MDo	first	[R:t.R:t]S]
+T33_1053	.....	00059
+T33_1056	0011786	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_1059	0011795	|	VV0v	think	[V.V]
+T33_1062	0011808	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T33_1065	0011816	|	VH0	+'ve	[Vf.
+T33_1068	0011827	|	VVNv	forgot	.Vf]
+T33_1071	0011841	|	AT	the	[Np:o.
+T33_1074	0011852	.	NN2	words	.Np:o]Fn:o]S]
+T33_1077	.....	00060
+T33_1080	0011883	c	YP	{pause}	.
+T33_1083	0011891	*	VV0v	get	[S*[V.V]
+T33_1086	0011902	|	II	off	[P:q.
+T33_1089	0011917	|	AT	the	[Ns.
+T33_1092	0011928	.	NN1c	table	.Ns]P:q]S*]
+T33_1095	.....	00061
+T33_1098	0011960	*	PPY	you	[S[Ny:s.Ny:s]
+T33_1101	0011971	|	VMo	ca	[Vce.
+T33_1104	0011980	|	XX	+n't	.
+T33_1107	0011991	|	VH0	have	.Vce]
+T33_1110	0012003	|	DDy	any	[Ns:o.
+T33_1113	0012014	|	NN1n	cake	.Ns:o]
+T33_1116	0012026	|	ICSt	until	[P:t.
+T33_1119	0012044	.	NN1u	teatime	.P:t]S]
+T33_1122	0012067	c	YP	{pause}	.
+T33_1125	-----	Kylie124
+T33_1128	.....	00062
+T33_1131	0012104	c	YVL	{singing}	.
+T33_1134	0012124	*	RR	just	[R.R]
+T33_1137	0012136	|	JJ	happy	[J[JJ#.
+T33_1140	0000000	y	YR	#	.
+T33_1143	0012149	|	JJ	happy	.JJ#]J]
+T33_1146	0012162	|	PPHS2	they	[Nap.Nap]
+T33_1149	0012173	|	VBR	+'re	[Vab.Vab]
+T33_1152	0012184	ic	YY	{unclear}	[Y.
+T33_1155	0012194	|	NN1c	hat	[Ns.Ns]
+T33_1158	0012205	|	RP	on	[R.R]
+T33_1161	0012219	|	CC	and	[S+.
+T33_1164	0012230	|	PPHS1m	he	[Nas:115.Nas:115]
+T33_1167	0012239	|	VBZ	+'s	[Vzu.
+T33_1170	0012249	|	VVGi	coming	.Vzu]
+T33_1173	0012264	|	RP	out	[R:q.R:q]
+T33_1176	0000000	y	YG	-	[Ti:c[s115.s115]
+T33_1179	0012275	|	TO	to	[Vi.
+T33_1182	0012285	.	VV0v	play	.Vi]Ti:c]S+]Y]
+T33_1185	0012305	c	YVR	{singing}	.
+T33_1188	-----	Robyn122
+T33_1191	.....	00063
+T33_1194	0012343	*	CC	and	[S?+.
+T33_1197	0012354	|	VBZ	is	[Vzb.Vzb]
+T33_1200	0012364	|	DD1a	that	[Ds:s.Ds:s]
+T33_1203	0012376	|	AT1	a	[Ns:e.
+T33_1206	0012385	|	NN1c	picture	.
+T33_1209	0012400	|	IO	of	[Po.
+T33_1212	0012410	|	AT	the	[Ns.
+T33_1215	0012422	?	NN1n	sun	.Ns]Po]Ns:e]S?+]
+T33_1218	-----	Kylie124
+T33_1221	.....	00064
+T33_1224	0012471	*.	UY	yes	.
+T33_1227	-----	Robyn122
+T33_1230	.....	00065
+T33_1233	0012520	*	DD1a	that	[S[Ds:s.Ds:s]
+T33_1236	0012531	|	VBZ	+'s	[Vzb.Vzb]
+T33_1239	0012541	|	RG	very	[J:e.
+T33_1242	0012553	.	JJ	good	.J:e]S]
+T33_1245	-----	Kylie124
+T33_1248	.....	00066
+T33_1251	0012603	*	RTo	now	[S[Rw:t.Rw:t]
+T33_1254	0012614	|	PPY	you	[Ny:s.Ny:s]
+T33_1257	0012625	|	VH0	have	[V.V]
+T33_1260	0012637	|	TO	to	[Ti:z[Vi.
+T33_1263	0012647	|	VV0v	sing	.Vi]
+T33_1266	0012659	.	PPH1	it	[Ni:o.Ni:o]Ti:z]S]
+T33_1269	-----	Robyn122
+T33_1272	.....	00067
+T33_1275	0012707	*.	UR	oh	.
+T33_1278	.....	00068
+T33_1281	0012736	.	NP1m	Scotty	[Nns".Nns"]
+T33_1284	.....	00069
+T33_1287	0012773	c	YVL	{singing}	.
+T33_1290	0012793	*	AT	the	[S[Ns:s.
+T33_1293	0012804	|	NN1n	sun	.Ns:s]
+T33_1296	0012815	|	VHZ	has	[Vzf.
+T33_1299	0012826	|	VVNH	got	.Vzf]
+T33_1302	0012837	|	APPGm	his	[Ns:o.
+T33_1305	0000000	|	NN1c	hat	.Ns:o]
+T33_1308	0012849	|	RP	on	[R:p.R:p]S]
+T33_1311	0012859	|	UX	hip	.
+T33_1314	0012874	|	UX	hip	.
+T33_1317	0012889	|	UX	hip	.
+T33_1320	0012904	.	UX	hooray	.
+T33_1323	.....	00070
+T33_1326	0012937	*	AT	the	[S[Ns:s.
+T33_1329	0012948	|	NN1n	sun	.Ns:s]
+T33_1332	0012959	|	VHZ	has	[Vzf.
+T33_1335	0012970	|	VVNH	got	.Vzf]
+T33_1338	0012981	|	APPGm	his	[Ns:o.
+T33_1341	0012992	|	NN1c	hat	.Ns:o]
+T33_1344	0013003	|	RP	on	[R:p.R:p]
+T33_1347	0013018	|	CC	and	[S+.
+T33_1350	0013029	|	PPHS1m	he	[Nas:s117.Nas:s117]
+T33_1353	0013038	|	VBZ	+'s	[Vzu.
+T33_1356	0013048	|	VVGi	coming	.Vzu]
+T33_1359	0013062	|	RP	out	[R:q.R:q]
+T33_1362	0000000	y	YG	-	[Ti:c[s117.s117]
+T33_1365	0013073	|	TO	to	[Vi.
+T33_1368	0013083	.	VV0v	play	.Vi]Ti:c]S+]S]
+T33_1371	0013103	c	YVR	{singing}	.
+T33_1374	.....	00071
+T33_1377	0013122	*.	UX	hooray	.
+T33_1380	-----	Kylie124
+T33_1383	.....	00072
+T33_1386	0013174	*.	UX	hooray	.
+T33_1389	-----	Robyn122
+T33_1392	.....	00073
+T33_1395	0013226	*.	UX	hooray	.
+T33_1398	-----	Robin123
+T33_1401	.....	00074
+T33_1404	0013278	*	UR	right	.
+T33_1407	0013291	|	RTo	now	[S[Rw:t.Rw:t]
+T33_1410	0013302	|	PPIS2	we	[Nap:s.Nap:s]
+T33_1413	0013312	|	VBR	are	[Vaut.
+T33_1416	0013323	|	VVGK	going	.Vaut]
+T33_1419	0013336	|	TO	to	[Ti:z[Vi.
+T33_1422	0013346	ic	YY	{unclear}	[Y.Y]Vi]Ti:z]S]
+T33_1425	0013356	c	YP	{pause}	.
+T33_1428	0013364	c	YVL	{shouting}	.
+T33_1431	0013385	*	PPY	you	[S[Ny:s.Ny:s]
+T33_1434	0013395	|	VBR	+'re	[Vab.Vab]
+T33_1437	0013406	|	AT1	a	[Ns:e.
+T33_1440	0013415	.	NN1c	person	.Ns:e]S]
+T33_1443	0013437	c	YVR	{shouting}	.
+T33_1446	-----	Scott125
+T33_1449	.....	00000
+T33_1452	0013464	c	YV	{crying}	.
+T33_1455	-----	Kylie124
+T33_1458	.....	00075
+T33_1461	0013514	|	NP1m	Scott	[Nns".Nns"]
+T33_1464	0013527	.	UA	sorry	.
+T33_1467	-----	Scott125
+T33_1470	.....	00076
+T33_1473	0013578	*	UN	no	.
+T33_1476	0013588	c	YVL	{shouting}	.
+T33_1479	0013609	|	UN	no	.
+T33_1482	0013619	c.	YVR	{shouting}	.
+T33_1485	-----	Robyn122
+T33_1488	.....	00077
+T33_1491	0013665	|	NP1m	Scott	[Nns".Nns"]
+T33_1494	0013682	|	VV0v	stop	[S*[V.V]
+T33_1497	0013698	.	VVGv	shouting	[Tg[Vg.Vg]Tg]S*]
+T33_1500	-----	Scott125
+T33_1503	.....	00078
+T33_1506	0013751	c	YVL	{crying}	.
+T33_1509	0013770	*	UR	oh	.
+T33_1512	0013780	c	YVR	{crying}	.
+T33_1515	-----	Kylie124
+T33_1518	.....	00079
+T33_1521	0013818	*	PPY	you	[S[Ny:s.Ny:s]
+T33_1524	0013829	|	VVDv	smacked	[Vd.Vd]
+T33_1527	0013844	|	PPIO1	me	[Neo:o.Neo:o]S]
+T33_1530	0013854	ic	YY	{unclear}	[Y.Y]
+T33_1533	-----	Scott125
+T33_1536	.....	00000
+T33_1539	0013883	c	YV	{screaming}	.
+T33_1542	-----	Kylie124
+T33_1545	.....	00080
+T33_1548	0013936	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_1551	0013945	|	VBZ	+'s	[Vz.
+T33_1554	0013955	|	VV0v	scream	.Vz]
+T33_1557	0013969	|	II	at	[P:q.
+T33_1560	0013979	|	PPIO1	me	.P:q]
+T33_1563	0013989	|	CC	and	[Y+.
+T33_1566	0014000	ic.	YY	{unclear}	.Y+]S]
+T33_1569	-----	Robyn122
+T33_1572	.....	00081
+T33_1575	0014048	|	NP1m	Scott	[Nns".Nns"]
+T33_1578	0014065	|	UI	now	.
+T33_1581	0014076	|	PPY	you	[S[Ny:s.Ny:s]
+T33_1584	0014087	|	VV0v	stop	[V.V]
+T33_1587	0014099	|	DD1a	that	[Ds:o.Ds:o]
+T33_1590	0014111	|	DD1i	this	[Ns:t.
+T33_1593	0014124	.	NNT1c	minute	.Ns:t]S]
+T33_1596	.....	00082
+T33_1599	0014157	|	NP1f	Kylie	[Nns".Nns"]
+T33_1602	0014170	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_1605	0014179	|	VV0v	want	[V.V]
+T33_1608	0014191	|	PPY	you	[Ny:O119.Ny:O119]
+T33_1611	0000000	y	YG	-	[Ti:o[s119.s119]
+T33_1614	0014202	|	TO	to	[Vi.
+T33_1617	0014212	|	VV0i	go	.Vi]
+T33_1620	0014222	|	RLn	upstairs	[R:q.R:q]
+T33_1623	0014239	|	CC	and	[Ti+.
+T33_1626	0014250	|	VV0v	get	[V.V]
+T33_1629	0014261	|	PPIO1	me	[Neo:i.Neo:i]
+T33_1632	0014271	|	AT1	a	[Ns:o.
+T33_1635	0014280	|	NN1c	pad	.Ns:o]
+T33_1638	0014291	|	IF	for	[P:k.
+T33_1641	0014302	|	NP1m	Scott	[Nns.Nns]P:k]Ti+]Ti:o]S]
+T33_1644	0014316	.	UP	please	.
+T33_1647	.....	00083
+T33_1650	0014349	*	VV0v	hurry	[S*[V.V]
+T33_1653	0014362	|	RP	up	[R:n.R:n]
+T33_1656	0014372	|	RRz	so	[R:c.
+T33_1659	0014372	|	CST	that	[Fc.
+T33_1662	0014387	|	PPHS1m	he	[Nas:s.Nas:s]
+T33_1665	0014396	|	VHZ	+'s	[Vzf.
+T33_1668	0014406	|	VVNH	got	.Vzf]
+T33_1671	0014417	|	AT1	a	[Ns:o.
+T33_1674	0014427	|	NN1c	paddy	.Ns:o]
+T33_1677	0014440	|	RP	on	[R:p.R:p]
+T33_1680	0014454	|	II	at	[P:t.
+T33_1683	0014464	.	NN1u	teatime	.P:t]Fc]R:c]S*]
+T33_1686	.....	00084
+T33_1689	0014498	*	VV0i	come	[S*[V.V]
+T33_1692	0014510	|	RP	on	[R:q.R:q]S*]
+T33_1695	0014520	.	NP1f	Kylie	[Nns".Nns"]
+T33_1698	-----	Scott125
+T33_1701	.....	00085
+T33_1704	0014574	ic	YY	{unclear}	[Y.
+T33_1707	0014584	.	NN1n	tea	.Y]
+T33_1710	-----	Robyn122
+T33_1713	.....	00086
+T33_1716	0014633	*?	UL	what	.
+T33_1719	-----	Scott125
+T33_1722	.....	00087
+T33_1725	0014683	*.	NN1n	tea	[Ns.Ns]
+T33_1728	-----	Robyn122
+T33_1731	.....	00088
+T33_1734	0014732	*	PPY	you	[S[Ny:s.Ny:s]
+T33_1737	0014742	|	VBR	+'re	[Vaut.
+T33_1740	0014753	|	VVGK	gon	.Vaut]
+T33_1743	0014763	|	TO	+na	[Ti:z[Vi.
+T33_1746	0014773	|	VH0	have	.Vi]
+T33_1749	0014785	|	DDi	some	[Ns:o.
+T33_1752	0014797	|	NN1n	tea	.Ns:o]
+T33_1755	0014808	|	II	in	[P:t.
+T33_1758	0014819	|	AT1	a	[Ns.
+T33_1761	0014828	|	NNT1c	minute	.Ns]
+T33_1764	0014842	|	CSn	when	[Fa@[Rq:t.Rq:t]
+T33_1767	0014854	|	NNS1c	daddy	[Nns:s.Nns:s]
+T33_1770	0014867	.	VVZi	comes	[Vz.Vz]Fa@]P:t]Ti:z]S]
+T33_1773	-----	Scott125
+T33_1776	.....	00089
+T33_1779	0014918	*.	UY	yes	.
+T33_1782	-----	Robyn122
+T33_1785	.....	00090
+T33_1788	0014983	&*.	UY	yes	[UY.UY]
+T33_1791	-----	Robin123
+T33_1794	.....	00091
+T33_1797	0015065	&ic	YY	{unclear}	[S[Y:s.Y:s]
+T33_1800	0015092	&	VMo	will	[Vcb.
+T33_1803	0015104	|	VB0	be	.Vcb]
+T33_1806	0015114	.	RLh	here	[Rw:p.Rw:p]S]
+T33_1809	-----	Robyn122
+T33_1812	.....	00092
+T33_1815	0015164	*	MC	six	[M.
+T33_1818	0015175	.	RAh	o'clock	.M]
+T33_1821	-----	Robin123
+T33_1824	.....	00093
+T33_1827	0015228	*.	UR	ooh	.
+T33_1830	-----	Robyn122
+T33_1833	.....	00094
+T33_1836	0015277	*.	NN1u	teatime	[Ns.Ns]
+T33_1839	.....	00095
+T33_1842	0015314	c	YP	{pause}	.
+T33_1845	0015322	*	PPY	you	[S[Ny:s.Ny:s]
+T33_1848	0015332	|	VHD	+'d	[Vd.Vd]
+T33_1851	0015342	|	RRR	better	[R:m.R:m]
+T33_1854	0015356	|	VV0v	watch	[Tb:z[V.V]
+T33_1857	0015369	|	CC	and	[Tb+.
+T33_1860	0015380	|	VV0v	get	[V.V]
+T33_1863	0015392	|	DD1a	that	[Ns:o.
+T33_1866	0015404	|	NN1c	paddy	.Ns:o]Tb+]
+T33_1869	0015417	|	MDo	first	[R:t.R:t]Tb:z]
+T33_1872	0015430	|	CCr	or	[S+.
+T33_1875	0015440	|	EX	there	.
+T33_1878	0015452	|	VMo	+'ll	[Vcb.
+T33_1881	0015463	|	VB0	be	.Vcb]
+T33_1884	0015474	.	NN1n	trouble	[Ns:s.Ns:s]S+]S]
+T33_1887	-----	Scott125
+T33_1890	.....	-----
+T33_1893	0015502	ic	YY	{unclear}	[Y.Y]
+T33_1896	-----	Robyn122
+T33_1899	.....	00096
+T33_1902	0015547	*?	UL	what	.
+T33_1905	.....	00097
+T33_1908	0015578	*	UR	oh	.
+T33_1911	0015588	|	APPGi1	my	[Ns!.
+T33_1914	0015598	.	NN1u	goodness	.Ns!]
+T33_1917	.....	00098
+T33_1920	0015633	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_1923	0015642	|	VBZ	+'s	[Vzb.Vzb]
+T33_1926	0015652	|	AT1	a	[Ns:e.
+T33_1929	0015661	.	NN1c	monster	.Ns:e]S]
+T33_1932	.....	00099
+T33_1935	0015695	*	UY	yes	.
+T33_1938	0015706	ic.	YY	{unclear}	[Y.Y]
+T33_1941	.....	00100
+T33_1944	0015735	*	MC1	one	.
+T33_1947	0015746	|	MC	two	.
+T33_1950	0015757	|	MC1	one	.
+T33_1953	0015768	|	MC	two	.
+T33_1956	0015779	|	MC	three	.
+T33_1959	0015792	|	MC	four	.
+T33_1962	-----	Scott125
+T33_1965	.....	-----
+T33_1968	0015809	ic	YY	{unclear}	[Y.Y]
+T33_1971	-----	Robyn122
+T33_1974	.....	00101
+T33_1977	0015854	*?	UL	what	.
+T33_1980	.....	00102
+T33_1983	0015885	*	MC1	one	.
+T33_1986	0015896	|	MC	two	.
+T33_1989	0015907	.	MC	three	.
+T33_1992	.....	00103
+T33_1995	0015939	*	VBR	are	[S?[Voab.Voab]
+T33_1998	0015950	|	PPY	you	[Ny:s.Ny:s]
+T33_2001	0015961	|	VVGK	gon	[Vrgt.Vrgt]
+T33_2004	0015971	|	TO	+na	[Ti:z[Vi.
+T33_2007	0015981	|	VH0	have	.Vi]
+T33_2010	0015993	|	AT1	a	[Ns:o.
+T33_2013	0016002	|	NN1c	potato	.
+T33_2016	0016017	?	NN1c	fork	.Ns:o]Ti:z]S?]
+T33_2019	.....	00104
+T33_2022	0016048	*	RLh	there	[S[Rw:p.
+T33_2025	0000000	y	YG	-	[120.120]Rw:p]
+T33_2028	0016061	|	PPY	you	[Ny:s.Ny:s]
+T33_2031	0016072	.	VBR	are	[Vab.Vab]
+T33_2034	.....	00105
+T33_2037	0016102	*	II	on	[P@:G120.
+T33_2040	0016112	|	AT	the	[Ns.
+T33_2043	0016123	.	NN1c	table	.Ns]P@:G120]S]
+T33_2046	.....	00106
+T33_2049	0016154	c	YP	{pause}	.
+T33_2052	0016162	*	RLh	there	[S[Rw:p.Rw:p]
+T33_2055	0016174	|	VBZ	+'s	[Vzb.Vzb]
+T33_2058	0016184	|	AT	the	[Ns:s.
+T33_2061	0016195	|	NN1c	potato	.
+T33_2064	0016209	.	NN1c	knife	.Ns:s]S]
+T33_2067	.....	00107
+T33_2070	0016240	c	YP	{pause}	.
+T33_2073	0016248	*	MC	three	[Y.
+T33_2076	0016261	ic	YY	{unclear}	.Y]
+T33_2079	0016271	|	EX	there	[S.
+T33_2082	0016283	|	VBZ	+'s	[Vzb.Vzb]
+T33_2085	0016293	|	MC	four	[Y:s.
+T33_2088	0016305	ic	YY	{unclear}	.Y:s]
+T33_2091	0016316	|	VBR	are	[Iq[S?[Vaeb.
+T33_2094	0016326	|	XX	+n't	.Vaeb]
+T33_2097	0016337	.	EX	there	.S?]Iq]S]
+T33_2100	.....	00108
+T33_2103	0016369	*.	RR	steady	[R.R]
+T33_2106	.....	00109
+T33_2109	0016406	*	VV0v	put	[S*[V.V]
+T33_2112	0016417	|	PPHO2	them	[Nop:o.Nop:o]
+T33_2115	0016429	|	RP	on	[R:q.R:q]
+T33_2118	0016443	|	RTn	then	[Rsw:c.Rsw:c]S*]
+T33_2121	0016455	ic.	YY	{unclear}	[Y.Y]
+T33_2124	.....	00110
+T33_2127	0016484	*	RLh	there	[S[Rw:p.Rw:p]
+T33_2130	0016496	|	VBZ	+'s	[Vzb.Vzb]
+T33_2133	0016506	|	NP1m	Robin	[Y:s[Nns.Nns]
+T33_2136	0016521	ic	YY	{unclear}	.
+T33_2139	0016531	|	CC	and	[G+.
+T33_2142	0016543	|	NP1f	Kylie	[Nns.Nns]
+T33_2145	0016555	.	GG	+'s	.G+]Y:s]S]
+T33_2148	.....	00111
+T33_2151	0016584	|	NP1f	Kylie	[Nns".Nns"]
+T33_2154	0016601	|	VV0i	come	[S*[V.V]
+T33_2157	0016613	.	RP	on	[R:q.R:q]S*]
+T33_2160	.....	00112
+T33_2163	0016642	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_2166	0016654	|	VDD	did	[Vod.Vod]
+T33_2169	0016665	|	PPY	you	[Ny:s.Ny:s]
+T33_2172	0016676	|	VD0	do	[Vr.Vr]
+T33_2175	0016686	|	II	at	[P:p.
+T33_2178	0016696	|	NNJ1n	school	.P:p]
+T33_2181	0016710	|	RTt	today	[R:t.R:t]
+T33_2184	0016724	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T33_2187	-----	Kylie124
+T33_2190	.....	00113
+T33_2193	0016774	*?	UL	what	.
+T33_2196	-----	Robyn122
+T33_2199	.....	00114
+T33_2202	0016824	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_2205	0016836	|	VDD	did	[Vod.Vod]
+T33_2208	0016847	|	PPY	you	[Ny:s.Ny:s]
+T33_2211	0016858	|	VD0	do	[Vr.Vr]
+T33_2214	0016868	|	II	at	[P:p.
+T33_2217	0016878	|	NNJ1n	school	.P:p]S?]
+T33_2220	0016892	|	VV0i	come	[S*[V.V]
+T33_2223	0016905	|	CC	and	[S*+.
+T33_2226	0016916	|	VV0v	tell	[V.V]
+T33_2229	0016928	.	PPIO1	me	[Neo:i.Neo:i]S*+]S*]
+T33_2232	.....	00115
+T33_2235	0016956	c	YP	{pause}	.
+T33_2238	0016964	*?	UL	what	.
+T33_2241	-----	Scott125
+T33_2244	.....	-----
+T33_2247	0016989	ic	YY	{unclear}	[Y.Y]
+T33_2250	-----	Robyn122
+T33_2253	.....	00116
+T33_2256	0017034	*.	UR	oh	.
+T33_2259	-----	Scott125
+T33_2262	.....	00117
+T33_2265	0017082	*	VVDv	got	[S[Vd.Vd]
+T33_2268	0017092	|	AT1	a	[Ns:o.
+T33_2271	0017102	.	NN1c	smack	.Ns:o]S]
+T33_2274	-----	Robyn122
+T33_2277	.....	00118
+T33_2280	0017153	*	PPY	you	[S[Ny:s.Ny:s]
+T33_2283	0017164	|	VVDv	got	[Vd.Vd]
+T33_2286	0017174	|	AT1	a	[Ns:o.
+T33_2289	0017184	.	NN1c	smack	.Ns:o]S]
+T33_2292	.....	00119
+T33_2295	0017216	*	PNQSq	who	[S?[Nq:s.Nq:s]
+T33_2298	0017227	|	VVDv	smacked	[Vd.Vd]
+T33_2301	0017242	?	PPY	you	[Ny:o.Ny:o]S?]
+T33_2304	.....	00120
+T33_2307	0017271	ic	YY	{unclear}	[Y.Y]
+T33_2310	0017281	*	NN1c	potato	[S[Nns:s.Nns:s]
+T33_2313	0017295	|	VVDv	smacked	[Vd.Vd]
+T33_2316	0017310	|	PPY	you	[Ny:o.Ny:o]S]
+T33_2319	0017321	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_2322	0017330	|	VD0	do	[Ve.
+T33_2325	0017339	|	XX	+n't	[XX:G123.XX:G123]
+T33_2328	0017351	|	VV0v	think	.Ve]
+T33_2331	0017364	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T33_2334	0017374	.	VDD	did	[Vdx.
+T33_2337	0000000	y	YG	-	[123.123]Vdx]Fn:o]S]
+T33_2340	.....	00121
+T33_2343	0017404	*	NN1c	potato	[Ns.
+T33_2346	0017418	|	NN1n	power	.Ns]
+T33_2349	0017431	.	UY	mm	.
+T33_2352	.....	00122
+T33_2355	0017460	*	VV0v	sing	[S*[V.V]
+T33_2358	0017472	|	AT1	a	[Ns:o.
+T33_2361	0017481	|	NN1n	song	.Ns:o]S*]
+T33_2364	0017493	.	NP1m	Scott	[Nns".Nns"]
+T33_2367	.....	00123
+T33_2370	0017528	c	YP	{pause}	.
+T33_2373	0017536	*	UX	hooray	.
+T33_2376	0017550	.	UX	hooray	.
+T33_2379	.....	00124
+T33_2382	0017582	c	YP	{pause}	.
+T33_2385	0017590	*.	UX	hooray	.
+T33_2388	.....	00125
+T33_2391	0017622	c	YP	{pause}	.
+T33_2394	0017630	|	NP1f	Kylie	[Nns".Nns"]
+T33_2397	0017647	|	VDD	did	[S?[Vod.Vod]
+T33_2400	0017658	|	PPY	you	[Ny:s.Ny:s]
+T33_2403	0017669	|	VD0	do	[Vr.Vr]
+T33_2406	0017679	|	DDy	any	[Np:o.
+T33_2409	0017690	|	NN2	sums	.Np:o]
+T33_2412	0017703	?	RTt	today	[R:t.R:t]S?]
+T33_2415	.....	00126
+T33_2418	0017735	*?	UN	no	.
+T33_2421	.....	00127
+T33_2424	0017764	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_2427	0017776	|	VDD	did	[Vod.Vod]
+T33_2430	0017787	|	PPY	you	[Ny:s.Ny:s]
+T33_2433	0017798	?	VD0	do	[Vr.Vr]S?]
+T33_2436	.....	00128
+T33_2439	0017827	*	VDD	did	[S?[Vod.Vod]
+T33_2442	0017838	|	PPY	you	[Ny:s.Ny:s]
+T33_2445	0017849	|	VD0	do	[Vr.Vr]
+T33_2448	0017859	|	DDi	some	[Ns:o.
+T33_2451	0017871	|	VVGv	writing	[Tg[Vg.Vg]Tg]Ns:o]
+T33_2454	0017890	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T33_2457	.....	00129
+T33_2460	0017921	*	VDD	did	[S?[Vod.Vod]
+T33_2463	0017932	|	PPY	you	[Ny:s.Ny:s]
+T33_2466	0017943	|	VD0	do	[Vr.Vr]
+T33_2469	0017953	|	DBa	all	[Ns:o.
+T33_2472	0017964	|	APPGy	your	.
+T33_2475	0017976	|	NN1n	work	.
+T33_2478	0017988	|	II	from	[P.
+T33_2481	0018001	|	AT	the	[N.
+T33_2484	0018012	ic.	YY	{unclear}	[Y.Y]N]P]Ns:o]S?]
+T33_2487	-----	Kylie124
+T33_2490	.....	00130
+T33_2493	0018060	*.	UY	yeah	.
+T33_2496	-----	Robyn122
+T33_2499	.....	00131
+T33_2502	0018110	*	RRz	so	[S[Rs:c.Rs:c]
+T33_2505	0018120	|	PPY	you	[Ny:s.Ny:s]
+T33_2508	0018130	|	VH0	+'ve	[Vfb.
+T33_2511	0018141	|	VBN	been	.Vfb]
+T33_2514	0018153	|	JJ	good	[J:e.J:e]
+T33_2517	0018169	.	RTn	then	[Rsw:c.Rsw:c]S]
+T33_2520	.....	00132
+T33_2523	0018200	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_2526	0018209	|	VV0v	think	[V.V]
+T33_2529	0018222	ic	YY	{unclear}	[Fn:o[Y:s.Y:s]
+T33_2532	0018232	|	VVZv	wants	[Vz.Vz]
+T33_2535	0018245	|	DDi	some	[Ns:o.
+T33_2538	0018257	.	NN1n	tea	.Ns:o]Fn:o]S]
+T33_2541	-----	Scott125
+T33_2544	.....	00133
+T33_2547	0018306	*	VVZv	wants	[S[Vz.Vz]
+T33_2550	0018319	|	DDi	some	[Ns:o.
+T33_2553	0018331	.	NN1n	tea	.Ns:o]S]
+T33_2556	-----	Robyn122
+T33_2559	.....	00134
+T33_2562	0018380	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_2565	0018389	|	VV0v	think	[V.V]
+T33_2568	0018402	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T33_2571	0018413	|	VVZv	wants	[Vz.Vz]
+T33_2574	0018426	|	DDi	some	[Ns:o.
+T33_2577	0018438	.	NN1n	tea	.Ns:o]Fn:o]S]
+T33_2580	.....	00135
+T33_2583	0018467	c	YP	{pause}	.
+T33_2586	0018475	c	-	{event02}	.
+T33_2589	0018504	*	VV0v	stop	[S*[V.V]
+T33_2592	0018516	|	VVGv	banging	[Tg:o[Vg.Vg]Tg:o]S*]
+T33_2595	0018532	.	NP1m	Scott	[Nns".Nns"]
+T33_2598	-----	Robin123
+T33_2601	.....	00136
+T33_2604	0018587	*.	NNS1c	mum	[Nns".Nns"]
+T33_2607	-----	Robyn122
+T33_2610	.....	00137
+T33_2613	0018636	*?	UL	what	.
+T33_2616	-----	Robin123
+T33_2619	.....	00138
+T33_2622	0018686	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_2625	0018695	|	VV0v	want	[V.V]
+T33_2628	0000000	y	YR	#	.
+T33_2631	0018707	|	PPIS1	I	[Nea:s.Nea:s]
+T33_2634	0018716	|	VV0v	want	[V.V]
+T33_2637	0000000	y	YR	#	.
+T33_2640	0018728	|	EX	there	.
+T33_2643	0018740	|	VBZ	+'s	[Vzb.Vzb]
+T33_2646	0018750	|	DDi	some	[N:s.N:s]
+T33_2649	0000000	y	YR	#	.
+T33_2652	0018763	|	EX	there	.
+T33_2655	0018775	|	VBZ	+'s	[Vzb.Vzb]
+T33_2658	0018785	|	DDi	some	[N:s.
+T33_2661	0018797	ic	YY	{unclear}	[Y.Y]N:s]
+T33_2664	0018807	|	CC	and	[S+.
+T33_2667	0018818	|	PPIS1	I	[Nea:s.Nea:s]
+T33_2670	0018827	|	VV0v	know	[V.V]
+T33_2673	0018840	|	RR	just	[Ns:o.
+T33_2676	0018852	|	AT	the	.
+T33_2679	0018863	|	NN1c	answer	.
+T33_2682	0018877	|	IIt	to	[P.
+T33_2685	0018887	|	AT	the	[Ns.
+T33_2688	0018898	.	NN1n	question	.Ns]P]Ns:o]S+]S]
+T33_2691	0018922	ic	YY	{unclear}	[Y.Y]
+T33_2694	-----	Robyn122
+T33_2697	.....	00139
+T33_2700	0018962	*?	UL	what	.
+T33_2703	-----	Robin123
+T33_2706	.....	-----
+T33_2709	0018987	ic	YY	{unclear}	[Y.Y]
+T33_2712	-----	Robyn122
+T33_2715	.....	00140
+T33_2718	0019031	ic	YY	{unclear}	[Y.Y]
+T33_2721	0019041	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_2724	0019052	|	VH0	+'ve	[Vo.Vo]
+T33_2727	0019063	|	PPY	you	[Ny:s.Ny:s]
+T33_2730	0019074	?	VDN	done	[Vrn.Vrn]S?]
+T33_2733	.....	00141
+T33_2736	0019105	*	VV0v	pick	[S*[V.V]
+T33_2739	0019117	|	PPH1	it	[Ni:o.Ni:o]
+T33_2742	0019127	|	RP	up	[R:q.R:q]S*]
+T33_2745	0019137	|	VV0v	put	[S*[V.V]
+T33_2748	0019148	|	AT	the	[Ns:o.
+T33_2751	0019159	|	NN1c	knife	.Ns:o]
+T33_2754	0019172	|	RP	down	[R:q.R:q]
+T33_2757	0019185	|	RTo	now	[Rw:t.Rw:t]
+T33_2760	0019196	|	II	on	[P:p.
+T33_2763	0019210	.	RLh	there	.P:p]S*]
+T33_2766	.....	00142
+T33_2769	0019242	*	RTo	now	[S*[Rw:t.Rw:t]
+T33_2772	0019253	|	VV0v	pick	[V.V]
+T33_2775	0019265	|	APPGy	your	[Ns:o.
+T33_2778	0019277	|	NN1c	fork	.Ns:o]
+T33_2781	0019289	|	RP	up	[R:q.R:q]
+T33_2784	0019299	|	VV0v	get	[S*@[V.V]
+T33_2787	0019310	|	RP	down	[R:q.R:q]
+T33_2790	0019323	|	CC	and	[S*+.
+T33_2793	0019334	|	VV0v	pick	[V.V]
+T33_2796	0019346	|	PPH1	it	[Ni:o.Ni:o]
+T33_2799	0019356	.	RP	up	[R:q.R:q]S*+]S*@]S*]
+T33_2802	.....	00143
+T33_2805	0019384	c	YP	{pause}	.
+T33_2808	0019392	*?	UL	what	.
+T33_2811	.....	00144
+T33_2814	0019423	*	UR	oh	.
+T33_2817	0019433	|	RR	just	[S*[R:m.R:m]
+T33_2820	0019445	|	VV0v	pick	[V.V]
+T33_2823	0019457	|	PPH1	it	[Ni:o.Ni:o]
+T33_2826	0019467	.	RP	up	[R:q.R:q]S*]
+T33_2829	.....	00145
+T33_2832	0019495	c	YP	{pause}	.
+T33_2835	0019503	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_2838	0019515	|	PPY	you	[Ny:s.Ny:s]
+T33_2841	0019526	?	VDG	doing	[Vg.Vg]S?]
+T33_2844	.....	00146
+T33_2847	0019558	*	UA21	pardon	[UA=.
+T33_2850	0019572	?	UA22	me	.UA=]
+T33_2853	-----	Scott125
+T33_2856	.....	-----
+T33_2859	0019595	ic	YY	{unclear}	[Y.Y]
+T33_2862	-----	Robyn122
+T33_2865	.....	00147
+T33_2868	0019640	*	UR	really	.
+T33_2871	0019654	.	UY	mm	.
+T33_2874	-----	Scott125
+T33_2877	.....	00148
+T33_2880	0019702	*.	UY	yeah	.
+T33_2883	-----	Robyn122
+T33_2886	.....	00149
+T33_2889	0019752	*	RRz	so	[S[Rs:c.Rs:c]
+T33_2892	0019762	|	PPIS2	we	[Nap:s.Nap:s]
+T33_2895	0019771	|	VBR	+'re	[Va.
+T33_2898	0019782	|	VV0v	get	.Va]
+T33_2901	0019793	|	PPY	you	[Ny:O129.Ny:O129]
+T33_2904	0000000	y	YG	-	[Tg:o[s129.s129]
+T33_2907	0019804	|	VHG	having	[Vg.Vg]
+T33_2910	0019818	|	DDi	some	[Ns:o.
+T33_2913	0019831	|	NN1n	tea	.Ns:o]Tg:o]
+T33_2916	0019842	|	RTo	now	[Rw:t.Rw:t]S]
+T33_2919	0019853	?	UY	mm	.
+T33_2922	0019871	c	YP	{pause}	.
+T33_2925	-----	Robin123
+T33_2928	.....	00150
+T33_2931	0019909	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_2934	0019918	|	VV0v	wish	[V.V]
+T33_2937	0019930	|	NNS1c	daddy	[Fn:o[Nns:s.Nns:s]
+T33_2940	0019943	|	VBDZ	was	[Vsb.Vsb]
+T33_2943	0019954	|	RL	back	[R:p.R:p]Fn:o]S]
+T33_2946	0019966	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_2949	0019975	|	VV0v	wish	[V.V]
+T33_2952	0019988	|	NNS1c	daddy	[Fn:o[Nns:s.Nns:s]
+T33_2955	0020001	|	VBDZ	was	[Vsb.Vsb]
+T33_2958	0020012	.	RL	back	[R:p.R:p]Fn:o]S]
+T33_2961	-----	Robyn122
+T33_2964	.....	00151
+T33_2967	0020062	*	DDQ	what	[L?[Dq:G131.Dq:G131]
+T33_2970	0020074	?	IF	for	[P:c.
+T33_2973	0000000	y	YG	-	[131.131]P:c]L?]
+T33_2976	-----	Robin123
+T33_2979	.....	-----
+T33_2982	0020098	ic	YY	{unclear}	[Y.Y]
+T33_2985	-----	Robyn122
+T33_2988	.....	00152
+T33_2991	0020143	*	PPY	you	[S?[Ny:s.Ny:s]
+T33_2994	0020154	?	VVGv	starving	[Vg.Vg]S?]
+T33_2997	-----	Kylie124
+T33_3000	.....	00153
+T33_3003	0020212	*	ATn	no	[Ns.
+T33_3006	0020222	.	NNL1n	way	.Ns]
+T33_3009	-----	Robyn122
+T33_3012	.....	00154
+T33_3015	0020271	*	UW	well	.
+T33_3018	0020283	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_3021	0020293	|	VMo	wo	[Vceb.
+T33_3024	0020302	|	XX	+n't	.
+T33_3027	0020313	|	VB0	be	.Vceb]
+T33_3030	0020323	.	RRg	long	[R:t.R:t]
+T33_3033	.....	00155
+T33_3036	0020354	*	CCB	but	[S?+.
+T33_3039	0020365	|	VMo	will	[Voc.Voc]
+T33_3042	0020377	|	AT	the	[Ns:s.
+T33_3045	0020388	|	NN1n	chicken	.Ns:s]
+T33_3048	0020403	|	VB0	be	[Vrb.Vrb]
+T33_3051	0020413	.	VVNv	cooked	[Tn:e[Vn.Vn]Tn:e]S?+]S]
+T33_3054	.....	00156
+T33_3057	0020445	c	YP	{pause}	.
+T33_3060	0020453	*	RRz	so	[S?[Rs:c.Rs:c]
+T33_3063	0020463	|	DDQ	what	[Dq:o.Dq:o]
+T33_3066	0020475	|	VDD	did	[Vod.Vod]
+T33_3069	0020486	ic	YY	{unclear}	[Y.Y]
+T33_3072	0020496	|	IF	for	[P:k.
+T33_3075	0020507	|	PPY	you	.P:k]
+T33_3078	0020519	|	RTt	today	[R:t.R:t]
+T33_3081	0020532	ic?	YY	{unclear}	[Y.Y]S?]
+T33_3084	-----	Robin123
+T33_3087	.....	00157
+T33_3090	0020580	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T33_3093	0020590	|	VHD	+'d	[Vdfb.
+T33_3096	0020600	|	VBN	been	.Vdfb]
+T33_3099	0020612	.	JJ	sick	[J:e.J:e]S]
+T33_3102	-----	Robyn122
+T33_3105	.....	00158
+T33_3108	0020662	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T33_3111	0020672	|	VHD	+'d	[Vdfb.
+T33_3114	0020682	|	VBN	been	.Vdfb]
+T33_3117	0020694	.	JJ	sick	[J:e.J:e]S]
+T33_3120	.....	00159
+T33_3123	0020725	*	RRQq	why	[Rq.
+T33_3126	0020736	|	VDD	did	[S?@[Vod.Vod]
+T33_3129	0020747	|	PPHS1f	she	[Nas:s.Nas:s]
+T33_3132	0020758	|	VV0v	eat	[Vr.Vr]
+T33_3135	0020769	|	PN1	something	[Ns:o135.
+T33_3138	0020786	|	CST	that	[Fr.
+T33_3141	0000000	y	YG	-	[s135.s135]
+T33_3144	0020798	|	VBDZ	was	[Vsb.Vsb]
+T33_3147	0020810	?	JJ	nasty	[J:e.J:e]Fr]Ns:o135]S?@]Rq]
+T33_3150	-----	Robin123
+T33_3153	.....	00160
+T33_3156	0020861	*.	UN	no	.
+T33_3159	-----	Robyn122
+T33_3162	.....	00161
+T33_3165	0020909	*	RTn	then	[S?[Rsw:c.Rsw:c]
+T33_3168	0020921	|	RRQq	why	[Rq:c.Rq:c]
+T33_3171	0020932	|	VBDZ	was	[Vsb.Vsb]
+T33_3174	0020943	|	PPHS1f	she	[Nas:s.Nas:s]
+T33_3177	0020954	?	JJ	sick	[J:e.J:e]S?]
+T33_3180	-----	Robin123
+T33_3183	.....	00162
+T33_3186	0021004	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_3189	0021013	|	VD0	do	[Ve.
+T33_3192	0021022	|	XX	+n't	.
+T33_3195	0021033	.	VV0v	know	.Ve]S]
+T33_3198	-----	Robyn122
+T33_3201	.....	00163
+T33_3204	0021083	*	VV0v	get	[S*[V.V]
+T33_3207	0021094	|	RP	down	[R:q.R:q]
+T33_3210	0021110	|	NP1m	Scott	[Nns".Nns"]
+T33_3213	0021123	|	DD1i	this	[Ns:t.
+T33_3216	0021135	.	NNT1c	minute	.Ns:t]S*]
+T33_3219	-----	Robin123
+T33_3222	.....	00164
+T33_3225	0021186	ic	YY	{unclear}	[S[Y.Y]
+T33_3228	0021196	|	PPY	you	[Ny:s.Ny:s]
+T33_3231	0021207	|	VH0	have	[V.V]
+T33_3234	0021219	|	TO	to	[Ti:z[Vi.
+T33_3237	0021229	|	VV0i	go	.Vi]Ti:z]S]
+T33_3240	0021239	|	CC	and	[Ns+.
+T33_3243	0021250	|	APPGi1	my	.
+T33_3246	0021260	|	NNS1c	dad	.Ns+]
+T33_3249	0021272	|	CSr	where	[Fa[Rq:p.
+T33_3252	0000000	y	YR	#	.
+T33_3255	0021289	ic	YY	{unclear}	[Y.Y]
+T33_3258	0021299	|	CSr	where	.Rq:p]
+T33_3261	0021316	|	PPH1	it	[Ni:s.Ni:s]
+T33_3264	0021326	|	VBDZ	was	[Vsb.Vsb]
+T33_3267	0021337	|	RR	just	[R:m.R:m]
+T33_3270	0021350	|	JJ	clean	[J:e.J:e]
+T33_3273	0021363	|	CC	and	[Fa+.
+T33_3276	0021374	|	PPY	you	[Ny:s.Ny:s]
+T33_3279	0000000	y	YG	-	[m137.m137]
+T33_3282	0021385	|	VMd	could	[Vdc.
+T33_3285	0021398	|	RR	just	[R:G137.R:G137]
+T33_3288	0021410	|	VV0v	sit	.Vdc]
+T33_3291	0021421	|	II	on	[P:p.
+T33_3294	0021432	|	PPH1	it	.P:p]Fa+]Fa]
+T33_3297	0021442	|	CCB	but	[Rw+.
+T33_3300	0021453	|	RLw	nowhere	.
+T33_3303	0021468	|	NP1f	Sarah	[Ns[G[Nns.Nns]
+T33_3306	0021480	|	GG	+'s	.G]
+T33_3309	0021490	.	NN1n	side	.Ns]Rw+]
+T33_3312	-----	Robyn122
+T33_3315	.....	00165
+T33_3318	0021540	*	RRQq	where	[S?[Rq:p.Rq:p]
+T33_3321	0021552	|	VHD	+'d	[Vod.Vod]
+T33_3324	0021562	|	PPHS1f	she	[Nas:s.Nas:s]
+T33_3327	0021573	|	VBN	been	[Vrnb.Vrnb]
+T33_3330	0021585	|	JJ	sick	[J:e.J:e]
+T33_3333	0021601	|	VD0	do	[S?@[Vo.Vo]
+T33_3336	0021611	|	PPY	you	[Ny:s.Ny:s]
+T33_3339	0021623	?	VV0v	know	[Vr.Vr]S?@]S?]
+T33_3342	-----	Robin123
+T33_3345	.....	00166
+T33_3348	0021673	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T33_3351	0021683	|	VHD	+'d	[Vdfb.
+T33_3354	0021693	|	VBN	been	.Vdfb]
+T33_3357	0021705	|	JJ	sick	[J:e.J:e]
+T33_3360	0021717	|	II	on	[P:p.
+T33_3363	0021727	|	AT	the	[Ns.
+T33_3366	0021738	.	NN1c	floor	.Ns]P:p]S]
+T33_3369	-----	Robyn122
+T33_3372	.....	00167
+T33_3375	0021789	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T33_3378	0021799	|	VHD	+'d	[Vdfb.
+T33_3381	0021809	|	VBN	been	.Vdfb]
+T33_3384	0021821	|	JJ	sick	[J:e.J:e]
+T33_3387	0021833	|	II	on	[P:p.
+T33_3390	0021843	|	AT	the	[Ns.
+T33_3393	0021854	.	NN1c	floor	.Ns]P:p]S]
+T33_3396	.....	00168
+T33_3399	0021885	c	YP	{pause}	.
+T33_3402	0021893	*	UP	please	.
+T33_3405	0021907	|	VD0	do	[S*[Ve.
+T33_3408	0021916	|	XX	+n't	.
+T33_3411	0021927	|	VV0v	sit	.Ve]
+T33_3414	0021938	|	II	on	[P:p.
+T33_3417	0021948	|	AT	the	[Ns.
+T33_3420	0021960	.	NN1c	table	.Ns]P:p]S*]
+T33_3423	.....	00169
+T33_3426	0021992	*	UR	right	.
+T33_3429	0022005	|	TO	to	[Ti[Vi.
+T33_3432	0022015	|	VV0v	keep	.Vi]
+T33_3435	0022027	|	PPIO2	us	[Nop:o.Nop:o]
+T33_3438	0022037	|	VVGi	going	[Tg:z[Vg.Vg]Tg:z]Ti]
+T33_3441	0022050	c	YP	{pause}	.
+T33_3444	0022058	|	NP1f	Kylie	[Nns".Nns"]
+T33_3447	0022072	|	VD0	do	[S*[Veb.
+T33_3450	0022081	|	XX	+n't	.
+T33_3453	0022092	|	VB0	be	.Veb]
+T33_3456	0022102	.	JJ	silly	[J:e.J:e]S*]
+T33_3459	.....	00170
+T33_3462	0022133	c	YP	{pause}	.
+T33_3465	0022141	|	NP1f	Kylie	[Nns".Nns"]
+T33_3468	0022158	ic	YY	{unclear}	[Y.Y]
+T33_3471	0022168	c	YP	{pause}	.
+T33_3474	0022176	*	UK	hey	.
+T33_3477	0022187	.	NN2	boys	[Np".Np"]
+T33_3480	.....	00171
+T33_3483	0022218	*	PNQSq	who	[S?[Nq:y.Nq:y]
+T33_3486	0022229	|	VBR	are	[Voab.Voab]
+T33_3489	0022240	|	PPY	you	[Ny:s.Ny:s]
+T33_3492	0022251	|	VVGv	shouting	[Vrg.Vrg]
+T33_3495	0022267	ic?	YY	{unclear}	[Y.Y]S?]
+T33_3498	.....	00172
+T33_3501	0022295	c	YVL	{laughing}	.
+T33_3504	0022316	*?	UL	what	.
+T33_3507	0022336	c	YVR	{laughing}	.
+T33_3510	.....	00173
+T33_3513	0022354	ic	YY	{unclear}	[Y.Y]
+T33_3516	0022364	*	VDD	did	[S?[Vod.Vod]
+T33_3519	0022375	|	PPY	you	[Ny:s.Ny:s]
+T33_3522	0022386	|	VV0v	get	[Vr.Vr]
+T33_3525	0022397	|	AT1	a	[Ns:o.
+T33_3528	0022406	|	NN1c	paddy	.Ns:o]
+T33_3531	0022419	|	IF	for	[P:k.
+T33_3534	0022431	|	PPIO1	me	.P:k]S?]
+T33_3537	0022441	?	UP	please	.
+T33_3540	.....	00174
+T33_3543	0022474	*	MC1	one	[Ms.Ms]
+T33_3546	0022485	|	UR	oh	.
+T33_3549	0022495	|	VV0v	look	[S*[V.V]
+T33_3552	0022507	|	II	at	[P:q.
+T33_3555	0022517	|	DD1a	that	.P:q]S*]
+T33_3558	0022529	|	JJ	clever	[Ns".
+T33_3561	0022543	|	NN1c	girl	.Ns"]
+T33_3564	0022556	.	UY	yes	.
+T33_3567	.....	00175
+T33_3570	0022586	*	DD1q	another	[Ms.
+T33_3573	0022601	?	MC1	one	.Ms]
+T33_3576	.....	00176
+T33_3579	0022631	|	NP1m	Scott	[Nns".Nns"]
+T33_3582	0022644	|	VV0v	put	[S*[V.V]
+T33_3585	0022655	|	PPHO2	them	[Nop:o.Nop:o]
+T33_3588	0022667	|	RP	down	[R:q.R:q]S*]
+T33_3591	0022679	.	UP	please	.
+T33_3594	.....	00177
+T33_3597	0022712	*	RRQq	where	[S?[Rq:q.Rq:q]
+T33_3600	0022724	|	VHZ	+'s	[Voz.Voz]
+T33_3603	0022734	|	NP1f	Kylie	[G:s[Nns.Nns]
+T33_3606	0022746	|	GG	+'s	.G:s]
+T33_3609	0022756	?	VVNi	gone	[Vrn.Vrn]S?]
+T33_3612	.....	00178
+T33_3615	0022787	*	UW	well	.
+T33_3618	0022799	|	VV0v	put	[S*[V.V]
+T33_3621	0022810	|	PPH1	it	[Ni:o.Ni:o]
+T33_3624	0022820	.	RP	down	[R:q.R:q]S*]
+T33_3627	-----	Kylie124
+T33_3630	.....	00179
+T33_3633	0022869	ic	YY	{unclear}	[Y.
+T33_3636	0022879	|	AT	the	[Ns.
+T33_3639	0022890	.	NN1c	paddy	.Ns]Y]
+T33_3642	-----	Robyn122
+T33_3645	.....	00180
+T33_3648	0022941	*	VV0v	hurry	[S*[V.V]
+T33_3651	0022954	|	RP	up	[R:n.R:n]S*]
+T33_3654	0022968	.	NP1f	Kylie	[Nns".Nns"]
+T33_3657	.....	00181
+T33_3660	0023000	*	RRQq	where	[S?[Rq:p.Rq:p]
+T33_3663	0023012	|	VBZ	+'s	[Vzb.Vzb]
+T33_3666	0023022	|	NP1m	Robin	[Nns:s.Nns:s]S?]
+T33_3669	0023037	ic?	YY	{unclear}	[Y.Y]
+T33_3672	-----	Robin123
+T33_3675	.....	00182
+T33_3678	0023085	*.	RLh	there	[Rw.Rw]
+T33_3681	-----	Robyn122
+T33_3684	.....	00183
+T33_3687	0023136	*	RP	in	[Rw.
+T33_3690	0023146	?	RLh	there	.Rw]
+T33_3693	-----	Robin123
+T33_3696	.....	00184
+T33_3699	0023197	*	RLh	there	[Rw.
+T33_3702	0023210	.	NNS1c	mum	[Nns".Nns"]
+T33_3705	.....	00185
+T33_3708	0023240	*.	RLh	there	[Rw-.Rw-]Rw]
+T33_3711	-----	Robyn122
+T33_3714	.....	00186
+T33_3717	0023291	*	VV0i	come	[S*[V.V]
+T33_3720	0023303	.	RP	on	[R:q.R:q]S*]
+T33_3723	.....	00187
+T33_3726	0023331	c	YP	{pause}	.
+T33_3729	0023339	*	VV0i	come	[S*[V.V]
+T33_3732	0023351	|	RP	on	[R:q.R:q]S*]
+T33_3735	0023361	|	MC1	one	.
+T33_3738	0023372	|	MC	two	.
+T33_3741	0023383	.	MC	three	.
+T33_3744	.....	00188
+T33_3747	0023415	*	UX21	oh	[UX=.
+T33_3750	0023425	|	UX22	dear	.UX=]
+T33_3753	0023437	|	VV0v	pick	[S*[V.V]
+T33_3756	0023449	|	PPH1	it	[Ni:o.Ni:o]
+T33_3759	0023459	.	RP	up	[R:q.R:q]S*]
+T33_3762	.....	00189
+T33_3765	0023488	*	RR	just	[L[R:m.R:m]
+T33_3768	0023500	|	AT1	a	[Ns:e.
+T33_3771	0023509	|	NNT1c	minute	.Ns:e]L]
+T33_3774	0023523	|	RR	just	[L[R:m.R:m]
+T33_3777	0023535	|	AT1	a	[Ns:e.
+T33_3780	0023544	.	NNT1c	minute	.Ns:e]L]
+T33_3783	.....	00190
+T33_3786	0023577	*	VV0v	watch	[S*[V.V]
+T33_3789	0023590	|	DD1i	this	[Ds:o.
+T33_3792	0023602	.	RLh	here	.Ds:o]S*]
+T33_3795	.....	00191
+T33_3798	0023633	*	VV0v	pick	[S*[V.V]
+T33_3801	0023645	|	PPH1	it	[Ni:o.Ni:o]
+T33_3804	0023655	|	RP	up	[R:q.R:q]S*]
+T33_3807	0023669	.	NP1m	Scott	[Nns".Nns"]
+T33_3810	.....	00192
+T33_3813	0023701	*	VMo	can	[S?[Voc.Voc]
+T33_3816	0023712	|	PPY	you	[Ny:s.Ny:s]
+T33_3819	0023723	|	VV0t	find	[Vr.Vr]
+T33_3822	0023735	?	PPH1	it	[Ni:o.Ni:o]S?]
+T33_3825	.....	00193
+T33_3828	0023764	*	VH0	have	[S?[Vo.Vo]
+T33_3831	0023776	|	PPY	you	[Ny:s.Ny:s]
+T33_3834	0023787	|	VVNt	found	[Vrn.Vrn]
+T33_3837	0023800	?	PPH1	it	[Ni:o.Ni:o]S?]
+T33_3840	-----	Kylie124
+T33_3843	.....	00194
+T33_3846	0023848	*.	UY	yeah	.
+T33_3849	-----	Robyn122
+T33_3852	.....	00195
+T33_3855	0023898	*.	UR	oh	.
+T33_3858	.....	00196
+T33_3861	0023927	*	VV0i	come	[S*[V.V]
+T33_3864	0023939	|	RP	on	[R:q.R:q]
+T33_3867	0023949	.	RTn	then	[Rsw:c.Rsw:c]S*]
+T33_3870	.....	00197
+T33_3873	0023980	*	RLh	there	[S[Rw:p.Rw:p]
+T33_3876	0023992	|	VBZ	+'s	[Vzb.Vzb]
+T33_3879	0024002	|	AT1	a	[Ns:s.
+T33_3882	0024011	|	JJ	good	.
+T33_3885	0024023	.	NN1c	girl	.Ns:s]S]
+T33_3888	.....	00198
+T33_3891	0024054	|	NP1m	Scott	[Nns".Nns"]
+T33_3894	0024071	|	DDQ	what	[S?[Dq:o.Dq:o]
+T33_3897	0024083	|	VBR	are	[Voab.Voab]
+T33_3900	0024094	|	PPY	you	[Ny:s.Ny:s]
+T33_3903	0024105	?	VDG	doing	[Vrg.Vrg]S?]
+T33_3906	.....	00199
+T33_3909	0024137	*	VV0i	come	[S*[V.V]
+T33_3912	0024149	.	RP	on	[R:q.R:q]S*]
+T33_3915	.....	00200
+T33_3918	0024177	c	YP	{pause}	.
+T33_3921	0024185	*	VV0v	get	[S*[V.V]
+T33_3924	0024196	.	RP	up	[R:q.R:q]S*]
+T33_3927	.....	00201
+T33_3930	0024225	*	VV0v	get	[S*[V.V]
+T33_3933	0024236	|	RP	up	[R:q.R:q]S*]
+T33_3936	0024250	.	NP1m	Scott	[Nns".Nns"]
+T33_3939	.....	00202
+T33_3942	0024282	*	UW	well	.
+T33_3945	0024294	|	DDQ	what	[S?[Dq:o.Dq:o]
+T33_3948	0024306	|	VBR	are	[Voab.Voab]
+T33_3951	0024317	|	PPY	you	[Ny:s.Ny:s]
+T33_3954	0024328	|	VDG	doing	[Vrg.Vrg]S?]
+T33_3957	0024341	|	UX41	for	[UX=.
+T33_3960	0024353	*	UX42	god	.
+T33_3963	0024363	|	UX43	+'s	.
+T33_3966	0024373	?	UX44	sake	.UX=]
+T33_3969	.....	00203
+T33_3972	0024403	c	YVL	{laughing}	.
+T33_3975	0024424	*?	UL	what	.
+T33_3978	0024444	c	YVR	{laughing}	.
+T33_3981	.....	00204
+T33_3984	0024463	*	RRQq	where	[S?[Rq:q.Rq:q]
+T33_3987	0024475	|	VHZ	+'s	[Voz.Voz]
+T33_3990	0024485	|	PPH1	it	[Ni:s.Ni:s]
+T33_3993	0024495	?	VVNi	gone	[Vrn.Vrn]S?]
+T33_3996	.....	00205
+T33_3999	0024526	*	XX	not	[Rw.
+T33_4002	0024537	.	RLh	there	.Rw]
+T33_4005	.....	00206
+T33_4008	0024569	*	UR	right	.
+T33_4011	0024582	|	PPY	you	[S[Ny:s.Ny:s]
+T33_4014	0024593	|	VV0v	get	[V.V]
+T33_4017	0024604	|	AT1	a	[Ns:o.
+T33_4020	0024613	ic.	YY	{unclear}	[Y.Y]Ns:o]S]
+T33_4023	.....	00207
+T33_4026	0024641	c	YP	{pause}	.
+T33_4029	0024649	*	PNQSq	who	[S?[Nq:e.Nq:e]
+T33_4032	0024659	|	VBZ	+'s	[Vzb.Vzb]
+T33_4035	0024669	|	DD1i	this	[Ds:s.Ds:s]S?]
+T33_4038	0024681	?	UK	look	.
+T33_4041	.....	00208
+T33_4044	0024712	*	PNQSq	who	[S?[Nq:e.Nq:e]
+T33_4047	0024722	|	VBZ	+'s	[Vzb.Vzb]
+T33_4050	0024732	?	DD1a	that	[Ds:s.Ds:s]S?]
+T33_4053	.....	00209
+T33_4056	0024763	*	VBZ	is	[S?[Vzb.Vzb]
+T33_4059	0024773	|	DD1a	that	[Ds:s.Ds:s]
+T33_4062	0024785	?	NP1f	Penny	[Nns:e.Nns:e]S?]
+T33_4065	-----	Scott125
+T33_4068	.....	00210
+T33_4071	0024836	*.	UN	no	.
+T33_4074	-----	Robyn122
+T33_4077	.....	00211
+T33_4080	0024884	|	NP1f	Penny	[Nns.
+T33_4083	0024901	|	AT	the	[Ns@.
+T33_4086	0024912	.	NN1c	doll	.Ns@]Nns]
+T33_4089	-----	Scott125
+T33_4092	.....	00212
+T33_4095	0024962	*	AT	the	[Ns.
+T33_4098	0024973	.	NN1c	doll	.Ns]
+T33_4101	-----	Robyn122
+T33_4104	.....	00213
+T33_4107	0025023	*	AT	the	[Ns.
+T33_4110	0025034	|	NN1c	doll	.Ns]
+T33_4113	0025046	.	UY	yes	.
+T33_4116	.....	00214
+T33_4119	0025076	*	VV0v	get	[S*[V.V]
+T33_4122	0025087	|	APPGy	your	[Np:o.
+T33_4125	0025099	|	NN2	fingers	.Np:o]
+T33_4128	0025114	|	II	out	[P:q.
+T33_4131	0025129	|	APPGy	your	[Ns.
+T33_4134	0025142	.	NN1c	mouth	.Ns]P:q]S*]
+T33_4137	.....	00215
+T33_4140	0025174	*?	UL	what	.
+T33_4143	.....	00216
+T33_4146	0025204	c	YP	{pause}	.
+T33_4149	0025212	*	UX	hooray	.
+T33_4152	0025226	|	MC1	one	.
+T33_4155	0025237	|	MC	two	.
+T33_4158	0025248	.	MC	three	.
+T33_4161	-----	Scott125
+T33_4164	.....	00217
+T33_4167	0025299	*	DD1q	another	[Ms.
+T33_4170	0025314	.	MC1	one	.Ms]
+T33_4173	-----	Robyn122
+T33_4176	.....	00218
+T33_4179	0025363	*	DD1q	another	[Ms.
+T33_4182	0025378	.	MC1	one	.Ms]
+T33_4185	.....	00219
+T33_4188	0025408	*	DD1q	another	[Dqs.
+T33_4191	0025423	?	DDQ	what	.Dqs]
+T33_4194	.....	00220
+T33_4197	0025453	c	YP	{pause}	.
+T33_4200	0025461	c	YVL	{shouting}	.
+T33_4203	0025482	.	NP1f	Kylie	[Nns".Nns"]
+T33_4206	0025507	c	YVR	{shouting}	.
+T33_4209	-----	Scott125
+T33_4212	.....	00221
+T33_4215	0025544	c	YVL	{shouting}	.
+T33_4218	0025565	.	NP1f	Kylie	[Nns".Nns"]
+T33_4221	0025590	c	YVR	{shouting}	.
+T33_4224	-----	Kylie124
+T33_4227	.....	00222
+T33_4230	0025628	*.	VVGi	coming	[S[Vg.Vg]S]
+T33_4233	-----	Scott125
+T33_4236	.....	00223
+T33_4239	0025679	c	YVL	{shouting}	.
+T33_4242	0025700	.	NP1f	Kylie	[Nns".Nns"]
+T33_4245	0025725	c	YVR	{shouting}	.
+T33_4248	-----	Robyn122
+T33_4251	.....	00224
+T33_4254	0025763	*	VH0	have	[S?[Vo.Vo]
+T33_4257	0025775	|	PPY	you	[Ny:s.Ny:s]
+T33_4260	0025786	|	VVNH	got	[Vrn.Vrn]
+T33_4263	0025797	|	AT	the	[Ns:o.
+T33_4266	0025808	?	NN1c	paddy	.Ns:o]S?]
+T33_4269	-----	Scott125
+T33_4272	.....	00225
+T33_4275	0025859	*	AT	the	[Ns.
+T33_4278	0025870	.	NN1c	paddy	.Ns]
+T33_4281	-----	Kylie124
+T33_4284	.....	00226
+T33_4287	0025921	*.	NN1n	tea	[Ns.Ns]
+T33_4290	-----	Robyn122
+T33_4293	.....	00227
+T33_4296	0025970	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_4299	0025979	|	VVDv	said	[Vd.Vd]
+T33_4302	0025991	|	VH0	have	[Q:o[S?[Vo.Vo]
+T33_4305	0026003	|	PPY	you	[Ny:s.Ny:s]
+T33_4308	0026014	|	VVNH	got	[Vrn.Vrn]
+T33_4311	0026025	|	AT	the	[Ns:o.
+T33_4314	0026036	?	NN1c	paddy	.Ns:o]S?]Q:o]S]
+T33_4317	.....	00228
+T33_4320	0026068	*	RRQq	where	[S?[Rq:p.Rq:p]
+T33_4323	0026081	|	VBZ	is	[Vzb.Vzb]
+T33_4326	0026091	|	PPH1	it	[Ni:s.Ni:s]
+T33_4329	0026101	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T33_4332	.....	00229
+T33_4335	0026132	*	DDQ	what	[Nqs!.
+T33_4338	0026144	|	AT1	a	.
+T33_4341	0026153	.	NN1c	nutcase	.Nqs!]
+T33_4344	.....	00230
+T33_4347	0026187	c	YP	{pause}	.
+T33_4350	0026195	*	VMo	will	[S?[Voc.Voc]
+T33_4353	0026207	|	PPY	you	[Ny:s.Ny:s]
+T33_4356	0026218	|	VV0v	put	[Vr.Vr]
+T33_4359	0026229	|	DD2a	those	[Dp:o.Dp:o]
+T33_4362	0026242	|	RP	down	[R:q.R:q]S?]
+T33_4365	0026255	.	UP	please	.
+T33_4368	.....	00231
+T33_4371	0026288	*	VV0v	give	[S*[V.V]
+T33_4374	0026300	|	NP1f	Kylie	[Nns:i.Nns:i]
+T33_4377	0026317	|	PPGf	hers	[G:o.G:o]
+T33_4380	0026329	|	RL	back	[R:q.R:q]
+T33_4383	0026341	.	RTo	now	[Rw:t.Rw:t]S*]
+T33_4386	-----	Kylie124
+T33_4389	.....	00232
+T33_4392	0026390	*	VV0v	want	[S[V.V]
+T33_4395	0026402	|	PN1	something	[Ns:o147.
+T33_4398	0026419	|	TO	to	[Ti[Vi.
+T33_4401	0026429	.	VV0v	eat	.Vi]
+T33_4404	0000000	y	YG	-	[o147.o147]Ti]Ns:o147]S]
+T33_4407	-----	Robyn122
+T33_4410	.....	00233
+T33_4413	0026478	*	VV0v	give	[S*[V.V]
+T33_4416	0026490	|	NP1m	Scott	[Nns:i.Nns:i]
+T33_4419	0026503	|	PPGm	his	[G:o.G:o]S*]
+T33_4422	0026514	|	VV0v	give	[S*[V.V]
+T33_4425	0026526	|	NP1m	Robin	[Nns:i.Nns:i]
+T33_4428	0026541	ic	YY	{unclear}	[Y.Y]
+T33_4431	0026552	.	PPGm	his	[G:o.G:o]S*]
+T33_4434	-----	Kylie124
+T33_4437	.....	00234
+T33_4440	0026601	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_4443	0026610	|	VV0v	want	[V.V]
+T33_4446	0026622	|	PN1	something	[Ns:o149.
+T33_4449	0026639	|	TO	to	[Ti[Vi.
+T33_4452	0026649	.	VV0v	eat	.Vi]
+T33_4455	0000000	y	YG	-	[o149.o149]Ti]Ns:o149]S]
+T33_4458	-----	Robyn122
+T33_4461	.....	00235
+T33_4464	0026698	*	UW	well	.
+T33_4467	0026710	|	RR	just	[L[R:m.R:m]
+T33_4470	0026722	|	AT1	a	[Ns:e.
+T33_4473	0026731	|	NNT1c	minute	.Ns:e]L]
+T33_4476	0026749	|	NNS1c	daddy	[S[Nns:s.Nns:s]
+T33_4479	0026761	|	VMo	+'ll	[Vcb.
+T33_4482	0026772	|	VB0	be	.Vcb]
+T33_4485	0026783	|	RLh	here	[Rw:p.Rw:p]
+T33_4488	0026795	|	RR	soon	[R:t.R:t]
+T33_4491	0026807	|	CC	and	[S+.
+T33_4494	0026818	|	PPY	you	[Ny:s.Ny:s]
+T33_4497	0026829	|	VMo	can	[Vc.
+T33_4500	0026840	|	VH0	have	.Vc]
+T33_4503	0026853	.	DDi	some	[D:o.D:o]S+]S]
+T33_4506	.....	00236
+T33_4509	0026884	*	VV0v	get	[S*[V.V]
+T33_4512	0026895	.	RP	down	[R:q.R:q]S*]
+T33_4515	.....	00237
+T33_4518	0026926	*	PPY	you	[S[Ny:s.Ny:s]
+T33_4521	0026937	|	VMo	ca	[Vce.
+T33_4524	0026946	|	XX	+n't	.
+T33_4527	0026957	|	VH0	have	.Vce]
+T33_4530	0026969	|	AT	the	[Ns:o.
+T33_4533	0026980	|	NNJ1n	party	.Ns:o]
+T33_4536	0026993	|	IW	without	[P:w.
+T33_4539	0027009	|	NNS1c	daddy	[Nns.Nns]P:w]
+T33_4542	0027022	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T33_4545	0027038	|	PPH1	it	[Ni:s.Ni:s]
+T33_4548	0027047	|	VBZ	+'s	[Vzb.Vzb]
+T33_4551	0027057	|	APPGm	his	[Ns:e.
+T33_4554	0027068	.	NN1c	birthday	.Ns:e]Fa:t]S]
+T33_4557	-----	Kylie124
+T33_4560	.....	00238
+T33_4563	0027122	*	UW	well	.
+T33_4566	0027134	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_4569	0027142	|	VBM	+'m	[Vmu.
+T33_4572	0027152	.	VVGv	starving	.Vmu]S]
+T33_4575	-----	Robyn122
+T33_4578	.....	00239
+T33_4581	0027206	*	VDD	did	[S?[Vod.Vod]
+T33_4584	0027217	|	PPY	you	[Ny:s.Ny:s]
+T33_4587	0027228	|	VV0v	eat	[Vr.Vr]
+T33_4590	0027239	|	APPGy	your	[Ns:o.
+T33_4593	0027251	|	NN1c	dinner	.Ns:o]
+T33_4596	0027265	|	II	at	[P:p.
+T33_4599	0027276	?	NNJ1n	school	.P:p]S?]
+T33_4602	-----	Kylie124
+T33_4605	.....	00240
+T33_4608	0027328	*.	UY	yeah	.
+T33_4611	0027348	ic	YY	{unclear}	[Y.Y]
+T33_4614	-----	Robyn122
+T33_4617	.....	00241
+T33_4620	0027388	*?	UL	what	.
+T33_4623	-----	Kylie124
+T33_4626	.....	00242
+T33_4629	0027438	*	CC	and	[S+.
+T33_4632	0027449	|	PPIS1	I	[Nea:s.Nea:s]
+T33_4635	0027458	|	VV0v	eat	[V.V]
+T33_4638	0027469	|	APPGi1	my	[Ns:o.
+T33_4641	0027479	.	NN1n	pudding	.Ns:o]S+]
+T33_4644	-----	Robyn122
+T33_4647	.....	00243
+T33_4650	0027532	*.	UR	oh	.
+T33_4653	-----	Kylie124
+T33_4656	.....	00244
+T33_4659	0027580	*	PPIS2	we	[S[Nap:s.Nap:s]
+T33_4662	0027590	|	VHD	had	[Vd.Vd]
+T33_4665	0027601	ic	YY	{unclear}	[Y:o.Y:o]S]
+T33_4668	-----	Robyn122
+T33_4671	.....	00245
+T33_4674	0027641	*	AT	the	[S[Ns:s.
+T33_4677	0027652	|	NN1c	dentist	.Ns:s]
+T33_4680	0027667	|	VVDv	said	[Vd.Vd]
+T33_4683	0027683	|	IIt	to	[P:u.
+T33_4686	0027693	|	NNS1c	daddy	[Nns.Nns]P:u]
+T33_4689	0027706	|	CSi	if	[Fn:o[Fa:c.
+T33_4692	0027717	|	PPY	you	[Ny:s.Ny:s]
+T33_4695	0027728	|	VV0v	drink	[V.V]
+T33_4698	0027741	|	NN2	lots	[Np:o.
+T33_4701	0027753	|	NNL1n	water	.Np:o]
+T33_4704	0027766	|	ICSt	after	[Fa:t.
+T33_4707	0027784	|	PPY	you	[Ny:s.Ny:s]
+T33_4710	0027794	|	VH0	+'ve	[Vf.
+T33_4713	0027805	|	VHN	had	.Vf]
+T33_4716	0027816	|	PN1	something	[Ns:o153.
+T33_4719	0027833	|	TO	to	[Ti[Vi.
+T33_4722	0027843	|	VV0v	eat	.Vi]
+T33_4725	0000000	y	YG	-	[o153.o153]Ti]Ns:o153]Fa:t]Fa:c]
+T33_4728	0027854	|	RTn	then	[Rsw:c.Rsw:c]
+T33_4731	0027867	|	PPH1	it	[Ni:s.Ni:s]
+T33_4734	0027877	|	VVZv	stops	[Vz.Vz]
+T33_4737	0027890	|	APPGy	your	[Np:O155.
+T33_4740	0027902	|	NN2	teeth	.Np:O155]
+T33_4743	0000000	y	YG	-	[Tg:o[s155.s155]
+T33_4746	0027915	|	VVGi	going	[Vg.Vg]
+T33_4749	0027928	|	RGb	quite	[J:e.
+T33_4752	0027941	|	RGa	as	.
+T33_4755	0027952	.	JJ	bad	.J:e]Tg:o]
+T33_4758	.....	00246
+T33_4761	0027982	*	CS	because	[Fa:c.
+T33_4764	0027997	|	PPY	you	[Ny:s.Ny:s]
+T33_4767	0028008	|	VMo	ca	[Vce.
+T33_4770	0028017	|	XX	+n't	.
+T33_4773	0028028	|	VV0v	wash	.Vce]
+T33_4776	0028040	|	PPHO2	them	[Nop:o.Nop:o]
+T33_4779	0028052	|	ICSt	after	[P:t.
+T33_4782	0028066	.	NN1n	food	.P:t]Fa:c]
+T33_4785	.....	00247
+T33_4788	0028097	*	CC	and	[Fn+.
+T33_4791	0028108	|	RTn	then	[Rsw:c.Rsw:c]
+T33_4794	0028120	|	PPY	you	[Ny:s.Ny:s]
+T33_4797	0028131	|	VMo	wo	[Vce.
+T33_4800	0028140	|	XX	+n't	.
+T33_4803	0028151	|	VV0t	need	.Vce]
+T33_4806	0028163	|	RGz	so	[Dp:O157.
+T33_4809	0028174	|	DA2	many	.Dp:O157]
+T33_4812	0028186	|	VVGv	pulling	[Tg:o[Vg.Vg]
+T33_4815	0000000	y	YG	-	[o157.o157]
+T33_4818	0028201	|	RP	out	[R:q.R:q]Tg:o]
+T33_4821	0028212	|	MDt	next	[Ns:t.
+T33_4824	0028224	.	NNT1c	time	.Ns:t]Fn+]Fn:o]S]
+T33_4827	.....	00248
+T33_4830	0028254	c	YP	{pause}	.
+T33_4833	0028262	*	YMV	er	.
+T33_4836	0028272	|	VV0v	stop	[S*[V.V]
+T33_4839	0028288	|	VVGv	arguing	[Tg:o[Vg.Vg]Tg:o]S*]
+T33_4842	0028303	.	UP	please	.
+T33_4845	-----	Kylie124
+T33_4848	.....	00249
+T33_4851	0028355	*	NNS1c	mama	[Nns".Nns"]
+T33_4854	0028367	|	PPIS2	we	[S[Nap:s.Nap:s]
+T33_4857	0028377	|	VHD	had	[Vd.Vd]
+T33_4860	0028388	|	AT1	a	[Ns:o.
+T33_4863	0028397	ic	YY	{unclear}	[Y.Y]Ns:o]S]
+T33_4866	-----	Robyn122
+T33_4869	.....	00250
+T33_4872	0028437	*	DDQ	what	[S?[Dq:G159.Dq:G159]
+T33_4875	0028449	|	VMd	would	[Vdc.
+T33_4878	0028462	|	VV0t	like	.Vdc]
+T33_4881	0028474	|	TO	to	[Ti:o[Vi.
+T33_4884	0028484	|	VV0v	eat	.Vi]
+T33_4887	0000000	y	YG	-	[o159.o159]Ti:o]
+T33_4890	0028495	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T33_4893	-----	Robin123
+T33_4896	.....	00251
+T33_4899	0028545	*.	PN1	something	[Ns.Ns]
+T33_4902	.....	00252
+T33_4905	0028581	*	DDQ	what	[S?[Dq:o161.
+T33_4908	0000000	y	YG	-	[163.163]Dq:o161]
+T33_4911	0028593	|	VMo	can	[Voc.Voc]
+T33_4914	0028604	|	PPIS1	I	[Nea:s.Nea:s]
+T33_4917	0028613	|	VH0	have	[Vr.Vr]
+T33_4920	0028625	|	TO	to	[Ti:G163[Vi.
+T33_4923	0028635	?	VV0v	eat	.Vi]
+T33_4926	0000000	y	YG	-	[o161.o161]Ti:G163]S?]
+T33_4929	.....	00253
+T33_4932	0028665	*	APPGi1	my	[Ns.
+T33_4935	0028675	|	NN1u	bread	.
+T33_4938	0028688	?	NN1c	bun	.Ns]
+T33_4941	-----	Robyn122
+T33_4944	.....	00254
+T33_4947	0028737	*.	UN	no	.
+T33_4950	.....	00255
+T33_4953	0028765	ic	YY	{unclear}	[Y.
+T33_4956	0028775	|	IW	with	[P.
+T33_4959	0028787	|	AT	the	[Ns.
+T33_4962	0028798	.	NN1n	chicken	.Ns]P]Y]
+T33_4965	.....	00256
+T33_4968	0028832	*	CSi	if	[S[Fa:c.
+T33_4971	0028842	|	PPY	you	[Ny:s.Ny:s]
+T33_4974	0028853	|	VV0v	eat	[V.V]
+T33_4977	0028864	|	AT1	a	[N:o.
+T33_4980	0028873	|	NN1c	bun	.
+T33_4983	0028884	|	CCr	or	[Ns+.
+T33_4986	0028894	|	AT1	a	.
+T33_4989	0028903	|	NN1n	cake	.Ns+]N:o]Fa:c]
+T33_4992	0028916	|	PPY	you	[Ny:s.Ny:s]
+T33_4995	0028927	|	VMo	wo	[Vce.
+T33_4998	0028936	|	XX	+n't	.
+T33_5001	0028947	|	VV0v	eat	.Vce]
+T33_5004	0028958	|	APPGy	your	[Ns:o.
+T33_5007	0028970	.	NN1n	chicken	.Ns:o]S]
+T33_5010	.....	00257
+T33_5013	0029003	ic	YY	{unclear}	[Y.
+T33_5016	0029013	|	IIt	to	[P.
+T33_5019	0029023	|	NNS1c	mummy	[Nns.Nns]P]
+T33_5022	0029036	|	DD1a	that	[Y.
+T33_5025	0029048	ic	YY	{unclear}	.
+T33_5028	0029058	.	NN1c	letter	.Y]Y]
+T33_5031	-----	Robin123
+T33_5034	.....	00258
+T33_5037	0029110	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_5040	0029118	|	VBM	+'m	[Vmb.Vmb]
+T33_5043	0029128	.	JJ	hungry	[J:e.J:e]S]
+T33_5046	-----	Kylie124
+T33_5049	.....	00259
+T33_5052	0029180	*	NNS1c	mama	[Nns".Nns"]
+T33_5055	0029192	ic.	YY	{unclear}	[Y.Y]
+T33_5058	-----	Robyn122
+T33_5061	.....	00260
+T33_5064	0029240	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_5067	0029248	|	VBM	+'m	[Vmut.
+T33_5070	0029258	|	VVGK	gon	.Vmut]
+T33_5073	0029268	|	TO	+na	[Ti:z[Vi.
+T33_5076	0029278	|	VV0v	get	.Vi]
+T33_5079	0000000	y	YR	#	.Ti:z]S]
+T33_5082	0029289	|	VD0	do	[S?[Vo.Vo]
+T33_5085	0029299	|	PPY	you	[Ny:s167.Ny:s167]
+T33_5088	0029310	|	VV0v	want	[Vr.Vr]
+T33_5091	0000000	y	YG	-	[Ti:o[s167.s167]
+T33_5094	0029323	|	TO	to	[Vi.
+T33_5097	0029333	?	VV0i	wee-wee	.Vi]Ti:o]S?]
+T33_5100	.....	00261
+T33_5103	0029374	*	PPY	you	[S[Ny:s.Ny:s]
+T33_5106	0029385	|	VH0	have	[V.V]
+T33_5109	0029397	|	AT1	a	[Ns:o.
+T33_5112	0029406	|	NN1n	wee	.Ns:o]S]
+T33_5115	0029421	ic	YY	{unclear}	[Y.Y]
+T33_5118	-----	Scott125
+T33_5121	.....	00262
+T33_5124	0029461	*.	UN	no	.
+T33_5127	-----	Robyn122
+T33_5130	.....	00263
+T33_5133	0029509	*	PPY	you	[S[Ny:s169.Ny:s169]
+T33_5136	0029520	|	VV0v	want	[V.V]
+T33_5139	0000000	y	YG	-	[Ti:o[s169.s169]
+T33_5142	0029532	|	TO	to	[Vi.
+T33_5145	0029542	?	VV0v	draw	.Vi]Ti:o]S]
+T33_5148	.....	00264
+T33_5151	0029573	*	UW	well	.
+T33_5154	0029585	|	VV0i	go	[S*[V.V]
+T33_5157	0029595	|	II	in	[P:q.
+T33_5160	0029605	|	AT	the	[Ns.
+T33_5163	0029616	|	NN1c	sitting-room	.Ns]
+T33_5166	0029644	|	RRQr	where	[Ff@[Rq:p.Rq:p]
+T33_5169	0029661	|	APPGy	your	[Ns:s.
+T33_5172	0029673	|	VVGv	drawing	[Tg[Vg.Vg]Tg]
+T33_5175	0029688	|	NN1c	pad	.Ns:s]
+T33_5178	0029699	.	VBZ	is	[Vzb.Vzb]Ff@]P:q]S*]
+T33_5181	.....	00265
+T33_5184	0029728	*	VV0i	come	[S*[V.V]
+T33_5187	0029740	.	RP	on	[R:q.R:q]S*]
+T33_5190	.....	00266
+T33_5193	0029769	*	VV0v	want	[S?[V.V]
+T33_5196	0029781	|	TO	to	[Ti:o[Vi.
+T33_5199	0029791	|	VV0v	draw	.Vi]
+T33_5202	0029803	ic.	YY	{unclear}	[Y:o.Y:o]Ti:o]S?]
+T33_5205	.....	00267
+T33_5208	0029832	*	VV0i	come	[S*[V.V]
+T33_5211	0029844	|	RL	round	[P:q.
+T33_5214	0029857	|	RLh	here	.P:q]
+T33_5217	0029869	.	RTn	then	[Rsw:c.Rsw:c]S*]
+T33_5220	.....	00268
+T33_5223	0029900	*	VV0i	come	[S*[V.V]
+T33_5226	0029912	|	CC	and	[S*+.
+T33_5229	0029923	|	VV0v	get	[V.V]
+T33_5232	0029934	|	DD1i	this	[Ns:o.
+T33_5235	0029946	|	NN1c	paddy	.Ns:o]
+T33_5238	0029959	.	RP	off	[R:q.R:q]S*+]S*]
+T33_5241	.....	00269
+T33_5244	0029989	*	VV0i	come	[S*[V.V]
+T33_5247	0030001	|	RP	on	[R:q.R:q]
+T33_5250	0030011	|	PPIS2	we	[S@[Nap:s.Nap:s]
+T33_5253	0000000	y	YG	-	[m171.m171]
+T33_5256	0030020	|	VMo	+'ll	[Vc.
+T33_5259	0030031	|	RR	just	[R:G171.R:G171]
+T33_5262	0030043	|	VV0v	get	.Vc]
+T33_5265	0030054	|	AT	the	[Ns:o.
+T33_5268	0030066	|	NN1c	paddy	.Ns:o]
+T33_5271	0030079	|	RP	on	[R:q.R:q]
+T33_5274	0030093	|	ICSt	before	[P:t.
+T33_5277	0030107	.	NN1u	teatime	.P:t]S@]S*]
+T33_5280	.....	00270
+T33_5283	0030141	*	DDQ	what	[S?[Dq:e.Dq:e]
+T33_5286	0030152	|	VBZ	+'s	[Vzb.Vzb]
+T33_5289	0030162	|	AT	the	[N:s.
+T33_5292	0030173	ic?	YY	{unclear}	[Y.Y]N:s]S?]
+T33_5295	.....	00271
+T33_5298	0030202	*	VV0v	shut	[S*[V.V]
+T33_5301	0030214	|	RP	up	[R:n.R:n]
+T33_5304	0030224	|	AT1	a	[Ns:t.
+T33_5307	0030233	.	NNT1c	minute	.Ns:t]S*]
+T33_5310	.....	00272
+T33_5313	0030266	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_5316	0030275	|	VD0	do	[Ve.
+T33_5319	0030284	|	XX	+n't	.
+T33_5322	0030295	|	VV0i	care	.Ve]
+T33_5325	0030307	|	CSi	if	[Fn?:o.
+T33_5328	0030317	|	PPY	you	[Ny:s.Ny:s]
+T33_5331	0030327	|	VBR	+'re	[Vau.
+T33_5334	0030339	|	VVGv	starving	.Vau]
+T33_5337	0030355	|	CCr	or	[Fn?+.
+T33_5340	0030365	|	XX	not	.Fn?+]Fn?:o]S]
+T33_5343	0030376	|	PPY	you	[S[Ny:s.Ny:s]
+T33_5346	0030386	|	VBR	+'re	[Vaeu.
+T33_5349	0030397	|	XX	not	.
+T33_5352	0030408	|	VVGv	getting	.Vaeu]
+T33_5355	0030424	|	PN1	anything	[Ns:o.Ns:o]
+T33_5358	0030440	|	ICSt	before	[P:t.
+T33_5361	0030454	ic.	YY	{unclear}	[Y.Y]P:t]S]
+T33_5364	.....	00273
+T33_5367	0030483	*	VV0i	lie	[S*[V.V]
+T33_5370	0030494	.	RP	down	[R:q.R:q]S*]
+T33_5373	.....	00274
+T33_5376	0030525	*	UW	well	.
+T33_5379	0030537	|	RRQq	why	[S?[Rq:c.Rq:c]
+T33_5382	0030548	|	VD0	do	[Voe.
+T33_5385	0030557	|	XX	+n't	.Voe]
+T33_5388	0030568	|	PPY	you	[Ny:s.Ny:s]
+T33_5391	0030579	|	RR	just	[R:m.R:m]
+T33_5394	0030591	|	RR	absolutely	[R:h.R:h]
+T33_5397	0030610	|	VV0v	fold	[Vr.Vr]
+T33_5400	0030622	|	PPHO1m	him	[Nos:o.Nos:o]
+T33_5403	0030633	?	RP	up	[R:n.R:n]S?]
+T33_5406	0030651	ic	YY	{unclear}	[Y.
+T33_5409	0030661	.	PPX1y	yourself	[Nos.Nos]Y]
+T33_5412	.....	00275
+T33_5415	0030696	*	UW	well	.
+T33_5418	0030708	|	VV0v	share	[S*[V.V]
+T33_5421	0030721	.	PPH1	it	[Ni:o.Ni:o]S*]
+T33_5424	0030739	ic	YY	{unclear}	[Y.Y]
+T33_5427	-----	Robin123
+T33_5430	.....	00276
+T33_5433	0030779	*?	UY	mm	.
+T33_5436	-----	Robyn122
+T33_5439	.....	00277
+T33_5442	0030827	*	PPY	you	[Y[Ny.Ny]
+T33_5445	0030838	ic	YY	{unclear}	.Y]
+T33_5448	0030848	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_5451	0030856	|	VBM	+'m	[Vmut.
+T33_5454	0030866	|	VVGK	gon	.Vmut]
+T33_5457	0030876	|	TO	+na	[Ti:z[Vi.
+T33_5460	0030886	|	VV0v	fold	.Vi]
+T33_5463	0030898	|	PPH1	it	[Ni:o.Ni:o]
+T33_5466	0030909	.	RP	up	[R:n.R:n]Ti:z]S]
+T33_5469	-----	Robin123
+T33_5472	.....	00278
+T33_5475	0030957	.	UR	OK	.
+T33_5478	-----	Robyn122
+T33_5481	.....	00279
+T33_5484	0031007	*	CC	and	[S+.
+T33_5487	0031018	|	RTn	then	[Rsw:t.Rsw:t]
+T33_5490	0031030	|	PPIS1	I	[Nea:s.Nea:s]
+T33_5493	0031038	|	VMo	+'ll	[Vc.
+T33_5496	0031049	|	VV0v	back	.Vc]
+T33_5499	0031061	.	PPY	you	[Ny:o.Ny:o]S+]
+T33_5502	-----	Robin123
+T33_5505	.....	00280
+T33_5508	0031110	*	VBZ	is	[S?[Vzb.Vzb]
+T33_5511	0031120	|	PPH1	it	[Ni:s.Ni:s]
+T33_5514	0000000	y	YR	#	.
+T33_5517	0031130	|	VBZ	is	[Vzb.Vzb]
+T33_5520	0031140	|	PPH1	it	[Ni:s.Ni:s]
+T33_5523	0031150	ic?	YY	{unclear}	[Y:e.Y:e]S?]
+T33_5526	-----	Kylie124
+T33_5529	.....	00281
+T33_5532	0031198	*	VBZ	is	[S?[Vzb.Vzb]
+T33_5535	0031208	|	PPH1	it	[Ni:s.Ni:s]
+T33_5538	0031218	|	AT1	a	[Ns:e.
+T33_5541	0031227	|	NN1u	music	.
+T33_5544	0031240	.	NNL1c	park	.Ns:e]S?]
+T33_5547	-----	Robin123
+T33_5550	.....	00282
+T33_5553	0031290	*.	NN1n	amusement	.
+T33_5556	-----	Robyn122
+T33_5559	.....	00283
+T33_5562	0031349	|	NP1m	Scott	[Nns".Nns"]
+T33_5565	0031362	|	VV0v	get	[S*[V.V]
+T33_5568	0031373	|	II	off	[P:q.
+T33_5571	0031388	|	NNS1c	daddy	[N[G[Nns.Nns]
+T33_5574	0031400	|	GG	+'s	.G]
+T33_5577	0031410	|	NN1c	knife	[NN1c&.
+T33_5580	0031423	|	CC	and	[NN1c+.
+T33_5583	0031435	|	NN1c	fork	.NN1c+]NN1c&]N]P:q]S*]
+T33_5586	0031447	.	UI	now	.
+T33_5589	.....	00284
+T33_5592	0031477	*	VD0	do	[S*[Voe.
+T33_5595	0031486	|	XX	+n't	.Voe]
+T33_5598	0031497	|	PPY	you	[Ny:s.Ny:s]
+T33_5601	0031508	|	VV0i	wee-wee	[Vr.Vr]
+T33_5604	0031530	|	II	in	[P:p.
+T33_5607	0031540	|	DD1a	that	[Ns.
+T33_5610	0031553	|	NN1c	paddy	.Ns]P:p]S*]
+T33_5613	0031566	.	UE	mind	.
+T33_5616	.....	00285
+T33_5619	0031601	*	RRQq	where	[S?[Rq:q.Rq:q]
+T33_5622	0031613	|	VHZ	+'s	[Voz.Voz]
+T33_5625	0031623	|	APPGy	your	[Ms:s.
+T33_5628	0031635	|	NN1c	turtle	.
+T33_5631	0031649	|	MC1	one	.Ms:s]
+T33_5634	0031664	?	VVNi	gone	[Vrn.Vrn]S?]
+T33_5637	.....	00286
+T33_5640	0031694	c	YP	{pause}	.
+T33_5643	0031702	*	PPY	you	[S[Ny:s.Ny:s]
+T33_5646	0031713	|	VMo	can	[Vc.
+T33_5649	0031724	|	VV0v	ask	.Vc]
+T33_5652	0031735	|	NP1f	Shirley	[Nns:i.Nns:i]
+T33_5655	0031750	|	RR21	as	[R:m[RR=.
+T33_5658	0031750	.	RR22	well	.RR=]R:m]S]
+T33_5661	.....	00287
+T33_5664	0031784	*	VV0v	ask	[S*[V.V]
+T33_5667	0031795	|	NP1f	Shirley	[Nns:i.Nns:i]
+T33_5670	0031810	|	CSi	if	[Fn?:o.
+T33_5673	0031820	|	NP1m	Scott	[Nns:s.Nns:s]
+T33_5676	0031833	|	VVDi	went	[Vd.Vd]
+T33_5679	0031845	|	II	on	[P:q.
+T33_5682	0031855	|	AT	the	[N.
+T33_5685	0031866	ic	YY	{unclear}	[Y.Y]N]P:q]
+T33_5688	0031876	|	RR21	at	[R:m[RR=.
+T33_5691	0031876	.	RR22	all	.RR=]R:m]Fn?:o]S*]
+T33_5694	.....	00288
+T33_5697	0031909	*	VV0v	ask	[S*[V.V]
+T33_5700	0031920	|	NP1f	Shirley	[Nns:i.Nns:i]
+T33_5703	0031935	|	CSi	if	[Fn?:o.
+T33_5706	0031945	|	NP1m	Scott	[Nns:s.Nns:s]
+T33_5709	0031958	|	VVDi	went	[Vd.Vd]
+T33_5712	0031970	|	II	on	[P:q.
+T33_5715	0031980	|	AT	the	[N.
+T33_5718	0031991	ic.	YY	{unclear}	[Y.Y]N]P:q]Fn?:o]S*]
+T33_5721	-----	Kylie124
+T33_5724	.....	00289
+T33_5727	0032039	*	VV0v	ask	[S*[V.V]
+T33_5730	0032050	|	NP1f	Shirley	[Nns:i.Nns:i]
+T33_5733	0032065	|	CSi	if	[Fn?:o.
+T33_5736	0032075	|	NP1m	Scott	[Nns:s.Nns:s]
+T33_5739	0032088	|	VVDi	went	[Vd.Vd]
+T33_5742	0032100	|	II	on	[P:q.
+T33_5745	0032110	|	AT	the	[N.
+T33_5748	0032121	ic.	YY	{unclear}	[Y.Y]N]P:q]Fn?:o]S*]
+T33_5751	.....	00290
+T33_5754	0032149	c	YP	{pause}	.
+T33_5757	0032157	*	VMo	can	[S?[Voc.Voc]
+T33_5760	0032168	|	PPIS1	I	[Nea:s.Nea:s]
+T33_5763	0032177	|	VV0v	tell	[Vr.Vr]
+T33_5766	0032189	|	NNS1c	dad	[Nns:i.Nns:i]
+T33_5769	0032200	?	PN1	something	[Ns:o.Ns:o]S?]
+T33_5772	-----	Robyn122
+T33_5775	.....	00291
+T33_5778	0032255	*	VV0v	ask	[S*[V.V]
+T33_5781	0032266	|	CSi	if	[Fn?:o.
+T33_5784	0032276	|	NP1f	Shirley	[Nns:s.Nns:s]
+T33_5787	0032290	|	VBZ	+'s	[Vzb.Vzb]
+T33_5790	0032300	.	RLh	there	[Rw:p.Rw:p]Fn?:o]S*]
+T33_5793	0032321	c	YP	{pause}	.
+T33_5796	-----	Robin123
+T33_5799	.....	00292
+T33_5802	0032359	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_5805	0032369	|	VBZ	is	[Vzb.Vzb]
+T33_5808	0000000	y	YR	#	.
+T33_5811	0032379	ic	YY	{unclear}	[Y.Y]
+T33_5814	0032389	|	PPHS1m	he	[Nas:s.Nas:s]
+T33_5817	0032399	|	VBZ	is	[Vzb.Vzb]
+T33_5820	0032409	|	APPGi1	my	[N:e[G[Ns[APPGi1#APPGY#.
+T33_5823	0000000	y	YR	#	.
+T33_5826	0032419	|	APPGy	your	.APPGi1#APPGY#]
+T33_5829	0032432	|	NNS1c	mum	.Ns]
+T33_5832	0032442	|	GG	+'s	.G]
+T33_5835	0032452	ic.	YY	{unclear}	[Y.Y]N:e]S]
+T33_5838	-----	Robyn122
+T33_5841	.....	00293
+T33_5844	0032500	*	UK	look	.
+T33_5847	0032512	|	RR	just	[S*[R:m.R:m]
+T33_5850	0032524	|	VV0v	put	[V.V]
+T33_5853	0032535	|	AT	the	[Ns:o.
+T33_5856	0032546	|	NN1c	phone	.
+T33_5859	0032559	|	NN1c	book	.Ns:o]
+T33_5862	0032572	.	RP	down	[R:q.R:q]S*]
+T33_5865	-----	Kylie124
+T33_5868	.....	00294
+T33_5871	0032622	*	VMo	can	[S?[Voc.Voc]
+T33_5874	0032633	|	PPIS1	I	[Nea:s.Nea:s]
+T33_5877	0032642	|	VV0v	tell	[Vr.Vr]
+T33_5880	0032654	|	NNS1c	dad	[Nns:i.Nns:i]
+T33_5883	0032665	?	PN1	something	[Ns:o.Ns:o]S?]
+T33_5886	0032690	c	YP	{pause}	.
+T33_5889	-----	Robin123
+T33_5892	.....	00295
+T33_5895	0032728	*	VV0v	tell	[S*[V.V]
+T33_5898	0032740	|	NNS1c	dad	[Nns:i.Nns:i]
+T33_5901	0032751	|	PPIS1	I	[Fn:o[Nea:s175.Nea:s175]
+T33_5904	0032760	|	VV0v	wan	[V.V]
+T33_5907	0000000	y	YG	-	[Ti:o[s175.s175]
+T33_5910	0032770	|	TO	+na	[Vi.
+T33_5913	0032780	|	VV0v	tell	.Vi]
+T33_5916	0032792	|	PPHO1m	him	[Nos:i.Nos:i]
+T33_5919	0032804	.	PN1	something	[Ns:o.Ns:o]Ti:o]Fn:o]S*]
+T33_5922	-----	Robyn122
+T33_5925	.....	00296
+T33_5928	0032859	*	PPH1	it	[S[Ni:s.Ni:s]
+T33_5931	0032868	|	VBZ	+'s	[Vzb.Vzb]
+T33_5934	0032878	|	RR	all	[R:h.R:h]
+T33_5937	0032889	.	VVNi	gone	[Tn:e[Vn.Vn]Tn:e]S]
+T33_5940	.....	00297
+T33_5943	0032920	*	NN1c	toy	[S[Ns:s.Ns:s]
+T33_5946	0032930	|	VHZ	+'s	[Vzf.
+T33_5949	0032940	|	VVNv	eat	.Vzf]
+T33_5952	0032951	|	PPH1	it	[Ni:o.Ni:o]
+T33_5955	0032961	.	RR	all	[R:h.R:h]S]
+T33_5958	.....	00298
+T33_5961	0032991	*	DDQ	what	[S?[Dq:s.Dq:s]
+T33_5964	0033002	|	VBZ	+'s	[Vzu.
+T33_5967	0033012	|	VVGi	going	.Vzu]
+T33_5970	0033025	?	RP	on	[R:n.R:n]S?]
+T33_5973	.....	00299
+T33_5976	0033054	|	NP1f	Kylie	[Nns".Nns"]
+T33_5979	0033067	|	PPY	you	[S[Ny:s.Ny:s]
+T33_5982	0033078	|	VV0v	get	[V.V]
+T33_5985	0033089	|	DDi	some	[Ns:o.
+T33_5988	0033101	|	NN1u	milk	.Ns:o]
+T33_5991	0033113	|	II	out	[P:q.
+T33_5994	0033128	|	AT	the	[Ns.
+T33_5997	0033140	|	NN1c	fridge	.Ns]P:q]S]
+T33_6000	0033154	.	UP	please	.
+T33_6003	.....	00300
+T33_6006	0033186	c	YP	{pause}	.
+T33_6009	0033194	*.	UR	oh	.
+T33_6012	.....	00301
+T33_6015	0033223	*	UR	right	.
+T33_6018	0033236	|	EX	there	[S.
+T33_6021	0033248	|	VBZ	+'s	[Vzut.
+T33_6024	0033258	|	VVGK	gon	.Vzut]
+T33_6027	0033268	|	TO	+na	[Ti:z[Vib.
+T33_6030	0033278	|	VB0	be	.Vib]
+T33_6033	0033288	|	NN1n	trouble	[Ns:s.Ns:s]Ti:z]
+T33_6036	0033304	|	II	in	[P:t.
+T33_6039	0033314	|	AT1	a	[Ns.
+T33_6042	0033323	|	NNT1c	second	.Ns]P:t]S]
+T33_6045	0033337	.	UE	mind	.
+T33_6048	.....	00302
+T33_6051	0033368	|	NP1f	Kylie	[Nns".Nns"]
+T33_6054	0033381	|	PPY	you	[S[Ny:s.Ny:s]
+T33_6057	0033392	|	VMo	can	[Vc.
+T33_6060	0033403	|	VV0v	talk	.Vc]
+T33_6063	0033415	|	II	in	[P:t.
+T33_6066	0033425	|	AT1	a	[Ns.
+T33_6069	0033434	|	NNT1c	minute	.Ns]P:t]
+T33_6072	0033449	|	CS	cos	[Fa:c.
+T33_6075	0033460	ic	YY	{unclear}	[Y.Y]
+T33_6078	0033470	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T33_6081	0033486	|	NP1f	Shirley	[Nns:s.Nns:s]
+T33_6084	0033501	|	VVZi	comes	[Vz.Vz]
+T33_6087	0033514	|	RL	back	[R:q.R:q]Fa:t]Fa:c]S]
+T33_6090	0033527	|	NP1f	Shirley	[S[Nns:s.Nns:s]
+T33_6093	0033542	|	VBDZ	was	[Vseb.
+T33_6096	0033552	|	XX	+n't	.Vseb]
+T33_6099	0033563	.	RLh	there	[Rw:p.Rw:p]S]
+T33_6102	.....	00303
+T33_6105	0033595	|	NP1f	Kylie	[Nns".Nns"]
+T33_6108	0033612	|	VD0	do	[S*[Ve.
+T33_6111	0033621	|	XX	+n't	.
+T33_6114	0033632	.	VV0v	cry	.Ve]S*]
+T33_6117	.....	00304
+T33_6120	0033662	|	NP1m	Scott	[Nns".Nns"]
+T33_6123	0033675	|	VV0v	give	[S*[V.V]
+T33_6126	0033687	|	NP1f	Kylie	[Nns:i.Nns:i]
+T33_6129	0033700	|	AT1	a	[Ns:o.
+T33_6132	0033709	|	NN1c	cuddle	.Ns:o]S*]
+T33_6135	0033723	.	UI	now	.
+T33_6138	-----	Scott125
+T33_6141	.....	00305
+T33_6144	0033772	*.	UN	no	.
+T33_6147	-----	Robyn122
+T33_6150	.....	00306
+T33_6153	0033820	*	UY	yes	.
+T33_6156	0033831	|	PPY	you	[Nys".
+T33_6159	0033842	.	NN1c	villain	.Nys"]
+T33_6162	.....	00307
+T33_6165	0033876	*.	NN1u	milk	[Ns.Ns]
+T33_6168	0033896	c	YP	{pause}	.
+T33_6171	-----	Robin123
+T33_6174	.....	00308
+T33_6177	0033934	*	UR	ee	.
+T33_6180	0033944	|	PPY	you	[S[Ny:s.Ny:s]
+T33_6183	0033954	|	VH0	+'ve	[Vf.
+T33_6186	0033965	|	VVNH	got	.Vf]
+T33_6189	0033975	|	TO	+ta	[Ti:z[Vi.
+T33_6192	0034002	&ic	YY	{unclear}	[Y.Y]Vi]Ti:z]S]
+T33_6195	-----	Robyn122
+T33_6198	.....	00309
+T33_6201	0034075	&*	UL21	you	[UL=.
+T33_6204	0034086	?	UL22	what	.UL=]
+T33_6207	-----	Kylie124
+T33_6210	.....	00310
+T33_6213	0034153	|	NP1m	Scott	[Nns".Nns"]
+T33_6216	0034170	ic	YY	{unclear}	[Y.
+T33_6219	0034180	|	II	on	[P.
+T33_6222	0034190	|	AT	the	[Ns.
+T33_6225	0034201	.	NNL1c	head	.Ns]P]Y]
+T33_6228	-----	Robyn122
+T33_6231	.....	00311
+T33_6234	0034251	*	PPY	you	[Nys".
+T33_6237	0034262	|	JJ	naughty	.
+T33_6240	0034277	.	NN1c	boy	.Nys"]
+T33_6243	.....	00312
+T33_6246	0034307	*	UI	now	.
+T33_6249	0034318	|	VV0v	get	[S*[V.V]
+T33_6252	0034329	.	RP	off	[R:q.R:q]S*]
+T33_6255	.....	00313
+T33_6258	0034359	*	VDD	did	[S?[Vod.Vod]
+T33_6261	0034370	|	PPY	you	[Ny:s.Ny:s]
+T33_6264	0034381	|	VV0v	hit	[Vr.Vr]
+T33_6267	0034392	?	NP1f	Kylie	[Nns:o.Nns:o]S?]
+T33_6270	.....	00314
+T33_6273	0034424	*	PPY	you	[S[Ny:s.Ny:s]
+T33_6276	0034435	|	VV0v	kiss	[V.V]
+T33_6279	0034447	|	PPHO1f	her	[Nos:o.Nos:o]
+T33_6282	0034458	|	JJR	better	[J:j.J:j]S]
+T33_6285	0034472	.	UI	now	.
+T33_6288	.....	00315
+T33_6291	0034502	*	VV0v	kiss	[S*[V.V]
+T33_6294	0034514	|	NP1f	Kylie	[Nns:o.Nns:o]
+T33_6297	0034527	|	DD1i	this	[Ns:t.
+T33_6300	0034539	.	NNT1c	minute	.Ns:t]S*]
+T33_6303	.....	00316
+T33_6306	0034572	*	VV0v	give	[S*[V.V]
+T33_6309	0034584	|	PPHO1f	her	[Nos:i.Nos:i]
+T33_6312	0034595	|	AT1	a	[Ns:o.
+T33_6315	0034604	.	NN1c	kiss	.Ns:o]S*]
+T33_6318	.....	00317
+T33_6321	0034635	*	VV0v	kiss	[S*[V.V]
+T33_6324	0034647	|	PPH1	it	[Ni:o.Ni:o]S*]
+T33_6327	0034657	.	UI	now	.
+T33_6330	.....	00318
+T33_6333	0034687	*	DD1a	that	[S[Ds:s.Ds:s]
+T33_6336	0034698	|	VBZ	+'s	[Vzb.Vzb]
+T33_6339	0034708	|	PPH1	it	[Ni:e.Ni:e]S]
+T33_6342	0034718	|	VV0v	shake	[S*[V.V]
+T33_6345	0034731	.	NN2	hands	[Np:o.Np:o]S*]
+T33_6348	.....	00319
+T33_6351	0034763	*	UR	right	.
+T33_6354	0034776	ic.	YY	{unclear}	[Y.Y]
+T33_6357	.....	00320
+T33_6360	0034805	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_6363	0034813	|	VMo	+'ll	[Vc.
+T33_6366	0034824	|	VV0v	tell	.Vc]
+T33_6369	0034836	|	PPY	you	[Ny:i.Ny:i]
+T33_6372	0034847	|	DDQ	what	[Fn?:o[Dq:G179.Dq:G179]
+T33_6375	0034859	|	PPIS2	we	[Nap:s181.Nap:s181]
+T33_6378	0034869	|	VV0t	need	[V.V]
+T33_6381	0000000	y	YG	-	[Ti:o[s181.s181]
+T33_6384	0034881	|	TO	to	[Vi.
+T33_6387	0034892	|	VD0	do	.Vi]
+T33_6390	0000000	y	YG	-	[o179.o179]
+T33_6393	0034902	|	IW	with	[P:h.
+T33_6396	0034914	.	PPY	you	.P:h]Ti:o]Fn?:o]S]
+T33_6399	-----	Kylie124
+T33_6402	.....	00321
+T33_6405	0034963	*?	DDQ	what	[Dq.Dq]
+T33_6408	-----	Robyn122
+T33_6411	.....	00322
+T33_6414	0035013	*	DD2a	those	[L[Np:s.
+T33_6417	0035026	|	NN2	fingernails	.Np:s]
+T33_6420	0035045	.	VDN	done	[Tn:e[Vn.Vn]Tn:e]L]
+T33_6423	.....	00323
+T33_6426	0035076	*	UY	yes	.
+T33_6429	0035087	|	PPY	you	[S[Ny:s.Ny:s]
+T33_6432	0035098	|	VMd	should	[Vdc.
+T33_6435	0035112	|	VV0v	look	.Vdc]S]
+T33_6438	0035124	|	CSn	when	[S[Fa:t[Rq:t.Rq:t]
+T33_6441	0035140	|	PPY	you	[Ny:s.Ny:s]
+T33_6444	0035152	|	VVDi	fell	[Vd.Vd]
+T33_6447	0035164	|	RP	over	[R:q.R:q]Fa:t]
+T33_6450	0035180	|	PPHS2	they	[Nap:S.Nap:S]
+T33_6453	0000000	y	YG	-	[h183.h183]
+T33_6456	0035192	|	VBDR	were	[Vwp.
+T33_6459	0035204	|	RR	all	[R:G183.R:G183]
+T33_6462	0035215	.	VVNv	broken	.Vwp]S]
+T33_6465	.....	00324
+T33_6468	0035247	c	YP	{pause}	.
+T33_6471	0035255	*	DDQ	what	[S?[Dq:y.Dq:y]
+T33_6474	0035267	|	VDD	did	[Vod.Vod]
+T33_6477	0000000	y	YR	#	.S?]
+T33_6480	0035278	|	UR	oh	.
+T33_6483	0035288	|	APPGi1	my	[G!.G!]
+T33_6486	0035298	c	YP	{pause}	.
+T33_6489	0035306	*	VV0v	look	[S*[V.V]
+T33_6492	0035318	|	II	at	[P:q.
+T33_6495	0035329	|	PPHO2	them	.P:q]S*]
+T33_6498	0035341	|	PPHS2	they	[S[Nap:s.Nap:s]
+T33_6501	0035352	|	VBR	+'re	[Vab.Vab]
+T33_6504	0035363	|	RR	all	[R:h.R:h]
+T33_6507	0035374	.	VVNv	broken	[Tn:e[Vn.Vn]Tn:e]S]
+T33_6510	.....	00325
+T33_6513	0035407	*	RGQq	how	[S?[Rq:G185.
+T33_6516	0035418	|	RRg	long	.Rq:G185]
+T33_6519	0035430	|	VDD	did	[Vod.Vod]
+T33_6522	0035441	|	NNS1c	daddy	[Nns:s.Nns:s]
+T33_6525	0035454	|	VV0v	say	[Vr.Vr]
+T33_6528	0035465	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T33_6531	0035475	|	VBDZ	was	[Vsut.
+T33_6534	0035487	|	VVGK	gon	.Vsut]
+T33_6537	0035497	|	TO	+na	[Ti:z[Vib.
+T33_6540	0035507	|	VB0	be	.Vib]
+T33_6543	0000000	y	YG	-	[t185.t185]Ti:z]Fn:o]S?]
+T33_6546	0035517	|	NP1m	Robin	[Nns".Nns"]
+T33_6549	0035532	ic?	YY	{unclear}	[Y.Y]
+T33_6552	-----	Robin123
+T33_6555	.....	00326
+T33_6558	0035579	ic	YY	{unclear}	[Y.
+T33_6561	0035589	.	NNT1c	minute	.Y]
+T33_6564	-----	Robyn122
+T33_6567	.....	00327
+T33_6570	0035641	*	UR	oh	.
+T33_6573	0035651	ic.	YY	{unclear}	[Y.Y]
+T33_6576	.....	00328
+T33_6579	0035680	*	AT	the	[S[Ns:s.
+T33_6582	0035691	|	NN1n	chicken	.Ns:s]
+T33_6585	0035706	|	VBZ	is	[Vzeb.
+T33_6588	0035715	|	XX	+n't	.Vzeb]
+T33_6591	0035726	.	VVNv	cooked	[Tn:e[Vn.Vn]Tn:e]S]
+T33_6594	-----	Robin123
+T33_6597	.....	00329
+T33_6600	0035782	*	VDD	did	[S?[Vod.Vod]
+T33_6603	0035793	|	PPY	you	[Ny:s.Ny:s]
+T33_6606	0035804	|	VV0v	tell	[Vr.Vr]
+T33_6609	0035816	?	PPHO1m	him	[Nos:i.Nos:i]S?]
+T33_6612	-----	Robyn122
+T33_6615	.....	00330
+T33_6618	0035865	*.	UN	no	.
+T33_6621	-----	Kylie124
+T33_6624	.....	00331
+T33_6627	0035913	*	NNS1c	daddy	[S[Nns:s.Nns:s]
+T33_6630	0035925	|	VBZ	+'s	[Vzb.Vzb]
+T33_6633	0000000	y	YR	#	.S]
+T33_6636	0035935	|	PPIS1	I	[S[Nea:s187.Nea:s187]
+T33_6639	0035944	|	VV0v	wan	[V.V]
+T33_6642	0000000	y	YG	-	[Ti:o[s187.s187]
+T33_6645	0035954	|	TO	+na	[Vi.
+T33_6648	0035964	|	VV0v	tell	.Vi]
+T33_6651	0035976	|	PPHO1m	him	[Nos:i.Nos:i]
+T33_6654	0035987	|	DD1a	that	[Y:o.
+T33_6657	0035999	ic	YY	{unclear}	.Y:o]Ti:o]S]
+T33_6660	0036009	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_6663	0036017	|	VMo	+'ll	[Vc.
+T33_6666	0036028	|	VV0v	tell	.Vc]
+T33_6669	0036040	|	PPHO1m	him	[Nos:i.Nos:i]
+T33_6672	0036051	|	DD1a	that	[Y:o.
+T33_6675	0036063	ic	YY	{unclear}	.Y:o]S]
+T33_6678	-----	Robyn122
+T33_6681	.....	00332
+T33_6684	0036103	|	NP1m	Robin	[Nns".Nns"]
+T33_6687	0036118	ic	YY	{unclear}	[Y.Y]
+T33_6690	0036128	|	VMo	will	[S?[Voc.Voc]
+T33_6693	0036140	|	PPY	you	[Ny:s.Ny:s]
+T33_6696	0036151	|	VV0i	come	[Vr.Vr]
+T33_6699	0036163	|	II	off	[P:q.
+T33_6702	0036179	|	AT	the	[Ns.
+T33_6705	0036190	|	NN1c	floor	.Ns]P:q]
+T33_6708	0036203	|	CC	and	[S+.
+T33_6711	0036214	|	VV0i	go	[V.V]
+T33_6714	0036224	|	II	in	[P:q.
+T33_6717	0036234	|	AT	the	[Ns.
+T33_6720	0036245	|	NN1c	sitting-room	.Ns]P:q]
+T33_6723	0036273	|	ICSt	until	[Fa:t.
+T33_6726	0036286	|	PPIS1	I	[Nea:s.Nea:s]
+T33_6729	0036295	|	VV0v	shout	[V.V]
+T33_6732	0036308	|	PPY	you	[Ny:o.Ny:o]
+T33_6735	0036319	|	IF	for	[P:c.
+T33_6738	0036331	.	NN1n	tea	.P:c]Fa:t]S+]S?]
+T33_6741	.....	00333
+T33_6744	0036360	c	YP	{pause}	.
+T33_6747	0036368	*	VMo	shall	[S?[Voc.Voc]
+T33_6750	0036381	|	PPIS2	we	[Nap:s.Nap:s]
+T33_6753	0036391	|	VH0	have	[Vr.Vr]
+T33_6756	0036403	|	DDi	some	[Ds:o.
+T33_6759	0036415	|	IO	of	[Po.
+T33_6762	0036425	?	DD1i	this	.Po]Ds:o]S?]
+T33_6765	.....	00334
+T33_6768	0036456	*	UY	yes	.
+T33_6771	0036467	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_6774	0036476	|	VV0v	think	[V.V]
+T33_6777	0036489	|	PPIS2	we	[Fn:o[Nap:s.Nap:s]
+T33_6780	0036499	.	VMd	should	[Vdcx.Vdcx]Fn:o]S]
+T33_6783	.....	00335
+T33_6786	0036532	*	RLh	there	[S[Rw:p.Rw:p]
+T33_6789	0036544	|	VBZ	+'s	[Vzb.Vzb]
+T33_6792	0036554	|	AT	the	[Ns:s.
+T33_6795	0036565	.	NN1c	mouse	.Ns:s]S]
+T33_6798	.....	00336
+T33_6801	0036597	*	RLh	there	[S[Rw:p.
+T33_6804	0000000	y	YG	-	[191.191]Rw:p]
+T33_6807	0036609	|	VBZ	+'s	[Vzb.Vzb]
+T33_6810	0036619	|	AT	the	[Ns:s.
+T33_6813	0036630	|	NN1c	mouse	.Ns:s]
+T33_6816	0036643	|	II	in	[P@:G191.
+T33_6819	0036653	|	AT	the	[Ns.
+T33_6822	0036665	.	NNL1c	house	.Ns]P@:G191]S]
+T33_6825	.....	00337
+T33_6828	0036697	*	DDQ	what	[S?[Dq:G193.Dq:G193]
+T33_6831	0036709	|	PPY	you	[Ny:s.Ny:s]
+T33_6834	0036720	|	VVGv	sticking	[Vg.Vg]
+T33_6837	0036736	|	APPGy	your	[Np:o.
+T33_6840	0036748	|	NN2	fingers	.Np:o]
+T33_6843	0036764	?	II	in	[P:q.
+T33_6846	0000000	y	YG	-	[193.193]P:q]S?]
+T33_6849	.....	00338
+T33_6852	0036797	*	UL	what	.
+T33_6855	0036809	.	UL	what	.
+T33_6858	.....	00339
+T33_6861	0036840	*?	UL	what	.
+T33_6864	.....	00340
+T33_6867	0036871	*	PPH1	it	[S[Ni:s.Ni:s]
+T33_6870	0036880	|	VBZ	+'s	[Vzeb.
+T33_6873	0036890	|	XX	not	.Vzeb]
+T33_6876	0036901	|	JJ	funny	[J:e.J:e]S]
+T33_6879	0036914	.	NP1f	Kylie	[Nns".Nns"]
+T33_6882	.....	00341
+T33_6885	0036950	*	CSn	when	[S[Fa:t[Rq:t.Rq:t]
+T33_6888	0036966	|	PPHS1m	he	[Nas:s.Nas:s]
+T33_6891	0036975	|	VHZ	+'s	[Vzfu.
+T33_6894	0036985	|	VBN	been	.
+T33_6897	0036997	|	VVGv	putting	.Vzfu]
+T33_6900	0037012	|	APPGm	his	[Np:o.
+T33_6903	0037024	|	NN2	fingers	.Np:o]
+T33_6906	0037039	|	II	in	[P:q.
+T33_6909	0037049	|	DD1a	that	[Ns.
+T33_6912	0037061	|	NN1c	birthday	.
+T33_6915	0037077	|	NN1n	cake	.Ns]P:q]Fa:t]
+T33_6918	0037090	|	EX	there	.
+T33_6921	0037102	|	VMo	+'ll	[Vcb.
+T33_6924	0037113	|	VB0	be	.Vcb]
+T33_6927	0037123	.	NN1n	trouble	[Ns:s.Ns:s]S]
+T33_6930	-----	Kylie124
+T33_6933	.....	00342
+T33_6936	0037176	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_6939	0037186	|	VHZ	has	[Vzex.
+T33_6942	0037196	.	XX	+n't	.Vzex]S]
+T33_6945	-----	Robyn122
+T33_6948	.....	00343
+T33_6951	0037245	*	VH0	have	[S?[Vx.Vx]
+T33_6954	0037257	?	PPY	you	[Ny:s.Ny:s]S?]
+T33_6957	-----	Kylie124
+T33_6960	.....	00344
+T33_6963	0037306	*.	UN	no	.
+T33_6966	.....	00345
+T33_6969	0037335	|	PPIS1	I	[Y[Nea.Nea]
+T33_6972	0037344	ic	YY	{unclear}	.Y]
+T33_6975	0037354	c	YP	{pause}	.
+T33_6978	-----	Robyn122
+T33_6981	.....	00346
+T33_6984	0037392	*	VV0v	stop	[S*[V.V]
+T33_6987	0037404	.	PPH1	it	[Ni:o.Ni:o]S*]
+T33_6990	.....	00347
+T33_6993	0037432	c	YP	{pause}	.
+T33_6996	0037440	*	VD0	do	[S?[Vo.Vo]
+T33_6999	0037450	|	PPY	you	[Ny:s.Ny:s]
+T33_7002	0037461	|	VH0	have	[Vr.Vr]
+T33_7005	0037473	|	TO	to	[Ti:z[Vi.
+T33_7008	0037483	|	VV0v	make	.Vi]
+T33_7011	0037495	|	RGz	so	[Ns:o[Ds.
+T33_7014	0037505	|	DA1	much	.Ds]
+T33_7017	0037518	?	NN1n	noise	.Ns:o]Ti:z]S?]
+T33_7020	-----	Kylie124
+T33_7023	.....	00348
+T33_7026	0037569	*.	UY	yes	.
+T33_7029	-----	Robyn122
+T33_7032	.....	00349
+T33_7035	0037618	*?	RRQq	why	[Rq.Rq]
+T33_7038	-----	Kylie124
+T33_7041	.....	00350
+T33_7044	0037667	*	CS	cos	[Fa.
+T33_7047	0037678	|	PPIS2	we	[Nap:s195.Nap:s195]
+T33_7050	0037688	|	VV0t	like	[V.V]
+T33_7053	0000000	y	YG	-	[Ti:o[s195.s195]
+T33_7056	0037700	.	TO	to	[Vix.Vix]Ti:o]Fa]
+T33_7059	-----	Robyn122
+T33_7062	.....	00351
+T33_7065	0037748	*	PPY	you	[S[Ny:s.Ny:s]
+T33_7068	0037758	|	VBR	+'re	[Vau.
+T33_7071	0037769	|	VVGv	giving	.Vau]
+T33_7074	0037783	|	PPIO1	me	[Neo:i.Neo:i]
+T33_7077	0037793	|	AT1	a	[Ns:o.
+T33_7080	0037802	.	NN1n	headache	.Ns:o]S]
+T33_7083	-----	Kylie124
+T33_7086	.....	00352
+T33_7089	0037856	*	DBa	all	[L[Ns:e.
+T33_7092	0037867	|	DD1i	this	.
+T33_7095	0037879	|	NN1n	noise	.Ns:e]
+T33_7098	0037892	|	II	in	[P:p.
+T33_7101	0037902	.	NN1n	class	.P:p]L]
+T33_7104	-----	Robyn122
+T33_7107	.....	00353
+T33_7110	0037953	*	UR	oh	.
+T33_7113	0037963	|	VBZ	is	[S?[Vzb.Vzb]
+T33_7116	0037973	|	DD1a	that	[Ds:s.Ds:s]
+T33_7119	0037985	|	RRQq	why	[Fn?:e[Rq:c.Rq:c]
+T33_7122	0037996	|	PPY	you	[Ny:s.Ny:s]
+T33_7125	0038006	|	VBR	+'re	[Vau.
+T33_7128	0038017	|	VVGv	getting	.Vau]
+T33_7131	0038033	|	VVNv	kicked	[Tn:e[Vn.Vn]
+T33_7134	0038047	?	RP	out	[R:q.R:q]Tn:e]Fn?:e]S?]
+T33_7137	.....	00354
+T33_7140	0038077	*?	UL	ha	.
+T33_7143	-----	Kylie124
+T33_7146	.....	00355
+T33_7149	0038125	*	DD1a	that	[S[Ds:s.Ds:s]
+T33_7152	0038136	|	VBZ	+'s	[Vzb.Vzb]
+T33_7155	0038146	|	RRQq	why	[Fn?:e[Rq:c.Rq:c]
+T33_7158	0038157	|	PPIS2	we	[Nap:s.Nap:s]
+T33_7161	0038167	|	VDD	did	[Vd.Vd]
+T33_7164	0038178	|	PPH1	it	[Ni:o.Ni:o]Fn?:e]S]
+T33_7167	0038188	ic.	YY	{unclear}	[Y.Y]
+T33_7170	-----	Robyn122
+T33_7173	.....	00356
+T33_7176	0038236	*	DDQ	what	[S?[Dq:e.Dq:e]
+T33_7179	0038247	|	VBZ	+'s	[Vzb.Vzb]
+T33_7182	0038257	|	AT	the	[Ns:s.
+T33_7185	0038268	|	NN1n	matter	.
+T33_7188	0038282	|	IW	with	[P.
+T33_7191	0038294	?	PPY	you	.P]Ns:s]S?]
+T33_7194	.....	00357
+T33_7197	0038324	.	NP1m	Scott	[Nns".Nns"]
+T33_7200	.....	00358
+T33_7203	0038359	c	YP	{pause}	.
+T33_7206	0038367	*	DDQ	what	[S?[Dq:G199.Dq:G199]
+T33_7209	0038379	|	VBR	are	[Voab.Voab]
+T33_7212	0038390	|	PPY	you	[Ny:s.Ny:s]
+T33_7215	0038401	|	VVGv	getting	[Vrg.Vrg]
+T33_7218	0038416	|	RR	all	[R:h.R:h]
+T33_7221	0038428	|	VVNt	excited	[Tn:e[Vn.Vn]
+T33_7224	0038447	|	II	about	[P:r.
+T33_7227	0000000	y	YG	-	[199.199]P:r]Tn:e]S?]
+T33_7230	0038460	|	FD	misses	.
+T33_7233	0038474	?	FD	aye	.
+T33_7236	.....	00359
+T33_7239	0038504	*.	UY	yes	.
+T33_7242	-----	Scott125
+T33_7245	.....	00360
+T33_7248	0038553	*.	NNS1c	mum	[Nns"[NNS1c#.
+T33_7251	0000000	y	YR	#	.
+T33_7254	.....	00361
+T33_7257	0038583	*.	NNS1c	mummy	.NNS1c#]Nns"]
+T33_7260	-----	Kylie124
+T33_7263	.....	00362
+T33_7266	0038634	*.	UX	boo	.
+T33_7269	0038653	c	YP	{pause}	.
+T33_7272	-----	Robyn122
+T33_7275	.....	00363
+T33_7278	0038691	*	VV0i	come	[S*[V.V]
+T33_7281	0038703	|	RP	on	[R:q.R:q]
+T33_7284	0038713	|	RTn	then	[Rsw:c.Rsw:c]
+T33_7287	0038725	|	VV0v	fetch	[S*@[V.V]
+T33_7290	0038742	ic.	YY	{unclear}	[Y:o.Y:o]S*@]S*]
+T33_7293	.....	00364
+T33_7296	0038771	*	PPY	you	[S[Ny:s.Ny:s]
+T33_7299	0038782	|	VV0v	get	[V.V]
+T33_7302	0038793	|	II	off	[P:q.
+T33_7305	0038808	|	DD2a	those	[Np.
+T33_7308	0038821	|	NN2	cakes	.Np]P:q]
+T33_7311	0038834	|	CCr	or	[S+.
+T33_7314	0038845	|	EX	there	.
+T33_7317	0038857	|	VBZ	+'s	[Vzut.
+T33_7320	0038867	|	VVGK	going	.Vzut]
+T33_7323	0038880	|	TO	to	[Ti:z[Vib.
+T33_7326	0038890	|	VB0	be	.Vib]Ti:z]
+T33_7329	0038900	.	NN1n	trouble	[Ns:s.Ns:s]S+]S]
+T33_7332	.....	00365
+T33_7335	0038934	*	UK	look	.
+T33_7338	0038946	|	PPY	you	[S[Ny:s.Ny:s]
+T33_7341	0038957	|	VMo	ca	[Vce.
+T33_7344	0038966	|	XX	+n't	.
+T33_7347	0038977	|	VH0	have	.Vce]
+T33_7350	0038989	|	AT1	a	[Ns:o.
+T33_7353	0038998	.	NN1n	cake	.Ns:o]S]
+T33_7356	.....	00366
+T33_7359	0039029	*	PPY	you	[S[Ny:s.Ny:s]
+T33_7362	0039039	|	VH0	+'ve	[Vf.
+T33_7365	0039050	|	VVNH	got	.Vf]
+T33_7368	0039061	|	TO	to	[Ti:z[Vi.
+T33_7371	0039071	|	VH0	have	.Vi]
+T33_7374	0039083	|	DDi	some	[Ns:o.
+T33_7377	0039095	.	NN1n	tea	.Ns:o]Ti:z]S]
+T33_7380	.....	00367
+T33_7383	0039125	*	VV0i	come	[S*[V.V]
+T33_7386	0039137	.	RLh	here	[Rw:q.Rw:q]S*]
+T33_7389	.....	00368
+T33_7392	0039168	*	VV0i	come	[S*[V.V]
+T33_7395	0039180	.	RP	on	[R:q.R:q]
+T33_7398	.....	00369
+T33_7401	0039209	*	VV0v	give	[S*@[V.V]
+T33_7404	0039221	|	NNS1c	mummy	[Nns:i.Nns:i]
+T33_7407	0039234	|	AT1	a	[Ns:o.
+T33_7410	0039243	.	NN1c	cuddle	.Ns:o]S*@]S*]
+T33_7413	-----	Scott125
+T33_7416	.....	00370
+T33_7419	0039295	*.	UN	no	.
+T33_7422	-----	Robyn122
+T33_7425	.....	00371
+T33_7428	0039343	*	VV0v	give	[S*[V.V]
+T33_7431	0039355	|	PPIO2	us	[Nop:i.Nop:i]
+T33_7434	0039365	|	AT1	a	[Ns:o.
+T33_7437	0039374	.	NN1n	love	.Ns:o]S*]
+T33_7440	.....	00372
+T33_7443	0039405	*	UR	oh	.
+T33_7446	0039415	|	VD0	do	[S*[Ve.
+T33_7449	0039424	|	XX	+n't	.
+T33_7452	0039435	|	VV0t	bash	.Ve]
+T33_7455	0039447	.	PPIO1	me	[Neo:o.Neo:o]S*]
+T33_7458	.....	00373
+T33_7461	0039476	*	VD0	do	[S*[Ve.
+T33_7464	0039485	|	XX	+n't	.
+T33_7467	0039496	|	VV0t	bash	.Ve]
+T33_7470	0039508	.	PPIO1	me	[Neo:o.Neo:o]S*]
+T33_7473	.....	00374
+T33_7476	0039537	*	DDQq	which	[S?[Mqs:o.
+T33_7479	0039550	|	MC1	one	.Mqs:o]
+T33_7482	0039561	|	VDZ	does	[Voz.Voz]
+T33_7485	0039573	|	NP1m	Scott	[Nns:s.Nns:s]
+T33_7488	0039586	?	VV0v	want	[Vr.Vr]S?]
+T33_7491	-----	Kylie124
+T33_7494	.....	00375
+T33_7497	0039636	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_7500	0039645	.	VV0v	know	[V.V]S]
+T33_7503	-----	Robyn122
+T33_7506	.....	00376
+T33_7509	0039695	*	DDQq	which	[S?[Nqs:o.
+T33_7512	0039708	|	NN1n	cake	.
+T33_7515	0000000	y	YG	-	[203.203]Nqs:o]
+T33_7518	0039720	|	VDZ	does	[Voz.Voz]
+T33_7521	0039732	|	NP1m	Scott	[Nns:s.Nns:s]
+T33_7524	0039745	?	VV0v	want	[Vr.Vr]
+T33_7527	.....	00377
+T33_7530	0039776	*	DDQq	which	[Mqs@:G203.
+T33_7533	0039789	?	MC1	one	.Mqs@:G203]S?]
+T33_7536	-----	Scott125
+T33_7539	.....	00378
+T33_7542	0039838	*.	JJ	pink	[J.J]
+T33_7545	-----	Robyn122
+T33_7548	.....	00379
+T33_7551	0039888	*	AT	the	[Ms.
+T33_7554	0039899	|	JJ	pink	.
+T33_7557	0039911	.	MC1	one	.Ms]
+T33_7560	-----	Kylie124
+T33_7563	.....	00380
+T33_7566	0039960	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_7569	0039969	ic	YY	{unclear}	[Y.
+T33_7572	0039979	.	MC1	one	.Y]S]
+T33_7575	-----	Robyn122
+T33_7578	.....	00381
+T33_7581	0040032	*	AT	the	[Ms.
+T33_7584	0040043	|	NN1n	chocolate	.
+T33_7587	0040060	.	MC1	one	.Ms]
+T33_7590	.....	00382
+T33_7593	0040094	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_7596	0040103	|	VBZ	+'s	[Vzeu.
+T33_7599	0040113	|	XX	not	.
+T33_7602	0040124	|	VHG	having	.Vzeu]
+T33_7605	0040138	|	PPH1	it	[Ni:o.Ni:o]
+T33_7608	0040148	|	NP1f	Kylie	[Nns".Nns"]
+T33_7611	0040165	|	ICSt	until	[P:t.
+T33_7614	0040179	|	ICSt	after	[P.
+T33_7617	0040192	.	NN1n	tea	.P]
+T33_7620	.....	00383
+T33_7623	0040222	*	XX	not	[Rs@.
+T33_7626	0040233	.	RRs	yet	.Rs@]P:t]S]
+T33_7629	.....	00384
+T33_7632	0040263	*	PPY	you	[S[Ny:s.Ny:s]
+T33_7635	0040274	|	VMo	can	[Vc.
+T33_7638	0040285	|	VH0	have	.Vc]
+T33_7641	0040297	|	PPH1	it	[Ni:o.Ni:o]
+T33_7644	0040307	|	II	in	[P:t.
+T33_7647	0040317	|	AT1	a	[Ns.
+T33_7650	0040326	.	NNT1c	minute	.Ns]
+T33_7653	.....	00385
+T33_7656	0040359	*	CSn	when	[Fa@[Rq:t.Rq:t]
+T33_7659	0040375	|	NNS1c	daddy	[Nns:s.Nns:s]
+T33_7662	0040388	.	VVZi	comes	[Vz.Vz]Fa@]P:t]S]
+T33_7665	.....	00386
+T33_7668	0040420	*	PPY	you	[S?[Ny:s.Ny:s]
+T33_7671	0040431	|	VVGK	going	[Vgt.Vgt]
+T33_7674	0040444	|	TO	to	[Ti:z[Vi.
+T33_7677	0040454	|	VV0v	tell	.Vi]
+T33_7680	0040466	|	NNS1c	daddy	[Nns:i.Nns:i]
+T33_7683	0040479	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T33_7686	0040489	|	VH0	+'ve	[Vfb.
+T33_7689	0040501	|	VBN	been	.Vfb]
+T33_7692	0040513	|	AT1	a	[Ns:e.
+T33_7695	0040522	|	JJ	good	.
+T33_7698	0040534	|	NN1c	boy	.Ns:e]
+T33_7701	0040545	?	RTt	today	[R:t.R:t]Fn:o]Ti:z]S?]
+T33_7704	-----	Scott125
+T33_7707	.....	00387
+T33_7710	0040596	*.	UY	yeah	.
+T33_7713	-----	Robyn122
+T33_7716	.....	00388
+T33_7719	0040646	*	VHD	had	[S[Vd.Vd]
+T33_7722	0040657	|	MC	three	[N:o.
+T33_7725	0040670	ic	YY	{unclear}	[Y.Y]
+T33_7728	0040680	|	CC	and	[Ns+.
+T33_7731	0040691	|	AT1	a	.
+T33_7734	0040700	.	NN1u	cocoa	.Ns+]N:o]S]
+T33_7737	.....	00389
+T33_7740	0040731	c	YP	{pause}	.
+T33_7743	0040739	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_7746	0040750	|	VBZ	+'s	[Vozb.Vozb]
+T33_7749	0040760	|	NP1f	Chloe	[Nns:s.Nns:s]
+T33_7752	0040773	?	VDG	doing	[Vrg.Vrg]S?]
+T33_7755	.....	00390
+T33_7758	0040805	*	VD0	do	[S*[Ve.
+T33_7761	0040814	|	XX	+n't	.
+T33_7764	0040825	|	VV0v	hit	.Ve]
+T33_7767	0040836	|	PPHO1f	her	[Nos:o.Nos:o]S*]
+T33_7770	0040847	|	VB0	be	[S*[Vjb.Vjb]
+T33_7773	0040857	.	JJ	careful	[J:e.J:e]S*]
+T33_7776	.....	00391
+T33_7779	0040891	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_7782	0040899	|	VH0	+'ve	[Vf.
+T33_7785	0040910	|	VVNv	read	.Vf]
+T33_7788	0040922	|	APPGy	your	[Np:o.
+T33_7791	0040934	|	NN1c	home	.
+T33_7794	0040946	.	NN2	messages	.Np:o]S]
+T33_7797	.....	00392
+T33_7800	0040981	*	ATn	no	[L[N:e.
+T33_7803	0040991	ic	YY	{unclear}	[Y.Y]N:e]
+T33_7806	0041001	|	ICSt	after	[P:t.
+T33_7809	0041018	.	NPD1	Tuesday	[Nns.Nns]P:t]L]
+T33_7812	.....	00393
+T33_7815	0041052	*	RRz	so	[S?[Rs:c.Rs:c]
+T33_7818	0041062	|	DDQ	what	[Dq:o.Dq:o]
+T33_7821	0041074	|	PPIS2	we	[Nap:s.Nap:s]
+T33_7824	0041084	|	VVGK	gon	[Vgt.Vgt]
+T33_7827	0041094	|	TO	+na	[Ti:z[Vi.
+T33_7830	0041104	|	VD0	do	.Vi]
+T33_7833	0041114	|	IW	with	[P:h.
+T33_7836	0041127	.	NP1f	Kylie	[Nns.Nns]P:h]Ti:z]S?]
+T33_7839	-----	Kylie124
+T33_7842	.....	00394
+T33_7845	0041178	*	CCr	or	[Nns+.
+T33_7848	0041188	.	NPD1	Monday	.Nns+]
+T33_7851	-----	Robyn122
+T33_7854	.....	00395
+T33_7857	0041240	*	PPY	you	[Nys".
+T33_7860	0041251	|	JJ	little	.
+T33_7863	0041269	.	NN1c	toerag	.Nys"]
+T33_7866	.....	00396
+T33_7869	0041306	*	DD1a	that	[S[Ds:s.Ds:s]
+T33_7872	0041317	|	VBZ	+'s	[Vzb.Vzb]
+T33_7875	0041327	.	JJ	naughty	[J:e.J:e]S]
+T33_7878	.....	00397
+T33_7881	0041361	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_7884	0041371	|	VVDt	punched	[Vd.Vd]
+T33_7887	0041386	|	PPIO1	me	[Neo:o.Neo:o]
+T33_7890	0041396	|	II	in	[P:p.
+T33_7893	0041406	|	AT	the	[Ns.
+T33_7896	0041417	.	NN1c	eye	.Ns]P:p]S]
+T33_7899	.....	00398
+T33_7902	0041447	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T33_7905	0041456	|	VBZ	+'s	[Vzb.Vzb]
+T33_7908	0041466	|	AT1	a	[Ns:e.
+T33_7911	0041475	.	NN1c	villain	.Ns:e]S]
+T33_7914	.....	00399
+T33_7917	0041508	c	YP	{pause}	.
+T33_7920	0041516	c	YV	{laugh}	.
+T33_7923	0041535	*?	UL	what	.
+T33_7926	-----	Kylie124
+T33_7929	.....	00400
+T33_7932	0041585	*	EX	there	[S.
+T33_7935	0041597	|	VBZ	+'s	[Vzb.Vzb]
+T33_7938	0041607	|	MC1	one	[M:s[MC1&.
+T33_7941	0041618	|	MC	two	[MC-.MC-]MC1&]M:s]S]
+T33_7944	-----	Robyn122
+T33_7947	.....	00401
+T33_7950	0041659	*	VH0	have	[S?[Vo.Vo]
+T33_7953	0041671	|	PPY	you	[Ny:s.Ny:s]
+T33_7956	0041682	|	VBN	been	[Vrnu.
+T33_7959	0041694	|	VVGv	eating	.Vrnu]
+T33_7962	0041708	|	DD1i	this	[Ns:o.
+T33_7965	0041720	?	NN1n	cake	.Ns:o]S?]
+T33_7968	.....	00402
+T33_7971	0041750	c	YP	{pause}	.
+T33_7974	0041758	*	PPY	you	[S[Ny:s.Ny:s]
+T33_7977	0000000	y	YG	-	[t205.t205]
+T33_7980	0041768	|	VH0	+'ve	[Vf.
+T33_7983	0041779	|	RR	just	[R:G205.R:G205]
+T33_7986	0041791	|	VVDi	wee-weed	.Vf]
+T33_7989	0041814	|	II	in	[P:p.
+T33_7992	0041825	|	DD1i	this	[Ns.
+T33_7995	0041837	.	NN1c	paddy	.Ns]P:p]S]
+T33_7998	.....	00403
+T33_8001	0041869	*	PPY	you	[S[Ny:S.Ny:S]
+T33_8004	0041879	|	VBR	+'re	[Vap.
+T33_8007	0041890	|	VVNt	supposed	.Vap]
+T33_8010	0041906	|	TO	to	[Ti:z[Vi.
+T33_8013	0041916	|	VV0v	stay	.Vi]
+T33_8016	0041928	ic.	YY	{unclear}	[Y:e.Y:e]Ti:z]S]
+T33_8019	.....	00404
+T33_8022	0041957	*	RRQq	where	[S?[Rq:p.Rq:p]
+T33_8025	0041969	|	VBZ	+'s	[Vzb.Vzb]
+T33_8028	0041979	*	NNS1c	auntie	[Nns:s.
+T33_8031	0041992	?	NP1f	Susan	.Nns:s]S?]
+T33_8034	.....	00405
+T33_8037	0042024	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T33_8040	0042034	|	VBZ	+'s	[Vzb.Vzb]
+T33_8043	0042044	|	II	at	[P:p.
+T33_8046	0042054	.	NNJ1n	school	.P:p]S]
+T33_8049	-----	Kylie124
+T33_8052	.....	00406
+T33_8055	0042106	*	PNQSq	who	[S?[Nq:e.Nq:e]
+T33_8058	0042117	|	VBDZ	was	[Vsb.Vsb]
+T33_8061	0042128	|	DD1a	that	[Ds:s.Ds:s]
+T33_8064	0042140	|	II	at	[P:p.
+T33_8067	0042150	|	AT	the	[Ns.
+T33_8070	0042161	|	NN1c	door	.Ns]P:p]S?]
+T33_8073	0042173	|	VBDZ	was	[S?[Vsb.Vsb]
+T33_8076	0042185	|	PPH1	it	[Ni:s.Ni:s]
+T33_8079	0042195	ic	YY	{unclear}	[Y:e.Y:e]S?]
+T33_8082	-----	Robyn122
+T33_8085	.....	00407
+T33_8088	0042234	ic	YY	{unclear}	[Y.
+T33_8091	0042244	*	NNS1c	auntie	[Nn.
+T33_8094	0042257	|	NP1f	Susan	.
+T33_8097	0042270	|	CC	and	[Y+.
+T33_8100	0042281	ic	YY	{unclear}	.Y+]Nn]
+T33_8103	0042291	|	VVGi	coming	[Vg.Vg]
+T33_8106	0042306	|	II	from	[P.
+T33_8109	0042318	ic.	YY	{unclear}	[Y.Y]P]Y]
+T33_8112	.....	00408
+T33_8115	0042347	*	CC	and	[S+.
+T33_8118	0042358	|	PPIS2	we	[Nap:s.Nap:s]
+T33_8121	0042367	|	VBR	+'re	[Vaut.
+T33_8124	0042378	|	VVGK	gon	.Vaut]
+T33_8127	0042388	|	TO	+na	[Ti:z[Vi.
+T33_8130	0042398	|	VV0v	sing	.Vi]
+T33_8133	0042410	|	JJ	happy	[Nns:o[Ot[Ns.
+T33_8136	0042424	|	NN1c	birthday	.Ns]Ot]Nns:o]
+T33_8139	0042440	|	IIt	to	[P:u.
+T33_8142	0042450	.	NNS1c	daddy	[Nns.Nns]P:u]Ti:z]S+]
+T33_8145	.....	00409
+T33_8148	0042482	*	NNS1c	mummy	[Ns[G[Nns.Nns]
+T33_8151	0042494	|	GG	+'s	.G]
+T33_8154	0042504	.	NN1c	card	.Ns]
+T33_8157	.....	00410
+T33_8160	0042535	*	RRQq	where	[S?[Rq:p.Rq:p]
+T33_8163	0042547	|	VBZ	+'s	[Vzb.Vzb]
+T33_8166	0042557	ic	YY	{unclear}	[Ns:s[Y.Y]
+T33_8169	0042567	?	NN1c	card	.Ns:s]S?]
+T33_8172	.....	00411
+T33_8175	0042598	*	VBR	are	[S?[Voab.Voab]
+T33_8178	0042609	|	PPY	you	[Ny:s.Ny:s]
+T33_8181	0042620	|	VVGK	gon	[Vrgt.Vrgt]
+T33_8184	0042630	|	TO	+na	[Ti:z[Vi.
+T33_8187	0042640	|	VV0v	watch	.Vi]
+T33_8190	0042653	|	II	out	[P:q.
+T33_8193	0042664	|	AT	the	[Ns.
+T33_8196	0042676	|	NN1c	window	.Ns]P:q]
+T33_8199	0042690	|	IF	for	[P:u.
+T33_8202	0042701	?	NP1f	Susan	[Nns.Nns]P:u]Ti:z]S?]
+T33_8205	.....	00412
+T33_8208	0042732	c	YP	{pause}	.
+T33_8211	0042740	*	UR	oh	.
+T33_8214	0042750	|	PPY	you	[S[Ny:s.Ny:s]
+T33_8217	0042760	|	VBR	+'re	[Vaeu.
+T33_8220	0042771	|	XX	not	.
+T33_8223	0042782	|	VDG	doing	.Vaeu]
+T33_8226	0042795	|	DD1a	that	[Ns:o.
+T33_8229	0042807	ic	YY	{unclear}	[Y.Y]Ns:o]S]
+T33_8232	0042817	|	PPY	you	[S[Ny:s.Ny:s]
+T33_8235	0042827	|	VH0	+'ve	[V.V]
+T33_8238	0042838	|	RR	already	[R:t.R:t]
+T33_8241	0042853	ic.	YY	{unclear}	[Y.Y]S]
+T33_8244	-----	Scott125
+T33_8247	.....	00413
+T33_8250	0042901	*	UN	no	.
+T33_8253	0042911	.	UN	no	.
+T33_8256	-----	Robyn122
+T33_8259	.....	00414
+T33_8262	0042959	*	UY	yes	.
+T33_8265	0042970	.	UY	yes	.
+T33_8268	-----	Scott125
+T33_8271	.....	00415
+T33_8274	0043019	*	UN	no	.
+T33_8277	0043029	.	UN	no	.
+T33_8280	-----	Robin123
+T33_8283	.....	00416
+T33_8286	0043077	*	PPH1	it	[S[Ni:s.Ni:s]
+T33_8289	0043086	|	VBZ	+'s	[Vzeb.
+T33_8292	0043096	|	XX	not	.Vzeb]
+T33_8295	0043107	|	AT1	a	[Ns:e.
+T33_8298	0043116	|	NN1c	joke	.Ns:e]S]
+T33_8301	0043128	ic.	YY	{unclear}	[Y.Y]
+T33_8304	-----	Robyn122
+T33_8307	.....	00417
+T33_8310	0043176	*.	UR	right	.
+T33_8313	-----	Scott125
+T33_8316	.....	00418
+T33_8319	0043227	*	NNS1c	auntie	[Nns.
+T33_8322	0043240	.	NP1f	Susan	.Nns]
+T33_8325	-----	Robyn122
+T33_8328	.....	00419
+T33_8331	0043291	*	VV0v	let	[S*[Vo.Vo]
+T33_8334	0043294	|	PPIO2	+'s	[Nop:O209.Nop:O209]
+T33_8337	0043304	|	XX	not	[Vre.Vre]
+T33_8340	0000000	y	YG	-	[Tb:o[s209.s209]
+T33_8343	0043315	|	RR	all	[R:h.R:h]
+T33_8346	0043326	.	VV0v	shout	[V.V]Tb:o]S*]
+T33_8349	-----	Robin123
+T33_8352	.....	00420
+T33_8355	0043377	*	VV0v	let	[S*[V.V]
+T33_8358	0043380	|	PPIO2	+'s	[Nop:O211.Nop:O211]
+T33_8361	0000000	y	YG	-	[Tb:o[s211.s211]
+T33_8364	0043390	|	RR	all	[R:h.R:h]
+T33_8367	0043401	|	VB0	be	[Vjb.Vjb]
+T33_8370	0043411	.	JJ	quiet	[J:e.J:e]Tb:o]S*]
+T33_8373	-----	Robyn122
+T33_8376	.....	00421
+T33_8379	0043462	*	DD1a	that	[S[Ds:s.Ds:s]
+T33_8382	0043473	|	VBZ	+'s	[Vzb.Vzb]
+T33_8385	0043483	|	AT1	a	[Ns:e.
+T33_8388	0043492	|	JJ	good	.
+T33_8391	0043504	|	NN1c	idea	.Ns:e]S]
+T33_8394	0043516	.	NP1m	Robin	[Nns".Nns"]
+T33_8397	-----	Robin123
+T33_8400	.....	00422
+T33_8403	0043569	*	CCB	but	[S+.
+T33_8406	0043580	|	PPIS1	I	[Nea:s213.Nea:s213]
+T33_8409	0043589	|	VV0t	need	[V.V]
+T33_8412	0000000	y	YG	-	[Ti:o[s213.s213]
+T33_8415	0043601	|	TO	to	[Vi.
+T33_8418	0043611	|	VV0v	get	.Vi]
+T33_8421	0043622	|	DDi	some	[Ns:o.
+T33_8424	0043635	.	NN1u	quiet	.Ns:o]Ti:o]S+]
+T33_8427	-----	Kylie124
+T33_8430	.....	00423
+T33_8433	0043689	ic	YY	{unclear}	[Y.Y]
+T33_8436	0043699	*	NNS1c	auntie	[Nns.
+T33_8439	0043712	|	NP1f	Susan	.Nns]
+T33_8442	0043725	*	NNS1c	auntie	[Nns.
+T33_8445	0043738	.	NP1f	Susan	.Nns]
+T33_8448	0043759	c	YP	{pause}	.
+T33_8451	-----	Scott125
+T33_8454	.....	00424
+T33_8457	0043797	*.	VVNi	gone	[Tn[Vn.Vn]Tn]
+T33_8460	.....	00425
+T33_8463	0043828	*.	VVNi	gone	[Tn[Vn.Vn]Tn]
+T33_8466	-----	Robyn122
+T33_8469	.....	00426
+T33_8472	0043878	*	PNQSq	who	[S?[Nq:s.Nq:s]
+T33_8475	0043888	|	VHZ	+'s	[Vzf.
+T33_8478	0043898	?	VVNi	gone	.Vzf]S?]
+T33_8481	-----	Scott125
+T33_8484	.....	00427
+T33_8487	0043948	*.	VVNi	gone	[Tn[Vn.Vn]Tn]
+T33_8490	-----	Robyn122
+T33_8493	.....	00428
+T33_8496	0043998	*	PNQSq	who	[S?[Nq:s.Nq:s]
+T33_8499	0044008	|	VHZ	+'s	[Vzf.
+T33_8502	0044018	?	VVNi	gone	.Vzf]S?]
+T33_8505	.....	00429
+T33_8508	0044048	c	YP	{pause}	.
+T33_8511	0044056	.	NP1f	Chloe	[Nns".Nns"]
+T33_8514	.....	00430
+T33_8517	0044091	c	YP	{pause}	.
+T33_8520	0044099	*	UR	oh	.
+T33_8523	0044109	|	DDQ	what	[S?[Dq:e.Dq:e]
+T33_8526	0044120	|	VBZ	+'s	[Vzb.Vzb]
+T33_8529	0044130	|	AT	the	[Ns:s.
+T33_8532	0044141	|	NN1n	matter	.Ns:s]
+T33_8535	0044155	?	RTo	now	[Rw:t.Rw:t]S?]
+T33_8538	0044174	ic	YY	{unclear}	[Y.
+T33_8541	0044184	|	NN1c	chair	.
+T33_8544	0044197	|	NP1m	Robin	[Nns.Nns]
+T33_8547	0044212	ic.	YY	{unclear}	.Y]
+T33_8550	.....	00431
+T33_8553	0044241	*	RRQq	why	[S?[Rq:c.Rq:c]
+T33_8556	0044252	|	VD0	do	[Voe.
+T33_8559	0044261	|	XX	+n't	.Voe]
+T33_8562	0044272	|	PPY	you	[Ny:s.Ny:s]
+T33_8565	0044283	|	VV0i	go	[Vr.Vr]
+T33_8568	0044293	|	IIt	to	[P:q.
+T33_8571	0044303	|	APPGy	your	[Ns.
+T33_8574	0044316	|	NN1c	bedroom	.Ns]P:q]
+T33_8577	0044331	|	ICSt	until	[Fa:t.
+T33_8580	0044348	|	NN1n	tea	[Ns:s.Ns:s]
+T33_8583	0044358	|	VBZ	+'s	[Vzb.Vzb]
+T33_8586	0044368	.	JJ	ready	[J:e.J:e]Fa:t]S?]
+T33_8589	-----	Kylie124
+T33_8592	.....	00432
+T33_8595	0044419	*.	UN	no	.
+T33_8598	-----	Robyn122
+T33_8601	.....	00433
+T33_8604	0044467	*.	UY	yes	.
+T33_8607	-----	Robin123
+T33_8610	.....	00434
+T33_8613	0044516	*	VD0	do	[S[Ve.
+T33_8616	0044525	|	XX	+n't	.
+T33_8619	0044536	|	VV0v	want	.Ve]
+T33_8622	0044548	.	TO	to	[Ti:o[Vix.Vix]Ti:o]S]
+T33_8625	-----	Robyn122
+T33_8628	.....	00435
+T33_8631	0044596	|	PPIS1	I	[S[Nea:s.Nea:s]
+T33_8634	0044605	|	VV0v	think	[V.V]
+T33_8637	0044618	|	DD1a	that	[Fn:o[Ds:s.Ds:s]
+T33_8640	0044630	|	VMd	would	[Vdcb.
+T33_8643	0044643	|	VB0	be	.Vdcb]
+T33_8646	0044653	|	AT1	a	[Ns:e.
+T33_8649	0044662	|	JJ	good	.
+T33_8652	0044675	.	NN1c	idea	.Ns:e]Fn:o]S]
+T33_8655	.....	00436
+T33_8658	0044705	c	YP	{pause}	.
+T33_8661	0044713	*	DDQ	what	[S?[Dq:o.Dq:o]
+T33_8664	0044725	|	VBR	are	[Voab.Voab]
+T33_8667	0044736	|	PPY	you	[Ny:s.Ny:s]
+T33_8670	0044747	|	VDG	doing	[Vrg.Vrg]S?]
+T33_8673	0044760	?	NP1f	Kylie	[Nns".Nns"]
+T33_8676	.....	00437
+T33_8679	0044792	*	DDQ	what	[S?[Dq:G217.Dq:G217]
+T33_8682	0044804	|	VDD	did	[Vod.Vod]
+T33_8685	0044815	|	PPY	you	[Ny:s.Ny:s]
+T33_8688	0044826	|	VV0v	say	[Vr.Vr]
+T33_8691	0044837	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T33_8694	0044848	|	VBDR	were	[Vwu.
+T33_8697	0044861	?	VDG	doing	.Vwu]
+T33_8700	0000000	y	YG	-	[o217.o217]Fn:o]S?]
+T33_8703	.....	00438
+T33_8706	0044892	c	YP	{pause}	.
+T33_8709	0044900	*	VV0v	let	[S*[V.V]
+T33_8712	0044903	|	PPIO2	+'s	[Nop:O219.Nop:O219]
+T33_8715	0000000	y	YG	-	[Tb:o[s219.s219]
+T33_8718	0044913	|	VH0	have	[V.V]
+T33_8721	0044925	|	DDi	some	[Np:o.
+T33_8724	0044937	|	NN2	lights	.Np:o]
+T33_8727	0044951	.	RP	on	[R:j.R:j]Tb:o]S*]

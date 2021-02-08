@@ -40,6 +40,10 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 int evsrv_init(const string &interfaceKind, int port, char *arg);
 int evsrv_run();
 
+#ifdef EVSERVER_FORK
+extern bool parent_g;
+#endif
+
 #ifdef WIN32
 #pragma warning( pop )
 #endif

@@ -1,0 +1,22 @@
+
+# do this		why	to result in this
+
+"have job"  		why	"earn money"
+"earn money"		why	"have money"
+"steal money"		why	"have money"
+"beg money"		why	"have money"
+"borrow money"		why	"have money"
+"inherit money"		why	"have money"
+"have money" 		why	"buy food"
+"have money" 		why	"buy drink"
+"have money"		why	"buy clothes"
+"have money"		why	"rent shelter"
+"buy food"		why	"satisfy hunger"
+"buy drink"		why	"satisfy thirst"
+"buy clothes"		why	"avoid freezing"
+"buy clothes"		why	"satisfy esthetic_urge"
+"satisfy hunger" 	why	"avoid starvation"
+"satisfy thirst" 	why	"avoid dehyration"
+"avoid starvation" 	why	"avoid death"
+"avoid dehydration" why	"avoid death"
+"avoid freezing"	why	"avoid death"

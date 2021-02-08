@@ -681,17 +681,17 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
     WORDP s = (properties & FACTSUBJECT) ? NULL : Meaning2Word(subject);
     WORDP v = (properties & FACTVERB) ? NULL : Meaning2Word(verb);
 	WORDP o = (properties & FACTOBJECT) ? NULL : Meaning2Word(object);
-    if (s && *s->word == 0)
+    if (s && (!s->word || *s->word == 0))
 	{
 		ReportBug((char*)"bad choice in fact subject")
 		return NULL;
 	}
-	if (v && *v->word == 0)
+	if (v && (!v->word || *v->word == 0))
 	{
 		ReportBug((char*)"bad choice in fact verb")
 		return NULL;
 	}
-	if (o && *o->word == 0)
+	if (o && (!o->word || *o->word == 0))
 	{
 		ReportBug((char*)"bad choice in fact object")
 		return NULL;
@@ -901,7 +901,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	{
 		ptr = EatFact(ptr+1,buffer); //   returns after the closing paren
 		flags |= FACTSUBJECT;
-		sprintf(buffer,(char*)"%d",currentFactIndex() ); //   created OR e found instead of created
+		sprintf(buffer,(char*)"%u",currentFactIndex() ); //   created OR e found instead of created
 	}
 	else  ptr = GetCommandArg(ptr,buffer,result,OUTPUT_FACTREAD); //   subject
 	ptr = SkipWhitespace(ptr); // could be user-formateed, dont trust
@@ -922,7 +922,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	{
 		ptr = EatFact(ptr+1,buffer);
 		flags |= FACTVERB;
-		sprintf(buffer,(char*)"%d",currentFactIndex() );
+		sprintf(buffer,(char*)"%u",currentFactIndex() );
 	}
 	else  ptr = GetCommandArg(ptr,buffer,result,OUTPUT_FACTREAD); //verb
 	if (!ptr)
@@ -952,7 +952,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	{
 		ptr = EatFact(ptr+1,buffer);
 		flags |= FACTOBJECT;
-		sprintf(buffer,(char*)"%d",currentFactIndex() );
+		sprintf(buffer,(char*)"%u",currentFactIndex() );
 	}
 	else  ptr = GetCommandArg(ptr,buffer,result,OUTPUT_FACTREAD); 
 	ptr = SkipWhitespace(ptr); // could be user-formateed, dont trust
@@ -1368,7 +1368,7 @@ char* WriteFact(FACT* F,bool comment,char* buffer,bool ignoreDead,bool eol,bool 
 
 	base = buffer;
 	int autoflag = F->flags & FACTOBJECT;
-    bool jsonString = F->flags && JSON_STRING_VALUE ? true : false;
+    bool jsonString = F->flags & JSON_STRING_VALUE ? true : false;
 	MEANING X = F->object;
 	if (F->flags & FACTAUTODELETE && F->flags & (JSON_OBJECT_FACT| JSON_ARRAY_FACT)) 
 	{
@@ -1420,7 +1420,7 @@ char* ReadField(char* ptr,char* field,char fieldkind, unsigned int& flags)
 			ReportBug((char*)"Missing fact field")
 			return NULL;
 		}
-		sprintf(field,(char*)"%d",Fact2Index(G)); 
+		sprintf(field,(char*)"%u",Fact2Index(G)); 
 	}
 	else if (*ptr == ENDUNIT) // internal string token (fact read)
 	{

@@ -1,7 +1,7 @@
 # ChatScript Client/Server Manual
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
-<br>Revision 3/29/2020 cs10.1
+<br> Revision 2/8/2021 cs11.1
 
 * [Running the server](ChatScript-ClientServer-Manual.md#running-the-server)
 * [Unique User Names](ChatScript-ClientServer-Manual.md#unique-user-names)
@@ -459,6 +459,9 @@ just put an * in front of your user name. If you want to name the bot you want t
 ## :source
 This is the same :source command that you can use on a standalone server, sending the lines of the
 the file from client to server.
+
+## :dll filename
+This loads the dll compile of CS and executes the commands of the file given, to test the dll.
 
 ## :restart
 Tell server to restart (reload) itself.

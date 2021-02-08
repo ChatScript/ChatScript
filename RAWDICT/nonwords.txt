@@ -1,0 +1,12 @@
+# the dictionary has these as words, we want to cancel them 
+LET # uppercase acronym
+He	# helium
+Be	# beryllium
+Ho  # another element 
+lense	# not for lens please
+Here # Hera
+day_of_the_month
+day_of_the_week
+
+
+

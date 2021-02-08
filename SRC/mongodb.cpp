@@ -21,7 +21,6 @@
 // #include <mongoc.h>
 
 #include "bson.h"
-#include "bcon.h"
 #include "mongoc.h"
 
 static bool mongoInited = false;		// have we inited mongo overall
@@ -79,53 +78,62 @@ eReturnValue EstablishConnection(	const char* pStrSeverUri, // eg "mongodb://loc
 {
 	if( ( pStrSeverUri == NULL ) || ( pStrDBName == NULL ) || ( pStrCollName == NULL ) ) return eReturnValue_WRONG_ARGUEMENTS;
 
+    bool isScriptUser = (mycollect == &g_pCollection ? true : false);
+
 	// Required to initialize libmongoc's internals
 	if (!mongoInited) mongoc_init();
 	mongoInited = true;
 
 	// Create a new client instance (user/script or interal/filesystem)
-	mongoc_client_t* myclient  = mongoc_client_new( pStrSeverUri );
-	if( myclient == NULL ) return eReturnValue_DATABASE_OPEN_CLIENT_CONNECTION_FAILED;
+    mongoc_client_t* myclient = NULL;
+    if ( isScriptUser && g_pClient != NULL ) myclient = g_pClient;
+    else if ( g_filesysClient != NULL ) myclient = g_filesysClient;
+    else
+    {
+        myclient  = mongoc_client_new( pStrSeverUri );
+        if( myclient == NULL ) return eReturnValue_DATABASE_OPEN_CLIENT_CONNECTION_FAILED;
+        if ( isScriptUser ) g_pClient = myclient;  // script user
+        else g_filesysClient = myclient; // all 3 filesys collections use this client
+    }
 	
-	char* enableSSL = GetUserVariable("$mongo_enable_ssl");
+    mongoc_database_t* mydb = NULL;
+    if ( isScriptUser && g_pDatabase != NULL ) mydb = g_pDatabase;
+    else if ( g_filesysDatabase != NULL ) mydb = g_filesysDatabase;
+    else
+    {
+        char* enableSSL = GetUserVariable("$mongo_enable_ssl", false, true);
 #ifdef MONGOSSLOPTS
-	if(enableSSL != NULL && (stricmp(enableSSL,(char*)"true") == 0)) {
+        if(stricmp(enableSSL,(char*)"true") == 0) {
 		
-		char* validateSSL = GetUserVariable("$mongovalidatessl");
-		char* sslCAFile = GetUserVariable("$mongosslcafile");
-		char* sslPemFile = GetUserVariable("$mongosslpemfile");
+            char* validateSSL = GetUserVariable("$mongovalidatessl", false, true);
+            char* sslCAFile = GetUserVariable("$mongosslcafile", false, true);
+            char* sslPemFile = GetUserVariable("$mongosslpemfile", false, true);
+            char* sslPemPwd = GetUserVariable("$mongosslpempwd", false, true);
 
-		const mongoc_ssl_opt_t *ssl_default = mongoc_ssl_opt_get_default ();
-		mongoc_ssl_opt_t ssl_opts = { 0 };
-		/* optionally copy in a custom trust directory or file; otherwise the default is used. */
-		memcpy (&ssl_opts, ssl_default, sizeof ssl_opts);
-		if(sslPemFile != NULL && (stricmp(sslPemFile,(char*)"") != 0)) {
-			ssl_opts.pem_file = sslPemFile;
-		}
-		if(sslCAFile != NULL && (stricmp(sslCAFile,(char*)"") != 0)) {
-			ssl_opts.ca_file = sslCAFile;
-		}
-		if (validateSSL != NULL && stricmp(validateSSL,(char*)"true") != 0) {
-			ssl_opts.weak_cert_validation = true;
-		}
-		mongoc_client_set_ssl_opts (myclient, &ssl_opts);
-	}
+            const mongoc_ssl_opt_t *ssl_default = mongoc_ssl_opt_get_default ();
+            mongoc_ssl_opt_t ssl_opts = { 0 };
+            /* optionally copy in a custom trust directory or file; otherwise the default is used. */
+            memcpy (&ssl_opts, ssl_default, sizeof ssl_opts);
+            if(stricmp(sslPemFile,(char*)"") != 0) ssl_opts.pem_file = sslPemFile;
+            if(stricmp(sslPemPwd,(char*)"") != 0) ssl_opts.pem_pwd = sslPemPwd;
+            if(stricmp(sslCAFile,(char*)"") != 0) ssl_opts.ca_file = sslCAFile;
+            if ( stricmp(validateSSL,(char*)"true") != 0) ssl_opts.weak_cert_validation = true;
+            mongoc_client_set_ssl_opts (myclient, &ssl_opts);
+        }
 #endif
 
-	if (mycollect == &g_pCollection) g_pClient = myclient;  // script user
-	else g_filesysClient = myclient; // all 3 filesys collections use this client
-
-	// Get a handle on the database "db_name"
-	mongoc_database_t* mydb = mongoc_client_get_database(myclient, pStrDBName);
-	if( mydb == NULL ) return eReturnValue_DATABASE_GET_FAILED;
-	if (mycollect == &g_pCollection) g_pDatabase = mydb; // script user
-	else g_filesysDatabase = mydb; // all 3 filesys collections use this database
+        // Get a handle on the database "db_name"
+        mydb = mongoc_client_get_database(myclient, pStrDBName);
+        if( mydb == NULL ) return eReturnValue_DATABASE_GET_FAILED;
+        if ( isScriptUser ) g_pDatabase = mydb; // script user
+        else g_filesysDatabase = mydb; // all 3 filesys collections use this database
+    }
 
 	// Get a handle on the collection "coll_name"
 	*mycollect  = mongoc_client_get_collection(myclient, pStrDBName, pStrCollName);
 	if( *mycollect == NULL ) 
 	{
-		if (mycollect != &g_pCollection) ReportBug("INFO: Failed to open mongo filesys");
+		if (!isScriptUser) ReportBug("INFO: Failed to open mongo filesys");
 		return eReturnValue_DATABASE_GET_COLLECTION_FAILED;
 	}
 	return eReturnValue_SUCCESS;
@@ -157,7 +165,7 @@ FunctionResult MongoClose(char* buffer)
 		if( g_filesysCollectionTopic != NULL ) mongoc_collection_destroy(g_filesysCollectionTopic);
 		if( g_filesysCollectionLtm != NULL ) mongoc_collection_destroy(g_filesysCollectionLtm);
 		if( g_filesysDatabase != NULL ) mongoc_database_destroy(g_filesysDatabase);
-		if( g_pClient != NULL ) mongoc_client_destroy(g_filesysClient);
+		if( g_filesysClient != NULL ) mongoc_client_destroy(g_filesysClient);
 		g_filesysCollectionTopic = NULL;
 		g_filesysCollectionLtm = NULL;
 		g_filesysDatabase =  NULL;
@@ -265,7 +273,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 		unsigned int diff = (unsigned int)(endtime - starttime);
 		unsigned int crdiff = (unsigned int)(endtime - cursorReadStart);
 		unsigned int limit = 100;
-		char* val = GetUserVariable("$db_timelimit");
+		char* val = GetUserVariable("$db_timelimit", false, true);
 		if (*val) limit = unsigned(atoi(val));
 		if (diff >= limit){
 			char dbmsg[512];
@@ -355,7 +363,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
         uint64 endtime = ElapsedMilliseconds();
 	    unsigned int diff = (unsigned int)endtime - (unsigned int)starttime;
 	    unsigned int limit = 100;
-		char* val = GetUserVariable("$db_timelimit");
+		char* val = GetUserVariable("$db_timelimit", false, true);
 		if (*val) limit = unsigned(atoi(val));
 	    if (diff >= limit){
 	    	char dbmsg[512];
@@ -399,10 +407,51 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     bson_t *doc = NULL;
     bson_t *update = NULL;
     bson_t *query = NULL;
+	bson_t child;
     bson_oid_init (&oid, NULL);
-    query = BCON_NEW ("KeyName", BCON_UTF8 (keyname));
+	query = bson_new();
+	BSON_APPEND_UTF8 (query, "KeyName", keyname);
+	// updates the mongo query with key value pairs from $cs_mongoQueryParams
+	char* externalMongoParams = GetUserVariable((char*)"$cs_mongoQueryParams",false,true);
+	if (*externalMongoParams && IsValidJSONName(externalMongoParams))
+    {
+		WORDP D = FindWord(externalMongoParams);
+		if (D)
+		{
+			FACT* F = GetSubjectNondeadHead(D);
+			while (F)
+			{
+				char* additionalParamKey = Meaning2Word(F->verb)->word;
+				char* additionalParamValue = Meaning2Word(F->object)->word;
+				BSON_APPEND_UTF8(query, additionalParamKey, additionalParamValue);
+				F = GetSubjectNondeadNext(F);
+			}
+		}
+	}
     uint64 starttime = ElapsedMilliseconds();
-    update = BCON_NEW ("$set", "{", "KeyName", BCON_UTF8 (keyname), "KeyValue", BCON_UTF8 (value),"lmodified",BCON_DATE_TIME(starttime),"}");
+	update = bson_new();
+	BSON_APPEND_DOCUMENT_BEGIN (update, "$set", &child);
+	BSON_APPEND_UTF8 (&child, "KeyName", keyname);
+	BSON_APPEND_UTF8 (&child, "KeyValue", value);
+	BSON_APPEND_DATE_TIME (&child, "lmodified", starttime);
+	// updates the mongo upsert update query with key value pairs from $cs_mongoKeyValues
+	char* externalMongoData = GetUserVariable((char*)"$cs_mongoKeyValues",false,true);
+	if (*externalMongoData && IsValidJSONName(externalMongoData)) 
+	{
+		WORDP D = FindWord(externalMongoData);
+		if (D)
+		{
+			FACT* F = GetSubjectNondeadHead(D);
+			while (F)
+			{
+				char* additionalKey = Meaning2Word(F->verb)->word;
+				char* additionalValue = Meaning2Word(F->object)->word;
+				BSON_APPEND_UTF8(&child, additionalKey, additionalValue);
+				F = GetSubjectNondeadNext(F);
+			}
+		}
+	}
+	bson_append_document_end(update, &child);
     if (mongoc_collection_update (collection, MONGOC_UPDATE_UPSERT, query, update, NULL, &error)) result = NOPROBLEM_BIT;
     if (doc) bson_destroy (doc);
     if (query) bson_destroy (query);
@@ -410,7 +459,7 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     uint64 endtime = ElapsedMilliseconds();
     unsigned int diff = (unsigned int)(endtime - starttime);
     unsigned int limit = 100;
-	char* val = GetUserVariable("$db_timelimit");
+	char* val = GetUserVariable("$db_timelimit", false, true);
 	if (*val) limit = unsigned(atoi(val));
     if (diff >= limit){
     	char dbmsg[512];

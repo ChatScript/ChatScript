@@ -220,6 +220,13 @@ KEEP
 
 # subject object conflict obviously subject when have aux and verb in order afterwards it (Pronoun_object Pronoun_subject)  has/have (Aux_have_present_3ps)  left/leave (Verb_past_participle) EXCEPT clause end object...  
 
+# her before to infinitive after noun "i gave her money to go"
+ 0	INCLUDE * PRONOUN_OBJECT
+	HAS NOUN_SINGULAR NOUN_PLURAL
+	HAS TO_INFINITIVE
+	HAS VERB_INFINITIVE
+KEEP
+
 #  obj/possessive conflict after a verb and before potential noun or verb only-  drank(verb) his/he (Pronoun_object Pronoun_possessive)  milk (+Noun_singular Verb_infinitive Verb_present)  
 -1 IS VERB_BITS
 	INCLUDE * PRONOUN_POSSESSIVE

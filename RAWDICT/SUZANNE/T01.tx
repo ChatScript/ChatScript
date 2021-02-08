@@ -1,0 +1,2662 @@
+T01_0003	=====	061403	m
+T01_0006	-----	Joan002
+T01_0009	.....	02612
+T01_0012	0399744	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0015	0399753	|	VV0v	know	[V.V]S]
+T01_0018	0399765	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_0021	0399774	,	VH0	+'ve	[V.V]
+T01_0024	0000000	y	YR	#	.
+T01_0027	0399793	|	PPIS2	we	[Nap:s.Nap:s]
+T01_0030	0399802	|	VH0	+'ve	[Vf.
+T01_0033	0399814	|	VHN	had	.Vf]
+T01_0036	0399825	|	PPH1	it	[Ni:o.Ni:o]S]
+T01_0039	0399835	|	NN1n	love	[Ns".Ns"]
+T01_0042	-----	Jean003
+T01_0045	.....	02613
+T01_0048	0399911	&	PPH1	it	[S[Ni:s.Ni:s]
+T01_0051	0399920	|	VHZ	+'s	[Vzefb.
+T01_0054	0399930	|	XX	not	.
+T01_0057	0399941	|	VBN	been	.Vzefb]
+T01_0060	0399953	|	JJ	funny	[J:e.J:e]
+T01_0063	0399966	|	RR21	at	[R:m[RR=.
+T01_0066	0399966	|	RR22	all	.RR=]R:m]S]
+T01_0069	-----	Harold001
+T01_0072	.....	02614
+T01_0075	0400044	&	PPH1	it	[S[Ni:s.Ni:s]
+T01_0078	0400053	|	VHZ	+'s	[Vzeb.
+T01_0081	0400063	|	XX	not	.Vzeb]
+T01_0084	0400074	|	JJ	funny	[J:e.J:e]
+T01_0087	0400087	|	RR21	at	[R:m[RR=.
+T01_0090	0400087	,	RR22	all	.RR=]R:m]S]
+T01_0093	0400110	|	UN	no	.
+T01_0096	-----	Jean003
+T01_0099	.....	02615
+T01_0102	0400168	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_0105	0400178	|	VVZv	makes	[Vz.Vz]
+T01_0108	0400191	|	NN2	jokes	[Np:o.
+T01_0111	0400204	|	II	about	[P.
+T01_0114	0400217	|	PPIO1	me	[Tg[Nos:s.Nos:s]
+T01_0117	0400227	|	XX	not	[Vgeb.
+T01_0120	0400238	|	VBG	being	.Vgeb]
+T01_0123	0400252	|	JJ	able	[Jh:e.
+T01_0126	0400264	|	TO	to	[Ti[Vi.
+T01_0129	0400274	|	VV0v	talk	.Vi]Ti]Jh:e]Tg]P]Np:o]
+T01_0132	0400286	|	CCB	but	[S+.
+T01_0135	0400297	|	PPIS1	I	[Nea:s.Nea:s]
+T01_0138	0400324	&	VAI	ai	[Vefb.
+T01_0141	0400333	|	XX	+n't	.
+T01_0144	0400344	|	VBN	been	.Vefb]
+T01_0147	0400356	|	JJ	able	[Jh:e.
+T01_0150	0400368	|	TO	to	[Ti[Vi.
+T01_0153	0400378	|	VV0v	talk	.Vi]Ti]Jh:e]S+]S]
+T01_0156	-----	Harold001
+T01_0159	.....	02616
+T01_0162	0400454	&*,	UY	yeah	.
+T01_0165	0400474	|	UN	no	.
+T01_0168	-----	Jean003
+T01_0171	.....	02617
+T01_0174	0400532	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_0177	0400541	|	VHZ	+'s	[Vzefb.
+T01_0180	0400551	|	VBN	been	.Vzefb]
+T01_0183	0400563	|	JJ	awful	[J:e.J:e]S]
+T01_0186	-----	Harold001
+T01_0189	.....	02618
+T01_0192	0400607	*,	UN	no	.
+T01_0195	0400625	|	UY	yeah	.
+T01_0198	-----	Jean003
+T01_0201	.....	02619
+T01_0204	0400684	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0207	0400692	|	VH0	+'ve	[Vfb.
+T01_0210	0400703	|	VBN	been	.Vfb]
+T01_0213	0400715	,	RR	really	[J:e[RR&.
+T01_0216	0400737	|	RR	really	[RR-.RR-]RR&]
+T01_0219	0400752	|	JJ	poorly	.J:e]S]
+T01_0222	-----	Joan002
+T01_0225	.....	02620
+T01_0228	0400830	&*	UN	no	.
+T01_0231	0400840	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0234	0400849	|	VDD	did	[Vde.
+T01_0237	0400859	|	XX	+n't	.
+T01_0240	0400870	|	VV0t	mean	.Vde]
+T01_0243	0400882	|	PN1	nothing	[Ns:o.Ns:o]
+T01_0246	0400898	|	IIb	by	[Pb:h.
+T01_0249	0400908	|	DD1a	that	.Pb:h]S]
+T01_0252	-----	unid1
+T01_0255	.....	-----
+T01_0258	0400942	ic	YY	{unclear}	[Y.Y]
+T01_0261	-----	Harold001
+T01_0264	.....	02621
+T01_0267	0400988	|	VVNK	bound	[S[Vnt.Vnt]
+T01_0270	0401001	|	TO	to	[Ti:z[Vib.
+T01_0273	0401011	,	VB0	be	.Vib]Ti:z]
+T01_0276	0000000	y	YR	#	.
+T01_0279	0401029	|	VVNK	bound	[Vnt.Vnt]
+T01_0282	0401042	|	TO	to	[Ti:z[Vib.
+T01_0285	0401052	|	VB0	be	.Vib]
+T01_0288	0401062	|	JJ	awful	[J:e.J:e]Ti:z]
+T01_0291	0401076	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T01_0294	0401109	&	AT1	a	[Ns:s.
+T01_0297	0401118	|	NN1c	woman	.Ns:s]
+T01_0300	0401131	|	VMo	ca	[Vce.
+T01_0303	0401140	|	XX	+n't	.
+T01_0306	0401151	|	VV0v	talk	.Vce]Fa:t]S]
+T01_0309	0401164	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_0312	0401174	|	VMo	must	[Vcb.
+T01_0315	0401186	|	VB0	be	.Vcb]
+T01_0318	0401196	|	JJ	terrible	[J:e.J:e]S]
+T01_0321	0401212	c	YV	{laugh}	.
+T01_0324	-----	Jean003
+T01_0327	.....	02622
+T01_0330	0401295	&*	UW	well	.
+T01_0333	0401307	,	PPH1	it	[S[Ni:S[PPH1#.
+T01_0336	0000000	y	YR	#	.
+T01_0339	0401325	|	PPH1	it	.PPH1#]Ni:S]
+T01_0342	0401335	|	VBDZ	was	[Vseb.
+T01_0345	0401345	|	XX	+n't	.Vseb]
+T01_0348	0401357	|	JJ	funny	[J:e.J:e]
+T01_0351	0401370	|	DD1a	that	[Ns:s.
+T01_0354	0401386	|	NNT1c	day	.
+T01_0357	0401397	|	ICSt	before	[Fa.
+T01_0360	0401411	|	PPIS1	I	[Nea:s.Nea:s]
+T01_0363	0401420	|	VVDi	went	[Vd.Vd]
+T01_0366	0401432	|	IIt	to	[P:q.
+T01_0369	0401443	|	AT	the	[N.
+T01_0372	0401454	ic	YY	{unclear}	[Y.
+T01_0375	0401481	&	DD1a	that	[Ns.
+T01_0378	0401493	|	NN1c	ear	.Ns]Y]N]P:q]Fa]Ns:s]S]
+T01_0381	-----	Harold001
+T01_0384	.....	02623
+T01_0387	0401568	&*	UX21	oh	[UX=.
+T01_0390	0401578	|	UX22	dear	.UX=]
+T01_0393	-----	Jean003
+T01_0396	.....	02624
+T01_0399	0401638	|	CS	cos	[Fa.
+T01_0402	0401649	|	PPIS1	I	[Nea:s.Nea:s]
+T01_0405	0401658	|	VHD	had	[Vd.Vd]
+T01_0408	0401669	|	TO	to	[Ti:z[Vi.
+T01_0411	0401679	|	VV0i	go	.Vi]
+T01_0414	0401689	|	IIt	to	[P:q.
+T01_0417	0401699	|	AT	the	[Ns.
+T01_0420	0401710	|	NNS1c	doctor	.Ns]P:q]
+T01_0423	0401725	|	CC	and	[Ti+.
+T01_0426	0401753	&	VV0v	tell	[V.V]
+T01_0429	0401765	|	PPHO2	them	[Nop:i.Nop:i]
+T01_0432	.....	02626
+T01_0435	0401921	&	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T01_0438	0401930	|	VBDR	were	[Vwu.
+T01_0441	0401942	|	VVGv	flying	.Vwu]
+T01_0444	0401956	|	AT	the	[Ns:t.
+T01_0447	0401967	|	MDt	next	.
+T01_0450	0401979	|	NNT1c	day	.Ns:t]
+T01_0453	0401990	|	IIt	to	[P:q.
+T01_0456	0402001	|	NP1t	Benidorm	[Nns.Nns]P:q]Fn:o]Ti+]Ti:z]Fa]
+T01_0459	0402038	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0462	0402046	|	VH0	+'ve	[Vf.
+T01_0465	0402057	|	VHN	had	.Vf]
+T01_0468	0402068	|	NN1n	trouble	[Ns:o.Ns:o]
+T01_0471	0402084	|	DBa	all	[Ns:t.
+T01_0474	0402095	|	AT	the	.
+T01_0477	0402106	|	NNT1c	time	.Ns:t]
+T01_0480	0402118	|	IW	with	[P:r.
+T01_0483	0402130	|	PPIO1	me	[Ns.
+T01_0486	0402140	|	NN1c	back	.Ns]P:r]
+T01_0489	0000000	y	YR	#	.
+T01_0492	.....	02628
+T01_0495	0402310	&	ICSt	since	[P:t.
+T01_0498	0402323	|	ICSt	before	[P.
+T01_0501	0402337	|	NNT1h	Christmas	[Nns.Nns]P]P:t]
+T01_0504	0402354	|	IW	with	[P:r.
+T01_0507	0402366	|	PPIO1	me	[Ns.
+T01_0510	0402376	|	NN1c	back	.Ns]P:r]S]
+T01_0513	-----	Harold001
+T01_0516	.....	02625
+T01_0519	0401841	&*,	UY	yeah	.
+T01_0522	0401861	|	UY	yeah	.
+T01_0525	-----	Harold001
+T01_0528	.....	02627
+T01_0531	0402216	&*	UR	oh	.
+T01_0534	0402226	|	UY	yeah	.
+T01_0537	0402255	&	VBN	been	[S[Vnb.Vnb]
+T01_0540	0402267	|	RL	away	[R:p.R:p]S]
+T01_0543	-----	Harold001
+T01_0546	.....	02629
+T01_0549	0402419	*	UR	ooh	.
+T01_0552	-----	Jean003
+T01_0555	.....	02630
+T01_0558	0402477	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0561	0402485	|	VH0	+'ve	[Vf.
+T01_0564	0402496	,	VHN	had	.Vf]
+T01_0567	0000000	y	YR	#	.
+T01_0570	0402515	|	PPIS1	I	[Nea:s.Nea:s]
+T01_0573	0402523	|	VH0	+'ve	[Vf.
+T01_0576	0402534	|	VHN	had	.Vf]
+T01_0579	0402546	|	AT	the	[N:o.
+T01_0582	0402565	t	FD	tr	.N:o]S]
+T01_0585	-----	Harold001
+T01_0588	.....	02631
+T01_0591	0402648	&	VDD	did	[S?[Vod.Vod]
+T01_0594	0402659	|	PPY	you	[Ny:s.Ny:s]
+T01_0597	0402670	ic	YY	{unclear}	[Y.
+T01_0600	0402680	|	IW	with	[P.
+T01_0603	0402692	|	AT	the	[Ns.
+T01_0606	0402703	|	NN1c	wall	.Ns]P]Y]
+T01_0609	0402716	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T01_0612	-----	Jean003
+T01_0615	.....	02632
+T01_0618	0402800	&*	UN	no	.
+T01_0621	-----	Harold001
+T01_0624	.....	02633
+T01_0627	0402874	&*	UN	no	.
+T01_0630	-----	Jean003
+T01_0633	.....	02634
+T01_0636	0402932	|	CS	because	[Fa.
+T01_0639	0402964	&	PPHS1m	he	[Nas:s.Nas:s]
+T01_0642	0402974	|	VVDi	went	[Vd.Vd]
+T01_0645	.....	02636
+T01_0648	0403124	&	RL	back	[R:q.
+T01_0651	0403136	|	RP	up	.
+T01_0654	0403146	|	RLh	there	.R:q]Fa]
+T01_0657	-----	Harold001
+T01_0660	.....	02635
+T01_0663	0403050	&*	UN	no	.
+T01_0666	-----	Harold001
+T01_0669	.....	02637
+T01_0672	0403223	&	NP1m	Frank	[S[Nns:s.Nns:s]
+T01_0675	0403236	|	VVDv	cured	[Vd.Vd]
+T01_0678	0403249	|	PPH1	it	[Ni:o.Ni:o]S]
+T01_0681	-----	Harold001
+T01_0684	.....	02638
+T01_0687	0403307	*	VDD	did	[S?[Vdx.Vdx]
+T01_0690	0403318	?	PPHS1m	he	[Nas:s.Nas:s]S?]
+T01_0693	-----	Harold001
+T01_0696	.....	02639
+T01_0699	0403367	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_0702	0403377	|	VVDv	jerked	[Vd.Vd]
+T01_0705	0403391	|	PPHO1f	her	[Nos:o.Nos:o]
+T01_0708	0403402	,	II	up	[P:q[II#.
+T01_0711	0000000	y	YR	#	.
+T01_0714	0403424	|	II	up	.II#]
+T01_0717	0403438	|	NN1c	settee	.P:q]S]
+T01_0720	0403453	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_0723	0403464	|	VMd	could	[Vdce.
+T01_0726	0403476	|	XX	+n't	.
+T01_0729	0403487	|	VV0v	get	.Vdce]
+T01_0732	0403498	|	RP	up	[R:q.R:q]S]
+T01_0735	-----	Harold001
+T01_0738	.....	02640
+T01_0741	0403539	*	UR	oh	.
+T01_0744	-----	Harold001
+T01_0747	.....	02641
+T01_0750	0403580	|	CC	and	[S+.
+T01_0753	0403591	,	PPH1	it	[Ni:s.Ni:s]
+T01_0756	0000000	y	YR	#	.
+T01_0759	0403609	|	ICSt	since	[P:t.
+T01_0762	0403622	|	RTn	then	.P:t]
+T01_0765	0403634	|	APPGf	her	[Ns:s.
+T01_0768	0403645	|	NN1c	back	.Ns:s]
+T01_0771	0403656	|	VHZ	+'s	[Vzfb.
+T01_0774	0403667	|	VBN	been	.Vzfb]
+T01_0777	0403679	|	JA21	all	[J:e[JA=.
+T01_0780	0403681	|	JA22	right	.JA=]J:e]S+]
+T01_0783	0403694	c	YV	{laugh}	.
+T01_0786	-----	Harold001
+T01_0789	.....	02642
+T01_0792	0403744	*	UY	yeah	.
+T01_0795	-----	Jean003
+T01_0798	.....	02643
+T01_0801	0403787	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0804	0403796	|	RR	nearly	[R:h.R:h]
+T01_0807	0403810	|	VVDi	fell	[Vd.Vd]
+T01_0810	0403822	,	RP	over	[R:q.R:q]S]
+T01_0813	0403842	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_0816	0403852	|	VVDv	pulled	[Vd.Vd]
+T01_0819	0403867	|	PPIO1	me	[Neo:o.Neo:o]
+T01_0822	0403877	|	RP	up	[R:q.R:q]
+T01_0825	0403887	|	IW	with	[P:h.
+T01_0828	0403899	|	DAz	such	[Ns.
+T01_0831	0403911	|	AT1	a	.
+T01_0834	.....	02644
+T01_0837	0403987	&	VVGv	acting	[Tg[Vg.Vg]
+T01_0840	0404001	|	RL	about	[R:n.R:n]Tg]Ns]P:h]S]
+T01_0843	-----	unid1
+T01_0846	.....	-----
+T01_0849	0403925	ic	YY	{unclear}	[Y.Y]
+T01_0852	-----	Harold001
+T01_0855	.....	02645
+T01_0858	0404082	&*	VDD	did	[S?[Vdx.Vdx]
+T01_0861	0404093	?	PPHS1m	he	[Nas:s.Nas:s]S?]
+T01_0864	.....	02646
+T01_0867	0404139	&*,	UR	oh	.
+T01_0870	0404157	|	YMV	er	.
+T01_0873	-----	Jean003
+T01_0876	.....	02647
+T01_0879	0404198	|	CC	and	[S+.
+T01_0882	0404209	|	PPH1	it	[Ni:s.Ni:s]
+T01_0885	0404219	|	RR	really	[R:m.R:m]
+T01_0888	0404233	|	VVDv	hurt	[Vd.Vd]
+T01_0891	0404245	|	PPIO1	me	[Ns:o.
+T01_0894	0404255	|	NN1c	back	.Ns:o]S+]
+T01_0897	-----	Harold001
+T01_0900	.....	02648
+T01_0903	0404314	&*	UY	yeah	.
+T01_0906	0404326	|	CCB	but	[S+.
+T01_0909	0404337	|	PPH1	it	[Ni:s.Ni:s]
+T01_0912	0404347	|	VVDi	went	[Vd.Vd]
+T01_0915	0404359	|	JJ	right	[J:e.J:e]S+]
+T01_0918	-----	Jean003
+T01_0921	.....	02649
+T01_0924	0404436	&	CCB	but	[S+.
+T01_0927	0404447	|	PPH1	it	[Ni:s.Ni:s]
+T01_0930	0404457	|	VVDi	went	[Vd.Vd]S+]
+T01_0933	0404486	&c	YV	{laugh}	.
+T01_0936	-----	Harold001
+T01_0939	.....	02650
+T01_0942	0404536	*	UW	well	.
+T01_0945	0404548	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_0948	0404558	|	RR	probably	[R:m.R:m]
+T01_0951	0404574	|	VVDv	put	[Vd.Vd]
+T01_0954	0404585	|	PPH1	it	[Ni:o.Ni:o]
+T01_0957	0404595	|	JJ	right	[J:j.J:j]S]
+T01_0960	-----	Jean003
+T01_0963	.....	02651
+T01_0966	0404655	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_0969	0404663	|	VH0	+'ve	[Vf.
+T01_0972	0404674	|	VHN	had	.Vf]
+T01_0975	0404685	|	PPH1	it	[Ni:o.Ni:o]
+T01_0978	0404695	|	JJ	funny	[J:j.J:j]
+T01_0981	.....	02653
+T01_0984	0404948	&	JJ	funny	[L@[J:j.J:j]
+T01_0987	0404961	|	IF	for	[P:t.
+T01_0990	0404972	|	NNT2	weeks	.P:t]L@]S]
+T01_0993	-----	Harold001
+T01_0996	.....	02652
+T01_0999	0404772	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_1002	0000000	y	YG	-	[m109.m109]
+T01_1005	0404781	|	VHZ	+'s	[Vzf.
+T01_1008	0404791	|	RR	probably	[R:G109.R:G109]
+T01_1011	0404807	|	VVNv	jerked	.Vzf]
+T01_1014	0404821	|	PPH1	it	[Ni:o.Ni:o]
+T01_1017	0404832	|	RL	back	[R:q.
+T01_1020	0404861	&,	RP	in	.R:q]
+T01_1023	0404883	?	UL	eh	[Iq.Iq]S]
+T01_1026	-----	Harold001
+T01_1029	.....	02654
+T01_1032	0405049	&*	UW	well	.
+T01_1035	0405061	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1038	0405070	|	VMd	would	[Vdcf.
+T01_1041	0405083	|	VH0	+'ve	.
+T01_1044	0405093	|	VVNv	put	.Vdcf]
+T01_1047	0405138	&	NN1n	rope	[Ns:o.Ns:o]
+T01_1050	0405150	|	II	round	[P:q.
+T01_1053	0405163	|	APPGf	her	[Ns.
+T01_1056	0405174	|	NN1c	neck	.Ns]P:q]
+T01_1059	.....	02656
+T01_1062	0405359	&	CC	and	[S+.
+T01_1065	0405370	|	VV0v	hang	[V.V]
+T01_1068	0405382	|	PPHO1f	her	[Nos:o.Nos:o]
+T01_1071	0405393	,	RP	up	[R:n.R:n]
+T01_1074	0405411	|	NN1n	pressure	[Ns@.
+T01_1077	0405428	|	II	on	[P.
+T01_1080	0405438	|	PPH1	it	.P]Ns@]S+]S]
+T01_1083	-----	Harold001
+T01_1086	.....	02655
+T01_1089	0405250	&*	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_1092	0405260	|	VMd	could	[Vdcf.
+T01_1095	0405273	|	VH0	+'ve	.
+T01_1098	0405283	|	VDN	done	.Vdcf]S]
+T01_1101	-----	Harold001
+T01_1104	.....	02657
+T01_1107	0405512	&c	YVL	{laughing}	.
+T01_1110	0405533	*	UR	oh	.
+T01_1113	0405543	|	APPGi1	my	[Nns!.
+T01_1116	0405553	*	NNS1c	god	.Nns!]
+T01_1119	0405564	c	YVR	{laughing}	.
+T01_1122	-----	Harold001
+T01_1125	.....	00000
+T01_1128	0405608	c	YV	{laugh}	.
+T01_1131	-----	unid1
+T01_1134	.....	-----
+T01_1137	0405632	ic	YY	{unclear}	[Y.Y]
+T01_1140	-----	Jean003
+T01_1143	.....	02658
+T01_1146	0405678	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1149	0405687	|	VMo	ca	[Vce.
+T01_1152	0405696	|	XX	+n't	.
+T01_1155	0405707	|	VV0v	win	.Vce]
+T01_1158	0405718	|	VMo	can	[Iq[S?[Vcx.Vcx]
+T01_1161	0405729	?	PPIS1	I	[Nea:s.Nea:s]S?]Iq]S]
+T01_1164	-----	Harold001
+T01_1167	.....	02659
+T01_1170	0405776	c	YV	{laugh}	.
+T01_1173	0405795	*	UX21	oh	[UX=.
+T01_1176	0405805	|	UX22	dear	.UX=]
+T01_1179	-----	Jean003
+T01_1182	.....	02660
+T01_1185	0405848	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1188	0405857	|	VMo	ca	[Vce.
+T01_1191	0405866	|	XX	+n't	.
+T01_1194	0405877	|	VV0v	win	.Vce]
+T01_1197	0405888	|	RR21	at	[R:m[RR=.
+T01_1200	0405888	|	RR22	all	.RR=]R:m]S]
+T01_1203	-----	Harold001
+T01_1206	.....	02661
+T01_1209	0405933	*	UR	oh	.
+T01_1212	0405943	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_1215	0405952	|	VBZ	+'s	[Vzb.Vzb]
+T01_1218	0405962	|	JJ	pleased	[J:e.J:e]S]
+T01_1221	0405977	|	DDQ	what	[Ff[Dq:o.Dq:o]
+T01_1224	0405989	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_1227	0405998	|	VHZ	+'s	[Vzfu.
+T01_1230	0406008	|	VBN	been	.
+T01_1233	0406021	|	VDG	doing	.Vzfu]Ff]
+T01_1236	0406034	|	DD1a	that	[Ds.Ds]
+T01_1239	-----	Jean003
+T01_1242	.....	02662
+T01_1245	0406077	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1248	0406086	,	RR	just	[R:m.R:m]
+T01_1251	0000000	y	YR	#	.
+T01_1254	0406106	|	PPIS1	I	[Nea:s.Nea:s]
+T01_1257	0406115	|	VMo	ca	[Vce.
+T01_1260	0406124	|	XX	+n't	.
+T01_1263	0406135	,	VV0v	wish	.Vce]
+T01_1266	0000000	y	YR	#	.
+T01_1269	0406155	|	PPIS1	I	[Nea:s.Nea:s]
+T01_1272	0406165	|	VD0	do	[Ve.
+T01_1275	0406174	|	XX	+n't	.
+T01_1278	0406185	|	VV0v	know	.Ve]
+T01_1281	0406197	|	RRQq	how	[Fn?:o[Rq:h.Rq:h]
+T01_1284	0406208	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_1287	0406217	|	VHZ	+'s	[Vzf.
+T01_1290	0406227	|	VVNv	stuck	.Vzf]
+T01_1293	0406240	|	IW	with	[P:t.
+T01_1296	0406253	|	MC	fifty-one	[Np.
+T01_1302	0406277	|	NNT2	years	.Np]P:t]
+T01_1305	0406290	|	RR	really	[R:m.R:m]Fn?:o]
+T01_1308	0406304	|	VD0	do	[Iq[S?[Vx.Vx]
+T01_1311	0406314	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T01_1314	.....	02663
+T01_1317	0406345	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1320	0406354	|	VD0	do	[Ve.
+T01_1323	0406363	|	XX	+n't	.
+T01_1326	0406374	|	VV0v	know	.Ve]
+T01_1329	0406386	|	RRQq	how	[Fn?:o[Rq:h.Rq:h]
+T01_1332	0406397	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_1335	0406406	|	VHZ	+'s	[Vzf.
+T01_1338	0406416	|	VVNv	stuck	.Vzf]
+T01_1341	0406430	|	PPIO1	me	[Neo:o.Neo:o]Fn?:o]S]
+T01_1344	-----	Harold001
+T01_1347	.....	02664
+T01_1350	0406471	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1353	0406480	|	VMd	could	[Vdcf.
+T01_1356	0406493	|	VH0	+'ve	.
+T01_1359	0406503	|	VVNv	roared	.Vdcf]
+T01_1362	0406517	|	IO	of	[Po:h.
+T01_1365	0406527	|	NN1c	laugh	.Po:h]
+T01_1368	0406540	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T01_1371	0406556	c	YVL	{laughing}	.
+T01_1374	0406577	|	PPHS1f	she	[Nas:s.Nas:s]
+T01_1377	0406588	|	VVDv	won	[Vd.Vd]
+T01_1380	0000000	y	YR	#	.
+T01_1383	0406599	c	YVR	{laughing}	.
+T01_1386	0406607	|	CSn	when	[Rq:t.Rq:t]
+T01_1389	0406624	|	NP1f	Jean	[Nns:s.Nns:s]
+T01_1392	0406637	|	VVDv	won	[Vd.Vd]
+T01_1395	0406648	|	DD1a	that	[Ns:o.
+T01_1398	0406660	|	NN1c	raffle	.
+T01_1401	0406678	|	UE21	you	[UE=.
+T01_1404	0406689	,	UE22	know	.UE=]
+T01_1407	0406710	|	RR	all	[L@[R:h.R:h]
+T01_1410	0406721	|	JJ	little	[Np:e.
+T01_1413	0406735	|	NN2	bits	.
+T01_1416	0406747	|	IO	of	[Po.
+T01_1419	0406757	|	DD1i	this	.Po]
+T01_1422	0406769	|	CC	and	[Np+.
+T01_1425	0406780	|	JJ	little	.
+T01_1428	0406795	|	NN2	bits	.
+T01_1431	0406807	|	IO	of	[Po.
+T01_1434	0406817	|	DD1a	that	.Po]Np+]Np:e]L@]Ns:o]Fa:t]S]
+T01_1437	0406829	|	UE21	you	[UE=.
+T01_1440	0406840	,	UE22	know	.UE=]
+T01_1443	0406860	|	CC	and	[S+.
+T01_1446	0406872	|	EX	there	.
+T01_1449	0406885	|	VBDR	were	[Vwb.Vwb]
+T01_1452	0406897	|	AT1	a	[Ns:s.
+T01_1455	0406906	|	NNT1h	Christmas	[Nns.Nns]
+T01_1458	0406923	|	NN1n	pudding	.Ns:s]
+T01_1461	0406938	|	II	on	[P:p.
+T01_1464	0406949	,	AT	the	[N.
+T01_1467	0000000	y	YR	#	.N]P:p]S+]
+T01_1470	0406968	,	YMV	er	.
+T01_1473	0406986	|	UW	well	.
+T01_1476	0406998	|	PPY	you	[S[Ny:s.Ny:s]
+T01_1479	0407009	|	VVDv	picked	[Vd.Vd]
+T01_1482	0407023	|	DDQ	what	[Ff:o[Dq:o.Dq:o]
+T01_1485	0407036	|	PPY	you	[Ny:s.Ny:s]
+T01_1488	0407047	|	VVDv	wanted	[Vd.Vd]Ff:o]S]
+T01_1491	0407061	|	UW	well	.
+T01_1494	-----	Jean003
+T01_1497	.....	02665
+T01_1500	0407104	*	UR	oh	.
+T01_1503	-----	Harold001
+T01_1506	.....	02666
+T01_1509	0407145	|	PPGf	hers	[S[N:s.N:s]
+T01_1512	0407157	|	VBDR	were	[Vwb.Vwb]
+T01_1515	0407169	|	AT	the	[Ns#Ms:e.
+T01_1518	0407180	|	NN1c	number	.
+T01_1521	0000000	y	YR	#	.
+T01_1524	0407194	|	AT	the	.
+T01_1527	0407205	|	MDo	second	.
+T01_1530	0407219	|	MC1	one	.
+T01_1533	0407231	,	RP	out	.Ns#Ms:e]S]
+T01_1536	0407250	|	RRz	so	[S[Rs:c.Rs:c]
+T01_1539	0407260	|	PPHS1f	she	[Nas:s.Nas:s]
+T01_1542	0407271	|	VHD	had	[Vd.Vd]
+T01_1545	0407282	|	AT	the	[Ns:o.
+T01_1548	0407293	|	MDo	second	.
+T01_1551	0407308	|	NN1n	choice	.Ns:o]S]
+T01_1554	-----	Harold001
+T01_1557	.....	02667
+T01_1560	0407353	*,	UR	oh	.
+T01_1563	0407371	|	YMV	er	.
+T01_1566	-----	Harold001
+T01_1569	.....	02668
+T01_1572	0407412	,	RRz	so	[S[Rs:c.Rs:c]
+T01_1575	0407430	,	YMV	er	.
+T01_1578	0407448	|	NP1m	Jack	[Nns:s.Nns:s]
+T01_1581	0407460	|	VVGv	saying	[Vg.Vg]
+T01_1584	0407478	|	VV0v	get	[Q:o[S*[V.V]
+T01_1587	0407490	|	DD1a	that	[Ns:o.
+T01_1590	0407502	|	NNT1h	Christmas	[Nns.Nns]
+T01_1593	0407519	,	NN1n	pudding	.Ns:o]S*]Q:o]S]
+T01_1596	0407542	|	UI	anyway	.
+T01_1599	0407556	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_1602	0407568	|	VVZi	comes	[Vz.Vz]
+T01_1605	0407581	|	RL	back	[R:q.R:q]
+T01_1608	0407593	|	IW	with	[P:w.
+T01_1611	0407605	|	AT	the	[Np.
+T01_1614	0407616	|	JJ	ready	.
+T01_1617	0407629	|	NN2	scones	.Np]P:w]
+T01_1620	0407644	|	VD0	do	[Iq[S?[Vex.
+T01_1623	0407653	|	XX	+n't	.Vex]
+T01_1626	0407664	?	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S]
+T01_1629	.....	02669
+T01_1632	0407695	*	CC	and	[S+.
+T01_1635	0407706	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_1638	0407716	|	VVDv	wanted	[Vd.Vd]
+T01_1641	0407730	|	AT	the	[Ns:o.
+T01_1644	0407749	t	NNT1h/Christmas	Chri	[Nns.Nns]
+T01_1647	0000000	y	YR	#	.Ns:o]S+]
+T01_1650	0407771	|	RRQq	why	[S?[Rq:c.Rq:c]
+T01_1653	0407782	|	VDD	did	[Vode.
+T01_1656	0407792	|	XX	+n't	.Vode]
+T01_1659	0407803	|	PPY	you	[Ny:s.Ny:s]
+T01_1662	0407814	|	VV0v	get	[Vr.Vr]
+T01_1665	0407825	|	DD1a	that	[Ns:o.
+T01_1668	0407837	|	NNT1h	Christmas	[Nns.Nns]
+T01_1671	0407855	,	NN1n	pudding	.Ns:o]S?]
+T01_1674	0407878	|	RRQq	why	[S?[Rq:c.Rq:c]
+T01_1677	0407889	|	VDD	did	[Vod.Vod]
+T01_1680	0407900	|	PPY	you	[Ny:s.Ny:s]
+T01_1683	0407911	|	VV0v	get	[Vr.Vr]
+T01_1686	0407922	|	DD1a	that	[Ns:o.
+T01_1689	0000000	y	YR	#	.Ns:o]S?]
+T01_1692	-----	Jean003
+T01_1695	.....	02670
+T01_1698	0407981	&*	DDQ	what	[S?[Dq:o.Dq:o]
+T01_1701	0407993	|	VDD	did	[Vod.Vod]
+T01_1704	0408004	|	PPHS1f	she	[Nas:s.Nas:s]
+T01_1707	0408015	?	VV0v	say	[Vr.Vr]S?]
+T01_1710	-----	Harold001
+T01_1713	.....	02671
+T01_1716	0408098	&*	DDQ	what	[Nqs.
+T01_1719	0408110	|	NNT1h	Christmas	[Nns.Nns]
+T01_1722	0408127	|	NN1n	pudding	.Nqs]
+T01_1725	-----	unid1
+T01_1728	.....	00000
+T01_1731	0408195	&ic	YY	{unclear}	[Y.Y]
+T01_1734	-----	Harold001
+T01_1737	.....	02672
+T01_1740	0408253	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_1743	0408264	|	VVDv	said	[Vd.Vd]
+T01_1746	.....	02674
+T01_1749	0408489	&	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T01_1752	0408498	|	VD0	do	[Ve.
+T01_1755	0408507	|	XX	+n't	.
+T01_1758	0408518	|	VV0t	like	.Ve]
+T01_1761	0408548	&	NNT1h	Christmas	[Ns:o[Nns.Nns]
+T01_1764	0408565	|	NN1n	pudding	.Ns:o]S]Q:o]S]
+T01_1767	-----	Jean003
+T01_1770	.....	02673
+T01_1773	0408307	*	VBZ	is	[S?[Vzb.Vzb]
+T01_1776	0408317	,	PPH1	it	[Ni:s.Ni:s]
+T01_1779	0000000	y	YR	#	.S?]
+T01_1782	0408335	|	UY	aye	.
+T01_1785	0408346	|	VVDv	won	[S[Vd.Vd]
+T01_1788	0408361	|	AT	the	[Np:o.
+T01_1791	0408372	|	NN2	scones	.Np:o]
+T01_1794	0408403	&	VDD	did	[Iq[S?[Vdx.Vdx]
+T01_1797	0408414	|	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S]
+T01_1800	-----	Jean003
+T01_1803	.....	02675
+T01_1806	0408611	*	UW	well	.
+T01_1809	0408623	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_1812	0408632	|	VD0	do	[Vex.
+T01_1815	0408641	|	XX	+n't	.Vex]S]
+T01_1818	0408652	|	APPGi1	my	[Nj".
+T01_1821	0408662	|	JJ	lovely	.Nj"]
+T01_1824	-----	Harold001
+T01_1827	.....	02676
+T01_1830	0408706	c	YV	{laugh}	.
+T01_1833	0408725	*	UI	anyway	.
+T01_1836	0408739	|	NP1m	Harold	[S[Nns:s.Nns:s]
+T01_1839	0408751	|	VVDv	won	[Vd.Vd]
+T01_1842	0408762	|	AT1	a	[Ns:o.
+T01_1845	0408771	|	NN1n	line	.
+T01_1848	0408784	|	MC	two	[Nu@.
+T01_1851	0408795	|	NNU1c	pound	.
+T01_1854	0408808	|	MC	ten	[M-.M-]Nu@]Ns:o]
+T01_1857	0408836	&	VDD	did	[Iq[S?[Vdex.
+T01_1860	0408846	|	XX	+n't	.Vdex]
+T01_1863	0408858	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T01_1866	-----	Harold001
+T01_1869	.....	02677
+T01_1872	0408941	&*	UY	yeah	.
+T01_1875	-----	Harold001
+T01_1878	.....	02678
+T01_1881	0409001	*	CC	and	[S+.
+T01_1884	0409012	,	PPHS1m	he	[Nas:s.
+T01_1887	0000000	y	YR	#	.
+T01_1890	0409030	|	PPHS1f	she	.Nas:s]
+T01_1893	0409041	|	VVDv	won	[Vd.Vd]
+T01_1896	0409052	|	AT	the	[Np:o.
+T01_1899	0409063	|	NN2	scones	.Np:o]S+]
+T01_1902	0409077	c	YV	{laugh}	.
+T01_1905	-----	Jean003
+T01_1908	.....	02679
+T01_1911	0409127	*	DDQ	what	[S?[Nqs:t.
+T01_1914	0409139	|	NNT1c	time	.Nqs:t]
+T01_1917	0409151	|	VDZ	does	[Voz.Voz]
+T01_1920	0409163	|	PPH1	it	[Ni:s.Ni:s]
+T01_1923	0409173	?	VV0v	start	[Vr.Vr]S?]
+T01_1926	-----	Harold001
+T01_1929	.....	02680
+T01_1932	0409225	*	PPH1	it	[S[Ni:s.Ni:s]
+T01_1935	0409235	|	VVZv	starts	[Vz.Vz]
+T01_1938	0409249	|	II	at	[P:t.
+T01_1941	0409259	|	NN1c	half	[Ns.
+T01_1944	0409271	|	II	past	[P.
+T01_1947	0409283	|	MC1	one	.P]Ns]P:t]
+T01_1950	0409294	|	ICSt	till	[P:t.
+T01_1953	0409307	|	RGi	about	[M.
+T01_1956	0409320	|	MC	three	.M]P:t]S]
+T01_1959	-----	Harold001
+T01_1962	.....	02681
+T01_1965	0409364	*	PPH1	it	[S[Ni:s.Ni:s]
+T01_1968	0409373	|	VBZ	+'s	[Vzb.Vzb]
+T01_1971	0409383	|	RRx	only	[R:m.R:m]
+T01_1974	0409395	|	AT1	a	[Ns:e.
+T01_1977	0409404	|	NN1c	couple	.
+T01_1980	0409418	|	IO	of	[Po.
+T01_1983	0409428	,	NNT2	hours	.Po]Ns:e]S]
+T01_1986	0409466	&	PPH1	it	[S[Ni:s.Ni:s]
+T01_1989	0409476	|	VVZv	gets	[Vz.Vz]
+T01_1992	0409488	|	JJ	easy	[J:e.J:e]S]
+T01_1995	0409500	ic	YY	{unclear}	[Y.Y]
+T01_1998	-----	Jean003
+T01_2001	.....	02682
+T01_2004	0409574	&*	DDQ	what	[S?[Dq:o.Dq:o]
+T01_2007	0409586	|	VH0	have	[Vo.Vo]
+T01_2010	0409598	|	PPHS2	they	[Nap:s.Nap:s]
+T01_2013	0409610	|	VVNH	got	[Vrn.Vrn]
+T01_2016	0409621	|	TO	to	[Ti:z[Vi.
+T01_2019	0409631	|	VV0v	get	.Vi]
+T01_2022	0409659	&	II	from	[P:q.
+T01_2025	0409671	|	NNu	bowls	.P:q]
+T01_2028	0409684	|	IIt	to	[P:q.
+T01_2031	0409694	|	RLh	there	.P:q]Ti:z]S?]
+T01_2034	-----	Harold001
+T01_2037	.....	02683
+T01_2040	0409738	*,	UY	yeah	.
+T01_2043	0409758	|	DD1a	that	[S[Ds:s.Ds:s]
+T01_2046	0409769	|	VBZ	+'s	[Vzb.Vzb]
+T01_2049	0409779	|	JJ	right	[J:e.J:e]S]
+T01_2052	-----	Jean003
+T01_2055	.....	02684
+T01_2058	0409823	|	UR21	I	[UR=.
+T01_2061	0409832	|	UR22	see	.UR=]
+T01_2064	0409843	|	CC	and	[S+.
+T01_2067	0409854	|	RTn	then	[Rsw:t.Rsw:t]
+T01_2070	0409866	,	YMV	er	.
+T01_2073	0409902	&	UW	well	.
+T01_2076	0409914	|	DD1a	that	[Ds:s.Ds:s]
+T01_2079	0409925	|	VBZ	+'s	[Vzb.Vzb]
+T01_2082	0409935	|	DDQ	what	[Ff:e[Dq:o.Dq:o]
+T01_2085	0409947	|	PPHS2	they	[Nap:s.Nap:s]
+T01_2088	0409959	|	VDD	did	[Vd.Vd]
+T01_2091	0409970	|	RTt	yesterday	[R:t.R:t]Ff:e]S+]
+T01_2094	-----	Harold001
+T01_2097	.....	02685
+T01_2100	0410051	&*	RRQq	where	[S?[Rq:q.Rq:q]
+T01_2103	0410063	|	VDD	+'d	[Vo.Vo]
+T01_2106	0410073	|	PPHS2	they	[Nap:s.Nap:s]
+T01_2109	0410085	|	VV0i	go	[Vr.Vr]
+T01_2112	0410096	?	VVGv	bowling	[Tg:h[Vg.Vg]Tg:h]S?]
+T01_2115	-----	Harold001
+T01_2118	.....	02686
+T01_2121	0410187	&*	RP	up	[P.
+T01_2124	0410197	|	IIt	to	.
+T01_2127	0410207	|	NP1t	Insthrope	[Nns.Nns]P]
+T01_2130	-----	Jean003
+T01_2133	.....	02687
+T01_2136	0410292	&*	CC	and	[S+.
+T01_2139	0410303	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_2142	0410313	|	VHD	had	[Vd.Vd]
+T01_2145	0410324	|	AT1	a	[Ns:o.
+T01_2148	0410333	|	NN1n	drink	.Ns:o]S+]
+T01_2151	0410364	&	CC	and	[S+.
+T01_2154	0410375	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_2157	0410385	|	VHD	had	[Vd.Vd]
+T01_2160	0410396	|	AT1	a	[Nus:o.
+T01_2163	0410405	|	NNU1c	pint	.Nus:o]S+]
+T01_2166	0410434	&ic	YY	{unclear}	[S[Y.Y]
+T01_2169	0410445	|	VHD	had	[Vd.Vd]
+T01_2172	0410456	|	AT1	a	[Ns:o.
+T01_2175	0410465	|	JJ	white	.
+T01_2178	0410478	,	NN1n	wine	.Ns:o]S]
+T01_2181	0410498	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_2184	0410507	|	VD0	do	[Ve.
+T01_2187	0410516	|	XX	+n't	.
+T01_2190	0410528	|	VV0v	bother	.Ve]S]
+T01_2193	-----	Harold001
+T01_2196	.....	02688
+T01_2199	0410606	&*	VBZ	is	[S?[Vzb.Vzb]
+T01_2202	0410616	|	PPH1	it	[Ni:s.Ni:s]
+T01_2205	0410626	|	JB	indoor	[R:e.R:e]S?]
+T01_2208	0410640	|	ICSk	like	.
+T01_2211	0410674	&?	UL	eh	.
+T01_2214	-----	Harold001
+T01_2217	.....	02689
+T01_2220	0410723	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_2223	0410734	|	VHD	had	[Vd.Vd]
+T01_2226	0410745	|	AT1	a	[Ns:o.
+T01_2229	0410754	|	NN1c	cup	.
+T01_2232	0410765	|	IO	of	[Po.
+T01_2235	0410775	|	NN1n	tea	.Po]Ns:o]
+T01_2238	0410786	|	VDD	did	[Iq[S?[Vdx.Vdx]
+T01_2241	0410797	|	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S]
+T01_2244	0410809	?	NP1f	Jean	[Nns".Nns"]
+T01_2247	-----	Jean003
+T01_2250	.....	02690
+T01_2253	0410861	*	UR	oh	.
+T01_2256	0410871	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_2259	0410881	|	RR	all	[R:h.R:h]
+T01_2262	0410892	|	VHD	had	[Vd.Vd]
+T01_2265	0410903	|	AT1	a	[Ns:o.
+T01_2268	0410912	|	NN1c	cup	.
+T01_2271	0410923	|	IO	of	[Po.
+T01_2274	0410934	,	NN1n	tea	.Po]Ns:o]S]
+T01_2277	0410953	|	UY	yeah	.
+T01_2280	-----	Harold001
+T01_2283	.....	02691
+T01_2286	0411012	&	UR21	I	[UR=.
+T01_2289	0411021	|	UR22	see	.UR=]
+T01_2292	0411032	|	AT1	a	[Ns.
+T01_2295	0411041	|	NN1c	cup	.
+T01_2298	0411052	|	IO	of	[Po.
+T01_2301	0411062	|	NN1n	tea	.Po]
+T01_2304	0411073	|	VBZ	is	[Iq[S?[Vzb.Vzb]
+T01_2307	0411084	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]Ns]
+T01_2310	-----	Jean003
+T01_2313	.....	02692
+T01_2316	0411166	&	PPIS2	we	[S[Nap:s.Nap:s]
+T01_2319	0411176	|	RR	all	[R:h.R:h]
+T01_2322	0411187	|	VH0	have	[V.V]
+T01_2325	0411199	|	AT1	a	[Ns:o.
+T01_2328	0411208	|	NN1c	cup	.
+T01_2331	0411219	|	IO	of	[Po.
+T01_2334	0411230	,	NN1n	tea	.Po]Ns:o]S]
+T01_2337	0411249	|	UY	yeah	.
+T01_2340	0411278	&	PPY	you	[S[Ny:s121.Ny:s121]
+T01_2343	0411289	|	VV0v	pay	[V.V]
+T01_2346	0411300	|	MC	fifteen	[Nup:o.
+T01_2349	0411316	|	NNU2	pence	.Nup:o]
+T01_2352	0000000	y	YG	-	[Ti:c[s121.s121]
+T01_2355	0411329	|	TO	to	[Vi.
+T01_2358	0411339	|	VV0i	go	.Vi]
+T01_2361	0411349	|	RP	in	[R:q.R:q]Ti:c]
+T01_2364	0411359	,	RAq	each	[R:h.R:h]S]
+T01_2367	0411379	|	UY	yeah	.
+T01_2370	-----	Harold001
+T01_2373	.....	02693
+T01_2376	0411438	&*	DD1a	that	[S[Ds:s.Ds:s]
+T01_2379	0411449	|	VBZ	+'s	[Vzb.Vzb]
+T01_2382	0411459	|	TO	to	[Ti:c[Vi.
+T01_2385	0411469	,	VV0t	cover	.Vi]Ti:c]
+T01_2388	0000000	y	YR	#	.
+T01_2391	0411491	|	DD1a	that	[Ds:s.Ds:s]
+T01_2394	0411502	|	VBZ	+'s	[Vzb.Vzb]
+T01_2397	0411512	|	AT1	a	[N:e.
+T01_2400	0411521	|	NN1c	cup	.
+T01_2403	0411532	|	IO	of	[Po.
+T01_2406	0411542	|	NN1n	tea	.Po]
+T01_2409	0411553	|	CC	and	[Np+.
+T01_2412	0411564	|	MC	two	.
+T01_2415	0411576	|	NN2	biscuits	.Np+]N:e]S]
+T01_2418	-----	Jean003
+T01_2421	.....	02694
+T01_2424	0411656	&	MC	fifty	[L[Nup:e.
+T01_2427	0411669	|	NNU2	pence	.Nup:e]
+T01_2430	0411682	|	TO	to	[Ti:c[Vi.
+T01_2433	0411692	|	VV0v	join	.Vi]Ti:c]
+T01_2436	0411722	&	RR	once	[R:t.
+T01_2439	0411734	|	AT1	a	[Ns.
+T01_2442	0411743	|	NNT1c	year	.Ns]R:t]L]
+T01_2445	-----	Harold001
+T01_2448	.....	02695
+T01_2451	0411786	*	UY	yeah	.
+T01_2454	-----	Jean003
+T01_2457	.....	02696
+T01_2460	0411829	|	CC	and	[S+.
+T01_2463	0411840	|	RTn	then	[Rsw:t.Rsw:t]
+T01_2466	0411852	|	PPH1	it	[Ni:s.Ni:s]
+T01_2469	0411861	|	VBZ	+'s	[Vzb.Vzb]
+T01_2472	0411871	|	MC	fifteen	[Nup:e.
+T01_2475	0411903	&	NNU2	pence	.Nup:e]S+]
+T01_2478	-----	Harold001
+T01_2481	.....	02697
+T01_2484	0411980	&*	PPH1	it	[S[Ni:s.Ni:s]
+T01_2487	0411989	|	VBZ	+'s	[Vzb.Vzb]
+T01_2490	0412016	&	DDQ	what	[Dq:e.Dq:e]S]
+T01_2493	0412028	?	NN1n	love	[Ns".Ns"]
+T01_2496	-----	Joan002
+T01_2499	.....	02698
+T01_2502	0412079	*	VMo	can	[S?[Voc.Voc]
+T01_2505	0412090	|	NP1f	Jean	[Nns:s.Nns:s]
+T01_2508	0412103	?	VV0v	drive	[Vr.Vr]S?]
+T01_2511	-----	Jean003
+T01_2514	.....	02699
+T01_2517	0412155	*	MC	fifty	[L[Nup:e.
+T01_2520	0412168	|	NNU2	pence	.Nup:e]
+T01_2523	.....	02702
+T01_2526	0412314	&	TO	to	[Ti:c[Vi.
+T01_2529	0412324	|	VV0v	join	.Vi]Ti:c]L]
+T01_2532	-----	Harold001
+T01_2535	.....	02700
+T01_2538	0412212	*?	UL	eh	.
+T01_2541	-----	Harold001
+T01_2544	.....	02701
+T01_2547	0412261	*	TO	to	[Ti[Vi.
+T01_2550	0412271	|	VV0v	join	.Vi]Ti]
+T01_2553	-----	Joan002
+T01_2556	.....	02703
+T01_2559	0412367	*	VMo	can	[S?[Voc.Voc]
+T01_2562	0412378	|	NP1f	Jean	[Nns:s.Nns:s]
+T01_2565	0412391	?	VV0v	drive	[Vr.Vr]S?]
+T01_2568	-----	Harold001
+T01_2571	.....	02704
+T01_2574	0412443	*	DD1a	that	[S[Ds:s.Ds:s]
+T01_2577	0412454	|	VBZ	+'s	[Vzb.Vzb]
+T01_2580	0412464	|	AT1	a	[Nu:e.
+T01_2583	0412473	|	NNU1c	pound	.
+T01_2586	0412486	|	IF	for	[P.
+T01_2589	0412497	|	MC	two	.P]
+T01_2592	.....	02706
+T01_2595	0412609	&	CC	and	[Nup+.
+T01_2598	0412620	|	MC	thirty	.
+T01_2601	0412634	|	NNU2	pence	.
+T01_2604	0412664	&	IF	for	[Tf.
+T01_2607	0412675	|	MC	two	[M:s.
+T01_2610	0412686	|	AT1	a	[Ns.
+T01_2613	0412696	|	NNT1c	week	.Ns]M:s]
+T01_2616	0412708	|	TO	to	[Vi.
+T01_2619	0412718	|	VV0i	go	.Vi]
+T01_2622	0412728	|	RP	in	[R:q.R:q]Tf]Nup+]Nu:e]S]
+T01_2625	-----	Harold001
+T01_2628	.....	02705
+T01_2631	0412539	*,	UY	yeah	.
+T01_2634	0412559	?	RRQq	why	[Rq.Rq]
+T01_2637	-----	Joan002
+T01_2640	.....	02707
+T01_2643	0412806	&*	RRz	so	[R.
+T01_2646	0412816	|	PPY	you	[Fc[Ny:s.Ny:s]
+T01_2649	0412827	|	VMo	can	[Vc.
+T01_2652	0412838	|	VH0	have	.Vc]
+T01_2655	0412850	|	AT1	a	[Ns:o.
+T01_2658	0412860	.	NN1n	drink	.Ns:o]Fc]R]
+T01_2661	-----	Harold001
+T01_2664	.....	02708
+T01_2667	0412929	*	UW	well	.
+T01_2670	0412941	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_2673	0412950	|	VD0	do	[Ve.
+T01_2676	0412959	|	XX	+n't	.
+T01_2679	0412970	|	VV0v	drink	.Ve]
+T01_2682	0412983	|	DA1	much	[Ds:o.Ds:o]
+T01_2685	0412995	|	VD0	do	[Iq[S?[Vx.Vx]
+T01_2688	0413006	?	PPIS1	I	[Nea:s.Nea:s]S?]Iq]S]
+T01_2691	.....	02709
+T01_2694	0413035	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_2697	0413044	|	VH0	have	[Vefb.
+T01_2700	0413055	|	XX	+n't	.
+T01_2703	0413066	|	VBN	been	.Vefb]
+T01_2706	0413078	|	JJ	able	[Jh:e.
+T01_2709	0413090	|	TO	to	[Ti[Vi.
+T01_2712	0413100	|	VV0v	drink	.Vi]Ti]Jh:e]
+T01_2715	0413114	,	RR	actually	[R:m.R:m]S]
+T01_2718	0413138	|	YMV	er	.
+T01_2721	0413148	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_2724	0413157	|	VMd	could	[Vdce.
+T01_2727	0413169	|	XX	+n't	.
+T01_2730	0413180	|	VV0v	get	.Vdce]
+T01_2733	0413191	|	PPIO1	me	[Neo:i.Neo:i]
+T01_2736	0000000	y	YR	#	.S]
+T01_2739	-----	unid1
+T01_2742	.....	-----
+T01_2745	0413206	ic	YY	{unclear}	[Y.Y]
+T01_2748	-----	Harold001
+T01_2751	.....	02710
+T01_2754	0413252	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_2757	0413260	|	VBM	+'m	[Vmb.Vmb]
+T01_2760	0413270	|	DDo21	a	[Jr:e[DDo=.
+T01_2763	0413270	|	DDo22	lot	.DDo=]
+T01_2766	0413283	|	JJR	better	.Jr:e]
+T01_2769	0413297	|	RTo	now	[Rw:t.Rw:t]
+T01_2772	0413308	|	RR	though	[R:c.R:c]S]
+T01_2775	-----	Joan002
+T01_2778	.....	02711
+T01_2781	0413353	*	VH0	have	[S?[Vo.Vo]
+T01_2784	0413365	|	PPY	you	[Ny:s.Ny:s]
+T01_2787	0413376	|	VVNH	got	[Vrn.Vrn]
+T01_2790	0413387	?	NN1u	bronchitis	[Ns:o.Ns:o]S?]
+T01_2793	-----	Harold001
+T01_2796	.....	02712
+T01_2799	0413443	c	YV	{clearsThroat}	.
+T01_2802	0413472	*	VMo	must	[Vc.
+T01_2805	0413484	|	VH0	have	.Vc]
+T01_2808	-----	Joan002
+T01_2811	.....	02713
+T01_2814	0413527	*	UW	well	.
+T01_2817	0413539	|	PPY	you	[S[Ny:s.Ny:s]
+T01_2820	0413550	|	VBDR	were	[Vweb.
+T01_2823	0413561	|	XX	+n't	.Vweb]
+T01_2826	0413572	|	ICSk	like	[P:e.
+T01_2829	0413584	|	DD1a	that	.P:e]
+T01_2832	0413596	|	MDt	last	[Ns:t131.
+T01_2835	0413609	|	NNT1c	time	.
+T01_2838	0413621	|	PPIS1	I	[Fr[Nea:s.Nea:s]
+T01_2841	0413630	|	VVDv	saw	[Vd.Vd]
+T01_2844	0413641	|	PPY	you	[Ny:o.Ny:o]
+T01_2847	0000000	y	YG	-	[t131.t131]Fr]Ns:t131]S]
+T01_2850	-----	Harold001
+T01_2853	.....	02714
+T01_2856	0413683	*	YMV	er	.
+T01_2859	0413693	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_2862	0413702	,	VBDZ	was	[Vsb.
+T01_2865	0413721	|	FLJ	bloody	.
+T01_2868	0413735	,	VBDZ	was	[Vsb-.Vsb-]Vsb]S]
+T01_2871	0413755	|	NNT1c	fortnight	[S[Rx:t[N.
+T01_2874	0000000	y	YR	#	.
+T01_2877	0413772	|	RGi	about	.
+T01_2880	0413785	|	MC	three	.
+T01_2883	0413798	|	NNT1c	week	.N]
+T01_2886	0413810	|	RAa	ago	.Rx:t]
+T01_2889	0413821	|	PPIS1	I	[Nea:s.Nea:s]
+T01_2892	0413831	|	VBDZ	was	[Vsb.Vsb]S]
+T01_2895	-----	unid1
+T01_2898	.....	-----
+T01_2901	0413847	ic	YY	{unclear}	[Y.Y]
+T01_2904	-----	Harold001
+T01_2907	.....	02715
+T01_2910	0413893	|	UN	no	.
+T01_2913	0413903	|	ICSt	before	[S[P:t.
+T01_2916	0413921	|	NN1c	holiday	.P:t]
+T01_2919	0413936	|	PPIS1	I	[Nea:s.Nea:s]
+T01_2922	0413945	|	VBDR	were	[Vwb.Vwb]
+T01_2925	0413957	|	JA21	all	[J:e[JA=.
+T01_2928	0413959	|	JA22	right	.JA=]J:e]S]
+T01_2931	-----	Joan002
+T01_2934	.....	02716
+T01_2937	0414003	*	VH0	have	[S?[Vo.Vo]
+T01_2940	0414015	|	PPY	you	[Ny:s.Ny:s]
+T01_2943	0414026	|	VBN	been	[Vrnb.Vrnb]
+T01_2946	0414038	|	IIt	to	[P:q.
+T01_2949	0414048	|	NNS1c	doctor	[G.
+T01_2952	0414054	?	GG	+'s	.G]P:q]S?]
+T01_2955	-----	Harold001
+T01_2958	.....	02717
+T01_2961	0414102	*	UR	oh	.
+T01_2964	0414112	,	UY	aye	.
+T01_2967	0414131	|	YMN	erm	.
+T01_2970	0414142	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_2973	0414152	|	VVNv	give	[V.V]
+T01_2976	0414164	|	PPIO1	me	[Neo:i.Neo:i]
+T01_2979	0414174	|	NN2	tablets	[Np:o[NN2&.
+T01_2982	0414190	|	CC	and	[NN2+.
+T01_2985	0414201	|	NN2	whatnots	.NN2+]NN2&]Np:o]S]
+T01_2988	-----	Joan002
+T01_2991	.....	02718
+T01_2994	0414248	*	DDQ	what	[S?[Dq:o.Dq:o]
+T01_2997	0414260	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_3000	0414270	|	VV0v	say	[V.V]
+T01_3003	0414281	|	IIt	to	[P:u.
+T01_3006	0000000	y	YR	#	.P:u]
+T01_3009	0414295	,	YMV	er	.
+T01_3012	0414313	|	NN1u	asthma	[N@[NN1u&.
+T01_3015	0414328	|	CCr	or	[PN1+.
+T01_3018	0414338	?	PN1	something	.PN1+]NN1u&]N@]S?]
+T01_3021	-----	Harold001
+T01_3024	.....	02719
+T01_3027	0414394	*	UN	no	.
+T01_3030	0414404	,	RR	just	[L[R:m.R:m]
+T01_3033	0414424	c	YVL	{laughing}	.
+T01_3036	0414445	,	UN	no	.
+T01_3039	0414463	|	UN	no	.
+T01_3042	0414473	c	YVR	{laughing}	.
+T01_3045	0414481	|	NN1u	bronchitis	[Ns:e.Ns:e]
+T01_3048	0414499	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T01_3051	0414508	|	VMd	should	[Vdc.
+T01_3054	0414522	|	VV0t	imagine	.Vdc]S]I]
+T01_3057	0414537	c	YP	{pause}	.
+T01_3060	0414546	|	PN1	nothing	[L-[Ns:e.
+T01_3063	0414561	|	JJ	wrong	[Jh.
+T01_3066	0414574	|	IW	with	[P.
+T01_3069	0414586	|	PPIO1	me	.P]Jh]Ns:e]
+T01_3072	0414596	|	II21	apart	[P:m[II=.
+T01_3075	0414596	|	II22	from	.II=]
+T01_3078	0414615	.	DD1a	that	.P:m]L-]L]
+T01_3081	-----	Jean003
+T01_3084	.....	02720
+T01_3087	0414666	*	UN	no	.
+T01_3090	0414676	,	PPHS1f	she	[S[Nas:s[PPHS1f#.
+T01_3093	0000000	y	YR	#	.
+T01_3096	0414695	|	PPHS1f	she	.PPHS1f#]Nas:s]
+T01_3099	0414706	|	VHD	had	[Vd.Vd]
+T01_3102	0414717	|	AT1	a	[N:o.
+T01_3105	0414726	|	NNn	grapefruit	.
+T01_3108	0414745	|	CCr	or	[Ns+.
+T01_3111	0414755	|	PN1	something	.Ns+]N:o]
+T01_3114	0414772	|	VDD	did	[Iq[S?[Vdex.
+T01_3117	0414782	|	XX	+n't	.Vdex]
+T01_3120	0414793	?	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S]
+T01_3123	-----	Harold001
+T01_3126	.....	02721
+T01_3129	0414843	*	DDQ	what	[S?[Dq:e.Dq:e]
+T01_3132	0414854	|	VBZ	+'s	[Vzb.Vzb]
+T01_3135	0414864	|	DD1a	that	[Ds:s.Ds:s]S?]
+T01_3138	0414876	?	NN1n	love	[Ns".Ns"]
+T01_3141	-----	Jean003
+T01_3144	.....	02722
+T01_3147	0414927	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_3150	0414938	|	VDD	did	[Vde.
+T01_3153	0414948	|	XX	+n't	.
+T01_3156	0414959	|	VH0	have	.Vde]
+T01_3159	0414971	|	AT1	an	[Ns:o.
+T01_3162	.....	02724
+T01_3165	0415104	&	JJ	alcoholic	.
+T01_3168	.....	02726
+T01_3171	0415214	&,	NN1n	drink	.Ns:o]S]
+T01_3174	0415239	|	PPH1	it	[S[Ni:S.Ni:S]
+T01_3177	0415249	|	VBDZ	was	[Vsb.Vsb]
+T01_3180	0415260	|	LEe	either	[N:e138.
+T01_3183	0415292	&	NNn	grapefruit	.
+T01_3186	.....	02728
+T01_3189	0415440	&	CCr	or	[Ns+.
+T01_3192	0415450	|	JJ	bitter	.
+T01_3195	0415464	|	NN1c	lemon	.Ns+]
+T01_3198	0415477	|	CCr	or	[Ns+.
+T01_3201	0415487	|	PN1	something	.
+T01_3204	0415504	|	ICSk	like	[P.
+T01_3207	0415517	|	DD1a	that	.P]Ns+]N:e138]
+T01_3210	0415529	|	PPHS1f	she	[Fr:s[Nas:s.Nas:s]
+T01_3213	0415540	|	VHD	had	[Vd.Vd]
+T01_3216	0000000	y	YG	-	[o138.o138]Fr:s]S]
+T01_3219	-----	Harold001
+T01_3222	.....	02723
+T01_3225	0415028	&*	UY	yeah	.
+T01_3228	-----	Harold001
+T01_3231	.....	02725
+T01_3234	0415173	|	UN	no	.
+T01_3237	-----	Harold001
+T01_3240	.....	02727
+T01_3243	0415374	&	NNn	grapefruit	[Ns.Ns]
+T01_3246	-----	Harold001
+T01_3249	.....	02729
+T01_3252	0415582	*	UY	yeah	.
+T01_3255	-----	Jean003
+T01_3258	.....	02730
+T01_3261	0415641	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_3264	0415650	|	VDD	did	[Vde.
+T01_3267	0415660	|	XX	+n't	.
+T01_3270	0415671	|	VH0	have	.Vde]
+T01_3273	0415683	|	AT1	a	[Ns:o.
+T01_3276	0415692	|	NN1n	drink	.Ns:o]S]
+T01_3279	0415706	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_3282	0415715	|	RR	just	[R:m.R:m]
+T01_3285	.....	02732
+T01_3288	0415891	&	VHD	had	[Vd.Vd]
+T01_3291	0415902	|	PPIO1	me	[Ns:o.
+T01_3294	0415912	|	NN1c	cup	.
+T01_3297	0415923	|	IO	of	[Po.
+T01_3300	0415933	|	NN1n	tea	.Po]Ns:o]S]
+T01_3303	-----	Harold001
+T01_3306	.....	02731
+T01_3309	0415791	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_3312	0415799	|	VBM	+'m	[Vmb.Vmb]
+T01_3315	0415809	|	JJ	pleased	[Jh:e.
+T01_3318	0415824	|	PPHS1m	he	[Fn[Nas:s.Nas:s]
+T01_3321	0415833	|	VBZ	+'s	[Vzb.Vzb]
+T01_3324	0000000	y	YR	#	.Fn]Jh:e]S]
+T01_3327	-----	Harold001
+T01_3330	.....	02733
+T01_3333	0415975	*,	CSn	when	[S[Fa:t[Rq:t[CSn#.
+T01_3336	0000000	y	YR	#	.
+T01_3339	0415999	|	CSn	when	.CSn#]Rq:t]
+T01_3342	0416015	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_3345	0416025	|	VVDv	rang	[Vd.Vd]
+T01_3348	0416037	|	PPIO2	us	[Nop:o.Nop:o]
+T01_3351	0416048	|	RP	up	[R:n.R:n]Fa:t]
+T01_3354	0416062	,	PPH1	it	[Ni:s[PPH1#.
+T01_3357	0000000	y	YR	#	.
+T01_3360	0416080	|	PPH1	it	.PPH1#]Ni:s]
+T01_3363	0416090	|	VBDZ	was	[Vsb.Vsb]
+T01_3366	0416101	|	VVGv	looking	[Tg:e[Vg.Vg]
+T01_3369	0416116	|	II	at	[P:u.
+T01_3372	0416127	|	PPIO2	us	.P:u]
+T01_3375	0416137	|	ICSk	like	.
+T01_3378	0416149	|	IF	for	[P:k.
+T01_3381	0416160	|	NP1m	Brian	[Nns.Nns]P:k]Tg:e]S]
+T01_3384	0416173	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_3387	0416183	,	VVDv	kept	[Vd[VVDv#.
+T01_3390	0000000	y	YR	#	.
+T01_3393	0416204	|	VVDv	called	.VVDv#]Vd]
+T01_3396	0416222	|	RP	in	[R:n.R:n]
+T01_3399	0416236	|	CSA	as	[Fa:t.
+T01_3402	0416263	&	PPIS1	I	[Nea:s.Nea:s]
+T01_3405	0416272	|	VBDZ	was	[Vsu.
+T01_3408	.....	02735
+T01_3411	0416405	&	VVGi	going	.Vsu]Fa:t]S]
+T01_3414	0416418	|	VV0t	enjoy	.
+T01_3417	-----	Jean003
+T01_3420	.....	02734
+T01_3423	0416347	&*	UR	oh	.
+T01_3426	-----	unid1
+T01_3429	.....	00000
+T01_3432	0416467	&ic	YY	{unclear}	[Y.Y]
+T01_3435	-----	Jean003
+T01_3438	.....	02736
+T01_3441	0416541	&	UR	oh	.
+T01_3444	0416568	&	UW	well	.
+T01_3447	0416580	|	PPHS2	they	[S[Nap:s.Nap:s]
+T01_3450	0416591	|	VHD	+'d	[Vdf.
+T01_3453	0416601	|	VVNH	got	.Vdf]
+T01_3456	0416613	|	PPH1	it	[Ni:o.Ni:o]
+T01_3459	0416623	|	RTn	then	[Rsw:c.Rsw:c]
+T01_3462	0416635	|	VAI	ai	[Iq[S?[Ve.
+T01_3465	0416644	|	XX	+n't	.Ve]
+T01_3468	0416655	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T01_3471	.....	02737
+T01_3474	0416687	*	VHD	had	[S?[Vod.Vod]
+T01_3477	0416698	|	PPHS2	they	[Nap:s.Nap:s]
+T01_3480	0416710	|	VVNH	got	[Vrn.Vrn]
+T01_3483	0416721	|	PPH1	it	[Ni:o.Ni:o]
+T01_3486	0416731	|	II	through	[P:h.
+T01_3489	0416763	&	AT1	a	[Ns.
+T01_3492	0416773	*	NNJ1c	council	.Ns]P:h]
+T01_3495	0416788	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T01_3498	-----	Joan002
+T01_3501	.....	02738
+T01_3504	0416872	&*	UE21	you	[UE=.
+T01_3507	0416883	|	UE22	see	.UE=]
+T01_3510	0416894	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_3513	0416903	|	VHZ	+'s	[Vz.Vz]
+T01_3516	0000000	y	YR	#	.
+T01_3519	0416931	&	PPHS1m	he	[Nas:s.Nas:s]
+T01_3522	0416940	|	VHZ	+'s	[Vzf.
+T01_3525	0416967	&	VVNH	got	.Vzf]
+T01_3528	0416978	|	AT1	a	[Ns:o.
+T01_3531	0416987	,	NN1n	choice	.Ns:o]S]
+T01_3534	0417009	|	PPHS1m	he	[S[Nas:s149.Nas:s149]
+T01_3537	0417020	|	VVDv	got	[Vd.Vd]
+T01_3540	0417031	|	MC	three	[Np.
+T01_3543	0417044	|	NNT2	weeks	.Np]
+T01_3546	0000000	y	YG	-	[Ti:c[s149.s149]
+T01_3549	0417057	|	TO	to	[Vi.
+T01_3552	0417067	|	VV0v	move	.Vi]
+T01_3555	0417079	,	RP	in	[R:q.R:q]
+T01_3558	0417098	|	VV0v	make	[Ti-[V.V]
+T01_3561	0417110	|	APPGm	his	[Ns:o.
+T01_3564	0417121	|	NN1n	mind	.Ns:o]
+T01_3567	0417137	|	RP	up	[R:n.R:n]Ti-]Ti:c]S]
+T01_3570	-----	Harold001
+T01_3573	.....	02739
+T01_3576	0417211	&*	UY	yeah	.
+T01_3579	0417223	|	VMo	must	[Vcf.
+T01_3582	0417235	|	VH0	+'ve	.
+T01_3585	0417245	,	VDN	done	.Vcf]
+T01_3588	0417265	|	PPHS1m	he	[S[Nas:s151.Nas:s151]
+T01_3591	0417276	|	VVDv	got	[Vd.Vd]
+T01_3594	0417287	|	RGi21	up	[Np:o[RGi=.
+T01_3597	0417287	|	RGi22	to	.RGi=]
+T01_3600	0417300	|	MC	three	.
+T01_3603	0417313	|	NNT2	weeks	.Np:o]
+T01_3606	0000000	y	YG	-	[Ti:c[s151.s151]
+T01_3609	0417326	|	TO	to	[Vi.
+T01_3612	0417336	|	VV0v	move	.Vi]
+T01_3615	0417349	|	RP	in	[R:q.R:q]
+T01_3618	.....	02741
+T01_3621	0417452	&	VV0v	make	[Ti-[V.V]
+T01_3624	0417464	|	APPGm	his	[Ns:o.
+T01_3627	0417475	|	NN1n	mind	.Ns:o]
+T01_3630	0417491	|	II	on	[P:r.
+T01_3633	0417501	,	VVGv	moving	[Tg[Vg.Vg]Tg]P:r]Ti-]Ti:c]S]
+T01_3636	0417523	|	RRz	so	[S[Rs:c.Rs:c]
+T01_3639	0417534	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_3642	0417543	|	VBZ	+'s	[Vzu.
+T01_3645	0417553	|	VHG	having	.Vzu]
+T01_3648	0417567	|	PPH1	it	[Ni:o.Ni:o]
+T01_3651	0417577	|	VBZ	is	[Iq[S?[Vzbx.Vzbx]
+T01_3654	0417587	?	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]S]
+T01_3657	-----	Jean003
+T01_3660	.....	02740
+T01_3663	0417411	*	UY	mm	.
+T01_3666	-----	Joan002
+T01_3669	.....	02742
+T01_3672	0417636	*	UY	yeah	.
+T01_3675	0417665	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_3678	0417675	|	VHD	had	[Vd.Vd]
+T01_3681	0417686	|	TO	to	[Ti:z[Vi.
+T01_3684	0417696	|	VH0	have	.Vi]
+T01_3687	0417708	|	DDi	some	[Np:O155.
+T01_3690	0417721	|	NN2	alterations	.Np:O155]
+T01_3693	0000000	y	YG	-	[Tn:o[S155.S155]
+T01_3696	0417740	|	VVNv	made	[Vn.Vn]Tn:o]Ti:z]S]
+T01_3699	-----	Jean003
+T01_3702	.....	02743
+T01_3705	0417816	&*	UW	well	.
+T01_3708	0417828	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_3711	0417838	|	VVZv	looks	[Vz.Vz]
+T01_3714	0417851	|	ICSk	like	[P:e.
+T01_3717	0417863	,	PPH1	it	.P:e]S]
+T01_3720	0417882	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_3723	0417891	|	VV0v	know	[V.V]
+T01_3726	0417903	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T01_3729	0417931	&	VBDZ	was	[Vsu.
+T01_3732	0417942	|	VVGv	saying	.Vsu]
+T01_3735	0417957	|	CST	that	[Fn:o.Fn:o]
+T01_3736	0000000	y	YR	#	.
+T01_3738	0417973	|	YMV	er	.
+T01_3741	0418000	&	II21	on	[P:e[II=.
+T01_3744	0418014	|	II22	about	.II=]
+T01_3750	0418027	|	YMV	er	.
+T01_3753	.....	02745
+T01_3756	0418194	&	PPHS1f	she	[Fn[Nas:s159.Nas:s159]
+T01_3759	0418205	|	VBDR	were	[Vwut.
+T01_3762	0418217	|	VVGK	gon	.Vwut]
+T01_3765	0418227	|	TO	+na	[Ti:z[Vi.
+T01_3768	0418237	|	VV0v	look	.Vi]
+T01_3771	0418249	|	II	at	[P:u.
+T01_3774	0418259	|	DD1a	that	[Ns.
+T01_3777	0418272	|	NNL1c	place	.
+T01_3780	0418285	|	II	at	[P.
+T01_3783	0000000	y	YR	#	.P]
+T01_3786	0418295	|	YMV	er	.
+T01_3789	0418305	|	NP1f	Audrey	[I[S[Ns:s[G[Nns.Nns]
+T01_3792	0418318	|	GG	+'s	.G]
+T01_3795	0418328	|	NNS1c	brother	.Ns:s]
+T01_3798	0418342	|	VHZ	+'s	[Vzf.
+T01_3801	0418353	|	VVNH	got	.Vzf]
+T01_3804	0418364	|	PPH1	it	[Ni:o.Ni:o]S]I]
+T01_3807	0418374	|	DAy	same	[D@.
+T01_3810	0418386	|	CSA	as	[P.
+T01_3813	0418396	|	NP1m	Walter	[G[Nns.Nns]
+T01_3816	0418409	,	GG	+'s	.G]P]D@]
+T01_3819	0418427	|	YMV	er	.
+T01_3822	0418438	|	JJ	second-hand	[Ns@.
+T01_3825	0418464	|	NN1n	stuff	.Ns@]Ns]P:u]Ti:z]
+T01_3828	0000000	y	YG	-	[Ti:c[s159.s159]
+T01_3831	0418477	|	TO	to	[Vi.
+T01_3834	0418487	|	VV0v	see	.Vi]
+T01_3837	0418498	|	CSi	if	[Fn?:o.
+T01_3840	0418508	|	PPHS2	they	[Nap:s.Nap:s]
+T01_3843	0418521	|	VMd	could	[Vdc.
+T01_3846	0418534	|	VV0v	get	.Vdc]
+T01_3849	0418545	|	DD1b31	a	[Ds:o[DD1b=.
+T01_3852	0418554	|	DD1b32	little	.
+T01_3855	0418568	|	DD1b33	bit	.DD1b=]
+T01_3858	0418579	|	IO	of	[Po.
+T01_3861	0418590	,	PN1	something	.Po]Ds:o]
+T01_3864	0418615	|	VV0v	start	[Fn?-[V.V]
+T01_3867	0418645	&	PPHO1m	him	[Nos:o.Nos:o]
+T01_3870	0418656	,	RP	off	[R:n.R:n]Fn?-]Fn?:o]Ti:c]Fn]P:e]Fn:o]S]
+T01_3873	0418676	,	ICSk	like	.
+T01_3876	0418696	|	UE21	you	[UE=.
+T01_3879	0418707	|	UE22	know	.UE=]
+T01_3882	-----	Harold001
+T01_3885	.....	02744
+T01_3888	0418101	&*	PPH1	it	[S[Ni:s.Ni:s]
+T01_3891	0418111	|	VVZv	looks	[Vz.Vz]
+T01_3894	0418124	|	ICSk	like	[P:e.
+T01_3897	0418136	|	PPH1	it	.P:e]S]
+T01_3900	-----	Harold001
+T01_3903	.....	02746
+T01_3906	0418783	&*,	UY	yes	.
+T01_3909	0418802	|	UY	yes	.
+T01_3912	0418813	|	RR21	of	[RR=.
+T01_3915	0418813	|	RR22	course	.RR=]
+T01_3918	-----	Jean003
+T01_3921	.....	02747
+T01_3924	0418878	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_3927	0418887	|	VHZ	+'s	[Vzf.
+T01_3930	0418897	|	VVNH	got	.Vzf]
+T01_3933	0418908	|	AT1	a	[Ns:o.
+T01_3936	0418917	|	JJ	nice	.
+T01_3939	0000000	y	YR	#	.Ns:o]S]
+T01_3942	-----	unid1
+T01_3945	.....	-----
+T01_3948	0418934	ic	YY	{unclear}	[Y.Y]
+T01_3951	-----	Jean003
+T01_3954	.....	02748
+T01_3957	0418980	|	UE21	you	[UE=.
+T01_3960	0418991	|	UE22	know	.UE=]
+T01_3963	0419003	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_3966	0419013	|	RR	really	[R:m.R:m]
+T01_3969	0419027	,	VHZ	has	[Vzx.Vzx]S]
+T01_3972	0419046	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_3975	0419056	|	VVDv	looked	[Vd.Vd]
+T01_3978	0419070	|	RP	in	[R:q.R:q]
+T01_3981	0419080	|	MC1	one	[Ns:t.
+T01_3984	0419091	,	NNT1c	day	.Ns:t]S]
+T01_3987	0419110	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_3990	0419120	|	VBDZ	was	[Vsb.Vsb]
+T01_3993	0419131	|	RG	very	[J:e.
+T01_3996	0419144	,	JJ	nice	.J:e]S]
+T01_3999	0419164	|	PPHS2	they	[S[Nap:s.Nap:s]
+T01_4002	0419193	&	VBDR	were	[Vweb.
+T01_4005	0419204	|	XX	+n't	.Vweb]
+T01_4008	0419215	|	DDQ	what	[Ff:e[Dq:o.Dq:o]
+T01_4011	0419228	|	PPIS1	I	[Nea:s.Nea:s]
+T01_4014	0419237	|	VVDv	wanted	[Vd.Vd]Ff:e]
+T01_4017	0419251	|	CCB	but	[S+.
+T01_4020	0419262	|	PPHS2	they	[Nap:s.Nap:s]
+T01_4023	0419274	|	JJ	nice	[J:e.J:e]
+T01_4026	0419286	|	IF	for	[Tf:c.
+T01_4029	0419297	|	PN1	anybody	[Ns:s.Ns:s]
+T01_4032	0419313	|	TO	to	[Vi.Vi]
+T01_4035	0000000	y	YR	#	.Tf:c]S+]S]
+T01_4038	-----	Harold001
+T01_4041	.....	02749
+T01_4044	0419387	&*	TO	to	[Ti[Vi.
+T01_4047	0419397	|	VV0v	start	.Vi]
+T01_4050	0419410	|	PPHO1m	him	[Nos:o.Nos:o]
+T01_4053	0419421	,	RP	off	[R:n.R:n]
+T01_4056	0419441	,	UY	yeah	.
+T01_4059	0419461	|	VV0v	start	[Ti-[V.V]
+T01_4062	0419474	|	PPHO1m	him	[Nos:o.Nos:o]
+T01_4065	0419485	|	RP	off	[R:n.R:n]Ti-]Ti]
+T01_4068	0419513	&	RRz	so	[S[Rs:c.Rs:c]
+T01_4071	0419524	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_4074	0419534	|	VMo	must	[Vcf.
+T01_4077	0419546	|	VH0	+'ve	.
+T01_4080	0419556	|	VVNH	got	.Vcf]
+T01_4083	0419567	|	PPH1	it	[Ni:o.Ni:o]S]
+T01_4086	0419594	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4089	0419603	|	VBZ	+'s	[Vzu.
+T01_4092	0419614	|	VVGv	moving	.Vzu]
+T01_4095	0419628	,	RP	in	[R:q.R:q]S]
+T01_4098	0419646	|	PPIS1	I	[S[Nas:s.Nas:s]
+T01_4101	0419654	|	VBM	+'m	[Vmb.Vmb]
+T01_4104	0419664	|	JJ	pleased	[Jh:e.
+T01_4107	0419679	|	II	about	[P.
+T01_4110	0419693	|	DD1a	that	.P]Jh:e]S]
+T01_4113	-----	Jean003
+T01_4116	.....	02750
+T01_4119	0419769	&	VVDv	got	[S[Vd.Vd]
+T01_4122	0419784	,	RP	on	[R:n.R:n]S]
+T01_4125	0419806	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_4128	0419816	|	VBDZ	was	[Vsb.Vsb]
+T01_4131	0419827	|	AT1	a	[Ms:e.
+T01_4134	0419837	|	JJ	good	.
+T01_4137	0419849	|	MC1	one	.Ms:e]S]
+T01_4140	0419860	|	UY	yeah	.
+T01_4143	0419889	&	PPHS1m	he	[S[Nas:s161.Nas:s161]
+T01_4146	0419899	|	VVZv	wants	[Vz.Vz]
+T01_4149	0000000	y	YG	-	[Ti:o[s161.s161]
+T01_4152	0419912	|	TO	to	[Vi.
+T01_4155	0419923	|	VV0i	go	.Vi]Ti:o]
+T01_4158	0419933	|	RR	anyway	[R:c.R:c]
+T01_4161	0419964	&	VDZ	does	[Iq[S?[Vzex.
+T01_4164	0419975	|	XX	+n't	.Vzex]
+T01_4167	0419986	?	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]S]
+T01_4170	.....	02751
+T01_4173	0420016	*	VV0t	bless	[S*[V.V]
+T01_4176	0420029	.	PPHO1m	him	[Nos:o.Nos:o]S*]
+T01_4179	-----	Harold001
+T01_4182	.....	02752
+T01_4185	0420112	&*	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4188	0420122	,	VDZ	does	[Vzx.Vzx]S]
+T01_4191	0420142	|	UY	yeah	.
+T01_4194	0420171	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4197	0420182	|	VDZ	does	[Vzx.Vzx]S]
+T01_4200	-----	Jean003
+T01_4203	.....	02753
+T01_4206	0420225	*	UR	ooh	.
+T01_4209	-----	Harold001
+T01_4212	.....	02754
+T01_4215	0420267	|	CSi	if	[Fa.
+T01_4218	0420277	,	PPHS1m	he	[Nas:s[PPHS1m#.
+T01_4221	0000000	y	YR	#	.
+T01_4224	0420312	&	PPHS1m	he	.PPHS1m#]Nas:s]
+T01_4227	0420322	|	VVZv	feels	[Vz.Vz]
+T01_4230	0420335	|	RR21	for	[R:t[RR=.
+T01_4233	0420335	|	RR22	once	.RR=]R:t]
+T01_4236	0000000	y	YR	#	.Fa]
+T01_4239	-----	Jean003
+T01_4242	.....	02755
+T01_4245	0420415	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4248	0420425	|	VVZi	seems	[Vz.Vz]
+T01_4251	0420438	|	AT1	a	[Ns:e.
+T01_4254	0420447	|	JJ	great	.
+T01_4257	0420460	|	NN1c	lad	.Ns:e]
+T01_4260	0420488	&	VAI	i	[Iq[S?[Ve.
+T01_4263	0420489	|	XX	+n't	.Ve]
+T01_4266	0420499	?	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]S]
+T01_4269	-----	Harold001
+T01_4272	.....	02756
+T01_4275	0420564	&	NN1c	thing	[S[Ns:s.Ns:s]
+T01_4278	0420577	|	VBZ	is	[Vzb.Vzb]
+T01_4281	0420587	|	PPHS1m	he	[Fn:e[Nas:s.Nas:s]
+T01_4284	0420597	|	VVZv	wants	[Vz.Vz]
+T01_4287	0420610	|	APPGm	his	[Ns:o[G.
+T01_4290	0420621	|	DAg	own	.G]
+T01_4293	0420633	|	NN1u	independence	.Ns:o]Fn:e]S]
+T01_4296	-----	Joan002
+T01_4299	.....	02757
+T01_4302	0420717	&*	UR	oh	.
+T01_4305	0420727	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4308	0420736	|	VBZ	+'s	[Vzb.Vzb]
+T01_4311	0420746	|	JJ	old	[Jh:e.
+T01_4314	0420757	|	RGAf	enough	.Jh:e]
+T01_4317	0420771	|	RTo	now	[Rw:t.Rw:t]S]
+T01_4320	0420799	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4323	0420808	|	VBZ	+'s	[Vzb.Vzb]
+T01_4326	0420818	|	MC	twenty-seven	[M:e.M:e]S]
+T01_4332	-----	Jean003
+T01_4335	.....	02758
+T01_4338	0420909	&*	UR	oh	.
+T01_4341	0420919	|	DD1a	that	[S[Ds:s.Ds:s]
+T01_4344	0420930	|	VBZ	+'s	[Vzb.Vzb]
+T01_4347	0420940	|	JJ	fantastic	[J:e.J:e]S]
+T01_4350	-----	Harold001
+T01_4353	.....	02759
+T01_4356	0421005	*	UY	aye	.
+T01_4359	-----	Harold001
+T01_4362	.....	02760
+T01_4365	0421047	|	UE21	you	[UE=.
+T01_4368	0421058	|	UE22	know	.UE=]
+T01_4371	0421070	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4374	0421079	|	VBZ	+'s	[Vzb.Vzb]
+T01_4377	0421089	|	MC	twenty-seven	[Tg:e[M:s.M:s]
+T01_4383	0421116	|	VVGi	coming	[Vg.Vg]
+T01_4386	0421131	|	RP	up	[R:n.R:n]Tg:e]S]
+T01_4389	0421145	|	UE21	you	[UE=.
+T01_4392	0421156	|	UE22	know	.UE=]
+T01_4395	0421185	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4398	0421194	|	VHZ	+'s	[Vz.Vz]
+T01_4401	0421204	|	NNT1c	time	[Ns:o.Ns:o]S]
+T01_4404	-----	Jean003
+T01_4407	.....	02761
+T01_4410	0421280	&	UE21	I	[UE=.
+T01_4413	0421289	|	UE22	mean	.UE=]
+T01_4416	0421318	&	PPIS1	I	[S[Nea:s165.Nea:s165]
+T01_4419	0421326	|	VBM	+'m	[Vmb.Vmb]
+T01_4422	0421336	|	RLh	here	[Rw:p.Rw:p]
+T01_4425	0000000	y	YG	-	[Ti:c[s165.s165]
+T01_4428	0421349	|	TO	to	[Vi.
+T01_4431	0421359	,	VV0v	say	.Vi]
+T01_4434	0421378	|	YMV	er	.
+T01_4437	0421388	|	VBZ	is	[Fn:o[Vzb.Vzb]
+T01_4440	0421398	|	DD1a	that	[Ns:s.
+T01_4443	0421410	|	NN1n	disability	.Ns:s]
+T01_4446	0421429	|	CCB	but	[Fn+.
+T01_4449	0421440	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_4452	0421449	,	VBZ	+'s	[Vzb.Vzb]
+T01_4455	0000000	y	YR	#	.
+T01_4458	0421467	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_4461	0421476	|	VBZ	+'s	[Vzb.Vzb]
+T01_4464	0421486	|	AT1	a	[Ns:e.
+T01_4467	0421495	|	JJ	great	.
+T01_4470	0421509	|	NN1c	lad	.Ns:e]
+T01_4473	0421520	|	VAI	i	[Iq[S?[Ve.
+T01_4476	0421521	|	XX	+n't	.Ve]
+T01_4479	0421531	?	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]Fn+]Fn:o]Ti:c]S]
+T01_4482	-----	Harold001
+T01_4485	.....	02762
+T01_4488	0421580	*	UY	yes	.
+T01_4491	-----	Jean003
+T01_4494	.....	02763
+T01_4497	0421622	*	CC	and	[S+.
+T01_4500	0421633	|	PPIS1	I	[Nea:s.Nea:s]
+T01_4503	0421642	|	VVZv	says	[Vz.Vz]
+T01_4506	0421654	|	IIt	to	[P:u.
+T01_4509	0421664	|	PPHO1m	him	.P:u]
+T01_4512	0421675	|	PPY	you	[Q:o[S[Ny:s.Ny:s]
+T01_4515	0000000	y	YG	-	[t167.t167]
+T01_4518	0421685	|	VBR	+'re	[Vau.
+T01_4521	0421697	|	RR	always	[R:G167.R:G167]
+T01_4524	0421711	|	VVGv	smiling	.Vau]S]Q:o]S+]
+T01_4527	-----	Harold001
+T01_4530	.....	02764
+T01_4533	0421757	*	UY	yeah	.
+T01_4536	-----	Jean003
+T01_4539	.....	02765
+T01_4542	0421800	|	PPY	you	[S[Ny:s.Ny:s]
+T01_4545	0421810	|	VMd	+'d	[Vdc.
+T01_4548	0421820	|	VV0v	think	.Vdc]
+T01_4551	0421833	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T01_4554	0421842	|	VMd	+'d	[Vdcb.
+T01_4557	0421852	|	VB0	be	.Vdcb]
+T01_4560	0421862	|	AT	the	[Ms:e.
+T01_4563	0421873	|	MDt	last	.
+T01_4566	0421886	|	MC1	one	.
+T01_4569	0421897	|	TO	to	[Ti[Vi.
+T01_4572	0421907	,	VV0v	smile	.Vi]Ti]Ms:e]Fn:o]
+T01_4575	0421928	|	CCB	but	[S+.
+T01_4578	0421939	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_4581	0000000	y	YG	-	[t169.t169]
+T01_4584	0421948	|	VBZ	+'s	[Vzu.
+T01_4587	0421958	|	RR	always	[R:G169.R:G169]
+T01_4590	0421973	|	VVGv	smiling	.Vzu]
+T01_4593	0422009	&	VAI	i	[Iq[S?[Ve.
+T01_4596	0422010	|	XX	+n't	.Ve]
+T01_4599	0422020	,	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]
+T01_4602	0422038	|	JJ	lovely	[J:h.J:h]S+]S]
+T01_4605	-----	Harold001
+T01_4608	.....	02766
+T01_4611	0422116	&*	UY	yeah	.
+T01_4614	0422128	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_4617	0422138	|	VBZ	is	[Vzbx.Vzbx]S]
+T01_4620	0422165	&	UY	yeah	.
+T01_4623	-----	Harold001
+T01_4626	.....	02767
+T01_4629	0422241	&*	UY	aye	.
+T01_4632	-----	Jean003
+T01_4635	.....	02768
+T01_4638	0422300	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_4641	0422309	|	VV0v	think	[V.V]
+T01_4644	0422322	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T01_4647	0422331	|	VBZ	+'s	[Vzb.Vzb]
+T01_4650	0422341	|	AT1	a	[Ns:e.
+T01_4653	0422350	|	JJ	lovely	.
+T01_4656	0422364	|	NN1c	lad	.Ns:e]Fn:o]S]
+T01_4659	-----	Harold001
+T01_4662	.....	02769
+T01_4665	0422406	*	UY	yeah	.
+T01_4668	-----	Jean003
+T01_4671	.....	02770
+T01_4674	0422449	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_4677	0422458	|	RR	really	[R:m.R:m]
+T01_4680	0422472	|	VD0	do	[Vx.Vx]S]
+T01_4683	-----	Harold001
+T01_4686	.....	02771
+T01_4689	0422513	*	UY	yeah	.
+T01_4692	-----	Jean003
+T01_4695	.....	02772
+T01_4698	0422556	|	UY	yeah	.
+T01_4701	0422568	c	YP	{pause}	.
+T01_4704	0422576	|	UY	yeah	.
+T01_4707	0422588	|	PPHS1m	he	[S[Nea:s.Nea:s]
+T01_4710	0422597	|	VBZ	+'s	[Vzu.
+T01_4713	0422607	|	VVGv	wanting	.Vzu]
+T01_4716	0422622	|	APPGm	his	[Ns:o[G.
+T01_4719	0422634	|	DAg	own	.G]
+T01_4722	0422645	|	NN1u	independence	.Ns:o]
+T01_4725	0422665	|	UE21	you	[UE=.
+T01_4728	0422676	|	UE22	see	.UE=]
+T01_4731	.....	02774
+T01_4734	0422865	&	DD1b21	a	[D:h[DD1b=.
+T01_4737	0422865	|	DD1b22	bit	.DD1b=]D:h]S]
+T01_4740	-----	Harold001
+T01_4743	.....	02773
+T01_4746	0422718	*,	UY	yeah	.
+T01_4749	0422738	|	DD1a	that	[S[Ds:s.Ds:s]
+T01_4752	0422749	|	VBZ	+'s	[Vzb.Vzb]
+T01_4755	0422759	|	JJ	right	[J:e.J:e]S]
+T01_4758	0422789	&	UY	yeah	.
+T01_4761	-----	Harold001
+T01_4764	.....	02775
+T01_4767	0422926	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_4770	0422934	|	VBM	+'m	[Vmut.
+T01_4773	0422944	|	VVGK	gon	.Vmut]
+T01_4776	0422954	|	TO	+na	[Ti:z[Vi.
+T01_4779	0422964	|	VH0	have	.Vi]
+T01_4782	0422976	|	AT1	a	[Ns:o.
+T01_4785	0422985	|	NN1c	look	.
+T01_4788	0422997	|	II	in	[P.
+T01_4791	0423008	|	DD1a	that	[Ns[DD1a#.
+T01_4794	0000000	y	YR	#	.
+T01_4797	0423020	|	YMV	er	.
+T01_4800	0423047	&	DD1a	that	.DD1a#]
+T01_4803	0000000	y	YR	#	.Ns]P]Ns:o]Ti:z]S]
+T01_4806	0423059	|	YMV	er	.
+T01_4809	-----	Joan002
+T01_4812	.....	02776
+T01_4815	0423133	&*	VVGK	gon	[S[Vgt.Vgt]
+T01_4818	0423143	|	TO	+na	[Ti:z[Vi.
+T01_4821	0423153	|	VH0	have	.Vi]
+T01_4824	0423165	|	AT1	a	[Ns:o.
+T01_4827	0423174	|	NN1c	look	.
+T01_4830	0423186	|	II	at	[P.
+T01_4833	0423197	|	YMV	er	.
+T01_4836	0423207	|	JJ	electric	[Ns.
+T01_4839	0423240	&	NN1n	shop	.
+T01_4842	0423252	|	YMV	er	.
+T01_4845	0423262	|	II	in	[P.
+T01_4848	0423273	*	NN1n	stock	[Nns.
+T01_4851	0423286	*?	NNL1c	lane	.Nns]P]Ns]P]Ns:o]Ti:z]S]
+T01_4854	-----	Harold001
+T01_4857	.....	02777
+T01_4860	0423337	*	UY	yeah	.
+T01_4863	0423349	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_4866	0423358	|	VBR	+'re	[Vau.
+T01_4869	0423369	,	VVGi	going	.Vau]S]
+T01_4872	0423390	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_4875	0423399	|	VH0	+'ve	[Vf.
+T01_4878	0423427	&	VVNH	got	.Vf]
+T01_4881	0423437	|	TO	+ta	[Ti:z[Vi.Vi]
+T01_4884	0000000	y	YR	#	.Ti:z]S]
+T01_4887	-----	Harold001
+T01_4890	.....	02778
+T01_4893	0423511	&*	UY	yeah	.
+T01_4896	-----	Harold001
+T01_4899	.....	02779
+T01_4902	0423571	|	CS	cos	[Fa.
+T01_4905	0423582	|	PPIS2	we	[Nap:s.Nap:s]
+T01_4908	0423591	|	VH0	+'ve	[Vf.
+T01_4911	0423602	|	VVNH	got	.Vf]
+T01_4914	0423612	|	TO	+ta	[Ti:z[Vi.
+T01_4917	0423622	|	VV0v	get	.Vi]
+T01_4920	0423633	|	RL	back	[R:q.R:q]Ti:z]Fa]
+T01_4923	0423645	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_4926	0423656	|	VV0v	want	[V.V]
+T01_4929	0423668	,	DDi	some	[N:o.N:o]
+T01_4932	0000000	y	YR	#	.
+T01_4935	0423705	&	PPIS2	we	[Nap:s.Nap:s]
+T01_4938	0423715	|	VV0v	want	[V.V]
+T01_4941	0423727	|	DDi	some	[Ns:o.
+T01_4944	0423740	|	NNc	veg	.
+T01_4947	0423751	|	IF	for	[P.
+T01_4950	0000000	y	YR	#	.P]Ns:o]S]
+T01_4953	-----	Jean003
+T01_4956	.....	02780
+T01_4959	0423826	&*	PPIS2	we	[S[Nap:s.Nap:s]
+T01_4962	0423836	|	VH0	have	[V.V]
+T01_4965	0423848	|	DDi	some	[Np:o173.
+T01_4968	0423860	|	NN2	curtains	.
+T01_4971	0423876	|	TO	to	[Ti[Vi.
+T01_4974	0423886	|	VD0	do	.Vi]
+T01_4977	0000000	y	YG	-	[o173.o173]Ti]Np:o173]S]
+T01_4980	0423913	&,	UN	no	.
+T01_4983	0423931	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_4986	0423940	|	VV0v	want	[V.V]
+T01_4989	0423952	|	DDi	some	[Dp:o.
+T01_4992	0423964	|	IO	of	[Po.
+T01_4995	0423975	|	PPHO2	them	[Np.
+T01_4998	0423987	|	NN1u	velour	.
+T01_5001	0424001	|	NN2	curtains	.Np]Po]Dp:o]
+T01_5004	0424017	|	IF	for	[P:k.
+T01_5007	0424028	|	AT	the	[Ns.
+T01_5010	0424039	|	NN1c	bedroom	.Ns]
+T01_5013	0424071	&	IF	for	[P@.
+T01_5016	0424082	|	PPHO2	them	.P@]P:k]
+T01_5019	0424094	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T01_5022	0424103	|	VD0	do	[V.V]S@]S]
+T01_5025	-----	Harold001
+T01_5028	.....	02781
+T01_5031	0424177	&*	UR	oh	.
+T01_5034	0424187	|	UX	crikey	.
+T01_5037	-----	Joan002
+T01_5040	.....	02782
+T01_5043	0424249	*	UR	oh	.
+T01_5046	0424259	|	PN1	summat	[Ns.
+T01_5049	0424273	,	RAe	else	.
+T01_5052	0424293	|	DDi	some	[Ns@.
+T01_5055	0424305	|	DAR	more	.
+T01_5058	0424317	|	NN1n	expense	.Ns@]Ns]
+T01_5061	-----	Harold001
+T01_5064	.....	02783
+T01_5067	0424362	c	YVL	{laughing}	.
+T01_5070	0424383	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_5073	0424392	|	VV0v	know	[V.V]S]
+T01_5076	0424404	c	YVR	{laughing}	.
+T01_5079	-----	Jean003
+T01_5082	.....	02784
+T01_5085	0424443	*	UW	well	.
+T01_5088	0424455	|	PPHS2	they	[S[Nap:s.Nap:s]
+T01_5091	0424466	|	VBR	+'re	[Vau.
+T01_5094	0424477	|	VVGi	coming	.Vau]
+T01_5097	0424491	|	II	in	[P:t.
+T01_5100	0424519	&	NPM1	April	[Nns.
+T01_5103	0424532	|	UE21	you	[UE=.
+T01_5106	0424543	|	UE22	know	.UE=]
+T01_5109	0424555	|	XX	not	[Nns@.
+T01_5112	0424566	|	NPM1	May	.Nns@]Nns]P:t]S]
+T01_5115	-----	Harold001
+T01_5118	.....	02785
+T01_5121	0424641	&	VVNv	left	[S[Tn:c[Vn.Vn]
+T01_5124	0424657	|	IIt	to	[P:u.
+T01_5127	0424667	|	PPIO1	me	.P:u]Tn:c]
+T01_5130	0424677	|	PPIS1	I	[Nea:s.Nea:s]
+T01_5133	0424685	|	VMd	+'d	[Vdc.
+T01_5136	0424695	|	VV0v	take	.Vdc]
+T01_5139	0424708	|	DBa	all	[Np:o.
+T01_5142	0424736	&	NN2	curtains	.Np:o]
+T01_5145	0424752	|	RP	down	[R:q.R:q]
+T01_5148	.....	02786
+T01_5151	0424819	&	VV0v	stop	[S@[V.V]
+T01_5154	0424831	|	NNc	people	[N:O177.N:O177]
+T01_5157	0000000	y	YG	-	[Tg:o[s177.s177]
+T01_5160	0424845	|	VVGv	looking	[Vg.Vg]
+T01_5163	0424860	|	RP	in	[R:q.R:q]Tg:o]S@]S]
+T01_5166	-----	unid1
+T01_5169	.....	-----
+T01_5172	0424773	ic	YY	{unclear}	[Y.Y]
+T01_5175	-----	unid1
+T01_5178	.....	-----
+T01_5181	0424879	ic	YY	{unclear}	[Y.Y]
+T01_5184	-----	Joan002
+T01_5187	.....	02787
+T01_5190	0424925	|	UY	yeah	.
+T01_5193	-----	Harold001
+T01_5196	.....	02788
+T01_5199	0424968	*	VAI	ai	[S?[Ve.
+T01_5202	0424977	|	XX	+n't	.Ve]
+T01_5205	0424988	|	DD1a	that	[Ds:s.Ds:s]
+T01_5208	0425000	?	JJ	marvellous	[J:e.J:e]S?]
+T01_5211	-----	Jean003
+T01_5214	.....	02789
+T01_5217	0425057	*,	UY	yeah	.
+T01_5220	0425077	|	RRz	so	[S[Rs:c.Rs:c]
+T01_5223	0425087	|	YMV	er	.
+T01_5226	.....	02791
+T01_5229	0425216	&	XX	not	[Vge.
+T01_5232	0425227	|	VVGv	giving	.Vge]
+T01_5235	0425241	|	PPIO1	me	[Neo:i.Neo:i]
+T01_5238	0425251	|	DA1	much	[Ns:o.
+T01_5241	0425263	|	NN1n	chance	.
+T01_5244	0425277	|	TO	to	[Ti[Vi.
+T01_5247	0425287	|	VV0v	get	.Vi]
+T01_5250	0000000	y	YG	-	[Tn:o[S183.S183]
+T01_5253	0425299	|	VDN	done	[Vn.Vn]Tn:o]
+T01_5256	0425311	|	DDQ	what	[Ff:O183[Dq:G185.Dq:G185]
+T01_5259	0425323	|	PPIS1	I	[Nea:s.Nea:s]
+T01_5262	0425332	|	VBDZ	was	[Vsut.
+T01_5265	0425343	|	VVGK	gon	.Vsut]
+T01_5268	0425353	|	TO	+na	[Ti:z[Vi.
+T01_5271	0425363	|	VD0	do	.Vi]
+T01_5274	0000000	y	YG	-	[o185.o185]Ti:z]Ff:O183]Ti]Ns:o]
+T01_5277	0425374	|	RR	though	[R:c.R:c]S]
+T01_5280	0425388	c	YV	{laugh}	.
+T01_5283	-----	Harold001
+T01_5286	.....	02790
+T01_5289	0425128	*	PPY	you	[S[Ny:s.Ny:s]
+T01_5292	0425139	|	VMo	wo	[Vce.
+T01_5295	0425148	|	XX	+n't	.
+T01_5298	0425159	|	VV0v	stop	.Vce]
+T01_5301	0425171	|	NNc	people	[N:o.N:o]S]
+T01_5304	-----	Harold001
+T01_5307	.....	02792
+T01_5310	0425438	*	CSi	if	[S*[Fa:c.
+T01_5313	0425448	|	PPY	you	[Ny:s186.Ny:s186]
+T01_5316	0425459	|	VV0v	want	[V.V]
+T01_5319	0000000	y	YG	-	[Ti:o[s186.s186]
+T01_5322	0425471	|	TO	to	[Vi.
+T01_5325	0425481	|	VV0v	stop	.Vi]
+T01_5328	0425493	|	NNc	people	[N:O187.N:O187]
+T01_5331	0000000	y	YG	-	[Tg:o[s187.s187]
+T01_5334	0425507	|	VVGv	looking	[Vg.Vg]
+T01_5337	0425523	|	II	in	[P:q.
+T01_5340	0425533	|	APPGy	your	[Ns.
+T01_5343	0425545	|	NN1c	window	.Ns]P:q]Tg:o]Ti:o]Fa:c]
+T01_5346	0425559	|	VV0v	board	[V.V]
+T01_5349	0425572	|	PPHO2	them	[Nap:o.Nap:o]
+T01_5352	0425584	,	RP	up	[R:n.R:n]
+T01_5355	0425603	|	ICSk	like	[P:h.
+T01_5358	0425615	|	II	on	[P.
+T01_5361	0425625	|	NN1c	continent	[Nns.Nns]P]P:h]S*]
+T01_5364	0425659	&	VB0	be	[Y.
+T01_5367	0425669	ic	YY	{unclear}	.
+T01_5370	0425680	|	NNT1c	time	.Y]
+T01_5373	-----	Jean003
+T01_5376	.....	00000
+T01_5379	0425745	&c	YV	{laugh}	.
+T01_5382	-----	Joan002
+T01_5385	.....	02793
+T01_5388	0425812	*	UY	yeah	.
+T01_5391	-----	Jean003
+T01_5394	.....	02794
+T01_5397	0425855	*,	JJ	daft	[J.J]
+T01_5400	0425875	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_5403	0425884	|	VBZ	+'s	[Vzb.Vzb]
+T01_5406	0000000	y	YR	#	.
+T01_5409	0425894	,	YMV	er	.
+T01_5412	0425912	|	PPH1	it	[Ni:s.Ni:s]
+T01_5415	0425921	|	VBZ	+'s	[Vzb.Vzb]
+T01_5418	0425932	|	RR	really	[R:m.R:m]
+T01_5421	0425946	|	PPIS1	I	[Fn:e[Nea:s.Nea:s]
+T01_5424	0425955	|	VV0v	want	[V.V]
+T01_5427	0425967	|	DDi	some	[D:o.
+T01_5430	0425979	|	IO	of	[Po.
+T01_5433	0425989	|	DD1a	that	[N.
+T01_5436	0426001	|	YMN	erm	.
+T01_5439	0426013	,	NN2	curtains	.N]Po]D:o]Fn:e]
+T01_5442	0426037	|	CS	cos	[Fa:c.
+T01_5445	0426048	|	PPHS2	they	[Nap:s.Nap:s]
+T01_5448	0426060	|	VV0v	stop	[V.V]
+T01_5451	0426072	|	AT	the	[Ns:o.
+T01_5454	0426083	|	NN1n	sun	.Ns:o]
+T01_5457	0426095	|	CC	and	[Fa+.
+T01_5460	0426106	|	UE21	you	[UE=.
+T01_5463	0426117	|	UE22	know	.UE=]
+T01_5466	0426129	|	II	in	[P:p.
+T01_5469	0426139	,	AT	the	[N.N]P:p]
+T01_5472	0000000	y	YR	#	.Fa+]Fa:c]S]
+T01_5475	0426158	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_5478	0426166	|	VH0	+'ve	[Vf.
+T01_5481	0426178	|	VVNH	got	.Vf]
+T01_5484	0426189	|	PPHO2	them	[Nap:o.Nap:o]
+T01_5487	0426201	|	RLn	downstairs	[R:p.R:p]
+T01_5490	0426219	|	CC	and	[S+.
+T01_5493	0426230	|	UE21	you	[UE=.
+T01_5496	0426241	|	UE22	know	.UE=]
+T01_5499	0426254	|	PPHS2	they	[Nap:s.Nap:s]
+T01_5502	0426265	|	VBR	+'re	[Vab.Vab]
+T01_5505	0426276	|	ATn	no	[Ns:e.
+T01_5508	0426286	,	NN1n	trouble	.Ns:e]S+]S]
+T01_5511	0426309	|	PPHS2	they	[S[Nap:s.Nap:s]
+T01_5514	0426320	|	VBR	+'re	[Vab.Vab]
+T01_5517	0426332	|	JJ	great	[J:e.J:e]
+T01_5520	0426345	|	VBR	are	[Iq[S?[Vaeb.
+T01_5523	0426355	|	XX	+n't	.Vaeb]
+T01_5526	0426366	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T01_5529	.....	02795
+T01_5532	0426414	&*	PPHS2	they	[S[Nap:s.Nap:s]
+T01_5535	0426426	|	RR	never	[R:t.R:t]
+T01_5538	0426439	|	VV0v	look	[V.V]
+T01_5541	0426451	|	JJ	dirty	[J:e.J:e]S]
+T01_5544	0426464	c	YV	{laugh}	.
+T01_5547	-----	Harold001
+T01_5550	.....	02796
+T01_5553	0426547	&*,	UN	no	.
+T01_5556	0426565	|	VV0v	want	[S[V.V]
+T01_5559	0426577	|	DDi	some	[Np:o.
+T01_5562	0426589	|	JJ	dark	.
+T01_5565	0426601	|	NN2	curtains	.Np:o]S]
+T01_5568	-----	Harold001
+T01_5571	.....	02797
+T01_5574	0426665	*	UY	yeah	.
+T01_5577	0426677	c	YV	{laugh}	.
+T01_5580	-----	Harold001
+T01_5583	.....	02798
+T01_5586	0426727	*	NN1n	sun	[Tg[Ns:s.Ns:s]
+T01_5589	0426742	|	VVGv	waking	[Vg.Vg]
+T01_5592	0426756	|	RP	up	[R:n.R:n]
+T01_5595	0426783	&	CC	and	[S+.
+T01_5598	0426795	|	PPY	you	[Ny:s.Ny:s]
+T01_5601	0426805	|	VBR	+'re	[Vau.
+T01_5604	0426816	|	VVGv	waking	.Vau]
+T01_5607	.....	02800
+T01_5610	0426963	&	RP	up	[R:n.R:n]
+T01_5613	0426973	|	RGi	about	[M:t.
+T01_5616	0426986	|	MC	four	.M:t]S+]Tg]
+T01_5619	-----	Jean003
+T01_5622	.....	02799
+T01_5625	0426894	&	CC	and	.
+T01_5628	0426905	|	YMV	er	.
+T01_5631	-----	Jean003
+T01_5634	.....	02801
+T01_5637	0427029	|	RRz	so	[S[Rs:c.Rs:c]
+T01_5640	0000000	y	YR	#	.
+T01_5643	0427039	,	YMV	er	.
+T01_5646	0427057	|	CCB	but	.
+T01_5649	0427085	&	PPIS1	I	[Nea:s.Nea:s]
+T01_5652	0427094	|	VVDv	thought	[Vd.Vd]
+T01_5655	0427110	|	PPIS2	we	[Fn:o[Nap:s.Nap:s]
+T01_5658	0427119	|	VH0	+'ve	[V.V]
+T01_5661	0427130	|	AT	the	[Ns:o.
+T01_5664	0427141	|	NN1n	sun	.Ns:o]
+T01_5667	0427152	|	II	in	[P:t.
+T01_5670	0427162	|	AT	the	[Ns.
+T01_5673	0427173	|	NNT1c	morning	.Ns]P:t]Fn:o]S]
+T01_5676	-----	Harold001
+T01_5679	.....	02802
+T01_5682	0427252	&*	DD1a	that	[S[Ds:s.Ds:s]
+T01_5685	0427263	|	VBZ	+'s	[Vzb.Vzb]
+T01_5688	0427273	|	ATn	no	[J:e.
+T01_5691	0427283	|	JJ	good	.J:e]
+T01_5694	0427295	|	VBZ	is	[Iq[S?[Vzb.Vzb]
+T01_5697	0427305	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T01_5700	-----	Joan002
+T01_5703	.....	02803
+T01_5706	0427371	*	UN	no	.
+T01_5709	-----	Jean003
+T01_5712	.....	02804
+T01_5715	0427412	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_5718	0427422	|	VVZv	wakes	[Vz.Vz]
+T01_5721	0427435	|	PPY	you	[Ny:o.Ny:o]
+T01_5724	0427446	|	RP	up	[R:n.R:n]S]
+T01_5727	-----	Harold001
+T01_5730	.....	02805
+T01_5733	0427487	*	UY	yeah	.
+T01_5736	-----	Jean003
+T01_5739	.....	02806
+T01_5742	0427530	|	RRz	so	[S[Rs:c.Rs:c]
+T01_5745	0427540	|	CSi	if	[Fa:c.
+T01_5748	0427550	|	PPIS1	I	[Nea:s.Nea:s]
+T01_5751	0427559	,	VV0v	get	[V[VV0v#.
+T01_5754	0000000	y	YR	#	.
+T01_5757	0427578	|	VV0v	put	.VV0v#]V]
+T01_5760	0427589	|	DDi	some	[Dp:o.
+T01_5763	0427601	|	IO	of	[Po.
+T01_5766	0427612	|	PPHO2	them	.Po]Dp:o]
+T01_5769	0427624	|	RP	in	[R:q.R:q]Fa:c]
+T01_5772	0427634	|	PPH1	it	[Ni:s.Ni:s]
+T01_5775	0427644	|	VMo	will	[Vce.
+T01_5778	0427656	|	XX	not	.
+T01_5781	0427667	|	VV0v	wake	.Vce]
+T01_5784	0427679	|	PPHO1f	her	[Nos:o.Nos:o]
+T01_5787	0427691	|	RP	up	[R:n.R:n]
+T01_5790	0427718	&	II	in	[P:t.
+T01_5793	0427728	|	AT	the	[Ns.
+T01_5796	0427739	|	NNT1c	morning	.Ns]P:t]S]
+T01_5799	-----	Harold001
+T01_5802	.....	02807
+T01_5805	0427818	&*	DD1a	that	[S[Ds:s.Ds:s]
+T01_5808	0427829	|	VBZ	+'s	[Vzb.Vzb]
+T01_5811	0427839	|	JJ	right	[J:e.J:e]S]
+T01_5814	-----	Jean003
+T01_5817	.....	02808
+T01_5820	0427900	*	UE21	mind	[UE=.
+T01_5823	0427912	|	UE22	you	.UE=]
+T01_5826	0427923	|	PPHS2	they	[S[Nap:s.Nap:s]
+T01_5829	0427935	|	VD0	do	[Ve.
+T01_5832	0427944	|	XX	+n't	.
+T01_5835	0427955	|	VH0	have	.Ve]
+T01_5838	0427967	|	AT	the	[Ns:o.
+T01_5841	0427979	|	NN1n	sun	.Ns:o]
+T01_5844	0427990	|	II	in	[P:p.
+T01_5847	0428000	|	AT	the	[Ns.
+T01_5850	0428011	|	NN1c	back	.Ns]P:p]
+T01_5853	0428023	|	II	in	[P:t.
+T01_5856	0428033	|	AT	the	[Ns.
+T01_5859	0428044	|	NNT1c	morning	.Ns]P:t]
+T01_5862	0428060	|	VD0	do	[Iq[S?[Vx.Vx]
+T01_5865	0428070	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T01_5868	.....	02809
+T01_5871	0428102	*	PPH1	it	[S[Ni:s.Ni:s]
+T01_5874	0428111	|	VBZ	+'s	[Vzb.Vzb]
+T01_5877	0428121	|	II	in	[P:p.
+T01_5880	0428131	|	AT	the	[Ns.
+T01_5883	0428142	|	NN1n	front	.Ns]P:p]S]
+T01_5886	0428155	|	YMV	er	.
+T01_5889	0428166	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_5892	0428175	,	VBZ	+'s	[Vzb.Vzb]
+T01_5895	0000000	y	YR	#	.
+T01_5898	0428193	|	PPH1	it	[Ni:s.Ni:s]
+T01_5901	0428202	|	VBZ	+'s	[Vzb.Vzb]
+T01_5904	0428212	|	II	in	[P:p.
+T01_5907	0428222	|	AT	the	[Ns.
+T01_5910	0428233	|	NN1c	back	.Ns]P:p]
+T01_5913	0428245	|	II	at	[P:p.
+T01_5916	0428256	|	AT	the	[Ns.
+T01_5919	0428267	,	NN1n	front	.Ns]P:p]S]
+T01_5922	0428309	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_5925	0428317	|	VH0	+'ve	[Vf.
+T01_5928	0428328	|	VVNH	got	.Vf]
+T01_5931	0428340	|	AT	the	[N:o.
+T01_5934	0000000	y	YR	#	.N:o]S]
+T01_5937	-----	Harold001
+T01_5940	.....	02810
+T01_5943	0428415	&*	RR	still	[L[R:t.R:t]
+T01_5946	0428428	|	JJ	bright	[J:e.J:e]
+T01_5949	0428459	&	RR	though	[R:c.R:c]
+T01_5952	0428473	|	VAI	i	[Iq[S?[Ve.
+T01_5955	0428474	|	XX	+n't	.Ve]
+T01_5958	0428485	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]L]
+T01_5961	-----	Jean003
+T01_5964	.....	02811
+T01_5967	0428534	*,	UY	yeah	.
+T01_5970	0428554	|	RR	anyway	[S[R:c.R:c]
+T01_5973	0428585	&	VV0t	need	[V.V]
+T01_5976	0428597	|	JJ	new	[Mp:o.
+T01_5979	0428608	|	MC2	ones	.Mp:o]
+T01_5982	0428621	|	IF	for	[P:k.
+T01_5985	0428632	|	RLh	there	.P:k]
+T01_5988	0428645	|	RR	anyway	[R:c.R:c]S]
+T01_5991	-----	Harold001
+T01_5994	.....	02812
+T01_5997	0428723	&*	VV0v	want	[S[V.V]
+T01_6000	0428735	,	JJ	dark	[J:o.J:o]S]
+T01_6003	0428755	|	VV0v	want	[S[V.V]
+T01_6006	0428767	,	JJ	dark	[J:o.J:o]S]
+T01_6009	0428788	|	VV0v	want	[S[V.V]
+T01_6012	0428800	|	JJ	dark	[J:o.J:o]S]
+T01_6015	0428829	&	UY	yes	.
+T01_6018	-----	Joan002
+T01_6021	.....	02813
+T01_6024	0428904	&*	VV0v	get	[S*[V.V]
+T01_6027	0428915	|	DDi	some	[Np:o.
+T01_6030	0428961	&	JJ	dark	.
+T01_6033	0428974	|	NN2	glasses	.
+T01_6036	0428989	|	IF	for	[P.
+T01_6039	0429000	|	APPGy	your	[Np.
+T01_6042	0429012	|	NN2	eyes	.Np]P]Np:o]S*]
+T01_6045	-----	Jean003
+T01_6048	.....	02814
+T01_6051	0429088	&	PPIS1	I	[S[Nea:s.Nea:s]
+T01_6054	0429097	|	VD0	do	[Vk.
+T01_6057	0429107	|	VV0t	need	.Vk]
+T01_6060	0429119	|	DDi	some	[D:o.D:o]
+T01_6063	0429149	&	CS	because	[Fa:c.
+T01_6066	0429164	|	PPGi1	mine	[N:s.N:s]
+T01_6069	0429176	|	VBR	are	[Vau.
+T01_6072	0429187	|	VVGi	going	.Vau]
+T01_6075	0000000	y	YR	#	.Fa:c]S]
+T01_6078	0429200	|	YMV	er	.
+T01_6081	-----	Harold001
+T01_6084	.....	02815
+T01_6087	0429241	*,	UY	yeah	.
+T01_6090	0429278	&	VVZv	wants	[S[Vz.Vz]
+T01_6093	0429291	|	DDi	some	[N:o.
+T01_6096	0429303	,	JJ	dark	[JJ#.
+T01_6099	0000000	y	YR	#	.
+T01_6102	0429324	|	JJ	dark	.JJ#]
+T01_6105	0000000	y	YR	#	.N:o]S]
+T01_6108	0429336	|	YMV	er	.
+T01_6111	0429346	ic	YY	{unclear}	[S[Y.Y]
+T01_6114	0429356	|	PPHO2	them	[Np:o.
+T01_6117	0429368	|	NN2	buggers	.
+T01_6120	0429383	|	II	in	[P.
+T01_6123	0429393	|	JJ	red	.P]Np:o]
+T01_6126	0429405	|	VD0	do	[Iq[S?[Vex.
+T01_6129	0429414	|	XX	+n't	.Vex]
+T01_6132	0429425	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T01_6135	-----	Jean003
+T01_6138	.....	02816
+T01_6141	0429508	&	YMV	er	.
+T01_6144	0429518	,	NN1n	check	[Ns.Ns]
+T01_6147	0429543	|	UE21	you	[UE=.
+T01_6150	0429554	,	UE22	know	.UE=]
+T01_6153	0429575	|	EX	there	[S.
+T01_6156	0429587	|	VBZ	+'s	[Vzb.Vzb]
+T01_6159	0429597	|	PN1	nothing	[Ns:s.
+T01_6162	0429612	|	JJ	wrong	[Jh.
+T01_6165	0429625	|	IW	with	[P.
+T01_6168	0429637	,	PPHO2	them	.P]Jh]Ns:s]
+T01_6171	0429658	|	CCB	but	[Tn+.
+T01_6174	0429669	|	VVNv	faded	[Vn.Vn]Tn+]S]
+T01_6177	0429682	ic	YY	{unclear}	[Y.Y]
+T01_6180	-----	Harold001
+T01_6183	.....	02817
+T01_6186	0429740	*	JJ	awful	[L[J:e.J:e]
+T01_6189	0429757	|	VBR	are	[Iq[S?[Vaeb.
+T01_6192	0429767	|	XX	+n't	.Vaeb]
+T01_6195	0429778	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]L]
+T01_6198	.....	02818
+T01_6201	0429810	|	PPIS1	I	[S[Nea:s195.Nea:s195]
+T01_6204	0429819	,	VV0t	like	[V.
+T01_6207	0000000	y	YR	#	.
+T01_6210	0429839	|	VD0	do	.
+T01_6213	0429848	|	XX	+n't	.
+T01_6216	0429859	|	VV0t	like	.V]
+T01_6219	0000000	y	YG	-	[Tg:o[s195.s195]
+T01_6222	0429871	|	VVGv	getting	[Vg.Vg]
+T01_6225	0429887	|	PPHO2	them	[Nop:o.Nop:o]
+T01_6228	0429899	|	ICSk	like	[P:h.
+T01_6231	0429911	|	DD1a	that	.P:h]Tg:o]S]
+T01_6234	0429940	&	CC	and	[S+.
+T01_6237	0429951	|	CSi	if	[Fa:c.
+T01_6240	0429961	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_6243	0429972	|	VVZv	gets	[Vz.Vz]
+T01_6246	0429984	|	AT	the	[Mp:o.
+T01_6249	0429995	|	JJ	new	.
+T01_6252	0430006	|	MC2	ones	.Mp:o]Fa:c]
+T01_6255	0000000	y	YR	#	.S+]
+T01_6258	-----	Jean003
+T01_6261	.....	02819
+T01_6264	0430082	&*	UR	oh	.
+T01_6267	0430092	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_6270	0430100	|	VMo	+'ll	[Vc.
+T01_6273	0430111	|	VV0v	get	.Vc]
+T01_6276	0000000	y	YR	#	.S]
+T01_6279	-----	Joan002
+T01_6282	.....	02820
+T01_6285	0430186	&*	RRQq	when	[S?[Rq:t.Rq:t]
+T01_6288	0430198	|	VBR	are	[Voa.Voa]
+T01_6291	0430209	|	PPHS2	they	[Nap:s.Nap:s]
+T01_6294	0430221	?	VVGi	coming	[Vrg.Vrg]S?]
+T01_6297	-----	Harold001
+T01_6300	.....	02821
+T01_6303	0430291	,	YMV	er	.
+T01_6306	0430309	|	YMV	er	.
+T01_6309	0430319	|	NPM1	April	[L[Nns:t.Nns:t]
+T01_6312	0430332	|	VBR	are	[Iq[S?[Vaex.
+T01_6315	0430342	|	XX	+n't	.Vaex]
+T01_6318	0430353	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]L]
+T01_6321	-----	Jean003
+T01_6324	.....	02822
+T01_6327	0430404	|	NPM1	April	[Nj[Nns.Nns]
+T01_6330	0430417	|	AT	the	.
+T01_6333	0430445	&	MD	ninth	.Nj]
+T01_6336	-----	Joan002
+T01_6339	.....	02823
+T01_6342	0430522	&*	IF	for	[P.
+T01_6345	0430550	&	MC	ten	[Np.
+T01_6348	0430561	|	NNT2	weeks	.Np]P]
+T01_6351	-----	Harold001
+T01_6354	.....	02824
+T01_6357	0430605	|	NPM1	April	[Nj[Nns.Nns]
+T01_6360	0430618	|	AT	the	.
+T01_6363	0430629	|	MD	ninth	.Nj]
+T01_6366	-----	Jean003
+T01_6369	.....	02825
+T01_6372	0430673	*,	UY	yeah	.
+T01_6375	0430693	|	NP1f	Chris	[S[Nns:s.Nns:s]
+T01_6378	0430706	|	VBZ	is	[Vzbx.Vzbx]
+T01_6381	0430716	,	UY	yeah	.
+T01_6384	0430754	&	UY	yeah	.
+T01_6387	.....	02827
+T01_6390	0431017	&	RR	just	[R:m.R:m]
+T01_6393	0431029	|	IW	with	[P:w.
+T01_6396	0431041	|	AT	the	[Np.
+T01_6399	0431052	|	NN2	kids	.Np]P:w]S]
+T01_6402	-----	Harold001
+T01_6405	.....	02826
+T01_6408	0430830	&*	PPHS1f	she	[S[Nas:s.
+T01_6411	0000000	y	YG	-	[196.196]Nas:s]
+T01_6414	0430841	|	VBZ	is	[Vzbx.Vzbx]
+T01_6417	0430868	&,	NP1f	Chris	[Nns@:G196.Nns@:G196]S]
+T01_6420	0430906	&	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_6423	0430916	|	VBZ	+'s	[Vzu.
+T01_6426	0430926	|	VVGi	a-coming	.Vzu]
+T01_6429	.....	02828
+T01_6432	0431112	&	IW	with	[P:w.
+T01_6435	0431124	|	MC	two	[Np.
+T01_6438	0431135	|	NN2	kids	.Np]P:w]S]
+T01_6441	-----	Jean003
+T01_6444	.....	02829
+T01_6447	0431178	*	APPGi2	our	[S[Nns:s.
+T01_6450	0431189	|	NP1m	Dave	.Nns:s]
+T01_6453	0431200	|	VBZ	+'s	[Vzu.
+T01_6456	0431210	|	VVGi	coming	.Vzu]
+T01_6459	0431224	|	IF	for	[P:c.
+T01_6462	0431235	,	PPIO2	us	.P:c]S]
+T01_6465	0431253	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_6468	0431264	|	VMo	ca	[Vce.
+T01_6471	0431273	|	XX	+n't	.
+T01_6474	0431284	|	VH0	have	.Vce]
+T01_6477	0431296	|	DBa	all	[Ns:o.
+T01_6480	0431307	|	DD1a	that	.
+T01_6483	0431319	|	NNT1c	time	.
+T01_6486	0431331	,	RP	off	.Ns:o]S]
+T01_6489	0431351	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T01_6492	0431360	|	VBZ	+'s	[Vzu.
+T01_6495	0431370	|	VVGi	coming	.Vzu]
+T01_6498	0431384	|	IF	for	[P:t.
+T01_6501	0431395	|	MC	three	[Np.
+T01_6504	0431408	|	NNT2	weeks	.
+T01_6507	0431421	|	II	in	[P.
+T01_6510	0000000	y	YR	#	.P]Np]P:t]S]
+T01_6513	0431448	&	YMV	er	.
+T01_6516	-----	Harold001
+T01_6519	.....	02830
+T01_6522	0431522	&*	DD1a	that	[S[Ds:s.Ds:s]
+T01_6525	0431533	|	VMo	+'ll	[Vcb.
+T01_6528	0431561	&	VB0	be	.Vcb]
+T01_6531	0431571	,	JJ	nice	[J:e.J:e]S]
+T01_6534	0431592	|	VDZ	does	[S?[Voz.Voz]
+T01_6537	0431604	|	PPHS1f	she	[Nas:s200.
+T01_6540	0000000	y	YG	-	[201.201]Nas:s200]
+T01_6543	0431615	|	VV0t	like	[Vr.Vr]
+T01_6546	0000000	y	YG	-	[Ti:o[s200.s200]
+T01_6549	0431627	|	TO	to	[Vi.
+T01_6552	0431637	|	VV0i	come	.Vi]
+T01_6555	0431649	|	RL	back	[R:q.R:q]Ti:o]
+T01_6558	0431661	|	RTn	then	[Rsw:c.Rsw:c]
+T01_6561	0431674	?	NP1f	Chris	[Nns@:G201.Nns@:G201]S?]
+T01_6564	-----	Jean003
+T01_6567	.....	02831
+T01_6570	0431726	*	UW	well	.
+T01_6573	0431738	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_6576	0431747	,	VV0v	think	[V.V]
+T01_6579	0000000	y	YR	#	.
+T01_6582	0431768	|	PPIS1	I	[Nea:s.Nea:s]
+T01_6585	0431777	|	VV0v	think	[V.V]
+T01_6588	0431790	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T01_6591	0431800	|	VMo	+'ll	[Vcb.
+T01_6594	0431812	|	VB0	be	.Vcb]
+T01_6597	0431822	|	DD1a	that	[Jx:e.
+T01_6600	0431834	|	JA21	fed	[JA=.
+T01_6603	0431834	|	JA22	up	.JA=]
+T01_6606	0000000	y	YG	-	[203.203]Jx:e]
+T01_6609	0431848	|	VBG	being	[Tg:b[Vgb.Vgb]
+T01_6612	0431861	|	RLh	here	[Rw:p.Rw:p]
+T01_6615	0431873	|	DBa	all	[Ns:t.
+T01_6618	0431884	|	DD1a	that	.
+T01_6621	0431897	,	NNT1c	time	.Ns:t]Tg:b]
+T01_6624	0431917	|	PPHS1f	she	[Fc:G203[Nas:s.Nas:s]
+T01_6627	0431927	|	VMo	+'ll	[Vcb.
+T01_6630	0431938	|	VB0	be	.Vcb]
+T01_6633	0431948	|	JJ	glad	[Jh:e.
+T01_6636	0431960	|	TO	to	[Ti[Vi.
+T01_6639	0431970	|	VV0v	get	.Vi]
+T01_6642	0431982	|	RL	back	[R:q.R:q]
+T01_6645	0431994	|	IIt	to	[P:q.
+T01_6648	0432004	|	NP1g	America	[Nns.Nns]P:q]Ti]Jh:e]Fc:G203]Fn:o]
+T01_6651	0432019	|	TO	to	[Ti:x[Vib.
+T01_6654	0432029	|	VB0	be	.Vib]
+T01_6657	0432039	|	RGb	quite	[J:e.
+T01_6660	0432052	|	JJ	honest	.J:e]
+T01_6663	0432067	|	IW	with	[P:w.
+T01_6666	0432079	|	PPY	you	.P:w]Ti:x]S]
+T01_6669	0432090	,	NP1f	Chris	[Nns.
+T01_6672	0432111	|	DDQ	what	[S?@[Dq:s.
+T01_6675	0000000	y	YG	-	[205.205]Dq:s]
+T01_6678	0432123	|	VBZ	is	[Vzb.Vzb]
+T01_6681	0432133	|	EX	there	.
+T01_6684	0432147	|	IF	for	[Tf:G205.
+T01_6687	0432158	|	PPHO1f	her	[Nos:s.Nos:s]
+T01_6690	0432169	|	TO	to	[Vi.
+T01_6693	0432179	|	VD0	do	.Vi]
+T01_6696	0432189	|	DBa	all	[Ns:t.
+T01_6699	0432200	|	DD1a	that	.
+T01_6702	0432212	?	NNT1c	time	.Ns:t]Tf:G205]
+T01_6705	.....	02832
+T01_6708	0432243	c	YV	{cough}	.
+T01_6711	0432262	*	IW	with	[W:b.
+T01_6714	0432274	|	APPGi2	our	[Nns:s.
+T01_6717	0432285	|	NP1m	Dave	.Nns:s]
+T01_6720	0432297	|	XX	not	[Vgeb.
+T01_6723	0432308	|	VBG	being	.Vgeb]
+T01_6726	0432322	|	RLh	here	[Rw:p.Rw:p]
+T01_6729	0432334	|	RR	either	[R:m.R:m]W:b]S?@]Nns]
+T01_6732	-----	Harold001
+T01_6735	.....	02833
+T01_6738	0432379	*	UY	mm	.
+T01_6741	-----	Jean003
+T01_6744	.....	02834
+T01_6747	0432436	&	UE21	you	[UE=.
+T01_6750	0432447	|	UE22	know	.UE=]
+T01_6753	-----	Joan002
+T01_6756	.....	02835
+T01_6759	0432523	&*,	UY	mm	.
+T01_6762	0432541	|	UY	yeah	.
+T01_6765	-----	Jean003
+T01_6768	.....	02836
+T01_6771	0432601	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_6774	0432610	|	VMo	+'ll	[Vcb.
+T01_6777	0432621	|	VB0	be	.Vcb]
+T01_6780	0432631	|	JJ	different	[J:e.J:e]
+T01_6783	0432648	|	CSi	if	[Fa:c.
+T01_6786	0432658	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_6789	0432668	|	VBDR	were	[Vwb.Vwb]
+T01_6792	0432681	|	RLh	here	[Rw:p.Rw:p]Fa:c]S]
+T01_6795	0432693	|	UE21	I	[UE=.
+T01_6798	0432702	|	UE22	mean	.UE=]
+T01_6801	0432714	|	PPHS2	they	[S[Nap:s.Nap:s]
+T01_6804	0432726	,	VMd	could	[Vdc.Vdc]
+T01_6807	0000000	y	YR	#	.
+T01_6810	0432747	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_6813	0432756	|	VMd	+'d	[Vdc.
+T01_6816	0432767	|	VV0v	take	.Vdc]
+T01_6819	0432779	|	PPHO1f	her	[Nos:o.Nos:o]
+T01_6822	0432790	|	RR	all	[R:q.
+T01_6825	0432801	|	RP	over	.R:q]
+T01_6828	0432817	|	VMd	would	[Iq[S?[Vdcex.
+T01_6831	0432829	|	XX	+n't	.Vdcex]
+T01_6834	0432840	|	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]
+T01_6837	0432851	|	CC	and	[S+.
+T01_6840	0432879	&	AT1e	every	[Ns:t.
+T01_6843	0432892	|	NNT1c	weekend	.Ns:t]
+T01_6846	0432907	|	PPHS1m	he	[Nas:s.Nas:s]
+T01_6849	0432916	|	VMd	+'d	[Vdc.
+T01_6852	0432926	|	VV0v	take	.Vdc]
+T01_6855	0432939	|	PPHO1f	her	[Nos:o.Nos:o]
+T01_6858	0000000	y	YR	#	.
+T01_6861	.....	02838
+T01_6864	0433116	&	VV0v	take	[V.V]
+T01_6867	0433128	|	PPHO1f	her	[Nos:o.Nos:o]
+T01_6870	0433139	|	IF	for	[P:c.
+T01_6873	0433150	|	AT1	a	[Ns.
+T01_6876	0433159	|	NN1n	drink	.Ns]P:c]
+T01_6879	0433172	|	CC	and	[Ns+.
+T01_6882	0433183	|	PN1	everything	.Ns+]S+]S]
+T01_6885	-----	Harold001
+T01_6888	.....	02837
+T01_6891	0433014	&*,	UY	aye	.
+T01_6894	0433033	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_6897	0433044	|	VMo	can	[Vc.
+T01_6900	0433055	|	VV0v	drive	.Vc]S]
+T01_6903	-----	Harold001
+T01_6906	.....	02839
+T01_6909	0433232	*	VBZ	is	[S?[Vzb.Vzb]
+T01_6912	0433242	|	PPHS1f	she	[Nas:s.
+T01_6915	0000000	y	YG	-	[209.209]Nas:s]
+T01_6918	0433253	|	AT1	an	[Ns:e.
+T01_6921	0433263	|	JJ	English	.
+T01_6924	0433278	|	NN1c	girl	.Ns:e]
+T01_6927	0433290	?	NP1f	Chris	[Nns@:G209.Nns@:G209]S?]
+T01_6930	-----	Jean003
+T01_6933	.....	02840
+T01_6936	0433342	*	UR	oh	.
+T01_6939	0433352	|	UY	yeah	.
+T01_6942	0433381	&	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_6945	0433392	|	VDD	did	[Vdk.
+T01_6948	0433403	|	VV0v	live	.Vdk]
+T01_6951	.....	02842
+T01_6954	0433557	&	II	in	[P:p.
+T01_6957	0433567	,	NP1t	Thorne	[Nns.Nns]P:p]S]
+T01_6960	0433589	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_6963	0433599	|	VBZ	+'s	[Vzb.Vzb]
+T01_6966	0433609	|	RRx	only	[R:m.R:m]
+T01_6969	0433621	|	II	from	[P:e.
+T01_6972	0433634	|	NP1t	Thorne	[Nns.Nns]P:e]S]
+T01_6975	-----	Harold001
+T01_6978	.....	02841
+T01_6981	0433479	&*,	UY	yeah	.
+T01_6984	0433499	|	UY	mm	.
+T01_6987	-----	unid1
+T01_6990	.....	00000
+T01_6993	0433684	&ic	YY	{unclear}	[Y.Y]
+T01_6996	-----	Joan002
+T01_6999	.....	02843
+T01_7002	0433758	&*	UW	well	.
+T01_7005	0433770	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_7008	0433780	|	VBZ	+'s	[Vzu.
+T01_7011	0433790	|	VVGi	coming	.Vzu]
+T01_7014	0433822	&	RL	home	[R:q.R:q]
+T01_7017	0433834	|	RTn	then	[Rsw:c.Rsw:c]
+T01_7020	0433846	|	VAI	i	[Iq[S?[Vex.
+T01_7023	0433847	|	XX	+n't	.Vex]
+T01_7026	0433857	?	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S]
+T01_7029	-----	Harold001
+T01_7032	.....	02844
+T01_7035	0433923	&*	VDZ	does	[S?[Voz.Voz]
+T01_7038	0433935	|	PPHS1f	she	[Nas:s.Nas:s]
+T01_7041	0433946	|	VV0t	like	[Vr.Vr]
+T01_7044	0433958	|	PPH1	it	[Ni:o.Ni:o]
+T01_7047	0433968	|	II	in	[P:p.
+T01_7050	0433979	?	NP1g	America	[Nns.Nns]P:p]S?]
+T01_7053	-----	Harold001
+T01_7056	.....	02845
+T01_7059	0434066	&*	UR	oh	.
+T01_7062	0434076	|	UY	aye	.
+T01_7065	0434087	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T01_7068	0434097	|	VBZ	+'s	[Vzu.
+T01_7071	0434107	|	VVGi	coming	.Vzu]
+T01_7074	0434121	|	RL	home	[R:q.
+T01_7077	0434150	&	IIt	to	[P@.
+T01_7080	0434160	|	APPGf	her	[Ns.
+T01_7083	0434171	|	NNS1c	mum	.Ns]P@]R:q]
+T01_7086	0434182	|	CC	and	[S+.
+T01_7089	0434193	|	APPGf	her	[Ns:s.
+T01_7092	0434205	|	NNS1c	mum	.Ns:s]
+T01_7095	0434215	|	VBZ	+'s	[Vzb.Vzb]
+T01_7098	0434225	|	RLh	here	[Rw:p.Rw:p]S+]S]
+T01_7101	-----	Joan002
+T01_7104	.....	02846
+T01_7107	0434268	*	UY	yeah	.
+T01_7110	-----	Harold001
+T01_7113	.....	00000
+T01_7116	0434299	c	YV	{clearsThroat}	.
+T01_7119	-----	Jean003
+T01_7122	.....	02847
+T01_7125	0434359	|	PPIS1	I	[S[Nea:s.Nea:s]
+T01_7128	0434368	|	VD0	do	[Ve.
+T01_7131	0434377	|	XX	+n't	.
+T01_7134	0434388	|	VV0v	know	.Ve]
+T01_7137	0434400	|	RRQq	why	[Fn?:o[Rq:G215.Rq:G215]
+T01_7140	0434411	|	PPHS2	they	[Nap:s.Nap:s]
+T01_7143	0434423	|	VV0i	come	[V.V]
+T01_7146	0434436	|	RLh	here	[Rw:q.Rw:q]
+T01_7149	0434448	|	IF	for	[P:c.
+T01_7152	0000000	y	YG	-	[215.215]P:c]
+T01_7155	0434459	|	II	in	[P:c.
+T01_7158	0434469	|	DD1i	this	[Ns.
+T01_7161	0434481	|	NN1n	weather	.Ns]P:c]Fn?:o]S]
+T01_7164	0434496	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_7167	0434505	|	VBZ	+'s	[Vzb.Vzb]
+T01_7170	0434516	|	JJ	beautiful	[J:e.J:e]
+T01_7173	0434533	|	RLh	there	[Rw:p.Rw:p]
+T01_7176	.....	02849
+T01_7179	0434620	&	RR	even	[R:m.R:m]
+T01_7182	0434632	|	DD1i	this	[Ns:t.
+T01_7185	0434644	|	NNT1c	time	.
+T01_7188	0434656	|	IO	of	[Po.
+T01_7191	0434666	|	AT	the	[Ns.
+T01_7194	0434677	,	NNT1c	year	.Ns]Po]Ns:t]S]
+T01_7197	0434698	|	II	over	[S[P:t.
+T01_7200	0434710	|	NNT1h	Christmas	[NNT1h&.
+T01_7203	0434727	|	CC	and	[NPM1+.
+T01_7206	0434738	|	NPM1	January	.NPM1+]NNT1h&]P:t]
+T01_7209	0434753	|	PPIS2	we	[Nap:s.Nap:s]
+T01_7212	0434763	|	VBDR	were	[Vwb.Vwb]
+T01_7215	0434776	|	RL	outside	[R:p.R:p]
+T01_7218	0434791	|	II	in	[P:t.
+T01_7221	0434801	|	AT	the	[Ns.
+T01_7224	0434812	|	NNT1c	morning	.Ns]P:t]
+T01_7227	0434827	|	VHG	having	[Tg:b[Vg.Vg]
+T01_7230	0434841	|	APPGi2	our	[Ns:o.
+T01_7233	0434853	|	NN1c	breakfast	.Ns:o]Tg:b]
+T01_7236	0434887	&	AT1e	every	[Ns:t.
+T01_7239	0434900	|	NNT1c	day	.Ns:t]
+T01_7242	0434911	|	VBDR	were	[Iq[S?[Vweb.
+T01_7245	0434922	|	XX	+n't	.Vweb]
+T01_7248	0434934	|	PPIS2	we	[Nap:s.Nap:s]S?]Iq]S]
+T01_7251	0434944	?	NP1m	Harold	[Nns".Nns"]
+T01_7254	-----	Harold001
+T01_7257	.....	02848
+T01_7260	0434577	*	UY	yeah	.
+T01_7263	-----	Harold001
+T01_7266	.....	02850
+T01_7269	0435028	&*,	UY	yeah	.
+T01_7272	0435048	|	AT1e	every	[Ns.
+T01_7275	0435061	,	NNT1c	day	.Ns]
+T01_7278	0435098	&	VVDv	rained	[S[Vd[VVDv#.
+T01_7281	0000000	y	YR	#	.
+T01_7284	.....	02852
+T01_7287	0435314	&	VVDv	rained	.VVDv#]Vd]
+T01_7290	0435332	|	MC	two	[N:t.N:t]
+T01_7293	0000000	y	YR	#	.
+T01_7296	0435360	&	VVDv	rained	[Vd.Vd]
+T01_7299	0435379	|	MC	two	[Np:t.
+T01_7302	0435390	|	NNT2	days	.
+T01_7305	0435402	|	II21	out	[P[II=.
+T01_7308	0435402	|	II22	of	.II=]
+T01_7311	0435433	&	MC	six	[Np.
+T01_7314	0435444	|	NNT2	weeks	.Np]P]Np:t]S]
+T01_7317	-----	Jean003
+T01_7320	.....	02851
+T01_7323	0435143	*	IF	for	[S[P:t.
+T01_7326	0435154	|	AT1	a	[Ns.
+T01_7329	0435163	|	NN1c	couple	.
+T01_7332	0435177	|	IO	of	[Po.
+T01_7335	0435187	|	NNT2	days	.Po]Ns]P:t]
+T01_7338	0435199	|	PPIS2	we	[Nap:s.Nap:s]
+T01_7341	0435227	&	VHD	had	[Vd.Vd]
+T01_7344	0435238	|	NN1n	rain	[Ns:o.Ns:o]S]
+T01_7347	-----	Jean003
+T01_7350	.....	02853
+T01_7353	0435521	&	CCB	but	[S+.
+T01_7356	0435532	|	YMV	er	.
+T01_7359	0435559	&	DD1a	that	[Ds:s.Ds:s]
+T01_7362	0435571	|	VBDZ	was	[Vsb.Vsb]
+T01_7365	0435582	|	DBa	all	[D:e.D:e]
+T01_7368	0435594	|	II	in	[P:t.
+T01_7371	0435604	|	MC	six	[Np.
+T01_7374	0435615	|	NNT2	weeks	.Np]P:t]S+]
+T01_7377	0435645	&	PPH1	it	[S[Ni:s.Ni:s]
+T01_7380	0435654	|	VBZ	+'s	[Vzb.Vzb]
+T01_7383	0435664	|	JJ	beautiful	[J:e.J:e]S]
+T01_7386	-----	Joan002
+T01_7389	.....	02854
+T01_7392	0435745	&*	JJ	lovely	[L[Ns:e.
+T01_7395	0435759	|	NN1c	climate	.Ns:e]
+T01_7398	0435774	|	RLh	there	[Rw:p.Rw:p]
+T01_7401	0435805	&	VAI	in	[Iq[S?[Ve.
+T01_7404	0435814	|	XX	+n	.Ve]
+T01_7407	0435822	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]L]
+T01_7410	-----	Harold001
+T01_7413	.....	02855
+T01_7416	0435871	*	UY	mm	.
+T01_7419	-----	Harold001
+T01_7422	.....	02856
+T01_7425	0435912	*	DD1a	that	[S[Ds:s.Ds:s]
+T01_7428	0435924	|	VBDZ	was	[Vsb.Vsb]
+T01_7431	0435935	|	NNT1h	Christmas	[Nn:e.
+T01_7434	0435952	|	CC	and	[Nns+.
+T01_7437	0435963	*	JJ	new	.
+T01_7440	0435974	*	NNT1c	year	.Nns+]Nn:e]
+T01_7443	0435986	|	VBDZ	was	[Iq[S?[Vsb.Vsb]
+T01_7446	0435998	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T01_7449	-----	Harold001
+T01_7452	.....	02857
+T01_7455	0436047	*	DD1b22	bit	[L[J:e.
+T01_7458	0436058	|	JJ	chilly	.J:e]
+T01_7461	0436072	|	II	at	[P:t.
+T01_7464	0436082	|	NNT1c	night	.P:t]L]
+T01_7467	0436095	,	ICSk	like	.
+T01_7470	0436115	|	UE21	you	[UE=.
+T01_7473	0436127	|	UE22	know	.UE=]
+T01_7476	-----	Jean003
+T01_7479	.....	02858
+T01_7482	0436170	*	PPIS2	we	[S[Nap:s.Nap:s]
+T01_7485	0436180	|	VVDi	went	[Vd.Vd]
+T01_7488	0436192	*	NN1u	boxing	[Nns:t.
+T01_7491	0436206	*	NNT1c	day	.Nns:t]S]
+T01_7494	-----	Harold001
+T01_7497	.....	02859
+T01_7500	0436248	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_7503	0436258	|	VVDv	put	[Vd.Vd]
+T01_7506	0436269	|	NN1n	gas	[Ns:o.
+T01_7509	0436280	|	NN1n	fire	.Ns:o]
+T01_7512	0436292	|	RP	on	[R:n.R:n]S]
+T01_7515	-----	Jean003
+T01_7518	.....	02860
+T01_7521	0436333	|	VVDi	came	[S[Vd.Vd]
+T01_7524	0436345	|	RL	back	[R:q.R:q]
+T01_7527	0436357	|	NPM1	February	[Nj:t[Nns.Nns]
+T01_7530	0436373	|	AT	the	.
+T01_7533	0436384	|	MD	eighth	.Nj:t]S]
+T01_7536	-----	Harold001
+T01_7539	.....	02861
+T01_7542	0436429	*	UY	yes	.
+T01_7545	-----	Jean003
+T01_7548	.....	02862
+T01_7551	0436471	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_7554	0436481	|	VHD	had	[Vd.Vd]
+T01_7557	0436492	|	JJ	beautiful	[Ns:o.
+T01_7560	0436509	|	NN1n	weather	.Ns:o]S]
+T01_7563	-----	Harold001
+T01_7566	.....	02863
+T01_7569	0436555	*	VDD	did	[S?[Vdx.Vdx]
+T01_7572	0436566	?	PPY	you	[Ny:s.Ny:s]S?]
+T01_7575	.....	02864
+T01_7578	0436597	*	DD1a	that	[S[Ds:s.Ds:s]
+T01_7581	0436609	|	VBDZ	was	[Vsb.Vsb]
+T01_7584	0436620	|	MDt	last	[Ns:t.
+T01_7587	0436632	|	NNT1c	year	.Ns:t]
+T01_7590	0436661	&	RR21	of	[R:m[RR=.
+T01_7593	0436661	|	RR22	course	.RR=]R:m]S]
+T01_7596	-----	Jean003
+T01_7599	.....	02865
+T01_7602	0436742	&*	UY	yeah	.
+T01_7605	0436788	&	UY	yeah	.
+T01_7608	-----	Harold001
+T01_7611	.....	02866
+T01_7614	0436864	&*	UY	yeah	.
+T01_7617	-----	Harold001
+T01_7620	.....	02867
+T01_7623	0436924	*	UY	yeah	.
+T01_7626	-----	Harold001
+T01_7629	.....	02868
+T01_7632	0436983	&*	PPIS2	we	[S[Nap:s.Nap:s]
+T01_7635	0436992	|	VBR	+'re	[Vab.Vab]
+T01_7638	0437003	|	JA21	all	[J:e[JA=.
+T01_7641	0437005	|	JA22	right	.JA=]J:e]
+T01_7644	0437018	|	VVGv	letting	[Tg:h[Vg.Vg]Tg:h]
+T01_7647	0000000	y	YR	#	.
+T01_7650	.....	02870
+T01_7653	0437371	&	JA21	all	[J:e[JA=.
+T01_7656	0437373	|	JA22	right	.JA=]J:e]
+T01_7659	0437386	|	VVGv	letting	[Tg:h[Vg.Vg]
+T01_7662	0437418	&	PPY	you	[Ny:o.Ny:o]
+T01_7665	0437429	|	RLh	here	[Rw:p.Rw:p]
+T01_7668	0437458	&	II	at	[P:t.
+T01_7671	0437468	|	MC	four	[M.
+T01_7674	0437480	|	RAh	o'clock	.
+T01_7677	0437495	|	II	in	[P.
+T01_7680	0437505	|	AT	the	[Ns.
+T01_7683	0437517	,	NNT1c	afternoon	.Ns]P]M]P:t]
+T01_7686	0437542	|	NN1n	sun	[Tg:b[Ns:s.Ns:s]
+T01_7689	0437557	|	VVGv	shining	[Vg.Vg]Tg:b]Tg:h]S]
+T01_7692	-----	Joan002
+T01_7695	.....	02869
+T01_7698	0437101	&*	PPH1	it	[S[Ni:S.Ni:S]
+T01_7701	0437110	|	VBZ	+'s	[Vzb.Vzb]
+T01_7704	0437120	|	AT1	a	[Ns:e.
+T01_7707	0437129	|	NN1u	shame	.Ns:e]
+T01_7710	0437159	&	VHG	having	[Tg:s[Vg.Vg]
+T01_7713	0437174	|	TO	to	[Ti:z[Vi.
+T01_7716	0437184	|	VV0i	go	.Vi]
+T01_7719	0437194	,	DD1a	that	[Ns:t[DD1a#.
+T01_7722	0000000	y	YR	#	.
+T01_7725	0437218	|	DD1a	that	.DD1a#]
+T01_7728	0437230	|	NNT1c	time	.
+T01_7731	0437242	|	IO	of	[Po.
+T01_7734	0437253	|	NNT1c	year	.Po]Ns:t]
+T01_7737	0437282	&	AT1e	every	[Ns:t.
+T01_7740	0437295	|	NNT1c	year	.Ns:t]Ti:z]Tg:s]S]
+T01_7743	-----	Jean003
+T01_7746	.....	02871
+T01_7749	0437636	&*	PPH1	it	[S[Ni:s.Ni:s]
+T01_7752	0437645	|	VBZ	+'s	[Vzb.Vzb]
+T01_7755	0437655	|	JJ	lovely	[J:e.J:e]
+T01_7758	0437669	|	DBa	all	[Rx:t[Ns.
+T01_7761	0437680	|	AT	the	.
+T01_7764	0437691	|	NNT1c	year	.Ns]
+T01_7767	0437704	|	RL	round	.Rx:t]S]
+T01_7770	0437717	|	NP1m	Jack	[Nns".Nns"]
+T01_7773	-----	Harold001
+T01_7776	.....	02872
+T01_7779	0437777	*,	UY	yes	.
+T01_7782	0437796	|	UY	yes	.
+T01_7785	-----	Jean003
+T01_7788	.....	02873
+T01_7791	0437838	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_7794	0437847	|	VBZ	+'s	[Vzb.Vzb]
+T01_7797	0437857	|	JJ	lovely	[J:e.J:e]
+T01_7800	0437871	|	DBa	all	[Rx:t[Ns.
+T01_7803	0437882	|	AT	the	.
+T01_7806	0437893	|	NNT1c	year	.Ns]
+T01_7809	0437905	|	RL	round	.Rx:t]S]
+T01_7812	0437935	&	CC	and	[S+.
+T01_7815	0437946	|	PPH1	it	[Ni:s.Ni:s]
+T01_7818	0437955	|	VBZ	+'s	[Vzb.Vzb]
+T01_7821	0437965	|	JJR	hotter	[J:e.J:e]
+T01_7824	0437979	|	II	in	[P:t.
+T01_7827	0437989	|	AT	the	[Ns.
+T01_7830	0438001	|	NNT1h	summer	.Ns]P:t]S+]
+T01_7833	0438015	|	ICSk	like	.
+T01_7836	-----	Harold001
+T01_7839	.....	02874
+T01_7842	0438091	&*,	VVGv	drinking	[Tg[Vg[VVGv#.
+T01_7845	0000000	y	YR	#	.
+T01_7848	0438119	|	VVGv	drinking	.VVGv#]Vg]
+T01_7851	0438139	|	NN1n	gin	[Ns:o.Ns:o]Tg]
+T01_7854	-----	Joan002
+T01_7857	.....	02875
+T01_7860	0438198	*	RGf	too	[L[J:e.
+T01_7863	0438209	|	JJ	hot	.J:e]
+T01_7866	0438220	|	II	in	[P:t.
+T01_7869	0438230	|	AT	the	[Ns.
+T01_7872	0438241	|	NNT1h	summer	.Ns]P:t]L]
+T01_7875	-----	Harold001
+T01_7878	.....	02876
+T01_7881	0438286	*	RGf	too	[J.
+T01_7884	0438297	,	JJ	hot	.J]
+T01_7887	0438316	|	PPH1	it	[S[Ni:s.Ni:s]
+T01_7890	0438325	,	VBZ	+'s	[Vzb.Vzb]
+T01_7893	0000000	y	YR	#	.S]
+T01_7896	0438343	|	UY	yeah	.
+T01_7899	-----	Jean003
+T01_7902	.....	02877
+T01_7905	0438386	*	UW	well	.
+T01_7908	0438398	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_7911	0438408	|	VH0	have	[Vef.
+T01_7914	0438419	|	XX	+n't	.
+T01_7917	0438430	|	VHN	had	.Vef]
+T01_7920	0438441	|	PPH1	it	[Ni:o.Ni:o]
+T01_7923	0438451	|	RGf	too	[J:j.
+T01_7926	0438463	,	JJ	hot	.J:j]S]
+T01_7929	0438482	|	PPIS2	we	[S[Nap:s.Nap:s]
+T01_7932	0438492	|	VVDi	went	[Vd.Vd]
+T01_7935	0438504	,	RP	down	[R:q.R:q]
+T01_7938	0438524	|	VBDZ	was	[I[S?[Vsb.Vsb]
+T01_7941	0438535	|	PPH1	it	[Ni:s.Ni:s]
+T01_7944	0438546	|	AT	the	[Nns:e.
+T01_7947	0438557	|	JJ	American	.
+T01_7950	0438573	*	NN1u	independence	.
+T01_7953	0438593	|	NNT1c	day	.Nns:e]S?]I]
+T01_7956	0438604	|	VDD	did	[Iq[S?[Vdex.
+T01_7959	0438614	|	XX	+n't	.Vdex]
+T01_7962	0438626	?	PPIS2	we	[Nap:s.Nap:s]S?]Iq]S]
+T01_7965	-----	Harold001
+T01_7968	.....	02878
+T01_7971	0438675	*	UY	yeah	.
+T01_7974	0438704	&	UR	oh	.
+T01_7977	0438714	|	DD1a	that	[S[Ds:s.
+T01_7980	0000000	y	YG	-	[225.225]Ds:s]
+T01_7983	0438726	|	VBDR	were	[Vwb.Vwb]
+T01_7986	0438738	|	RG	very	[J:e.
+T01_7989	0438750	|	JJ	hot	.J:e]
+T01_7992	0438762	|	DD1a	that	[Ns@:G225.
+T01_7995	0438778	|	NNT1c	day	.Ns@:G225]S]

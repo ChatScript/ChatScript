@@ -816,7 +816,7 @@ static char* Output_AtSign(char* word, char* ptr, char* space, char*& buffer, un
         char buf[100];
         if (flags)
         {
-            sprintf(buf, (char*)"%d", T);
+            sprintf(buf, (char*)"%u", T);
             answer = buf;
         }
         else  answer = Meaning2Word(T)->word;
@@ -966,7 +966,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
                 ptr = ptr - len;
             }
 
-            char* value = GetUserVariable(word, nojson);
+            char* value = GetUserVariable(word, nojson,true);
             StdNumber(value, buffer, controls);
             char* at = SkipWhitespace(buffer);
             if (controls & OUTPUT_NOQUOTES && *at == '"') // remove quotes from a variable's data
@@ -1005,7 +1005,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         return ptr;
     }
 
-    char* word = AllocateBuffer("output"); // allocation from stack doesnt work for unknown reason
+    char* word = AllocateBuffer("output2"); // allocation from stack doesnt work for unknown reason
     ++outputlevel; // where we are
 
     bool quoted = false;

@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "11.0";
+char* version = "11.1";
 char sourceInput[200];
 FILE* userInitFile;
 bool fastload = true;
@@ -376,7 +376,7 @@ static void HandleBoot(WORDP boot, bool reboot)
 	rebooting = false;
 }
 
-int CountWordsInBuckets(int& unused, unsigned int* depthcount,int limit)
+unsigned int CountWordsInBuckets(unsigned int& unused, unsigned int* depthcount,int limit)
 {
 	memset(depthcount, 0, sizeof(int)*limit);
 	unused = 0;
@@ -474,10 +474,10 @@ void CreateSystem()
 	trace = 0;
 	*oktest = 0;
 
-	sprintf(data,(char*)"Params:   dict:%ld fact:%ld text:%ldkb hash:%ld \r\n",(long int)maxDictEntries,(long int)maxFacts,(long int)(maxHeapBytes/1000),(long int)maxHashBuckets);
+	sprintf(data,(char*)"Params:   dict:%lu fact:%lu text:%lukb hash:%lu \r\n",(unsigned long )maxDictEntries,(unsigned long)maxFacts,(unsigned long)(maxHeapBytes/1000),(unsigned long)maxHashBuckets);
 	if (server) Log(SERVERLOG,"%s",data);
 	else (*printer)((char*)"%s",data);
-	sprintf(data,(char*)"          buffer:%dx%dkb cache:%dx%dkb userfacts:%d outputlimit:%d loglimit:%d\r\n",(int)maxBufferLimit,(int)(maxBufferSize/1000),(int)userCacheCount,(int)(userCacheSize/1000),(int)userFactCount,
+	sprintf(data,(char*)"          buffer:%ux%ukb cache:%ux%ukb userfacts:%u outputlimit:%u loglimit:%u\r\n",(unsigned int)maxBufferLimit,(unsigned int)(maxBufferSize/1000),(unsigned int)userCacheCount,(unsigned int)(userCacheSize/1000),(unsigned int)userFactCount,
 		outputsize,logsize);
 	if (server) Log(SERVERLOG,"%s",data);
 	else (*printer)((char*)"%s",data);
@@ -541,8 +541,8 @@ void CreateSystem()
 	strcpy(buf,StdIntOutput(lastFactUsed-factBase));
 	strcpy(buf2,StdIntOutput(textFreeMemKB));
 	unsigned int depthcount[100];
-	int unused;
-	int words = CountWordsInBuckets(unused, depthcount,100);
+	unsigned int unused;
+	unsigned int words = CountWordsInBuckets(unused, depthcount,100);
 
 	char depthmsg[1000];
 	int x = 100;
@@ -551,11 +551,11 @@ void CreateSystem()
 	*at = 0;
 	for (int i = 1; i <= x; ++i)
 	{
-		sprintf(at, "%d.", depthcount[i]);
+		sprintf(at, "%u.", depthcount[i]);
 		at += strlen(at);
 	}
 
-	sprintf(data, (char*)"Used %dMB: dict %s (%dkb) hashdepths %s words %d unusedbuckets %d fact %s (%dkb) heap %dkb\r\n",
+	sprintf(data, (char*)"Used %uMB: dict %s (%ukb) hashdepths %s words %u unusedbuckets %u fact %s (%ukb) heap %ukb\r\n",
 		used / 1000,
 		StdIntOutput(dictionaryFree - dictionaryBase - 1),
 		dictUsedMemKB, depthmsg,words,unused,
@@ -565,7 +565,7 @@ void CreateSystem()
 	if (server) Log(SERVERLOG,"%s",data);
 	else (*printer)((char*)"%s",data);
 
-	sprintf(data,(char*)"           buffer (%dkb) cache (%dkb)\r\n",
+	sprintf(data,(char*)"           buffer (%ukb) cache (%uWkb)\r\n",
 		bufferMemKB,
 		(userTopicStoreSize + userTableSize)/1000);
 	if(server) Log(SERVERLOG,"%s",data);
@@ -620,7 +620,7 @@ void CreateSystem()
 #endif
     (*printer)((char*)"%s",(char*)"\r\n");
 	loading = false;
-	printf("System created in %d ms\r\n", (unsigned int)(ElapsedMilliseconds() - starttime));
+	printf("System created in %u ms\r\n", (unsigned int)(ElapsedMilliseconds() - starttime));
 }
 
 void LoadSystem()
@@ -628,14 +628,16 @@ void LoadSystem()
     myBot = 0; // facts loaded here are universal
 	InitFacts(); // malloc space
 	InitStackHeap(); // malloc space
-	InitUserCache(); // malloc space
-	InitDictionary(); // malloc space
-	InitFunctionSystem(); // modify dictionary entries
 	InitTextUtilities(); // also part of basic system before a build
+	InitDictionary(); // malloc space
+	LoadDictionary(heapFree);
+	InitTextUtilities1(); // also part of basic system before a build
+	InitUserCache(); // malloc space
+	InitFunctionSystem(); // modify dictionary entries
 	InitScriptSystem();
 	InitVariableSystem();
 	InitSystemVariables();
-	ReadLiveData();
+	ReadLiveData(); // below layer 0
 #ifdef TREETAGGER
 	 // We will be reserving some working space for treetagger on the heap
 	 // so make sure it is tucked away where it cannot be touched
@@ -937,8 +939,8 @@ static void ProcessArgument(char* arg)
             sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
 		}
 #else
-		sprintf(serverLogfileName,(char*)"%s/serverlog%d.txt", logsfolder,port); // DEFAULT LOG
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
+		sprintf(serverLogfileName,(char*)"%s/serverlog%u.txt", logsfolder,port); // DEFAULT LOG
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%u.txt", logsfolder, port);
 #endif
 	}
 #ifdef EVSERVER
@@ -1129,6 +1131,22 @@ static void SetDefaultLogsAndFolders()
 
 unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
 { // this work mostly only happens on first startup, not on a restart
+	*externalBugLog = 0;
+	*serverlogauthcode = 0;
+	*buildflags = 0;
+	GetPrimaryIP(myip);
+	for (int i = 1; i < argcx; ++i)
+	{
+		if (!strnicmp(argvx[i], "root=", 5))
+		{
+#ifdef WIN32
+			SetCurrentDirectory((char*)argvx[i] + 5);
+#else
+			chdir((char*)argvx[i] + 5);
+#endif
+		}
+	}
+
 	ClearGlobals();
 	SetDefaultLogsAndFolders();
 	memset(&userFileSystem, 0, sizeof(userFileSystem));
@@ -1165,19 +1183,19 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	if (argumentsSeen) (*printer)("\r\n");
 	argumentsSeen = false;
 
-    sprintf(logFilename,(char*)"%s/log%d.txt",logsfolder,port); // DEFAULT LOG
+    sprintf(logFilename,(char*)"%s/log%u.txt",logsfolder,port); // DEFAULT LOG
 #ifdef LINUX
 	if (forkcount > 1) {
-		sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port,getpid());
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port, getpid());
+		sprintf(serverLogfileName, (char*)"%s/serverlog%u-%u.txt", logsfolder, port,getpid());
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%u-%u.txt", logsfolder, port, getpid());
 	}
 	else {
-		sprintf(serverLogfileName, (char*)"%s/serverlog%d.txt", logsfolder, port);
-        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
+		sprintf(serverLogfileName, (char*)"%s/serverlog%u.txt", logsfolder, port);
+        sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%u.txt", logsfolder, port);
 	}
 #else
-    sprintf(serverLogfileName,(char*)"%s/serverlog%d.txt",logsfolder,port); // DEFAULT LOG
-    sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d.txt", logsfolder, port);
+    sprintf(serverLogfileName,(char*)"%s/serverlog%u.txt",logsfolder,port); // DEFAULT LOG
+    sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%u.txt", logsfolder, port);
 #endif
 	sprintf(languageFolder,"LIVEDATA/%s",language); // default directory for dynamic stuff
 
@@ -1194,15 +1212,15 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	if (server)
 	{
 #ifndef EVSERVER
-		GrabPort(); 
+		GrabPort();
 #else
-        (*printer)("evcalled pid: %d\r\n",getpid());
+		(*printer)("evcalled pid: %d\r\n", getpid());
 
 		// each fork in evserver will execute the rest from this
 		if (evsrv_init(interfaceKind, port, evsrv_arg) < 0)  exit(4); // additional params will apply to each child and they will load data each
 #endif
 #ifdef WIN32
-		PrepareServer(); 
+		PrepareServer();
 #endif
 	}
 #endif
@@ -1218,62 +1236,46 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 	CreateSystem();
 
 	bool nosql = (db == 0 || (db == 1 && !server));
-	#ifndef DISCARDMYSQL
-	if (nosql) *mysqlparams = 0;
+#ifdef EVSERVER_FORK
+	if (parent_g) nosql = true; // parent does not make connection, only forks
 #endif
-#ifndef DISCARDMICROSOFTSQL
-	if (nosql) *mssqlparams = 0;
-#endif
-#ifndef DISCARDPOSTGRES
-	if (nosql) *postgresparams = 0;
-#endif
-#ifndef DISCARDMONGO
-	if (nosql) *mongodbparams = 0;
-#endif
-	if (forkcount == 1) // dont need 1 per thread. use 1 global
-	{
-#ifndef DISCARDMYSQL
-		if (*mysqlparams) MySQLUserFilesCode(mysqlparams);
-#endif
-#ifndef DISCARDMICROSOFTSQL
-		if (*mssqlparams) MsSqlUserFilesCode(mssqlparams);
-#endif
-#ifndef DISCARDPOSTGRES
-		if (*postgresparams)  PGInitUserFilesCode(postgresparams);
-#endif
-#ifndef DISCARDMONGO
-		if (*mongodbparams)  MongoSystemInit(mongodbparams);
-#endif
-	}
-
 	char route[100];
 	*route = 0;
-#ifndef DISCARDMONGO
-	if (*mongodbparams) sprintf(route, "    Mongo enabled. FileSystem routed to MongoDB\r\n");
-	else sprintf(route, "    Mongo enabled.\r\n");
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
+#ifndef DISCARDMYSQL
+		if (nosql) *mysqlparams = 0;
+		if (*mysqlparams) MySQLUserFilesCode(mysqlparams);
+		if (*mysqlparams) sprintf(route, "    MySql enabled. FileSystem routed MySql\r\n");
+		else sprintf(route, "    MySql enabled.\r\n");
+		if (server) Log(SERVERLOG, route);
+		else (*printer)(route);
 #endif
 #ifndef DISCARDMICROSOFTSQL
-	if (*mssqlparams) sprintf(route, "    MicrosoftSql enabled. FileSystem routed MicrosoftSql\r\n");
-	else sprintf(route, "    MicrosoftSql enabled.\r\n");
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
-#endif
-#ifndef DISCARDMYSQL
-	if (*mysqlparams) sprintf(route, "    MySql enabled. FileSystem routed MySql\r\n");
-	else sprintf(route, "    MySql enabled.\r\n");
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
+		if (nosql) *mssqlparams = 0;
+		if (*mssqlparams) MsSqlUserFilesCode(mssqlparams);
+		if (*mssqlparams) sprintf(route, "    MicrosoftSql enabled. FileSystem routed MicrosoftSql\r\n");
+		else sprintf(route, "    MicrosoftSql enabled.\r\n");
+		if (server) Log(SERVERLOG, route);
+		else (*printer)(route);
 #endif
 #ifndef DISCARDPOSTGRES
-	if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
-	else sprintf(route, "    Postgres enabled.\r\n");
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
+		if (nosql) *postgresparams = 0;
+		if (*postgresparams)  PGInitUserFilesCode(postgresparams);
+		if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
+		else sprintf(route, "    Postgres enabled.\r\n");
+		if (server) Log(SERVERLOG, route);
+		else (*printer)(route);
+#endif
+#ifndef DISCARDMONGO
+		if (nosql) *mongodbparams = 0;
+		if (*mongodbparams)  MongoSystemInit(mongodbparams);
+		if (*mongodbparams) sprintf(route, "    Mongo enabled. FileSystem routed to MongoDB\r\n");
+		else sprintf(route, "    Mongo enabled.\r\n");
+		if (server) Log(SERVERLOG, route);
+		else (*printer)(route);
 #endif
 
-	// system is ready.
+		
+		// system is ready.
 
 	for (int i = 1; i < argc; ++i) // now for immediate action arguments
 	{
@@ -1308,6 +1310,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 #endif
 	}
 
+	// evserver init AFTER db init so all children inherit the one db connection
 	if (server)
 	{
 		struct tm ptm;
@@ -1342,20 +1345,24 @@ void PartiallyCloseSystem(bool keepalien) // server data (queues, databases, etc
 		DeletePermanentJavaScript(); // javascript permanent system
 #endif
 		FreeAllUserCaches(); // user system
-		CloseDictionary();	// dictionary system
+		CloseDictionary();	// dictionary system but not its memory
 		CloseFacts();		// fact system
-		if (forkcount == 1) CloseDatabases(true);
+		CloseDatabases(true);
 	}
 }
 
 void CloseSystem()
 {
 	PartiallyCloseSystem();
+	FreeStackHeap();
+	FreeDictionary();
+	CloseUserCache(); 
+
 	// server remains up on a restart
 #ifndef DISCARDSERVER
 	CloseServer();
 #endif
-	if (forkcount == 1) CloseDatabases();
+	CloseDatabases();
 #ifdef PRIVATE_CODE
 	PrivateShutdown();  // must come last after any mongo/postgress 
 #endif
@@ -1681,7 +1688,14 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 		else sourceFile = stdin;
         int diff = (int)(ElapsedMilliseconds() - sourceStart);
         Log(USERLOG, "Sourcefile Time used %ld ms for %d sentences %d tokens.\r\n", diff, sourceLines, sourceTokens);
-    }
+		if (documentMode || silent) { ; } // no prompt in document mode
+		else if (*userPrefix)
+		{
+			char prefix[MAX_WORD_SIZE];
+			(*printer)((char*)"%s ", ReviseOutput(userPrefix, prefix));
+		}
+		else (*printer)((char*)"%s", (char*)"   >");
+	}
     *ourMainInputBuffer = 0;
     ourMainInputBuffer[1] = 0;
 }
@@ -1943,11 +1957,11 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
         char* at = output;
         if (autonumber)
         {
-            sprintf(at, (char*)"%d: ", volleyCount);
+            sprintf(at, (char*)"%u: ", volleyCount);
             at += strlen(at);
         }
         ConcatResult(at, output + limit - 100); // save space for after data
-		char* val = GetUserVariable("$cs_outputlimit");
+		char* val = GetUserVariable("$cs_outputlimit", false, true);
 		if (*val && !csapicall)
 		{
 			int lim = atoi(val);
@@ -1973,7 +1987,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
         {
 			unsigned int lapsedMilliseconds = (unsigned int)(ElapsedMilliseconds() - volleyStartTime);
 			char time15[MAX_WORD_SIZE];
-            sprintf(time15, (char*)" F:%dms ", lapsedMilliseconds);
+            sprintf(time15, (char*)" F:%ums ", lapsedMilliseconds);
             char* nl = (LogEndedCleanly()) ? (char*) "" : (char*) "\r\n";
             char* poutput = Purify(output);
             char* userInput = NULL;
@@ -2009,7 +2023,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
                 Log(USERLOG,"%sRespond: user:%s bot:%s ip:%s (%s) %d  `*` ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, poutput, when, origbuff+2, time15);  // normal volley
             }
 
-			if (*GetUserVariable("$cs_showtime"))
+			if (*GetUserVariable("$cs_showtime", false, true))
 				printf("%s\r\n", time15);
 
             if (userInput) *userInput = endInput;
@@ -2095,7 +2109,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
 	
 	originalUserInput = incoming;
-
+	patternDepth = adjustIndent = 0;
+	InitJson();
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	if (!*user) *loginID = 0; // make sure he doesnt get to reuse other's id
 
@@ -2124,8 +2139,8 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		if (crashBack) myexit((char*)"continued crash exit"); // if calling crashfunction crashes
 		crashBack = true;
 		if (reloading) myexit((char*)"crash on reloading"); // user input crashed us immediately again. give up
-		char* topicName = GetUserVariable("$cs_crash");
-		char* varmsg = GetUserVariable("$cs_crashmsg");
+		char* topicName = GetUserVariable("$cs_crash", false, true);
+		char* varmsg = GetUserVariable("$cs_crashmsg", false, true);
 		if (*topicName == '~')
 		{
 			EmergencyResetUser(); // insure we can run this function
@@ -2244,7 +2259,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
     char* at = mainInputBuffer;
 	if (tokenControl & JSON_DIRECT_FROM_OOB) at = oobSkipped;
 	unsigned int len1 = strlen(at);
-	char* sizing = GetUserVariable("$cs_inputlimit");
+	char* sizing = GetUserVariable("$cs_inputlimit", false, true);
 	if (*sizing && len1) // truncate input based on x:y data - prefer this to the inputLimit truncation
 	{
 		char* separator = strchr(sizing, ':');
@@ -2263,8 +2278,9 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	if (inputLimit && inputLimit <= (int)len1) at[inputLimit] = 0; // relative limit on user component
 
 	// correct user inputs and insure no large tokensize other than strings
-	incoming = SkipWhitespace(at);
-	char* starttoken = at;
+	incoming = SkipWhitespace(oobSkipped);
+	char* starttoken = oobSkipped;
+	at = incoming;
 	--at;
     char* quote = NULL;
     while (*++at) // scan user input (skipped oob data) for unreasonably long tokenization
@@ -2381,7 +2397,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		char oldc;
 		int oldCurrentLine;	
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // copy out prior file access and reinit user file access
-		char* suppressUser = GetUserVariable("$cs_new_user");
+		char* suppressUser = GetUserVariable("$cs_new_user", false, true);
 		if (*suppressUser && strstr(originalUserInput, suppressUser)) newuser = true;
 		ReadUserData();		//   now bring in user state, uses readbuffer
 		BOMAccess(BOMvalue, oldc,oldCurrentLine); // restore old BOM values
@@ -2488,7 +2504,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 #endif
 
 	strcpy(mainInputBuffer,realinput); // guaranteed never touched by cs input
-	if (*GetUserVariable("$cs_summary"))
+	if (*GetUserVariable("$cs_summary", false, true))
 	{
 		chatstarted = ElapsedMilliseconds() - chatstarted;
 		printf("Summary-  Prepare: %d  Reply: %d  Finish: %d\r\n", (int)preparationtime, (int)replytime, (int)chatstarted);
@@ -2533,17 +2549,17 @@ FunctionResult Reply()
 	ResetReuseSafety();
     if (trace & TRACE_OUTPUT)
 	{
-		Log(USERLOG,"\r\n\r\nReply input: ");
+		Log(USERLOG,"\r\n\r\nReply to: ");
 		for (int i = 1; i <= wordCount; ++i) Log(USERLOG,"%s ",wordStarts[i]);
 		Log(USERLOG,"\r\n  Pending topics: %s\r\n",ShowPendingTopics());
 	}
 	FunctionResult result = NOPROBLEM_BIT;
 
 	sentenceLimit = SENTENCES_LIMIT;
-	char* sentencelim = GetUserVariable((char*)"$cs_sentences_limit");
+	char* sentencelim = GetUserVariable("$cs_sentences_limit", false, true);
 	if (*sentencelim) sentenceLimit = atoi(sentencelim);
-	
-	char* topicName = GetUserVariable((char*)"$cs_control_main");
+	char* topicName = GetUserVariable("$cs_control_main", false, true);
+	if (trace & TRACE_FLOW) Log(USERLOG, "0 Ctrl:%s\r\n", topicName);
 	howTopic = 	 (tokenFlags & QUESTIONMARK) ? (char*) "question" : (char*)  "statement";
     CALLFRAME* frame = ChangeDepth(1, topicName);
     int pushed = PushTopic(FindTopicIDByName(topicName));
@@ -2640,7 +2656,7 @@ int ProcessInput(char* input)
 		if (!strnicmp(at,":reset",6)) 
 		{
 			reset = true;
-			char* intercept = GetUserVariable("$cs_beforereset");
+			char* intercept = GetUserVariable("$cs_beforereset", false, true);
 			if (intercept) Callback(FindWord(intercept),"()",false); // call script function first
 		}
 		TestMode commanded = DoCommand(at,mainOutputBuffer);
@@ -2675,7 +2691,7 @@ int ProcessInput(char* input)
 			nextInput = buffer;
 			if (reset) 
 			{
-				char* intercept = GetUserVariable("$cs_afterreset");
+				char* intercept = GetUserVariable("$cs_afterreset", false, true);
 				if (intercept) Callback(FindWord(intercept),"()",false); // call script function after
 			}
 			ProcessInput(buffer);
@@ -2718,7 +2734,7 @@ loopback:
 
 	//   process input now
 	char prepassTopic[MAX_WORD_SIZE];
-	strcpy(prepassTopic,GetUserVariable((char*)"$cs_prepass"));
+	strcpy(prepassTopic,GetUserVariable("$cs_prepass", false, true));
 	nextInput = buffer;
 	if (!documentMode)  AddHumanUsed(buffer);
  	sentenceloopcount = 0;
@@ -2787,6 +2803,7 @@ bool PrepassSentence(char* prepassTopic)
 		int topicid = FindTopicIDByName(prepassTopic);
 		if (topicid && !(GetTopicFlags(topicid) & TOPIC_BLOCKED))
 		{
+			if (trace & TRACE_FLOW) Log(USERLOG, "0 ***Ctrl:%s\r\n", prepassTopic);
             CALLFRAME* frame = ChangeDepth(1,prepassTopic);
             int pushed =  PushTopic(topicid);
 			if (pushed < 0)
@@ -2966,7 +2983,12 @@ void OnceCode(const char* var,char* function) //   run before doing any of his i
 	withinLoop = 0;
 	callIndex = 0;
 	topicIndex = currentTopicID = 0; 
-	char* name = (!function || !*function) ? GetUserVariable(var) : function;
+	char* name = (!function || !*function) ? GetUserVariable(var,false,true) : function;
+	if (trace & (TRACE_MATCH | TRACE_PREPARE) && CheckTopicTrace())
+	{
+		Log(USERLOG, "\r\n0 ***Ctrl:%s \r\n",var);
+	}
+	
 	int topicid = FindTopicIDByName(name);
 	if (!topicid) return;
 	ResetReuseSafety();
@@ -2977,22 +2999,6 @@ void OnceCode(const char* var,char* function) //   run before doing any of his i
 	{
 		ChangeDepth(-1,name);
 		return;
-	}
-	if (trace & (TRACE_MATCH|TRACE_PREPARE) && CheckTopicTrace()) 
-	{
-		if (!stricmp(var,(char*)"$cs_control_pre")) 
-		{
-			Log(USERLOG,"\r\nPrePass\r\n");
-		}
-		if (!stricmp(var,(char*)"$cs_externaltag")) 
-		{
-			Log(USERLOG,"\r\nPosTagging\r\n");
-		}
-		else 
-		{
-			Log(USERLOG,"\r\n\r\nPostPass\r\n");
-			Log(USERLOG,"Pending topics: %s\r\n",ShowPendingTopics());
-		}
 	}
 	
 	// prove it has gambits
@@ -3092,10 +3098,10 @@ static void SaveResponse(char* msg)
 	responseData[responseIndex].response = AllocateHeap(msg,0);
     responseData[responseIndex].responseInputIndex = inputSentenceCount; // which sentence of the input was this in response to
 	responseData[responseIndex].topic = currentTopicID; // what topic wrote this
-	sprintf(responseData[responseIndex].id,(char*)".%d.%d",TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID)); // what rule wrote this
+	sprintf(responseData[responseIndex].id,(char*)".%u.%u",TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID)); // what rule wrote this
 	if (currentReuseID != -1) // if rule was referral reuse (local) , add in who did that
 	{
-		sprintf(responseData[responseIndex].id + strlen(responseData[responseIndex].id),(char*)".%d.%d.%d",currentReuseTopic,TOPLEVELID(currentReuseID),REJOINDERID(currentReuseID));
+		sprintf(responseData[responseIndex].id + strlen(responseData[responseIndex].id),(char*)".%d.%u.%u",currentReuseTopic,TOPLEVELID(currentReuseID),REJOINDERID(currentReuseID));
 	}
 	responseOrder[responseIndex] = (unsigned char)responseIndex;
 	responseIndex++;
@@ -3203,10 +3209,10 @@ bool AddResponse(char* msg, unsigned int control)
 	if (tapfunction && tapfunction->w.fndefinition)
 	{
 		char why[MAX_WORD_SIZE];
-		sprintf(why, (char*)"%s.%d.%d", GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID)); // what rule wrote this
+		sprintf(why, (char*)"%s.%u.%u", GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID)); // what rule wrote this
 		if (currentReuseID != -1) // if rule was referral reuse (local) , add in who did that
 		{
-			sprintf(why + strlen(why), (char*)".%s.%d.%d", GetTopicName(currentReuseTopic), TOPLEVELID(currentReuseID), REJOINDERID(currentReuseID));
+			sprintf(why + strlen(why), (char*)".%s.%u.%u", GetTopicName(currentReuseTopic), TOPLEVELID(currentReuseID), REJOINDERID(currentReuseID));
 		}
 		char* buf = msg + strlen(msg) + 1;
 		FunctionResult result = InternalCall(tapfunction->w.userValue, NULL, msg, why, NULL, buf);
@@ -3330,7 +3336,7 @@ void NLPipeline(int mytrace)
 	if (tokenControl & DO_SPELLCHECK && wordCount && *wordStarts[1] != '~' )
 	{
 		if (SpellCheckSentence()) tokenFlags |= DO_SPELLCHECK;
-		if (*GetUserVariable("$$cs_badspell")) return;
+		if (*GetUserVariable("$$cs_badspell", false, true)) return;
 		if (spellTrace) {}
 		else if (mytrace & TRACE_INPUT  || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 		{
@@ -3549,12 +3555,12 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 		Log(FORCESTAYUSERLOG,(char*)"\r\n");
 	}
 	
-	char* bad = GetUserVariable("$$cs_badspell"); // spelling says this user is a mess
+	char* bad = GetUserVariable("$$cs_badspell", false, true); // spelling says this user is a mess
 	if (*bad) {}
 	else if (!oobExists)
 	{
 		NLPipeline(mytrace);
-		bad = GetUserVariable("$$cs_badspell");
+		bad = GetUserVariable("$$cs_badspell", false, true); // possibly set by NLPipeline
 	}
     else
     {
@@ -3633,8 +3639,8 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 	
 	if (mytrace & TRACE_INPUT  || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 	{
-		if (analyze) Log(USERLOG,"Actual used analyze input: (%d) ",wordCount);
-		else Log(USERLOG,"Actual used input: (%d) ", wordCount);
+		if (analyze) Log(USERLOG,"Actual used analyze input: (words:%d more:%d) ",wordCount, moreToCome);
+		else Log(USERLOG,"Actual used input words:%d more:%d:    ", wordCount, moreToCome);
 		for (i = 1; i <= wordCount; ++i) 
 		{
 			Log(USERLOG,"%s",wordStarts[i]);
@@ -3656,7 +3662,7 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 			}
 			Log(USERLOG," ");
 		}
-		Log(USERLOG,"    more=%d\r\n\r\n", moreToCome);
+		Log(USERLOG, "\r\n\r\n");
 	}
 
 	if (echoSource == SOURCE_ECHO_LOG) 
@@ -3680,22 +3686,6 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 #ifndef NOMAIN
 int main(int argc, char * argv[]) 
 {
-	GetPrimaryIP(myip);
-	*externalBugLog = 0;
-	*serverlogauthcode = 0;
-	*buildflags = 0;
-	for (int i = 1; i < argc; ++i)
-	{
-		if (!strnicmp(argv[i],"root=",5)) 
-		{
-#ifdef WIN32
-			SetCurrentDirectory((char*)argv[i]+5);
-#else
-			chdir((char*)argv[i]+5);
-#endif
-		}
-	}
-
 	if (InitSystem(argc,argv)) myexit((char*)"failed to load memory");
     ResetToPreUser();
     if (!server) 

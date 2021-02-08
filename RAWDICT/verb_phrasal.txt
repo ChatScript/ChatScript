@@ -1,0 +1,2966 @@
+# http://www.englishclub.com/ref/Phrasal_Verbs
+# http://www.usingenglish.com/reference/phrasal-verbs/
+
+# DO NOT ACCEPT PHRASAL VERBS WITH "it" in them, we don't want "it" ever to be considered a particle. We want particles that are prepositions
+
+abide_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+abound_in VERB_DIRECTOBJECT 
+account_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : give reasons for
+ache_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+acquaint_with VERB_DIRECTOBJECT 
+act_as VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+act_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+act_like VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+act_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+act_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+act_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : make itself felt as a recurring pain
+act_upon VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+add_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  include (cost, flour, figures) When you add something in, you include it or mix it with something else.
+add_on VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : make an addition
+add_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : have an increased effect
+add_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+add_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  equal an amount The total expenses added up to $325.00.
+adhere_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+advise_against VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+advise_of VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB
+agree_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+aim_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+air_out VERB_DIRECTOBJECT 
+allow_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+allow_in VERB_DIRECTOBJECT 
+allude_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ally_with VERB_DIRECTOBJECT  : unite formally
+amount_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+angle_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+answer_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you answer back, you reply rudely.
+answer_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ante_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+appeal_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+appeal_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+apply_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (job, permit, permission, grant, scholarship, loan) When you apply for something, you fill in a form or write a formal letter asking for it.
+apply_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  If something applies to you, it is relevant to you or you are affected by it.
+arch_over VERB_DIRECTOBJECT  : form an arch over
+argue_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+arrive_at VERB_DIRECTOBJECT : to reach a result, a conclusion or a decision after considering relevant factors or details
+arse_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+arse_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ask_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you ask around, you make inquiries.
+ask_after VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you ask after somebody, you inquire how somebody is getting on.
+ask_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you ask around, you make inquiries.
+ask_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ask_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+ask_out VERB_DIRECTOBJECT MUST_BE_SEPARATE_PHRASAL_VERB : If you ask somebody out, you ask someone you like to go on a date with you
+ask_over VERB_DIRECTOBJECT MUST_BE_SEPARATE_PHRASAL_VERB : If you ask some people over, you invite them to your house. 
+ask_round VERB_DIRECTOBJECT MUST_BE_SEPARATE_PHRASAL_VERB 
+associate_with VERB_DIRECTOBJECT : If you associate with someone, you regularly spend time with them. 
+attach_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : be part of
+attend_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : to deal with something or someone 
+attribute_to VERB_DIRECTOBJECT : to believe that something results directly from a certain event or fact 
+auction_off VERB_DIRECTOBJECT : to sell something to the highest bidder at an auction
+average_out VERB_DIRECTOBJECT 
+average_out_at VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : to come to a certain amount on average 
+babble_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+back_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+back_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move backwards from a certain position
+back_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+back_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+back_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+back_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  not keep (a promise, agreement, deal) Sam backed out of the agreement at the last second.
+back_up VERB_NOOBJECT VERB_DIRECTOBJECT : to make an extra copy of digital information on disc, flash drive, external hard drive, etc. in case the original data is lost 
+bag_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bail_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB : o help out someone or something that's in serious trouble, especially financial trouble 
+bail_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bail_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bail_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+balance_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bale_out VERB_DIRECTOBJECT  : remove from a boat by dipping and throwing over the side
+ball_over VERB_DIRECTOBJECT 
+ball_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bandy_about VERB_DIRECTOBJECT  : discuss casually
+bang_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bang_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bang_on_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bang_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : play loudly
+bang_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+bank_on  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : If you bank on something happening or someone doing something, you depend on it or count on it. 
+bargain_down VERB_DIRECTOBJECT  : persuade the seller to accept a lower price
+barge_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+barge_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+base_on VERB_DIRECTOBJECT : to use specific information, ideas or past experiences as a basis for making a decision 
+bash_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bash_in VERB_DIRECTOBJECT 
+bash_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bash_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+batten_down VERB_DIRECTOBJECT  : furnish with battens
+bawl_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+be_after VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+be_along VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you are back, you have returned.  Come back
+be_cut_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_down_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_down_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_due VERB_DIRECTOBJECT 
+be_fed_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_not_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you are off, you leave a place.  Go away
+be_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+be_on_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When something is out, it's available to the public; appear.  Come out
+be_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_out_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_snowed_under VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_taken_aback VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_taken_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_up_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+be_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bear_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : exert a force or cause a strain upon
+bear_down_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bear_down_upon VERB_NOOBJECT VERB_DIRECTOBJECT  : sail towards another vessel, of a ship
+bear_off VERB_DIRECTOBJECT 
+bear_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : to use specific information, ideas or past experiences as a basis for making a decision 
+bear_out VERB_DIRECTOBJECT : to show that someone is correct or that something is true 
+bear_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : endure cheerfully
+bear_up_under VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  withstand How did he bear up under such extreme pressure.
+bear_upon VERB_DIRECTOBJECT 
+bear_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  be patient Please bear with me while I fill out the paperwork.
+beat_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+beat_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : dislodge from a position
+beat_in VERB_DIRECTOBJECT 
+beat_out VERB_DIRECTOBJECT 
+beat_up VERB_DIRECTOBJECT  : to hurt someone by punching, kicking or hitting them with a hard object 
+beaver_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+beaver_away_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+become_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : If you ask what has become of someone you haven't seen or heard from for a long time, you want to know what's happened to them. 
+bed_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bed_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+beef_up VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : to make something stronger or more powerful 
+beetle_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : leave suddenly and as if in a hurry
+beg_off VERB_DIRECTOBJECT 
+begin_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : If an activity or an event begins with something, that's the first thing that happens. 
+believe_in VERB_DIRECTOBJECT VERB_TAKES_GERUND  : have a firm conviction as to the goodness of something
+belly_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+belong_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : If something belongs to a person, it is owned by that person. 
+belt_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+belt_down VERB_DIRECTOBJECT 
+belt_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+belt_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bend_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : to move the upper part of your body forwards and downwards 
+bend_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bend_over_backwards VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bet_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : to be sure that something will happen 
+bind_off VERB_DIRECTOBJECT  : finish the last row
+bind_over VERB_DIRECTOBJECT  : order a defendant to be placed in custody pending the outcome of a proceedings against him or her
+bite_off VERB_DIRECTOBJECT  : bite off with a quick bite
+bite_out VERB_DIRECTOBJECT  : utter
+blab_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+black_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : lose consciousness due to a sudden trauma, for example
+blacken_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : darken completely
+blank_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : cut out, as for political reasons
+blare_out VERB_DIRECTOBJECT  : announce loudly
+blast_off VERB_DIRECTOBJECT  : launch with great force
+blat_out VERB_DIRECTOBJECT 
+blaze_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : speak with fire and passion
+blaze_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+blaze_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+blazon_out VERB_DIRECTOBJECT 
+bleach_out VERB_DIRECTOBJECT 
+blend_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : cause to be mixed with (something else)
+bliss_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+block_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+block_off VERB_DIRECTOBJECT  : obstruct access to
+block_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : plan where and when songs should be inserted into a theatrical production, or plan a theatrical production in general
+block_up VERB_DIRECTOBJECT 
+blossom_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+blot_out VERB_DIRECTOBJECT 
+blow_away VERB_NOOBJECT VERB_DIRECTOBJECT  : to surprise or amaze someone 
+blow_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+blow_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  visit unexpectedly My cousin blew in unexpectedly with his entire family.
+blow_off VERB_NOOBJECT VERB_DIRECTOBJECT  : come off due to an explosion or other strong force
+blow_out VERB_NOOBJECT VERB_DIRECTOBJECT : If a flame blows out, it goes out because someone blows on it or because of the wind. 
+blow_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+blow_up VERB_NOOBJECT VERB_DIRECTOBJECT : use explosives to damage or destroy it. 
+blubber_out VERB_DIRECTOBJECT  : utter while crying
+bluff_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : deceive an opponent by a bold bet on an inferior hand with the result that the opponent withdraws a winning hand
+blunder_out VERB_DIRECTOBJECT 
+blurt_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+board_up VERB_DIRECTOBJECT  : cover with wooden boards
+bob_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bob_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move up and down with no specific path
+bob_under VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : disappear suddenly, as if under the surface of a body of water
+bob_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bog_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : get stuck while doing something
+bog_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bog_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+boil_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+boil_down_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+boil_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : overflow or cause to overflow while boiling
+boil_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bollix_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bollocks_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bolster_up VERB_DIRECTOBJECT 
+bolt_down VERB_DIRECTOBJECT 
+bolt_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bomb_out VERB_DIRECTOBJECT  : make somebody homeless by destroying their houses with bombs
+bomb_up VERB_DIRECTOBJECT  : load an aircraft with bombs
+bone_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bone_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+book_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+book_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+book_up VERB_DIRECTOBJECT  : book all available places or tickets
+boom_out VERB_DIRECTOBJECT 
+boost_up VERB_DIRECTOBJECT  : push upward
+boot_out VERB_DIRECTOBJECT 
+boot_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+border_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : If something like an action or an attitude borders on something more extreme, it is close to being that extreme. 
+boss_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+boss_around VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+botch_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bottle_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bottle_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bottle_up VERB_DIRECTOBJECT  : control and refrain from showing
+bottom_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : hit the ground
+bounce_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : improve in health
+bounce_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bounce_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bounce_out VERB_DIRECTOBJECT  : bounce a ball so that it becomes an out
+bound_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bow_down VERB_DIRECTOBJECT 
+bow_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB : to resign from a job, or to end a career, usually after a long time 
+bowl_over VERB_DIRECTOBJECT 
+box_in VERB_DIRECTOBJECT  : enclose or confine as if in a box
+box_up VERB_DIRECTOBJECT 
+brace_oneself_for VERB_DIRECTOBJECT 
+brace_up VERB_DIRECTOBJECT 
+bracket_out VERB_DIRECTOBJECT 
+branch_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : vary in order to spread risk or to expand
+brass_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you are brassed off, you are angry, upset or fed up.
+brave_out VERB_DIRECTOBJECT 
+break_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+break_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+break_in VERB_NOOBJECT VERB_DIRECTOBJECT 
+break_in_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  interrupt (a conversation) Jane broke in on the conversation and told us to get back to work.
+break_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : change pace
+break_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+break_out VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+break_out_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+break_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  escape The murderer broke out of the prison.
+break_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : penetrate
+break_up VERB_NOOBJECT VERB_DIRECTOBJECT  : laugh unrestrainedly
+break_with VERB_DIRECTOBJECT  : end a relationship
+breathe_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+breathe_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+breeze_along VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+breeze_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+breeze_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+breeze_through VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+brick_in VERB_DIRECTOBJECT 
+brick_over VERB_DIRECTOBJECT  : wall up with brick
+brick_up VERB_DIRECTOBJECT 
+bridge_over VERB_DIRECTOBJECT 
+bridle_at VERB_DIRECTOBJECT 
+bridle_up VERB_DIRECTOBJECT 
+brighten_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+brim_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bring_about VERB_DIRECTOBJECT 
+bring_along VERB_DIRECTOBJECT  :  bring with When we go to the forest, bring your wildlife guide along.
+bring_around VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : return to consciousness
+bring_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :   learn or gain (from an experience) My trip across the Sahara was difficult, but I brought a new appreciation for life away from the experience.
+bring_back VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+bring_down VERB_DIRECTOBJECT 
+bring_forth VERB_DIRECTOBJECT 
+bring_forward VERB_DIRECTOBJECT  : bring forward for consideration
+bring_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+bring_off VERB_DIRECTOBJECT 
+bring_on VERB_DIRECTOBJECT 
+bring_out VERB_DIRECTOBJECT  : direct attention to, as if by means of contrast
+bring_out_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bring_outside VERB_DIRECTOBJECT  : bring outside the body for surgery, of organs
+bring_over VERB_DIRECTOBJECT  :  bring to someone's house When you visit me, why don't you bring over your son.
+bring_round VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+bring_through VERB_DIRECTOBJECT 
+bring_to VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+bring_up VERB_DIRECTOBJECT 
+brisk_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become brisk
+bristle_at VERB_DIRECTOBJECT  : show anger or indignation
+bristle_up VERB_DIRECTOBJECT 
+brush_aside VERB_DIRECTOBJECT 
+brush_down VERB_DIRECTOBJECT  : reprimand
+brush_off VERB_DIRECTOBJECT 
+brush_on VERB_DIRECTOBJECT  : apply with a brush
+brush_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  brush the inside of
+brush_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+brush_up_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :   (English, French, subject) When you brush something up or you brush up on something, you study it to try and revise or improve it a little.  Polish up
+bubble_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : overflow with a certain feeling
+bubble_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+buck_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+buckle_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB : to fasten a seatbelt in a car or on a plane 
+bucket_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bucket_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+buckle_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+buckle_under VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+budge_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+budget_for VERB_DIRECTOBJECT  : calculate enough money for
+buff_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+buff_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bug_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bugger_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+build_in VERB_DIRECTOBJECT  : make something an integral part of something else
+build_on VERB_DIRECTOBJECT 
+build_up VERB_NOOBJECT VERB_DIRECTOBJECT  : enlarge, develop, or increase by degrees or in stages
+build_upon VERB_DIRECTOBJECT  : be based on
+bulge_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bulk_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bull_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bully_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : start a game by a face-off
+bum_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bum_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+bump_around VERB_DIRECTOBJECT 
+bump_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bump_off VERB_DIRECTOBJECT 
+bump_up VERB_DIRECTOBJECT  : increase or raise
+bunch_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bundle_off VERB_DIRECTOBJECT  : send off unceremoniously
+bundle_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+bundle_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : dress warmly
+bunk_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : go to bed
+bunk_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+buoy_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+burn_down VERB_NOOBJECT VERB_DIRECTOBJECT  : burn completely
+burn_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : clear land of its vegetation by burning it off
+burn_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+burn_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+burst_in_on VERB_DIRECTOBJECT  : spring suddenly
+burst_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+burst_out VERB_NOOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+burst_upon VERB_DIRECTOBJECT 
+bush_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : grow outward
+bust_up VERB_DIRECTOBJECT  : smash or break forcefully
+bustle_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move or cause to move energetically or busily
+butt_against VERB_DIRECTOBJECT 
+butt_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+butt_on VERB_DIRECTOBJECT 
+butt_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+butter_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+button_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : refuse to talk or stop talking
+buy_at VERB_DIRECTOBJECT 
+buy_in VERB_DIRECTOBJECT 
+buy_into VERB_DIRECTOBJECT  : buy stocks or shares of a company
+buy_off VERB_DIRECTOBJECT 
+buy_out VERB_DIRECTOBJECT 
+buy_up VERB_DIRECTOBJECT 
+buzz_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+buzz_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cage_in VERB_DIRECTOBJECT 
+call_after VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+call_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+call_at VERB_DIRECTOBJECT  : enter a harbor
+call_back VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+call_down VERB_DIRECTOBJECT 
+call_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+call_forth VERB_DIRECTOBJECT 
+call_in VERB_NOOBJECT VERB_DIRECTOBJECT  : make a phone call
+call_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+call_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+call_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : challenge to a duel
+call_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+call_up VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND  : an order to report for military duty
+calm_down VERB_NOOBJECT VERB_DIRECTOBJECT  : become quiet or less intensive
+camp_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+camp_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cancel_out VERB_DIRECTOBJECT  : wipe out the effect of something
+cannonball_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cant_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cap_off VERB_DIRECTOBJECT  : finish or complete, as with some decisive action
+care_for VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+carried_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+carry_forward VERB_DIRECTOBJECT  : transfer from one time period to the next
+carry_off VERB_DIRECTOBJECT 
+carry_on VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+carry_on_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  continue in an annoying way  He kept carrying on about how much money he makes.
+carry_on_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  continue I want you to carry on with the project while I am out of town.
+carry_out VERB_DIRECTOBJECT 
+carry_over VERB_NOOBJECT VERB_DIRECTOBJECT  : transfer or persist from one stage or sphere of activity to another
+carry_through VERB_DIRECTOBJECT 
+cart_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+carve_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : remove from a larger whole
+carve_up VERB_DIRECTOBJECT 
+cascade_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : rush down in big quantities, like a cascade
+cash_in VERB_DIRECTOBJECT 
+cash_in_on VERB_DIRECTOBJECT  : take advantage of or capitalize on
+cash_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : choose a simpler life style after questioning personal and career satisfaction goals
+cash_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cast_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cast_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : search anxiously
+cast_aside VERB_DIRECTOBJECT 
+cast_down VERB_DIRECTOBJECT 
+cast_off VERB_DIRECTOBJECT 
+cast_on VERB_DIRECTOBJECT  : make the first row of stitches when knitting
+cast_out VERB_DIRECTOBJECT 
+catch_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+catch_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become popular
+catch_out VERB_DIRECTOBJECT  : trap
+catch_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : learn belatedly
+catch_up_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  become up-to-date I need to catch up on world events. I haven't seen the news in ages.
+catch_up_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cater_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cater_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cave_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cavern_out VERB_DIRECTOBJECT 
+center_on VERB_DIRECTOBJECT 
+chain_up VERB_DIRECTOBJECT  : tie up with chains
+chalk_out VERB_DIRECTOBJECT  : make a sketch of
+chalk_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : keep score, as in games
+chalk_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chance_on VERB_DIRECTOBJECT 
+chance_upon VERB_DIRECTOBJECT 
+change_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+change_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+charge_up VERB_DIRECTOBJECT 
+charge_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chase_after VERB_DIRECTOBJECT 
+chase_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : force to go away
+chase_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chase_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you chase somebody or an animal off, you force a person or animal to leave a place with threats or by attacking them.
+chase_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chat_up VERB_NOOBJECT VERB_DIRECTOBJECT  : talk to someone with the aim of persuading him
+cheat_on VERB_DIRECTOBJECT 
+cheat_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+check_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  return to see if everything is OK We will check back tomorrow to make sure the project is finished.
+check_by VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  go to a place to see if everything is OK We need to check by the office to see if the documents are ready.
+check_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  try to find They checked for termites before they bought the house.
+check_in VERB_NOOBJECT VERB_DIRECTOBJECT  : announce one's arrival, e.g. at hotels or airports
+check_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+check_off VERB_DIRECTOBJECT 
+check_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  make sure something is OK Let's check on the baby again before we go to sleep.
+check_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+check_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  leave a hotel, hospital We checked out of the hotel before ten.
+check_over VERB_DIRECTOBJECT 
+check_through VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  send luggage through (to a destination) Your luggage will be checked through to Paris.
+check_up_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+check_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  ask a person for confirmation He needs to check with his parents before he goes.
+cheer_on VERB_DIRECTOBJECT 
+cheer_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+chew_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chew_out VERB_DIRECTOBJECT 
+chew_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+chew_up VERB_DIRECTOBJECT 
+chicken_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : remove oneself from an obligation
+chill_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+chime_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+chin_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+chip_at VERB_DIRECTOBJECT 
+chip_away_at VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : remove or withdraw gradually:
+chip_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chip_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+chirk_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+chisel_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : break into a conversation
+chock_up VERB_DIRECTOBJECT 
+choke_down VERB_DIRECTOBJECT  : suppress
+choke_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+choke_up VERB_DIRECTOBJECT 
+choose_up VERB_DIRECTOBJECT  : form sides, as for a game
+chop_down VERB_DIRECTOBJECT  : cut down
+chop_off VERB_DIRECTOBJECT  : remove by or as if by cutting
+chop_up VERB_DIRECTOBJECT 
+chuck_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chuck_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chuck_out VERB_DIRECTOBJECT 
+chuck_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+chum_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+churn_out VERB_DIRECTOBJECT  : produce something at a fast rate
+churn_up VERB_DIRECTOBJECT 
+circle_around VERB_DIRECTOBJECT 
+clag_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+clam_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+clamp_down VERB_DIRECTOBJECT  : repress or suppress 
+clamp_down_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+clap_on VERB_DIRECTOBJECT 
+clap_up VERB_DIRECTOBJECT 
+claw_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+clean_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  clear the surface of
+clean_out VERB_DIRECTOBJECT  : empty completely
+clean_up VERB_NOOBJECT VERB_DIRECTOBJECT  : make oneself clean, presentable or neat
+clear_away VERB_DIRECTOBJECT  : remove from sight
+clear_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+clear_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+clear_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+click_off VERB_DIRECTOBJECT  : perform or finish an action rapidly
+click_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+climb_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : come down
+climb_on VERB_DIRECTOBJECT 
+climb_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cling_to VERB_DIRECTOBJECT 
+clock_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : register one's arrival at work
+clock_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+clock_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+clock_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : register one's departure from work
+clock_up VERB_DIRECTOBJECT  : record a distance travelled
+clog_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+close_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+close_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : surround completely
+close_in_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  approach and threaten The rebels were closing in on the capital, so the government called in the army.
+close_in_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+close_off VERB_DIRECTOBJECT 
+close_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+close_out VERB_DIRECTOBJECT  : terminate
+close_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+cloud_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become overcast
+cloud_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+clown_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+clown_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+clue_in VERB_DIRECTOBJECT  : provide someone with a clue
+clutter_up VERB_DIRECTOBJECT  : fill a space in a disorderly way
+co-occur_with VERB_DIRECTOBJECT 
+cobble_up VERB_DIRECTOBJECT 
+cock_up VERB_DIRECTOBJECT 
+collide_with VERB_DIRECTOBJECT 
+collocate_with VERB_DIRECTOBJECT  : go or occur together
+color_in VERB_DIRECTOBJECT 
+color_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+colour_in VERB_DIRECTOBJECT 
+colour_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+comb_out VERB_DIRECTOBJECT 
+come_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_across VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_after VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_along_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  accompany Sam came along with us to the beach.
+come_apart VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : happen regularly
+come_around_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_before VERB_DIRECTOBJECT  : be the predecessor of
+come_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : get sick
+come_down_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_down_with VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_forth VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_forth_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_forward VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_in_for VERB_DIRECTOBJECT  : be subject to or the object of
+come_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : obtain, especially accidentally
+come_into_use VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_near VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+come_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : happen in a particular manner
+come_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_out_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_out_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  produce and distribute a product Microsoft is coming out with a new video game system next month.
+come_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_round VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+come_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_through_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_under VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+come_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_up_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+come_up_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (plan, proposal, idea, theory, scheme, solution, suggestion, compromise, money, funding) When you come up with something, it occurs to you or you manage to find it: .
+come_upon VERB_DIRECTOBJECT 
+come_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+conceive_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+concentrate_on VERB_DIRECTOBJECT 
+condole_with VERB_DIRECTOBJECT 
+confer_with VERB_DIRECTOBJECT  : get or ask advice from
+conform_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+conjure_up VERB_DIRECTOBJECT 
+conk_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+connive_at VERB_DIRECTOBJECT VERB_TAKES_GERUND  : give one's silent approval to
+construe_with VERB_DIRECTOBJECT 
+contend_with VERB_DIRECTOBJECT VERB_NOOBJECT
+contract_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : consent in writing to pay money to a trade union for political use
+contract_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : refuse to pay a levy to a union for political use
+contract_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cooccur_with VERB_DIRECTOBJECT 
+cook_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cook_up VERB_DIRECTOBJECT 
+cool_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cool_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+coop_in VERB_DIRECTOBJECT 
+coop_up VERB_DIRECTOBJECT  : confine in or as if in a coop
+cop_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cop_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cop_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (responsibility) When you cop out or cop out of something, you avoid something because you are afraid or you don't want to keep your promise.
+cope_with VERB_DIRECTOBJECT 
+copy_down VERB_DIRECTOBJECT 
+copy_out VERB_DIRECTOBJECT  : copy very carefully and as accurately as possible
+cordon_off VERB_DIRECTOBJECT  : divide by means of a rope
+core_out VERB_DIRECTOBJECT 
+cork_up VERB_DIRECTOBJECT 
+cotton_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cotton_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : ingratiate oneself to
+cough_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cough_up VERB_NOOBJECT VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+could_do_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+count_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : count backwards
+count_in VERB_DIRECTOBJECT  :  include Did you count expenses in?
+count_off VERB_DIRECTOBJECT  : call in turn from right to left or from back to front numbers that determine some position or function
+count_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+count_out VERB_DIRECTOBJECT  : declare the loser
+count_up VERB_DIRECTOBJECT  :  add Count the change up and see how much we have.
+couple_on VERB_DIRECTOBJECT 
+couple_up VERB_DIRECTOBJECT 
+cover_for VERB_DIRECTOBJECT  : provide an excuse or alibi for someone so as to cover up guilt
+cover_up VERB_DIRECTOBJECT 
+cozy_up_to VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+crack_down VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+crack_down_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  become tougher on, better enforce laws on The police have been cracking down on drunk driving.
+crack_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+crack_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+crack_up_at VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  laugh uncontrollably about, laugh a lot about I cracked up at his joke.
+crank_out VERB_DIRECTOBJECT 
+crank_up VERB_DIRECTOBJECT 
+crap_up VERB_DIRECTOBJECT  : become obstructed or chocked up
+crash_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+crawfish_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+crawl_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cream_off VERB_DIRECTOBJECT  : pick the best
+creep_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+creep_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+creep_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+creep_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+creep_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+creep_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : advance stealthily or unnoticed
+creep_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+crock_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+crop_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : appear at the surface
+crop_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+cross_off VERB_DIRECTOBJECT 
+cross_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+crowd_out VERB_DIRECTOBJECT 
+crumb_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+crush_out VERB_DIRECTOBJECT 
+cry_for VERB_DIRECTOBJECT 
+cry_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cry_out VERB_DIRECTOBJECT 
+cry_out_for VERB_DIRECTOBJECT  : need badly or desperately
+cull_out VERB_DIRECTOBJECT  : select desirable parts from a group or list
+curl_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+curtain_off VERB_DIRECTOBJECT  : separate by means of a curtain
+cut_across VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : cut using a diagonal line
+cut_back VERB_NOOBJECT VERB_DIRECTOBJECT 
+cut_back_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (spending, public expenditure, expenses, production, budget, costs) When you cut something back or cut back on something, you reduce something to save money.
+cut_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+cut_down_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (smoking, cigarettes, sugar, fatty foods; luxuries, spending, cost) When you cut down on something, you reduce the ammount you take of it.
+cut_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : mix in with cutting motions
+cut_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  interrupt She cut in on the conversation and delivered the news.
+cut_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cut_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+cut_out VERB_NOOBJECT VERB_DIRECTOBJECT  : having been cut out
+cut_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cut_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+cut_to VERB_DIRECTOBJECT  : move to another scene when filming
+cut_up VERB_DIRECTOBJECT  : cut into pieces
+cycle_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : come to the starting point of a cycle
+dam_up VERB_DIRECTOBJECT 
+dash_down VERB_DIRECTOBJECT  : write down hastily
+dash_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+date_back VERB_NOOBJECT 
+date_from VERB_DIRECTOBJECT 
+dawn_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When something dawns on you, you suddenly begin to understand something.
+deal_in VERB_DIRECTOBJECT 
+deal_out VERB_DIRECTOBJECT 
+deal_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+deck_out VERB_DIRECTOBJECT 
+deck_up VERB_DIRECTOBJECT 
+decide_against VERB_DIRECTOBJECT 
+decide_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+deed_over VERB_DIRECTOBJECT 
+default_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : fail to pay up
+delight_in VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+delve_into  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+depend_on VERB_DIRECTOBJECT  : be dependent on, as for support or maintenance
+depend_upon VERB_DIRECTOBJECT  : put trust in with confidence
+descant_on VERB_DIRECTOBJECT  : sing a descant on a main tune or melody
+describe_as  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+deter_from  VERB_DIRECTOBJECT VERB_INDIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+devolve_on VERB_DIRECTOBJECT 
+devote_to VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB
+die_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+die_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become progressively weaker
+die_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+die_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+die_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become extinct
+dig_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dig_into VERB_DIRECTOBJECT 
+dig_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dig_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (soil, patch, garden, flowerbed) When you dig something over, you break the ground into smaller pieces with a spade or fork so that plants can grow.
+dig_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+dine_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : eat at home
+dine_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : eat at a restaurant or at somebody else's home
+dine_out_on VERB_DIRECTOBJECT 
+dip_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dip_into VERB_DIRECTOBJECT  : read selectively
+dip_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+disagree_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : not be very easily digestible
+dish_out VERB_DIRECTOBJECT 
+dish_up VERB_DIRECTOBJECT 
+dispense_with VERB_DIRECTOBJECT  : forgo or do or go without
+dispose_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : deal with or settle
+dive_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dive_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+divide_up VERB_DIRECTOBJECT 
+divvy_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+divvy_up VERB_DIRECTOBJECT 
+do_a_job_on VERB_DIRECTOBJECT  : destroy completely or make ugly or useless
+do_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+do_away_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+do_by VERB_DIRECTOBJECT 
+do_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+do_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+do_over VERB_DIRECTOBJECT  :  repeat You made many mistakes, so I want you to do the report over.
+do_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+do_well_by VERB_DIRECTOBJECT  : treat with respect and consideration
+do_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  
+do_without VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  manage without something one wants or needs I couldn't do without a car in California.
+doctor_up VERB_DIRECTOBJECT 
+dole_out VERB_DIRECTOBJECT 
+doll_up VERB_DIRECTOBJECT 
+dope_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+dope_up VERB_DIRECTOBJECT 
+doss_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+doss_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+doss_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+double_cross VERB_DIRECTOBJECT 
+double_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+double_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : stake winnings from one bet on a subsequent wager
+doze_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drag_down VERB_DIRECTOBJECT 
+drag_in VERB_DIRECTOBJECT 
+drag_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drag_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drag_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+draw_a_bead_on VERB_DIRECTOBJECT 
+draw_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+draw_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+draw_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+draw_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+draw_near VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+draw_off VERB_DIRECTOBJECT 
+draw_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+draw_out VERB_DIRECTOBJECT 
+draw_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+dream_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dream_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+dredge_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : mention something unpleasant from the past
+dress_down VERB_NOOBJECT VERB_DIRECTOBJECT  : dress informally and casually
+dress_out VERB_DIRECTOBJECT 
+dress_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+drift_apart VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : lose personal contact over time
+drift_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drill_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drill_down_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drill_in VERB_DIRECTOBJECT 
+drill_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drink_down VERB_DIRECTOBJECT 
+drink_in VERB_DIRECTOBJECT 
+drink_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drive_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drive_away VERB_DIRECTOBJECT 
+drive_back VERB_DIRECTOBJECT 
+drive_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drive_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : cause a run or runner to be scored
+drive_off VERB_DIRECTOBJECT 
+drive_out VERB_DIRECTOBJECT 
+drive_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : approach while driving
+drone_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : talk in a monotonous voice
+drool_over VERB_DIRECTOBJECT 
+drop_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : take position in the rear, as in a military formation or in the line of scrimmage in football
+drop_behind VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_in_at VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_in_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  visit someone unexpectedly Let's drop in on Julie since we're driving by her house.
+drop_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+drop_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  quit an organized activity (school) It's difficult to get a good job if you drop out of high school.
+drop_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  visit someone casually Drop over any time you feel like talking.
+drop_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drop_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drown_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drown_out VERB_DIRECTOBJECT  : make imperceptible
+drowse_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+drum_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+drum_out VERB_DIRECTOBJECT 
+drum_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+dry_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dry_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+duck_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+duff_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dumb_down VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (language, news, test) When you dumb something down, you make it easier so that everybody can understand it.
+dummy_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dust_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  dust the inside of
+dwell_on VERB_DIRECTOBJECT 
+dwell_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+dwindle_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+earth_up VERB_DIRECTOBJECT  : block with earth, as after a landslide
+ease_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : reduce pressure or intensity
+ease_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+eat_at VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+eat_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : wear away or erode
+eat_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+eat_into VERB_DIRECTOBJECT 
+eat_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+eat_up VERB_DIRECTOBJECT 
+ebb_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : flow back or recede
+ebb_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ebb_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ebb_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+edge_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : push one's way into
+edge_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+edge_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+edit_out VERB_DIRECTOBJECT 
+egg_on VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+eke_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+embark_on VERB_DIRECTOBJECT 
+embark_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+empty_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+encroach_upon VERB_DIRECTOBJECT  : to intrude upon, infringe, encroach on, violate
+end_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+end_up VERB_NOOBJECT VERB_TAKES_ADJECTIVE VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+end_up_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+end_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+engage_in VERB_DIRECTOBJECT VERB_INDIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+enter_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+enter_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+enter_upon VERB_DIRECTOBJECT  : take possession of
+entitle_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+entrust_to VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB
+entrust_with VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB
+escape_from VERB_DIRECTOBJECT 
+even_off VERB_DIRECTOBJECT 
+even_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+even_up VERB_DIRECTOBJECT 
+excel_at VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+explain_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you explain something away, you give an excuse to avoid blame.
+extend_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+expose_to VERB_DIRECTOBJECT VERB_INDIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+extricate_from VERB_DIRECTOBJECT VERB_INDIRECTOBJECT 
+eye_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you eye somebody up, you look at them in a way that shows you are sexually interested in them.
+face_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+face_up VERB_DIRECTOBJECT 
+face_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  acknowledge something difficult or embarrassing I'll never be able to face up to my colleagues after getting so drunk last night at the work party.
+face_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+factor_in VERB_DIRECTOBJECT 
+factor_out VERB_DIRECTOBJECT  : resolve into factors
+fade_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fade_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+faff_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+faff_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fag_out VERB_DIRECTOBJECT 
+faggot_up VERB_DIRECTOBJECT  : bind or tie up in or as if in a faggot
+fall_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_all_over VERB_DIRECTOBJECT  : display excessive love or show excessive gratitude towards
+fall_apart VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_back_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you fall back on somebody or something, you turn to them or use it when in difficulty or because no other choice is available; resort to.
+fall_behind VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_behind_in VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  go slower than scheduled, lag Cheryl has missed several days of school and now she is falling behind in her homework.
+fall_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : fall in love with
+fall_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_into VERB_DIRECTOBJECT 
+fall_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_out_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  have an argument with I had a falling out with my sister last month and we haven't talked to each other since.
+fall_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : fall forward and down
+fall_short_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : fail to satisfy, as of expectations, for example
+fall_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fall_under VERB_DIRECTOBJECT  : be included in or classified as
+fall_upon VERB_DIRECTOBJECT 
+fan_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fancy_up VERB_DIRECTOBJECT 
+farm_out VERB_DIRECTOBJECT 
+fart_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fart_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fasten_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fasten_on VERB_DIRECTOBJECT  : adopt
+fasten_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fasten_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fathom_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fatten_out VERB_DIRECTOBJECT 
+fatten_up VERB_DIRECTOBJECT 
+fawn_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fawn_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fed_up_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you are fed up with something or somebody, you are tired, depressed, bored or no longer interested in them.
+feed_in VERB_DIRECTOBJECT 
+feed_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+feed_on VERB_DIRECTOBJECT 
+feed_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+feed_up_with  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  # only happens as fed up with
+feed_upon VERB_DIRECTOBJECT  : be sustained by
+feel_for VERB_DIRECTOBJECT 
+feel_like VERB_DIRECTOBJECT VERB_TAKES_GERUND  : have an inclination for something or some activity
+feel_out VERB_DIRECTOBJECT 
+feel_up VERB_DIRECTOBJECT  :  grope She sued her boss for sexual harassment after he felt her up.
+feel_up_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  have the energy to do something I don't feel up to going out tonight because I had a long day at work.
+feel_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  have the energy to do something I don't feel up to going out tonight because I had a long day at work.
+felt_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fence_in VERB_DIRECTOBJECT 
+fend_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fend_off VERB_DIRECTOBJECT 
+ferret_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : search and discover through persistent investigation
+fess_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fess_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fetch_up VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+fiddle_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fiddle_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fiddle_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fiddle_with VERB_DIRECTOBJECT 
+fig_out VERB_DIRECTOBJECT 
+fig_up VERB_DIRECTOBJECT 
+fight_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fight_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fight_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+figure_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  expect Where do you figure on living when you move to the the U.S.A.?
+figure_out VERB_DIRECTOBJECT 
+figure_up VERB_DIRECTOBJECT  :  calculate I need to figure my expenses up before I give you an estimate.
+file_away VERB_DIRECTOBJECT 
+file_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : enter by marching in a file
+file_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : march out, in a file
+fill_in VERB_NOOBJECT VERB_DIRECTOBJECT  : supply with information on a specific topic
+fill_in_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you fill in for somebody, you do their job temporarily because they can't.  Cover for, sit in for, stand in for
+fill_in_on VERB_DIRECTOBJECT  :  (details) When you fill somebody in, or fill somebody in on something, you give them information.
+fill_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+fill_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+film_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+filter_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+filter_out VERB_DIRECTOBJECT 
+find_out VERB_DIRECTOBJECT 
+finish_off VERB_DIRECTOBJECT 
+finish_out VERB_DIRECTOBJECT  : fill out
+finish_up VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+finish_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+fink_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fink_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fire_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fire_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fire_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+firm_up VERB_DIRECTOBJECT  : arrange firmly
+fish_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fit_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fit_into VERB_DIRECTOBJECT 
+fit_out VERB_DIRECTOBJECT 
+fit_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fit_together  VERB_DIRECTOBJECT  
+fix_up VERB_DIRECTOBJECT 
+fizzle_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : end weakly
+flag_down VERB_DIRECTOBJECT  : signal to stop
+flag_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flake_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+flake_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+flame_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flame_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : burn brightly
+flap_down VERB_DIRECTOBJECT 
+flare_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : become flared and widen, usually at one end
+flare_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+flatten_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become flat or flatter
+flesh_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flick_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flick_through VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (magazine, book, album, article, channels, cards) When you flick through something, you read or look quickly at the pages of a magazine or book. It also means to change repeatedly from one station or channel to another.
+fling_off VERB_DIRECTOBJECT 
+flip_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flip_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+flip_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flip_through VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :   (magazine, book, album, article, channels, cards) When you flip through something, you read or look quickly at the pages of a magazine or book. It also means to change repeatedly from one station or channel to another.
+flirt_with VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+flog_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flood_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : arrive in great numbers
+flood_out VERB_DIRECTOBJECT 
+flounce_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flounce_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+flow_from VERB_DIRECTOBJECT  : be the result of
+flow_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+flow_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+fluff_up VERB_DIRECTOBJECT  : make fuller by shaking
+flump_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : fall heavily
+flush_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : flow freely
+flush_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (rebels, resistance, militants, guerrillas, criminals) When you flush somebody out, you force them to leave a place.
+fly_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fly_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fly_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fly_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : pass by while flying
+fly_in_the_face_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+fly_in_the_teeth_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : go against
+fly_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fly_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : continue flying
+fob_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+fob_off_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fob_off_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fob_off_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+focus_on VERB_DIRECTOBJECT 
+fog_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : get foggy
+foist_off VERB_DIRECTOBJECT  : sell as genuine, sell with the intention to deceive
+fold_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+follow_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+follow_on_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+follow_out VERB_DIRECTOBJECT 
+follow_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : pursue to a conclusion or bring to a successful issue
+follow_up VERB_DIRECTOBJECT  : increase the effectiveness or success of by further action
+follow_up_on VERB_DIRECTOBJECT 
+fool_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+foot_up VERB_DIRECTOBJECT 
+foray_into VERB_DIRECTOBJECT  : enter someone else's territory and take spoils
+force_into VERB_DIRECTOBJECT VERB_INDIRECTOBJECT MUST_BE_SEPARATE_PHRASAL_VERB
+force_out VERB_DIRECTOBJECT 
+forge_ahead VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fork_out VERB_DIRECTOBJECT 
+fork_over VERB_DIRECTOBJECT 
+fork_up VERB_DIRECTOBJECT 
+fort_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+foul_out VERB_DIRECTOBJECT  : baseball: hit a ball such that it is caught from an out in foul territory
+foul_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+frame_in VERB_DIRECTOBJECT 
+frame_up VERB_DIRECTOBJECT 
+freak_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+free_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+freeze_down VERB_DIRECTOBJECT 
+freeze_off VERB_DIRECTOBJECT 
+freeze_out VERB_DIRECTOBJECT 
+freeze_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+freeze_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+freshen_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : become or make oneself fresh again
+frig_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+frighten_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+frighten_off VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+front_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+front_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+front_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+front_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+front_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+frost_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become covered with a layer of ice
+frown_on VERB_DIRECTOBJECT 
+frown_upon VERB_DIRECTOBJECT  : look disapprovingly upon
+fuck_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you fuck about, you behave in a stupid way which annoys people.
+fuck_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you fuck around, you behave in a stupid way which annoys people.
+fuck_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+fuck_up VERB_NOOBJECT VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+function_as VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+furbish_up VERB_DIRECTOBJECT 
+fuss_over VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+gad_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+gad_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+gag_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+gang_up VERB_DIRECTOBJECT 
+gang_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+garbage_down VERB_DIRECTOBJECT  : eat a large amount of food quickly
+gas_up VERB_DIRECTOBJECT  : fill with gasoline
+gather_in VERB_DIRECTOBJECT  : fold up
+gather_up VERB_DIRECTOBJECT 
+gear_up VERB_DIRECTOBJECT 
+geek_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+get_above VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_across VERB_NOOBJECT VERB_DIRECTOBJECT 
+get_across_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_after VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_ahead VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+get_ahead_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  surpass You need to work overtime in order to get ahead of schedule.
+get_along VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_along_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_along_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : have smooth relations
+get_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_around_to VERB_DIRECTOBJECT VERB_TAKES_GERUND  : do something despite obstacles such as lack of time
+get_at VERB_DIRECTOBJECT 
+get_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+get_away_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_away_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you get away with something, you are not punished for something wrong you have done.
+get_back VERB_NOOBJECT VERB_DIRECTOBJECT 
+get_back_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_back_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_back_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_back_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_behind VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_behind_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_by_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  survive with minimal resources It's nearly impossible to get by on making minimum wage.
+get_by_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  manage with You don't need a computer. You can get by with the typewriter.
+get_down VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+get_down_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_down_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  get serious about a topic Enough small talk. Let's get down to business.
+get_hitched_with VERB_DIRECTOBJECT 
+get_hold_of VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+get_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_in_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_into VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+get_off VERB_NOOBJECT VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+get_off_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_off_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_on VERB_NOOBJECT VERB_DIRECTOBJECT 
+get_on_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_on_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_on_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_on_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  exit (a small boat, car, an enclosed area) I fell into the water when I tried to get out of the canoe.
+get_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_over_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_rid_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+get_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you get round, you go to different places; you travel.
+get_round_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_the_better_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+get_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : finish a task completely
+get_through_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you get through to somebody, you manage to make them understand something.
+get_through_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  finish Have you gotten through with your homework yet?
+get_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : arrive at the point of
+get_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+get_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+get_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ginger_up VERB_DIRECTOBJECT  : make more interesting or lively
+give_away VERB_DIRECTOBJECT 
+give_birth VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB
+give_birth_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+give_back VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+give_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+give_in_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+give_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+give_off VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : have as a by-product
+give_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+give_out VERB_NOOBJECT VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+give_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+give_over_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+give_the_once_over VERB_DIRECTOBJECT  : look at with a critical eye
+give_tongue_to VERB_DIRECTOBJECT 
+give_up VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+give_up_on VERB_DIRECTOBJECT 
+give_up_to VERB_DIRECTOBJECT 
+give_way VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+give_way_to VERB_DIRECTOBJECT 
+give_yourself_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+give_yourself_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+glam_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+glance_over VERB_DIRECTOBJECT 
+glass_in VERB_DIRECTOBJECT 
+glass_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+glaze_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+glide_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+gloss_over VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : cover up a misdemeanor, fault, or error
+gnaw_at VERB_NOOBJECT VERB_DIRECTOBJECT 
+gnaw_away_at VERB_DIRECTOBJECT 
+go_about VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+go_across VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_after VERB_DIRECTOBJECT 
+go_against VERB_DIRECTOBJECT 
+go_ahead VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+go_ahead_with VERB_DIRECTOBJECT 
+go_all_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+go_along VERB_NOOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+go_along_with VERB_DIRECTOBJECT 
+go_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+go_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_back_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_before VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_below VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : be or act in accordance with
+go_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_down_on VERB_DIRECTOBJECT 
+go_down_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_down_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_far VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+go_for VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+go_forth VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+go_forward VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+go_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_in_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  participate ( inf.) Are you going to go in for soccer this year at school?
+go_in_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_off_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_on VERB_NOOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+go_on_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you go on about something, you talk continuously about it in a boring and annoying way.
+go_on_at VERB_DIRECTOBJECT 
+go_on_to VERB_DIRECTOBJECT 
+go_on_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  continue ( a plan, a conversation) I think we should go on with the meeting and stop wasting time.
+go_one VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : become extinguished
+go_out_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_out_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_out_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_over_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_past VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_through_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  continue or proceed despite difficulties or fears I have decided to go through with the operation.
+go_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_towards VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_under VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : be called
+go_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+go_with VERB_NOOBJECT 
+go_without VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  abstain from something you want or need A person can go without water for three days.
+gobble_up VERB_DIRECTOBJECT 
+goof_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+goof_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you goof off, you spend time doing nothing, esp. avoiding work.  Skive off
+goof_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+gouge_out VERB_DIRECTOBJECT  : make gouges into a surface
+grass_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grass_over VERB_DIRECTOBJECT 
+grass_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grey_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grind_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grind_down VERB_DIRECTOBJECT  : rule a country as a tyrant
+grind_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grind_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grind_out VERB_DIRECTOBJECT  : produce in a routine or monotonous manner
+grind_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grope_for VERB_DIRECTOBJECT 
+gross_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ground_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : make an out by hitting the ball on the ground
+grow_apart VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_away_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_over VERB_DIRECTOBJECT  : grow beyond or across
+grow_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become an adult
+grow_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grow_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+grub_out VERB_DIRECTOBJECT  : dig up
+grub_up VERB_DIRECTOBJECT 
+guide_on VERB_DIRECTOBJECT 
+gum_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : stick together as if with gum
+gun_down VERB_DIRECTOBJECT  : strike down or shoot down
+gun_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+gussy_up VERB_DIRECTOBJECT 
+hack_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hack_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hack_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hack_on VERB_DIRECTOBJECT  : fix a computer program piecemeal until it works
+ham_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hammer_away_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hammer_in VERB_DIRECTOBJECT  : teach by drills and repetition
+hammer_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hammer_out VERB_DIRECTOBJECT 
+hand_back VERB_DIRECTOBJECT  :  return Is the teacher going to hand back our tests today?
+hand_down VERB_DIRECTOBJECT  : passed on, as by inheritance
+hand_in VERB_DIRECTOBJECT  :  submit I have to hand in an offer by March 12.
+hand_on VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (custom, story, clothes, knowledge, responsibility) When you hand something on, you give it to somebody who is younger or who comes later.
+hand_out VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+hand_over VERB_DIRECTOBJECT 
+hang_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  Wait around.
+hang_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_back_from VERB_DIRECTOBJECT 
+hang_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_in_there VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : spend time in a certain location or with certain people
+hang_out_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  drunk remnant
+hang_together VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be connected
+hang_up VERB_NOOBJECT VERB_DIRECTOBJECT  : interrupt a telephone conversation
+hang_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hang_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hanker_after VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hanker_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+happen_upon VERB_DIRECTOBJECT 
+harp_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+harsh_on VERB_DIRECTOBJECT  : criticize harshly
+hash_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hash_over VERB_DIRECTOBJECT 
+haul_off VERB_DIRECTOBJECT 
+haul_out VERB_DIRECTOBJECT 
+haul_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+have-to_doe_with VERB_DIRECTOBJECT 
+have_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+have_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+have_back VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you have somebody back, they return after having left.
+have_down VERB_DIRECTOBJECT  : have mastered
+have_down_as VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+have_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+have_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+have_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB : what are you wearing 
+have_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  invite guests to your home Why don't we have Mr. and Mrs. Jones over for dinner tonight.
+have_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+have_to_do_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+have_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+haze_over VERB_DIRECTOBJECT 
+head_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+head_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+head_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+head_up VERB_DIRECTOBJECT 
+heap_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hear_from VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  receive news from (a letter, an e-mail) Have you heard from Steve lately?
+hear_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  know about something or somebody Have you heard of chocolate covered ants?
+hear_out VERB_DIRECTOBJECT  : listen to every detail and give a full hearing to
+heat_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+heave_up VERB_DIRECTOBJECT  : lift or elevate
+hedge_in VERB_DIRECTOBJECT 
+heft_up VERB_DIRECTOBJECT 
+help_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be of help, as in a particular situation of need
+hem_in VERB_DIRECTOBJECT 
+hew_out VERB_DIRECTOBJECT  : make or shape as with an axe
+hide_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hike_up VERB_DIRECTOBJECT 
+hinge_on VERB_DIRECTOBJECT 
+hinge_upon VERB_DIRECTOBJECT 
+hire_out VERB_DIRECTOBJECT  : grant the services of or the temporary use of, for a fee
+hit_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hit_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hit_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  find on accident I hit on the idea while watching the Simpsons show.
+hit_out_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hit_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hit_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hit_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hit_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hitch_up VERB_DIRECTOBJECT  : pull up
+hive_off VERB_DIRECTOBJECT  : withdraw and move into a different location, often secretly and with dishonest intentions
+hive_up VERB_DIRECTOBJECT 
+hold_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_back VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+hold_back_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_down VERB_DIRECTOBJECT  : restrain
+hold_forth VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : talk at length and formally about a topic
+hold_in VERB_DIRECTOBJECT 
+hold_off VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND  : resist and fight to a standoff
+hold_off_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  delay We should hold off on making dinner until your parents arrive.
+hold_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_on_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  grasp tightly Make sure you hold on to the hand rail as you walk down the stairs.
+hold_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_out_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_out_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : intimidate somebody 
+hold_still_for VERB_DIRECTOBJECT  : tolerate or bear
+hold_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hold_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+hold_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hole_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hole_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+holler_out VERB_DIRECTOBJECT  : shout out
+hollow_out VERB_DIRECTOBJECT 
+home_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+home_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hone_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hook_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hook_up VERB_DIRECTOBJECT  : connect or link
+hook_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hook_up_with VERB_DIRECTOBJECT 
+hoon_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hop_on VERB_DIRECTOBJECT 
+hop_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hop_up VERB_DIRECTOBJECT 
+horn_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+horse_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hose_down VERB_DIRECTOBJECT 
+hot_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hound_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hunch_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+hung_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+hunker_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : hold stubbornly to a position
+hunt_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+hunt_out VERB_DIRECTOBJECT 
+hunt_up VERB_DIRECTOBJECT 
+hurry_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you hurry up, you go faster.
+hush_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+hype_up VERB_DIRECTOBJECT 
+ice_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ice_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+impinge_on VERB_DIRECTOBJECT 
+inhere_in VERB_DIRECTOBJECT 
+insist_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+# interest_in is avoided in favor of in as preposition- 
+intrude_on VERB_DIRECTOBJECT 
+invite_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you invite somebody in, you ask them to come in. Ask in
+invite_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : make a date
+invite_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you invite somebody over, you ask them to pay you a visit.
+invite_round VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you invite somebody over, you ask them to pay you a visit.
+iron_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+issue_forth VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+itch_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you itch for something, you desperately want to have it or do it.  Long for
+jack_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+jack_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (job, course, studies) When you jack something in, you stop doing something you don't like.  Pack in
+jack_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+jack_up VERB_DIRECTOBJECT 
+jam_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :   When you jam the breaks on, you use them suddenly with a lot of force.  Slam on
+jar_against VERB_DIRECTOBJECT 
+jaw_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+jazz_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : wander aimlessly in search of pleasure
+jazz_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+jerk_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+jest_at VERB_DIRECTOBJECT 
+join_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  (work, applause, celebrations, fun, game, discussion) When you join in, you take part or become involved.
+join_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you join up, you become a member of the Armed forces.
+joke_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  to be humorous Mike is always joking around at work.
+jolly_along VERB_DIRECTOBJECT 
+jolly_up VERB_DIRECTOBJECT 
+jot_down VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+juice_up VERB_DIRECTOBJECT 
+jumble_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  (papers, thoughts, ideas, emotions) When things are jumbled up, they are all mixed together.  Mix up
+jump_all_over VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+jump_at VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (chance, offer, opportunity) When you jump at something, you take it quickly.  Leap at
+jump_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :   enter a conversation Feel free to jump in at any moment while we are talking.
+jump_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : set off quickly, usually with success
+jump_on VERB_DIRECTOBJECT 
+jump_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+jump_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  make a quick, poorly thought out decision You shouldn't jump to conclusions.
+jut_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+keel_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : turn over and fall
+keep_an_eye_on VERB_DIRECTOBJECT 
+keep_around VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  have handy, have accessible I always keep a dictionary around to translate new words.
+keep_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  not give up (an activity), to persevere You should keep at your studies.
+keep_away VERB_NOOBJECT VERB_DIRECTOBJECT  : prevent from coming close
+keep_back VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+keep_down VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : manage not to throw up
+keep_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+keep_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : cause to stay indoors
+keep_off VERB_DIRECTOBJECT  : refrain from entering or walking onto or keep something off something
+keep_on VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+keep_on_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you keep on at something, you continue talking to somebody or about something in a boring or annoying way.
+keep_on_at VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you keep on at something, you continue talking to somebody or about something in a boring or annoying way.
+keep_out VERB_NOOBJECT VERB_DIRECTOBJECT  : remain outside
+keep_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :   cover something with, put something above I keep a tarp over my bicycle at night to prevent it from getting wet.
+keep_pace VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+keep_tabs_on VERB_DIRECTOBJECT  : keep a record on or watch attentively
+keep_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (path, subject, arrangement, routine, plan, rules, regulation, promise, minimum) When you keep to something, you do what you are supposed to do.  Stick to
+keep_up VERB_NOOBJECT VERB_DIRECTOBJECT  : prevent from going to bed at night ; keep something up like payments
+keep_up_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+keep_up_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (conversation, payments, pace, speed, good work) When you keep something up, you continue doing it or it remains at the same level.
+key_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+key_out VERB_DIRECTOBJECT 
+kick_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kick_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : discuss lightly
+kick_around_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kick_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kick_down VERB_DIRECTOBJECT  : open violently
+kick_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kick_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kick_out VERB_DIRECTOBJECT 
+kick_up VERB_DIRECTOBJECT  : raising the feet backward with the hands on the ground
+kill_off VERB_DIRECTOBJECT 
+kink_up VERB_DIRECTOBJECT 
+kip_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+kiss_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kiss_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+kit_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+kit_up VERB_DIRECTOBJECT 
+kneel_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+knock_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+knock_against VERB_DIRECTOBJECT  : collide violently with an obstacle
+knock_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+knock_back VERB_DIRECTOBJECT  : cost a certain amount
+knock_down VERB_DIRECTOBJECT 
+knock_off VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+knock_out VERB_DIRECTOBJECT  : destroy or break forcefully
+knock_over VERB_DIRECTOBJECT 
+knock_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+knock_up VERB_DIRECTOBJECT 
+know_what_is_going_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  be well-informed
+knuckle_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+knuckle_under VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lace_into VERB_DIRECTOBJECT 
+lace_up VERB_DIRECTOBJECT 
+lag_behind VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you lag behind, you move more slowly than others.
+lam_into VERB_DIRECTOBJECT 
+land_up VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+lap_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+lark_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lark_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lash_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lash_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lash_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lash_out_at VERB_DIRECTOBJECT 
+lash_out_on VERB_DIRECTOBJECT 
+last_out VERB_DIRECTOBJECT 
+latch_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+latch_on_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+latch_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+laugh_at VERB_DIRECTOBJECT 
+laugh_off VERB_DIRECTOBJECT 
+lay_aside VERB_DIRECTOBJECT 
+lay_away VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lay_down VERB_DIRECTOBJECT 
+lay_eyes_on VERB_DIRECTOBJECT  : see with attention
+lay_hands_on VERB_DIRECTOBJECT  : manage with the hands
+lay_in VERB_DIRECTOBJECT 
+lay_in_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  scold or criticize severely My mom really laid in on me when I got home at 4:00 in the morning last night.
+lay_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lay_off VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+lay_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lay_out VERB_DIRECTOBJECT 
+lay_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lay_up VERB_DIRECTOBJECT  : disable or confine, as with an illness
+lay_waste_to VERB_DIRECTOBJECT 
+lead_off VERB_DIRECTOBJECT 
+lead_on VERB_DIRECTOBJECT  : entice or induce especially when unwise or mistaken
+lead_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lead_up VERB_DIRECTOBJECT 
+leak_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be leaked
+lean_against VERB_DIRECTOBJECT  : rest on for support
+lean_on VERB_DIRECTOBJECT 
+leap_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+leave_behind VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+leave_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : stop using
+leave_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+leave_out VERB_DIRECTOBJECT 
+lech_after VERB_DIRECTOBJECT 
+leech_onto VERB_DIRECTOBJECT  : admire boundlessly and follow around
+let_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+let_go_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+let_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+let_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+let_on VERB_NOOBJECT VERB_DIRECTOBJECT 
+let_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : make larger
+let_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+level_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lie_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lie_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : hang around idly
+lie_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : assume a reclining position
+lie_down_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  rest, recline ( on a couch, bed) I'm going to lie down on the sofa for a while.
+lie_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be in confinement for childbirth
+lie_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lift_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lift_out VERB_DIRECTOBJECT 
+lift_up VERB_DIRECTOBJECT 
+light_something_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When something lights something else up, it makes bright or full of light.
+light_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+light_upon VERB_DIRECTOBJECT 
+lighten_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : become lighter
+limber_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+limber_up_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+line_up VERB_NOOBJECT VERB_DIRECTOBJECT  : place in a line or arrange so as to be parallel or straight
+linger_over VERB_DIRECTOBJECT  : delay
+link_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+link_up_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lip_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+listen_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : listen quietly, without contributing to the conversation
+listen_out_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_down VERB_DIRECTOBJECT  : live so as to annul some previous behavior
+live_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_over VERB_DIRECTOBJECT  : experience again, often in the imagination
+live_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+live_together VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : share living quarters
+live_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+liven_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+load_down VERB_DIRECTOBJECT 
+load_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+load_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lock_away VERB_DIRECTOBJECT 
+lock_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lock_in VERB_DIRECTOBJECT 
+lock_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lock_out VERB_DIRECTOBJECT  : prevent employees from working during a strike
+lock_up VERB_DIRECTOBJECT 
+lock_yourself_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lodge_in VERB_DIRECTOBJECT 
+log_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : enter a computer
+log_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+log_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+log_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+log_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : exit a computer
+log_up VERB_DIRECTOBJECT 
+loll_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+look_across VERB_DIRECTOBJECT 
+look_after VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : keep under careful scrutiny
+look_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : look about oneself
+look_at VERB_DIRECTOBJECT 
+look_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_back_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  to remember nostalgically When I look back on my childhood, I often feel angry.
+look_down_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : regard with contempt
+look_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_forward_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  anticipate with pleasure I am looking forward to traveling to New York next year.
+look_foward_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you look foward to something, you can't wait for it to happen because you know you will enjoy it.
+look_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_like VERB_DIRECTOBJECT  : bear a physical resemblance to
+look_on VERB_NOOBJECT  INSEPARABLE_PHRASAL_VERB 
+look_on_as  VERB_DIRECTOBJECT MUST_BE_SEPARATE_PHRASAL_VERB 
+look_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : to protect someone's interests
+look_out_for VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+look_out_on VERB_DIRECTOBJECT 
+look_out_over VERB_DIRECTOBJECT  : be oriented in a certain direction
+look_over VERB_DIRECTOBJECT  :  examine, review When I'm camping, I look my shoes over before I put them on.
+look_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you look round a place, you visit it.
+look_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : turn one's interests or expectations towards
+look_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+look_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_upon VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+look_upon_as VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+loose_off VERB_DIRECTOBJECT  : fire as from a gun
+loosen_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+lop_off VERB_DIRECTOBJECT 
+lose_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lose_out_on VERB_DIRECTOBJECT 
+lose_out_to VERB_DIRECTOBJECT 
+lose_sight_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : be no longer able to see
+lounge_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+lounge_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+louse_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+luck_into VERB_DIRECTOBJECT 
+luck_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+luck_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : act by relying on one's luck
+lump_together VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you lump things together, you put them in one group or treat them in the same way.
+lust_after VERB_DIRECTOBJECT  : have a strong sexual desire for
+magic_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mail_out VERB_DIRECTOBJECT  : transmit by mail
+make_a_clean_breast_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : admit or acknowledge a wrongdoing or error
+make_after VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you make after somebody or an animal, you chase them.
+make_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :   When criminals make away, they escape.  Make off
+make_away_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (jewels, money) When criminals make away with something, they steal it and take it away.  Make off with
+make_do_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+make_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+make_fun_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+make_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you make something into something else, you change it into something else.  Turn into
+make_no_bones_about VERB_DIRECTOBJECT  : acknowledge freely and openly
+make_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+make_off_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+make_out VERB_NOOBJECT VERB_DIRECTOBJECT  : comprehend
+make_out_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :   kiss someone passionately Did you make out with Sally?
+make_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+make_up VERB_NOOBJECT VERB_DIRECTOBJECT  : apply make-up or cosmetics to one's face to appear prettier
+make_up_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  compensate for Allen made up for being late by getting me flowers.
+make_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+make_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+map_out VERB_DIRECTOBJECT 
+march_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+march_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : march out into open ground
+mark_down VERB_DIRECTOBJECT  : reduce the price of
+mark_down_as VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mark_off VERB_DIRECTOBJECT  : set boundaries to and delimit
+mark_out VERB_DIRECTOBJECT 
+mark_out_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mark_out_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mark_up  VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : increase the price of
+marry_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+marry_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mash_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mat_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+matte_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+matter_to VERB_DIRECTOBJECT 
+max_out VERB_NOOBJECT VERB_DIRECTOBJECT  : reach a maximum
+measure_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+measure_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+measure_out VERB_DIRECTOBJECT 
+measure_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : prove capable or fit
+measure_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (standard, description, expectations, responsibilities) When somebody or something measures up to something, they reach or fulfill something or are as good as something else.
+meet_up_with VERB_DIRECTOBJECT  : meet with by appointment
+meet_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mellow_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+melt_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+melt_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mess_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mess_about_with VERB_DIRECTOBJECT 
+mess_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mess_around_with VERB_DIRECTOBJECT 
+mess_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mess_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+mess_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mete_out VERB_DIRECTOBJECT 
+mill_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mill_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+miss_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+miss_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mist_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mix_in VERB_DIRECTOBJECT 
+mix_up VERB_DIRECTOBJECT 
+mock_up VERB_DIRECTOBJECT 
+monkey_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mooch_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mooch_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+moon_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+moon_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be apathetic, gloomy, or dazed
+moon_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mop_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mope_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mope_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move around slowly and aimlessly
+mound_over VERB_DIRECTOBJECT  : form mounds over
+mount_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mouth_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : talk in a noisy, excited, or declamatory manner
+move_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+move_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you move away, you leave a place to live somewhere else.
+move_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move into a new house or office
+move_in_on VERB_DIRECTOBJECT  : make intrusive advances towards
+move_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+move_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+move_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : move out of one's old house or office
+move_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+move_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+move_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+mow_down VERB_DIRECTOBJECT 
+muck_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+muck_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+muck_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you muck in, you give a hand.
+muck_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+muddle_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you muddle something or somebody up, you confuse them.  Mix up
+muddy_up VERB_DIRECTOBJECT 
+mug_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mug_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+mull_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+muscle_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+muscle_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+muscle_into VERB_DIRECTOBJECT  : force one's way
+muscle_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+muster_in VERB_DIRECTOBJECT 
+muster_out VERB_DIRECTOBJECT  : release from military service
+muster_up VERB_DIRECTOBJECT 
+naff_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  (slang) When you tell somebody to naff off, you tell them to go away, usu. because you're angry.  Fuck off, piss off
+nag_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+nail_down VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+name_after VERB_DIRECTOBJECT  :  name a child using another family member's name I was named after my grandfather.
+narrow_down VERB_NOOBJECT VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+nip_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you nip in, you go into a place quickly or for a short time.  Nip out
+nip_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+nip_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you nip out, you go somewhere quickly or for a short time.
+nod_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+nose_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you nose into something, you try to find out things about other people's affairs.
+nose_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  sneak around I hate it when my mother noses around my room.
+nose_into VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you nose into something, you try to find out things about other people's affairs.
+nose_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+notch_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (victory, sale, record sales, contract) When you notch something up, you achieve something.
+note_down VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (address, number, message) When you note something down, you write it down.  Jot something down, take something down, write something down
+nut_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+obtrude_upon VERB_DIRECTOBJECT 
+occur_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  pop into one's mind, come to one's mind It didn't occur to us that we had left the iron on.
+offer_up VERB_DIRECTOBJECT 
+ooze_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ooze_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : run slowly and gradually
+open_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When something opens out, it spreads; it becomes wider; it unfolds.
+open_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+operate_on VERB_DIRECTOBJECT 
+opt_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+opt_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you opt in, you choose to join something.  Opt out
+opt_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : choose not to do something, as out of fear of failing
+order_about VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you order somebody about, you give them too many orders in an unpleasant way.
+order_around VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you order somebody about, you give them too many orders in an unpleasant way.
+order_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you order somebody in, you order them to enter a place.  Order out
+order_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When a referee orders a player off, they order the player to leave the field.
+order_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you order somebody out, you order them to leave.  Order in
+originate_in VERB_DIRECTOBJECT  : come from
+out_in VERB_DIRECTOBJECT 
+out_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+owe_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+own_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pack_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pack_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (job, course, university) When you pack something in, you leave it because you find it very difficult to continue.  Chuck in, jack in
+pack_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pack_on VERB_DIRECTOBJECT  : gain 
+pack_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pack_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :   (car, computer, system, machine) When something packs up, it stops working because it has a serious problem. Break down
+pad_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pad_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pair_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pair_off_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pair_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pal_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+palm_off VERB_DIRECTOBJECT 
+pan_off VERB_DIRECTOBJECT 
+pan_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+paper_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+parcel_out VERB_DIRECTOBJECT 
+pare_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pare_down VERB_DIRECTOBJECT  : decrease gradually or bit by bit
+part_with VERB_DIRECTOBJECT 
+partake_in VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+partition_off VERB_DIRECTOBJECT  : divide into parts, pieces, or sections
+partner_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_across VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_along VERB_DIRECTOBJECT 
+pass_around VERB_DIRECTOBJECT 
+pass_as VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : go out of existence
+pass_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+pass_on VERB_NOOBJECT VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+pass_out VERB_NOOBJECT VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+pass_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : pass through an enemy line
+pass_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pass_up VERB_DIRECTOBJECT  : fail to acknowledge
+patch_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+pay_back VERB_DIRECTOBJECT 
+pay_for VERB_DIRECTOBJECT 
+pay_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (money, cheque) When you pay something in, you put money into a bank account.
+pay_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pay_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+pay_out VERB_DIRECTOBJECT 
+pay_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+peck_at VERB_NOOBJECT VERB_DIRECTOBJECT 
+peel_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+peg_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+peg_down VERB_DIRECTOBJECT 
+peg_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pelt_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pen_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pencil_in VERB_DIRECTOBJECT 
+pension_off VERB_DIRECTOBJECT  : grant a pension to
+pep_up VERB_DIRECTOBJECT 
+perk_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+persist_in VERB_DIRECTOBJECT 
+peter_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : use up all one's strength and energy and stop working
+phase_in VERB_DIRECTOBJECT  : introduce gradually
+phase_out VERB_DIRECTOBJECT  : terminate gradually
+pick_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pick_off VERB_DIRECTOBJECT 
+pick_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  to tease, bully She keeps picking on me! Make her stop.
+pick_out VERB_DIRECTOBJECT 
+pick_over VERB_DIRECTOBJECT 
+pick_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pick_up VERB_NOOBJECT VERB_DIRECTOBJECT  : gain or regain energy
+pick_up_after VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pick_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pick_yourself_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pig_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pig_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pile_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pin_down VERB_DIRECTOBJECT 
+pin_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pin_up VERB_DIRECTOBJECT 
+pine_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pine_for  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pip_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be killed or die
+pipe_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pipe_in VERB_DIRECTOBJECT  : transport to a destiny through pipes
+pipe_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+piss_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you tell somebody to piss off, you tell them in a very offensive way to leave you alone. Compare Bugger off, fuck off, sod off
+pit_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pit_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pitch_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pitch_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : eat heartily
+pitch_into VERB_DIRECTOBJECT  : hit violently, as in an attack
+place_down VERB_DIRECTOBJECT  : cause to sit or seat or be in a settled position or place
+plank_down VERB_DIRECTOBJECT 
+plank_over VERB_DIRECTOBJECT  : cover with planks
+plant_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you plant something out, you put young plants in the ground where you want them to grow.
+plaster_over VERB_DIRECTOBJECT  : apply a heavy coat to
+play_a_joke_on VERB_DIRECTOBJECT 
+play_a_trick_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+play_along VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+play_around VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB  : work with in an amateurish manner
+play_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+play_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+play_back VERB_DIRECTOBJECT  : reproduce on a recorder
+play_down VERB_DIRECTOBJECT 
+play_off VERB_DIRECTOBJECT 
+play_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+play_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : become spent or exhausted
+play_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+play_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  flatter someone for your personal advantage She has been playing up to the boss because she wants a promotion.
+play_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+play_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plead_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plonk_down VERB_DIRECTOBJECT 
+plough_back VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (profits) When you plough profits back into a business, you reinvest the money earned.
+plough_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plough_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : continue moving forward
+plough_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plough_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plow_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plow_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plow_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plow_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+plow_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pluck_at VERB_DIRECTOBJECT  : pluck or pull at with the fingers
+pluck_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (courage) When you pluck up courage, you decide to be brave enough to do something.
+plug_in VERB_NOOBJECT VERB_DIRECTOBJECT 
+plug_into VERB_DIRECTOBJECT 
+plump_down VERB_DIRECTOBJECT 
+plump_for VERB_DIRECTOBJECT 
+plump_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : arrive suddenly and unannounced
+plump_out VERB_DIRECTOBJECT 
+plump_up VERB_DIRECTOBJECT 
+plunk_down VERB_DIRECTOBJECT 
+plunk_for VERB_DIRECTOBJECT 
+point_out VERB_DIRECTOBJECT 
+point_up VERB_DIRECTOBJECT  : emphasize, especially by identification
+poke_at VERB_DIRECTOBJECT  : to push against gently
+poke_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : examine physically with or as if with a probe
+poke_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+polish_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+polish_up VERB_DIRECTOBJECT 
+pony_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pooch_out VERB_DIRECTOBJECT  : round one's lips as if intending to kiss
+poop_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+poop_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pop_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : enter briefly
+pop_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pop_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pop_round VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you pop round, you pay a short informal visit.
+pop_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+portion_out VERB_DIRECTOBJECT 
+potter_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+potter_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pound_off VERB_DIRECTOBJECT 
+pound_up VERB_DIRECTOBJECT 
+pour_cold_water_on VERB_DIRECTOBJECT 
+pour_down VERB_DIRECTOBJECT 
+pour_forth VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pour_out VERB_DIRECTOBJECT  : express without restraint
+prang_up VERB_DIRECTOBJECT 
+prattle_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+prepare_for VERB_DIRECTOBJECT 
+press_ahead VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+press_down VERB_DIRECTOBJECT  : press down
+press_down_on VERB_DIRECTOBJECT  : exert a force with a heavy weight
+press_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+press_out VERB_DIRECTOBJECT 
+pretty_up VERB_DIRECTOBJECT  : use special care in dressing, making-up, etc.
+price_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+prick_up VERB_DIRECTOBJECT  : raise
+prim_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : dress primly
+prim_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+print_out VERB_DIRECTOBJECT 
+print_over VERB_DIRECTOBJECT  : print onto an already imprinted paper
+progress_to VERB_DIRECTOBJECT 
+prop_up VERB_DIRECTOBJECT 
+psych_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+psych_up VERB_DIRECTOBJECT  : get excited or stimulated
+puff_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+puff_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_a_fast_one_on VERB_DIRECTOBJECT 
+pull_ahead VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_along VERB_DIRECTOBJECT  : pull along heavily, like a heavy load against a resistance
+pull_apart VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_at VERB_DIRECTOBJECT 
+pull_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_off VERB_DIRECTOBJECT 
+pull_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+pull_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : steer a vehicle to the side of the road
+pull_the_leg_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+pull_the_wool_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_through VERB_NOOBJECT VERB_DIRECTOBJECT 
+pull_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pull_yourself_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+pullulate_with VERB_DIRECTOBJECT  : exist in large quantity
+pump_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (money, cash, funds, supplies) When an organization pumps something in, they provide money or resources for something. Pour in
+pump_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (tyre, dinghy, balloon, airbed) When you pump something up, you fill it with air.  Blow up
+punch_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+punch_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+push_across VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  cause to be understood or accepted
+push_around VERB_DIRECTOBJECT 
+push_aside VERB_DIRECTOBJECT 
+push_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+push_down VERB_DIRECTOBJECT 
+push_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+push_into VERB_DIRECTOBJECT  :  When you push somebody into doing something, you try to influence or persuade them to do something.
+push_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+push_out VERB_DIRECTOBJECT 
+push_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+push_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : push upward
+put_about VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (news, rumours, stories) When you put something about, you spread bad or false news.
+put_across VERB_DIRECTOBJECT 
+put_around VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (news, rumours, stories) When you put something about, you spread bad or false news.
+put_aside VERB_DIRECTOBJECT  : turn away from and put aside, perhaps temporarily
+put_away VERB_DIRECTOBJECT 
+put_back VERB_DIRECTOBJECT 
+put_behind VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  Forget When you put something behind, you try to forget it.
+put_by VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  Save(money) When you put something by, you put it in the bank.  Put away, lay aside
+put_down VERB_DIRECTOBJECT 
+put_down_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+put_down_to VERB_DIRECTOBJECT  :  (hard work) When you put something down to something else, you think that is the probable explanation for it.
+put_forward VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+put_in VERB_NOOBJECT VERB_DIRECTOBJECT 
+put_in_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+put_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+put_on VERB_NOOBJECT VERB_DIRECTOBJECT 
+put_one_across VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+put_one_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+put_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+put_over VERB_DIRECTOBJECT 
+put_through VERB_DIRECTOBJECT 
+put_together VERB_DIRECTOBJECT 
+put_towards VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+put_under VERB_DIRECTOBJECT 
+put_up VERB_DIRECTOBJECT 
+put_up_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  tolerate Sandy will not put up with smoking in her house.
+putter_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+puzzle_out VERB_DIRECTOBJECT 
+puzzle_over VERB_DIRECTOBJECT  : try to solve
+quail_at VERB_DIRECTOBJECT 
+quest_after VERB_DIRECTOBJECT 
+quest_for VERB_DIRECTOBJECT 
+queue_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+quiet_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+quieten_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rabbit_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rachet_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rack_up VERB_NOOBJECT VERB_DIRECTOBJECT  : supply a rack with feed for
+raffle_off VERB_DIRECTOBJECT 
+rail_in VERB_DIRECTOBJECT 
+rail_off VERB_DIRECTOBJECT 
+rain_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rain_down_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rain_out VERB_DIRECTOBJECT 
+raise_up VERB_DIRECTOBJECT 
+rake_in VERB_DIRECTOBJECT 
+rake_off VERB_DIRECTOBJECT  : take money from an illegal transaction
+rake_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : bring to light
+ram_down VERB_DIRECTOBJECT 
+ramble_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ramp_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+range_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : direct onto a point or target, especially by automatic navigational aids
+rat_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rat_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rat_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ratchet_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move by degrees in one direction only
+ratchet_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ration_out VERB_DIRECTOBJECT  : distribute in rations, as in the army
+rattle_down VERB_DIRECTOBJECT  : recite volubly or extravagantly
+rattle_off VERB_DIRECTOBJECT 
+rattle_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ravel_out VERB_DIRECTOBJECT  : disentangle
+reach_into VERB_DIRECTOBJECT  : run into or up to
+reach_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : attempt to communicate
+reach_out_for VERB_DIRECTOBJECT 
+reach_out_to VERB_DIRECTOBJECT 
+read_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+read_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you read on, you continue reading after having stopped.
+read_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+read_over VERB_DIRECTOBJECT 
+read_up_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  research a topic for a reason I need to read up on the company before I go on the job interview.
+reason_out VERB_DIRECTOBJECT 
+reckon_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+reel_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+reel_off VERB_DIRECTOBJECT 
+reel_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+regard_as VERB_DIRECTOBJECT 
+rein_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rely_on VERB_DIRECTOBJECT 
+rely_upon VERB_DIRECTOBJECT 
+remain_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+renege_on VERB_DIRECTOBJECT 
+renegue_on VERB_DIRECTOBJECT  : fail to fulfill a promise or obligation
+rent_out VERB_DIRECTOBJECT 
+report_out VERB_DIRECTOBJECT  : return a bill after consideration and revision to a legislative body
+repose_on VERB_DIRECTOBJECT 
+rest_on VERB_DIRECTOBJECT 
+rev_up VERB_DIRECTOBJECT  : increase the number of rotations per minute
+revolve_about VERB_DIRECTOBJECT 
+revolve_around VERB_DIRECTOBJECT  : move around in a circular motion
+rid_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+ride_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ride_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+ride_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+ride_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rig_out VERB_DIRECTOBJECT 
+rig_up VERB_DIRECTOBJECT  : erect or construct, especially as a temporary measure
+rile_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ring_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ring_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you ring off, you finish a phone conversation.
+ring_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : sound loudly
+ring_up VERB_NOOBJECT VERB_DIRECTOBJECT  : to perform and record a sale on a cash register
+rinse_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rinse_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  rinse the inside of
+rip_off VERB_NOOBJECT VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+rip_out VERB_DIRECTOBJECT  : burst out with a violent or profane utterance
+rip_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+rise_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : stand up on the hind legs, of quadrupeds
+roar_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : leave
+roll_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+roll_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+roll_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+roll_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : pour or flow in a steady stream
+roll_off VERB_DIRECTOBJECT 
+roll_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+roll_out VERB_DIRECTOBJECT 
+roll_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : make a rolling motion or turn
+roll_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+romp_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+romp_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+room_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+root_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+root_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+root_for VERB_DIRECTOBJECT 
+root_on VERB_DIRECTOBJECT 
+root_out VERB_DIRECTOBJECT 
+root_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rope_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : lower oneself with a rope coiled around the body from a mountainside
+rope_in VERB_DIRECTOBJECT  : draw in as if with a rope
+rope_off VERB_DIRECTOBJECT 
+rope_up VERB_DIRECTOBJECT  : attach to one another, for safety
+rough_in VERB_DIRECTOBJECT 
+rough_out VERB_DIRECTOBJECT 
+rough_up VERB_DIRECTOBJECT  : treat violently
+round_down VERB_DIRECTOBJECT 
+round_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+round_out VERB_DIRECTOBJECT 
+round_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : seek out and bring together
+rout_out VERB_DIRECTOBJECT  : cause to flee
+rout_up VERB_DIRECTOBJECT 
+row_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rub_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rub_down VERB_DIRECTOBJECT 
+rub_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you rub it in, you keep talking about something that makes another person embarrased or makes them feel bad.
+rub_off VERB_DIRECTOBJECT 
+rub_off_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rub_out VERB_DIRECTOBJECT 
+rub_up_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rub_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ruck_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become wrinkled or drawn together
+ruffle_up VERB_DIRECTOBJECT  : disturb the smoothness of
+rule_in VERB_DIRECTOBJECT 
+rule_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+run_across VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_after VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_against VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  compete in an election Gore ran against Bush in the 2000 elections in the U.S.A.
+run_along VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+run_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_away_from VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (responsibility, truth, facts, situation, reality) When you run away from something, you try to avoid dealing with it.
+run_away_with VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+run_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : pass by while running
+run_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+run_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_off VERB_NOOBJECT VERB_DIRECTOBJECT  : decide by a runoff
+run_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : talk or narrate at length
+run_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  not have any more of something We ran out of milk this morning, so we need to go to the store.
+run_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_through VERB_DIRECTOBJECT 
+run_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_up VERB_NOOBJECT VERB_DIRECTOBJECT  : pile up
+run_up_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_up_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+run_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rush_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rush_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you rush in, you go in in a hurry.  Rush out
+rush_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+rush_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+rush_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sack_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sack_up VERB_DIRECTOBJECT 
+sag_down VERB_DIRECTOBJECT 
+sag_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sail_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sail_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sally_forth VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : set out in a sudden, energetic or violent manner
+sally_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+salt_away VERB_DIRECTOBJECT 
+save_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+save_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+scale_down VERB_DIRECTOBJECT 
+scale_up VERB_DIRECTOBJECT  : increase proportionally
+scare_away VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+scare_off VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scarf_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+scent_out VERB_DIRECTOBJECT 
+scoop_out VERB_DIRECTOBJECT  : hollow out with a scoop
+scoop_up VERB_DIRECTOBJECT 
+score_out VERB_DIRECTOBJECT 
+scout_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scout_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scout_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scout_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scout_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+scrape_up VERB_DIRECTOBJECT 
+scratch_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : manage one's existence barely
+scratch_off VERB_DIRECTOBJECT  : write quickly
+scratch_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : strike or cancel by or as if by rubbing or crossing out
+scratch_up VERB_DIRECTOBJECT 
+screen_off VERB_DIRECTOBJECT 
+screen_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+screw_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+screw_up VERB_NOOBJECT VERB_DIRECTOBJECT  : twist into a strained configuration
+scrub_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+scrunch_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : make wrinkles or creases on a smooth surface
+seal_in VERB_DIRECTOBJECT 
+seal_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+see_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  arrange or consider something My dad said he was going to see about buying me a car.
+see_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+see_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :   say good-bye to someone at the beginning of their trip (at the airport, train station) Did you see your sister off at the train station?
+see_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+see_something_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you see something through, you make sure it's completed successfully.
+see_through VERB_DIRECTOBJECT  : remain with until completion
+see_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :   make sure something happens, arrange I'll see to it that Mr. Ramirez gets your message.
+seek_out VERB_DIRECTOBJECT  : look for a specific person or thing
+seize_on VERB_DIRECTOBJECT 
+sell_off VERB_DIRECTOBJECT  : get rid of by selling, usually at reduced prices
+sell_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sell_out VERB_NOOBJECT VERB_DIRECTOBJECT  : give information that compromises others
+sell_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+send_around VERB_DIRECTOBJECT  : forward to others
+send_back VERB_DIRECTOBJECT  : refer to another committee or authority or court for decision
+send_down VERB_DIRECTOBJECT 
+send_for VERB_DIRECTOBJECT 
+send_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : mail in
+send_off VERB_DIRECTOBJECT 
+send_off_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+send_on VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+send_out VERB_DIRECTOBJECT 
+send_out_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+send_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  send to where someone is
+send_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+separate_off VERB_DIRECTOBJECT  : partition by means of a divider, such as a screen
+separate_out VERB_DIRECTOBJECT 
+serve_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  (sentence, term) When you serve something out, you do something until the end of a fixed period.
+serve_up VERB_DIRECTOBJECT 
+set_about VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+set_aside VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : make inoperative or stop
+set_back VERB_DIRECTOBJECT  : slow down the progress of
+set_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+set_forth VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : state
+set_in VERB_NOOBJECT VERB_DIRECTOBJECT  : become established
+set_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+set_on VERB_DIRECTOBJECT 
+set_out VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+set_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+set_upon VERB_DIRECTOBJECT  : assail or attack on all sides:
+settle_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+settle_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+settle_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  (home, job, office, school, routine) When you settle in, you move into a new home, job, and start feeling confortable there.
+settle_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : become fixed 
+settle_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  pay one's debts We need to settle up before you move.
+sex_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+shack_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+shade_off VERB_DIRECTOBJECT 
+shake_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shake_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+shake_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+shape_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shave_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shed_light_on VERB_DIRECTOBJECT 
+shell_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shine_at VERB_DIRECTOBJECT VERB_TAKES_GERUND  : be good at
+shine_up VERB_DIRECTOBJECT 
+ship_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ship_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shoo_off VERB_DIRECTOBJECT 
+shoot_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shoot_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shoot_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shoot_for VERB_DIRECTOBJECT 
+shoot_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you shoot off, you leave in a hurry.
+shoot_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shoot_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : rise dramatically
+shop_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you shop around, you visit different shops in order to find the cheapest price.
+shop_at VERB_DIRECTOBJECT 
+shore_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+short_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shoulder_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : push one's way in with one's shoulders
+shout_down VERB_DIRECTOBJECT  : silence or overwhelm by shouting
+shout_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shove_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+shove_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+shovel_in VERB_DIRECTOBJECT 
+show_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+show_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+show_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+show_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+show_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+show_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+show_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+show_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+shower_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+shrink_from VERB_DIRECTOBJECT  : avoid 
+shrivel_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+shrug_off VERB_DIRECTOBJECT  : minimize the importance of, brush aside
+shut_away VERB_DIRECTOBJECT 
+shut_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+shut_in VERB_DIRECTOBJECT 
+shut_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+shut_out VERB_DIRECTOBJECT 
+shut_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shut_up VERB_NOOBJECT VERB_DIRECTOBJECT  : closely confined
+shut_yourself_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+shy_away_from VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB  : avoid having to deal with some unpleasant task
+side_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sidle_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sieve_out VERB_DIRECTOBJECT  : separate or remove
+sift_through VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (evidence, documents, papers, rubble, wreckage) When you sift through something, you examine every part of it in order to find something.
+sign_away VERB_DIRECTOBJECT  : formally assign ownership of
+sign_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : cease broadcasting
+sign_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_on_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sign_over VERB_DIRECTOBJECT 
+sign_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : join a club, an activity, etc. with the intention to join or participate,
+sign_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+silt_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become chocked with silt
+simmer_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sing_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : sing with a choir or an orchestra
+single_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : select from a group
+sink_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+siphon_off VERB_DIRECTOBJECT  : convey, draw off, or empty by or as if by a siphon
+sit_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : participate in an act of civil disobedience
+sit_in_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_on VERB_DIRECTOBJECT 
+sit_out VERB_DIRECTOBJECT  : endure to the end
+sit_over VERB_DIRECTOBJECT 
+sit_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sit_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+size_up VERB_DIRECTOBJECT 
+skate_over VERB_DIRECTOBJECT 
+skim_off VERB_DIRECTOBJECT 
+skim_over VERB_DIRECTOBJECT  : read superficially
+skimp_over VERB_DIRECTOBJECT 
+skin_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : grow new skin over an injury
+skip_over VERB_DIRECTOBJECT 
+skive_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you skive off, you spend time doing nothing, esp. avoiding work.  Goof off
+slack_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slack_up VERB_DIRECTOBJECT 
+slacken_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slag_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you slag somebody off, you criticize somebody, especially when they're not there.
+slam_on VERB_DIRECTOBJECT 
+slap_on VERB_DIRECTOBJECT  : apply carelessly
+sleek_down VERB_DIRECTOBJECT 
+sleek_over VERB_DIRECTOBJECT 
+sleep_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be sexually active with more than one partner
+sleep_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sleep_off VERB_DIRECTOBJECT  : get rid of by sleeping
+sleep_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : work in a house where one does not live
+sleep_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : stay overnight
+sleep_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sleep_with VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slice_into VERB_DIRECTOBJECT 
+slice_through VERB_DIRECTOBJECT  : move through a body or an object with a slicing motion
+slice_up VERB_DIRECTOBJECT 
+slick_down VERB_DIRECTOBJECT 
+slick_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+slide_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slide_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slim_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slip_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slip_in VERB_DIRECTOBJECT 
+slip_off VERB_DIRECTOBJECT  : take off with ease or speed
+slip_on VERB_DIRECTOBJECT  : put on with ease or speed
+slip_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+slip_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+slob_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+slob_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+slobber_over VERB_DIRECTOBJECT  : envy without restraint
+slope_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+slosh_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : spill or splash copiously or clumsily
+slough_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : separate from surrounding living tissue, as in an abortion
+slow_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+slow_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+sluice_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : pour as if from a sluice
+slur_over VERB_DIRECTOBJECT 
+slush_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+smack_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+smarten_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : dress and groom with particular care, as for a special occasion
+smash_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+smash_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+smash_up VERB_DIRECTOBJECT 
+smell_out VERB_DIRECTOBJECT 
+smell_up VERB_DIRECTOBJECT 
+smoke_out VERB_DIRECTOBJECT  : drive out with smoke
+smooth_out VERB_DIRECTOBJECT 
+smooth_over VERB_DIRECTOBJECT  : treat hurriedly or avoid dealing with properly
+snap_at VERB_DIRECTOBJECT 
+snap_off VERB_DIRECTOBJECT 
+snap_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+snap_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+snarl_up VERB_DIRECTOBJECT 
+snatch_up VERB_DIRECTOBJECT 
+sneak_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sneak_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sneak_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sneak_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sniff_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sniff_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sniff_out VERB_DIRECTOBJECT 
+snip_off VERB_DIRECTOBJECT 
+snuff_out VERB_DIRECTOBJECT 
+soak_through VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be or become thoroughly soaked or saturated with a liquid
+soak_up VERB_DIRECTOBJECT 
+soar_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sober_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become sober after excessive alcohol consumption
+soldier_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sop_up VERB_DIRECTOBJECT 
+sort_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+sound_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+sound_out VERB_DIRECTOBJECT 
+soup_up VERB_DIRECTOBJECT  : make more powerful
+sow_in VERB_DIRECTOBJECT 
+spark_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+spark_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+speak_for VERB_DIRECTOBJECT  : be a spokesperson for
+speak_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+speak_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+speak_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : speak louder
+speak_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spear_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+speed_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spell_out VERB_DIRECTOBJECT 
+spew_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : eject or send out in large quantities, also metaphorical
+spew_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spice_up VERB_DIRECTOBJECT  : make more interesting or flavorful
+spiel_off VERB_DIRECTOBJECT 
+spiff_up VERB_DIRECTOBJECT 
+spike_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : bring forth a spike or spikes
+spill_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+spill_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+spin_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spin_off VERB_DIRECTOBJECT  : produce as a consequence of something larger
+spin_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+spirit_off VERB_DIRECTOBJECT 
+spirit_up VERB_DIRECTOBJECT 
+spit_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spit_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+splash_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+splash_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you splash out on something, you spend a lot of money, perhaps too much, on something.
+split_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spoil_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sponge_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : wash with a sponge
+sponge_off VERB_DIRECTOBJECT 
+sponge_on VERB_DIRECTOBJECT  : apply with a sponge
+sponge_up VERB_DIRECTOBJECT  : absorb as if with a sponge
+spread_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+spread_over VERB_DIRECTOBJECT 
+spring_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : come into existence
+spruce_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+spur_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+square_away VERB_DIRECTOBJECT 
+square_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+square_off_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+square_up VERB_DIRECTOBJECT 
+square_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+square_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+squeak_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+squeak_through VERB_DIRECTOBJECT  : escape
+squeeze_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+squeeze_for VERB_INDIRECTOBJECT VERB_DIRECTOBJECT  : squeeze someone for money, information, etc.
+squeeze_in VERB_DIRECTOBJECT  :  When you squeeze somebody in, you have time to see them.
+squeeze_out VERB_DIRECTOBJECT  : extract by squeezing or pressing
+squeeze_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stack_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : arrange into piles or stacks
+stack_up_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+staff_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stamp_down VERB_DIRECTOBJECT 
+stamp_out VERB_DIRECTOBJECT 
+stand_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stand_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stand_aside VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stand_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : stand away from an object or person
+stand_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stand_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you stand down, you resign; you leave your job to somebody else.  Step down
+stand_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stand_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stand_in_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you stand in for somebody, you do their job temporarily because they can't.  Cover for, fill in for, sit in for
+stand_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : be stubborn in resolution or resistance
+stand_up VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_ADJECTIVE  : defend against attack or criticism
+stand_up_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  defend (something one believes in) Every individual must stand up for what they believe in.
+stand_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  defend oneself against someone or something I think you should stand up to your older brother and tell him to stop pushing you around.
+stare_down VERB_DIRECTOBJECT  : overcome or cause to waver or submit by staring
+start_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_off_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_on_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_out VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+start_out_as VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_out_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+start_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stave_in VERB_DIRECTOBJECT  : burst or force into something
+stave_off VERB_DIRECTOBJECT 
+stay_at VERB_DIRECTOBJECT  : reside temporarily
+stay_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stay_away_from VERB_DIRECTOBJECT  INSEPARABLE_PHRASAL_VERB
+stay_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you stay in, you don't go out.
+stay_off VERB_DIRECTOBJECT 
+stay_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stay_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stay_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stay_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : not go to bed
+steady_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+steel_onself_for VERB_DIRECTOBJECT 
+steer_clear_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stem_from VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+step_aside VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+step_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+step_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+step_forward VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+step_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+step_on VERB_DIRECTOBJECT 
+step_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : go outside a room or building for a short period of time
+step_to VERB_DIRECTOBJECT 
+step_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+stick_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stick_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stick_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stick_by VERB_DIRECTOBJECT 
+stick_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stick_in VERB_DIRECTOBJECT 
+stick_on VERB_DIRECTOBJECT  : attach to
+stick_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stick_out_for VERB_DIRECTOBJECT 
+stick_to VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+stick_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : be loyal to one another, especially in times of trouble
+stick_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stick_up_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  defend oneself or opinions Joseph joined the army because he believes he must stick up for his country.
+stick_with VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+stink_out VERB_DIRECTOBJECT  : cause to smell bad
+stink_up VERB_DIRECTOBJECT 
+stir_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+stitch_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stock_up VERB_DIRECTOBJECT 
+stoop_to VERB_DIRECTOBJECT  : make concessions to
+stop_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_behind VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you stop off or stop off somewhere, you interrupt your journey for a while.
+stop_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stop_up VERB_DIRECTOBJECT 
+storm_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+storm_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stow_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : hide aboard a ship or a plane to get free transportation
+straighten_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+straighten_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : straighten oneself
+stretch_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+stretch_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+strike_back VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+strike_down VERB_DIRECTOBJECT 
+strike_off VERB_DIRECTOBJECT 
+strike_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+strike_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : set out on a course of action
+strike_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : begin
+strike_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+string_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+string_out VERB_DIRECTOBJECT  : set out or stretch in a line, succession, or series
+string_together VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+string_up VERB_DIRECTOBJECT 
+strip_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stub_out VERB_DIRECTOBJECT 
+stuff_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stumble_across VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you stumble across somebody, you meet them by chance.  Come across
+stumble_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+stump_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+subscribe_to VERB_DIRECTOBJECT 
+suck_in VERB_DIRECTOBJECT 
+suck_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+suck_out VERB_DIRECTOBJECT 
+suck_up VERB_DIRECTOBJECT 
+suck_up_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sum_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+summon_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+supervene_upon VERB_DIRECTOBJECT 
+suss_out VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+swallow_up VERB_DIRECTOBJECT 
+swan_about VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swan_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swan_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swan_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swear_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swear_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swear_in VERB_DIRECTOBJECT  : administer on oath to
+swear_off VERB_DIRECTOBJECT  : promise to abstain from
+swear_out VERB_DIRECTOBJECT 
+sweat_off VERB_DIRECTOBJECT  : lose weight by sweating
+sweep_off VERB_DIRECTOBJECT 
+sweep_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  sweep the inside of
+sweep_over VERB_DIRECTOBJECT 
+sweep_through VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sweep_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+swell_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+swill_down VERB_DIRECTOBJECT  : drink large quantities of
+swing_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+swing_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : turn abruptly and face the other way, either physically or metaphorically
+swing_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swing_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swing_out VERB_DIRECTOBJECT 
+swing_over VERB_DIRECTOBJECT 
+swing_round VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+switch_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+switch_on VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : cause to operate by flipping a switch
+switch_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+swoop_up VERB_DIRECTOBJECT  : seize or catch with a swooping motion
+swot_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+sympathize_with VERB_DIRECTOBJECT  : share the suffering of
+syphon_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tack_on VERB_DIRECTOBJECT 
+tack_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tag_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : go along with, often uninvited
+tag_on VERB_DIRECTOBJECT 
+tag_onto VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tag_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tail_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tail_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tail_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+take_after VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+take_apart VERB_DIRECTOBJECT 
+take_as_given VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  assume as a hypothesis
+take_aside VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+take_away VERB_DIRECTOBJECT 
+take_back VERB_DIRECTOBJECT  : cause someone to remember the past
+take_care_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+take_down VERB_DIRECTOBJECT 
+take_for VERB_INDIRECTOBJECT VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+take_for_granted VERB_DIRECTOBJECT 
+take_hold_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+take_in VERB_DIRECTOBJECT  : make smaller
+take_kindly_to VERB_DIRECTOBJECT  : be willing or inclined to accept
+take_lying_down VERB_DIRECTOBJECT  : suffer without protest
+take_off VERB_NOOBJECT VERB_DIRECTOBJECT  : remove clothes
+take_out VERB_DIRECTOBJECT 
+take_over VERB_NOOBJECT VERB_DIRECTOBJECT 
+take_something_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  (responsibility, role, client, job, task, problem) When you take something on, you accept a responsibility or project.
+take_time_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : take time off from work
+take_to VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB 
+take_up VERB_DIRECTOBJECT VERB_TAKES_GERUND  : pursue or resume
+talk_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  respond in an impolite way to an adult Don't talk back!
+talk_back_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  respond in an impolite way to an adult Children should not talk back to their parents.
+talk_down VERB_DIRECTOBJECT  : direct and control via radio
+talk_down_to VERB_DIRECTOBJECT 
+talk_into VERB_DIRECTOBJECT  : persuade somebody to do something
+talk_of VERB_DIRECTOBJECT  INSEPARABLE_PHRASAL_VERB : discuss or mention
+talk_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : persuade someone not to do something
+talk_over VERB_NOOBJECT VERB_DIRECTOBJECT 
+talk_through VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+talk_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tamp_down VERB_DIRECTOBJECT 
+take_up_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+tangle_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tangle_with VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : get involved in or with
+tap_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tap_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tap_off_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tap_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tap_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+taper_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : become smaller or less active
+tart_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : dress up in a cheap and provocative way
+tear_apart VERB_DIRECTOBJECT 
+tear_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tear_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : rip off violently and forcefully
+tear_down VERB_DIRECTOBJECT 
+tear_into VERB_DIRECTOBJECT 
+tear_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tear_up VERB_NOOBJECT VERB_DIRECTOBJECT  : tear into shreds
+tee_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : strike a ball from the teeing ground at the start of a hole
+tee_off_on VERB_DIRECTOBJECT 
+tee_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+teem_in VERB_DIRECTOBJECT 
+tell_apart VERB_DIRECTOBJECT 
+tell_off VERB_DIRECTOBJECT 
+tell_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : produce an effect or strain on somebody
+tense_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+thaw_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+thin_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+think_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+think_of VERB_DIRECTOBJECT VERB_TAKES_GERUND INSEPARABLE_PHRASAL_VERB
+think_out VERB_DIRECTOBJECT  : consider carefully and rationally
+think_over VERB_DIRECTOBJECT 
+think_the_world_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB : esteem very highly
+think_through VERB_DIRECTOBJECT  :   consider carefully You need to think this through carefully before you make a decision.
+think_up VERB_DIRECTOBJECT 
+thrash_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+thrash_out VERB_DIRECTOBJECT  : discuss vehemently in order to reach a solution or an agreement
+thresh_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+throw_away VERB_DIRECTOBJECT 
+throw_cold_water_on VERB_DIRECTOBJECT  : be discouraging or negative about
+throw_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+throw_in VERB_NOOBJECT VERB_DIRECTOBJECT 
+throw_off VERB_DIRECTOBJECT 
+throw_out VERB_DIRECTOBJECT 
+throw_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  reject
+throw_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+thrust_out VERB_DIRECTOBJECT  : push to thrust outward
+thump_out VERB_DIRECTOBJECT  : beat out a rhythm
+tick_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tick_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tick_off VERB_DIRECTOBJECT 
+tick_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : run disconnected or idle
+tide_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tidy_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tie_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tie_down VERB_DIRECTOBJECT  : restrain from independence by an obligation
+tie_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tie_in_with VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tie_up VERB_DIRECTOBJECT 
+tighten_up VERB_DIRECTOBJECT  : restrict
+tip_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+tip_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tire_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tire_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+toddle_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tog_out VERB_DIRECTOBJECT 
+tog_up VERB_DIRECTOBJECT 
+tone_down VERB_DIRECTOBJECT 
+tone_up VERB_DIRECTOBJECT 
+tool_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+tool_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+top_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : fill to the point of almost overflowing
+top_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+top_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+toss_in VERB_DIRECTOBJECT  : add casually to a conversation
+toss_off VERB_DIRECTOBJECT 
+toss_out VERB_DIRECTOBJECT 
+tot_up VERB_DIRECTOBJECT 
+tote_up VERB_DIRECTOBJECT 
+touch_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : come or bring to a landing
+touch_for VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+touch_off VERB_DIRECTOBJECT 
+touch_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+touch_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : alter so as to produce a more desirable appearance
+touch_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+toy_at VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+toy_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+toy_with VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+track_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trade_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trade_in VERB_DIRECTOBJECT 
+trade_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trade_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trade_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trade_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tramp_down VERB_DIRECTOBJECT  : walk on and flatten
+travel_along VERB_DIRECTOBJECT 
+travel_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+travel_to VERB_DIRECTOBJECT 
+tread_down VERB_DIRECTOBJECT 
+tread_on VERB_DIRECTOBJECT  : place or press the foot on
+trice_up VERB_DIRECTOBJECT  : hoist up or in and lash or secure with a small rope
+trick_out VERB_DIRECTOBJECT 
+trick_up VERB_DIRECTOBJECT 
+trickle_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trigger_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+trim_down VERB_DIRECTOBJECT 
+trip_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+trip_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trip_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+trot_out VERB_DIRECTOBJECT  : bring out and show for inspection and admiration
+true_up VERB_DIRECTOBJECT 
+trump_out VERB_DIRECTOBJECT  : proclaim or announce with or as if with a fanfare
+trump_up VERB_DIRECTOBJECT 
+try_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+try_for VERB_DIRECTOBJECT  : make an attempt at achieving something
+try_on VERB_DIRECTOBJECT 
+try_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+try_out_for  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tuck_away VERB_DIRECTOBJECT  : eat up
+tuck_in VERB_NOOBJECT VERB_DIRECTOBJECT 
+tuck_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tuck_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tucker_out VERB_DIRECTOBJECT 
+tump_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tune_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : regulate in order to receive a certain station or program
+tune_in_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tune_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+tune_up VERB_DIRECTOBJECT 
+turf_out VERB_DIRECTOBJECT 
+turn_against VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+turn_around VERB_NOOBJECT VERB_DIRECTOBJECT   : turning in an opposite direction or position
+turn_away VERB_NOOBJECT VERB_DIRECTOBJECT  : move so as not face somebody or something
+turn_back VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : turn inside out or upside down
+turn_down VERB_NOOBJECT VERB_DIRECTOBJECT  : make lower or quieter
+turn_in VERB_NOOBJECT VERB_DIRECTOBJECT 
+turn_into VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When somebody or something turns into something esle, they change into that.
+turn_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+turn_on VERB_NOOBJECT VERB_DIRECTOBJECT  : become hostile towards
+turn_out VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_ADJECTIVE  : get up and out of bed
+turn_over VERB_NOOBJECT VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+turn_thumbs_down VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : vote against
+turn_to VERB_DIRECTOBJECT  : direct one's interest or attention towards
+turn_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+twist_around VERB_DIRECTOBJECT 
+type_in VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you type something in, you enter information into a computer.
+type_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+urge_on VERB_DIRECTOBJECT 
+use_up VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+usher_in VERB_DIRECTOBJECT 
+usher_out VERB_DIRECTOBJECT 
+vacuum_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+vamp_up VERB_DIRECTOBJECT  : piece with a new part
+veer_away_from VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  stay away from, avoid I veer away from the same old summer blockbuster films.
+veg_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+vege_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : engage in passive relaxation
+venture_forth VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+view_as VERB_INDIRECTOBJECT VERB_DIRECTOBJECT 
+vomit_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+vote_down VERB_DIRECTOBJECT 
+vote_in VERB_DIRECTOBJECT  : elect in a voting process
+vote_out VERB_DIRECTOBJECT 
+wade_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you wade in, you start doing something in a determined or forceful way.
+wade_into VERB_DIRECTOBJECT 
+wade_through VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (file, paperwork, report) When you wade through something, you spend a lot of time doing some boring or difficult job.  Plough through
+wait_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you wait around, you spend a long time doing nothing while you wait for somebody or something.
+wait_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you wait around, you spend a long time doing nothing while you wait for somebody or something.
+wait_behind VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wait_for  VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wait_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wait_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wait_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wait_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  not sleep because you are waiting for something or someone Don't wait up.
+wait_up_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  not sleep because you are waiting for someone or something Let's wait up for Mary to see how her date went.
+wait_upon VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wake_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+wake_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (danger, fact, threat, problem, truth) When you wake up to something, you become aware of a problem or dangerous situation.
+walk_about VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+walk_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+walk_away VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : go away from
+walk_away_from VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you walk away from something, you leave an unpleasant situation instead of dealing with it.
+walk_away_with VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (prize, title, competition, medal, award, degree) When you walk away with something, you win it.
+walk_in VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : enter by walking
+walk_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+walk_into VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+walk_off VERB_NOOBJECT VERB_DIRECTOBJECT 
+walk_off_with VERB_DIRECTOBJECT 
+walk_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you walk on, you continue walking: He stopped and had a chat with her and then walked on.
+walk_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : leave suddenly, often as an expression of disapproval
+walk_out_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : leave, usually as an expression of disapproval
+walk_out_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+walk_over VERB_DIRECTOBJECT  : beat easily
+walk_through VERB_INDIRECTOBJECT MUST_BE_SEPARATE_PHRASAL_VERB VERB_DIRECTOBJECT  : perform in a perfunctory way, as for a first rehearsal
+wall_in VERB_DIRECTOBJECT  : enclose with a wall
+wall_up VERB_DIRECTOBJECT 
+waltz_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : dance a waltz
+want_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+ward_off VERB_DIRECTOBJECT  : avert, turn away, or repel
+ward_something VERB_DIRECTOBJECT  :  (attack, blow, cold, disease, illness, danger, intruders, hunger, evel spirits, danger) When you ward off something unpleasant, you prevent it from happening.  Fend off something, head off something, stave off something
+warm_to VERB_DIRECTOBJECT  : become excited about
+warm_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wash_away VERB_DIRECTOBJECT 
+wash_down VERB_NOOBJECT VERB_DIRECTOBJECT 
+wash_off VERB_DIRECTOBJECT 
+wash_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : lose color in the process of being washed
+wash_over VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wash_up VERB_NOOBJECT VERB_DIRECTOBJECT  : wash one's face and hands
+watch_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+watch_out_for VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  be careful of Watch out for snakes while you are hiking in the desert.
+watch_over VERB_DIRECTOBJECT 
+water_down VERB_DIRECTOBJECT  : thin by adding water to
+wave_down VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  :  When you wave a vehicle down, you wave your hands to make it stop.
+wave_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : dismiss as insignificant
+wean_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wear_away VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wear_down VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wear_off VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wear_on VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : pass slowly 
+wear_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+wear_upon VERB_DIRECTOBJECT 
+weed_out VERB_DIRECTOBJECT 
+ween_off VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you ween off something, you gradually stop taking some drug or medicine.
+weigh_down VERB_DIRECTOBJECT 
+weigh_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+weigh_on VERB_DIRECTOBJECT 
+weigh_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+weight_down VERB_DIRECTOBJECT 
+well_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+well_over VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : flow or run over
+well_up VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+wheel_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+while_away VERB_DIRECTOBJECT 
+whip_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+whip_through VERB_DIRECTOBJECT  : go through very fast
+whip_up VERB_DIRECTOBJECT 
+whirl_around VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+whisk_away VERB_DIRECTOBJECT  : take away quickly and suddenly
+whisk_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  : move by very quickly
+whisk_off VERB_DIRECTOBJECT 
+white_out VERB_DIRECTOBJECT  : widen the interlinear spacing by inserting leads
+whittle_down VERB_DIRECTOBJECT 
+whizz_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+whomp_up VERB_DIRECTOBJECT  : prepare or cook quickly or hastily
+wig_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wiggle_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wiggle_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wimp_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+win_over VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB 
+wind_down VERB_NOOBJECT VERB_DIRECTOBJECT  :  When you wind something down, you gradually reduce its activity until it stops completely.
+wind_off VERB_DIRECTOBJECT  : reverse the winding or twisting of
+wind_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wind_up VERB_NOOBJECT VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+wink_at VERB_DIRECTOBJECT VERB_TAKES_GERUND 
+winkle_out VERB_DIRECTOBJECT  : remove or displace from a position
+winnow_out VERB_DIRECTOBJECT 
+wipe_off VERB_DIRECTOBJECT 
+wipe_out VERB_DIRECTOBJECT 
+wipe_up VERB_DIRECTOBJECT 
+wire_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wise_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : get wise to
+wise_up_to VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you wise up or wise up to something, you use you common sense and become more aware of things.
+wolf_down VERB_DIRECTOBJECT 
+word_up VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+work_in VERB_DIRECTOBJECT  : add by mixing or blending on or attaching
+work_off VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : cause to go away through effort or work
+work_on VERB_DIRECTOBJECT 
+work_out VERB_NOOBJECT VERB_DIRECTOBJECT 
+work_over VERB_DIRECTOBJECT 
+work_through VERB_DIRECTOBJECT  : apply thoroughly
+work_up VERB_NOOBJECT VERB_DIRECTOBJECT SEPARABLE_PHRASAL_VERB  : develop
+wrap_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+wriggle_out_of VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+wring_from VERB_DIRECTOBJECT  : get or cause to become in a difficult or laborious manner
+wring_out VERB_DIRECTOBJECT 
+write_about VERB_DIRECTOBJECT  : write about a particular topic
+write_down VERB_DIRECTOBJECT 
+write_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : write to an organization
+write_of VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB
+write_off VERB_DIRECTOBJECT 
+write_on VERB_DIRECTOBJECT 
+write_out VERB_DIRECTOBJECT 
+write_up VERB_DIRECTOBJECT 
+yack_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+yak_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  to continue talking in an annoying way ("on" can be repeated for emphasis) He just yakked on and on and on.
+yak_on_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  to continue talking in an annoying way about something ("on" can be repeated for emphasis) She just yakked on and on about her husband's new job.
+yammer_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  to talk in an annoying way or complain ("on" can be repeated for emphasis) They yammered on and on and on.
+yammer_on_about VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  to talk in an annoying way about something or complain about ("on" can be repeated for emphasis) He just yammered on and on about how horrible the waiter was.
+yield_to VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+yield_up VERB_DIRECTOBJECT  : surrender, as a result of pressure or force
+zero_in VERB_DIRECTOBJECT 
+zero_in_on VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  (missile, gun) When something zeros in on something else, you move accurately towards a target.
+zero_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+zip_around VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  move quickly from place to place I zipped around town after work today.
+zip_by VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+zip_out VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you zip out, you go somewhere very quickly to do something.
+zip_past VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you zip by, you go past a place very quickly.  Zoom by
+zip_up VERB_NOOBJECT VERB_DIRECTOBJECT 
+zone_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB 
+zone_in_on VERB_DIRECTOBJECT 
+zone_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  stop paying attention He zoned out during class.
+zonk_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : fall asleep fast, as when one is extremely tired
+zoom_along VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB 
+zoom_by VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you zoom by, you go past a place very quickly.  Zip by
+zoom_in VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  : examine closely
+zoom_in_on VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  focus on something, pinpoint She zoomed in on his face while taking the picture.
+zoom_off VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you zoom off, you leave in a hurry.
+zoom_out VERB_NOOBJECT VERB_DIRECTOBJECT INSEPARABLE_PHRASAL_VERB  :  When you zoom out or zoom out on something, you move the zoom in a camera away from the picture.  zoom in
+zoom_past VERB_NOOBJECT INSEPARABLE_PHRASAL_VERB  :  When you zoom by, you go past a place very quickly.  Zip by

@@ -1,0 +1,79 @@
+:NOUN
+first NOUN_NUMBER 
+second NOUN_NUMBER 
+third NOUN_NUMBER 
+fourth NOUN_NUMBER 
+fifth NOUN_NUMBER 
+sixth NOUN_NUMBER 
+seventh NOUN_NUMBER 
+eighth NOUN_NUMBER 
+nineth NOUN_NUMBER 
+tenth NOUN_NUMBER 
+zero  NOUN_NUMBER 
+one  NOUN_NUMBER 
+two  NOUN_NUMBER 
+three  NOUN_NUMBER 
+four  NOUN_NUMBER 
+five  NOUN_NUMBER 
+six  NOUN_NUMBER 
+seven  NOUN_NUMBER 
+eight  NOUN_NUMBER 
+nine  NOUN_NUMBER 
+ten  NOUN_NUMBER 
+eleven  NOUN_NUMBER 
+twelve  NOUN_NUMBER 
+thirteen  NOUN_NUMBER 
+fourteen  NOUN_NUMBER 
+fifteen  NOUN_NUMBER 
+sixteen NOUN_NUMBER 
+seventeen NOUN_NUMBER 
+ eighteen NOUN_NUMBER 
+  nineteen  NOUN_NUMBER 
+twenty  NOUN_NUMBER 
+thirty  NOUN_NUMBER 
+forty  NOUN_NUMBER 
+fifty  NOUN_NUMBER 
+sixty  NOUN_NUMBER 
+seventy  NOUN_NUMBER 
+eighty  NOUN_NUMBER 
+ninety NOUN_NUMBER 
+hundred  NOUN_NUMBER 
+thousand  NOUN_NUMBER 
+million  NOUN_NUMBER 
+billion  NOUN_NUMBER 
+trillion  NOUN_NUMBER 
+first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth 
+score dozen gross
+ 1/4
+ 5/8
+ 7/8
+ 3/8
+ 1/8
+ 2/3
+ 1/3
+ 3/4
+ 1/2
+thirties NOUN_NUMBER 
+umptillion NOUN_NUMBER 
+katrillion NOUN_NUMBER 
+kajillion NOUN_NUMBER 
+kabillion NOUN_NUMBER 
+jizillion NOUN_NUMBER 
+godzillion NOUN_NUMBER 
+gazillion NOUN_NUMBER 
+gajillion NOUN_NUMBER 
+gagillion NOUN_NUMBER 
+gadzillion NOUN_NUMBER 
+bazillion NOUN_NUMBER 
+bajillion NOUN_NUMBER 
+quarter-trillion NOUN_NUMBER 
+half-trillion NOUN_NUMBER 
+quarter-billion NOUN_NUMBER 
+half-billion NOUN_NUMBER 
+quarter-million NOUN_NUMBER 
+half-million NOUN_NUMBER 
+half-thousand NOUN_NUMBER 
+
+#xxfirst
+#xxth
+#number-number

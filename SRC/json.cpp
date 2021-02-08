@@ -27,6 +27,9 @@ static char jsonLabel[MAX_JSON_LABEL+1];
 bool safeJsonParse = false;
 int jsonIdIncrement = 1;
 int jsonDefaults = 0;
+int json_open_counter = 0;
+uint64 json_open_time = 0;
+
 int jsonStore = 0; // where to put json fact refs
 int jsonIndex;
 int jsonOpenSize = 0;
@@ -47,6 +50,12 @@ typedef enum {
 	URL_QUERY,
 	URL_FRAGMENT
 } urlSegment;
+
+void InitJson()
+{
+	json_open_counter = 0;
+	json_open_time = 0;
+}
 
 static int JSONArgs() 
 {
@@ -314,7 +323,7 @@ int factsJsonHelper(char *jsontext, jsmntok_t *tokens,int currToken, MEANING *re
 				result = JSONpath(word, mainpath, str,true,nofail); // raw mode
 				if (result != NOPROBLEM_BIT) 
 				{
-					if (!nofail) ReportBug((char*)"INFO: Bad Json path building facts from templace %s%s data: %s  in input", str,mainpath,jsontext,realinput); // if we are not expecting it to fail
+					if (!nofail) ReportBug((char*)"INFO: Bad Json path building facts from template %s%s data: %s  in input", str,mainpath,jsontext,realinput); // if we are not expecting it to fail
 					return 0;
 				}
 				else strcpy(str,word);
@@ -763,7 +772,7 @@ FunctionResult JSONOpenCode(char* buffer)
 
 	extraRequestHeadersRaw = ARGUMENT(index++);
 
-	char* timeout = GetUserVariable("$cs_jsontimeout");
+	char* timeout = GetUserVariable("$cs_jsontimeout", false, true);
 	if (IsDigit(*ARGUMENT(index))) timeout = ARGUMENT(index); // local override
 	long timelimit = (*timeout) ? atoi(timeout) : 300L;
 
@@ -957,11 +966,11 @@ FunctionResult JSONOpenCode(char* buffer)
 	res = CURLE_OK;
 
 	// proxy ability
-	char* proxyuser = GetUserVariable("$cs_proxycredentials"); // "myname:thesecret"
+	char* proxyuser = GetUserVariable("$cs_proxycredentials", false, true); // "myname:thesecret"
 	if (res == CURLE_OK && proxyuser && *proxyuser) res = curl_easy_setopt(curl, CURLOPT_PROXYUSERPWD, proxyuser);
-	char* proxyserver= GetUserVariable("$cs_proxyserver"); // "http://local.example.com:1080"
+	char* proxyserver= GetUserVariable("$cs_proxyserver", false, true); // "http://local.example.com:1080"
 	if (res == CURLE_OK && proxyserver && *proxyserver) res = curl_easy_setopt(curl, CURLOPT_PROXY, proxyserver);
-	char* proxymethod = GetUserVariable("$cs_proxymethod"); // "CURLAUTH_ANY"
+	char* proxymethod = GetUserVariable("$cs_proxymethod", false, true); // "CURLAUTH_ANY"
 	if (res == CURLE_OK && proxymethod && *proxymethod) res = curl_easy_setopt(curl, CURLOPT_PROXYAUTH, atol(proxymethod));
 
 	if (res == CURLE_OK ) res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
@@ -1019,9 +1028,14 @@ FunctionResult JSONOpenCode(char* buffer)
 		//sprintf(lastcurltime,"Time Analysis:\nName Look up:%.6f\nHost/proxy connect:%.6f\nApp(SSL) connect:%.6f\nPretransfer:%.6f\nTotal Transfer:%.6f\nEND\n", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
 		sprintf(lastcurltime, "%.6fs %.6fs %.6fs %.6fs %.6fs", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
 	}
-	if (timing & TIME_JSON) {
-		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Json open time: %d ms for %s %s\r\n", diff,raw_kind, fixedUrl);
+
+	int timediff = (int)(ElapsedMilliseconds() - start_time);
+	++json_open_counter;
+	json_open_time += timediff;
+
+	if (timing & TIME_JSON) 
+	{
+		if (timing & TIME_ALWAYS || timediff > 0) Log(STDTIMELOG, (char*)"Json open time: %d ms for %s %s\r\n", timediff,raw_kind, fixedUrl);
 	}
 
 	// cleanup
@@ -1345,6 +1359,16 @@ FunctionResult JSONKindCode(char* buffer)
 	return NOPROBLEM_BIT;	
 }
 
+FunctionResult JSONStorageCode(char* buffer)
+{
+	char* arg = ARGUMENT(1);
+	if (!IsValidJSONName(arg)) return FAILRULE_BIT;
+	if (arg[3] == 't') strcpy(buffer, (char*)"transient");
+	else if (arg[3] == 'b') strcpy(buffer, (char*)"boot");
+	else strcpy(buffer, (char*)"permanent");
+	return NOPROBLEM_BIT;
+}
+
 static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bool raw,bool nofail)
 {
 	char mypath[MAX_WORD_SIZE];
@@ -1418,7 +1442,7 @@ static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bo
 				what[strlen(what)-1] = 0; // remove closing quote
 			}
 			else strcpy(what,path+1);
-			if (*what == USERVAR_PREFIX) strcpy(what,GetUserVariable(what));
+			if (*what == USERVAR_PREFIX) strcpy(what,GetUserVariable(what, false, true));
 			M = MakeMeaning(FindWord(what)); // is CASE sensitive
 			if (!M) return FAILRULE_BIT; // cant be in a fact if it cant be found
 			while (F)
@@ -1437,7 +1461,7 @@ static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bo
 
 			if (F && *path == '*' && !path[1]) // return the fact ID at the bottom
 			{
-				sprintf(buffer,"%d",Fact2Index(F));
+				sprintf(buffer,"%u",Fact2Index(F));
 				return NOPROBLEM_BIT;
 			}
 
@@ -2099,7 +2123,7 @@ FunctionResult JSONVariableAssign(char* word,char* value, bool stripQuotes)
 	char c = *separator;
 	*separator = 0;
 
-	char* val = GetUserVariable(word); // gets the initial variable (must be a variable)
+	char* val = GetUserVariable(word, false, true); // gets the initial variable (must be a variable)
 	if (c == '.' && strnicmp(val,"jo-",3))
     { 
         if (trace & TRACE_VARIABLESET) Log(USERLOG, "AssignFail Object: %s->%s\r\n", word, val);
@@ -2157,7 +2181,7 @@ LOOP: // now we look at $x.key or $x[0]
 	strcpy(keyx,separator+1);
 	if (*keyx == '$' ) // indirection key user variable
 	{
-        char* answer = GetUserVariable(keyx);
+        char* answer = GetUserVariable(keyx, false, true);
 		strcpy(keyx,answer);
 		if (!*keyx)  return FAILRULE_BIT;
 	}
@@ -2329,7 +2353,7 @@ LOOP: // now we look at $x.key or $x[0]
 		
 	}
 
-	if (trace & TRACE_VARIABLESET) Log(USERLOG,"JsonVar: %s -> %s\r\n", fullpath,value);
+	if (trace & TRACE_VARIABLESET) Log(USERLOG,"JsonVar: %s -> %s", fullpath,value);
 	
 	if (base->internalBits & MACRO_TRACE) 
 	{

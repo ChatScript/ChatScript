@@ -56,9 +56,9 @@ DISCARD
 DISCARD
 
 # wont be adj part at start if followed by possible prep - spending/spend (+Noun_gerund +Adjective_participle)  on (Adjective_normal +Preposition)
- 0	INCLUDE * ADJECTIVE_PARTICIPLE
+ 0	INCLUDE * ADJECTIVE_PARTICIPLE # BUT   Joking aside, 
 	STAY START
-	HAS PREPOSITION
+	IS PREPOSITION
 DISCARD
 
 # adj vs pronoun before prep will be pronoun - many (+Adjective_normal Pronoun_object Pronoun_subject)  of (Preposition)
@@ -463,7 +463,7 @@ KEEP
 # no adjective before determiner unless after noun/pronoun (postpositive) or comma from "the work, *called the best"  or "the work (*called the best)"
 -1	!HAS NORMAL_NOUN_BITS PRONOUN_BITS COMMA PAREN
 	INCLUDE * ADJECTIVE_BITS
-	IS DETERMINER  POSSESSIVE 
+	IS DETERMINER   
 	!HOWSTART  # but  "how soft and *white the fur is" allows flipping object before subject
 DISCARD
 
@@ -488,7 +488,7 @@ DISCARD
 
 # adjective noun must be followed by another singular or plural normal noun like "he is a *bank teller" or an adjective_noun
 0	INCLUDE * ADJECTIVE_NOUN
-	!HAS NOUN_SINGULAR NOUN_PLURAL ADJECTIVE_NOUN
+	!HAS NOUN_SINGULAR NOUN_PLURAL ADJECTIVE_NOUN POSSESSIVE # bank's clerk possessive is adjective noun
 DISCARD
 
 #	adj noun vs normal noun, prefer adj noun "he is a *bank teller" but since 2 nouns could be object and object2, fails to be a good rule

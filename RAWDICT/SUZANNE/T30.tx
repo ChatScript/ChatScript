@@ -1,0 +1,2904 @@
+T30_0003	=====	142103	m
+T30_0006	-----	unid0
+T30_0009	.....	00568
+T30_0012	0092133	&*	PPHS1f	she	[S[Nas:s.Nas:s]
+T30_0015	0092143	|	VBZ	+'s	[Vzb.Vzb]
+T30_0018	0092153	|	RR	really	[J:e.
+T30_0021	0092167	.	JJ	good	.J:e]
+T30_0024	.....	00569
+T30_0027	0092199	*	CC	and	[S+.
+T30_0030	0092210	|	PPHS2	they	[Nap:s.Nap:s]
+T30_0033	0092221	|	VBR	+'re	[Vab.Vab]
+T30_0036	0092232	|	RR	really	[J:e.
+T30_0039	0092263	&	JJ	friendly	.J:e]
+T30_0042	0092279	|	RR21	as	[R:m[RR=.
+T30_0045	0092279	|	RR22	well	.RR=]R:m]
+T30_0048	0092311	&	VBR	are	[Iq[S?[Vaebx.
+T30_0051	0092321	|	XX	+n't	.Vaebx]
+T30_0054	0092332	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S+]S]
+T30_0057	-----	unid0
+T30_0060	.....	00570
+T30_0063	0092416	&	PPIS1	I	[S[Nea:s.Nea:s]
+T30_0066	0092425	.	VV0v	know	[V.V]S]
+T30_0069	-----	unid0
+T30_0072	.....	00571
+T30_0075	0092493	*	PPHS2	they	[S[Nap:s.Nap:s]
+T30_0078	0000000	y	YG	-	[t101.t101]
+T30_0081	0092504	|	VBR	+'re	[Vau.
+T30_0084	0092515	|	RR	always	[R:G101.R:G101]
+T30_0087	0092546	&	VVGv	saying	.Vau]
+T30_0090	0092560	|	UGA	hello	[Q:o.Q:o]S]
+T30_0093	0092573	ic	YY	{unclear}	[Y.Y]
+T30_0096	-----	unid0
+T30_0099	.....	00572
+T30_0102	0092647	&*	PPHS1f	she	[S[Nas:s.Nas:s]
+T30_0105	0092657	,	VBZ	+'s	[Vzb.Vzb]
+T30_0108	0000000	y	YR	#	.
+T30_0111	0092675	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_0114	0092685	,	VBZ	+'s	[Vzb.Vzb]
+T30_0117	0000000	y	YR	#	.
+T30_0120	0092704	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_0123	0092714	|	VBZ	+'s	[Vzb.Vzb]
+T30_0126	0092741	&	RR	really	[J:e.
+T30_0129	0092755	|	JJ	friendly	.J:e]
+T30_0132	0092772	.	UL	right	[Iq.Iq]S]
+T30_0135	-----	unid1
+T30_0138	.....	-----
+T30_0141	0092802	ic	YY	{unclear}	[Y.Y]
+T30_0144	-----	unid0
+T30_0147	.....	00573
+T30_0150	0092847	ic	YY	{unclear}	[Y.
+T30_0153	0092857	|	VVGv	driving	[Tg[Vg.Vg]
+T30_0156	0092876	|	RL	past	[R:q.R:q]
+T30_0159	0092888	|	II	in	[P:p.
+T30_0162	0092898	|	DD1a	that	[Nns.
+T30_0165	0092910	|	JJ	little	.
+T30_0168	0092925	*	NN1c	rascal	.
+T30_0171	0092939	|	NN1c	van	.Nns]P:p]Tg]
+T30_0174	0092950	ic	YY	{unclear}	.Y]
+T30_0177	-----	unid0
+T30_0180	.....	00574
+T30_0183	0092991	*,	DD1a	that	[Ns[DD1a#.
+T30_0186	0000000	y	YR	#	.
+T30_0189	0093011	|	DD1a	that	.DD1a#]
+T30_0192	0093023	|	NN1c	woman	.
+T30_0195	0093036	|	UY	yeah	.
+T30_0198	0093048	|	PPHS1f	she	[S@[Nas:s.Nas:s]
+T30_0201	0093058	|	VBZ	+'s	[Vzb.Vzb]
+T30_0204	0093069	|	RLn	upstairs	[R:p.R:p]
+T30_0207	0093085	|	CC	and	[S+.
+T30_0210	0093096	|	PPY	you	[Ny:s.Ny:s]
+T30_0213	0093107	|	VV0i	go	[V.V]
+T30_0216	0093117	|	RP	up	[Rw:q.
+T30_0219	0093127	|	RLh	there	.Rw:q]
+T30_0222	0093140	|	II	in	[P:t.
+T30_0225	0093151	|	AT	the	[Ns.
+T30_0228	0093162	|	NNT1c	morning	.Ns]P:t]
+T30_0231	0093177	|	CC	and	[S+.
+T30_0234	0093188	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_0237	0093198	|	VBZ	+'s	[Vzb.Vzb]
+T30_0240	0093208	|	II	on	[P:p.
+T30_0243	0093218	|	APPGf	her	[Np.
+T30_0246	0093230	|	NN2	hands	[NN2&.
+T30_0249	0093243	|	CC	and	[NN2+.
+T30_0252	0093254	|	NN2	knees	.NN2+]NN2&]Np]P:p]
+T30_0255	0093267	|	II	on	[P:p.
+T30_0258	0093277	|	APPGy	your	[Ns.
+T30_0261	0093289	|	NN1c	carpet	.Ns]P:p]
+T30_0264	0093304	|	VVGv	sweeping	[Tg:b[Vg.Vg]
+T30_0267	0093320	|	APPGy	your	[Ns:o.
+T30_0270	0093332	|	NN1c	carpet	.Ns:o]Tg:b]
+T30_0273	0093346	|	CS	cos	[Fa:c.
+T30_0276	0093357	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_0279	0093368	|	VHZ	has	[Vzef.
+T30_0282	0093378	|	XX	+n't	.
+T30_0285	0093390	|	VVNH	got	.Vzef]
+T30_0288	0093401	|	AT1	a	[Nns:o.
+T30_0291	0093410	.	NP1s	Hoover	.Nns:o]Fa:c]S+]S+]S@]Ns]
+T30_0294	-----	unid0
+T30_0297	.....	00575
+T30_0300	0093463	*	UR	oh	.
+T30_0303	0093473	|	PPIS2	we	[S[Nap:s.Nap:s]
+T30_0306	0093483	|	VV0v	get	[V.V]
+T30_0309	0093494	|	AT1	a	[Nns:o.
+T30_0312	0093503	.	NP1s	Hoover	.Nns:o]S]
+T30_0315	0093525	c	YP	{pause}	.
+T30_0318	-----	unid0
+T30_0321	.....	00576
+T30_0324	0093564	*	CCB	but	[S+.
+T30_0327	0093575	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_0330	0093585	|	VBZ	+'s	[Vzb.Vzb]
+T30_0333	0093595	|	II	on	[P:p.
+T30_0336	0093605	|	APPGy	your	[N.
+T30_0339	0093634	&ic	YY	{unclear}	[Y.Y]N]P:p]S+]
+T30_0342	-----	unid0
+T30_0345	.....	00577
+T30_0348	0093708	&ic	YY	{unclear}	[Y[Np[Y.Y]
+T30_0351	0093735	&	NN2	cheapos	.Np]
+T30_0354	0093750	ic	YY	{unclear}	.Y]
+T30_0357	-----	unid0
+T30_0360	.....	00578
+T30_0363	0093791	*	VH0	have	[S?[Vo.Vo]
+T30_0366	0093803	|	PPY	you	[Ny:s.Ny:s]
+T30_0369	0093814	|	VVNv	worked	[Vrn.Vrn]
+T30_0372	0093828	|	RP	out	[R:n.R:n]
+T30_0375	0093839	ic	YY	{unclear}	[Y.Y]
+T30_0378	0093849	|	CCr	or	[S+.
+T30_0381	0093860	?	XX	not	.S+]S?]
+T30_0384	-----	unid0
+T30_0387	.....	00579
+T30_0390	0093910	*	UN	no	.
+T30_0393	0093920	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T30_0396	0093931	|	VVDv	said	[Vd.Vd]
+T30_0399	0093943	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T30_0402	0093954	ic	YY	{unclear}	[Y.Y]Fn:o]S]
+T30_0405	-----	unid0
+T30_0408	.....	00580
+T30_0411	0093995	*	UW	well	.
+T30_0414	0094007	|	VMo	can	[S?[Voc.Voc]
+T30_0417	0094018	|	PPIS1	I	[Nea:s.Nea:s]
+T30_0420	0094027	|	RR	just	[R:m.R:m]
+T30_0423	0094039	|	VV0v	lift	[Vr.Vr]
+T30_0426	0094051	|	DD1i	this	[Ds:o.Ds:o]
+T30_0429	0094063	|	RP	up	[R:q.R:q]
+T30_0432	0094074	|	CC	and	[S+.
+T30_0435	0094085	|	RR	just	[R:m.R:m]
+T30_0438	0094097	|	ICSk	like	.
+T30_0441	0094109	|	VV0v	speak	[V.V]
+T30_0444	0094122	|	II	into	[P:q.
+T30_0447	0094134	?	PPH1	it	.P:q]S+]S?]
+T30_0450	-----	unid0
+T30_0453	.....	00581
+T30_0456	0094183	*	UY	yeah	.
+T30_0459	0094195	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_0462	0094204	|	VBZ	+'s	[Vzu.
+T30_0465	0094214	|	VVGt	recording	.Vzu]S]
+T30_0468	0094231	|	UE21	you	[UE=.
+T30_0471	0094242	|	UE22	know	.UE=]
+T30_0474	0094272	&	PPH1	it	[S[Ni:s.Ni:s]
+T30_0477	0094281	|	VBZ	+'s	[Vzb.Vzb]
+T30_0480	0094291	ic	YY	{unclear}	[Y.Y]
+T30_0483	.....	00582
+T30_0486	0094425	&,	JJ	sensitive	[J:e.J:e]S]
+T30_0489	0094450	|	VD0	do	[S*[Vex.
+T30_0492	0094459	|	XX	+n't	.Vex]
+T30_0495	0094470	|	CS	cos	[Fa:c.
+T30_0498	0094481	|	DD1a	that	[Ds:s.Ds:s]
+T30_0501	0094494	|	VVZv	sounds	[Vz.Vz]
+T30_0504	0094512	|	RR	really	[J:e.
+T30_0507	0094526	.	JJ	bad	.J:e]Fa:c]S*]
+T30_0510	-----	unid0
+T30_0513	.....	00000
+T30_0516	0094354	&c	YV	{whistling}	.
+T30_0519	-----	unid0
+T30_0522	.....	00583
+T30_0525	0094576	*	UR	oh	.
+T30_0528	0094586	|	UR21	I	[UR=.
+T30_0531	0094595	|	UR22	see	.UR=]
+T30_0534	0094606	|	AT	the	[S[Ns:s.
+T30_0537	0094617	|	NN1n	level	.
+T30_0540	0094630	|	NN1c	thing	.Ns:s]
+T30_0543	0094643	|	VVZi	comes	[Vz.Vz]
+T30_0546	0094657	.	RP	up	[R:q.R:q]S]
+T30_0549	.....	00584
+T30_0552	0094687	*	CSi	if	[S?[Fa:c.
+T30_0555	0094697	|	PPY	you	[Ny:s.Ny:s]
+T30_0558	0094708	c	YVL	{shouting}	.
+T30_0561	0094729	|	VV0v	shout	[V.V]Fa:c]
+T30_0564	0094742	|	VDZ	does	[Voz.Voz]
+T30_0567	0094754	|	PPH1	it	[Ni:s.Ni:s]
+T30_0570	0094765	|	VV0i	go	[Vr.Vr]
+T30_0573	0094775	|	RR	even	[J:q.
+T30_0576	0000000	y	YR	#	.J:q]S?]
+T30_0579	0094787	c	YVR	{shouting}	.
+T30_0582	0094795	|	UR	oh	.
+T30_0585	0094805	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_0588	0000000	y	YG	-	[m105.m105]
+T30_0591	0094815	|	VDZ	does	[Vzk.
+T30_0594	0094827	|	RR21	just	[R:G105[RR=.
+T30_0597	0094827	|	RR22	about	.RR=]R:G105]
+T30_0600	0094862	&	VV0i	go	.Vzk]
+T30_0603	0094872	.	JJR	higher	[J:q.J:q]S]
+T30_0606	-----	unid0
+T30_0609	.....	00585
+T30_0612	0094958	&*	UY	yeah	.
+T30_0615	0094970	ic	YY	{unclear}	[Y.Y]
+T30_0618	-----	unid0
+T30_0621	.....	00586
+T30_0624	0095028	*!	UX	wow	.
+T30_0627	-----	unid0
+T30_0630	.....	00587
+T30_0633	0095078	*	UN	no	.
+T30_0636	0095088	|	VV0i	go	[S*[V.V]
+T30_0639	0095098	|	CC	and	[S*+.
+T30_0642	0095109	|	VH0	have	[V.V]
+T30_0645	0095121	|	DDi	some	[Ns:o[D.
+T30_0648	0095133	|	DAR	more	.D]
+T30_0651	0095146	|	VVGi	scintillating	[Tg[Vg.Vg]Tg]
+T30_0654	0095171	|	NN1n	conversation	.Ns:o]
+T30_0657	0095191	|	IW	with	[P:w.
+T30_0660	0095203	.	NP1m	Ross	[Nns.Nns]P:w]S*+]S*]
+T30_0663	-----	unid0
+T30_0666	.....	00588
+T30_0669	0095254	*	VV0i	go	[S*[V.V]
+T30_0672	0095264	|	CC	and	[S*+.
+T30_0675	0095275	|	VV0v	speak	[V.V]
+T30_0678	0095288	|	IIt	to	[P:u.
+T30_0681	0095298	.	NP1m	Ross	[Nns.Nns]P:u]S*+]S*]
+T30_0684	-----	unid0
+T30_0687	.....	00589
+T30_0690	0095349	*	UR	oh	.
+T30_0693	0095359	|	PPY	you	[S[Ny:s.Ny:s]
+T30_0696	0095370	|	FLG	fucking	.
+T30_0699	0095389	|	VV0i	reek	[V.V]
+T30_0702	0095405	|	IO	of	[Po:h.
+T30_0705	0095415	|	NN1n	onion	.Po:h]
+T30_0708	0095428	|	RR21	as	[R:m[RR=.
+T30_0711	0095428	.	RR22	well	.RR=]R:m]S]
+T30_0714	-----	unid0
+T30_0717	.....	00590
+T30_0720	0095482	*	VD0	do	[S?[Voe.
+T30_0723	0095491	|	XX	+n't	.Voe]
+T30_0726	0095502	|	PPY	you	[Ny:s.Ny:s]
+T30_0729	0095513	|	VV0t	like	[Vr.Vr]
+T30_0732	0095525	?	NN1n	onion	[Ns:o.Ns:o]S?]
+T30_0735	-----	unid0
+T30_0738	.....	00591
+T30_0741	0095577	*.	UN	no	.
+T30_0744	-----	unid0
+T30_0747	.....	00000
+T30_0750	0095614	c	YV	{laugh}	.
+T30_0753	-----	unid1
+T30_0756	.....	-----
+T30_0759	0095638	ic	YY	{unclear}	[Y.Y]
+T30_0762	-----	unid0
+T30_0765	.....	00592
+T30_0768	0095691	*	VD0	do	[S?[Vo.Vo]
+T30_0771	0095701	|	PPY	you	[Ny:s.Ny:s]
+T30_0774	0095712	|	VV0v	know	[Vr.Vr]
+T30_0777	0095724	|	DDQ	what	[Fn?:o[Dq:o.Dq:o]
+T30_0780	0095736	|	NP1m	Charlie	[Nns:s.
+T30_0783	0095751	|	NP1a	<name>	.Nns:s]
+T30_0786	0095802	|	VVDv	said	[Vd.Vd]
+T30_0789	0095814	|	IIt	to	[P:u.
+T30_0792	0095825	|	PPHO1m	him	.P:u]
+T30_0795	0095836	?	RTt	tonight	[R:t.R:t]Fn?:o]S?]
+T30_0798	-----	unid0
+T30_0801	.....	00593
+T30_0804	0095890	*	UN	no	.
+T30_0807	0095900	|	DDQ	what	[S?[Dq:o.Dq:o]
+T30_0810	0095912	|	VDD	did	[Vod.Vod]
+T30_0813	0095923	,	PPHS1m	he	[Nas:s.Nas:s]
+T30_0816	0000000	y	YR	#	.
+T30_0819	0095941	|	DDQ	what	[Dq:o.Dq:o]
+T30_0822	0095953	|	VDD	did	[Vod.Vod]
+T30_0825	0095964	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_0828	0095975	?	VV0v	say	[Vr.Vr]S?]
+T30_0831	-----	unid0
+T30_0834	.....	00594
+T30_0837	0096025	*	UY	yeah	.
+T30_0840	0096037	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_0843	0096046	|	VBZ	+'s	[Vzut.
+T30_0846	0096056	|	VVGK	gon	.Vzut]
+T30_0849	0096066	|	TO	+na	[Ti:z[Vi.
+T30_0852	0096076	|	VV0v	take	.Vi]
+T30_0855	0096088	|	PPHO1m	him	[Nos:o.Nos:o]
+T30_0858	0096099	|	IIt	to	[P:q.
+T30_0861	0096110	|	AT	the	[Ns.
+T30_0864	0096121	.	NNS1c	master	.Ns]P:q]Ti:z]S]
+T30_0867	-----	unid0
+T30_0870	.....	00595
+T30_0873	0096174	|	NP1m	Charlie	[S[Nns:s.
+T30_0876	0096189	|	NP1a	<name>	.Nns:s]
+T30_0879	0096241	|	VBZ	is	[Vzut.
+T30_0882	0096251	|	VVGK	gon	.Vzut]
+T30_0885	0096261	|	TO	+na	[Ti:z[Vi.
+T30_0888	0096271	|	VV0v	take	.Vi]
+T30_0891	0096283	|	NP1m	James	[Nns:o.Nns:o]
+T30_0894	0096296	|	IIt	to	[P:q.
+T30_0897	0096306	|	AT	the	[Ns.
+T30_0900	0096318	.	NNS1c	master	.Ns]P:q]Ti:z]S]
+T30_0903	-----	unid0
+T30_0906	.....	00596
+T30_0909	0096371	*.	UY	yes	.
+T30_0912	0096407	&ic	YY	{unclear}	[Y.Y]
+T30_0915	-----	unid0
+T30_0918	.....	00597
+T30_0921	0096481	&*	CCB	but	[S+.
+T30_0924	0096492	|	PPY	you	[Ny:s.Ny:s]
+T30_0927	0096503	|	VMd	could	[Vdc.Vdc]
+T30_0930	0000000	y	YR	#	.
+T30_0933	0096533	&	PPY	you	[Ny:s.Ny:s]
+T30_0936	0096545	|	VMd	could	[Vdc.
+T30_0939	0096558	|	VV0t	bug	.Vdc]
+T30_0942	0096569	|	PN1	someone	[Ns:o.Ns:o]
+T30_0945	0096584	|	RR	probably	[R:m.R:m]S+]
+T30_0948	0096600	|	ICSk	like	.
+T30_0951	0096612	|	VV0v	say	[S[S*:c[V.V]
+T30_0954	0096624	|	DD1a	that	[Fn:o[Ds:S.Ds:S]
+T30_0957	0096640	|	VBDZ	was	[Vsp.
+T30_0960	0096651	|	VVNt	covered	.Vsp]
+T30_0963	0096666	|	RP	up	[R:n.R:n]Fn:o]S*:c]
+T30_0966	0096680	|	PPY	you	[Ny:s.Ny:s]
+T30_0969	0096691	|	VMd	could	[Vdc.
+T30_0972	0096705	|	VV0v	talk	.Vdc]
+T30_0975	0096717	|	IIt	to	[P:u.
+T30_0978	0096727	|	PPHO2	them	.P:u]
+T30_0981	0096739	|	CC	and	[S+.
+T30_0984	0096750	,	VV0v	make	[V.V]
+T30_0987	0000000	y	YR	#	.
+T30_0990	0096770	|	PPHS2	they	[Nap:s.Nap:s]
+T30_0993	0000000	y	YG	-	[m109.m109]
+T30_0996	0096783	|	VMd	would	[Vdce.
+T30_0999	0096795	|	XX	+n't	.
+T30_1002	0096806	|	RR	even	[R:G109.R:G109]
+T30_1005	0096818	|	VV0t	realize	.Vdce]
+T30_1008	0096833	|	PPHS2	they	[Fn:o[Nap:S.Nap:S]
+T30_1011	0096863	&	VBDR	were	[Vwu.
+T30_1014	0096875	|	VBG	being	.
+T30_1017	0000000	y	YR	#	.Vwu]Fn:o]S+]S]
+T30_1020	-----	unid0
+T30_1023	.....	00598
+T30_1026	0096952	&*	VV0v	shut	[S*[V.V]
+T30_1029	0096964	|	RP	up	[R:n.R:n]
+T30_1032	0096974	|	VMo	will	[Iq[S?[Vcx.Vcx]
+T30_1035	0096986	.	PPY	you	[Ny:s.Ny:s]S?]Iq]S*]
+T30_1038	-----	unid0
+T30_1041	.....	00599
+T30_1044	0097053	*	UA	sorry	.
+T30_1047	0097066	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_1050	0097075	|	VVDv	thought	[Vd.Vd]
+T30_1053	0097090	|	DD1a	that	[Fn:o[Ds:s.Ds:s]
+T30_1056	0097106	|	VBDZ	was	[Vsb.Vsb]
+T30_1059	0097117	|	RGb	quite	[Y:e.
+T30_1062	0097147	&ic	YY	{unclear}	.Y:e]Fn:o]S]
+T30_1065	-----	unid1
+T30_1068	.....	00000
+T30_1071	0097210	&ic	YY	{unclear}	[Y.Y]
+T30_1074	-----	unid0
+T30_1077	.....	00600
+T30_1080	0097268	*	VMd	could	[S?[Vodc.Vodc]
+T30_1083	0097281	,	PPY	you	[Ny:s.Ny:s]
+T30_1086	0000000	y	YR	#	.
+T30_1089	0097300	|	VMd	could	[Vodc.Vodc]
+T30_1092	0097313	|	PPY	you	[Ny:s.Ny:s]
+T30_1095	0097324	|	VV0v	plug	[Vr.Vr]
+T30_1098	0097336	|	DD1i	this	[Ds:o.Ds:o]
+T30_1101	0097349	|	II	into	[P:q.
+T30_1104	0097361	|	ICSk	like	.
+T30_1107	0097373	|	AT1	a	[Ns.
+T30_1110	0097382	?	NN1c	dictaphone	.Ns]P:q]S?]
+T30_1113	-----	unid0
+T30_1116	.....	00601
+T30_1119	0097439	*.	UY	yeah	.
+T30_1122	-----	unid0
+T30_1125	.....	00602
+T30_1128	0097490	*	UY	yeah	.
+T30_1131	0097502	|	CS31	as	[Fa[CS=.
+T30_1134	0097502	|	CS32	long	.
+T30_1137	0097502	|	CS33	as	.CS=]
+T30_1140	0097520	|	PPH1	it	[Ni:s.Ni:s]
+T30_1143	0097529	|	VHZ	+'s	[Vzf.
+T30_1146	0097539	|	VVNH	got	.Vzf]
+T30_1149	0097550	|	AT1	a	[Ns:o.
+T30_1152	0097560	|	NN1c	recording	.
+T30_1155	0097594	&ic	YY	{unclear}	[Y.Y]Ns:o]Fa]
+T30_1158	-----	unid0
+T30_1161	.....	00603
+T30_1164	0097668	&*	UW	well	.
+T30_1167	0097680	|	RR21	of	[S[R:m[RR=.
+T30_1170	0097680	|	RR22	course	.RR=]R:m]
+T30_1173	0097714	&	NN2	dictaphones	[Np:s.Np:s]
+T30_1176	0000000	y	YG	-	[t111.t111]
+T30_1179	0097734	|	VH0	have	[Vf.
+T30_1182	0097746	|	RR	always	[R:G111.R:G111]
+T30_1185	0097760	|	VVNH	got	.Vf]
+T30_1188	0097771	|	NN2	records	[Np:o.Np:o]
+T30_1191	0097786	|	II	on	[P:p.
+T30_1194	0097796	,	PPHO2	them	.P:p]
+T30_1197	0097817	|	DD1a	that	[S@[Ds:s.Ds:s]
+T30_1200	0097828	|	VBZ	+'s	[Vzb.Vzb]
+T30_1203	0097838	|	RRQq	why	[Fn?:e[Rq:c.Rq:c]
+T30_1206	0097849	|	PPHS2	they	[Nap:S.Nap:S]
+T30_1209	0097860	|	VBR	+'re	[Vap.
+T30_1212	0097871	|	VVNv	called	.Vap]
+T30_1215	0097886	.	NN2	dictaphones	[Np:e.Np:e]Fn?:e]S@]S]
+T30_1218	-----	unid0
+T30_1221	.....	00604
+T30_1224	0097944	*	UR	oh	.
+T30_1227	0097954	.	UA	sorry	.
+T30_1230	-----	unid0
+T30_1233	.....	00605
+T30_1236	0098006	*	UY	yeah	.
+T30_1239	0098018	|	CS	cos	[Fa.
+T30_1242	0098029	|	PPY	you	[Ny:s.Ny:s]
+T30_1245	0098040	|	VV0v	dictate	[V.V]
+T30_1248	0098055	|	II	into	[P:q.
+T30_1251	0098067	.	PPHO2	them	.P:q]Fa]
+T30_1254	-----	unid0
+T30_1257	.....	00606
+T30_1260	0098118	*	UR	oh	.
+T30_1263	0098128	|	VB0	be	[S*[Vjb.Vjb]
+T30_1266	0098138	!	JJ	quiet	[J:e.J:e]S*]
+T30_1269	-----	unid1
+T30_1272	.....	-----
+T30_1275	0098164	ic	YY	{unclear}	[Y.Y]
+T30_1278	-----	unid0
+T30_1281	.....	00607
+T30_1284	0098209	c	YVL	{vocal12}	.
+T30_1287	0098231	*	UR	oh	.
+T30_1290	0098241	|	VB0	be	[S*[Vjb.Vjb]
+T30_1293	0098251	|	JJ	quiet	[J:e.J:e]S*]
+T30_1296	0098264	c	YVR	{vocal12}	.
+T30_1299	0098272	|	CC	and	[S?+.
+T30_1302	0098284	|	VMo	will	[Voc.Voc]
+T30_1305	0098296	|	PPH1	it	[Ni:s.Ni:s]
+T30_1308	0098306	|	VV0v	pick	[Vr.Vr]
+T30_1311	0098318	|	PPH1	it	[Ni:o.Ni:o]
+T30_1314	0098328	|	RP	up	[R:n.R:n]
+T30_1317	0098338	|	RR21	as	[R:m[RR=.
+T30_1320	0098338	|	RR22	well	.RR=]R:m]
+T30_1323	0098353	|	CSi	if	[Fa:c.
+T30_1326	0098364	|	PPY	you	[Ny:s.Ny:s]
+T30_1329	0098375	|	VD0	do	[V.V]
+T30_1332	0098385	?	DD1a	that	[Ds:o.Ds:o]Fa:c]S?+]
+T30_1335	-----	unid0
+T30_1338	.....	-----
+T30_1341	0098410	ic	YY	{unclear}	[Y.Y]
+T30_1344	-----	unid0
+T30_1347	.....	00608
+T30_1350	0098456	*	CSi	if	[S[Fa:c.
+T30_1353	0098466	|	PPIS1	I	[Nea:s.Nea:s]
+T30_1356	0098475	|	VD0	do	[V.V]
+T30_1359	0098485	.	DD1a	that	[Ds:o.Ds:o]Fa:c]
+T30_1362	.....	00609
+T30_1365	0098536	&*	UY	yes	.
+T30_1368	0098547	|	PPH1	it	[Ni:s.Ni:s]
+T30_1371	0098557	|	VMo	can	[Vc.
+T30_1374	0098568	|	VV0v	pick	.Vc]
+T30_1377	0098580	|	PPH1	it	[Ni:o.Ni:o]
+T30_1380	0098590	.	RP	up	[R:n.R:n]
+T30_1383	.....	00610
+T30_1386	0098639	&*	UY	yeah	.
+T30_1389	0098651	|	PPH1	it	[S@[Ni:s.Ni:s]
+T30_1392	0098661	|	VVZv	picks	[Vz.Vz]
+T30_1395	0098674	|	PN1	everything	[Ns:o.Ns:o]
+T30_1398	0098692	.	RP	up	[R:n.R:n]S@]
+T30_1401	.....	00611
+T30_1404	0098722	*.	UK	look	.S]
+T30_1407	-----	unid1
+T30_1410	.....	-----
+T30_1413	0098747	ic	YY	{unclear}	[Y.Y]
+T30_1416	-----	unid0
+T30_1419	.....	00612
+T30_1422	0098792	ic	YY	{unclear}	[Y.Y]
+T30_1425	0098802	|	DD1a	that	[S[Ds:s.Ds:s]
+T30_1428	0098813	|	VBZ	+'s	[Vzb.Vzb]
+T30_1431	0098823	.	JJ	brilliant	[J:e.J:e]S]
+T30_1434	.....	00613
+T30_1437	0098860	*	FL	shit	.
+T30_1440	0098872	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_1443	0098880	|	VH0	+'ve	[Vf.
+T30_1446	0098891	|	VVNH	got	.Vf]
+T30_1449	0098901	|	TO	+ta	[Ti:z[Vi.
+T30_1452	0098911	|	VV0v	get	.Vi]
+T30_1455	0098922	|	MC1	one	[Ms:o.
+T30_1458	0098933	|	IO	of	[Po.
+T30_1461	0098944	.	DD2i	these	.Po]Ms:o]Ti:z]S]
+T30_1464	-----	unid1
+T30_1467	.....	-----
+T30_1470	0098970	ic	YY	{unclear}	[Y.Y]
+T30_1473	-----	unid0
+T30_1476	.....	00614
+T30_1479	0099015	ic	YY	{unclear}	[Y.Y]
+T30_1482	0099025	|	CSi	if	[S[Fa:c.
+T30_1485	0099035	|	PPY	you	[Ny:s.Ny:s]
+T30_1488	0099046	|	VV0v	pick	[V.V]
+T30_1491	0099058	|	DD1q	another	[Ns:o.
+T30_1494	0099073	|	NN1c	button	.Ns:o]Fa:c]
+T30_1497	0099087	|	PPH1	it	[Ni:s.Ni:s]
+T30_1500	0099098	|	VVZv	tells	[Vz.Vz]
+T30_1503	0099111	|	PPY	you	[Ny:i.Ny:i]
+T30_1506	0099122	|	RGQq	how	[Fn?:o[Nqs:o[Dqs.
+T30_1509	0099133	|	DA1	much	.Dqs]
+T30_1512	0099145	|	NN1c	battery	.
+T30_1515	0099160	|	NN1n	power	.Nqs:o]
+T30_1518	0099174	|	PPY	you	[Ny:s.Ny:s]
+T30_1521	0099184	|	VH0	+'ve	[Vf.
+T30_1524	0099195	|	VVNH	got	.Vf]
+T30_1527	0099206	.	VVNv	left	[Tn:j[Vn.Vn]Tn:j]Fn?:o]S]
+T30_1530	.....	00615
+T30_1533	0099242	*.	VV0v	look	[S*[V.V]S*]
+T30_1536	.....	00616
+T30_1539	0099273	c	YP	{pause}	.
+T30_1542	0099281	*	VV0v	look	[S*[V.V]
+T30_1545	0099293	|	DD1a	that	[S@[Ds:s.Ds:s]
+T30_1548	0099304	|	VBZ	+'s	[Vzb.Vzb]
+T30_1551	0099314	|	RGQq	how	[Fn?:e[Nqs:o[Dqs.
+T30_1554	0099325	|	DA1	much	.Dqs]
+T30_1557	0099337	|	NN1c	battery	.
+T30_1560	0099353	|	NN1n	power	.Nqs:o]
+T30_1563	0099366	|	PPIS1	I	[Nea:s.Nea:s]
+T30_1566	0099374	|	VH0	+'ve	[Vf.
+T30_1569	0099385	|	VVNH	got	.Vf]
+T30_1572	0099396	.	VVNv	left	[Tn:j[Vn.Vn]Tn:j]Fn?:e]S@]S*]
+T30_1575	-----	unid0
+T30_1578	.....	00617
+T30_1581	0099451	*	PPY	you	[S[Ny:s.Ny:s]
+T30_1584	0099461	|	VH0	+'ve	[Vf.
+T30_1587	0099472	|	VVNH	got	.Vf]
+T30_1590	0099483	|	NN2	loads	[Np:o.Np:o]
+T30_1593	0099496	.	RR	basically	[R:m.R:m]S]
+T30_1596	-----	unid0
+T30_1599	.....	00618
+T30_1602	0099552	*.	UY	yeah	.
+T30_1605	-----	unid1
+T30_1608	.....	-----
+T30_1611	0099577	ic	YY	{unclear}	[Y.Y]
+T30_1614	-----	unid0
+T30_1617	.....	00619
+T30_1620	0099623	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_1623	0099632	|	VHZ	+'s	[Vzf.
+T30_1626	0099642	|	VVNH	got	.Vzf]
+T30_1629	0099653	|	MC	four	[Np:o.
+T30_1632	0099665	|	NN2	packets	.
+T30_1635	0099680	|	IO	of	[Po.
+T30_1638	0099691	.	NN2	batteries	.Po]
+T30_1641	0099716	c	YP	{pause}	.
+T30_1644	.....	00620
+T30_1647	0099775	&*	CC	and	[Np+.
+T30_1650	0099786	|	RGi	about	.
+T30_1653	0099799	|	MC	ten	.
+T30_1656	0099810	.	NN2	tapes	.Np+]Np:o]S]
+T30_1659	-----	unid1
+T30_1662	.....	-----
+T30_1665	0099729	ic	YY	{unclear}	[Y.Y]
+T30_1668	-----	unid0
+T30_1671	.....	00621
+T30_1674	0099862	*	VV0v	hang	[S*[V.V]
+T30_1677	0099874	|	RP	on	[R:n.R:n]
+T30_1680	0099884	|	AT1	a	[Ns:t.
+T30_1683	0099893	.	NNT1c	minute	.Ns:t]S*]
+T30_1686	0099915	c	YP	{pause}	.
+T30_1689	-----	unid0
+T30_1692	.....	00622
+T30_1695	0099953	ic	YY	{unclear}	[Y.Y]
+T30_1698	0099963	|	VH0	have	[S?[Vo.Vo]
+T30_1701	0099975	|	PPY	you	[Ny:s.Ny:s]
+T30_1704	0099986	|	VVNv	seen	[Vrn.Vrn]
+T30_1707	0099998	|	AT	the	[Np:o.
+T30_1710	0100009	|	NN2	tapes	.Np:o]
+T30_1713	0100022	|	RR21	as	[R:m[RR=.
+T30_1716	0100022	?	RR22	well	.RR=]R:m]S?]
+T30_1719	-----	unid0
+T30_1722	.....	00623
+T30_1725	0100076	*	UL	what	.
+T30_1728	0100088	|	RR	all	[L[R:h.R:h]
+T30_1731	0100099	|	VVNt	supplied	[Tn:e[Vn.Vn]
+T30_1734	0100115	|	IIb	by	[Pb:a.
+T30_1737	0100125	|	AT	the	[Ns.
+T30_1740	0100136	|	JJ	Norwegian	.
+T30_1743	0100158	?	NNJ1n	government	.Ns]Pb:a]Tn:e]L]
+T30_1746	-----	unid0
+T30_1749	.....	00624
+T30_1752	0100215	*	VH0	have	[S?[Vo.Vo]
+T30_1755	0100227	|	PPY	you	[Ny:s.Ny:s]
+T30_1758	0100238	|	VVNv	seen	[Vrn.Vrn]
+T30_1761	0100250	|	AT	the	[Np:o.
+T30_1764	0100261	?	NN2	tapes	.Np:o]S?]
+T30_1767	-----	unid0
+T30_1770	.....	00625
+T30_1773	0100313	*	VH0	have	[S?[Vo.Vo]
+T30_1776	0100325	|	PPY	you	[Ny:s.Ny:s]
+T30_1779	0100336	|	VVNv	seen	[Vrn.Vrn]
+T30_1782	0100348	|	DD2i	these	[Np:o.
+T30_1785	0100361	?	NN2	tapes	.Np:o]S?]
+T30_1788	0100382	ic	YY	{unclear}	[Y.Y]
+T30_1791	-----	unid0
+T30_1794	.....	00626
+T30_1797	0100423	*	UW	well	.
+T30_1800	0100435	|	RR21	of	[S[R:m[RR=.
+T30_1803	0100435	|	RR22	course	.RR=]R:m]
+T30_1806	0100452	|	PPIS1	I	[Nea:s.Nea:s]
+T30_1809	0100461	.	VH0	have	[Vx.Vx]S]
+T30_1812	0100481	c	YP	{pause}	.
+T30_1815	-----	unid0
+T30_1818	.....	00627
+T30_1821	0100520	*	JJ	brilliant	[Np.
+T30_1824	0100537	.	NN2	tapes	.Np]
+T30_1827	-----	unid0
+T30_1830	.....	00628
+T30_1833	0100589	*!	FL	shit	.
+T30_1836	-----	unid0
+T30_1839	.....	00629
+T30_1842	0100640	|	NN1c	CD	[Ns[Ns.
+T30_1845	0100658	|	NN1c	recording	.Ns]
+T30_1848	0100679	.	NN1n	type	.Ns]
+T30_1851	0100699	c	YP	{pause}	.
+T30_1854	-----	unid0
+T30_1857	.....	00630
+T30_1860	0100738	*	UL	what	.
+T30_1863	0100750	|	CC	and	[S+.
+T30_1866	0100761	|	PPHS2	they	[Nap:S.Nap:S]
+T30_1869	0000000	y	YG	-	[h117.h117]
+T30_1872	0100772	|	VBR	+'re	[Vap.
+T30_1875	0100783	|	RR	all	[R:G117.R:G117]
+T30_1878	0100794	|	VVNt	supplied	.Vap]
+T30_1881	0100810	|	IIb	by	[Pb:a.
+T30_1884	0100821	|	AT	the	[Ns.
+T30_1887	0100832	|	JJ	Norwegian	.
+T30_1890	0100853	?	NNJ1n	government	.Ns]Pb:a]S+]
+T30_1893	-----	unid0
+T30_1896	.....	00631
+T30_1899	0100909	ic	YY	{unclear}	[Y.
+T30_1902	0100919	|	JJ	streamlined	[J.J]
+T30_1905	0100942	|	RR21	as	[R[RR=.
+T30_1908	0100942	|	RR22	well	.RR=]R]
+T30_1911	0100974	&ic	YY	{unclear}	.Y]
+T30_1914	-----	unid1
+T30_1917	.....	00000
+T30_1920	0101037	&ic	YY	{unclear}	[Y.Y]
+T30_1923	-----	unid0
+T30_1926	.....	00632
+T30_1929	0101095	|	RR	all	[L[R:h.R:h]
+T30_1932	0101106	|	VVNv	rounded	[Tn:e[Vn.Vn]Tn:e]
+T30_1935	0101125	|	II	at	[P:p.
+T30_1938	0101135	|	AT	the	[Ns.
+T30_1941	0101146	.	NN1c	edge	.Ns]P:p]L]
+T30_1944	-----	unid0
+T30_1947	.....	00633
+T30_1950	0101197	*	UY	yeah	.
+T30_1953	0101209	|	DD1a	that	[S[Ds:s.Ds:s]
+T30_1956	0101220	,	VBZ	+'s	[Vzb.Vzb]
+T30_1959	0000000	y	YR	#	.
+T30_1962	0101238	|	PPHS2	they	[Nap:s.Nap:s]
+T30_1965	0101249	|	VBR	+'re	[Vab.Vab]
+T30_1968	0101260	|	JJ	new	[Np:e.
+T30_1971	0101271	|	NN2	cases	.Np:e]
+T30_1974	0101285	|	RLh	here	[Rw:p.Rw:p]
+T30_1977	0101297	|	RR	though	[R:c.R:c]
+T30_1980	0101311	,	VBR	are	[Iq[S?[Vab.Vab]S?]Iq]
+T30_1983	0000000	y	YR	#	.
+T30_1986	0101330	|	UW	well	.
+T30_1989	0101342	|	UN	no	.
+T30_1992	0101352	|	VH0	have	[Vo.Vo]
+T30_1995	0101365	|	PPY	you	[Ny:s.Ny:s]
+T30_1998	0101376	|	VVNv	seen	[Vrn.Vrn]
+T30_2001	0101388	|	AT	the	[Np:o.
+T30_2004	0101399	|	NN2	cases	.
+T30_2007	0101412	|	RLh	here	.Np:o]
+T30_2010	0101424	|	PPHS2	they	[S@[Nap:s.Nap:s]
+T30_2013	0101435	|	VBR	+'re	[Vab.Vab]
+T30_2016	0101447	|	RR	even	[D:h.
+T30_2019	0101459	,	DAR	more	.D:h]
+T30_2022	0000000	y	YR	#	.
+T30_2025	0101479	|	PPHS2	they	[Nap:s.Nap:s]
+T30_2028	0101490	|	VBR	+'re	[Vab.Vab]
+T30_2031	0101501	|	RR	even	[D:h.
+T30_2034	0101513	|	DAR	more	.
+T30_2037	0101526	|	CSN	than	[P.
+T30_2040	0101538	.	DD1a	that	.P]D:h]S@]S]
+T30_2043	-----	unid0
+T30_2046	.....	00634
+T30_2049	0101589	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_2052	0101598	.	VV0v	know	[V.V]S]
+T30_2055	-----	unid1
+T30_2058	.....	-----
+T30_2061	0101623	ic	YY	{unclear}	[Y.Y]
+T30_2064	-----	unid0
+T30_2067	.....	00635
+T30_2070	0101669	*	PPY	you	[S[Ny:s.Ny:s]
+T30_2073	0101680	|	VV0v	know	[V.V]
+T30_2076	0101692	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T30_2079	0101703	|	VVDv	said	[Vd.Vd]
+T30_2082	0101715	|	DD2i	these	[Fn:o[Dp:s.Dp:s]
+T30_2085	0101728	|	VBDR	were	[Vwb.Vwb]
+T30_2088	0101740	|	RR	all	[R:h.R:h]
+T30_2091	0101752	|	IIb	by	[Pb:e.
+T30_2094	0101762	,	AT	the	[N.
+T30_2097	0000000	y	YR	#	.N]Pb:e]Fn:o]Fn:o]S]
+T30_2100	0101781	|	VBR	are	[S?[Voab.Voab]
+T30_2103	0101792	,	PPY	you	[Ny:s.Ny:s]
+T30_2106	0000000	y	YR	#	.
+T30_2109	0101811	|	RRQq	when	[Rq:t.Rq:t]
+T30_2112	0101823	|	VBR	are	[Voab.Voab]
+T30_2115	0101835	|	PPY	you	[Ny:s.Ny:s]
+T30_2118	0101846	|	VVGi	going	[Vrg.Vrg]
+T30_2121	0101859	|	IIt	to	[P:q.
+T30_2124	0101869	?	NP1c	Norway	[Nns.Nns]P:q]S?]
+T30_2127	.....	00636
+T30_2130	0101903	*	VBR	are	[S?[Voab.Voab]
+T30_2133	0101914	|	PPY	you	[Ny:s.Ny:s]
+T30_2136	0101925	|	VVGi	going	[Vrg.Vrg]
+T30_2139	0101938	|	IW	with	[P:w.
+T30_2142	0101950	|	ICSk	like	.
+T30_2145	0000000	y	YR	#	.P:w]S?]
+T30_2148	-----	unid0
+T30_2151	.....	00637
+T30_2154	0101993	*.	UN	no	.
+T30_2157	-----	unid0
+T30_2160	.....	00638
+T30_2163	0102042	*	VBZ	is	[S?[Vozb.Vozb]
+T30_2166	0102052	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_2169	0102062	|	VVGi	going	[Vrg.Vrg]
+T30_2172	0102075	|	IIt	to	[P:q.
+T30_2175	0102085	!	NP1c	Norway	[Nns.Nns]P:q]S?]
+T30_2178	.....	00639
+T30_2181	0102119	*	PPHS2	they	[S[Nap:S.Nap:S]
+T30_2184	0102130	|	VBR	+'re	[Vaup.
+T30_2187	0102141	|	VBG	being	.
+T30_2190	0102154	|	VVNv	sent	.Vaup]
+T30_2193	0102166	|	IIt	to	[P:q.
+T30_2196	0102176	|	NP1c	Norway	[Nns.Nns]P:q]
+T30_2199	0102190	|	CS	cos	[Fa:c.
+T30_2202	0102202	|	PPHS2	they	[Nap:s.Nap:s]
+T30_2205	0102214	,	VBR	are	[Vab.Vab]
+T30_2208	0000000	y	YR	#	.
+T30_2211	0102233	|	PPHS2	they	[Nap:s.Nap:s]
+T30_2214	0102245	|	VBR	are	[Vab.Vab]
+T30_2217	0102273	&ic	YY	{unclear}	[Y.Y]Fa:c]S]
+T30_2220	-----	unid0
+T30_2223	.....	00640
+T30_2226	0102347	&	PPIS1	I	[S[Nea:s.Nea:s]
+T30_2229	0102356	|	VVDv	said	[Vd.Vd]
+T30_2232	0102368	|	RRQq	when	[Q:o[S?[Rq:t.Rq:t]
+T30_2235	0102397	&	VBZ	is	[Vozb.Vozb]
+T30_2238	0102407	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_2241	0102418	|	VVGi	going	[Vrg.Vrg]
+T30_2244	0102431	|	IIt	to	[P:q.
+T30_2247	0102441	|	NP1c	Norway	[Nns.Nns]P:q]S?]
+T30_2250	0102472	&	XX	not	[Q-.
+T30_2253	0102483	|	VBZ	is	[S?[Vozb.Vozb]
+T30_2256	0102493	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_2259	0102504	|	VVGi	going	[Vrg.Vrg]S?]Q-]Q:o]S]
+T30_2262	-----	unid0
+T30_2265	.....	00641
+T30_2268	0102581	&	PPIS1	I	[S[Nea:s.Nea:s]
+T30_2271	0102589	|	VBM	+'m	[Vmeu.
+T30_2274	0102599	|	XX	not	.
+T30_2277	0102610	|	VVGi	going	.Vmeu]
+T30_2280	0102623	|	IIt	to	[P:q.
+T30_2283	0102634	.	NP1c	Norway	[Nns.Nns]P:q]S]
+T30_2286	-----	unid0
+T30_2289	.....	-----
+T30_2292	0102678	ic	YY	{unclear}	[Y.Y]
+T30_2295	-----	unid0
+T30_2298	.....	00642
+T30_2301	0102724	*	AT	the	[S[Ns:s.
+T30_2304	0102735	|	NNS1c	lady	.Ns:s]
+T30_2307	0102747	|	VVDi	came	[Vd.Vd]
+T30_2310	0102759	|	RLh	here	[Rw:q.Rw:q]
+T30_2313	0102771	,	II	on	[P:t[II#.
+T30_2316	0000000	y	YR	#	.
+T30_2319	0102794	,	II	on	.II#]
+T30_2322	0102816	|	RRQq	when	[I[S?[Rq:t.Rq:t]
+T30_2325	0102832	|	VBDZ	was	[Vsb.Vsb]
+T30_2328	0102843	?	PPH1	it	[Ni:s.Ni:s]S?]I]
+T30_2331	.....	00643
+T30_2334	0102872	c	YP	{pause}	.
+T30_2337	0102897	&	NPD1	Thursday	[Nns.Nns]P:t]S]
+T30_2340	-----	unid0
+T30_2343	.....	00644
+T30_2346	0102977	&*	UW	well	.
+T30_2349	0102989	,	DDQ	what	[S?[Dq:y[DDQ#.
+T30_2352	0000000	y	YR	#	.
+T30_2355	0103009	|	DDQ	what	.DDQ#]Dq:y]
+T30_2358	0000000	y	YR	#	.
+T30_2361	0103038	&	RRQq	how	[Rq:h.Rq:h]
+T30_2364	0103050	,	VV0i	come	[V.V]
+T30_2367	0000000	y	YR	#	.
+T30_2370	0103070	,	RRQq	why	[Rq:c.Rq:c]
+T30_2373	0000000	y	YR	#	.
+T30_2376	0103089	|	UW	well	.
+T30_2379	0103101	|	PNQSq	who	[Nq:G121.Nq:G121]
+T30_2382	0103112	|	VDD	did	[Vod.Vod]
+T30_2385	0103123	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_2388	0103135	|	VV0v	talk	[Vr.Vr]
+T30_2391	0103147	?	IIt	to	[P:u.
+T30_2394	0000000	y	YG	-	[121.121]P:u]S?]
+T30_2397	.....	00645
+T30_2400	0103177	*	PN1	anyone	[Ns.
+T30_2403	0103191	|	RP	in	.Ns]
+T30_2406	-----	unid0
+T30_2409	.....	00646
+T30_2412	0103232	*	UN	no	.
+T30_2415	0103242	|	PPH1	it	[S[Ni:S.Ni:S]
+T30_2418	0103252	|	VBDZ	was	[Vsp.
+T30_2421	0103263	,	VVNv	offered	.Vsp]
+T30_2424	0000000	y	YR	#	.
+T30_2427	0103286	|	PPH1	it	[Ni:S.Ni:S]
+T30_2430	0103296	|	VBDZ	was	[Vsp.
+T30_2433	0103308	|	VVNv	offered	.Vsp]
+T30_2436	0103323	|	RL	around	[R:q.R:q]
+T30_2439	0103354	&	CC	and	[S+.
+T30_2442	0103365	|	PPIO1	me	[Neo:s.
+T30_2445	0103375	|	CC	and	[Nn+.
+T30_2448	0103386	|	NP1a	<name>	.Nn+]Neo:s]
+T30_2451	0103437	|	VVDv	said	[Vd.Vd]
+T30_2454	0103449	|	UY	yeah	[Q:o.
+T30_2457	0103462	|	PPIS2	we	[S[Nap:s.Nap:s]
+T30_2460	0103471	|	VMd	+'d	[Vdc.
+T30_2463	0103481	|	VD0	do	.Vdc]
+T30_2466	0103491	.	PPH1	it	[Ni:o.Ni:o]S]Q:o]S+]S]
+T30_2469	-----	unid1
+T30_2472	.....	00000
+T30_2475	0103562	&ic	YY	{unclear}	[Y.Y]
+T30_2478	-----	unid0
+T30_2481	.....	00647
+T30_2484	0103620	*	PPH1	it	[S[Ni:s.Ni:s]
+T30_2487	0103629	|	VBZ	+'s	[Vzb.Vzb]
+T30_2490	0103639	|	AT1	a	[Ns:e.
+T30_2493	0103648	|	JJ	linguistic	.
+T30_2496	0103666	|	NN1c	thing	.Ns:e]
+T30_2499	0103679	|	TO	to	[Ti:c[Vi.
+T30_2502	0103689	|	VV0t	find	.Vi]
+T30_2505	0103702	|	RP	out	[R:n.R:n]
+T30_2508	0103713	|	RRQq	how	[Fn?:o[Rq:c.Rq:c]
+T30_2511	0103741	&	JJ	upper-class	[Y.
+T30_2514	0103767	|	JJ	exclusive	.
+T30_2517	0103784	ic	YY	{unclear}	.Y]Fn?:o]Ti:c]S]
+T30_2520	-----	unid0
+T30_2523	.....	00648
+T30_2526	0103858	&*	PPIS2	we	[S[Nap:S.Nap:S]
+T30_2529	0103867	,	VBR	+'re	[Vab.Vab]
+T30_2532	0000000	y	YR	#	.
+T30_2535	0103886	|	PPIS2	we	[Nap:S.Nap:S]
+T30_2538	0103895	|	VBR	+'re	[Vap.
+T30_2541	0103906	|	VVNv	known	.Vap]
+T30_2544	0103919	|	IIa	as	[P:e.
+T30_2547	0103930	|	JJ	upper-class	[Np.
+T30_2550	0103956	.	NN2	teenagers	.Np]P:e]S]
+T30_2553	-----	unid0
+T30_2556	.....	00649
+T30_2559	0104028	c	YVL	{vocal12}	.
+T30_2562	0104050	*,	UR	oh	.
+T30_2565	0104068	|	UR	oh	.
+T30_2568	0104078	|	PPIS2	we	[S[Nap:s.Nap:s]
+T30_2571	0104087	|	VBR	+'re	[Vab.Vab]
+T30_2574	0104098	|	JJ	upper-class	[Np:e.
+T30_2577	0104125	|	NN2	schoolchildren	.Np:e]
+T30_2580	0104155	|	VBR	are	[Iq[S?[Vab.Vab]
+T30_2583	0104166	|	PPIS2	we	[Nap:s.Nap:s]S?]Iq]
+T30_2586	0104176	?	RTo	now	[Rw:t.Rw:t]S]
+T30_2589	.....	00650
+T30_2592	0104223	&*	UR	oh	.
+T30_2595	0104233	|	DD1a	that	[S[Ds:s.Ds:s]
+T30_2598	0104244	|	VBZ	+'s	[Vzb.Vzb]
+T30_2601	0104254	|	JJ	fantastic	[J:e.J:e]S]
+T30_2604	0104271	c!	YVR	{vocal12}	.
+T30_2607	-----	unid1
+T30_2610	.....	00000
+T30_2613	0104340	&ic	YY	{unclear}	[Y.Y]
+T30_2616	-----	unid0
+T30_2619	.....	00651
+T30_2622	0104398	*	UN	no	.
+T30_2625	0104408	|	PPY	you	[S[Ny:s.Ny:s]
+T30_2628	0104418	|	VBR	+'re	[Vaeb.
+T30_2631	0104429	.	XX	not	.Vaeb]S]
+T30_2634	-----	unid1
+T30_2637	.....	00000
+T30_2640	0104467	c	YV	{laugh}	.
+T30_2643	-----	unid0
+T30_2646	.....	00652
+T30_2649	0104517	*	PPY	you	[S[Ny:s.Ny:s]
+T30_2652	0104528	|	VMo	can	[Vc.
+T30_2655	0104539	.	VV0v	try	.Vc]S]
+T30_2658	0104558	c	YV	{laugh}	.
+T30_2661	-----	unid1
+T30_2664	.....	-----
+T30_2667	0104582	ic	YY	{unclear}	[Y.Y]
+T30_2670	-----	unid0
+T30_2673	.....	00653
+T30_2676	0104628	*	DD1a	that	[S[Ds:s.Ds:s]
+T30_2679	0104639	|	VBZ	+'s	[Vzb.Vzb]
+T30_2682	0104649	|	RR	exactly	[R:m.R:m]
+T30_2685	0104664	|	DDQ	what	[Ff:e[Dq:G125.Dq:G125]
+T30_2688	0104676	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_2691	0104686	|	VVZv	sounds	[Vz.Vz]
+T30_2694	0104700	|	ICSk	like	[P:e.
+T30_2697	0000000	y	YG	-	[125.125]P:e]
+T30_2700	0104713	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_2703	0104725	|	PPH1	it	[Ni:S.Ni:S]
+T30_2706	0104734	|	VBZ	+'s	[Vzp.
+T30_2709	0104744	|	VVNv	played	.Vzp]
+T30_2712	0104758	.	RL	back	[R:q.R:q]Fa:t]Ff:e]S]
+T30_2715	-----	unid0
+T30_2718	.....	00654
+T30_2721	0104809	*?	UL	what	.
+T30_2724	-----	unid0
+T30_2727	.....	00655
+T30_2730	0104860	*	CSn	when	[Fa[Rq:t.Rq:t]
+T30_2733	0104876	|	PPIS1	I	[Nea:s.Nea:s]
+T30_2736	0104885	|	VV0v	talk	[V.V]
+T30_2739	0104897	|	II	on	[P:p.
+T30_2742	0104907	.	PPH1	it	.P:p]Fa]
+T30_2745	.....	00656
+T30_2748	0104936	c	YVL	{vocal12}	.
+T30_2751	0104958	*	CSn	when	[Fa[Rq:t.Rq:t]
+T30_2754	0104974	|	PPIS1	I	[Nea:s.Nea:s]
+T30_2757	0104983	|	VV0v	talk	[V.V]
+T30_2760	0104995	|	II	on	[P:p.
+T30_2763	0105005	|	PPH1	it	.P:p]Fa]
+T30_2766	0105015	c.	YVR	{vocal12}	.
+T30_2769	-----	unid1
+T30_2772	.....	-----
+T30_2775	0105036	ic	YY	{unclear}	[Y.Y]
+T30_2778	-----	unid0
+T30_2781	.....	00657
+T30_2784	0105082	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_2787	0105092	,	VVZi	listens	[Vz.Vz]
+T30_2790	0000000	y	YR	#	.
+T30_2793	0105115	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_2796	0105125	|	VVZi	listens	[Vz.Vz]
+T30_2799	0105140	|	IIt	to	[P:u.
+T30_2802	0105150	|	PPH1	it	.P:u]
+T30_2805	0105161	|	RR	afterwards	[R:t.R:t]
+T30_2808	0105179	|	CC	and	[S+.
+T30_2811	0105190	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_2814	0105200	|	VVZi	goes	[Vz.Vz]
+T30_2817	0105212	c	YP	{pause}	.
+T30_2820	0105220	|	UN	no	[Q:e.
+T30_2823	0105230	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_2826	0105240	|	VMo	ca	[Vce.
+T30_2829	0105249	|	XX	+n't	.
+T30_2832	0105260	,	VV0v	understand	.Vce]S]
+T30_2835	0105286	|	UW	well	.
+T30_2838	0105298	c	YVL	{vocal12}	.
+T30_2841	0105321	|	RTo	now	[S[Rw:t.Rw:t]
+T30_2844	0105332	|	PPIS1	I	[Nea:s.Nea:s]
+T30_2847	0105341	,	VMo	can	[Vc.Vc]
+T30_2850	0000000	y	YR	#	.
+T30_2853	0105360	|	RTo	now	[Rw:t.Rw:t]
+T30_2856	0105371	|	PPIS1	I	[Nea:s.Nea:s]
+T30_2859	0105380	|	VMo	can	[Vc.
+T30_2862	0105392	|	VV0v	understand	.Vc]
+T30_2865	0105410	|	RRQq	why	[Fn?:o[Rq:c.Rq:c]
+T30_2868	0105421	|	PPHS2	they	[Nap:s.Nap:s]
+T30_2871	0105433	|	VV0v	take	[V.V]
+T30_2874	0105445	|	AT	the	[Ns:o.
+T30_2877	0105456	|	NN1c	piss	.Ns:o]
+T30_2880	0105468	|	II21	out	[P:q[II=.
+T30_2883	0105468	|	II22	of	.II=]
+T30_2886	0105482	|	PPIO1	me	.P:q]
+T30_2889	0105492	|	IF	for	[P:c.
+T30_2892	0105503	|	APPGi1	my	[Ns.
+T30_2895	0105513	|	NN1n	voice	.Ns]P:c]Fn?:o]S]Q:e]S+]S]
+T30_2898	0105526	c.	YVR	{vocal12}	.
+T30_2901	-----	unid0
+T30_2904	.....	00000
+T30_2907	0105561	c	YV	{laugh}	.
+T30_2910	-----	unid0
+T30_2913	.....	00658
+T30_2916	0105611	*	UR	oh	.
+T30_2919	0105621	|	VV0v	shut	[S*[V.V]
+T30_2922	0105633	.	RP	up	[R:n.R:n]S*]
+T30_2925	-----	unid0
+T30_2928	.....	00659
+T30_2931	0105682	*	VD0	do	[S*[Vex.
+T30_2934	0105691	,	XX	+n't	.Vex]S*]
+T30_2937	0105710	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_2940	0105719	|	VBZ	+'s	[Vzb.Vzb]
+T30_2943	0105729	|	RGz	so	[J:e.
+T30_2946	0105739	|	JJ	sensitive	.J:e]
+T30_2949	0105756	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T30_2952	0105766	.	VV0v	promise	[V.V]S]I]S]
+T30_2955	-----	unid0
+T30_2958	.....	00000
+T30_2961	0105808	c	YV	{laugh}	.
+T30_2964	-----	unid0
+T30_2967	.....	00000
+T30_2970	0105846	c	YV	{laugh}	.
+T30_2973	-----	unid0
+T30_2976	.....	00660
+T30_2979	0105896	*	UK	look	.
+T30_2982	0105908	|	AT	the	[S[Ns:s.
+T30_2985	0105936	&	VVGt	recording	[Tg[Vg.Vg]Tg]
+T30_2988	0105953	|	NN1n	level	.Ns:s]
+T30_2991	0105966	|	VBZ	is	[Vzb.Vzb]
+T30_2994	0000000	y	YR	#	.S]
+T30_2997	-----	unid0
+T30_3000	.....	00661
+T30_3003	0106040	&*	UY	yeah	.
+T30_3006	0106052	,	RRz	so	[S?[Rs:c[RRz#.
+T30_3009	0000000	y	YR	#	.
+T30_3012	0106070	|	RRz	so	.RRz#]Rs:c]
+T30_3015	0106080	|	RTn	then	[Rsw:t.Rsw:t]
+T30_3018	0106110	&	PNQSq	who	[Nq:G127.Nq:G127]
+T30_3021	0106121	|	VDD	did	[Vod.Vod]
+T30_3024	0106132	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_3027	0106143	|	VV0v	offer	[Vr.Vr]
+T30_3030	0106156	|	PPH1	it	[Ni:o.Ni:o]
+T30_3033	0106166	|	RL	round	[R:n.R:n]
+T30_3036	0106179	?	IIt	to	[P:u.
+T30_3039	0000000	y	YG	-	[127.127]P:u]S?]
+T30_3042	0106197	c	YP	{pause}	.
+T30_3045	-----	unid0
+T30_3048	.....	00662
+T30_3051	0106236	|	NP1m	Charlie	[S[Nns:s[NP1m#.
+T30_3054	0000000	y	YR	#	.
+T30_3057	0106259	t	NP1m/Charlie	ch	.
+T30_3060	0000000	y	YR	#	.
+T30_3063	0106286	t	NP1m/Charlie	ch	.NP1m#]
+T30_3066	0000000	y	YR	#	.
+T30_3069	0106305	|	NNS	Mr	.
+T30_3072	0106315	|	NP1a	<name>	.Nns:s]
+T30_3075	0106366	|	VVDi	came	[Vd.Vd]
+T30_3078	0106378	|	CC	and	[S+.
+T30_3081	0106390	,	VVDv	said	[Vd.Vd]S+]
+T30_3084	0000000	y	YR	#	.
+T30_3087	0106410	,	NP1m	Charlie	[Nns:s.Nns:s]
+T30_3090	0106433	|	VVDi	came	[Vd.Vd]
+T30_3093	0106445	|	CC	and	[S+.
+T30_3096	0106456	|	VVDv	said	[Vd.Vd]
+T30_3099	0000000	y	YR	#	.S+]S]
+T30_3102	0106469	|	YMN	erm	.
+T30_3105	-----	unid0
+T30_3108	.....	00663
+T30_3111	0106511	|	NP1m	Charlie	[Nns.
+T30_3114	0106526	?	NP1a	<name>	.Nns]
+T30_3117	-----	unid0
+T30_3120	.....	00664
+T30_3123	0106616	*	UY	yeah	.
+T30_3126	0106628	|	NP1a	<name>	[Nns.Nns]
+T30_3129	-----	unid0
+T30_3132	.....	00665
+T30_3135	0106710	*	UY	yeah	.
+T30_3138	0106722	|	AT	the	[Ms.
+T30_3141	0106733	|	JJ	bald	.
+T30_3144	0106745	.	MC1	one	.Ms]
+T30_3147	-----	unid0
+T30_3150	.....	00666
+T30_3153	0106795	*,	AT	the	[Ns[AT#.
+T30_3156	0000000	y	YR	#	.
+T30_3159	0106814	|	UL	what	.
+T30_3162	0106826	|	AT	the	.AT#]
+T30_3165	0106837	,	JJ	bald	[JJ&.
+T30_3168	0106857	|	JJ	fat	[JJ-.JJ-]JJ&]
+T30_3171	0106869	?	NN1c	coot	.Ns]
+T30_3174	0106889	c	YV	{laugh}	.
+T30_3177	-----	unid0
+T30_3180	.....	00667
+T30_3183	0106939	*	VVDi	came	[S[S&[Vd.Vd]
+T30_3186	0106951	|	CC	and	[S+.
+T30_3189	0106962	|	VVDv	said	[Vd.Vd]
+T30_3192	0106974	|	UR	OK	[Q:o.
+T30_3195	0107003	&	PNQSq	who	[S?[Nq:s129.Nq:s129]
+T30_3198	0107014	|	VVZv	wants	[Vz.Vz]
+T30_3201	0000000	y	YG	-	[Ti:o[s129.s129]
+T30_3204	0107028	|	TO	to	[Vi.
+T30_3207	0107038	|	VD0	do	.Vi]
+T30_3210	0107048	|	DD1i	this	[Ds:o.Ds:o]Ti:o]S?]Q:o]S+]S&]
+T30_3213	0107060	|	CC	and	[S+.
+T30_3216	0107071	|	PPIO1	me	[Neo:s.
+T30_3219	0107081	|	CC	and	[Nn+.
+T30_3222	0107092	|	NP1a	<name>	.Nn+]Neo:s]
+T30_3225	.....	00668
+T30_3228	0107254	&	VVDv	said	[Vd.Vd]
+T30_3231	0107266	|	UY	yeah	[Q:o.
+T30_3234	0107278	|	PPIS2	we	[S[Nap:s.Nap:s]
+T30_3237	0107287	|	VMd	+'d	[Vdc.
+T30_3240	0107297	|	VD0	do	.Vdc]
+T30_3243	0107307	.	PPH1	it	[Ni:o.Ni:o]S]Q:o]S+]S]
+T30_3246	-----	unid0
+T30_3249	.....	00000
+T30_3252	0107196	&ic	YY	{unclear}	[Y.Y]
+T30_3255	-----	unid0
+T30_3258	.....	00669
+T30_3261	0107356	*	AT	the	[Ns:133.
+T30_3264	0107367	|	JJ	little	.
+T30_3267	0107381	|	NN1c	cunt	.
+T30_3270	0107393	|	PNQSr	who	[Fr[Nq:s133.Nq:s133]
+T30_3273	0107404	|	VVDv	made	[Vd.Vd]
+T30_3276	0107416	|	PPIO1	me	[Neo:O135.Neo:O135]
+T30_3279	0000000	y	YG	-	[Tb:o[s135.s135]
+T30_3282	0107426	|	VV0v	parade	[V.V]
+T30_3285	0107441	|	II31	in	[P:p[II=.
+T30_3288	0107441	|	II32	front	.
+T30_3291	0107441	|	II33	of	.II=]
+T30_3294	0107460	|	PPHO1m	him	.P:p]
+T30_3297	0107471	|	II	at	[P:t.
+T30_3300	0107481	|	MC	eight	[M.
+T30_3303	0107494	|	MC	thirty	[M@.M@]
+T30_3306	0107508	|	II	in	[P.
+T30_3309	0107519	|	AT	the	[Ns.
+T30_3312	0107530	|	NNT1c	morning	.Ns]P]M]P:t]Tb:o]
+T30_3315	0107545	|	RRz	so	[Fr-[Rs:c.Rs:c]
+T30_3318	0107555	|	PPIS1	I	[Nea:s.Nea:s]
+T30_3321	0000000	y	YR	#	.Fr-]Fr]Ns:133]
+T30_3324	0107564	|	YMN	erm	.
+T30_3327	-----	unid0
+T30_3330	.....	00670
+T30_3333	0107606	*	DD1a	that	[S[Ds:s.Ds:s]
+T30_3336	0107617	|	VBZ	+'s	[Vzb.Vzb]
+T30_3339	0107627	|	AT	the	[Ms:e.
+T30_3342	0107638	.	MC1	one	.Ms:e]S]
+T30_3345	.....	00671
+T30_3348	0107668	c	YP	{pause}	.
+T30_3351	0107676	*	UA21	pardon	[UA=.
+T30_3354	0107690	.	UA22	me	.UA=]
+T30_3357	-----	unid0
+T30_3360	.....	00672
+T30_3363	0107739	*	PPIS2	we	[S[Nap:s.Nap:s]
+T30_3366	0107748	|	VMo	+'ll	[Vc.Vc]
+T30_3369	0107759	,	RR	probably	[R:m.R:m]
+T30_3372	0000000	y	YR	#	.
+T30_3375	0107783	|	PPY	you	[Ny:s.Ny:s]
+T30_3378	0000000	y	YG	-	[m137.m137]
+T30_3381	0107793	|	VMo	+'ll	[Vc.
+T30_3384	0107804	|	RR	probably	[R:G137.R:G137]
+T30_3387	0107821	|	VH0	have	.Vc]
+T30_3390	0107833	|	PN1	someone	[Ns:o.
+T30_3393	0107848	|	ICSk	like	[P.
+T30_3396	0107860	|	NNS	Mr	[Nns.
+T30_3399	0107870	|	NP1a	<name>	.Nns]P]Ns:o]
+T30_3402	0107921	|	VVGi	listening	[Tg:j[Vg.Vg]
+T30_3405	0107939	|	IIt	to	[P:u.
+T30_3408	0107949	|	DD1i	this	[Ns.
+T30_3411	0107961	.	NN1n	tape	.Ns]P:u]Tg:j]S]
+T30_3414	-----	unid0
+T30_3417	.....	00673
+T30_3420	0108012	*,	UR	good	.
+T30_3423	0108032	|	FL	fuck	[S*[V.V]
+T30_3426	0108044	|	RP	off	[R:q.R:q]S*]
+T30_3429	0108059	|	NNS	Mr	[Nns".
+T30_3432	0108069	|	NP1a	<name>	.Nns"]
+T30_3435	-----	unid1
+T30_3438	.....	00000
+T30_3441	0108139	c	YV	{laugh}	.
+T30_3444	-----	unid0
+T30_3447	.....	00674
+T30_3450	0108189	*	UN	no	.
+T30_3453	0108199	ic	YY	{unclear}	[Y.Y]
+T30_3456	0108209	|	RR	just	[S*[R:m.R:m]
+T30_3459	0108221	,	VV0v	take	[V.V]
+T30_3462	0000000	y	YR	#	.
+T30_3465	0108241	|	RR	just	[R:m.R:m]
+T30_3468	0108253	|	VV0v	take	[V.V]
+T30_3471	0108266	|	PPHO2	them	[Nop:o.Nop:o]
+T30_3474	0108278	.	RL	back	[R:q.R:q]S*]
+T30_3477	-----	unid0
+T30_3480	.....	00675
+T30_3483	0108328	ic	YY	{unclear}	[Y.Y]
+T30_3486	0108338	|	UR	oh	.
+T30_3489	0108348	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_3492	0108358	|	VBDZ	was	[Vsb.Vsb]
+T30_3495	0108386	&.	JJ	brilliant	[J:e.J:e]S]
+T30_3498	-----	unid0
+T30_3501	.....	00676
+T30_3504	0108475	&ic	YY	{unclear}	[Y.Y]
+T30_3507	0108502	&	UR	ah	.
+T30_3510	0108512	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_3513	0108522	|	VBDZ	was	[Vsb.Vsb]
+T30_3516	0108533	|	RGz	so	[J:e.
+T30_3519	0108544	,	NN1n	class	.J:e]S]
+T30_3522	0108565	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_3525	0108575	|	VBDZ	was	[Vsb.Vsb]
+T30_3528	0108586	.	JJ	brilliant	[J:e.J:e]S]
+T30_3531	-----	unid0
+T30_3534	.....	00677
+T30_3537	0108642	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_3540	0108651	|	VBZ	+'s	[Vzb.Vzb]
+T30_3543	0108661	|	RGz	so	[J:e.
+T30_3546	0108688	&ic	YY	{unclear}	[Y.Y]J:e]S]
+T30_3549	-----	unid0
+T30_3552	.....	00678
+T30_3555	0108762	&*	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_3558	0108771	,	VBZ	+'s	[Vzb.Vzb]
+T30_3561	0000000	y	YR	#	.
+T30_3564	0108789	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_3567	0108798	|	VBZ	+'s	[Vzb.Vzb]
+T30_3570	0000000	y	YR	#	.
+T30_3573	0108826	&	PPHS1m	he	[Nas:s.Nas:s]
+T30_3576	0108835	|	VBZ	+'s	[Vzb.Vzb]
+T30_3579	0108845	|	RGz	so	[Jrh:e[Ds.
+T30_3582	0108855	|	DA1	much	.Ds]
+T30_3585	0108867	|	JJR	better	.
+T30_3588	0108881	|	CSN	than	[P.
+T30_3591	0108893	|	NNS	Mr	[Nns.
+T30_3594	0108903	|	NP1a	<name>	.Nns]P]Jrh:e]S]
+T30_3597	-----	unid0
+T30_3600	.....	-----
+T30_3603	0108959	ic	YY	{unclear}	[Y.Y]
+T30_3606	-----	unid0
+T30_3609	.....	00679
+T30_3612	0109005	*	FL	shit	.
+T30_3615	0109021	|	DD1a	that	[S[Ds:s.Ds:s]
+T30_3618	0109032	|	VBZ	+'s	[Vzb.Vzb]
+T30_3621	0109042	.	JJ	good	[J:e.J:e]S]
+T30_3624	-----	unid1
+T30_3627	.....	-----
+T30_3630	0109067	ic	YY	{unclear}	[Y.Y]
+T30_3633	-----	unid0
+T30_3636	.....	00680
+T30_3639	0109113	*	VMo	can	[S?[Voc.Voc]
+T30_3642	0109124	|	PPIS2	we	[Nap:s.Nap:s]
+T30_3645	0109134	|	VV0i	listen	[Vr.Vr]
+T30_3648	0109148	|	RL	back	[P:u.
+T30_3651	0109160	|	IIt	to	.
+T30_3654	0109170	|	PPH1	it	.P:u]S?]
+T30_3657	0109181	,	UP	please	.
+T30_3660	0109203	|	VMo	can	[S?[Voc.Voc]
+T30_3663	0109214	|	PPIS2	we	[Nap:s.Nap:s]
+T30_3666	0109224	|	RR	just	[R:m.R:m]
+T30_3669	0109236	|	VV0i	listen	[Vr.Vr]
+T30_3672	0109250	|	IIt	to	[P:u.
+T30_3675	0109261	|	PPH1	it	.P:u]
+T30_3678	0109271	|	CC	and	[S+.
+T30_3681	0109282	|	PPIS2	we	[Nap:s.Nap:s]
+T30_3684	0109291	|	VMo	+'ll	[Vc.
+T30_3687	0109302	|	VV0i	go	.Vc]
+T30_3690	0109312	|	RL	back	[R:q.R:q]
+T30_3693	0109324	|	IIt	to	[P:q.
+T30_3696	0109334	|	AT	the	[Ns.
+T30_3699	0109346	|	DAy	same	.
+T30_3702	0109358	?	NNL1c	place	.Ns]P:q]S+]S?]
+T30_3705	-----	unid0
+T30_3708	.....	00681
+T30_3711	0109409	ic	YY	{unclear}	[S[Y.Y]
+T30_3714	0109419	|	VMo	ca	[Vcex.
+T30_3717	0109428	|	XX	+n't	.Vcex]
+T30_3720	0109439	|	CS	cos	[Fa:c.
+T30_3723	0109450	|	PPIS1	I	[Nea:s.Nea:s]
+T30_3726	0109459	|	VH0	have	[V.V]
+T30_3729	0109471	|	TO	to	[Ti:z[Vi.
+T30_3732	0109481	|	VV0v	take	.Vi]
+T30_3735	0109494	|	PPH1	it	[Ni:o.Ni:o]
+T30_3738	0109504	|	RP	out	[R:q.R:q]Ti:z]
+T30_3741	0109515	|	CC	and	[Y+.
+T30_3744	0000000	y	YR	#	.Y+]Fa:c]S]
+T30_3747	-----	unid0
+T30_3750	.....	00682
+T30_3753	0109557	*	UR	oh	.
+T30_3756	0109567	|	RR	just	[L[R:m.R:m]
+T30_3759	0109579	!	RR	quick	[R:h.R:h]L]
+T30_3762	-----	unid0
+T30_3765	.....	00683
+T30_3768	0109635	*	UN	no	[L.
+T30_3771	0109645	|	CS	cos	[Fa:c.
+T30_3774	0109656	|	PPIS1	I	[Nea:s.Nea:s]
+T30_3777	0109665	|	VH0	have	[V.V]
+T30_3780	0109677	|	TO	to	[Ti:z[Vi.
+T30_3783	0109687	|	VV0v	plug	.Vi]
+T30_3786	0109699	|	RP	in	[R:q.R:q]
+T30_3789	0109710	.	NN2	earphones	[Np:o.Np:o]Ti:z]Fa:c]L]
+T30_3792	-----	unid0
+T30_3795	.....	00684
+T30_3798	0109766	*	UN	no	.
+T30_3801	0109776	|	PPY	you	[S[Ny:s.Ny:s]
+T30_3804	0109787	|	VD0	do	[Vex.
+T30_3807	0109796	.	XX	+n't	.Vex]S]
+T30_3810	-----	unid0
+T30_3813	.....	00685
+T30_3816	0109846	*	UY	yes	.
+T30_3819	0109857	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_3822	0109866	.	VD0	do	[Vx.Vx]S]
+T30_3825	-----	unid0
+T30_3828	.....	00686
+T30_3831	0109915	*	VMo	ca	[S?[Voce.
+T30_3834	0109924	|	XX	+n't	.Voce]
+T30_3837	0109935	|	PPY	you	[Ny:s.Ny:s]
+T30_3840	0109946	|	VV0v	plug	[Vr.Vr]
+T30_3843	0109958	|	PPH1	it	[Ni:o.Ni:o]
+T30_3846	0109968	|	II	into	[P:q.
+T30_3849	0109980	|	AT	the	[Ns.
+T30_3852	0109992	?	NN1c	stereo	.Ns]P:q]S?]
+T30_3855	-----	unid0
+T30_3858	.....	00687
+T30_3861	0110045	*.	UN	no	.
+T30_3864	-----	unid0
+T30_3867	.....	00688
+T30_3870	0110094	*	UY	yeah	[L.
+T30_3873	0110106	|	CCB	but	[S+.
+T30_3876	0110117	|	PPIS1	I	[Nea:s139.Nea:s139]
+T30_3879	0110126	|	RR	just	[R:m.R:m]
+T30_3882	0110138	|	VD0	do	[Ve.
+T30_3885	0110147	|	XX	+n't	.
+T30_3888	0110158	|	VV0v	want	.Ve]
+T30_3891	0000000	y	YG	-	[Ti:o[s139.s139]
+T30_3894	0110170	|	TO	to	[Vi.
+T30_3897	0110181	|	VH0	have	.Vi]
+T30_3900	0110193	|	TO	to	[Ti:z[Vi.
+T30_3903	0110203	|	VV0v	take	.Vi]
+T30_3906	0110215	|	PPH1	it	[Ni:o.Ni:o]
+T30_3909	0110225	|	RP	out	[R:q.R:q]Ti:z]Ti:o]S+]L]
+T30_3912	0110236	ic	YY	{unclear}	[Y.Y]
+T30_3915	-----	unid0
+T30_3918	.....	00689
+T30_3921	0110277	*	DDQ	what	[S?[Dq:e.Dq:e]
+T30_3924	0110289	|	AT	the	[Ns!.
+T30_3927	0110300	|	FL	fuck	.Ns!]
+T30_3930	0110311	|	VBZ	+'s	[Vzb.Vzb]
+T30_3933	0110321	?	DD1i	this	[Ds:s.Ds:s]S?]
+T30_3936	-----	unid0
+T30_3939	.....	00690
+T30_3942	0110372	*	RR	just	[S*[R:m.R:m]
+T30_3945	0110384	,	VV0v	leave	[V.V]
+T30_3948	0000000	y	YR	#	.
+T30_3951	0110405	|	NP1m	Dan	[Nns".Nns"]
+T30_3954	0110416	|	RR	just	[R:m.R:m]
+T30_3957	0110428	|	VV0v	leave	[V.V]
+T30_3960	0110441	.	PPH1	it	[Ni:o.Ni:o]S*]
+T30_3963	-----	unid0
+T30_3966	.....	00691
+T30_3969	0110489	ic	YY	{unclear}	[Y.
+T30_3972	0110499	|	VVNt	marked	[Vn.Vn]
+T30_3975	0110517	|	II	on	[P.
+T30_3978	0110527	|	AT	the	[N.
+T30_3981	0110555	&ic	YY	{unclear}	[Y.Y]N]P]Y]
+T30_3984	-----	unid0
+T30_3987	.....	00692
+T30_3990	0110629	&*	VBZ	is	[S?[Vzb.Vzb]
+T30_3993	0110639	|	DD1i	this	[Ds:s.Ds:s]
+T30_3996	0110651	|	RRz	so	[Rs:c.
+T30_3999	0110661	|	PPY	you	[Fc[Ny:s.Ny:s]
+T30_4002	0110672	|	VMo	can	[Vc.
+T30_4005	0110683	|	VV0v	make	.Vc]
+T30_4008	0000000	y	YR	#	.Fc]Rs:c]S?]
+T30_4011	0110712	&c	YP	{pause}	.
+T30_4014	0110720	|	VD0	do	[S?[Vo.Vo]
+T30_4017	0110730	|	PPHS2	they	[Nap:s.Nap:s]
+T30_4020	0110742	|	VV0v	let	[Vr.Vr]
+T30_4023	0110753	|	PPY	you	[Ny:O141.Ny:O141]
+T30_4026	0000000	y	YG	-	[Tb:o[s141.s141]
+T30_4029	0110764	|	VV0v	keep	[V.V]
+T30_4032	0110777	|	AT	the	[Ns:o.
+T30_4035	0110788	|	NN1n	stuff	.Ns:o]Tb:o]
+T30_4038	0110801	|	II	at	[P:t.
+T30_4041	0110811	|	AT	the	[Ns.
+T30_4044	0110822	?	NN1c	end	.Ns]P:t]S?]
+T30_4047	-----	unid0
+T30_4050	.....	00693
+T30_4053	0110872	*	UR	oh	.
+T30_4056	0110882	|	UR21	right	[UR=.
+T30_4059	0110895	!	UR22	on	.UR=]
+T30_4062	-----	unid0
+T30_4065	.....	00000
+T30_4068	0110932	c	YV	{laugh}	.
+T30_4071	0110951	c	YP	{pause}	.
+T30_4074	-----	unid0
+T30_4077	.....	00694
+T30_4080	0110990	*	DD1a	that	[S[Ds:s.Ds:s]
+T30_4083	0111001	|	VMd	+'d	[Vdcb.
+T30_4086	0111011	|	VB0	be	.Vdcb]
+T30_4089	0111021	|	RGb	quite	[J:e.
+T30_4092	0111034	.	JJ	good	.J:e]S]
+T30_4095	0111054	c	YP	{pause}	.
+T30_4098	0111062	c	YV	{whistling}	.
+T30_4101	-----	unid0
+T30_4104	.....	00695
+T30_4107	0111116	*	VD0	do	[S*[Ve.
+T30_4110	0111125	|	XX	+n't	.Ve]
+T30_4113	0111136	|	CS	cos	[Fa:c.
+T30_4116	0111147	|	PPIS1	I	[Nea:s.Nea:s]
+T30_4119	0111156	|	VV0v	swear	[V.V]
+T30_4122	0111169	|	CSn	when	[Fn:o[Fa:t[Rq:t.Rq:t]
+T30_4125	0111181	,	PPH1	it	[Ni:s.Ni:s]Fa:t]Fn:o]
+T30_4128	0000000	y	YR	#	.
+T30_4131	0111200	|	PPIS1	I	[Nea:s.Nea:s]
+T30_4134	0111209	|	VDD	did	[Vd.Vd]
+T30_4137	0111220	|	DD1a	that	[Ds:o.Ds:o]
+T30_4140	0111232	|	CC	and	[Fa+.
+T30_4143	0111243	|	PPH1	it	[Ni:s.Ni:s]
+T30_4146	0111253	|	VVZv	sounds	[Vz.Vz]
+T30_4149	0111267	c	YP	{pause}	.
+T30_4152	0111276	|	VVGt	deafening	[Tg:e[Vg.Vg]Tg:e]
+T30_4155	0111293	|	CS	cos	[Fa*:c.
+T30_4158	0111312	t	FD	th	.
+T30_4161	0111331	|	VV0v	look	[V.V]
+T30_4164	0111343	|	RGQq	how	[Fn?:o[Jq:e.
+T30_4167	0111355	|	JJ	high	.Jq:e]
+T30_4170	0111367	|	AT	the	[Ns:s.
+T30_4173	0111378	|	VVGt	recording	[Tg[Vg.Vg]Tg]
+T30_4176	0111395	|	NN1n	level	.Ns:s]
+T30_4179	0111408	.	VBZ	is	[Vzb.Vzb]Fn?:o]Fa*:c]Fa+]Fa:c]S*]
+T30_4182	-----	unid0
+T30_4185	.....	00696
+T30_4188	0111457	*	CCB	but	[S+.
+T30_4191	0111468	|	PPH1	it	[Ni:s.Ni:s]
+T30_4194	0111477	|	VBZ	+'s	[Vzb.Vzb]
+T30_4197	0111487	|	RR	always	[R:t.R:t]
+T30_4200	0111501	|	DD1a	that	[Jx:e.
+T30_4203	0111513	|	JJ	high	.Jx:e]S+]
+T30_4206	0111525	|	RR	even	[S[R:m.R:m]
+T30_4209	0111525	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_4212	0111543	|	PPIS1	I	[Nea:s.Nea:s]
+T30_4215	0111551	|	VBM	+'m	[Vmu.
+T30_4218	0111561	|	VVGv	speaking	.Vmu]
+T30_4221	0111577	|	RTo	now	[Rw:t.Rw:t]Fa:t]
+T30_4224	0111588	|	PPH1	it	[Ni:s.Ni:s]
+T30_4227	0111597	|	VBZ	+'s	[Vzu.
+T30_4230	0111607	|	VVGi	going	.Vzu]
+T30_4233	0111621	|	DD1a	that	[Jx:e.
+T30_4236	0111633	.	JJ	high	.Jx:e]S]
+T30_4239	-----	unid0
+T30_4242	.....	00697
+T30_4245	0111684	*	UN	no	.
+T30_4248	0111694	|	CCB	but	[S+.
+T30_4251	0111705	|	VVGt	recording	[Ns:s[Tg[Vg.Vg]Tg]
+T30_4254	0111726	|	NN1n	level	.
+T30_4257	0111743	|	RLh	here	.Ns:s]
+T30_4260	0111755	|	VBZ	is	[Vzb.Vzb]
+T30_4263	0111766	|	II	on	[P:p.
+T30_4266	0111776	,	MC	ten	.P:p]S+]
+T30_4269	0111795	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_4272	0111803	|	VBM	+'m	[Vmeb.
+T30_4275	0111813	|	XX	not	.Vmeb]
+T30_4278	0111824	|	JJ	sure	[J:e.J:e]
+T30_4281	0111836	ic	YY	{unclear}	[Y.Y]S]
+T30_4284	0111847	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_4287	0111855	|	VMo	+'ll	[Vc.
+T30_4290	0111866	|	VV0v	turn	.Vc]
+T30_4293	0111878	|	PPH1	it	[Ni:o.Ni:o]
+T30_4296	0111888	.	RP	down	[R:q.R:q]S]
+T30_4299	-----	unid0
+T30_4302	.....	00000
+T30_4305	0111927	c	YV	{whistling}	.
+T30_4308	-----	unid0
+T30_4311	.....	00698
+T30_4314	0111981	*	UR	right	.
+T30_4317	0111994	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_4320	0112003	|	VBZ	+'s	[Vzb.Vzb]
+T30_4323	0112013	.	JJ	low	[J:e.J:e]S]
+T30_4326	-----	unid0
+T30_4329	.....	00699
+T30_4332	0112066	ic	YY	{unclear}	[Y.Y]
+T30_4335	0112076	|	UR	oh	.
+T30_4338	0112086	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_4341	0112096	.	VBZ	is	[Vzb.Vzb]S]
+T30_4344	.....	00700
+T30_4347	0112125	c	YP	{pause}	.
+T30_4350	0112133	*	PPY	you	[S[Ny:s.Ny:s]
+T30_4353	0112144	|	VMd	could	[Vdc.
+T30_4356	0112157	|	VV0v	put	.Vdc]
+T30_4359	0112168	|	PPH1	it	[Ni:o.Ni:o]
+T30_4362	0112178	,	ICSk	like	[P:j[ICSk#.
+T30_4365	0000000	y	YR	#	.
+T30_4368	0112198	|	ICSk	like	.ICSk#]
+T30_4371	0112211	|	DD1a	that	.P:j]
+T30_4374	0112223	|	VMd	could	[Iq[S?[Vdcex.
+T30_4377	0112235	|	XX	+n't	.Vdcex]
+T30_4380	0112246	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T30_4383	-----	unid1
+T30_4386	.....	-----
+T30_4389	0112270	ic	YY	{unclear}	[Y.Y]
+T30_4392	-----	unid0
+T30_4395	.....	00701
+T30_4398	0112322	*	UN	no	[L.
+T30_4401	0112332	|	CS	cos	[Fa:c.
+T30_4404	0112343	|	PPIS1	I	[Nea:s.Nea:s]
+T30_4407	0112352	|	VD0	do	[Ve.
+T30_4410	0112361	|	XX	+n't	.
+T30_4413	0112372	|	VV0t	like	.Ve]
+T30_4416	0112384	.	PPY	you	[Ny:o.Ny:o]Fa:c]L]
+T30_4419	-----	unid0
+T30_4422	.....	00702
+T30_4425	0112434	*	RGQq	how	[S?[Rq:G145.
+T30_4428	0112445	|	RRg	long	.Rq:G145]
+T30_4431	0112457	|	VH0	have	[Vo.Vo]
+T30_4434	0112469	|	PPY	you	[Ny:s.Ny:s]
+T30_4437	0112480	|	VVNH	got	[Vrn.Vrn]
+T30_4440	0112491	|	PPH1	it	[Ni:o.Ni:o]
+T30_4443	0112501	?	IF	for	[P:t.
+T30_4446	0000000	y	YG	-	[145.145]P:t]S?]
+T30_4449	-----	unid0
+T30_4452	.....	00703
+T30_4455	0112551	*	ICSt	till	[P.
+T30_4458	0112563	.	NPD1	Friday	[Nns.Nns]P]
+T30_4461	-----	unid0
+T30_4464	.....	00704
+T30_4467	0112616	*	ICSt	till	[P.
+T30_4470	0112628	,	NPD1	Friday	[Nns.Nns]P]
+T30_4473	0112650	|	VBZ	is	[S?[Vzb.Vzb]
+T30_4476	0112660	|	DD1a	that	[Ds:s.Ds:s]
+T30_4479	0112672	?	DBa	all	[D:e.D:e]S?]
+T30_4482	-----	unid0
+T30_4485	.....	00705
+T30_4488	0112722	*.	UY	mm	.
+T30_4491	-----	unid0
+T30_4494	.....	00706
+T30_4497	0112787	&*	DD1i	this	[Nns.
+T30_4500	0112799	?	NPD1	Friday	.Nns]
+T30_4503	-----	unid0
+T30_4506	.....	00707
+T30_4509	0112885	&*	MDt	next	[Ns.
+T30_4512	0112897	.	NNT1c	week	.Ns]
+T30_4515	.....	00708
+T30_4518	0112945	&*	MDt	next	[Ns.
+T30_4521	0112957	.	NNT1c	week	.Ns]
+T30_4524	-----	unid0
+T30_4527	.....	00709
+T30_4530	0113008	*	RRQq	when	[S?[Rq:t.Rq:t]
+T30_4533	0113020	|	VDD	did	[Vod.Vod]
+T30_4536	0113031	|	PPY	you	[Ny:s.Ny:s]
+T30_4539	0113042	|	VV0v	get	[Vr.Vr]
+T30_4542	0113053	?	PPH1	it	[Ni:o.Ni:o]S?]
+T30_4545	-----	unid0
+T30_4548	.....	00710
+T30_4551	0113102	.	NPD1	Thursday	[Nns.Nns]
+T30_4554	-----	unid0
+T30_4557	.....	00711
+T30_4560	0113157	*?	RTt	yesterday	[R.R]
+T30_4563	0113182	c	YP	{pause}	.
+T30_4566	-----	unid0
+T30_4569	.....	00712
+T30_4572	0113221	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_4575	0113230	|	VH0	have	[Vef.
+T30_4578	0113241	|	XX	+n't	.
+T30_4581	0113252	|	VDN	done	.Vef]
+T30_4584	0113264	|	MC1	one	[Ns:o.
+T30_4587	0113275	,	NN1n	tape	.Ns:o]S]
+T30_4590	0113295	|	DD1i	this	[S[Ds:s.Ds:s]
+T30_4593	0113308	|	VBZ	is	[Vzb.Vzb]
+T30_4596	0113318	|	APPGi1	my	[N:e.
+T30_4599	0113328	|	MDo	first	.
+T30_4602	0113341	|	NN1n	tape	.
+T30_4605	0113353	|	CC	and	[Ns+.
+T30_4608	0113364	|	AT	the	.
+T30_4611	0113375	|	MDo	first	.
+T30_4614	0113389	.	NN1n	side	.Ns+]N:e]S]
+T30_4617	0113409	c	YP	{pause}	.
+T30_4620	-----	unid0
+T30_4623	.....	00713
+T30_4626	0113447	c	YVL	{laughing}	.
+T30_4629	0113468	*	UR	oh	.
+T30_4632	0113478	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T30_4635	0113488	|	VBZ	+'s	[Vzut.
+T30_4638	0113498	|	VVGK	gon	.Vzut]
+T30_4641	0113508	|	TO	+na	[Ti:z[Vib.
+T30_4644	0113518	|	VB0	be	.Vib]
+T30_4647	0113529	|	JJ	pleased	[Jh:e.
+T30_4650	0113544	|	IW	with	[P.
+T30_4653	0113556	|	PPY	you	.P]Jh:e]Ti:z]S]
+T30_4656	0113567	c	YVR	{laughing}	.
+T30_4659	-----	unid0
+T30_4662	.....	00714
+T30_4665	0113606	*	UN	no	.
+T30_4668	0113633	&ic	YY	{unclear}	[Y.Y]
+T30_4671	-----	unid0
+T30_4674	.....	00715
+T30_4677	0113707	&*	RGQq	how	[S?[Nqp:o[Dqp.
+T30_4680	0113718	|	DA2	many	.Dqp]
+T30_4683	0113747	&	NN2	tapes	.Nqp:o]
+T30_4686	0113760	|	VDD	did	[Vod.Vod]
+T30_4689	0113772	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_4692	0113783	|	VV0v	give	[Vr.Vr]
+T30_4695	0113795	?	PPY	you	[Ny:i.Ny:i]S?]
+T30_4698	-----	unid0
+T30_4701	.....	00716
+T30_4704	0113845	*.	MC	ten	[M.M]
+T30_4707	-----	unid0
+T30_4710	.....	00717
+T30_4713	0113895	*	VD0	do	[S?[Vo.Vo]
+T30_4716	0113905	|	PPY	you	[Ny:s.Ny:s]
+T30_4719	0113916	|	VH0	have	[Vr.Vr]
+T30_4722	0113928	|	TO	to	[Ti:z[Vi.
+T30_4725	0113938	|	VV0v	give	.Vi]
+T30_4728	0113950	|	PPHO2	them	[Nop:o.Nop:o]
+T30_4731	0113962	|	RR	all	[R:h.R:h]
+T30_4734	0113974	?	RL	back	[R:q.R:q]Ti:z]S?]
+T30_4737	-----	unid0
+T30_4740	.....	00718
+T30_4743	0114025	*!	UN	no	.
+T30_4746	-----	unid0
+T30_4749	.....	00719
+T30_4752	0114074	*	VV0i	come	[S*[V.V]
+T30_4755	0114086	|	RP	on	[R:q.R:q]S*]
+T30_4758	0114096	ic	YY	{unclear}	[Y.Y]
+T30_4761	-----	unid0
+T30_4764	.....	00720
+T30_4767	0114137	*.	UN	no	.
+T30_4770	.....	00721
+T30_4773	0114167	*	PPIS2	we	[S[Nap:s.Nap:s]
+T30_4776	0114176	|	VBR	+'re	[Vab.Vab]
+T30_4779	0114187	|	JJ	upper-class	[Np:e.
+T30_4782	0114213	|	NN2	teenagers	.Np:e]S]
+T30_4785	0114230	.	NP1m	Dan	[Nns".Nns"]
+T30_4788	-----	unid0
+T30_4791	.....	-----
+T30_4794	0114254	ic	YY	{unclear}	[Y.Y]
+T30_4797	-----	unid0
+T30_4800	.....	00722
+T30_4803	0114300	*?	RRz	so	[Rs.Rs]
+T30_4806	-----	unid0
+T30_4809	.....	00723
+T30_4812	0114349	*	XX	not	[Np.
+T30_4815	0114360	|	JJ	young	.
+T30_4818	0114373	.	NN2	louts	.Np]
+T30_4821	-----	unid0
+T30_4824	.....	00724
+T30_4827	0114424	ic	YY	{unclear}	[Y.Y]
+T30_4830	0114434	|	UW	well	.
+T30_4833	0114446	|	MC1	one	[S[Ms:s.
+T30_4836	0114457	|	IO	of	[Po.
+T30_4839	0114467	|	PPIO2	us	.Po]Ms:s]
+T30_4842	0114477	|	VBZ	is	[Vzb.Vzb]
+T30_4845	0114487	|	AT1	a	[Ns:e.
+T30_4848	0114496	|	JJ	young	.
+T30_4851	0114510	,	NN1c	lout	.Ns:e]S]
+T30_4854	0114530	|	PPIS2	we	[S[Nap:s.Nap:s]
+T30_4857	0114540	|	VMo	wo	[Vce.
+T30_4860	0114549	|	XX	+n't	.
+T30_4863	0114560	|	VV0v	say	.Vce]
+T30_4866	0114571	.	PNQSq	who	[Fn?:o[Nq:e.Nq:e]Fn?:o]S]
+T30_4869	-----	unid1
+T30_4872	.....	00000
+T30_4875	0114609	c	YV	{laugh}	.
+T30_4878	0114628	ic	YY	{unclear}	[Y.Y]
+T30_4881	-----	unid0
+T30_4884	.....	00725
+T30_4887	0114669	*	VV0v	give	[S*[V.V]
+T30_4890	0114681	|	PPIO1	me	[Neo:i.Neo:i]
+T30_4893	0114691	|	MC1	one	[Ms:o.Ms:o]S*]
+T30_4896	0114706	.	UP	please	.
+T30_4899	.....	00726
+T30_4902	0114740	*	VMo	can	[S?[Voc.Voc]
+T30_4905	0114751	|	PPIS1	I	[Nea:s.Nea:s]
+T30_4908	0114760	|	VH0	have	[Vr.Vr]
+T30_4911	0114772	|	MC1	one	[Ms:o.Ms:o]S?]
+T30_4914	0114787	?	UP	please	.
+T30_4917	-----	unid0
+T30_4920	.....	00727
+T30_4923	0114840	*.	UN	no	.
+T30_4926	-----	unid0
+T30_4929	.....	00728
+T30_4932	0114889	*	UT21	thank	[UT=.
+T30_4935	0114902	.	UT22	you	.UT=]
+T30_4938	-----	unid0
+T30_4941	.....	00729
+T30_4944	0114952	*	RR	just	[S[R:m.R:m]
+T30_4947	0114964	|	CS	cos	[Fa:c.
+T30_4950	0114975	|	PPH1	it	[Ni:s.Ni:s]
+T30_4953	0114984	|	VBZ	+'s	[Vzb.Vzb]
+T30_4956	0114994	|	APPGy	your	[Ns:e.
+T30_4959	0115006	|	NN1c	birthday	.Ns:e]Fa:c]
+T30_4962	0115022	|	PPIS1	I	[Nea:s.Nea:s]
+T30_4965	0000000	y	YG	-	[m155.m155]
+T30_4968	0115032	|	VMd	might	[Vdc.
+T30_4971	0115045	|	RR21	as	[R:G155[RR=.
+T30_4974	0115045	|	RR22	well	.RR=]R:G155]
+T30_4977	0115060	|	VV0v	give	.Vdc]
+T30_4980	0115072	|	PPY	you	[Ny:i.Ny:i]
+T30_4983	0115083	|	MC1	one	[Ms:o.Ms:o]
+T30_4986	0115098	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T30_4989	0115108	|	VV0t	suppose	[V.V]S]I]S]
+T30_4992	0115140	&ic	YY	{unclear}	[Y.Y]
+T30_4995	-----	unid0
+T30_4998	.....	00730
+T30_5001	0115214	&*	PPH1	it	[S[Ni:s.Ni:s]
+T30_5004	0115223	|	VBZ	+'s	[Vzb.Vzb]
+T30_5007	0115233	|	APPGi1	my	[Ns:e.
+T30_5010	0115243	|	NN1c	birthday	.Ns:e]
+T30_5013	0115276	&	CCB	but	[S+.
+T30_5016	0115288	|	PPIS1	I	[Nea:s.Nea:s]
+T30_5019	0115297	|	VDD	did	[Vde.
+T30_5022	0115307	|	XX	+n't	.
+T30_5025	0115318	|	VV0v	tell	.Vde]
+T30_5028	0115330	|	PN1	anyone	[Ns:i.Ns:i]
+T30_5031	0115344	|	CS	cos	[Fa:c.
+T30_5034	0115355	|	PPIS1	I	[Nea:s.Nea:s]
+T30_5037	0115365	|	VD0	do	[Ve.
+T30_5040	0115374	|	XX	+n't	.
+T30_5043	0115385	|	VV0v	want	.Ve]
+T30_5046	0115397	|	AT1	a	[Ns:o.
+T30_5049	0115406	|	JJ	cold	.
+T30_5052	0115418	.	NN1c	bath	.Ns:o]Fa:c]S+]S]
+T30_5055	-----	unid0
+T30_5058	.....	00731
+T30_5061	0115469	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_5064	0115478	|	RR	almost	[R:m.R:m]
+T30_5067	0115492	|	VVDv	got	[Vd.Vd]
+T30_5070	0115503	|	RL	away	[R:n.R:n]
+T30_5073	0115515	|	IW	with	[P:r.
+T30_5076	0115527	|	PPH1	it	.P:r]
+T30_5079	0115537	|	ICSt	until	[Fa:t.
+T30_5082	0115554	|	NP1a	<name>	[Nn:s.Nn:s]
+T30_5085	0115605	|	VVDv	saw	[Vd.Vd]
+T30_5088	0115616	|	MC	two	[Np:o.
+T30_5091	0115628	|	NN2	letters	.Np:o]Fa:t]S]
+T30_5094	-----	unid1
+T30_5097	.....	00000
+T30_5100	0115662	ic	YY	{unclear}	[Y.
+T30_5103	0115672	c	YV	{laugh}	.
+T30_5106	0115691	ic	YY	{unclear}	.Y]
+T30_5109	-----	unid0
+T30_5112	.....	00732
+T30_5115	0115732	*	UR	ah	.
+T30_5118	0115742	|	DD2i	these	[S[Dp:s.Dp:s]
+T30_5121	0115755	|	VV0v	taste	[V.V]
+T30_5124	0115768	,	JJ	disgusting	[J:e.J:e]S]
+T30_5127	0115794	|	DDQ	what	[S?[Dq:e.Dq:e]
+T30_5130	0115806	|	VBR	are	[Vab.Vab]
+T30_5133	0115818	?	PPHS2	they	[Nap:s.Nap:s]S?]
+T30_5136	-----	unid0
+T30_5139	.....	00733
+T30_5142	0115868	c	YV	{laugh}	.
+T30_5145	0115887	*	NN1n	pear	[Np.
+T30_5148	0115899	.	NN2	drops	.Np]
+T30_5151	.....	00734
+T30_5154	0115936	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_5157	0115945	|	VV0t	love	[V.V]
+T30_5160	0115957	.	PPHO2	them	[Nop:o.Nop:o]S]
+T30_5163	-----	unid0
+T30_5166	.....	00735
+T30_5169	0116008	*	DD1a	that	[S[Ds:s.Ds:s]
+T30_5172	0116019	|	VBZ	+'s	[Vzb.Vzb]
+T30_5175	0116029	|	PN1	something	[Ns:e157.
+T30_5178	0116046	|	PPY	you	[Fr[Ny:s.Ny:s]
+T30_5181	0116057	|	VV0v	take	[V.V]
+T30_5184	0000000	y	YG	-	[o157.o157]
+T30_5187	0116069	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_5190	0116082	|	PPY	you	[Ny:s.Ny:s]
+T30_5193	0116092	|	VBR	+'re	[Vau.
+T30_5196	0116103	|	VVGv	feeling	.Vau]
+T30_5199	0116118	.	JJ	ill	[J:e.J:e]Fa:t]Fr]Ns:e157]S]
+T30_5202	.....	00736
+T30_5205	0116148	c	YV	{laugh}	.
+T30_5208	0116167	*	PPY	you	[S[Ny:s.Ny:s]
+T30_5211	0116177	|	VBR	+'re	[Vaeu.
+T30_5214	0116188	|	XX	not	.
+T30_5217	0116199	.	VVGv	kidding	.Vaeu]S]
+T30_5220	-----	unid0
+T30_5223	.....	00737
+T30_5226	0116253	*	UN	no	.
+T30_5229	0116263	|	UW	well	.
+T30_5232	0116275	|	PPY	you	[S[Ny:s.Ny:s]
+T30_5235	0116286	|	VD0	do	[Ve.
+T30_5238	0116295	|	XX	+n't	.
+T30_5241	0116306	|	VH0	have	.Ve]
+T30_5244	0116318	|	TO	to	[Ti:z[Vi.
+T30_5247	0116328	|	VV0v	take	.Vi]
+T30_5250	0116341	|	PPHO2	them	[Nop:o.Nop:o]
+T30_5253	0116353	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_5256	0116369	|	PPY	you	[Ny:s.Ny:s]
+T30_5259	0116379	|	VBR	+'re	[Vab.Vab]
+T30_5262	0116390	,	JJ	ill	[J:e.J:e]Fa:t]Ti:z]S]
+T30_5265	0116410	|	PPY	you	[S[Ny:S159.Ny:S159]
+T30_5268	0116420	|	VBR	+'re	[Vap.
+T30_5271	0116431	|	VVNv	allowed	.Vap]
+T30_5274	0000000	y	YG	-	[Ti:o[s159.s159]
+T30_5277	0116446	|	TO	to	[Vi.
+T30_5280	0116456	|	VV0v	take	.Vi]
+T30_5283	0116468	|	PPHO2	them	[Nop:o.Nop:o]
+T30_5286	0116481	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_5289	0116497	|	PPY	you	[Ny:s.Ny:s]
+T30_5292	0116507	|	VBR	+'re	[Vau.
+T30_5295	0116518	|	VVGv	feeling	.Vau]
+T30_5298	0116533	|	JA21	all	[J:e[JA=.
+T30_5301	0116535	|	JA22	right	.JA=]J:e]Fa:t]Ti:o]
+T30_5304	0116549	|	RR21	an'	[R:m[RR=.
+T30_5307	0116552	.	RR22	all	.RR=]R:m]S]
+T30_5310	-----	unid0
+T30_5313	.....	00738
+T30_5316	0116602	*	VBM	am	[S?[Vmbx.Vmbx]
+T30_5319	0116612	?	PPIS1	I	[Nea:S.Nea:S]S?]
+T30_5322	0116629	c	YP	{pause}	.
+T30_5325	-----	unid0
+T30_5328	.....	-----
+T30_5331	0116642	ic	YY	{unclear}	[Y.Y]
+T30_5334	-----	unid0
+T30_5337	.....	00739
+T30_5340	0116688	*.	UY	yeah	.
+T30_5343	.....	00740
+T30_5346	0116719	c	YP	{pause}	.
+T30_5349	0116727	*	EX	there	[S.
+T30_5352	0116739	|	VBZ	+'s	[Vzb.Vzb]
+T30_5355	0116749	|	ATn	no	[Ns:s.
+T30_5358	0116759	|	NNL1n	point	.Ns:s]
+T30_5361	0116772	|	II	in	[P:p.
+T30_5364	0116782	|	VVGv	staring	[Tg[Vg.Vg]
+T30_5367	0116798	|	II	at	[P:q.
+T30_5370	0116808	,	PPH1	it	.P:q]Tg]P:p]S]
+T30_5373	0116826	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_5376	0116835	|	VBZ	+'s	[Vzeut.
+T30_5379	0116845	|	XX	not	.
+T30_5382	0116856	|	VVGK	gon	.Vzeut]
+T30_5385	0116866	|	TO	+na	[Ti:z[Vi.
+T30_5388	0116876	|	VV0v	say	.Vi]
+T30_5391	0116888	.	UGA	hello	[Q:o.Q:o]Ti:z]S]
+T30_5394	-----	unid0
+T30_5397	.....	00000
+T30_5400	0116928	c	YV	{laugh}	.
+T30_5403	-----	unid0
+T30_5406	.....	00741
+T30_5409	0116978	*!	UGA	hello	.
+T30_5412	-----	unid0
+T30_5415	.....	00742
+T30_5418	0117030	*	PPH1	it	[S[Ni:s.Ni:s]
+T30_5421	0117040	|	VMd	might	[Vdc.
+T30_5424	0117053	.	VD0	do	.Vdc]S]
+T30_5427	.....	00743
+T30_5430	0117083	*	UK	hey	.
+T30_5433	0117094	|	VDD	did	[S?[Vod.Vod]
+T30_5436	0117105	|	PPY	you	[Ny:s.Ny:s]
+T30_5439	0117116	|	VV0v	see	[Vr.Vr]
+T30_5442	0117127	|	AT	the	[Ns:o.
+T30_5445	0117138	|	NN1c	helicopter	.Ns:o]S?]
+T30_5448	0117156	ic?	YY	{unclear}	[Y.Y]
+T30_5451	-----	unid0
+T30_5454	.....	00744
+T30_5457	0117205	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_5460	0117214	.	VV0v	know	[V.V]S]
+T30_5463	-----	unid0
+T30_5466	.....	00745
+T30_5469	0117265	*	FLG	fucking	[J.
+T30_5472	0117280	.	JJ	low	.J]
+T30_5475	-----	unid0
+T30_5478	.....	00746
+T30_5481	0117334	*	UN	no	.
+T30_5484	0117344	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_5487	0117354	|	VBDZ	was	[Vsb.Vsb]
+T30_5490	0117365	|	JJ	low	[J:e.J:e]S]
+T30_5493	0117397	&ic	YY	{unclear}	[Y.Y]
+T30_5496	-----	unid0
+T30_5499	.....	00747
+T30_5502	0117471	&*	VV0v	wonder	[S[V.V]
+T30_5505	0117489	|	CSi	if	[Fn?:o.
+T30_5508	0117499	|	PPHS2	they	[Nap:s.Nap:s]
+T30_5511	0117528	&	VV0t	realize	[V.V]
+T30_5514	0117544	|	CST	that	[Fn:o.
+T30_5517	0117560	|	JJ	upper-class	[Np:s.
+T30_5520	0117586	|	NN2	teenagers	.
+T30_5523	0117603	|	ICSk	like	[P.
+T30_5526	0117615	|	PPIO2	us	.P]Np:s]
+T30_5529	0117626	|	VV0v	say	[V.V]
+T30_5532	0117637	|	FL	fuck	[Q:o.Q:o]
+T30_5535	0117649	|	RGr	rather	[D:h.
+T30_5538	0117663	|	DDo21	a	[DDo=.
+T30_5541	0117663	.	DDo22	lot	.DDo=]D:h]Fn:o]Fn?:o]S]
+T30_5544	-----	unid0
+T30_5547	.....	00000
+T30_5550	0117703	c	YV	{laugh}	.
+T30_5553	-----	unid0
+T30_5556	.....	00748
+T30_5559	0117753	*	VDD	did	[S?[Vod.Vod]
+T30_5562	0117764	|	PPHS2	they	[Nap:s.Nap:s]
+T30_5565	0117776	|	VV0t	realize	[Vr.Vr]
+T30_5568	0117791	|	VD0	do	[I[S?[Vo.Vo]
+T30_5571	0117801	|	PPY	you	[Ny:s.Ny:s]
+T30_5574	0117812	?	VV0v	think	[Vr.Vr]S?]I]S?]
+T30_5577	0117833	c	YP	{pause}	.
+T30_5580	-----	unid0
+T30_5583	.....	00749
+T30_5586	0117872	*	PPHS2	they	[S[Nap:s.Nap:s]
+T30_5589	0117884	|	VV0t	realize	[V.V]
+T30_5592	0117899	.	RTo	now	[Rw:t.Rw:t]S]
+T30_5595	-----	unid1
+T30_5598	.....	-----
+T30_5601	0117923	ic	YY	{unclear}	[Y.Y]
+T30_5604	-----	unid0
+T30_5607	.....	00750
+T30_5610	0117969	*	VV0i	go	[S*[V.V]
+T30_5613	0117979	|	RP	on	[R:q.R:q]S*]
+T30_5616	0117989	,	NP1m	Jimmy	[Nns".Nns"]
+T30_5619	0118010	|	DDQ	what	[S?[Dq:e.Dq:e]
+T30_5622	0118021	|	VBZ	+'s	[Vzb.Vzb]
+T30_5625	0118031	|	APPGy	your	[Ns:s.
+T30_5628	0118044	|	NN1n	comment	.
+T30_5631	0118059	|	II	on	[P.
+T30_5634	0118069	?	DD1i	this	.P]Ns:s]S?]
+T30_5637	-----	unid0
+T30_5640	.....	00751
+T30_5643	0118120	*	UR	oh	.
+T30_5646	0118130	|	FL	fuck	.
+T30_5649	-----	unid0
+T30_5652	.....	00752
+T30_5655	0118172	ic	YY	{unclear}	[Y.Y]
+T30_5658	0118182	c	YP	{pause}	.
+T30_5661	0118190	*	PPIS2	we	[S[Nap:s.Nap:s]
+T30_5664	0118200	|	VMd	could	[Vdc.
+T30_5667	0118213	|	VV0i	listen	.Vdc]
+T30_5670	0118227	|	IIt	to	[P:u.
+T30_5673	0118237	|	DD2i	these	.P:u]
+T30_5676	0118251	|	RR	all	[R:h.R:h]
+T30_5679	0118262	|	II	at	[P:t.
+T30_5682	0118272	|	AT	the	[Ns.
+T30_5685	0118283	.	NN1c	end	.Ns]P:t]S]
+T30_5688	0118302	c	YP	{pause}	.
+T30_5691	-----	unid0
+T30_5694	.....	00753
+T30_5697	0118340	ic	YY	{unclear}	[Y.
+T30_5700	0118350	.	NN1n	conversation	.Y]
+T30_5703	-----	unid0
+T30_5706	.....	00754
+T30_5709	0118409	*	RR	actually	[S[R:m.R:m]
+T30_5712	0118425	|	PPY	you	[Ny:s.Ny:s]
+T30_5715	0118436	|	VMd	should	[Vdc.
+T30_5718	0118450	|	ICSk	like	.
+T30_5721	0118479	&ic	YY	{unclear}	[Y.Y]Vdc]S]
+T30_5724	-----	unid0
+T30_5727	.....	00755
+T30_5730	0118553	&*	ICSt	after	[S?[Fa:t.
+T30_5733	0118566	|	PPY	you	[Ny:s.Ny:s]
+T30_5736	0118577	|	VV0v	finish	[V.V]
+T30_5739	0118608	&	APPGy	your	[Ns:o.
+T30_5742	0118621	|	MDo	first	.
+T30_5745	0118634	|	NN1n	tape	.Ns:o]Fa:t]
+T30_5748	0118646	|	VMo	can	[Voc.Voc]
+T30_5751	0118657	|	PPIS2	we	[Nap:s.Nap:s]
+T30_5754	0118667	|	VV0v	rewind	[Vr.Vr]
+T30_5757	0118681	|	PPH1	it	[Ni:o.Ni:o]
+T30_5760	0118691	|	CC	and	[S+#R:c.
+T30_5763	0000000	y	YR	#	.
+T30_5766	0118703	|	RRz	so	.
+T30_5769	0118713	|	PPIS2	we	[Fc[Nap:s.Nap:s]
+T30_5772	0000000	y	YG	-	[h163.h163]
+T30_5775	0118723	|	VMo	can	[Vc.
+T30_5778	0118734	|	RR	all	[R:G163.R:G163]
+T30_5781	0118745	|	VV0i	listen	.Vc]
+T30_5784	0118759	|	IIt	to	[P:u.
+T30_5787	0118769	|	PPH1	it	.P:u]Fc]S+#R:c]
+T30_5790	0118779	|	CC	and	[S+.
+T30_5793	0118791	|	RTn	then	[Rsw:t.Rsw:t]
+T30_5796	0118803	|	VV0v	rewind	[V.V]
+T30_5799	0118817	|	PPH1	it	[Ni:o.Ni:o]
+T30_5802	0118827	|	RL	back	[R:q.R:q]
+T30_5805	0118839	|	RRz	so	[R:c.
+T30_5808	0118849	|	PPHS2	they	[Fc[Nap:s.Nap:s]
+T30_5811	0118862	|	VD0	do	[Ve.
+T30_5814	0118871	|	XX	+n't	.Ve]Fc]
+T30_5817	0000000	y	YR	#	.
+T30_5820	.....	00757
+T30_5823	0118969	&	RRz	so	.
+T30_5826	0118979	|	PPHS2	they	[Fc[Nap:s.Nap:s]
+T30_5829	0118991	|	VD0	do	[Ve.
+T30_5832	0119000	|	XX	+n't	.
+T30_5835	0119011	|	VV0v	know	.Ve]
+T30_5838	0119023	|	PPIS2	we	[Fn:o[Nap:s.Nap:s]
+T30_5841	0119032	|	VH0	+'ve	[Vf.
+T30_5844	0119043	|	VDN	done	.Vf]
+T30_5847	0119056	.	PPH1	it	[Ni:o.Ni:o]Fn:o]Fc]R:c]S+]S?]
+T30_5850	-----	unid0
+T30_5853	.....	00756
+T30_5856	0118913	*	PPY	you	[S[Ny:s.Ny:s]
+T30_5859	0118924	|	VMd	should	[Vdc.Vdc]
+T30_5862	0000000	y	YR	#	.
+T30_5865	.....	00758
+T30_5868	0119105	&	UW	well	.
+T30_5871	0119117	|	PPY	you	[Ny:s.Ny:s]
+T30_5874	0119128	|	VMd	should	[Vdc.
+T30_5877	0119142	|	VV0v	copy	.Vdc]
+T30_5880	0119154	|	DD2i	these	[Np:o.
+T30_5883	0119167	|	NN2	tapes	.Np:o]S]
+T30_5886	-----	unid0
+T30_5889	.....	00000
+T30_5892	0119199	c	YV	{laugh}	.
+T30_5895	-----	unid0
+T30_5898	.....	00759
+T30_5901	0119249	|	UN	no	.
+T30_5904	0119259	|	UK	listen	.
+T30_5907	0119273	|	UL	right	.
+T30_5910	0119286	|	PPY	you	[S[Ny:s.Ny:s]
+T30_5913	0119297	|	VMd	should	[Vdc.
+T30_5916	0119311	|	VV0v	copy	.Vdc]
+T30_5919	0119324	|	DD2i	these	[Dp:o.Dp:o]
+T30_5922	0119337	|	CS	cos	[Fa:c.
+T30_5925	0119348	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_5928	0119364	|	PPY	you	[Ny:s.Ny:s]
+T30_5931	0119374	|	VBR	+'re	[Vab.Vab]
+T30_5934	0119385	|	ICSk	like	.
+T30_5937	0119398	|	JJR	older	[J:e.J:e]Fa:t]
+T30_5940	0119411	|	PPY	you	[Ny:s169.Ny:s169]
+T30_5943	0119421	|	VBR	+'re	[Vaut.
+T30_5946	0119432	|	VVGK	gon	.Vaut]
+T30_5949	0119442	|	TO	+na	[Ti:z[Vi.
+T30_5952	0119452	|	VV0v	want	.Vi]
+T30_5955	0000000	y	YG	-	[Ti:o[s169.s169]
+T30_5958	0119464	|	TO	to	[Vi.
+T30_5961	0119474	|	YMN	erm	.
+T30_5964	0119486	|	VV0i	listen	.Vi]
+T30_5967	0119500	|	IIt	to	[P:u.
+T30_5970	0119510	|	DDQ	what	[Ff[Dq:G171.Dq:G171]
+T30_5973	0119522	|	PPY	you	[Ny:s.Ny:s]
+T30_5976	0119533	|	VMK	used	[Vct.Vct]
+T30_5979	0119545	|	TO	to	[Ti:z[Vi.
+T30_5982	0119555	|	VV0v	say	.Vi]
+T30_5985	0000000	y	YG	-	[o171.o171]Ti:z]
+T30_5988	0119567	|	CC	and	[Ff+.
+T30_5991	0119578	|	ICSk	like	.
+T30_5994	0119590	|	DDQ	what	[Dq:G173.Dq:G173]
+T30_5997	0119602	|	PPH1	it	[Ni:s.Ni:s]
+T30_6000	0119612	|	VMK	used	[Vct.Vct]
+T30_6003	0119624	|	TO	to	[Ti:z[Vib.
+T30_6006	0119634	|	VB0	be	.Vib]
+T30_6009	0119645	|	ICSk	like	[P:e.
+T30_6012	0000000	y	YG	-	[173.173]P:e]Ti:z]Ff+]Ff]P:u]Ti:o]Ti:z]
+T30_6015	0119657	|	CC	and	[Fa+.
+T30_6018	0119668	|	PPY	you	[Ny:s.Ny:s]
+T30_6021	0119678	|	VH0	+'ve	[Vf.
+T30_6024	0119689	|	VVNH	got	.Vf]
+T30_6027	0119717	&ic	YY	{unclear}	[Y.Y]Fa+]Fa:c]S]
+T30_6030	-----	unid0
+T30_6033	.....	00760
+T30_6036	0119791	&ic	YY	{unclear}	[Y.
+T30_6039	0119818	&	RGi	about	[Np:175.
+T30_6042	0119831	|	MC	ten	.
+T30_6045	0119842	|	NN2	tapes	.
+T30_6048	0119856	|	CST	that	[Fr.
+T30_6051	0119868	|	PPY	you	[Ny:s177.Ny:s177]
+T30_6054	0119879	|	VD0	do	[Ve.
+T30_6057	0119888	|	XX	+n't	.
+T30_6060	0119899	|	VV0v	wan	.Ve]
+T30_6063	0000000	y	YG	-	[Ti:o[s177.s177]
+T30_6066	0119909	|	TO	+na	[Vi.
+T30_6069	0119919	?	VV0t	use	.Vi]
+T30_6072	0000000	y	YG	-	[o175.o175]Ti:o]Fr]Np:175]Y]
+T30_6075	0119938	c	YV	{laugh}	.
+T30_6078	-----	unid0
+T30_6081	.....	00761
+T30_6084	0119988	*	UN	no	[L.
+T30_6087	0119998	|	CCB	but	[Y+.
+T30_6090	0120009	ic	YY	{unclear}	.
+T30_6093	0120019	|	RR	just	[Ns.
+T30_6096	0120031	|	MC1	one	.
+T30_6099	0120042	|	NN1n	tape	.
+T30_6102	0120054	,	UE22	see	.
+T30_6105	0120074	|	UE21	I	[UE=.
+T30_6108	0120083	|	UE22	mean	.UE=]
+T30_6111	0120095	|	MC1	one	[Ms@.Ms@]Ns]Y+]L]
+T30_6114	0120110	c	YP	{pause}	.
+T30_6117	0120118	|	CC	and	[S+.
+T30_6120	0120129	|	RTn	then	[Rsw:t.Rsw:t]
+T30_6123	0120141	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T30_6126	0120154	|	PPY	you	[Ny:s.Ny:s]
+T30_6129	0120164	|	VBR	+'re	[Vab.Vab]
+T30_6132	0120175	|	JJR	older	[J:e.J:e]Fa:t]
+T30_6135	0120188	|	PPY	you	[Ny:s.Ny:s]
+T30_6138	0120198	|	VMo	+'ll	[Vc.
+T30_6141	0120209	|	VH0	have	.Vc]
+T30_6144	0120221	|	AT1	a	[Ns:o.
+T30_6147	0120231	|	NN1n	tape	.
+T30_6150	0120243	|	IO	of	[Po.
+T30_6153	0120253	|	DDQ	what	[Ff[Dq:G179.Dq:G179]
+T30_6156	0120265	|	PPY	you	[Ny:s.Ny:s]
+T30_6159	0120276	|	VMK	used	[Vct.Vct]
+T30_6162	0120288	|	TO	to	[Ti:z[Vi.
+T30_6165	0120298	|	VV0v	sound	.Vi]
+T30_6168	0120312	.	ICSk	like	[P:e.
+T30_6171	0000000	y	YG	-	[179.179]P:e]Ti:z]Ff]Po]Ns:o]S+]
+T30_6174	.....	00762
+T30_6177	0120344	*	RRQq	why	[S?[Rq:c.Rq:c]
+T30_6180	0120355	|	VD0	do	[Vo.Vo]
+T30_6183	0120373	t	JJ/Norwegian	Nor	[N:s.N:s]
+T30_6186	0000000	y	YR	#	.
+T30_6189	0120393	|	RRQq	why	[Rq:c.Rq:c]
+T30_6192	0120404	|	VD0	do	[Vo.Vo]
+T30_6195	0120415	|	JJ	Norwegian	[N:s.
+T30_6198	0120432	|	NNc	people	.N:s]
+T30_6201	0120446	ic	YY	{unclear}	[Y.Y]S?]
+T30_6204	-----	unid0
+T30_6207	.....	00763
+T30_6210	0120487	*	TO	to	[Ti[Vi.
+T30_6213	0120497	|	VV0v	know	.Vi]
+T30_6216	0120509	|	RRQq	how	[Fn?:o[Rq:h.Rq:h]
+T30_6219	0120520	|	PPIS2	we	[Nap:s.Nap:s]
+T30_6222	0120530	.	VV0v	speak	[V.V]Fn?:o]Ti]
+T30_6225	-----	unid0
+T30_6228	.....	00764
+T30_6231	0120582	*	CCB	but	[S?+.
+T30_6234	0120601	t	DDQ/what	wh	[Dq:h[DDQ#.
+T30_6237	0000000	y	YR	#	.
+T30_6240	0120620	|	DDQ	what	.DDQ#]Dq:h]
+T30_6243	0120632	|	VD0	do	[Vo.Vo]
+T30_6246	0120642	|	PPHS2	they	[Nap:s.Nap:s]
+T30_6249	0120655	?	VV0i	care	[Vr.Vr]S?+]
+T30_6252	.....	00765
+T30_6255	0120686	c	YP	{pause}	.
+T30_6258	0120694	ic	YY	{unclear}	[Y.Y]
+T30_6261	0120704	,	JJ	Norwegian	[J.
+T30_6264	0120733	|	VMo	can	[S?@[Voc.Voc]
+T30_6267	0120744	|	PPHS2	they	[Nap:s.Nap:s]
+T30_6270	0120757	|	VV0v	speak	[Vr.Vr]
+T30_6273	0120770	?	NNu	English	[Nns:o.Nns:o]S?@]J]
+T30_6276	-----	unid0
+T30_6279	.....	00766
+T30_6282	0120824	*.	UY	yeah	.
+T30_6285	-----	unid0
+T30_6288	.....	00767
+T30_6291	0120874	c	YV	{laugh}	.
+T30_6294	0120893	*	VV0t	suppose	[S[V.V]
+T30_6297	0120908	|	PPHS2	they	[Fn:o[Nap:s.Nap:s]
+T30_6300	0120920	.	VMo	can	[Vcx.Vcx]Fn:o]S]
+T30_6303	.....	00768
+T30_6306	0120951	*	CCB	but	[S?+.
+T30_6309	0120962	|	RRQq	why	[Rq:c.Rq:c]
+T30_6312	0120973	|	VD0	do	[Vo.Vo]
+T30_6315	0120983	|	PPHS2	they	[Nap:s.Nap:s]
+T30_6318	0120995	|	VV0v	want	[Vr.Vr]
+T30_6321	0121007	,	PPHO2	them	[Nop:o.Nop:o]S?+]
+T30_6324	0121027	|	UE21	I	[UE=.
+T30_6327	0121037	|	UE22	mean	.UE=]
+T30_6330	0121049	|	DDQ	what	[S?[Dq:G181.Dq:G181]
+T30_6333	0121061	|	VBR	are	[Voa.Voa]
+T30_6336	0121072	|	PPHS2	they	[Nap:s.Nap:s]
+T30_6339	0121084	|	VVGK	gon	[Vrgt.Vrgt]
+T30_6342	0121094	|	TO	+na	[Ti:z[Vi.
+T30_6345	0121104	|	VV0t	use	.Vi]
+T30_6348	0121116	|	PPH1	it	[Ni:o.Ni:o]
+T30_6351	0121126	?	IF	for	[P:c.
+T30_6354	0000000	y	YG	-	[181.181]P:c]Ti:z]S?]
+T30_6357	0121145	c	YP	{pause}	.
+T30_6360	-----	unid0
+T30_6363	.....	00769
+T30_6366	0121184	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_6369	0121193	|	VD0	do	[Ve.
+T30_6372	0121202	|	XX	+n't	.
+T30_6375	0121213	.	VV0v	know	.Ve]S]
+T30_6378	.....	00770
+T30_6381	0121245	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_6384	0121254	|	VV0v	think	[V.V]
+T30_6387	0121267	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T30_6390	0000000	y	YG	-	[t183.t183]
+T30_6393	0121275	|	VH0	+'ve	[Vf.
+T30_6396	0121286	|	RR	just	[R:G183.R:G183]
+T30_6399	0121298	|	VVNv	spelt	.Vf]
+T30_6402	0121311	|	NN2	friends	[Q:o.Q:o]
+T30_6405	0121327	|	RR	wrong	[R:h.R:h]
+T30_6408	0121340	|	VH0	have	[Iq[S?[Vex.
+T30_6411	0121351	|	XX	+n't	.Vex]
+T30_6414	0121362	?	PPIS1	I	[Nea:s.Nea:s]S?]Iq]Fn:o]S]
+T30_6417	.....	00771
+T30_6420	0121390	c	YP	{pause}	.
+T30_6423	0121398	*	RRQq	how	[S?[Rq:h.Rq:h]
+T30_6426	0121409	|	VD0	do	[Vo.Vo]
+T30_6429	0121419	|	PPY	you	[Ny:s.Ny:s]
+T30_6432	0121430	|	VV0v	spell	[Vr.Vr]
+T30_6435	0121443	?	NN1c	friend	[Q:o.Q:o]S?]
+T30_6438	-----	unid0
+T30_6441	.....	00772
+T30_6444	0121496	*	UN	no	.
+T30_6447	0121506	|	DD1a	that	[S[Ds:s.Ds:s]
+T30_6450	0121517	|	VBZ	+'s	[Vzb.Vzb]
+T30_6453	0121527	.	JJ	right	[J:e.J:e]S]
+T30_6456	.....	00773
+T30_6459	0121559	c	YP	{pause}	.
+T30_6462	0121567	*	DD1a	that	[S[Ds:s.Ds:s]
+T30_6465	0121578	|	VBZ	+'s	[Vzb.Vzb]
+T30_6468	0121588	.	PPH1	it	[Ni:e.Ni:e]S]
+T30_6471	-----	unid0
+T30_6474	.....	00774
+T30_6477	0121637	*	UN	no	.
+T30_6480	0121647	|	PPH1	it	[S[Ni:s.Ni:s]
+T30_6483	0121656	|	VBZ	+'s	[Vzb.Vzb]
+T30_6486	0121666	|	ZZ1	E	[Ns:e.
+T30_6489	0121675	.	ZZ1	I	.Ns:e]S]
+T30_6492	-----	unid0
+T30_6495	.....	00775
+T30_6498	0121723	*,	NN1c	friend	.
+T30_6501	0121745	.	NN2	friends	.
+T30_6504	.....	00776
+T30_6507	0121779	c	YP	{pause}	.
+T30_6510	0121787	*	NN1c	friend	.
+T30_6513	0121801	?	NN2	friends	.
+T30_6516	-----	unid0
+T30_6519	.....	00777
+T30_6522	0121855	*,	NN2	friends	[Np.
+T30_6525	0121878	|	NN1n	occupation	[Ns@.Ns@]
+T30_6528	0121896	c	YP	{pause}	.
+T30_6531	0121904	|	NN1n	age	[Ns@.
+T30_6534	0121915	|	MC	fifteen	.Ns@]Np]
+T30_6537	-----	unid0
+T30_6540	.....	00778
+T30_6543	0121960	ic	YY	{unclear}	[Y.
+T30_6546	0121970	?	DD1a	that	[Ds.Ds]Y]
+T30_6549	-----	unid0
+T30_6552	.....	-----
+T30_6555	0121995	ic	YY	{unclear}	[Y.Y]
+T30_6558	-----	unid0
+T30_6561	.....	00779
+T30_6564	0122041	*	VBZ	is	[S?[Vzb.Vzb]
+T30_6567	0122051	|	DD1a	that	[Ds:s.Ds:s]
+T30_6570	0122063	?	PPIO1	me	[Neo:e.Neo:e]S?]
+T30_6573	-----	unid1
+T30_6576	.....	-----
+T30_6579	0122086	ic	YY	{unclear}	[Y.Y]
+T30_6582	-----	unid0
+T30_6585	.....	00780
+T30_6588	0122132	*	UW	well	.
+T30_6591	0122144	|	RRQq	how	[S?[Rq:h.Rq:h]
+T30_6594	0122155	|	VVZi	comes	[Vz.Vz]
+T30_6597	0122168	|	PPY	you	[Fn:s[Ny:s.Ny:s]
+T30_6600	0122178	|	VH0	+'ve	[Vf.
+T30_6603	0122189	|	VVNH	got	.Vf]
+T30_6606	0122200	|	PPIO1	me	[Neo:o.Neo:o]
+T30_6609	0122211	|	RP	down	[Rw:p.
+T30_6612	0122223	|	RLh	there	.Rw:p]
+T30_6615	0122236	?	RR	already	[R:t.R:t]Fn:s]S?]
+T30_6618	-----	unid0
+T30_6621	.....	00781
+T30_6624	0122290	*	PPH1	it	[S[Ni:s.Ni:s]
+T30_6627	0122299	|	VBZ	+'s	[Vzb.Vzb]
+T30_6630	0122309	|	DDQ	what	[Ff:e[Dq:G187.Dq:G187]
+T30_6633	0122321	|	PPIS1	I	[Nea:s.Nea:s]
+T30_6636	0122330	|	VH0	have	[V.V]
+T30_6639	0122342	|	TO	to	[Ti:z[Vi.
+T30_6642	0122352	.	VD0	do	.Vi]
+T30_6645	0000000	y	YG	-	[o187.o187]Ti:z]Ff:e]S]
+T30_6648	.....	00782
+T30_6651	0122382	*	UR	oh	.
+T30_6654	0122392	ic	YY	{unclear}	[Y.Y]
+T30_6657	0122402	|	VV0i	go	[S*[V.V]
+T30_6660	0122412	|	RL	away	[R:q.R:q]
+T30_6663	0122424	|	RRs	otherwise	[S-[Rs:c.Rs:c]
+T30_6666	0122441	|	PPY	you	[Ny:s.Ny:s]
+T30_6669	0122451	|	VMo	+'ll	[Vcb.
+T30_6672	0122463	|	VB0	be	.Vcb]
+T30_6675	0122473	|	II	on	[P:p.
+T30_6678	0122483	|	AT	the	[Ns.
+T30_6681	0122494	.	NN1n	tape	.Ns]P:p]S-]S*]
+T30_6684	-----	unid0
+T30_6687	.....	00783
+T30_6690	0122545	*	FL	fuck	[S*[V.V]
+T30_6693	0122557	|	RP	off	[R:q.R:q]S*]
+T30_6696	0122572	ic	YY	{unclear}	[Y.Y]
+T30_6699	0122582	|	PPIS2	we	[S[Nap:s.Nap:s]
+T30_6702	0122592	|	VD0	do	[Ve.
+T30_6705	0122601	|	XX	+n't	.
+T30_6708	0122612	|	VV0v	want	.Ve]
+T30_6711	0122625	|	PPY	you	[Ny:o.Ny:o]
+T30_6714	0122636	|	II	on	[P:p.
+T30_6717	0122646	|	AT	the	[Ns.
+T30_6720	0122657	.	NN1n	tape	.Ns]P:p]S]
+T30_6723	.....	00784
+T30_6726	0122688	c	YV	{laugh}	.
+T30_6729	0122707	*	PPHS2	they	[S[Nap:s189.Nap:s189]
+T30_6732	0122719	|	VD0	do	[Ve.
+T30_6735	0122728	|	XX	+n't	.
+T30_6738	0122739	|	VV0v	wan	.Ve]
+T30_6741	0000000	y	YG	-	[Ti:o[s189.s189]
+T30_6744	0122749	|	TO	+na	[Vi.
+T30_6747	0122759	|	VV0v	know	.Vi]
+T30_6750	0122772	|	CST	that	[Fn:o.
+T30_6753	0122784	|	PPIS2	we	[Nap:s.Nap:s]
+T30_6756	0122794	|	VH0	have	[V.V]
+T30_6759	0122806	|	JJ	upper-class	[Np:o.
+T30_6762	0122832	|	NN2	children	.
+T30_6765	0122849	|	ICSk	like	[P.
+T30_6768	0122861	|	PPY	you	.P]Np:o]
+T30_6771	0122872	.	RLh	here	[Rw:p.Rw:p]Fn:o]Ti:o]S]
+T30_6774	.....	00785
+T30_6777	0122903	c	YP	{pause}	.
+T30_6780	0122911	*	UGZ21	au	[UGZ=.
+T30_6783	0122911	.	UGZ22	revoir	.UGZ=]
+T30_6786	.....	00786
+T30_6789	0122948	*	CCr	or	[L+.
+T30_6792	0122958	c	YVL	{vocal12}	.
+T30_6795	0122980	|	FW	sprechen	[Y.
+T30_6798	0123000	ic	YY	{unclear}	.Y]
+T30_6801	0123010	c	YVR	{vocal12}	.
+T30_6804	0123019	|	CSA	as	[A:x.
+T30_6807	0123029	|	PPHS2	they	[Nap:s.Nap:s]
+T30_6810	0123041	|	VV0v	say	[V.V]
+T30_6813	0123052	|	II	in	[P:p.
+T30_6816	0123062	|	NP1c	Norway	[Nns.Nns]P:p]A:x]L+]
+T30_6819	0123076	c	YV	{laugh}	.
+T30_6822	0123095	ic	YY	{unclear}	[Y.Y]
+T30_6825	0123105	c	YV	{laugh}	.
+T30_6828	-----	unid0
+T30_6831	.....	00787
+T30_6834	0123155	*	VV0v	shut	[S*[V.V]
+T30_6837	0123167	|	RP	up	[R:n.R:n]S*]
+T30_6840	0123177	.	NP1m	Dan	[Nns".Nns"]
+T30_6843	-----	unid0
+T30_6846	.....	00788
+T30_6849	0123226	c	YVL	{laughing}	.
+T30_6852	0123247	ic	YY	{unclear}	[Y.
+T30_6855	0123257	|	NN2	Norwegians	.
+T30_6858	0123275	c	YVR	{laughing}	.
+T30_6861	0123283	ic	YY	{unclear}	.Y]
+T30_6864	-----	unid0
+T30_6867	.....	00789
+T30_6870	0123324	*	PPHS2	they	[S[Nap:s.Nap:s]
+T30_6873	0000000	y	YG	-	[m191.m191]
+T30_6876	0123335	|	VMo	+'ll	[Vc.
+T30_6879	0123346	|	RR	probably	[R:G191.R:G191]
+T30_6882	0123362	|	VV0v	send	.Vc]
+T30_6885	0123374	|	DDi	some	[Ns:o.
+T30_6888	0123386	|	NN1c	bloke	.Ns:o]
+T30_6891	0123400	|	RP	over	[R:q.R:q]
+T30_6894	0123412	|	TO	to	[Ti:c[Vi.
+T30_6897	0123422	|	VD0	do	.Vi]
+T30_6900	0123432	|	PPY	you	[Ny:o.Ny:o]
+T30_6903	0123443	.	RP	over	[R:n.R:n]Ti:c]S]
+T30_6906	-----	unid0
+T30_6909	.....	00000
+T30_6912	0123482	c	YV	{laugh}	.
+T30_6915	0123501	ic	YY	{unclear}	[Y.Y]
+T30_6918	0123511	c	YP	{pause}	.
+T30_6921	-----	unid0
+T30_6924	.....	00790
+T30_6927	0123549	ic	YY	{unclear}	[Y.
+T30_6930	0123559	|	RR21	as	[RR=.
+T30_6933	0123559	.	RR22	well	.RR=]Y]
+T30_6936	.....	00791
+T30_6939	0123594	*	PPY	you	[S[Ny:s.Ny:s]
+T30_6942	0000000	y	YG	-	[t193.t193]
+T30_6945	0123605	|	VMo	can	[Vc.
+T30_6948	0123616	|	RR	soon	[R:G193.R:G193]
+T30_6951	0123628	|	VV0i	go	.Vc]
+T30_6954	0123638	|	CC	and	[S+.
+T30_6957	0123649	|	VV0v	ask	[V.V]
+T30_6960	0123660	|	PPHO2	them	[Nop:i.Nop:i]S+]
+T30_6963	0123673	|	CS	cos	[Fa:c.
+T30_6966	0123684	|	DDi	some	[Ns:s.
+T30_6969	0123696	|	NN1c	git	.Ns:s]
+T30_6972	0123706	|	VBZ	+'s	[Vzut.
+T30_6975	0123716	|	VVGK	gon	.Vzut]
+T30_6978	0123726	|	TO	+na	[Ti:z[Viu.
+T30_6981	0123736	|	VB0	be	.
+T30_6984	0123746	|	VVGi	coming	.Viu]
+T30_6987	0123761	|	RP	over	[R:q.R:q]
+T30_6990	0123773	|	CC	and	[Ti+.
+T30_6993	0123784	|	VVGv	hitting	[Vg.Vg]
+T30_6996	0123799	|	PPY	you	[Ny:o.Ny:o]Ti+]Ti:z]
+T30_6999	0123810	|	IF	for	[P:c.
+T30_7002	0123821	|	VVGv	taking	[Tg[Vg.Vg]
+T30_7005	0123835	|	AT	the	[N:o.
+T30_7008	0123863	&ic	YY	{unclear}	[Y.Y]N:o]Tg]P:c]Fa:c]S]
+T30_7011	-----	unid0
+T30_7014	.....	00000
+T30_7017	0123926	&c	YVL	{vocal12}	.
+T30_7020	0123948	ic	YY	{unclear}	[Y.Y]
+T30_7023	0123958	c	YVR	{vocal12}	.
+T30_7026	0123983	&c	YP	{pause}	.
+T30_7029	0123991	c	YV	{laugh}	.
+T30_7032	-----	unid1
+T30_7035	.....	-----
+T30_7038	0124015	ic	YY	{unclear}	[Y.Y]
+T30_7041	-----	unid0
+T30_7044	.....	00792
+T30_7047	0124061	*	DDQ	what	[S?[Dq:o.Dq:o]
+T30_7050	0124073	|	AT	the	[Ns!.
+T30_7053	0124084	|	FL1	hell	.Ns!]
+T30_7056	0124095	|	VBZ	+'s	[Vozb.Vozb]
+T30_7059	0124105	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_7062	0124115	?	VDG	doing	[Vrg.Vrg]S?]
+T30_7065	-----	unid0
+T30_7068	.....	00793
+T30_7071	0124167	*	VBG	being	[Tg[Vgb.Vgb]
+T30_7074	0124180	|	RG	very	[J:e.
+T30_7077	0124192	,	JJ	drunk	.J:e]
+T30_7080	0124213	|	DD1a	that	[S@[Ds:s.Ds:s]
+T30_7083	0124224	|	VBZ	+'s	[Vzb.Vzb]
+T30_7086	0124234	|	DDQ	what	[Ff:e[Dq:o.Dq:o]
+T30_7089	0124247	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_7092	0124256	|	VHZ	+'s	[Vzu.
+T30_7095	0124266	.	VDG	doing	.Vzu]Ff:e]S@]Tg]
+T30_7098	-----	unid0
+T30_7101	.....	00794
+T30_7104	0124318	*	RRQq	why	[S?[Rq:c.Rq:c]
+T30_7107	0124328	|	VBZ	+'s	[Vzb.Vzb]
+T30_7110	0124338	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_7113	0124348	|	VVNv	dressed	[Tn:e[Vn.Vn]
+T30_7116	0124363	|	IIa	as	[P:e.
+T30_7119	0124373	|	AT1	a	[Ns.
+T30_7122	0124382	?	NN1c	clown	.Ns]P:e]Tn:e]S?]
+T30_7125	-----	unid0
+T30_7128	.....	00795
+T30_7131	0124434	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_7134	0124443	|	VBZ	+'s	[Vzeb.
+T30_7137	0124453	|	XX	not	.Vzeb]S]
+T30_7140	0124464	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T30_7143	0124473	|	VBZ	+'s	[Vzb.Vzb]
+T30_7146	0124483	|	VVNv	dressed	[Tn:e[Vn.Vn]
+T30_7149	0124498	|	IIa	as	[P:e.
+T30_7152	0124513	*	NNS1c	father	[Nns.
+T30_7155	0124527	!	NNT1h	Christmas	.Nns]P:e]Tn:e]S]
+T30_7158	-----	unid0
+T30_7161	.....	00796
+T30_7164	0124583	*	NNS1c	father	[Nns.
+T30_7167	0124597	!	NNT1h	Christmas	.Nns]
+T30_7170	.....	00797
+T30_7173	0124633	c	YP	{pause}	.
+T30_7176	0124641	*	UW	well	.
+T30_7179	0124653	|	RRQq	why	[S?[Rq:c.Rq:c]
+T30_7182	0124663	|	VHZ	+'s	[Voz.Voz]
+T30_7185	0124673	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_7188	0124683	|	VVNH	got	[Vrn.Vrn]
+T30_7191	0124694	|	RP	on	[R:p.R:p]
+T30_7194	0124704	|	ICSk	like	.
+T30_7197	0124717	|	AT1	a	[Ns:o.
+T30_7200	0124726	|	JJ	big	.
+T30_7203	0124737	|	NN1c	thing	.
+T30_7206	0000000	y	YG	-	[195.195]Ns:o]
+T30_7209	0124750	|	II	round	[P:p.
+T30_7212	0124763	|	APPGm	his	[Ns.
+T30_7215	0124774	,	NN1c	neck	.Ns]P:p]
+T30_7218	0124794	|	AT1	a	[Ns@:G195.
+T30_7221	0124804	.	NN1c	ruff	.Ns@:G195]S?]
+T30_7224	-----	unid0
+T30_7227	.....	00000
+T30_7230	0124843	c	YV	{laugh}	.
+T30_7233	-----	unid0
+T30_7236	.....	00798
+T30_7239	0124892	c	YVL	{shouting}	.
+T30_7242	0124913	*	PPH1	it	[S[Ni:s.Ni:s]
+T30_7245	0124922	|	VBZ	+'s	[Vzb.Vzb]
+T30_7248	0124932	|	AT1	a	[Ns:e.
+T30_7251	0124941	|	NN1c	beard	.Ns:e]S]
+T30_7254	0124954	|	PPY	you	[Nys".
+T30_7257	0124966	|	NN1c	idiot	.Nys"]
+T30_7260	0124979	c.	YVR	{shouting}	.
+T30_7263	-----	unid0
+T30_7266	.....	00799
+T30_7269	0125026	*	PPH1	it	[S[Ni:s.Ni:s]
+T30_7272	0125035	|	VBZ	+'s	[Vzeb.
+T30_7275	0125045	|	XX	not	.Vzeb]
+T30_7278	0125056	|	AT1	a	[Ns:e.
+T30_7281	0125065	|	FLG	fucking	.
+T30_7284	0125080	,	NN1c	beard	.Ns:e]S]
+T30_7287	0125102	|	DD1a	that	[S[Ds:s.Ds:s]
+T30_7290	0125113	|	VBZ	+'s	[Vzeb.
+T30_7293	0125123	|	XX	not	.Vzeb]
+T30_7296	0125134	|	DDQ	what	[Ff:e[Dq:y.Dq:y]
+T30_7299	0125146	|	AT1	a	[Ns:s.
+T30_7302	0125155	|	NN1c	beard	.Ns:s]
+T30_7305	0125176	t	FD	l	.
+T30_7308	0000000	y	YR	#	.Ff:e]S]
+T30_7311	0125194	|	CSi	if	[S[Fa:c.
+T30_7314	0125204	|	PPHS1m	he	[Nas:s.Nas:s]
+T30_7317	0000000	y	YG	-	[t199.t199]
+T30_7320	0125214	|	VMd	could	[Vdc.
+T30_7323	0125227	|	RR	ever	[R:G199.R:G199]
+T30_7326	0125239	|	VV0v	grow	.Vdc]
+T30_7329	0125251	|	AT1	a	[Ns:o.
+T30_7332	0125261	|	NN1c	beard	.
+T30_7335	0125274	|	ICSk	like	[P.
+T30_7338	0125286	|	DD1a	that	.P]Ns:o]Fa:c]
+T30_7341	0125298	|	PPIS1	I	[Nea:s.Nea:s]
+T30_7344	0125306	|	VMd	+'d	[Vdc.
+T30_7347	0125316	|	FLJ	bloody	.
+T30_7350	0125330	|	VV0v	give	.Vdc]
+T30_7353	0125343	|	PPHO1m	him	[Nos:i.Nos:i]
+T30_7356	0125371	&ic	YY	{unclear}	[Y.Y]S]
+T30_7359	-----	unid0
+T30_7362	.....	00000
+T30_7365	0125434	&c	YV	{laugh}	.
+T30_7368	-----	unid0
+T30_7371	.....	00800
+T30_7374	0125501	*.	UY	yeah	.
+T30_7377	.....	00801
+T30_7380	0125533	*	AT1	a	[Ns.
+T30_7383	0125542	|	VV0v	blow	.
+T30_7386	0125554	.	NN1c	job	.Ns]
+T30_7389	-----	unid0
+T30_7392	.....	00802
+T30_7395	0125603	ic	YY	{unclear}	[Y.Y]
+T30_7398	0125613	|	PPY	you	[S[Ny:s.Ny:s]
+T30_7401	0000000	y	YG	-	[t201.t201]
+T30_7404	0125623	|	VH0	+'ve	[Vf.
+T30_7407	0125634	|	RR	still	[R:G201.R:G201]
+T30_7410	0125647	|	VVNH	got	.Vf]
+T30_7413	0125658	|	DD1i	this	[Ns:o.
+T30_7416	0125671	,	NN1c	poster	.Ns:o]S]
+T30_7419	0125693	ic	YY	{unclear}	[Y.Y]
+T30_7422	-----	unid0
+T30_7425	.....	00803
+T30_7428	0125734	*	DDQ	what	[Nqs.
+T30_7431	0125746	?	NN1c	poster	.Nqs]
+T30_7434	-----	unid0
+T30_7437	.....	-----
+T30_7440	0125773	ic	YY	{unclear}	[Y.Y]
+T30_7443	-----	unid0
+T30_7446	.....	00804
+T30_7449	0125819	*	DDQq	which	[Nqs.
+T30_7452	0125832	?	NN1c	poster	.Nqs]
+T30_7455	-----	unid1
+T30_7458	.....	-----
+T30_7461	0125859	ic	YY	{unclear}	[Y.Y]
+T30_7464	-----	unid0
+T30_7467	.....	00805
+T30_7470	0125905	*	VV0v	shut	[S*[V.V]
+T30_7473	0125917	.	RP	up	[R:n.R:n]S*]
+T30_7476	-----	unid1
+T30_7479	.....	-----
+T30_7482	0125940	ic	YY	{unclear}	[Y.Y]
+T30_7485	-----	unid0
+T30_7488	.....	00806
+T30_7491	0125985	ic	YY	{unclear}	[Y.Y]
+T30_7494	0125995	|	VD0	do	[S?[Vo.Vo]
+T30_7497	0126005	|	PPY	you	[Ny:s.Ny:s]
+T30_7500	0126016	|	VV0v	know	[Vr.Vr]
+T30_7503	0126028	|	RRQq	why	[Fn?:o[Rq:c.Rq:c]
+T30_7506	0126039	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_7509	0126050	|	VDD	did	[Vd.Vd]
+T30_7512	0126062	?	PPH1	it	[Ni:o.Ni:o]Fn?:o]S?]
+T30_7515	.....	00807
+T30_7518	0126091	ic	YY	{unclear}	[Y.Y]
+T30_7521	0126101	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_7524	0126110	|	VVDi	went	[Vd.Vd]
+T30_7527	0126122	|	YMN	erm	.
+T30_7530	0126133	|	UA21	excuse	[Q:e[UA=.
+T30_7533	0126147	|	UA22	me	.UA=]
+T30_7536	0126157	|	VMo	can	[S?[Voc.Voc]
+T30_7539	0126169	|	PPY	you	[Ny:s.Ny:s]
+T30_7542	0126180	|	VV0v	clean	[Vr.Vr]
+T30_7545	0126193	|	PN1	something	[Ns:o.Ns:o]S?]
+T30_7548	0126210	,	UP	please	.Q:e]
+T30_7551	0126232	|	ICSk	like	[P:h.
+T30_7554	0126245	|	DD1i	this	.P:h]
+T30_7557	0126257	|	UY	yeah	.
+T30_7560	0126269	c	YV	{laugh}	.
+T30_7563	0126288	|	CC	and	[S+.
+T30_7566	0126299	|	PPHS1f	she	[Nas:s.Nas:s]
+T30_7569	0126310	|	UO21	kind	[UO=.
+T30_7572	0126310	|	UO22	of	.UO=]
+T30_7575	0126326	|	VVDi	went	[Vd.Vd]
+T30_7578	0126338	c	YVL	{vocal12}	.
+T30_7581	0126360	|	PPY	you	[Q:e[Nys".
+T30_7584	0126371	|	JJ	little	.
+T30_7587	0126390	,	NN1u	shit	.Nys"]
+T30_7590	0126410	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_7593	0126418	|	VBM	+'m	[Vmut.
+T30_7596	0126428	|	VVGK	gon	.Vmut]
+T30_7599	0126438	|	TO	+na	[Ti:z[Vi.
+T30_7602	0126448	|	VV0v	get	.Vi]
+T30_7605	0126459	|	APPGi1	my	[Ns:O203.
+T30_7608	0126470	|	NN1c	husband	.Ns:O203]
+T30_7611	0000000	y	YG	-	[Ti:o[s203.s203]
+T30_7614	0126485	|	TO	to	[Vi.
+T30_7617	0126495	|	VV0i	come	.Vi]
+T30_7620	0126507	|	CC	and	[Ti+.
+T30_7623	0000000	y	YG	-	[s203.s203]
+T30_7626	0126518	|	VV0v	break	[V.V]
+T30_7629	0126531	|	APPGy	your	[Np:o.
+T30_7632	0126543	|	NN2	legs	.Np:o]Ti+]Ti:o]Ti:z]S]Q:e]S+]S]
+T30_7635	0126555	c	YVR	{vocal12}	.
+T30_7638	0126563	ic	YY	{unclear}	[Y.Y]
+T30_7641	-----	unid0
+T30_7644	.....	00808
+T30_7647	0126604	*	UN	no	.
+T30_7650	0126614	,	NP1m	Dan	[Nns".Nns"]
+T30_7653	0126633	.	UP	please	.
+T30_7656	.....	00809
+T30_7659	0126667	*	PPY	you	[S[Ny:s.Ny:s]
+T30_7662	0000000	y	YG	-	[m205.m205]
+T30_7665	0126677	|	VBR	+'re	[Vau.
+T30_7668	0126688	|	RR	just	[R:G205.R:G205]
+T30_7671	0126700	|	VVGt	ruining	.Vau]
+T30_7674	0126715	|	PPH1	it	[Ni:o.Ni:o]S]
+T30_7677	0126742	&ic	YY	{unclear}	[Y.Y]
+T30_7680	-----	unid0
+T30_7683	.....	00810
+T30_7686	0126816	&	PPIS1	I	[S[Nea:s.Nea:s]
+T30_7689	0126825	,	VV0v	promise	[V.V]S]
+T30_7692	0126848	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_7695	0126857	|	VMo	wo	[Vce.
+T30_7698	0126866	|	XX	+n't	.
+T30_7701	0126877	|	VV0t	ruin	.Vce]
+T30_7704	0126890	|	PPH1	it	[Ni:o.Ni:o]
+T30_7707	0126900	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T30_7710	0126909	.	VV0v	promise	[V.V]S]I]S]
+T30_7713	-----	unid0
+T30_7716	.....	00811
+T30_7719	0126980	*	VV0v	read	[S*[V.V]
+T30_7722	0126992	.	DD1a	that	[Ds:o.Ds:o]S*]
+T30_7725	-----	unid0
+T30_7728	.....	00812
+T30_7731	0127043	*	UN	no	.
+T30_7734	0127053	|	UN	no	.
+T30_7737	0127063	|	PPIS1	I	[S[Nea:s207.Nea:s207]
+T30_7740	0127072	|	RR	just	[R:m.R:m]
+T30_7743	0127084	|	VV0v	wan	[V.V]
+T30_7746	0000000	y	YG	-	[Ti:o[s207.s207]
+T30_7749	0127094	|	TO	+na	[Vi.
+T30_7752	0127121	&ic	YY	{unclear}	[Y.Y]Vi]Ti:o]S]
+T30_7755	-----	unid0
+T30_7758	.....	00000
+T30_7761	0127184	&ic	YY	{unclear}	[Y.Y]
+T30_7764	-----	unid0
+T30_7767	.....	00813
+T30_7770	0127242	*	UR	oh	.
+T30_7773	0127252	|	VBZ	is	[S?[Vzb.Vzb]
+T30_7776	0127262	?	PPH1	it	[Ni:s.Ni:s]S?]
+T30_7779	-----	unid1
+T30_7782	.....	00000
+T30_7785	0127299	ic	YY	{unclear}	[Y.Y]
+T30_7788	0127309	c	YVL	{vocal12}	.
+T30_7791	0127331	ic	YY	{unclear_30}	[Y.Y]
+T30_7794	0127348	c	YVR	{vocal12}	.
+T30_7797	-----	unid0
+T30_7800	.....	00814
+T30_7803	0127387	*	PPY	you	[S[Ny:s.Ny:s]
+T30_7806	0127398	|	VMo	can	[Vc.
+T30_7809	0127409	|	VH0	have	.Vc]
+T30_7812	0127421	,	NP1m	Piers	[Nns:o.Nns:o]
+T30_7815	0127442	|	XX	not	[R:m.
+T30_7818	0127454	,	RR	literally	.
+T30_7821	0127479	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T30_7824	0127488	|	VV0t	mean	[V.V]S]I]
+T30_7827	0127500	|	RR	just	[R:m.R:m]
+T30_7830	0127512	|	II	on	[P@.
+T30_7833	0127522	|	AT	the	[Ns.
+T30_7836	0127534	.	NN1n	tape	.Ns]P@]R:m]S]
+T30_7839	-----	unid0
+T30_7842	.....	00815
+T30_7845	0127584	c	YV	{laugh}	.
+T30_7848	0127603	*	UW	well	.
+T30_7851	0127615	|	PPY	you	[S[Ny:s.Ny:s]
+T30_7854	0127626	|	VMo	can	[Vc.
+T30_7857	0127637	|	VH0	have	.Vc]
+T30_7860	0127649	|	PPHO1m	him	[Nos:o.Nos:o]
+T30_7863	0127661	|	II	on	[P:p.
+T30_7866	0127671	|	AT	the	[Ns.
+T30_7869	0127682	|	NN1n	tape	.Ns]P:p]S]
+T30_7872	-----	unid0
+T30_7875	.....	00000
+T30_7878	0127713	c	YV	{laugh}	.
+T30_7881	-----	unid0
+T30_7884	.....	00816
+T30_7887	0127762	c	YVL	{laughing}	.
+T30_7890	0127783	|	DDQr	which	[Fr[Dq:s.Dq:s]
+T30_7893	0127796	|	VBZ	is	[Vzb.Vzb]
+T30_7896	0127806	|	II31	on	[P:p[II=.
+T30_7899	0127806	|	II32	top	.
+T30_7902	0127806	|	II33	of	.II=]
+T30_7905	0127823	|	AT	the	[Ns.
+T30_7908	0127835	|	NN1c	table	.Ns]P:p]Fr]
+T30_7911	0127848	c.	YVR	{laughing}	.
+T30_7914	0127864	c	YP	{pause}	.
+T30_7917	-----	unid0
+T30_7920	.....	00000
+T30_7923	0127891	c	YV	{whistling}	.
+T30_7926	-----	unid0
+T30_7929	.....	00817
+T30_7932	0127945	*	VD0	do	[S?[Vo.Vo]
+T30_7935	0127955	|	PPY	you	[Ny:s.Ny:s]
+T30_7938	0127966	!	VV0v	mind	[Vr.Vr]S?]
+T30_7941	-----	unid1
+T30_7944	.....	-----
+T30_7947	0127991	ic	YY	{unclear}	[Y.Y]
+T30_7950	-----	unid0
+T30_7953	.....	00818
+T30_7956	0128037	*	UW	well	.
+T30_7959	0128049	|	RRQq	why	[S?[Rq:c.Rq:c]
+T30_7962	0128060	|	VD0	do	[Voe.
+T30_7965	0128069	|	XX	+n't	.Voe]
+T30_7968	0128080	|	PPY	you	[Ny:s.Ny:s]
+T30_7971	0128091	|	VV0i	go	[Vr.Vr]
+T30_7974	0128101	|	CC	and	[S+.
+T30_7977	0128112	|	VV0v	sit	[V.V]
+T30_7980	0128124	|	RP	down	[R:q.R:q]
+T30_7983	0128136	?	RLh	there	[Rw:p.Rw:p]S+]S?]
+T30_7986	-----	unid0
+T30_7989	.....	00819
+T30_7992	0128188	*	CS	cos	[Fa.
+T30_7995	0128199	|	PPH1	it	[Ni:s.Ni:s]
+T30_7998	0128208	|	VBZ	+'s	[Vzb.Vzb]
+T30_8001	0128218	|	DAR	more	[J:e.
+T30_8004	0128230	|	JJ	comfortable	.J:e]
+T30_8007	0128249	.	RLh	here	[Rw:p.Rw:p]Fa]
+T30_8010	-----	unid0
+T30_8013	.....	00820
+T30_8016	0128300	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_8019	0128309	|	VVDv	said	[Vd.Vd]
+T30_8022	0128321	|	RRQq	why	[Q:o[S?[Rq:c.Rq:c]
+T30_8025	0128332	|	VD0	do	[Voe.
+T30_8028	0128341	|	XX	+n't	.Voe]
+T30_8031	0128352	|	PPY	you	[Ny:s.Ny:s]
+T30_8034	0128363	|	VV0i	go	[Vr.Vr]
+T30_8037	0128373	|	CC	and	[S+.
+T30_8040	0128385	|	VV0v	sit	[V.V]
+T30_8043	0128396	|	RP	down	[R:q.R:q]
+T30_8046	0128425	&.	RLh	there	[Rw:p.Rw:p]S+]S?]Q:o]S]
+T30_8049	-----	unid0
+T30_8052	.....	00821
+T30_8055	0128510	&c	YVL	{vocal15}	.
+T30_8058	0128532	*	UR	oh	.
+T30_8061	0128542	c	YVR	{vocal15}	.
+T30_8064	-----	unid0
+T30_8067	.....	00822
+T30_8070	0128598	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_8073	0128607	|	VBM	am	[Vmu.
+T30_8076	0128617	|	VVGv	sitting	.Vmu]
+T30_8079	0128632	|	RP	down	[R:q.R:q]
+T30_8082	0128644	|	RLh	here	[Rw:p.Rw:p]S]
+T30_8085	0128656	|	UT21	thank	[L[UT=.
+T30_8088	0128669	|	UT22	you	.UT=]
+T30_8091	0128681	|	RG	very	[D:h.
+T30_8094	0000000	y	YR	#	.D:h]L]
+T30_8097	0128693	c	YV	{laugh}	.
+T30_8100	-----	unid0
+T30_8103	.....	00823
+T30_8106	0128743	*!	UY	yes	.
+T30_8109	.....	00824
+T30_8112	0128774	*!	UR	ah	.
+T30_8115	.....	00825
+T30_8118	0128804	*	UR	ah	.
+T30_8121	0128814	|	UR	ah	.
+T30_8124	0128824	.	UR	ah	.
+T30_8127	-----	unid1
+T30_8130	.....	-----
+T30_8133	0128847	ic	YY	{unclear}	[Y.Y]
+T30_8136	-----	unid0
+T30_8139	.....	00826
+T30_8142	0128893	*	RLh	there	[S[Rw:p.Rw:p]
+T30_8145	0128906	|	PPH1	it	[Ni:s.Ni:s]
+T30_8148	0128916	,	VBZ	is	[Vzb.Vzb]S]
+T30_8151	0128934	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_8154	0128943	|	VVDt	found	[Vd.Vd]
+T30_8157	0128956	.	PPH1	it	[Ni:o.Ni:o]S]
+T30_8160	-----	unid0
+T30_8163	.....	00827
+T30_8166	0129005	*,	UL	what	.
+T30_8169	0129025	|	AT	the	[Ns.
+T30_8172	0129036	|	NN1c	problem	.
+T30_8175	0129051	?	NN1c	page	.Ns]
+T30_8178	-----	unid0
+T30_8181	.....	00828
+T30_8184	0129102	*.	UY	yeah	.
+T30_8187	-----	unid0
+T30_8190	.....	00829
+T30_8193	0129153	*	PPY	you	[S[Ny:s.Ny:s]
+T30_8196	0129164	|	VBR	are	[Vab.Vab]
+T30_8199	0129192	&ic	YY	{unclear}	[Y.Y]S]
+T30_8202	-----	unid0
+T30_8205	.....	00830
+T30_8208	0129266	&c	YVL	{laughing}	.
+T30_8211	0129287	*	DD1a	that	[S[Ds:s.Ds:s]
+T30_8214	0129298	|	VBZ	+'s	[Vzb.Vzb]
+T30_8217	0129326	&	DDQ	what	[Ff:e[Dq:o.Dq:o]
+T30_8220	0129338	|	PPY	you	[Ny:s.Ny:s]
+T30_8223	0129349	|	VV0t	need	[V.V]Ff:e]S]
+T30_8226	0129361	c.	YVR	{laughing}	.
+T30_8229	-----	unid0
+T30_8232	.....	-----
+T30_8235	0129382	ic	YY	{unclear}	[Y.Y]
+T30_8238	-----	unid0
+T30_8241	.....	00000
+T30_8244	0129416	c	YV	{laugh}	.
+T30_8247	-----	unid0
+T30_8250	.....	00831
+T30_8253	0129466	*	UR	oh	.
+T30_8256	0129476	|	VV0v	read	[S*[V.V]
+T30_8259	0129488	|	PPHO2	'em	[Nop:o.Nop:o]
+T30_8262	0129499	,	RP	out	[R:n.R:n]S*]
+T30_8265	0129518	|	VV0v	give	[S*[V.V]
+T30_8268	0129530	|	PPHO2	them	[Nop:i.Nop:i]
+T30_8271	0129542	|	AT1	a	[Ns:o.
+T30_8274	0129552	,	NN1c	laugh	.Ns:o]S*]
+T30_8277	0129573	|	PPHS2	they	[S[Nap:s.Nap:s]
+T30_8280	0129585	|	RR	probably	[R:m.R:m]
+T30_8283	0129601	|	VD0	do	[Ve.
+T30_8286	0129610	|	XX	+n't	.
+T30_8289	0129621	|	VV0v	get	.Ve]
+T30_8292	0129633	*	NN1c	sky	[Nns:o.Nns:o]
+T30_8295	0129644	|	II	in	[P:p.
+T30_8298	0129654	|	NP1c	Sweden	[NP1c&.
+T30_8301	0129668	|	CCr	or	[NP1c+.
+T30_8304	0129695	&.	NP1c	Norway	.NP1c+]NP1c&]P:p]S]
+T30_8307	-----	unid0
+T30_8310	.....	00832
+T30_8313	0129781	&*.	UN	no	.
+T30_8316	-----	unid0
+T30_8319	.....	00833
+T30_8322	0129847	*	VV0v	let	[S*[V.V]
+T30_8325	0129858	|	PPIO1	me	[Nos:O211.Nos:O211]
+T30_8328	0000000	y	YG	-	[Tb:o[s211.s211]
+T30_8331	0129868	|	VV0t	find	[V.V]
+T30_8334	0129880	|	AT1	a	[Ms:o.
+T30_8337	0129889	|	JJ	good	.
+T30_8340	0129901	.	MC1	one	.Ms:o]Tb:o]S*]
+T30_8343	-----	unid0
+T30_8346	.....	00834
+T30_8349	0129951	*	UY	yeah	.
+T30_8352	0129963	|	UP	please	.
+T30_8355	0129977	|	VV0v	let	[S*[V.V]
+T30_8358	0129988	|	PPHO1m	him	[Nos:O213.Nos:O213]
+T30_8361	0000000	y	YG	-	[Tb:o[s213.s213]
+T30_8364	0129999	|	VV0v	read	[V.V]
+T30_8367	0130011	|	PPHO2	them	[Nop:o.Nop:o]
+T30_8370	0130024	.	RP	out	[R:n.R:n]Tb:o]S*]
+T30_8373	0130043	c	YP	{pause}	.
+T30_8376	-----	unid0
+T30_8379	.....	00835
+T30_8382	0130082	*	VV0i	go	[S*[V.V]
+T30_8385	0130092	.	RP	on	[R:q.R:q]S*]
+T30_8388	-----	unid0
+T30_8391	.....	00836
+T30_8394	0130141	*	RRs	otherwise	[S[Rs:c.Rs:c]
+T30_8397	0130158	|	PPH1	it	[Ni:s.Ni:s]
+T30_8400	0130167	|	VBZ	+'s	[Vzb.Vzb]
+T30_8403	0130177	.	JJ	stupid	[J:e.J:e]S]
+T30_8406	.....	00837
+T30_8409	0130211	*	EX	there	[S.
+T30_8412	0130223	|	VBZ	+'s	[Vzb.Vzb]
+T30_8415	0130233	|	ATn	no	[Ns:s.
+T30_8418	0130243	|	NNL1n	point	.Ns:s]
+T30_8421	0130256	|	II	in	[P:p.
+T30_8424	0130266	|	PPIO1	me	[Tg[Neo:s.Neo:s]
+T30_8427	0130276	|	VDG	doing	[Vg.Vg]
+T30_8430	0130290	|	PPH1	it	[Ni:o.Ni:o]Tg]P:p]S]
+T30_8433	0130300	|	UE21	I	[UE=.
+T30_8436	0130309	|	UE22	mean	.UE=]
+T30_8439	0130321	|	CSi	if	[Fa.
+T30_8442	0130331	|	PPIS1	I	[Nea:s.Nea:s]
+T30_8445	0000000	y	YG	-	[m215.m215]
+T30_8448	0130340	|	VMd	could	[Vdc.
+T30_8451	0130353	|	RR	just	[R:G215.R:G215]
+T30_8454	0130365	|	VV0v	hear	.Vdc]
+T30_8457	0130378	|	NP1m	Dan	[Nns:O217.Nns:O217]
+T30_8460	0000000	y	YG	-	[Tg:o[s217.s217]
+T30_8463	0130389	|	VVGi	going	[Vg.Vg]
+T30_8466	0130406	|	UR	ah	[Q:e.
+T30_8469	0130416	|	UR	ah	.
+T30_8472	0130426	|	UR	ah	.Q:e]Tg:o]Fa]
+T30_8475	0130436	ic	YY	{unclear}	[Y.Y]
+T30_8478	-----	unid1
+T30_8481	.....	-----
+T30_8484	0130451	ic	YY	{unclear}	[Y.Y]
+T30_8487	-----	unid0
+T30_8490	.....	00838
+T30_8493	0130497	*	PPY	you	[S[Ny:s.Ny:s]
+T30_8496	0130507	|	VH0	+'ve	[Vf.
+T30_8499	0130518	|	VVNv	squashed	.Vf]
+T30_8502	0130534	|	APPGi1	my	[Ns:o.
+T30_8505	0130544	!	NN1c	shoe	.Ns:o]S]
+T30_8508	-----	unid0
+T30_8511	.....	00000
+T30_8514	0130583	ic	YY	{unclear}	[Y.Y]
+T30_8517	0130593	c	YP	{pause}	.
+T30_8520	-----	unid0
+T30_8523	.....	00839
+T30_8526	0130632	*	VV0v	get	[S*[V.V]
+T30_8529	0130643	!	RP	out	[R:q.R:q]S*]
+T30_8532	0130662	c	YP	{pause}	.
+T30_8535	0130670	ic	YY	{unclear}	[Y.Y]
+T30_8538	-----	unid0
+T30_8541	.....	00840
+T30_8544	0130711	*.	UY	yeah	.
+T30_8547	-----	unid0
+T30_8550	.....	00841
+T30_8553	0130762	*.	RP	out	[R.R]
+T30_8556	0130781	c	YP	{pause}	.
+T30_8559	-----	Dan116
+T30_8562	.....	00842
+T30_8565	0130819	c	YV	{laugh}	.
+T30_8568	0130838	*	VV0i	listen	[S*[V.V]
+T30_8571	0130852	|	IIt	to	[P:u.
+T30_8574	0130862	|	DD1i	this	.P:u]S*]
+T30_8577	0130874	c	YP	{pause}	.
+T30_8580	0130882	c	YVL	{readingAloud}	.
+T30_8583	0130902	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_8586	0130911	|	VV0v	think	[V.V]
+T30_8589	0130924	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T30_8592	0130935	|	VMd	should	[Vdc.
+T30_8595	0130950	|	VV0t	feature	.Vdc]
+T30_8598	0130965	|	AT1	a	[Ns:o.
+T30_8601	0130974	|	JJ	special	.
+T30_8604	0130989	|	JB	one-off	.
+T30_8607	0131011	|	NN1c	page	.
+T30_8610	0131023	|	II	on	[P.
+T30_8613	0131034	|	JJ	different	[Np.
+T30_8616	0131051	|	NN2	types	.
+T30_8619	0131064	|	IO	of	[Po.
+T30_8622	0131074	|	NN1u	masturbation	[Np.
+T30_8625	0131094	|	NN2	techniques	.Np]Po]
+T30_8628	0131113	|	IF	for	[P.
+T30_8631	0131124	,	NN2	men	.P]Np]P]Ns:o]Fn:o]S]
+T30_8634	0131143	|	DAT	most	[S[Dp:s.
+T30_8637	0131155	|	IO	of	[Po.
+T30_8640	0131165	|	PPIO2	us	.Po]Dp:s]
+T30_8643	0131175	|	VV0v	learn	[V.V]
+T30_8646	0131188	|	II	from	[P:h.
+T30_8649	0131201	|	APPGi2	our	[Np.
+T30_8652	0131212	,	NN2	experiments	.Np]P:h]S]
+T30_8655	0131239	|	DDQ	what	[S?[Dq:o.Dq:o]
+T30_8658	0131251	|	VD0	do	[Vo.Vo]
+T30_8661	0131261	|	PPY	you	[Ny:s.Ny:s]
+T30_8664	0131273	?	VV0v	think	[Vr.Vr]S?]
+T30_8667	.....	00843
+T30_8670	0131305	c	YVL	{laughing}	.
+T30_8673	0131326	ic	YY	{unclear}	[Y.Y]
+T30_8676	0131336	c	YVR	{laughing}	.
+T30_8679	0131344	|	PPIS1	I	[S[Nea:s.Nea:s]
+T30_8682	0131353	|	VVDv	spent	[Vd.Vd]
+T30_8685	0131366	|	DA2	many	[Np:o.
+T30_8688	0131379	|	JJ	sleepless	.
+T30_8691	0131396	|	NNT2	nights	.Np:o]
+T30_8694	0131410	|	VVGv	tossing	[Tg:h[Vg[VVGv&.
+T30_8697	0131425	|	CC	and	[VVGv+.
+T30_8700	0131436	|	VVGv	turning	.VVGv+]VVGv&]Vg]Tg:h]S]
+T30_8703	0131451	c	YVL	{laughing}	.
+T30_8706	0131482	ic	YY	{unclear}	[Y.Y]
+T30_8709	0131492	c	YVR	{laughing}	.
+T30_8712	0131492	c	YVR	{readingAloud}	.

@@ -12,7 +12,7 @@
 #define GETMULTIWORDHEADER(D)  (D->nextNode >> MULTIWORDHEADER_SHIFT)
 #define SETMULTIWORDHEADER(D,n) (  D->nextNode &= NODEBITS, D->nextNode |= n << MULTIWORDHEADER_SHIFT )
 
-#define IS_NEW_WORD(x) (!x || x >= dictionaryPreBuild[2]) // created by user volley
+#define IS_NEW_WORD(x) (!x || (x >= dictionaryPreBuild[2] &&  !xbuildDictionary)) // created by user volley
 
 #define ALL_OBJECTS ( MAINOBJECT | MAININDIRECTOBJECT | OBJECT2 | INDIRECTOBJECT2 )
 
@@ -256,11 +256,13 @@ bool ReadForeignPosTags(const char* fname);
 int GetWords(char* word, WORDP* set,bool strict);
 bool StricmpUTF(char* w1, char* w2, int len);
 void ReadQueryLabels(char* file);
+void FreeDictionary();
 void ClearWordWhere(WORDP D,int at);
 void RemoveConceptTopic(HEAPREF list[256],WORDP D, int at);
 char* UseDictionaryFile(const char* name);
 void ClearWhereInSentence();
 void ClearTriedData();
+void LoadDictionary(char* heapstart);
 void ClearDictionaryFiles();
 int CopyWhereInSentence(int oldindex);
 void RestorePropAndSystem(char* stringUsed);

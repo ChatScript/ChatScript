@@ -1,0 +1,2828 @@
+T19_0003	=====	051402	w
+T19_0006	-----	unid0
+T19_0009	.....	03027
+T19_0012	0473230	|	NP1m	Mike	[S[Nns:s.Nns:s]
+T19_0015	0473243	|	VVDv	said	[Vd.Vd]
+T19_0018	0473255	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T19_0021	0473264	|	VBZ	+'s	[Vzu.
+T19_0024	0473274	|	VVGi	going	.Vzu]
+T19_0027	0473287	|	IIt	to	[P:q.
+T19_0030	0473298	|	NP1a	<name>	[Nns.Nns]P:q]Fn:o]S]
+T19_0033	-----	Kim077
+T19_0036	.....	03028
+T19_0039	0473348	*	UW	well	.
+T19_0042	0473360	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_0045	0473369	|	VVDv	made	[Vd.Vd]
+T19_0048	0473381	|	NN2	enquiries	[Np:o.Np:o]S]
+T19_0051	-----	Simon076
+T19_0054	.....	03029
+T19_0057	0473429	|	UY	mm	.
+T19_0060	-----	Kim077
+T19_0063	.....	03030
+T19_0066	0473470	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_0069	0473478	|	VH0	+'ve	[Vf.
+T19_0072	0473489	,	VVNH	got	.Vf]
+T19_0075	0000000	y	YR	#	.
+T19_0078	0473508	|	PPIS1	I	[Nea:s.Nea:s]
+T19_0081	0473516	|	VH0	+'ve	[Vf.
+T19_0084	0473527	|	VVNH	got	.Vf]
+T19_0087	0473538	|	AT1	an	[Ns:o.
+T19_0090	0473549	|	NN1n	appointment	.Ns:o]
+T19_0093	0473568	|	II	at	[P:p.
+T19_0096	0473578	|	AT	the	[Ns.
+T19_0099	0473589	|	NNJ1n	school	.Ns]P:p]
+T19_0102	0473603	|	II	on	[P:t.
+T19_0105	0473613	|	NPD1	Thursday	[Nns.Nns]P:t]S]
+T19_0108	-----	Simon076
+T19_0111	.....	03031
+T19_0114	0473660	|	UL	what	.
+T19_0117	0473672	?	NP1a	<name>	[Nns.Nns]
+T19_0120	-----	Kim077
+T19_0123	.....	03032
+T19_0126	0473730	|	UY	yeah	.
+T19_0129	-----	Simon076
+T19_0132	.....	03033
+T19_0135	0473773	|	UR	oh	.
+T19_0138	-----	Kim077
+T19_0141	.....	03034
+T19_0144	0473814	|	UY	mm	.
+T19_0147	-----	Simon076
+T19_0150	.....	03035
+T19_0153	0473855	|	PPY	you	[S[Ny:s.Ny:s]
+T19_0156	0473865	|	VMo	+'ll	[Vc.
+T19_0159	0473876	|	VH0	have	.Vc]
+T19_0162	0473888	|	TO	to	[Ti:z[Vi.
+T19_0165	0473898	|	VV0v	get	.Vi]
+T19_0168	0473909	|	RP	up	[R:q.R:q]
+T19_0171	0473919	|	RRR	earlier	[R:t.R:t]Ti:z]S]
+T19_0174	-----	Kim077
+T19_0177	.....	03036
+T19_0180	0473965	,	UX	huh	.
+T19_0183	0473984	|	VH0	have	[S[V.V]
+T19_0186	0473996	|	TO	to	[Ti:z[Vin.
+T19_0189	0474006	|	VVNH	got	.Vin]
+T19_0192	0474021	|	IIt	to	[P:q.
+T19_0195	0474031	|	NN1c	bed	.P:q]
+T19_0198	0474043	|	RRR	earlier	[R:t.R:t]
+T19_0201	0474058	|	RR21	as	[R:m[RR=.
+T19_0204	0474058	,	RR22	well	.RR=]R:m]Ti:z]S]
+T19_0207	0474081	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_0210	0474093	|	VBDZ	was	[Vosb.Vosb]
+T19_0213	0474104	|	PPIS1	I	[Nea:s.Nea:s]
+T19_0216	0474114	|	VVGK	gon	[Vrgt.Vrgt]
+T19_0219	0474124	|	TO	+na	[Ti:z[Vi.
+T19_0222	0474134	|	VV0v	say	.Vi]Ti:z]S?]
+T19_0225	0474145	|	YMN	erm	.
+T19_0228	0474156	c	YP	{pause}	.
+T19_0231	0474164	|	DDQ	what	[S?[Nqp:o.
+T19_0234	0474176	|	NN2	exams	.Nqp:o]
+T19_0237	0474190	|	PPY	you	[Ny:s.Ny:s]
+T19_0240	0474201	|	VVNH	got	[Vn.Vn]
+T19_0243	0474212	|	II	on	[P:t.
+T19_0246	0474222	?	NPD1	Wednesday	[Nns.Nns]P:t]S?]
+T19_0249	-----	Simon076
+T19_0252	.....	03037
+T19_0255	0474278	|	PN	none	[L[N:o.N:o]
+T19_0258	0474290	|	RTt	tomorrow	[R:t.R:t]L]
+T19_0261	-----	Kim077
+T19_0264	.....	03038
+T19_0267	0474337	?	NPD1	Thursday	[Nns.Nns]
+T19_0270	-----	Simon076
+T19_0273	.....	03039
+T19_0276	0474392	|	MC	two	[M.M]
+T19_0279	-----	Kim077
+T19_0282	.....	03040
+T19_0285	0474434	|	DDQ	what	[S?[Dq:e.Dq:e]
+T19_0288	0474446	|	VBR	are	[Vab.Vab]
+T19_0291	0474457	?	PPHS2	they	[Nap:s.Nap:s]S?]
+T19_0294	-----	Simon076
+T19_0297	.....	03041
+T19_0300	0474508	|	NNu	French	[Nn[Ot.Ot]
+T19_0303	0474526	|	CC	and	[Nns+.
+T19_0306	0474545	t*	NN1n/German	ger	[Ot.Ot]Nns+]
+T19_0309	0000000	y	YR	#	.
+T19_0312	0474565	|	YMV	er	.
+T19_0315	0474576	*	NN1ux	economics	[Ot.Ot]
+T19_0318	0474593	|	CC	and	[Nns+.
+T19_0321	0474604	|	NN1n	German	[Ot.Ot]Nns+]Nn]
+T19_0324	-----	Kim077
+T19_0327	.....	03042
+T19_0330	0474653	|	UL	what	.
+T19_0333	0474665	|	NNT1c	morning	[N[NNT1c&.
+T19_0336	0474680	|	CC	and	[NNT1c+.
+T19_0339	0474691	?	NNT1c	afternoon	.NNT1c+]NNT1c&]N]
+T19_0342	-----	Simon076
+T19_0345	.....	03043
+T19_0348	0474747	,	UY	yes	.
+T19_0351	0474766	|	PPY	you	[S[Ny:s.Ny:s]
+T19_0354	0474777	|	VMo	ca	[Vcex.
+T19_0357	0474786	|	XX	+n't	.Vcex]
+T19_0360	0474797	|	MC	two	[M:o.M:o]
+T19_0363	0474808	|	II	in	[P:t.
+T19_0366	0474818	|	AT	the	[Ns.
+T19_0369	0474830	|	NNT1c	morning	.Ns]P:t]
+T19_0372	0474845	|	VMo	can	[Iq[S?[Vcx.Vcx]
+T19_0375	0474856	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T19_0378	-----	Kim077
+T19_0381	.....	03044
+T19_0384	0474906	|	DDQ	what	[S?[Nqs:t.
+T19_0387	0474918	|	NNT1c	time	.Nqs:t]
+T19_0390	0474930	|	VDZ	does	[Voz.Voz]
+T19_0393	0474942	|	APPGy	your	[Ms:s.
+T19_0396	0474954	|	NNT1c	morning	.
+T19_0399	0474969	|	MC1	one	.Ms:s]
+T19_0402	0474981	?	VV0v	finish	[Vr.Vr]S?]
+T19_0405	-----	Simon076
+T19_0408	.....	03045
+T19_0411	0475034	|	MC	twelve	[M.M]
+T19_0414	-----	Kim077
+T19_0417	.....	03046
+T19_0420	0475079	|	DDQ	what	[S?[Nqs:t.
+T19_0423	0475091	|	NNT1c	time	.Nqs:t]
+T19_0426	0475103	|	PPY	you	[Ny:s.Ny:s]
+T19_0429	0475114	|	VVNH	got	[Vn.Vn]
+T19_0432	0475124	|	TO	+ta	[Ti:z[Vib.
+T19_0435	0475134	|	VB0	be	.Vib]
+T19_0438	0475144	?	RL	back	[R:p.R:p]Ti:z]S?]
+T19_0441	-----	Simon076
+T19_0444	.....	03047
+T19_0447	0475195	|	MC1	one	[Ms.
+T19_0450	0475206	|	MC	thirty	[M@.M@]Ms]
+T19_0453	0475220	c	YP	{pause}	.
+T19_0456	-----	Kim077
+T19_0459	.....	03048
+T19_0462	0475259	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_0465	0475267	|	VBM	+'m	[Vmut.
+T19_0468	0475277	|	VVGK	gon	.Vmut]
+T19_0471	0475287	|	TO	+na	[Ti:z[Vi.
+T19_0474	0475297	|	VH0	have	.Vi]
+T19_0477	0475309	|	DD1b21	a	[Ds:o[DD1b=.
+T19_0480	0475318	|	DD1b22	bit	.DD1b=]
+T19_0483	0475329	|	IO	of	[Po.
+T19_0486	0475339	|	AT1	a	[Ns.
+T19_0489	0475349	|	NN1c	job	.Ns]Po]Ds:o]
+T19_0492	0475360	|	VVGv	getting	[Tg:b[Vg.Vg]
+T19_0495	0475375	|	NP1m	Rick	[Nns:o.Nns:o]
+T19_0498	0475386	|	IIt	to	[P:q.
+T19_0501	0475396	|	NNJ1n	school	.
+T19_0504	0475410	|	CC	and	[P+.
+T19_0507	0475422	,	RP	over	[RP#.
+T19_0510	0000000	y	YR	#	.
+T19_0513	0475442	|	RP	over	.RP#]
+T19_0516	0475454	|	IIt	to	.
+T19_0519	0000000	y	YR	#	.P+]P:q]Tg:b]Ti:z]S]
+T19_0522	0475464	c	YP	{pause}	.
+T19_0525	-----	Simon076
+T19_0528	.....	03049
+T19_0531	0475503	|	PPY	you	[S?[Ny:s.Ny:s]
+T19_0534	0475514	|	VDG	doing	[Vg.Vg]S?]
+T19_0537	0475527	c	YP	{pause}	.
+T19_0540	=====	051403	w
+T19_0543	-----	unid0
+T19_0546	.....	03050
+T19_0549	0475608	*	NN1c	dinner	[S[Ns:t.
+T19_0552	0475622	,	NNT1c	time	.Ns:t]
+T19_0555	0475642	|	PPIS1	I	[Nea:s.Nea:s]
+T19_0558	0475651	|	VVDv	saw	[Vd.Vd]
+T19_0561	0475662	,	PPHO1m	him	[Nos:o.Nos:o]S]
+T19_0564	0475681	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_0567	0475691	|	VVDi	went	[Vd.Vd]
+T19_0570	0475703	|	RGa	as	[R:t.
+T19_0573	0475703	|	RR	soon	.
+T19_0576	0475703	|	CSA	as	[Fc.
+T19_0579	0475721	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_0582	0475731	|	VVDi	came	[Vd.Vd]
+T19_0585	0475743	|	RL	back	[R:q.R:q]Fc]R:t]
+T19_0588	0475755	|	RR	basically	[R:m.R:m]S]
+T19_0591	-----	Kim077
+T19_0594	.....	03051
+T19_0597	0475803	|	UR	oh	.
+T19_0600	0475813	c	YP	{pause}	.
+T19_0603	0475821	|	NN1n	trouble	[S[Ns:s.Ns:s]
+T19_0606	0475836	|	VBZ	is	[Vzb.Vzb]
+T19_0609	0475846	|	PPIS1	I	[Fn:e[Nea:s.Nea:s]
+T19_0612	0475855	|	VD0	do	[Ve.
+T19_0615	0475864	|	XX	+n't	.
+T19_0618	0475875	|	VV0v	know	.Ve]
+T19_0621	0475888	|	DDy	any	[Ns:o.
+T19_0624	0475899	|	NNL1n	way	.
+T19_0627	0475910	|	II	round	[P.
+T19_0630	0475923	|	AT	the	[Ns.
+T19_0633	0475934	|	NN1c	problem	.
+T19_0636	0475949	|	IO	of	[Po.
+T19_0639	0475960	,	APPGm	his	[Ns[APPGm#.
+T19_0642	0000000	y	YR	#	.
+T19_0645	0475979	|	APPGm	his	.APPGm#]
+T19_0648	0475990	|	NN1n	lot	.
+T19_0651	0476001	|	II	at	[P.
+T19_0654	0476011	|	APPGm	his	[Ns.
+T19_0657	0476022	|	NNJ1n	school	.Ns]P]Ns]Po]Ns]P]Ns:o]Fn:e]S]
+T19_0660	-----	Simon076
+T19_0663	.....	03052
+T19_0666	0476067	|	VV0i	go	[Tb[V.V]
+T19_0669	0476077	|	IIt	to	[P:q.
+T19_0672	0000000	y	YR	#	.P:q]Tb]
+T19_0675	-----	unid0
+T19_0678	.....	-----
+T19_0681	0476092	ic	YY	{unclear}	[Y.Y]
+T19_0684	-----	Kim077
+T19_0687	.....	03053
+T19_0690	0476138	|	VDD	did	[S?[Vod.Vod]
+T19_0693	0476149	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_0696	0476159	|	VV0v	tell	[Vr.Vr]
+T19_0699	0476171	|	PPY	you	[Ny:i.Ny:i]
+T19_0702	0476182	|	DDQ	what	[Fn?:o[Dq:s.Dq:s]
+T19_0705	0476194	|	VVDi	happened	[Vd.Vd]
+T19_0708	0476211	?,	RTt	yesterday	[R:t.R:t]Fn?:o]S?]
+T19_0711	0476244	|	VV0v	hang	[S*[V.V]
+T19_0714	0476256	|	RP	on	[R:n.R:n]
+T19_0717	0476266	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_0720	0476274	|	VMo	+'ll	[Vc.
+T19_0723	0476285	|	VV0v	get	.Vc]
+T19_0726	0476297	|	PPH1	it	[Ni:o.Ni:o]
+T19_0729	0476307	|	IF	for	[P:k.
+T19_0732	0476318	|	PPY	you	.P:k]S@]S*]
+T19_0735	=====	051404	w
+T19_0738	-----	Kim077
+T19_0741	.....	03054
+T19_0744	0476959	*	PPH1	it	[S[Ni:s.Ni:s]
+T19_0747	0476969	|	VVZv	starts	[Vz.Vz]
+T19_0750	0476983	|	RP	off	[R:n.R:n]
+T19_0753	0476993	|	NP1m	Hamish	[Fn:e[Nns:s.Nns:s]
+T19_0756	0477007	|	VVZv	says	[Vz.Vz]
+T19_0759	0477019	|	IIt	to	[P:u.
+T19_0762	0477029	|	NP1m	Mike	[Nns.Nns]P:u]
+T19_0765	0477043	|	DDQ	what	[Q:o[S?[Nqs:o.
+T19_0768	0477055	|	NN1c	team	.Nqs:o]
+T19_0771	0477067	|	VD0	do	[Vo.Vo]
+T19_0774	0477077	|	PPY	you	[Ny:s.Ny:s]
+T19_0777	0477088	,	VV0t	support	[Vr[VV0t#.
+T19_0780	0000000	y	YR	#	.
+T19_0783	0477111	|	VV0t	support	.VV0t#]Vr]S?]Q:o]
+T19_0786	0477127	|	CC	and	[Fn+.
+T19_0789	0477138	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_0792	0477148	|	VVZv	says	[Vz.Vz]
+T19_0795	0477160	|	NP1t	Nottingham	[Nns:o.
+T19_0798	0477178	*,	NNL1n	forest	.Nns:o]Fn+]Fn:e]S]
+T19_0801	0477200	|	UR	ooh	.
+T19_0804	0477212	|	NP1t	Nottingham	[Nns.
+T19_0807	0477230	*	NNL1n	forest	.Nns]
+T19_0810	0477244	|	UX	urgh	.
+T19_0813	0477256	|	CC	and	[S+.
+T19_0816	0477267	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_0819	0477277	|	VVZv	takes	[Vz.Vz]
+T19_0822	0477291	|	AT	the	[Ns:o.
+T19_0825	0477302	|	NN1c	mickey	.Ns:o]
+T19_0828	0477316	|	II21	out	[P:q[II=.
+T19_0831	0477316	|	II22	of	.II=]
+T19_0834	0477330	|	PPHO1m	him	.P:q]
+T19_0837	0477341	|	DDQr	which	[Fr:x[Dq:y.Dq:y]
+T19_0840	0477354	,	UR	OK	.
+T19_0843	0000000	y	YR	#	.Fr:x]S+]
+T19_0846	0477375	|	RTn	then	[S[Rsw:t.Rsw:t]
+T19_0849	0477387	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_0852	0477397	|	VVDv	called	[Vd.Vd]
+T19_0855	0477411	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_0861	0477427	&ic	YY	{unclear}	[Y:j.
+T19_0864	.....	03055
+T19_0867	0477473	&	CC	and	[Ds+.
+T19_0870	0477484	|	DBa	all	.
+T19_0873	0477495	,	DD1a	that	.Ds+]Y:j]S]
+T19_0876	0477519	|	RTn	then	[S[Rsw:t.Rsw:t]
+T19_0879	0477531	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_0882	0477541	|	VVDv	took	[Vd.Vd]
+T19_0885	0477554	|	ATn	no	[Ns:o.
+T19_0888	0477564	|	NN1n	notice	.
+T19_0891	0477578	|	IO	of	[Po.
+T19_0894	0477588	,	DD1a	that	.Po]Ns:o]S]
+T19_0897	0477608	c	YVL	{shouting}	.
+T19_0900	0477630	|	UI	now	.
+T19_0903	0477641	|	VD0	do	[S*[Ve.
+T19_0906	0477650	|	XX	+n't	.
+T19_0909	0477661	|	VV0v	tip	.Ve]
+T19_0912	0477672	|	PPHO2	them	[Nop:o.Nop:o]S*]
+T19_0915	0477684	,	JJ	silly	[J".J"]
+T19_0918	0477705	|	DDQ	what	[S?[Dq:G107.Dq:G107]
+T19_0921	0477718	|	AT	the	[Ns!.
+T19_0924	0477729	|	FLJ	bloody	.
+T19_0927	0477743	|	FL1	hell	.Ns!]
+T19_0930	0477755	|	PPY	you	[Ny:s.Ny:s]
+T19_0933	0477766	|	VDG	doing	[Vg.Vg]
+T19_0936	0477779	|	DD1a	that	[Ds:o.Ds:o]
+T19_0939	0477792	?	IF	for	[P:c.
+T19_0942	0000000	y	YG	-	[107.107]P:c]S?]
+T19_0945	0477811	c,	YVR	{shouting}	.
+T19_0948	0477827	|	VD0	do	[S*[Veb.
+T19_0951	0477836	|	XX	+n't	.
+T19_0954	0477847	|	VB0	be	.Veb]
+T19_0957	0477857	|	RGz	so	[J:e.
+T19_0960	0477868	,	JJ	daft	.J:e]S*]
+T19_0963	0477888	|	RRz	so	[S[S&[Rs:c.Rs:c]
+T19_0966	0477898	,	UI	anyway	.
+T19_0969	0477928	|	RTn	then	[Rsw:t.Rsw:t]
+T19_0972	0477940	|	NP1m	Hamish	[Nns:s.Nns:s]
+T19_0975	0477955	|	VVZi	goes	[Vz.Vz]
+T19_0978	0477967	|	RP	off	[R:q.R:q]
+T19_0981	0477978	|	II	into	[P:q.
+T19_0984	0477990	|	AT	the	[Np.
+T19_0987	0478001	|	NN2	showers	.Np]P:q]
+T19_0990	0478016	|	CC	and	[S+.
+T19_0993	0478027	|	VVZv	turns	[Vz.Vz]
+T19_0996	0478041	|	AT	the	[Np:o.
+T19_0999	0478052	|	NN2	showers	.Np:o]
+T19_1002	0478067	|	RP	on	[R:j.R:j]S+]S&]
+T19_1005	.....	03057
+T19_1008	0478151	&	VVZi	comes	[S-[Vz.Vz]
+T19_1011	0478164	|	RL	back	[R:q.R:q]
+T19_1014	0478176	|	CC	and	[S+.
+T19_1017	0478187	|	VVZv	says	[Vz.Vz]
+T19_1020	0478199	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T19_1023	0478211	|	AT	the	[Ns:s.
+T19_1026	0478223	|	NN1c	teacher	.Ns:s]
+T19_1029	0478238	,	VV0i	come	[V.V]Fa:t]
+T19_1032	0478258	|	AT	the	[I[S[Ns:s.
+T19_1035	0478269	|	NN1c	teacher	.Ns:s]
+T19_1038	0478284	|	VBDZ	was	[Vsb.Vsb]
+T19_1041	0478295	|	RLh	there	[Rw:p.Rw:p]
+T19_1044	0478309	|	DD1i	this	[Ns:t.
+T19_1047	0478321	,	NNT1c	time	.Ns:t]S]I]
+T19_1050	0478341	|	UX	urgh	[Q:o.
+T19_1053	0478353	|	AT	the	[S[Np:s.
+T19_1056	0478364	|	NN2	showers	.Np:s]
+T19_1059	0478379	|	VBR	are	[Vab.Vab]
+T19_1062	0478391	,	RP	on	[R:e.R:e]S]
+T19_1065	0478413	|	NP1m	Michael	[S[Nns:s.Nns:s]
+T19_1068	0478429	|	VVDv	switched	[Vd.Vd]
+T19_1071	0478445	|	AT	the	[Np:o.
+T19_1074	0478456	|	NN2	showers	.Np:o]
+T19_1077	0478472	|	RP	on	[R:j.R:j]S]Q:o]S+]S-]S]
+T19_1080	0478486	|	CC	and	[S+.
+T19_1083	0478497	|	RTn	then	[Rsw:t.Rsw:t]
+T19_1086	0478509	|	PPHS2	they	[Nap:s111.Nap:s111]
+T19_1089	0478521	|	RR	all	[R:h.R:h]
+T19_1092	0478532	|	VV0v	start	[V.V]
+T19_1095	0000000	y	YG	-	[Tg:o[s111.s111]
+T19_1098	0478546	|	VVGv	chanting	[Vg.Vg]
+T19_1101	0478562	c	YVL	{singing}	.
+T19_1104	0478582	|	NP1m	Michael	[Q:o[S[Nns:s.Nns:s]
+T19_1107	0478598	|	VVDv	switched	[Vd.Vd]
+T19_1110	0478614	|	AT	the	[Np:o.
+T19_1113	0478626	|	NN2	showers	.Np:o]
+T19_1116	0478641	,	RP	on	[R:j.R:j]S]
+T19_1119	0478663	|	NP1m	Michael	[S[Nns:s.Nns:s]
+T19_1122	0478679	|	VVDv	switched	[Vd.Vd]
+T19_1125	0478695	|	AT	the	[Np:o.
+T19_1128	0478707	|	NN2	showers	.Np:o]
+T19_1131	0478722	|	RP	on	[R:j.R:j]S]Q:o]Tg:o]S+]
+T19_1134	0478736	c	YVR	{singing}	.
+T19_1137	0478744	|	CC	and	[S+.
+T19_1140	0478755	,	YMV	er	.
+T19_1143	0478773	|	NN2	loads	[Np:s.
+T19_1146	0478787	|	IO	of	[Po.
+T19_1149	0478797	,	PPHO2	them	.Po]
+T19_1152	0478817	|	XX	not	[Nos@.
+T19_1155	0478828	|	RR	just	[R:m.R:m]
+T19_1158	0478840	,	PPHO1m	him	.
+T19_1161	0478859	|	AT1	a	[Ns@.
+T19_1164	0478869	|	NN1c	load	.
+T19_1167	0478881	|	IO	of	[Po.
+T19_1170	0478891	|	PPHO2	them	.Po]Ns@]Nos@]Np:s]
+T19_1173	0478903	|	VDD	did	[Vd.Vd]
+T19_1176	0478914	,	PPH1	it	[Ni:o.Ni:o]S+]
+T19_1179	0478932	|	CC	and	[S+.
+T19_1182	0478944	,	PPHS1m	he	[Nas:s[PPHS1m#.
+T19_1185	0000000	y	YR	#	.
+T19_1188	0478962	|	PPHS1m	he	.PPHS1m#]Nas:s]
+T19_1191	0478972	|	VVDv	started	[Vd.Vd]
+T19_1194	0478987	|	TO	to	[Ti:z[Vi.
+T19_1197	0478997	,	VV0v	cry	.Vi]Ti:z]S+]
+T19_1200	0479016	|	CC	and	[S+.
+T19_1203	0479028	|	RTn	then	[Rsw:t.Rsw:t]
+T19_1206	0479040	|	DD1a	that	[Ds:s.Ds:s]
+T19_1209	0479052	|	VBDZ	was	[Vsb.Vsb]
+T19_1212	0479063	|	PPH1	it	[Ni:e.Ni:e]
+T19_1215	0479073	|	RTn	then	[Rsw:t.Rsw:t]
+T19_1218	0479085	|	VBDR	were	[Iq[S?[Vweb.
+T19_1221	0479096	|	XX	+n't	.Vweb]
+T19_1224	0479108	,	PPH1	it	[Ni:s.Ni:s]S?]Iq]
+T19_1227	0479126	|	UR	ooh	[Q@.
+T19_1230	0479137	|	JJ	tiny	[Np.
+T19_1233	0479149	,	NN2	tears	.Np]
+T19_1236	0479170	|	JJ	tiny	[Np.
+T19_1239	0479183	,	NN2	tears	.Np]
+T19_1242	0479204	|	UR	ooh	.
+T19_1245	0479215	,	NN1c	poofter	[Ns".Ns"]
+T19_1248	0479238	,	NN1c	poofter	[Ns".Ns"]
+T19_1251	0479262	|	VVGv	crying	[N[Tg[Vg.Vg]Tg]
+T19_1254	0479276	|	CC	and	[Ds+.
+T19_1257	0479287	|	DBa	all	.
+T19_1260	0479298	|	DD1a	that	.Ds+]N]Q@]S+]
+T19_1263	0479310	|	UE21	I	[UE=.
+T19_1266	0479319	|	UE22	mean	.UE=]
+T19_1269	0479331	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_1272	0479342	|	VHD	had	[Vd.Vd]
+T19_1275	0479353	|	AT1	a	[Ns:o.
+T19_1278	0479362	|	JJ	right	.
+T19_1281	0479375	|	NNT1c	day	.Ns:o]
+T19_1284	0479386	|	IW	with	[P:h.
+T19_1287	0479398	,	PPH1	it	.P:h]S]
+T19_1290	0479416	|	RRz	so	[S[Rs:c.Rs:c]
+T19_1293	0479427	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1296	0479437	|	VVZi	goes	[Vz.Vz]
+T19_1299	0479449	|	IIt	to	[P:q.
+T19_1302	0479459	|	NNJ1n	school	.P:q]
+T19_1305	0479473	|	DD1i	this	[Ns:t.
+T19_1308	0479485	|	NNT1c	morning	.Ns:t]
+T19_1311	0479500	|	II	in	[P:p.
+T19_1314	0479511	*	NN1u	geography	[Nns[Ot[Ns.Ns]Ot]Nns]P:p]
+T19_1317	0479528	|	CC	and	[S+.
+T19_1320	0479539	|	AT	the	[N:s.
+T19_1323	0000000	y	YR	#	.
+T19_1326	0479550	|	PN1	everybody	.
+T19_1329	0479575	|	II	in	[P.
+T19_1332	0479585	|	AT	the	[Ns.
+T19_1335	0479597	,	NN1n	class	.Ns]P]
+T19_1338	0479618	|	AT	the	[N@.
+T19_1341	0479629	|	NN2	girls	.
+T19_1344	0479642	|	CC	and	[Ns+.
+T19_1347	0479653	|	PN1	everybody	.Ns+]N@]N:s]
+T19_1350	0479679	|	VBDR	were	[Vwu.
+T19_1353	0479691	|	VVGi	going	.Vwu]
+T19_1356	0479704	|	JJ	tiny	[Q:e[Np.
+T19_1359	0479716	,	NN2	tears	.Np]
+T19_1362	0479737	|	JJ	tiny	[Np.
+T19_1365	0479750	,	NN2	tears	.Np]Q:e]S+]S]
+T19_1368	0479771	|	CC	and	[S+.
+T19_1371	0479782	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1374	0479792	|	VVDv	said	[Vd.Vd]
+T19_1377	0479804	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T19_1380	0479813	|	RR	just	[R:m.R:m]
+T19_1383	0479826	|	VVDt	ignored	[Vd.Vd]
+T19_1386	0479841	|	PPH1	it	[Ni:o.Ni:o]
+T19_1389	0479851	|	RTt	today	[R:t.R:t]S]Q:o]S+]
+T19_1392	0479864	c	YP	{pause}	.
+T19_1395	0479872	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_1398	0479882	|	VVZv	says	[Vz.Vz]
+T19_1401	0479894	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T19_1404	0479904	|	RR	just	[R:m.R:m]
+T19_1407	0479916	|	VVDv	took	[Vd.Vd]
+T19_1410	0479928	|	ATn	no	[Ns:o.
+T19_1413	0479938	|	NN1n	notice	.Ns:o]
+T19_1416	0479952	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_1419	0479962	,	VVZv	says	[Vz.Vz]S]I]
+T19_1422	0479983	|	CCB	but	[S+.
+T19_1425	0479994	|	PPHS2	they	[Nap:s.Nap:s]
+T19_1428	0000000	y	YG	-	[h115.h115]
+T19_1431	0480005	|	VBR	+'re	[Vau.
+T19_1434	0480016	|	RR	all	[R:G115.R:G115]
+T19_1437	0480027	,	VVGi	going	.Vau]
+T19_1440	0480053	|	RRQq	how	[Q:e[S?[Rq:e.Rq:e]
+T19_1443	0480063	|	VBZ	+'s	[Vzb.Vzb]
+T19_1446	0480073	|	APPGy	your	[Np:s.
+T19_1449	0480085	|	NN2	tears	.Np:s]S?]
+T19_1452	0480098	,	NP1m	Michael	[Nns".Nns"]
+T19_1455	0480122	|	VBR	are	[S?[Voab.Voab]
+T19_1458	0480134	|	PPIS2	we	[Nap:s.Nap:s]
+T19_1461	0480144	|	VVGi	going	[Vrgt.Vrgt]
+T19_1464	0480157	|	TO	to	[Ti:z[Vi.
+T19_1467	0480167	|	VV0v	cry	.Vi]
+T19_1470	0480178	|	RT	again	[R:t.R:t]
+T19_1473	0480191	,	RTt	today	[R:t.R:t]Ti:z]S?]Q:e]S+]S]
+T19_1476	0480213	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_1479	0480223	|	VVZv	says	[Vz.Vz]S]I]
+T19_1482	0480235	|	CC	and	[S+.
+T19_1485	0480246	|	PPHS2	they	[Nap:s117.Nap:s117]
+T19_1488	0480258	|	VBDR	were	[Vwu.
+T19_1491	0480270	|	VVGv	trying	.Vwu]
+T19_1494	0000000	y	YG	-	[Ti:o[s117.s117]
+T19_1497	0480284	|	TO	to	[Vi.
+T19_1500	0480295	|	VV0v	get	.Vi]
+T19_1503	0480306	|	PPIO1	me	[Nos:O119.Nos:O119]
+T19_1506	0000000	y	YG	-	[Ti:o[s119.s119]
+T19_1509	0480316	|	TO	to	[Vi.
+T19_1512	0480326	|	VV0v	cry	.Vi]
+T19_1515	0480337	|	RTt	today	[R:t.R:t]Ti:o]Ti:o]
+T19_1518	0480350	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_1521	0480360	,	VVZv	says	[Vz.Vz]S]I]
+T19_1524	0480381	|	CCB	but	[S+.
+T19_1527	0480392	|	PPIS1	I	[Nea:s.Nea:s]
+T19_1530	0480401	|	RR	just	[R:m.R:m]
+T19_1533	0480413	|	VVDv	took	[Vd.Vd]
+T19_1536	0480425	|	ATn	no	[Ns:o.
+T19_1539	0480435	|	NN1n	notice	.Ns:o]S+]S+]
+T19_1542	0480449	|	CC	and	[S+.
+T19_1545	0480461	|	NP1m	Hamish	[Nns:s.Nns:s]
+T19_1548	0480475	|	VVDv	kept	[Vd.Vd]
+T19_1551	0480487	|	VVGi	going	[Tg:z[Vg.Vg]
+T19_1554	0480500	|	ICSk	like	[P:h.
+T19_1557	0480512	|	DD1i	this	.
+T19_1560	0480524	|	NP1m	Mike	[Q@[Nns".Nns"]Q@]P:h]Tg:z]S+]Q:o]S]
+T19_1563	0480538	|	CC	and	[S+.
+T19_1566	0480549	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1569	0480559	|	VVZv	says	[Vz.Vz]
+T19_1572	0480571	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T19_1575	0480580	|	RR	just	[R:m.R:m]
+T19_1578	0480592	|	VVDi	went	[Vd.Vd]
+T19_1581	0480604	c	YP	{pause}	[Q:e.Q:e]S]
+T19_1584	0480612	|	RRz	so	[S[Rs:c.Rs:c]
+T19_1587	0480623	,	PPHS1m	he	[Nas:s[PPHS1m#.
+T19_1590	0000000	y	YR	#	.
+T19_1593	0480641	|	PPHS1m	he	.PPHS1m#]Nas:s]
+T19_1596	0480651	|	VDD	did	[Vd.Vd]
+T19_1599	0480662	|	AT	the	[D:o.
+T19_1602	0480673	|	DAy	same	.D:o]
+T19_1605	0480685	|	RL	back	[R:q.R:q]S]
+T19_1608	0480697	|	CC	and	[S+.
+T19_1611	0480709	|	RTn	then	[Rsw:t.Rsw:t]
+T19_1614	0480721	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1617	0480731	|	VVDi	went	[Vd.Vd]
+T19_1620	0480743	|	NP1m	Mike	[Q:e[Nns".Nns"]
+T19_1623	0480756	c	YP	{pause}	.Q:e]S+]Q:o]S+]
+T19_1626	0480764	|	CC	and	[S+.
+T19_1629	0480775	|	NP1m	Michael	[Nns:s.Nns:s]
+T19_1632	0480792	|	RR	just	[R:m.R:m]
+T19_1635	0480804	,	VVDi	went	[Vd.Vd]
+T19_1638	0000000	y	YR	#	.S+]
+T19_1641	0480824	|	UE21	I	[UE=.
+T19_1644	0480833	|	UE22	mean	.UE=]
+T19_1647	0480845	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_1650	0480857	|	PPY	you	[Ny:s.Ny:s]
+T19_1653	0480869	?,	VD0	do	[V.V]S?]
+T19_1656	.....	03058
+T19_1659	0480907	|	UE21	I	[UE=.
+T19_1662	0480916	|	UE22	mean	.UE=]
+T19_1665	0480928	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_1668	0480936	|	VH0	+'ve	[Vf.
+T19_1671	0480947	|	VVNv	said	.Vf]
+T19_1674	0480959	|	IIt	to	[P:u.
+T19_1677	0480969	|	PPHO1m	him	.P:u]
+T19_1680	0480980	|	VV0v	answer	[Q:o[S*[V.V]
+T19_1683	0480995	|	PPHO1m	him	[Nos:i.Nos:i]
+T19_1686	0481006	|	RL	back	[R:q.R:q]S*]Q:o]
+T19_1689	0481018	|	ICSk	like	[Fa:h.
+T19_1692	0481030	|	PPY	you	[Ny:s.Ny:s]
+T19_1695	0481041	|	VMd	would	[Vdcx.Vdcx]Fa:h]
+T19_1698	0481054	|	CCB	but	[S+.
+T19_1701	0481066	,	PPHS1m	he	[Nas:s[PPHS1m#.
+T19_1704	0000000	y	YR	#	.
+T19_1707	0481084	,	PPHS1m	he	.PPHS1m#]Nas:s]
+T19_1710	0000000	y	YR	#	.
+T19_1713	0481102	|	AT	the	[Ns:s.
+T19_1716	0481113	|	NN1c	thing	.Ns:s]
+T19_1719	0481126	|	VBZ	is	[Vzb.Vzb]
+T19_1722	0481136	|	PPHS1m	he	[Fn:e[Nas:s.Nas:s]
+T19_1725	0481147	|	RR	just	[R:m.R:m]
+T19_1728	0481159	|	VVZv	thumps	[Vz.Vz]
+T19_1731	0481173	,	PPHO2	them	[Nop:o.Nop:o]
+T19_1734	0481193	|	PPHS1m	he	[Fn@[Nas:s.Nas:s]
+T19_1737	0481203	|	RR	just	[R:m.R:m]
+T19_1740	0481216	|	VVZv	thumps	[Vz[VVZv&.
+T19_1743	0481234	|	CC	and	[VVZv+.
+T19_1746	0481245	|	VVZv	kicks	.VVZv+]
+T19_1749	0481258	|	CC	and	[VVZv+.
+T19_1752	0481269	|	VVZv	hits	.VVZv+]VVZv&]Vz]Fn@]Fn:e]S+]S]
+T19_1755	-----	Simon076
+T19_1758	.....	03056
+T19_1761	0478108	|	UY	yeah	.
+T19_1764	-----	Simon076
+T19_1767	.....	03059
+T19_1770	0481312	|	UR	oh	.
+T19_1773	0481322	|	CSi	if	[S[Fa:c.
+T19_1776	0481332	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1779	0481342	|	VDZ	does	[Vz.Vz]Fa:c]
+T19_1782	0481354	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1785	0481364	|	VVZv	gets	[Vz.Vz]
+T19_1788	0481376	|	YMV	er	.
+T19_1791	0481387	,	VDN	done	[Tn:e[Vn.Vn]Tn:e]
+T19_1794	0481407	|	VDZ	du	[Iq[S?[Vzex.
+T19_1797	0481409	|	XX	+nn	.Vzex]
+T19_1800	0481411	|	PPHS1m	+e	[Nas:s.Nas:s]S?]Iq]S]
+T19_1803	-----	Kim077
+T19_1806	.....	03060
+T19_1809	0481451	|	UY	yeah	.
+T19_1812	0481463	|	CCB	but	[S+.
+T19_1815	0481474	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1818	0481484	|	VD0	do	[Ve.
+T19_1821	0481493	|	XX	+n't	.
+T19_1824	0481504	|	VV0v	get	.Ve]
+T19_1827	0481515	,	VDN	done	[Tn:e[Vn.Vn]Tn:e]
+T19_1830	0481536	|	PPHS1m	he	[S@[Nas:s.Nas:s]
+T19_1833	0481546	|	VDZ	does	[Vze.
+T19_1836	0481557	|	XX	+n't	.
+T19_1839	0481568	|	VV0v	get	.Vze]
+T19_1842	0481579	,	VDN	done	[Tn:e[Vn.Vn]Tn:e]
+T19_1845	0481599	|	DD1a	that	[S@[Ds:s.Ds:s]
+T19_1848	0481611	|	VBZ	is	[Vzb.Vzb]
+T19_1851	0481622	|	AT	the	[Ns:e.
+T19_1854	0481633	,	NN1c	problem	.Ns:e]
+T19_1857	0481656	|	AT	the	[S@[Np:s.
+T19_1860	0481667	|	NN2	kids	.Np:s]
+T19_1863	0481679	|	VD0	do	[Vex.
+T19_1866	0481688	,	XX	+n't	.Vex]S@]S@]S@]S+]
+T19_1869	0481708	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_1872	0481716	|	VH0	+'ve	[Vf.
+T19_1875	0481727	|	VVNv	written	.Vf]
+T19_1878	0481742	|	AT1	a	[Ns:o.
+T19_1881	0481751	|	NN1c	letter	.Ns:o]
+T19_1884	0481765	|	IIt	to	[P:u.
+T19_1887	0481775	|	NNS	Mr	[Nns.
+T19_1890	0481785	|	NP1a	<name>	.Nns]P:u]
+T19_1893	0481837	,	RTt	yesterday	[R:t.R:t]S]
+T19_1896	0481862	|	CS	while	[S[Fa:t.
+T19_1899	0481873	|	PPHS2	they	[Nap:s.Nap:s]
+T19_1902	0481885	|	VBDR	were	[Vwu.
+T19_1905	0481897	|	VVGv	waiting	.Vwu]
+T19_1908	0481913	|	IF	for	[P:u.
+T19_1911	0481924	|	AT	the	[Ns.
+T19_1914	0481935	|	NN2	games	.
+T19_1917	0481948	|	NN1c	teacher	.Ns]P:u]Fa:t]
+T19_1920	0481963	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1923	0481973	|	VBDZ	was	[Vsu.
+T19_1926	0481985	|	VVGv	hitting	.Vsu]
+T19_1929	0482000	|	NP1m	Michael	[Nns:o.Nns:o]
+T19_1932	0482016	|	CC	and	[S+.
+T19_1935	0482027	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_1938	0482037	|	VVDv	gave	[Vd.Vd]
+T19_1941	0482049	|	PPHO1m	him	[Nos:i.Nos:i]
+T19_1944	0482060	|	AT1	a	[Ns:o.
+T19_1947	0482070	|	JJ	dead	.
+T19_1950	0482082	,	NN1n	leg	.Ns:o]
+T19_1953	0482101	|	VVGt	kneeing	[Tg:b[Vg.Vg]
+T19_1956	0482116	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_1959	0482127	|	II	in	[P:p.
+T19_1962	0482137	|	AT	the	[Ns.
+T19_1965	0482149	,	NN1n	leg	.Ns]P:p]Tg:b]S+]S]
+T19_1968	0482168	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_1971	0482178	|	VVDv	said	[Vd.Vd]
+T19_1974	0482190	|	ICSt	before	[Fn:o[P:t.
+T19_1977	0482204	,	NN1n	drama	[Nns[Ot[Ns.Ns]Ot]Nns]P:t]Fn:o]
+T19_1980	0000000	y	YR	#	.
+T19_1983	0482226	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_1986	0482235	|	VHZ	+'s	[Vzf.
+T19_1989	0482245	|	VVNH	got	.Vzf]
+T19_1992	0482256	|	NN1n	drama	[Nns:o[Ot[Ns.Ns]Ot]Nns:o]
+T19_1995	0482269	|	RTt	tomorrow	[R:t.R:t]S]
+T19_1998	0482285	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_2001	0482295	|	VVZv	says	[Vz.Vz]
+T19_2004	0482308	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T19_2007	0482318	|	VVZt	hates	[Vz.Vz]
+T19_2010	0482331	|	NN1n	drama	[Nns:o[Ot[Ns.Ns]Ot]Nns:o]
+T19_2013	0482344	|	CS	because	[Fa:c.
+T19_2016	0482359	|	AT	the	[Ns:s.
+T19_2019	0482370	|	NN1c	teacher	.Ns:s]
+T19_2022	0482386	|	VVZv	takes	[Vz.Vz]
+T19_2025	0482399	|	ATn	no	[Ns:o.
+T19_2028	0482409	,	NN1n	notice	.Ns:o]Fa:c]Fn:o]S]I]
+T19_2031	0482431	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_2034	0482441	|	VVDv	said	[Vd.Vd]
+T19_2037	0482453	|	MC1	one	[Q:o[S[Ns:t.
+T19_2040	0482465	|	NNT1c	week	.Ns:t]
+T19_2043	0482477	|	NP1m	Hamish	[Nns:s.Nns:s]
+T19_2046	0482491	|	VBDZ	was	[Vsu.
+T19_2049	0482502	|	VVGv	hitting	.Vsu]
+T19_2052	0482517	|	PPIO1	me	[Neo:o.Neo:o]
+T19_2055	0482527	|	IW	with	[P:h.
+T19_2058	0482539	|	AT1	a	[Ns.
+T19_2061	0482549	|	NN1c	stick	.Ns]P:h]
+T19_2064	0482562	|	CC	and	[S+.
+T19_2067	0482573	|	AT	the	[Ns:s.
+T19_2070	0482584	|	NN1c	teacher	.Ns:s]
+T19_2073	0482599	|	RR	just	[R:m.R:m]
+T19_2076	0482611	|	VVDv	said	[Vd.Vd]
+T19_2079	0482628	|	VV0v	calm	[Q:o[S*[V.V]
+T19_2082	0482640	|	RP	down	[R:n.R:n]S*]
+T19_2085	0482652	|	PPY	you	[Nyp".
+T19_2088	0482663	,	NN2	boys	.Nyp"]Q:o]S+]S]Q:o]
+T19_2091	0482683	|	CC	and	[S+.
+T19_2094	0482694	|	PPHS1m	he	[Nas:S.Nas:S]
+T19_2097	0482704	|	VBDZ	was	[Vsup.
+T19_2100	0482716	|	VBG	being	.
+T19_2103	0482729	|	VVNv	hit	.Vsup]
+T19_2106	0482740	|	IW	with	[P:h.
+T19_2109	0482752	|	AT1	a	[Ns.
+T19_2112	0482761	|	NN1c	stick	.Ns]P:h]S+]S]
+T19_2115	0482774	c	YP	{pause}	.
+T19_2118	0482782	|	UR	oh	.
+T19_2121	0482793	|	UN	no	.
+T19_2124	0482803	c	YP	{pause}	.
+T19_2127	0482811	|	CC	and	[S+.
+T19_2130	0482822	|	DD1i	this	[Ds:o.Ds:o]
+T19_2133	0482834	|	PPIS1	I	[Nea:s.Nea:s]
+T19_2136	0482843	|	VV0t	find	[V.V]
+T19_2139	0482855	|	RR	totally	[J:j.
+T19_2142	0482871	|	JJ	disgusting	.J:j]
+T19_2145	0482889	|	CC	and	[S+.
+T19_2148	0482900	|	PPIS1	I	[Nea:s.Nea:s]
+T19_2151	0482909	|	VV0v	feel	[V.V]
+T19_2154	0482921	|	ICSk	like	[P:e.
+T19_2157	0482933	|	VVGi	complaining	[Tg[Vg.Vg]
+T19_2160	0482953	|	II	about	[P:r.
+T19_2163	0482966	,	DD1i	this	.P:r]Tg]P:e]S+]S+]
+T19_2166	0482986	|	MC1	one	[S[Ms:s.
+T19_2169	0482997	|	IO	of	[Po.
+T19_2172	0483007	|	AT	the	[Np.
+T19_2175	0483018	|	NN2	teachers	.Np]Po]Ms:s]
+T19_2178	0000000	y	YR	#	.S]
+T19_2181	0483035	|	CC	and	[S+.
+T19_2184	0483046	|	PPIS1	I	[Nea:s.Nea:s]
+T19_2187	0483055	|	VD0	do	[Ve.
+T19_2190	0483064	|	XX	+n't	.
+T19_2193	0483075	|	VV0v	know	.Ve]
+T19_2196	0483087	|	CSW	whether	[Fn?:o.
+T19_2199	0483102	|	PPH1	it	[Ni:s.Ni:s]
+T19_2202	0483104	|	VBZ	+'s	[Vzb.Vzb]
+T19_2205	0483114	|	NN1n	drama	[Nns:e[Ot[Ns.Ns]Ot]Nns:e]Fn?:o]
+T19_2208	0483127	c	YP	{pause}	.
+T19_2211	0483135	|	UY	yeah	.
+T19_2214	0483147	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_2217	0483156	|	VV0v	think	[V.V]
+T19_2220	0483169	|	PPH1	it	[Fn:o[Ni:s.Ni:s]
+T19_2223	0483179	|	VBDZ	was	[Vsb.Vsb]
+T19_2226	0483191	|	NN1n	drama	[Nns:e[Ot[Ns.Ns]Ot]Nns:e]Fn:o]S@]S+]
+T19_2229	0483204	|	CC	and	[S+.
+T19_2232	.....	03063
+T19_2235	0483384	&	PPHS2	they	[Nap:s.Nap:s]
+T19_2238	0483396	,	VBDR	were	[Vwb.Vwb]
+T19_2241	0000000	y	YR	#	.
+T19_2244	0483416	|	PPHS2	they	[Nap:s.Nap:s]
+T19_2247	0483428	|	VBDR	were	[Vwu.
+T19_2250	0483440	|	VDG	doing	.Vwu]
+T19_2253	0483453	|	AT1	a	[N:o.
+T19_2256	0483463	|	NN1n	play	.
+T19_2259	0483475	|	CCr	or	[Ns+.
+T19_2262	0483485	|	PN1	something	.Ns+]N:o]S+]
+T19_2265	0483502	|	CC	and	[S+.
+T19_2268	0483513	,	PPH1	it	[Ni:s[PPH1#.
+T19_2271	0000000	y	YR	#	.
+T19_2274	0483531	|	PPH1	it	.PPH1#]Ni:s]
+T19_2277	0483542	|	VVDt	mentioned	[Vd.Vd]
+T19_2280	0483559	|	II	about	[P:r.
+T19_2283	0000000	y	YR	#	.P:r]S+]
+T19_2286	0483572	,	YMV	er	.
+T19_2289	0483590	,	YMN	erm	.
+T19_2292	0483609	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_2295	0483622	|	VDD	did	[Vod.Vod]
+T19_2298	0483633	|	PPH1	it	[Ni:s.Ni:s]
+T19_2301	0483643	?,	VV0t	mention	[Vr.Vr]S?]
+T19_2304	0483674	|	PPH1	it	[S[Ni:s.
+T19_2307	0000000	y	YG	-	[127.127]Ni:s]
+T19_2310	0483684	|	VBDZ	was	[Vsb.Vsb]
+T19_2313	0483695	|	DD1b21	a	[J:e[DD1b=.
+T19_2316	0483695	|	DD1b22	bit	.DD1b=]
+T19_2319	0483709	|	JJ	rude	.J:e]
+T19_2322	0483721	|	RR	anyway	[R:c.R:c]
+T19_2325	0483743	|	DD1i	this	[Ns@:G127.
+T19_2328	0483755	|	NN1n	play	.Ns@:G127]
+T19_2331	0483767	c	YP	{pause}	.
+T19_2334	0483775	|	CC	and	[S+.
+T19_2337	0483787	|	PPH1	it	[Ni:s[PPH1#.
+T19_2340	0000000	y	YR	#	.
+T19_2343	0483797	|	UR	oh	.
+T19_2346	0483807	|	PPH1	it	.PPH1#]Ni:s]
+T19_2349	0483817	|	VBDZ	was	[Vsb.Vsb]
+T19_2352	0483828	|	II21	on	[P:e[II=.
+T19_2355	0483838	|	II22	about	.II=]
+T19_2358	0483851	|	AT1	an	[N.
+T19_2361	0483862	|	NN1n	erection	.
+T19_2364	0483878	|	CCr	or	[Ns+.
+T19_2367	0483888	|	PN1	something	.Ns+]N]P:e]S+]S]
+T19_2370	0483905	|	CC	and	[S+.
+T19_2373	0483916	|	NP1m	Michael	[Nns:s.Nns:s]
+T19_2376	0483932	|	VVDv	said	[Vd.Vd]
+T19_2379	0483945	|	APPGm	his	[Fn:o[Np:s.
+T19_2382	0483956	c	YVL	{laughing}	.
+T19_2385	0483977	|	NN2	trousers	.
+T19_2388	0000000	y	YR	#	.
+T19_2391	0483993	c	YVR	{laughing}	.
+T19_2394	0484001	|	APPGm	his	.
+T19_2397	0484012	|	JJ	new	.
+T19_2400	0484024	|	NN2	trousers	.Np:s]
+T19_2403	0484040	|	VBDR	were	[Vwu.
+T19_2406	0484052	|	VVGv	sticking	.Vwu]
+T19_2409	0484068	|	RP	out	[R:q.R:q]
+T19_2412	0484079	|	DD1b21	a	[J:h[DD1b=.
+T19_2415	0484079	|	DD1b22	bit	.DD1b=]
+T19_2418	0484093	|	JJ	peculiar	.J:h]Fn:o]S+]
+T19_2421	-----	Richard078
+T19_2424	.....	03061
+T19_2427	0483246	|	VV0v	get	[S[V.V]
+T19_2430	0483257	|	DD1a	that	[Ds:o.Ds:o]
+T19_2433	.....	03062
+T19_2436	0483320	&	II	in	[P:t.
+T19_2439	0483330	|	AT1	a	[Ns.
+T19_2442	0483339	|	NNT1c	minute	.Ns]P:t]S]
+T19_2445	-----	unid0
+T19_2448	.....	-----
+T19_2451	0483274	ic	YY	{unclear}	[Y.Y]
+T19_2454	-----	Simon076
+T19_2457	.....	03064
+T19_2460	0484140	|	UR	oh	.
+T19_2463	0484150	*	NNS1c	god	[Nns!.Nns!]
+T19_2466	-----	Kim077
+T19_2469	.....	03065
+T19_2472	0484192	|	CC	and	[S+.
+T19_2475	0484203	|	AT	the	[Ns:s.
+T19_2478	0484214	|	NN1c	teacher	.Ns:s]
+T19_2481	0484229	|	VVDv	said	[Vd.Vd]
+T19_2484	0484241	|	NP1m	Michael	[Q:o[Nns".Nns"]
+T19_2487	0484257	|	VV0v	stop	[S*[V.V]
+T19_2490	0484274	|	VVGv	playing	[Tg:o[Vg.Vg]
+T19_2493	0484289	|	IW	with	[P:h.
+T19_2496	0484301	,	PPX1y	yourself	.P:h]Tg:o]S*]Q:o]S+]
+T19_2499	0484325	|	UI	now	.
+T19_2502	0484336	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_2505	0484345	|	VV0v	think	[V.V]
+T19_2508	0484359	|	DD1a	that	[Fn:o[Ds:s.Ds:s]
+T19_2511	0484370	|	VBZ	+'s	[Vzb.Vzb]
+T19_2514	0484380	|	JJ	disgusting	[J:e.J:e]Fn:o]S]
+T19_2517	-----	Simon076
+T19_2520	.....	03066
+T19_2523	0484429	|	UY	yeah	.
+T19_2526	-----	Kim077
+T19_2529	.....	03067
+T19_2532	0484472	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_2535	0484481	|	VV0v	feel	[V.V]
+T19_2538	0484493	|	ICSk	like	[P:e.
+T19_2541	0484505	|	VVGi	complaining	[Tg[Vg.Vg]
+T19_2544	0484524	|	II	about	[P:r.
+T19_2547	0484537	|	DD1a	that	.P:r]Tg]P:e]S]
+T19_2550	-----	Simon076
+T19_2553	.....	03068
+T19_2556	0484580	|	UY	yeah	.
+T19_2559	-----	Kim077
+T19_2562	.....	03069
+T19_2565	0484623	|	DD1a	that	[S[Ds:s.Ds:s]
+T19_2568	0000000	y	YG	-	[m129.m129]
+T19_2571	0484635	|	VBZ	is	[Vzeb.
+T19_2574	0484645	|	RR	just	[R:G129.R:G129]
+T19_2577	0484657	|	XX	not	.Vzeb]
+T19_2580	0484668	|	RP	on	[R:e.R:e]S]
+T19_2583	-----	Simon076
+T19_2586	.....	03070
+T19_2589	0484709	|	UN	no	.
+T19_2592	-----	Kim077
+T19_2595	.....	03071
+T19_2598	0484750	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_2601	0484760	|	VBDZ	was	[Vseu.
+T19_2604	0484770	|	XX	+n't	.
+T19_2607	0484781	|	VVGv	playing	.Vseu]
+T19_2610	0484796	|	JJ	peculiar	[J:h.J:h]S]
+T19_2613	0484812	|	CC	and	[S+.
+T19_2616	0484823	|	AT	the	[Ns:s.
+T19_2619	0484835	|	NN1c	teacher	.Ns:s]
+T19_2622	0484850	|	VV0v	say	[V[VV0v#VVDv#.
+T19_2625	0000000	y	YR	#	.
+T19_2628	0484861	|	VVDv	said	.VV0v#VVDv#]V]
+T19_2631	0484877	|	PN1	something	[Ns:o.
+T19_2634	0484895	,	II	about	[P.
+T19_2637	0000000	y	YR	#	.P]Ns:o]S+]
+T19_2640	0484920	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_2643	0484930	|	VBDZ	was	[Vsu.
+T19_2646	0484941	|	VVGv	reading	.Vsu]
+T19_2649	0484956	|	PPH1	it	[Ni:o.Ni:o]
+T19_2652	0484966	|	RP	out	[R:n.R:n]
+T19_2655	0484978	|	CC	and	[S+.
+T19_2658	0484989	|	AT	the	[Np:s.
+T19_2661	0485000	|	NN2	kids	.Np:s]
+T19_2664	0485012	|	VVDv	said	[Vd.Vd]
+T19_2667	0485024	|	UR	oh	[Q:o.
+T19_2670	0485034	|	DDQ	what	[S?[Dq:e.Dq:e]
+T19_2673	0485045	|	VBZ	+'s	[Vzb.Vzb]
+T19_2676	0485056	|	APPGm	his	[Ns:s.
+T19_2679	0485067	|	NN1c	name	.Ns:s]
+T19_2682	0485079	|	RTn	then	[Rsw:c.Rsw:c]S?]Q:o]S+]
+T19_2685	0485091	|	CC	and	[S+.
+T19_2688	0485102	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_2691	0485113	|	VVDv	said	[Vd.Vd]
+T19_2694	0485126	|	APPGm	his	[Q:o[S[Ns:s.
+T19_2697	0485145	|	NN1c	name	.Ns:s]
+T19_2700	0485145	|	VBZ	+'s	[Vzb.Vzb]
+T19_2703	0485158	|	NP1m	Mike	[Nns:e.Nns:e]S]Q:o]S+]
+T19_2706	0485171	|	CC	and	[S+.
+T19_2709	0485182	|	PPHS2	they	[Nap:s.Nap:s]
+T19_2712	0000000	y	YG	-	[h131.h131]
+T19_2715	0485194	|	VBDR	were	[Vwu.
+T19_2718	0485207	|	RR	all	[R:G131.R:G131]
+T19_2721	0485218	|	VVGi	going	.Vwu]
+T19_2724	0485235	|	UR	ooh	[Q:e.
+T19_2727	0485246	|	NP1m	Mike	[Nns".Nns"]Q:e]S+]
+T19_2730	0485259	|	CC	and	[S+.
+T19_2733	0485270	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_2736	0485282	,	VVDv	said	[Vd.Vd]
+T19_2739	0000000	y	YR	#	.S+]S]
+T19_2742	0485302	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_2745	0485312	|	VVZv	says	[Vz.Vz]
+T19_2748	0485324	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T19_2751	0485333	|	VV0v	think	[V.V]
+T19_2754	0485346	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T19_2757	0485357	|	VDZ	does	[Vz.Vz]
+T19_2760	0485370	|	PPH1	it	[Ni:o.Ni:o]
+T19_2763	0485380	|	RR21	on	[R:h[RR=.
+T19_2766	0485390	|	RR22	purpose	.RR=]R:h]Fn:o]S]Q:o]S]
+T19_2769	-----	Simon076
+T19_2772	.....	03072
+T19_2775	0485436	|	UY	mm	.
+T19_2778	0485446	c	YP	{pause}	.
+T19_2781	-----	Kim077
+T19_2784	.....	03073
+T19_2787	0485485	|	CCB	but	[S+.
+T19_2790	0485496	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_2793	0485505	|	VBZ	+'s	[Vzb.Vzb]
+T19_2796	0485515	|	JJ	proper	[J:e.
+T19_2799	0485529	|	VVNv	pissed	[Tn[Vn.Vn]
+T19_2802	0485543	,	RP	off	[R:n.R:n]Tn]J:e]S+]
+T19_2805	0485567	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_2808	0485579	|	VMo	can	[Voc.Voc]
+T19_2811	0485590	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_2814	0485600	?,	VD0	do	[Vr.Vr]
+T19_2817	0485626	|	CS	because	[Fa:c.
+T19_2820	0485641	|	PPH1	it	[Ni:s.Ni:s]
+T19_2823	0485643	|	VBZ	+'s	[Vzeb.
+T19_2826	0485653	|	XX	not	.Vzeb]
+T19_2829	0485664	|	RR	just	[R:m.R:m]
+T19_2832	0485676	,	PPHO1m	him	[Nos:e.Nos:e]
+T19_2835	0485695	|	PPH1	it	[Fa@[Ni:s.Ni:s]
+T19_2838	0485697	|	VBZ	+'s	[Vzeb.
+T19_2841	0485706	|	XX	not	.Vzeb]
+T19_2844	0485717	|	RR	just	[R:m.R:m]
+T19_2847	0485730	|	NP1m	Hamish	[Nns:e.Nns:e]Fa@]
+T19_2850	0485744	|	CS	because	[Fa:c.
+T19_2853	0485759	c	YP	{pause}	.
+T19_2856	0485767	,	PPHS1f	she	[Nas:s.Nas:s]
+T19_2859	0000000	y	YR	#	.
+T19_2862	0485786	|	CS	cos	.
+T19_2865	0485797	|	NP1m	Michael	[Nns:s.Nns:s]
+T19_2868	0485814	|	VVZv	says	[Vz.Vz]
+T19_2871	0485826	|	UR	oh	[Q:o.
+T19_2874	0485836	|	DBh	half	[S[Np:s.
+T19_2877	0485848	|	AT	the	.
+T19_2880	0485859	|	NN2	kids	.
+T19_2883	0485871	|	II	in	[P.
+T19_2886	0485881	|	AT	the	[Ns.
+T19_2889	0485893	|	NN1n	class	.Ns]P]Np:s]
+T19_2892	0485906	|	VBR	are	[Vab.Vab]
+T19_2895	0485917	|	RR	all	[R:h.R:h]
+T19_2898	0485928	|	FLJ	bloody	[J:e.
+T19_2901	0485946	|	JJ	weird	.J:e]S]
+T19_2904	0485959	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_2907	0485970	,	VVDv	said	[Vd.Vd]S]I]
+T19_2910	0485990	|	PPHS2	they	[S[Nap:S.Nap:S]
+T19_2913	0486001	|	VBR	+'re	[Vap.
+T19_2916	0486012	|	VVNt	supposed	.Vap]
+T19_2919	0486028	|	TO	to	[Ti:z[Vib.
+T19_2922	0486038	|	VB0	be	.Vib]
+T19_2925	0486049	|	PPIO1	me	[Np:e.
+T19_2928	0486059	|	NN2	friends	.Np:e]Ti:z]S]
+T19_2931	0486074	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_2934	0486084	|	VVZv	says	[Vz.Vz]S]I]
+T19_2937	0486096	|	EX	there	[S.
+T19_2940	0486108	|	VBZ	+'s	[Vzb.Vzb]
+T19_2943	0486118	|	RRx	only	[R:m.R:m]
+T19_2946	0486131	|	MC1	one	[Ns:s133.
+T19_2949	0486142	|	NN1n	kid	.
+T19_2952	0486153	|	II	in	[P.
+T19_2955	0486163	|	AT	the	[Ns.
+T19_2958	0486174	|	NN1n	class	.Ns]P]
+T19_2961	0486187	|	CST	that	[Fr.
+T19_2964	0000000	y	YG	-	[s133.s133]
+T19_2967	0486200	|	VDZ	does	[Vze.
+T19_2970	0486211	|	XX	+n't	.
+T19_2973	0486222	|	VV0v	join	.Vze]
+T19_2976	0486234	|	RP	in	[R:n.R:n]Fr]Ns:s133]
+T19_2979	0486244	|	CC	and	[S+.
+T19_2982	0486255	|	PPH1	it	[Ni:s.Ni:s]
+T19_2985	0486257	|	VBZ	+'s	[Vzb.Vzb]
+T19_2988	0486266	|	NP1m	Indipau	[Nns:e.Nns:e]S+]S]Q:o]Fa:c]Fa:c]S?]
+T19_2991	-----	Simon076
+T19_2994	.....	03074
+T19_2997	0486312	|	UY	mm	.
+T19_3000	-----	Kim077
+T19_3003	.....	03075
+T19_3006	0486353	|	DBa	all	[S[D:s.
+T19_3009	0486364	|	DD21	the	[DD=.
+T19_3012	0486375	|	DD22	rest	.DD=]D:s]
+T19_3015	0486387	|	VV0v	join	[V.V]
+T19_3018	0486399	|	RP	in	[R:n.R:n]
+T19_3021	0486409	|	IW	with	[P:w.
+T19_3024	0486422	,	NP1m	Hamish	[Nns.Nns]P:w]S]
+T19_3027	0486444	|	CC	and	[S+.
+T19_3030	0486455	|	NP1m	Indipau	[Nns:s.Nns:s]
+T19_3033	0486474	|	VVZv	says	[Vz.Vz]
+T19_3036	0486486	|	UR	oh	[Q:o.
+T19_3039	0486497	|	VV0v	take	[S*[V.V]
+T19_3042	0486509	|	ATn	no	[Ns:o.
+T19_3045	0486519	|	NN1n	notice	.Ns:o]S*]
+T19_3048	0486533	,	NP1m	Mike	[Nns".Nns"]
+T19_3051	0486554	|	VD0	do	[S*[Ve.
+T19_3054	0486563	|	XX	+n't	.
+T19_3057	0486575	|	VV0v	let	.Ve]
+T19_3060	0486586	|	PPHO2	them	[Nop:O135.Nop:O135]
+T19_3063	0000000	y	YG	-	[Tb:o[s135.s135]
+T19_3066	0486598	|	VV0v	get	[V.V]
+T19_3069	0486609	|	PPY	you	[Ny:o.Ny:o]
+T19_3072	0486620	,	RP	down	[R:q.R:q]Tb:o]S*]Q:o]
+T19_3075	0486640	|	CCB	but	[S+.
+T19_3078	0486651	|	PPH1	it	[Ni:s.
+T19_3081	0000000	y	YG	-	[137.137]Ni:s]
+T19_3084	0486653	|	VBZ	+'s	[Vzb.Vzb]
+T19_3087	0486663	|	RRx	only	[R:m.R:m]
+T19_3090	0486675	|	NP1m	Indipau	[Nns:e.Nns:e]
+T19_3093	0486690	|	CST	that	[Fr:G137.
+T19_3096	0000000	y	YG	-	[s139.s139]
+T19_3099	0486701	|	VBZ	+'s	[Vzeb.
+T19_3102	0486711	,	XX	not	.Vzeb]Fr:G137]S+]S+]
+T19_3105	0486730	|	DBa	all	[Np.
+T19_3108	0486742	|	AT	the	.
+T19_3111	0486753	|	NN2	girls	.
+T19_3114	0486766	|	PPHS2	they	[S@[Nap:s.Nap:s]
+T19_3117	0486778	|	RR	all	[R:h.R:h]
+T19_3120	0486789	|	VV0v	join	[V.V]
+T19_3123	0486801	,	RP	in	[R:n.R:n]S@]Np]
+T19_3126	0486820	|	FLJ	bloody	[Nns:141.
+T19_3129	0486838	|	NP1m	Colin	.
+T19_3132	0486851	,	PNQSr	who	[Fr[Nqs:s141.
+T19_3135	0486870	|	PPHS1m	he	.Nqs:s141]
+T19_3138	0486880	|	VVDt	borrowed	[Vd.Vd]
+T19_3141	0486897	|	APPGm	his	[Ns:o.
+T19_3144	0486908	|	NN1c	computer	.Ns:o]
+T19_3147	0486924	|	DD1a	that	[Ns:t.
+T19_3150	0486940	,	NNT1c	time	.Ns:t]
+T19_3153	0486961	?	VV0v	remember	[I[S?[V.V]S?]I]Fr]
+T19_3156	.....	03077
+T19_3159	0487057	&	PPHS1m	he	[S@[Nas:s[PPHS1m#.
+T19_3162	0000000	y	YR	#	.
+T19_3165	0487067	,	YMN	erm	.
+T19_3168	0487086	|	PPHS1m	he	.PPHS1m#]Nas:s]
+T19_3171	0487095	|	VHZ	+'s	[Vzf.
+T19_3174	0487105	|	VVNv	given	.Vzf]
+T19_3177	0487118	|	NP1m	Hamish	[Nns:i.Nns:i]
+T19_3180	0487132	|	APPGi2	our	[Ns:o.
+T19_3183	0487144	|	NN1c	phone	.
+T19_3186	0487157	|	NN1c	number	.Ns:o]
+T19_3189	0487171	c	YP	{pause}	.
+T19_3192	0487179	|	CC	and	[S+.
+T19_3195	0487190	|	NP1m	Hamish	[Nns:s.Nns:s]
+T19_3198	0487203	|	VHZ	+'s	[Vzfu.
+T19_3201	0487213	|	VBN	been	.
+T19_3204	0487226	|	VVGv	shouting	.Vzfu]
+T19_3207	0487242	,	DD1i	this	[Q:o[S[Ds:s[DD1i#.
+T19_3210	0000000	y	YR	#	.
+T19_3213	0487262	|	DD1i	this	.DD1i#]
+T19_3214	0000000	y	YG	-	[144.144]Ds:s]
+T19_3216	0487274	|	VBZ	is	[Vzb.Vzb]
+T19_3219	0487284	|	NP1m	Mike	[Ns:e[G[Nns.Nns]
+T19_3222	0487296	|	GG	+'s	.G]
+T19_3225	0487307	|	NN1c	phone	.
+T19_3228	0487320	|	NN1c	number	.Ns:e]
+T19_3231	0487334	|	FOt	<telNo>	[N@:G144.N@:G144]S]Q:o]S+]S@]Nns:141]
+T19_3234	0487384	|	UE21	I	[UE=.
+T19_3237	0487393	|	UE22	mean	.UE=]
+T19_3240	0487406	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_3243	0487415	,	VHZ	+'s	[Vz.Vz]
+T19_3246	0000000	y	YR	#	.
+T19_3249	0487433	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_3252	0487442	|	VHZ	+'s	[Vzfu.
+T19_3255	0487452	|	VBN	been	.
+T19_3258	0487464	|	VVGv	telling	.Vzfu]
+T19_3261	0487479	|	PN1	everybody	[Ns:i.Ns:i]
+T19_3264	0487505	|	APPGi2	our	[Ns:o.
+T19_3267	0487516	|	NN1c	phone	.
+T19_3270	0487529	,	NN1c	number	.Ns:o]S]
+T19_3273	0487551	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_3276	0487560	|	VVZv	says	[Vz.Vz]
+T19_3279	0487573	|	UY	yeah	[Q:o.
+T19_3282	0487585	|	PPY	you	[S[Ny:s.Ny:s]
+T19_3285	0487596	|	RR	just	[R:m.R:m]
+T19_3288	0487608	|	VV0v	let	[V.V]
+T19_3291	0487619	|	PN1	somebody	[Ns:O145.Ns:O145]
+T19_3294	0000000	y	YG	-	[Tb:o[s145.s145]
+T19_3297	0487635	|	VV0v	ring	[V.V]
+T19_3300	0487647	|	PPIO2	us	[Nop:o.Nop:o]
+T19_3303	0487658	|	RP	up	[R:n.R:n]Tb:o]
+T19_3306	0487668	|	CC	and	[S+.
+T19_3309	0487679	|	PPIS1	I	[Nea:s.Nea:s]
+T19_3312	0000000	y	YG	-	[m147.m147]
+T19_3315	0487687	|	VMo	+'ll	[Vcb.
+T19_3318	0487698	|	FLJ	bloody	[R:G147.
+T19_3321	0487712	|	RR	well	.R:G147]
+T19_3324	0487724	|	VB0	be	.Vcb]
+T19_3327	0487735	|	II	round	[P:q.
+T19_3330	0487752	|	APPGh2	their	[Ns.
+T19_3333	0487765	|	NNL1c	house	.Ns]P:q]
+T19_3336	0487778	|	ICSk	like	[P:h.
+T19_3339	0487790	|	AT1	a	[Ns.
+T19_3342	0487799	|	NN1n	shot	.Ns]P:h]S+]S]Q:o]S]
+T19_3345	0487828	&	CSi	if	[S[Fa:c.
+T19_3348	0487838	|	PPHS2	they	[Nap:s.Nap:s]
+T19_3351	0487850	,	VV0v	phone	[V.V]Fa:c]
+T19_3354	0487875	|	PPHS2	they	[Nap:s.Nap:s]
+T19_3357	0487887	ic	YY	{unclear}	[Y.Y]S]
+T19_3360	-----	Simon076
+T19_3363	.....	03076
+T19_3366	0487016	|	UY	mm	.
+T19_3369	-----	Simon076
+T19_3372	.....	03078
+T19_3375	0487961	&	CSi	if	[S*[Fa:c.
+T19_3378	0487971	|	PPHS2	they	[Nap:s.Nap:s]
+T19_3381	0487983	|	VV0v	phone	[V.V]Fa:c]
+T19_3384	0488004	t	VV0v/call	ca	[V[VV0v#.
+T19_3387	0000000	y	YR	#	.
+T19_3390	0488024	|	VV0v	call	.VV0v#]V]
+T19_3393	0488036	|	AT	the	[Np:o.
+T19_3396	0488047	,	NN2	police	.Np:o]S*]
+T19_3399	0488069	|	PPHS2	they	[S[Nap:s.Nap:s]
+T19_3402	0488080	|	VMo	+'ll	[Vc.
+T19_3405	0488091	|	VV0v	put	.Vc]
+T19_3408	0488102	|	AT1	a	[Ns:o.
+T19_3411	0488112	|	NN1c	tracer	.Ns:o]
+T19_3414	0488126	|	II	on	[P:q.
+T19_3417	0488136	|	PPH1	it	.P:q]S]
+T19_3420	-----	Kim077
+T19_3423	.....	03079
+T19_3426	0488194	|	UW	well	.
+T19_3429	-----	Simon076
+T19_3432	.....	03080
+T19_3435	0488237	|	UN	no	.
+T19_3438	0488247	|	PPY	you	[S[Ny:s.Ny:s]
+T19_3441	0488258	|	VV0v	call	[V.V]
+T19_3444	0000000	y	YR	#	.
+T19_3447	0488287	&	PPY	you	[Ny:s.Ny:s]
+T19_3450	0488298	|	VMo	can	[Vc.
+T19_3453	0488309	|	VV0v	call	.Vc]
+T19_3456	0488322	|	AT	the	[Np:o.
+T19_3459	0488333	|	NN2	police	.Np:o]S]
+T19_3462	-----	Kim077
+T19_3465	.....	03081
+T19_3468	0488411	&	PPIS1	I	[S[Nea:s.Nea:s]
+T19_3471	0488420	|	VV0v	know	[V.V]
+T19_3474	0488449	&	CCB	but	[S+.
+T19_3477	0488460	|	CSi	if	[Fa:c.
+T19_3480	0488470	|	PPHS2	they	[Nap:s.Nap:s]
+T19_3483	0488483	|	RR	just	[R:m.R:m]
+T19_3486	0488495	|	VV0v	start	[V.V]Fa:c]
+T19_3498	0488544	&ic	YY	{unclear}	[Y.Y]S+]S]
+T19_3501	-----	Simon076
+T19_3504	.....	03082
+T19_3507	0488618	&	VV0v	pretend	[S*[V.V]
+T19_3510	0488633	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T19_3513	0488661	&	VD0	do	[Ve.
+T19_3516	0488670	|	XX	+n't	.
+T19_3519	0488681	|	VV0v	know	.Ve]
+T19_3522	0488694	|	PNQSq	who	[Fn?:o[Nq:e.Nq:e]
+T19_3525	0488705	|	PPH1	it	[Ni:s.Ni:s]
+T19_3528	0488715	|	VBZ	is	[Vzb.Vzb]Fn?:o]Fn:o]
+T19_3531	.....	03084
+T19_3534	0488946	&	CC	and	[S*.
+T19_3537	0488957	|	RTn	then	[Rsw:t.Rsw:t]
+T19_3540	0488969	|	VV0v	get	[V.V]
+T19_3543	0488980	|	PPHO2	'em	[Nop:o.Nop:o]
+T19_3546	0489008	&	VVNt	nailed	[Tn:j[Vn.Vn]Tn:j]S*]S*]
+T19_3549	-----	Kim077
+T19_3552	.....	03083
+T19_3555	0488756	|	UW	well	.
+T19_3558	0488768	|	DD1a	that	[S[Ds:s.Ds:s]
+T19_3561	0488779	|	VBZ	+'s	[Vzb.Vzb]
+T19_3564	0488789	,	JJ	right	[J:e.J:e]S]
+T19_3567	0488810	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_3570	0488818	|	VBM	+'m	[Vmeu.
+T19_3573	0488828	|	XX	not	.
+T19_3576	0488856	&	VHG	having	.Vmeu]
+T19_3579	0488870	|	DD1a	that	[Ds:o.Ds:o]S]
+T19_3582	-----	Kim077
+T19_3585	.....	03085
+T19_3588	0489053	|	CCB	but	[S+.
+T19_3591	0489064	|	NP1m	Michael	[Nns:s.Nns:s]
+T19_3594	0489080	|	VVZv	says	[Vz.Vz]
+T19_3597	0489092	,	PPH1	it	[Q:o[S[Ni:s.Ni:s]S]Q:o]
+T19_3600	0000000	y	YR	#	.
+T19_3603	0489110	|	CS	cos	[I[Fa.
+T19_3606	0489121	|	PPIS1	I	[Nea:s.Nea:s]
+T19_3609	0489131	|	VVZv	says	[Vz.Vz]
+T19_3612	0489143	|	PPY	you	[Q:o[S[Ny:s.Ny:s]
+T19_3615	0489154	|	VVNH	got	[Vn.Vn]
+T19_3618	0489164	|	TO	+ta	[Ti:z[Vi.
+T19_3621	0489174	|	VV0v	hit	.Vi]
+T19_3624	0489185	|	RL	back	[R:q.R:q]Ti:z]S]
+T19_3627	0489197	|	PPY	you	[S[Ny:s.Ny:s]
+T19_3630	0489209	|	VVNH	got	[Vn.Vn]
+T19_3633	0489219	|	TO	+ta	[Ti:z[Vi.
+T19_3636	0489229	|	VD0	do	.Vi]
+T19_3639	0489239	,	PPH1	it	[Ni:o.Ni:o]Ti:z]S]Q:o]Fa]I]
+T19_3642	0489257	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_3645	0489267	|	VVZv	says	[Vz.Vz]
+T19_3648	0489279	|	UY	yes	[Q:o.
+T19_3651	0489291	|	PPH1	it	[S[Ni:s.Ni:s]
+T19_3654	0489293	|	VBZ	+'s	[Vzb.Vzb]
+T19_3657	0489302	|	RR	all	[R:h.R:h]
+T19_3660	0489313	|	RG	very	[J:e.
+T19_3663	0489325	|	JJ	well	.J:e]
+T19_3666	0489337	|	CCB	but	[S+.
+T19_3669	0489348	|	PPH1	it	[Ni:s.Ni:s]
+T19_3672	0489350	|	VBZ	+'s	[Vzeb.
+T19_3675	0489359	|	XX	not	.Vzeb]
+T19_3678	0489371	|	RR	just	[R:m.R:m]
+T19_3681	0489383	,	NP1m	Hamish	[Nns:e.Nns:e]
+T19_3684	0489405	|	PPH1	it	[S@[Ni:s.Ni:s]
+T19_3687	0489407	|	VHZ	+'s	[Vzfb.
+T19_3690	0489416	|	VBN	been	.Vzfb]
+T19_3693	0489428	,	NP1a	<name>	[Nn:e.
+T19_3696	0489460	t,	NP1m/Daniel	Da	[Nns-[NP1m#.
+T19_3699	0000000	y	YR	#	.
+T19_3702	0489495	t,	NP1m/Daniel	Ja	.
+T19_3705	0000000	y	YR	#	.
+T19_3708	0489522	|	YMN	erm	.
+T19_3711	0489534	|	NP1m	Daniel	.NP1m#]
+T19_3714	0489548	|	NP1a	<name>	.Nns-]Nn:e]
+T19_3717	0489600	|	PPH1	it	[S@[Ni:s.Ni:s]
+T19_3720	0489602	|	VBZ	+'s	[Vzb.Vzb]
+T19_3723	0489611	|	AT1	a	[Ns:e.
+T19_3726	0489620	|	NN1c	load	.
+T19_3729	0489632	|	IO	of	[Po.
+T19_3732	0489642	|	PPHO2	them	.Po]Ns:e]
+T19_3735	0489654	|	CC	and	[S+.
+T19_3738	0489665	|	PPHS2	they	[Nap:s.Nap:s]
+T19_3741	0489678	|	RR	all	[R:h.R:h]
+T19_3744	0489689	|	VV0v	get	[V.V]
+T19_3747	0489700	|	RL	together	[R:w.R:w]S+]S@]S@]S+]S]Q:o]S+]
+T19_3750	0489716	c	YP	{pause}	.
+T19_3753	0489724	|	PPH1	it	[S[Ni:s.Ni:s]
+T19_3756	0489726	|	VBZ	+'s	[Vzb.Vzb]
+T19_3759	0489735	|	DD1i	this	[Ns:e.
+T19_3762	0489747	|	NP1m	Daniel	[Nns.Nns]
+T19_3765	0489762	,	NN1c	bloke	.Ns:e]S]
+T19_3768	0489783	|	VV0t	bash	[Tb[V.V]
+T19_3771	0489795	|	APPGm	his	[Ns:o.
+T19_3774	0489806	|	NNL1c	head	.Ns:o]
+T19_3777	0489818	,	RP	in	[R:q.R:q]
+T19_3780	0489840	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_3783	0489850	|	VMd	would	[Vdcx.Vdcx]
+T19_3786	0489863	,	RR	really	[R:m.R:m]S@]Tb]
+T19_3789	0489885	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_3792	0489894	|	VV0v	wish	[V.V]
+T19_3795	0489906	|	PN1	somebody	[Fn:o[Ns:s.Ns:s]
+T19_3798	0489923	|	YMV	ah	.
+T19_3801	0489931	|	VMo	+'ll	[Vc.
+T19_3804	0489942	|	FLJ	bloody	.
+T19_3807	0489956	|	VV0v	threaten	.Vc]
+T19_3810	0489972	,	PPHO1m	him	[Nos:o.Nos:o]Fn:o]
+T19_3813	0489991	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_3816	0490001	|	RR	really	[R:m.R:m]
+T19_3819	0490015	|	VD0	do	[Vx.Vx]S@]S]
+T19_3822	0490025	c	YP	{pause}	.
+T19_3825	0490033	|	PPY	you	[S[S&[Ny:s.Ny:s]
+T19_3828	0490044	|	VV0v	know	[V.V]
+T19_3831	0490056	|	APPGy	your	[Np:o.
+T19_3834	0490068	|	JJ	big	.
+T19_3837	0490080	,	NN2	mates	.Np:o]
+T19_3840	0490101	,	FLJ	bloody	.
+T19_3843	0490123	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_3846	0490132	|	VHZ	+'s	[Vzf.
+T19_3849	0490142	|	VVNH	got	.Vzf]
+T19_3852	0490153	|	ATn	no	[Np:o.
+T19_3855	0490164	|	JJR	older	.
+T19_3858	0490177	,	NNS2	brothers	.Np:o]S]I]
+T19_3861	0490201	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_3864	0490210	|	VV0t	mean	[V.V]
+T19_3867	0490222	|	DBa	all	[Np:o.
+T19_3870	0490233	|	APPGy	your	.
+T19_3873	0490246	|	FLJ	bloody	.
+T19_3876	0490264	,	NN2	sixth-formers	.Np:o]S@]S&]
+T19_3879	0490298	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_3882	0490306	|	VBM	+'m	[Vmb.Vmb]
+T19_3885	0490316	|	JJ	sure	[Jh:e.
+T19_3888	0490329	|	PPHS2	they	[Fn[Nap:s.Nap:s]
+T19_3891	0490341	|	VMd	could	[Vdc.
+T19_3894	0490354	|	VV0t	frighten	.Vdc]
+T19_3897	0490370	|	AT	the	[Ns:o.
+T19_3900	0490381	|	JJ	little	.
+T19_3903	0490395	|	NN1c	twat	.Ns:o]Fn]Jh:e]S@]S]
+T19_3906	-----	unid0
+T19_3909	.....	-----
+T19_3912	0490412	ic	YY	{unclear}	[Y.Y]
+T19_3915	-----	Simon076
+T19_3918	.....	03086
+T19_3921	0490458	|	PPY	you	[S[Ny:s.Ny:s]
+T19_3924	0490469	|	VV0v	want	[V.V]
+T19_3927	0000000	y	YR	#	.S]
+T19_3930	-----	Kim077
+T19_3933	.....	03087
+T19_3936	0490512	|	PPY	you	[S[Ny:s155.Ny:s155]
+T19_3939	0490523	|	RR	just	[R:m.R:m]
+T19_3942	0490535	|	VV0t	need	[V.V]
+T19_3945	0000000	y	YG	-	[Ti:o[s155.s155]
+T19_3948	0490547	|	TO	to	[Vi.
+T19_3951	0490557	|	VV0v	get	.Vi]
+T19_3954	0490568	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_3957	0490579	|	II	on	[P:j.
+T19_3960	0490590	|	APPGm	his	[G.
+T19_3963	0490601	|	DAg	own	.G]
+T19_3966	0490629	&	II21	away	[P@[II=.
+T19_3969	0490629	|	II22	from	.II=]
+T19_3972	0490646	|	AT	the	[Ns.
+T19_3975	0490657	|	NN1c	crowd	.Ns]P@]P:j]Ti:o]S]
+T19_3978	-----	Simon076
+T19_3981	.....	03088
+T19_3984	0490734	&	RRz	so	[S*[Rs:c.Rs:c]
+T19_3987	0490744	|	VV0v	write	[V.V]
+T19_3990	0490757	|	IIt	to	[P:u.
+T19_3993	0490767	|	NNS	Mr	[Nns.
+T19_3996	0490777	|	NP1a	<name>	.Nns]P:u]S*]
+T19_3999	-----	Kim077
+T19_4002	.....	03089
+T19_4005	0490876	|	VH0	have	[S[Vf.
+T19_4008	0490888	|	VVNv	written	.Vf]
+T19_4011	0490903	|	IIt	to	[P:u.
+T19_4014	0490913	|	NNS	Mr	[Nns.
+T19_4017	0490923	|	NP1a	<name>	.Nns]P:u]
+T19_4020	0490974	|	MC	three	[Np:t.
+T19_4023	0490988	|	NNT2	times	.Np:t]S]
+T19_4026	-----	Simon076
+T19_4029	.....	03090
+T19_4032	0491031	,	NP1a	<name>	[Nns.
+T19_4035	0491091	|	VD0	do	[S*@[Ve.
+T19_4038	0491100	|	XX	+n't	.
+T19_4041	0491111	|	VV0v	bother	.Ve]
+T19_4044	0491125	|	NP1a	<name>	[Nns:o.Nns:o]S*@]Nns]
+T19_4047	-----	Kim077
+T19_4050	.....	03091
+T19_4053	0491207	|	UW	well	.
+T19_4056	0491219	|	DDQ	what	[S?[Jq:G157.
+T19_4059	0491231	|	JJ	good	.Jq:G157]
+T19_4062	0491246	|	VBZ	+'s	[Vozb.Vozb]
+T19_4065	0491256	|	DD1a	that	[Ds:s.Ds:s]
+T19_4068	0491272	|	VVGK	gon	[Vrgt.Vrgt]
+T19_4071	0491282	|	TO	+na	[Ti:z[Vi.
+T19_4074	0491293	,	VD0	do	.Vi]
+T19_4077	0000000	y	YG	-	[o157.o157]Ti:z]S?]
+T19_4080	0491311	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_4083	0491321	|	VMo	must	[Vcf.
+T19_4086	0491333	|	VH0	+'ve	.
+T19_4089	0491343	|	VVNv	told	.Vcf]
+T19_4092	0491355	|	NP1a	<name>	[Nns:i.Nns:i]S]
+T19_4095	-----	Simon076
+T19_4098	.....	03092
+T19_4101	0491437	|	PPY	you	[S[Ny:s.Ny:s]
+T19_4104	0491448	|	RR	never	[R:t.R:t]
+T19_4107	0491461	|	VV0v	know	[V.V]S]
+T19_4110	0491490	&	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4113	0491498	|	VMd	+'d	[Vdc.
+T19_4116	0491508	|	VD0	do	.Vdc]
+T19_4119	0491519	|	PPH1	it	[Ni:o.Ni:o]
+T19_4122	0491529	|	RR	anyway	[R:c.R:c]S]
+T19_4125	-----	unid0
+T19_4128	.....	00000
+T19_4131	0491604	&ic	YY	{unclear}	[Y.Y]
+T19_4134	-----	Kim077
+T19_4137	.....	03093
+T19_4140	0491662	|	UW	well	.
+T19_4143	0491674	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_4146	0491686	|	VMo	can	[Voc.Voc]
+T19_4149	0491697	|	PPIS1	I	[Nea:s.Nea:s]
+T19_4152	0491706	?	VD0	do	[Vr.Vr]S?]
+T19_4155	-----	Simon076
+T19_4158	.....	03094
+T19_4161	0491755	|	VV0v	write	[S*[V.V]
+T19_4164	0491768	|	IIt	to	[P:u.
+T19_4167	0491782	|	NP1a	<name>	[Nns.Nns]P:u]
+T19_4170	0491833	|	CC	and	[S*+.
+T19_4173	0491844	|	RR	just	[R:m.R:m]
+T19_4176	0491857	|	VV0v	say	[V.V]
+T19_4179	0491868	|	YMN	erm	.
+T19_4182	0491879	|	NP1m	Michael	[Fn:o[Nns:s.Nns:s]
+T19_4185	0491894	|	VBZ	+'s	[Vzu.
+T19_4188	0491904	|	VVGv	leaving	.Vzu]
+T19_4191	0491919	|	AT	the	[Ns:o.
+T19_4194	0491931	|	NNJ1n	school	.Ns:o]
+T19_4197	0491945	|	CSA	as	[Fa:c.
+T19_4200	0000000	y	YR	#	.Fa:c]Fn:o]
+T19_4203	0491955	|	CC	and	[S*+.
+T19_4206	0491966	|	RTn	then	[Rsw:t.Rsw:t]
+T19_4209	0491978	|	VV0v	say	[V.V]
+T19_4212	0491989	|	RRQq	why	[Fn?:o[Rq:c.Rq:c]Fn?:o]S*+]S*+]S*]
+T19_4215	-----	Kim077
+T19_4218	.....	03095
+T19_4221	0492031	|	UW	well	.
+T19_4224	0492043	,	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_4227	0000000	y	YR	#	.
+T19_4230	0492061	,	PPIS1	I	[Nea:s[PPIS1#.
+T19_4233	0000000	y	YR	#	.
+T19_4236	0492078	|	PPIS1	I	.PPIS1#]Nea:s]
+T19_4239	0492087	|	VV0v	think	[V.V]
+T19_4242	0492100	|	PPHS1m	he	[Fn:o[Nas:s.Nas:s]
+T19_4245	0492111	|	VMo	will	[Vc.
+T19_4248	0492123	|	VV0v	leave	.Vc]Fn:o]S]
+T19_4251	-----	Simon076
+T19_4254	.....	03096
+T19_4257	0492167	|	RRQq	why	[Ff[Rq:c.Rq:c]
+T19_4260	0492178	|	PPIS1	I	[Nea:s.Nea:s]
+T19_4263	0492186	|	VMd	+'d	[Vdc.Vdc]
+T19_4266	0000000	y	YR	#	.Ff]
+T19_4269	-----	Kim077
+T19_4272	.....	03097
+T19_4275	0492227	|	NP1m	Michael	[S[Ns:s[G[Nns.Nns]
+T19_4278	0492242	|	GG	+'s	.G]
+T19_4281	0492252	|	JBy	only	.
+T19_4284	0492264	|	NN1c	qualm	.Ns:s]
+T19_4287	0492277	|	VBZ	is	[Vzb.Vzb]
+T19_4290	0492288	,	NP1m	Indipau	[Nns:e.Nns:e]S]
+T19_4293	0492315	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_4296	0492325	|	VVZv	says	[Vz.Vz]
+T19_4299	0492337	|	CSi	if	[Q:o[S[Fa:c.
+T19_4302	0492347	|	NP1m	Indipau	[Nns:s.Nns:s]
+T19_4305	0492367	|	YMV	ah	.
+T19_4308	0492375	|	VMo	+'ll	[Vc.
+T19_4311	0492386	|	VV0i	come	.Vc]
+T19_4314	0492398	|	IW	with	[P:w.
+T19_4317	0492410	|	PPIO1	me	.P:w]Fa:c]
+T19_4320	0492420	|	PPIS1	I	[Nea:s.Nea:s]
+T19_4323	0492428	|	VMo	+'ll	[Vc.
+T19_4326	0492440	,	VV0i	go	.Vc]S]Q:o]S]
+T19_4329	0492458	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4332	0492467	|	VVZv	says	[Vz.Vz]
+T19_4335	0492479	|	UW	well	[Q:o.
+T19_4338	0492491	|	VD0	do	[S*[Ve.
+T19_4341	0492500	|	XX	+n't	.
+T19_4344	0492511	|	VV0v	worry	.Ve]
+T19_4347	0492525	|	II	about	[P:r.
+T19_4350	0492538	,	NP1m	Indipau	[Nns.Nns]P:r]S*]
+T19_4353	0492565	|	NP1m	Indipau	[S[Nns:s.Nns:s]
+T19_4356	0492584	|	VMo	can	[Vc.
+T19_4359	0492595	|	VV0v	look	.Vc]
+T19_4362	0492608	|	ICSt	after	[P:u.
+T19_4365	0492621	,	PPX1m	himself	.P:u]S]Q:o]S]
+T19_4368	0492644	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_4371	0492654	|	VVZv	says	[Vz.Vz]
+T19_4374	0492666	|	UY	yeah	[Q:o.
+T19_4377	0492678	|	CCB	but	[S+.
+T19_4380	0492690	|	PPIS1	I	[Nea:s.Nea:s]
+T19_4383	0492699	|	VV0t	like	[V.V]
+T19_4386	0492711	,	NP1m	Indipau	[Nns:o.Nns:o]S+]Q:o]S]
+T19_4389	0492738	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4392	0492747	|	VVZv	says	[Vz.Vz]
+T19_4395	0492760	,	UY	yeah	[Q:o.
+T19_4398	0492780	|	CCB	but	[S*+.
+T19_4401	0492791	|	VV0v	let	[V.V]
+T19_4404	0492794	|	PPIO2	+'s	[Nop:O161.Nop:O161]
+T19_4407	0000000	y	YG	-	[Tb:o[s161.s161]
+T19_4410	0492803	|	VV0v	face	[V.V]Tb:o]S*+]
+T19_4413	0492815	|	IO	of	[S?[Po:r.
+T19_4416	0492825	|	DBa	all	[Np.
+T19_4419	0492836	|	AT	the	.
+T19_4422	0492848	|	JBo	other	.
+T19_4425	0492861	|	NN2	kids	.
+T19_4428	0492873	|	II	in	[P.
+T19_4431	0492883	|	APPGy	your	[Ns.
+T19_4434	0492895	|	NN1n	class	.Ns]P]Np]Po:r]
+T19_4437	0492908	|	PNQSq	who	[Nq:G163.Nq:G163]
+T19_4440	0492919	|	PPY	you	[Ny:s.Ny:s]
+T19_4443	0492931	|	VVGK	gon	[Vgt.Vgt]
+T19_4446	0492941	|	TO	+na	[Ti:z[Vib.
+T19_4449	0492951	|	VB0	be	.Vib]
+T19_4452	0492961	|	JJ	sorry	[Jh:e.
+T19_4455	0492974	|	TO	to	[Ti[Vi.
+T19_4458	0492984	,	VV0v	leave	.Vi]
+T19_4461	0000000	y	YG	-	[o163.o163]Ti]Jh:e]Ti:z]S?]Q:o]S]
+T19_4464	0493005	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_4467	0493016	|	VVDv	said	[Vd.Vd]
+T19_4470	0493028	|	PN	none	[Q:o[N.
+T19_4473	0493040	|	IO	of	[Po.
+T19_4476	0493050	,	PPHO2	them	.Po]N]Q:o]S]
+T19_4479	0493070	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4482	0493079	|	VVDv	said	[Vd.Vd]
+T19_4485	0493091	|	UW	well	[Q:o.
+T19_4488	0493104	|	RLh	there	[S[Rw:p.Rw:p]
+T19_4491	0493117	|	PPY	you	[Ny:s.Ny:s]
+T19_4494	0493128	|	VBR	are	[Vab.Vab]
+T19_4497	0493139	.	RTn	then	[Rsw:c.Rsw:c]S]Q:o]S]
+T19_4500	.....	03098
+T19_4503	0493171	*	VDD	did	[S?[Vod.Vod]
+T19_4506	0493182	|	PPY	you	[Ny:s.Ny:s]
+T19_4509	0493193	|	VH0	have	[Vr.Vr]
+T19_4512	0493205	|	DA2	many	[Np:o.
+T19_4515	0493217	|	NN1n	form	.
+T19_4518	0493229	|	NN2	rows	.Np:o]
+T19_4521	0493246	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T19_4524	0493262	|	PPY	you	[Ny:s.Ny:s]
+T19_4527	0493273	|	VBDR	were	[Vwb.Vwb]
+T19_4530	0493285	|	II	at	[P:p.
+T19_4533	0493295	?	NNJ1n	school	.P:p]Fa:t]S?]
+T19_4536	-----	Simon076
+T19_4539	.....	03099
+T19_4542	0493348	*	DD221	a	[Dp[DD2=.
+T19_4545	0493348	|	DD222	few	.DD2=]
+T19_4548	0493361	|	CCB	but	[Dp+.
+T19_4551	0493372	|	XX	not	.
+T19_4554	0493383	|	RGa	as	.
+T19_4557	0493393	|	DA2	many	.
+T19_4560	0493405	|	CSA	as	[Fc.
+T19_4563	0493415	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_4566	0493424	|	VHZ	+'s	[Vzf.
+T19_4569	0493435	,	VVNH	got	.Vzf]Fc]
+T19_4572	0493454	|	XX	not	[Dp@.
+T19_4575	0493465	|	RGa	as	.
+T19_4578	0493475	|	DA2	many	.
+T19_4581	0493487	|	CSA	as	[Fc.
+T19_4584	0493497	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_4587	0493506	|	VHZ	+'s	[Vzf.
+T19_4590	0493517	|	VVNH	got	.Vzf]Fc]Dp@]Dp+]Dp]
+T19_4593	-----	Kim077
+T19_4596	.....	03100
+T19_4599	0493559	*	PPH1	it	[S[Ni:S.Ni:S]
+T19_4602	0493561	|	VBZ	+'s	[Vzb.Vzb]
+T19_4605	0493570	|	AT1	a	[Ns:e.
+T19_4608	0493579	|	JJ	big	.
+T19_4611	0493590	|	NN1c	mistake	.Ns:e]
+T19_4614	0493605	|	CSn	when	[Fa:s[Rq:t.Rq:t]
+T19_4617	0493621	|	PPHS2	they	[Nap:s.Nap:s]
+T19_4620	0493633	|	VVDv	let	[Vd.Vd]
+T19_4623	0493644	|	NP1a	<name>	[Nn:o.Nn:o]
+T19_4626	0493695	,	II	in	[P:q[II#.
+T19_4629	0000000	y	YR	#	.
+T19_4632	0493714	|	II	into	.II#]
+T19_4635	0493726	|	DD1a	that	[Ns.
+T19_4638	0493738	,	NNJ1n	school	.Ns]P:q]Fa:s]S]
+T19_4641	0493760	|	RRQq	where	[S?[Rq:G165.Rq:G165]
+T19_4644	0493773	|	VDD	did	[Vod.Vod]
+T19_4647	0493784	|	PPHS2	they	[Nap:s.Nap:s]
+T19_4650	0493797	|	VMK	used	[Vrt.Vrt]
+T19_4653	0493809	|	TO	to	[Ti:z[Vi.
+T19_4656	0493819	?	VV0i	go	.Vi]
+T19_4659	0000000	y	YG	-	[q165.q165]Ti:z]S?]
+T19_4662	-----	Simon076
+T19_4665	.....	03101
+T19_4668	0493868	|	NP1a	<name>	[Nns.
+T19_4671	0493881	|	NP1a	<name>	.Nns]
+T19_4674	-----	Kim077
+T19_4677	.....	03102
+T19_4680	0493924	|	NP1a	<name>	[Nns.
+T19_4683	0493937	|	NP1a	<name>	.Nns]
+T19_4686	0493949	c	YP	{pause}	.
+T19_4689	0493957	|	PPH1	it	[S[Ni:s.Ni:s]
+T19_4692	0000000	y	YG	-	[m167.m167]
+T19_4695	0493959	|	VHZ	+'s	[Vzf.
+T19_4698	0493968	|	RR	really	[R:G167.R:G167]
+T19_4701	0493982	|	VVNi	gone	.Vzf]
+T19_4704	0493994	|	RL	downhill	[R:q.R:q]
+T19_4707	0494019	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T19_4710	0494028	|	VV0v	think	[V.V]S]I]
+T19_4713	0494041	|	ICSt	since	[Fa:t.
+T19_4716	0494054	|	PPHS2	they	[Nap:s.Nap:s]
+T19_4719	0494065	|	VH0	+'ve	[Vf.
+T19_4722	0494076	|	VVNv	let	.Vf]
+T19_4725	0494095	t,	FD	ra	.Fa:t]S]
+T19_4728	0494122	|	UI41	I	[UI=.
+T19_4731	0494131	|	UI42	tell	.
+T19_4734	0494143	|	UI43	you	.
+T19_4737	0494154	|	UI44	what	.UI=]
+T19_4740	0494167	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_4743	0494177	|	VAI	ai	[Veu.
+T19_4746	0494186	|	XX	+n't	.
+T19_4749	0494197	|	VVGi	going	.Veu]
+T19_4752	0494210	|	RLh	there	[Rw:q.Rw:q]S]
+T19_4755	-----	Simon076
+T19_4758	.....	03103
+T19_4761	0494254	|	UN	no	.
+T19_4764	-----	Kim077
+T19_4767	.....	03104
+T19_4770	0494295	|	XX	not	[S[Vge.
+T19_4773	0494306	|	VVGv	sending	.Vge]
+T19_4776	0494321	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_4779	0494332	,	RLh	there	[Rw:q.Rw:q]S]
+T19_4782	0494353	|	RRR	rather	[S[R:m.R:m]
+T19_4785	0494367	|	VV0v	send	[V.V]
+T19_4788	0494380	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_4791	0494391	|	IIt	to	[P:q.
+T19_4794	0494401	|	NP1a	<name>	[Nns.
+T19_4797	0494414	|	NP1a	<name>	.Nns]P:q]S]
+T19_4800	-----	Simon076
+T19_4803	.....	03105
+T19_4806	0494496	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4809	0494504	|	VMd	+'d	[Vdc.
+T19_4812	0494514	|	VV0v	send	.Vdc]
+T19_4815	0494526	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_4818	0494537	|	IIt	to	[P:q.
+T19_4821	0494547	|	NP1a	<name>	[Nns.Nns]P:q]S]
+T19_4824	0494566	|	NNS1c	mother	[Nns".Nns"]
+T19_4827	-----	Kim077
+T19_4830	.....	03106
+T19_4833	0494611	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4836	0494619	|	VBM	+'m	[Vmeu.
+T19_4839	0494629	|	XX	not	.
+T19_4842	0494640	|	VVGv	sending	.Vmeu]
+T19_4845	0494655	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_4848	0494666	|	RLh	there	[Rw:q.Rw:q]S]
+T19_4851	0494679	c	YP	{pause_19}	.
+T19_4854	0494695	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_4857	0494703	|	VMo	+'ll	[Vc.
+T19_4860	0494714	|	VH0	have	.Vc]
+T19_4863	0494726	|	TO	to	[Ti:z[Vi.
+T19_4866	0494736	|	VV0v	get	.Vi]
+T19_4869	0494747	|	NP1m	Mike	[Nns:O171.Nns:O171]
+T19_4872	0000000	y	YG	-	[Ti:o[s171.s171]
+T19_4875	0494760	|	TO	to	[Vi.
+T19_4878	0494770	|	VV0v	tell	.Vi]
+T19_4881	0494783	|	PPY	you	[Ny:i.Ny:i]
+T19_4884	0494794	|	II	about	[P:r.
+T19_4887	0494807	|	AT	the	[Ns.
+T19_4890	0494818	|	NN1c	story	.
+T19_4893	0494831	,	IO	of	[Po.
+T19_4896	0000000	y	YR	#	.Po]Ns]P:r]Ti:o]Ti:z]S]
+T19_4899	0494849	|	UE21	you	[UE=.
+T19_4902	0494861	|	UE22	know	.UE=]
+T19_4905	0494873	|	YMN	erm	.
+T19_4908	0494884	c	YP	{pause}	.
+T19_4911	0494892	|	NN1n	drama	[S[Nns:s[Ot[Ns.Ns]Ot]Nns:s]
+T19_4914	0494905	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T19_4917	0494915	|	VVZv	says	[Vz.Vz]S]I]
+T19_4920	0494927	|	VBZ	is	[Vzb.Vzb]
+T19_4923	0494938	|	RG	pretty	[J:e.
+T19_4926	0494952	|	JJ	bad	.J:e]
+T19_4929	0494963	,	CS	because	[Fa:c.
+T19_4932	0494986	|	UE21	I	[UE=.
+T19_4935	0494995	|	UE22	mean	.UE=]
+T19_4938	0495007	|	II	in	[P:p.
+T19_4941	0495018	|	NN1n	drama	[Nns[Ot[Ns.Ns]Ot]Nns]P:p]
+T19_4944	0495031	|	PPY	you	[Ny:s.Ny:s]
+T19_4947	0495042	|	UO21	sort	[UO=.
+T19_4950	0495042	|	UO22	of	.UO=]
+T19_4953	0495057	|	VV0v	mess	[V.V]
+T19_4956	0495069	|	RL	about	[R:n.R:n]
+T19_4959	0495082	|	RR	anyway	[R:c.R:c]
+T19_4962	0495122	&	VD0	do	[Iq[S?[Vex.
+T19_4965	0495131	|	XX	+n't	.Vex]
+T19_4968	0495142	?	PPY	ya	[Ny:s.Ny:s]S?]Iq]Fa:c]S]
+T19_4971	-----	Simon076
+T19_4974	.....	03107
+T19_4977	0495224	&	UY	yeah	.
+T19_4980	-----	Kim077
+T19_4983	.....	03108
+T19_4986	0495284	|	CC	and	[S+.
+T19_4989	0495295	,	PPHS1m	he	[Nas:s[PPHS1m#.
+T19_4992	0000000	y	YR	#	.
+T19_4995	0495313	|	PPHS1m	he	.PPHS1m#]Nas:s]
+T19_4998	0495323	|	RR	just	[R:m.R:m]
+T19_5001	0495335	|	VVZi	goes	[Vz.Vz]
+T19_5004	0495347	|	RL	around	[R:q.R:q]
+T19_5007	0495366	,	VVGv	thumping	[Tg:h[Vg.Vg]
+T19_5010	0495394	|	VVGv	kicking	[Tg-[Vg.Vg]Tg-]
+T19_5013	0495409	,	CC	and	[Tg+[CC#.
+T19_5016	0000000	y	YR	#	.
+T19_5019	0495428	|	CC	and	.CC#]
+T19_5022	0495440	|	VVGi	going	[Vg.Vg]
+T19_5025	0495453	|	JA	berserk	[J:e.J:e]Tg+]Tg:h]
+T19_5028	0495468	|	II	during	[P:t.
+T19_5031	0495482	|	NN1n	drama	[Nns[Ot[Ns.Ns]Ot]Nns]P:t]S+]
+T19_5034	0495495	|	CC	and	[S+.
+T19_5037	0495506	|	AT	the	[Ns:s.
+T19_5040	0495518	|	NN1c	teacher	.Ns:s]
+T19_5043	0495533	|	RR	just	[R:m.R:m]
+T19_5046	0495545	|	VVZv	looks	[Vz.Vz]
+T19_5049	0495558	|	RP	on	[R:n.R:n]
+T19_5052	0495568	|	CC	and	[S+.
+T19_5055	0495579	|	VVZv	says	[Vz.Vz]
+T19_5058	0495591	|	VV0v	calm	[Q:o[S*[V.V]
+T19_5061	0495604	|	RP	down	[R:n.R:n]S*]Q:o]S+]S+]
+T19_5064	0495616	|	CC	and	[S+.
+T19_5067	0495627	|	UE21	I	[UE=.
+T19_5070	0495636	|	UE22	mean	.UE=]
+T19_5073	0495648	|	II31	in	[P:c[II=.
+T19_5076	0495648	|	II32	view	.
+T19_5079	0495648	|	II33	of	.II=]
+T19_5082	0495666	|	AT	the	[Ns.
+T19_5085	0495677	|	NN1n	fact	.
+T19_5088	0495690	|	PPIS1	I	[Fn[Nea:s.Nea:s]
+T19_5091	0495698	|	VH0	+'ve	[Vf.
+T19_5094	0495709	|	VVNv	written	.Vf]
+T19_5097	0495724	|	IIt	to	[P:u.
+T19_5100	0495734	|	AT	the	[Ns.
+T19_5103	0495745	|	NNJ1n	school	.Ns]P:u]
+T19_5106	0495759	|	CC	and	[Fn+.
+T19_5109	0495771	|	VVNi	complained	[Vn.Vn]
+T19_5112	0495789	,	II	about	[P:r.P:r]Fn+]Fn]Ns]P:c]
+T19_5115	0000000	y	YR	#	.S+]
+T19_5118	0495810	|	CCB	but	[S+.
+T19_5121	0495821	|	PPY	you	[Ny:s.Ny:s]
+T19_5124	0495831	|	VMd	+'d	[Vdc.
+T19_5127	0495841	|	VV0v	think	.Vdc]
+T19_5130	0495855	|	PPHS2	they	[Fn:o[Nap:s.Nap:s]
+T19_5133	0495867	|	VMd	would	[Vdcu.
+T19_5136	0495880	|	VB0	be	.
+T19_5139	0495890	|	VVGv	keeping	.Vdcu]
+T19_5142	0495905	|	AT1	an	[Ns:o.
+T19_5145	0495915	|	NN1c	eye	.Ns:o]Fn:o]S+]
+T19_5148	0495926	|	CC	and	[S+.
+T19_5151	0495938	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_5154	0495948	|	VVZt	hates	[Vz.Vz]
+T19_5157	0495961	|	NN1n	drama	[Nns:o[Ot[Ns.Ns]Ot]Nns:o]
+T19_5160	0495974	|	RGz	so	[Ds:h.
+T19_5163	0495984	|	DA1	much	.Ds:h]S+]
+T19_5166	0495996	|	CC	and	[S+.
+T19_5169	0496007	,	PPH1	it	[Ni:s.Ni:s]
+T19_5172	0000000	y	YR	#	.
+T19_5175	0496026	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_5178	0496035	|	VHZ	+'s	[Vzf.
+T19_5181	0496045	|	VVNH	got	.Vzf]
+T19_5184	0496056	|	NN1n	drama	[Nns:o[Ot[Ns.Ns]Ot]Nns:o]
+T19_5187	0496069	,	RTt	tomorrow	[R:t.R:t]S+]
+T19_5190	0496093	|	CSi	if	[S[Fa:c.
+T19_5193	0496103	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_5196	0496114	|	VHZ	has	[Vz.Vz]
+T19_5199	0496125	|	DDy	any	[Ns:o.
+T19_5202	0496136	|	NN1n	trouble	.Ns:o]
+T19_5205	0496151	|	RTt	tomorrow	[Ns:t.
+T19_5208	0496167	|	NNT1c	morning	.Ns:t]Fa:c]
+T19_5211	0496183	|	PPIS1	I	[Nea:s.Nea:s]
+T19_5214	0496191	|	VBM	+'m	[Vmeu.
+T19_5217	0496201	|	XX	not	.
+T19_5220	0496212	|	VVGv	sending	.Vmeu]
+T19_5223	0496227	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_5226	0496238	|	RTt	tomorrow	[Ns:t.
+T19_5229	0496255	|	NNT1c	afternoon	.Ns:t]S]
+T19_5232	0496272	|	PPIS1	I	[S[Nea:s175.Nea:s175]
+T19_5235	0496280	|	VBM	+'m	[Vmut.
+T19_5238	0496290	|	VVGK	gon	.Vmut]
+T19_5241	0496300	|	TO	+na	[Ti:z[Vi.
+T19_5244	0496310	|	VV0v	start	.Vi]
+T19_5247	0000000	y	YG	-	[Tg:o[s175.s175]
+T19_5250	0496323	|	VVGv	keeping	[Vg.Vg]
+T19_5253	0496339	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_5256	0496350	|	RL	home	[R:p.R:p]Tg:o]Ti:z]S]
+T19_5259	0496362	|	CC	and	[S+.
+T19_5262	0496373	|	CSi	if	[Fa:c.
+T19_5265	0496383	|	PPHS2	they	[Nap:s.Nap:s]
+T19_5268	0496395	|	VV0v	ask	[V.V]
+T19_5271	0496406	|	RRQq	why	[Fn?:o[Rq:c.Rq:c]Fn?:o]Fa:c]
+T19_5274	0496418	|	PPIS1	I	[Nea:s.Nea:s]
+T19_5277	0496426	|	VBM	+'m	[Vmut.
+T19_5280	0496436	|	VVGK	gon	.Vmut]
+T19_5283	0496446	|	TO	+na	[Ti:z[Vi.
+T19_5286	0496456	|	VV0v	say	.Vi]
+T19_5289	0496467	|	CS	because	[Q:o[Fa.
+T19_5292	0496482	|	PPY	you	[Ny:s.Ny:s]
+T19_5295	0496494	|	VMo	ca	[Vce.
+T19_5298	0496503	|	XX	+n't	.
+T19_5301	0496514	|	VV0t	control	.Vce]
+T19_5304	0496529	|	APPGy	your	[Np:o.
+T19_5307	0496541	|	NN2	classes	.Np:o]
+T19_5310	0496556	|	CC	and	[Fa+.
+T19_5313	0496567	|	PPY	you	[Ny:s177.Ny:s177]
+T19_5316	0496579	|	VMo	wo	[Vce.
+T19_5319	0496588	|	XX	+n't	.
+T19_5322	0496599	|	VV0v	want	.Vce]
+T19_5325	0000000	y	YG	-	[Ti:o[s177.s177]
+T19_5328	0496611	|	TO	to	[Vix.Vix]Ti:o]
+T19_5331	0496621	|	RTo	now	[Rw:t.Rw:t]Fa+]Fa]Q:o]Ti:z]S+]
+T19_5334	-----	Simon076
+T19_5337	.....	03109
+T19_5340	0496663	|	CSi	if	[L[Fa:c.
+T19_5343	0496673	|	PPH1	it	[Ni:s.Ni:s]
+T19_5346	0496675	|	VBZ	+'s	[Vzb.Vzb]
+T19_5349	0496684	|	DD1a	that	[Ns:e.
+T19_5352	0496696	|	NN1n	drama	.
+T19_5355	0496709	|	NN1c	teacher	.Ns:e]Fa:c]
+T19_5358	0496724	|	RR	anyway	[R:c.R:c]L]
+T19_5361	-----	Kim077
+T19_5364	.....	03110
+T19_5367	0496777	|	UR	oh	.
+T19_5370	0496787	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5373	0496795	|	VMo	+'ll	[Vc.
+T19_5376	0496806	|	VH0	have	.Vc]
+T19_5379	0496818	|	TO	to	[Ti:z[Vi.
+T19_5382	0496828	|	VV0v	ask	.Vi]
+T19_5385	0496839	|	NP1m	Mike	[Nns:i.Nns:i]
+T19_5388	0496852	|	CSi	if	[Fn?:o.
+T19_5391	0496863	|	PPH1	it	[Ni:s.Ni:s]
+T19_5394	0496873	,	VBDZ	was	[Vsb.Vsb]Fn?:o]Ti:z]S]
+T19_5397	0496892	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5400	0496900	|	VBM	+'m	[Vmb.Vmb]
+T19_5403	0496910	|	RR	absolutely	[Jh:e.
+T19_5406	0496928	|	VVNt	disgusted	[Tn[Vn.Vn]Tn]
+T19_5409	0496946	|	II	about	[P.
+T19_5412	0496959	,	DD1a	that	.P]Jh:e]S]
+T19_5415	0496979	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5418	0496988	|	RR	really	[R:m.R:m]
+T19_5421	0497002	|	VBM	am	[Vmb.Vmb]
+T19_5424	0497012	|	VVNt	disgusted	[Jh:e[Tn[Vn.Vn]Tn]
+T19_5427	0497030	|	II	about	[P.
+T19_5430	0497043	|	DD1a	that	.P]Jh:e]S]
+T19_5433	-----	Simon076
+T19_5436	.....	03111
+T19_5439	0497086	|	VV0v	write	[S*[V.V]
+T19_5442	0497099	|	IIt	to	[P:u.
+T19_5445	0497109	|	NNS	Mr	[Nns.
+T19_5448	0497119	|	NP1a	<name>	.Nns]P:u]
+T19_5451	0497170	|	II	about	[P:r.
+T19_5454	0497184	|	DD1a	that	.P:r]S*]
+T19_5457	-----	Kim077
+T19_5460	.....	03112
+T19_5463	0497227	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5466	0497236	|	VV0v	think	[V.V]
+T19_5469	0497249	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T19_5472	0497258	|	VMo	will	[Vcx.Vcx]Fn:o]S]
+T19_5475	-----	Simon076
+T19_5478	.....	03113
+T19_5481	0497301	|	RR	definitely	[R.R]
+T19_5484	-----	Kim077
+T19_5487	.....	03114
+T19_5490	0497350	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5493	0497359	|	VV0v	think	[V.V]
+T19_5496	0497372	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T19_5499	0497381	|	VMo	will	[Vcx.Vcx]Fn:o]
+T19_5502	0497393	|	CS	cos	[Fa:c.
+T19_5505	0497404	|	PPIS1	I	[Nea:s.Nea:s]
+T19_5508	0497412	|	VBM	+'m	[Vmb.Vmb]
+T19_5511	0497422	|	VVNv	pissed	[Tn:e[Vn.Vn]
+T19_5514	0497437	,	RP	off	[R:n.R:n]Tn:e]Fa:c]S]
+T19_5517	0497456	|	UI41	I	[UI=.
+T19_5520	0497465	|	UI42	tell	.
+T19_5523	0497477	|	UI43	you	.
+T19_5526	0497488	,	UI44	what	.UI=]
+T19_5529	0497508	|	UE21	I	[UE=.
+T19_5532	0497518	|	UE22	mean	.UE=]
+T19_5535	0497530	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5538	0497539	,	VV0v	think	[V.V]
+T19_5541	0497560	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T19_5544	0497570	|	VH0	+'ve	[Vfb.
+T19_5547	0497581	|	VBN	been	.Vfb]
+T19_5550	0497594	|	JA21	all	[J:e[JA=.
+T19_5553	0497596	|	JA22	right	.JA=]J:e]
+T19_5556	0497609	|	II	throughout	[P:t.
+T19_5559	0497627	|	APPGy	your	[Ns.
+T19_5562	0497639	|	NNJ1n	school	.Ns]P:t]
+T19_5565	0497653	|	DAR	more	[D:h[DAR&.
+T19_5568	0497665	|	CCr	or	[DAR+.
+T19_5571	0497676	|	DAR	less	.DAR+]DAR&]D:h]
+T19_5574	0497688	|	VH0	have	[Iq[S?[Vex.
+T19_5577	0497699	|	XX	+n't	.Vex]
+T19_5580	0497710	?	PPY	ya	[Ny:s.Ny:s]S?]Iq]Fn:o]
+T19_5583	.....	03116
+T19_5586	0497800	&	CCB	but	[S+.
+T19_5589	0497811	|	PPIS1	I	[Nea:s.Nea:s]
+T19_5592	0497819	|	VBM	+'m	[Vmb.Vmb]
+T19_5595	0497829	|	DAT	most	[Jh:e.
+T19_5598	0497841	|	JJ	disgruntled	.
+T19_5601	0497860	|	AT	the	[Ns:183.
+T19_5604	0497871	|	NNL1n	way	.
+T19_5607	0497883	|	NP1m	Michael	[Fr[Nns:s.Nns:s]
+T19_5610	0497898	|	VBZ	+'s	[Vzu.
+T19_5613	0497908	|	VVGv	getting	.Vzu]
+T19_5616	0497923	,	RP	on	[R:q.R:q]
+T19_5619	0000000	y	YG	-	[h183.h183]Fr]Ns:183]Jh:e]S+]S]
+T19_5622	0497941	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_5625	0497950	|	VHZ	+'s	[Vzef.
+T19_5628	0497961	|	XX	not	.
+T19_5631	0497972	|	VHN	had	.Vzef]
+T19_5634	0497983	|	AT1	a	[Ns:o.
+T19_5637	0497992	|	JJ	single	.
+T19_5640	0498006	|	NN2	parents	[G.
+T19_5643	0000000	|	GG	+'	.G]
+T19_5646	0498021	|	NNT1c	evening	.Ns:o]
+T19_5649	0498037	|	DD1i	this	[Ns:t.
+T19_5652	0498049	,	NNT1c	year	.Ns:t]S]
+T19_5655	0498069	|	UE21	you	[UE=.
+T19_5658	0498080	|	UE22	know	.UE=]
+T19_5661	0498092	|	RR	normally	[S[R:m.R:m]
+T19_5664	0498108	|	PPY	you	[Ny:s.Ny:s]
+T19_5667	0498120	|	VV0i	go	[V.V]
+T19_5670	0498130	|	RL	back	[P:q.
+T19_5673	0498142	|	IIt	to	.
+T19_5676	0498152	,	NNJ1n	school	.P:q]
+T19_5679	0498174	|	PPY	you	[S-[Ny:s.Ny:s]
+T19_5682	0498185	|	VH0	have	[V.V]
+T19_5685	0498198	|	MC1	one	[Ms:o.Ms:o]
+T19_5688	0498209	,	NPM1	September	[Nn:t185[NPM1&.
+T19_5691	0498234	|	NPM1	October	[NPM1-.NPM1-]NPM1&]
+T19_5694	0498249	|	DDQr	which	[Fr[Dq:s185.Dq:s185]
+T19_5697	0498262	|	VBZ	is	[Vzb.Vzb]
+T19_5700	0498273	|	RR	always	[R:t.R:t]
+T19_5703	0498287	|	RGf	too	[R:t.
+T19_5706	0498298	|	RR	soon	.R:t]Fr]Nn:t185]S-]S]
+T19_5709	-----	Simon076
+T19_5712	.....	03115
+T19_5715	0497759	|	UY	mm	.
+T19_5718	-----	Simon076
+T19_5721	.....	03117
+T19_5724	0498341	|	UY	yeah	.
+T19_5727	-----	Kim077
+T19_5730	.....	03118
+T19_5733	0498384	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_5736	0498393	|	VHZ	+'s	[Vzef.
+T19_5739	0498403	|	XX	not	.
+T19_5742	0498414	|	VHN	had	.Vzef]
+T19_5745	0498425	|	MC1	one	[Ms:o.Ms:o]S]
+T19_5748	-----	Simon076
+T19_5751	.....	03119
+T19_5754	0498467	|	UY	yeah	.
+T19_5757	-----	Kim077
+T19_5760	.....	03120
+T19_5763	0498510	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_5766	0498519	|	VHZ	+'s	[Vzef.
+T19_5769	0498529	|	XX	not	.
+T19_5772	0498540	|	VHN	had	.Vzef]
+T19_5775	0498551	|	MC1	one	[Ms:o.Ms:o]S]
+T19_5778	0498562	c	YP	{pause}	.
+T19_5781	-----	Simon076
+T19_5784	.....	03121
+T19_5787	0498601	|	VV0v	write	[S*[V.V]
+T19_5790	0498614	|	IIt	to	[P:u.
+T19_5793	0498624	|	NNS	Mr	[Nns.
+T19_5796	0498634	|	NP1a	<name>	.Nns]P:u]S*]
+T19_5799	0498685	c	YP	{pause}	.
+T19_5802	-----	Kim077
+T19_5805	.....	03122
+T19_5808	0498724	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_5811	0498732	|	VBM	+'m	[Vmut.
+T19_5814	0498742	|	VVGK	gon	.Vmut]
+T19_5817	0498752	|	TO	+na	[Ti:z[Vi.
+T19_5820	0498762	,	VV0v	write	.Vi]Ti:z]S]
+T19_5823	0498783	|	CSi	if	[S[Fa:c.
+T19_5826	0498793	,	DD1a	that	[Ds:y.Ds:y]
+T19_5829	0000000	y	YR	#	.
+T19_5832	0498814	|	CSi	if	.
+T19_5835	0498824	|	PPH1	it	[Ni:s191.
+T19_5838	0000000	y	YG	-	[189.189]Ni:s191]
+T19_5841	0498834	|	VBDZ	was	[Vsb.Vsb]
+T19_5844	0498845	|	AT	the	[Ns:e.
+T19_5847	0498856	|	NN1n	drama	.
+T19_5850	0498869	|	NN1c	teacher	.Ns:e]
+T19_5853	0498884	|	CST	that	[Fr:G189.
+T19_5856	0000000	y	YG	-	[s191.s191]
+T19_5859	0498897	|	VVDv	said	[Vd.Vd]
+T19_5862	0498909	|	DD1a	that	[Ds:o.Ds:o]Fr:G189]Fa:c]
+T19_5865	0498921	|	PPIS1	I	[Nea:s.Nea:s]
+T19_5868	0498929	|	VBM	+'m	[Vmut.
+T19_5871	0498939	|	VVGK	gon	.Vmut]
+T19_5874	0498949	|	TO	+na	[Ti:z[Vi.
+T19_5877	0498959	|	VV0v	write	.Vi]
+T19_5880	0498972	|	IIt	to	[P:u.
+T19_5883	0498983	,	PPHO1f	her	.P:u]Ti:z]
+T19_5886	0499002	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T19_5889	0499010	|	VBM	+'m	[Vmut.
+T19_5892	0499020	|	VVGK	gon	.Vmut]
+T19_5895	0499030	|	TO	+na	[Ti:z[Vi.
+T19_5898	0499040	|	VV0v	put	.Vi]
+T19_5901	0499051	|	NN1n	copy	[Ns:o.Ns:o]
+T19_5904	0499068	|	IIt	to	[P:u.
+T19_5907	0499078	|	NNS	Mr	[Nns.
+T19_5910	0499088	|	NP1a	<name>	.Nns]P:u]
+T19_5913	.....	03124
+T19_5916	0499213	&	VV0v	write	[Ti@[V.V]
+T19_5919	0499226	|	IIt	to	[P:u.
+T19_5922	0499236	|	PPHO1m	him	.P:u]
+T19_5925	0499247	|	RR21	as	[R:m[RR=.
+T19_5928	0499247	|	RR22	well	.RR=]R:m]Ti@]Ti:z]S@]S]
+T19_5931	0499262	c	YP	{pause}	.
+T19_5934	0499270	,	JJ	disgusting	[J.J]
+T19_5937	0499297	|	CSk21	as	[Fa![CSk=.
+T19_5940	0499297	|	CSk22	if	.CSk=]
+T19_5943	0499310	|	PPY	you	[Ny:s.Ny:s]
+T19_5946	0499321	|	VD0	do	[Ve.
+T19_5949	0499330	,	XX	+n't	.Ve]
+T19_5952	0000000	y	YR	#	.
+T19_5955	0499349	|	PPY	you	[Ny:s.Ny:s]
+T19_5958	0499360	|	VD0	do	[Ve.
+T19_5961	0499369	|	XX	+n't	.
+T19_5964	0499381	|	VV0t	need	.Ve]
+T19_5967	0499393	|	DD1a	that	[Ns:o.
+T19_5970	0499405	|	NN1c	sort	.
+T19_5973	0499417	|	IO	of	[Po.
+T19_5976	0499427	|	NN1n	aggravation	.Po]
+T19_5979	0499446	|	II	from	[P.
+T19_5982	0499459	|	AT1	a	[Tg[Ns:s.
+T19_5985	0499468	|	NN1c	teacher	.Ns:s]
+T19_5988	0499483	|	VVGv	stirring	[Vg.Vg]
+T19_5991	0499499	|	RP	up	[R:n.R:n]
+T19_5994	0499513	|	NN1n	trouble	[Ns:o.Ns:o]
+T19_5997	0499528	|	ICSk	like	[P:h.
+T19_6000	0499541	|	DD1a	that	.P:h]
+T19_6003	0499553	|	VVGv	making	[Tg@[Vg.Vg]
+T19_6006	0499567	|	AT	the	[Np:o.
+T19_6009	0499578	|	NN2	kids	.Np:o]
+T19_6012	0000000	y	YR	#	.
+T19_6015	0499590	|	VVGv	making	[Vg.Vg]
+T19_6018	0499604	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_6021	0499615	|	AT1	a	[Ns:j.
+T19_6024	0499625	|	VVGv	laughing	[Tg[Vg.Vg]Tg]
+T19_6027	0499641	,	NN1n	stock	.Ns:j]Tg@]Tg]P]Ns:o]Fa!]
+T19_6030	0499662	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_6033	0499672	|	VDZ	does	[Vze.
+T19_6036	0499684	|	XX	not	.
+T19_6039	0499695	|	VV0t	need	.Vze]
+T19_6042	0499708	,	DD1a	that	[Ds:o.Ds:o]S]
+T19_6045	0499732	|	PPH1	it	[S[Ni:s.Ni:s]
+T19_6048	0000000	y	YG	-	[m197.m197]
+T19_6051	0499734	|	VBZ	+'s	[Vzeb.
+T19_6054	0499743	|	RR	just	[R:G197.R:G197]
+T19_6057	0499755	|	XX	not	.Vzeb]
+T19_6060	0499766	|	RP	on	[R:e.R:e]
+T19_6063	0499780	|	VBZ	is	[Iq[S?[Vzb.Vzb]
+T19_6066	0499791	?,	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T19_6069	0499817	|	CC	and	[S+.
+T19_6072	0499828	|	CSA	as	[A:x.
+T19_6075	0499838	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_6078	0499848	|	VVZv	says	[Vz.Vz]A:x]
+T19_6081	0499860	|	PPIS1	I	[Nea:s.Nea:s]
+T19_6084	0499868	|	VBM	+'m	[Vmb.Vmb]
+T19_6087	0499879	|	JJ	sure	[Jh:e.
+T19_6090	0499891	|	PPHS1f	she	[Fn[Nas:s.Nas:s]
+T19_6093	0499902	|	VDZ	does	[Vz.Vz]
+T19_6096	0499914	|	PPH1	it	[Ni:o.Ni:o]
+T19_6099	0499924	|	RR21	on	[R:h[RR=.
+T19_6102	0499934	.	RR22	purpose	.RR=]R:h]Fn]Jh:e]S+]
+T19_6105	-----	Simon076
+T19_6108	.....	03123
+T19_6111	0499170	|	UY	yeah	.
+T19_6114	-----	Simon076
+T19_6117	.....	03125
+T19_6120	0499988	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T19_6123	0499998	|	VMo	+'ll	[Vc.
+T19_6126	0500009	|	VV0t	deny	.Vc]
+T19_6129	0500021	|	PPH1	it	[Ni:o.Ni:o]
+T19_6132	0500031	|	RR	though	[R:m.R:m]S]
+T19_6135	-----	Kim077
+T19_6138	.....	03126
+T19_6141	0500076	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_6144	0500085	|	VD0	do	[Ve.
+T19_6147	0500094	|	XX	+n't	.
+T19_6150	0500105	|	VV0i	care	.Ve]S]
+T19_6153	-----	Simon076
+T19_6156	.....	03127
+T19_6159	0500148	|	CSi	if	[S[Fa:c.
+T19_6162	0500158	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_6165	0500169	|	VVZt	denies	[Vz.Vz]
+T19_6168	0500183	,	PPH1	it	[Ni:o.Ni:o]Fa:c]
+T19_6171	0500201	|	DD1a	that	[Ds:s.Ds:s]
+T19_6174	0500212	|	VBZ	+'s	[Vzb.Vzb]
+T19_6177	0500222	|	RR	even	[J:e.
+T19_6180	0500235	|	JJR	worse	.J:e]S]
+T19_6183	-----	Kim077
+T19_6186	.....	03128
+T19_6189	0500279	|	VD0	do	[S[Ve.
+T19_6192	0500288	|	XX	+n't	.
+T19_6195	0500299	,	VV0i	care	.Ve]S]
+T19_6198	0500319	|	PPH1	it	[S[Ni:s.Ni:s]
+T19_6201	0500321	|	VBZ	+'s	[Vzeb.
+T19_6204	0500330	|	XX	not	.Vzeb]
+T19_6207	0500341	|	AT1	a	[Ns:e.
+T19_6210	0500350	|	JJ	good	.
+T19_6213	0500363	|	NNJ1n	school	.Ns:e]
+T19_6216	0500377	,	RR	anyway	[R:c.R:c]S]
+T19_6219	0500407	|	VV0v	tell	[S[V.V]
+T19_6222	0500419	|	PPHO1f	her	[Nos:O199.Nos:O199]
+T19_6225	0000000	y	YG	-	[Ti:o[s199.s199]
+T19_6228	0500430	|	TO	to	[Vi.
+T19_6231	0500441	|	VV0t	stuff	.Vi]
+T19_6234	0500454	|	PPH1	it	[Ni:o.Ni:o]Ti:o]S]
+T19_6237	0500464	c	YP	{pause}	.
+T19_6240	-----	Simon076
+T19_6243	.....	03129
+T19_6246	0500503	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_6249	0500511	|	VMd	+'d	[Vdc.
+T19_6252	0500521	|	VV0v	let	.Vdc]
+T19_6255	0500532	|	PPHO1m	him	[Nos:O201.Nos:O201]
+T19_6258	0000000	y	YG	-	[Tb:o[s201.s201]
+T19_6261	0500543	|	VV0v	leave	[V.V]
+T19_6264	0500556	|	PPH1	it	[Ni:o.Ni:o]
+T19_6267	0500566	|	RGa	as	[R:t.
+T19_6270	0500576	|	RR	soon	.
+T19_6273	0500589	|	CSA	as	[Fc.
+T19_6276	0500599	|	JJ	possible	[J:e.J:e]Fc]R:t]Tb:o]S]
+T19_6279	-----	Kim077
+T19_6282	.....	03130
+T19_6285	0500646	|	UW	well	.
+T19_6288	0500658	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_6291	0500667	|	VV0v	want	[V.V]
+T19_6294	0500679	|	PPHO1m	him	[Nos:O203.Nos:O203]
+T19_6297	0000000	y	YG	-	[Ti:o[s203.s203]
+T19_6300	0500690	,	TO	to	[Vix.Vix]Ti:o]S]
+T19_6303	0500708	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_6306	0500716	|	VH0	+'ve	[Vf.
+T19_6309	0500728	|	VHN	had	.Vf]
+T19_6312	0500739	,	DDf	enough	[D:o.D:o]S]
+T19_6315	0500761	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_6318	0500770	|	VV0v	think	[V.V]
+T19_6321	0500783	|	PPH1	it	[Fn:o[Ni:s.Ni:s]
+T19_6324	0500785	|	VBZ	+'s	[Vzb.Vzb]
+T19_6336	0500799	ic	YY	{unclear}	[Y:e.Y:e]Fn:o]S]
+T19_6342	.....	03131
+T19_6345	0500845	|	UE21	I	[UE=.
+T19_6348	0500854	|	UE22	mean	.UE=]
+T19_6351	0500866	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_6354	0500875	|	VBZ	+'s	[Vzu.
+T19_6357	0500885	|	VVGv	crying	.Vzu]
+T19_6360	0500899	|	DBa	all	[Ns:t.
+T19_6363	0500910	|	AT	the	.
+T19_6366	0500922	,	NNT1c	time	.Ns:t]S]
+T19_6369	0500942	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_6372	0500952	|	VVDv	burst	[Vd.Vd]
+T19_6375	0500965	|	II	into	[P:q.
+T19_6378	0500977	|	NN2	tears	.P:q]
+T19_6381	0500990	|	MDt	last	[Ns:t.
+T19_6384	0501003	|	NNT1c	night	.Ns:t]S]
+T19_6387	-----	unid0
+T19_6390	.....	-----
+T19_6393	0501021	ic	YY	{unclear}	[Y.Y]
+T19_6396	-----	Kim077
+T19_6399	.....	03132
+T19_6402	0501067	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_6405	0501077	|	VVZt	hates	[Vz.Vz]
+T19_6408	0501090	,	NNJ1n	school	[Ns:o.Ns:o]S]
+T19_6411	0501112	|	UE21	I	[UE=.
+T19_6414	0501121	,	UE22	mean	.UE=]
+T19_6417	0501141	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_6420	0501154	|	VMo	can	[Voc.Voc]
+T19_6423	0501165	|	PPIS1	I	[Nea:s.Nea:s]
+T19_6426	0501174	|	VD0	do	[Vr.Vr]
+T19_6429	0501184	|	IW	with	[P:h.
+T19_6432	0501196	?	PPHO1m	him	.P:h]S?]
+T19_6435	-----	Simon076
+T19_6438	.....	03133
+T19_6441	0501246	|	UY	mm	.
+T19_6444	-----	Kim077
+T19_6447	.....	03134
+T19_6450	0501287	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_6453	0501297	|	VMo	wo	[Vce.
+T19_6456	0501306	|	XX	+n't	.
+T19_6459	0501317	|	VV0v	let	.Vce]
+T19_6462	0501328	|	PPIO1	me	[Neo:O205.Neo:O205]
+T19_6465	0000000	y	YG	-	[Tb:o[s205.s205]
+T19_6468	0501338	|	VV0i	go	[V.V]
+T19_6471	0501348	|	II	round	[P:q.
+T19_6474	0501366	|	AT	the	[Ns[G[Np.
+T19_6477	0501377	|	NN2	kids	.Np]
+T19_6480	0000000	|	GG	+'	.G]
+T19_6483	0501389	,	NNL1c	house	.Ns]P:q]Tb:o]S]
+T19_6486	0501427	&	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_6489	0501438	|	VMo	wo	[Vce.
+T19_6492	0501447	|	XX	+n't	.
+T19_6495	0501458	|	VV0v	let	.Vce]
+T19_6498	0501469	|	PPIO1	me	[Neo:O207.Neo:O207]
+T19_6501	0000000	y	YG	-	[Tb:o[s207.s207]
+T19_6504	0501479	|	VD0	do	[V.V]
+T19_6507	0000000	y	YR	#	.Tb:o]S]
+T19_6510	-----	Simon076
+T19_6513	.....	03135
+T19_6516	0501553	&	PPY	you	[S[Ny:s.Ny:s]
+T19_6519	0000000	y	YG	-	[m209.m209]
+T19_6522	0501564	|	VMo	ca	[Vce.
+T19_6525	0501573	|	XX	+n't	.
+T19_6528	0501584	|	RR	really	[R:G209.R:G209]
+T19_6531	0501598	|	VV0i	go	.Vce]
+T19_6534	0501609	|	II	round	[P:q.
+T19_6537	0501626	|	APPGh2	their	[Ns.
+T19_6540	0501639	|	NNL1c	house	.Ns]P:q]S]
+T19_6543	-----	Kim077
+T19_6546	.....	03136
+T19_6549	0501700	|	UW	well	.
+T19_6552	0501712	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_6555	0501721	|	VMo	can	[Vc.
+T19_6558	0501732	,	VD0	do	.Vc]
+T19_6561	0501750	|	CCB	but	[S+.
+T19_6564	0501761	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_6567	0501772	|	VMo	wo	[Vce.
+T19_6570	0501781	|	XX	+n't	.
+T19_6573	0501792	|	VV0v	let	.Vce]
+T19_6576	0501803	|	PPIO1	me	[Neo:O211.Neo:O211]
+T19_6579	0000000	&y	YG	-	[Tb:o[s211.s211]
+T19_6582	0501830	|	VD0	do	[V.V]
+T19_6585	0501840	|	DDy	any	[Dp:o.
+T19_6588	0501851	|	IO	of	[Po.
+T19_6591	0501862	|	AT	the	[Np:213.
+T19_6594	0501873	|	NN2	things	.
+T19_6597	0501887	|	PPIS1	I	[Fr[Nea:s215.Nea:s215]
+T19_6600	0501896	|	VV0v	want	[V.V]
+T19_6603	0000000	y	YG	-	[Ti:o[s215.s215]
+T19_6606	0501908	|	TO	to	[Vix.Vix]
+T19_6609	0000000	y	YG	-	[o213.o213]Ti:o]Fr]Np:213]Po]Dp:o]Tb:o]S+]S]
+T19_6612	-----	Simon076
+T19_6615	.....	03137
+T19_6618	0501982	&	UW	well	.
+T19_6621	0501994	|	PPY	you	[S[Ny:s.Ny:s]
+T19_6624	0502005	|	VMd	should	[Vdce.
+T19_6627	0502018	|	XX	+n't	.
+T19_6630	0502029	|	VV0i	go	.Vdce]S]
+T19_6633	-----	Kim077
+T19_6636	.....	03138
+T19_6639	0502087	|	AT	the	[S[Ns:s.
+T19_6642	0502098	|	NNJ1n	school	.Ns:s]
+T19_6645	0502112	|	VBR	are	[Vau.
+T19_6648	0502123	|	VDG	doing	.Vau]
+T19_6651	0502136	,	PN1	nothing	[Ns:o.Ns:o]S]
+T19_6654	0502159	|	UR	OK	.
+T19_6657	0502172	|	DDQ	what	[S?[Dq:o.Dq:o]
+T19_6660	0502184	|	VDD	did	[Vod.Vod]
+T19_6663	0502195	|	PPHS2	they	[Nap:s.Nap:s]
+T19_6666	0502207	,	VD0	do	[Vr.Vr]S?]
+T19_6669	0502225	|	PPHS2	they	[S[Nap:s.Nap:s]
+T19_6672	0502237	|	VVDv	stopped	[Vd.Vd]
+T19_6675	0502253	|	AT	the	[Ns:o.
+T19_6678	0502264	,	NN1u	money	.Ns:o]S]
+T19_6681	0502285	,	UY	yeah	.
+T19_6684	0502305	|	PPHS2	they	[S[Nap:s.Nap:s]
+T19_6687	0502317	|	VVDv	stopped	[Vd.Vd]
+T19_6690	0502333	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_6693	0502344	|	II	from	[P:u.
+T19_6696	0502356	|	VHG	having	[Tg[Vg.Vg]
+T19_6699	0502370	,	NN1u	money	[Ns:o.Ns:o]Tg]P:u]
+T19_6702	0502391	|	PPHS2	they	[S@[Nap:s.Nap:s]
+T19_6705	0502403	|	VVDv	made	[Vd.Vd]
+T19_6708	0502416	|	PPHO1m	him	[Nos:O218.Nos:O218]
+T19_6711	0000000	y	YG	-	[Tb:o[s218.s218]
+T19_6714	0502427	|	VV0v	pay	[V.V]
+T19_6717	0502438	|	NN1u	money	[Ns:o219.
+T19_6720	0000000	y	YG	-	[220.220]Ns:o219]
+T19_6723	0502451	|	RL	back	[R:q.R:q]Tb:o]
+T19_6726	0502463	|	DDQr	which	[Fr:x[Dq:G221.Dq:G221]
+T19_6729	0502476	|	PPIS1	I	[Nea:s.Nea:s]
+T19_6732	0502484	|	VBM	+'m	[Vmb.Vmb]
+T19_6735	0502495	|	JJ	pleased	[Jh:e.
+T19_6738	0502527	&	II	about	[P.
+T19_6741	0000000	y	YG	-	[221.221]P]Jh:e]Fr:x]
+T19_6744	0502540	|	CST	that	[Fr:G220.
+T19_6747	0502552	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_6750	0502562	|	VVDv	got	[Vd.Vd]
+T19_6753	0000000	y	YG	-	[o219.o219]Fr:G220]S@]
+T19_6756	.....	03140
+T19_6759	0502752	&	CCB	but	[S+.
+T19_6762	0502763	,	PPH1	it	[Ni:s.Ni:s]
+T19_6765	0000000	y	YR	#	.
+T19_6768	0502781	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_6771	0502791	|	VVDv	paid	[Vd.Vd]
+T19_6774	0502803	|	RL	back	[R:q.R:q]
+T19_6777	0502815	|	MC	five	[Nu:o.
+T19_6780	0502827	|	NNUc	quid	.Nu:o]S+]S]
+T19_6783	0502840	|	UW	well	.
+T19_6786	0502852	|	NP1m	Michael	[S[Nns:s.Nns:s]
+T19_6789	0502868	|	VVDv	said	[Vd.Vd]
+T19_6792	0502880	|	II	in	[Fn:o[P:m.
+T19_6795	0502890	|	NN1n	reality	.P:m]
+T19_6798	0502905	|	PPH1	it	[Ni:s225.
+T19_6801	0000000	y	YG	-	[227.227]Ni:s225]
+T19_6804	0502916	|	VMo	must	[Vcfb.
+T19_6807	0502928	|	VH0	+'ve	.
+T19_6810	0502938	|	VBN	been	.Vcfb]
+T19_6813	0502950	|	RGi	about	[Nu:e.
+T19_6816	0502963	|	MC	twenty	.
+T19_6819	0502977	|	NNUc	quid	.Nu:e]
+T19_6822	0502989	|	DD1a	that	[Fr:G227[Ns:s.
+T19_6825	0503002	|	NN1n	kid	.Ns:s]
+T19_6828	0503013	|	VHD	had	[Vdf.
+T19_6831	0503024	|	VVNv	taken	.Vdf]
+T19_6834	0000000	y	YG	-	[o225.o225]Fr:G227]Fn:o]
+T19_6837	0503037	c	YP	{pause}	.
+T19_6840	0503045	|	CCB	but	[S+.
+T19_6843	0503056	|	YMV	er	.
+T19_6846	0503066	c	YP	{pause}	.
+T19_6849	0503074	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_6852	0503085	|	VVDv	said	[Vd.Vd]
+T19_6855	0503097	|	PPHS2	they	[Fn:o[Nap:s.Nap:s]
+T19_6858	0503109	|	VVDv	made	[Vd.Vd]
+T19_6861	0503121	|	PPHO1m	him	[Nos:O229.Nos:O229]
+T19_6864	0000000	y	YG	-	[Tb:o[s229.s229]
+T19_6867	0503132	|	VV0v	pay	[V.V]
+T19_6870	0503143	|	RL	back	[R:q.R:q]
+T19_6873	0503155	|	MC	five	[Nup:o.
+T19_6876	0503168	,	NNU2	pounds	.Nup:o]Tb:o]Fn:o]
+T19_6879	0503190	|	RRz	so	[S-[Rs:c.Rs:c]
+T19_6882	0503200	|	RR21	at	[R:m[RR=.
+T19_6885	0503200	|	RR22	least	.RR=]R:m]
+T19_6888	0503216	|	PPHS2	they	[Nap:s.Nap:s]
+T19_6891	0000000	y	YR	#	.S-]S+]S]
+T19_6894	-----	Simon076
+T19_6897	.....	03139
+T19_6900	0502637	&	UR	oh	.
+T19_6903	0502647	|	UX	wow	.
+T19_6906	0502658	|	DD1a	that	[S[Ds:s.Ds:s]
+T19_6909	0502669	|	VBZ	+'s	[Vzb.Vzb]
+T19_6912	0502679	|	RR	really	[J:e.
+T19_6915	0502693	|	JJ	bad	.J:e]S]
+T19_6918	-----	unid0
+T19_6921	.....	-----
+T19_6924	0503233	ic	YY	{unclear}	[Y.Y]
+T19_6927	-----	Simon076
+T19_6930	.....	03141
+T19_6933	0503279	|	VMd	could	[S?[Vodc.Vodc]
+T19_6936	0503292	|	PPIS1	I	[Nea:s.Nea:s]
+T19_6939	0503301	|	VH0	have	[Vr.Vr]
+T19_6942	0503313	|	AT1	a	[Ns:o.
+T19_6945	0503322	|	NN1n	sweet	.Ns:o]S?]
+T19_6948	0503335	?,	NP1m	Rick	[Nns".Nns"]
+T19_6951	0503363	|	RRQq	where	[S?[Rq:p.Rq:p]
+T19_6954	0503380	|	VBZ	is	[Vzb.Vzb]
+T19_6957	0503390	?,	PPH1	it	[Ni:s.Ni:s]
+T19_6960	0503416	|	RP	out	[Rw@.
+T19_6963	0503427	?	RLh	there	.Rw@]S?]
+T19_6966	-----	Kim077
+T19_6969	.....	03142
+T19_6972	0503479	|	UY	yeah	.
+T19_6975	-----	Richard078
+T19_6978	.....	03143
+T19_6981	0503522	|	PPHS1m	he	[Nas.Nas]
+T19_6984	-----	unid0
+T19_6987	.....	-----
+T19_6990	0503537	ic	YY	{unclear}	[Y.Y]
+T19_6993	-----	Kim077
+T19_6996	.....	03144
+T19_6999	0503583	|	CSn	when	[S[Fa:t#Fa:c[Rq:t.Rq:t]
+T19_7002	0503599	,	PPY	you	[Ny:s.Ny:s]
+T19_7005	0000000	y	YR	#	.
+T19_7008	0503618	|	CSi	if	.
+T19_7011	0503628	|	PPY	you	[Ny:s.Ny:s]
+T19_7014	0503639	|	VV0v	get	[V.V]
+T19_7017	0503650	|	JJ	horrid	[Np:o.
+T19_7020	0503665	|	NN2	boys	.Np:o]
+T19_7023	0503677	|	II	at	[P:p.
+T19_7026	0503687	|	NNJ1n	school	.P:p]Fa:t#Fa:c]
+T19_7029	0503701	|	PPY	you	[Ny:s.Ny:s]
+T19_7032	0503712	|	VV0v	tell	[V.V]
+T19_7035	0503724	|	PPHO2	'em	[Nop:o.Nop:o]
+T19_7038	0503736	,	RP	off	[R:n.R:n]S]
+T19_7041	0503755	|	UY	yeah	.
+T19_7044	-----	Simon076
+T19_7047	.....	03145
+T19_7050	0503798	|	VMo	can	[S?[Voc.Voc]
+T19_7053	0503809	|	PPIS1	I	[Nea:s.Nea:s]
+T19_7056	0503818	|	VH0	have	[Vr.Vr]
+T19_7059	0503830	|	AT1	a	[Ns:o.
+T19_7062	0503839	|	NN1c	sweetie	.Ns:o]S?]
+T19_7065	0503854	?	NP1m	Rick	[Nns".Nns"]
+T19_7068	-----	Kim077
+T19_7071	.....	03146
+T19_7074	0503904	|	VD0	do	[S*[Voe.
+T19_7077	0503913	|	XX	+n't	.Voe]
+T19_7080	0503924	|	PPY	you	[Ny:s.Ny:s]
+T19_7083	0503935	|	VV0v	put	[Vr.Vr]
+T19_7086	0503946	|	RP	up	[R:n.R:n]
+T19_7089	0503956	|	IW	with	[P:u.
+T19_7092	0503968	|	PN1	anything	[Ns.Ns]P:u]S*]
+T19_7095	0503993	c	YP	{pause}	.
+T19_7098	-----	Richard078
+T19_7101	.....	03147
+T19_7104	0504032	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_7107	0504041	,	RR	just	[R:m.R:m]
+T19_7110	0000000	y	YR	#	.
+T19_7113	0504061	|	PPIS1	I	[Nea:s.Nea:s]
+T19_7116	0504070	|	VMo	will	[Vcx.Vcx]
+T19_7119	0504082	,	RR	just	[R:m.R:m]
+T19_7122	0000000	y	YR	#	.
+T19_7125	0504102	|	CSi	if	[Fa:c.
+T19_7128	0504113	|	PPHS2	they	[Nap:s.Nap:s]
+T19_7131	0504125	|	VMo	will	[Vc.
+T19_7134	0504137	|	VV0v	push	.Vc]
+T19_7137	0504149	|	PPIO1	me	[Neo:o.Neo:o]Fa:c]
+T19_7140	0504159	|	PPIS1	I	[Nea:s.Nea:s]
+T19_7143	0504168	|	VMo	will	[Vc.
+T19_7146	0504180	|	VV0v	push	.Vc]
+T19_7149	0504193	|	PPHO2	'em	[Nop:o.Nop:o]
+T19_7152	0504204	|	RL	back	[R:h.R:h]S]
+T19_7155	-----	Kim077
+T19_7158	.....	03148
+T19_7161	0504247	|	PPY	you	[S[Ny:s.Ny:s]
+T19_7164	0504258	|	VV0v	know	[V.V]
+T19_7167	0504270	|	DD1a	that	[Nns:o.
+T19_7170	0504282	|	NP1m	Steven	.Nns:o]
+T19_7173	0504296	|	VBZ	is	[S?@[Vzb.Vzb]
+T19_7176	0504306	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_7179	0504316	|	AT1	a	[Ns:e.
+T19_7182	0504326	|	NN1c	nuisance	.Ns:e]S?@]S]
+T19_7185	-----	unid0
+T19_7188	.....	-----
+T19_7191	0504347	ic	YY	{unclear}	[Y.Y]
+T19_7194	-----	Richard078
+T19_7197	.....	03149
+T19_7200	0504393	|	UN	no	.
+T19_7203	-----	Simon076
+T19_7206	.....	03150
+T19_7209	0504434	|	RRQq	how	[S?[Rq:h.Rq:h]
+T19_7212	0504445	|	VDZ	does	[Voz.Voz]
+T19_7215	0504457	|	PPHS1m	he	[Ns:s[G.
+T19_7218	0504466	|	GG	+'s	.G]
+T19_7221	0504476	|	NNS1c	mummy	.Ns:s]
+T19_7224	0504489	|	VV0v	talk	[Vr.Vr]
+T19_7227	0504505	|	IIt	to	[P:u.
+T19_7230	0504516	|	PPHO1m	him	.P:u]S?]
+T19_7233	0504527	?	NP1m	Rick	[Nns".Nns"]
+T19_7236	-----	Kim077
+T19_7239	.....	03151
+T19_7242	0504577	|	RTt	today	[R.R]
+T19_7245	-----	Simon076
+T19_7248	.....	03152
+T19_7251	0504621	|	UN	no	.
+T19_7254	0504631	,	VV0v	let	[S*[V.V]
+T19_7257	0000000	y	YR	#	.
+T19_7260	0504650	,	UN	no	.
+T19_7263	0504668	,	UN	no	.
+T19_7266	0504686	,	UN	no	.
+T19_7269	0504705	|	VV0v	let	[V.V]
+T19_7272	0504716	|	PPHO1m	him	[Nos:O233.Nos:O233]
+T19_7275	0000000	y	YG	-	[Tb:o[s233.s233]
+T19_7278	0504727	,	VV0v	say	[V.V]Tb:o]S*]
+T19_7281	0504746	|	RRQq	how	[S?[Rq:h.Rq:h]
+T19_7284	0504756	|	VDZ	+'s	[Voz.Voz]
+T19_7287	0504766	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_7290	0504776	|	VV0v	say	[Vr.Vr]
+T19_7293	0504788	?	NP1m	Steven	[Q:o[Nns.Nns]Q:o]S?]
+T19_7296	-----	Richard078
+T19_7299	.....	03153
+T19_7302	0504840	c	YVL	{shouting}	.
+T19_7305	0504861	|	NP1m	Steven	[Nns.Nns]
+T19_7308	0504875	c	YVR	{shouting}	.
+T19_7311	-----	Kim077
+T19_7314	.....	03154
+T19_7317	0504914	|	UR	oh	.
+T19_7320	0504924	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T19_7323	0504935	|	VBDZ	was	[Vsu.
+T19_7326	0504946	|	VVGv	shouting	.Vsu]
+T19_7329	0504962	|	II	at	[P:q.
+T19_7332	0504972	|	PPHO1m	him	.P:q]
+T19_7335	0504983	|	II	at	[P:t.
+T19_7338	0504994	|	NN1c	dinner	[Ns.
+T19_7341	0505008	|	NNT1c	time	.Ns]P:t]
+T19_7344	0505020	c	YVL	{shouting}	.
+T19_7347	0505041	|	NP1m	Steven	[Q:o[Nns".Nns"]Q:o]S]
+T19_7350	0505055	c	YVR	{shouting}	.
+T19_7353	0505063	|	UR	oh	.
+T19_7356	0505074	*	NNS1c	god	[Nns!.Nns!]
+T19_7359	0505102	&	NN1c	dinner	[S[Ns:t.
+T19_7362	0505116	|	NNT1c	time	.Ns:t]
+T19_7365	0505128	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7368	0505139	|	VBDZ	was	[Vsu.
+T19_7371	0505151	|	VVGv	shouting	.Vsu]
+T19_7374	0505167	|	PPHO1m	him	[Nos:o.Nos:o]S]
+T19_7377	-----	Simon076
+T19_7380	.....	03155
+T19_7383	0505242	&	RRQq	how	[S?[Rq:h.Rq:h]
+T19_7386	0505252	|	VDD	+'d	[Vod.Vod]
+T19_7389	0505262	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7392	0505273	|	VV0i	go	[Vr.Vr]S?]
+T19_7395	0505283	?	NP1m	Rick	[Nns".Nns"]
+T19_7398	-----	Richard078
+T19_7401	.....	03156
+T19_7404	0505349	c	YVL	{shouting}	.
+T19_7407	0505370	|	NP1m	Steven	[Nns".Nns"]
+T19_7410	0505384	c	YVR	{shouting}	.
+T19_7413	-----	Simon076
+T19_7416	.....	00000
+T19_7419	0505411	c	YV	{laugh}	.
+T19_7422	-----	Kim077
+T19_7425	.....	03157
+T19_7428	0505460	c	YVL	{shouting}	.
+T19_7431	0505481	|	NP1m	Steven	[Nns".Nns"]
+T19_7434	0505495	c	YVR	{shouting}	.
+T19_7437	-----	Richard078
+T19_7440	.....	03158
+T19_7443	0505550	&c	YVL	{shouting}	.
+T19_7446	0505571	|	NP1m	Steven	[Nns".Nns"]
+T19_7449	0505585	c	YVR	{shouting}	.
+T19_7452	-----	Simon076
+T19_7455	.....	03159
+T19_7458	0505657	&	CC	and	[S?+.
+T19_7461	0505668	|	DDQ	what	[Dq:o.Dq:o]
+T19_7464	0505680	|	VDD	did	[Vod.Vod]
+T19_7467	0505691	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7470	0505719	&	VV0v	say	[Vr.Vr]
+T19_7473	0505731	|	ICSt	after	[P:t.
+T19_7476	0505744	?,	DD1a	that	.P:t]
+T19_7479	0505772	|	DDQ	what	[S?@[Dq:o.Dq:o]
+T19_7482	0505784	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7485	0505795	|	VV0v	say	[V.V]
+T19_7488	0505807	|	ICSt	after	[P:t.
+T19_7491	0505820	?	DD1a	that	.P:t]S?@]S?+]
+T19_7494	-----	Richard078
+T19_7497	.....	03160
+T19_7500	0505871	|	AT1	a	[Ns.
+T19_7503	0505880	|	JJ	big	.
+T19_7506	0505891	|	NN1c	smack	.Ns]
+T19_7509	-----	Simon076
+T19_7512	.....	03161
+T19_7515	0505935	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T19_7518	0505945	|	VBZ	+'s	[Vzb.Vzb]
+T19_7521	0000000	y	YR	#	.S]
+T19_7524	-----	Kim077
+T19_7527	.....	03162
+T19_7530	0505986	|	NNS1c	mummy	[S[Nns:s.Nns:s]
+T19_7533	0505999	|	VVDv	smacked	[Vd.Vd]
+T19_7536	0506014	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_7539	0506025	|	VDD	did	[Iq[S?[Vdex.
+T19_7542	0506035	|	XX	+n't	.Vdex]
+T19_7545	0506046	?	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S]
+T19_7548	-----	Simon076
+T19_7551	.....	03163
+T19_7554	0506095	c	YVL	{shouting}	.
+T19_7557	0506116	|	NP1m	Steven	[Nns".Nns"]
+T19_7560	0506130	c	YVR	{shouting}	.
+T19_7563	0506138	|	PPHS1f	she	[S?[Nas:s.Nas:s]
+T19_7566	0506149	|	VV0i	go	[V.V]
+T19_7569	0506159	|	ICSk	like	[P:h.
+T19_7572	0506172	?	DD1a	that	.P:h]S?]
+T19_7575	-----	Richard078
+T19_7578	.....	03164
+T19_7581	0506223	,	UY	mm	.
+T19_7584	0506241	|	NP1m	Steven	[Nns".Nns"]
+T19_7587	0506272	&	UA21	very	[UA=.
+T19_7590	0506284	|	UA22	sorry	.UA=]
+T19_7593	-----	Kim077
+T19_7596	.....	03165
+T19_7599	0506361	&c	YVL	{shouting}	.
+T19_7602	0506382	|	NP1m	Steven	[S[Q:s[Nns".Nns"]
+T19_7605	0506413	&	VV0v	stop	[S*[V.V]
+T19_7608	0506430	|	VVGv	running	[Tg:o[Vg.Vg]
+T19_7611	0506445	|	RL	about	[R:q.R:q]Tg:o]S*]Q:s]
+T19_7614	0506458	c,	YVR	{shouting}	.
+T19_7617	0506474	|	VVZv	sounds	[Vz.Vz]
+T19_7620	0506488	|	ICSk	like	[P:e.
+T19_7623	0506505	,	PPH1	it	.P:e]S]
+T19_7626	0506523	|	PPY	you	[S[Ny:s.Ny:s]
+T19_7629	0506534	|	VD0	do	[V.V]
+T19_7632	0506544	|	DD1a	that	[Ds:o.Ds:o]
+T19_7635	0506556	|	RT	again	[R:t.R:t]
+T19_7638	0506569	|	PPIS1	I	[S-[Nea:s.Nea:s]
+T19_7641	0506579	,	VMo	will	[Vc.Vc]S-]
+T19_7644	0000000	y	YR	#	.
+T19_7647	0506599	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7650	0506610	,	VVZv	says	[Vz.Vz]
+T19_7653	0506630	|	PPY	you	[Q:o[S[Ny:s.Ny:s]
+T19_7656	0506641	|	VD0	do	[V.V]
+T19_7659	0506651	|	DD1a	that	[Ds:o.Ds:o]
+T19_7662	0506664	|	RT	again	[R:t.R:t]
+T19_7665	0506677	|	CC	and	[S+.
+T19_7668	0506688	|	PPIS1	I	[Nea:s.Nea:s]
+T19_7671	0506696	|	VBM	+'m	[Vmut.
+T19_7674	0506706	|	VVGK	gon	.Vmut]
+T19_7677	0506716	|	TO	+na	[Ti:z[Vi.
+T19_7680	0506726	|	VV0v	smack	.Vi]
+T19_7683	0506740	,	PPY	you	[Ny:o.Ny:o]Ti:z]S+]S]
+T19_7686	0506759	,	UR	right	.
+T19_7689	0506780	|	VV0i	come	[S*[V.V]
+T19_7692	0506792	,	RLh	here	[Rw:q.Rw:q]S*]Q:o]S]
+T19_7695	0506812	|	CC	and	[S+.
+T19_7698	0506824	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7701	0506835	|	VVZv	gets	[Vz.Vz]
+T19_7704	0506847	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_7707	0506858	|	CC	and	[S+.
+T19_7710	0506869	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7713	0506880	|	VVZt	whacks	[Vz.Vz]
+T19_7716	0506894	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_7719	0506905	|	II31	in	[P:p[II=.
+T19_7722	0506905	|	II32	front	.
+T19_7725	0506905	|	II33	of	.II=]
+T19_7728	0506924	,	PN1	everybody	.P:p]
+T19_7731	0506957	|	VDD	did	[Iq[S?[Vdex.
+T19_7734	0506967	|	XX	+n't	.Vdex]
+T19_7737	0506978	|	PPHS1f	she	[Nas:s.Nas:s]S?]Iq]S+]S+]
+T19_7740	0506990	?	NP1m	Richard	[Nns".Nns"]
+T19_7743	-----	Simon076
+T19_7746	.....	03166
+T19_7749	0507043	|	VDD	did	[S?[Vod.Vod]
+T19_7752	0507054	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7755	0507065	|	VV0v	hit	[Vr.Vr]
+T19_7758	0507076	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_7761	0507087	?,	RR	hard	[R:h.R:h]S?]
+T19_7764	0507115	|	VDD	did	[S?[Vod.Vod]
+T19_7767	0507127	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7770	0507138	|	VV0v	hit	[Vr.Vr]
+T19_7773	0507149	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_7776	0507160	|	RR	really	[R:h.
+T19_7779	0507174	?,	RR	hard	.R:h]S?]
+T19_7782	0507202	|	VDD	did	[S?[Vod.Vod]
+T19_7785	0507214	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7788	0507225	|	VV0v	hit	[Vr.Vr]
+T19_7791	0507236	|	PPHO1m	him	[Nos:o.Nos:o]
+T19_7794	0507247	|	RGa	as	[R:h.
+T19_7797	0507257	|	RR	hard	.
+T19_7800	0507269	|	IIa	as	[P.
+T19_7803	0507279	?	DD1i	this	.P]R:h]S?]
+T19_7806	-----	Kim077
+T19_7809	.....	03167
+T19_7812	0507330	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T19_7815	0507341	|	VBDZ	was	[Vsb.Vsb]
+T19_7818	0507352	|	ICSk	like	[P:e.
+T19_7821	0507364	|	DD1i	this	.P:e]
+T19_7824	0507376	|	PPHS1f	she	[S@[Nas:s.Nas:s]
+T19_7827	0507387	|	VBDZ	was	[Vsb.Vsb]S@]S]
+T19_7830	-----	Simon076
+T19_7833	.....	03168
+T19_7836	0507429	|	UR	oh	.
+T19_7839	0507439	,	VVDv	missed	[S[Vd.Vd]S]
+T19_7842	0507461	|	VVDv	took	[S[Vd.Vd]
+T19_7845	0507473	|	AT1	a	[Ns:o.
+T19_7848	0507482	|	JJ	real	.
+T19_7851	0507494	|	NN1c	swing	.Ns:o]
+T19_7854	0507508	|	II	at	[P:q.
+T19_7857	0507518	|	PPH1	it	.P:q]S]
+T19_7860	-----	Kim077
+T19_7863	.....	03169
+T19_7866	0507559	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T19_7869	0507570	|	VVZv	makes	[Vz.Vz]
+T19_7872	0507583	|	PPIO1	me	[Neo:O245.Neo:O245]
+T19_7875	0000000	y	YG	-	[Tb:o[s245.s245]
+T19_7878	0507593	,	VV0v	laugh	[V.V]Tb:o]S]
+T19_7881	0507614	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T19_7884	0507625	|	VVZv	stands	[Vz.Vz]
+T19_7887	0507640	|	RLh	there	[Rw:p.Rw:p]
+T19_7890	0507653	|	VVGv	talking	[Tg:b[Vg.Vg]Tg:b]
+T19_7893	0507672	|	CC	and	[S+.
+T19_7896	0507683	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7899	0507693	|	VBZ	+'s	[Vzu.
+T19_7902	0507703	,	VVGv	saying	.Vzu]
+T19_7905	0000000	y	YR	#	.
+T19_7908	0507726	|	MC1	one	[Ns:t.
+T19_7911	0507737	|	NNT1c	minute	.Ns:t]
+T19_7914	0507751	|	PPHS1f	she	[Nas:s.Nas:s]
+T19_7917	0507761	|	VBZ	+'s	[Vzu.
+T19_7920	0507771	|	VVGv	saying	.Vzu]
+T19_7923	0507785	|	UR	oh	[Q:o.
+T19_7926	0507795	|	NP1m	Steven	[S[Nns:s.Nns:s]
+T19_7929	0507810	|	RR	really	[R:m.R:m]
+T19_7932	0507824	|	VVZt	loves	[Vz.Vz]
+T19_7935	0507837	,	NNJ1n	school	[Ns:o.Ns:o]S]
+T19_7938	0507859	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_7941	0507869	|	RR	really	[R:m.R:m]
+T19_7944	0507884	|	VVZt	enjoys	[Vz.Vz]
+T19_7947	0507898	,	PPH1	it	[Ni:o.Ni:o]S]
+T19_7950	0507916	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_7953	0000000	y	YG	-	[m247.m247]
+T19_7956	0507925	|	VHZ	+'s	[Vzf.
+T19_7959	0507935	|	RR	really	[R:G247.R:G247]
+T19_7962	0507949	|	VVNv	calmed	.Vzf]
+T19_7965	0507964	|	RP	down	[R:n.R:n]
+T19_7968	0507976	|	ICSt	since	[Fa:t.
+T19_7971	0507989	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_7974	0507998	|	VHZ	+'s	[Vzf.
+T19_7977	0508008	|	VVNi	gone	.Vzf]
+T19_7980	0508020	|	IIt	to	[P:q.
+T19_7983	0508030	|	NNJ1n	school	.P:q]Fa:t]S]
+T19_7986	0508044	c	YVL	{shouting}	.
+T19_7989	0508065	|	NP1m	Steven	[Nns".Nns"]
+T19_7992	0508079	|	VV0v	stop	[S*[V.V]
+T19_7995	0508095	|	VVGv	running	[Tg:o[Vg.Vg]
+T19_7998	0508110	|	II	down	[P:q.
+T19_8001	0508123	|	DD1a	that	[Ns.
+T19_8004	0508135	|	NN1c	corridor	.Ns]P:q]Tg:o]S*]
+T19_8007	0508151	c	YVR	{shouting}	.
+T19_8010	0508159	c.	YV	{laugh}	.
+T19_8013	.....	03170
+T19_8016	0508198	*	PPY	you	[S[Ny:s.Ny:s]
+T19_8019	0508208	|	VBR	+'re	[Vab.Vab]
+T19_8022	0508219	|	DAz21	ever	[Np:e[DAz=.
+T19_8025	0508231	|	DAz22	such	.DAz=]
+T19_8028	0508243	|	JJ	good	.
+T19_8031	0508255	|	NN2	boys	.Np:e]
+T19_8034	0508267	|	II	at	[P:p.
+T19_8037	0508278	|	NNJ1n	school	.P:p]
+T19_8040	0508309	&	VBR	are	[Iq[S?[Vaeb.
+T19_8043	0508319	|	XX	+n't	.Vaeb]
+T19_8046	0508330	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]Q:o]S+]S]
+T19_8049	-----	Simon076
+T19_8052	.....	03171
+T19_8055	0508413	&	VD0	do	[S?[Vo.Vo]
+T19_8058	0508423	|	PPY	you	[Ny:s.Ny:s]
+T19_8061	0508434	|	VD0	do	[Vr.Vr]
+T19_8064	0508444	|	PPH1	it	[Ni:o.Ni:o]
+T19_8067	.....	03172
+T19_8070	0508581	&	RR	properly	[R:h.R:h]S?]
+T19_8073	0508597	?	NP1m	Rick	[Nns".Nns"]
+T19_8076	-----	unid0
+T19_8079	.....	00000
+T19_8082	0508507	&ic	YY	{unclear}	[Y.Y]
+T19_8085	-----	Kim077
+T19_8088	.....	03173
+T19_8091	0508664	|	PPHS1m	he	[S[Nas:s251.Nas:s251]
+T19_8094	0508674	|	VBDZ	was	[Vsu.
+T19_8097	0508685	|	VVGv	trying	.Vsu]
+T19_8100	0000000	y	YG	-	[Ti:o[s251.s251]
+T19_8103	0508699	|	TO	to	[Vi.
+T19_8106	0508709	|	VD0	do	.Vi]
+T19_8109	0508719	|	AT	the	[Np:o.
+T19_8112	0508731	,	NN2	splits	.Np:o]Ti:o]S]
+T19_8115	0508753	|	VV0v	show	[S*[V.V]
+T19_8118	0508765	|	NP1m	Simon	[Nns:i.Nns:i]
+T19_8121	0508779	|	RRQq	how	[Fn?:o[Rq:h.Rq:h]
+T19_8124	0508790	|	PPY	you	[Ny:s.Ny:s]
+T19_8127	0508801	|	VD0	do	[V.V]
+T19_8130	0508812	|	AT	the	[N:o.
+T19_8133	0000000	y	YR	#	.N:o]Fn?:o]S*]
+T19_8136	0508823	,	UK	look	.
+T19_8139	0508843	,	UK	look	.
+T19_8142	0508863	,	UK	look	.
+T19_8145	0508884	,	UY	yeah	.
+T19_8148	0508904	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T19_8151	0508914	|	VVNi	come	[Vn.Vn]
+T19_8154	0508926	|	RP	up	[P:q.
+T19_8157	0508926	|	IIt	to	.
+T19_8160	0508939	|	PPIO1	me	.P:q]
+T19_8163	0508949	|	CC	and	[S+.
+T19_8166	0508961	|	VVDv	said	[Vd.Vd]
+T19_8169	0508973	|	VV0v	hold	[Q:o[S*[V.V]
+T19_8172	0508985	|	APPGi1	my	[Ns:o.
+T19_8175	0508995	,	NN1c	hand	.Ns:o]S*]
+T19_8178	0509015	,	UR	right	.
+T19_8181	0509036	|	RTo	now	[S*[Rw:t.Rw:t]
+T19_8184	0509048	|	VD0	do	[V.V]
+T19_8187	0000000	y	YR	#	.
+T19_8190	0509058	|	VV0v	try	[V.V]
+T19_8193	0509069	|	TO	to	[Ti:o[Vi.
+T19_8196	0509079	|	VD0	do	.Vi]
+T19_8199	0509089	|	AT	the	[Np:o.
+T19_8202	0509100	|	NN2	splits	.Np:o]Ti:o]S*]Q:o]S+]S]
+T19_8205	0509114	c	YP	{pause}	.
+T19_8208	-----	Simon076
+T19_8211	.....	03174
+T19_8214	0509153	|	VBZ	is	[S?[Vzb.Vzb]
+T19_8217	0509163	|	DD1a	that	[Ds:s.Ds:s]
+T19_8220	0509175	|	RGa	as	[R:e.
+T19_8223	0509175	|	RRf	far	.
+T19_8226	0509175	|	CSA	as	[Fc.
+T19_8229	0509192	|	PPHS1m	he	[Nas:s.Nas:s]
+T19_8232	0509202	?	VVZi	goes	[Vz.Vz]Fc]R:e]S?]
+T19_8235	-----	Kim077
+T19_8238	.....	03175
+T19_8241	0509253	|	RR	nearly	[S[R:m.R:m]
+T19_8244	0509267	|	VVDv	split	[Vd.Vd]
+T19_8247	0509284	|	APPGy	your	[Np:o.
+T19_8250	0509296	|	NN2	trousers	.Np:o]
+T19_8253	0509312	|	RTn	then	[Rsw:t.Rsw:t]S]
+T19_8256	-----	Simon076
+T19_8259	.....	03176
+T19_8262	0509355	,	JJ	careful	[J.J]
+T19_8265	0509378	|	VBR	are	[S?[Voab.Voab]
+T19_8268	0509389	|	PPY	you	[Ny:s.Ny:s]
+T19_8271	0509400	|	VVGi	coming	[Vrg.Vrg]
+T19_8274	0509414	|	IW	with	[P:w.
+T19_8277	0509427	?,	PPIO1	me	.P:w]S?]
+T19_8280	.....	03177
+T19_8283	0509465	*	NN1c	thunderbird	[Nns".
+T19_8286	0509484	|	MC1	one	.Nns"]
+T19_8289	-----	Richard078
+T19_8292	.....	03178
+T19_8295	0509526	*	NN2	thunderbirds	[S[Np:s.Np:s]
+T19_8298	0509546	|	VBR	are	[Vab.Vab]
+T19_8301	0509557	|	VV0i	go	[Ns:e.Ns:e]S]
+T19_8304	-----	Simon076
+T19_8307	.....	03179
+T19_8310	0509598	|	CCB	but	[S+.
+T19_8313	0509609	|	DD1a	that	[Ns:s.
+T19_8316	0509621	|	NN1c	teacher	.Ns:s]
+T19_8319	0509628	|	VBZ	+'s	[Vzu.
+T19_8322	0509637	|	VVGv	looking	.Vzu]
+T19_8325	0509652	|	IF	for	[P:u.
+T19_8328	0509663	|	AT1	a	[Ns.
+T19_8331	0509673	|	VVGv	kicking	[Tg[Vg.Vg]Tg]Ns]P:u]S+]
+T19_8334	-----	Kim077
+T19_8337	.....	03180
+T19_8340	0509722	c	YV	{humming}	.
+T19_8343	0509743	c	YVL	{singing}	.
+T19_8346	0509763	|	DDy	any	[S[Ns:s.
+T19_8349	0509774	|	NN1c	dream	.Ns:s]
+T19_8352	0509787	|	VMo	will	[Vc.
+T19_8355	0509800	|	VD0	do	.Vc]S]
+T19_8358	0509810	c,	YVR	{singing}	.
+T19_8361	0509826	|	UY	yes	.
+T19_8364	0509837	|	PPIS1	I	[S[Nea:s.Nea:s]
+T19_8367	0509845	|	VBM	+'m	[Vmu.
+T19_8370	0509855	|	VVGv	starving	.Vmu]
+T19_8373	0509876	|	RR	too	[R:m.R:m]S]
+T19_8376	-----	Simon076
+T19_8379	.....	03181
+T19_8382	0509918	|	VV0v	hurry	[S*[V.V]
+T19_8385	0509931	|	RP	up	[R:n.R:n]S*]
+T19_8388	0509945	|	NN1c	girl	[Ns".Ns"]
+T19_8391	-----	Kim077
+T19_8394	.....	03182
+T19_8397	0509988	|	UX21	oh	[UX=.
+T19_8400	0509998	,	UX22	dear	.UX=]
+T19_8403	0510018	|	VV0v	stop	[S*[V.V]
+T19_8406	0510030	|	VVGv	eating	[Tg:o[Vg.Vg]
+T19_8409	0510048	|	NN1u	rubbish	[Ns:o.Ns:o]Tg:o]S*]
+T19_8412	0510064	|	PPY	you	[S[Ny:s.Ny:s]
+T19_8415	0510075	|	VMo	wo	[Vce.
+T19_8418	0510084	,	XX	+n't	.
+T19_8421	0000000	y	YR	#	.
+T19_8424	0510103	|	VMo	wo	.
+T19_8427	0510112	|	XX	+n't	.
+T19_8430	0510123	|	VV0v	eat	.Vce]
+T19_8433	0510134	|	DDy	any	[Ns:o.
+T19_8436	0510146	,	NN1c	dinner	.Ns:o]S]
+T19_8439	0510168	|	UR	oh	.
+T19_8442	0510178	|	DD1a	that	[S[Ds:s.
+T19_8445	0000000	y	YG	-	[255.255]Ds:s]
+T19_8448	0510190	|	VBZ	is	[Vzb.Vzb]
+T19_8451	0510200	|	JJ	disgusting	[J:e.J:e]
+T19_8454	0510219	|	VVGt	ramming	[Tg@:G255[Vg.Vg]
+T19_8457	0510238	|	AT1	a	[Ns:o.
+T19_8460	0510247	|	JJ	whole	.
+T19_8463	0510260	|	NN1c	slice	.
+T19_8466	0510273	|	IO	of	[Po.
+T19_8469	0510283	|	NN1u	bread	.Po]Ns:o]
+T19_8472	0510297	|	RP	in	[R:q.R:q]
+T19_8475	0510307	|	JJ	whole	[J:j.J:j]
+T19_8478	.....	03184
+T19_8481	0510396	&	IW	without	[P:w.
+T19_8484	0510411	|	NN1u	butter	.P:w]Tg@:G255]S]
+T19_8487	-----	Simon076
+T19_8490	.....	03183
+T19_8493	0510355	|	UY	mm	.
+T19_8496	-----	Simon076
+T19_8499	.....	03185
+T19_8502	0510456	,	UY	mm	.
+T19_8505	0510474	|	UY	mm	.

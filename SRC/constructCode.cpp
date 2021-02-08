@@ -15,7 +15,8 @@ static void TestIf(char* ptr,FunctionResult& result,char* buffer)
 	char op[MAX_WORD_SIZE];
 	int id;
 	impliedIf = 1;
-	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"If ");
+	bool header = false;
+
 resume:
 	ptr = ReadCompiledWord(ptr,word1);	//   the var or whatever
 	bool invert = false;
@@ -28,15 +29,23 @@ resume:
 	}
 	ptr = ReadCompiledWord(ptr,op);		//   the test if any, or (for call or ) for closure or AND or OR
 	bool call = false;
+
+	if (trace & TRACE_OUTPUT && !header && CheckTopicTrace()  && *word1 == '1' && word1[1] == 0) 
+		id = Log(USERLOG, "else( ");
+	else if (trace & TRACE_OUTPUT && !header && CheckTopicTrace()) id = Log(USERLOG, "If (");
+	header = true;
+
 	if (*op == '(') // function call instead of a variable. but the function call might output a value which if not used, must be considered for failure
 	{
 		call = true;
 		ptr -= strlen(word1) + 3; //   back up so output can see the fn name and space
 		ptr = Output(ptr,buffer,result,OUTPUT_ONCE|OUTPUT_KEEPSET); // buffer hold output value // skip past closing paren
 		if (result & SUCCESSCODES) result = NOPROBLEM_BIT;	// legal way to terminate the piece with success at any  level
-		if (trace & TRACE_OUTPUT && CheckTopicTrace()) 
+		
+		if (trace & TRACE_OUTPUT && CheckTopicTrace())
 		{
-			if (result & ENDCODES) id = Log(USERLOG,"%c%s ",(invert) ? '!' : ' ',word1);
+			if (*word1 == '^') { ; } // it will have declared itself, no need to trace here
+			else if (result & ENDCODES) id = Log(USERLOG,"%c%s ",(invert) ? '!' : ' ',word1);
 			else if (*word1 == '1' && word1[1] == 0) id = Log(USERLOG,"else ");
 			else id = Log(USERLOG,"%c%s ",(invert) ? '!' : ' ',word1);
 		}
@@ -73,18 +82,19 @@ resume:
 				found = word1 + 2;	// preevaled function variable
 			else if (*word1 == SYSVAR_PREFIX) found = SystemVariable(word1,NULL);
 			else if (*word1 == '_') found = wildcardCanonicalText[GetWildcardID(word1)];
-			else if (*word1 == USERVAR_PREFIX) found = GetUserVariable(word1);
+			else if (*word1 == USERVAR_PREFIX) found = GetUserVariable(word1,false,true);
 			else if (*word1 == '?') found = (tokenFlags & QUESTIONMARK) ? "1" :  "";
 			else if (*word1 == '^' && word1[1] == USERVAR_PREFIX) // indirect var
 			{
-				found = GetUserVariable(word1+1);
-				found = GetUserVariable(found,true);
+				found = GetUserVariable(word1+1,false,true);
+				found = GetUserVariable(found,true,true);
 			}
 			else if (*word1 == INDIRECT_PREFIX && word1[1] == '^' && IsDigit(word1[2])) found = ""; // indirect function var 
 			else if (*word1 == '^' && word1[1] == '_') found = ""; // indirect var
 			else if (*word1 == '^' && word1[1] == '\'' && word1[2] == '_') found = ""; // indirect var
 			else if (*word1 == '@') found =  FACTSET_COUNT(GetSetID(word1)) ?  "1" : "";
 			else found = word1;
+
 			if (trace & TRACE_OUTPUT && CheckTopicTrace()) 
 			{
 				char* label = AllocateStack(NULL, maxBufferSize);
@@ -92,13 +102,13 @@ resume:
 				if (*remap == '^') sprintf(label,"%s->%s",remap,word1);
 				if (!*found) 
 				{
-					if (invert) id = Log(USERLOG,"!%s (null) ",label);
-					else id = Log(USERLOG,"%s (null) ",label);
+					if (invert) id = Log(USERLOG,"!%s`null` ",label);
+					else id = Log(USERLOG,"%s`null` ",label);
 				}
 				else 
 				{
-					if (invert) id = Log(USERLOG,"!%s (%s) ",label,found);
-					else id = Log(USERLOG,"%s (%s) ",label,found);
+					if (invert) id = Log(USERLOG,"!%s`%s` ",label,found);
+					else id = Log(USERLOG,"%s`%s` ",label,found);
 				}
 				ReleaseStack(label);
 			}
@@ -110,8 +120,8 @@ resume:
 		{
 			if (trace & TRACE_OUTPUT && CheckTopicTrace()) 
 			{
-				if (result & ENDCODES) id = Log(USERLOG,"%c%s ",(invert) ? '!' : ' ',word1);
-				else if (*word1 == '1' && word1[1] == 0) id = Log(USERLOG,"else ");
+				if (*word1 == '1' && !word1[1]) {} // dont show the else test
+				else if (result & ENDCODES) id = Log(USERLOG,"%c%s ",(invert) ? '!' : ' ',word1);
 				else id = Log(USERLOG,"%c%s ",(invert) ? '!' : ' ',word1);
 			}
 			ptr -= strlen(word1) + 3; //   back up to process the word and space
@@ -163,6 +173,7 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 	*buffer = 0;
     CALLFRAME* frame = ChangeDepth(1, "If()", false);
     frame->code = ptr;
+	--adjustIndent; // stay showing at prior level
 
 	while (ALWAYS) //   do test conditions until match
 	{
@@ -227,8 +238,8 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 		}
 		if (trace & TRACE_OUTPUT  && CheckTopicTrace()) 
 		{
-			if (result & ENDCODES) Log(USERLOG,"%s\r\n", "FAIL-if");
-			else Log(USERLOG,"%s\r\n", "PASS-if");
+			if (result & ENDCODES)  Log(USERLOG,"%s\r\n", "FAIL-if");
+			else  Log(USERLOG, ") ");
 		}
 
 		ptr = endptr; // now after pattern, pointing to the skip data to go past body.
@@ -239,17 +250,17 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 		{
 			executed = true;
             ptr += 5;
-
-            CALLFRAME* frameptr = ChangeDepth(0, "If{}", false, ptr);
-            frameptr->code = ptr;
+			++adjustIndent;
             ptr = Output(ptr,buffer,result); //   skip accelerator-3 and space and { and space - returns on next useful token
+			--adjustIndent;
 			ptr += Decode(ptr);	//   offset to end of if entirely
 			if (*(ptr-1) == 0)  --ptr;// no space after?
 			break;
 		}
-		else 
+		else
+		{
 			result = NOPROBLEM_BIT;		//   test result is not the IF result
-	
+		}
 		//   On fail, move to next test
 		ptr +=  Decode(ptr);
 		if (*(ptr-1) == 0) 
@@ -261,8 +272,9 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
 		ptr += 5; //   skip over ELSE space, aiming at the ( of the next condition condition
 	}
 	if (executed && trace & TRACE_OUTPUT  && CheckTopicTrace())  Log(USERLOG,"End If\r\n");
-    ChangeDepth(-1, "If()", true);
-    
+	ChangeDepth(-1, "If()", true);
+	++adjustIndent; // return to if level
+
     return ptr;
 } 
 
@@ -286,9 +298,10 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
     bool newest = false; // oldest members first
     int indexsize = 0;
     FACT** stack = NULL;
+
     if (!json)
     {
-        limit = atoi(GetUserVariable((char*)"$cs_looplimit"));
+        limit = atoi(GetUserVariable((char*)"$cs_looplimit",false,true));
         if (limit == 0) limit = 1000;
 
         ptr = GetCommandArg(ptr + 2, buffer, result, 0) + 2; //   get the loop counter value and skip closing ) space 
@@ -299,12 +312,16 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         char data[MAX_WORD_SIZE];
 		*data = 0;
         ptr = GetCommandArg(ptr + 2, data, result, 0); //   get the json object 
-		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"jsonloop(%s)\r\n", data);
-
+		if (trace & TRACE_OUTPUT && CheckTopicTrace())
+		{
+			--adjustIndent;
+			Log(USERLOG, "jsonloop(%s)\r\n", data);
+			++adjustIndent;
+		}
 		if (!*data)
 		{
 			result = NOPROBLEM_BIT;
-			ChangeDepth(-1, "Loop()", false, ptr + 2);
+			ChangeDepth(-1, "Loop()", true);
 			return endofloop; // null value
 		}
 
@@ -312,7 +329,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		if (!IsValidJSONName((char*)data))
 		{
 			result = FAILRULE_BIT;
-			ChangeDepth(-1, "Loop()", false, ptr + 2);
+			ChangeDepth(-1, "Loop()", true);
 			return endofloop; // we dont know it
 		}
 
@@ -320,15 +337,15 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
         if (!jsonstruct) // no known object
         {
             result = FAILRULE_BIT;
-            ChangeDepth(-1, "Loop()", false, ptr + 2);
-            return endofloop; // we dont know it
+            ChangeDepth(-1, "Loop()", true);
+			return endofloop; // we dont know it
         }
         F = GetSubjectNondeadHead(jsonstruct);
         if (!F)// no members
         {
             result = NOPROBLEM_BIT;
-            ChangeDepth(-1, "Loop()", false, ptr + 2);
-            return endofloop; // we dont know it
+            ChangeDepth(-1, "Loop()", true);
+			return endofloop; // we dont know it
         }
   
         // move onto stack so we can walk either way the elements
@@ -348,7 +365,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 			if (word[1] != '_')
 			{
 				result = FAILRULE_BIT;
-				ChangeDepth(-1, "Loop()", false, ptr + 2);
+				ChangeDepth(-1, "Loop()", true);
 				return endofloop; // we dont know it
 			}
 			var1 = StoreWord(word, AS_IS);
@@ -360,7 +377,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 			if (word[1] != '_')
 			{
 				result = FAILRULE_BIT;
-				ChangeDepth(-1, "Loop()", false, ptr + 2);
+				ChangeDepth(-1, "Loop()", true);
 				return endofloop; // we dont know it
 			}
 			var2 = StoreWord(word, AS_IS);
@@ -382,7 +399,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		if (set < 0) 
 		{
             result = FAILRULE_BIT; // illegal id
-            ChangeDepth(-1, "Loop()", false, ptr + 2);
+			ChangeDepth(-1, "Loop()", true);
 			return ptr;
 		}
 		counter = FACTSET_COUNT(set);
@@ -392,8 +409,8 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 	*buffer = 0;
     if (result & ENDCODES)
     {
-        ChangeDepth(-1, "Loop()", false, ptr + 2);
-        return endofloop;
+        ChangeDepth(-1, "Loop()", true);
+		return endofloop;
     }
     ptr += 5;	//   skip jump + space + { + space
     ++withinLoop; // used by planner
@@ -404,11 +421,10 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		counter = limit; //   LIMITED
 		infinite = true; // loop is bounded by defaults
 	}
-    CALLFRAME* frame = ChangeDepth(0, "Loop{}", false, ptr);
+	--adjustIndent;
     int forward = 0;
 	while (counter-- > 0)
 	{
-        frame->x.ownvalue = counter;
 		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"loop(%d)\r\n",counter+1);
         if (json)
         {
@@ -455,6 +471,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
 		}
 	}
 	ChangeDepth(-1,"Loop{}",true); // allows step out to cover a loop 
+	++adjustIndent;
 	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"end of loop\r\n");
 	if (counter < 0 && infinite) 
 		ReportBug("INFO: Loop ran to limit %d\r\n",limit);

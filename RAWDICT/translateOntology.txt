@@ -1,0 +1,26 @@
+# erase rawdict/_extravocabulary.txt to start
+
+:build adjective0
+:sortconcept x
+:translateconcept german RAWDATA/ONTOLOGY/german_adjectives.top 
+
+:build adverb0
+:sortconcept x
+:translateconcept german RAWDATA/ONTOLOGY/german_adverbs.top 
+ 
+:build affect0
+:sortconcept x
+:translateconcept german RAWDATA/ONTOLOGY/german_affect.top 
+# first rename LIVEDATA out of the way!
+
+:build preposition0
+:sortconcept x
+:translateconcept german RAWDATA/ONTOLOGY/german_preposition.top 
+
+:build verb0
+:sortconcept x
+:translateconcept german RAWDATA/ONTOLOGY/german_verb.top 
+
+:build concept0
+:sortconcept x
+:translateconcept german RAWDATA/ONTOLOGY/german_concepts.top 

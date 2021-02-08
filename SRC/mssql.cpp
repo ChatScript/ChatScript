@@ -197,7 +197,7 @@ void MsSqlFullCloseCode(bool restart)
     already_entered_close = true;
         
     if (!mssqlInited) {
-        ReportBug((char*) "mssql: Closing uninitialized block %s", mssql_error());
+        ReportBug((char*) "INFO: mssql: Closing uninitialized mssql db %s", mssql_error());
         return; // closing maybe when failed to init and reported bug then
     }
 

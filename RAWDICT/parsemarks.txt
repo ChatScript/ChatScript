@@ -1,0 +1,797 @@
+:OF_PROPER  # capitalized words that should be merged after of
+America Asia   Europe 
+ Africa  Australia 
+ Canada  Switzerland  Norway  Iceland Andorra  Ukraine 
+ Moldova  Serbia  Macedonia Georgia  Russia  Ireland  
+ Estonia  Lithuania Latvia  Bosnia  Slovakia 
+ Malta Czechoslovakia  Slovenia Britain Germany Scotland Wales
+ France Italy  Spain  Portugal  Holland  Poland 
+ Denmark Sweden  Finland Greece Finland  Austria  Hungaria Hungary
+China 
+Romania  Bulgaria  Laos  Cambodia  Indonesia 
+ Japan  Korea  Thailand  Vietnam  Malasia  Mongolia India
+Tibet Turkey  Lebanan Jordan  Israel   Syria 
+ Armenia  Iran  Arabia Palestine Brazil Mexico 
+ Peru  Columbia  Bolivia Tonga Chile Argentina 
+ Bolivia Liberia Somalia  Algeria  Hondurus Cuba 
+ Guatemala 
+ Taiwan 
+ Utah 
+Vermont 
+Virginia 
+Washington 
+Wisconsin 
+Wyoming 
+Tennessee 
+Alabama 
+Alaska 
+Arizona 
+Arkansas 
+Texas 
+California 
+Colorado 
+Connecticut 
+Florida 
+Georgia 
+Delaware 
+Hawaii 
+Idaho 
+Illinois 
+Iowa 
+Kansas 
+Kentucky 
+Louisiana 
+Maryland 
+Massachusetts 
+Michigan 
+Minnesota 
+Mississippi 
+Missouri 
+Montana 
+Nebraska 
+Nevada 
+Ohio 
+Oklahoma 
+Oregon 
+Pennsylvania 
+
+:VERB_ALLOWS_OF_AFTER
+think speak talk chat dream tell consist write hear smack 
+  give tire dispose 
+
+
+:factitive_adjective_verb 
+appoint baptize believe blow boil bored brush bury call crack 
+  certify choose christen confess consider crop crown cut declare deem 
+  drain drive elect esteem file fill find freeze frighten get 
+  imagine hammer hold jerk judge keep knock leave like make 
+  name paint plane prefer presume proclaim profess pronounce prove pull 
+  push rate reckon render report send suppose think turn vote 
+  want wash wipe wish 
+
+:FACTITIVE_NOUN_VERB 
+appoint choose confess consider deem elect hold judge keep leave 
+  like make name prefer profess report rub shoot select steal 
+  think want wish 
+
+:DISTANCE_NOUN  			    
+furlong mile kilometer inch foot yard centimeter meter lightyear
+
+:DISTANCE_ADVERB  			
+behind away ahead under after
+
+:DISTANCE_ADJECTIVE 			
+tall short long thick thin wide
+
+:TIME_ADVERB  				
+before ago late early after hence
+
+:TIME_NOUN 
+second minute hour day week month year century millenia
+
+:TIME_ADJECTIVE
+old young this last next prior 
+
+:OBJECT_AS_ADJECTIVE  # I think of him as silly
+think speak talk view remember recall know
+~describe cast depict describe detail portray recast represent specify  
+~imagining_think (cerebrate cogitate conceive contemplate dream_up dummy envisage envision fake fantasize hypothecate hypothesise hypothesize image imagine introspect 
+          outguess plan predict preplan pretend simulate suppose theorise visualise visualize wish wonder )
+
+
+:ADJECTIVE_GOOD_SUBJECT_COMPLEMENT 
+windy sunny snowy rainy sassy resourceful ready quick-witted pointed pert 
+  nimble nervy knowing ingenious genius eggheaded effective crafty canny brisk 
+  brilliant brainy ball astute apt agile adept acute witless unthinking 
+  unintelligent trivial thick-headed stupefied stolid sluggish simpleminded shortsighted senseless rash 
+  puerile pointless obtuse nonsensical moronic mindless meaningless ludicrous laughable irrelevant 
+  insensate indiscreet inane imbecilic ill-advised idiotic half-witted half-baked futile dummy 
+  dumb dopey doltish dim deficient dazed brainless unauthorized required obligatory 
+  necessary licit legal illicit illegal dutiful rational irrational difficult potential 
+  possible incompetent incapable impossible competent rapid quick lethargic fast woolly 
+  waxy velvety sticky steamy spongy smooth slippery silky sharp satiny 
+  rubbery prickly oily mushy lukewarm leathery icy hairy gritty furry 
+  fragile fleshy elastic crisp bumpy torrid tepid hot frozen frigid 
+  cool cold yummy sweet juicy powder colloidal solid crystalline amorphous 
+  liquid plasma gas gaseous silent loud narrow wee tiny small 
+  infinitesimal undersized puny inadequate bitty scanty petite miniscule cramped microscopic 
+  voluminous whopping colossal vast spacious sizable immense gigantic broad bulky 
+  wide gross thick large huge enormous big astronomical wiry winged 
+  wavy tufted tubular triangular top-heavy swollen square scalloped ruffled round 
+  rotund rectangular pyramidal proportional portly pendulous palaceous padded oviform oval 
+  ophiomorphic ooidal omegoid olivary nephroid navicular mitrate lunulate lunate lumpy 
+  lobular ligulate lambdoid irregular ichthyomorphic hypsiloid hyoid hollow hexagonal helminthoid 
+  helicoid globular galeated furcular fucoid flat domed deltoid cylindrical curved 
+  cupulate cuneiform cuneate cubiform cubic crinkled cricoid coronoid corniculate cordiform 
+  cordate coracoid conical conglobate cochlear clypeate clustered clithridiate clavate clathrate 
+  circular circinate cingular choanoid ceratoid cassideous carinated cardioid cannular buccinal 
+  broken branching belonoid beloid belemnoid balanoid baculiform auriform aspidate arietinous 
+  arcuate arcate arborescent apsidal ansate annodated ankyroid angular ancoral ancistroid 
+  amygdaloid allantoid acicular some several middling uncounted umpteen teeming rife 
+  populous plentiful numerous numberless no_end_of myriad multifarious much many lousy_with 
+  legion innumerable divers crowded copious bountiful bounteous abounding a_lot sporadic 
+  slight scattering scarce scarcely_any scant not_many minority meager insufficient few 
+  lunar Greek French eastern American vertical upside-down turned tilted skewed 
+  prone kneeling horizontal erect diagonal stationary motionless wet moist dry 
+  damp wooden paper metal cotton weigh weight underweight thin slim 
+  skinny lean gaunt anorexic plump overweight obese massive heavy fat 
+  chubby upper near low lower high far close soft malleable 
+  impenetrable hard normal enhanced degraded working workable functioning functional enabled 
+  disabled unrivaled superior superb peerless outstanding matchless great good first-rate 
+  excellent best mediocre atrocious yellowish yellow tawny ochre nankeen lurid 
+  gamboge citrine citreous beige tangerine sulphur suede saffron primrose persimmon 
+  peach mustard lemon goldenrod chrome canary butterscotch buttercup butter apricot 
+  whitish white whey ivory cretaceous cream chalk blond vinaceous vermillion 
+  vermilion vermeil umber testaceous stammel solferino sanguineous Rufous reddish red 
+  rectory puniceous puccoon ponceau pinkish pink phoeniceous nacarat modena minium 
+  miniaceous maroon madder lateritious kermes incarnadine haematic garnet fuchsia flammeous 
+  erythraean cyan crimson cramoisy coquelicot coccineous cinnabar cerise cardinal strawberry 
+  salmon ruby rose raspberry coral cherry burgundy brick rhodopsin purpureal 
+  purpure purplish purple puce porphyrous orchid mauve magenta ianthine hyacinthine 
+  heliotrope amaranthine violet plum mulberry lilac lavender claret aubergine orangish 
+  orange auburn silver platinum metallic gold brass argent zinnober viridian 
+  virid virescent smaragdine prasinous porraceous pistachio olivaceous Kelly greenish green 
+  glaucous chlorochrous chartreuse celadon caesious sage olive mint lime emerald 
+  celery apple hoary greyish grey grayish gray columbine cesious ashen 
+  umbra Titian terracotta taupe tan sorrel sinopia sienna sepia sandy 
+  rust russet mahogany infuscate fuscous buff brunette brownish brown bronze 
+  amber walnut rainbow nutmeg khaki honey hazel copper coffee cinnamon 
+  chocolate almond watchet ultramarine turquoise teal royal porceline pavonated navy 
+  mazarine indigo cyaneous cerulean blueish blue azure azuline aqua steel 
+  sky sapphire periwinkle peacock cobalt aquamarine piceous nigrine morel melanic 
+  licorice jet_black ebony blackish black washed dirty clean radioactive magnetic 
+  electric expensive cheap affordable costly uneconomic economic sparse dense packed 
+  open inaccessible closed accessible stunning scenic pretty handsome great_looking good_looking 
+  good-looking beautiful attractive attractive_looking hideous disfigured wrinkled worn used untidy 
+  transparent translucent striped spotted sparkling shiny shimmering sheer shabby rotted 
+  patterned opaque muddy mottled iridescent grimy glowing glossy glazed glassy 
+  freckled fluid flowery dull drab dotted dismal dingy clear blotched 
+  gangly lanky midget dominant Catholic taciturn chatty thirsty zealous zany 
+  worried wonderful weary wasteful wary voracious volatile vivacious vigorous vague 
+  upset upbeat unusual unsure unbiased typical trustworthy troubled tired tight 
+  thrifty threatening thick-skinned testy talented succinct strict stimulating steadfast squeamish 
+  splendid sore sneaky smiling slow skilful sincere shrewd self-assured selective 
+  seemly sedate secretive scary romantic righteous rhetorical resolute relieved receptive 
+  punctual protective productive possessive plucky plausible placid permissive perfect peaceful 
+  panicky painstaking outrageous obedient nice naughty mysterious modern lucky lovely 
+  lonely level joyous jolly jittery irresolute instinctive industrious impartial ill 
+  hurt hungry honorable homeless hilarious hesitant helpless harmonious happy gullible 
+  guarded grieving glorious furtive frightened fretful frantic frank forgetful flippant 
+  flashy finicky fine fierce fearless fantastic fanatical fain faded fabulous 
+  exuberant exclusive evasive erratic envious enthusiastic entertaining endurable encouraging enchanting 
+  eminent elated dynamic disillusioned discreet diligent detailed depressed delightful defeated 
+  decorous decisive debonair dazzling dashing dangerous cynical cultured credible confused 
+  comfortable coherent charming capable boundless bored bewildered ashamed anxious annoyed 
+  angry amused ambiguous alluring alert agreeable afraid adorable adaptable wretched 
+  worthless wicked vulgar venomous vengeful uptight unsuitable undesirable truculent tiresome 
+  thoughtless terrible tacky sulky strange stingy spendthrift snobbish ruthless repulsive 
+  quarrelsome pathetic nasty mellow mean malicious lacking ignorant horrible harsh 
+  grumpy gruesome greedy foolish filthy evil domineering disturbed deranged demonic 
+  defective deceitful cruel creepy crazy cowardly combative callous boring boorish 
+  belligerent bad awful aloof abusive abrupt abrasive visible invisible fuzzy 
+  little sleeping sickly healthy extinct dying dead alive neuter male 
+  hermaphroditic female weak tall witty wise willing wild warm vain 
+  unselfish unlucky unique unhappy understanding ugly trusting tricky tough tolerant 
+  tireless timid thrilling thoughtful tense tender tantalizing successful studious stubborn 
+  strong stable smart simple simple-minded silly shy short serious sensitive 
+  sensible selfish self-conscious self-confident sarcastic sad rude rigid rich reverent 
+  responsible respectful reserved religious reliable relaxed reflective rebellious realistic radical 
+  quiet questioning proud proper prim popular poor pleasing pleasant plain 
+  pitiful personable perfectionist patriotic patient Passive outgoing organized opinionated obnoxious 
+  noisy nervous neat naive mischievous messy merry melancholy mature materialistic 
+  manipulative loyal loving lovable lively likeable light light-hearted leader lazy 
+  knowledgeable kind keen judgmental joyful jealous inventive intelligent independent impulsive 
+  imaginative humorous humble hopeful honest helpful hard-working grouchy gracious gorgeous 
+  giving gentle generous funny fun-loving frustrated friendly free forgiving fighter 
+  fancy faithful fair expert excited energetic embarrassed efficient eager disgruntled 
+  disagreeable devout determined demanding defiant dark daring dainty curious creative 
+  courageous cooperative considerate confident conceited complex compassionate clumsy clever cheerful 
+  cautious caring careless careful calm busy bright brave bossy bold 
+  boastful awkward athletic articulate arrogant annoying ambitious aggressive adventurous accepting 
+  able teenager adult infant child young second_hand old new fledgling 
+  brand-new ancient 
+  ~physical_properties_adjectives 
+    ~age_adjectives ancient~a brand-new~a fledgling~a new~a old~a second_hand~a young~a child infant adult 
+      teenager 
+    
+    ~animation_adjectives 
+      ~living_properties_adjectives 
+        ~character_trait_adjectives able~a accepting~a adventurous~a aggressive~a ambitious~a annoying~a arrogant~a articulate~a athletic~a awkward~a 
+          boastful~a bold~a bossy~a brave~a bright~a busy~a calm~a careful~a careless~a caring~a 
+          cautious~a cheerful~a clever~a clumsy~a compassionate~a complex~a conceited~a confident~a considerate~a cooperative~a 
+          courageous~a creative~a curious~a dainty~a daring~a dark~a defiant~a demanding~a determined~a devout~a 
+          disagreeable~a disgruntled~a eager~a efficient~a embarrassed~a energetic~a excited~a expert~a fair~a faithful~a 
+          fancy~a fighter~a forgiving~a free~a friendly~a frustrated~a fun-loving~a funny~a generous~a gentle~a 
+          giving~a gorgeous~a gracious~a grouchy~a hard-working~a helpful~a honest~a hopeful~a humble~a humorous~a 
+          imaginative~a impulsive~a independent~a intelligent~a inventive~a jealous~a joyful~a judgmental~a keen~a kind~a 
+          knowledgeable~a lazy~a leader~a light-hearted~a light~a likeable~a lively~a lovable~a loving~a loyal~a 
+          manipulative~a materialistic~a mature~a melancholy~a merry~a messy~a mischievous~a naive~a neat~a nervous~a 
+          noisy~a obnoxious~a opinionated~a organized~a outgoing~a Passive~a patient~a patriotic~a perfectionist~a personable~a 
+          pitiful~a plain~a pleasant~a pleasing~a poor~a popular~a prim~a proper~a proud~a questioning~a 
+          quiet~a radical~a realistic~a rebellious~a reflective~a relaxed~a reliable~a religious~a reserved~a respectful~a 
+          responsible~a reverent~a rich~a rigid~a rude~a sad~a sarcastic~a self-confident~a self-conscious~a selfish~a 
+          sensible~a sensitive~a serious~a short~a shy~a silly~a simple-minded~a simple~a smart~a stable~a 
+          strong~a stubborn~a studious~a successful~a tantalizing~a tender~a tense~a thoughtful~a thrilling~a timid~a 
+          tireless~a tolerant~a tough~a tricky~a trusting~a ugly~a understanding~a unhappy~a unique~a unlucky~a 
+          unselfish~a vain~a warm~a wild~a willing~a wise~a witty~a 
+        
+        ~constitution_adjectives short~a strong~a tall~a weak~a 
+        
+        ~gender_adjectives female~a hermaphroditic~a male~a neuter~a 
+        
+        ~health_adjectives alive~a dead~a dying~a extinct~a healthy~a sickly~a sleeping~a little~a 
+        
+        ~perception_adjectives fuzzy~a invisible~a visible~a 
+        
+        ~psychology_adjectives 
+          ~insult_psychology_adjectives abrasive~a abrupt~a abusive~a aloof~a arrogant~a awful~a bad~a belligerent~a boorish~a boring~a 
+            callous~a careless~a clumsy~a combative~a cowardly~a crazy~a creepy~a cruel~a deceitful~a defective~a 
+            demonic~a deranged~a disagreeable~a disturbed~a domineering~a evil~a filthy~a foolish~a greedy~a gruesome~a 
+            grumpy~a harsh~a horrible~a ignorant~a lacking~a lazy~a malicious~a mean~a mellow~a naive~a 
+            nasty~a noisy~a obnoxious~a pathetic~a quarrelsome~a repulsive~a ruthless~a selfish~a silly~a snobbish~a 
+            spendthrift~a stingy~a strange~a sulky~a tacky~a terrible~a thoughtless~a tiresome~a truculent~a undesirable~a 
+            unsuitable~a uptight~a vengeful~a venomous~a vulgar~a wicked~a worthless~a wretched~a 
+          adaptable~a adorable~a afraid~a agreeable~a alert~a alluring~a ambiguous~a ambitious~a amused~a 
+          angry~a annoyed~a anxious~a ashamed~a bewildered~a bored~a boundless~a brave~a bright~a calm~a 
+          capable~a charming~a cheerful~a coherent~a comfortable~a confident~a confused~a cooperative~a courageous~a credible~a 
+          cultured~a cynical~a dangerous~a dashing~a dazzling~a debonair~a decisive~a decorous~a defeated~a defiant~a 
+          delightful~a depressed~a detailed~a determined~a diligent~a discreet~a disillusioned~a dynamic~a eager~a efficient~a 
+          elated~a embarrassed~a eminent~a enchanting~a encouraging~a endurable~a energetic~a entertaining~a enthusiastic~a envious~a 
+          erratic~a evasive~a excited~a exclusive~a exuberant~a fabulous~a faded~a fain~a fair~a faithful~a 
+          fanatical~a fantastic~a fearless~a fierce~a fine~a finicky~a flashy~a flippant~a forgetful~a frank~a 
+          frantic~a fretful~a friendly~a frightened~a funny~a furtive~a generous~a gentle~a glorious~a grieving~a 
+          grouchy~a guarded~a gullible~a happy~a harmonious~a helpful~a helpless~a hesitant~a hilarious~a homeless~a 
+          honorable~a hungry~a hurt~a ill~a impartial~a industrious~a instinctive~a irresolute~a jealous~a jittery~a 
+          jolly~a joyous~a kind~a knowledgeable~a lazy~a level~a likeable~a lively~a lonely~a lovely~a 
+          loving~a lucky~a materialistic~a mature~a modern~a mysterious~a naughty~a nervous~a nice~a obedient~a 
+          outrageous~a painstaking~a panicky~a peaceful~a perfect~a permissive~a placid~a plausible~a pleasant~a plucky~a 
+          possessive~a productive~a protective~a proud~a punctual~a quiet~a receptive~a reflective~a relieved~a resolute~a 
+          responsible~a rhetorical~a righteous~a romantic~a sad~a scary~a secretive~a sedate~a seemly~a selective~a 
+          self-assured~a sensitive~a shrewd~a sincere~a skilful~a slow~a smiling~a sneaky~a sore~a splendid~a 
+          squeamish~a steadfast~a stimulating~a strict~a successful~a succinct~a talented~a tense~a testy~a thick-skinned~a 
+          thoughtful~a threatening~a thrifty~a tight~a timid~a tired~a tough~a troubled~a trustworthy~a typical~a 
+          unbiased~a unsure~a unusual~a upbeat~a upset~a vague~a vigorous~a vivacious~a volatile~a voracious~a 
+          warm~a wary~a wasteful~a weak~a weary~a willing~a wise~a witty~a wonderful~a worried~a 
+          zany~a zealous~a 
+        
+        ~sensation_adjectives hungry~a thirsty~a tired~a 
+        
+        ~social_adjectives 
+          ~communication_adjectives chatty~a taciturn~a 
+          Catholic~a dominant~a 
+        
+        ~height_adjectives tall~a short~a midget lanky~a gangly~a 
+        
+      
+    
+    ~appearance_adjectives 
+      ~appearance blotched bright clear dark dingy dismal dotted drab dull flashy 
+        flowery fluid freckled glassy glazed glossy glowing grimy iridescent mottled 
+        muddy old opaque patterned rotted shabby sheer shimmering shiny sparkling 
+        spotted striped translucent transparent untidy used worn wrinkled young 
+      
+      ~bad_appearance disfigured~a hideous ugly 
+      
+      ~good_appearance attractive_looking attractive~a beautiful~a good-looking~a good_looking gorgeous~a great_looking handsome~a lovely~a nice~a 
+        pretty~a scenic~a stunning~a 
+      plain 
+    
+    ~containment_adjectives accessible~a closed~a inaccessible~a open~a packed~a 
+    
+    ~density_adjectives dense~a sparse~a 
+    
+    ~economic_adjectives poor~a rich~a economic~a uneconomic~a costly~a affordable~a cheap~a expensive~a 
+    
+    ~energy_adjectives electric~a magnetic~a radioactive~a 
+    
+    ~esthetic_adjectives 
+      ~cleanliness_adjectives clean~a dirty~a washed~a 
+      
+      ~color_adjectives 
+        ~colors 
+          ~black black blackish ebony jet_black licorice melanic morel nigrine piceous 
+          
+          ~blue 
+            ~blue_other aquamarine cobalt peacock periwinkle sapphire sky steel 
+            aqua aquamarine azuline azure blue blueish cerulean cyaneous indigo 
+            mazarine navy pavonated porceline royal teal turquoise ultramarine watchet 
+          
+          ~brown 
+            ~brown_other almond chocolate cinnamon coffee copper hazel honey khaki nutmeg rainbow 
+              walnut 
+            amber bronze brown brownish brunette buff fuscous infuscate mahogany 
+            russet rust sandy sepia sienna sinopia sorrel tan taupe terracotta 
+            Titian umbra 
+          
+          ~gray ashen cesious columbine gray grayish grey greyish hoary taupe 
+          
+          ~green 
+            ~green_other apple celery emerald lime mint olive sage 
+            caesious celadon chartreuse chlorochrous glaucous green greenish Kelly olivaceous 
+            pistachio porraceous prasinous smaragdine virescent virid viridian zinnober 
+          
+          ~metallic argent brass bronze copper gold metallic platinum silver 
+          
+          ~orange auburn orange orangish 
+          
+          ~purple 
+            ~purple_other aubergine claret lavender lilac mulberry plum violet 
+            amaranthine heliotrope hyacinthine ianthine magenta mauve orchid porphyrous puce 
+            purple purplish purpure purpureal rhodopsin 
+          
+          ~red 
+            ~red_other brick burgundy cherry coral raspberry rose ruby salmon strawberry 
+            cardinal cerise cinnabar coccineous coquelicot cramoisy crimson cyan erythraean 
+            flammeous fuchsia garnet haematic incarnadine kermes lateritious madder magenta maroon 
+            miniaceous minium modena nacarat phoeniceous pink pinkish ponceau puccoon puniceous 
+            rectory red reddish Rufous sanguineous solferino stammel testaceous umber vermeil 
+            vermilion vermillion vinaceous 
+          
+          ~white blond chalk cream cretaceous ivory whey white whitish 
+          
+          
+          ~yellow 
+            ~yellow_other apricot butter buttercup butterscotch canary chrome gold goldenrod lemon mustard 
+              peach persimmon primrose saffron suede sulphur tangerine 
+            beige buff citreous citrine gamboge lurid nankeen ochre tawny 
+            yellow yellowish 
+          transparent reflective 
+        transparent~a 
+      
+    
+    ~evaluation_adjectives 
+      ~bad_quality_adjectives atrocious~a awful~a bad~a mediocre~a poor~a 
+      
+      ~good_quality_adjectives best~a excellent~a fine~a first-rate~a good~a great~a matchless~a outstanding~a peerless~a superb~a 
+        superior~a unrivaled~a 
+      beautiful~a ugly~a 
+    
+    ~functionality_adjectives 
+      ~enablement_adjectives disabled~a enabled~a functional~a functioning~a workable~a working~a 
+      
+      ~normalized_adjectives degraded~a enhanced~a normal~a 
+      
+    
+    
+    ~hardness_adjectives hard~a impenetrable~a malleable~a soft~a 
+    
+    ~locational_adjectives close~a far~a high~a lower~a low~a near~a upper~a 
+    
+    ~mass_adjectives 
+      ~body_weight_adjectives 
+        ~body_heavy_adjectives chubby~a fat~a heavy~a massive~a obese~a overweight~a plump~a 
+        
+        ~body_light_adjectives anorexic~a gaunt~a lean~a skinny~a light~a slim~a thin~a underweight~a 
+        
+      weight~a weigh~a 
+    
+    ~materials_adjectives cotton~a metallic~a metal~a paper~a wooden~a 
+    
+    ~moisture_adjectives damp~a dry~a moist~a wet~a 
+    
+    ~motion_adjectives motionless~a stationary~a 
+    
+    ~orientation_adjectives diagonal~a erect~a horizontal~a kneeling~a prone~a skewed~a tilted~a turned~a upside-down~a vertical~a 
+      
+    
+    ~origin_adjectives American~a eastern~a French~a Greek~a lunar~a 
+    
+    ~quantity_adjectives 
+      ~few few~a insufficient~a meager~a minority~a not_many~a scant~a scarcely_any~a scarce~a scattering~a slight~a 
+        sporadic~a stingy~a 
+      
+      ~much a_lot~a abounding~a bounteous~a bountiful~a copious~a crowded~a divers~a innumerable~a legion~a lousy_with~a 
+        many~a much~a multifarious~a myriad~a no_end_of~a numberless~a numerous~a plentiful~a populous~a rife~a 
+        teeming~a umpteen~a uncounted~a 
+      middling~a several~a some~a 
+    
+    ~shape_adjectives acicular~a allantoid~a amygdaloid~a ancistroid~a ancoral~a angular~a ankyroid~a annodated~a ansate~a apsidal~a 
+      arborescent~a arcate~a arcuate~a arietinous~a aspidate~a auriform~a baculiform~a balanoid~a belemnoid~a beloid~a 
+      belonoid~a branching~a broken~a buccinal~a cannular~a cardioid~a carinated~a cassideous~a ceratoid~a choanoid~a 
+      chubby~a cingular~a circinate~a circular~a clathrate~a clavate~a clithridiate~a clustered~a clypeate~a cochlear~a 
+      conglobate~a conical~a coracoid~a cordate~a cordiform~a corniculate~a coronoid~a cricoid~a crinkled~a cubic~a 
+      cubiform~a cuneate~a cuneiform~a cupulate~a curved~a cylindrical~a deltoid~a domed~a fat~a flat~a 
+      fucoid~a furcular~a galeated~a globular~a helicoid~a helminthoid~a hexagonal~a hollow~a hyoid~a hypsiloid~a 
+      ichthyomorphic~a irregular~a lambdoid~a ligulate~a lobular~a lumpy~a lunate~a lunulate~a mitrate~a navicular~a 
+      nephroid~a olivary~a omegoid~a ooidal~a ophiomorphic~a oval~a oviform~a padded~a palaceous~a pendulous~a 
+      portly~a proportional~a pyramidal~a rectangular~a rotund~a round~a ruffled~a scalloped~a square~a swollen~a 
+      top-heavy~a triangular~a tubular~a tufted~a wavy~a winged~a wiry~a 
+    
+    
+    ~size_adjectives 
+      ~oversize_adjectives astronomical~a big~a enormous~a huge~a large~a tall~a thick~a fat~a gross~a wide~a 
+        bulky~a broad~a gigantic~a immense~a massive~a sizable~a spacious~a vast~a colossal~a whopping~a 
+        voluminous~a plentiful~a 
+      
+      ~undersize_adjectives microscopic~a cramped~a meager~a miniscule~a slight~a petite~a scanty~a bitty~a inadequate~a insufficient~a 
+        puny~a undersized~a infinitesimal~a small~a thin~a tiny~a wee~a little~a short~a narrow~a 
+        
+      
+    
+    ~sound_adjectives loud~a noisy~a quiet~a silent~a 
+    
+    ~states_of_matter_adjectives 
+      ~gas_adjectives gaseous~a gas~a plasma~a 
+      
+      ~liquids_adjectives liquid~a 
+      
+      ~solids_adjectives amorphous~a crystalline~a solid~a 
+      colloidal~a powder~a 
+    
+    ~taste_adjectives juicy~a sweet~a yummy~a 
+    
+    ~temperature_adjectives cold~a cool~a frigid~a frozen~a hot~a tepid~a torrid~a warm~a 
+    
+    ~texture_adjectives 
+      ~sense_touch bumpy cold cool~a crisp~a damp dry~a dull elastic fleshy fragile 
+        furry fuzzy gritty hairy hard icy leathery lukewarm mushy oily 
+        prickly rubbery sandy satiny sharp~a silky slippery smooth soft spongy 
+        steamy sticky tender~a tepid thick~a thin~a tough~a velvety warm~a waxy 
+        wet woolly 
+      
+    
+    ~speed_adjectives fast~a lethargic~a quick~a rapid~a slow~a 
+    
+  
+  ~cognition_adjectives 
+    ~ability_adjectives capable~a competent~a impossible~a incapable~a incompetent~a possible~a potential~a 
+    
+    ~opinion_adjectives beautiful~a difficult~a horrible~a irrational~a rational~a silly~a 
+    
+    ~permission_adjectives dutiful~a illegal~a illicit~a legal~a licit~a necessary~a obligatory~a required~a unauthorized~a 
+    
+  
+  ~intelligence_adjectives 
+    ~bad_intelligence_adjectives brainless~a dazed~a deficient~a dense~a dim~a doltish~a dopey~a dull~a dumb~a dummy~a 
+      foolish~a futile~a gullible~a half-baked~a half-witted~a idiotic~a ill-advised~a imbecilic~a inane~a indiscreet~a 
+      insensate~a irrelevant~a laughable~a ludicrous~a meaningless~a mindless~a moronic~a naive~a nonsensical~a obtuse~a 
+      pointless~a puerile~a rash~a senseless~a shortsighted~a simpleminded~a simple~a slow~a sluggish~a stolid~a 
+      stupefied~a thick-headed~a thick~a trivial~a unintelligent~a unthinking~a witless~a 
+    
+    ~good_intelligence_adjectives acute~a adept~a agile~a alert~a apt~a astute~a ball~a bold~a brainy~a bright~a 
+      brilliant~a brisk~a canny~a clever~a crafty~a effective~a eggheaded~a genius~a ingenious~a keen~a 
+      knowing~a nervy~a nimble~a pert~a pointed~a quick-witted~a quick~7 ready~a resourceful~a sassy~a 
+      sharp~a smart~a shrewd~a wise~a 
+  
+  ~weather_adjectives rainy~a snowy~a sunny~a windy~a 
+
+:QUOTEABLE_VERB 
+overhear listen hear eavesdrop write wire type typewrite transcribe touch-type 
+  telex script scribble scrawl rewrite publish parody netmail jot fax 
+  e-mail chronicle cable author annotate televise telecast tape satellite microfilm 
+  film verbal_disagree verbal_agree wheedle warn voice vociferate vocalize vocalise verify 
+  verbalize verbalise venture utter update theorize testify sweet-talk suggest state 
+  spiel sermonize sermonise say say_to reveal respond report reply repeat 
+  remind remark relay relate reiterate recount recite rabbit_on propose prophesy 
+  pronounce promulgate proclaim preach preachify prattle orate notify note narrate 
+  moralize message mention lobby lecture leak justify iterate intimate instruct 
+  insist insinuate imply illustrate hint grouse grouch gripe gloat express 
+  exclaim espouse enunciate entreat encourage elaborate drawl divulge disclose dictate 
+  declare counsel corroborate convey confide confess confabulate complain comment clarify 
+  claim characterize caution brief brag boast bluster blab beseech belabour 
+  belabor beg attest assure assert ascribe articulate apprise apologize announce 
+  allege alert advise give_me_information tell teach inform expound explicate explain 
+  elucidate educate describe yodel yammer yak whoop whisper whine wheeze 
+  trumpet thunder stutter stemmer stammer squawk squall splutter shriek shout 
+  rumble rhyme rasp rant rage quaver natter mutter murmur mumble 
+  mispronounce lisp lilt jabber hum holler gurgle grumble gibber gabble 
+  croon crab chant carol burble boom blurt blare bawl babble 
+  wireless telephone telecommunicate tape_record radio phone page broadcast thank sanction 
+  recommend pardon herald forgive exuberate excuse eulogize condone canonize canonise 
+  bless toast praise overpraise laud jubilate honor glorify felicitate exult 
+  extol congratulate compliment commend cheer cheerlead celebrate beatify approve applaud 
+  acclaim welcome wave salute hail greet bow vituperate vilify victimize 
+  upbraid trivialize trivialise traduce sully stultify stigmatize snub snitch snipe 
+  slander shame scorn scold ridicule revile repudiate reprove reproach reprimand 
+  reprehend remonstrate recriminate recall rebuke punish prosecute persecute penalize mock 
+  malign lampoon lambast lambaste insult indict incriminate imprecate impeach gibe 
+  fault excoriate doubt diss disparage deride deprecate denounce denigrate defame 
+  decry damn curse criticize criticise criminate condemn chide chastise chasten 
+  censure castigate calumniate blaspheme blame berate bemock belittle badmouth backbite 
+  assail asperse accurse prevaricate perjure misstate misrepresent mislead misinform lie 
+  hoodwink fib feign equivocate dissemble deceive belie bamboozle talk speak 
+  schmooze retort rap parley muse jest interview gossip gab engage_in_conversation 
+  discuss debate converse consult confer commiserate chitchat chat chat_about banter 
+  ask answer wince tremble sign signal shrug show semaphore point 
+  nod mark indicate gesture genuflect designate demonstrate cue tempt mystify 
+  jeer goggle surprise gawk gasp gape flabbergast boggle astonish amaze 
+  tantalize smile rejoice please ooh hope gratify flirt excite blush 
+  beguile bedazzle beam attract astound worry vex sulk suffer spit 
+  snivel sniff sneer simper sigh scowl scoff scare regret provoke 
+  pout pester moan irritate irk horrify grimace glower glare frown 
+  frighten embarrass displease disapprove disappoint confuse bewilder beware bewail appal 
+  annoy alienate alarm titter snigger snicker smirk laugh laughter guffaw 
+  groan grin giggle chuckle chortle weep sob mourn cry stroke 
+  polarize pet nuzzle kiss hug fondle embrace cuddle caress canoodle 
+  buss yowl yip yelp yell yap woof whistle whinny whimper 
+  warble wail twitter tweet trill stridulate squeal squeak snuffle snort 
+  snarl snap sing screech scream roar quack purr pipe peep 
+  oink neigh moo mew mewl meow low howl hoot honk 
+  hiss hee-haw grunt growl gobble drone cuckoo crow croak coo 
+  cluck chitter chirrup chirp cheep chatter caw caterwaul call cackle 
+  buzz bray bleat bellow bay bark baa reach get_in_touch_with empathize 
+  contact communicate 
+  ~communicate_verbs 
+    ~generic_communicates communicate contact empathize get_in_touch_with reach 
+    
+    ~nonverbal_communication_verbs 
+      ~animalsounds baa bark bay bellow bleat bray buzz cackle call caterwaul 
+        caw chatter cheep chirp chirrup chitter cluck coo croak crow 
+        cuckoo drone gobble growl grunt hee-haw hiss honk hoot howl 
+        low meow mewl mew moo neigh oink peep pipe purr 
+        quack roar scream screech sing snap snarl snort snuffle squeak 
+        squeal stridulate trill tweet twitter wail warble whimper whinny whistle 
+        woof yap yell yelp yip yowl 
+      
+      ~emotional_verbs 
+        ~affection buss canoodle caress cuddle embrace fondle hug kiss nuzzle pet 
+          polarize stroke 
+        
+        ~cry cry mourn sob weep 
+        
+        ~laugh cackle chortle chuckle giggle grin groan guffaw howl laughter laugh 
+          smirk snicker snigger titter 
+        
+        ~misc_negative_emotions alarm alienate annoy appal bewail beware bewilder confuse disappoint disapprove 
+          displease embarrass frighten frown glare glower grimace groan growl horrify 
+          irk irritate moan pester pout provoke regret scare scoff scowl 
+          sigh simper sneer sniff snivel spit suffer sulk vex worry 
+          
+        
+        ~misc_positive_emotions astound attract beam bedazzle beguile blush excite flirt gratify hope 
+          ooh please rejoice smile tantalize whistle 
+        
+        ~surprise amaze astonish boggle flabbergast gape gasp gawk surprise 
+        goggle jeer mystify snort 
+        tempt 
+      
+      ~gestures cue demonstrate designate genuflect gesture indicate mark nod point semaphore 
+        show shrug signal sign tremble wince 
+      
+    
+    ~speak_verbs 
+      ~chat answer ask banter chat_about chatter chat chitchat commiserate confer consult 
+        converse debate discuss engage_in_conversation gab gossip interview jest muse parley 
+        rap retort schmooze speak talk 
+      
+      ~deceive bamboozle belie deceive dissemble equivocate feign fib hoodwink lie misinform 
+        mislead misrepresent misstate perjure prevaricate 
+      
+      ~social_reputation_verbs 
+        ~negative_social accurse asperse assail backbite badmouth belittle bemock berate blame blaspheme 
+          calumniate castigate censure chasten chastise chide condemn criminate criticise criticize 
+          curse damn decry defame denigrate denounce deprecate deride disparage diss 
+          doubt excoriate fault gibe impeach imprecate incriminate indict insult lambaste 
+          lambast lampoon malign mock penalize persecute prosecute punish rebuke recall 
+          recriminate remonstrate reprehend reprimand reproach reprove repudiate revile ridicule scold 
+          scorn shame slander snipe snitch snub stigmatize stultify sully traduce 
+          trivialise trivialize upbraid victimize vilify vituperate 
+        
+        ~positive_social 
+          ~greet bow greet hail salute wave welcome 
+          
+          ~praise acclaim applaud approve beatify celebrate cheerlead cheer commend compliment congratulate 
+            extol exult felicitate glorify hail honor jubilate laud overpraise praise 
+            salute toast 
+          bless canonise canonize condone eulogize excuse exuberate forgive 
+          herald pardon recommend sanction thank 
+        
+      
+      ~speak_thru_device broadcast page phone radio tape_record telecommunicate telephone wireless 
+      
+      ~talkstyle babble bark bawl bellow blare bleat blurt boom bray burble 
+        cackle call carol chant chirp cluck coo crab croak croon 
+        crow cry gabble gibber groan growl grumble grunt gurgle hiss 
+        holler hoot howl hum jabber lilt lisp mispronounce moan mumble 
+        murmur mutter natter purr quaver rage rant rasp rhyme roar 
+        rumble scream screech shout shriek sign simper sing snap snarl 
+        snuffle splutter squall squawk squeak squeal stammer stemmer stutter thunder 
+        trill trumpet twitter wail warble wheeze whimper whine whisper whistle 
+        whoop yak yammer yap yell yelp yodel 
+      
+      ~tell 
+        ~explain describe educate elucidate explain explicate expound inform talk teach tell 
+          give_me_information 
+        advise alert allege announce apologize apprise articulate ascribe ask 
+        assert assure attest beg belabor belabour beseech blab bluster boast 
+        brag brief caution characterize claim clarify comment complain confabulate confess 
+        confide convey corroborate counsel declare describe dictate disclose divulge drawl 
+        drone educate elaborate elucidate encourage entreat enunciate espouse exclaim express 
+        gloat gripe grouch grouse hint illustrate imply inform insinuate insist 
+        instruct intimate iterate justify leak lecture lobby mention message moralize 
+        narrate note notify orate prattle preachify preach proclaim promulgate pronounce 
+        prophesy propose rabbit_on recite recount reiterate relate relay remark remind 
+        repeat reply report respond reveal say_to say sermonise sermonize speak 
+        spiel state suggest sweet-talk talk tell testify theorize update utter 
+        venture verbalise verbalize verify vocalise vocalize vociferate voice warn wheedle 
+        
+      verbal_agree verbal_disagree 
+    
+    ~videoing broadcast film microfilm satellite tape telecast televise 
+    
+    ~writing annotate author cable chronicle e-mail fax jot netmail parody publish 
+      rewrite scrawl scribble script telex touch-type transcribe tweet typewrite type 
+      wire write 
+  ~hear eavesdrop hear listen overhear 
+  think imagine continue resume 
+
+:ADJECTIVE_TAKING_NOUN_INFINITIVE 
+able ahead afraid amazed anxious apt shamed bound careful certain 
+  clever content curious delighted determined difficult disappointed due eager easy 
+  eligible foolish fortunate glad happy hard hesitant impossible keen kind 
+  liable likely lucky nice possible pleased prepared proud ready reluctant 
+  right sad shocked silly sorry surprised unable unhappy unlikely unwilling 
+  upset willing wrong 
+
+:OMITTABLE_THAT_VERB 
+experience cost validate troubleshoot trouble-shoot test speculate reason ponder focus 
+  experiment entertain deliberate consider conjecture concentrate attention twig realize rationalize 
+  puzzle_out prove opine infer grok figure disprove derive deduce conclude 
+  compute comprehend calculate trust suspect rely_on presume depend_upon depend_on assume 
+  wonder visualize visualise theorise simulate pretend preplan predict plan outguess 
+  introspect image hypothesize hypothesise hypothecate fantasize fake envision envisage dummy 
+  dream_up contemplate conceive cogitate cerebrate misunderstand misremember misinterpret misidentify misconstrue 
+  misconceive misapprehend confuse wish want understand surprise suppose seem remember 
+  recognize promise prefer possess own need mind mean matter like 
+  impress imagine have forget exist doubt dislike desire depend believe 
+  agree wheedle warn voice vociferate vocalize vocalise verify verbalize verbalise 
+  venture utter update theorize testify sweet-talk suggest state spiel speak 
+  sermonize sermonise say_to reveal respond report reply repeat remind remark 
+  relay relate reiterate recount recite rabbit_on propose prophesy pronounce promulgate 
+  proclaim preach preachify prattle orate notify note narrate moralize message 
+  mention lobby lecture leak justify iterate intimate instruct insist insinuate 
+  imply illustrate hint grouse grouch gripe gloat express exclaim espouse 
+  enunciate entreat encourage elaborate drone drawl divulge disclose dictate declare 
+  counsel corroborate convey confide confess confabulate complain comment clarify claim 
+  characterize caution brief brag boast bluster blab beseech belabour belabor 
+  beg attest assure assert ask ascribe articulate apprise apologize announce 
+  allege alert advise give_me_information teach talk inform expound explicate explain 
+  elucidate educate describe feel hear appear 
+  ~tell 
+    ~explain describe educate elucidate explain explicate expound inform talk teach tell 
+      give_me_information 
+    advise alert allege announce apologize apprise articulate ascribe ask 
+    assert assure attest beg belabor belabour beseech blab bluster boast 
+    brag brief caution characterize claim clarify comment complain confabulate confess 
+    confide convey corroborate counsel declare describe dictate disclose divulge drawl 
+    drone educate elaborate elucidate encourage entreat enunciate espouse exclaim express 
+    gloat gripe grouch grouse hint illustrate imply inform insinuate insist 
+    instruct intimate iterate justify leak lecture lobby mention message moralize 
+    narrate note notify orate prattle preachify preach proclaim promulgate pronounce 
+    prophesy propose rabbit_on recite recount reiterate relate relay remark remind 
+    repeat reply report respond reveal say_to say sermonise sermonize speak 
+    spiel state suggest sweet-talk talk tell testify theorize update utter 
+    venture verbalise verbalize verify vocalise vocalize vociferate voice warn wheedle 
+    
+  
+  ~mental_states agree believe depend desire dislike doubt exist feel forget have 
+    imagine impress know like matter mean mind need own possess 
+    prefer promise recognize remember seem suppose surprise think understand want 
+    wish 
+  
+  ~think_verbs 
+    ~faulty_think confuse forget misapprehend misconceive misconstrue misidentify misinterpret misremember misunderstand 
+    
+    ~imagining_think cerebrate cogitate conceive contemplate dream_up dummy envisage envision fake fantasize 
+      hypothecate hypothesise hypothesize image imagine introspect outguess plan predict preplan 
+      pretend simulate suppose theorise visualise visualize wish wonder 
+    
+    ~reasoning_think_verbs 
+      ~reasoning_basis assume depend_on depend_upon presume rely_on suspect trust 
+      
+      ~reasoning_conclusion believe calculate comprehend compute conclude deduce derive disprove figure grok 
+        infer opine prove puzzle_out rationalize realize twig understand 
+      
+      ~reasoning_process attention concentrate conjecture consider deliberate entertain experiment focus ponder reason 
+        speculate test think trouble-shoot troubleshoot validate 
+      conceive cost experience mind remind 
+    
+  learn 
+  discover find_out know think say tell 
+
+:NEGATIVE_ADVERB_STARTER 
+rarely hardly little at_no_time barely no_sooner never scarcely not_only seldom 
+  neither nor only not_since never_before not_until 
+
+
+:NON_COMPLEMENT_ADJECTIVE 
+upper near low lower high far close all_over 
+  ~completeness_adjectives all_over 
+  
+  ~locational_adjectives close~a far~a high~a lower~a low~a near~a upper~a 
+  
+  
+:PREP_ALLOWS_UNDETERMINED_NOUN 
+per of into 
+
+
+:CONJUNCTIONS_OF_TIME 
+after before by_the_time now_that now_when now_since now once since till 
+  until when whenever 
+
+:conjunctions_of_space 
+wherever where 
+
+:CONJUNCTIONS_OF_ADVERB
+then finally next meanwhile otherwise moreover likewise instead incidentally furthermore 
+  also in_addition thus therefore hence consequently as_a_result however why how 
+  where wherever whenever when until till since once now now_since 
+  now_when now_that by_the_time before after 
+  ~conjunctions_of_time after before by_the_time now_that now_when now_since now once since till 
+    until when whenever 
+  
+  ~conjunctions_of_space wherever where 
+  
+  ~conjunctions_of_purpose how why however 
+  
+  ~conjunctions_of_result as_a_result consequently hence therefore thus in_addition also furthermore incidentally instead 
+    likewise moreover otherwise 
+  
+  ~conjunctions_of_sequence meanwhile next finally then 
+  
+  after_all besides for_example in_other_words indeed in_fact although 
+
+:NONDESCRIPTIVE_ADJECTIVE
+such 
+
+
+:NEGATIVE_SV_INVERTER
+no not never neither seldom nor barely hardly only rarely 
+  scarcely 
+
+
+:LOCATIONAL_INVERTER
+here there nowhere 
+
+
+:ADVERB_POSTADJECTIVE
+enough 
+
+:QUANTITY_NOUN
+half 
+  ~place_number 
+  
+:CONJUNCTIVE_ADVERB
+after_all also as_a_result besides consequently finally for_example furthermore hence however 
+  in_addition in_other_words incidentally indeed in_fact instead likewise meanwhile moreover nevertheless 
+  next nonetheless on_the_contrary on_the_other_hand otherwise still then therefore thus 
+
+:CORRELATIVE_ADVERB
+both either neither not_only whether 
+
+:POTENTIAL_CLAUSE_STARTER
+who whom whose whoever whomever whosoever which what whatever whatsoever 
+  whereever whenever whichever however that where when why whether 
+
+:INDEFINITE_PRONOUN
+all another any anybody anyone anything both each either everybody 
+  everyone everything neither nobody none no_one nothing one other others 
+  some somebody someone something
+   
+:PERSONAL_PRONOUN
+I you he she it we they my mine me 
+  your yours his him hers her its our ours their 
+  theirs 
+
+:ADJECTIVE_NOT_PRE
+on 

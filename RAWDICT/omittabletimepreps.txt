@@ -1,0 +1,4 @@
+all some any each every this that last next 
+# these occur in time expressions NOT requiring a preposition - these act as determiners
+
+# right now is another time phrase as is just then

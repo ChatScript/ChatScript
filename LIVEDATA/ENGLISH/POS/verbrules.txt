@@ -1,5 +1,36 @@
 # PROBLEMATIC "here comes the band"  allows subject after verb as a statement.
 
+# ADj participle starts sentence running to comma with noun/pronoun indicator after "walking rapidly near his house, he"
+0 INCLUDE * NOUN_GERUND 
+	STAY HAS ADJECTIVE_PARTICIPLE
+	STAY START
+	SKIP !HAS COMMA VERB_BITS CONJUNCTION AUX_VERB
+	IS COMMA
+	HAS DETERMINER ADJECTIVE_BITS NOUN_BITS PRONOUN_BITS 
+DISCARD
+
+# Gerund starts sentence running to be verb with noun/pronoun indicator after "walking rapidly near his house is fun"
+0 INCLUDE * ADJECTIVE_PARTICIPLE   # but not "walking men live longer"
+	STAY HAS NOUN_GERUND
+	STAY START
+	SKIP !HAS COMMA VERB_BITS AUX_VERB CONJUNCTION
+	HAS AUX_BE
+DISCARD
+
+# adj participle following noun and preceeding noun indication wont be "the boxer mangled men"
+-1 IS NOUN_BITS # near the boxer mangled men intrude -- awkward construction
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS VERB_BITS
+	HAS NOUN_BITS DETERMINER ADJECTIVE_BITS PRONOUN_BITS
+DISCARD
+
+# adj participle following noun and adverb and preceeding noun indication wont be "the boxer mangled men"
+-2 IS NOUN_BITS # near the boxer entirely mangled men intrude -- awkward construction
+	HAS ADVERB
+	INCLUDE * ADJECTIVE_PARTICIPLE
+	STAY HAS VERB_BITS
+	HAS NOUN_BITS DETERMINER ADJECTIVE_BITS PRONOUN_BITS
+DISCARD
 
 # not adverb or adjective particple because has direct object after, so will be verb participle
 0 	INCLUDE * ADVERB ADJECTIVE_PARTICIPLE

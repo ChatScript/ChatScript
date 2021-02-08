@@ -43,9 +43,9 @@ void InitUserCache()
 	cacheIndex[NEXT(userCacheCount-1)] = 0;	// start as next one (circular list)
 }
 
-void CloseCache()
+void CloseUserCache()
 {
-	free(cacheBase);
+	if (cacheBase) free(cacheBase);
 	cacheBase = NULL;
 }
 
@@ -108,7 +108,7 @@ static void WriteCache(unsigned int which,size_t size)
 #endif
 	EncryptableFileWrite(ptr,1,size,out,userEncrypt,"USER"); // user topic file write
 	userFileSystem.userClose(out);
-	if (trace & TRACE_USERCACHE) Log((server) ? SERVERLOG : USERLOG,(char*)"write out cache (%d)\r\n",which);
+	if (trace & TRACE_USERCACHE) Log((server) ? SERVERLOG : USERLOG,(char*)"write cache (%d)\r\n",which);
 	if (timing & TIME_USERCACHE) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log((server) ? SERVERLOG : STDTIMELOG, (char*)"Write user cache %d in file %s time: %d ms\r\n", which, filename, diff);

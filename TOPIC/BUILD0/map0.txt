@@ -1594,6 +1594,11 @@ file: 0  D:/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/verbhierarchy.top
     concept: 496  ~comment
     concept: 497  ~ask
     concept: 498  ~post
+    concept: 500  ~carry_verbs
+    concept: 501  ~motionverbs
+    concept: 502  ~verbs_using_place_adverbs
+          loop 506 40  
+          loopend 510 149  
 file: 0  D:/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/parsedata.top
     concept: 4  ~misc_parsedata
     concept: 9  ~causal_to_infinitive_verbs
@@ -1606,22 +1611,6 @@ file: 0  D:/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/timewords.top
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/animals.tbl
     concept: 100  ~animal_homes
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/basicbooks.tbl
-          if 4 33  
-          ifend 4 87  
-          if 5 92  
-          ifend 5 145  
-          if 33 107  
-          ifend 37 223  
-          if 38 228  
-          ifend 38 281  
-          if 39 286  
-          ifend 39 339  
-          if 49 105  
-          ifend 53 221  
-          if 54 226  
-          ifend 54 279  
-          if 55 284  
-          ifend 55 337  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/basicgeography.tbl
     concept: 166  ~countryadjective
     concept: 442  ~capital
@@ -1630,59 +1619,17 @@ file: 0  D:/ChatScript/RAWDATA/WORLDDATA/basicgeography.tbl
           ifend 723 322  
     concept: 1253  ~currency
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/basicmovies_tv.tbl
-          if 330 4  
-          ifend 334 119  
-          if 356 4  
-          ifend 360 121  
-          if 366 4  
-          ifend 370 119  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/color.tbl
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/container.tbl
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/femalepeople.tbl
-    concept: 1  ~designer
-    concept: 55  ~career
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/geography.tbl
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/lifespan.tbl
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/literature.tbl
-          if 13 105  
-          ifend 17 221  
-          if 18 226  
-          ifend 18 279  
-          if 19 284  
-          ifend 19 337  
-          if 1043 166  
-          ifend 1043 219  
-          if 1044 224  
-          ifend 1044 277  
-          if 1243 4  
-          ifend 1249 180  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/malepeople.tbl
-          if 43 33  
-          ifend 43 99  
-          if 44 104  
-          ifend 44 160  
-          if 505 33  
-          ifend 505 87  
-          if 506 92  
-          ifend 506 148  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/material.tbl
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/movies_tv.tbl
-          if 7 4  
-          if 10 81  
-          ifend 13 163  
-          ifend 14 169  
-          if 25142 4  
-          ifend 25146 119  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/music.tbl
-    concept: 1  ~song
-    concept: 3  ~celebrity
-          if 286 33  
-          ifend 286 87  
-          if 287 92  
-          ifend 287 144  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/musicbasic.tbl
-          if 6 125  
-          ifend 6 177  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/peoplegroups.tbl
     concept: 2  ~nfc-west_football_team
     concept: 3  ~nfc-east_football_team
@@ -1731,9 +1678,3 @@ file: 0  D:/ChatScript/RAWDATA/WORLDDATA/tools.tbl
           if 24 451  
           ifend 24 502  
 file: 0  D:/ChatScript/RAWDATA/WORLDDATA/videogames.tbl
-          if 3 4  
-          if 7 96  
-          ifend 7 148  
-          ifend 8 154  
-          if 9 159  
-          ifend 13 286  

@@ -1,0 +1,2785 @@
+T28_0003	=====	039612	w
+T28_0006	-----	Howard112
+T28_0009	.....	08554
+T28_0012	1391650	*	YMN	erm	.
+T28_0015	1391661	c	YP	{pause}	.
+T28_0018	1391669	|	NNS1c	lady	[Ns.
+T28_0021	1391681	|	II	in	[P.
+T28_0024	1391691	|	AT	the	[Ns.
+T28_0027	1391702	c	YP	{pause}	.
+T28_0030	1391710	*	NN1n	post	.
+T28_0033	1391723	*	NN1c	office	.Ns]P]Ns]
+T28_0036	-----	Josephine113
+T28_0039	.....	08555
+T28_0042	1391769	*?	UL	eh	.
+T28_0045	-----	Howard112
+T28_0048	.....	08556
+T28_0051	1391819	*	UE21	you	[UE=.
+T28_0054	1391830	|	UE22	know	.UE=]
+T28_0057	1391842	|	DD1a	that	[Ms:101.
+T28_0060	1391858	|	JJ	new	.
+T28_0063	1391869	c	YP	{pause}	.
+T28_0066	1391877	|	MC1	one	.
+T28_0069	1391889	|	CST	that	[Fr.
+T28_0072	0000000	y	YG	-	[s101.s101]
+T28_0075	1391904	|	VBZ	+'s	[Vzb.Vzb]
+T28_0078	1391914	|	RP	in	[Rw:p.
+T28_0081	1391941	&?	RLh	there	.Rw:p]Fr]Ms:101]
+T28_0084	-----	Josephine113
+T28_0087	.....	08557
+T28_0090	1392027	&*.	UY	yeah	.
+T28_0093	-----	Howard112
+T28_0096	.....	08558
+T28_0099	1392096	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_0102	1392106	|	VBZ	+'s	[Vzb.Vzb]
+T28_0105	1392116	|	RR21	ever	[J:e[RR=.
+T28_0108	1392116	|	RR22	so	.RR=]
+T28_0111	1392131	!	JJ	nice	.J:e]S]
+T28_0114	.....	08559
+T28_0117	1392171	t*	AT/the	th	[AT#.
+T28_0120	0000000	y	YR	#	.
+T28_0123	1392190	|	AT	the	.
+T28_0126	0000000	y	YR	#	.
+T28_0129	1392201	|	AT	the	.AT#]
+T28_0132	-----	Josephine113
+T28_0135	.....	08560
+T28_0138	1392244	*	UR	oh	.
+T28_0141	1392254	.	UY	yeah	.
+T28_0144	-----	Howard112
+T28_0147	.....	08561
+T28_0150	1392306	*	CCB	but	[S+.
+T28_0153	1392317	|	YMV	er	.
+T28_0156	1392327	c	YP	{pause}	.
+T28_0159	1392335	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_0162	1392344	|	VD0	do	[Ve.
+T28_0165	1392353	|	XX	+n't	.
+T28_0168	1392364	|	VV0v	know	.Ve]
+T28_0171	1392376	|	RRQq	how	[Fn?:o[Rq:h.Rq:h]
+T28_0174	1392388	|	PPIS2	we	[Nap:s.Nap:s]
+T28_0177	1392398	|	VVDv	got	[Vd.Vd]
+T28_0180	1392409	|	II	onto	[P:q.
+T28_0183	1392421	|	PPH1	it	.P:q]Fn?:o]S]I]
+T28_0186	1392431	c	YP	{pause}	.
+T28_0189	1392439	|	YMV	er	.
+T28_0192	1392457	t	PPHS1f/she	sh	[Nas:s.Nas:s]
+T28_0195	0000000	y	YR	#	.
+T28_0198	1392476	|	CC	and	.
+T28_0201	1392487	|	PPIS1	I	[Nea:s.Nea:s]
+T28_0204	1392496	|	VV0v	think	[V.V]
+T28_0207	1392509	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T28_0210	1392520	|	VVDv	said	[Vd.Vd]
+T28_0213	1392532	|	PN1	something	[Ns:o.
+T28_0216	1392550	|	II	about	[P.
+T28_0219	1392563	,	UR	oh	.
+T28_0222	1392581	|	PPHS1f	she	[Fn[Nas:s.Nas:s]
+T28_0225	1392592	|	VVDv	knew	[Vd.Vd]
+T28_0228	1392604	|	APPGf	her	[Np:o.
+T28_0231	1392615	|	NN2	tables	.Np:o]
+T28_0234	.....	08563
+T28_0237	1392713	&	CC	and	[Fn+.
+T28_0240	1392724	|	YMN	erm	.
+T28_0243	1392735	c	YP	{pause}	.
+T28_0246	1392743	|	UE21	you	[UE=.
+T28_0249	1392754	,	UE22	know	.UE=]
+T28_0252	1392774	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_0255	1392784	|	VHD	+'d	[Vdf.
+T28_0258	1392795	|	VVNi	come	.Vdf]
+T28_0261	1392807	|	II	from	[P:q.
+T28_0264	1392819	|	NP1p	Hampshire	[Nns.Nns]P:q]
+T28_0267	1392836	|	RR	apparently	[R:m.R:m]
+T28_0270	1392854	|	CC	and	[Fn+.
+T28_0273	1392865	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_0276	0000000	y	YR	#	.Fn+]Fn+]Fn]P]Ns:o]Fn:o]S+]
+T28_0279	1392876	c	YP	{pause}	.
+T28_0282	1392892	t	CC/and	an	[S+[CC#.
+T28_0285	0000000	y	YR	#	.
+T28_0288	1392919	t	CC/and	an	.CC#]
+T28_0291	1392947	t	UE21/you	yo	[UE=[UE21#.
+T28_0294	0000000	y	YR	#	.
+T28_0297	1392966	|	UE21	you	.UE21#]
+T28_0300	1392977	,	UE22	know	.UE=]
+T28_0303	1392997	|	YMV	er	.
+T28_0306	1393007	|	PPIS2	we	[Nap:s105.Nap:s105]
+T28_0309	1393017	|	VVDv	got	[Vd.Vd]
+T28_0312	0000000	y	YG	-	[Tg:e[s105.s105]
+T28_0315	1393029	|	VVGv	talking	[Vg.Vg]
+T28_0318	1393044	|	II	about	[P:r.
+T28_0321	1393065	t	FD	ma	.P:r]Tg:e]S+]
+T28_0324	1393084	|	CC	and	[S+.
+T28_0327	1393096	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_0330	1393106	|	VHZ	+'s	[Vzf.
+T28_0333	1393116	|	VVNv	taken	.Vzf]
+T28_0336	1393129	|	APPGf	her	[Ns:o.
+T28_0339	1393140	|	NN1c	child	.Ns:o]
+T28_0342	1393153	|	II21	away	[P:q[II=.
+T28_0345	1393153	|	II22	from	.II=]
+T28_0348	1393170	c	YP	{pause}	.
+T28_0351	1393179	|	AT	the	[Ns.
+T28_0354	1393190	|	JJ	local	.
+T28_0357	1393203	|	NNJ1n	school	.Ns]P:q]
+T28_0360	1393217	c	YP	{pause}	.
+T28_0363	1393225	|	CC	and	[S+.
+T28_0366	1393244	t,	VVNv/sent	sen	[Vn.Vn]
+T28_0369	0000000	y	YR	#	.
+T28_0372	0000000	y	YG	-	[t107.t107]
+T28_0375	1393272	|	VBZ	is	[Vzu.
+T28_0378	1393282	|	RTo	now	[R:G107.R:G107]
+T28_0381	1393293	|	VVGi	going	.Vzu]
+T28_0384	1393306	|	IIt	to	[P:q.
+T28_0387	1393316	|	AT1	a	[Ns.
+T28_0390	1393325	|	JJ	little	.
+T28_0393	1393340	|	JJ	private	.
+T28_0396	1393355	|	NNJ1n	school	.
+T28_0399	1393369	|	II	up	[P.
+T28_0402	1393383	c	YP	{pause}	.
+T28_0405	1393391	|	AT	the	[Nns.
+T28_0408	1393420	s	NP1g	Teign	.
+T28_0411	1393438	*,	NNL1c	valley	.Nns]
+T28_0414	1393460	|	II	near	[P@.
+T28_0417	1393490	s	NP1t	Teigngrace	[Nns.Nns]P@]P]Ns]P:q]
+T28_0420	1393513	.	RR	apparently	[R:m.R:m]S+]S+]
+T28_0423	.....	08564
+T28_0426	1393559	t*	FD	fra	.
+T28_0429	-----	Josephine113
+T28_0432	.....	08562
+T28_0435	1392661	*.	UY	yeah	.
+T28_0438	=====	039614	w
+T28_0441	-----	Howard112
+T28_0444	.....	08565
+T28_0447	1393705	c	YVL	{onTelephone}	.
+T28_0450	1393741	*	UGA21	good	[UGA=.
+T28_0453	1393753	.	UGA22	morning	.UGA=]
+T28_0456	.....	08566
+T28_0459	1393789	*.	UY	yes	.
+T28_0462	.....	08567
+T28_0465	1393828	t*	PPH1/it	i	[S[Ni:s[PPH1#.
+T28_0468	0000000	y	YR	#	.
+T28_0471	1393846	|	PPH1	it	.PPH1#]Ni:s]
+T28_0474	1393855	|	VBZ	+'s	[Vzb.Vzb]
+T28_0477	1393865	|	YMN	erm	.
+T28_0480	1393876	c	YP	{pause}	.
+T28_0483	1393884	|	NNS	Monsignor	[Nns:e.
+T28_0486	1393901	,	NP1a	<name>	.Nns:e]
+T28_0489	1393961	|	CST	that	[S@[Ds:s.Ds:s]
+T28_0492	1393972	|	VBZ	+'s	[Vzb.Vzb]
+T28_0495	1393982	,	JJ	right	[J:e.J:e]S@]S]
+T28_0498	1394003	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_0501	1394012	|	VVDt	recognized	[Vd.Vd]
+T28_0504	1394030	|	APPGy	your	[Ns:o.
+T28_0507	1394043	.	NN1n	voice	.Ns:o]S]
+T28_0510	.....	08568
+T28_0513	1394076	c	YV	{laugh}	.
+T28_0516	1394095	c	YP	{pause_6}	.
+T28_0519	1394109	*.	UY	yeah	.
+T28_0522	.....	08569
+T28_0525	1394142	*.	UY	yes	.
+T28_0528	.....	08570
+T28_0531	1394173	c	YP	{pause_10}	.
+T28_0534	1394188	*.	UR	right	.
+T28_0537	.....	08571
+T28_0540	1394221	c	YP	{pause_6}	.
+T28_0543	1394235	*	VMd	would	[S?[Vodc.Vodc]
+T28_0546	1394248	|	PPY	you	[Ny:s.Ny:s]
+T28_0549	1394259	|	VV0v	hold	[Vr.Vr]
+T28_0552	1394271	|	RP	on	[R:n.R:n]
+T28_0555	1394281	|	AT1	a	[Ns:t.
+T28_0558	1394290	|	NNT1c	moment	.Ns:t]S?]
+T28_0561	1394305	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_0564	0000000	y	YG	-	[m111.m111]
+T28_0567	1394313	|	VMo	+'ll	[Vc.
+T28_0570	1394324	|	RR	just	[R:G111.R:G111]
+T28_0573	1394336	|	VV0v	get	.Vc]
+T28_0576	1394347	|	NP1f	Josephine	[Nns:o.Nns:o]
+T28_0579	1394363	|	IIt	to	[P:q.
+T28_0582	1394373	|	AT	the	[Ns.
+T28_0585	1394385	|	NN1c	phone	.Ns]P:q]
+T28_0588	1394398	|	CS	cos	[Fa:c.
+T28_0591	1394409	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_0594	1394420	|	RR	really	[R:m.R:m]
+T28_0597	1394434	|	VVZv	deals	[Vz.Vz]
+T28_0600	1394447	|	IW	with	[P:u.
+T28_0603	1394459	|	AT	the	[Np.
+T28_0606	1394471	|	NN2	bookings	.Np]P:u]Fa:c]S]
+T28_0609	1394487	c	YP	{pause}	.
+T28_0612	1394495	|	VV0v	hold	[S*[V.V]
+T28_0615	1394507	|	RP	on	[R:n.R:n]
+T28_0618	1394517	|	AT1	a	[Ns:t.
+T28_0621	1394526	!	NNT1c	second	.Ns:t]S*]
+T28_0624	.....	08572
+T28_0627	1394561	|	NNS	Monsignor	[Nns.
+T28_0630	1394578	.	NP1a	<name>	.
+T28_0631	0000000	c	YVR	{onTelephone}	.
+T28_0633	.....	08573
+T28_0636	1394650	*	PPHS1m	he	[S@[Nas:s.Nas:s]
+T28_0639	1394660	|	VVZv	wants	[Vz.Vz]
+T28_0642	1394673	|	AT	the	[Ns:o.
+T28_0645	1394684	|	NNL1c	hall	.Ns:o]
+T28_0648	1394696	c	YP	{pause}	.
+T28_0651	1394712	t	NPM1/March	Ma	[N:t[NPM1#.
+T28_0654	0000000	y	YR	#	.
+T28_0657	1394732	|	NPM1	March	.NPM1#]
+T28_0660	1394745	|	AT	the	[Nj.
+T28_0663	1394756	|	MD	twenty-sixth	.Nj]N:t]
+T28_0669	1394783	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_0672	1394792	.	VV0v	think	[V.V]S]I]S@]Nns]
+T28_0675	.....	08574
+T28_0678	1394833	t*	FD	i	.
+T28_0681	1394859	t	FD	i	.
+T28_0684	1394877	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_0687	1394886	|	VHZ	+'s	[Vzf.
+T28_0690	1394897	|	VVNH	got	.Vzf]
+T28_0693	1394908	c	YP	{pause}	.
+T28_0696	1394916	|	TO	to	[Ti:z[Vi.
+T28_0699	1394926	c	YP	{pause}	.
+T28_0702	1394934	|	VV0t	organize	.Vi]
+T28_0705	1394950	|	NN2	meetings	[Np:o.Np:o]
+T28_0708	1394966	|	IF	for	[Tf:c.
+T28_0711	1394978	|	NN2	priests	[Np:s.Np:s]
+T28_0714	1394993	c	YP	{pause}	.
+T28_0717	1395001	|	TO	to	[Vi.
+T28_0720	1395011	|	VV0v	deal	.Vi]
+T28_0723	1395023	|	IW	with	[P:u.
+T28_0726	1395035	|	AT	the	[Ns.
+T28_0729	1395046	|	JJ	new	.
+T28_0732	1395058	|	VVGv	accounting	[Tg[Vg.Vg]Tg]
+T28_0735	1395080	.	NN1n	system	.Ns]P:u]Tf:c]Ti:z]S]
+T28_0738	-----	Josephine113
+T28_0741	.....	08575
+T28_0744	1395133	c	YVL	{onTelephone}	.
+T28_0747	1395169	*	UGA	hello	.
+T28_0750	1395182	!	NNS	Monsignor	[Ns".Ns"]
+T28_0753	.....	08576
+T28_0756	1395220	*,	UY	yes	.
+T28_0759	1395239	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_0762	0000000	y	YG	-	[t115.t115]
+T28_0765	1395247	|	VBM	+'m	[Vmu.
+T28_0768	1395257	|	RR	just	[R:G115.R:G115]
+T28_0771	1395269	|	VVGv	looking	.Vmu]
+T28_0774	1395288	|	CC	and	[S+.
+T28_0777	1395300	|	NPM1	March	[N:s.
+T28_0780	1395313	|	AT	the	[Nj.
+T28_0783	1395324	|	MD	twenty-sixth	.Nj]N:s]
+T28_0789	1395351	|	VBZ	is	[Vzb.Vzb]
+T28_0792	1395361	.	JJ	free	[J:e.J:e]S+]S]
+T28_0795	.....	08577
+T28_0798	1395394	*	AT	the	[Nj.
+T28_0801	1395405	,	MD	twenty-second	.
+T28_0807	1395441	|	AT	the	[Nns@.
+T28_0810	1395452	?	NPD1	Friday	.Nns@]Nj]
+T28_0813	.....	08578
+T28_0816	1395487	*,	UY	yes	.
+T28_0819	1395506	|	DD1a	that	[S[Ds:s.Ds:s]
+T28_0822	1395517	|	VBZ	+'s	[Vzb.Vzb]
+T28_0825	1395527	|	JJ	fine	[J:e.J:e]S]
+T28_0828	1395539	|	DD1a	that	[S[Ds:s.Ds:s]
+T28_0831	1395550	|	VBZ	+'s	[Vzb.Vzb]
+T28_0834	0000000	y	YR	#	.
+T28_0837	1395560	c	YP	{pause}	.
+T28_0840	1395569	|	DD1a	that	[Ds:s.Ds:s]
+T28_0843	1395580	|	VBZ	+'s	[Vzb.Vzb]
+T28_0846	1395590	.	JJ	free	[J:e.J:e]S]
+T28_0849	.....	08579
+T28_0852	1395622	c	YVL	{laughing}	.
+T28_0855	1395643	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_0858	1395651	|	VBM	+'m	[Vmb.Vmb]
+T28_0861	1395661	|	AT1	a	[Ns:e.
+T28_0864	1395670	c	YP	{pause}	.
+T28_0867	1395678	|	JJ	large	.
+T28_0870	1395692	|	NN1c	friend	.Ns:e]S]
+T28_0873	1395706	ic	YY	{unclear}	[Y.Y]
+T28_0876	1395716	c!	YVR	{laughing}	.
+T28_0879	.....	08580
+T28_0882	1395744	c	YV	{laugh}	.
+T28_0885	1395763	c	YP	{pause}	.
+T28_0888	1395771	|	UR	OK	[L.
+T28_0891	1395783	,	RTn	then	[Rsw:c.Rsw:c]L]
+T28_0894	1395803	|	DDQ	what	[Nqs.
+T28_0897	1395816	?	NNT1c	time	.Nqs]
+T28_0900	.....	08581
+T28_0903	1395849	*	DDQ	what	[Nqs.
+T28_0906	1395861	?	NNT1c	time	.Nqs]
+T28_0909	.....	08582
+T28_0912	1395894	*	MC	six	[M.
+T28_0915	1395905	.	MC	thirty	[M@.M@]M]
+T28_0918	.....	08583
+T28_0921	1395940	*	CC	and	[S+.
+T28_0924	1395951	c	YP	{pause}	.
+T28_0927	1395959	|	RR	obviously	[R:m.R:m]
+T28_0930	1395976	|	PPY	you	[Ny:s119.Ny:s119]
+T28_0933	1395987	|	VV0v	want	[V.V]
+T28_0936	0000000	y	YG	-	[Tb:o[s119.s119]
+T28_0939	1395999	|	VV0i	go	[V.V]
+T28_0942	1396009	|	RP	in	[R:q.R:q]
+T28_0945	1396024	|	DD1b31	a	[P:t[DD1b=.
+T28_0948	1396024	|	DD1b32	little	.
+T28_0951	1396024	|	DD1b33	bit	.DD1b=]
+T28_0954	1396044	|	ICSt	before	.
+T28_0957	1396062	|	DD1a	that	.P:t]Tb:o]
+T28_0960	1396074	|	RR	just	[R:m.R:m]
+T28_0963	1396086	|	CS21	in	[Fa:c[CS=.
+T28_0966	1396086	|	CS22	case	.CS=]
+T28_0969	1396102	|	PN1	somebody	[Ns:s.Ns:s]
+T28_0972	1396118	.	VVZi	comes	[Vz.Vz]Fa:c]S+]
+T28_0975	.....	08584
+T28_0978	1396152	*.	UY	yeah	.
+T28_0981	.....	08585
+T28_0984	1396185	*	UY	mm	.
+T28_0987	1396195	.	UY	mm	.
+T28_0990	.....	08586
+T28_0993	1396226	*.	UY	yes	.
+T28_0996	.....	08587
+T28_0999	1396258	*.	JJ	fine	[J.J]
+T28_1002	.....	08588
+T28_1005	1396290	c	YV	{laugh}	.
+T28_1008	1396309	c	YP	{pause}	.
+T28_1011	1396317	c	YV	{laugh}	.
+T28_1014	1396336	c	YP	{pause}	.
+T28_1017	1396344	*	VBZ	is	[S?[Vzb.Vzb]
+T28_1020	1396355	|	DD1a	that	[Ds:s.Ds:s]
+T28_1023	1396367	?	PN1z	so	[Ns:h.Ns:h]S?]
+T28_1026	.....	08589
+T28_1029	1396397	c	YV	{laugh}	.
+T28_1032	1396416	c	YP	{pause}	.
+T28_1035	1396424	*	CC	and	[S+.
+T28_1038	1396435	|	PPIS2	we	[Nap:s.Nap:s]
+T28_1041	1396445	|	VH0	have	[Vf.
+T28_1044	1396457	,	VVNH	got	.Vf]
+T28_1047	0000000	y	YR	#	.
+T28_1050	1396477	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_1053	1396486	|	VMo	must	[Vc.
+T28_1056	1396498	|	VV0v	tell	.Vc]
+T28_1059	1396510	,	PPY	you	[Ny:i.Ny:i]S]
+T28_1062	1396529	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_1065	1396538	|	VD0	do	[Ve.
+T28_1068	1396547	|	XX	+n't	.
+T28_1071	1396559	|	VV0v	know	.Ve]
+T28_1074	1396571	|	CSi	if	[Fn?:o.
+T28_1077	1396581	|	PPY	you	[Ny:s.Ny:s]
+T28_1080	1396591	|	VH0	+'ve	[Vfb.
+T28_1083	1396602	,	VBN	been	.Vfb]Fn?:o]S]I]
+T28_1086	1396622	|	CC	and	.
+T28_1089	1396642	t,	PPIS2/we	win	[Nap:s[PPIS2#.
+T28_1092	0000000	y	YR	#	.
+T28_1095	1396670	|	PPIS2	we	.PPIS2#]Nap:s]
+T28_1098	1396680	|	VH0	have	[Vf.
+T28_1101	1396692	|	VVNH	got	.Vf]
+T28_1104	1396703	|	PPH1	it	[Ni:o.Ni:o]
+T28_1107	1396713	|	II	in	[P:p.
+T28_1110	1396724	|	AT	the	[Ns.
+T28_1113	1396735	|	NNL1c	hall	.Ns]P:p]S+]
+T28_1116	1396747	c	YP	{pause}	.
+T28_1119	1396755	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_1122	1396764	|	VD0	do	[Ve.
+T28_1125	1396773	|	XX	+n't	.
+T28_1128	1396784	|	VV0v	know	.Ve]
+T28_1131	1396796	|	CSi	if	[Fn?:o.
+T28_1134	1396807	|	PPY	you	[Ny:s.Ny:s]
+T28_1137	1396817	|	VH0	+'ve	[Vfb.
+T28_1140	1396828	|	VBN	been	.Vfb]
+T28_1143	1396840	|	RP	in	[R:p.R:p]
+T28_1146	1396854	|	RR	recently	[R:t.R:t]Fn?:o]
+T28_1149	1396870	|	CCB	but	[S+.
+T28_1152	1396881	c	YP	{pause}	.
+T28_1155	1396897	t	FD	ha	.
+T28_1158	1396916	|	PPIS2	we	[Nap:s.Nap:s]
+T28_1161	1396926	|	VH0	have	[Vf.
+T28_1164	1396938	|	VVNH	got	.Vf]
+T28_1167	1396949	|	DDi	some	[Np:o.
+T28_1170	1396961	|	JJ	new	.
+T28_1173	1396973	!	NN2	chairs	.Np:o]S+]S]
+T28_1176	.....	08590
+T28_1179	1397007	c	YV	{laugh}	.
+T28_1182	1397026	c	YP	{pause_6}	.
+T28_1185	1397040	c	YVL	{laughing}	.
+T28_1188	1397061	*	VBZ	is	[S?[Vzb.Vzb]
+T28_1191	1397072	|	DD1a	that	[Ds:s.Ds:s]
+T28_1194	1397084	|	PN1z	so	[Ns:h.Ns:h]S?]
+T28_1197	1397094	c?	YVR	{laughing}	.
+T28_1200	.....	08591
+T28_1203	1397123	*,	UN	no	.
+T28_1206	1397141	,	UN	no	.
+T28_1209	1397159	,	UN	no	.
+T28_1212	1397177	,	UN	no	.
+T28_1215	1397195	,	UN	no	.
+T28_1218	1397214	|	UN	no	.
+T28_1221	1397224	c	YP	{pause}	.
+T28_1224	1397232	|	PPHS2	they	[S[Nap:s.Nap:s]
+T28_1227	1397244	|	VMo	may	[Vcb.
+T28_1230	1397255	|	VB0	be	.Vcb]
+T28_1233	1397265	|	JJ	functional	[J:e.J:e]
+T28_1236	1397283	|	CCB	but	[S+.
+T28_1239	1397295	|	PPHS2	they	[Nap:s.Nap:s]
+T28_1242	1397307	|	VV0v	look	[V.V]
+T28_1245	1397319	!	JJR	better	[J:e.J:e]S+]S]
+T28_1248	.....	08592
+T28_1251	1397353	c	YV	{laugh}	.
+T28_1254	1397372	c	YP	{pause}	.
+T28_1257	1397380	*.	UR	right	.
+T28_1260	.....	08593
+T28_1263	1397414	,	PPIS1	I	[S[Nea:s.Nea:s]
+T28_1266	0000000	y	YR	#	.S]
+T28_1269	1397431	|	RR21	right	[R[RR=.
+T28_1272	1397444	|	RR22	away	.RR=]R]
+T28_1275	1397460	!	NNS	Monsignor	[Ns".Ns"]
+T28_1278	.....	08594
+T28_1281	1397498	*.	UR	right	.
+T28_1284	.....	08595
+T28_1287	1397532	*	MC	six	[M[M&.
+T28_1290	1397543	,	MC	thirty	[M@.M@]M&]
+T28_1293	1397565	.	MD	twenty-second	[Nj@.Nj@]M]
+T28_1299	.....	08596
+T28_1302	1397614	*!	JJ	lovely	[J.J]
+T28_1305	.....	08597
+T28_1308	1397649	*,	UY	yes	.
+T28_1311	1397668	|	UGZ	bye-bye	.
+T28_1317	.....	08598
+T28_1320	1397711	*	NNS1c	god	[S%[Nns:s.Nns:s]
+T28_1323	1397722	!	VV0t	bless	[V.V]S%]
+T28_1324	0000000	c	YVR	{onTelephone}	.
+T28_1326	-----	Howard112
+T28_1329	.....	08599
+T28_1332	1397775	*	IO	of	[S?[Po:e.
+T28_1335	1397785	|	NPM1	March	[Nns.Nns]Po:e]
+T28_1338	1397802	|	VBZ	is	[Vzb.Vzb]
+T28_1341	1397812	?	DD1a	that	[Ds:s.Ds:s]S?]
+T28_1344	-----	Josephine113
+T28_1347	.....	08600
+T28_1350	1397864	*.	UY	yes	.
+T28_1353	.....	08601
+T28_1356	1397895	c	YP	{pause_9}	.
+T28_1359	1397909	*	CSn	when	[S[Fa:t[Rq:t.Rq:t]
+T28_1362	1397925	|	PPY	you	[Ny:s.
+T28_1365	1397936	|	II	in	[P.
+T28_1368	1397946	|	NP1t	Newton	[Nns.
+T28_1371	1397960	*	NNS1c	abbot	.Nns]P]Ny:s]
+T28_1374	1397974	|	VVZv	leads	[Vz.Vz]Fa:t]
+T28_1377	1397987	c	YP	{pause}	.
+T28_1380	1397995	|	DBa	all	[Dp:s.
+T28_1383	1398006	|	DD21	the	.
+T28_1386	1398017	|	DD22	rest	.
+T28_1389	1398029	|	IO	of	[Po.
+T28_1392	1398039	|	PPIO2	us	.Po]Dp:s]
+T28_1395	1398050	.	VV0v	follow	[V.V]S]
+T28_1398	.....	08602
+T28_1401	1398085	*	DD1a	that	[S[Ds:s.Ds:s]
+T28_1404	1398096	|	VBZ	+'s	[Vzb.Vzb]
+T28_1407	1398106	|	DDQ	what	[Ff:e[Dq:o.Dq:o]
+T28_1410	1398118	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_1413	1398128	.	VVDv	said	[Vd.Vd]Ff:e]S]
+T28_1416	.....	08603
+T28_1419	1398161	*,	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_1422	0000000	y	YR	#	.
+T28_1425	1398179	|	DD1a	that	[Ds:s.Ds:s]
+T28_1428	1398190	|	VBZ	+'s	[Vzb.Vzb]
+T28_1431	1398200	|	DDQ	what	[Ff:e[Dq:G.Dq:G]
+T28_1434	1398212	,	PPIS1	I	[Nea:s.Nea:s]
+T28_1437	0000000	y	YR	#	.
+T28_1440	1398229	|	DDQ	what	[Dq:G123.Dq:G123]
+T28_1443	1398241	|	PPIS1	I	[Nea:s.Nea:s]
+T28_1446	1398251	|	VMK	used	[Vct.Vct]
+T28_1449	1398263	|	TO	to	[Ti:z[Vi.
+T28_1452	1398273	|	VV0v	say	.Vi]
+T28_1455	0000000	y	YG	-	[o123.o123]Ti:z]
+T28_1458	1398284	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T28_1461	1398296	|	PPIS1	I	[Nea:s.Nea:s]
+T28_1464	1398305	|	VBDZ	was	[Vsb.Vsb]
+T28_1467	1398316	!	RLh	there	[Rw:p.Rw:p]Fa:t]Ff:e]S]
+T28_1470	1398337	c	YV	{laugh}	.
+T28_1473	-----	Howard112
+T28_1476	.....	08604
+T28_1479	1398388	*!	UR	oh	.
+T28_1482	.....	08605
+T28_1485	1398419	*!	US	ha	.
+T28_1488	.....	08606
+T28_1491	1398450	*!	UX	gracious	.
+T28_1494	-----	Josephine113
+T28_1497	.....	08607
+T28_1500	1398506	*	UI	now	.
+T28_1503	1398517	c	YP	{pause}	.
+T28_1506	1398525	|	MC	six	[M[M&.
+T28_1509	1398536	|	MC	fifteen	[M@.M@]M&]
+T28_1512	1398551	c	YP	{pause}	.
+T28_1515	1398559	|	NNS	Monsignor	[Nns@.
+T28_1518	1398576	c	YP	{pause}	.
+T28_1521	1398584	.	NP1a	<name>	.Nns@]M]
+T28_1524	.....	08608
+T28_1527	1398656	*	PPH1	it	[S[Ni:s.Ni:s]
+T28_1530	1398665	|	VBZ	+'s	[Vzb.Vzb]
+T28_1533	1398675	|	AT1	a	[Ns:e.
+T28_1536	1398684	|	NN1c	meeting	.
+T28_1539	1398699	|	IO	of	[Po.
+T28_1542	1398709	|	NN1c	parish	[Np.
+T28_1545	1398724	.	NN2	priests	.Np]Po]Ns:e]S]
+T28_1548	.....	08609
+T28_1551	1398760	*	CC	and	[Y+.
+T28_1554	1398771	ic.	YY	{unclear}	.Y+]
+T28_1557	.....	08610
+T28_1560	1398801	c	YP	{pause_14}	.
+T28_1563	1398816	*!	UR	ah	.
+T28_1566	.....	08611
+T28_1569	1398847	*!	UR	right	.
+T28_1572	.....	08612
+T28_1575	1398880	c	YP	{pause_7}	.
+T28_1578	1398894	*	CC	and	[S+.
+T28_1581	1398905	|	PPHS2	they	[Nap:s.Nap:s]
+T28_1584	1398917	|	VV0v	want	[V.V]
+T28_1587	1398929	|	PPH1	it	[Ni:o.Ni:o]
+T28_1590	1398939	|	JJ	open	[J:j.J:j]
+T28_1593	1398951	|	DD1b31	a	[Rr:t[DD1b=.
+T28_1596	1398951	|	DD1b32	little	.
+T28_1599	1398951	|	DD1b33	bit	.DD1b=]
+T28_1602	1398971	|	RRR	earlier	.Rr:t]
+T28_1605	1398986	|	CS	because	[Fa:c[CS#.
+T28_1608	0000000	y	YR	#	.
+T28_1611	1399001	|	YMN	erm	.
+T28_1614	1399012	c	YP	{pause}	.
+T28_1617	1399020	|	UE21	you	[UE=.
+T28_1620	1399032	,	UE22	know	.UE=]
+T28_1623	1399052	|	CS21	in	[CS=.
+T28_1626	1399052	|	CS22	case	.CS=]CS#]
+T28_1629	1399067	|	PN1	anybody	[Ns:s.Ns:s]
+T28_1632	1399082	.	VVZi	comes	[Vz.Vz]Fa:c]S+]
+T28_1635	.....	08613
+T28_1638	1399116	*	DDQ	what	[S?[Dq:y.Dq:y]
+T28_1641	1399128	|	VDZ	does	[Vz.Vz]
+T28_1644	1399140	,	PPHS1m	he	[Nas:s.Nas:s]
+T28_1647	0000000	y	YR	#	.S?]
+T28_1650	1399158	|	NP1s	Botham	[Tg[Nns:s.Nns:s]
+T28_1653	1399172	|	VVGv	opening	[Vg.Vg]
+T28_1656	1399192	|	JJ	big	[Np:o.
+T28_1659	1399203	|	NN2	trumps	.Np:o]Tg]
+T28_1662	-----	Howard112
+T28_1665	.....	08614
+T28_1668	1399249	|	NP1s	Hicks	[S[Nns:s.Nns:s]
+T28_1671	1399262	|	VBZ	is	[Vzb.Vzb]
+T28_1674	1399289	&.	NN1c	hoax	[Ns:e.Ns:e]S]
+T28_1677	-----	Josephine113
+T28_1680	.....	08615
+T28_1683	1399374	&*.	NN1c	hoax	[Ns.Ns]
+T28_1686	.....	08616
+T28_1689	1399427	&*,	YMV	er	.
+T28_1692	1399445	|	DDQ	what	[S?[Dq:o.Dq:o]
+T28_1695	1399457	|	VDZ	does	[Voz.Voz]
+T28_1698	1399469	|	DD1a	that	[Ds:s.Ds:s]
+T28_1701	1399481	|	VV0t	mean	[Vr.Vr]
+T28_1704	1399494	|	VD0	do	[S?@[Vo.Vo]
+T28_1707	1399504	|	PPY	you	[Ny:s.Ny:s]
+T28_1710	1399515	?	VV0v	think	[Vr.Vr]S?@]S?]
+T28_1713	-----	Howard112
+T28_1716	.....	08617
+T28_1719	1399568	*	UW	well	.
+T28_1722	1399580	|	PPH1	it	[S[Ni:s.Ni:s]
+T28_1725	1399590	|	NNc	means	[Vz.Vz]
+T28_1728	1399603	|	CST	that	[Fn:o.
+T28_1731	1399615	|	CSi	if	[Fa:c[CSi#.
+T28_1734	0000000	y	YR	#	.
+T28_1737	1399625	c	YP	{pause}	.
+T28_1740	1399633	|	CSi	if	.CSi#]
+T28_1743	1399644	|	NP1s	Botham	[Nns:s.Nns:s]
+T28_1746	1399658	|	VDZ	does	[Vzk.
+T28_1749	1399670	|	VV0v	open	.Vzk]Fa:c]
+T28_1752	1399682	|	RTn	then	[Rsw:c.Rsw:c]
+T28_1755	1399694	|	AT	the	[Ns:s.
+T28_1758	1399705	|	JBy	only	.
+T28_1761	1399718	|	NNL1c	place	.
+T28_1764	1399731	|	IF	for	[P.
+T28_1767	1399742	|	NP1s	Hicks	[Nns.Nns]P]Ns:s]
+T28_1770	1399755	|	VBZ	is	[Vzb.Vzb]
+T28_1773	1399765	|	II	in	[P:p.
+T28_1776	1399775	|	AT	the	[Ns.
+T28_1779	1399786	|	NN1c	middle	.Ns]
+T28_1782	1399801	|	VVGv	taking	[Tg@[Vg.Vg]
+T28_1785	1399815	|	NP1s	Lamb	[Ns:o[G[Nns.Nns]
+T28_1788	1399826	|	GG	+'s	.G]
+T28_1791	1399836	|	NNL1c	place	.Ns:o]Tg@]P:p]
+T28_1794	1399849	|	RRz	so	[Fn-[Rs:c.Rs:c]
+T28_1797	1399859	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T28_1800	1399876	|	NP1s	Lamb	[Nns:s.Nns:s]
+T28_1803	1399888	|	VVZi	comes	[Vz.Vz]
+T28_1806	1399901	|	RL	back	[R:q.R:q]Fa:t]
+T28_1809	.....	08619
+T28_1812	1400026	&	PPHS1m	he	[Nas:s.Nas:s]
+T28_1815	1400036	|	VMd	might	[Vdce.
+T28_1818	1400049	|	XX	not	.
+T28_1821	1400060	|	VH0	have	.Vdce]
+T28_1824	1400072	|	AT1	a	[Ns:o.
+T28_1827	1400081	.	NNL1c	place	.Ns:o]Fn-]Fn:o]S]
+T28_1830	-----	Josephine113
+T28_1833	.....	08618
+T28_1836	1399945	*	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_1839	1399954	|	VMo	+'ll	[Vcb.
+T28_1842	1399965	|	VB0	be	.Vcb]
+T28_1845	1399975	.	RP	out	[R:e.R:e]S]
+T28_1848	=====	039615	w
+T28_1851	-----	Howard112
+T28_1854	.....	08620
+T28_1857	1400176	*	EX	there	[S.
+T28_1860	1400188	|	VBZ	+'s	[Vzb.Vzb]
+T28_1863	1400198	|	MC1	one	[Ms:s.
+T28_1866	0000000	y	YG	-	[129.129]Ms:s]
+T28_1869	1400213	|	RLh	here	[Rw:p.Rw:p]
+T28_1872	1400225	|	II	about	[P:G129.
+T28_1875	1400238	|	JJ	British	[Nns.
+T28_1878	1400254	*	NN1n	gas	.Nns]P:G129]S]
+T28_1881	1400265	c	YP	{pause}	.
+T28_1884	1400273	|	NN2	complaints	[S[Np:s.
+T28_1887	1400291	|	II	about	[P.
+T28_1890	1400304	|	JJ	British	[Nns.
+T28_1893	1400319	*	NN1n	gas	.Nns]P]Np:s]
+T28_1896	1400331	|	VVDi	rose	[Vd.Vd]
+T28_1899	1400343	|	AT1	a	[Nu:h[M.
+T28_1902	1400352	|	NNOc	hundred	.
+T28_1905	1400367	|	CC	and	[M+.
+T28_1908	1400378	|	MC	thirty-four	.M+]M]
+T28_1914	1400405	|	NNUp21	per	[NNUp=.
+T28_1915	1400408	|	NNUp22	cent	.NNUp=]Nu:h]
+T28_1917	1400420	|	MDt	last	[Ns:t.
+T28_1920	1400432	|	NNT1c	year	.Ns:t]
+T28_1923	1400444	|	II21	according	[P:m[II=.
+T28_1926	1400444	|	II22	to	.II=]
+T28_1929	1400464	|	AT	the	[Ns.
+T28_1932	1400476	|	JJ	recent	.
+T28_1935	1400490	|	NP1j	Ofgas	[Nns.Nns]
+T28_1938	1400504	.	NN1n	report	.Ns]P:m]S]
+T28_1941	.....	08621
+T28_1947	1400565	c	YVL	{readingAloud}	.
+T28_1950	1400585	*	II	in	[S[P:r.
+T28_1953	1400595	|	MC1	one	[Ns.
+T28_1956	1400606	|	NN1c	case	.Ns]P:r]
+T28_1959	1400619	|	AT1	a	[Ns:s.
+T28_1962	1400628	|	NP1t	Leeds	[Nns.Nns]
+T28_1965	1400641	|	NN1c	man	.Ns:s]
+T28_1968	1400652	|	VVDv	received	[Vd.Vd]
+T28_1971	1400672	|	AT1	a	[Ns:o.
+T28_1974	1400681	|	JJ	quarterly	.
+T28_1977	1400699	|	NN1c	bill	.
+T28_1980	1400711	|	IF	for	[P.
+T28_1983	1400722	|	DAR	more	[D.
+T28_1986	1400722	|	CSN	than	[P.
+T28_1989	1400739	|	MC	three	[Nup[M.
+T28_1992	1400752	|	NNOc	thousand	.M]
+T28_1995	1400768	|	NNU2	pounds	.Nup]P]D]P]Ns:o]
+T28_1998	1400782	c	YP	{pause}	.
+T28_2001	1400790	|	ICSt	after	[Fa:t.
+T28_2004	1400807	|	JJ	British	[Np:s[Nns.
+T28_2007	1400822	*	NN1n	gas	.Nns]
+T28_2010	1400833	|	NN2	engineers	.Np:s]
+T28_2013	1400851	|	VVDv	fitted	[Vd.Vd]
+T28_2016	1400865	|	APPGm	his	[Ns:o.
+T28_2019	1400876	|	JJ	new	.
+T28_2022	1400887	|	NN1c	meter	.Ns:o]
+T28_2025	1400900	|	RL31	back	[R:h[RL=.
+T28_2028	1400912	|	RL32	to	.
+T28_2031	1400922	|	RL33	front	.RL=]R:h]Fa:t]S]
+T28_2034	1400935	c!	YVR	{readingAloud}	.
+T28_2037	-----	Josephine113
+T28_2040	.....	08622
+T28_2043	1400983	*	RG	very	[J.
+T28_2046	1400995	!	JJ	funny	.J]
+T28_2049	=====	039616	w
+T28_2052	-----	Howard112
+T28_2055	.....	08623
+T28_2058	1401539	*	UX21	good	[UX=.
+T28_2061	1401551	!	UX22	gracious	.UX=]
+T28_2064	.....	08624
+T28_2070	1401610	c	YVL	{readingAloud}	.
+T28_2073	1401630	*	NNT2	times	[S[Np:s.Np:s]
+T28_2076	1401643	|	VMo	may	[Vcb.
+T28_2079	1401654	|	VB0	be	.Vcb]
+T28_2082	1401665	|	JJ	tough	[J:e.J:e]
+T28_2085	1401678	|	CCB	but	[S+.
+T28_2088	1401689	|	PPH1	it	[Ni:S.Ni:S]
+T28_2091	1401699	|	VVZi	seems	[Vz.Vz]
+T28_2094	1401712	|	PPIS2	we	[Fn:s[Nap:s.Nap:s]
+T28_2097	1401721	|	VBR	+'re	[Vau.
+T28_2100	1401732	|	VVGv	taking	.Vau]
+T28_2103	1401747	|	DAR	less	[Ns:o.
+T28_2106	1401759	|	NN1n	care	.
+T28_2109	0000000	y	YG	-	[131.131]Ns:o]
+T28_2112	1401771	|	IO	of	[Po:r.
+T28_2115	1401781	|	APPGi2	our	[Ns.
+T28_2118	1401792	|	NN1u	money	.Ns]Po:r]
+T28_2121	1401805	|	CSN	than	[Fc:G131.
+T28_2124	1401817	|	RR	ever	[R:t.R:t]
+T28_2127	1401830	.	RR	before	[R:t.R:t]Fc:G131]Fn:s]S+]S]
+T28_2130	.....	08625
+T28_2133	1401865	*	II21	according	[S[P:m[II=.
+T28_2136	1401865	|	II22	to	.II=]
+T28_2139	1401885	|	AT	the	[Nns.
+T28_2142	1401896	*	JJ	royal	.
+T28_2145	1401909	*	NN1n	mint	.Nns]P:m]
+T28_2148	1401921	|	RGi	around	[Nup:s.
+T28_2151	1401936	|	MC	twenty-three	[M.
+T28_2157	1401963	|	NNOc	thousand	.M]
+T28_2160	1401979	|	NNU2	pounds	.
+T28_2163	1401993	|	IO	of	[Po.
+T28_2166	1402003	|	NN2	coins	.Po]
+T28_2169	1402017	|	AT1	a	[Ns.
+T28_2172	1402026	|	NNT1c	day	.Ns]Nup:s]
+T28_2175	1402037	!	VV0i	disappear	[V.V]S]
+T28_2176	0000000	c	YVR	{readingAloud}	.
+T28_2178	-----	Josephine113
+T28_2181	.....	-----
+T28_2184	1402067	ic	YY	{unclear}	[Y.Y]
+T28_2187	-----	Howard112
+T28_2190	.....	08626
+T28_2191	0000000	c	YVL	{readingAloud}	.
+T28_2193	1402114	*	DDi	some	[S[S&[D:S.D:S]
+T28_2196	1402126	|	VBZ	is	[Vzp.
+T28_2199	1402136	|	VVNv	taken	.Vzp]
+T28_2202	1402149	|	RL	home	[R:q.R:q]
+T28_2205	1402161	|	IIb	by	[Pb:a.
+T28_2208	1402171	|	NN1c	tourist	.Pb:a]
+T28_2211	1402186	|	CC	and	[S+.
+T28_2214	1402198	|	DDi	some	[D:S.D:S]
+T28_2217	1402210	|	VBZ	is	[Vzp.
+T28_2220	1402220	|	VVNv	lost	.Vzp]
+T28_2223	1402232	|	II	in	[P:p.
+T28_2226	1402242	|	AT	the	[Ns.
+T28_2229	1402253	|	NNL1c	street	.Ns]
+T28_2232	1402267	|	CC	and	[P+.
+T28_2235	1402279	|	II	down	.
+T28_2238	1402295	|	AT	the	[Np.
+T28_2241	1402306	|	NN2	backs	.
+T28_2244	1402319	|	IO	of	[Po.
+T28_2247	1402329	.	NN2	sofas	.Po]Np]P+]P:p]S+]S&]
+T28_2250	.....	08627
+T28_2253	1402363	*	CCB	but	[S+.
+T28_2256	1402374	|	RR	amazingly	[R:m.R:m]
+T28_2259	1402391	|	PPIS2	we	[Nap:s.Nap:s]
+T28_2262	1402401	|	VBR	are	[Vab.Vab]
+T28_2265	1402412	|	RR	just	[R:m.R:m]
+T28_2268	1402424	|	RGa	as	[J:e.
+T28_2271	1402435	|	JJ	careless	.J:e]
+T28_2274	1402451	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T28_2277	1402463	|	PPH1	it	[Ni:s.Ni:s]
+T28_2280	1402473	|	VVZi	comes	[Vz.Vz]
+T28_2283	1402486	|	IIt	to	[P:q.
+T28_2286	1402496	|	NNJ1c	bank	[Np.
+T28_2289	1402509	.	NN2	notes	.Np]P:q]Fa:t]S+]S]
+T28_2292	.....	08628
+T28_2295	1402543	*	MDt	last	[S[Nns:t.
+T28_2298	1402555	|	NPM1	November	.Nns:t]
+T28_2301	1402571	|	AT	the	[Ns:S.
+T28_2304	1402582	|	JJ	old	[Ns.
+T28_2307	1402593	|	NN1n	style	.Ns]
+T28_2310	1402606	|	NN1c	fiver	.
+T28_2313	1402620	|	IW	with	[P.
+T28_2316	1402632	|	AT	the	[Nns.
+T28_2319	1402643	*	NNS1c	duke	.
+T28_2322	1402655	|	IO	of	[Po.
+T28_2325	1402665	|	NP1t	Wellington	[Nns.Nns]Po]Nns]P]Ns:S]
+T28_2328	1402683	|	VBDZ	was	[Vsp.
+T28_2331	1402695	|	VVNv	withdrawn	.Vsp]
+T28_2334	1402712	|	RRs	yet	[S-[Rs:c.Rs:c]
+T28_2337	1402723	|	EX	there	.
+T28_2340	1402736	|	VBR	are	[Vab.Vab]
+T28_2343	1402747	|	RR	still	[R:t.R:t]
+T28_2346	1402760	|	MC	sixty	[M:s133.
+T28_2349	1402774	|	NNOc	million	.
+T28_2352	0000000	y	YG	-	[Tg[s133.s133]
+T28_2355	1402789	|	VVGv	missing	[Vg.Vg]Tg]M:s133]S-]S]
+T28_2358	1402804	c!	YVR	{readingAloud}	.
+T28_2361	-----	Josephine113
+T28_2364	.....	08629
+T28_2367	1402852	*	PPY	you	[S[Ny:s.Ny:s]
+T28_2370	1402863	|	VMo	can	[Vc.
+T28_2373	1402874	|	VV0v	understand	.Vc]S]
+T28_2376	1402892	|	UO21	sort	[UO=.
+T28_2379	1402892	|	UO22	of	.UO=]
+T28_2382	1402907	c	YP	{pause}	.
+T28_2385	1402915	|	UE21	you	[UE=.
+T28_2388	1402927	,	UE22	know	.UE=]
+T28_2391	1402955	t	AT/the	th	[S[N:s[AT#.
+T28_2394	0000000	y	YR	#	.
+T28_2397	1402974	|	AT	the	.AT#]
+T28_2400	1402985	|	NN2	coppers	.
+T28_2403	1403001	|	CC	and	[Ds+.
+T28_2406	1403012	|	DD1a	that	[DD1a#.
+T28_2409	0000000	y	YR	#	.
+T28_2412	1403024	|	DD1a	that	.DD1a#]Ds+]N:s]
+T28_2415	1403036	c	YP	{pause}	.
+T28_2418	1403044	|	CSA	as	[A:x.
+T28_2421	1403054	|	PPHS2	they	[Nap:s.Nap:s]
+T28_2424	1403066	|	VV0v	say	[V.V]A:x]
+T28_2427	1403078	|	VV0v	get	[V.V]
+T28_2430	1403089	|	RP	down	[P:q.
+T28_2433	1403101	|	II	behind	.
+T28_2436	1403115	|	NN2	sofas	[Np.
+T28_2439	1403128	|	RAc41	and	[RAc=.
+T28_2442	1403139	|	RAc42	what	.
+T28_2445	1403151	|	RAc43	have	.
+T28_2448	1403164	|	RAc44	you	.RAc=]Np]P:q]
+T28_2451	1403175	c	YP	{pause}	.
+T28_2454	1403183	|	CCB	but	[S+.
+T28_2457	1403194	|	YMN	erm	.
+T28_2460	1403205	c	YP	{pause}	.
+T28_2463	1403213	|	PPH1	it	[Ni:S.Ni:S]
+T28_2466	1403223	|	VBZ	is	[Vzb.Vzb]
+T28_2469	1403233	|	RGb	quite	[J:e.
+T28_2472	1403247	|	JJ	amazing	.J:e]
+T28_2475	1403262	c	YP	{pause}	.
+T28_2478	1403270	|	RRQq	where	[Fn?:s[Rq:G137.Rq:G137]
+T28_2481	1403287	|	NN2	notes	[Np:s.Np:s]
+T28_2484	1403300	|	VV0v	get	[V.V]
+T28_2487	1403311	|	IIt	to	[P:q.
+T28_2490	0000000	y	YG	-	[137.137]P:q]Fn?:s]
+T28_2493	1403326	|	VBZ	is	[Iq[S?[Vzeb.
+T28_2496	1403335	|	XX	+n't	.Vzeb]
+T28_2499	1403346	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S+]S]
+T28_2502	-----	Howard112
+T28_2505	.....	08630
+T28_2508	1403396	*	MC	sixty	[S[M:s.
+T28_2511	1403409	|	NNOc	million	.M:s]
+T28_2514	1403423	|	VBZ	+'s	[Vzb.Vzb]
+T28_2517	1403433	|	DDo21	a	[D:e[DDo=.
+T28_2520	1403433	|	DDo22	lot	.DDo=]D:e]
+T28_2523	1403446	|	VBZ	is	[Iq[S?[Vzeb.
+T28_2526	1403455	|	XX	+n't	.Vzeb]
+T28_2529	1403467	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T28_2532	-----	Josephine113
+T28_2535	.....	08631
+T28_2538	1403517	*.	UY	yes	.
+T28_2541	-----	Howard112
+T28_2544	.....	08632
+T28_2547	1403568	*	DD1a	that	[S[Ds:s.
+T28_2550	0000000	y	YG	-	[139.139]Ds:s]
+T28_2553	1403579	|	VBZ	+'s	[Vzb.Vzb]
+T28_2556	1403589	|	RGb	quite	[J:e.
+T28_2559	1403602	|	JJ	interesting	.J:e]
+T28_2562	1403621	!	DD1a	that	[Ds@:G139.Ds@:G139]S]
+T28_2565	.....	08633
+T28_2568	1403654	*	EX	there	[S.
+T28_2571	1403666	|	VBZ	+'s	[Vzb.Vzb]
+T28_2574	1403676	|	AT1	a	[Ns:s140.
+T28_2577	1403685	|	VVNt	mutilated	[Np[Tn[Vn.Vn]Tn]
+T28_2580	1403702	|	NN2	notes	.Np]
+T28_2583	1403715	|	NNJ1c	department	.
+T28_2586	0000000	y	YG	-	[141.141]Ns:s140]
+T28_2589	1403733	|	RR21	as	[R:m[RR=.
+T28_2592	1403733	|	RR22	well	.RR=]R:m]
+T28_2595	1403748	c	YP	{pause}	.
+T28_2598	1403756	|	CST	that	[Fr:G141.
+T28_2601	1403768	|	PPY	you	[Ny:s.Ny:s]
+T28_2604	1403779	|	VMo	can	[Vc.
+T28_2607	1403790	c	YP	{pause}	.
+T28_2610	1403798	|	VV0v	send	.Vc]
+T28_2613	1403811	|	RR	really	[Np:o[J.
+T28_2616	1403825	c	YP	{pause}	.
+T28_2619	1403833	|	VVNv	screwed	[Tn[Vn.Vn]
+T28_2622	1403852	|	RP	up	[R:n.R:n]Tn]J]
+T28_2625	1403862	|	NN2	notes	.Np:o]
+T28_2628	1403875	.	IIt	to	[P:q.
+T28_2631	0000000	y	YG	-	[140.140]P:q]Fr:G141]S]
+T28_2634	-----	Josephine113
+T28_2637	.....	08634
+T28_2640	1403925	*.	UY	yeah	.
+T28_2643	.....	08635
+T28_2646	1403958	*	VH0	have	[S?[Voe.
+T28_2649	1403969	|	XX	+n't	.Voe]
+T28_2652	1403980	|	PPY	you	[Ny:s.Ny:s]
+T28_2655	1403991	|	VVNv	heard	[Vrn.Vrn]
+T28_2658	1404004	|	RR	before	[R:t.R:t]
+T28_2661	1404018	|	II	about	[P:r.
+T28_2664	1404031	|	DD1a	that	.P:r]
+T28_2667	1404044	?	RTn	then	[Rsw:c.Rsw:c]S?]
+T28_2670	.....	08636
+T28_2673	1404077	*	CCB	but	[L+.
+T28_2676	1404088	|	RRQq	how	[Ff:s[Rq:h.Rq:h]
+T28_2679	1404099	|	PPIS1	I	[Nea:s.Nea:s]
+T28_2682	1404108	,	VV0v	know	[V.V]Ff:s]
+T28_2685	1404128	|	DD1a	that	[S:e[Ds:s.Ds:s]
+T28_2688	1404139	|	VBZ	+'s	[Vzb.Vzb]
+T28_2691	1404149	|	DDQ	what	[Ff:e[Dq:o.Dq:o]
+T28_2694	1404162	|	PN1	somebody	[Ns:s.Ns:s]
+T28_2697	1404178	|	VVDv	told	[Vd.Vd]
+T28_2700	1404190	.	PPIO1	me	[Neo:i.Neo:i]Ff:e]S:e]L+]
+T28_2703	.....	08637
+T28_2706	1404220	ic	YY	{unclear}	[Y.Y]
+T28_2709	1404230	|	TO	to	[Ti[Vi.
+T28_2712	1404240	|	VV0v	send	.Vi]
+T28_2715	1404252	c	YP	{pause}	.
+T28_2718	1404260	|	DDi	some	[Np:o.
+T28_2721	1404272	|	NN2	notes	.Np:o]
+T28_2724	1404285	|	RP	in	[R:q.R:q]Ti]
+T28_2727	1404295	ic	YY	{unclear}	[Y.Y]
+T28_2730	-----	Howard112
+T28_2733	.....	08638
+T28_2736	1404337	*.	UY	yeah	.
+T28_2739	-----	Josephine113
+T28_2742	.....	08639
+T28_2745	1404389	|	UE21	you	[UE=.
+T28_2748	1404400	,	UE22	know	.UE=]
+T28_2751	1404420	|	VV0v	put	[Tb[V.V]
+T28_2754	1404431	|	PPHO2	them	[Nop:o.Nop:o]
+T28_2757	1404443	|	II	in	[P:q.
+T28_2760	1404453	|	AT	the	[Ns.
+T28_2763	1404465	.	NN1c	washing-machine	.Ns]P:q]Tb]
+T28_2766	.....	08640
+T28_2769	1404516	*	PPHS2	they	[S[Nap:s[PPHS2#.
+T28_2772	0000000	y	YR	#	.
+T28_2775	1404528	c	YP	{pause}	.
+T28_2778	1404536	|	PPHS2	they	.PPHS2#]Nap:s]
+T28_2781	1404548	|	VH0	have	[V.V]
+T28_2784	1404560	ic	YY	{unclear}	[Y:o.Y:o]
+T28_2787	1404570	|	RP	in	[Rw:p.
+T28_2790	1404580	|	RLh	there	.Rw:p]
+T28_2793	1404593	c	YP	{pause}	.
+T28_2796	1404601	|	CC	and	[S+.
+T28_2799	1404612	|	PPHS2	they	[Nap:s.Nap:s]
+T28_2802	1404624	|	VV0v	take	[V.V]
+T28_2805	1404636	|	RP	out	[R:q.R:q]
+T28_2808	1404651	|	NNJ1c	bank	[Np:o.
+T28_2811	1404663	|	NN2	notes	.
+T28_2814	1404677	|	CC	and	[Np+.
+T28_2817	1404688	|	NN2	coins	.Np+]Np:o]
+T28_2820	1404701	|	II	from	[P:q.
+T28_2823	1404713	|	AT	the	[Ns.
+T28_2826	1404724	.	NN1c	washing-machine	.Ns]P:q]S+]S]
+T28_2829	.....	08641
+T28_2832	1404775	*,	CCB	but	[L+.
+T28_2835	1404794	|	CS31	so	[Fa:c[CS=.
+T28_2838	1404794	|	CS32	long	.
+T28_2841	1404794	|	CS33	as	.CS=]
+T28_2844	1404812	|	PPY	you	[Ny:s.Ny:s]
+T28_2847	1404823	ic	YY	{unclear}	[Y.Y]
+T28_2850	1404833	.	MDo	first	[R:t.R:t]Fa:c]L+]
+T28_2853	.....	08642
+T28_2856	1404867	*	YMN	erm	.
+T28_2859	-----	Howard112
+T28_2862	.....	08643
+T28_2865	1404910	*	UR	oh	.
+T28_2868	1404920	|	DD1a	that	[S[Ds:s.Ds:s]
+T28_2871	1404931	|	VBZ	+'s	[Vzb.Vzb]
+T28_2874	1404941	,	JJ	right	[J:e.J:e]S]
+T28_2877	1404962	|	UW	well	.
+T28_2880	1404982	t	PPHS2/they	the	[S[Nap:s[PPHS2#.
+T28_2883	0000000	y	YR	#	.
+T28_2886	1405002	|	PPHS2	they	.PPHS2#]Nap:s]
+T28_2889	1405014	|	VV0t	detail	[V.V]
+T28_2892	1405028	|	RLh	here	[Rw:p.Rw:p]
+T28_2895	1405040	|	RR	exactly	[Fn?:o[R:m.R:m]
+T28_2898	1405055	|	DDQ	what	[Dq:G145.Dq:G145]
+T28_2901	1405068	|	PPY	you	[Ny:s.Ny:s]
+T28_2904	1405079	|	VV0t	need	[V.V]
+T28_2907	1405091	|	TO	to	[Ti:z[Vi.
+T28_2910	1405101	.	VH0	have	.Vi]
+T28_2913	0000000	y	YG	-	[o145.o145]Ti:z]Fn?:o]S]
+T28_2916	-----	Josephine113
+T28_2919	.....	08644
+T28_2922	1405153	*,	CCB	but	[S+.
+T28_2925	1405172	|	UE21	you	[UE=.
+T28_2928	1405183	,	UE22	know	.UE=]
+T28_2931	1405203	|	DD1a	that	[Ds:s.
+T28_2934	0000000	y	YG	-	[147.147]Ds:s]
+T28_2937	1405214	|	VBZ	+'s	[Vzb.Vzb]
+T28_2940	1405224	|	RRQq	how	[Ff:e[Rq:h.Rq:h]
+T28_2943	1405236	|	PPIS1	I	[Nea:s.Nea:s]
+T28_2946	1405245	|	VVDv	knew	[Vd.Vd]
+T28_2949	1405257	|	EX	there	[Fn:o.
+T28_2952	1405270	|	VBDZ	was	[Vsb.Vsb]
+T28_2955	1405281	|	AT1	a	[Ns:s.
+T28_2958	1405290	|	NNJ1c	department	.Ns:s]
+T28_2961	1405309	|	RLw	somewhere	[Rw:p.Rw:p]Fn:o]Ff:e]
+T28_2964	1405326	|	CS	because	[Fa@:G147.
+T28_2967	1405341	|	PPHS2	they	[Nap:s.Nap:s]
+T28_2970	1405353	|	VD0	do	[V.V]
+T28_2973	1405380	&ic	YY	{unclear}	[Y.Y]Fa@:G147]S+]
+T28_2976	-----	Howard112
+T28_2979	.....	08645
+T28_2982	1405455	&	PPIS1	I	[S[Nea:s.Nea:s]
+T28_2985	1405464	|	VV0v	think	[V.V]
+T28_2988	1405494	&c	YP	{pause}	.
+T28_2991	1405502	,	RR	just	[Fn:o[R:m.R:m]
+T28_2994	1405523	|	CSi	if	[Fa:c.
+T28_2997	1405533	|	PPY	you	[Ny:s.Ny:s]
+T28_3000	1405543	|	VH0	+'ve	[Vf.
+T28_3003	1405554	|	VVNH	got	.Vf]
+T28_3006	1405565	|	AT	the	[Ns:o.
+T28_3009	1405576	|	NN1c	number	.Ns:o]Fa:c]
+T28_3012	1405590	|	PPY	you	[Ny:s.Ny:s]
+T28_3015	1405602	|	VMo	can	[Vc.
+T28_3018	1405613	|	VV0v	take	.Vc]
+T28_3021	1405625	|	PPH1	it	[Ni:o.Ni:o]
+T28_3024	1405635	|	II	into	[P:q.
+T28_3027	1405647	|	AT1	an	[Ns.
+T28_3030	1405657	|	JJ	ordinary	.
+T28_3033	1405674	.	NNJ1c	bank	.Ns]P:q]Fn:o]S]
+T28_3036	-----	Josephine113
+T28_3039	.....	08646
+T28_3042	1405726	*.	UY	yeah	.
+T28_3045	-----	Howard112
+T28_3048	.....	08647
+T28_3051	1405778	*!	JJ	amazing	[J.J]
+T28_3054	.....	08648
+T28_3057	1405813	c	YP	{pause_6}	.
+T28_3060	1405827	c	YVL	{sighing}	.
+T28_3063	1405847	*	UY	yeah	.
+T28_3066	1405859	c!	YVR	{sighing}	.
+T28_3069	.....	08649
+T28_3072	1405887	c	YP	{pause_6}	.
+T28_3075	1405901	*,	UY	yes	.
+T28_3078	1405920	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3081	1405929	|	VV0v	know	[V.V]
+T28_3084	1405941	|	RRQq	how	[Fn?:o[Rq:h.Rq:h]
+T28_3087	1405952	|	PPIS2	we	[Nap:s149.Nap:s149]
+T28_3090	1405963	|	VVDv	got	[Vd.Vd]
+T28_3093	0000000	y	YG	-	[Tg:e[s149.s149]
+T28_3096	1405974	|	VVGv	talking	[Vg.Vg]
+T28_3099	1405989	|	IIt	to	[P:u.
+T28_3102	1405999	|	DD1i	this	[Ns.
+T28_3105	1406011	c	YP	{pause}	.
+T28_3108	1406019	|	NN1c	girl	.
+T28_3111	1406031	|	II	in	[P.
+T28_3114	1406042	|	AT	the	[Ns.
+T28_3117	1406053	*	NN1n	post	.
+T28_3120	1406065	*	NN1c	office	.Ns]P]Ns]P:u]Tg:e]Fn?:o]
+T28_3123	1406079	|	CS	cos	[Fa@.
+T28_3126	1406090	|	PPIS1	I	[Nea:s[PPIS1#.
+T28_3129	0000000	y	YR	#	.
+T28_3132	1406099	|	YMN	erm	.
+T28_3135	1406110	c	YP	{pause}	.
+T28_3138	1406118	|	PPIS1	I	.PPIS1#]Nea:s]
+T28_3141	1406128	|	VVDv	asked	[Vd.Vd]
+T28_3144	1406141	|	APPGf	her	[Nos:i.Nos:i]
+T28_3147	1406152	|	IF	for	[P:u.
+T28_3150	1406163	|	DDi	some	[Np.
+T28_3153	1406175	|	NN2	stamps	.Np]P:u]
+T28_3156	1406193	|	RR21	as	[R:m[RR=.
+T28_3159	1406193	,	RR22	well	.RR=]R:m]Fa@]S]
+T28_3162	1406216	|	UE21	you	[UE=.
+T28_3165	1406227	,	UE22	see	.UE=]
+T28_3168	1406246	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3171	1406255	|	VVDv	wanted	[Vd.Vd]
+T28_3174	1406269	|	DDi	some	[D:o.D:o]
+T28_3177	1406281	c	YP	{pause}	.
+T28_3180	1406289	|	CS	cos	[Fa:c.
+T28_3183	1406300	|	PPIS1	I	[Nea:S151.Nea:S151]
+T28_3186	1406309	|	VV0i	happen	[V.V]
+T28_3189	0000000	y	YG	-	[Ti:s[s151.s151]
+T28_3192	1406323	|	TO	to	[Viu.
+T28_3195	1406333	|	VB0	be	.
+T28_3198	1406343	|	VVGv	sending	.Viu]
+T28_3201	1406363	|	NN1n	stuff	[Ns:o.Ns:o]
+T28_3204	1406376	|	RP	off	[P:q.
+T28_3207	1406386	|	IF	for	.
+T28_3210	1406397	|	NP1c	Germany	[Nns.Nns]P:q]
+T28_3213	1406412	c	YP	{pause}	.
+T28_3216	1406420	.	RTt	tomorrow	[R:t.R:t]Ti:s]
+T28_3219	.....	08650
+T28_3222	1406457	*	CC	and	[Fa+.
+T28_3225	1406468	|	PPIS1	I	[Nea:s.Nea:s]
+T28_3228	1406477	|	VH0	have	[Vef.
+T28_3231	1406488	|	XX	+n't	.
+T28_3234	1406499	|	VVNH	got	.Vef]
+T28_3237	1406510	|	DDy	any	[Np:o.
+T28_3240	1406521	|	MDo	second	[Ns.
+T28_3243	1406536	|	NN1n	class	.Ns]
+T28_3246	1406549	|	NN2	stamps	.Np:o]Fa+]Fa:c]S]
+T28_3249	1406567	|	RRz	so	[S[Rs:c.Rs:c]
+T28_3252	1406577	|	PPIS1	I	[Nea:s.Nea:s]
+T28_3255	1406586	|	VVDv	thought	[Vd.Vd]
+T28_3258	1406601	|	UW	well	[Q:o.
+T28_3261	1406614	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3264	1406622	|	VMo	+'ll	[Vc.
+T28_3267	1406633	|	VV0v	get	.Vc]
+T28_3270	1406644	|	MC	five	[M:o.M:o]S]Q:o]S]
+T28_3273	1406656	c	YP	{pause}	.
+T28_3276	1406664	|	CC	and	[S+.
+T28_3279	1406675	|	PPH1	it	[Ni:S.Ni:S]
+T28_3282	1406686	,	VBDZ	was	[Vsb.Vsb]
+T28_3285	1406705	|	UE21	you	[UE=.
+T28_3288	1406716	,	UE22	know	.UE=]
+T28_3291	1406736	|	VVGv	dealing	[Tg:G152[Vg.Vg]
+T28_3294	1406751	|	IW	with	[P:u.
+T28_3297	1406764	|	DD1a	that	.P:u]Tg:G152]
+T28_3300	1406776	|	CST	that	[Fn:s.
+T28_3303	1406788	|	YMN	erm	.
+T28_3306	.....	08652
+T28_3309	1406883	&	PPH1	it	[Ni:s.Ni:s]
+T28_3312	1406893	|	VVDv	cropped	[Vd.Vd]
+T28_3315	1406908	.	RP	up	[R:n.R:n]
+T28_3318	0000000	y	YG	-	[t152.t152]Fn:s]S+]
+T28_3321	-----	Josephine113
+T28_3324	.....	08651
+T28_3327	1406831	*.	UY	yeah	.
+T28_3330	-----	Josephine113
+T28_3333	.....	08653
+T28_3336	1406958	*	PPY	you	[S[Ny:s.Ny:s]
+T28_3339	1406969	|	VDD	did	[Vef.
+T28_3342	1406979	|	XX	+n't	.
+T28_3345	1406990	|	VV0v	say	.Vef]
+T28_3348	1407001	|	PN1	anything	[Ns:o.
+T28_3351	1407017	|	II	about	[P.
+T28_3354	1407030	ic	YY	{unclear}	[Y.
+T28_3357	1407041	|	NNJ1n	school	.
+T28_3360	1407055	ic	YY	{unclear}	.Y]P]Ns:o]
+T28_3363	1407082	&	VDD	did	[Iq[S?[Vdx.Vdx]
+T28_3366	1407093	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T28_3369	-----	Howard112
+T28_3372	.....	08654
+T28_3375	1407177	&*	UR	oh	.
+T28_3378	1407187	,	UN	no	.
+T28_3381	1407222	!	UN	no	.
+T28_3384	-----	Josephine113
+T28_3387	.....	08655
+T28_3390	1407271	ic	YY	{unclear}	[Y.
+T28_3393	1407281	*,	CCB	but	[S+.
+T28_3396	1407300	|	UE21	I	[UE=.
+T28_3399	1407309	|	UE22	mean	.UE=]
+T28_3402	1407321	|	DD1a	that	[Ds:s.Ds:s]
+T28_3405	1407332	|	VBZ	+'s	[Vzb.Vzb]
+T28_3408	1407342	|	RRQq	why	[Fn?:e[Rq:c.Rq:c]
+T28_3411	1407353	c	YP	{pause}	.
+T28_3414	1407361	|	NP1m	Victor	[Nns:s.Nns:s]
+T28_3417	1407375	|	VVDi	came	[Vd.Vd]
+T28_3420	1407387	|	RL	away	[R:q.R:q]Fn?:e]
+T28_3423	1407399	|	VBDZ	was	[Iq[S?[Vseb.
+T28_3426	1407409	|	XX	+n't	.Vseb]
+T28_3429	1407420	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S+]Y]
+T28_3432	-----	Howard112
+T28_3435	.....	08656
+T28_3438	1407470	*	DD1a	that	[S[Ds:s.Ds:s]
+T28_3441	1407481	|	VBZ	+'s	[Vzb.Vzb]
+T28_3444	1407491	.	JJ	right	[J:e.J:e]S]
+T28_3447	-----	Josephine113
+T28_3450	.....	-----
+T28_3453	1407517	ic	YY	{unclear}	[Y.Y]
+T28_3456	-----	Howard112
+T28_3459	.....	08657
+T28_3462	1407564	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_3465	1407575	|	VBDZ	was	[Vsb.Vsb]
+T28_3468	1407586	|	RR	really	[Jh:e.
+T28_3471	1407600	|	VVNv	upset	[Tn[Vn.Vn]Tn]
+T28_3474	1407613	|	II	about	[P.
+T28_3477	1407626	.	PPH1	it	.P]Jh:e]S]
+T28_3480	-----	Josephine113
+T28_3483	.....	08658
+T28_3486	1407676	*	VV0v	bet	[S[V.V]
+T28_3489	1407687	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T28_3492	1407698	|	VBDR	were	[Vwb.Vwb]
+T28_3495	1407710	|	JJ	surprised	[Jh:e.
+T28_3498	1407727	|	TO	to	[Ti[Vi.
+T28_3501	1407737	|	VV0v	hear	.Vi]
+T28_3504	1407750	|	NNS	Monsignor	[Nns:o.
+T28_3507	1407767	|	NP1a	<name>	.Nns:o]
+T28_3510	1407819	|	II	on	[P:p.
+T28_3513	1407829	|	AT	the	[Ns.
+T28_3516	1407840	|	NN1c	phone	.Ns]P:p]Ti]Jh:e]
+T28_3519	1407870	&	VBDR	were	[Iq[S?[Vweb.
+T28_3522	1407881	|	XX	+n't	.Vweb]
+T28_3525	1407893	?	PPY	you	[Ny:s.Ny:s]S?]Iq]Fn:o]S]
+T28_3528	-----	Howard112
+T28_3531	.....	08659
+T28_3534	1407977	&	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3537	1407986	,	VBDZ	was	[Vsb.Vsb]S]
+T28_3540	1408022	!	UY	yeah	.
+T28_3543	-----	Josephine113
+T28_3546	.....	08660
+T28_3549	1408074	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3552	1408082	|	VH0	+'ve	[V.V]
+T28_3555	0000000	y	YR	#	.
+T28_3558	1408093	,	PPIS1	I	[Nea:s.Nea:s]
+T28_3561	0000000	y	YR	#	.
+T28_3564	1408110	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T28_3567	1408126	|	PPIS1	I	[Nea:s.Nea:s]
+T28_3570	1408135	|	VVDv	heard	[Vd.Vd]
+T28_3573	1408148	|	PPY	you	[Ny:O155.Ny:O155]
+T28_3576	0000000	y	YG	-	[Tg:o[s155.s155]
+T28_3579	1408160	|	VVGv	saying	[Vg.Vg]
+T28_3582	1408174	c	YP	{pause}	.
+T28_3585	1408182	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T28_3588	1408193	|	VVDt	recognized	[Vd.Vd]
+T28_3591	1408211	|	APPGm	his	[Ns:o.
+T28_3594	1408222	|	NN1n	voice	.Ns:o]Fn:o]Tg:o]Fa:t]
+T28_3597	1408236	|	PPIS1	I	[Nea:s.Nea:s]
+T28_3600	1408245	|	VVDv	thought	[Vd.Vd]
+T28_3603	1408260	|	IIt	to	[P:u.
+T28_3606	1408270	|	PPX1i	myself	.P:u]
+T28_3609	1408284	|	UW	well	[Q:o.
+T28_3612	1408296	|	RR	perhaps	[S[R:m.R:m]
+T28_3615	1408312	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_3618	1408321	|	VBZ	+'s	[Vzu.
+T28_3621	1408331	|	UO21	sort	[UO=.
+T28_3624	1408331	|	UO22	of	.UO=]
+T28_3627	1408346	c	YP	{pause}	.
+T28_3630	1408354	|	VVGt	inviting	.Vzu]
+T28_3633	1408370	|	PPY	you	[Ny:o.Ny:o]
+T28_3636	1408381	|	IIt	to	[P:q.
+T28_3639	1408396	,	YMV	er	.
+T28_3642	1408414	!	DDQV	whatever	.P:q]S]Q:o]S]
+T28_3645	-----	Howard112
+T28_3648	.....	08661
+T28_3651	1408470	*	UR	oh	.
+T28_3654	1408480	!	UY	aye	.
+T28_3657	-----	Josephine113
+T28_3660	.....	08662
+T28_3663	1408530	ic	YY	{unclear}	[Y.Y]
+T28_3666	1408540	c	YP	{pause}	.
+T28_3669	1408548	|	CC	and	[S+.
+T28_3672	1408559	|	PPHS2	they	[Nap:s.Nap:s]
+T28_3675	1408571	|	VBDR	were	[Vwut.
+T28_3678	1408583	|	VVGK	going	.Vwut]
+T28_3681	1408596	|	TO	to	[Ti:z[Vib.
+T28_3684	1408607	|	VB0	be	.Vib]
+T28_3687	1408634	&.	RLh	here	[Rw:p.Rw:p]Ti:z]S+]
+T28_3690	-----	Howard112
+T28_3693	.....	08663
+T28_3696	1408719	&*,	UY	yeah	.
+T28_3699	1408756	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3702	1408765	|	RR	never	[R:t.R:t]
+T28_3705	1408778	|	VVDv	thought	[Vd.Vd]
+T28_3708	1408794	|	IO	of	[Po:u.
+T28_3711	1408804	.	DD1a	that	.Po:u]S]
+T28_3714	.....	08664
+T28_3717	1408837	*,	UN	no	.
+T28_3720	1408855	,	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3723	0000000	y	YR	#	.
+T28_3726	1408872	|	PPH1	it	[Ni:s.Ni:s]
+T28_3729	1408882	|	VBDZ	was	[Vsb.Vsb]
+T28_3732	1408893	|	RR	just	[R:m.R:m]
+T28_3735	1408905	|	CST	that	[Fn:e.
+T28_3738	1408918	,	PPIS1	I	[Nea:s.Nea:s]Fn:e]
+T28_3741	0000000	y	YR	#	.
+T28_3744	1408935	|	UE21	you	[UE=.
+T28_3747	1408946	,	UE22	know	.UE=]
+T28_3750	1408966	|	UE21	I	[UE=.
+T28_3753	1408975	|	UE22	mean	.UE=]
+T28_3756	1408987	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_3759	0000000	y	YR	#	.
+T28_3762	1408997	c	YP	{pause}	.
+T28_3765	1409006	|	PPIS1	I	[Nea:s.Nea:s]
+T28_3768	1409015	|	VVDt	recognized	[Vd.Vd]
+T28_3771	1409033	|	AT	the	[Ns:o.
+T28_3774	1409044	|	NN1n	voice	.Ns:o]
+T28_3777	1409074	&	RR	really	[R:m.R:m]
+T28_3780	1409089	|	CSA	as	[Fa:t.
+T28_3783	1409099	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_3786	1409109	.	VVDv	spoke	[Vd.Vd]Fa:t]S]
+T28_3789	-----	Josephine113
+T28_3792	.....	08665
+T28_3795	1409195	&*,	UY	yes	.
+T28_3798	1409214	.	JJ	distinctive	[J.J]
+T28_3801	-----	Howard112
+T28_3804	.....	08666
+T28_3807	1409290	*	VVNH	got	[S[Vn.Vn]
+T28_3810	1409305	|	AT1	a	[Ns:o.
+T28_3813	1409314	|	RG	very	[RG#.
+T28_3816	0000000	y	YR	#	.
+T28_3819	.....	08668
+T28_3822	1409429	&	RG	very	.RG#]
+T28_3825	1409441	|	JJ	distinctive	.
+T28_3828	1409460	|	NN1n	voice	.Ns:o]
+T28_3831	1409473	|	VHZ	has	[Iq[S?[Vzex.
+T28_3834	1409483	|	XX	+n't	.Vzex]
+T28_3837	1409494	?	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]S]
+T28_3840	.....	08669
+T28_3843	1409524	c	YP	{pause_12}	.
+T28_3846	1409539	*	PPH1	it	[S[Ni:s.Ni:s]
+T28_3849	1409548	|	VBZ	+'s	[Vzb.Vzb]
+T28_3852	1409558	|	RR	still	[R:t.R:t]
+T28_3855	1409571	|	RRx	only	[R:m.R:m]
+T28_3858	1409583	|	NN1c	half	[Ns:t.
+T28_3861	1409595	|	II	past	[P.
+T28_3864	1409608	|	MC	nine	.P]Ns:t]
+T28_3867	1409620	|	RRz	so	[S-[Rs:c.Rs:c]
+T28_3870	1409630	|	DD1a	that	[Ds:s.Ds:s]
+T28_3873	1409641	|	VBZ	+'s	[Vzeb.
+T28_3876	1409651	|	XX	not	.Vzeb]
+T28_3879	1409662	!	JJ	bad	[J:e.J:e]S-]S]
+T28_3882	-----	Josephine113
+T28_3885	.....	08667
+T28_3888	1409358	*	UR	oh	.
+T28_3891	1409368	!	UY	yes	.
+T28_3894	1409387	ic	YY	{unclear}	[Y.Y]
+T28_3897	-----	Josephine113
+T28_3900	.....	08670
+T28_3903	1409713	*?	UL	what	.
+T28_3906	-----	Howard112
+T28_3909	.....	08671
+T28_3912	1409765	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_3915	1409774	|	VVDv	said	[Vd.Vd]
+T28_3918	1409786	|	PPH1	it	[Q:o[S[Ni:s.Ni:s]
+T28_3921	1409795	|	VBZ	+'s	[Vzb.Vzb]
+T28_3924	1409805	|	RR	still	[R:t.R:t]
+T28_3927	1409818	|	RRx	only	[R:m.R:m]
+T28_3930	1409830	|	DBh	half	[D:t.
+T28_3933	1409843	|	II	past	[P.
+T28_3936	1409855	,	MC	nine	.P]D:t]
+T28_3939	1409875	|	RGz	so	[S-[Rs:c.Rs:c]
+T28_3942	1409885	|	DD1a	that	[Ds:s.Ds:s]
+T28_3945	1409896	|	VBZ	+'s	[Vzeb.
+T28_3948	1409906	|	XX	not	.Vzeb]
+T28_3951	1409918	!	JJ	bad	[J:e.J:e]S-]S]Q:o]S]
+T28_3954	-----	Josephine113
+T28_3957	.....	08672
+T28_3960	1409969	*	VH0	have	[S?[Vo.Vo]
+T28_3963	1409981	|	PPY	you	[Ny:s.Ny:s]
+T28_3966	1409992	|	VVNH	got	[Vrn.Vrn]
+T28_3969	1410002	|	TO	+ta	[Ti:z[Vi.
+T28_3972	1410012	|	VV0v	get	.Vi]
+T28_3975	1410023	|	DDy	any	[Ns:o.
+T28_3978	1410034	|	NN1u	milk	.Ns:o]Ti:z]
+T28_3981	1410046	c	YP	{pause}	.
+T28_3984	1410055	|	DD1i	this	[Ns:t.
+T28_3987	1410067	?	NNT1c	morning	.Ns:t]S?]
+T28_3990	-----	Howard112
+T28_3993	.....	08673
+T28_3996	1410122	*.	UY	yeah	.
+T28_3999	-----	Josephine113
+T28_4002	.....	08674
+T28_4005	1410174	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_4008	1410182	|	VBM	+'m	[Vmut.
+T28_4011	1410192	|	VVGK	gon	.Vmut]
+T28_4014	1410202	|	TO	+na	[Ti:z[Vi.
+T28_4017	1410212	|	VV0v	put	.Vi]
+T28_4020	1410223	|	DD1i	this	[Ns:o.
+T28_4023	1410235	|	JJ	French	.Ns:o]Ti:z]
+T28_4026	0000000	y	YR	#	.S]
+T28_4029	1410253	c	YP	{pause}	.
+T28_4032	1410261	|	DD1i	this	[S[Ds:s.Ds:s]
+T28_4035	1410273	|	VBZ	is	[Vzb.Vzb]
+T28_4038	1410283	|	AT1	a	[Ns:e165.
+T28_4041	1410292	|	JJ	little	.
+T28_4044	1410306	|	JJ	French	.
+T28_4047	1410325	|	NN1c	thing	.
+T28_4050	1410338	|	CST	that	[Fr.
+T28_4053	1410358	t	FD	soma	.
+T28_4056	1410379	|	YMV	er	.
+T28_4059	1410389	c	YP	{pause}	.
+T28_4062	1410398	|	PPIS2	we	[Nap:s.Nap:s]
+T28_4065	1410408	|	VVDt	brought	[Vd.Vd]
+T28_4068	0000000	y	YG	-	[o165.o165]
+T28_4071	1410440	&	RL	back	[R:q.R:q]Fr]Ns:e165]S]
+T28_4074	1410452	ic.	YY	{unclear}	[Y.Y]
+T28_4077	-----	Howard112
+T28_4080	.....	08675
+T28_4083	1410535	&*!	UR	oh	.
+T28_4086	.....	08676
+T28_4089	1410582	&c	YP	{pause_10}	.
+T28_4092	1410597	*	UR	oh	.
+T28_4095	1410607	|	PPY	you	[S[Ny:s.Ny:s]
+T28_4098	1410617	|	VMo	+'ll	[Vc.
+T28_4101	1410628	|	VH0	have	.Vc]
+T28_4104	1410640	|	TO	to	[Ti:z[Vi.
+T28_4107	1410651	|	VV0v	charge	.Vi]
+T28_4110	1410665	|	PPHO2	them	[Nop:i.Nop:i]
+T28_4113	1410677	|	NNU2	francs	[Nup:o.Nup:o]
+T28_4116	1410691	|	IF	for	[P:c.
+T28_4119	1410702	.	PPH1	it	.P:c]Ti:z]S]
+T28_4122	-----	Josephine113
+T28_4125	.....	08677
+T28_4128	1410752	*	CCB	but	[S+.
+T28_4131	1410763	|	RTn	then	[Rsw:c.Rsw:c]
+T28_4134	1410775	|	PPIS2	we	[Nap:s.Nap:s]
+T28_4137	1410784	|	VMd	+'d	[Vdcu.
+T28_4140	1410794	|	VB0	be	.
+T28_4143	1410804	|	VVGv	looking	.Vdcu]
+T28_4146	1410819	|	IF	for	[P:u.
+T28_4149	1410830	c	YP	{pause}	.
+T28_4152	1410838	.	NNU2	francs	.P:u]
+T28_4155	.....	08678
+T28_4158	1410873	*	CC	and	[Y+.
+T28_4161	1410892	t,	FD	shra	.
+T28_4164	0000000	y	YR	#	.Y+]S+]
+T28_4167	1410921	|	UR	oh	.
+T28_4170	1410931	|	PPY	you	[S[Ny:s.Ny:s]
+T28_4173	1410942	|	VVDv	said	[Vd.Vd]
+T28_4176	1410955	|	NNU2	francs	[Q:o.Q:o]
+T28_4179	1410969	|	VDD	did	[Iq[S?[Vdex.
+T28_4182	1410979	|	XX	+n't	.Vdex]
+T28_4185	1410990	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]
+T28_4188	-----	Howard112
+T28_4191	.....	08679
+T28_4194	1411041	*.	UY	yeah	.
+T28_4197	.....	08680
+T28_4200	1411073	c	YP	{pause}	.
+T28_4203	1411081	*,	UY	yes	.
+T28_4206	1411100	,	PPIS1	I	[S[Nea:s.Nea:s]
+T28_4209	0000000	y	YR	#	.S]
+T28_4212	1411117	|	AT	the	[S[Np:s.
+T28_4215	1411128	|	NN2	birds	.Np:s]
+T28_4218	0000000	y	YG	-	[h167.h167]
+T28_4221	1411142	|	VD0	do	[Ve.
+T28_4224	1411151	|	XX	+n't	.
+T28_4227	1411162	|	RR	half	[R:G167.R:G167]
+T28_4230	1411174	|	VH0	have	.Ve]
+T28_4233	1411186	|	AT1	a	[Ns:o.
+T28_4236	1411195	|	VV0i	go	.Ns:o]
+T28_4239	1411205	|	II	at	[P:q.
+T28_4242	1411215	|	DD2a	those	[Np.
+T28_4245	1411229	|	NN2	nuts	.Np]P:q]
+T28_4248	1411241	|	VD0	do	[Iq[S?[Vex.
+T28_4251	1411250	|	XX	+n't	.Vex]
+T28_4254	1411261	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T28_4257	-----	Josephine113
+T28_4260	.....	08681
+T28_4263	1411313	*	VV0v	look	[S*[V.V]
+T28_4266	1411325	|	II	at	[P:q.
+T28_4269	1411335	,	PPHO2	them	.P:q]S*]
+T28_4272	1411355	,	MC1	one	[L[M:s[MC1&.
+T28_4275	1411374	,	MC	two	[MC-.MC-]
+T28_4278	1411394	|	MC	three	[MC-.MC-]
+T28_4281	1411407	c	YP	{pause}	.
+T28_4284	1411415	,	MC	four	[MC-.MC-]
+T28_4287	1411435	|	MC	five	[MC-.MC-]MC1&]M:s]
+T28_4290	1411447	|	II	on	[P:p.
+T28_4293	1411457	!	RLh	there	.P:p]L]
+T28_4296	-----	Howard112
+T28_4299	.....	08682
+T28_4302	1411510	*.	UY	yeah	.
+T28_4305	-----	Josephine113
+T28_4308	.....	08683
+T28_4311	1411562	*	UE21	you	[UE=.
+T28_4314	1411573	?	UE22	know	.UE=]
+T28_4317	-----	Howard112
+T28_4320	.....	08684
+T28_4323	1411625	*.	UY	yeah	.
+T28_4326	.....	08685
+T28_4329	1411658	*	UY	yes	.
+T28_4332	1411686	&	EX	there	[S.
+T28_4335	1411699	.	VBR	are	[Vab.Vab]S]
+T28_4338	-----	Josephine113
+T28_4341	.....	08686
+T28_4344	1411783	&*	CC	and	[Ms+.
+T28_4347	1411794	|	AT	the	.
+T28_4350	1411822	&	MC1	one	.
+T28_4353	1411833	|	II	on	[P.
+T28_4356	1411843	|	AT	the	[Nj.
+T28_4359	1411871	&.	JJ	left	.Nj]P]Ms+]
+T28_4362	-----	Howard112
+T28_4365	.....	08687
+T28_4368	1411956	&*,	UY	yeah	.
+T28_4371	1411993	|	DD1a	that	[S[Ds:s.Ds:s]
+T28_4374	1412004	|	VBZ	+'s	[Vzb.Vzb]
+T28_4377	1412015	!	JJ	right	[J:e.J:e]S]
+T28_4380	-----	Josephine113
+T28_4383	.....	08688
+T28_4386	1412068	*	CC	and	[Ms+.
+T28_4389	1412096	&	MC1	one	.
+T28_4392	1412107	.	RLh	there	.Ms+]
+T28_4395	-----	Howard112
+T28_4398	.....	08689
+T28_4401	1412193	&*,	MC1	one	[MC1&.
+T28_4404	1412212	|	MC	two	[MC-.MC-]
+T28_4407	1412240	&c	YP	{pause}	.
+T28_4410	1412249	,	MC	three	[MC-.MC-]MC1&]
+T28_4413	1412287	&.	UY	yeah	.
+T28_4416	-----	Josephine113
+T28_4419	.....	08690
+T28_4422	1412372	&*	EX	there	[S.
+T28_4425	1412384	|	VBZ	+'s	[Vzb.Vzb]
+T28_4428	1412411	&	MC1	one	[Ms:s.Ms:s]
+T28_4431	1412426	|	II	at	[P:p.
+T28_4434	1412437	|	AT	the	[Ns.
+T28_4437	1412448	|	NN1c	back	.Ns]
+T28_4440	1412460	|	II	on	[P@.
+T28_4443	1412470	|	DD1a	that	[Ms.
+T28_4446	1412482	|	YMN	erm	.
+T28_4449	.....	08692
+T28_4452	1412577	&	VVGv	hanging	[Tg[Vg.Vg]Tg]
+T28_4455	1412596	.	MC1	one	.Ms]P@]P:p]
+T28_4458	.....	08693
+T28_4461	1412628	*	CC	and	[S+.
+T28_4464	1412639	|	MC1	one	[Ms:s.Ms:s]
+T28_4467	1412650	|	II	on	[P:p.
+T28_4470	1412660	|	AT	the	[Ms.
+T28_4473	1412671	|	JBo	other	.
+T28_4476	1412684	.	MC1	one	.Ms]P:p]S+]S]
+T28_4479	-----	Howard112
+T28_4482	.....	08691
+T28_4485	1412525	*.	UY	yeah	.
+T28_4488	-----	Howard112
+T28_4491	.....	08694
+T28_4494	1412735	*	PPHS2	they	[S[Nap:s.Nap:s]
+T28_4497	1412746	|	VBR	+'re	[Vab.Vab]
+T28_4500	1412757	|	RGz	so	[J:e.
+T28_4503	1412767	|	JJ	busy	.J:e]
+T28_4506	1412779	|	II	around	[P:p.
+T28_4509	1412797	!	RLh	here	.P:p]S]
+T28_4512	.....	08695
+T28_4515	1412830	|	UE21	I	[UE=.
+T28_4518	1412839	,	UE22	mean	.UE=]
+T28_4521	1412859	|	II	in	[L[P:p.
+T28_4524	1412869	|	AT	the	[Np.
+T28_4527	1412880	|	NN2	trees	.Np]P:p]
+T28_4530	1412893	|	RR21	as	[R:m[RR=.
+T28_4533	1412893	|	RR22	well	.RR=]R:m]
+T28_4536	1412909	|	VBR	are	[Iq[S?[Vaeb.
+T28_4539	1412919	|	XX	+n't	.Vaeb]
+T28_4542	1412930	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]L]
+T28_4545	.....	08696
+T28_4548	1412963	*	PPHS2	they	[S[Nap:s.Nap:s]
+T28_4551	1412974	|	VBR	+'re	[Vab.Vab]
+T28_4554	1412985	|	RR	always	[R:t.R:t]
+T28_4557	0000000	y	YR	#	.S]
+T28_4560	-----	Josephine113
+T28_4563	.....	08697
+T28_4566	1413031	*.	UY	yeah	.
+T28_4569	.....	08698
+T28_4572	1413064	*	RR	perhaps	[S[R:m[RR#.
+T28_4575	0000000	y	YR	#	.
+T28_4578	1413087	t	RR/maybe	may	.RR#]R:m]
+T28_4581	1413107	|	PPH1	it	[Ni:s.Ni:s]
+T28_4584	1413117	|	VBZ	is	[Vzb.Vzb]
+T28_4587	1413127	|	CS	because	[Fa:c.
+T28_4590	1413143	|	PPIS2	we	[Nap:s.Nap:s]
+T28_4593	1413152	|	VH0	+'ve	[Vf.
+T28_4596	1413163	|	VVDv	got	.Vf]
+T28_4599	1413174	|	DBa	all	[Np:o.
+T28_4602	1413185	|	DD2i	these	.
+T28_4605	1413198	|	NN2	trees	.Np:o]Fa:c]S]
+T28_4608	1413211	|	UE21	I	[UE=.
+T28_4611	1413221	|	UE22	mean	.UE=]
+T28_4614	-----	Howard112
+T28_4617	.....	08699
+T28_4620	1413265	*.	UY	yeah	.
+T28_4623	-----	Josephine113
+T28_4626	.....	08700
+T28_4629	1413316	ic	YY	{unclear}	[S[Y:s.Y:s]
+T28_4632	1413326	|	VBDZ	was	[Vsu.
+T28_4635	1413337	|	VVGv	saying	.Vsu]
+T28_4638	1413351	|	CSn	when	[Fn:o[Fa:t[Rq:t.Rq:t]
+T28_4641	1413363	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_4644	1413374	|	VVDv	lived	[Vd.Vd]
+T28_4647	1413387	|	RP	out	[P:p.
+T28_4650	1413399	|	II	at	.P:p]Fa:t]
+T28_4653	0000000	y	YR	#	.Fn:o]S]
+T28_4656	1413409	|	YMN	erm	.
+T28_4659	1413420	c	YP	{pause}	.
+T28_4662	1413428	ic	YY	{unclear}	[Y.Y]
+T28_4665	1413438	|	CS	cos	[Fa.
+T28_4668	1413449	|	UE21	I	[UE=.
+T28_4671	1413458	|	UE22	mean	.UE=]
+T28_4674	1413471	|	EX	there	.
+T28_4677	1413484	|	VBDR	were	[Vwb.Vwb]
+T28_4680	1413496	|	NN2	trees	[Np:s.Np:s]
+T28_4683	1413509	|	RL	about	[R:p.R:p]
+T28_4686	1413522	|	RLh	there	[Rw:p177.
+T28_4689	1413535	|	RRQr	where	[Fr[Rq:p177.Rq:p177]
+T28_4692	1413553	|	APPGh2	their	[Ns:s.
+T28_4695	1413591	&t	NN1c/house	hou	.Ns:s]
+T28_4698	0000000	y	YR	#	.Fr]Rw:p177]Fa]
+T28_4701	-----	Howard112
+T28_4704	.....	08701
+T28_4707	1413676	&*	DD1a	that	[S[Ds:s.Ds:s]
+T28_4710	1413687	|	VBZ	+'s	[Vzb.Vzb]
+T28_4713	1413714	&.	JJ	right	[J:e.J:e]S]
+T28_4716	-----	Josephine113
+T28_4719	.....	08702
+T28_4722	1413767	*	CCB	but	[S+.
+T28_4725	1413778	|	AT	the	[Np:s.
+T28_4728	1413789	|	NN2	nuts	.Np:s]
+T28_4731	1413801	|	VDD	did	[Vde.
+T28_4734	1413811	|	XX	+n't	.
+T28_4737	1413822	|	VV0i	come	.Vde]
+T28_4740	1413834	|	IIt	to	[P:q.
+T28_4743	1413845	|	APPGf	her	[Ns.
+T28_4746	1413856	.	NNL1c	house	.Ns]P:q]S+]
+T28_4749	.....	08703
+T28_4752	1413889	c	YP	{pause_18}	.
+T28_4755	1413904	*	CSr	where	[S?[Rq:G179.Rq:G179]
+T28_4758	1413917	|	VHZ	has	[Voz.Voz]
+T28_4761	1413928	|	DD1a	that	[Ds:s.Ds:s]
+T28_4764	1413940	|	VV0i	come	[Vrn.Vrn]
+T28_4767	1413952	?	II	from	[P:q.
+T28_4770	0000000	y	YG	-	[179.179]P:q]S?]
+T28_4773	-----	Howard112
+T28_4776	.....	08704
+T28_4779	1414004	*	CSr	where	[S?[Rq:G181.Rq:G181]
+T28_4782	1414016	|	VBZ	+'s	[Voz.Voz]
+T28_4785	1414043	&	DDQ	what	[Dq:s.Dq:s]
+T28_4788	1414055	|	VV0i	come	[Vrn.Vrn]
+T28_4791	1414067	?	II	from	[P:q.
+T28_4794	0000000	y	YG	-	[181.181]P:q]S?]
+T28_4797	-----	Josephine113
+T28_4800	.....	08705
+T28_4803	1414152	&	PPIS1	I	[S[Nea:s.Nea:s]
+T28_4806	1414160	|	VMo	+'ll	[Vc.
+T28_4809	1414171	|	VV0v	put	.Vc]
+T28_4812	1414182	|	PPH1	it	[Ni:o.Ni:o]
+T28_4815	1414192	|	RP	on	[Rw:q.
+T28_4818	1414207	.	RLh	there	.Rw:q]S]
+T28_4821	.....	08706
+T28_4824	1414257	&	PPIS1	I	[S[Nea:s.Nea:s]
+T28_4827	1414266	|	VMo	can	[Vc.
+T28_4830	1414277	|	VV0v	put	.Vc]
+T28_4833	1414288	|	PPH1	it	[Ni:o.Ni:o]
+T28_4836	1414298	|	RP	on	[Rw:q.
+T28_4839	1414313	.	RLh	there	.Rw:q]S]
+T28_4842	.....	08707
+T28_4845	1414347	*	PPH1	it	[S[Ni:s.Ni:s]
+T28_4848	1414356	|	VBZ	+'s	[Vzb.Vzb]
+T28_4851	1414366	|	JA21	all	[J:e[JA=.
+T28_4854	1414368	!	JA22	right	.JA=]J:e]S]
+T28_4857	.....	08708
+T28_4860	1414401	c	YV	{laugh}	.
+T28_4863	1414420	c	YP	{pause}	.
+T28_4866	1414428	*	UW	well	.
+T28_4869	1414440	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_4872	1414449	|	VVDv	knew	[Vd.Vd]
+T28_4875	1414461	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T28_4878	1414470	|	VHD	had	[Vd.Vd]
+T28_4881	1414482	|	NN2	caps	[Np:o.Np:o]
+T28_4884	1414494	|	II	on	[P:p.
+T28_4887	1414504	|	DBa	all	[Np.
+T28_4890	1414515	|	AT	the	.
+T28_4893	1414526	.	NN2	others	.Np]P:p]Fn:o]
+T28_4896	.....	08710
+T28_4899	1414632	&*	CCB	but	[S+.
+T28_4902	1414643	|	PPIS1	I	[Nea:s.Nea:s]
+T28_4905	1414652	|	VHD	had	[Vd.Vd]
+T28_4908	1414663	|	MC1	one	[Ms:o.Ms:o]
+T28_4911	1414678	,	RP	over	[R:j.R:j]
+T28_4914	1414698	|	RR31	as	[R:m[RR=.
+T28_4917	1414698	|	RR32	it	.
+T28_4920	1414698	.	RR33	were	.RR=]R:m]S+]S]
+T28_4923	-----	Howard112
+T28_4926	.....	08709
+T28_4929	1414580	*.	UY	yeah	.
+T28_4932	-----	Howard112
+T28_4935	.....	08711
+T28_4938	1414756	*	VV0t	suppose	[S[V.V]
+T28_4941	1414771	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T28_4944	1414780	|	VMo	must	[Vcex.
+T28_4947	1414791	|	XX	+n't	.Vcex]
+T28_4950	1414802	,	RR	really	[R:m.R:m]Fn:o]S]
+T28_4953	1414824	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_4956	1414832	|	VBM	+'m	[Vmu.
+T28_4959	1414843	|	VVGv	reading	.Vmu]
+T28_4962	1414858	|	DD1i	this	[Ns:t.
+T28_4965	1414870	.	NNT1c	morning	.Ns:t]S]
+T28_4968	.....	08712
+T28_4971	1414906	*	VV0v	let	[S*[V.V]
+T28_4974	1414909	|	PPIO2	+'s	[Nop:O185.Nop:O185]
+T28_4977	0000000	y	YG	-	[Tb:o[s185.s185]
+T28_4980	1414919	|	VH0	have	[V.V]
+T28_4983	1414931	|	AT1	a	[Ns:o.
+T28_4986	1414940	|	NN1c	look	.
+T28_4989	1414952	|	II	at	[P.
+T28_4992	1414962	.	DD1a	that	.P]Ns:o]Tb:o]S*]
+T28_4995	.....	08713
+T28_4998	1414994	c	YP	{pause_28}	.
+T28_5001	1415009	*	UW	well	.
+T28_5004	1415021	|	PPY	you	[S[Ny:s.Ny:s]
+T28_5007	1415032	|	RR	always	[R:t.R:t]
+T28_5010	1415046	|	VVDv	thought	[Vd.Vd]
+T28_5013	1415061	|	II	about	[P:u.
+T28_5016	1415075	|	VVGi	going	[Tg[Vg.Vg]
+T28_5019	1415088	|	IIt	to	[P:q.
+T28_5022	1415098	|	AT	the	[Nns.
+T28_5025	1415109	*	NN1c	beefeater	.Nns]P:q]Tg]P:u]
+T28_5028	1415134	t	FD	a	.
+T28_5031	1415160	t	CCB/but	bu	[S+.
+T28_5034	1415179	c	YP	{pause}	.
+T28_5037	1415187	|	RR	really	[R:m.R:m]
+T28_5040	1415201	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_5043	1415210	|	VV0t	suppose	[V.V]S]I]
+T28_5046	1415226	|	PPH1	it	[Ni:S.Ni:S]
+T28_5049	1415236	|	VMd	might	[Vdcb.
+T28_5052	1415249	|	VB0	be	.Vdcb]
+T28_5055	1415259	|	JJR	better	[J:e.
+T28_5058	0000000	y	YG	-	[187.187]J:e]
+T28_5061	1415273	|	TO	to	[Ti:s[Vi.
+T28_5064	1415283	|	VV0i	go	.Vi]
+T28_5067	1415293	|	RTt	today	[R:t.R:t]Ti:s]
+T28_5070	1415307	|	CSN	than	[Fc:G187.
+T28_5073	1415319	.	RTt	tomorrow	[R:t.R:t]Fc:G187]
+T28_5076	.....	08714
+T28_5079	1415356	*	CS	cos	[Fa:c.
+T28_5082	1415367	|	RTt	today	[R:t.R:t]
+T28_5085	1415380	c	YP	{pause_6}	.
+T28_5088	1415394	|	NP1f	Lucy	[Nns:s.Nns:s]
+T28_5091	1415406	|	VMo	will	[Vcb.
+T28_5094	1415418	|	VB0	be	.Vcb]
+T28_5097	1415429	|	RLh	here	[Rw:p.Rw:p]
+T28_5100	1415441	|	CCB	but	[Fa+.
+T28_5103	1415452	c	YP	{pause}	.
+T28_5106	1415460	|	RTt	tomorrow	[R:s.R:s]
+T28_5109	1415476	c	YP	{pause}	.
+T28_5112	1415484	|	VMd	might	[Vdcb.
+T28_5115	1415497	|	VB0	be	.Vdcb]
+T28_5118	1415508	|	DAR	more	[J:e.
+T28_5121	1415520	.	JJ	difficult	.J:e]
+T28_5124	.....	08716
+T28_5127	1415621	&*	YMN	erm	.
+T28_5130	1415632	c	YP	{pause}	.
+T28_5133	1415640	|	CS	because	[Fa:c.
+T28_5136	1415655	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5139	1415664	|	VMd	would	[Vdce.
+T28_5142	1415676	|	XX	+n't	.
+T28_5145	1415687	|	UO21	sort	[UO=.
+T28_5148	1415700	|	UO22	of	.UO=]
+T28_5151	1415710	|	VVNv	finished	.Vdce]
+T28_5154	1415726	|	ICSt	till	[P:t.
+T28_5157	1415738	c	YP	{pause}	.
+T28_5160	1415746	|	NNT1c	quarter	[Ns.
+T28_5163	1415769	t	II/past	pa	.Ns]P:t]Fa:c]Fa+]Fa:c]S+]S]
+T28_5166	-----	Josephine113
+T28_5169	.....	08715
+T28_5172	1415577	*	UW	well	.
+T28_5175	=====	039701	b
+T28_5178	-----	Howard112
+T28_5181	.....	08717
+T28_5184	1416347	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_5187	1416356	|	VVDv	said	[Vd.Vd]
+T28_5190	1416368	|	IIt	to	[P:u.
+T28_5193	1416378	|	NP1m	Kevin	[Nns.Nns]P:u]
+T28_5196	1416391	|	CSA	as	[Fa:t.
+T28_5199	1416401	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_5202	1416411	|	VBDZ	was	[Vsu.
+T28_5205	1416423	,	VVGv	talking	.Vsu]Fa:t]
+T28_5208	0000000	y	YR	#	.S]
+T28_5211	1416446	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_5214	1416456	|	VVDi	came	[Vd.Vd]
+T28_5217	1416468	|	TO	to	[Ti:c[Vi.
+T28_5220	1416478	|	VV0v	help	.Vi]
+T28_5223	1416490	|	TO	to	[Ti:o[Vi.
+T28_5226	1416501	|	VV0v	wash	.Vi]
+T28_5229	1416513	|	RP	up	[R:n.R:n]Ti:o]Ti:c]S]
+T28_5232	-----	Josephine113
+T28_5235	.....	08718
+T28_5238	1416555	*	UY	yeah	.
+T28_5241	1416567	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_5244	1416576	|	VV0v	let	[Vd.Vd]
+T28_5247	1416587	|	PPHO1m	him	[Nos:O193.Nos:O193]
+T28_5250	1416598	|	YMN	erm	.
+T28_5253	.....	08720
+T28_5256	0000000	&y	YG	-	[Tb:o[s193.s193]
+T28_5259	1416694	|	VV0i	go	[V.V]
+T28_5262	1416704	|	CC	and	[Tb+.
+T28_5265	0000000	y	YG	-	[s193.s193]
+T28_5268	1416715	|	VV0v	help	[V.V]
+T28_5271	1416727	|	PPY	you	[Ny:o.Ny:o]Tb+]Tb:o]
+T28_5274	1416738	|	CS	because	[Fa:c.
+T28_5277	1416753	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5280	1416762	|	VVDv	thought	[Vd.Vd]
+T28_5283	1416778	|	UE21	you	[UE=.
+T28_5286	1416789	|	UE22	know	.UE=]
+T28_5289	1416801	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T28_5292	1416812	|	VMd	might	[Vdc.
+T28_5295	1416825	|	VH0	have	.Vdc]
+T28_5298	1416837	|	AT1	a	[N:o.
+T28_5301	1416846	|	NN1n	natter	.
+T28_5304	1416861	|	IW	with	[P.
+T28_5307	1416873	|	PPHO1m	him	.P]
+T28_5310	1416884	|	CCr	or	[Ns+.
+T28_5313	1416894	|	PN1	something	.Ns+]N:o]Fn:o]Fa:c]S]
+T28_5316	-----	Howard112
+T28_5319	.....	08719
+T28_5322	1416641	|	CC	and	[S+.
+T28_5325	1416652	|	YMV	er	.
+T28_5328	.....	08721
+T28_5331	1416943	&	PPHS1m	he	[Nas:s.Nas:s]
+T28_5334	1416953	,	VVDv	said	[Vd.Vd]
+T28_5337	1416973	|	PPY	you	[Q:o[L?[Ny:s.Ny:s]
+T28_5340	1416984	|	II	on	[P:p.
+T28_5343	1416994	|	AT	the	[Ns.
+T28_5346	1417005	|	NN1n	finance	.
+T28_5349	1417021	?	NNJ1c	committee	.Ns]P:p]L?]Q:o]S+]
+T28_5352	.....	08722
+T28_5355	1417059	*	UR	oh	[Q.
+T28_5358	1417069	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T28_5361	1417079	|	VVZv	says	[Vz.Vz]S]I]
+T28_5364	1417091	|	UN	no	.
+T28_5367	1417101	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T28_5370	1417111	|	VVZv	says	[Vz.Vz]S]I]
+T28_5373	1417123	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_5376	1417131	|	VBM	+'m	[Vmb.Vmb]
+T28_5379	1417142	|	ATn	no	[Jxh:e.
+T28_5382	1417152	|	JJ	good	.
+T28_5385	1417164	|	II	at	[P.
+T28_5388	1417174	,	NN2	figures	.P]Jxh:e]S]Q]
+T28_5391	1417197	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_5394	1417206	|	VVDv	said	[Vd.Vd]
+T28_5397	1417219	|	UW	well	[Q:o.
+T28_5400	1417231	|	XX	not	[L[J:e.
+T28_5403	1417242	|	JA	alike	.J:e]
+T28_5406	1417255	|	ICSx	except	[P:m.
+T28_5409	1417269	|	JJ	blonde	[Mp.
+T28_5412	1417283	|	MC2	ones	.Mp]P:m]L]Q:o]
+T28_5415	1417295	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T28_5418	1417305	|	VVDv	said	[Vd.Vd]S@]
+T28_5421	1417317	|	UE21	you	[UE=.
+T28_5424	1417328	|	UE22	know	.UE=]
+T28_5427	1417340	|	CS	cos	[Fa:c.
+T28_5430	1417351	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_5433	1417361	|	VVDv	made	[Vd.Vd]
+T28_5436	0000000	y	YR	#	.
+T28_5439	.....	08723
+T28_5442	1417425	&	PPHS1m	he	[Nas:s.Nas:s]
+T28_5445	1417435	|	VVDv	made	[Vd.Vd]
+T28_5448	1417447	|	AT1	a	[Ns:o.
+T28_5451	1417456	|	NN1c	joke	.
+T28_5454	1417468	|	II	about	[P.
+T28_5457	1417481	|	AT1	a	[Ns.
+T28_5460	1417490	|	NN1c	blonde	.Ns]P]Ns:o]
+T28_5463	1417509	|	UE21	you	[UE=.
+T28_5466	1417520	|	UE22	see	.UE=]
+T28_5469	1417531	|	RR	just	[P:t.
+T28_5472	1417543	|	ICSt	before	.
+T28_5475	1417557	,	DD1a	that	.P:t]Fa:c]S]
+T28_5478	1417577	|	UI	anyway	.
+T28_5481	1417592	|	CC	and	[S+.
+T28_5484	1417603	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5487	1417612	|	VVDv	said	[Vd.Vd]
+T28_5490	1417624	|	PPIS1	I	[Fn#Q:o[Nea:s199.Nea:s199]
+T28_5493	1417633	|	RR	just	[R:m.R:m]
+T28_5496	1417645	|	VVDv	wanted	[Vd.Vd]
+T28_5499	0000000	y	YG	-	[Ti:o[s199.s199]
+T28_5502	1417664	,	TO	to	[Vi.Vi]Ti:o]
+T28_5505	0000000	y	YR	#	.
+T28_5508	1417682	|	VD0	do	[S?[Vo.Vo]
+T28_5511	1417692	|	PPY	you	[Ny:s.Ny:s]
+T28_5514	1417703	|	VV0v	know	[Vr.Vr]
+T28_5517	1417715	|	PNQSq	who	[Fn?:o[Nq:s.Nq:s]
+T28_5520	1417726	|	VBZ	is	[Vzb.Vzb]
+T28_5523	1417736	|	RP	on	[R:p.R:p]Fn?:o]S?]Fn#Q:o]S+]
+T28_5526	1417751	|	RRz	so	[S[Rs:c.Rs:c]
+T28_5529	1417761	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_5532	1417771	|	VVDv	said	[Vd.Vd]
+T28_5535	1417783	|	UR	oh	[Q:o.
+T28_5538	1417793	|	NP1a	<name>	[S[Nns:s.Nns:s]
+T28_5541	1417844	|	PPHS1m	he	[I[S[Nas:s.Nas:s]
+T28_5544	1417854	|	VVZv	thinks	[Vz.Vz]S]I]
+T28_5547	1417869	|	VBZ	is	[Vzb.Vzb]
+T28_5550	1417879	|	RP	on	[R:p.R:p]S]Q:o]S]
+T28_5553	1417893	|	CC	and	[S+.
+T28_5556	1417904	|	DD1a	that	[Ds:s.Ds:s]
+T28_5559	1417920	|	VMo	must	[Vcb.
+T28_5562	1417932	|	VB0	be	.Vcb]
+T28_5565	1417942	|	AT	the	[Nn:e.
+T28_5568	1417953	|	NP1a	<name>	.
+T28_5571	1418022	&	II	from	[P.
+T28_5583	1417378	ic	YY	{unclear}	[Y.Y]P]Nn:e]S+]
+T28_5586	-----	Josephine113
+T28_5589	.....	08724
+T28_5592	1418099	&*	DD1a	that	[S[Ds:s.Ds:s]
+T28_5595	1418111	|	VBZ	is	[Vzb.Vzb]
+T28_5598	0000000	y	YR	#	.
+T28_5601	1418138	&	DD1a	that	[Ds:s.Ds:s]
+T28_5604	1418150	|	VBZ	is	[Vzb.Vzb]
+T28_5607	1418160	|	AT	the	[Ms:e201.
+T28_5610	1418172	|	MC1	one	.
+T28_5613	1418183	|	CST	that	[Fr.
+T28_5616	0000000	y	YG	-	[s201.s201]
+T28_5619	1418195	|	VVDv	left	[Vd.Vd]
+T28_5622	1418207	|	AT	the	[Ns:o.
+T28_5625	1418218	|	YMN	erm	.
+T28_5628	1418246	&	NN1c	heater	.Ns:o]Fr]Ms:e201]S]
+T28_5631	-----	Howard112
+T28_5634	.....	08725
+T28_5637	1418325	&*	CST	that	[S[Ds:s.Ds:s]
+T28_5640	1418336	|	VBZ	+'s	[Vzb.Vzb]
+T28_5643	1418346	|	PPH1	it	[Ni:e.Ni:e]S]
+T28_5646	1418373	&,	UY	yeah	.
+T28_5649	1418394	|	CC	and	[S+.
+T28_5652	1418405	|	YMN	erm	.
+T28_5655	1418416	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5658	1418425	|	VBDZ	was	[Vsb.Vsb]
+T28_5661	1418436	|	YMN	erm	.
+T28_5664	1418447	|	NP1m	Wally	[Nn:e.
+T28_5667	1418460	|	CC	and	[Nns+.
+T28_5670	1418472	|	NP1m	Gordon	.
+T28_5673	1418486	|	NP1a	<name>	.Nns+]Nn:e]S+]
+T28_5676	1418538	|	CC	and	[S+.
+T28_5679	1418549	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_5682	1418559	|	VVZv	thinks	[Vz.Vz]
+T28_5685	1418573	|	RLh	there	[Q:o[S[Rw:p.Rw:p]
+T28_5688	1418585	|	VBZ	+'s	[Vzb.Vzb]
+T28_5691	1418595	|	DD1q	another	[Ns:s.
+T28_5694	1418611	|	NN1c	couple	.Ns:s]S]Q:o]S+]
+T28_5697	1418629	|	UE21	you	[UE=.
+T28_5700	1418640	,	UE22	see	.UE=]
+T28_5703	1418659	|	RRz	so	[S[Rs:c.Rs:c]
+T28_5706	1418669	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5709	1418678	|	VVDv	said	[Vd.Vd]
+T28_5712	0000000	y	YR	#	.S]
+T28_5715	1418691	,	UW	well	.
+T28_5718	1418711	|	UE21	you	[UE=.
+T28_5721	1418722	,	UE22	know	.UE=]
+T28_5724	1418742	|	CC	and	[S+.
+T28_5727	1418753	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5730	1418762	|	VVDv	told	[Vd.Vd]
+T28_5733	1418775	|	PPHO1m	him	[Nos:i.Nos:i]
+T28_5736	1418786	|	II	about	[P:u.
+T28_5739	1418799	|	AT	the	[Ns.
+T28_5742	1418810	|	NN1c	heater	.Ns]P:u]S+]
+T28_5745	1418824	|	UE21	you	[UE=.
+T28_5748	1418835	|	UE22	see	.UE=]
+T28_5751	1418846	|	CC	and	[S+.
+T28_5754	1418858	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_5757	1418868	,	VV0v	know	[V.V]S+]
+T28_5760	1418888	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_5763	1418897	|	VVDv	said	[Vd.Vd]
+T28_5766	1418909	c	YP	{pause}	.
+T28_5769	1418917	|	CSn	when	[Q:o[S[Fa:t[Rq:t.Rq:t]
+T28_5772	1418929	|	NNc	people	[N:s.N:s]
+T28_5775	1418944	|	VVGv	sitting	[Vg.Vg]
+T28_5778	1418959	|	II	on	[P:p.
+T28_5781	1418969	|	APPGh2	their	[Np.
+T28_5784	1418982	|	NN2	backsides	.Np]P:p]
+T28_5787	1418999	|	II	in	[P:p.
+T28_5790	1419009	|	NNJ1c	committee	.P:p]
+T28_5793	1419027	|	VVGv	making	[Tg:b[Vg.Vg]
+T28_5796	1419041	,	NN2	decisions	[Np:o.Np:o]Tg:b]Fa:t]
+T28_5799	1419066	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_5802	1419075	,	VVDv	said	[Vd.Vd]S]I]
+T28_5805	1419095	|	UE21	you	[UE=.
+T28_5808	1419107	,	UE22	know	.UE=]
+T28_5811	1419127	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_5814	1419136	|	VVDv	said	[Vd.Vd]S]I]
+T28_5817	1419148	|	PPH1	it	[Ni:s.Ni:s]
+T28_5820	1419158	|	RR	just	[R:m.R:m]
+T28_5823	1419170	|	VVZv	makes	[Vz.Vz]
+T28_5826	1419183	|	PPIO1	me	[Neo:o.Neo:o]
+T28_5829	1419194	|	FLJ	bloody	[J:j[R.
+T28_5832	1419208	|	RR	well	.R]
+T28_5835	1419220	,	JJ	annoyed	.J:j]S]Q:o]S]
+T28_5838	1419247	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_5841	1419257	|	VVDv	said	[Vd.Vd]
+T28_5844	1419269	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T28_5847	1419279	|	VV0v	know	[V.V]S]Q:o]S]
+T28_5850	1419291	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_5853	1419301	|	VVDv	said	[Vd.Vd]
+T28_5856	1419313	|	PPHS2	they	[Q:o[S[Nap:s.Nap:s]
+T28_5859	1419325	|	VD0	do	[Ve.
+T28_5862	1419334	,	XX	+n't	.Ve]
+T28_5865	0000000	y	YR	#	.
+T28_5868	1419354	,	PPHS2	they	[Nap:s[PPHS2#.
+T28_5871	0000000	y	YR	#	.
+T28_5874	1419374	|	PPHS2	they	.PPHS2#]Nap:s]
+T28_5877	1419386	|	VV0v	make	[V.V]
+T28_5880	1419398	|	AT	the	[Np:o.
+T28_5883	1419409	|	NN2	decisions	.Np:o]
+T28_5886	1419427	,	CC	and	[S+[CC#CCB#.
+T28_5889	0000000	y	YR	#	.
+T28_5892	1419446	|	CCB	but	.CC#CCB#]
+T28_5895	1419457	|	PPHS2	they	[Nap:s.Nap:s]
+T28_5898	1419469	|	VD0	do	[Ve.
+T28_5901	1419478	|	XX	+n't	.
+T28_5904	1419489	|	VD0	do	.Ve]
+T28_5907	1419499	|	AT	the	[Ns:o.
+T28_5910	1419511	,	NN1u	nitty-gritty	.Ns:o]
+T28_5913	1419546	|	PPHS2	they	[S@#Ns@:205[Nap:s.Nap:s]
+T28_5916	0000000	y	YR	#	.
+T28_5919	1419575	&	UE21	you	[UE=.
+T28_5922	1419586	|	UE22	know	.UE=]
+T28_5925	.....	08727
+T28_5928	1419724	&	AT	the	.
+T28_5931	1419735	|	NN1c	person	.
+T28_5934	1419749	|	CST	that	[Fr.
+T28_5937	0000000	y	YG	-	[s205.s205]
+T28_5940	1419761	|	VHZ	has	[Vz.Vz]
+T28_5943	1419772	|	TO	to	[Ti:z[Vi.
+T28_5946	1419782	|	VV0t	implement	.Vi]
+T28_5949	1419800	|	DD2i	these	[Np:o.
+T28_5952	1419813	|	NN2	things	.Np:o]Ti:z]Fr]
+T28_5955	1419827	|	PPHS2	they	[S@[Nap:s.Nap:s]
+T28_5958	1419839	|	VD0	do	[Vex.
+T28_5961	1419848	|	XX	+n't	.Vex]S@]S@#Ns@:205]S+]S]Q:o]S]
+T28_5964	1419876	&	CC	and	[S+.
+T28_5967	1419888	|	PPIS1	I	[Nea:s.Nea:s]
+T28_5970	1419897	|	VVDv	said	[Vd.Vd]
+T28_5973	0000000	y	YR	#	.S+]
+T28_5976	-----	Josephine113
+T28_5979	.....	08726
+T28_5982	1419663	&*	UY	yeah	.
+T28_5985	-----	Josephine113
+T28_5988	.....	08728
+T28_5991	1419974	&*,	DD2i	these	[S[Dp:s.Dp:s]
+T28_5994	0000000	y	YR	#	.
+T28_5997	1419995	|	PN	none	[N:s[PN#.
+T28_6000	0000000	y	YR	#	.
+T28_6003	1420024	&	PN	none	.PN#]
+T28_6006	1420036	|	IO	of	[Po.
+T28_6009	1420047	|	DD2a	those	.Po]N:s]
+T28_6012	1420060	|	VMd	would	[Vdc.
+T28_6015	1420073	|	VH0	have	.Vdc]
+T28_6018	1420085	|	AT	the	[Ns:o.
+T28_6021	1420096	|	JJT	foggiest	.
+T28_6024	1420112	|	NN1c	notion	.
+T28_6027	1420127	|	II	about	[P.
+T28_6030	1420140	|	PPH1	it	.P]Ns:o]S]
+T28_6033	-----	Howard112
+T28_6036	.....	08729
+T28_6039	1420182	*	II	about	[P.
+T28_6042	1420195	|	AT	the	[Ns.
+T28_6045	1420206	|	NNL1c	hall	.Ns]P]
+T28_6048	-----	Josephine113
+T28_6051	.....	08730
+T28_6054	1420250	|	II	about	[P.
+T28_6057	1420263	|	AT	the	[Ns.
+T28_6060	1420274	,	NNL1c	hall	.Ns]P]
+T28_6063	1420294	|	UE21	you	[UE=.
+T28_6066	1420305	|	UE22	see	.UE=]
+T28_6069	1420316	,	PPY	you	[S[Ny:s.Ny:s]
+T28_6072	1420336	|	CSA	as	[A:x.
+T28_6075	1420346	|	PPIS1	I	[Nea:s.Nea:s]
+T28_6078	1420355	|	VVDv	said	[Vd.Vd]
+T28_6081	1420367	|	IIt	to	[P:u.
+T28_6084	1420377	,	NP1f	Kay	[Nns.Nns]P:u]A:x]
+T28_6087	0000000	y	YR	#	.S]
+T28_6090	1420396	|	UR	oh	.
+T28_6093	1420406	|	RR21	of	[S[R:m[RR=.
+T28_6096	1420406	|	RR22	course	.RR=]R:m]
+T28_6099	1420424	|	NP1f	Kay	[Nns:s.Nns:s]
+T28_6102	1420435	|	VHZ	has	[Vz.Vz]
+T28_6105	1420446	|	DD1i	this	[Ns:o.Ns:o]
+T28_6108	0000000	y	YR	#	.
+T28_6111	1420458	|	UE21	you	[UE=.
+T28_6114	1420469	|	UE22	know	.UE=]
+T28_6117	1420481	|	II	on	[P:e[II=.
+T28_6120	1420491	|	II	about	.II=]
+T28_6123	1420505	|	DD1i	this	[N.
+T28_6126	1420517	|	NN2	scouts	.
+T28_6138	1420536	ic	YY	{unclear}	[Y.Y]N]P:e]
+T28_6144	.....	08731
+T28_6147	1420583	,	CCB	but	[S+.
+T28_6150	1420602	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_6153	1420613	|	VDD	did	[Vdk.
+T28_6156	1420624	|	VV0v	say	.Vdk]
+T28_6159	1420635	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T28_6162	1420646	|	VDD	did	[Vd.Vd]
+T28_6165	1420657	|	DD1i	this	[D:o.
+T28_6168	1420670	|	DD1a	that	[Ds-.Ds-]
+T28_6171	1420682	|	CC	and	[Ns-.
+T28_6174	1420693	|	AT	the	.
+T28_6177	1420704	|	JBo	other	.
+T28_6180	1420717	|	NN1c	thing	.Ns-]D:o]
+T28_6183	1420730	|	RR21	as	[R:m[RR=.
+T28_6186	1420730	|	RR22	well	.RR=]R:m]Fn:o]S+]S]
+T28_6189	1420746	|	UE21	you	[UE=.
+T28_6192	1420757	,	UE22	see	.UE=]
+T28_6195	1420776	|	CCB	but	[S+.
+T28_6198	1420787	|	EX	there	.
+T28_6201	1420799	|	VBZ	+'s	[Vzb.Vzb]
+T28_6204	1420809	|	PN1	nobody	[Ns:s211.
+T28_6207	0000000	y	YG	-	[Fr[s211.s211]
+T28_6210	1420824	|	VVZv	knows	[Vz.Vz]
+T28_6213	1420837	|	PN1	anything	[Ns:o.
+T28_6216	1420853	|	II	about	[P.
+T28_6219	1420866	|	AT	the	[Ns.
+T28_6222	1420877	|	NNL1c	hall	.
+T28_6225	1420889	|	II	in	[P.
+T28_6228	1420900	|	APPGh1	its	[Ns.
+T28_6231	1420911	|	JJ	new	.
+T28_6234	1420922	|	NNL1n	state	.Ns]P]Ns]P]Ns:o]
+T28_6237	1420935	|	CSA	as	[A:h.
+T28_6240	1420945	|	PPY	you	[Ny:s.Ny:s]
+T28_6243	1420956	|	VD0	do	[Vx.Vx]A:h]Fr]Ns:s211]S+]
+T28_6246	-----	Howard112
+T28_6249	.....	08732
+T28_6252	1420998	*	DD1a	that	[S[Ds:s.Ds:s]
+T28_6255	1421009	|	VBZ	+'s	[Vzb.Vzb]
+T28_6258	1421019	|	JJ	right	[J:e.J:e]S]
+T28_6261	-----	Josephine113
+T28_6264	.....	08733
+T28_6267	1421064	|	UE21	I	[UE=.
+T28_6270	1421073	|	UE22	mean	.UE=]
+T28_6273	1421085	|	PPY	you	[S[Ny:s.Ny:s]
+T28_6276	1421096	|	VD0	do	[Ve.
+T28_6279	1421105	|	XX	+n't	.Ve]
+T28_6282	.....	00000
+T28_6285	1421152	&ic	YY	{unclear}	[Y.Y]S]
+T28_6288	-----	Howard112
+T28_6291	.....	08734
+T28_6294	1421227	&	UE21	I	[UE=.
+T28_6297	1421236	|	UE22	mean	.UE=]
+T28_6300	1421265	&	PPIS1	I	[S[Nea:S215.Nea:S215]
+T28_6303	1421274	|	VBDZ	was	[Vsp.
+T28_6306	1421285	|	VVDv	asked	.Vsp]
+T28_6309	0000000	y	YG	-	[Ti:o[s215.s215]
+T28_6312	1421299	|	TO	to	[Vi.
+T28_6315	1421309	|	VD0	do	.Vi]
+T28_6318	1421319	|	PPH1	it	[Ni:o.Ni:o]Ti:o]
+T28_6321	1421329	|	RL	right	[P:t.
+T28_6324	1421342	|	II	from	.
+T28_6327	1421354	|	AT	the	[Ns.
+T28_6330	1421365	|	NN1c	word	.
+T28_6333	1421378	|	VV0i	go	[Q@.Q@]Ns]P:t]
+T28_6336	1421388	|	VBDZ	was	[Iq[S?[Vsebx.
+T28_6339	1421398	|	XX	+n't	.Vsebx]
+T28_6342	1421409	?	PPIS1	I	[Nea:S.Nea:S]S?]Iq]S]
+T28_6345	-----	Josephine113
+T28_6348	.....	08735
+T28_6351	1421458	*	CC	and	[S+.
+T28_6354	1421469	|	PPY	you	[Ny:s.Ny:s]
+T28_6357	1421480	|	VVDv	dealt	[Vd.Vd]
+T28_6360	1421493	|	IW	with	[P:u.
+T28_6363	1421505	|	AT	the	[Np[AT#.
+T28_6366	0000000	y	YR	#	.
+T28_6369	1421516	,	YMN	erm	.
+T28_6372	1421536	,	AT	the	.
+T28_6375	0000000	y	YR	#	.
+T28_6378	1421555	|	AT	the	.AT#]
+T28_6381	1421566	|	JJ	various	.
+T28_6384	1421581	|	NN2	taxes	[NN2&.
+T28_6387	1421594	|	CC	and	[NN2+.
+T28_6390	1421606	.	NN2	whatnots	.NN2+]NN2&]Np]P:u]S+]
+T28_6393	-----	Howard112
+T28_6396	.....	08736
+T28_6399	1421662	*	DD1a	that	[S[Ds:s.Ds:s]
+T28_6402	1421673	|	VBZ	+'s	[Vzb.Vzb]
+T28_6405	1421683	|	JJ	right	[J:e.J:e]S]
+T28_6408	1421696	c	YP	{pause_12}	.
+T28_6411	-----	Josephine113
+T28_6414	.....	08737
+T28_6417	1421743	*	CSA	as	[S[A:x.
+T28_6420	1421753	|	PPIS1	I	[Nea:s.Nea:s]
+T28_6423	1421762	|	VVDv	said	[Vd.Vd]
+T28_6426	1421774	|	IIt	to	[P:u.
+T28_6429	1421784	|	NP1f	Kay	[Nns.Nns]P:u]A:x]
+T28_6432	1421795	|	PPH1	it	[Ni:s217.
+T28_6435	0000000	y	YG	-	[219.219]Ni:s217]
+T28_6438	1421804	|	VBZ	+'s	[Vzb.Vzb]
+T28_6441	1421814	|	NP1m	Howie	[Nns:e.Nns:e]
+T28_6444	1421828	|	CST	that	[Fr:G219.
+T28_6447	0000000	y	YG	-	[s217.s217]
+T28_6450	1421844	|	VDZ	does	[Vz.Vz]
+T28_6453	1421856	,	DBa	all	[D:o.D:o]Fr:G219]S]
+T28_6456	1421875	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_6459	1421885	|	VVZv	gets	[Vz.Vz]
+T28_6462	1421897	|	AT	the	[Ns:o.
+T28_6465	1421909	|	NN1u	money	.Ns:o]
+T28_6468	1421922	,	RP	in	[R:q.R:q]S]
+T28_6471	1421944	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T28_6474	1421954	|	VVZv	pays	[Vz.Vz]
+T28_6477	1421966	|	DBa	all	[Np:o.
+T28_6480	1421977	|	AT	the	.
+T28_6483	1421989	,	NN2	bills	.Np:o]S]
+T28_6486	1422010	|	NP1f	Muriel	[S[Nns:s.Nns:s]
+T28_6489	1422024	|	VVZt	brings	[Vz.Vz]
+T28_6492	1422038	|	PPHO1m	him	[Nos:i.Nos:i]
+T28_6495	1422049	|	AT	the	[Np:o.
+T28_6498	1422061	,	NN2	bills	.Np:o]S]
+T28_6501	1422082	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_6504	1422091	|	VVDv	said	[Vd.Vd]
+T28_6507	1422103	|	PPHS1m	he	[Q:o[S[Nas:s.Nas:s]
+T28_6510	1422113	|	VDZ	does	[Vz.Vz]
+T28_6513	1422125	|	DBa	all	[Ds:o.
+T28_6516	1422137	|	DD1a	that	.Ds:o]
+T28_6519	1422153	|	II21	apart	[P:m[II=.
+T28_6522	1422153	|	II22	from	.II=]
+T28_6525	1422171	|	AT	the	[Ns.
+T28_6528	1422182	|	NN1n	fact	.
+T28_6531	1422194	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_6534	1422203	|	VVDv	said	[Vd.Vd]S]I]
+T28_6537	1422216	|	PPHS1m	he	[Fn[Nas:s.Nas:s]
+T28_6540	1422226	|	VVDv	spent	[Vd.Vd]
+T28_6543	1422239	|	AT	the	[Ns:o.
+T28_6546	1422250	|	JJ	whole	.
+T28_6549	1422263	|	NNT1c	day	.Ns:o]
+T28_6552	1422274	,	RTt	yesterday	[R:t.R:t]
+T28_6555	0000000	y	YR	#	.
+T28_6558	1422300	|	AT	the	[Ns:o.
+T28_6561	1422311	|	JJ	whole	.
+T28_6564	1422324	|	NNT1c	morning	.Ns:o]
+T28_6567	1422339	|	RTt	yesterday	[R:t.R:t]
+T28_6570	1422356	|	RLh	here	[Rw:p.Rw:p]
+T28_6573	1422369	|	VVGv	clearing	[Tg:h[Vg.Vg]
+T28_6576	1422385	,	DD1i	this	[Ds:o.Ds:o]Tg:h]Fn]Ns]P:m]S]Q:o]S]
+T28_6579	1422405	|	UR	oh	[Q.
+T28_6582	1422415	|	PPHS1f	she	[I[S[Nas:s.Nas:s]
+T28_6585	1422426	|	VVDv	said	[Vd.Vd]S]I]
+T28_6588	1422438	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_6591	0000000	y	YG	-	[m221.m221]
+T28_6594	1422448	|	VDD	did	[Vdk.
+T28_6597	1422459	|	RR21	as	[R:G221[RR=.
+T28_6600	1422459	,	RR22	well	.RR=]R:G221]
+T28_6603	1422482	|	YMN	erm	.
+T28_6606	1422493	|	UE21	you	[UE=.
+T28_6609	1422504	|	UE22	know	.UE=]
+T28_6612	1422517	,	VV0v	help	.Vdk]S]Q]
+T28_6615	1422537	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_6618	1422546	|	VVDv	said	[Vd.Vd]
+T28_6621	1422558	|	DDQ	what	[Q:o[Y?[Dq.Dq]
+T28_6624	1422570	,	PPY	you	[Ny.Ny]
+T28_6627	0000000	y	YR	#	.Y?]
+T28_6630	1422589	|	CCB	but	[S+.
+T28_6633	1422601	|	II31	as	[P:m[II=.
+T28_6636	1422611	|	II32	well	.
+T28_6639	1422623	|	II33	as	.II=]
+T28_6642	1422633	|	VVGv	clearing	[Tg[Vg.Vg]
+T28_6645	.....	08738
+T28_6648	1422701	&,	NN1n	stuff	[Ns:o.Ns:o]Tg]P:m]
+T28_6651	1422722	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_6654	1422731	|	VVDv	said	[Vd.Vd]S]I]
+T28_6657	1422743	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_6660	1422753	|	VVDv	swept	[Vd.Vd]
+T28_6663	1422766	|	AT	the	[Ns:o.
+T28_6666	1422778	,	NNL1c	hall	.Ns:o]S+]Q:o]S]
+T28_6669	1422798	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_6672	1422807	|	VVDv	said	[Vd.Vd]
+T28_6675	1422819	|	VV0v	look	[Q:o[S*[V.V]
+T28_6678	1422835	|	RRQq	how	[Fn?:o[Jq:e.
+T28_6681	1422846	|	JJ	nice	.Jq:e]
+T28_6684	1422859	|	PPH1	it	[Ni:s.Ni:s]
+T28_6687	1422869	|	VVZv	looks	[Vz.Vz]
+T28_6690	1422882	|	DD1i	this	[Ns:t.
+T28_6693	1422894	,	NNT1c	morning	.Ns:t]Fn?:o]S*]
+T28_6696	1422917	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_6699	1422926	|	VVDv	said	[Vd.Vd]S]I]
+T28_6702	1422939	|	CC	and	[S+.
+T28_6705	1422950	|	PPHS1m	he	[Nas:s.Nas:s]
+T28_6708	1422960	|	VDD	did	[Vd.Vd]
+T28_6711	1422971	|	DBa	all	[N:o.
+T28_6714	1422982	|	AT	the	.
+T28_6717	1422993	|	NN2	toilets	.
+T28_6720	1423008	|	CC	and	[Ns+.
+T28_6723	1423020	|	PN1	everything	.
+T28_6726	1423038	|	RAe	else	.Ns+]N:o]S+]Q:o]S]
+T28_6729	-----	Howard112
+T28_6732	.....	-----
+T28_6735	1422654	ic	YY	{unclear}	[Y.Y]
+T28_6738	-----	Howard112
+T28_6741	.....	-----
+T28_6744	1423055	ic	YY	{unclear}	[Y.Y]
+T28_6747	-----	Josephine113
+T28_6750	.....	08739
+T28_6753	1423102	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_6756	1423111	|	VV0v	wonder	[V.V]
+T28_6759	1423129	|	PNQSq	who	[Fn?:o[Nq:s.Nq:s]
+T28_6762	1423140	|	VDD	did	[Vdx.Vdx]Fn?:o]
+T28_6765	1423151	|	RTn	then	[Rsw:c.Rsw:c]S]
+T28_6768	1423163	c	YP	{pause}	.
+T28_6771	1423171	|	CC	and	[S+.
+T28_6774	.....	08740
+T28_6777	1423234	&	UE21	you	[UE=.
+T28_6780	1423245	|	UE22	see	.UE=]
+T28_6783	1423256	*	NNS1c	sister	[Nns:s.Nns:s]
+T28_6786	1423270	|	VVZv	makes	[Vz.Vz]
+T28_6789	1423283	|	DBa	all	[Np:o.
+T28_6792	1423294	|	DD2i	these	.
+T28_6795	1423308	,	NN2	arrangements	.Np:o]S+]
+T28_6798	1423336	|	PPH1	it	[S[Ni:s227.
+T28_6801	0000000	y	YG	-	[229.229]Ni:s227]
+T28_6804	1423345	|	VBZ	+'s	[Vzb.Vzb]
+T28_6807	1423355	|	PPHS1f	she	[Nas:e.Nas:e]
+T28_6810	1423366	|	PNQSr	who	[Fr:G229[Nq:s227.Nq:s227]
+T28_6813	1423377	|	VDZ	does	[Vz.Vz]
+T28_6816	1423390	|	RGz	so	[Dp:o.
+T28_6819	1423400	|	DA2	many	.
+T28_6822	1423412	|	IO	of	[Po.
+T28_6825	1423422	|	AT	the	[Np.
+T28_6828	1423433	,	NN2	arrangements	.Np]Po]Dp:o]Fr:G229]S]
+T28_6831	1423461	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_6834	1423473	|	VHZ	has	[Vzf.
+T28_6837	1423484	|	VVNv	made	.Vzf]
+T28_6840	1423496	|	AT	the	[Np:o.
+T28_6843	1423507	|	NN2	arrangements	.
+T28_6846	1423527	|	II	about	[P.
+T28_6849	1423540	|	EX	there	[Tg.
+T28_6852	1423554	|	VBG	being	[Vgb.Vgb]
+T28_6855	1423567	|	ATn	no	[Ns:s.
+T28_6858	1423577	,	NN1n	coffee	.Ns:s]Tg]P]Np:o]S]
+T28_6861	1423599	|	DA2q	several	[S[S&[Np:s.
+T28_6864	1423614	|	NNc	people	.Np:s]
+T28_6867	1423629	|	VH0	have	[Vf.
+T28_6870	1423641	|	VVNi	come	.Vf]
+T28_6873	1423653	|	IIt	to	[P:q.
+T28_6876	1423663	|	PPIO1	me	.P:q]
+T28_6879	1423673	|	CC	and	[S+.
+T28_6882	1423684	|	VVDv	said	[Vd.Vd]
+T28_6885	1423696	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T28_6888	1423706	|	VD0	do	[Ve.
+T28_6891	1423715	|	XX	+n't	.
+T28_6894	1423726	|	VV0v	know	.Ve]
+T28_6897	1423738	|	RRQq	why	[Fn?:o[Rq:c.Rq:c]
+T28_6900	1423749	|	PPY	you	[Ny:s.Ny:s]
+T28_6903	1423759	|	VH0	+'ve	[Vf.
+T28_6906	1423770	|	VVDv	got	.Vf]
+T28_6909	1423781	|	TO	to	[Ti:o[Vi.
+T28_6912	1423792	|	VV0v	stop	.Vi]
+T28_6915	1423804	|	NN1n	coffee	[Ns:o.Ns:o]Ti:o]Fn?:o]
+T28_6918	1423818	|	CS	because	[Fa:c.
+T28_6921	1423833	|	PPIS2	we	[Nap:s.Nap:s]
+T28_6924	0000000	y	YG	-	[t231.t231]
+T28_6927	1423843	|	VMo	can	[Vc.
+T28_6930	1423854	|	RR	always	[R:G231.R:G231]
+T28_6933	1423869	|	VV0i	go	.Vc]
+T28_6936	1423879	|	RP	over	[R:q.R:q]
+T28_6939	1423891	|	CC	and	[Fa+.
+T28_6942	1423902	|	VH0	have	[V.V]
+T28_6945	1423914	|	NN1c	lunch	[Ns:o.Ns:o]Fa+]
+T28_6948	1423927	,	RR	anyway	[R:c.R:c]
+T28_6951	1423950	|	UE21	you	[UE=.
+T28_6954	1423961	,	UE22	know	.UE=]
+T28_6957	1423981	|	YMV	er	.
+T28_6960	1423991	|	ICSt	after	[P:t.
+T28_6963	1424008	|	AT	the	[Ns.
+T28_6966	1424020	,	NN1n	coffee	.Ns]P:t]Fa:c]S]Q:o]S+]S&]
+T28_6969	1424042	|	CCB	but	[S+.
+T28_6972	1424053	|	NP1f	Jean	[Nns:s.
+T28_6975	1424065	|	NP1a	<name>	.Nns:s]
+T28_6978	1424116	|	VVDi	came	[Vd.Vd]
+T28_6981	1424128	|	IIt	to	[P:q.
+T28_6984	1424139	|	PPIO1	me	.P:q]
+T28_6987	1424149	|	PPHS1f	she	[S-[Nas:s.Nas:s]
+T28_6990	1424160	|	VVDv	said	[Vd.Vd]
+T28_6993	1424172	|	UK	look	[Q:o.
+T28_6996	1424184	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_6999	1424192	|	VBM	+'m	[Vmu.
+T28_7002	1424202	|	VVGv	giving	.Vmu]
+T28_7005	1424217	|	PPY	you	[Ny:i.Ny:i]
+T28_7008	1424228	,	DD1i	this	[Ds:o.Ds:o]S]Q:o]S-]
+T28_7011	1424248	|	CC	and	[S+.
+T28_7014	1424259	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_7017	1424270	|	VVDv	gave	[Vd.Vd]
+T28_7020	1424282	|	PPIO1	me	[Neo:i.Neo:i]
+T28_7023	1424293	|	MC	three	[Nup:o.
+T28_7026	1424306	,	NNU2	pounds	.Nup:o]S+]S+]S]
+T28_7029	1424328	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7032	1424339	|	VVDv	said	[Vd.Vd]
+T28_7035	1424351	|	PPIS1	I	[Q:o[S[Nea:s.Nea:s]
+T28_7038	1424360	|	VMd	would	[Vdcx.Vdcx]
+T28_7041	1424374	|	DA1	much	[Rr:m.
+T28_7044	1424386	|	RRR	rather	.
+T28_7047	0000000	y	YG	-	[233.233]Rr:m]
+T28_7050	1424400	|	DD1a	that	[Fn:z[Ds:S.Ds:S]
+T28_7053	1424412	|	VBDZ	was	[Vsp.
+T28_7056	1424423	|	VVNv	put	.Vsp]
+T28_7059	1424434	|	II	into	[P:q.
+T28_7062	1424447	,	DD1i	this	[Ns.
+T28_7065	1424467	|	RLh	there	.
+T28_7068	0000000	y	YR	#	.
+T28_7071	1424480	|	APPGy	your	.
+T28_7074	1424492	|	NN1n	charity	.
+T28_7077	1424507	|	NN1c	thing	.Ns]P:q]Fn:z]
+T28_7080	1424520	|	CSN	than	[Fc:G233.
+T28_7083	1424533	|	VV0v	take	[V.V]
+T28_7086	1424545	|	PPH1	it	[Ni:o.Ni:o]
+T28_7089	1424555	|	II	across	[P:q.
+T28_7092	1424569	|	AT	the	[Ns.
+T28_7095	1424580	,	NNL1c	hall	.Ns]P:q]Fc:G233]S]Q:o]S]
+T28_7098	1424600	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7101	1424612	|	VVDv	said	[Vd.Vd]
+T28_7104	1424624	|	APPGi1	my	[Q:o[S[Nns:s.
+T28_7107	1424634	|	NP1f	Josephine	.Nns:s]
+T28_7110	1424650	|	VMo	wo	[Vce.
+T28_7113	1424659	|	XX	+n't	.
+T28_7116	1424670	|	VV0i	go	.Vce]
+T28_7119	1424680	|	RP	over	[Rw:q.
+T28_7122	1424680	|	RLh	there	.Rw:q]
+T28_7125	1424698	|	DDy	any	[D:t.
+T28_7128	1424709	,	DAR	more	.D:t]
+T28_7131	1424729	|	CS	because	[Fa:c.
+T28_7134	1424744	,	PPHS2	they	[Nap:s[PPHS2#.
+T28_7137	0000000	y	YR	#	.
+T28_7140	1424765	|	PPHS2	they	.PPHS2#]Nap:s]
+T28_7143	1424777	,	VV0v	say	[V.V]
+T28_7146	1424796	|	UE21	you	[UE=.
+T28_7149	1424807	,	UE22	know	.UE=]
+T28_7152	1424827	|	VV0v	put	[Q:o[S*[V.V]
+T28_7155	1424838	|	RP	in	[R:q.R:q]
+T28_7158	1424849	|	IF	for	[P:c.
+T28_7161	1424860	|	APPGy	your	[Ns.
+T28_7164	1424872	|	NN1c	lunch	.Ns]P:c]
+T28_7167	1424885	|	DDQ	what	[Ff:o[Dq:o.Dq:o]
+T28_7170	1424897	|	PPH1	it	[Ni:S.Ni:S]
+T28_7173	1424907	|	VMd	would	[Vdc.
+T28_7176	1424920	|	VV0v	cost	.Vdc]
+T28_7179	.....	08742
+T28_7182	1425008	&	TO	to	[Ti:s[Vi.
+T28_7185	1425018	|	VH0	have	.Vi]
+T28_7188	1425030	|	AT1	a	[Ns:o.
+T28_7191	1425039	|	NN1c	lunch	.
+T28_7194	1425052	|	RP	out	.Ns:o]Ti:s]Ff:o]S*]Q:o]Fa:c]S]Q:o]S]
+T28_7197	-----	unid1
+T28_7200	.....	-----
+T28_7203	1423187	ic	YY	{unclear}	[Y.Y]
+T28_7206	-----	Howard112
+T28_7209	.....	08741
+T28_7212	1424964	*	UY	yeah	.
+T28_7215	-----	Howard112
+T28_7218	.....	08743
+T28_7221	1425099	|	CSi	if	[Fa.
+T28_7224	1425109	|	PPY	you	[Ny:s.Ny:s]
+T28_7227	1425120	|	VD0	do	[Ve.
+T28_7230	1425129	|	XX	+n't	.
+T28_7233	1425140	|	VV0i	go	.Ve]
+T28_7236	1425150	|	IF	for	[P:c.
+T28_7239	1425161	|	AT1	a	[Ns.
+T28_7242	1425170	|	NN1c	lunch	.
+T28_7245	1425184	|	RP	out	.Ns]P:c]Fa]
+T28_7248	-----	Josephine113
+T28_7251	.....	08744
+T28_7254	1425231	*	DD1a	that	[S[Ds:s.Ds:s]
+T28_7257	1425242	|	VBZ	+'s	[Vzb.Vzb]
+T28_7260	1425252	,	JJ	right	[J:e.J:e]S]
+T28_7263	1425273	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7266	1425284	|	VVDv	said	[Vd.Vd]
+T28_7269	1425296	|	NP1f	Josephine	[Q:o[S[Nns:s.Nns:s]
+T28_7272	1425313	|	RR	never	[R:t.R:t]
+T28_7275	1425326	,	VVZi	goes	[Vz.Vz]S]Q:o]S]
+T28_7278	1425346	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_7281	1425355	|	VVDv	said	[Vd.Vd]
+T28_7284	1425367	|	UW	well	[Q:o.
+T28_7287	1425379	|	PPIS2	we	[S[Nap:s.Nap:s]
+T28_7290	1425390	|	RR	never	[R:t.R:t]
+T28_7293	1425403	|	VV0i	go	[V.V]
+T28_7296	1425413	|	IF	for	[P:c.
+T28_7299	1425424	|	NN1c	lunch	[Ns.
+T28_7302	1425437	,	RP	out	.Ns]P:c]
+T28_7305	1425456	|	PPIS2	we	[L@[Nap:s.Nap:s]
+T28_7308	1425467	|	RR	hardly	[R:t.
+T28_7311	1425481	|	RR	ever	.R:t]
+T28_7314	1425493	|	RR	really	[R:m.R:m]L@]S]Q:o]S]
+T28_7317	-----	Howard112
+T28_7320	.....	08745
+T28_7323	1425539	*	DD1a	that	[S[Ds:s.Ds:s]
+T28_7326	1425550	|	VBZ	+'s	[Vzb.Vzb]
+T28_7329	1425560	|	JJ	right	[J:e.J:e]S]
+T28_7332	-----	Josephine113
+T28_7335	.....	08746
+T28_7338	1425605	|	YMN	erm	.
+T28_7341	1425616	|	PPHS1f	she	[S[Nas:s.
+T28_7344	0000000	y	YG	-	[237.237]Nas:s]
+T28_7347	1425626	|	VHZ	+'s	[Vzf.
+T28_7350	1425636	|	VVNH	got	.Vzf]
+T28_7353	1425647	|	AT1	a	[Ns:o.
+T28_7356	1425656	|	NN1n	family	.Ns:o]
+T28_7359	1425671	,	NP1f	Josephine	[Nns@:G237.Nns@:G237]S]
+T28_7362	1425695	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7365	1425706	|	VVDv	said	[Vd.Vd]
+T28_7368	1425718	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T28_7371	1425729	|	VMo	wo	[Vce.
+T28_7374	1425738	|	XX	+n't	.
+T28_7377	1425750	|	VV0i	go	.Vce]
+T28_7380	1425760	|	RLh	there	[Rw:q.Rw:q]
+T28_7383	1425773	|	DDy	any	[D:t.
+T28_7386	1425784	|	DAR	more	.D:t]Fn:o]S]
+T28_7389	1425796	c	YP	{pause}	.
+T28_7392	1425804	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7395	0000000	y	YR	#	.
+T28_7398	1425815	,	PPIS1	I	[Nea:s[PPIS1#.
+T28_7401	0000000	y	YR	#	.
+T28_7404	1425833	|	PPIS1	I	.PPIS1#]Nea:s]
+T28_7407	1425842	|	VD0	do	[Ve.
+T28_7410	1425851	|	XX	+n't	.
+T28_7413	1425862	|	VV0v	know	.Ve]
+T28_7416	1425874	|	CSW	whether	[Fn?:o.
+T28_7419	1425889	|	DD1a	that	[Nns:s.
+T28_7422	1425901	|	YMV	er	.
+T28_7425	1425912	|	NP1f	Jean	.Nns:s]
+T28_7428	1425924	|	VDZ	does	[Vzx.Vzx]Fn?:o]S]
+T28_7431	1425936	c	YP	{pause}	.
+T28_7434	1425944	|	RRz	so	[S[Rs:c.Rs:c]
+T28_7437	0000000	y	YR	#	.S]
+T28_7440	1425954	c	YP	{pause_21}	.
+T28_7443	1425969	*	VDD	did	[S?[Vode.
+T28_7446	1425979	|	XX	+n't	.Vode]
+T28_7449	1425991	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_7452	1426002	|	RR	just	[R:m.R:m]
+T28_7455	1426014	|	VV0i	cotton	[Vr.Vr]
+T28_7458	1426028	|	RP	on	[R:n.R:n]
+T28_7461	1426038	,	RR	quickly	[R:h.R:h]S?]
+T28_7464	1426061	c	YV	{laugh}	.
+T28_7467	1426080	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7470	1426091	|	VVDv	said	[Vd.Vd]
+T28_7473	1426103	|	VD0	do	[Q:o[S?[Vo.Vo]
+T28_7476	1426113	|	PPY	you	[Ny:s.Ny:s]
+T28_7479	1426124	|	VV0v	know	[Vr.Vr]
+T28_7482	1426137	,	DD1a	that	[Ds:o.Ds:o]S?]Q:o]S]
+T28_7485	1426161	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_7488	1426170	|	VVDv	said	[Vd.Vd]
+T28_7491	1426182	|	RRQq	why	[Q:o[S?[Rq:c.Rq:c]
+T28_7494	1426193	|	VD0	do	[Vo.Vo]
+T28_7497	1426203	|	PPIS1	I	[Nea:s.Nea:s]
+T28_7500	1426212	|	VV0v	want	[Vr.Vr]
+T28_7503	1426225	|	PN1	anybody	[Ns:O239.Ns:O239]
+T28_7506	0000000	y	YG	-	[Tg:o[s239.s239]
+T28_7509	1426240	|	VVGv	wandering	[Vg.Vg]
+T28_7512	1426257	|	II	in	[P:q.
+T28_7515	1426267	|	APPGi1	my	[N.
+T28_7518	1426277	|	NNL1c	house	.
+T28_7521	1426290	|	CC	and	[Ns+.
+T28_7524	1426302	|	APPGi1	my	.
+T28_7527	1426312	,	NN1c	kitchen	.Ns+]N]P:q]Tg:o]S?]Q:o]S]
+T28_7530	1426335	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_7533	1426344	|	VVDv	said	[Vd.Vd]
+T28_7536	1426356	|	PPH1	it	[Q:o[S[Ni:s.Ni:s]
+T28_7539	1426365	|	VBZ	+'s	[Vzb.Vzb]
+T28_7542	1426375	|	DD1b21	a	[P:e[DD1b=.
+T28_7545	1426375	|	DD1b22	bit	.DD1b=]
+T28_7548	1426389	|	ICSk	like	.
+T28_7551	0000000	y	YR	#	.P:e]S]Q:o]S]
+T28_7554	1426401	|	PPH1	it	[S[Ni:s.Ni:s]
+T28_7557	1426410	|	VBZ	+'s	[Vzb.Vzb]
+T28_7560	1426420	,	JJ	clean	[J:e.J:e]
+T28_7563	1426441	|	RRQq	why	[S?-[Rq:c.Rq:c]
+T28_7566	1426452	|	VMd	should	[Vodc.Vodc]
+T28_7569	1426466	|	PPIS1	I	[Nea:s.Nea:s]
+T28_7572	1426476	|	VH0	have	[Vr.Vr]
+T28_7575	1426488	|	PN1	somebody	[Ns:O.Ns:O]
+T28_7578	1426504	|	UO21	sort	[UO=.
+T28_7581	1426504	,	UO22	of	.UO=]
+T28_7584	0000000	y	YR	#	.
+T28_7587	1426527	|	UW	well	.
+T28_7590	1426539	|	UE21	I	[UE=.
+T28_7593	1426548	|	UE22	mean	.UE=]
+T28_7596	1426561	|	RR	just	[R:m.R:m]
+T28_7599	1426573	|	CS	because	[Fa:c.
+T28_7602	1426588	|	PPIS1	I	[Nea:s.Nea:s]
+T28_7605	1426596	|	VBM	+'m	[Vmu.
+T28_7608	1426606	|	VDG	doing	.Vmu]
+T28_7611	1426619	,	NN1u	cooking	[Ns:o.Ns:o]Fa:c]S?-]S]
+T28_7614	1426643	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7617	1426654	|	VVDv	said	[Vd.Vd]
+T28_7620	1426666	|	PPY	you	[Q:o[S[Ny:s241.Ny:s241]
+T28_7623	1426677	|	VMd	would	[Vdce.
+T28_7626	1426689	|	XX	+n't	.
+T28_7629	1426700	|	VV0v	stop	.Vdce]S]Q:o]S]
+T28_7632	1426713	|	VV0t	fancy	[S?[V.V]
+T28_7635	1426730	,	MC1	one	[Ms:o.Ms:o]S?]
+T28_7638	1426753	|	PPY	you	[S[Ny:s.Ny:s]
+T28_7641	1426764	|	RR	never	[R:t.R:t]
+T28_7644	1426777	,	VV0v	know	[V.V]S]
+T28_7647	1426798	|	PPHS1f	she	[S[Nas:s.Nas:s]
+T28_7650	1426809	|	VVDv	said	[Vd.Vd]
+T28_7653	1426821	|	UW	well	[Q:o.
+T28_7656	1426833	|	CS	unless	[S*[Fa:c.
+T28_7659	1426847	|	PPY	you	[Ny:s243.Ny:s243]
+T28_7662	1426858	|	VV0v	want	[V.V]
+T28_7665	0000000	y	YG	-	[Ti:o[s243.s243]
+T28_7668	1426870	|	TO	to	[Vi.
+T28_7671	1426881	|	VV0v	stop	.Vi]
+T28_7674	1426893	|	II	at	[P:p.
+T28_7677	1426903	,	AT	the	[N.
+T28_7680	0000000	y	YR	#	.N]P:p]Ti:o]Fa:c]
+T28_7683	1426922	|	UP	please	.
+T28_7686	1426936	|	VD0	do	[Vex.
+T28_7689	1426945	,	XX	+n't	.Vex]S*]
+T28_7692	1426965	|	PPY	you	[S[Ny:s.Ny:s]
+T28_7695	1426975	|	VMo	+'ll	[Vc.
+T28_7698	1426986	|	VV0v	let	.Vc]
+T28_7701	1426997	|	PPIO1	me	[Neo:O245.Neo:O245]
+T28_7704	0000000	y	YG	-	[Tb:o[s245.s245]
+T28_7707	1427007	|	RR	still	[R:t.R:t]
+T28_7710	1427020	|	VH0	have	[V.V]
+T28_7713	1427032	|	APPGy	your	[Ns:o.
+T28_7716	1427045	|	NN1n	jam	.Ns:o]Tb:o]
+T28_7719	1427056	|	VMo	wo	[Iq[S?[Vcex.
+T28_7722	1427065	|	XX	+n't	.Vcex]
+T28_7725	1427076	?	PPY	you	[Ny:s.Ny:s]S?]Iq]S]Q:o]S]
+T28_7728	-----	Howard112
+T28_7731	.....	00000
+T28_7734	1427114	c	YV	{laugh}	.
+T28_7737	-----	Josephine113
+T28_7740	.....	08747
+T28_7743	1427164	c	YV	{laugh}	.
+T28_7746	1427183	*	RRz	so	[S[Rs:c.Rs:c]
+T28_7749	1427193	|	PPIS1	I	[Nea:s.Nea:s]
+T28_7752	1427202	|	VVDv	said	[Vd.Vd]
+T28_7758	1427219	&ic	YY	{unclear}	[Y:o.Y:o]
+T28_7761	.....	08748
+T28_7764	1427266	&	CC	and	[S+.
+T28_7767	1427277	|	PPHS1f	she	[Nas:s.Nas:s]
+T28_7770	1427288	|	VVDi	cottoned	[Vd.Vd]
+T28_7773	1427304	|	RP	on	[R:n.R:n]
+T28_7776	1427314	|	DDQ	what	[Ff:o[Dq:o.Dq:o]
+T28_7779	1427326	|	PPIS1	I	[Nea:s.Nea:s]
+T28_7782	1427335	|	VHD	had	[Vd.Vd]
+T28_7785	1427347	|	II	in	[P:p.
+T28_7788	1427357	|	NN1n	mind	.P:p]Ff:o]S+]S]
+T28_7791	1427373	c	YP	{pause}	.
+T28_7794	1427381	|	NP1f	Michelle	[S[Nns:s.Nns:s]
+T28_7797	1427397	|	VVDv	said	[Vd.Vd]
+T28_7800	1427409	|	IIt	to	[P:u.
+T28_7803	1427419	|	PPHO1f	her	.P:u]
+T28_7806	1427431	|	UW	well	[Q:o.
+T28_7809	1427443	|	RRQq	how	[S?[Rq:h.Rq:h]
+T28_7812	1427454	|	VMo	will	[Vc.Vc]
+T28_7815	1427466	|	DD1i	this	[Ds:s.Ds:s]
+T28_7818	1427478	|	UO21	sort	[UO=.
+T28_7821	1427490	|	UO22	of	.UO=]
+T28_7824	1427500	|	YMN	erm	.
+T28_7827	0000000	y	YR	#	.S?]Q:o]S]
+T28_7830	1427511	c	YP	{pause}	.
+T28_7833	1427519	|	DDQ	what	[S?[Dq:G249.Dq:G249]
+T28_7836	1427531	|	VBR	are	[Voab.Voab]
+T28_7839	1427542	|	PPY	you	[Ny:s.Ny:s]
+T28_7842	1427553	|	VVGv	looking	[Vrg.Vrg]
+T28_7845	1427568	?	IF	for	[P:u.
+T28_7848	0000000	y	YG	-	[249.249]P:u]S?]
+T28_7851	-----	Howard112
+T28_7854	.....	08749
+T28_7857	1427619	*	YMN	erm	.
+T28_7860	1427630	|	NN1n	cheese	[Ns.Ns]
+T28_7863	-----	Josephine113
+T28_7866	.....	08750
+T28_7869	1427676	*	UR	oh	.
+T28_7872	1427686	|	UY	yes	.
+T28_7875	1427697	|	EX	there	[S.
+T28_7878	1427709	|	VBZ	+'s	[Vzb.Vzb]
+T28_7881	1427719	|	NN1n	cheese	[Ns:s.Ns:s]
+T28_7884	1427733	,	RLh	there	[Rw:p.Rw:p]S]
+T28_7887	1427755	|	RRQq	how	[S?[Rq:h.Rq:h]
+T28_7890	1427766	|	VMo	will	[Vc.Vc]
+T28_7893	1427778	|	DD1i	this	[Ds:s.Ds:s]
+T28_7896	0000000	y	YR	#	.S?]
+T28_7899	1427790	,	YMN	erm	.
+T28_7902	1427809	|	UY	yes	.
+T28_7905	1427820	|	RR21	of	[S[R:m[RR=.
+T28_7908	1427820	|	RR22	course	.RR=]R:m]
+T28_7911	1427838	|	EX	there	.
+T28_7914	1427850	|	VBZ	+'s	[Vzb.Vzb]
+T28_7920	1427865	&ic	YY	{unclear}	[Y:s.Y:s]
+T28_7923	.....	08751
+T28_7926	1427912	&	RLh	there	[Rw:p.Rw:p]
+T28_7929	1427925	|	CSi	if	[Fa:c.
+T28_7932	1427935	|	PPY	you	[Ny:s253.Ny:s253]
+T28_7935	1427946	|	VV0v	want	[V.V]
+T28_7938	0000000	y	YG	-	[Ti:o[s253.s253]
+T28_7941	1427958	,	TO	to	[Vi.
+T28_7944	1427976	|	VH0	have	.Vi]
+T28_7947	1427989	|	DD1a	that	[Ds:o.Ds:o]
+T28_7950	1428001	|	IW	with	[P:w.
+T28_7953	1428013	|	AT1	a	[N.
+T28_7956	1428022	|	NN1c	biscuit	.
+T28_7959	1428037	|	CCr	or	[Ns+.
+T28_7962	1428047	,	PN1	something	.Ns+]N]P:w]Ti:o]Fa:c]S]
+T28_7965	1428073	|	PPIS1	I	[S[Nea:s.Nea:s]
+T28_7968	1428082	|	VVDv	said	[Vd.Vd]
+T28_7971	1428094	|	DDQ	what	[Q:o[L?[Dq:e.Dq:e]
+T28_7974	1428106	|	II	about	[P:r.
+T28_7977	1428119	|	DD1i	this	.P:r]
+T28_7980	1428131	,	RTn	then	[Rsw:c.Rsw:c]L?]
+T28_7983	1428152	|	YMN	erm	.
+T28_7986	1428163	|	PN1	everybody	[S[Ns:s.Ns:s]
+T28_7989	1428180	|	VVGK	gon	[Vgt.Vgt]
+T28_7992	1428190	|	TO	+na	[Ti:z[Viu.
+T28_7995	1428200	|	VB0	be	.
+T28_7998	1428210	|	VVGv	taking	.Viu]
+T28_8001	1428225	|	NN2	things	[Np:o255.
+T28_8004	1428239	|	TO	to	[Ti[Vi.
+T28_8007	1428249	|	VV0v	sell	.Vi]
+T28_8010	0000000	y	YG	-	[o255.o255]
+T28_8013	1428261	|	II	at	[P:p.
+T28_8016	1428271	|	AT	the	[Np.
+T28_8019	1428282	|	NN2	stalls	.Np]P:p]Ti]Np:o255]Ti:z]
+T28_8022	.....	08752
+T28_8025	1428348	&	CCB	but	[S+.
+T28_8028	1428359	|	PPHS2	they	[Nap:s.Nap:s]
+T28_8031	0000000	y	YR	#	.S+]S]Q:o]S]
+T28_8034	1428371	,	DDQ	what	[L?[Dq:e.
+T28_8037	0000000	y	YR	#	.
+T28_8040	1428391	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T28_8043	1428400	|	VV0v	wonder	[V.V]S]I]
+T28_8046	1428414	|	DDQ	what	.Dq:e]
+T28_8049	1428427	|	II	about	[P:r.
+T28_8052	1428440	?	DD1a	that	.P:r]L?]
+T28_8055	.....	08753
+T28_8058	1428472	c	YP	{pause}	.
+T28_8061	1428480	*	CC	and	[S+.
+T28_8064	1428491	|	DD1a	that	[Ds:s.Ds:s]
+T28_8067	1428502	|	VBZ	+'s	[Vzb.Vzb]
+T28_8070	1428512	|	JJ	true	[J:e.J:e]
+T28_8073	1428528	|	UE21	you	[UE=.
+T28_8076	1428539	|	UE22	see	.UE=]
+T28_8079	1428551	|	VBZ	is	[Iq[S?[Vzeb.
+T28_8082	1428560	|	XX	+n't	.Vzeb]
+T28_8085	1428571	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S+]
+T28_8088	-----	unid1
+T28_8091	.....	-----
+T28_8094	1428301	ic	YY	{unclear}	[Y.Y]
+T28_8097	-----	Howard112
+T28_8100	.....	08754
+T28_8103	1428621	*	UY	yeah	.
+T28_8106	1428633	c	YP	{pause}	.
+T28_8109	1428641	|	UW	well	.
+T28_8112	1428653	|	RR21	of	[S[R:m[RR=.
+T28_8115	1428653	|	RR22	course	.RR=]R:m]
+T28_8118	1428670	|	PPH1	it	[Ni:s.Ni:s]
+T28_8121	1428679	|	VBZ	+'s	[Vzb.Vzb]
+T28_8124	1428690	|	NN1n	bureaucracy	[Ns:e257.
+T28_8127	0000000	y	YG	-	[Tg[s257.s257]
+T28_8130	1428709	|	VVGi	going	[Vg.Vg]
+T28_8133	1428722	|	JJ	barmy	[J:e.J:e]Tg]Ns:e257]
+T28_8136	1428735	|	VBZ	is	[Iq[S?[Vzeb.
+T28_8139	1428744	|	XX	+n't	.Vzeb]
+T28_8142	1428755	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]
+T28_8145	.....	08755
+T28_8148	1428785	c	YP	{pause}	.
+T28_8151	1428793	*	RR	really	[R:m.R:m]S]
+T28_8154	1428807	c	YP	{pause}	.
+T28_8166	-----	Josephine113
+T28_8169	.....	08756
+T28_8170	1428820	ic	YY	{unclear}	[Y.
+T28_8172	1428867	|	DD1q	another	[Ms.
+T28_8175	1428882	|	MC1	one	.
+T28_8178	1428893	|	IO	of	[Po.
+T28_8181	1428903	|	DD2i	these	.Po]
+T28_8184	1428916	|	IF	for	[P.
+T28_8187	1428927	|	PPY	you	.P]
+T28_8190	1428938	|	IF	for	[P.
+T28_8193	1428950	,	RTt	tomorrow	.P]Ms]Y]
+T28_8196	1428974	|	UR	oh	.
+T28_8199	1428984	*,	NNS1c	god	[Nns!.Nns!]
+T28_8202	1429003	|	NN1n	rest	[Ns.
+T28_8205	1429015	|	IO	of	[Po.
+T28_8208	1429026	,	PPH1	it	.Po]Ns]
+T28_8211	1429044	|	UR	oh	.
+T28_8214	1429054	|	PPH1	it	[S[Ni:s.Ni:s]
+T28_8217	1429063	|	VBZ	+'s	[Vzb.Vzb]
+T28_8220	1429073	|	RRx	only	[R:m.R:m]
+T28_8223	1429085	|	II	on	[P:p.
+T28_8226	1429095	|	AT	the	[Ns.
+T28_8229	1429107	|	NN1n	cloth	.Ns]P:p]S]
+T28_8232	1429120	|	PPH1	it	[S[Ni:s.Ni:s]
+T28_8235	1429130	|	VBZ	is	[Vzb.Vzb]
+T28_8238	1429140	|	JJ	dirty	[J:e.J:e]
+T28_8241	1429174	&	RR	anyway	[R:c.R:c]S]
+T28_8244	-----	Howard112
+T28_8247	.....	08757
+T28_8250	1429253	&*	DD1q	another	[Mqs.
+T28_8253	1429268	|	MC1	one	.
+T28_8256	1429296	&	IO	of	[Poq.
+T28_8259	1429306	?	DDQ	what	.Poq]Mqs]
+T28_8262	-----	Josephine113
+T28_8265	.....	08758
+T28_8268	1429358	*	AT1	a	[Ns.
+T28_8271	1429367	|	NN1c	bowl	.
+T28_8274	1429379	|	IO	of	[Po.
+T28_8277	1429389	|	NN1u	soup	.Po]Ns]
+T28_8280	-----	Howard112
+T28_8283	.....	08759
+T28_8286	1429433	*	UR	oh	.
+T28_8289	-----	Josephine113
+T28_8292	.....	08760
+T28_8295	1429475	|	UE21	you	[UE=.
+T28_8298	1429486	,	UE22	know	.UE=]
+T28_8301	1429506	,	RLh	there	[Rw!.Rw!]
+T28_8304	1429527	|	VVNv	made	[S[Vn.Vn]
+T28_8307	1429543	|	DD1q	another	[Ds:o.Ds:o]S]
+T28_8310	1429558	c	YP	{pause_21}	.
+T28_8313	-----	Howard112
+T28_8316	.....	08761
+T28_8319	1429605	|	UE21	I	[UE=.
+T28_8322	1429614	|	UE22	mean	.UE=]
+T28_8325	1429626	|	AT	the	[S[Ns:s261.
+T28_8328	1429637	|	MDt	next	.
+T28_8331	1429649	|	NN1c	thing	.
+T28_8334	1429662	|	PPHS2	they	[Fr[Nap:s263.Nap:s263]
+T28_8337	1429673	|	VMd	+'d	[Vdc.
+T28_8340	1429684	|	VV0v	want	.Vdc]
+T28_8343	0000000	y	YG	-	[Ti:o[s263.s263]
+T28_8346	1429696	|	TO	to	[Vi.
+T28_8349	1429706	|	VD0	do	.Vi]
+T28_8352	0000000	y	YG	-	[o261.o261]Ti:o]Fr]Ns:s261]
+T28_8355	1429716	|	VBZ	is	[Vzb.Vzb]
+T28_8358	1429726	|	TO	to	[Ti:e[Vi.
+T28_8361	1429736	|	VV0i	come	.Vi]
+T28_8364	1429748	|	RP	in	[R:q.R:q]
+T28_8367	1429758	|	CC	and	[Ti+.
+T28_8370	1429770	|	VD0	do	[V.V]
+T28_8373	1429780	|	RP	in	[R:n.R:n]
+T28_8376	1429790	|	DD1i	this	[Ns:o.
+T28_8379	1429802	|	NN1c	kitchen	.Ns:o]Ti+]
+T28_8382	1429817	|	ICSt	before	[Fa:t.
+T28_8385	1429835	|	PPY	you	[Ny:s.Ny:s]
+T28_8388	1429847	|	VD0	do	[V.V]
+T28_8391	1429857	|	DDy	any	[Ns:o.
+T28_8394	1429868	|	NN1u	cooking	.Ns:o]
+T28_8397	1429887	|	IF	for	[P:k.
+T28_8400	1429898	|	PPX1y	yourself	.P:k]Fa:t]Ti:e]S]

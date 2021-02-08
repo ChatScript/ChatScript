@@ -361,7 +361,7 @@ t: I don’t want to die
 The topic declares its name, its keywords, and then its rules. It ends with the end of the
 file or a new top level declaration (which includes `topic:`, `concept:`, `table:`, `tablemacro:`,
 `outputmacro:`, `patternmacro:`, `dualmacro:`, `bot:`, `data:`, `canon:`, `query:`, `plan:`, `describe:`,
-and `replace:`). 
+`word:`, and `replace:`). 
 
 A topic name must start with a `~`, an alphabetic character, and then be a standard legal name 
 (contains only alpha-numeric characters, underscores, hyphens, and periods). 

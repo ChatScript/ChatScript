@@ -1,0 +1,20 @@
+# these words always take adjectives after them, not before, when being noun or pronoun
+
+some TAKES_POSTPOSITIVE_ADJECTIVE
+something TAKES_POSTPOSITIVE_ADJECTIVE
+nothing TAKES_POSTPOSITIVE_ADJECTIVE
+one TAKES_POSTPOSITIVE_ADJECTIVE
+someone TAKES_POSTPOSITIVE_ADJECTIVE # capable   reduced relative clause "someone who is capable"
+everyone TAKES_POSTPOSITIVE_ADJECTIVE 
+ anything TAKES_POSTPOSITIVE_ADJECTIVE  
+ those TAKES_POSTPOSITIVE_ADJECTIVE 
+ time TAKES_POSTPOSITIVE_ADJECTIVE   # time available reduced relative clause "that is available"
+ people TAKES_POSTPOSITIVE_ADJECTIVE # people involved reduced relative clause "that are involved"
+
+ # measurement words describing size or age
+ feet TAKES_POSTPOSITIVE_ADJECTIVE  # tall
+ inch TAKES_POSTPOSITIVE_ADJECTIVE  # thick
+
+ month  TAKES_POSTPOSITIVE_ADJECTIVE # old, young
+ year TAKES_POSTPOSITIVE_ADJECTIVE  # old
+ week  TAKES_POSTPOSITIVE_ADJECTIVE # old

@@ -531,7 +531,7 @@ static WORDP UnitSubstitution(char* buffer,int i)
 	strcpy(value, "?`");
 
 	// also consider next word not conjoined
-	if (!*at && i < wordCount)
+	if (!*at && i > 0 && i < wordCount)
 	{
 		strcat(value + 2, wordStarts[i + 1]); // presume word after number is not big
 	}
@@ -575,10 +575,13 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				ptr += 1;
 				continue;
 			}
-			if (*ptr == '"') quote = !quote;
-			if (quote) continue; // ignore content for level counting
+			if (*ptr == '"') 
+				quote = !quote;
+			if (quote) 
+				continue; // ignore content for level counting
 
-			if (*ptr == '{' || *ptr == '[') ++level;
+			if (*ptr == '{' || *ptr == '[') 
+				++level;
 			else if (*ptr == '}' || *ptr == ']')
 			{
 				if (--level == 0)
@@ -1344,7 +1347,7 @@ FunctionResult GetDerivationText(int start, int end, char* buffer)
 		if (!derivationSentence[i]) return NOPROBLEM_BIT; // in case sentence is empty
 		if (i == 1 && derivationSeparator[0]) strncat(buffer, &derivationSeparator[0], 1);
 		strcat(buffer, derivationSentence[i]);
-		if (i != end) strncat(buffer, &derivationSeparator[i], 1);
+		if (i != end || (i == 1 && derivationSeparator[0])) strncat(buffer, &derivationSeparator[i], 1);
 	}
 	return NOPROBLEM_BIT;
 }
@@ -2209,7 +2212,7 @@ static void MergeNumbers(int& start,int& end) //   four score and twenty = four-
 	while ((ptr = strchr(word,'_'))) *ptr = '-';
 
 	//   create the single word and replace all the tokens
-    WORDP D = StoreWord(word,ADJECTIVE|NOUN|ADJECTIVE_NUMBER|NOUN_NUMBER); 
+    WORDP D = StoreWord(word,ADJECTIVE|NOUN|ADJECTIVE_NUMBER|NOUN_NUMBER, NOUN_NODETERMINER);
 	char* tokens[2];
 	tokens[1] = D->word;
 	ReplaceWords("Merge number",start,end-start,1,tokens);
@@ -2231,18 +2234,18 @@ void ProcessSplitUnderscores()
 		// dont split if email or url or hashtag or an emoji shortcode
 		if (strchr(original, '@') || strchr(original, '.') || original[0] == '#' || IsEmojiShortCode(original)) continue;
 
-		int index = 1;
+		int index = 0;
 		while (under)
 		{
-			*under = 0;
-			tokens[index++] = StoreWord(at)->word;
-			*under = '_';
+            *under = 0;
+            if (*at) tokens[++index] = StoreWord(at)->word;  // ignore leading underscore
+            *under = '_';
 			at = ++under;
 			under = strchr(at,'_');
 			if (index > 9) return;	// give up, bad data
 		}
-		tokens[index] = StoreWord(at)->word;
-		if (ReplaceWords("Split underscore",i,1,index,tokens))
+        if (*at) tokens[++index] = StoreWord(at)->word; // ignore trailing underscore
+		if (index > 0 && ReplaceWords("Split underscore",i,1,index,tokens))
 			i += index - 1; // skip over what we did
 	}
 }
@@ -2492,13 +2495,13 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			else// plural
 			{
 				WORDP D = FindWord(words[count]);
-				strcpy(words[count], GetPluralNoun(D));
+				strcpy(words[count], GetPluralNoun(D->word));
 			}
 		}
 		else // plural unit before "per" like miles per hour
 		{
 			WORDP D = FindWord(words[2]);
-			strcpy(words[2], GetPluralNoun(D));
+			strcpy(words[2], GetPluralNoun(D->word));
 		}
 
 		// ?_psi matching 30 psi as separated words

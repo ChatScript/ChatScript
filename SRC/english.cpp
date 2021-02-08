@@ -63,7 +63,7 @@ EndingInfo noun3[] =
 };
 EndingInfo noun4[] = 
 {
-	{ (char*)"tion",NOUN|NOUN_SINGULAR}, 
+	{ (char*)"tion",NOUN|NOUN_SINGULAR},
 	{ (char*)"ment",NOUN|NOUN_SINGULAR}, 
 	{ (char*)"emia",NOUN|NOUN_SINGULAR}, 
 	{ (char*)"opsy",NOUN|NOUN_SINGULAR}, 
@@ -100,7 +100,7 @@ EndingInfo noun4[] =
 };
 EndingInfo noun5[] = 
 {
-	{ (char*)"cracy",NOUN|NOUN_SINGULAR}, 
+	{ (char*)"cracy",NOUN|NOUN_SINGULAR},
 	{ (char*)"scope",NOUN|NOUN_SINGULAR}, 
 	{ (char*)"scopy",NOUN|NOUN_SINGULAR}, 
 	{ (char*)"ocity",NOUN|NOUN_SINGULAR}, 
@@ -264,6 +264,7 @@ EndingInfo adjective3[] =
 };
 EndingInfo adjective2[] = 
 {
+		{ (char*)"ly",ADJECTIVE | ADJECTIVE_NORMAL,0},  // pertaining to
 		{ (char*)"ic",ADJECTIVE|ADJECTIVE_NORMAL,0},  // pertaining to
 		{ (char*)"ar",ADJECTIVE|ADJECTIVE_NORMAL,0},  // relating to
 		{ (char*)"ac",ADJECTIVE|ADJECTIVE_NORMAL,0},  // pertaining to
@@ -314,7 +315,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 			properties = NOUN | NOUN_NUMBER | ADJECTIVE | ADJECTIVE_NUMBER;
 			entry = StoreWord(original, properties, TIMEWORD);
 			canonical = StoreWord(word, properties, TIMEWORD);
-			sysflags = entry->systemFlags | TIMEWORD;
+			sysflags = entry->systemFlags | TIMEWORD| NOUN_NODETERMINER;
 			cansysflags = canonical->systemFlags | TIMEWORD;
 			return properties;
 		}
@@ -324,8 +325,8 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		{
 			properties = NOUN | NOUN_NUMBER | ADJECTIVE | ADJECTIVE_NUMBER;
 			entry = canonical = StoreWord(original, properties); // 18:32
-			sysflags = entry->systemFlags | TIMEWORD;
-			cansysflags = canonical->systemFlags | TIMEWORD;
+			sysflags = entry->systemFlags | TIMEWORD| NOUN_NODETERMINER;
+			cansysflags = canonical->systemFlags | TIMEWORD| NOUN_NODETERMINER;
 			return properties;
 		}
 
@@ -339,7 +340,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		if (!*at && colon == 1) // was completely digits and a single colon
 		{
 			properties = NOUN | NOUN_NUMBER | ADJECTIVE | ADJECTIVE_NUMBER;
-			entry = canonical = StoreWord(original, properties);
+			entry = canonical = StoreWord(original, properties, NOUN_NODETERMINER);
 			return properties;
 		}
 
@@ -359,8 +360,8 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 				entry = canonical = StoreWord(original, properties);
 				if ((hyphen - original) == 4)
 				{
-					sysflags = entry->systemFlags | TIMEWORD;
-					cansysflags = canonical->systemFlags | TIMEWORD;
+					sysflags = entry->systemFlags | TIMEWORD| NOUN_NODETERMINER;
+					cansysflags = canonical->systemFlags | TIMEWORD| NOUN_NODETERMINER;
 				}
 				return properties;
 			}
@@ -389,12 +390,12 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 				val += basenumber;
 				WriteFloat(number, val);
 				properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER;
-				if (!entry) entry = StoreWord(original, properties);
+				if (!entry) entry = StoreWord(original, properties, NOUN_NODETERMINER);
 				canonical = FindWord(number, 0, PRIMARY_CASE_ALLOWED);
 				if (canonical) properties |= canonical->properties;
 				else canonical = StoreWord(number, properties);
-				sysflags = entry->systemFlags;
-				cansysflags = entry->systemFlags;
+				sysflags = entry->systemFlags| NOUN_NODETERMINER;
+				cansysflags = entry->systemFlags| NOUN_NODETERMINER;
 				return properties;
 			}
 		}
@@ -427,7 +428,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 			WriteFloat(number,val);
 		}
 		else sprintf(number, (char*)"%d", (int)Convert2Integer(original, numberStyle));
-		sysflags |= ORDINAL;
+		sysflags |= ORDINAL| NOUN_NODETERMINER;
 		properties |= ADVERB | ADJECTIVE | ADJECTIVE_NORMAL | ADJECTIVE_NUMBER | NOUN | NOUN_NUMBER | (baseflags & TAG_TEST); // place numbers all all potential adverbs:  "*first, he wept"  but not in front of an adjective or noun, only as verb effect
 	}
 	else if (kind == FRACTION_NUMBER && strchr(original, '%'))
@@ -436,11 +437,11 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		double val = (double)(val1 / 100.0);
 		WriteFloat(number,  val);
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER;
-		entry = StoreWord(original, properties);
+		entry = StoreWord(original, properties, NOUN_NODETERMINER);
 		canonical = StoreWord(number, properties);
 		properties |= canonical->properties;
-		sysflags = entry->systemFlags;
-		cansysflags = canonical->systemFlags;
+		sysflags = entry->systemFlags| NOUN_NODETERMINER;
+		cansysflags = canonical->systemFlags| NOUN_NODETERMINER;
 		return properties;
 	}
 	else if (kind == FRACTION_NUMBER && br) // word fraction
@@ -463,11 +464,11 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		WriteFloat(number, val);
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER;
 		*br = c;
-		entry = StoreWord(original, properties);
-		canonical = StoreWord(number, properties);
+		entry = StoreWord(original, properties, NOUN_NODETERMINER);
+		canonical = StoreWord(number, properties, NOUN_NODETERMINER);
 		properties |= canonical->properties;
-		sysflags = entry->systemFlags;
-		cansysflags = canonical->systemFlags;
+		sysflags = entry->systemFlags| NOUN_NODETERMINER;
+		cansysflags = canonical->systemFlags| NOUN_NODETERMINER;
 		return properties;
 	}
 	else if (kind == CURRENCY_NUMBER) // money
@@ -502,6 +503,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 #endif
 		}
 		properties = NOUN | NOUN_NUMBER;
+		sysflags |= NOUN_NODETERMINER;
 		AddProperty(entry, CURRENCY);
 	}
 	else if (kind == FRACTION_NUMBER)
@@ -511,6 +513,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		double val1 = (double)1.0 / (double)val;
 		sprintf(number, (char*)"%f", val1);
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER | (baseflags & (PREDETERMINER | DETERMINER));
+		sysflags |= NOUN_NODETERMINER;
 	}
 	else // ordinary int, double and percent
 	{
@@ -522,7 +525,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		if (exponent && !IsDigit(exponent[-1]) && exponent[-1] != '.') exponent = NULL; // no digit or period before
 		if (exponent && !IsDigit(exponent[1]) && exponent[1] != '+' && exponent[1] != '-') exponent = NULL; // no digit or period before
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER | (baseflags & (PREDETERMINER | DETERMINER));
-
+		sysflags |= NOUN_NODETERMINER;
 		if (strchr(original, numberPeriod) || exponent) // floating
 		{
 			double val = Convert2Double(original, numberStyle);
@@ -697,6 +700,10 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	uint64 properties = 0;
 	sysflags = cansysflags = 0;
 	canonical = 0;  
+	if (!stricmp(original, "screenshots"))
+	{
+		int xx = 0;
+	}
 	if (at < 1) { ; } // not from sentence
 	else if (canonicalLower[at]) canonical = canonicalLower[at];  // note canonicalLower may already be set by external postagging
 	else if (canonicalUpper[at]) canonical = canonicalUpper[at];  // note canonicalUpper may already be set by external postagging
@@ -740,13 +747,15 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	entry = FindWord(original, xlen, PRIMARY_CASE_ALLOWED);
 	if (entry)
 	{
-		if (entry->systemFlags & PATTERN_WORD || !entry->word[1]) {} // english letters have no pos tag at present
+		if (!entry->properties) entry = NULL; // word has no meaning for us
+		else if (entry->systemFlags & PATTERN_WORD || !entry->word[1]) {} // english letters have no pos tag at present
 		else if (IS_NEW_WORD(entry) || !(entry->properties & TAG_TEST)) entry = NULL;
 	}
 	if (!entry) entry = FindWord(original, xlen, SECONDARY_CASE_ALLOWED);
 	if (entry)
 	{
-		if (entry->systemFlags & PATTERN_WORD) {}
+		if (!entry->properties) entry = NULL; // word has no meaning for us
+		else if (entry->systemFlags & PATTERN_WORD) {}
 		else if (IS_NEW_WORD(entry) || !(entry->properties & TAG_TEST)) entry = NULL;
 	}
 	if (entry && xlen > 1 && original[xlen - 1] == 's' && entry->internalBits & UPPERCASE_HASH) // aim to being plural of singular noun
@@ -1589,6 +1598,12 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	if (entry && (*entry->word == '~' || *entry->word == '^' || *entry->word == USERVAR_PREFIX)) canonical = entry;	// not unknown, is self
 	cansysflags |= canonical->systemFlags;
 	if (entry) sysflags |= entry->systemFlags;
+
+	// adjective noun?
+	if (!compiling && properties & NOUN_BITS)
+	{
+		if (*wordStarts[at + 1] == '\'') properties |= ADJECTIVE_NOUN;
+	}
 	return properties;
 }
 
@@ -1656,7 +1671,7 @@ void SetSentenceTense(int start, int end)
             if (roles[i] & MAINVERB) foundVerb = true;
 			if (roles[i] & MAINSUBJECT) 
 			{
-				if (i == startSentence && originalLower[startSentence] && originalLower[startSentence]->properties & QWORD && posValues[startSentence+1] & (VERB_BITS & AUX_VERB_TENSES)) 
+				if (i == startSentence && originalLower[startSentence] && originalLower[startSentence]->properties & QWORD && (posValues[startSentence+1] & (VERB_BITS | AUX_VERB_TENSES))) 
                     tokenFlags |= QUESTIONMARK;
 				break;
 			}
@@ -2131,6 +2146,145 @@ char* GetPresentParticiple(char* word)
     return buffer; 
 }
 
+WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 bits)
+{
+	char copy[MAX_WORD_SIZE];
+	WORDP D;
+	if (lensuffix  >= lenword) return NULL;
+	if (stricmp(word + lenword - lensuffix, suffix)) return NULL; // not possible does not end
+	strcpy(copy, word);
+
+	if (!stricmp(suffix, "ing") && copy[lenword - lensuffix - 1] == 'k') // possible k replacing c or added after c
+	{
+		D = FindWord(copy, lenword - lensuffix - 1, LOWERCASE_LOOKUP); // bivouackint
+		if (D && D->properties & bits) return D;
+		D = FindWord(copy, lenword - lensuffix - 1, UPPERCASE_LOOKUP); 
+		if (D && D->properties & bits) return D;
+	}
+	if (!stricmp(suffix, "ed") && copy[lenword - lensuffix ] == 'e') // merely need to add d to word ending in e
+	{
+		D = FindWord(copy, lenword - lensuffix + 1, LOWERCASE_LOOKUP); // knifed
+		if (D && D->properties & bits) return D;
+		D = FindWord(copy, lenword - lensuffix + 1, UPPERCASE_LOOKUP); // Rollerbladed
+		if (D && D->properties & bits) return D;
+	}
+
+	// pined_away -> pine first (above) not pin (below)
+	D = FindWord(copy, lenword - lensuffix, LOWERCASE_LOOKUP); // direct attach, no change
+	if (D && D->properties & bits) return D;
+	D = FindWord(copy, lenword - lensuffix, UPPERCASE_LOOKUP); // direct attach, no change
+	if (D && D->properties & bits) return D;
+	
+	if (copy[lenword -lensuffix - 1] == copy[lenword - lensuffix- 2]) // doubled consonant?
+	{
+			D = FindWord(copy, lenword- lensuffix - 1, LOWERCASE_LOOKUP);
+			if (D && D->properties & bits) return D;
+			D = FindWord(copy, lenword - lensuffix - 1, UPPERCASE_LOOKUP);
+			if (D && D->properties & bits) return D;
+	}
+	if (IsVowel(*suffix)) // drop silent e if suffix starts vowel
+	{
+		copy[lenword - lensuffix] = 'e';
+		D = FindWord(copy, lenword - lensuffix + 1, LOWERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		D = FindWord(copy, lenword - lensuffix + 1, UPPERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		strcpy(copy, word);
+	}
+
+	if (copy[lenword - lensuffix - 1] == 'i') // trailing y changed to i for consonant suffix  babies from baby+s or rally to rallied
+	{
+		copy[lenword - lensuffix - 1] = 'y';
+		D = FindWord(copy, lenword - lensuffix, LOWERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		D = FindWord(copy, lenword - lensuffix , UPPERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		strcpy(copy, word);
+	}
+
+	if (copy[lenword - lensuffix - 1] == 'y' ) // trailing ie changed to y - tyed from tie adding ed
+	{
+		copy[lenword - lensuffix -1 ] = 'i';
+		copy[lenword - lensuffix] = 'e';	
+		D = FindWord(copy, lenword - lensuffix + 1, LOWERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		D = FindWord(copy, lenword - lensuffix - 1, UPPERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		strcpy(copy, word);
+	}
+
+	if (!stricmp(suffix, "al") && copy[lenword-2] == 'a' && copy[lenword - 1] == 'l') // leave out the final’s’ before ‘al’, 		politics / political;
+	{
+		copy[lenword - lensuffix - 1] = 's';
+		D = FindWord(copy, lenword - lensuffix + 1, LOWERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		D = FindWord(copy, lenword - lensuffix - 1, UPPERCASE_LOOKUP);
+		if (D && D->properties & bits) return D;
+		strcpy(copy, word);
+	}
+
+	if (copy[lenword - lensuffix - 1] == 'k' ) // possible k replacing c or added after c
+	{
+		D = FindWord(copy, lenword - lensuffix - 1, LOWERCASE_LOOKUP); // bivouacked
+		if (D && D->properties & bits) return D;
+		
+		copy[lenword - lensuffix - 1] = 'c';
+		D = FindWord(copy, lenword - lensuffix, LOWERCASE_LOOKUP); 
+		if (D && D->properties & bits) return D;
+		strcpy(copy, word);
+	}
+
+	char* hyphen;
+	if (bits & VERB_BITS && (hyphen = strchr(copy, '-'))) // flow-through but not land-office_business
+	{
+		WORDP prep = FindWord(hyphen + 1);
+		if (prep && prep->properties & PREPOSITION)
+		{
+			*hyphen = 0;
+			WORDP X = SuffixAdjust(copy, hyphen - copy, suffix, lensuffix, bits);
+			*hyphen = '-';
+			if (X)
+			{
+				char newword[MAX_WORD_SIZE];
+				sprintf(newword, "%s%s", X->word, hyphen);
+				return StoreWord(newword, AS_IS | X->properties,X->systemFlags);
+			}
+		}
+	}
+	return NULL;
+}
+
+static bool ValidateVerb(char* word, int len, char* item, int itemlen, uint64 bits)
+{
+	return SuffixAdjust(word, len, item, itemlen,VERB_BITS);
+}
+
+static WORDP PrefixWord(char* word, int len)
+{
+	if (!strnicmp(word, "anti", 4)) word += 4;
+	else if (!strnicmp(word, "de", 2)) word += 2;
+	else if (!strnicmp(word, "dis", 3)) word += 3;
+	else if (!strnicmp(word, "ex", 2)) word += 2;
+	else if (!strnicmp(word, "il", 2)) word += 2;
+	else if (!strnicmp(word, "im", 2)) word += 2;
+	else if (!strnicmp(word, "in", 2)) word += 2;
+	else if (!strnicmp(word, "mis", 3)) word += 3;
+	else if (!strnicmp(word, "non", 3)) word += 3;
+	else if (!strnicmp(word, "over", 4)) word += 4;
+	else if (!strnicmp(word, "pre", 3)) word += 3;
+	else if (!strnicmp(word, "pro", 3)) word += 3;
+	else if (!strnicmp(word, "re", 2)) word += 2;
+	else if (!strnicmp(word, "sub", 3)) word += 3;
+	else if (!strnicmp(word, "tri", 3)) word += 3;
+	else if (!strnicmp(word, "un", 2)) word += 2;
+	else if (!strnicmp(word, "with", 4)) word += 4;
+	else return NULL;
+	WORDP D = FindWord(word);
+	if (D && D->properties & (NOUN_BITS | VERB_BITS | ADJECTIVE_BITS | ADVERB))
+		return D;
+	return NULL;
+}
+
 uint64 ProbableVerb(char* original, unsigned int len)
 {
 	char word[MAX_WORD_SIZE];
@@ -2150,32 +2304,46 @@ uint64 ProbableVerb(char* original, unsigned int len)
 	}
 
 	char* item;
-	char* test;
 	int i;
 	if (len >= 8) // word of 3 + suffix of 5
 	{
-		test = word+len-5;
 		i = -1;
-		while ((item = verb5[++i].word)) if (!stricmp(test,item)) return verb5[i].properties;
+		while ((item = verb5[++i].word))
+		{
+			if (ValidateVerb(word, len,item, 5,0))
+				return verb5[i].properties;
+		}
 	}	
 	if (len >= 7) // word of 3 + suffix of 4
 	{
-		test = word+len-4;
 		i = -1;
-		while ((item = verb4[++i].word)) if (!stricmp(test,item)) return verb4[i].properties;
+		while ((item = verb4[++i].word))
+		{
+			if (ValidateVerb(word, len,item,  4,0))
+				return verb4[i].properties;
+		}
 	}
 	if (len >= 6) // word of 3 + suffix of 3
 	{
-		test = word+len-3;
 		i = -1;
-		while ((item = verb3[++i].word)) if (!stricmp(test,item)) return verb3[i].properties;
+		while ((item = verb3[++i].word))
+		{
+			if (ValidateVerb(word,  len,item, 3,0))
+				return verb3[i].properties;
+		}
 	}
 	if (len >= 5) // word of 3 + suffix of 2
 	{
-		test = word+len-2;
 		i = -1;
-		while ((item = verb2[++i].word)) if (!stricmp(test,item)) return verb2[i].properties;
+		while ((item = verb2[++i].word))
+		{
+			if (ValidateVerb(word, len, item,  2,0))
+				return verb2[i].properties;
+		}
 	}
+
+	WORDP X = PrefixWord(word, len);
+	if (X) return X->properties & (VERB_BITS | NOUN_BITS | ADJECTIVE_BITS | ADVERB);
 	return 0;
 }
 
@@ -2309,6 +2477,15 @@ char* GetThirdPerson(char* word)
 	return result;
 }
 
+static WORDP GetInfinitiveCasing(char* word, int len)
+{
+	WORDP D = FindWord(word, len, LOWERCASE_LOOKUP);    
+	if (D && D->properties & VERB_INFINITIVE) return D;
+	D = FindWord(word, len, UPPERCASE_LOOKUP);
+	if (D && D->properties & VERB_INFINITIVE) return D; // rare verbs that are upper case like "Charleston"
+	return NULL;
+}
+
 char* GetInfinitive(char* word, bool nonew)
 {
 	if (!word || !*word || *word == '~') return NULL;
@@ -2317,10 +2494,12 @@ char* GetInfinitive(char* word, bool nonew)
 	verbFormat = 0;	//   secondary answer- std infinitive or unknown
     size_t len = strlen(word);
     if (len == 0) return NULL;
-    WORDP D = FindWord(word,len,controls);
-	if (D && !IS_NEW_WORD(D) && D->properties & VERB_INFINITIVE)
+    WORDP D = FindWord(word,len, LOWERCASE_LOOKUP);
+	if (!D || !(D->properties & VERB)) D = FindWord(word, len, UPPERCASE_LOOKUP); // like to Charleston
+
+	if (D && (!IS_NEW_WORD(D)) && D->properties & VERB_INFINITIVE)
 	{
-		verbFormat = VERB_INFINITIVE;  // fall  (fell) conflict
+		verbFormat = VERB_INFINITIVE| VERB_PRESENT;  // fall  (fell) conflict -- note that find->found  but found is also an infinitive!
 		return D->word; //    infinitive value
 	}
 	WORDP E =  (D) ? GetCanonical(D) : NULL; // "were" has direct canonical
@@ -2359,12 +2538,6 @@ char* GetInfinitive(char* word, bool nonew)
         }
     }
 
-	char last = word[len-1];  
-    char prior = (len > 2) ? word[len-2] : 0;  //   Xs
-    char prior1 = (len > 3) ? word[len-3] : 0; //   Xes (but not nes)
-    char prior2 = (len > 4) ? word[len-4] : 0; //   Xhes
-	char prior3 = (len > 5) ? word[len-5] : 0; //   Xhes
-
     //   check for multiword behavior. 
 	int cnt = BurstWord(word,HYPHENS);
     if (cnt > 1)
@@ -2383,7 +2556,11 @@ char* GetInfinitive(char* word, bool nonew)
 			if ((i+1) == cnt) separators[i] = 0; // no final separator
 			else separators[i] = word[lenx++];
 		}
-		for (int i = 0; i < cnt; ++i)
+		if (cnt == 3)
+		{
+			int xx = 0;
+		}
+		if (cnt < 4) for (int i = 0; i < cnt; ++i) // only handle 3 word units (cozy_up_to), since we might create a 3 word unit
 		{
 			char* inf = GetInfinitive(words[i],false); //   is this word an infinitive?
 			if (!inf || !*inf) continue;
@@ -2405,169 +2582,31 @@ char* GetInfinitive(char* word, bool nonew)
 				}
 			}
 			*at = 0;
-			WORDP G = FindWord(trial,0,controls);
-			if (G && G->properties & VERB_INFINITIVE) return G->word;
+			WORDP G = FindWord(trial);
+			if (G) return G->word;
 		}
-
-       return NULL;  //   not a verb
     }
 
-    //   not known verb, try to get present tense from it
-    if (last == 'd' && prior == 'e' && len > 3)   //   ed ending?
-    {
-		verbFormat = VERB_PAST|VERB_PAST_PARTICIPLE|ADJECTIVE_PARTICIPLE;
-
-		// if vowel-vowel-consonant e d, prefer that
-		if (len > 4 && !IsVowel(prior1) && IsVowel(prior2) && IsVowel(prior3))
-		{
-			D = FindWord(word,len-2,controls);    //   drop ed
- 			if (D && D->properties & VERB_INFINITIVE) return D->word;
-		}
-		if (word[len-3] == 'k')
-		{
-			D = FindWord(word,len-3,controls);	//   drop ked, on scare
-			if (D && D->properties & VERB_INFINITIVE) return D->word;
-		}
-		D = FindWord(word,len-1,controls);	//   drop d, on scare
-		if (D && D->properties & VERB_INFINITIVE) return D->word;
-        D = FindWord(word,len-2,controls);    //   drop ed
-        if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        D = FindWord(word,len-1,controls);    //   drop d
-        if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        if (prior1 == prior2  )   //   repeated consonant at end
-        {
-            D = FindWord(word,len-3,controls);    //   drop Xed
-            if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        }
-        if (prior1 == 'i') //   ied came from y
-        {
-            word[len-3] = 'y'; //   change i to y
-            D = FindWord(word,len-2,controls);    //   y, drop ed
-            word[len-3] = 'i';
-            if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        }
-
-		if (!xbuildDictionary && !nonew && !fullDictionary)
-		{
-			char wd[MAX_WORD_SIZE];
-			strcpy(wd,word);
-			if (len > 4 && !IsVowel(prior1) && IsVowel(prior2) && IsVowel(prior3))
-			{
-				wd[len-2] = 0;
-			}
-			else if (prior1 == prior2) // double last and add ed
-			{
-				wd[len-3] = 0;
-			}
-			else if (!IsVowel(prior2) && prior1 == 'i') // ied => y copied->copy
-			{
-				strcpy(wd+len-3,(char*)"y");
-			}
-			else if (!IsVowel(prior1) && IsVowel(prior2)) // Noted -> note 
-			{
-				wd[len-1] = 0;	// just chop off the s, leaving the e
-			}
-			else wd[len-2] = 0; // chop ed off
-			return StoreWord(wd,VERB|VERB_PAST|VERB_PAST_PARTICIPLE|ADJECTIVE_PARTICIPLE|ADJECTIVE)->word;
-		}
-     }
-   
-    //   could this be a participle verb we dont know about?
-    if (prior1 == 'i' && prior == 'n' && last == 'g' && len > 4)//   maybe verb participle
-    {
-        char word1[MAX_WORD_SIZE];
-		verbFormat = VERB_PRESENT_PARTICIPLE;
- 
-        //   try removing doubled consonant
-        if (len > 4 &&  word[len-4] == word[len-5])
-        {
-            D = FindWord(word,len-4,controls);    //   drop Xing spot consonant repeated
-            if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        }
-
-        //   y at end, maybe came from ie
-        if (word[len-4] == 'y')
-        {
-            strcpy(word1,word);
-            word1[len-4] = 'i';
-            word1[len-3] = 'e';
-            word1[len-2] = 0;
-            D = FindWord(word1,len-2,controls);    //   drop ing but add ie
-            if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        }
-
-        //   two consonants at end, see if raw word is good priority over e added form
-        if (len > 4 && !IsVowel(word[len-4]) && !IsVowel(word[len-5])) 
-        {
-            D = FindWord(word,len-3,controls);    //   drop ing
-            if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        }
-
-        //   otherwise try stem with e after it assuming it got dropped
-        strcpy(word1,word);
-        word1[len-3] = 'e';
-        word1[len-2] = 0;
-        D = FindWord(word1,len-2,controls);    //   drop ing and put back 'e'
-        if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-
-        //   simple ing added to word
-        D = FindWord(word,len-3,controls);    //   drop ing
-        if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-
-		if (!xbuildDictionary && !nonew)
-		{
-			char wd[MAX_WORD_SIZE];
-			strcpy(wd,word);
-			if (prior3 == prior2) wd[len-4] = 0; // double last and add ing like swimming => swim
-			else wd[len-3] = 0; // chop ing off
-			return StoreWord(wd,VERB|VERB_PRESENT_PARTICIPLE|NOUN_GERUND|NOUN)->word;
-		}
+	// verb conjugations are to add d, s, or ing for regular verbs, with some suffixification
+	WORDP Z = NULL;
+	Z = SuffixAdjust(word, len, "ing", 3, VERB_INFINITIVE); // actual word like sing wont end up here.
+	if (Z )
+	{
+		verbFormat = VERB_PRESENT_PARTICIPLE | ADJECTIVE_PARTICIPLE|NOUN_GERUND;
+		return Z->word;
 	}
-    //   ies from y  3rd person present
-    if (prior1 == 'i' && prior == 'e' && last == 's' && len > 4 && !IsVowel(word[len-4]))//   maybe verb participle
-    {
- 		verbFormat = VERB_PRESENT_3PS;
-        char word1[MAX_WORD_SIZE];
-        strcpy(word1,word);
-        word1[len-3] = 'y';
-        word1[len-2] = 0;
-        D = FindWord(word1,len-2,controls);    //   drop ing, add e
-        if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
+	Z = SuffixAdjust(word, len, "ed", 2, VERB_INFINITIVE); // ed
+	if (Z )
+	{
+		verbFormat = VERB_PAST_PARTICIPLE | VERB_PAST| ADJECTIVE_PARTICIPLE;
+		return Z->word;
 	}
-
-     //   unknown singular verb  3rd person present
-    if (last == 's' && len > 3 && prior != 'u' && prior != '\'') // but should not be "us" ending (adjectives)
-    {
- 		verbFormat = VERB_PRESENT_3PS;
-		bool es = false;
-		if (prior == 'e' && word[len-3] == 'h' && (word[len-4] == 's' || word[len-4] == 'c'))  es = true;
-		else if (prior == 'e' && (word[len-3] == 'o' || word[len-3] == 'x' ))  es = true;
-		else if (prior == 'e' && word[len-3] == 's' && word[len-4] == 's' )  es = true;
-		if (es)
-        {
-            D = FindWord(word,len-2,controls);    //   drop es
-            if (D && D->properties & VERB_INFINITIVE) return D->word; //   found it
-        }
-
-        D = FindWord(word,len-1,controls);    //   drop s
-        if (D && D->properties & VERB && D->properties & VERB_INFINITIVE) return D->word; //   found it
-		if (D && D->properties & NOUN) return NULL; //   dont move bees to be
-
-		D = FindWord(word,len-1,UPPERCASE_LOOKUP); // if word exists in upper case, this is a plural and NOT a verb with s
-		if (D) return NULL;
-
-		if (!xbuildDictionary && !nonew && prior != 's') // not consciousness
-		{
-			char wd[MAX_WORD_SIZE];
-			strcpy(wd,word);
-			if ( prior == 'e' && prior1 == 'i') // was toadies  from toady
-			{
-				strcpy(wd+len-3,(char*)"y");
-			}
-			else wd[len-1] = 0; // chop off tail s
-			return StoreWord(wd,VERB_PRESENT_3PS|VERB|NOUN|NOUN_SINGULAR)->word;
-		}
-   }
+	Z = SuffixAdjust(word, len, "s", 1, VERB_INFINITIVE); // s
+	if (Z)
+	{
+		verbFormat = VERB_PRESENT_3PS;
+		return Z->word;
+	}
 
     if (IsHelper(word)) 
 	{
@@ -2579,34 +2618,45 @@ char* GetInfinitive(char* word, bool nonew)
 	return InferVerb(word,len);
 }
 
-char* GetPluralNoun(WORDP noun)
+char* GetPluralNoun(char* noun)
 {
 	if (!noun) return NULL;
-    if (noun->properties & NOUN_PLURAL) return noun->word; 
-    WORDP plural = GetPlural(noun);
-	if (noun->properties & (NOUN_SINGULAR|NOUN_PROPER_SINGULAR)) 
-    {
-        if (plural) return plural->word;
-        static char word[MAX_WORD_SIZE];
-		unsigned int len = noun->length;
-		char end = noun->word[len-1];
-		char before = (len > 1) ? (noun->word[len-2]) : 0;
-		if (end == 's') sprintf(word,(char*)"%ses",noun->word); // glass -> glasses
-		else if (end == 'h' && (before == 'c' || before == 's')) sprintf(word,(char*)"%ses",noun->word); // witch -> witches
-		else if ( end == 'o' && !IsVowel(before)) sprintf(word,(char*)"%ses",noun->word); // hero -> heroes>
+	WORDP D = FindWord(noun);
+    if (D && D->properties & (NOUN_PLURAL | NOUN_PROPER_PLURAL)) return D->word; 
+    WORDP plural = GetPlural(D);
+     if (plural) return plural->word;
+
+	 static char word[MAX_WORD_SIZE];
+
+	 char* underscore = strrchr(noun, '_');
+	 if (underscore)
+	 {
+		 char* plur = GetPluralNoun(underscore + 1);
+		 if (plur)
+		 {
+			 strcpy(word, noun);
+			 strcpy(word + (underscore - noun + 1), plur);
+			 return word;
+		 }
+	 }
+
+		unsigned int len = strlen(noun);
+		char end = noun[len-1];
+		char before = (len > 1) ? (noun[len-2]) : 0;
+		if (end == 's') sprintf(word,(char*)"%ses",noun); // glass -> glasses
+		else if (end == 'h' && (before == 'c' || before == 's')) sprintf(word,(char*)"%ses",noun); // witch -> witches
+		else if ( end == 'o' && !IsVowel(before)) sprintf(word,(char*)"%ses",noun); // hero -> heroes>
 		else if ( end == 'y' && !IsVowel(before)) // cherry -> cherries
 		{
-			if (noun->internalBits & UPPERCASE_HASH) sprintf(word,(char*)"%ss",noun->word); // Germany->Germanys
+			if (D && D->internalBits & UPPERCASE_HASH) sprintf(word,(char*)"%ss",noun); // Germany->Germanys
 			else
 			{
-				strncpy(word,noun->word,len-1);
+				strncpy(word,noun,len-1);
 				strcpy(word+len-1,(char*)"ies"); 
 			}
 		}
-		else sprintf(word,(char*)"%ss",noun->word);
+		else sprintf(word,(char*)"%ss",noun);
         return word;
-    }
-    return noun->word;
 }
 
 static char* InferNoun(char* original,unsigned int len) // from suffix might it be singular noun? If so, enter into dictionary
@@ -2647,7 +2697,14 @@ static char* InferNoun(char* original,unsigned int len) // from suffix might it 
 
 	if (flags) return StoreWord(word,flags)->word;
 
-	if (strchr(word,'_')) return NULL;		// dont apply suffix to multiple word stuff
+	char* underscore = strrchr(word, '_'); // locate last words
+	if (underscore)
+	{
+		WORDP X = FindWord(underscore+1, 0, LOWERCASE_LOOKUP);
+		if (X->properties & NOUN_BITS) return word;
+
+		return NULL;		// dont apply suffix to multiple word stuff
+	}
 
 	WORDP X = FindWord(word,0,LOWERCASE_LOOKUP);
 	if (IsUpperCase(*word) && X) return NULL; // we dont believe it
@@ -2672,6 +2729,11 @@ static char* InferNoun(char* original,unsigned int len) // from suffix might it 
 	return NULL;
 }
 
+static bool ValidateNoun(char* word, int len, char* item, int itemlen,uint64 bits)
+{
+	return SuffixAdjust(word, len, item, itemlen,bits);
+}
+
 uint64 ProbableNoun(char* original,unsigned int len) // from suffix might it be singular noun? 
 {
 	if (len == 0) len = strlen(original);
@@ -2689,43 +2751,60 @@ uint64 ProbableNoun(char* original,unsigned int len) // from suffix might it be 
 	}
 	
 	char* item;
-	char* test;
 	int i;
 	if (len >= 10) // word of 3 + suffix of 7
 	{
-		test = word+len-7;
 		i = -1;
-		while ((item = noun7[++i].word)) if (!stricmp(test,item)) return noun7[i].properties;
+		while ((item = noun7[++i].word))
+		{
+			if (ValidateNoun(word, len, item, 7,0))
+				return noun7[i].properties;
+		}
 	}	
 	if (len >= 9) // word of 3 + suffix of 6
 	{
-		test = word+len-6;
 		i = -1;
-		while ((item = noun6[++i].word)) if (!stricmp(test,item)) return noun6[i].properties;
+		while ((item = noun6[++i].word))
+		{
+			if (ValidateNoun(word, len, item, 6,0))
+				return noun6[i].properties;
+		}
 	}	
 	if (len >= 8) // word of 3 + suffix of 5
 	{
-		test = word+len-5;
 		i = -1;
-		while ((item = noun5[++i].word)) if (!stricmp(test,item)) return noun5[i].properties;
+		while ((item = noun5[++i].word)) 
+		{
+			if (ValidateNoun(word, len, item,  5,0))
+				return noun5[i].properties;
+		}
 	}	
 	if (len >= 7) // word of 3 + suffix of 4
 	{
-		test = word+len-4;
 		i = -1;
-		while ((item = noun4[++i].word)) if (!stricmp(test,item)) return noun4[i].properties;
+		while ((item = noun4[++i].word)) 
+		{
+			if (ValidateNoun(word, len,item, 4,0))
+				return noun4[i].properties;
+		}
 	}
 	if (len >= 6) // word of 3 + suffix of 3
 	{
-		test = word+len-3;
 		i = -1;
-		while ((item = noun3[++i].word)) if (!stricmp(test,item)) return noun3[i].properties;
+		while ((item = noun3[++i].word)) 
+		{
+			if (ValidateNoun(word,len, item, 3,VERB_BITS))  // insist root is found since suffix is short
+				return noun3[i].properties;
+		}
 	}
 	if (len >= 5) // word of 3 + suffix of 2
 	{
-		test = word+len-2;
 		i = -1;
-		while ((item = noun2[++i].word)) if (!stricmp(test,item)) return noun2[i].properties;
+		while ((item = noun2[++i].word)) 
+		{
+			if (ValidateNoun(word, len,item,2,VERB_BITS)) // insist root is found since suffix is short
+				return noun2[i].properties;
+		}
 	}
 
 	// ings (plural of a gerund like paintings)
@@ -2733,6 +2812,9 @@ uint64 ProbableNoun(char* original,unsigned int len) // from suffix might it be 
 		
 	// ves (plural form)
 	if (len > 4 && !strcmp(word+len-3,(char*)"ves") && IsVowel(word[len-4])) return NOUN|NOUN_PLURAL; // knife
+	
+	WORDP X = PrefixWord(word, len);
+	if (X) return X->properties & (VERB_BITS | NOUN_BITS | ADJECTIVE_BITS | ADVERB);
 
 	return 0;
 }
@@ -2744,12 +2826,33 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
 	nounFormat = 0;
     size_t len = strlen(word);
     WORDP D = FindWord(word,0,controls);
-	if (IS_NEW_WORD(D)) D = NULL;
+	if (IS_NEW_WORD(D) || !(D->properties & NOUN_BITS)) D = NULL;
 	nounFormat = NOUN_SINGULAR;
 	if (D && D->properties & NOUN_PROPER_SINGULAR) //   is already singular
 	{
 		nounFormat = NOUN_PROPER_SINGULAR;
 		return D->word;
+	}
+
+	char* underscore = strrchr(word, '_');
+	if (!D && underscore)
+	{
+		WORDP X = FindWord(underscore + 1);
+		if (X)
+		{
+			char* sing = GetSingularNoun(X->word, initial, nonew);
+			if (sing)
+			{
+				static char buffer[MAX_WORD_SIZE];
+				strcpy(buffer, word);
+				strcpy(buffer + (underscore - word + 1), sing);
+				return buffer;
+			}
+			if (X->properties & (NOUN_PLURAL | NOUN_PROPER_PLURAL))
+				return NULL; // this is plural, we couldnt get a singular
+		}
+
+		D = NULL;
 	}
 
     //   we know the noun and its plural, use singular
@@ -2828,7 +2931,8 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
 			}
 		}
 	}
-	if ( nonew || xbuildDictionary ) return NULL;
+	if (xbuildDictionary && D && D->properties & NOUN_BITS) return D->word;
+	if ( nonew ) return NULL;
 
 	nounFormat = (IsUpperCase(*word)) ? NOUN_PROPER_SINGULAR : NOUN_SINGULAR;
 	return InferNoun(word,len);
@@ -3158,105 +3262,76 @@ uint64 ProbableAdjective(char* original, unsigned int len,uint64 &expectedBase) 
 		if (!strcmp(hyphen,(char*)"-old" )) return ADJECTIVE|ADJECTIVE_NORMAL; // centuries-old
 	}
 
+	// prefix un or in
+	if (word[1] == 'n' && (word[0] == 'i' || word[0] == 'u')) // unsinkable from sinkable, incoherent from coherent 
+	{
+		WORDP D = FindWord(word + 2, len - 2, LOWERCASE_LOOKUP);
+		if (D && D->properties & ADJECTIVE_BITS) return ADJECTIVE_NORMAL;
+	}
+
 	int i;
-	char* test;
 	char* item;
 	if (len >= 10) // word of 3 + suffix of 7
 	{
-		test = word+len-7;
 		i = -1;
 		while ((item = adjective7[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-7);
-				if (X && X->properties & adjective7[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 7, NOUN_BITS|VERB_BITS))
 				return adjective7[i].properties;
-			}
 		}
 	}
 	if (len >= 9) // word of 3 + suffix of 6
 	{
-		test = word+len-6;
 		i = -1;
 		while ((item = adjective6[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-6);
-				if (X && X->properties & adjective6[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 6, NOUN_BITS | VERB_BITS))
 				return adjective6[i].properties;
-			}
 		}
 	}
 	if (len >= 8) // word of 3 + suffix of 5
 	{
-		test = word+len-5;
 		i = -1;
 		while ((item = adjective5[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-5);
-				if (X && X->properties & adjective5[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 5, NOUN_BITS | VERB_BITS))
 				return adjective5[i].properties;
-			}
 		}
 	}
 	if (len >= 7) // word of 3 + suffix of 4
 	{
-		test = word+len-4;
 		i = -1;
 		while ((item = adjective4[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-4);
-				if (X && X->properties & adjective4[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 4, NOUN_BITS | VERB_BITS))
 				return adjective4[i].properties;
-			}
 		}
 	}
 	if (len >= 6) // word of 3 + suffix of 3
 	{
-		test = word+len-3;
 		i = -1;
 		while ((item = adjective3[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-3);
-				if (X && X->properties & adjective3[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 3, NOUN_BITS | VERB_BITS))
 				return adjective3[i].properties;
-			}
 		}
 	}
 	if (len >= 5) // word of 3 + suffix of 2
 	{
-		test = word+len-2;
 		i = -1;
 		while ((item = adjective2[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-2);
-				if (X && X->properties & adjective2[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 2, NOUN_BITS | VERB_BITS))
 				return adjective2[i].properties;
-			}
 		}
 	}
 	if (len >= 4) // word of 3 + suffix of 1
 	{
-		test = word+len-1;
 		i = -1;
 		while ((item = adjective1[++i].word)) 
 		{
-			if (!stricmp(test,item)) 
-			{
-				WORDP X = FindWord(word,len-1);
-				if (X && X->properties & adjective1[i].baseflags) expectedBase = PROBABLE_ADJECTIVE;
+			if (ValidateNoun(word, len, item, 2, NOUN_BITS | VERB_BITS))
 				return adjective1[i].properties;
-			}
 		}
 	}
 
@@ -3289,10 +3364,11 @@ uint64 ProbableAdjective(char* original, unsigned int len,uint64 &expectedBase) 
 		if (X && X->properties & ADJECTIVE_NORMAL) expectedBase = ADJECTIVE;
 		return ADJECTIVE | ADJECTIVE_NORMAL | MORE_FORM;
 	}
+	WORDP X = PrefixWord(word, len);
+	if (X) return X->properties & (VERB_BITS | NOUN_BITS | ADJECTIVE_BITS | ADVERB);
 
 	return 0;
 }
-
 
 char* GetAdjectiveBase(char* word, bool nonew)
 {
@@ -3301,7 +3377,7 @@ char* GetAdjectiveBase(char* word, bool nonew)
 	adjectiveFormat = 0;
     size_t len = strlen(word);
     WORDP D = FindWord(word,0,controls);
-	if (IS_NEW_WORD(D)) D = NULL;
+	if (IS_NEW_WORD(D)  ) D = NULL;
 	char lastc = word[len-1];
     char priorc = (len > 2) ? word[len-2] : 0;  //   Xs
     char priorc1 = (len > 3) ? word[len-3] : 0; //   Xes

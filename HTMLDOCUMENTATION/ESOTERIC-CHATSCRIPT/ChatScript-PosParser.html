@@ -12,9 +12,7 @@
 <blockquote>
 <p>Copyright Bruce Wilcox, gowilcox@gmail.com</p>
 </blockquote>
-<blockquote>
-<p>Revision 11/19/2016 cs7.7</p>
-</blockquote>
+<p><br> Revision 2/8/2021 cs11.1</p>
 <p>How to support non-English languages at end of manual.</p>
 <h2 id="perspective-on-state-of-the-art-pos-tagging-and-parsing">Perspective on State of the Art Pos-tagging and Parsing</h2>
 <p>Back in school we learned the various parts of speech (noun, verb, adjective, adverb, preposition ...) and were taught basic rules of grammar. Why? To help us understand meaning. But fancy grammar is not needed for basic meaning. <em>Me hungry</em> is perfectly understandable. And context also dictates meaning: <em>What do you like to do?</em> And <em>What food do spiders eat?</em> Can both be answered with <em>fly</em> with entirely different meanings.</p>
@@ -34,7 +32,7 @@
 <p>Google recently released SyntaxNet, an even better parser. Yet if you give it <code>wind the clock</code>, it thinks <code>wind</code> is a noun. It doesn't even have a sentence there.</p>
 <p>ChatScript faces uncommon problems from most Natural Language tools.</p>
 <p>The best taggers/parsers are trained on the Wall Street Journal, where everything is properly cased. If you pass <em>i like you</em> to the Stanford parser, it will tell you that <em>i</em> is a foreign word, <em>like</em> is a preposition, and <em>you</em> is a pronoun.</p>
-<p>Chatters often never use upper case and speech recognitions devices don't output it either. So ChatScript works to handle all cases of things. And, following established tradition, I define my own tags for my own convenience. In addition to the usual tags differentiating various kinds of nouns and verb, I also differentiate words based on how it is used. Nouns can be used as adjectives, so bank teller is an adjective_noun noun_singular pair. Verbs can be used as nouns or adjectives, so we have the gerund and the noun infinitive and the adjective participle.</p>
+<p>Chatters often never use upper case and speech recognitions devices don't output it either. So ChatScript works to handle all cases of things. And, following established tradition, I define my own tags for my own convenience. In addition to the usual tags differentiating various kinds of nouns and verb, I also differentiate words based on how it is used. Nouns can be used as adjectives, so bank teller is an adjective_noun noun_singular pair. Verbs can be used as nouns or adjectives, so we have the gerund (walking is fun) and the noun infinitive (to walk is fun) and the adjective participle (the walking dead is dead).</p>
 <p>Postagging is harder than it looks. Consider these uses of the word <em>up</em>.</p>
 <p><em>what jumps up?</em> # adverb up, pronoun what <br><em>what jumps up the wall</em> # preposition up, pronoun what <br><em>what jumps up the ante?</em> # verb up, determiner what <br><em>what do people jump up?</em> # preposition up, pronoun “what” as object</p>
 <p>Hence ChatScript has a built-in pos-tagger/parser using rules of grammar along with statistics. This is the tack taken by <em>Constraint Grammar</em> parsers, which can achieve high degrees of pos-tagging accuracy (99.x%) and run rapidly. Their primary flaw is you have to hand code all the rules of grammar (say around 1500 of them) and need a lot of grammatical expertise. And there are no open-source versions of them.</p>

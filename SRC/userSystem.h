@@ -25,7 +25,7 @@ extern char timeturn15[100];
 extern char ipAddress[ID_SIZE];
 extern char timeturn0[20];
 extern char timePrior[20];
-extern int userFirstLine;
+extern unsigned int userFirstLine;
 extern bool stopUserWrite;
 extern uint64 setControl;
 extern unsigned int userFactCount;

@@ -1,0 +1,448 @@
+# present-tense (/ additional ones as 3ps)  past-tense  past-participle  optional-present-participle
+try / tries	tried	tried trying
+have / has had had having
+do / does did done doing
+# dole doled doled doling
+befall befell befallen
+go went gone going
+take_care_of taken_care_of
+housebreak housebroke housebroken
+beget begat begotten
+beget begot begotten
+panic panicked panicked panicking
+focus focussed focussed focusing
+belie belied belying
+hie hied hied hying
+cold_work cold_worked cold_worked cold_working
+lie_about lay_about laid_about lying_about
+hard_surface hard_surfaced hard_surfaced hard_surfacing
+bullet_vote bullet_voted bullet_voted bullet_voting
+grind_away ground_away ground_away grinding_away
+scare_off scared_off scared_off scaring_off
+wreathe wreathed wreathed wreathing
+spite spited spited spiting
+max_out maxed_out maxed_out maxing_out
+ luck_out lucked_out lucked_out lucking_out
+ luck_it lucked_it lucked_it lucking_it
+ veg_out vegged_out vegged_out vegging_out
+ give-up_the_ghost gave-up_the_ghost given-up_the_ghost giving-up_the_ghost
+ gold_plate gold_plated gold_plated gold_plating
+  louse_up loused_up loused_up lousing_up
+ cannonball_along cannonballed_along cannonballed_along cannonballing_along
+fess_up fessed_up fessed_up fessing_up
+lech_after leched_after leched_after leching_after
+poop_out pooped_out pooped_out pooping_out
+chicken_out chickened_out chicked_out chickening_out
+folk_dance folk_danced fold_danced folk_dancing
+glam_up glammed_up glammed_up glamming_up
+contra_danse contra_dansed contra_dansed contra_dansing
+arse_about arsed_about arsed_about arsing_about
+repackage repackaged repackaged repackaging
+fall_asleep fell_asleep fallen_asleep falling_asleep
+spare spared spared sparing
+fall_into_place fell_into_place fallen_into_place falling_into_place
+hot_up hotted_up hotted_up hotting_up
+cozy_up cozied_up cozied_up cozying_up
+divvy divvied divvied  divvying_up
+mete_out meted_out meted_out 
+pretty_up prettied_up prettied_up prettying_up
+pep_up pepped_up pepped_up pepping_up
+renege_on reneged_on reneged_on reneging_on
+roller_skate roller_skated roller_skated roller_skating
+garbage_down garbaged_down garbaged_down garbaging_down
+globetrot globetrotted    globetrotted
+sike siked siked siking
+behold beheld beholden
+renege reneged reneged reneging
+hog-tie hog-tied hog-tied hog_tying
+name-drop   name-dropped   name-dropped
+lie_low lay_low laid_low lying_low
+lip-sync lip-synched lip-synched lip-synching
+antic anticked anticked anticking
+ while_away whiled_away whiled_away whiling_away
+ lip_off lipped_off lipped_off lipping_off
+ leg_it legged_it legged_it legging_it
+lie_around lay_around laid_around lying_around
+ chum chummed    chummed
+ arc arced arced arcing
+ babysit   babysat babysat
+ vye   vied vied
+ carry-the_can carried-the_can carried-the_can carrying-the_can
+ sally   sallied  sallied
+ boogie boogied boogied
+ tongue-tie tongue-tied tongue-tied tongue-tying
+ tie tied tied tying
+ underpay    underpaid  underpaid
+ spoonfeed   spoonfed spoonfed
+ breastfeed   breastfed breastfed
+ overbear    overbore overborn
+ mimic   mimicked   mimicked mimicking
+ arise     arose     arisen 
+  bestride   bestrode bestrode
+ gainsay    gainsaid gainsaid
+ force-feed  force-fed force-fed
+ betake betook betaken
+ hamstring    hamstrung     hamstrung
+awake     awoke / awakened     awoken / awakened 
+backslide     backslid     backslid / backslidden 
+bear      bore     born 
+beat     beat     beat / beaten 
+become     became     become 
+begin     began     begun 
+bend     bent     bent 
+bet     bet     bet 
+bid     bid / bade     bid / bidden 
+bite     bit     bitten 
+bleed     bled     bled 
+blow     blew     blown 
+bound       bound     bound 
+break     broke     broken 
+breed     bred     bred 
+bring     brought     brought 
+broadcast     broadcasted / broadcast     broadcasted / broadcast 
+browbeat     browbeat     browbeat / browbeaten 
+build     built     built 
+fall_over_backward fell_over_backwards fallen_over_backwards
+burn     burnt / burned     burnt / burned 
+burst     burst     burst 
+bust     bust / busted     bust / busted 
+buy     bought     bought 
+cast     cast     cast 
+catch     caught     caught 
+choose     chose     chosen 
+cling     clung     clung 
+come     came     come 
+cost     cost     cost 
+creep     crept     crept 
+crossbreed     crossbred     crossbred 
+cut     cut     cut 
+deal     dealt     dealt 
+dig     dug     dug 
+disprove     disproved     disproven / disproved 
+dive     dived / dove     dived 
+do     did     done 
+draw     drew     drawn 
+dream     dreamt / dreamed     dreamt / dreamed 
+drink     drank     drunk 
+drive     drove     driven 
+dwell     dwelled / dwelt     dwelled / dwelt 
+eat     ate     eaten 
+fall    fell     fallen 
+feed     fed     fed 
+feel      felt     felt 
+fight     fought     fought 
+flee     fled     fled 
+fling     flung     flung 
+fly     flew     flown 
+forbid     forbade     forbidden 
+forecast     forecast     forecast 
+forego     forewent     foregone 
+foresee     foresaw     foreseen 
+foretell     foretold     foretold 
+forget     forgot     forgotten / forgot 
+forgive     forgave     forgiven 
+forsake     forsook     forsaken 
+find     found     found 
+freeze     froze     frozen 
+frostbite     frostbit     frostbitten 
+get     got     gotten / got 
+give     gave     given 
+go     went     gone 
+grind     ground     ground 
+grow     grew     grown 
+hand-feed     hand-fed     hand-fed 
+handwrite     handwrote     handwritten 
+hang     hung     hung 
+hear     heard     heard 
+hew     hewed     hewn / hewed 
+hide     hid     hidden 
+hit     hit     hit 
+hold     held     held 
+hurt     hurt     hurt 
+inbreed     inbred     inbred 
+inlay     inlaid     inlaid 
+input     inputted / input     inputted / input 
+interbreed     interbred     interbred 
+interweave     interweaved / interwove     interwoven / interweaved 
+interwind     interwound     interwound 
+jerry-build     jerry-built     jerry-built 
+keep     kept     kept 
+kneel     kneeled / knelt     kneeled / knelt 
+knit     knit / knitted     knit / knitted 
+know     knew     known 
+lay     laid / lay     laid 
+lead     led     led 
+lean     leant / leaned     leant / leaned 
+leap     leapt / leaped     leapt / leaped 
+learn     learnt / learned     learnt / learned 
+leave     left     left 
+lend     lent     lent 
+let     let     let 
+lie     lied     lain / lied lying
+light     lighted / lit     lighted / lit 
+lip-read     lip-read     lip-read 
+lose     lost     lost 
+make     made     made 
+mean     meant     meant 
+meet     met     met 
+miscast     miscast     miscast 
+misdeal     misdealt     misdealt 
+misdo     misdid     misdone 
+mishear     misheard     misheard 
+mislay     mislaid     mislaid 
+mislead     misled     misled 
+mislearn     mislearned / mislearnt     mislearned / mislearnt 
+misread     misread     misread 
+misset     misset     misset 
+misspeak     misspoke     misspoken 
+misspell     misspelled / misspelt     misspelled / misspelt 
+misspend     misspent     misspent 
+mistake     mistook     mistaken 
+misteach     mistaught     mistaught 
+misunderstand     misunderstood     misunderstood 
+miswrite     miswrote     miswritten 
+mow     mowed     mowed / mown 
+offset     offset     offset 
+outbid     outbid     outbid 
+outbreed     outbred     outbred 
+outdo     outdid     outdone 
+outdraw     outdrew     outdrawn 
+outdrink     outdrank     outdrunk 
+outdrive     outdrove     outdriven 
+outfight     outfought     outfought 
+outfly     outflew     outflown 
+outgrow     outgrew     outgrown 
+outleap     outleaped / outleapt     outleaped / outleapt 
+outlie     outlied     outlied outlying
+outride     outrode     outridden 
+outrun     outran     outrun 
+outsell     outsold     outsold 
+outshine     outshone / outshined     outshone / outshined 
+outshoot     outshot     outshot 
+outsing     outsang     outsung 
+outsit     outsat     outsat 
+outsleep     outslept     outslept 
+outsmell     outsmelled / outsmelt     outsmelled / outsmelt 
+outspeak     outspoke     outspoken 
+outspeed     outsped     outsped 
+outspend     outspent     outspent 
+outswear     outswore     outsworn 
+outswim     outswam     outswum 
+outthink     outthought     outthought 
+outthrow     outthrew     outthrown 
+outwrite     outwrote     outwritten 
+overbid     overbid     overbid 
+overbreed     overbred     overbred 
+overbuild     overbuilt     overbuilt 
+overbuy     overbought     overbought 
+overcome     overcame     overcome 
+overdo     overdid     overdone 
+overdraw     overdrew     overdrawn 
+overdrink     overdrank     overdrunk 
+overeat     overate     overeaten 
+overfeed     overfed     overfed 
+overhang     overhung     overhung 
+overhear     overheard     overheard 
+overlay     overlaid     overlaid 
+overpay     overpaid     overpaid 
+override     overrode     overridden 
+overrun     overran     overrun 
+oversee     oversaw     overseen 
+oversell     oversold     oversold 
+oversew     oversewed     oversewed / oversewn 
+overshoot     overshot     overshot 
+oversleep     overslept     overslept 
+overspeak     overspoke     overspoken 
+overspend     overspent     overspent 
+overspill     overspilled / overspilt     overspilled / overspilt 
+overtake     overtook     overtaken 
+overthink     overthought     overthought 
+overthrow     overthrew     overthrown 
+overwind     overwound     overwound 
+overwrite     overwrote     overwritten 
+partake     partook     partaken 
+pay     paid     paid 
+plead     pleaded / pled     pleaded / pled 
+prebuild     prebuilt     prebuilt 
+predo     predid     predone 
+premake     premade     premade 
+prepay     prepaid     prepaid 
+presell     presold     presold 
+preset     preset     preset 
+preshrink     preshrank     preshrunk 
+proofread     proofread     proofread 
+prove     proved     proven / proved 
+put     put     put 
+quick-freeze     quick-froze     quick-frozen 
+quit     quit / quitted     quit / quitted 
+read     read     read 
+reawake      reawoke     reawaken 
+rebid     rebid     rebid 
+rebind    rebound     rebound 
+rebroadcast     rebroadcast / rebroadcasted     rebroadcast / rebroadcasted 
+rebuild     rebuilt     rebuilt 
+recast     recast     recast 
+recut     recut     recut 
+redeal     redealt     redealt 
+redo     redid     redone 
+redraw     redrew     redrawn 
+refit     refitted / refit     refitted / refit 
+regrind     reground     reground 
+regrow     regrew     regrown 
+rehang     rehung     rehung 
+rehear     reheard     reheard 
+reknit     reknit / reknitted     reknit / reknitted 
+relay     relaid     relaid 
+relearn     relearned / relearnt     relearned / relearnt 
+relight     relit / relighted     relit / relighted 
+remake     remade     remade 
+repay     repaid     repaid 
+reread     reread     reread 
+rerun     reran     rerun 
+resell     resold     resold 
+resend      resent     resent 
+reset     reset     reset 
+resew     resewed     resewn / resewed 
+retake     retook     retaken 
+reteach     retaught     retaught 
+retear     retore     retorn 
+retell     retold     retold 
+rethink     rethought     rethought 
+retread     retread     retread 
+retrofit     retrofitted / retrofit     retrofitted / retrofit 
+rewake     rewaked / rewoke     rewaked / rewaken 
+rewear     rewore     reworn 
+reweave     reweaved / rewove     rewoven / reweaved 
+rewed     rewedded / rewed     rewedded / rewed 
+rewet     rewetted / rewet     rewetted / rewet 
+rewin     rewon     rewon 
+rewind     rewound     rewound 
+rewrite     rewrote     rewritten 
+rid     rid     rid 
+ride     rode     ridden 
+ring     rang     rung 
+rise     rose     risen 
+
+roughcast     roughcast     roughcast 
+run     ran     run 
+sand-cast     sand-cast     sand-cast 
+saw     saw / sawed     sawn / sawed 
+say     said     said 
+see     seen seen seeing
+seek     sought     sought 
+sell     sold     sold 
+send     sent     sent 
+set     set     set 
+put_on put_on put_on
+sew     sewed     sewn / sewed 
+shake     shook     shaken 
+shave     shaved     shaven / shaved 
+shear     sheared     sheared / shorn 
+shed     shed     shed 
+shine     shone / shined     shone / shined 
+shit     shat / shit / shitted     shit 
+shoot     shot     shot 
+show     showed     showed / shown 
+shrink     shrank / shrunk     shrunk 
+shut     shut     shut 
+sight-read     sight-read     sight-read 
+sing     sang     sung 
+sink     sunk / sank     sunk 
+sit     sat     sat 
+sleep     slept     slept 
+slay     slayed / slew     slayed / slain 
+slide     slid     slid 
+sling     slung     slung 
+slink     slunk / slinked     slunk / slinked 
+slit     slit     slit 
+smell      smelled / smelt     smelled / smelt 
+sneak     sneaked / snuck     sneaked / snuck 
+sow     sowed     sown / sowed 
+spit     spat / spit     spat / spit 
+speak     spoke     spoken 
+speed     speeded / sped     speeded / sped 
+spell     spelt / spelled     spelt / spelled 
+spend     spent     spent 
+spill     spilled / spilt     spilled / spilt 
+spin     spun     spun 
+split     split     split 
+spoil     spoiled / spoilt     spoiled / spoilt 
+spoon-feed     spoon-fed     spoon-fed 
+spread     spread     spread 
+spring     sprang / sprung     sprung 
+stand     stood     stood 
+steal     stole     stolen 
+stick     stuck     stuck 
+sting     stung     stung 
+stink     stank / stunk     stunk 
+strew     strewed     strewed / strewn 
+stride     strode     stridden 
+strike     struck     stricken / struck 
+string     strung     strung 
+strive     strived / strove     striven / strived 
+sublet     sublet     sublet 
+sunburn     sunburnt / sunburned     sunburnt / sunburned 
+swear     swore     sworn 
+sweat     sweated / sweat     sweated / sweat 
+sweep     swept     swept 
+swell     swelled     swollen / swelled 
+swim     swam     swum 
+swing     swung     swung 
+take     took     taken 
+teach     taught     taught 
+tear     tore     torn 
+telecast     telecast     telecast 
+tell     told     told 
+test-drive     test-drove     test-driven 
+test-fly     test-flew     test-flown 
+think     thought     thought 
+throw     threw     thrown 
+thrust     thrust     thrust 
+tread     trod     trodden / trod 
+typecast     typecast     typecast 
+typeset     typeset     typeset 
+typewrite     typewrote     typewritten 
+unbend     unbent     unbent 
+unbind     unbound     unbound 
+unclothe     unclad / unclothed     unclad / unclothed 
+underbid     underbid     underbid 
+undercut     undercut     undercut 
+underfeed     underfed     underfed 
+undergo     underwent     undergone 
+underlie     underlay     underlain underlaying
+undersell     undersold     undersold 
+underspend     underspent     underspent 
+understand     understood     understood 
+undertake     undertook     undertaken 
+underwrite     underwrote     underwritten 
+undo     undid     undone 
+unfreeze     unfroze     unfrozen 
+unhang     unhung     unhung 
+unhide     unhid     unhidden 
+unknit     unknit / unknitted     unknit / unknitted 
+unlearn     unlearnt / unlearned     unlearnt / unlearned 
+unsew     unsewed     unsewed / unsewn 
+unsling     unslung     unslung 
+unspin     unspun     unspun 
+unstick     unstuck     unstuck 
+unstring     unstrung     unstrung 
+unweave     unwove / unweaved     unwoven / unweaved 
+unwind     unwound     unwound 
+uphold     upheld     upheld 
+upset     upset     upset 
+wake     waked / woke     woken / waked 
+waylay     waylaid     waylaid 
+wear     wore     worn 
+weave     weaved / wove     weaved / woven 
+wed     wed / wedded     wed / wedded 
+weep     wept     wept 
+wet     wet / wetted     wet / wetted 
+win     won     won 
+wind     wound     wound 
+withdraw     withdrew     withdrawn 
+withhold     withheld     withheld 
+withstand     withstood     withstood 
+wring     wrung     wrung 
+write     wrote     written 
+overwrite overwrote overwritten
+

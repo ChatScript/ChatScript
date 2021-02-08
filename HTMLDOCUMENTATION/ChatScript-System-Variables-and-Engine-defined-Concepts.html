@@ -11,10 +11,10 @@
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
 <p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
 <ul>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#control-over-input">Control over Input</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#interchange-variables">Interchange Variables</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#engine-defined-concepts">Engine-defined Concepts</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#system-variables">System Variables</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#control-over-input">Control over Input</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#interchange-variables">Interchange Variables</a></li>
 </ul>
 <h1 id="engine-defined-concepts">Engine-defined concepts</h1>
 <p>In addition to concepts defined in script files, the system automatically defines a bunch of dictionary-based sets as well as dynamically computed concept members.</p>
@@ -1570,18 +1570,22 @@ canon: faster fast</code></pre>
 <td>provides a function name hook onto the output q to the user. See below.</td>
 </tr>
 <tr class="even">
-<td><code>$cs_tracepattern</code></td>
-<td>Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
+<td><code>$cs_tracepattern_on</code></td>
+<td>Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
 </tr>
 <tr class="odd">
+<td><code>$cs_tracepattern_off</code></td>
+<td>Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
+</tr>
+<tr class="even">
 <td><code>$cs_indentlevel</code></td>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput| |</code>$cs_sentences_limit</td>
 <td>after this many sentences in volley, cs ignores the rest (default 50)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code><span class="math inline">$cs_inputlimit` | Restrict user input size (excluding oob) | | `$</span>cs_new_user`</td>
 <td>set to 1, treat user as always new (don't try to read topic file)</td>
 </tr>

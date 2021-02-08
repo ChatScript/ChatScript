@@ -9,20 +9,20 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/1/2021 cs11.0</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br> Revision 2/8/2021 cs11.1</p>
 <ul>
-<li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#input-functions">Input Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#number-functions">Number Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#output-functions">Output Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#control-flow-functions">Control Flow Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#external-access-functions">External Access Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#json-functions">JSON Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#word-manipulation-functions">Word Manipulation Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#multipurpose-functions">Multipurpose Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#fact-functions">Facts Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#Misc-functions">Misc Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#topic-functions">Topic Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#marking-functions">Marking Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#input-functions">Input Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#number-functions">Number Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#output-functions">Output Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#control-flow-functions">Control Flow Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#external-access-functions">External Access Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#json-functions">JSON Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#word-manipulation-functions">Word Manipulation Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#multipurpose-functions">Multipurpose Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#fact-functions">Facts Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.hmtl#Misc-functions">Misc Functions</a></li>
 </ul>
 <p>System functions are predefined and can be intermixed with direct output. Generally they are used from the output side of a rule, but in many cases nothing prevents you from invoking them from inside a pattern. When used in a pattern, they do not write out any text output to the user. But their output will be tested the same as it would from an <code>if</code> statement, meaning 0 and false are failures.</p>
 <p>You can write them with or without a <code>^</code> in front of their name in output. With is clearer, but you don’t have to. The only times you must is if the first thing you want to do in a gambit is call a function (unlikely) or you are in a pattern.</p>
@@ -852,7 +852,7 @@ A concept can contain entries that are pairs, separated by |. This is preferred 
 }</code></pre>
 <p>If nothing matched, the value of <code>match</code> is false. Otherwise it is the index of the matching pattern (0-based). If there are return values from matching one or more patterns, those will be listed in <code>newglobals</code>, which is omitted if there are none. Values of null are never returned.</p>
 <p>You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.<br />
-Just prepend to your input &quot;:tracepattern 1&quot;. Or in a pattern use $cs_tracepattern and that reference will turn on tracing for that call to CS.</p>
+Just prepend to your input &quot;:tracepattern 1&quot;. Or in a pattern use $cs_tracepattern_on and $cs_tracepattern_off (they dont need values assigned) and that reference will turn on and off tracing within that call to CS. They can be used in any pattern without damaging it.</p>
 <h2 id="cs-external-api--compileoutput">CS External API- ^CompileOutput</h2>
 <p>The external API functions allow execution of rule behaviors from outside of ChatScript. This function takes in an output string like</p>
 <pre><code>if ($test) {test me}
@@ -1256,6 +1256,11 @@ u: (%document)
 <td><code>xref</code></td>
 <td>wordindex</td>
 <td>Kind</td>
+</tr>
+<tr class="even">
+<td><code>isfunction</code></td>
+<td>word</td>
+<td>returns 1 is word is a defined function, or fails</td>
 </tr>
 </tbody>
 </table>

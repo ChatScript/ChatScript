@@ -127,9 +127,9 @@ char* SFullTime(char* value)
 	uint64 curr = (uint64) time(0);
     if (regression) curr = 44444444; 
 #ifdef WIN32
-   sprintf(systemValue,(char*)"%I64d",curr); 
+   sprintf(systemValue,(char*)"%I64u",curr); 
 #else
-   sprintf(systemValue,(char*)"%lld",curr); 
+   sprintf(systemValue,(char*)"%llu",curr); 
 #endif
     return systemValue;
 }
@@ -343,7 +343,7 @@ static char* Srand(char* value) // 1 .. 100
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
 	if (regression) return "0";
-	sprintf(systemValue,(char*)"%d",random(100)+1);
+	sprintf(systemValue,(char*)"%u",random(100)+1);
 	return systemValue;
 }
 
@@ -477,7 +477,7 @@ static char* Sfact(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	sprintf(systemValue,(char*)"%d",Fact2Index(lastFactUsed));
+	sprintf(systemValue,(char*)"%u",Fact2Index(lastFactUsed));
     return systemValue;
 }
 
@@ -601,7 +601,7 @@ static char* SfreeWord(char* value)
 {
 	static char hold[50] = ".";
 	if (value) return strcpy(hold,value); // may not legally set on one's own
-	sprintf(hold,(char*)"%ld",((unsigned int)maxDictEntries)-(dictionaryFree-dictionaryBase));
+	sprintf(hold,(char*)"%lu",((unsigned int)maxDictEntries)-(dictionaryFree-dictionaryBase));
 	return hold;
 }
 
@@ -619,7 +619,7 @@ static char* Srule(char* value)
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
 	if (currentTopicID == 0 || currentRuleID == -1) return "";
-	sprintf(systemValue,(char*)"%s.%d.%d",GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID));
+	sprintf(systemValue,(char*)"%s.%u.%u",GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID));
     return systemValue;
 }
 
@@ -630,7 +630,7 @@ static char* Sserver(char* value)
 	if (*hold != '.') return hold;
 	if (!server) return "";
 
-	sprintf(systemValue,(char*)"%d",port);
+	sprintf(systemValue,(char*)"%u",port);
 	return systemValue;
 }
 
@@ -666,7 +666,7 @@ static char* STrace(char* value)
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
 	if (!trace) return "0";
-	sprintf(systemValue,(char*)"%d",trace);
+	sprintf(systemValue,(char*)"%u",trace);
 	return systemValue;
 }
 
@@ -738,7 +738,7 @@ static char* Sinput(char* value)
 		else strcpy(hold,value);
 	}
 	if (*hold != '.') return hold;
-	sprintf(systemValue,(char*)"%d",volleyCount); 
+	sprintf(systemValue,(char*)"%u",volleyCount); 
 	return systemValue;
 }
 
@@ -949,7 +949,7 @@ static char* SuserFirstLine(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	sprintf(systemValue,(char*)"%d",userFirstLine); 
+	sprintf(systemValue,(char*)"%u",userFirstLine); 
 	return systemValue;
 }
 
@@ -1022,7 +1022,7 @@ static char* SinputRejoinder(char* value)
 	}
 	if (*hold != '.') return hold;
 	if (inputRejoinderTopic == NO_REJOINDER) return (char*)"";
-	sprintf(systemValue,(char*)"%s.%d.%d",GetTopicName(inputRejoinderTopic),TOPLEVELID(inputRejoinderRuleID),REJOINDERID(inputRejoinderRuleID)); 
+	sprintf(systemValue,(char*)"%s.%u.%u",GetTopicName(inputRejoinderTopic),TOPLEVELID(inputRejoinderRuleID),REJOINDERID(inputRejoinderRuleID)); 
 	return systemValue;
 }
 
@@ -1065,7 +1065,7 @@ static char* SoutputRejoinder(char* value)
 	}
 	if (*hold != '.') return hold;
 	if (outputRejoinderTopic == NO_REJOINDER) return (char*)"";
-	sprintf(systemValue,(char*)"%s.%d.%d",GetTopicName(outputRejoinderTopic),TOPLEVELID(outputRejoinderRuleID),REJOINDERID(outputRejoinderRuleID)); 
+	sprintf(systemValue,(char*)"%s.%u.%u",GetTopicName(outputRejoinderTopic),TOPLEVELID(outputRejoinderRuleID),REJOINDERID(outputRejoinderRuleID)); 
 	return systemValue;
 }
 

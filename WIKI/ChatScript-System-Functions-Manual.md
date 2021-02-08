@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/1/2021 cs11.0
+<br> Revision 2/8/2021 cs11.1
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1490,8 +1490,8 @@ pattern (0-based). If there are return values from matching one or more patterns
 be listed in `newglobals`, which is omitted if there are none. Values of null are never returned.
 
 You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.  
-Just prepend to your input ":tracepattern 1". Or in a pattern use $cs_tracepattern and that reference will turn on tracing for that call
-to CS.
+Just prepend to your input ":tracepattern 1". Or in a pattern use $cs_tracepattern_on and $cs_tracepattern_off (they dont need values assigned)
+and that reference will turn on and off tracing within that call to CS. They can be used in any pattern without damaging it.
 
 ## CS External API- ^CompileOutput
 The external API functions allow execution of rule behaviors from outside of ChatScript.
@@ -1999,6 +1999,7 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `integer`            | floatnumber  | generate integer if float is exact integer
 | `preexists`            | word  | return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.
 | `xref`            | wordindex  | Kind | See below.
+| `isfunction`            | word  | returns 1 is word is a defined function, or fails
 
 Example:
 

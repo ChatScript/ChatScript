@@ -35,6 +35,65 @@
 #	STAY START
 # KEEP
 
+# possession after noun is adjective-noun  "day's work"
+0 INCLUDE * ADJECTIVE_NOUN
+	IS POSSESSIVE
+	HAS NOUN_BITS
+KEEP
+
+# place nouns immediately after verb  "I *ran home" wont be normal noun
+-1 HAS VERB_BITS
+	STAY ISMEMBER ~verbs_using_place_adverbs 
+	INCLUDE * HAS NOUN_SINGULAR
+	STAY HAS ADVERB
+	STAY ISMEMBER ~place_adverbs
+DISCARD
+
+# place adverb delayed after motion verb  "I *ran rapidly home" will be place adverb
+-2 HAS VERB_BITS
+	STAY ISMEMBER ~verbs_using_place_adverbs 
+	IS ADVERB
+	INCLUDE * HAS NOUN_SINGULAR VERB_BITS ADJECTIVE_BITS
+	STAY HAS NOUN_SINGULAR
+	STAY HAS ADVERB
+	STAY ISMEMBER ~place_adverbs
+DISCARD
+
+# place  nouns after pronoun object after verb  "I *ran her home" wont be normal noun
+-2 HAS VERB_BITS
+	STAY ISMEMBER ~verbs_using_place_adverbs 
+	HAS  PRONOUN_OBJECT  
+	INCLUDE * HAS NOUN_SINGULAR VERB_BITS ADJECTIVE_BITS
+	STAY HAS NOUN_SINGULAR
+	STAY HAS ADVERB
+	STAY ISMEMBER ~place_adverbs
+DISCARD
+
+# place  nouns after pronoun object after verb  "I *ran her rapidly home" wont be normal noun
+-3 HAS VERB_BITS
+	STAY ISMEMBER ~verbs_using_place_adverbs 
+	HAS  PRONOUN_OBJECT  
+	IS ADVERB
+	INCLUDE * HAS NOUN_SINGULAR VERB_BITS ADJECTIVE_BITS
+	STAY HAS NOUN_SINGULAR
+	STAY HAS ADVERB
+	STAY ISMEMBER ~place_adverbs
+DISCARD
+
+# place adverb after determiner/adj wont be place (wary of "her" as both possessive and object pronoun)
+-1 HAS DETERMINER ADJECTIVE_BITS
+	INCLUDE * ADVERB
+	STAY HAS NOUN_SINGULAR
+	STAY ISMEMBER ~place_adverbs
+DISCARD
+
+# place adverb with obvious noun after it will not be place adverb: "I ran easterly direction"
+0 	INCLUDE * ADVERB
+	STAY HAS NOUN_SINGULAR
+	STAY ISMEMBER ~place_adverbs
+	HAS ADJECTIVE_BITS NOUN_BITS
+DISCARD
+
 # command followed by noun "*Buy shoes"
 0	INCLUDE * NOUN_INFINITIVE # though may be noun, lacks determiner
 	STAY START
@@ -885,8 +944,14 @@ KEEP
 #	IS TO_INFINITIVE
 #DISCARD
 
+# until followed by timeword will be noun  "until tomorrow"
+-1 ISORIGINAL until
+	INCLUDE * NOUN_SINGULAR
+	STAY ISMEMBER ~timewords
+KEEP
+
 # A noun singular that requires determiner wont be immediately after a preposition to conflict "to (+Preposition To_infinitive)  find (+Noun_infinitive Noun_singular)"  EXCEPT "type of xxx" and its ilk
--1	CANONLYBE PREPOSITION TO_INFINITIVE 
+-1	CANONLYBE PREPOSITION TO_INFINITIVE  # but time prep "until tomorrow"
 	STAY !PARSEMARK PREP_ALLOWS_UNDETERMINED_NOUN  # *per day  or  *of man
 	INCLUDE * NOUN_SINGULAR
 	STAY !HASPROPERTY NOUN_NODETERMINER

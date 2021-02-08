@@ -1,0 +1,68 @@
+# "I imagine you run regularly"  # VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE
+allow 
+bid 
+catch 
+cause 
+get 
+have 
+invite 
+induce 
+let 
+make 
+overhear 
+permit 
+request
+ render 
+stimulate 
+take_in
+ advise  
+ask 
+beg 
+bring 
+build 
+buy 
+challenge 
+choose
+ command 
+dare 
+direct 
+encourage 
+expect 
+feel 
+forbid
+ force
+ hear
+ help 
+hire
+ instruct 
+lead 
+leave 
+ like 
+love 
+motivate 
+notice 
+observe 
+order 
+pay  
+persuade 
+prepare 
+promise
+ remind
+ require 
+see 
+spot 
+send
+ teach 
+tell 
+urge 
+want 
+warn
+ watch
+ witness
+listen_to
+look_at 
+smell 
+
+
+
+

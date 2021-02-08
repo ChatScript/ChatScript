@@ -1,0 +1,680 @@
+# can do entries in any order
+B~6
+B~5
+B~4
+B~3
+B~2
+B~1
+F~4
+F~3
+F~2
+F~1
+G~6
+G~5
+G~4
+G~3
+G~2
+G~1
+K~6
+K~5
+K~4
+K~3
+K~2
+K~1
+N~5
+N~4
+N~3
+N~2
+N~1
+O~3
+O~2
+O~1
+P~2
+P~1
+Q~1
+R~3
+R~2
+R~1
+S~5
+S~4
+S~3
+S~2
+S~1
+T~5
+T~4
+T~3
+T~2
+T~1
+U~3
+U~2
+U~1
+W~4
+W~3
+W~2
+W~1
+Y~2
+Y~1
+Z~2
+Z~1
+mother_'s_son~1
+mother_'s_daughter~1
+ Nation~1
+ Cash~1
+ Lie~1
+ Lesbian~1
+ Born~1
+ Town~1
+ Village~1
+ Blessed~1
+ LET~1
+ AMP~1
+ Light~1
+ Kid~1
+ State~1
+ Kid~1
+ ai~1
+ ci~1
+ cv~1
+ James~1
+ cx~1
+ cxv~1
+ cxx~1
+ cxxv~1
+ camail~1
+ no.~1		# avoid ruin of interjection
+ cxxx~1
+ cxxxv~1
+ cxl~1
+ cxlv~1
+ clv~1
+ clx~1
+ clxv~1
+ clxx~1
+ clxxv~1
+ clxxx~1
+ ccc~1
+one_hundred_one~1
+ one_hundred_five~1
+ one_hundred_ten~1
+ one_hundred_fifteen~1
+ one_hundred_twenty~1
+ one_hundred_twenty-five~1
+ one_hundred_thirty~1
+ one_hundred_thirty-five~1
+ one_hundred_forty~1
+ one_hundred_forty-five~1
+ one_hundred_fifty~1
+ one_hundred_fifty-five~1
+ one_hundred_sixty~1
+ one_hundred_sixty-five~1
+ one_hundred_seventy~1
+ one_hundred_seventy-five~1
+ one_hundred_eighty~1
+ one_hundred_ninety~1
+one_hundred_fifty~1
+alligator~v
+allowance~v
+savvy~v
+article~v
+aliment~v
+apparel~v
+garment~v
+accession~v
+pinnacle~v
+instal~v
+advert~v
+autoradiograph~v
+not_bad~1
+hie~1
+turtle~v
+automobile~v
+hospital_bed~1
+Am~1
+territorial~1
+territorial~2
+cat~3-9
+ok~1
+mac~1
+classical_music~1
+meanwhile~1
+permit~2  # not fish
+black_music~1
+dance_music~1
+12-tone_music~1
+chamber_music~1
+danceroom_music~1
+religious_music~1
+for_a_song~1
+chin_music~1
+head~2 # animal
+African_American_music~1
+worse~1  # no noun
+The_City~1
+The_City~2
+ballroom_music~1
+sent~1
+church_music~1
+country_music~1
+disco_music~1
+Ruth~3
+electronic_musical_music~1
+ethnic_music~1
+folk_music~1
+heavy_metal_music~1
+hillbilly_music~1
+rap_music~1
+instrumental_music~1
+swing_music~1
+marching_music~1
+martial_music~1
+military_music~1
+pop_music~1
+piano_music~1
+piano_music~2
+popular_music~1
+rock_music~1
+symphonic_music~1
+vocal_music~1
+elevator_music~1
+
+much~1  # dont need noun, have pronoun
+full~1  # no noun moon meaning
+thus~1
+ago~1  # no use as an adjective
+to_it~1
+proud_of~1
+except~2
+except~3
+ADD~1  
+January_1	# all meanings
+April_14
+January_1
+leg~8 # no meat
+January_20
+July_1
+July_4 
+June_14  
+June_21  # ignore solstices
+June_23  
+June_24 
+June_29  
+June_3 
+video_game~1  # prefer merged word
+September_11
+September_17
+September_29
+November_1
+November_11
+November_2
+November_5
+October_12
+October_24
+March_17
+March_19
+March_2
+March_25
+May_1
+May_24
+February_12
+February_14
+February_2
+February_22
+February_29
+December_31
+December_8
+Dec_25
+Feb_2
+Dec_24
+August_1
+August_15
+August_6
+January_6
+January_20
+January_19
+Sep_11
+July_4th
+11_november
+Fish
+Morgan
+at_odds~1
+Banks  # not the person
+Irish~2
+hearts~1  # upper case
+in_that~1  # dont want automatic adverb- "in that case, we go"
+born~1  # dont want adjective, want verb
+about~1  # adjective is too problematic
+after~1  # adjective is too problematic
+Capital # want lower case meanings
+Milk
+toy~1
+toy~2
+bot~1
+lost~1 # not as a noun
+closer~1
+closer~2
+ Armenian_alphabet
+ Arabic_alphabet
+ Cyrillic_alphabet
+ Greek_alphabet
+ Hebrew_alphabet
+ Hebraic_alphabet
+ Latin_alphabet
+ Roman_alphabet
+ fell~1
+ fell~2
+ fell~3
+ dvr~1
+ George~1
+ George~2
+ George~3
+ George~4
+ George~5
+ George~6
+ George~7
+ strawberry_ice_cream~1
+ peach_ice_cream~1
+ Neapolitan_ice_cream~1
+ soft_ice_cream~1
+
+out_of~1  # not an adverb, only a prep 
+depending_on~1 # only prep
+other_than~1 # only prep
+together_with~1 # only prep
+close_to~1 # only prep
+up_to~1 # only prep
+up_to~2 # only prep
+
+# dont want as adjecitve normal, want as adjective participle
+ written~1
+ written~2
+ written~3
+
+# roman numerals are not proper nouns
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+XIII
+XIV
+XV
+XVI
+XVII
+XVIII
+XIX
+XX
+XXI
+XXII
+XXIII
+XXIV
+XXV
+XXVI
+XXVII
+XXVIII
+XXIX
+XXX
+XL
+L
+LX
+LXX
+LXXX
+XC
+D
+C
+M
+scores~1
+at_home~1
+at_home~2
+Judges
+at_home~3
+allies~1
+on_that~1
+melting~1
+New
+so~1 # not noun
+one-half~1
+one-third~1
+two-thirds~1
+Welsh~1
+Bruce~1
+Bruce~2
+humans~1  # not singular
+one-quarter~1
+three-quarters~1
+losses~1 # not as singular
+authorities~1
+New~2
+teeth~1   # so it stays plural
+No~1  # not the element, conflicts with no
+over~1 # no noun for this
+stick~1 # penalty?
+then~2 # no adjective
+feel_like_a_million~1
+feel_like_a_million_dollars~1
+very_fast~1  # can block adjective
+stick~2 # joint of mj
+only_if~1
+stick~8 # butter
+Snow  # the author
+come~9 # does not mean come to which takes direct object
+nap~1 # not a card game
+snowball~2
+First_State~1 # not delaware notation
+snowball~3
+enough~2  # want it as determiner, not adjective
+chat~1
+ambition~3  # no verb
+sausage~1  # no airship
+chilly~1 # no chilli
+chat~2 # dont want birds as meaning
+do~1
+special~3 # not the food
+do~2
+plate~12 # not that either
+plate~13  # not edible meat slice
+ounce~1  # some kind of cat animal
+glad~1  # kill plant ref
+years~1		# dont want this to be a singular noun... creates ambiguity
+Nice      # the city is a problem
+years~2	
+hack~1
+diner~2  # not the vehicle railway car
+hack~2
+years~3
+Brule		# creme brule... would be good to handle this better later
+wash~6
+wash~7  # not land scenery
+1_cent~1
+1_dollar~1
+1_Kings
+# favorite~2
+# favorite~4  # not pet
+Be
+shoes~1
+1_person~1
+bending~1
+bending~2
+bending~3
+Sooner
+12_midnight
+over~2
+there~2
+world~1   # avoid man reference
+Green
+hammer~1
+soup~4
+eggs~1  # dont want it as singular
+kind_of~1
+Windows
+Begin
+Last_Day
+Dapsang
+Tiger
+Tell
+Godwin_Austen
+Mount_godwin_Austen
+Malaysia_Militant_Group
+Malaysian_Mujahidin_Group
+Islamic_Group
+Islamic_Community
+Ji
+Jemaah_Islamiyah
+Edward_Teach
+BlackBeard
+Death
+Green
+Call
+buy_it~1
+'s_gravenhage~1
+name~4
+name~5
+Jersey
+Best
+ready~1  # no noun form
+do_it~1   # remove bedding verb
+live_with~1
+Male
+every_week~1
+Teach
+Thatch
+married~1
+Sister
+More
+on_the_table~1
+Brother
+John~1
+enough~2 # no noun
+go_with~1
+go_with~2
+at_work~1
+John~2
+John~3
+John~4
+john~1
+john~2
+john~3
+Green~3
+Dragon
+Education
+great_care~1
+legs~1
+found~1
+Drew
+Lamb
+lied~1   # german song art
+dog~4
+Will~1
+Will~2
+kiss~3
+kiss~4
+harry~1
+bars~1
+harry~2
+tv~1
+Orange~1
+cell_phone~1
+ASL~1
+scotch_egg~1
+cheese~2  # the plant
+Friend~1
+internet~1
+take_on~1
+have_kittens~1
+take_on~2
+take_on~3
+take_on~4
+take_on~5
+take_on~6
+Red~1
+Father~1
+Father~2
+work~8 # exercise
+Father~3
+think_about~1
+play_tricks~1
+think_about~2
+Set~1
+A~1
+Weird~1
+cd~1
+icecream~1
+cd~2
+bach~1  # BACHELOR
+As~1
+As~2
+FAR~1
+CAT~1
+White~1
+White~2
+White~3
+White~4
+talking_to~1
+go_to~1
+Young~1
+Young~2
+Young~3
+Young~4
+Young~5
+Young~6
+Young~7
+White~5
+White~6
+tom~1
+go~1 # the game
+use~3 # exercise
+pierre~1
+rex~1
+White~7
+White~8
+Black~1
+do~12  # not exercise
+Black~2
+Black~3
+12_noon~1
+14_July~1
+15_minutes~1
+17_November~1
+19_trillion~1
+2_pair~1
+30_minutes~1
+365_days~1
+6_a.m.~1
+6_trillion~1
+60_minutes~1
+7_wonders~1
+880_yards~1
+9_high~1
+a_few~2 # some determiners can never be adjectives, despite wordnet listings
+a_hundred_times~1 
+a_million_times~1
+a_thousand_times~1 
+AM~3
+AM~2
+distil~1 # no value in this over distill
+distil~2
+distil~3
+distil~4
+distil~5
+AM~1
+apple_juice~1
+are~1   # forget unit of area
+at~2 (currency)
+at~1 (currency)
+At~1 (skip the chemical)
+Ate~1
+
+Ball~1 (lucille ball)
+big_toe~1
+blue~15 (naughty)
+blue~9 (bluefish)
+blue~8 (disconsolate)
+blue~3 (clothing)
+blue~2 (amobarbital sodium)
+blue~1 (butterfly)
+cat_sleep~1
+chocolate_ice_cream~1
+days~1
+DO	Doctor_of_Osteopathy
+each~4
+each~3
+equal~3
+every~3
+every~2
+eyes~1
+felt~4
+felt~3
+felt~2
+flies~1
+four_times~1 
+game~9 (food)
+get_married~1
+get~1 (tennis get a shot)
+Good_Book~1
+gps~1
+grapefruit_juice~1
+have~9  (intercourse)
+have~1  (wealthy person)
+he~2  # forget hebrew letters
+he~1
+hobby~2   Falco_subbuteo~1
+i~2
+i~1
+in_this~1
+In~2
+In~1
+IP~1
+irs~1
+IT~1
+japan~3
+kid~4 (animal product)
+kid~1 (animal)
+know~12 have_intercourse~1 
+live_in~1
+London~2
+long_time~1
+long~12 # use long_for instead
+love~7 (sex)
+love~1 (sex)
+Man~1  # isle of man
+may~1
+men_'s~1
+must~2 (a juice)
+nine_times~1 
+no~3
+no~1
+Or~2
+Or~1
+orange_juice~1
+pirate~1  # remove the ship
+PM~4
+PM~3
+PM~2
+PM~1
+programme~9 # interferes with root detection on program (kill all)
+programme~8
+programme~7
+programme~6
+programme~5
+programme~4
+programme~3
+programme~2
+programme~1
+queen~12
+queen~11
+queen~10
+queen~9
+queen~8
+queen~6
+queen~5
+queen~4
+queen~3
+queen~2
+queen~1 (insects and animals)
+six_times~1 
+sleep_in~2
+stand~16 (copulate)
+stand~15 (skip military ref)
+stand~1 (skip military ref)
+steel_blue~1
+strip~5
+take~20 (sex)
+talk_about~2
+talk_about~1
+the_Flood
+the_Street
+thousand_times~1 
+three_times~1 
+to_that~1
+torch~4
+two_times~1 
+used_to~1
+vanilla_ice_cream~1
+WHO
+women_'s~1
+work_at~1

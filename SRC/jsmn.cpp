@@ -116,10 +116,11 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
                 case '\"': case '/': case '\\': case 'b':
                 case 'f': case 'r': case 'n': case 't':
                     break;
-                    /* Unexpected symbol */
+                    /* Unexpected symbol  EXCEPT ANY character can be escaped according to standard */
 				default:
-					parser->pos = start;
-					return JSMN_ERROR_INVAL;
+					break;
+					//parser->pos = start;
+					//return JSMN_ERROR_INVAL;
 			}
 		}
 	}
@@ -153,11 +154,13 @@ jsmnerr_t jsmn_parse(jsmn_parser *parser, const char *js, size_t len, jsmntok_t 
 				break;
 			case '}': case ']':
 				type = (c == '}' ? JSMN_OBJECT : JSMN_ARRAY);
-				if (parser->toknext < 1) return JSMN_ERROR_INVAL;
+				if (parser->toknext < 1) 
+					return JSMN_ERROR_INVAL;
 				token = &tokens[parser->toknext - 1];
 				for (;;) {
 					if (token->start != -1 && token->end == -1) {
-						if (token->type != type)  return JSMN_ERROR_INVAL;
+						if (token->type != type)  
+							return JSMN_ERROR_INVAL;
 						token->end = parser->pos + 1;
 						parser->toksuper = token->parent;
 						break;

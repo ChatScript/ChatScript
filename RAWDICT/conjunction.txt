@@ -1,0 +1,183 @@
+#	equal conjunctions:  claim is only and, &, but, or, nor, for, yet, so
+for CONJUNCTION_COORDINATE
+and CONJUNCTION_COORDINATE
+& CONJUNCTION_COORDINATE
+nor CONJUNCTION_COORDINATE
+but CONJUNCTION_COORDINATE
+or CONJUNCTION_COORDINATE
+yet CONJUNCTION_COORDINATE
+so CONJUNCTION_COORDINATE
+but_also  CONJUNCTION_COORDINATE
+vs. CONJUNCTION_COORDINATE # if versus not expanded
+v. CONJUNCTION_COORDINATE # if versus not expanded
+
+et CONJUNCTION_COORDINATE
+less CONJUNCTION_COORDINATE
+minus CONJUNCTION_COORDINATE
+plus CONJUNCTION_COORDINATE
+times CONJUNCTION_COORDINATE
+versus CONJUNCTION_COORDINATE
+whether CONJUNCTION_COORDINATE
+
+# subordinate clauses act like: noun/adverb/adjective
+#	common subordinate starters: relative pronouns: who  whom  whose  whoever  whosoever  whomever  which  what  whatever   that  act like subordinate conjunction and supply the noun head
+#   CONJUNCTION_SUBORDINATE  is subordinate.  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUNis subordinate and can head a noun subordinate clause.
+
+# adjective clauses begin with a relative pronoun or relative adverb:  "the girl *who looked happy was thin"
+# adverb clauses being with a subordinate conjunction
+	# how
+	# when	 # object time
+	# why		 # object explanation
+	# whether 
+	# ellipitical clauses are adverb clauses that miss the verb: "he is taller *than his brother [is] [tall]"
+# noun clause acts like noun, may or may not have a noun clause marker "*whatever you want" is fine"
+only_if   CONJUNCTION_SUBORDINATE 
+no_wonder CONJUNCTION_SUBORDINATE
+only_if   CONJUNCTION_SUBORDINATE 
+if_and_only_if   CONJUNCTION_SUBORDINATE 
+iff  CONJUNCTION_SUBORDINATE 
+if_possible  CONJUNCTION_SUBORDINATE 
+if_necessary  CONJUNCTION_SUBORDINATE 
+but_only_if CONJUNCTION_SUBORDINATE
+but_not_if CONJUNCTION_SUBORDINATE
+after  CONJUNCTION_SUBORDINATE 
+after_which CONJUNCTION_SUBORDINATE
+albeit CONJUNCTION_SUBORDINATE #  "although it is"
+although  CONJUNCTION_SUBORDINATE 
+as  CONJUNCTION_SUBORDINATE 
+as_far_as  CONJUNCTION_SUBORDINATE 
+as_if  CONJUNCTION_SUBORDINATE 
+as_long_as  CONJUNCTION_SUBORDINATE 
+as_much_as  CONJUNCTION_SUBORDINATE 
+as_soon_as  CONJUNCTION_SUBORDINATE 
+as_though  CONJUNCTION_SUBORDINATE 
+because  CONJUNCTION_SUBORDINATE 
+before  CONJUNCTION_SUBORDINATE 
+by_the_time  CONJUNCTION_SUBORDINATE 
+even_if  CONJUNCTION_SUBORDINATE 
+even_though  CONJUNCTION_SUBORDINATE 
+ever_since CONJUNCTION_SUBORDINATE  #  treat as idiom so that "he has come ever since" can be adverb
+how  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+however  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+if  CONJUNCTION_SUBORDINATE 
+if_only  CONJUNCTION_SUBORDINATE 
+if_when  CONJUNCTION_SUBORDINATE 
+if_then  CONJUNCTION_SUBORDINATE 
+inasmuch_as  CONJUNCTION_SUBORDINATE 
+in_order  CONJUNCTION_SUBORDINATE 
+in_order_that  CONJUNCTION_SUBORDINATE 
+in_case  CONJUNCTION_SUBORDINATE 
+in_case_that  CONJUNCTION_SUBORDINATE 
+in_the_event_that  CONJUNCTION_SUBORDINATE 
+in_the_event  CONJUNCTION_SUBORDINATE 
+insofar_as  CONJUNCTION_SUBORDINATE 
+just_as  CONJUNCTION_SUBORDINATE 
+just_in_case  CONJUNCTION_SUBORDINATE 
+lest  CONJUNCTION_SUBORDINATE 
+no_matter_how  CONJUNCTION_SUBORDINATE 
+now_that  CONJUNCTION_SUBORDINATE 
+now_when  CONJUNCTION_SUBORDINATE 
+now_since  CONJUNCTION_SUBORDINATE 
+now  CONJUNCTION_SUBORDINATE 
+once  CONJUNCTION_SUBORDINATE 
+only_if  CONJUNCTION_SUBORDINATE 
+provided  CONJUNCTION_SUBORDINATE 
+provided_that  CONJUNCTION_SUBORDINATE 
+rather_than  CONJUNCTION_SUBORDINATE 
+since  CONJUNCTION_SUBORDINATE 
+so_that  CONJUNCTION_SUBORDINATE 
+supposing  CONJUNCTION_SUBORDINATE 
+supposing_that  CONJUNCTION_SUBORDINATE 
+than  CONJUNCTION_SUBORDINATE 
+that  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+though  CONJUNCTION_SUBORDINATE 
+till  CONJUNCTION_SUBORDINATE 
+that  CONJUNCTION_SUBORDINATE 
+unless  CONJUNCTION_SUBORDINATE 
+until  CONJUNCTION_SUBORDINATE  
+except_that  CONJUNCTION_SUBORDINATE 
+#  what  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN  # dont use old "he help me *what he can"
+whatever  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+whether  CONJUNCTION_SUBORDINATE 
+where_if  CONJUNCTION_SUBORDINATE 
+whereas  CONJUNCTION_SUBORDINATE 
+when  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+whenever  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+where  CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+whereafter CONJUNCTION_SUBORDINATE
+wherever CONJUNCTION_SUBORDINATE CONJUNCT_SUBORD_NOUN
+whether_or_not  CONJUNCTION_SUBORDINATE 
+while  CONJUNCTION_SUBORDINATE 
+which  CONJUNCTION_SUBORDINATE 
+why   CONJUNCT_SUBORD_NOUN
+
+now_that CONJUNCTION_SUBORDINATE
+just_as  CONJUNCTION_SUBORDINATE
+if_only  CONJUNCTION_SUBORDINATE
+in_case  CONJUNCTION_SUBORDINATE
+whereby  CONJUNCTION_SUBORDINATE
+whereupon  CONJUNCTION_SUBORDINATE
+insofar_as CONJUNCTION_SUBORDINATE
+inasmuch_as  CONJUNCTION_SUBORDINATE
+ere  CONJUNCTION_SUBORDINATE
+on_the_grounds_that  CONJUNCTION_SUBORDINATE
+on_grounds_that  CONJUNCTION_SUBORDINATE
+in_that CONJUNCTION_SUBORDINATE
+in_the_event_that  CONJUNCTION_SUBORDINATE
+in_the_event CONJUNCTION_SUBORDINATE
+if_only CONJUNCTION_SUBORDINATE
+on_condition CONJUNCTION_SUBORDINATE
+on_the_condition_that CONJUNCTION_SUBORDINATE
+
+#	correlative: 
+both ADVERB  # and
+either ADVERB   # or
+neither ADVERB  # nor
+not_only  ADVERB  # but_also
+whether ADVERB  # or
+
+
+#adverb clause (cause, effect, space, time, and condition)
+# which
+# because
+# so that
+# since
+# after
+# when/whenever
+# where/whereever
+# after
+# if 
+
+# CONJUNCTIVE ADVERBS JOIN CLAUSES ONLY so they act like subordinate clauses but ONLY do things as equal, not subordinate
+# join 2 main clauses using ; xxx , format
+# they can also head or end a sentence or interrupt using commas in the middle
+after_all   ADVERB  
+also    ADVERB   
+as_a_result    ADVERB   
+besides    ADVERB   
+consequently    ADVERB   
+finally    ADVERB   
+for_example    ADVERB   
+furthermore    ADVERB   
+hence    ADVERB   
+however    ADVERB   
+in_addition    ADVERB   
+in_other_words    ADVERB   
+incidentally    ADVERB   
+indeed    ADVERB   
+in_fact    ADVERB   
+instead    ADVERB   
+likewise    ADVERB   
+meanwhile    ADVERB   
+moreover    ADVERB   
+nevertheless   ADVERB   
+next    ADVERB   
+nonetheless    ADVERB   
+on_the_contrary    ADVERB   
+on_the_other_hand    ADVERB   
+otherwise    ADVERB   
+still    ADVERB   
+then     ADVERB    
+therefore    ADVERB   
+thus    ADVERB   
+ 

@@ -28,7 +28,7 @@ typedef struct WINDOWSTRUCT
     int yposition;
 } WINDOWSTRUCT;
 
-WINDOWSTRUCT scriptData, statData, varData, parentData, sentenceData,stackData, inputData,outputData;
+WINDOWSTRUCT scriptData, statData, varData, sentenceData, stackData, inputData, outputData;
 
 #define NO_BREAK 0
 #define BREAK_CALL 1
@@ -80,11 +80,10 @@ int breakType = NO_BREAK;
 static bool WhereAmI(int depth);
 static char breakAt[400][40];
 static int rulesInMap = 0;
+static int rulesExecuted = 0;
 static int breakIndex = 0;
 int sentenceMode = 0;
-static bool disableBreakpoints = false;
 static bool sysfail = false;
-static CALLFRAME* ownerFrame;
 static int nextdepth = -1;
 static int nextlevel = -1;
 static int idedepth = -1;
@@ -97,15 +96,10 @@ static MAPDATA* lastItem = NULL;
 static char filenames[1000];
 static char varnames[1000];
 static char varbreaknames[1000];
-#define MAX_VARVALUES 20
-static char varname[MAX_VARVALUES+1][50];
-static char vartest[MAX_VARVALUES + 1];
-static int varnamesindex = 0;
-static char varvalue[MAX_VARVALUES+1][50];
 static MAPDATA* firstMap = NULL;
 static MAPDATA* priorMapLine = NULL;
 static char* DebugInput(char* input);
-static void MakeCurrentFile(char* name,uint64 botid);
+static void MakeCurrentFile(char* name, uint64 botid);
 static char windowTitle[MAX_WORD_SIZE];
 static int breakpointCount = 0;
 static FILEDATA* fileList = NULL;
@@ -114,23 +108,24 @@ static int varIndex = 0;
 LINEDATA* firstline = NULL;
 LINEDATA* priorline = NULL;
 LINEDATA* line = NULL;
-static int outlevel = 0;
-static bool globalAbort = false;
+int outlevel = 0;
 
 #define MAX_LOADSTRING 100
 #define ID_EDITCHILD 100 // output
 #define ID_EDITCHILD1 101 //  input
 HWND hParent = NULL;
 static void RemoveBreak(char* name);
-HWND hGoButton, hStopButton, hClearButton,hNextButton, hInButton, hOutButton;
-HWND hGlobalsButton,hBackButton,hBreakMessageButton;
-HWND hFontButton,hFailButton;
+HWND hGoButton, hStopButton, hClearButton, hNextButton, hInButton, hOutButton;
+HWND hLocalsButton, hBackButton, hBreakMessageButton;
+HWND hFontButton, hFailButton;
+
+HWND hDialog;
 int fontsize = 30;
 size_t editLen = 0;
 bool changingEdit = false;
 SCROLLINFO si;
-static int ProcessBreak(char* input,int flags);
-HFONT hFont,hFontBigger,hButtonFont;
+static int ProcessBreak(char* input, int flags);
+HFONT hFont, hFontBigger, hButtonFont;
 HPEN hPen;
 HBRUSH hBrush;
 HBRUSH hBrushBlue;
@@ -157,31 +152,31 @@ char szWindowClass[MAX_LOADSTRING];            // the main scriptData.window cla
 char* DoneCallback(char* buffer);
 
 // Forward declarations of functions included in this code module:
-ATOM                MyRegisterClass(HINSTANCE hInstance,  LPCSTR szWindowClass);
+ATOM                MyRegisterClass(HINSTANCE hInstance, LPCSTR szWindowClass);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
-static FILEDATA* GetFile(char* name,uint64 botid);
+static FILEDATA* GetFile(char* name, uint64 botid);
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+    _In_opt_ HINSTANCE hPrevInstance,
+    _In_ LPWSTR    lpCmdLine,
+    _In_ int       nCmdShow)
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
-	if (!SetCurrentDirectory((LPCSTR)".."))
-	{
-		printf("no change dir");
-	}
+    if (!SetCurrentDirectory((LPCSTR)".."))
+    {
+        printf("no change dir");
+    }
     // TODO: Place code here.
 
     // Initialize global strings
     LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadString(hInstance, IDC_CHATSCRIPTIDE, szWindowClass, MAX_LOADSTRING);
-    ATOM j = MyRegisterClass(hInstance,(LPCSTR) szWindowClass);
+    ATOM j = MyRegisterClass(hInstance, (LPCSTR)szWindowClass);
 
     // Perform application initialization:
-    if (!InitInstance (hInstance, nCmdShow))
+    if (!InitInstance(hInstance, nCmdShow))
     {
         return FALSE;
     }
@@ -199,17 +194,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
     }
-    return (int) msg.wParam;
+    return (int)msg.wParam;
 }
 
-static MAPDATA* FindFileMap(char* filename,uint64 botid)
+static MAPDATA* FindFileMap(char* filename, uint64 botid)
 {
     MAPDATA* at = firstMap;
     while (at)
     {
         // map has link, file, line, name
         // we match either full path or tail naming only
-        if ((at->botid == botid || at->botid & botid) && 
+        if ((at->botid == botid || at->botid & botid) &&
             (!stricmp(at->name, filename) || !stricmp(at->filename, filename)))
         {
             return at;
@@ -224,10 +219,10 @@ static MAPDATA* FindLine(int line)
     return NULL;
 }
 
-static void ReadWindow(WINDOWSTRUCT windowdata,FILE* in)
+static void ReadWindow(HWND window, FILE* in)
 {
     char buffer[500];
-    ReadALine(buffer,in);
+    ReadALine(buffer, in);
     char* data = buffer;
     char word[MAX_WORD_SIZE];
     data = ReadCompiledWord(data, word);
@@ -239,89 +234,70 @@ static void ReadWindow(WINDOWSTRUCT windowdata,FILE* in)
     int z = atoi(word);
     data = ReadCompiledWord(data, word);
     int q = atoi(word);
-    MoveWindow(windowdata.window, x, y, z, q, true);
-	UpdateWindowMetrics(windowdata, true);
-}
-
-static void ReadButton(HWND window, FILE* in)
-{
-	char buffer[500];
-	ReadALine(buffer, in);
-	char* data = buffer;
-	char word[MAX_WORD_SIZE];
-	data = ReadCompiledWord(data, word);
-	data = ReadCompiledWord(data, word);
-	int x = atoi(word);
-	data = ReadCompiledWord(data, word);
-	int y = atoi(word);
-	data = ReadCompiledWord(data, word);
-	int z = atoi(word);
-	data = ReadCompiledWord(data, word);
-	int q = atoi(word);
-	MoveWindow(window, x, y, z, q, true);
+    MoveWindow(window, x, y, z, q, true);
 }
 
 static void RestoreWindows()
 {
     FILE* in = FopenReadOnly("idesettings.txt");
     if (!in) return;
-    ReadWindow(scriptData, in);
-    ReadWindow(inputData, in);
-	ReadWindow(outputData, in);
-    ReadWindow(statData, in);
-	ReadWindow(varData, in);
-    ReadWindow(stackData, in);
-	ReadWindow(sentenceData, in);
+    ReadWindow(scriptData.window, in);
+    UpdateWindowMetrics(scriptData, true);
 
-	ReadButton(hGoButton, in);
-	ReadButton(hInButton, in);
-	ReadButton(hOutButton, in);
-	ReadButton(hNextButton, in);
-	ReadButton(hStopButton, in);
-	ReadButton(hBreakMessageButton, in);
-	ReadButton(hClearButton, in);
-	ReadButton(hGlobalsButton, in);
-	ReadButton(hBackButton, in);
-	ReadButton(hFontButton, in);
-	ReadButton(hFailButton, in);
+    ReadWindow(inputData.window, in);
+    ReadWindow(outputData.window, in);
+    UpdateWindowMetrics(outputData, true);
+    ReadWindow(statData.window, in);
+    UpdateWindowMetrics(statData, true);
+
+    ReadWindow(varData.window, in);
+    UpdateWindowMetrics(varData, true);
+
+    ReadWindow(stackData.window, in);
+    UpdateWindowMetrics(stackData, true);
+
+    ReadWindow(hGoButton, in);
+    ReadWindow(hInButton, in);
+    ReadWindow(hOutButton, in);
+    ReadWindow(hNextButton, in);
+    ReadWindow(hStopButton, in);
+    ReadWindow(hBreakMessageButton, in);
+    ReadWindow(hClearButton, in);
+    ReadWindow(hLocalsButton, in);
+    ReadWindow(hBackButton, in);
+    ReadWindow(hFontButton, in);
+    ReadWindow(hFailButton, in);
     char buffer[100];
     ReadALine(buffer, in);
     fontsize = atoi(buffer + 10);
     fclose(in);
 }
 
-static void SaveWindow(HWND window,char* name,FILE* out)
+static void SaveWindow(HWND window, char* name, FILE* out)
 {
     RECT rect;
-    GetWindowRect(window,&rect);
-    POINT pt;
-    pt.x = rect.left;
-    pt.y = rect.top;
-    ScreenToClient(GetParent(window),&pt);
-    fprintf(out, "%s: %d %d ", name, pt.x, pt.y);
-    fprintf(out, "%d %d \r\n", rect.right - rect.left, rect.bottom-rect.top);
+    GetWindowRect(window, &rect);
+    fprintf(out, "%s: %d %d %d %d \r\n", name, rect.left, rect.top, rect.right, rect.bottom);
 }
 
 static void SaveWindows()
 {
     FILE* out = FopenBinaryWrite("idesettings.txt");
     if (!out) return;
-    SaveWindow(scriptData.window, "script",out);
+    SaveWindow(scriptData.window, "script", out);
     SaveWindow(inputData.window, "input", out);
     SaveWindow(outputData.window, "output", out);
-    SaveWindow(statData.window, "stats", out);
+    SaveWindow(statData.window, "statistics", out);
     SaveWindow(varData.window, "variables", out);
     SaveWindow(stackData.window, "stack", out);
-	SaveWindow(sentenceData.window, "sentence", out);
-	
-	SaveWindow(hGoButton, "go", out);
+    SaveWindow(hGoButton, "go", out);
     SaveWindow(hInButton, "in", out);
     SaveWindow(hOutButton, "out", out);
     SaveWindow(hNextButton, "next", out);
     SaveWindow(hStopButton, "stop", out);
     SaveWindow(hBreakMessageButton, "msgbreak", out);
     SaveWindow(hClearButton, "clear", out);
-    SaveWindow(hGlobalsButton, "globals", out);
+    SaveWindow(hLocalsButton, "locals", out);
     SaveWindow(hBackButton, "back", out);
     SaveWindow(hFontButton, "font", out);
     SaveWindow(hFailButton, "fail", out);
@@ -341,7 +317,7 @@ static void DumpMaps()
     fclose(out);
 }
 
-static MAPDATA* FindMap(char* name,char* filename)
+static MAPDATA* FindMap(char* name, char* filename)
 {
     MAPDATA* at = firstMap;
     char* oldname = NULL;
@@ -350,14 +326,14 @@ static MAPDATA* FindMap(char* name,char* filename)
         if (at->filename != oldname)
         {
             oldname = at->filename;
-            Log(STDUSERLOG, "%s\r\n", oldname);
+            Log(STDDEBUGLOG, "%s\r\n", oldname);
         }
         char* entry = at->name; // map has link, file, line, name
         if (filename && stricmp(at->filename, filename)) { ; }
         else
         {
             if (*entry == '^' || *entry == '~') priorMapLine = at;
-            if (!stricmp(name, entry)) 
+            if (!stricmp(name, entry))
                 return at;
         }
         at = at->next; // use forward ptr
@@ -377,7 +353,7 @@ static MAPDATA* FindLabelMap(char* label, uint64 botid)
             *at->name == '~')
         {
             char* hyphen = strchr(at->name, '-');
-            if (hyphen && strchr(at->name,'.')) // tag + label
+            if (hyphen && strchr(at->name, '.')) // tag + label
             {
                 if (!stricmp(hyphen + 1, label))
                     return at;
@@ -399,7 +375,7 @@ static void DefineVertScroll(WINDOWSTRUCT& data, int pos)
     InvalidateRgn(data.window, NULL, true);
 }
 
-static char* ShowActions(char* actions,int level)
+static char* ShowActions(char* actions, int level)
 {
     static char src[100];
     sprintf(src, "lvl:%d  ", level);
@@ -423,7 +399,7 @@ static char* GetDefn(int depth)
 
 static void StackVariables(int depth)
 {
-    fnvars = NULL;
+    fnvars = 0;
     fnlevel = -1;
     if (depth <= 0 || depth > globalDepth) return;
     fnvars = GetDefn(depth);
@@ -467,7 +443,7 @@ static void RestoreClick()
     AddTab(click->file->filename);
     scriptData.maxLines = currentFileData->lineCount;
     scriptData.maxChars = currentFileData->charsize;
-    free(click); 
+    free(click);
     InvalidateRgn(scriptData.window, NULL, true);
 }
 
@@ -488,7 +464,7 @@ static char* ChaseFnVariable(char* name, int mydepth)
     int depth = (mydepth <= 0) ? 1 : mydepth; // go to current
     char label[MAX_WORD_SIZE];
     sprintf(label, "%s ", name);
-    CALLFRAME* frame = GetCallFrame(depth); 
+    CALLFRAME* frame = GetCallFrame(depth);
     if (*name == '$') while (++depth <= globalDepth) // go deeper to see
     {
         frame = GetCallFrame(depth);
@@ -505,7 +481,7 @@ static char* ChaseFnVariable(char* name, int mydepth)
         // find which display arg it is
         *found = 0;
         int n = 0;
-        char* at = (char*)defn+2;
+        char* at = (char*)defn + 2;
         char arg[MAX_WORD_SIZE];
         while (*at)
         {
@@ -521,7 +497,7 @@ static char* ChaseFnVariable(char* name, int mydepth)
     if (*name == '^')
     {
         // find which display arg it is
-        char* defn = frame->definition; 
+        char* defn = frame->definition;
         if (!defn) return "null"; // not yet visible
         char* at = (char*)defn + 2;
         char arg[MAX_WORD_SIZE];
@@ -530,7 +506,7 @@ static char* ChaseFnVariable(char* name, int mydepth)
         {
             at = ReadCompiledWord(at, arg);
             if (!stricmp(arg, name)) break;
-            ++n; 
+            ++n;
             if (n > frame->arguments)  return "null"; // not there, may not have been even called
         }
 
@@ -550,7 +526,6 @@ static void DefineHorzScroll(WINDOWSTRUCT& data, int pos)
     SetScrollInfo(data.window, SB_HORZ, &si, true);
     InvalidateRgn(data.window, NULL, true);
 }
-
 static void ShowStack()
 {
     if (stackData.window) // compute scroll data for stack window
@@ -560,7 +535,7 @@ static void ShowStack()
         {
             CALLFRAME* frame = GetCallFrame(i);
             size_t len = strlen(frame->label);
-            if ((int)len > maxchar) maxchar = len;
+            if (len > maxchar) maxchar = len;
         }
         stackData.maxChars = maxchar;
         stackData.maxLines = globalDepth;
@@ -572,27 +547,19 @@ static void ShowStack()
         DefineHorzScroll(stackData, 0);
         InvalidateRgn(stackData.window, NULL, true);
 
-        StackVariables(globalDepth);   
+        StackVariables(globalDepth);
         InvalidateRgn(varData.window, NULL, true);
     }
 }
 
-static void UseGlobals()
-{
-    fnvars = NULL; // back to globals
-    fnlevel = -1;
-    SetWindowText(varData.window, "global variables");
-    InvalidateRgn(varData.window, NULL, true);
-}
-
 static void ShowVariables()
 {
-    UseGlobals();
+    if (varData.window) InvalidateRgn(varData.window, NULL, true);
 }
 
 char* DoneCallback(char* buffer)
 {
-    sprintf(windowTitle, "%s=>%s (%I64u)", loginID, computerID,myBot);
+    sprintf(windowTitle, "%s=>%s (%I64u)", loginID, computerID, myBot);
     SetWindowText(scriptData.window, (LPCTSTR)windowTitle);
     ShowVariables();
 
@@ -605,18 +572,18 @@ char* DoneCallback(char* buffer)
     return buffer;
 }
 
-static void UpdateWindowMetrics(WINDOWSTRUCT& data,bool font)
+static void UpdateWindowMetrics(WINDOWSTRUCT& data, bool font)
 {
     HDC dc = GetDC(data.window);
     if (font) SelectObject(dc, hFontBigger);
     else SelectObject(dc, hFont);
     GetTextExtentPoint32(dc, (LPCTSTR)"12TzqbABCDEFGHIJKLMNOPQRSTUVWXYZ", 32, &data.metrics);
     ReleaseDC(data.window, dc);
- 
+
     data.metrics.cx /= 32;
     data.metrics.cx += 1;
     data.charsPerPage = ((data.rect.right - data.rect.left) / data.metrics.cx) - 1;
-    data.linesPerPage = ((data.rect.bottom - data.rect.top) / data.metrics.cy) ;
+    data.linesPerPage = ((data.rect.bottom - data.rect.top) / data.metrics.cy);
     si.fMask = SIF_RANGE | SIF_PAGE;
     si.nPage = data.charsPerPage;
     si.nMin = 0;
@@ -628,16 +595,6 @@ static void UpdateWindowMetrics(WINDOWSTRUCT& data,bool font)
     si.nMin = 0;
     si.nMax = data.maxLines;
     SetScrollInfo(data.window, SB_VERT, &si, false);
-}
-
-static int FindVarBreakValue(char* var)
-{
-    // break only on value
-    for (int i = 0; i < varnamesindex; ++i)
-    {
-        if (!stricmp(var, varname[i])) return i;
-    }
-    return -1;
 }
 
 static void UpdateMetrics()
@@ -709,7 +666,7 @@ static void VerifyMap()
     while (file)
     {
         LINEDATA* fileLines = file->filelines;
-        while(fileLines)
+        while (fileLines)
         {
             MAPDATA* map = fileLines->mapentry;
             if (map->name && (map->name, "control.9")) found = true;
@@ -810,14 +767,14 @@ static int NameLine(char* name)
     MAPDATA* symbol = FindMap(name, NULL); // find name in any file
     if (!symbol) return -1;
     char* file = symbol->filename;
-    MakeCurrentFile(file,symbol->botid);
+    MakeCurrentFile(file, symbol->botid);
     return symbol->fileline;
 }
 
 uint64 FindBotID(char* name)
 {
     char id[MAX_WORD_SIZE];
-    MakeLowerCopy(id,name);
+    MakeLowerCopy(id, name);
     strcat(id, "`bot");
     MAPDATA* at = firstMap;
     while (at)
@@ -833,7 +790,7 @@ uint64 FindBotID(char* name)
 static void RemoveTab(char* name)
 {
     char fullname[1000];
-    sprintf(fullname, " %s ",name);
+    sprintf(fullname, " %s ", name);
     char* found = strstr(filenames, fullname);
     size_t len = strlen(fullname);
     if (found) // remove short name + space from existing list
@@ -862,7 +819,7 @@ static void AddTab(char* name)
     if (triple)
     {
         strcpy(old, triple + 4);
-        strcpy(triple + 1,old);
+        strcpy(triple + 1, old);
     }
     strcpy(old, filenames);
     *filenames = ' ';
@@ -879,14 +836,14 @@ MAPDATA* AlignName(char* name)
     if (at) *at = 0;
     at = strchr(namex, '{');
     if (at) *at = 0;
-    MAPDATA* symbol = FindMap(namex,NULL); // find name in any file
+    MAPDATA* symbol = FindMap(namex, NULL); // find name in any file
     if (!symbol)symbol = FindLabelMap(namex, NULL);
     if (!symbol) return NULL;
     char* file = symbol->filename;
     FILEDATA* oldfile = currentFileData;
     AddClick();
-    MakeCurrentFile(file,symbol->botid);
-    mouseLine = symbol->fileline ; // 1-based, whereas yposition is 0-based
+    MakeCurrentFile(file, symbol->botid);
+    mouseLine = symbol->fileline; // 1-based, whereas yposition is 0-based
     mouseCharacter = 0;
     scriptData.maxLines = currentFileData->lineCount;
     scriptData.maxChars = currentFileData->charsize;
@@ -898,16 +855,16 @@ MAPDATA* AlignName(char* name)
     }
     else if (mouseLine > (scriptData.yposition + 1 + scriptData.linesPerPage))
         scriptData.yposition = symbol->fileline - 3; // start with item showing in context
-    else if (mouseLine < scriptData.yposition +1)
+    else if (mouseLine < scriptData.yposition + 1)
         scriptData.yposition = symbol->fileline - 3; // start with item showing in context
     else if ((symbol->fileline - scriptData.yposition - 1) < (scriptData.yposition + scriptData.linesPerPage)) { ; } // same page
     else if (currentFileData->lineCount > scriptData.maxLines)
         scriptData.yposition = symbol->fileline - 3; // start with item showing in context
     else scriptData.yposition = 0;
     if (scriptData.yposition < 0) scriptData.yposition = 0; // file name must not back up
-     
+
     DefineVertScroll(scriptData, scriptData.yposition);
-    
+
     scriptData.maxChars = currentFileData->charsize;
     DefineHorzScroll(scriptData, 0);
     return symbol;
@@ -962,17 +919,17 @@ ATOM MyRegisterClass(HINSTANCE hInstance, LPCSTR szWindowClass)
     WNDCLASSEX wcex;
     wcex.cbSize = sizeof(WNDCLASSEX);
 
-    wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
-    wcex.cbClsExtra     = 0;
-    wcex.cbWndExtra     = 0;
-    wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CHATSCRIPTIDE));
-    wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCE(IDC_CHATSCRIPTIDE);
-    wcex.lpszClassName  = szWindowClass;
-    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc = WndProc;
+    wcex.cbClsExtra = 0;
+    wcex.cbWndExtra = 0;
+    wcex.hInstance = hInstance;
+    wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CHATSCRIPTIDE));
+    wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wcex.lpszMenuName = MAKEINTRESOURCE(IDC_CHATSCRIPTIDE);
+    wcex.lpszClassName = szWindowClass;
+    wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassEx(&wcex);
 }
@@ -980,30 +937,30 @@ ATOM MyRegisterClass(HINSTANCE hInstance, LPCSTR szWindowClass)
 static char* GetStartCharacter(LINEDATA* line)
 {
     if (!line) return NULL;
-	char* msg = (char*)&line->text;
-	if (scriptData.xposition)
-	{
-		int count = scriptData.xposition;
-		while (count-- && *msg) ++msg;
-	}
-	return msg;
+    char* msg = (char*)&line->text;
+    if (scriptData.xposition)
+    {
+        int count = scriptData.xposition;
+        while (count-- && *msg) ++msg;
+    }
+    return msg;
 }
 
 static LINEDATA* GetStartLine(int count)
 {
     if (!currentFileData) return NULL;
-	LINEDATA* at = currentFileData->filelines;
-	if (count)
-	{
-		while (count-- && at) at = at->next; // use forward ptr
-	}
-	return at;
+    LINEDATA* at = currentFileData->filelines;
+    if (count)
+    {
+        while (count-- && at) at = at->next; // use forward ptr
+    }
+    return at;
 }
 
 static MAPDATA* MapAllocate(uint64 botid, char* file, char* name, char* line)
 {
     size_t len = strlen(name);
-    MAPDATA* map =  (MAPDATA*)malloc(sizeof(MAPDATA)); // link, file, line, name
+    MAPDATA* map = (MAPDATA*)malloc(sizeof(MAPDATA)); // link, file, line, name
     map->next = NULL; // forward link
     map->botid = botid;
     map->filename = file; // set file name
@@ -1012,14 +969,14 @@ static MAPDATA* MapAllocate(uint64 botid, char* file, char* name, char* line)
     // rule: ~medical_glean.43.0-MEDICALBODYPARTKIND u:  246
     char* x = (char*)malloc(len + 1);
     strcpy(x, name);
-    map->name = x; 
+    map->name = x;
     if (!firstMap) firstMap = map; // ordered
     if (priorMapLine) priorMapLine->next = map; // set old forward ptr
     priorMapLine = map;
     return map;
 }
 
-static LINEDATA* ReadFile(char* name,size_t &maxchars,int & maxlines, uint64 botid )
+static LINEDATA* ReadFile(char* name, size_t& maxchars, int& maxlines, uint64 botid)
 {
     FILE* in = fopen(name, "rb");
     if (!in) return NULL;
@@ -1029,8 +986,12 @@ static LINEDATA* ReadFile(char* name,size_t &maxchars,int & maxlines, uint64 bot
     line = NULL;
     maxlines = 0;
     maxchars = 0;
-    MAPDATA* map = FindFileMap(name,botid); // get map for this
-    if (!map) return NULL;
+    MAPDATA* map = FindFileMap(name, botid); // get map for this
+    if (!map)
+    {
+        fclose(in);
+        return NULL;
+    }
     int currentMapLine = map->fileline;
     while (fgets(buffer, 20000, in)) // make linked list of all text
     {
@@ -1049,25 +1010,25 @@ static LINEDATA* ReadFile(char* name,size_t &maxchars,int & maxlines, uint64 bot
         }
         else if (buffer[len - 1] == '\n') buffer[--len] = 0;
         if (len > maxchars) maxchars = len;
-        
-        line = (LINEDATA*)malloc(sizeof(LINEDATA) + len + 1 );
+
+        line = (LINEDATA*)malloc(sizeof(LINEDATA) + len + 1);
         if (!firstline) firstline = line;
         strcpy(line->text, buffer); // set content
-        
+
         line->mapentry = NULL;
         if (map)
         {
             int oldline = map->fileline;
             while (map && map->fileline < maxlines)
             {
-               map = map->next;
-               if (map && strstr(map->name, "~control"))
-               {
-                   int xx = 0;
-               }
-               if (map && map->fileline < oldline) map = NULL;
+                map = map->next;
+                if (map && strstr(map->name, "~control"))
+                {
+                    int xx = 0;
+                }
+                if (map && map->fileline < oldline) map = NULL;
             }
-            if (map && map->fileline == maxlines) 
+            if (map && map->fileline == maxlines)
                 line->mapentry = map;
         }
 
@@ -1081,7 +1042,7 @@ static LINEDATA* ReadFile(char* name,size_t &maxchars,int & maxlines, uint64 bot
     return firstline;
 }
 
-static void FakeMapEntry(char* name, char* comment, int & maxlines, int& maxchar, char* sysfile)
+static void FakeMapEntry(char* name, char* comment, int& maxlines, int& maxchar, char* sysfile)
 {
     // create fake map entry
     char index[100];
@@ -1096,9 +1057,9 @@ static void FakeMapEntry(char* name, char* comment, int & maxlines, int& maxchar
     *buffer = 0;
     if (*name) sprintf(buffer, "%s : %s", name, comment);
     size_t len = strlen(buffer);
-    if ((int)len > maxchar) maxchar = len;
+    if (len > maxchar) maxchar = len;
     ++maxlines;
-    
+
     line = (LINEDATA*)malloc(sizeof(LINEDATA) + len + 1);
     if (!firstline) firstline = line;
     strcpy(line->text, buffer); // set content
@@ -1109,7 +1070,7 @@ static void FakeMapEntry(char* name, char* comment, int & maxlines, int& maxchar
     priorline = line;
 }
 
-static void SetFile(FILEDATA* file,char* name)
+static void SetFile(FILEDATA* file, char* name)
 {
     currentFileData = file;
     scriptData.maxLines = currentFileData->lineCount;
@@ -1121,7 +1082,7 @@ static void SetFile(FILEDATA* file,char* name)
 }
 
 static void ReadSystemFunctionsMap(char* sysfile)
-{ 
+{
     char buffer[20000];
     firstline = NULL;
     priorline = NULL;
@@ -1132,12 +1093,12 @@ static void ReadSystemFunctionsMap(char* sysfile)
     // define a system fake file
     MAPDATA* filemap = MapAllocate(0, sysfile, sysfile, 0);
 
-    SystemFunctionInfo *fn;
+    SystemFunctionInfo* fn;
     int i = 0;
     while ((fn = &systemFunctionSet[++i]) && fn->word)
     {
         char name[MAX_WORD_SIZE];
-        if (strstr(fn->word,"---")) strcpy(name, fn->word);
+        if (strstr(fn->word, "---")) strcpy(name, fn->word);
         else  sprintf(name, "    %s", fn->word);
         // create fake map entry
         char varcount[100];
@@ -1145,8 +1106,8 @@ static void ReadSystemFunctionsMap(char* sysfile)
         if (fn->argumentCount == -1) strcpy(varcount, "...");
         if (fn->argumentCount == -2) strcpy(varcount, "stream");
         if (fn->argumentCount == -3) strcpy(varcount, "unevaled");
-        sprintf(buffer, "(%s) : %s", varcount,fn->comment);
-        
+        sprintf(buffer, "(%s) : %s", varcount, fn->comment);
+
         FakeMapEntry(name, buffer, maxlines, maxchar, sysfile);
     }
     if (line) line->next = NULL; // set final forward ptr
@@ -1176,7 +1137,7 @@ static void ReadSystemVariablesMap(char* sysfile)
 
     // define a var fake file
     MAPDATA* filemap = MapAllocate(0, sysfile, sysfile, 0);
-    SYSTEMVARIABLE *fn;
+    SYSTEMVARIABLE* fn;
     FakeMapEntry("$cs_token", "controls input processing", maxlines, maxchar, sysfile);
     FakeMapEntry("$cs_response", "controls automatic handling of outputs to user", maxlines, maxchar, sysfile);
     FakeMapEntry("$cs_control_pre", "name of topic to run in gambit mode on pre - pass", maxlines, maxchar, sysfile);
@@ -1203,7 +1164,7 @@ static void ReadSystemVariablesMap(char* sysfile)
 
     FILEDATA* file = (FILEDATA*)malloc(sizeof(FILEDATA)); // next, name, filedata, maxx, maxy
     file->next = fileList;
-    fileList = file; 
+    fileList = file;
     file->map = filemap;
     char* fname = (char*)malloc(strlen(sysfile) + 1);
     strcpy(fname, sysfile);
@@ -1223,7 +1184,7 @@ static void ReadDebugCommandsMap(char* sysfile)
     line = NULL;
     int maxlines = 1;
     int maxchar = 0;
-    CommandInfo *routine = NULL;
+    CommandInfo* routine = NULL;
 
     // define a debug command fake file
     MAPDATA* filemap = MapAllocate(0, sysfile, sysfile, 0);
@@ -1233,7 +1194,7 @@ static void ReadDebugCommandsMap(char* sysfile)
         char name[MAX_WORD_SIZE];
         if (strstr(routine->word, "---")) strcpy(name, routine->word);
         else sprintf(name, "    %s", routine->word);
-        FakeMapEntry(name, (char*)routine->comment, maxlines, maxchar,sysfile);
+        FakeMapEntry(name, (char*)routine->comment, maxlines, maxchar, sysfile);
     }
     if (line) line->next = NULL; // set final forward ptr
 
@@ -1278,23 +1239,20 @@ static void ReadIDECommandsMap(char* sysfile)
     FakeMapEntry("    L-click on line", "display locals of that entry in variables window", maxlines, maxchar, sysfile);
     FakeMapEntry("Input Window", "", maxlines, maxchar, sysfile);
     FakeMapEntry("    :i xxx", "analogous to clicking on words in script window", maxlines, maxchar, sysfile);
-    FakeMapEntry("    :i var = xxx", "break when var is set to xxx  can also be < or > values", maxlines, maxchar, sysfile);
-    FakeMapEntry("    :xxx", "you can use various engine debug commands", maxlines, maxchar, sysfile);
-    FakeMapEntry("    :trace", "also sets default trace value when R-click on movement buttons", maxlines, maxchar, sysfile);
     FakeMapEntry("    xxx", "input to ChatScript engine", maxlines, maxchar, sysfile);
     FakeMapEntry("Output Window", "", maxlines, maxchar, sysfile);
     FakeMapEntry("Sentence Window", "", maxlines, maxchar, sysfile);
     FakeMapEntry("    L-click cycles mode", "displays: current sentence internal, sentence user typed, cannonical form of sentence", maxlines, maxchar, sysfile);
     FakeMapEntry("    R-click on word", "displays: displays marked concepts/topics of word", maxlines, maxchar, sysfile);
     FakeMapEntry("Buttons", "", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Go", "resume execution - rclick enables trace all", maxlines, maxchar, sysfile);
-    FakeMapEntry("    In", "go to more refined level - rclick enables trace", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Out", "go to less refined level - rclick enables trace", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Next", "go to next item at same level or go out - rclick enables trace", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Go", "resume execution", maxlines, maxchar, sysfile);
+    FakeMapEntry("    In", "go to more refined level", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Out", "go to less refined level", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Next", "go to next item at same level or go out", maxlines, maxchar, sysfile);
     FakeMapEntry("    Stop", "used during execution, stop as soon as possible", maxlines, maxchar, sysfile);
     FakeMapEntry("    Msg", "l-click: break when submitting output for user   r-click: turn off break", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Fail", "l-click: enable break if system function fails  r-click: turn off break   ctr-click: fail input", maxlines, maxchar, sysfile);
-    FakeMapEntry("    Clear", "l-remove all breakpoints  r-click: disable/enable breakpoints", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Fail", "l-click: enable break if system function fails  r-click: turn off break", maxlines, maxchar, sysfile);
+    FakeMapEntry("    Clear", "remove all breakpoints", maxlines, maxchar, sysfile);
     FakeMapEntry("    Global", "flip variables window from locals back to globals", maxlines, maxchar, sysfile);
     FakeMapEntry("    Back", "go back to viewing prior script location", maxlines, maxchar, sysfile);
     FakeMapEntry("    Font", "l-click for smaller, r-click for bigger", maxlines, maxchar, sysfile);
@@ -1315,18 +1273,13 @@ static void ReadIDECommandsMap(char* sysfile)
     SetFile(file, "ideCommands");
 }
 
-static void MakeCurrentFile(char* name,uint64 botid)
+static void MakeCurrentFile(char* name, uint64 botid)
 {
-    currentFileData = GetFile(name,botid);
+    currentFileData = GetFile(name, botid);
     scriptData.maxLines = currentFileData->lineCount;
     scriptData.maxChars = currentFileData->charsize;
     scriptData.xposition = 0;
     scriptData.yposition = 0;
-}
-
-static void DisableAllBreakpoints()
-{
-    disableBreakpoints = !disableBreakpoints;
 }
 
 static void ClearAllBreakpoints()
@@ -1336,21 +1289,21 @@ static void ClearAllBreakpoints()
     FILEDATA* at = fileList;
     while (at)
     {
-        memset(at->status, ' ', at->lineCount+1);
+        memset(at->status, ' ', at->lineCount + 1);
         at = at->next;
     }
     breakIndex = 0; // engine
     DebugOutput("All breakpoints cleared.\r\n");
 }
 
-static FILEDATA* GetFile(char* name,uint64 botid) // name is full path cs relative
+static FILEDATA* GetFile(char* name, uint64 botid) // name is full path cs relative
 {
     char fn[MAX_WORD_SIZE];
     ReadCompiledWord(filenames, fn);
     if (!stricmp(fn, name)) return currentFileData; // already is there first
 
     char fxname[MAX_WORD_SIZE];
-    char* endname = strrchr(name, '/') ;
+    char* endname = strrchr(name, '/');
     if (endname) strcpy(fxname, endname + 1); // spaces around the name always
     else strcpy(fxname, name);
     AddTab(fxname);
@@ -1369,7 +1322,7 @@ static FILEDATA* GetFile(char* name,uint64 botid) // name is full path cs relati
     // allocate the file not found
     int maxlines = 0;
     size_t maxchar = 0;
-    LINEDATA* fileinfo = ReadFile(name,maxchar,maxlines,botid);
+    LINEDATA* fileinfo = ReadFile(name, maxchar, maxlines, botid);
     size_t len = strlen(name);
     FILEDATA* file = (FILEDATA*)malloc(sizeof(FILEDATA)); // next, name, filedata, maxx, maxy
     file->next = fileList;
@@ -1404,12 +1357,12 @@ static void FindClickWord(int mouseCharacter, int mouseLine)
         {
             char* msg = GetStartCharacter(at);
             size_t len = strlen(msg);
-            if (mouseCharacter <= (int)(scriptData.xposition + len))
+            if (mouseCharacter <= (scriptData.xposition + len))
             {
                 int n = mouseCharacter;
                 while (IsLegalNameCharacter(msg[n]) || msg[n] == '$' || msg[n] == '@' || msg[n] == '%' || msg[n] == '~' || msg[n] == '^') --n;
                 ++n;
-                ReadCompiledWord(msg + n, name); 
+                ReadCompiledWord(msg + n, name);
                 n = 1; // simple # 
                 if (name[1]) while (name[++n] && (IsLegalNameCharacter(name[n]) || name[n] == '$')) { ; }
                 name[n] = 0;
@@ -1420,7 +1373,7 @@ static void FindClickWord(int mouseCharacter, int mouseLine)
         ++yline;
     }
     char junk[MAX_WORD_SIZE];
-    if (*name == '\'') sprintf(junk, "%s", name+1); // strip quote
+    if (*name == '\'') sprintf(junk, "%s", name + 1); // strip quote
     else sprintf(junk, "%s", name);
     MakeLowerCase(junk);
 
@@ -1440,7 +1393,7 @@ static void FindClickWord(int mouseCharacter, int mouseLine)
 static void ReleaseFiles()
 {
     while (fileList)
-    { 
+    {
         RemoveTab(fileList->filename);
         free(fileList->filename);
         free(fileList->map);
@@ -1449,8 +1402,7 @@ static void ReleaseFiles()
         while (line)
         {
             // line->text is built into the actual line struct
-			MAPDATA* entry = line->mapentry;
-			free(entry);
+            free(line->mapentry);
             LINEDATA* next = line->next;
             free(line);
             line = next;
@@ -1472,27 +1424,27 @@ static void ReadMap(char* name)
     char buffer[20000];
     char* file;
 
-//file: 0 full_path_to_file optional_botid
-//macro : start_line_in_file name_of_macro optional_botid(definition of user function)
-//line: start_line_in_file offset_byte_in_script (action unit in output) 
-//concept : start_line_in_file name_of_concept optional_botid(concept definition)
-//topic : start_line_in_file name_of_topic optional_botid(topic definition)
-//rule : start_line_in_file full_rule_tag_with_possible_label rule_kind(rule definition)
-//Complexity of name_of_macro complexity_metric(complexity metric for function)
-//Complexity of rule full_rule_tag_with_possible_label rule_kind complexity_metric(complexity metric for rule)
+    //file: 0 full_path_to_file optional_botid
+    //macro : start_line_in_file name_of_macro optional_botid(definition of user function)
+    //line: start_line_in_file offset_byte_in_script (action unit in output) 
+    //concept : start_line_in_file name_of_concept optional_botid(concept definition)
+    //topic : start_line_in_file name_of_topic optional_botid(topic definition)
+    //rule : start_line_in_file full_rule_tag_with_possible_label rule_kind(rule definition)
+    //Complexity of name_of_macro complexity_metric(complexity metric for function)
+    //Complexity of rule full_rule_tag_with_possible_label rule_kind complexity_metric(complexity metric for rule)
 
     while (fgets(buffer, 20000, in))
     {
         int64 botid = 0;
-		char* ptr = buffer;
-        size_t len = strlen(ptr);
-        if (ptr[len - 2] == '\r') ptr[len - 2] = 0;
+        size_t len = strlen(buffer);
+        if (buffer[len - 2] == '\r') buffer[len - 2] = 0;
         char kind[MAX_WORD_SIZE];
         char line[MAX_WORD_SIZE];
-		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) // UTF8 BOM
-			ptr += 3; // ignore BOM if coming from a file
-        char* at = ReadCompiledWord(ptr, kind);
+        char* at = ReadCompiledWord(buffer, kind);
         if (!*kind || *kind == '#') continue;
+        if ((unsigned char)kind[0] == 0xEF && (unsigned char)kind[1] == 0xBB && (unsigned char)kind[2] == 0xBF)
+            continue;// UTF8 BOM
+
         at = ReadCompiledWord(at, line); // line number
         char title[MAX_WORD_SIZE];
         at = ReadCompiledWord(at, title);
@@ -1505,37 +1457,39 @@ static void ReadMap(char* name)
             file = (char*)malloc(strlen(title) + 1);
             strcpy(file, title); // start of a file
             char* x = strrchr(title, '/');
-            if (x) MapAllocate(id,file, x+1, 0);
+            if (x) MapAllocate(id, file, x + 1, 0);
         }
         else if (!file) continue;   // ignoring all this
         else if (!stricmp(kind, "MACRO:") || !stricmp(kind, "TOPIC:") || !stricmp(kind, "CONCEPT:"))
         {
             botid = atoi64(at); // optional
-            MapAllocate(botid,file, title, line);
+            MapAllocate(botid, file, title, line);
         }
-        else if (!stricmp(kind, "LINE:") )
+        else if (!stricmp(kind, "LINE:"))
         { // line: 244 fileline  scriptOffset
-            MapAllocate(0,file, title, line);
+            MapAllocate(0, file, title, line);
         }
         else if (!stricmp(kind, "BOT:"))
         { // line: 244 botname botid 
             strcat(title, "`bot");
             uint64 botid = atoi64(at);
-            MapAllocate(botid, file, title, line );
+            MapAllocate(botid, file, title, line);
         }
         else if (!stricmp(kind, "RULE:"))
         { // rule: 246 ~medical_glean.43.0-MEDICALBODYPARTKIND u:  
             char x[MAX_WORD_SIZE];
-            sprintf(x,"%s\r\n", title);
+            sprintf(x, "%s\r\n", title);
             ++rulesInMap;
-            MapAllocate(0,file, title,line); // ignoring type of rule for now
+            MapAllocate(0, file, title, line); // ignoring type of rule for now
         }
-        else if (!strnicmp(kind, "if",2) || !strnicmp(kind, "else", 4) || !strnicmp(kind, "loop", 4))
+        else if (!strnicmp(kind, "if", 2) || !strnicmp(kind, "else", 4) || !strnicmp(kind, "loop", 4))
         { // if: 246 73   (line) (offset)
             char x[MAX_WORD_SIZE];
-            sprintf(x, "%s:%s", kind,title);
+            sprintf(x, "%s:%s", kind, title);
             MapAllocate(0, file, x, line); // ignoring type of rule for now
         }
+
+
     }
     fclose(in);
 }
@@ -1557,9 +1511,9 @@ static void StatData()
         dictfree, worstDictAvail,
         factfree, worstlastFactUsed, rulesInMap, rulesExecuted);
 
-    SendMessage(statData.window, EM_SETSEL, 0, -1); // append to output
+    SendMessage(statData.window, EM_SETSEL, -1, -1); // append to output
     SendMessage(statData.window, EM_REPLACESEL, false, (LPARAM)word);
-    
+
     // count lines of data in answer
     si.nPos = 0;
     si.nMin = 0;
@@ -1572,7 +1526,7 @@ static char* DebugOutput(char* output) // add to output
 {
     if (!outputData.window) return NULL;
     char* answer = AllocateBuffer();
-	if (!answer) return NULL;
+    if (!*answer) return NULL;
     changingEdit = true;
     SendMessage(outputData.window, EM_SETSEL, -1, -1); // append to output
     SendMessage(outputData.window, EM_REPLACESEL, false, (LPARAM)output);
@@ -1599,7 +1553,7 @@ static char* DebugOutput(char* output) // add to output
     {
         *at = 0;
         size_t n = strlen(start);
-        if ((int)n > maxchars) maxchars = n;
+        if (n > maxchars) maxchars = n;
         *at = '\r';
         ++lines;
         at += 2;
@@ -1619,7 +1573,19 @@ static char* DebugOutput(char* output) // add to output
     return NULL;
 }
 
-static void ClearStops() 
+BOOL CALLBACK ModelessWindow(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    switch (message)
+    {
+        // Place message cases here. 
+    default:   
+        WndProc(hwndDlg, message, wParam, lParam);
+         return FALSE;
+    }
+    return TRUE;
+}
+
+static void ClearStops()
 {
     RemoveBreak(transientBreak);
     nextdepth = -1;
@@ -1631,12 +1597,13 @@ static void ClearStops()
 
 bool StopIntended()
 {
-    if (nextdepth == globalDepth || idestop) return true;
+    if (nextdepth == globalDepth || idestop || nextlevel == outputlevel) return true;
+    // if we 
     if (outdepth > globalDepth) return true;
     return false;
 }
 
- void  MyWorkerThread(void* pParam)
+void  MyWorkerThread(void* pParam)
 {
     char word[MAX_WORD_SIZE];
     char* at = ReadCompiledWord(ourMainInputBuffer, word);
@@ -1651,14 +1618,14 @@ bool StopIntended()
     }
     else
     {
-		if (!stricmp(word, ":build") || !stricmp(word, ":bot") || !stricmp(word, ":restart")) ReleaseFiles(); // release map and files
-		ProcessInputFile(); // come back when this input is used up
+        ProcessInputFile(); // come back when this input is used up
         if (!stricmp(word, ":trace"))
         {
             idetrace = trace;
         }
         else if (!stricmp(word, ":build") || !stricmp(word, ":bot") || !stricmp(word, ":restart")) // release map and files
         {
+            ReleaseFiles();
             rulesInMap = 0;
             ReadMap("TOPIC/build1/map1.txt");
             ReadMap("TOPIC/build0/map0.txt");
@@ -1666,7 +1633,6 @@ bool StopIntended()
             ReadSystemVariablesMap("systemVariables");
             ReadDebugCommandsMap("debugCommands");
             ReadIDECommandsMap("ideCommands");
-            currentFileData = NULL;
             FindBot(computerID);
             scriptData.xposition = scriptData.yposition = 0;
             sprintf(windowTitle, "%s=>%s (%I64u)  depth: %d/%d", loginID, computerID, myBot, idedepth, globalDepth);
@@ -1678,7 +1644,6 @@ bool StopIntended()
     }
     csThread = 0;
     fnlevel = -1;
-    globalAbort = false;
 
     // terminate any stop pending since we finished
     ClearStops();
@@ -1690,149 +1655,143 @@ bool StopIntended()
     InvalidateRgn(scriptData.window, NULL, true);
     InvalidateRgn(stackData.window, NULL, true);
     InvalidateRgn(varData.window, NULL, true);
-	StatData();
-	//InvalidateRgn(hParent, NULL, true);
- }
+    //InvalidateRgn(hParent, NULL, true);
+}
 
- void  MyWorkerInitThread(void* pParam)
- {
-     if (InitSystem(argc, argv, NULL, NULL, NULL, NULL, DebugInput, DebugOutput)) myexit((char*)"failed to load memory\r\n");
-     InvalidateRgn(hParent, NULL, true);
-     // defines the default bot
-     ReadMap("TOPIC/build1/map1.txt");
-     ReadMap("TOPIC/build0/map0.txt");
-     ReadSystemFunctionsMap("systemFunctions");
-     ReadSystemVariablesMap("systemVariables");
-     ReadDebugCommandsMap("debugCommands");
-     ReadIDECommandsMap("ideCommands");
-     // process break requests
-     char* at = debugEntry;
-     char word[MAX_WORD_SIZE];
-     while (*at)
-     {
-         char* comma = strchr(at, ',');
-         if (comma) *comma = 0;
-         at = ReadCompiledWord(at, word);
-         if (*word == '*') idestop = true;
-         else ProcessBreak(word, 0);
-         if (comma) at = comma + 1;
-     }
+void  MyWorkerInitThread(void* pParam)
+{
+    if (InitSystem(argc, argv, NULL, NULL, NULL, NULL, DebugInput, DebugOutput)) myexit((char*)"failed to load memory\r\n");
+    InvalidateRgn(hParent, NULL, true);
+    // defines the default bot
+    ReadMap("TOPIC/build1/map1.txt");
+    ReadMap("TOPIC/build0/map0.txt");
+    ReadSystemFunctionsMap("systemFunctions");
+    ReadSystemVariablesMap("systemVariables");
+    ReadDebugCommandsMap("debugCommands");
+    ReadIDECommandsMap("ideCommands");
+    // process break requests
+    char* at = debugEntry;
+    char word[MAX_WORD_SIZE];
+    while (*at)
+    {
+        char* comma = strchr(at, ',');
+        if (comma) *comma = 0;
+        at = ReadCompiledWord(at, word);
+        if (*word == '*') idestop = true;
+        else ProcessBreak(word, 0);
+        if (comma) at = comma + 1;
+    }
 
-     UpdateWindowMetrics(scriptData);
+    UpdateWindowMetrics(scriptData);
 
-     if (!server)
-     {
-         quitting = false; // allow local bots to continue regardless
-         *ourMainInputBuffer = 0;
-         if (!*loginID)
-         {
-             (*printer)((char*)"%s", (char*)"\r\nEnter user name: ");
-         }
-		 if (inputData.window)
-		 {
-			 SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
-			 SetFocus(inputData.window);
-		 }
-	 }
-     changingEdit = false;
-     csThread = 0;
-     fnlevel = -1;
-     globalAbort = false;
-     InvalidateRgn(scriptData.window, NULL, true);
-     InvalidateRgn(stackData.window, NULL, true);
-     InvalidateRgn(varData.window, NULL, true);
- }
- 
- static void Go()
- {
-     if (csThread)
-     { 
+    if (!server)
+    {
+        quitting = false; // allow local bots to continue regardless
+        *ourMainInputBuffer = 0;
+        if (!*loginID)
+        {
+            (*printer)((char*)"%s", (char*)"\r\nEnter user name: ");
+        }
+    }
+    if (inputData.window) SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
+    changingEdit = false;
+    csThread = 0;
+    fnlevel = -1;
+    InvalidateRgn(scriptData.window, NULL, true);
+    InvalidateRgn(stackData.window, NULL, true);
+    InvalidateRgn(varData.window, NULL, true);
+}
+
+static void Go()
+{
+    if (csThread)
+    {
         ideoutputlevel = outputlevel; // for action execution of function or rule
         idedepth = globalDepth; // restore to normal
         fnvars = NULL;
         fnlevel = -1;
         DebugOutput("Resume execution\r\n");
         ResumeThread((HANDLE)csThread);
-     }
- }
+    }
+}
 
- static void DiscardInput()
- {
-     SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
-     SendMessage(inputData.window, EM_SETSEL, -1, -1);
-     FreeBuffer();
- }
+static void DiscardInput()
+{
+    SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
+    SendMessage(inputData.window, EM_SETSEL, -1, -1);
+    FreeBuffer();
+}
 
- static void RemoveBreak(char* name)
- {
- /*    if (!stricmp(name, "abort"))
-     {
-         abortCheck = false;
-         return;
-     } */
-     char* excess = strchr(name, '@');
-     if (excess) *excess = 0;
-     size_t len = strlen(name);
-     for (int i = 0; i < breakIndex; ++i)
-     {
-         if (!strnicmp(name, breakAt[i], len) && (breakAt[i][len] == 0 || breakAt[i][len] == '@' || breakAt[i][len] == ' '))
-         {
-             --breakIndex;
-             for (int j = i; j < breakIndex; ++j) strcpy(breakAt[j], breakAt[j + 1]);
-             break;
-         }
-     }
-     if (!breakIndex) debugAction = NULL;
-     if (!breakIndex && nextdepth == -1)
-     {
-         debugCall = NULL;
-     }
- }
+static void RemoveBreak(char* name)
+{
+    /*    if (!stricmp(name, "abort"))
+        {
+            abortCheck = false;
+            return;
+        } */
+    char* excess = strchr(name, '@');
+    if (excess) *excess = 0;
+    size_t len = strlen(name);
+    for (int i = 0; i < breakIndex; ++i)
+    {
+        if (!strnicmp(name, breakAt[i], len) && (breakAt[i][len] == 0 || breakAt[i][len] == '@' || breakAt[i][len] == ' '))
+        {
+            --breakIndex;
+            for (int j = i; j < breakIndex; ++j) strcpy(breakAt[j], breakAt[j + 1]);
+            break;
+        }
+    }
+    if (!breakIndex) debugAction = NULL;
+    if (!breakIndex && nextdepth == -1)
+    {
+        debugCall = NULL;
+    }
+}
 
- static void RemoveVar(char* name)
- {
-     size_t len = strlen(name);
-     for (int i = 0; i < breakIndex; ++i)
-     {
-         if (!strnicmp(name, varAt[i], len) && varAt[i][len] == 0)
-         {
-             --varIndex;
-             for (int j = i; j < varIndex; ++j) strcpy(varAt[j], varAt[j + 1]);
-             break;
-         }
-     }
- }
+static void RemoveVar(char* name)
+{
+    size_t len = strlen(name);
+    for (int i = 0; i < breakIndex; ++i)
+    {
+        if (!strnicmp(name, varAt[i], len) && varAt[i][len] == 0)
+        {
+            --varIndex;
+            for (int j = i; j < varIndex; ++j) strcpy(varAt[j], varAt[j + 1]);
+            break;
+        }
+    }
+}
 
- static int ProcessAssign(char* input) // set breakpoint
- {
-     int answer = 0;
-     char word[MAX_WORD_SIZE];
-     while (*input)
-     {
-         input = ReadCompiledWord(input, word);
-         if (!*word) break;
-         char* dot = strchr(word, '.');
-         if (dot && !FindWord(word, dot - word))
-         {
-             DebugPrint("Unknown context: %s\r\n", word);
-             continue;
-         }
-         if (!stricmp(word, "go")) answer = 1;
-         else if (*word == '!') RemoveVar(word + 1);
-         else if (!dot && *word != '$')
-         {
-             DebugPrint("Illegal variable: %s\r\n", word);
-             continue;
-         }
-         else if (dot && (dot[1] != '$' || dot[2] != '_'))
-         {
-             DebugPrint("Illegal context variable: %s\r\n", word);
-             continue;
-         }
-         else strcpy(varAt[varIndex++], word);
-     }
-     return answer;
- }
+static int ProcessAssign(char* input) // set breakpoint
+{
+    int answer = 0;
+    char word[MAX_WORD_SIZE];
+    while (*input)
+    {
+        input = ReadCompiledWord(input, word);
+        if (!*word) break;
+        char* dot = strchr(word, '.');
+        if (dot && !FindWord(word, dot - word))
+        {
+            DebugPrint("Unknown context: %s\r\n", word);
+            continue;
+        }
+        if (!stricmp(word, "go")) answer = 1;
+        else if (*word == '!') RemoveVar(word + 1);
+        else if (!dot && *word != '$')
+        {
+            DebugPrint("Illegal variable: %s\r\n", word);
+            continue;
+        }
+        else if (dot && (dot[1] != '$' || dot[2] != '_'))
+        {
+            DebugPrint("Illegal context variable: %s\r\n", word);
+            continue;
+        }
+        else strcpy(varAt[varIndex++], word);
+    }
+    return answer;
+}
 
 void CheckForEnter() // on input edit scriptData.window
 {
@@ -1848,47 +1807,15 @@ void CheckForEnter() // on input edit scriptData.window
         return; // request incomplete
     }
     *at = 0;
-    if (*(at -1) == '\r') *--at = 0;
+    if (*(at - 1) == '\r') *--at = 0;
 
     // debugger commands
     char word[MAX_WORD_SIZE];
     at = ReadCompiledWord(answer, word);
     if (!stricmp(word, ":dump")) DumpMaps();
-    else if (!stricmp(word, ":i") && ((*at == '@' && IsDigit(at[1])) || *at == '$' || *at == '%' || !strnicmp(at,"ja-",3) || !strnicmp(at,"jo-",3)) || (*at == '_' && IsDigit(at[1])) )
+    else if (!stricmp(word, ":i") && ((*at == '@' && IsDigit(at[1])) || *at == '$' || *at == '%' || !strnicmp(at, "ja-", 3) || !strnicmp(at, "jo-", 3)) || (*at == '_' && IsDigit(at[1])))
     {
         at = ReadCompiledWord(at, word);
-        at = SkipWhitespace(at);
-        if (*at == '=' || *at == '<' || *at == '>')
-        {
-            char value[MAX_WORD_SIZE];
-            *value = 0;
-            if (strlen(at + 1) > 45) DebugOutput("value too big\r\n");
-            else strcpy(value, SkipWhitespace(at + 1));
-            
-            int at1 = FindVarBreakValue(word);
-            if (at1 >= 0) // change it
-            {
-                if (!*value) // remove it by overwrite from end
-                {
-                    vartest[at1] = *at;
-                    strcpy(varvalue[at1], varvalue[varnamesindex - 1]);
-                    strcpy(varname[at1], varname[--varnamesindex]);
-                }
-                else
-                {
-                    vartest[at1] = *at;
-                    if (!stricmp(value, "null")) *value = 0; // that's null
-                    strcpy(varvalue[at1], word);
-                }
-            }
-            else if (varnamesindex < MAX_VARVALUES)// create new
-            {
-                vartest[varnamesindex] = *at;
-                strcpy(varname[varnamesindex], word);
-                strcpy(varvalue[varnamesindex++], value);
-            }
-            debugVar = DebugVar; // not just monitor
-        }
         AddVariable(word);
         DiscardInput();
     }
@@ -1908,22 +1835,10 @@ void CheckForEnter() // on input edit scriptData.window
                 }
             }
             else if (AlignName(word));
-            else 
+            else
             {
-                char tag[MAX_WORD_SIZE];
-                FunctionResult result = FindRuleCode1(word, tag);
-                MAPDATA* found = NULL;
-                if (result == NOPROBLEM_BIT) // found the topic
-                {
-                    char* at = strchr(tag, '.');
-                    strcpy(at + 1, word);
-                    found = AlignName(word);
-                }
-                if (!found)
-                {
-                    strcat(word, " - not found\r\n");
-                    DebugOutput(word);
-                }
+                strcat(word, " - not found\r\n");
+                DebugOutput(word);
             }
         }
         else
@@ -1942,19 +1857,12 @@ void CheckForEnter() // on input edit scriptData.window
     {
         ReadCompiledWord(at, word);
         if (*word == '!') ++at;
-        ProcessBreak(word,0);
+        ProcessBreak(word, 0);
         AlignName(at);
         int line = NameLine(at);
         currentFileData->status[line] = (*word == '!') ? ' ' : 'B';
         if (*word == '!') --breakpointCount;
         else ++breakpointCount;
-        DiscardInput();
-    }
-    else if (*word == ':' && !stricmp(word,":build") && !stricmp(word, ":restart") && !stricmp(word, ":bot") && !stricmp(word, ":user"))
-    {
-        char* buffer = AllocateBuffer();
-        DoCommand(answer, buffer);
-        FreeBuffer();
         DiscardInput();
     }
     else if (csThread)
@@ -1965,35 +1873,35 @@ void CheckForEnter() // on input edit scriptData.window
     // normal cs input
     else if (!csThread)
     {
-            idekey = false;
-            if (!server) // refresh prompts from a loaded bot since mainloop happens before user is loaded
-            {
-                WORDP dBotPrefix = FindWord((char*)"$botprompt");
-                strcpy(botPrefix, (dBotPrefix && dBotPrefix->w.userValue) ? dBotPrefix->w.userValue : (char*)"");
-                WORDP dUserPrefix = FindWord((char*)"$userprompt");
-                strcpy(userPrefix, (dUserPrefix && dUserPrefix->w.userValue) ? dUserPrefix->w.userValue : (char*)"");
-            }
-            char msg[100];
-            sprintf(msg, "\r\n%s", userPrefix);
-            DebugOutput(msg);
-            DebugOutput(answer);
-            DebugOutput("\r\n");
-            char prefix[MAX_WORD_SIZE];
-            if (*botPrefix)
-            {
-                sprintf(prefix, (char*)"%s ", ReviseOutput(botPrefix, prefix));
-                DebugOutput(prefix);
-            }
-            DiscardInput();
-
-            strcpy(ourMainInputBuffer, answer);
-            csThread = _beginthread(MyWorkerThread, 0, NULL);
-        }
-        else if (!stricmp(word, ":go"))
+        idekey = false;
+        if (!server) // refresh prompts from a loaded bot since mainloop happens before user is loaded
         {
-            DiscardInput();
-            Go(); // resume
+            WORDP dBotPrefix = FindWord((char*)"$botprompt");
+            strcpy(botPrefix, (dBotPrefix && dBotPrefix->w.userValue) ? dBotPrefix->w.userValue : (char*)"");
+            WORDP dUserPrefix = FindWord((char*)"$userprompt");
+            strcpy(userPrefix, (dUserPrefix && dUserPrefix->w.userValue) ? dUserPrefix->w.userValue : (char*)"");
         }
+        char msg[100];
+        sprintf(msg, "\r\n%s", userPrefix);
+        DebugOutput(msg);
+        DebugOutput(answer);
+        DebugOutput("\r\n");
+        char prefix[MAX_WORD_SIZE];
+        if (*botPrefix)
+        {
+            sprintf(prefix, (char*)"%s ", ReviseOutput(botPrefix, prefix));
+            DebugOutput(prefix);
+        }
+        DiscardInput();
+
+        strcpy(ourMainInputBuffer, answer);
+        csThread = _beginthread(MyWorkerThread, 0, NULL);
+    }
+    else if (!stricmp(word, ":go"))
+    {
+        DiscardInput();
+        Go(); // resume
+    }
 }
 
 static char* DebugInput(char* input)
@@ -2025,8 +1933,8 @@ static MAPDATA* FindRuleMap(char* topicline) // get map entry for a line if ther
 static void AssignDepth(int depth)
 {
     CALLFRAME* frame = GetCallFrame(depth);
-    if (!stricmp(frame->label,"ruleoutput")) frame = GetCallFrame(--depth);
-    
+    if (!stricmp(frame->label, "ruleoutput")) frame = GetCallFrame(--depth);
+
     // for rule break info is:  ~topic.n.n
     char topic[MAX_WORD_SIZE];
     strcpy(topic, frame->label);
@@ -2036,7 +1944,7 @@ static void AssignDepth(int depth)
         char word[MAX_WORD_SIZE];
         strncpy(word, codePtr, 40);
         word[40] = 0;
-        sprintf(message, "At break: %s+%d  %s\r\n", frame->label, offsetCode,word);
+        sprintf(message, "At break: %s+%d  %s\r\n", frame->label, offsetCode, word);
     }
     else sprintf(message, "At break: %s\r\n", frame->label);
     DebugOutput(message);
@@ -2065,7 +1973,6 @@ static void ShowSentence()
     *buffer = 0;
     if (sentenceMode != 1) for (int i = 1; i <= wordCount; ++i)
     {
-        if (!wordStarts[i]) continue; // ignore
         if (unmarked[i]) strcpy(buffer, "***");
         else if (sentenceMode == 0) strcpy(buffer, wordStarts[i]);
         else strcpy(buffer, wordCanonical[i]);
@@ -2081,9 +1988,9 @@ static void ShowSentence()
     si.nMin = 0;
     si.nMax = sentenceData.maxChars;
     SetScrollInfo(sentenceData.window, SB_HORZ, &si, true);
+    InvalidateRgn(sentenceData.window, NULL, true);
     SendMessage(sentenceData.window, WM_SETTEXT, 0, (LPARAM)base);
     FreeBuffer(buffer);
-    InvalidateRgn(sentenceData.window, NULL, true);
 }
 
 static void Wait()
@@ -2092,7 +1999,7 @@ static void Wait()
     StatData();
     fnlevel = globalDepth;
     char msg[MAX_WORD_SIZE];
-    sprintf(msg, "callstack  depth: %d  level:%d",globalDepth, outputlevel);
+    sprintf(msg, "callstack  depth: %d  level:%d", globalDepth, outputlevel);
     SendMessage(stackData.window, WM_SETTEXT, 0, (LPARAM)msg);
     idedepth = globalDepth;
     fnvars = NULL; // drop back to globals
@@ -2103,7 +2010,8 @@ static void Wait()
     ShowSentence();
     char junk[100];
     DoneCallback(junk);
-    if (breakType == BREAK_ACTION && offsetCode == 0 && *ownerFrame->label == '^' && ownerFrame->code) ShowStack();
+    ShowStack();
+
 
     if (!breakIndex && nextdepth == -1 && outdepth == -1)
         debugCall = NULL;
@@ -2116,7 +2024,7 @@ static void Wait()
 
 static char* DebugVar(char* name, char* value) // incoming variable assigns from engine
 {
-    if (loadingUser || disableBreakpoints || globalAbort) return NULL;
+    if (loadingUser) return NULL;
     if (!value) value = "";
     size_t len = strlen(name);
     char id[MAX_WORD_SIZE];
@@ -2126,15 +2034,8 @@ static char* DebugVar(char* name, char* value) // incoming variable assigns from
     char* jsonbrakcet = strchr(id, '[');
     if (jsonbrakcet) *jsonbrakcet = 0; // use raw but list change full
     strcat(id, "\r\n");
-    if (idestop || strstr(varbreaknames,id))
+    if (idestop || strstr(varbreaknames, id))
     {
-        int index = FindVarBreakValue(id);
-        if (index >= 0)
-        {
-            if (vartest[index] == '=' && stricmp(varvalue[index], value)) return NULL;
-            if (vartest[index] == '<' && atoi(varvalue[index]) >= atoi(value)) return NULL;
-            if (vartest[index] == '>' && atoi(varvalue[index]) <= atoi(value)) return NULL;
-        }
         char val[120];
         len = strlen(value);
         if (len > 100)
@@ -2143,38 +2044,26 @@ static char* DebugVar(char* name, char* value) // incoming variable assigns from
             strcpy(val + 100, "...");
         }
         else strcpy(val, value);
-        DebugPrint("Var Break %s = %s\r\n",name, val);
+        DebugPrint("Var Break %s = %s\r\n", name, val);
         InvalidateRgn(varData.window, NULL, true);
         // assignment happens from code (we cant see locals)
         trace = 0;
         breakType = BREAK_VAR;
         Wait();
     }
-    
+
     return NULL;
 }
 
-char* DebugCall(char* name,bool in)
+char* DebugCall(char* name, bool in)
 {
-    if (globalAbort) return (char*)1;
-	if (in)
-	{
-		if (*name == '~')
-		{
-			int xx = 0; // topic call
-		}
-		else
-		{
-			int xx = 0; // function call
-		}
-	}
+    bool stop = false;
     int i;
     int depth = globalDepth + 1; // if inside () dont react
     CALLFRAME* frame;
     while (--depth) // see if system function inside of some other arg processing
     {
         frame = GetCallFrame(depth);
-		if (!frame) return NULL; // problem
         if (strchr(frame->label, '('))
         {
             return NULL; // not stop in arg processing
@@ -2187,9 +2076,8 @@ char* DebugCall(char* name,bool in)
 
     depth = globalDepth;
     frame = GetCallFrame(globalDepth);
-    if (idestop && *name == '^' && frame->code) return NULL; // proceed "in" to action in a user routine
-
     char* paren = strchr(frame->label, '(');
+    if (*frame->label == '~' && paren) ++rulesExecuted;
 
     // get raw label
     char label[500];
@@ -2199,18 +2087,16 @@ char* DebugCall(char* name,bool in)
     at = strchr(label, '{');
     if (at) *at = 0;
 
-	bool stop = false;
-
     if (paren && *frame->label == '^') return NULL; // no argument processing
-    if (paren && !strstr(frame->label,"if")) return NULL; // no argument processing
+    if (paren && !strstr(frame->label, "if")) return NULL; // no argument processing
     if (paren && !strstr(frame->label, "loop")) return NULL; // no argument processing
     if (sysfail && *name == '^' && !frame->code &&
-        frame->x.result & FAILCODES && stricmp(name,"^fail") && !disableBreakpoints)
+        frame->x.result & FAILCODES && stricmp(name, "^fail"))
     {
         stop = true;
         DebugPrint("Break failing system call %s\r\n", name);
     }
-  
+
     else if (strchr(frame->label, '{') && globalDepth == outdepth)
     {
         return NULL; // we want to step over but this is in
@@ -2220,23 +2106,23 @@ char* DebugCall(char* name,bool in)
         stop = true;
     }
     else if (!csThread || !in) return NULL;
-    else if (globalDepth <= nextdepth ) 
+    else if (globalDepth <= nextdepth)
         stop = true;
-    else if (!stricmp(name, "Loop{}") || !strncmp(name, "If", 2) || !strnicmp(name, "else", 4))
+    else if (!stricmp(name, "Loop{}") || !strncmp(name, "If", 2))
     {
-        if (StopIntended()) 
+        if (StopIntended())
             idestop = true; // stop in or out if we are to stop at all
         return NULL;
     }
-    else if (strchr(name, '{') && strchr(name,'.') && idestop)
+    else if (strchr(name, '{') && strchr(name, '.') && idestop)
     {
         return NULL;    // wait for action to trigger now.
     }
 
-    else if (idestop)  
+    else if (idestop)
         stop = true;// stop button or startup request
     // stop because breakpoint
-    else if (!disableBreakpoints) for (i = 0; i < breakIndex; ++i)
+    else for (i = 0; i < breakIndex; ++i)
     {
         if (!stricmp(label, breakAt[i]) || !stricmp(label, transientBreak))
         {
@@ -2253,15 +2139,13 @@ char* DebugCall(char* name,bool in)
     trace = 0;
     Wait();
 
-    if (globalAbort) return (char*)1;// give up current input
-        
     // and is awakened by someone else
     return NULL;
 }
 
 CALLFRAME* GetCodeOwnerFrame(int depth)
 {
-    ownerFrame = NULL;
+    CALLFRAME* ownerFrame = NULL;
     // find function or rule or topic owner
     ++depth;
     while (--depth > 0)
@@ -2269,7 +2153,7 @@ CALLFRAME* GetCodeOwnerFrame(int depth)
         ownerFrame = GetCallFrame(depth);
         // LOOP and IF  dont own their code
         if (*ownerFrame->label == '^' && ownerFrame->code) break;
-        else if (*ownerFrame->label == '^' ) break;
+        else if (*ownerFrame->label == '^') break;
         // system functions must continue to backtrack to find an owner
         else if (*ownerFrame->label == '~') break; // topic or rule owns what happens
     }
@@ -2278,19 +2162,19 @@ CALLFRAME* GetCodeOwnerFrame(int depth)
 
 // Find where we are for script window display
 #ifdef INFORMATION
-Possible callframes are:
+Possible callframes are :
 ~topic - a topic
 ~topic.n.n1() - a rule at pattern evaluation
 ~topic.n.n1{} - a rule executing its code
-^function() - a function at argument evaluation
-^function{} - a user function executing its code
-^if() - a code if at condition evaluation
-^if{} - a code if executing its code
-^loop() - a code loop at loop count evaluation
-^loop{} - a loop executing its code
----
+^ function() - a function at argument evaluation
+^ function{} - a user function executing its code
+^ if () - a code if at condition evaluation
+^ if{} - a code if executing its code
+^ loop() - a code loop at loop count evaluation
+^ loop{} - a loop executing its code
+-- -
 Code can be associated with a rule or a function.
-In such cases, we have entered the code when the outputlevel of the frame is 
+In such cases, we have entered the code when the outputlevel of the frame is
 less or equal to current outputlevel.
 #endif
 
@@ -2299,7 +2183,7 @@ static bool WhereAmI(int depth)
     // find offset in file of current
     CALLFRAME* actualFrame = GetCallFrame(depth);
     CALLFRAME* ownerFrame = GetCodeOwnerFrame(depth);
-    char* codebase = ownerFrame->code; 
+    char* codebase = ownerFrame->code;
     if (ownerFrame) // found owner level, now find display map entry
     {
         MAPDATA* map = AlignName(ownerFrame->label); // bring up the file/line of the named owner frame
@@ -2313,8 +2197,8 @@ static bool WhereAmI(int depth)
                 map = map->next;
                 if (!IsDigit(map->name[0]))
                 {
-                    if (!strnicmp(map->name, "if", 2) || !strnicmp(map->name, "else", 4)) {}
-                    else if (!strnicmp(map->name, "loop",4)) {}
+                    if (!strnicmp(map->name, "if", 2)) {}
+                    else if (!strnicmp(map->name, "loop", 4)) {}
                     else break; // end of line data
                 }
                 index = atoi(map->name);
@@ -2334,17 +2218,17 @@ static bool WhereAmI(int depth)
                     strcpy(name, ownerFrame->label);
                     char* at = strchr(name, '{');
                     if (at) *at = 0;
-                    DebugPrint("Code Break at %s:%d %s \r\n", name, offset,src);
+                    DebugPrint("Code Break at %s:%d %s \r\n", name, offset, src);
                     return true;
                 }
             }
         }
         else
         {
-           AssignDepth(depth); // change script window
-           codeLine = mouseLine; // where are we
-           codeFile = currentFileData;
-           codePtr = NULL;
+            AssignDepth(depth); // change script window
+            codeLine = mouseLine; // where are we
+            codeFile = currentFileData;
+            codePtr = NULL;
         }
     }
     InvalidateRgn(scriptData.window, NULL, true);
@@ -2353,11 +2237,9 @@ static bool WhereAmI(int depth)
 
 static char* DebugAction(char* ptr)
 {
-    if (globalAbort) return (char*)NULL;
-
-    if (*ptr == '}' ) return NULL; // just a closing marker
+    if (*ptr == '}') return NULL; // just a closing marker
     bool stop = false;
-    int depth = globalDepth+1; // if inside () dont react
+    int depth = globalDepth + 1; // if inside () dont react
     CALLFRAME* frame;
     while (--depth)
     {
@@ -2370,7 +2252,7 @@ static char* DebugAction(char* ptr)
     }
 
     frame = GetCallFrame(globalDepth);
-    
+
     // cant stop in argument processing, only in expected level of call stack
     if (outputlevel != frame->outputlevel) return NULL;
     if (!stricmp(frame->label, "ruleoutput") && frame->code == ptr) return NULL; // we caught this already in DebugCall
@@ -2380,7 +2262,7 @@ static char* DebugAction(char* ptr)
     {
         stop = true;
     }
-    else if (outputlevel <= nextlevel  || idestop)  
+    else if (outputlevel <= nextlevel || idestop)
         stop = true; // triggered step in or next or out
     else
     {
@@ -2388,7 +2270,7 @@ static char* DebugAction(char* ptr)
         CALLFRAME* ownerFrame = GetCodeOwnerFrame(globalDepth);
         if (!ownerFrame) return NULL;
         char* codebase = ownerFrame->code;
-        if (!disableBreakpoints && ownerFrame && codebase && ownerFrame->name) // found owner level, now find display map entry
+        if (ownerFrame && codebase && ownerFrame->name) // found owner level, now find display map entry
         {
             char label[MAX_WORD_SIZE];
             sprintf(label, "%s:%d", ownerFrame->name->word, (ptr - codebase));
@@ -2413,7 +2295,7 @@ static char* DebugAction(char* ptr)
     return NULL;
 }
 
-static int ProcessBreak(char* input,int flags) // set breakpoint
+static int ProcessBreak(char* input, int flags) // set breakpoint
 {
     int answer = 0;
     char word[MAX_WORD_SIZE];
@@ -2462,7 +2344,6 @@ static int ProcessBreak(char* input,int flags) // set breakpoint
 
 char* DebugMessage(char* output)
 {
-    if (disableBreakpoints || globalAbort) return NULL;
     char* buf = AllocateBuffer();
     strcpy(buf, "UserOutput: ");
     strcat(buf, output);
@@ -2476,13 +2357,13 @@ char* DebugMessage(char* output)
 
 HWND MakeButton(char* name, int x, int y, int width, int height, long extra = 0)
 {
-   HWND window = CreateWindow(
+    HWND window = CreateWindow(
         (LPCSTR)szWindowClass,  // Predefined class; Unicode assumed 
         (LPCSTR)name,      // Button text 
-       WS_VISIBLE | WS_CHILDWINDOW | extra,  
-       x, y, width, height, hParent, nullptr, hInst, nullptr);
-   MoveWindow(window, x, y, width, height,true);
-   return window;
+        WS_VISIBLE | WS_CHILDWINDOW | extra,
+        x, y, width, height, hParent, nullptr, hInst, nullptr);
+    MoveWindow(window, x, y, width, height, true);
+    return window;
 }
 
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
@@ -2496,209 +2377,193 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     ZeroMemory(&si, sizeof(si));
     si.cbSize = sizeof(si);
     myBot = 0;
-    hInst = hInstance; 
+    hInst = hInstance;
     changingEdit = true;
-    debugCall = DebugCall; 
+    debugCall = DebugCall;
     debugEndTurn = DoneCallback;
-   *filenames = 0;
-   filenames[1] = 0;
-   *varnames = 0;
-   hParent = CreateWindow(szWindowClass, szTitle,  WS_VISIBLE | WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_SIZEBOX,
-	   200, 50, CW_USEDEFAULT, CW_USEDEFAULT, nullptr, nullptr, hInstance, nullptr);
-   if (!hParent) return FALSE;
-   int xlimit = GetSystemMetrics(SM_CXMAXIMIZED);
-   int ylimit = GetSystemMetrics(SM_CYMAXIMIZED);
-   xlimit -= 30; // scroll
-   ylimit -= 30; // scroll
-   parentData.window = hParent;
-   UpdateWindowMetrics(parentData);
+    *filenames = 0;
+    filenames[1] = 0;
+    *varnames = 0;
+    hParent = CreateWindow(szWindowClass, szTitle, WS_VISIBLE | WS_OVERLAPPEDWINDOW | WS_MAXIMIZE | WS_SIZEBOX,
+        0, 0, 0, 0, nullptr, nullptr, hInstance, nullptr);
+    if (!hParent) return FALSE;
+    RECT mrect;
+    mrect.left = 100;
+    mrect.right = 3000;
+    mrect.top = 100;
+    mrect.bottom = 2050;
+    MoveWindow(hParent, 0, 0, mrect.right, mrect.bottom, true);
 
-   hPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 0));
-   hBrush = CreateSolidBrush(RGB(0, 0, 0));
-   hBrushBlue = CreateSolidBrush(RGB(0, 0, 255)); //https://yuilibrary.com/yui/docs/color/rgb-slider.html
-   hBrushOrange = CreateSolidBrush(RGB(2555, 165, 0));
-   hFont = CreateFont(fontsize, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, ANSI_CHARSET,
-       OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY,
-       DEFAULT_PITCH | FF_DONTCARE, TEXT("Courier New"));
-   hFontBigger = CreateFont(fontsize+10, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, ANSI_CHARSET,
-       OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY,
-       DEFAULT_PITCH | FF_DONTCARE, TEXT("Courier New"));
-   hButtonFont = hFont;
+    hPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 0));
+    hBrush = CreateSolidBrush(RGB(0, 0, 0));
+    hBrushBlue = CreateSolidBrush(RGB(0, 0, 255)); //https://yuilibrary.com/yui/docs/color/rgb-slider.html
+    hBrushOrange = CreateSolidBrush(RGB(2555, 165, 0));
+    hFont = CreateFont(fontsize, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, ANSI_CHARSET,
+        OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY,
+        DEFAULT_PITCH | FF_DONTCARE, TEXT("Courier New"));
+    hFontBigger = CreateFont(fontsize + 10, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, ANSI_CHARSET,
+        OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY,
+        DEFAULT_PITCH | FF_DONTCARE, TEXT("Courier New"));
+    hButtonFont = hFont;
 
-   HDC dc = GetDC(parentData.window);
-   SelectObject(dc, hFont);
-   GetTextExtentPoint32(dc, (LPCTSTR)"ABCDEF", 6, &scriptData.metrics);
-   ReleaseDC(parentData.window, dc);
+    hGoButton = MakeButton("Go", 10, 10, 100, 50);
+    hInButton = MakeButton("In", 110, 10, 100, 50);
+    hOutButton = MakeButton("Out", 210, 10, 100, 50);
+    hNextButton = MakeButton("Next", 310, 10, 100, 50);
 
-   int butheight = scriptData.metrics.cy + 5;
-   int butwidth = scriptData.metrics.cx + 10;
-   hGoButton = MakeButton("Go", 10, 10, butwidth, butheight);
-   hInButton = MakeButton("In", 10 + butwidth * 1, 10, butwidth, butheight);
-   hOutButton = MakeButton("Out", 10 + butwidth * 2, 10, butwidth, butheight);
-   hNextButton = MakeButton("Next", 10 + butwidth * 3, 10, butwidth, butheight);
-   int zone2x = 10 + butwidth * 4 + (butwidth/2);
-   hStopButton = MakeButton("Stop",  zone2x, 10,butwidth, butheight);
-   hBreakMessageButton = MakeButton("Msg", zone2x + butwidth , 10, butwidth, butheight);
-   hFailButton = MakeButton("Fail", zone2x + butwidth * 2, 10, butwidth, butheight);
-   hClearButton = MakeButton("Clear", zone2x + butwidth * 3, 10, butwidth, butheight);
-   int zone3x = zone2x + butwidth * 4 + (butwidth/2);
-   hGlobalsButton = MakeButton("Global", zone3x, 10, butwidth, butheight);
-   hBackButton = MakeButton("Back", zone3x + butwidth ,10, butwidth, butheight);
-   hFontButton = MakeButton("-Font+", zone3x + butwidth * 2, 10,butwidth, butheight);
-      
-   ide = true; // we have ide attached to cs
-   idestop = false;
-   
-   // source text fits in this rect of scriptwindow
-   scriptData.window = CreateWindow(szWindowClass, (LPCSTR) "script",
-       WS_VISIBLE | WS_HSCROLL | WS_VSCROLL 
-       | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
-      0, 0, 0, 0, nullptr, nullptr, hInstance, nullptr);
-   if (!scriptData.window) return FALSE;
-   if (scriptData.window)
-   {
-	   scriptData.window = scriptData.window;
-	   MoveWindow(scriptData.window, 10, 10, 979, 830,true);
-	   GetWindowRect(scriptData.window, &scriptData.rect);
-	   UpdateWindowMetrics(scriptData);
-	   ShowWindow(scriptData.window, SW_SHOW);
-	   UpdateWindow(scriptData.window);
-   }
-   
-   inputData.window = 
-    CreateWindow(
-       "EDIT",
-       (LPCSTR) "input",
-       WS_BORDER | WS_SIZEBOX   | WS_CAPTION // -- with this we lose edit dataentry 
-       | ES_MULTILINE | WS_VSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER |
-       ES_WANTRETURN | ES_LEFT,  // | WS_CAPTION
-       0, 0, 0, 0,
-       hParent,         // parent window 
-       (HMENU)ID_EDITCHILD1,   // edit control ID 
-       (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
-       NULL);        // pointer not needed 
-   if (inputData.window)
-   {
-	   MoveWindow(inputData.window, 1312, 122, 489, 200,TRUE);
-	   GetWindowRect(inputData.window, &inputData.rect);
-	   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
-	   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
-	   SetFocus(inputData.window); // key input goes here
-	   SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
-	   SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
-	   SendMessage(inputData.window, EM_SETSEL, -1, -1);
-	   ShowWindow(inputData.window, SW_SHOW);
-	   UpdateWindow(inputData.window);
-	   UpdateWindowMetrics(inputData);
-   }
+    hStopButton = MakeButton("Stop", 510, 10, 100, 50);
+    hBreakMessageButton = MakeButton("Msg", 610, 10, 100, 50);
+    hFailButton = MakeButton("Fail", 710, 10, 100, 50);
+    hClearButton = MakeButton("Clear", 810, 10, 100, 50);
 
-   // output from cs
-   outputData.window = 
-      CreateWindow(
-       "EDIT",
-       (LPCSTR) "output",
-       ES_READONLY | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_HSCROLL |
-       WS_BORDER | WS_SIZEBOX | WS_CAPTION | ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL,
-       0, 0, 0, 0, hParent,
-       (HMENU)ID_EDITCHILD,
-       (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
-       NULL);        // pointer not needed 
-   if (outputData.window)
-   {
-	   SendMessage(outputData.window, WM_SETTEXT, 0, (LPARAM)"");
-	   SendMessage(outputData.window, WM_SETFONT, (WPARAM)hFont, false);
-	   SendMessage(outputData.window, EM_SETSEL, -1, -1);
-	   MoveWindow(outputData.window, 1308, 346, 483, 100,TRUE); 
-	   GetWindowRect(outputData.window, &outputData.rect);
-	   ShowWindow(outputData.window, SW_SHOW);
-	   UpdateWindow(outputData.window);
-	   UpdateWindowMetrics(outputData);
-   }
+    hLocalsButton = MakeButton("Global", 1010, 10, 100, 50);
+    hBackButton = MakeButton("Back", 1210, 10, 100, 50);
 
-   // stats from cs
-   statData.rect.left = 10;
-   statData.rect.right = 200;
-   statData.window = CreateWindow(
-       "EDIT",
-       (LPCSTR) "stats",
-       ES_READONLY | WS_CHILDWINDOW | WS_VISIBLE  | WS_HSCROLL | WS_VSCROLL |
-	   WS_CAPTION | WS_BORDER |
-       WS_SIZEBOX | ES_LEFT | ES_AUTOHSCROLL,
-       0, 0, 0, 0, hParent,
-       (HMENU)ID_EDITCHILD,
-       (HINSTANCE)GetWindowLong(statData.window, GWL_HINSTANCE),
-       NULL);        // pointer not needed 
-   if (statData.window)
-   {
-	   SendMessage(statData.window, WM_SETTEXT, 0, (LPARAM)"");
-	   SendMessage(statData.window, WM_SETFONT, (WPARAM)hFont, false);
-	   SendMessage(statData.window, EM_SETSEL, -1, -1);
-	   MoveWindow(statData.window, 1277, 866, 598, 100, TRUE);
-	   GetWindowRect(statData.window, &statData.rect);
-	   ShowWindow(statData.window, SW_SHOW);
-	   UpdateWindow(statData.window);
-	   UpdateWindowMetrics(statData);
-   }
+    hFontButton = MakeButton("-Font+", 1510, 10, 100, 50);
 
-   sentenceData.window = CreateWindow(
-	   szWindowClass, (LPCSTR) "sentence",
-	   WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
-	   | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
-	   0, 0, 0, 0, hParent, 0,
-	   (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
-	   NULL);        // pointer not needed 
-   if (sentenceData.window)
-   {
-	   MoveWindow(sentenceData.window, 1316, 11, 517, 100,  TRUE);
-	   GetWindowRect(sentenceData.window, &sentenceData.rect);
-	   ShowWindow(sentenceData.window, SW_SHOW);
-	   UpdateWindow(sentenceData.window);
-	   UpdateWindowMetrics(sentenceData);
-   }
+    ide = true; // we have ide attached to cs
+    idestop = false;
 
-    varData.window = CreateWindow(
-        szWindowClass,(LPCSTR) "global variables",
-        WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
-        | WS_CAPTION | WS_BORDER | WS_SIZEBOX, 
-        0, 0, 0, 0, hParent,  
-        0,
-        (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
-        NULL);        // pointer not needed 
-	if (varData.window)
-	{
-		MoveWindow(varData.window, 6, 377, 136, 100, TRUE);
-		GetWindowRect(varData.window, &varData.rect);
-		ShowWindow(varData.window, SW_SHOW);
-		UpdateWindow(varData.window);
-		UpdateWindowMetrics(varData);
-	}
-
-    stackData.window = CreateWindow(
-        szWindowClass, (LPCSTR) "callstack",
+    // source text fits in this rect of scriptwindow
+    scriptData.rect.left = 10;
+    scriptData.rect.right = scriptData.rect.left + 1800;
+    scriptData.rect.top = 160;
+    scriptData.rect.bottom = scriptData.rect.top + 1700;
+    scriptData.window = CreateWindow(szWindowClass, (LPCSTR)"script",
         WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
         | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
-        0, 0, 0, 0,  hParent, 0,
+        0, 0, 0, 0, hParent, nullptr, hInstance, nullptr);
+    if (!scriptData.window) return FALSE;
+    scriptData.window = scriptData.window;
+    MoveWindow(scriptData.window, scriptData.rect.left, scriptData.rect.top, scriptData.rect.right - scriptData.rect.left, scriptData.rect.bottom - scriptData.rect.top, true);
+    ShowWindow(scriptData.window, SW_SHOW);
+    UpdateWindow(scriptData.window);
+    UpdateWindowMetrics(scriptData);
+
+    // output from cs
+    outputData.rect.top = scriptData.rect.top;
+    outputData.rect.left = scriptData.rect.right + 40;
+    outputData.rect.right = outputData.rect.left + 1000;
+    outputData.rect.bottom = (scriptData.rect.bottom - scriptData.rect.top) / 2;
+    outputData.window = CreateWindow(
+        "EDIT",
+        (LPCSTR)"output",
+        ES_READONLY | WS_CHILD | WS_VISIBLE | WS_VSCROLL | WS_HSCROLL |
+        WS_BORDER | WS_SIZEBOX | WS_CAPTION | ES_LEFT | ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL,
+        0, 0, 0, 0, hParent,
+        (HMENU)ID_EDITCHILD,
+        (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
+        NULL);        // pointer not needed 
+    SendMessage(outputData.window, WM_SETTEXT, 0, (LPARAM)"");
+    SendMessage(outputData.window, WM_SETFONT, (WPARAM)hFont, false);
+    SendMessage(outputData.window, EM_SETSEL, -1, -1);
+    MoveWindow(outputData.window,
+        outputData.rect.left, outputData.rect.top, // starting x- and y-coordinates 
+        outputData.rect.right - outputData.rect.left,  // width of client area 
+        outputData.rect.bottom - outputData.rect.top,   // height of client area 
+        TRUE);
+    ShowWindow(outputData.window, SW_SHOW);
+    UpdateWindow(outputData.window);
+    UpdateWindowMetrics(outputData);
+
+    // output from cs
+    statData.rect.top = scriptData.rect.bottom + 10;
+    statData.rect.left = scriptData.rect.left;
+    statData.rect.right = outputData.rect.right;
+    statData.rect.bottom = statData.rect.top + 72;
+    statData.window = CreateWindow(
+        "EDIT",
+        (LPCSTR)"stats",
+        ES_READONLY | WS_CHILD | WS_VISIBLE | WS_HSCROLL |
+        WS_SIZEBOX | ES_LEFT | ES_AUTOHSCROLL,
+        0, 0, 0, 0, hParent,
+        (HMENU)ID_EDITCHILD,
+        (HINSTANCE)GetWindowLong(statData.window, GWL_HINSTANCE),
+        NULL);        // pointer not needed 
+    SendMessage(statData.window, WM_SETTEXT, 0, (LPARAM)"");
+    SendMessage(statData.window, WM_SETFONT, (WPARAM)hFont, false);
+    SendMessage(statData.window, EM_SETSEL, -1, -1);
+    MoveWindow(statData.window,
+        statData.rect.left, statData.rect.top, // starting x- and y-coordinates 
+        statData.rect.right - statData.rect.left,  // width of client area 
+        statData.rect.bottom - statData.rect.top,   // height of client area 
+        TRUE);
+    ShowWindow(statData.window, SW_SHOW);
+    UpdateWindow(statData.window);
+    UpdateWindowMetrics(statData);
+
+    sentenceData.window = MakeButton("sentence", 20, 70, outputData.rect.right - scriptData.rect.left, 80, WS_HSCROLL);
+
+    inputData.rect = outputData.rect;
+    inputData.rect.top = outputData.rect.bottom + 20;
+    inputData.rect.bottom = inputData.rect.top + 150;
+    inputData.window = CreateWindow(
+        "EDIT",
+        (LPCSTR)"cs input",
+        WS_BORDER | WS_SIZEBOX  // | WS_CAPTION -- with this we lose edit dataentry 
+        | ES_MULTILINE | WS_VSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER |
+        ES_WANTRETURN | ES_LEFT,  // | WS_CAPTION
+        0, 0, 0, 0,
+        hParent,         // parent window 
+        (HMENU)ID_EDITCHILD1,   // edit control ID 
         (HINSTANCE)GetWindowLong(hParent, GWL_HINSTANCE),
         NULL);        // pointer not needed 
-	if (stackData.window)
-	{
-		MoveWindow(stackData.window, 7, 524, 136, 126, true);
-		GetWindowRect(stackData.window, &stackData.rect);
-		ShowWindow(stackData.window, SW_SHOW);
-		UpdateWindow(stackData.window);
-		UpdateWindowMetrics(stackData);
-	}
+    MoveWindow(inputData.window,
+        inputData.rect.left, inputData.rect.top, // starting x- and y-coordinates 
+        inputData.rect.right - inputData.rect.left,  // width of client area 
+        inputData.rect.bottom - inputData.rect.top,   // height of client area 
+        TRUE);
+    SendMessage(inputData.window, WM_SETTEXT, 0, (LPARAM)"");
+    SendMessage(inputData.window, WM_SETFONT, (WPARAM)hFont, false);
+    SendMessage(inputData.window, EM_SETSEL, -1, -1);
+    ShowWindow(inputData.window, SW_SHOW);
+    UpdateWindow(inputData.window);
+    UpdateWindowMetrics(inputData);
 
-    RestoreWindows();
+    varData.window = CreateWindow(
+        szWindowClass, (LPCSTR)"global variables",
+        WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
+        | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
+        0, 0, 0, 0, hParent,
+        0,
+        (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
+        NULL);        // pointer not needed 
+    varData.rect = inputData.rect;
+    varData.rect.top = inputData.rect.bottom + 10;
+    varData.rect.bottom = (scriptData.rect.bottom - 400);
+    MoveWindow(varData.window,
+        varData.rect.left, varData.rect.top, // starting x- and y-coordinates 
+        varData.rect.right - varData.rect.left,  // width of client area 
+        varData.rect.bottom - varData.rect.top,   // height of client area 
+        TRUE);
+    ShowWindow(varData.window, SW_SHOW);
+    UpdateWindow(varData.window);
+    UpdateWindowMetrics(varData);
+
+    stackData.window = CreateWindow(
+        szWindowClass, (LPCSTR)"callstack",
+        WS_VISIBLE | WS_CHILDWINDOW | WS_HSCROLL | WS_VSCROLL
+        | WS_CAPTION | WS_BORDER | WS_SIZEBOX,
+        0, 0, 0, 0, hParent, 0,
+        (HINSTANCE)GetWindowLong(scriptData.window, GWL_HINSTANCE),
+        NULL);        // pointer not needed 
+    stackData.rect = varData.rect;
+    stackData.rect.top = varData.rect.bottom + 10;
+    stackData.rect.bottom = scriptData.rect.bottom;
+    MoveWindow(stackData.window, stackData.rect.left, stackData.rect.top, stackData.rect.right - stackData.rect.left, stackData.rect.bottom - stackData.rect.top, true);
+    GetClientRect(stackData.window, &stackData.rect);
+
+    ShowWindow(stackData.window, SW_SHOW);
+    UpdateWindow(stackData.window);
+    UpdateWindowMetrics(stackData);
+
+    UpdateWindowMetrics(sentenceData, true);
+    //RestoreWindows();
 
     // rects have been set up now, get local coords
     GetClientRect(scriptData.window, &scriptData.rect);
     GetClientRect(varData.window, &varData.rect);
     GetClientRect(stackData.window, &stackData.rect);
-    //GetClientRect(outputData.window, &outputData.rect);
-    GetClientRect(inputData.window, &inputData.rect);
-    GetClientRect(sentenceData.window, &sentenceData.rect);
-    GetClientRect(statData.window, &statData.rect);
     // assign title space
     titlerect = scriptData.rect;
     titlerect.bottom = titlerect.top + scriptData.metrics.cy;
@@ -2714,23 +2579,35 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     numrect.left = tagrect.right + 10;
     numrect.right = numrect.left + (scriptData.metrics.cx * 5);
     scriptData.rect.left = numrect.right + 30; // leave room
-    
+
     StatData();
+
+    //hDialog = CreateDialog(NULL, MAKEINTRESOURCE(IDD_DIALOG1), hParent, ModelessWindow);
+ 
+    CreateWindowA("EDIT",
+        NULL,
+        WS_BORDER | WS_CHILD | WS_VISIBLE | WS_VSCROLL | ES_LEFT |
+        ES_MULTILINE | ES_AUTOVSCROLL,
+        0, 100, 200, 200,
+        scriptData.window,
+        (HMENU)NULL,
+        (HINSTANCE)GetWindowLongPtr(scriptData.window, GWLP_HINSTANCE),
+        NULL);
 
     printer = myprintf;
     csThread = _beginthread(MyWorkerInitThread, 0, NULL);
-  
 
-   return TRUE;
+
+    return TRUE;
 }
 
 static MAPDATA* FindMapLine(int line) // get map entry for a line if there is one (line and rule and macro and topic entries)
 {
     MAPDATA* at = currentFileData->map;
     priorMapLine = at;
-    while (at )
+    while (at)
     {
-        if (!strnicmp(at->name, "if", 2) || !strnicmp(at->name, "else", 4)) {}
+        if (!strnicmp(at->name, "if", 2)) {}
         else if (!strnicmp(at->name, "loop", 4)) {}
         else if (at->fileline >= line) break; // going to farr
 
@@ -2767,17 +2644,16 @@ static void ChangeCodePtr(int line)
             if (idedepth == globalDepth) codeLine = line;
             InvalidateRgn(stackData.window, NULL, true);
             InvalidateRgn(scriptData.window, NULL, true);
-            WhereAmI(idedepth);
             return;
         }
     }
     DebugOutput("Can only move around in actions, not in rules\r\n");
 }
 
-static void SetBreakpoint(int line,int flags)
+static void SetBreakpoint(int line, int flags)
 {
     MAPDATA* map = FindMapLine(line); // look this up
- 
+
     // temp block action lines
     if (map && IsDigit(*map->name)) codeOffset = atoi(map->name);
     else codeOffset = 0;
@@ -2804,8 +2680,8 @@ static void SetBreakpoint(int line,int flags)
             currentFileData->status[line] = ' ';
             --breakpointCount;
         }
-  
-        ProcessBreak(loc,flags); // engine request
+
+        ProcessBreak(loc, flags); // engine request
         ide &= -1 ^ HAS_BREAKPOINTS;
         if (breakpointCount) ide |= HAS_BREAKPOINTS;
         InvalidateRgn(scriptData.window, NULL, true);
@@ -2823,100 +2699,102 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     RECT rect;
     GetClientRect(hWnd, &rect);
-    WINDOWSTRUCT *data;
-    if (hWnd == scriptData.window) 
+    WINDOWSTRUCT* data;
+    if (hWnd == scriptData.window)
         data = &scriptData;
-    else if (hWnd == outputData.window) 
+    else if (hWnd == outputData.window)
         data = &outputData;
-    else if (hWnd == parentData.window)
-        data = &parentData;
     else if (hWnd == statData.window)
         data = &statData;
     else if (hWnd == stackData.window)
         data = &stackData;
-    else if (hWnd == varData.window) 
+    else if (hWnd == varData.window)
         data = &varData;
-    else if (hWnd == inputData.window) 
+    else if (hWnd == inputData.window)
         data = &inputData;
     else if (hWnd == sentenceData.window)
         data = &sentenceData;
+    else if (hWnd == hDialog)
+    {
+        data = &inputData;
+    }
     switch (message)
-	{
-	case WM_CREATE:
-		return 0;
-	//case WM_SETFOCUS:
-		//(hWnd);
-		//return 0;
-	case WM_HSCROLL:
+    {
+    case WM_CREATE:
+        return 0;
+    case WM_SETFOCUS:
+        SetFocus(hWnd);
+        return 0;
+    case WM_HSCROLL:
         switch (LOWORD(wParam)) {
-            case SB_THUMBTRACK:
-            {  
-                si.fMask = SIF_PAGE | SIF_TRACKPOS | SIF_RANGE | SIF_POS;
-                if (!GetScrollInfo(hWnd, SB_HORZ, &si)) return 1; // GetScrollInfo failed
-                data->xposition = si.nTrackPos;
-                si.fMask = SIF_POS;
-                si.nPos = si.nTrackPos;
-                SetScrollInfo(hWnd, SB_HORZ, &si, true);
-                break;
-            }
-            case SB_LINELEFT:
-                if (data->xposition == 0) return 0; 
-                --data->xposition;
-                if (data->xposition < 0) data->xposition = 0;
-                si.fMask = SIF_POS;
-                si.nPos = data->xposition;
-                SetScrollInfo(hWnd, SB_HORZ, &si, true);              
-                break;
-            case SB_PAGELEFT:
-                if (data->xposition == 0) return 0;
-                data->xposition -= data->maxChars - 10; // keep some context
-                if (data->xposition < 0) data->xposition = 0;
-                si.fMask = SIF_POS;
-                si.nPos = data->xposition;
-                SetScrollInfo(hWnd, SB_HORZ, &si, true);
-                break;
-            case SB_LINERIGHT:
-                ++data->xposition;
-                if (data->xposition > data->maxChars - data->charsPerPage) data->xposition = data->maxChars - data->charsPerPage;
-                si.nPos = data->xposition;
-                si.fMask = SIF_POS;
-                si.nPos = data->xposition;
-                SetScrollInfo(hWnd, SB_HORZ, &si, true);
-                break;
-            case SB_PAGERIGHT:
-                data->xposition += data->maxChars - 10; // keep some context
-                if (data->xposition > data->maxChars - data->charsPerPage) data->xposition = data->maxChars - data->charsPerPage;
-                si.nPos = data->xposition;
-                si.fMask = SIF_POS;
-                si.nPos = data->xposition;
-                SetScrollInfo(hWnd, SB_HORZ, &si, true);
-                break;
+        case SB_THUMBTRACK:
+        {
+            si.fMask = SIF_PAGE | SIF_TRACKPOS | SIF_RANGE | SIF_POS;
+            if (!GetScrollInfo(hWnd, SB_HORZ, &si)) return 1; // GetScrollInfo failed
+            data->xposition = si.nTrackPos;
+            si.fMask = SIF_POS;
+            si.nPos = si.nTrackPos;
+            SetScrollInfo(hWnd, SB_HORZ, &si, true);
+            break;
+        }
+        case SB_LINELEFT:
+            if (data->xposition == 0) return 0;
+            --data->xposition;
+            if (data->xposition < 0) data->xposition = 0;
+            si.fMask = SIF_POS;
+            si.nPos = data->xposition;
+            SetScrollInfo(hWnd, SB_HORZ, &si, true);
+            break;
+        case SB_PAGELEFT:
+            if (data->xposition == 0) return 0;
+            data->xposition -= data->maxChars - 10; // keep some context
+            if (data->xposition < 0) data->xposition = 0;
+            si.fMask = SIF_POS;
+            si.nPos = data->xposition;
+            SetScrollInfo(hWnd, SB_HORZ, &si, true);
+            break;
+        case SB_LINERIGHT:
+            ++data->xposition;
+            if (data->xposition > data->maxChars - data->charsPerPage) data->xposition = data->maxChars - data->charsPerPage;
+            si.nPos = data->xposition;
+            si.fMask = SIF_POS;
+            si.nPos = data->xposition;
+            SetScrollInfo(hWnd, SB_HORZ, &si, true);
+            break;
+        case SB_PAGERIGHT:
+            data->xposition += data->maxChars - 10; // keep some context
+            if (data->xposition > data->maxChars - data->charsPerPage) data->xposition = data->maxChars - data->charsPerPage;
+            si.nPos = data->xposition;
+            si.fMask = SIF_POS;
+            si.nPos = data->xposition;
+            SetScrollInfo(hWnd, SB_HORZ, &si, true);
+            break;
         }
         InvalidateRgn(hWnd, NULL, true);
-		return 0;
+        return 0;
     case WM_MOUSEMOVE:
     {
         int x = LOWORD(lParam);
         int y = HIWORD(lParam);
     }
-        break;
-	case WM_VSCROLL:
+    break;
+    case WM_VSCROLL:
         switch (LOWORD(wParam)) {
         case SB_THUMBTRACK:
         {
-            si.fMask = SIF_PAGE|SIF_TRACKPOS | SIF_RANGE|SIF_POS;
+            si.fMask = SIF_PAGE | SIF_TRACKPOS | SIF_RANGE | SIF_POS;
             if (!GetScrollInfo(hWnd, SB_VERT, &si)) return 1; // GetScrollInfo failed
-            data->yposition =  si.nTrackPos;
+            data->yposition = si.nTrackPos;
             si.nPos = si.nTrackPos;
-            si.fMask = SIF_POS; 
+            si.fMask = SIF_POS;
             SetScrollInfo(hWnd, SB_VERT, &si, true);
             break;
         }
         case SB_PAGEUP:
-            if (data->yposition == 0) return 0; 
+            if (data->yposition == 0) return 0;
             data->yposition -= data->linesPerPage - 3; // keep some context
             if (data->yposition < 0) data->yposition = 0;
-             si.nPos = data->yposition;
+            si.nPos = data->yposition;
             si.fMask = SIF_POS;
             SetScrollInfo(hWnd, SB_VERT, &si, true);
             break;
@@ -2928,7 +2806,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             SetScrollInfo(hWnd, SB_VERT, &si, true);
             break;
         case SB_PAGEDOWN:
-            if (data->yposition == ( data->maxLines - data->linesPerPage)) return 0;
+            if (data->yposition == (data->maxLines - data->linesPerPage)) return 0;
             data->yposition += data->maxLines - 3; // keep some context
             if (data->yposition > data->maxLines - data->linesPerPage) data->yposition = data->maxLines - data->linesPerPage;
             si.nPos = data->yposition;
@@ -2947,27 +2825,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         return 0;
 
-	case  WM_KEYDOWN: // normal ascii characters in wParam
-		if (wParam == VK_DOWN) // down
-		{
-            ++scriptData.yposition; 
+    case  WM_KEYDOWN: // normal ascii characters in wParam
+        if (wParam == VK_DOWN) // down
+        {
+            ++scriptData.yposition;
             if (scriptData.yposition >= currentFileData->lineCount) scriptData.yposition = currentFileData->lineCount - 1;
             si.fMask = SIF_POS;
             si.nPos = scriptData.yposition;
             SetScrollInfo(hWnd, SB_VERT, &si, true);
             InvalidateRgn(hWnd, NULL, true);
-		}
-		else if (wParam == VK_UP) // up
-		{
+        }
+        else if (wParam == VK_UP) // up
+        {
             --scriptData.yposition;
             if (scriptData.yposition < 0) scriptData.yposition = 0;
             si.fMask = SIF_POS;
             si.nPos = scriptData.yposition;
             SetScrollInfo(hWnd, SB_VERT, &si, true);
             InvalidateRgn(hWnd, NULL, true);
-		}
-		else if (wParam == VK_RIGHT) // right
-		{
+        }
+        else if (wParam == VK_RIGHT) // right
+        {
             ++scriptData.xposition;
             if (scriptData.xposition > currentFileData->charsize - scriptData.maxChars) scriptData.xposition = currentFileData->charsize - scriptData.maxChars;
             si.nPos = scriptData.xposition;
@@ -2975,31 +2853,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             si.nPos = scriptData.xposition;
             SetScrollInfo(hWnd, SB_HORZ, &si, true);
             InvalidateRgn(hWnd, NULL, true);
-		}
-		else if (wParam == VK_LEFT) // left
-		{
-			--scriptData.xposition;
-			if (scriptData.xposition < 0) scriptData.xposition = 0;
+        }
+        else if (wParam == VK_LEFT) // left
+        {
+            --scriptData.xposition;
+            if (scriptData.xposition < 0) scriptData.xposition = 0;
             si.fMask = SIF_POS;
             si.nPos = scriptData.xposition;
             SetScrollInfo(hWnd, SB_HORZ, &si, true);
-			InvalidateRgn(hWnd, NULL, true);
-		}
-		return 0;
+            InvalidateRgn(hWnd, NULL, true);
+        }
+        return 0;
 
-	case WM_LBUTTONDOWN: 
-	case WM_RBUTTONDOWN: // jump to function or concept or topic
-	{
+    case WM_LBUTTONDOWN:
+    case WM_RBUTTONDOWN: // jump to function or concept or topic
+    {
         char word[MAX_WORD_SIZE];
         GetWindowText(hWnd, word, MAX_WORD_SIZE);
         int xPos = GET_X_LPARAM(lParam);
-		int yPos = GET_Y_LPARAM(lParam);
-		if (hWnd == inputData.window)
-		{
-			SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
-			SetFocus(inputData.window);
-		}
-		else if (hWnd == scriptData.window)
+        int yPos = GET_Y_LPARAM(lParam);
+        if (hWnd == scriptData.window)
         {
             if (xPos >= scriptData.rect.left && xPos <= scriptData.rect.right &&
                 yPos >= scriptData.rect.top && yPos <= scriptData.rect.bottom)
@@ -3018,7 +2891,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
             else if (xPos >= tagrect.left && xPos <= numrect.right &&
                 yPos >= scriptData.rect.top && yPos <= scriptData.rect.bottom)
-            { 
+            {
                 // title list is outside of scriptData, so Line 1 of file  == click on 0 of here
                 yPos -= scriptData.rect.top; // where in text area?
                 yPos /= scriptData.metrics.cy; // how many scriptData.maxLines in
@@ -3072,7 +2945,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 xPos /= sentenceData.metrics.cx; // avg size
                 xPos += sentenceData.xposition;
                 char* buffer = AllocateBuffer();
-                GetWindowText(sentenceData.window,buffer,MAX_BUFFER_SIZE);
+                GetWindowText(sentenceData.window, buffer, MAX_BUFFER_SIZE);
                 char* in = buffer + xPos;
                 int wordIndex = -1;
                 for (int i = 0; i < xPos; ++i)
@@ -3093,7 +2966,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             yPos += varData.yposition; // where is actual start of line
             if (xPos > 2)
             {
-               if (!fnvars) EraseVariable(yPos); // remove this
+                if (!fnvars) EraseVariable(yPos); // remove this
             }
             else DoBreakVariable(yPos);
             InvalidateRgn(varData.window, NULL, true);
@@ -3105,29 +2978,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             yPos += stackData.yposition; // where is actual start of line
             yPos += 1; // stack starts at 1
             if (yPos > globalDepth || yPos <= 0) break; // ignore bad values
-            StackVariables(yPos); 
+            StackVariables(yPos);
             idedepth = yPos;
-            
+
             sprintf(windowTitle, "%s Depth: %d/%d", GetCallFrame(idedepth)->label, idedepth, globalDepth);
             SetWindowText(stackData.window, (LPCTSTR)windowTitle);
             WhereAmI(yPos);
             InvalidateRgn(varData.window, NULL, true);
             InvalidateRgn(stackData.window, NULL, true);
         }
-		else if (hWnd == inputData.window)
-		{
-			SendMessage(inputData.window, EM_SCROLLCARET, 0, 0);
-			SetFocus(inputData.window);
-		}
-		else if (hWnd == stackData.window)
-		{
-			SetFocus(stackData.window);
-		}
-		else if (hWnd == varData.window)
-		{
-			SetFocus(varData.window);
-		}
-		else if (hWnd == hGoButton)
+        else if (hWnd == hGoButton)
         {
             outdepth = outlevel = -1;
             nextdepth = nextlevel = -1;
@@ -3135,41 +2995,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             else { trace = -1; echo = true; }
             Go();
         }
-        else if (hWnd == hClearButton) 
+        else if (hWnd == hClearButton)
         {
-            if (message == WM_LBUTTONDOWN)
-            {
-                ClearAllBreakpoints();
-                DebugOutput("Breakpoints cleared\r\n");
-            }
-            else
-            {
-                DisableAllBreakpoints();
-                if (disableBreakpoints) DebugOutput("Breakpoints disabled\r\n");
-                else DebugOutput("Breakpoints re-enabled\r\n");
-            }
+            ClearAllBreakpoints();
         }
         else if (hWnd == hFailButton)
         {
-            if (message == WM_LBUTTONDOWN)
-            {
-                if (wParam & MK_CONTROL)
-                {
-                    globalAbort = true;
-                    DebugOutput("Abort input\r\n");
-                    Go();
-                }
-                else
-                {
-                    sysfail = true;
-                    DebugOutput("Break on system function failure\r\n");
-                }
-            }
-            else
-            {
-                sysfail = false;
-                DebugOutput("Cleared break on system function failure\r\n");
-            }
+            if (message == WM_LBUTTONDOWN) sysfail = true;
+            else sysfail = false;
         }
         else if (hWnd == hFontButton)
         {
@@ -3213,7 +3046,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             debugAction = DebugAction;
 
             if (message == WM_LBUTTONDOWN) trace = 0;
-            else { trace = idetrace; if (!trace) trace = -1;}
+            else { trace = idetrace; }
             Go();
         }
         else if (hWnd == hInButton)
@@ -3223,13 +3056,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             debugCall = DebugCall;
             idestop = true; // break anywhere in or over or out
             if (message == WM_LBUTTONDOWN) trace = 0;
-            else { trace = idetrace; if (!trace) trace = -1; }
+            else { trace = idetrace; }
             Go();
         }
         else if (hWnd == hOutButton)
         {
             if (message == WM_LBUTTONDOWN) trace = 0;
-            else { trace = idetrace; if (!trace) trace = -1;}
+            else { trace = idetrace; }
 
             // OUT means leave either current action level or call depth and 
             // stop as soon as possible thereafter
@@ -3251,102 +3084,107 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 DebugOutput("Message break turned on\r\n");
             }
         }
-        else if (hWnd == hGlobalsButton) UseGlobals();
+        else if (hWnd == hLocalsButton)
+        {
+            fnvars = NULL; // back to globals
+            fnlevel = -1;
+            SetWindowText(varData.window, "global variables");
+        }
         else if (hWnd == hBackButton)
         {
             RestoreClick();
         }
     }
-		return 0;
+    return 0;
 
     case WM_EXITSIZEMOVE:
         SaveWindows();
         break;
-	case WM_COMMAND:
+    case WM_COMMAND:
+    {
+        int wmId = LOWORD(wParam);
+        int val = HIWORD(wParam);
+        switch (val)
         {
-            int wmId = LOWORD(wParam);
-			int val = HIWORD(wParam);
-            switch (val) 
+        case BN_CLICKED:
+            break;
+        case EN_CHANGE:
+            if (lParam == (LPARAM)inputData.window && !changingEdit)
             {
-            case BN_CLICKED:
-               break;
-            case EN_CHANGE:
-                if (lParam == (LPARAM)inputData.window && !changingEdit)
-                {
-                    CheckForEnter();
-                }
-                break;
+                CheckForEnter();
             }
+            break;
+        }
 
-            switch (wmId)
+        switch (wmId)
+        {
+        case IDM_EDUNDO:
+            // Send WM_UNDO only if there is something to be undone. 
+            if (SendMessage(hWnd, EM_CANUNDO, 0, 0))
+                SendMessage(hWnd, WM_UNDO, 0, 0);
+            else
             {
-				case IDM_EDUNDO:
-					// Send WM_UNDO only if there is something to be undone. 
-					if (SendMessage(hWnd, EM_CANUNDO, 0, 0))
-						SendMessage(hWnd, WM_UNDO, 0, 0);
-					else
-					{
-						MessageBox(hWnd,
-							(LPCSTR)"Nothing to undo.",
-							(LPCSTR)"Undo notification",
-							MB_OK);
-					}
-					break;
+                MessageBox(hWnd,
+                    (LPCSTR)"Nothing to undo.",
+                    (LPCSTR)"Undo notification",
+                    MB_OK);
+            }
+            break;
 
-				case IDM_EDCUT:
-					SendMessage(hWnd, WM_CUT, 0, 0);
-					break;
+        case IDM_EDCUT:
+            SendMessage(hWnd, WM_CUT, 0, 0);
+            break;
 
-				case IDM_EDCOPY:
-					SendMessage(hWnd, WM_COPY, 0, 0);
-					break;
+        case IDM_EDCOPY:
+            SendMessage(hWnd, WM_COPY, 0, 0);
+            break;
 
-				case IDM_EDPASTE:
-					SendMessage(hWnd, WM_PASTE, 0, 0);
-					break;
+        case IDM_EDPASTE:
+            SendMessage(hWnd, WM_PASTE, 0, 0);
+            break;
 
-				case IDM_EDDEL:
-					SendMessage(hWnd, WM_CLEAR, 0, 0);
-					break;
-				case IDM_ABOUT:
-				{
-					int bufferLen = GetWindowTextLength(hWnd) + 1; // why send the message twice?
-					//string data(bufferLen, '\0');
-					//GetWindowText(hWnd, (LPCSTR)data, bufferLen);
-					// DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-					
-					FILE* in = fopen("test.txt", "rb");
-					if (in)
-					{ 
-						fseek(in, 0, SEEK_END);   // non-portable
-						int size = ftell(in);
-						fseek(in, 0, SEEK_SET);   // non-portable
-						char* msg = (char*)malloc(size + 4);
-						fread(msg, 1, size, in);
-						fclose(in);
-						SendMessage(hWnd, WM_SETTEXT, 0, (LPARAM)msg);
-					}
-				}
-					break;
-				case IDM_EXIT:
-					DestroyWindow(hWnd);
-					break;
+        case IDM_EDDEL:
+            SendMessage(hWnd, WM_CLEAR, 0, 0);
+            break;
+        case IDM_ABOUT:
+        {
+            int bufferLen = GetWindowTextLength(hWnd) + 1; // why send the message twice?
+            //string data(bufferLen, '\0');
+            //GetWindowText(hWnd, (LPCSTR)data, bufferLen);
+            // DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
 
-				case WM_KEYDOWN:
-					if (hWnd == hWnd)
-					{
-						if (val == VK_DOWN)
-						{
-							int xx = 0;
-						}
-					}
-					
-				default:
-					return DefWindowProc(hWnd, message, wParam, lParam);
-			}
+            FILE* in = fopen("test.txt", "rb");
+            if (in)
+            {
+                fseek(in, 0, SEEK_END);   // non-portable
+                int size = ftell(in);
+                fseek(in, 0, SEEK_SET);   // non-portable
+                char* msg = (char*)malloc(size + 4);
+                fread(msg, 1, size, in);
+                fclose(in);
+                SendMessage(hWnd, WM_SETTEXT, 0, (LPARAM)msg);
+            }
         }
         break;
-    
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+
+        case WM_KEYDOWN:
+            if (hWnd == hWnd)
+            {
+                if (val == VK_DOWN)
+                {
+                    int xx = 0;
+                }
+            }
+
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
+        }
+    }
+    break;
+
     case WM_PAINT:
     {
         PAINTSTRUCT ps;
@@ -3359,6 +3197,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         SelectObject(hdc, hFont);
         SetTextColor(hdc, RGB(0, 0, 0)); // black text
         SetBkColor(hdc, RGB(255, 255, 255)); // white background
+        if (hWnd == hDialog)
+        {
+            char msg[MAX_WORD_SIZE];
+            char myvars[MAX_WORD_SIZE];
+            DrawText(hdc, (LPCSTR)"this is my message and love it", -1, &rect, DT_LEFT | DT_TOP);
+            EndPaint(hWnd, &ps);
+            break;
+        }
         if (hWnd == varData.window)
         {
             char msg[MAX_WORD_SIZE];
@@ -3370,14 +3216,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // system call
             if (frame && frame->name && *frame->name->word == '^' && !frame->code)
             {
-                for ( int i = 0; i < frame->arguments; ++i)
+                for (unsigned int i = 0; i < frame->arguments; ++i)
                 {
                     char data[MAX_WORD_SIZE];
                     char* msg = callArgumentList[frame->argumentStartIndex + i];
                     size_t len = strlen(msg);
                     if (len > (MAX_WORD_SIZE - 20)) len = MAX_WORD_SIZE - 20;
                     sprintf(data, "(%d) ", i + 1);
-                    char * at = data + strlen(data);
+                    char* at = data + strlen(data);
                     strncpy(at, msg, len);
                     at[len] = 0;
                     DrawText(hdc, (LPCSTR)data, -1, &rect, DT_LEFT | DT_TOP);
@@ -3430,7 +3276,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 else if (*name == '%')  value = SystemVariable(name, NULL);
                 else if (*name == '_')
                 {
-                    int index = GetWildcardID(name ); //   which one
+                    int index = GetWildcardID(name); //   which one
                     value = wildcardOriginalText[index];
                 }
                 else if (*name == 'j' && name[2] == '-')
@@ -3443,13 +3289,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 if (!value) continue;
                 len = strlen(value);
                 if (!*value) value = "null";
-
-                int brk = FindVarBreakValue(name);
-                if (brk >= 0)
-                {
-                    sprintf(at, "%s(%d)>%s< = ", name, len,varvalue[brk]);
-                }
-                else if (*name != '@') sprintf(at, "%s(%d)= ", name, len);
+                if (*name != '@') sprintf(at, "%s(%d)= ", name, len);
                 else sprintf(at, "%s = ", name);
                 at = at + strlen(at);
                 bool more = false;
@@ -3463,8 +3303,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 at += len;
                 *at = 0;
                 if (more) strcpy(at, "...");// excessive length for display
-                
-                DrawText(hdc, (LPCSTR)msg, -1, &rect, DT_LEFT| DT_TOP);
+
+                DrawText(hdc, (LPCSTR)msg, -1, &rect, DT_LEFT | DT_TOP);
                 if (buffer) FreeBuffer();
 
                 char junk[MAX_WORD_SIZE];
@@ -3493,7 +3333,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 if (strchr(frame->label, '(')) { ; } // not in code yet
                 else if (!strnicmp(frame->label, "If", 2) || !strnicmp(frame->label, "Loop", 4)) showcode = true;
                 else if (*frame->label == '^' && frame->code) showcode = true;
-                else if (*frame->label != '^' && strchr(frame->label,'{')) showcode = true;
+                else if (*frame->label != '^' && strchr(frame->label, '{')) showcode = true;
                 sprintf(msg, "%d: %s", i, frame->label);
                 if (showcode)
                 {
@@ -3501,11 +3341,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     if (at) *at = 0; // not for functions
                     CALLFRAME* ownerFrame = GetCodeOwnerFrame(i);
                     char size[20];
-                    
+
                     if (!stricmp(frame->label, "Loop{}"))
                     { // show loop count
                         char extra[10];
-                        sprintf(extra,":%d", frame->x.ownvalue);
+                        sprintf(extra, ":%d", frame->x.ownvalue);
                         strcat(msg, extra);
                         strcat(msg, ShowActions(outputCode[frame->outputlevel], frame->outputlevel));
                     }
@@ -3516,7 +3356,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         strcat(msg, size);
                         if (*frame->label == '^' && frame->code && !offset) strcat(msg, "(macro) ");
                         strcat(msg, " ");
-                        strcat(msg,ShowActions(outputCode[frame->outputlevel], frame->outputlevel));
+                        strcat(msg, ShowActions(outputCode[frame->outputlevel], frame->outputlevel));
                     }
                 }
                 else
@@ -3534,13 +3374,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     SetTextColor(hdc, RGB(0, 0, 0));
                     SetBkColor(hdc, RGB(255, 255, 255));
                 }
-                int n = DrawText( hdc, (LPCSTR)msg, -1, &rect, DT_LEFT| DT_TOP);
+                int n = DrawText(hdc, (LPCSTR)msg, -1, &rect, DT_LEFT | DT_TOP);
                 rect.top += stackData.metrics.cy;
             }
         }
         else if (hWnd == scriptData.window)
         {
-           if (tesxt) VerifyMap();
+            if (tesxt) VerifyMap();
             rect = scriptData.rect;
             int limit = scriptData.yposition + scriptData.linesPerPage;
 
@@ -3550,7 +3390,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // title of visible doc
             if (currentFileData)
             {
-                DrawText( hdc, (LPCSTR)filenames, -1, &titlerect, DT_LEFT|DT_TOP );
+                DrawText(hdc, (LPCSTR)filenames, -1, &titlerect, DT_LEFT | DT_TOP);
             }
             LINEDATA* at = GetStartLine(scriptData.yposition);
             if (!at) break;
@@ -3562,7 +3402,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 msg = GetStartCharacter(at);
                 if (!msg) break;
                 size_t len = strlen(msg);
-               
+
                 ++yline; // now 1 based data (matched file line numbers)
                 char stuff[MAX_WORD_SIZE];
                 *stuff = 0;
@@ -3602,7 +3442,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 // show source line numbers
                 char num[50];
                 sprintf(num, "%d %c", yline, currentFileData->status[yline]);
-                DrawText( hdc, (LPCSTR)num, -1, &numrect, DT_RIGHT| DT_TOP);
+                DrawText(hdc, (LPCSTR)num, -1, &numrect, DT_RIGHT | DT_TOP);
                 *stuff = 0;
                 if (at->mapentry && at->mapentry->name[0] == '~')
                 {
@@ -3610,13 +3450,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     char* start = strchr(at->mapentry->name, '.');
                     if (start)
                     {
-                        strcpy(stuff, start+1);
+                        strcpy(stuff, start + 1);
                         char* label = strchr(stuff, '-');
                         if (label) *label = 0; // pure tag
-                        DrawText( hdc, (LPCSTR)stuff, -1, &tagrect, DT_RIGHT| DT_TOP);
+                        DrawText(hdc, (LPCSTR)stuff, -1, &tagrect, DT_RIGHT | DT_TOP);
                     }
                 }
- 
+
                 rect.top += scriptData.metrics.cy;
                 numrect.top += scriptData.metrics.cy;
                 tagrect.top += scriptData.metrics.cy;
@@ -3625,8 +3465,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             GetClientRect(hWnd, &rect);
             FrameRect(hdc, &rect, hBrush);
         }
-        else if (hWnd == hParent) 
-        { 
+        else if (hWnd == hParent)
+        {
             GetClientRect(hWnd, &rect);
             FillRect(hdc, &rect, hBrushOrange);
         }
@@ -3652,11 +3492,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             GetWindowText(hWnd, word, MAX_WORD_SIZE);
             SetTextColor(hdc, RGB(0, 0, 0));
             SetBkColor(hdc, RGB(255, 255, 255));
-            DrawText(hdc, (LPCSTR)word, -1, &rect, DT_SINGLELINE|DT_CENTER | DT_VCENTER);
+            DrawText(hdc, (LPCSTR)word, -1, &rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);
         }
         EndPaint(hWnd, &ps);
     }
-        break;
+    break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;

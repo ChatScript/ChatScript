@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/26/2020 cs10.8
+<br> Revision 2/8/2021 cs11.1
 
 
 
@@ -174,6 +174,9 @@ When you want to add a reference to a normal factid (as is returned by ^createfa
 You can also assign user flags by listing `USER_FLAG1`, through `USER_FLAG4` as a flag as well. 
 The JSON fact will have that flag on it, which you can use in conjunction with `^query` to limit what matches can be found.
 
+### `^jsonstorage`( argument )
+This expects a json array or object name and returns `permanent`, `transient`, `boot` or fails completely
+depending on what is given it.
 
 ### `^jsonparse`( {JSONFLAGS} string )
 

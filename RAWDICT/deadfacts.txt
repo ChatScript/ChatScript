@@ -1,0 +1,18 @@
+(  stick~8 is butter~1 )
+(  must~2 is grape_juice~1 )
+(  blue~3 is article_of_clothing~1 )
+(  blue~1 is lycaenid_butterfly~1 )
+(  take~1 is motion-picture_photography~1 )
+(  take~7 is become~1 )
+(  take~9 is interpret~2 )
+(  take~20 is have_intercourse~1 )
+(  organ~5 is periodical~1 )
+(  bitch~1 is canine~1 ) #dont want curse word treated as animal
+(  nick~4 is copulate~1 )
+(  service~16 is copulate~1 )
+(  tread~6 is copulate~1 )
+(  mount~9 is copulate~1 )
+
+
+
+

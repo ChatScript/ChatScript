@@ -1,4 +1,12 @@
-# Prognostication
+# Version 11.1 2/8/2021
+1. chatscript client accepts command :dllchat filename to test using dll compile of cs
+2. ^jsonstorage( jsonname ) returns permanent, transient, boot or fails, depending on argument
+3. ^pos(isfunction word) - returns true or fails depending on whether the word is a known function 
+4. word: newword NOUN -- defines words and properties. Can define the word and conjugations of it
+	as well as properties and systemflags and parsebits
+5. source directory RAWDICT now included, is all the source used automatically by :builddict command which rebuilds english dictionary
+	
+	# Prognostication
 I'm thinking of writing some CS script modules for sale (maybe $5k each). These include:
 a.  Pronoun Resolution
 b. Sentiment analyzer

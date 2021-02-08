@@ -10,25 +10,25 @@
 <body>
 <h1 id="chatscript-clientserver-manual">ChatScript Client/Server Manual</h1>
 <blockquote>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com <br>Revision 3/29/2020 cs10.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com <br> Revision 2/8/2021 cs11.1</p>
 </blockquote>
 <ul>
-<li><a href="ChatScript-ClientServer-Manual.html#running-the-server">Running the server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#unique-user-names">Unique User Names</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#chatscript-protocol">ChatScript protocol</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#communicating-with-the-server">Communicating with the Server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#testing-the-server">Testing the server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#revising-a-live-server">Revising a live server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#revising-a-topic">Revising a topic</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#preparing-for-compiling-on-a-server">Preparing for compiling on a server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#testing-for-server-presence">Testing for server presence</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#server-crashes--cron">Server crashes and cron</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#cpu-vs-io-bound">CPU vs IO bound</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#memory-issues-with-multiple-servers-on-a-machine">Memory issues with multiple servers on a machine</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#commands-affecting-the-server">Commands affecting the server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#command-authorization">Command Authorization</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#restful-server">RESTful server</a></li>
-<li><a href="ChatScript-ClientServer-Manual.html#encrption">Encryption</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#running-the-server">Running the server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#unique-user-names">Unique User Names</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#chatscript-protocol">ChatScript protocol</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#communicating-with-the-server">Communicating with the Server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#testing-the-server">Testing the server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#revising-a-live-server">Revising a live server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#revising-a-topic">Revising a topic</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#preparing-for-compiling-on-a-server">Preparing for compiling on a server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#testing-for-server-presence">Testing for server presence</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#server-crashes--cron">Server crashes and cron</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#cpu-vs-io-bound">CPU vs IO bound</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#memory-issues-with-multiple-servers-on-a-machine">Memory issues with multiple servers on a machine</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#commands-affecting-the-server">Commands affecting the server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#command-authorization">Command Authorization</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#restful-server">RESTful server</a></li>
+<li><a href="ChatScript-ClientServer-Manual.hmtl#encrption">Encryption</a></li>
 </ul>
 <p>While the system defaults to running as a stand-alone chatbot under Windows, when run under LINUX it defaults to being a server.</p>
 <p>Nominally (meaning depending on hardware and what your bot does) ChatScript can process a volley on a single core in 10 milliseconds on a slow machine, thus handling 100 volleys every second from different users using one core. A human-human volley is often around 15 seconds, so handling 1000 simultaneous users with a single core slow server is not unreasonable.</p>
@@ -157,6 +157,8 @@ The server app, on receiving the ChatScript output, may need to send it over to 
 <p>When running a CS client talking to a cs server, there are some debugging commands that can prove useful. It is similar to local mode in that you have to log in with some arbitrary name. By default the bot goes first in the conversation, but if you want the human to go first, just put an * in front of your user name. If you want to name the bot you want to talk to (in multibot servers), put a :botname after your login, e.g. <code>bruce:bot1</code>.</p>
 <h2 id="source">:source</h2>
 <p>This is the same :source command that you can use on a standalone server, sending the lines of the the file from client to server.</p>
+<h2 id="dll-filename">:dll filename</h2>
+<p>This loads the dll compile of CS and executes the commands of the file given, to test the dll.</p>
 <h2 id="restart-1">:restart</h2>
 <p>Tell server to restart (reload) itself.</p>
 <h2 id="converse">:converse</h2>

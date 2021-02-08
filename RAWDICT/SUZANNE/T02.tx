@@ -1,0 +1,2756 @@
+T02_0003	=====	011303	m
+T02_0006	-----	Gemma006
+T02_0009	.....	00325
+T02_0012	0050761	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_0015	0050770	|	VBZ	+'s	[Vzb.Vzb]
+T02_0018	0050780	|	IIp	per	[P:e.
+T02_0021	0050791	|	NNU1c	foot	.P:e]
+T02_0024	0050803	|	RTn	then	[Rsw:c.Rsw:c]S]
+T02_0027	0050815	|	RRz	so	[S[Rs:c.Rs:c]
+T02_0030	0050825	|	PPY	you	[Ny:s.Ny:s]
+T02_0033	0050835	|	VMd	+'d	[Vdc.
+T02_0036	0050846	|	VH0	have	.Vdc]
+T02_0039	0050858	|	TO	to	[Ti:z[Vi.Vi]
+T02_0042	0000000	y	YR	#	.Ti:z]S]
+T02_0045	0050868	c	YP	{pause}	.
+T02_0048	0050876	|	DDQ	what	[S?[Dq:o.Dq:o]
+T02_0051	0050888	|	VD0	do	[Vo.Vo]
+T02_0054	0050898	|	PPY	you	[Ny:s.Ny:s]
+T02_0057	0050909	?	VV0v	want	[Vr.Vr]S?]
+T02_0060	-----	Barbara004
+T02_0063	.....	00326
+T02_0066	0050960	*	MC	eleven	[Nu[M.
+T02_0069	0000000	y	YR	#	.
+T02_0072	0050974	c	YP	{pause}	.
+T02_0075	0050982	|	MC	eleven	.
+T02_0078	0050996	|	IIb	by	[P.
+T02_0081	0051006	|	MC	eleven	[M.
+T02_0084	0051020	|	CC	and	[Ns+.
+T02_0087	0051031	|	AT1	a	.
+T02_0090	0051041	|	NN1c	half	.Ns+]M]P]M]
+T02_0093	0051053	.	NNU1c	foot	.
+T02_0096	.....	00327
+T02_0099	0051085	*	RGQq	how	[S?@[Dq:e.
+T02_0102	0051096	|	DA1	much	.Dq:e]
+T02_0105	0051108	|	VBZ	is	[Vzb.Vzb]
+T02_0108	0051118	?	DD1a	that	[Ds:s.Ds:s]S?@]Nu]
+T02_0111	0051138	c	YP	{pause}	.
+T02_0114	0051146	ic	YY	{unclear}	[Y.Y]
+T02_0117	0051156	c	-	{event16}	.
+T02_0120	-----	Gemma006
+T02_0123	.....	00328
+T02_0126	0051229	*	UW	well	.
+T02_0129	0051241	|	PPY	you	[S[Ny:s101.Ny:s101]
+T02_0132	0051252	|	VV0v	want	[V.V]
+T02_0135	0000000	y	YG	-	[Ti:o[s101.s101]
+T02_0138	0051264	|	TO	to	[Vi.
+T02_0141	0051274	|	VV0v	nip	.Vi]
+T02_0144	0051285	|	RP	over	[R:q.
+T02_0147	0051285	|	RLh	there	.R:q]
+T02_0150	0051303	|	CC	and	[Ti+.
+T02_0153	0000000	y	YG	-	[s101.s101]
+T02_0156	0051315	|	VV0v	see	[V.V]
+T02_0159	0051326	|	DDQ	what	[Fn?:o[Dq:G103.Dq:G103]
+T02_0162	0051338	|	PPHS2	they	[Nap:s.Nap:s]
+T02_0165	0051350	|	VV0i	come	[V.V]
+T02_0168	0051362	|	II	on	[P:p.
+T02_0171	0000000	y	YG	-	[103.103]P:p]
+T02_0174	0051372	|	II	on	[P:p.
+T02_0177	0051382	|	AT	the	[Ns.
+T02_0180	0051394	.	NN1c	roll	.Ns]P:p]Fn?:o]Ti+]Ti:o]S]
+T02_0183	-----	Barbara004
+T02_0186	.....	00329
+T02_0189	0051444	ic	YY	{unclear}	[Y.Y]
+T02_0192	0051454	|	VV0v	hang	[S*[V.V]
+T02_0195	0051466	.	RP	on	[R:n.R:n]S*]
+T02_0198	-----	Gemma006
+T02_0201	.....	00330
+T02_0204	0051515	*.	UN	no	.
+T02_0207	-----	Barbara004
+T02_0210	.....	00331
+T02_0213	0051564	*	DD1a	that	[Ms.
+T02_0216	0051576	|	MC1	one	.
+T02_0219	0051587	|	CCB	but	[P+.
+T02_0222	0051598	|	II	in	.
+T02_0225	0051608	|	AT	the	[Nj.
+T02_0228	0051619	.	JJ	brown	.Nj]P+]Ms]
+T02_0231	-----	unid0
+T02_0234	.....	00000
+T02_0237	0051663	ic	YY	{unclear_15}	[Y.Y]
+T02_0240	0051680	c	-	{event15}	.
+T02_0243	-----	Barbara004
+T02_0246	.....	00332
+T02_0249	0051753	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_0252	0051762	|	VD0	do	[Ve.
+T02_0255	0051771	|	XX	+n't	.
+T02_0258	0051782	.	VV0v	know	.Ve]S]
+T02_0261	.....	00333
+T02_0264	0051814	*	VBZ	is	[S?[Vzb.Vzb]
+T02_0267	0051824	|	DD1a	that	[Ds:s.Ds:s]
+T02_0270	0051836	|	PPH1	it	[Ni:e.Ni:e]
+T02_0273	0051846	.	RLh	there	[Rw:p.Rw:p]S?]
+T02_0276	.....	00334
+T02_0279	0051895	&*	UN	no	.
+T02_0282	0051905	ic	YY	{unclear}	[Y.Y]
+T02_0285	-----	Gemma006
+T02_0288	.....	00335
+T02_0291	0051979	&*.	UY	yeah	.
+T02_0294	.....	00336
+T02_0297	0052011	*	CSn	when	[S[Fa:t[Rq:t.Rq:t]
+T02_0300	0052027	|	PPY	you	[Ny:s.Ny:s]
+T02_0303	0052038	|	VV0v	see	[V.V]
+T02_0306	0052066	&ic	YY	{unclear}	[Y:o.Y:o]
+T02_0309	0052076	|	II	at	[P:p.
+T02_0312	0052086	|	AT	the	[Ns.
+T02_0315	0052098	|	NN1c	carpet	.
+T02_0318	0052112	,	NNL1c	place	.Ns]P:p]Fa:t]
+T02_0321	0052133	|	PPHS2	they	[Nap:s.Nap:s]
+T02_0324	0052145	|	VV0i	come	[V.V]
+T02_0327	0052157	|	II	on	[P:p.
+T02_0330	0052167	|	AT1	a	[Ns.
+T02_0333	0052177	|	MC	nine	[Nu.
+T02_0336	0052189	|	NNU1c	foot	.Nu]
+T02_0339	0000000	y	YR	#	.Ns]P:p]S]
+T02_0342	0052201	c	YP	{pause}	.
+T02_0345	-----	Barbara004
+T02_0348	.....	00337
+T02_0351	0052240	*	RLh	here	[S[Rw:p.Rw:p]
+T02_0354	0052252	|	PPY	you	[Ny:s.Ny:s]
+T02_0357	0052263	|	VBR	are	[Vab.Vab]S]
+T02_0360	0052274	ic	YY	{unclear}	[Y.Y]
+T02_0363	0052284	|	RLh	there	[S[Rw:p.Rw:p]
+T02_0366	0052297	|	PPH1	it	[Ni:s.Ni:s]
+T02_0369	0052307	.	VBZ	is	[Vzb.Vzb]S]
+T02_0372	.....	00338
+T02_0375	0052337	*	DD1a	that	[S[Ds:s.Ds:s]
+T02_0378	0052348	|	VBZ	+'s	[Vzb.Vzb]
+T02_0381	0052358	|	JJ	beige	[J:e.J:e]
+T02_0384	0052371	|	RR	though	[R:c.R:c]
+T02_0387	0052385	|	VAI	in	[Iq[S?[Ve.
+T02_0390	0052394	|	XX	+n	.Ve]
+T02_0393	0052402	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]S]
+T02_0396	0052420	ic	YY	{unclear}	[Y.Y]
+T02_0399	0052430	|	PPH1	it	[S[Ni:s.Ni:s]
+T02_0402	0052439	|	VBZ	+'s	[Vzb.Vzb]
+T02_0405	0052449	|	AT	the	[Ns:e.
+T02_0408	0052460	|	NN1n	colour	.Ns:e]
+T02_0411	0052475	|	VAI	in	[Iq[S?[Ve.
+T02_0414	0052484	|	XX	+n	.Ve]
+T02_0417	0052492	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]S]
+T02_0420	-----	Gemma006
+T02_0423	.....	00339
+T02_0426	0052541	*	RRz	so	[S[Rs:c.Rs:c]
+T02_0429	0052551	|	PPH1	it	[Ni:s.Ni:s]
+T02_0432	0052560	|	VBZ	+'s	[Vzb.Vzb]
+T02_0435	0052570	|	RP	off	[R:e.R:e]
+T02_0438	0052581	|	YMN	erm	.
+T02_0441	0052592	|	MC	six	[Nu:h.
+T02_0444	0052603	|	NNU1c	foot	.
+T02_0447	0052615	|	MC	six	[Nu-.
+T02_0450	0052627	,	NNU1c	inch	.Nu-]Nu:h]S]
+T02_0453	0052647	|	DDQ	what	[S?[Dq:e.Dq:e]
+T02_0456	0052659	|	VBZ	is	[Vzb.Vzb]
+T02_0459	0052669	|	PPGy	yours	[Ns:s.Ns:s]
+T02_0462	0052682	|	MC	eleven	[Nu@.
+T02_0465	0052697	?	NNU1c	foot	.Nu@]S?]
+T02_0468	-----	Barbara004
+T02_0471	.....	00340
+T02_0474	0052748	*.	UY	mm	.
+T02_0477	.....	00341
+T02_0480	0052778	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_0483	0052786	|	VMd	+'d	[Vdc.
+T02_0486	0052796	|	VH0	have	.Vdc]
+T02_0489	0052808	|	TO	to	[Ti:z[Vi.
+T02_0492	0052818	|	VV0i	go	.Vi]
+T02_0495	0052828	|	IIt	to	[P:q.
+T02_0498	0052838	|	DD1a	that	[Ms.
+T02_0501	0052850	|	MC1	one	.Ms]P:q]Ti:z]
+T02_0504	0052862	|	VMd	would	[Iq[S?[Vdcex.
+T02_0507	0052874	|	XX	+n't	.Vdcex]
+T02_0510	0052885	?	PPIS1	I	[Nea:s.Nea:s]S?]Iq]S]
+T02_0513	-----	Gemma006
+T02_0516	.....	00342
+T02_0519	0052933	*	UY	yeah	.
+T02_0522	0052945	|	PPY	you	[S[Ny:s.Ny:s]
+T02_0525	0052955	|	VMd	+'d	[Vdc.
+T02_0528	0052965	|	VH0	have	.Vdc]
+T02_0531	0052977	|	TO	to	[Ti:z[Vi.
+T02_0534	0052987	|	VH0	have	.Vi]
+T02_0537	0052999	|	AT	the	[Nu:o.
+T02_0540	.....	00344
+T02_0543	0053108	&*	MC	thirteen	.
+T02_0546	0053124	.	NNU1c	foot	.Nu:o]Ti:z]S]
+T02_0549	.....	00345
+T02_0552	0053156	*	RGQq	how	[S?[Dq:e.
+T02_0555	0053167	|	DA1	much	.Dq:e]
+T02_0558	0053179	|	VMd	would	[Vodc.Vodc]
+T02_0561	0053192	|	DD1a	that	[Ds:s.Ds:s]
+T02_0564	0053204	|	VV0v	work	[Vr.Vr]
+T02_0567	0053216	?	RP	out	[R:n.R:n]S?]
+T02_0570	-----	Barbara004
+T02_0573	.....	00343
+T02_0576	0053041	*	MC	thirteen	[Nu.
+T02_0579	0053057	.	NNU1c	foot	.Nu]
+T02_0582	-----	Barbara004
+T02_0585	.....	00346
+T02_0588	0053265	ic	YY	{unclear}	[Y.
+T02_0591	0053275	|	RGQq	how	[Fn?[Dq:e.
+T02_0594	0053286	|	DA1	much	.Dq:e]
+T02_0597	0053298	|	DD1a	that	[Ds:s.Ds:s]
+T02_0600	0053310	|	VBZ	is	[Vzb.Vzb]Fn?]Y]
+T02_0603	0053320	.	UK	look	.
+T02_0606	.....	00347
+T02_0609	0053355	c	-	{event07}	.
+T02_0612	0053394	*	UR	oh	.
+T02_0615	0053404	|	APPGi1	my	[Nns!.
+T02_0618	0053414	*.	NNS1c	god	.Nns!]
+T02_0621	-----	Gemma006
+T02_0624	.....	00348
+T02_0627	0053464	*	PPY	you	[L?[Ny:s.Ny:s]
+T02_0630	0053475	|	JA21	all	[J:e[JA=.
+T02_0633	0053477	|	JA22	right	.JA=]J:e]L?]
+T02_0636	0053490	?	NP1m	Dan	[Nns".Nns"]
+T02_0639	-----	Dan007
+T02_0642	.....	00000
+T02_0645	0053545	&c	YV	{crying}	.
+T02_0648	-----	Barbara004
+T02_0651	.....	00349
+T02_0654	0053628	&c	YVL	{crying}	.
+T02_0657	0053647	*	UR	oh	.
+T02_0660	0053657	|	APPGi1	my	[Nns!.
+T02_0663	0053667	*	NNS1c	god	.Nns!]
+T02_0666	0053678	c	YVR	{crying}	.
+T02_0669	0053703	&*	VBZ	is	[S?[Vzb.Vzb]
+T02_0672	0053713	|	PPHS1m	he	[Nas:s.Nas:s]
+T02_0675	0053723	|	JA21	all	[J:e[JA=.
+T02_0678	0053725	?	JA22	right	.JA=]J:e]S?]
+T02_0681	.....	00350
+T02_0684	0053758	*	AT	the	[S[Ns:s.
+T02_0687	0053769	|	NN1c	chair	.Ns:s]
+T02_0690	0053781	|	VBZ	+'s	[Vzb.Vzb]
+T02_0693	0053791	|	JA21	all	[J:e[JA=.
+T02_0696	0053793	|	JA22	right	.JA=]J:e]
+T02_0699	0053806	|	VBZ	is	[Iq[S?[Vzb.Vzb]
+T02_0702	0053816	|	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T02_0705	0053826	?	NP1f	Gemma	[Nns".Nns"]
+T02_0708	-----	Gemma006
+T02_0711	.....	00351
+T02_0714	0053876	*	UR	oh	.
+T02_0717	0053886	|	UY	yeah	.
+T02_0720	0053898	|	APPGy	your	[S[Ns:s.
+T02_0723	0053910	|	NN1c	chair	.Ns:s]
+T02_0726	0053922	|	VBZ	+'s	[Vzb.Vzb]
+T02_0729	0053932	|	JA21	all	[J:e[JA=.
+T02_0732	0053934	.	JA22	right	.JA=]J:e]S]
+T02_0735	-----	Barbara004
+T02_0738	.....	00352
+T02_0741	0053986	*	PPY	you	[S[Ny:s.Ny:s]
+T02_0744	0053997	|	VVGv	leaning	[Vg.Vg]
+T02_0747	0054012	|	RL	back	[R:q.R:q]
+T02_0750	0054024	|	II	on	[P:p.
+T02_0753	0054034	|	AT	the	[Ns.
+T02_0756	0054045	|	NN1c	chair	.Ns]P:p]
+T02_0759	0054059	|	VBDR	were	[Iq[S?[Vwebx.
+T02_0762	0054070	|	XX	+n't	.Vwebx]
+T02_0765	0054081	?	PPY	you	[Ny:s.Ny:s]
+T02_0768	.....	00353
+T02_0771	0054112	*	VBDR	were	[S?-[Vwebx.
+T02_0774	0054123	|	XX	+n't	.Vwebx]
+T02_0777	0054134	?	PPY	you	[Ny:s.Ny:s]S?-]
+T02_0780	.....	00354
+T02_0783	0054164	c	YP	{pause}	.
+T02_0786	0054172	*	VBDZ	was	[S?-[Vsbx.Vsbx]
+T02_0789	0054183	?	PPY	you	[Ny:s.Ny:s]S?-]S?]Iq]S]
+T02_0792	.....	00355
+T02_0795	0054214	*	PPY	you	[L?[Ny:s.Ny:s]
+T02_0798	0054225	|	JA21	all	[J:e[JA=.
+T02_0801	0054227	?	JA22	right	.JA=]J:e]L?]
+T02_0804	-----	Dan007
+T02_0807	.....	00356
+T02_0810	0054278	c	YVL	{crying}	.
+T02_0813	0054297	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_0816	0054306	|	VVDv	hurt	[Vd.Vd]
+T02_0819	0054318	|	APPGi1	my	[Ns:o.
+T02_0822	0054328	.	NN1n	leg	.Ns:o]S]
+T02_0825	0054347	c	YVR	{crying}	.
+T02_0828	-----	Barbara004
+T02_0831	.....	00357
+T02_0834	0054386	*	APPGy	your	[Ns.
+T02_0837	0054398	?	NN1n	leg	.Ns]
+T02_0840	.....	00358
+T02_0843	0054429	*	DDQq	which	[Nqs.
+T02_0846	0054442	?	NN1n	leg	.Nqs]
+T02_0849	.....	00359
+T02_0852	0054473	*	DDQq	which	[Nqs.
+T02_0855	0054486	?	NN1n	leg	.Nqs]
+T02_0858	-----	Dan007
+T02_0861	.....	00360
+T02_0864	0054535	c	YVL	{crying}	.
+T02_0867	0054554	*	UR	oh	.
+T02_0870	0054564	|	DD1i	this	[Ms.
+T02_0873	0054576	.	MC1	one	.Ms]
+T02_0876	0054595	c	YVR	{crying}	.
+T02_0879	-----	Barbara004
+T02_0882	.....	00361
+T02_0885	0054634	*	VV0v	let	[S*[V.V]
+T02_0888	0054637	|	PPIO2	+'s	[Nop:O111.Nop:O111]
+T02_0891	0000000	y	YG	-	[Tb:o[s111.s111]
+T02_0894	0054647	.	VV0v	see	[V.V]Tb:o]S*]
+T02_0897	-----	Gemma006
+T02_0900	.....	00362
+T02_0903	0054697	*	UR	oh	.
+T02_0906	0054707	|	VV0v	give	[S*[V.V]
+T02_0909	0054719	|	PPH1	it	[Ni:i.Ni:i]
+T02_0912	0054729	|	AT1	a	[Ns:o.
+T02_0915	0054738	|	JJ	good	.
+T02_0918	0054750	.	NN1c	rub	.Ns:o]S*]
+T02_0921	.....	00363
+T02_0924	0054797	&*	UB21	never	[UB=.
+T02_0927	0054810	.	UB22	mind	.UB=]
+T02_0930	-----	Barbara004
+T02_0933	.....	00364
+T02_0936	0054894	&*	VD0	do	[S*[Ve.
+T02_0939	0054903	|	XX	+n't	.
+T02_0942	0054914	|	VV0v	lean	.Ve]
+T02_0945	0054943	&	RL	back	[R:q.R:q]
+T02_0948	0054955	|	II	on	[P:p.
+T02_0951	0054966	|	AT	the	[Np.
+T02_0954	0054977	.	NN2	chairs	.Np]P:p]S*]
+T02_0957	.....	00365
+T02_0960	0055011	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_0963	0055020	|	VVDv	told	[Vd.Vd]
+T02_0966	0055032	|	PPY	you	[Ny:i.Ny:i]
+T02_0969	0055043	|	II	about	[P:r.
+T02_0972	0055056	|	DD1a	that	.P:r]
+T02_0975	0055068	.	RR	before	[R:t.R:t]S]
+T02_0978	.....	00366
+T02_0981	0055101	ic.	YY	{unclear}	[Y.Y]
+T02_0984	0055119	*	PPY	you	[S[Ny:s.Ny:s]
+T02_0987	0055130	|	RR	just	[R:m.R:m]
+T02_0990	0055159	&	VV0v	sit	[V.V]
+T02_0993	0055170	|	RP	down	[R:q.R:q]
+T02_0996	0055183	.	RR	nicely	[R:h.R:h]S]
+T02_0999	-----	Dan007
+T02_1002	.....	00367
+T02_1005	0055269	&*	UN	no	.
+T02_1008	0055279	*	UN	no	.
+T02_1011	-----	Gemma006
+T02_1014	.....	00368
+T02_1017	0055336	c	YV	{laugh}	.
+T02_1020	0055355	*	UR	oh	.
+T02_1023	0055365	|	APPGi1	my	[Nns!.
+T02_1026	0055375	*.	NNS1c	god	.Nns!]
+T02_1029	-----	Barbara004
+T02_1032	.....	00369
+T02_1035	0055425	*,	UI	now	.
+T02_1038	0055444	|	UI	now	.
+T02_1041	0055455	|	RR	just	[S*[R:m.R:m]
+T02_1044	0055467	|	VV0v	sit	[V.V]
+T02_1047	0055478	!	RP	down	[R:q.R:q]S*]
+T02_1050	.....	00370
+T02_1053	0055510	*	ATn	no	[Ns.
+T02_1056	0055520	!	VVGv	swinging	[Tg[Vg.Vg]Tg]Ns]
+T02_1059	0055548	c	YP	{pause}	.
+T02_1062	-----	Gemma006
+T02_1065	.....	00371
+T02_1068	0055587	*	MC	thirteen	[N.
+T02_1071	0055603	ic.	YY	{unclear}	[Y.Y]N]
+T02_1074	.....	00372
+T02_1077	0055633	*	RGQq	how	[Dqp.
+T02_1080	0055644	,	DA2	many	.Dqp]
+T02_1083	0055664	|	PPY	you	[S[Ny:s.Ny:s]
+T02_1086	0055675	|	VV0v	want	[V.V]
+T02_1089	0055687	|	PPH1	it	[Ni:o.Ni:o]
+T02_1092	0055697	|	DD1a	that	[Ns:h.
+T02_1095	0055710	,	NNL1n	way	.Ns:h]S]
+T02_1098	0055729	|	PPY	you	[S[Ny:s.Ny:s]
+T02_1101	0055740	|	VV0v	want	[V.V]
+T02_1104	0055752	.	MC	eleven	[M:o.M:o]S]
+T02_1107	-----	Barbara004
+T02_1110	.....	00373
+T02_1113	0055805	*.	UY	mm	.
+T02_1116	-----	Gemma006
+T02_1119	.....	00374
+T02_1122	0055854	*	RRz	so	[S[Rs:c.Rs:c]
+T02_1125	0055864	|	PPH1	it	[Ni:s.Ni:s]
+T02_1128	0055873	|	VBZ	+'s	[Vzb.Vzb]
+T02_1131	0055883	|	MC	eleven	[M:e.
+T02_1134	0055897	|	II	times	[P.
+T02_1137	0055910	c	YP	{pause}	.
+T02_1140	0055918	.	DD1a	that	.P]M:e]S]
+T02_1143	.....	00375
+T02_1146	0055949	ic	YY	{unclear}	[Y.Y]
+T02_1149	0055959	|	ICSk	like	.
+T02_1152	0055971	|	DD1a	that	[S[Ds:s.Ds:s]
+T02_1155	0055982	|	VBZ	+'s	[Vzb.Vzb]
+T02_1158	0055992	|	DD1a	that	[Ms:e.
+T02_1161	0056004	,	MC1	one	.Ms:e]S]
+T02_1164	0056024	|	DD1a	that	[S[Ds:s.Ds:s]
+T02_1167	0056035	|	VBZ	+'s	[Vzb.Vzb]
+T02_1170	0056045	|	DD1a	that	[Nus:e.
+T02_1173	0056057	,	NNU1c	foot	.Nus:e]S]
+T02_1176	0056077	|	DD1a	that	[S[Ds:s.Ds:s]
+T02_1179	0056088	|	VBZ	+'s	[Vzb.Vzb]
+T02_1182	0056098	|	DD1a	that	[Nus:e.
+T02_1185	0056111	.	NNU1c	foot	.Nus:e]S]
+T02_1188	.....	00376
+T02_1191	0056143	*	RRz	so	[S[Rs:c.Rs:c]
+T02_1194	0056153	|	PPY	you	[Ny:s.Ny:s]
+T02_1197	0056164	|	VV0v	want	[V.V]
+T02_1200	0056176	|	PPH1	it	[Ni:o.Ni:o]
+T02_1203	0056186	|	DBa	all	[Rx:p[Ns.
+T02_1206	0056197	|	AT	the	.
+T02_1209	0056208	|	NNL1n	way	.Ns]
+T02_1212	0056220	|	RL	round	.Rx:p]S]
+T02_1215	0056254	&ic	YY	{unclear}	[Y.Y]
+T02_1218	-----	Barbara004
+T02_1221	.....	00000
+T02_1224	0056317	&ic	YY	{unclear}	[Y.Y]
+T02_1227	-----	Gemma006
+T02_1230	.....	00377
+T02_1233	0056375	*	RRz	so	[S[Rs:c.Rs:c]
+T02_1236	0056385	|	PPH1	it	[Ni:s.Ni:s]
+T02_1239	0056394	|	VBZ	+'s	[Vzb.Vzb]
+T02_1242	0056404	|	DD1a	that	[Ds:e.Ds:e]
+T02_1245	0056420	|	IIp	per	[P:h.
+T02_1248	0056431	.	NNU1c	foot	.P:h]S]
+T02_1251	.....	00378
+T02_1254	0056463	*	RRz	so	[S[Rs:c.Rs:c]
+T02_1257	0056473	|	PPH1	it	[Ni:s.Ni:s]
+T02_1260	0056482	|	VMo	+'ll	[Vcb.
+T02_1263	0056493	|	VB0	be	.Vcb]
+T02_1266	0056503	|	MC	eleven	[M:e.
+T02_1269	0056517	|	II	times	[P.
+T02_1272	0056530	.	DD1a	that	.P]M:e]S]
+T02_1275	-----	Barbara004
+T02_1278	.....	00379
+T02_1281	0056581	*	UR	oh	.
+T02_1284	0056591	|	APPGi1	my	[Nns!.
+T02_1287	0056601	*.	NNS1c	god	.Nns!]
+T02_1290	0056637	&ic	YY	{unclear}	[Y.Y]
+T02_1293	-----	Gemma006
+T02_1296	.....	00380
+T02_1299	0056711	&*	RRz	so	[S[Rs:c.Rs:c]
+T02_1302	0056711	|	DD1a	that	[Ds:s.Ds:s]
+T02_1305	0056725	|	VMo	+'ll	[Vcb.
+T02_1308	0056736	|	VB0	be	.Vcb]
+T02_1311	0056763	&	RGi	over	[Nu:e.
+T02_1314	0056775	|	AT1	a	[M.
+T02_1317	0056785	|	NNOc	hundred	.
+T02_1320	0056800	|	CC	and	[M+.
+T02_1323	0056811	|	MC	forty	.M+]M]
+T02_1326	0056824	|	NNU1c	pound	.Nu:e]
+T02_1329	0056837	|	VAI	in	[Iq[S?[Ve.
+T02_1332	0056846	|	XX	+n	.Ve]
+T02_1335	0056854	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]S]
+T02_1338	-----	Barbara004
+T02_1341	.....	00381
+T02_1344	0056903	*.	UY	yeah	.
+T02_1347	.....	00382
+T02_1350	0056935	*.	RR	easy	[R.R]
+T02_1353	-----	Gemma006
+T02_1356	.....	00383
+T02_1359	0056986	*.	RR	easy	[R.R]
+T02_1362	-----	Barbara004
+T02_1365	.....	00384
+T02_1368	0057037	*	UN	no	.
+T02_1371	0057047	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_1374	0057055	|	VMo	+'ll	[Vc.
+T02_1377	0057066	|	VH0	have	.Vc]
+T02_1380	0057078	|	TO	to	[Ti:z[Vi.
+T02_1383	0057088	|	VV0i	go	.Vi]
+T02_1386	0057098	|	IIt	to	[P:q.
+T02_1389	0057108	*	JJ	great	[Nnp.
+T02_1392	0057122	*	NN2	mills	.Nnp]P:q]Ti:z]
+T02_1395	0057135	.	RTn	then	[Rsw:c.Rsw:c]S]
+T02_1398	-----	Gemma006
+T02_1401	.....	00385
+T02_1404	0057186	*	CS	unless	[Fa.
+T02_1407	0057200	|	EX	there	.
+T02_1410	0057212	|	VBZ	+'s	[Vzb.Vzb]
+T02_1413	0057222	|	DDy	any	[Np:s.
+T02_1416	0057233	.	NN2	others	.Np:s]Fa]
+T02_1419	.....	00386
+T02_1422	0057267	*	DDQq	which	[S?[Mqs:e.
+T02_1425	0057280	|	MC1	one	.Mqs:e]
+T02_1428	0057290	|	VBZ	+'s	[Vzb.Vzb]
+T02_1431	0057300	?	DD1a	that	[Ds:s.Ds:s]S?]
+T02_1434	-----	Barbara004
+T02_1437	.....	00387
+T02_1440	0057351	*	UN	no	.
+T02_1443	0057361	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_1446	0057370	|	VV0v	think	[V.V]
+T02_1449	0057383	|	DD1i	this	[Fn:o[Ds:s.Ds:s]
+T02_1452	0057395	|	VBZ	is	[Vzb.Vzb]
+T02_1455	0057405	|	AT	the	[Ms:e.
+T02_1458	0057416	|	JJ	cheap	.
+T02_1461	0057430	.	MC1	one	.Ms:e]Fn:o]S]
+T02_1464	.....	00388
+T02_1467	0057460	ic	YY	{unclear}	[Y.
+T02_1470	0057470	*	JJ	dear	[J.J]
+T02_1473	0057486	|	RR	though	[R.R]
+T02_1476	0057500	|	VAI	in	[Iq[S?[Ve.
+T02_1479	0057509	|	XX	+n	.Ve]
+T02_1482	0057517	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]Y]
+T02_1485	-----	Gemma006
+T02_1488	.....	00389
+T02_1491	0057566	*	UW	well	.
+T02_1494	0057578	|	PPH1	it	[S[Ni:s.Ni:s]
+T02_1497	0057588	|	VBZ	is	[Vzb.Vzb]
+T02_1500	0057598	|	AT1	a	[Ns:e.
+T02_1503	0057607	|	JJ	dear	.
+T02_1506	0057619	.	NN1n	game	.Ns:e]S]
+T02_1509	.....	00390
+T02_1512	0057651	*	DD1a	that	[S[Ds:s.Ds:s]
+T02_1515	0057662	|	VBZ	+'s	[Vzb.Vzb]
+T02_1518	0057672	|	ICSk	like	[P:e.
+T02_1521	0057684	|	PPIO2	us	.P:e]S]
+T02_1524	0057694	.	UK	look	.
+T02_1527	.....	00391
+T02_1530	0057726	*	RLh	there	.
+T02_1533	0057739	ic.	YY	{unclear}	[Y.Y]
+T02_1536	-----	Barbara005
+T02_1539	.....	00392
+T02_1542	0057788	*	CS	unless	[Fa[CS#.
+T02_1545	0000000	y	YR	#	.
+T02_1548	0057802	c	YP	{pause}	.
+T02_1551	0057810	|	CS	unless	.CS#]
+T02_1554	0057824	c	YP	{pause}	.
+T02_1557	0057832	|	PPY	you	[Ny:s.Ny:s]
+T02_1560	0057843	|	VHD	had	[Vd.Vd]
+T02_1563	0057854	ic	YY	{unclear}	[Y:o.Y:o]
+T02_1566	0057865	.	RL	together	[R:j.R:j]Fa]
+T02_1569	.....	00393
+T02_1572	0057901	*	CSi	if	[Fa.
+T02_1575	0057911	|	PPY	you	[Ny:s.Ny:s]
+T02_1578	0057922	|	VHD	had	[Vd.Vd]
+T02_1581	0057933	|	DD1a	that	[Ds:o.Ds:o]
+T02_1584	.....	00395
+T02_1587	0058025	&	CC	and	[Fa+.
+T02_1590	0058036	|	PPY	you	[Ny:s.Ny:s]
+T02_1593	0058047	|	VHD	had	[Vd.Vd]
+T02_1596	0058058	|	AT1	a	[Ns:o.
+T02_1599	0058067	ic	YY	{unclear}	[Y.Y]Ns:o]
+T02_1602	0058077	|	II	down	[P:j.
+T02_1605	0058089	|	AT	the	[Ns.
+T02_1608	0058101	.	NN1c	middle	.Ns]P:j]Fa+]Fa]
+T02_1611	-----	Barbara004
+T02_1614	.....	00394
+T02_1617	0057976	*.	UY	mm	.
+T02_1620	-----	Barbara004
+T02_1623	.....	00396
+T02_1626	0058154	*.	UY	mm	.
+T02_1629	.....	00397
+T02_1632	0058184	*,	UY	yeah	.
+T02_1635	0058204	|	DDQ	what	[S?[Dq:e.Dq:e]
+T02_1638	0058215	|	VBZ	+'s	[Vzb.Vzb]
+T02_1641	0058225	?	DD1a	that	[Ds:s.Ds:s]S?]
+T02_1644	-----	Barbara005
+T02_1647	.....	00398
+T02_1650	0058276	*	UW	well	.
+T02_1653	0058288	?	DD1i	this	[Ds.Ds]
+T02_1656	-----	Barbara004
+T02_1659	.....	00399
+T02_1662	0058339	*.	UY	yeah	.
+T02_1665	-----	Barbara005
+T02_1668	.....	00400
+T02_1671	0058390	*	DD1a	that	[S[Ds:s.Ds:s]
+T02_1674	0058401	|	VBZ	+'s	[Vzb.Vzb]
+T02_1677	0058411	|	MC	two	[M:e.M:e]S]
+T02_1680	0058422	c	YP	{pause}	.
+T02_1683	0058430	|	PPY	you	[S[Ny:s.Ny:s]
+T02_1686	0058440	|	VMd	+'d	[Vdc.
+T02_1689	0058450	|	VH0	have	.Vdc]
+T02_1692	0058462	|	TO	to	[Ti:z[Vi.
+T02_1695	0058473	|	VH0	have	.Vi]
+T02_1698	0058485	ic	YY	{unclear}	[Y:o.
+T02_1701	0058495	|	DAR	more	.
+T02_1704	0058507	|	IO	of	[Po.
+T02_1707	0058517	.	DD1a	that	.Po]Y:o]Ti:z]S]
+T02_1710	-----	Barbara004
+T02_1713	.....	00401
+T02_1716	0058568	*.	UR	oh	.
+T02_1719	.....	00402
+T02_1722	0058614	&*	UY	yeah	.
+T02_1725	-----	Barbara005
+T02_1728	.....	00403
+T02_1731	0058690	&*	UY	yeah	.
+T02_1734	0058719	&*	PPH1	it	[S[Ni:s.Ni:s]
+T02_1737	0000000	y	YG	-	[t119.t119]
+T02_1740	0000000	y	YG	-	[m121.m121]
+T02_1743	0058729	|	VMd	would	[Vdc.
+T02_1746	0058742	|	RR	still	[R:G119.R:G119]
+T02_1749	0058756	|	RR	probably	[R:G121.R:G121]
+T02_1752	0058772	|	VV0v	work	.Vdc]
+T02_1755	0058784	|	RP	out	[R:n.R:n]
+T02_1758	0058795	|	AT	the	[D:e.
+T02_1761	0058806	|	DAy	same	.D:e]
+T02_1764	0058818	.	RR	though	[R:c.R:c]S]
+T02_1767	-----	Barbara004
+T02_1770	.....	00404
+T02_1773	0058871	*	UY	yeah	.
+T02_1776	-----	Barbara005
+T02_1779	.....	00405
+T02_1782	0058914	*	XX	not	[Ns.
+T02_1785	0058925	|	DA1	much	.
+T02_1788	0058937	.	NN1n	difference	.Ns]
+T02_1791	-----	Barbara004
+T02_1794	.....	00406
+T02_1797	0058994	*.	UY	yeah	.
+T02_1800	-----	Gemma006
+T02_1803	.....	00407
+T02_1806	0059045	*	VDD	did	[S?[Vod.Vod]
+T02_1809	0059056	|	PPHS1m	he	[Nas:s.Nas:s]
+T02_1812	0059066	|	VV0v	make	[Vr.Vr]
+T02_1815	0059078	|	DD2a	those	[Np:o.
+T02_1818	0059091	?	NN2	numbers	.Np:o]S?]
+T02_1821	-----	Barbara004
+T02_1824	.....	00408
+T02_1827	0059145	*	VV0v	sit	[S*[V.V]
+T02_1830	0059156	!	RP	down	[R:q.R:q]S*]
+T02_1833	.....	00409
+T02_1836	0059188	*	UY	yeah	.
+T02_1839	0059200	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T02_1842	0059210	|	VVZv	makes	[Vz.Vz]
+T02_1845	0059223	,	DD2a	those	[Dp:o.Dp:o]S]
+T02_1848	0059244	.	NP1f	Gemma	[Nns".Nns"]
+T02_1851	.....	00410
+T02_1854	0059275	*	CC	and	[S+.
+T02_1857	0059286	|	PPHS1m	he	[Nas:s.Nas:s]
+T02_1860	0059296	|	VVZv	makes	[Vz.Vz]
+T02_1863	0059309	|	DD1a	that	[Ds:o.Ds:o]
+T02_1866	0059321	|	RR21	as	[R:m[RR=.
+T02_1869	0059321	.	RR22	well	.RR=]R:m]S+]
+T02_1872	-----	Barbara005
+T02_1875	.....	-----
+T02_1878	0059349	ic	YY	{unclear}	[Y.Y]
+T02_1881	-----	Gemma006
+T02_1884	.....	00411
+T02_1887	0059395	*	UY	yeah	.
+T02_1890	0059407	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_1893	0059418	|	VBR	+'re	[Vab.Vab]
+T02_1896	0059429	|	JJ	good	[J:e.J:e]
+T02_1899	0059441	|	VBR	are	[Iq[S?[Vaeb.
+T02_1902	0059451	|	XX	+n't	.Vaeb]
+T02_1905	0059462	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T02_1908	.....	00412
+T02_1911	0059494	*	VV0v	sit	[S*[V.V]
+T02_1914	0059505	|	RP	down	[R:q.R:q]S*]
+T02_1917	0059521	.	NP1m	Dan	[Nns".Nns"]
+T02_1920	.....	00413
+T02_1923	0059551	c	YP	{pause_6}	.
+T02_1926	0059565	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_1929	0059574	|	VVDv	thought	[Vd.Vd]
+T02_1932	0059606	&	UW	well	.
+T02_1935	0059619	|	PPHS2	they	[Fn:o[Nap:s.Nap:s]
+T02_1938	0059630	|	VBR	+'re	[Vab.Vab]
+T02_1941	0059641	.	JJ	nice	[J:e.J:e]Fn:o]S]
+T02_1944	-----	Barbara004
+T02_1947	.....	00414
+T02_1950	0059725	&ic	YY	{unclear}	[Y.
+T02_1953	0059752	&	NNJ1n	school	.Y]
+T02_1956	0059766	?	NP1f	Gemma	[Nns".Nns"]
+T02_1959	-----	Gemma006
+T02_1962	.....	00415
+T02_1965	0059816	*?	UL	mm	.
+T02_1968	0059834	c	YP	{pause}	.
+T02_1971	-----	unid0
+T02_1974	.....	-----
+T02_1977	0059847	ic	YY	{unclear}	[Y.Y]
+T02_1980	-----	Gemma006
+T02_1983	.....	00416
+T02_1986	0059893	*,	UW	well	.
+T02_1989	0059913	|	UN	no	.
+T02_1992	0059923	,	PPIS1	I	[S[Nea:s[PPIS1#.
+T02_1995	0000000	y	YR	#	.
+T02_1998	0059940	|	PPIS1	I	.PPIS1#]Nea:s]
+T02_2001	0059949	|	VVDv	told	[Vd.Vd]
+T02_2004	0059961	|	PPHO1f	her	[Nos:i.Nos:i]
+T02_2007	0059972	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T02_2010	0059982	|	VVDt	needed	[Vd.Vd]
+T02_2013	0059996	|	PN1	something	[Ns:o.
+T02_2016	0060013	|	TO	to	[Ti[Vi.
+T02_2019	0060023	|	VV0t	encourage	.Vi]
+T02_2022	0060040	.	PPHO1m	him	[Nos:o.Nos:o]Ti]Ns:o]Fn:o]S]
+T02_2025	.....	00417
+T02_2028	0060071	*	VV0v	get	[S*[V.V]
+T02_2031	0060082	|	II21	out	[P:q[II=.
+T02_2034	0060082	|	II22	of	.II=]
+T02_2037	0060096	|	DD1a	that	[Ns.
+T02_2040	0060108	|	NN1c	drawer	.Ns]P:q]S*]
+T02_2043	0060122	!	PPY	you	[Ny".Ny"]
+T02_2046	.....	00418
+T02_2049	0060153	*!	UK	oi	.
+T02_2052	-----	Barbara004
+T02_2055	.....	00419
+T02_2058	0060202	*	VHZ	has	[S?[Voz.Voz]
+T02_2061	0060213	|	PPHS1m	he	[Nas:s.Nas:s]
+T02_2064	0060223	|	VVNv	coloured	[Vrn.Vrn]
+T02_2067	0060239	|	PPHO2	them	[Nop:o.Nop:o]
+T02_2070	0060268	&?	RP	in	[R:n.R:n]S?]
+T02_2073	-----	Gemma006
+T02_2076	.....	00420
+T02_2079	0060354	&*!	UN	no	.
+T02_2082	.....	00421
+T02_2085	0060400	&*	UY	yeah	.
+T02_2088	0060412	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T02_2091	0060421	|	VHZ	+'s	[Vzf.
+T02_2094	0060431	|	VVNH	got	.Vzf]
+T02_2097	0060442	,	NN2	paintbrushes	[Np:o.Np:o]
+T02_2100	0060471	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T02_2103	0060480	.	VV0v	know	[V.V]S]I]S]
+T02_2106	.....	00422
+T02_2109	0060511	c	YP	{pause}	.
+T02_2112	0060519	*	PPHS2	they	[S[Nap:s.Nap:s]
+T02_2115	0060531	|	VDN	done	[Vn.Vn]
+T02_2118	0060543	|	JJ	magic	[Ns:o.
+T02_2121	0060556	|	NN1n	painting	.Ns:o]
+T02_2124	0060576	|	AT	the	[Ns:t.
+T02_2127	0060588	|	JBo	other	.
+T02_2130	0060601	|	NNT1c	night	.Ns:t]S]
+T02_2133	0060614	ic.	YY	{unclear}	[Y.Y]
+T02_2136	.....	00423
+T02_2139	0060644	*	APPGi2	our	[S[N:s.
+T02_2142	0060655	ic	YY	{unclear}	[Y.Y]N:s]
+T02_2145	0060665	|	VVZv	gets	[Vz.Vz]
+T02_2148	0060677	|	PPH1	it	[Ni:o.Ni:o]
+T02_2151	0060687	|	RLw	everywhere	[Rw:p.Rw:p]
+T02_2154	0060705	|	CC	and	[S+.
+T02_2157	0060716	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_2160	0060728	|	VBDZ	was	[Vsb.Vsb]
+T02_2163	0060739	|	JA21	all	[J:e[JA=.
+T02_2166	0060741	.	JA22	right	.JA=]J:e]S+]S]
+T02_2169	-----	Barbara004
+T02_2172	.....	00424
+T02_2175	0060793	*	CC	and	[S+.
+T02_2178	0060804	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_2181	0060815	|	VBDZ	was	[Vsb.Vsb]
+T02_2184	0060826	|	JA21	all	[J:e[JA=.
+T02_2187	0060828	?	JA22	right	.JA=]J:e]S+]
+T02_2190	-----	Gemma006
+T02_2193	.....	00425
+T02_2196	0060880	*.	UY	mm	.
+T02_2199	0060898	c	YP	{pause}	.
+T02_2202	-----	Barbara004
+T02_2205	.....	00426
+T02_2208	0060937	*,	UY	mm	.
+T02_2211	0060955	|	RRz	so	[S?[Rs:c.Rs:c]
+T02_2214	0060965	|	YMV	er	.
+T02_2217	0060975	c	YP	{pause}	.
+T02_2220	0060983	|	RR	still	[R:t.R:t]
+T02_2223	0060996	|	VVNH	got	[Vn.Vn]
+T02_2226	0061011	|	AT	the	[Ns:o.
+T02_2229	0061023	|	NN1n	fire	.Ns:o]
+T02_2232	0061035	|	RP	on	[R:j.R:j]S?]
+T02_2235	0061045	?	NP1f	Gemma	[Nns".Nns"]
+T02_2238	-----	Gemma006
+T02_2241	.....	00427
+T02_2244	0061095	*	RP	in	[R.
+T02_2247	0061105	,	RLh	there	.R]
+T02_2250	0061126	.	UY	yeah	.
+T02_2253	-----	Barbara005
+T02_2256	.....	00428
+T02_2259	0061176	ic	YY	{unclear}	[Y.Y]
+T02_2262	0061186	|	VVDv	thought	[S[Vd.Vd]
+T02_2265	0061205	|	PPIS1	I	[Fn:o[Nea:s.Nea:s]
+T02_2268	0061213	|	VHD	+'d	[Vd.Vd]
+T02_2271	0061223	|	RRR	better	[R:m.R:m]
+T02_2274	0061237	|	VV0i	come	[Tb:z[V.V]
+T02_2277	0061250	|	RL	round	[R:q.R:q]
+T02_2280	0061263	|	CC	and	[Tb+.
+T02_2283	0061274	|	VH0	have	[V.V]
+T02_2286	0061286	|	AT1	a	[Ns:o.
+T02_2289	0061295	|	NN1c	chat	.Ns:o]Tb+]Tb:z]Fn:o]S]
+T02_2292	0061307	ic.	YY	{unclear}	[Y.Y]
+T02_2295	-----	Dan007
+T02_2298	.....	00429
+T02_2301	0061356	*	PPIS2	we	[S[Nap:s.Nap:s]
+T02_2304	0061366	|	VVNH	got	[Vn.Vn]
+T02_2307	0061376	|	TO	+ta	[Ti:z[Vi.
+T02_2310	0061386	|	VV0i	go	.Vi]Ti:z]
+T02_2313	0061396	.	RTo	now	[Rw:t.Rw:t]S]
+T02_2316	-----	Barbara004
+T02_2319	.....	00430
+T02_2322	0061446	*	UN	no	.
+T02_2325	0061456	|	PPIS2	we	[S[Nap:s.Nap:s]
+T02_2328	0061466	|	VH0	have	[Vef.
+T02_2331	0061477	|	XX	+n't	.
+T02_2334	0061488	|	VVNH	got	.Vef]
+T02_2337	0061498	|	TO	+ta	[Ti:z[Vi.
+T02_2340	0061508	.	VV0i	go	.Vi]Ti:z]S]
+T02_2343	-----	Gemma006
+T02_2346	.....	00431
+T02_2349	0061573	&*	PPHS1m	he	[S[Nas:s.Nas:s]
+T02_2352	0061582	|	VBZ	+'s	[Vzu.
+T02_2355	0061592	|	VHG	having	.Vzu]
+T02_2358	0061606	|	APPGm	his	[Ns:o.
+T02_2361	0061617	.	NN1n	drink	.Ns:o]S]
+T02_2364	-----	Barbara004
+T02_2367	.....	00432
+T02_2370	0061702	&ic	YY	{unclear}	[Y.
+T02_2373	0061712	|	JJ	funny	[J.J]
+T02_2376	0061725	|	AT	the	[Ns.
+T02_2379	0061736	|	JBo	other	.
+T02_2382	0061749	.	NNT1c	week	.Ns]Y]
+T02_2385	.....	00433
+T02_2388	0061797	&*	VBDZ	was	[S?[Vos.Vos]
+T02_2391	0061808	|	PPY	you	[Ny:s.Ny:s]
+T02_2394	0061819	|	VVGv	getting	[Vrg.Vrg]
+T02_2397	0061834	|	JJ	funny	[J:e.J:e]
+T02_2400	0061847	|	CS	cos	[Fa:c.
+T02_2403	0061858	|	PPIS1	I	[Nea:s.Nea:s]
+T02_2406	0061868	|	VAI	ai	[Vef.
+T02_2409	0061877	|	XX	+n't	.
+T02_2412	0061888	|	VVNi	come	.Vef]
+T02_2415	0061900	|	IIt	to	[P:q.
+T02_2418	0061910	|	AT1	a	[Ns.
+T02_2421	0061919	ic	YY	{unclear}	[Y.Y]
+T02_2424	0061929	|	NNJ1n	party	.Ns]P:q]
+T02_2427	0061943	|	AT1e	every	[Ns:t.
+T02_2430	0061956	?	NNT1c	week	.Ns:t]Fa:c]S?]
+T02_2433	-----	Gemma006
+T02_2436	.....	00434
+T02_2439	0062007	*,	UN	no	.
+T02_2442	0062025	|	CS	cos	[Fa.
+T02_2445	0062036	|	PPIS1	I	[Nea:s.Nea:s]
+T02_2448	0062045	|	VVDv	thought	[Vd.Vd]
+T02_2451	0062060	|	UW	well	.
+T02_2454	0062072	|	NP1m	Ian	[Fn:o[Nns:s.Nns:s]
+T02_2457	0062084	|	VAI	ai	[Ve.
+T02_2460	0062093	|	XX	+n't	.Ve]
+T02_2463	0062104	|	RG	very	[J:e.
+T02_2466	0062116	|	JJ	well	.J:e]Fn:o]Fa]
+T02_2469	0062128	.	UK	look	.
+T02_2472	-----	Barbara004
+T02_2475	.....	00435
+T02_2478	0062183	*	UN	no	.
+T02_2481	0062193	c	YP	{pause}	.
+T02_2484	0062201	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2487	0062210	|	VMo	ca	[Vce.
+T02_2490	0062219	|	XX	+n't	.
+T02_2493	0062230	|	VV0t	afford	.Vce]
+T02_2496	0062244	|	PPH1	it	[Ni:o.Ni:o]
+T02_2499	0062254	|	RR	though	[R:c.R:c]S]
+T02_2502	0062269	|	UE	see	.
+T02_2505	0062280	.	NP1f	Barb	[Nns".Nns"]
+T02_2508	.....	00436
+T02_2511	0062328	&	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2514	0062337	|	VVDv	said	[Vd.Vd]
+T02_2517	0062349	|	IIt	to	[P:u.
+T02_2520	0062359	|	NP1f	Barb	[Nns.Nns]P:u]S]
+T02_2523	-----	Gemma006
+T02_2526	.....	00437
+T02_2529	0062435	&,	NP1f	Gemma	[Nns.Nns]
+T02_2532	0062454	|	NP1f	Gemma	[Nns.Nns]
+T02_2535	0062482	&	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2538	0062491	|	VAI	ai	[Ve.
+T02_2541	0062500	|	XX	+n't	.Ve]
+T02_2544	0062512	.	NP1f	Barb	[Nns:e.Nns:e]S]
+T02_2547	-----	Barbara004
+T02_2550	.....	00438
+T02_2553	0062563	|	NP1f	Gemma	[Nns.Nns]
+T02_2556	0062574	c	YP	{pause}	.
+T02_2559	0062582	|	CCB	but	[S+.
+T02_2562	0062593	|	UN	no	.
+T02_2565	0062603	|	PPIS1	I	[Nea:s.Nea:s]
+T02_2568	0062612	|	VVDv	said	[Vd.Vd]
+T02_2571	0062624	|	IIt	to	[P:u.
+T02_2574	0062635	,	NP1f	Barb	[Nns.Nns]P:u]S+]
+T02_2577	0062672	&	CC	and	[S+.
+T02_2580	0062683	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_2583	0062694	|	VVDv	said	[Vd.Vd]
+T02_2586	0062706	|	IIt	to	[P:u.
+T02_2589	0062717	|	PPIO1	me	.P:u]
+T02_2592	0062727	|	VBR	are	[Q:o[S?[Voab.Voab]
+T02_2595	0062738	|	PPY	you	[Ny:s.Ny:s]
+T02_2598	0062749	?	VVGi	going	[Vrg.Vrg]S?]Q:o]S+]
+T02_2601	-----	Gemma006
+T02_2604	.....	00439
+T02_2607	0062834	&*	CC	and	[S+.
+T02_2610	0062845	|	DDQ	what	[Dq:o.Dq:o]
+T02_2613	0062857	|	VDD	did	[Vod.Vod]
+T02_2616	0062868	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_2619	0062879	?	VV0v	say	[Vr.Vr]S+]
+T02_2622	-----	Barbara004
+T02_2625	.....	00440
+T02_2628	0062946	*	CC	and	[S+.
+T02_2631	0062957	|	PPIS1	I	[Nea:s.Nea:s]
+T02_2634	0062966	|	VVDv	said	[Vd.Vd]
+T02_2637	0062978	|	UW	well	[Q:o.
+T02_2640	0062990	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2643	0000000	y	YG	-	[m131.m131]
+T02_2646	0062999	|	VMo	ca	[Vce.
+T02_2649	0063008	|	XX	+n't	.
+T02_2652	0063019	|	RR	really	[R:G131.R:G131]
+T02_2655	0063034	|	VV0t	afford	.Vce]
+T02_2658	0063048	|	PPH1	it	[Ni:o.Ni:o]S]
+T02_2661	0063058	|	NP1f	Barb	[Nns".Nns"]Q:o]S+]
+T02_2664	0063070	|	CC	and	[S+.
+T02_2667	0063081	|	YMV	er	.
+T02_2670	0063091	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_2673	0063102	|	VVDv	said	[Vd.Vd]
+T02_2676	0000000	y	YR	#	.
+T02_2679	0063115	|	UR	oh	.
+T02_2682	0063125	c	YP	{pause}	.
+T02_2685	0063133	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_2688	0063144	|	VVDv	said	[Vd.Vd]
+T02_2691	0063156	|	NP1f	Gemma	[Q:o[S[Nns:s.Nns:s]
+T02_2694	0063167	|	VMo	wo	[Vce.
+T02_2697	0063176	|	XX	+n't	.
+T02_2700	0063187	|	VV0v	get	.Vce]
+T02_2703	0063199	|	JJ	funny	[J:e.J:e]
+T02_2706	0063212	|	IW	with	[P:r.
+T02_2709	0063224	|	PPIO2	us	.P:r]
+T02_2712	0063234	,	RTn	then	[Rsw:c.Rsw:c]S]Q:o]S+]
+T02_2715	0063254	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2718	0063263	|	VVDv	said	[Vd.Vd]
+T02_2721	0063276	.	UN	no	[Q:o.Q:o]S]
+T02_2724	-----	Gemma006
+T02_2727	.....	00441
+T02_2730	0063325	*.	UN	no	.
+T02_2733	.....	00442
+T02_2736	0063355	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2739	0063364	|	VDD	did	[Vd.Vd]
+T02_2742	0063375	|	MC	seventy-five	[Nu:o.
+T02_2748	0063402	|	NNU1c	pound	.Nu:o]
+T02_2751	0063415	.	RR	anyway	[R:c.R:c]S]
+T02_2754	-----	Barbara004
+T02_2757	.....	00443
+T02_2760	0063468	*	VDD	did	[S?[Vdx.Vdx]
+T02_2763	0063479	?	PPY	you	[Ny:s.Ny:s]S?]
+T02_2766	-----	Gemma006
+T02_2769	.....	00444
+T02_2772	0063529	*.	UY	yeah	.
+T02_2775	-----	Barbara004
+T02_2778	.....	00445
+T02_2781	0063580	*	RGQq	how	[S?[Dq:o.
+T02_2784	0063591	|	DA1	much	.Dq:o]
+T02_2787	0063603	|	VD0	do	[Vo.Vo]
+T02_2790	0063613	|	PPY	you	[Ny:s.Ny:s]
+T02_2793	0063624	|	VV0v	get	[Vr.Vr]
+T02_2796	0063635	|	RL	back	[R:q.R:q]
+T02_2799	0063647	|	II	on	[P:r.
+T02_2802	0063658	?	DD1a	that	.P:r]S?]
+T02_2805	-----	Gemma006
+T02_2808	.....	00446
+T02_2811	0063709	*	UW	well	.
+T02_2814	0063721	c	YP	{pause}	.
+T02_2817	0063729	|	NP1m	Steve	[S[Ns:s[G[Nns.Nns]
+T02_2820	0063741	|	GG	+'s	.G]
+T02_2823	0063751	|	NNS1c	mum	.Ns:s]
+T02_2826	0063762	|	VHD	had	[Vd.Vd]
+T02_2829	0063773	|	MC	fifty	[Ns:o[G[Nup.
+T02_2832	0063787	|	NNU2	pounds	.Nup]
+T02_2833	0000000	|	GG	+'	.G]
+T02_2835	0063801	|	NN1u	worth	.Ns:o]
+T02_2838	0063814	|	II21	off	[P:q[II=.
+T02_2841	0063814	|	II22	of	.II=]
+T02_2844	0063828	|	NP1m	Steve	[Ns[Nns.Nns]
+T02_2847	0063842	|	NNS1c	auntie	.Ns]P:q]S]
+T02_2850	0063856	,	UK	look	.
+T02_2853	0063880	|	RRz	so	[S[Rs:c.Rs:c]
+T02_2856	0063890	|	YMN	erm	.
+T02_2859	0063901	c	YP	{pause}	.
+T02_2862	0063909	|	PPIS1	I	[Nea:s.Nea:s]
+T02_2865	0063918	|	VDD	did	[Vd.Vd]
+T02_2868	0063930	|	RGi	about	[M:o.
+T02_2871	0063943	|	NNOc	hundred	.
+T02_2874	0063958	|	CC	and	[M+.
+T02_2877	0063969	|	MC	twenty-five	.M+]M:o]
+T02_2883	0063995	|	CC	and	[S+.
+T02_2886	0064006	|	PPIS1	I	[Nea:s.Nea:s]
+T02_2889	0064016	|	VHD	had	[Vd.Vd]
+T02_2892	0064027	|	MC	twenty-five	[Nu:o.
+T02_2898	0064053	|	NNU1c	pound	.Nu:o]
+T02_2901	0064066	.	RL	back	[R:q.R:q]S+]S]
+T02_2904	.....	00447
+T02_2907	0064098	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_2910	0064107	|	VHD	had	[Vd.Vd]
+T02_2913	0064118	|	DD1a	that	[Ms:o.
+T02_2916	0064130	|	MC1	one	.Ms:o]
+T02_2919	0064141	|	RR21	as	[R:m[RR=.
+T02_2922	0064151	|	RR22	well	.RR=]R:m]
+T02_2925	0064163	|	RP	up	[R:p.
+T02_2928	0064174	|	RLh	there	.
+T02_2931	0000000	y	YR	#	.
+T02_2934	0064187	|	RP	up	.
+T02_2937	0064197	|	RLh	there	.R:p]S]
+T02_2940	0064210	.	UK	look	.
+T02_2943	-----	Barbara004
+T02_2946	.....	00448
+T02_2949	0064261	*	UY	yeah	.
+T02_2952	0064273	|	DD1a	that	[S[Ds:s.Ds:s]
+T02_2955	0064284	|	VBZ	+'s	[Vzb.Vzb]
+T02_2958	0064294	.	JJ	nice	[J:e.J:e]S]
+T02_2961	-----	Gemma006
+T02_2964	.....	00449
+T02_2967	0064345	*	CC	and	[S+.
+T02_2970	0064356	|	PPIS1	I	[Nea:s.
+T02_2973	0000000	y	YG	-	[133.133]Nea:s]
+T02_2976	0064365	|	VVNH	got	[Vn.Vn]
+T02_2979	0064375	|	TO	+ta	[Ti:z[Vi.
+T02_2982	0064385	|	VV0v	pay	.Vi]
+T02_2985	0064396	|	DDi	some	[D:o.D:o]Ti:z]
+T02_2988	0064408	.	PPX1i	myself	[Nos@:G133.Nos@:G133]S+]
+T02_2991	.....	00450
+T02_2994	0064441	c	YP	{pause}	.
+T02_2997	0064449	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_3000	0064458	|	RR	still	[R:t.R:t]
+T02_3003	0064471	|	VVNH	got	[Vn.Vn]
+T02_3006	0064482	|	VV0v	collect	[Tb:z[V.V]
+T02_3009	0064497	|	DDi	some	[Ns:o[D.
+T02_3012	0064509	|	DAR	more	.D]
+T02_3015	0064522	|	NN1u	money	.Ns:o]
+T02_3018	0064535	.	RP	in	[R:n.R:n]Tb:z]S]
+T02_3021	.....	00451
+T02_3024	0064569	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_3027	0064578	|	VAI	ai	[Veu.
+T02_3030	0064587	|	XX	+n't	.
+T02_3033	0064598	|	VHG	having	.Veu]
+T02_3036	0064612	|	DD1q	another	[Ms:o.
+T02_3039	0064627	.	MC1	one	.Ms:o]S]
+T02_3042	-----	Barbara004
+T02_3045	.....	00452
+T02_3048	0064677	*	VBR	are	[S?[Vaebx.
+T02_3051	0064687	|	XX	+n't	.Vaebx]
+T02_3054	0064698	?	PPY	you	[Ny:s.Ny:s]S?]
+T02_3057	-----	Gemma006
+T02_3060	.....	00453
+T02_3063	0064748	*.	UN	no	.
+T02_3066	.....	00454
+T02_3069	0064777	c	YP	{pause}	.
+T02_3072	0064785	|	VMo	ca	[S[Vce.
+T02_3075	0064794	|	XX	+n't	.
+T02_3078	0064805	|	VH0	have	.Vce]
+T02_3081	0064817	|	DD1q	another	[Ms:o.
+T02_3084	0064832	.	MC1	one	.Ms:o]S]
+T02_3087	.....	00455
+T02_3090	0064863	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_3093	0064872	|	VBZ	+'s	[Vzb.Vzb]
+T02_3096	0064882	|	RGf	too	[Ns:e[Ds.
+T02_3099	0064893	|	DA1	much	.Ds]
+T02_3102	0064905	.	NN1c	hassle	.Ns:e]S]
+T02_3105	.....	00456
+T02_3108	0064938	c	YP	{pause}	.
+T02_3111	0064946	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_3114	0064955	|	VHD	had	[Vd.Vd]
+T02_3117	0064966	|	PPH1	it	[Ni:o.Ni:o]
+T02_3120	0064976	|	RLh	here	[Rw:p.Rw:p]
+T02_3123	0064988	|	MC	two	[Np:t.
+T02_3126	0064999	|	NNT2	days	.Np:t]S]
+T02_3129	0065011	ic	YY	{unclear}	[Y.Y]
+T02_3132	-----	Barbara004
+T02_3135	.....	00457
+T02_3138	0065052	*.	UY	mm	.
+T02_3141	-----	Gemma006
+T02_3144	.....	00458
+T02_3147	0065101	|	RGf	too	[R.
+T02_3150	0065112	.	RRg	long	.R]
+T02_3153	-----	Barbara004
+T02_3156	.....	00459
+T02_3159	0065166	ic	YY	{unclear}	[Y.Y]
+T02_3162	0065176	|	MC	twenty	[Nu.
+T02_3165	0065190	|	NNUp21	per	[NNUp=.
+T02_3166	0065193	|	NNUp22	cent	.NNUp=]Nu]
+T02_3168	0065205	ic	YY	{unclear}	[Y.Y]
+T02_3171	0065215	|	VH0	have	[Iq[S?[Ve.
+T02_3174	0065226	|	XX	+n't	.Ve]
+T02_3177	0065238	?	PPY	you	[Ny:s.Ny:s]S?]Iq]
+T02_3180	-----	Gemma006
+T02_3183	.....	00460
+T02_3186	0065288	*	UW	well	.
+T02_3189	0065300	|	UY	yeah	.
+T02_3192	0065312	|	CC	and	[S+.
+T02_3195	0065323	c	YP	{pause}	.
+T02_3198	0065331	|	PPY	you	[Ny:s.Ny:s]
+T02_3201	0065342	|	VD0	do	[Ve.
+T02_3204	0065351	|	XX	+n't	.
+T02_3207	0065362	|	VV0v	get	.Ve]
+T02_3210	0065374	|	PN1	nothing	[Ns:o.Ns:o]
+T02_3213	0065389	|	RP	out	[R:n.R:n]
+T02_3216	0065404	|	CS22	case	[Fa:c.
+T02_3219	0065416	|	PN1	somebody	[Ns:s.Ns:s]
+T02_3222	0065432	|	VV0i	come	[V[VV0i&.
+T02_3225	0065445	|	VV0v	look	[VV0v-.VV0v-]VV0i&]V]
+T02_3228	0065461	|	CCr	or	[Fa+.
+T02_3231	0065471	c	YP	{pause}	.
+T02_3234	0065479	|	PPIS1	I	[Nea:s.Nea:s]
+T02_3237	0065488	|	VMo	ca	[Vce.
+T02_3240	0065497	|	XX	+n't	.
+T02_3243	0065508	|	VV0v	put	.Vce]
+T02_3246	0065519	|	DBa	all	[Ns:o.
+T02_3249	0065531	|	PPIO1	me	.
+T02_3252	0065541	|	NN1u	washing	.Ns:o]
+T02_3255	0065556	|	RL	round	[R:q.R:q]Fa+]Fa:c]S+]
+T02_3258	0065569	|	ICSk	like	.
+T02_3261	0065581	|	UE21	you	[UE=.
+T02_3264	0065592	?	UE22	know	.UE=]
+T02_3267	-----	Barbara004
+T02_3270	.....	00461
+T02_3273	0065643	*.	UY	yeah	.
+T02_3276	-----	Gemma006
+T02_3279	.....	00462
+T02_3282	0065694	*	CC	and	[S+.
+T02_3285	0065705	|	PPIS1	I	[Nea:s.Nea:s]
+T02_3288	0065714	|	VBDZ	was	[Vsb.Vsb]
+T02_3291	0065725	|	RGz	so	[J:e.
+T02_3294	0065735	|	JJ	tired	.J:e]
+T02_3297	0065748	|	IIb	by	[Pb:t.
+T02_3300	0065758	|	AT	the	[Ns.
+T02_3303	0065769	|	NN1c	end	.
+T02_3306	0065781	|	IO	of	[Po.
+T02_3309	0065791	|	AT	the	[Ns.
+T02_3312	0065802	.	NNT1c	week	.Ns]Po]Ns]Pb:t]S+]
+T02_3315	-----	Barbara004
+T02_3318	.....	00463
+T02_3321	0065853	*	PPH1	it	[S[Ni:s[PPH1#.
+T02_3324	0000000	y	YR	#	.
+T02_3327	0065863	|	PPH1	it	.
+T02_3330	0000000	y	YR	#	.
+T02_3333	0065873	c	YP	{pause}	.
+T02_3336	0065881	|	PPH1	it	.
+T02_3339	0000000	y	YR	#	.
+T02_3342	0065891	|	PPH1	it	.PPH1#]Ni:s]
+T02_3345	0065901	|	VDZ	does	[Vzk.
+T02_3348	0065913	|	VV0v	get	.Vzk]
+T02_3351	0065924	|	PPY	you	[Ny:o.Ny:o]
+T02_3354	0065936	|	ICSk	like	[P:h.
+T02_3357	0065948	|	DD1a	that	.P:h]
+T02_3360	0065977	&	VD0	do	[Iq[S?[Vex.
+T02_3363	0065986	|	XX	+n't	.Vex]
+T02_3366	0065997	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T02_3369	-----	Gemma006
+T02_3372	.....	00464
+T02_3375	0066079	&*	PPH1	it	[S[Ni:s.Ni:s]
+T02_3378	0066089	|	VDZ	does	[Vzk.
+T02_3381	0066101	|	VV0v	get	.Vzk]
+T02_3384	0066112	|	PPY	you	[Ny:o.Ny:o]
+T02_3387	0066140	&	ICSk	like	[P:h.
+T02_3390	0066153	|	DD1a	that	.P:h]
+T02_3393	0066165	|	PPIS1	I	[I[S[Nea:s.Nea:s]
+T02_3396	0066174	|	VV0v	reckon	[V.V]S]I]
+T02_3399	0066188	|	CSn	when	[Fa:t[Rq:t.Rq:t]
+T02_3402	0066200	|	PPY	you	[Ny:s.Ny:s]
+T02_3405	0066210	|	VH0	+'ve	[Vf.
+T02_3408	0066221	|	VVNH	got	.Vf]
+T02_3411	0066233	|	PN1	something	[Ns:o.
+T02_3414	0066250	|	ICSk	like	[P.
+T02_3417	0066262	.	DD1a	that	.P]Ns:o]Fa:t]
+T02_3420	.....	00465
+T02_3423	0066294	*	CS	cos	[Fa:c.
+T02_3426	0066305	|	PPY	you	[Ny:s.Ny:s]
+T02_3429	0066315	|	VBR	+'re	[Vau.
+T02_3432	0066326	|	VVGv	chatting	.Vau]
+T02_3435	0066342	|	DBa	all	[Ns:t.
+T02_3438	0066353	|	AT	the	.
+T02_3441	0066364	|	NNT1c	time	.Ns:t]
+T02_3444	0066377	|	VBR	are	[Iq[S?[Vaebx.
+T02_3447	0066387	|	XX	+n't	.Vaebx]
+T02_3450	0066398	?	PPY	you	[Ny:s.Ny:s]S?]Iq]Fa:c]S]
+T02_3453	-----	Barbara004
+T02_3456	.....	00466
+T02_3459	0066448	*.	UY	yeah	.
+T02_3462	.....	00467
+T02_3465	0066480	*	UY	yeah	.
+T02_3468	0066509	&	PPY	you	[S[Ny:s.Ny:s]
+T02_3471	0066520	.	VBR	are	[Vabx.Vabx]S]
+T02_3474	-----	Gemma006
+T02_3477	.....	00468
+T02_3480	0066603	&ic	YY	{unclear}	[Y.
+T02_3483	0066630	&.	VV0i	come	.Y]
+T02_3486	.....	00469
+T02_3489	0066662	*	VD0	do	[S?[Vo.Vo]
+T02_3492	0066672	|	PPY	you	[Ny:s.Ny:s]
+T02_3495	0066683	|	VV0v	reckon	[Vr.Vr]
+T02_3498	0066697	|	PPHS2	they	[Fn:o[Nap:s.Nap:s]
+T02_3501	0066708	|	VMo	+'ll	[Vc.
+T02_3504	0066719	?	VV0i	come	.Vc]Fn:o]S?]
+T02_3507	.....	00470
+T02_3510	0066750	ic.	YY	{unclear}	[Y.Y]
+T02_3513	0066768	*	VVNH	got	[S[Vn.Vn]
+T02_3516	0066779	|	AT1	a	[Ns:o.
+T02_3519	0066788	ic.	YY	{unclear}	[Y.Y]Ns:o]S]
+T02_3522	.....	00471
+T02_3525	0066818	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T02_3528	0066829	|	VVNH	got	[Vn.Vn]
+T02_3531	0066840	|	AT1	a	[Ns:o.
+T02_3534	0066849	|	JJ	little	.
+T02_3537	0066863	.	NN1c	boy	.Ns:o]S]
+T02_3540	-----	Barbara004
+T02_3543	.....	00472
+T02_3546	0066913	*.	UY	yeah	.
+T02_3549	-----	Gemma006
+T02_3552	.....	00473
+T02_3555	0066964	*	PPHS1f	she	[S[Nas:s.Nas:s]
+T02_3558	0066975	.	VVNi	come	[Vn.Vn]S]
+T02_3561	.....	00474
+T02_3564	0067007	*	CC	and	[S+.
+T02_3567	0067018	|	PPIS1	I	[Nea:s.Nea:s]
+T02_3570	0067027	|	VVDv	thought	[Vd.Vd]
+T02_3573	0067042	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T02_3576	0067053	|	VMd	might	[Vdcf.
+T02_3579	0067066	|	VH0	have	.
+T02_3582	0067078	|	VVNi	come	.Vdcf]
+T02_3585	0067091	|	RTt	today	[Rw:t.Rw:t]Fn:o]
+T02_3588	0067104	|	CS	cos	[Fa:c.
+T02_3591	0067115	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_3594	0067126	|	VVDv	said	[Vd.Vd]
+T02_3597	0067138	|	PPHS1f	she	[Fn:o[Nas:s.Nas:s]
+T02_3600	0067148	|	VMd	+'d	[Vdc.
+T02_3603	0067158	|	VV0t	bring	.Vdc]
+T02_3606	0067172	|	RP	up	[R:q.R:q]
+T02_3609	0067182	|	AT	the	[Ns:o.
+T02_3612	0067193	|	NN1u	money	.Ns:o]Fn:o]Fa:c]
+T02_3615	0067206	|	CCB	but	[S+.
+T02_3618	0067217	c	YP	{pause}	.
+T02_3621	0067225	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_3624	0067254	&	VHZ	has	[Vzex.
+T02_3627	0067264	,	XX	+n't	.Vzex]
+T02_3630	0067283	|	XX	not	[R:t.
+T02_3633	0067294	.	RRs	yet	.R:t]S+]S+]
+T02_3636	-----	Barbara004
+T02_3639	.....	00475
+T02_3642	0067377	&	PPIS1	I	[S[Nea:s.Nea:s]
+T02_3645	0067386	|	VV0t	like	[V.V]
+T02_3648	0067398	|	DD1a	that	[Ns:o.
+T02_3651	0067427	&	NNn	fish	.
+T02_3654	0067439	|	NN1c	tank	.Ns:o]S]
+T02_3657	0067451	ic	YY	{unclear}	[Y.Y]
+T02_3660	0067461	|	DD2a	those	[S[Np:s.
+T02_3663	0067474	|	NN2	fishes	.Np:s]
+T02_3666	0067488	|	VBR	are	[Vab.Vab]
+T02_3669	0067499	,	JJ	nice	[J:e.J:e]S]
+T02_3672	0067520	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_3675	0067531	|	VBR	+'re	[Vab.Vab]
+T02_3678	0067542	|	JJ	big	[J:e.J:e]
+T02_3681	0067553	|	VBR	are	[Iq[S?[Vaeb.
+T02_3684	0067563	|	XX	+n't	.Vaeb]
+T02_3687	0067574	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T02_3690	-----	Gemma006
+T02_3693	.....	00476
+T02_3696	0067625	*	UY	yeah	.
+T02_3699	0067637	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_3702	0067648	|	VBR	+'re	[Vab.Vab]
+T02_3705	0067659	|	DD1b21	a	[J:e[DD1b=.
+T02_3708	0067659	|	DD1b22	bit	.DD1b=]J:e]
+T02_3711	0000000	y	YR	#	.
+T02_3714	0067672	c	YP	{pause}	.
+T02_3717	0067680	|	VVZv	looks	[Vz.Vz]
+T02_3720	0067693	|	DD1b21	a	[J:e[DD1b=.
+T02_3723	0067693	|	DD1b22	bit	.DD1b=]
+T02_3726	0067707	|	JJ	slow	.J:e]
+T02_3729	0067719	|	VD0	do	[Iq[S?[Vex.
+T02_3732	0067728	|	XX	+n't	.Vex]
+T02_3735	0067739	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T02_3738	.....	00477
+T02_3741	0067771	*	RR	probably	[S[R:m.R:m]
+T02_3744	0067787	|	VVZv	wants	[Vz.Vz]
+T02_3747	0067800	|	VVGv	cleaning	[Tg:o[Vg.Vg]
+T02_3750	0067816	|	RP	out	[R:n.R:n]Tg:o]
+T02_3753	0067827	|	CCB	but	[S+.
+T02_3756	0067838	|	AT	the	[Ns:s.
+T02_3759	0067850	|	NN1c	pump	.Ns:s]
+T02_3762	0067861	|	VBZ	+'s	[Vzb.Vzb]
+T02_3765	0067888	&ic	YY	{unclear}	[Y:e.Y:e]S+]S]
+T02_3768	-----	Barbara004
+T02_3771	.....	00478
+T02_3774	0067962	&*	PPHS2	they	[S?[Nap:s.Nap:s]
+T02_3777	0067974	|	VVGi	rising	[Vg.Vg]
+T02_3780	0067988	|	IIt	to	[P:q.
+T02_3783	0067998	|	AT	the	[Ns.
+T02_3786	0068009	|	NN1c	top	.Ns]P:q]
+T02_3789	0068024	|	DDo21	a	[D:h[DDo=.
+T02_3792	0068024	|	DDo22	lot	.DDo=]D:h]S?]
+T02_3795	0068054	&?	NP1f	Gemma	[Nns".Nns"]
+T02_3798	-----	Gemma006
+T02_3801	.....	00479
+T02_3804	0068104	*.	UY	yeah	.
+T02_3807	-----	Barbara004
+T02_3810	.....	00480
+T02_3813	0068155	*	PPY	you	[S[Ny:s.Ny:s]
+T02_3816	0068166	,	VV0t	need	[V.V]
+T02_3819	0000000	y	YR	#	.S]
+T02_3822	0068186	|	VBZ	is	[S?[Vzb.Vzb]
+T02_3825	0068196	|	AT	the	[Ns:s.
+T02_3828	0068207	|	NN1n	air	.
+T02_3831	0068218	|	NN1c	pump	.Ns:s]
+T02_3834	0068231	?	RP	on	[R:e.R:e]S?]
+T02_3837	-----	Gemma006
+T02_3840	.....	00481
+T02_3843	0068284	*.	UN	no	.
+T02_3846	-----	Barbara004
+T02_3849	.....	00482
+T02_3852	0068333	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_3855	0068343	|	VMK	ought	[Vc.Vc]
+T02_3858	0068356	|	TO	to	[Ti:z[Vip.
+T02_3861	0068366	|	VB0	be	.
+T02_3864	0068376	|	VVNv	put	.Vip]
+T02_3867	0068387	|	RP	on	[R:e.R:e]Ti:z]
+T02_3870	0068401	|	CS	cos	[Fa:c.
+T02_3873	0068413	,	PPH1	it	[Ni:y.Ni:y]
+T02_3876	0000000	y	YR	#	.
+T02_3879	0068448	&	CSi	if	[Fa:c.
+T02_3882	0068458	|	PPHS2	they	[Nap:s.Nap:s]
+T02_3885	0068470	|	VV0i	rise	[V.V]
+T02_3888	0068482	|	IIt	to	[P:q.
+T02_3891	0068492	|	AT	the	[Ns.
+T02_3894	0068504	|	NN1c	top	.Ns]P:q]Fa:c]
+T02_3897	0000000	y	YR	#	.Fa:c]S]
+T02_3900	-----	Gemma006
+T02_3903	.....	00483
+T02_3906	0068583	&*	NN1u	oxygen	[L[Ns:e.Ns:e]
+T02_3909	0068618	&	VDZ	du	[Iq[S?[Vzex.
+T02_3912	0068628	|	XX	+nn	.Vzex]
+T02_3915	0068636	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]L]
+T02_3918	-----	Barbara004
+T02_3921	.....	00484
+T02_3924	0068685	*	UY	yeah	.
+T02_3927	0068697	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_3930	0068709	|	VV0v	want	[V.V]
+T02_3933	0068721	|	AT	the	[Ns:o.
+T02_3936	0068732	.	NN1u	oxygen	.Ns:o]S]
+T02_3939	-----	Gemma006
+T02_3942	.....	00485
+T02_3945	0068785	*	UY	yeah	.
+T02_3948	0068797	|	CCB	but	[S+.
+T02_3951	0068808	|	DD1a	that	[Ds:s.Ds:s]
+T02_3954	0068820	|	VVZv	drives	[Vz.Vz]
+T02_3957	0068838	|	PPIO1	me	[Neo:o.Neo:o]
+T02_3960	0068848	.	JJ	mad	[J:j.J:j]S+]
+T02_3963	.....	00486
+T02_3966	0068879	*,	UR	right	.
+T02_3969	0068900	|	VV0v	put	[S*[V.V]
+T02_3972	0068911	|	PPH1	it	[Ni:o.Ni:o]
+T02_3975	0068921	|	II	in	[P:q.
+T02_3978	0068931	|	AT	the	[Ns.
+T02_3981	0068942	|	NN1c	bin	.Ns]P:q]
+T02_3984	0068954	.	RTn	then	[Rsw:c.Rsw:c]S*]
+T02_3987	-----	Barbara004
+T02_3990	.....	00487
+T02_3993	0069005	*	CC	and	[S+.
+T02_3996	0069016	|	PPHS2	they	[Nap:s137.Nap:s137]
+T02_3999	0069028	|	VV0v	keep	[V.V]
+T02_4002	0000000	y	YR	#	.
+T02_4005	0069040	c	YP	{pause}	.
+T02_4008	0069048	|	PPHS2	they	[Nap:s.Nap:s]
+T02_4011	0069060	|	VV0v	keep	[V.V]
+T02_4014	0069072	|	VVGv	popping	[Tg:z[Vg.Vg]
+T02_4017	0000000	y	YG	-	[Ti:c[s137.s137]
+T02_4020	0069088	|	TO	to	[Vi.
+T02_4023	0069098	|	VH0	have	.Vi]
+T02_4026	0069110	?	NN1n	air	[Ns:o.Ns:o]Ti:c]Tg:z]S+]
+T02_4029	-----	Gemma006
+T02_4032	.....	00488
+T02_4035	0069160	*?	UL	mm	.
+T02_4038	-----	Barbara004
+T02_4041	.....	00489
+T02_4044	0069209	*	VD0	do	[S?[Vo.Vo]
+T02_4047	0069219	|	PPHS2	they	[Nas:s139.Nas:s139]
+T02_4050	0069231	|	VV0v	keep	[Vr.Vr]
+T02_4053	0069243	|	VVGv	popping	[Tg:z[Vg.Vg]
+T02_4056	0069258	|	RP	up	[R:q.R:q]
+T02_4059	0000000	y	YG	-	[Ti:c[s139.s139]
+T02_4062	0069268	|	TO	to	[Vi.
+T02_4065	0069278	|	VH0	have	.Vi]
+T02_4068	0069291	?	NN1n	air	[Ns:o.Ns:o]Ti:c]Tg:z]S?]
+T02_4071	-----	Gemma006
+T02_4074	.....	00490
+T02_4077	0069341	*?	NN1n	air	[Ns.Ns]
+T02_4080	-----	Barbara004
+T02_4083	.....	00491
+T02_4086	0069391	*.	UY	yeah	.
+T02_4089	-----	Gemma006
+T02_4092	.....	00492
+T02_4095	0069442	*	UW	well	.
+T02_4098	0069454	|	PPHS2	they	[S[Nap:S141.Nap:S141]
+T02_4101	0069466	|	VD0	do	[Ve.
+T02_4104	0069475	|	XX	+n't	.
+T02_4107	0069486	|	VV0i	seem	.Ve]
+T02_4110	0000000	y	YG	-	[Ti:s[s141.s141]
+T02_4113	0069498	|	TO	to	[Vib.
+T02_4116	0069508	|	VB0	be	.Vib]
+T02_4119	0069518	c	YP	{pause}	.
+T02_4122	0069527	|	RGf	too	[J:e.
+T02_4125	0069538	|	JJ	bad	.J:e]Ti:s]
+T02_4128	0069549	|	CCB	but	[S+.
+T02_4131	0069560	|	PPHS2	they	[Nap:s.Nap:s]
+T02_4134	0069571	|	VBR	+'re	[Vab.Vab]
+T02_4137	0069582	|	RR21	ever	[J:e[RR=.
+T02_4140	0069582	|	RR22	so	.RR=]
+T02_4143	0069598	.	JJ	still	.J:e]S+]S]
+T02_4146	-----	Barbara004
+T02_4149	.....	00493
+T02_4152	0069650	*	PPHS2	they	[S[Nap:s.Nap:s]
+T02_4155	0069661	|	VBR	+'re	[Vaeu.
+T02_4158	0069672	|	XX	not	.
+T02_4161	0069683	|	VVGv	swimming	.Vaeu]
+T02_4164	0069699	,	RL	around	[R:q.R:q]S]
+T02_4167	0069721	|	UY	yeah	.
+T02_4170	0069734	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_4173	0069745	|	VBR	+'re	[Vau.
+T02_4176	0069756	|	VVGv	staying	.Vau]
+T02_4179	0069771	|	II	at	[P:p.
+T02_4182	0069781	|	AT	the	[Ns.
+T02_4185	0069792	|	NN1c	top	.Ns]P:p]
+T02_4188	0069807	|	RR21	as	[R:m[RR=.
+T02_4191	0069807	|	RR22	well	.RR=]R:m]
+T02_4194	0069822	|	VBR	are	[Iq[S?[Vaebx.
+T02_4197	0069832	|	XX	+n't	.Vaebx]
+T02_4200	0069843	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T02_4203	-----	Gemma006
+T02_4206	.....	00494
+T02_4209	0069894	*.	UY	yeah	.
+T02_4212	.....	00495
+T02_4215	0069925	c	YP	{pause}	.
+T02_4218	0069933	*.	UY	yeah	.
+T02_4221	-----	Barbara004
+T02_4224	.....	00496
+T02_4227	0069984	*	PPHS2	they	[S[Nap:s.Nap:s]
+T02_4230	0069995	|	VBR	+'re	[Vaeb.
+T02_4233	0070006	|	XX	not	.Vaeb]
+T02_4236	0070017	|	JJ	ill	[J:e.J:e]
+T02_4239	0070028	|	VBR	are	[Iq[S?[Vab.Vab]
+T02_4242	0070039	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S]
+T02_4245	-----	Gemma006
+T02_4248	.....	00497
+T02_4251	0070090	*	UN	no	.
+T02_4254	0070100	c	YP	{pause}	.
+T02_4257	0070108	|	UW	well	.
+T02_4260	0070120	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_4263	0070131	,	VH0	+'ve	[V.V]
+T02_4266	0000000	y	YR	#	.S]
+T02_4269	0070150	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_4272	0070158	|	VH0	+'ve	[Vf.
+T02_4275	0070170	|	VHN	had	.Vf]
+T02_4278	0070181	|	PPHO2	them	[Nop:o.Nop:o]
+T02_4281	0070193	|	MC	three	[Np:t.
+T02_4284	0070206	|	NNT2	days	.Np:t]S]
+T02_4287	0070218	.	UK	look	.
+T02_4290	.....	00498
+T02_4293	0070250	*	RRz	so	[S[Rs:c.Rs:c]
+T02_4296	0070260	|	RR	really	[R:m.R:m]
+T02_4299	0070274	|	PPH1	it	[Ni:s.Ni:s]
+T02_4302	0070283	|	VBZ	+'s	[Vzb.Vzb]
+T02_4305	0070293	|	RR	just	[R:m.R:m]
+T02_4308	0070305	|	AT1	a	[Ns:e.
+T02_4311	0070314	|	NN1n	matter	.
+T02_4314	0070329	|	IO	of	[Po.
+T02_4317	0000000	y	YR	#	.Po]Ns:e]S]
+T02_4320	-----	Barbara004
+T02_4323	.....	00499
+T02_4326	0070370	*	VBZ	is	[S?[Vzb.Vzb]
+T02_4329	0070380	|	MC1	one	[Ms:s.Ms:s]
+T02_4332	0070395	?	JJ	diseased	[J:e.J:e]S?]
+T02_4335	-----	Gemma006
+T02_4338	.....	00500
+T02_4341	0070450	*,	UN	no	.
+T02_4344	0070468	|	VD0	do	[S[Ve.
+T02_4347	0070477	|	XX	+n't	.
+T02_4350	0070488	|	VV0v	think	.Ve]
+T02_4353	0070501	.	PN1z	so	[Ns:h.Ns:h]S]
+T02_4356	-----	Barbara004
+T02_4359	.....	00501
+T02_4362	0070550	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_4365	0070558	|	VH0	+'ve	[Vf.
+T02_4368	0070569	|	VVNv	read	.Vf]
+T02_4371	0070581	|	RP	up	[R:n.R:n]
+T02_4374	0070591	|	II	on	[P:r.
+T02_4377	0070601	|	PPIO1	me	[N.
+T02_4380	0070611	.	NNn	fish	.N]P:r]S]
+T02_4383	.....	00502
+T02_4386	0070643	*	RRz	so	[S[Rs:c.Rs:c]
+T02_4389	0070670	&	PPIS1	I	[Nea:s.Nea:s]
+T02_4392	0070679	|	VV0v	know	[V.V]
+T02_4395	0070691	|	DBa	all	[D:o.
+T02_4398	0070702	|	II	about	[P.
+T02_4401	0070716	,	NNn	fish	.P]D:o]
+T02_4404	0070736	|	II	at	[P:t.
+T02_4407	0070746	|	AT	the	[Ns.
+T02_4410	0070757	.	NNT1c	minute	.Ns]P:t]S]
+T02_4413	-----	Gemma006
+T02_4416	.....	00503
+T02_4419	0070843	&ic	YY	{unclear}	[Y.Y]
+T02_4422	0070853	|	PPHS1m	he	[S[Nas:s.
+T02_4425	0000000	y	YG	-	[145.145]Nas:s]
+T02_4428	0070862	|	VBZ	+'s	[Vzb.Vzb]
+T02_4431	0070889	&	AT1	a	[Ns:e.
+T02_4434	0070898	|	NN1c	shubunkin	.Ns:e]
+T02_4437	0070916	,	UK	look	.
+T02_4440	0070940	|	DD1a	that	[Ms@:G145.
+T02_4443	0070952	.	MC1	one	.Ms@:G145]S]
+T02_4446	.....	00504
+T02_4449	0070983	*	CCB	but	[S+.
+T02_4452	0070994	|	PPHS2	they	[Nap:s.Nap:s]
+T02_4455	0071006	|	RR	just	[R:m.R:m]
+T02_4458	0071018	|	VV0v	look	[V.V]
+T02_4461	0071030	c	YP	{pause}	.
+T02_4464	0071038	|	RR	half	[J:e.
+T02_4467	0071050	|	JJ	dead	.J:e]
+T02_4470	0071063	,	UK	look	.
+T02_4473	0071083	|	VD0	do	[Iq[S?[Vex.
+T02_4476	0071092	|	XX	+n't	.Vex]
+T02_4479	0071103	?	PPHS2	they	[Nap:s.Nap:s]S?]Iq]S+]
+T02_4482	-----	Barbara004
+T02_4485	.....	00505
+T02_4488	0071154	*,	UN	no	.
+T02_4491	0071172	|	PPHS2	they	[S[Nap:s.Nap:s]
+T02_4494	0071184	|	VMd	might	[Vdcb.
+T02_4497	0071197	|	VB0	be	.Vdcb]
+T02_4500	0071207	|	RR	just	[R:m.R:m]
+T02_4503	0000000	y	YR	#	.
+T02_4506	0071219	c	YP	{pause}	.
+T02_4509	0071227	|	PPIS1	I	[S@[Nea:s.Nea:s]
+T02_4512	0071237	|	VD0	do	[Ve.
+T02_4515	0071246	|	XX	+n't	.
+T02_4518	0071274	&.	VV0v	know	.Ve]S@]S]
+T02_4521	-----	Gemma006
+T02_4524	.....	00506
+T02_4527	0071358	&*.	UN	no	.
+T02_4530	-----	Barbara004
+T02_4533	.....	00507
+T02_4536	0071424	*	PPHS2	they	[S[Nap:s.Nap:s]
+T02_4539	0071436	ic	YY	{unclear}	[Y.
+T02_4542	0071446	|	VV0v	sleep	.
+T02_4545	0071459	ic.	YY	{unclear}	.Y]S]
+T02_4548	.....	00508
+T02_4551	0071489	*	DDQ	what	[S?[Dq:o.Dq:o]
+T02_4554	0071501	|	VDD	did	[Vod.Vod]
+T02_4557	0071512	|	PPIS1	I	[Nea:s.Nea:s]
+T02_4560	0071521	|	VD0	do	[Vr.Vr]
+T02_4563	0071531	|	IW	with	[P:h.
+T02_4566	0071543	|	DD1a	that	[Ns.
+T02_4569	0071556	?	NN1c	ashtray	.Ns]P:h]S?]
+T02_4572	-----	Gemma006
+T02_4575	.....	00509
+T02_4578	0071610	|	UE21	I	[UE=.
+T02_4581	0071619	|	UE22	mean	.UE=]
+T02_4584	0071631	|	AT	the	[S[Ns:s.
+T02_4587	0071642	|	NN1c	hamster	.Ns:s]
+T02_4590	0071657	|	VVDi	died	[Vd.Vd]
+T02_4593	0071669	|	II	in	[P:p.
+T02_4596	0071679	|	DD1a	that	[Ns.
+T02_4599	0071692	|	NNL1c	corner	.Ns]P:p]
+T02_4602	0071723	&.	RRz	so	[S-[Rs:c.Rs:c]
+T02_4603	0000000	y	YR	#	.S-]S]
+T02_4605	-----	Barbara004
+T02_4608	.....	00510
+T02_4611	0071805	&*	UR	oh	.
+T02_4614	0071815	|	VDD	did	[S?[Vdx.Vdx]
+T02_4617	0071826	?	PPHS1m	he	[Nas:s.Nas:s]S?]
+T02_4620	.....	00511
+T02_4623	0071872	&*	PPHS1m	he	[S[Nas:s.Nas:s]
+T02_4626	0071882	|	VVDi	died	[Vd.Vd]
+T02_4629	0071894	|	RTn	then	[Rsw:c.Rsw:c]
+T02_4632	0071906	|	VDD	did	[Iq[S?[Vdx.Vdx]
+T02_4635	0071917	|	PPHS1m	he	[Nas:s.Nas:s]S?]Iq]S]
+T02_4638	0071928	?	NP1f	Gemma	[Nns".Nns"]
+T02_4641	-----	Gemma006
+T02_4644	.....	00512
+T02_4647	0071978	*	UY	yeah	.
+T02_4650	0071990	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T02_4653	0072000	.	VVDi	died	[Vd.Vd]S]
+T02_4656	.....	00513
+T02_4659	0072031	c	YP	{pause}	.
+T02_4662	0072039	*	UY	yeah	.
+T02_4665	0072051	|	PPIS2	we	[S[Nap:s.Nap:s]
+T02_4668	0072061	|	VHD	had	[Vd.Vd]
+T02_4671	0072072	|	PPHO1m	him	[Nos:o.Nos:o]
+T02_4674	0072083	|	RGi	about	[N:t.N:t]
+T02_4677	0000000	y	YR	#	.
+T02_4680	0072096	c	YP	{pause}	.
+T02_4683	0072121	&	PPIS2	we	[Nap:s.Nap:s]
+T02_4686	0072131	|	VHD	had	[Vd.Vd]
+T02_4689	0072142	|	PPHO1m	him	[Nos:o.Nos:o]
+T02_4692	0072153	|	AT1	a	[Ns:t.
+T02_4695	0072162	|	NNT1c	year	.Ns:t]
+T02_4698	0072174	|	UK	look	.
+T02_4701	0072191	|	CS	cos	[Fa:c.
+T02_4704	0072202	|	PPIS1	I	[Nea:s.Nea:s]
+T02_4707	0072211	|	VVDv	bought	[Vd.Vd]
+T02_4710	0072225	|	PPHO1m	him	[Nos:o.Nos:o]
+T02_4713	0072236	|	RR	just	[R:h.R:h]
+T02_4716	0072248	|	ICSt	before	[P:t.
+T02_4719	0072267	|	NNT1h	Christmas	[Nns.
+T02_4722	.....	00514
+T02_4725	0072395	&	MDt	last	[Ns.
+T02_4728	0072407	|	NNT1c	year	.Ns]Nns]
+T02_4731	0072419	|	CSn	when	[Fa@[Rq:t.Rq:t]
+T02_4734	0072435	|	APPGi2	our	[Nns:s.
+T02_4737	0072446	|	NP1m	Adam	.Nns:s]
+T02_4740	0072458	|	VVDv	started	[Vd.Vd]
+T02_4743	0072474	.	NNJ1n	school	[Ns:o.Ns:o]Fa@]P:t]Fa:c]S]
+T02_4746	.....	00515
+T02_4749	0072507	c	YP	{pause}	.
+T02_4752	0072515	*.	UY	yeah	.
+T02_4755	-----	Barbara004
+T02_4758	.....	00000
+T02_4761	0072337	&ic	YY	{unclear}	[Y.Y]
+T02_4764	-----	Barbara004
+T02_4767	.....	00516
+T02_4770	0072566	*	VVDi	seemed	[S[Vd.Vd]
+T02_4773	0072584	|	ICSk	like	[P:e.
+T02_4776	0072596	|	NN1c	animal	[Nns.
+T02_4779	0072610	|	NNL1c	farm	.Nns]P:e]
+T02_4782	0072622	|	RP	up	[Rw:p.
+T02_4785	0072632	|	RLh	here	.Rw:p]
+T02_4788	0072645	|	II	at	[P:t.
+T02_4791	0072655	|	MC1	one	[Ns.
+T02_4794	0072666	,	NNT1c	time	.Ns]P:t]
+T02_4797	0072686	|	VDD	did	[Iq[S?[Vdex.
+T02_4800	0072696	|	XX	+n't	.Vdex]
+T02_4803	0072707	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S]
+T02_4806	-----	Gemma006
+T02_4809	.....	00517
+T02_4812	0072756	*.	UY	yeah	.
+T02_4815	.....	00518
+T02_4818	0072787	ic	YY	{unclear}	[Y.Y]
+T02_4821	0072797	|	NN1c	hamster	[N[NN1c&.
+T02_4824	0072812	c	YP	{pause}	.
+T02_4827	0072820	|	NNn	fish	[NNn-.NNn-]
+T02_4830	0072832	c	YP	{pause}	.
+T02_4833	0072840	|	NN1c	cat	[NN1c-.NN1c-]
+T02_4836	0072851	c	YP	{pause}	.
+T02_4839	0072860	.	NN1c	dog	[NN1c-.NN1c-]NN1c&]N]
+T02_4842	-----	Barbara004
+T02_4845	.....	-----
+T02_4848	0072884	ic	YY	{unclear}	[Y.Y]
+T02_4851	-----	Gemma006
+T02_4854	.....	00519
+T02_4857	0072930	*.	UN	no	.
+T02_4860	-----	Barbara004
+T02_4863	.....	00520
+T02_4866	0072978	ic	YY	{unclear}	[Y.
+T02_4869	0072988	|	NN2	fins	[N.
+T02_4872	0073000	|	CCr	or	[Ns+.
+T02_4875	0073010	|	PN1	anything	.Ns+]N]
+T02_4878	0073026	ic?	YY	{unclear}	.Y]
+T02_4881	-----	Gemma006
+T02_4884	.....	00521
+T02_4887	0073075	*.	UN	no	.
+T02_4890	.....	00522
+T02_4893	0073104	c	YP	{pause}	.
+T02_4896	0073112	*	CCB	but	[S+.
+T02_4899	0073123	c	YP	{pause}	.
+T02_4902	0073131	|	PPHS2	they	[Nap:s.Nap:s]
+T02_4905	0073143	|	VV0v	say	[V.V]
+T02_4908	0073154	|	CSn	when	[Fn:o[Fa:t[Rq:t.Rq:t]
+T02_4911	0073166	|	APPGh2	their	[Np:s.
+T02_4914	0073180	|	NN2	fins	.Np:s]
+T02_4917	0073192	|	VBR	are	[Vab.Vab]
+T02_4920	0073203	,	RP	down	[R:e.R:e]
+T02_4923	0073223	|	ICSk	like	[P@.
+T02_4926	0073235	|	RTo	now	.P@]Fa:t]
+T02_4929	0073246	c	YP	{pause}	.
+T02_4932	0073255	|	RTn	then	[Rsw:t.Rsw:t]
+T02_4935	0073267	|	PPHS2	they	[Nap:s.Nap:s]
+T02_4938	0073278	|	VBR	+'re	[Vab.Vab]
+T02_4941	0073289	ic	YY	{unclear}	[Y:e.Y:e]Fn:o]S+]
+T02_4944	-----	Barbara004
+T02_4947	.....	00523
+T02_4950	0073330	*.	UY	mm	.
+T02_4953	.....	00524
+T02_4956	0073360	*	CC	and	[Fa+.
+T02_4959	0073371	|	CSi	if	.
+T02_4962	0073381	|	PPHS2	they	[Nap:s.Nap:s]
+T02_4965	0073393	|	VV0v	hide	[V.V]
+T02_4968	0073405	|	DDo21	a	[D:h[DDo=.
+T02_4971	0073405	.	DDo22	lot	.DDo=]D:h]Fa+]
+T02_4974	-----	Gemma006
+T02_4977	.....	00525
+T02_4980	0073457	*.	UY	yeah	.
+T02_4983	-----	Barbara004
+T02_4986	.....	00526
+T02_4989	0073508	*	CSi	if	[S[Fa:c.
+T02_4992	0073518	|	MC1	one	[Ms:S.
+T02_4995	0073529	|	IO	of	[Po.
+T02_4998	0073539	|	PPHO2	them	.Po]Ms:S]
+T02_5001	0073559	t,	FD	bull	[Vgp.
+T02_5004	0000000	y	YR	#	.
+T02_5007	0073589	|	VBG	being	.
+T02_5010	0073602	|	VVNv	bullied	.Vgp]Fa:c]
+T02_5013	0073617	|	PPHS2	they	[Nap:s153.Nap:s153]
+T02_5016	0073629	|	VV0v	wan	[V.V]
+T02_5019	0000000	y	YG	-	[Ti:o[s153.s153]
+T02_5022	0073639	|	TO	+na	[Vi.
+T02_5025	0073649	.	VV0v	hide	.Vi]Ti:o]S]
+T02_5028	.....	00527
+T02_5031	0073681	*	PPHS2	they	[S[Nap:s.Nap:s]
+T02_5034	0073693	|	VV0v	hide	[V.V]
+T02_5037	0073705	|	DDo21	a	[D:h[DDo=.
+T02_5040	0073705	.	DDo22	lot	.DDo=]D:h]S]
+T02_5043	-----	Gemma006
+T02_5046	.....	00528
+T02_5049	0073757	*	UY	mm	.
+T02_5052	0073767	|	PPIS2	we	[S[Nap:s.Nap:s]
+T02_5055	0073777	|	VH0	have	[Vf.
+T02_5058	0073789	|	VVNH	got	.Vf]
+T02_5061	0073800	|	DDi	some	[Ns:o[D.
+T02_5064	0073812	|	DAR	more	.D]
+T02_5067	0073824	|	NN1c	weed	.Ns:o]
+T02_5070	0073837	,	RLn	upstairs	[R:p.R:p]
+T02_5073	0000000	y	YR	#	.
+T02_5076	0073861	|	DDi	some	[D:o155.
+T02_5079	0073873	|	DAR	more	.
+T02_5082	0073885	|	IO	of	[Po.
+T02_5085	0073895	|	DD1a	that	[Ns.
+T02_5088	0073907	|	JJ	plastic	.
+T02_5091	0073923	|	NN1c	weed	.Ns]Po]
+T02_5094	0073952	&	CST	that	[Fr.
+T02_5097	0073964	|	PPIS1	I	[Nea:s.Nea:s]
+T02_5100	0073973	|	VMd	could	[Vdc.
+T02_5103	0073986	|	VV0v	put	.Vdc]
+T02_5106	0000000	y	YG	-	[o155.o155]
+T02_5109	0073998	.	RP	in	[R:q.R:q]Fr]D:o155]S]
+T02_5112	-----	Barbara004
+T02_5115	.....	00529
+T02_5118	0074080	&*	UY	yeah	.
+T02_5121	0074092	|	DD1a	that	[S[Ds:s.Ds:s]
+T02_5124	0074104	,	VMd	would	[Vdc.Vdc]
+T02_5127	0000000	y	YR	#	.
+T02_5130	0074125	|	DD1a	that	[Ds:s.Ds:s]
+T02_5133	0000000	y	YR	#	.
+T02_5136	0074154	&c	YP	{pause}	.
+T02_5139	0074162	*	CSi	if	[Fa:c.
+T02_5142	0074172	|	PPY	you	[Ny:s.Ny:s]
+T02_5145	0074183	|	VVDt	brought	[Vd.Vd]
+T02_5148	0074198	|	JJ	proper	[Ns:o.
+T02_5151	0074212	|	NN1c	weed	.Ns:o]
+T02_5154	.....	00531
+T02_5157	0074330	&	RR	just	[Fa-[R:m.R:m]
+T02_5160	0074342	|	VVDv	floated	[Vd.Vd]
+T02_5163	0074357	|	PPH1	it	[Ni:o.Ni:o]
+T02_5166	0074367	|	II	on	[P:p.
+T02_5169	0074377	|	AT	the	[Ns.
+T02_5172	0074388	,	NN1c	top	.Ns]
+T02_5175	0074412	|	XX	not	[P@.
+T02_5178	0074423	|	II	down	.
+T02_5181	0074439	|	AT	the	[Ns.
+T02_5184	0074450	.	NN1c	bottom	.Ns]P@]P:p]Fa-]Fa:c]S]
+T02_5187	0074489	&ic	YY	{unclear}	[Y.Y]
+T02_5190	-----	Gemma006
+T02_5193	.....	00530
+T02_5196	0074255	*,	NN1c	weed	[Ns.Ns]
+T02_5199	0074279	.	UY	yeah	.
+T02_5202	-----	Gemma006
+T02_5205	.....	00532
+T02_5208	0074563	&*	UY	yeah	.
+T02_5211	0074575	|	CCB	but	[S+.
+T02_5214	0074586	|	DD1a	that	[Ds:s.Ds:s]
+T02_5217	0074598	ic	YY	{unclear}	[Y.Y]
+T02_5220	0074626	&	AT	the	[Ns:y.
+T02_5223	0074637	|	NN1c	pump	.Ns:y]
+T02_5226	0074649	|	UK	look	.
+T02_5229	0074665	|	CS	cos	[Fa:c.
+T02_5232	0074676	|	PPHS2	they	[Nap:s.Nap:s]
+T02_5235	0074689	|	VD0	do	[Ve.
+T02_5238	0074698	,	XX	+n't	.
+T02_5241	0000000	y	YR	#	.
+T02_5244	0074717	|	VD0	do	.
+T02_5247	0074726	|	XX	+n't	.
+T02_5250	0074737	|	VV0t	need	.Ve]
+T02_5253	0074749	|	RGz	so	[Ns:o[Ds.
+T02_5256	0074759	|	DA1	much	.Ds]
+T02_5259	0074772	|	NN1c	weed	.Ns:o]Fa:c]S+]
+T02_5262	0074784	|	UK	look	.
+T02_5265	0074796	,	DD1a	that	.
+T02_5268	0074820	|	PPIS2	we	[S[Nap:s.Nap:s]
+T02_5271	0074830	|	VD0	do	[Ve.
+T02_5274	0074839	|	XX	+n't	.
+T02_5277	0074851	|	VV0v	put	.Ve]
+T02_5280	0074862	|	PPH1	it	[Ni:o.Ni:o]
+T02_5283	0074872	.	RP	on	[R:j.R:j]
+T02_5286	.....	00533
+T02_5289	0074902	*	CSg	though	[Fa:c.
+T02_5292	0074916	|	PPIS1	I	[Nea:s.Nea:s]
+T02_5295	0074925	|	VMo	shall	[Vc.
+T02_5298	0074938	|	VH0	have	.Vc]
+T02_5301	0074950	|	TO	to	[Ti:z[Vi.
+T02_5304	0074960	|	VV0v	keep	.Vi]
+T02_5307	0074972	|	PPH1	it	[Ni:o.Ni:o]
+T02_5310	0074983	|	RP	on	[R:j.R:j]
+T02_5313	0074993	|	II	in	[P:t.
+T02_5316	0075003	|	AT	the	[Ns.
+T02_5319	0075014	|	NNT1h	summer	.Ns]P:t]Ti:z]
+T02_5322	0075028	|	TO	to	[Ti:c[Vi.
+T02_5325	0075038	|	VV0v	keep	.Vi]
+T02_5328	0075050	|	YMV	er	.
+T02_5331	.....	00535
+T02_5334	0075171	&	AT	the	[Ns:o.
+T02_5337	0075182	|	NNL1n	water	.Ns:o]
+T02_5340	0075195	|	JJ	clean	[J:j.J:j]Ti:c]Fa:c]S]
+T02_5343	0075208	|	RAe	else	[S[R:c.R:c]
+T02_5346	0075220	|	PPH1	it	[Ni:s.Ni:s]
+T02_5349	0000000	y	YR	#	.S]
+T02_5352	0075230	|	YMN	erm	.
+T02_5355	0075241	c	YP	{pause}	.
+T02_5358	0075250	*	VD0	do	[S?[Vo.Vo]
+T02_5361	0075260	|	PPY	you	[Ny:s.Ny:s]
+T02_5364	0075271	|	VV0v	clean	[Vr.Vr]
+T02_5367	0075284	|	PPGy	yours	[N:o.N:o]
+T02_5370	0075297	|	RP	out	[R:n.R:n]
+T02_5373	0075308	|	DDo21	a	[D:h[DDo=.
+T02_5376	0075308	?	DDo22	lot	.DDo=]D:h]S?]
+T02_5379	.....	00536
+T02_5382	0075341	*	CS	cos	[Fa.
+T02_5385	0075352	|	PPY	you	[Ny:s.Ny:s]
+T02_5388	0075362	|	VH0	+'ve	[Vf.
+T02_5391	0075373	|	VVNH	got	.Vf]
+T02_5394	0075384	|	AT1	a	[Ms:o.
+T02_5397	0075384	|	JJ	little	.
+T02_5400	0075400	|	MC1	one	.Ms:o]
+T02_5403	0075412	|	VH0	have	[Iq[S?[Ve.
+T02_5406	0075423	|	XX	+n't	.Ve]
+T02_5409	0075434	?	PPY	you	[Ny:s.Ny:s]S?]Iq]Fa]
+T02_5412	-----	Barbara004
+T02_5415	.....	00534
+T02_5418	0075091	*	AT	the	[L[Ns:o.
+T02_5421	0075102	|	NNL1n	water	.Ns:o]
+T02_5424	0075115	.	JJ	clean	[J:j.J:j]L]
+T02_5427	-----	Barbara004
+T02_5430	.....	00537
+T02_5433	0075484	*.	UY	yeah	.
+T02_5436	.....	00538
+T02_5439	0075515	ic	YY	{unclear}	[Y.Y]
+T02_5442	0075525	|	CSi	if	[S[Fa:c.
+T02_5445	0075535	|	PPH1	it	[Ni:s163.Ni:s163]
+T02_5448	0075545	|	VVZv	starts	[Vz.Vz]
+T02_5451	0000000	y	YG	-	[Tg:o[s163.s163]
+T02_5454	0075559	|	VVGv	getting	[Vg.Vg]
+T02_5457	0075574	|	JJ	milky	[J:e.J:e]Tg:o]Fa:c]
+T02_5460	0075588	|	RTn	then	[Rsw:c.Rsw:c]
+T02_5463	0075600	|	PPIS1	I	[Nea:s.Nea:s]
+T02_5466	0075609	|	VV0v	change	[V.V]
+T02_5469	0075623	|	PPH1	it	[Ni:o.Ni:o]
+T02_5472	0075633	|	CCB	but	[S+.
+T02_5475	0075644	c	YP	{pause}	.
+T02_5478	0075652	|	II	at	[P:t.
+T02_5481	0075662	|	AT	the	[Ns.
+T02_5484	0075674	|	NNT1c	moment	.Ns]P:t]
+T02_5487	0075688	|	EX	there	.
+T02_5490	0075700	|	VBZ	+'s	[Vzb.Vzb]
+T02_5493	0075710	|	RRx	only	[R:m.R:m]
+T02_5496	0075722	|	MC1	one	[N:s.
+T02_5499	0075733	|	JJ	little	.
+T02_5502	0075747	|	NNn	fish	.N:s]S+]S]
+T02_5505	0075760	?	UE	see	.
+T02_5508	-----	Gemma006
+T02_5511	.....	00539
+T02_5514	0075810	*.	UY	yeah	.
+T02_5517	-----	Barbara004
+T02_5520	.....	00540
+T02_5523	0075861	*	UX	oops	.
+T02_5526	0075873	c	YP	{pause}	.
+T02_5529	0075881	|	UR21	all	[UR=.
+T02_5532	0075883	.	UR22	right	.UR=]
+T02_5535	-----	Gemma006
+T02_5538	.....	00541
+T02_5541	0075935	*	RLh	here	[S[Rw:p.Rw:p]
+T02_5544	0075947	|	PPY	you	[Ny:s.Ny:s]
+T02_5547	0075958	.	VBR	are	[Vab.Vab]S]
+T02_5550	.....	00542
+T02_5553	0075988	c	YP	{pause}	.
+T02_5556	0075996	!	NP1f	Louise	[Nns".Nns"]
+T02_5559	.....	00543
+T02_5562	0076030	*	PPY	you	[S[Ny:s.Ny:s]
+T02_5565	0076041	|	VV0v	hold	[V.V]
+T02_5568	0076053	|	DD1a	that	[Ds:o.Ds:o]S]
+T02_5571	0076065	ic	YY	{unclear}	[Y.Y]
+T02_5574	-----	Barbara004
+T02_5577	.....	00544
+T02_5580	0076106	*	DDQ	what	[S?[Dq:o.Dq:o]
+T02_5583	0076117	|	VDD	+'d	[Vod.Vod]
+T02_5586	0076127	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_5589	0076138	?	VV0v	say	[Vr.Vr]S?]
+T02_5592	-----	Gemma006
+T02_5595	.....	00545
+T02_5598	0076188	*	AT1	a	[Ns.
+T02_5601	0076197	?	NN1c	piddle	.Ns]
+T02_5604	.....	00546
+T02_5607	0076231	*	VDZ	does	[S[Vze.
+T02_5610	0076242	|	XX	+n't	.
+T02_5613	0076253	|	VV0v	get	.Vze]
+T02_5616	0076264	|	DD1a	that	[Ds:o.Ds:o]
+T02_5619	0076276	|	II	from	[P:q.
+T02_5622	0076288	.	PPIO1	me	.P:q]S]
+T02_5625	0076306	c	YP	{pause_10}	.
+T02_5628	-----	Barbara004
+T02_5631	.....	00547
+T02_5634	0076352	*	VBZ	is	[S?[Vzb.Vzb]
+T02_5637	0076362	|	DD1a	that	[Ds:s.Ds:s]
+T02_5640	0076374	|	NP1m	Steve	[Ns:e[G[Nns.Nns]
+T02_5643	0076386	|	GG	+'s	.G]
+T02_5646	0076396	|	NN1c	shirt	.Ns:e]
+T02_5649	0076409	|	VBZ	is	[Iq[S?[Vzb.Vzb]
+T02_5652	0076419	?	PPH1	it	[Ni:s.Ni:s]S?]Iq]S?]
+T02_5655	-----	Gemma006
+T02_5658	.....	00548
+T02_5661	0076468	*	UY	yeah	.
+T02_5664	0076480	|	PPIS1	I	[S[Nea:s167.Nea:s167]
+T02_5667	0076489	|	VV0t	hate	[V.V]
+T02_5670	0000000	y	YG	-	[Tg:o[s167.s167]
+T02_5673	0076501	|	VVGv	ironing	[Vg.Vg]
+T02_5676	0076520	|	PPHO2	them	[Np:o.
+T02_5679	0076533	.	NN2	shirts	.Np:o]Tg:o]S]
+T02_5682	-----	Barbara004
+T02_5685	.....	00549
+T02_5688	0076586	*	APPGy	your	[S[Ns:s.
+T02_5691	0076598	|	NN1c	kitchen	.Ns:s]
+T02_5694	0076613	|	VVZv	looks	[Vz.Vz]
+T02_5697	0076626	|	JJ	nice	[J:e.J:e]
+T02_5700	0076638	|	RR	though	[R:c.R:c]S]
+T02_5703	0076652	.	NP1f	Gemma	[Nns".Nns"]
+T02_5706	.....	00550
+T02_5709	0076683	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_5712	0076692	|	VV0t	like	[V.V]
+T02_5715	0076704	|	AT	the	[Ns:o.
+T02_5718	0076715	.	NN1c	grill	.Ns:o]S]
+T02_5721	-----	Gemma006
+T02_5724	.....	00551
+T02_5727	0076767	*?	UY	yeah	.
+T02_5730	.....	00552
+T02_5733	0076798	c	YP	{pause}	.
+T02_5736	0076823	&	PPIS1	I	[S[Nea:s.Nea:s]
+T02_5739	0076832	|	VVNH	got	[Vn.Vn]
+T02_5742	0076842	|	TO	+ta	[Ti:z[Vi.
+T02_5745	0076852	|	VV0v	get	.Vi]
+T02_5748	0076863	|	DDi	some	[Y:o[D.
+T02_5751	0076876	|	DAR	more	.D]
+T02_5754	0076888	ic	YY	{unclear}	.Y:o]Ti:z]S]
+T02_5757	-----	Barbara004
+T02_5760	.....	00553
+T02_5763	0076962	&*	PPGi1	mine	[S[Ns:s.Ns:s]
+T02_5766	0076973	|	VBZ	+'s	[Vzb.Vzb]
+T02_5769	0076983	,	ICSk	like	[P:e.P:e]
+T02_5772	0000000	y	YR	#	.
+T02_5775	0077003	|	PPH1	it	[Ni:s.Ni:s]
+T02_5778	0077012	|	VBZ	+'s	[Vzb.Vzb]
+T02_5781	0077022	|	DD1b21	a	[P:e[DD1b=.
+T02_5784	0077022	|	DD1b22	bit	.DD1b=]P:e]
+T02_5787	0000000	y	YR	#	.
+T02_5790	0077052	&	PPH1	it	[Ni:s.Ni:s]
+T02_5793	0077061	|	VBZ	+'s	[Vzb.Vzb]
+T02_5796	0077071	|	DD1b21	a	[P:e[DD1b=.
+T02_5799	0077071	|	DD1b22	bit	.DD1b=]
+T02_5802	0077084	|	ICSk	like	.
+T02_5805	0077096	|	DD1i	this	.P:e]
+T02_5808	0077108	|	CCB	but	[S+.
+T02_5811	0077120	|	XX	not	.
+T02_5814	0077131	|	RGa	as	[J:e.
+T02_5817	0077141	.	JJ	thick	.J:e]S+]S]
+T02_5820	.....	00554
+T02_5823	0077178	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_5826	0077187	|	VBZ	+'s	[Vzb.Vzb]
+T02_5829	0077197	|	NP1x	Polyripple	[Nns:e.Nns:e]
+T02_5832	0077215	|	VAI	in	[Iq[S?[Ve.
+T02_5835	0077224	|	XX	+n	.Ve]
+T02_5838	0077232	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]S]
+T02_5841	-----	Gemma006
+T02_5844	.....	00555
+T02_5847	0077281	*.	UY	mm	.
+T02_5850	-----	Barbara004
+T02_5853	.....	00556
+T02_5856	0077330	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_5859	0077339	|	VBZ	+'s	[Vzeb.
+T02_5862	0077349	|	XX	not	.Vzeb]
+T02_5865	0077360	|	RGa	as	[Jh:e.
+T02_5868	0077370	|	JJ	thick	.
+T02_5871	0077387	|	CSA	as	[P.
+T02_5874	0077397	.	DD1a	that	.P]Jh:e]S]
+T02_5877	.....	00557
+T02_5880	0077429	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_5883	0077439	|	VBZ	is	[Vzb.Vzb]
+T02_5886	0077449	,	NN1n	width	[Ns:e.
+T02_5889	0077470	|	ICSk	like	[P.
+T02_5892	0077482	|	DD1a	that	.P]Ns:e]S]
+T02_5895	-----	Gemma006
+T02_5898	.....	-----
+T02_5901	0077499	ic	YY	{unclear}	[Y.Y]
+T02_5904	-----	Barbara004
+T02_5907	.....	00558
+T02_5910	0077545	*.	UY	yeah	.
+T02_5913	.....	00559
+T02_5916	0077577	*	CCB	but	[S+.
+T02_5919	0077588	|	PPH1	it	[Ni:s.Ni:s]
+T02_5922	0077598	|	VAI	ai	[Ve.
+T02_5925	0077607	|	XX	+n't	.Ve]
+T02_5928	0077618	|	RGa	as	[J:e.
+T02_5931	0077628	.	JJ	thick	.J:e]S+]
+T02_5934	.....	00560
+T02_5937	0077664	c	YP	{pause}	.
+T02_5940	0077672	*	CCB	but	[S+.
+T02_5943	0077683	|	PPH1	it	[Ni:s.Ni:s]
+T02_5946	0077692	|	VBZ	+'s	[Vzb.Vzb]
+T02_5949	0077702	|	JJR	better	[J:e.
+T02_5952	0077716	|	CSN	than	[P.
+T02_5955	0077728	|	PPGi1	mine	.P]J:e]
+T02_5958	0077741	|	DD1a	that	[S@[Ds:s.Ds:s]
+T02_5961	0077757	.	VBZ	is	[Vzb.Vzb]S@]S+]
+T02_5964	.....	00561
+T02_5967	0077787	*	PPGi1	mine	[S[N:s.N:s]
+T02_5970	0077798	|	VBZ	+'s	[Vzb.Vzb]
+T02_5973	0077808	|	ICSk	like	[P:e.
+T02_5976	0077820	|	DD1a	that	.P:e]
+T02_5979	0077832	|	CCB	but	[S+.
+T02_5982	0077843	|	RG	very	[J:e.J:e]
+T02_5985	0000000	y	YR	#	.
+T02_5988	0077855	c	YP	{pause}	.
+T02_5991	0077864	|	XX	not	[Ds:h.
+T02_5994	0077875	|	RGz	so	.
+T02_5997	0077885	.	DA1	much	.Ds:h]S+]S]
+T02_6000	.....	00562
+T02_6003	0077917	*	CC	and	[S+.
+T02_6006	0077928	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6009	0077937	|	VV0v	want	[V.V]
+T02_6012	0077949	|	PPH1	it	[Ni:o.Ni:o]
+T02_6015	0077959	|	ICSk	like	[P:j.
+T02_6018	0077971	|	PPGy	yours	.P:j]
+T02_6021	0077984	c	YP	{pause}	.
+T02_6024	0077993	|	CCB	but	[S+.
+T02_6027	0078004	|	ICSk	like	[Fr:x.
+T02_6030	0078016	|	PPY	you	[Ny:s.Ny:s]
+T02_6033	0078027	|	VVDv	said	[Vd.Vd]Fr:x]
+T02_6036	0078039	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6039	0078047	|	VMd	+'d	[Vdc.
+T02_6042	0078057	|	VH0	have	.Vdc]
+T02_6045	0078069	|	TO	to	[Ti:z[Vi.
+T02_6048	0078080	|	VV0v	buy	.Vi]
+T02_6051	0078091	|	YMN	erm	.
+T02_6054	0078102	ic	YY	{unclear}	[Y.
+T02_6057	0078112	|	NP1x	Artex	[Nns.Nns]Y]
+T02_6060	0078129	|	CC	and	[Ti+.
+T02_6063	0078140	|	VV0v	get	[V.V]
+T02_6066	0078152	|	NP1m	Chris	[Nns:O171.Nns:O171]
+T02_6069	0000000	y	YG	-	[Ti:o[s171.s171]
+T02_6072	0078165	|	TO	to	[Vi.
+T02_6075	0078175	|	VD0	do	.Vi]
+T02_6078	0078185	.	PPH1	it	[Ni:o.Ni:o]Ti:o]Ti+]Ti:z]S+]S+]
+T02_6081	0078203	c	YP	{pause}	.
+T02_6084	-----	Gemma006
+T02_6087	.....	00563
+T02_6090	0078242	*	CS	once	[S[Fa:t.
+T02_6093	0078254	|	PPH1	it	[Ni:s.Ni:s]
+T02_6096	0078263	|	VBZ	+'s	[Vzb.Vzb]
+T02_6099	0078273	|	RP	on	[R:p.R:p]Fa:t]
+T02_6102	0078283	|	PPY	you	[Ny:s.Ny:s]
+T02_6105	0078294	|	VMo	ca	[Vce.
+T02_6108	0078303	|	XX	+n't	.
+T02_6111	0078314	|	VV0v	get	.Vce]
+T02_6114	0078326	|	PPH1	it	[Ni:o.Ni:o]
+T02_6117	0078336	|	RP	off	[R:q.R:q]S]
+T02_6120	0078351	.	UE	mind	.
+T02_6123	-----	Barbara004
+T02_6126	.....	00564
+T02_6129	0078402	*	UY	yeah	.
+T02_6132	0078414	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_6135	0078423	.	VV0v	know	[V.V]S]
+T02_6138	-----	Gemma006
+T02_6141	.....	00565
+T02_6144	0078474	*	VVNH	got	[S[Vn.Vn]
+T02_6147	0078484	|	TO	+ta	[Ti:z[Vi.
+T02_6150	0078494	|	VV0t	sand	.Vi]
+T02_6153	0078506	|	PPH1	it	[Ni:o.Ni:o]
+T02_6156	0078516	.	RP	off	[R:q.R:q]Ti:z]S]
+T02_6159	-----	Barbara004
+T02_6162	.....	00566
+T02_6165	0078566	*	AT	the	[S[Nns:s.
+T02_6168	0078577	|	NP1x	Polyripple	.Nns:s]
+T02_6171	0078595	|	VVZv	peels	[Vz.Vz]
+T02_6174	0078608	|	RP	off	[R:q.R:q]
+T02_6177	0078619	|	RR	though	[R:c.R:c]S]
+T02_6180	0078634	.	NP1f	Gemma	[Nns".Nns"]
+T02_6183	.....	00567
+T02_6186	0078665	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_6189	0078675	|	VVZi	goes	[Vz.Vz]
+T02_6192	0078687	|	ICSk	like	[P:e.
+T02_6195	0078699	.	NN1n	rubber	.P:e]S]
+T02_6198	-----	Gemma006
+T02_6201	.....	00568
+T02_6204	0078756	*	VDZ	does	[S?[Vzx.Vzx]
+T02_6207	0078768	?	PPH1	it	[Ni:s.Ni:s]S?]
+T02_6210	-----	Barbara004
+T02_6213	.....	00569
+T02_6216	0078817	*	UY	yeah	.
+T02_6219	0078829	|	CS	cos	[Fa.
+T02_6222	0078840	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6225	0078849	|	VHD	had	[Vd.Vd]
+T02_6228	0078860	|	AT1	a	[Ns:o.Ns:o]
+T02_6231	0000000	y	YR	#	.
+T02_6234	0078869	c	YP	{pause}	.
+T02_6237	0078877	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6240	0078886	|	VDD	did	[Vd.Vd]
+T02_6243	0078898	|	MC1	one	[Ns:o.
+T02_6246	0078913	|	NN1c	roll	.Ns:o]
+T02_6249	0078925	|	RR21	all	[R:h[RR=.
+T02_6252	0078927	.	RR22	right	.RR=]R:h]Fa]
+T02_6255	.....	00570
+T02_6258	0078960	*	CC	and	[S+.
+T02_6261	0078971	|	YMN	erm	.
+T02_6264	0078982	c	YP	{pause}	.
+T02_6267	0078990	|	PPH1	it	[Ni:s.Ni:s]
+T02_6270	0079000	|	VBDZ	was	[Vsb.Vsb]
+T02_6273	0079011	|	ICSk	like	.
+T02_6276	0079023	|	JJ	crooked	[J:e.J:e]
+T02_6279	0079039	|	CC	and	[S+.
+T02_6282	0079050	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6285	0079059	|	VVDv	got	[Vd.Vd]
+T02_6288	0079070	|	APPGi1	my	[Ns:o.
+T02_6291	0079080	|	NN1c	nail	.Ns:o]
+T02_6294	0079092	|	II	behind	[P:p.
+T02_6297	0079106	|	RLh	there	.P:p]
+T02_6300	0079120	|	ICSk	like	[P:h.
+T02_6303	0079132	|	DD1a	that	.P:h]
+T02_6306	0079144	c	YP	{pause}	.
+T02_6309	0079152	?	UL	right	[Iq.Iq]
+T02_6312	.....	00571
+T02_6315	0079189	*	CC	and	[S+.
+T02_6318	0079200	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6321	0079209	|	VVDi	went	[Vd.Vd]
+T02_6324	0079221	|	ICSk	like	[P:h.
+T02_6327	0079233	|	DD1a	that	.P:h]S+]S+]S+]
+T02_6330	-----	Gemma006
+T02_6333	.....	00572
+T02_6336	0079275	ic	YY	{unclear}	[S[Y.
+T02_6339	0079285	|	VV0v	get	.Y]
+T02_6342	0079296	|	PPH1	it	[Ni:o.Ni:o]
+T02_6345	0079306	.	RP	off	[R:q.R:q]S]
+T02_6348	-----	Barbara004
+T02_6351	.....	00573
+T02_6354	0079356	|	CC	and	[S+.
+T02_6357	0079367	|	PPH1	it	[Ni:s.Ni:s]
+T02_6360	0079377	|	VVZv	peels	[Vz.Vz]
+T02_6363	0079390	|	ICSk	like	[P:h.
+T02_6366	0079402	.	NN1n	rubber	.P:h]
+T02_6369	0000000	y	YR	#	.
+T02_6372	.....	00574
+T02_6375	0079440	*	VVZv	peels	[Vz.Vz]
+T02_6378	0079457	|	RP	off	[R:q.R:q]
+T02_6381	0079468	|	ICSk	like	[P:h.
+T02_6384	0079480	.	NN1n	rubber	.P:h]S+]
+T02_6387	.....	00575
+T02_6390	0079530	&*	PPY	you	[S[Ny:s.Ny:s]
+T02_6393	0079541	|	VMo	can	[Vc.
+T02_6396	0079552	|	VV0v	get	.Vc]
+T02_6399	0079563	|	PPH1	it	[Ni:o.Ni:o]
+T02_6402	0079573	|	RP	off	[R:q.R:q]S]
+T02_6405	0079588	ic	YY	{unclear}	[Y.Y]
+T02_6408	-----	Gemma006
+T02_6411	.....	00576
+T02_6414	0079662	&*	UY	mm	.
+T02_6417	0079672	ic.	YY	{unclear}	[Y.Y]
+T02_6420	.....	00577
+T02_6423	0079702	*	RR	perhaps	[S[R:m.R:m]
+T02_6426	0079717	|	PPH1	it	[Ni:s.Ni:s]
+T02_6429	0079726	|	VBZ	+'s	[Vzb.Vzb]
+T02_6432	0079736	|	UO21	sort	[UO=.
+T02_6435	0079736	|	UO22	of	.UO=]
+T02_6438	0079751	ic	YY	{unclear}	[Y:e.
+T02_6441	0079761	|	RP	on	[R.
+T02_6444	0079776	|	RLh	there	.R]Y:e]S]
+T02_6447	0079789	.	UY	yeah	.
+T02_6450	-----	Barbara004
+T02_6453	.....	00578
+T02_6456	0079857	*.	UY	yeah	.
+T02_6459	.....	00579
+T02_6462	0079889	*	PPY	you	[S[Ny:s.Ny:s]
+T02_6465	0079900	|	VVNH	got	[Vn.Vn]
+T02_6468	0079910	|	TO	+ta	[Ti:z[Vi.
+T02_6471	0079920	|	VV0v	paint	.Vi]
+T02_6474	0079933	|	PPH1	it	[Ni:o.Ni:o]Ti:z]S]
+T02_6477	0079943	.	ICSk	like	.
+T02_6480	-----	Gemma006
+T02_6483	.....	00580
+T02_6486	0079994	*	CCB	but	[S+.
+T02_6489	0080005	|	PPH1	it	[Ni:S.Ni:S]
+T02_6492	0080015	,	VBDZ	was	[Vsb.Vsb]
+T02_6495	0000000	y	YR	#	.
+T02_6498	0080034	|	PPH1	it	[Ni:S.Ni:S]
+T02_6501	0080044	|	VBDZ	was	[Vsb.Vsb]
+T02_6504	0080055	|	JJR	cheaper	[J:e.J:e]
+T02_6507	0080070	|	TO	to	[Ti:s[Vi.
+T02_6510	0080081	|	VV0v	buy	.Vi]
+T02_6513	0080091	|	AT	the	[Nns:o.
+T02_6516	0080102	|	NP1x	Artex	.Nns:o]
+T02_6519	0080115	|	ICSk	like	[P:j.
+T02_6522	0080127	|	DD1a	that	.P:j]Ti:s]
+T02_6525	0080139	|	CS	cos	[Fa:c.
+T02_6528	0080151	|	PPH1	it	[Ni:s.Ni:s]
+T02_6531	0080160	|	VBZ	+'s	[Vzb.Vzb]
+T02_6534	0080170	|	RRx	only	[R:m.R:m]
+T02_6537	0080182	|	MC	three	[Nu#M:e.
+T02_6540	0080195	|	NNU1c	pound	.
+T02_6543	0080208	|	AT1	a	[Ns.
+T02_6546	0080217	|	NN1c	bag	.Ns]
+T02_6549	0000000	y	YR	#	.
+T02_6552	0080229	,	UK	look	.
+T02_6555	0080253	|	MC	three	[MC&.
+T02_6558	0080266	|	MC	fifty	[MC-.MC-]MC&]
+T02_6561	0080279	|	AT1	a	[Ns#P.
+T02_6564	0080288	|	NN1c	bag	.
+T02_6567	0000000	y	YR	#	.
+T02_6570	0080299	c	YP	{pause}	.
+T02_6573	0080324	&	IF	for	.
+T02_6576	0080335	|	AT1	a	[Ns.
+T02_6579	0080344	|	NN1c	bag	.
+T02_6582	0080355	|	IO	of	[Po.
+T02_6585	0080365	.	PPH1	it	.Po]Ns]Ns#P]Nu#M:e]Fa:c]S+]
+T02_6588	-----	Barbara004
+T02_6591	.....	00581
+T02_6594	0080447	&ic	YY	{unclear}	[Y.Y]
+T02_6597	0080457	*	VD0	do	[S?[Vo.Vo]
+T02_6600	0080467	|	PPY	you	[Ny:s.Ny:s]
+T02_6603	0080478	|	VV0v	know	[Vr.Vr]
+T02_6606	0080490	|	RGQq	how	[Fn?:o[Dqs:o.
+T02_6609	0080501	|	DA1	much	.Dqs:o]
+T02_6612	0080514	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6615	0080523	?	VVDv	paid	[Vd.Vd]Fn?:o]S?]
+T02_6618	-----	Gemma006
+T02_6621	.....	00582
+T02_6624	0080591	*	RGQq	how	[Dqs.
+T02_6627	0080602	?	DA1	much	.Dqs]
+T02_6630	-----	Barbara004
+T02_6633	.....	00583
+T02_6636	0080653	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_6639	0080662	|	VVDv	paid	[Vd.Vd]
+T02_6642	0000000	y	YR	#	.
+T02_6645	0080674	c	YP	{pause}	.
+T02_6648	0080682	|	IF	for	[P:c.
+T02_6651	0080693	|	AT1	a	[Ns.
+T02_6654	0080702	|	NN1c	tub	.
+T02_6657	0080713	|	IO	of	[Po.
+T02_6660	0080724	|	NP1x	Polyripple	[Nns.Nns]Po]
+T02_6663	0080742	|	RR	already	[W[R:t.R:t]
+T02_6666	0080757	c	YP	{pause}	.
+T02_6669	0080765	|	IW	with	.
+T02_6672	0080777	|	AT	the	[Ns:s.
+T02_6675	0080788	|	NN1n	stuff	.Ns:s]
+T02_6678	0080802	|	II	in	[P:p.
+T02_6681	0080812	|	PPH1	it	.P:p]W]Ns]P:c]
+T02_6684	.....	00585
+T02_6687	0080904	&	PPIS1	I	[Nea:s.Nea:s]
+T02_6690	0080913	|	VVDv	paid	[Vd.Vd]
+T02_6693	0080925	|	MC	twelve	[Nup:o.
+T02_6696	0080939	.	NNU2	pounds	.Nup:o]S]
+T02_6699	-----	Gemma006
+T02_6702	.....	00584
+T02_6705	0080853	*.	UY	yeah	.
+T02_6708	-----	Gemma006
+T02_6711	.....	00586
+T02_6714	0080992	*	UY	yeah	.
+T02_6717	0081004	|	CCB	but	[S+.
+T02_6720	0081015	|	EX	there	.
+T02_6723	0081027	|	VBZ	+'s	[Vzb.Vzb]
+T02_6726	0081037	|	NN1n	stuff	[Ns:s177.
+T02_6729	0081050	|	PPY	you	[Fr[Ny:s.Ny:s]
+T02_6732	0081061	|	VV0v	put	[V.V]
+T02_6735	0000000	y	YG	-	[o177.o177]
+T02_6738	0081073	|	RP	on	[R:q.R:q]
+T02_6741	0081083	|	ICSt	before	[Fa:t.
+T02_6744	0081101	|	PPY	you	[Ny:s.Ny:s]
+T02_6747	0081112	|	VVNH	got	[Vn.Vn]
+T02_6750	0081122	|	TO	+ta	[Ti:z[Vi.
+T02_6753	0081132	|	VV0v	paint	.Vi]
+T02_6756	0081145	|	AT1	a	[Ns:o.
+T02_6759	0081155	|	JJ	certain	.
+T02_6762	0081170	|	JJ	square	.
+T02_6765	0081188	|	NN1c	amount	.
+T02_6768	0081202	|	IO	of	[Po.
+T02_6771	0081212	|	NN1n	area	.Po]Ns:o]Ti:z]Fa:t]Fr]Ns:s177]S+]
+T02_6774	-----	Barbara004
+T02_6777	.....	00587
+T02_6780	0081255	*.	UY	mm	.
+T02_6783	-----	Gemma006
+T02_6786	.....	00588
+T02_6789	0081304	|	CC	and	[S+.
+T02_6792	0081315	|	PPIS1	I	[Nea:s.Nea:s]
+T02_6795	0081324	|	VMo	can	[Vc.
+T02_6798	0081335	c	YP	{pause}	.
+T02_6801	0081343	|	VV0v	keep	.Vc]
+T02_6804	0081355	|	PPH1	it	[Ni:o.Ni:o]
+T02_6807	0081365	|	II	on	[P:p.
+T02_6810	0081375	|	AT	the	[Ns.
+T02_6813	0081387	|	NN1c	wall	.Ns]P:p]
+T02_6816	0081399	|	VAI	in	[Iq[S?[Ve.
+T02_6819	0081408	|	XX	+n	.Ve]
+T02_6822	0081416	?	PPH1	+it	[Ni:s.Ni:s]S?]Iq]S+]
+T02_6825	.....	00589
+T02_6828	0081446	*	AT1	a	[Ns.
+T02_6831	0081455	|	VVGt	bonding	[Tg[Vg.Vg]Tg]Ns]
+T02_6834	-----	Barbara004
+T02_6837	.....	00590
+T02_6840	0081505	*.	UY	yeah	.
+T02_6843	-----	Gemma006
+T02_6846	.....	00591
+T02_6849	0081556	?	NP1x	Unibond	[Nns.Nns]
+T02_6852	-----	Barbara004
+T02_6855	.....	00592
+T02_6858	0081614	*.	UY	yeah	.
+T02_6861	.....	00593
+T02_6864	0081662	&*	PN1	something	[Ns.
+T02_6867	0081679	|	ICSk	like	[P.
+T02_6870	0081691	.	DD1a	that	.P]Ns]
+T02_6873	-----	Gemma006
+T02_6876	.....	00594
+T02_6879	0081775	&*	VBZ	is	[S?[Vzb.Vzb]
+T02_6882	0081785	?	PPH1	it	[Ni:s.Ni:s]S?]
+T02_6885	.....	00595
+T02_6888	0081831	&*	CC	and	[S+.
+T02_6891	0081842	|	RTn	then	[Rsw:t.Rsw:t]
+T02_6894	0081854	|	YMN	erm	.
+T02_6897	0081865	c	YP	{pause}	.
+T02_6900	.....	00597
+T02_6903	0081989	&*	PPY	you	[Ny:s.Ny:s]
+T02_6906	0082000	|	VVNH	got	[Vn.Vn]
+T02_6909	0082010	|	TO	+ta	[Ti:z[Vi.
+T02_6912	0082020	|	VV0v	roll	.Vi]
+T02_6915	0082032	|	PPH1	it	[Ni:o.Ni:o]
+T02_6918	0082042	|	RP	out	[R:n.R:n]
+T02_6921	0082061	t,	RR/after	af	[R:t.R:t]Ti:z]S+]
+T02_6924	0082088	|	CC	and	[S+.
+T02_6927	0082099	|	PPY	you	[Ny:s.Ny:s]
+T02_6930	0082109	|	VH0	+'ve	[Vf.
+T02_6933	0082120	|	VVNH	got	.Vf]
+T02_6936	0082130	|	TO	+ta	[Ti:z[Vi.
+T02_6939	0082140	|	VV0v	leave	.Vi]
+T02_6942	0082154	|	PPH1	it	[Ni:o.Ni:o]
+T02_6945	0082164	|	RP	on	[R:p.R:p]
+T02_6948	0082178	|	RGz	so	[R:t.
+T02_6951	0082188	|	RRg	long	.
+T02_6954	0082200	|	ICSk	like	[P.
+T02_6957	0082213	,	RT	overnight	.P]R:t]Ti:z]S+]
+T02_6960	0082242	|	CC	and	[S+.
+T02_6963	0082253	|	PPH1	it	[Ni:s.Ni:s]
+T02_6966	0082263	.	VVZv	stinks	[Vz.Vz]S+]
+T02_6969	.....	00598
+T02_6972	0082297	*	CC	and	[S+.
+T02_6975	0082308	|	RTn	then	[Rsw:t.Rsw:t]
+T02_6978	0082320	|	PPY	you	[Ny:s.Ny:s]
+T02_6981	0082330	|	VH0	+'ve	[Vf.
+T02_6984	0082341	|	VVNH	got	.Vf]
+T02_6987	0082351	|	TO	+ta	[Ti:z[Vi.Vi]
+T02_6990	0000000	y	YR	#	.Ti:z]S+]
+T02_6993	0082361	c	YP	{pause}	.
+T02_6996	0082369	|	UW	well	.
+T02_6999	0082381	ic	YY	{unclear}	[Y.
+T02_7002	0082391	,	NN1n	area	.Y]
+T02_7005	0082411	|	DD1i	this	[Ns.
+T02_7008	0082423	|	NN1c	bit	.
+T02_7011	0082434	|	RLh	here	.
+T02_7014	.....	00600
+T02_7017	0082526	&	PPIS2	we	[S@[Nap:s.Nap:s]
+T02_7020	0082536	|	VHD	had	[Vd.Vd]
+T02_7023	0082547	|	TO	to	[Ti:z[Vi.
+T02_7026	0082557	|	VV0t	plaster	.Vi]
+T02_7029	0082572	|	PPH1	it	[Ni:o.Ni:o]
+T02_7032	0082582	|	RL	underneath	[R:p.R:p]Ti:z]
+T02_7035	0082601	|	CS	because	[Fa:c.
+T02_7038	0000000	y	YR	#	.Fa:c]S@]Ns]
+T02_7041	0082616	|	YMN	erm	.
+T02_7044	0082627	c	YP	{pause}	.
+T02_7047	0082635	|	PPHS1m	he	[S[Nas:s.Nas:s]
+T02_7050	0082645	|	VHD	had	[Vd.Vd]
+T02_7053	0082656	,	TO	to	[Ti:z[Vix.Vix]Ti:z]S]
+T02_7056	0082674	|	PPIS2	we	[S[Nap:s.Nap:s]
+T02_7059	0082685	|	RR	just	[R:m.R:m]
+T02_7062	0082697	|	VHD	had	[Vd.Vd]
+T02_7065	0082708	|	NN2	wires	[Np:o.
+T02_7068	0082721	|	ICSk	like	[P.
+T02_7071	0082733	|	DD1i	this	.P]Np:o]
+T02_7074	0082745	|	II	down	[P:p.
+T02_7077	0082762	|	AT	the	[Ns.
+T02_7080	0082773	?	NN1c	end	.Ns]P:p]S]
+T02_7083	-----	Barbara004
+T02_7086	.....	00596
+T02_7089	0081904	*	VV0v	roll	[Tb[V.V]
+T02_7092	0081916	|	PPH1	it	[Ni:o.Ni:o]
+T02_7095	0081926	|	RP	out	[R:n.R:n]
+T02_7098	0081937	.	RR	after	[R:t.R:t]Tb]
+T02_7101	-----	Barbara004
+T02_7104	.....	00599
+T02_7107	0082477	*.	UY	mm	.
+T02_7110	-----	Barbara004
+T02_7113	.....	00601
+T02_7116	0082823	*.	UY	yeah	.
+T02_7119	-----	Gemma006
+T02_7122	.....	00602
+T02_7125	0082874	*	PPHS2	they	[S[Nap:s.Nap:s]
+T02_7128	0082886	|	VBDR	were	[Vweb.
+T02_7131	0082897	,	XX	+n't	.Vweb]
+T02_7134	0000000	y	YR	#	.
+T02_7137	0082916	|	PPHS2	they	[Nap:s.Nap:s]
+T02_7140	0082928	|	VBDR	were	[Vweb.
+T02_7143	0082939	|	XX	+n't	.Vweb]
+T02_7146	0082950	|	II	in	[P:p.
+T02_7149	0082961	|	AT	the	[Ns.
+T02_7152	0082972	?	NN1c	wall	.Ns]P:p]S]
+T02_7155	-----	Barbara004
+T02_7158	.....	00603
+T02_7161	0083023	*.	UY	yeah	.
+T02_7164	-----	Gemma006
+T02_7167	.....	00604
+T02_7170	0083074	*	RRz	so	[S[Rs:c.Rs:c]
+T02_7173	0083084	|	NP1m	Steve	[Nns:s.Nns:s]
+T02_7176	0083097	|	VHD	had	[Vd.Vd]
+T02_7179	0083108	|	TO	to	[Ti:z[Vi.
+T02_7182	0083118	|	VV0t	chisel	.Vi]
+T02_7185	0083132	|	DBa	all	[Ns:o.
+T02_7188	0083143	|	AT	the	.
+T02_7191	0083155	|	NN1c	wall	.Ns:o]
+T02_7194	0083167	.	RP	out	[R:q.R:q]
+T02_7197	.....	00606
+T02_7200	0083267	&*	VV0v	set	[Ti-[V.V]
+T02_7203	0083278	|	PPHO2	them	[Nap:o.Nap:o]
+T02_7206	0083290	|	II	in	[P:q.
+T02_7209	0083300	|	AT	the	[Ns.
+T02_7212	0083311	.	NN1c	wall	.Ns]P:q]Ti-]Ti:z]S]
+T02_7215	.....	00607
+T02_7218	0083343	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_7221	0083352	,	VV0t	expect	[V.V]
+T02_7224	0083374	|	PPY	you	[Fn:o[Ny:s.Ny:s]
+T02_7227	0083385	|	VVNH	got	[Vn.Vn]
+T02_7230	0083395	|	TO	+ta	[Ti:z[Vi.
+T02_7233	0083405	ic?	YY	{unclear}	[Y.Y]Vi]Ti:z]Fn:o]S]
+T02_7236	-----	Barbara004
+T02_7239	.....	00605
+T02_7242	0083217	*.	UY	mhm	.
+T02_7245	-----	Barbara004
+T02_7248	.....	00608
+T02_7251	0083454	*.	UY	mm	.
+T02_7254	-----	Gemma006
+T02_7257	.....	00609
+T02_7260	0083503	*?	UY	yeah	.
+T02_7263	-----	Barbara004
+T02_7266	.....	00610
+T02_7269	0083554	*	CCB	but	[S+.
+T02_7272	0083565	|	PPIS1	I	[Nea:s.Nea:s]
+T02_7275	0083573	|	VH0	+'ve	[Vf.
+T02_7278	0083584	|	VVNH	got	.Vf]
+T02_7281	0083594	|	TO	+ta	[Ti:z[Vi.
+T02_7284	0083604	ic	YY	{unclear}	[Y.Y]Vi]Ti:z]
+T02_7287	0083614	.	RR	though	[R:c.R:c]S+]
+T02_7290	.....	00611
+T02_7293	0083648	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_7296	0083657	|	VMo	ca	[Vce.
+T02_7299	0083666	|	XX	+n't	.Vce]
+T02_7302	0000000	y	YR	#	.S]
+T02_7305	0083677	|	YMN	erm	.
+T02_7308	0083688	c	YP	{pause}	.
+T02_7311	0083713	&	EX	there	[S.
+T02_7314	0083725	|	VBZ	+'s	[Vzb.Vzb]
+T02_7317	0083736	|	MC1	one	[Ns:s.
+T02_7320	0083747	|	NN1n	lot	.
+T02_7323	0083758	|	CST	that	[Fr.Fr]Ns:s]
+T02_7326	0000000	y	YR	#	.
+T02_7329	0083770	c	YP	{pause}	.
+T02_7332	0083778	|	RR	just	[R:m.R:m]
+T02_7335	0083790	|	MC1	one	[Ns:s.
+T02_7338	0083801	|	NN1n	lot	.
+T02_7341	0083813	|	ICSk	like	[P.
+T02_7344	0083825	|	DD1a	that	.P]Ns:s]S]
+T02_7347	0083837	ic	YY	{unclear}	[Y.Y]
+T02_7350	-----	Gemma006
+T02_7353	.....	00612
+T02_7356	0083911	&ic	YY	{unclear}	[Y.Y]
+T02_7359	0083921	*	UY	yeah	.
+T02_7362	0083933	|	NP1m	Steve	[S[Nns:s.Nns:s]
+T02_7365	0083946	|	VVZt	uses	[Vz.Vz]
+T02_7368	0083958	|	AT1	a	[Ns:o.
+T02_7371	0083968	.	NN1c	paintbrush	.Ns:o]S]
+T02_7374	.....	00613
+T02_7377	0084023	*	VV0t	find	[S*[V.V]
+T02_7380	0084035	|	AT1	an	[Ns:o.
+T02_7383	0084045	|	JJ	old	.
+T02_7386	0084056	.	NN1c	paintbrush	.Ns:o]S*]
+T02_7389	-----	Barbara004
+T02_7392	.....	00614
+T02_7395	0084113	*.	UY	mm	.
+T02_7398	.....	00615
+T02_7401	0084143	|	PPIS1	I	[S[Nea:s.Nea:s]
+T02_7404	0084151	|	VH0	+'ve	[Vf.
+T02_7407	0084162	|	VVNH	got	.Vf]
+T02_7410	0084173	|	AT1	a	[Ns:o.
+T02_7413	0084182	.	NN1c	paintbrush	.Ns:o]S]
+T02_7416	-----	Gemma006
+T02_7419	.....	00616
+T02_7422	0084239	*?	UY	yeah	.
+T02_7425	-----	Barbara004
+T02_7428	.....	00617
+T02_7431	0084290	*	CS	cos	[Fa.
+T02_7434	0084301	|	PPIS1	I	[Nea:s.Nea:s]
+T02_7437	0084309	|	VH0	+'ve	[Vfu.
+T02_7440	0084320	|	VBN	been	.
+T02_7443	0084332	|	VDG	doing	.Vfu]
+T02_7446	0084345	|	II	round	[P:p.
+T02_7449	0084362	|	AT	the	[Np.
+T02_7452	0084374	|	NN2	edges	.Np]P:p]Fa]
+T02_7455	0084404	&ic	YY	{unclear}	[Y.Y]
+T02_7458	-----	Gemma006
+T02_7461	.....	00618
+T02_7464	0084478	&*	UI	now	.
+T02_7467	0084489	|	APPGi1	my	[S[Ns:s.
+T02_7470	0084499	|	NNS1c	sister	.Ns:s]
+T02_7473	0084530	&	RR	just	[R:t[RR#.
+T02_7476	0000000	y	YR	#	.
+T02_7479	0084542	c	YP	{pause}	.
+T02_7482	0084551	|	RR	just	.RR#]R:t]
+T02_7485	0084563	|	VHD	had	[Vd.Vd]
+T02_7488	0084574	|	APPGf	her	[Ns:o.
+T02_7491	0084585	|	NN1c	bathroom	.Ns:o]
+T02_7494	0000000	y	YR	#	.
+T02_7497	0084601	c	YP	{pause}	.
+T02_7500	0084609	|	RR	just	[R:t.R:t]
+T02_7503	0084621	|	VHD	had	[Vd.Vd]
+T02_7506	0084633	|	APPGf	her	[Ns:o.
+T02_7509	0084652	t	NN1c/bathroom	bath	[NN1c#.
+T02_7512	0000000	y	YR	#	.
+T02_7515	0084673	|	NN1c	bathroom	.NN1c#]Ns:o]
+T02_7518	0084689	?	VVNv	Artexed	[Tn:j[Vn.Vn]Tn:j]S]
+T02_7521	-----	Barbara004
+T02_7524	.....	00619
+T02_7527	0084743	*.	UY	mm	.
+T02_7530	-----	Gemma006
+T02_7533	.....	00620
+T02_7536	0084792	*	CC	and	[S?+.
+T02_7539	0084803	|	VD0	do	[Vo.Vo]
+T02_7542	0084813	|	PPY	you	[Ny:s.Ny:s]
+T02_7545	0084824	|	VV0v	know	[Vr.Vr]
+T02_7548	0084836	|	DDQ	what	[Fn?:o[Dq:G191.Dq:G191]
+T02_7551	0084848	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_7554	0084859	|	VDN	done	[Vn.Vn]
+T02_7557	0084872	|	PPH1	it	[Ni:o.Ni:o]
+T02_7560	0084882	?	IW	with	[P:h.
+T02_7563	0000000	y	YG	-	[191.191]P:h]Fn?:o]S?+]
+T02_7566	.....	00621
+T02_7569	0084914	*	APPGf	her	[Ns.
+T02_7572	0084925	.	NN1c	finger	.Ns]
+T02_7575	.....	00622
+T02_7578	0084958	c	YP	{pause}	.
+T02_7581	0084966	*	APPGf	her	[Ns.
+T02_7584	0084977	.	NN1c	finger	.Ns]
+T02_7587	.....	00623
+T02_7590	0085011	*	CC	and	[S+.
+T02_7593	0085022	|	PPH1	it	[Ni:s.Ni:s]
+T02_7596	0085032	|	VVZv	looks	[Vz.Vz]
+T02_7599	0085045	|	JJ	lush	[J:e.J:e]S+]
+T02_7602	-----	Barbara004
+T02_7605	.....	00624
+T02_7608	0085088	*	UL	what	.
+T02_7611	0085100	|	ICSk	like	[P.
+T02_7614	0085112	c	YP	{pause}	.
+T02_7617	0085137	&,	NN2	bumps	.P]
+T02_7620	0085158	|	ICSk	like	[P.
+T02_7623	0085171	?	NN2	bumps	.P]
+T02_7626	-----	Gemma006
+T02_7629	.....	00625
+T02_7632	0085256	&*	DBa	all	[S[D:s193.
+T02_7635	0085267	|	PPHS1f	she	[Fr[Nas:s.Nas:s]
+T02_7638	0085278	|	VDN	done	[Vn.Vn]
+T02_7641	0000000	y	YG	-	[o193.o193]Fr]D:s193]
+T02_7644	0085307	&	VBZ	is	[Vzb.Vzb]
+T02_7647	0085318	.	ZZ2	S's	[Np:e.Np:e]S]
+T02_7650	-----	Barbara004
+T02_7653	.....	00626
+T02_7656	0085368	*	UR	oh	.
+T02_7659	0085378	.	ZZ2	S's	[Np.Np]
+T02_7662	-----	Gemma006
+T02_7665	.....	00627
+T02_7668	0085428	*	JJ	little	[L[Np:s.
+T02_7671	0085442	|	ZZ2	S's	.Np:s]
+T02_7674	0085453	,	RR	all	[P:p[RR#.
+T02_7677	0000000	y	YR	#	.
+T02_7680	0085472	|	RR	all	.RR#]
+T02_7683	0085483	,	II	over	.
+T02_7686	0085508	|	PPH1	it	.P:p]
+T02_7689	0085518	|	ICSk	like	[P:h.
+T02_7692	0085530	?	DD1a	that	.P:h]L]
+T02_7695	-----	Barbara004
+T02_7698	.....	00628
+T02_7701	0085581	*.	UY	yeah	.
+T02_7704	-----	Gemma006
+T02_7707	.....	00629
+T02_7710	0085632	*	CC	and	[S+.
+T02_7713	0085643	|	PPH1	it	[Ni:s.Ni:s]
+T02_7716	0085653	|	VVZv	looks	[Vz.Vz]
+T02_7719	0085666	.	JJ	lovely	[J:e.
+T02_7722	.....	00630
+T02_7725	0085699	c	YP	{pause}	.
+T02_7728	0085707	*	RR	really	[J@.
+T02_7731	0085721	.	JJ	nice	.J@]J:e]S+]
+T02_7734	-----	Barbara004
+T02_7737	.....	00631
+T02_7740	0085772	*	CC	and	[S+.
+T02_7743	0085783	|	PPIS1	I	[Nea:s.Nea:s]
+T02_7746	0085792	|	VVNH	got	[Vn.Vn]
+T02_7749	0085802	|	TO	+ta	[Ti:z[Vi.
+T02_7752	0085812	|	VD0	do	.Vi]
+T02_7755	0085822	|	APPGi1	my	[Ns:o.
+T02_7758	0085832	|	NN1c	bathroom	.Ns:o]
+T02_7761	0085848	|	RR21	as	[R:m[RR=.
+T02_7764	0085848	.	RR22	well	.RR=]R:m]
+T02_7767	.....	00632
+T02_7770	0085883	*	CCB	but	[L+.
+T02_7773	0085894	|	RRx	only	[R:m.R:m]
+T02_7776	0085906	|	RP	down	[P:q.
+T02_7779	0085918	|	IIt	to	.
+T02_7782	0085928	|	AT	the	[Np.
+T02_7785	0085939	|	NN2	tiles	.Np]P:q]
+T02_7788	0085952	|	RRz	so	[S-[Rs:c.Rs:c]
+T02_7791	0085963	|	PPGi1	mine	[N:s.N:s]
+T02_7794	0000000	y	YG	-	[m195.m195]
+T02_7797	0085974	|	VMd	+'d	[Vdcb.
+T02_7800	0085984	|	RRx	only	[R:G195.R:G195]
+T02_7803	0085996	|	VB0	be	.Vdcb]
+T02_7806	0086006	.	RR	halfway	[R:h.R:h]S-]L+]Ti:z]S+]
+T02_7809	-----	Gemma006
+T02_7812	.....	00633
+T02_7815	0086061	*	CC	and	[S+.
+T02_7818	0086072	|	PPH1	it	[Ni:s.Ni:s]
+T02_7821	0086081	|	VBZ	+'s	[Vzb.Vzb]
+T02_7824	0086091	c	YP	{pause}	.
+T02_7827	0086099	|	II	in	[P:e.
+T02_7830	0086109	|	AT1	a	[Njs.
+T02_7833	0086118	|	NP1t	Rome	[Nns.Nns]
+T02_7836	0086130	|	JJ	pink	.
+T02_7839	0000000	y	YG	-	[197.197]Njs]P:e]
+T02_7842	0086147	|	PPH1	it	[S@[Ni:s.Ni:s]
+T02_7845	0086157	,	VBZ	is	[Vzb.Vzb]S@]
+T02_7848	0086175	|	ICSk	like	.
+T02_7851	0086187	|	AT1	a	[Njs@:G197.
+T02_7854	0086196	|	UO21	sort	[UO=.
+T02_7857	0086208	|	UO22	of	.UO=]
+T02_7860	0000000	y	YR	#	.
+T02_7863	0086218	|	AT1	a	.
+T02_7866	0086227	c	YP	{pause}	.
+T02_7869	0086235	|	JJ	nice	.
+T02_7872	0086247	.	JJ	pink	.Njs@:G197]S+]
+T02_7875	.....	00634
+T02_7878	0086283	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_7881	0086293	|	VVZv	looks	[Vz.Vz]
+T02_7884	0086306	|	RR	really	[J:e.
+T02_7887	0086320	|	JJ	nice	.J:e]
+T02_7890	0086332	|	PPH1	it	[S@[Ni:s.Ni:s]
+T02_7893	0086342	.	VD0	do	[Vx.Vx]S@]S]
+T02_7896	.....	00635
+T02_7899	0086372	*	CC	and	[S+.
+T02_7902	0086383	|	PPHS1f	she	[Nas:s.Nas:s]
+T02_7905	0086394	|	VVNH	got	[Vn.Vn]
+T02_7908	0086405	|	APPGf	her	[Ns:o.
+T02_7911	0086416	|	NN1c	bath	.Ns:o]
+T02_7914	0086428	|	II	in	[P:p.
+T02_7917	0086438	|	AT	the	[Ns.
+T02_7920	0086450	|	NN1c	middle	.
+T02_7923	0086464	|	IO	of	[Po.
+T02_7926	0086474	|	AT	the	[Ns.
+T02_7929	0086485	.	NN1c	bathroom	.Ns]Po]Ns]P:p]S+]
+T02_7932	-----	Barbara004
+T02_7935	.....	00636
+T02_7938	0086540	*	RRz	so	[S[Rs:c.Rs:c]
+T02_7941	0086550	|	PPY	you	[Ny:s.Ny:s]
+T02_7944	0086561	|	VV0v	buy	[V.V]
+T02_7947	0086572	|	AT1	a	[Ns:o.
+T02_7950	0086581	|	NN1c	packet	.
+T02_7953	0086595	|	IO	of	[Po.
+T02_7956	0086606	?	NP1x	Artex	[Nns.Nns]Po]Ns:o]S]
+T02_7959	.....	00637
+T02_7962	0086643	*	PPY	you	[S[Ny:s.Ny:s]
+T02_7965	0086654	|	VD0	do	[Ve.
+T02_7968	0086663	|	XX	+n't	.
+T02_7971	0086674	|	VV0v	buy	.Ve]
+T02_7974	0086685	|	PPH1	it	[Ni:o.Ni:o]
+T02_7977	0086695	|	II	in	[P:p.
+T02_7980	0086705	?	NN2	tubs	.P:p]S]
+T02_7983	-----	Gemma006
+T02_7986	.....	00638
+T02_7989	0086756	*.	UN	no	.
+T02_7992	.....	00639
+T02_7995	0086786	*	PPH1	it	[S[Ni:s.Ni:s]
+T02_7998	0086795	|	VBZ	+'s	[Vzb.Vzb]
+T02_8001	0086805	|	AT1	a	[Ns:e.
+T02_8004	0086814	|	JJ	great	.
+T02_8007	0086827	|	JJ	big	.
+T02_8010	0086838	.	NN1c	bag	.Ns:e]S]
+T02_8013	.....	00640
+T02_8016	0086869	*	UE	mind	.
+T02_8019	0086881	|	DD1i	this	[S[Ds:s.Ds:s]
+T02_8022	0086893	|	VVDv	took	[Vd.Vd]
+T02_8025	0086905	|	RGi	about	[Y:o.
+T02_8028	0000000	y	YR	#	.Y:o]S]
+T02_8031	0086922	c	YP	{pause}	.
+T02_8034	0086930	|	UW	well	.
+T02_8037	0086959	&	PPH1	it	[S[Ni:s.Ni:s]
+T02_8040	0086968	|	VBZ	+'s	[Vzb.Vzb]
+T02_8043	0086978	ic	YY	{unclear}	[Y:e.Y:e]
+T02_8046	0086988	|	VAI	in	[Iq[S?[Ve.
+T02_8049	0086997	|	XX	+n	.Ve]
+T02_8052	0087005	|	PPH1	+it	[Ni:s.Ni:s]S?]Iq]S]
+T02_8055	0087015	ic	YY	{unclear}	[Y.Y]
+T02_8058	-----	Barbara004
+T02_8061	.....	00641
+T02_8064	0087089	&*	CS	cos	[Fa.
+T02_8067	0087100	|	PPGi1	mine	[N:s.N:s]
+T02_8070	0087111	|	VBZ	+'s	[Vzb.Vzb]
+T02_8073	0087121	|	RRx	only	[R:m.R:m]
+T02_8076	0087133	|	RR	halfway	[R:h.R:h]
+T02_8079	0087157	|	CS	cos	[Fa:c.
+T02_8082	0087168	|	AT	the	[Np:s.
+T02_8085	0087179	|	NN2	tiles	.Np:s]
+T02_8088	0087209	&	VBR	are	[Vab.Vab]
+T02_8091	0087220	|	II21	up	[P:p[II=.
+T02_8094	0087220	|	II22	to	.II=]
+T02_8097	0087233	|	RLh	here	.P:p]Fa:c]Fa]
+T02_8100	0087262	&	UK	look	.
+T02_8103	-----	Gemma006
+T02_8106	.....	00642
+T02_8109	0087338	&*.	UY	yeah	.
+T02_8112	-----	Barbara004
+T02_8115	.....	00643
+T02_8118	0087406	|	CC	and	[S+.
+T02_8121	0087417	|	RTn	then	[Rsw:t.Rsw:t]
+T02_8124	0087429	|	PPH1	it	[Ni:s.Ni:s]
+T02_8127	0087438	|	VBZ	+'s	[Vzb.Vzb]
+T02_8130	0087448	|	AT	the	[Ns:e.
+T02_8133	0087459	.	NN1c	bath	.Ns:e]S+]
+T02_8136	.....	00644
+T02_8139	0087491	*	RRz	so	[S[Rs:c.Rs:c]
+T02_8142	0087501	|	PPH1	it	[Ni:s.Ni:s]
+T02_8145	0000000	y	YG	-	[m201.m201]
+T02_8148	0087510	|	VMd	+'d	[Vdcb.
+T02_8151	0087520	|	RRx	only	[R:G201.R:G201]
+T02_8154	0087532	|	VB0	be	.Vdcb]
+T02_8157	0087542	|	VV0v	say	[I[S*[V.V]S*]I]
+T02_8160	0087553	|	II	from	[P:q.
+T02_8163	0087565	|	RLh	there	.P:q]
+T02_8166	0087578	c	YP	{pause}	.
+T02_8169	0087586	|	IIt	to	[P:q.
+T02_8172	0087596	|	AT	the	[Ns.
+T02_8175	0087607	|	NN1c	roof	.Ns]
+T02_8178	0087619	.	RL	round	.P:q]S]
+T02_8181	-----	Gemma006
+T02_8184	.....	00645
+T02_8187	0087671	*.	UY	yeah	.
+T02_8190	-----	Barbara004
+T02_8193	.....	00646
+T02_8196	0087722	*	RRz	so	[S[Rs:c.Rs:c]
+T02_8199	0087732	|	PPIS1	I	[Nea:s.Nea:s]
+T02_8202	0087741	|	VMd	could	[Vdc.
+T02_8205	0087754	|	VD0	do	.Vdc]
+T02_8208	0087764	|	DD1a	that	[Ds:o.Ds:o]
+T02_8211	0087776	|	VMd	could	[Iq[S?[Vdcex.
+T02_8214	0087788	|	XX	+n't	.Vdcex]
+T02_8217	0087800	?	PPIS1	I	[Nea:s.Nea:s]S?]Iq]
+T02_8220	.....	00647
+T02_8223	0087845	&	VV0v	Artex	[S@[V.V]
+T02_8226	0087858	|	DD1a	that	[Ds:o.Ds:o]S@]S]
+T02_8229	-----	Gemma006
+T02_8232	.....	00648
+T02_8235	0087934	&ic	YY	{unclear}	[Y.
+T02_8238	0087944	|	NP1x	Unibond	[Nns.Nns]
+T02_8241	0087963	|	RTn	then	[Rsw.Rsw]Y]
+T02_8244	-----	Barbara004
+T02_8247	.....	00649
+T02_8250	0088023	*	UY	yeah	.
+T02_8253	0088035	.	MDo	first	[R.R]
+T02_8256	.....	00650
+T02_8259	0088084	&*	RGQq	how	[S?[Dqs:e.
+T02_8262	0088095	|	DA1	much	.Dqs:e]
+T02_8265	0088107	|	VBZ	is	[Vzb.Vzb]
+T02_8268	0088117	?	DD1a	that	[Ds:s.Ds:s]S?]

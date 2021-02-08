@@ -1,0 +1,129 @@
+# http://en.wiktionary.org/wiki
+
+
+
+# indefinite articles  
+a	DETERMINER_SINGULAR
+an	DETERMINER_SINGULAR
+
+# definite articles
+the
+da
+ye
+another	DETERMINER_SINGULAR
+other
+different
+no
+
+#  possessive pronouns are marked separately  but are determiners
+
+# demonstratives 
+this DETERMINER_SINGULAR
+that DETERMINER_SINGULAR
+
+such DETERMINER_PLURAL  # but such stature is singular or generic (not a concrete noun)
+dis DETERMINER_SINGULAR
+dat DETERMINER_SINGULAR
+these DETERMINER_PLURAL
+those DETERMINER_PLURAL
+which
+what
+whatever
+whichever
+whose
+yonder
+
+#quantifiers
+a_few DETERMINER_PLURAL
+a_little
+all DETERMINER_PLURAL
+another DETERMINER_SINGULAR
+any  # singular and plural allowed
+any_and_all DETERMINER_PLURAL
+both DETERMINER_PLURAL
+certain
+couple
+del
+
+each DETERMINER_SINGULAR
+each_and_every DETERMINER_SINGULAR
+either DETERMINER_SINGULAR
+enough DETERMINER_PLURAL
+every DETERMINER_SINGULAR
+few DETERMINER_PLURAL
+fewer DETERMINER_PLURAL
+fewest DETERMINER_PLURAL
+half
+double
+triple
+la
+least DETERMINER_PLURAL 
+less DETERMINER_PLURAL
+little 
+much DETERMINER_SINGULAR
+many DETERMINER_PLURAL
+# more DETERMINER_PLURAL   prefer its use as a adjective in front of a mass noun
+most DETERMINER_PLURAL
+much
+whichever 
+nary
+neither DETERMINER_SINGULAR
+none
+overmuch
+several DETERMINER_PLURAL
+some 
+such DETERMINER_PLURAL
+such_a DETERMINER_SINGULAR
+such_an DETERMINER_SINGULAR
+such_and_such
+sufficient
+the_only DETERMINER_SINGULAR
+various DETERMINER_PLURAL
+
+# cardinal numbers (all of them we treat as adjective_number w/o ordinal)
+
+# interrogative determiners (aka interrogative adjective) which what  (possessive pronoun)  whose 
+
+# ########################################################################
+
+# ADD THESE ALL AT END, BECAUSE THEY OTHERWISE RUIN DETERMINER default flaggins
+
+# predeterminers  go before indefinite articles  a/an
+
+# quantifying - express a proportion of the  whole -
+all PREDETERMINER
+both PREDETERMINER
+double PREDETERMINER # and fractions
+half PREDETERMINER
+indeed PREDETERMINER
+many PREDETERMINER
+many_of PREDETERMINER
+once PREDETERMINER
+quite PREDETERMINER # before a and an
+such PREDETERMINER
+sure PREDETERMINER
+what PREDETERMINER # "*what a lovely view"
+rather PREDETERMINER # before a and an
+this PREDETERMINER
+times PREDETERMINER
+
+a PREDETERMINER_TARGET
+an PREDETERMINER_TARGET
+the PREDETERMINER_TARGET
+
+my PREDETERMINER_TARGET
+your PREDETERMINER_TARGET
+his PREDETERMINER_TARGET
+her PREDETERMINER_TARGET
+its PREDETERMINER_TARGET
+our PREDETERMINER_TARGET
+their PREDETERMINER_TARGET
+
+these PREDETERMINER_TARGET 
+those PREDETERMINER_TARGET 
+
+# fractional
+twice PREDETERMINER
+thrice PREDETERMINER
+treble PREDETERMINER
+quadruple PREDETERMINER

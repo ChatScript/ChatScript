@@ -1,0 +1,172 @@
+#transitional words and phrases
+
+#Addition 
+and 
+a # further ... 
+then 
+also 
+too 
+next 
+another 
+other 
+nor 
+furthermore 
+moreover 
+in #addition 
+# equally important 
+# in fact
+additionally 
+besides 
+again 
+equally 
+first
+second 
+finally
+last 
+lastly
+
+#comparison
+just # as ... so too 
+a # similar x 
+another # x 
+like 
+similarly 
+comparable 
+in # the same way 
+likewise 
+
+#contrast
+but 
+yet 
+and # yet 
+still 
+otherwise 
+or 
+though 
+but # another 
+rather 
+however 
+still 
+nevertheless 
+on # the other hand 
+on # the contrary 
+even # so 
+notwithstanding 
+for # all that 
+in # contrast 
+alternatively 
+at # the same time 
+though # this may be 
+otherwise 
+instead 
+nonetheless 
+conversely 
+
+#Time 
+then 
+now 
+soon 
+afterward 
+later 
+shortly 
+earlier 
+recently 
+first
+second
+third 
+next 
+before 
+after 
+today 
+tomorrow 
+meanwhile 
+at # length 
+presently 
+at # last 
+finally 
+immediately 
+thereafter 
+at # that time 
+subsequently 
+eventually 
+currently 
+in # the meantime 
+in # the past 
+in # the future 
+
+#Purpose 
+to # do this 
+so # that to this end 
+with # this object 
+for # this purpose 
+for # that reason 
+because # of this x 
+
+#Place 
+there 
+here 
+beyond 
+nearby 
+next # to 
+at # that point 
+opposite # to 
+adjacent # to 
+on # the other side 
+in # the front 
+in # the back 
+
+#Result 
+so 
+and #so 
+then 
+hence 
+therefore 
+accordingly 
+consequently 
+thus 
+thereupon 
+as # a result 
+in # consequence 
+
+#Example 
+that # is 
+specifically 
+in # particular 
+for # one thing 
+for # example 
+for # instance 
+an # instance of this 
+this # can be seen in 
+
+#Summary and Emphasis 
+in # sum 
+generally 
+after # all 
+by # the way 
+in # general 
+incidentally 
+naturally 
+I # hope 
+at # least 
+it # seems 
+in # brief 
+I # suppose in short 
+on # the whole 
+as # I said 
+in # other words 
+to # be sure 
+in # fact 
+indeed 
+clearly 
+of # course 
+anyway 
+remarkably 
+I # think 
+assuredly 
+definitely 
+without # doubt 
+for # all that 
+on # the whole 
+in # any event 
+importantly 
+certainly 

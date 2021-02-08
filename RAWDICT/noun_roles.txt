@@ -1,0 +1,110 @@
+
+~role ~occupation ~role_ally ~role_criminal ~role_economic ~role_enemy ~role_family ~role_heroic ~role_knowledge ~role_medical ~role_misc ~role_politics ~role_romantic ~role_worship 
+~occupation roadie  ~assassin ~attendant ~musiciantype ~occupation_female ~occupation_generic ~occupation_male 
+~assassin assassin  gunman  hit_man  hitman  kill  killer  mercenary  murder  murderer  
+~attendant attendant  chauffeur  cleaner  cook  decorator  dry_cleaner  electrician  hairdresser  maid  mechanic  plumber  stylist  
+~musiciantype bassist  clarinet_player  guitarist  pianist  piano_player  piper  timpanist  trombonist  
+~occupation_female actress  air_hostess  airline_stewardess  ancestress  authoress  aviatress  aviatrix  barmaid  Chairwoman  chairwoman  comedienne  dominatrix  enchantress  executrix  fornicatress  foundress  goddess  headmistress  heiress  heroine  hostess  huntress  inheritrix  maid  matron  milkmaid  millionairess  negotiatress  Negress  nurse  prioress  proprietress  saleswoman  schoolgirl  schoolmistress  sculptress  seamstress  seductress  sorceress  stewardess  taskmistress  testatrix  tigress  traitress  villainess  waitress  widow  witch  
+~occupation_generic abatement_worker  archivist  armament_fitter  assayer_sampler  associate  cabinet_head  domestic_appliance_mechanician  engraver  explosive_expert  exterminator  graphic_designer  gravure_machine_minder  historian  home_economist  keeper  lexicographer  lift_mechanic  meter-reader  miner  optical_dispenser  pirate  planner  rigger  saw_operator  scale_fitter  specialist  syndicator  taxonomer  teamster  telemeter  terminologist  tollgatherer  tollkeeper  tollman  usher  ~dangerous_job ~occupation_animals ~occupation_aviation ~occupation_banking ~occupation_bureaucrat ~occupation_business ~occupation_cleaning ~occupation_clothing ~occupation_communications ~occupation_computers ~occupation_construction ~occupation_creator ~occupation_educator ~occupation_engineer ~occupation_entertainment ~occupation_esthetics ~occupation_explorer ~occupation_factory ~occupation_film ~occupation_food ~occupation_forest ~occupation_insurance ~occupation_inventor ~occupation_jobless ~occupation_law ~occupation_magic ~occupation_manager ~occupation_medical ~occupation_military ~occupation_personal_service ~occupation_plants ~occupation_politics ~occupation_public_safety ~occupation_real_estate ~occupation_religion ~occupation_sales ~occupation_science ~occupation_software ~occupation_sports ~occupation_spy ~occupation_transport ~occupation_writer roommate housemate flatmate suitemate
+~dangerous_job bomb-disposal  circus  miner  oil-rig  racecar_driver  Special_Forces  stuntperson  suicide_bomber  terrorist  test_pilot  
+~occupation_animals animal_scientist  animal_trainer  hunter  vet  
+~occupation_aviation aeronautical_engineer  aerospace_engineer  air_crew  air_force_pilot  air_host  air_hostess  air_traffic_controller  airline_steward  airline_stewardess  astronaut  aviator  flight_engineer  pilot  spaceman  
+~occupation_banking accountant  agricultural_economist  banker  broker  chartered_accountant  chartered_management_accountant  economist  economist_technician  excise_officer  speculator  teller  treasurer  
+~occupation_bureaucrat administrator  agent  branch_manager  bureaucrat  clerk  coordinator  human_resource_manager  organizer  post_office_clerk  technocrat  
+~occupation_business area_manager  assistant  auditor  banking_career  bookkeeper  boss  business_analyst  business_economist  business_theorist  CEO  CFO  chartered_secretary  comptroller  consultant  credit_controller  CTO  customer_service_agent  employee  employer  executive  financial_manager  founder  inventory_manager  investment_manager  investor  management_consultant  manager  partner  personnel_consultant  private_secretary  receptionist  recruiter  secretary  stenographer  touch-typist  typist  venture_capitalist  worker  
+~occupation_cleaning cleaner  custodian  janitor  
+~occupation_clothing clothing_designer  clothing_manager  cobbler  diamond_cutting  furrier  goldsmith  jeweler  jeweller  knitter  leather_worker  shoe_designer  tailor  textile_designer  weaver  
+~occupation_communications mail_handler  mailman  messenger  telegrapher  
+~occupation_computers computer_industry  computer_scientist  database_administrator  
+~occupation_construction architect  architectural_technologist  assistant_draughtsman  blockmason  bricklayer  brickmason  carpenter  cartographer  civil_engineer  construction  construction_manager  crane_operator  drafter  draughtsman  earth_moving_equipment_mechanic  electrician  installer  joiner  laborer  labourer  landscape_architect  phytogrammetrist  plasterer  plumber  roofer  spot-welder  stonemason  surveyor  urban_planner  welder  woodworker  
+~occupation_creator blacksmith  instrument_maker  tinsmith  toolmaker  woodmachinist  
+~occupation_educator advisor  educator  lecturer  philosopher  principal  professor  pupil  scholar  scholastic_philosopher  student  teacher  
+~occupation_engineer ceramics_technologist  clinical_engineering  coal_technologist  concrete_technician  electrical_engineer  electrical_engineering_technician  electronic_engineer  engineer  engineering_technician  explosive_technologist  extractive_metallurgist  industrial_engineer  industrial_engineering_technologist  industrial_technician  leather_chemist  materials_engineer  mechanical_engineer  mining_engineer  paint_technician  paper_technologist  petroleum_technologist  rubber_technologist  technician  wood_technologist  
+~occupation_entertainment animator  artisan  artist  caricaturist  cartoonist  comic_creator  critic  game_designer  illustrator  model  model_builder  painter  philatelist  photographer  producer  projectionist  recreation_manager  sculptor  superstar  tourism_manager  ~occupation_dance ~occupation_music ~occupation_performer ~occupation_television 
+~occupation_dance ballerina  ballet_dancer  dancer  
+~occupation_music accordionist  composer  conductor  disc-jockey  musician  pianist  piano_tuner  singer  singer-songwriter  songstress  songwriter  soprano  soundman  soundtrack_composer  
+~occupation_performer clown  comedian  costume_designer  entertainer  juggler  lion_tamer  magician  make-up_artist  porn_star  stagehand  stand-up_comedian  storyteller  stripper  taleteller  ventriloquist  
+~occupation_television telecaster  television_mechanician  television_presenter  television_reporter  
+~occupation_esthetics decor_designer  decorator  designer  interior_designer  spray_painter  
+~occupation_explorer diver  explorer  spelaeologist  speleologist  
+~occupation_factory armature_winder  assembly_line_worker  boilermaker  die-sinker  foreman  industrial_designer  inspector  machine_operator  machine_worker  machinist  power_plant_operator  production_manager  quality_control_inspector  quantity_surveyor  sheetmetal_worker  steelman  steelworker  
+~occupation_film actor  actress  director  film_and_production  film_critic  playwright  theater_director  theatre_director  theatre_technology  thespian  
+~occupation_food baker  beer_brewing  butcher  chef  cook  farm_foreman  farm_worker  farmer  food_scientist  food_technologist  grain_grader  meat_cutting_technician  milkman  peasant  sommelier  swineherd  taste-tester  viticulturist  
+~occupation_forest forest_ranger  forester_service  game_ranger  lumberjack  nature_conservator  ranger  timberman  
+~occupation_insurance actuary  insurance_broker  statistician  
+~occupation_inventor inventor  tinkerer  
+~occupation_jobless jobless  unemployed  
+~occupation_law advocate  arbitrator  attorney  bail_agent  beat_cop  civil_investigator  cop  correctional_services  detective  guard  investigator  judge  jurist  law  lawyer  magistrate  patent_attorney  patrolman  police  police_officer  policeman  policewoman  security_officer  sheriff  traffic_officer  
+~occupation_magic astrologer  psychic  soothsayer  thaumaturgist  warlock  witch  wizard  
+~occupation_manager boss  chief  manager  president  project_manager  supervisor  
+~occupation_medical ambulance_emergency_care_worker  ambulange_driver  anesthesiologist  anesthetist  biokineticist  biomedical_engineer  biomedical_technologist  chiropractor  clinical_psychologist  clinical_technologist  counselor  dental_assistant  dental_hygienist  dental_technician  dental_therapist  dentist  dietician  DJ  doctor  Dr  eeg_technician  emergency_medical_technician  EMT  funeral_director  gerontologist  healer  homoeopath  hospital_porter  language_therapist  medical_doctor  medical_orthotist_prosthetist  neuroscientist  nurse  nutritionist  occupational_therapist  optical_technician  optometrist  oral_hygienist  pathologist  pharmacist  pharmacist_assistant  physician  physiologist  physiotherapist  plastic_surgeon  podiatrist  psychiatrist  psychologist  psychometrist  radiographer  shaman  social_psychologist  social_worker  speech_therapist  stretcher-bearer  surgeon  veterinarian  veterinary_nurse  veterinary_surgeon  ~doctor 
+~doctor acupuncturist  chiropractor  doctor  kinesiologist  masseur  personal_trainer  physician  psychiatrist  psychologist  surgeon  therapist  
+~occupation_military archer  captain  colonel  conquistadore  corporal  general  guerrilla  knight  lieutenant  mercenary  military_commander  ninja  officer  partisan  sergeant  soldier  spearman  swordsman  
+~occupation_personal_service 
+~occupation_plants florist  gardener  
+~occupation_politics activist  ambassador  city_treasurer  civil_rights_leader  commissioner  committee_clerk  delegate  dictator  diplomat  governor  lawmaker  lobbyist  mayor  political_scientist  political_theorist  politician  potentate  representative  senator  speechmaker  ~royalty ~ruler 
+~royalty ~royalty_female ~royalty_male 
+~royalty_female archduchess  baronne  Comtesse  countess  Dame  duchess  duchesse  empress  Jewess  Ladyship  marquise  princess  queen  Reverend_Mother  
+~royalty_male archduke  Baron  Comte  duc  duke  Earl  Esquire  king  Knight  lord  Lordship  Marquis  prince  
+~ruler emir  emperor  king  pharoh  prince  Shah  sultan  tsar  
+~occupation_public_safety environmental_health_officer  fire-fighter  firefighter  fireman  radiation_protectionist  
+~occupation_real_estate cartographer  estate_agent  land_surveyor  mine_surveyor  realtor  urban_planner  
+~occupation_religion bishop  chaplain  clergyman  cleric  missionary  preacher  priest  rabbi  religion_scholar  televangelist  theologians  theologiser  theologist  theologizer  vicar  
+~occupation_sales advertising  appraiser  attendant  auctioneer  cashier  dealer  fashion_buyer  marketing_manager  merchandise_planner  merchant  public_relations_practitioner  purchasing_manager  sales_representative  salesperson  shop_assistant  shopfitter  stock-taker  stockjobber  stockman  stocktaker  store_manager  storekeeper  supermarketeer  supermarketer  tobacconist  valuer  
+~occupation_science agricultural_engineer  agricultural_extension_officer  agricultural_inspector  agricultural_technician  agriculture  agriculturist  agronomist  anthropologist  apiarist  aquatic_scientist  archaeologist  astronomer  astrophysicist  biochemist  biologist  botanist  chemical_engineer  chemist  coleopterist  ecologist  entomologist  geneticist  geographer  geologist  geometer  geophysicist  geotechnologist  herpetologist  horticulturist  hydrologist  ichthyologist  logician  mad_scientist  marine_biologist  mathematical_probabilist  mathematician  medical_physicist  meteorological_technician  meteorologist  microbiologist  mineralogist  myrmecologist  nuclear_scientist  oceanographer  ornithologist  physicist  researcher  scientist  sociologist  soil_scientist  taxonomist  technologist  theoretician  theorist  weather_observer  weatherman  weatherperson  wood_scientist  xenoarchaeologist  zoologist  
+~occupation_software data_capturer  operations_researcher  programmer  systems_analyst  
+~occupation_sports acrobat  athlete  baseball_player  basketball_player  boxer  bullfighter  cheerleader  chess_player  climber  figure_skater  football_player  footballer  golfer  jockey  kickboxercoach  life-guard  linesman  matador  professional_wrestler  soccer_player  sport_manager  sports_announcer  sportscaster  sportsman  swimmer  swimming_pool_superintendent  taxidermist  tennis_player  
+~occupation_spy secret_agent  spy  spymaster  
+~occupation_transport automotive_body_repairer  automotive_electrician  automotive_mechinist  automotive_trimmer  bus_driver  busdriver  cabin_attendant  diesel_fitter  diesel_locomotive_driver  diesel_mechanic  driver  driver_and_stacker  light_delivery_van_driver  mechanic  motor_mechanic  navigating_officer  navigator  railroad_executive  road_construction_plant_operator  sailor  sea_captain  sea_transport_worker  skipper  stationmaster  steersman  stoker  switchman  taxidrive  taximan  trucker  vehicle_driver  yard_official  
+~occupation_writer art_editor  author  biographer  bookbinder  copy_writer  copywriter  editor  journalist  librarian  military_writer  novelist  photojournalist  poet  publisher  reporter  science_fiction_writer  screenwriter  speechwriter  sports_writer  technical_illustrator  technical_writer  writer  
+~occupation_male air_host  airline_steward  bachelor  barman  businessman  chairman  Chairman  clergyman  coachman  comedian  congressman  conquistadore  doorman  gunman  headmaster  heir  hero  horseman  host  hunter  milkman  millionaire  proprietor  salesman  schoolboy  sorcerer  steward  taskmaster  testator  traitor  villain  waiter  warlock  workman  
+~role_ally acquaintance  aide  ally  colleague  confederate  friend  guest  helper  neighbor  roommate  subordinate  teammate  visitor  ~friend 
+~friend beau  boyfriend  buddy  close_friend  friend  girlfriend  kith  lover  pal  sidekick  
+~role_criminal ~role_legalbadguy ~role_legalgoodguy 
+~role_legalbadguy accomplice  arsonist  assassin  bad_guy  bastard  bully  criminal  crook  culprit  delinquent  fiend  fugitive  jerk  killer  malefactor  menace  militant  murderer  pilferer  predator  prey  prisoner  pyromaniac  rebel  sociopath  suspect  swindler  thief  threat  traitor  trickster  troublemaker  villain  
+~role_legalgoodguy barrister  defendant  hostage  juror  plaintiff  victim  witness  
+~role_economic beggar  buyer  client  consumer  creator  creditor  customer  maker  owner  slave  trader  tycoon  
+~role_enemy enemy  foe  opponent  rival  
+~role_family adolescent  baby  child  grown-up  parent  relative  ~family_members 
+~family_members twin  ~family_adult ~family_children 
+~family_adult ~family_adult_female ~family_adult_generic ~family_adult_male 
+~family_adult_female aunt  daughter-in-law  ex-wife  fiancee  girlfriend  godmother  grandma  grandmom  grandmother  granny  matriarch  mistress  step-mother  stepmother  widow  wife  ~mother 
+~mother mamma  mommy  mother  mother-in-law  mum  mammy  mummy  ma  mama  mom  momma  step-mother  
+~family_adult_generic ancestor  cousin  descendant  parent  stepparent  
+~family_adult_male boyfriend  brother-in-law  ex-husband  father-in-law  fiance  grandfather  grandpa  grandpop  hubby  husband  patriarch  son-in-law  stepfather  uncle  widower  ~brother ~father 
+~brother bro  brother  male_sibling  blood_brother  half_brother  stepbrother  half-brother  little_brother  big_brother  
+~father dad  dada  daddy  father  old_man  pa  papa  pappy  pop  step-father  
+~family_children ~family_children_female ~family_children_generic ~family_children_male 
+~family_children_female daughter  granddaughter  grandniece  niece  sister  sister-in-law  step-daughter  step-sister  stepdaughter  stepsister  ~sister 
+~sister sis  sister  
+~family_children_generic baby  child  children  grandchild  grandchildren  grandkid  infant  kid  sibling  step-child  stepchild  teen  teenager  toddler  tot  
+~family_children_male brother  grandnephew  grandson  nephew  son  step-brother  step-son  stepson  
+~role_heroic champion  coward  hero  heroine  underdog  ~defender 
+~defender angel  defender  guardian  parent  protector  
+~role_knowledge adept  amateur  beginner  expert  freshman  genius  graduate  idiot  journeyman  junior  layman  master  professional  savant  senior  sensei  sophomore  specialist  student  teacher  virtuoso  
+~role_medical patient  
+~role_misc adult  altar_boy  audience  bum  character  disciplinarian  fellow  fool  hippie  hobo  human  individual  mutant  peer  player  predecessor  scavenger  scout  servant  spokespersonstick-in-the-mud  spokeswoman  sponsor  stakeholder  stooge  stoolie  stoolpigeon  straggler  supplicant  surfboarder  survivalist  survivor  swinger  sympathiser  sympathizer  tattletale  taxpayer  techie  technophile  technophobe  teetotalist  teetotaller  telepathist  tempter  temptress  third-rater  thrill-seeker  throwback  thrower  toastmaster  tomboy  weirdo  
+~role_politics aristocrat  candidate  leader  
+~role_romantic bachelor  bride  bridegroom  companion  concubine  gigolo  girlfriend  husband  lover  mate  Mr  Mrs  partner  prostitute  trollop  wife  ~sexual_preference_nouns 
+~sexual_preference_nouns dyke  fag  faggot  femme  gay  homo  homosexual  lesbian  lesbo  queer  straight  transvestite  
+~role_worship deity  fan  follower  groupie  idol  spectator  
+~role_religious_member Catholic Protestant Bhuddist Jew Muslim Lutheran Presbyterian Unitarian  Hindu Wiccan Scientologist
+Moonie Satanist Freemason Christian_Scientist
+~role_political_member Democrat Republican Tory Whig Libertarian)
+ ~role_nationality_member Martian Venusian Earthling extraterrestrial alien 
+American   Asian European  North_American South_American
+African Australian Middle_Easterner  New_Zealander
+Canadian Norwegian  Icelander Andorrian Ukranian
+Moldovian Serbian Macedonian Georgian Russian  Irishman  
+Estonian Lithuanian  Latvian  Bosnian Slovakian 
+ Czech Slovenian  Brit German   
+Frenchman Italian Spaniard Portuguese  Dutchman  Pole 
+Dane Swede  Greek Finn Austrian Hungarian 
+Romanian  Bulgarian Laotian  Chinese Cambodian  Indonesian 
+Japanese Korean  Thai  Vietnamese   Malasian  Mongolian
+Tibetan  Turk Lebanese  Jordanian Israeli  Syrian 
+Armenian  Iranian  Arab Palestinian Brazilian Mexican 
+Peruvian Columbian Bolivian  Tongan Chilean Argentinian 
+Bolivian Liberian Somalian Algerian  Honduran  Cuban
+Welshman Scot  Guatemalan  Salvadorian   Costa_Rican 
+Spartan Athenian New_Yorker Parisian

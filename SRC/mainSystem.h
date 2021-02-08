@@ -265,7 +265,7 @@ void ProcessOOB(char* buffer);
 void ComputeWhy(char* buffer, int n);
 void FlipResponses();
 void MoreToCome();
-int CountWordsInBuckets(int& unused, unsigned int* depthcount, int limit);
+unsigned int CountWordsInBuckets(unsigned int& unused, unsigned int* depthcount, int limit);
 // Input processing
 void MainLoop();
 void FinishVolley(char* input,char* output,char* summary,int limit = outputsize);

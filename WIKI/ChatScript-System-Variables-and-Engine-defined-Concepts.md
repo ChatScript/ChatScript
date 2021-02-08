@@ -669,8 +669,9 @@ contents.
 | `$cs_proxyserver`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
 | `$cs_addresponse`    | provides a function name hook onto the output q to the user. See below.| 
-| `$cs_tracepattern`    | Used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
-| `$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
+| `$cs_tracepattern_on`    | Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
+| `$cs_tracepattern_off`    | Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
+|`$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
 | `$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput|
 | `$cs_sentences_limit  | after this many sentences in volley, cs ignores the rest (default 50) |
 | `$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt |

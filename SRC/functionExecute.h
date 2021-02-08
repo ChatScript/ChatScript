@@ -70,6 +70,8 @@ extern char* traceTestPatternBuffer;
 extern int tracepatterndata;
 extern HEAPREF patternwordthread;
 extern HEAPREF memoryMarkThreadList;
+extern HEAPREF memoryVariableThreadList;
+extern HEAPREF memoryVariableChangesThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;

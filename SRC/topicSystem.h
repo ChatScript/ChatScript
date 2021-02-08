@@ -49,7 +49,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define RESTOREOLDCONTEXT() currentRuleID = oldRuleID; currentTopicID = oldTopic; currentRule = oldRule; currentRuleTopic = oldRuleTopic;
 
 // decompose a currentRuleID into its pieces
-#define TOPLEVELID(x) ((int) (x & 0x0000ffff))
+#define TOPLEVELID(x) ((unsigned int) (x & 0x0000ffff))
 #define REJOINDERID(x) ( ((unsigned int)x) >> 16)
 #define MAKE_REJOINDERID(x) (x << 16)
 
@@ -130,9 +130,9 @@ extern char labelContext[100][MAX_RECENT+ 1];
 extern int inputContext[MAX_RECENT+ 1];
 extern unsigned int contextIndex;
 
-extern int numberOfTopicsInLayer[NUMBER_OF_LAYERS+1];
+extern unsigned int numberOfTopicsInLayer[NUMBER_OF_LAYERS+1];
 extern  topicBlock* topicBlockPtrs[NUMBER_OF_LAYERS+1];
-extern int numberOfTopics;
+extern unsigned int numberOfTopics;
 extern int topicIndex,pendingTopicIndex,originalPendingTopicIndex;
 extern int topicStack[MAX_TOPIC_STACK+1];
 extern int pendingTopicList[MAX_TOPIC_STACK+1];
@@ -206,13 +206,13 @@ char* GetLabel(char* rule,char* label);
 char* GetPattern(char* rule, char* label, char* pattern, bool friendly = false, int limit = MAX_WORD_SIZE); // returns start of output and modified pattern
 char* GetOutputCopy(char* ptr); // returns copy of output only
 bool TopLevelRule(char* word);
-char* GetTopicName(int topic,bool actual = true);
-char* GetTopicData(int topic);
-void SetTopicData(int topic,char* data);
-bool BlockedBotAccess(int topic);
-void TraceSample(int topic, int ruleID, unsigned int how = USERLOG);
-bool SetRuleDisableMark(int topic, int id);
-void ClearRuleDisableMark(int topic,int id);
+char* GetTopicName(unsigned int topic,bool actual = true);
+char* GetTopicData(unsigned int topic);
+void SetTopicData(unsigned int topic,char* data);
+bool BlockedBotAccess(unsigned int topic);
+void TraceSample(unsigned int topic, unsigned int ruleID, unsigned int how = USERLOG);
+bool SetRuleDisableMark(unsigned int topic, unsigned  int id);
+void ClearRuleDisableMark(unsigned int topic, unsigned int id);
 bool UsableRule(int topic,int n);
 
 void AddRepeatable(char* ptr);
@@ -223,7 +223,7 @@ void SetTopicDebugMark(int topic,unsigned int val);
 void SetTopicTimingMark(int topic, unsigned int val);
 void SetDebugRuleMark(int topic,unsigned int id);
 void SetTimingRuleMark(int topic, unsigned int id);
-char* ShowRule(char* rule,bool concise = false);
+char* ShowRule(char* rule,bool concise = false,bool pattern = false);
 char* DisplayTopicFlags(int topic);
 void FlushDisabled();
 

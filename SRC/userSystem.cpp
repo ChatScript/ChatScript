@@ -19,7 +19,7 @@ int chatbotSaidIndex;
 
 static char* saveVersion = "jul2116";	// format of save file
 
-int userFirstLine = 0;	// start volley of current conversation
+unsigned int userFirstLine = 0;	// start volley of current conversation
 uint64 setControl = 0;	// which sets should be saved with user
 
 char ipAddress[ID_SIZE];
@@ -200,7 +200,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
             {
                 char data[MAX_WORD_SIZE];
                 WriteFact(F, true, data, false, true,true);
-                Log(USERLOG,"Fact Saved %s", data);
+                Log(USERLOG,"Saved %s", data);
             }
 			ptr += strlen(ptr);
 			if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) 
@@ -466,14 +466,14 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 			}
 		}
     }
-	if (!traceseen && !traceUniversal)
+	if (!traceseen && !traceUniversal && !compiling)
 	{
-		sprintf(ptr,(char*)"$cs_trace=%d\r\n",trace);
+		sprintf(ptr,(char*)"$cs_trace=%u\r\n",trace);
 		ptr += strlen(ptr);
 	}
-	if (!timingseen)
+	if (!timingseen && !compiling)
 	{
-		sprintf(ptr, (char*)"$cs_time=%d\r\n", timing);
+		sprintf(ptr, (char*)"$cs_time=%u\r\n", timing);
 		ptr += strlen(ptr);
 	}
 
@@ -484,7 +484,7 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 		WORDP D = tracedFunctionsList[--index];
 		if (D->inferMark && D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC | FN_TIME_BITS))
 		{
-			sprintf(ptr,(char*)"%s=%d %d\r\n",D->word,D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC| FN_TIME_BITS),D->inferMark);
+			sprintf(ptr,(char*)"%s=%u %u\r\n",D->word,D->internalBits & (FN_TRACE_BITS | NOTRACE_TOPIC| FN_TIME_BITS),D->inferMark);
 			ptr += strlen(ptr);
 		}
 	 }
@@ -533,7 +533,7 @@ static bool ReadUserVariables()
 			PrepareVariableChange(D,"",false); // keep it alive as long as it is traced
 			AddInternalFlag(D,MACRO_TRACE);
 		}
-		if (trace & TRACE_VARIABLE) Log(USERLOG,"uservar: %s=%s\r\n",readBuffer,ptr+1);
+		if (trace & TRACE_VARIABLE) Log(USERLOG,"%s=%s\r\n",readBuffer,ptr+1);
     }
 
 	if (strcmp(readBuffer,(char*)"#`end variables")) 
@@ -552,12 +552,12 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 {
 	// need to get fact limit variable for WriteUserFacts BEFORE writing user variables, which clears them
 	unsigned int count = userFactCount;
-	char* value = GetUserVariable("$cs_userfactlimit");
+	char* value = GetUserVariable("$cs_userfactlimit",false,true);
     if (*value == '*') count = (unsigned int)-1;
     else if (*value) count = atoi(value);
 
 	int messageCount = MAX_USER_MESSAGES;
-	value = GetUserVariable("$cs_userhistorylimit");
+	value = GetUserVariable("$cs_userhistorylimit", false, true);
 	if (*value) messageCount = atoi(value);
 
 	// each line MUST end with cr/lf  so it can be made potentially safe for Mongo or encryption w/o adjusting size of data (which would be inefficient)
@@ -572,7 +572,7 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 		ReportBug("User file topic data too big %s",loginID)
 		return NULL;
 	}
-	char* saveJSON = GetUserVariable("$cs_saveusedJson");
+	char* saveJSON = GetUserVariable("$cs_saveusedJson", false, true);
 	if (!*saveJSON) saveJSON = NULL;
 
 	ptr = WriteUserVariables(ptr,sharefile,false, saveJSON);  // json safe - does not write kernel or boot bot variables
@@ -636,7 +636,7 @@ void WriteUserData(time_t curr, bool nobackup)
 		if (!nobackup) CopyFile2File(fname, name, false);	// backup for debugging BUT NOT if callback of some kind...
 		if (redo) // multilevel backup enabled
 		{
-			sprintf(fname, (char*)"%s/backup%d-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
+			sprintf(fname, (char*)"%s/backup%u-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
 			if (!nobackup) CopyFile2File(fname, userDataBase, false);	// backup for debugging BUT NOT if callback of some kind...
 		}
 	}
@@ -664,7 +664,7 @@ void WriteUserData(time_t curr, bool nobackup)
 			if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging
 			if (redo)
 			{
-				sprintf(name, (char*)"%s/backup%d-share-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
+				sprintf(name, (char*)"%s/backup%u-share-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
 				if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging BUT NOT if callback of some kind...
 			}
 		}
@@ -706,14 +706,18 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 		maxFileLine = currentFileLine = 0;
 		BOM = BOMSET;
 		char* at = strchr(buffer,'\r');
-		userRecordSourceBuffer = at + 2; // skip \r\n
-		ReadALine(readBuffer,0);
+        if (at)
+        {
+            userRecordSourceBuffer = at + 2; // skip \r\n
+            ReadALine(readBuffer,0);
 
-		char* x = ReadCompiledWord(readBuffer,junk);
-		x = ReadCompiledWord(x,timeturn0); // the start stamp id if there
-		x = ReadCompiledWord(x,timePrior); // the prior stamp id if there
-		ReadCompiledWord(x,timeturn15); // the timeturn id if there
-		if (stricmp(junk,saveVersion)) *buffer = 0;// obsolete format
+            char* x = ReadCompiledWord(readBuffer,junk);
+            x = ReadCompiledWord(x,timeturn0); // the start stamp id if there
+            x = ReadCompiledWord(x,timePrior); // the prior stamp id if there
+            ReadCompiledWord(x,timeturn15); // the timeturn id if there
+            if (stricmp(junk,saveVersion)) *buffer = 0;// obsolete format
+        }
+        else *buffer = 0;
 	}
     if (!buffer || !*buffer  ) 
 	{
@@ -754,8 +758,8 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
             loadingUser = false;
             return false;
 		}
-		if (trace & TRACE_USER) Log(USERLOG,"user load completed normally\r\n");
-		oldRandIndex = randIndex = atoi(GetUserVariable((char*)"$cs_randindex")) + (volleyCount % MAXRAND);	// rand base assigned to user
+		if (trace & TRACE_USER) Log(USERLOG,"user loaded normally\r\n");
+		oldRandIndex = randIndex = atoi(GetUserVariable((char*)"$cs_randindex", false, true)) + (volleyCount % MAXRAND);	// rand base assigned to user
 	}
 	userRecordSourceBuffer = NULL;
 	if (traceUniversal) trace = traceUniversal;
@@ -818,7 +822,7 @@ void KillShare()
 void ReadNewUser()
 {
 	if (server) trace = 0;
-	if (trace & TRACE_USER) Log(USERLOG,"New User\r\n");
+	if (trace & TRACE_USER) Log(USERLOG,"0 Ctrl:New User\r\n");
 
 	// if coming from script reset, these need to be cleared. 
 	// They were already cleared at start of volley
@@ -840,7 +844,7 @@ void ReadNewUser()
 	unsigned int rand = (unsigned int) Hashit((unsigned char *) loginID,strlen(loginID),hasUpperCharacters,hasUTF8Characters);
 	char word[MAX_WORD_SIZE];
 	oldRandIndex = randIndex = rand & 4095;
-    sprintf(word,(char*)"%d",randIndex);
+    sprintf(word,(char*)"%u",randIndex);
 	SetUserVariable((char*)"$cs_randindex",word ); 
 	strcpy(word,computerID);
 	*word = GetUppercaseData(*word);

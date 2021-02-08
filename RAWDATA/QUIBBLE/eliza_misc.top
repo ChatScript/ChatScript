@@ -20,7 +20,7 @@ s: ( you would like it) [I will take your word for it.][I'm not sure you know me
 u: (say something interesting) Pick a topic.
 ?: ( you be ["uncertain" unsure "not sure" "not certain"]) [Certainty is hard to come by.][Who can be certain of anything?][I'm certain.]
 s: (because [someday "one day"]) [I'm told that will be a while.][That won't be soon.]
-?: ( you * to _~verb > ) [I've never tried it.][I've never tried ^POS(VERB _0 present_participle).]
+?: ( you * to _~verb > ) [I've never tried it.][I've never tried ^POS(VERB _0 participle).]
 u: (try to provoke I) [I wouldn't try to provoke you.][Are you easy to provoke?]
 ?: (you read my mind) I think your head is too thick for that.
 u: (you be *~2 random) It is from random things that life evolved. 

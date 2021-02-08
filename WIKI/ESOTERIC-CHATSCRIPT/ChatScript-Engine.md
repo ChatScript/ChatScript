@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 10/18/2020 cs10.7
+<br> Revision 2/8/2021 cs11.1
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
 * [Data](ChatScript-Engine-md#data)
@@ -42,12 +42,12 @@ The system is divided into the code zones shown below. All code is in SRC.
 * `user variable access` is `variableSystem`
 * `pattern matching` is	`patternSystem`
 * `text functions` is `textUtilities`
-* `concept marking` is `markSystem`
 * `if and loop` are in `constructCode`
 
 ## Natural Language stuff
 * `tokenization` is `spellcheck` and `tokenSystem`
 * `English pos-tagging and parsing` is `english` and `englishtagger` and `tagger`
+* `concept marking` is `markSystem`
 
 ## Statefulness
 * `long term user memory` is `userCache`, `userSystem`
@@ -70,30 +70,61 @@ The system is divided into the code zones shown below. All code is in SRC.
 * `curl` (web api handling/protocols for ^JSONOpen)
 * `duktape` (JavaScript evaluation)
 * `evserver` (LINUX fast server)
-* `mongo` (mongodb access)
+* `mongo` (Mongo db access)
+* `mssql` (Microsoft SQL db access)
+* `mysql` (MYSQL db access)
 * `postgres` (postgres access)
+* `unittest` (unit tests for mssql)
+* `zlib` (text compression for databases - used for mssql at present)
 
-# User Data
+# Character set
+CS expects UTF8 both internally and in user data shipped to it. It may attempt to 
+convert some user and script extended ascii or utf16 data to UTF8 on the fly, mostly
+related to funny quotes and doublequotes.
 
-First you need to understand the basic data available to the user 
-and CS and how it is represented and allocated.
+CS disallows use of the backtick in any user input or script so it can be dedicate to internal use. 
+Such use includes:
+* `fact fields` - read and write fact fields that need escaping with back ticks instead of 
+    individual escapes, faster since don't have to interpret each character
+* `rules` - all compiled rules terminate with backtick to support fast scan to next rule
+* `transient variables` - values of transient variables have a hidden prefix of 2 backticks
+    to support not allowing visibility of or changing of the value  outside local ownership  region
+* `dictionary words` - internal system words from dictionarysystem.h may have 1 or more backticks 
+    at start so no user word
+    lookup could find them. the number of preceeding backticks  indicates the kind of value
+    the word has (property, sysstemflag, parsevalue, misc)
+* `user function definitions` - multiple bots redefining the same function have their definitions
+    all concatenated together, separated with backticks and indictor of bot ownership
+* `keywords file` - multiple bots may use the same keywords in various concepts, each word
+    is separated by a bot id using backtick
+
+# User Data Representatino
+
+First you need to understand the basic data available to the user and CS and how it is represented and allocated.
 
 ![ChatScript data allocations](alloc.png) 
 
 ## Text Strings
 
-The first fundamental datatype is the text string. This is a standard null-terminated C string represented
+The most fundamental datatype is the text string. This is a standard null-terminated C string represented
 in UTF8. Text strings represent words, phrases, things to say.  They represent numbers (converted on the fly when needed to float and int64 values for computation). 
 They represent the names of functions, concepts, topics, user variables, even CS script. 
+
 Strings are allocated out of either the stack (transiently for $_ transient variables) or the heap (for normal user variables and dictionary word names).
+
+Strings can be part of facts (triples of strings) and the users input sentence is kept internally as an ordered array of strings.
 
 ## Dictionary Entries
 
 The second fundamental datatype is the dictionary entry (typedef WORDENTRY). A dictionary entry points to a string in the heap and has
 other data attached. For example, function names in the dictionary tell you how many arguments they require,
 where to go to execute their code. User variable names in the dictionary store a pointer to their value string
-(in the heap). Topic names track which bots are allowed to use them. Ordinary English words have bits describing their part-of-speech information
-and how to use them in parsing. 
+(in the heap). Topic names track which bots are allowed to use them. 
+
+Dictionary entries have property bits (describing them re part of speech tagging), systemflag bits (more about usage of the
+word in English like does it require a direct object), internalBits (that may indicate features like is it a function definition,
+a query, a concept or topic, does it have uppercase letter in it anywhere, etc). See dictionarySystem.h for full form of typedef
+below:
 
 ```
 typedef struct WORDENTRY //   a dictionary entry
@@ -105,7 +136,7 @@ typedef struct WORDENTRY //   a dictionary entry
     MEANING  meanings;
 ```    
 
-In fact, ordinary words have multiple meanings which can vary in their part of speech and their
+Ordinary words have multiple meanings which can vary in their part of speech and their
 ontology, so the list of possible meanings and descriptions is part of the dictionary entry. When
 working directly with a dictionary entry, the code uses `WORDP` as its datatype (pointer to a WORDENTRY).
 Code working indirectly with a dictionary entry uses `MEANING` as its datatype.
@@ -119,7 +150,7 @@ used in concepts and keywords in patterns.
 
 ## Facts
 
-The third fundamental datatype is the fact (typedef FACT), a triple of MEANINGs. 
+The next fundamental datatype is the fact (typedef FACT), a triple of MEANINGs. 
 The fields are called subject, verb, and object but that is just a naming convention and offers no restriction on their use.
 
 A externally written fact looks like this:
@@ -147,25 +178,26 @@ number.
 
 CS directly supports JSON and you can manipulate JSON arrays and objects as you might expect.
 Internally, however, JSON is represented merely by facts with special bits that indicate how to interpret the
-object field of the fact. JSON distinguishes primitive values (true, false, numbers, null) from strings, whereas
-CS uses strings for all of them and tracks how JSON writes them using bits on the fact. Here 
+ the fact. JSON distinguishes primitive values (true, false, numbers, null) from strings, whereas
+CS uses strings for all of them and tracks how JSON writes them using bits on the fact. Here are 2 JSON facts:
 ```
 	( jo-225 bluetoothdevice iPhone x2200 32 )
 	( ja-2 0 DUMPDATA x1200 32 ). 
 ```
 The flags on these facts indicate that there are JSON facts (one a JSON object fact and one a JSON array fact).
 And that both have as their object value a JSON string. Unlike JSON which requires double quotes around all strings, 
-CS requires no marker unless the string has internal blanks or double quotes. In which case, the field
+CS requires no marker unless the string has internal blanks or double quotes. In which case, the text representation of the field
 is written with backticks like:
 ```
 	( jo-225 bluetoothdevice `iPhone is good` x2200 32 )
 ```
 so that we don't have to store fancy escape markers on various internal characters. The backtick is the
 character solely reserved for CS to use in a variety of ways, and any user input containing such will have theirs
-automatically convered to a regular quote mark. It applies to any fact field, JSON or not.
+automatically convered to a regular quote mark. It applies to any fact field, JSON or not. Internally there is no backtick in the 
+text string. It literally has the spaces.
 
 JSON objects and arrays are represented as synthesized dictionary entries with names like 
-like `jo-5` or `ja-1025` for permanent JSON object or array and `ja-t7` for a transient array.
+like `jo-5` or `ja-1025` for permanent JSON object or array and `ja-t7` for a transient array ('o' for object, 'a' for array, 't' for transient).
 The data for that array or object always has it's name as the first fact field. The numbers are generated
 uniquely on the fly when the JSON composite is created.
 
@@ -176,34 +208,56 @@ numbers). Should you delete an element from the middle, all later elements autom
 return to a contiguous sequence. 
 
 Variables holding JSON structures always just have the name of JSON composite, like
-`jo-5` or  `ja-t2`. That name, when you retrieve its corresponding dictionary entry, will have the JSON Facts
-bound to its cross-reference lists. Walking the structure will mean walking the lists of facts of that entry and subsequent
-JSON headers.
+`jo-5` or  `ja-t2`. That name, when you retrieve its corresponding dictionary entry, will have the JSON facts
+bound to its subject cross-reference lists. Walking the structure will mean walking the lists of subject facts of that entry 
+and subsequent JSON headers.
+
+# Data Storage
+
+The text data can be stored in various collections. One is merely the dictionary, where it is found again by using a
+copy (sometimes exact capitalization, sometimes any capitalization).
+
+It can be stored individually in user variables. 
+
+A series of words in succession are stored in an internal sentence array and can be accessed indivually or by pattern
+matching. They disappear at the start of a new sentence.
+
+A series of related words can be stored independently or sequentially in _n match variables. Match variable values last 
+until overwritten, so it is possible to use them to communicate data across users and/or bots even (but it takes careful 
+scripting).
+
+A triple of related words can be stored in a fact. Facts can be transient (til end of volley) or
+saved in the user's data across volleys or the bot's data across users. They can be accessed by queries.
+
+A collection of facts can be saved in a fact set (@n) which is an array that can be accessed sequentially from either end or randomly 
+accessed. And the array can either use up what you access or remain unchanged.
+
+Some small amount of text can also be saved on some system variables (%x) for transfer across users or volleys.
 
 ## User Variables
 User variables are names beginning with $ that can be found in the dictionary and have data 
-(not their name) pointing to text string values. Their prefix describes who can see their content.
+(not their name) pointing to text string values. Their prefix describes who can see their content and for how long.
 ```
-	$varname - globally visible permanent variable in heap
-	$$varname - globally visible volley transient variable in heap
-	$_varname - locally visible transient variable on stack
+	$varname - globally visible  variable in heap lasting permanently across volleys
+	$$varname - globally visible volley transient variable in heap which erases when volley ends
+	$_varname - locally visible transient variable on stack only visible to the function or topic using them.
 ```
-Permanent variables are saved across volleys in the user's topic file. Local variables are only visible
-within the scope of locality (the current call to the topic or function). 
 
 ## Function Variables
 
 ```
-	outputmacro: ^myfunc(^var1) 
+	outputmacro: ^myfunc(^var1 $_var2) 
 ```
-Function variables like ^var1 are defined in the arguments list of a function (outputmacro/patternmacro) 
-and managed by the system outside of the dictionary. They are like $_varnames (local transient) 
-but should be rare and handle pass-by-reference data for the duration of
-execution of a function. They are only visible within the code of that function but they enable write-back onto the caller's variable passed in.
+Normally variables to a function are local ones (like $_var2 above), visible only to that function. These are in computing
+terms "call-by-value".
+
+Function variables like ^var1 are "call-by-reference" variables and allow you to write back onto the caller with a new value.
+They are managed by the system outside of the dictionary. They are like $_varnames (local transient) 
+but should be rare. Their value is the name of the thing being passed in, not its value.
 
 ## Match Variables
 
-Match variables (`_0`) hold text strings directly. They use prereserved spaces and thus have limited sizes
+Match variables (`_0`) hold text strings directly. They use pre-reserved spaces and thus have limited sizes
 of strings they can hold (MAX_MATCHVAR_SIZE / 20000 bytes). They are expecting to hold parts of a sentence that have been matched and
 sentences are limited to 254 words (and words are typically small).  Any larger data is truncated upon storage.
 
@@ -215,9 +269,13 @@ reference for where in the sentence the data came from.
 Match variables pass all that information along when assigned to other match variables, 
 but lose all but one of them when assigned to a user variable or stored as the field of a fact.
 
+Some system functions take a string of a series of words and spread them onto a continuous region of match variables,
+using as many in a row to match the decomposition of the string. After all have been filled, the match varible after them is set to null.
+
 ## Factset
 
-Querying for relevant facts results in facts stored in an array called a factset, labeled @0, @1, etc.
+Querying for relevant facts results in facts stored in an array called a factset, labeled @0, @1, etc.  You can also incrementally
+add values to the factset yourself.
 You treat these as arrays to retrieve a fact, normally specifying at the same time what part of the fact
 you want. But you can't directly specify the array index to retrieve from. You specify first, last, or next.
 
@@ -231,7 +289,8 @@ Typically you assign into a factset via a query like:
 Input and output from CS involves potentially large text and so these have been preallocated from the heap as
 buffers. One allocates a buffer with AllocateBuffer() and one frees the most recent buffer with Freebuffer(). You
 don't have to pass a pointer to the buffer, you may only free them in the reverse order they were allocated.
-This follows the general memory management strategy of "onion layers". 
+This follows the general memory management strategy of "onion layers".  Buffers are automatically freed at the close
+of levels of control invocation (eg calling a function) and during exception handling jumps.
 
 # Internal lists
 
@@ -272,25 +331,21 @@ If they meet, you are out of space.
 
 Stack memory is tied to calls to `ChangeDepth` which typically represent function or topic invocation. 
 Once that invocation is complete, all stack space allocated is cut back to its starting position. 
-Stack space is typically allocated by `AllocateStack` and explicitly released via `ReleaseStack`. 
+Stack space is typically allocated by `AllocateStack` and explicitly released via `ReleaseStack`.  
 If you need an allocation but won't know how much is needed until after you have filled the space, 
 you can use InfiniteStack and then when finished, use `CompleteBindStack` if you need to keep the allocation 
 or `ReleaseInfiniteStack` if you don't. 
-While `InfiniteStack` is in progress, you cannot safely make any more `AllocateStack` or `InfiniteStack` calls.
+While `InfiniteStack` is in progress, you cannot safely make any more `AllocateStack` or `InfiniteStack` calls. There are
+64-bit aligned versions of the stack allocation calls. 
 
 Heap memory allocated by `AllocateHeap` lasts for the duration of the volley and is not explicitly deallocated. It will be implicitly
 deallocated at the end of the volley. But during the volley one could imagine that some heap memory is no longer in use but hasn't been freed until the end of the volley. 
-(This is something that garbage collectors handle but CS has only a manual garbage collection).
+(This is something that automatic garbage collectors handle but CS has only a manual garbage collection).
+The heap allocation calls are told the size of a unit and how many, so
+they automatically handle needed alignment.
 
 Fact memory is consumed by `CreateFact` or various JSON assignment statements and lasts for the duration of the volley.
-
-But CS supports planning, which means backtracking, which means allocated heap memory which is nominally not pointed to anymore along the way is not "free"
-because the system might revert things back to some earlier state. 
-This problem of free memory mostly shows up in document mode, where reading long paragraphs of text 
-are all considered a single volley and therefore one might run out of memory. 
-CS provides `^memorymark` and `^memoryfree` so you can explicitly control this while reading a document.
-And more recently provides `memorygc` which copies data from heap to stack, and then copies back only the
-currently used data.
+Facts can be deleted, so they are no longer visible, but their memory is not reclaimed until end of volley.
 
 Buffers are allocated and deallocated via `AllocateBuffer` and `FreeBuffer`. Typically they are used within
 a small block of short-lasting code, when you don't want to waste heap space and cannot make use of
@@ -304,12 +359,10 @@ The output buffer needs to be particularly big to hold potentially large amounts
 
 Also most temporary computations from functions and rules are dumped into the output buffer temporarily, so the buffer holds both output in progress as well as temporary computation. 
 So if your output were to actually be close to the real size of the buffer, you would probably need to make the buffer bigger to allow room for transient computation. 
-The log buffer typically is the same size so one can record exactly what the server said. 
-Otherwise it can be much smaller if you don't care.
 
 Cache space is where the system reads and writes the user's long term memory. There is at least 1, to hold the current user, but you can optimize read/write calls by caching multiple users at a time, subject to the risk that the server crashes and recent transactions are lost. A cache entry needs to be large enough to hold all the data on a user you may want saved.
 
-## Onion Layers
+# Onion Layers
 
 When ChatScript starts up, it loads data in layers. You can free a layer at a time, but only the outermost one (hence the peeling the onion metaphor). 
 
@@ -345,19 +398,20 @@ Similarly all factsets that need saving were written out, so they can all be res
 will also have been written out, so they too can have their values cleared so they are no longer pointing into the heap.
 Nothing from the volley will now be occupying any heap memory and so its pointer can be reset back to start of layer.
 
-### Garbage collection
+## Garbage collection
 
 Using the layer model, normally user conversation causes heap allocations and dictionary allocations
 that can be rapidly and automatically released when the user layer is peeled. And plenty of space should exist to manage without
 any garbage collection occurring within the volley. 
 
-But if garbage collection is needed, scripts can invoke them. Particularly if you are in document-reading mode,
-processing all sentences of a book happen within a single volley. CS does not have the memory for that without
-some form of garbage collection.  There are two such script mechanisms built into the engine. 
+The problem of free memory mostly shows up in document mode. You can read an entire book in document mode,
+which means a lot of sentences. This is all considered a single volley and therefore one might run out of memory. 
 
-The simplest gc is a user-controllable mark-release.
+CS provides `^memorymark` and `^memoryfree` so you can explicitly control this while reading a document.
 You find a safe place in script to use mark, you process a sentence, and then you use release to restored
 dictionary and heap values back to the mark. 
+Using ^memoryfree returns you to exactly where you were memory-wise at the time you marked (reverting variables
+and releasing facts as needed).
 
 Nominally this means all facts and user variables you worked on after the mark will be lost.
 This is fine if your results are going to an
@@ -366,6 +420,9 @@ passing data back across a ^MemoryFree. You can write something onto a match var
 their own memory and last until changed. Or when you call ^MemoryFree, you may pass either a single variable or a JSON structure on the call.
 Its value will be protected. The value is copied into stack space, the release occurs, and then the value is
 reallocated from the current full heap (now without the mark location). .
+
+And more recently provides `^memorygc` which copies data from heap to stack, and then copies back only the
+currently used data.
 
 The complex gc is an actual gc, where data is moved around and space gets recompacted after discarding trash.
 Normally facts consist of MEANINGS, and those dictionary entries know what facts refer to them.
@@ -376,6 +433,7 @@ And JSONLOOP is maintaining facts it is using and will be unaware if they are re
 And if you request a fact id from some query result, that id is really only good for the duration of the volley,
 and not safe across a gc because it will be stored on a variable which has no cross-reference from the fact.
 So care is required to use the complex gc mechanism.
+
 
 ## Finer details about words
 
@@ -753,11 +811,12 @@ and `private1.txt` files hold pairs spell-check replacements, though they can ha
 multiple word out.
 
 The files `dict0.txt` and `dict1.txt` handle words whose property bits have been created or changed by compilation.
-```
-+ Expedition_Limo. NOUN NOUN_PROPER_SINGULAR 
-```
-In the example above the word underwent positive change with addition of NOUN and NOUN_PROPER_SINGULAR
-property bits.
+You can explicitly add words to the dictionary using `word: futzle NOUN` where the first argument is the canonical form
+of the word. If the word is a noun and you have an irregular plural, you can put  futzle / futzlet  to indicate the plural form.
+If the word is a verb you can use `word: futzle VERB` and if it has  irregular conjugation you can add the
+past and past particple using `word: futzle / futzled / futzled VERB`. Other system flags and parseflags can
+be added like word: futzle / futzled / futzled VERB VERB_NOOBJECT VERB_DIRECTOBJECT` which
+indicates this verb can accept either a direct object or none.
 
 # Topic and rule representation
 
@@ -1018,6 +1077,19 @@ fails, it doesn't have to read all the code involved in the failing branch.
 
 It also sometimes inserts a character at the start of a patttern element to identify what kind of element it is. 
 E.g., an equal sign before a comparison token or an asterisk before a word that has wildcard spelling.
+
+# Byte-oriented languages
+
+While CS is itself a scripting language, it embeds a couple of other small languages (other than JavaScript) within
+it. 
+
+The POS tagger has 2 mini-languages: one for removing implausible possible pos-tags from words and one for marking 
+POS-tags of words based on idiomatic features.  The latter is source in the RAWDICT file conditionalIdioms.txt and
+the former has source files in the folder LIVEDATA/ENGLISH/POS with interpretation code in englishTagger.cpp via the function
+ApplyRules.
+
+The query system has its own mini-language for defining fact queries. Data is in LIVEDATA/SYSTEM/queries.txt and scripters
+can define their own. Execution occurs in infer.cpp .
 
 # Multiple Bots
 

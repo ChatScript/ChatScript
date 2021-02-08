@@ -126,7 +126,7 @@ char* AddEscapes(char* to, const char* from,bool normal,int limit,bool addescape
 void AcquireDefines(const char* fileName);
 void AcquirePosMeanings(bool facts);
 char* FindNameByValue(uint64 val); // properties
-uint64 FindValueByName(char* name);
+uint64 FindPropertyValueByName(char* name);
 void ClearNumbers();
 char* FindSystemNameByValue(uint64 val); // system flags
 uint64 FindSystemValueByName(char* name);

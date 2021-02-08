@@ -54,8 +54,8 @@ Handling client:
 
 #include <vector>
 #include <algorithm>
-extern char serverLogfileName[200];
-extern char dbTimeLogfileName[200];
+extern char serverLogfileName[1000];
+extern char dbTimeLogfileName[1000];
 extern bool serverctrlz;
 #define CLIENT_CHUNK_LENGTH 4*1024
 #define HIDDEN_OVERLAP 103	// possible concealed data
@@ -72,7 +72,9 @@ int srv_socket_g = -1;
 struct ev_loop *l_g = 0;
 ev_io ev_accept_r_g;
 ev_timer tt_g;
-  
+static int ev_pending = 0;
+static int ev_max = 0;
+
 #ifdef EVSERVER_FORK
 // child monitors
 #define MAX_CHILDREN_D 50
@@ -93,7 +95,6 @@ int evsrv_do_chat(Client_t *client);
 typedef vector<char> Buffer_t;
 
 #define ITER_TO_OFFSET(ctr, i) (&ctr[0] + (i - ctr.begin()))
-
 struct Client_t
 {
     char magic[9];
@@ -109,7 +110,16 @@ struct Client_t
     char* data = NULL;
     Buffer_t incomming;
 	uint64 starttime = ElapsedMilliseconds(); 
-    uint64 endtime;
+    uint64 startnltime = 0;
+    uint64 endnltime = 0;
+    uint64 qtime = 0;
+    uint64 nltime = 0;
+
+    void Qdown()
+    {
+        --ev_pending;
+        delete this;
+    }
 
     Client_t(int fd, struct ev_loop *l_p) : fd(fd), l(l_p), requestValid(false)
     {
@@ -123,13 +133,12 @@ struct Client_t
 
     ~Client_t() // if child dies, this destructor is not called
     {
-		if (forkcount > 1) CloseDatabases(true); // shut off   per thread connections
 		if (this->data) free(this->data); 
 		this->data = NULL;
         if (ev_is_active(&this->ev_r))  ev_io_stop(this->l, &this->ev_r);
         if (ev_is_active(&this->ev_w))  ev_io_stop(this->l, &this->ev_w);
         close(this->fd);
-    }
+      }
     
     void prepare_for_next_request()
     {
@@ -155,7 +164,7 @@ struct Client_t
     {
         if (this->requestValid)
         {
-            ReportBug((char*)"recv called although we got whole request, should process it first")
+            ReportBug((char*)"recv called although we got whole request, should process it first\r\n")
             return -1;
         }
 
@@ -189,7 +198,7 @@ struct Client_t
                 return 0;
             }
 
-            Log(SERVERLOG, "evserver: send_data(%d) could not send, errno: %s", len,strerror(errno));
+            ReportBug("evserver: send_data(%d) could not send, errno: %s\r\n", len,strerror(errno));
 			(*printer)( "evserver: send_data(%d) could not send, errno: %s", len,strerror(errno));
 			return -1;
         }
@@ -203,10 +212,10 @@ struct Client_t
 
         // sent all data
 
-        uint64 sendtime = ElapsedMilliseconds() - endtime;
+        uint64 sendtime = ElapsedMilliseconds() - endnltime; // duration of send
         if (sendtime >= 1000)
         {
-            ReportBug("INFO: Excess Send Time %d %s", (int)(sendtime), message);
+            ReportBug("INFO: Excess Send Time %d %s\r\n", (int)(sendtime), message);
         }
 
         this->prepare_for_next_request();
@@ -331,7 +340,7 @@ static void evsrv_child_died(EV_P_ ev_child *w, int revents) {
 	int r = fork_child(w);
 	if (r < 0)
 	{
-		Log(SERVERLOG, "  %s - evserver: could not re-spawn child after it died [pid: %d]\r\n", timestamp, w->pid);
+		ReportBug( "  %s - evserver: could not re-spawn child after it died [pid: %d]\r\n", timestamp, w->pid);
 		(*printer)("  %s - evserver: could not re-spawn child after it died [pid: %d]\r\n", timestamp,w->pid);
 	}
 
@@ -542,6 +551,8 @@ static void evsrv_accept(EV_P_ ev_io *w, int revents)
         if (setnonblocking(fd) == -1 || setnonblocking(fd) == -1)  return;
 
         new Client_t(fd, l_g);
+        ++ev_pending;
+        if (ev_pending > ev_max) ev_max = ev_pending;
     }
 }
 
@@ -553,13 +564,13 @@ static void client_read(EV_P_ ev_io *w, int revents)
     if (r < 0) {
         if (errno == EAGAIN)  return;
 
-        Log(SERVERLOG, "evserver: got error on read (errno: %s) dropping client %d\r\n", strerror(errno), w->fd);
-        delete client;
+        ReportBug( "evserver: got error on read (errno: %s) dropping client %d\r\n", strerror(errno), w->fd);
+        client-> Qdown();
         return;
     }
     else if (r == 0) {
         // client closed connection, lets close ours
-        delete client;
+        client->Qdown();
         return;
     }
 
@@ -568,8 +579,8 @@ static void client_read(EV_P_ ev_io *w, int revents)
     if (r == 0)  return; // no, read some more data
     if (r < 0) {
         // invalid request
-        Log(SERVERLOG, "evserver: received invalid request from %d, ignoring\r\n", w->fd);
-        delete client;
+        ReportBug( "evserver: received invalid request from %d, ignoring\r\n", w->fd);
+        client->Qdown();
         return;
     }
 
@@ -577,7 +588,7 @@ static void client_read(EV_P_ ev_io *w, int revents)
     r = evsrv_do_chat(client);
     if (r < 0) {
         // could not process it
-        delete client;
+        client->Qdown();
         return;
     }
 
@@ -590,9 +601,9 @@ static void client_read(EV_P_ ev_io *w, int revents)
 
 	if (r == 0) return; // it means there is still some data to be sent, which will be done next time this watcher is woken - up by ev_loop
 	
-	if (r < 0) Log(SERVERLOG, "evserver: could not sent data to client: %d\r\n", client->fd);
+	if (r < 0) ReportBug( "evserver: could not sent data to client: %d\r\n", client->fd);
 	// else if (r == 1)  // client handling finished
-	delete client;
+    client->Qdown();
 }
 
 static void client_write(EV_P_ ev_io *w, int revents)
@@ -601,12 +612,15 @@ static void client_write(EV_P_ ev_io *w, int revents)
 
     int r = client->send_data();
     if (r < 0) {
-        Log(SERVERLOG, "evserver: could not sent data to client: %d\r\n", client->fd);
-        delete client;
+        ReportBug( "evserver: could not sent data to client: %d\r\n", client->fd);
+        client->Qdown();
         return;
     }
 
-    if (r == 1) delete client; // client handling finished
+    if (r == 1) // finished output
+    {
+        client->Qdown();
+    }
 
     // if r = 0, it means there is still some data to be sent, which will be done next time this watcher is woken-up by ev_loop
 }
@@ -617,7 +631,8 @@ int evsrv_do_chat(Client_t *client)
 {
  	uint64 starttime = ElapsedMilliseconds(); 
     client->prepare_for_chat();
-	int len = (int)strlen(client->message);
+    client->startnltime = starttime; // began cs processing nL here
+    int len = (int)strlen(client->message);
 	originalUserInput = client->message;
 	if (len >= fullInputLimit - 300)
 	{
@@ -662,24 +677,12 @@ int evsrv_do_chat(Client_t *client)
     echo = false;
 	bool restarted = false;
 	
-	if (forkcount != 1) //  need 1 db connection per thread
-	{
-#ifndef DISCARDMYSQL
-			if (*mysqlparams) MySQLUserFilesCode(mysqlparams);
-#endif
-#ifndef DISCARDMICROSOFTSQL
-			if (*mssqlparams) MsSqlUserFilesCode(mssqlparams);
-#endif
-#ifndef DISCARDPOSTGRES
-			if (*postgresparams)  PGInitUserFilesCode(postgresparams);
-#endif
-#ifndef DISCARDMONGO
-			if (*mongodbparams)  MongoSystemInit(mongodbparams);
-#endif
-		}	
-	
 	if (!client->data) 	client->data = (char*) malloc(outputsize+8);
-	if (!client->data) (*printer)("Malloc failed for child data\r\n");
+    if (!client->data)
+    {
+        (*printer)("Malloc failed for child data\r\n");
+        if (!client->data) ReportBug("FATAL: Child malloc failed");
+    }
 
 RESTART_RETRY:
 	size_t test = strlen(client->message);
@@ -743,7 +746,7 @@ RESTART_RETRY:
 		strcpy(client->data,"Restarted");
 	}
 		
-	if (*client->data == 0) 
+	if (!*client->data) 
 	{
 		client->data[0] = ' ';
 		client->data[1] = 0;
@@ -753,23 +756,22 @@ RESTART_RETRY:
 	}
 	
 	if (overrideServerLog) serverLog = FILE_LOG;
-    uint64 endtime;
 	if (serverLog)
     {
-        LogChat(starttime, client->user, client->bot, (char*)client->ip.c_str(), turn, client->message, client->data, client->starttime);
-        endtime = ElapsedMilliseconds();
+        LogChat(client->startnltime, client->user, client->bot, (char*)client->ip.c_str(), turn, originalUserInput, client->data, client->starttime);
     }
-    else
+
+    uint64 now = ElapsedMilliseconds();
+    client->endnltime = now;
+
+    client->qtime = (client->startnltime - client->starttime);  // time from spinup of client til he got to start NL (includes read)
+    client->nltime = client->endnltime - client->startnltime;
+    int64 fulltime = now - client->starttime; // from task creation thru to done (complete send or killed by caller)
+    if (fulltime > timeLog)
     {
-        endtime = ElapsedMilliseconds();
-        int qtime = (int)(starttime - client->starttime); // delay waiting in q
-        if ((unsigned int)(endtime - starttime + qtime) > timeLog)
-        {
-            const char* restarted = (restartfromdeath) ? "rebooted" : "";
-            ReportBug("INFO: Excess Time nltime:%d qtime:%d %s %s", (int)(endtime - starttime), qtime, restarted, client->message);
-        }
+        ReportBug("INFO: Excess Time fulltime: %d qtime:%d nltime:%d  jotime: %d/%d currentq: %d  maxq: %d %s => %s\r\n", (int)fulltime, (int)client->qtime, (int)client->nltime, json_open_time, json_open_counter, ev_pending, ev_max,client->data);
     }
-    client->endtime = endtime; // nl + logging finished, this is start for when we ship it back.
+
     serverLog = oldserverlog;
 	return 1;
 }

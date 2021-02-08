@@ -1,0 +1,32 @@
+# some locations need no determiner-- He was at home. He lives in prison. I enjoy school. 
+home
+school
+class
+college
+university
+church
+temple 
+synogogue
+prison
+jail
+shore
+market
+
+# some people need no determiner
+mom
+mommy
+dad
+daddy
+mother
+father
+sis
+grandpa
+grandma
+auntie
+
+# actions done "in bed" need no determiner
+bed
+
+# some time is also undetermined
+today
+yesterday

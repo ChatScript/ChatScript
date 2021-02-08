@@ -1,0 +1,58 @@
+# these ADJECTIVES expect to come after anything
+upstairs 
+downstairs # the room downstairs
+concerned
+on 
+off
+dependent
+ present
+  involved
+   open   
+   payable  
+   martial  
+laureate
+ unspoken
+ positive 
+ proper 
+ aforethought 
+aplenty # food
+galore
+extraordinaire
+regnant # queen 
+consort # queen
+apparent # heir 
+presumptive #heir 
+general # consul 
+general #  consulate 
+royal # battle 
+ emeritus # professor
+plenipotentiary  # minister 
+public # notary 
+ politic # body
+corporate #body 
+primeval # forest 
+four # fiddlers 
+three # fiddlers 
+two # fiddlers 
+available # best room 
+ possible # best choice
+fantastic # the light 
+possible_and_impossible # things 
+imaginable # worst choice 
+ immemorial # time
+past # times 
+errant # knight 
+proper # the town 
+patent # letters 
+close #  letters 
+simple # fee 
+ tail #  fee
+ elect # president
+ general # attorney
+positive # proof 
+supreme # moment
+sole # corporation 
+provocateur # agent 
+present # soldiers
+afraid #  a girl afraid of == who is afraid of...  emotion values
+passant # lion  ### adjectives denoting heraldic attitude

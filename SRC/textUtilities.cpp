@@ -280,6 +280,7 @@ unsigned char digitGroupingData[3] = // American, Indian, French
 
 void InitTextUtilities()
 {
+	ClearNumbers();
 	memset(utf82extendedascii, 0, 128);
 	extendedascii2utf8[0xe1 - 128] = 0x9f; // german fancy ss
 	for (unsigned int i = 0; i < 128; ++i)
@@ -288,7 +289,6 @@ void InitTextUtilities()
 		if (c) c -= 128;	// remove top bit
 		utf82extendedascii[c] = (unsigned char)i;
 	}
-	InitTextUtilities1();
 }
 
 bool IsComparator(char* word)
@@ -344,7 +344,7 @@ void InitTextUtilities1()
             else if (!stricmp(kind, "WORD_NUMBER")) kindval = WORD_NUMBER;
             else if (!stricmp(kind, "REAL_NUMBER")) kindval = WORD_NUMBER;
             else myexit("Bad number table");
-            char* w = StoreWord(word,AS_IS| ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER)->word;
+            char* w = StoreWord(word,AS_IS| ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER, NOUN_NODETERMINER)->word;
             int index = Heap2Index(w);
             *data++ = index;
             *data++ = strlen(word);
@@ -697,7 +697,7 @@ double Convert2Double(char* original, int useNumberStyle)
 }
 
 void AcquireDefines(const char* fileName)
-{ // dictionary entries:  `xxxx (property names)  ``xxxx  (systemflag names)  ``` (parse flags values)  -- and flipped:  `nxxxx and ``nnxxxx and ```nnnxxx with infermrak being ptr to original name
+{ // dictionary entries:  `xxxx (property names)  ``xxxx  (systemflag names)  ``` (parse flags values)  ````(misc including internalbits) -- and flipped:  `nxxxx and ``nnxxxx and ```nnnxxx with infermark being ptr to original name
 	FILE* in = FopenStaticReadOnly(fileName); // SRC/dictionarySystem.h
 	if (!in) 
 	{
@@ -783,7 +783,7 @@ void AcquireDefines(const char* fileName)
            else //   reusing word
             {
                 ptr = ReadCompiledWord(ptr-1,label);
-                value = FindValueByName(label);
+                value = FindPropertyValueByName(label);
 				bool olddict = xbuildDictionary;
 				xbuildDictionary = false;
                 if (!value)  value = FindSystemValueByName(label);
@@ -802,13 +802,14 @@ void AcquireDefines(const char* fileName)
             }
         }
 		if (!stricmp(word,"`AS_IS"))  continue; // dont need to store AS_IS
-		WORDP D = StoreWord(word,AS_IS | result);
+		WORDP D = StoreWord(word,AS_IS); 
+		D->properties = result; // all values stored here, using top (as_is) bit if needed
 		AddInternalFlag(D,DEFINES);
 
 #ifdef WIN32
-		sprintf(word+offset,(char*)"%I64d",result);
+		sprintf(word+offset,(char*)"%I64u",result);
 #else
-		sprintf(word+offset,(char*)"%lld",result); 
+		sprintf(word+offset,(char*)"%llu",result); 
 #endif
 		if (!endsystem) // cross ref from number to value only for properties and system flags and parsemarks for decoding bits back to words for marking
 		{
@@ -922,11 +923,11 @@ void AcquirePosMeanings(bool facts)
 	}
 }
 
-uint64 FindValueByName(char* name)
+uint64 FindPropertyValueByName(char* name)
 {
 	if (!*name || *name == '?') return 0; // ? is the default argument to call
     char word[MAX_WORD_SIZE * 4];
-	word[0] = ENDUNIT;
+	word[0] = UNIQUEENTRY;
 	MakeUpperCopy(word+1,name);
 	WORDP D = FindWord(word);
 	return (!D|| !(D->internalBits & DEFINES)) ? 0 : D->properties;
@@ -937,9 +938,9 @@ char* FindNameByValue(uint64 val) // works for invertable pos bits only
 	char word[MAX_WORD_SIZE];
 	word[0] = UNIQUEENTRY;
 #ifdef WIN32
-	sprintf(word+1,(char*)"%I64d",val);
+	sprintf(word+1,(char*)"%I64u",val);
 #else
-	sprintf(word+1,(char*)"%lld",val); 
+	sprintf(word+1,(char*)"%llu",val); 
 #endif
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
@@ -968,12 +969,7 @@ uint64 FindSystemValueByName(char* name)
 	word[1] = UNIQUEENTRY;
 	MakeUpperCopy(word+2,name);
 	WORDP D = FindWord(word);
-	if (!D || !(D->internalBits & DEFINES)) 
-	{
-		if (xbuildDictionary) 
-			ReportBug((char*)"Failed to find system value %s",name);
-		return 0;
-	}
+	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return D->properties;
 }
 
@@ -983,9 +979,9 @@ char* FindSystemNameByValue(uint64 val) // works for invertable system bits only
 	word[0] = UNIQUEENTRY;
 	word[1] = UNIQUEENTRY;
 #ifdef WIN32
-	sprintf(word+2,(char*)"%I64d",val);
+	sprintf(word+2,(char*)"%I64u",val);
 #else
-	sprintf(word+2,(char*)"%lld",val); 
+	sprintf(word+2,(char*)"%llu",val); 
 #endif
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
@@ -999,9 +995,9 @@ char* FindParseNameByValue(uint64 val)
 	word[1] = UNIQUEENTRY;
 	word[2] = UNIQUEENTRY;
 #ifdef WIN32
-	sprintf(word+3,(char*)"%I64d",val);
+	sprintf(word+3,(char*)"%I64u",val);
 #else
-	sprintf(word+3,(char*)"%lld",val); 
+	sprintf(word+3,(char*)"%llu",val); 
 #endif
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
@@ -1017,11 +1013,7 @@ uint64 FindParseValueByName(char* name)
 	word[2] = UNIQUEENTRY;
 	MakeUpperCopy(word+3,name);
 	WORDP D = FindWord(word);
-	if (!D || !(D->internalBits & DEFINES)) 
-	{
-		if (xbuildDictionary) ReportBug((char*)"Failed to find parse value %s",name);
-		return 0;
-	}
+	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return D->properties;
 }
 
@@ -1893,14 +1885,14 @@ char* ReadFlags(char* ptr,uint64& flags,bool &bad, bool &response,bool factcall)
         char* word = word1;
         ptr = ReadCompiledWord(ptr, word);
 		if (*word == '$') {
-			char* val = GetUserVariable(word);
+			char* val = GetUserVariable(word, false, true);
 			val = ReadCompiledWord(val, word);
 		}
 		if (!strnicmp(word,(char*)"RESPONSE_",9)) response = true; // saw a response flag
 		if (IsDigit(*word) || *word == 'x') ReadInt64(word,(int64&)flags);
 		else
 		{
-			flags = FindValueByName(word);
+			flags = FindPropertyValueByName(word);
 			if (!flags) flags = FindSystemValueByName(word);
 			if (!flags) flags = FindMiscValueByName(word);
 			if (!flags) bad = true;
@@ -1928,7 +1920,7 @@ char* ReadFlags(char* ptr,uint64& flags,bool &bad, bool &response,bool factcall)
 		else if (IsDigit(*flag)) flags |= atoi(flag);
 		else  // simple name of flag
 		{
-			uint64 n = FindValueByName(flag);
+			uint64 n = FindPropertyValueByName(flag);
 			if (!n) n = FindSystemValueByName(flag);
 			if (!n) n = FindMiscValueByName(flag);
 			if (!n) bad = true;
@@ -2094,7 +2086,7 @@ static bool ConditionalReadRejected(char* start,char*& buffer,bool revise)
 	}
 
 	// could it be a constant?
-	uint64 n = FindValueByName(word);
+	uint64 n = FindPropertyValueByName(word);
 	if (!n) n = FindSystemValueByName(word);
 	if (!n) n = FindParseValueByName(word);
 	if (!n) n = FindMiscValueByName(word);
@@ -2900,6 +2892,16 @@ char* ReadCompiledWord(const char* ptr, char* word,bool noquote,bool var,bool no
 		*word = 0;
 		ender = '"';
 	}
+	else if (*ptr == '`') // a fact field containg special data may be bounded by ` instead of having to escape each value
+	{
+		const char* end = strchr(ptr + 1, '`');
+		if (end)
+		{
+			strncpy(word, ptr + 1, end - ptr - 1);
+			word[end - ptr - 1] = 0;
+			return (char*)(end + 1);
+		}
+	}
 
 	// this is a kind of string (regular or active). run til it ends properly
 	c = 0;
@@ -2954,7 +2956,8 @@ char* ReadCompiledWord(const char* ptr, char* word,bool noquote,bool var,bool no
 				ptr = EatString(ptr, word, ender, ender);
 				word += strlen(word);
 				break;
-			}
+			}   
+			// leave ( ) when embedded in things since titles of software, for example, might have them
 			if (!nolimit && (word-original) > (MAX_WORD_SIZE - 3)) break;
 			*word++ = c; //   run til nul or blank or end of rule 
 			priorchar = c;

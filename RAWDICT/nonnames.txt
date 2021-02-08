@@ -1,0 +1,23 @@
+# the dictionary has these as names  or musical group... we want them as regular words 
+# or the spacecontains has marked them as names
+Tree
+Job
+Will
+Rich
+Buddy 
+Art
+Miles
+Here # alt name for Hera goddess
+WHO
+Maid
+My
+Summer
+Spring
+Fall
+Winter
+
+
+
+
+
+

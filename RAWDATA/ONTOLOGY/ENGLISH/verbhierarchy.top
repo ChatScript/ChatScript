@@ -497,3 +497,16 @@ canon: spat spit
 ##<<ENGLISH concept: ~comment (comment annotate describe) ##>>
 ##<<ENGLISH concept: ~ask (ask request ) ##>>
 ##<<ENGLISH concept: ~post (post put place) ##>>
+
+##<<ENGLISH concept: ~carry_verbs (take carry)  ##>>
+##<<ENGLISH concept: ~motionverbs (~animate_move_verbs ~inanimate_move_verbs ~carry_verbs)  ##>>
+##<<ENGLISH concept: ~verbs_using_place_adverbs ()  ##>>
+table: ^computemotion($_junk)
+    @0 = ^allmembers(~motionverbs)
+    loop()
+    {
+        $_tmp = ^first(@0subject)
+        $_junk = ^createfact($_tmp member ~verbs_using_place_adverbs)
+    }
+DATA:
+move

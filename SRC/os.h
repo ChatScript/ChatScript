@@ -81,17 +81,17 @@ typedef struct CALLFRAME
     WORDP name; // basic name
     char* code; // code after locals
     int varBaseIndex; // where fnvar base is
-    int arguments; // how many arguments function has
+    unsigned int arguments; // how many arguments function has
     int oldbase;
-    int outputlevel;
+    unsigned int outputlevel;
     int argumentStartIndex;
-    int oldRuleID;
-    int oldTopic;
-    int oldRuleTopic;
-	int depth;
+    unsigned int oldRuleID;
+    unsigned int oldTopic;
+    unsigned int oldRuleTopic;
+	unsigned int depth;
     unsigned int memindex;
     char* oldRule;
-    int heapDepth;
+    unsigned int heapDepth;
     union  {
         FunctionResult result;
         int ownvalue;
@@ -113,6 +113,7 @@ enum APICall {
 // EXCEPTION/ERROR
 // error recovery
 extern jmp_buf scriptJump[10];
+extern char* lastheapfree;
 extern jmp_buf crashJump;
 extern int jumpIndex;
 void ShowMemory(char* label);
@@ -125,6 +126,7 @@ extern char hide[4000];
 #define POSTGRESFILES 2
 #define MYSQLFILES 3
 #define MICROSOFTSQLFILES 4
+extern int adjustIndent;
 extern bool serverLogTemporary;
 extern bool logged;
 extern int filesystemOverride;
@@ -133,7 +135,7 @@ extern int ide;
 extern bool idestop;
 extern bool idekey;
 #define RECORD_SIZE 4000
-extern char externalBugLog[100];
+extern char externalBugLog[1000];
 extern FILE* userlogFile;
 
 // MEMORY SYSTEM
@@ -148,6 +150,7 @@ extern unsigned int bufferIndex;
 extern unsigned int baseBufferIndex;
 extern unsigned int overflowIndex;
 extern char* buffers;
+extern uint64 discard;
 extern bool showmem;
 extern size_t maxHeapBytes;
 extern char* heapBase;
@@ -177,8 +180,9 @@ char** RestoreStackSlot(char* variable,char** slot);
 char* AllocateHeap(const char* word,size_t len = 0,int bytes= 1,bool clear = false,bool purelocal = false);
 char* AllocateConstHeap(char* word, size_t len = 0, int bytes = 1, bool clear = false, bool purelocal = false);
 bool PreallocateHeap(size_t len);
-extern uint64 discard;
+void ResetHeapFree(char* buffer);
 void ProtectNL(char* buffer);
+void PrepIndent();
 HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3 = 0);
 HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64& val3 = discard);
 STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2 = 0, uint64 val3 = 0);
@@ -220,7 +224,6 @@ typedef int (*PRINTER)(const char * format, ...);
 typedef void(*DEBUGINTPUT)(const char * data);
 typedef void(*DEBUGOUTPUT)(const char * data);
 extern PRINTER  printer;
-int myprintf(const char * fmt, ...);
 
 #ifdef INFORMATION
 Normally user topic files are saved on the local filesystem using fopen, fclose, fread, fwrite, fseek, ftell calls.
@@ -310,14 +313,15 @@ extern bool detailpattern;
 extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
+#define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
 #define ReportBug(...) { Log(BUGLOG, __VA_ARGS__); if (server) Log(SERVERLOG, __VA_ARGS__); Bug();  }
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;
 extern char* logmainbuffer; 
 extern unsigned int logsize;
 extern unsigned int outputsize;
-extern char serverLogfileName[200];
-extern char dbTimeLogfileName[200];
+extern char serverLogfileName[1000];
+extern char dbTimeLogfileName[1000];
 extern int userLog;
 extern int serverLog;
 extern int bugLog;

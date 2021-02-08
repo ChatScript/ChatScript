@@ -2,8 +2,7 @@
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com
 
-
-> Revision 11/19/2016 cs7.7
+<br> Revision 2/8/2021 cs11.1
 
 How to support non-English languages at end of manual.
 
@@ -107,7 +106,7 @@ ChatScript works to handle all cases of things. And, following established tradi
 tags for my own convenience. In addition to the usual tags differentiating various kinds of nouns and
 verb, I also differentiate words based on how it is used. Nouns can be used as adjectives, so bank teller
 is an adjective_noun noun_singular pair. Verbs can be used as nouns or adjectives, so we have the
-gerund and the noun infinitive and the adjective participle.
+gerund (walking is fun) and the noun infinitive (to walk is fun) and the adjective participle (the walking dead is dead).
 
 Postagging is harder than it looks. Consider these uses of the word _up_.
 

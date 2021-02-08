@@ -299,7 +299,6 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 			char* mean = WriteMeaning(from);
 			if (stricmp(last,mean))
 			{
-				Log(USERLOG,"\r\n");
 				Log(USERLOG,"(%s=>) ",mean);
 				if (strlen(mean) > 999) 
 					ReportBug("Scan insert > 1000")
@@ -660,9 +659,8 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 
 		char* colon = strchr(control,':');
 		if (colon) *colon = 0;
-		Log(USERLOG,"@@@ Control1 mark/queue: %s\r\n",control);
+		Log(USERLOG,"@@@ Control1 mark/queue: %s",control);
 		if (colon) *colon = ':';
-		Log(USERLOG,"");
 	}
 	--control;
 	bool facttype = false;
@@ -780,7 +778,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				}
 				else choice = wildcardCanonicalText[wild];
 			}
-			else if (choice[0] == USERVAR_PREFIX && choice[1]) choice = GetUserVariable(choice);
+			else if (choice[0] == USERVAR_PREFIX && choice[1]) choice = GetUserVariable(choice, false, true);
 			else if (choice[0] == SYSVAR_PREFIX && choice[1]) choice = SystemVariable(choice,NULL);
 			else if (choice[0] == '@' && GetSetID(choice) != ILLEGAL_FACTSET )
 			{
@@ -833,7 +831,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 
 			// for non-factset values of choice
 			char buf[1000];
-			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) sprintf(buf,(char*)"%s #%c(%d)",choice,saveMark-baseMark+'0',saveMark);
+			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) sprintf(buf,(char*)"%s #%c(%u)",choice,saveMark-baseMark+'0',saveMark);
             if (*control == ' ') continue;
             if (*control == 'q')
 			{
@@ -935,7 +933,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		if (colon) *colon = 0;
 		if (control[1]) 
 		{
-			Log(USERLOG,"@@@ Control2 queue use: %s\r\n",control+1);
+			Log(USERLOG,"@@@ Control2 queue use: %s",control+1);
 			Log(USERLOG,"");
 		}
 		if (colon) *colon = ':';
@@ -1015,7 +1013,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		if (colon) *colon = 0;
 		if (control[1]) 
 		{
-			Log(USERLOG,"@@@ Control3 match requirements: %s\r\n",control+1); // if there is data
+			Log(USERLOG,"@@@ Control3 match requirements: %s",control+1); // if there is data
 			Log(USERLOG,"");
 		}
 		if (colon) *colon = ':';
@@ -1155,7 +1153,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		if (colon) *colon = 0;
 		if (control[1]) 
 		{
-			Log(USERLOG,"@@@ Control4 riccochet: %s\r\n",control+1);
+			Log(USERLOG,"@@@ Control4 riccochet: %s",control+1);
 			Log(USERLOG,"");
 		}
 		if (colon) *colon = ':';

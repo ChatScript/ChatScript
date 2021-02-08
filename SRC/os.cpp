@@ -6,6 +6,7 @@ static std::mutex mtx;
 #endif 
 int loglimit = 0;
 FILE* userlogFile = NULL;
+char* indents[100];
 int ide = 0;
 bool convertTabs = true;
 bool serverLogTemporary = false;
@@ -30,9 +31,9 @@ bool ltmEncrypt = false;
 unsigned long minHeapAvailable;
 bool showDepth = false;
 
-char serverLogfileName[200];				// file to log server to
-char dbTimeLogfileName[200];				// file to log db time to
-char externalBugLog[100];
+char serverLogfileName[1000];				// file to log server to
+char dbTimeLogfileName[1000];				// file to log db time to
+char externalBugLog[1000];
 char logFilename[MAX_WORD_SIZE];			// file to user log to
 bool logUpdated = false;					// has logging happened
 int userLog = FILE_LOG;				// where do we log user
@@ -56,6 +57,8 @@ bool inLog = false;
 char* testOutput = NULL;					// testing commands output reroute
 static char encryptServer[1000];
 static char decryptServer[1000];
+int adjustIndent = 0;
+char* lastheapfree = NULL;
 
 // buffer information
 #define MAX_BUFFER_COUNT 80
@@ -175,6 +178,7 @@ void JumpBack()
 
 void CloseDatabases(bool restart)
 {
+	bool usedb = (db == 1 && server) || db == 2;
 #ifndef DISCARDPOSTGRES
 	if (*postgresparams)
 	{
@@ -187,10 +191,10 @@ void CloseDatabases(bool restart)
 	else MongoUserFilesClose(); // actually just closes files
 #endif
 #ifndef DISCARDMYSQL
-	MySQLFullCloseCode(restart);	// filesystem and/or script
+	if (*mysqlparams) MySQLFullCloseCode(restart);	// filesystem and/or script
 #endif
 #ifndef  DISCARDMICROSOFTSQL
-	if ((db == 1 && server) || db == 2) MsSqlFullCloseCode(restart);	// filesystem and/or script
+	if (*mssqlparams && usedb) MsSqlFullCloseCode(restart);	// filesystem and/or script
 #endif
 }
 
@@ -361,7 +365,7 @@ char* AllocateBuffer(char* name)
 		if (bufferIndex > (maxBufferLimit+2) || overflowIndex > 20) 
 		{
 			char word[MAX_WORD_SIZE];
-			sprintf(word,(char*)"FATAL: Corrupt bufferIndex %d or overflowIndex %d\r\n",bufferIndex,overflowIndex);
+			sprintf(word,(char*)"FATAL: Corrupt bufferIndex %u or overflowIndex %u\r\n",bufferIndex,overflowIndex);
 			ReportBug(word);
 		}
 		--bufferIndex;
@@ -378,7 +382,8 @@ char* AllocateBuffer(char* name)
 		buffer = overflowBuffers[overflowIndex++];
 	}
 	else if (bufferIndex > maxBufferUsed) maxBufferUsed = bufferIndex;
-	if (showmem) Log(USERLOG,"Buffer alloc %d %s %s\r\n",bufferIndex,name, releaseStackDepth[globalDepth]->name);
+	if (showmem) Log(USERLOG,"%d Buffer alloc %d %s %s\r\n",globalDepth,bufferIndex,name, releaseStackDepth[globalDepth]->name);
+	*buffer++ = 0;	//   prior value
 	*buffer++ = 0;	//   prior value
 	*buffer = 0;	//   empty string
 
@@ -387,39 +392,41 @@ char* AllocateBuffer(char* name)
 
 void FreeBuffer(char* name)
 { // if longjump happens this may not be called. manually restore counts in setjump code
-	if (showmem) Log(USERLOG,"Buffer free %d %s %s\r\n",bufferIndex,name, releaseStackDepth[globalDepth]);
+	if (showmem) Log(USERLOG,"%d Buffer free %s %d %s\r\n", globalDepth,name, bufferIndex, releaseStackDepth[globalDepth]->name);
 	if (overflowIndex) --overflowIndex; // keep the dynamically allocated memory for now.
 	else if (bufferIndex)  --bufferIndex; 
 	else ReportBug((char*)"Buffer allocation underflow")
 }
 
+void ResetHeapFree(char* val)
+{
+	heapFree = lastheapfree = val;
+}
+
 void InitStackHeap()
 {
-	static size_t size = 0;
+	size_t size = maxHeapBytes / 64; // stack + heap size
+	size = (size * 64) + 64; // 64 bit align both ends
 	if (!heapEnd)
 	{
-		size = maxHeapBytes / 64;
-		size = (size * 64) + 64; // 64 bit align both ends
-		heapEnd = ((char*)malloc(size));	// point to end
+		heapEnd = (char*)malloc(size);	// point to end of heap (start of stack)
 		if (!heapEnd)
 		{
 			(*printer)((char*)"Out of  memory space for text space %d\r\n", (int)size);
 			ReportBug((char*)"FATAL: Cannot allocate memory space for text %d\r\n", (int)size)
 		}
 	}
-	heapFree = heapBase = heapEnd + size; // allocate backwards
-	stackFree = heapEnd;
+	ResetHeapFree( heapEnd + size); // allocate backwards
+	heapBase = heapFree;
+	stackStart =  stackFree = heapEnd;
 	minHeapAvailable = maxHeapBytes;
-	stackStart = stackFree;
+	PrepIndent();
 }
 
 void FreeStackHeap()
 {
-	if (heapEnd)
-	{
-		free(heapEnd);
-		heapEnd = NULL;
-	}
+	if (heapEnd) free(heapEnd);
+	heapEnd = NULL;
 }
 
 char* AllocateStack(const char* word, size_t len,bool localvar,int align) // call with (0,len) to get a buffer
@@ -678,23 +685,27 @@ Allocations happen during volley processing as
 	//   always allocate in word units
 	unsigned int allocate = ((allocationSize + 3) / 4) * 4;
 	heapFree -= allocate; // heap grows lower, stack grows higher til they collide
+	if (heapFree >= lastheapfree)
+		ReportBug("Heap growing backwards")
+	lastheapfree = heapFree;
+
  	if (bytes > 4) // force 64bit alignment alignment
 	{
 		uint64 base = (uint64) heapFree;
 		base &= 0xFFFFFFFFFFFFFFF8ULL;  // 8 byte align
-		heapFree = (char*) base;
+		lastheapfree = heapFree = (char*) base;
 	}
  	else if (bytes == 4) // force 32bit alignment alignment
 	{
 		uint64 base = (uint64) heapFree;
 		base &= 0xFFFFFFFFFFFFFFFCULL;  // 4 byte align
-		heapFree = (char*) base;
+		lastheapfree = heapFree = (char*) base;
 	}
  	else if (bytes == 2) // force 16bit alignment alignment
 	{
 		uint64 base = (uint64) heapFree;
 		base &= 0xFFFFFFFFFFFFFFFEULL; // 2 byte align
-		heapFree = (char*) base;
+		lastheapfree = heapFree = (char*) base;
 	}
 	else if (bytes != 1) 
 		ReportBug((char*)"Allocation of bytes is not std unit %d", bytes);
@@ -1218,6 +1229,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 	  // copy the string to a buffer, then append '\*' to the 
 	  // directory name.
     DirSpec = (LPSTR)malloc(MAX_PATH);
+	if (!DirSpec) ReportBug("WalkDirectory malloc failed")
     strcpy(DirSpec,fulldir);
 	strcat(DirSpec,(char*)"/*");
 	// Find the first file in the directory.
@@ -1266,6 +1278,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
     // now recurse in directories
     // Find the first file in the directory.
     DirSpec = (LPSTR)malloc(MAX_PATH);
+	if (!DirSpec) ReportBug("WalkDirectory malloc failed2")
     strcpy(DirSpec, fulldir);
     strcat(DirSpec, (char*)"/*");
     hFind = FindFirstFile(DirSpec, &FindFileData);
@@ -1697,7 +1710,7 @@ bool TraceFunctionArgs(FILE* out, char* name, int start, int end)
 
 void BugBacktrace(FILE* out)
 {
-	int i = globalDepth;
+	unsigned int i = globalDepth;
 	char rule[MAX_WORD_SIZE];
     CALLFRAME* frame = GetCallFrame(i);
 	if (frame && frame->label && *(frame->label)) 
@@ -1708,8 +1721,8 @@ void BugBacktrace(FILE* out)
 			rule[50] = 0;
 		}
         CALLFRAME* priorframe = GetCallFrame(i - 1);
-		fprintf(out,"CurrentDepth %d: heapusedOnEntry: %d heapUsedNow: %d buffers:%d stackused: %d stackusedNow:%d   %s ",
-			i,frame->heapDepth,(int)(heapBase-heapFree),frame->memindex,(int)(heapFree - (char*)releaseStackDepth[i]), (int)(stackFree-stackStart),frame->label);
+		fprintf(out,"CurrentDepth %u: heapusedOnEntry: %u heapUsedNow: %u buffers:%u stackused: %u stackusedNow:%u   %s ",
+			i,frame->heapDepth,(unsigned int)(heapBase-heapFree),frame->memindex,(unsigned int)(heapFree - (char*)releaseStackDepth[i]), (unsigned int)(stackFree-stackStart),frame->label);
 		if (priorframe && !TraceFunctionArgs(out, frame->label, (i > 0) ? priorframe->argumentStartIndex: 0, frame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
@@ -1719,14 +1732,13 @@ void BugBacktrace(FILE* out)
         if (frame->rule) strncpy(rule,frame->rule,50);
         else strcpy(rule, "unknown rule");
         rule[50] = 0;
-		fprintf(out,"Depth %d: heapusedOnEntry: %d buffers:%d stackused: %d   %s ",
+		fprintf(out,"Depth %u: heapusedOnEntry: %u buffers:%u stackused: %u   %s ",
 			i,frame->heapDepth,GetCallFrame(i)->memindex,
-            (int)(heapFree - (char*)releaseStackDepth[i]), frame->label);
+            (unsigned int)(heapFree - (char*)releaseStackDepth[i]), frame->label);
         CALLFRAME* priorFrame = GetCallFrame(i - 1);
 		if (!TraceFunctionArgs(out, frame->label, priorFrame->argumentStartIndex, priorFrame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
-	fprintf(out, "\r\n");
 }
 
 CALLFRAME* ChangeDepth(int value,const char* name,bool nostackCutback, char* code)
@@ -1734,7 +1746,7 @@ CALLFRAME* ChangeDepth(int value,const char* name,bool nostackCutback, char* cod
     if (value == 0) // secondary call from userfunction. frame is now valid
     {
         CALLFRAME* frame = releaseStackDepth[globalDepth];
-        if (showDepth) Log(USERLOG,"same depth %d %s \r\n", globalDepth, name);
+        if (showDepth) Log(USERLOG,"same depth %u %s \r\n", globalDepth, name);
         if (name) frame->label = (char*)name; // override
         if (code) frame->code = code;
 #ifndef DISCARDTESTING
@@ -1828,9 +1840,9 @@ char* myprinter(const char* ptr, char* at, va_list ap)
             else if (*ptr == 'I') //   I64
             {
 #ifdef WIN32
-                sprintf(at, (char*)"%I64d", va_arg(ap, uint64));
+                sprintf(at, (char*)"%I64u", va_arg(ap, uint64));
 #else
-                sprintf(at, (char*)"%lld", va_arg(ap, uint64));
+                sprintf(at, (char*)"%llu", va_arg(ap, uint64));
 #endif
                 ptr += 2;
             }
@@ -1842,9 +1854,9 @@ char* myprinter(const char* ptr, char* at, va_list ap)
             else if (*ptr == 'l' && ptr[1] == 'l') // lld
             {
 #ifdef WIN32
-                sprintf(at, (char*)"%I64d", va_arg(ap, long long int));
+                sprintf(at, (char*)"%I64u", (uint64)va_arg(ap, long long int));
 #else
-                sprintf(at, (char*)"%lld", va_arg(ap, long long int));
+                sprintf(at, (char*)"%llu", (uint64)va_arg(ap, long long int));
 #endif
                 ptr += 2;
             }
@@ -1886,7 +1898,7 @@ char* myprinter(const char* ptr, char* at, va_list ap)
                 else
                 {
                     if (precision == 8) sprintf(at, (char*)"%08x", i);
-                    else sprintf(at, (char*)" Bad hex precision %d ", precision);
+                    else sprintf(at, (char*)" Bad hex precision %u ", precision);
                 }
             }
             else
@@ -1903,25 +1915,6 @@ char* myprinter(const char* ptr, char* at, va_list ap)
     }
     *at = 0;
     return at;
-}
-
-int myprintf(const char * fmt, ...)
-{
-    if (!logmainbuffer)
-    {
-        if (logsize < maxBufferSize) logsize = maxBufferSize; // log needs to be able to hold for replays of it
-        logmainbuffer = (char*)malloc(logsize);
-		if (!logmainbuffer) exit(1);
-    }
-    char* at = logmainbuffer;
-    *at = 0;
-    va_list ap;
-    va_start(ap, fmt);
-    const char *ptr = fmt - 1;
-    at = myprinter(ptr, at, ap);
-    va_end(ap);
-    if (debugOutput) (*debugOutput)(logmainbuffer);
-    return 1;
 }
 
 static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
@@ -1981,13 +1974,35 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
     return out;
 }
 
+void PrepIndent()
+{
+	char buffer[1000];
+	for (int i = 0; i < 100; ++i)
+	{
+		char* at = buffer;
+		for (int n = 0; n <= i; ++n)
+		{
+			if (n == 0)
+			{
+				sprintf(at, "%2d  ", i);
+				at += 4;
+			}
+			else *at++ = ' ';
+		}
+		*at = 0;
+		indents[i] = AllocateHeap(buffer, 0, 1);
+	}
+}
+
 static void IndentLog(int& priordepth,char*& at,int channel,char*& format)
 {
-	if (logLastCharacter == 1 && globalDepth == priordepth) {} // we indented already
-	else if (logLastCharacter == 1 && globalDepth > priordepth) // we need to indent a bit more
+	int depth = globalDepth;
+	if (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT) depth = 0;
+	if (logLastCharacter == 1 && depth == priordepth) {} // we indented already
+	else if (logLastCharacter == 1 && depth > priordepth) // we need to indent a bit more
 	{
-		for (int i = priordepth; i < globalDepth; i++)  *at++ = ' ';
-		priordepth = globalDepth;
+		for (int i = priordepth; i < depth; i++)  *at++ = ' ';
+		priordepth = depth;
 	}
 	else
 	{
@@ -1998,18 +2013,18 @@ static void IndentLog(int& priordepth,char*& at,int channel,char*& format)
 		}
 		while (format[1] == '\n' || format[1] == '\r') *at++ = *++format; // we point BEFORE the format
 
-		int n = globalDepth + patternDepth;
+		int n = depth + patternDepth + adjustIndent;
 		if (n < 0) n = 0; //   just in case
-		for (int i = 0; i < n; i++)
+		if (n > 99) n = 99; // limit
+		if (csapicall != TEST_PATTERN && csapicall != TEST_OUTPUT && !compiling)
 		{
-			if (i == 0)
-			{
-				sprintf(at, "%2d  ", n);
-				at += 4;
-			}
-			else *at++ = ' ';
+			strcpy(at, indents[n]);
+			at += 4;
 		}
-		priordepth = globalDepth;
+		else strcpy(at, indents[n]+4);
+		at += n;
+
+		priordepth = depth;
 	}
 }
 
@@ -2083,8 +2098,8 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		fwrite(logmainbuffer, 1, bufLen, out);
 		struct tm ptm;
 		if (!dobugLog); // we are not reporting a bug, otherwise tell where we are in main log
-		else if (*currentFilename) fprintf(out, (char*)"   in %s at %d: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
-		else if (*currentInput) fprintf(out, (char*)"%d %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
+		else if (*currentFilename) fprintf(out, (char*)"   in %s at %u: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
+		else if (*currentInput) fprintf(out, (char*)"%u %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
 	}
 	else // user log
 	{
@@ -2092,13 +2107,15 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		if (input)
 		{
 			*input = 0;
-			fwrite(logmainbuffer, 1, bufLen, out);
+			fwrite(logmainbuffer, 1, input - logmainbuffer, out);
 			fwrite(originalUserInput, 1, strlen(originalUserInput), out); // separate write in case bigger than logbuffer
-			fwrite(input + 3, 1, strlen(input + 3), out);
+			fwrite(input + 3, 1, bufLen - (input - logmainbuffer) - 3, out);
+			*input = '`';
 		}
 		else fwrite(logmainbuffer, 1, bufLen, out);
 	}
-	if (out != userlogFile && out != stdout && out != stderr) fclose(out); // dont use FClose
+	if (out != userlogFile && out != stdout && out != stderr) 
+		fclose(out); // dont use FClose
 }
 
 static void BugLog(char* name, char* folder, FILE* bug,char* located)
@@ -2110,21 +2127,15 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 		struct tm ptm;
 		char data[10000];
 		*data = 0;
-		if (*currentFilename) sprintf(data, (char*)" in %s at %d: %s ", currentFilename, currentFileLine, readBuffer);
-		fprintf(bug, (char*)"\r\nBUG: %s: %s volley:%d ", GetTimeInfo(&ptm, true), data, volleyCount);
+		if (*currentFilename) sprintf(data, (char*)" in %s at %u: %s ", currentFilename, currentFileLine, readBuffer);
+		fprintf(bug, (char*)"\r\nBUG: %s: %s volley:%u ", GetTimeInfo(&ptm, true), data, volleyCount);
 		fprintf(bug, "%s", logmainbuffer);
-		fprintf(bug, "caller:%s callee:%s at %s in sentence: ", loginID, loginID, located);
-		fprintf(bug, "%s\r\n", currentInput);
+		fprintf(bug, "caller:%s callee:%s ip: %s at %s in sentence: ", loginID, loginID, myip,located);
+		fprintf(bug, "%s\r\n", originalUserInput);
 	}
 	else if (*currentFilename)
 	{
-		fprintf(bug, (char*)"BUG in %s at %d: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
-	}
-
-	if (!compiling && !loading && !strstr(logmainbuffer, "No such bot"))
-	{
-		fprintf(bug, (char*)"MinReleaseStackGap %dMB MinHeapAvailable %dMB  MaxBuffers used %d of %d\r\n", maxReleaseStackGap / 1000000, (int)(minHeapAvailable / 1000000), maxBufferUsed, maxBufferLimit);
-		BugBacktrace(bug);
+		fprintf(bug, (char*)"BUG in %s at %u: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
 	}
 
 	if (!compiling && !loading )
@@ -2132,20 +2143,19 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 		struct tm ptm;
 		char data[10000];
 		*data = 0;
-		if (*currentFilename) sprintf(data, (char*)" in %s at %d: %s ", currentFilename, currentFileLine, readBuffer);
-		fprintf(bug, (char*)"\r\nBUG: %s: %s volley:%d ", GetTimeInfo(&ptm, true), data, volleyCount);
+		if (*currentFilename) sprintf(data, (char*)" in %s at %u: %s ", currentFilename, currentFileLine, readBuffer);
+		fprintf(bug, (char*)"\r\nBUG: %s: %s volley:%u ", GetTimeInfo(&ptm, true), data, volleyCount);
 		fprintf(bug, "%s", logmainbuffer);
 		fprintf(bug, "caller:%s callee:%s at %s in sentence: ", loginID, loginID, located);
-		fprintf(bug, "%s\r\n", currentInput);
+		fprintf(bug, "%s\r\n", originalUserInput);
+		if (!strstr(logmainbuffer, "No such bot"))
+		{
+			BugBacktrace(bug);
+		}
 	}
 	else if (*currentFilename)
 	{
-		fprintf(bug, (char*)"BUG in %s at %d: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
-	}
-	if (!compiling && !loading && !strstr(logmainbuffer, "No such bot"))
-	{
-		fprintf(bug, (char*)"MinReleaseStackGap %dMB MinHeapAvailable %dMB  MaxBuffers used %d of %d\r\n", maxReleaseStackGap / 1000000, (int)(minHeapAvailable / 1000000), maxBufferUsed, maxBufferLimit);
-		BugBacktrace(bug);
+		fprintf(bug, (char*)"BUG in %s at %u: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
 	}
 	if (isFile) fclose(bug); // dont use FClose
 }
@@ -2248,7 +2258,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	{
 		if (channel == USERLOG && (csapicall == COMPILE_PATTERN || csapicall == COMPILE_OUTPUT) ) return id;
 		if (!debugcommand && !csapicall) return id;
-		if (server) return id;
+		if (server && csapicall != TEST_PATTERN && csapicall != TEST_OUTPUT) return id;
 	}
 
 	va_list ap;
@@ -2292,9 +2302,10 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	if (channel == WARNSCRIPTLOG)
 	{
 		AddWarning(logmainbuffer);
+		bufLen = strlen(logmainbuffer); // eol might have been added by addwarning
 		channel = USERLOG;
 	}
-	if (channel == BADSCRIPTLOG)
+	else if (channel == BADSCRIPTLOG)
 	{
 		AddError(logmainbuffer);
 		channel = USERLOG;
@@ -2309,7 +2320,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		dobugLog = true; // we are outputting to some bug log 
 		char located[MAX_WORD_SIZE];
 		*located = 0;
-		if (currentTopicID && currentRule) sprintf(located, (char*)" script: %s.%d.%d", GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID));
+		if (currentTopicID && currentRule) sprintf(located, (char*)" script: %s.%u.%u", GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID));
 		
 		char name[MAX_WORD_SIZE];
 		sprintf(name, (char*)"%s/bugs.txt", logsfolder);
@@ -2333,15 +2344,15 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		if ((echo || localecho) && !silent && !server)
 		{
 			struct tm ptm;
-			if (*currentFilename) fprintf(stdout, (char*)"\r\n   in %s at %d: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
-			else if (!compiling && *currentInput) fprintf(stdout, (char*)"\r\n%d %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
+			if (*currentFilename) fprintf(stdout, (char*)"\r\n   in %s at %u: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
+			else if (!compiling && *currentInput) fprintf(stdout, (char*)"\r\n%u %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
 		}
 
 		strcpy(at, (char*)"\r\n");	//   end it
 		at += 2;
 		bufLen += 2;
 
-		if (!strnicmp(logmainbuffer, "FATAL", 5)) // at start of message, this should force server to reload or die
+		if (strstr(logmainbuffer, "FATAL:")) // at start of message, this should force server to reload or die
 		{
 				myexit(logmainbuffer); // never returns normally, exit or longjump
 		}
@@ -2359,7 +2370,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 
 		char userfname[MAX_WORD_SIZE];
 		*userfname = 0;
-		if (*logFilename)
+		if (*logFilename && userLog & FILE_LOG)
 		{
 			strcpy(userfname, logFilename);
 			char defaultlogFilename[1000];

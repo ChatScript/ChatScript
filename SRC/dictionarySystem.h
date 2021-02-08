@@ -211,7 +211,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define DETERMINER_PLURAL 			0x0000004000000000ULL	
 #define TAKES_POSTPOSITIVE_ADJECTIVE 	0x0000008000000000ULL	// word takes adjectives AFTER like something, nothing, etc (marked on word, not on adjective) 
 
-#define GRADE5_6					0x0000010000000000ULL
+#define GRADE5_6					0x00000100000000b00ULL
 #define GRADE3_4					0x0000020000000000ULL
 #define GRADE1_2  					0x0000040000000000ULL
 #define KINDERGARTEN				( GRADE1_2 | GRADE3_4 | GRADE5_6 )
@@ -219,7 +219,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 #define SUBSTITUTE_RECIPIENT		0x0000080000000000ULL
 
-#define NOUN_NODETERMINER			0x0000100000000000ULL	// nouns of location that require no determiner (like "Home is where the heart is") or mass nouns
+#define NOUN_NODETERMINER			0x0000100000000000ULL	// nouns of location that require no determiner (like "Home is where the heart is") or mass nouns or numbers
 
 #define	WEB_URL						0x0000200000000000ULL	
 #define ORDINAL						0x0000400000000000ULL  // for adjectives and nouns labeled ADJECTIVE_NUMBER or NOUN_NUMBER, it is cardinal if not on and ordinal if it is	
@@ -257,7 +257,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // See MARK_FLAGS for which system flags are exposed as concepts
 // end system flags -- THIS IS A REQUIRED MARKER FOR ABOVE ZONE
 
-// parse flags -- THIS IS A REQUIRED MARKER FOR BELOW ZONE   words marked ```value  
+// parse flags -- THIS IS A REQUIRED MARKER FOR BELOW ZONE   words marked ```value    parsebits
 
 #define FACTITIVE_ADJECTIVE_VERB	0x00000001		// ~factitive_adjective_Verbs
 #define FACTITIVE_NOUN_VERB			0x00000002	// ~factitive_noun_Verbs

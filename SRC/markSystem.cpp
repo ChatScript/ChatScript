@@ -203,13 +203,13 @@ bool MarkWordHit(int depth, int exactWord, WORDP D, int meaningIndex, int start,
 				Log(USERLOG,"\r\n");
 				Log(USERLOG,"");
 			}
-			while (depth-- >= 0) Log((showMark) ? ECHOUSERLOG : USERLOG, (char*)"  ");
+			while (depth-- >= 0) Log((showMark) ? ECHOUSERLOG : USERLOG, "  ");
 			char which[20];
 			*which = 0;
 			which[1] = 0;
 			if (exactWord && D->internalBits & UPPERCASE_HASH) which[0] = '^';
-			Log((showMark) ? ECHOUSERLOG : USERLOG, (D->internalBits & TOPIC) ? (char*)"+T%s%s " : (char*)" +%s%s", D->word, which);
-			Log((showMark) ? ECHOUSERLOG : USERLOG, (char*)"(%d-%d)\r\n", start, end);
+			Log((showMark) ? ECHOUSERLOG : USERLOG, (D->internalBits & TOPIC) ? "+T%s%s " : (char*)" +%s%s", D->word, which);
+			Log((showMark) ? ECHOUSERLOG : USERLOG," (%d-%d)\r\n", start, end);
 			markLength = 0;
 		}
 	}
@@ -621,7 +621,7 @@ static void RiseUp(int depth, int exactWord,MEANING M,unsigned int start, unsign
 	unsigned int index = Meaning2Index(M);
 	WORDP D = Meaning2Word(M);
 	char word[MAX_WORD_SIZE];
-	sprintf(word,(char*)"%s~%d",D->word,index); // some meaning is directly referenced?
+	sprintf(word,(char*)"%s~%u",D->word,index); // some meaning is directly referenced?
 	MarkWordHit(depth, exactWord, FindWord(word),0,start,end); // direct reference in a pattern
 
 	// now spread and rise up
@@ -826,7 +826,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 	char* originalbuffer = AllocateStack(NULL, maxBufferSize); // includes typos
 	char* canonbuffer = AllocateStack(NULL, maxBufferSize);
 	wordlist = NULL;
-    char* limit = GetUserVariable("$cs_sequence");
+    char* limit = GetUserVariable("$cs_sequence", false, true);
     int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
 	unsigned int oldtrace = trace;
 	unsigned int usetrace = trace;
@@ -998,7 +998,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 			}
 		}
 	}
-	if (trace & TRACE_PATTERN || prepareMode == PREPARE_MODE) Log(USERLOG,"\r\n"); // if we logged something, separate
+	if (trace & TRACE_FLOW || prepareMode == PREPARE_MODE) Log(USERLOG,"\r\n"); 
 
 	while (wordlist)
 	{
@@ -1238,7 +1238,7 @@ void MarkAllImpliedWords(bool limitnlp)
 	}
 	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
 	{
-		char* bad = GetUserVariable("$$cs_badspell"); // spelling says this user is a mess
+		char* bad = GetUserVariable("$$cs_badspell", false, true); // spelling says this user is a mess
 		if (*bad) Log(USERLOG,"\r\nNLP Suppressed by spellcheck.\r\n");
 		else Log(USERLOG,"\r\nConcepts: \r\n");
 	}
@@ -1412,7 +1412,7 @@ void MarkAllImpliedWords(bool limitnlp)
 				else if (c == 'K')  MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord((char*)"~kelvin")), i, i);
 				char number1[MAX_WORD_SIZE];
 				sprintf(number1, (char*)"%d", atoi(original));
-				WORDP canon = StoreWord(number1, (NOUN_NUMBER | ADJECTIVE_NUMBER));
+				WORDP canon = StoreWord(number1, (NOUN_NUMBER | ADJECTIVE_NUMBER, NOUN_NODETERMINER));
 				if (canon) wordCanonical[i] = canon->word;
 			}
 

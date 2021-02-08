@@ -1,0 +1,17 @@
+Mr. Mrs. Ms. Rev. Dr. Pres. V.P. Prof.  Gov. Sen. Rep.  Attny. A.G. J.G. Mlle. Mme. Mademoiselle Jr. Sr. Esq.
+Gen. Brig. Col. Capt. Lieut. Lt. Sgt. Pvt. Sr. Cmdr. Adm. Radm. Rev. Revd. 
+St. Mt. Ft. Rm. Ste. Corp. Inc. Ave. Pl. Ct. Dr. Rd. Blvd. Pkwy. Hwy. Assn. Co. Pty. Ltd. Bldg.
+
+# suffix forms without the periods
+BS CPA DDS DMD Esq JD LLM MA MD MS PhD SB ScD SM Junior Senior Jr Sr
+
+Mr Messrs. Mrs Mmes. Ms Mses. Miss Mlle Rev Dr Pres VP Prof  Gov Sen Rep  Attny AG JG Mlle MMe Jr Sr Esq Esquire
+Gen Brig Col Capt Lieut Lt Sgt Pvt Sr Cmdr Adm Radm 
+St Mt Ft Rm Ste Corp Inc Ave Pl Ct Dr Rd Blvd Pkwy Hwy Assn Co Pty Ltd Bldg  
+Professor
+Chief Commander Captain General Petty_Officer Sargeant Private Specialist  Corporal Lieutenant
+Major Colonel Seaman Ensign Airman
+Earl Baron Baroness Duke Duchess Princess Prince King Queen
+Aunt Uncle Sister Brother Chair Chairman Chairwoman Cousin Father Granda King Lady Lord Sir
+Minister Monseigneur Madam Reverend Pope President Vice_President Prince Princess  Queen Representative Senator 
+   

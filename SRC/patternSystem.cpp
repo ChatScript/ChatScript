@@ -56,24 +56,30 @@ static char* ptrStack[MAX_PAREN_NEST];
 static int argStack[MAX_PAREN_NEST];
 static int baseStack[MAX_PAREN_NEST];
 static uint64 matchedBits[20][4];	 // nesting level zone of bit matches
-void ShowMatchResult(FunctionResult result, char* rule, char* label)
+void ShowMatchResult(FunctionResult result, char* rule, char* label,int id)
 {
     if (trace & TRACE_LABEL && label && *label && !(trace & TRACE_PATTERN) && CheckTopicTrace())
     {
-        if (result == NOPROBLEM_BIT) Log(USERLOG,"  **  Match: %s\r\n", ShowRule(rule));
-        else Log(USERLOG,"  **fail: %s\r\n", ShowRule(rule));
+        if (result == NOPROBLEM_BIT) Log(FORCETABUSERLOG, "**  Match: %s %d.%d %c: \r\n", label, TOPLEVELID(id), REJOINDERID(id),  *rule); //  \\  blocks linefeed on next Log call
+        else Log(FORCETABUSERLOG, "**  Fail %s: %d.%d %c: \r\n", label, TOPLEVELID(id), REJOINDERID(id),  *rule); //  \\  blocks linefeed on next Log call
     }
     if (result == NOPROBLEM_BIT && trace & (TRACE_PATTERN | TRACE_MATCH | TRACE_SAMPLE) && CheckTopicTrace()) //   display the entire matching responder and maybe wildcard bindings
     {
-        if (!(trace & (TRACE_PATTERN | TRACE_SAMPLE)) && label) Log(USERLOG, "Try %s", ShowRule(rule));
-        Log(USERLOG,"  **  Match: %s", (label) ? ShowRule(rule) : ""); //   show abstract result we will apply
+
+        if (label && *label) Log(USERLOG, "**  Match: %s %s %d.%d %c: ", label, GetTopicName(currentTopicID), TOPLEVELID(id), REJOINDERID(id), *rule); //  \\  blocks linefeed on next Log call
+        else  Log(USERLOG, "**  Match: %s %d.%d %c:", GetTopicName(currentTopicID), TOPLEVELID(id), REJOINDERID(id), * rule); //  \\  blocks linefeed on next Log call
         if (wildcardIndex)
         {
-            Log(USERLOG,"  Wildcards: ");
+            Log(USERLOG,"  matchvar: ");
             for (int i = 0; i < wildcardIndex; ++i)
             {
-                if (*wildcardOriginalText[i]) Log(USERLOG,"_%d=%s / %s (%d-%d)  ", i, wildcardOriginalText[i], wildcardCanonicalText[i], wildcardPosition[i] & 0x0000ffff, wildcardPosition[i] >> 16);
-                else Log(USERLOG,"_%d=null (%d-%d)  ", i, wildcardPosition[i] & 0x0000ffff, wildcardPosition[i] >> 16);
+                if (*wildcardOriginalText[i])
+                {
+                    if (!strcmp(wildcardOriginalText[i], wildcardCanonicalText[i])) Log(USERLOG, "_%d=%s (%d-%d)  ", i, wildcardOriginalText[i],wildcardPosition[i] & 0x0000ffff, wildcardPosition[i] >> 16);
+                    else Log(USERLOG, "_%d=%s / %s (%d-%d)  ", i, wildcardOriginalText[i], wildcardCanonicalText[i], wildcardPosition[i] & 0x0000ffff, wildcardPosition[i] >> 16);
+                }
+
+                else Log(USERLOG, "_%d=null (%d-%d)  ", i, wildcardPosition[i] & 0x0000ffff, wildcardPosition[i] >> 16);
             }
         }
         Log(USERLOG,"\r\n");
@@ -118,7 +124,7 @@ void GetPatternData(char* buffer)
 static void DecodeFNRef(char* side)
 {
     char* at = "";
-    if (side[1] == USERVAR_PREFIX) at = GetUserVariable(side + 1);
+    if (side[1] == USERVAR_PREFIX) at = GetUserVariable(side + 1, false, true);
     else if (IsDigit(side[1])) at = FNVAR(side + 1);
     at = SkipWhitespace(at);
     strcpy(side, at);
@@ -398,7 +404,6 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     int bidirectionalSelector = 0;
     int bidirectionalWildcardIndex = 0;
     WORDP D;
-    unsigned int oldtrace = trace;
     int beginmatch = -1; // for ( ) where did we actually start matching
     bool success = false;
     char* priorPiece = NULL;
@@ -832,9 +837,9 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         case USERVAR_PREFIX: // is user variable defined
             if (IsAlphaUTF8(word[1]) || word[1] == '_' || word[1] == USERVAR_PREFIX) // legal variable, not $ or $100
             {
-                char* val = GetUserVariable(word);
-                matched = *val ? true : false;
-            }
+                char* val = GetUserVariable(word, false, true);
+               matched = *val ? true : false;
+             }
             else goto matchit;
             break;
         case '^': //   function call, function argument  or indirect function variable assign ref like ^$$tmp = null
@@ -843,7 +848,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 argumentText = ptr; //   transient substitution of text
 
                 if (IsDigit(word[1]))  ptr = FNVAR(word + 1);
-                else if (word[1] == USERVAR_PREFIX) ptr = GetUserVariable(word + 1); // get value of variable and continue in place
+                else if (word[1] == USERVAR_PREFIX) ptr = GetUserVariable(word + 1, false, true); // get value of variable and continue in place
                 else ptr = wildcardCanonicalText[GetWildcardID(word + 1)]; // ordinary wildcard substituted in place (bug)?
                 if (trace & TRACE_PATTERN  && CheckTopicTrace()) Log(USERLOG,"%s=>", word);
                 continue;
@@ -858,11 +863,15 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 AllocateOutputBuffer();
                 FunctionResult result;
                 if (!stricmp(D->word, "^match") || !stricmp(D->word, "^mark") || !stricmp(D->word, "^unmark")) matching = true;
+                if (trace & TRACE_PATTERN) Log(USERLOG, "\r\n");
                 ptr = DoFunction(word, ptr, currentOutputBase, result);
                 matching = false;
                 PopMatch(base, baseindex);
                 matched = !(result & ENDCODES);
-
+                if (!stricmp(word, "^debug")) // be innocuous
+                {
+                    if (*kind == '[' || *kind == '{') matched = false;
+                }
                 // allowed to do comparisons on answers from system functions but cannot have space before them, but not from user macros
                 if (*ptr == '!' && ptr[1] == ' ')// simple not operator or no operator
                 {
@@ -889,7 +898,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     if (*rhs == '^') // local function argument or indirect ^$ var  is LHS. copy across real argument
                     {
                         char* atx = "";
-                        if (rhs[1] == USERVAR_PREFIX) atx = GetUserVariable(rhs + 1);
+                        if (rhs[1] == USERVAR_PREFIX) atx = GetUserVariable(rhs + 1, false, true);
                         else if (IsDigit(rhs[1])) atx = FNVAR(rhs + 1);
                         atx = SkipWhitespace(atx);
                         strcpy(rhs, atx);
@@ -959,19 +968,11 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     ReleaseStack(word);
                 }
                 else ptr = ""; // null function
-                oldtrace = trace;
-                if (D->internalBits & MACRO_TRACE  && CheckTopicTrace())
-                {
-                    trace = (unsigned int)-1;
-                    if (oldtrace && !(oldtrace & TRACE_ECHO)) trace ^= TRACE_ECHO;
-                }
-               // if (trace & TRACE_PATTERN  && CheckTopicTrace()) Log(USERLOG,"%s=> ", word);
                 if (result == NOPROBLEM_BIT) continue;
             }
             if (result == FAILRULE_BIT) matched = false;
             break;
         case 0: case '`': // end of data (argument or function - never a real rule)
-            trace = oldtrace; // restore from any trace request
             if (argumentText) // return to normal from argument substitution
             {
                 ptr = argumentText;
@@ -985,15 +986,13 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 callArgumentIndex = argStack[functionNest]; //   end of argument list (for next argument set)
                 fnVarbase = callArgumentBase = baseStack[functionNest]; //   base of callArgumentList
                 ptr = ptrStack[functionNest]; // continue using prior code
-                trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
                 continue;
             }
             else
             {
                 globalDepth = startdepth;
                 uppercaseFind = -1;
-                patternDepth--;
-                trace = oldtrace;
+                if (patternDepth-- == 0) patternDepth = 0;
                 return false; // shouldn't happen
             }
             break;
@@ -1002,8 +1001,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             uppercaseFind = -1;
             ptr = nextTokenStart;
             {
-                if (trace & TRACE_PATTERN && depth == 0  && *(ptr-3) != '!') Log(FORCETABUSERLOG, (char*)"\r\n");
-                if (trace & TRACE_PATTERN && depth == 1 && kindprior[1] == '[') Log(FORCETABUSERLOG, (char*)"\r\n");
+               // bw if (trace & TRACE_PATTERN && depth == 0  && *(ptr-3) != '!') Log(FORCETABUSERLOG, (char*)"\r\n");
+                //if (trace & TRACE_PATTERN && depth == 1 && kindprior[1] == '[') Log(FORCETABUSERLOG, (char*)"\r\n");
 
                 int returnStart = positionStart; // default return for range start
                 int returnEnd = positionEnd;  // default return for range end
@@ -1173,12 +1172,22 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 uppercaseFind = -1;
                 if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
             }
+			else if (!stricmp(word, "%trace_on"))
+			{
+				trace = TRACE_PATTERN;
+				continue;
+			}
+			else if (!stricmp(word, "%trace_off"))
+			{
+				trace = 0;
+				continue;
+			}
             else matched = SysVarExists(word);
             break;
         case '?': //  question sentence? or variable search for 
             if (word[1] == '$')
             {
-                strcpy(word, GetUserVariable(word + 1));
+                strcpy(word, GetUserVariable(word + 1, false, true));
                 goto matchit;
             }
             else
@@ -1202,16 +1211,11 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 				char* ptr = AllocateBuffer("patternmatchassign");
 				sprintf(ptr, " %s ", op);
 				strcat(ptr, rhs);
-				int oldtrace = trace; // dont show from performassignment a trace, we do it ourselves later
-				trace = 0;
+                int oldtrace = trace;
+                trace = 0;
 				PerformAssignment(lhs, ptr, buffer, result);
-				trace = oldtrace;
+                trace = oldtrace;
 				FreeBuffer("patternmatchassign");
-
-				if (csapicall == TEST_PATTERN && trace & TRACE_PATTERN)
-				{
-					Log(USERLOG, "\r\n Variable set %s = %s\r\n", lhs, GetUserVariable(lhs));
-				}
 
 				if (result == NOPROBLEM_BIT) matched = true;
 				uppercaseFind = -1;
@@ -1251,7 +1255,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 if (*op == '?' && *rhs != '~') // NOT a ? into a set test - means does this thing exist in sentence
                 {
                     char* val = "";
-                    if (*lhs == USERVAR_PREFIX) val = GetUserVariable(lhs);
+                    if (*lhs == USERVAR_PREFIX) val = GetUserVariable(lhs, false, true);
                     else if (*lhs == '_') val = (quoted) ? wildcardOriginalText[GetWildcardID(lhs)] : wildcardCanonicalText[GetWildcardID(lhs)];
                     else if (*lhs == '^' && IsDigit(lhs[1])) val = FNVAR(lhs + 1);
                     else if (*lhs == SYSVAR_PREFIX) val = SystemVariable(lhs, NULL);
@@ -1262,7 +1266,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         matched = FindPhrase(val, (positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd, reverse,
                             positionStart, positionEnd);
                         if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
-                        if (trace & TRACE_PATTERN) sprintf(word, (char*)"%s(%s)%s", lhs, val, op);
+                        if (trace & TRACE_PATTERN) sprintf(word, (char*)"%s`%s`%s", lhs, val, op);
                         break;
                     }
 
@@ -1270,7 +1274,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         quoted, positionStart, positionEnd, false, 0);
                     uppercaseFind = -1;
                     if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
-                    if (trace & TRACE_PATTERN) sprintf(word, (char*)"%s(%s)%s", lhs, val, op);
+                    if (trace & TRACE_PATTERN) sprintf(word, (char*)"%s`%s`%s", lhs, val, op);
                     break;
                 }
 
@@ -1286,9 +1290,9 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     {
                         if (!stricmp(lhs, word1val)) *word1val = 0; // dont need redundant constants in trace
                         if (!stricmp(rhs, word2val)) *word2val = 0; // dont need redundant constants in trace
-                        if (*word1val && *word2val) sprintf(word, (char*)"%s(%s)%s%s(%s)", lhs, word1val, op, rhs, word2val);
-                        else if (*word1val) sprintf(word, (char*)"%s(%s)%s%s", lhs, word1val, op, rhs);
-                        else if (*word2val) sprintf(word, (char*)"%s%s%s(%s)", lhs, op, rhs, word2val);
+                        if (*word1val && *word2val) sprintf(word, (char*)"%s`%s`%s%s`%s`", lhs, word1val, op, rhs, word2val);
+                        else if (*word1val) sprintf(word, (char*)"%s`%s`%s%s", lhs, word1val, op, rhs);
+                        else if (*word2val) sprintf(word, (char*)"%s%s%s`%s`", lhs, op, rhs, word2val);
                         else sprintf(word, (char*)"%s%s%s", lhs, op, rhs);
                     }
                     ReleaseStack(word1val);
@@ -1425,7 +1429,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     {
                         int hold = uppercaseFind; // we dont know the content, just what we hunted for
                         uppercaseFind = -1;
-                        char* value = GetUserVariable(word);
+                        char* value = GetUserVariable(word, false, true);
                         SetWildCard(value, value, 0, 0);  // specific swallow
                         uppercaseFind = hold;
                     }
@@ -1636,7 +1640,12 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 						char rhsside[MAX_WORD_SIZE];
 						char* rhs = rhsside;
 						DecodeAssignment(word, lhs, op, rhs);
-						if (*lhs == '$') Log(USERLOG,"%s%s%s `%s`",lhs,op,rhs,GetUserVariable(lhs) );
+                        if (*lhs == '$')
+                        {
+                            char* val = GetUserVariable(lhs, false, true);
+                            if (stricmp(rhs,val))Log(USERLOG, "%s%s%s`%s`", lhs, op, rhs, val);
+                            else Log(USERLOG, "%s%s%s", lhs, op, rhs);
+                        }
 						else if (*lhs == '_') Log(USERLOG,"%s%s%s `%s`", lhs, op, rhs, wildcardOriginalText[GetWildcardID(lhs)]);
 						else Log(USERLOG,"%s%s%s", lhs, op, rhs);
 					}
@@ -1662,21 +1671,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 }
                 else if (*word == USERVAR_PREFIX && matched)
                 {
-                    Log(USERLOG,"(%s)", GetUserVariable(word));
-                }
-                else if (*word == ':' && matched) // assignment (never fails?)
-                {
-                    char lhsside[MAX_WORD_SIZE];
-                    char* lhs = lhsside;
-                    char op[10];
-                    char rhsside[MAX_WORD_SIZE];
-                    char* rhs = rhsside;
-                    DecodeAssignment(word, lhs, op, rhs);
-                    if (trace & TRACE_PATTERN)
-                    {
-                        char* var = GetUserVariable(lhs);
-                        Log(USERLOG, " `%s`", var);
-                    }
+                    Log(USERLOG,"`%s`", GetUserVariable(word, false, true));
                 }
                 else if (*word == '*' && matched && positionStart > 0 && positionStart <= wordCount && positionEnd <= wordCount)
                 {
@@ -1709,7 +1704,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 {
                     if (trace & TRACE_PATTERN  && CheckTopicTrace())
                     {
-                        Log(FORCETABUSERLOG, (char*)"------ Try pattern matching again, after word %d (%s)\r\n", firstMatched, wordStarts[firstMatched]);
+                        Log(FORCETABUSERLOG, (char*)"------ Try pattern matching again, after word %d`%s`\r\n", firstMatched, wordStarts[firstMatched]);
                        // Log(USERLOG,"");
                     }
                     //   reset to initial conditions, mostly 
@@ -1791,7 +1786,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     {
         if (*word != ')' && *word != '}' && *word != ']' && (*word != '>' || word[1] != '>'))
         {
-            if (*ptr != '}' && *ptr != ']' && *ptr != ')' && (*ptr != '>' || ptr[1] != '>')) Log(USERLOG,"...");	// there is more in the pattern still
+            if (*ptr != '}' && *ptr != ']' && *ptr != ')' && (*ptr != '>' || ptr[1] != '>')) 
+                Log(USERLOG,"...");	// there is more in the pattern still
             if (success)
             {
                 if (*kind == '<') Log(USERLOG,">>");
@@ -1813,44 +1809,30 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 		}
 		if (*word == '}') Log(USERLOG,"+ "); // optional always matches, by definition
         else Log(USERLOG,"%c ", matched ? '+' : '-');
-  //      Log(USERLOG,""); // next level resumed
 
         // A classic pattern is:
             //       ( !x !y [ item item item])  indentBasis == 1
             // or  ([  (!y [item item item]) ( ) ] ) indentBasis== 3
         if (depth <= indentBasis)
         {
-            Log(USERLOG,"\r\n");
-    //        Log(USERLOG,"");
+            if (depth != 1) Log(USERLOG,"\r\n"); 
         }
-        else if (depth == (indentBasis+1) &&  *kind == '(' && kindprior[depth] == '(') 
+        else if (depth == (indentBasis + 1) && *kind == '(')
         {
-            Log(USERLOG,"\r\n");
-     //       Log(USERLOG,"");
-        }
-        else if (depth == (indentBasis + 1) && *kind == '(' && kindprior[depth] == '[')
-        {
-            Log(USERLOG,"\r\n");
-    //        Log(USERLOG,"");
+            if (kindprior[depth] == '(' || kindprior[depth] == '[')
+            {
+                char* x = SkipWhitespace(BalanceParen(ptr, true, false));
+                if (*x != ']' && *x != ')')  Log(USERLOG, "\r\n");
+            }
         }
     }
     if (trace & TRACE_PATTERN && !depth)
     {
-        if (!matched)
-        {
-            char* copy = AllocateStack(NULL, MAX_WORD_SIZE);
-            strncpy(copy, ptr, 80);
-            strcpy(copy + 75, (char*)"...");
-            char* atx = strchr(copy, ')');
-            if (atx) atx[1] = 0;
-            CleanOutput(copy);
-            if (*copy != '`') Log(USERLOG,"        untried: %s\r\n", copy);
-            ReleaseStack(copy);
-        }
-        else Log(USERLOG,")+\r\n");
+        if (matched)  Log(USERLOG,")+\r\n");
+        else if (*ptr == ')') Log(USERLOG, ")-\r\n");
+        else Log(USERLOG, "...)-\r\n");
     }
-    trace = oldtrace;
-    patternDepth--;
+    if (patternDepth-- == 0) patternDepth = 0;
     return success;
 }
 
@@ -1886,7 +1868,7 @@ void ExecuteConceptPatterns()
         memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
         bool match = Match(buffer, pattern+2, 0, start, (char*)"(", 1, 0, start, end, uppercasem, matched, 0, 0) != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
         memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
-        ShowMatchResult(!match ? FAILRULE_BIT : NOPROBLEM_BIT, pattern, NULL);
+        ShowMatchResult(!match ? FAILRULE_BIT : NOPROBLEM_BIT, pattern, NULL, 0);
         if (match)
         {
             lastMatchedConcept = concept;

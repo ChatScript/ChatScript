@@ -30,5 +30,5 @@ extern HEAPREF heapPatternThread;
 extern bool patternRetry;
 extern bool deeptrace;
 extern int patternDepth;
-void ShowMatchResult(FunctionResult result, char* rule,char* label);
+void ShowMatchResult(FunctionResult result, char* rule,char* label,int id = 0);
 #endif

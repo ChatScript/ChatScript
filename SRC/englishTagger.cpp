@@ -850,7 +850,7 @@ static void SetCanonicalValue(int start,int end)
 
 		if (csEnglish && pos & PRONOUN_BITS && !stricmp(original,(char*)"one")) // make it a number
 		{
-			canonicalLower[i] = StoreWord((char*)"1",NOUN|NOUN_NUMBER);
+			canonicalLower[i] = StoreWord((char*)"1",NOUN|NOUN_NUMBER, NOUN_NODETERMINER);
 		}
 
 		// handle composite verb canonical for single hypen case
@@ -1042,7 +1042,7 @@ static void PerformPosTag(int start, int end)
 	if (contigLower > maxContigLower) maxContigLower = contigLower;
 	// DO NOT FORCE STRICT CASING WHEN uppercase given
 
-	char* bad = GetUserVariable("$$cs_badspell");
+	char* bad = GetUserVariable("$$cs_badspell",false,true);
 	if (*bad) noPosTagging = true; // spelling says this user is a mess
 	else if (oobExists) noPosTagging = true; // no out-of-band parsetagging
 	else if (actualTokenCount == REAL_SENTENCE_WORD_LIMIT) noPosTagging = true; // presume truncation across boundary
@@ -1273,7 +1273,6 @@ static void InitRoleSentence(int start, int end)
         indirectObjectRef[i] = 0;
         objectRef[i] = 0;
         complementRef[i] = 0;
-        needRoles[0] = COMMA_PHRASE;		// a non-zero level
     }
     determineVerbal = 0;
     currentVerb2 = currentMainVerb = 0;
@@ -1388,7 +1387,7 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
     bool oobx = (*wordStarts[startSentence] == '[' && *wordStarts[endSentence] == ']');
     if (externalPostagger && !oobx) (*externalPostagger)();
 #endif
-	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag"))
+	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag",false,true))
 	{
 		// not treetagger, just a named topic
 		OnceCode((char*)"$cs_externaltag");
@@ -1512,14 +1511,14 @@ static unsigned int PriorPhrasalVerb(int particle,WORDP & D)
 	int mostRecentParticle = particle;
 	while (--at)
 	{
+		if (posValues[at] == CONJUNCTION) return 0; // cannot be in different zone
+		if (posValues[at] == COMMA) return 0;		 // we dont expect comma phrases to separate phrasals
 		if (posValues[at] & (VERB_BITS|NOUN_INFINITIVE|NOUN_GERUND|ADJECTIVE_PARTICIPLE)) break; //  found verb -  presumed  - but wont handle dual noun like "bank teller"
 		if (posValues[at] & PARTICLE) mostRecentParticle = at;	
 		if (posValues[at] & (NOUN_BITS|PRONOUN_BITS)) objectBefore = true;
 		if (posValues[at] == PREPOSITION) objectBefore = false;	 // swallow any object we might have considered
-		if (posValues[at] == COMMA) return 0;		 // we dont expect comma phrases to separate phrasals
-
 	}
-	if (!at) return 0; // not found anything anywhere
+	if (!at || (particle - at) > 6 ) return 0; // not found anything anywhere or too far apart to be plausible -- Our teacher broke our final third semester project down into three  parts.
 	if (at == (mostRecentParticle - 1)) return 0;		 // wasnt split apart from most recent particle
 
 	// not immediately after "you make a fuss *over me" and no noun after
@@ -2296,7 +2295,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 			uint64 old = posValues[j] & ((keep) ? resultBits : ( -1LL ^ resultBits));
 			if (data[3] & USED_BIT && usedTrace) 
 			{
-				sprintf(usedTrace,(char*)"USED: line: %d => Rule:%d %s  Sentence: ",currentFileLine,i,comment);
+				sprintf(usedTrace,(char*)"USED: line: %u => Rule:%u %s  Sentence: ",currentFileLine,i,comment);
 				for (int x = 1; x <= wordCount; ++x) 
 				{
 					if (j == x) 
@@ -3858,10 +3857,10 @@ static void SetRole( int i, uint64 role,bool revise, int currentVerb)
 		else if (role & (SUBJECT_COMPLEMENT|OBJECT_COMPLEMENT)) complementRef[currentVerb] = (unsigned char)i;
 	}
 	needRoles[roleIndex] &= -1 ^ role; // remove what was supplied
-	if (role & (OBJECT2|MAINOBJECT|VERB_INFINITIVE_OBJECT|VERB_INFINITIVE_OBJECT|SUBJECT_COMPLEMENT)) // in theory we are done with subject
+	if (role & (OBJECT2|MAINOBJECT|VERB_INFINITIVE_OBJECT|TO_INFINITIVE_OBJECT|SUBJECT_COMPLEMENT)) // in theory we are done with subject
 	{
 		if (quotationCounter){;} // but "i love you" said my mother  is inverse order
-		else needRoles[roleIndex] &= -1 ^ (SUBJECT_COMPLEMENT|MAININDIRECTOBJECT|INDIRECTOBJECT2|OBJECT2|MAINOBJECT|VERB_INFINITIVE_OBJECT|TO_INFINITIVE_OBJECT);	// cant be both - can still have inifitive pending- "he wanted his students to *read"
+		else needRoles[roleIndex] &= -1 ^ (SUBJECT_COMPLEMENT|MAININDIRECTOBJECT|INDIRECTOBJECT2|OBJECT2|MAINOBJECT|VERB_INFINITIVE_OBJECT|TO_INFINITIVE_OBJECT);	// cant be both - can still have infinitive pending- "he wanted his students to *read"
 	}
 	if (role & SUBJECT_COMPLEMENT) needRoles[roleIndex] &= -1 ^ (ALL_OBJECTS|OBJECT_COMPLEMENT);	// cant be these now
 	// if (role & (MAININDIRECTOBJECT|INDIRECTOBJECT2)) needRoles[roleIndex] &= -1 ^ OBJECT_COMPLEMENT; // wrong for "this makes Jenn's mom mad
@@ -4271,7 +4270,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 			}
 			else if (!(canSysFlags[at] & VERB_NOOBJECT)) missingObject = true;
 
-			if (!missingObject)
+			if (!missingObject && !(posValues[at+1] & POSSESSIVE))
 			{
 				LimitValues(at, VERB_INFINITIVE, (char*)"missing main verb, retrofix to command or verb question at start", changed);
 				SetRole(at, MAINVERB);
@@ -5675,7 +5674,7 @@ WORDP GetPhrasalVerb( int i)
 	return FindWord(word);
 }
 
-static void SeekObjects( int i) // this is a verb, what objects does it want
+static void SeekObjects( int i,bool &changed) // this is a verb, what objects does it want
 {
 	if (allOriginalWordBits[i] & VERB_PAST_PARTICIPLE)
 	{
@@ -5715,10 +5714,7 @@ static void SeekObjects( int i) // this is a verb, what objects does it want
 		return;
 	}
 
-	if (canSysFlags[i] & VERB_NOOBJECT) 
-	{
-	} 
-	else if (canSysFlags[i] & VERB_DIRECTOBJECT) // change to wanting object(s)
+	if (canSysFlags[i] & VERB_DIRECTOBJECT) // change to wanting object(s)
 	{
 		// if a question, maybe object already filled in "what dog do you like"
 		if (roleIndex == MAINLEVEL && ( !objectRef[currentMainVerb] || coordinates[i])) 
@@ -5737,33 +5733,21 @@ static void SeekObjects( int i) // this is a verb, what objects does it want
 	}
 
 	// various infinitives in object positions
-	if (canSysFlags[i] & VERB_NOOBJECT)
-	{
-	}
-	else if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_TOINFINITIVE)  // "I allowed John *to run"
+	if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_TOINFINITIVE)  // "I allowed John *to run"
 	{
 		if ( !(posValues[NextPos(i)] & (DETERMINER | PREDETERMINER | ADJECTIVE | ADVERB | PRONOUN_OBJECT  | PRONOUN_POSSESSIVE | NOUN_BITS))); // must come immediately
 		else needRoles[roleIndex] |= TO_INFINITIVE_OBJECT | ((roleIndex == MAINLEVEL) ? MAININDIRECTOBJECT : INDIRECTOBJECT2);
 	}
-	if (canSysFlags[i] & VERB_NOOBJECT)
-	{
-	}
-	else if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE) // "he made John *run"
+	if (canSysFlags[i] & VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE) // "he made John *run"
 	{
 		if ( !(posValues[NextPos(i)] & (DETERMINER | PREDETERMINER | ADJECTIVE | ADVERB | PRONOUN_OBJECT  | PRONOUN_POSSESSIVE | NOUN_BITS))); // must come immediately
 		else needRoles[roleIndex] |= VERB_INFINITIVE_OBJECT | ((roleIndex == MAINLEVEL) ? MAININDIRECTOBJECT : INDIRECTOBJECT2);
 	}
-	if (canSysFlags[i] & VERB_NOOBJECT)
-	{
-	}
-	else if (canSysFlags[i] & VERB_TAKES_TOINFINITIVE) // proto 28 "Somebody ----s to INFINITIVE"   "we agreed to plan"
+	if (canSysFlags[i] & VERB_TAKES_TOINFINITIVE) // proto 28 "Somebody ----s to INFINITIVE"   "we agreed to plan"
 	{
 		needRoles[roleIndex] |= TO_INFINITIVE_OBJECT;
 	}
-	if (canSysFlags[i] & VERB_NOOBJECT)
-	{
-	}
-	else if (canSysFlags[i] & VERB_TAKES_VERBINFINITIVE) // proto 32, 35 "Somebody ----s INFINITIVE"   "Something ----s INFINITIVE"
+	if (canSysFlags[i] & VERB_TAKES_VERBINFINITIVE) // proto 32, 35 "Somebody ----s INFINITIVE"   "Something ----s INFINITIVE"
 	{
 		needRoles[roleIndex] |= VERB_INFINITIVE_OBJECT; 
 	}
@@ -5852,7 +5836,7 @@ static bool ProcessOmittedClause(unsigned int verb,bool &changed) // They were c
 	if (!subject) return false;
 
 	AddClause(subject,(char*)"omitted clause");
-	SeekObjects(verb);
+	SeekObjects(verb,changed);
 	SetRole(verb,VERB2,true);
 	SetRole(subject,SUBJECT2,true);
 	if (posValues[subject] == PRONOUN_OBJECT) 
@@ -8619,7 +8603,7 @@ static unsigned int GuessAmbiguous(int i, bool &changed)
 	{
 		needRoles[roleIndex] &= -1 ^ VERB2;
 		AddRole(i,VERB2);
-		SeekObjects(i);
+		SeekObjects(i,changed);
 
 		// if level below needs a noun, this can be that.. BUT maybe it would be a verb if describing instead???
 		if (needRoles[roleIndex-1] & (MAINSUBJECT | SUBJECT2 | MAINOBJECT | OBJECT_COMPLEMENT | OBJECT2))
@@ -8779,7 +8763,8 @@ static void AddVerbal( int i)
 		verbals[i] |= verbalBit;
 		verbalBit <<= 1;
 	}
-	AddRoleLevel(VERBAL|VERB2,i);
+	AddRoleLevel(VERBAL | VERB2,i);
+	if (canSysFlags[i] & VERB_DIRECTOBJECT) needRoles[roleIndex] |= OBJECT2;
 	if (posValues[i] == AMBIGUOUS_VERBAL) determineVerbal = i; // If we don't know if this is a GERUND or PARTICIPLE, we need to find out.
 	lastVerbal = i;		// where last verbal was, if any
 	if (trace & TRACE_POS) Log(USERLOG,"    Verbal added at %s(%d)\r\n",wordStarts[i],i);
@@ -8795,7 +8780,8 @@ static void StartImpliedPhrase(int i,bool &changed)
 	}
 
 	// absolute phrase is like implied prep phrase "with" in "legs quivering, we ran"  requires comma seaparation and no aux verbs
-	if (!phrases[i] && !auxVerbStack[roleIndex] && posValues[i] & ADJECTIVE_PARTICIPLE && (currentZone == 0|| currentZone == (zoneIndex-1)) && zoneIndex > 1)
+	// But adj participle requires no noun before - not  "drooling saliva, he ran which is a verbal"
+	if (!phrases[i] && !auxVerbStack[roleIndex] && posValues[i] & ADJECTIVE_PARTICIPLE && posValues[i-1] & NOUN_BITS && (currentZone == 0|| currentZone == (zoneIndex-1)) && zoneIndex > 1)
 	{
 		int at = i;
 		while (--at > 1 && !phrases[at] && !verbals[at] && !clauses[at] && (!(posValues[at] & (COMMA|CONJUNCTION_SUBORDINATE)) || ignoreWord[at]) && !(roles[at] & ( SUBJECT2 | MAINSUBJECT | OBJECT2) )) {;}
@@ -9479,7 +9465,7 @@ restart:
 				}
 				if (roles[i] & MAINVERB) currentMainVerb = i;
 				else if (roles[i] & VERB2) currentVerb2 = i;
-				if (!noobject) SeekObjects(i);
+				if (!noobject) SeekObjects(i,changed);
 				// if no object is expected. If we see a noun following, PRESUME it is part of an implied "that" clause - "I hope she goes", but might be a time phrase like "this morning."
 				if (needRoles[roleIndex] == CLAUSE) lastClause = 0;	// all fulfilled
 				if (needRoles[roleIndex] == VERBAL && !(needRoles[roleIndex] & VERB2)) lastVerbal = 0; // all fulfilled (and didnt launch a new verbal) "let us hear the men *stand as they pass"
@@ -9493,7 +9479,9 @@ restart:
 			case ADJECTIVE_NORMAL: case ADJECTIVE_PARTICIPLE: case ADJECTIVE_NUMBER: // ADJECTIVE_BITS
 			{
 				// absolute phrase is like implied prep phrase "with" in "legs quivering, we ran".  requires comma seaparation and no aux verbs
-				if (!phrases[i] && !auxVerbStack[roleIndex] && (posValues[i] & ADJECTIVE_PARTICIPLE) && (currentZone == 0|| currentZone == (zoneIndex-1)) && zoneIndex > 1)
+				if (!phrases[i] && !auxVerbStack[roleIndex] && (posValues[i] & ADJECTIVE_PARTICIPLE) 
+					&& posValues[i] & NOUN_BITS // be wary of verbals   "drooling rapidly, he ran
+					&& (currentZone == 0|| currentZone == (zoneIndex-1)) && zoneIndex > 1)
 				{
 					int at = i;
 					while (--at && !phrases[at] && !verbals[at] && !clauses[at] && (!(posValues[at] & (COMMA|CONJUNCTION_SUBORDINATE)) || ignoreWord[at]) && !(roles[at] & ( SUBJECT2 | MAINSUBJECT | OBJECT2) )) {;}
@@ -9590,7 +9578,7 @@ restart:
 					}
 					//else- occurring before the noun it is just a descriptor and cant take objects
 
-					if (mightWantObject) SeekObjects(i);
+					if (mightWantObject) SeekObjects(i,changed);
 				}
 
 				// if we follow a pronoun like something, with possible adverb between "she was nothing but *nice"
@@ -9835,7 +9823,7 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
 					uint64 tmprole = roles[i];
 					SetRole(i,VERB2); // force "will reading improve me" to do the right thing to reading
 					roles[i] |= tmprole;
-					SeekObjects(i);
+					SeekObjects(i,changed);
 					// are you able to drive a car wants object2 for car
 					// "Be a man"
 					// need to know if this is supplying an object or is describing a noun...

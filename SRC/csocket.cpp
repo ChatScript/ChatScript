@@ -31,12 +31,19 @@ serverFinishedBy is what time the answer must be delivered(1 second before the m
 
 #include "common.h"
 
+#ifndef WIN32
+#include <ifaddrs.h>
+#include <net/if.h>
+#endif
+
 bool echoServer = false;
 
 char serverIP[100];
 
 static int pass = 0;
 static int fail = 0;
+typedef unsigned int (*initsystem)(int, char* [], char*, char*, char*, USERFILESYSTEM*, DEBUGAPI, DEBUGAPI);
+typedef unsigned int (*performchat)(char*, char*, char*, char*, char*) ;
 
 void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* input, char* output,uint64 qtime)
 {
@@ -63,27 +70,33 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 	}
 	if (qtime) qtime = starttime - qtime; // delay waiting in q
 
-	if (*input) {
+	if (*input)
+	{
 		char* userInput = NULL;
 		char endInput = 0;
-		if (strstr(hide, "usermessage")) {
+		if (strstr(hide, "usermessage"))
+		{
 			// allow tracing of OOB but thats all
 			userInput = BalanceParen(input, false, false);
-			if (userInput) {
+			if (userInput)
+			{
 				endInput = *userInput;
 				*userInput = 0;
 			}
 		}
-		Log(SERVERLOG,"%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime),(int)qtime, why);
+		Log(SERVERLOG, "%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s Jo:%d/%d\r\n", nl, date, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
 		if (userInput) *userInput = endInput;
 
 		if ((unsigned int)(endtime - starttime + qtime) > timeLog)
 		{
+#ifdef WIN32
 			const char* restarted = (restartfromdeath) ? "rebooted" : "";
 			ReportBug("INFO: Excess Time nltime:%d qtime:%d %s %s", (int)(endtime - starttime), qtime, restarted, input);
+#endif
 		}
 	}
-	else Log(SERVERLOG,"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
+	else
+		Log(SERVERLOG,"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
 	if (userOutput) *userOutput = endOutput;
 }
 
@@ -113,9 +126,31 @@ void GetPrimaryIP(char* buffer)
 	closesocket(sock);
 	if (!server) WSACleanup();
 #else
-	FILE   *pPipe  = popen("hostname -i", (char*)"r");
-	fgets(buffer, MAX_WORD_SIZE - 5, pPipe);
+    struct ifaddrs *ifaddr, *ifa;
+
+    // get a linked list of network interfaces
+    // https://man7.org/linux/man-pages/man3/getifaddrs.3.html
+    if (getifaddrs(&ifaddr) == -1) return;
+    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next)
+    {
+        if (ifa->ifa_addr == NULL) continue;
+
+        // only want the IPv4 address from an interface that is up and not a loopback
+        // the name could be "en0" or "eth0"
+        if (ifa->ifa_addr->sa_family == AF_INET && ifa->ifa_flags & IFF_UP && !(ifa->ifa_flags & IFF_LOOPBACK))
+        {
+            char host[NI_MAXHOST];
+            if (getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in), host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST) == 0)
+            {
+                sprintf(buffer,"%s",host);
+                break;
+            }
+        }
+    }
+    freeifaddrs(ifaddr);
 #endif
+    // use localhost if nothing found
+    if (!*buffer) sprintf(buffer,"127.0.0.1");
 }
 
 #ifndef DISCARDSERVER
@@ -1056,6 +1091,58 @@ restart: // start with user
 					ptr = data;
 					goto SOURCE;
 				}
+				else if (!strnicmp(ptr, (char*)":dllchat", 8))
+				{
+#ifdef WIN32
+					HINSTANCE hGetProcIDDLL = LoadLibrary("chatscript.dll");
+					if (!hGetProcIDDLL) {
+						printf("could not load cs dll\r\n");
+						myexit("no dll");
+					}
+					// resolve function address here
+					initsystem x = (initsystem)GetProcAddress(hGetProcIDDLL, "InitSystem");
+						//unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
+					if (!x) {
+							printf("could not locate InitSystem\r\n");
+							return;
+					}
+					printf("Loading DLL\r\n");
+					if (x(0, NULL, NULL, NULL, NULL, NULL, NULL, NULL)) {
+							printf(" InitSystem failed\r\n");
+							return;
+					}
+					performchat y = (performchat)GetProcAddress(hGetProcIDDLL, "PerformChat");
+					//	PerformChat(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer); // no ip
+					if (!y) {
+						printf("could not locate PerformChat\r\n");
+						return;
+					}
+
+					char file[SMALL_WORD_SIZE];
+					ReadCompiledWord(ptr + 8, file);
+					char* input = AllocateBuffer();
+					char* output = AllocateBuffer();
+					sourceFile = fopen(file, (char*)"rb");
+					sprintf(serverLogfileName, "%s/serverlogdll.txt",logsfolder);
+					while (ReadALine(input, sourceFile, MAX_BUFFER_SIZE) >= 0)
+					{
+						*output = 0;
+						server = true;
+						Log(SERVERLOG, "ServerPre: %s (%s) size:%d %s\r\n", user, bot, strlen(input), input);
+						y("dll-user", "", input, "11.11.11.11", output);
+						Log(SERVERLOG, "Respond: %s (%s) %s\r\n", user, bot, output);
+						printf(output);
+						server = false;
+					}
+					fclose(sourceFile);
+					while (1) {
+						int xx = 0;
+					}
+					FreeBuffer();
+					FreeBuffer();
+#endif
+					myexit("end dll");
+				}
 				else if (!strnicmp(SkipWhitespace(data), (char*)":jaraw", 4))
 				{
 					ptr = data;
@@ -1789,7 +1876,7 @@ static void* MainChatbotServer()
 		try {
 #endif
 
-			if (serverLog && *ourMainInputBuffer)  LogChat(startServerTime, user, bot, ip, *((int*)clientBuffer),ourMainInputBuffer, ourMainOutputBuffer, 0);
+			if (serverLog)  LogChat(startServerTime, user, bot, ip, *((int*)clientBuffer),ourMainInputBuffer, ourMainOutputBuffer, 0);
 			serverLog = oldserverlog;
 
 			ServerTransferDataToClient();

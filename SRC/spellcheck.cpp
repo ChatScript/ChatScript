@@ -373,7 +373,7 @@ bool SpellCheckSentence()
 	int badspelllimit = 0;
 	int badspellsize = 0;
 	float badspellratio = 1.0;
-	char* baddata = GetUserVariable("$cs_badspellLimit"); // 10-20 (50%)
+	char* baddata = GetUserVariable("$cs_badspellLimit", false, true); // 10-20 (50%)
 	if (*baddata)
 	{
 		badspelllimit = atoi(baddata);
@@ -417,9 +417,9 @@ bool SpellCheckSentence()
 		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
 		{
 			WORDP X = FindWord(word,0, LOWERCASE_LOOKUP);
-			if (!X || IS_NEW_WORD(X)) X = FindWord(word, 0, UPPERCASE_LOOKUP);
+			if (IS_NEW_WORD(X)) X = FindWord(word, 0, UPPERCASE_LOOKUP);
 			WORDP Y = FindWord(wordStarts[i + 1],0,LOWERCASE_LOOKUP);
-			if (!Y || IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, UPPERCASE_LOOKUP);
+			if (IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, UPPERCASE_LOOKUP);
 			bool useful1 = UsefulKnownWord(X);
 			bool useful2= UsefulKnownWord(Y);
 			if (!(X && Y && useful1 && useful2)) // has-been is a word we dont want merge,but model numbers we do.
@@ -445,24 +445,25 @@ bool SpellCheckSentence()
 				XX = FindWord(bigword);
 				if (XX && UsefulKnownWord(XX))
 				{
-					WORDP Z = StoreWord(XX->word+len,AS_IS);
+					strcpy(bigword,XX->word); // keep case of found word pieces
+					WORDP word2 = StoreWord(XX->word+len,AS_IS);
 					bigword[len - 1] = 0;
-					Y = StoreWord(bigword);
-					if (strcmp(wordStarts[i],Y->word) && strcmp(wordStarts[i+1], Z->word))
+					WORDP word1=  StoreWord(bigword);
+					if (strcmp(wordStarts[i], word1->word) && strcmp(wordStarts[i+1], word2->word))
 					{ 
-						tokens[1] = Y->word;
-						tokens[2] = Z->word;
+						tokens[1] = word1->word;
+						tokens[2] = word2->word;
 						fixedSpell = ReplaceWords("merge to underscore word", i, 2, 2, tokens);
 					}
-					else if (strcmp(wordStarts[i], Y->word) )
+					else if (strcmp(wordStarts[i], word1->word) )
 					{
-						tokens[1] = Y->word;
+						tokens[1] = word1->word;
 						fixedSpell = ReplaceWords("merge to underscore word1", i, 1,1, tokens);
 						++i;
 					}
-					else if (strcmp(wordStarts[i + 1], Z->word))
+					else if (strcmp(wordStarts[i + 1], word2->word))
 					{
-						tokens[1] = Z->word;
+						tokens[1] = word2->word;
 						++i;
 						fixedSpell = ReplaceWords("merge to underscore word2", i, 1, 1, tokens);
 					}
@@ -1033,6 +1034,12 @@ bool SpellCheckSentence()
 			StoreWord(word, ADJECTIVE_NORMAL | ADJECTIVE); // accept it as a word
 			continue;
 		}
+		else if (hyphen && isEnglish && !stricmp(hyphen, (char*)"-making"))
+		{
+			StoreWord(word, ADJECTIVE_NORMAL | ADJECTIVE); // accept it as a word
+			continue;
+		}
+
 		else if (hyphen && (hyphen - word) > 1 && !IsPlaceNumber(word, numberStyle)) // dont break up fifty-second
 		{
 			char test[MAX_WORD_SIZE];
@@ -1641,7 +1648,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
         if (best)
         {
             base = NOUN | NOUN_PLURAL;
-            char* plu = GetPluralNoun(FindWord(best));
+            char* plu = GetPluralNoun(best);
             return (plu) ? plu : NULL;
         }
     }
@@ -1709,7 +1716,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
             if (F && F->properties & NOUN)
             {
                 base = NOUN | NOUN_PLURAL;
-                return GetPluralNoun(F);
+                return GetPluralNoun(F->word);
             }
             base = VERB | VERB_PRESENT_3PS;
 			ending = "s";
