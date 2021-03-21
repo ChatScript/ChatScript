@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 1/1/2021 cs11.0
+<br>Revision 3/21/2021 cs11.2
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -323,6 +323,11 @@ ignores ^notrace protection and traces everything.
 allows you to use the limited traces below, and still ignore `NOTRACE` covered calls.
 
 If you want to jump to where the user output was created and then see where you are, search for "message:".
+
+There are fake system variables you can execute in output code to turn on and off debugging also. These
+are %trace_on  and %trace_off. They are simpler to remember how to do than invoking ^eval to invoke 
+debug commands. And these disallow behavior if server authorization doesnt exist. These variables do not
+actually show up in output.
 
 ### `:trace ^myfunction`
 this enables tracing for the function. Call it again to restore to normal.
@@ -897,6 +902,17 @@ like `:prepare`). It also displays pronoun data gathered from the input.
 ### `:tokenize`
 This is a subset of :prepare that just runs tokenization and adjusts the input, but does not
 show POS-tagging and concept marking.
+
+### `:canonize`
+This is a subset of :prepare that shows the canonical form of the input
+
+### `:logging`
+Dynamically alter logging behavior from whatever current settings are.
+```
+    :logging user {file,none,stdout,stderr}  
+    :logging servertrace {on, off} 
+    :logging server {file,none,stdout,stderr} 
+```
 
 ### `:testpos`
 This switches input to the named file (if not named defaults to `REGRESS/posttest.txt`)

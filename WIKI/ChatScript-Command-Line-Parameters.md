@@ -1,6 +1,7 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 1/1/2021 cs11.0
+<br>Revision 3/21/2021 cs11.2
+
 
 
 # Command Line Parameters
@@ -201,7 +202,7 @@ to happen, you can enable this restart using `nosuchbotrestart=true`. Default is
 |------------------|-----------------------------------------------------------------------------
 | `Timer=15000`    | if a volley lasts more than 15 seconds, abort it and return a timeout message.
 | `Timer=18000x10` |same as above, but more roughly, higher number after the x reduces how frequently it samples time, reducing the cost of sampling
-| `Timelog=5000`    | if a volley lasts more than 5000 milliseconds, record it in LOGS/time.txt and for LINUX in /tmp/cstime.txt .
+| `Timelog=5000`    | if a volley lasts more than 5000 milliseconds, record it in LOGS/time.txt and for LINUX in /log/cstime.txt .
 
 ## `:TranslateConcept` Google API Key
 | option           | description
@@ -334,7 +335,8 @@ off to improve performance.
 serverlogauthcode=xxxxx
 ```
 In addition to permanently turning on server logging, you can provide a cheat code in your
-input that, if it matches the serverlogauthcode, will enable server logging for that input.
+input that, if it matches the serverlogauthcode, will enable server logging for that input. This code
+is hidden from CS processing so it will not impact NL processing.
 
 ```
 hidefromlog="label label2 label3"

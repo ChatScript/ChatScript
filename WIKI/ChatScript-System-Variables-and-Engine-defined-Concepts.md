@@ -1,6 +1,7 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 3/21/2021 cs11.2
+
 
 
 
@@ -317,6 +318,12 @@ your server is in Virginia and you are in Colorado).
 | `%userfirstline`    |  value of `%input` that is at the start of this conversation start 
 | `%userinput`        |  Boolean is the current input from the user (vs the chatbot) 
 | `%voice`            |  active or passive on current input  
+| %trace_on | Fake empty variable used to turn on tracing (see Debugging commands)
+| %trace_off | Fake empty variable used to turn off tracing (see Debugging commands)
+
+| %inputsize |  gives how many characters were passed in input
+| %inputlimited |   1 if too many characters were given (relative to fullinputlimit)
+
 
 ## Chatbot Output
 
@@ -679,6 +686,7 @@ contents.
 | `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
 | `$cs_inputlimit` | Restrict user input size (excluding oob) |
 | `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
+| `$cs_mongoqueryparams` | set as a json structure of move its fields to a mongo query |
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON

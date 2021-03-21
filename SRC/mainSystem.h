@@ -55,6 +55,7 @@ extern bool crashset;
 extern bool crashBack;
 extern bool restartBack;
 extern int forkcount;
+extern char jmeter[100];
 extern int sentenceloopcount;
 extern bool debugcommand;
 extern bool restartfromdeath;

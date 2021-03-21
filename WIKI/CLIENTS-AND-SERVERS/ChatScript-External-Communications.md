@@ -1,9 +1,8 @@
 # ChatScript External Communications
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+> Revision 4/30/2016 cs6.4
 
-
-> Revision 11/19/2017 cs7.7
 
 ChatScript is fine for a chatbot that does not depend on the outer world. But if you need to control an
 avatar or grab information from sensors or the Internet, you need a way to communicate externally
@@ -49,6 +48,23 @@ From must be a fact set to export. Name is the file to write them to.
 ### `^import`( name set erase transient )
 Name is the file to read from. Set is where to put the read facts.
 
+## WebSockets
+CS is not a websocket server. It can, however, connect to some existing websocket endpoint and be a client for it.
+
+^websocketinit(url) - connect to the given url
+
+^websocketclose() - disconnect from opened socket
+
+^websocketsend(message) - send message to opened socket
+
+^websocketreceive(timeout) - listen for response back. 
+timeout value of -1 means block until message received.
+0 means retrieve immediately if something is there, otherwise return with nothing.
+Other values are milliseconds will be willing to wait for response.
+
+If you use the param websocket=url the system on startup will become a websocket client and use that
+as its input/output loop channel. If you also supply parameter websocketmessage="send this first" then that
+message will be sent when the socket is opened.
 
 
 ## Embedding ChatScript within another program

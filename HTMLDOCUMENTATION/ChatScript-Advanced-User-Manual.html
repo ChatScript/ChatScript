@@ -9,19 +9,19 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 1/1/2021 cs11.0</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/21/2021 cs11.2</p>
 <ul>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#review-overview-of-how-cs-works">Review</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#advanced-tokenization">Advanced Tokenization</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#out-of-band-communication">Out of Band Communication</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#system-callback-functions">System callback functions</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#advanced-build">Advanced :build</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#editing-non-topic-files">Editing Non-topic Files</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#common-script-idioms">Common Script Idioms</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#esoterica-and-fine-detail">Esoterica and Fine Detail</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#self-reflection">Self-Reflection</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#updating-cs-versions-easily">Updating CS versions Easily</a></li>
-<li><a href="ChatScript-Advanced-User-Manual.hmtl#the-dictionary">The Dictionary</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#out-of-band-communication">Out of Band Communication</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#system-callback-functions">System callback functions</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#advanced-build">Advanced :build</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#editing-non-topic-files">Editing Non-topic Files</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#common-script-idioms">Common Script Idioms</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#esoterica-and-fine-detail">Esoterica and Fine Detail</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#self-reflection">Self-Reflection</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#updating-cs-versions-easily">Updating CS versions Easily</a></li>
+<li><a href="ChatScript-Advanced-User-Manual.html#the-dictionary">The Dictionary</a></li>
 </ul>
 <p>This manual is a grab bag of various capabilities. There are separate other Advanced manuals like Advanced Topic Manual, Advanced Pattern Manual, Advanced Concept manual, and Advanced Variable Manual for in-depth extras on main CS ideas.</p>
 <h1 id="review-overview-of-how-cs-works">Review: Overview of how CS works</h1>
@@ -111,7 +111,7 @@
 <p>Usually concepts are explicit enumerations of words, like <code>~animals</code> is a list of all known animals or <code>~ingest</code> is a list of all verbs that imply ingestion.</p>
 <p>Sometimes concepts are implicit collections handled directly by the engine, like <code>~number</code> is the implied set of all numbers (we wouldn't want to actually enumerate them all) or <code>~noun</code> is the set of all nouns or <code>~mainsubject</code> is the current subject of the sentence.</p>
 <p>After this marking analysis, patterns can efficiently find whether or not some particular concept is matched at a particular position in the sentence.</p>
-<p>CS actually analyzes two streams of input, the <em>original</em> input of the user and a <em>canonical</em> form of it. So the system marks an input sentence of <em>my cat eats mice</em> and also marks the parallel sentence <em>I cat eat mouse</em>, so patterns can be written to catch general meanings of words as well as specific ones.</p>
+<p>CS actually analyzes three streams of input, the <em>raw</em> input of the user, the <em>original</em> input (spellfixed) of the user and a <em>canonical</em> form of it. So the system marks an input sentence of <em>my cat eats mice</em> and also marks the parallel sentence <em>I cat eat mouse</em>, so patterns can be written to catch general meanings of words as well as specific ones.</p>
 <h3 id="memorizing">Memorizing</h3>
 <p>Rule patterns can dictate memorizing part of the input that matches a pattern element. The memorized data goes onto &quot;match variables&quot;, which are numbered <code>_0</code>, <code>_1</code>, ... in the order in which the data is captured.</p>
 <p>CS memorizes both the original input and the canonical form of it. The pattern can use match variables in comparisons and the output can also access the data captured from the input.</p>
@@ -152,7 +152,7 @@
 <h1 id="continuation-lines">Continuation lines</h1>
 <p>File or live user input ending in ^ will erase the ^ and join with the next read line.</p>
 <h1 id="system-functions">System Functions</h1>
-<p>There are many system functions to perform specific tasks. These are enumerated in the <a href="ChatScript-System-Functions-Manual.hmtl">ChatScript System Functions Manual</a> and the <a href="ChatScript-Fact-Manual.hmtl">ChatScript Fact Manual</a>.</p>
+<p>There are many system functions to perform specific tasks. These are enumerated in the <a href="ChatScript-System-Functions-Manual.html">ChatScript System Functions Manual</a> and the <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a>.</p>
 <h1 id="out-of-band-communication">Out of band Communication</h1>
 <p>ChatScript can neither see nor act, but it can interact with systems that do. The convention is that out-of-band information occurs at the start of input or output, and is encased in <code>[ ]</code>.</p>
 <p>ChatScript does not attempt to postag and parse any input sentence which begins with <code>[</code> and has a closing <code>]</code>. It will automatically not try to spellcheck that part or perform any kind of merge (date, number, propername). In fact, the <code>[...]</code> will be split off into its own sentence. You can use normal CS rules to detect and react to incoming oob messaging. E.g, input like this</p>
@@ -283,7 +283,7 @@ $$tmp = first(@mysetsubject)</code></pre>
 <pre><code>rename: ##first 1
 $tmp = ##first</code></pre>
 <h2 id="defining-private-queries">Defining private Queries</h2>
-<p>see <a href="ChatScript-Fact-Manual.hmtl">ChatScript Fact Manual</a>.</p>
+<p>see <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a>.</p>
 <h2 id="documenting-variables-functions-factsets-and-match-variables">Documenting variables, functions, factsets, and match variables</h2>
 <p>You can use <code>:define</code> to add a documentation string to many things. E.g.,</p>
 <pre><code>describe: $myvar &quot;used to store data&quot;
@@ -501,8 +501,8 @@ I like $var1</code></pre>
 <pre><code>u: (~emogoodbye)</code></pre>
 <p><strong><em>How can I get the original input when I have a pattern like <code>u: (~emogoodbye)</code> ?</em></strong></p>
 <p>To get the original input, you need to do the following:</p>
-<pre><code>u: ( ~emogoodbye )
-    $tmptoken = $cs_token
+<pre><code>u: ( _~emogoodbye )
+    $_tmp = ^original(_0)
     $cs_token = 0
     ^retry(SENTENCE)</code></pre>
 <p>and at the beginning of your main program you need a rule like this:</p>
@@ -510,6 +510,7 @@ I like $var1</code></pre>
     $cs_token = $tmptoken
     $tmptoken = null</code></pre>
 <p>... now that you have the original sentence, you decide what to do ... maybe you had set a flag to know what you wanted to do</p>
+<p>If you just want the original of a match, you can use ^original(_0).</p>
 <h2 id="control-flow">Control Flow</h2>
 <p>There is no GOTO in chatscript. There are only calls. Calls always return. They return with noproblem or end or fail.</p>
 <p>Respond/Gambit calls enter a new topic. Any end/fail TOPIC will terminate them and return to the caller.</p>
@@ -576,6 +577,6 @@ loop()
 concept: ~verbaugment VERB VERB_INFINITIVE (swalk smeazle)</code></pre>
 <p>One can also directly edit the dictionary txt files in DICT/ENGLISH observing how they seem to be formatted, doing nothing crazy, and being careful with consistency of meaning values (if needed) and then just delete dict.bin. If you want to edit the wordnet ontology hierarchy, you need to edit facts.txt and delete facts.bin The system will rebuild them when you run CS.</p>
 <hr />
-<p>[<a href="/WIKI/README.hmtl">Wiki home</a>] - [<a href="ChatScript-Basic-User-Manual.hmtl">Basic User Manual</a>]</p>
+<p>[<a href="/WIKI/README.html">Wiki home</a>] - [<a href="ChatScript-Basic-User-Manual.html">Basic User Manual</a>]</p>
 </body>
 </html>

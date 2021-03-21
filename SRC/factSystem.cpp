@@ -1175,7 +1175,7 @@ void WriteBinaryFacts(FILE* out,FACT* F) //   write out from after here to thru 
 	int junk[10000];
 	FACT* verify = (FACT*) &junk;
 	verify->subjectHead = CHECKSTAMP;
-	verify->subject = Word2Index(dictionaryFree); // how large is dict
+	verify->subject = MakeMeaning(dictionaryFree); // how large is dict
 	verify->verb = (dictionaryFree - 1)->length;
 	verify->object = Fact2Index(F); // what was start of fact append
 	fwrite((char*) &junk, sizeof(FACT), 1, out);
@@ -1248,7 +1248,7 @@ bool ReadBinaryFacts(FILE* in,bool dictionary) //   read binary facts
 		FACT* verify = (FACT*)(lastFactUsed + count);
 		if (verify->subjectHead != CHECKSTAMP)	
 			return false; // old format
-		if (verify->subject != Word2Index(dictionaryFree)) return false; // dictionary size wrong
+		if (verify->subject != MakeMeaning(dictionaryFree)) return false; // dictionary size wrong
 		if (verify->verb != (dictionaryFree - 1)->length) return false; // last entry differs in length of name
 		if (verify->object != Fact2Index(base)) return false; // start of fact append is wrong
 
@@ -1582,7 +1582,7 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 				ReadInt64(at,n);
 				AddProperty(D,(uint64) n);// rename value
 				AddInternalFlag(D,RENAMED);
-				if (sign) AddSystemFlag(D,CONSTANT_IS_NEGATIVE);
+				if (sign) AddInternalFlag(D,CONSTANT_IS_NEGATIVE);
 			}
 			else ReadDictionaryFlags(D,at);
             if (monitorChange && D && (newWord || D->internalBits & BIT_CHANGED)) AddWordItem(D, false);
@@ -1865,9 +1865,9 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* endBootFacts)
             memset(X, 0, sizeof(FACT)); // botbits = 0 (all can see)
             X->botBits = botbits;
             X->flags = flags;
-            X->subject = Word2Index(SD);
-            X->verb = Word2Index(VD);
-            X->object = Word2Index(OD);
+            X->subject = MakeMeaning(SD);
+            X->verb = MakeMeaning(VD);
+            X->object = MakeMeaning(OD);
             WeaveFact(X); // interlace to dictionary
 
             if (bootwrite)

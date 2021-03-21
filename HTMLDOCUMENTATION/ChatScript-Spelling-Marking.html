@@ -9,9 +9,9 @@
 </head>
 <body>
 <h1 id="chatscript-spelling-marking-manual">ChatScript Spelling Marking Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 1/1/2021 cs11.0</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2 0</p>
 <h1 id="spelling">Spelling</h1>
-<p>One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is commpletely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.</p>
+<p>One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is completely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.</p>
 <p>OK. So it does the best it can with unknown words. It is enabled by default but your scripts can disable it. All you have to do is assign a different value to $cs_token, one which does not include #DO_SPELLCHECK. E.g.</p>
 <pre><code>$cs_token = #DO_PRIVATE | #NO_SEMICOLON_END  | #DO_SUBSTITUTE_SYSTEM   | #DO_SPELLCHECK  | #DO_PARSE        # some default value
 $cs_token -= #DO_SPELLCHECK     # disable spellcheck</code></pre>
@@ -60,9 +60,9 @@ replace: box &quot;my boy&quot;</code></pre>
 <p>This says to replace jack_russell with Jack+Russel+terrior ONLY if the word immediately following the match is not terrier (case insensitive).</p>
 <h3 id="numeric-substitutions-replace-_xxx-xxxx">Numeric Substitutions replace: ?_xxx xxxx</h3>
 <p>?_ on the left takes numbers that have been conjoined with words, and separates them. Input like &quot;I weigh 5kg.&quot; is hard to handle via substitition since there are infinite number of numbers. But it's common to see stuff like that from users.</p>
-<pre><code>replace: ?_g gram        -- this merely separates 
+<pre><code>replace: ?_gram gram        -- this merely separates 
 replace: ?_kg kilogram -- this separates into full unit name
-replace: ?_kg kilo gram -- this separates into multiword replacement</code></pre>
+replace: ?_kg kilo+gram -- this separates into multiword replacement</code></pre>
 <p>You should use the singular form of the word. CS can then do singular or plural as needed.</p>
 <p>When using full unit name subsitution, you need to be careful that your bot has only 1 expected meaning. &quot;about 1g&quot; -- is that 1 gram or 1 gravity? Also it's a good idea to expand to singular forms as that, being canonical, will match more of your patterns.</p>
 <p>The ?_xxx notation also works when the unit measure is not attached to the number. Using the first replace above, the input &quot;7 g&quot; will be transformed to &quot;7 gram&quot;.</p>

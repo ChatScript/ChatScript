@@ -91,6 +91,8 @@ $_var = ^mongofinddocument(dog)
 # $_var  ==  I have a dog
 
 ^mongoclose()</code></pre>
+<p>You can include a JSON object's worth of additional attributes on a Mongo upsert using $cs_mongoqueryparams.</p>
+<p>You also use a private hook code to alter things on upsert.</p>
 <h2 id="postgres-fileserver-and-databse">Postgres Fileserver and Databse</h2>
 <p>While standing in the SRC directory, you can do: <code>make server</code> - build ordinary CS server w/o PostgreSQL client <br><code>make pgserver</code> - build CS server w PostgreSQL client (you had to install postgress first)</p>
 <p>Usually postgres somes with amazon servers, but if not you may have to do something like</p>

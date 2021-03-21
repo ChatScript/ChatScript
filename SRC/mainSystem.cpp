@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "11.1";
+char* version = "11.2";
 char sourceInput[200];
 FILE* userInitFile;
 bool fastload = true;
@@ -8,6 +8,9 @@ int externalTagger = 0;
 char defaultbot[100];
 char serverlogauthcode[30] ;
 uint64 chatstarted = 0;
+char websocketparams[300];
+char websocketmessage[300];
+char jmeter[100];
 int sentenceloopcount = 0;
 int db = 0;
 int gzip = 0;
@@ -829,6 +832,14 @@ static void ProcessArgument(char* arg)
 		pguserupdate = postgresuserupdate;
 	}
 #endif
+#ifndef DISCARDWEBSOCKET
+	else if (!strnicmp(arg, (char*)"websocket=", 10))
+	{
+		strcpy(websocketparams, arg + 10);
+		server = true;
+	}
+	else if (!strnicmp(arg, (char*)"websocketmessage=", 17))  strcpy(websocketparams, arg + 17);
+#endif
 #ifndef DISCARDMONGO
 	else if (!strnicmp(arg,(char*)"mongo=",6) )  strcpy(mongodbparams,arg+6);
 #endif
@@ -876,6 +887,7 @@ static void ProcessArgument(char* arg)
 			else  userLog = NO_LOG;
 		}
 	}
+	else if (!strnicmp(arg, "jmeter=", 7)) strcpy(jmeter, arg + 7);
 	else if (!stricmp(arg, (char*)"dieonwritefail")) dieonwritefail = true;
 	else if (!strnicmp(arg, (char*)"hidefromlog=", 12))
 	{
@@ -995,6 +1007,7 @@ static size_t ConfigCallback(void *contents, size_t size, size_t nmemb, void *us
 static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int headerCount){
 #ifndef DISCARDJSONOPEN 
     InitCurl();
+    // use curl handle specifically for this processing
 	CURL *req = curl_easy_init();
 	string response_string;
 	curl_easy_setopt(req, CURLOPT_CUSTOMREQUEST, "GET");
@@ -1027,8 +1040,7 @@ static void LoadconfigFromUrl(char*configUrl, char**configUrlHeaders, int header
 			word[wordcount++] = response_string[i];
 		}
 	}
-	    curl_easy_cleanup(req);
-		CurlShutdown();
+    curl_easy_cleanup(req);
 	ProcessConfigLines();
 #endif
 }
@@ -1129,10 +1141,56 @@ static void SetDefaultLogsAndFolders()
 	strcpy(systemFolder, (char*)"LIVEDATA/SYSTEM"); // default directory for dynamic stuff
 }
 
+void OpenExternalDatabase()
+{
+    // db=0 turns database off everywhere
+    // db=1 (default) enables database for servers only
+    // db>1 turn database on everywhere
+    bool usesql = ( server ? (db > 0) : (db > 1) );
+#ifdef EVSERVER_FORK
+    // When there are multiple forks then the parent doesn't open a db connection
+    // but does need to remember the db parameters so that a respawned fork can use them
+    if (parent_g && forkcount > 1) usesql = false;
+#endif
+
+    char route[100];
+    *route = 0;
+
+#ifndef DISCARDMYSQL
+    if (usesql && *mysqlparams) MySQLUserFilesCode(mysqlparams);
+    if (filesystemOverride == MYSQLFILES) sprintf(route, "    MySql enabled. FileSystem routed MySql\r\n");
+    else sprintf(route, "    MySql enabled.\r\n");
+#endif
+#ifndef DISCARDMICROSOFTSQL
+    if (usesql && *mssqlparams) MsSqlUserFilesCode(mssqlparams);
+    if (filesystemOverride == MICROSOFTSQLFILES) sprintf(route, "    MicrosoftSql enabled. FileSystem routed MicrosoftSql\r\n");
+    else sprintf(route, "    MicrosoftSql enabled.\r\n");
+#endif
+#ifndef DISCARDPOSTGRES
+    if (usesql && *postgresparams) PGInitUserFilesCode(postgresparams);
+    if (filesystemOverride == POSTGRESFILES) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
+    else sprintf(route, "    Postgres enabled.\r\n");
+#endif
+#ifndef DISCARDMONGO
+    if (usesql && *mongodbparams) MongoSystemInit(mongodbparams);
+    if (filesystemOverride == MONGOFILES) sprintf(route, "    Mongo enabled. FileSystem routed to MongoDB\r\n");
+    else sprintf(route, "    Mongo enabled.\r\n");
+#endif
+
+    if (*route)
+    {
+        if (server) Log(SERVERLOG, route);
+        else (*printer)(route);
+    }
+}
+
 unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
 { // this work mostly only happens on first startup, not on a restart
 	*externalBugLog = 0;
 	*serverlogauthcode = 0;
+	*websocketparams = 0;
+	*websocketmessage = 0;
+	*jmeter = 0;
 	*buildflags = 0;
 	GetPrimaryIP(myip);
 	for (int i = 1; i < argcx; ++i)
@@ -1209,7 +1267,7 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 #endif
 
 #ifndef DISCARDSERVER
-	if (server)
+	if (server && !*websocketparams)
 	{
 #ifndef EVSERVER
 		GrabPort();
@@ -1235,47 +1293,10 @@ unsigned int InitSystem(int argcx, char * argvx[],char* unchangedPath, char* rea
 
 	CreateSystem();
 
-	bool nosql = (db == 0 || (db == 1 && !server));
-#ifdef EVSERVER_FORK
-	if (parent_g) nosql = true; // parent does not make connection, only forks
-#endif
-	char route[100];
-	*route = 0;
-#ifndef DISCARDMYSQL
-		if (nosql) *mysqlparams = 0;
-		if (*mysqlparams) MySQLUserFilesCode(mysqlparams);
-		if (*mysqlparams) sprintf(route, "    MySql enabled. FileSystem routed MySql\r\n");
-		else sprintf(route, "    MySql enabled.\r\n");
-		if (server) Log(SERVERLOG, route);
-		else (*printer)(route);
-#endif
-#ifndef DISCARDMICROSOFTSQL
-		if (nosql) *mssqlparams = 0;
-		if (*mssqlparams) MsSqlUserFilesCode(mssqlparams);
-		if (*mssqlparams) sprintf(route, "    MicrosoftSql enabled. FileSystem routed MicrosoftSql\r\n");
-		else sprintf(route, "    MicrosoftSql enabled.\r\n");
-		if (server) Log(SERVERLOG, route);
-		else (*printer)(route);
-#endif
-#ifndef DISCARDPOSTGRES
-		if (nosql) *postgresparams = 0;
-		if (*postgresparams)  PGInitUserFilesCode(postgresparams);
-		if (*postgresparams) sprintf(route, "    Postgres enabled. FileSystem routed postgress\r\n");
-		else sprintf(route, "    Postgres enabled.\r\n");
-		if (server) Log(SERVERLOG, route);
-		else (*printer)(route);
-#endif
-#ifndef DISCARDMONGO
-		if (nosql) *mongodbparams = 0;
-		if (*mongodbparams)  MongoSystemInit(mongodbparams);
-		if (*mongodbparams) sprintf(route, "    Mongo enabled. FileSystem routed to MongoDB\r\n");
-		else sprintf(route, "    Mongo enabled.\r\n");
-		if (server) Log(SERVERLOG, route);
-		else (*printer)(route);
-#endif
+    // Potentially use external databases for the filesystem
+    OpenExternalDatabase();
 
-		
-		// system is ready.
+	// system is ready.
 
 	for (int i = 1; i < argc; ++i) // now for immediate action arguments
 	{
@@ -1359,6 +1380,9 @@ void CloseSystem()
 	CloseUserCache(); 
 
 	// server remains up on a restart
+#ifndef DISCARDWEBSOCKET
+	WebsocketCloseCode("");
+#endif
 #ifndef DISCARDSERVER
 	CloseServer();
 #endif
@@ -2107,14 +2131,22 @@ bool crashset = false;
 
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
-	
+
+#ifdef PRIVATE_CODE
+    // Check for private hook function to potentially scan and adjust the input
+    HOOKPTR fn = FindHookFunction((char*)"PerformChatArguments");
+    if (fn)
+    {
+        ((PerformChatArgumentsHOOKFN) fn)(user, usee, incoming);
+    }
+#endif
 	originalUserInput = incoming;
 	patternDepth = adjustIndent = 0;
 	InitJson();
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	if (!*user) *loginID = 0; // make sure he doesnt get to reuse other's id
 
-	// dont let user with bad input crash us. Crash next one after so his input wont reenter system
+		// dont let user with bad input crash us. Crash next one after so his input wont reenter system
 	crashset = true;
 	bool reloading = false;
 	restartfromdeath = false;
@@ -2196,6 +2228,10 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		ReportBug("INFO: Trimmed input too large %d > %d  %s \r\n", len, fullInputLimit,originalUserInput)
 		incoming[fullInputLimit - 1] = 0; // chop to legal safe limit
 	}
+
+	// dont process authcode as input from user
+	char* authcode =  (* serverlogauthcode ) ? strstr(incoming, serverlogauthcode) : NULL;
+	if (authcode) memset(authcode, ' ', strlen(serverlogauthcode)); // hide auth code entirely
 
 	if (server && !serverLog) // transient enable server logging?
 	{
@@ -2588,21 +2624,14 @@ void Restart()
 	CreateSystem();
 	InitStandalone();
 #ifdef PRIVATE_CODE
-	PrivateRestart(); // must come AFTER any mongo/postgress init (to allow encrypt/decrypt override)
+	PrivateRestart();
 #endif
 
 	ProcessArguments(argc,argv);
 	strcpy(us,loginID);
 
-#ifndef DISCARDPOSTGRES
-	if (*postgresparams)  PGInitUserFilesCode(postgresparams);
-#endif
-#ifndef DISCARDMONGO
-	if (*mongodbparams)  MongoSystemInit(mongodbparams);
-#endif
-#ifndef DISCARDMICROSOFTSQL
-	if (*mssqlparams) MsSqlUserFilesCode(mssqlparams); //Forked must hook uniquely AFTER forking
-#endif
+    OpenExternalDatabase();
+
 #ifdef PRIVATE_CODE
 	PrivateInit(privateParams); 
 #endif
@@ -2622,6 +2651,10 @@ void Restart()
 	{
 		struct tm ptm;
 		Log(USERLOG,"System restarted %s\r\n",GetTimeInfo(&ptm,true)); // shows user requesting restart.
+#ifdef EVSERVER
+        // new server fork log file
+        Log(ECHOSERVERLOG, "\r\n\r\n======== Restarted EV server pid %d %s compiled %s on host %s port %d at %s serverlog:%d userlog: %d\r\n",getpid(),version,compileDate,hostname,port,GetTimeInfo(&ptm,true),serverLog,userLog);
+#endif
 	}
 	pendingRestart = false;
 }
@@ -2660,6 +2693,8 @@ int ProcessInput(char* input)
 			if (intercept) Callback(FindWord(intercept),"()",false); // call script function first
 		}
 		TestMode commanded = DoCommand(at,mainOutputBuffer);
+		if (commanded != FAILCOMMAND && server && !*mainOutputBuffer) strcat(mainOutputBuffer, at); // return what we didnt fail at
+	
 		// reset rejoinders to ignore this interruption
 		outputRejoinderRuleID = inputRejoinderRuleID; 
  		outputRejoinderTopic = inputRejoinderTopic;
@@ -3694,6 +3729,9 @@ int main(int argc, char * argv[])
 		MainLoop();
 	}
 	else if (quitting) {;} // boot load requests quit
+#ifndef DISCARDWEBSOCKET
+	else if (*websocketparams) WebSocketClient(websocketparams,websocketmessage);
+#endif
 #ifndef DISCARDSERVER
     else
     {

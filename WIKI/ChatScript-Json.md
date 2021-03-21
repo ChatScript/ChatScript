@@ -1,15 +1,16 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br> Revision 2/8/2021 cs11.1
-
+<br>Revision 3/21/2021 cs11.2
 
 
 # Real World JSON
 
 JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit
 data objects over the web. It is a common standard largely replacing XML which is too wordy and hard
-to read. JSON has two datatypes that represent collections of values, the array and the object.
-A JSON array is a list of JSON entities separated by commas and placed within square brackets `[]`, e.g.,
+to read.  JSON has primitive datatypes  (text without doublequotes that cannot contain any
+whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes.
+JSON also has two datatypes that represent collections of values, the array and the object.
+A JSON array is a list of JSON datatypes separated by commas and placed within square brackets `[]`, e.g.,
 ```
 [ A, 2, [ help, life], [] ]
 ```
@@ -20,9 +21,7 @@ Indices of an array start at 0, so the above has as values:
 	[2] = an array of 2 values 
 	[3] = an empty array
 
-Note that arrays can hold values of different types (since really everything internally is a text type). The JSON types are array, object, number, string
-(enclosed in doublequotes), and primitives (text without doublequotes that cannot contain any
-whitespace). Array values are ordered and always retain that order.
+Note that arrays can hold values of different types.  Array values are ordered and always retain that order.
 A JSON object is a list of key-value pairs separated by commas and placed within curly braces `{}`, e.g.,
 
 ```json
@@ -35,8 +34,8 @@ A JSON object is a list of key-value pairs separated by commas and placed within
 }
 ```
 
-Each key must be encased in quotes and joined to an ending colon. Whitespace separates the colon
-from the value. Again types can be mixed in the values. `{}` is the empty object. Key-value pairs have
+Each key is a string (must be encased in double quotes) and joined to an ending colon.  Again types can be mixed in the values. 
+`{}` is the empty object, just as `[]` is the empty array. Key-value pairs have
 no guaranteed order and may shuffle around if you manipulate the structure.
 You can nest arrays and objects inside each other.
 
@@ -46,7 +45,8 @@ You can nest arrays and objects inside each other.
 JSON is an excellent language to represent more complex ChatScript facts as well as interact with the
 web. ChatScript can convert back and forth between the JSON text string passed over the web and
 ChatScript facts that represent the structure internally. If you tried to create facts using ^createfact(), you
-would find making the data shown below extremely difficult and non-obvious. Though it can be done. But as JSON, it is easy
+would find making the data shown below extremely difficult and non-obvious. 
+Though it can be done. But as JSON, it is easy
 to create facts to represent the structure and to access pieces of it.
 
 ```json
@@ -93,8 +93,54 @@ Actually, the "age 10" fact in ChatScript could represent either what was shown 
 ```
 
 Because JSON has distinct data types as values (primitives, text strings, etc) and CS represents
-everything as text strings, JSON facts have flag bits that describe how to treat the object value of the fact.
-This is automatically handled by CS and normally you have no reason to pay any attention to it.
+everything as text strings, there are some issues in moving back and forth in representation.
+Whereas JSON shows all strings encased in double quotes, when stored as values in CS the double
+quotes are always removed. And JSON primitives `false`, `true`, and numbers are also just strings. 
+Therefore JSON primitive `2` and the JSON string `"2"` are the same to CS. To maintain data type
+information, JSON facts have flag bits that describe how to treat the object value of the fact.
+This is automatically handled by CS and normally you have no reason to pay any attention to it. 
+
+But when you copy a value out of the fact onto a CS variable, the type data goes away. This is not
+a problem for CS, except when you want to store the CS variable back into a JSON structure. Then YOU
+become responsible for knowing the type. CS will assume any of its values that match a JSON primitive will be
+that, so you need to encase them in double-quotes if you want them to be stored as JSON strings. CS
+will automatically store everything else as JSON strings and when exporting them to text, will automatically
+encase them in double quotes.  For example,
+```
+$_x = ^jsoncreate(TRANSIENT object)
+$_x.value = true        # JSON boolean primitive
+^jwrite($_x)            => {"value": true}
+$_y = $_x.value         
+$_x.value = $_y
+^jwrite($_x)            => {"value": true}
+
+$_x.value = "true"        # JSON string true
+^jwrite($_x)            => {"value": "true"}
+$_y = $_x.value         
+$_x.value = $_y
+^jwrite($_x)            => {"value": true}
+
+$_x.value = "true"        # JSON string true
+^jwrite($_x)            => {"value": "true"}
+$_y = ^join(\" $_x.value \")         
+$_x.value = $_y
+^jwrite($_x)            => {"value": "true"}
+```
+
+All this breaks down a bit for the JSON `null` primitive and for the JSON empty string `""`. 
+CS does not distinguish between having no value and having a value which has no characters.
+And CS uses `null` to mean clear a value entirely.
+```
+$_x.value = null         # remove the JSON field called value
+$_x.value = "null"      # assign text string null to field value
+$_x = null                   # remove any value from variable
+$_x.value = json_null                   # special value meaning json null primitive
+$_x.value = ""              # JSON empty string
+$_y = 5
+$_y = $_x.value         # clears $_y (acts like null)
+```
+
+Note that while CS does not store "", it does represent the empty string, particularly in ^substitute calls.
 
 For arrays, the verb of the fact is the numeric index in the array and the object is the value.
 Such a structure might be composed of these facts:
@@ -125,8 +171,39 @@ Also note that while CS can read in JSON whose value has an empty string like:
 ```
 	{ "input":""}
 ```
-CS cannot represent that itself, since empty strings are treated as null values. So CS
-cannot export such a structure directly.
+CS represents that as a fact whose object value is the empty string and whose bits indicate it is a JSON string value.
+
+
+## JSON Primitive values and Strings
+
+Since JSON has different datatypes and CS represents everything as strings, there are some collisions in how to create
+appropriate JSON value and if one assigns a CS variable from a JSON field value, the typing data can get lost.
+This is not a problem for CS, but if you try to output the cs variables again as JSON data, that may become an issue.
+
+Also note that CS assignments onto object fields do not require you double quote the field name (unless the name
+as spaces within it or other unusual characters).
+
+Here are conversions from CS data to JSON values:
+```
+$_x.bool1 = false   -- JSON primitive false
+$_x.bool2 = true   -- JSON primitive true
+$_x.null = json_null      -- JSON primitive null
+$_x.null = "null"       -- JSON string null
+$_x.number = 25         -- JSON primitive integer
+$_x.number1 = 25.55  -- JSON primitive float
+$_x.text = ^"this is a string" -- JSON string (in CS there are no double quotes internally)
+$_x.text = "this is a string" -- JSON string (in CS the double quotes are still there)
+$_x.array = ^jsoncreate(transient array) -- JSON array
+$_x.object = ^jsoncreate(transient object) -- JSON object
+$_x.empty = ""            -- JSON empty string
+```
+The ""  string is stored in CS just like all other string with double quotes- the markers are preserved
+in the value.
+```
+
+By default, when you assign numbers to JSON structures, they are automatically stored as JSON primitives (whereas in CS they are just
+text strings). 
+
 ## Accessing the web with JSON
 
 You will learn how to create JSON structures below. The other key to a
@@ -335,8 +412,13 @@ If foo is currently undefined, the system will create a JSON array for you,
 with permanency that matches the JSON object of $x. You cannot do $x[]  and have this 
 happen because at the top level the system does not know what permanency to use.
 Once there is a JSON array in $x.foo, assignments with `foo[]` will add
-elements to the array. You cannot designate the index, it will be the next index
-in succession.
+elements to the array. You can designate the index only if it will be the next index
+in succession. 
+```
+    $_x[] = 0     # creates array element 0
+    $_x[1] = 1  # accepts array element 1 creation request
+    $_x[3] = 3   # will fail - must be in sequence
+```
 
 You can also do
 
@@ -380,8 +462,8 @@ $x.field = null
 ```
 The two structures point to each other, each only once. So assigning null will kill off both structures.
 
-Assigning `null` will remove a JSON key entirely. Assigning `""` or `^""` will set the field to the JSON literal
-`null`.
+Assigning `null` will remove a JSON key entirely.  Having a null value and not having the key are the same
+from ChatScript's perspective (but not from JSON's)'
 
 #### Accessing opposite ends of JSON structures
 For an array, obviously $array[0] returns one end of the array, and you can get the index of The
@@ -544,13 +626,15 @@ The result is the corresponding JSON string (as a website might emit), without a
 	jo-5 which is {"value":"color"}  prints as  {value:color}
 ```
 
-### `^jsontree`( name {depth} )
+### `^jsontree`( name {depth} {array})
 name is the value returned by `^jsonparse` or `^jsonopen` or some query into such structures. 
 It displays a tree of elements, one per line, where depth is represented as more deeply indented. 
 Objects are marked with `{}` as they are in JSON. Arrays are marked with `[]`. 
 
 The internal name of the composite is shown immediately next to its opening punctuation. Optional depth
 number restricts how deep it displays. 0 (default) means all. 1 means just top level.
+
+Optional "array" means show number of array elements rather than the elements themselves at any depth below depth.
 
 
 ## JSON structure manipulation

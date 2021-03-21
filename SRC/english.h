@@ -48,7 +48,7 @@ char* GetThirdPerson(char* word);
 char* GetPresent(char* word);
 char* GetInfinitive(char* word,bool nonew);
 char* GetSingularNoun(char* word,bool initial,bool nonew);
-char* GetPluralNoun(char* noun);
+char* GetPluralNoun(char* noun,char* plu);
 char* GetAdjectiveMore(char* word);
 char* GetAdjectiveMost(char* word);
 char* GetAdverbMore(char* word);

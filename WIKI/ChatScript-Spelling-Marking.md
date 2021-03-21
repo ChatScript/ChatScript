@@ -1,11 +1,12 @@
 ﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 1/1/2021 cs11.0
+<br>Revision 3/21/2021 cs11.2
+0
 
 
 # Spelling
 
-One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is commpletely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.
+One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is completely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.
 
 OK. So it does the best it can with unknown words. It is enabled by default but your scripts can disable it. All you have to do is assign a different value to $cs_token, one which does not include #DO_SPELLCHECK. E.g.
 
@@ -112,9 +113,9 @@ been conjoined with words, and separates them. Input like
 "I weigh 5kg." is hard to handle via substitition since there are infinite
 number of numbers. But it's common to see stuff like that from users.
 ```
-replace: ?_g gram        -- this merely separates 
+replace: ?_gram gram        -- this merely separates 
 replace: ?_kg kilogram -- this separates into full unit name
-replace: ?_kg kilo gram -- this separates into multiword replacement
+replace: ?_kg kilo+gram -- this separates into multiword replacement
 ```
 You should use the singular form of the word. CS can then do singular or plural as needed.
 

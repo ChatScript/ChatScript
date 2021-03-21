@@ -10,10 +10,7 @@
 <body>
 <h1 id="chatscript-external-communications">ChatScript External Communications</h1>
 <blockquote>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
-</blockquote>
-<blockquote>
-<p>Revision 11/19/2017 cs7.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com Revision 4/30/2016 cs6.4</p>
 </blockquote>
 <p>ChatScript is fine for a chatbot that does not depend on the outer world. But if you need to control an avatar or grab information from sensors or the Internet, you need a way to communicate externally from ChatScript. There are three mechanisms: embedding ChatScript inside another main program which will do the machine-specific actions, calling programs on the OS from ChatScript where ChatScript remains in control, and getting services via the Interet from ChatScript.</p>
 <h2 id="calling-outside-routines-from-chatscript">Calling Outside Routines from ChatScript</h2>
@@ -36,6 +33,13 @@
 <p>From must be a fact set to export. Name is the file to write them to.</p>
 <h3 id="import-name-set-erase-transient"><code>^import</code>( name set erase transient )</h3>
 <p>Name is the file to read from. Set is where to put the read facts.</p>
+<h2 id="websockets">WebSockets</h2>
+<p>CS is not a websocket server. It can, however, connect to some existing websocket endpoint and be a client for it.</p>
+<p>^websocketinit(url) - connect to the given url</p>
+<p>^websocketclose() - disconnect from opened socket</p>
+<p>^websocketsend(message) - send message to opened socket</p>
+<p>^websocketreceive(timeout) - listen for response back. timeout value of -1 means block until message received. 0 means retrieve immediately if something is there, otherwise return with nothing. Other values are milliseconds will be willing to wait for response.</p>
+<p>If you use the param websocket=url the system on startup will become a websocket client and use that as its input/output loop channel. If you also supply parameter websocketmessage=&quot;send this first&quot; then that message will be sent when the socket is opened.</p>
 <h2 id="embedding-chatscript-within-another-program">Embedding ChatScript within another program</h2>
 <p>Most users use the executable versions of ChatScript for LINUX or Windows that are provided with a ChatScript release. Sometimes users have to build their own executable for the Mac. These are all building a complete ChatScript engine that is the main program.</p>
 <p>Why would you want to embed ChatScript within another program - meaning that ChatScript is NOT the main program but some other code you write is? Typically it's to build a local application like a robot or a mobile chatting app.</p>

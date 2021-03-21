@@ -16,11 +16,6 @@
 		#include "mongo/MongoDBClient.h"
     #endif
 
-// #include <mongo/bson/bson.h>
-// #include <bcon.h>
-// #include <mongoc.h>
-
-#include "bson.h"
 #include "mongoc.h"
 
 static bool mongoInited = false;		// have we inited mongo overall
@@ -68,6 +63,30 @@ char* MongoCleanEscapes(char* to, char* at,int limit)
 	}
 	*to = 0;
 	return start;
+}
+
+// Apply additional key values from a JSON object to a document query
+void mongoAppendKeys(bson_t *doc, char* var)
+{
+    char* externalMongoData = GetUserVariable(var,false,true);
+    if (*externalMongoData && IsValidJSONName(externalMongoData, 'o'))
+    {
+        WORDP D = FindWord(externalMongoData);
+        if (D)
+        {
+            FACT* F = GetSubjectNondeadHead(D);
+            while (F)
+            {
+                char* additionalKey = Meaning2Word(F->verb)->word;
+                if (!bson_has_field(doc, additionalKey))
+                {
+                    char* additionalValue = Meaning2Word(F->object)->word;
+                    BSON_APPEND_UTF8(doc, additionalKey, additionalValue);
+                }
+                F = GetSubjectNondeadNext(F);
+            }
+        }
+    }
 }
 
 // connect to server, db, and collection
@@ -243,7 +262,18 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
         }
         
         BSON_APPEND_UTF8 ( psQuery, "KeyName", key );
-    	uint64 starttime = ElapsedMilliseconds();
+        // updates the mongo read query with key value pairs from $cs_mongoQueryParams
+        mongoAppendKeys( psQuery, (char*)"$cs_mongoQueryParams");
+#ifdef PRIVATE_CODE
+        // Check for private hook function to adjust the Mongo query parameters
+        HOOKPTR fnq = FindHookFunction((char*)"MongoQueryParams");
+        if (fnq)
+        {
+            ((MongoQueryParamsHOOKFN) fnq)(psQuery);
+        }
+#endif
+
+        uint64 starttime = ElapsedMilliseconds();
         
         psCursor = mongoc_collection_find(collection, MONGOC_QUERY_NONE, 0, 0, 0, psQuery, NULL, NULL);
         
@@ -409,50 +439,40 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     bson_t *query = NULL;
 	bson_t child;
     bson_oid_init (&oid, NULL);
+    
 	query = bson_new();
 	BSON_APPEND_UTF8 (query, "KeyName", keyname);
-	// updates the mongo query with key value pairs from $cs_mongoQueryParams
-	char* externalMongoParams = GetUserVariable((char*)"$cs_mongoQueryParams",false,true);
-	if (*externalMongoParams && IsValidJSONName(externalMongoParams))
+    // updates the mongo upsert query with key value pairs from $cs_mongoQueryParams
+    mongoAppendKeys(query, (char*)"$cs_mongoQueryParams");
+#ifdef PRIVATE_CODE
+    // Check for private hook function to adjust the Mongo query parameters
+    HOOKPTR fnq = FindHookFunction((char*)"MongoQueryParams");
+    if (fnq)
     {
-		WORDP D = FindWord(externalMongoParams);
-		if (D)
-		{
-			FACT* F = GetSubjectNondeadHead(D);
-			while (F)
-			{
-				char* additionalParamKey = Meaning2Word(F->verb)->word;
-				char* additionalParamValue = Meaning2Word(F->object)->word;
-				BSON_APPEND_UTF8(query, additionalParamKey, additionalParamValue);
-				F = GetSubjectNondeadNext(F);
-			}
-		}
-	}
+        ((MongoQueryParamsHOOKFN) fnq)(query);
+    }
+#endif
+
     uint64 starttime = ElapsedMilliseconds();
 	update = bson_new();
 	BSON_APPEND_DOCUMENT_BEGIN (update, "$set", &child);
 	BSON_APPEND_UTF8 (&child, "KeyName", keyname);
 	BSON_APPEND_UTF8 (&child, "KeyValue", value);
 	BSON_APPEND_DATE_TIME (&child, "lmodified", starttime);
-	// updates the mongo upsert update query with key value pairs from $cs_mongoKeyValues
-	char* externalMongoData = GetUserVariable((char*)"$cs_mongoKeyValues",false,true);
-	if (*externalMongoData && IsValidJSONName(externalMongoData)) 
-	{
-		WORDP D = FindWord(externalMongoData);
-		if (D)
-		{
-			FACT* F = GetSubjectNondeadHead(D);
-			while (F)
-			{
-				char* additionalKey = Meaning2Word(F->verb)->word;
-				char* additionalValue = Meaning2Word(F->object)->word;
-				BSON_APPEND_UTF8(&child, additionalKey, additionalValue);
-				F = GetSubjectNondeadNext(F);
-			}
-		}
-	}
-	bson_append_document_end(update, &child);
+	// updates the mongo upsert document with key value pairs from $cs_mongoKeyValues
+    mongoAppendKeys(&child, (char*)"$cs_mongoKeyValues");
+#ifdef PRIVATE_CODE
+    // Check for private hook function to adjust the Mongo upsert parameters
+    HOOKPTR fnu = FindHookFunction((char*)"MongoUpsertKeyValues");
+    if (fnu)
+    {
+        ((MongoUpsertKeyValuesHOOKFN) fnu)(&child);
+    }
+#endif
+
+    bson_append_document_end(update, &child);
     if (mongoc_collection_update (collection, MONGOC_UPDATE_UPSERT, query, update, NULL, &error)) result = NOPROBLEM_BIT;
+
     if (doc) bson_destroy (doc);
     if (query) bson_destroy (query);
     if (update) bson_destroy (update);
@@ -540,7 +560,7 @@ size_t mongouserWrite(const void* buffer,size_t size, size_t count, FILE* file)
 	return size * count; // is len a match
 }
 
-void MonogoUserFilesInit() // start mongo as fileserver
+void MongoUserFilesInit() // start mongo as fileserver
 {
 	FunctionResult result = MongoInit(NULL); // files init
 	if (result == NOPROBLEM_BIT)
@@ -590,7 +610,7 @@ void MongoSystemInit(char* params) // required
 			ARGUMENT(3) = arg3;
 			ARGUMENT(4) = (char*)"topic"; 
 		}		
-		MonogoUserFilesInit(); // init topic
+		MongoUserFilesInit(); // init topic
 	}
 }
 

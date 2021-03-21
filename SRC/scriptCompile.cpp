@@ -167,7 +167,7 @@ void ScriptError()
     chunking = false;
     outputStart = NULL;
     renameInProgress = false;
-    if (compiling)
+    if (compiling || csapicall == TEST_OUTPUT || csapicall == TEST_PATTERN)
     {
 		++hasErrors;
         patternContext = false;
@@ -392,12 +392,9 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
 		currentLineColumn = 0;
 	}
 
-    FindDeprecated(ptr, (char*)"$bot", (char*)"Deprecated $bot needs to be $cs_bot");
     FindDeprecated(ptr, (char*)"$login", (char*)"Deprecated $login needs to be $cs_login");
     FindDeprecated(ptr, (char*)"$userfactlimit", (char*)"Deprecated $userfactlimit needs to be $cs_userfactlimit");
     FindDeprecated(ptr, (char*)"$crashmsg", (char*)"Deprecated $crashmsg needs to be $cs_crashmsg");
-    FindDeprecated(ptr, (char*)"$token", (char*)"Deprecated $token needs to be $cs_token");
-    FindDeprecated(ptr, (char*)"$response", (char*)"Deprecated $response needs to be $cs_response");
     FindDeprecated(ptr, (char*)"$randindex", (char*)"Deprecated $randindex needs to be $cs_randindex");
     FindDeprecated(ptr, (char*)"$wildcardseparator", (char*)"Deprecated $wildcardseparator needs to be $cs_wildcardseparator");
     FindDeprecated(ptr, (char*)"$abstract", (char*)"Deprecated $abstract needs to be $cs_abstract");
@@ -572,7 +569,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
                             if (D && D->internalBits & RENAMED)  // remap #constant inside string
                             {
                                 n = D->properties;
-                                if (D->systemFlags & CONSTANT_IS_NEGATIVE)
+                                if (D->internalBits & CONSTANT_IS_NEGATIVE)
                                 {
                                     int64 x = (int64)n;
                                     x = -x;
@@ -717,7 +714,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
             if (D && D->internalBits & RENAMED)  // remap #constant 
             {
                 n = D->properties;
-                if (D->systemFlags & CONSTANT_IS_NEGATIVE)
+                if (D->internalBits & CONSTANT_IS_NEGATIVE)
                 {
                     int64 x = (int64)n;
                     x = -x;
@@ -1424,7 +1421,7 @@ static void ClearBeenHere(WORDP D, uint64 junk)
 {
 	RemoveInternalFlag(D,BEEN_HERE);
     // clear transient ignore spell warning flag
-    if (D->internalBits & DO_NOISE && !(D->internalBits & HAS_SUBSTITUTE))
+    if (D->internalBits & DO_NOISE && !(D->systemFlags & HAS_SUBSTITUTE))
         RemoveInternalFlag(D, DO_NOISE);
 }
 
@@ -1670,7 +1667,7 @@ static void WritePatternWord(char* word)
 	char* x = IsUTF8(word, utfcharacter); 
 	if (!strcmp(tmp,word) || utfcharacter[1])  {;} // came in as lower case or as UTF8 character, including ones that don't have an uppercase version?
     else if (nospellcheck) {;}
-    else if (lower && lower->internalBits & DO_NOISE && !(lower->internalBits & HAS_SUBSTITUTE)) {} // told not to check
+    else if (lower && lower->internalBits & DO_NOISE && !(lower->systemFlags & HAS_SUBSTITUTE)) {} // told not to check
     else if (upper && (GetMeaningCount(upper) > 0 || upper->properties & NORMAL_WORD )){;} // clearly known as upper case
 	else if ( !nomixedcase && !livecall && !(spellCheck & NO_SPELL) && lower && lower->properties & NORMAL_WORD && !(lower->properties & (DETERMINER|AUX_VERB)))
 		WARNSCRIPT((char*)"Keyword %s should not be uppercase - did prior rule fail to close\r\n",word)
@@ -1964,6 +1961,10 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 			if (IsDigit(*name)) *data++ = *name++;
 			*data = 0;
 			return ptr;
+		}
+		if (csapicall != NO_API_CALL && call) // compile or execute are both bad
+		{
+			BADSCRIPT("Undefined function: %s", name)
 		}
 	}
 	
@@ -2316,7 +2317,7 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
     // see if supposed to ignore capitalization differences
     MakeLowerCopy(word, input);
     WORDP X = FindWord(word, 0, LOWERCASE_LOOKUP);
-    if (X && X->internalBits & DO_NOISE && !(X->internalBits & HAS_SUBSTITUTE))
+    if (X && X->internalBits & DO_NOISE && !(X->systemFlags & HAS_SUBSTITUTE))
         return;
 	strcpy(word,input);
 	size_t len = strlen(word);
@@ -5388,29 +5389,33 @@ static void SetJumpOffsets(char* data) // store jump offset for each rule
     }
  }
 
-static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANING concept,uint64 type,bool ignoreSpell,unsigned int build,bool duplicate,bool startOnly,bool endOnly)
+static char* ReadKeyword(char* word,char* ptr,bool& notted, int& quoted,MEANING concept,uint64 type,bool ignoreSpell,unsigned int build,bool duplicate,bool startOnly,bool endOnly)
 {
 	// read the keywords zone of the concept
 	char* at;
 	MEANING M;
 	WORDP D;
-
 	size_t len = strlen(word);
 	switch(*word) 
 	{
 		case '!':	// excuded keyword
 			if (len == 1) 
                 BADSCRIPT((char*)"CONCEPT-5 Must attach ! to keyword in %s\r\n",Meaning2Word(concept)->word);
-			if (notted) BADSCRIPT((char*)"CONCEPT-5 Cannot use ! after ! in %s\r\n",Meaning2Word(concept)->word);
+			if (word[1] == '!') BADSCRIPT((char*)"CONCEPT-5 Cannot use ! after !! in %s\r\n", Meaning2Word(concept)->word);
 			notted = true;
 			ptr -= len;
 			if (*ptr == '!') ++ptr;
 			break;
 		case '\'': 
 			if (len == 1) BADSCRIPT((char*)"CONCEPT-6 Must attach ' to keyword in %s\r\n",Meaning2Word(concept)->word);
-			if (quoted) BADSCRIPT((char*)"CONCEPT-5 Cannot use ' after ' in %s\r\n",Meaning2Word(concept)->word);
-			quoted = true;	//   since we emitted the ', we MUST emit the next token
+			if (word[1] == '\'')
+			{
+				if (word[2] == '\'') BADSCRIPT((char*)"CONCEPT-5 Cannot use ' after ' in %s\r\n", Meaning2Word(concept)->word);
+				quoted = 2;
+			}
+			else quoted = 1;	//   since we emitted the ', we MUST emit the next token
 			ptr -= len;
+			if (*ptr == '\'') ++ptr;
 			if (*ptr == '\'') ++ptr;
 			break;
 		default:
@@ -5484,14 +5489,16 @@ static char* ReadKeyword(char* word,char* ptr,bool &notted, bool &quoted, MEANIN
 					WritePatternWord(D->word);
 				}
 			} // end ordinary word
-			unsigned int flags = quoted ? ORIGINAL_ONLY : 0;
+			unsigned int flags = 0;
+			if (quoted == 1) flags |= ORIGINAL_ONLY;
+			else if (quoted == 2) flags |= RAWCASE_ONLY;
 			if (duplicate) flags |= FACTDUPLICATE;
             if (startOnly) flags |= START_ONLY;
             if (endOnly) flags |= END_ONLY;
 			if (build & BUILD1) flags |= FACTBUILD1; // concept facts from build 1
 			else if (build & BUILD2) flags |= FACTBUILD2; // concept facts from build 1
 			FACT* F = CreateFact(M,(notted) ? Mexclude : Mmember,concept, flags); 
-			quoted = false;
+			quoted = 0;
 			notted = false;
 	} 
 	return ptr;
@@ -5557,14 +5564,14 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 	bool topicFlagsDone = false;
 	bool keywordsDone = false;
 	int parenLevel = 0;
-	bool quoted = false;
-	bool notted = false;
 	MEANING topicValue = 0;
 	WORDP topicName = NULL;
 	unsigned int gambits = 0;
 	unsigned int toplevelrules = 0; // does not include rejoinders
 	currentRuleID = 0;	// reset rule notation
 	verifyIndex = 0;	
+	bool notted = false;
+	int quoted = 0;
 	bool stayRequested = false;
     int buffercount = bufferIndex;
 	int frameindex = globalDepth;
@@ -5807,7 +5814,7 @@ static char* ReadRename(char* ptr, FILE* in,unsigned int build)
 			WARNSCRIPT((char*)"Already have a rename for %s\r\n", word)
 		D = StoreWord(word,n);
 		AddInternalFlag(D,(unsigned int)(RENAMED|build)); 
-		if (*word == '#' && *basic == '-') AddSystemFlag(D,CONSTANT_IS_NEGATIVE);
+		if (*word == '#' && *basic == '-') AddInternalFlag(D,CONSTANT_IS_NEGATIVE);
 		Log(USERLOG,"Rename %s as %s\r\n",basic,word);
 	}	
 	renameInProgress = false;
@@ -6161,7 +6168,7 @@ static char* ReadIgnoreSpell(char* ptr, FILE* in, unsigned int build)
             continue;
         }
         WORDP D = StoreWord(ignore, 0);
-        if (!(D->internalBits & HAS_SUBSTITUTE)) D->internalBits |= DO_NOISE;
+        if (!(D->systemFlags & HAS_SUBSTITUTE)) D->internalBits |= DO_NOISE;
     }
     return ptr;
 }
@@ -6234,8 +6241,6 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 	bool ignoreSpell = false;
 	
 	patternContext = false;
-	bool quoted = false;
-	bool notted = false;
 	bool more = false;
 	bool undeclared = true;
     bool startOnly = false;
@@ -6243,6 +6248,8 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 	int parenLevel = 0;
 	uint64 type = 0;
 	uint64 sys;
+	bool notted = false;
+	int quoted = 0;
 	bool duplicate = false;
 	while (ALWAYS) //   read as many tokens as needed to complete the definition (must be within same file)
 	{
@@ -6410,7 +6417,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 	{
 		if (strchr(name,'.') || build & FROM_FILE) // names a file, not a directory
 		{
-			WARNSCRIPT((char*)"Missing file %s\r\n",name) 
+			WARNSCRIPT((char*)"Missing topic file %s\r\n",name) 
 			++missingFiles;
 		}
 		return;
@@ -6662,6 +6669,7 @@ static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words
 					ForceUnderscores(word); 
 				}
 				else if (F->flags & ORIGINAL_ONLY) sprintf(word,(char*)"'%s ",WriteMeaning(F->subject,true));
+				else if (F->flags & RAWCASE_ONLY) sprintf(word, (char*)"''%s ", WriteMeaning(F->subject, true));
 				else sprintf(word,(char*)"%s ",WriteMeaning(F->subject,true));
 
 				char* dict = strchr(word+1,'~'); // has a wordnet attribute on it
@@ -6727,7 +6735,8 @@ static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words
                     ForceUnderscores(word);
                 }
                 else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"!'%s ", WriteMeaning(F->subject, true));
-                else sprintf(word, (char*)"!%s ", WriteMeaning(F->subject, true));
+				else if (F->flags & RAWCASE_ONLY) sprintf(word, (char*)"!!'%s ", WriteMeaning(F->subject, true));
+				else sprintf(word, (char*)"!%s ", WriteMeaning(F->subject, true));
 
                 char* dict = strchr(word + 1, '~'); // has a wordnet attribute on it
                 if (dict) //  full wordnet word reference
@@ -6867,7 +6876,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 			else if (*D->word == '#' &&  D->internalBits & RENAMED)
 			{
 				int64 x = (int64)D->properties;
-				if (D->systemFlags & CONSTANT_IS_NEGATIVE) 
+				if (D->internalBits & CONSTANT_IS_NEGATIVE)
 				{
 					fprintf(dictout,(char*)"%c",'-');
 					x = -x;

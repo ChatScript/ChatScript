@@ -1357,7 +1357,7 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 		char decimalMark = decimalMarkData[useNumberStyle];
 		char* at = strchr(number, decimalMark);
 		if (at) *at = 0;
-		int64 val = Convert2Integer(number, useNumberStyle);
+		int64 val = (!*number) ? NOT_A_NUMBER : Convert2Integer(number, useNumberStyle);
 		if (at) *at = decimalMark;
 		*cur = c;
 		return (val != NOT_A_NUMBER) ? CURRENCY_NUMBER : NOT_A_NUMBER;
@@ -1429,6 +1429,7 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 
 	if (D && D->properties & NUMBER_BITS)
 		return (D->systemFlags & ORDINAL) ? PLACETYPE_NUMBER : WORD_NUMBER;   // known number
+    if (!*word) return NOT_A_NUMBER;
 
     return (Convert2Integer(word,useNumberStyle) != NOT_A_NUMBER) ? WORD_NUMBER : NOT_A_NUMBER;		//   try to read the number
 }
@@ -3292,7 +3293,7 @@ int64 NumberPower(char* number, int useNumberStyle)
 
 int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return NOT_A_NUMBER    
 {  // ProcessCompositeNumber will have joined all number words together in appropriate number power order: two hundred and fifty six billion and one -> two-hundred-fifty-six-billion-one , while four and twenty -> twenty-four
-	if (!number || !*number) return NOT_A_NUMBER;
+	if (!number || !*number) return 0;
 	char decimalMark = decimalMarkData[useNumberStyle];
 	char digitGroup = digitGroupingData[useNumberStyle];
 	char c = *number;
@@ -3386,9 +3387,9 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	// remove
 	if (!csEnglish);
     else if (len < 3); // cannot have suffix
-    else if (word[len-2] == 's' && word[len-1] == 't' && !strstr(word,(char*)"first")) word[len -= 2] = 0; // 1st 
-    else if (word[len-2] == 'n' && word[len-1] == 'd' && !strstr(word,(char*)"second") && !strstr(word,(char*)"thousand")) word[len -= 2] = 0; // 2nd but not second or thousandf"
-    else if (word[len-2] == 'r' && word[len-1] == 'd' && !strstr(word,(char*)"third")) word[len -= 2] = 0; // 3rd 
+    else if (word[len-2] == 's' && word[len-1] == 't' && !strstr(word,(char*)"first") && IsDigit(word[len-3])) word[len -= 2] = 0; // 1st
+    else if (word[len-2] == 'n' && word[len-1] == 'd' && !strstr(word,(char*)"second") && !strstr(word,(char*)"thousand") && IsDigit(word[len-3])) word[len -= 2] = 0; // 2nd but not second or thousandf"
+    else if (word[len-2] == 'r' && word[len-1] == 'd' && !strstr(word,(char*)"third") && IsDigit(word[len-3])) word[len -= 2] = 0; // 3rd
 	else if (word[len-2] == 't' && word[len-1] == 'h' && !strstr(word,(char*)"fifth")) //  excluding the word "fifth" which is not derived from five
 	{
 		word[len -= 2] = 0; 
@@ -3481,22 +3482,28 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	}
 	if (num != -1) // do last piece
 	{
-		if ((num % 10) > 0) num *= 10; // don't multiply if twenty-three
-		val1 = Convert2Integer(oldhyphen, useNumberStyle);
-		if (val1 > 9) num = -1;
-		else num += val1;
-		return num;
+        val1 = Convert2Integer(oldhyphen, useNumberStyle);
+        if (val1 != NOT_A_NUMBER)
+        {
+            if ((num % 10) > 0) num *= 10; // don't multiply if twenty-three
+            if (val1 > 9) num = -1;
+            else num += val1;
+            return num;
+        }
 	}
 
 	if (num >= 0 && num < 10) // simple digit
 	{
-		num *= 10;
-		val1 = Convert2Integer(oldhyphen, useNumberStyle);
-		if (val1 < 10)
-		{
-			num += val1;
-			return num;
-		}
+        val1 = Convert2Integer(oldhyphen, useNumberStyle);
+        if (val1 != NOT_A_NUMBER)
+        {
+            num *= 10;
+            if (val1 < 10)
+            {
+                num += val1;
+                return num;
+            }
+        }
 	}
 
 	// decode powers of ten names on 2nd pieces

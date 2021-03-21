@@ -987,6 +987,23 @@ static char* Svoice(char* value)
 	return (tokenFlags & PASSIVE) ? (char*)"passive" : (char*)"active";
 }
 
+static char* SinputSize(char* value)
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold, value);
+	if (*hold != '.') return hold;
+	sprintf(systemValue, "%d", inputSize);
+	return systemValue;
+}
+
+static char* SinputLimited(char* value)
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold, value);
+	if (*hold != '.') return hold;
+	return (inputLimitHit) ? (char*)"1" : (char*)"";
+}
+
 static char* SbadSpell(char* value)
 {
 	static char hold[50] = ".";
@@ -1041,9 +1058,8 @@ static char* SlastQuestion(char* value)
 	if (*hold != '.') return hold;
 	if (!responseIndex) return "";
 	char* sentence = responseData[responseOrder[responseIndex-1]].response;
-	size_t len = strlen(sentence);
-	return (sentence[len-1] == '?') ? (char*)"1" : (char*)"";
-}  
+	return (strchr(sentence, '?')) ? (char*)"1" : (char*)"";
+}
 
 static char* SoutputRejoinder(char* value)
 {
@@ -1195,6 +1211,8 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%revisedInput",SrevisedInput,(char*)"Boolean - is input coming from ^input"}, 
 	{ (char*)"%voice",Svoice,(char*)"Voice of current input (active,passive)"}, 
 	{ (char*)"%badspell",SbadSpell,(char*)"How many bad spellings were handled" },
+	{ (char*)"%inputlimited",SinputLimited,(char*)"were we given too much input" },
+	{ (char*)"%inputsize",SinputSize,(char*)"bytes of input passed in" },
 
 	{ (char*)"\r\n---- Output variables",0,(char*)""},
 	{ (char*)"%inputrejoinder",SinputRejoinder,(char*)"if pending input rejoinder, this is the tag of it else null"},

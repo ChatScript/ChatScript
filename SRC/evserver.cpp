@@ -355,6 +355,8 @@ static void evsrv_child_died(EV_P_ ev_child *w, int revents) {
             sprintf(serverLogfileName, (char*)"%s/serverlog%d-%d.txt", logsfolder, port_g, getpid());
             sprintf(dbTimeLogfileName, (char*)"%s/dbtimelog%d-%d.txt", logsfolder, port_g, getpid());
         }
+        // need the new fork to connect to a database
+        Restart();
 	}
 }
 #endif
@@ -627,6 +629,11 @@ static void client_write(EV_P_ ev_io *w, int revents)
 
 void LogChat(uint64 starttime,char* user,char* bot,char* IP, int turn,char* input,char* output,uint64 qtime);
 
+void Overflow()
+{
+    int xx = 0;
+}
+
 int evsrv_do_chat(Client_t *client)
 {
  	uint64 starttime = ElapsedMilliseconds(); 
@@ -634,9 +641,12 @@ int evsrv_do_chat(Client_t *client)
     client->startnltime = starttime; // began cs processing nL here
     int len = (int)strlen(client->message);
 	originalUserInput = client->message;
-	if (len >= fullInputLimit - 300)
+    inputLimitHit = false;
+    inputSize = len;
+	if (len >= (fullInputLimit - 300) )
 	{
 		struct tm ptm;
+        Overflow(); // for debugging access in gdb
 
 		// completely literal incoming data
 		FILE* bugout = FopenUTF8WriteAppend("LOGS/evBugdata.txt");
@@ -645,34 +655,24 @@ int evsrv_do_chat(Client_t *client)
 			fprintf(bugout, "%s %d of %d %s\r\n", GetTimeInfo(&ptm, true),len, fullInputLimit - 300,client->message);
 			fclose(bugout);
 		}
-		bugout = FopenUTF8WriteAppend("/tmp/csevBugdata.txt");
-		if (bugout)
-		{
-			fprintf(bugout, "%s %d of %d %s\r\n", GetTimeInfo(&ptm, true),len, fullInputLimit - 300,client->message);
-			fclose(bugout);
-		}
 
-		char* start = strstr(client->message,"\"input\":"); // embedded input oob?
-		if (start) // limit input in middle     100chars "input":"300msg 800more  actual 1200  limit 1100
-		{ 
-			char* end = strstr(start, "\", \"");
-			if (end)
-			{
-				*end = 0;
-				size_t userlen = strlen(start);  // 300
-				*end = '"';
-				size_t otherlen = len - userlen;  // 900
-				int available = fullInputLimit - 300 - otherlen; // how much room for user input  200
-				int choplen = userlen - available - 20; // we need to discard this much  
-				if (choplen > 0)
-				{
-					char* chopat = end - choplen;
-					while (*(chopat - 1) == '\\')  --chopat; // dont break up 
-					memmove(chopat, end, strlen(end) + 1);
-				}
-			}
-		}
-		client->message[fullInputLimit - 300] = 0; // limit user input at end
+        if (*externalBugLog) // if want global backup outside of cs folder
+        {
+            char directory[100];
+            strcpy(directory, externalBugLog);
+            char* dir = strrchr(directory, '/');
+            if (dir) strcpy(dir + 1, "csevBugdata.txt");
+            else strcat(dir,"/csevBugdata.txt");
+            bugout = FopenUTF8WriteAppend(directory);
+            if (bugout)
+            {
+                fprintf(bugout, "%s %d of %d %s\r\n", GetTimeInfo(&ptm, true), len, fullInputLimit - 300, client->message);
+                fclose(bugout);
+            }
+        }
+
+        inputLimitHit = true;
+		client->message[fullInputLimit - 300] = 0; // full message MUST be stopped regardless
 	}
     echo = false;
 	bool restarted = false;
@@ -726,8 +726,8 @@ RESTART_RETRY:
 		serverLogTemporary = true;
 	}
 
-	if ((serverPreLog || overrideServerLog) && restarted)  Log(SERVERLOG,"%s ServerPre: retry pid: %d %s (%s) size:%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
- 	else if ((serverPreLog || overrideServerLog))  Log(SERVERLOG,"%s ServerPre: pid: %d %s (%s) size=%d %s %s\r\n",dateLog,getpid(),client->user,client->bot,test, ourMainInputBuffer,dateLog);
+	if ((serverPreLog || overrideServerLog) && restarted)  Log(SERVERLOG,"%s ServerPre: retry pid: %d %s (%s) size:%d %s\r\n",dateLog,getpid(),client->user,client->bot,test, client->message);
+ 	else if ((serverPreLog || overrideServerLog))  Log(SERVERLOG,"%s ServerPre: pid: %d %s (%s) size=%d %s\r\n",dateLog,getpid(),client->user,client->bot,test, client->message);
     if (userInput) *userInput = endInput;
 	int turn = PerformChat(
         client->user,
@@ -769,7 +769,7 @@ RESTART_RETRY:
     int64 fulltime = now - client->starttime; // from task creation thru to done (complete send or killed by caller)
     if (fulltime > timeLog)
     {
-        ReportBug("INFO: Excess Time fulltime: %d qtime:%d nltime:%d  jotime: %d/%d currentq: %d  maxq: %d %s => %s\r\n", (int)fulltime, (int)client->qtime, (int)client->nltime, json_open_time, json_open_counter, ev_pending, ev_max,client->data);
+        ReportBug("INFO: Excess Time fulltime: %d qtime:%d nltime:%d  jotime: %d/%d currentq: %d  maxq: %d %s => %s\r\n", (int)fulltime, (int)client->qtime, (int)client->nltime, json_open_time, json_open_counter, ev_pending, ev_max, originalUserInput,client->data);
     }
 
     serverLog = oldserverlog;

@@ -1,6 +1,7 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br> Revision 2/8/2021 cs11.1
+<br>Revision 3/21/2021 cs11.2
+
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -642,6 +643,8 @@ If _which_ is `end` this returns the ending index. E.g.,
 if the value of `_1` was _the fox_, 
 it might be that start was 3 and end was 4 in the sentence _it was the fox_ .
 
+If the match var matched a fundmental meaning, then you can use which values of 
+`subject`, `verb`, and `object`. The verb is where start and end both yield. 
 
 ### `^removetokenflags ( value )`
 
@@ -1736,12 +1739,15 @@ It uses the standard CURL library, so it's arguments and how to use them are gen
 See ChatScript JSON manual for details. 
 
 
-### `^jsontree ( name )`
+### `^jsontree ( name {depth} {array})`
 
 `name` is the value returned by `^JSONparse`, `^JSONopen`, or some query into such structures. 
 It prints out a tree of elements, one per line, where depth is represented as more deeply indented. 
 Objects are marked with { } as they are in JSON. Arrays are marked with `[]`.
 
+Optional depth number restricts how deep it displays. 0 (default) means all. 1 means just top level.
+
+Optional "array" means show number of array elements rather than the elements themselves at any depth below depth.
 
 ### `^jsonwrite ( name )`
 
@@ -2000,6 +2006,7 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `preexists`            | word  | return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.
 | `xref`            | wordindex  | Kind | See below.
 | `isfunction`            | word  | returns 1 is word is a defined function, or fails
+| `layer`            | word  | When was this word entered into the dictionary. Answers are: `wordnet`, `0`, `1`, `2`, `user`.
 
 Example:
 
@@ -2045,11 +2052,6 @@ word will classify word as concept, word, number, or unknown.
 ### `^decodepos ( role location )`
 
 Returns the text of the role data of the given location.
-
-
-### `^layer ( word )`
-
-When was this word entered into the dictionary. Answers are: `wordnet`, `0`, `1`, `2`, `user`.
 
 
 ### `^partofspeech ( location )`
@@ -2256,19 +2258,6 @@ If you want to insure the word already exists first, you should do
     ^properties(dog) AND ^hasproperty(dog xxx) 
 
 since property fails if the word is not found.
-
-
-### `^removeinternalflag ( word value )`
-
-Removes named internal flag from word. 
-
-Currently only value is `HAS_SUBSTITUTE`, which allows you to disable a word/phrase substitution. 
-Use as word the full text of the left entry in a substitutions file. E.g.,
-
-`<constantly>` maps to `~yes` normally. 
-If you do `^removeinternalflag( <constantly> HAS_SUBSTITUTE)` then it will no longer do that. 
-
-This is a permanent change to the resident dictionary, which will take effect until the system is reloaded.
 
 
 ### `^removeproperty ( word value )`

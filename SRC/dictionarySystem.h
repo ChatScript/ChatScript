@@ -207,23 +207,20 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define PREDETERMINER_TARGET		0x0000000800000000ULL	// predeterminer can come before these (a an the)
 
 #define ADJECTIVE_POSTPOSITIVE		0x0000001000000000ULL	// adjective can occur AFTER the noun (marked on adjective)
-#define DETERMINER_SINGULAR			0x0000002000000000ULL		
-#define DETERMINER_PLURAL 			0x0000004000000000ULL	
+#define DETERMINER_SINGULAR	0x0000002000000000ULL		
+#define DETERMINER_PLURAL 		0x0000004000000000ULL	
 #define TAKES_POSTPOSITIVE_ADJECTIVE 	0x0000008000000000ULL	// word takes adjectives AFTER like something, nothing, etc (marked on word, not on adjective) 
 
-#define GRADE5_6					0x00000100000000b00ULL
-#define GRADE3_4					0x0000020000000000ULL
-#define GRADE1_2  					0x0000040000000000ULL
+#define GRADE5_6								0x0000010000000000ULL
+#define GRADE3_4								0x0000020000000000ULL
+#define GRADE1_2  								0x0000040000000000ULL
 #define KINDERGARTEN				( GRADE1_2 | GRADE3_4 | GRADE5_6 )
 #define AGE_LEARNED ( KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6 )  // adult is all the rest  (3 bits)
 
-#define SUBSTITUTE_RECIPIENT		0x0000080000000000ULL
-
+#define SUBSTITUTE_RECIPIENT			0x0000080000000000ULL
 #define NOUN_NODETERMINER			0x0000100000000000ULL	// nouns of location that require no determiner (like "Home is where the heart is") or mass nouns or numbers
-
-#define	WEB_URL						0x0000200000000000ULL	
-#define ORDINAL						0x0000400000000000ULL  // for adjectives and nouns labeled ADJECTIVE_NUMBER or NOUN_NUMBER, it is cardinal if not on and ordinal if it is	
-
+#define	WEB_URL										0x0000200000000000ULL	
+#define ORDINAL										0x0000400000000000ULL  // for adjectives and nouns labeled ADJECTIVE_NUMBER or NOUN_NUMBER, it is cardinal if not on and ordinal if it is	
 #define PRONOUN_REFLEXIVE			0x0000800000000000ULL 
 
 // 16 bits CANNOT REFERENCE BELOW IN POS RULES - chatscript internal markers
@@ -239,18 +236,19 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define COMMON7						( COMMON1 |  COMMON2  | COMMON4 ) // above 1 billion
 #define COMMONNESS					COMMON7  // word frequency in 1 gram
 
-#define MONTH						0x0020000000000000ULL 	// is a month name
-#define SPELLING_EXCEPTION			0x0040000000000000ULL	// dont double final consonant making past tense
-#define ADJECTIVE_NOT_PREDICATE		0x0080000000000000ULL	
+#define MONTH									0x0020000000000000ULL 	// is a month name
+#define SPELLING_EXCEPTION	0x0040000000000000ULL	// dont double final consonant making past tense
+#define ADJECTIVE_NOT_PREDICATE	0x0080000000000000ULL	
 #define ADJECTIVE_ONLY_PREDICATE	0x0100000000000000ULL	
-#define CONSTANT_IS_NEGATIVE		0x0200000000000000ULL	
+// unused		0x0200000000000000ULL	
 
-#define CONDITIONAL_IDIOM			0x0400000000000000ULL	// word may or may not merge into an idiom during pos-tagging -  blocks automerge during tokenization
+// unused			0x0400000000000000ULL
 #define NO_PROPER_MERGE				0x0800000000000000ULL	// do not merge this word into any proper name
 #define MARKED_WORD					0x1000000000000000ULL	// transient word marker that USER can store on word and find facts that connect to it && building dictionary uses it to mean save this word regardless
-#define PATTERN_WORD 				0x2000000000000000ULL
-#define DELAYED_RECURSIVE_DIRECT_MEMBER	0x4000000000000000ULL  // concept will be built with all indirect members made direct
-#define EXTENT_ADVERB				0x8000000000000000ULL	
+#define PATTERN_WORD 					0x2000000000000000ULL
+
+#define HAS_SUBSTITUTE					0x4000000000000000ULL		//   word has substitute attached 
+#define EXTENT_ADVERB					0x8000000000000000ULL	
 /////////////////////////////////////////////////////////////////////////////////
 
 // CANNOT REFERNCE ABOVE IN POS TAGGING RULES
@@ -295,9 +293,6 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // ALL VALUES BELOW HERE DO NOT NEED TO DECODE A BIT VALUE BACK TO A NAME VALUE
 
-// repeated internal bits
-#define HAS_SUBSTITUTE			0x00000800		//   word has substitute attached 
-
 // default values for json creation 
 #define JSON_ARRAY_UNIQUE 1
 #define JSON_OBJECT_DUPLICATE 2
@@ -319,7 +314,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // normal flags
 #define FACTAUTODELETE      0x00800000 // delete when json deletes
 #define OVERRIDE_MEMBER_FACT FACTAUTODELETE // used in ^testpattern matching
-#define ORIGINAL_ONLY       0x00400000  //  dont match on canonicals
+#define ORIGINAL_ONLY   0x00400000  //  dont match on canonicals
 #define FACTBUILD2			0x00200000 
 #define FACTBUILD1	        0x00100000  // fact created during build 1 (for concepts)
 
@@ -346,7 +341,8 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define FACTVERB			0x00000040	//   is 1st in its bucket (transient flag for read/WriteBinary) which MIRRORS DICT BUCKETHEADER flag: 
 #define FACTOBJECT		    0x00000020  //   does not apply to canonical forms of words, only the original form - for classes and sets, means dont chase the set
 #define FACTDUPLICATE		0x00000010	//   allow repeats of this fact
-//unused		0x00000008	
+
+#define RAWCASE_ONLY 0x00000008 // user MUST type in this case
 //unused		0x00000004	
 //unused		0x00000002	
 #define END_ONLY    		0x00000001	

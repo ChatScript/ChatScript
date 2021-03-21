@@ -1,3 +1,37 @@
+Version 11.2 3/21/2021
+1. WARNING- Change to JSON assignments representation
+	To create Json primitive NULL, use json_null, not "".  "" now is the json empty string.
+	JSON manual revised to be clear on this.
+2. Websocket support. You can create a websocket or make CS be Wa websocket client
+	command line param websocket= (where to link socket) and websocketmessage= (if you want cs to speak first on connecting)
+	^websocketinit, ^websocketclose, ^websocketsend, ^websocketend
+3. Matching using fundamental sentence now tracks where the Subject/verb/object locations
+	are in matchvariables, rather than just the verb. ^position now accepts  subject, verb, object to return positions of
+	those given a fundamental meaning match
+4. like 'word which means match only with original and not canonical, ''word means
+	raw-case keyword. Only if the user typed this word (not spellfixed to it) and only if he typed it in this case
+	(excluding 1st word in sentence). Good for ambigous upper case codes like states (HI, ME), airport codes
+	etc. where we expect user will capitalize them for clarity.
+5. Javascript function `native_log` to record data to the user log.
+6. Privatecode hooks to gain control in private code space for particular situations:
+	a) PerformChatArguments call at start of PerformChat
+	b) SignalHandler on linux exception
+	c) MongoQueryParams adjustments for document query
+	d) MongoUpsertKeyvalues adds additional params for upsert
+7. Mongodb can accept additional key values from a JSON object to add to a document query
+	from $cs_mongoqueryparams
+8. if %trace_on is seen in output execution, it turns on trace all
+    and if %trace_off is seen, to clears trace.
+9. Warnings for deprecated $bot, $token, $response have been remove
+10. %inputsize gives how many characters were passed in input
+11. %inputlimited is 1 if too many characters were given (relative to fullinputlimit)
+12. :canonize some sentence, will show the canonicals (analogous to :tokenize)
+13. :logging user {file,none,stdout,stderr}  and
+      :logging servertrace {on, off} 
+      :logging server {file,none,stdout,stderr} dynamically override whatever
+	  current settings are. 
+14. ^removeinternalflag has been removed.
+
 Version 11.1 2/8/2021
 1. chatscript client accepts command :dllchat filename to test using dll compile of cs
 2. ^jsonstorage( jsonname ) returns permanent, transient, boot or fails, depending on argument
@@ -5,14 +39,6 @@ Version 11.1 2/8/2021
 4. word: newword NOUN -- defines words and properties. Can define the word and conjugations of it
 	as well as properties and systemflags and parsebits
 5. source directory RAWDICT now included, is all the source used automatically by :builddict command which rebuilds english dictionary
-
-Prognostication
-I'm thinking of writing some CS script modules for sale (maybe $5k each). These include:
-a.  Pronoun Resolution
-b. Sentiment analyzer
-If either of these would be of interest to you, drop me a line. I would be available for 
-paid consultation or domain personalization as well.
-Anything else you want scripted as a module?
 
 Version 11.0 1/1/2021
 1. `%fullmstime`        overlooked variable documented - Numeric full time/date in milliseconds (Unix epoch time) 

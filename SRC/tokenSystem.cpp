@@ -511,7 +511,7 @@ WORDP ApostropheBreak(char* aword)
     WORDP D = FindWord(word);
     if (D)
     {
-        if (D->internalBits & HAS_SUBSTITUTE)
+        if (D->systemFlags & HAS_SUBSTITUTE)
         {
             WORDP X = GetSubstitute(D); 
             uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
@@ -1149,7 +1149,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	
 	X = FindWord(ptr,end-ptr,PRIMARY_CASE_ALLOWED);
 	// avoid punctuation so we can detect emoticons
-	if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & PATTERN_WORD || X->internalBits & HAS_SUBSTITUTE)) // we know this word (with exceptions)
+	if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & (PATTERN_WORD | HAS_SUBSTITUTE))) // we know this word (with exceptions)
 	{
   		// if ' follows a number, make it feet
 		if (*ptr == '\'' && (end-ptr) == 1)
@@ -1176,7 +1176,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	{
 		X = FindWord(ptr,end-ptr,LOWERCASE_LOOKUP);
 		// avoid punctuation so we can detect emoticons
-		if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & PATTERN_WORD || X->internalBits & HAS_SUBSTITUTE)) // we know this word (with exceptions)
+		if (X && !(X->properties & PUNCTUATION) && (X->properties & PART_OF_SPEECH || X->systemFlags & (PATTERN_WORD |HAS_SUBSTITUTE))) // we know this word (with exceptions)
 		{
 			//  No. must not be recognized unless followed by a digit
 			if (!strnicmp(ptr,(char*)"no.",end-ptr))
@@ -1759,7 +1759,7 @@ static void HandleFirstWord() // Handle capitalization of starting word of sente
 	// see if multiple word (like composite name)
 	char* multi = strchr(wordStarts[1],'_');
 	if (!D && !E && !multi) return;  // UNKNOWN word in any case (probably a name)
-	if (E && E->internalBits & HAS_SUBSTITUTE){;}
+	if (E && E->systemFlags & HAS_SUBSTITUTE){;}
 	else if (!multi || !IsUpperCase(multi[1])) // remove sentence start uppercase if known in lower case unless its a multi-word title or substitute
 	{ // or special case word
 		WORDP set[20];
@@ -2495,13 +2495,15 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			else// plural
 			{
 				WORDP D = FindWord(words[count]);
-				strcpy(words[count], GetPluralNoun(D->word));
+				char plu[MAX_WORD_SIZE];
+				strcpy(words[count], GetPluralNoun(D->word,plu));
 			}
 		}
 		else // plural unit before "per" like miles per hour
 		{
 			WORDP D = FindWord(words[2]);
-			strcpy(words[2], GetPluralNoun(D->word));
+			char plu[MAX_WORD_SIZE];
+			strcpy(words[2], GetPluralNoun(D->word,plu));
 		}
 
 		// ?_psi matching 30 psi as separated words
@@ -2591,13 +2593,13 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
 {
 	if (!word) return NULL;
 	if (word->systemFlags & ALWAYS_PROPER_NAME_MERGE) return word;
-	if (word->systemFlags & CONDITIONAL_IDIOM) //  dare not unless there are no conditions
+	if (word->internalBits & CONDITIONAL_IDIOM) //  dare not unless there are no conditions
     {
         char* script = word->w.conditionalIdiom;
         if (script[1] != '=') return NULL; // no conditions listed
 		if (tokenControl & NO_CONDITIONAL_IDIOM) return NULL;
 	}
-    if (word->internalBits & HAS_SUBSTITUTE)
+    if (word->systemFlags & HAS_SUBSTITUTE)
     {
         WORDP X = GetSubstitute(word); //uh - but we would, uh, , buy, .. lollipops
 		if (X)
@@ -2800,7 +2802,7 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 	WORDP result = NULL;
 	
 	//   dictionary match to multiple word entry
-	if (found->internalBits & HAS_SUBSTITUTE) // a special substitution
+	if (found->systemFlags & HAS_SUBSTITUTE) // a special substitution
 	{
 		if (Substitute(found, D ? D->word : NULL, i, idiomMatch))
 		{
@@ -2811,7 +2813,7 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 			lastMatchLocation = i;
 		}
 	}
-	else if (found->systemFlags & CONDITIONAL_IDIOM)  // must be a composite word, not a substitute
+	else if (found->internalBits & CONDITIONAL_IDIOM)  // must be a composite word, not a substitute
 	{
 
 		if (trace & TRACE_SUBSTITUTE && CheckTopicTrace()) 

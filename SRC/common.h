@@ -32,6 +32,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 //#define DISCARDJSONOPEN 1 
 //#define DISCARDJAVASCRIPT 1
 //#define DISCARD_TEXT_COMPRESSION 1
+//#define DISCARDWEBSOCKET 1
 
 // these can add components
 //#define  TREETAGGER 1
@@ -52,6 +53,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define DISCARDCOUNTER 1
 #define DISCARDCLIENT 1
 #define DISCARDJSONOPEN 1
+#define DISCARDWEBSOCKET 1
 
 #elif ANDROID
 #define DISCARDCOUNTER 1
@@ -62,11 +64,13 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define DISCARDCOUNTER 1
 #define DISCARDCLIENT 1
 #define DISCARDJSONOPEN 1
+#define DISCARDWEBSOCKET 1
 
 #elif __MACH__
 #define DISCARDPOSTGRES 1
 #define DISCARDMICROSOFTSQL 1
 #define DISCARDMYSQL 1
+#define DISCARDWEBSOCKET 1
 //#define DISCARDMONGO 1
 #else // GENERIC LINUX
 #ifndef EVSERVER
@@ -165,6 +169,10 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #include <utility>
 #include <vector>
 
+#ifndef DISCARDMONGO
+#include "bson.h"
+#endif
+
 using namespace std;
 
 #ifdef EVSERVER
@@ -209,6 +217,9 @@ using namespace std;
 #include "userCache.h"
 #include "userSystem.h"
 #include "variableSystem.h"
+#ifndef DISCARDWEBSOCKET
+	#include "easywclient/easywsclient.hpp"
+#endif
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatesrc.h"

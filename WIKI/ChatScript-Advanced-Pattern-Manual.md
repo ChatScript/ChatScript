@@ -1,9 +1,29 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 1/1/2021 cs11.0
+<br>Revision 3/21/2021 cs11.2
+
 
 
 # ADVANCED PATTERNS
+
+## QUOTED Keywords  'word and RAW-CASE Keywords ''CO (aka quote quote keywords)
+
+Words in a pattern or a concept are either their literal characters or, if they are the canonical form,
+allow a std transformation of the word.
+A singular noun will match singular or plural (because the singular is the canonical form).  An infinitive
+verb will match any conjugation of the verb whereas all other verb forms only match the form given.
+
+You can require only the form given, even if it is the canonical form, by putting a single quote in front of it.
+```
+    u: ( my cat)   -- this allows  "I cats"
+    u: ('my 'cat)  -- this only allows "my cat"
+```
+Of course users make typos and may have the input spellchecked to match. Like "my cate" might get changed
+to "my cat". And even if no spell fix happens, disambiguating "I like me" vs "I like ME" can be tricky.
+Therefore you can request a match based on what the user actually typed, not spell checked, and in the 
+case they used is possible by quote quoting the keyword `''ME`. Case will only be partially obeyed on the
+first word of a sentence because the user might be upper casing the first letter of the first word. So the system
+allows flexibility in matching the case of the first letter of the first word.
 
 ## UNLIMITED WILDCARDS
 

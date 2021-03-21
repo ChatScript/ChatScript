@@ -602,9 +602,15 @@ static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, u
     if (IsAlphaUTF8(word[1])) // must be a system variable
     {
         if (!once && IsAssignmentOperator(ptr)) return PerformAssignment(word, ptr, buffer, result); //   =  or *= kind of construction
-        strcpy(word, SystemVariable(word, NULL));
+        
+        if (!stricmp(word, "%trace_on"))
+        {
+            if (!server || VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))    trace = (unsigned int)-1;
+        }
+        else if (!stricmp(word, "%trace_off")) trace = 0;
+        else strcpy(buffer, SystemVariable(word, NULL));
     }
-    if (*word) strcpy(buffer, word);
+    else if (*word) strcpy(buffer, word);
     return ptr;
 }
 
@@ -756,18 +762,21 @@ static char* Output_Text(char* word, char* ptr, char* space, char*& buffer, unsi
 {
     // handles text or script
     if (*ptr != '(' || controls & OUTPUT_FACTREAD || IsDigit(*word)) StdNumber(word, buffer, controls); //   SIMPLE word  - paren if any is a nested fact read, or number before ( which cant be ^number
-    else  //   function call missing ^
+    else  //   function call missing ^?
     {
-        memmove(word + 1, word, strlen(word) + 1);
-        *word = '^';  // supply ^
-        ptr = Output_Function(word, ptr, space, buffer, controls, result, false);
-        if (result == UNDEFINED_FUNCTION) // wasnt a function after all.
+        char copy[MAX_WORD_SIZE];
+        strcpy(copy + 1, word);
+        *copy = '^';  // supply ^
+        result = NOPROBLEM_BIT;
+        if (csapicall == TEST_OUTPUT || csapicall == TEST_PATTERN)  StdNumber(word, buffer, controls);
+        else
         {
-            result = NOPROBLEM_BIT;
-            StdNumber(word + 1, buffer, controls);
+            WORDP D = FindWord(copy, 0, LOWERCASE_LOOKUP);
+            if (!D || !(D->internalBits & FUNCTION_NAME)) StdNumber(word, buffer, controls);
+            else ptr = Output_Function(copy, ptr, space, buffer, controls, result, false);
         }
     }
-    return ptr;
+     return ptr;
 }
 
 static char* Output_AtSign(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once)

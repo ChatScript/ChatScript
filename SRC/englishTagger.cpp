@@ -344,7 +344,7 @@ CD/B-NC
 		{
 			if (type) // end prior chunk
 			{
-				MarkMeaningAndImplications(0, 0, MakeMeaning(type), start, i,false, true);
+				MarkMeaningAndImplications(0, 0, MakeMeaning(type), start, i,FIXED, true);
 			}
 			type = StoreWord(word);
 			AddInternalFlag(type,CONCEPT);
@@ -354,7 +354,7 @@ CD/B-NC
 		{
 			if (type) // end prior chunk
 			{
-				MarkMeaningAndImplications(0, 0, MakeMeaning(type), start, i,false, true);
+				MarkMeaningAndImplications(0, 0, MakeMeaning(type), start, i, FIXED, true);
 				type = NULL;
 			}
 		}
@@ -365,7 +365,7 @@ CD/B-NC
 		{
 		}
 	}
-	if (type) MarkMeaningAndImplications(0, 0, MakeMeaning(type), start, wordCount,false,true);
+	if (type) MarkMeaningAndImplications(0, 0, MakeMeaning(type), start, wordCount, FIXED,true);
 }
 
 static void TreeTagger()
@@ -1498,6 +1498,28 @@ bool IsDeterminedNoun(int i,int& det)
 	return  (posValues[det] & (DETERMINER|POSSESSIVE_BITS|ADJECTIVE_NUMBER)) ? true : false;
 }
 
+bool IsDualNoun(int i)
+{
+    char word[MAX_WORD_SIZE * 3]; // each word might be max_word size
+    
+    if (i <= 1) return false;
+
+    // regular dual/compound nouns will pluralize the second word, "car loans"
+    strcpy(word, wordStarts[i-1]);
+    strcat(word, "_");
+    if (posValues[i] & NOUN_PROPER_PLURAL) strcat(word, canonicalUpper[i]->word);
+    else if (posValues[i] & NOUN_PLURAL) strcat(word, canonicalLower[i]->word);
+    else strcat(word, wordStarts[i]);
+    
+    WORDP Z = FindWord(word);
+    if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+    {
+        return true;
+    }
+
+    return false;
+}
+
 static unsigned int PriorPhrasalVerb(int particle,WORDP & D)
 {// testing for split particle (embedded direct object)
 	char word[MAX_WORD_SIZE];
@@ -1668,12 +1690,7 @@ static int TestTag(int &i, int control, uint64 bits,int direction,bool tracex)
         {
             if (i > 1 && posValues[i] & NOUN_BITS)
             {
-                char word[MAX_WORD_SIZE * 3]; // each word might be max_word size
-                strcpy(word, wordStarts[i-1]);
-                strcat(word, "_");
-                strcat(word, wordStarts[i]);
-                WORDP Z = FindWord(word);
-                if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+                if (IsDualNoun(i))
                 {
                     answer = true;
                     break;
@@ -2430,7 +2447,7 @@ unsigned int ProcessIdiom(char* word, int i, unsigned int words,bool &changed)
 
 		return words;
 	}
-	else if (D->systemFlags & CONDITIONAL_IDIOM) // eg. more_than -  ?[AR1]=R ?=<Rp+s	#	if followed by  number or adjective or adverb, its an adverb "more than 20", if if followed by noun/pronoun, its words "more than human" as adverb and preposition/subordconjunct
+	else if (D->internalBits & CONDITIONAL_IDIOM) // eg. more_than -  ?[AR1]=R ?=<Rp+s	#	if followed by  number or adjective or adverb, its an adverb "more than 20", if if followed by noun/pronoun, its words "more than human" as adverb and preposition/subordconjunct
 	{
 		char* script = D->w.conditionalIdiom;
 		bool valid = true;
@@ -2735,8 +2752,8 @@ static void WordIdioms(bool &changed)
 				--i; // use word before
 			}
 		}
-
-		if (!tagged && bitCounts[i] != 1  && lcSysFlags[i] & CONDITIONAL_IDIOM) // for single words, only if they are marked. And they should only be marked if generic rules cant handle it
+		WORDP id = FindWord(word);
+		if (!tagged && bitCounts[i] != 1  && id && id->internalBits  & CONDITIONAL_IDIOM) // for single words, only if they are marked. And they should only be marked if generic rules cant handle it
 		{
 			strcpy(word,base);
 			tagged = ProcessIdiom(word,i,1,changed);
@@ -4303,7 +4320,7 @@ static bool FinishSentenceAdjust(bool resolved, bool & changed, int start, int e
 				resolved = false;
 				return false;
 			}
-			else if (allOriginalWordBits[subjectz] & VERB_BITS && allOriginalWordBits[subjectz - 1] & NOUN_BITS) // the six year old *swims
+			else if (allOriginalWordBits[subjectz] & VERB_BITS && allOriginalWordBits[subjectz - 1] & NOUN_BITS && !IsDualNoun(subjectz)) // the six year old *swims
 			{
 				SetRole(subjectz, 0, true);
 				LimitValues(subjectz, VERB_BITS - VERB_INFINITIVE, (char*)"missing verb recovered from bad noun2", changed);
@@ -7189,12 +7206,7 @@ static unsigned int GuessAmbiguousVerb(int i, bool &changed)
 	// if something at the end of the sentence could be a verb and we dont want one.... dont be  "He can speak Spanish but he can't write it very *well."
     if (i > 1 && posValues[i] & VERB_BITS && i == (int)endSentence && !(needRoles[MAINLEVEL] & MAINVERB) && roleIndex == MAINLEVEL)
     {
-        char word[MAX_WORD_SIZE];
-        strcpy(word, wordStarts[i]);
-        strcat(word, "_");
-        strcat(word, wordStarts[i - 1]);
-        WORDP Z = FindWord(word);
-        if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+        if (IsDualNoun(i)) // known dual noun like savings account
         {
             if (LimitValues(i, -1 ^ VERB_BITS, (char*)"known dual noun at end", changed)) return GUESS_RETRY;
         }
@@ -9774,13 +9786,7 @@ needRoles[level] &= -1 ^ ALL_OBJECTS; // prior level is done
 				// unexpected noun/pronoun - may be appositive
                 else if (IsLegalAppositive(i - 1, i))
                 {
-                    // try for dual noun
-                    char wordx[MAX_WORD_SIZE];
-                    strcpy(wordx, wordStarts[i - 1]);
-                    strcat(wordx, "_");
-                    strcat(wordx, wordStarts[i]);
-                    WORDP Z = FindWord(wordx);
-                    if (Z && Z->properties & NOUN_BITS) // known dual noun like savings account
+                    if (IsDualNoun(i)) // known dual noun like savings account
                     {
                         SetRole(i, roles[i - 1]);
                         roles[i - 1] = 0;

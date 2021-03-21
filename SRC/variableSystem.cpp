@@ -80,11 +80,14 @@ static void FlipSeparator(char* word, char* buffer)
 
 void JoinMatch(int start, int end, int index, bool inpattern)
 {
+    // ignore invalid index
+    if (index > MAX_WILDCARDS) return;
     // concatenate the match value
     bool started = false;
     bool proper = false;
+    int realend = end & REMOVE_SUBJECT;
 	// generate the std expected memorizations
-    for (int i = start; i <= end; ++i)
+    for (int i = start; i <= realend; ++i)
     {
         if (unmarked[i] || i < 1 || i > wordCount) continue;	// ignore words masked or off end
         char* word = wordStarts[i];
@@ -101,15 +104,15 @@ void JoinMatch(int start, int end, int index, bool inpattern)
     }
 	// we have found phrases using appropriate wildcard separator to be used
 
-	if (start == end || proper) {} // single word or proper name
+	if (start == realend || proper) {} // single word or proper name
 	// if not a proper name and any are unknown, the composite is unknown unless it is an entire sentence grab, then preserve pieces
-	else if (strstr(wildcardCanonicalText[index], "unknown-word") && (start != 1 || end != wordCount))
+	else if (strstr(wildcardCanonicalText[index], "unknown-word") && (start != 1 || realend != wordCount))
 		strcpy(wildcardCanonicalText[index], "unknown-word");  
 	// proper names canonical is same, but merely having 1 uppercase is not proper if multiword "I live here" _*
     
 	WORDP D = NULL;
 	WORDP upperfoundword = NULL;
-	if  (uppercaseFind > EXACTNOTSET) upperfoundword = Index2Word((uppercaseFind & 0x00ffffff));
+	if  (uppercaseFind > EXACTNOTSET) upperfoundword = Meaning2Word(uppercaseFind );
 	// specific uppercase form requested, but we will not use it if it was not from user input but merely ^mark value
 	int len = strlen(wildcardOriginalText[index]);
 	int lenc = strlen(wildcardCanonicalText[index]);
@@ -150,7 +153,7 @@ void JoinMatch(int start, int end, int index, bool inpattern)
 		}
 		D = FindWord(wildcardCanonicalText[index], lenc);
 		if (D) strcpy(wildcardCanonicalText[index], D->word); // use capitalization from dictionary
-		else if (start != end) // consider if alternate is in dictionary (we used a separator)
+		else if (start != realend) // consider if alternate is in dictionary (we used a separator)
 		{
 			FlipSeparator(wildcardCanonicalText[index], word);
 			D = FindWord(word, len);
@@ -190,6 +193,8 @@ void SetWildCard(int start, int end, bool inpattern)
 
 void SetWildCardGiven(int start, int end, bool inpattern, int index)
 {
+    // ignore invalid index
+    if (index > MAX_WILDCARDS) return;
     if (end < start) end = start;				// matched within a token
     if (end > wordCount)
     {
@@ -215,11 +220,14 @@ void SetWildCardNull()
 
 void SetWildCardGivenValue(char* original, char* canonical, int start, int end, int index)
 {
-    if (end < start) end = start;				// matched within a token
-    if (end > wordCount && start != end) end = wordCount; // for start==end we allow being off end, eg _>
+    // ignore invalid index
+    if (index > MAX_WILDCARDS) return;
+    int realend = end & REMOVE_SUBJECT;
+    if (realend < start) realend = end = start;				// matched within a token
+    if (realend > wordCount && start != realend) realend = wordCount; // for start==end we allow being off end, eg _>
     *wildcardOriginalText[index] = 0;
     *wildcardCanonicalText[index] = 0;
-    if (start <= 0 || wordCount == 0 || (end <= 0 && start != 1)) // null match, like _{ .. }
+    if (start <= 0 || wordCount == 0 || (realend <= 0 && start != 1)) // null match, like _{ .. }
     {
     }
     else JoinMatch(start, end, index, false); // did match
@@ -365,9 +373,12 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
             {
                 int index = (separator[1] == '_') ? atoi(separator + 2) : atoi(separator + 3);
                 sprintf(originalkeyname, "_%d", index);
-                if (separator[1] == '_') strcpy(label, wildcardCanonicalText[index]);
-                else strcpy(label, wildcardOriginalText[index]);
-                key = FindWord(label);
+                if (index >= 0 && index <= MAX_WILDCARDS)
+                {
+                    if (separator[1] == '_') strcpy(label, wildcardCanonicalText[index]);
+                    else strcpy(label, wildcardOriginalText[index]);
+                    key = FindWord(label);
+                }
                 if (!key) goto NULLVALUE;	// cannot find
             }
         }
@@ -399,9 +410,12 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
             {
                 int index = (*label == '_') ? atoi(label + 1) : atoi(label + 2);
                 sprintf(originalkeyname, "_%d", index);
-                if (separator[1] == '_') strcpy(label, wildcardCanonicalText[index]);
-                else strcpy(label, wildcardOriginalText[index]);
-                if (IsDigit(*label)) key = FindWord(label);
+                if (index >= 0 && index <= MAX_WILDCARDS)
+                {
+                    if (separator[1] == '_') strcpy(label, wildcardCanonicalText[index]);
+                    else strcpy(label, wildcardOriginalText[index]);
+                    if (IsDigit(*label)) key = FindWord(label);
+                }
                 if (!IsDigit(*label))  goto NULLVALUE;
             }
             else  goto NULLVALUE; // not a number or indirect
@@ -1315,7 +1329,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     {
         if (impliedWild != ALREADY_HANDLED) // no one has actually done the assignnment yet
         {
-            if (assignFromWild >= 0) // full tranfer of data
+            if (assignFromWild >= 0 && assignFromWild <= MAX_WILDCARDS) // full tranfer of data
             {
                 SetWildCard(wildcardOriginalText[assignFromWild], wildcardCanonicalText[assignFromWild], word, 0);
                 wildcardPosition[GetWildcardID(word)] = wildcardPosition[assignFromWild];
@@ -1339,7 +1353,8 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             else Log(USERLOG, "%s = %s `%s`", word, originalWord1, buffer);
         }
         // assume that if a variable explicitly has quotes that they are important and therefore don't need to strip them 
-        bool stripQuotes = (*originalWord1 == USERVAR_PREFIX) ? false : true;
+        // BUG that we dont do that for _n vars but not likely
+        bool stripQuotes = (*originalWord1 == USERVAR_PREFIX) ? false : true; // literals get quotes stripped, variables already did that
         char* dot = strchr(word, '.');
         if (!dot) dot = strstr(word, "[]"); // array assign?
         if (!dot || nojson) SetUserVariable(word, buffer, true);

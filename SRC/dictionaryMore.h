@@ -22,60 +22,75 @@
 
 // these values of word->internalBits are NOT stored in the dictionary text files but are generated while reading in data
 
-// various sources of livedata substitions 
+// various sources of livedata substitutions on real words (will not be on topic,var,function,concept names)
 // These are on tokencontrol, enabling substitutions
-// various sources of livedata substitions 
 // the original word will have this flag | HAS_SUBSTITUTE
-//	used 	0x00000001 # DO_ESSENTIALS
-//	used	0x00000002 # DO_SUBSTITUTES
-//	used	0x00000004 # DO_CONTRACTIONS
-//	used	0x00000008 # DO_INTERJECTIONS
-//	used	0x00000010 # DO_BRITISH
-//	used	0x00000020 # DO_SPELLING
-//	used	0x00000040 # DO_TEXTING
-//	used	0x00000080 # DO_NOISE -- without HAS_SUBSTITUTE this is a script compiler flag to disable warnings on spelling
-//	used	0x00000100 thru PRIVATE
+//	 	0x00000001 # DO_ESSENTIALS
+#define NOTIME_TOPIC				0x00000001		// dont time this topic (topic names)
+#define NOTIME_FN						NOTIME_TOPIC	// dont time this function (on functions only)
 
-#define QUERY_KIND				0x00000200		// is a query item (from LIVEDATA or query:)
-#define LABEL					QUERY_KIND		// transient scriptcompiler use
-#define RENAMED					QUERY_KIND		// _alpha name renames _number or @name renames @n
-#define OVERRIDE_CONCEPT        QUERY_KIND      // this concept name is overridden by ^testpattern
-#define PREFER_THIS_UPPERCASE	0x00000400		// given choice of uppercases, retrieve this
-#define NOTIME_TOPIC			0x00000800		// dont time this topic (topic names)
-#define NOTIME_FN				NOTIME_TOPIC	// dont time this function (on functions only)
-
-#define UTF8					0x00001000		// word has utf8 char in it (all normal words)
-#define UPPERCASE_HASH			0x00002000		// word has upper case English character in it
-#define VAR_CHANGED				0x00004000		// $variable has changed value this volley 
+//		0x00000002 # DO_SUBSTITUTES
+#define VAR_CHANGED				0x00000002		// $variable has changed value this volley 
 #define NOTRACE_TOPIC			VAR_CHANGED		// dont trace this topic (topic names)
-#define NOTRACE_FN				VAR_CHANGED		// dont trace this function (on functions only)
-#define WORDNET_ID				0x00008000		// a wordnet synset header node (MASTER w gloss ) only used when building a dictionary -- or transient flag for unduplicate
-#define MACRO_TRACE				WORDNET_ID		// turn on tracing for this function or variable (only used when live running)
-#define BIT_CHANGED				WORDNET_ID	// changing properties, systemflags, etc during loading
-#define INTERNAL_MARK			0x00010000		// transient marker for Intersect coding and Country testing in :trim
-#define FROM_FILE				INTERNAL_MARK	//  for scriptcompiler to tell stuff comes from FILE not DIRECTORY
-#define MACRO_TIME				INTERNAL_MARK	// turn on timing for this function (only used when live running)
-#define BEEN_HERE				0x00020000		// used in internal word searches that might recurse
-#define FAKE_NOCONCEPTLIST		0x00040000		// used on concepts declared NOCONCEPTLIST
-#define DELETED_MARK			0x00080000		// transient marker for  deleted words in dictionary build - they dont get written out - includes script table macros that are transient
-#define BUILD0					0x00100000		// comes from build0 data (marker on functions, concepts, topics)
-#define BUILD1					0x00200000		// comes from build1 data
-#define HAS_EXCLUDE				0x00400000		// concept/topic has keywords to exclude
-#define TABBED                  HAS_EXCLUDE     // table macro is tabbed
-#define BOTVAR					HAS_EXCLUDE		// variable is a bot var (not real user var)
-#define BUILD2					0x00800000		// comes from dynamic build layer data
-#define FUNCTION_NAME			0x01000000 	//   name of a ^function  (has non-zero ->x.codeIndex if system, else is user but can be patternmacro,outputmacro, or plan) only applicable to ^ words
-#define CONCEPT					0x02000000	// topic or concept has been read via a definition
-#define TOPIC					0x04000000	//  this is a ~xxxx topic name in the system - only applicable to ~ words
-#define VARIABLE_ARGS_TABLE		0x08000000		// only for table macros and output macros
-#define UPPERCASE_MATCH			VARIABLE_ARGS_TABLE	// match on this concept should store canonical as upper case
-#define DEFINES					0x10000000		// word is a define, starts with `, uses ->properties and ->infermark as back and forth links
+#define NOTRACE_FN					VAR_CHANGED		// dont trace this function (on functions only)
 
-#define IS_OUTPUT_MACRO			0x20000000	// function is an output macro
-#define IS_TABLE_MACRO			0x40000000	// function is a table macro - transient executable output function
+//		0x00000004 # DO_CONTRACTIONS
+#define FROM_FILE						0x00000004	//  for scriptcompiler to tell stuff comes from FILE not DIRECTORY
+#define MACRO_TIME					FROM_FILE	// turn on timing for this function (only used when live running)
+
+//		0x00000008 # DO_INTERJECTIONS
+#define HAS_EXCLUDE				0x00000008		// concept/topic has keywords to exclude
+#define TABBED							HAS_EXCLUDE     // table macro is tabbed
+#define BOTVAR							HAS_EXCLUDE		// variable is a bot var (not real user var)
+
+//		0x00000010 # DO_BRITISH
+#define FUNCTION_NAME				0x00000010 	//   name of a ^function  (has non-zero ->x.codeIndex if system, else is user but can be patternmacro,outputmacro, or plan) only applicable to ^ words
+
+//		0x00000020 # DO_SPELLING
+#define CONCEPT								0x00000020	// topic or concept has been read via a definition
+
+//		0x00000040 # DO_TEXTING
+#define TOPIC									0x00000040	//  this is a ~xxxx topic name in the system - only applicable to ~ words
+
+//		0x00000080 # DO_NOISE -- without HAS_SUBSTITUTE this is a script compiler flag to disable warnings on spelling
+#define IS_OUTPUT_MACRO			0x00000080	// function is an output macro
+//		0x00000100 thru PRIVATE
+#define IS_TABLE_MACRO				0x00000100	// function is a table macro - transient executable output function
 #define IS_PLAN_MACRO			( IS_TABLE_MACRO | IS_OUTPUT_MACRO )	// function is a plan macro (specialized form of IS_OUTPUT_MACRO has a codeindex which is the topicindex)
-#define IS_PATTERN_MACRO		0x80000000 
+
+#define IS_PATTERN_MACRO		0x00000200 
 #define FUNCTION_BITS ( IS_PATTERN_MACRO | IS_OUTPUT_MACRO | IS_TABLE_MACRO | IS_PLAN_MACRO )
+
+#define PREFER_THIS_UPPERCASE	0x00000400		// given choice of uppercases, retrieve this
+
+#define HAS_CASEMARKING	0x00000800 	
+
+#define UTF8										0x00001000		// word has utf8 non-ascii char in it (all normal words)
+#define UPPERCASE_HASH			0x00002000		// word has upper case character in it
+#define QUERY_KIND						0x00004000	// is a query item (from LIVEDATA or query:)
+#define LABEL									QUERY_KIND		// transient scriptcompiler use
+#define RENAMED							QUERY_KIND		// _alpha name renames _number or @name renames @n
+#define OVERRIDE_CONCEPT        QUERY_KIND      // this concept name is overridden by ^testpattern
+#define WORDNET_ID						0x00008000		// a wordnet synset header node (MASTER w gloss ) only used when building a dictionary -- or transient flag for unduplicate
+#define MACRO_TRACE					WORDNET_ID		// turn on tracing for this function or variable (only used when live running)
+#define BIT_CHANGED					WORDNET_ID	// changing properties, systemflags, etc during loading
+#define CONDITIONAL_IDIOM		0x00010000	// word may or may not merge into an idiom during pos-tagging -  blocks automerge during tokenization --D->w data conflicts and overrules glosses
+#define BEEN_HERE							0x00020000		// used in internal word searches that might recurse
+#define FAKE_NOCONCEPTLIST	0x00040000		// used on concepts declared NOCONCEPTLIST
+#define DELETED_MARK				0x00080000		// transient marker for  deleted words in dictionary build - they dont get written out - includes script table macros that are transient
+#define BUILD0									0x00100000		// comes from build0 data (marker on functions, concepts, topics)
+#define BUILD1									0x00200000		// comes from build1 data
+#define DELAYED_RECURSIVE_DIRECT_MEMBER	 0x00400000  // concept will be built with all indirect members made direct
+#define BUILD2									0x00800000		// comes from dynamic build layer data
+#define CONSTANT_IS_NEGATIVE		0x01000000	
+#define INTERNAL_MARK			0x02000000		// transient marker for Intersect coding and Country testing in :trim
+// unused												0x04000000
+#define VARIABLE_ARGS_TABLE	 0x08000000		// only for table macros and output macros
+#define UPPERCASE_MATCH			VARIABLE_ARGS_TABLE	// match on this concept should store canonical as upper case
+#define DEFINES								0x10000000		// word is a define, starts with `, uses ->properties and ->infermark as back and forth links
+// unused												0x20000000
+// unused												0x40000000
+// unused												0x80000000
 
 #define FN_TRACE_BITS ( MACRO_TRACE | NOTRACE_FN )
 #define FN_TIME_BITS ( MACRO_TIME | NOTIME_FN )
@@ -101,14 +116,14 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 // pos tagger ZONE roles for a comma zone
 #define ZONE_SUBJECT			0x000001	// noun before any verb
 #define ZONE_VERB				0x000002
-#define ZONE_OBJECT				0x000004	// noun AFTER a verb
-#define ZONE_CONJUNCT			0x000008	// coord or subord conjunction
-#define ZONE_FULLVERB			0x000010	// has normal verb tense or has aux
-#define ZONE_AUX				0x000020	// there is aux in the zone
-#define ZONE_PCV				0x000040	// zone is entirely phrases, clauses, and verbals
+#define ZONE_OBJECT			0x000004	// noun AFTER a verb
+#define ZONE_CONJUNCT		0x000008	// coord or subord conjunction
+#define ZONE_FULLVERB		0x000010	// has normal verb tense or has aux
+#define ZONE_AUX					0x000020	// there is aux in the zone
+#define ZONE_PCV					0x000040	// zone is entirely phrases, clauses, and verbals
 #define ZONE_ADDRESS			0x000080	// zone is an addressing name start. "Bob, you are amazing."
-#define ZONE_ABSOLUTE			0x000100	// absolute zone has subject and partial participle verb, used to describe noun in another zone
-#define ZONE_AMBIGUOUS			0x000200	// type of zone is not yet known
+#define ZONE_ABSOLUTE		0x000100	// absolute zone has subject and partial participle verb, used to describe noun in another zone
+#define ZONE_AMBIGUOUS	0x000200	// type of zone is not yet known
 
 //   values for FindWord lookup
 #define PRIMARY_CASE_ALLOWED 1024
@@ -117,13 +132,11 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define LOWERCASE_LOOKUP 4096
 #define UPPERCASE_LOOKUP 8192
 
-
 #define NO_EXTENDED_WRITE_FLAGS ( PATTERN_WORD | MARKED_WORD )
 
 // system flags revealed via concepts
 #define MARK_FLAGS (  TIMEWORD | ACTUAL_TIME | WEB_URL | LOCATIONWORD | PRONOUN_REFLEXIVE | NOUN_NODETERMINER | VERB_CONJUGATE3 | VERB_CONJUGATE2 | VERB_CONJUGATE1 | INSEPARABLE_PHRASAL_VERB  | MUST_BE_SEPARATE_PHRASAL_VERB  | SEPARABLE_PHRASAL_VERB	|  PHRASAL_VERB  ) // system bits we display as concepts
 			
-
 // postag composites 
 #define PUNCTUATION_BITS	( COMMA | PAREN | PUNCTUATION | QUOTE | CURRENCY )
 
@@ -179,7 +192,7 @@ void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsig
 void Add2ConceptTopicList(HEAPREF list[256], WORDP D,int start,int end,bool unique);
 void SuffixMeaning(MEANING T,char* at, bool withPos);
 int UTFCharSize(char* utf);
-HEAPREF SetSubstitute(bool fromTestPattern, const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list,bool dynamic = false);
+HEAPREF SetSubstitute(const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list);
 // memory data
 extern WORDP dictionaryBase;
 extern uint64 maxDictEntries;
@@ -294,7 +307,7 @@ void ReadForeign();
 inline int GetMeaningCount(WORDP D) { return (D->meanings) ? GetMeaning(D,0) : 0;}
 inline int GetGlossCount(WORDP D) 
 {
-	return (D->w.glosses && *D->word != '~' && *D->word != '^' && *D->word != USERVAR_PREFIX && !(D->internalBits & HAS_SUBSTITUTE) && !(D->systemFlags & CONDITIONAL_IDIOM))  ? D->w.glosses[0] : 0;
+	return (D->w.glosses && *D->word != '~' && *D->word != '^' && *D->word != USERVAR_PREFIX && !(D->systemFlags & HAS_SUBSTITUTE) && !(D->internalBits & CONDITIONAL_IDIOM))  ? D->w.glosses[0] : 0;
 }
 char* GetGloss(WORDP D, unsigned int index);
 unsigned int GetGlossIndex(WORDP D,unsigned int index);

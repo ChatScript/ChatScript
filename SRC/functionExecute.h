@@ -97,6 +97,12 @@ extern bool allowBootKill;
 
 extern char* lastInputSubstitution;
 extern int globalDepth;
+
+#ifndef DISCARDWEBSOCKET
+void WebSocketClient(char* url,char* startmessage);
+FunctionResult WebsocketCloseCode(char* buffer);
+#endif
+
 #ifdef WIN32
 FunctionResult InitWinsock();
 #endif

@@ -106,9 +106,10 @@ DISCARD
 	IS NOUN_BITS
 DISCARD
 
-# noun plural cannot follow noun singular (prior would be adjective_noun) - "what government *offers is love"
+# noun plural cannot follow noun singular (prior would be adjective_noun) unless compound noun - "what government *offers is love"
 -1  CANONLYBE NOUN_SINGULAR NOUN_PLURAL
 	INCLUDE *  NOUN_PLURAL
+	STAY !DUALNOUN
 DISCARD
 
 # for multiple nouns in a row, some proper, use singular - the/a (Determiner)  Thai (+Noun_proper_singular +Noun_proper_plural)  cabinet (Noun_singular)
@@ -486,10 +487,11 @@ KEEP
 	STAY END
 KEEP
 
-# plural noun at start wont be followed by singular (wont be like bank teller) "predators *might come"
+# plural noun at start wont be followed by singular (wont be like bank teller, but could be "savings account" or "arms race") "predators *might come"
 -1 IS NOUN_PLURAL
 	STAY START
 	INCLUDE * NOUN_SINGULAR
+	STAY !DUALNOUN
 DISCARD
 
 

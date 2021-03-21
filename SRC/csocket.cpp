@@ -35,7 +35,7 @@ serverFinishedBy is what time the answer must be delivered(1 second before the m
 #include <ifaddrs.h>
 #include <net/if.h>
 #endif
-
+static int servertransfersize;
 bool echoServer = false;
 
 char serverIP[100];
@@ -84,7 +84,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 				*userInput = 0;
 			}
 		}
-		Log(SERVERLOG, "%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s Jo:%d/%d\r\n", nl, date, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
+		Log(SERVERLOG, "%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s JOpen:%d/%d\r\n", nl, date, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
 		if (userInput) *userInput = endInput;
 
 		if ((unsigned int)(endtime - starttime + qtime) > timeLog)
@@ -403,22 +403,43 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 	char* oobmessage = AllocateBuffer();
 	char* expect = AllocateBuffer();
 	char* userinput = AllocateBuffer();
+	char second[10000];
+	*second = 0;
 	while (1) // each line of regression file
 	{
 		++line;
 		ptr = data;
-		if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
+		if (*second) // use queued up line
+		{
+			strcpy(ptr, second);
+			*second = 0;
+		}
+		else
+		{
+			if (fgets(ptr, 100000 - 100, sourceFile) == NULL) break;
+			if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+			size_t l = strlen(ptr);
+			// Yes, sanity, Line 3, TRY_BAD_BLUETOOTH, computer, all, australia,SEM, jmeter,OOB, Welcome!What's going on with your computer?,Bluetooth headphones won't connect, So what? , , , , , ,
+			while (ptr > data && (ptr[l - 1] == ',' || ptr[l - 1] == '\n' || ptr[l - 1] == '\r')) ptr[--l] = 0; // remove trailing tabs
+		}
+		// read ahead. some export from csv has " continuing line
+		*second = 0;
+		fgets(second, 100000 - 100, sourceFile);
+		if (*second == '"') // use it up
+		{
+			strcat(ptr, second);
+			*second = 0;
+		}
+
 		char copy[10000];
-		size_t l = strlen(ptr);
-		// Yes, sanity, Line 3, TRY_BAD_BLUETOOTH, computer, all, australia,SEM, jmeter,OOB, Welcome!What's going on with your computer?,Bluetooth headphones won't connect, So what? , , , , , ,
-		while (ptr > data && (ptr[l - 1] == ',' || ptr[l - 1] == '\n' || ptr[l - 1] == '\r')) ptr[--l] = 0; // remove trailing tabs
-		
 		char* flip = ptr;
 		while ((flip = FindJMSeparator(flip, ','))) *flip = '\t';
 
 		strcpy(copy, ptr);
 		strcpy(ptr, copy); // for debug loopback
 		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+		
+		
 		char run[MAX_WORD_SIZE];
 		ptr = ReadTabField(ptr,  run);
 		if (stricmp(run, "yes")) continue; // not running                                                                                                                                               //RunTest, Suite, Comment, Name, Category, Specialty, Location, ChatType, Source, OOB for the first message, WelcomeMessage, 1st Message, 1st Response, 2nd Message, 2nd Response, 3rd Message, 3rd Response, 4th Message, 5th Response,
@@ -545,7 +566,7 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 			if (strcmp(actual, expect))
 			{
 				++failcnt;
-				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, passcnt, failcnt, cat, specialtydata, chattype, source, input);
+				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s %s:%s Input: %s\r\n", line, bot, passcnt, failcnt, cat, specialtydata, chattype, source, userinput);
 				fprintf(out, "want: %s\r\n", expect);
 				fprintf(out, "gotx: %s|        %s\r\n\r\n", actual, response);
 			}
@@ -742,7 +763,8 @@ restart: // start with user
 		else if (!strnicmp(ptr, (char*)":jajmeter ", 9))
 		{
 			char file[SMALL_WORD_SIZE];
-			ptr = ReadCompiledWord(ptr + 9, file);
+			strcpy(file, jmeter);
+			ptr = ReadCompiledWord(ptr + 9, file + strlen(file));
 			size_t len = strlen(file);
 			pass = fail = 0;
 			FILE* out = FopenBinaryWrite("TMP/jmeter.txt");
@@ -1435,6 +1457,8 @@ static void ServerGetChatLock()  //LINUX
 
 void InternetServer()  //LINUX
 {
+	servertransfersize = (4 + 100 + maxBufferSize); // offset to output buffer
+
 	//   thread to accept incoming connections, doesnt need much stack
 	pthread_t socketThread;
 	pthread_attr_t attr;
@@ -1552,6 +1576,7 @@ void PrepareServer()
 void InternetServer()
 {
 	_beginthread((void(__cdecl *)(void *))AcceptSockets, 0, 0);	// the thread that does accepts... spinning off clients
+	servertransfersize = (4 + 100 + maxBufferSize); // offset to output buffer
 	MainChatbotServer();  // run the server from the main thread
 	CloseHandle(hChatLockMutex);
 	DeleteCriticalSection(&TestCriticalSection);
@@ -1565,7 +1590,7 @@ static void ServerTransferDataToClient()
 	size_t len1 = strlen(why); // hidden why
 	char* topic = why + len1 + 1;
 	size_t len2 = strlen(topic); // hidden active topic
-	size_t offset = SERVERTRANSERSIZE;
+	size_t offset = servertransfersize;
 	memcpy(clientBuffer + offset, ourMainOutputBuffer, len + len1 + len2 + 4);
 	clientBuffer[sizeof(int)] = 0; // mark we are done.... 
 #ifndef WIN32

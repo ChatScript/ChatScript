@@ -11,12 +11,12 @@
 <h1 id="chatscript-basic-user-manual">ChatScript Basic User Manual</h1>
 <p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/10/2018 cs9.8</p>
 <ul>
-<li><a href="ChatScript-Basic-User-Manual.hmtl#overview">Overview</a></li>
-<li><a href="ChatScript-Basic-User-Manual.hmtl#simple-topics">Simple Topics</a></li>
-<li><a href="ChatScript-Basic-User-Manual.hmtl#simple-patterns">Simple Patterns</a></li>
-<li><a href="ChatScript-Basic-User-Manual.hmtl#simple-output">Simple Output</a></li>
-<li><a href="ChatScript-Basic-User-Manual.hmtl#variables">Variables</a></li>
-<li><a href="ChatScript-Basic-User-Manual.hmtl#summary">Summary</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple Topics</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-patterns">Simple Patterns</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-output">Simple Output</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#variables">Variables</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#summary">Summary</a></li>
 </ul>
 <h1 id="overview">OVERVIEW</h1>
 <p>ChatScript (CS) is a scripting language designed to accept user text input and generate a text response.</p>
@@ -24,7 +24,7 @@
 <p>In most common usage, what you build is a <em>chatbot</em>, a program that takes input from a human and outputs a response. It converses with you. But I have also built a chatbot that is dedicated to reading a <em>document</em>. The input, in that case, is the entire document.</p>
 <p>What, if any, output it generates is up to its program. My program was designed to find the table of contents, each chapter boundary, and where the index at the back was.</p>
 <p>So, more broadly, <strong>ChatScript is a system for manipulating natural language, not just for building a chatbot</strong>.</p>
-<p>This document is about how to write script. There is a more general discussion about how to think about authoring a bot in the paper <a href="PAPERS/Writing-a-Chatbot.hmtl">Writing a Chatbot</a> in the documentation.</p>
+<p>This document is about how to write script. There is a more general discussion about how to think about authoring a bot in the paper <a href="PAPERS/Writing-a-Chatbot.html">Writing a Chatbot</a> in the documentation.</p>
 <h2 id="input-and-output-sentences">Input and output sentences</h2>
 <p>ChatScript (CS) takes one or more <em>input sentences</em> from the user. A <em>sentence</em> in CS nominally means the sequence of words up until some sentence <em>terminal token</em> chars. By default these characters end sentences:</p>
 <table>
@@ -150,7 +150,7 @@ s: (I hate meat) really? </code></pre>
 <tr class="odd">
 <td align="center"><strong>gambits</strong></td>
 <td align="center"><code>r:</code><br><code>t:</code></td>
-<td>are the story the chatbot wants to tell on a subject or the conversation the chatbot is trying to steer the user into. <code>r:</code> are random gambits (<a href="ChatScript-Advanced-User-Manual.hmtl#random-gambit">explained later</a>).</td>
+<td>are the story the chatbot wants to tell on a subject or the conversation the chatbot is trying to steer the user into. <code>r:</code> are random gambits (<a href="ChatScript-Advanced-User-Manual.html#random-gambit">explained later</a>).</td>
 </tr>
 </tbody>
 </table>
@@ -408,7 +408,7 @@ s: (~baseball) I’m not that into sports like baseball. </code></pre>
 <p>Hierarchical inheritance is important in pattern generalization. Concepts can be used to create full ontologies of verbs, nouns, adjectives, and adverbs, allowing one to match general or idiomatic meanings.</p>
 <p>The system comes with such already defined, you just have to activate it. If you give the command <code>:build 0</code> to the chatbot, you will build the underlying ontology and world knowledge of the system. Then you can explore the existing sets.</p>
 <p>In addition to fixed sets (over 1600 of them), the system automatically defines a bunch of dictionary-based sets. These include parts-of-speech like <code>~noun</code> as well as general open concepts like <code>~number</code>.</p>
-<p>For a full list, see the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
+<p>For a full list, see the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
 <h2 id="capitalization">Capitalization</h2>
 <p>However you type your input, with or without capital letters, the system tries to figure out the word you actually mean.</p>
 <p>If you write <em>Can I go back</em>, you don't mean that <em>Can</em> is a proper noun. You mean <em>can I go back</em>, and so that is what the system sees.</p>
@@ -428,7 +428,7 @@ u: ( &quot;The Beatles&quot; )</code></pre>
 <p>In ChatScript these are defined by the <code>interjections.txt</code> file (for English language, see <a href="../LIVEDATA/ENGLISH/SUBSTITUTES/interjections.txt">interjections.txt</a>). Also there are some in the <code>texting.txt</code> file.</p>
 <p>In addition, the file augments this concept with <em>discourse acts</em>, phrases that are like an interjection. All interjections and discourse acts map to concept sets, which either come through as the user input instead of what they wrote or will merely be marked as interjections, leaving the words unchanged (see interjections in <code>Practicum - Spelling and Interjections</code>).</p>
 <p>For example <em>yes</em> and <em>sure</em> and <em>of course</em> are all treated as meaning the discourse act of agreement in the interjections file. If you don't suppress interjection word remapping, you don’t see <em>yes, I will go</em> coming out of the engine. The interjections file will remap that to the sentence <code>~yes</code>, breaking off that into its own sentence, followed by <em>I will go</em> as a new sentence.</p>
-<p>These generic interjections (which are open to author control via <code>interjections.txt</code>) are listed in the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
+<p>These generic interjections (which are open to author control via <code>interjections.txt</code>) are listed in the <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a> manual.</p>
 <p>If interjections at the start of a sentence are broken off into their own sentence (as they used to be by default but are no longer), this kind of pattern does not work:</p>
 <pre><code>u: ( ~yes _* )</code></pre>
 <p>You cannot capture the rest of the sentence here, because it will be part of the next sentence instead. This means interjections act somewhat differently from other concepts. If you use a word in a pattern which may get remapped on input, the script compiler will issue a warning. Likely you should use the remapped name instead.</p>
@@ -478,7 +478,7 @@ s: ( define {(the word) (the meaning of) } *1 &gt; ) Sorry. I don’t know it.</
 <p>In a quoted phrase, you can use either all canonical or all exact forms. And you can do a quoted phrase of 4 words long (but not longer).</p>
 <h2 id="commands">Commands</h2>
 <p>You can issue commands to the system (prefix is colon) to inquire about things, control things, debug things, etc. In this simple section, we look at commands to examine words and their relationship to themselves and concepts. All commands are invisible to normal chat in that they do not affect the user’s state of processing chat. A list of all commands can be gotten by typing <code>:commands</code>.</p>
-<p>Documention on most of them is in the <a href="ChatScript-Debugging-Manual.hmtl">ChatScript Debugging Manual</a>.</p>
+<p>Documention on most of them is in the <a href="ChatScript-Debugging-Manual.html">ChatScript Debugging Manual</a>.</p>
 <pre><code>:word word</code></pre>
 <p>dumps the dictionary and fact and concept information about the word. It displays everything the system knows about the given word- its parts of speech, attributes like it is a singular noun, what dictionary meanings it has, and what sets and facts it participates in directly. Just type in something like <code>:word tennis</code></p>
 <pre><code>:up word</code></pre>
@@ -538,7 +538,7 @@ For temple:
 ?: ( hello ) How are you? Do you have a life? Are you going to die soon? </code></pre>
 <h2 id="autoformat">AutoFormat</h2>
 <p>You pass words and punctuation for display. The system automatically formats it, so it doesn’t matter if your commas and periods have spaces before them, or how many blanks or tabs there are between words. The system reformats it automatically. <em>I like you?</em> and <em>I like you ?</em> print the same on output</p>
-<p>If you actually need to control spacing, consult &quot;formatted double quotes&quot; in the <a href="ChatScript-Advanced-Output-Manual.hmtl#formatted-double-quotes-activeformat-stringd">ChatScript Advanced Output Manual</a>.</p>
+<p>If you actually need to control spacing, consult &quot;formatted double quotes&quot; in the <a href="ChatScript-Advanced-Output-Manual.html#formatted-double-quotes-activeformat-stringd">ChatScript Advanced Output Manual</a>.</p>
 <h2 id="literal-output">Literal Output <code>\</code></h2>
 <p>To output characters that have reserved meaning to the engine, like <code>[</code> and <code>]</code>, you need to put a backslash immediately in front of them. In particular, to force a newline you use <code>\n</code> and tab with <code>\t</code>.</p>
 <h2 id="randomized-output">Randomized Output <code>[</code> <code>]</code></h2>
@@ -549,7 +549,7 @@ For temple:
 <p>or</p>
 <p><em>hey Are you going to eat anytime soon?</em>.</p>
 <h1 id="variables">VARIABLES</h1>
-<p>A chatbot with no ability to remember, even in the brief moment of attending to user input, would be an impoverished being indeed. ChatScript supports several levels of memorization. The ultimate variable is the fact, but that has its own <a href="ChatScript-Fact-Manual.hmtl">ChatScript Fact Manual</a> manual.</p>
+<p>A chatbot with no ability to remember, even in the brief moment of attending to user input, would be an impoverished being indeed. ChatScript supports several levels of memorization. The ultimate variable is the fact, but that has its own <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> manual.</p>
 <h2 id="match-variables"><code>_</code> Match Variables</h2>
 <p>When you use wildcards and sets in a pattern, you can ask the system to memorize briefly the word it matches. Just place an underscore in front of what you want memorized.</p>
 <p>The purpose of memorizing is to be able to use the value on output. The results of memorization are stored on match variables named <code>_0</code>, <code>_1</code>, etc, depending upon how many underscores you use in the pattern.</p>
@@ -586,7 +586,7 @@ For temple:
 <p><code>|^=</code> turns off bits and <code>$x |^= 2</code> is equivalent to <code>$x &amp;= (-1 ^ 2)</code></p>
 <p>Variable assignments extend also across arithmetic operations but you cannot use parens to control operator precedence. E.g.,</p>
 <pre><code>$myvalue = $foo + 20 * 5 / 59  This is normal output after the assignment.</code></pre>
-<p>You can even assign sets of facts in various ways (see <a href="ChatScript-Fact-Manual.hmtl">ChatScript Fact Manual</a> for understanding facts) like:</p>
+<p>You can even assign sets of facts in various ways (see <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> for understanding facts) like:</p>
 <pre><code>@2 = @3 # put all facts in 3 into 2
 @2 += @3 # augment 2 with facts of 3 (allows duplicates)
 @2 -= @3 # remove facts of 3 from 2
@@ -626,13 +626,13 @@ s: ( my _*1 ) _8 = _0</code></pre>
 _3 = null</code></pre>
 <h2 id="long-term-variables">Long-term variables</h2>
 <p>The system normally stores variables on a per-user basis. You can set bot-specific facts in the login function of a bot. If you have facts you want to be global across all bots and as part of the base system, you can put those assignments into a table and read it in under a <code>:build</code> command.</p>
-<p>Go read the <a href="ChatScript-Fact-Manual.hmtl">ChatScript Fact Manual</a> for more about facts.</p>
+<p>Go read the <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> for more about facts.</p>
 <h2 id="system-variables"><code>%</code> System Variables</h2>
 <p>The system has some predefined variables which you can generally test and use but not normally assign to. These all begin with <code>%</code>. These include <code>%hour</code>, <code>%bot</code>, and others.</p>
-<p>See <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl">ChatScript System Variables and Engine-defined Concepts</a>.</p>
+<p>See <a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript System Variables and Engine-defined Concepts</a>.</p>
 <h1 id="summary">Summary</h1>
 <p>Not as simple as you might have wanted. Doubtless I told you much more than you really wanted to know at this stage, but it sets the scene so you know there is a lot of capability there (though truly we have barely scratched the surface here). Just remember, to start, all you need is to write a topic, with keywords, trivial gambits, responders and rejoinders with simple patterns, and output that is simply exactly what you want the bot to say.</p>
 <hr />
-<p>[<a href="/WIKI/README.html">Wiki home</a>] - [<a href="ChatScript-Advanced-User-Manual.hmtl">Advanced User Manual</a>]</p>
+<p>[<a href="/WIKI/README.html">Wiki home</a>] - [<a href="ChatScript-Advanced-User-Manual.html">Advanced User Manual</a>]</p>
 </body>
 </html>

@@ -133,7 +133,7 @@ static int SplitWord(char* word,int i)
 			D2 = FindWord(word+breakAt,0,PRIMARY_CASE_ALLOWED);
 			if (D2)
 			{
-				good = (D2->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D2->internalBits & HAS_SUBSTITUTE) != 0; 
+				good = (D2->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D2->systemFlags & HAS_SUBSTITUTE) != 0;
 				if (good && (D2->systemFlags & AGE_LEARNED))// must be common words we find
 				{
 					char number[MAX_WORD_SIZE];
@@ -159,13 +159,23 @@ static int SplitWord(char* word,int i)
         else if (isFrench && k == 1 && *word != 'y' && *word != 'a' && *word != 'A' && !SameUTF(word,"à") && !SameUTF(word, "À") && !SameUTF(word, "ô") && !SameUTF(word,"Ô")) continue; //   in french only y, a and ô are allowed single-letter words
 		WORDP D1 = FindWord(word,k,PRIMARY_CASE_ALLOWED);
         if (!D1) continue;
-		good = (D1->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D1->internalBits & HAS_SUBSTITUTE) != 0; 
-		if (!good || !(D1->systemFlags & AGE_LEARNED)) continue; // must be normal common words we find
+		good = (D1->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D1->systemFlags & HAS_SUBSTITUTE) != 0;
+		if (good)
+		{
+			if (D1->systemFlags & AGE_LEARNED || GetMeaningCount(D1) > 1);
+			else good = false;
+		}
+		if (!good ) continue; // must be normal common words we find
 
         D2 = FindWord(word+k,len-k,PRIMARY_CASE_ALLOWED);
         if (!D2) continue;
-        good = (D2->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D2->internalBits & HAS_SUBSTITUTE) != 0;
-		if (!good || !(D2->systemFlags & AGE_LEARNED) ) continue; // must be normal common words we find
+        good = (D2->properties & (PART_OF_SPEECH|FOREIGN_WORD)) != 0 || (D2->systemFlags & HAS_SUBSTITUTE) != 0;
+		if (good)
+		{
+			if (D2->systemFlags & AGE_LEARNED || GetMeaningCount(D2) > 1);
+			else good = false;
+		}
+		if (!good ) continue; // must be normal common words we find
 
         if (!breakAt) breakAt = k; // found a split
 		else // found multiple places to split... dont know what to do
@@ -416,10 +426,16 @@ bool SpellCheckSentence()
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
 		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
 		{
-			WORDP X = FindWord(word,0, LOWERCASE_LOOKUP);
-			if (IS_NEW_WORD(X)) X = FindWord(word, 0, UPPERCASE_LOOKUP);
-			WORDP Y = FindWord(wordStarts[i + 1],0,LOWERCASE_LOOKUP);
-			if (IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, UPPERCASE_LOOKUP);
+            // for German be cognizant that nouns are uppercase and hence more useful, 3 Tage is preferred to 3-Tage
+            uint64 primaryCaseX = (isGerman && IsUpperCase(*word)) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;
+            uint64 secondaryCaseX = (primaryCaseX == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;
+            uint64 primaryCaseY = (isGerman && IsUpperCase(*wordStarts[i+1])) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
+            uint64 secondaryCaseY = (primaryCaseY == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
+
+			WORDP X = FindWord(word, 0, primaryCaseX);
+			if (!X || IS_NEW_WORD(X)) X = FindWord(word, 0, secondaryCaseX);
+			WORDP Y = FindWord(wordStarts[i + 1], 0, primaryCaseY);
+			if (!Y || IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, secondaryCaseY);
 			bool useful1 = UsefulKnownWord(X);
 			bool useful2= UsefulKnownWord(Y);
 			if (!(X && Y && useful1 && useful2)) // has-been is a word we dont want merge,but model numbers we do.
@@ -1147,7 +1163,7 @@ bool SpellCheckSentence()
 		uint64 xflags = 0;
 		uint64 cansysflags = 0;
 		uint64 inferredProperties = GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags, false, true);
-		if (entry && entry->internalBits & HAS_SUBSTITUTE) entry = canonical = NULL;
+		if (entry && entry->systemFlags & HAS_SUBSTITUTE) entry = canonical = NULL;
 		if (canonical && !stricmp(canonical->word, "unknown-word")) canonical = NULL;
 		if (canonical && ((!(canonical->internalBits & UPPERCASE_HASH) && canonical != entry) || (inferredProperties & (NOUN_NUMBER | ADJECTIVE_NUMBER))))
 		{
@@ -1178,18 +1194,27 @@ bool SpellCheckSentence()
 	{
 		if (!retry[i]) continue; // no problem here
 		char* word = wordStarts[i];
+        int oldWordCount = wordCount;
 
 		// see if smooshed word pair
 		if (*word != '\'' && (!FindCanonical(word, i, true) || IsUpperCase(word[0]))) // dont check quoted or findable words unless they are capitalized
 		{
 			char* word1 = SpellCheck(i);
+            
+            // if the word count has increased then need to adjust the retry flags accordingly because there might be, for example, more words to split
+            if (wordCount > oldWordCount)
+            {
+                int diff = wordCount - oldWordCount;
+                for (int j = wordCount; j > i; --j) retry[j] = retry[j-diff];
+                for (int j = 1; j <= diff; ++j) retry[i+diff] = 0;
+            }
 
 			// dont spell check proper names to improper, if word before or after is lower case originally
 			// unless a substitute like g-mail-> Gmail
 			if (word1 && i != 1 && originalCapState[i] && !IsUpperCase(*word1))
 			{
 				WORDP X = FindWord(word1);
-				if (X && X->internalBits & HAS_SUBSTITUTE) {}
+				if (X && X->systemFlags & HAS_SUBSTITUTE) {}
 				else if (!originalCapState[i - 1]) continue;
 				else if (i != wordCount && !originalCapState[i + 1]) continue;
 			}
@@ -1648,7 +1673,8 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
         if (best)
         {
             base = NOUN | NOUN_PLURAL;
-            char* plu = GetPluralNoun(best);
+			char pl[MAX_WORD_SIZE];
+            char* plu = GetPluralNoun(best,pl);
             return (plu) ? plu : NULL;
         }
     }
@@ -1716,7 +1742,8 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
             if (F && F->properties & NOUN)
             {
                 base = NOUN | NOUN_PLURAL;
-                return GetPluralNoun(F->word);
+				char pl[MAX_WORD_SIZE];
+                return GetPluralNoun(F->word,pl);
             }
             base = VERB | VERB_PRESENT_3PS;
 			ending = "s";
@@ -1742,7 +1769,7 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
     if (D->word[strlen(D->word) - 1] != originalWord[strlen(originalWord) - 1]) ++val; // doesnt end the same
     if (D->internalBits & UPPERCASE_HASH) ++val; // lower case should win any tie against proper name
 
-    if (val <= min && !(D->internalBits & HAS_SUBSTITUTE)) // as good or better
+    if (val <= min && !(D->systemFlags & HAS_SUBSTITUTE)) // as good or better
     {
        if (spellTrace) Log(USERLOG, "    found: %s %d\r\n", D->word, val);
        if (val < min)
@@ -1847,7 +1874,7 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
     if (!index)  return NULL; 
     if (index > 1) multichoice = true;
 
-	// take our guesses, and pick the most common or substitute (earliest learned or most frequently used) word
+	// take our guesses, and pick the most common or substitute (earliest learned or most frequently used) word or most meanings
     uint64 commonmin = 0;
     bestGuess[0] = NULL;
 	for (unsigned int j = 0; j < index; ++j) RemoveInternalFlag(choices[j],BEEN_HERE);
@@ -1861,15 +1888,16 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
         uint64 common = choices[j]->systemFlags & COMMONNESS;
 		// if we had upper case and we are spell checking to lower case,
 		// DONT unless a detected substitution is allowed. dont want to lose unknown proper names
-		if (isUpper && !(choices[j]->internalBits & UPPERCASE_HASH) && !(choices[j]->internalBits & HAS_SUBSTITUTE) && start != 1)
+		if (isUpper && !(choices[j]->internalBits & UPPERCASE_HASH) && !(choices[j]->systemFlags & HAS_SUBSTITUTE) && start != 1)
 		{
 			continue;
 		}
 		if (choices[j]->internalBits & UPPERCASE_HASH && index > 1) continue;	// ignore proper names for spell better when some other choice exists
 
-		if (choices[j]->internalBits & HAS_SUBSTITUTE)
+		if (choices[j]->systemFlags & HAS_SUBSTITUTE)
 			common = 0xff10000000000000ULL;
 		common |= choices[j]->systemFlags & AGE_LEARNED;
+		common |= GetMeaningCount(choices[j]);
 
         if (common < commonmin) continue;
         if (common > commonmin) // this one is more common
@@ -1877,6 +1905,10 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
             commonmin = common;
             bestGuessindex = 0;
         }
+		else
+		{
+
+		}
         bestGuess[bestGuessindex++] = choices[j];
     }
 	if (bestGuessindex) 

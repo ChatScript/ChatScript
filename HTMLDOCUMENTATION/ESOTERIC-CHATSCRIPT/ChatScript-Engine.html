@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br> Revision 2/8/2021 cs11.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 3/21/2021 cs11.2</p>
 <ul>
 <li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
@@ -246,6 +246,8 @@ typedef struct FACT
 <p>The value of the dictionary entry of the function name is a pointer to the function data allocated in the heap. Multiple definitions of the name are chained together, and the system will hunt that list for the first entry whose bot bits allow use.</p>
 <p>Patternmacros are scripter-written patterns that allow some existing pattern to transfer over to them and back again when used up. They have the same format as outputmacros, but their code data is simply the pattern to execute. The pattern code merely switches over to this extension code until it runs out, and resumes its normal code. You can't nest patternmacro calls at present.</p>
 <p>All system functions return both a text buffer answer and an error code. For error codes see the section on error handling.</p>
+<h2 id="when-functions-can-be-run">When functions can be run</h2>
+<p>There are three time frames that functions can be invoked: compile-time, startup-time (boot time), and user script execution. Compile-time function calls can be made from table: declarations, providing the function has already been defined. If you define a function called ^CSBOOT(), that gets executed as the system starts up and it can then invoke anything else. And otherwise scripts executed per user volley can invoke any function.</p>
 <h2 id="argument-passing">Argument Passing</h2>
 <p>There are actually two styles of passing arguments. Arguments are stored in a global argument array, referenced by ARGUMENT(n) when viewed from system routines. The call sets the current global index and then stores arguments relative to that. Outputmacros use that same mechanism for call-by-reference arguments. Call by reference arguments start with <code>^</code> like <code>^myarg</code> and the script compiler compiles the names into number references starting with <code>^0</code> and increasing <code>^1</code> ... <code>^myarg</code> style allows a routine to assign indirectly to the callers variable.</p>
 <p>But outputmacros also support call by value arguments which start with <code>$_</code> like <code>$_myarg</code>. No one outside the routine is allowed to change these or use these to access the above caller's data. Hence call by value. These are normal albeit transient variables so the corresponding value from the argument stack is also stored as the value of the local variable. That happens after the function call code first saves away the old values of all locals of a routine (or topic) and then initializes all locals to NULL. Once the call is finished, the saved values are restored.</p>
@@ -345,6 +347,7 @@ u: ( I want * _adjustment @_0- the)  -- finds the rare word adjustment and then 
 <p>There are two kinds of error handling, rule-based and engine based.</p>
 <p>All script-callable engine Functions are declared <code>FunctionResult</code> and return NOPROBLEM_BIT when things are fine. Other codes indicate whether to terminate a rule, topic, sentence, or input as OK or an error. In script you can suppress errors from below by kind, e.g., <code>^nofail(TOPIC ...)</code>. Or you can trap all errors and examine what termination happened via <code>^result( ... )</code>.</p>
 <p>The engine tries to detect and recover from various error conditions. It uses <code>ReportBug</code> to add an entry into LOGS/bugs.txt (and the server log if a server). Any error message starting with <code>FATAL</code> means that the call will not return; CS will end execution instead. Fatal errors are not trapped by a try/catch or setjmp/longjump mechanism because it is too risky. Bits in the dictionary may have been changed or some kind of memory overwrite may have happened. This would leave the server damaged for all future volleys. Instead, the server exists. External processes restart the server (and may retry the volley) and the fully reloaded server will be clean and ready to continue.</p>
+<p>The API functions (^compilepattern, ^compileoutput, ^testpattern, ^testoutput) have special error handling for BADSCRIPT calls, which will return the error message to the caller in an errors field, rather than report to a bug/server/user log.</p>
 <h1 id="messaging">Messaging</h1>
 <p>CS user messaging design involves several features: directness, cancelability, and accountability.</p>
 <p>Directness:</p>
@@ -463,6 +466,9 @@ void PrivateShutdown();   called when CS is exiting.
 privatetestingtable.cpp  listing of :debug functions made visible to CS</code></pre>
 <p>Debug table entries like this:</p>
 <pre><code>{(char*) &quot;:endinfo&quot;, EndInfo,(char*)&quot;Display all end information&quot;},</code></pre>
+<p>There are some hooks you can define to tap into execution of the engine. Use a) PerformChatArguments call at start of PerformChat b) SignalHandler on linux exception c) MongoQueryParams adjustments for document query d) MongoUpsertKeyvalues adds additional params for upsert</p>
+<pre><code>Private code should call RegisterHookFunction, typically in PrivateInit, to connect an actual function to a 
+hook name.</code></pre>
 <h1 id="documentation">Documentation</h1>
 <p>Master documentation is in the <code>WIKI</code> folder, with <code>PDFDOCUMENTATION</code> and <code>HTMLDOCUMENTATION</code> generated from that using scripts in <code>WIKI</code>.</p>
 </body>

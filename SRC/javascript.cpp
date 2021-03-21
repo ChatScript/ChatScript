@@ -15,6 +15,13 @@ duk_context *ctx;
 #endif
 void ChangeSpecial(char* buffer);
 
+// Duktape has no I/O by default
+// define function that can be called from JS that will log a string
+static duk_ret_t native_log(duk_context *ctx) {
+  Log(USERLOG, "%s", duk_to_string(ctx, 0));
+  return 0;  /* no return value (= undefined) */
+}
+
 // there are 2 contexts:  a permanently resident one for the system and a transient one per volley.
 
 // ONE instance per server... so all routines are shared until gone. Need to distinguish "inits" from calls.
@@ -119,6 +126,10 @@ FunctionResult RunJavaScript(char* definition, char* buffer, unsigned int args)
 	// now do a call, if one should be done
 	if (*name)
 	{
+        // Map a JS print() function to the function that can use the CS logger
+        duk_push_c_function(ctx, native_log, 1);
+        duk_put_global_string(ctx, "log");
+        
 		duk_push_global_object(ctx);
 		int found = (int) duk_get_prop_string(ctx, -1 /*index*/, name); // find the function 
 		if (!found)

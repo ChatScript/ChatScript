@@ -8,6 +8,8 @@ int loglimit = 0;
 FILE* userlogFile = NULL;
 char* indents[100];
 int ide = 0;
+int inputSize =  0;
+bool inputLimitHit = false;
 bool convertTabs = true;
 bool serverLogTemporary = false;
 bool idestop = false;
@@ -286,7 +288,18 @@ void signalHandler( int signalcode )
 {
 	char word[MAX_WORD_SIZE];
 	sprintf(word, (char*)"FATAL: Linux Signal code %d", signalcode);
-	myexit(word,1);
+
+#ifdef PRIVATE_CODE
+    // Check for private hook function for additional handling
+    HOOKPTR fn = FindHookFunction((char*)"SignalHandler");
+    if (fn)
+    {
+        char* ptr = word;
+        ((SignalHandlerHOOKFN) fn)(signalcode, ptr);
+    }
+#endif
+
+    myexit(word,1);
 }
 
 void setSignalHandlers () 
@@ -1181,8 +1194,7 @@ FILE* FopenUTF8WriteAppend(const char* filename,const char* flags)
 		bom[2] = 0xBF;
 		fwrite(bom,1,3,out);
 	}
-	else if (!out && !inLog)
-		ReportBug((char*)"Error opening utf8writeappend file %s: %s\r\n",path,strerror(errno)); // probably dont make it FATAL
+	else if (!out && !inLog) ReportBug((char*)"Error opening utf8writeappend file %s: %s\r\n",path,strerror(errno)); // probably dont make it FATAL
 	return out;
 }
 
@@ -1621,6 +1633,58 @@ unsigned int GetFutureSeconds(unsigned int seconds)
 #endif
 
 ////////////////////////////////////////////////////////////////////////
+/// HOOKS
+/// Private code should call RegisterHookFunction, typically in PrivateInit, to connect an actual function to a hook name
+////////////////////////////////////////////////////////////////////////
+
+HookInfo hookSet[] =
+{
+    { (char*)"PerformChatArguments",0,(char*)"Adjust the arguments to PerformChat" },
+    { (char*)"SignalHandler",0,(char*)"Extend signal handler processing" },
+#ifndef DISCARDMONGO
+    { (char*)"MongoQueryParams",0,(char*)"Add query parameters to Mongo query" },
+    { (char*)"MongoUpsertKeyValues",0,(char*)"Add key values to Mongo upsert" },
+#endif
+
+    { 0,0,(char*)"" }
+};
+
+
+HOOKPTR FindHookFunction(char* hookName)
+{
+    int i = -1;
+    HookInfo *hook = NULL;
+    
+    while ((hook = &hookSet[++i]) && hook->name)
+    {
+        size_t len = strlen(hook->name);
+        if (!strnicmp(hook->name,hookName,len))
+        {
+            if (hook->fn) return hook->fn;
+            break;
+        }
+    }
+    
+    return NULL;
+}
+
+void RegisterHookFunction(char* hookName, HOOKPTR fn)
+{
+    int i = -1;
+    HookInfo *hook = NULL;
+    
+    while ((hook = &hookSet[++i]) && hook->name)
+    {
+        size_t len = strlen(hook->name);
+        if (!strnicmp(hook->name,hookName,len))
+        {
+            hook->fn = fn;
+            break;
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
 /// RANDOM NUMBERS
 ////////////////////////////////////////////////////////////////////////
 
@@ -1726,10 +1790,10 @@ void BugBacktrace(FILE* out)
 		if (priorframe && !TraceFunctionArgs(out, frame->label, (i > 0) ? priorframe->argumentStartIndex: 0, frame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
-	while (--i > 1) 
+	while ( i && --i > 1) 
 	{
         frame = GetCallFrame(i);
-        if (frame->rule) strncpy(rule,frame->rule,50);
+        if (frame && frame->rule) strncpy(rule,frame->rule,50);
         else strcpy(rule, "unknown rule");
         rule[50] = 0;
 		fprintf(out,"Depth %u: heapusedOnEntry: %u buffers:%u stackused: %u   %s ",
@@ -1984,7 +2048,8 @@ void PrepIndent()
 		{
 			if (n == 0)
 			{
-				sprintf(at, "%2d  ", i);
+				if (i == 0) strcpy(at, "    ");
+				else sprintf(at, "%2d  ", i);
 				at += 4;
 			}
 			else *at++ = ' ';
@@ -2092,8 +2157,8 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		}
 		else 	out = rotateLogOnLimit(name, folder);
 	}
-
-	if (channel != USERLOG)  // various logging- server, timing logs
+	if (!out) {}
+	else if (channel != USERLOG)  // various logging- server, timing logs
 	{
 		fwrite(logmainbuffer, 1, bufLen, out);
 		struct tm ptm;
@@ -2114,15 +2179,18 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		}
 		else fwrite(logmainbuffer, 1, bufLen, out);
 	}
-	if (out != userlogFile && out != stdout && out != stderr) 
+	if (out && out != userlogFile && out != stdout && out != stderr) 
 		fclose(out); // dont use FClose
 }
 
 static void BugLog(char* name, char* folder, FILE* bug,char* located)
 {
 	bool isFile =  bug == NULL ;  // bug is either existing std channel or null and we have to go get it
-	if (isFile) bug = rotateLogOnLimit(name, folder);
-	if (!compiling && !loading)
+	if (isFile)
+	{
+		bug = rotateLogOnLimit(name, folder);
+	}
+	if (!compiling && !loading && bug)
 	{
 		struct tm ptm;
 		char data[10000];
@@ -2133,12 +2201,12 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 		fprintf(bug, "caller:%s callee:%s ip: %s at %s in sentence: ", loginID, loginID, myip,located);
 		fprintf(bug, "%s\r\n", originalUserInput);
 	}
-	else if (*currentFilename)
+	else if (*currentFilename && bug)
 	{
 		fprintf(bug, (char*)"BUG in %s at %u: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
 	}
 
-	if (!compiling && !loading )
+	if (!compiling && !loading && bug)
 	{
 		struct tm ptm;
 		char data[10000];
@@ -2153,11 +2221,11 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 			BugBacktrace(bug);
 		}
 	}
-	else if (*currentFilename)
+	else if (*currentFilename && bug)
 	{
 		fprintf(bug, (char*)"BUG in %s at %u: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
 	}
-	if (isFile) fclose(bug); // dont use FClose
+	if (isFile && bug) fclose(bug); // dont use FClose
 }
 
 /*for logging controls:  1 = file   2 = stdout  4 = stderror    
@@ -2233,6 +2301,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	if (!logmainbuffer)
 	{
 		if (logsize < maxBufferSize) logsize = maxBufferSize; // log needs to be able to hold for replays of it
+		if (logsize < fullInputLimit) logsize = fullInputLimit + 1000;
 		logmainbuffer = (char*)malloc(logsize);
 		if (!logmainbuffer) exit(1);
 		*logmainbuffer = 0;
@@ -2310,7 +2379,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		AddError(logmainbuffer);
 		channel = USERLOG;
 	}
-	if (csapicall == COMPILE_PATTERN || csapicall == COMPILE_OUTPUT) return id; // API calls need not continue as they dont get logged in files
+	if (csapicall && server) return id; // API calls need not continue as they dont get logged in files
 	if (!userLog && (channel == USERLOG || channel > 1000 || channel == id) && !testOutput && !trace) return id;
 	
 	// trace on for no user log will go to server log

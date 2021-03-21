@@ -50,7 +50,7 @@ char* ReadDisplayOutput(char* ptr,char* buffer);
 void EndScriptCompiler();
 bool StartScriptCompiler(bool normal);
 
-#define BADSCRIPT(...) {ScriptError(); Log((compiling) ? BADSCRIPTLOG : USERLOG , __VA_ARGS__); JumpBack();}
+#define BADSCRIPT(...) {ScriptError(); Log((compiling || csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT) ? BADSCRIPTLOG : USERLOG , __VA_ARGS__); JumpBack();}
 void EraseTopicBin(unsigned int build, char* name);
 
 #ifndef DISCARDSCRIPTCOMPILER

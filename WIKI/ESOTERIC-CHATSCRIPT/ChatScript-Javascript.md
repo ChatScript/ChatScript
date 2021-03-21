@@ -1,9 +1,10 @@
 # ChatScript Javascript
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
+<br>Revision 3/21/2021 cs11.2
 
 
-> Revision 4/30/2016 cs6.4
+
 
 You can write functions in Javascript in your script files and invoke them from
 ChatScript code. It's all done with what you define in an `outputmacro:` construct.
@@ -123,6 +124,10 @@ In the above example, if the `~keywordless` topic sees an input of `test` it wil
 javascript function `test` called with an integer value 5. This will,
 in turn, print out on the console `0 1 1 2 3` (but since that is not ChatScript output
 the system will move on to some other rule to try to generate output).
+
+## native_log (message)
+
+This is a predefined JS function that will take the message and send it to the user log.
  
 ## Notes & Restrictions
 

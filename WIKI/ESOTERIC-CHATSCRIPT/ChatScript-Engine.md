@@ -1,6 +1,7 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br> Revision 2/8/2021 cs11.1
+<br>Revision 3/21/2021 cs11.2
+
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
 * [Data](ChatScript-Engine-md#data)
@@ -558,6 +559,13 @@ its normal code. You can't nest patternmacro calls at present.
 All system functions return both a text buffer answer and an error code. For error codes see the section on 
 error handling.
 
+## When functions can be run
+
+There are three time frames that functions can be invoked: compile-time, startup-time (boot time), and user script 
+execution. Compile-time function calls can be made from table: declarations, providing the function has
+already been defined. If you define a function called ^CSBOOT(), that gets executed as the system starts up and
+it can then invoke anything else.  And otherwise scripts executed per user volley can invoke any function.
+
 ## Argument Passing
 
 There are actually two styles of passing arguments. Arguments are stored in a global argument array,
@@ -849,6 +857,10 @@ mechanism because it is too risky. Bits in the dictionary may have been changed 
 overwrite may have happened. This would leave the server damaged for all future volleys. Instead,
 the server exists. External processes restart the server (and may retry the volley) and the
 fully reloaded server will be clean and ready to continue. 
+
+The API functions (^compilepattern, ^compileoutput, ^testpattern, ^testoutput) have special error handling for BADSCRIPT
+calls, which will return the error message to the caller in an errors field, rather than report to a bug/server/user log.
+
 
 # Messaging
 
@@ -1176,6 +1188,15 @@ Debug table entries like this:
 ```
 {(char*) ":endinfo", EndInfo,(char*)"Display all end information"},
 ```
+
+There are some hooks you can define to tap into execution of the engine. Use
+	a) PerformChatArguments call at start of PerformChat
+	b) SignalHandler on linux exception
+	c) MongoQueryParams adjustments for document query
+	d) MongoUpsertKeyvalues adds additional params for upsert
+
+    Private code should call RegisterHookFunction, typically in PrivateInit, to connect an actual function to a 
+    hook name.
 
 # Documentation
 

@@ -541,7 +541,7 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 	val1Result = result;
 	if (word2 && *word2) FreshOutput(word2,val2,result,OUTPUT_ONCE|OUTPUT_KEEPSET|OUTPUT_NOCOMMANUMBER| OUTPUT_NODEBUG); // 2nd arg
 	result = FAILRULE_BIT;
-	if (!stricmp(val1,(char*)"null") ) *val1 = 0;
+	if (!stricmp(val1,(char*)"null") ) *val1 = 0; // JSON null values
 	if (!stricmp(val2,(char*)"null") ) *val2 = 0;
 	if (!op)
 	{
@@ -555,12 +555,12 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 		{
 			unsigned int index = GetWildcardID(word1);
 			unsigned int begin = WILDCARD_START(wildcardPosition[index]);
-            unsigned int finish = WILDCARD_END(wildcardPosition[index]);
+            unsigned int finish = WILDCARD_END_ONLY(wildcardPosition[index]) ;
             D = FindWord(val2); // as is
 			if (begin && D)
 			{
 				int start, end;
-				if (GetNextSpot(D, begin -1,start,end) == begin && (unsigned int) end == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
+				if (GetNextSpot(D, begin -1,start,end) == begin && (unsigned int) (end & REMOVE_SUBJECT) == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
 			}
 			if (*op == '!') result = (result != NOPROBLEM_BIT) ? NOPROBLEM_BIT : FAILRULE_BIT;
 		}

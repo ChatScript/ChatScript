@@ -9,12 +9,12 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2</p>
 <ul>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#engine-defined-concepts">Engine-defined Concepts</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#system-variables">System Variables</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#control-over-input">Control over Input</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.hmtl#interchange-variables">Interchange Variables</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#control-over-input">Control over Input</a></li>
+<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#interchange-variables">Interchange Variables</a></li>
 </ul>
 <h1 id="engine-defined-concepts">Engine-defined concepts</h1>
 <p>In addition to concepts defined in script files, the system automatically defines a bunch of dictionary-based sets as well as dynamically computed concept members.</p>
@@ -912,8 +912,18 @@
 <td><code>%voice</code></td>
 <td>active or passive on current input</td>
 </tr>
+<tr class="even">
+<td>%trace_on</td>
+<td>Fake empty variable used to turn on tracing (see Debugging commands)</td>
+</tr>
+<tr class="odd">
+<td>%trace_off</td>
+<td>Fake empty variable used to turn off tracing (see Debugging commands)</td>
+</tr>
 </tbody>
 </table>
+<div style="white-space: pre-line;">%inputsize | gives how many characters were passed in input
+%inputlimited | 1 if too many characters were given (relative to fullinputlimit)</div>
 <h2 id="chatbot-output">Chatbot Output</h2>
 <table style="width:31%;">
 <colgroup>
@@ -1586,8 +1596,8 @@ canon: faster fast</code></pre>
 <td>after this many sentences in volley, cs ignores the rest (default 50)</td>
 </tr>
 <tr class="even">
-<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code><span class="math inline">$cs_inputlimit` | Restrict user input size (excluding oob) | | `$</span>cs_new_user`</td>
-<td>set to 1, treat user as always new (don't try to read topic file)</td>
+<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code><span class="math inline">$cs_inputlimit` | Restrict user input size (excluding oob) | | `$</span>cs_new_user<code>| set to 1, treat user as always new (don't try to read topic file)  | |</code>$cs_mongoqueryparams`</td>
+<td>set as a json structure of move its fields to a mongo query</td>
 </tr>
 </tbody>
 </table>

@@ -9,20 +9,20 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br> Revision 2/8/2021 cs11.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2</p>
 <ul>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#topic-functions">Topic Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#marking-functions">Marking Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#input-functions">Input Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#number-functions">Number Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#output-functions">Output Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#control-flow-functions">Control Flow Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#external-access-functions">External Access Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#json-functions">JSON Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#word-manipulation-functions">Word Manipulation Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#multipurpose-functions">Multipurpose Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#fact-functions">Facts Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.hmtl#Misc-functions">Misc Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#input-functions">Input Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#number-functions">Number Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#output-functions">Output Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#control-flow-functions">Control Flow Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#external-access-functions">External Access Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#json-functions">JSON Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#word-manipulation-functions">Word Manipulation Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#multipurpose-functions">Multipurpose Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#fact-functions">Facts Functions</a></li>
+<li><a href="ChatScript-System-Functions-Manual.html#Misc-functions">Misc Functions</a></li>
 </ul>
 <p>System functions are predefined and can be intermixed with direct output. Generally they are used from the output side of a rule, but in many cases nothing prevents you from invoking them from inside a pattern. When used in a pattern, they do not write out any text output to the user. But their output will be tested the same as it would from an <code>if</code> statement, meaning 0 and false are failures.</p>
 <p>You can write them with or without a <code>^</code> in front of their name in output. With is clearer, but you don’t have to. The only times you must is if the first thing you want to do in a gambit is call a function (unlikely) or you are in a pattern.</p>
@@ -237,6 +237,7 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <p>If <em>which</em> is <code>start</code> this returns the starting index of the word matched in the named <code>_var</code>.</p>
 <p>If <em>which</em> is <code>end</code> this returns the ending index. E.g.,</p>
 <p>if the value of <code>_1</code> was <em>the fox</em>, it might be that start was 3 and end was 4 in the sentence <em>it was the fox</em> .</p>
+<p>If the match var matched a fundmental meaning, then you can use which values of <code>subject</code>, <code>verb</code>, and <code>object</code>. The verb is where start and end both yield.</p>
 <h3 id="removetokenflags-value"><code>^removetokenflags ( value )</code></h3>
 <p>Rremoves these flags from the tokenflags returned from the preprocessing stage.</p>
 <h3 id="settokenflags-value"><code>^settokenflags ( value )</code></h3>
@@ -955,8 +956,10 @@ u: (%document)
 <p>Inserts the key value pair into the object named. The key does not require quoting. Inserting a json string as value requires a quoted string. Duplicate keys are ignored unless the optional 1st argument <code>DUPLICATE</code> is given. <code>SAFE</code> protects any nested JSON data from being deleted. See JSON manual.</p>
 <h3 id="jsonopen-unique-kind-url-postdata-header"><code>^jsonopen ( {UNIQUE} kind url postdata header )</code></h3>
 <p>This function queries a website and returns a JSON datastructure as facts. It uses the standard CURL library, so it's arguments and how to use them are generally defined by CURL documentation and the website you intend to access. See ChatScript JSON manual for details.</p>
-<h3 id="jsontree-name"><code>^jsontree ( name )</code></h3>
+<h3 id="jsontree-name-depth-array"><code>^jsontree ( name {depth} {array})</code></h3>
 <p><code>name</code> is the value returned by <code>^JSONparse</code>, <code>^JSONopen</code>, or some query into such structures. It prints out a tree of elements, one per line, where depth is represented as more deeply indented. Objects are marked with { } as they are in JSON. Arrays are marked with <code>[]</code>.</p>
+<p>Optional depth number restricts how deep it displays. 0 (default) means all. 1 means just top level.</p>
+<p>Optional &quot;array&quot; means show number of array elements rather than the elements themselves at any depth below depth.</p>
 <h3 id="jsonwrite-name"><code>^jsonwrite ( name )</code></h3>
 <p><code>name</code> is the name from a json fact set (returned by <code>^JSONparse</code>, <code>^JSONopen</code>, or some query into such structures). Result is the corresponding JSON string (as a website might emit), without any linefeeds.</p>
 <h3 id="jsonparse-unique-string"><code>^jsonparse ( {UNIQUE} string )</code></h3>
@@ -1262,6 +1265,11 @@ u: (%document)
 <td>word</td>
 <td>returns 1 is word is a defined function, or fails</td>
 </tr>
+<tr class="odd">
+<td><code>layer</code></td>
+<td>word</td>
+<td>When was this word entered into the dictionary. Answers are: <code>wordnet</code>, <code>0</code>, <code>1</code>, <code>2</code>, <code>user</code>.</td>
+</tr>
 </tbody>
 </table>
 <p>Example:</p>
@@ -1284,8 +1292,6 @@ u: what&#39;s your first name?
 <p>Translates into text the 64bit pos data at given location. <code>location</code> can be a position in the sentence (1... number of words) or a match variable found from some location in the sentence). See <em>dictionary.h</em> for meanings of bits. Type word will classify word as concept, word, number, or unknown.</p>
 <h3 id="decodepos-role-location"><code>^decodepos ( role location )</code></h3>
 <p>Returns the text of the role data of the given location.</p>
-<h3 id="layer-word"><code>^layer ( word )</code></h3>
-<p>When was this word entered into the dictionary. Answers are: <code>wordnet</code>, <code>0</code>, <code>1</code>, <code>2</code>, <code>user</code>.</p>
 <h3 id="partofspeech-location"><code>^partofspeech ( location )</code></h3>
 <p>Gets the 64-bit part-of-speech information about a word at <code>location</code>, resulting from parsing. Location can be a position in the sentence (1... number of words) or a match variable found from some location in the sentence). See <em>dictionary.h</em> for meanings of bits.</p>
 <h3 id="phrase-type-matchvar"><code>^phrase ( type matchvar )</code></h3>
@@ -1355,11 +1361,6 @@ u: what&#39;s your first name?
 <p>Values should be all upper case. If the word is not in the dictionary, it will infer it, allowing it to handle things like verb tenses. If you want to insure the word already exists first, you should do</p>
 <pre><code>^properties(dog) AND ^hasproperty(dog xxx) </code></pre>
 <p>since property fails if the word is not found.</p>
-<h3 id="removeinternalflag-word-value"><code>^removeinternalflag ( word value )</code></h3>
-<p>Removes named internal flag from word.</p>
-<p>Currently only value is <code>HAS_SUBSTITUTE</code>, which allows you to disable a word/phrase substitution. Use as word the full text of the left entry in a substitutions file. E.g.,</p>
-<p><code>&lt;constantly&gt;</code> maps to <code>~yes</code> normally. If you do <code>^removeinternalflag( &lt;constantly&gt; HAS_SUBSTITUTE)</code> then it will no longer do that.</p>
-<p>This is a permanent change to the resident dictionary, which will take effect until the system is reloaded.</p>
 <h3 id="removeproperty-word-value"><code>^removeproperty ( word value )</code></h3>
 <p>Remove this property bit from this word.</p>
 <p>This effect lasts until the system is reloaded. Value should be all upper case. Value is normally a system flag value or a property value from <code>dictionarysystem.h</code> which does not need a hash in front of it (system will look up the name).</p>

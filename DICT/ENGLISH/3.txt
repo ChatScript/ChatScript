@@ -1,4 +1,4 @@
-﻿ 3-hitter ( meanings=1 NOUN NOUN_SINGULAR ) 
+﻿ 3-hitter ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     three-hitter~1n 
  3TC ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
     lamivudine~1n 
@@ -14,9 +14,9 @@
     Orly_Group~1n 
  366_days ( meanings=1 NOUN NOUN_PLURAL ) 
     leap_year~1n 
- 3G ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+ 3G ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     3G~1nz 
- 3G_coverage ( meanings=1 NOUN NOUN_PROPER_SINGULAR ) 
+ 3G_coverage ( meanings=1 NOUN NOUN_PROPER_SINGULAR NOUN_NODETERMINER ) 
     3G_coverage~1nz 
  3-dimensional ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
     three-dimensional~2a 
@@ -24,5 +24,5 @@
     three-membered~1a 
  3-star ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
     3-star~1az 
- 3/8 ( NOUN NOUN_NUMBER ) 
- 3/4 ( NOUN NOUN_NUMBER ) 
+ 3/8 ( NOUN NOUN_NUMBER NOUN_NODETERMINER KINDERGARTEN ) 
+ 3/4 ( NOUN NOUN_NUMBER NOUN_NODETERMINER KINDERGARTEN ) 

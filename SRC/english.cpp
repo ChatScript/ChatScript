@@ -700,10 +700,6 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	uint64 properties = 0;
 	sysflags = cansysflags = 0;
 	canonical = 0;  
-	if (!stricmp(original, "screenshots"))
-	{
-		int xx = 0;
-	}
 	if (at < 1) { ; } // not from sentence
 	else if (canonicalLower[at]) canonical = canonicalLower[at];  // note canonicalLower may already be set by external postagging
 	else if (canonicalUpper[at]) canonical = canonicalUpper[at];  // note canonicalUpper may already be set by external postagging
@@ -801,7 +797,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 
 	if (tokenControl & ONLY_LOWERCASE && IsUpperCase(*original) && ((csEnglish && *original != 'I') || original[1])) MakeLowerCase(original);
 
-	if (entry && entry->systemFlags & CONDITIONAL_IDIOM) 
+	if (entry && entry->internalBits & CONDITIONAL_IDIOM) 
 	{
 		char* script = entry->w.conditionalIdiom;
 		if (script[1] != '=') return entry->properties; // has conditions, is not absolute and may be overruled
@@ -1275,7 +1271,6 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				*hyphen = 0;
 				char word[MAX_WORD_SIZE];
 				WORDP X = FindWord(original,0,LOWERCASE_LOOKUP);
-				*hyphen = '-';
 				if (X && X->properties & ADJECTIVE_NORMAL)
 				{
 					adjective = GetAdjectiveBase(original,true); 
@@ -1285,15 +1280,18 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 						canonical = StoreWord(word,ADJECTIVE_NORMAL|ADJECTIVE);
 					}
 				}
+				*hyphen = '-';
 			}
 			if (!adjective && hyphen  && hyphen != original) // third-highest
 			{
 				adjective = GetAdjectiveBase(hyphen+1,true);
 				if (adjective && strcmp(hyphen+1,adjective)) // base is not the same
 				{
+					*hyphen = 0;
 					sprintf(tmpword,(char*)"%s-%s",original,adjective);
 					canonical = StoreWord(tmpword,ADJECTIVE_NORMAL|ADJECTIVE);
 					properties |= adjectiveFormat;
+					*hyphen = '-';
 				}
 			}
 			if (adjective && hyphen  && hyphen != original) 
@@ -1314,9 +1312,11 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				adverb = GetAdverbBase(hyphen+1,true);
 				if (adverb && strcmp(hyphen+1,adverb)) // base is not the same
 				{
+					*hyphen = 0;
 					sprintf(tmpword,(char*)"%s-%s",original,adverb);
 					canonical = StoreWord(tmpword,ADJECTIVE_NORMAL|ADJECTIVE);
 					properties |= adverbFormat;
+					*hyphen = '-';
 				}
 			}
 			if (adverb && hyphen  && hyphen != original)  
@@ -1401,7 +1401,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		if (entry && entry->internalBits & UPPERCASE_HASH) properties |= NOUN_PROPER_SINGULAR;
 		else properties |= NOUN_SINGULAR;
 	}
-	if (canonical && entry) entry->systemFlags |= canonical->systemFlags & AGE_LEARNED; // copy age data across
+	if (canonical && entry) AddSystemFlag(entry,canonical->systemFlags & AGE_LEARNED); // copy age data across
 	else if (entry && IS_NEW_WORD(entry) && !canonical) canonical = DunknownWord;
 
 	if (properties){;}
@@ -1583,7 +1583,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	}
 	if (!canonical) canonical = entry;
  
-	AddProperty(entry,properties);
+	if (at >= 0 && !nogenerate) AddProperty(entry, properties);
 	// interpolate singular normal nouns to adjective_noun EXCEPT qword nouns like "why"
 	//if (properties & (NOUN_SINGULAR|NOUN_PLURAL) && !(entry->properties & QWORD) && !strchr(entry->word,'_')) flags |= ADJECTIVE_NOUN; // proper names also when followed by ' and 's  merge to be adjective nouns  
 	//if (properties & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL) && *wordStarts[at+1] == '\'' && (wordStarts[at+1][1] == 0 || wordStarts[at+1][1] == 's')) flags |= ADJECTIVE_NOUN; 
@@ -2226,7 +2226,8 @@ WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 b
 	if (copy[lenword - lensuffix - 1] == 'k' ) // possible k replacing c or added after c
 	{
 		D = FindWord(copy, lenword - lensuffix - 1, LOWERCASE_LOOKUP); // bivouacked
-		if (D && D->properties & bits) return D;
+		size_t l = (D) ? strlen(D->word) : 0;
+		if (D && D->properties & bits && D->word[l-1] == 'c') return D; // k added AFTER c
 		
 		copy[lenword - lensuffix - 1] = 'c';
 		D = FindWord(copy, lenword - lensuffix, LOWERCASE_LOOKUP); 
@@ -2556,13 +2557,9 @@ char* GetInfinitive(char* word, bool nonew)
 			if ((i+1) == cnt) separators[i] = 0; // no final separator
 			else separators[i] = word[lenx++];
 		}
-		if (cnt == 3)
-		{
-			int xx = 0;
-		}
 		if (cnt < 4) for (int i = 0; i < cnt; ++i) // only handle 3 word units (cozy_up_to), since we might create a 3 word unit
 		{
-			char* inf = GetInfinitive(words[i],false); //   is this word an infinitive?
+			char* inf = GetInfinitive(words[i],nonew); //   is this word an infinitive?
 			if (!inf || !*inf) continue;
 			*trial = 0;
 			char* at = trial;
@@ -2590,7 +2587,7 @@ char* GetInfinitive(char* word, bool nonew)
 	// verb conjugations are to add d, s, or ing for regular verbs, with some suffixification
 	WORDP Z = NULL;
 	Z = SuffixAdjust(word, len, "ing", 3, VERB_INFINITIVE); // actual word like sing wont end up here.
-	if (Z )
+	if (Z)
 	{
 		verbFormat = VERB_PRESENT_PARTICIPLE | ADJECTIVE_PARTICIPLE|NOUN_GERUND;
 		return Z->word;
@@ -2618,7 +2615,7 @@ char* GetInfinitive(char* word, bool nonew)
 	return InferVerb(word,len);
 }
 
-char* GetPluralNoun(char* noun)
+char* GetPluralNoun(char* noun,char* plu)
 {
 	if (!noun) return NULL;
 	WORDP D = FindWord(noun);
@@ -2626,43 +2623,42 @@ char* GetPluralNoun(char* noun)
     WORDP plural = GetPlural(D);
      if (plural) return plural->word;
 
-	 static char word[MAX_WORD_SIZE];
-
 	 char* underscore = strrchr(noun, '_');
 	 if (underscore)
 	 {
-		 char* plur = GetPluralNoun(underscore + 1);
+		 char extra[MAX_WORD_SIZE];
+		 char* plur = GetPluralNoun(underscore + 1, extra);
 		 if (plur)
 		 {
-			 strcpy(word, noun);
-			 strcpy(word + (underscore - noun + 1), plur);
-			 return word;
+			 strcpy(plu, noun);
+			 strcpy(plu + (underscore - noun + 1), plur);
+			 return plu;
 		 }
 	 }
 
 		unsigned int len = strlen(noun);
 		char end = noun[len-1];
 		char before = (len > 1) ? (noun[len-2]) : 0;
-		if (end == 's') sprintf(word,(char*)"%ses",noun); // glass -> glasses
-		else if (end == 'h' && (before == 'c' || before == 's')) sprintf(word,(char*)"%ses",noun); // witch -> witches
-		else if ( end == 'o' && !IsVowel(before)) sprintf(word,(char*)"%ses",noun); // hero -> heroes>
+		if (end == 's') sprintf(plu,(char*)"%ses",noun); // glass -> glasses
+		else if (end == 'h' && (before == 'c' || before == 's')) sprintf(plu,(char*)"%ses",noun); // witch -> witches
+		else if ( end == 'o' && !IsVowel(before)) sprintf(plu,(char*)"%ses",noun); // hero -> heroes>
 		else if ( end == 'y' && !IsVowel(before)) // cherry -> cherries
 		{
-			if (D && D->internalBits & UPPERCASE_HASH) sprintf(word,(char*)"%ss",noun); // Germany->Germanys
+			if (D && D->internalBits & UPPERCASE_HASH) sprintf(plu,(char*)"%ss",noun); // Germany->Germanys
 			else
 			{
-				strncpy(word,noun,len-1);
-				strcpy(word+len-1,(char*)"ies"); 
+				strncpy(plu,noun,len-1);
+				strcpy(plu +len-1,(char*)"ies");
 			}
 		}
-		else sprintf(word,(char*)"%ss",noun);
-        return word;
+		else sprintf(plu,(char*)"%ss",noun);
+        return plu;
 }
 
 static char* InferNoun(char* original,unsigned int len) // from suffix might it be singular noun? If so, enter into dictionary
 {
 	if (len == 0) len = strlen(original);
-	char word[MAX_WORD_SIZE];
+	static char word[MAX_WORD_SIZE];
 	strncpy(word,original,len);
 	word[len] = 0;
 	uint64 flags = ProbableNoun(original,len);
@@ -2701,7 +2697,7 @@ static char* InferNoun(char* original,unsigned int len) // from suffix might it 
 	if (underscore)
 	{
 		WORDP X = FindWord(underscore+1, 0, LOWERCASE_LOOKUP);
-		if (X->properties & NOUN_BITS) return word;
+		if (X && X->properties & NOUN_BITS) return word;
 
 		return NULL;		// dont apply suffix to multiple word stuff
 	}

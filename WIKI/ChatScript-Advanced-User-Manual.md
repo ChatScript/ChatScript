@@ -1,6 +1,7 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 1/1/2021 cs11.0
+<br>Revision 3/21/2021 cs11.2
+
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
@@ -198,7 +199,7 @@ is the implied set of all numbers (we wouldn't want to actually enumerate them a
 After this marking analysis, patterns can efficiently find whether or not some particular concept
 is matched at a particular position in the sentence. 
 
-CS actually analyzes two streams of input, the _original_ input of the user and a _canonical_ form of it. 
+CS actually analyzes three streams of input, the _raw_ input of the user, the _original_ input (spellfixed) of the user and a _canonical_ form of it. 
 So the system marks an input sentence of _my cat eats mice_ and also marks the parallel sentence _I cat eat
 mouse_, so patterns can be written to catch general meanings of words as well as specific ones.
 
@@ -1000,8 +1001,8 @@ ___How can I get the original input when I have a pattern like `u: (~emogoodbye)
 To get the original input, you need to do the following:
 
 ```
-u: ( ~emogoodbye )
-    $tmptoken = $cs_token
+u: ( _~emogoodbye )
+    $_tmp = ^original(_0)
     $cs_token = 0
     ^retry(SENTENCE)
 ```
@@ -1016,6 +1017,8 @@ u: ( $tmptoken _* )
 
 ... now that you have the original sentence, you decide what to do
 ... maybe you had set a flag to know what you wanted to do
+
+If you just want the original of a match, you can use ^original(_0).
 
 
 ## Control Flow

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 1/1/2021 cs11.0</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/21/2021 cs11.2</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
@@ -203,6 +203,7 @@
 <pre><code>:trace ignorenotrace</code></pre>
 <p>allows you to use the limited traces below, and still ignore <code>NOTRACE</code> covered calls.</p>
 <p>If you want to jump to where the user output was created and then see where you are, search for &quot;message:&quot;.</p>
+<p>There are fake system variables you can execute in output code to turn on and off debugging also. These are %trace_on and %trace_off. They are simpler to remember how to do than invoking ^eval to invoke debug commands. And these disallow behavior if server authorization doesnt exist. These variables do not actually show up in output.</p>
 <h3 id="trace-myfunction"><code>:trace ^myfunction</code></h3>
 <p>this enables tracing for the function. Call it again to restore to normal.</p>
 <h3 id="trace-var"><code>:trace $var</code></h3>
@@ -584,6 +585,13 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <p>This is a subset of :prepare that just runs the POS-tagger parser on the input you supply. I use it to debug the system. It either is given a sentence or toggles a mode if not (just like <code>:prepare</code>). It also displays pronoun data gathered from the input.</p>
 <h3 id="tokenize"><code>:tokenize</code></h3>
 <p>This is a subset of :prepare that just runs tokenization and adjusts the input, but does not show POS-tagging and concept marking.</p>
+<h3 id="canonize"><code>:canonize</code></h3>
+<p>This is a subset of :prepare that shows the canonical form of the input</p>
+<h3 id="logging"><code>:logging</code></h3>
+<p>Dynamically alter logging behavior from whatever current settings are.</p>
+<pre><code>    :logging user {file,none,stdout,stderr}  
+    :logging servertrace {on, off} 
+    :logging server {file,none,stdout,stderr} </code></pre>
 <h3 id="testpos"><code>:testpos</code></h3>
 <p>This switches input to the named file (if not named defaults to <code>REGRESS/posttest.txt</code>) and running regression POS testing. If the result of processing an input deviates from that listed in the test file, the system presents this as an error.</p>
 <h3 id="verifysubstitutes"><code>:verifysubstitutes</code></h3>

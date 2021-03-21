@@ -73,6 +73,7 @@ void ShowMatchResult(FunctionResult result, char* rule, char* label,int id)
             Log(USERLOG,"  matchvar: ");
             for (int i = 0; i < wildcardIndex; ++i)
             {
+                if (i > MAX_WILDCARDS) break;
                 if (*wildcardOriginalText[i])
                 {
                     if (!strcmp(wildcardOriginalText[i], wildcardCanonicalText[i])) Log(USERLOG, "_%d=%s (%d-%d)  ", i, wildcardOriginalText[i],wildcardPosition[i] & 0x0000ffff, wildcardPosition[i] >> 16);
@@ -268,17 +269,18 @@ static bool MatchTest(bool reverse, WORDP D, int start, char* op, char* compare,
         if (!quote) return true; // can match canonical or original
 
                                  //   we have a match, but prove it is a original match, not a canonical one
-        if (actualEnd < actualStart) continue;	// trying to match within a composite. 
-        if (actualStart == actualEnd && !stricmp(D->word, wordStarts[actualStart])) return true;   // literal word match
+        unsigned int end = actualEnd & REMOVE_SUBJECT; // remove hidden subject field if there from fundamental meaning match
+        if ((int)end < actualStart) continue;	// trying to match within a composite. 
+        if (actualStart == (int)end && !stricmp(D->word, wordStarts[actualStart])) return true;   // literal word match
         else // match a phrase literally
         {
             char word[MAX_WORD_SIZE];
             char* at = word;
-            for (int i = actualStart; i <= actualEnd; ++i)
+            for (int i = actualStart; i <= (int)end; ++i)
             {
                 strcpy(at, wordStarts[i]);
                 at += strlen(wordStarts[i]);
-                if (i != actualEnd) *at++ = '_';
+                if (i != (int)end) *at++ = '_';
             }
             *at = 0;
             if (!stricmp(D->word, word)) return true;
@@ -313,7 +315,7 @@ static bool FindPhrase(char* word, int start, bool reverse, int & actualStart, i
                 continue;
             }
             if (i == 0) start = actualStart; // where we matched INITIALLY
-            oldend = actualEnd;
+            oldend = actualEnd & REMOVE_SUBJECT; // remove hidden subject field
         }
         else break;
     }
@@ -615,7 +617,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     int oldstart = positionStart;
                     int oldend = positionEnd; // will be 0 if we are starting out with no required match
                     positionStart = WILDCARD_START(wild);
-                    positionEnd = WILDCARD_END(wild);
+                    positionEnd = WILDCARD_END(wild) & REMOVE_SUBJECT;
                     if (oldend && *end != '+' && positionStart != INFINITE_MATCH) // this is an anchor that might not match
                     {
                         if (wildcardSelector)
@@ -855,7 +857,11 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             }
 
             D = FindWord(word, 0); // find the function
-            if (!D || !(D->internalBits & FUNCTION_NAME)) matched = false; // shouldnt fail
+            if (!D || !(D->internalBits & FUNCTION_NAME))
+            {
+                if (csapicall == TEST_OUTPUT || csapicall == TEST_PATTERN) BADSCRIPT("API attempting to call undefined function %s", word)
+                matched = false; // shouldnt fail normally
+            }
             else if (D->x.codeIndex || D->internalBits & IS_OUTPUT_MACRO) // system function or output macro- execute it
             {
                 char* base = PushMatch(wildcardIndex);
@@ -1334,6 +1340,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             else foundaword = true;
             if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart;
         }
+        // NOTE: coming out of using Matchtest, positionEnd may be composite of subject and object
 
         statusBits &= -1 ^ QUOTE_BIT; // turn off any pending quote
         bool inverted = false;
@@ -1349,7 +1356,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         matched = false;
                         uppercaseFind = -1;
                     }
-                    else if (reverse && positionEnd == (oldStart - 1))
+                    else if (reverse && (positionEnd & REMOVE_SUBJECT) == (oldStart - 1))
                     {
                         matched = false;
                         uppercaseFind = -1;
@@ -1371,7 +1378,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         if (!reverse) matchStarted = (positionStart < REAL_SENTENCE_WORD_LIMIT) ? positionStart : 0; // position start may be the unlimited access value
         else // reverse
         {
-            if (positionEnd > wordCount) positionEnd = wordCount;
+            if ((positionEnd & REMOVE_SUBJECT) > wordCount) positionEnd = wordCount;
             matchStarted = (positionStart < REAL_SENTENCE_WORD_LIMIT) ? positionEnd  : wordCount; // position start may be the unlimited access value
         }
         if (matchStarted == INFINITE_MATCH) matchStarted = 1;
@@ -1418,10 +1425,10 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         {
             if (matched && !inverted && foundaword) // we accept this positive match
             {
-                MarkMatchLocation(positionStart, positionEnd, depth);
+                MarkMatchLocation(positionStart, positionEnd & REMOVE_SUBJECT, depth);
                 if (beginmatch == -1) beginmatch = positionStart; // first match in this level
             }
-            if (oldEnd == positionEnd && oldStart == positionStart) // something like function call or variable existence, didnt change position
+            if (oldEnd == (positionEnd & REMOVE_SUBJECT) && oldStart == positionStart) // something like function call or variable existence, didnt change position
             {
                 if (wildcardSelector == WILDMEMORIZESPECIFIC)
                 {
@@ -1447,15 +1454,15 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     if (reverse)
                     {
                         // if starter was at beginning, there is no data to match
-                        if (positionStart == 0 || (memorizationStart - positionEnd) == 0) SetWildCardGivenValue((char*)"", (char*)"", 0, positionEnd , index); // empty gap
-                        else if (positionStart < positionEnd) SetWildCardGiven(positionStart, positionEnd, true, index);  //   wildcard legal swallow between elements
-                        else SetWildCardGiven(positionEnd + 1, memorizationStart, true, index);  //   wildcard legal swallow between elements
+                        if (positionStart == 0 || (memorizationStart - (positionEnd & REMOVE_SUBJECT)) == 0) SetWildCardGivenValue((char*)"", (char*)"", 0, positionEnd , index); // empty gap
+                        else if (positionStart < (positionEnd & REMOVE_SUBJECT)) SetWildCardGiven(positionStart, positionEnd, true, index);  //   wildcard legal swallow between elements
+                        else SetWildCardGiven((positionEnd & REMOVE_SUBJECT) + 1, memorizationStart, true, index);  //   wildcard legal swallow between elements
                     }
                     else if ((positionStart - memorizationStart) == 0) SetWildCardGivenValue((char*)"", (char*)"", 0, oldEnd + 1, index); // empty gap
                     else // normal gap
                     {
                         SetWildCardGiven(memorizationStart, positionStart - 1, true, index);  //   wildcard legal swallow between elements
-                        if (positionEnd < (positionStart - 1)) positionEnd = positionStart - 1;	// gap closes out 
+                        if ((positionEnd & REMOVE_SUBJECT) < (positionStart - 1)) positionEnd = positionStart - 1;	// gap closes out 
                     }
                     uppercaseFind = hold;
                 }
@@ -1515,6 +1522,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             }
             else bidirectional = 0; // give up fully
         }
+
+        positionEnd &= REMOVE_SUBJECT; 
 
         //   end sequence/choice/optional/random
         if (*word == ')' || *word == ']' || *word == '}' || (*word == '>' && word[1] == '>'))
@@ -1876,11 +1885,11 @@ void ExecuteConceptPatterns()
             if (wildcardIndex) // wildcard assigned, use that
             {
                 start = WILDCARD_START(wildcardPosition[0]);
-                end = WILDCARD_END(wildcardPosition[0]);
+                end = WILDCARD_END_ONLY(wildcardPosition[0]);
             }
             else if (end == 0) start = end = 1;  // didnt match a word
             if ((trace & TRACE_PATTERN) || showMark || (trace & TRACE_PREPARE)) Log(USERLOG,"mark  @word %s %d-%d ", concept->word, start, end);
-            MarkMeaningAndImplications(0, 0, conceptMeaning, start, end, false, false, false);
+            MarkMeaningAndImplications(0, 0, conceptMeaning, start, end, FIXED, false, false);
         }
     }
     RESTORESYSTEMSTATE()

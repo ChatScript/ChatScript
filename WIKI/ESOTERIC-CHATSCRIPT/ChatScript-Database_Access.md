@@ -183,6 +183,10 @@ $_var = ^mongofinddocument(dog)
 ^mongoclose()
 ```
 
+You can include a JSON object's worth of additional attributes on a Mongo upsert using $cs_mongoqueryparams.
+
+You also use a private hook code to alter things on upsert.
+
 ## Postgres Fileserver and Databse
 
 While standing in the SRC directory, you can do:

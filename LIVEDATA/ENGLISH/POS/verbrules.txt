@@ -66,7 +66,7 @@ KEEP
 #  KEEP
 
 # not verb at end if dual noun possible - that is my savings *account
-0  INCLUDE * VERB_INFINITIVE VERB_PRESENT
+0  INCLUDE * VERB_INFINITIVE VERB_PRESENT VERB_PRESENT_3PS
     STAY END
     STAY DUALNOUN
 DISCARD
@@ -178,6 +178,7 @@ DISCARD
 	INCLUDE * VERB_BITS 
 	STAY !PRIORPOS VERB_BITS
 	STAY !POSTPOS VERB_BITS
+	STAY !DUALNOUN
 KEEP
 
 # VERB wont have adjective particple or adj after if it it could be noun when bounded - jewels/jewel (Noun_plural Verb_present_3ps)  sparkled/sparkle (Verb_past Adjective_participle)  on (Preposition)  
@@ -391,6 +392,7 @@ DISCARD
 	STAY !START
 	STAY !PRIORPOS VERB_BITS  AUX_VERB
 	STAY !POSTPOS VERB_BITS
+	STAY !DUALNOUN
 KEEP
 
 # whole bunch of ways it might be infintiive all fail

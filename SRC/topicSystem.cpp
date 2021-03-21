@@ -166,7 +166,7 @@ bool DifferentTopicContext(int depthadjust, int topicid)
     while (--depth > 0) // start from prior to us
     {
         CALLFRAME* frame = releaseStackDepth[depth];
-        if (*frame->label == '~' ) return topicid != frame->oldTopic;
+        if (*frame->label == '~' ) return topicid != ( int) frame->oldTopic;
         if (*frame->label == '^' && frame->code) return true; // user function breaks chain of access
     }
     return true;
@@ -442,7 +442,7 @@ char* GetVerify(char* tag,int &topicid, int &id) //  ~topic.#.#=LABEL<~topic.#.#
 
 char* GetRule(int topicid, int id)
 {
-    if (!topicid || topicid > numberOfTopics || id < 0) return NULL;
+    if (!topicid || topicid > (int)numberOfTopics || id < 0) return NULL;
 	topicBlock* block = TI(topicid);
 
 	int ruleID = TOPLEVELID(id);
@@ -464,14 +464,14 @@ char* GetRule(int topicid, int id)
 
 void AddTopicFlag(int topicid,unsigned int flag)
 {
-    if (topicid > numberOfTopics || !topicid)
+    if (topicid > (int)numberOfTopics || !topicid)
 		ReportBug((char*)"AddTopicFlag flags topic id %d out of range\r\n", topicid)
     else TI(topicid)->topicFlags |= flag;
 }
 
 void RemoveTopicFlag(int topicid,unsigned int flag)
 {
-    if (topicid > numberOfTopics || !topicid) ReportBug((char*)"RemoveTopicFlag flags topic %d out of range\r\n", topicid)
+    if (topicid > (int)numberOfTopics || !topicid) ReportBug((char*)"RemoveTopicFlag flags topic %d out of range\r\n", topicid)
     else 
 	{
 		TI(topicid)->topicFlags &= -1 ^ flag;
@@ -534,7 +534,7 @@ char* GetTopicData(unsigned int topicid)
 
 void WalkTopics(char* function, char* buffer)
 {
-    for (int i = 1; i <= numberOfTopics; ++i)
+    for (unsigned int i = 1; i <= numberOfTopics; ++i)
     {
         if (!*GetTopicName(i)) continue;
         topicBlock* block = TI(i);
@@ -854,7 +854,7 @@ char* FindNextLabel(int topicid,char* label, char* ptr, int &id,bool alwaysAllow
 		bool topLevel = !Rejoinder(ptr);
 		if (topLevel) available = (alwaysAllowed) ? true : UsableRule(topicid,id);
 		// rule is available if a top level available rule OR if it comes under the current rule
-		if ((available || TOPLEVELID(id) == currentRuleID) )
+		if ((available || TOPLEVELID(id) == (unsigned int) currentRuleID) )
 		{
 			char ruleLabel[MAX_WORD_SIZE];
 			GetLabel(ptr,ruleLabel);
@@ -868,26 +868,26 @@ char* FindNextLabel(int topicid,char* label, char* ptr, int &id,bool alwaysAllow
 
 int GetTopicFlags(int topicid)
 {
-	return (!topicid || topicid > numberOfTopics) ? 0 : TI(topicid)->topicFlags;
+	return (!topicid || topicid > (int)numberOfTopics) ? 0 : TI(topicid)->topicFlags;
 }
 
 void SetTopicDebugMark(int topicid,unsigned int value)
 {
-	if (!topicid || topicid > numberOfTopics) return;
+	if (!topicid || topicid > (int)numberOfTopics) return;
 	topicBlock* block = TI(topicid);
 	block->topicDebug = value;
 }
 
 void SetTopicTimingMark(int topicid, unsigned int value)
 {
-	if (!topicid || topicid > numberOfTopics) return;
+	if (!topicid || topicid > (int)numberOfTopics) return;
 	topicBlock* block = TI(topicid);
 	block->topicTiming = value;
 }
 
 void SetDebugRuleMark(int topicid,unsigned int id)
 {
-	if (!topicid || topicid > numberOfTopics) return;
+	if (!topicid || topicid > (int)numberOfTopics) return;
 	topicBlock* block = TI(topicid);
 	id = TOPLEVELID(id);
 	unsigned int byteOffset = id / 8; 
@@ -900,7 +900,7 @@ void SetDebugRuleMark(int topicid,unsigned int id)
 
 static bool HasDebugRuleMark(int topicid)
 {
-	if (!topicid || topicid > numberOfTopics) return false;
+	if (!topicid || topicid > (int)numberOfTopics) return false;
 	bool tracing = false;
 	topicBlock* block = TI(topicid);
 	for (int i = 0; i < block->topicBytesRules; ++i)
@@ -917,7 +917,7 @@ static bool HasDebugRuleMark(int topicid)
 
 bool AreDebugMarksSet()
 {
-	for (int i = 1; i <= numberOfTopics; ++i)
+	for (unsigned int i = 1; i <= numberOfTopics; ++i)
 	{
 		if (HasDebugRuleMark(i)) return true;
 	}
@@ -926,7 +926,7 @@ bool AreDebugMarksSet()
 
 static bool GetDebugRuleMark(int topicid,unsigned int id) //   has this top level responder been marked for debug
 {
-	if (!topicid || topicid > numberOfTopics) return false;
+	if (!topicid || topicid > (int)numberOfTopics) return false;
 	topicBlock* block = TI(topicid);
 	id = TOPLEVELID(id);
 	unsigned int byteOffset = id / 8; 
@@ -940,7 +940,7 @@ static bool GetDebugRuleMark(int topicid,unsigned int id) //   has this top leve
 
 void SetTimingRuleMark(int topicid, unsigned int id)
 {
-	if (!topicid || topicid > numberOfTopics) return;
+	if (!topicid || topicid > (int)numberOfTopics) return;
 	topicBlock* block = TI(topicid);
 	id = TOPLEVELID(id);
 	unsigned int byteOffset = id / 8;
@@ -953,7 +953,7 @@ void SetTimingRuleMark(int topicid, unsigned int id)
 
 static bool HasTimingRuleMark(int topicid)
 {
-	if (!topicid || topicid > numberOfTopics) return false;
+	if (!topicid || topicid > (int)numberOfTopics) return false;
 	bool doTiming = false;
 	topicBlock* block = TI(topicid);
 	for (int i = 0; i < block->topicBytesRules; ++i)
@@ -970,7 +970,7 @@ static bool HasTimingRuleMark(int topicid)
 
 bool AreTimingMarksSet()
 {
-	for (int i = 1; i <= numberOfTopics; ++i)
+	for (unsigned int i = 1; i <= numberOfTopics; ++i)
 	{
 		if (HasTimingRuleMark(i)) return true;
 	}
@@ -979,7 +979,7 @@ bool AreTimingMarksSet()
 
 static bool GetTimingRuleMark(int topicid, unsigned int id) //   has this top level responder been marked for timing
 {
-	if (!topicid || topicid > numberOfTopics) return false;
+	if (!topicid || topicid > (int)numberOfTopics) return false;
 	topicBlock* block = TI(topicid);
 	id = TOPLEVELID(id);
 	unsigned int byteOffset = id / 8;
@@ -1049,7 +1049,7 @@ void ClearRuleDisableMark(unsigned int topicid, unsigned int id)
 
 bool UsableRule(int topicid,int id) // is this rule used up
 {
-	if (!topicid || topicid > numberOfTopics) return false;
+	if (!topicid || topicid > (int)numberOfTopics) return false;
 	topicBlock* block = TI(topicid);
 	if (id == currentRuleID && topicid == currentRuleTopic) return false;	// cannot use the current rule from the current rule
 	id = TOPLEVELID(id);
@@ -1773,7 +1773,7 @@ char* WriteUserTopics(char* ptr,bool sharefile)
 	ptr += strlen(ptr);
  
     //   write out dirty topics
-    for (id = 1; id <= numberOfTopics; ++id) 
+    for (unsigned id = 1; id <= numberOfTopics; ++id) 
     {
 		topicBlock* block = TI(id);
         char* name = block->topicName;// actual name, not common name
@@ -1863,14 +1863,14 @@ bool ReadUserTopics()
 	bool badLayer1 = false;
 	ptr += 3;	// skip dy which indicates more modern data
 	ptr = ReadCompiledWord(ptr,word);
-	int lev0topics = atoi(word);
+	unsigned int lev0topics = atoi(word);
 	if (lev0topics != numberOfTopicsInLayer[LAYER_0]) {} // things have changed. after :build there are a different number of topics.
 	ptr = ReadCompiledWord(ptr,word);
-	int lev1topics = atoi(word);
+	unsigned int lev1topics = atoi(word);
 	ReadCompiledWord(ptr,word);
 	if (lev1topics != numberOfTopicsInLayer[LAYER_1]) {} // things have changed. after :build there are a different number of topics.
 	ptr = ReadCompiledWord(ptr,word);
-	int lev2topics = atoi(word);
+	unsigned int lev2topics = atoi(word);
 	ReadCompiledWord(ptr,word);
 	ptr = ReadCompiledWord(ptr,word);
 	if (*word != '0' || word[1]) LoadLayer(LAYER_BOOT,word,BUILD2); // resume existing layer 2
@@ -1884,7 +1884,7 @@ bool ReadUserTopics()
     {
         ptr = ReadCompiledWord(ptr,word); //   topic name
 		if (*word == '#') break; //   comment ends it
-        int id = FindTopicIDByName(word,true); 
+        unsigned int id = FindTopicIDByName(word,true); 
         if (id) 
 		{
 			if (id <= numberOfTopicsInLayer[2])
@@ -1906,7 +1906,7 @@ bool ReadUserTopics()
         at = ReadCompiledWord(at,topicName);
 		WORDP D = FindWord(topicName);			
 		if (!D || !(D->internalBits & TOPIC)) continue; // should never fail unless topic disappears from a refresh
-		int id = D->x.topicIndex;
+		unsigned int id = D->x.topicIndex;
 		if (!id) continue;	//   no longer exists
 		if (id > numberOfTopicsInLayer[LAYER_1] && badLayer1) continue;	// not paged in?
 
@@ -1950,7 +1950,7 @@ bool ReadUserTopics()
 		return false;
 	}
 
-	if (inputRejoinderTopic > numberOfTopicsInLayer[2]) inputRejoinderTopic = inputRejoinderRuleID = NO_REJOINDER; // wrong layer
+	if ((unsigned int) inputRejoinderTopic > numberOfTopicsInLayer[2]) inputRejoinderTopic = inputRejoinderRuleID = NO_REJOINDER; // wrong layer
 
 	return true;
  }
@@ -1966,7 +1966,7 @@ void ResetTopicSystem(bool safe)
 	disableIndex = 0;
 	if (!safe) pendingTopicIndex = 0;
 	ruleErased = false;	
-	for (int i = 1; i <= numberOfTopics; ++i) 
+	for (unsigned int i = 1; i <= numberOfTopics; ++i) 
 	{
 		if (!*GetTopicName(i)) continue;
 		topicBlock* block = TI(i);
@@ -1983,12 +1983,12 @@ void ResetTopicSystem(bool safe)
 
 void ResetTopics()
 {
-	for (int i = 1; i <= numberOfTopics; ++i) ResetTopic(i);
+	for (unsigned int i = 1; i <= numberOfTopics; ++i) ResetTopic(i);
 }
 
  void ResetTopic(int topicid)
 {
-	if (!topicid || topicid > numberOfTopics) return;
+	if (!topicid || topicid > (int)numberOfTopics) return;
 	topicBlock* block = TI(topicid);
 	if (!*GetTopicName(topicid)) return;
 	if (*block->topicName) // normal fully functional topic
@@ -2379,7 +2379,8 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		WORDP old = FindWord(name);
 		if (old && (old->systemFlags & PATTERN_WORD)) old = NULL;	// old is not changing value at all
 		else if (build != BUILD2) old = NULL; // only protect from a layer 2 load
-		WORDP D = StoreWord(name,0,PATTERN_WORD|build);
+		WORDP D = StoreWord(name,0,PATTERN_WORD);
+		AddInternalFlag(D, build);
 		AddWordItem(D, false);
  //       CheckFundamentalMeaning(name); // make no notations
 		// if old was not previously pattern word and it is now, we will have to unwind on unload. If new word, word gets unwound automatically
@@ -2396,7 +2397,7 @@ void UnwindUserLayerProtect()
     {
         unwindUserLayer = UnpackHeapval(unwindUserLayer,
             D, discard);
-		((WORDP)D)->systemFlags &= -1L ^ PATTERN_WORD;		// boot layer added this flag, take it away
+		RemoveSystemFlag((WORDP)D,PATTERN_WORD);		// boot layer added this flag, take it away
 	}
 }
 
@@ -2514,7 +2515,6 @@ static void InsureSafeSpellcheck(char* word,bool dictionaryBuild)
 
 #define NEW_BIT   0x8000000000000000	
 
-
 void AddBinWord(WORDP D, bool isnew, FILE* out)
 {
 	D->systemFlags &= ((uint64)-1) ^ MARKED_WORD;
@@ -2531,7 +2531,8 @@ void AddBinWord(WORDP D, bool isnew, FILE* out)
  // [5] object head
  // {6} hash, 
  // {7} name/0,  
-	D->internalBits &= -1 ^ (BIT_CHANGED | VAR_CHANGED | BEEN_HERE);
+	if (*D->word == '$') 	D->internalBits &= -1 ^ VAR_CHANGED ;
+	D->internalBits &= -1 ^ (BIT_CHANGED | BEEN_HERE);
 	uint64* bindata = (uint64*)AllocateBuffer();
 	bindata[0] = ((uint64)(D->length & 0x00ffff)) << 32;
 	bindata[0] |= Word2Index(D);
@@ -2800,7 +2801,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			AddSystemFlag(set,sys); 
 			AddParseBits(set,parse); 
 			AddInternalFlag(set,intbits);
-			if (sys & DELAYED_RECURSIVE_DIRECT_MEMBER) sys ^= DELAYED_RECURSIVE_DIRECT_MEMBER; // only mark top set for this recursive membership
+			if (intbits & DELAYED_RECURSIVE_DIRECT_MEMBER) intbits ^= DELAYED_RECURSIVE_DIRECT_MEMBER; // only mark top set for this recursive membership
 			char* dot = strchr(name,'.');
 			if (dot) // convert the topic family to the root name --- BUG breaks with amazon data...
 			{
@@ -2819,7 +2820,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 		*keyword = 0;
         while (ALWAYS)
         {
-            // may have ` after it so simulate ReadCompiledWord which wont tolerate it
+            // may have ` after it as bot id separator so simulate ReadCompiledWord which wont tolerate it
             char* at = keyword; // place to write into
             if (!*ptr) break;
             ptr = SkipWhitespace(ptr);
@@ -2842,7 +2843,13 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             }
             char* p1 = keyword;
             bool original = false;
-            if (*p1 == '\'' && p1[1]) // quoted value but not standalone '   
+			bool casesensitive = false;
+			if (*p1 == '\'' && p1[1] == '\'' && p1[2]) // 2x quoted value but not standalone ''   
+			{
+				p1 += 2;
+				casesensitive = true;
+			}
+			else if (*p1 == '\'' && p1[1]) // quoted value but not standalone '   
             {
                 ++p1;
                 original = true;
@@ -2976,8 +2983,10 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             }
 
             MEANING verb = (*keyword == '!') ? Mexclude : Mmember;
-            int flags = (original) ? (FACTDUPLICATE | ORIGINAL_ONLY) : FACTDUPLICATE;
-            if (startOnly) flags |= START_ONLY;
+			int flags = FACTDUPLICATE;
+			if (original) flags |=  ORIGINAL_ONLY;
+			if (casesensitive) flags |= RAWCASE_ONLY;
+			if (startOnly) flags |= START_ONLY;
             if (endOnly) flags |= END_ONLY;
             if (build == BUILD2) flags |= FACTBUILD2;
             CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
@@ -3227,7 +3236,7 @@ static void InitLayerMemory(const char* name, int layer)
     size_t size = sizeof(topicBlock);
     // each layer we allocate ptr space for prior layers but we dont use them.
 	topicBlockPtrs[layer] = (topicBlock*) AllocateHeap(NULL, numberOfTopics + 1,size,true); // reserved space for each topic to have its data
-	for (int i = priorTopicCount + 1; i <= numberOfTopics; ++i) TI(i)->topicName = "";
+	for (unsigned int i = priorTopicCount + 1; i <= numberOfTopics; ++i) TI(i)->topicName = "";
 	if (layer == 0)  TI(0)->topicName = "";
 }
 
@@ -3240,9 +3249,9 @@ static void AddRecursiveMember(WORDP D, WORDP set,unsigned int build)
 	}
 	if (D->inferMark == inferMark) return; // concept already seen
 	D->inferMark = inferMark;
-	if (D->systemFlags & DELAYED_RECURSIVE_DIRECT_MEMBER)
+	if (D->internalBits & DELAYED_RECURSIVE_DIRECT_MEMBER)
 	{
-		D->systemFlags ^= DELAYED_RECURSIVE_DIRECT_MEMBER;
+		D->internalBits ^= DELAYED_RECURSIVE_DIRECT_MEMBER;
 	}
 	FACT* F = GetObjectNondeadHead(D);
 	while (F)
@@ -3255,9 +3264,9 @@ static void AddRecursiveMember(WORDP D, WORDP set,unsigned int build)
 static void IndirectMembers(WORDP D, uint64 buildx)
 { // we want to recursively get members of this concept, but waited til now for any subset concepts to have been defined
 	unsigned int build = (unsigned int) buildx;
-	if (D->systemFlags & DELAYED_RECURSIVE_DIRECT_MEMBER) // this set should acquire all its indirect members now
+	if (D->internalBits & DELAYED_RECURSIVE_DIRECT_MEMBER) // this set should acquire all its indirect members now
 	{
-		D->systemFlags ^= DELAYED_RECURSIVE_DIRECT_MEMBER;
+		D->internalBits ^= DELAYED_RECURSIVE_DIRECT_MEMBER;
 		NextInferMark();
 		D->inferMark = inferMark;
 		FACT* F = GetObjectNondeadHead(D);
@@ -3271,10 +3280,10 @@ static void IndirectMembers(WORDP D, uint64 buildx)
 
 topicBlock* TI(int topicid)
 {
-	if (topicid <= numberOfTopicsInLayer[LAYER_0]) return topicBlockPtrs[LAYER_0] + topicid;
-	if (topicid <= numberOfTopicsInLayer[LAYER_1]) return topicBlockPtrs[LAYER_1] + topicid;
-	if (topicid <= numberOfTopicsInLayer[LAYER_BOOT]) return topicBlockPtrs[LAYER_BOOT] + topicid;
-	if (topicid <= numberOfTopicsInLayer[LAYER_USER]) return topicBlockPtrs[LAYER_USER] + topicid;
+	if (topicid <= (int)numberOfTopicsInLayer[LAYER_0]) return topicBlockPtrs[LAYER_0] + topicid;
+	if (topicid <= (int)numberOfTopicsInLayer[LAYER_1]) return topicBlockPtrs[LAYER_1] + topicid;
+	if (topicid <= (int)numberOfTopicsInLayer[LAYER_BOOT]) return topicBlockPtrs[LAYER_BOOT] + topicid;
+	if (topicid <= (int)numberOfTopicsInLayer[LAYER_USER]) return topicBlockPtrs[LAYER_USER] + topicid;
 	return NULL;
 }
 
@@ -3282,7 +3291,6 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 {
 	UnlockLayer(layer);
 	textBase = heapFree;
-
 	int originalTopicCount = numberOfTopics;
 	char filename[SMALL_WORD_SIZE];
 	InitLayerMemory(name,layer);

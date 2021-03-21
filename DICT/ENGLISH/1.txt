@@ -1,4 +1,4 @@
-﻿ 1-hitter ( meanings=1 NOUN NOUN_SINGULAR ) 
+﻿ 1-hitter ( meanings=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     one-hitter~1n 
  11-plus ( meanings=1 NOUN NOUN_PLURAL ) 
     eleven-plus~1n 
@@ -34,7 +34,7 @@
     William_Maxwell_Aitken~1n 
  1st_Viscount_Montgomery_of_Alamein ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
     Montgomery~2nz (^general~2) English general during World War II
- 18-karat_gold ( meanings=1 glosses=1 NOUN NOUN_SINGULAR ) 
+ 18-karat_gold ( meanings=1 glosses=1 NOUN NOUN_SINGULAR NOUN_NODETERMINER ) 
     18-karat_gold~1nz (^metal~1) an alloy that contains 75 per cent gold
  1-dodecanol ( meanings=1 NOUN NOUN_SINGULAR ) 
     lauryl_alcohol~1n 
@@ -94,7 +94,7 @@
     1-star~1az 
  12-step ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
     12-step~1az 
- 1/4 ( NOUN NOUN_NUMBER ) 
- 1/8 ( NOUN NOUN_NUMBER ) 
- 1/3 ( NOUN NOUN_NUMBER ) 
- 1/2 ( NOUN NOUN_NUMBER ) 
+ 1/4 ( NOUN NOUN_NUMBER NOUN_NODETERMINER KINDERGARTEN ) 
+ 1/8 ( NOUN NOUN_NUMBER NOUN_NODETERMINER KINDERGARTEN ) 
+ 1/3 ( NOUN NOUN_NUMBER NOUN_NODETERMINER KINDERGARTEN ) 
+ 1/2 ( NOUN NOUN_NUMBER NOUN_NODETERMINER KINDERGARTEN ) 

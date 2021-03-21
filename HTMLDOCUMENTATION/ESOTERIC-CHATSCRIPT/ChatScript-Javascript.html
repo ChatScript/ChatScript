@@ -10,10 +10,7 @@
 <body>
 <h1 id="chatscript-javascript">ChatScript Javascript</h1>
 <blockquote>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com</p>
-</blockquote>
-<blockquote>
-<p>Revision 4/30/2016 cs6.4</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com <br>Revision 3/21/2021 cs11.2</p>
 </blockquote>
 <p>You can write functions in Javascript in your script files and invoke them from ChatScript code. It's all done with what you define in an <code>outputmacro:</code> construct.</p>
 <h2 id="loading-javascript-code">Loading Javascript code</h2>
@@ -66,6 +63,8 @@ topic: ~keywordless()
 u: (test) ^testx(5)
 </code></pre>
 <p>In the above example, if the <code>~keywordless</code> topic sees an input of <code>test</code> it will call <code>^testx</code> with a value of five. This will cause the javascript to be loaded and the javascript function <code>test</code> called with an integer value 5. This will, in turn, print out on the console <code>0 1 1 2 3</code> (but since that is not ChatScript output the system will move on to some other rule to try to generate output).</p>
+<h2 id="native_log-message">native_log (message)</h2>
+<p>This is a predefined JS function that will take the message and send it to the user log.</p>
 <h2 id="notes-restrictions">Notes &amp; Restrictions</h2>
 <p>Currently the javascript is presumed correct (not verified by CS during <code>:build</code>). When the code is evaled, if there is an error, the rule making the outputmacro call will fail, but you have no indication of where in the javascript your code was in error.</p>
 <p>Likewise there are nominal limits of 1500 bytes for a string argument or return value. These are not enforced at present, so you could damage the system if you exceed that. In the future restrictions and debuggability will be improved.</p>

@@ -70,7 +70,7 @@ static void WriteCache(unsigned int which,size_t size)
 	{
 		char call[MAX_WORD_SIZE];
 		sprintf(call,(char*)"mkdir %s",usersfolder);
-		system(call);
+		MakeDirectory(usersfolder);
 		out = userFileSystem.userCreate(filename);
 
 		if (!out) 

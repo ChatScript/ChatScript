@@ -46,7 +46,7 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
         unsigned int planArgCount;	//  number of arguments in a plan
         unsigned char* fndefinition;//  for nonplan macro name (start with ^) - if FUNCTION_NAME is on and not system function, is user script - 1st byte is argument count
         char* userValue;			//  if a $uservar (start with $) OR if a query label is query string
-        WORDP substitutes;			//  words (with internalBits HAS_SUBSTITUTE) that should be adjusted to during tokenization
+        WORDP substitutes;			//  words (with systemFlags HAS_SUBSTITUTE) that should be adjusted to during tokenization
         MEANING*  glosses;			//  for ordinary words: list of glosses for synset head meanings - is offset to allocstring and id index of meaning involved.
         char* conditionalIdiom;		//  test code headed by ` for accepting word as an idiom instead of its individual word components
     }w;
@@ -139,6 +139,8 @@ extern char externalBugLog[1000];
 extern FILE* userlogFile;
 
 // MEMORY SYSTEM
+extern int inputSize;
+extern bool inputLimitHit;
 extern bool convertTabs;
 extern bool infiniteStack;
 extern CALLFRAME* releaseStackDepth[MAX_GLOBAL];
@@ -333,6 +335,28 @@ unsigned int Log(unsigned int spot,const char * fmt, ...);
 CALLFRAME* ChangeDepth(int value,const char* where,bool nostackCutboack = false,char* code = NULL);
 void BugBacktrace(FILE* out);
 void Bug();
+
+// HOOKS
+typedef void (*HOOKPTR)(void);
+
+typedef void (*PerformChatArgumentsHOOKFN)(char*& user, char*& usee, char*& incoming);
+typedef void (*SignalHandlerHOOKFN)(int signalcode, char*& msg);
+#ifndef DISCARDMONGO
+typedef void (*MongoQueryParamsHOOKFN)(bson_t *query);
+typedef void (*MongoUpsertKeyValuesHOOKFN)(bson_t *doc);
+#endif
+
+typedef struct HookInfo
+{
+    const char* name;           // hook name
+    HOOKPTR fn;                 // optional function to use to run it
+    const char* comment;        // what to say about it
+} HookInfo;
+
+extern HookInfo hookSet[];
+
+HOOKPTR FindHookFunction(char* hookName);
+void RegisterHookFunction(char* hookName, HOOKPTR fn);
 
 // RANDOM NUMBERS
 
