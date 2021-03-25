@@ -2660,7 +2660,11 @@ char* WriteMeaning(MEANING T, bool withPos, char* buf)
 	else if ((T & MEANING_BASE) == T)  answer = D->word;
 	if (answer)
 	{
-		if (buf) strcpy(buf, answer);
+		if (buf)
+		{
+			if (!*answer) sprintf(buf, "``");
+			else strcpy(buf, answer);
+		}
 		return answer;
 	}
 

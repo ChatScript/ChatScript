@@ -6855,7 +6855,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 			}
 		}
 		else if (D->systemFlags & SUBSTITUTE_RECIPIENT) continue; // ignore pattern words, etc EXCEPT when field of a fact
-		else if (D->systemFlags & NO_EXTENDED_WRITE_FLAGS && !GetSubjectNondeadHead(D) && !GetVerbNondeadHead(D) && !GetObjectNondeadHead(D)) continue; // ignore pattern words, etc EXCEPT when field of a fact
+		else if (D->systemFlags & NO_EXTENDED_WRITE_FLAGS && oldproperties == prop && oldflags == flags && !GetSubjectNondeadHead(D) && !GetVerbNondeadHead(D) && !GetObjectNondeadHead(D)) continue; // ignore pattern words, etc EXCEPT when field of a fact or with different sys or prop
 		else if (D->properties & (NOUN_NUMBER|ADJECTIVE_NUMBER)  && IsDigit(*D->word)) continue; // no numbers
 		else if (!D->properties && D->internalBits & UPPERCASE_HASH && !D->systemFlags) continue; // boring uppercase pattern word, just not marked as pattern word because its uppercase
 
@@ -6865,7 +6865,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 
 		// only write out changes in flags and properties
 		D->properties &= -1LL ^ oldproperties; // remove the old properties
-		D->systemFlags &= -1 ^  oldflags; // remove the old flags
+		D->systemFlags &= -1LL ^  oldflags; // remove the old flags
 
 		// if the ONLY change is an existing word got made into a concept, dont write it out anymore
 		if (!D->properties && !D->systemFlags && D->internalBits & CONCEPT && D <= dictionaryPreBuild[LAYER_0] ) {;}  // preexisting word a concept

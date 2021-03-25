@@ -681,17 +681,17 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
     WORDP s = (properties & FACTSUBJECT) ? NULL : Meaning2Word(subject);
     WORDP v = (properties & FACTVERB) ? NULL : Meaning2Word(verb);
 	WORDP o = (properties & FACTOBJECT) ? NULL : Meaning2Word(object);
-    if (s && (!s->word || *s->word == 0))
+    if (s && !s->word)
 	{
 		ReportBug((char*)"bad choice in fact subject")
 		return NULL;
 	}
-	if (v && (!v->word || *v->word == 0))
+	if (v && !v->word)
 	{
 		ReportBug((char*)"bad choice in fact verb")
 		return NULL;
 	}
-	if (o && (!o->word || *o->word == 0))
+	if (o && !o->word)
 	{
 		ReportBug((char*)"bad choice in fact object")
 		return NULL;
@@ -1297,7 +1297,7 @@ static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bo
 		bool embeddedbacktick = strchr(answer,'`') ? true : false;
 		bool embeddedspace = !quoted && (strchr(answer,' ')  || strchr(answer,'(') || strchr(answer, '"')  || strchr(answer,')')); // does this need protection? blanks or function call maybe
 		bool safe = true; 
-		if (strchr(answer,'\\') || strchr(answer,'/')) safe = false;
+		if (!*answer || strchr(answer,'\\') || strchr(answer,'/')) safe = false;
         if (quoted && jsonString) safe = false;
         
 		// json must protect: " \ /  nl cr tab  we are not currently protecting bs ff

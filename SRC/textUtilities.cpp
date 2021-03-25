@@ -2924,6 +2924,7 @@ char* ReadCompiledWord(const char* ptr, char* word,bool noquote,bool var,bool no
 	else // normal token, not some kind of string (but if pattern assign it could become)
 	{
 		bool bracket = false;
+		int dqquotecount = 0;
 		while ((c = *ptr) && c != ENDUNIT) 
 		{ // worst case is in pattern $x:=^"^join(...)" where spaces are in fn call args inside of active string
 		  // may have quotes inside it, so have to clear the call before can find quote end of active string.
@@ -2933,7 +2934,12 @@ char* ReadCompiledWord(const char* ptr, char* word,bool noquote,bool var,bool no
 			if (IsWhiteSpace(c)) break;
 			if (special) // try to end a variable if not utf8 char or such
 			{
-				if (special == '$' && (c == '.' || c == '[') && (LegalVarChar(*ptr) || *ptr == '$' || (*ptr == '\\' && ptr[1] == '$') )) {;} // legal data following . or [
+				if (special == '$' && c == '.' && (LegalVarChar(*ptr) || *ptr == '$' || (*ptr == '\\' && ptr[1] == '$') || (*ptr  == '_') || (*ptr == '"')))  // legal data following .  includes variable ref, match var ref, quoted strings
+				{
+					if (*ptr == '"') dqquotecount = 1; // started a quoted fieldname
+				}
+				else if (c == '"' && dqquotecount == 1) ++dqquotecount; // goes to 2 and will no longer allow more
+				else if (special == '$' && c == '[' && (LegalVarChar(*ptr) || *ptr == '$' || (*ptr == '\\' && ptr[1] == '$') || (*ptr == '_'))) { ; } // legal data following  [ includes variable ref, match var ref, quoted strings
 				else if (special == '$' &&  c == ']' && bracket) {;} // allowed trailing array close
 				else if (special == '$' && c == '$' && (priorchar == '.' || priorchar == '[' || priorchar == '$' || priorchar == 0 || priorchar == '\\')){;} // legal start of interval variable or transient var continued
 				else if ((special == '%' || special == '_' || special == '@') && priorchar == 0) {;}

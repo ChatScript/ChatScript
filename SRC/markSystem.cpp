@@ -842,9 +842,9 @@ static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsig
 			size_t len = strlen(D->word);
 			if (!strncmp(D->word, word, len - 1)) // except for 1st letter is rest of word what user types
 			{
-				if (start != 1) kind = RAWCASE; // only first word of sentence may be provoked
-				else if (!IsUpperCase(*word))  kind = RAWCASE;  // lower case by user not impacted by grammar stricture
-				else if (IsUpperCase(word[1])) kind = RAWCASE; // 2 uppercase in a row is intentional (or caps lock so we cant tell)
+				if (start != 1) refined = RAWCASE; // only first word of sentence may be provoked
+				else if (!IsUpperCase(*word))  refined = RAWCASE;  // lower case by user not impacted by grammar stricture
+				else if (IsUpperCase(word[1])) refined = RAWCASE; // 2 uppercase in a row is intentional (or caps lock so we cant tell)
 			}
 		}
 		MarkMeaningAndImplications(0, 0,MakeMeaning(D),start,end, refined,true);

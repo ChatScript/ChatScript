@@ -1507,8 +1507,13 @@ bool IsDualNoun(int i)
     // regular dual/compound nouns will pluralize the second word, "car loans"
     strcpy(word, wordStarts[i-1]);
     strcat(word, "_");
-    if (posValues[i] & NOUN_PROPER_PLURAL) strcat(word, canonicalUpper[i]->word);
-    else if (posValues[i] & NOUN_PLURAL) strcat(word, canonicalLower[i]->word);
+
+    // canonical should be uppercase, but be careful to avoid crash
+    WORDP canonical = NULL;
+    if (posValues[i] & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL)) canonical = canonicalUpper[i];
+    else canonical = canonicalLower[i];
+
+    if (canonical && stricmp(canonical->word,(char*)"unknown-word")) strcat(word, canonical->word);
     else strcat(word, wordStarts[i]);
     
     WORDP Z = FindWord(word);

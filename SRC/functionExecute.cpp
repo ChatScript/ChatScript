@@ -8751,6 +8751,7 @@ void WebSocketClient(char* url, char* startmessage)
 	while (websocket)
 	{
 		InternalCall("^WebsocketReceive", WebsocketReceiveCode, "-1", "", "", ourMainInputBuffer);
+		originalUserInput = ourMainInputBuffer;
 		PerformChat("websocket", "websocketbot", ourMainInputBuffer, "0.0.0", ourMainOutputBuffer);
 		InternalCall("^WebsocketSend", WebsocketSendCode, ourMainOutputBuffer, "", "", ourMainInputBuffer);
 	}

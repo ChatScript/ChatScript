@@ -1688,7 +1688,11 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 			free(extraTopicData);
 			extraTopicData = NULL;
 		}
-		else turn = PerformChat(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer); // no ip
+		else
+		{
+			originalUserInput = ourMainInputBuffer;
+			turn = PerformChat(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer); // no ip
+		}
 		if (turn == PENDING_RESTART)
 		{
 			ourMainInputBuffer[0] = ourMainInputBuffer[1] = 0;
@@ -1745,7 +1749,8 @@ void MainLoop() //   local machine loop
         }
     }
     else strcpy(user, loginID);
-    PerformChat(user, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer); // unknown bot, no input,no ip
+	originalUserInput = ourMainInputBuffer; 
+	PerformChat(user, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer); // unknown bot, no input,no ip
     EmitOutput();
 
     while (!quitting)
@@ -2037,14 +2042,14 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
                 }
             }
             
-            if (*incoming && regression == NORMAL_REGRESSION) Log(USERLOG,"%s(%s) %s ==> %s %s\r\n", nl, activeTopic, TrimSpaces(incoming), poutput, origbuff+2); // simpler format for diff
+            if (*incoming && regression == NORMAL_REGRESSION) Log(USERLOG,"%s(%s) `*` ==> %s %s\r\n", nl, activeTopic, poutput, origbuff+2); // simpler format for diff
             else if (!*incoming)
             {
                 Log(USERLOG,"%sStart: user:%s bot:%s ip:%s rand:%d (%s) %d ==> %s  When:%s %s Version:%s Build0:%s Build1:%s 0:%s F:%s P:%s\r\n", nl, loginID, computerID, callerIP, randIndex, activeTopic, volleyCount, poutput, when, origbuff+2, version, timeStamp[0], timeStamp[1], timeturn0, timeturn15, timePrior); // conversation start
             }
             else
             {
-                Log(USERLOG,"%sRespond: user:%s bot:%s ip:%s (%s) %d  `*` ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, poutput, when, origbuff+2, time15);  // normal volley
+                Log(USERLOG,"%sRespond: user:%s bot:%s ip:%s (%s) %d  '`*` ==> %s  When:%s %s %s\r\n", nl, loginID, computerID, callerIP, activeTopic, volleyCount, poutput, when, origbuff+2, time15);  // normal volley
             }
 
 			if (*GetUserVariable("$cs_showtime", false, true))
@@ -2065,7 +2070,8 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
             char* sep = output + 1;
             while ((sep = strchr(sep, ENDUNIT)))
             {
-                if (*(sep - 1) == ' ' || *(sep - 1) == '\n') memmove(sep, sep + 1, strlen(sep)); // since prior had space, we can just omit our separator.
+				if (sep[1] == '`') sep += 2; // `` comes from empty field value in fact "" 
+                else if (*(sep - 1) == ' ' || *(sep - 1) == '\n') memmove(sep, sep + 1, strlen(sep)); // since prior had space, we can just omit our separator.
                 else if (!sep[1]) *sep = 0; // show nothing extra on last separator
                 else if (sep[1] == ' ' && !sep[2]) *sep = 0; // show nothing extra on last separator w blank after
                 else *sep = ' ';
@@ -2100,6 +2106,7 @@ void FinishVolley(char* incoming, char* output, char* postvalue, int limit)
 int PerformChatGivenTopic(char* user, char* usee, char* incoming,char* ip,char* output,char* topicData)
 {
 	CreateFakeTopics(topicData);
+	originalUserInput = incoming;
 	int answer = PerformChat(user,usee,incoming,ip,output);
 	ReleaseFakeTopics();
 	return answer;
@@ -2132,6 +2139,9 @@ bool crashset = false;
 int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
 
+#ifdef DLL
+	originalUserInput = incoming;	// no real server is dishing this
+#endif
 #ifdef PRIVATE_CODE
     // Check for private hook function to potentially scan and adjust the input
     HOOKPTR fn = FindHookFunction((char*)"PerformChatArguments");
@@ -2143,6 +2153,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	originalUserInput = incoming;
 	patternDepth = adjustIndent = 0;
 	InitJson();
+	int originalUserLog = userLog;
 	volleyStartTime = ElapsedMilliseconds(); // time limit control
 	if (!*user) *loginID = 0; // make sure he doesnt get to reuse other's id
 
@@ -2152,8 +2163,9 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	restartfromdeath = false;
 	if (crashBack || restartBack) // this is now the volley after we crashed or requested restart a moment ago
 	{
+#ifndef DLL
 		if (!autoreload && !restartBack) myexit((char*)"delayed crash exit");
-		
+#endif
 		// attempt autoreload of system and continue
 		if (!restartBack) ReportBug("INFO: Autoreload for %s",incoming);
 		reloading = true;
@@ -2231,7 +2243,12 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 	// dont process authcode as input from user
 	char* authcode =  (* serverlogauthcode ) ? strstr(incoming, serverlogauthcode) : NULL;
-	if (authcode) memset(authcode, ' ', strlen(serverlogauthcode)); // hide auth code entirely
+	if (authcode)
+	{
+		memset(authcode, ' ', strlen(serverlogauthcode)); // hide auth code entirely
+		if (!server && !userLog) userLog |= FILE_LOG;
+		else if (server && !serverLog) serverLog |= FILE_LOG;
+	}
 
 	if (server && !serverLog) // transient enable server logging?
 	{
@@ -2239,6 +2256,15 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		if (in)
 		{
 			serverLog = FILE_LOG;
+			fclose(in);
+		}
+	}
+	else if (!server && !userLog) // transient enable user logging?
+	{
+		FILE* in = fopen("userlogging.txt", (char*)"rb");
+		if (in)
+		{
+			userLog |= FILE_LOG;
 			fclose(in);
 		}
 	}
@@ -2545,6 +2571,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		chatstarted = ElapsedMilliseconds() - chatstarted;
 		printf("Summary-  Prepare: %d  Reply: %d  Finish: %d\r\n", (int)preparationtime, (int)replytime, (int)chatstarted);
 	}
+	userLog = originalUserLog;
 
 // end of try
 }
@@ -2554,6 +2581,7 @@ __except(true)
 catch (...)
 #endif
 {
+	userLog = originalUserLog;
 	char word[MAX_WORD_SIZE];
 	sprintf(word, (char*)"Try/catch");
 	Log(SERVERLOG, word);
@@ -2563,6 +2591,7 @@ catch (...)
 #else
 	longjmp(crashJump, 1);
 #endif
+
 }
 
 if (userlogFile)
@@ -2644,6 +2673,7 @@ void Restart()
 		echo = false;
 		char* initialInput = AllocateBuffer();
 		*initialInput = 0;
+		originalUserInput = ourMainInputBuffer; 
 		PerformChat(us,computerID,initialInput,callerIP,mainOutputBuffer); // this autofrees buffer
        // FreeBuffer();
     }

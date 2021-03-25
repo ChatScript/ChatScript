@@ -156,7 +156,7 @@ void JoinMatch(int start, int end, int index, bool inpattern)
 		else if (start != realend) // consider if alternate is in dictionary (we used a separator)
 		{
 			FlipSeparator(wildcardCanonicalText[index], word);
-			D = FindWord(word, len);
+			D = FindWord(word, lenc);
 			if (D) strcpy(wildcardCanonicalText[index], D->word);
 		}
 	}
@@ -1347,16 +1347,20 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
-            if (!*buffer && !stricmp(originalWord1, "null")) Log(USERLOG, "%s=%s", word, originalWord1);
-            else if (!stricmp(originalWord1,buffer)) Log(USERLOG, "%s = %s", word, originalWord1);
-            else if (*originalWord1 == '^') Log(USERLOG, "%s = %s(...) `%s`", word, originalWord1, buffer);
-            else Log(USERLOG, "%s = %s `%s`", word, originalWord1, buffer);
+            if (!*buffer && !stricmp(originalWord1, "null")) Log(USERLOG, "%s=%s ", word, originalWord1);
+            else if (!stricmp(originalWord1,buffer)) Log(USERLOG, "%s = %s ", word, originalWord1);
+            else if (*originalWord1 == '^') Log(USERLOG, "%s = %s(...) `%s` ", word, originalWord1, buffer);
+            else Log(USERLOG, "%s = %s `%s` ", word, originalWord1, buffer);
         }
         // assume that if a variable explicitly has quotes that they are important and therefore don't need to strip them 
         // BUG that we dont do that for _n vars but not likely
         bool stripQuotes = (*originalWord1 == USERVAR_PREFIX) ? false : true; // literals get quotes stripped, variables already did that
         char* dot = strchr(word, '.');
-        if (!dot) dot = strstr(word, "[]"); // array assign?
+        if (!dot)
+        {
+            dot = strchr(word, '['); // array assign?
+            if (dot) dot = strchr(dot, ']');
+        }
         if (!dot || nojson) SetUserVariable(word, buffer, true);
         else result = JSONVariableAssign(word, buffer, stripQuotes);// json object insert
     }

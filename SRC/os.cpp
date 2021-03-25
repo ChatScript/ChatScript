@@ -2157,6 +2157,9 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		}
 		else 	out = rotateLogOnLimit(name, folder);
 	}
+	char* input = strstr(logmainbuffer, "`*`");
+	if (input) *input = 0;
+
 	if (!out) {}
 	else if (channel != USERLOG)  // various logging- server, timing logs
 	{
@@ -2164,23 +2167,26 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		struct tm ptm;
 		if (!dobugLog); // we are not reporting a bug, otherwise tell where we are in main log
 		else if (*currentFilename) fprintf(out, (char*)"   in %s at %u: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
-		else if (*currentInput) fprintf(out, (char*)"%u %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
+		else if (*currentInput)
+		{
+			fprintf(out, (char*)"%u %s in sentence:    ", volleyCount, GetTimeInfo(&ptm, true));
+			fwrite(originalUserInput, 1, strlen(originalUserInput), out); // separate write in case bigger than logbuffer
+			fwrite("\r\n", 1, 2, out); 
+		}
 	}
-	else // user log
+	else
 	{
-		char* input = strstr(logmainbuffer, "`*`");
 		if (input)
 		{
 			*input = 0;
-			fwrite(logmainbuffer, 1, input - logmainbuffer, out);
+			fwrite(logmainbuffer, 1, strlen(logmainbuffer), out);
 			fwrite(originalUserInput, 1, strlen(originalUserInput), out); // separate write in case bigger than logbuffer
-			fwrite(input + 3, 1, bufLen - (input - logmainbuffer) - 3, out);
-			*input = '`';
+			fwrite(input + 3, 1, strlen(input + 3), out);
 		}
 		else fwrite(logmainbuffer, 1, bufLen, out);
 	}
-	if (out && out != userlogFile && out != stdout && out != stderr) 
-		fclose(out); // dont use FClose
+	if (out && out != userlogFile && out != stdout && out != stderr)  fclose(out); // dont use FClose
+	if (input) *input = '`';
 }
 
 static void BugLog(char* name, char* folder, FILE* bug,char* located)

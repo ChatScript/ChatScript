@@ -1211,8 +1211,7 @@ static char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer
 	int index = 0;
 	if (!stricmp(D->word, (char*)"null"))
 	{
-		if (subject & JSON_STRING_VALUE) strcpy(buffer, (char*)"\"\"");
-		else strcpy(buffer, D->word); // primitive
+		strcpy(buffer, (subject & JSON_STRING_VALUE) ? (char*)"\"null\"" : D->word);
 		return buffer + strlen(buffer);
 	}
 	if (!(subject & (JSON_ARRAY_VALUE | JSON_OBJECT_VALUE)))
@@ -1581,7 +1580,7 @@ char* jwrite(char* buffer, WORDP D, int subject, bool plain)
 	{
 		if (!stricmp(D->word, (char*)"null"))
 		{
-			if (subject & JSON_STRING_VALUE) strcpy(buffer, (char*)"\"\"");
+			if (subject & JSON_STRING_VALUE) strcpy(buffer, (char*)"\"null\"");
 			else strcpy(buffer, D->word); // primitive
 			return buffer + strlen(buffer);
 		}
@@ -2029,7 +2028,8 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 	}
 
 	if (number) flags |= JSON_PRIMITIVE_VALUE;
-	else if (!*value || !strcmp(value, (char*)"json_null") || !strcmp(value, (char*)"json-null"))
+	else if (!*value || !strcmp(value, (char*)"null") ) return 0; // to delete
+	else if (!strcmp(value, (char*)"json_null") || !strcmp(value, (char*)"json-null"))
 	{
 		flags |= JSON_PRIMITIVE_VALUE;
 		val = "null";
@@ -2044,8 +2044,8 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 		{
 			// strip off quotes for CS, replace later in jsonwrite for output
 			// special characters will be escaped later on serialization
-			size_t len = strlen(val);
-			if (len > 1 && val[len - 1] == '"') // dont touch " 
+			size_t len = strlen(value);
+			if (len > 1 ) // dont touch " 
 			{
 				val[--len] = 0;
 				++val;
@@ -2111,7 +2111,7 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 static void  DoJSONAssign(WORDP leftside, WORDP keyname, char* value,bool bootfact,bool stripQuotes,char* fullpath)
 {
 	//	Literal use of null clears a value - $x.field = null
-	//	Use of a value which is null assigns null JSON primitive - $_x.obj = $xx
+	//	Use of a value which is null clears variable $_x.obj = $xx
 	//	Use of "null" is the string null  $x.field = "null"
 	//	use of "" is the empty string in JSON $x.field = ^ ""
 	//	$x.field = "" means empty string
@@ -2126,8 +2126,13 @@ static void  DoJSONAssign(WORDP leftside, WORDP keyname, char* value,bool bootfa
 
 	MEANING object = MakeMeaning(leftside);
 	MEANING key = MakeMeaning(keyname);
-	int index = (keyname) ? atoi(keyname->word) : 0;
 	MEANING valx = jsonValue(value, flags, stripQuotes);// not deleting using json literal   ^"" or "" would be the literal null in json
+	if (!keyname) // [] array, need to assign to next index in sequence
+	{
+		char loc[100];
+		bool nodup = (bool)(jsonDefaults & JSON_ARRAY_UNIQUE);
+		DoJSONArrayInsert(nodup, leftside, valx, flags, loc);
+	}
 
 	// remove old value if it exists and is different, do not allow multiple values
 	FACT* oldfact = NULL;
@@ -2137,6 +2142,11 @@ static void  DoJSONAssign(WORDP leftside, WORDP keyname, char* value,bool bootfa
 		if (F->verb == key) // have instance of this key already (either array OR object)
 		{
 			if (F->object == valx) return; // already have fact here, do nothing
+			if (valx && !(F->flags & (JSON_OBJECT_VALUE | JSON_ARRAY_VALUE))) // not clearing
+			{
+				oldfact = F;
+				break;	// not going to kill, going to substitute non-json value
+			}
 
 			FACT* G = GetObjectNondeadHead(Meaning2Word(F->object));
 			bool jsonkill = false;
@@ -2145,7 +2155,7 @@ static void  DoJSONAssign(WORDP leftside, WORDP keyname, char* value,bool bootfa
 			if (trace & TRACE_VARIABLESET)
 			{
 				char* recurse = (jsonkill) ? (char*)"recurse" : (char*)"once";
-				Log(USERLOG, "JsonVar kill: %s %s ", fullpath, recurse);
+				Log(USERLOG, " JsonVar kill: %s %s ", fullpath, recurse);
 				TraceFact(F, true);
 			}
 			KillFact(F, jsonkill); // wont do it in boot or earlier
@@ -2155,7 +2165,7 @@ static void  DoJSONAssign(WORDP leftside, WORDP keyname, char* value,bool bootfa
 	}
 
 	// add new fact
-	if (key && (stricmp(value, "null") || flags & JSON_PRIMITIVE_VALUE)) // if null is not primitive value, use it to clear value
+	if (key && valx) // null assign gives 0 meaning valx
 	{
 		if (!F || F->object != valx)
 		{
@@ -2179,18 +2189,7 @@ static void  DoJSONAssign(WORDP leftside, WORDP keyname, char* value,bool bootfa
 			else CreateFact(object, key, valx, flags);// not deleting using json literal   ^"" or "" would be the literal null in json
 		}
 	}
-	else if (!key) // was [] notation to insert to array
-	{
-		char* arg1;
-		if (bootfact) arg1 = (char*)"boot";
-		else if (leftside->word[3] == 't') arg1 = (char*)"transient";
-		else if (leftside->word[3] == 'b') arg1 = (char*)"boot";
-		else arg1 = (char*)"permanent";
-		// get new object name
-		char loc[100];
-		InternalCall("^JSONArrayInsertCode", JSONArrayInsertCode, arg1, leftside->word, value, loc);
-	}
-
+	
 	currentFact = NULL;	 // used up by putting into json
 }
 
@@ -2267,6 +2266,11 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 		// what is the object key or array name [index]?
 		char keyx[MAX_WORD_SIZE];
 		strcpy(keyx, separator + 1);
+		if (*separator == '[')
+		{
+			if (*keyx == ']') {} // [] empty array
+			else if (strchr(keyx, ']')) *strchr(keyx, ']') = 0; // terminate a given index.
+		}
 		if (*keyx == '$') // indirection key user variable
 		{
 			char* answer = GetUserVariable(keyx, false, true);
@@ -2291,7 +2295,7 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 		if (trace & TRACE_JSON)
 		{
 			if (*separator == '.') strcat(fullpath, ".");
-			else strcat(fullpath, ".[");
+			else strcat(fullpath, "[");
 			strcat(fullpath, keyx);
 			if (*separator == '[') strcat(fullpath, "]");
 		}
@@ -2383,7 +2387,7 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 	// now at final resting place, do assignment there
 	DoJSONAssign(leftside, keyname, value, bootfact, stripQuotes, fullpath);
 
-	if (trace & TRACE_VARIABLESET) Log(USERLOG, "JsonVar: %s -> %s", fullpath, value);
+	if (trace & TRACE_VARIABLESET) Log(USERLOG, " JsonVar: %s -> %s ", fullpath, value);
 	if (base->internalBits & MACRO_TRACE)
 	{
 		char pattern[MAX_WORD_SIZE];
@@ -2561,6 +2565,7 @@ static void FixArrayFact(FACT * F, int index)
 	SetVerbHead(newverb, AddToList(GetVerbHead(newverb), F, GetVerbNext, SetVerbNext));  // dont use nondead
 	F->verb = MakeMeaning(newverb);
 	ModBaseFact(F);
+	
 }
 
 void JsonRenumber(FACT * G) // given array fact dying, renumber around it

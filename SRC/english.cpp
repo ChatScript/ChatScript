@@ -744,7 +744,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	if (entry)
 	{
 		if (!entry->properties) entry = NULL; // word has no meaning for us
-		else if (entry->systemFlags & PATTERN_WORD || !entry->word[1]) {} // english letters have no pos tag at present
+		else if ((entry->systemFlags & PATTERN_WORD && !entry->properties) || !entry->word[1]) {} // english letters have no pos tag at present
 		else if (IS_NEW_WORD(entry) || !(entry->properties & TAG_TEST)) entry = NULL;
 	}
 	if (!entry) entry = FindWord(original, xlen, SECONDARY_CASE_ALLOWED);

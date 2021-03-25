@@ -70,22 +70,23 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 	}
 	if (qtime) qtime = starttime - qtime; // delay waiting in q
 
+	char* hideUserInput = NULL;
 	if (*input)
 	{
-		char* userInput = NULL;
 		char endInput = 0;
 		if (strstr(hide, "usermessage"))
 		{
 			// allow tracing of OOB but thats all
-			userInput = BalanceParen(input, false, false);
-			if (userInput)
+			hideUserInput = BalanceParen(input, false, false);
+			if (hideUserInput)
 			{
-				endInput = *userInput;
-				*userInput = 0;
+				endInput = *hideUserInput;
+				*hideUserInput = 0;
 			}
 		}
-		Log(SERVERLOG, "%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s JOpen:%d/%d\r\n", nl, date, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
-		if (userInput) *userInput = endInput;
+		if (hideUserInput) Log(SERVERLOG, "%s%s Respond: user:%s bot:%s ip:%s (%s) %d %s  ==> %s  When:%s %dms %dwait %s JOpen:%d/%d\r\n", nl, date, user, bot, IP, myactiveTopic, turn, input, tmpOutput, date, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
+		else  Log(SERVERLOG, "%s%s Respond: user:%s bot:%s ip:%s (%s) %d `*`  ==> %s  When:%s %dms %dwait %s JOpen:%d/%d\r\n", nl, date, user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
+		if (hideUserInput) *hideUserInput = endInput;
 
 		if ((unsigned int)(endtime - starttime + qtime) > timeLog)
 		{
@@ -95,8 +96,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 #endif
 		}
 	}
-	else
-		Log(SERVERLOG,"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
+	else Log(SERVERLOG,"%s%s Start: user:%s bot:%s ip:%s (%s) %d ==> %s  When:%s %dms %d Version:%s Build0:%s Build1:%s %s\r\n", nl, date,user, bot, IP, myactiveTopic, turn, tmpOutput, date, (int)(endtime - starttime), (int)qtime, version, timeStamp[0], timeStamp[1], why);
 	if (userOutput) *userOutput = endOutput;
 }
 
@@ -1151,12 +1151,15 @@ restart: // start with user
 						*output = 0;
 						server = true;
 						Log(SERVERLOG, "ServerPre: %s (%s) size:%d %s\r\n", user, bot, strlen(input), input);
+						server = false; 
 						y("dll-user", "", input, "11.11.11.11", output);
+						server = true; 
 						Log(SERVERLOG, "Respond: %s (%s) %s\r\n", user, bot, output);
 						printf(output);
 						server = false;
 					}
-					fclose(sourceFile);
+					if (sourceFile) fclose(sourceFile);
+					printf("\r\ndone\r\n");
 					while (1) {
 						int xx = 0;
 					}
