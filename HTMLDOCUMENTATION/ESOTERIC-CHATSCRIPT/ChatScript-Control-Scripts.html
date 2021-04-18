@@ -108,14 +108,13 @@ t: ( $oob ) ^postprintbefore( \[ $oob \] ) </code></pre>
 <h1 id="changing-input-token-processing">Changing input token processing</h1>
 <p>There are times you may want to alter input processing by changing $cs_token. For example if you ask the user their name, on the next user input you probably don't want spell checking happening which could make a mess of foreign names (or even normal English ones CS is not aware of). So you want a convenient way to temporarily change $cs_token. Here is how:</p>
 <pre><code># in your bot definition make a copy of your normal $cs_token
-outputmacro: yourbot() 
-    $cs_token =  hashDO_INTERJECTION_SPLITTING 
-    $cs_token |=   hashDO_SUBSTITUTE_SYSTEM 
-    $cs_token |=   hashDO_SPELLCHECK 
-    $cs_token |=  hashDO_PARSE
-    $std_cstoken = $cs_token
-
-# in your script set a variable for what you want to happen next input
+outputmacro: yourbot() </code></pre>
+<pre><code>$cs_token =  #DO_INTERJECTION_SPLITTING 
+$cs_token |=   #DO_SUBSTITUTE_SYSTEM 
+$cs_token |=   #DO_SPELLCHECK 
+$cs_token |=  #DO_PARSE
+$std_cstoken = $cs_token</code></pre>
+<pre><code># in your script set a variable for what you want to happen next input
 t: What is your name?  $$newtoken = $cs_token - hashDO_SPELLCHECK
 
 # in postprocessing make the change over

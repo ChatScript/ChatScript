@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -841,82 +841,86 @@
 <td>the count of the number of volleys this user has made ever</td>
 </tr>
 <tr class="even">
+<td><code>%volley</code></td>
+<td>sae as %input, the count of the number of volleys this user has made ever</td>
+</tr>
+<tr class="odd">
 <td><code>%ip</code></td>
 <td>ip address supplied</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%myip</code></td>
 <td>ip address of cs server responding</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%language</code></td>
 <td>current dictionary language</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%length</code></td>
 <td>the length in tokens of the current sentence</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%more</code></td>
 <td>Boolean is there another sentence after this</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%morequestion</code></td>
 <td>Boolean is there a <code>?</code> or question word in the pending sentences</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%originalinput</code></td>
 <td>all sentences user passed into volley, before adjusted in any way except OOB data is stripped off</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%originalsentence</code></td>
 <td>the current sentence after tokenization but before any adjustments</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%parsed</code></td>
 <td>Boolean was current input parsed successfully</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%question</code></td>
 <td>Boolean was the user input a question - same as <code>?</code> in a pattern</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%quotation</code></td>
 <td>Boolean is current input a quotation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%sentence</code></td>
 <td>Boolean does it seem like a sentence (subject/verb or command)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%tableinput</code></td>
 <td>current line being executed in a table expansion during script compilation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%tense</code></td>
 <td>past , present, or future simple tense (present perfect is a past tense)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%user</code></td>
 <td>user login name supplied</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%userfirstline</code></td>
 <td>value of <code>%input</code> that is at the start of this conversation start</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%userinput</code></td>
 <td>Boolean is the current input from the user (vs the chatbot)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%voice</code></td>
 <td>active or passive on current input</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>%trace_on</td>
 <td>Fake empty variable used to turn on tracing (see Debugging commands)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>%trace_off</td>
 <td>Fake empty variable used to turn off tracing (see Debugging commands)</td>
 </tr>
@@ -1060,6 +1064,13 @@
 <td><code>%crosstalk1</code></td>
 <td>4k buffer in server visible between users to pass data back and forth</td>
 </tr>
+<tr class="odd">
+<td><code>%logging</code></td>
+<td>bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog);</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
 </tbody>
 </table>
 <h2 id="build-data">Build data</h2>
@@ -1098,7 +1109,7 @@
 <p>Making them return a new value is NOT the same thing as making the engine have a different value. Unless the variable is marked as settable, setting a value affects only the value returned by a future call to the system variable. It does not change engine values the variable is meant to reflect.</p>
 <h1 id="control-over-input">Control Over Input</h1>
 <p>The system can do a number of standard processing on user input, including spell correction, proper-name merging, expanding contractions etc. This is managed by setting the user variable <code>$cs_token</code>.</p>
-<p>The default one that comes with Harry is:</p>
+<p>The default $cs_token that comes with Harry is:</p>
 <pre><code>$cs_token = #DO_INTERJECTION_SPLITTING | 
             #DO_SUBSTITUTE_SYSTEM |
             #DO_NUMBER_MERGE | 
@@ -1170,6 +1181,10 @@
 <tr class="odd">
 <td><code>#JSON_DIRECT_FROM_OOB</code></td>
 <td>asking the tokenizer to directly process OOB data. See <code>^jsonparse</code> in JSON manual.</td>
+</tr>
+<tr class="even">
+<td><code>#NO_FIX_UTF</code></td>
+<td>do not adjust inputs with html or utf8 encodings to simple ascii.</td>
 </tr>
 </tbody>
 </table>

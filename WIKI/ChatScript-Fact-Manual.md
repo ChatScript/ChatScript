@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 4/18/2021 cs11.3
 
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
@@ -630,7 +630,7 @@ _fieldname_ include: `subject`, `verb`, `object`, `flags`, `all` (spread onto 3 
 `all` just displays a human normal dictionary word, so if the value were actually `plants~1` 
 you'd get just plants whereas raw would return what was actually there `plants~1`.
 
-You can also retrieve a field via `$$f.subject` or `$$f.verb` or `$$f.object`.
+You can also retrieve a field via `$$f.subject` or `$$f.verb` or `$$f.object` or `$$f.flags`.
 
 
 ### `^find`( setname itemname )

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/21/2021 cs11.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/18/2021 cs11.3</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
 <p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt And then third level named after the current language chosen can override those two cs_initenglish.txt being the default. The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular) since foreign languages require more entries than English.</p>
 <p>Or you can name where the file is on a command line parameter <code>config=xxx</code>. And <code>config2=xxx</code> for the initmore file. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
@@ -154,11 +154,27 @@ port=20</code></pre>
 </tr>
 <tr class="even">
 <td><code>userlogging=file</code></td>
-<td>alternate form of request, you can use none for off and file, stdout, stderr. - you may combine userlogging=file,stdout</td>
+<td>primary form of request, you can use none for off and file, stdout, stderr. - you may combine userlogging=file,stdout</td>
 </tr>
 <tr class="odd">
 <td><code>nouserlog</code></td>
 <td>Don't store a user-bot log</td>
+</tr>
+<tr class="even">
+<td><code>serverlog</code></td>
+<td>Store a server log in LOGS directory (default)</td>
+</tr>
+<tr class="odd">
+<td><code>serverlog=1</code></td>
+<td>alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout 4 means stderr - you may combine</td>
+</tr>
+<tr class="even">
+<td><code>serverlogging=file</code></td>
+<td>primary form of request, you can use none for off and file, stdout, stderr. - you may combine serverlogging=file,stdout</td>
+</tr>
+<tr class="odd">
+<td><code>noserverlog</code></td>
+<td>Don't store a server log</td>
 </tr>
 <tr class="even">
 <td><code>tmp=xxx</code></td>
@@ -175,6 +191,10 @@ port=20</code></pre>
 <tr class="odd">
 <td><code>linuxsbuglog=xxx</code></td>
 <td>names a LINUX directory to replicate the BUGS.txt log file outside of the CS directory area</td>
+</tr>
+<tr class="even">
+<td><code>Vcs_new_user=&quot;text&quot;</code></td>
+<td>if input has given text within it, treat user as new and dont read the topic file</td>
 </tr>
 </tbody>
 </table>
@@ -263,8 +283,17 @@ port=20</code></pre>
 <td><code>buildflags=xxx</code></td>
 <td>this data will be used to control :build (quiet and nomixedcase are xxx values)</td>
 </tr>
+<tr class="odd">
+<td><code>autorestartdelay=n</code></td>
+<td>in event of cs engine internal restart, delay n milliseconds before accepts users</td>
+</tr>
+<tr class="even">
+<td><code>crnl_safe</code></td>
+<td>tells system it does not need to search for cr or nl to remove from inputs.</td>
+</tr>
 </tbody>
 </table>
+<p>crnl_safe</p>
 <p>Trustpos is normally off by default because CS is only about 94% accurate in its built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of a word rather than miss a match. Ergo concept: <sub>all(feel</sub>n) will match any use of &quot;feel&quot; rather than just noun meaning. But combining CS with Treetagger for english (if you license it) is better at pos-tagging than either alone, making it competitive with the best taggers in the world.</p>
 <p>Here few command line parameters usage examples of usual edit/compile developement phase, running ChatScript from a Linux terminal console (standalone mode):</p>
 <p>Rebuild <em>level0</em> (compiling system ChatScript files, listed usually in file <code>files0.txt</code>):</p>
@@ -414,19 +443,20 @@ cache=20x1</code></pre>
 <pre><code>Nouserlog</code></pre>
 <p>Don't store a user-bot log. Server default if unspecified. Alternatively you can do userlog=0 to disable. Alternatively you can do userlogging=none.</p>
 <pre><code>Serverlog</code></pre>
-<p>Write a server log and a bugs log. Alternatively you can do serverlog=1 to enable to file, 2 to use stdout, 4 to use stderr. You can combine like serverlog=5 Alternate form of request, you can use serverlogging=none for off and file, stdout, stderr. - you may combine serverlogging=file,stdout Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.</p>
+<p>Write a server log and a bugs log. Alternatively you can do serverlog=1 to enable to file, 2 to use stdout, 4 to use stderr. You can combine like serverlog=5 Prefer the alternate form of request, serverlogging=none for off and file, stdout, stderr. - you may combine serverlogging=file,stdout Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.</p>
 <p>The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port.</p>
 <p>The bugs log is in the same directory under bugs.txt (all ports).</p>
+<p>The server log records all transactions by all users in order of arrival. Whereas the user log records transactions by user/bot.</p>
 <pre><code>Noserverprelog</code></pre>
 <p>Normally CS writes of a copy of input before server begins work on it to server log. Helps see what crashed the server (since if it crashes you get no log entry). This turns it off to improve performance.</p>
 <pre><code>serverlogauthcode=xxxxx</code></pre>
-<p>In addition to permanently turning on server logging, you can provide a cheat code in your input that, if it matches the serverlogauthcode, will enable server logging for that input. This code is hidden from CS processing so it will not impact NL processing.</p>
+<p>In addition to permanently turning on server and/or user logging, you can provide a cheat code in your input that, if it matches the serverlogauthcode, will enable server and user logging for that input. This code is hidden from CS processing so it will not impact NL processing.</p>
 <pre><code>hidefromlog=&quot;label label2 label3&quot;</code></pre>
 <p>If there is data you don't want reflected into either server or user log files, this is the parameter. Maybe you don't want an authorization code recorded, or whatever. This presumes the data is part of some JSON object. You name one or more labels and when those are found in data outbound to a log file, the label and its value will be omitted.</p>
 <pre><code>Serverctrlz</code></pre>
 <p>Have server terminate its output with 0x00 0xfe 0xff as a verification the client received the entire message, since without sending to server, client cannot be positive the connection wasn't broken somewhere and await more input forever.</p>
 <pre><code>Noserverlog</code></pre>
-<p>Don't write a server log or a bugs log. Alternatively you can do serverlog=0 to disable.</p>
+<p>Superceeded by <code>serverloggging=</code>. Don't write a server log or a bugs log. Alternatively you can do serverlog=0 to disable.</p>
 <pre><code>Nobuglog</code></pre>
 <p>Don't write a bugs log. Same as Buglog=0 or Buglog=none</p>
 <pre><code>Buglog
@@ -434,7 +464,7 @@ Buglog=n
 Buglogging=none,file,stdout,stderr</code></pre>
 <p>Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. Alternate form of request, you can use buglogging=none for off and file, stdout, stderr. - you may combine buglogging=file,stderr</p>
 <pre><code>stdlogging=1</code></pre>
-<p>Route normal server logs to stdout and bugs logs to stderr. Useful with Docker. Use stdlogging=0 to turn off (the default).</p>
+<p>Superceeded by <code>serverlogging=</code>. Route normal server logs to stdout and bugs logs to stderr. Useful with Docker. Use stdlogging=0 to turn off (the default).</p>
 <pre><code>DebugLevel=n</code></pre>
 <p>Sets debug level of server logging. 0 will remove logging all the startup variables and their values.</p>
 <pre><code>Fork=n</code></pre>
@@ -446,8 +476,10 @@ Buglogging=none,file,stdout,stderr</code></pre>
 <pre><code>repeatLimit=n</code></pre>
 <p>Servers are subject to malicious inputs, often generated as repeated words over and over. This detects repeated input and if the number of sequential repeats is non-zero and equal or greater to this parameter, such inputs will be truncated to just the initial repeats. All other input in this volley will be discarded.</p>
 <pre><code>erasename=myname</code></pre>
-<p>:reset, when called from running script, is unable to fully reset the system. Facts that have already been created are not destroyed and user variables that have been defined are not erased, only ones in the bot definition are changed back to their default settings. The erasename parameter is used to perform a full reset prior to loading th user topic file. The incoming input is scanned for the text given, and if found the system bypasses loading the topic file and instead just initializes a fresh bot. The actual erasename seen in input will be converted to all blanks, so it will not disturb normal behavior, either in OOB input or user input.</p>
+<p>:reset, when called from running script, is unable to fully reset the system. Facts that have already been created are not destroyed and user variables that have been defined are not erased, only ones in the bot definition are changed back to their default settings. The erasename parameter is used to perform a full reset prior to loading the user topic file. The incoming input is scanned for the text given, and if found the system bypasses loading the topic file and instead just initializes a fresh bot. The actual erasename seen in input will be converted to all blanks, so it will not disturb normal behavior, either in OOB input or user input.</p>
 <p>The default value for this is: <code>csuser_erase</code> which you can change to anything else you want.</p>
+<pre><code>cs_new_user=&quot;text&quot;&quot;</code></pre>
+<p>The cs_new_user parameter is used to perform a full reset prior to loading the user topic file. The incoming input is scanned for the text given, and if found the system bypasses loading the topic file and instead just initializes a fresh bot. This differs from erasename in that the text is not erased.</p>
 <h2 id="no-such-bot-specific---nosuchbotrestarttrue-1">No such bot-specific - nosuchbotrestart=true</h2>
 <p>If the system does not recognize the bot name requested, it can automatically restart a server (on the presumption that something got damaged). If you don't expect no such bot to happen, you can enable this restart using <code>nosuchbotrestart=true</code>. Default is false.</p>
 <h2 id="testing-a-server">Testing a server</h2>

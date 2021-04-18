@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has primitive datatypes (text without doublequotes that cannot contain any whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes. JSON also has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON datatypes separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -89,14 +89,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="dt">&quot;children&quot;</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span>
     <span class="dt">&quot;spouse&quot;</span><span class="fu">:</span> <span class="kw">null</span>
 <span class="fu">}</span></code></pre></div>
-<p>JSON facts are triples where the subject is always the name of a JSON object or array. For objects, the verb of the fact is the name of a field and the object is its value. Such a structure might be composed of these facts:</p>
-<pre><code>(jo-3 name Robert)
-(jo-3 age 10)
-(jo-3 gender male)</code></pre>
+<p>JSON facts are triples where the subject is always the name of a JSON object or array. For objects, the verb of the fact is the name of a field and the object is its value. Such a structure might be composed of these facts: <code>internal CS (jo-3 name Robert) (jo-3 age 10) (jo-3 gender male)</code> Note that CS does not need to put double quotes around the values or even the field names (unless the field name has spaces or other unusual characters within it).</p>
 <p>This would correspond to a JSON string that looks like this:</p>
 <pre><code>{ &quot;name&quot;: &quot;Robert&quot;, &quot;age&quot;: 10, &quot;gender&quot;: &quot;male&quot;}</code></pre>
 <p>Actually, the &quot;age 10&quot; fact in ChatScript could represent either what was shown above or:</p>
 <pre><code>{ &quot;name&quot;: &quot;Robert&quot;, &quot;age&quot;: &quot;10&quot;, &quot;gender&quot;: &quot;male&quot;}</code></pre>
+<p>For arrays, the verb of the fact is the numeric index in the array and the object is the value. Such a structure might be composed of these facts:</p>
+<pre><code>(ja-5 0 Robert)
+(ja-5 1 Terry)
+(ja-5 2 Paula)</code></pre>
+<p>This would correspond to a JSON string that looks like this:</p>
+<pre><code>[ &quot;Robert&quot;, &quot;Terry&quot;, &quot;Paula&quot;]</code></pre>
+<p>CS has rich support for creating JSON data. You must create the top level array or object, but after that you can just do assignments somewhat arbitrarily, with CS automatically creating new subobjects or subarrays as needed. E.g. Also note that CS assignments onto object fields do not require you double quote the field name (unless the name as spaces within it or other unusual characters).</p>
+<pre><code>$_x = ^jsoncreate(TRANSIENT object)
+$_x.field[] = 5
+$_x.name.age.birthdate = &quot;January 5, 2020&quot;</code></pre>
+<p>In the above, the scripter has explicitly created a transient JSON object. The 2nd line assignment automatically creates a transient array to save as the value of <code>field</code> and then inserts the value 5 into it. The 3rd line assignment automatically creates a field called name with a JSON object, and that object gets a field called age, and that object gets a field called birthdate which is assigned the text string.</p>
+<h3 id="json-cs-anomolies">JSON CS ANOMOLIES</h3>
 <p>Because JSON has distinct data types as values (primitives, text strings, etc) and CS represents everything as text strings, there are some issues in moving back and forth in representation. Whereas JSON shows all strings encased in double quotes, when stored as values in CS the double quotes are always removed. And JSON primitives <code>false</code>, <code>true</code>, and numbers are also just strings. Therefore JSON primitive <code>2</code> and the JSON string <code>&quot;2&quot;</code> are the same to CS. To maintain data type information, JSON facts have flag bits that describe how to treat the object value of the fact. This is automatically handled by CS and normally you have no reason to pay any attention to it.</p>
 <p>But when you copy a value out of the fact onto a CS variable, the type data goes away. This is not a problem for CS, except when you want to store the CS variable back into a JSON structure. Then YOU become responsible for knowing the type. CS will assume any of its values that match a JSON primitive will be that, so you need to encase them in double-quotes if you want them to be stored as JSON strings. CS will automatically store everything else as JSON strings and when exporting them to text, will automatically encase them in double quotes. For example,</p>
 <pre><code>$_x = ^jsoncreate(TRANSIENT object)
@@ -117,133 +126,70 @@ $_x.value = &quot;true&quot;        # JSON string true
 $_y = ^join(\&quot; $_x.value \&quot;)         
 $_x.value = $_y
 ^jwrite($_x)            =&gt; {&quot;value&quot;: &quot;true&quot;}</code></pre>
-<p>All this breaks down a bit for the JSON <code>null</code> primitive and for the JSON empty string <code>&quot;&quot;</code>. CS does not distinguish between having no value and having a value which has no characters. And CS uses <code>null</code> to mean clear a value entirely.</p>
+<p>All this breaks down a bit for the JSON <code>null</code> primitive and the empty string &quot;&quot;. CS does not distinguish between having no value and having a value which has no characters. And CS uses <code>null</code> to mean clear a value entirely. So to create a JSON null value, use the special word <code>json_null</code>. You can use that directly in a JSON assignment, or you can put it as the value of a CS variable which eventually gets used in a JSON assignment.</p>
 <pre><code>$_x.value = null         # remove the JSON field called value
 $_x.value = &quot;null&quot;      # assign text string null to field value
 $_x = null                   # remove any value from variable
-$_x.value = json_null                   # special value meaning json null primitive
-$_x.value = &quot;&quot;              # JSON empty string
+$_x.value = json_null                   # special value meaning json null primitive</code></pre>
+<p>This just leaves us with the awkwardness of the empty string. You can't store an empty string onto a CS variable. Instead you store a string with two double quotes. Which CS itself always treats as just that, a two-character string. But when assigned into a JSON structure, any double quoted string has its double quotes stripped. So in JSON we CAN have an empty string. No problem yet. The problem comes in the other direction. Assigning this JSON empty string onto a CS variable clears it (it acts like null). And then putting that variable back onto a JSON structure will save JSON null. So you have to manually track what you want, if you want it.</p>
+<pre><code>$_x.value = &quot;&quot;              # JSON empty string
 $_y = 5
-$_y = $_x.value         # clears $_y (acts like null)</code></pre>
-<p>Note that while CS does not store &quot;&quot;, it does represent the empty string, particularly in ^substitute calls.</p>
-<p>For arrays, the verb of the fact is the numeric index in the array and the object is the value. Such a structure might be composed of these facts:</p>
-<pre><code>(ja-5 0 Robert)
-(ja-5 1 Terry)
-(ja-5 2 Paula)</code></pre>
-<p>This would correspond to a JSON string that looks like this:</p>
-<pre><code>[ &quot;Robert&quot;, &quot;Terry&quot;, &quot;Paula&quot;]</code></pre>
-<p>Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can. Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly querying on some field name.</p>
+$_y = $_x.value         # clears $_y (acts like null)
+$_x.value = $_y     # assigns JSON null</code></pre>
+<h3 id="json-facts">JSON FACTS</h3>
+<p>Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can. Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly querying on some field name. So depending on how you name a field and whether or not the field only exists for a single object, you might be able to query directly to it.</p>
 <p>Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact structure in CS, the facts will all be unique. You do this like this:</p>
 <pre><code>    $_tmp = ^createfact($$jsonobject newfield $$jsondata (FACTTRANSIENT JSON_OBJECT_FACT JSON_OBJECT_VALUE) )</code></pre>
 <p>If $$jsonobject is a json object name, you add a field called newfield whose value is a JSON object, thus joining the trees. If you serialize (write into text) these two JSON objects they will become completely separate structures when read back in (JSON doesn't share).</p>
-<p>Also note that while CS can read in JSON whose value has an empty string like:</p>
-<pre><code>    { &quot;input&quot;:&quot;&quot;}</code></pre>
-<p>CS represents that as a fact whose object value is the empty string and whose bits indicate it is a JSON string value.</p>
-<h2 id="json-primitive-values-and-strings">JSON Primitive values and Strings</h2>
-<p>Since JSON has different datatypes and CS represents everything as strings, there are some collisions in how to create appropriate JSON value and if one assigns a CS variable from a JSON field value, the typing data can get lost. This is not a problem for CS, but if you try to output the cs variables again as JSON data, that may become an issue.</p>
-<p>Also note that CS assignments onto object fields do not require you double quote the field name (unless the name as spaces within it or other unusual characters).</p>
-<p>Here are conversions from CS data to JSON values:</p>
-<pre><code>$_x.bool1 = false   -- JSON primitive false
-$_x.bool2 = true   -- JSON primitive true
-$_x.null = json_null      -- JSON primitive null
-$_x.null = &quot;null&quot;       -- JSON string null
-$_x.number = 25         -- JSON primitive integer
-$_x.number1 = 25.55  -- JSON primitive float
-$_x.text = ^&quot;this is a string&quot; -- JSON string (in CS there are no double quotes internally)
-$_x.text = &quot;this is a string&quot; -- JSON string (in CS the double quotes are still there)
-$_x.array = ^jsoncreate(transient array) -- JSON array
-$_x.object = ^jsoncreate(transient object) -- JSON object
-$_x.empty = &quot;&quot;            -- JSON empty string</code></pre>
-<p>The &quot;&quot; string is stored in CS just like all other string with double quotes- the markers are preserved in the value.</p>
-<pre><code>
-By default, when you assign numbers to JSON structures, they are automatically stored as JSON primitives (whereas in CS they are just
-text strings). 
+<h2 id="accessing-the-web-with-json">Accessing the web with JSON</h2>
+<p>You will learn how to create JSON structures below. The other key to a web-enabled CS is ^jsonopen(). To see how easy it is to talk to the web, just look at this code.</p>
+<pre><code># The cleanest way to build json data
+$_var = ^jsoncreate(transient object)
+$_var.fieldname = $myvar 
 
-## Accessing the web with JSON
+An alternative limited to max output buffer size (~80K):
+$_var = ^jsonparse(^&quot;{ fieldname: $myvar }&quot;) 
 
-You will learn how to create JSON structures below. The other key to a
-web-enabled CS is ^jsonopen(). To see how easy it is to talk to the web,
-just look at this code.
-</code></pre>
-<h1 id="the-cleanest-way-to-build-json-data">The cleanest way to build json data</h1>
-<p>$_var = ^jsoncreate(transient object) $_var.fieldname = $myvar</p>
-<p>An alternative limited to max output buffer size (~80K): $_var = <sup>jsonparse(</sup>&quot;{ fieldname: $myvar }&quot;)</p>
-<p>And now to send data upstream: $_url = ^&quot;http://myHost:myIP&quot; $_userAgent = ^&quot;User-Agent: %bot, ChatScript” $_header = ^&quot; ~Accept: application/json $_userAgent ~Content-Type: application/json &quot; $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent)</p>
-<pre><code>
-## JSONFLAGS - Optional 1st arg to some JSON routines
-
-Routines that will create facts for JSON will by default create them as transients (they die at end of
-volley unless you work to save them). You can override this default by saying
-`permanent` or `transient` or `boot`. This applies to `^jsonopen`, `^jsonparse`, `^jsoncreate`,
-`^jsonobjectinsert`, `^jsonarrayinsert`, `^jsoncopy`.
-
-Json arrays all start with the name &#39;ja-&#39; and json objects all start with the name 
-&#39;jo-&#39;.  The next letter indicates the storage media. &#39;t&#39; means transient and the
-structure dies at the end of the volley. &#39;b&#39; means boot and the data moves to the boot
-later at the end of the volley. Anything else (e.g. an immediate digit) means the structure
-is permanent and is stored in the user&#39;s topic file.
-
-You can also add a flag `safe` (described later) to `^jsonparse`, `^jsonobjectinsert`, `^jsonarraydelete`. 
-You can also add a flag `unique` to `^jsonarrayinsert`.
-You can also add `duplicate` to ^jsonobjectinsert.
-
-When multiple flags are desired, put them into a simple string, `&quot;DUPLICATE PERMANENT&quot;`. Case doesn&#39;t matter.
-
-When you want to add a reference to a normal factid (as is returned by ^createfact) you can add the flag `AUTODELETE`
-
-You can also assign user flags by listing `USER_FLAG1`, through `USER_FLAG4` as a flag as well. 
-The JSON fact will have that flag on it, which you can use in conjunction with `^query` to limit what matches can be found.
-
-### `^jsonstorage`( argument )
-This expects a json array or object name and returns `permanent`, `transient`, `boot` or fails completely
-depending on what is given it.
-
-### `^jsonparse`( {JSONFLAGS} string )
-
-`string` is a JSON text string (as might be returned from a website) and this parses into facts. 
-It returns the name of the root node JSON composite. This name will look like this:
-
-* `ja-0` – a json array numbered `0`.
-* `jo-0` – a json object numbered `0`.
-
-Note that the above names are true only for PERMANENT JSON objects. Transient ones will be named like `ja-t0` and `jo-t0`.
-
-As new JSON composites are created during a volley, the numbers increase to keep them all distinct.
-JSON composites are all created as transient facts and will die at the end of the volley unless you do
-something to explictly keep them (typically `^jsongather` into some factset and then saving that OR
-using that to remove all their transient flags OR using `^delete()` to destroy the facts in the set). 
-
-If you are keeping JSON across volleys, you should use the optional Json flags argument to make sure
-numbering never collides (normally the numbers start back at 0 for each new volley).
-
-Real world JSON has stricter requirements on its format than CS does. 
-
-While CS will output strict JSON, you can input slack JSON. 
-You do not need to put commas between elements of an array or object. 
-And you do not need to put quotes around a key name. So the following is legal text form:</code></pre>
-<p>[a b {bob: 1 sue: 2}]</p>
-<pre><code>Formally JSON has specific primitives named true, false, and null, that systems may care about, but to
-CS they are nothing special. Numbers in JSON can be integer or have a decimal point and an exponent.
-CS does not currently support exponent notation, so you can only do:  `1325` or `566.23`.
-
-JSON originally required a JSON string be a composite of some kind. Now it allows any JSON type to
-be a JSON document. CS sticks to the original requirement, because passing around a single value as
-JSON is pretty useless.
-
-Once you have a JSON fact structure, you can go the opposite direction and convert it back into a string
-or display it visually.
-
-CS accepts extended JSON syntax for parsing into a json fact structure. Any place you have an object
-value, you can refer to a ChatScript user or match variable and that value will be substituted in. E.g.,</code></pre>
-<p>^jsonparse(&quot;{ a: $var, b: _0 }&quot;)</p>
-<pre><code>Note you should use a regular quoted string and not a function string like `^&quot;{ a: $var, b: _0 }&quot;`. If you use a function string, substitution will happen before calling ^jsonparse. Which might be a problem if
-you had something like this:</code></pre>
-<p>^jsonparse(&quot;{ a: $var, b: _0aba }&quot;).</p>
-<pre><code>where you wanted the value of `b` to be `&quot;_0aba&quot;`. Had you used an active string, the _0 would have been replaced with its contents.
-
-Also, you can use json dereference operators to take apart an existing json structure and use values of it
-in the current one. If $_y points to a json structure, then</code></pre>
-<p>^jsonparse(&quot; opensquiggle a: $var, b: <span class="math inline">$_y.e[2] closesquiggle &quot;) (saying squiggles because Latex print complains if I use real ones) ``` would find a json object reference on `$</span>_y`, get the e field, and get the 3rd array value found there.</p>
+And now to send data upstream:
+$_url = ^&quot;http://myHost:myIP&quot;
+$_userAgent = ^&quot;User-Agent: %bot, ChatScript”
+$_header = ^&quot; ~Accept: application/json 
+                  $_userAgent
+                  ~Content-Type: application/json &quot;
+$_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent) </code></pre>
+<h2 id="jsonflags---optional-1st-arg-to-some-json-routines">JSONFLAGS - Optional 1st arg to some JSON routines</h2>
+<p>Routines that will create facts for JSON will by default create them as transients (they die at end of volley unless you work to save them). You can override this default by saying <code>permanent</code> or <code>transient</code> or <code>boot</code>. This applies to <code>^jsonopen</code>, <code>^jsonparse</code>, <code>^jsoncreate</code>, <code>^jsonobjectinsert</code>, <code>^jsonarrayinsert</code>, <code>^jsoncopy</code>.</p>
+<p>Json arrays all start with the name 'ja-' and json objects all start with the name 'jo-'. The next letter indicates the storage media. 't' means transient and the structure dies at the end of the volley. 'b' means boot and the data moves to the boot later at the end of the volley. Anything else (e.g. an immediate digit) means the structure is permanent and is stored in the user's topic file.</p>
+<p>You can also add a flag <code>safe</code> (described later) to <code>^jsonparse</code>, <code>^jsonobjectinsert</code>, <code>^jsonarraydelete</code>. You can also add a flag <code>unique</code> to <code>^jsonarrayinsert</code>. You can also add <code>duplicate</code> to ^jsonobjectinsert.</p>
+<p>When multiple flags are desired, put them into a simple string, <code>&quot;DUPLICATE PERMANENT&quot;</code>. Case doesn't matter.</p>
+<p>When you want to add a reference to a normal factid (as is returned by ^createfact) you can add the flag <code>AUTODELETE</code></p>
+<p>You can also assign user flags by listing <code>USER_FLAG1</code>, through <code>USER_FLAG4</code> as a flag as well. The JSON fact will have that flag on it, which you can use in conjunction with <code>^query</code> to limit what matches can be found.</p>
+<h3 id="jsonstorage-argument"><code>^jsonstorage</code>( argument )</h3>
+<p>This expects a json array or object name and returns <code>permanent</code>, <code>transient</code>, <code>boot</code> or fails completely depending on what is given it.</p>
+<h3 id="jsonparse-jsonflags-string"><code>^jsonparse</code>( {JSONFLAGS} string )</h3>
+<p><code>string</code> is a JSON text string (as might be returned from a website) and this parses into facts. It returns the name of the root node JSON composite. This name will look like this:</p>
+<ul>
+<li><code>ja-0</code> – a json array numbered <code>0</code>.</li>
+<li><code>jo-0</code> – a json object numbered <code>0</code>.</li>
+</ul>
+<p>Note that the above names are true only for PERMANENT JSON objects. Transient ones will be named like <code>ja-t0</code> and <code>jo-t0</code>.</p>
+<p>As new JSON composites are created during a volley, the numbers increase to keep them all distinct. JSON composites are all created as transient facts and will die at the end of the volley unless you do something to explictly keep them (typically <code>^jsongather</code> into some factset and then saving that OR using that to remove all their transient flags OR using <code>^delete()</code> to destroy the facts in the set).</p>
+<p>If you are keeping JSON across volleys, you should use the optional Json flags argument to make sure numbering never collides (normally the numbers start back at 0 for each new volley).</p>
+<p>Real world JSON has stricter requirements on its format than CS does.</p>
+<p>While CS will output strict JSON, you can input slack JSON. You do not need to put commas between elements of an array or object. And you do not need to put quotes around a key name. So the following is legal text form:</p>
+<pre><code>[a b {bob: 1 sue: 2}]</code></pre>
+<p>Formally JSON has specific primitives named true, false, and null, that systems may care about, but to CS they are nothing special. Numbers in JSON can be integer or have a decimal point and an exponent. CS does not currently support exponent notation, so you can only do: <code>1325</code> or <code>566.23</code>.</p>
+<p>JSON originally required a JSON string be a composite of some kind. Now it allows any JSON type to be a JSON document. CS sticks to the original requirement, because passing around a single value as JSON is pretty useless.</p>
+<p>Once you have a JSON fact structure, you can go the opposite direction and convert it back into a string or display it visually.</p>
+<p>CS accepts extended JSON syntax for parsing into a json fact structure. Any place you have an object value, you can refer to a ChatScript user or match variable and that value will be substituted in. E.g.,</p>
+<pre><code>^jsonparse(&quot;{ a: $var, b: _0 }&quot;)</code></pre>
+<p>Note you should use a regular quoted string and not a function string like <code>^&quot;{ a: $var, b: _0 }&quot;</code>. If you use a function string, substitution will happen before calling ^jsonparse. Which might be a problem if you had something like this:</p>
+<pre><code>^jsonparse(&quot;{ a: $var, b: _0aba }&quot;).</code></pre>
+<p>where you wanted the value of <code>b</code> to be <code>&quot;_0aba&quot;</code>. Had you used an active string, the _0 would have been replaced with its contents.</p>
+<p>Also, you can use json dereference operators to take apart an existing json structure and use values of it in the current one. If $_y points to a json structure, then</p>
+<pre><code>^jsonparse(&quot; opensquiggle a: $var, b: $_y.e[2] closesquiggle &quot;)
+(saying squiggles because Latex print complains if I use real ones)</code></pre>
+<p>would find a json object reference on <code>$_y</code>, get the e field, and get the 3rd array value found there.</p>
 <p>An initial argument of <code>safe</code> will locate the correct end of the data for json parsing, allowing you to pass excess data. This is important for passing in json data in OOB information. OOB information comes in <code>[]</code> and Json itself uses <code>[]</code> at times, so it would be impossible to find the correct end of pattern with normal pattern matching. Instead just do:</p>
 <pre><code>u: ( \[ _* ) and call ^jsonparse(safe _0)</code></pre>
 <p>This will figure out where the OOB marker actually is and only parse within it. You can add NOFAIL before the string argument, to tell it to return null but not fail if a dereference path fails cannot be found.</p>
@@ -312,6 +258,10 @@ $x.field = null</code></pre>
 <h4 id="using-a-word-as-a-field-name-rather-than-as-indirection">using a $word as a field name rather than as indirection</h4>
 <p>Just escape the $.</p>
 <pre><code>$data.\$varname = hello </code></pre>
+<h3 id="jsonmergestruct1-struct2"><code>^jsonmerge</code>(struct1 struct2)</h3>
+<p>Takes two json arrays or two json objects and adds unique elements of struct2 into struct1 recursively.</p>
+<h3 id="jsoncountstruct-depth"><code>^jsoncount</code>(struct depth)</h3>
+<p>Walks the given JSON structure, displaying it, except that for arrays arising after depth, just the count of elements is shown</p>
 <h3 id="jsonpath-string-id"><code>^jsonpath</code>( string id )</h3>
 <ul>
 <li><code>string</code> is a description of how to walk JSON.</li>

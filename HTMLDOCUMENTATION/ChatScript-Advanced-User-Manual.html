@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 3/21/2021 cs11.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/18/2021 cs11.3</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -155,7 +155,7 @@
 <p>There are many system functions to perform specific tasks. These are enumerated in the <a href="ChatScript-System-Functions-Manual.html">ChatScript System Functions Manual</a> and the <a href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a>.</p>
 <h1 id="out-of-band-communication">Out of band Communication</h1>
 <p>ChatScript can neither see nor act, but it can interact with systems that do. The convention is that out-of-band information occurs at the start of input or output, and is encased in <code>[ ]</code>.</p>
-<p>ChatScript does not attempt to postag and parse any input sentence which begins with <code>[</code> and has a closing <code>]</code>. It will automatically not try to spellcheck that part or perform any kind of merge (date, number, propername). In fact, the <code>[...]</code> will be split off into its own sentence. You can use normal CS rules to detect and react to incoming oob messaging. E.g, input like this</p>
+<p>ChatScript does not attempt to perform NLP (postag, parse, mark) any input sentence which begins with <code>[</code> and has a closing <code>]</code>. It will automatically not try to spellcheck that part or perform any kind of merge (date, number, propername). In fact, the <code>[...]</code> will be split off into its own sentence. You can use normal CS rules to detect and react to incoming oob messaging. E.g, input like this</p>
 <pre><code>[ speed=10 rate: 50 ] User said this</code></pre>
 <p>could be processed by your script. Although the 2 data oob items are inconsistently shown, the protocol you use is entirely up to you within the <code>[]</code> area.</p>
 <p>Here is a sample pattern to catch oob data.</p>

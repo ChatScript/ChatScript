@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 4/18/2021 cs11.3
 
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
@@ -1171,11 +1171,21 @@ rule. This has a 5 volley context and are used in normal rule patterns.
 
     u: (^incontext(PLAYTENNIS) why) because it was fun.
 
-### `^stats ( FACTS / DICT / TEXT )`
+### `^stats ( FACTS / DICT / TEXT / HASHBUCKETS / UNUSEDHASHBUCKETS )`
+`^stats ( WORDACCESS  / AVERAGEHASHDEPTH / PATTERNEVALUATION )`
+`^stats ( TIMESUMMARY  )`
+All ^stats calls can take an optional 2nd argument "ECHO" which sends the answers
+to the user log and echo on terminal.
 
 FACTS: Returns how many free facts remain.
 DICT: Returns how many empty dictionary entries remain.
 TEXT: Returns how much space for both stack and heap remain.
+HASHBUCKETS: shows how many words are in each bucket size
+UNUSEDHASHBUCKETS: how many buckets are wasted (empty)
+WORDACCESS: How many calls to look up a word in the dictionary happened
+AVERAGEHASHDEPTH: how long is the average word lookup (words scanned)
+PATTERNEVALUATION: how many calls to pattern matcher happened
+TIMESUMMARY: create facts of how many ms cpu spend in functions called
 
 # External Access Functions
 
@@ -1653,61 +1663,10 @@ This can function in either document mode or chat mode. It does what it can to r
 not work if you have facts with facts as fields or are in planning mode. It also discards saved sentence data, 
 and all of your analysis data for the current sentence. It also discards all data in factsets.
 
-
 # JSON Functions 
 
-JSON functions and JSON are described more fully in the ChatScript JSON manual.
-
-### `^jsonarrayinsert ( arrayname value )`
-
-Given the name of a json array and a value, it adds the value to the end of the array.
-`SAFE` protects any nested JSON data from being deleted. See JSON manual.
-
-### `^jsonarraydelete ( [INDEX, VALUE] arrayname value {ALL} )` 
-
-This deletes a single entry from a JSON array. It does not damage the thing deleted, 
-just its member in the array. If the first argument is `INDEX`, 
-then value is a number which is the array index (0 … n-1).
-If the first argument is `VALUE`, then value is the value to find and remove as the object of the json fact.
-
-You can delete every matching `VALUE` entry by adding the optional 4th argument `ALL`.
-
-If there are numbered elements after this one, then those elements immediately renumber downwards
-so that the array indexing range is contiguous.
-
-
-### `^jsoncreate ( type )`
-
+JSON functions and JSON are described   in the ChatScript JSON manual.
 Type is either array or object and a json composite with no content is created and its name returned.
-
-
-### `^jsondelete ( factid )`
-
-Deprecated in favor of `^delete`.
-
-
-### `^jsongather ( {factset} jsonid )`
-
-Takes the facts involved in the json data (as returned by `^jsonparse` or `^jsonopen` and stores them in the named factset. This allows you to remove their transient flags or save them in the users permanent data file.
-
-You can omit fact-set as an argument if you are using an assignment statement:
-
-    @1 = ^jsongather(jsonid)
-
-`^Jsongather` normally gathers all levels of the data recursively. You can limit how far down it goes by
-supplying `level`. Level 0 is all. Level 1 is the top level of data. Etc.
-
-
-### `^jsonlabel ( label )`
-
-Assigns a text sequence to add to `jo-` and `ja-` items created thereafter.
-E.g. `^jsonlabel(x)` generates  `jo-x1` and `ja-x1`.
-You can turn it back off again with `^jsonlabel("")` 
-
-This allows you to create json namespaces which will not conflict. Eg, you may load a
-bunch of json during a system bootup (`^csboot`) under one naming and then use a
-different naming for user json created later and code can determine the source of the data.
-
 
 ### `^readfile ( TAB filepath )`
 
@@ -1717,96 +1676,6 @@ The line is an object where non-empty fields are given as field indexes. The fir
 `^readfile ( LINE filepath 'function)` reads any file and passes each line untouched as the sole argument to the function.
 
 Fomerly called ^jsonreadcsv.
-
-### `^jsonundecodestring ( string )`
-
-Removes all json escape markers back to normal for possible printout to a user. 
-This translates `\n` to newline, `\r` to carriage return, `\t` to tab, and `\"` to a simple quote.
-
-
-### `^jsonobjectinsert ( {DUPLICATE} objectname key value )`
-
-Inserts the key value pair into the object named. 
-The key does not require quoting. Inserting a json string as value requires a
-quoted string. Duplicate keys are ignored unless the optional 1st argument `DUPLICATE` is given.
-`SAFE` protects any nested JSON data from being deleted. See JSON manual.
-
-
-### `^jsonopen ( {UNIQUE} kind url postdata header )`
-
-This function queries a website and returns a JSON datastructure as facts. 
-It uses the standard CURL library, so it's arguments and how to use them are generally defined by CURL documentation and the website you intend to access. 
-See ChatScript JSON manual for details. 
-
-
-### `^jsontree ( name {depth} {array})`
-
-`name` is the value returned by `^JSONparse`, `^JSONopen`, or some query into such structures. 
-It prints out a tree of elements, one per line, where depth is represented as more deeply indented. 
-Objects are marked with { } as they are in JSON. Arrays are marked with `[]`.
-
-Optional depth number restricts how deep it displays. 0 (default) means all. 1 means just top level.
-
-Optional "array" means show number of array elements rather than the elements themselves at any depth below depth.
-
-### `^jsonwrite ( name )`
-
-`name` is the name from a json fact set (returned by `^JSONparse`, `^JSONopen`, or some query into such structures). 
-Result is the corresponding JSON string (as a website might emit), without any linefeeds.
-
-
-### `^jsonparse ( {UNIQUE} string )`
-
-`string` is a json text string (as might be returned from a website) and this parses into facts exactly as `^jsonopen` would do, 
-just not retrieving the string from the web. It returns the name of the root node. 
-One use for this is to pass JSON data as a quoted string within out-of-band data, 
-and have the system parse that into facts you can use.
-
-You can add `NOFAIL` before the string argument, to tell it to return null but not fail if a
-dereference path fails cannot be found.
-
-    ^jsonparse(transient NOFAIL "{ a: $var, b: _0.e[2] }")
-
-`^jsonparse` automatically converts any backslashunnnn into the corresponding utf8 character.
-
-### `^jsonkind ( something )`
-
-If _something_ is a JSON object, the function returns `object`. If it is a JSON array it returns
-`array`. Otherwise it fails.
-
-
-### `^jsonpath ( string id )`
-
-_string_ is a description of how to walk JSON. Id is the name of the node you want to start at 
-(typically returned from `^jsonopen` or `^jsonparse`. 
-
-Array values are accessed using typical array notation like `ja-1[3]` 
-and object fields using dotted notation like `jo-7.id`. 
-
-A simple path access might look like this: `[1].id` which means take the root object passed as id, e.g., `ja-1`, 
-get the 2nd index value (arrays are 0-based in JSON). 
-That value is expected to be an object, so return the value corresponding to the id field of that object. 
-In more complex situations, the value of id might itself be an object or an array, 
-which you could continue indexing like `[1].id.firstname`.
-
-`^Jsonpath` can also return the actual factid of the match, instead of the object of the fact.
-This would allow you to see the index of a found array element, or the json object/array name involved. 
-Or you could use `^revisefact` to change the specific value of that fact (not creating a new fact). 
-Just add `*` after your final path, eg
-
-    ^jsonpath(.name* $$obj)
-    ^jsonpath(.name[4]* $$obj)
-
-
-If you need to handle the full range of legal keys in json, you can use text string notation like this
-
-    ^jsonpath(."st. helen".data $tmp)
-
-
-You may omit the leading . of a path and CS will by default assume it
-
-    ^jsonpath("st. helen".data $tmp)
-
 
 # Word Manipulation Functions
 
@@ -2393,7 +2262,6 @@ If the argument is a JSON object it randomly picks a fact whose verb/object is a
 If the argument is a JSON array, it randomly picks a fact whose verb is the index and whose object is the value.
 The fact id returned can be used with ^field or you can use something like $result.object to get the specific object.
 
-
 ### `^reset ( what ? )`
 
 What can be user or topic or factset or VARIABLES or FACTS or HISTORY. 
@@ -2766,7 +2634,7 @@ Fields include: `subject`, `verb`, `object`, `flagsv, `all` (spread onto 3 match
 the value were actually `plants~1` you'd get just plants whereas raw would return what was
 actually there `plants~1`.
 
-You can also retrieve a field via `$$f.subject` or `$$f.verb` or `$$f.object`.
+You can also retrieve a field via `$$f.subject` or `$$f.verb` or `$$f.object` or `$$f.flags`.
 
 
 ### `^find ( setname itemname )`

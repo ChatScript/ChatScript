@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 4/18/2021 cs11.3
 
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
@@ -327,7 +327,7 @@ ChatScript can neither see nor act, but it can interact with systems that do. Th
 convention is that out-of-band information occurs at the start of input or output, and is
 encased in `[ ]`. 
 
-ChatScript does not attempt to postag and parse any input sentence which begins with
+ChatScript does not attempt to perform NLP (postag, parse, mark) any input sentence which begins with
 `[` and has a closing `]`. It will automatically not try to spellcheck that part or perform 
 any kind of merge  (date, number, propername). 
 In fact, the `[...]` will be split off into its own sentence. 

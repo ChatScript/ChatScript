@@ -35,8 +35,9 @@
 #	STAY START
 # KEEP
 
-# possession after noun is adjective-noun  "day's work"
+# possession after noun is adjective-noun  "day's work" unless proper name
 0 INCLUDE * ADJECTIVE_NOUN
+	STAY !IS NOUN_PROPER_SINGULAR
 	IS POSSESSIVE
 	HAS NOUN_BITS
 KEEP

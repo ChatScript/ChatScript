@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 4/18/2021 cs11.3
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -16,6 +16,13 @@ If the system detects bugs during execution, they go into `TMP/bugs.txt`
 You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem. 
 
 Debugging generally requires use of some :xxxx commands. I don't always remember them all, so at times I might simply say
+
+##`Special Input controls in user input`
+```
+#!Rosette#my message
+```
+The use of the above syntax means to change the bot to Rosette and then use `my message` as
+the actual input.
 
 ## `:commands` 
 to get a list of the commands and a rough description. 
@@ -45,6 +52,7 @@ the above : statement show the list:
              (all none basic prepare match output pattern infer query substitute hierarchy fact control topic pos)
 :why       - Show rules causing most recent output
 :authorize - Flip authorization for all debug commands
+:comparelog - given path/names of 2 log files, show entries that are different
 
 ---- Fact info -
 :allfacts  - Write all facts to TMP/facts.tmp for current bot.  :allfacts all does all bots.
@@ -299,6 +307,14 @@ so for that I'll need typically need tracing.
 ### `:clearlog`
 
 Erases current user's log file.
+
+### `:comparelog`
+```
+:comparelog LOGS/serverlog1024.txt  oldlog.txt
+```
+Will read both logs in parallel and list into user log significant differences (assumption is that
+both logs represent the same inputs against different versions of CS).
+
 
 ## Trace
 
@@ -909,9 +925,9 @@ This is a subset of :prepare that shows the canonical form of the input
 ### `:logging`
 Dynamically alter logging behavior from whatever current settings are.
 ```
-    :logging user {file,none,stdout,stderr}  
+    :logging user {file,none,stdout,stderr,prelog}  
     :logging servertrace {on, off} 
-    :logging server {file,none,stdout,stderr} 
+    :logging server {file,none,stdout,stderr,prelog} 
 ```
 
 ### `:testpos`

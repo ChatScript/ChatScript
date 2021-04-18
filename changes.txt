@@ -1,3 +1,52 @@
+BEAR IN MIND THAT THE MAC version in BINARIES is obsolete 
+until someone supplies me with a new compiled Mac version.
+
+Version 11.3 4/18/2021
+1. Uniform conversion of inputs and jsonopen results into simple ascii for important
+	characters (quotes, double quotes, hyphens, etc) from \unnnn unicode, html 
+	characters, and utf8 characters. Can be suppressed with $cs_token |= #no_fix_utf 
+	although this does not block \unnnn conversion to utf8, since utf8 is the system
+	internal coding. Utf8 to \unnnn coding on any ^jsonwrite call is performed 
+	since JSON does not use utf8 characters.
+    Inbound recoding is important for pattern matching and is suppressed automatically if you are
+    using ^testoutput and ^compileoutput calls (because you want to use them to user).
+    You can manually suppress by changing $cs_token to have #NO_FIX_UTF
+2. Additional choices to ^stats and optional 2nd argument ECHO
+	FACTS: Returns how many free facts remain.
+	DICT: Returns how many empty dictionary entries remain.
+	TEXT: Returns how much space for both stack and heap remain.
+	HASHBUCKETS: shows how many words are in each bucket size
+	UNUSEDHASHBUCKETS: how many buckets are wasted (empty)
+	WORDACCESS: How many calls to look up a word in the dictionary happened
+	AVERAGEHASHDEPTH: how long is the average word lookup (words scanned)
+	PATTERNEVALUATION: how many calls to pattern matcher happened
+	TIMESUMMARY: create facts of how many ms cpu spend in functions called
+3. ^JsonCount(jsonstructure depth)
+	show number of elements in json arrays 
+4. ^Jsonmerge(primaryjsonstructure secondaryjsonstructure)
+	Takes two json objects or two json arrays and augments the first with the second.
+	Any conflicts are resolved by using the primary structure. 
+5. Values of command line parameter `serverlogging` and `userlogging` now include
+	`prelog` which writes the `ServerPre` log entry (before cs starts work)
+6. autorestartdelay=n  will, after a crash forces autorestart by cs on the next volley, wait
+	n milliseconds before accepting any input. Allows faulty input retries to peter out before
+	resuming on this server.
+7. command line parameter `crnl_safe` tells CS it does not need to test inputs for carriage
+	returns or newlines (which it needs to remove to keep logs ok). A performance optimization.
+	E.g. if your input to cs is purely json oob, this will be true.
+8.	additional privatecode hooks for Tokenize, IsValidToken, SpellCheckWord
+9.	 %logging - status about what logging is enabled for servers and users (and hostname)
+10. %volley mirrors %input
+11. :comparelog - reads to log files and prints out differences in values (to see if something changed between versions)
+12. :testpatterninfo - reads source file of calls to CS api functions and shows information
+	about them
+13. $variable.flags   - assuming $variable is a fact number, shows the flags value for that
+	fact
+14. naming bot to talk to- and whether to initiate or not - e.g. #!Rosette#my message
+15. Command Line parameter: cs_new_user="text" says if we see the given text string
+	in the input, treat the user as a new user always (dont try to read their topic file).
+	Different from erasename parameter in that it does not remove this text from input
+
 Version 11.2 3/21/2021
 1. WARNING- Change to JSON assignments representation
 	To create Json primitive NULL, use json_null, not "".  "" now is the json empty string.

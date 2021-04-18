@@ -228,12 +228,13 @@ happening which could make a mess of foreign names (or even normal English ones 
 ```
 # in your bot definition make a copy of your normal $cs_token
 outputmacro: yourbot() 
-	$cs_token =  hashDO_INTERJECTION_SPLITTING 
-	$cs_token |=   hashDO_SUBSTITUTE_SYSTEM 
-	$cs_token |=   hashDO_SPELLCHECK 
-	$cs_token |=  hashDO_PARSE
+```
+	$cs_token =  #DO_INTERJECTION_SPLITTING 
+	$cs_token |=   #DO_SUBSTITUTE_SYSTEM 
+	$cs_token |=   #DO_SPELLCHECK 
+	$cs_token |=  #DO_PARSE
 	$std_cstoken = $cs_token
-
+```
 # in your script set a variable for what you want to happen next input
 t: What is your name?  $$newtoken = $cs_token - hashDO_SPELLCHECK
 

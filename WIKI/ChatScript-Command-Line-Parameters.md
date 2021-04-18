@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 4/18/2021 cs11.3
 
 
 
@@ -107,12 +107,17 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`logs=xxx`     | name relative or absolute path to where you want the LOGS folder to be. Do not add trailing `/`
 |`userlog`      | Store a user-bot log in USERS directory (default)
 |`userlog=1`      | alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout   4 means stderr - you may combine
-|`userlogging=file`      | alternate form of request, you can use none for off and file, stdout, stderr.  - you may combine userlogging=file,stdout
+|`userlogging=file`      | primary form of request, you can use none for off and file, stdout, stderr.  - you may combine userlogging=file,stdout
 |`nouserlog`    | Don't store a user-bot log
+|`serverlog`      | Store a server log in LOGS directory (default)
+|`serverlog=1`      | alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout   4 means stderr - you may combine
+|`serverlogging=file`      | primary form of request, you can use none for off and file, stdout, stderr.  - you may combine serverlogging=file,stdout
+|`noserverlog`    | Don't store a server log
 |`tmp=xxx`     | name relative or absolute path to where you want the TMP folder to be. Do not add trailing `/`
 |`crashpath=xxx`     | file to write about fatal Linux signals that will be outside of the cs folder `/`
 |`windowsbuglog=xxx` | names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area
 |`linuxsbuglog=xxx` | names a LINUX directory to replicate the BUGS.txt log file outside of the CS directory area
+|`Vcs_new_user="text"` | if input has given text within it, treat user as new and dont read the topic file
 
 ## Execution options
 | option           | description
@@ -135,7 +140,9 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`nofastload` | If you suspect fast loading is faulty, you can set this to see if things work without it
 |`syslogstr=xxx` | In linux will output this as part of Microsoft sql trace data to the syslog
 |`buildflags=xxx` | this data will be used to control :build  (quiet and nomixedcase are xxx values)
-
+|`autorestartdelay=n`	| in event of cs engine internal restart, delay n milliseconds before accepts users
+|`crnl_safe`	| tells system it does not need to search for cr or nl to remove from inputs.
+crnl_safe
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
@@ -317,12 +324,15 @@ Serverlog
 ```
 Write a server log and a bugs log. 
 Alternatively you can do  serverlog=1   to enable to file,  2 to use stdout, 4 to use stderr. You can combine like serverlog=5
-Alternate form of request, you can use serverlogging=none for off and file, stdout, stderr.  - you may combine serverlogging=file,stdout
+Prefer the alternate form of request,  serverlogging=none for off and file, stdout, stderr.  - you may combine serverlogging=file,stdout
 Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.
 
 The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port. 
 
 The bugs log is in the same directory under bugs.txt (all ports).
+
+The server log records all transactions by all users in order of arrival. Whereas the user log
+records transactions by user/bot.
 
 ```
 Noserverprelog
@@ -334,8 +344,8 @@ off to improve performance.
 ```
 serverlogauthcode=xxxxx
 ```
-In addition to permanently turning on server logging, you can provide a cheat code in your
-input that, if it matches the serverlogauthcode, will enable server logging for that input. This code
+In addition to permanently turning on server and/or user logging, you can provide a cheat code in your
+input that, if it matches the serverlogauthcode, will enable server and user logging for that input. This code
 is hidden from CS processing so it will not impact NL processing.
 
 ```
@@ -356,6 +366,7 @@ connection wasn't broken somewhere and await more input forever.
 ```
 Noserverlog
 ```
+Superceeded by `serverloggging=`.
 Don't write a server log or a bugs log.
 Alternatively you can do  serverlog=0   to disable.
 
@@ -375,7 +386,9 @@ Alternate form of request, you can use buglogging=none for off and file, stdout,
 ```
 stdlogging=1
 ```
-Route normal server logs to stdout and bugs logs to stderr.  Useful with Docker. Use stdlogging=0 to turn off (the default).
+Superceeded by `serverlogging=`.
+Route normal server logs to stdout and bugs logs to stderr.  Useful with Docker. 
+Use stdlogging=0 to turn off (the default). 
 
 ```
 DebugLevel=n
@@ -402,7 +415,6 @@ when present, forces all users to have tracing turned on. Traces go to the user 
 ```
 repeatLimit=n
 ```
-
 Servers are subject to malicious inputs, often generated as repeated words over and over.
 This detects repeated input and if the number of sequential repeats is non-zero and equal or
 greater to this parameter, such inputs will be truncated to just the initial repeats. All
@@ -414,13 +426,21 @@ erasename=myname
 :reset, when called from running script, is unable to fully reset the system.
 Facts that have already been created are not destroyed and user variables that have been
 defined are not erased, only ones in the bot definition are changed back to their default
-settings.  The erasename parameter is used to perform a full reset prior to loading th
+settings.  The erasename parameter is used to perform a full reset prior to loading the
 user topic file. The incoming input is scanned for the text given, and if found the
 system bypasses loading the topic file and instead just initializes a fresh bot.
 The actual erasename seen in input will be converted to all blanks, so it will not disturb
 normal behavior, either in OOB input or user input.
 
 The default value for this is: `csuser_erase` which you can change to anything else you want.
+
+```
+cs_new_user="text""
+```
+The cs_new_user parameter is used to perform a full reset prior to loading the
+user topic file. The incoming input is scanned for the text given, and if found the
+system bypasses loading the topic file and instead just initializes a fresh bot.
+This differs from erasename in that the text is not erased. 
 
 ## No such bot-specific - nosuchbotrestart=true
 

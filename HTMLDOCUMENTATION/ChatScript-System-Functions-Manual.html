@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -687,8 +687,9 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p><em>label</em> can be a simple text label or a <code>topicname.textlabel</code>. The system tracks rule labels that generated output to the user or rules starting with the label <code>CX_</code> whether or not the rule generates output as long as it didn't fail during output.</p>
 <p><code>^inContext</code> will return how many volleys have happened since the referenced rule (normal return) if the label has output within the 5 prior volleys and will fail if not. It's like an extension of rejoinders. Rejoinders have a 1 volley context and must be placed immediately after a rule. This has a 5 volley context and are used in normal rule patterns.</p>
 <pre><code>u: (^incontext(PLAYTENNIS) why) because it was fun.</code></pre>
-<h3 id="stats-facts-dict-text"><code>^stats ( FACTS / DICT / TEXT )</code></h3>
-<p>FACTS: Returns how many free facts remain. DICT: Returns how many empty dictionary entries remain. TEXT: Returns how much space for both stack and heap remain.</p>
+<h3 id="stats-facts-dict-text-hashbuckets-unusedhashbuckets"><code>^stats ( FACTS / DICT / TEXT / HASHBUCKETS / UNUSEDHASHBUCKETS )</code></h3>
+<p><code>^stats ( WORDACCESS  / AVERAGEHASHDEPTH / PATTERNEVALUATION )</code> <code>^stats ( TIMESUMMARY  )</code> All ^stats calls can take an optional 2nd argument &quot;ECHO&quot; which sends the answers to the user log and echo on terminal.</p>
+<p>FACTS: Returns how many free facts remain. DICT: Returns how many empty dictionary entries remain. TEXT: Returns how much space for both stack and heap remain. HASHBUCKETS: shows how many words are in each bucket size UNUSEDHASHBUCKETS: how many buckets are wasted (empty) WORDACCESS: How many calls to look up a word in the dictionary happened AVERAGEHASHDEPTH: how long is the average word lookup (words scanned) PATTERNEVALUATION: how many calls to pattern matcher happened TIMESUMMARY: create facts of how many ms cpu spend in functions called</p>
 <h1 id="external-access-functions">External Access Functions</h1>
 <h3 id="environment-variablename"><code>^environment ( variablename )</code></h3>
 <p>Access environment variables of the operating system. E.g.</p>
@@ -928,58 +929,10 @@ u: (%document)
 <h3 id="memorygc"><code>^memorygc ()</code></h3>
 <p>This can function in either document mode or chat mode. It does what it can to release unused memory. It has restrictions in it does not work if you have facts with facts as fields or are in planning mode. It also discards saved sentence data, and all of your analysis data for the current sentence. It also discards all data in factsets.</p>
 <h1 id="json-functions">JSON Functions</h1>
-<p>JSON functions and JSON are described more fully in the ChatScript JSON manual.</p>
-<h3 id="jsonarrayinsert-arrayname-value"><code>^jsonarrayinsert ( arrayname value )</code></h3>
-<p>Given the name of a json array and a value, it adds the value to the end of the array. <code>SAFE</code> protects any nested JSON data from being deleted. See JSON manual.</p>
-<h3 id="jsonarraydelete-index-value-arrayname-value-all"><code>^jsonarraydelete ( [INDEX, VALUE] arrayname value {ALL} )</code></h3>
-<p>This deletes a single entry from a JSON array. It does not damage the thing deleted, just its member in the array. If the first argument is <code>INDEX</code>, then value is a number which is the array index (0 … n-1). If the first argument is <code>VALUE</code>, then value is the value to find and remove as the object of the json fact.</p>
-<p>You can delete every matching <code>VALUE</code> entry by adding the optional 4th argument <code>ALL</code>.</p>
-<p>If there are numbered elements after this one, then those elements immediately renumber downwards so that the array indexing range is contiguous.</p>
-<h3 id="jsoncreate-type"><code>^jsoncreate ( type )</code></h3>
-<p>Type is either array or object and a json composite with no content is created and its name returned.</p>
-<h3 id="jsondelete-factid"><code>^jsondelete ( factid )</code></h3>
-<p>Deprecated in favor of <code>^delete</code>.</p>
-<h3 id="jsongather-factset-jsonid"><code>^jsongather ( {factset} jsonid )</code></h3>
-<p>Takes the facts involved in the json data (as returned by <code>^jsonparse</code> or <code>^jsonopen</code> and stores them in the named factset. This allows you to remove their transient flags or save them in the users permanent data file.</p>
-<p>You can omit fact-set as an argument if you are using an assignment statement:</p>
-<pre><code>@1 = ^jsongather(jsonid)</code></pre>
-<p><code>^Jsongather</code> normally gathers all levels of the data recursively. You can limit how far down it goes by supplying <code>level</code>. Level 0 is all. Level 1 is the top level of data. Etc.</p>
-<h3 id="jsonlabel-label"><code>^jsonlabel ( label )</code></h3>
-<p>Assigns a text sequence to add to <code>jo-</code> and <code>ja-</code> items created thereafter. E.g. <code>^jsonlabel(x)</code> generates <code>jo-x1</code> and <code>ja-x1</code>. You can turn it back off again with <code>^jsonlabel(&quot;&quot;)</code></p>
-<p>This allows you to create json namespaces which will not conflict. Eg, you may load a bunch of json during a system bootup (<code>^csboot</code>) under one naming and then use a different naming for user json created later and code can determine the source of the data.</p>
+<p>JSON functions and JSON are described in the ChatScript JSON manual. Type is either array or object and a json composite with no content is created and its name returned.</p>
 <h3 id="readfile-tab-filepath"><code>^readfile ( TAB filepath )</code></h3>
 <p><code>^readfile ( TAB filepath )</code> reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array. The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted. <code>^readfile ( TAB filepath 'function)</code> reads tsv and spreads fields onto arguments of 'function, which it calls once per line <code>^readfile ( LINE filepath 'function)</code> reads any file and passes each line untouched as the sole argument to the function.</p>
 <p>Fomerly called ^jsonreadcsv.</p>
-<h3 id="jsonundecodestring-string"><code>^jsonundecodestring ( string )</code></h3>
-<p>Removes all json escape markers back to normal for possible printout to a user. This translates <code>\n</code> to newline, <code>\r</code> to carriage return, <code>\t</code> to tab, and <code>\&quot;</code> to a simple quote.</p>
-<h3 id="jsonobjectinsert-duplicate-objectname-key-value"><code>^jsonobjectinsert ( {DUPLICATE} objectname key value )</code></h3>
-<p>Inserts the key value pair into the object named. The key does not require quoting. Inserting a json string as value requires a quoted string. Duplicate keys are ignored unless the optional 1st argument <code>DUPLICATE</code> is given. <code>SAFE</code> protects any nested JSON data from being deleted. See JSON manual.</p>
-<h3 id="jsonopen-unique-kind-url-postdata-header"><code>^jsonopen ( {UNIQUE} kind url postdata header )</code></h3>
-<p>This function queries a website and returns a JSON datastructure as facts. It uses the standard CURL library, so it's arguments and how to use them are generally defined by CURL documentation and the website you intend to access. See ChatScript JSON manual for details.</p>
-<h3 id="jsontree-name-depth-array"><code>^jsontree ( name {depth} {array})</code></h3>
-<p><code>name</code> is the value returned by <code>^JSONparse</code>, <code>^JSONopen</code>, or some query into such structures. It prints out a tree of elements, one per line, where depth is represented as more deeply indented. Objects are marked with { } as they are in JSON. Arrays are marked with <code>[]</code>.</p>
-<p>Optional depth number restricts how deep it displays. 0 (default) means all. 1 means just top level.</p>
-<p>Optional &quot;array&quot; means show number of array elements rather than the elements themselves at any depth below depth.</p>
-<h3 id="jsonwrite-name"><code>^jsonwrite ( name )</code></h3>
-<p><code>name</code> is the name from a json fact set (returned by <code>^JSONparse</code>, <code>^JSONopen</code>, or some query into such structures). Result is the corresponding JSON string (as a website might emit), without any linefeeds.</p>
-<h3 id="jsonparse-unique-string"><code>^jsonparse ( {UNIQUE} string )</code></h3>
-<p><code>string</code> is a json text string (as might be returned from a website) and this parses into facts exactly as <code>^jsonopen</code> would do, just not retrieving the string from the web. It returns the name of the root node. One use for this is to pass JSON data as a quoted string within out-of-band data, and have the system parse that into facts you can use.</p>
-<p>You can add <code>NOFAIL</code> before the string argument, to tell it to return null but not fail if a dereference path fails cannot be found.</p>
-<pre><code>^jsonparse(transient NOFAIL &quot;{ a: $var, b: _0.e[2] }&quot;)</code></pre>
-<p><code>^jsonparse</code> automatically converts any backslashunnnn into the corresponding utf8 character.</p>
-<h3 id="jsonkind-something"><code>^jsonkind ( something )</code></h3>
-<p>If <em>something</em> is a JSON object, the function returns <code>object</code>. If it is a JSON array it returns <code>array</code>. Otherwise it fails.</p>
-<h3 id="jsonpath-string-id"><code>^jsonpath ( string id )</code></h3>
-<p><em>string</em> is a description of how to walk JSON. Id is the name of the node you want to start at (typically returned from <code>^jsonopen</code> or <code>^jsonparse</code>.</p>
-<p>Array values are accessed using typical array notation like <code>ja-1[3]</code> and object fields using dotted notation like <code>jo-7.id</code>.</p>
-<p>A simple path access might look like this: <code>[1].id</code> which means take the root object passed as id, e.g., <code>ja-1</code>, get the 2nd index value (arrays are 0-based in JSON). That value is expected to be an object, so return the value corresponding to the id field of that object. In more complex situations, the value of id might itself be an object or an array, which you could continue indexing like <code>[1].id.firstname</code>.</p>
-<p><code>^Jsonpath</code> can also return the actual factid of the match, instead of the object of the fact. This would allow you to see the index of a found array element, or the json object/array name involved. Or you could use <code>^revisefact</code> to change the specific value of that fact (not creating a new fact). Just add <code>*</code> after your final path, eg</p>
-<pre><code>^jsonpath(.name* $$obj)
-^jsonpath(.name[4]* $$obj)</code></pre>
-<p>If you need to handle the full range of legal keys in json, you can use text string notation like this</p>
-<pre><code>^jsonpath(.&quot;st. helen&quot;.data $tmp)</code></pre>
-<p>You may omit the leading . of a path and CS will by default assume it</p>
-<pre><code>^jsonpath(&quot;st. helen&quot;.data $tmp)</code></pre>
 <h1 id="word-manipulation-functions">Word Manipulation Functions</h1>
 <h3 id="burst-count-once-data-source-burst-character-string"><code>^burst ( {count once} data-source burst-character-string )</code></h3>
 <p>Takes the data source text and hunts within it for instances of the burst-character-string. If it is being dumped to the output stream then only the first piece is dumped.</p>
@@ -1582,7 +1535,7 @@ concept: ~canine (dog)</code></pre>
 <p><code>^field( $$f object)</code> returns a number <code>(the fact index)</code> and <code>^field($$f Object)</code> returns <code>(he eats beer)</code> as the translation of the fact into text.</p>
 <p>Fields include: <code>subject</code>, <code>verb</code>, <code>object</code>, <code>flagsv,</code>all` (spread onto 3 match variables, raw (spread onto 3 match variables).</p>
 <p><code>all</code> just displays a human normal dictionary word, so if the value were actually <code>plants~1</code> you'd get just plants whereas raw would return what was actually there <code>plants~1</code>.</p>
-<p>You can also retrieve a field via <code>$$f.subject</code> or <code>$$f.verb</code> or <code>$$f.object</code>.</p>
+<p>You can also retrieve a field via <code>$$f.subject</code> or <code>$$f.verb</code> or <code>$$f.object</code> or <code>$$f.flags</code>.</p>
 <h3 id="find-setname-itemname"><code>^find ( setname itemname )</code></h3>
 <p>given a concept set, find the ordered position of the 2nd argument within it. ^Output that index (0-based). Used, for example, to compare two poker hands.</p>
 <h3 id="findmarkedfact-subject-verb-mark"><code>^findmarkedfact ( subject verb mark )</code></h3>

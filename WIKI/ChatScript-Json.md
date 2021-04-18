@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 4/18/2021 cs11.3
 
 
 # Real World JSON
@@ -78,11 +78,14 @@ to create facts to represent the structure and to access pieces of it.
 JSON facts are triples where the subject is always the name of a JSON object or array.
 For objects, the verb of the fact is the name of a field and the object is its value.
 Such a structure might be composed of these facts:
-```
+``` internal CS
 (jo-3 name Robert)
 (jo-3 age 10)
 (jo-3 gender male)
 ```
+Note that CS does not need to put double quotes around the values or even the field names (unless the field name has spaces 
+or other unusual characters within it).
+
 This would correspond to a JSON string that looks like this:
 ```
 { "name": "Robert", "age": 10, "gender": "male"}
@@ -91,6 +94,34 @@ Actually, the "age 10" fact in ChatScript could represent either what was shown 
 ```
 { "name": "Robert", "age": "10", "gender": "male"}
 ```
+
+For arrays, the verb of the fact is the numeric index in the array and the object is the value.
+Such a structure might be composed of these facts:
+```
+(ja-5 0 Robert)
+(ja-5 1 Terry)
+(ja-5 2 Paula)
+```
+This would correspond to a JSON string that looks like this:
+```
+[ "Robert", "Terry", "Paula"]
+```
+
+CS has rich support for creating JSON data. You must create the top level array or object, but after that you can
+just do assignments somewhat arbitrarily, with CS automatically creating new subobjects or subarrays as needed. E.g.
+Also note that CS assignments onto object fields do not require you double quote the field name (unless the name
+as spaces within it or other unusual characters).
+```
+$_x = ^jsoncreate(TRANSIENT object)
+$_x.field[] = 5
+$_x.name.age.birthdate = "January 5, 2020"
+```
+In the above, the scripter has explicitly created a transient JSON object. The 2nd line assignment automatically creates a transient
+array to save as the value of `field` and then inserts the value 5 into it. The 3rd line assignment automatically creates a 
+field called name with a JSON object, and that object gets a field called age, and that object gets a field called birthdate which is
+assigned the text string.
+
+### JSON CS ANOMOLIES
 
 Because JSON has distinct data types as values (primitives, text strings, etc) and CS represents
 everything as text strings, there are some issues in moving back and forth in representation.
@@ -127,36 +158,37 @@ $_x.value = $_y
 ^jwrite($_x)            => {"value": "true"}
 ```
 
-All this breaks down a bit for the JSON `null` primitive and for the JSON empty string `""`. 
+All this breaks down a bit for the JSON `null` primitive and the empty string "".
 CS does not distinguish between having no value and having a value which has no characters.
-And CS uses `null` to mean clear a value entirely.
+And CS uses `null` to mean clear a value entirely. So to create a JSON null value, use the special 
+word  `json_null`. You can use that directly in a JSON assignment, or you can put it as the value
+of a CS variable which eventually gets used in a JSON assignment.
 ```
 $_x.value = null         # remove the JSON field called value
 $_x.value = "null"      # assign text string null to field value
 $_x = null                   # remove any value from variable
 $_x.value = json_null                   # special value meaning json null primitive
+```
+This just leaves us with the awkwardness of the empty string.  You can't store an empty string onto
+a CS variable. Instead you store a string with two double quotes. Which CS itself always treats as
+just that, a two-character string. But when assigned into a JSON structure, any double quoted string has its double quotes 
+stripped. So in JSON we CAN have an empty string. No problem yet. The problem comes in the other
+direction. Assigning this JSON empty string onto a CS variable clears it (it acts like null). And
+then putting that variable back onto a JSON structure will save JSON null. So you have to manually
+track what you want, if you want it.
+```
 $_x.value = ""              # JSON empty string
 $_y = 5
 $_y = $_x.value         # clears $_y (acts like null)
+$_x.value = $_y		# assigns JSON null
 ```
 
-Note that while CS does not store "", it does represent the empty string, particularly in ^substitute calls.
-
-For arrays, the verb of the fact is the numeric index in the array and the object is the value.
-Such a structure might be composed of these facts:
-```
-(ja-5 0 Robert)
-(ja-5 1 Terry)
-(ja-5 2 Paula)
-```
-This would correspond to a JSON string that looks like this:
-```
-[ "Robert", "Terry", "Paula"]
-```
+### JSON FACTS
 
 Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can.
 Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly
-querying on some field name.
+querying on some field name. So depending on how you name a field and whether or not the field only exists for a single object,
+you might be able to query directly to it.
 
 Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact
 structure in CS, the facts will all be unique. You do this like this:
@@ -166,43 +198,6 @@ structure in CS, the facts will all be unique. You do this like this:
 If $$jsonobject is a json object name, you add a field called newfield whose value is a
 JSON object, thus joining the trees. If you serialize (write into text) these two JSON objects
 they will become completely separate structures when read back in (JSON doesn't share).
-
-Also note that while CS can read in JSON whose value has an empty string like:
-```
-	{ "input":""}
-```
-CS represents that as a fact whose object value is the empty string and whose bits indicate it is a JSON string value.
-
-
-## JSON Primitive values and Strings
-
-Since JSON has different datatypes and CS represents everything as strings, there are some collisions in how to create
-appropriate JSON value and if one assigns a CS variable from a JSON field value, the typing data can get lost.
-This is not a problem for CS, but if you try to output the cs variables again as JSON data, that may become an issue.
-
-Also note that CS assignments onto object fields do not require you double quote the field name (unless the name
-as spaces within it or other unusual characters).
-
-Here are conversions from CS data to JSON values:
-```
-$_x.bool1 = false   -- JSON primitive false
-$_x.bool2 = true   -- JSON primitive true
-$_x.null = json_null      -- JSON primitive null
-$_x.null = "null"       -- JSON string null
-$_x.number = 25         -- JSON primitive integer
-$_x.number1 = 25.55  -- JSON primitive float
-$_x.text = ^"this is a string" -- JSON string (in CS there are no double quotes internally)
-$_x.text = "this is a string" -- JSON string (in CS the double quotes are still there)
-$_x.array = ^jsoncreate(transient array) -- JSON array
-$_x.object = ^jsoncreate(transient object) -- JSON object
-$_x.empty = ""            -- JSON empty string
-```
-The ""  string is stored in CS just like all other string with double quotes- the markers are preserved
-in the value.
-```
-
-By default, when you assign numbers to JSON structures, they are automatically stored as JSON primitives (whereas in CS they are just
-text strings). 
 
 ## Accessing the web with JSON
 
@@ -487,6 +482,13 @@ Just escape the $.
 $data.\$varname = hello 
 ```
 
+### `^jsonmerge`(struct1 struct2)
+Takes two json arrays or two json objects and adds unique elements of struct2 into 
+struct1 recursively. 
+
+### `^jsoncount`(struct depth)
+Walks the given JSON structure, displaying it, except that for arrays arising after depth,
+just the count of elements is shown
 
 ### `^jsonpath`( string id )
 

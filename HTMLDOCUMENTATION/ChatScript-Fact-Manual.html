@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/26/2020 cs10.8</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
@@ -378,7 +378,7 @@ Location
 <pre><code>^field($$f object) # returns (he eats beer)`</code></pre>
 <p><em>fieldname</em> include: <code>subject</code>, <code>verb</code>, <code>object</code>, <code>flags</code>, <code>all</code> (spread onto 3 match variables, <code>raw</code> (spread onto 3 match variables).</p>
 <p><code>all</code> just displays a human normal dictionary word, so if the value were actually <code>plants~1</code> you'd get just plants whereas raw would return what was actually there <code>plants~1</code>.</p>
-<p>You can also retrieve a field via <code>$$f.subject</code> or <code>$$f.verb</code> or <code>$$f.object</code>.</p>
+<p>You can also retrieve a field via <code>$$f.subject</code> or <code>$$f.verb</code> or <code>$$f.object</code> or <code>$$f.flags</code>.</p>
 <h3 id="find-setname-itemname"><code>^find</code>( setname itemname )</h3>
 <p>given a concept set, find the ordered position of the 2nd argument within it. Output that index (0-based). Used, for example, to compare two poker hands.</p>
 <h3 id="first-fact-set-annotated"><code>^first</code>( fact-set-annotated )</h3>

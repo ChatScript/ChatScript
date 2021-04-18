@@ -1,15 +1,12 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/21/2021 cs11.2
-
-
+<br>Revision 4/18/2021 cs11.3
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
 * [System Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables)
 * [Control over Input](ChatScript-System-Variables-and-Engine-defined-Concepts.md#control-over-input)
 * [Interchange Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#interchange-variables)
-
 
 # Engine-defined concepts
 
@@ -300,6 +297,7 @@ your server is in Virginia and you are in Colorado).
 | `%impliedyou`       |  Boolean was the user input having you as implied subject 
 | `%impliedsubject`   |  Boolean was the user input having an implied subject (not you, usually I)
 | `%input`            |  the count of the number of volleys this user has made ever 
+| `%volley`            |  sae as %input, the count of the number of volleys this user has made ever 
 | `%ip`               |  ip address supplied 
 | `%myip`               |  ip address of cs server responding 
 | `%language`         |  current dictionary language 
@@ -362,7 +360,8 @@ your server is in Virginia and you are in Colorado).
 | `%lastcurltime`		| Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer: | 
 | `%crosstalk`		| 4k buffer in server visible between users to pass data back and forth | 
 | `%crosstalk1`		| 4k buffer in server visible between users to pass data back and forth | 
-
+| `%logging`		| bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog);
+ | 
 
 ## Build data
 
@@ -394,7 +393,7 @@ The system can do a number of standard processing on user input, including spell
 correction, proper-name merging, expanding contractions etc. This is managed by setting
 the user variable `$cs_token`. 
 
-The default one that comes with Harry is:
+The default $cs_token that comes with Harry is:
 
 ```
 $cs_token = #DO_INTERJECTION_SPLITTING | 
@@ -425,7 +424,7 @@ These enable various LIVEDATA files to perform substitutions on input:
 | `#$DO_PROPERNAME_MERGE`      |  merge multiple proper name into one (_George Harrison_) 
 | `#DO_DATE_MERGE`             |  merge month day and/or year sequences (_January 2, 1993_) 
 | `#JSON_DIRECT_FROM_OOB`      |  asking the tokenizer to directly process OOB data. See `^jsonparse` in JSON manual.
-
+| `#NO_FIX_UTF`      |  do not adjust inputs with html or utf8 encodings to simple ascii.  
 The contents of the files are pairs of tokens per line.
 Left is the word to replace and right is the replacement. When multiple words are
 involved, the left side uses underscores to represent this and the right side uses `+`. 

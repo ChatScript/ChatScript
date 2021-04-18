@@ -1,9 +1,6 @@
 # ChatScript Overview of Input to Output
-
 >Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
-
-
->Revision 7/18/2014 cs4.4e
+<br>Revision 4/18/2021 cs11.3
 
 While there are many natural language tools and engines out there, ChatScript is unlike most (or all) of
 them. Academic systems are built of independent components that are trained on Wall Street Journal
@@ -53,7 +50,6 @@ verb acting as a noun, etc). At this point the input is actually split into two 
 original and the canonical. _My dogs are fun_ is an original stream (with pos markings) and _I dog be
 fun_ is a canonical stream. 
 
-
 A rule-based pos tagging pass analyzes the stream from either viewpoint and tries to eliminate possible
 pos meanings, without being wrong and eliminating a valid pos tag. This is done without trying to
 understand the structure of the sentence- it is unaware of prepositional phrases, what the main subject
@@ -70,7 +66,6 @@ ChatScript then marks all words in the sentence with what concepts they belong t
 will have markings on dogs that reflect its part of speech, its role in the sentence, the word dog, dogs,
 and concepts like `~pets`, `~animals`, `~beings`, etc. Not just individual words are marked but series of
 words are marked as well, so the system can mark a movie title or an idiomatic phrase.
-
 
 Finally the system is ready to run script on the input. Except, the first script it will run is not your stuff
 that generates output. Instead if you have one, it will run another preparatory script to revise its
